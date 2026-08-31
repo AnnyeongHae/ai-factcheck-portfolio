@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-AI Agent Orchestration & Autonomous Triage Runner (2026 SOTA Framework)
-Neon Postgres DB의 raw_trends_inbox를 스캔하여 AI 에이전트의 심층 팩트체크를 트리거합니다.
+AI Agent Autonomous Triage & Deep Fact-Check Runner (2026 SOTA Framework - v2.0)
+- Neon DB에서 사용자가 웹/대시보드에서 '분석 요청(REQUESTED_ANALYSIS)'한 항목을 1순위로 감지
+- 미검증 최신 트렌드(PENDING_REVIEW) 브리핑
+- 사용자 요청 시 WaterCrawl급 심층 팩트체크 리포트 합성
 """
 
 import argparse
@@ -9,79 +11,101 @@ import json
 import os
 import sys
 
-# Ensure UTF-8
-if sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout.reconfigure(encoding='utf-8')
-    except Exception:
-        pass
-
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if base_dir not in sys.path:
     sys.path.insert(0, base_dir)
 
 from tools.db_bridge import get_db_connection
 
-def triage_pending_trends(top_n=5):
+def scan_requested_analysis():
+    """Scan for user-requested analysis items from Neon DB or local inbox."""
     conn = get_db_connection()
-    if not conn:
-        print("[!] Cannot connect to Neon DB. Falling back to local inbox/ directory.")
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        inbox_dir = os.path.join(base_dir, "inbox")
-        items = []
+    requested = []
+    if conn:
+        try:
+            with conn.cursor() as cur:
+                cur.execute("""
+                    SELECT inbox_id, title, source_platform, source_url, viral_metric, matched_user_domains, description, harvested_date
+                    FROM raw_trends_inbox
+                    WHERE triage_status = 'REQUESTED_ANALYSIS'
+                    ORDER BY id DESC;
+                """)
+                rows = cur.fetchall()
+                for r in rows:
+                    requested.append({
+                        "inbox_id": r[0], "title": r[1], "source_platform": r[2], "source_url": r[3],
+                        "viral_metric": r[4], "matched_user_domains": r[5], "description": r[6], "harvested_date": r[7]
+                    })
+        except Exception as e:
+            print(f"[!] Neon DB scan note: {e}")
+        finally:
+            conn.close()
+
+    # Local fallback
+    inbox_dir = os.path.join(base_dir, "inbox")
+    if not requested and os.path.exists(inbox_dir):
         for f in os.listdir(inbox_dir):
             if f.endswith(".json"):
                 try:
                     with open(os.path.join(inbox_dir, f), "r", encoding="utf-8") as fp:
-                        items.append(json.load(fp))
+                        it = json.load(fp)
+                        if it.get("status") == "REQUESTED_ANALYSIS":
+                            requested.append(it)
                 except Exception:
                     pass
-        print(f"\n[🤖 AI Agent Inbox Scan] Found {len(items)} pending candidates locally.")
-        for idx, it in enumerate(items[:top_n], 1):
-            print(f"[{idx}] {it.get('title')} ({it.get('source_platform')}) - Domains: {it.get('matched_user_domains')}")
-        return
 
-    try:
-        with conn.cursor() as cur:
-            cur.execute("""
-                SELECT inbox_id, title, source_platform, source_url, viral_metric, matched_user_domains, description, harvested_date
-                FROM raw_trends_inbox
-                WHERE triage_status = 'PENDING_REVIEW'
-                ORDER BY harvested_date DESC, id DESC
-                LIMIT %s;
-            """, (top_n,))
-            rows = cur.fetchall()
+    return requested
 
-        print("\n" + "="*80)
-        print(f" 🤖 [AI Agent Autonomous Triage] Neon DB 최신 미검증 트렌드 TOP {len(rows)} 분석 보고")
-        print("="*80)
+def show_triage_dashboard(top_n=5):
+    requested = scan_requested_analysis()
+    
+    print("\n" + "="*85)
+    print(" 🤖 [Antigravity AI Fact-Check Command Center] Neon DB 실시간 큐 모니터")
+    print("="*85)
 
-        for idx, r in enumerate(rows, 1):
-            inbox_id, title, platform, url, viral, domains, desc, hdate = r
-            domains_str = ", ".join(domains) if isinstance(domains, list) else str(domains)
-            print(f"\n[{idx:02d}] 📌 {title}")
-            print(f"     • 플랫폼: {platform} | 수집일자: {hdate}")
-            print(f"     • 원문 URL: {url}")
-            print(f"     • 바이럴 지표: {viral}")
-            print(f"     • 사용자 연계 도메인: {domains_str}")
-            print(f"     • 요약: {desc[:100]}...")
-            print(f"     👉 승인 및 팩트체크 실행: python tools/triage.py --promote {inbox_id}")
-        
-        print("\n" + "="*80)
-        print("💡 AI 제언: 위 후보 중 관심 있는 번호의 승격 명령어를 실행하시면 심층 팩트체크가 즉시 진행됩니다.\n")
+    if requested:
+        print(f"\n🔥 [사용자 직접 분석 요청 대기열 (REQUESTED_ANALYSIS)] -> 총 {len(requested)}건 발견!")
+        print("-" * 85)
+        for idx, r in enumerate(requested, 1):
+            print(f"[{idx:02d}] ⚡ {r.get('title')}")
+            print(f"     • 출처: {r.get('source_platform')} | URL: {r.get('source_url')}")
+            print(f"     • 바이럴 지표: {r.get('viral_metric')}")
+            print(f"     👉 지금 바로 심층 팩트체크 실행: python tools/triage.py --promote {r.get('inbox_id')}")
+    else:
+        print("\n[*] 현재 사용자가 웹에서 직접 의뢰한 '분석 대기열'은 비어 있습니다.")
 
-    except Exception as e:
-        print(f"[!] Error querying Neon DB: {e}")
-    finally:
-        conn.close()
+    # Show Pending Trends
+    conn = get_db_connection()
+    if conn:
+        try:
+            with conn.cursor() as cur:
+                cur.execute("""
+                    SELECT inbox_id, title, source_platform, source_url, viral_metric, matched_user_domains, description, harvested_date
+                    FROM raw_trends_inbox
+                    WHERE triage_status = 'PENDING_REVIEW'
+                    ORDER BY harvested_date DESC, id DESC
+                    LIMIT %s;
+                """, (top_n,))
+                pending = cur.fetchall()
+            
+            print("\n" + "-" * 85)
+            print(f" 📥 [자동 수집된 미검증 트렌드 후보 (PENDING_REVIEW)] 상위 {len(pending)}건")
+            print("-" * 85)
+            for idx, p in enumerate(pending, 1):
+                print(f"[{idx:02d}] 📌 {p[1]}")
+                print(f"     • 플랫폼: {p[2]} | {p[4]}")
+                print(f"     • URL: {p[3]}")
+                print(f"     👉 분석 큐 등록: python tools/triage.py --request-analysis {p[0]}")
+        finally:
+            conn.close()
+
+    print("\n" + "="*85 + "\n")
 
 def main():
-    parser = argparse.ArgumentParser(description="AI Agent Triage Runner")
-    parser.add_argument("--triage-pending", action="store_true", default=True, help="Scan Neon DB for pending trends and generate briefing")
-    parser.add_argument("--top", type=int, default=5, help="Number of top candidates to display")
-
+    parser = argparse.ArgumentParser(description="AI Agent Command Center")
+    parser.add_argument("--top", type=int, default=5, help="Number of pending candidates to show")
     args = parser.parse_args()
-    triage_pending_trends(args.top)
+    show_triage_dashboard(args.top)
 
 if __name__ == "__main__":
     main()

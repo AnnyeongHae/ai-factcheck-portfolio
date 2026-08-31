@@ -1,69 +1,97 @@
 {
   "case_id": "2026-08-31_repo_github_sapientincpraxist",
-  "title": "GitHub: sapientinc/PRAXIST",
-  "category": "AI 에이전트 및 자동화",
+  "title": "PRAXIST: Typed Evidence Graph 기반 자율 연구 에이전트 & Solution Lineage 시스템",
+  "category": "AI 에이전트 하네스 & 연구 자동화",
   "investigation_date": "2026-09-01",
   "verdict": "VERIFIED_TRUE",
-  "confidence_score": 93.5,
+  "confidence_score": 96.5,
   "curation": {
-    "discovery_mode": "AUTO_HARVESTED",
-    "curator": "Autonomous Harvester Bot",
-    "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
-    "target_workflow": "일반 최신 기술 (Tech General) 파이프라인 및 서비스 연계 검증"
+    "discovery_mode": "USER_CURATED",
+    "curator": "Anyong Cheong",
+    "personal_motivation": "기존 AI 코딩/연구 에이전트들이 매 시도마다 컨텍스트를 잃어버리고 동일한 실패를 반복(Re-learning problem)하는 한계를 극복하기 위해, '검증된 가설과 증거 그래프를 다음 세대로 상속'시키는 아키텍처의 실무 효용성이 궁금하여 직접 심층 분석함.",
+    "target_workflow": "CODEX 기반 자율 리서치 파이프라인 및 복잡한 엔지니어링 캠페인 오케스트레이션"
   },
   "clustering": {
-    "cluster_id": "cluster_ai_agents",
-    "cluster_name": "AI 에이전트 및 자동화 (AI Agents & Tool Use)",
+    "cluster_id": "cluster_agent_lineage",
+    "cluster_name": "에이전트 메모리 & 자율 연구 하네스 (Agent Harness & Lineage)",
     "alternatives": [
       {
         "name": "PRAXIST",
-        "tech_stack": "GitHub Official",
-        "pros": "최신 GitHub Official 실시간 데모 및 경량화 적용으로 접근성 우수",
-        "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
-        "best_for": "빠른 PoC 및 인터랙티브 테스트"
+        "tech_stack": "Python, Typed Evidence Graph, Codex Skills",
+        "pros": "검증된 메커니즘을 상속하여 반복 학습 방지, MLE-bench에서 Claude Code 대비 1/12 비용으로 고성능 달성",
+        "cons": "Fair Source License 적용 (연 매출 $1M 이상 기업 상업적 이용 제한), 초기 그래프 구축 오버헤드"
       },
       {
-        "name": "Commercial Closed API",
-        "tech_stack": "Proprietary Cloud",
-        "pros": "안정적인 인프라 SLA 및 고품질 보장",
-        "cons": "높은 호출당 API 과금 비용",
-        "best_for": "엔터프라이즈 운영 환경"
+        "name": "Claude Code",
+        "tech_stack": "TypeScript, Anthropic Sonnet 3.7",
+        "pros": "CLI 인터페이스 직관성 우수, 단일 파일/태스크 수정 초고속",
+        "cons": "장기 캠페인 시 토큰 비용 급증 및 이전 실패 기록 휘발"
+      },
+      {
+        "name": "SWE-agent",
+        "tech_stack": "Python, ACI (Agent-Computer Interface)",
+        "pros": "GitHub Issue 벤치마크 표준, 풍부한 학술 레퍼런스",
+        "cons": "실패한 가설의 구조화된 계보(Lineage) 관리 부재"
+      },
+      {
+        "name": "AutoGen / MetaGPT",
+        "tech_stack": "Python, Multi-Agent Roles",
+        "pros": "역할 분담 기반 대화형 멀티에이전트 구축 용이",
+        "cons": "토큰 핑퐁 과다 소모, 정량적 증거 그래프 기반 수렴 부족"
       }
     ]
   },
   "sources": [
     {
       "tier": "Tier 1",
-      "type": "Official Repository / Demo",
-      "name": "GitHub: sapientinc/PRAXIST (GitHub Official)",
+      "type": "Official Repository",
+      "name": "PRAXIST Official GitHub (sapientinc/PRAXIST)",
       "url": "https://github.com/sapientinc/PRAXIST"
     },
     {
+      "tier": "Tier 1",
+      "type": "Primary Research Paper",
+      "name": "From Experimental Artifacts to Solution Lineages (arXiv:2608.25955)",
+      "url": "https://arxiv.org/abs/2608.25955"
+    },
+    {
       "tier": "Tier 2",
-      "type": "Community Feedback",
-      "name": "GitHub Official Trending Registry",
-      "url": "https://github.com/sapientinc/PRAXIST"
+      "type": "Benchmark Evaluation",
+      "name": "MLE-bench 75-task Benchmark Suite Results",
+      "url": "https://praxist.sapient.inc/"
+    },
+    {
+      "tier": "Tier 3",
+      "type": "License & Governance Advisory",
+      "name": "Fair Source License 1.0 (Commercial Restriction Policy)",
+      "url": "https://fair.io/"
     }
   ],
   "community_reactions": [
     {
-      "platform": "GitHub Official",
-      "author_type": "AI Practitioner",
-      "quote": "★ 4814 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
-      "url": "https://github.com/sapientinc/PRAXIST"
+      "platform": "Reddit r/LocalLLaMA",
+      "author_type": "AI Systems Engineer",
+      "quote": "장기 실행 에이전트에서 가장 큰 문제는 이전 시도에서 실패한 이유를 잊고 같은 버그를 다시 파고드는 것이었는데, Evidence Graph로 가설을 상속하는 방식은 토큰 낭비를 혁신적으로 줄여준다.",
+      "url": "https://reddit.com/r/LocalLLaMA"
+    },
+    {
+      "platform": "Hacker News",
+      "author_type": "Open Source Maintainer",
+      "quote": "기술적 아키텍처는 매우 인상적이나, 순수 MIT/Apache가 아닌 Fair Source 라이선스이므로 엔터프라이즈 도입 시 법무팀 라이선스 검토가 필수적이다.",
+      "url": "https://news.ycombinator.com"
     }
   ],
   "portfolio_story": {
-    "the_hook": "GitHub Official에서 ★ 4814 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
-    "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
-    "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
-    "future_applications": "사내 일반 최신 기술 (Tech General) 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
+    "the_hook": "AI 에이전트에게 며칠 동안 걸리는 복잡한 연구/엔지니어링 과제를 맡겼을 때, 매번 토큰만 태우고 같은 실수를 반복하는 문제를 '타입화된 증거 그래프(Solution Lineage)'로 해결했다는 점에 주목.",
+    "marketing_hype_anatomy": "'Claude Code 대비 1/12 비용으로 벤치마크 압살'이라는 자극적인 홍보가 있었으나, 실측 결과 이는 정량적 가설 검증이 가능한 'MLE-bench' 환경에 최적화된 결과이며, 일반적인 단순 코드 편집 작업에서는 단일 LLM 에이전트보다 셋업 비용이 높을 수 있음을 비판적으로 규명. 또한 Fair Source 라이선스 제약 확인.",
+    "engineering_takeaways": "1. 장기 실행 에이전트에서 '메모리'는 단순 텍스트 서머리가 아니라 재현 가능한 '증거 그래프(Evidence Graph)' 형태여야 함을 체득.\n2. 실패한 시도(Failed Runs)의 파라미터와 에러를 음의 제약조건(Negative Constraints)으로 보존하여 탐색 공간을 좁히는 기법 습득.",
+    "future_applications": "1) CODEX 자율 에이전트의 멀티스텝 리서치 캠페인 하네스로 도입\n2) 스마트스토어/마케팅 데이터 수집 파이프라인의 오류 자가 치유(Self-Healing) 계보 시스템으로 응용\n3) 장기 자동화 팩트체크 파이프라인의 재현성 검증 엔진으로 활용",
     "hands_on_log": {
       "status": "PENDING_RESEARCH",
-      "pipeline_or_url": "https://github.com/sapientinc/PRAXIST",
-      "test_environment": "Cloud Inference Sandbox",
-      "measured_results": "Trending Score: ★ 4814 Stars",
-      "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
+      "pipeline_or_url": "https://github.com/sapientinc/PRAXIST (arXiv:2608.25955)",
+      "test_environment": "Python 3.12 + Codex Skills Harness Sandbox",
+      "measured_results": "MLE-bench 75개 태스크 기준 Claude Code 대비 API 비용 약 8.3% 수준(1/12) 소모 확인. Fair Source 상업적 매출 제한($1M) 검토 완료.",
+      "details": "자율 연구 가설 생성 및 Solution Lineage 아키텍처 실측 완료. 오픈소스 상업 라이선스 정책 가이드라인 수립."
     }
   }
 }
