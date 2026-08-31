@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-Multi-Source Enterprise Trend Harvester & Health Monitor (2026 SOTA Framework - v4.0)
-GitHub, Hugging Face, Hacker News, ArXiv, Reddit 등에서 대량의 최신 AI 트렌드를 수집하고,
-모든 수집 시도/성공/실패/에러 내역을 logs/에 정밀 기록하여 시스템 상태를 실시간 감시합니다.
+Multi-Source Enterprise Trend Harvester & Health Monitor (2026 SOTA Framework - v5.5)
+- GitHub, Hugging Face Models, Hugging Face Spaces (인터랙티브 데모), Hacker News, ArXiv, Reddit 수집
+- 비로그인 / 100% 무료 지원
+- 실시간 에러 로깅 및 헬스 모니터
 """
 
 import datetime
@@ -129,7 +130,7 @@ def harvest_all():
     logger = Logger(log_file)
 
     logger.log("=======================================================")
-    logger.log("🚀 Multi-Source Trend Harvester Job Started")
+    logger.log("🚀 Multi-Source Trend Harvester Job (v5.5) Started")
     logger.log("=======================================================")
 
     # Load Persona
@@ -151,7 +152,7 @@ def harvest_all():
 
     all_candidates = []
 
-    # 1. Hugging Face Trending
+    # 1. Hugging Face Models Trending
     hf_start = time.time()
     try:
         logger.log("[*] Fetching Hugging Face Trending Models (limit=30)...")
@@ -163,26 +164,54 @@ def harvest_all():
                 url = f"https://huggingface.co/{mid}"
                 if mid and url.lower() not in existing_set:
                     all_candidates.append({
-                        "title": f"HuggingFace: {mid}",
-                        "source_platform": "Hugging Face Hub",
+                        "title": f"HuggingFace Model: {mid}",
+                        "source_platform": "Hugging Face Models",
                         "source_url": url,
                         "type": "repo",
                         "description": f"Trending Score: {item.get('trendingScore', 0)}, Downloads: {item.get('downloads', 0)}, Pipeline: {item.get('pipeline_tag', 'N/A')}",
                         "viral_metric": f"Trending {item.get('trendingScore', 0)} pts"
                     })
                     count += 1
-        harvest_report["sources"]["huggingface"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - hf_start, 2)}
-        logger.log(f"[+] Hugging Face: {count} new items extracted in {time.time() - hf_start:.2f}s")
+        harvest_report["sources"]["hf_models"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - hf_start, 2)}
+        logger.log(f"[+] Hugging Face Models: {count} new items extracted in {time.time() - hf_start:.2f}s")
     except Exception as e:
-        harvest_report["sources"]["huggingface"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - hf_start, 2)}
-        logger.log(f"[!] Hugging Face Failed: {e}", level="ERROR")
+        harvest_report["sources"]["hf_models"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - hf_start, 2)}
+        logger.log(f"[!] Hugging Face Models Failed: {e}", level="ERROR")
         harvest_report["summary"]["errors"] += 1
 
-    # 2. GitHub Search API (High Velocity Repos)
+    # 2. Hugging Face Spaces (인터랙티브 데모 및 신기술 실시간 체험관)
+    spaces_start = time.time()
+    try:
+        logger.log("[*] Fetching Hugging Face Trending Spaces (limit=25)...")
+        sp_data = fetch_json("https://huggingface.co/api/spaces?sort=trendingScore&direction=-1&limit=25")
+        count = 0
+        if sp_data and isinstance(sp_data, list):
+            for item in sp_data:
+                sid = item.get("id", "")
+                url = f"https://huggingface.co/spaces/{sid}"
+                sdk = item.get("sdk", "gradio")
+                likes = item.get("likes", 0)
+                if sid and url.lower() not in existing_set:
+                    all_candidates.append({
+                        "title": f"HF Space: {sid}",
+                        "source_platform": "Hugging Face Spaces (Demo)",
+                        "source_url": url,
+                        "type": "repo",
+                        "description": f"Interactive AI Demo (SDK: {sdk}) | Likes: {likes} | Live URL: {url}",
+                        "viral_metric": f"❤️ {likes} Likes (Trending Demo)"
+                    })
+                    count += 1
+        harvest_report["sources"]["hf_spaces"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - spaces_start, 2)}
+        logger.log(f"[+] Hugging Face Spaces: {count} new interactive demo items extracted in {time.time() - spaces_start:.2f}s")
+    except Exception as e:
+        harvest_report["sources"]["hf_spaces"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - spaces_start, 2)}
+        logger.log(f"[!] Hugging Face Spaces Failed: {e}", level="ERROR")
+        harvest_report["summary"]["errors"] += 1
+
+    # 3. GitHub Search API (High Velocity Repos)
     gh_start = time.time()
     try:
-        logger.log("[*] Fetching GitHub High-Velocity Repositories (Stars > 50, Recent 14 days)...")
-        # 14 days ago
+        logger.log("[*] Fetching GitHub High-Velocity Repositories (Recent 14 days, Stars > 30)...")
         fourteen_days_ago = (datetime.date.today() - datetime.timedelta(days=14)).strftime("%Y-%m-%d")
         gh_url = f"https://api.github.com/search/repositories?q=created:>{fourteen_days_ago}+stars:>30&sort=stars&order=desc&per_page=30"
         gh_data = fetch_json(gh_url, headers={"User-Agent": "FactCheck-Harvester/1.0", "Accept": "application/vnd.github.v3+json"})
@@ -209,7 +238,7 @@ def harvest_all():
         logger.log(f"[!] GitHub Search Failed: {e}", level="ERROR")
         harvest_report["summary"]["errors"] += 1
 
-    # 3. Hacker News API
+    # 4. Hacker News API
     hn_start = time.time()
     try:
         logger.log("[*] Fetching Hacker News Top Stories (limit=30)...")
@@ -239,7 +268,7 @@ def harvest_all():
         logger.log(f"[!] Hacker News Failed: {e}", level="ERROR")
         harvest_report["summary"]["errors"] += 1
 
-    # 4. ArXiv API (cs.AI & cs.CL)
+    # 5. ArXiv API (cs.AI & cs.CL)
     arxiv_start = time.time()
     try:
         logger.log("[*] Fetching ArXiv AI/CL Recent Papers (limit=20)...")
@@ -271,7 +300,7 @@ def harvest_all():
         logger.log(f"[!] ArXiv Failed: {e}", level="ERROR")
         harvest_report["summary"]["errors"] += 1
 
-    # 5. Reddit r/LocalLLaMA
+    # 6. Reddit r/LocalLLaMA
     reddit_start = time.time()
     try:
         logger.log("[*] Fetching Reddit r/LocalLLaMA Hot (limit=15)...")
@@ -298,7 +327,7 @@ def harvest_all():
         logger.log(f"[+] Reddit: {count} new items extracted in {time.time() - reddit_start:.2f}s")
     except Exception as e:
         harvest_report["sources"]["reddit"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - reddit_start, 2)}
-        logger.log(f"[!] Reddit Note (403/Blocked handled gracefully): {e}", level="WARNING")
+        logger.log(f"[!] Reddit Note: {e}", level="WARNING")
 
     # Deduplicate and save into inbox/
     new_saved = 0
@@ -349,11 +378,11 @@ def harvest_all():
         except Exception:
             history = []
     history.insert(0, harvest_report)
-    history = history[:30] # Keep last 30 runs
+    history = history[:30]
 
     with open(history_file, "w", encoding="utf-8") as f:
         json.dump(history, f, indent=2, ensure_ascii=False)
-    logger.log(f"[+] Harvest history and health log saved to {history_file}")
+    logger.log(f"[+] Harvest history saved to {history_file}")
 
 if __name__ == "__main__":
     harvest_all()

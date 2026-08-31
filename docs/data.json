@@ -1,28 +1,33 @@
 {
   "generated_at": "2026-08-31",
   "harvest_health": {
-    "timestamp": "2026-08-31T17:21:39.149166",
+    "timestamp": "2026-08-31T21:30:28.547505",
     "date": "2026-08-31",
     "sources": {
-      "huggingface": {
+      "hf_models": {
         "status": "SUCCESS",
-        "items_found": 20,
-        "duration_sec": 0.43
+        "items_found": 1,
+        "duration_sec": 0.32
+      },
+      "hf_spaces": {
+        "status": "SUCCESS",
+        "items_found": 25,
+        "duration_sec": 0.27
       },
       "github": {
         "status": "SUCCESS",
-        "items_found": 30,
-        "duration_sec": 1.2
+        "items_found": 1,
+        "duration_sec": 1.69
       },
       "hacker_news": {
         "status": "SUCCESS",
-        "items_found": 4,
-        "duration_sec": 14.11
+        "items_found": 5,
+        "duration_sec": 16.73
       },
       "arxiv": {
         "status": "SUCCESS",
-        "items_found": 20,
-        "duration_sec": 0.8
+        "items_found": 0,
+        "duration_sec": 0.4
       },
       "reddit": {
         "status": "ERROR",
@@ -31,8 +36,8 @@
       }
     },
     "summary": {
-      "total_fetched": 74,
-      "new_saved": 74,
+      "total_fetched": 32,
+      "new_saved": 32,
       "duplicates_skipped": 0,
       "errors": 0
     }
