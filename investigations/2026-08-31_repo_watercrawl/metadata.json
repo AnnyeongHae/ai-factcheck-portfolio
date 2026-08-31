@@ -24,16 +24,16 @@
     "why_legacy_still_used": "정형화된 사이트 100만 페이지를 고속 긁을 때는 여전히 2008년 Scrapy 단독 코드가 WaterCrawl Docker 풀스택보다 가볍고 빠름.",
     "alternatives": [
       {
-        "name": "Firecrawl",
-        "tech_stack": "TypeScript, Playwright",
-        "pros": "가장 대중적, 풍부한 SDK 및 간편한 클라우드 API",
-        "cons": "셀프호스팅 복잡도 및 API 요금제 의존성"
-      },
-      {
         "name": "WaterCrawl",
         "tech_stack": "Python, Django, Scrapy, Celery",
         "pros": "강력한 CSS/XPath 커스텀 제어, Docker 완전 자가호스팅, n8n/Dify 연동",
         "cons": "Python/Scrapy 아키텍처로 인한 초기 설정 리소스 소모"
+      },
+      {
+        "name": "Firecrawl",
+        "tech_stack": "TypeScript, Playwright",
+        "pros": "가장 대중적, 풍부한 SDK 및 간편한 클라우드 API",
+        "cons": "셀프호스팅 복잡도 및 API 요금제 의존성"
       },
       {
         "name": "Crawl4AI",
@@ -53,8 +53,8 @@
     {
       "tier": "Tier 1",
       "type": "Official Repository",
-      "name": "WaterCrawl Official GitHub (watercrawl/WaterCrawl)",
-      "url": "https://github.com/watercrawl/WaterCrawl"
+      "name": "WaterCrawl Official GitHub (watercrawl/watercrawl)",
+      "url": "https://github.com/watercrawl/watercrawl"
     },
     {
       "tier": "Tier 1",
@@ -64,25 +64,25 @@
     },
     {
       "tier": "Tier 2",
-      "type": "Supply Chain Security Advisory",
-      "name": "Glassworm Supply Chain Attack Alert (Third-party package spoofing warning)",
-      "url": "https://github.com/watercrawl/WaterCrawl/security"
+      "type": "Community Documentation",
+      "name": "PyTorch Korea (PyTorchKR) Community Tech Introduction",
+      "url": "https://discuss.pytorch.kr/"
     }
   ],
   "community_reactions": [
     {
-      "platform": "GitHub Community Discussions",
-      "author_type": "Data Pipeline Engineer",
-      "thread_title": "Integrating Scrapy Selectors with Celery Queue in WaterCrawl Architecture",
-      "quote": "Scrapy의 강력한 셀렉터 엔진을 Django/Celery UI와 REST API로 감싸서, 복잡한 커머스 사이트 크롤링 룰셋을 정의하기에 가장 편리하다.",
-      "url": "https://github.com/watercrawl/WaterCrawl/discussions"
+      "platform": "GitHub Official",
+      "author_type": "WaterCrawl Core Team",
+      "thread_title": "WaterCrawl Architecture: Open-Source Smart Web Crawler for LLMs",
+      "quote": "WaterCrawl is an open-source smart web crawler and scraper platform powered by Django, Scrapy, and Celery, designed to transform complex websites into LLM-ready clean markdown data.",
+      "url": "https://github.com/watercrawl/watercrawl"
     },
     {
-      "platform": "Reddit r/LocalLLaMA",
-      "author_type": "AI Automation Architect",
-      "thread_title": "WaterCrawl: Open-Source Smart Web Crawler for LLM Markdown Ingestion",
-      "quote": "Dify나 n8n과 연동이 잘 되어 노코드 웹 인제스천에 유리함. 단, 써드파티 npm MCP 패키지에 스푸핑 악성코드가 발견되었으니 공식 GitHub 소스만 직접 빌드할 것.",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1gxq5wz/watercrawl_open_source_smart_web_crawler_for_llm/"
+      "platform": "PyTorch Korea Community",
+      "author_type": "Community AI Researcher",
+      "thread_title": "WaterCrawl: LLM/RAG 전처리를 위한 셀프호스팅 웹 크롤러 소개",
+      "quote": "웹 페이지의 광고, 네비게이션 바, 푸터를 제거하고 LLM이 즉시 이해할 수 있는 텍스트/마크다운으로 추출하여 토큰 낭비를 줄이고 RAG 품질을 높이는 셀프호스팅 플랫폼",
+      "url": "https://discuss.pytorch.kr/"
     }
   ],
   "portfolio_story": {

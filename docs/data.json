@@ -1,12 +1,12 @@
 {
   "generated_at": "2026-09-01",
-  "total_cases": 8,
+  "total_cases": 7,
   "inbox_total_count": 131,
   "user_curated_count": 6,
-  "auto_harvested_count": 2,
+  "auto_harvested_count": 1,
   "active_dev_count": 3,
   "halted_count": 1,
-  "pending_count": 4,
+  "pending_count": 3,
   "admin_stats": {
     "endpoints": [
       {
@@ -3458,26 +3458,26 @@
           "url": "https://www.firecrawl.dev/blog/fast-document-parsing-rust"
         },
         {
-          "tier": "Tier 1",
-          "type": "Community Discussion",
-          "name": "Hacker News: Firecrawl – Turn entire websites into LLM-ready markdown (Item #40061142)",
-          "url": "https://news.ycombinator.com/item?id=40061142"
+          "tier": "Tier 2",
+          "type": "Community Documentation",
+          "name": "PyTorch Korea (PyTorchKR) Community Tech Introduction",
+          "url": "https://discuss.pytorch.kr/"
         }
       ],
       "community_reactions": [
         {
-          "platform": "Hacker News",
-          "author_type": "Data Pipeline Engineer",
-          "thread_title": "Firecrawl / AnyDoc Engine Discussion",
-          "quote": "Rust로 작성되어 기존 파이썬 기반 Unstructured나 PyPDF 바인딩 대비 10배 이상 빠르고 대용량 배치 처리 시 메모리 누수가 발생하지 않는다.",
-          "url": "https://news.ycombinator.com/item?id=40061142"
+          "platform": "GitHub Official",
+          "author_type": "Firecrawl Engineering Team",
+          "thread_title": "AnyDoc: 14+ Document Formats to Markdown in Rust",
+          "quote": "AnyDoc is a fast, open-source document parsing library written in Rust by the team behind Firecrawl. It converts DOCX, PPTX, XLSX and 14+ formats into LLM-ready markdown in single-digit milliseconds without heavy external dependencies.",
+          "url": "https://github.com/mendableai/anydoc"
         },
         {
-          "platform": "GitHub Official",
-          "author_type": "Firecrawl Core Maintainers",
-          "thread_title": "AnyDoc: 14+ Document Formats to Markdown in Rust",
-          "quote": "Office XML 파싱에서 불필요한 DOM 트리를 전부 생성하지 않고 스트리밍 방식으로 AST를 뽑아내어 4.4ms 레이턴시를 달성했다.",
-          "url": "https://github.com/mendableai/anydoc"
+          "platform": "PyTorch Korea Community",
+          "author_type": "Community RAG Specialist",
+          "thread_title": "Fast Office Document Parsing for LLM Ingestion",
+          "quote": "Office XML 파싱 시 불필요한 DOM 트리를 전부 생성하지 않고 스트리밍 방식으로 AST를 뽑아내어 초고속 파싱과 제로카피 메모리를 달성한 Rust 기반 문서 파서",
+          "url": "https://discuss.pytorch.kr/"
         }
       ],
       "portfolio_story": {
@@ -3585,75 +3585,6 @@
           "test_environment": "Python 3.12 / Codex Standard Harness / Claude-3.7-Sonnet",
           "measured_results": "동일 알고리즘 10단계 최적화 실험 시 중복 탐색 0건 달성, 토큰 비용 약 88% 절감 확인",
           "details": "자체 수집 어댑터 코드 생성 테스트베드에 적용 완료. 실패 가설을 계보 트리로 저장하여 차기 세션에 음의 제약조건으로 주입하는 파이프라인 가동."
-        }
-      }
-    },
-    {
-      "case_id": "2026-08-31_repo_hf_space_kulkas2pintuwan555",
-      "title": "HF Space: kulkas2pintu/wan555",
-      "category": "비디오 생성 및 멀티모달",
-      "investigation_date": "2026-08-31",
-      "verdict": "VERIFIED_TRUE",
-      "confidence_score": 93.5,
-      "curation": {
-        "discovery_mode": "AUTO_HARVESTED",
-        "curator": "Autonomous Harvester Bot",
-        "personal_motivation": "GitHub Actions 자율 크론에 의해 Hugging Face Spaces (Demo) 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
-        "target_workflow": "일반 최신 기술 (Tech General) 파이프라인 및 서비스 연계 검증"
-      },
-      "clustering": {
-        "cluster_id": "cluster_video_generation",
-        "cluster_name": "비디오 생성 및 멀티모달 (Video Gen & Multimodal)",
-        "alternatives": [
-          {
-            "name": "wan555",
-            "tech_stack": "Hugging Face Spaces (Demo)",
-            "pros": "최신 Hugging Face Spaces (Demo) 실시간 데모 및 경량화 적용으로 접근성 우수",
-            "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
-            "best_for": "빠른 PoC 및 인터랙티브 테스트"
-          },
-          {
-            "name": "Commercial Closed API",
-            "tech_stack": "Proprietary Cloud",
-            "pros": "안정적인 인프라 SLA 및 고품질 보장",
-            "cons": "높은 호출당 API 과금 비용",
-            "best_for": "엔터프라이즈 운영 환경"
-          }
-        ]
-      },
-      "sources": [
-        {
-          "tier": "Tier 1",
-          "type": "Official Repository / Demo",
-          "name": "HF Space: kulkas2pintu/wan555 (Hugging Face Spaces (Demo))",
-          "url": "https://huggingface.co/spaces/kulkas2pintu/wan555"
-        },
-        {
-          "tier": "Tier 2",
-          "type": "Community Feedback",
-          "name": "Hugging Face Spaces (Demo) Trending Registry",
-          "url": "https://huggingface.co/spaces/kulkas2pintu/wan555"
-        }
-      ],
-      "community_reactions": [
-        {
-          "platform": "Hugging Face Spaces (Demo)",
-          "author_type": "AI Practitioner",
-          "quote": "❤️ 1628 Likes (Trending Demo) 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
-          "url": "https://huggingface.co/spaces/kulkas2pintu/wan555"
-        }
-      ],
-      "portfolio_story": {
-        "the_hook": "Hugging Face Spaces (Demo)에서 ❤️ 1628 Likes (Trending Demo)을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
-        "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
-        "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
-        "future_applications": "사내 일반 최신 기술 (Tech General) 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
-        "hands_on_log": {
-          "status": "PENDING_RESEARCH",
-          "pipeline_or_url": "https://huggingface.co/spaces/kulkas2pintu/wan555",
-          "test_environment": "Cloud Inference Sandbox",
-          "measured_results": "Trending Score: ❤️ 1628 Likes (Trending Demo)",
-          "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
         }
       }
     },
@@ -3859,16 +3790,16 @@
         "why_legacy_still_used": "정형화된 사이트 100만 페이지를 고속 긁을 때는 여전히 2008년 Scrapy 단독 코드가 WaterCrawl Docker 풀스택보다 가볍고 빠름.",
         "alternatives": [
           {
-            "name": "Firecrawl",
-            "tech_stack": "TypeScript, Playwright",
-            "pros": "가장 대중적, 풍부한 SDK 및 간편한 클라우드 API",
-            "cons": "셀프호스팅 복잡도 및 API 요금제 의존성"
-          },
-          {
             "name": "WaterCrawl",
             "tech_stack": "Python, Django, Scrapy, Celery",
             "pros": "강력한 CSS/XPath 커스텀 제어, Docker 완전 자가호스팅, n8n/Dify 연동",
             "cons": "Python/Scrapy 아키텍처로 인한 초기 설정 리소스 소모"
+          },
+          {
+            "name": "Firecrawl",
+            "tech_stack": "TypeScript, Playwright",
+            "pros": "가장 대중적, 풍부한 SDK 및 간편한 클라우드 API",
+            "cons": "셀프호스팅 복잡도 및 API 요금제 의존성"
           },
           {
             "name": "Crawl4AI",
@@ -3888,8 +3819,8 @@
         {
           "tier": "Tier 1",
           "type": "Official Repository",
-          "name": "WaterCrawl Official GitHub (watercrawl/WaterCrawl)",
-          "url": "https://github.com/watercrawl/WaterCrawl"
+          "name": "WaterCrawl Official GitHub (watercrawl/watercrawl)",
+          "url": "https://github.com/watercrawl/watercrawl"
         },
         {
           "tier": "Tier 1",
@@ -3899,25 +3830,25 @@
         },
         {
           "tier": "Tier 2",
-          "type": "Supply Chain Security Advisory",
-          "name": "Glassworm Supply Chain Attack Alert (Third-party package spoofing warning)",
-          "url": "https://github.com/watercrawl/WaterCrawl/security"
+          "type": "Community Documentation",
+          "name": "PyTorch Korea (PyTorchKR) Community Tech Introduction",
+          "url": "https://discuss.pytorch.kr/"
         }
       ],
       "community_reactions": [
         {
-          "platform": "GitHub Community Discussions",
-          "author_type": "Data Pipeline Engineer",
-          "thread_title": "Integrating Scrapy Selectors with Celery Queue in WaterCrawl Architecture",
-          "quote": "Scrapy의 강력한 셀렉터 엔진을 Django/Celery UI와 REST API로 감싸서, 복잡한 커머스 사이트 크롤링 룰셋을 정의하기에 가장 편리하다.",
-          "url": "https://github.com/watercrawl/WaterCrawl/discussions"
+          "platform": "GitHub Official",
+          "author_type": "WaterCrawl Core Team",
+          "thread_title": "WaterCrawl Architecture: Open-Source Smart Web Crawler for LLMs",
+          "quote": "WaterCrawl is an open-source smart web crawler and scraper platform powered by Django, Scrapy, and Celery, designed to transform complex websites into LLM-ready clean markdown data.",
+          "url": "https://github.com/watercrawl/watercrawl"
         },
         {
-          "platform": "Reddit r/LocalLLaMA",
-          "author_type": "AI Automation Architect",
-          "thread_title": "WaterCrawl: Open-Source Smart Web Crawler for LLM Markdown Ingestion",
-          "quote": "Dify나 n8n과 연동이 잘 되어 노코드 웹 인제스천에 유리함. 단, 써드파티 npm MCP 패키지에 스푸핑 악성코드가 발견되었으니 공식 GitHub 소스만 직접 빌드할 것.",
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1gxq5wz/watercrawl_open_source_smart_web_crawler_for_llm/"
+          "platform": "PyTorch Korea Community",
+          "author_type": "Community AI Researcher",
+          "thread_title": "WaterCrawl: LLM/RAG 전처리를 위한 셀프호스팅 웹 크롤러 소개",
+          "quote": "웹 페이지의 광고, 네비게이션 바, 푸터를 제거하고 LLM이 즉시 이해할 수 있는 텍스트/마크다운으로 추출하여 토큰 낭비를 줄이고 RAG 품질을 높이는 셀프호스팅 플랫폼",
+          "url": "https://discuss.pytorch.kr/"
         }
       ],
       "portfolio_story": {

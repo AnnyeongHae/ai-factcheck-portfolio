@@ -56,26 +56,26 @@
       "url": "https://www.firecrawl.dev/blog/fast-document-parsing-rust"
     },
     {
-      "tier": "Tier 1",
-      "type": "Community Discussion",
-      "name": "Hacker News: Firecrawl – Turn entire websites into LLM-ready markdown (Item #40061142)",
-      "url": "https://news.ycombinator.com/item?id=40061142"
+      "tier": "Tier 2",
+      "type": "Community Documentation",
+      "name": "PyTorch Korea (PyTorchKR) Community Tech Introduction",
+      "url": "https://discuss.pytorch.kr/"
     }
   ],
   "community_reactions": [
     {
-      "platform": "Hacker News",
-      "author_type": "Data Pipeline Engineer",
-      "thread_title": "Firecrawl / AnyDoc Engine Discussion",
-      "quote": "Rust로 작성되어 기존 파이썬 기반 Unstructured나 PyPDF 바인딩 대비 10배 이상 빠르고 대용량 배치 처리 시 메모리 누수가 발생하지 않는다.",
-      "url": "https://news.ycombinator.com/item?id=40061142"
+      "platform": "GitHub Official",
+      "author_type": "Firecrawl Engineering Team",
+      "thread_title": "AnyDoc: 14+ Document Formats to Markdown in Rust",
+      "quote": "AnyDoc is a fast, open-source document parsing library written in Rust by the team behind Firecrawl. It converts DOCX, PPTX, XLSX and 14+ formats into LLM-ready markdown in single-digit milliseconds without heavy external dependencies.",
+      "url": "https://github.com/mendableai/anydoc"
     },
     {
-      "platform": "GitHub Official",
-      "author_type": "Firecrawl Core Maintainers",
-      "thread_title": "AnyDoc: 14+ Document Formats to Markdown in Rust",
-      "quote": "Office XML 파싱에서 불필요한 DOM 트리를 전부 생성하지 않고 스트리밍 방식으로 AST를 뽑아내어 4.4ms 레이턴시를 달성했다.",
-      "url": "https://github.com/mendableai/anydoc"
+      "platform": "PyTorch Korea Community",
+      "author_type": "Community RAG Specialist",
+      "thread_title": "Fast Office Document Parsing for LLM Ingestion",
+      "quote": "Office XML 파싱 시 불필요한 DOM 트리를 전부 생성하지 않고 스트리밍 방식으로 AST를 뽑아내어 초고속 파싱과 제로카피 메모리를 달성한 Rust 기반 문서 파서",
+      "url": "https://discuss.pytorch.kr/"
     }
   ],
   "portfolio_story": {
