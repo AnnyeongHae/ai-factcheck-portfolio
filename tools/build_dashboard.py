@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Fact-Check & Engineering Portfolio Dashboard Builder (2026 SOTA Framework - v8.0)
-- 🕸️ Obsidian-Style Tech Lineage Knowledge Graph (Force-Directed D3 Graph)
+Fact-Check & Universal Tech Lineage Knowledge Graph Hub (2026 SOTA Framework - v9.0)
+- 🕸️ Universal Cross-Domain Knowledge Graph with Dynamic Centrality Sizing (PageRank / Degree Scaling)
+- 🌐 Domain Filter Buttons (Inference, Vision, Agents, Scrapers, Voice, MoE)
+- 💡 High-Visibility Connected Node & Edge Glow Highlight Interaction
 - 🌲 4-Generation Root Ancestry & Legacy Trade-off Visualizer
-- 🇰🇷 / 🇺🇸 다국어 지원 (i18n Language Switcher - Default: 한국어)
-- 🏆 공식 팩트체크 포트폴리오 & 📥 수집 인박스 큐
-- ⚙️ 소스별 수집 엔드포인트 & 관리자 통계
+- 🇰🇷 / 🇺🇸 i18n Language Switcher
 """
 
 import json
@@ -64,10 +64,27 @@ def load_graph_data():
         try:
             with open(graph_path, "r", encoding="utf-8") as fp:
                 data = json.load(fp)
-                return data.get("graph", {"nodes": [], "links": []})
-        except Exception:
-            pass
-    return {"nodes": [], "links": []}
+                graph = data.get("graph", {"nodes": [], "links": []})
+                domains = data.get("domains", [])
+                
+                # Dynamic Degree Centrality Calculation
+                degree_map = {}
+                for l in graph.get("links", []):
+                    s = l.get("source")
+                    t = l.get("target")
+                    degree_map[s] = degree_map.get(s, 0) + 1
+                    degree_map[t] = degree_map.get(t, 0) + 1
+
+                for n in graph.get("nodes", []):
+                    deg = degree_map.get(n["id"], 1)
+                    mentions = n.get("mentions", 20)
+                    # Node radius scale from 12px to 32px based on degree and mentions
+                    n["val"] = int(10 + (deg * 3.5) + (mentions * 0.25))
+
+                return { "domains": domains, "nodes": graph["nodes"], "links": graph["links"] }
+        except Exception as e:
+            print(f"[!] Error loading graph schema: {e}")
+    return {"domains": [], "nodes": [], "links": []}
 
 def get_harvest_admin_stats():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -144,7 +161,7 @@ def build_dashboard():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    print(f"[+] Successfully built dashboard v8.0 (Obsidian Graph & Root Ancestry) at:")
+    print(f"[+] Successfully built dashboard v9.0 (Universal Knowledge Graph) at:")
     print(f"    - dashboard/index.html (Verified: {total_cases}, Inbox: {len(inbox_items)}, Nodes: {len(graph_data['nodes'])})")
     print(f"    - docs/index.html (GitHub Pages hosting)")
 
@@ -159,7 +176,7 @@ def generate_html(data):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI & Tech Fact-Check Engineering Hub & Lineage Graph</title>
+  <title>Universal AI & Tech Fact-Check Hub & Lineage Graph</title>
   <!-- Tailwind CSS & Lucide Icons & D3.js -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -197,23 +214,29 @@ def generate_html(data):
     .badge-dev {{ background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }}
     .badge-halted {{ background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }}
     .badge-pending {{ background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3); }}
+    
+    /* Force Graph Highlighting */
+    .node-dimmed {{ opacity: 0.15 !important; }}
+    .link-dimmed {{ opacity: 0.05 !important; }}
+    .node-highlighted {{ stroke: #ffffff !important; stroke-width: 3.5px !important; opacity: 1 !important; filter: drop-shadow(0 0 10px rgba(99,102,241,0.8)); }}
+    .link-highlighted {{ stroke: #6366f1 !important; stroke-width: 3px !important; opacity: 1 !important; }}
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen">
 
-  <!-- Navigation Bar with 3 Views & Language Switcher -->
+  <!-- Navigation Bar -->
   <header class="sticky top-0 z-40 glass border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
           <i data-lucide="shield-check" class="w-6 h-6 text-white"></i>
         </div>
         <div>
           <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
-            AI Fact-Check Hub & Graph
-            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v8.0</span>
+            Universal AI Fact-Check & Graph
+            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v9.0</span>
           </h1>
-          <p class="text-xs text-slate-400" id="i18nSubtitle">기술 계보학 지식 그래프 • 인박스 승인 큐 • 엔지니어링 포트폴리오</p>
+          <p class="text-xs text-slate-400" id="i18nSubtitle">유니버설 기술 계보망 • 인박스 승인 큐 • 실증 포트폴리오</p>
         </div>
       </div>
 
@@ -234,7 +257,7 @@ def generate_html(data):
           </button>
           <button onclick="switchView('graph')" id="tabGraphBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
             <i data-lucide="network" class="w-4 h-4 text-emerald-400"></i>
-            <span id="i18nTabGraph">🕸️ 기술 계보 그래프</span>
+            <span id="i18nTabGraph">🕸️ 유니버설 계보 그래프</span>
           </button>
           <button onclick="switchView('inbox')" id="tabInboxBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
             <i data-lucide="inbox" class="w-4 h-4 text-amber-400"></i>
@@ -323,43 +346,49 @@ def generate_html(data):
       <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
 
-    <!-- ==================== VIEW 2: OBSIDIAN GRAPH VIEW ==================== -->
+    <!-- ==================== VIEW 2: UNIVERSAL OBSIDIAN GRAPH VIEW ==================== -->
     <div id="graphView" class="hidden space-y-6">
-      <div class="glass p-6 rounded-2xl space-y-3">
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div class="glass p-6 rounded-2xl space-y-4">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
           <div>
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
               <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
-                🕸️ Obsidian-Style Tech Lineage Graph
+                🕸️ Universal Cross-Domain Knowledge Graph
               </span>
-              <span class="text-xs text-slate-400">2000년 원시 파서(Gen 0)부터 2026년 SOTA(Gen 3)까지의 진화망</span>
+              <span class="text-xs text-slate-400">언급량 & 중심성(Centrality) 기반 동적 노드 스케일링</span>
             </div>
-            <h2 class="text-xl font-bold text-white mt-1">인터랙티브 기술 계보 및 상관관계 네트워크 지도</h2>
+            <h2 class="text-xl font-bold text-white mt-1">AI & 전산학 핵심 척추 기술의 유니버설 상관관계 지도</h2>
             <p class="text-xs text-slate-300">
-              노드를 드래그하거나 휠로 줌인/줌아웃하여 기술 간의 <strong>뿌리 계보(Ancestry), 진화 관계(Evolution), 경쟁 대체재(Competitors)</strong>를 탐색하세요.
+              노드를 마우스로 당겨보거나 호버하면 <strong>연결된 모든 선조/후손 기술들이 광선으로 동시 하이라이트</strong>됩니다.
             </p>
           </div>
 
-          <!-- Legend -->
-          <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-[11px] grid grid-cols-2 gap-x-4 gap-y-1 shrink-0">
-            <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Gen 0: 원시 파서/엔진 (2000~2005)</div>
-            <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span> Gen 1: 배치/자동화 (2004~2015)</div>
-            <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Gen 2: LLM 마크다운/CLI (2017~2024)</div>
-            <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> Gen 3: SOTA 자율 에이전트 (2024~2026)</div>
+          <!-- Domain Filter Buttons -->
+          <div class="flex flex-wrap items-center gap-1.5 bg-slate-900/90 p-1.5 rounded-xl border border-slate-800 text-xs">
+            <button onclick="filterGraphDomain('ALL')" class="graph-dom-btn active px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-medium transition" data-dom="ALL">전체 도메인</button>
+            <button onclick="filterGraphDomain('inference_serving')" class="graph-dom-btn px-2.5 py-1 rounded-lg text-cyan-400 hover:bg-slate-800 transition" data-dom="inference_serving">⚡ LLM 서빙</button>
+            <button onclick="filterGraphDomain('vision_diffusion')" class="graph-dom-btn px-2.5 py-1 rounded-lg text-pink-400 hover:bg-slate-800 transition" data-dom="vision_diffusion">🎨 비전/비디오</button>
+            <button onclick="filterGraphDomain('agent_lineage')" class="graph-dom-btn px-2.5 py-1 rounded-lg text-purple-400 hover:bg-slate-800 transition" data-dom="agent_lineage">🤖 에이전트</button>
+            <button onclick="filterGraphDomain('web_scraping')" class="graph-dom-btn px-2.5 py-1 rounded-lg text-emerald-400 hover:bg-slate-800 transition" data-dom="web_scraping">🌐 데이터 인제스천</button>
+            <button onclick="filterGraphDomain('voice_tts')" class="graph-dom-btn px-2.5 py-1 rounded-lg text-amber-400 hover:bg-slate-800 transition" data-dom="voice_tts">🎙️ 음성</button>
+            <button onclick="filterGraphDomain('reasoning_moe')" class="graph-dom-btn px-2.5 py-1 rounded-lg text-indigo-400 hover:bg-slate-800 transition" data-dom="reasoning_moe">🧠 MoE 추론</button>
           </div>
         </div>
 
         <!-- Graph Canvas Container -->
-        <div class="relative w-full h-[650px] bg-slate-950/90 rounded-xl border border-slate-800 overflow-hidden shadow-inner flex items-center justify-center">
+        <div class="relative w-full h-[700px] bg-slate-950/95 rounded-xl border border-slate-800 overflow-hidden shadow-2xl flex items-center justify-center">
           <svg id="techGraphSvg" class="w-full h-full cursor-grab active:cursor-grabbing"></svg>
           
-          <!-- Node Tooltip Card -->
-          <div id="graphTooltip" class="absolute bottom-4 left-4 p-4 rounded-xl glass border border-slate-700 text-xs max-w-sm hidden shadow-2xl transition space-y-1.5 pointer-events-none">
+          <!-- Dynamic Floating Tooltip Card -->
+          <div id="graphTooltip" class="absolute bottom-5 left-5 p-4 rounded-xl glass border border-slate-700 text-xs max-w-sm hidden shadow-2xl transition space-y-1.5 pointer-events-none z-20">
             <div class="flex items-center justify-between gap-2">
               <span id="tooltipLabel" class="font-bold text-sm text-white"></span>
               <span id="tooltipGen" class="px-2 py-0.5 rounded text-[10px] font-bold"></span>
             </div>
-            <p id="tooltipDesc" class="text-slate-300 text-[11px] leading-relaxed"></p>
+            <div class="text-[11px] text-slate-400">
+              도메인: <span id="tooltipDomain" class="font-semibold text-indigo-300"></span> | 중심성 가중치: <span id="tooltipVal" class="font-mono text-emerald-400"></span>
+            </div>
+            <p id="tooltipDesc" class="text-slate-300 text-[11px] leading-relaxed pt-1 border-t border-slate-800"></p>
           </div>
         </div>
       </div>
@@ -413,59 +442,6 @@ def generate_html(data):
     </div>
 
   </main>
-
-  <!-- Admin & Harvester Monitoring Modal -->
-  <div id="adminModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-    <div class="glass max-w-3xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-700 my-8">
-      <div class="p-6 border-b border-slate-800 flex items-center justify-between bg-slate-900/60">
-        <div class="flex items-center gap-2.5">
-          <i data-lucide="settings" class="w-5 h-5 text-emerald-400"></i>
-          <div>
-            <h3 class="text-base font-bold text-white" id="i18nAdminTitle">수집 시스템 관리자 & 엔드포인트 모니터</h3>
-            <p class="text-xs text-slate-400" id="i18nAdminSubtitle">어떤 링크에서 매번 수집하고 있는지 실시간 감시</p>
-          </div>
-        </div>
-        <button onclick="closeAdminModal()" class="text-slate-400 hover:text-white p-1 rounded-lg bg-slate-800/60 hover:bg-slate-700">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="p-6 space-y-6 text-xs text-slate-300 max-h-[75vh] overflow-y-auto">
-        <div class="grid grid-cols-3 gap-3">
-          <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-            <span class="text-slate-400" id="i18nAdminLatestRun">최근 수집 일시</span>
-            <div id="adminLatestDate" class="text-xs font-bold text-white mt-1"></div>
-          </div>
-          <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-            <span class="text-slate-400" id="i18nAdminInboxCount">현재 대기 인박스</span>
-            <div class="text-sm font-bold text-amber-400 mt-1">{data['inbox_total_count']} 건</div>
-          </div>
-          <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-            <span class="text-slate-400" id="i18nAdminFactcheckCount">공식 승격 프로젝트</span>
-            <div class="text-sm font-bold text-emerald-400 mt-1">{data['total_cases']} 건</div>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-1.5 text-sm" id="i18nAdminEndpointsHead">
-            <i data-lucide="radio" class="w-4 h-4 text-indigo-400"></i> 등록된 정기 수집 엔드포인트 목록
-          </h4>
-          <div id="adminEndpointsList" class="space-y-2"></div>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-1.5 text-sm" id="i18nAdminHealthHead">
-            <i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i> 최근 수집 실행 헬스 & 레이턴시
-          </h4>
-          <div id="adminHealthLogs" class="space-y-2"></div>
-        </div>
-      </div>
-
-      <div class="p-4 border-t border-slate-800 bg-slate-900/60 flex justify-end">
-        <button onclick="closeAdminModal()" class="px-4 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold">닫기</button>
-      </div>
-    </div>
-  </div>
 
   <!-- Detailed Portfolio Modal -->
   <div id="detailModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
@@ -635,13 +611,25 @@ def generate_html(data):
 
     let currentInboxSource = 'ALL';
     let inboxSearchQuery = '';
+    let currentGraphDomain = 'ALL';
     let graphInitialized = false;
+
+    let svgSelection, nodeSelection, linkSelection, textSelection, simulationRef;
+
+    const domainColorMap = {{
+      'inference_serving': '#06b6d4',
+      'vision_diffusion': '#ec4899',
+      'agent_lineage': '#8b5cf6',
+      'web_scraping': '#10b981',
+      'voice_tts': '#f59e0b',
+      'reasoning_moe': '#6366f1'
+    }};
 
     const i18nDict = {{
       KO: {{
-        subtitle: '기술 계보학 지식 그래프 • 인박스 승인 큐 • 엔지니어링 포트폴리오',
+        subtitle: '유니버설 기술 계보망 • 인박스 승인 큐 • 실증 포트폴리오',
         tabPortfolio: '🏆 공식 포트폴리오',
-        tabGraph: '🕸️ 기술 계보 그래프',
+        tabGraph: '🕸️ 유니버설 계보 그래프',
         tabInbox: '📥 수집 인박스 큐',
         btnAdmin: '⚙️ 수집 관리자',
         heroTitle: '"소문난 AI 기술, 진짜 작동하고 경제성이 있을까?"',
@@ -667,9 +655,9 @@ def generate_html(data):
         btnCopyCmd: '📋 CLI 명령 복사'
       }},
       EN: {{
-        subtitle: 'Tech Lineage Knowledge Graph • Inbox Triage Queue • Engineering Portfolio',
+        subtitle: 'Universal Tech Lineage Knowledge Graph • Inbox Triage Queue • Verified Portfolio',
         tabPortfolio: '🏆 Verified Portfolio',
-        tabGraph: '🕸️ Lineage Graph',
+        tabGraph: '🕸️ Universal Lineage Graph',
         tabInbox: '📥 Inbox Triage Queue',
         btnAdmin: '⚙️ Harvester Admin',
         heroTitle: '"Viral AI & Tech Claims: Do They Actually Work & Make Economic Sense?"',
@@ -678,7 +666,7 @@ def generate_html(data):
         metricUser: '👤 User-Curated Issues',
         metricAuto: '🤖 Autonomous Tracked',
         metricDev: '🟢 Active Developed',
-        metricHalted: '🟡 Evaluated & Halted',
+        metricHalted: '🟡 Halted (Cost/Perf)',
         filterAllMode: 'All Discovery Modes',
         filterUserMode: '👤 User-Curated Only',
         filterAutoMode: '🤖 Auto-Harvested Only',
@@ -765,7 +753,7 @@ def generate_html(data):
         gView.classList.remove('hidden');
         gBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 text-white transition shadow-sm';
         if (!graphInitialized) {{
-          initObsidianGraph();
+          initUniversalGraph();
           graphInitialized = true;
         }}
       }} else {{
@@ -776,31 +764,31 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    function initObsidianGraph() {{
+    function initUniversalGraph() {{
       const svg = d3.select("#techGraphSvg");
-      const width = document.getElementById("graphView").clientWidth || 1000;
-      const height = 650;
+      const container = document.getElementById("graphView");
+      const width = container.clientWidth || 1100;
+      const height = 700;
       svg.attr("viewBox", [-width / 2, -height / 2, width, height]);
 
       const g = svg.append("g");
 
-      // Zoom capability
-      svg.call(d3.zoom().scaleExtent([0.3, 3]).on("zoom", (e) => g.attr("transform", e.transform)));
+      svg.call(d3.zoom().scaleExtent([0.25, 3.5]).on("zoom", (e) => g.attr("transform", e.transform)));
 
-      const simulation = d3.forceSimulation(graphData.nodes)
-        .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(100))
-        .force("charge", d3.forceManyBody().strength(-350))
+      simulationRef = d3.forceSimulation(graphData.nodes)
+        .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(110))
+        .force("charge", d3.forceManyBody().strength(-400))
         .force("center", d3.forceCenter(0, 0))
-        .force("collision", d3.forceCollide().radius(d => d.val + 10));
+        .force("collision", d3.forceCollide().radius(d => (d.val || 16) + 12));
 
-      const link = g.append("g")
-        .attr("stroke", "rgba(255, 255, 255, 0.15)")
-        .attr("stroke-width", 1.5)
+      linkSelection = g.append("g")
         .selectAll("line")
         .data(graphData.links)
-        .join("line");
+        .join("line")
+        .attr("stroke", "rgba(255, 255, 255, 0.18)")
+        .attr("stroke-width", 1.5);
 
-      const node = g.append("g")
+      const nodeGroup = g.append("g")
         .selectAll("g")
         .data(graphData.nodes)
         .join("g")
@@ -809,64 +797,45 @@ def generate_html(data):
           .on("drag", dragged)
           .on("end", dragended));
 
-      // Node colors based on generation
-      function getNodeColor(d) {{
-        if (d.gen === "Gen 0") return "#a855f7"; // Purple
-        if (d.gen === "Gen 1") return "#3b82f6"; // Blue
-        if (d.gen === "Gen 2") return "#f59e0b"; // Amber
-        return "#34d399"; // Emerald (Gen 3 SOTA)
-      }}
-
-      node.append("circle")
+      nodeSelection = nodeGroup.append("circle")
         .attr("r", d => d.val || 16)
-        .attr("fill", d => getNodeColor(d))
+        .attr("fill", d => domainColorMap[d.group] || "#6366f1")
         .attr("stroke", "#ffffff")
         .attr("stroke-width", d => d.type === "sota" ? 2.5 : 1)
         .attr("opacity", 0.9)
         .attr("cursor", "pointer")
-        .on("mouseover", (event, d) => {{
-          const tt = document.getElementById("graphTooltip");
-          document.getElementById("tooltipLabel").innerText = d.label;
-          document.getElementById("tooltipGen").innerText = d.gen;
-          document.getElementById("tooltipGen").style.backgroundColor = getNodeColor(d) + "33";
-          document.getElementById("tooltipGen").style.color = getNodeColor(d);
-          document.getElementById("tooltipDesc").innerText = d.desc || "기술 세부 설명";
-          tt.classList.remove("hidden");
-        }})
-        .on("mouseout", () => {{
-          document.getElementById("graphTooltip").classList.add("hidden");
-        }})
+        .on("mouseover", (event, d) => highlightConnected(d))
+        .on("mouseout", () => resetHighlight())
         .on("click", (event, d) => {{
-          // If node matches a verified case, open case modal!
-          const matchedCase = casesData.find(c => c.case_id.includes(d.id) || d.id.includes(c.clustering ? c.clustering.cluster_id : ''));
+          const matchedCase = casesData.find(c => c.case_id.toLowerCase().includes(d.id.replace('_', '')) || (c.clustering && c.clustering.cluster_id.includes(d.group)));
           if (matchedCase) {{
             openModal(matchedCase);
           }}
         }});
 
-      node.append("text")
+      textSelection = nodeGroup.append("text")
         .text(d => d.label.split('(')[0].trim())
         .attr("x", 0)
         .attr("y", d => (d.val || 16) + 12)
         .attr("text-anchor", "middle")
         .attr("fill", "#e2e8f0")
-        .attr("font-size", "10px")
+        .attr("font-size", d => (d.val > 24 ? "12px" : "10px"))
         .attr("font-weight", "600")
         .attr("pointer-events", "none");
 
-      simulation.on("tick", () => {{
-        link
+      simulationRef.on("tick", () => {{
+        linkSelection
           .attr("x1", d => d.source.x)
           .attr("y1", d => d.source.y)
           .attr("x2", d => d.target.x)
           .attr("y2", d => d.target.y);
 
-        node
+        nodeGroup
           .attr("transform", d => `translate(${{d.x}},${{d.y}})`);
       }});
 
       function dragstarted(event, d) {{
-        if (!event.active) simulation.alphaTarget(0.3).restart();
+        if (!event.active) simulationRef.alphaTarget(0.3).restart();
         d.fx = d.x;
         d.fy = d.y;
       }}
@@ -877,9 +846,75 @@ def generate_html(data):
       }}
 
       function dragended(event, d) {{
-        if (!event.active) simulation.alphaTarget(0);
+        if (!event.active) simulationRef.alphaTarget(0);
         d.fx = null;
         d.fy = null;
+      }}
+    }}
+
+    function highlightConnected(selectedNode) {{
+      const connectedNodeIds = new Set();
+      connectedNodeIds.add(selectedNode.id);
+
+      graphData.links.forEach(l => {{
+        const sId = typeof l.source === 'object' ? l.source.id : l.source;
+        const tId = typeof l.target === 'object' ? l.target.id : l.target;
+        if (sId === selectedNode.id) connectedNodeIds.add(tId);
+        if (tId === selectedNode.id) connectedNodeIds.add(sId);
+      }});
+
+      nodeSelection.classed("node-dimmed", d => !connectedNodeIds.has(d.id));
+      nodeSelection.classed("node-highlighted", d => connectedNodeIds.has(d.id));
+      
+      linkSelection.classed("link-dimmed", l => {{
+        const sId = typeof l.source === 'object' ? l.source.id : l.source;
+        const tId = typeof l.target === 'object' ? l.target.id : l.target;
+        return sId !== selectedNode.id && tId !== selectedNode.id;
+      }});
+      linkSelection.classed("link-highlighted", l => {{
+        const sId = typeof l.source === 'object' ? l.source.id : l.source;
+        const tId = typeof l.target === 'object' ? l.target.id : l.target;
+        return sId === selectedNode.id || tId === selectedNode.id;
+      }});
+
+      // Show floating tooltip
+      const tt = document.getElementById("graphTooltip");
+      document.getElementById("tooltipLabel").innerText = selectedNode.label;
+      document.getElementById("tooltipGen").innerText = selectedNode.gen;
+      document.getElementById("tooltipGen").style.backgroundColor = (domainColorMap[selectedNode.group] || "#6366f1") + "33";
+      document.getElementById("tooltipGen").style.color = domainColorMap[selectedNode.group] || "#6366f1";
+      document.getElementById("tooltipDomain").innerText = selectedNode.group;
+      document.getElementById("tooltipVal").innerText = selectedNode.val + ' pt (Ranked)';
+      document.getElementById("tooltipDesc").innerText = selectedNode.desc || "기술 세부 설명";
+      tt.classList.remove("hidden");
+    }}
+
+    function resetHighlight() {{
+      if (nodeSelection) {{
+        nodeSelection.classed("node-dimmed", false);
+        nodeSelection.classed("node-highlighted", false);
+      }}
+      if (linkSelection) {{
+        linkSelection.classed("link-dimmed", false);
+        linkSelection.classed("link-highlighted", false);
+      }}
+      document.getElementById("graphTooltip").classList.add("hidden");
+    }}
+
+    function filterGraphDomain(dom) {{
+      currentGraphDomain = dom;
+      document.querySelectorAll('.graph-dom-btn').forEach(btn => {{
+        if (btn.dataset.dom === dom) {{
+          btn.classList.add('bg-indigo-600', 'text-white');
+          btn.classList.remove('text-cyan-400', 'text-pink-400', 'text-purple-400', 'text-emerald-400', 'text-amber-400', 'text-indigo-400');
+        }} else {{
+          btn.classList.remove('bg-indigo-600', 'text-white');
+        }}
+      }});
+
+      if (nodeSelection) {{
+        nodeSelection.attr("opacity", d => (dom === 'ALL' || d.group === dom) ? 0.95 : 0.1);
+        textSelection.attr("opacity", d => (dom === 'ALL' || d.group === dom) ? 1 : 0.15);
       }}
     }}
 
@@ -979,59 +1014,6 @@ def generate_html(data):
       inboxSearchQuery = e.target.value;
       renderInbox();
     }});
-
-    function openAdminModal() {{
-      if (adminData) {{
-        document.getElementById('adminLatestDate').innerText = adminData.latest_run ? adminData.latest_run.timestamp : '2026-09-01';
-
-        const epList = document.getElementById('adminEndpointsList');
-        epList.innerHTML = '';
-        if (adminData.endpoints) {{
-          adminData.endpoints.forEach(ep => {{
-            const div = document.createElement('div');
-            div.className = 'p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between text-xs';
-            div.innerHTML = `
-              <div class="space-y-0.5 truncate pr-2">
-                <div class="font-bold text-white flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                  ${{ep.name}} <span class="text-[10px] text-slate-400 font-normal">(${{ep.type}})</span>
-                </div>
-                <div class="text-[11px] text-indigo-300 truncate font-mono">${{ep.url}}</div>
-              </div>
-              <span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300 border border-slate-700 shrink-0 font-medium">${{ep.auth}}</span>
-            `;
-            epList.appendChild(div);
-          }});
-        }}
-
-        const hLogs = document.getElementById('adminHealthLogs');
-        hLogs.innerHTML = '';
-        if (adminData.latest_run && adminData.latest_run.sources) {{
-          Object.entries(adminData.latest_run.sources).forEach(([src, info]) => {{
-            const isSuccess = info.status === 'SUCCESS';
-            const div = document.createElement('div');
-            div.className = 'flex items-center justify-between p-2 rounded-lg bg-slate-900 border ' + (isSuccess ? 'border-emerald-500/20' : 'border-amber-500/20');
-            div.innerHTML = `
-              <div class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full ${{isSuccess ? 'bg-emerald-400' : 'bg-amber-400'}}"></span>
-                <span class="font-bold text-slate-200 uppercase">${{src}}</span>
-              </div>
-              <div class="text-slate-400">
-                ${{isSuccess ? '<span class="text-emerald-400 font-semibold">' + (info.items_found || 0) + ' 건 수집</span>' : '<span class="text-amber-400">차단/에러 감지</span>'}} 
-                (${{info.duration_sec || 0}}s)
-              </div>
-            `;
-            hLogs.appendChild(div);
-          }});
-        }}
-      }}
-      document.getElementById('adminModal').classList.remove('hidden');
-      lucide.createIcons();
-    }}
-
-    function closeAdminModal() {{
-      document.getElementById('adminModal').classList.add('hidden');
-    }}
 
     function getVerdictBadgeClass(verdict) {{
       if (verdict === 'VERIFIED_TRUE') return 'badge-true';
@@ -1303,9 +1285,6 @@ def generate_html(data):
 
     document.getElementById('detailModal').addEventListener('click', (e) => {{
       if (e.target.id === 'detailModal') closeModal();
-    }});
-    document.getElementById('adminModal').addEventListener('click', (e) => {{
-      if (e.target.id === 'adminModal') closeAdminModal();
     }});
 
     document.addEventListener('DOMContentLoaded', () => {{

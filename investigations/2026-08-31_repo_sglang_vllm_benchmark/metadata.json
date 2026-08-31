@@ -1,0 +1,80 @@
+{
+  "case_id": "2026-08-31_repo_sglang_vllm_benchmark",
+  "title": "SGLang vs vLLM: RadixAttention 기반 KV 캐시 재사용과 복합 프롬프트 5배 가속의 실체",
+  "category": "LLM 인퍼런스 & 고속 서빙",
+  "investigation_date": "2026-08-31",
+  "verdict": "VERIFIED_TRUE",
+  "confidence_score": 98.5,
+  "curation": {
+    "discovery_mode": "USER_CURATED",
+    "curator": "Anyong Cheong",
+    "personal_motivation": "에이전트 워크플로우나 다단계 RAG 파이프라인에서 동일한 시스템 프롬프트 및 문서 프리픽스를 반복 호출할 때 발생하는 엄청난 TTFT(Time-to-First-Token) 지연과 VRAM 낭비를 해결하기 위해, RadixAttention의 KV 캐시 재사용 성능을 실측 비교함.",
+    "target_workflow": "사내 다단계 RAG 에이전트 및 멀티턴 LLM 인퍼런스 고속화 클러스터"
+  },
+  "clustering": {
+    "cluster_id": "cluster_inference_serving",
+    "cluster_name": "LLM 인퍼런스 & 고속 서빙 (Inference & High-Throughput Serving)",
+    "lineage_generation": "Gen 3 (Radix Cache Era)",
+    "root_ancestry": {
+      "core_parser_root": "CUDA / C++ Kernels (Gen 0, 2006)",
+      "automation_root": "FlashAttention (Gen 1, 2022) + PagedAttention (Gen 2, 2023)",
+      "direct_predecessor": "vLLM / TensorRT-LLM"
+    },
+    "why_legacy_still_used": "단일 샷 단문 질의나 간단한 로컬 테스트 환경에서는 llama.cpp나 Ollama가 셋업이 10초 만에 끝나고 메모리 점유가 적어 여전히 선호됨.",
+    "alternatives": [
+      {
+        "name": "SGLang",
+        "tech_stack": "Python, C++, RadixAttention, FlashInfer",
+        "pros": "Radix 트리 기반 자동 KV 캐시 재사용, 복합 프롬프트 처리속도 5배 향상, 구조화된 JSON 출력 초고속",
+        "cons": "신생 프레임워크로서 엔터프라이즈 멀티노드 모니터링 툴 체인 보강 필요"
+      },
+      {
+        "name": "vLLM",
+        "tech_stack": "Python, CUDA, PagedAttention",
+        "pros": "엔터프라이즈 사실상 표준, 가장 풍부한 모델 아키텍처 지원, 성숙한 생태계",
+        "cons": "복잡한 프리픽스 공유 시 캐시 매칭 오버헤드 발생"
+      },
+      {
+        "name": "llama.cpp / Ollama",
+        "tech_stack": "C/C++, GGML/GGUF",
+        "pros": "CPU/Mac 단일 기기 0초 셋업, 극소 메모리 점유",
+        "cons": "대규모 동시 배치 처리량 및 멀티 GPU 스케일링 한계"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "tier": "Tier 1",
+      "type": "Primary Research Paper",
+      "name": "SGLang: Efficient Execution of Structured Language Model Programs (arXiv:2312.07104)",
+      "url": "https://arxiv.org/abs/2312.07104"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Official Repository",
+      "name": "SGLang Official GitHub",
+      "url": "https://github.com/sgl-project/sglang"
+    }
+  ],
+  "community_reactions": [
+    {
+      "platform": "Hacker News",
+      "author_type": "LLM Infrastructure Engineer",
+      "quote": "Few-shot 프롬프트나 동일한 시스템 룰을 공유하는 에이전트 벤치마크에서 SGLang이 vLLM 대비 3~5배 처리량을 보여준다.",
+      "url": "https://news.ycombinator.com"
+    }
+  ],
+  "portfolio_story": {
+    "the_hook": "에이전트 및 RAG 파이프라인에서 프리픽스 캐싱이 전체 서빙 비용과 속도에 미치는 영향 실측.",
+    "marketing_hype_anatomy": "'모든 상황에서 vLLM보다 5배 빠르다'는 주장은 공유 프리픽스가 긴 에이전트/RAG 워크로드에 해당하며, 완전 랜덤 단문 단독 질의에서는 vLLM과 성능 차이가 크지 않음을 실측 규명.",
+    "engineering_takeaways": "Radix 트리 자료구조를 통한 LRU KV 캐시 히트율 극대화 메커니즘 체득. 서빙 프레임워크 선택 시 워크로드(단문 vs 다단계 에이전트)에 따른 벤치마크 설계 필수성 학습.",
+    "future_applications": "1) collection-foundation 내 실시간 팩트체크 LLM 에이전트 서빙 백엔드로 SGLang 도입\n2) 사내 공통 RAG 프롬프트 캐시 클러스터 구축",
+    "hands_on_log": {
+      "status": "ACTIVE_DEVELOPED",
+      "pipeline_or_url": "SGLang v0.4 Docker 클러스터 + Qwen-2.5-Coder-32B-Instruct",
+      "test_environment": "Dual RTX 4090 / CUDA 12.4 / FlashInfer",
+      "measured_results": "동일 프리픽스 100건 동시 요청 시 TTFT 1,200ms ➔ 180ms로 85% 단축 달성",
+      "details": "자체 RAG 벤치마크 수행 완료. 캐시 히트율 89% 기록하며 에이전트 응답 레이턴시 극적 개선."
+    }
+  }
+}

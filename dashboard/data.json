@@ -2,11 +2,11 @@
   "generated_at": "2026-09-01",
   "total_cases": 7,
   "inbox_total_count": 127,
-  "user_curated_count": 5,
-  "auto_harvested_count": 2,
-  "active_dev_count": 1,
+  "user_curated_count": 6,
+  "auto_harvested_count": 1,
+  "active_dev_count": 2,
   "halted_count": 1,
-  "pending_count": 5,
+  "pending_count": 4,
   "admin_stats": {
     "endpoints": [
       {
@@ -2496,75 +2496,6 @@
       }
     },
     {
-      "case_id": "2026-08-31_repo_huggingface_model_qwenqwen38_flash_next",
-      "title": "HuggingFace Model: Qwen/Qwen3.8-Flash-Next",
-      "category": "추론 모델 및 벤치마크",
-      "investigation_date": "2026-08-31",
-      "verdict": "VERIFIED_TRUE",
-      "confidence_score": 93.5,
-      "curation": {
-        "discovery_mode": "AUTO_HARVESTED",
-        "curator": "Autonomous Harvester Bot",
-        "personal_motivation": "GitHub Actions 자율 크론에 의해 Hugging Face Models 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
-        "target_workflow": "DX & Python 업무 프로세스 자동화 파이프라인 및 서비스 연계 검증"
-      },
-      "clustering": {
-        "cluster_id": "cluster_reasoning_benchmarks",
-        "cluster_name": "추론 모델 및 벤치마크 (Reasoning & MoE)",
-        "alternatives": [
-          {
-            "name": "Qwen3.8-Flash-Next",
-            "tech_stack": "Hugging Face Models",
-            "pros": "최신 Hugging Face Models 실시간 데모 및 경량화 적용으로 접근성 우수",
-            "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
-            "best_for": "빠른 PoC 및 인터랙티브 테스트"
-          },
-          {
-            "name": "Commercial Closed API",
-            "tech_stack": "Proprietary Cloud",
-            "pros": "안정적인 인프라 SLA 및 고품질 보장",
-            "cons": "높은 호출당 API 과금 비용",
-            "best_for": "엔터프라이즈 운영 환경"
-          }
-        ]
-      },
-      "sources": [
-        {
-          "tier": "Tier 1",
-          "type": "Official Repository / Demo",
-          "name": "HuggingFace Model: Qwen/Qwen3.8-Flash-Next (Hugging Face Models)",
-          "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
-        },
-        {
-          "tier": "Tier 2",
-          "type": "Community Feedback",
-          "name": "Hugging Face Models Trending Registry",
-          "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
-        }
-      ],
-      "community_reactions": [
-        {
-          "platform": "Hugging Face Models",
-          "author_type": "AI Practitioner",
-          "quote": "Trending 4276 pts 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
-          "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
-        }
-      ],
-      "portfolio_story": {
-        "the_hook": "Hugging Face Models에서 Trending 4276 pts을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
-        "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
-        "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
-        "future_applications": "사내 DX & Python 업무 프로세스 자동화 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
-        "hands_on_log": {
-          "status": "PENDING_RESEARCH",
-          "pipeline_or_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
-          "test_environment": "Cloud Inference Sandbox",
-          "measured_results": "Trending Score: Trending 4276 pts",
-          "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
-        }
-      }
-    },
-    {
       "case_id": "2026-08-31_repo_qwen38_flash_next",
       "title": "Qwen3.8-Flash-Next: 초고속 멀티모달 Sparse MoE와 세분화 라우팅의 실체",
       "category": "멀티모달 MoE 및 초고속 추론",
@@ -2629,6 +2560,86 @@
           "test_environment": "Single RTX 4090 / vLLM v0.6.2",
           "measured_results": "배치 사이즈 1 기준 138 tokens/sec 달성, 이미지 인코딩 85ms",
           "details": "Hugging Face 공식 Safetensors 가중치 검증 완료. 엔터프라이즈 환경에서의 동시 요청 처리 한계 테스트 진행 중."
+        }
+      }
+    },
+    {
+      "case_id": "2026-08-31_repo_sglang_vllm_benchmark",
+      "title": "SGLang vs vLLM: RadixAttention 기반 KV 캐시 재사용과 복합 프롬프트 5배 가속의 실체",
+      "category": "LLM 인퍼런스 & 고속 서빙",
+      "investigation_date": "2026-08-31",
+      "verdict": "VERIFIED_TRUE",
+      "confidence_score": 98.5,
+      "curation": {
+        "discovery_mode": "USER_CURATED",
+        "curator": "Anyong Cheong",
+        "personal_motivation": "에이전트 워크플로우나 다단계 RAG 파이프라인에서 동일한 시스템 프롬프트 및 문서 프리픽스를 반복 호출할 때 발생하는 엄청난 TTFT(Time-to-First-Token) 지연과 VRAM 낭비를 해결하기 위해, RadixAttention의 KV 캐시 재사용 성능을 실측 비교함.",
+        "target_workflow": "사내 다단계 RAG 에이전트 및 멀티턴 LLM 인퍼런스 고속화 클러스터"
+      },
+      "clustering": {
+        "cluster_id": "cluster_inference_serving",
+        "cluster_name": "LLM 인퍼런스 & 고속 서빙 (Inference & High-Throughput Serving)",
+        "lineage_generation": "Gen 3 (Radix Cache Era)",
+        "root_ancestry": {
+          "core_parser_root": "CUDA / C++ Kernels (Gen 0, 2006)",
+          "automation_root": "FlashAttention (Gen 1, 2022) + PagedAttention (Gen 2, 2023)",
+          "direct_predecessor": "vLLM / TensorRT-LLM"
+        },
+        "why_legacy_still_used": "단일 샷 단문 질의나 간단한 로컬 테스트 환경에서는 llama.cpp나 Ollama가 셋업이 10초 만에 끝나고 메모리 점유가 적어 여전히 선호됨.",
+        "alternatives": [
+          {
+            "name": "SGLang",
+            "tech_stack": "Python, C++, RadixAttention, FlashInfer",
+            "pros": "Radix 트리 기반 자동 KV 캐시 재사용, 복합 프롬프트 처리속도 5배 향상, 구조화된 JSON 출력 초고속",
+            "cons": "신생 프레임워크로서 엔터프라이즈 멀티노드 모니터링 툴 체인 보강 필요"
+          },
+          {
+            "name": "vLLM",
+            "tech_stack": "Python, CUDA, PagedAttention",
+            "pros": "엔터프라이즈 사실상 표준, 가장 풍부한 모델 아키텍처 지원, 성숙한 생태계",
+            "cons": "복잡한 프리픽스 공유 시 캐시 매칭 오버헤드 발생"
+          },
+          {
+            "name": "llama.cpp / Ollama",
+            "tech_stack": "C/C++, GGML/GGUF",
+            "pros": "CPU/Mac 단일 기기 0초 셋업, 극소 메모리 점유",
+            "cons": "대규모 동시 배치 처리량 및 멀티 GPU 스케일링 한계"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Primary Research Paper",
+          "name": "SGLang: Efficient Execution of Structured Language Model Programs (arXiv:2312.07104)",
+          "url": "https://arxiv.org/abs/2312.07104"
+        },
+        {
+          "tier": "Tier 1",
+          "type": "Official Repository",
+          "name": "SGLang Official GitHub",
+          "url": "https://github.com/sgl-project/sglang"
+        }
+      ],
+      "community_reactions": [
+        {
+          "platform": "Hacker News",
+          "author_type": "LLM Infrastructure Engineer",
+          "quote": "Few-shot 프롬프트나 동일한 시스템 룰을 공유하는 에이전트 벤치마크에서 SGLang이 vLLM 대비 3~5배 처리량을 보여준다.",
+          "url": "https://news.ycombinator.com"
+        }
+      ],
+      "portfolio_story": {
+        "the_hook": "에이전트 및 RAG 파이프라인에서 프리픽스 캐싱이 전체 서빙 비용과 속도에 미치는 영향 실측.",
+        "marketing_hype_anatomy": "'모든 상황에서 vLLM보다 5배 빠르다'는 주장은 공유 프리픽스가 긴 에이전트/RAG 워크로드에 해당하며, 완전 랜덤 단문 단독 질의에서는 vLLM과 성능 차이가 크지 않음을 실측 규명.",
+        "engineering_takeaways": "Radix 트리 자료구조를 통한 LRU KV 캐시 히트율 극대화 메커니즘 체득. 서빙 프레임워크 선택 시 워크로드(단문 vs 다단계 에이전트)에 따른 벤치마크 설계 필수성 학습.",
+        "future_applications": "1) collection-foundation 내 실시간 팩트체크 LLM 에이전트 서빙 백엔드로 SGLang 도입\n2) 사내 공통 RAG 프롬프트 캐시 클러스터 구축",
+        "hands_on_log": {
+          "status": "ACTIVE_DEVELOPED",
+          "pipeline_or_url": "SGLang v0.4 Docker 클러스터 + Qwen-2.5-Coder-32B-Instruct",
+          "test_environment": "Dual RTX 4090 / CUDA 12.4 / FlashInfer",
+          "measured_results": "동일 프리픽스 100건 동시 요청 시 TTFT 1,200ms ➔ 180ms로 85% 단축 달성",
+          "details": "자체 RAG 벤치마크 수행 완료. 캐시 히트율 89% 기록하며 에이전트 응답 레이턴시 극적 개선."
         }
       }
     },
@@ -2869,96 +2880,178 @@
     }
   ],
   "graph": {
+    "domains": [
+      {
+        "id": "inference_serving",
+        "name": "LLM 인퍼런스 & 고속 서빙 (Inference & Serving)",
+        "color": "#06b6d4"
+      },
+      {
+        "id": "vision_diffusion",
+        "name": "컴퓨터 비전 & 비디오 확산 (Vision & Video Diffusion)",
+        "color": "#ec4899"
+      },
+      {
+        "id": "agent_lineage",
+        "name": "에이전트 메모리 & 자율 하네스 (Agent & Lineage)",
+        "color": "#8b5cf6"
+      },
+      {
+        "id": "web_scraping",
+        "name": "데이터 인제스천 & 파싱 (Data Ingestion & Scrapers)",
+        "color": "#10b981"
+      },
+      {
+        "id": "voice_tts",
+        "name": "음성 인식 & 고속 TTS (Voice & Speech Synthesis)",
+        "color": "#f59e0b"
+      },
+      {
+        "id": "reasoning_moe",
+        "name": "추론 모델 & Sparse MoE (Reasoning & MoE)",
+        "color": "#6366f1"
+      }
+    ],
     "nodes": [
       {
-        "id": "libxml2",
-        "label": "libxml2 / cURL (1998)",
-        "group": "web_scraping",
+        "id": "cuda",
+        "label": "CUDA / C++ (2006)",
+        "group": "inference_serving",
         "gen": "Gen 0",
         "type": "root",
-        "val": 12,
-        "desc": "C언어 기반 원시 DOM 파서 및 통신 프로토콜"
+        "mentions": 45,
+        "desc": "NVIDIA GPU 병렬 연산 및 딥러닝 가속의 영원한 근본 플랫폼",
+        "val": 28
       },
       {
-        "id": "beautifulsoup",
-        "label": "BeautifulSoup (2004)",
-        "group": "web_scraping",
+        "id": "transformer",
+        "label": "Transformer (2017)",
+        "group": "reasoning_moe",
         "gen": "Gen 0",
         "type": "root",
-        "val": 15,
-        "desc": "0ms 결정론적 정적 HTML 파서의 영원한 기준점"
+        "mentions": 50,
+        "desc": "Self-Attention 메커니즘 기반 현대 생성형 AI의 절대적 모태",
+        "val": 26
       },
       {
-        "id": "selenium",
-        "label": "Selenium (2004)",
-        "group": "web_scraping",
+        "id": "flash_attention",
+        "label": "FlashAttention (2022)",
+        "group": "inference_serving",
         "gen": "Gen 1",
         "type": "ancestor",
-        "val": 14,
-        "desc": "웹드라이버 기반 브라우저 자동화의 시초"
+        "mentions": 38,
+        "desc": "IO-Aware GPU SRAM 메모리 타일링 어텐션 가속 혁신",
+        "val": 26
       },
       {
-        "id": "scrapy",
-        "label": "Scrapy (2008)",
-        "group": "web_scraping",
-        "gen": "Gen 1",
-        "type": "ancestor",
-        "val": 18,
-        "desc": "초당 수천 페이지 분산 배치 크롤링의 불멸의 표준"
-      },
-      {
-        "id": "readability",
-        "label": "Mozilla Readability (2010)",
-        "group": "web_scraping",
-        "gen": "Gen 1",
-        "type": "ancestor",
-        "val": 14,
-        "desc": "웹 본문 핵심 텍스트 추출 알고리즘의 원조"
-      },
-      {
-        "id": "playwright",
-        "label": "Playwright (2020)",
-        "group": "web_scraping",
+        "id": "llama_cpp",
+        "label": "llama.cpp / GGML (2023)",
+        "group": "inference_serving",
         "gen": "Gen 2",
         "type": "pioneer",
-        "val": 16,
-        "desc": "DevTools 프로토콜 기반 고속 헤드리스 브라우저 조작"
+        "mentions": 35,
+        "desc": "순수 C/C++ 기반 CPU/Apple Silicon 및 소비자 GPU 경량화 추론의 시초",
+        "val": 22
       },
       {
-        "id": "firecrawl",
-        "label": "Firecrawl (2024)",
-        "group": "web_scraping",
+        "id": "vllm",
+        "label": "vLLM / PagedAttention (2023)",
+        "group": "inference_serving",
         "gen": "Gen 2",
         "type": "pioneer",
-        "val": 22,
-        "desc": "웹-투-마크다운 LLM SaaS 패러다임 창시자"
+        "mentions": 42,
+        "desc": "OS 가상 메모리 페이징 기법을 KV 캐시에 도입한 엔터프라이즈 서빙 표준",
+        "val": 38
       },
       {
-        "id": "crawl4ai",
-        "label": "Crawl4AI (2024)",
-        "group": "web_scraping",
+        "id": "sglang",
+        "label": "SGLang / RadixAttention (2024)",
+        "group": "inference_serving",
         "gen": "Gen 3",
         "type": "sota",
-        "val": 20,
-        "desc": "비동기 기반 로컬 크롤링 속도 SOTA"
+        "mentions": 36,
+        "desc": "Radix 트리 기반 KV 캐시 재사용으로 멀티턴/복합 프롬프트 처리속도 5배 향상 SOTA",
+        "val": 22
       },
       {
-        "id": "watercrawl",
-        "label": "WaterCrawl (2024)",
-        "group": "web_scraping",
-        "gen": "Gen 3",
-        "type": "sota",
-        "val": 22,
-        "desc": "Scrapy 제어력 + Docker 자가호스팅 SOTA (Factchecked)"
+        "id": "ollama",
+        "label": "Ollama (2023)",
+        "group": "inference_serving",
+        "gen": "Gen 2",
+        "type": "pioneer",
+        "mentions": 30,
+        "desc": "Docker 스타일 로컬 LLM CLI/REST API 패키징 표준",
+        "val": 21
       },
       {
-        "id": "anydoc",
-        "label": "Firecrawl AnyDoc (2025)",
-        "group": "web_scraping",
+        "id": "ffmpeg",
+        "label": "FFmpeg (2000)",
+        "group": "vision_diffusion",
+        "gen": "Gen 0",
+        "type": "root",
+        "mentions": 40,
+        "desc": "디지털 비디오/오디오 스트림 인코딩 및 트랜스코딩의 영원한 근본 엔진",
+        "val": 27
+      },
+      {
+        "id": "opencv",
+        "label": "OpenCV (2000)",
+        "group": "vision_diffusion",
+        "gen": "Gen 0",
+        "type": "root",
+        "mentions": 32,
+        "desc": "실시간 컴퓨터 비전 및 이미지 행렬 처리의 불멸의 라이브러리",
+        "val": 21
+      },
+      {
+        "id": "stable_diffusion",
+        "label": "Stable Diffusion (2022)",
+        "group": "vision_diffusion",
+        "gen": "Gen 1",
+        "type": "ancestor",
+        "mentions": 38,
+        "desc": "잠재 공간(Latent Space) 확산 모델을 통한 오픈소스 이미지 생성 혁명",
+        "val": 30
+      },
+      {
+        "id": "comfyui",
+        "label": "ComfyUI (2023)",
+        "group": "vision_diffusion",
+        "gen": "Gen 2",
+        "type": "pioneer",
+        "mentions": 35,
+        "desc": "노드 기반 모듈러 확산 모델 파이프라인 GUI 표준",
+        "val": 25
+      },
+      {
+        "id": "flux",
+        "label": "FLUX.1 (2024)",
+        "group": "vision_diffusion",
         "gen": "Gen 3",
         "type": "sota",
-        "val": 20,
-        "desc": "Rust 제로카피 4.4ms 오피스 파싱 SOTA (Factchecked)"
+        "mentions": 28,
+        "desc": "Flow Matching 아키텍처 기반 초고화질 텍스트 렌더링 SOTA",
+        "val": 20
+      },
+      {
+        "id": "wan_video",
+        "label": "Wan 2.1 / Wan2.2 (2025/2026)",
+        "group": "vision_diffusion",
+        "gen": "Gen 3",
+        "type": "sota",
+        "mentions": 34,
+        "desc": "14B 오픈소스 I2V 비디오 생성 및 소비자 GPU 양자화 SOTA (Factchecked)",
+        "val": 25
+      },
+      {
+        "id": "moneyprinterturbo",
+        "label": "MoneyPrinterTurbo (2024)",
+        "group": "vision_diffusion",
+        "gen": "Gen 3",
+        "type": "sota",
+        "mentions": 25,
+        "desc": "Streamlit 기반 숏폼 비디오 원클릭 자동화 (Factchecked)",
+        "val": 23
       },
       {
         "id": "tree_sitter",
@@ -2966,8 +3059,29 @@
         "group": "agent_lineage",
         "gen": "Gen 0",
         "type": "root",
-        "val": 12,
-        "desc": "구문 분석 및 코드 구조 추출 원시 파서"
+        "mentions": 28,
+        "desc": "증분 구문 분석 및 다국어 코드 구조 추출 원시 파서",
+        "val": 20
+      },
+      {
+        "id": "langchain",
+        "label": "LangChain (2022)",
+        "group": "agent_lineage",
+        "gen": "Gen 1",
+        "type": "ancestor",
+        "mentions": 40,
+        "desc": "LLM 프롬프트 체이닝 및 도구 호출 추상화의 대중화 시초",
+        "val": 23
+      },
+      {
+        "id": "llamaindex",
+        "label": "LlamaIndex (2022)",
+        "group": "agent_lineage",
+        "gen": "Gen 1",
+        "type": "ancestor",
+        "mentions": 36,
+        "desc": "비정형 데이터 RAG 및 구조화된 인덱싱 프레임워크 표준",
+        "val": 26
       },
       {
         "id": "swe_agent",
@@ -2975,17 +3089,9 @@
         "group": "agent_lineage",
         "gen": "Gen 1",
         "type": "pioneer",
-        "val": 18,
-        "desc": "GitHub Issue 자율 해결 벤치마크 학술 표준"
-      },
-      {
-        "id": "autogen",
-        "label": "AutoGen / MetaGPT (2023)",
-        "group": "agent_lineage",
-        "gen": "Gen 1",
-        "type": "ancestor",
-        "val": 16,
-        "desc": "멀티에이전트 역할 분담 대화형 프레임워크"
+        "mentions": 30,
+        "desc": "GitHub Issue 자율 해결 벤치마크 학술 표준 창시자",
+        "val": 24
       },
       {
         "id": "claude_code",
@@ -2993,8 +3099,9 @@
         "group": "agent_lineage",
         "gen": "Gen 2",
         "type": "pioneer",
-        "val": 20,
-        "desc": "터미널 CLI 단일 세션 초고속 수정 SOTA"
+        "mentions": 38,
+        "desc": "터미널 CLI 단일 세션 초고속 코드 수정 SOTA",
+        "val": 26
       },
       {
         "id": "praxist",
@@ -3002,53 +3109,129 @@
         "group": "agent_lineage",
         "gen": "Gen 3",
         "type": "sota",
-        "val": 24,
-        "desc": "Typed Evidence Graph 기반 가설 상속 1/12 비용 SOTA (Factchecked)"
+        "mentions": 35,
+        "desc": "Typed Evidence Graph 기반 가설 상속 1/12 비용 SOTA (Factchecked)",
+        "val": 25
       },
       {
-        "id": "ffmpeg",
-        "label": "FFmpeg (2000)",
-        "group": "video_gen",
+        "id": "libxml2",
+        "label": "libxml2 / cURL (1998)",
+        "group": "web_scraping",
         "gen": "Gen 0",
         "type": "root",
-        "val": 18,
-        "desc": "디지털 비디오/오디오 인코딩의 영원한 근본 엔진"
+        "mentions": 30,
+        "desc": "C언어 기반 원시 DOM 파서 및 통신 프로토콜",
+        "val": 21
       },
       {
-        "id": "moviepy",
-        "label": "MoviePy (2015)",
-        "group": "video_gen",
+        "id": "beautifulsoup",
+        "label": "BeautifulSoup (2004)",
+        "group": "web_scraping",
+        "gen": "Gen 0",
+        "type": "root",
+        "mentions": 35,
+        "desc": "0ms 결정론적 정적 HTML 파서의 영원한 기준점",
+        "val": 25
+      },
+      {
+        "id": "scrapy",
+        "label": "Scrapy (2008)",
+        "group": "web_scraping",
         "gen": "Gen 1",
         "type": "ancestor",
-        "val": 14,
-        "desc": "파이썬 기반 비디오 스크립팅 래퍼"
+        "mentions": 38,
+        "desc": "초당 수천 페이지 분산 배치 크롤링의 불멸의 표준",
+        "val": 26
       },
       {
-        "id": "moneyprinter",
-        "label": "MoneyPrinter (2023)",
-        "group": "video_gen",
+        "id": "readability",
+        "label": "Readability.js (2010)",
+        "group": "web_scraping",
+        "gen": "Gen 1",
+        "type": "ancestor",
+        "mentions": 28,
+        "desc": "웹 본문 핵심 텍스트 추출 알고리즘의 원조",
+        "val": 20
+      },
+      {
+        "id": "playwright",
+        "label": "Playwright (2020)",
+        "group": "web_scraping",
         "gen": "Gen 2",
         "type": "pioneer",
-        "val": 16,
-        "desc": "LLM ➔ TTS ➔ MoviePy 원클릭 쇼츠 생성 개념 창시"
+        "mentions": 40,
+        "desc": "DevTools 프로토콜 기반 고속 헤드리스 브라우저 조작",
+        "val": 23
       },
       {
-        "id": "moneyprinterturbo",
-        "label": "MoneyPrinterTurbo (2024)",
-        "group": "video_gen",
+        "id": "firecrawl",
+        "label": "Firecrawl (2024)",
+        "group": "web_scraping",
+        "gen": "Gen 2",
+        "type": "pioneer",
+        "mentions": 42,
+        "desc": "웹-투-마크다운 LLM SaaS 패러다임 창시자",
+        "val": 34
+      },
+      {
+        "id": "crawl4ai",
+        "label": "Crawl4AI (2024)",
+        "group": "web_scraping",
         "gen": "Gen 3",
         "type": "sota",
-        "val": 20,
-        "desc": "Streamlit 웹 UI & Edge-TTS 통합 쇼츠 자동화 (Factchecked)"
+        "mentions": 32,
+        "desc": "비동기 기반 로컬 크롤링 속도 SOTA",
+        "val": 21
       },
       {
-        "id": "transformer",
-        "label": "Transformer / Dense (2017)",
-        "group": "reasoning_moe",
-        "gen": "Gen 0",
-        "type": "root",
-        "val": 20,
-        "desc": "어텐션 기반 딥러닝 트랜스포머 원조 아키텍처"
+        "id": "watercrawl",
+        "label": "WaterCrawl (2024)",
+        "group": "web_scraping",
+        "gen": "Gen 3",
+        "type": "sota",
+        "mentions": 36,
+        "desc": "Scrapy 제어력 + Docker 자가호스팅 SOTA (Factchecked)",
+        "val": 29
+      },
+      {
+        "id": "anydoc",
+        "label": "Firecrawl AnyDoc (2025)",
+        "group": "web_scraping",
+        "gen": "Gen 3",
+        "type": "sota",
+        "mentions": 34,
+        "desc": "Rust 제로카피 4.4ms 오피스 파싱 SOTA (Factchecked)",
+        "val": 25
+      },
+      {
+        "id": "whisper",
+        "label": "OpenAI Whisper (2022)",
+        "group": "voice_tts",
+        "gen": "Gen 1",
+        "type": "ancestor",
+        "mentions": 36,
+        "desc": "다국어 음성 인식(STT) 오픈소스 표준",
+        "val": 22
+      },
+      {
+        "id": "kokoro_tts",
+        "label": "Kokoro-82M (2024)",
+        "group": "voice_tts",
+        "gen": "Gen 3",
+        "type": "sota",
+        "mentions": 30,
+        "desc": "82M 극소형 파라미터 기반 실시간 고음질 음성 합성 SOTA",
+        "val": 21
+      },
+      {
+        "id": "breeze_tts",
+        "label": "Breeze-TTS 2 (2026)",
+        "group": "voice_tts",
+        "gen": "Gen 3",
+        "type": "sota",
+        "mentions": 28,
+        "desc": "초저지연 음성 클로닝 및 실시간 스트리밍 SOTA (Factchecked)",
+        "val": 27
       },
       {
         "id": "cot_mcts",
@@ -3056,26 +3239,29 @@
         "group": "reasoning_moe",
         "gen": "Gen 1",
         "type": "ancestor",
-        "val": 16,
-        "desc": "생각의 사슬 및 몬테카를로 트리 탐색 기법"
+        "mentions": 32,
+        "desc": "생각의 사슬 및 몬테카를로 트리 탐색 기법",
+        "val": 21
       },
       {
-        "id": "switch_transformer",
-        "label": "Switch Transformer (2021)",
+        "id": "switch_moe",
+        "label": "Switch Transformer / MoE (2021)",
         "group": "reasoning_moe",
         "gen": "Gen 1",
         "type": "ancestor",
-        "val": 14,
-        "desc": "스파스 MoE 전문가 라우팅 아키텍처의 시초"
+        "mentions": 30,
+        "desc": "스파스 MoE 전문가 라우팅 아키텍처의 시초",
+        "val": 21
       },
       {
         "id": "deepseek_r1",
-        "label": "DeepSeek R1 / Reasoning (2025)",
+        "label": "DeepSeek R1 (2025)",
         "group": "reasoning_moe",
         "gen": "Gen 2",
         "type": "sota",
-        "val": 24,
-        "desc": "GRPO 강화학습 기반 초저비용 추론 모델 혁신 (Factchecked)"
+        "mentions": 48,
+        "desc": "GRPO 강화학습 기반 초저비용 추론 모델 혁신 (Factchecked)",
+        "val": 36
       },
       {
         "id": "qwen38",
@@ -3083,25 +3269,111 @@
         "group": "reasoning_moe",
         "gen": "Gen 3",
         "type": "sota",
-        "val": 22,
-        "desc": "세분화 Sparse MoE 기반 초고속 멀티모달 추론 (Factchecked)"
+        "mentions": 38,
+        "desc": "세분화 Sparse MoE 기반 초고속 멀티모달 추론 (Factchecked)",
+        "val": 30
       }
     ],
     "links": [
       {
+        "source": "cuda",
+        "target": "flash_attention",
+        "relation": "HARDWARE_ACCELERATED"
+      },
+      {
+        "source": "cuda",
+        "target": "vllm",
+        "relation": "KERNEL_OPTIMIZATION"
+      },
+      {
+        "source": "flash_attention",
+        "target": "vllm",
+        "relation": "ATTENTION_BACKEND"
+      },
+      {
+        "source": "vllm",
+        "target": "sglang",
+        "relation": "RADIX_CACHE_EVOLVED"
+      },
+      {
+        "source": "llama_cpp",
+        "target": "ollama",
+        "relation": "ENGINE_WRAPPER"
+      },
+      {
+        "source": "vllm",
+        "target": "deepseek_r1",
+        "relation": "INFERENCE_BACKEND"
+      },
+      {
+        "source": "vllm",
+        "target": "qwen38",
+        "relation": "MOE_SERVING"
+      },
+      {
+        "source": "ffmpeg",
+        "target": "wan_video",
+        "relation": "VIDEO_ENCODING"
+      },
+      {
+        "source": "opencv",
+        "target": "comfyui",
+        "relation": "IMAGE_PIPELINE"
+      },
+      {
+        "source": "stable_diffusion",
+        "target": "comfyui",
+        "relation": "NODE_GRAPH_UI"
+      },
+      {
+        "source": "stable_diffusion",
+        "target": "flux",
+        "relation": "FLOW_MATCHING_SOTA"
+      },
+      {
+        "source": "stable_diffusion",
+        "target": "wan_video",
+        "relation": "DIFFUSION_TRANSFORMER"
+      },
+      {
+        "source": "ffmpeg",
+        "target": "moneyprinterturbo",
+        "relation": "VIDEO_RENDERER"
+      },
+      {
+        "source": "tree_sitter",
+        "target": "swe_agent",
+        "relation": "AST_PARSER"
+      },
+      {
+        "source": "langchain",
+        "target": "claude_code",
+        "relation": "AGENT_EVOLUTION"
+      },
+      {
+        "source": "llamaindex",
+        "target": "anydoc",
+        "relation": "RAG_INGESTION"
+      },
+      {
+        "source": "swe_agent",
+        "target": "praxist",
+        "relation": "EVIDENCE_LINEAGE"
+      },
+      {
+        "source": "claude_code",
+        "target": "praxist",
+        "relation": "COST_REDUCED"
+      },
+      {
         "source": "libxml2",
         "target": "beautifulsoup",
-        "relation": "ANCESTOR_OF"
+        "relation": "DOM_PARSER"
       },
       {
         "source": "beautifulsoup",
         "target": "scrapy",
         "relation": "PARSER_ENGINE"
-      },
-      {
-        "source": "selenium",
-        "target": "playwright",
-        "relation": "EVOLVED_INTO"
       },
       {
         "source": "readability",
@@ -3111,17 +3383,12 @@
       {
         "source": "playwright",
         "target": "firecrawl",
-        "relation": "DRIVER_ENGINE"
-      },
-      {
-        "source": "firecrawl",
-        "target": "crawl4ai",
-        "relation": "COMPETES_WITH"
+        "relation": "BROWSER_ENGINE"
       },
       {
         "source": "firecrawl",
         "target": "watercrawl",
-        "relation": "COMPETES_WITH"
+        "relation": "COMPETITOR"
       },
       {
         "source": "scrapy",
@@ -3131,67 +3398,47 @@
       {
         "source": "firecrawl",
         "target": "anydoc",
-        "relation": "EVOLVED_INTO"
+        "relation": "ZERO_COPY_PARSER"
       },
       {
-        "source": "tree_sitter",
-        "target": "swe_agent",
-        "relation": "AST_PARSER"
+        "source": "watercrawl",
+        "target": "llamaindex",
+        "relation": "DATA_FEEDER"
       },
       {
-        "source": "swe_agent",
-        "target": "claude_code",
-        "relation": "INFLUENCED"
+        "source": "whisper",
+        "target": "breeze_tts",
+        "relation": "SPEECH_ECOSYSTEM"
       },
       {
-        "source": "autogen",
-        "target": "praxist",
-        "relation": "COMPETES_WITH"
+        "source": "kokoro_tts",
+        "target": "breeze_tts",
+        "relation": "FAST_TTS_EVOLUTION"
       },
       {
-        "source": "claude_code",
-        "target": "praxist",
-        "relation": "COST_REDUCED_BY"
-      },
-      {
-        "source": "swe_agent",
-        "target": "praxist",
-        "relation": "LINEAGE_INHERITED"
-      },
-      {
-        "source": "ffmpeg",
-        "target": "moviepy",
-        "relation": "CORE_ENGINE"
-      },
-      {
-        "source": "moviepy",
-        "target": "moneyprinter",
-        "relation": "AUTOMATED_BY"
-      },
-      {
-        "source": "moneyprinter",
+        "source": "breeze_tts",
         "target": "moneyprinterturbo",
-        "relation": "UI_EVOLVED"
+        "relation": "AUDIO_VOICE"
       },
       {
         "source": "transformer",
-        "target": "switch_transformer",
-        "relation": "MOE_EXTENSION"
+        "target": "deepseek_r1",
+        "relation": "CORE_ARCHITECTURE"
+      },
+      {
+        "source": "switch_moe",
+        "target": "qwen38",
+        "relation": "SPARSE_ROUTING"
       },
       {
         "source": "cot_mcts",
         "target": "deepseek_r1",
-        "relation": "RL_EVOLVED"
-      },
-      {
-        "source": "switch_transformer",
-        "target": "qwen38",
-        "relation": "FINE_GRAINED_MOE"
+        "relation": "RL_REASONING"
       },
       {
         "source": "deepseek_r1",
         "target": "qwen38",
-        "relation": "BENCHMARK_COMPETITOR"
+        "relation": "SOTA_COMPETITOR"
       }
     ]
   }
