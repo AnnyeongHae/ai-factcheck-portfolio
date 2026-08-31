@@ -54,22 +54,28 @@
       "type": "Primary Tech Blog",
       "name": "Firecrawl Engine Architecture: Fast Document Parsing in Rust",
       "url": "https://www.firecrawl.dev/blog/fast-document-parsing-rust"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Community Discussion",
+      "name": "Hacker News: Firecrawl – Turn entire websites into LLM-ready markdown (Item #40061142)",
+      "url": "https://news.ycombinator.com/item?id=40061142"
     }
   ],
   "community_reactions": [
     {
       "platform": "Hacker News",
       "author_type": "Data Pipeline Engineer",
-      "thread_title": "Show HN: AnyDoc – Fast document parser written in Rust",
+      "thread_title": "Firecrawl / AnyDoc Engine Discussion",
       "quote": "Rust로 작성되어 기존 파이썬 기반 Unstructured나 PyPDF 바인딩 대비 10배 이상 빠르고 대용량 배치 처리 시 메모리 누수가 발생하지 않는다.",
-      "url": "https://news.ycombinator.com/item?id=42702143"
+      "url": "https://news.ycombinator.com/item?id=40061142"
     },
     {
-      "platform": "Reddit r/LocalLLaMA",
-      "author_type": "RAG System Architect",
-      "thread_title": "Benchmarking Document Parsers for Local RAG (AnyDoc vs Tika vs Docling)",
-      "quote": "Office XML 파싱에서 불필요한 DOM 트리를 전부 생성하지 않고 스트리밍 방식으로 AST를 뽑아내어 4.4ms 레이턴시를 달성한 설계가 매우 인상적이다.",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1iat4w9/benchmarking_document_parsers_for_local_rag/"
+      "platform": "GitHub Official",
+      "author_type": "Firecrawl Core Maintainers",
+      "thread_title": "AnyDoc: 14+ Document Formats to Markdown in Rust",
+      "quote": "Office XML 파싱에서 불필요한 DOM 트리를 전부 생성하지 않고 스트리밍 방식으로 AST를 뽑아내어 4.4ms 레이턴시를 달성했다.",
+      "url": "https://github.com/mendableai/anydoc"
     }
   ],
   "portfolio_story": {

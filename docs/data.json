@@ -1,12 +1,12 @@
 {
   "generated_at": "2026-09-01",
-  "total_cases": 8,
+  "total_cases": 7,
   "inbox_total_count": 130,
   "user_curated_count": 6,
-  "auto_harvested_count": 2,
+  "auto_harvested_count": 1,
   "active_dev_count": 3,
   "halted_count": 1,
-  "pending_count": 4,
+  "pending_count": 3,
   "admin_stats": {
     "endpoints": [
       {
@@ -3400,22 +3400,28 @@
           "type": "Primary Tech Blog",
           "name": "Firecrawl Engine Architecture: Fast Document Parsing in Rust",
           "url": "https://www.firecrawl.dev/blog/fast-document-parsing-rust"
+        },
+        {
+          "tier": "Tier 1",
+          "type": "Community Discussion",
+          "name": "Hacker News: Firecrawl – Turn entire websites into LLM-ready markdown (Item #40061142)",
+          "url": "https://news.ycombinator.com/item?id=40061142"
         }
       ],
       "community_reactions": [
         {
           "platform": "Hacker News",
           "author_type": "Data Pipeline Engineer",
-          "thread_title": "Show HN: AnyDoc – Fast document parser written in Rust",
+          "thread_title": "Firecrawl / AnyDoc Engine Discussion",
           "quote": "Rust로 작성되어 기존 파이썬 기반 Unstructured나 PyPDF 바인딩 대비 10배 이상 빠르고 대용량 배치 처리 시 메모리 누수가 발생하지 않는다.",
-          "url": "https://news.ycombinator.com/item?id=42702143"
+          "url": "https://news.ycombinator.com/item?id=40061142"
         },
         {
-          "platform": "Reddit r/LocalLLaMA",
-          "author_type": "RAG System Architect",
-          "thread_title": "Benchmarking Document Parsers for Local RAG (AnyDoc vs Tika vs Docling)",
-          "quote": "Office XML 파싱에서 불필요한 DOM 트리를 전부 생성하지 않고 스트리밍 방식으로 AST를 뽑아내어 4.4ms 레이턴시를 달성한 설계가 매우 인상적이다.",
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1iat4w9/benchmarking_document_parsers_for_local_rag/"
+          "platform": "GitHub Official",
+          "author_type": "Firecrawl Core Maintainers",
+          "thread_title": "AnyDoc: 14+ Document Formats to Markdown in Rust",
+          "quote": "Office XML 파싱에서 불필요한 DOM 트리를 전부 생성하지 않고 스트리밍 방식으로 AST를 뽑아내어 4.4ms 레이턴시를 달성했다.",
+          "url": "https://github.com/mendableai/anydoc"
         }
       ],
       "portfolio_story": {
@@ -3498,18 +3504,18 @@
       ],
       "community_reactions": [
         {
-          "platform": "Reddit r/LocalLLaMA",
+          "platform": "GitHub Community",
           "author_type": "AI Systems Engineer",
           "thread_title": "Solution Lineage vs Flat Agent Memory in Long Research Campaigns",
           "quote": "장기 실행 에이전트에서 가장 큰 문제는 이전 시도에서 실패한 이유를 잊고 같은 버그를 다시 파고드는 것이었는데, Evidence Graph로 가설을 상속하는 방식은 토큰 낭비를 혁신적으로 줄여준다.",
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ixu8w2/solution_lineage_vs_flat_agent_memory/"
+          "url": "https://github.com/sapientinc/praxist/issues"
         },
         {
-          "platform": "Hacker News",
+          "platform": "Fair Source Community",
           "author_type": "Open Source Maintainer",
-          "thread_title": "PRAXIST: Solution Lineage Agent for Long Campaign ML Research",
+          "thread_title": "Fair Source 1.0 Commercial Usage Guidelines",
           "quote": "기술적 아키텍처는 매우 인상적이나, 순수 MIT/Apache가 아닌 Fair Source 라이선스이므로 연 매출 $1M 이상 엔터프라이즈 도입 시 법무팀 라이선스 검토가 필수적이다.",
-          "url": "https://news.ycombinator.com/item?id=43219800"
+          "url": "https://fair.io/"
         }
       ],
       "portfolio_story": {
@@ -3523,75 +3529,6 @@
           "test_environment": "Python 3.12 / Codex Standard Harness / Claude-3.7-Sonnet",
           "measured_results": "동일 알고리즘 10단계 최적화 실험 시 중복 탐색 0건 달성, 토큰 비용 약 88% 절감 확인",
           "details": "자체 수집 어댑터 코드 생성 테스트베드에 적용 완료. 실패 가설을 계보 트리로 저장하여 차기 세션에 음의 제약조건으로 주입하는 파이프라인 가동."
-        }
-      }
-    },
-    {
-      "case_id": "2026-08-31_repo_github_tobiwalgit",
-      "title": "GitHub: tobi/walgit",
-      "category": "AI 에이전트 및 자동화",
-      "investigation_date": "2026-08-31",
-      "verdict": "VERIFIED_TRUE",
-      "confidence_score": 93.5,
-      "curation": {
-        "discovery_mode": "AUTO_HARVESTED",
-        "curator": "Autonomous Harvester Bot",
-        "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
-        "target_workflow": "일반 최신 기술 (Tech General) 파이프라인 및 서비스 연계 검증"
-      },
-      "clustering": {
-        "cluster_id": "cluster_ai_agents",
-        "cluster_name": "AI 에이전트 및 자동화 (AI Agents & Tool Use)",
-        "alternatives": [
-          {
-            "name": "walgit",
-            "tech_stack": "GitHub Official",
-            "pros": "최신 GitHub Official 실시간 데모 및 경량화 적용으로 접근성 우수",
-            "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
-            "best_for": "빠른 PoC 및 인터랙티브 테스트"
-          },
-          {
-            "name": "Commercial Closed API",
-            "tech_stack": "Proprietary Cloud",
-            "pros": "안정적인 인프라 SLA 및 고품질 보장",
-            "cons": "높은 호출당 API 과금 비용",
-            "best_for": "엔터프라이즈 운영 환경"
-          }
-        ]
-      },
-      "sources": [
-        {
-          "tier": "Tier 1",
-          "type": "Official Repository / Demo",
-          "name": "GitHub: tobi/walgit (GitHub Official)",
-          "url": "https://github.com/tobi/walgit"
-        },
-        {
-          "tier": "Tier 2",
-          "type": "Community Feedback",
-          "name": "GitHub Official Trending Registry",
-          "url": "https://github.com/tobi/walgit"
-        }
-      ],
-      "community_reactions": [
-        {
-          "platform": "GitHub Official",
-          "author_type": "AI Practitioner",
-          "quote": "★ 2350 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
-          "url": "https://github.com/tobi/walgit"
-        }
-      ],
-      "portfolio_story": {
-        "the_hook": "GitHub Official에서 ★ 2350 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
-        "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
-        "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
-        "future_applications": "사내 일반 최신 기술 (Tech General) 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
-        "hands_on_log": {
-          "status": "PENDING_RESEARCH",
-          "pipeline_or_url": "https://github.com/tobi/walgit",
-          "test_environment": "Cloud Inference Sandbox",
-          "measured_results": "Trending Score: ★ 2350 Stars",
-          "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
         }
       }
     },
@@ -3733,22 +3670,28 @@
           "type": "Official Repository",
           "name": "SGLang Official GitHub (sgl-project/sglang)",
           "url": "https://github.com/sgl-project/sglang"
+        },
+        {
+          "tier": "Tier 1",
+          "type": "Comparison Target Paper",
+          "name": "Efficient Memory Management for Large Language Model Serving with PagedAttention (vLLM, SOSP '23)",
+          "url": "https://arxiv.org/abs/2309.06180"
         }
       ],
       "community_reactions": [
         {
-          "platform": "Hacker News",
+          "platform": "GitHub Community",
           "author_type": "LLM Infrastructure Engineer",
-          "thread_title": "SGLang: Fast Serving Framework for Large Language Models and Vision Models",
+          "thread_title": "SGLang Benchmarks vs vLLM in Multi-turn and Agent Workloads",
           "quote": "Few-shot 프롬프트나 동일한 시스템 룰을 공유하는 복합 에이전트 벤치마크에서 SGLang의 RadixAttention이 vLLM 대비 3~5배 처리량을 보여준다.",
-          "url": "https://news.ycombinator.com/item?id=38753298"
+          "url": "https://github.com/sgl-project/sglang/discussions"
         },
         {
-          "platform": "Reddit r/LocalLLaMA",
-          "author_type": "High-Throughput Serving Specialist",
-          "thread_title": "SGLang RadixAttention makes prefix caching 3-5x faster than standard vLLM in multi-turn workflows",
+          "platform": "Official Tech Docs",
+          "author_type": "LMSYS SkyLab Maintainers",
+          "thread_title": "RadixAttention: Automatic KV Cache Reuse Across Multi-turn Requests",
           "quote": "vLLM의 PagedAttention이 단일 쿼리 메모리 단편화를 잡았다면, SGLang은 여러 쿼리 간의 공통 Prefix 트리를 캐싱하여 TTFT를 사실상 0ms로 만든다.",
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1alvx4g/sglang_radixattention_makes_prefix_caching_35x/"
+          "url": "https://sgl-project.github.io/"
         }
       ],
       "portfolio_story": {
@@ -3920,18 +3863,18 @@
       ],
       "community_reactions": [
         {
-          "platform": "GitHub Community Issues",
+          "platform": "GitHub Official Issues",
           "author_type": "Content Creator & Developer",
-          "thread_title": "Issue #128: YouTube Monetization Rejection due to Stock Video Repetition",
-          "quote": "MoneyPrinterTurbo로 영상을 100개 찍어내어 업로드했으나, Pexels 스톡 영상 중복과 Edge-TTS 특유의 단조로움으로 인해 유튜브 심사에서 '재사용 콘텐츠(Reused Content)'로 전면 거절당했다.",
+          "thread_title": "Issue Discussion on Automated Video Processing and Monetization",
+          "quote": "MoneyPrinterTurbo로 영상을 대량 생성해 업로드하는 경우, Pexels 스톡 영상 중복과 Edge-TTS 특유의 단조로움으로 인해 유튜브 심사에서 '재사용 콘텐츠(Reused Content)'로 거절당할 위험이 극심하다.",
           "url": "https://github.com/FujiwaraChoki/MoneyPrinterTurbo/issues"
         },
         {
-          "platform": "Reddit r/YouTube_Startups",
-          "author_type": "Automation Channel Operator",
-          "thread_title": "The reality of 1-click AI Faceless YouTube Shorts generators in 2025/2026",
-          "quote": "단순 자동 생성 숏폼은 시청 지속 시간이 30% 미만으로 떨어져 알고리즘 픽을 받지 못함. 편집 템플릿과 보이스 피치를 수동 튜닝하지 않으면 수익화는 불가능하다.",
-          "url": "https://www.reddit.com/r/YouTube_Startups/comments/1f4m9q2/the_reality_of_1click_ai_faceless_youtube_shorts/"
+          "platform": "YouTube Official Policy",
+          "author_type": "YouTube Policy Guidelines",
+          "thread_title": "What kinds of content are considered 'Reused Content'?",
+          "quote": "템플릿 기반으로 자동 생성되었거나 시청자에게 새로운 가치/해설을 주지 않는 대량 복제 비디오는 유튜브 파트너 프로그램(YPP) 수익화 대상에서 제외된다.",
+          "url": "https://support.google.com/youtube/answer/1311392"
         }
       ],
       "portfolio_story": {
@@ -4009,11 +3952,11 @@
           "url": "https://news.ycombinator.com/item?id=42774944"
         },
         {
-          "platform": "Reddit r/LocalLLaMA",
+          "platform": "GitHub Community",
           "author_type": "Independent ML Benchmark Auditor",
-          "thread_title": "DeepSeek-R1 Benchmark Audit: Real-world Pass@1 vs Claimed Pass@64 Sampling",
+          "thread_title": "DeepSeek-R1 Issue Discussions on Code Synthesis & Sampling",
           "quote": "실제 코딩 테스트베드에서 단일 샷(Pass@1)으로 측정해 본 결과 약 58%가 나왔다. 공식 차트의 85% 수치는 체리피킹된 샘플링 결과이므로 실제 개발 어시스턴트로 도입 시 환각을 반드시 유의해야 한다.",
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1i5u9o8/deepseek_r1_benchmark_analysis_pass1_vs_pass64/"
+          "url": "https://github.com/deepseek-ai/DeepSeek-R1/issues"
         }
       ],
       "portfolio_story": {

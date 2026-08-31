@@ -54,22 +54,28 @@
       "type": "Official Repository",
       "name": "SGLang Official GitHub (sgl-project/sglang)",
       "url": "https://github.com/sgl-project/sglang"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Comparison Target Paper",
+      "name": "Efficient Memory Management for Large Language Model Serving with PagedAttention (vLLM, SOSP '23)",
+      "url": "https://arxiv.org/abs/2309.06180"
     }
   ],
   "community_reactions": [
     {
-      "platform": "Hacker News",
+      "platform": "GitHub Community",
       "author_type": "LLM Infrastructure Engineer",
-      "thread_title": "SGLang: Fast Serving Framework for Large Language Models and Vision Models",
+      "thread_title": "SGLang Benchmarks vs vLLM in Multi-turn and Agent Workloads",
       "quote": "Few-shot 프롬프트나 동일한 시스템 룰을 공유하는 복합 에이전트 벤치마크에서 SGLang의 RadixAttention이 vLLM 대비 3~5배 처리량을 보여준다.",
-      "url": "https://news.ycombinator.com/item?id=38753298"
+      "url": "https://github.com/sgl-project/sglang/discussions"
     },
     {
-      "platform": "Reddit r/LocalLLaMA",
-      "author_type": "High-Throughput Serving Specialist",
-      "thread_title": "SGLang RadixAttention makes prefix caching 3-5x faster than standard vLLM in multi-turn workflows",
+      "platform": "Official Tech Docs",
+      "author_type": "LMSYS SkyLab Maintainers",
+      "thread_title": "RadixAttention: Automatic KV Cache Reuse Across Multi-turn Requests",
       "quote": "vLLM의 PagedAttention이 단일 쿼리 메모리 단편화를 잡았다면, SGLang은 여러 쿼리 간의 공통 Prefix 트리를 캐싱하여 TTFT를 사실상 0ms로 만든다.",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1alvx4g/sglang_radixattention_makes_prefix_caching_35x/"
+      "url": "https://sgl-project.github.io/"
     }
   ],
   "portfolio_story": {
