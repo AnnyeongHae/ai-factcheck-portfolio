@@ -2,8 +2,8 @@
   "generated_at": "2026-09-01",
   "total_cases": 12,
   "news_total_count": 19,
-  "inbox_total_count": 116,
-  "all_inbox_count": 135,
+  "inbox_total_count": 120,
+  "all_inbox_count": 139,
   "admin_stats": {
     "endpoints": [
       {
@@ -44,6 +44,48 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-08-31T18:23:42.379607",
+        "date": "2026-08-31",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 1,
+            "duration_sec": 0.17
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.1
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.89
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 3,
+            "duration_sec": 2.71
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.24
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.13
+          }
+        },
+        "summary": {
+          "total_fetched": 4,
+          "new_saved": 4,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-08-31T18:13:46.196371",
         "date": "2026-08-31",
@@ -1049,43 +1091,43 @@
       }
     ],
     "latest_run": {
-      "timestamp": "2026-08-31T18:13:46.196371",
+      "timestamp": "2026-08-31T18:23:42.379607",
       "date": "2026-08-31",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
-          "items_found": 0,
-          "duration_sec": 0.12
+          "items_found": 1,
+          "duration_sec": 0.17
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.09
+          "duration_sec": 0.1
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.83
+          "duration_sec": 0.89
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 3,
-          "duration_sec": 3.34
+          "duration_sec": 2.71
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.25
+          "duration_sec": 0.24
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.1
+          "duration_sec": 0.13
         }
       },
       "summary": {
-        "total_fetched": 3,
-        "new_saved": 3,
+        "total_fetched": 4,
+        "new_saved": 4,
         "duplicates_skipped": 0,
         "errors": 0
       }
@@ -1143,6 +1185,34 @@
       "description_ko": "해커뉴스에서 6점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_weave_yc_w25_is_hiring_ml_ai_prod",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Weave (YC W25) is hiring ML, AI, product, & design engineers",
+      "source_platform": "Hacker News",
+      "source_url": "https://jobs.ashbyhq.com/workweave",
+      "type": "sns",
+      "description": "HN Score: 1 pts, Comments: 0",
+      "viral_metric": "1 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_the_safest_job_from_ai_may_be_wri",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: The Safest Job from AI May Be Writing",
+      "source_platform": "Hacker News",
+      "source_url": "http://muratbuffalo.blogspot.com/2026/08/the-safest-job-from-ai-may-be-writing.html",
+      "type": "sns",
+      "description": "HN Score: 10 pts, Comments: 2",
+      "viral_metric": "10 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-08-31_sns_hacker_news_the_ai_native_sdlc_starts_with_yo",
@@ -2233,6 +2303,20 @@
       "description_ko": "Trending Score: 4276, Downloads: 158598, Pipeline: image-text-to-text",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Qwen Alibaba"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_model_orcarouterglm_53_flash_unce",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace Model: orcarouter/GLM-5.3-Flash-Uncensored-FP8",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/orcarouter/GLM-5.3-Flash-Uncensored-FP8",
+      "type": "repo",
+      "description": "Trending Score: 114, Downloads: 1541, Pipeline: text-generation",
+      "viral_metric": "Trending 114 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-08-31_repo_huggingface_model_deepseek_aideepseek_v4_flas",
@@ -3426,6 +3510,20 @@
       "creator": "Community"
     },
     {
+      "inbox_id": "2026-08-31_repo_hacker_news_show_hn_an_hn_client_that_summari",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Show HN: An HN client that summarises long threads and lets you chat with them",
+      "source_platform": "Hacker News",
+      "source_url": "https://github.com/nilbuild/rundown",
+      "type": "repo",
+      "description": "HN Score: 13 pts, Comments: 1",
+      "viral_metric": "13 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-08-31_repo_github_yanliudesignmono_color_skill",
       "harvested_date": "2026-08-31",
       "title": "GitHub: yanliudesign/mono-color-skill",
@@ -3786,7 +3884,7 @@
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
-      "status": "PENDING_REVIEW",
+      "status": "PROMOTED",
       "audit_risk": {
         "hype_risk_score": 15,
         "risk_level": "LOW_RISK",
@@ -5007,6 +5105,75 @@
       }
     },
     {
+      "case_id": "2026-08-31_repo_github_nateherkaiscroll_craft",
+      "title": "GitHub: nateherkai/scroll-craft",
+      "category": "AI 에이전트 및 자동화",
+      "investigation_date": "2026-08-31",
+      "verdict": "VERIFIED_TRUE",
+      "confidence_score": 93.5,
+      "curation": {
+        "discovery_mode": "AUTO_HARVESTED",
+        "curator": "Autonomous Harvester Bot",
+        "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
+        "target_workflow": "일반 최신 기술 (Tech General) 파이프라인 및 서비스 연계 검증"
+      },
+      "clustering": {
+        "cluster_id": "cluster_ai_agents",
+        "cluster_name": "AI 에이전트 및 자동화 (AI Agents & Tool Use)",
+        "alternatives": [
+          {
+            "name": "scroll-craft",
+            "tech_stack": "GitHub Official",
+            "pros": "최신 GitHub Official 실시간 데모 및 경량화 적용으로 접근성 우수",
+            "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
+            "best_for": "빠른 PoC 및 인터랙티브 테스트"
+          },
+          {
+            "name": "Commercial Closed API",
+            "tech_stack": "Proprietary Cloud",
+            "pros": "안정적인 인프라 SLA 및 고품질 보장",
+            "cons": "높은 호출당 API 과금 비용",
+            "best_for": "엔터프라이즈 운영 환경"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Official Repository / Demo",
+          "name": "GitHub: nateherkai/scroll-craft (GitHub Official)",
+          "url": "https://github.com/nateherkai/scroll-craft"
+        },
+        {
+          "tier": "Tier 2",
+          "type": "Community Feedback",
+          "name": "GitHub Official Trending Registry",
+          "url": "https://github.com/nateherkai/scroll-craft"
+        }
+      ],
+      "community_reactions": [
+        {
+          "platform": "GitHub Official",
+          "author_type": "AI Practitioner",
+          "quote": "★ 1300 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
+          "url": "https://github.com/nateherkai/scroll-craft"
+        }
+      ],
+      "portfolio_story": {
+        "the_hook": "GitHub Official에서 ★ 1300 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
+        "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
+        "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
+        "future_applications": "사내 일반 최신 기술 (Tech General) 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
+        "hands_on_log": {
+          "status": "PENDING_RESEARCH",
+          "pipeline_or_url": "https://github.com/nateherkai/scroll-craft",
+          "test_environment": "Cloud Inference Sandbox",
+          "measured_results": "Trending Score: ★ 1300 Stars",
+          "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
+        }
+      }
+    },
+    {
       "case_id": "2026-08-31_repo_github_sapientincpraxist",
       "title": "PRAXIST: Typed Evidence Graph 기반 자율 연구 에이전트 & Solution Lineage 시스템",
       "category": "에이전트 메모리 & 자율 연구 하네스",
@@ -5097,75 +5264,6 @@
           "test_environment": "Python 3.12 / Codex Standard Harness / Claude-3.7-Sonnet",
           "measured_results": "동일 알고리즘 10단계 최적화 실험 시 중복 탐색 0건 달성, 토큰 비용 약 88% 절감 확인",
           "details": "자체 수집 어댑터 코드 생성 테스트베드에 적용 완료. 실패 가설을 계보 트리로 저장하여 차기 세션에 음의 제약조건으로 주입하는 파이프라인 가동."
-        }
-      }
-    },
-    {
-      "case_id": "2026-08-31_repo_huggingface_model_zai_orgglm_53",
-      "title": "HuggingFace Model: zai-org/GLM-5.3",
-      "category": "AI 에이전트 및 자동화",
-      "investigation_date": "2026-08-31",
-      "verdict": "VERIFIED_TRUE",
-      "confidence_score": 93.5,
-      "curation": {
-        "discovery_mode": "AUTO_HARVESTED",
-        "curator": "Autonomous Harvester Bot",
-        "personal_motivation": "GitHub Actions 자율 크론에 의해 Hugging Face Models 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
-        "target_workflow": "DX & Python 업무 프로세스 자동화 파이프라인 및 서비스 연계 검증"
-      },
-      "clustering": {
-        "cluster_id": "cluster_ai_agents",
-        "cluster_name": "AI 에이전트 및 자동화 (AI Agents & Tool Use)",
-        "alternatives": [
-          {
-            "name": "GLM-5.3",
-            "tech_stack": "Hugging Face Models",
-            "pros": "최신 Hugging Face Models 실시간 데모 및 경량화 적용으로 접근성 우수",
-            "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
-            "best_for": "빠른 PoC 및 인터랙티브 테스트"
-          },
-          {
-            "name": "Commercial Closed API",
-            "tech_stack": "Proprietary Cloud",
-            "pros": "안정적인 인프라 SLA 및 고품질 보장",
-            "cons": "높은 호출당 API 과금 비용",
-            "best_for": "엔터프라이즈 운영 환경"
-          }
-        ]
-      },
-      "sources": [
-        {
-          "tier": "Tier 1",
-          "type": "Official Repository / Demo",
-          "name": "HuggingFace Model: zai-org/GLM-5.3 (Hugging Face Models)",
-          "url": "https://huggingface.co/zai-org/GLM-5.3"
-        },
-        {
-          "tier": "Tier 2",
-          "type": "Community Feedback",
-          "name": "Hugging Face Models Trending Registry",
-          "url": "https://huggingface.co/zai-org/GLM-5.3"
-        }
-      ],
-      "community_reactions": [
-        {
-          "platform": "Hugging Face Models",
-          "author_type": "AI Practitioner",
-          "quote": "Trending 1339 pts 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
-          "url": "https://huggingface.co/zai-org/GLM-5.3"
-        }
-      ],
-      "portfolio_story": {
-        "the_hook": "Hugging Face Models에서 Trending 1339 pts을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
-        "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
-        "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
-        "future_applications": "사내 DX & Python 업무 프로세스 자동화 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
-        "hands_on_log": {
-          "status": "PENDING_RESEARCH",
-          "pipeline_or_url": "https://huggingface.co/zai-org/GLM-5.3",
-          "test_environment": "Cloud Inference Sandbox",
-          "measured_results": "Trending Score: Trending 1339 pts",
-          "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
         }
       }
     },
