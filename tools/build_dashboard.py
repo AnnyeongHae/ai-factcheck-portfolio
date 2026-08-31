@@ -141,21 +141,25 @@ def build_dashboard():
         "graph": graph_data
     }
 
+    public_dir = os.path.join(base_dir, "public")
+    os.makedirs(public_dir, exist_ok=True)
+
     # Write data.json
-    for target_dir in [dash_dir, docs_dir, base_dir]:
+    for target_dir in [dash_dir, docs_dir, base_dir, public_dir]:
         json_path = os.path.join(target_dir, "data.json")
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(summary_data, f, indent=2, ensure_ascii=False)
 
     # Generate HTML
     html_content = generate_html(summary_data)
-    for target_dir in [dash_dir, docs_dir, base_dir]:
+    for target_dir in [dash_dir, docs_dir, base_dir, public_dir]:
         html_path = os.path.join(target_dir, "index.html")
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
     print(f"[+] Successfully built dashboard v14.0 at:")
-    print(f"    - index.html & data.json (Vercel Root entry)")
+    print(f"    - public/index.html & data.json (Vercel CDN Edge standard)")
+    print(f"    - index.html & data.json (Root entry)")
     print(f"    - dashboard/index.html (Verified: {total_cases}, News: {len(news_items)}, Inbox: {len(tech_inbox_items)}, Nodes: {len(graph_data['nodes'])})")
     print(f"    - docs/index.html (GitHub Pages hosting)")
 
