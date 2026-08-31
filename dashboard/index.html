@@ -660,8 +660,19 @@
     }
 
     // ================= REAL-TIME ANALYSIS QUEUE BINDING =================
-    function toggleQueueItem(inboxId, title) {
-      if (queuedItemIds.has(inboxId)) {
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').innerText = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3500);
+    }
+
+    async function toggleQueueItem(inboxId, title) {
+      const isCurrentlyQueued = queuedItemIds.has(inboxId);
+      const action = isCurrentlyQueued ? 'unqueue' : 'queue';
+      
+      // Optimistic UI update
+      if (isCurrentlyQueued) {
         queuedItemIds.delete(inboxId);
       } else {
         queuedItemIds.add(inboxId);
@@ -670,13 +681,46 @@
       updateQueueFloatingBar();
       renderInbox();
 
-      const toast = document.getElementById('toast');
-      const msg = queuedItemIds.has(inboxId) ? 
-        `[${title}] 항목이 실시간 분석 대기열에 등록되었습니다.` : 
-        `[${title}] 항목이 대기열에서 제외되었습니다.`;
-      document.getElementById('toastMsg').innerText = msg;
-      toast.classList.remove('hidden');
-      setTimeout(() => toast.classList.add('hidden'), 3500);
+      // Real-time Vercel Serverless API Call to Neon Postgres DB
+      try {
+        const res = await fetch('/api/queue', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ inbox_id: inboxId, action: action })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success) {
+            showToast(action === 'queue' ? 
+              `[${title}] 항목이 Neon Postgres DB에 실시간 등록되었습니다! 🐘⚡` : 
+              `[${title}] 항목이 Neon DB 대기열에서 제외되었습니다.`);
+            return;
+          }
+        }
+      } catch (err) {
+        // Fallback for static environments
+      }
+
+      showToast(isCurrentlyQueued ? 
+        `[${title}] 항목이 대기열에서 제외되었습니다.` : 
+        `[${title}] 항목이 실시간 분석 대기열에 등록되었습니다.`);
+    }
+
+    async function syncQueueFromBackend() {
+      try {
+        const res = await fetch('/api/queue');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success && data.queued_items) {
+            data.queued_items.forEach(it => queuedItemIds.add(it.inbox_id));
+            localStorage.setItem('queued_factchecks', JSON.stringify(Array.from(queuedItemIds)));
+            updateQueueFloatingBar();
+            renderInbox();
+          }
+        }
+      } catch (e) {
+        // Fallback
+      }
     }
 
     function updateQueueFloatingBar() {
@@ -1399,6 +1443,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       lucide.createIcons();
       setLanguage('KO');
+      syncQueueFromBackend();
     });
   </script>
 </body>
