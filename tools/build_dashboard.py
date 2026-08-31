@@ -1187,55 +1187,122 @@ def generate_html(data):
         return;
       }}
 
-        card.className = 'glass-card p-4 rounded-xl flex flex-col justify-between space-y-3 border-slate-800';
+      if (isFamilyGroupingActive) {{
+        const groups = {{}};
+        filtered.forEach(it => {{
+          const fam = it.model_family || '기타 독립 모델 (Standalone / Novel)';
+          if (!groups[fam]) groups[fam] = [];
+          groups[fam].push(it);
+        }});
 
-        const promoteCmd = `python tools/triage.py --promote ${{it.inbox_id}}`;
-        const audit = it.audit_risk || {{ hype_risk_score: 15, risk_level: "LOW_RISK" }};
-        const isHighRisk = audit.risk_level === "HIGH_GAMING_RISK";
+        Object.keys(groups).forEach(famName => {{
+          const items = groups[famName];
+          const groupCard = document.createElement('div');
+          groupCard.className = 'col-span-full glass-card p-5 rounded-2xl border-purple-500/30 space-y-4';
 
-        card.innerHTML = `
-          <div class="space-y-2.5">
-            <div class="flex items-center justify-between text-xs gap-1">
-              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/10 text-amber-300 border border-amber-500/20 truncate">
-                ${{it.source_platform || 'Tech'}}
-              </span>
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold ${{isHighRisk ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-slate-800 text-slate-400'}}">
-                ${{isHighRisk ? '⚠️ 과장/슬롭 의심 (' + audit.hype_risk_score + '점)' : (it.viral_metric || 'Viral')}}
-              </span>
+          const formats = new Set();
+          items.forEach(it => (it.detected_formats || []).forEach(f => formats.add(f)));
+
+          let subItemsHtml = '';
+          items.forEach(it => {{
+            const promoteCmd = 'python tools/triage.py --promote ' + it.inbox_id;
+            const audit = it.audit_risk || {{ hype_risk_score: 15, risk_level: "LOW_RISK" }};
+            const isHighRisk = audit.risk_level === "HIGH_GAMING_RISK";
+            subItemsHtml += `
+              <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-800 flex flex-col justify-between space-y-2">
+                <div class="space-y-1.5">
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="text-amber-400 font-bold">${{it.source_platform || 'Hub'}}</span>
+                    <span class="text-slate-400 font-mono">${{it.viral_metric || ''}}</span>
+                  </div>
+                  <h4 class="font-bold text-xs text-white line-clamp-2">${{it.title}}</h4>
+                  <div class="text-[10px] text-slate-400">포맷: <span class="text-purple-300">${{(it.detected_formats || []).join(', ')}}</span></div>
+                </div>
+                <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
+                  <a href="${{it.source_url}}" target="_blank" class="text-[11px] text-slate-400 hover:text-white flex items-center gap-0.5">원문 <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>
+                  <button onclick="copyToClipboard('${{promoteCmd}}')" class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500 hover:text-white text-[10px] font-bold transition">⚡ 분석 큐 담기</button>
+                </div>
+              </div>
+            `;
+          }});
+
+          groupCard.innerHTML = `
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800 flex-wrap gap-2">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-xs font-bold border border-purple-500/30">
+                  🧬 Base Model Family
+                </span>
+                <h3 class="text-base font-extrabold text-white">${{famName}}</h3>
+                <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">총 ${{items.length}}개 변형/양자화본</span>
+              </div>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                ${{Array.from(formats).map(fmt => `<span class="px-2 py-0.5 rounded bg-slate-900 text-indigo-300 text-[10px] border border-slate-700 font-semibold">${{fmt}}</span>`).join('')}}
+              </div>
             </div>
 
-            <h4 class="font-bold text-sm text-white line-clamp-2 hover:text-amber-300 transition">
-              ${{it.title}}
-            </h4>
-
-            <p class="text-xs text-slate-300 line-clamp-2 leading-relaxed">
-              ${{it.description || '상세 내용 없음'}}
-            </p>
-
-            <div class="text-[11px] text-slate-400">
-              🎯 ${{currentLang === 'KO' ? '맞춤 도메인:' : 'Target Domain:'}} <span class="text-indigo-300">${{(it.matched_user_domains || ['일반']).join(', ')}}</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              ${{subItemsHtml}}
             </div>
-          </div>
+          `;
+          grid.appendChild(groupCard);
+        }});
 
-          <div class="pt-3 border-t border-slate-800/80 flex flex-col gap-2">
-            <div class="flex items-center justify-between">
-              <a href="${{it.source_url}}" target="_blank" class="text-xs text-slate-400 hover:text-white flex items-center gap-1">
-                ${{currentLang === 'KO' ? '원문 링크' : 'Source Link'}} <i data-lucide="external-link" class="w-3 h-3"></i>
-              </a>
+      }} else {{
+        filtered.forEach((it) => {{
+          const card = document.createElement('div');
+          card.className = 'glass-card p-4 rounded-xl flex flex-col justify-between space-y-3 border-slate-800';
 
-              <button onclick="copyToClipboard('${{promoteCmd}}')" class="text-slate-400 hover:text-amber-300 text-[11px] flex items-center gap-1">
-                <i data-lucide="copy" class="w-3 h-3"></i> ${{i18nDict[currentLang].btnCopyCmd}}
+          const promoteCmd = `python tools/triage.py --promote ${{it.inbox_id}}`;
+          const audit = it.audit_risk || {{ hype_risk_score: 15, risk_level: "LOW_RISK" }};
+          const isHighRisk = audit.risk_level === "HIGH_GAMING_RISK";
+
+          card.innerHTML = `
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between text-xs gap-1">
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/10 text-amber-300 border border-amber-500/20 truncate">
+                  ${{it.source_platform || 'Tech'}}
+                </span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold ${{isHighRisk ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-slate-800 text-slate-400'}}">
+                  ${{isHighRisk ? '⚠️ 과장/슬롭 의심 (' + audit.hype_risk_score + '점)' : (it.viral_metric || 'Viral')}}
+                </span>
+              </div>
+
+              <h4 class="font-bold text-sm text-white line-clamp-2 hover:text-amber-300 transition">
+                ${{it.title}}
+              </h4>
+
+              <p class="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                ${{it.description || '상세 내용 없음'}}
+              </p>
+
+              <div class="text-[11px] text-slate-400">
+                🧬 <span class="text-purple-300 font-semibold">${{it.model_family || '독립 모델'}}</span>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-800/80 flex flex-col gap-2">
+              <div class="flex items-center justify-between">
+                <a href="${{it.source_url}}" target="_blank" class="text-xs text-slate-400 hover:text-white flex items-center gap-1">
+                  ${{currentLang === 'KO' ? '원문 링크' : 'Source Link'}} <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+
+                <button onclick="copyToClipboard('${{promoteCmd}}')" class="text-slate-400 hover:text-amber-300 text-[11px] flex items-center gap-1">
+                  <i data-lucide="copy" class="w-3 h-3"></i> ${{i18nDict[currentLang].btnCopyCmd}}
+                </button>
+              </div>
+
+              <button onclick="copyToClipboard('${{promoteCmd}}')" class="w-full text-center py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-white text-xs font-bold border border-amber-500/30 transition flex items-center justify-center gap-1.5 shadow-sm">
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                ${{i18nDict[currentLang].btnRequestAnalysis}}
               </button>
             </div>
+          `;
+          grid.appendChild(card);
+        }});
+      }}
 
-            <button onclick="copyToClipboard('${{promoteCmd}}')" class="w-full text-center py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-white text-xs font-bold border border-amber-500/30 transition flex items-center justify-center gap-1.5 shadow-sm">
-              <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-              ${{i18nDict[currentLang].btnRequestAnalysis}}
-            </button>
-          </div>
-        `;
-        grid.appendChild(card);
-      }});
+      lucide.createIcons();
+    }}
 
       lucide.createIcons();
     }}
