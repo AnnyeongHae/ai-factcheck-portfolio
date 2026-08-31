@@ -1,0 +1,82 @@
+name: IssueOps Auto Fact-Check on Issue Creation
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+jobs:
+  triage-and-factcheck:
+    if: startsWith(github.event.issue.title, '[Triage Request]') || contains(github.event.issue.labels.*.name, 'factcheck')
+    runs-on: ubuntu-latest
+    env:
+      NEON_KEY: ${{ secrets.NEON_KEY }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
+      ISSUE_TITLE: ${{ github.event.issue.title }}
+      ISSUE_BODY: ${{ github.event.issue.body }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          pip install psycopg2-binary requests
+
+      - name: Process Issue & Run Fact-Check Promotion
+        id: run_handler
+        run: |
+          python tools/issue_handler.py
+
+      - name: Commit & Push Verified Project to Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add investigations/ docs/ dashboard/ inbox/
+          git diff --quiet && git diff --staged --quiet || git commit -m "feat(issueops): Promote fact-check from Issue #${{ github.event.issue.number }}"
+          git push origin main
+
+      - name: Post Comment on Issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = "🤖 **Antigravity AI**: 팩트체크가 완료되었습니다!";
+            if (fs.existsSync('issue_comment.md')) {
+              body = fs.readFileSync('issue_comment.md', 'utf8');
+            }
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            });
+            // Close the issue as completed
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs/'
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
