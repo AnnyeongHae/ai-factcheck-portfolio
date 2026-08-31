@@ -10,8 +10,5 @@
       "source": "/(.*)",
       "destination": "/docs/$1"
     }
-  ],
-  "env": {
-    "DATABASE_URL": "postgresql://neondb_owner:npg_1sXv4iFvJadO@ep-quiet-grass-a1wqqs32-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require"
-  }
+  ]
 }

@@ -1,16 +1,39 @@
+# Environment Variables & Secrets (CRITICAL)
+.env
+.env.*
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+secrets/
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+
+# Vercel
+.vercel
+.vercel/
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.env
 .venv
 env/
 venv/
+ENV/
 
-# Temporary / Scratch
+# Temporary / Scratch / Logs
 .tmp/
 *.log
+scratch/
+scratch*
+*.swp
+*.swo
 
 # OS
 .DS_Store

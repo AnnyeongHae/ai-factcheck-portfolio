@@ -5,12 +5,11 @@ import urllib.parse
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
-NEON_DATABASE_URL = os.environ.get(
-    "DATABASE_URL",
-    "postgresql://neondb_owner:npg_1sXv4iFvJadO@ep-quiet-grass-a1wqqs32-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require"
-)
+NEON_DATABASE_URL = os.environ.get("DATABASE_URL")
 
 def get_db_connection():
+    if not NEON_DATABASE_URL:
+        raise ValueError("DATABASE_URL environment variable is not configured in Vercel settings.")
     return psycopg2.connect(NEON_DATABASE_URL, cursor_factory=RealDictCursor)
 
 class handler(BaseHTTPRequestHandler):

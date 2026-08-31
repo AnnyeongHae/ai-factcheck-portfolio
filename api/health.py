@@ -3,10 +3,7 @@ import json
 import os
 import psycopg2
 
-NEON_DATABASE_URL = os.environ.get(
-    "DATABASE_URL",
-    "postgresql://neondb_owner:npg_1sXv4iFvJadO@ep-quiet-grass-a1wqqs32-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require"
-)
+NEON_DATABASE_URL = os.environ.get("DATABASE_URL")
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
