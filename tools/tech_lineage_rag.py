@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Tech Lineage & SOTA RAG Engine (2026 SOTA Framework - v1.0)
-내부 기술 계보 레지스트리(tech_lineage_registry.json)에서 신규 기술과 연관된 원조(Pioneer) 및 SOTA 대체재를 0.1초 만에 인출합니다.
+Tech Lineage & Root Ancestry RAG Engine (2026 SOTA Framework - v2.0)
+- 4세대 진화사 (Gen 0 ~ Gen 3)
+- 근본 뿌리 기술 (Root Ancestry: BeautifulSoup, Scrapy, Readability.js 등)
+- 왜 SOTA가 나와도 레거시 구기술을 계속 쓰는가? (Why Legacy Persists) 트레이드오프 분석
 """
 
 import argparse
@@ -32,16 +34,12 @@ def query_tech_lineage(query: str):
     query_lower = query.lower().strip()
     matched_cluster = None
 
-    # Search in clusters and tools
     for cluster in data.get("clusters", []):
         c_name = cluster.get("cluster_name", "").lower()
         c_id = cluster.get("cluster_id", "").lower()
-        
-        # Check keywords
         kws = cluster.get("keywords", [])
         kw_match = any(query_lower in kw.lower() or kw.lower() in query_lower for kw in kws)
 
-        # Check tool matches
         tool_match = False
         for t in cluster.get("tools", []):
             if query_lower in t.get("name", "").lower() or query_lower in t.get("tool_key", "").lower() or query_lower in t.get("tech_stack", "").lower() or query_lower in t.get("sota_summary", "").lower():
@@ -53,30 +51,45 @@ def query_tech_lineage(query: str):
             break
 
     if not matched_cluster:
-        print(f"[-] No direct lineage cluster found for '{query}'. (Trigger broad web exploration)")
+        print(f"[-] No direct lineage cluster found for '{query}'.")
         return None
 
-    print("\n" + "="*85)
-    print(f" 🧬 [Tech Lineage & SOTA RAG] 매칭된 기술 클러스터: {matched_cluster.get('cluster_name')}")
-    print(f" 👑 원조(Pioneer): {matched_cluster.get('pioneer_tool').upper()}")
-    print("="*85)
+    print("\n" + "="*90)
+    print(f" 🌲 [기술 심층 계보 & Root Ancestry] 클러스터: {matched_cluster.get('cluster_name')}")
+    print(f" 👑 패러다임 원조(Pioneer): {matched_cluster.get('pioneer_tool').upper()}")
+    print("="*90)
 
     tools = matched_cluster.get("tools", [])
-    print(f"\n총 {len(tools)}개의 누적된 기술 계보 분석:")
+    print(f"\n총 {len(tools)}개 기술의 4세대 진화 및 트레이드오프 분석:")
+    
     for t in tools:
         is_pioneer = "👑 [원조/Originator]" if t.get("is_original_pioneer") else "⚡ [SOTA 파생]"
-        print(f"\n• {t.get('name')} ({t.get('tech_stack')}) - {is_pioneer}")
-        print(f"   - 최초 등장일: {t.get('first_created_at')} | 최근 업데이트: {t.get('last_updated_at')}")
-        print(f"   - SOTA 영역: {t.get('sota_dimension')} ({t.get('sota_summary')})")
-        print(f"   - 주요 강점: {t.get('pros')}")
-        print(f"   - 주요 단점: {t.get('cons')}")
+        gen = t.get("lineage_generation", "Gen X")
+        roots = t.get("root_ancestry", {})
 
-    print("\n" + "="*85 + "\n")
+        print(f"\n" + "-"*90)
+        print(f"📌 {t.get('name')} ({t.get('tech_stack')}) | {gen} | {is_pioneer}")
+        print(f"   • 최초 등장일: {t.get('first_created_at')} | 최근 업데이트: {t.get('last_updated_at')}")
+        print(f"   • SOTA 영역: {t.get('sota_dimension')} - {t.get('sota_summary')}")
+        
+        if roots:
+            print(f"   🏛️ [근본 뿌리 기술 (Root Ancestry)]:")
+            if roots.get("core_parser_root"): print(f"      - 코어 파서 뿌리: {roots.get('core_parser_root')}")
+            if roots.get("automation_root"):  print(f"      - 브라우저 자동화 뿌리: {roots.get('automation_root')}")
+            if roots.get("markdown_root"):    print(f"      - 마크다운 직렬화 뿌리: {roots.get('markdown_root')}")
+            if roots.get("direct_predecessor"): print(f"      - 직전 선조 기술: {roots.get('direct_predecessor')}")
+
+        print(f"   🟢 주요 강점 (Pros): {t.get('pros')}")
+        print(f"   🔴 치명적 한계 (Cons): {t.get('cons')}")
+        print(f"   💡 [SOTA가 있어도 이 레거시를 고집하는 이유 (Why Legacy Persists)]:")
+        print(f"      👉 {t.get('why_legacy_still_used')}")
+
+    print("\n" + "="*90 + "\n")
     return matched_cluster
 
 def main():
-    parser = argparse.ArgumentParser(description="Query Local Tech Lineage Registry")
-    parser.add_argument("query", type=str, help="Technology name or domain keyword (e.g. 'crawler', 'praxist', 'video')")
+    parser = argparse.ArgumentParser(description="Query Local Tech Lineage & Root Ancestry")
+    parser.add_argument("query", type=str, help="Technology name or domain keyword (e.g. 'crawler', 'praxist', 'scraping')")
     args = parser.parse_args()
     query_tech_lineage(args.query)
 
