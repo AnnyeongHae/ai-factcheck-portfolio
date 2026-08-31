@@ -48,6 +48,48 @@
     ],
     "history": [
       {
+        "timestamp": "2026-08-31T16:06:00.215248",
+        "date": "2026-08-31",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.11
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.08
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.91
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 3.01
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.21
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.04
+          }
+        },
+        "summary": {
+          "total_fetched": 0,
+          "new_saved": 0,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-08-31T16:01:05.726417",
         "date": "2026-08-31",
         "sources": {
@@ -338,13 +380,13 @@
       }
     ],
     "latest_run": {
-      "timestamp": "2026-08-31T16:01:05.726417",
+      "timestamp": "2026-08-31T16:06:00.215248",
       "date": "2026-08-31",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.15
+          "duration_sec": 0.11
         },
         "hf_spaces": {
           "status": "SUCCESS",
@@ -354,22 +396,22 @@
         "github": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.69
+          "duration_sec": 0.91
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 17.46
+          "duration_sec": 3.01
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.06
+          "duration_sec": 0.21
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.02
+          "duration_sec": 0.04
         }
       },
       "summary": {
@@ -1797,7 +1839,7 @@
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PROMOTED"
     },
     {
       "inbox_id": "2026-08-31_repo_github_apodexaifrontieragent",
@@ -2238,8 +2280,8 @@
       }
     },
     {
-      "case_id": "2026-08-31_repo_github_hejustinsunmy_girlfriend_jingtian_late",
-      "title": "GitHub: HEJustinSun/my-girlfriend-jingtian-latex",
+      "case_id": "2026-08-31_repo_github_b_nnettgrok_bot_018_reconstructed",
+      "title": "GitHub: b-nnett/grok-bot-0.18-reconstructed",
       "category": "AI 에이전트 및 자동화",
       "investigation_date": "2026-08-31",
       "verdict": "VERIFIED_TRUE",
@@ -2255,7 +2297,7 @@
         "cluster_name": "AI 에이전트 및 자동화 (AI Agents & Tool Use)",
         "alternatives": [
           {
-            "name": "my-girlfriend-jingtian-latex",
+            "name": "grok-bot-0.18-reconstructed",
             "tech_stack": "GitHub Official",
             "pros": "최신 GitHub Official 실시간 데모 및 경량화 적용으로 접근성 우수",
             "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
@@ -2274,34 +2316,34 @@
         {
           "tier": "Tier 1",
           "type": "Official Repository / Demo",
-          "name": "GitHub: HEJustinSun/my-girlfriend-jingtian-latex (GitHub Official)",
-          "url": "https://github.com/HEJustinSun/my-girlfriend-jingtian-latex"
+          "name": "GitHub: b-nnett/grok-bot-0.18-reconstructed (GitHub Official)",
+          "url": "https://github.com/b-nnett/grok-bot-0.18-reconstructed"
         },
         {
           "tier": "Tier 2",
           "type": "Community Feedback",
           "name": "GitHub Official Trending Registry",
-          "url": "https://github.com/HEJustinSun/my-girlfriend-jingtian-latex"
+          "url": "https://github.com/b-nnett/grok-bot-0.18-reconstructed"
         }
       ],
       "community_reactions": [
         {
           "platform": "GitHub Official",
           "author_type": "AI Practitioner",
-          "quote": "★ 4168 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
-          "url": "https://github.com/HEJustinSun/my-girlfriend-jingtian-latex"
+          "quote": "★ 3458 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
+          "url": "https://github.com/b-nnett/grok-bot-0.18-reconstructed"
         }
       ],
       "portfolio_story": {
-        "the_hook": "GitHub Official에서 ★ 4168 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
+        "the_hook": "GitHub Official에서 ★ 3458 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
         "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
         "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
         "future_applications": "사내 일반 최신 기술 (Tech General) 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
         "hands_on_log": {
           "status": "PENDING_RESEARCH",
-          "pipeline_or_url": "https://github.com/HEJustinSun/my-girlfriend-jingtian-latex",
+          "pipeline_or_url": "https://github.com/b-nnett/grok-bot-0.18-reconstructed",
           "test_environment": "Cloud Inference Sandbox",
-          "measured_results": "Trending Score: ★ 4168 Stars",
+          "measured_results": "Trending Score: ★ 3458 Stars",
           "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
         }
       }
