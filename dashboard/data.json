@@ -1,12 +1,12 @@
 {
   "generated_at": "2026-09-01",
-  "total_cases": 9,
+  "total_cases": 8,
   "inbox_total_count": 134,
   "user_curated_count": 7,
-  "auto_harvested_count": 2,
+  "auto_harvested_count": 1,
   "active_dev_count": 4,
   "halted_count": 1,
-  "pending_count": 4,
+  "pending_count": 3,
   "admin_stats": {
     "endpoints": [
       {
@@ -4267,75 +4267,6 @@
           "test_environment": "Python 3.12 / Codex Standard Harness / Claude-3.7-Sonnet",
           "measured_results": "동일 알고리즘 10단계 최적화 실험 시 중복 탐색 0건 달성, 토큰 비용 약 88% 절감 확인",
           "details": "자체 수집 어댑터 코드 생성 테스트베드에 적용 완료. 실패 가설을 계보 트리로 저장하여 차기 세션에 음의 제약조건으로 주입하는 파이프라인 가동."
-        }
-      }
-    },
-    {
-      "case_id": "2026-08-31_repo_github_xiaoduoyacodex_with_chatgpt",
-      "title": "GitHub: XiaoDuoYa/codex-with-chatgpt",
-      "category": "AI 에이전트 및 자동화",
-      "investigation_date": "2026-08-31",
-      "verdict": "VERIFIED_TRUE",
-      "confidence_score": 93.5,
-      "curation": {
-        "discovery_mode": "AUTO_HARVESTED",
-        "curator": "Autonomous Harvester Bot",
-        "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
-        "target_workflow": "일반 최신 기술 (Tech General) 파이프라인 및 서비스 연계 검증"
-      },
-      "clustering": {
-        "cluster_id": "cluster_ai_agents",
-        "cluster_name": "AI 에이전트 및 자동화 (AI Agents & Tool Use)",
-        "alternatives": [
-          {
-            "name": "codex-with-chatgpt",
-            "tech_stack": "GitHub Official",
-            "pros": "최신 GitHub Official 실시간 데모 및 경량화 적용으로 접근성 우수",
-            "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
-            "best_for": "빠른 PoC 및 인터랙티브 테스트"
-          },
-          {
-            "name": "Commercial Closed API",
-            "tech_stack": "Proprietary Cloud",
-            "pros": "안정적인 인프라 SLA 및 고품질 보장",
-            "cons": "높은 호출당 API 과금 비용",
-            "best_for": "엔터프라이즈 운영 환경"
-          }
-        ]
-      },
-      "sources": [
-        {
-          "tier": "Tier 1",
-          "type": "Official Repository / Demo",
-          "name": "GitHub: XiaoDuoYa/codex-with-chatgpt (GitHub Official)",
-          "url": "https://github.com/XiaoDuoYa/codex-with-chatgpt"
-        },
-        {
-          "tier": "Tier 2",
-          "type": "Community Feedback",
-          "name": "GitHub Official Trending Registry",
-          "url": "https://github.com/XiaoDuoYa/codex-with-chatgpt"
-        }
-      ],
-      "community_reactions": [
-        {
-          "platform": "GitHub Official",
-          "author_type": "AI Practitioner",
-          "quote": "★ 1577 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
-          "url": "https://github.com/XiaoDuoYa/codex-with-chatgpt"
-        }
-      ],
-      "portfolio_story": {
-        "the_hook": "GitHub Official에서 ★ 1577 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
-        "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
-        "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
-        "future_applications": "사내 일반 최신 기술 (Tech General) 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
-        "hands_on_log": {
-          "status": "PENDING_RESEARCH",
-          "pipeline_or_url": "https://github.com/XiaoDuoYa/codex-with-chatgpt",
-          "test_environment": "Cloud Inference Sandbox",
-          "measured_results": "Trending Score: ★ 1577 Stars",
-          "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
         }
       }
     },

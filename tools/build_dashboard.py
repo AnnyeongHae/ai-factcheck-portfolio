@@ -1149,7 +1149,8 @@ def generate_html(data):
     function copyToClipboard(text) {{
       navigator.clipboard.writeText(text).then(() => {{
         const toast = document.getElementById('toast');
-        document.getElementById('toastMsg').innerText = (currentLang === 'KO' ? '명령어가 클립보드에 복사되었습니다:\n' : 'Command copied to clipboard:\n') + text;
+        const prefix = currentLang === 'KO' ? '명령어가 클립보드에 복사되었습니다: ' : 'Command copied to clipboard: ';
+        document.getElementById('toastMsg').innerText = prefix + text;
         toast.classList.remove('hidden');
         setTimeout(() => toast.classList.add('hidden'), 4000);
       }});
@@ -1300,9 +1301,6 @@ def generate_html(data):
           grid.appendChild(card);
         }});
       }}
-
-      lucide.createIcons();
-    }}
 
       lucide.createIcons();
     }}
