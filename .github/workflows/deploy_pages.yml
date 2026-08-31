@@ -7,8 +7,8 @@ on:
       - master
   workflow_dispatch:
   schedule:
-    # 매일 아침 09:00 KST (자정 UTC 00:00) 자동 트렌드 수집 및 DB 동기화
-    - cron: '0 0 * * *'
+    # 6시간 단위 정기 자동 수집 및 Neon DB 동기화 (00:00, 06:00, 12:00, 18:00 UTC / 한국시간 09:00, 15:00, 21:00, 03:00)
+    - cron: '0 */6 * * *'
 
 permissions:
   contents: write
