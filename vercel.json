@@ -1,14 +1,11 @@
 {
   "version": 2,
-  "public": false,
+  "outputDirectory": "docs",
+  "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1.py"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/docs/$1"
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
     }
   ]
 }
