@@ -565,10 +565,18 @@ def generate_html(data):
 
       <!-- Inbox Filters & Search -->
       <div class="glass p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="relative w-full md:w-80">
-          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3 text-slate-400"></i>
-          <input type="text" id="inboxSearchInput" placeholder="인박스 후보 검색..." 
-                 class="w-full bg-slate-900/80 border border-slate-700/60 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
+        <div class="flex items-center gap-3 w-full md:w-auto">
+          <div class="relative w-full md:w-72">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3 text-slate-400"></i>
+            <input type="text" id="inboxSearchInput" placeholder="인박스 후보 또는 모델명 검색..." 
+                   class="w-full bg-slate-900/80 border border-slate-700/60 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
+          </div>
+
+          <!-- Group by Family Toggle Switch -->
+          <button onclick="toggleFamilyGrouping()" id="groupByFamilyBtn" class="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold bg-slate-900 text-purple-300 border border-purple-500/30 hover:bg-purple-500/10 transition shrink-0">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span id="groupByFamilyText">🧬 기저 모델 패밀리별 그룹화 (OFF)</span>
+          </button>
         </div>
 
         <!-- Platform Source Filters -->
@@ -1141,10 +1149,26 @@ def generate_html(data):
     function copyToClipboard(text) {{
       navigator.clipboard.writeText(text).then(() => {{
         const toast = document.getElementById('toast');
-        document.getElementById('toastMsg').innerText = (currentLang === 'KO' ? '명령어가 클립보드에 복사되었습니다:\\n' : 'Command copied to clipboard:\\n') + text;
+        document.getElementById('toastMsg').innerText = (currentLang === 'KO' ? '명령어가 클립보드에 복사되었습니다:\n' : 'Command copied to clipboard:\n') + text;
         toast.classList.remove('hidden');
         setTimeout(() => toast.classList.add('hidden'), 4000);
       }});
+    }}
+
+    let isFamilyGroupingActive = false;
+
+    function toggleFamilyGrouping() {{
+      isFamilyGroupingActive = !isFamilyGroupingActive;
+      const btn = document.getElementById('groupByFamilyBtn');
+      const text = document.getElementById('groupByFamilyText');
+      if (isFamilyGroupingActive) {{
+        btn.className = 'flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold bg-purple-600 text-white shadow-lg shadow-purple-500/20 transition shrink-0';
+        text.innerText = currentLang === 'KO' ? '🧬 기저 모델 패밀리별 그룹화 (ON)' : '🧬 Group by Model Family (ON)';
+      }} else {{
+        btn.className = 'flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold bg-slate-900 text-purple-300 border border-purple-500/30 hover:bg-purple-500/10 transition shrink-0';
+        text.innerText = currentLang === 'KO' ? '🧬 기저 모델 패밀리별 그룹화 (OFF)' : '🧬 Group by Model Family (OFF)';
+      }}
+      renderInbox();
     }}
 
     function renderInbox() {{
@@ -1153,7 +1177,7 @@ def generate_html(data):
 
       const filtered = inboxData.filter(item => {{
         const matchesSrc = currentInboxSource === 'ALL' || (item.source_platform && item.source_platform.includes(currentInboxSource));
-        const text = (item.title + ' ' + (item.description || '') + ' ' + (item.source_platform || '')).toLowerCase();
+        const text = (item.title + ' ' + (item.description || '') + ' ' + (item.source_platform || '') + ' ' + (item.model_family || '')).toLowerCase();
         const matchesSearch = text.includes(inboxSearchQuery.toLowerCase());
         return matchesSrc && matchesSearch;
       }});
@@ -1163,8 +1187,6 @@ def generate_html(data):
         return;
       }}
 
-      filtered.forEach((it) => {{
-        const card = document.createElement('div');
         card.className = 'glass-card p-4 rounded-xl flex flex-col justify-between space-y-3 border-slate-800';
 
         const promoteCmd = `python tools/triage.py --promote ${{it.inbox_id}}`;
