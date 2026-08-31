@@ -8,6 +8,24 @@
   "confidence_score": 98.0,
   "status": "COMPLETED",
   
+  "curation": {
+    "discovery_mode": "USER_CURATED",
+    "curator": "Anyong Cheong",
+    "personal_motivation": "사내 폐쇄망 RAG 파이프라인에서 수백 장의 오피스(.docx, .xlsx, .pptx) 문서를 변환할 때 LibreOffice 도커(700MB)의 무거운 레이턴시를 해결하고자 직접 발굴함.",
+    "target_workflow": "사내 RAG 로컬 인제스천 및 문서 뷰어 파이프라인"
+  },
+
+  "clustering": {
+    "cluster_id": "cluster_doc_parsing",
+    "cluster_name": "📁 로컬 문서 ➔ LLM 마크다운 파서 (Document-to-Markdown Parsers)",
+    "layer": "Local File Processing & Ingestion Layer",
+    "alternatives": [
+      { "name": "AnyDoc", "tech_stack": "Rust", "pros": "4.4ms 초고속, 무의존성, 제로카피", "cons": "OCR 미지원 (텍스트 PDF만 가능)" },
+      { "name": "MarkItDown (MS)", "tech_stack": "Python", "pros": "다양한 포맷 지원, 친숙한 파이썬 생태계", "cons": "AnyDoc 대비 10~30배 느린 변환 속도" },
+      { "name": "MinerU", "tech_stack": "Python, PyTorch", "pros": "복잡한 수식/표 완벽 인식", "cons": "GPU 요구 및 큰 모델 크기" }
+    ]
+  },
+  
   "sources": [
     {
       "tier": "Tier 1",

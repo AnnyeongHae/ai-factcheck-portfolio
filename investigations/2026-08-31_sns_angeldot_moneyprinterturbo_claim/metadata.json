@@ -8,6 +8,23 @@
   "confidence_score": 94.0,
   "status": "COMPLETED",
   
+  "curation": {
+    "discovery_mode": "USER_CURATED",
+    "curator": "Anyong Cheong",
+    "personal_motivation": "X(트위터)에서 '키워드 하나로 유튜브 쇼츠 자동 수익화'라는 주장을 보고, 실제 광고 수익 대비 비디오 API 원가와 플랫폼 재사용 제재 리스크의 실효성을 검증하고자 직접 선정함.",
+    "target_workflow": "생성형 마케팅 및 비디오 콘텐츠 자동화 파이프라인"
+  },
+
+  "clustering": {
+    "cluster_id": "cluster_ai_video_automation",
+    "cluster_name": "🎬 AI 비디오 및 숏폼 자동화 파이프라인 (AI Video Automation)",
+    "layer": "Multimodal Content Generation Layer",
+    "alternatives": [
+      { "name": "MoneyPrinterTurbo", "tech_stack": "Python, EdgeTTS, Pexels", "pros": "무료 스톡 기반 빠른 영상 합성", "cons": "유튜브 재사용 콘텐츠 제재 리스크 높음" },
+      { "name": "Seedance 2.0 (Higgsfield)", "tech_stack": "AI Video Generation API", "pros": "오리지널 AI 영상으로 제재 회피", "cons": "1분당 $20의 높은 API 원가 발생" }
+    ]
+  },
+  
   "sources": [
     {
       "tier": "Tier 4",

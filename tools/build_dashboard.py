@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
-Fact-Check & Engineering Portfolio Dashboard Builder (2026 SOTA Framework - v4.1)
-investigations/ 폴더와 logs/ 수집 헬스 상태를 취합하여 포트폴리오 웹 대시보드를 자동 생성합니다.
+Fact-Check & Engineering Portfolio Dashboard Builder (2026 SOTA Framework - v5.0)
+- 수집 주체 차별화: [👤 USER CURATED] (직접 발굴 & 문제의식) vs [🤖 AUTO HARVESTED] (자율 트렌드 감사)
+- 기술 클러스터링 & 대체재 벤치마크 매트릭스 (Alternatives Comparison Matrix)
+- 3단계 실무 실측 (Zero Hallucination)
+- 실시간 수집 헬스 모니터
 """
 
 import json
@@ -60,29 +63,31 @@ def build_dashboard():
     cases = scan_investigations()
     harvest_health = get_harvest_health()
     
-    # Statistics
     total_cases = len(cases)
+    user_curated_count = sum(1 for c in cases if c.get("curation", {}).get("discovery_mode") == "USER_CURATED")
+    auto_harvested_count = sum(1 for c in cases if c.get("curation", {}).get("discovery_mode") == "AUTO_HARVESTED")
+    
     active_dev_count = sum(1 for c in cases if c.get("portfolio_story", {}).get("hands_on_log", {}).get("status") == "ACTIVE_DEVELOPED")
     halted_count = sum(1 for c in cases if c.get("portfolio_story", {}).get("hands_on_log", {}).get("status") == "EVALUATED_HALTED")
     pending_count = sum(1 for c in cases if c.get("portfolio_story", {}).get("hands_on_log", {}).get("status") == "PENDING_RESEARCH")
     
-    verdict_counts = {}
-    category_counts = {}
+    clusters = {}
     for c in cases:
-        v = c.get("verdict", "UNVERIFIED")
-        verdict_counts[v] = verdict_counts.get(v, 0) + 1
-        cat = c.get("category", "General Tech")
-        category_counts[cat] = category_counts.get(cat, 0) + 1
+        cl = c.get("clustering", {})
+        cid = cl.get("cluster_id", "general")
+        cname = cl.get("cluster_name", "기타 기술")
+        clusters[cid] = cname
 
     summary_data = {
         "generated_at": "2026-08-31",
         "harvest_health": harvest_health,
         "total_cases": total_cases,
+        "user_curated_count": user_curated_count,
+        "auto_harvested_count": auto_harvested_count,
         "active_dev_count": active_dev_count,
         "halted_count": halted_count,
         "pending_count": pending_count,
-        "verdict_counts": verdict_counts,
-        "category_counts": category_counts,
+        "clusters": clusters,
         "cases": cases
     }
 
@@ -143,6 +148,10 @@ def generate_html(data):
     .badge-half {{ background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }}
     .badge-gamed {{ background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }}
     
+    /* Discovery Badges */
+    .badge-user {{ background: rgba(99, 102, 241, 0.18); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.4); }}
+    .badge-auto {{ background: rgba(14, 165, 233, 0.15); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3); }}
+
     /* 3-Stage Hands-on Badges */
     .badge-dev {{ background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }}
     .badge-halted {{ background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }}
@@ -163,7 +172,7 @@ def generate_html(data):
             AI Fact-Check & Engineering Portfolio
             <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">2026 SOTA</span>
           </h1>
-          <p class="text-xs text-slate-400">SNS 최신 기술 비판적 검증 • 출처 감사 • 3단계 실무 실측 아카이브</p>
+          <p class="text-xs text-slate-400">SNS 최신 기술 비판적 검증 • 큐레이션 동기 • 대체재 벤치마크 매트릭스</p>
         </div>
       </div>
       <div class="flex items-center gap-2">
@@ -177,75 +186,70 @@ def generate_html(data):
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
     
-    <!-- Hero / Portfolio Intro Banner -->
+    <!-- Hero Banner -->
     <div class="glass p-6 sm:p-8 rounded-2xl relative overflow-hidden">
       <div class="relative z-10 max-w-3xl space-y-3">
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
           "소문난 AI 기술, 진짜 작동하고 경제성이 있을까?"
         </h2>
         <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-          SNS(X, Reddit, 유튜브)에서 쏟아지는 수많은 최신 AI 트렌드를 무비판적으로 수용하지 않고, 
-          <strong>명확한 출처(Tier 1~4)와 커뮤니티 반응을 교차 감사하고, 데이터 오염(Contamination)과 실질 API 원가를 역산하여 
-          실제 개발 여부(3단계)를 투명하게 기록</strong>한 엔지니어링 포트폴리오입니다.
+          내가 직접 문제의식을 갖고 발굴한 <strong>[👤 직접 큐레이션]</strong> 프로젝트와, 
+          시스템이 24시간 실시간 트래킹한 <strong>[🤖 자동 트렌드 발굴]</strong> 프로젝트를 
+          <strong>명확한 출처(Tier 1~4), 유사 기술 대체재 비교표, 실질 단위 원가 역산</strong>을 통해 입증한 포트폴리오입니다.
         </p>
       </div>
       <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
     </div>
 
-    <!-- KPI Metric Cards (3-Stage Hands-on Status) -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="glass p-5 rounded-xl space-y-2">
-        <div class="flex items-center justify-between text-slate-400">
-          <span class="text-xs font-medium uppercase tracking-wider">총 팩트체크 완료</span>
-          <i data-lucide="layers" class="w-4 h-4 text-indigo-400"></i>
-        </div>
-        <div class="text-3xl font-black text-white">{data['total_cases']} <span class="text-sm font-normal text-slate-400">Projects</span></div>
-        <p class="text-xs text-slate-400">출처 기반 심층 감사 완료</p>
+    <!-- Metric Cards: Discovery & Hands-on -->
+    <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
+      <div class="glass p-4 rounded-xl space-y-1">
+        <div class="text-xs font-medium text-slate-400">총 팩트체크 프로젝트</div>
+        <div class="text-2xl font-black text-white">{data['total_cases']} <span class="text-xs text-slate-400">Projects</span></div>
       </div>
-
-      <div class="glass p-5 rounded-xl space-y-2 border-emerald-500/20">
-        <div class="flex items-center justify-between text-slate-400">
-          <span class="text-xs font-medium uppercase tracking-wider text-emerald-400">1. 실제 개발/활용 완료</span>
-          <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
-        </div>
-        <div class="text-3xl font-black text-emerald-400">{data['active_dev_count']} <span class="text-sm font-normal text-slate-400">건</span></div>
-        <p class="text-xs text-slate-400">사내/프로젝트 실제 파이프라인 배포</p>
+      <div class="glass p-4 rounded-xl space-y-1 border-indigo-500/30">
+        <div class="text-xs font-medium text-indigo-300">👤 직접 문제해결 큐레이션</div>
+        <div class="text-2xl font-black text-indigo-400">{data['user_curated_count']} <span class="text-xs text-slate-400">건</span></div>
       </div>
-
-      <div class="glass p-5 rounded-xl space-y-2 border-amber-500/20">
-        <div class="flex items-center justify-between text-slate-400">
-          <span class="text-xs font-medium uppercase tracking-wider text-amber-400">2. 성능/과금 개발 중단</span>
-          <i data-lucide="x-circle" class="w-4 h-4 text-amber-400"></i>
-        </div>
-        <div class="text-3xl font-black text-amber-400">{data['halted_count']} <span class="text-sm font-normal text-slate-400">건</span></div>
-        <p class="text-xs text-slate-400">원가/플랫폼 제재 리스크로 중단</p>
+      <div class="glass p-4 rounded-xl space-y-1 border-sky-500/30">
+        <div class="text-xs font-medium text-sky-300">🤖 자율 트렌드 감사</div>
+        <div class="text-2xl font-black text-sky-400">{data['auto_harvested_count']} <span class="text-xs text-slate-400">건</span></div>
       </div>
-
-      <div class="glass p-5 rounded-xl space-y-2 border-slate-700">
-        <div class="flex items-center justify-between text-slate-400">
-          <span class="text-xs font-medium uppercase tracking-wider text-slate-400">3. 아직 개발 전 (조사)</span>
-          <i data-lucide="clock" class="w-4 h-4 text-slate-400"></i>
-        </div>
-        <div class="text-3xl font-black text-slate-300">{data['pending_count']} <span class="text-sm font-normal text-slate-400">건</span></div>
-        <p class="text-xs text-slate-400">하네스 오류 확인 및 사전 조사 단계</p>
+      <div class="glass p-4 rounded-xl space-y-1 border-emerald-500/30">
+        <div class="text-xs font-medium text-emerald-300">🟢 실제 개발 & 활용 완료</div>
+        <div class="text-2xl font-black text-emerald-400">{data['active_dev_count']} <span class="text-xs text-slate-400">건</span></div>
+      </div>
+      <div class="glass p-4 rounded-xl space-y-1 border-amber-500/30">
+        <div class="text-xs font-medium text-amber-300">🟡 성능/과금 개발 중단</div>
+        <div class="text-2xl font-black text-amber-400">{data['halted_count']} <span class="text-xs text-slate-400">건</span></div>
       </div>
     </div>
 
-    <!-- Filters & Search Toolbar -->
-    <div class="glass p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4">
-      <!-- Search Input -->
-      <div class="relative w-full md:w-80">
-        <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3 text-slate-400"></i>
-        <input type="text" id="searchInput" placeholder="기술명, SNS 출처, 키워드 검색..." 
-               class="w-full bg-slate-900/80 border border-slate-700/60 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
+    <!-- Filters Toolbar -->
+    <div class="glass p-4 rounded-xl space-y-3">
+      <!-- Search Input & Mode Filter -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="relative w-full md:w-80">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3 text-slate-400"></i>
+          <input type="text" id="searchInput" placeholder="기술명, 대체재, 출처, 키워드 검색..." 
+                 class="w-full bg-slate-900/80 border border-slate-700/60 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
+        </div>
+
+        <!-- Mode Filters -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="setModeFilter('ALL')" class="mode-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-600 text-white border border-indigo-500 transition" data-mode="ALL">전체 발굴 경로</button>
+          <button onclick="setModeFilter('USER_CURATED')" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500/10 transition" data-mode="USER_CURATED">👤 내가 직접 큐레이션</button>
+          <button onclick="setModeFilter('AUTO_HARVESTED')" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-sky-300 border border-sky-500/30 hover:bg-sky-500/10 transition" data-mode="AUTO_HARVESTED">🤖 자동 트렌드 발굴</button>
+        </div>
       </div>
 
-      <!-- Filter Buttons (Hands-on 3-Stage Filter) -->
-      <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-        <button onclick="setStageFilter('ALL')" class="stage-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-600 text-white border border-indigo-500 transition" data-stage="ALL">전체 보기</button>
-        <button onclick="setStageFilter('ACTIVE_DEVELOPED')" class="stage-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/10 transition" data-stage="ACTIVE_DEVELOPED">🟢 실제 개발 완료</button>
-        <button onclick="setStageFilter('EVALUATED_HALTED')" class="stage-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-amber-400 border border-amber-500/30 hover:bg-amber-500/10 transition" data-stage="EVALUATED_HALTED">🟡 성능/과금 중단</button>
-        <button onclick="setStageFilter('PENDING_RESEARCH')" class="stage-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-slate-300 border border-slate-700 hover:bg-slate-800 transition" data-stage="PENDING_RESEARCH">⚪ 개발 전 (사전 조사)</button>
+      <!-- Stage Filters -->
+      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800">
+        <span class="text-xs text-slate-400 mr-2">실측 상태:</span>
+        <button onclick="setStageFilter('ALL')" class="stage-btn active px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-white transition" data-stage="ALL">전체</button>
+        <button onclick="setStageFilter('ACTIVE_DEVELOPED')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-emerald-400 border border-emerald-500/20 hover:bg-slate-800 transition" data-stage="ACTIVE_DEVELOPED">🟢 개발 완료</button>
+        <button onclick="setStageFilter('EVALUATED_HALTED')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-amber-400 border border-amber-500/20 hover:bg-slate-800 transition" data-stage="EVALUATED_HALTED">🟡 개발 중단</button>
+        <button onclick="setStageFilter('PENDING_RESEARCH')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-slate-300 border border-slate-700 hover:bg-slate-800 transition" data-stage="PENDING_RESEARCH">⚪ 사전 조사</button>
       </div>
     </div>
 
@@ -256,7 +260,7 @@ def generate_html(data):
 
   </main>
 
-  <!-- Health & Harvester Monitoring Modal -->
+  <!-- Health & Monitoring Modal -->
   <div id="healthModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
     <div class="glass max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-700 my-8">
       <div class="p-6 border-b border-slate-800 flex items-center justify-between bg-slate-900/60">
@@ -296,12 +300,13 @@ def generate_html(data):
 
   <!-- Detailed Portfolio Modal -->
   <div id="detailModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-    <div class="glass max-w-3xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-700/80 my-8 max-h-[92vh] flex flex-col">
+    <div class="glass max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-700/80 my-8 max-h-[92vh] flex flex-col">
       <!-- Modal Header -->
       <div class="p-6 border-b border-slate-800 flex items-start justify-between bg-slate-900/60">
         <div class="space-y-1 pr-4">
           <div class="flex items-center gap-2 flex-wrap">
-            <span id="modalCategory" class="text-xs px-2.5 py-0.5 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-medium"></span>
+            <span id="modalModeBadge" class="text-xs px-2.5 py-0.5 rounded-md font-semibold"></span>
+            <span id="modalClusterBadge" class="text-xs px-2.5 py-0.5 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-medium"></span>
             <span id="modalVerdictBadge" class="text-xs px-2.5 py-0.5 rounded-md font-semibold"></span>
             <span id="modalStageBadge" class="text-xs px-2.5 py-0.5 rounded-md font-medium"></span>
           </div>
@@ -314,7 +319,42 @@ def generate_html(data):
 
       <!-- Modal Body -->
       <div class="p-6 overflow-y-auto space-y-6 text-sm text-slate-200">
-        <!-- 0. Verified Sources List -->
+        
+        <!-- Curation Motivation Box (Personal Intent) -->
+        <div id="modalCurationBox" class="p-4 rounded-xl border space-y-1.5">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold uppercase tracking-wider flex items-center gap-1.5" id="modalCurationTitle">
+              <i data-lucide="user-check" class="w-4 h-4"></i> 큐레이션 동기 및 문제의식 (Discovery Motivation)
+            </h4>
+            <span id="modalCuratorName" class="text-xs text-slate-400 font-mono"></span>
+          </div>
+          <p id="modalPersonalMotivation" class="text-xs leading-relaxed text-slate-300"></p>
+          <div class="text-[11px] text-indigo-400 font-medium pt-1">
+            🎯 연계 워크플로우: <span id="modalTargetWorkflow" class="text-slate-300 font-normal"></span>
+          </div>
+        </div>
+
+        <!-- Alternatives Comparison Matrix -->
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
+            <i data-lucide="git-compare" class="w-4 h-4"></i> 유사 기술 & 대체재 비교 매트릭스 (Alternatives Benchmark)
+          </h4>
+          <div class="overflow-x-auto rounded-xl border border-slate-800">
+            <table class="w-full text-left text-xs border-collapse bg-slate-900/60">
+              <thead class="bg-slate-950/80 text-slate-400 border-b border-slate-800">
+                <tr>
+                  <th class="p-2.5 font-semibold">도구명</th>
+                  <th class="p-2.5 font-semibold">핵심 스택</th>
+                  <th class="p-2.5 font-semibold text-emerald-400">주요 강점 (Pros)</th>
+                  <th class="p-2.5 font-semibold text-amber-400">한계점 (Cons)</th>
+                </tr>
+              </thead>
+              <tbody id="modalAlternativesBody" class="divide-y divide-slate-800/60"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Verified Sources List -->
         <div class="space-y-2">
           <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
             <i data-lucide="link-2" class="w-4 h-4"></i> 명확한 팩트체크 검증 출처 (Verified Sources)
@@ -330,7 +370,7 @@ def generate_html(data):
           <div id="modalCommunityList" class="space-y-2"></div>
         </div>
 
-        <!-- 1. The Hook -->
+        <!-- The Hook -->
         <div class="space-y-1.5">
           <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-300 flex items-center gap-1.5">
             <i data-lucide="sparkles" class="w-4 h-4"></i> 1. The Hook (왜 찾아보게 되었는가? / 매력 포인트)
@@ -338,7 +378,7 @@ def generate_html(data):
           <p id="modalHook" class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-slate-300 leading-relaxed"></p>
         </div>
 
-        <!-- 2. Hype Anatomy -->
+        <!-- Hype Anatomy -->
         <div class="space-y-1.5">
           <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
             <i data-lucide="megaphone" class="w-4 h-4"></i> 2. Marketing Hype Anatomy (어떤 식으로 홍보/과장했는가?)
@@ -346,7 +386,7 @@ def generate_html(data):
           <p id="modalHype" class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-slate-300 leading-relaxed"></p>
         </div>
 
-        <!-- 3. Engineering Takeaways -->
+        <!-- Engineering Takeaways -->
         <div class="space-y-1.5">
           <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
             <i data-lucide="book-open" class="w-4 h-4"></i> 3. Engineering Takeaways (엔지니어로서 배운 점 & 기술적 실체)
@@ -354,7 +394,7 @@ def generate_html(data):
           <p id="modalTakeaways" class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-slate-300 leading-relaxed whitespace-pre-line"></p>
         </div>
 
-        <!-- 4. Future Applications -->
+        <!-- Future Applications -->
         <div class="space-y-1.5">
           <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
             <i data-lucide="rocket" class="w-4 h-4"></i> 4. Future Applications (추후 어떤 곳에 활용 가능한가?)
@@ -362,7 +402,7 @@ def generate_html(data):
           <p id="modalFuture" class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-slate-300 leading-relaxed whitespace-pre-line"></p>
         </div>
 
-        <!-- 5. Hands-on Empirical Proof -->
+        <!-- Hands-on Box -->
         <div class="space-y-2">
           <h4 class="text-xs font-bold uppercase tracking-wider text-purple-400 flex items-center gap-1.5">
             <i data-lucide="flask-conical" class="w-4 h-4"></i> 5. Hands-on 실무 실측 및 활용 상태 (No-Hallucination Proof)
@@ -395,6 +435,7 @@ def generate_html(data):
   <script>
     const casesData = {cases_json};
     const healthData = {health_json};
+    let currentMode = 'ALL';
     let currentStage = 'ALL';
     let searchQuery = '';
 
@@ -466,11 +507,13 @@ def generate_html(data):
         const story = c.portfolio_story || {{}};
         const handsOn = story.hands_on_log || {{}};
         const stage = handsOn.status || 'PENDING_RESEARCH';
+        const mode = c.curation ? c.curation.discovery_mode : 'USER_CURATED';
         
+        const matchesMode = currentMode === 'ALL' || mode === currentMode;
         const matchesStage = currentStage === 'ALL' || stage === currentStage;
-        const text = (c.title + ' ' + (c.category || '') + ' ' + (story.the_hook || '')).toLowerCase();
+        const text = (c.title + ' ' + (c.category || '') + ' ' + (story.the_hook || '') + ' ' + (c.curation ? c.curation.personal_motivation : '')).toLowerCase();
         const matchesSearch = text.includes(searchQuery.toLowerCase());
-        return matchesStage && matchesSearch;
+        return matchesMode && matchesStage && matchesSearch;
       }});
 
       if (filtered.length === 0) {{
@@ -481,9 +524,13 @@ def generate_html(data):
       filtered.forEach((c) => {{
         const story = c.portfolio_story || {{}};
         const handsOn = story.hands_on_log || {{}};
+        const curation = c.curation || {{ discovery_mode: 'USER_CURATED' }};
+        const clustering = c.clustering || {{ cluster_name: c.category || 'Tech' }};
         const badgeClass = getVerdictBadgeClass(c.verdict);
         const verdictLabel = getVerdictLabel(c.verdict);
         const stageInfo = getStageBadgeInfo(handsOn.status);
+
+        const isUserMode = curation.discovery_mode === 'USER_CURATED';
 
         const card = document.createElement('div');
         card.className = 'glass-card p-5 rounded-xl flex flex-col justify-between cursor-pointer space-y-4';
@@ -491,33 +538,40 @@ def generate_html(data):
 
         card.innerHTML = `
           <div class="space-y-3">
-            <div class="flex items-center justify-between text-xs">
-              <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300 font-medium border border-indigo-500/20">${{c.category || 'Tech'}}</span>
+            <div class="flex items-center justify-between text-xs flex-wrap gap-1">
+              <span class="px-2 py-0.5 rounded font-bold ${{isUserMode ? 'badge-user' : 'badge-auto'}} flex items-center gap-1">
+                <i data-lucide="${{isUserMode ? 'user-check' : 'bot'}}" class="w-3 h-3"></i>
+                ${{isUserMode ? '👤 직접 큐레이션' : '🤖 자동 트렌드 발굴'}}
+              </span>
               <span class="px-2 py-0.5 rounded font-bold ${{badgeClass}}">${{verdictLabel}}</span>
             </div>
             
             <h3 class="font-bold text-base text-white hover:text-indigo-300 transition line-clamp-2">${{c.title}}</h3>
             
-            <div class="flex items-center gap-1.5 text-xs">
-              <span class="px-2 py-0.5 rounded font-medium ${{stageInfo.class}} flex items-center gap-1">
+            <div class="flex items-center gap-1.5 text-xs flex-wrap">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 text-[11px]">
+                ${{clustering.cluster_name ? clustering.cluster_name.split('(')[0].trim() : (c.category || 'Tech')}}
+              </span>
+              <span class="px-2 py-0.5 rounded font-medium ${{stageInfo.class}} text-[11px] flex items-center gap-1">
                 ${{stageInfo.label}}
               </span>
             </div>
 
             <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800/80 space-y-1">
-              <span class="text-[11px] font-semibold text-indigo-400 uppercase tracking-wider flex items-center gap-1">
-                <i data-lucide="sparkles" class="w-3 h-3"></i> The Hook (매력 포인트)
+              <span class="text-[11px] font-semibold ${{isUserMode ? 'text-indigo-300' : 'text-sky-300'}} uppercase tracking-wider flex items-center gap-1">
+                <i data-lucide="${{isUserMode ? 'help-circle' : 'trending-up'}}" class="w-3 h-3"></i>
+                ${{isUserMode ? '직접 발굴한 문제의식' : '트렌드 감사 동기'}}
               </span>
-              <p class="text-xs text-slate-300 line-clamp-2">${{story.the_hook || '분석 진행 중'}}</p>
+              <p class="text-xs text-slate-300 line-clamp-2">${{curation.personal_motivation || story.the_hook || '분석 진행 중'}}</p>
             </div>
           </div>
 
           <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
             <span class="flex items-center gap-1">
-              <i data-lucide="link" class="w-3 h-3"></i> 출처 ${{c.sources ? c.sources.length : 1}}개 감사 완료
+              <i data-lucide="link" class="w-3 h-3"></i> 출처 ${{c.sources ? c.sources.length : 1}}개 감사
             </span>
             <span class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center gap-1">
-              상세 분석 보기 <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              상세 분석 및 대체재 보기 <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
             </span>
           </div>
         `;
@@ -531,9 +585,16 @@ def generate_html(data):
     function openModal(c) {{
       const story = c.portfolio_story || {{}};
       const handsOn = story.hands_on_log || {{}};
+      const curation = c.curation || {{ discovery_mode: 'USER_CURATED', curator: 'Anyong Cheong' }};
+      const clustering = c.clustering || {{ cluster_name: c.category || 'Tech', alternatives: [] }};
       const stageInfo = getStageBadgeInfo(handsOn.status);
+      const isUserMode = curation.discovery_mode === 'USER_CURATED';
       
-      document.getElementById('modalCategory').innerText = c.category || 'Tech';
+      const mBadge = document.getElementById('modalModeBadge');
+      mBadge.className = 'text-xs px-2.5 py-0.5 rounded-md font-semibold ' + (isUserMode ? 'badge-user' : 'badge-auto');
+      mBadge.innerText = isUserMode ? '👤 직접 문제해결 큐레이션' : '🤖 자율 트렌드 감사 발굴';
+
+      document.getElementById('modalClusterBadge').innerText = clustering.cluster_name || (c.category || 'Tech');
       
       const vBadge = document.getElementById('modalVerdictBadge');
       vBadge.className = 'text-xs px-2.5 py-0.5 rounded-md font-semibold ' + getVerdictBadgeClass(c.verdict);
@@ -544,6 +605,33 @@ def generate_html(data):
       sBadge.innerText = stageInfo.label;
 
       document.getElementById('modalTitle').innerText = c.title;
+
+      // Curation Motivation Box
+      const cBox = document.getElementById('modalCurationBox');
+      cBox.className = 'p-4 rounded-xl border space-y-1.5 ' + (isUserMode ? 'bg-indigo-950/30 border-indigo-500/30' : 'bg-sky-950/30 border-sky-500/30');
+      document.getElementById('modalCurationTitle').className = 'text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ' + (isUserMode ? 'text-indigo-300' : 'text-sky-300');
+      document.getElementById('modalCuratorName').innerText = 'Curator: ' + (curation.curator || 'Anyong Cheong');
+      document.getElementById('modalPersonalMotivation').innerText = curation.personal_motivation || story.the_hook || '내용 없음';
+      document.getElementById('modalTargetWorkflow').innerText = curation.target_workflow || '일반 엔지니어링 파이프라인';
+
+      // Alternatives Table
+      const altBody = document.getElementById('modalAlternativesBody');
+      altBody.innerHTML = '';
+      if (clustering.alternatives && clustering.alternatives.length > 0) {{
+        clustering.alternatives.forEach(alt => {{
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-slate-800/40 transition';
+          tr.innerHTML = `
+            <td class="p-2.5 font-bold text-white whitespace-nowrap">${{alt.name}}</td>
+            <td class="p-2.5 text-slate-400 font-mono text-[11px] whitespace-nowrap">${{alt.tech_stack || 'N/A'}}</td>
+            <td class="p-2.5 text-emerald-300">${{alt.pros || '-'}}</td>
+            <td class="p-2.5 text-amber-300">${{alt.cons || '-'}}</td>
+          `;
+          altBody.appendChild(tr);
+        }});
+      }} else {{
+        altBody.innerHTML = '<tr><td colspan="4" class="p-3 text-center text-slate-500">등록된 대체재 정보가 없습니다.</td></tr>';
+      }}
 
       // Render Sources List
       const sourcesList = document.getElementById('modalSourcesList');
@@ -613,14 +701,28 @@ def generate_html(data):
       document.getElementById('detailModal').classList.add('hidden');
     }}
 
-    function setStageFilter(stage) {{
-      currentStage = stage;
-      document.querySelectorAll('.stage-btn').forEach(btn => {{
-        if (btn.dataset.stage === stage) {{
+    function setModeFilter(mode) {{
+      currentMode = mode;
+      document.querySelectorAll('.mode-btn').forEach(btn => {{
+        if (btn.dataset.mode === mode) {{
           btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-500');
           btn.classList.remove('bg-slate-900');
         }} else {{
           btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-500');
+          btn.classList.add('bg-slate-900');
+        }}
+      }});
+      renderCards();
+    }}
+
+    function setStageFilter(stage) {{
+      currentStage = stage;
+      document.querySelectorAll('.stage-btn').forEach(btn => {{
+        if (btn.dataset.stage === stage) {{
+          btn.classList.add('bg-slate-800', 'text-white');
+          btn.classList.remove('bg-slate-900');
+        }} else {{
+          btn.classList.remove('bg-slate-800', 'text-white');
           btn.classList.add('bg-slate-900');
         }}
       }});

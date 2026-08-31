@@ -8,6 +8,23 @@
   "confidence_score": 96.5,
   "status": "COMPLETED",
   
+  "curation": {
+    "discovery_mode": "USER_CURATED",
+    "curator": "Anyong Cheong",
+    "personal_motivation": "SNS에서 'DeepSeek 신규 추론 모델이 o1을 압살하고 단일 4090에서 돌아간다'는 주장을 보고, 벤치마크 하네스(Pass@64 체리피킹) 왜곡과 VRAM 요구사양을 사전에 역산 검증하고자 직접 선정함.",
+    "target_workflow": "정량 데이터 분석 & 벤치마크 오염도 감사"
+  },
+
+  "clustering": {
+    "cluster_id": "cluster_reasoning_benchmarks",
+    "cluster_name": "🧠 추론 모델 및 벤치마크 감사 (Reasoning LLMs & Benchmark Audits)",
+    "layer": "Model Architecture & Evaluation Governance",
+    "alternatives": [
+      { "name": "DeepSeek-R1 (Full 671B)", "tech_stack": "MoE 671B", "pros": "o1급 추론 성능", "cons": "700GB 가중치로 로컬 단일 GPU 불가" },
+      { "name": "DeepSeek-R1-Distill-Qwen-8B", "tech_stack": "Dense 8B", "pros": "단일 4090/3090에서 고속 서빙 가능", "cons": "풀모델 대비 복잡 추론 한계" }
+    ]
+  },
+  
   "sources": [
     {
       "tier": "Tier 4",

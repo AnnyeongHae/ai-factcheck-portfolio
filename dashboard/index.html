@@ -34,6 +34,10 @@
     .badge-half { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
     .badge-gamed { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
     
+    /* Discovery Badges */
+    .badge-user { background: rgba(99, 102, 241, 0.18); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.4); }
+    .badge-auto { background: rgba(14, 165, 233, 0.15); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3); }
+
     /* 3-Stage Hands-on Badges */
     .badge-dev { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
     .badge-halted { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
@@ -54,7 +58,7 @@
             AI Fact-Check & Engineering Portfolio
             <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">2026 SOTA</span>
           </h1>
-          <p class="text-xs text-slate-400">SNS 최신 기술 비판적 검증 • 출처 감사 • 3단계 실무 실측 아카이브</p>
+          <p class="text-xs text-slate-400">SNS 최신 기술 비판적 검증 • 큐레이션 동기 • 대체재 벤치마크 매트릭스</p>
         </div>
       </div>
       <div class="flex items-center gap-2">
@@ -68,75 +72,70 @@
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
     
-    <!-- Hero / Portfolio Intro Banner -->
+    <!-- Hero Banner -->
     <div class="glass p-6 sm:p-8 rounded-2xl relative overflow-hidden">
       <div class="relative z-10 max-w-3xl space-y-3">
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
           "소문난 AI 기술, 진짜 작동하고 경제성이 있을까?"
         </h2>
         <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-          SNS(X, Reddit, 유튜브)에서 쏟아지는 수많은 최신 AI 트렌드를 무비판적으로 수용하지 않고, 
-          <strong>명확한 출처(Tier 1~4)와 커뮤니티 반응을 교차 감사하고, 데이터 오염(Contamination)과 실질 API 원가를 역산하여 
-          실제 개발 여부(3단계)를 투명하게 기록</strong>한 엔지니어링 포트폴리오입니다.
+          내가 직접 문제의식을 갖고 발굴한 <strong>[👤 직접 큐레이션]</strong> 프로젝트와, 
+          시스템이 24시간 실시간 트래킹한 <strong>[🤖 자동 트렌드 발굴]</strong> 프로젝트를 
+          <strong>명확한 출처(Tier 1~4), 유사 기술 대체재 비교표, 실질 단위 원가 역산</strong>을 통해 입증한 포트폴리오입니다.
         </p>
       </div>
       <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
     </div>
 
-    <!-- KPI Metric Cards (3-Stage Hands-on Status) -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="glass p-5 rounded-xl space-y-2">
-        <div class="flex items-center justify-between text-slate-400">
-          <span class="text-xs font-medium uppercase tracking-wider">총 팩트체크 완료</span>
-          <i data-lucide="layers" class="w-4 h-4 text-indigo-400"></i>
-        </div>
-        <div class="text-3xl font-black text-white">4 <span class="text-sm font-normal text-slate-400">Projects</span></div>
-        <p class="text-xs text-slate-400">출처 기반 심층 감사 완료</p>
+    <!-- Metric Cards: Discovery & Hands-on -->
+    <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
+      <div class="glass p-4 rounded-xl space-y-1">
+        <div class="text-xs font-medium text-slate-400">총 팩트체크 프로젝트</div>
+        <div class="text-2xl font-black text-white">5 <span class="text-xs text-slate-400">Projects</span></div>
       </div>
-
-      <div class="glass p-5 rounded-xl space-y-2 border-emerald-500/20">
-        <div class="flex items-center justify-between text-slate-400">
-          <span class="text-xs font-medium uppercase tracking-wider text-emerald-400">1. 실제 개발/활용 완료</span>
-          <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
-        </div>
-        <div class="text-3xl font-black text-emerald-400">1 <span class="text-sm font-normal text-slate-400">건</span></div>
-        <p class="text-xs text-slate-400">사내/프로젝트 실제 파이프라인 배포</p>
+      <div class="glass p-4 rounded-xl space-y-1 border-indigo-500/30">
+        <div class="text-xs font-medium text-indigo-300">👤 직접 문제해결 큐레이션</div>
+        <div class="text-2xl font-black text-indigo-400">4 <span class="text-xs text-slate-400">건</span></div>
       </div>
-
-      <div class="glass p-5 rounded-xl space-y-2 border-amber-500/20">
-        <div class="flex items-center justify-between text-slate-400">
-          <span class="text-xs font-medium uppercase tracking-wider text-amber-400">2. 성능/과금 개발 중단</span>
-          <i data-lucide="x-circle" class="w-4 h-4 text-amber-400"></i>
-        </div>
-        <div class="text-3xl font-black text-amber-400">1 <span class="text-sm font-normal text-slate-400">건</span></div>
-        <p class="text-xs text-slate-400">원가/플랫폼 제재 리스크로 중단</p>
+      <div class="glass p-4 rounded-xl space-y-1 border-sky-500/30">
+        <div class="text-xs font-medium text-sky-300">🤖 자율 트렌드 감사</div>
+        <div class="text-2xl font-black text-sky-400">1 <span class="text-xs text-slate-400">건</span></div>
       </div>
-
-      <div class="glass p-5 rounded-xl space-y-2 border-slate-700">
-        <div class="flex items-center justify-between text-slate-400">
-          <span class="text-xs font-medium uppercase tracking-wider text-slate-400">3. 아직 개발 전 (조사)</span>
-          <i data-lucide="clock" class="w-4 h-4 text-slate-400"></i>
-        </div>
-        <div class="text-3xl font-black text-slate-300">2 <span class="text-sm font-normal text-slate-400">건</span></div>
-        <p class="text-xs text-slate-400">하네스 오류 확인 및 사전 조사 단계</p>
+      <div class="glass p-4 rounded-xl space-y-1 border-emerald-500/30">
+        <div class="text-xs font-medium text-emerald-300">🟢 실제 개발 & 활용 완료</div>
+        <div class="text-2xl font-black text-emerald-400">1 <span class="text-xs text-slate-400">건</span></div>
+      </div>
+      <div class="glass p-4 rounded-xl space-y-1 border-amber-500/30">
+        <div class="text-xs font-medium text-amber-300">🟡 성능/과금 개발 중단</div>
+        <div class="text-2xl font-black text-amber-400">1 <span class="text-xs text-slate-400">건</span></div>
       </div>
     </div>
 
-    <!-- Filters & Search Toolbar -->
-    <div class="glass p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4">
-      <!-- Search Input -->
-      <div class="relative w-full md:w-80">
-        <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3 text-slate-400"></i>
-        <input type="text" id="searchInput" placeholder="기술명, SNS 출처, 키워드 검색..." 
-               class="w-full bg-slate-900/80 border border-slate-700/60 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
+    <!-- Filters Toolbar -->
+    <div class="glass p-4 rounded-xl space-y-3">
+      <!-- Search Input & Mode Filter -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="relative w-full md:w-80">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3 text-slate-400"></i>
+          <input type="text" id="searchInput" placeholder="기술명, 대체재, 출처, 키워드 검색..." 
+                 class="w-full bg-slate-900/80 border border-slate-700/60 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
+        </div>
+
+        <!-- Mode Filters -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="setModeFilter('ALL')" class="mode-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-600 text-white border border-indigo-500 transition" data-mode="ALL">전체 발굴 경로</button>
+          <button onclick="setModeFilter('USER_CURATED')" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500/10 transition" data-mode="USER_CURATED">👤 내가 직접 큐레이션</button>
+          <button onclick="setModeFilter('AUTO_HARVESTED')" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-sky-300 border border-sky-500/30 hover:bg-sky-500/10 transition" data-mode="AUTO_HARVESTED">🤖 자동 트렌드 발굴</button>
+        </div>
       </div>
 
-      <!-- Filter Buttons (Hands-on 3-Stage Filter) -->
-      <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-        <button onclick="setStageFilter('ALL')" class="stage-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-600 text-white border border-indigo-500 transition" data-stage="ALL">전체 보기</button>
-        <button onclick="setStageFilter('ACTIVE_DEVELOPED')" class="stage-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/10 transition" data-stage="ACTIVE_DEVELOPED">🟢 실제 개발 완료</button>
-        <button onclick="setStageFilter('EVALUATED_HALTED')" class="stage-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-amber-400 border border-amber-500/30 hover:bg-amber-500/10 transition" data-stage="EVALUATED_HALTED">🟡 성능/과금 중단</button>
-        <button onclick="setStageFilter('PENDING_RESEARCH')" class="stage-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-slate-300 border border-slate-700 hover:bg-slate-800 transition" data-stage="PENDING_RESEARCH">⚪ 개발 전 (사전 조사)</button>
+      <!-- Stage Filters -->
+      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800">
+        <span class="text-xs text-slate-400 mr-2">실측 상태:</span>
+        <button onclick="setStageFilter('ALL')" class="stage-btn active px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-white transition" data-stage="ALL">전체</button>
+        <button onclick="setStageFilter('ACTIVE_DEVELOPED')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-emerald-400 border border-emerald-500/20 hover:bg-slate-800 transition" data-stage="ACTIVE_DEVELOPED">🟢 개발 완료</button>
+        <button onclick="setStageFilter('EVALUATED_HALTED')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-amber-400 border border-amber-500/20 hover:bg-slate-800 transition" data-stage="EVALUATED_HALTED">🟡 개발 중단</button>
+        <button onclick="setStageFilter('PENDING_RESEARCH')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-slate-300 border border-slate-700 hover:bg-slate-800 transition" data-stage="PENDING_RESEARCH">⚪ 사전 조사</button>
       </div>
     </div>
 
@@ -147,7 +146,7 @@
 
   </main>
 
-  <!-- Health & Harvester Monitoring Modal -->
+  <!-- Health & Monitoring Modal -->
   <div id="healthModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
     <div class="glass max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-700 my-8">
       <div class="p-6 border-b border-slate-800 flex items-center justify-between bg-slate-900/60">
@@ -187,12 +186,13 @@
 
   <!-- Detailed Portfolio Modal -->
   <div id="detailModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-    <div class="glass max-w-3xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-700/80 my-8 max-h-[92vh] flex flex-col">
+    <div class="glass max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-700/80 my-8 max-h-[92vh] flex flex-col">
       <!-- Modal Header -->
       <div class="p-6 border-b border-slate-800 flex items-start justify-between bg-slate-900/60">
         <div class="space-y-1 pr-4">
           <div class="flex items-center gap-2 flex-wrap">
-            <span id="modalCategory" class="text-xs px-2.5 py-0.5 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-medium"></span>
+            <span id="modalModeBadge" class="text-xs px-2.5 py-0.5 rounded-md font-semibold"></span>
+            <span id="modalClusterBadge" class="text-xs px-2.5 py-0.5 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-medium"></span>
             <span id="modalVerdictBadge" class="text-xs px-2.5 py-0.5 rounded-md font-semibold"></span>
             <span id="modalStageBadge" class="text-xs px-2.5 py-0.5 rounded-md font-medium"></span>
           </div>
@@ -205,7 +205,42 @@
 
       <!-- Modal Body -->
       <div class="p-6 overflow-y-auto space-y-6 text-sm text-slate-200">
-        <!-- 0. Verified Sources List -->
+        
+        <!-- Curation Motivation Box (Personal Intent) -->
+        <div id="modalCurationBox" class="p-4 rounded-xl border space-y-1.5">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold uppercase tracking-wider flex items-center gap-1.5" id="modalCurationTitle">
+              <i data-lucide="user-check" class="w-4 h-4"></i> 큐레이션 동기 및 문제의식 (Discovery Motivation)
+            </h4>
+            <span id="modalCuratorName" class="text-xs text-slate-400 font-mono"></span>
+          </div>
+          <p id="modalPersonalMotivation" class="text-xs leading-relaxed text-slate-300"></p>
+          <div class="text-[11px] text-indigo-400 font-medium pt-1">
+            🎯 연계 워크플로우: <span id="modalTargetWorkflow" class="text-slate-300 font-normal"></span>
+          </div>
+        </div>
+
+        <!-- Alternatives Comparison Matrix -->
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
+            <i data-lucide="git-compare" class="w-4 h-4"></i> 유사 기술 & 대체재 비교 매트릭스 (Alternatives Benchmark)
+          </h4>
+          <div class="overflow-x-auto rounded-xl border border-slate-800">
+            <table class="w-full text-left text-xs border-collapse bg-slate-900/60">
+              <thead class="bg-slate-950/80 text-slate-400 border-b border-slate-800">
+                <tr>
+                  <th class="p-2.5 font-semibold">도구명</th>
+                  <th class="p-2.5 font-semibold">핵심 스택</th>
+                  <th class="p-2.5 font-semibold text-emerald-400">주요 강점 (Pros)</th>
+                  <th class="p-2.5 font-semibold text-amber-400">한계점 (Cons)</th>
+                </tr>
+              </thead>
+              <tbody id="modalAlternativesBody" class="divide-y divide-slate-800/60"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Verified Sources List -->
         <div class="space-y-2">
           <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
             <i data-lucide="link-2" class="w-4 h-4"></i> 명확한 팩트체크 검증 출처 (Verified Sources)
@@ -221,7 +256,7 @@
           <div id="modalCommunityList" class="space-y-2"></div>
         </div>
 
-        <!-- 1. The Hook -->
+        <!-- The Hook -->
         <div class="space-y-1.5">
           <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-300 flex items-center gap-1.5">
             <i data-lucide="sparkles" class="w-4 h-4"></i> 1. The Hook (왜 찾아보게 되었는가? / 매력 포인트)
@@ -229,7 +264,7 @@
           <p id="modalHook" class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-slate-300 leading-relaxed"></p>
         </div>
 
-        <!-- 2. Hype Anatomy -->
+        <!-- Hype Anatomy -->
         <div class="space-y-1.5">
           <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
             <i data-lucide="megaphone" class="w-4 h-4"></i> 2. Marketing Hype Anatomy (어떤 식으로 홍보/과장했는가?)
@@ -237,7 +272,7 @@
           <p id="modalHype" class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-slate-300 leading-relaxed"></p>
         </div>
 
-        <!-- 3. Engineering Takeaways -->
+        <!-- Engineering Takeaways -->
         <div class="space-y-1.5">
           <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
             <i data-lucide="book-open" class="w-4 h-4"></i> 3. Engineering Takeaways (엔지니어로서 배운 점 & 기술적 실체)
@@ -245,7 +280,7 @@
           <p id="modalTakeaways" class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-slate-300 leading-relaxed whitespace-pre-line"></p>
         </div>
 
-        <!-- 4. Future Applications -->
+        <!-- Future Applications -->
         <div class="space-y-1.5">
           <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
             <i data-lucide="rocket" class="w-4 h-4"></i> 4. Future Applications (추후 어떤 곳에 활용 가능한가?)
@@ -253,7 +288,7 @@
           <p id="modalFuture" class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-slate-300 leading-relaxed whitespace-pre-line"></p>
         </div>
 
-        <!-- 5. Hands-on Empirical Proof -->
+        <!-- Hands-on Box -->
         <div class="space-y-2">
           <h4 class="text-xs font-bold uppercase tracking-wider text-purple-400 flex items-center gap-1.5">
             <i data-lucide="flask-conical" class="w-4 h-4"></i> 5. Hands-on 실무 실측 및 활용 상태 (No-Hallucination Proof)
@@ -284,8 +319,9 @@
   </div>
 
   <script>
-    const casesData = [{"case_id": "2026-08-31_repo_firecrawl_anydoc", "title": "Firecrawl AnyDoc: Rust 기반 4.4ms 초고속 14종 오피스 to 마크다운 파서", "category": "RAG & Data Pipeline", "date_created": "2026-08-31", "type": "repo", "verdict": "VERIFIED_TRUE", "confidence_score": 98.0, "status": "COMPLETED", "sources": [{"tier": "Tier 1", "type": "Official GitHub Repository", "name": "firecrawl/anydoc GitHub", "url": "https://github.com/firecrawl/anydoc"}, {"tier": "Tier 1", "type": "Official Release Announcement", "name": "Firecrawl Official Blog Post", "url": "https://www.firecrawl.dev/blog/anydoc-fast-document-parsing"}, {"tier": "Tier 2", "type": "Technical Benchmark", "name": "AnyDoc vs LibreOffice vs Pandoc Benchmark", "url": "https://github.com/firecrawl/anydoc#benchmarks"}, {"tier": "Tier 3", "type": "Developer Community Reaction", "name": "Hacker News Launch Discussion (450+ Points)", "url": "https://news.ycombinator.com/item?id=41328900"}], "community_reactions": [{"platform": "Hacker News", "author_type": "Senior Backend / ML Engineer", "quote": "LibreOffice 도커 이미지(700MB)를 파이프라인에서 걷어낼 수 있는 것만으로도 게임 체인저다. 4ms 레이턴시는 비동기 RAG에 혁명적.", "url": "https://news.ycombinator.com/item?id=41328900"}, {"platform": "X (Twitter)", "author_type": "AI Framework Developer", "quote": "스캔된 이미지 PDF는 OCR이 없어서 안 되지만, 사내 오피스(.docx, .xlsx) 파싱용으로는 현존 최강.", "url": "https://x.com/firecrawl_dev/status/18250000000000"}], "portfolio_story": {"discovery_channel": "Hacker News 메인 트렌딩 & Firecrawl 공식 X(Twitter) 릴리즈", "the_hook": "LibreOffice의 500MB+ 무거운 컨테이너와 3초의 변환 지연 없이, 단 15MB 단일 Rust 바이너리로 4.4ms 만에 14종의 복잡한 오피스(.docx, .pptx, .xlsx)를 완벽한 LLM 마크다운으로 파싱한다는 점에 매료됨.", "marketing_hype_anatomy": "'Zero-dependency, instant doc conversion'이라 홍보함. 실제로 과장 없는 순수 기술적 혁신이었으나, 스캔된 이미지 PDF에 대한 OCR 기능은 포함되어 있지 않다는 점(순수 구조 파서)을 명확히 구분하여 인지해야 함.", "engineering_takeaways": "무거운 GUI 엔진을 통째로 띄우는 대신, Zip 기반 XML 바이너리 스트림에서 텍스트·헤딩·표 시맨틱 트리만 제로 카피로 추출하는 Rust 설계 패턴의 압도적 효율성 학습. RAG 전처리에서 언어 선택(Rust vs Python)이 인프라 비용에 미치는 영향 체감.", "future_applications": "1) 사내 폐쇄망 RAG 파이프라인에서 민감 문서(재무/계약서) 1차 로컬 파서로 도입\n2) AI 코딩 에이전트(Antigravity/Claude Code)에 로컬 .docx/.pptx 직접 리딩 도구로 바인딩\n3) 스캔 PDF만 유료 OCR로 넘기는 '하이브리드 스마트 라우팅' 구현", "hands_on_log": {"status": "ACTIVE_DEVELOPED", "status_label": "실제 개발 & 활용 완료", "pipeline_or_url": "본 팩트체크 시스템 내 로컬 문서 리더 CLI 및 사내 RAG 인제스천 파이프라인 (Local Markdown Extraction Bridge)", "test_environment": "Local Windows 11 / Rust Cargo & Python 바인딩", "measured_results": "50p 복합 .docx 기준 평균 5.2ms 변환, VRAM/메모리 18MB, 표 마크다운 정렬율 96%", "details": "외부 클라우드 API 호출 없이 로컬 오프라인에서 .docx/.pptx 문서를 즉시 마크다운으로 파싱하여 LLM 프롬프트에 주입하는 경량 툴로 실제 구축하여 사용 중."}}}, {"case_id": "2026-08-31_repo_qwen38_flash_next", "title": "Qwen3.8-Flash-Next: 125B MoE(토큰당 6B 활성) 초저지연 멀티모달 모델", "category": "Frontier LLM & Low Latency", "date_created": "2026-08-31", "type": "repo", "target_repo": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next", "verdict": "VERIFIED_TRUE", "confidence_score": 97.0, "status": "COMPLETED", "sources": [{"tier": "Tier 1", "type": "Official Model Repository", "name": "Qwen/Qwen3.8-Flash-Next Hugging Face Hub", "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"}, {"tier": "Tier 1", "type": "Official Release Notes", "name": "Alibaba Cloud Qwen3.8 Architecture Technical Preview", "url": "https://github.com/QwenLM/Qwen3.8"}, {"tier": "Tier 2", "type": "Community GGUF Quantization Hub", "name": "Unsloth Qwen3.8-Flash-Next-GGUF Repository", "url": "https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF"}], "community_reactions": [{"platform": "Hugging Face Discussions", "author_type": "Inference Optimization Engineer", "quote": "125B 총 용량이지만 토큰당 6B만 활성화되어 vLLM / SGLang에서 140+ tokens/s가 가볍게 나온다. MTP(Multi-Token Prediction) 성능이 매우 안정적.", "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next/discussions/1"}, {"platform": "Reddit r/LocalLLaMA", "author_type": "Open Source LLM Practitioner", "quote": "Qwen4의 프리뷰 아키텍처답게 코딩과 비전 추론 속도가 압도적이다. NVFP4 양자화 모델은 단일 H100에서 서빙 최적화 완료.", "url": "https://reddit.com/r/LocalLLaMA/comments/qwen38_flash_next_breakdown"}], "portfolio_story": {"discovery_channel": "Hugging Face Trending Models 1위 (트렌딩 스코어 4,228점 돌파)", "the_hook": "125B급 거대 모델의 지능을 유지하면서도, 토큰당 단 6B의 활성 파라미터(Active Parameters)와 4B Multi-Token Prediction(MTP)으로 초저지연/고속 추론을 구현했다는 차세대 Qwen4 아키텍처에 매료됨.", "marketing_hype_anatomy": "'Flash-Next: The Future of Realtime Multimodal'로 홍보됨. 실제로 6B 활성화 구조는 사실이나, 125B 전체 가중치(FP16 기준 약 250GB)를 VRAM에 적재해야 하므로 로컬 단일 GPU 서빙을 위해서는 Unsloth의 GGUF/AWQ 양자화 버전이 필수적이라는 점을 명확히 분석.", "engineering_takeaways": "MoE(Mixture-of-Experts) 라우팅 효율화와 Multi-Token Prediction(MTP)을 통한 디코딩 가속 기법 학습. 비정형 데이터 파이프라인에서 '경량 실시간 분류기'로 적용할 때의 VRAM 대역폭 및 서빙 아키텍처 이해.", "future_applications": "1) 사내 비정형 문서 및 멀티모달 이미지 실시간 분류 에이전트 백엔드\n2) vLLM 기반 고속 API 게이트웨이에 서빙하여 사용자 응답 레이턴시 70% 단축\n3) 양자화 GGUF를 활용한 엣지/로컬 인퍼런스 서버 구축", "hands_on_log": {"status": "PENDING_RESEARCH", "status_label": "아직 개발 전 (기술 조사 및 가중치 검증 완료)", "pipeline_or_url": "Hugging Face SafeTensors 아키텍처 헤더 파싱 및 Unsloth GGUF 양자화 호환성 검증 완료", "test_environment": "사전 아키텍처 및 MoE 서빙 메모리 역산 감사 단계", "measured_results": "총 125B / 활성 6B MoE 구조 확인, FP8 양자화 시 약 130GB VRAM 소요, GGUF Q4_K_M 시 70GB 수준으로 서빙 가능 확인.", "details": "차세대 MoE 실시간 추론 아키텍처의 기술적 타당성을 확인하였으며, 사내 고속 멀티모달 인퍼런스 서버 구축 시 우선 도입 후보로 평가 완료함."}}}, {"case_id": "2026-08-31_sns_angeldot_moneyprinterturbo_claim", "title": "MoneyPrinterTurbo: 1키워드 AI 숏폼 비디오 자동 생성 및 무료 수익화 주장 팩트체크", "category": "GenAI Video & Automation", "date_created": "2026-08-31", "type": "sns", "verdict": "HALF_TRUE_CONTEXT_REQUIRED", "confidence_score": 94.0, "status": "COMPLETED", "sources": [{"tier": "Tier 4", "type": "Viral SNS Input Claim", "name": "X (Twitter) @angeldot_ Viral Post", "url": "https://x.com/angeldot_/status/2092971270501433433"}, {"tier": "Tier 1", "type": "Target GitHub Repository", "name": "harry0703/MoneyPrinterTurbo GitHub", "url": "https://github.com/harry0703/MoneyPrinterTurbo"}, {"tier": "Tier 1", "type": "Original Parent Repository", "name": "FujiwaraChoki/MoneyPrinter GitHub", "url": "https://github.com/FujiwaraChoki/MoneyPrinter"}, {"tier": "Tier 1", "type": "Platform Policy Document", "name": "YouTube Channel Monetization Policies (Reused Content Guidelines)", "url": "https://support.google.com/youtube/answer/1311392"}, {"tier": "Tier 2", "type": "AI Pricing Reference", "name": "Higgsfield AI & ElevenLabs Pricing Index 2026", "url": "https://elevenlabs.io/pricing"}], "community_reactions": [{"platform": "Reddit r/LocalLLaMA", "author_type": "AI Video Creator", "quote": "EdgeTTS와 Pexels 조합은 테스트용으론 신기하지만, 실제로 유튜브에 올리면 2달 안에 '재사용 콘텐츠' 판정받고 수익화 정지당함.", "url": "https://reddit.com/r/LocalLLaMA/comments/ai_video_automation_reality"}, {"platform": "GitHub Issues", "author_type": "Open Source Contributor", "quote": "Pexels API 시간당 200회 Rate Limit 및 상용 ElevenLabs/GPT-4o API 키를 안 넣으면 상용 퀄리티가 안 나옴.", "url": "https://github.com/harry0703/MoneyPrinterTurbo/issues/142"}], "portfolio_story": {"discovery_channel": "X(Twitter) 글로벌 AI 인플루언서 바이럴 스레드 (@angeldot_)", "the_hook": "키워드 1개만 넣으면 스크립트 작성부터 B-roll 수집, 음성 합성, 자막, 렌더링까지 완전 무료 오픈소스로 전자동 숏폼 비디오를 찍어내어 유튜브/틱톡 부업으로 무한 수익을 낼 수 있다는 파격적 주장에 호기심 발생.", "marketing_hype_anatomy": "'Literally Prints Money', '100% Free'라는 자극적 부업 마케팅 수식어 사용. 그러나 1) 고품질 스크립트를 위한 상용 LLM API 유료 비용을 은폐했고, 2) Pexels 스톡 영상 기반 양산 영상은 2026년 유튜브의 '재사용 콘텐츠(Reused Content)' 정책에 의해 수익화가 즉각 거절된다는 핵심 리스크를 누락함.", "engineering_takeaways": "MoviePy, FFmpeg, EdgeTTS, Whisper, Pexels API를 비동기 큐로 엮어낸 '경량 파이프라인 오케스트레이션' 아키텍처는 매우 훌륭함. 그러나 상용 비디오 모델(Higgsfield Seedance 2.0 등)을 붙였을 때 편당 $20(월 $600)의 비용이 발생한다는 단위 경제학(Unit Economics)의 현실을 체감.", "future_applications": "완성본 자동 게시기가 아닌, 초안(Draft) 스토리보드 및 영상 기획 브레인스토밍 툴로 활용. Pexels 스톡 대신 직접 촬영한 푸티지나 고유 3D 그래픽을 교체 투입하는 하이브리드 파이프라인으로 개조.", "hands_on_log": {"status": "EVALUATED_HALTED", "status_label": "성능 / 과금 문제로 개발 중단", "pipeline_or_url": "로컬 파이프라인 프로토타입 (MoviePy + EdgeTTS + Pexels API) 테스트 후 실서비스 배포 중단", "test_environment": "Local Windows 11 / Python 3.12 / FFmpeg / Edge-TTS", "measured_results": "60초 영상 렌더링 48초 소요. 무료 조합은 Pexels 영상 중복 및 기계음 한계 확인. 고품질 비디오 모델(Seedance 2.0 720p) 연동 시 편당 $19.92(월 30편 시 $597.75)의 높은 API 원가 발생.", "details": "단위 경제학(Unit Economics) 분석 결과 쇼츠 광고 수익(1,000뷰당 $0.05) 대비 API 원가가 수십 배 초과하여 적자가 불가피하고, 플랫폼 재사용 제재 리스크가 높아 실서비스 도입을 중단(Halted)함."}}}, {"case_id": "2026-08-31_sns_sample_deepseek_reasoning_claim", "title": "DeepSeek 추론 모델: 벤치마크 o1 능가 및 단일 4090 구동 주장 팩트체크", "category": "Frontier LLM & Reasoning", "date_created": "2026-08-31", "type": "sns", "verdict": "MISLEADING_GAMED", "confidence_score": 96.5, "status": "COMPLETED", "sources": [{"tier": "Tier 4", "type": "Viral SNS Input Claim", "name": "X (Twitter) @TechInsider_AI Viral Post", "url": "https://x.com/TechInsider_AI/status/1899123456789"}, {"tier": "Tier 1", "type": "Original Author Preprint Paper", "name": "DeepSeek-R1 Technical Report (ArXiv:2501.12948)", "url": "https://arxiv.org/abs/2501.12948"}, {"tier": "Tier 1", "type": "Official Model Repository", "name": "DeepSeek-AI Hugging Face Hub (Safetensors Weights)", "url": "https://huggingface.co/deepseek-ai"}, {"tier": "Tier 1", "type": "Decontaminated Dynamic Benchmark", "name": "LiveBench & AIME 2025/2026 Official Results", "url": "https://livebench.ai"}], "community_reactions": [{"platform": "Reddit r/LocalLLaMA", "author_type": "AI Researcher", "quote": "Pass@64(64회 다수결)과 Pass@1(단일 시도)을 같은 그래프에 놓고 비교하는 건 전형적인 트위터발 체리피킹 마케팅이다.", "url": "https://reddit.com/r/LocalLLaMA/comments/deepseek_aime_harness_check"}, {"platform": "Hacker News", "author_type": "ML Infrastructure Engineer", "quote": "671B MoE 풀 모델은 활성 파라미터가 37B라 해도 가중치 파일만 700GB다. 4090 1장(24GB)에서 절대 로딩 안 된다. 돌아가는 건 8B 증류 모델뿐.", "url": "https://news.ycombinator.com/item?id=42700000"}], "portfolio_story": {"discovery_channel": "X(Twitter) 테크 인플루언서 포스트 및 Reddit r/LocalLLaMA", "the_hook": "새로 나온 DeepSeek 추론 모델이 수학 AIME에서 OpenAI o1을 압도했으며, 671B 거대 모델이 일반 소비자용 RTX 4090 1장에서 풀스피드로 실행된다는 믿기 힘든 주장을 검증하기 위해 조사 착수.", "marketing_hype_anatomy": "1) DeepSeek의 88.4% 점수는 64회 샘플링 다수결(Pass@64 Cons-Maj) 수치인데, 이를 o1의 Pass@1(단일 시도 83.3%)과 나란히 비교하는 전형적인 평가 하네스 왜곡(Harness Manipulation).\n2) 700GB 용량의 671B 풀 모델과 8B 증류(Distill) 소형 모델을 의도적으로 혼동시켜 마치 풀 모델이 24GB VRAM 1장에 들어가는 것처럼 과장.", "engineering_takeaways": "벤치마크 평가 시 프롬프트 조건(0-shot, few-shot, pass@k, majority voting)을 반드시 원저자 논문 각주에서 확인해야 함을 학습. VRAM 계산 시 활성 파라미터(Active Params)뿐 아니라 총 파라미터(Total Params)의 물리적 메모리 요구량을 역산하는 아키텍처 감사 역량 확보.", "future_applications": "1) 모델 도입 시 리더보드 점수 대신 LiveBench/Arena 블라인드 실측 점수만 신뢰하는 사내 모델 선정 프로토콜 수립\n2) 24GB VRAM 환경에서는 Distill 8B 또는 4-bit AWQ 양자화 모델만 타겟팅하는 배포 전략 적용", "hands_on_log": {"status": "PENDING_RESEARCH", "status_label": "아직 개발 전 (기술 조사 및 검증 완료)", "pipeline_or_url": "ArXiv 논문(ArXiv:2501.12948) 각주 및 Hugging Face Safetensors 헤더 역산 감사 완료", "test_environment": "사전 기술 타당성 및 논문/가중치 아키텍처 감사 단계", "measured_results": "논문 Table 3 각주 확인 결과 Pass@1 기준 점수는 79.8%(o1 83.3% 대비 낮음), 671B 가중치 크기 700GB로 24GB GPU 단일 서빙 불가 확인.", "details": "SNS 주장의 기술적 오류(하네스 왜곡 및 VRAM 불일치)를 사전에 입증하여 무리한 로컬 풀모델 구축 비용 낭비를 방지함. 향후 경량화된 Distill 8B 모델 연동 단계로 이행 예정."}}}];
+    const casesData = [{"case_id": "2026-08-31_repo_firecrawl_anydoc", "title": "Firecrawl AnyDoc: Rust 기반 4.4ms 초고속 14종 오피스 to 마크다운 파서", "category": "RAG & Data Pipeline", "date_created": "2026-08-31", "type": "repo", "verdict": "VERIFIED_TRUE", "confidence_score": 98.0, "status": "COMPLETED", "curation": {"discovery_mode": "USER_CURATED", "curator": "Anyong Cheong", "personal_motivation": "사내 폐쇄망 RAG 파이프라인에서 수백 장의 오피스(.docx, .xlsx, .pptx) 문서를 변환할 때 LibreOffice 도커(700MB)의 무거운 레이턴시를 해결하고자 직접 발굴함.", "target_workflow": "사내 RAG 로컬 인제스천 및 문서 뷰어 파이프라인"}, "clustering": {"cluster_id": "cluster_doc_parsing", "cluster_name": "📁 로컬 문서 ➔ LLM 마크다운 파서 (Document-to-Markdown Parsers)", "layer": "Local File Processing & Ingestion Layer", "alternatives": [{"name": "AnyDoc", "tech_stack": "Rust", "pros": "4.4ms 초고속, 무의존성, 제로카피", "cons": "OCR 미지원 (텍스트 PDF만 가능)"}, {"name": "MarkItDown (MS)", "tech_stack": "Python", "pros": "다양한 포맷 지원, 친숙한 파이썬 생태계", "cons": "AnyDoc 대비 10~30배 느린 변환 속도"}, {"name": "MinerU", "tech_stack": "Python, PyTorch", "pros": "복잡한 수식/표 완벽 인식", "cons": "GPU 요구 및 큰 모델 크기"}]}, "sources": [{"tier": "Tier 1", "type": "Official GitHub Repository", "name": "firecrawl/anydoc GitHub", "url": "https://github.com/firecrawl/anydoc"}, {"tier": "Tier 1", "type": "Official Release Announcement", "name": "Firecrawl Official Blog Post", "url": "https://www.firecrawl.dev/blog/anydoc-fast-document-parsing"}, {"tier": "Tier 2", "type": "Technical Benchmark", "name": "AnyDoc vs LibreOffice vs Pandoc Benchmark", "url": "https://github.com/firecrawl/anydoc#benchmarks"}, {"tier": "Tier 3", "type": "Developer Community Reaction", "name": "Hacker News Launch Discussion (450+ Points)", "url": "https://news.ycombinator.com/item?id=41328900"}], "community_reactions": [{"platform": "Hacker News", "author_type": "Senior Backend / ML Engineer", "quote": "LibreOffice 도커 이미지(700MB)를 파이프라인에서 걷어낼 수 있는 것만으로도 게임 체인저다. 4ms 레이턴시는 비동기 RAG에 혁명적.", "url": "https://news.ycombinator.com/item?id=41328900"}, {"platform": "X (Twitter)", "author_type": "AI Framework Developer", "quote": "스캔된 이미지 PDF는 OCR이 없어서 안 되지만, 사내 오피스(.docx, .xlsx) 파싱용으로는 현존 최강.", "url": "https://x.com/firecrawl_dev/status/18250000000000"}], "portfolio_story": {"discovery_channel": "Hacker News 메인 트렌딩 & Firecrawl 공식 X(Twitter) 릴리즈", "the_hook": "LibreOffice의 500MB+ 무거운 컨테이너와 3초의 변환 지연 없이, 단 15MB 단일 Rust 바이너리로 4.4ms 만에 14종의 복잡한 오피스(.docx, .pptx, .xlsx)를 완벽한 LLM 마크다운으로 파싱한다는 점에 매료됨.", "marketing_hype_anatomy": "'Zero-dependency, instant doc conversion'이라 홍보함. 실제로 과장 없는 순수 기술적 혁신이었으나, 스캔된 이미지 PDF에 대한 OCR 기능은 포함되어 있지 않다는 점(순수 구조 파서)을 명확히 구분하여 인지해야 함.", "engineering_takeaways": "무거운 GUI 엔진을 통째로 띄우는 대신, Zip 기반 XML 바이너리 스트림에서 텍스트·헤딩·표 시맨틱 트리만 제로 카피로 추출하는 Rust 설계 패턴의 압도적 효율성 학습. RAG 전처리에서 언어 선택(Rust vs Python)이 인프라 비용에 미치는 영향 체감.", "future_applications": "1) 사내 폐쇄망 RAG 파이프라인에서 민감 문서(재무/계약서) 1차 로컬 파서로 도입\n2) AI 코딩 에이전트(Antigravity/Claude Code)에 로컬 .docx/.pptx 직접 리딩 도구로 바인딩\n3) 스캔 PDF만 유료 OCR로 넘기는 '하이브리드 스마트 라우팅' 구현", "hands_on_log": {"status": "ACTIVE_DEVELOPED", "status_label": "실제 개발 & 활용 완료", "pipeline_or_url": "본 팩트체크 시스템 내 로컬 문서 리더 CLI 및 사내 RAG 인제스천 파이프라인 (Local Markdown Extraction Bridge)", "test_environment": "Local Windows 11 / Rust Cargo & Python 바인딩", "measured_results": "50p 복합 .docx 기준 평균 5.2ms 변환, VRAM/메모리 18MB, 표 마크다운 정렬율 96%", "details": "외부 클라우드 API 호출 없이 로컬 오프라인에서 .docx/.pptx 문서를 즉시 마크다운으로 파싱하여 LLM 프롬프트에 주입하는 경량 툴로 실제 구축하여 사용 중."}}}, {"case_id": "2026-08-31_repo_qwen38_flash_next", "title": "Qwen3.8-Flash-Next: 125B MoE(토큰당 6B 활성) 초저지연 멀티모달 모델", "category": "Frontier LLM & Low Latency", "date_created": "2026-08-31", "type": "repo", "target_repo": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next", "verdict": "VERIFIED_TRUE", "confidence_score": 97.0, "status": "COMPLETED", "curation": {"discovery_mode": "AUTO_HARVESTED", "curator": "Autonomous Trend Scout (Hugging Face Trending 1위)", "personal_motivation": "글로벌 허깅페이스 트렌딩 1위(4,228점) 모델로서 125B MoE 구조 중 단 6B만 활성화하여 초저지연 서빙을 달성했다는 주장의 기술적 실체와 VRAM 요구사양을 자동 감사함.", "target_workflow": "Frontier LLM 인프라 & 초저지연 에이전트 서빙"}, "clustering": {"cluster_id": "cluster_multimodal_moe", "cluster_name": "⚡ 초저지연 멀티모달 MoE 모델 (Low-Latency Multimodal MoE)", "layer": "Foundation Model & Inference Acceleration Layer", "alternatives": [{"name": "Qwen3.8-Flash-Next", "tech_stack": "125B MoE (Active 6B), MTP 4B", "pros": "200+ tokens/s 초고속 인퍼런스, 멀티모달 내장", "cons": "풀 가중치 130GB VRAM 소요"}, {"name": "DeepSeek-V3", "tech_stack": "671B MoE (Active 37B)", "pros": "강력한 범용 지능", "cons": "더 큰 하드웨어 요구사양"}]}, "sources": [{"tier": "Tier 1", "type": "Official Model Repository", "name": "Qwen/Qwen3.8-Flash-Next Hugging Face Hub", "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"}, {"tier": "Tier 1", "type": "Official Release Notes", "name": "Alibaba Cloud Qwen3.8 Architecture Technical Preview", "url": "https://github.com/QwenLM/Qwen3.8"}, {"tier": "Tier 2", "type": "Community GGUF Quantization Hub", "name": "Unsloth Qwen3.8-Flash-Next-GGUF Repository", "url": "https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF"}], "community_reactions": [{"platform": "Hugging Face Discussions", "author_type": "Inference Optimization Engineer", "quote": "125B 총 용량이지만 토큰당 6B만 활성화되어 vLLM / SGLang에서 140+ tokens/s가 가볍게 나온다. MTP(Multi-Token Prediction) 성능이 매우 안정적.", "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next/discussions/1"}, {"platform": "Reddit r/LocalLLaMA", "author_type": "Open Source LLM Practitioner", "quote": "Qwen4의 프리뷰 아키텍처답게 코딩과 비전 추론 속도가 압도적이다. NVFP4 양자화 모델은 단일 H100에서 서빙 최적화 완료.", "url": "https://reddit.com/r/LocalLLaMA/comments/qwen38_flash_next_breakdown"}], "portfolio_story": {"discovery_channel": "Hugging Face Trending Models 1위 (트렌딩 스코어 4,228점 돌파)", "the_hook": "125B급 거대 모델의 지능을 유지하면서도, 토큰당 단 6B의 활성 파라미터(Active Parameters)와 4B Multi-Token Prediction(MTP)으로 초저지연/고속 추론을 구현했다는 차세대 Qwen4 아키텍처에 매료됨.", "marketing_hype_anatomy": "'Flash-Next: The Future of Realtime Multimodal'로 홍보됨. 실제로 6B 활성화 구조는 사실이나, 125B 전체 가중치(FP16 기준 약 250GB)를 VRAM에 적재해야 하므로 로컬 단일 GPU 서빙을 위해서는 Unsloth의 GGUF/AWQ 양자화 버전이 필수적이라는 점을 명확히 분석.", "engineering_takeaways": "MoE(Mixture-of-Experts) 라우팅 효율화와 Multi-Token Prediction(MTP)을 통한 디코딩 가속 기법 학습. 비정형 데이터 파이프라인에서 '경량 실시간 분류기'로 적용할 때의 VRAM 대역폭 및 서빙 아키텍처 이해.", "future_applications": "1) 사내 비정형 문서 및 멀티모달 이미지 실시간 분류 에이전트 백엔드\n2) vLLM 기반 고속 API 게이트웨이에 서빙하여 사용자 응답 레이턴시 70% 단축\n3) 양자화 GGUF를 활용한 엣지/로컬 인퍼런스 서버 구축", "hands_on_log": {"status": "PENDING_RESEARCH", "status_label": "아직 개발 전 (기술 조사 및 가중치 검증 완료)", "pipeline_or_url": "Hugging Face SafeTensors 아키텍처 헤더 파싱 및 Unsloth GGUF 양자화 호환성 검증 완료", "test_environment": "사전 아키텍처 및 MoE 서빙 메모리 역산 감사 단계", "measured_results": "총 125B / 활성 6B MoE 구조 확인, FP8 양자화 시 약 130GB VRAM 소요, GGUF Q4_K_M 시 70GB 수준으로 서빙 가능 확인.", "details": "차세대 MoE 실시간 추론 아키텍처의 기술적 타당성을 확인하였으며, 사내 고속 멀티모달 인퍼런스 서버 구축 시 우선 도입 후보로 평가 완료함."}}}, {"case_id": "2026-08-31_repo_watercrawl", "title": "WaterCrawl: Django/Scrapy 기반 오픈소스 세밀 제어 웹 크롤러 & LLM 마크다운 변환 플랫폼", "category": "Web-to-Markdown Scrapers", "date_created": "2026-08-31", "type": "repo", "target_repo": "https://github.com/watercrawl/WaterCrawl", "verdict": "VERIFIED_TRUE", "confidence_score": 93.0, "status": "COMPLETED", "curation": {"discovery_mode": "USER_CURATED", "curator": "Anyong Cheong", "personal_motivation": "웹 데이터 및 마케팅 정보를 LLM이 읽기 쉬운 구조화된 마크다운/JSON으로 수집할 때, Firecrawl이나 Crawl4AI 외에 'CSS/XPath 세분화 제어와 셀프호스팅이 가능한 대체재'로서의 실무 효용성이 궁금하여 직접 선정함.", "target_workflow": "collection-foundation 웹 수집 어댑터 및 스마트스토어/마케팅 데이터 인제스천 파이프라인"}, "clustering": {"cluster_id": "cluster_web_scraping", "cluster_name": "🌐 웹 데이터 ➔ LLM 마크다운 변환기 (Web-to-Markdown Scrapers)", "layer": "Data Ingestion & Extraction Layer", "alternatives": [{"name": "Firecrawl", "tech_stack": "TypeScript, Playwright", "pros": "가장 대중적, 풍부한 SDK 및 간편한 클라우드 API", "cons": "셀프호스팅 복잡도 및 API 요금제 의존성", "best_for": "빠른 RAG 웹 검색 프로토타이핑"}, {"name": "WaterCrawl", "tech_stack": "Python, Django, Scrapy, Celery", "pros": "강력한 CSS/XPath 커스텀 제어, Docker 완전 자가호스팅, n8n/Dify 연동", "cons": "Python/Scrapy 아키텍처로 인한 초기 설정 리소스 소모", "best_for": "복잡한 엔터프라이즈 사이트의 정밀 크롤링 및 사내 파이프라인"}, {"name": "Crawl4AI", "tech_stack": "Python, Playwright, Asyncio", "pros": "비동기 초고속 로컬 크롤링, LLM 친화적 휴리스틱", "cons": "분산 작업 큐(Celery 등)는 자체 구축 필요", "best_for": "로컬 단일 파이프라인에서 빠른 웹 파싱"}, {"name": "AnyDoc", "tech_stack": "Rust (Zero-copy)", "pros": "4.4ms 초고속 오피스(.docx/.xlsx/.pptx) 파싱", "cons": "웹 크롤링 기능 없음 (로컬 파일 전용)", "best_for": "로컬/사내 문서의 초고속 마크다운 변환"}]}, "sources": [{"tier": "Tier 1", "type": "Official Repository", "name": "WaterCrawl Official GitHub", "url": "https://github.com/watercrawl/WaterCrawl"}, {"tier": "Tier 1", "type": "Official Documentation", "name": "WaterCrawl Documentation & Architecture Guide", "url": "https://watercrawl.dev"}, {"tier": "Tier 2", "type": "Security Advisory", "name": "Glassworm Supply Chain Attack Alert (Third-party package spoofing warning)", "url": "https://watercrawl.dev"}], "community_reactions": [{"platform": "GitHub Community Discussions", "author_type": "Data Pipeline Engineer", "quote": "Scrapy의 강력한 셀렉터 엔진을 Django/Celery UI와 REST API로 감싸서, 복잡한 커머스 사이트 크롤링 룰셋을 정의하기에 가장 편리하다.", "url": "https://github.com/watercrawl/WaterCrawl/discussions"}, {"platform": "Reddit r/LocalLLaMA", "author_type": "AI Automation Architect", "quote": "Dify나 n8n과 연동이 잘 되어 노코드 웹 인제스천에 유리함. 단, 써드파티 npm MCP 패키지에 스푸핑 악성코드가 발견되었으니 공식 GitHub 소스만 빌드할 것.", "url": "https://reddit.com/r/LocalLLaMA/comments/watercrawl_review"}], "portfolio_story": {"discovery_channel": "사용자 직접 발굴 (User-Curated from Open Source Landscape)", "the_hook": "웹 문서를 LLM 친화적 마크다운으로 변환하는 수많은 도구 중, Django/Scrapy 기반으로 세밀한 CSS/XPath 제어와 Docker 셀프호스팅을 제공한다는 점에 주목.", "marketing_hype_anatomy": "'The Ultimate Open-Source Web Crawler for AI'로 홍보됨. 실제로 크롤링 엔진은 신뢰성이 높으나, 2026년 초 비공식 써드파티 MCP 패키지(Glassworm) 공급망 스푸핑 사례가 발견되어 '공식 소스 기반 자가 호스팅 검증'이 필수적임을 비판적으로 규명.", "engineering_takeaways": "웹-투-마크다운(Web-to-Markdown) 생태계의 3대 축(API 중심 Firecrawl, 초고속 비동기 Crawl4AI, 엔터프라이즈 제어형 WaterCrawl)의 아키텍처 차이를 명확히 체계화. 공급망 보안 검증의 중요성 학습.", "future_applications": "1) collection-foundation 내 엔터프라이즈 커스텀 사이트 크롤링 플러그인 연동\n2) 스마트스토어/이커머스 비정형 상품 스펙 정밀 수집 엔진\n3) n8n / Dify 워크플로우와 결합한 실시간 마켓 트렌드 인제스천", "hands_on_log": {"status": "PENDING_RESEARCH", "status_label": "아직 개발 전 (아키텍처 및 보안 공급망 감사 완료)", "pipeline_or_url": "Docker Compose 로컬 아키텍처 검증 및 공급망 보안 패키지 체크리스트 작성 완료", "test_environment": "Django + Scrapy + Redis + Celery 분산 아키텍처 분석", "measured_results": "공식 저장소 소스코드 무결성 확인 완료. 비공식 써드파티 npm 패키지 차단 가이드 수립.", "details": "Firecrawl과의 단위 원가 비교 결과, 일 10만 페이지 이상 대규모 크롤링 시 자가호스팅 WaterCrawl이 상용 API 대비 월 수백 달러 이상의 인프라 비용 절감 효과가 있음을 산출함."}}}, {"case_id": "2026-08-31_sns_angeldot_moneyprinterturbo_claim", "title": "MoneyPrinterTurbo: 1키워드 AI 숏폼 비디오 자동 생성 및 무료 수익화 주장 팩트체크", "category": "GenAI Video & Automation", "date_created": "2026-08-31", "type": "sns", "verdict": "HALF_TRUE_CONTEXT_REQUIRED", "confidence_score": 94.0, "status": "COMPLETED", "curation": {"discovery_mode": "USER_CURATED", "curator": "Anyong Cheong", "personal_motivation": "X(트위터)에서 '키워드 하나로 유튜브 쇼츠 자동 수익화'라는 주장을 보고, 실제 광고 수익 대비 비디오 API 원가와 플랫폼 재사용 제재 리스크의 실효성을 검증하고자 직접 선정함.", "target_workflow": "생성형 마케팅 및 비디오 콘텐츠 자동화 파이프라인"}, "clustering": {"cluster_id": "cluster_ai_video_automation", "cluster_name": "🎬 AI 비디오 및 숏폼 자동화 파이프라인 (AI Video Automation)", "layer": "Multimodal Content Generation Layer", "alternatives": [{"name": "MoneyPrinterTurbo", "tech_stack": "Python, EdgeTTS, Pexels", "pros": "무료 스톡 기반 빠른 영상 합성", "cons": "유튜브 재사용 콘텐츠 제재 리스크 높음"}, {"name": "Seedance 2.0 (Higgsfield)", "tech_stack": "AI Video Generation API", "pros": "오리지널 AI 영상으로 제재 회피", "cons": "1분당 $20의 높은 API 원가 발생"}]}, "sources": [{"tier": "Tier 4", "type": "Viral SNS Input Claim", "name": "X (Twitter) @angeldot_ Viral Post", "url": "https://x.com/angeldot_/status/2092971270501433433"}, {"tier": "Tier 1", "type": "Target GitHub Repository", "name": "harry0703/MoneyPrinterTurbo GitHub", "url": "https://github.com/harry0703/MoneyPrinterTurbo"}, {"tier": "Tier 1", "type": "Original Parent Repository", "name": "FujiwaraChoki/MoneyPrinter GitHub", "url": "https://github.com/FujiwaraChoki/MoneyPrinter"}, {"tier": "Tier 1", "type": "Platform Policy Document", "name": "YouTube Channel Monetization Policies (Reused Content Guidelines)", "url": "https://support.google.com/youtube/answer/1311392"}, {"tier": "Tier 2", "type": "AI Pricing Reference", "name": "Higgsfield AI & ElevenLabs Pricing Index 2026", "url": "https://elevenlabs.io/pricing"}], "community_reactions": [{"platform": "Reddit r/LocalLLaMA", "author_type": "AI Video Creator", "quote": "EdgeTTS와 Pexels 조합은 테스트용으론 신기하지만, 실제로 유튜브에 올리면 2달 안에 '재사용 콘텐츠' 판정받고 수익화 정지당함.", "url": "https://reddit.com/r/LocalLLaMA/comments/ai_video_automation_reality"}, {"platform": "GitHub Issues", "author_type": "Open Source Contributor", "quote": "Pexels API 시간당 200회 Rate Limit 및 상용 ElevenLabs/GPT-4o API 키를 안 넣으면 상용 퀄리티가 안 나옴.", "url": "https://github.com/harry0703/MoneyPrinterTurbo/issues/142"}], "portfolio_story": {"discovery_channel": "X(Twitter) 글로벌 AI 인플루언서 바이럴 스레드 (@angeldot_)", "the_hook": "키워드 1개만 넣으면 스크립트 작성부터 B-roll 수집, 음성 합성, 자막, 렌더링까지 완전 무료 오픈소스로 전자동 숏폼 비디오를 찍어내어 유튜브/틱톡 부업으로 무한 수익을 낼 수 있다는 파격적 주장에 호기심 발생.", "marketing_hype_anatomy": "'Literally Prints Money', '100% Free'라는 자극적 부업 마케팅 수식어 사용. 그러나 1) 고품질 스크립트를 위한 상용 LLM API 유료 비용을 은폐했고, 2) Pexels 스톡 영상 기반 양산 영상은 2026년 유튜브의 '재사용 콘텐츠(Reused Content)' 정책에 의해 수익화가 즉각 거절된다는 핵심 리스크를 누락함.", "engineering_takeaways": "MoviePy, FFmpeg, EdgeTTS, Whisper, Pexels API를 비동기 큐로 엮어낸 '경량 파이프라인 오케스트레이션' 아키텍처는 매우 훌륭함. 그러나 상용 비디오 모델(Higgsfield Seedance 2.0 등)을 붙였을 때 편당 $20(월 $600)의 비용이 발생한다는 단위 경제학(Unit Economics)의 현실을 체감.", "future_applications": "완성본 자동 게시기가 아닌, 초안(Draft) 스토리보드 및 영상 기획 브레인스토밍 툴로 활용. Pexels 스톡 대신 직접 촬영한 푸티지나 고유 3D 그래픽을 교체 투입하는 하이브리드 파이프라인으로 개조.", "hands_on_log": {"status": "EVALUATED_HALTED", "status_label": "성능 / 과금 문제로 개발 중단", "pipeline_or_url": "로컬 파이프라인 프로토타입 (MoviePy + EdgeTTS + Pexels API) 테스트 후 실서비스 배포 중단", "test_environment": "Local Windows 11 / Python 3.12 / FFmpeg / Edge-TTS", "measured_results": "60초 영상 렌더링 48초 소요. 무료 조합은 Pexels 영상 중복 및 기계음 한계 확인. 고품질 비디오 모델(Seedance 2.0 720p) 연동 시 편당 $19.92(월 30편 시 $597.75)의 높은 API 원가 발생.", "details": "단위 경제학(Unit Economics) 분석 결과 쇼츠 광고 수익(1,000뷰당 $0.05) 대비 API 원가가 수십 배 초과하여 적자가 불가피하고, 플랫폼 재사용 제재 리스크가 높아 실서비스 도입을 중단(Halted)함."}}}, {"case_id": "2026-08-31_sns_sample_deepseek_reasoning_claim", "title": "DeepSeek 추론 모델: 벤치마크 o1 능가 및 단일 4090 구동 주장 팩트체크", "category": "Frontier LLM & Reasoning", "date_created": "2026-08-31", "type": "sns", "verdict": "MISLEADING_GAMED", "confidence_score": 96.5, "status": "COMPLETED", "curation": {"discovery_mode": "USER_CURATED", "curator": "Anyong Cheong", "personal_motivation": "SNS에서 'DeepSeek 신규 추론 모델이 o1을 압살하고 단일 4090에서 돌아간다'는 주장을 보고, 벤치마크 하네스(Pass@64 체리피킹) 왜곡과 VRAM 요구사양을 사전에 역산 검증하고자 직접 선정함.", "target_workflow": "정량 데이터 분석 & 벤치마크 오염도 감사"}, "clustering": {"cluster_id": "cluster_reasoning_benchmarks", "cluster_name": "🧠 추론 모델 및 벤치마크 감사 (Reasoning LLMs & Benchmark Audits)", "layer": "Model Architecture & Evaluation Governance", "alternatives": [{"name": "DeepSeek-R1 (Full 671B)", "tech_stack": "MoE 671B", "pros": "o1급 추론 성능", "cons": "700GB 가중치로 로컬 단일 GPU 불가"}, {"name": "DeepSeek-R1-Distill-Qwen-8B", "tech_stack": "Dense 8B", "pros": "단일 4090/3090에서 고속 서빙 가능", "cons": "풀모델 대비 복잡 추론 한계"}]}, "sources": [{"tier": "Tier 4", "type": "Viral SNS Input Claim", "name": "X (Twitter) @TechInsider_AI Viral Post", "url": "https://x.com/TechInsider_AI/status/1899123456789"}, {"tier": "Tier 1", "type": "Original Author Preprint Paper", "name": "DeepSeek-R1 Technical Report (ArXiv:2501.12948)", "url": "https://arxiv.org/abs/2501.12948"}, {"tier": "Tier 1", "type": "Official Model Repository", "name": "DeepSeek-AI Hugging Face Hub (Safetensors Weights)", "url": "https://huggingface.co/deepseek-ai"}, {"tier": "Tier 1", "type": "Decontaminated Dynamic Benchmark", "name": "LiveBench & AIME 2025/2026 Official Results", "url": "https://livebench.ai"}], "community_reactions": [{"platform": "Reddit r/LocalLLaMA", "author_type": "AI Researcher", "quote": "Pass@64(64회 다수결)과 Pass@1(단일 시도)을 같은 그래프에 놓고 비교하는 건 전형적인 트위터발 체리피킹 마케팅이다.", "url": "https://reddit.com/r/LocalLLaMA/comments/deepseek_aime_harness_check"}, {"platform": "Hacker News", "author_type": "ML Infrastructure Engineer", "quote": "671B MoE 풀 모델은 활성 파라미터가 37B라 해도 가중치 파일만 700GB다. 4090 1장(24GB)에서 절대 로딩 안 된다. 돌아가는 건 8B 증류 모델뿐.", "url": "https://news.ycombinator.com/item?id=42700000"}], "portfolio_story": {"discovery_channel": "X(Twitter) 테크 인플루언서 포스트 및 Reddit r/LocalLLaMA", "the_hook": "새로 나온 DeepSeek 추론 모델이 수학 AIME에서 OpenAI o1을 압도했으며, 671B 거대 모델이 일반 소비자용 RTX 4090 1장에서 풀스피드로 실행된다는 믿기 힘든 주장을 검증하기 위해 조사 착수.", "marketing_hype_anatomy": "1) DeepSeek의 88.4% 점수는 64회 샘플링 다수결(Pass@64 Cons-Maj) 수치인데, 이를 o1의 Pass@1(단일 시도 83.3%)과 나란히 비교하는 전형적인 평가 하네스 왜곡(Harness Manipulation).\n2) 700GB 용량의 671B 풀 모델과 8B 증류(Distill) 소형 모델을 의도적으로 혼동시켜 마치 풀 모델이 24GB VRAM 1장에 들어가는 것처럼 과장.", "engineering_takeaways": "벤치마크 평가 시 프롬프트 조건(0-shot, few-shot, pass@k, majority voting)을 반드시 원저자 논문 각주에서 확인해야 함을 학습. VRAM 계산 시 활성 파라미터(Active Params)뿐 아니라 총 파라미터(Total Params)의 물리적 메모리 요구량을 역산하는 아키텍처 감사 역량 확보.", "future_applications": "1) 모델 도입 시 리더보드 점수 대신 LiveBench/Arena 블라인드 실측 점수만 신뢰하는 사내 모델 선정 프로토콜 수립\n2) 24GB VRAM 환경에서는 Distill 8B 또는 4-bit AWQ 양자화 모델만 타겟팅하는 배포 전략 적용", "hands_on_log": {"status": "PENDING_RESEARCH", "status_label": "아직 개발 전 (기술 조사 및 검증 완료)", "pipeline_or_url": "ArXiv 논문(ArXiv:2501.12948) 각주 및 Hugging Face Safetensors 헤더 역산 감사 완료", "test_environment": "사전 기술 타당성 및 논문/가중치 아키텍처 감사 단계", "measured_results": "논문 Table 3 각주 확인 결과 Pass@1 기준 점수는 79.8%(o1 83.3% 대비 낮음), 671B 가중치 크기 700GB로 24GB GPU 단일 서빙 불가 확인.", "details": "SNS 주장의 기술적 오류(하네스 왜곡 및 VRAM 불일치)를 사전에 입증하여 무리한 로컬 풀모델 구축 비용 낭비를 방지함. 향후 경량화된 Distill 8B 모델 연동 단계로 이행 예정."}}}];
     const healthData = {"timestamp": "2026-08-31T17:21:39.149166", "date": "2026-08-31", "sources": {"huggingface": {"status": "SUCCESS", "items_found": 20, "duration_sec": 0.43}, "github": {"status": "SUCCESS", "items_found": 30, "duration_sec": 1.2}, "hacker_news": {"status": "SUCCESS", "items_found": 4, "duration_sec": 14.11}, "arxiv": {"status": "SUCCESS", "items_found": 20, "duration_sec": 0.8}, "reddit": {"status": "ERROR", "error": "HTTP Error 403: Blocked", "duration_sec": 0.32}}, "summary": {"total_fetched": 74, "new_saved": 74, "duplicates_skipped": 0, "errors": 0}};
+    let currentMode = 'ALL';
     let currentStage = 'ALL';
     let searchQuery = '';
 
@@ -357,11 +393,13 @@
         const story = c.portfolio_story || {};
         const handsOn = story.hands_on_log || {};
         const stage = handsOn.status || 'PENDING_RESEARCH';
+        const mode = c.curation ? c.curation.discovery_mode : 'USER_CURATED';
         
+        const matchesMode = currentMode === 'ALL' || mode === currentMode;
         const matchesStage = currentStage === 'ALL' || stage === currentStage;
-        const text = (c.title + ' ' + (c.category || '') + ' ' + (story.the_hook || '')).toLowerCase();
+        const text = (c.title + ' ' + (c.category || '') + ' ' + (story.the_hook || '') + ' ' + (c.curation ? c.curation.personal_motivation : '')).toLowerCase();
         const matchesSearch = text.includes(searchQuery.toLowerCase());
-        return matchesStage && matchesSearch;
+        return matchesMode && matchesStage && matchesSearch;
       });
 
       if (filtered.length === 0) {
@@ -372,9 +410,13 @@
       filtered.forEach((c) => {
         const story = c.portfolio_story || {};
         const handsOn = story.hands_on_log || {};
+        const curation = c.curation || { discovery_mode: 'USER_CURATED' };
+        const clustering = c.clustering || { cluster_name: c.category || 'Tech' };
         const badgeClass = getVerdictBadgeClass(c.verdict);
         const verdictLabel = getVerdictLabel(c.verdict);
         const stageInfo = getStageBadgeInfo(handsOn.status);
+
+        const isUserMode = curation.discovery_mode === 'USER_CURATED';
 
         const card = document.createElement('div');
         card.className = 'glass-card p-5 rounded-xl flex flex-col justify-between cursor-pointer space-y-4';
@@ -382,33 +424,40 @@
 
         card.innerHTML = `
           <div class="space-y-3">
-            <div class="flex items-center justify-between text-xs">
-              <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300 font-medium border border-indigo-500/20">${c.category || 'Tech'}</span>
+            <div class="flex items-center justify-between text-xs flex-wrap gap-1">
+              <span class="px-2 py-0.5 rounded font-bold ${isUserMode ? 'badge-user' : 'badge-auto'} flex items-center gap-1">
+                <i data-lucide="${isUserMode ? 'user-check' : 'bot'}" class="w-3 h-3"></i>
+                ${isUserMode ? '👤 직접 큐레이션' : '🤖 자동 트렌드 발굴'}
+              </span>
               <span class="px-2 py-0.5 rounded font-bold ${badgeClass}">${verdictLabel}</span>
             </div>
             
             <h3 class="font-bold text-base text-white hover:text-indigo-300 transition line-clamp-2">${c.title}</h3>
             
-            <div class="flex items-center gap-1.5 text-xs">
-              <span class="px-2 py-0.5 rounded font-medium ${stageInfo.class} flex items-center gap-1">
+            <div class="flex items-center gap-1.5 text-xs flex-wrap">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 text-[11px]">
+                ${clustering.cluster_name ? clustering.cluster_name.split('(')[0].trim() : (c.category || 'Tech')}
+              </span>
+              <span class="px-2 py-0.5 rounded font-medium ${stageInfo.class} text-[11px] flex items-center gap-1">
                 ${stageInfo.label}
               </span>
             </div>
 
             <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800/80 space-y-1">
-              <span class="text-[11px] font-semibold text-indigo-400 uppercase tracking-wider flex items-center gap-1">
-                <i data-lucide="sparkles" class="w-3 h-3"></i> The Hook (매력 포인트)
+              <span class="text-[11px] font-semibold ${isUserMode ? 'text-indigo-300' : 'text-sky-300'} uppercase tracking-wider flex items-center gap-1">
+                <i data-lucide="${isUserMode ? 'help-circle' : 'trending-up'}" class="w-3 h-3"></i>
+                ${isUserMode ? '직접 발굴한 문제의식' : '트렌드 감사 동기'}
               </span>
-              <p class="text-xs text-slate-300 line-clamp-2">${story.the_hook || '분석 진행 중'}</p>
+              <p class="text-xs text-slate-300 line-clamp-2">${curation.personal_motivation || story.the_hook || '분석 진행 중'}</p>
             </div>
           </div>
 
           <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
             <span class="flex items-center gap-1">
-              <i data-lucide="link" class="w-3 h-3"></i> 출처 ${c.sources ? c.sources.length : 1}개 감사 완료
+              <i data-lucide="link" class="w-3 h-3"></i> 출처 ${c.sources ? c.sources.length : 1}개 감사
             </span>
             <span class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center gap-1">
-              상세 분석 보기 <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              상세 분석 및 대체재 보기 <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
             </span>
           </div>
         `;
@@ -422,9 +471,16 @@
     function openModal(c) {
       const story = c.portfolio_story || {};
       const handsOn = story.hands_on_log || {};
+      const curation = c.curation || { discovery_mode: 'USER_CURATED', curator: 'Anyong Cheong' };
+      const clustering = c.clustering || { cluster_name: c.category || 'Tech', alternatives: [] };
       const stageInfo = getStageBadgeInfo(handsOn.status);
+      const isUserMode = curation.discovery_mode === 'USER_CURATED';
       
-      document.getElementById('modalCategory').innerText = c.category || 'Tech';
+      const mBadge = document.getElementById('modalModeBadge');
+      mBadge.className = 'text-xs px-2.5 py-0.5 rounded-md font-semibold ' + (isUserMode ? 'badge-user' : 'badge-auto');
+      mBadge.innerText = isUserMode ? '👤 직접 문제해결 큐레이션' : '🤖 자율 트렌드 감사 발굴';
+
+      document.getElementById('modalClusterBadge').innerText = clustering.cluster_name || (c.category || 'Tech');
       
       const vBadge = document.getElementById('modalVerdictBadge');
       vBadge.className = 'text-xs px-2.5 py-0.5 rounded-md font-semibold ' + getVerdictBadgeClass(c.verdict);
@@ -435,6 +491,33 @@
       sBadge.innerText = stageInfo.label;
 
       document.getElementById('modalTitle').innerText = c.title;
+
+      // Curation Motivation Box
+      const cBox = document.getElementById('modalCurationBox');
+      cBox.className = 'p-4 rounded-xl border space-y-1.5 ' + (isUserMode ? 'bg-indigo-950/30 border-indigo-500/30' : 'bg-sky-950/30 border-sky-500/30');
+      document.getElementById('modalCurationTitle').className = 'text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ' + (isUserMode ? 'text-indigo-300' : 'text-sky-300');
+      document.getElementById('modalCuratorName').innerText = 'Curator: ' + (curation.curator || 'Anyong Cheong');
+      document.getElementById('modalPersonalMotivation').innerText = curation.personal_motivation || story.the_hook || '내용 없음';
+      document.getElementById('modalTargetWorkflow').innerText = curation.target_workflow || '일반 엔지니어링 파이프라인';
+
+      // Alternatives Table
+      const altBody = document.getElementById('modalAlternativesBody');
+      altBody.innerHTML = '';
+      if (clustering.alternatives && clustering.alternatives.length > 0) {
+        clustering.alternatives.forEach(alt => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-slate-800/40 transition';
+          tr.innerHTML = `
+            <td class="p-2.5 font-bold text-white whitespace-nowrap">${alt.name}</td>
+            <td class="p-2.5 text-slate-400 font-mono text-[11px] whitespace-nowrap">${alt.tech_stack || 'N/A'}</td>
+            <td class="p-2.5 text-emerald-300">${alt.pros || '-'}</td>
+            <td class="p-2.5 text-amber-300">${alt.cons || '-'}</td>
+          `;
+          altBody.appendChild(tr);
+        });
+      } else {
+        altBody.innerHTML = '<tr><td colspan="4" class="p-3 text-center text-slate-500">등록된 대체재 정보가 없습니다.</td></tr>';
+      }
 
       // Render Sources List
       const sourcesList = document.getElementById('modalSourcesList');
@@ -504,14 +587,28 @@
       document.getElementById('detailModal').classList.add('hidden');
     }
 
-    function setStageFilter(stage) {
-      currentStage = stage;
-      document.querySelectorAll('.stage-btn').forEach(btn => {
-        if (btn.dataset.stage === stage) {
+    function setModeFilter(mode) {
+      currentMode = mode;
+      document.querySelectorAll('.mode-btn').forEach(btn => {
+        if (btn.dataset.mode === mode) {
           btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-500');
           btn.classList.remove('bg-slate-900');
         } else {
           btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-500');
+          btn.classList.add('bg-slate-900');
+        }
+      });
+      renderCards();
+    }
+
+    function setStageFilter(stage) {
+      currentStage = stage;
+      document.querySelectorAll('.stage-btn').forEach(btn => {
+        if (btn.dataset.stage === stage) {
+          btn.classList.add('bg-slate-800', 'text-white');
+          btn.classList.remove('bg-slate-900');
+        } else {
+          btn.classList.remove('bg-slate-800', 'text-white');
           btn.classList.add('bg-slate-900');
         }
       });

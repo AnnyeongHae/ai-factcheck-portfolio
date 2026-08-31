@@ -9,6 +9,23 @@
   "confidence_score": 97.0,
   "status": "COMPLETED",
   
+  "curation": {
+    "discovery_mode": "AUTO_HARVESTED",
+    "curator": "Autonomous Trend Scout (Hugging Face Trending 1위)",
+    "personal_motivation": "글로벌 허깅페이스 트렌딩 1위(4,228점) 모델로서 125B MoE 구조 중 단 6B만 활성화하여 초저지연 서빙을 달성했다는 주장의 기술적 실체와 VRAM 요구사양을 자동 감사함.",
+    "target_workflow": "Frontier LLM 인프라 & 초저지연 에이전트 서빙"
+  },
+
+  "clustering": {
+    "cluster_id": "cluster_multimodal_moe",
+    "cluster_name": "⚡ 초저지연 멀티모달 MoE 모델 (Low-Latency Multimodal MoE)",
+    "layer": "Foundation Model & Inference Acceleration Layer",
+    "alternatives": [
+      { "name": "Qwen3.8-Flash-Next", "tech_stack": "125B MoE (Active 6B), MTP 4B", "pros": "200+ tokens/s 초고속 인퍼런스, 멀티모달 내장", "cons": "풀 가중치 130GB VRAM 소요" },
+      { "name": "DeepSeek-V3", "tech_stack": "671B MoE (Active 37B)", "pros": "강력한 범용 지능", "cons": "더 큰 하드웨어 요구사양" }
+    ]
+  },
+  
   "sources": [
     {
       "tier": "Tier 1",
