@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 """
-Fact-Check & Engineering Portfolio Dashboard Builder (2026 SOTA Framework - v3.1)
-investigations/ 폴더의 모든 케이스를 취합하여 포트폴리오 웹 대시보드를 자동 생성합니다.
-- dashboard/index.html & dashboard/data.json
-- docs/index.html & docs/data.json (GitHub Pages /docs 브랜치 즉시 호스팅 지원)
+Fact-Check & Engineering Portfolio Dashboard Builder (2026 SOTA Framework - v4.1)
+investigations/ 폴더와 logs/ 수집 헬스 상태를 취합하여 포트폴리오 웹 대시보드를 자동 생성합니다.
 """
 
 import json
@@ -39,6 +37,19 @@ def scan_investigations():
                     print(f"[!] Warning: Failed to read {meta_path}: {e}")
     return cases
 
+def get_harvest_health():
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    hist_path = os.path.join(base_dir, "logs", "harvest_history.json")
+    if os.path.exists(hist_path):
+        try:
+            with open(hist_path, "r", encoding="utf-8") as f:
+                history = json.load(f)
+                if history:
+                    return history[0]
+        except Exception:
+            pass
+    return None
+
 def build_dashboard():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     dash_dir = os.path.join(base_dir, "dashboard")
@@ -47,6 +58,7 @@ def build_dashboard():
     os.makedirs(docs_dir, exist_ok=True)
 
     cases = scan_investigations()
+    harvest_health = get_harvest_health()
     
     # Statistics
     total_cases = len(cases)
@@ -64,6 +76,7 @@ def build_dashboard():
 
     summary_data = {
         "generated_at": "2026-08-31",
+        "harvest_health": harvest_health,
         "total_cases": total_cases,
         "active_dev_count": active_dev_count,
         "halted_count": halted_count,
@@ -73,7 +86,7 @@ def build_dashboard():
         "cases": cases
     }
 
-    # Write data.json (both dashboard/ and docs/)
+    # Write data.json
     for target_dir in [dash_dir, docs_dir]:
         json_path = os.path.join(target_dir, "data.json")
         with open(json_path, "w", encoding="utf-8") as f:
@@ -92,6 +105,7 @@ def build_dashboard():
 
 def generate_html(data):
     cases_json = json.dumps(data["cases"], ensure_ascii=False)
+    health_json = json.dumps(data.get("harvest_health", {}), ensure_ascii=False)
     
     return f"""<!DOCTYPE html>
 <html lang="ko" class="dark">
@@ -153,9 +167,10 @@ def generate_html(data):
         </div>
       </div>
       <div class="flex items-center gap-2">
-        <span class="text-xs px-3 py-1.5 rounded-lg bg-indigo-500/10 text-indigo-300 font-medium border border-indigo-500/20">
-          신뢰도 가중치 매트릭스 적용 (Tier 1~4)
-        </span>
+        <button onclick="openHealthModal()" class="flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-300 font-medium border border-emerald-500/30 hover:bg-emerald-500/20 transition">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          수집 시스템 헬스 모니터 (Live)
+        </button>
       </div>
     </div>
   </header>
@@ -241,6 +256,44 @@ def generate_html(data):
 
   </main>
 
+  <!-- Health & Harvester Monitoring Modal -->
+  <div id="healthModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="glass max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-700 my-8">
+      <div class="p-6 border-b border-slate-800 flex items-center justify-between bg-slate-900/60">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="activity" class="w-5 h-5 text-emerald-400"></i>
+          <h3 class="text-base font-bold text-white">자동 수집 시스템 실시간 헬스 모니터</h3>
+        </div>
+        <button onclick="closeHealthModal()" class="text-slate-400 hover:text-white p-1 rounded-lg bg-slate-800/60 hover:bg-slate-700">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-6 space-y-4 text-xs text-slate-300">
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+            <span class="text-slate-400">최근 수집 일자</span>
+            <div id="healthDate" class="text-sm font-bold text-white mt-1"></div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+            <span class="text-slate-400">신규 발굴 후보</span>
+            <div id="healthNewSaved" class="text-sm font-bold text-emerald-400 mt-1"></div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+            <span class="text-slate-400">중복 차단 건수</span>
+            <div id="healthDupSkipped" class="text-sm font-bold text-indigo-300 mt-1"></div>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-200 mb-2">소스별 수집 헬스 & 레이턴시</h4>
+          <div id="healthSourcesList" class="space-y-2"></div>
+        </div>
+      </div>
+      <div class="p-4 border-t border-slate-800 bg-slate-900/60 flex justify-end">
+        <button onclick="closeHealthModal()" class="px-4 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold">닫기</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Detailed Portfolio Modal -->
   <div id="detailModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
     <div class="glass max-w-3xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-700/80 my-8 max-h-[92vh] flex flex-col">
@@ -261,7 +314,6 @@ def generate_html(data):
 
       <!-- Modal Body -->
       <div class="p-6 overflow-y-auto space-y-6 text-sm text-slate-200">
-        
         <!-- 0. Verified Sources List -->
         <div class="space-y-2">
           <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
@@ -342,6 +394,7 @@ def generate_html(data):
 
   <script>
     const casesData = {cases_json};
+    const healthData = {health_json};
     let currentStage = 'ALL';
     let searchQuery = '';
 
@@ -368,6 +421,41 @@ def generate_html(data):
         return {{ class: 'badge-halted', label: '🟡 성능/과금 문제로 개발 중단', boxBorder: 'border-amber-500/30' }};
       }}
       return {{ class: 'badge-pending', label: '⚪ 아직 개발 전 (기술 조사 완료)', boxBorder: 'border-slate-700' }};
+    }}
+
+    function openHealthModal() {{
+      if (healthData && healthData.date) {{
+        document.getElementById('healthDate').innerText = healthData.date;
+        document.getElementById('healthNewSaved').innerText = (healthData.summary ? healthData.summary.new_saved : 0) + ' 건';
+        document.getElementById('healthDupSkipped').innerText = (healthData.summary ? healthData.summary.duplicates_skipped : 0) + ' 건';
+        
+        const slist = document.getElementById('healthSourcesList');
+        slist.innerHTML = '';
+        if (healthData.sources) {{
+          Object.entries(healthData.sources).forEach(([src, info]) => {{
+            const div = document.createElement('div');
+            const isSuccess = info.status === 'SUCCESS';
+            div.className = 'flex items-center justify-between p-2 rounded-lg bg-slate-900 border ' + (isSuccess ? 'border-emerald-500/20' : 'border-amber-500/20');
+            div.innerHTML = `
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full ${{isSuccess ? 'bg-emerald-400' : 'bg-amber-400'}}"></span>
+                <span class="font-bold text-slate-200 uppercase">${{src}}</span>
+              </div>
+              <div class="text-slate-400">
+                ${{isSuccess ? '<span class="text-emerald-400 font-semibold">' + (info.items_found || 0) + ' 건 수집</span>' : '<span class="text-amber-400">차단/에러 감지</span>'}} 
+                (${{info.duration_sec || 0}}s)
+              </div>
+            `;
+            slist.appendChild(div);
+          }});
+        }}
+      }}
+      document.getElementById('healthModal').classList.remove('hidden');
+      lucide.createIcons();
+    }}
+
+    function closeHealthModal() {{
+      document.getElementById('healthModal').classList.add('hidden');
     }}
 
     function renderCards() {{
@@ -546,6 +634,9 @@ def generate_html(data):
 
     document.getElementById('detailModal').addEventListener('click', (e) => {{
       if (e.target.id === 'detailModal') closeModal();
+    }});
+    document.getElementById('healthModal').addEventListener('click', (e) => {{
+      if (e.target.id === 'healthModal') closeHealthModal();
     }});
 
     document.addEventListener('DOMContentLoaded', () => {{

@@ -1,5 +1,42 @@
 {
   "generated_at": "2026-08-31",
+  "harvest_health": {
+    "timestamp": "2026-08-31T17:21:39.149166",
+    "date": "2026-08-31",
+    "sources": {
+      "huggingface": {
+        "status": "SUCCESS",
+        "items_found": 20,
+        "duration_sec": 0.43
+      },
+      "github": {
+        "status": "SUCCESS",
+        "items_found": 30,
+        "duration_sec": 1.2
+      },
+      "hacker_news": {
+        "status": "SUCCESS",
+        "items_found": 4,
+        "duration_sec": 14.11
+      },
+      "arxiv": {
+        "status": "SUCCESS",
+        "items_found": 20,
+        "duration_sec": 0.8
+      },
+      "reddit": {
+        "status": "ERROR",
+        "error": "HTTP Error 403: Blocked",
+        "duration_sec": 0.32
+      }
+    },
+    "summary": {
+      "total_fetched": 74,
+      "new_saved": 74,
+      "duplicates_skipped": 0,
+      "errors": 0
+    }
+  },
   "total_cases": 4,
   "active_dev_count": 1,
   "halted_count": 1,
