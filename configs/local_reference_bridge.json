@@ -1,0 +1,17 @@
+{
+  "description": "Local Web Acquisition & Collection Foundation Bridge Configuration",
+  "local_foundation_root": "D:\\2026-08-04_CODEX\\collection-foundation",
+  "enabled_capabilities": [
+    "web.fetch.bounded",
+    "web.search.serp",
+    "rss.metadata.discovery",
+    "youtube.video.metadata"
+  ],
+  "fallback_policy": {
+    "on_http_403_or_blocked": "Inspect D:\\2026-08-04_CODEX\\collection-foundation for cached snapshots or use local adapters.",
+    "supported_adapters": [
+      "collection_foundation.web_content_adapters",
+      "collection_foundation.access_reliability"
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+﻿{
+  "version": "2026.1",
+  "tiers": {
+    "tier_1_ground_truth": {
+      "weight": 1.0,
+      "description": "Primary empirical evidence, verified code, raw weights, decontaminated benchmarks",
+      "sources": [
+        "GitHub/GitLab Official Commits & CI Logs",
+        "Hugging Face Verified Hub Safetensors",
+        "LiveBench / SWE-bench Verified / HLE / GPQA Diamond",
+        "LMSYS Chatbot Arena Blind A/B Data",
+        "Peer-reviewed / ArXiv Author Paper"
+      ]
+    },
+    "tier_2_verified_secondary": {
+      "weight": 0.8,
+      "description": "Independent third-party technical reports and official vendor releases",
+      "sources": [
+        "SemiAnalysis / Epoch AI / Phind Technical Reports",
+        "Official Vendor Engineering Blogs (OpenAI, Anthropic, Google, Meta)",
+        "Hugging Face Open LLM Leaderboard v2"
+      ]
+    },
+    "tier_3_community_informational": {
+      "weight": 0.5,
+      "description": "Developer forums and aggregated community replication attempts",
+      "sources": [
+        "Reddit r/LocalLLaMA & r/MachineLearning Discussions",
+        "Hacker News Verified Commenters",
+        "GitHub Community Issues"
+      ]
+    },
+    "tier_4_unverified_noise": {
+      "weight": 0.1,
+      "description": "Input claim targets only. NEVER treat as verification evidence.",
+      "sources": [
+        "X / Twitter Viral Posts",
+        "Threads / YouTube Shorts",
+        "Tech Marketing Newsletters / Clickbait Articles"
+      ]
+    }
+  },
+  "verdict_thresholds": {
+    "VERIFIED_TRUE": {"min_score": 0.85, "requires_tier1": true},
+    "MOSTLY_TRUE": {"min_score": 0.70, "requires_tier1": false},
+    "HALF_TRUE": {"min_score": 0.50, "context_dependency": true},
+    "MISLEADING_GAMED": {"contamination_flag": true},
+    "CONFIRMED_FALSE": {"refuted_by_tier1": true},
+    "UNVERIFIABLE": {"missing_weights_or_code": true}
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "version": "2026.1",
+  "updated_at": "2026-08-31",
+  "currency": "USD",
+  "llm_script_generation": {
+    "openai_gpt4o": {"input_per_1m": 2.50, "output_per_1m": 10.00, "cost_per_60s_script": 0.005},
+    "anthropic_claude_3_5_sonnet": {"input_per_1m": 3.00, "output_per_1m": 15.00, "cost_per_60s_script": 0.007},
+    "deepseek_v3": {"input_per_1m": 0.14, "output_per_1m": 0.28, "cost_per_60s_script": 0.0002},
+    "local_ollama_llama3": {"cost_per_60s_script": 0.00}
+  },
+  "tts_voice_synthesis": {
+    "edge_tts_free": {"cost_per_60s_audio": 0.00, "quality": "Standard robotic", "risk": "Low originality"},
+    "azure_speech_neural": {"cost_per_1m_chars": 16.00, "cost_per_60s_audio": 0.012, "quality": "High natural"},
+    "elevenlabs_turbo_v2": {"cost_per_1k_chars": 0.15, "cost_per_60s_audio": 0.12, "quality": "Ultra realistic / Clone"},
+    "cartesia_sonic": {"cost_per_1k_chars": 0.08, "cost_per_60s_audio": 0.064, "quality": "Ultra fast / Low latency"}
+  },
+  "video_generation_and_stock": {
+    "pexels_pixabay_stock_api": {
+      "cost_per_second": 0.00,
+      "cost_per_60s_video": 0.00,
+      "reject_ratio_multiplier": 1.0,
+      "effective_cost_60s": 0.00,
+      "monetization_risk": "High (Reused stock footage)"
+    },
+    "higgsfield_seedance_2_0_720p": {
+      "cost_per_second": 0.22,
+      "cost_per_5s_clip": 1.10,
+      "raw_cost_60s_video": 13.20,
+      "reject_ratio_multiplier": 1.5,
+      "effective_cost_60s": 19.80,
+      "monetization_risk": "Low (Unique AI generated)"
+    },
+    "higgsfield_seedance_2_0_1080p": {
+      "cost_per_second": 0.45,
+      "cost_per_5s_clip": 2.25,
+      "raw_cost_60s_video": 27.00,
+      "reject_ratio_multiplier": 1.5,
+      "effective_cost_60s": 40.50,
+      "monetization_risk": "Low (High definition unique)"
+    },
+    "kling_1_5_pro_1080p": {
+      "cost_per_second": 0.35,
+      "cost_per_5s_clip": 1.75,
+      "raw_cost_60s_video": 21.00,
+      "reject_ratio_multiplier": 1.4,
+      "effective_cost_60s": 29.40,
+      "monetization_risk": "Low"
+    },
+    "runway_gen3_turbo": {
+      "cost_per_second": 0.25,
+      "cost_per_5s_clip": 1.25,
+      "raw_cost_60s_video": 15.00,
+      "reject_ratio_multiplier": 1.4,
+      "effective_cost_60s": 21.00,
+      "monetization_risk": "Low"
+    },
+    "luma_dream_machine": {
+      "cost_per_second": 0.30,
+      "cost_per_5s_clip": 1.50,
+      "raw_cost_60s_video": 18.00,
+      "reject_ratio_multiplier": 1.5,
+      "effective_cost_60s": 27.00,
+      "monetization_risk": "Low"
+    }
+  },
+  "compute_and_rendering": {
+    "ffmpeg_local_cpu": {"cost_per_render": 0.00},
+    "cloud_modal_or_runpod_serverless_gpu": {"cost_per_render": 0.03}
+  }
+}

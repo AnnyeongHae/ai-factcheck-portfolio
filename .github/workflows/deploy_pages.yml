@@ -1,0 +1,55 @@
+name: Deploy AI Fact-Check Portfolio to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+  schedule:
+    # 매일 아침 09:00 KST (자정 UTC 00:00) 자동 트렌드 수집 및 대시보드 빌드
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run Multi-Source Trend Harvester (Non-intrusive)
+        run: |
+          python tools/harvest_trends.py
+
+      - name: Build Fact-Check Portfolio Dashboard
+        run: |
+          python tools/build_dashboard.py
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Artifact (dashboard directory)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dashboard/'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

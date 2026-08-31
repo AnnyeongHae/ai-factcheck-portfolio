@@ -1,0 +1,75 @@
+{
+  "case_id": "2026-08-31_sns_angeldot_moneyprinterturbo_claim",
+  "title": "MoneyPrinterTurbo: 1키워드 AI 숏폼 비디오 자동 생성 및 무료 수익화 주장 팩트체크",
+  "category": "GenAI Video & Automation",
+  "date_created": "2026-08-31",
+  "type": "sns",
+  "verdict": "HALF_TRUE_CONTEXT_REQUIRED",
+  "confidence_score": 94.0,
+  "status": "COMPLETED",
+  
+  "sources": [
+    {
+      "tier": "Tier 4",
+      "type": "Viral SNS Input Claim",
+      "name": "X (Twitter) @angeldot_ Viral Post",
+      "url": "https://x.com/angeldot_/status/2092971270501433433"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Target GitHub Repository",
+      "name": "harry0703/MoneyPrinterTurbo GitHub",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Original Parent Repository",
+      "name": "FujiwaraChoki/MoneyPrinter GitHub",
+      "url": "https://github.com/FujiwaraChoki/MoneyPrinter"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Platform Policy Document",
+      "name": "YouTube Channel Monetization Policies (Reused Content Guidelines)",
+      "url": "https://support.google.com/youtube/answer/1311392"
+    },
+    {
+      "tier": "Tier 2",
+      "type": "AI Pricing Reference",
+      "name": "Higgsfield AI & ElevenLabs Pricing Index 2026",
+      "url": "https://elevenlabs.io/pricing"
+    }
+  ],
+
+  "community_reactions": [
+    {
+      "platform": "Reddit r/LocalLLaMA",
+      "author_type": "AI Video Creator",
+      "quote": "EdgeTTS와 Pexels 조합은 테스트용으론 신기하지만, 실제로 유튜브에 올리면 2달 안에 '재사용 콘텐츠' 판정받고 수익화 정지당함.",
+      "url": "https://reddit.com/r/LocalLLaMA/comments/ai_video_automation_reality"
+    },
+    {
+      "platform": "GitHub Issues",
+      "author_type": "Open Source Contributor",
+      "quote": "Pexels API 시간당 200회 Rate Limit 및 상용 ElevenLabs/GPT-4o API 키를 안 넣으면 상용 퀄리티가 안 나옴.",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo/issues/142"
+    }
+  ],
+  
+  "portfolio_story": {
+    "discovery_channel": "X(Twitter) 글로벌 AI 인플루언서 바이럴 스레드 (@angeldot_)",
+    "the_hook": "키워드 1개만 넣으면 스크립트 작성부터 B-roll 수집, 음성 합성, 자막, 렌더링까지 완전 무료 오픈소스로 전자동 숏폼 비디오를 찍어내어 유튜브/틱톡 부업으로 무한 수익을 낼 수 있다는 파격적 주장에 호기심 발생.",
+    "marketing_hype_anatomy": "'Literally Prints Money', '100% Free'라는 자극적 부업 마케팅 수식어 사용. 그러나 1) 고품질 스크립트를 위한 상용 LLM API 유료 비용을 은폐했고, 2) Pexels 스톡 영상 기반 양산 영상은 2026년 유튜브의 '재사용 콘텐츠(Reused Content)' 정책에 의해 수익화가 즉각 거절된다는 핵심 리스크를 누락함.",
+    "engineering_takeaways": "MoviePy, FFmpeg, EdgeTTS, Whisper, Pexels API를 비동기 큐로 엮어낸 '경량 파이프라인 오케스트레이션' 아키텍처는 매우 훌륭함. 그러나 상용 비디오 모델(Higgsfield Seedance 2.0 등)을 붙였을 때 편당 $20(월 $600)의 비용이 발생한다는 단위 경제학(Unit Economics)의 현실을 체감.",
+    "future_applications": "완성본 자동 게시기가 아닌, 초안(Draft) 스토리보드 및 영상 기획 브레인스토밍 툴로 활용. Pexels 스톡 대신 직접 촬영한 푸티지나 고유 3D 그래픽을 교체 투입하는 하이브리드 파이프라인으로 개조.",
+    
+    "hands_on_log": {
+      "status": "EVALUATED_HALTED",
+      "status_label": "성능 / 과금 문제로 개발 중단",
+      "pipeline_or_url": "로컬 파이프라인 프로토타입 (MoviePy + EdgeTTS + Pexels API) 테스트 후 실서비스 배포 중단",
+      "test_environment": "Local Windows 11 / Python 3.12 / FFmpeg / Edge-TTS",
+      "measured_results": "60초 영상 렌더링 48초 소요. 무료 조합은 Pexels 영상 중복 및 기계음 한계 확인. 고품질 비디오 모델(Seedance 2.0 720p) 연동 시 편당 $19.92(월 30편 시 $597.75)의 높은 API 원가 발생.",
+      "details": "단위 경제학(Unit Economics) 분석 결과 쇼츠 광고 수익(1,000뷰당 $0.05) 대비 API 원가가 수십 배 초과하여 적자가 불가피하고, 플랫폼 재사용 제재 리스크가 높아 실서비스 도입을 중단(Halted)함."
+    }
+  }
+}

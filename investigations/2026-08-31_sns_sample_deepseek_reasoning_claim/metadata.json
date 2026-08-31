@@ -1,0 +1,69 @@
+{
+  "case_id": "2026-08-31_sns_sample_deepseek_reasoning_claim",
+  "title": "DeepSeek 추론 모델: 벤치마크 o1 능가 및 단일 4090 구동 주장 팩트체크",
+  "category": "Frontier LLM & Reasoning",
+  "date_created": "2026-08-31",
+  "type": "sns",
+  "verdict": "MISLEADING_GAMED",
+  "confidence_score": 96.5,
+  "status": "COMPLETED",
+  
+  "sources": [
+    {
+      "tier": "Tier 4",
+      "type": "Viral SNS Input Claim",
+      "name": "X (Twitter) @TechInsider_AI Viral Post",
+      "url": "https://x.com/TechInsider_AI/status/1899123456789"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Original Author Preprint Paper",
+      "name": "DeepSeek-R1 Technical Report (ArXiv:2501.12948)",
+      "url": "https://arxiv.org/abs/2501.12948"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Official Model Repository",
+      "name": "DeepSeek-AI Hugging Face Hub (Safetensors Weights)",
+      "url": "https://huggingface.co/deepseek-ai"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Decontaminated Dynamic Benchmark",
+      "name": "LiveBench & AIME 2025/2026 Official Results",
+      "url": "https://livebench.ai"
+    }
+  ],
+
+  "community_reactions": [
+    {
+      "platform": "Reddit r/LocalLLaMA",
+      "author_type": "AI Researcher",
+      "quote": "Pass@64(64회 다수결)과 Pass@1(단일 시도)을 같은 그래프에 놓고 비교하는 건 전형적인 트위터발 체리피킹 마케팅이다.",
+      "url": "https://reddit.com/r/LocalLLaMA/comments/deepseek_aime_harness_check"
+    },
+    {
+      "platform": "Hacker News",
+      "author_type": "ML Infrastructure Engineer",
+      "quote": "671B MoE 풀 모델은 활성 파라미터가 37B라 해도 가중치 파일만 700GB다. 4090 1장(24GB)에서 절대 로딩 안 된다. 돌아가는 건 8B 증류 모델뿐.",
+      "url": "https://news.ycombinator.com/item?id=42700000"
+    }
+  ],
+  
+  "portfolio_story": {
+    "discovery_channel": "X(Twitter) 테크 인플루언서 포스트 및 Reddit r/LocalLLaMA",
+    "the_hook": "새로 나온 DeepSeek 추론 모델이 수학 AIME에서 OpenAI o1을 압도했으며, 671B 거대 모델이 일반 소비자용 RTX 4090 1장에서 풀스피드로 실행된다는 믿기 힘든 주장을 검증하기 위해 조사 착수.",
+    "marketing_hype_anatomy": "1) DeepSeek의 88.4% 점수는 64회 샘플링 다수결(Pass@64 Cons-Maj) 수치인데, 이를 o1의 Pass@1(단일 시도 83.3%)과 나란히 비교하는 전형적인 평가 하네스 왜곡(Harness Manipulation).\n2) 700GB 용량의 671B 풀 모델과 8B 증류(Distill) 소형 모델을 의도적으로 혼동시켜 마치 풀 모델이 24GB VRAM 1장에 들어가는 것처럼 과장.",
+    "engineering_takeaways": "벤치마크 평가 시 프롬프트 조건(0-shot, few-shot, pass@k, majority voting)을 반드시 원저자 논문 각주에서 확인해야 함을 학습. VRAM 계산 시 활성 파라미터(Active Params)뿐 아니라 총 파라미터(Total Params)의 물리적 메모리 요구량을 역산하는 아키텍처 감사 역량 확보.",
+    "future_applications": "1) 모델 도입 시 리더보드 점수 대신 LiveBench/Arena 블라인드 실측 점수만 신뢰하는 사내 모델 선정 프로토콜 수립\n2) 24GB VRAM 환경에서는 Distill 8B 또는 4-bit AWQ 양자화 모델만 타겟팅하는 배포 전략 적용",
+    
+    "hands_on_log": {
+      "status": "PENDING_RESEARCH",
+      "status_label": "아직 개발 전 (기술 조사 및 검증 완료)",
+      "pipeline_or_url": "ArXiv 논문(ArXiv:2501.12948) 각주 및 Hugging Face Safetensors 헤더 역산 감사 완료",
+      "test_environment": "사전 기술 타당성 및 논문/가중치 아키텍처 감사 단계",
+      "measured_results": "논문 Table 3 각주 확인 결과 Pass@1 기준 점수는 79.8%(o1 83.3% 대비 낮음), 671B 가중치 크기 700GB로 24GB GPU 단일 서빙 불가 확인.",
+      "details": "SNS 주장의 기술적 오류(하네스 왜곡 및 VRAM 불일치)를 사전에 입증하여 무리한 로컬 풀모델 구축 비용 낭비를 방지함. 향후 경량화된 Distill 8B 모델 연동 단계로 이행 예정."
+    }
+  }
+}
