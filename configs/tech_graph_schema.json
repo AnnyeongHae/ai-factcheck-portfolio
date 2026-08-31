@@ -1,0 +1,61 @@
+{
+  "schema_version": "3.0",
+  "updated_at": "2026-09-01",
+  "graph": {
+    "nodes": [
+      { "id": "libxml2", "label": "libxml2 / cURL (1998)", "group": "web_scraping", "gen": "Gen 0", "type": "root", "val": 12, "desc": "C언어 기반 원시 DOM 파서 및 통신 프로토콜" },
+      { "id": "beautifulsoup", "label": "BeautifulSoup (2004)", "group": "web_scraping", "gen": "Gen 0", "type": "root", "val": 15, "desc": "0ms 결정론적 정적 HTML 파서의 영원한 기준점" },
+      { "id": "selenium", "label": "Selenium (2004)", "group": "web_scraping", "gen": "Gen 1", "type": "ancestor", "val": 14, "desc": "웹드라이버 기반 브라우저 자동화의 시초" },
+      { "id": "scrapy", "label": "Scrapy (2008)", "group": "web_scraping", "gen": "Gen 1", "type": "ancestor", "val": 18, "desc": "초당 수천 페이지 분산 배치 크롤링의 불멸의 표준" },
+      { "id": "readability", "label": "Mozilla Readability (2010)", "group": "web_scraping", "gen": "Gen 1", "type": "ancestor", "val": 14, "desc": "웹 본문 핵심 텍스트 추출 알고리즘의 원조" },
+      { "id": "playwright", "label": "Playwright (2020)", "group": "web_scraping", "gen": "Gen 2", "type": "pioneer", "val": 16, "desc": "DevTools 프로토콜 기반 고속 헤드리스 브라우저 조작" },
+      { "id": "firecrawl", "label": "Firecrawl (2024)", "group": "web_scraping", "gen": "Gen 2", "type": "pioneer", "val": 22, "desc": "웹-투-마크다운 LLM SaaS 패러다임 창시자" },
+      { "id": "crawl4ai", "label": "Crawl4AI (2024)", "group": "web_scraping", "gen": "Gen 3", "type": "sota", "val": 20, "desc": "비동기 기반 로컬 크롤링 속도 SOTA" },
+      { "id": "watercrawl", "label": "WaterCrawl (2024)", "group": "web_scraping", "gen": "Gen 3", "type": "sota", "val": 22, "desc": "Scrapy 제어력 + Docker 자가호스팅 SOTA (Factchecked)" },
+      { "id": "anydoc", "label": "Firecrawl AnyDoc (2025)", "group": "web_scraping", "gen": "Gen 3", "type": "sota", "val": 20, "desc": "Rust 제로카피 4.4ms 오피스 파싱 SOTA (Factchecked)" },
+
+      { "id": "tree_sitter", "label": "Tree-sitter / AST (2018)", "group": "agent_lineage", "gen": "Gen 0", "type": "root", "val": 12, "desc": "구문 분석 및 코드 구조 추출 원시 파서" },
+      { "id": "swe_agent", "label": "SWE-agent (2024)", "group": "agent_lineage", "gen": "Gen 1", "type": "pioneer", "val": 18, "desc": "GitHub Issue 자율 해결 벤치마크 학술 표준" },
+      { "id": "autogen", "label": "AutoGen / MetaGPT (2023)", "group": "agent_lineage", "gen": "Gen 1", "type": "ancestor", "val": 16, "desc": "멀티에이전트 역할 분담 대화형 프레임워크" },
+      { "id": "claude_code", "label": "Claude Code (2025)", "group": "agent_lineage", "gen": "Gen 2", "type": "pioneer", "val": 20, "desc": "터미널 CLI 단일 세션 초고속 수정 SOTA" },
+      { "id": "praxist", "label": "PRAXIST (2026)", "group": "agent_lineage", "gen": "Gen 3", "type": "sota", "val": 24, "desc": "Typed Evidence Graph 기반 가설 상속 1/12 비용 SOTA (Factchecked)" },
+
+      { "id": "ffmpeg", "label": "FFmpeg (2000)", "group": "video_gen", "gen": "Gen 0", "type": "root", "val": 18, "desc": "디지털 비디오/오디오 인코딩의 영원한 근본 엔진" },
+      { "id": "moviepy", "label": "MoviePy (2015)", "group": "video_gen", "gen": "Gen 1", "type": "ancestor", "val": 14, "desc": "파이썬 기반 비디오 스크립팅 래퍼" },
+      { "id": "moneyprinter", "label": "MoneyPrinter (2023)", "group": "video_gen", "gen": "Gen 2", "type": "pioneer", "val": 16, "desc": "LLM ➔ TTS ➔ MoviePy 원클릭 쇼츠 생성 개념 창시" },
+      { "id": "moneyprinterturbo", "label": "MoneyPrinterTurbo (2024)", "group": "video_gen", "gen": "Gen 3", "type": "sota", "val": 20, "desc": "Streamlit 웹 UI & Edge-TTS 통합 쇼츠 자동화 (Factchecked)" },
+
+      { "id": "transformer", "label": "Transformer / Dense (2017)", "group": "reasoning_moe", "gen": "Gen 0", "type": "root", "val": 20, "desc": "어텐션 기반 딥러닝 트랜스포머 원조 아키텍처" },
+      { "id": "cot_mcts", "label": "Chain-of-Thought / MCTS (2022)", "group": "reasoning_moe", "gen": "Gen 1", "type": "ancestor", "val": 16, "desc": "생각의 사슬 및 몬테카를로 트리 탐색 기법" },
+      { "id": "switch_transformer", "label": "Switch Transformer (2021)", "group": "reasoning_moe", "gen": "Gen 1", "type": "ancestor", "val": 14, "desc": "스파스 MoE 전문가 라우팅 아키텍처의 시초" },
+      { "id": "deepseek_r1", "label": "DeepSeek R1 / Reasoning (2025)", "group": "reasoning_moe", "gen": "Gen 2", "type": "sota", "val": 24, "desc": "GRPO 강화학습 기반 초저비용 추론 모델 혁신 (Factchecked)" },
+      { "id": "qwen38", "label": "Qwen3.8-Flash-Next (2026)", "group": "reasoning_moe", "gen": "Gen 3", "type": "sota", "val": 22, "desc": "세분화 Sparse MoE 기반 초고속 멀티모달 추론 (Factchecked)" }
+    ],
+    "links": [
+      { "source": "libxml2", "target": "beautifulsoup", "relation": "ANCESTOR_OF" },
+      { "source": "beautifulsoup", "target": "scrapy", "relation": "PARSER_ENGINE" },
+      { "source": "selenium", "target": "playwright", "relation": "EVOLVED_INTO" },
+      { "source": "readability", "target": "firecrawl", "relation": "CORE_ALGORITHM" },
+      { "source": "playwright", "target": "firecrawl", "relation": "DRIVER_ENGINE" },
+      { "source": "firecrawl", "target": "crawl4ai", "relation": "COMPETES_WITH" },
+      { "source": "firecrawl", "target": "watercrawl", "relation": "COMPETES_WITH" },
+      { "source": "scrapy", "target": "watercrawl", "relation": "RESTORED_BY" },
+      { "source": "firecrawl", "target": "anydoc", "relation": "EVOLVED_INTO" },
+
+      { "source": "tree_sitter", "target": "swe_agent", "relation": "AST_PARSER" },
+      { "source": "swe_agent", "target": "claude_code", "relation": "INFLUENCED" },
+      { "source": "autogen", "target": "praxist", "relation": "COMPETES_WITH" },
+      { "source": "claude_code", "target": "praxist", "relation": "COST_REDUCED_BY" },
+      { "source": "swe_agent", "target": "praxist", "relation": "LINEAGE_INHERITED" },
+
+      { "source": "ffmpeg", "target": "moviepy", "relation": "CORE_ENGINE" },
+      { "source": "moviepy", "target": "moneyprinter", "relation": "AUTOMATED_BY" },
+      { "source": "moneyprinter", "target": "moneyprinterturbo", "relation": "UI_EVOLVED" },
+
+      { "source": "transformer", "target": "switch_transformer", "relation": "MOE_EXTENSION" },
+      { "source": "cot_mcts", "target": "deepseek_r1", "relation": "RL_EVOLVED" },
+      { "source": "switch_transformer", "target": "qwen38", "relation": "FINE_GRAINED_MOE" },
+      { "source": "deepseek_r1", "target": "qwen38", "relation": "BENCHMARK_COMPETITOR" }
+    ]
+  }
+}

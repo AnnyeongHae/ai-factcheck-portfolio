@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-Fact-Check & Engineering Portfolio Dashboard Builder (2026 SOTA Framework - v7.0)
+Fact-Check & Engineering Portfolio Dashboard Builder (2026 SOTA Framework - v8.0)
+- 🕸️ Obsidian-Style Tech Lineage Knowledge Graph (Force-Directed D3 Graph)
+- 🌲 4-Generation Root Ancestry & Legacy Trade-off Visualizer
 - 🇰🇷 / 🇺🇸 다국어 지원 (i18n Language Switcher - Default: 한국어)
-- ⚡ 프론트엔드 원클릭 GitHub 분석 의뢰 (IssueOps Trigger)
 - 🏆 공식 팩트체크 포트폴리오 & 📥 수집 인박스 큐
 - ⚙️ 소스별 수집 엔드포인트 & 관리자 통계
 """
@@ -21,10 +22,8 @@ if sys.stdout.encoding != 'utf-8':
 def scan_investigations():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     inv_dir = os.path.join(base_dir, "investigations")
-    
     cases = []
-    if not os.path.exists(inv_dir):
-        return cases
+    if not os.path.exists(inv_dir): return cases
 
     for item in sorted(os.listdir(inv_dir)):
         item_path = os.path.join(inv_dir, item)
@@ -43,10 +42,8 @@ def scan_investigations():
 def scan_inbox():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     inbox_dir = os.path.join(base_dir, "inbox")
-    
     inbox_items = []
-    if not os.path.exists(inbox_dir):
-        return inbox_items
+    if not os.path.exists(inbox_dir): return inbox_items
 
     for f in sorted(os.listdir(inbox_dir), reverse=True):
         if f.endswith(".json"):
@@ -59,6 +56,18 @@ def scan_inbox():
             except Exception:
                 pass
     return inbox_items
+
+def load_graph_data():
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    graph_path = os.path.join(base_dir, "configs", "tech_graph_schema.json")
+    if os.path.exists(graph_path):
+        try:
+            with open(graph_path, "r", encoding="utf-8") as fp:
+                data = json.load(fp)
+                return data.get("graph", {"nodes": [], "links": []})
+        except Exception:
+            pass
+    return {"nodes": [], "links": []}
 
 def get_harvest_admin_stats():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -97,6 +106,7 @@ def build_dashboard():
     cases = scan_investigations()
     inbox_items = scan_inbox()
     admin_stats = get_harvest_admin_stats()
+    graph_data = load_graph_data()
     
     total_cases = len(cases)
     user_curated_count = sum(1 for c in cases if c.get("curation", {}).get("discovery_mode") == "USER_CURATED")
@@ -117,7 +127,8 @@ def build_dashboard():
         "pending_count": pending_count,
         "admin_stats": admin_stats,
         "inbox_items": inbox_items,
-        "cases": cases
+        "cases": cases,
+        "graph": graph_data
     }
 
     # Write data.json
@@ -133,24 +144,26 @@ def build_dashboard():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    print(f"[+] Successfully built dashboard v7.0 (i18n & IssueOps) at:")
-    print(f"    - dashboard/index.html (Verified: {total_cases}, Inbox: {len(inbox_items)})")
+    print(f"[+] Successfully built dashboard v8.0 (Obsidian Graph & Root Ancestry) at:")
+    print(f"    - dashboard/index.html (Verified: {total_cases}, Inbox: {len(inbox_items)}, Nodes: {len(graph_data['nodes'])})")
     print(f"    - docs/index.html (GitHub Pages hosting)")
 
 def generate_html(data):
     cases_json = json.dumps(data["cases"], ensure_ascii=False)
     inbox_json = json.dumps(data["inbox_items"], ensure_ascii=False)
     admin_json = json.dumps(data["admin_stats"], ensure_ascii=False)
+    graph_json = json.dumps(data["graph"], ensure_ascii=False)
     
     return f"""<!DOCTYPE html>
 <html lang="ko" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI & Tech Fact-Check Engineering Hub & Inbox</title>
-  <!-- Tailwind CSS & Lucide Icons -->
+  <title>AI & Tech Fact-Check Engineering Hub & Lineage Graph</title>
+  <!-- Tailwind CSS & Lucide Icons & D3.js -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
   <script>
     tailwind.config = {{
       darkMode: 'class',
@@ -188,7 +201,7 @@ def generate_html(data):
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen">
 
-  <!-- Navigation Bar with View & Language Switcher -->
+  <!-- Navigation Bar with 3 Views & Language Switcher -->
   <header class="sticky top-0 z-40 glass border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center space-x-3">
@@ -197,14 +210,14 @@ def generate_html(data):
         </div>
         <div>
           <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
-            AI Fact-Check Hub & Inbox
-            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v7.0</span>
+            AI Fact-Check Hub & Graph
+            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v8.0</span>
           </h1>
-          <p class="text-xs text-slate-400" id="i18nSubtitle">자율 트렌드 수집 • 인박스 승인 큐 • 엔지니어링 포트폴리오</p>
+          <p class="text-xs text-slate-400" id="i18nSubtitle">기술 계보학 지식 그래프 • 인박스 승인 큐 • 엔지니어링 포트폴리오</p>
         </div>
       </div>
 
-      <!-- Main Controls (Language Switcher, Tabs, Admin) -->
+      <!-- Main Controls -->
       <div class="flex items-center gap-2 sm:gap-3">
         
         <!-- Language Switcher (Default: KO) -->
@@ -213,11 +226,15 @@ def generate_html(data):
           <button onclick="setLanguage('EN')" id="langEnBtn" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition">🇺🇸 English</button>
         </div>
 
-        <!-- Main Tab Switcher -->
+        <!-- 3-Tab Switcher (Portfolio / Graph / Inbox) -->
         <div class="bg-slate-900/90 p-1 rounded-xl border border-slate-800 flex items-center gap-1">
           <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition shadow-sm">
             <i data-lucide="award" class="w-4 h-4"></i>
             <span id="i18nTabPortfolio">🏆 공식 포트폴리오</span> ({data['total_cases']})
+          </button>
+          <button onclick="switchView('graph')" id="tabGraphBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
+            <i data-lucide="network" class="w-4 h-4 text-emerald-400"></i>
+            <span id="i18nTabGraph">🕸️ 기술 계보 그래프</span>
           </button>
           <button onclick="switchView('inbox')" id="tabInboxBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
             <i data-lucide="inbox" class="w-4 h-4 text-amber-400"></i>
@@ -247,7 +264,7 @@ def generate_html(data):
           <p class="text-sm sm:text-base text-slate-300 leading-relaxed" id="i18nHeroDesc">
             내가 직접 문제의식을 갖고 발굴한 <strong>[👤 직접 큐레이션]</strong> 프로젝트와, 
             시스템이 24시간 실시간 트래킹한 <strong>[🤖 자동 트렌드 발굴]</strong> 프로젝트를 
-            <strong>명확한 출처(Tier 1~4), 유사 기술 대체재 비교표, 실질 단위 원가 역산</strong>을 통해 입증한 포트폴리오입니다.
+            <strong>명확한 출처(Tier 1~4), 4세대 기술 계보도, 실질 단위 원가 역산</strong>을 통해 입증한 포트폴리오입니다.
           </p>
         </div>
         <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -306,7 +323,49 @@ def generate_html(data):
       <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
 
-    <!-- ==================== VIEW 2: INBOX & TRIAGE VIEW ==================== -->
+    <!-- ==================== VIEW 2: OBSIDIAN GRAPH VIEW ==================== -->
+    <div id="graphView" class="hidden space-y-6">
+      <div class="glass p-6 rounded-2xl space-y-3">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
+                🕸️ Obsidian-Style Tech Lineage Graph
+              </span>
+              <span class="text-xs text-slate-400">2000년 원시 파서(Gen 0)부터 2026년 SOTA(Gen 3)까지의 진화망</span>
+            </div>
+            <h2 class="text-xl font-bold text-white mt-1">인터랙티브 기술 계보 및 상관관계 네트워크 지도</h2>
+            <p class="text-xs text-slate-300">
+              노드를 드래그하거나 휠로 줌인/줌아웃하여 기술 간의 <strong>뿌리 계보(Ancestry), 진화 관계(Evolution), 경쟁 대체재(Competitors)</strong>를 탐색하세요.
+            </p>
+          </div>
+
+          <!-- Legend -->
+          <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-[11px] grid grid-cols-2 gap-x-4 gap-y-1 shrink-0">
+            <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Gen 0: 원시 파서/엔진 (2000~2005)</div>
+            <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span> Gen 1: 배치/자동화 (2004~2015)</div>
+            <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Gen 2: LLM 마크다운/CLI (2017~2024)</div>
+            <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> Gen 3: SOTA 자율 에이전트 (2024~2026)</div>
+          </div>
+        </div>
+
+        <!-- Graph Canvas Container -->
+        <div class="relative w-full h-[650px] bg-slate-950/90 rounded-xl border border-slate-800 overflow-hidden shadow-inner flex items-center justify-center">
+          <svg id="techGraphSvg" class="w-full h-full cursor-grab active:cursor-grabbing"></svg>
+          
+          <!-- Node Tooltip Card -->
+          <div id="graphTooltip" class="absolute bottom-4 left-4 p-4 rounded-xl glass border border-slate-700 text-xs max-w-sm hidden shadow-2xl transition space-y-1.5 pointer-events-none">
+            <div class="flex items-center justify-between gap-2">
+              <span id="tooltipLabel" class="font-bold text-sm text-white"></span>
+              <span id="tooltipGen" class="px-2 py-0.5 rounded text-[10px] font-bold"></span>
+            </div>
+            <p id="tooltipDesc" class="text-slate-300 text-[11px] leading-relaxed"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 3: INBOX & TRIAGE VIEW ==================== -->
     <div id="inboxView" class="hidden space-y-6">
       
       <!-- Inbox Header & Explanation -->
@@ -320,7 +379,7 @@ def generate_html(data):
           </div>
           <h2 class="text-xl font-bold text-white" id="i18nInboxHeaderTitle">"수집된 최신 기술 중 마음에 드는 것만 골라 분석을 의뢰하세요"</h2>
           <p class="text-xs text-slate-300" id="i18nInboxHeaderDesc">
-            원문을 확인하고 <strong>[⚡ GitHub으로 분석 의뢰]</strong>를 누르면 이슈가 자동 생성되어 AI 팩트체크가 트리거됩니다.
+            원문을 확인하고 <strong>[⚡ 분석 큐에 담기]</strong>를 누르면 Neon DB의 대기열에 담겨 Antigravity AI가 심층 리서치에 착수합니다.
           </p>
         </div>
 
@@ -442,6 +501,23 @@ def generate_html(data):
           </div>
         </div>
 
+        <!-- Root Ancestry & Why Legacy Persists Box -->
+        <div id="modalRootAncestryBox" class="p-4 rounded-xl border border-purple-500/30 bg-purple-950/20 space-y-2">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-purple-300 flex items-center gap-1.5">
+            <i data-lucide="git-fork" class="w-4 h-4"></i> 🌲 4세대 기술 계보 & 레거시 잔존 트레이드오프 (Root Ancestry & Legacy Trade-off)
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
+            <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 space-y-1">
+              <span class="text-slate-400 font-semibold">🏛️ 근본 뿌리 역사 (Roots):</span>
+              <div id="modalRootsList" class="text-slate-300 text-[11px] space-y-0.5"></div>
+            </div>
+            <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 space-y-1">
+              <span class="text-amber-400 font-semibold">💡 SOTA가 있어도 구기술을 쓰는 이유:</span>
+              <p id="modalWhyLegacy" class="text-slate-300 text-[11px] leading-relaxed"></p>
+            </div>
+          </div>
+        </div>
+
         <!-- Alternatives Comparison Matrix -->
         <div class="space-y-2">
           <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
@@ -549,8 +625,9 @@ def generate_html(data):
     const casesData = {cases_json};
     const inboxData = {inbox_json};
     const adminData = {admin_json};
+    const graphData = {graph_json};
 
-    let currentLang = 'KO'; // Default: 한국어
+    let currentLang = 'KO';
     let currentView = 'portfolio';
     let currentMode = 'ALL';
     let currentStage = 'ALL';
@@ -558,15 +635,17 @@ def generate_html(data):
 
     let currentInboxSource = 'ALL';
     let inboxSearchQuery = '';
+    let graphInitialized = false;
 
     const i18nDict = {{
       KO: {{
-        subtitle: '자율 트렌드 수집 • 인박스 승인 큐 • 엔지니어링 포트폴리오',
+        subtitle: '기술 계보학 지식 그래프 • 인박스 승인 큐 • 엔지니어링 포트폴리오',
         tabPortfolio: '🏆 공식 포트폴리오',
+        tabGraph: '🕸️ 기술 계보 그래프',
         tabInbox: '📥 수집 인박스 큐',
         btnAdmin: '⚙️ 수집 관리자',
         heroTitle: '"소문난 AI 기술, 진짜 작동하고 경제성이 있을까?"',
-        heroDesc: '내가 직접 문제의식을 갖고 발굴한 [👤 직접 큐레이션] 프로젝트와, 시스템이 24시간 실시간 트래킹한 [🤖 자동 트렌드 발굴] 프로젝트를 명확한 출처(Tier 1~4), 유사 기술 대체재 비교표, 실질 단위 원가 역산을 통해 입증한 포트폴리오입니다.',
+        heroDesc: '내가 직접 문제의식을 갖고 발굴한 [👤 직접 큐레이션] 프로젝트와, 시스템이 24시간 실시간 트래킹한 [🤖 자동 트렌드 발굴] 프로젝트를 명확한 출처(Tier 1~4), 4세대 기술 계보도, 실질 단위 원가 역산을 통해 입증한 포트폴리오입니다.',
         metricTotal: '총 팩트체크 프로젝트',
         metricUser: '👤 직접 문제해결 큐레이션',
         metricAuto: '🤖 자율 트렌드 감사',
@@ -582,18 +661,19 @@ def generate_html(data):
         stagePending: '⚪ 사전 조사',
         inboxBadge: '📥 미승인 트렌드 대기 큐 (Inbox Queue)',
         inboxHeaderTitle: '"수집된 최신 기술 중 마음에 드는 것만 골라 분석을 의뢰하세요"',
-        inboxHeaderDesc: '원문을 확인하고 [⚡ GitHub으로 분석 의뢰]를 누르면 이슈가 자동 생성되어 AI 팩트체크가 트리거됩니다.',
+        inboxHeaderDesc: '원문을 확인하고 [⚡ 분석 큐에 담기]를 누르면 Neon DB 대기열에 담겨 Antigravity AI가 심층 리서치에 착수합니다.',
         batchLabel: '💡 일괄 승격 명령어:',
-        btnRequestAnalysis: '⚡ GitHub으로 분석 의뢰',
+        btnRequestAnalysis: '⚡ 분석 큐에 담기',
         btnCopyCmd: '📋 CLI 명령 복사'
       }},
       EN: {{
-        subtitle: 'Autonomous Trend Harvester • Inbox Triage Queue • Engineering Portfolio',
+        subtitle: 'Tech Lineage Knowledge Graph • Inbox Triage Queue • Engineering Portfolio',
         tabPortfolio: '🏆 Verified Portfolio',
+        tabGraph: '🕸️ Lineage Graph',
         tabInbox: '📥 Inbox Triage Queue',
         btnAdmin: '⚙️ Harvester Admin',
         heroTitle: '"Viral AI & Tech Claims: Do They Actually Work & Make Economic Sense?"',
-        heroDesc: 'A rigorous engineering portfolio proving both [👤 User-Curated] and [🤖 Auto-Harvested] projects with Tier 1~4 verified citations, alternatives benchmark matrices, and unit economics cost audits.',
+        heroDesc: 'A rigorous engineering portfolio proving both [👤 User-Curated] and [🤖 Auto-Harvested] projects with Tier 1~4 verified citations, 4-generation lineage trees, and unit economics cost audits.',
         metricTotal: 'Total Fact-Checks',
         metricUser: '👤 User-Curated Issues',
         metricAuto: '🤖 Autonomous Tracked',
@@ -608,10 +688,10 @@ def generate_html(data):
         stageHalted: '🟡 Halted (Cost/Perf)',
         stagePending: '⚪ Research Pending',
         inboxBadge: '📥 Unverified Candidate Queue (Inbox)',
-        inboxHeaderTitle: '"Select & Trigger Deep Fact-Checks on Freshly Discovered AI Trends"',
-        inboxHeaderDesc: 'Inspect the source and click [⚡ Request GitHub Analysis] to trigger autonomous agent investigation via IssueOps.',
+        inboxHeaderTitle: '"Select & Queue Deep Fact-Checks on Freshly Discovered AI Trends"',
+        inboxHeaderDesc: 'Inspect the source and click [⚡ Add to Analysis Queue] to store in Neon DB for Antigravity deep investigation.',
         batchLabel: '💡 Batch CLI Promotion:',
-        btnRequestAnalysis: '⚡ Request Analysis on GitHub',
+        btnRequestAnalysis: '⚡ Add to Analysis Queue',
         btnCopyCmd: '📋 Copy CLI Command'
       }}
     }};
@@ -632,6 +712,7 @@ def generate_html(data):
 
       document.getElementById('i18nSubtitle').innerText = dict.subtitle;
       document.getElementById('i18nTabPortfolio').innerText = dict.tabPortfolio;
+      document.getElementById('i18nTabGraph').innerText = dict.tabGraph;
       document.getElementById('i18nTabInbox').innerText = dict.tabInbox;
       document.getElementById('i18nBtnAdmin').innerText = dict.btnAdmin;
       document.getElementById('i18nHeroTitle').innerText = dict.heroTitle;
@@ -661,24 +742,145 @@ def generate_html(data):
     function switchView(view) {{
       currentView = view;
       const portView = document.getElementById('portfolioView');
+      const gView = document.getElementById('graphView');
       const inView = document.getElementById('inboxView');
+      
       const pBtn = document.getElementById('tabPortfolioBtn');
+      const gBtn = document.getElementById('tabGraphBtn');
       const iBtn = document.getElementById('tabInboxBtn');
+
+      portView.classList.add('hidden');
+      gView.classList.add('hidden');
+      inView.classList.add('hidden');
+
+      pBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
+      gBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
+      iBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
 
       if (view === 'portfolio') {{
         portView.classList.remove('hidden');
-        inView.classList.add('hidden');
         pBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition shadow-sm';
-        iBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
         renderCards();
+      }} else if (view === 'graph') {{
+        gView.classList.remove('hidden');
+        gBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 text-white transition shadow-sm';
+        if (!graphInitialized) {{
+          initObsidianGraph();
+          graphInitialized = true;
+        }}
       }} else {{
-        portView.classList.add('hidden');
         inView.classList.remove('hidden');
-        pBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
         iBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white transition shadow-sm';
         renderInbox();
       }}
       lucide.createIcons();
+    }}
+
+    function initObsidianGraph() {{
+      const svg = d3.select("#techGraphSvg");
+      const width = document.getElementById("graphView").clientWidth || 1000;
+      const height = 650;
+      svg.attr("viewBox", [-width / 2, -height / 2, width, height]);
+
+      const g = svg.append("g");
+
+      // Zoom capability
+      svg.call(d3.zoom().scaleExtent([0.3, 3]).on("zoom", (e) => g.attr("transform", e.transform)));
+
+      const simulation = d3.forceSimulation(graphData.nodes)
+        .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(100))
+        .force("charge", d3.forceManyBody().strength(-350))
+        .force("center", d3.forceCenter(0, 0))
+        .force("collision", d3.forceCollide().radius(d => d.val + 10));
+
+      const link = g.append("g")
+        .attr("stroke", "rgba(255, 255, 255, 0.15)")
+        .attr("stroke-width", 1.5)
+        .selectAll("line")
+        .data(graphData.links)
+        .join("line");
+
+      const node = g.append("g")
+        .selectAll("g")
+        .data(graphData.nodes)
+        .join("g")
+        .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended));
+
+      // Node colors based on generation
+      function getNodeColor(d) {{
+        if (d.gen === "Gen 0") return "#a855f7"; // Purple
+        if (d.gen === "Gen 1") return "#3b82f6"; // Blue
+        if (d.gen === "Gen 2") return "#f59e0b"; // Amber
+        return "#34d399"; // Emerald (Gen 3 SOTA)
+      }}
+
+      node.append("circle")
+        .attr("r", d => d.val || 16)
+        .attr("fill", d => getNodeColor(d))
+        .attr("stroke", "#ffffff")
+        .attr("stroke-width", d => d.type === "sota" ? 2.5 : 1)
+        .attr("opacity", 0.9)
+        .attr("cursor", "pointer")
+        .on("mouseover", (event, d) => {{
+          const tt = document.getElementById("graphTooltip");
+          document.getElementById("tooltipLabel").innerText = d.label;
+          document.getElementById("tooltipGen").innerText = d.gen;
+          document.getElementById("tooltipGen").style.backgroundColor = getNodeColor(d) + "33";
+          document.getElementById("tooltipGen").style.color = getNodeColor(d);
+          document.getElementById("tooltipDesc").innerText = d.desc || "기술 세부 설명";
+          tt.classList.remove("hidden");
+        }})
+        .on("mouseout", () => {{
+          document.getElementById("graphTooltip").classList.add("hidden");
+        }})
+        .on("click", (event, d) => {{
+          // If node matches a verified case, open case modal!
+          const matchedCase = casesData.find(c => c.case_id.includes(d.id) || d.id.includes(c.clustering ? c.clustering.cluster_id : ''));
+          if (matchedCase) {{
+            openModal(matchedCase);
+          }}
+        }});
+
+      node.append("text")
+        .text(d => d.label.split('(')[0].trim())
+        .attr("x", 0)
+        .attr("y", d => (d.val || 16) + 12)
+        .attr("text-anchor", "middle")
+        .attr("fill", "#e2e8f0")
+        .attr("font-size", "10px")
+        .attr("font-weight", "600")
+        .attr("pointer-events", "none");
+
+      simulation.on("tick", () => {{
+        link
+          .attr("x1", d => d.source.x)
+          .attr("y1", d => d.source.y)
+          .attr("x2", d => d.target.x)
+          .attr("y2", d => d.target.y);
+
+        node
+          .attr("transform", d => `translate(${{d.x}},${{d.y}})`);
+      }});
+
+      function dragstarted(event, d) {{
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }}
+
+      function dragged(event, d) {{
+        d.fx = event.x;
+        d.fy = event.y;
+      }}
+
+      function dragended(event, d) {{
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }}
     }}
 
     function copyToClipboard(text) {{
@@ -711,7 +913,6 @@ def generate_html(data):
         card.className = 'glass-card p-4 rounded-xl flex flex-col justify-between space-y-3 border-slate-800';
 
         const promoteCmd = `python tools/triage.py --promote ${{it.inbox_id}}`;
-        const issueUrl = `https://github.com/AnnyeongHae/ai-factcheck-portfolio/issues/new?title=%5BTriage+Request%5D+${{encodeURIComponent(it.title)}}&body=%23%23+Fact-Check+Triage+Request%0A%0A-+**Inbox+ID**%3A+${{it.inbox_id}}%0A-+**Source+Platform**%3A+${{it.source_platform}}%0A-+**Source+URL**%3A+${{it.source_url}}%0A-+**Viral+Metric**%3A+${{it.viral_metric}}%0A%0A%3E+Triggered+from+Dashboard+UI.`;
 
         card.innerHTML = `
           <div class="space-y-2.5">
@@ -748,10 +949,10 @@ def generate_html(data):
               </button>
             </div>
 
-            <a href="${{issueUrl}}" target="_blank" class="w-full text-center py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-white text-xs font-bold border border-amber-500/30 transition flex items-center justify-center gap-1.5 shadow-sm">
+            <button onclick="copyToClipboard('${{promoteCmd}}')" class="w-full text-center py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-white text-xs font-bold border border-amber-500/30 transition flex items-center justify-center gap-1.5 shadow-sm">
               <i data-lucide="zap" class="w-3.5 h-3.5"></i>
               ${{i18nDict[currentLang].btnRequestAnalysis}}
-            </a>
+            </button>
           </div>
         `;
         grid.appendChild(card);
@@ -929,7 +1130,7 @@ def generate_html(data):
               <i data-lucide="link" class="w-3 h-3"></i> ${{currentLang === 'KO' ? '출처 ' + (c.sources ? c.sources.length : 1) + '개 감사' : (c.sources ? c.sources.length : 1) + ' Sources Cited'}}
             </span>
             <span class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center gap-1">
-              ${{currentLang === 'KO' ? '상세 분석 및 대체재 보기' : 'View Audit & Alternatives'}} <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              ${{currentLang === 'KO' ? '상세 계보 & 대체재 보기' : 'View Lineage & Audit'}} <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
             </span>
           </div>
         `;
@@ -970,6 +1171,19 @@ def generate_html(data):
       document.getElementById('modalCuratorName').innerText = 'Curator: ' + (curation.curator || 'Anyong Cheong');
       document.getElementById('modalPersonalMotivation').innerText = curation.personal_motivation || story.the_hook || '내용 없음';
       document.getElementById('modalTargetWorkflow').innerText = curation.target_workflow || '일반 엔지니어링 파이프라인';
+
+      // Root Ancestry Box
+      const rootsList = document.getElementById('modalRootsList');
+      rootsList.innerHTML = '';
+      if (clustering.root_ancestry) {{
+        const r = clustering.root_ancestry;
+        if (r.core_parser_root) rootsList.innerHTML += `<div>• 코어 파서 뿌리: <span class="text-white font-medium">${{r.core_parser_root}}</span></div>`;
+        if (r.automation_root) rootsList.innerHTML += `<div>• 브라우저 자동화: <span class="text-white font-medium">${{r.automation_root}}</span></div>`;
+        if (r.direct_predecessor) rootsList.innerHTML += `<div>• 직전 선조 기술: <span class="text-indigo-300 font-medium">${{r.direct_predecessor}}</span></div>`;
+      }} else {{
+        rootsList.innerHTML = '<span class="text-slate-500">원시 파서 계보 확인 중</span>';
+      }}
+      document.getElementById('modalWhyLegacy').innerText = clustering.why_legacy_still_used || '단순 작업 시 0ms 결정론적 실행 및 $0 비용으로 인해 레거시 기술 지속 선호됨.';
 
       const altBody = document.getElementById('modalAlternativesBody');
       altBody.innerHTML = '';
@@ -1096,7 +1310,7 @@ def generate_html(data):
 
     document.addEventListener('DOMContentLoaded', () => {{
       lucide.createIcons();
-      setLanguage('KO'); // Default: 한국어
+      setLanguage('KO');
     }});
   </script>
 </body>

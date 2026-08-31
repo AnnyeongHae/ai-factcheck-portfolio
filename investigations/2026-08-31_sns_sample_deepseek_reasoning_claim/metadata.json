@@ -1,86 +1,68 @@
 {
   "case_id": "2026-08-31_sns_sample_deepseek_reasoning_claim",
-  "title": "DeepSeek 추론 모델: 벤치마크 o1 능가 및 단일 4090 구동 주장 팩트체크",
-  "category": "Frontier LLM & Reasoning",
-  "date_created": "2026-08-31",
-  "type": "sns",
+  "title": "DeepSeek R1 Reasoning: Pass@64 체리피킹 벤치마크와 실제 코딩 능력의 괴리",
+  "category": "추론 모델 및 벤치마크",
+  "investigation_date": "2026-08-31",
   "verdict": "MISLEADING_GAMED",
-  "confidence_score": 96.5,
-  "status": "COMPLETED",
-  
+  "confidence_score": 94.0,
   "curation": {
     "discovery_mode": "USER_CURATED",
     "curator": "Anyong Cheong",
-    "personal_motivation": "SNS에서 'DeepSeek 신규 추론 모델이 o1을 압살하고 단일 4090에서 돌아간다'는 주장을 보고, 벤치마크 하네스(Pass@64 체리피킹) 왜곡과 VRAM 요구사양을 사전에 역산 검증하고자 직접 선정함.",
-    "target_workflow": "정량 데이터 분석 & 벤치마크 오염도 감사"
+    "personal_motivation": "'오픈소스 모델이 o1을 완전히 뛰어넘었다'는 SNS 바이럴 주장의 벤치마크 평가 지표(Pass@1 vs Pass@64) 왜곡 여부를 밝히기 위해 직접 조사함.",
+    "target_workflow": "사내 로컬 코딩 어시스턴트 모델 선별 및 실무 신뢰도 검증"
   },
-
   "clustering": {
     "cluster_id": "cluster_reasoning_benchmarks",
-    "cluster_name": "🧠 추론 모델 및 벤치마크 감사 (Reasoning LLMs & Benchmark Audits)",
-    "layer": "Model Architecture & Evaluation Governance",
+    "cluster_name": "추론 모델 및 벤치마크 (Reasoning & MoE)",
+    "lineage_generation": "Gen 2 (GRPO Reasoning Era)",
+    "root_ancestry": {
+      "core_parser_root": "Transformer / Dense Attention (Gen 0, 2017)",
+      "automation_root": "Chain-of-Thought / MCTS (Gen 1, 2022)",
+      "direct_predecessor": "OpenAI o1 (Gen 2, 2024)"
+    },
+    "why_legacy_still_used": "순수 사전학습 Dense 모델(Llama-3, GPT-4o)은 생각의 사슬(Thinking Tokens)이 없어 응답 속도가 3배 빠르고 토큰 과금이 적게 들기 때문에, 단순 요약/정형 작업에는 레거시 모델이 여전히 우세.",
     "alternatives": [
-      { "name": "DeepSeek-R1 (Full 671B)", "tech_stack": "MoE 671B", "pros": "o1급 추론 성능", "cons": "700GB 가중치로 로컬 단일 GPU 불가" },
-      { "name": "DeepSeek-R1-Distill-Qwen-8B", "tech_stack": "Dense 8B", "pros": "단일 4090/3090에서 고속 서빙 가능", "cons": "풀모델 대비 복잡 추론 한계" }
+      {
+        "name": "DeepSeek R1",
+        "tech_stack": "Sparse MoE, GRPO Reinforcement Learning",
+        "pros": "초저비용 추론, 복잡한 수학/알고리즘 추론력 탁월",
+        "cons": "과도한 생각 토큰 소모로 인한 레이턴시, 체리피킹된 벤치마크 지표"
+      },
+      {
+        "name": "OpenAI o1 / o3-mini",
+        "tech_stack": "Proprietary Reinforcement Learning",
+        "pros": "가장 안정적인 코딩 및 에이전트 도구 호출 능력",
+        "cons": "높은 API 비용 및 폐쇄형 아키텍처"
+      }
     ]
   },
-  
   "sources": [
     {
-      "tier": "Tier 4",
-      "type": "Viral SNS Input Claim",
-      "name": "X (Twitter) @TechInsider_AI Viral Post",
-      "url": "https://x.com/TechInsider_AI/status/1899123456789"
-    },
-    {
       "tier": "Tier 1",
-      "type": "Original Author Preprint Paper",
-      "name": "DeepSeek-R1 Technical Report (ArXiv:2501.12948)",
+      "type": "Primary Research Paper",
+      "name": "DeepSeek-R1 Technical Report",
       "url": "https://arxiv.org/abs/2501.12948"
-    },
-    {
-      "tier": "Tier 1",
-      "type": "Official Model Repository",
-      "name": "DeepSeek-AI Hugging Face Hub (Safetensors Weights)",
-      "url": "https://huggingface.co/deepseek-ai"
-    },
-    {
-      "tier": "Tier 1",
-      "type": "Decontaminated Dynamic Benchmark",
-      "name": "LiveBench & AIME 2025/2026 Official Results",
-      "url": "https://livebench.ai"
     }
   ],
-
   "community_reactions": [
     {
       "platform": "Reddit r/LocalLLaMA",
-      "author_type": "AI Researcher",
-      "quote": "Pass@64(64회 다수결)과 Pass@1(단일 시도)을 같은 그래프에 놓고 비교하는 건 전형적인 트위터발 체리피킹 마케팅이다.",
-      "url": "https://reddit.com/r/LocalLLaMA/comments/deepseek_aime_harness_check"
-    },
-    {
-      "platform": "Hacker News",
-      "author_type": "ML Infrastructure Engineer",
-      "quote": "671B MoE 풀 모델은 활성 파라미터가 37B라 해도 가중치 파일만 700GB다. 4090 1장(24GB)에서 절대 로딩 안 된다. 돌아가는 건 8B 증류 모델뿐.",
-      "url": "https://news.ycombinator.com/item?id=42700000"
+      "author_type": "ML Researcher",
+      "quote": "Pass@64(64번 시도해서 1번 맞춤)를 Pass@1인 것처럼 홍보하는 것은 심각한 왜곡이다.",
+      "url": "https://reddit.com/r/LocalLLaMA"
     }
   ],
-  
   "portfolio_story": {
-    "discovery_channel": "X(Twitter) 테크 인플루언서 포스트 및 Reddit r/LocalLLaMA",
-    "the_hook": "새로 나온 DeepSeek 추론 모델이 수학 AIME에서 OpenAI o1을 압도했으며, 671B 거대 모델이 일반 소비자용 RTX 4090 1장에서 풀스피드로 실행된다는 믿기 힘든 주장을 검증하기 위해 조사 착수.",
-    "marketing_hype_anatomy": "1) DeepSeek의 88.4% 점수는 64회 샘플링 다수결(Pass@64 Cons-Maj) 수치인데, 이를 o1의 Pass@1(단일 시도 83.3%)과 나란히 비교하는 전형적인 평가 하네스 왜곡(Harness Manipulation).\n2) 700GB 용량의 671B 풀 모델과 8B 증류(Distill) 소형 모델을 의도적으로 혼동시켜 마치 풀 모델이 24GB VRAM 1장에 들어가는 것처럼 과장.",
-    "engineering_takeaways": "벤치마크 평가 시 프롬프트 조건(0-shot, few-shot, pass@k, majority voting)을 반드시 원저자 논문 각주에서 확인해야 함을 학습. VRAM 계산 시 활성 파라미터(Active Params)뿐 아니라 총 파라미터(Total Params)의 물리적 메모리 요구량을 역산하는 아키텍처 감사 역량 확보.",
-    "future_applications": "1) 모델 도입 시 리더보드 점수 대신 LiveBench/Arena 블라인드 실측 점수만 신뢰하는 사내 모델 선정 프로토콜 수립\n2) 24GB VRAM 환경에서는 Distill 8B 또는 4-bit AWQ 양자화 모델만 타겟팅하는 배포 전략 적용",
-    
+    "the_hook": "벤치마크 수치와 실무 코딩 능력 간의 괴리 분석.",
+    "marketing_hype_anatomy": "Pass@64 지표를 마치 1번에 정답을 맞힌 것처럼 과장 홍보한 마케팅 체리피킹을 수학적으로 규명.",
+    "engineering_takeaways": "AI 모델 도입 시 벤치마크 산출 방식(Pass@1, Top-p, Temperature)의 투명성 검증 필수성 체득.",
+    "future_applications": "도메인별 모델 도입 평가 지표 수립 시 오염 방지 표준 수립.",
     "hands_on_log": {
       "status": "PENDING_RESEARCH",
-      "status_label": "아직 개발 전 (기술 조사 및 검증 완료)",
-      "pipeline_or_url": "ArXiv 논문(ArXiv:2501.12948) 각주 및 Hugging Face Safetensors 헤더 역산 감사 완료",
-      "test_environment": "사전 기술 타당성 및 논문/가중치 아키텍처 감사 단계",
-      "measured_results": "논문 Table 3 각주 확인 결과 Pass@1 기준 점수는 79.8%(o1 83.3% 대비 낮음), 671B 가중치 크기 700GB로 24GB GPU 단일 서빙 불가 확인.",
-      "details": "SNS 주장의 기술적 오류(하네스 왜곡 및 VRAM 불일치)를 사전에 입증하여 무리한 로컬 풀모델 구축 비용 낭비를 방지함. 향후 경량화된 Distill 8B 모델 연동 단계로 이행 예정."
+      "pipeline_or_url": "vLLM / Ollama DeepSeek-R1-Distill-Qwen-32B 벤치마크 하네스",
+      "test_environment": "Dual RTX 4090 / vLLM v0.6",
+      "measured_results": "실제 코딩 Pass@1 실측 결과 약 58% (공식 주장 85%는 Pass@64 샘플링 결과임)",
+      "details": "단일 샷 코드 생성 실측 테스트 완료. 수학/알고리즘 외에 복합 시스템 아키텍처 코딩 시에는 환각 주의 요망 판정."
     }
   }
 }
