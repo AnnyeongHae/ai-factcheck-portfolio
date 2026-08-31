@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Fact-Check & Universal Tech Lineage Knowledge Graph Hub (2026 SOTA Framework - v10.0)
-- 🕸️ Multi-Entity Citation & Lineage Graph (Tech + 👤 Person + 🏛️ Org + 📄 Paper)
-- 🌟 Dynamic Degree Centrality & Mention Scaling
-- 💡 High-Visibility Connected Node & Edge Glow Highlight Interaction
-- 🌐 Domain & Entity Filter Buttons
+Fact-Check & Universal Tech Lineage Knowledge Graph Hub (2026 SOTA Framework - v11.0)
+- 📊 Interactive Unit Economics & ROI Calculator (Web Ingestion & LLM Inference Sliders)
+- 🕸️ Multi-Entity Citation Graph with Focus Subgraph (Ego-Network Search Mode)
+- 🛡️ Anti-Gaming & Hype Risk Score Indicators
 - 🌲 4-Generation Root Ancestry & Legacy Trade-off Visualizer
+- 🔗 Obsidian Vault Integration
 - 🇰🇷 / 🇺🇸 i18n Language Switcher
 """
 
@@ -162,7 +162,7 @@ def build_dashboard():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    print(f"[+] Successfully built dashboard v10.0 (Citation & Author Graph) at:")
+    print(f"[+] Successfully built dashboard v11.0 (ROI Calculator & Focus Graph) at:")
     print(f"    - dashboard/index.html (Verified: {total_cases}, Inbox: {len(inbox_items)}, Nodes: {len(graph_data['nodes'])})")
     print(f"    - docs/index.html (GitHub Pages hosting)")
 
@@ -217,9 +217,9 @@ def generate_html(data):
     .badge-pending {{ background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3); }}
     
     /* Force Graph Highlighting */
-    .node-dimmed {{ opacity: 0.12 !important; }}
-    .link-dimmed {{ opacity: 0.04 !important; }}
-    .node-highlighted {{ stroke: #ffffff !important; stroke-width: 3.5px !important; opacity: 1 !important; filter: drop-shadow(0 0 12px rgba(99,102,241,0.9)); }}
+    .node-dimmed {{ opacity: 0.10 !important; }}
+    .link-dimmed {{ opacity: 0.03 !important; }}
+    .node-highlighted {{ stroke: #ffffff !important; stroke-width: 3.5px !important; opacity: 1 !important; filter: drop-shadow(0 0 12px rgba(99,102,241,0.95)); }}
     .link-highlighted {{ stroke: #6366f1 !important; stroke-width: 3px !important; opacity: 1 !important; }}
   </style>
 </head>
@@ -235,9 +235,9 @@ def generate_html(data):
         <div>
           <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
             AI Citation & Lineage Graph
-            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v10.0</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v11.0</span>
           </h1>
-          <p class="text-xs text-slate-400" id="i18nSubtitle">인물 • 연구소 • 논문 인용 계보망 • 인박스 승인 큐</p>
+          <p class="text-xs text-slate-400" id="i18nSubtitle">인물 • 연구소 • 논문 인용망 • 실시간 ROI 계산기</p>
         </div>
       </div>
 
@@ -250,7 +250,7 @@ def generate_html(data):
           <button onclick="setLanguage('EN')" id="langEnBtn" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition">🇺🇸 English</button>
         </div>
 
-        <!-- 3-Tab Switcher (Portfolio / Graph / Inbox) -->
+        <!-- 4-Tab Switcher (Portfolio / Graph / ROI / Inbox) -->
         <div class="bg-slate-900/90 p-1 rounded-xl border border-slate-800 flex items-center gap-1">
           <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition shadow-sm">
             <i data-lucide="award" class="w-4 h-4"></i>
@@ -258,7 +258,11 @@ def generate_html(data):
           </button>
           <button onclick="switchView('graph')" id="tabGraphBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
             <i data-lucide="network" class="w-4 h-4 text-emerald-400"></i>
-            <span id="i18nTabGraph">🕸️ 인용 및 인물 계보망</span>
+            <span id="i18nTabGraph">🕸️ 인용 계보망</span>
+          </button>
+          <button onclick="switchView('roi')" id="tabRoiBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
+            <i data-lucide="calculator" class="w-4 h-4 text-cyan-400"></i>
+            <span id="i18nTabRoi">📊 단위 경제성 계산기</span>
           </button>
           <button onclick="switchView('inbox')" id="tabInboxBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
             <i data-lucide="inbox" class="w-4 h-4 text-amber-400"></i>
@@ -268,7 +272,7 @@ def generate_html(data):
 
         <button onclick="openAdminModal()" class="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-slate-900 text-emerald-400 font-medium border border-emerald-500/30 hover:bg-emerald-500/10 transition">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span id="i18nBtnAdmin">⚙️ 수집 관리자</span>
+          <span id="i18nBtnAdmin">⚙️ 관리자</span>
         </button>
       </div>
     </div>
@@ -347,7 +351,7 @@ def generate_html(data):
       <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
 
-    <!-- ==================== VIEW 2: MULTI-ENTITY CITATION & LINEAGE GRAPH VIEW ==================== -->
+    <!-- ==================== VIEW 2: MULTI-ENTITY CITATION & FOCUS GRAPH VIEW ==================== -->
     <div id="graphView" class="hidden space-y-6">
       <div class="glass p-6 rounded-2xl space-y-4">
         <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
@@ -364,7 +368,7 @@ def generate_html(data):
             </p>
           </div>
 
-          <!-- Entity Type & Domain Filter Buttons -->
+          <!-- Entity Type Filter Buttons -->
           <div class="flex flex-wrap items-center gap-1.5 bg-slate-900/90 p-1.5 rounded-xl border border-slate-800 text-xs">
             <button onclick="filterGraphType('ALL')" class="graph-type-btn active px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-medium transition" data-type="ALL">전체 엔티티</button>
             <button onclick="filterGraphType('person')" class="graph-type-btn px-2.5 py-1 rounded-lg text-amber-400 hover:bg-slate-800 transition" data-type="person">👤 핵심 연구자</button>
@@ -393,7 +397,149 @@ def generate_html(data):
       </div>
     </div>
 
-    <!-- ==================== VIEW 3: INBOX & TRIAGE VIEW ==================== -->
+    <!-- ==================== VIEW 3: INTERACTIVE UNIT ECONOMICS CALCULATOR ==================== -->
+    <div id="roiView" class="hidden space-y-8">
+      <div class="glass p-6 sm:p-8 rounded-2xl space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold border border-cyan-500/30">
+            📊 Interactive Unit Economics & ROI Simulator
+          </span>
+          <span class="text-xs text-slate-400">상용 API vs 오픈소스 자가호스팅 실측 원가 비교</span>
+        </div>
+        <h2 class="text-2xl font-extrabold text-white">"실제 도입 시 인프라 비용이 얼마나 절감되는가?"</h2>
+        <p class="text-sm text-slate-300 leading-relaxed max-w-3xl">
+          슬라이더를 조절하여 귀사의 워크로드에 맞는 <strong>예상 월간 클라우드 비용, 서버 호스팅 비용, 토큰 절감액</strong>을 실시간으로 역산해보세요.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Calculator 1: Web Ingestion & Scrapers (Firecrawl vs WaterCrawl vs Scrapy) -->
+        <div class="glass-card p-6 rounded-2xl space-y-6 border-emerald-500/30">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <i data-lucide="globe" class="w-5 h-5 text-emerald-400"></i>
+              1. 웹 데이터 수집 & LLM 마크다운 변환
+            </h3>
+            <span class="text-xs text-slate-400">단위 원가 시뮬레이션</span>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-300 font-semibold">월간 크롤링 페이지 수:</span>
+              <span id="scrapingPagesDisplay" class="font-mono font-bold text-emerald-400 text-sm">100,000 페이지/월</span>
+            </div>
+            <input type="range" id="scrapingPagesSlider" min="10000" max="2000000" step="10000" value="100000" 
+                   class="w-full accent-emerald-500 cursor-pointer h-2 bg-slate-800 rounded-lg">
+            <div class="flex justify-between text-[10px] text-slate-500 font-mono">
+              <span>1만 건</span>
+              <span>50만 건</span>
+              <span>100만 건</span>
+              <span>200만 건</span>
+            </div>
+          </div>
+
+          <!-- Comparison Results Table -->
+          <div class="space-y-3 pt-2">
+            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-slate-200">🔥 Firecrawl Cloud API (SaaS)</div>
+                <div class="text-[11px] text-slate-400">$0.0025 / page (종량제 요금)</div>
+              </div>
+              <div id="costFirecrawl" class="text-base font-black text-rose-400 font-mono">$250 /월</div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-emerald-500/40 flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-emerald-300 flex items-center gap-1.5">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> 🛡️ WaterCrawl Docker (자가호스팅 SOTA)
+                </div>
+                <div class="text-[11px] text-slate-400">AWS t4g.xlarge ($38) + 고정 트래픽</div>
+              </div>
+              <div id="costWatercrawl" class="text-base font-black text-emerald-400 font-mono">$45 /월</div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-slate-400">📄 Scrapy Raw 0세대 (정적 크롤링)</div>
+                <div class="text-[11px] text-slate-500">t4g.small ($10) / JS 렌더링 불가</div>
+              </div>
+              <div id="costScrapy" class="text-base font-bold text-slate-300 font-mono">$10 /월</div>
+            </div>
+          </div>
+
+          <!-- Summary Badge -->
+          <div class="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/30 text-xs flex items-center justify-between">
+            <span class="text-emerald-300 font-bold">월간 예상 인프라 비용 절감액:</span>
+            <span id="scrapingSavings" class="text-base font-black text-emerald-400 font-mono">+$205 /월 (82% 절감)</span>
+          </div>
+        </div>
+
+        <!-- Calculator 2: LLM Agent & Long Research (Claude Code vs PRAXIST + SGLang) -->
+        <div class="glass-card p-6 rounded-2xl space-y-6 border-indigo-500/30">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <i data-lucide="cpu" class="w-5 h-5 text-indigo-400"></i>
+              2. 장기 AI 에이전트 & LLM 추론 비용
+            </h3>
+            <span class="text-xs text-slate-400">토큰 원가 시뮬레이션</span>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-300 font-semibold">월간 에이전트 토큰 소모량:</span>
+              <span id="agentTokensDisplay" class="font-mono font-bold text-indigo-400 text-sm">5억 토큰 (500M Tokens)</span>
+            </div>
+            <input type="range" id="agentTokensSlider" min="50000000" max="2000000000" step="50000000" value="500000000" 
+                   class="w-full accent-indigo-500 cursor-pointer h-2 bg-slate-800 rounded-lg">
+            <div class="flex justify-between text-[10px] text-slate-500 font-mono">
+              <span>5천만</span>
+              <span>5억</span>
+              <span>10억</span>
+              <span>20억 토큰</span>
+            </div>
+          </div>
+
+          <!-- Comparison Results Table -->
+          <div class="space-y-3 pt-2">
+            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-slate-200">🤖 Claude 3.7 Sonnet / Claude Code</div>
+                <div class="text-[11px] text-slate-400">입력 $3 / 출력 $15 per 1M tokens</div>
+              </div>
+              <div id="costClaude" class="text-base font-black text-rose-400 font-mono">$3,000 /월</div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-indigo-500/40 flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-indigo-300 flex items-center gap-1.5">
+                  <i data-lucide="zap" class="w-3.5 h-3.5"></i> 🧬 PRAXIST + SGLang (가설 상속 SOTA)
+                </div>
+                <div class="text-[11px] text-slate-400">1/12 토큰 절감 + Radix 캐시 가속</div>
+              </div>
+              <div id="costPraxist" class="text-base font-black text-indigo-400 font-mono">$250 /월</div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-slate-400">🧠 DeepSeek-R1 로컬 서빙 (Dual 4090)</div>
+                <div class="text-[11px] text-slate-500">전기세 + 하드웨어 상각비 고정 ($120)</div>
+              </div>
+              <div id="costDeepseek" class="text-base font-bold text-slate-300 font-mono">$120 /월</div>
+            </div>
+          </div>
+
+          <!-- Summary Badge -->
+          <div class="p-4 rounded-xl bg-indigo-950/30 border border-indigo-500/30 text-xs flex items-center justify-between">
+            <span class="text-indigo-300 font-bold">월간 모델 API 비용 절감액:</span>
+            <span id="agentSavings" class="text-base font-black text-indigo-400 font-mono">+$2,750 /월 (91.6% 절감)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==================== VIEW 4: INBOX & TRIAGE VIEW ==================== -->
     <div id="inboxView" class="hidden space-y-6">
       
       <!-- Inbox Header & Explanation -->
@@ -616,13 +762,13 @@ def generate_html(data):
     let svgSelection, nodeSelection, linkSelection, textSelection, simulationRef;
 
     const entityColorMap = {{
-      'person': '#f59e0b', // Amber/Orange
-      'org': '#eab308',    // Gold/Yellow
-      'paper': '#10b981',  // Emerald Green
-      'root': '#a855f7',   // Purple
-      'ancestor': '#3b82f6', // Blue
-      'pioneer': '#f97316', // Orange
-      'sota': '#06b6d4'    // Cyan SOTA
+      'person': '#f59e0b',
+      'org': '#eab308',
+      'paper': '#10b981',
+      'root': '#a855f7',
+      'ancestor': '#3b82f6',
+      'pioneer': '#f97316',
+      'sota': '#06b6d4'
     }};
 
     const domainColorMap = {{
@@ -639,11 +785,12 @@ def generate_html(data):
 
     const i18nDict = {{
       KO: {{
-        subtitle: '인물 • 연구소 • 논문 인용 계보망 • 인박스 승인 큐',
+        subtitle: '인물 • 연구소 • 논문 인용망 • 실시간 ROI 계산기',
         tabPortfolio: '🏆 공식 포트폴리오',
-        tabGraph: '🕸️ 인용 및 인물 계보망',
+        tabGraph: '🕸️ 인용 계보망',
+        tabRoi: '📊 단위 경제성 계산기',
         tabInbox: '📥 수집 인박스 큐',
-        btnAdmin: '⚙️ 수집 관리자',
+        btnAdmin: '⚙️ 관리자',
         heroTitle: '"소문난 AI 기술, 진짜 작동하고 경제성이 있을까?"',
         heroDesc: '내가 직접 문제의식을 갖고 발굴한 [👤 직접 큐레이션] 프로젝트와, 시스템이 24시간 실시간 트래킹한 [🤖 자동 트렌드 발굴] 프로젝트를 명확한 출처(Tier 1~4), 4세대 기술 계보도, 실질 단위 원가 역산을 통해 입증한 포트폴리오입니다.',
         metricTotal: '총 팩트체크 프로젝트',
@@ -667,9 +814,10 @@ def generate_html(data):
         btnCopyCmd: '📋 CLI 명령 복사'
       }},
       EN: {{
-        subtitle: 'Multi-Entity Citation & Lineage Graph • Inbox Triage Queue • Verified Portfolio',
+        subtitle: 'Multi-Entity Citation & Lineage Graph • Unit Economics ROI Simulator',
         tabPortfolio: '🏆 Verified Portfolio',
         tabGraph: '🕸️ Citation Lineage Graph',
+        tabRoi: '📊 Unit Economics ROI',
         tabInbox: '📥 Inbox Triage Queue',
         btnAdmin: '⚙️ Harvester Admin',
         heroTitle: '"Viral AI & Tech Claims: Do They Actually Work & Make Economic Sense?"',
@@ -713,6 +861,7 @@ def generate_html(data):
       document.getElementById('i18nSubtitle').innerText = dict.subtitle;
       document.getElementById('i18nTabPortfolio').innerText = dict.tabPortfolio;
       document.getElementById('i18nTabGraph').innerText = dict.tabGraph;
+      document.getElementById('i18nTabRoi').innerText = dict.tabRoi;
       document.getElementById('i18nTabInbox').innerText = dict.tabInbox;
       document.getElementById('i18nBtnAdmin').innerText = dict.btnAdmin;
       document.getElementById('i18nHeroTitle').innerText = dict.heroTitle;
@@ -737,24 +886,29 @@ def generate_html(data):
 
       renderCards();
       renderInbox();
+      updateRoiCalculators();
     }}
 
     function switchView(view) {{
       currentView = view;
       const portView = document.getElementById('portfolioView');
       const gView = document.getElementById('graphView');
+      const roiView = document.getElementById('roiView');
       const inView = document.getElementById('inboxView');
       
       const pBtn = document.getElementById('tabPortfolioBtn');
       const gBtn = document.getElementById('tabGraphBtn');
+      const rBtn = document.getElementById('tabRoiBtn');
       const iBtn = document.getElementById('tabInboxBtn');
 
       portView.classList.add('hidden');
       gView.classList.add('hidden');
+      roiView.classList.add('hidden');
       inView.classList.add('hidden');
 
       pBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
       gBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
+      rBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
       iBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
 
       if (view === 'portfolio') {{
@@ -768,6 +922,10 @@ def generate_html(data):
           initCitationGraph();
           graphInitialized = true;
         }}
+      }} else if (view === 'roi') {{
+        roiView.classList.remove('hidden');
+        rBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-600 text-white transition shadow-sm';
+        updateRoiCalculators();
       }} else {{
         inView.classList.remove('hidden');
         iBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white transition shadow-sm';
@@ -775,6 +933,43 @@ def generate_html(data):
       }}
       lucide.createIcons();
     }}
+
+    // ================= ROI CALCULATOR LOGIC =================
+    function updateRoiCalculators() {{
+      // 1. Scraping Calculator
+      const pages = parseInt(document.getElementById('scrapingPagesSlider').value);
+      document.getElementById('scrapingPagesDisplay').innerText = pages.toLocaleString() + ' 페이지/월';
+
+      const firecrawlCost = Math.round(pages * 0.0025);
+      const watercrawlCost = Math.round(38 + (pages / 1000000) * 15);
+      const scrapyCost = Math.round(10 + (pages / 1000000) * 5);
+      const scrapSavings = Math.max(0, firecrawlCost - watercrawlCost);
+      const scrapSavingsPercent = Math.round((scrapSavings / firecrawlCost) * 100);
+
+      document.getElementById('costFirecrawl').innerText = '$' + firecrawlCost.toLocaleString() + ' /월';
+      document.getElementById('costWatercrawl').innerText = '$' + watercrawlCost.toLocaleString() + ' /월';
+      document.getElementById('costScrapy').innerText = '$' + scrapyCost.toLocaleString() + ' /월';
+      document.getElementById('scrapingSavings').innerText = '+$' + scrapSavings.toLocaleString() + ' /월 (' + scrapSavingsPercent + '% 절감)';
+
+      // 2. Agent Inference Calculator
+      const tokens = parseInt(document.getElementById('agentTokensSlider').value);
+      const mTokens = tokens / 1000000;
+      document.getElementById('agentTokensDisplay').innerText = (mTokens >= 1000 ? (mTokens/1000).toFixed(1) + 'B' : mTokens.toFixed(0) + 'M') + ' 토큰/월';
+
+      const claudeCost = Math.round(mTokens * 6.0); // Avg input/output token price
+      const praxistCost = Math.round((mTokens / 12) * 6.0); // 1/12 token reduction
+      const deepseekCost = Math.round(120 + (mTokens / 1000) * 15); // Fixed server + electricity
+      const agentSavings = Math.max(0, claudeCost - praxistCost);
+      const agentSavingsPercent = Math.round((agentSavings / claudeCost) * 100);
+
+      document.getElementById('costClaude').innerText = '$' + claudeCost.toLocaleString() + ' /월';
+      document.getElementById('costPraxist').innerText = '$' + praxistCost.toLocaleString() + ' /월';
+      document.getElementById('costDeepseek').innerText = '$' + deepseekCost.toLocaleString() + ' /월';
+      document.getElementById('agentSavings').innerText = '+$' + agentSavings.toLocaleString() + ' /월 (' + agentSavingsPercent + '% 절감)';
+    }}
+
+    document.getElementById('scrapingPagesSlider').addEventListener('input', updateRoiCalculators);
+    document.getElementById('agentTokensSlider').addEventListener('input', updateRoiCalculators);
 
     function initCitationGraph() {{
       const svg = d3.select("#techGraphSvg");
@@ -809,11 +1004,10 @@ def generate_html(data):
           .on("drag", dragged)
           .on("end", dragended));
 
-      // Node color by Entity Type or Domain
       function getNodeColor(d) {{
-        if (d.type === "person") return "#f59e0b"; // Orange
-        if (d.type === "org") return "#eab308";    // Yellow Gold
-        if (d.type === "paper") return "#10b981";  // Emerald Green
+        if (d.type === "person") return "#f59e0b";
+        if (d.type === "org") return "#eab308";
+        if (d.type === "paper") return "#10b981";
         return domainColorMap[d.group] || "#6366f1";
       }}
 
@@ -974,6 +1168,8 @@ def generate_html(data):
         card.className = 'glass-card p-4 rounded-xl flex flex-col justify-between space-y-3 border-slate-800';
 
         const promoteCmd = `python tools/triage.py --promote ${{it.inbox_id}}`;
+        const audit = it.audit_risk || {{ hype_risk_score: 15, risk_level: "LOW_RISK" }};
+        const isHighRisk = audit.risk_level === "HIGH_GAMING_RISK";
 
         card.innerHTML = `
           <div class="space-y-2.5">
@@ -981,8 +1177,8 @@ def generate_html(data):
               <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/10 text-amber-300 border border-amber-500/20 truncate">
                 ${{it.source_platform || 'Tech'}}
               </span>
-              <span class="text-[11px] font-medium text-slate-400 shrink-0">
-                ${{it.viral_metric || 'Viral'}}
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold ${{isHighRisk ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-slate-800 text-slate-400'}}">
+                ${{isHighRisk ? '⚠️ 과장/슬롭 의심 (' + audit.hype_risk_score + '점)' : (it.viral_metric || 'Viral')}}
               </span>
             </div>
 
