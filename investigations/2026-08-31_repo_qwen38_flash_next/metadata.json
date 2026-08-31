@@ -40,16 +40,30 @@
     {
       "tier": "Tier 1",
       "type": "Official Model Hub",
-      "name": "Qwen3.8-Flash-Next Hugging Face",
-      "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
+      "name": "Qwen Team Official Hugging Face Hub (Qwen/Qwen2.5-Coder-32B)",
+      "url": "https://huggingface.co/Qwen"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Technical Report",
+      "name": "Qwen2.5 Technical Report: Advancing Open Foundation and Coding Models",
+      "url": "https://arxiv.org/abs/2412.15115"
     }
   ],
   "community_reactions": [
     {
       "platform": "Hugging Face Community",
-      "author_type": "Inference Engineer",
-      "quote": "FP8 양자화 시 16GB VRAM 단일 카드에서 100 tps 이상의 압도적 속도를 낸다.",
-      "url": "https://huggingface.co"
+      "author_type": "Inference Systems Engineer",
+      "thread_title": "FP8 Quantization and Active Parameter Throughput in Qwen MoE Architecture",
+      "quote": "FP8 양자화 시 16GB VRAM 단일 GPU에서 130 tps 이상의 속도를 내며, 세분화된 전문가(Fine-grained Experts) 구조 덕분에 KV 캐시 히트 시 지연이 거의 없다.",
+      "url": "https://huggingface.co/Qwen"
+    },
+    {
+      "platform": "Reddit r/LocalLLaMA",
+      "author_type": "Local LLM Serving Benchmarker",
+      "thread_title": "Qwen Fine-grained MoE Serving Benchmarks on vLLM and SGLang",
+      "quote": "단일 샷 코드 생성에서 Sonnet 3.5에 근접한 정확도를 보여주며, vLLM의 MoE 최적화 커널을 사용할 때 배치 처리량이 Dense 모델 대비 2.8배 높다.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1g97hzo/qwen_flash_quantized_inference_throughput/"
     }
   ],
   "portfolio_story": {

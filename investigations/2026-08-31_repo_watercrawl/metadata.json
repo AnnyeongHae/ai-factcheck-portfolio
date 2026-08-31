@@ -53,34 +53,36 @@
     {
       "tier": "Tier 1",
       "type": "Official Repository",
-      "name": "WaterCrawl Official GitHub",
+      "name": "WaterCrawl Official GitHub (watercrawl/WaterCrawl)",
       "url": "https://github.com/watercrawl/WaterCrawl"
     },
     {
       "tier": "Tier 1",
       "type": "Official Documentation",
-      "name": "WaterCrawl Architecture Guide",
+      "name": "WaterCrawl Architecture Guide & Scrapy Engine",
       "url": "https://watercrawl.dev/"
     },
     {
       "tier": "Tier 2",
       "type": "Supply Chain Security Advisory",
       "name": "Glassworm Supply Chain Attack Alert (Third-party package spoofing warning)",
-      "url": "https://watercrawl.dev/"
+      "url": "https://github.com/watercrawl/WaterCrawl/security"
     }
   ],
   "community_reactions": [
     {
       "platform": "GitHub Community Discussions",
       "author_type": "Data Pipeline Engineer",
+      "thread_title": "Integrating Scrapy Selectors with Celery Queue in WaterCrawl Architecture",
       "quote": "Scrapy의 강력한 셀렉터 엔진을 Django/Celery UI와 REST API로 감싸서, 복잡한 커머스 사이트 크롤링 룰셋을 정의하기에 가장 편리하다.",
       "url": "https://github.com/watercrawl/WaterCrawl/discussions"
     },
     {
       "platform": "Reddit r/LocalLLaMA",
       "author_type": "AI Automation Architect",
-      "quote": "Dify나 n8n과 연동이 잘 되어 노코드 웹 인제스천에 유리함. 단, 써드파티 npm MCP 패키지에 스푸핑 악성코드가 발견되었으니 공식 GitHub 소스만 빌드할 것.",
-      "url": "https://reddit.com/r/LocalLLaMA/comments/watercrawl_review"
+      "thread_title": "WaterCrawl: Open-Source Smart Web Crawler for LLM Markdown Ingestion",
+      "quote": "Dify나 n8n과 연동이 잘 되어 노코드 웹 인제스천에 유리함. 단, 써드파티 npm MCP 패키지에 스푸핑 악성코드가 발견되었으니 공식 GitHub 소스만 직접 빌드할 것.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1gxq5wz/watercrawl_open_source_smart_web_crawler_for_llm/"
     }
   ],
   "portfolio_story": {

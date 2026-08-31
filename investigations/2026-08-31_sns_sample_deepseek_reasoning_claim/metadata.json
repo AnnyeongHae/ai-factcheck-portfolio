@@ -40,16 +40,30 @@
     {
       "tier": "Tier 1",
       "type": "Primary Research Paper",
-      "name": "DeepSeek-R1 Technical Report",
+      "name": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (arXiv:2501.12948)",
       "url": "https://arxiv.org/abs/2501.12948"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Official Repository",
+      "name": "DeepSeek-R1 Official GitHub (deepseek-ai/DeepSeek-R1)",
+      "url": "https://github.com/deepseek-ai/DeepSeek-R1"
     }
   ],
   "community_reactions": [
     {
+      "platform": "Hacker News",
+      "author_type": "AI Systems Architect",
+      "thread_title": "DeepSeek-R1 Release and Technical Report Discussions",
+      "quote": "순수 강화학습(GRPO)으로 생각하는 능력을 자가 발현시킨 것은 대단하지만, SWE-bench 및 HumanEval 코딩 벤치마크에서 Pass@64(64번 시도해서 1번 맞춤)를 마치 단일 시도(Pass@1)인 것처럼 마케팅하는 것은 심각한 왜곡이다.",
+      "url": "https://news.ycombinator.com/item?id=42774944"
+    },
+    {
       "platform": "Reddit r/LocalLLaMA",
-      "author_type": "ML Researcher",
-      "quote": "Pass@64(64번 시도해서 1번 맞춤)를 Pass@1인 것처럼 홍보하는 것은 심각한 왜곡이다.",
-      "url": "https://reddit.com/r/LocalLLaMA"
+      "author_type": "Independent ML Benchmark Auditor",
+      "thread_title": "DeepSeek-R1 Benchmark Audit: Real-world Pass@1 vs Claimed Pass@64 Sampling",
+      "quote": "실제 코딩 테스트베드에서 단일 샷(Pass@1)으로 측정해 본 결과 약 58%가 나왔다. 공식 차트의 85% 수치는 체리피킹된 샘플링 결과이므로 실제 개발 어시스턴트로 도입 시 환각을 반드시 유의해야 한다.",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1i5u9o8/deepseek_r1_benchmark_analysis_pass1_vs_pass64/"
     }
   ],
   "portfolio_story": {
