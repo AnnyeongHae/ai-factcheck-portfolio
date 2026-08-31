@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """
-Fact-Check & Universal Tech Lineage Knowledge Graph Hub (2026 SOTA Framework - v11.0)
-- 📊 Interactive Unit Economics & ROI Calculator (Web Ingestion & LLM Inference Sliders)
-- 🕸️ Multi-Entity Citation Graph with Focus Subgraph (Ego-Network Search Mode)
-- 🛡️ Anti-Gaming & Hype Risk Score Indicators
-- 🌲 4-Generation Root Ancestry & Legacy Trade-off Visualizer
-- 🔗 Obsidian Vault Integration
-- 🇰🇷 / 🇺🇸 i18n Language Switcher
+Fact-Check & Universal Tech Lineage Knowledge Hub (2026 SOTA Framework - v13.0)
+- 🔬 1. 기술 검증 (Verified Tech Fact-Checks) - 8 Cases
+- 📰 2. AI 뉴스 & 트렌드 담론 (AI News & Trends) - Dedicated News Feed
+- 🕸️ 3. 인용 계보망 (Multi-Entity Citation Graph)
+- 📊 4. 단위 경제성 계산기 (Dynamic Data-Driven Unit Economics Simulator)
+- 📥 5. 수집 인박스 큐 (Inbox Queue with Korean i18n & Model Family Grouping)
 """
 
 import json
@@ -127,22 +126,15 @@ def build_dashboard():
     graph_data = load_graph_data()
     
     total_cases = len(cases)
-    user_curated_count = sum(1 for c in cases if c.get("curation", {}).get("discovery_mode") == "USER_CURATED")
-    auto_harvested_count = sum(1 for c in cases if c.get("curation", {}).get("discovery_mode") == "AUTO_HARVESTED")
-    
-    active_dev_count = sum(1 for c in cases if c.get("portfolio_story", {}).get("hands_on_log", {}).get("status") == "ACTIVE_DEVELOPED")
-    halted_count = sum(1 for c in cases if c.get("portfolio_story", {}).get("hands_on_log", {}).get("status") == "EVALUATED_HALTED")
-    pending_count = sum(1 for c in cases if c.get("portfolio_story", {}).get("hands_on_log", {}).get("status") == "PENDING_RESEARCH")
+    news_items = [it for it in inbox_items if it.get("category_type") == "NEWS"]
+    tech_inbox_items = [it for it in inbox_items if it.get("category_type") != "NEWS"]
 
     summary_data = {
         "generated_at": "2026-09-01",
         "total_cases": total_cases,
-        "inbox_total_count": len(inbox_items),
-        "user_curated_count": user_curated_count,
-        "auto_harvested_count": auto_harvested_count,
-        "active_dev_count": active_dev_count,
-        "halted_count": halted_count,
-        "pending_count": pending_count,
+        "news_total_count": len(news_items),
+        "inbox_total_count": len(tech_inbox_items),
+        "all_inbox_count": len(inbox_items),
         "admin_stats": admin_stats,
         "inbox_items": inbox_items,
         "cases": cases,
@@ -162,8 +154,8 @@ def build_dashboard():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    print(f"[+] Successfully built dashboard v11.0 (ROI Calculator & Focus Graph) at:")
-    print(f"    - dashboard/index.html (Verified: {total_cases}, Inbox: {len(inbox_items)}, Nodes: {len(graph_data['nodes'])})")
+    print(f"[+] Successfully built dashboard v13.0 at:")
+    print(f"    - dashboard/index.html (Verified: {total_cases}, News: {len(news_items)}, Inbox: {len(tech_inbox_items)}, Nodes: {len(graph_data['nodes'])})")
     print(f"    - docs/index.html (GitHub Pages hosting)")
 
 def generate_html(data):
@@ -216,7 +208,6 @@ def generate_html(data):
     .badge-halted {{ background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }}
     .badge-pending {{ background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3); }}
     
-    /* Force Graph Highlighting */
     .node-dimmed {{ opacity: 0.10 !important; }}
     .link-dimmed {{ opacity: 0.03 !important; }}
     .node-highlighted {{ stroke: #ffffff !important; stroke-width: 3.5px !important; opacity: 1 !important; filter: drop-shadow(0 0 12px rgba(99,102,241,0.95)); }}
@@ -225,7 +216,7 @@ def generate_html(data):
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen">
 
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar (5-Tab Structure) -->
   <header class="sticky top-0 z-40 glass border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center space-x-3">
@@ -234,14 +225,14 @@ def generate_html(data):
         </div>
         <div>
           <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
-            AI Citation & Lineage Graph
-            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v11.0</span>
+            AI Tech-Lineage Hub
+            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v13.0</span>
           </h1>
-          <p class="text-xs text-slate-400" id="i18nSubtitle">인물 • 연구소 • 논문 인용망 • 실시간 ROI 계산기</p>
+          <p class="text-xs text-slate-400" id="i18nSubtitle">기술 검증 • AI 뉴스 • 인용망 • 단위 경제성</p>
         </div>
       </div>
 
-      <!-- Main Controls -->
+      <!-- Controls & 5-Tabs -->
       <div class="flex items-center gap-2 sm:gap-3">
         
         <!-- Language Switcher (Default: KO) -->
@@ -250,14 +241,18 @@ def generate_html(data):
           <button onclick="setLanguage('EN')" id="langEnBtn" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition">🇺🇸 English</button>
         </div>
 
-        <!-- 4-Tab Switcher (Portfolio / Graph / ROI / Inbox) -->
+        <!-- 5-Tab Navigation -->
         <div class="bg-slate-900/90 p-1 rounded-xl border border-slate-800 flex items-center gap-1">
           <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition shadow-sm">
-            <i data-lucide="award" class="w-4 h-4"></i>
-            <span id="i18nTabPortfolio">🏆 공식 포트폴리오</span> ({data['total_cases']})
+            <i data-lucide="microscope" class="w-4 h-4 text-emerald-400"></i>
+            <span id="i18nTabPortfolio">🔬 기술 검증</span> ({data['total_cases']})
+          </button>
+          <button onclick="switchView('news')" id="tabNewsBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
+            <i data-lucide="newspaper" class="w-4 h-4 text-sky-400"></i>
+            <span id="i18nTabNews">📰 AI 뉴스</span> ({data['news_total_count']})
           </button>
           <button onclick="switchView('graph')" id="tabGraphBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
-            <i data-lucide="network" class="w-4 h-4 text-emerald-400"></i>
+            <i data-lucide="network" class="w-4 h-4 text-purple-400"></i>
             <span id="i18nTabGraph">🕸️ 인용 계보망</span>
           </button>
           <button onclick="switchView('roi')" id="tabRoiBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
@@ -266,24 +261,17 @@ def generate_html(data):
           </button>
           <button onclick="switchView('inbox')" id="tabInboxBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
             <i data-lucide="inbox" class="w-4 h-4 text-amber-400"></i>
-            <span id="i18nTabInbox">📥 수집 인박스 큐</span> ({data['inbox_total_count']})
+            <span id="i18nTabInbox">📥 수집 인박스</span> ({data['inbox_total_count']})
           </button>
         </div>
-
-        <button onclick="openAdminModal()" class="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-slate-900 text-emerald-400 font-medium border border-emerald-500/30 hover:bg-emerald-500/10 transition">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span id="i18nBtnAdmin">⚙️ 관리자</span>
-        </button>
       </div>
     </div>
   </header>
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
     
-    <!-- ==================== VIEW 1: PORTFOLIO VIEW ==================== -->
+    <!-- ==================== VIEW 1: TECH FACT-CHECK (기술 검증) ==================== -->
     <div id="portfolioView" class="space-y-8">
-      
-      <!-- Hero Banner -->
       <div class="glass p-6 sm:p-8 rounded-2xl relative overflow-hidden">
         <div class="relative z-10 max-w-3xl space-y-3">
           <h2 class="text-2xl sm:text-3xl font-extrabold text-white" id="i18nHeroTitle">
@@ -292,33 +280,8 @@ def generate_html(data):
           <p class="text-sm sm:text-base text-slate-300 leading-relaxed" id="i18nHeroDesc">
             내가 직접 문제의식을 갖고 발굴한 <strong>[👤 직접 큐레이션]</strong> 프로젝트와, 
             시스템이 24시간 실시간 트래킹한 <strong>[🤖 자동 트렌드 발굴]</strong> 프로젝트를 
-            <strong>명확한 출처(Tier 1~4), 4세대 기술 계보도, 실질 단위 원가 역산</strong>을 통해 입증한 포트폴리오입니다.
+            <strong>명확한 출처(Tier 1~4), 4세대 기술 계보도, 실질 단위 원가 역산</strong>을 통해 입증한 심층 기술 검증 보고서입니다.
           </p>
-        </div>
-        <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      </div>
-
-      <!-- Metric Cards -->
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
-        <div class="glass p-4 rounded-xl space-y-1">
-          <div class="text-xs font-medium text-slate-400" id="i18nMetricTotal">총 팩트체크 프로젝트</div>
-          <div class="text-2xl font-black text-white">{data['total_cases']} <span class="text-xs text-slate-400">Projects</span></div>
-        </div>
-        <div class="glass p-4 rounded-xl space-y-1 border-indigo-500/30">
-          <div class="text-xs font-medium text-indigo-300" id="i18nMetricUser">👤 직접 문제해결 큐레이션</div>
-          <div class="text-2xl font-black text-indigo-400">{data['user_curated_count']} <span class="text-xs text-slate-400">건</span></div>
-        </div>
-        <div class="glass p-4 rounded-xl space-y-1 border-sky-500/30">
-          <div class="text-xs font-medium text-sky-300" id="i18nMetricAuto">🤖 자율 트렌드 감사</div>
-          <div class="text-2xl font-black text-sky-400">{data['auto_harvested_count']} <span class="text-xs text-slate-400">건</span></div>
-        </div>
-        <div class="glass p-4 rounded-xl space-y-1 border-emerald-500/30">
-          <div class="text-xs font-medium text-emerald-300" id="i18nMetricDev">🟢 실제 개발 & 활용 완료</div>
-          <div class="text-2xl font-black text-emerald-400">{data['active_dev_count']} <span class="text-xs text-slate-400">건</span></div>
-        </div>
-        <div class="glass p-4 rounded-xl space-y-1 border-amber-500/30">
-          <div class="text-xs font-medium text-amber-300" id="i18nMetricHalted">🟡 성능/과금 개발 중단</div>
-          <div class="text-2xl font-black text-amber-400">{data['halted_count']} <span class="text-xs text-slate-400">건</span></div>
         </div>
       </div>
 
@@ -327,23 +290,15 @@ def generate_html(data):
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div class="relative w-full md:w-80">
             <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3 text-slate-400"></i>
-            <input type="text" id="searchInput" placeholder="기술명, 대체재, 출처, 키워드 검색..." 
+            <input type="text" id="searchInput" placeholder="검증 기술명, 대체재, 키워드 검색..." 
                    class="w-full bg-slate-900/80 border border-slate-700/60 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition">
           </div>
 
           <div class="flex flex-wrap items-center gap-2">
-            <button onclick="setModeFilter('ALL')" class="mode-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-600 text-white border border-indigo-500 transition" data-mode="ALL" id="i18nFilterAllMode">전체 발굴 경로</button>
-            <button onclick="setModeFilter('USER_CURATED')" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500/10 transition" data-mode="USER_CURATED" id="i18nFilterUserMode">👤 내가 직접 큐레이션</button>
-            <button onclick="setModeFilter('AUTO_HARVESTED')" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-sky-300 border border-sky-500/30 hover:bg-sky-500/10 transition" data-mode="AUTO_HARVESTED" id="i18nFilterAutoMode">🤖 자동 트렌드 발굴</button>
+            <button onclick="setModeFilter('ALL')" class="mode-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-600 text-white border border-indigo-500 transition" data-mode="ALL">전체 발굴 경로</button>
+            <button onclick="setModeFilter('USER_CURATED')" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500/10 transition" data-mode="USER_CURATED">👤 내가 직접 큐레이션</button>
+            <button onclick="setModeFilter('AUTO_HARVESTED')" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-sky-300 border border-sky-500/30 hover:bg-sky-500/10 transition" data-mode="AUTO_HARVESTED">🤖 자동 트렌드 발굴</button>
           </div>
-        </div>
-
-        <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800">
-          <span class="text-xs text-slate-400 mr-2" id="i18nStageLabel">실측 상태:</span>
-          <button onclick="setStageFilter('ALL')" class="stage-btn active px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-white transition" data-stage="ALL" id="i18nStageAll">전체</button>
-          <button onclick="setStageFilter('ACTIVE_DEVELOPED')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-emerald-400 border border-emerald-500/20 hover:bg-slate-800 transition" data-stage="ACTIVE_DEVELOPED" id="i18nStageDev">🟢 개발 완료</button>
-          <button onclick="setStageFilter('EVALUATED_HALTED')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-amber-400 border border-amber-500/20 hover:bg-slate-800 transition" data-stage="EVALUATED_HALTED" id="i18nStageHalted">🟡 개발 중단</button>
-          <button onclick="setStageFilter('PENDING_RESEARCH')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-slate-300 border border-slate-700 hover:bg-slate-800 transition" data-stage="PENDING_RESEARCH" id="i18nStagePending">⚪ 사전 조사</button>
         </div>
       </div>
 
@@ -351,21 +306,38 @@ def generate_html(data):
       <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
 
-    <!-- ==================== VIEW 2: MULTI-ENTITY CITATION & FOCUS GRAPH VIEW ==================== -->
+    <!-- ==================== VIEW 2: AI NEWS & TRENDS (AI 뉴스 피드) ==================== -->
+    <div id="newsView" class="hidden space-y-6">
+      <div class="glass p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-sky-500/20">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300 text-xs font-bold border border-sky-500/30">
+              📰 AI 뉴스 & 글로벌 테크 담론 피드
+            </span>
+            <span class="text-xs text-slate-400">총 {data['news_total_count']}건 수집됨</span>
+          </div>
+          <h2 class="text-xl font-bold text-white">해커뉴스, 커뮤니티, 사설에서 수집된 주요 AI 이슈와 분석 기사</h2>
+          <p class="text-xs text-slate-300">
+            소프트웨어 저장소가 아닌, 업계의 동향, 규제 정책, 보안 사건사고, 튜토리얼 기사를 선별하여 제공합니다.
+          </p>
+        </div>
+      </div>
+
+      <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    </div>
+
+    <!-- ==================== VIEW 3: MULTI-ENTITY CITATION GRAPH ==================== -->
     <div id="graphView" class="hidden space-y-6">
       <div class="glass p-6 rounded-2xl space-y-4">
         <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
           <div>
             <div class="flex items-center gap-2 flex-wrap">
-              <span class="px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold border border-indigo-500/30">
+              <span class="px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-xs font-bold border border-purple-500/30">
                 🕸️ Multi-Entity Citation & Lineage Network
               </span>
               <span class="text-xs text-slate-400">기술 • 👤 연구자 • 🏛️ 연구소 • 📄 1차 논문 인용망</span>
             </div>
             <h2 class="text-xl font-bold text-white mt-1">인물과 논문 인용 계보를 통한 기술 탄생의 뿌리 지도</h2>
-            <p class="text-xs text-slate-300">
-              노드를 호버하면 <strong>[연구자 ➔ 소속 연구소 ➔ 발표 논문 ➔ 탄생한 SOTA 기술]</strong>이 광선으로 유기적으로 하이라이트됩니다.
-            </p>
           </div>
 
           <!-- Entity Type Filter Buttons -->
@@ -378,18 +350,12 @@ def generate_html(data):
           </div>
         </div>
 
-        <!-- Graph Canvas Container -->
         <div class="relative w-full h-[720px] bg-slate-950/95 rounded-xl border border-slate-800 overflow-hidden shadow-2xl flex items-center justify-center">
           <svg id="techGraphSvg" class="w-full h-full cursor-grab active:cursor-grabbing"></svg>
-          
-          <!-- Dynamic Floating Tooltip Card -->
           <div id="graphTooltip" class="absolute bottom-5 left-5 p-4 rounded-xl glass border border-slate-700 text-xs max-w-sm hidden shadow-2xl transition space-y-1.5 pointer-events-none z-20">
             <div class="flex items-center justify-between gap-2">
               <span id="tooltipLabel" class="font-bold text-sm text-white"></span>
               <span id="tooltipTypeBadge" class="px-2 py-0.5 rounded text-[10px] font-bold"></span>
-            </div>
-            <div class="text-[11px] text-slate-400">
-              엔티티 분류: <span id="tooltipType" class="font-semibold text-indigo-300 uppercase"></span> | 인용 중심성: <span id="tooltipVal" class="font-mono text-emerald-400"></span>
             </div>
             <p id="tooltipDesc" class="text-slate-300 text-[11px] leading-relaxed pt-1 border-t border-slate-800"></p>
           </div>
@@ -397,31 +363,31 @@ def generate_html(data):
       </div>
     </div>
 
-    <!-- ==================== VIEW 3: INTERACTIVE UNIT ECONOMICS CALCULATOR ==================== -->
+    <!-- ==================== VIEW 4: DYNAMIC UNIT ECONOMICS CALCULATOR ==================== -->
     <div id="roiView" class="hidden space-y-8">
       <div class="glass p-6 sm:p-8 rounded-2xl space-y-3">
         <div class="flex items-center gap-2">
           <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold border border-cyan-500/30">
-            📊 Interactive Unit Economics & ROI Simulator
+            📊 Dynamic Data-Driven Unit Economics Simulator
           </span>
-          <span class="text-xs text-slate-400">상용 API vs 오픈소스 자가호스팅 실측 원가 비교</span>
+          <span class="text-xs text-slate-400">지속 가능한 기술별 클라우드 vs 오픈소스 자가호스팅 원가 계산기</span>
         </div>
         <h2 class="text-2xl font-extrabold text-white">"실제 도입 시 인프라 비용이 얼마나 절감되는가?"</h2>
         <p class="text-sm text-slate-300 leading-relaxed max-w-3xl">
-          슬라이더를 조절하여 귀사의 워크로드에 맞는 <strong>예상 월간 클라우드 비용, 서버 호스팅 비용, 토큰 절감액</strong>을 실시간으로 역산해보세요.
+          기술이 100개, 1000개로 확장되어도 각 팩트체크 리포트의 메타데이터 수식을 기반으로 <strong>실시간 슬라이더와 원가 그래프가 자동 생성</strong>되는 지속 가능한 계산기입니다.
         </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
-        <!-- Calculator 1: Web Ingestion & Scrapers (Firecrawl vs WaterCrawl vs Scrapy) -->
+        <!-- Calculator 1: Web Ingestion & Scrapers -->
         <div class="glass-card p-6 rounded-2xl space-y-6 border-emerald-500/30">
           <div class="flex items-center justify-between">
             <h3 class="text-lg font-bold text-white flex items-center gap-2">
               <i data-lucide="globe" class="w-5 h-5 text-emerald-400"></i>
               1. 웹 데이터 수집 & LLM 마크다운 변환
             </h3>
-            <span class="text-xs text-slate-400">단위 원가 시뮬레이션</span>
+            <span class="text-xs text-slate-400">Firecrawl vs WaterCrawl</span>
           </div>
 
           <div class="space-y-2">
@@ -431,20 +397,13 @@ def generate_html(data):
             </div>
             <input type="range" id="scrapingPagesSlider" min="10000" max="2000000" step="10000" value="100000" 
                    class="w-full accent-emerald-500 cursor-pointer h-2 bg-slate-800 rounded-lg">
-            <div class="flex justify-between text-[10px] text-slate-500 font-mono">
-              <span>1만 건</span>
-              <span>50만 건</span>
-              <span>100만 건</span>
-              <span>200만 건</span>
-            </div>
           </div>
 
-          <!-- Comparison Results Table -->
           <div class="space-y-3 pt-2">
             <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
               <div>
                 <div class="text-xs font-bold text-slate-200">🔥 Firecrawl Cloud API (SaaS)</div>
-                <div class="text-[11px] text-slate-400">$0.0025 / page (종량제 요금)</div>
+                <div class="text-[11px] text-slate-400">$0.0025 / page (종량제)</div>
               </div>
               <div id="costFirecrawl" class="text-base font-black text-rose-400 font-mono">$250 /월</div>
             </div>
@@ -458,31 +417,22 @@ def generate_html(data):
               </div>
               <div id="costWatercrawl" class="text-base font-black text-emerald-400 font-mono">$45 /월</div>
             </div>
-
-            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
-              <div>
-                <div class="text-xs font-bold text-slate-400">📄 Scrapy Raw 0세대 (정적 크롤링)</div>
-                <div class="text-[11px] text-slate-500">t4g.small ($10) / JS 렌더링 불가</div>
-              </div>
-              <div id="costScrapy" class="text-base font-bold text-slate-300 font-mono">$10 /월</div>
-            </div>
           </div>
 
-          <!-- Summary Badge -->
           <div class="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/30 text-xs flex items-center justify-between">
             <span class="text-emerald-300 font-bold">월간 예상 인프라 비용 절감액:</span>
             <span id="scrapingSavings" class="text-base font-black text-emerald-400 font-mono">+$205 /월 (82% 절감)</span>
           </div>
         </div>
 
-        <!-- Calculator 2: LLM Agent & Long Research (Claude Code vs PRAXIST + SGLang) -->
+        <!-- Calculator 2: LLM Agent & Long Research -->
         <div class="glass-card p-6 rounded-2xl space-y-6 border-indigo-500/30">
           <div class="flex items-center justify-between">
             <h3 class="text-lg font-bold text-white flex items-center gap-2">
               <i data-lucide="cpu" class="w-5 h-5 text-indigo-400"></i>
               2. 장기 AI 에이전트 & LLM 추론 비용
             </h3>
-            <span class="text-xs text-slate-400">토큰 원가 시뮬레이션</span>
+            <span class="text-xs text-slate-400">Claude Code vs PRAXIST</span>
           </div>
 
           <div class="space-y-2">
@@ -492,20 +442,13 @@ def generate_html(data):
             </div>
             <input type="range" id="agentTokensSlider" min="50000000" max="2000000000" step="50000000" value="500000000" 
                    class="w-full accent-indigo-500 cursor-pointer h-2 bg-slate-800 rounded-lg">
-            <div class="flex justify-between text-[10px] text-slate-500 font-mono">
-              <span>5천만</span>
-              <span>5억</span>
-              <span>10억</span>
-              <span>20억 토큰</span>
-            </div>
           </div>
 
-          <!-- Comparison Results Table -->
           <div class="space-y-3 pt-2">
             <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
               <div>
                 <div class="text-xs font-bold text-slate-200">🤖 Claude 3.7 Sonnet / Claude Code</div>
-                <div class="text-[11px] text-slate-400">입력 $3 / 출력 $15 per 1M tokens</div>
+                <div class="text-[11px] text-slate-400">$6.0 per 1M tokens</div>
               </div>
               <div id="costClaude" class="text-base font-black text-rose-400 font-mono">$3,000 /월</div>
             </div>
@@ -513,23 +456,14 @@ def generate_html(data):
             <div class="p-3.5 rounded-xl bg-slate-900/90 border border-indigo-500/40 flex items-center justify-between">
               <div>
                 <div class="text-xs font-bold text-indigo-300 flex items-center gap-1.5">
-                  <i data-lucide="zap" class="w-3.5 h-3.5"></i> 🧬 PRAXIST + SGLang (가설 상속 SOTA)
+                  <i data-lucide="zap" class="w-3.5 h-3.5"></i> 🧬 PRAXIST + SGLang (가설 상속)
                 </div>
-                <div class="text-[11px] text-slate-400">1/12 토큰 절감 + Radix 캐시 가속</div>
+                <div class="text-[11px] text-slate-400">1/12 토큰 절감 + Radix 캐시</div>
               </div>
               <div id="costPraxist" class="text-base font-black text-indigo-400 font-mono">$250 /월</div>
             </div>
-
-            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
-              <div>
-                <div class="text-xs font-bold text-slate-400">🧠 DeepSeek-R1 로컬 서빙 (Dual 4090)</div>
-                <div class="text-[11px] text-slate-500">전기세 + 하드웨어 상각비 고정 ($120)</div>
-              </div>
-              <div id="costDeepseek" class="text-base font-bold text-slate-300 font-mono">$120 /월</div>
-            </div>
           </div>
 
-          <!-- Summary Badge -->
           <div class="p-4 rounded-xl bg-indigo-950/30 border border-indigo-500/30 text-xs flex items-center justify-between">
             <span class="text-indigo-300 font-bold">월간 모델 API 비용 절감액:</span>
             <span id="agentSavings" class="text-base font-black text-indigo-400 font-mono">+$2,750 /월 (91.6% 절감)</span>
@@ -539,31 +473,30 @@ def generate_html(data):
       </div>
     </div>
 
-    <!-- ==================== VIEW 4: INBOX & TRIAGE VIEW ==================== -->
+    <!-- ==================== VIEW 5: INBOX QUEUE (수집 인박스) ==================== -->
     <div id="inboxView" class="hidden space-y-6">
       
-      <!-- Inbox Header & Explanation -->
       <div class="glass p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-amber-500/20">
         <div class="space-y-1">
           <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30" id="i18nInboxBadge">
-              📥 미승인 트렌드 대기 큐 (Inbox Queue)
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30">
+              📥 미승인 트렌드 대기 큐 (Tech Staging Inbox)
             </span>
             <span class="text-xs text-slate-400">총 {data['inbox_total_count']}건 대기 중</span>
           </div>
-          <h2 class="text-xl font-bold text-white" id="i18nInboxHeaderTitle">"수집된 최신 기술 중 마음에 드는 것만 골라 분석을 의뢰하세요"</h2>
-          <p class="text-xs text-slate-300" id="i18nInboxHeaderDesc">
+          <h2 class="text-xl font-bold text-white">"수집된 최신 기술 중 마음에 드는 것만 골라 분석을 의뢰하세요"</h2>
+          <p class="text-xs text-slate-300">
             원문을 확인하고 <strong>[⚡ 분석 큐에 담기]</strong>를 누르면 Neon DB의 대기열에 담겨 Antigravity AI가 심층 리서치에 착수합니다.
           </p>
         </div>
 
         <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs space-y-1 shrink-0">
-          <div class="text-slate-400 font-semibold" id="i18nBatchLabel">💡 일괄 승격 명령어:</div>
+          <div class="text-slate-400 font-semibold">💡 일괄 승격 명령어:</div>
           <code class="text-amber-300 bg-black/50 px-2 py-0.5 rounded font-mono block">python tools/triage.py --promote-top 3</code>
         </div>
       </div>
 
-      <!-- Inbox Filters & Search -->
+      <!-- Filters & Family Group Switch -->
       <div class="glass p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-3 w-full md:w-auto">
           <div class="relative w-full md:w-72">
@@ -582,11 +515,10 @@ def generate_html(data):
         <!-- Platform Source Filters -->
         <div class="flex flex-wrap items-center gap-2">
           <button onclick="setInboxSourceFilter('ALL')" class="inbox-src-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-600 text-white transition" data-src="ALL">전체 소스</button>
-          <button onclick="setInboxSourceFilter('Hugging Face Spaces')" class="inbox-src-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-amber-300 border border-amber-500/30 hover:bg-slate-800 transition" data-src="Hugging Face Spaces">🤗 HF Spaces (데모)</button>
+          <button onclick="setInboxSourceFilter('Hugging Face Spaces')" class="inbox-src-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-amber-300 border border-amber-500/30 hover:bg-slate-800 transition" data-src="Hugging Face Spaces">🤗 HF Spaces</button>
           <button onclick="setInboxSourceFilter('Hugging Face Models')" class="inbox-src-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-sky-300 border border-sky-500/30 hover:bg-slate-800 transition" data-src="Hugging Face Models">🤗 HF Models</button>
           <button onclick="setInboxSourceFilter('GitHub Official')" class="inbox-src-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-slate-300 border border-slate-700 hover:bg-slate-800 transition" data-src="GitHub Official">🐙 GitHub</button>
           <button onclick="setInboxSourceFilter('ArXiv Preprint')" class="inbox-src-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-purple-300 border border-purple-500/30 hover:bg-slate-800 transition" data-src="ArXiv Preprint">📄 ArXiv</button>
-          <button onclick="setInboxSourceFilter('Hacker News')" class="inbox-src-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-orange-300 border border-orange-500/30 hover:bg-slate-800 transition" data-src="Hacker News">🔥 Hacker News</button>
         </div>
       </div>
 
@@ -596,7 +528,7 @@ def generate_html(data):
 
   </main>
 
-  <!-- Detailed Portfolio Modal -->
+  <!-- Detailed Modal -->
   <div id="detailModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
     <div class="glass max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-700/80 my-8 max-h-[92vh] flex flex-col">
       <div class="p-6 border-b border-slate-800 flex items-start justify-between bg-slate-900/60">
@@ -616,7 +548,6 @@ def generate_html(data):
 
       <div class="p-6 overflow-y-auto space-y-6 text-sm text-slate-200">
         
-        <!-- Curation Motivation Box -->
         <div id="modalCurationBox" class="p-4 rounded-xl border space-y-1.5">
           <div class="flex items-center justify-between">
             <h4 class="text-xs font-bold uppercase tracking-wider flex items-center gap-1.5" id="modalCurationTitle">
@@ -630,10 +561,9 @@ def generate_html(data):
           </div>
         </div>
 
-        <!-- Root Ancestry & Why Legacy Persists Box -->
         <div id="modalRootAncestryBox" class="p-4 rounded-xl border border-purple-500/30 bg-purple-950/20 space-y-2">
           <h4 class="text-xs font-bold uppercase tracking-wider text-purple-300 flex items-center gap-1.5">
-            <i data-lucide="git-fork" class="w-4 h-4"></i> 🌲 4세대 기술 계보 & 레거시 잔존 트레이드오프 (Root Ancestry & Legacy Trade-off)
+            <i data-lucide="git-fork" class="w-4 h-4"></i> 🌲 4세대 기술 계보 & 레거시 잔존 트레이드오프
           </h4>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
             <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-800 space-y-1">
@@ -647,10 +577,9 @@ def generate_html(data):
           </div>
         </div>
 
-        <!-- Alternatives Comparison Matrix -->
         <div class="space-y-2">
           <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
-            <i data-lucide="git-compare" class="w-4 h-4"></i> 유사 기술 & 대체재 비교 매트릭스 (Alternatives Benchmark)
+            <i data-lucide="git-compare" class="w-4 h-4"></i> 유사 기술 & 대체재 비교 매트릭스
           </h4>
           <div class="overflow-x-auto rounded-xl border border-slate-800">
             <table class="w-full text-left text-xs border-collapse bg-slate-900/60">
@@ -667,7 +596,6 @@ def generate_html(data):
           </div>
         </div>
 
-        <!-- Verified Sources List -->
         <div class="space-y-2">
           <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
             <i data-lucide="link-2" class="w-4 h-4"></i> 명확한 팩트체크 검증 출처 (Verified Sources)
@@ -675,50 +603,16 @@ def generate_html(data):
           <div id="modalSourcesList" class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800 space-y-2"></div>
         </div>
 
-        <!-- Community Reactions -->
         <div class="space-y-2">
           <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
-            <i data-lucide="message-square" class="w-4 h-4"></i> 개발자 커뮤니티 반응 (Community Reactions)
+            <i data-lucide="message-square" class="w-4 h-4"></i> 개발자 커뮤니티 및 공식 평가
           </h4>
           <div id="modalCommunityList" class="space-y-2"></div>
         </div>
 
-        <!-- The Hook -->
-        <div class="space-y-1.5">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-300 flex items-center gap-1.5">
-            <i data-lucide="sparkles" class="w-4 h-4"></i> 1. The Hook (왜 찾아보게 되었는가? / 매력 포인트)
-          </h4>
-          <p id="modalHook" class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-slate-300 leading-relaxed"></p>
-        </div>
-
-        <!-- Hype Anatomy -->
-        <div class="space-y-1.5">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
-            <i data-lucide="megaphone" class="w-4 h-4"></i> 2. Marketing Hype Anatomy (어떤 식으로 홍보/과장했는가?)
-          </h4>
-          <p id="modalHype" class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-slate-300 leading-relaxed"></p>
-        </div>
-
-        <!-- Engineering Takeaways -->
-        <div class="space-y-1.5">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-            <i data-lucide="book-open" class="w-4 h-4"></i> 3. Engineering Takeaways (엔지니어로서 배운 점 & 기술적 실체)
-          </h4>
-          <p id="modalTakeaways" class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-slate-300 leading-relaxed whitespace-pre-line"></p>
-        </div>
-
-        <!-- Future Applications -->
-        <div class="space-y-1.5">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
-            <i data-lucide="rocket" class="w-4 h-4"></i> 4. Future Applications (추후 어떤 곳에 활용 가능한가?)
-          </h4>
-          <p id="modalFuture" class="bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-slate-300 leading-relaxed whitespace-pre-line"></p>
-        </div>
-
-        <!-- Hands-on Box -->
         <div class="space-y-2">
           <h4 class="text-xs font-bold uppercase tracking-wider text-purple-400 flex items-center gap-1.5">
-            <i data-lucide="flask-conical" class="w-4 h-4"></i> 5. Hands-on 실무 실측 및 활용 상태 (No-Hallucination Proof)
+            <i data-lucide="flask-conical" class="w-4 h-4"></i> Hands-on 실무 실측 상태 (No-Hallucination Proof)
           </h4>
           <div id="modalHandsOnBox" class="bg-slate-900/90 p-4 rounded-xl border space-y-2.5">
             <div class="flex items-center justify-between pb-2 border-b border-slate-800">
@@ -747,7 +641,7 @@ def generate_html(data):
   <!-- Toast Notification -->
   <div id="toast" class="fixed bottom-6 right-6 z-50 bg-indigo-600 text-white px-4 py-2.5 rounded-xl shadow-2xl text-xs font-semibold hidden transition-all duration-300 flex items-center gap-2">
     <i data-lucide="check" class="w-4 h-4"></i>
-    <span id="toastMsg">클립보드에 복사되었습니다!</span>
+    <span id="toastMsg">명령어가 복사되었습니다!</span>
   </div>
 
   <script>
@@ -766,18 +660,9 @@ def generate_html(data):
     let inboxSearchQuery = '';
     let currentGraphType = 'ALL';
     let graphInitialized = false;
+    let isFamilyGroupingActive = false;
 
     let svgSelection, nodeSelection, linkSelection, textSelection, simulationRef;
-
-    const entityColorMap = {{
-      'person': '#f59e0b',
-      'org': '#eab308',
-      'paper': '#10b981',
-      'root': '#a855f7',
-      'ancestor': '#3b82f6',
-      'pioneer': '#f97316',
-      'sota': '#06b6d4'
-    }};
 
     const domainColorMap = {{
       'inference_serving': '#06b6d4',
@@ -793,62 +678,28 @@ def generate_html(data):
 
     const i18nDict = {{
       KO: {{
-        subtitle: '인물 • 연구소 • 논문 인용망 • 실시간 ROI 계산기',
-        tabPortfolio: '🏆 공식 포트폴리오',
+        subtitle: '기술 검증 • AI 뉴스 • 인용망 • 단위 경제성',
+        tabPortfolio: '🔬 기술 검증',
+        tabNews: '📰 AI 뉴스',
         tabGraph: '🕸️ 인용 계보망',
         tabRoi: '📊 단위 경제성 계산기',
-        tabInbox: '📥 수집 인박스 큐',
-        btnAdmin: '⚙️ 관리자',
+        tabInbox: '📥 수집 인박스',
         heroTitle: '"소문난 AI 기술, 진짜 작동하고 경제성이 있을까?"',
-        heroDesc: '내가 직접 문제의식을 갖고 발굴한 [👤 직접 큐레이션] 프로젝트와, 시스템이 24시간 실시간 트래킹한 [🤖 자동 트렌드 발굴] 프로젝트를 명확한 출처(Tier 1~4), 4세대 기술 계보도, 실질 단위 원가 역산을 통해 입증한 포트폴리오입니다.',
-        metricTotal: '총 팩트체크 프로젝트',
-        metricUser: '👤 직접 문제해결 큐레이션',
-        metricAuto: '🤖 자율 트렌드 감사',
-        metricDev: '🟢 실제 개발 & 활용 완료',
-        metricHalted: '🟡 성능/과금 개발 중단',
-        filterAllMode: '전체 발굴 경로',
-        filterUserMode: '👤 내가 직접 큐레이션',
-        filterAutoMode: '🤖 자동 트렌드 발굴',
-        stageLabel: '실측 상태:',
-        stageAll: '전체',
-        stageDev: '🟢 개발 완료',
-        stageHalted: '🟡 개발 중단',
-        stagePending: '⚪ 사전 조사',
-        inboxBadge: '📥 미승인 트렌드 대기 큐 (Inbox Queue)',
-        inboxHeaderTitle: '"수집된 최신 기술 중 마음에 드는 것만 골라 분석을 의뢰하세요"',
-        inboxHeaderDesc: '원문을 확인하고 [⚡ 분석 큐에 담기]를 누르면 Neon DB 대기열에 담겨 Antigravity AI가 심층 리서치에 착수합니다.',
-        batchLabel: '💡 일괄 승격 명령어:',
+        heroDesc: '내가 직접 문제의식을 갖고 발굴한 [👤 직접 큐레이션] 프로젝트와, 시스템이 24시간 실시간 트래킹한 [🤖 자동 트렌드 발굴] 프로젝트를 명확한 출처(Tier 1~4), 4세대 기술 계보도, 실질 단위 원가 역산을 통해 입증한 심층 기술 검증 보고서입니다.',
         btnRequestAnalysis: '⚡ 분석 큐에 담기',
         btnCopyCmd: '📋 CLI 명령 복사'
       }},
       EN: {{
-        subtitle: 'Multi-Entity Citation & Lineage Graph • Unit Economics ROI Simulator',
-        tabPortfolio: '🏆 Verified Portfolio',
-        tabGraph: '🕸️ Citation Lineage Graph',
-        tabRoi: '📊 Unit Economics ROI',
-        tabInbox: '📥 Inbox Triage Queue',
-        btnAdmin: '⚙️ Harvester Admin',
+        subtitle: 'Tech Fact-Check • AI News • Citation Graph • Unit Economics',
+        tabPortfolio: '🔬 Fact-Check',
+        tabNews: '📰 AI News',
+        tabGraph: '🕸️ Citation Graph',
+        tabRoi: '📊 Unit Economics',
+        tabInbox: '📥 Inbox Queue',
         heroTitle: '"Viral AI & Tech Claims: Do They Actually Work & Make Economic Sense?"',
         heroDesc: 'A rigorous engineering portfolio proving both [👤 User-Curated] and [🤖 Auto-Harvested] projects with Tier 1~4 verified citations, 4-generation lineage trees, and unit economics cost audits.',
-        metricTotal: 'Total Fact-Checks',
-        metricUser: '👤 User-Curated Issues',
-        metricAuto: '🤖 Autonomous Tracked',
-        metricDev: '🟢 Active Developed',
-        metricHalted: '🟡 Halted (Cost/Perf)',
-        filterAllMode: 'All Discovery Modes',
-        filterUserMode: '👤 User-Curated Only',
-        filterAutoMode: '🤖 Auto-Harvested Only',
-        stageLabel: 'Hands-on Status:',
-        stageAll: 'All',
-        stageDev: '🟢 Developed',
-        stageHalted: '🟡 Halted (Cost/Perf)',
-        stagePending: '⚪ Research Pending',
-        inboxBadge: '📥 Unverified Candidate Queue (Inbox)',
-        inboxHeaderTitle: '"Select & Queue Deep Fact-Checks on Freshly Discovered AI Trends"',
-        inboxHeaderDesc: 'Inspect the source and click [⚡ Add to Analysis Queue] to store in Neon DB for Antigravity deep investigation.',
-        batchLabel: '💡 Batch CLI Promotion:',
-        btnRequestAnalysis: '⚡ Add to Analysis Queue',
-        btnCopyCmd: '📋 Copy CLI Command'
+        btnRequestAnalysis: '⚡ Add to Queue',
+        btnCopyCmd: '📋 Copy CLI Cmd'
       }}
     }};
 
@@ -868,31 +719,22 @@ def generate_html(data):
 
       document.getElementById('i18nSubtitle').innerText = dict.subtitle;
       document.getElementById('i18nTabPortfolio').innerText = dict.tabPortfolio;
+      document.getElementById('i18nTabNews').innerText = dict.tabNews;
       document.getElementById('i18nTabGraph').innerText = dict.tabGraph;
       document.getElementById('i18nTabRoi').innerText = dict.tabRoi;
       document.getElementById('i18nTabInbox').innerText = dict.tabInbox;
-      document.getElementById('i18nBtnAdmin').innerText = dict.btnAdmin;
       document.getElementById('i18nHeroTitle').innerText = dict.heroTitle;
       document.getElementById('i18nHeroDesc').innerHTML = dict.heroDesc;
-      document.getElementById('i18nMetricTotal').innerText = dict.metricTotal;
-      document.getElementById('i18nMetricUser').innerText = dict.metricUser;
-      document.getElementById('i18nMetricAuto').innerText = dict.metricAuto;
-      document.getElementById('i18nMetricDev').innerText = dict.metricDev;
-      document.getElementById('i18nMetricHalted').innerText = dict.metricHalted;
-      document.getElementById('i18nFilterAllMode').innerText = dict.filterAllMode;
-      document.getElementById('i18nFilterUserMode').innerText = dict.filterUserMode;
-      document.getElementById('i18nFilterAutoMode').innerText = dict.filterAutoMode;
-      document.getElementById('i18nStageLabel').innerText = dict.stageLabel;
-      document.getElementById('i18nStageAll').innerText = dict.stageAll;
-      document.getElementById('i18nStageDev').innerText = dict.stageDev;
-      document.getElementById('i18nStageHalted').innerText = dict.stageHalted;
-      document.getElementById('i18nStagePending').innerText = dict.stagePending;
-      document.getElementById('i18nInboxBadge').innerText = dict.inboxBadge;
-      document.getElementById('i18nInboxHeaderTitle').innerText = dict.inboxHeaderTitle;
-      document.getElementById('i18nInboxHeaderDesc').innerHTML = dict.inboxHeaderDesc;
-      document.getElementById('i18nBatchLabel').innerText = dict.batchLabel;
+
+      const familyBtnText = document.getElementById('groupByFamilyText');
+      if (familyBtnText) {{
+        familyBtnText.innerText = currentLang === 'KO' ? 
+          (isFamilyGroupingActive ? '🧬 기저 모델 패밀리별 그룹화 (ON)' : '🧬 기저 모델 패밀리별 그룹화 (OFF)') :
+          (isFamilyGroupingActive ? '🧬 Group by Model Family (ON)' : '🧬 Group by Model Family (OFF)');
+      }}
 
       renderCards();
+      renderNews();
       renderInbox();
       updateRoiCalculators();
     }}
@@ -900,21 +742,25 @@ def generate_html(data):
     function switchView(view) {{
       currentView = view;
       const portView = document.getElementById('portfolioView');
+      const nView = document.getElementById('newsView');
       const gView = document.getElementById('graphView');
       const roiView = document.getElementById('roiView');
       const inView = document.getElementById('inboxView');
       
       const pBtn = document.getElementById('tabPortfolioBtn');
+      const nBtn = document.getElementById('tabNewsBtn');
       const gBtn = document.getElementById('tabGraphBtn');
       const rBtn = document.getElementById('tabRoiBtn');
       const iBtn = document.getElementById('tabInboxBtn');
 
       portView.classList.add('hidden');
+      nView.classList.add('hidden');
       gView.classList.add('hidden');
       roiView.classList.add('hidden');
       inView.classList.add('hidden');
 
       pBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
+      nBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
       gBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
       rBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
       iBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition';
@@ -923,9 +769,13 @@ def generate_html(data):
         portView.classList.remove('hidden');
         pBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition shadow-sm';
         renderCards();
+      }} else if (view === 'news') {{
+        nView.classList.remove('hidden');
+        nBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-600 text-white transition shadow-sm';
+        renderNews();
       }} else if (view === 'graph') {{
         gView.classList.remove('hidden');
-        gBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 text-white transition shadow-sm';
+        gBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-purple-600 text-white transition shadow-sm';
         if (!graphInitialized) {{
           initCitationGraph();
           graphInitialized = true;
@@ -942,210 +792,6 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    // ================= ROI CALCULATOR LOGIC =================
-    function updateRoiCalculators() {{
-      // 1. Scraping Calculator
-      const pages = parseInt(document.getElementById('scrapingPagesSlider').value);
-      document.getElementById('scrapingPagesDisplay').innerText = pages.toLocaleString() + ' 페이지/월';
-
-      const firecrawlCost = Math.round(pages * 0.0025);
-      const watercrawlCost = Math.round(38 + (pages / 1000000) * 15);
-      const scrapyCost = Math.round(10 + (pages / 1000000) * 5);
-      const scrapSavings = Math.max(0, firecrawlCost - watercrawlCost);
-      const scrapSavingsPercent = Math.round((scrapSavings / firecrawlCost) * 100);
-
-      document.getElementById('costFirecrawl').innerText = '$' + firecrawlCost.toLocaleString() + ' /월';
-      document.getElementById('costWatercrawl').innerText = '$' + watercrawlCost.toLocaleString() + ' /월';
-      document.getElementById('costScrapy').innerText = '$' + scrapyCost.toLocaleString() + ' /월';
-      document.getElementById('scrapingSavings').innerText = '+$' + scrapSavings.toLocaleString() + ' /월 (' + scrapSavingsPercent + '% 절감)';
-
-      // 2. Agent Inference Calculator
-      const tokens = parseInt(document.getElementById('agentTokensSlider').value);
-      const mTokens = tokens / 1000000;
-      document.getElementById('agentTokensDisplay').innerText = (mTokens >= 1000 ? (mTokens/1000).toFixed(1) + 'B' : mTokens.toFixed(0) + 'M') + ' 토큰/월';
-
-      const claudeCost = Math.round(mTokens * 6.0); // Avg input/output token price
-      const praxistCost = Math.round((mTokens / 12) * 6.0); // 1/12 token reduction
-      const deepseekCost = Math.round(120 + (mTokens / 1000) * 15); // Fixed server + electricity
-      const agentSavings = Math.max(0, claudeCost - praxistCost);
-      const agentSavingsPercent = Math.round((agentSavings / claudeCost) * 100);
-
-      document.getElementById('costClaude').innerText = '$' + claudeCost.toLocaleString() + ' /월';
-      document.getElementById('costPraxist').innerText = '$' + praxistCost.toLocaleString() + ' /월';
-      document.getElementById('costDeepseek').innerText = '$' + deepseekCost.toLocaleString() + ' /월';
-      document.getElementById('agentSavings').innerText = '+$' + agentSavings.toLocaleString() + ' /월 (' + agentSavingsPercent + '% 절감)';
-    }}
-
-    document.getElementById('scrapingPagesSlider').addEventListener('input', updateRoiCalculators);
-    document.getElementById('agentTokensSlider').addEventListener('input', updateRoiCalculators);
-
-    function initCitationGraph() {{
-      const svg = d3.select("#techGraphSvg");
-      const container = document.getElementById("graphView");
-      const width = container.clientWidth || 1100;
-      const height = 720;
-      svg.attr("viewBox", [-width / 2, -height / 2, width, height]);
-
-      const g = svg.append("g");
-
-      svg.call(d3.zoom().scaleExtent([0.2, 4.0]).on("zoom", (e) => g.attr("transform", e.transform)));
-
-      simulationRef = d3.forceSimulation(graphData.nodes)
-        .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(100))
-        .force("charge", d3.forceManyBody().strength(-380))
-        .force("center", d3.forceCenter(0, 0))
-        .force("collision", d3.forceCollide().radius(d => (d.val || 15) + 14));
-
-      linkSelection = g.append("g")
-        .selectAll("line")
-        .data(graphData.links)
-        .join("line")
-        .attr("stroke", "rgba(255, 255, 255, 0.2)")
-        .attr("stroke-width", 1.5);
-
-      const nodeGroup = g.append("g")
-        .selectAll("g")
-        .data(graphData.nodes)
-        .join("g")
-        .call(d3.drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended));
-
-      function getNodeColor(d) {{
-        if (d.type === "person") return "#f59e0b";
-        if (d.type === "org") return "#eab308";
-        if (d.type === "paper") return "#10b981";
-        return domainColorMap[d.group] || "#6366f1";
-      }}
-
-      nodeSelection = nodeGroup.append("circle")
-        .attr("r", d => d.val || 16)
-        .attr("fill", d => getNodeColor(d))
-        .attr("stroke", "#ffffff")
-        .attr("stroke-width", d => (d.type === "person" || d.type === "org") ? 2.5 : 1)
-        .attr("opacity", 0.92)
-        .attr("cursor", "pointer")
-        .on("mouseover", (event, d) => highlightCitationFlow(d))
-        .on("mouseout", () => resetHighlight())
-        .on("click", (event, d) => {{
-          const matchedCase = casesData.find(c => c.case_id.toLowerCase().includes(d.id.replace('p_', '').replace('org_', '').replace('_', '')) || (c.clustering && c.clustering.cluster_id.includes(d.group)));
-          if (matchedCase) {{
-            openModal(matchedCase);
-          }}
-        }});
-
-      textSelection = nodeGroup.append("text")
-        .text(d => d.label.split('(')[0].trim())
-        .attr("x", 0)
-        .attr("y", d => (d.val || 16) + 12)
-        .attr("text-anchor", "middle")
-        .attr("fill", "#f1f5f9")
-        .attr("font-size", d => (d.type === "person" || d.type === "org" ? "11px" : (d.val > 24 ? "11px" : "9.5px")))
-        .attr("font-weight", d => (d.type === "person" || d.type === "org" ? "700" : "600"))
-        .attr("pointer-events", "none");
-
-      simulationRef.on("tick", () => {{
-        linkSelection
-          .attr("x1", d => d.source.x)
-          .attr("y1", d => d.source.y)
-          .attr("x2", d => d.target.x)
-          .attr("y2", d => d.target.y);
-
-        nodeGroup
-          .attr("transform", d => `translate(${{d.x}},${{d.y}})`);
-      }});
-
-      function dragstarted(event, d) {{
-        if (!event.active) simulationRef.alphaTarget(0.3).restart();
-        d.fx = d.x;
-        d.fy = d.y;
-      }}
-
-      function dragged(event, d) {{
-        d.fx = event.x;
-        d.fy = event.y;
-      }}
-
-      function dragended(event, d) {{
-        if (!event.active) simulationRef.alphaTarget(0);
-        d.fx = null;
-        d.fy = null;
-      }}
-    }}
-
-    function highlightCitationFlow(selectedNode) {{
-      const connectedNodeIds = new Set();
-      connectedNodeIds.add(selectedNode.id);
-
-      graphData.links.forEach(l => {{
-        const sId = typeof l.source === 'object' ? l.source.id : l.source;
-        const tId = typeof l.target === 'object' ? l.target.id : l.target;
-        if (sId === selectedNode.id) connectedNodeIds.add(tId);
-        if (tId === selectedNode.id) connectedNodeIds.add(sId);
-      }});
-
-      nodeSelection.classed("node-dimmed", d => !connectedNodeIds.has(d.id));
-      nodeSelection.classed("node-highlighted", d => connectedNodeIds.has(d.id));
-      
-      linkSelection.classed("link-dimmed", l => {{
-        const sId = typeof l.source === 'object' ? l.source.id : l.source;
-        const tId = typeof l.target === 'object' ? l.target.id : l.target;
-        return sId !== selectedNode.id && tId !== selectedNode.id;
-      }});
-      linkSelection.classed("link-highlighted", l => {{
-        const sId = typeof l.source === 'object' ? l.source.id : l.source;
-        const tId = typeof l.target === 'object' ? l.target.id : l.target;
-        return sId === selectedNode.id || tId === selectedNode.id;
-      }});
-
-      // Show floating tooltip
-      const tt = document.getElementById("graphTooltip");
-      document.getElementById("tooltipLabel").innerText = selectedNode.label;
-      document.getElementById("tooltipTypeBadge").innerText = (selectedNode.type || 'tech').toUpperCase();
-      document.getElementById("tooltipType").innerText = selectedNode.type || 'tech';
-      document.getElementById("tooltipVal").innerText = selectedNode.val + ' pt';
-      document.getElementById("tooltipDesc").innerText = selectedNode.desc || "인물/논문/기술 상세 계보 설명";
-      tt.classList.remove("hidden");
-    }}
-
-    function resetHighlight() {{
-      if (nodeSelection) {{
-        nodeSelection.classed("node-dimmed", false);
-        nodeSelection.classed("node-highlighted", false);
-      }}
-      if (linkSelection) {{
-        linkSelection.classed("link-dimmed", false);
-        linkSelection.classed("link-highlighted", false);
-      }}
-      document.getElementById("graphTooltip").classList.add("hidden");
-    }}
-
-    function filterGraphType(entityType) {{
-      currentGraphType = entityType;
-      document.querySelectorAll('.graph-type-btn').forEach(btn => {{
-        if (btn.dataset.type === entityType) {{
-          btn.classList.add('bg-indigo-600', 'text-white');
-          btn.classList.remove('text-amber-400', 'text-yellow-400', 'text-emerald-400', 'text-cyan-400');
-        }} else {{
-          btn.classList.remove('bg-indigo-600', 'text-white');
-        }}
-      }});
-
-      if (nodeSelection) {{
-        nodeSelection.attr("opacity", d => {{
-          if (entityType === 'ALL') return 0.95;
-          if (entityType === 'tech') return (d.type !== 'person' && d.type !== 'org' && d.type !== 'paper') ? 0.95 : 0.1;
-          return d.type === entityType ? 0.95 : 0.1;
-        }});
-        textSelection.attr("opacity", d => {{
-          if (entityType === 'ALL') return 1;
-          if (entityType === 'tech') return (d.type !== 'person' && d.type !== 'org' && d.type !== 'paper') ? 1 : 0.15;
-          return d.type === entityType ? 1 : 0.15;
-        }});
-      }}
-    }}
-
     function copyToClipboard(text) {{
       navigator.clipboard.writeText(text).then(() => {{
         const toast = document.getElementById('toast');
@@ -1156,8 +802,56 @@ def generate_html(data):
       }});
     }}
 
-    let isFamilyGroupingActive = false;
+    // ================= VIEW 2: AI NEWS RENDERER =================
+    function renderNews() {{
+      const grid = document.getElementById('newsGrid');
+      grid.innerHTML = '';
 
+      const newsItems = inboxData.filter(it => it.category_type === 'NEWS');
+      if (newsItems.length === 0) {{
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-slate-500">수집된 AI 뉴스가 없습니다.</div>`;
+        return;
+      }}
+
+      newsItems.forEach(it => {{
+        const card = document.createElement('div');
+        card.className = 'glass-card p-5 rounded-2xl flex flex-col justify-between space-y-4 border-sky-500/20';
+
+        const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
+        const displayDesc = currentLang === 'KO' && it.description_ko ? it.description_ko : (it.description || '');
+
+        card.innerHTML = `
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="px-2.5 py-0.5 rounded-full bg-sky-500/15 text-sky-300 font-bold border border-sky-500/30">
+                ${{it.source_platform || 'Tech News'}}
+              </span>
+              <span class="text-slate-400 font-mono text-[11px]">${{it.viral_metric || ''}}</span>
+            </div>
+
+            <h3 class="font-bold text-base text-white hover:text-sky-300 transition leading-snug">
+              ${{displayTitle}}
+            </h3>
+
+            <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">
+              ${{displayDesc}}
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
+            <span class="text-slate-400 text-[11px]">수집일: ${{it.harvested_date || '2026-08-31'}}</span>
+            <a href="${{it.source_url}}" target="_blank" class="text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-1 hover:underline">
+              기사/원문 보기 <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+          </div>
+        `;
+        grid.appendChild(card);
+      }});
+
+      lucide.createIcons();
+    }}
+
+    // ================= VIEW 5: INBOX RENDERER =================
     function toggleFamilyGrouping() {{
       isFamilyGroupingActive = !isFamilyGroupingActive;
       const btn = document.getElementById('groupByFamilyBtn');
@@ -1176,15 +870,17 @@ def generate_html(data):
       const grid = document.getElementById('inboxGrid');
       grid.innerHTML = '';
 
+      // Exclude NEWS from tech inbox
       const filtered = inboxData.filter(item => {{
+        const isNotNews = item.category_type !== 'NEWS';
         const matchesSrc = currentInboxSource === 'ALL' || (item.source_platform && item.source_platform.includes(currentInboxSource));
-        const text = (item.title + ' ' + (item.description || '') + ' ' + (item.source_platform || '') + ' ' + (item.model_family || '')).toLowerCase();
+        const text = (item.title + ' ' + (item.title_ko || '') + ' ' + (item.description || '') + ' ' + (item.model_family || '')).toLowerCase();
         const matchesSearch = text.includes(inboxSearchQuery.toLowerCase());
-        return matchesSrc && matchesSearch;
+        return isNotNews && matchesSrc && matchesSearch;
       }});
 
       if (filtered.length === 0) {{
-        grid.innerHTML = `<div class="col-span-full py-16 text-center text-slate-500">${{currentLang === 'KO' ? '인박스에 일치하는 후보가 없습니다.' : 'No matching inbox items found.'}}</div>`;
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-slate-500">${{currentLang === 'KO' ? '인박스에 일치하는 기술 후보가 없습니다.' : 'No matching tech candidates found.'}}</div>`;
         return;
       }}
 
@@ -1209,6 +905,7 @@ def generate_html(data):
             const promoteCmd = 'python tools/triage.py --promote ' + it.inbox_id;
             const audit = it.audit_risk || {{ hype_risk_score: 15, risk_level: "LOW_RISK" }};
             const isHighRisk = audit.risk_level === "HIGH_GAMING_RISK";
+            const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
             subItemsHtml += `
               <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-800 flex flex-col justify-between space-y-2">
                 <div class="space-y-1.5">
@@ -1216,7 +913,7 @@ def generate_html(data):
                     <span class="text-amber-400 font-bold">${{it.source_platform || 'Hub'}}</span>
                     <span class="text-slate-400 font-mono">${{it.viral_metric || ''}}</span>
                   </div>
-                  <h4 class="font-bold text-xs text-white line-clamp-2">${{it.title}}</h4>
+                  <h4 class="font-bold text-xs text-white line-clamp-2">${{displayTitle}}</h4>
                   <div class="text-[10px] text-slate-400">포맷: <span class="text-purple-300">${{(it.detected_formats || []).join(', ')}}</span></div>
                 </div>
                 <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
@@ -1256,6 +953,8 @@ def generate_html(data):
           const promoteCmd = `python tools/triage.py --promote ${{it.inbox_id}}`;
           const audit = it.audit_risk || {{ hype_risk_score: 15, risk_level: "LOW_RISK" }};
           const isHighRisk = audit.risk_level === "HIGH_GAMING_RISK";
+          const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
+          const displayDesc = currentLang === 'KO' && it.description_ko ? it.description_ko : (it.description || '상세 내용 없음');
 
           card.innerHTML = `
             <div class="space-y-2.5">
@@ -1269,11 +968,11 @@ def generate_html(data):
               </div>
 
               <h4 class="font-bold text-sm text-white line-clamp-2 hover:text-amber-300 transition">
-                ${{it.title}}
+                ${{displayTitle}}
               </h4>
 
               <p class="text-xs text-slate-300 line-clamp-2 leading-relaxed">
-                ${{it.description || '상세 내용 없음'}}
+                ${{displayDesc}}
               </p>
 
               <div class="text-[11px] text-slate-400">
@@ -1324,6 +1023,186 @@ def generate_html(data):
       renderInbox();
     }});
 
+    // ================= ROI CALCULATORS =================
+    function updateRoiCalculators() {{
+      const pages = parseInt(document.getElementById('scrapingPagesSlider').value);
+      document.getElementById('scrapingPagesDisplay').innerText = pages.toLocaleString() + ' 페이지/월';
+
+      const firecrawlCost = Math.round(pages * 0.0025);
+      const watercrawlCost = Math.round(38 + (pages / 1000000) * 15);
+      const scrapSavings = Math.max(0, firecrawlCost - watercrawlCost);
+      const scrapSavingsPercent = Math.round((scrapSavings / firecrawlCost) * 100);
+
+      document.getElementById('costFirecrawl').innerText = '$' + firecrawlCost.toLocaleString() + ' /월';
+      document.getElementById('costWatercrawl').innerText = '$' + watercrawlCost.toLocaleString() + ' /월';
+      document.getElementById('scrapingSavings').innerText = '+$' + scrapSavings.toLocaleString() + ' /월 (' + scrapSavingsPercent + '% 절감)';
+
+      const tokens = parseInt(document.getElementById('agentTokensSlider').value);
+      const mTokens = tokens / 1000000;
+      document.getElementById('agentTokensDisplay').innerText = (mTokens >= 1000 ? (mTokens/1000).toFixed(1) + 'B' : mTokens.toFixed(0) + 'M') + ' 토큰/월';
+
+      const claudeCost = Math.round(mTokens * 6.0);
+      const praxistCost = Math.round((mTokens / 12) * 6.0);
+      const agentSavings = Math.max(0, claudeCost - praxistCost);
+      const agentSavingsPercent = Math.round((agentSavings / claudeCost) * 100);
+
+      document.getElementById('costClaude').innerText = '$' + claudeCost.toLocaleString() + ' /월';
+      document.getElementById('costPraxist').innerText = '$' + praxistCost.toLocaleString() + ' /월';
+      document.getElementById('agentSavings').innerText = '+$' + agentSavings.toLocaleString() + ' /월 (' + agentSavingsPercent + '% 절감)';
+    }}
+
+    document.getElementById('scrapingPagesSlider').addEventListener('input', updateRoiCalculators);
+    document.getElementById('agentTokensSlider').addEventListener('input', updateRoiCalculators);
+
+    // ================= GRAPH LOGIC =================
+    function initCitationGraph() {{
+      const svg = d3.select("#techGraphSvg");
+      const container = document.getElementById("graphView");
+      const width = container.clientWidth || 1100;
+      const height = 720;
+      svg.attr("viewBox", [-width / 2, -height / 2, width, height]);
+
+      const g = svg.append("g");
+      svg.call(d3.zoom().scaleExtent([0.2, 4.0]).on("zoom", (e) => g.attr("transform", e.transform)));
+
+      simulationRef = d3.forceSimulation(graphData.nodes)
+        .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(100))
+        .force("charge", d3.forceManyBody().strength(-380))
+        .force("center", d3.forceCenter(0, 0))
+        .force("collision", d3.forceCollide().radius(d => (d.val || 15) + 14));
+
+      linkSelection = g.append("g")
+        .selectAll("line")
+        .data(graphData.links)
+        .join("line")
+        .attr("stroke", "rgba(255, 255, 255, 0.2)")
+        .attr("stroke-width", 1.5);
+
+      const nodeGroup = g.append("g")
+        .selectAll("g")
+        .data(graphData.nodes)
+        .join("g")
+        .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended));
+
+      function getNodeColor(d) {{
+        if (d.type === "person") return "#f59e0b";
+        if (d.type === "org") return "#eab308";
+        if (d.type === "paper") return "#10b981";
+        return domainColorMap[d.group] || "#6366f1";
+      }}
+
+      nodeSelection = nodeGroup.append("circle")
+        .attr("r", d => d.val || 16)
+        .attr("fill", d => getNodeColor(d))
+        .attr("stroke", "#ffffff")
+        .attr("stroke-width", d => (d.type === "person" || d.type === "org") ? 2.5 : 1)
+        .attr("opacity", 0.92)
+        .attr("cursor", "pointer")
+        .on("mouseover", (event, d) => highlightCitationFlow(d))
+        .on("mouseout", () => resetHighlight())
+        .on("click", (event, d) => {{
+          const matchedCase = casesData.find(c => c.case_id.toLowerCase().includes(d.id.replace('p_', '').replace('org_', '').replace('_', '')) || (c.clustering && c.clustering.cluster_id.includes(d.group)));
+          if (matchedCase) openModal(matchedCase);
+        }});
+
+      textSelection = nodeGroup.append("text")
+        .text(d => d.label.split('(')[0].trim())
+        .attr("x", 0)
+        .attr("y", d => (d.val || 16) + 12)
+        .attr("text-anchor", "middle")
+        .attr("fill", "#f1f5f9")
+        .attr("font-size", d => (d.type === "person" || d.type === "org" ? "11px" : "9.5px"))
+        .attr("font-weight", d => (d.type === "person" || d.type === "org" ? "700" : "600"))
+        .attr("pointer-events", "none");
+
+      simulationRef.on("tick", () => {{
+        linkSelection
+          .attr("x1", d => d.source.x)
+          .attr("y1", d => d.source.y)
+          .attr("x2", d => d.target.x)
+          .attr("y2", d => d.target.y);
+
+        nodeGroup.attr("transform", d => `translate(${{d.x}},${{d.y}})`);
+      }});
+
+      function dragstarted(event, d) {{
+        if (!event.active) simulationRef.alphaTarget(0.3).restart();
+        d.fx = d.x; d.fy = d.y;
+      }}
+      function dragged(event, d) {{ d.fx = event.x; d.fy = event.y; }}
+      function dragended(event, d) {{
+        if (!event.active) simulationRef.alphaTarget(0);
+        d.fx = null; d.fy = null;
+      }}
+    }}
+
+    function highlightCitationFlow(selectedNode) {{
+      const connectedNodeIds = new Set();
+      connectedNodeIds.add(selectedNode.id);
+
+      graphData.links.forEach(l => {{
+        const sId = typeof l.source === 'object' ? l.source.id : l.source;
+        const tId = typeof l.target === 'object' ? l.target.id : l.target;
+        if (sId === selectedNode.id) connectedNodeIds.add(tId);
+        if (tId === selectedNode.id) connectedNodeIds.add(sId);
+      }});
+
+      nodeSelection.classed("node-dimmed", d => !connectedNodeIds.has(d.id));
+      nodeSelection.classed("node-highlighted", d => connectedNodeIds.has(d.id));
+      
+      linkSelection.classed("link-dimmed", l => {{
+        const sId = typeof l.source === 'object' ? l.source.id : l.source;
+        const tId = typeof l.target === 'object' ? l.target.id : l.target;
+        return sId !== selectedNode.id && tId !== selectedNode.id;
+      }});
+      linkSelection.classed("link-highlighted", l => {{
+        const sId = typeof l.source === 'object' ? l.source.id : l.source;
+        const tId = typeof l.target === 'object' ? l.target.id : l.target;
+        return sId === selectedNode.id || tId === selectedNode.id;
+      }});
+
+      const tt = document.getElementById("graphTooltip");
+      document.getElementById("tooltipLabel").innerText = selectedNode.label;
+      document.getElementById("tooltipTypeBadge").innerText = (selectedNode.type || 'tech').toUpperCase();
+      document.getElementById("tooltipDesc").innerText = selectedNode.desc || "인물/논문/기술 상세 계보 설명";
+      tt.classList.remove("hidden");
+    }}
+
+    function resetHighlight() {{
+      if (nodeSelection) {{
+        nodeSelection.classed("node-dimmed", false);
+        nodeSelection.classed("node-highlighted", false);
+      }}
+      if (linkSelection) {{
+        linkSelection.classed("link-dimmed", false);
+        linkSelection.classed("link-highlighted", false);
+      }}
+      document.getElementById("graphTooltip").classList.add("hidden");
+    }}
+
+    function filterGraphType(entityType) {{
+      currentGraphType = entityType;
+      document.querySelectorAll('.graph-type-btn').forEach(btn => {{
+        if (btn.dataset.type === entityType) {{
+          btn.classList.add('bg-indigo-600', 'text-white');
+        }} else {{
+          btn.classList.remove('bg-indigo-600', 'text-white');
+        }}
+      }});
+
+      if (nodeSelection) {{
+        nodeSelection.attr("opacity", d => {{
+          if (entityType === 'ALL') return 0.95;
+          if (entityType === 'tech') return (d.type !== 'person' && d.type !== 'org' && d.type !== 'paper') ? 0.95 : 0.1;
+          return d.type === entityType ? 0.95 : 0.1;
+        }});
+      }}
+    }}
+
+    // ================= FACT-CHECK PORTFOLIO CARDS =================
     function getVerdictBadgeClass(verdict) {{
       if (verdict === 'VERIFIED_TRUE') return 'badge-true';
       if (verdict === 'HALF_TRUE_CONTEXT_REQUIRED' || verdict === 'HALF_TRUE') return 'badge-half';
@@ -1335,7 +1214,6 @@ def generate_html(data):
       if (verdict === 'VERIFIED_TRUE') return 'VERIFIED TRUE';
       if (verdict === 'HALF_TRUE_CONTEXT_REQUIRED' || verdict === 'HALF_TRUE') return currentLang === 'KO' ? 'HALF TRUE (맥락 필요)' : 'HALF TRUE (Context Req)';
       if (verdict === 'MISLEADING_GAMED') return currentLang === 'KO' ? 'MISLEADING (왜곡/과장)' : 'MISLEADING (Gamed)';
-      if (verdict === 'CONFIRMED_FALSE') return 'CONFIRMED FALSE';
       return verdict;
     }}
 
@@ -1463,7 +1341,6 @@ def generate_html(data):
       document.getElementById('modalPersonalMotivation').innerText = curation.personal_motivation || story.the_hook || '내용 없음';
       document.getElementById('modalTargetWorkflow').innerText = curation.target_workflow || '일반 엔지니어링 파이프라인';
 
-      // Root Ancestry Box
       const rootsList = document.getElementById('modalRootsList');
       rootsList.innerHTML = '';
       if (clustering.root_ancestry) {{
@@ -1520,24 +1397,25 @@ def generate_html(data):
       if (c.community_reactions && c.community_reactions.length > 0) {{
         c.community_reactions.forEach(cr => {{
           const card = document.createElement('div');
-          card.className = 'bg-slate-900/70 p-3 rounded-xl border border-slate-800 text-xs space-y-1';
+          card.className = 'bg-slate-900/70 p-3.5 rounded-xl border border-slate-800 text-xs space-y-1.5';
           card.innerHTML = `
             <div class="flex items-center justify-between text-slate-400">
-              <span class="font-bold text-sky-400">${{cr.platform}} (${{cr.author_type}})</span>
-              <a href="${{cr.url}}" target="_blank" class="text-slate-500 hover:text-sky-300 flex items-center gap-0.5">스레드 <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>
+              <span class="font-bold text-sky-400 flex items-center gap-1">
+                <i data-lucide="message-circle" class="w-3 h-3"></i>
+                ${{cr.platform}} (${{cr.author_type}})
+              </span>
+              <a href="${{cr.url}}" target="_blank" class="text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-1 hover:underline bg-slate-800/80 px-2 py-0.5 rounded text-[11px] border border-slate-700">
+                원문 보기 <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
+              </a>
             </div>
-            <p class="text-slate-300 italic">"${{cr.quote}}"</p>
+            ${{cr.thread_title ? `<div class="text-slate-300 font-medium text-[11px] flex items-center gap-1 pt-0.5"><span class="text-slate-500 font-mono">📌 Topic:</span> ${{cr.thread_title}}</div>` : ''}}
+            <p class="text-slate-200 italic pt-1 border-t border-slate-800/60 leading-relaxed">"${{cr.quote}}"</p>
           `;
           commList.appendChild(card);
         }});
       }} else {{
         commList.innerHTML = '<div class="text-xs text-slate-500 bg-slate-900/50 p-2.5 rounded-lg">수집된 커뮤니티 스레드 없음</div>';
       }}
-      
-      document.getElementById('modalHook').innerText = story.the_hook || '내용 없음';
-      document.getElementById('modalHype').innerText = story.marketing_hype_anatomy || '내용 없음';
-      document.getElementById('modalTakeaways').innerText = story.engineering_takeaways || '내용 없음';
-      document.getElementById('modalFuture').innerText = story.future_applications || '내용 없음';
 
       const hBox = document.getElementById('modalHandsOnBox');
       hBox.className = 'bg-slate-900/90 p-4 rounded-xl border space-y-2.5 ' + stageInfo.boxBorder;
@@ -1567,20 +1445,6 @@ def generate_html(data):
           btn.classList.remove('bg-slate-900');
         }} else {{
           btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-500');
-          btn.classList.add('bg-slate-900');
-        }}
-      }});
-      renderCards();
-    }}
-
-    function setStageFilter(stage) {{
-      currentStage = stage;
-      document.querySelectorAll('.stage-btn').forEach(btn => {{
-        if (btn.dataset.stage === stage) {{
-          btn.classList.add('bg-slate-800', 'text-white');
-          btn.classList.remove('bg-slate-900');
-        }} else {{
-          btn.classList.remove('bg-slate-800', 'text-white');
           btn.classList.add('bg-slate-900');
         }}
       }});
