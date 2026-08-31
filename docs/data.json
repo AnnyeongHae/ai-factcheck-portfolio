@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-31",
   "total_cases": 5,
-  "inbox_total_count": 118,
+  "inbox_total_count": 123,
   "user_curated_count": 4,
   "auto_harvested_count": 1,
   "active_dev_count": 1,
@@ -47,6 +47,48 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-08-31T15:36:25.484885",
+        "date": "2026-08-31",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.1
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 1,
+            "duration_sec": 0.06
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.83
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 4,
+            "duration_sec": 3.22
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.19
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.1
+          }
+        },
+        "summary": {
+          "total_fetched": 5,
+          "new_saved": 5,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-08-31T21:30:28.547505",
         "date": "2026-08-31",
@@ -128,43 +170,43 @@
       }
     ],
     "latest_run": {
-      "timestamp": "2026-08-31T21:30:28.547505",
+      "timestamp": "2026-08-31T15:36:25.484885",
       "date": "2026-08-31",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
-          "items_found": 1,
-          "duration_sec": 0.32
+          "items_found": 0,
+          "duration_sec": 0.1
         },
         "hf_spaces": {
           "status": "SUCCESS",
-          "items_found": 25,
-          "duration_sec": 0.27
+          "items_found": 1,
+          "duration_sec": 0.06
         },
         "github": {
           "status": "SUCCESS",
-          "items_found": 1,
-          "duration_sec": 1.69
+          "items_found": 0,
+          "duration_sec": 0.83
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 5,
-          "duration_sec": 16.73
+          "items_found": 4,
+          "duration_sec": 3.22
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.4
+          "duration_sec": 0.19
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.32
+          "duration_sec": 0.1
         }
       },
       "summary": {
-        "total_fetched": 32,
-        "new_saved": 32,
+        "total_fetched": 5,
+        "new_saved": 5,
         "duplicates_skipped": 0,
         "errors": 0
       }
@@ -222,6 +264,20 @@
       "type": "sns",
       "description": "HN Score: 165 pts, Comments: 17",
       "viral_metric": "165 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_show_hn_linux_server_management_o",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Show HN: Linux server management over SSH – written in Rust and Tauri",
+      "source_platform": "Hacker News",
+      "source_url": "https://serverbox.stupidlabs.lol/",
+      "type": "sns",
+      "description": "HN Score: 17 pts, Comments: 12",
+      "viral_metric": "17 HN Points",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -286,6 +342,20 @@
       "status": "PENDING_REVIEW"
     },
     {
+      "inbox_id": "2026-08-31_sns_hacker_news_launch_hn_almanac_yc_s26_ai_that_",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Launch HN: Almanac (YC S26) – AI that knows your company",
+      "source_platform": "Hacker News",
+      "source_url": "https://usealmanac.com/",
+      "type": "sns",
+      "description": "HN Score: 2 pts, Comments: 0",
+      "viral_metric": "2 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-08-31_sns_hacker_news_how_to_build_a_diffusion_lan",
       "harvested_date": "2026-08-31",
       "title": "Hacker News: How to build a diffusion language model",
@@ -326,6 +396,34 @@
       "viral_metric": "92 HN Points",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_apache_iggy_a_message_streaming_p",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Apache Iggy, a message streaming platform in Rust, graduates to an Apache TLP",
+      "source_platform": "Hacker News",
+      "source_url": "https://iggy.apache.org/blogs/2026/08/24/apache-iggy-top-level-project-tlp-graduation/",
+      "type": "sns",
+      "description": "HN Score: 22 pts, Comments: 6",
+      "viral_metric": "22 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_agentic_trust_controls",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Agentic Trust Controls",
+      "source_platform": "Hacker News",
+      "source_url": "https://trustcontrols.ai/",
+      "type": "sns",
+      "description": "HN Score: 6 pts, Comments: 0",
+      "viral_metric": "6 HN Points",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
       ],
       "status": "PENDING_REVIEW"
     },
@@ -826,6 +924,20 @@
       "type": "repo",
       "description": "Interactive AI Demo (SDK: gradio) | Likes: 131 | Live URL: https://huggingface.co/spaces/wank3r/Wan_2.2_I2V_14B-Clean",
       "viral_metric": "❤️ 131 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_wank3rwan2_2_i2v_v3_wow",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: wank3r/wan2-2-i2v-v3-WOW",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/wank3r/wan2-2-i2v-v3-WOW",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 59 | Live URL: https://huggingface.co/spaces/wank3r/wan2-2-i2v-v3-WOW",
+      "viral_metric": "❤️ 59 Likes (Trending Demo)",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
