@@ -48,6 +48,48 @@
     ],
     "history": [
       {
+        "timestamp": "2026-08-31T15:55:34.119218",
+        "date": "2026-08-31",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.12
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.08
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.8
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 5.1
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.29
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.08
+          }
+        },
+        "summary": {
+          "total_fetched": 0,
+          "new_saved": 0,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-08-31T15:48:59.661920",
         "date": "2026-08-31",
         "sources": {
@@ -254,38 +296,38 @@
       }
     ],
     "latest_run": {
-      "timestamp": "2026-08-31T15:48:59.661920",
+      "timestamp": "2026-08-31T15:55:34.119218",
       "date": "2026-08-31",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.06
+          "duration_sec": 0.12
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.02
+          "duration_sec": 0.08
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.55
+          "duration_sec": 0.8
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 2.6
+          "duration_sec": 5.1
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.27
+          "duration_sec": 0.29
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.04
+          "duration_sec": 0.08
         }
       },
       "summary": {
@@ -1502,7 +1544,7 @@
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PROMOTED"
     },
     {
       "inbox_id": "2026-08-31_repo_github_nateherkaiscroll_craft",
@@ -2154,8 +2196,8 @@
       }
     },
     {
-      "case_id": "2026-08-31_repo_github_mengtothreeui",
-      "title": "GitHub: MengTo/threeui",
+      "case_id": "2026-08-31_repo_github_s1dashuip_as_logo_skill",
+      "title": "GitHub: s1dashu/ip-as-logo-skill",
       "category": "AI 에이전트 및 자동화",
       "investigation_date": "2026-08-31",
       "verdict": "VERIFIED_TRUE",
@@ -2164,14 +2206,14 @@
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Autonomous Harvester Bot",
         "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
-        "target_workflow": "일반 최신 기술 (Tech General) 파이프라인 및 서비스 연계 검증"
+        "target_workflow": "DX & Python 업무 프로세스 자동화 파이프라인 및 서비스 연계 검증"
       },
       "clustering": {
         "cluster_id": "cluster_ai_agents",
         "cluster_name": "AI 에이전트 및 자동화 (AI Agents & Tool Use)",
         "alternatives": [
           {
-            "name": "threeui",
+            "name": "ip-as-logo-skill",
             "tech_stack": "GitHub Official",
             "pros": "최신 GitHub Official 실시간 데모 및 경량화 적용으로 접근성 우수",
             "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
@@ -2190,34 +2232,34 @@
         {
           "tier": "Tier 1",
           "type": "Official Repository / Demo",
-          "name": "GitHub: MengTo/threeui (GitHub Official)",
-          "url": "https://github.com/MengTo/threeui"
+          "name": "GitHub: s1dashu/ip-as-logo-skill (GitHub Official)",
+          "url": "https://github.com/s1dashu/ip-as-logo-skill"
         },
         {
           "tier": "Tier 2",
           "type": "Community Feedback",
           "name": "GitHub Official Trending Registry",
-          "url": "https://github.com/MengTo/threeui"
+          "url": "https://github.com/s1dashu/ip-as-logo-skill"
         }
       ],
       "community_reactions": [
         {
           "platform": "GitHub Official",
           "author_type": "AI Practitioner",
-          "quote": "★ 4712 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
-          "url": "https://github.com/MengTo/threeui"
+          "quote": "★ 4640 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
+          "url": "https://github.com/s1dashu/ip-as-logo-skill"
         }
       ],
       "portfolio_story": {
-        "the_hook": "GitHub Official에서 ★ 4712 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
+        "the_hook": "GitHub Official에서 ★ 4640 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
         "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
         "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
-        "future_applications": "사내 일반 최신 기술 (Tech General) 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
+        "future_applications": "사내 DX & Python 업무 프로세스 자동화 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
         "hands_on_log": {
           "status": "PENDING_RESEARCH",
-          "pipeline_or_url": "https://github.com/MengTo/threeui",
+          "pipeline_or_url": "https://github.com/s1dashu/ip-as-logo-skill",
           "test_environment": "Cloud Inference Sandbox",
-          "measured_results": "Trending Score: ★ 4712 Stars",
+          "measured_results": "Trending Score: ★ 4640 Stars",
           "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
         }
       }
