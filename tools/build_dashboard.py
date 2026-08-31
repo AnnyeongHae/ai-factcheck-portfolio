@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-Fact-Check & Universal Tech Lineage Knowledge Graph Hub (2026 SOTA Framework - v9.0)
-- 🕸️ Universal Cross-Domain Knowledge Graph with Dynamic Centrality Sizing (PageRank / Degree Scaling)
-- 🌐 Domain Filter Buttons (Inference, Vision, Agents, Scrapers, Voice, MoE)
+Fact-Check & Universal Tech Lineage Knowledge Graph Hub (2026 SOTA Framework - v10.0)
+- 🕸️ Multi-Entity Citation & Lineage Graph (Tech + 👤 Person + 🏛️ Org + 📄 Paper)
+- 🌟 Dynamic Degree Centrality & Mention Scaling
 - 💡 High-Visibility Connected Node & Edge Glow Highlight Interaction
+- 🌐 Domain & Entity Filter Buttons
 - 🌲 4-Generation Root Ancestry & Legacy Trade-off Visualizer
 - 🇰🇷 / 🇺🇸 i18n Language Switcher
 """
@@ -67,7 +68,7 @@ def load_graph_data():
                 graph = data.get("graph", {"nodes": [], "links": []})
                 domains = data.get("domains", [])
                 
-                # Dynamic Degree Centrality Calculation
+                # Recalculate dynamic Degree Centrality
                 degree_map = {}
                 for l in graph.get("links", []):
                     s = l.get("source")
@@ -78,8 +79,8 @@ def load_graph_data():
                 for n in graph.get("nodes", []):
                     deg = degree_map.get(n["id"], 1)
                     mentions = n.get("mentions", 20)
-                    # Node radius scale from 12px to 32px based on degree and mentions
-                    n["val"] = int(10 + (deg * 3.5) + (mentions * 0.25))
+                    base_r = 13 if n.get("type") in ["person", "org"] else 11
+                    n["val"] = int(base_r + (deg * 3.2) + (mentions * 0.22))
 
                 return { "domains": domains, "nodes": graph["nodes"], "links": graph["links"] }
         except Exception as e:
@@ -161,7 +162,7 @@ def build_dashboard():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    print(f"[+] Successfully built dashboard v9.0 (Universal Knowledge Graph) at:")
+    print(f"[+] Successfully built dashboard v10.0 (Citation & Author Graph) at:")
     print(f"    - dashboard/index.html (Verified: {total_cases}, Inbox: {len(inbox_items)}, Nodes: {len(graph_data['nodes'])})")
     print(f"    - docs/index.html (GitHub Pages hosting)")
 
@@ -176,7 +177,7 @@ def generate_html(data):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Universal AI & Tech Fact-Check Hub & Lineage Graph</title>
+  <title>Universal AI Citation & Tech Lineage Knowledge Hub</title>
   <!-- Tailwind CSS & Lucide Icons & D3.js -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -216,9 +217,9 @@ def generate_html(data):
     .badge-pending {{ background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3); }}
     
     /* Force Graph Highlighting */
-    .node-dimmed {{ opacity: 0.15 !important; }}
-    .link-dimmed {{ opacity: 0.05 !important; }}
-    .node-highlighted {{ stroke: #ffffff !important; stroke-width: 3.5px !important; opacity: 1 !important; filter: drop-shadow(0 0 10px rgba(99,102,241,0.8)); }}
+    .node-dimmed {{ opacity: 0.12 !important; }}
+    .link-dimmed {{ opacity: 0.04 !important; }}
+    .node-highlighted {{ stroke: #ffffff !important; stroke-width: 3.5px !important; opacity: 1 !important; filter: drop-shadow(0 0 12px rgba(99,102,241,0.9)); }}
     .link-highlighted {{ stroke: #6366f1 !important; stroke-width: 3px !important; opacity: 1 !important; }}
   </style>
 </head>
@@ -233,10 +234,10 @@ def generate_html(data):
         </div>
         <div>
           <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
-            Universal AI Fact-Check & Graph
-            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v9.0</span>
+            AI Citation & Lineage Graph
+            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v10.0</span>
           </h1>
-          <p class="text-xs text-slate-400" id="i18nSubtitle">유니버설 기술 계보망 • 인박스 승인 큐 • 실증 포트폴리오</p>
+          <p class="text-xs text-slate-400" id="i18nSubtitle">인물 • 연구소 • 논문 인용 계보망 • 인박스 승인 큐</p>
         </div>
       </div>
 
@@ -257,7 +258,7 @@ def generate_html(data):
           </button>
           <button onclick="switchView('graph')" id="tabGraphBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
             <i data-lucide="network" class="w-4 h-4 text-emerald-400"></i>
-            <span id="i18nTabGraph">🕸️ 유니버설 계보 그래프</span>
+            <span id="i18nTabGraph">🕸️ 인용 및 인물 계보망</span>
           </button>
           <button onclick="switchView('inbox')" id="tabInboxBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
             <i data-lucide="inbox" class="w-4 h-4 text-amber-400"></i>
@@ -346,47 +347,45 @@ def generate_html(data):
       <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
 
-    <!-- ==================== VIEW 2: UNIVERSAL OBSIDIAN GRAPH VIEW ==================== -->
+    <!-- ==================== VIEW 2: MULTI-ENTITY CITATION & LINEAGE GRAPH VIEW ==================== -->
     <div id="graphView" class="hidden space-y-6">
       <div class="glass p-6 rounded-2xl space-y-4">
         <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
           <div>
             <div class="flex items-center gap-2 flex-wrap">
-              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
-                🕸️ Universal Cross-Domain Knowledge Graph
+              <span class="px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold border border-indigo-500/30">
+                🕸️ Multi-Entity Citation & Lineage Network
               </span>
-              <span class="text-xs text-slate-400">언급량 & 중심성(Centrality) 기반 동적 노드 스케일링</span>
+              <span class="text-xs text-slate-400">기술 • 👤 연구자 • 🏛️ 연구소 • 📄 1차 논문 인용망</span>
             </div>
-            <h2 class="text-xl font-bold text-white mt-1">AI & 전산학 핵심 척추 기술의 유니버설 상관관계 지도</h2>
+            <h2 class="text-xl font-bold text-white mt-1">인물과 논문 인용 계보를 통한 기술 탄생의 뿌리 지도</h2>
             <p class="text-xs text-slate-300">
-              노드를 마우스로 당겨보거나 호버하면 <strong>연결된 모든 선조/후손 기술들이 광선으로 동시 하이라이트</strong>됩니다.
+              노드를 호버하면 <strong>[연구자 ➔ 소속 연구소 ➔ 발표 논문 ➔ 탄생한 SOTA 기술]</strong>이 광선으로 유기적으로 하이라이트됩니다.
             </p>
           </div>
 
-          <!-- Domain Filter Buttons -->
+          <!-- Entity Type & Domain Filter Buttons -->
           <div class="flex flex-wrap items-center gap-1.5 bg-slate-900/90 p-1.5 rounded-xl border border-slate-800 text-xs">
-            <button onclick="filterGraphDomain('ALL')" class="graph-dom-btn active px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-medium transition" data-dom="ALL">전체 도메인</button>
-            <button onclick="filterGraphDomain('inference_serving')" class="graph-dom-btn px-2.5 py-1 rounded-lg text-cyan-400 hover:bg-slate-800 transition" data-dom="inference_serving">⚡ LLM 서빙</button>
-            <button onclick="filterGraphDomain('vision_diffusion')" class="graph-dom-btn px-2.5 py-1 rounded-lg text-pink-400 hover:bg-slate-800 transition" data-dom="vision_diffusion">🎨 비전/비디오</button>
-            <button onclick="filterGraphDomain('agent_lineage')" class="graph-dom-btn px-2.5 py-1 rounded-lg text-purple-400 hover:bg-slate-800 transition" data-dom="agent_lineage">🤖 에이전트</button>
-            <button onclick="filterGraphDomain('web_scraping')" class="graph-dom-btn px-2.5 py-1 rounded-lg text-emerald-400 hover:bg-slate-800 transition" data-dom="web_scraping">🌐 데이터 인제스천</button>
-            <button onclick="filterGraphDomain('voice_tts')" class="graph-dom-btn px-2.5 py-1 rounded-lg text-amber-400 hover:bg-slate-800 transition" data-dom="voice_tts">🎙️ 음성</button>
-            <button onclick="filterGraphDomain('reasoning_moe')" class="graph-dom-btn px-2.5 py-1 rounded-lg text-indigo-400 hover:bg-slate-800 transition" data-dom="reasoning_moe">🧠 MoE 추론</button>
+            <button onclick="filterGraphType('ALL')" class="graph-type-btn active px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-medium transition" data-type="ALL">전체 엔티티</button>
+            <button onclick="filterGraphType('person')" class="graph-type-btn px-2.5 py-1 rounded-lg text-amber-400 hover:bg-slate-800 transition" data-type="person">👤 핵심 연구자</button>
+            <button onclick="filterGraphType('org')" class="graph-type-btn px-2.5 py-1 rounded-lg text-yellow-400 hover:bg-slate-800 transition" data-type="org">🏛️ 연구소/기업</button>
+            <button onclick="filterGraphType('paper')" class="graph-type-btn px-2.5 py-1 rounded-lg text-emerald-400 hover:bg-slate-800 transition" data-type="paper">📄 1차 논문</button>
+            <button onclick="filterGraphType('tech')" class="graph-type-btn px-2.5 py-1 rounded-lg text-cyan-400 hover:bg-slate-800 transition" data-type="tech">⚡ 소프트웨어/기술</button>
           </div>
         </div>
 
         <!-- Graph Canvas Container -->
-        <div class="relative w-full h-[700px] bg-slate-950/95 rounded-xl border border-slate-800 overflow-hidden shadow-2xl flex items-center justify-center">
+        <div class="relative w-full h-[720px] bg-slate-950/95 rounded-xl border border-slate-800 overflow-hidden shadow-2xl flex items-center justify-center">
           <svg id="techGraphSvg" class="w-full h-full cursor-grab active:cursor-grabbing"></svg>
           
           <!-- Dynamic Floating Tooltip Card -->
           <div id="graphTooltip" class="absolute bottom-5 left-5 p-4 rounded-xl glass border border-slate-700 text-xs max-w-sm hidden shadow-2xl transition space-y-1.5 pointer-events-none z-20">
             <div class="flex items-center justify-between gap-2">
               <span id="tooltipLabel" class="font-bold text-sm text-white"></span>
-              <span id="tooltipGen" class="px-2 py-0.5 rounded text-[10px] font-bold"></span>
+              <span id="tooltipTypeBadge" class="px-2 py-0.5 rounded text-[10px] font-bold"></span>
             </div>
             <div class="text-[11px] text-slate-400">
-              도메인: <span id="tooltipDomain" class="font-semibold text-indigo-300"></span> | 중심성 가중치: <span id="tooltipVal" class="font-mono text-emerald-400"></span>
+              엔티티 분류: <span id="tooltipType" class="font-semibold text-indigo-300 uppercase"></span> | 인용 중심성: <span id="tooltipVal" class="font-mono text-emerald-400"></span>
             </div>
             <p id="tooltipDesc" class="text-slate-300 text-[11px] leading-relaxed pt-1 border-t border-slate-800"></p>
           </div>
@@ -611,10 +610,20 @@ def generate_html(data):
 
     let currentInboxSource = 'ALL';
     let inboxSearchQuery = '';
-    let currentGraphDomain = 'ALL';
+    let currentGraphType = 'ALL';
     let graphInitialized = false;
 
     let svgSelection, nodeSelection, linkSelection, textSelection, simulationRef;
+
+    const entityColorMap = {{
+      'person': '#f59e0b', // Amber/Orange
+      'org': '#eab308',    // Gold/Yellow
+      'paper': '#10b981',  // Emerald Green
+      'root': '#a855f7',   // Purple
+      'ancestor': '#3b82f6', // Blue
+      'pioneer': '#f97316', // Orange
+      'sota': '#06b6d4'    // Cyan SOTA
+    }};
 
     const domainColorMap = {{
       'inference_serving': '#06b6d4',
@@ -622,14 +631,17 @@ def generate_html(data):
       'agent_lineage': '#8b5cf6',
       'web_scraping': '#10b981',
       'voice_tts': '#f59e0b',
-      'reasoning_moe': '#6366f1'
+      'reasoning_moe': '#6366f1',
+      'person': '#f59e0b',
+      'org': '#eab308',
+      'paper': '#10b981'
     }};
 
     const i18nDict = {{
       KO: {{
-        subtitle: '유니버설 기술 계보망 • 인박스 승인 큐 • 실증 포트폴리오',
+        subtitle: '인물 • 연구소 • 논문 인용 계보망 • 인박스 승인 큐',
         tabPortfolio: '🏆 공식 포트폴리오',
-        tabGraph: '🕸️ 유니버설 계보 그래프',
+        tabGraph: '🕸️ 인용 및 인물 계보망',
         tabInbox: '📥 수집 인박스 큐',
         btnAdmin: '⚙️ 수집 관리자',
         heroTitle: '"소문난 AI 기술, 진짜 작동하고 경제성이 있을까?"',
@@ -655,9 +667,9 @@ def generate_html(data):
         btnCopyCmd: '📋 CLI 명령 복사'
       }},
       EN: {{
-        subtitle: 'Universal Tech Lineage Knowledge Graph • Inbox Triage Queue • Verified Portfolio',
+        subtitle: 'Multi-Entity Citation & Lineage Graph • Inbox Triage Queue • Verified Portfolio',
         tabPortfolio: '🏆 Verified Portfolio',
-        tabGraph: '🕸️ Universal Lineage Graph',
+        tabGraph: '🕸️ Citation Lineage Graph',
         tabInbox: '📥 Inbox Triage Queue',
         btnAdmin: '⚙️ Harvester Admin',
         heroTitle: '"Viral AI & Tech Claims: Do They Actually Work & Make Economic Sense?"',
@@ -753,7 +765,7 @@ def generate_html(data):
         gView.classList.remove('hidden');
         gBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 text-white transition shadow-sm';
         if (!graphInitialized) {{
-          initUniversalGraph();
+          initCitationGraph();
           graphInitialized = true;
         }}
       }} else {{
@@ -764,28 +776,28 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    function initUniversalGraph() {{
+    function initCitationGraph() {{
       const svg = d3.select("#techGraphSvg");
       const container = document.getElementById("graphView");
       const width = container.clientWidth || 1100;
-      const height = 700;
+      const height = 720;
       svg.attr("viewBox", [-width / 2, -height / 2, width, height]);
 
       const g = svg.append("g");
 
-      svg.call(d3.zoom().scaleExtent([0.25, 3.5]).on("zoom", (e) => g.attr("transform", e.transform)));
+      svg.call(d3.zoom().scaleExtent([0.2, 4.0]).on("zoom", (e) => g.attr("transform", e.transform)));
 
       simulationRef = d3.forceSimulation(graphData.nodes)
-        .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(110))
-        .force("charge", d3.forceManyBody().strength(-400))
+        .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(100))
+        .force("charge", d3.forceManyBody().strength(-380))
         .force("center", d3.forceCenter(0, 0))
-        .force("collision", d3.forceCollide().radius(d => (d.val || 16) + 12));
+        .force("collision", d3.forceCollide().radius(d => (d.val || 15) + 14));
 
       linkSelection = g.append("g")
         .selectAll("line")
         .data(graphData.links)
         .join("line")
-        .attr("stroke", "rgba(255, 255, 255, 0.18)")
+        .attr("stroke", "rgba(255, 255, 255, 0.2)")
         .attr("stroke-width", 1.5);
 
       const nodeGroup = g.append("g")
@@ -797,17 +809,25 @@ def generate_html(data):
           .on("drag", dragged)
           .on("end", dragended));
 
+      // Node color by Entity Type or Domain
+      function getNodeColor(d) {{
+        if (d.type === "person") return "#f59e0b"; // Orange
+        if (d.type === "org") return "#eab308";    // Yellow Gold
+        if (d.type === "paper") return "#10b981";  // Emerald Green
+        return domainColorMap[d.group] || "#6366f1";
+      }}
+
       nodeSelection = nodeGroup.append("circle")
         .attr("r", d => d.val || 16)
-        .attr("fill", d => domainColorMap[d.group] || "#6366f1")
+        .attr("fill", d => getNodeColor(d))
         .attr("stroke", "#ffffff")
-        .attr("stroke-width", d => d.type === "sota" ? 2.5 : 1)
-        .attr("opacity", 0.9)
+        .attr("stroke-width", d => (d.type === "person" || d.type === "org") ? 2.5 : 1)
+        .attr("opacity", 0.92)
         .attr("cursor", "pointer")
-        .on("mouseover", (event, d) => highlightConnected(d))
+        .on("mouseover", (event, d) => highlightCitationFlow(d))
         .on("mouseout", () => resetHighlight())
         .on("click", (event, d) => {{
-          const matchedCase = casesData.find(c => c.case_id.toLowerCase().includes(d.id.replace('_', '')) || (c.clustering && c.clustering.cluster_id.includes(d.group)));
+          const matchedCase = casesData.find(c => c.case_id.toLowerCase().includes(d.id.replace('p_', '').replace('org_', '').replace('_', '')) || (c.clustering && c.clustering.cluster_id.includes(d.group)));
           if (matchedCase) {{
             openModal(matchedCase);
           }}
@@ -818,9 +838,9 @@ def generate_html(data):
         .attr("x", 0)
         .attr("y", d => (d.val || 16) + 12)
         .attr("text-anchor", "middle")
-        .attr("fill", "#e2e8f0")
-        .attr("font-size", d => (d.val > 24 ? "12px" : "10px"))
-        .attr("font-weight", "600")
+        .attr("fill", "#f1f5f9")
+        .attr("font-size", d => (d.type === "person" || d.type === "org" ? "11px" : (d.val > 24 ? "11px" : "9.5px")))
+        .attr("font-weight", d => (d.type === "person" || d.type === "org" ? "700" : "600"))
         .attr("pointer-events", "none");
 
       simulationRef.on("tick", () => {{
@@ -852,7 +872,7 @@ def generate_html(data):
       }}
     }}
 
-    function highlightConnected(selectedNode) {{
+    function highlightCitationFlow(selectedNode) {{
       const connectedNodeIds = new Set();
       connectedNodeIds.add(selectedNode.id);
 
@@ -880,12 +900,10 @@ def generate_html(data):
       // Show floating tooltip
       const tt = document.getElementById("graphTooltip");
       document.getElementById("tooltipLabel").innerText = selectedNode.label;
-      document.getElementById("tooltipGen").innerText = selectedNode.gen;
-      document.getElementById("tooltipGen").style.backgroundColor = (domainColorMap[selectedNode.group] || "#6366f1") + "33";
-      document.getElementById("tooltipGen").style.color = domainColorMap[selectedNode.group] || "#6366f1";
-      document.getElementById("tooltipDomain").innerText = selectedNode.group;
-      document.getElementById("tooltipVal").innerText = selectedNode.val + ' pt (Ranked)';
-      document.getElementById("tooltipDesc").innerText = selectedNode.desc || "기술 세부 설명";
+      document.getElementById("tooltipTypeBadge").innerText = (selectedNode.type || 'tech').toUpperCase();
+      document.getElementById("tooltipType").innerText = selectedNode.type || 'tech';
+      document.getElementById("tooltipVal").innerText = selectedNode.val + ' pt';
+      document.getElementById("tooltipDesc").innerText = selectedNode.desc || "인물/논문/기술 상세 계보 설명";
       tt.classList.remove("hidden");
     }}
 
@@ -901,20 +919,28 @@ def generate_html(data):
       document.getElementById("graphTooltip").classList.add("hidden");
     }}
 
-    function filterGraphDomain(dom) {{
-      currentGraphDomain = dom;
-      document.querySelectorAll('.graph-dom-btn').forEach(btn => {{
-        if (btn.dataset.dom === dom) {{
+    function filterGraphType(entityType) {{
+      currentGraphType = entityType;
+      document.querySelectorAll('.graph-type-btn').forEach(btn => {{
+        if (btn.dataset.type === entityType) {{
           btn.classList.add('bg-indigo-600', 'text-white');
-          btn.classList.remove('text-cyan-400', 'text-pink-400', 'text-purple-400', 'text-emerald-400', 'text-amber-400', 'text-indigo-400');
+          btn.classList.remove('text-amber-400', 'text-yellow-400', 'text-emerald-400', 'text-cyan-400');
         }} else {{
           btn.classList.remove('bg-indigo-600', 'text-white');
         }}
       }});
 
       if (nodeSelection) {{
-        nodeSelection.attr("opacity", d => (dom === 'ALL' || d.group === dom) ? 0.95 : 0.1);
-        textSelection.attr("opacity", d => (dom === 'ALL' || d.group === dom) ? 1 : 0.15);
+        nodeSelection.attr("opacity", d => {{
+          if (entityType === 'ALL') return 0.95;
+          if (entityType === 'tech') return (d.type !== 'person' && d.type !== 'org' && d.type !== 'paper') ? 0.95 : 0.1;
+          return d.type === entityType ? 0.95 : 0.1;
+        }});
+        textSelection.attr("opacity", d => {{
+          if (entityType === 'ALL') return 1;
+          if (entityType === 'tech') return (d.type !== 'person' && d.type !== 'org' && d.type !== 'paper') ? 1 : 0.15;
+          return d.type === entityType ? 1 : 0.15;
+        }});
       }}
     }}
 
