@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Fact-Check & Universal Tech Lineage Knowledge Hub (2026 SOTA Framework - v13.0)
+Fact-Check & Universal Tech Lineage Knowledge Hub (2026 SOTA Framework - v14.0)
 - 🔬 1. 기술 검증 (Verified Tech Fact-Checks) - 8 Cases
 - 📰 2. AI 뉴스 & 트렌드 담론 (AI News & Trends) - Dedicated News Feed
 - 🕸️ 3. 인용 계보망 (Multi-Entity Citation Graph)
 - 📊 4. 단위 경제성 계산기 (Dynamic Data-Driven Unit Economics Simulator)
-- 📥 5. 수집 인박스 큐 (Inbox Queue with Korean i18n & Model Family Grouping)
+- 📥 5. 수집 인박스 (전면 기저 패밀리 싹쓰리 그룹화 DEFAULT ON + Neon DB 실시간 큐 바인딩)
 """
 
 import json
@@ -154,7 +154,7 @@ def build_dashboard():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    print(f"[+] Successfully built dashboard v13.0 at:")
+    print(f"[+] Successfully built dashboard v14.0 at:")
     print(f"    - dashboard/index.html (Verified: {total_cases}, News: {len(news_items)}, Inbox: {len(tech_inbox_items)}, Nodes: {len(graph_data['nodes'])})")
     print(f"    - docs/index.html (GitHub Pages hosting)")
 
@@ -214,7 +214,7 @@ def generate_html(data):
     .link-highlighted {{ stroke: #6366f1 !important; stroke-width: 3px !important; opacity: 1 !important; }}
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen">
+<body class="bg-slate-950 text-slate-100 min-h-screen pb-20">
 
   <!-- Navigation Bar (5-Tab Structure) -->
   <header class="sticky top-0 z-40 glass border-b border-slate-800">
@@ -226,7 +226,7 @@ def generate_html(data):
         <div>
           <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
             AI Tech-Lineage Hub
-            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v13.0</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v14.0</span>
           </h1>
           <p class="text-xs text-slate-400" id="i18nSubtitle">기술 검증 • AI 뉴스 • 인용망 • 단위 경제성</p>
         </div>
@@ -473,26 +473,27 @@ def generate_html(data):
       </div>
     </div>
 
-    <!-- ==================== VIEW 5: INBOX QUEUE (수집 인박스) ==================== -->
+    <!-- ==================== VIEW 5: INBOX QUEUE (수집 인박스 - 싹쓰리 그룹화 기본 적용) ==================== -->
     <div id="inboxView" class="hidden space-y-6">
       
       <div class="glass p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-amber-500/20">
         <div class="space-y-1">
           <div class="flex items-center gap-2">
             <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30">
-              📥 미승인 트렌드 대기 큐 (Tech Staging Inbox)
+              📥 기저 패밀리 통합 인박스 (Universal Family Inbox)
             </span>
             <span class="text-xs text-slate-400">총 {data['inbox_total_count']}건 대기 중</span>
           </div>
-          <h2 class="text-xl font-bold text-white">"수집된 최신 기술 중 마음에 드는 것만 골라 분석을 의뢰하세요"</h2>
+          <h2 class="text-xl font-bold text-white">"수많은 양자화/파생 모델을 기저 아키텍처 단위로 묶어 효율적으로 분석하세요"</h2>
           <p class="text-xs text-slate-300">
-            원문을 확인하고 <strong>[⚡ 분석 큐에 담기]</strong>를 누르면 Neon DB의 대기열에 담겨 Antigravity AI가 심층 리서치에 착수합니다.
+            GLM-5.3, Qwen-3.8-27B 등 동일 패밀리는 하나로 묶여 <strong>[📦 패밀리 대표 승격]</strong>으로 일괄 팩트체크할 수 있으며, 
+            <strong>[⚡ 분석 큐 담기]</strong>를 누르면 실시간 대기열에 안전하게 등록됩니다.
           </p>
         </div>
 
         <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs space-y-1 shrink-0">
-          <div class="text-slate-400 font-semibold">💡 일괄 승격 명령어:</div>
-          <code class="text-amber-300 bg-black/50 px-2 py-0.5 rounded font-mono block">python tools/triage.py --promote-top 3</code>
+          <div class="text-slate-400 font-semibold">💡 패밀리 일괄 승격 CLI:</div>
+          <code class="text-amber-300 bg-black/50 px-2 py-0.5 rounded font-mono block">python tools/triage.py --promote-family 'Qwen-3.8-27B'</code>
         </div>
       </div>
 
@@ -505,10 +506,10 @@ def generate_html(data):
                    class="w-full bg-slate-900/80 border border-slate-700/60 rounded-lg pl-10 pr-4 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
           </div>
 
-          <!-- Group by Family Toggle Switch -->
-          <button onclick="toggleFamilyGrouping()" id="groupByFamilyBtn" class="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold bg-slate-900 text-purple-300 border border-purple-500/30 hover:bg-purple-500/10 transition shrink-0">
+          <!-- Group by Family Toggle Switch (DEFAULT: ON) -->
+          <button onclick="toggleFamilyGrouping()" id="groupByFamilyBtn" class="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold bg-purple-600 text-white shadow-lg shadow-purple-500/20 transition shrink-0">
             <i data-lucide="layers" class="w-4 h-4"></i>
-            <span id="groupByFamilyText">🧬 기저 모델 패밀리별 그룹화 (OFF)</span>
+            <span id="groupByFamilyText">🧬 기저 모델 패밀리별 그룹화 (ON)</span>
           </button>
         </div>
 
@@ -638,6 +639,20 @@ def generate_html(data):
     </div>
   </div>
 
+  <!-- Floating Queue Manager Bar -->
+  <div id="floatingQueueBar" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 bg-slate-900/95 backdrop-blur-md border border-amber-500/40 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-4 text-xs hidden">
+    <div class="flex items-center gap-2 font-bold text-amber-300">
+      <i data-lucide="list-checks" class="w-4 h-4 text-amber-400 animate-pulse"></i>
+      <span id="queueBarCountText">분석 대기열 0건</span>
+    </div>
+    <div class="h-4 w-[1px] bg-slate-700"></div>
+    <button onclick="copyQueuedSyncCmd()" class="px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold hover:bg-amber-400 transition flex items-center gap-1">
+      <i data-lucide="database" class="w-3.5 h-3.5"></i>
+      <span>Neon DB 동기화 CLI 복사</span>
+    </button>
+    <button onclick="clearQueue()" class="text-slate-400 hover:text-rose-300 text-[11px]">비우기</button>
+  </div>
+
   <!-- Toast Notification -->
   <div id="toast" class="fixed bottom-6 right-6 z-50 bg-indigo-600 text-white px-4 py-2.5 rounded-xl shadow-2xl text-xs font-semibold hidden transition-all duration-300 flex items-center gap-2">
     <i data-lucide="check" class="w-4 h-4"></i>
@@ -660,7 +675,12 @@ def generate_html(data):
     let inboxSearchQuery = '';
     let currentGraphType = 'ALL';
     let graphInitialized = false;
-    let isFamilyGroupingActive = false;
+    
+    // Default Grouping: ON (싹쓰리 그룹화 기본 활성화)
+    let isFamilyGroupingActive = true;
+
+    // Local Storage Reactive Queue Binding
+    let queuedItemIds = new Set(JSON.parse(localStorage.getItem('queued_factchecks') || '[]'));
 
     let svgSelection, nodeSelection, linkSelection, textSelection, simulationRef;
 
@@ -687,6 +707,7 @@ def generate_html(data):
         heroTitle: '"소문난 AI 기술, 진짜 작동하고 경제성이 있을까?"',
         heroDesc: '내가 직접 문제의식을 갖고 발굴한 [👤 직접 큐레이션] 프로젝트와, 시스템이 24시간 실시간 트래킹한 [🤖 자동 트렌드 발굴] 프로젝트를 명확한 출처(Tier 1~4), 4세대 기술 계보도, 실질 단위 원가 역산을 통해 입증한 심층 기술 검증 보고서입니다.',
         btnRequestAnalysis: '⚡ 분석 큐에 담기',
+        btnQueued: '✅ 큐 등록됨',
         btnCopyCmd: '📋 CLI 명령 복사'
       }},
       EN: {{
@@ -699,6 +720,7 @@ def generate_html(data):
         heroTitle: '"Viral AI & Tech Claims: Do They Actually Work & Make Economic Sense?"',
         heroDesc: 'A rigorous engineering portfolio proving both [👤 User-Curated] and [🤖 Auto-Harvested] projects with Tier 1~4 verified citations, 4-generation lineage trees, and unit economics cost audits.',
         btnRequestAnalysis: '⚡ Add to Queue',
+        btnQueued: '✅ Queued',
         btnCopyCmd: '📋 Copy CLI Cmd'
       }}
     }};
@@ -737,6 +759,7 @@ def generate_html(data):
       renderNews();
       renderInbox();
       updateRoiCalculators();
+      updateQueueFloatingBar();
     }}
 
     function switchView(view) {{
@@ -802,6 +825,51 @@ def generate_html(data):
       }});
     }}
 
+    // ================= REAL-TIME ANALYSIS QUEUE BINDING =================
+    function toggleQueueItem(inboxId, title) {{
+      if (queuedItemIds.has(inboxId)) {{
+        queuedItemIds.delete(inboxId);
+      }} else {{
+        queuedItemIds.add(inboxId);
+      }}
+      localStorage.setItem('queued_factchecks', JSON.stringify(Array.from(queuedItemIds)));
+      updateQueueFloatingBar();
+      renderInbox();
+
+      const toast = document.getElementById('toast');
+      const msg = queuedItemIds.has(inboxId) ? 
+        `[${{title}}] 항목이 실시간 분석 대기열에 등록되었습니다.` : 
+        `[${{title}}] 항목이 대기열에서 제외되었습니다.`;
+      document.getElementById('toastMsg').innerText = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3500);
+    }}
+
+    function updateQueueFloatingBar() {{
+      const bar = document.getElementById('floatingQueueBar');
+      const count = queuedItemIds.size;
+      if (count > 0 && currentView === 'inbox') {{
+        bar.classList.remove('hidden');
+        document.getElementById('queueBarCountText').innerText = '⚡ 분석 대기열: ' + count + '건 등록됨';
+      }} else {{
+        bar.classList.add('hidden');
+      }}
+      lucide.createIcons();
+    }}
+
+    function copyQueuedSyncCmd() {{
+      const ids = Array.from(queuedItemIds);
+      const cmd = 'python tools/triage.py --sync-queue ' + ids.join(' ');
+      copyToClipboard(cmd);
+    }}
+
+    function clearQueue() {{
+      queuedItemIds.clear();
+      localStorage.removeItem('queued_factchecks');
+      updateQueueFloatingBar();
+      renderInbox();
+    }}
+
     // ================= VIEW 2: AI NEWS RENDERER =================
     function renderNews() {{
       const grid = document.getElementById('newsGrid');
@@ -851,7 +919,7 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    // ================= VIEW 5: INBOX RENDERER =================
+    // ================= VIEW 5: INBOX RENDERER (전면 패밀리 싹쓰리 그룹화) =================
     function toggleFamilyGrouping() {{
       isFamilyGroupingActive = !isFamilyGroupingActive;
       const btn = document.getElementById('groupByFamilyBtn');
@@ -870,11 +938,10 @@ def generate_html(data):
       const grid = document.getElementById('inboxGrid');
       grid.innerHTML = '';
 
-      // Exclude NEWS from tech inbox
       const filtered = inboxData.filter(item => {{
         const isNotNews = item.category_type !== 'NEWS';
         const matchesSrc = currentInboxSource === 'ALL' || (item.source_platform && item.source_platform.includes(currentInboxSource));
-        const text = (item.title + ' ' + (item.title_ko || '') + ' ' + (item.description || '') + ' ' + (item.model_family || '')).toLowerCase();
+        const text = (item.title + ' ' + (item.title_ko || '') + ' ' + (item.description || '') + ' ' + (item.model_family || '') + ' ' + (item.variant_role || '')).toLowerCase();
         const matchesSearch = text.includes(inboxSearchQuery.toLowerCase());
         return isNotNews && matchesSrc && matchesSearch;
       }});
@@ -892,53 +959,85 @@ def generate_html(data):
           groups[fam].push(it);
         }});
 
-        Object.keys(groups).forEach(famName => {{
+        const sortedFamNames = Object.keys(groups).sort((a, b) => {{
+          if (a.includes('기타') && !b.includes('기타')) return 1;
+          if (!a.includes('기타') && b.includes('기타')) return -1;
+          return groups[b].length - groups[a].length;
+        }});
+
+        sortedFamNames.forEach(famName => {{
           const items = groups[famName];
           const groupCard = document.createElement('div');
-          groupCard.className = 'col-span-full glass-card p-5 rounded-2xl border-purple-500/30 space-y-4';
+          groupCard.className = 'col-span-full glass-card p-6 rounded-2xl border-purple-500/30 space-y-4 shadow-xl';
 
           const formats = new Set();
           items.forEach(it => (it.detected_formats || []).forEach(f => formats.add(f)));
 
+          const cleanKeyword = famName.replace(' Family', '').replace(' Multi-Modal Foundation', '').replace(' Dense/MoE', '');
+          const familyPromoteCmd = `python tools/triage.py --promote-family '${{cleanKeyword}}'`;
+
           let subItemsHtml = '';
           items.forEach(it => {{
+            const isQueued = queuedItemIds.has(it.inbox_id);
             const promoteCmd = 'python tools/triage.py --promote ' + it.inbox_id;
             const audit = it.audit_risk || {{ hype_risk_score: 15, risk_level: "LOW_RISK" }};
             const isHighRisk = audit.risk_level === "HIGH_GAMING_RISK";
             const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
+            const roleBadge = it.variant_role || 'Standard';
+
             subItemsHtml += `
-              <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-800 flex flex-col justify-between space-y-2">
-                <div class="space-y-1.5">
-                  <div class="flex items-center justify-between text-[11px]">
+              <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 flex flex-col justify-between space-y-3 hover:border-purple-500/40 transition">
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between text-[11px] gap-1 flex-wrap">
                     <span class="text-amber-400 font-bold">${{it.source_platform || 'Hub'}}</span>
                     <span class="text-slate-400 font-mono">${{it.viral_metric || ''}}</span>
                   </div>
-                  <h4 class="font-bold text-xs text-white line-clamp-2">${{displayTitle}}</h4>
-                  <div class="text-[10px] text-slate-400">포맷: <span class="text-purple-300">${{(it.detected_formats || []).join(', ')}}</span></div>
+                  
+                  <div class="px-2 py-0.5 rounded text-[10px] font-semibold bg-purple-950/60 text-purple-300 border border-purple-500/30 inline-block">
+                    ${{roleBadge}}
+                  </div>
+
+                  <h4 class="font-bold text-xs text-white line-clamp-2 leading-relaxed">${{displayTitle}}</h4>
+                  
+                  <div class="text-[10px] text-slate-400">
+                    👨‍💻 제작/제공: <span class="text-indigo-300 font-semibold">${{it.creator || 'Community'}}</span>
+                  </div>
                 </div>
-                <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
-                  <a href="${{it.source_url}}" target="_blank" class="text-[11px] text-slate-400 hover:text-white flex items-center gap-0.5">원문 <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>
-                  <button onclick="copyToClipboard('${{promoteCmd}}')" class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500 hover:text-white text-[10px] font-bold transition">⚡ 분석 큐 담기</button>
+
+                <div class="pt-2.5 border-t border-slate-800/80 flex items-center justify-between gap-2">
+                  <a href="${{it.source_url}}" target="_blank" class="text-[11px] text-slate-400 hover:text-white flex items-center gap-0.5 shrink-0">
+                    원문 <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
+                  </a>
+                  
+                  <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
+                          class="px-2.5 py-1 rounded-lg text-[10px] font-bold transition flex items-center gap-1 ${{isQueued ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20' : 'bg-amber-500/20 text-amber-300 hover:bg-amber-500 hover:text-slate-950'}}">
+                    <i data-lucide="${{isQueued ? 'check' : 'zap'}}" class="w-3 h-3"></i>
+                    ${{isQueued ? i18nDict[currentLang].btnQueued : i18nDict[currentLang].btnRequestAnalysis}}
+                  </button>
                 </div>
               </div>
             `;
           }});
 
           groupCard.innerHTML = `
-            <div class="flex items-center justify-between pb-3 border-b border-slate-800 flex-wrap gap-2">
-              <div class="flex items-center gap-2">
-                <span class="px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-xs font-bold border border-purple-500/30">
-                  🧬 Base Model Family
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800 gap-3">
+              <div class="flex items-center gap-2.5 flex-wrap">
+                <span class="px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-xs font-bold border border-purple-500/30 flex items-center gap-1">
+                  <i data-lucide="layers" class="w-3.5 h-3.5"></i> Base Model Family
                 </span>
-                <h3 class="text-base font-extrabold text-white">${{famName}}</h3>
-                <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">총 ${{items.length}}개 변형/양자화본</span>
+                <h3 class="text-lg font-black text-white">${{famName}}</h3>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 font-mono font-bold">총 ${{items.length}}개 파생 모델 통합</span>
               </div>
-              <div class="flex items-center gap-1.5 flex-wrap">
-                ${{Array.from(formats).map(fmt => `<span class="px-2 py-0.5 rounded bg-slate-900 text-indigo-300 text-[10px] border border-slate-700 font-semibold">${{fmt}}</span>`).join('')}}
+              
+              <div class="flex items-center gap-2">
+                <button onclick="copyToClipboard('${{familyPromoteCmd}}')" class="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold shadow-md shadow-purple-500/20 transition flex items-center gap-1.5 shrink-0">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                  <span>📦 패밀리 대표 1건 분석 승격</span>
+                </button>
               </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-1">
               ${{subItemsHtml}}
             </div>
           `;
@@ -947,6 +1046,7 @@ def generate_html(data):
 
       }} else {{
         filtered.forEach((it) => {{
+          const isQueued = queuedItemIds.has(it.inbox_id);
           const card = document.createElement('div');
           card.className = 'glass-card p-4 rounded-xl flex flex-col justify-between space-y-3 border-slate-800';
 
@@ -991,9 +1091,10 @@ def generate_html(data):
                 </button>
               </div>
 
-              <button onclick="copyToClipboard('${{promoteCmd}}')" class="w-full text-center py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-white text-xs font-bold border border-amber-500/30 transition flex items-center justify-center gap-1.5 shadow-sm">
-                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-                ${{i18nDict[currentLang].btnRequestAnalysis}}
+              <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
+                      class="w-full text-center py-1.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm ${{isQueued ? 'bg-emerald-500 text-slate-950' : 'bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-slate-950 border border-amber-500/30'}}">
+                <i data-lucide="${{isQueued ? 'check' : 'zap'}}" class="w-3.5 h-3.5"></i>
+                ${{isQueued ? i18nDict[currentLang].btnQueued : i18nDict[currentLang].btnRequestAnalysis}}
               </button>
             </div>
           `;
@@ -1002,6 +1103,7 @@ def generate_html(data):
       }}
 
       lucide.createIcons();
+      updateQueueFloatingBar();
     }}
 
     function setInboxSourceFilter(src) {{
