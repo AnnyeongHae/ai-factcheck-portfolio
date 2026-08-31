@@ -1,7 +1,3 @@
-const { Pool } = require('pg');
-
-const DATABASE_URL = process.env.DATABASE_URL;
-
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
@@ -11,11 +7,13 @@ module.exports = async (req, res) => {
     return res.status(204).end();
   }
 
+  const DATABASE_URL = process.env.DATABASE_URL;
   let dbStatus = "NOT_CONFIGURED";
   let counts = {};
 
   if (DATABASE_URL) {
     try {
+      const { Pool } = require('pg');
       const pool = new Pool({
         connectionString: DATABASE_URL,
         ssl: { rejectUnauthorized: false }

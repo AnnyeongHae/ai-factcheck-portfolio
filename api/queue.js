@@ -1,18 +1,3 @@
-const { Pool } = require('pg');
-
-const DATABASE_URL = process.env.DATABASE_URL;
-
-let pool;
-function getPool() {
-  if (!pool && DATABASE_URL) {
-    pool = new Pool({
-      connectionString: DATABASE_URL,
-      ssl: { rejectUnauthorized: false }
-    });
-  }
-  return pool;
-}
-
 module.exports = async (req, res) => {
   // CORS Headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -23,19 +8,33 @@ module.exports = async (req, res) => {
     return res.status(204).end();
   }
 
+  const DATABASE_URL = process.env.DATABASE_URL;
+
   if (!DATABASE_URL) {
     return res.status(200).json({
       success: false,
-      error: "DATABASE_URL environment variable is not configured in Vercel Settings -> Environment Variables.",
-      hint: "Add DATABASE_URL in Vercel Dashboard to connect to Neon Postgres."
+      error: "DATABASE_URL is not configured in Vercel Environment Variables.",
+      hint: "Go to Vercel Dashboard -> Settings -> Environment Variables and add DATABASE_URL."
     });
   }
 
-  const clientPool = getPool();
+  let dbClient;
+  try {
+    const { Pool } = require('pg');
+    dbClient = new Pool({
+      connectionString: DATABASE_URL,
+      ssl: { rejectUnauthorized: false }
+    });
+  } catch (modErr) {
+    return res.status(200).json({
+      success: false,
+      error: "Postgres driver initialization warning: " + modErr.message
+    });
+  }
 
   try {
     if (req.method === 'GET') {
-      const result = await clientPool.query(`
+      const result = await dbClient.query(`
         SELECT inbox_id, title, title_ko, source_platform, model_family, variant_role, status, harvested_date 
         FROM inbox_candidates 
         WHERE status = 'QUEUED_FOR_INVESTIGATION' 
@@ -63,7 +62,7 @@ module.exports = async (req, res) => {
       if (action === 'unqueue') {
         updatedStatus = "PENDING_REVIEW";
       } else if (action === 'toggle' && inbox_ids.length === 1) {
-        const check = await clientPool.query('SELECT status FROM inbox_candidates WHERE inbox_id = $1;', [inbox_ids[0]]);
+        const check = await dbClient.query('SELECT status FROM inbox_candidates WHERE inbox_id = $1;', [inbox_ids[0]]);
         if (check.rows.length > 0 && check.rows[0].status === 'QUEUED_FOR_INVESTIGATION') {
           updatedStatus = "PENDING_REVIEW";
         } else {
@@ -72,7 +71,7 @@ module.exports = async (req, res) => {
       }
 
       for (const targetId of inbox_ids) {
-        await clientPool.query(`
+        await dbClient.query(`
           UPDATE inbox_candidates 
           SET status = $1, updated_at = CURRENT_TIMESTAMP 
           WHERE inbox_id = $2;
@@ -91,10 +90,11 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: "Method not allowed" });
 
   } catch (err) {
-    console.error("Database error:", err);
-    return res.status(500).json({
+    console.error("Database query error:", err);
+    return res.status(200).json({
       success: false,
-      error: err.message || "Database query failed"
+      error: "Neon Database Error: " + (err.message || String(err)),
+      hint: "Check if Neon DB endpoint is active or whitelist settings."
     });
   }
 };
