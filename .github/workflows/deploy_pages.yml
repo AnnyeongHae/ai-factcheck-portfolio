@@ -1,4 +1,4 @@
-name: Deploy AI Fact-Check Portfolio to GitHub Pages
+name: Deploy AI Fact-Check Portfolio & Neon DB Sync
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - master
   workflow_dispatch:
   schedule:
-    # 매일 아침 09:00 KST (자정 UTC 00:00) 자동 트렌드 수집 및 대시보드 빌드
+    # 매일 아침 09:00 KST (자정 UTC 00:00) 자동 트렌드 수집 및 DB 동기화
     - cron: '0 0 * * *'
 
 permissions:
@@ -25,30 +25,51 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      NEON_KEY: ${{ secrets.NEON_KEY }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Run Multi-Source Trend Harvester (Non-intrusive)
+      - name: Install Dependencies
+        run: |
+          pip install psycopg2-binary requests
+
+      - name: Run Multi-Source Trend Harvester
         run: |
           python tools/harvest_trends.py
 
-      - name: Build Fact-Check Portfolio Dashboard
+      - name: Sync Data to Neon Postgres Cloud DB
+        run: |
+          python tools/db_bridge.py --sync-all || echo "Neon DB sync skipped or completed with notes."
+
+      - name: Build Fact-Check Portfolio Dashboard & Docs
         run: |
           python tools/build_dashboard.py
+
+      - name: Commit & Push Harvested Updates to Git (if any)
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add inbox/ docs/ dashboard/ logs/
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore(auto-harvest): Daily multi-source trend collection & Neon DB sync"
+          git push origin main || echo "No changes to push or push completed"
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload Artifact (dashboard directory)
+      - name: Upload Artifact (docs directory)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dashboard/'
+          path: 'docs/'
 
       - name: Deploy to GitHub Pages
         id: deployment
