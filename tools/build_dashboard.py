@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-Fact-Check & Engineering Portfolio Dashboard Builder (2026 SOTA Framework - v6.0)
-- 🏆 공식 팩트체크 포트폴리오 (Verified Projects)
-- 📥 수집 인박스 & 승인 큐 (Inbox & Triage Management - All Candidates)
-- ⚙️ 소스별 수집 엔드포인트 & 관리자 통계 (Harvester Admin Stats)
+Fact-Check & Engineering Portfolio Dashboard Builder (2026 SOTA Framework - v7.0)
+- 🇰🇷 / 🇺🇸 다국어 지원 (i18n Language Switcher - Default: 한국어)
+- ⚡ 프론트엔드 원클릭 GitHub 분석 의뢰 (IssueOps Trigger)
+- 🏆 공식 팩트체크 포트폴리오 & 📥 수집 인박스 큐
+- ⚙️ 소스별 수집 엔드포인트 & 관리자 통계
 """
 
 import json
@@ -106,7 +107,7 @@ def build_dashboard():
     pending_count = sum(1 for c in cases if c.get("portfolio_story", {}).get("hands_on_log", {}).get("status") == "PENDING_RESEARCH")
 
     summary_data = {
-        "generated_at": "2026-08-31",
+        "generated_at": "2026-09-01",
         "total_cases": total_cases,
         "inbox_total_count": len(inbox_items),
         "user_curated_count": user_curated_count,
@@ -132,7 +133,7 @@ def build_dashboard():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    print(f"[+] Successfully built dashboard v6.0 at:")
+    print(f"[+] Successfully built dashboard v7.0 (i18n & IssueOps) at:")
     print(f"    - dashboard/index.html (Verified: {total_cases}, Inbox: {len(inbox_items)})")
     print(f"    - docs/index.html (GitHub Pages hosting)")
 
@@ -187,7 +188,7 @@ def generate_html(data):
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen">
 
-  <!-- Navigation Bar with View Switcher -->
+  <!-- Navigation Bar with View & Language Switcher -->
   <header class="sticky top-0 z-40 glass border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center space-x-3">
@@ -197,28 +198,36 @@ def generate_html(data):
         <div>
           <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
             AI Fact-Check Hub & Inbox
-            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v6.0</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-medium border border-indigo-500/30">v7.0</span>
           </h1>
-          <p class="text-xs text-slate-400">자율 트렌드 수집 • 인박스 승인 큐 • 엔지니어링 포트폴리오</p>
+          <p class="text-xs text-slate-400" id="i18nSubtitle">자율 트렌드 수집 • 인박스 승인 큐 • 엔지니어링 포트폴리오</p>
         </div>
       </div>
 
-      <!-- Main Tab Switcher -->
-      <div class="flex items-center gap-2">
+      <!-- Main Controls (Language Switcher, Tabs, Admin) -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Language Switcher (Default: KO) -->
+        <div class="bg-slate-900 p-1 rounded-xl border border-slate-800 flex items-center text-xs font-semibold">
+          <button onclick="setLanguage('KO')" id="langKoBtn" class="px-2.5 py-1 rounded-lg bg-indigo-600 text-white transition">🇰🇷 한국어</button>
+          <button onclick="setLanguage('EN')" id="langEnBtn" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition">🇺🇸 English</button>
+        </div>
+
+        <!-- Main Tab Switcher -->
         <div class="bg-slate-900/90 p-1 rounded-xl border border-slate-800 flex items-center gap-1">
           <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition shadow-sm">
             <i data-lucide="award" class="w-4 h-4"></i>
-            🏆 공식 포트폴리오 ({data['total_cases']})
+            <span id="i18nTabPortfolio">🏆 공식 포트폴리오</span> ({data['total_cases']})
           </button>
           <button onclick="switchView('inbox')" id="tabInboxBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
             <i data-lucide="inbox" class="w-4 h-4 text-amber-400"></i>
-            📥 수집 인박스 큐 ({data['inbox_total_count']})
+            <span id="i18nTabInbox">📥 수집 인박스 큐</span> ({data['inbox_total_count']})
           </button>
         </div>
 
         <button onclick="openAdminModal()" class="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-slate-900 text-emerald-400 font-medium border border-emerald-500/30 hover:bg-emerald-500/10 transition">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          ⚙️ 수집 관리자
+          <span id="i18nBtnAdmin">⚙️ 수집 관리자</span>
         </button>
       </div>
     </div>
@@ -232,10 +241,10 @@ def generate_html(data):
       <!-- Hero Banner -->
       <div class="glass p-6 sm:p-8 rounded-2xl relative overflow-hidden">
         <div class="relative z-10 max-w-3xl space-y-3">
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white" id="i18nHeroTitle">
             "소문난 AI 기술, 진짜 작동하고 경제성이 있을까?"
           </h2>
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed" id="i18nHeroDesc">
             내가 직접 문제의식을 갖고 발굴한 <strong>[👤 직접 큐레이션]</strong> 프로젝트와, 
             시스템이 24시간 실시간 트래킹한 <strong>[🤖 자동 트렌드 발굴]</strong> 프로젝트를 
             <strong>명확한 출처(Tier 1~4), 유사 기술 대체재 비교표, 실질 단위 원가 역산</strong>을 통해 입증한 포트폴리오입니다.
@@ -244,26 +253,26 @@ def generate_html(data):
         <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
       </div>
 
-      <!-- Metric Cards: Discovery & Hands-on -->
+      <!-- Metric Cards -->
       <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
         <div class="glass p-4 rounded-xl space-y-1">
-          <div class="text-xs font-medium text-slate-400">총 팩트체크 프로젝트</div>
+          <div class="text-xs font-medium text-slate-400" id="i18nMetricTotal">총 팩트체크 프로젝트</div>
           <div class="text-2xl font-black text-white">{data['total_cases']} <span class="text-xs text-slate-400">Projects</span></div>
         </div>
         <div class="glass p-4 rounded-xl space-y-1 border-indigo-500/30">
-          <div class="text-xs font-medium text-indigo-300">👤 직접 문제해결 큐레이션</div>
+          <div class="text-xs font-medium text-indigo-300" id="i18nMetricUser">👤 직접 문제해결 큐레이션</div>
           <div class="text-2xl font-black text-indigo-400">{data['user_curated_count']} <span class="text-xs text-slate-400">건</span></div>
         </div>
         <div class="glass p-4 rounded-xl space-y-1 border-sky-500/30">
-          <div class="text-xs font-medium text-sky-300">🤖 자율 트렌드 감사</div>
+          <div class="text-xs font-medium text-sky-300" id="i18nMetricAuto">🤖 자율 트렌드 감사</div>
           <div class="text-2xl font-black text-sky-400">{data['auto_harvested_count']} <span class="text-xs text-slate-400">건</span></div>
         </div>
         <div class="glass p-4 rounded-xl space-y-1 border-emerald-500/30">
-          <div class="text-xs font-medium text-emerald-300">🟢 실제 개발 & 활용 완료</div>
+          <div class="text-xs font-medium text-emerald-300" id="i18nMetricDev">🟢 실제 개발 & 활용 완료</div>
           <div class="text-2xl font-black text-emerald-400">{data['active_dev_count']} <span class="text-xs text-slate-400">건</span></div>
         </div>
         <div class="glass p-4 rounded-xl space-y-1 border-amber-500/30">
-          <div class="text-xs font-medium text-amber-300">🟡 성능/과금 개발 중단</div>
+          <div class="text-xs font-medium text-amber-300" id="i18nMetricHalted">🟡 성능/과금 개발 중단</div>
           <div class="text-2xl font-black text-amber-400">{data['halted_count']} <span class="text-xs text-slate-400">건</span></div>
         </div>
       </div>
@@ -278,18 +287,18 @@ def generate_html(data):
           </div>
 
           <div class="flex flex-wrap items-center gap-2">
-            <button onclick="setModeFilter('ALL')" class="mode-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-600 text-white border border-indigo-500 transition" data-mode="ALL">전체 발굴 경로</button>
-            <button onclick="setModeFilter('USER_CURATED')" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500/10 transition" data-mode="USER_CURATED">👤 내가 직접 큐레이션</button>
-            <button onclick="setModeFilter('AUTO_HARVESTED')" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-sky-300 border border-sky-500/30 hover:bg-sky-500/10 transition" data-mode="AUTO_HARVESTED">🤖 자동 트렌드 발굴</button>
+            <button onclick="setModeFilter('ALL')" class="mode-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-600 text-white border border-indigo-500 transition" data-mode="ALL" id="i18nFilterAllMode">전체 발굴 경로</button>
+            <button onclick="setModeFilter('USER_CURATED')" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500/10 transition" data-mode="USER_CURATED" id="i18nFilterUserMode">👤 내가 직접 큐레이션</button>
+            <button onclick="setModeFilter('AUTO_HARVESTED')" class="mode-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-sky-300 border border-sky-500/30 hover:bg-sky-500/10 transition" data-mode="AUTO_HARVESTED" id="i18nFilterAutoMode">🤖 자동 트렌드 발굴</button>
           </div>
         </div>
 
         <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800">
-          <span class="text-xs text-slate-400 mr-2">실측 상태:</span>
-          <button onclick="setStageFilter('ALL')" class="stage-btn active px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-white transition" data-stage="ALL">전체</button>
-          <button onclick="setStageFilter('ACTIVE_DEVELOPED')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-emerald-400 border border-emerald-500/20 hover:bg-slate-800 transition" data-stage="ACTIVE_DEVELOPED">🟢 개발 완료</button>
-          <button onclick="setStageFilter('EVALUATED_HALTED')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-amber-400 border border-amber-500/20 hover:bg-slate-800 transition" data-stage="EVALUATED_HALTED">🟡 개발 중단</button>
-          <button onclick="setStageFilter('PENDING_RESEARCH')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-slate-300 border border-slate-700 hover:bg-slate-800 transition" data-stage="PENDING_RESEARCH">⚪ 사전 조사</button>
+          <span class="text-xs text-slate-400 mr-2" id="i18nStageLabel">실측 상태:</span>
+          <button onclick="setStageFilter('ALL')" class="stage-btn active px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-white transition" data-stage="ALL" id="i18nStageAll">전체</button>
+          <button onclick="setStageFilter('ACTIVE_DEVELOPED')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-emerald-400 border border-emerald-500/20 hover:bg-slate-800 transition" data-stage="ACTIVE_DEVELOPED" id="i18nStageDev">🟢 개발 완료</button>
+          <button onclick="setStageFilter('EVALUATED_HALTED')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-amber-400 border border-amber-500/20 hover:bg-slate-800 transition" data-stage="EVALUATED_HALTED" id="i18nStageHalted">🟡 개발 중단</button>
+          <button onclick="setStageFilter('PENDING_RESEARCH')" class="stage-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-900 text-slate-300 border border-slate-700 hover:bg-slate-800 transition" data-stage="PENDING_RESEARCH" id="i18nStagePending">⚪ 사전 조사</button>
         </div>
       </div>
 
@@ -304,20 +313,19 @@ def generate_html(data):
       <div class="glass p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-amber-500/20">
         <div class="space-y-1">
           <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30">
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30" id="i18nInboxBadge">
               📥 미승인 트렌드 대기 큐 (Inbox Queue)
             </span>
             <span class="text-xs text-slate-400">총 {data['inbox_total_count']}건 대기 중</span>
           </div>
-          <h2 class="text-xl font-bold text-white">"수집된 최신 기술 중 마음에 드는 것만 골라 승인하세요"</h2>
-          <p class="text-xs text-slate-300">
-            허깅페이스 스페이스, 깃허브, 아카이브, 해커뉴스에서 자동 수집된 후보들입니다. 
-            원문을 직접 확인하고 <strong>[승격 명령어 복사]</strong>를 눌러 터미널에서 승인하면 공식 포트폴리오로 즉시 승격됩니다.
+          <h2 class="text-xl font-bold text-white" id="i18nInboxHeaderTitle">"수집된 최신 기술 중 마음에 드는 것만 골라 분석을 의뢰하세요"</h2>
+          <p class="text-xs text-slate-300" id="i18nInboxHeaderDesc">
+            원문을 확인하고 <strong>[⚡ GitHub으로 분석 의뢰]</strong>를 누르면 이슈가 자동 생성되어 AI 팩트체크가 트리거됩니다.
           </p>
         </div>
 
         <div class="bg-slate-900/90 p-3 rounded-xl border border-slate-800 text-xs space-y-1 shrink-0">
-          <div class="text-slate-400 font-semibold">💡 일괄 승격 명령어:</div>
+          <div class="text-slate-400 font-semibold" id="i18nBatchLabel">💡 일괄 승격 명령어:</div>
           <code class="text-amber-300 bg-black/50 px-2 py-0.5 rounded font-mono block">python tools/triage.py --promote-top 3</code>
         </div>
       </div>
@@ -354,8 +362,8 @@ def generate_html(data):
         <div class="flex items-center gap-2.5">
           <i data-lucide="settings" class="w-5 h-5 text-emerald-400"></i>
           <div>
-            <h3 class="text-base font-bold text-white">수집 시스템 관리자 & 엔드포인트 모니터</h3>
-            <p class="text-xs text-slate-400">어떤 링크에서 매번 수집하고 있는지 실시간 감시</p>
+            <h3 class="text-base font-bold text-white" id="i18nAdminTitle">수집 시스템 관리자 & 엔드포인트 모니터</h3>
+            <p class="text-xs text-slate-400" id="i18nAdminSubtitle">어떤 링크에서 매번 수집하고 있는지 실시간 감시</p>
           </div>
         </div>
         <button onclick="closeAdminModal()" class="text-slate-400 hover:text-white p-1 rounded-lg bg-slate-800/60 hover:bg-slate-700">
@@ -364,39 +372,34 @@ def generate_html(data):
       </div>
 
       <div class="p-6 space-y-6 text-xs text-slate-300 max-h-[75vh] overflow-y-auto">
-        
-        <!-- Summary Counters -->
         <div class="grid grid-cols-3 gap-3">
           <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-            <span class="text-slate-400">최근 수집 일시</span>
+            <span class="text-slate-400" id="i18nAdminLatestRun">최근 수집 일시</span>
             <div id="adminLatestDate" class="text-xs font-bold text-white mt-1"></div>
           </div>
           <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-            <span class="text-slate-400">현재 대기 인박스</span>
+            <span class="text-slate-400" id="i18nAdminInboxCount">현재 대기 인박스</span>
             <div class="text-sm font-bold text-amber-400 mt-1">{data['inbox_total_count']} 건</div>
           </div>
           <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-            <span class="text-slate-400">공식 승격 프로젝트</span>
+            <span class="text-slate-400" id="i18nAdminFactcheckCount">공식 승격 프로젝트</span>
             <div class="text-sm font-bold text-emerald-400 mt-1">{data['total_cases']} 건</div>
           </div>
         </div>
 
-        <!-- Registered Harvester Endpoints -->
         <div>
-          <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-1.5 text-sm">
+          <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-1.5 text-sm" id="i18nAdminEndpointsHead">
             <i data-lucide="radio" class="w-4 h-4 text-indigo-400"></i> 등록된 정기 수집 엔드포인트 목록
           </h4>
           <div id="adminEndpointsList" class="space-y-2"></div>
         </div>
 
-        <!-- Latest Run Health Logs -->
         <div>
-          <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-1.5 text-sm">
+          <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-1.5 text-sm" id="i18nAdminHealthHead">
             <i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i> 최근 수집 실행 헬스 & 레이턴시
           </h4>
           <div id="adminHealthLogs" class="space-y-2"></div>
         </div>
-
       </div>
 
       <div class="p-4 border-t border-slate-800 bg-slate-900/60 flex justify-end">
@@ -408,7 +411,6 @@ def generate_html(data):
   <!-- Detailed Portfolio Modal -->
   <div id="detailModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
     <div class="glass max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-700/80 my-8 max-h-[92vh] flex flex-col">
-      <!-- Modal Header -->
       <div class="p-6 border-b border-slate-800 flex items-start justify-between bg-slate-900/60">
         <div class="space-y-1 pr-4">
           <div class="flex items-center gap-2 flex-wrap">
@@ -424,10 +426,9 @@ def generate_html(data):
         </button>
       </div>
 
-      <!-- Modal Body -->
       <div class="p-6 overflow-y-auto space-y-6 text-sm text-slate-200">
         
-        <!-- Curation Motivation Box (Personal Intent) -->
+        <!-- Curation Motivation Box -->
         <div id="modalCurationBox" class="p-4 rounded-xl border space-y-1.5">
           <div class="flex items-center justify-between">
             <h4 class="text-xs font-bold uppercase tracking-wider flex items-center gap-1.5" id="modalCurationTitle">
@@ -530,7 +531,6 @@ def generate_html(data):
 
       </div>
 
-      <!-- Modal Footer -->
       <div class="p-4 border-t border-slate-800 bg-slate-900/60 flex justify-end">
         <button onclick="closeModal()" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition">
           닫기 (Close)
@@ -550,6 +550,7 @@ def generate_html(data):
     const inboxData = {inbox_json};
     const adminData = {admin_json};
 
+    let currentLang = 'KO'; // Default: 한국어
     let currentView = 'portfolio';
     let currentMode = 'ALL';
     let currentStage = 'ALL';
@@ -557,6 +558,105 @@ def generate_html(data):
 
     let currentInboxSource = 'ALL';
     let inboxSearchQuery = '';
+
+    const i18nDict = {{
+      KO: {{
+        subtitle: '자율 트렌드 수집 • 인박스 승인 큐 • 엔지니어링 포트폴리오',
+        tabPortfolio: '🏆 공식 포트폴리오',
+        tabInbox: '📥 수집 인박스 큐',
+        btnAdmin: '⚙️ 수집 관리자',
+        heroTitle: '"소문난 AI 기술, 진짜 작동하고 경제성이 있을까?"',
+        heroDesc: '내가 직접 문제의식을 갖고 발굴한 [👤 직접 큐레이션] 프로젝트와, 시스템이 24시간 실시간 트래킹한 [🤖 자동 트렌드 발굴] 프로젝트를 명확한 출처(Tier 1~4), 유사 기술 대체재 비교표, 실질 단위 원가 역산을 통해 입증한 포트폴리오입니다.',
+        metricTotal: '총 팩트체크 프로젝트',
+        metricUser: '👤 직접 문제해결 큐레이션',
+        metricAuto: '🤖 자율 트렌드 감사',
+        metricDev: '🟢 실제 개발 & 활용 완료',
+        metricHalted: '🟡 성능/과금 개발 중단',
+        filterAllMode: '전체 발굴 경로',
+        filterUserMode: '👤 내가 직접 큐레이션',
+        filterAutoMode: '🤖 자동 트렌드 발굴',
+        stageLabel: '실측 상태:',
+        stageAll: '전체',
+        stageDev: '🟢 개발 완료',
+        stageHalted: '🟡 개발 중단',
+        stagePending: '⚪ 사전 조사',
+        inboxBadge: '📥 미승인 트렌드 대기 큐 (Inbox Queue)',
+        inboxHeaderTitle: '"수집된 최신 기술 중 마음에 드는 것만 골라 분석을 의뢰하세요"',
+        inboxHeaderDesc: '원문을 확인하고 [⚡ GitHub으로 분석 의뢰]를 누르면 이슈가 자동 생성되어 AI 팩트체크가 트리거됩니다.',
+        batchLabel: '💡 일괄 승격 명령어:',
+        btnRequestAnalysis: '⚡ GitHub으로 분석 의뢰',
+        btnCopyCmd: '📋 CLI 명령 복사'
+      }},
+      EN: {{
+        subtitle: 'Autonomous Trend Harvester • Inbox Triage Queue • Engineering Portfolio',
+        tabPortfolio: '🏆 Verified Portfolio',
+        tabInbox: '📥 Inbox Triage Queue',
+        btnAdmin: '⚙️ Harvester Admin',
+        heroTitle: '"Viral AI & Tech Claims: Do They Actually Work & Make Economic Sense?"',
+        heroDesc: 'A rigorous engineering portfolio proving both [👤 User-Curated] and [🤖 Auto-Harvested] projects with Tier 1~4 verified citations, alternatives benchmark matrices, and unit economics cost audits.',
+        metricTotal: 'Total Fact-Checks',
+        metricUser: '👤 User-Curated Issues',
+        metricAuto: '🤖 Autonomous Tracked',
+        metricDev: '🟢 Active Developed',
+        metricHalted: '🟡 Evaluated & Halted',
+        filterAllMode: 'All Discovery Modes',
+        filterUserMode: '👤 User-Curated Only',
+        filterAutoMode: '🤖 Auto-Harvested Only',
+        stageLabel: 'Hands-on Status:',
+        stageAll: 'All',
+        stageDev: '🟢 Developed',
+        stageHalted: '🟡 Halted (Cost/Perf)',
+        stagePending: '⚪ Research Pending',
+        inboxBadge: '📥 Unverified Candidate Queue (Inbox)',
+        inboxHeaderTitle: '"Select & Trigger Deep Fact-Checks on Freshly Discovered AI Trends"',
+        inboxHeaderDesc: 'Inspect the source and click [⚡ Request GitHub Analysis] to trigger autonomous agent investigation via IssueOps.',
+        batchLabel: '💡 Batch CLI Promotion:',
+        btnRequestAnalysis: '⚡ Request Analysis on GitHub',
+        btnCopyCmd: '📋 Copy CLI Command'
+      }}
+    }};
+
+    function setLanguage(lang) {{
+      currentLang = lang;
+      const dict = i18nDict[lang];
+      
+      const koBtn = document.getElementById('langKoBtn');
+      const enBtn = document.getElementById('langEnBtn');
+      if (lang === 'KO') {{
+        koBtn.className = 'px-2.5 py-1 rounded-lg bg-indigo-600 text-white transition';
+        enBtn.className = 'px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition';
+      }} else {{
+        koBtn.className = 'px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition';
+        enBtn.className = 'px-2.5 py-1 rounded-lg bg-indigo-600 text-white transition';
+      }}
+
+      document.getElementById('i18nSubtitle').innerText = dict.subtitle;
+      document.getElementById('i18nTabPortfolio').innerText = dict.tabPortfolio;
+      document.getElementById('i18nTabInbox').innerText = dict.tabInbox;
+      document.getElementById('i18nBtnAdmin').innerText = dict.btnAdmin;
+      document.getElementById('i18nHeroTitle').innerText = dict.heroTitle;
+      document.getElementById('i18nHeroDesc').innerHTML = dict.heroDesc;
+      document.getElementById('i18nMetricTotal').innerText = dict.metricTotal;
+      document.getElementById('i18nMetricUser').innerText = dict.metricUser;
+      document.getElementById('i18nMetricAuto').innerText = dict.metricAuto;
+      document.getElementById('i18nMetricDev').innerText = dict.metricDev;
+      document.getElementById('i18nMetricHalted').innerText = dict.metricHalted;
+      document.getElementById('i18nFilterAllMode').innerText = dict.filterAllMode;
+      document.getElementById('i18nFilterUserMode').innerText = dict.filterUserMode;
+      document.getElementById('i18nFilterAutoMode').innerText = dict.filterAutoMode;
+      document.getElementById('i18nStageLabel').innerText = dict.stageLabel;
+      document.getElementById('i18nStageAll').innerText = dict.stageAll;
+      document.getElementById('i18nStageDev').innerText = dict.stageDev;
+      document.getElementById('i18nStageHalted').innerText = dict.stageHalted;
+      document.getElementById('i18nStagePending').innerText = dict.stagePending;
+      document.getElementById('i18nInboxBadge').innerText = dict.inboxBadge;
+      document.getElementById('i18nInboxHeaderTitle').innerText = dict.inboxHeaderTitle;
+      document.getElementById('i18nInboxHeaderDesc').innerHTML = dict.inboxHeaderDesc;
+      document.getElementById('i18nBatchLabel').innerText = dict.batchLabel;
+
+      renderCards();
+      renderInbox();
+    }}
 
     function switchView(view) {{
       currentView = view;
@@ -584,7 +684,7 @@ def generate_html(data):
     function copyToClipboard(text) {{
       navigator.clipboard.writeText(text).then(() => {{
         const toast = document.getElementById('toast');
-        document.getElementById('toastMsg').innerText = '승격 명령어가 클립보드에 복사되었습니다:\\n' + text;
+        document.getElementById('toastMsg').innerText = (currentLang === 'KO' ? '명령어가 클립보드에 복사되었습니다:\\n' : 'Command copied to clipboard:\\n') + text;
         toast.classList.remove('hidden');
         setTimeout(() => toast.classList.add('hidden'), 4000);
       }});
@@ -602,15 +702,16 @@ def generate_html(data):
       }});
 
       if (filtered.length === 0) {{
-        grid.innerHTML = '<div class="col-span-full py-16 text-center text-slate-500">인박스에 일치하는 후보가 없습니다.</div>';
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-slate-500">${{currentLang === 'KO' ? '인박스에 일치하는 후보가 없습니다.' : 'No matching inbox items found.'}}</div>`;
         return;
       }}
 
-      filtered.forEach((it, idx) => {{
+      filtered.forEach((it) => {{
         const card = document.createElement('div');
         card.className = 'glass-card p-4 rounded-xl flex flex-col justify-between space-y-3 border-slate-800';
 
         const promoteCmd = `python tools/triage.py --promote ${{it.inbox_id}}`;
+        const issueUrl = `https://github.com/AnnyeongHae/ai-factcheck-portfolio/issues/new?title=%5BTriage+Request%5D+${{encodeURIComponent(it.title)}}&body=%23%23+Fact-Check+Triage+Request%0A%0A-+**Inbox+ID**%3A+${{it.inbox_id}}%0A-+**Source+Platform**%3A+${{it.source_platform}}%0A-+**Source+URL**%3A+${{it.source_url}}%0A-+**Viral+Metric**%3A+${{it.viral_metric}}%0A%0A%3E+Triggered+from+Dashboard+UI.`;
 
         card.innerHTML = `
           <div class="space-y-2.5">
@@ -632,18 +733,25 @@ def generate_html(data):
             </p>
 
             <div class="text-[11px] text-slate-400">
-              🎯 맞춤 도메인: <span class="text-indigo-300">${{(it.matched_user_domains || ['일반']).join(', ')}}</span>
+              🎯 ${{currentLang === 'KO' ? '맞춤 도메인:' : 'Target Domain:'}} <span class="text-indigo-300">${{(it.matched_user_domains || ['일반']).join(', ')}}</span>
             </div>
           </div>
 
-          <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
-            <a href="${{it.source_url}}" target="_blank" class="text-xs text-slate-400 hover:text-white flex items-center gap-1">
-              원문 링크 <i data-lucide="external-link" class="w-3 h-3"></i>
-            </a>
+          <div class="pt-3 border-t border-slate-800/80 flex flex-col gap-2">
+            <div class="flex items-center justify-between">
+              <a href="${{it.source_url}}" target="_blank" class="text-xs text-slate-400 hover:text-white flex items-center gap-1">
+                ${{currentLang === 'KO' ? '원문 링크' : 'Source Link'}} <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
 
-            <button onclick="copyToClipboard('${{promoteCmd}}')" class="px-2.5 py-1 rounded bg-amber-600/20 hover:bg-amber-600 text-amber-300 hover:text-white text-xs font-semibold border border-amber-500/30 transition flex items-center gap-1">
-              <i data-lucide="copy" class="w-3 h-3"></i> 승격 명령 복사
-            </button>
+              <button onclick="copyToClipboard('${{promoteCmd}}')" class="text-slate-400 hover:text-amber-300 text-[11px] flex items-center gap-1">
+                <i data-lucide="copy" class="w-3 h-3"></i> ${{i18nDict[currentLang].btnCopyCmd}}
+              </button>
+            </div>
+
+            <a href="${{issueUrl}}" target="_blank" class="w-full text-center py-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-white text-xs font-bold border border-amber-500/30 transition flex items-center justify-center gap-1.5 shadow-sm">
+              <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+              ${{i18nDict[currentLang].btnRequestAnalysis}}
+            </a>
           </div>
         `;
         grid.appendChild(card);
@@ -673,9 +781,8 @@ def generate_html(data):
 
     function openAdminModal() {{
       if (adminData) {{
-        document.getElementById('adminLatestDate').innerText = adminData.latest_run ? adminData.latest_run.timestamp : '2026-08-31';
+        document.getElementById('adminLatestDate').innerText = adminData.latest_run ? adminData.latest_run.timestamp : '2026-09-01';
 
-        // Render Endpoints
         const epList = document.getElementById('adminEndpointsList');
         epList.innerHTML = '';
         if (adminData.endpoints) {{
@@ -696,7 +803,6 @@ def generate_html(data):
           }});
         }}
 
-        // Render Health Logs
         const hLogs = document.getElementById('adminHealthLogs');
         hLogs.innerHTML = '';
         if (adminData.latest_run && adminData.latest_run.sources) {{
@@ -735,20 +841,20 @@ def generate_html(data):
 
     function getVerdictLabel(verdict) {{
       if (verdict === 'VERIFIED_TRUE') return 'VERIFIED TRUE';
-      if (verdict === 'HALF_TRUE_CONTEXT_REQUIRED' || verdict === 'HALF_TRUE') return 'HALF TRUE (맥락 필요)';
-      if (verdict === 'MISLEADING_GAMED') return 'MISLEADING (왜곡/과장)';
+      if (verdict === 'HALF_TRUE_CONTEXT_REQUIRED' || verdict === 'HALF_TRUE') return currentLang === 'KO' ? 'HALF TRUE (맥락 필요)' : 'HALF TRUE (Context Req)';
+      if (verdict === 'MISLEADING_GAMED') return currentLang === 'KO' ? 'MISLEADING (왜곡/과장)' : 'MISLEADING (Gamed)';
       if (verdict === 'CONFIRMED_FALSE') return 'CONFIRMED FALSE';
       return verdict;
     }}
 
     function getStageBadgeInfo(status) {{
       if (status === 'ACTIVE_DEVELOPED') {{
-        return {{ class: 'badge-dev', label: '🟢 실제 개발 & 활용 완료', boxBorder: 'border-emerald-500/30' }};
+        return {{ class: 'badge-dev', label: currentLang === 'KO' ? '🟢 실제 개발 & 활용 완료' : '🟢 Active Developed', boxBorder: 'border-emerald-500/30' }};
       }}
       if (status === 'EVALUATED_HALTED') {{
-        return {{ class: 'badge-halted', label: '🟡 성능/과금 문제로 개발 중단', boxBorder: 'border-amber-500/30' }};
+        return {{ class: 'badge-halted', label: currentLang === 'KO' ? '🟡 성능/과금 문제로 개발 중단' : '🟡 Evaluated & Halted', boxBorder: 'border-amber-500/30' }};
       }}
-      return {{ class: 'badge-pending', label: '⚪ 아직 개발 전 (기술 조사 완료)', boxBorder: 'border-slate-700' }};
+      return {{ class: 'badge-pending', label: currentLang === 'KO' ? '⚪ 아직 개발 전 (기술 조사 완료)' : '⚪ Research Pending', boxBorder: 'border-slate-700' }};
     }}
 
     function renderCards() {{
@@ -769,7 +875,7 @@ def generate_html(data):
       }});
 
       if (filtered.length === 0) {{
-        grid.innerHTML = '<div class="col-span-full py-16 text-center text-slate-500">조건에 맞는 팩트체크 케이스가 없습니다.</div>';
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-slate-500">${{currentLang === 'KO' ? '조건에 맞는 팩트체크 케이스가 없습니다.' : 'No matching fact-checks found.'}}</div>`;
         return;
       }}
 
@@ -793,7 +899,7 @@ def generate_html(data):
             <div class="flex items-center justify-between text-xs flex-wrap gap-1">
               <span class="px-2 py-0.5 rounded font-bold ${{isUserMode ? 'badge-user' : 'badge-auto'}} flex items-center gap-1">
                 <i data-lucide="${{isUserMode ? 'user-check' : 'bot'}}" class="w-3 h-3"></i>
-                ${{isUserMode ? '👤 직접 큐레이션' : '🤖 자동 트렌드 발굴'}}
+                ${{isUserMode ? (currentLang === 'KO' ? '👤 직접 큐레이션' : '👤 User-Curated') : (currentLang === 'KO' ? '🤖 자동 트렌드 발굴' : '🤖 Auto-Harvested')}}
               </span>
               <span class="px-2 py-0.5 rounded font-bold ${{badgeClass}}">${{verdictLabel}}</span>
             </div>
@@ -812,7 +918,7 @@ def generate_html(data):
             <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800/80 space-y-1">
               <span class="text-[11px] font-semibold ${{isUserMode ? 'text-indigo-300' : 'text-sky-300'}} uppercase tracking-wider flex items-center gap-1">
                 <i data-lucide="${{isUserMode ? 'help-circle' : 'trending-up'}}" class="w-3 h-3"></i>
-                ${{isUserMode ? '직접 발굴한 문제의식' : '트렌드 감사 동기'}}
+                ${{isUserMode ? (currentLang === 'KO' ? '직접 발굴한 문제의식' : 'User Motivation') : (currentLang === 'KO' ? '트렌드 감사 동기' : 'Auto Trigger Reason')}}
               </span>
               <p class="text-xs text-slate-300 line-clamp-2">${{curation.personal_motivation || story.the_hook || '분석 진행 중'}}</p>
             </div>
@@ -820,10 +926,10 @@ def generate_html(data):
 
           <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
             <span class="flex items-center gap-1">
-              <i data-lucide="link" class="w-3 h-3"></i> 출처 ${{c.sources ? c.sources.length : 1}}개 감사
+              <i data-lucide="link" class="w-3 h-3"></i> ${{currentLang === 'KO' ? '출처 ' + (c.sources ? c.sources.length : 1) + '개 감사' : (c.sources ? c.sources.length : 1) + ' Sources Cited'}}
             </span>
             <span class="text-indigo-400 hover:text-indigo-300 font-medium flex items-center gap-1">
-              상세 분석 및 대체재 보기 <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              ${{currentLang === 'KO' ? '상세 분석 및 대체재 보기' : 'View Audit & Alternatives'}} <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
             </span>
           </div>
         `;
@@ -844,7 +950,7 @@ def generate_html(data):
       
       const mBadge = document.getElementById('modalModeBadge');
       mBadge.className = 'text-xs px-2.5 py-0.5 rounded-md font-semibold ' + (isUserMode ? 'badge-user' : 'badge-auto');
-      mBadge.innerText = isUserMode ? '👤 직접 문제해결 큐레이션' : '🤖 자율 트렌드 감사 발굴';
+      mBadge.innerText = isUserMode ? (currentLang === 'KO' ? '👤 직접 문제해결 큐레이션' : '👤 User Problem-Solving') : (currentLang === 'KO' ? '🤖 자율 트렌드 감사 발굴' : '🤖 Autonomous Audit');
 
       document.getElementById('modalClusterBadge').innerText = clustering.cluster_name || (c.category || 'Tech');
       
@@ -858,7 +964,6 @@ def generate_html(data):
 
       document.getElementById('modalTitle').innerText = c.title;
 
-      // Curation Motivation Box
       const cBox = document.getElementById('modalCurationBox');
       cBox.className = 'p-4 rounded-xl border space-y-1.5 ' + (isUserMode ? 'bg-indigo-950/30 border-indigo-500/30' : 'bg-sky-950/30 border-sky-500/30');
       document.getElementById('modalCurationTitle').className = 'text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ' + (isUserMode ? 'text-indigo-300' : 'text-sky-300');
@@ -866,7 +971,6 @@ def generate_html(data):
       document.getElementById('modalPersonalMotivation').innerText = curation.personal_motivation || story.the_hook || '내용 없음';
       document.getElementById('modalTargetWorkflow').innerText = curation.target_workflow || '일반 엔지니어링 파이프라인';
 
-      // Alternatives Table
       const altBody = document.getElementById('modalAlternativesBody');
       altBody.innerHTML = '';
       if (clustering.alternatives && clustering.alternatives.length > 0) {{
@@ -885,7 +989,6 @@ def generate_html(data):
         altBody.innerHTML = '<tr><td colspan="4" class="p-3 text-center text-slate-500">등록된 대체재 정보가 없습니다.</td></tr>';
       }}
 
-      // Render Sources List
       const sourcesList = document.getElementById('modalSourcesList');
       sourcesList.innerHTML = '';
       if (c.sources && c.sources.length > 0) {{
@@ -907,7 +1010,6 @@ def generate_html(data):
         sourcesList.innerHTML = '<span class="text-xs text-slate-500">등록된 출처 없음</span>';
       }}
 
-      // Render Community Reactions
       const commList = document.getElementById('modalCommunityList');
       commList.innerHTML = '';
       if (c.community_reactions && c.community_reactions.length > 0) {{
@@ -932,7 +1034,6 @@ def generate_html(data):
       document.getElementById('modalTakeaways').innerText = story.engineering_takeaways || '내용 없음';
       document.getElementById('modalFuture').innerText = story.future_applications || '내용 없음';
 
-      // Hands-on Box
       const hBox = document.getElementById('modalHandsOnBox');
       hBox.className = 'bg-slate-900/90 p-4 rounded-xl border space-y-2.5 ' + stageInfo.boxBorder;
       
@@ -995,7 +1096,7 @@ def generate_html(data):
 
     document.addEventListener('DOMContentLoaded', () => {{
       lucide.createIcons();
-      renderCards();
+      setLanguage('KO'); // Default: 한국어
     }});
   </script>
 </body>

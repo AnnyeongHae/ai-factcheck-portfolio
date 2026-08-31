@@ -47,6 +47,10 @@ jobs:
         run: |
           python tools/harvest_trends.py
 
+      - name: Run Autonomous Auto-Pilot Fact-Check (Synthesize Top 1 Trend)
+        run: |
+          python tools/auto_autopilot_factcheck.py || echo "Auto-pilot step completed with notes."
+
       - name: Sync Data to Neon Postgres Cloud DB
         run: |
           python tools/db_bridge.py --sync-all || echo "Neon DB sync skipped or completed with notes."
