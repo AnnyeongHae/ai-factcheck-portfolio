@@ -1,60 +1,1865 @@
 {
   "generated_at": "2026-08-31",
-  "harvest_health": {
-    "timestamp": "2026-08-31T21:30:28.547505",
-    "date": "2026-08-31",
-    "sources": {
-      "hf_models": {
-        "status": "SUCCESS",
-        "items_found": 1,
-        "duration_sec": 0.32
-      },
-      "hf_spaces": {
-        "status": "SUCCESS",
-        "items_found": 25,
-        "duration_sec": 0.27
-      },
-      "github": {
-        "status": "SUCCESS",
-        "items_found": 1,
-        "duration_sec": 1.69
-      },
-      "hacker_news": {
-        "status": "SUCCESS",
-        "items_found": 5,
-        "duration_sec": 16.73
-      },
-      "arxiv": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.4
-      },
-      "reddit": {
-        "status": "ERROR",
-        "error": "HTTP Error 403: Blocked",
-        "duration_sec": 0.32
-      }
-    },
-    "summary": {
-      "total_fetched": 32,
-      "new_saved": 32,
-      "duplicates_skipped": 0,
-      "errors": 0
-    }
-  },
   "total_cases": 5,
+  "inbox_total_count": 118,
   "user_curated_count": 4,
   "auto_harvested_count": 1,
   "active_dev_count": 1,
   "halted_count": 1,
   "pending_count": 3,
-  "clusters": {
-    "cluster_doc_parsing": "📁 로컬 문서 ➔ LLM 마크다운 파서 (Document-to-Markdown Parsers)",
-    "cluster_multimodal_moe": "⚡ 초저지연 멀티모달 MoE 모델 (Low-Latency Multimodal MoE)",
-    "cluster_web_scraping": "🌐 웹 데이터 ➔ LLM 마크다운 변환기 (Web-to-Markdown Scrapers)",
-    "cluster_ai_video_automation": "🎬 AI 비디오 및 숏폼 자동화 파이프라인 (AI Video Automation)",
-    "cluster_reasoning_benchmarks": "🧠 추론 모델 및 벤치마크 감사 (Reasoning LLMs & Benchmark Audits)"
+  "admin_stats": {
+    "endpoints": [
+      {
+        "name": "Hugging Face Spaces",
+        "url": "https://huggingface.co/api/spaces?sort=trendingScore",
+        "type": "Interactive AI Demos",
+        "auth": "Unauthenticated (Free)"
+      },
+      {
+        "name": "Hugging Face Models",
+        "url": "https://huggingface.co/api/models?sort=trendingScore",
+        "type": "Trending Safetensors",
+        "auth": "Unauthenticated (Free)"
+      },
+      {
+        "name": "GitHub Search API",
+        "url": "https://api.github.com/search/repositories",
+        "type": "High-Velocity Repos",
+        "auth": "Unauthenticated (10 req/min)"
+      },
+      {
+        "name": "ArXiv Preprint API",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:cs.AI",
+        "type": "1차 연구 논문",
+        "auth": "Unauthenticated (Free)"
+      },
+      {
+        "name": "Hacker News Firebase",
+        "url": "https://hacker-news.firebaseio.com/v0/topstories.json",
+        "type": "AI/엔지니어링 토론",
+        "auth": "Unauthenticated (Free)"
+      },
+      {
+        "name": "Reddit r/LocalLLaMA",
+        "url": "https://www.reddit.com/r/LocalLLaMA/hot.json",
+        "type": "커뮤니티 루머/피드백",
+        "auth": "Custom User-Agent"
+      }
+    ],
+    "history": [
+      {
+        "timestamp": "2026-08-31T21:30:28.547505",
+        "date": "2026-08-31",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 1,
+            "duration_sec": 0.32
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.27
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 1,
+            "duration_sec": 1.69
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 5,
+            "duration_sec": 16.73
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.4
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.32
+          }
+        },
+        "summary": {
+          "total_fetched": 32,
+          "new_saved": 32,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
+      {
+        "timestamp": "2026-08-31T17:21:39.149166",
+        "date": "2026-08-31",
+        "sources": {
+          "huggingface": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.43
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 1.2
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 4,
+            "duration_sec": 14.11
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.8
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.32
+          }
+        },
+        "summary": {
+          "total_fetched": 74,
+          "new_saved": 74,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      }
+    ],
+    "latest_run": {
+      "timestamp": "2026-08-31T21:30:28.547505",
+      "date": "2026-08-31",
+      "sources": {
+        "hf_models": {
+          "status": "SUCCESS",
+          "items_found": 1,
+          "duration_sec": 0.32
+        },
+        "hf_spaces": {
+          "status": "SUCCESS",
+          "items_found": 25,
+          "duration_sec": 0.27
+        },
+        "github": {
+          "status": "SUCCESS",
+          "items_found": 1,
+          "duration_sec": 1.69
+        },
+        "hacker_news": {
+          "status": "SUCCESS",
+          "items_found": 5,
+          "duration_sec": 16.73
+        },
+        "arxiv": {
+          "status": "SUCCESS",
+          "items_found": 0,
+          "duration_sec": 0.4
+        },
+        "reddit": {
+          "status": "ERROR",
+          "error": "HTTP Error 403: Blocked",
+          "duration_sec": 0.32
+        }
+      },
+      "summary": {
+        "total_fetched": 32,
+        "new_saved": 32,
+        "duplicates_skipped": 0,
+        "errors": 0
+      }
+    }
   },
+  "inbox_items": [
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_what_i_learned_about_ai_trust_fro",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: What I Learned About AI Trust from Reconciling over 100B Transactions",
+      "source_platform": "Hacker News",
+      "source_url": "https://engineering.moniepoint.com/what-i-learned-about-ai-trust-from-reconciling",
+      "type": "sns",
+      "description": "HN Score: 6 pts, Comments: 2",
+      "viral_metric": "6 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_the_ai_native_sdlc_starts_with_yo",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: The AI-Native SDLC Starts with Your Infrastructure",
+      "source_platform": "Hacker News",
+      "source_url": "https://metalbear.com/blog/ai-native-sdlc-infrastructure/",
+      "type": "sns",
+      "description": "HN Score: 5 pts, Comments: 0",
+      "viral_metric": "5 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_study_blue_light_impairs_the_eyes",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Study: Blue light impairs the eye's ability to distinguish fine detail most",
+      "source_platform": "Hacker News",
+      "source_url": "https://research.uga.edu/news/blue-light-has-a-surprising-effect-on-your-eyes-study-finds/",
+      "type": "sns",
+      "description": "HN Score: 11 pts, Comments: 10",
+      "viral_metric": "11 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_show_hn_nfc_energy_harvesting_pcb",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Show HN: NFC Energy-Harvesting PCB Business Card with an MCU",
+      "source_platform": "Hacker News",
+      "source_url": "https://wilsonharper.net/projects/businesscard/",
+      "type": "sns",
+      "description": "HN Score: 165 pts, Comments: 17",
+      "viral_metric": "165 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_show_hn_floe_an_open_source_plugi",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Show HN: Floe – an open-source plugin for sample libraries – CLAP/VST3/AU",
+      "source_platform": "Hacker News",
+      "source_url": "https://floe.audio/",
+      "type": "sns",
+      "description": "HN Score: 4 pts, Comments: 0",
+      "viral_metric": "4 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_p99_0_ms_autocomplete_for_24",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: P99 0 ms* autocomplete for 240M domain names",
+      "source_platform": "Hacker News",
+      "source_url": "https://ruurtjan.com/articles/p99-0ms-autocomplete-for-240-million-domain-names",
+      "type": "sns",
+      "description": "HN Score: 64 points, 29 comments",
+      "viral_metric": "Score 64 pts",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "promotion_guide": "Run 'python tools/triage.py --promote 2026-08-31_sns_hacker_news_p99_0_ms_autocomplete_for_24' to elevate to portfolio"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_meta_security_researchers_ai_agen",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Meta Security Researcher's AI Agent Accidentally Deleted Her Emails",
+      "source_platform": "Hacker News",
+      "source_url": "https://au.pcmag.com/ai/116091/meta-security-researchers-ai-agent-accidentally-deleted-her-emails",
+      "type": "sns",
+      "description": "HN Score: 12 pts, Comments: 4",
+      "viral_metric": "12 HN Points",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_longest_straight_line_paths_on_wa",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Longest Straight Line Paths on Water or Land on the Earth (2018)",
+      "source_platform": "Hacker News",
+      "source_url": "https://arxiv.org/abs/1804.07389",
+      "type": "sns",
+      "description": "HN Score: 203 pts, Comments: 58",
+      "viral_metric": "203 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_how_to_build_a_diffusion_lan",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: How to build a diffusion language model",
+      "source_platform": "Hacker News",
+      "source_url": "https://kuleshov-group.github.io/blog/blog/2026/how-to-build-a-diffusion-language-model/",
+      "type": "sns",
+      "description": "HN Score: 57 points, 4 comments",
+      "viral_metric": "Score 57 pts",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "promotion_guide": "Run 'python tools/triage.py --promote 2026-08-31_sns_hacker_news_how_to_build_a_diffusion_lan' to elevate to portfolio"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_haiku_r1beta6_has_been_relea",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Haiku R1/beta6 has been released",
+      "source_platform": "Hacker News",
+      "source_url": "https://www.haiku-os.org/news/2026-08-26_haiku_r1_beta6",
+      "type": "sns",
+      "description": "HN Score: 299 points, 89 comments",
+      "viral_metric": "Score 299 pts",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "promotion_guide": "Run 'python tools/triage.py --promote 2026-08-31_sns_hacker_news_haiku_r1beta6_has_been_relea' to elevate to portfolio"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_continuous_diffusion_language_mod",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Continuous Diffusion Language Models (CDLM's)",
+      "source_platform": "Hacker News",
+      "source_url": "https://sander.ai/2026/08/24/continuous-dlms.html",
+      "type": "sns",
+      "description": "HN Score: 92 pts, Comments: 34",
+      "viral_metric": "92 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_sns_hacker_news_agent_memory_as_a_file_format",
+      "harvested_date": "2026-08-31",
+      "title": "Hacker News: Agent Memory as a File Format",
+      "source_platform": "Hacker News",
+      "source_url": "https://calpaterson.com/memoryfields.html",
+      "type": "sns",
+      "description": "HN Score: 17 pts, Comments: 5",
+      "viral_metric": "17 HN Points",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_trending_zai_orgglm_53_flash",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace Trending: zai-org/GLM-5.3-Flash",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+      "type": "repo",
+      "description": "Trending score: 1646, downloads: 346516",
+      "viral_metric": "Trending Score 1646",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "promotion_guide": "Run 'python tools/triage.py --promote 2026-08-31_repo_huggingface_trending_zai_orgglm_53_flash' to elevate to portfolio"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_trending_zai_orgglm_53",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace Trending: zai-org/GLM-5.3",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/zai-org/GLM-5.3",
+      "type": "repo",
+      "description": "Trending score: 1312, downloads: 50116",
+      "viral_metric": "Trending Score 1312",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "promotion_guide": "Run 'python tools/triage.py --promote 2026-08-31_repo_huggingface_trending_zai_orgglm_53' to elevate to portfolio"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_trending_unslothqwen38_flash",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace Trending: unsloth/Qwen3.8-Flash-Next-GGUF",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF",
+      "type": "repo",
+      "description": "Trending score: 597, downloads: 328195",
+      "viral_metric": "Trending Score 597",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "promotion_guide": "Run 'python tools/triage.py --promote 2026-08-31_repo_huggingface_trending_unslothqwen38_flash' to elevate to portfolio"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_trending_unslothqwen38_27b_g",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace Trending: unsloth/Qwen3.8-27B-GGUF",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF",
+      "type": "repo",
+      "description": "Trending score: 410, downloads: 8839153",
+      "viral_metric": "Trending Score 410",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "promotion_guide": "Run 'python tools/triage.py --promote 2026-08-31_repo_huggingface_trending_unslothqwen38_27b_g' to elevate to portfolio"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_trending_unslothglm_53_flash",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace Trending: unsloth/GLM-5.3-Flash-GGUF",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF",
+      "type": "repo",
+      "description": "Trending score: 291, downloads: 45936",
+      "viral_metric": "Trending Score 291",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "promotion_guide": "Run 'python tools/triage.py --promote 2026-08-31_repo_huggingface_trending_unslothglm_53_flash' to elevate to portfolio"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_trending_tencenthy4_preview",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace Trending: tencent/Hy4-preview",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/tencent/Hy4-preview",
+      "type": "repo",
+      "description": "Trending score: 323, downloads: 2123",
+      "viral_metric": "Trending Score 323",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "promotion_guide": "Run 'python tools/triage.py --promote 2026-08-31_repo_huggingface_trending_tencenthy4_preview' to elevate to portfolio"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_trending_qwenqwen38_27b",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace Trending: Qwen/Qwen3.8-27B",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "type": "repo",
+      "description": "Trending score: 749, downloads: 4511348",
+      "viral_metric": "Trending Score 749",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "promotion_guide": "Run 'python tools/triage.py --promote 2026-08-31_repo_huggingface_trending_qwenqwen38_27b' to elevate to portfolio"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_trending_obliteratusqwen38_2",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace Trending: OBLITERATUS/Qwen3.8-27B-OBLITERATED",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/OBLITERATUS/Qwen3.8-27B-OBLITERATED",
+      "type": "repo",
+      "description": "Trending score: 245, downloads: 725757",
+      "viral_metric": "Trending Score 245",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "promotion_guide": "Run 'python tools/triage.py --promote 2026-08-31_repo_huggingface_trending_obliteratusqwen38_2' to elevate to portfolio"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_trending_lightricksltx_25",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace Trending: Lightricks/LTX-2.5",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/Lightricks/LTX-2.5",
+      "type": "repo",
+      "description": "Trending score: 348, downloads: 1137181",
+      "viral_metric": "Trending Score 348",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "promotion_guide": "Run 'python tools/triage.py --promote 2026-08-31_repo_huggingface_trending_lightricksltx_25' to elevate to portfolio"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_thomsonreutersthomson_10_small",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: thomsonreuters/Thomson-1.0-Small",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/thomsonreuters/Thomson-1.0-Small",
+      "type": "repo",
+      "description": "Trending Score: 154, Downloads: 1009, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 154 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_qwenqwen38_flash_next_fp8",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: Qwen/Qwen3.8-Flash-Next-FP8",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next-FP8",
+      "type": "repo",
+      "description": "Trending Score: 158, Downloads: 76935, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 158 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_pipecat_aiphonellm_alpha_1",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: pipecat-ai/phonellm-alpha-1",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/pipecat-ai/phonellm-alpha-1",
+      "type": "repo",
+      "description": "Trending Score: 156, Downloads: 3982, Pipeline: text-generation",
+      "viral_metric": "Trending 156 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_peculiar_ragdolltiel_coder_35b_a3",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+      "type": "repo",
+      "description": "Trending Score: 144, Downloads: 87848, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 144 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "엔터프라이즈 RAG & 문서 파싱 인프라",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_ornith_aiornith_15_35b_a3b",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: ornith-ai/Ornith-1.5-35B-A3B",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B",
+      "type": "repo",
+      "description": "Trending Score: 127, Downloads: 147038, Pipeline: text-generation",
+      "viral_metric": "Trending 127 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_orcarouterqwen38_flash_next_uncen",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+      "type": "repo",
+      "description": "Trending Score: 117, Downloads: 42864, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 117 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_orcarouterqwen38_27b_uncensored_m",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-MLX",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-MLX",
+      "type": "repo",
+      "description": "Trending Score: 200, Downloads: 109121, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 200 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_orcarouterqwen38_27b_uncensored_g",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+      "type": "repo",
+      "description": "Trending Score: 139, Downloads: 238397, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 139 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_orcarouterqwen38_27b_uncensored_f",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-FP8",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-FP8",
+      "type": "repo",
+      "description": "Trending Score: 166, Downloads: 301964, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 166 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_moonshotaikimi_k3",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: moonshotai/Kimi-K3",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/moonshotai/Kimi-K3",
+      "type": "repo",
+      "description": "Trending Score: 116, Downloads: 2794721, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 116 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_model_deepseek_aideepseek_v4_flas",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace Model: deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
+      "type": "repo",
+      "description": "Trending Score: 160, Downloads: 0, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 160 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_minimaxaiminimax_h3",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: MiniMaxAI/MiniMax-H3",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+      "type": "repo",
+      "description": "Trending Score: 210, Downloads: 5263381, Pipeline: image-text-to-video",
+      "viral_metric": "Trending 210 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_kijaiminimax_h3_experimental",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: Kijai/MiniMax-H3-experimental",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/Kijai/MiniMax-H3-experimental",
+      "type": "repo",
+      "description": "Trending Score: 111, Downloads: 0, Pipeline: N/A",
+      "viral_metric": "Trending 111 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_jonathancolettiqwen38_27b_uncenso",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
+      "type": "repo",
+      "description": "Trending Score: 143, Downloads: 1991437, Pipeline: text-generation",
+      "viral_metric": "Trending 143 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_huihui_aihuihui_qwen38_27b_ablite",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
+      "type": "repo",
+      "description": "Trending Score: 121, Downloads: 1622056, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 121 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_hauhaucsqwen38_27b_uncensored_hau",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
+      "type": "repo",
+      "description": "Trending Score: 208, Downloads: 1158065, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 208 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_fastvideofastvideo_fasth3_4_step_",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree",
+      "type": "repo",
+      "description": "Trending Score: 196, Downloads: 0, Pipeline: text-to-video",
+      "viral_metric": "Trending 196 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_deepseek_aideepseek_v4_flash_0731",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: deepseek-ai/DeepSeek-V4-Flash-0731",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+      "type": "repo",
+      "description": "Trending Score: 124, Downloads: 4575518, Pipeline: text-generation",
+      "viral_metric": "Trending 124 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_breezebluebreeze_tts_2",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: BreezeBlue/Breeze-TTS-2",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/BreezeBlue/Breeze-TTS-2",
+      "type": "repo",
+      "description": "Trending Score: 214, Downloads: 1838, Pipeline: text-to-speech",
+      "viral_metric": "Trending 214 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_alibaba_paiminimax_h3_fun_control",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: alibaba-pai/MiniMax-H3-Fun-Controlnet-Union",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Fun-Controlnet-Union",
+      "type": "repo",
+      "description": "Trending Score: 161, Downloads: 5538, Pipeline: text-to-video",
+      "viral_metric": "Trending 161 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_alibaba_paiminimax_h3_acc_loras",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: alibaba-pai/MiniMax-H3-Acc-LoRAs",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs",
+      "type": "repo",
+      "description": "Trending Score: 149, Downloads: 23734, Pipeline: text-to-video",
+      "viral_metric": "Trending 149 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_ziadheropornmaster_krea2",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: Ziadhero/pornmaster-krea2",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Ziadhero/pornmaster-krea2",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 38 | Live URL: https://huggingface.co/spaces/Ziadhero/pornmaster-krea2",
+      "viral_metric": "❤️ 38 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_wxdaijoyai_video_edit",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: wxDai/joyai-video-edit",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/wxDai/joyai-video-edit",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 45 | Live URL: https://huggingface.co/spaces/wxDai/joyai-video-edit",
+      "viral_metric": "❤️ 45 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_wank3rwan_22_i2v_14b_clean",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: wank3r/Wan_2.2_I2V_14B-Clean",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/wank3r/Wan_2.2_I2V_14B-Clean",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 131 | Live URL: https://huggingface.co/spaces/wank3r/Wan_2.2_I2V_14B-Clean",
+      "viral_metric": "❤️ 131 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_victorminimax_music3_jam",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: victor/MiniMax-Music3-Jam",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/victor/MiniMax-Music3-Jam",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 64 | Live URL: https://huggingface.co/spaces/victor/MiniMax-Music3-Jam",
+      "viral_metric": "❤️ 64 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_shootstuffflux_img2img_uncensored",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: shootstuff/flux-img2img-uncensored",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/shootstuff/flux-img2img-uncensored",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 207 | Live URL: https://huggingface.co/spaces/shootstuff/flux-img2img-uncensored",
+      "viral_metric": "❤️ 207 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_selfit_cameraomni_image_editor",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: selfit-camera/Omni-Image-Editor",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2478 | Live URL: https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor",
+      "viral_metric": "❤️ 2478 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_saravutwomni_videos_custom",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: Saravutw/Omni-videos-custom",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Saravutw/Omni-videos-custom",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 250 | Live URL: https://huggingface.co/spaces/Saravutw/Omni-videos-custom",
+      "viral_metric": "❤️ 250 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_sagebiorare_disease_real_kid_mva_hac",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: SageBio/rare-disease-real-kid-mva-hackathon-2026",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/SageBio/rare-disease-real-kid-mva-hackathon-2026",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 69 | Live URL: https://huggingface.co/spaces/SageBio/rare-disease-real-kid-mva-hackathon-2026",
+      "viral_metric": "❤️ 69 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_prithivmlmodsqwen_image_edit_2511_lo",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: prithivMLmods/Qwen-Image-Edit-2511-LoRAs-Fast",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/prithivMLmods/Qwen-Image-Edit-2511-LoRAs-Fast",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2695 | Live URL: https://huggingface.co/spaces/prithivMLmods/Qwen-Image-Edit-2511-LoRAs-Fast",
+      "viral_metric": "❤️ 2695 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_pollen_roboticsmicroduck_simulator",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: pollen-robotics/microduck-simulator",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/pollen-robotics/microduck-simulator",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 230 | Live URL: https://huggingface.co/spaces/pollen-robotics/microduck-simulator",
+      "viral_metric": "❤️ 230 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_pnemrowqwen_image_edit_rapid_aio_lor",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: pnemrow/Qwen-Image-Edit-Rapid-AIO-Loras-Experimental-neo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/pnemrow/Qwen-Image-Edit-Rapid-AIO-Loras-Experimental-neo",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 190 | Live URL: https://huggingface.co/spaces/pnemrow/Qwen-Image-Edit-Rapid-AIO-Loras-Experimental-neo",
+      "viral_metric": "❤️ 190 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_pepe104minimax_h3_turbo_lora_uncenso",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 47 | Live URL: https://huggingface.co/spaces/Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED",
+      "viral_metric": "❤️ 47 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_mrfakenameminimax_h3_ultra_fast",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: mrfakename/minimax-h3-ultra-fast",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/mrfakename/minimax-h3-ultra-fast",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 178 | Live URL: https://huggingface.co/spaces/mrfakename/minimax-h3-ultra-fast",
+      "viral_metric": "❤️ 178 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_minimaxaiminimax_music3",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: MiniMaxAI/MiniMax-Music3",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/MiniMaxAI/MiniMax-Music3",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 309 | Live URL: https://huggingface.co/spaces/MiniMaxAI/MiniMax-Music3",
+      "viral_metric": "❤️ 309 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_minimaxaiminimax_h3_turbo_lora",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: MiniMaxAI/MiniMax-H3-Turbo-Lora",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/MiniMaxAI/MiniMax-H3-Turbo-Lora",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 311 | Live URL: https://huggingface.co/spaces/MiniMaxAI/MiniMax-H3-Turbo-Lora",
+      "viral_metric": "❤️ 311 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_m3st3rj4k3lflux2_klein_multi_lora",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: M3st3rJ4k3l/FLUX.2-Klein-Multi-LoRA",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/M3st3rJ4k3l/FLUX.2-Klein-Multi-LoRA",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 479 | Live URL: https://huggingface.co/spaces/M3st3rJ4k3l/FLUX.2-Klein-Multi-LoRA",
+      "viral_metric": "❤️ 479 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_lynotefree_ai_image_detector",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: Lynote/free-ai-image-detector",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Lynote/free-ai-image-detector",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 110 | Live URL: https://huggingface.co/spaces/Lynote/free-ai-image-detector",
+      "viral_metric": "❤️ 110 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_lynotefree_ai_detector",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: Lynote/free-ai-detector",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Lynote/free-ai-detector",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 349 | Live URL: https://huggingface.co/spaces/Lynote/free-ai-detector",
+      "viral_metric": "❤️ 349 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_kulkas2pintuwan555",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: kulkas2pintu/wan555",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/kulkas2pintu/wan555",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 1628 | Live URL: https://huggingface.co/spaces/kulkas2pintu/wan555",
+      "viral_metric": "❤️ 1628 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_kulkas2pintuqwen_edit_image",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: kulkas2pintu/QWEN_EDIT_IMAGE",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/kulkas2pintu/QWEN_EDIT_IMAGE",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 84 | Live URL: https://huggingface.co/spaces/kulkas2pintu/QWEN_EDIT_IMAGE",
+      "viral_metric": "❤️ 84 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_hugging_appssensenova_sensenova_u1_5",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: hugging-apps/sensenova-sensenova-u1-5-8b-mot",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/hugging-apps/sensenova-sensenova-u1-5-8b-mot",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 93 | Live URL: https://huggingface.co/spaces/hugging-apps/sensenova-sensenova-u1-5-8b-mot",
+      "viral_metric": "❤️ 93 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_hugging_appsfirered_tts3",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: hugging-apps/firered-tts3",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/hugging-apps/firered-tts3",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 62 | Live URL: https://huggingface.co/spaces/hugging-apps/firered-tts3",
+      "viral_metric": "❤️ 62 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_chrisssuttestground2",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: chrisssut/testground2",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/chrisssut/testground2",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 48 | Live URL: https://huggingface.co/spaces/chrisssut/testground2",
+      "viral_metric": "❤️ 48 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_breezebluebreeze_tts_2_demo",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: BreezeBlue/breeze-tts-2-demo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/BreezeBlue/breeze-tts-2-demo",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 26 | Live URL: https://huggingface.co/spaces/BreezeBlue/breeze-tts-2-demo",
+      "viral_metric": "❤️ 26 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_hf_space_agent_memory_leaderboardleaderboard",
+      "harvested_date": "2026-08-31",
+      "title": "HF Space: agent-memory-leaderboard/leaderboard",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/agent-memory-leaderboard/leaderboard",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 767 | Live URL: https://huggingface.co/spaces/agent-memory-leaderboard/leaderboard",
+      "viral_metric": "❤️ 767 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_yanliudesignmono_color_skill",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: yanliudesign/mono-color-skill",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/yanliudesign/mono-color-skill",
+      "type": "repo",
+      "description": "Stars: 1115, Forks: 51 | One-ink editorial print image skill — warm paper, halftone photography, active negative space, and restrained typography.",
+      "viral_metric": "★ 1115 Stars",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_xiaoduoyacodex_with_chatgpt",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: XiaoDuoYa/codex-with-chatgpt",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/XiaoDuoYa/codex-with-chatgpt",
+      "type": "repo",
+      "description": "Stars: 1577, Forks: 171 | ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.",
+      "viral_metric": "★ 1577 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_wide_traceopen_higgsfield",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: wide-trace/open-higgsfield",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/wide-trace/open-higgsfield",
+      "type": "repo",
+      "description": "Stars: 1105, Forks: 16 | A studio for image and video generation — one prompt bar, each model’s own settings, and every finished run in one gallery.",
+      "viral_metric": "★ 1105 Stars",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_wang2122sprix_sage_router",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: wang2122/sprix-sage-router",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/wang2122/sprix-sage-router",
+      "type": "repo",
+      "description": "Stars: 2791, Forks: 338 | Sprix AI at 屿智同行 — state-aware SELF/COLLABORATE/HANDOFF routing for A2A agent networks.",
+      "viral_metric": "★ 2791 Stars",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_vvxwdeploy_vercel",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: vvxw/deploy-vercel",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/vvxw/deploy-vercel",
+      "type": "repo",
+      "description": "Stars: 1541, Forks: 318 | Install Command：npm install",
+      "viral_metric": "★ 1541 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_tradecatlabsshulihuazixuecongshu",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: tradecatlabs/shulihuazixuecongshu",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/tradecatlabs/shulihuazixuecongshu",
+      "type": "repo",
+      "description": "Stars: 814, Forks: 159 | No description",
+      "viral_metric": "★ 814 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_tobiwalgit",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: tobi/walgit",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/tobi/walgit",
+      "type": "repo",
+      "description": "Stars: 2350, Forks: 128 | No description",
+      "viral_metric": "★ 2350 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_themartianotry_omarchy",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: themartiano/try-omarchy",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/themartiano/try-omarchy",
+      "type": "repo",
+      "description": "Stars: 975, Forks: 42 | Run Omarchy on MacOS without any setup.",
+      "viral_metric": "★ 975 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_tencentwemm_embedding",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: Tencent/WeMM-Embedding",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/Tencent/WeMM-Embedding",
+      "type": "repo",
+      "description": "Stars: 954, Forks: 66 | WeMM-Embedding is a family of universal multimodal embedding models by the WeChat Vision Team at Tencent, supporting multimodal understanding and retrieval.",
+      "viral_metric": "★ 954 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_shadowaqueductwatermark_remover",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: ShadowAqueduct/watermark-remover",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/ShadowAqueduct/watermark-remover",
+      "type": "repo",
+      "description": "Stars: 836, Forks: 79 | Purge multi-vendor AI watermarks: clean Unicode text, apply statistical rewrite hooks, and clear C2PA plus metadata from PNG, JPEG, SVG, PDF, DOCX, HTML, and MD.",
+      "viral_metric": "★ 836 Stars",
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라",
+        "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_sapientincpraxist",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: sapientinc/PRAXIST",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/sapientinc/PRAXIST",
+      "type": "repo",
+      "description": "Stars: 4814, Forks: 472 | Autonomous research system for measurable, computer-executable research.",
+      "viral_metric": "★ 4814 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_s1dashuip_as_logo_skill",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: s1dashu/ip-as-logo-skill",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/s1dashu/ip-as-logo-skill",
+      "type": "repo",
+      "description": "Stars: 4640, Forks: 235 | A compact Agent Skill for highly simplified, rounded, subtly neo-skeuomorphic IP mascot logos.",
+      "viral_metric": "★ 4640 Stars",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_nateherkaiscroll_craft",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: nateherkai/scroll-craft",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/nateherkai/scroll-craft",
+      "type": "repo",
+      "description": "Stars: 1300, Forks: 208 | Claude Code skill for premium scroll-driven websites. Scroll becomes the timeline, on a real design floor, verified by screenshotting its own scroll.",
+      "viral_metric": "★ 1300 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_nanako0129sepia",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: Nanako0129/sepia",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/Nanako0129/sepia",
+      "type": "repo",
+      "description": "Stars: 1026, Forks: 62 | De-AI writing skill for Claude Code, Codex, Grok Build, and Antigravity — narrative-architecture repair for fiction, venue-matched rules for professional prose. Based on StoryScope (arXiv:2604.03136).",
+      "viral_metric": "★ 1026 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_n4daraeanti_mage",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: N4darae/anti-mage",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/N4darae/anti-mage",
+      "type": "repo",
+      "description": "Stars: 1258, Forks: 36 | Browser testing utilizes various methods and algorithms, and performs calculations based on multiple parameters.",
+      "viral_metric": "★ 1258 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_meteornoxdeepseek_balance_whale_widget",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: MeteorNOX/DeepSeek-Balance-Whale-Widget",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget",
+      "type": "repo",
+      "description": "Stars: 1427, Forks: 52 | DeepSeek Harness（DSH）一只住在 DSH 界面右下角的小鲸鱼娘，帮你盯着DeepSeek账户余额。QQ弹弹，支持拖拽吸附、左吸附翻转、数字滚动动画，随界面自动启用，建议直接喊来你的dsh安装",
+      "viral_metric": "★ 1427 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_metamask_aimetamask_desktop",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: MetaMask-AI/metamask-desktop",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/MetaMask-AI/metamask-desktop",
+      "type": "repo",
+      "description": "Stars: 1228, Forks: 91 | 🌐 🔌 The MetaMask desktop app enables browsing Ethereum blockchain enabled websites",
+      "viral_metric": "★ 1228 Stars",
+      "matched_user_domains": [
+        "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_mengtothreeui",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: MengTo/threeui",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/MengTo/threeui",
+      "type": "repo",
+      "description": "Stars: 4712, Forks: 465 | Open-source ThreeUI Community catalog with live interactive components and complete Community source.",
+      "viral_metric": "★ 4712 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_kacperkapusciakgoldie",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: kacperkapusciak/goldie",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/kacperkapusciak/goldie",
+      "type": "repo",
+      "description": "Stars: 859, Forks: 62 | ✨ agentic app store previews and screenshots",
+      "viral_metric": "★ 859 Stars",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_jub0tconcat",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: jub0t/Concat",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/jub0t/Concat",
+      "type": "repo",
+      "description": "Stars: 773, Forks: 58 | Free & Open-Source CapCut replacement.",
+      "viral_metric": "★ 773 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_hejustinsunmy_girlfriend_jingtian_late",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: HEJustinSun/my-girlfriend-jingtian-latex",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/HEJustinSun/my-girlfriend-jingtian-latex",
+      "type": "repo",
+      "description": "Stars: 4168, Forks: 658 | No description",
+      "viral_metric": "★ 4168 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_duty1gx64dbg_mcp_server",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: duty1g/x64dbg-mcp-server",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/duty1g/x64dbg-mcp-server",
+      "type": "repo",
+      "description": "Stars: 1790, Forks: 185 | x64dbg-MCP Server is a native MCP (Model Context Protocol) plugin for x64dbg that exposes the debugger's full functionality over HTTP. Connect any MCP-compatible AI assistant and control x64dbg programmatically: set breakpoints, step through code, read memory, dump registers, and more.  Built with Zig — zero dependencies, single-binary output, cros",
+      "viral_metric": "★ 1790 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_denissergeevitchdesktop_fly",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: DenisSergeevitch/desktop-fly",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/DenisSergeevitch/desktop-fly",
+      "type": "repo",
+      "description": "Stars: 746, Forks: 47 | A 3D fruit fly living on your macOS desktop, driven by a live spiking simulation of the real FlyWire connectome",
+      "viral_metric": "★ 746 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_cclanklanshu_create_ai_presenter_video",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: cclank/lanshu-create-ai-presenter-video",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/cclank/lanshu-create-ai-presenter-video",
+      "type": "repo",
+      "description": "Stars: 982, Forks: 178 | Provider-neutral Codex Skill for producing verified AI presenter videos from a script and an authorized presenter image.",
+      "viral_metric": "★ 982 Stars",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_cbrock84headcount",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: cbrock84/headcount",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/cbrock84/headcount",
+      "type": "repo",
+      "description": "Stars: 755, Forks: 110 | An agent organization for Claude Code, structured as a company — 15+ departments, 125+ skills, each independently installable.",
+      "viral_metric": "★ 755 Stars",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_bryllimworkout_guide",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: bryllim/workout-guide",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/bryllim/workout-guide",
+      "type": "repo",
+      "description": "Stars: 1034, Forks: 164 | 302 open exercise illustrations and a framework-neutral npm package by Bryl Lim",
+      "viral_metric": "★ 1034 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_b_nnettgrok_bot_018_reconstructed",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: b-nnett/grok-bot-0.18-reconstructed",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/b-nnett/grok-bot-0.18-reconstructed",
+      "type": "repo",
+      "description": "Stars: 3458, Forks: 3434 | Unofficial source-oriented reconstruction and extension of Grok Bot 0.18.0 for macOS",
+      "viral_metric": "★ 3458 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_apodexaifrontieragent",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: ApodexAI/FrontierAgent",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/ApodexAI/FrontierAgent",
+      "type": "repo",
+      "description": "Stars: 1319, Forks: 116 | 🧩 FrontierAgent, our agent framework, open-sourced alongside it — native command-line TUI, ReAct and Agent Team modes, one command on macOS and Linux, no preinstall, no hard Docker dependency.",
+      "viral_metric": "★ 1319 Stars",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_amosblomqvistlearn",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: amosblomqvist/learn",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/amosblomqvist/learn",
+      "type": "repo",
+      "description": "Stars: 943, Forks: 93 | My AI learning system.",
+      "viral_metric": "★ 943 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_amirh00sainspiderpanel",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: amirh00sain/SpiderPanel",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/amirh00sain/SpiderPanel",
+      "type": "repo",
+      "description": "Stars: 931, Forks: 3141 | No description",
+      "viral_metric": "★ 931 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_github_amagine_aiamagine3d",
+      "harvested_date": "2026-08-31",
+      "title": "GitHub: amagine-ai/Amagine3D",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/amagine-ai/Amagine3D",
+      "type": "repo",
+      "description": "Stars: 1642, Forks: 82 | Amagine3D: From hardware requirements to editable 3D designs",
+      "viral_metric": "★ 1642 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_when_robots_mishear_us_mapping_the_safe",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: When Robots Mishear Us: Mapping the Safety Risks of Voice-Controlled Embodied AI",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28518v1",
+      "type": "repo",
+      "description": "Abstract: We investigate whether automatic speech recognition (ASR) errors in user input can lead to unsafe outputs from Embodied AI (EAI) models. We find that ASR errors can lead to harmful instructions being ...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_video_generative_models_as_geometry_lea",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: Video Generative Models as Geometry Learner",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28549v1",
+      "type": "repo",
+      "description": "Abstract: Recent generative approaches to geometry estimation adapt pretrained image diffusion models and treat the task as image-conditioned generation. Leveraging off-the-shelf image diffusion models, they ei...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_training_communication_efficient_mixtur",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: Training Communication-Efficient Mixture-of-Experts Language Models with Layer Re-Configuration",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28511v1",
+      "type": "repo",
+      "description": "Abstract: When training Mixture-of-Experts (MoE) language models with expert parallelism, all-to-all token dispatch and combine collectives can consume a substantial fraction of end-to-end training time. In thi...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_texture_image_classification_using_dwt_",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: Texture Image Classification Using DWT AlexNet Feature Fusion and Deep Neural Networks",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28524v1",
+      "type": "repo",
+      "description": "Abstract: Texture image classification plays a significant role in computer vision applications, including industrial inspection, medical image analysis, remote sensing, and object recognition. Handcrafted feat...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_phoneme_and_word_level_metrics_using_se",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28508v1",
+      "type": "repo",
+      "description": "Abstract: Forced alignment evaluation typically requires manually annotated timestamps, limiting large-scale and multilingual analysis. We introduce two corpus-level metrics based on self-supervised (SSL) speec...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_on_the_maintenance_and_co_evolution_of_",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: On the Maintenance and Co-evolution of Agent Plugins: An Empirical Study of Claude Code Plugin Marketplaces",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28497v1",
+      "type": "repo",
+      "description": "Abstract: AI coding agents, software tools that automate development tasks through reasoning and tool use, are increasingly extended through plugin marketplaces, yet the structure, maintenance, and co-evolution...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_nl2agbench_benchmarking_llm_auto_formal",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: NL2AGBench: Benchmarking LLM Auto-Formalization for AlphaGeometry",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28481v1",
+      "type": "repo",
+      "description": "Abstract: Recent advances in large language models (LLMs) have demonstrated strong capabilities in natural language understanding and mathematical reasoning. However, their ability to translate informal mathema...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화",
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_logos_an_agent_harness_on_a_cross_proce",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: Logos: An Agent Harness on a Cross-Process Bus",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28553v1",
+      "type": "repo",
+      "description": "Abstract: Modern agent systems assemble capabilities at runtime, and this dynamic composition has recently received a complete formal treat ment in the spatiotemporal-composability calculus, in which a capabili...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_llm_based_agents_for_software_and_syste",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: LLM-Based Agents for Software and Systems Security: Approaches, Applications, and Assessment",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28490v1",
+      "type": "repo",
+      "description": "Abstract: Software and systems security workflows are typically procedural: analysts inspect heterogeneous artifacts, form hypotheses, invoke tools, interpret outputs, and revise plans. Large language model (LL...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_learning_a_size_weight_frontier_for_syn",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: Learning a Size-Weight Frontier for Synthetic-Augmented Inference",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28576v1",
+      "type": "repo",
+      "description": "Abstract: Synthetic data can improve statistical inference when real data are scarce, but naively treating synthetic samples as real data can introduce bias and lead to unreliable inference. We develop a genera...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_ladders_in_chaos_when_how_and_perhaps_w",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: Ladders in Chaos: When, How, (and Perhaps Why) Does Test-Time Scaling Improve LLM Machine Translation",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28496v1",
+      "type": "repo",
+      "description": "Abstract: Two forms of test-time scaling for Large Language Models (LLMs) have emerged as effective and widely adopted paradigms: sequential, in which later answer attempts depend on earlier ones, and parallel,...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_instructmesh_selective_refinement_of_ge",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: InstructMesh: Selective Refinement of Generative 3D Models for Fabrication",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28534v1",
+      "type": "repo",
+      "description": "Abstract: Recent advances in generative AI allow users to create 3D models from text or images. However, these models prioritize visual plausibility over geometric accuracy, often generating results with flaws ...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화",
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_how_proper_scoring_rules_shape_llm_fore",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: How Proper Scoring Rules Shape LLM Forecasting",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28482v1",
+      "type": "repo",
+      "description": "Abstract: This paper evaluates how reward function choice shapes the performance and behavior of LLM forecasters. We compare five proper scoring rules as training objectives for binary forecasts of resolved rea...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_conformal_uncertainty_quantification_gu",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: Conformal Uncertainty Quantification Guarantees for Neural Operators",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28515v1",
+      "type": "repo",
+      "description": "Abstract: Neural operators provide fast surrogate models for approximating operators between function spaces, but their predictions often lack uncertainty quantification. We develop a split conformal framework ...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_blog_survey_of_optimizers",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: Blog: Survey of Optimizers",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28557v1",
+      "type": "repo",
+      "description": "Abstract: Neural-network optimization in 2025-2026 is no longer well described as a succession of new Adam variants. The design space has expanded from coordinates to matrices and layers, from fixed training ho...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_blind_men_and_the_elephant_probing_the_",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs under Long-Tail Divergent Knowledge",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28478v1",
+      "type": "repo",
+      "description": "Abstract: Factual question answering (QA) typically assumes a single canonical answer, obscuring whether large language models (LLMs) retain divergent accounts of long-tail facts. To address this gap, we introd...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_an_enclosed_mode_is_a_gauge_choice_topo",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28541v1",
+      "type": "repo",
+      "description": "Abstract: A code world model accepted by a sampling gate can be exactly right on everything the gate can see and arbitrarily wrong beyond it. We characterize what a certified model can know, and what its errors...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_aero_hand_open_a_simulation_ready_tendo",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28578v1",
+      "type": "repo",
+      "description": "Abstract: Tendon-driven hands are anthropomorphic, and moving the actuators off the joints is what makes a hand of this capability affordable to build. Two effects produce that saving. Routing force through a c...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_acrossvam10_particle_world_modeling_for",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28491v1",
+      "type": "repo",
+      "description": "Abstract: Predicting robot videos requires both precise motion reasoning and preservation of high-frequency appearance, yet monolithic pixel models entangle these objectives and often conceal their progress beh...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_a_formal_limitation_on_learning_human_l",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: A Formal Limitation on Learning Human Language From Textual Corpora",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28560v1",
+      "type": "repo",
+      "description": "Abstract: Can a listener recover what a speaker means from the form of an utterance alone? We answer this question information-theoretically, and for a listener given by any featurizer of text, including the hi...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    }
+  ],
   "cases": [
     {
       "case_id": "2026-08-31_repo_firecrawl_anydoc",
