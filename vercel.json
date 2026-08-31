@@ -1,11 +1,5 @@
 {
   "version": 2,
   "outputDirectory": "docs",
-  "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    }
-  ]
+  "cleanUrls": true
 }
