@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-01",
+  "clusters": [
+    {
+      "cluster_id": "cluster_web_scraping",
+      "cluster_name": "웹 데이터 ➔ LLM 마크다운 변환기 (Web-to-Markdown Scrapers)",
+      "keywords": ["crawler", "scraping", "crawl", "markdown", "web", "크롤러", "스크래핑", "html"],
+      "pioneer_tool": "firecrawl",
+      "tools": [
+        {
+          "tool_key": "firecrawl",
+          "name": "Firecrawl",
+          "tech_stack": "TypeScript, Playwright, API Cloud",
+          "first_created_at": "2024-04-15",
+          "last_updated_at": "2026-08-30",
+          "is_original_pioneer": true,
+          "sota_dimension": "ECOSYSTEM_SOTA",
+          "sota_summary": "웹-투-마크다운 패러다임의 표준 창시자. 가장 풍부한 SDK 및 클라우드 안정성",
+          "pros": "가장 대중적, 풍부한 SDK 및 간편한 클라우드 API",
+          "cons": "셀프호스팅 복잡도 및 API 요금제 의존성",
+          "best_for": "빠른 PoC 및 대규모 상용 SaaS 파이프라인"
+        },
+        {
+          "tool_key": "crawl4ai",
+          "name": "Crawl4AI",
+          "tech_stack": "Python, Asyncio, Playwright",
+          "first_created_at": "2024-07-20",
+          "last_updated_at": "2026-08-31",
+          "is_original_pioneer": false,
+          "sota_dimension": "SPEED_ASYNC_SOTA",
+          "sota_summary": "비동기 기반 로컬 크롤링 속도 및 LLM 친화적 청킹 SOTA",
+          "pros": "비동기 초고속 로컬 크롤링, LLM 친화적 휴리스틱",
+          "cons": "분산 작업 큐(Celery 등)는 자체 구축 필요",
+          "best_for": "로컬 및 소규모 고속 크롤링 작업"
+        },
+        {
+          "tool_key": "watercrawl",
+          "name": "WaterCrawl",
+          "tech_stack": "Python, Django, Scrapy, Celery",
+          "first_created_at": "2024-11-10",
+          "last_updated_at": "2026-08-31",
+          "is_original_pioneer": false,
+          "sota_dimension": "ENTERPRISE_CONTROL_SOTA",
+          "sota_summary": "Scrapy 셀렉터 커스텀 제어 및 Docker 온프레미스 자가호스팅 SOTA",
+          "pros": "강력한 CSS/XPath 커스텀 제어, Docker 완전 자가호스팅, n8n/Dify 연동",
+          "cons": "Python/Scrapy 아키텍처로 인한 초기 설정 리소스 소모",
+          "best_for": "복잡한 엔터프라이즈 커머스/보안 사이트 정밀 크롤링"
+        },
+        {
+          "tool_key": "anydoc",
+          "name": "Firecrawl AnyDoc",
+          "tech_stack": "Rust (Zero-copy AST), WebAssembly",
+          "first_created_at": "2025-01-15",
+          "last_updated_at": "2026-08-31",
+          "is_original_pioneer": false,
+          "sota_dimension": "PARSING_LATENCY_SOTA",
+          "sota_summary": "4.4ms 제로카피 오피스(.docx/.xlsx/.pptx) 파싱 레이턴시 SOTA",
+          "pros": "4.4ms 초고속 파싱, 제로카피 메모리 점유, 로컬/클라우드 이중 지원",
+          "cons": "웹 크롤링 기능 없음 (로컬 파일 전용)",
+          "best_for": "사내 대용량 오피스 문서 및 RAG 인제스천"
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_agent_lineage",
+      "cluster_name": "에이전트 메모리 & 자율 연구 하네스 (Agent Harness & Lineage)",
+      "pioneer_tool": "swe-agent",
+      "tools": [
+        {
+          "tool_key": "swe-agent",
+          "name": "SWE-agent",
+          "tech_stack": "Python, ACI (Agent-Computer Interface)",
+          "first_created_at": "2024-03-01",
+          "last_updated_at": "2026-08-25",
+          "is_original_pioneer": true,
+          "sota_dimension": "BENCHMARK_STANDARD_SOTA",
+          "sota_summary": "GitHub Issue 자율 해결 벤치마크 학술 표준 창시자",
+          "pros": "GitHub Issue 해결 학술 표준 벤치마크, 풍부한 커뮤니티",
+          "cons": "실패한 가설의 구조화된 계보(Lineage) 관리 부재",
+          "best_for": "학술 벤치마크 평가 및 단일 PR 단위 버그 수정"
+        },
+        {
+          "tool_key": "claude-code",
+          "name": "Claude Code",
+          "tech_stack": "TypeScript, Sonnet 3.7 Native Harness",
+          "first_created_at": "2025-11-01",
+          "last_updated_at": "2026-08-31",
+          "is_original_pioneer": false,
+          "sota_dimension": "DEVELOPER_UX_SOTA",
+          "sota_summary": "터미널 CLI 단일 세션 개발자 경험 및 초고속 수정 SOTA",
+          "pros": "CLI 인터페이스 직관성 극대화, 단일 세션 수정 초고속",
+          "cons": "장기 캠페인 시 토큰 비용 급증 및 이전 실패 기록 휘발",
+          "best_for": "일상적인 개발, 빠른 버그 픽스 및 리팩토링"
+        },
+        {
+          "tool_key": "praxist",
+          "name": "PRAXIST",
+          "tech_stack": "Python, Typed Evidence Graph, Codex Skills",
+          "first_created_at": "2026-08-15",
+          "last_updated_at": "2026-08-31",
+          "is_original_pioneer": false,
+          "sota_dimension": "COST_EFFICIENCY_LINEAGE_SOTA",
+          "sota_summary": "Typed Evidence Graph 기반 가설 상속으로 MLE-bench 1/12 비용 달성 SOTA",
+          "pros": "검증된 메커니즘을 상속하여 반복 학습 방지, 모델 비용 90% 절감",
+          "cons": "Fair Source License 적용 (연 매출 $1M 이상 기업 상업적 라이선스 필요)",
+          "best_for": "며칠 동안 지속되는 복합 알고리즘 및 머신러닝 연구 과제"
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_ai_video_automation",
+      "cluster_name": "AI 숏폼 비디오 원클릭 자동화 (AI Video Automation)",
+      "pioneer_tool": "moneyprinter",
+      "tools": [
+        {
+          "tool_key": "moneyprinter",
+          "name": "MoneyPrinter (Original)",
+          "tech_stack": "Python, MoviePy, Pexels API",
+          "first_created_at": "2023-11-10",
+          "last_updated_at": "2024-05-01",
+          "is_original_pioneer": true,
+          "sota_dimension": "PIONEER_CONCEPT",
+          "sota_summary": "LLM ➔ TTS ➔ MoviePy 원클릭 유튜브 쇼츠 자동 제작 패러다임 창시자",
+          "pros": "오픈소스 원클릭 쇼츠 생성 개념 최초 도입",
+          "cons": "스톡 영상 단조로움, Pexels API 키 제한, 유튜브 재사용 콘텐츠 제재",
+          "best_for": "초기 바이럴 프로토타입"
+        },
+        {
+          "tool_key": "moneyprinterturbo",
+          "name": "MoneyPrinterTurbo",
+          "tech_stack": "Python, Streamlit, Edge-TTS, SDXL",
+          "first_created_at": "2024-03-20",
+          "last_updated_at": "2026-08-20",
+          "is_original_pioneer": false,
+          "sota_dimension": "UI_ACCESSIBILITY_SOTA",
+          "sota_summary": "Streamlit 웹 UI 및 다양한 무료 TTS/SDXL 플러그인 통합 SOTA",
+          "pros": "웹 UI 직관적, 다양한 TTS 엔진 및 SD 이미지 생성기 내장",
+          "cons": "렌더링 지연 시간, 유튜브 수익화 불가능성 (AI Slop 제재)",
+          "best_for": "개인 창작자 간단 숏폼 프로토타입"
+        }
+      ]
+    }
+  ]
+}
