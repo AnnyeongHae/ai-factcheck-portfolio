@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Universal AI Citation & Tech Lineage Knowledge Hub (v17.0 - Tri-Lingual KO/ZH/EN, Viral Claims Dossier & Promotion Watch)
-- 100% Tri-Lingual Engine: Seamless switching between Korean (KO), Chinese (ZH - 中文), and English (EN).
-- 100% Viral Claims Dossier: Raw marketing post quotes, author platform badges, screenshot details, and direct primary links in modals.
-- 100% Autonomous Promotion Watch Banner: Real-time alert between Hero and Control Bar highlighting candidates auto-promoted during cron runs.
-- 100% Domain Filter Coverage: Explicit 'Other / Core Systems' tag ensuring zero unclassified cases.
-- 100% Dedup Registry: Prevents verified models (Qwen, GLM, etc.) from re-appearing in the inbox.
+Universal AI Citation & Tech Lineage Knowledge Hub (v18.0 - High-Fidelity CJK Font & Viral Claim Polish)
+- 100% Native CJK Font Stack: Noto Sans SC (Chinese), Pretendard (Korean), Geist/Inter (English) with 0 glyph breaking.
+- 100% Conditional Viral Claim Dossier: Completely hides marketing quote component if no quote is present.
+- 100% Strict Auto-Promoted Verdict: Uses 'Pending Audit (Auto-Promoted)' instead of 'Verified' for non-audited trend items.
+- 100% Accurate Banner Count: Dynamic 1:1 synchronization between Auto-Promoted Banner count and actual cases.
+- 100% Compact Responsive Domain Bar: No clipping in English mode.
 """
 
 import json
@@ -156,7 +156,7 @@ def build_dashboard():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    print(f"[+] Successfully built Tri-Lingual & Viral Claims Dashboard v17.0 at:")
+    print(f"[+] Successfully built High-Fidelity Tri-Lingual Dashboard v18.0 at:")
     print(f"    - public/index.html & data.json (Vercel CDN Edge)")
     print(f"    - index.html & data.json (Root entry)")
     print(f"    - dashboard/index.html (Verified: {total_cases}, News: {len(news_items)}, Inbox: {len(tech_inbox_items)})")
@@ -175,11 +175,11 @@ def generate_html(data):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FactCheck Hub — Universal AI Tech Intelligence</title>
   
-  <!-- Fonts: Pretendard (High Readability for Korean, Chinese & English) + Geist + JetBrains Mono -->
+  <!-- Dedicated Native Fonts for Korean, Chinese, and English -->
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -190,7 +190,7 @@ def generate_html(data):
       theme: {{
         extend: {{
           fontFamily: {{
-            sans: ['Pretendard', 'Geist', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+            sans: ['Pretendard', 'Noto Sans SC', 'Geist', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
           }},
           colors: {{
@@ -215,7 +215,7 @@ def generate_html(data):
 
   <style>
     body {{
-      font-family: 'Pretendard', 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: #f8f9fa;
       color: #111827;
       letter-spacing: -0.012em;
@@ -268,6 +268,11 @@ def generate_html(data):
       color: #b45309;
       background: #fffbeb;
       border: 1px solid #fde68a;
+    }}
+    .verdict-pending {{
+      color: #92400e;
+      background: #fef3c7;
+      border: 1px solid #fcd34d;
     }}
     .verdict-gamed {{
       color: #b91c1c;
@@ -412,10 +417,10 @@ def generate_html(data):
           <div class="space-y-0.5">
             <div class="text-xs font-bold text-amber-950 flex items-center gap-2">
               <span id="promoBannerTitle">자율 크론 트렌드 자동 승격 알림</span>
-              <span class="px-2 py-0.2 rounded bg-amber-200/80 text-amber-900 font-mono text-[10px] font-bold" id="promoCountBadge">7건 대기 중</span>
+              <span class="px-2 py-0.2 rounded bg-amber-200/80 text-amber-900 font-mono text-[10px] font-bold" id="promoCountBadge">2건 대기 중</span>
             </div>
             <p class="text-[11px] text-amber-800 leading-relaxed" id="promoBannerDesc">
-              사용자가 보지 않는 동안 GitHub Star 급상승 및 소셜 바이럴 임계치를 돌파하여 [자동 승격]된 7건의 최신 트렌드 후보가 검증 대기열에 등록되어 있습니다.
+              사용자가 보지 않는 동안 GitHub Star 급상승 및 소셜 바이럴 임계치를 돌파하여 [자동 승격]된 최신 트렌드 후보가 검증 대기열에 등록되어 있습니다.
             </p>
           </div>
         </div>
@@ -440,12 +445,12 @@ def generate_html(data):
             <button onclick="setModeFilter('USER_CURATED')" id="modeBtnUser" class="segment-btn flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-semibold hover:text-ink-primary transition flex items-center justify-center gap-1.5">
               <i data-lucide="user-check" class="w-3.5 h-3.5 text-indigo-600"></i>
               <span id="btnLabelUser">직접 큐레이션</span>
-              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/5 text-ink-secondary font-bold" id="badgeCountUser">10</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/5 text-ink-secondary font-bold" id="badgeCountUser">15</span>
             </button>
             <button onclick="setModeFilter('AUTO_HARVESTED')" id="modeBtnAuto" class="segment-btn flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-semibold hover:text-ink-primary transition flex items-center justify-center gap-1.5">
               <i data-lucide="bot" class="w-3.5 h-3.5 text-emerald-600"></i>
               <span id="btnLabelAuto">자동 트렌드</span>
-              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/5 text-ink-secondary font-bold" id="badgeCountAuto">7</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/5 text-ink-secondary font-bold" id="badgeCountAuto">2</span>
             </button>
           </div>
 
@@ -467,11 +472,11 @@ def generate_html(data):
 
         </div>
 
-        <!-- Row 2: Search Input & Complete 100% Domain Tag Filter Pills -->
+        <!-- Row 2: Search Input & Compact Responsive Domain Tag Filter Pills -->
         <div class="flex flex-col lg:flex-row items-center justify-between gap-3 pt-3 border-t border-surface-border">
           
           <!-- Search Box -->
-          <div class="relative w-full lg:w-96">
+          <div class="relative w-full lg:w-80">
             <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-2.5 text-ink-muted"></i>
             <input type="text" id="searchInput" placeholder="기술명, 아키텍처, 큐레이션 동기 검색..." 
                    class="w-full bg-surface-subtle border border-surface-border rounded-xl pl-10 pr-9 py-2 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
@@ -480,14 +485,14 @@ def generate_html(data):
             </button>
           </div>
 
-          <!-- Domain Tag Filter Pills (100% Coverage with Other/Core Systems) -->
+          <!-- Domain Tag Filter Pills (Compact & Responsive) -->
           <div class="flex items-center gap-1.5 w-full lg:w-auto justify-start lg:justify-end overflow-x-auto no-scrollbar py-1">
             <span class="text-[11px] text-ink-muted font-mono mr-1 shrink-0" id="domainFilterLabel">도메인:</span>
             <button onclick="setDomainFilter('ALL')" class="tag-pill active shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="ALL" id="tagAll">전체</button>
-            <button onclick="setDomainFilter('frontend')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="frontend" id="tagFrontend">프론트엔드/디자인</button>
+            <button onclick="setDomainFilter('frontend')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="frontend" id="tagFrontend">프론트엔드</button>
             <button onclick="setDomainFilter('agent')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="agent" id="tagAgent">AI 에이전트</button>
-            <button onclick="setDomainFilter('scraping')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="scraping" id="tagScraping">웹 스크래핑/브라우저</button>
-            <button onclick="setDomainFilter('doc')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="doc" id="tagDoc">문서 파싱/OCR</button>
+            <button onclick="setDomainFilter('scraping')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="scraping" id="tagScraping">웹 스크래핑</button>
+            <button onclick="setDomainFilter('doc')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="doc" id="tagDoc">문서 파싱</button>
             <button onclick="setDomainFilter('3d')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="3d" id="tag3d">3D/컴포넌트</button>
             <button onclick="setDomainFilter('rust')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="rust" id="tagRust">Rust/시스템</button>
             <button onclick="setDomainFilter('other')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="other" id="tagOther">기타/코어 인프라</button>
@@ -497,7 +502,7 @@ def generate_html(data):
 
       </div>
 
-      <!-- EXECUTIVE SCANNABLE DOSSIER GRID (2 Columns for Maximum Readability) -->
+      <!-- EXECUTIVE SCANNABLE DOSSIER GRID -->
       <div id="cardsGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
     </div>
 
@@ -715,8 +720,8 @@ def generate_html(data):
           </div>
         </div>
 
-        <!-- 🌟 VIRAL CLAIMS DOSSIER (마케팅 원문 포스트 발췌 & 클레임 증빙) -->
-        <div id="modalViralPostBox" class="p-4.5 rounded-xl border border-indigo-200/90 bg-indigo-50/50 space-y-3">
+        <!-- 🌟 VIRAL CLAIMS DOSSIER (Hides cleanly when quote is missing) -->
+        <div id="modalViralPostBox" class="hidden p-4.5 rounded-xl border border-indigo-200/90 bg-indigo-50/50 space-y-3">
           <div class="flex items-center justify-between">
             <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-950 flex items-center gap-1.5">
               <i data-lucide="message-square-quote" class="w-4 h-4 text-indigo-700"></i> <span id="modalSecViralPostTitle">1차 마케팅 원문 & 바이럴 클레임 발췌 (Raw Viral Claim)</span>
@@ -849,8 +854,8 @@ def generate_html(data):
         heroUpdateLabel: "최종 검증일",
         heroAuditCount: "17개 기술 검증 완료",
         promoBannerTitle: "자율 크론 트렌드 자동 승격 알림",
-        promoCountBadge: "7건 대기 중",
-        promoBannerDesc: "사용자가 보지 않는 동안 GitHub Star 급상승 및 소셜 바이럴 임계치를 돌파하여 [자동 승격]된 7건의 최신 트렌드 후보가 검증 대기열에 등록되어 있습니다.",
+        promoCountBadgeSuffix: "건 대기 중",
+        promoBannerDesc: "사용자가 보지 않는 동안 GitHub Star 급상승 및 소셜 바이럴 임계치를 돌파하여 [자동 승격]된 최신 트렌드 후보가 검증 대기열에 등록되어 있습니다.",
         promoBtnText: "자동 승격 목록 보기",
         btnAll: "전체 검증",
         btnUser: "직접 큐레이션",
@@ -865,10 +870,10 @@ def generate_html(data):
         searchPlaceholder: "기술명, 아키텍처, 큐레이션 동기 검색...",
         domainLabel: "도메인:",
         tagAll: "전체",
-        tagFrontend: "프론트엔드/디자인",
+        tagFrontend: "프론트엔드",
         tagAgent: "AI 에이전트",
-        tagScraping: "웹 스크래핑/브라우저",
-        tagDoc: "문서 파싱/OCR",
+        tagScraping: "웹 스크래핑",
+        tagDoc: "문서 파싱",
         tag3d: "3D/컴포넌트",
         tagRust: "Rust/시스템",
         tagOther: "기타/코어 인프라",
@@ -932,8 +937,8 @@ def generate_html(data):
         heroUpdateLabel: "最新审计",
         heroAuditCount: "已完成 17 项技术审计",
         promoBannerTitle: "自动巡检趋势晋升通知",
-        promoCountBadge: "7 项待分析",
-        promoBannerDesc: "在您离开期间，自律 Cron 巡检捕获了 7 个突破 GitHub Star 与社交营销阈值的热门候选项目，已自动晋升至审计就绪队列。",
+        promoCountBadgeSuffix: "项待分析",
+        promoBannerDesc: "在您离开期间，自律 Cron 巡检捕获了突破 GitHub Star 与社交营销阈值的热门候选项目，已自动晋升至审计就绪队列。",
         promoBtnText: "查看自动晋升列表",
         btnAll: "全部审计",
         btnUser: "人工精选",
@@ -948,17 +953,17 @@ def generate_html(data):
         searchPlaceholder: "搜索技术名、架构或策展动机...",
         domainLabel: "领域:",
         tagAll: "全部",
-        tagFrontend: "前端/设计",
-        tagAgent: "AI 智能体",
-        tagScraping: "网页爬取/浏览器",
-        tagDoc: "文档解析/OCR",
-        tag3d: "3D/组件库",
-        tagRust: "Rust/底层系统",
-        tagOther: "其他/核心基建",
+        tagFrontend: "前端/UI",
+        tagAgent: "AI Agent",
+        tagScraping: "网页爬虫",
+        tagDoc: "文档解析",
+        tag3d: "3D/组件",
+        tagRust: "Rust系统",
+        tagOther: "核心基建",
         cardMotivationLabel: "💡 挖掘动机 / 痛点问题:",
         cardVerdictLabel: "⚡ 审计结论 / 事实核验:",
         cardConfidenceLabel: "可信度",
-        cardSourcesLabel: "个第一手来源",
+        cardSourcesLabel: "个一手来源",
         cardViewBtn: "查阅完整报告",
         newsHeaderBadge: "GLOBAL AI INTELLIGENCE FEED",
         newsHeaderTitle: "源自社区、HackerNews 与专栏的前沿 AI 讨论",
@@ -1015,8 +1020,8 @@ def generate_html(data):
         heroUpdateLabel: "LAST AUDITED",
         heroAuditCount: "17 Audits Completed",
         promoBannerTitle: "Autonomous Cron Promotion Watch Alert",
-        promoCountBadge: "7 Ready for Audit",
-        promoBannerDesc: "While you were away, 7 high-velocity repositories passed the viral threshold and were auto-promoted to the verification queue.",
+        promoCountBadgeSuffix: "Pending Audit",
+        promoBannerDesc: "High-velocity repositories passed the viral threshold during background cron runs and were auto-promoted to the verification queue.",
         promoBtnText: "View Auto-Promoted",
         btnAll: "All Dossiers",
         btnUser: "User Curated",
@@ -1031,13 +1036,13 @@ def generate_html(data):
         searchPlaceholder: "Search tech, architecture, or motivation...",
         domainLabel: "Domain:",
         tagAll: "All",
-        tagFrontend: "Frontend / Design",
+        tagFrontend: "Frontend",
         tagAgent: "AI Agents",
-        tagScraping: "Web Scraping / Browser",
-        tagDoc: "Doc Parsing / OCR",
-        tag3d: "3D / Components",
-        tagRust: "Rust / Systems",
-        tagOther: "Other / Core Systems",
+        tagScraping: "Scraping",
+        tagDoc: "Docs/OCR",
+        tag3d: "3D WebGL",
+        tagRust: "Rust/Sys",
+        tagOther: "Core Infra",
         cardMotivationLabel: "💡 Intent & Problem:",
         cardVerdictLabel: "⚡ Empirical Truth & Verdict:",
         cardConfidenceLabel: "Confidence",
@@ -1100,7 +1105,7 @@ def generate_html(data):
           if (v === view) {{
             btn.className = 'nav-tab active flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-white bg-ink-primary transition';
           }} else {{
-            btn.className = 'nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition';
+            btn.className = 'nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition';
           }}
         }}
 
@@ -1119,10 +1124,22 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    // ================= LANGUAGE TOGGLE & TRI-LINGUAL TRANSLATION =================
+    // ================= LANGUAGE TOGGLE & HIGH-FIDELITY CJK FONT SWITCHING =================
     function setLanguage(lang) {{
       currentLang = lang;
       
+      // Dynamic Native Font Stack Switching
+      if (lang === 'ZH') {{
+        document.documentElement.lang = 'zh-CN';
+        document.body.style.fontFamily = "'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'SimHei', sans-serif";
+      }} else if (lang === 'EN') {{
+        document.documentElement.lang = 'en';
+        document.body.style.fontFamily = "'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
+      }} else {{
+        document.documentElement.lang = 'ko';
+        document.body.style.fontFamily = "'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif";
+      }}
+
       ['KO', 'ZH', 'EN'].forEach(l => {{
         const btn = document.getElementById('lang' + l.charAt(0) + l.slice(1).toLowerCase() + 'Btn');
         if (btn) {{
@@ -1149,7 +1166,6 @@ def generate_html(data):
       document.getElementById('heroAuditCount').innerText = t.heroAuditCount;
 
       document.getElementById('promoBannerTitle').innerText = t.promoBannerTitle;
-      document.getElementById('promoCountBadge').innerText = t.promoCountBadge;
       document.getElementById('promoBannerDesc').innerText = t.promoBannerDesc;
       document.getElementById('promoBtnText').innerText = t.promoBtnText;
 
@@ -1276,6 +1292,12 @@ def generate_html(data):
       const mCount = document.getElementById('mHeaderVerifiedCount');
       if (mCount) mCount.innerText = liveCasesData.length;
 
+      // Update Promotion Watch Banner Count (1:1 Exact Synchronization)
+      const promoBadge = document.getElementById('promoCountBadge');
+      if (promoBadge) {{
+        promoBadge.innerText = `${{countAuto}} ${{t.promoCountBadgeSuffix}}`;
+      }}
+
       const filtered = liveCasesData.filter(c => {{
         const mode = c.curation ? c.curation.discovery_mode : 'USER_CURATED';
         const matchesMode = currentMode === 'ALL' || mode === currentMode;
@@ -1349,10 +1371,30 @@ def generate_html(data):
           displayTruth = story.the_hook_en || displayTruth;
         }}
 
-        let verdictLabel = 'VERIFIED TRUE';
-        if (currentLang === 'KO') verdictLabel = isVerifiedTrue ? '사실 검증됨' : (isHalfTrue ? '절반의 사실' : '과장/왜곡');
-        else if (currentLang === 'ZH') verdictLabel = isVerifiedTrue ? '经实测属实' : (isHalfTrue ? '部分属实' : '夸大/失真');
-        else verdictLabel = isVerifiedTrue ? 'VERIFIED TRUE' : (isHalfTrue ? 'HALF TRUE' : 'EXAGGERATED');
+        // Strict Auto-Promoted Verdict
+        let verdictLabel = '';
+        let verdictClass = '';
+        let dotClass = '';
+
+        if (isUserMode) {{
+          if (isVerifiedTrue) {{
+            verdictLabel = currentLang === 'KO' ? '사실 검증됨' : (currentLang === 'ZH' ? '经实测属实' : 'VERIFIED TRUE');
+            verdictClass = 'verdict-true';
+            dotClass = 'bg-emerald-600';
+          }} else if (isHalfTrue) {{
+            verdictLabel = currentLang === 'KO' ? '절반의 사실' : (currentLang === 'ZH' ? '部分属实' : 'HALF TRUE');
+            verdictClass = 'verdict-half';
+            dotClass = 'bg-amber-600';
+          }} else {{
+            verdictLabel = currentLang === 'KO' ? '과장/왜곡' : (currentLang === 'ZH' ? '夸大/失真' : 'EXAGGERATED');
+            verdictClass = 'verdict-gamed';
+            dotClass = 'bg-rose-600';
+          }}
+        }} else {{
+          verdictLabel = currentLang === 'KO' ? '트렌드 포착 (검증 대기)' : (currentLang === 'ZH' ? '待深度核验 (已自动晋升)' : 'PENDING AUDIT (AUTO-PROMOTED)');
+          verdictClass = 'verdict-pending';
+          dotClass = 'bg-amber-600 animate-pulse';
+        }}
 
         const card = document.createElement('div');
         card.className = 'executive-card p-6 flex flex-col justify-between cursor-pointer space-y-4 group';
@@ -1365,15 +1407,15 @@ def generate_html(data):
             <div class="flex items-center justify-between text-xs gap-2 flex-wrap">
               <div class="flex items-center gap-2">
                 <span class="text-xs font-mono font-bold text-ink-muted">#${{String(idx + 1).padStart(2, '0')}}</span>
-                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold font-mono ${{isUserMode ? 'bg-indigo-50 text-indigo-700 border border-indigo-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}}">
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold font-mono ${{isUserMode ? 'bg-indigo-50 text-indigo-700 border border-indigo-200' : 'bg-amber-50 text-amber-900 border border-amber-300'}}">
                   ${{isUserMode ? (currentLang === 'KO' ? '직접 큐레이션' : (currentLang === 'ZH' ? '人工精选' : 'USER-CURATED')) : (currentLang === 'KO' ? '자동 트렌드' : (currentLang === 'ZH' ? '自动趋势' : 'AUTO-TREND'))}}
                 </span>
                 <span class="text-ink-muted text-[11px] font-mono">${{invDate}}</span>
               </div>
 
               <!-- Verdict Pill Badge -->
-              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold font-mono flex items-center gap-1.5 ${{isVerifiedTrue ? 'verdict-true' : (isHalfTrue ? 'verdict-half' : 'verdict-gamed')}}">
-                <span class="w-1.5 h-1.5 rounded-full ${{isVerifiedTrue ? 'bg-emerald-600' : 'bg-amber-600'}}"></span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold font-mono flex items-center gap-1.5 ${{verdictClass}}">
+                <span class="w-1.5 h-1.5 rounded-full ${{dotClass}}"></span>
                 ${{verdictLabel}}
               </span>
             </div>
@@ -1453,7 +1495,7 @@ def generate_html(data):
 
       document.getElementById('modalTitle').innerText = displayTitle;
       document.getElementById('modalModeBadge').innerText = curation.discovery_mode === 'USER_CURATED' ? (currentLang === 'KO' ? '직접 큐레이션' : (currentLang === 'ZH' ? '人工精选' : 'USER CURATED')) : (currentLang === 'KO' ? '자동 트렌드' : (currentLang === 'ZH' ? '自动趋势' : 'AUTO TREND'));
-      document.getElementById('modalModeBadge').className = curation.discovery_mode === 'USER_CURATED' ? 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200' : 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200';
+      document.getElementById('modalModeBadge').className = curation.discovery_mode === 'USER_CURATED' ? 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200' : 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-amber-50 text-amber-900 border border-amber-300';
       
       document.getElementById('modalClusterBadge').innerText = clustering.cluster_name || c.category || 'Tech';
       document.getElementById('modalVerdictBadge').innerText = c.verdict;
@@ -1464,23 +1506,31 @@ def generate_html(data):
       document.getElementById('modalMotivation').innerText = displayMotivation;
       document.getElementById('modalWorkflow').innerText = curation.target_workflow || 'Universal AI Pipeline';
 
-      // 🌟 VIRAL CLAIMS DOSSIER POPULATION
-      document.getElementById('modalSecViralPostTitle').innerText = t.modalSecViralPostTitle;
-      document.getElementById('modalViralPlatformBadge').innerText = rawPost.platform || 'Social Post';
-      document.getElementById('modalViralAuthor').innerText = (rawPost.author ? (rawPost.author + ' : ') : '') + (rawPost.screenshot_note || 'Viral Marketing Post Evidence');
-      document.getElementById('modalViralQuote').innerText = `"${{displayQuote || 'No raw quote recorded.'}}"`;
-      document.getElementById('modalViralNote').innerText = rawPost.screenshot_note || '';
-      document.getElementById('modalViralLinkText').innerText = t.modalViralLinkText;
-      
-      const directLink = document.getElementById('modalViralDirectLink');
-      if (rawPost.post_url) {{
-        directLink.href = rawPost.post_url;
-        directLink.classList.remove('hidden');
-      }} else if (c.sources && c.sources.length > 0) {{
-        directLink.href = c.sources[0].url;
-        directLink.classList.remove('hidden');
+      // 🌟 VIRAL CLAIMS DOSSIER (Hides cleanly when quote is missing)
+      const viralBox = document.getElementById('modalViralPostBox');
+      const hasQuote = displayQuote && displayQuote.trim().length > 0;
+
+      if (hasQuote) {{
+        viralBox.classList.remove('hidden');
+        document.getElementById('modalSecViralPostTitle').innerText = t.modalSecViralPostTitle;
+        document.getElementById('modalViralPlatformBadge').innerText = rawPost.platform || 'Social Post';
+        document.getElementById('modalViralAuthor').innerText = (rawPost.author ? (rawPost.author + ' : ') : '') + (rawPost.screenshot_note || 'Viral Marketing Post Evidence');
+        document.getElementById('modalViralQuote').innerText = `"${{displayQuote}}"`;
+        document.getElementById('modalViralNote').innerText = rawPost.screenshot_note || '';
+        document.getElementById('modalViralLinkText').innerText = t.modalViralLinkText;
+        
+        const directLink = document.getElementById('modalViralDirectLink');
+        if (rawPost.post_url) {{
+          directLink.href = rawPost.post_url;
+          directLink.classList.remove('hidden');
+        }} else if (c.sources && c.sources.length > 0) {{
+          directLink.href = c.sources[0].url;
+          directLink.classList.remove('hidden');
+        }} else {{
+          directLink.classList.add('hidden');
+        }}
       }} else {{
-        directLink.classList.add('hidden');
+        viralBox.classList.add('hidden');
       }}
 
       document.getElementById('modalHook').innerText = (currentLang === 'ZH' && story.the_hook_zh) ? story.the_hook_zh : (story.the_hook || '');
@@ -1889,7 +1939,7 @@ def generate_html(data):
         .attr("text-anchor", "middle")
         .attr("fill", "#111827")
         .attr("font-size", "11px")
-        .attr("font-family", "Pretendard, sans-serif")
+        .attr("font-family", "Pretendard, Noto Sans SC, sans-serif")
         .attr("font-weight", "600");
 
       simulationRef.on("tick", () => {{
