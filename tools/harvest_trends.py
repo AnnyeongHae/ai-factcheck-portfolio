@@ -354,12 +354,29 @@ def harvest_all():
         harvest_report["sources"]["reddit"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - reddit_start, 2)}
         logger.log(f"[!] Reddit Note: {e}", level="WARNING")
 
+def extract_metric_number(text):
+    if not text: return 0
+    m_k = re.search(r'([\d\.]+)\s*[kK]', text)
+    if m_k:
+        try:
+            return int(float(m_k.group(1)) * 1000)
+        except Exception:
+            pass
+    m_num = re.search(r'([\d,]+)', text)
+    if m_num:
+        try:
+            return int(m_num.group(1).replace(',', ''))
+        except Exception:
+            pass
+    return 0
+
     # Deduplicate and save into inbox/
     new_saved = 0
     dup_skipped = 0
     for cand in all_candidates:
         slug = slugify(cand["title"])
         case_id = f"{today_str}_{cand['type']}_{slug}"
+        current_val = extract_metric_number(cand.get("viral_metric", ""))
 
         # If already exists, update dynamic metrics (Stars / Likes / HN Points)
         found_inbox_file = None
@@ -372,9 +389,37 @@ def harvest_all():
             try:
                 with open(found_inbox_file, "r", encoding="utf-8") as fp:
                     old_item = json.load(fp)
+
+                old_tracking = old_item.get("metric_tracking")
+                if not old_tracking:
+                    old_init_val = extract_metric_number(old_item.get("viral_metric", ""))
+                    old_tracking = {
+                        "initial": {
+                            "value": old_init_val,
+                            "display": old_item.get("viral_metric", ""),
+                            "recorded_at": old_item.get("created_at", old_item.get("harvested_date", today_str))
+                        }
+                    }
+
+                init_val = old_tracking.get("initial", {}).get("value", current_val)
+                delta = current_val - init_val
+                delta_pct = round(((current_val - init_val) / max(1, init_val)) * 100, 1) if init_val > 0 else 0.0
+
+                old_tracking["latest"] = {
+                    "value": current_val,
+                    "display": cand["viral_metric"],
+                    "updated_at": today_str
+                }
+                old_tracking["delta"] = delta
+                old_tracking["delta_display"] = f"+{delta:,}" if delta > 0 else (f"{delta:,}" if delta < 0 else "0")
+                old_tracking["growth_rate_pct"] = delta_pct
+                old_tracking["is_spiking"] = delta >= 100 or delta_pct >= 50.0
+
+                old_item["metric_tracking"] = old_tracking
                 old_item["description"] = cand["description"]
                 old_item["viral_metric"] = cand["viral_metric"]
-                old_item["last_synced_at"] = today_str
+                old_item["updated_at"] = today_str
+
                 with open(found_inbox_file, "w", encoding="utf-8") as fp:
                     json.dump(old_item, fp, indent=2, ensure_ascii=False)
             except Exception:
@@ -388,9 +433,28 @@ def harvest_all():
 
         matched_domains = match_persona_domain(cand["title"], cand["description"], persona_config)
 
+        metric_tracking = {
+            "initial": {
+                "value": current_val,
+                "display": cand["viral_metric"],
+                "recorded_at": today_str
+            },
+            "latest": {
+                "value": current_val,
+                "display": cand["viral_metric"],
+                "updated_at": today_str
+            },
+            "delta": 0,
+            "delta_display": "+0",
+            "growth_rate_pct": 0.0,
+            "is_spiking": False
+        }
+
         inbox_item = {
             "inbox_id": case_id,
             "harvested_date": today_str,
+            "created_at": today_str,
+            "updated_at": today_str,
             "title": cand["title"],
             "source_platform": cand["source_platform"],
             "source_url": cand["source_url"],
@@ -398,6 +462,7 @@ def harvest_all():
             "category_type": cand.get("category_type", "TECH"),
             "description": cand["description"],
             "viral_metric": cand["viral_metric"],
+            "metric_tracking": metric_tracking,
             "matched_user_domains": matched_domains,
             "status": "PENDING_REVIEW"
         }

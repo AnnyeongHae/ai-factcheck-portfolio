@@ -1663,20 +1663,42 @@ def generate_html(data):
             const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
             const roleBadge = it.variant_role || 'Standard';
 
+            const tracking = it.metric_tracking || {{}};
+            const initVal = tracking.initial?.display || it.viral_metric || '';
+            const initDate = tracking.initial?.recorded_at || it.created_at || it.harvested_date || '2026-08-31';
+            const latestVal = tracking.latest?.display || it.viral_metric || '';
+            const latestDate = tracking.latest?.updated_at || it.updated_at || it.harvested_date || '2026-09-02';
+            const delta = tracking.delta || 0;
+            const deltaDisplay = tracking.delta_display || '+0';
+            const isSpike = tracking.is_spiking || false;
+
             subItemsHtml += `
               <div class="bg-surface-subtle p-4 rounded-xl border border-surface-border flex flex-col justify-between space-y-3 hover:border-ink-primary transition">
                 <div class="space-y-2">
                   <div class="flex items-center justify-between text-[11px] font-mono">
                     <span class="text-ink-primary font-bold">${{it.source_platform || 'Hub'}}</span>
-                    <span class="text-ink-muted">${{it.viral_metric || ''}}</span>
-                  </div>
-                  
-                  <div class="px-2 py-0.5 rounded text-[10px] font-semibold font-mono bg-white text-ink-primary border border-surface-border inline-block">
-                    ${{roleBadge}}
+                    <span class="px-1.5 py-0.2 rounded text-[10px] font-semibold font-mono bg-white text-ink-primary border border-surface-border">
+                      ${{roleBadge}}
+                    </span>
                   </div>
 
                   <h4 class="font-bold text-xs text-ink-primary line-clamp-2 leading-relaxed">${{displayTitle}}</h4>
-                  
+
+                  <!-- 🌟 Dynamic Metric Tracking (Created vs Updated) -->
+                  <div class="p-2 rounded-lg bg-white border border-surface-border text-[10px] space-y-1 font-mono">
+                    <div class="flex items-center justify-between text-ink-muted">
+                      <span>${{currentLang === 'KO' ? '최초 수집' : (currentLang === 'ZH' ? '首次采集' : 'Created')}} (${{initDate}}):</span>
+                      <span class="font-semibold text-ink-secondary">${{initVal}}</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-0.5 border-t border-surface-border">
+                      <span class="text-indigo-950 font-bold">${{currentLang === 'KO' ? '최신 갱신' : (currentLang === 'ZH' ? '最新同步' : 'Latest')}} (${{latestDate}}):</span>
+                      <div class="flex items-center gap-1 font-bold">
+                        <span class="${{delta > 0 ? 'text-emerald-700' : 'text-ink-primary'}}">${{latestVal}}</span>
+                        ${{delta > 0 ? `<span class="px-1 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[9px] border border-emerald-200">${{deltaDisplay}} 🔺</span>` : ''}}
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="text-[10px] text-ink-muted font-mono">
                     ${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
                   </div>
@@ -1720,6 +1742,14 @@ def generate_html(data):
           const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
           const displayDesc = currentLang === 'KO' && it.description_ko ? it.description_ko : (it.description || '');
 
+          const tracking = it.metric_tracking || {{}};
+          const initVal = tracking.initial?.display || it.viral_metric || '';
+          const initDate = tracking.initial?.recorded_at || it.created_at || it.harvested_date || '2026-08-31';
+          const latestVal = tracking.latest?.display || it.viral_metric || '';
+          const latestDate = tracking.latest?.updated_at || it.updated_at || it.harvested_date || '2026-09-02';
+          const delta = tracking.delta || 0;
+          const deltaDisplay = tracking.delta_display || '+0';
+
           const card = document.createElement('div');
           card.className = 'executive-card p-5 flex flex-col justify-between space-y-3.5';
 
@@ -1729,7 +1759,7 @@ def generate_html(data):
                 <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[11px]">
                   ${{it.source_platform || 'Tech Hub'}}
                 </span>
-                <span class="text-ink-muted text-[11px]">${{it.viral_metric || ''}}</span>
+                <span class="text-ink-muted text-[11px]">${{it.variant_role || 'Standard'}}</span>
               </div>
 
               <h3 class="font-bold text-sm text-ink-primary leading-snug">
@@ -1739,6 +1769,21 @@ def generate_html(data):
               <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
                 ${{displayDesc}}
               </p>
+
+              <!-- 🌟 Dynamic Metric Tracking (Created vs Updated) -->
+              <div class="p-2.5 rounded-xl bg-surface-subtle border border-surface-border text-[11px] space-y-1 font-mono">
+                <div class="flex items-center justify-between text-ink-muted">
+                  <span>${{currentLang === 'KO' ? '최초 수집' : (currentLang === 'ZH' ? '首次采集' : 'Created')}} (${{initDate}}):</span>
+                  <span class="font-semibold text-ink-secondary">${{initVal}}</span>
+                </div>
+                <div class="flex items-center justify-between pt-1 border-t border-surface-border">
+                  <span class="text-indigo-950 font-bold">${{currentLang === 'KO' ? '최신 갱신' : (currentLang === 'ZH' ? '最新同步' : 'Latest')}} (${{latestDate}}):</span>
+                  <div class="flex items-center gap-1 font-bold">
+                    <span class="${{delta > 0 ? 'text-emerald-700' : 'text-ink-primary'}}">${{latestVal}}</span>
+                    ${{delta > 0 ? `<span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[10px] border border-emerald-200">${{deltaDisplay}} 🔺</span>` : ''}}
+                  </div>
+                </div>
+              </div>
 
               <div class="text-[11px] text-ink-muted font-mono pt-1">
                 ${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
