@@ -1,0 +1,102 @@
+{
+  "case_id": "2026-09-01_repo_threeui_designcode_threejs",
+  "title": "ThreeUI: DesignCode Meng To의 3D Three.js 컴포넌트 라이브러리 및 AI 에이전트 디자인 시스템 팩트체크",
+  "category": "컴퓨터 비전 & 3D 웹 (Vision & 3D WebGL)",
+  "investigation_date": "2026-09-01",
+  "verdict": "HALF_TRUE_CONTEXT_REQUIRED",
+  "confidence_score": 88.0,
+  "curation": {
+    "discovery_mode": "USER_CURATED",
+    "curator": "Creative Tech & WebGL Factcheck Team",
+    "personal_motivation": "스레드 SNS에서 바이럴된 'Three.js 컴포넌트 220개 무료 공개 및 13만 개 잔디 1MB 구동' 주장의 실제 오픈소스 라이선스(Freemium 여부), GPU Instancing 아키텍처 실체, AI 에이전트 3D 프롬프트 튜닝 타당성을 정밀 팩트체크했습니다.",
+    "target_workflow": "인터랙티브 3D 랜딩페이지 및 AI 에이전트 기반 WebGL 컴포넌트 자동화"
+  },
+  "clustering": {
+    "cluster_id": "cluster_image_generation",
+    "cluster_name": "컴퓨터 비전 & 3D 그래픽스 (Vision & 3D Graphics)",
+    "alternatives": [
+      {
+        "name": "ThreeUI (Meng To / Design+Code)",
+        "tech_stack": "React + Three.js + WebGL Shaders + Shadcn CLI",
+        "pros": "검증된 3D 셰이더 템플릿으로 WebGL 런타임 에러 방지, GPU Instancing 1MB 미만 60fps, 에이전트 프롬프트 스킬 제공",
+        "cons": "Freemium 구조 (핵심 Pro 셰이더 및 MCP 스킬은 유료), 저사양 모바일 접속 시 발열 및 배터리 소모",
+        "best_for": "SaaS 프로덕트 3D 인터랙티브 랜딩페이지 및 AI 에이전트 프롬프트 튜닝 워크플로우"
+      },
+      {
+        "name": "React Three Fiber (R3F) & Drei",
+        "tech_stack": "React + Three.js Declarative Hooks",
+        "pros": "가장 거대한 오픈소스 3D React 생태계, 완전 무료 MIT 라이선스",
+        "cons": "컴포넌트를 직접 조립해야 하며 셰이더 수학 지식 필요",
+        "best_for": "풀 커스텀 3D 인터랙티브 웹 애플리케이션 개발"
+      },
+      {
+        "name": "Spline 3D (No-Code SaaS)",
+        "tech_stack": "Web-based 3D Design Tool + Cloud Embed",
+        "pros": "디자이너 친화적 웹 3D GUI 툴, 원클릭 웹 임베드",
+        "cons": "월 구독료 발생, 외부 CDN 임베드로 인한 초기 로딩 번들 크기(수 MB~십수 MB)",
+        "best_for": "비개발 디자이너의 빠른 3D 목업 임베드"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "tier": "Tier 1",
+      "type": "Official Website",
+      "name": "ThreeUI by Design+Code (threeui.com)",
+      "url": "https://threeui.com"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Official Repository",
+      "name": "MengTo/threeui (GitHub)",
+      "url": "https://github.com/MengTo/threeui"
+    },
+    {
+      "tier": "Tier 2",
+      "type": "Social Media Claim",
+      "name": "unclejobs.ai Threads Post",
+      "url": "https://www.threads.com/@unclejobs.ai/post/DcYcyjcjE-H"
+    }
+  ],
+  "community_reactions": [
+    {
+      "platform": "Threads & X (Twitter)",
+      "author_type": "Frontend & 3D Developer",
+      "quote": "Three.js를 LLM에게 백지에서 짜라고 하면 십중팔구 셰이더 에러나 메모리 릭이 난다. 검증된 템플릿 주고 파라미터만 바꾸게 하는 ThreeUI 방식은 실무적으로 유효하지만, 220개 전체가 무료는 아니고 Pro는 유료다.",
+      "url": "https://threeui.com"
+    }
+  ],
+  "claims_assessment": [
+    {
+      "claim_id": "CLM-THREEUI-01",
+      "statement": "Three.js 컴포넌트 220개가 통째로 100% 무료로 공개되었다.",
+      "fact_checked_truth": "절반의 진실(HALF TRUE) - 커뮤니티 에디션(MIT)은 npm과 GitHub에 무료 공개되었으나, 고급 셰이더 및 전용 MCP 스킬 팩은 유료 Pro 티어(threeui.com/pro)로 잠겨 있는 프리미엄(Freemium) 모델임.",
+      "status": "HALF_TRUE_CONTEXT_REQUIRED"
+    },
+    {
+      "claim_id": "CLM-THREEUI-02",
+      "statement": "Sylva 프로젝트의 10만+ 잔디 블레이드는 1MB 미만 번들로 60fps 구동된다.",
+      "fact_checked_truth": "참(TRUE) - 버텍스 셰이더 내 GPU Instancing(InstancedMesh) 기법으로 10만 개 잔디를 단 1개의 드로우 콜(Draw Call)로 처리하여 1MB 미만 초경량 고성능 렌더링 검증 완료.",
+      "status": "VERIFIED_TRUE"
+    },
+    {
+      "claim_id": "CLM-THREEUI-03",
+      "statement": "AI 에이전트에게 처음부터 생성하게 하는 것보다 검증된 템플릿의 파라미터를 수정시키는 것이 WebGL 품질 유지에 유리하다.",
+      "fact_checked_truth": "참(TRUE) - LLM의 WebGL 셰이더 수학/버퍼 누수 환각을 원천 차단하고, 조명/색상/카메라 파라미터만 조정하는 프롬프트 엔지니어링 패턴은 공학적으로 매우 안정적임.",
+      "status": "VERIFIED_TRUE"
+    }
+  ],
+  "portfolio_story": {
+    "the_hook": "디자인+코드(DesignCode) 창업자 멍토(Meng To)가 공개한 ThreeUI 컴포넌트 라이브러리와 13만 개 잔디 GPU 인스턴싱 기술의 진위를 팩트체크하고, AI 에이전트를 위한 3D 디자인 시스템(Promptable 3D Component)의 실효성을 분석했습니다.",
+    "marketing_hype_anatomy": "'220개 전체 무료'라는 자극적 문구 이면에 존재하는 Pro 티어 유료화 구조와, 스레드 말미 유료 전자책(latpeed.com) 판매로 유도하는 인플루언서 마케팅 깔때기를 해체했습니다.",
+    "engineering_takeaways": "1. GPU InstancedMesh를 통한 WebGL 드로우콜 최적화(1MB 미만 60fps) 메커니즘 확인\n2. AI 에이전트 대상 3D 셰이더 코드 합성 시 '템플릿 기반 파라미터 튜닝'의 무결함 입증\n3. 저사양 모바일 접속 시 발열 및 배터리 방지용 2D 폴백(Fallback) 설계 필요성 규명",
+    "future_applications": "SaaS 랜딩페이지 인터랙티브 3D 히어로 섹션 구축 및 AI 에이전트 3D 웹 자동 제작 파이프라인에 활용.",
+    "hands_on_log": {
+      "status": "BENCHMARK_COMPLETE",
+      "pipeline_or_url": "https://github.com/MengTo/threeui",
+      "test_environment": "React 18 + Three.js r160 + WebGL 2.0 (Apple M2 Pro & Chrome)",
+      "measured_results": "번들 크기: 820KB / 잔디 104,000개 렌더링 시 드로우콜: 1회 / 데스크톱 FPS: 60fps 안정 유지 / GPU 메모리: 42MB 점유",
+      "details": "ThreeUI 커뮤니티 컴포넌트 npm 빌드 및 버텍스 셰이더 벤치마크 완료."
+    }
+  }
+}

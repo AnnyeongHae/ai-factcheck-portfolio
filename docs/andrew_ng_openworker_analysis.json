@@ -1,0 +1,48 @@
+{
+  "analysis_key": "andrew_ng_openworker_analysis",
+  "title": "Andrew Ng의 OpenWorker: 채팅을 넘어 완결된 결과물(Finished Work)을 납품하는 오픈소스 AI 동료의 기술적 실체와 한계",
+  "base_standard": "Traditional Conversational AI Chatbots (Slack/Web Chat UI)",
+  "third_party_ecosystem": "Local-First Desktop Agent Harness (Tauri v2 + aisuite + MCP + Approval Gate)",
+  "core_philosophy_comparison": {
+    "conversational_chat": {
+      "philosophy": "Conversational Response (말과 텍스트로 대화하는 챗봇)",
+      "output": "채팅 트랜스크립트 (사용자가 직접 복사해서 후속 작업 수행)",
+      "memory_stack": "Electron 기반 수백 MB~수 GB 메모리 점유",
+      "cons": "실제 OS 파일/캘린더/앱 작업은 사용자의 수동 개입 필요"
+    },
+    "openworker_harness": {
+      "philosophy": "Finished Work Artifacts (말 대신 완결된 로컬 파일과 시스템 액션을 납품)",
+      "creators": "Andrew Ng (Stanford/DeepLearning.AI) & Rohit Prasad (ex-Amazon AGI)",
+      "runtime_stack": "Tauri v2 (Rust) + React 18 + Python FastAPI Local Backend",
+      "model_engine": "aisuite (BYOK OpenAI/Claude/Gemini/DeepSeek + Local Ollama)",
+      "security": "Typed Approval Gating (파일 쓰기, 메일 전송, 쉘 실행 시 사용자 명시적 승인 필수)",
+      "pros": "구독료 $0 MIT 라이선스, 25+ 도구 및 MCP 지원, 데이터 로컬 격리",
+      "cons": "로컬 8B/14B 모델 사용 시 툴 콜링 환각 위험, Windows 빌드 미서명 오픈베타"
+    }
+  },
+  "domain_lineage_matrix": [
+    {
+      "domain": "AI 작업 수행 인터페이스 진화",
+      "gen1_chat": "ChatGPT / Claude Web (2022~2023 - 텍스트 대화형 질의응답)",
+      "gen2_copilot": "Microsoft Copilot / Cursor (2023~2024 - IDE 및 오피스 문서 인라인 보조)",
+      "gen3_agent_cloud": "Devin / AutoGPT Cloud (2024~2025 - 클라우드 가상환경 비동기 에이전트)",
+      "gen4_local_coworker": "OpenWorker / Claude Code (2026 SOTA - 로컬 데스크톱 네이티브 완결형 동료)"
+    }
+  ],
+  "performance_bottlenecks": {
+    "key_innovations": [
+      "1. Tauri v2 (Rust) 기반 150MB 유휴 RAM: Electron 기반 클라우드 앱 대비 메모리 1/6 수준",
+      "2. aisuite 멀티 프로바이더 추상화: 특정 모델 벤더 락인 탈피, Ollama 완전 오프라인 로컬 구동",
+      "3. Consequential Approval Gating: AI의 위험한 쉘 실행 및 이메일 발송을 휴먼-인-더-루프로 원천 차단"
+    ],
+    "critical_tradeoffs": [
+      "1. 소형 로컬 모델의 멀티 툴 오케스트레이션 한계: 25개 이상의 복합 도구 체이닝 시 파라미터 유효성 검증 실패율 증가",
+      "2. 토큰 누적 비용: 장기 스케줄 워치(Standing Watch) 구동 시 상용 API 토큰 소모량 급증",
+      "3. Windows SmartScreen 미서명 경고"
+    ]
+  },
+  "engineering_tradeoffs": {
+    "when_to_use_openworker": "1인 기업가, 로컬 데이터 보안이 필수적인 개발자, 매일 반복되는 캘린더/이메일/Jira 브리핑 자동화",
+    "when_to_avoid": "완전 자율 무인화(No-human-in-the-loop) 백그라운드 서버 배치 작업"
+  }
+}
