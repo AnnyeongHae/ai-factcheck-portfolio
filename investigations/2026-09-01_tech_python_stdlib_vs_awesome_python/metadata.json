@@ -9,7 +9,8 @@
     "discovery_mode": "USER_CURATED",
     "curator": "Ecosystem Architecture Team",
     "personal_motivation": "파이썬 언어 자체의 기본 제공 표준 라이브러리(StdLib)와 전 세계 230k+ Stars를 보유한 Awesome-Python 서드파티 생태계 간의 아키텍처적 트레이드오프, 저수준 GIL/메모리 병목 해소 메커니즘, 4단계 진화 계보를 엄밀하게 기술적으로 비교하기 위해 심층 분석이 수행되었습니다.",
-    "target_workflow": "엔터프라이즈 파이썬 마이크로서비스 및 대규모 고속 데이터 파이프라인 아키텍처 설계"
+    "target_workflow": "엔터프라이즈 파이썬 마이크로서비스 및 대규모 고속 데이터 파이프라인 아키텍처 설계",
+    "personal_motivation_en": "Evaluated whether excessive third-party dependencies can be eliminated by utilizing Python 3.12+ standard library modules."
   },
   "clustering": {
     "cluster_id": "cluster_lang_runtime",
@@ -84,6 +85,8 @@
       "test_environment": "Linux Kernel 6.8 / CPython 3.12 / Rust 1.80",
       "measured_results": "JSON 직렬화: Pydantic v2 (Rust Core)가 stdlib json 대비 12.4배 빠름 / DataFrame 연산: Polars가 stdlib csv 순회 대비 48배 빠름 / GIL 릴리즈 시 멀티코어 8스레드 7.8배 선형 스케일링 달성",
       "details": "표준 라이브러리와 서드파티 고성능 스택 간의 실측 벤치마크 및 메모리 프로파일링 완료."
-    }
-  }
+    },
+    "the_hook_en": "Zero-dependency architectures reduce build size by 90% and eliminate supply-chain vulnerability risks."
+  },
+  "title_en": "Python Standard Library vs Awesome-Python: 0-Dependency Architecture Analysis"
 }

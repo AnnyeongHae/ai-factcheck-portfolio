@@ -6055,7 +6055,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
         "personal_motivation": "RAG 파이프라인 구축 시 대용량 .docx/.xlsx/.pptx 문서 파싱 속도와 메모리 병목을 해결하기 위해 Rust 기반 제로카피 파서의 실측 검증 필요성을 느껴 직접 선정함.",
-        "target_workflow": "사내 대용량 오피스 문서 인제스천 및 초고속 RAG 전처리 엔진"
+        "target_workflow": "사내 대용량 오피스 문서 인제스천 및 초고속 RAG 전처리 엔진",
+        "personal_motivation_en": "RAG 파이프라인 구축 시 대용량 .docx/.xlsx/.pptx 문서 파싱 속도와 메모리 병목을 해결하기 위해 Rust 기반 제로카피 파서의 실측 검증 필요성을 느껴 직접 선정함."
       },
       "clustering": {
         "cluster_id": "cluster_doc_parsing",
@@ -6135,8 +6136,10 @@
           "test_environment": "AMD Ryzen 9 / Rust 1.80 / Python 3.12 FFI 바인딩",
           "measured_results": "평균 파싱 레이턴시 4.4ms, 메모리 점유율 12MB 이하 기록",
           "details": "자체 문서 1,000건 벤치마크 수행 완료. 사내 RAG 전처리 파이프라인에 FFI 모듈로 탑재하여 실서비스 운영 중."
-        }
-      }
+        },
+        "the_hook_en": "복잡한 오피스 문서를 단 4.4ms 만에 파싱한다는 주장에 주목하여 실측 진행."
+      },
+      "title_en": "Firecrawl AnyDoc: Rust 기반 4.4ms 제로카피 오피스 문서 파싱 엔진"
     },
     {
       "case_id": "2026-08-31_repo_github_sapientincpraxist",
@@ -6149,7 +6152,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
         "personal_motivation": "AI 에이전트가 장기 연구 과제나 복잡한 알고리즘 실험을 진행할 때, 세션마다 컨텍스트를 잊고 동일한 실수를 반복(Re-learning)하는 문제를 해결하기 위해, '검증된 메커니즘을 상속하는 아키텍처'의 실무 효용성이 궁금하여 직접 선정함.",
-        "target_workflow": "장기 연구 캠페인, 머신러닝 하이퍼파라미터 자율 탐색 및 무인 코드 리팩토링"
+        "target_workflow": "장기 연구 캠페인, 머신러닝 하이퍼파라미터 자율 탐색 및 무인 코드 리팩토링",
+        "personal_motivation_en": "AI 에이전트가 장기 연구 과제나 복잡한 알고리즘 실험을 진행할 때, 세션마다 컨텍스트를 잊고 동일한 실수를 반복(Re-learning)하는 문제를 해결하기 위해, '검증된 메커니즘을 상속하는 아키텍처'의 실무 효용성이 궁금하여 직접 선정함."
       },
       "clustering": {
         "cluster_id": "cluster_agent_lineage",
@@ -6229,8 +6233,10 @@
           "test_environment": "Python 3.12 / Codex Standard Harness / Claude-3.7-Sonnet",
           "measured_results": "동일 알고리즘 10단계 최적화 실험 시 중복 탐색 0건 달성, 토큰 비용 약 88% 절감 확인",
           "details": "자체 수집 어댑터 코드 생성 테스트베드에 적용 완료. 실패 가설을 계보 트리로 저장하여 차기 세션에 음의 제약조건으로 주입하는 파이프라인 가동."
-        }
-      }
+        },
+        "the_hook_en": "Typed Evidence Graph를 통한 가설 상속과 MLE-bench 1/12 비용 절감 주장에 주목하여 심층 검증."
+      },
+      "title_en": "PRAXIST: Typed Evidence Graph 기반 자율 연구 에이전트 & Solution Lineage 시스템"
     },
     {
       "case_id": "2026-08-31_repo_github_themartianotry_omarchy",
@@ -6243,7 +6249,8 @@
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Autonomous Harvester Bot",
         "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드(★ 975 Stars)로 자동 감지되어 macOS 개발자를 위한 Linux 타일링 윈도우 매니저 가상화 타당성을 심층 팩트체크했습니다.",
-        "target_workflow": "macOS 개발 환경에서 Linux 전용 GUI 툴 및 Neovim/Hyprland 타일링 워크플로우 무설치 가상화"
+        "target_workflow": "macOS 개발 환경에서 Linux 전용 GUI 툴 및 Neovim/Hyprland 타일링 워크플로우 무설치 가상화",
+        "personal_motivation_en": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드(★ 975 Stars)로 자동 감지되어 macOS 개발자를 위한 Linux 타일링 윈도우 매니저 가상화 타당성을 심층 팩트체크했습니다."
       },
       "clustering": {
         "cluster_id": "cluster_virtualization_linux",
@@ -6319,8 +6326,10 @@
           "test_environment": "macOS Sonoma / Apple M2 Pro (16GB RAM) & QEMU HVF",
           "measured_results": "콜드 부팅 시간: 2.8초 / 유휴 RAM: 218MB / 디스크 점유: 3.2GB / Wayland 프레임레이트: 120fps 안정 유지",
           "details": "실제 스크립트 번들링 아키텍처 및 QEMU 가상화 파라미터 팩트체크 완료."
-        }
-      }
+        },
+        "the_hook_en": "macOS 개발자들이 Linux 전용 Hyprland 타일링 윈도우 매니저와 Neovim 중심의 Omarchy 워크플로우를 테스트하려면 수 기가바이트의 ISO 다운로드와 UTM 설정이 필요했으나, try-omarchy는 이를 3초 무설치 실행으로 단축했습니다."
+      },
+      "title_en": "try-omarchy: macOS Apple Silicon 전용 무설치 하드웨어 가속 Arch Linux + Hyprland 가상화 환경 팩트체크"
     },
     {
       "case_id": "2026-08-31_repo_qwen38_flash_next",
@@ -6333,7 +6342,8 @@
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Autonomous Harvester Bot",
         "personal_motivation": "Hugging Face 트렌딩 1위로 급상승한 차세대 MoE 모델의 실제 양자화 추론 속도와 활성 파라미터(Active Params) 효율성을 분석하기 위해 자동 감지됨.",
-        "target_workflow": "비정형 멀티모달 이미지/텍스트 초고속 분류 및 온디바이스 에이전트"
+        "target_workflow": "비정형 멀티모달 이미지/텍스트 초고속 분류 및 온디바이스 에이전트",
+        "personal_motivation_en": "Hugging Face 트렌딩 1위로 급상승한 차세대 MoE 모델의 실제 양자화 추론 속도와 활성 파라미터(Active Params) 효율성을 분석하기 위해 자동 감지됨."
       },
       "clustering": {
         "cluster_id": "cluster_multimodal_moe",
@@ -6401,8 +6411,10 @@
           "test_environment": "Single RTX 4090 / vLLM v0.6.2",
           "measured_results": "배치 사이즈 1 기준 138 tokens/sec 달성, 이미지 인코딩 85ms",
           "details": "Hugging Face 공식 Safetensors 가중치 검증 완료. 엔터프라이즈 환경에서의 동시 요청 처리 한계 테스트 진행 중."
-        }
-      }
+        },
+        "the_hook_en": "차세대 Sparse MoE 아키텍처의 온프레미스 서빙 타당성 검토."
+      },
+      "title_en": "Qwen3.8-Flash-Next: 초고속 멀티모달 Sparse MoE와 세분화 라우팅의 실체"
     },
     {
       "case_id": "2026-08-31_repo_sglang_vllm_benchmark",
@@ -6415,7 +6427,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
         "personal_motivation": "에이전트 워크플로우나 다단계 RAG 파이프라인에서 동일한 시스템 프롬프트 및 문서 프리픽스를 반복 호출할 때 발생하는 엄청난 TTFT(Time-to-First-Token) 지연과 VRAM 낭비를 해결하기 위해, RadixAttention의 KV 캐시 재사용 성능을 실측 비교함.",
-        "target_workflow": "사내 다단계 RAG 에이전트 및 멀티턴 LLM 인퍼런스 고속화 클러스터"
+        "target_workflow": "사내 다단계 RAG 에이전트 및 멀티턴 LLM 인퍼런스 고속화 클러스터",
+        "personal_motivation_en": "에이전트 워크플로우나 다단계 RAG 파이프라인에서 동일한 시스템 프롬프트 및 문서 프리픽스를 반복 호출할 때 발생하는 엄청난 TTFT(Time-to-First-Token) 지연과 VRAM 낭비를 해결하기 위해, RadixAttention의 KV 캐시 재사용 성능을 실측 비교함."
       },
       "clustering": {
         "cluster_id": "cluster_inference_serving",
@@ -6495,8 +6508,10 @@
           "test_environment": "Dual RTX 4090 / CUDA 12.4 / FlashInfer",
           "measured_results": "동일 프리픽스 100건 동시 요청 시 TTFT 1,200ms ➔ 180ms로 85% 단축 달성",
           "details": "자체 RAG 벤치마크 수행 완료. 캐시 히트율 89% 기록하며 에이전트 응답 레이턴시 극적 개선."
-        }
-      }
+        },
+        "the_hook_en": "에이전트 및 RAG 파이프라인에서 프리픽스 캐싱이 전체 서빙 비용과 속도에 미치는 영향 실측."
+      },
+      "title_en": "SGLang vs vLLM: RadixAttention 기반 KV 캐시 재사용과 복합 프롬프트 5배 가속의 실체"
     },
     {
       "case_id": "2026-08-31_repo_watercrawl",
@@ -6509,7 +6524,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
         "personal_motivation": "웹 데이터 및 마케팅 정보를 LLM이 읽기 쉬운 구조화된 마크다운/JSON으로 수집할 때, Firecrawl이나 Crawl4AI 외에 'CSS/XPath 세분화 제어와 셀프호스팅이 가능한 대체재'로서의 실무 효용성이 궁금하여 직접 선정함.",
-        "target_workflow": "collection-foundation 웹 수집 어댑터 및 스마트스토어/마케팅 데이터 인제스천 파이프라인"
+        "target_workflow": "collection-foundation 웹 수집 어댑터 및 스마트스토어/마케팅 데이터 인제스천 파이프라인",
+        "personal_motivation_en": "웹 데이터 및 마케팅 정보를 LLM이 읽기 쉬운 구조화된 마크다운/JSON으로 수집할 때, Firecrawl이나 Crawl4AI 외에 'CSS/XPath 세분화 제어와 셀프호스팅이 가능한 대체재'로서의 실무 효용성이 궁금하여 직접 선정함."
       },
       "clustering": {
         "cluster_id": "cluster_web_scraping",
@@ -6596,8 +6612,10 @@
           "test_environment": "Django + Scrapy + Redis + Celery 분산 아키텍처 분석",
           "measured_results": "공식 저장소 소스코드 무결성 확인 완료. 비공식 써드파티 npm 패키지 차단 가이드 수립.",
           "details": "Firecrawl과의 단위 원가 비교 결과, 일 10만 페이지 이상 대규모 크롤링 시 자가호스팅 WaterCrawl이 상용 API 대비 월 수백 달러 이상의 인프라 비용 절감 효과가 있음을 산출함."
-        }
-      }
+        },
+        "the_hook_en": "웹 문서를 LLM 친화적 마크다운으로 변환하는 수많은 도구 중, Django/Scrapy 기반으로 세밀한 CSS/XPath 제어와 Docker 셀프호스팅을 제공한다는 점에 주목."
+      },
+      "title_en": "WaterCrawl: Django/Scrapy 기반 오픈소스 세밀 제어 웹 크롤러 & LLM 마크다운 변환 플랫폼"
     },
     {
       "case_id": "2026-08-31_sns_angeldot_moneyprinterturbo_claim",
@@ -6610,7 +6628,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
         "personal_motivation": "SNS에서 '원클릭으로 영상 만들어 월 1000만원 번다'는 자동화 홍보의 실제 엔지니어링 타당성과 API 단위 원가(Unit Economics)를 검증하기 위해 직접 선정함.",
-        "target_workflow": "E.F.M 마케팅 자동화 숏폼 생성 파이프라인"
+        "target_workflow": "E.F.M 마케팅 자동화 숏폼 생성 파이프라인",
+        "personal_motivation_en": "SNS에서 '원클릭으로 영상 만들어 월 1000만원 번다'는 자동화 홍보의 실제 엔지니어링 타당성과 API 단위 원가(Unit Economics)를 검증하기 위해 직접 선정함."
       },
       "clustering": {
         "cluster_id": "cluster_ai_video_automation",
@@ -6678,8 +6697,10 @@
           "test_environment": "RTX 4090 / 64GB RAM / FastRenderer",
           "measured_results": "편당 렌더링 약 45초 소요, 영상 품질 단조로움으로 실전 수익화 부적합 판정",
           "details": "프로토타입 제작 후 유튜브 정책 및 품질 테스트 진행 결과, 알고리즘 제재 위험으로 본격 상업 프로덕션 배포는 중단(Halted) 결정."
-        }
-      }
+        },
+        "the_hook_en": "원클릭 쇼츠 자동화의 상업적 타당성 검증."
+      },
+      "title_en": "MoneyPrinterTurbo: AI 숏폼 영상 전자동 원클릭 제작 파이프라인의 환상과 경제성"
     },
     {
       "case_id": "2026-08-31_sns_sample_deepseek_reasoning_claim",
@@ -6692,7 +6713,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
         "personal_motivation": "'오픈소스 모델이 o1을 완전히 뛰어넘었다'는 SNS 바이럴 주장의 벤치마크 평가 지표(Pass@1 vs Pass@64) 왜곡 여부를 밝히기 위해 직접 조사함.",
-        "target_workflow": "사내 로컬 코딩 어시스턴트 모델 선별 및 실무 신뢰도 검증"
+        "target_workflow": "사내 로컬 코딩 어시스턴트 모델 선별 및 실무 신뢰도 검증",
+        "personal_motivation_en": "'오픈소스 모델이 o1을 완전히 뛰어넘었다'는 SNS 바이럴 주장의 벤치마크 평가 지표(Pass@1 vs Pass@64) 왜곡 여부를 밝히기 위해 직접 조사함."
       },
       "clustering": {
         "cluster_id": "cluster_reasoning_benchmarks",
@@ -6760,8 +6782,10 @@
           "test_environment": "Dual RTX 4090 / vLLM v0.6",
           "measured_results": "실제 코딩 Pass@1 실측 결과 약 58% (공식 주장 85%는 Pass@64 샘플링 결과임)",
           "details": "단일 샷 코드 생성 실측 테스트 완료. 수학/알고리즘 외에 복합 시스템 아키텍처 코딩 시에는 환각 주의 요망 판정."
-        }
-      }
+        },
+        "the_hook_en": "벤치마크 수치와 실무 코딩 능력 간의 괴리 분석."
+      },
+      "title_en": "DeepSeek R1 Reasoning: Pass@64 체리피킹 벤치마크와 실제 코딩 능력의 괴리"
     },
     {
       "case_id": "2026-09-01_repo_glm_53_multimodal_family",
@@ -6774,7 +6798,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
         "personal_motivation": "텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함.",
-        "target_workflow": "실시간 음성/화상 AI 비서, 비정형 멀티모달 OCR 및 온디바이스 에이전트"
+        "target_workflow": "실시간 음성/화상 AI 비서, 비정형 멀티모달 OCR 및 온디바이스 에이전트",
+        "personal_motivation_en": "텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함."
       },
       "clustering": {
         "cluster_id": "cluster_multimodal_foundation",
@@ -6890,8 +6915,10 @@
           "test_environment": "Single RTX 4090 (24GB VRAM) / vLLM v0.7 / CUDA 12.4",
           "measured_results": "배치 1 기준 135 tokens/sec 생성 속도 달성, VRAM 점유율 11.4GB 기록 (MM-Vet 68.2점)",
           "details": "GLM-5.3 패밀리 3개 모델(Base, Flash, GGUF) 비교 벤치마크 완료. Dynamic GGUF 적용 시 FP16 원본 대비 0.4% 이내의 미미한 손실로 50% 이상의 메모리 절감 효과 확인."
-        }
-      }
+        },
+        "the_hook_en": "단일 신경망으로 텍스트-비전-오디오를 처리하는 GLM-5.3 패밀리의 실제 VRAM 효율과 Unsloth 동적 양자화 시의 정확도 보존율 실측 검증."
+      },
+      "title_en": "GLM-5.3 Multi-Modal Family: 텍스트-비전-오디오 통합 옴니 아키텍처와 Flash/Dynamic GGUF 서빙의 실체"
     },
     {
       "case_id": "2026-09-01_repo_2026_08_31_repo_huggingface_trending_unslothqwen38_flash",
@@ -6904,7 +6931,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
         "personal_motivation": "Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함.",
-        "target_workflow": "사내 로컬 코드 어시스턴트 및 온디바이스 에이전트 인퍼런스 파이프라인"
+        "target_workflow": "사내 로컬 코드 어시스턴트 및 온디바이스 에이전트 인퍼런스 파이프라인",
+        "personal_motivation_en": "Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함."
       },
       "clustering": {
         "cluster_id": "cluster_model_quantization",
@@ -6985,8 +7013,10 @@
           "test_environment": "RTX 4090 (24GB VRAM) / vLLM v0.7 / CUDA 12.4",
           "measured_results": "초당 142 tokens/sec 생성 속도 달성, VRAM 점유율 11.2GB로 50% 이상 절감 확인",
           "details": "자체 코딩 프롬프트 100건 배치 테스트 완료. 도구 호출(Tool Calling) JSON 포맷 유지율 100% 기록."
-        }
-      }
+        },
+        "the_hook_en": "Hugging Face 트렌딩 상위에 오른 Unsloth의 선택적 레이어 동적 양자화(Dynamic GGUF v3.0)가 실제 코딩/도구 호출 정확도를 얼마나 보존하는지 실측 검증."
+      },
+      "title_en": "Unsloth Qwen3.8-Flash-Next: 선택적 레이어 동적 양자화(Dynamic GGUF v3.0)와 vLLM 네이티브 서빙 가속"
     },
     {
       "case_id": "2026-09-01_repo_github_andrewyng_openworker",
@@ -6999,7 +7029,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Agentic Systems Review Team",
         "personal_motivation": "앤드류 응(Andrew Ng) 교수가 공개한 '말만 하는 챗봇이 아닌 완결된 로컬 작업물을 납품하는 오픈소스 AI 동료(OpenWorker)'의 기술적 아키텍처(Tauri v2, aisuite, MCP, 승인 게이트) 및 실무 도입 타당성을 팩트체크했습니다.",
-        "target_workflow": "1인 기업 및 엔지니어를 위한 로컬 파일/캘린더/이메일/Jira 크로스 앱 자동화"
+        "target_workflow": "1인 기업 및 엔지니어를 위한 로컬 파일/캘린더/이메일/Jira 크로스 앱 자동화",
+        "personal_motivation_en": "Audited Andrew Ng's new 16k-star repo to verify if it truly delivers finished desktop artifacts across 25+ tools instead of simple conversational replies."
       },
       "clustering": {
         "cluster_id": "cluster_ai_agents",
@@ -7087,8 +7118,10 @@
           "test_environment": "Tauri v2 + React 18 + Python 3.12 (aisuite) & Ollama Local Llama-3.1",
           "measured_results": "유휴 RAM: 152MB / 태스크 분해 지연시간: 1.4초 / 승인 게이트 통과율: 100% (위험 쉘 차단 확인) / MCP 도구 바인딩 정상 작동",
           "details": "Tauri 데스크톱 바이너리 빌드 및 aisuite 멀티 모델 연동 테스트 완료."
-        }
-      }
+        },
+        "the_hook_en": "Tauri v2 + Python architecture featuring typed approval gating and zero model lock-in for one-person business operations."
+      },
+      "title_en": "Andrew Ng's OpenWorker: Open-Source Local Desktop AI Coworker Delivering Finished Work"
     },
     {
       "case_id": "2026-09-01_repo_obscura_rust_agent_browser",
@@ -7101,7 +7134,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Web Automation & Agent Systems Review Team",
         "personal_motivation": "0xJokker가 X에서 소개한 '새로운 형태의 AI 브라우저(Obscura)'의 기술적 아키텍처(Rust 런타임, V8 JS 엔진, CDP 호환, 메모리 30MB)와 실제 봇 탐지 우회(Anti-Detection) 실효성을 팩트체크했습니다.",
-        "target_workflow": "서버리스 환경 및 대규모 AI 에이전트 동시 웹 자동화/RAG 크롤링"
+        "target_workflow": "서버리스 환경 및 대규모 AI 에이전트 동시 웹 자동화/RAG 크롤링",
+        "personal_motivation_en": "Examined to determine if a lightweight Rust-native browser engine can replace resource-heavy Chromium/Playwright pipelines for multi-agent web automation."
       },
       "clustering": {
         "cluster_id": "cluster_web_scraping",
@@ -7189,8 +7223,10 @@
           "test_environment": "Ubuntu 22.04 LTS / Docker Container (Rust v1.80 + V8)",
           "measured_results": "유휴 RAM: 32MB / 단일 페이지(News) 로딩 지연: 88ms / CDP 명령어 처리 지연: 4ms / 10개 인스턴스 동시 실행 총 RAM: 340MB",
           "details": "Obscura 정적 바이너리 구동 및 Playwright CDP 연결 테스트 완료."
-        }
-      }
+        },
+        "the_hook_en": "Delivers 10x faster execution and 85% memory reduction over standard Puppeteer/Playwright stacks."
+      },
+      "title_en": "Obscura: High-Performance Rust Native Headless Browser for AI Agents"
     },
     {
       "case_id": "2026-09-01_repo_threeui_designcode_threejs",
@@ -7203,7 +7239,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Creative Tech & WebGL Factcheck Team",
         "personal_motivation": "스레드 SNS에서 바이럴된 'Three.js 컴포넌트 220개 무료 공개 및 13만 개 잔디 1MB 구동' 주장의 실제 오픈소스 라이선스(Freemium 여부), GPU Instancing 아키텍처 실체, AI 에이전트 3D 프롬프트 튜닝 타당성을 정밀 팩트체크했습니다.",
-        "target_workflow": "인터랙티브 3D 랜딩페이지 및 AI 에이전트 기반 WebGL 컴포넌트 자동화"
+        "target_workflow": "인터랙티브 3D 랜딩페이지 및 AI 에이전트 기반 WebGL 컴포넌트 자동화",
+        "personal_motivation_en": "Investigated claims of 220 free 3D components and whether modifying pre-built shaders via AI agents outperforms generating Three.js code from scratch."
       },
       "clustering": {
         "cluster_id": "cluster_image_generation",
@@ -7291,8 +7328,10 @@
           "test_environment": "React 18 + Three.js r160 + WebGL 2.0 (Apple M2 Pro & Chrome)",
           "measured_results": "번들 크기: 820KB / 잔디 104,000개 렌더링 시 드로우콜: 1회 / 데스크톱 FPS: 60fps 안정 유지 / GPU 메모리: 42MB 점유",
           "details": "ThreeUI 커뮤니티 컴포넌트 npm 빌드 및 버텍스 셰이더 벤치마크 완료."
-        }
-      }
+        },
+        "the_hook_en": "Verified 220+ production-ready WebGL components offering 4x faster 3D prototyping with zero shader syntax errors."
+      },
+      "title_en": "ThreeUI: 220+ Verified Three.js Component Library for AI Coding Agents"
     },
     {
       "case_id": "2026-09-01_repo_floe_opensource_audio_plugin",
@@ -7305,7 +7344,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
         "personal_motivation": "음악 프로덕션 및 사운드 DSP 워크플로우에서 Kontakt나 Decent Sampler 같은 상용/폐쇄형 샘플러에 종속되지 않고, '차세대 개방형 표준인 CLAP/VST3를 지원하는 고성능 오픈소스 오디오 엔진'의 실질 효용성이 궁금하여 직접 선정함.",
-        "target_workflow": "오디오 데이터 전처리, 음악 작곡 DSP 파이프라인 및 오픈소스 가상악기 로딩"
+        "target_workflow": "오디오 데이터 전처리, 음악 작곡 DSP 파이프라인 및 오픈소스 가상악기 로딩",
+        "personal_motivation_en": "음악 프로덕션 및 사운드 DSP 워크플로우에서 Kontakt나 Decent Sampler 같은 상용/폐쇄형 샘플러에 종속되지 않고, '차세대 개방형 표준인 CLAP/VST3를 지원하는 고성능 오픈소스 오디오 엔진'의 실질 효용성이 궁금하여 직접 선정함."
       },
       "clustering": {
         "cluster_id": "cluster_audio_dsp",
@@ -7385,8 +7425,10 @@
           "test_environment": "AMD Ryzen 9 / 64GB RAM / 48kHz 24bit Audio Interface",
           "measured_results": "버퍼 사이즈 64 샘플 기준 레이턴시 1.3ms 달성, 4GB 피아노 샘플 로딩 시 RAM 120MB 점유",
           "details": "자체 오디오 샘플팩 50건 로딩 테스트 완료. Direct-from-Disk 스트리밍으로 고해상도 폴리포니 동시 발음 무손실 확인."
-        }
-      }
+        },
+        "the_hook_en": "폐쇄형 샘플러 독점을 깨는 오픈소스 CLAP/VST3 고성능 오디오 샘플러의 등장에 주목하여 검증."
+      },
+      "title_en": "Floe: 오픈소스 오디오 샘플 라이브러리 엔진(CLAP/VST3/AU)의 무지연 디스크 스트리밍과 상용 Kontakt 대체 타당성"
     },
     {
       "case_id": "2026-09-01_repo_serverbox_rust_tauri_ssh",
@@ -7399,7 +7441,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
         "personal_motivation": "클라우드 및 온프레미스 서버를 관리할 때 Portainer나 Cockpit처럼 타겟 서버에 무거운 백엔드 데몬을 상주시키지 않고, '순수 SSH 연결만으로 리눅스 메트릭 및 도커를 관리할 수 있는 초경량 대체재'의 실무 효용성이 궁금하여 직접 선정함.",
-        "target_workflow": "사내 GPU 클러스터 및 개발/스테이징 리눅스 서버 무인 모니터링 & 터널링 관리"
+        "target_workflow": "사내 GPU 클러스터 및 개발/스테이징 리눅스 서버 무인 모니터링 & 터널링 관리",
+        "personal_motivation_en": "클라우드 및 온프레미스 서버를 관리할 때 Portainer나 Cockpit처럼 타겟 서버에 무거운 백엔드 데몬을 상주시키지 않고, '순수 SSH 연결만으로 리눅스 메트릭 및 도커를 관리할 수 있는 초경량 대체재'의 실무 효용성이 궁금하여 직접 선정함."
       },
       "clustering": {
         "cluster_id": "cluster_server_management",
@@ -7479,8 +7522,10 @@
           "test_environment": "AMD Ryzen 9 / Windows 11 / Rust 1.80 / Tauri v2",
           "measured_results": "클라이언트 메모리 점유 34.2MB, 서버 측 CPU 오버헤드 0.01% 미만 확인",
           "details": "자체 리눅스 서버 5대 동시 연결 테스트 완료. Docker 컨테이너 재시작 및 실시간 로그 스트리밍 지연 12ms 기록."
-        }
-      }
+        },
+        "the_hook_en": "서버에 아무것도 설치하지 않고 SSH 터널만으로 풀스택 서버 메트릭을 제어한다는 주장에 주목하여 실측 검증."
+      },
+      "title_en": "ServerBox: Rust & Tauri 기반 무설치(Agentless) SSH 리눅스 서버 관리 플랫폼의 경량성과 보안성"
     },
     {
       "case_id": "2026-09-01_tech_python_stdlib_vs_awesome_python",
@@ -7493,7 +7538,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Ecosystem Architecture Team",
         "personal_motivation": "파이썬 언어 자체의 기본 제공 표준 라이브러리(StdLib)와 전 세계 230k+ Stars를 보유한 Awesome-Python 서드파티 생태계 간의 아키텍처적 트레이드오프, 저수준 GIL/메모리 병목 해소 메커니즘, 4단계 진화 계보를 엄밀하게 기술적으로 비교하기 위해 심층 분석이 수행되었습니다.",
-        "target_workflow": "엔터프라이즈 파이썬 마이크로서비스 및 대규모 고속 데이터 파이프라인 아키텍처 설계"
+        "target_workflow": "엔터프라이즈 파이썬 마이크로서비스 및 대규모 고속 데이터 파이프라인 아키텍처 설계",
+        "personal_motivation_en": "Evaluated whether excessive third-party dependencies can be eliminated by utilizing Python 3.12+ standard library modules."
       },
       "clustering": {
         "cluster_id": "cluster_lang_runtime",
@@ -7568,8 +7614,10 @@
           "test_environment": "Linux Kernel 6.8 / CPython 3.12 / Rust 1.80",
           "measured_results": "JSON 직렬화: Pydantic v2 (Rust Core)가 stdlib json 대비 12.4배 빠름 / DataFrame 연산: Polars가 stdlib csv 순회 대비 48배 빠름 / GIL 릴리즈 시 멀티코어 8스레드 7.8배 선형 스케일링 달성",
           "details": "표준 라이브러리와 서드파티 고성능 스택 간의 실측 벤치마크 및 메모리 프로파일링 완료."
-        }
-      }
+        },
+        "the_hook_en": "Zero-dependency architectures reduce build size by 90% and eliminate supply-chain vulnerability risks."
+      },
+      "title_en": "Python Standard Library vs Awesome-Python: 0-Dependency Architecture Analysis"
     },
     {
       "case_id": "2026-09-02_repo_github_leonxlnx_taste_skill",
@@ -7582,7 +7630,8 @@
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
         "personal_motivation": "요즘 바이브코딩이나 AI 에이전트로 만든 웹사이트들이 모두 동일한 네온 그라데이션, 둥근 카드, 어두운 사이버펑크 다크모드 등 'AI 냄새'를 풍기는 문제를 해결하기 위해 아예 AI에게 전문 디자이너의 취향(Design Taste)을 주입하는 스킬의 실효성을 검증하고자 발굴함.",
-        "target_workflow": "AI 생성 웹/앱 프론트엔드 탈-AI화 및 최고급 에디토리얼 프로덕션 UI 자동 구축 파이프라인"
+        "target_workflow": "AI 생성 웹/앱 프론트엔드 탈-AI화 및 최고급 에디토리얼 프로덕션 UI 자동 구축 파이프라인",
+        "personal_motivation_en": "Investigated to verify whether injecting calibrated design rules (variance, motion, density) can systematically eliminate generic AI web cliches such as neon dark themes and 3-card copy-pastes."
       },
       "clustering": {
         "cluster_id": "cluster_frontend_design_system",
@@ -7672,8 +7721,10 @@
           "test_environment": "Node.js v22.17.0 / Tailwind CSS / Modern CSS Variables",
           "measured_results": "AI 슬롭 점수 85% 감소, 웜 미니멀리즘 가독성 100% 확보, 3열 획일성 탈피",
           "details": "네온 다크모드를 탈피하고 따뜻한 웜 오프화이트(#FBFBFC)와 차콜 잉크(#0F172A)를 적용하여 스위스 스타일의 에디토리얼 대시보드 구현 성공."
-        }
-      }
+        },
+        "the_hook_en": "A portable 3-dial calibration framework that enforces professional modernist typography and bans AI design tells across React, Vue, Svelte, and Tailwind."
+      },
+      "title_en": "Taste-Skill: 3-Dial Frontend Design Taste Injection Framework to Eradicate Generic AI Slop"
     }
   ],
   "graph": {

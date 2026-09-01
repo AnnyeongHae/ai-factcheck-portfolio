@@ -9,7 +9,8 @@
     "discovery_mode": "USER_CURATED",
     "curator": "Anyong Cheong",
     "personal_motivation": "'오픈소스 모델이 o1을 완전히 뛰어넘었다'는 SNS 바이럴 주장의 벤치마크 평가 지표(Pass@1 vs Pass@64) 왜곡 여부를 밝히기 위해 직접 조사함.",
-    "target_workflow": "사내 로컬 코딩 어시스턴트 모델 선별 및 실무 신뢰도 검증"
+    "target_workflow": "사내 로컬 코딩 어시스턴트 모델 선별 및 실무 신뢰도 검증",
+    "personal_motivation_en": "'오픈소스 모델이 o1을 완전히 뛰어넘었다'는 SNS 바이럴 주장의 벤치마크 평가 지표(Pass@1 vs Pass@64) 왜곡 여부를 밝히기 위해 직접 조사함."
   },
   "clustering": {
     "cluster_id": "cluster_reasoning_benchmarks",
@@ -77,6 +78,8 @@
       "test_environment": "Dual RTX 4090 / vLLM v0.6",
       "measured_results": "실제 코딩 Pass@1 실측 결과 약 58% (공식 주장 85%는 Pass@64 샘플링 결과임)",
       "details": "단일 샷 코드 생성 실측 테스트 완료. 수학/알고리즘 외에 복합 시스템 아키텍처 코딩 시에는 환각 주의 요망 판정."
-    }
-  }
+    },
+    "the_hook_en": "벤치마크 수치와 실무 코딩 능력 간의 괴리 분석."
+  },
+  "title_en": "DeepSeek R1 Reasoning: Pass@64 체리피킹 벤치마크와 실제 코딩 능력의 괴리"
 }

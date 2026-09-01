@@ -9,7 +9,8 @@
     "discovery_mode": "USER_CURATED",
     "curator": "Anyong Cheong",
     "personal_motivation": "에이전트 워크플로우나 다단계 RAG 파이프라인에서 동일한 시스템 프롬프트 및 문서 프리픽스를 반복 호출할 때 발생하는 엄청난 TTFT(Time-to-First-Token) 지연과 VRAM 낭비를 해결하기 위해, RadixAttention의 KV 캐시 재사용 성능을 실측 비교함.",
-    "target_workflow": "사내 다단계 RAG 에이전트 및 멀티턴 LLM 인퍼런스 고속화 클러스터"
+    "target_workflow": "사내 다단계 RAG 에이전트 및 멀티턴 LLM 인퍼런스 고속화 클러스터",
+    "personal_motivation_en": "에이전트 워크플로우나 다단계 RAG 파이프라인에서 동일한 시스템 프롬프트 및 문서 프리픽스를 반복 호출할 때 발생하는 엄청난 TTFT(Time-to-First-Token) 지연과 VRAM 낭비를 해결하기 위해, RadixAttention의 KV 캐시 재사용 성능을 실측 비교함."
   },
   "clustering": {
     "cluster_id": "cluster_inference_serving",
@@ -89,6 +90,8 @@
       "test_environment": "Dual RTX 4090 / CUDA 12.4 / FlashInfer",
       "measured_results": "동일 프리픽스 100건 동시 요청 시 TTFT 1,200ms ➔ 180ms로 85% 단축 달성",
       "details": "자체 RAG 벤치마크 수행 완료. 캐시 히트율 89% 기록하며 에이전트 응답 레이턴시 극적 개선."
-    }
-  }
+    },
+    "the_hook_en": "에이전트 및 RAG 파이프라인에서 프리픽스 캐싱이 전체 서빙 비용과 속도에 미치는 영향 실측."
+  },
+  "title_en": "SGLang vs vLLM: RadixAttention 기반 KV 캐시 재사용과 복합 프롬프트 5배 가속의 실체"
 }

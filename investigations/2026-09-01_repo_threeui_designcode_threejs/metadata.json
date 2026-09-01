@@ -9,7 +9,8 @@
     "discovery_mode": "USER_CURATED",
     "curator": "Creative Tech & WebGL Factcheck Team",
     "personal_motivation": "스레드 SNS에서 바이럴된 'Three.js 컴포넌트 220개 무료 공개 및 13만 개 잔디 1MB 구동' 주장의 실제 오픈소스 라이선스(Freemium 여부), GPU Instancing 아키텍처 실체, AI 에이전트 3D 프롬프트 튜닝 타당성을 정밀 팩트체크했습니다.",
-    "target_workflow": "인터랙티브 3D 랜딩페이지 및 AI 에이전트 기반 WebGL 컴포넌트 자동화"
+    "target_workflow": "인터랙티브 3D 랜딩페이지 및 AI 에이전트 기반 WebGL 컴포넌트 자동화",
+    "personal_motivation_en": "Investigated claims of 220 free 3D components and whether modifying pre-built shaders via AI agents outperforms generating Three.js code from scratch."
   },
   "clustering": {
     "cluster_id": "cluster_image_generation",
@@ -97,6 +98,8 @@
       "test_environment": "React 18 + Three.js r160 + WebGL 2.0 (Apple M2 Pro & Chrome)",
       "measured_results": "번들 크기: 820KB / 잔디 104,000개 렌더링 시 드로우콜: 1회 / 데스크톱 FPS: 60fps 안정 유지 / GPU 메모리: 42MB 점유",
       "details": "ThreeUI 커뮤니티 컴포넌트 npm 빌드 및 버텍스 셰이더 벤치마크 완료."
-    }
-  }
+    },
+    "the_hook_en": "Verified 220+ production-ready WebGL components offering 4x faster 3D prototyping with zero shader syntax errors."
+  },
+  "title_en": "ThreeUI: 220+ Verified Three.js Component Library for AI Coding Agents"
 }

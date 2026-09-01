@@ -9,7 +9,8 @@
     "discovery_mode": "AUTO_HARVESTED",
     "curator": "Autonomous Harvester Bot",
     "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드(★ 975 Stars)로 자동 감지되어 macOS 개발자를 위한 Linux 타일링 윈도우 매니저 가상화 타당성을 심층 팩트체크했습니다.",
-    "target_workflow": "macOS 개발 환경에서 Linux 전용 GUI 툴 및 Neovim/Hyprland 타일링 워크플로우 무설치 가상화"
+    "target_workflow": "macOS 개발 환경에서 Linux 전용 GUI 툴 및 Neovim/Hyprland 타일링 워크플로우 무설치 가상화",
+    "personal_motivation_en": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드(★ 975 Stars)로 자동 감지되어 macOS 개발자를 위한 Linux 타일링 윈도우 매니저 가상화 타당성을 심층 팩트체크했습니다."
   },
   "clustering": {
     "cluster_id": "cluster_virtualization_linux",
@@ -85,6 +86,8 @@
       "test_environment": "macOS Sonoma / Apple M2 Pro (16GB RAM) & QEMU HVF",
       "measured_results": "콜드 부팅 시간: 2.8초 / 유휴 RAM: 218MB / 디스크 점유: 3.2GB / Wayland 프레임레이트: 120fps 안정 유지",
       "details": "실제 스크립트 번들링 아키텍처 및 QEMU 가상화 파라미터 팩트체크 완료."
-    }
-  }
+    },
+    "the_hook_en": "macOS 개발자들이 Linux 전용 Hyprland 타일링 윈도우 매니저와 Neovim 중심의 Omarchy 워크플로우를 테스트하려면 수 기가바이트의 ISO 다운로드와 UTM 설정이 필요했으나, try-omarchy는 이를 3초 무설치 실행으로 단축했습니다."
+  },
+  "title_en": "try-omarchy: macOS Apple Silicon 전용 무설치 하드웨어 가속 Arch Linux + Hyprland 가상화 환경 팩트체크"
 }

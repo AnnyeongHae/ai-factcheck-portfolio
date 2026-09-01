@@ -9,7 +9,8 @@
     "discovery_mode": "USER_CURATED",
     "curator": "Web Automation & Agent Systems Review Team",
     "personal_motivation": "0xJokker가 X에서 소개한 '새로운 형태의 AI 브라우저(Obscura)'의 기술적 아키텍처(Rust 런타임, V8 JS 엔진, CDP 호환, 메모리 30MB)와 실제 봇 탐지 우회(Anti-Detection) 실효성을 팩트체크했습니다.",
-    "target_workflow": "서버리스 환경 및 대규모 AI 에이전트 동시 웹 자동화/RAG 크롤링"
+    "target_workflow": "서버리스 환경 및 대규모 AI 에이전트 동시 웹 자동화/RAG 크롤링",
+    "personal_motivation_en": "Examined to determine if a lightweight Rust-native browser engine can replace resource-heavy Chromium/Playwright pipelines for multi-agent web automation."
   },
   "clustering": {
     "cluster_id": "cluster_web_scraping",
@@ -97,6 +98,8 @@
       "test_environment": "Ubuntu 22.04 LTS / Docker Container (Rust v1.80 + V8)",
       "measured_results": "유휴 RAM: 32MB / 단일 페이지(News) 로딩 지연: 88ms / CDP 명령어 처리 지연: 4ms / 10개 인스턴스 동시 실행 총 RAM: 340MB",
       "details": "Obscura 정적 바이너리 구동 및 Playwright CDP 연결 테스트 완료."
-    }
-  }
+    },
+    "the_hook_en": "Delivers 10x faster execution and 85% memory reduction over standard Puppeteer/Playwright stacks."
+  },
+  "title_en": "Obscura: High-Performance Rust Native Headless Browser for AI Agents"
 }
