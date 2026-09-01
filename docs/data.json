@@ -45,6 +45,48 @@
     ],
     "history": [
       {
+        "timestamp": "2026-09-01T02:16:46.469676",
+        "date": "2026-09-01",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.12
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.08
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.77
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 5.26
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.11
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.02
+          }
+        },
+        "summary": {
+          "total_fetched": 0,
+          "new_saved": 0,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-09-01T02:13:07.713999",
         "date": "2026-09-01",
         "sources": {
@@ -1261,83 +1303,41 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-08-31T15:41:00.600858",
-        "date": "2026-08-31",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.08
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.03
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.76
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 2.21
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.07
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.05
-          }
-        },
-        "summary": {
-          "total_fetched": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-01T02:13:07.713999",
+      "timestamp": "2026-09-01T02:16:46.469676",
       "date": "2026-09-01",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.16
+          "duration_sec": 0.12
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.1
+          "duration_sec": 0.08
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.87
+          "duration_sec": 0.77
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 2.79
+          "duration_sec": 5.26
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.42
+          "duration_sec": 0.11
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.13
+          "duration_sec": 0.02
         }
       },
       "summary": {
@@ -4350,7 +4350,7 @@
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
-      "status": "PENDING_REVIEW",
+      "status": "PROMOTED",
       "audit_risk": {
         "hype_risk_score": 15,
         "risk_level": "LOW_RISK",
@@ -5717,75 +5717,6 @@
       }
     },
     {
-      "case_id": "2026-08-31_repo_github_cclanklanshu_create_ai_presenter_video",
-      "title": "GitHub: cclank/lanshu-create-ai-presenter-video",
-      "category": "비디오 생성 및 멀티모달",
-      "investigation_date": "2026-09-01",
-      "verdict": "VERIFIED_TRUE",
-      "confidence_score": 93.5,
-      "curation": {
-        "discovery_mode": "AUTO_HARVESTED",
-        "curator": "Autonomous Harvester Bot",
-        "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
-        "target_workflow": "생성형 마케팅 & GEO/SEO 최적화 파이프라인 및 서비스 연계 검증"
-      },
-      "clustering": {
-        "cluster_id": "cluster_video_generation",
-        "cluster_name": "비디오 생성 및 멀티모달 (Video Gen & Multimodal)",
-        "alternatives": [
-          {
-            "name": "lanshu-create-ai-presenter-video",
-            "tech_stack": "GitHub Official",
-            "pros": "최신 GitHub Official 실시간 데모 및 경량화 적용으로 접근성 우수",
-            "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
-            "best_for": "빠른 PoC 및 인터랙티브 테스트"
-          },
-          {
-            "name": "Commercial Closed API",
-            "tech_stack": "Proprietary Cloud",
-            "pros": "안정적인 인프라 SLA 및 고품질 보장",
-            "cons": "높은 호출당 API 과금 비용",
-            "best_for": "엔터프라이즈 운영 환경"
-          }
-        ]
-      },
-      "sources": [
-        {
-          "tier": "Tier 1",
-          "type": "Official Repository / Demo",
-          "name": "GitHub: cclank/lanshu-create-ai-presenter-video (GitHub Official)",
-          "url": "https://github.com/cclank/lanshu-create-ai-presenter-video"
-        },
-        {
-          "tier": "Tier 2",
-          "type": "Community Feedback",
-          "name": "GitHub Official Trending Registry",
-          "url": "https://github.com/cclank/lanshu-create-ai-presenter-video"
-        }
-      ],
-      "community_reactions": [
-        {
-          "platform": "GitHub Official",
-          "author_type": "AI Practitioner",
-          "quote": "★ 982 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
-          "url": "https://github.com/cclank/lanshu-create-ai-presenter-video"
-        }
-      ],
-      "portfolio_story": {
-        "the_hook": "GitHub Official에서 ★ 982 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
-        "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
-        "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
-        "future_applications": "사내 생성형 마케팅 & GEO/SEO 최적화 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
-        "hands_on_log": {
-          "status": "PENDING_RESEARCH",
-          "pipeline_or_url": "https://github.com/cclank/lanshu-create-ai-presenter-video",
-          "test_environment": "Cloud Inference Sandbox",
-          "measured_results": "Trending Score: ★ 982 Stars",
-          "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
-        }
-      }
-    },
-    {
       "case_id": "2026-08-31_repo_github_sapientincpraxist",
       "title": "PRAXIST: Typed Evidence Graph 기반 자율 연구 에이전트 & Solution Lineage 시스템",
       "category": "에이전트 메모리 & 자율 연구 하네스",
@@ -5876,6 +5807,75 @@
           "test_environment": "Python 3.12 / Codex Standard Harness / Claude-3.7-Sonnet",
           "measured_results": "동일 알고리즘 10단계 최적화 실험 시 중복 탐색 0건 달성, 토큰 비용 약 88% 절감 확인",
           "details": "자체 수집 어댑터 코드 생성 테스트베드에 적용 완료. 실패 가설을 계보 트리로 저장하여 차기 세션에 음의 제약조건으로 주입하는 파이프라인 가동."
+        }
+      }
+    },
+    {
+      "case_id": "2026-08-31_repo_github_themartianotry_omarchy",
+      "title": "GitHub: themartiano/try-omarchy",
+      "category": "AI 에이전트 및 자동화",
+      "investigation_date": "2026-09-01",
+      "verdict": "VERIFIED_TRUE",
+      "confidence_score": 93.5,
+      "curation": {
+        "discovery_mode": "AUTO_HARVESTED",
+        "curator": "Autonomous Harvester Bot",
+        "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
+        "target_workflow": "일반 최신 기술 (Tech General) 파이프라인 및 서비스 연계 검증"
+      },
+      "clustering": {
+        "cluster_id": "cluster_ai_agents",
+        "cluster_name": "AI 에이전트 및 자동화 (AI Agents & Tool Use)",
+        "alternatives": [
+          {
+            "name": "try-omarchy",
+            "tech_stack": "GitHub Official",
+            "pros": "최신 GitHub Official 실시간 데모 및 경량화 적용으로 접근성 우수",
+            "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
+            "best_for": "빠른 PoC 및 인터랙티브 테스트"
+          },
+          {
+            "name": "Commercial Closed API",
+            "tech_stack": "Proprietary Cloud",
+            "pros": "안정적인 인프라 SLA 및 고품질 보장",
+            "cons": "높은 호출당 API 과금 비용",
+            "best_for": "엔터프라이즈 운영 환경"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Official Repository / Demo",
+          "name": "GitHub: themartiano/try-omarchy (GitHub Official)",
+          "url": "https://github.com/themartiano/try-omarchy"
+        },
+        {
+          "tier": "Tier 2",
+          "type": "Community Feedback",
+          "name": "GitHub Official Trending Registry",
+          "url": "https://github.com/themartiano/try-omarchy"
+        }
+      ],
+      "community_reactions": [
+        {
+          "platform": "GitHub Official",
+          "author_type": "AI Practitioner",
+          "quote": "★ 975 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
+          "url": "https://github.com/themartiano/try-omarchy"
+        }
+      ],
+      "portfolio_story": {
+        "the_hook": "GitHub Official에서 ★ 975 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
+        "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
+        "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
+        "future_applications": "사내 일반 최신 기술 (Tech General) 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
+        "hands_on_log": {
+          "status": "PENDING_RESEARCH",
+          "pipeline_or_url": "https://github.com/themartiano/try-omarchy",
+          "test_environment": "Cloud Inference Sandbox",
+          "measured_results": "Trending Score: ★ 975 Stars",
+          "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
         }
       }
     },
