@@ -45,6 +45,48 @@
     ],
     "history": [
       {
+        "timestamp": "2026-09-01T16:04:04.284560",
+        "date": "2026-09-01",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.06
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.03
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.57
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 2.32
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.15
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.02
+          }
+        },
+        "summary": {
+          "total_fetched": 0,
+          "new_saved": 0,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-09-01T15:38:05.835153",
         "date": "2026-09-01",
         "sources": {
@@ -1261,73 +1303,31 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-08-31T16:32:16.742543",
-        "date": "2026-08-31",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.08
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.03
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.55
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 2.18
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.15
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.02
-          }
-        },
-        "summary": {
-          "total_fetched": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-01T15:38:05.835153",
+      "timestamp": "2026-09-01T16:04:04.284560",
       "date": "2026-09-01",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
-          "items_found": 1,
-          "duration_sec": 0.12
+          "items_found": 0,
+          "duration_sec": 0.06
         },
         "hf_spaces": {
           "status": "SUCCESS",
-          "items_found": 1,
-          "duration_sec": 0.08
+          "items_found": 0,
+          "duration_sec": 0.03
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.75
+          "duration_sec": 0.57
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 2,
-          "duration_sec": 4.4
+          "items_found": 0,
+          "duration_sec": 2.32
         },
         "arxiv": {
           "status": "SUCCESS",
@@ -1337,12 +1337,12 @@
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.03
+          "duration_sec": 0.02
         }
       },
       "summary": {
-        "total_fetched": 4,
-        "new_saved": 4,
+        "total_fetched": 0,
+        "new_saved": 0,
         "duplicates_skipped": 0,
         "errors": 0
       }
@@ -4831,7 +4831,7 @@
         "엔터프라이즈 RAG & 문서 파싱 인프라",
         "이커머스 & 커머스 데이터 수집 인프라"
       ],
-      "status": "PENDING_REVIEW",
+      "status": "PROMOTED",
       "audit_risk": {
         "hype_risk_score": 15,
         "risk_level": "LOW_RISK",
