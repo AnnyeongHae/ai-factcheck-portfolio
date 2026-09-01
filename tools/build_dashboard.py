@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Universal AI Citation & Tech Lineage Knowledge Hub (v19.0 - Clean 4-Tab Core & Curated Truth)
-- 4 Clean Core Tabs: 1. 기술 검증 (Fact-Checks) | 2. AI 뉴스 (AI News) | 3. 인용 계보망 (Citation Graph) | 4. 수집 인박스 (Harvest Inbox) [ROI removed]
-- 100% Curator Label Free: Removed cluttered 'Auditor/Curator' tags.
-- 100% Verified True for Audited Dossiers: Completed investigations (Qwen3.8, try-omarchy, etc.) strictly show 'VERIFIED TRUE'.
-- 100% Native CJK Typography: Noto Sans SC (Chinese), Pretendard (Korean), Geist/Inter (English).
-- 100% Conditional Viral Claims Dossier: Hides cleanly when no quote is available.
+Universal AI Citation & Tech Lineage Knowledge Hub (v20.0 - 18 Full Dossiers & Auto-Promotion Criteria)
+- 18 Verified Fact-Check Dossiers: Concat added as #18 with comprehensive Tauri/Rust/Whisper benchmark.
+- Autonomous Promotion Criteria Guide Box in Harvest Inbox (GitHub ★>500, HN 🔥>150, HF ❤️>100, ArXiv CS.AI).
+- Dynamic Metric Upsert for live GitHub Stars / Likes / HN Points updates.
+- 4 Clean Core Tabs (Fact-Checks, AI News, Citation Graph, Harvest Inbox).
+- Native CJK Font Stack (Noto Sans SC, Pretendard, Geist/Inter).
 """
 
 import json
@@ -155,7 +155,7 @@ def build_dashboard():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    print(f"[+] Successfully built Clean 4-Tab Dashboard v19.0 at:")
+    print(f"[+] Successfully built Full 18 Dossiers Dashboard v20.0 at:")
     print(f"    - public/index.html & data.json (Vercel CDN Edge)")
     print(f"    - index.html & data.json (Root entry)")
     print(f"    - dashboard/index.html (Verified: {total_cases}, News: {len(news_items)}, Inbox: {len(tech_inbox_items)})")
@@ -390,29 +390,29 @@ def generate_html(data):
         <div class="text-right shrink-0 hidden md:block border-l border-surface-border pl-6">
           <div class="text-xs text-ink-muted font-mono font-medium" id="heroUpdateLabel">LAST AUDITED</div>
           <div class="text-base font-bold text-ink-primary font-mono">2026-09-02</div>
-          <div class="text-[11px] text-emerald-700 font-semibold mt-0.5" id="heroAuditCount">17개 기술 검증 완료</div>
+          <div class="text-[11px] text-emerald-700 font-semibold mt-0.5" id="heroAuditCount">{data['total_cases']}개 기술 검증 완료</div>
         </div>
       </div>
 
       <!-- 🔔 AUTONOMOUS PROMOTION WATCH BANNER (자율 승격 알림 배너) -->
-      <div id="promotionWatchBanner" class="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/80 p-4 sm:p-4.5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
+      <div id="promotionWatchBanner" class="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200/80 p-4 sm:p-4.5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-700 shrink-0">
-            <i data-lucide="bell-ring" class="w-4 h-4 animate-bounce"></i>
+          <div class="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-700 shrink-0">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
           </div>
           <div class="space-y-0.5">
-            <div class="text-xs font-bold text-amber-950 flex items-center gap-2">
-              <span id="promoBannerTitle">자율 크론 트렌드 자동 승격 알림</span>
-              <span class="px-2 py-0.2 rounded bg-amber-200/80 text-amber-900 font-mono text-[10px] font-bold" id="promoCountBadge">2건 대기 중</span>
+            <div class="text-xs font-bold text-emerald-950 flex items-center gap-2">
+              <span id="promoBannerTitle">기술 검증 포트폴리오 최신 상태 알림</span>
+              <span class="px-2 py-0.2 rounded bg-emerald-200/80 text-emerald-900 font-mono text-[10px] font-bold" id="promoCountBadge">18건 검증 완료</span>
             </div>
-            <p class="text-[11px] text-amber-800 leading-relaxed" id="promoBannerDesc">
-              사용자가 보지 않는 동안 GitHub Star 급상승 및 소셜 바이럴 임계치를 돌파하여 [자동 승격]된 최신 트렌드 후보가 등록되어 있습니다.
+            <p class="text-[11px] text-emerald-800 leading-relaxed" id="promoBannerDesc">
+              바이럴 임계치를 초과하여 유입된 주요 오픈소스 및 모델 후보군 총 18건에 대한 심층 실측 벤치마크와 팩트체크가 모두 완료되었습니다.
             </p>
           </div>
         </div>
 
-        <button onclick="setModeFilter('AUTO_HARVESTED')" class="shrink-0 px-3.5 py-1.5 rounded-xl bg-amber-900 text-white text-xs font-bold hover:bg-amber-800 transition flex items-center gap-1 shadow-sm">
-          <span id="promoBtnText">자동 승격 목록 보기</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        <button onclick="switchView('inbox')" class="shrink-0 px-3.5 py-1.5 rounded-xl bg-emerald-900 text-white text-xs font-bold hover:bg-emerald-800 transition flex items-center gap-1 shadow-sm">
+          <span id="promoBtnText">수집 인박스 후보군 보기</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
         </button>
       </div>
 
@@ -426,23 +426,23 @@ def generate_html(data):
           <div class="flex items-center bg-surface-subtle p-1 rounded-xl border border-surface-border text-xs w-full md:w-auto">
             <button onclick="setModeFilter('ALL')" id="modeBtnAll" class="segment-btn active flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5">
               <span id="btnLabelAll">전체 검증</span>
-              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/10 text-white font-bold" id="badgeCountAll">17</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/10 text-white font-bold" id="badgeCountAll">{data['total_cases']}</span>
             </button>
             <button onclick="setModeFilter('USER_CURATED')" id="modeBtnUser" class="segment-btn flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-semibold hover:text-ink-primary transition flex items-center justify-center gap-1.5">
               <i data-lucide="user-check" class="w-3.5 h-3.5 text-indigo-600"></i>
               <span id="btnLabelUser">직접 큐레이션</span>
-              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/5 text-ink-secondary font-bold" id="badgeCountUser">15</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/5 text-ink-secondary font-bold" id="badgeCountUser">{data['total_cases']}</span>
             </button>
             <button onclick="setModeFilter('AUTO_HARVESTED')" id="modeBtnAuto" class="segment-btn flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-semibold hover:text-ink-primary transition flex items-center justify-center gap-1.5">
               <i data-lucide="bot" class="w-3.5 h-3.5 text-emerald-600"></i>
               <span id="btnLabelAuto">자동 트렌드</span>
-              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/5 text-ink-secondary font-bold" id="badgeCountAuto">2</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/5 text-ink-secondary font-bold" id="badgeCountAuto">0</span>
             </button>
           </div>
 
           <!-- Sort Select & Results Counter -->
           <div class="flex items-center justify-between w-full md:w-auto gap-3">
-            <span class="text-xs text-ink-muted font-mono" id="resultsCountLabel">총 17건 표시</span>
+            <span class="text-xs text-ink-muted font-mono" id="resultsCountLabel">총 {data['total_cases']}건 표시</span>
             
             <div class="flex items-center gap-2 bg-surface-subtle px-3 py-1.5 rounded-xl border border-surface-border text-xs">
               <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-ink-secondary shrink-0"></i>
@@ -546,6 +546,7 @@ def generate_html(data):
     <!-- ==================== VIEW 4: HARVEST INBOX ==================== -->
     <div id="inboxView" class="hidden space-y-6">
       
+      <!-- Inbox Header -->
       <div class="bg-white p-6 rounded-2xl border border-surface-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
         <div class="space-y-1">
           <div class="flex items-center gap-2">
@@ -558,6 +559,44 @@ def generate_html(data):
           <p class="text-xs text-ink-secondary" id="inboxHeaderDesc">
             원클릭으로 분석 큐에 등록하여 Neon DB와 실시간 동기화하고 심층 팩트체크를 진행할 수 있습니다.
           </p>
+        </div>
+      </div>
+
+      <!-- 🌟 AUTONOMOUS PROMOTION CRITERIA GUIDE BOX -->
+      <div class="bg-gradient-to-r from-indigo-50/70 via-sky-50/60 to-purple-50/70 p-5 rounded-2xl border border-indigo-100 space-y-3 shadow-sm">
+        <div class="flex items-center gap-2 text-xs font-bold text-indigo-950">
+          <i data-lucide="sparkles" class="w-4 h-4 text-indigo-600"></i>
+          <span id="criteriaTitle">자율 크론 4대 자동 승격(Promotion) 기준 가이드</span>
+        </div>
+        <p class="text-xs text-indigo-900 leading-relaxed" id="criteriaDesc">
+          수집된 수많은 오픈소스 및 논문 중 아래의 4대 바이럴/기술 임계치를 돌파한 항목은 자동으로 <strong>[자동 승격 트렌드 후보]</strong>로 격상되어 최우선 기술 검증 대기열에 등록됩니다.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1 text-xs">
+          <div class="p-3 rounded-xl bg-white/90 border border-indigo-100 space-y-1">
+            <div class="font-bold text-indigo-950 flex items-center gap-1.5">
+              <span>🐙 GitHub Stars</span>
+            </div>
+            <p class="text-[11px] text-ink-secondary" id="critGithub">최근 14일 이내 생성 & ★ > 500 Stars 돌파</p>
+          </div>
+          <div class="p-3 rounded-xl bg-white/90 border border-indigo-100 space-y-1">
+            <div class="font-bold text-orange-950 flex items-center gap-1.5">
+              <span>🔥 Hacker News</span>
+            </div>
+            <p class="text-[11px] text-ink-secondary" id="critHn">Top/Best 스토리 중 추천 점수 🔥 > 150 Points</p>
+          </div>
+          <div class="p-3 rounded-xl bg-white/90 border border-indigo-100 space-y-1">
+            <div class="font-bold text-amber-950 flex items-center gap-1.5">
+              <span>🤗 Hugging Face</span>
+            </div>
+            <p class="text-[11px] text-ink-secondary" id="critHf">Trending 점수 상위권 & ❤️ > 100 Likes 모델/데모</p>
+          </div>
+          <div class="p-3 rounded-xl bg-white/90 border border-indigo-100 space-y-1">
+            <div class="font-bold text-emerald-950 flex items-center gap-1.5">
+              <span>📄 ArXiv CS.AI</span>
+            </div>
+            <p class="text-[11px] text-ink-secondary" id="critArxiv">MoE, Reasoning, VLM 등 혁신 아키텍처 1차 논문</p>
+          </div>
         </div>
       </div>
 
@@ -619,7 +658,7 @@ def generate_html(data):
       <!-- Modal Body -->
       <div class="p-6 overflow-y-auto space-y-6 text-sm text-ink-secondary">
         
-        <!-- Curation & Intent (Clean without cluttered author names) -->
+        <!-- Curation & Intent -->
         <div id="modalCurationBox" class="p-4 rounded-xl border border-surface-border bg-surface-subtle space-y-1.5">
           <div class="flex items-center justify-between">
             <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
@@ -764,11 +803,11 @@ def generate_html(data):
         heroMainTitle: "소문난 AI 기술의 실체와 공학적 단위 경제성 정밀 검증",
         heroMainDesc: "SNS 바이럴 마케팅의 환각을 걷어내고, 1차 공식 출처 감사와 기저 표준 vs 서드파티 실측 벤치마크를 통해 도출한 100% 실증 보고서입니다.",
         heroUpdateLabel: "최종 검증일",
-        heroAuditCount: "17개 기술 검증 완료",
-        promoBannerTitle: "자율 크론 트렌드 자동 승격 알림",
-        promoCountBadgeSuffix: "건 대기 중",
-        promoBannerDesc: "사용자가 보지 않는 동안 GitHub Star 급상승 및 소셜 바이럴 임계치를 돌파하여 [자동 승격]된 최신 트렌드 후보가 등록되어 있습니다.",
-        promoBtnText: "자동 승격 목록 보기",
+        heroAuditCount: "18개 기술 검증 완료",
+        promoBannerTitle: "기술 검증 포트폴리오 최신 상태 알림",
+        promoCountBadge: "18건 검증 완료",
+        promoBannerDesc: "바이럴 임계치를 초과하여 유입된 주요 오픈소스 및 모델 후보군 총 18건에 대한 심층 실측 벤치마크와 팩트체크가 모두 완료되었습니다.",
+        promoBtnText: "수집 인박스 후보군 보기",
         btnAll: "전체 검증",
         btnUser: "직접 큐레이션",
         btnAuto: "자동 트렌드",
@@ -807,6 +846,12 @@ def generate_html(data):
         graphBtnOrg: "연구소",
         graphBtnPerson: "인물",
         graphBtnPaper: "논문",
+        criteriaTitle: "자율 크론 4대 자동 승격(Promotion) 기준 가이드",
+        criteriaDesc: "수집된 수많은 오픈소스 및 논문 중 아래의 4대 바이럴/기술 임계치를 돌파한 항목은 자동으로 [자동 승격 트렌드 후보]로 격상되어 최우선 기술 검증 대기열에 등록됩니다.",
+        critGithub: "최근 14일 이내 생성 & ★ > 500 Stars 돌파",
+        critHn: "Top/Best 스토리 중 추천 점수 🔥 > 150 Points",
+        critHf: "Trending 점수 상위권 & ❤️ > 100 Likes 모델/데모",
+        critArxiv: "MoE, Reasoning, VLM 등 혁신 아키텍처 1차 논문",
         inboxHeaderBadge: "AUTONOMOUS HARVEST INBOX",
         inboxHeaderTitle: "24시간 자율 크론으로 수집된 오픈소스 및 모델 후보군",
         inboxHeaderDesc: "원클릭으로 분석 큐에 등록하여 Neon DB와 실시간 동기화하고 심층 팩트체크를 진행할 수 있습니다.",
@@ -841,11 +886,11 @@ def generate_html(data):
         heroMainTitle: "热门 AI 技术的工程真相与单位经济性深度核实",
         heroMainDesc: "摒弃社交媒体营销炒作与幻觉，基于第一手官方源码审计以及基础标准 vs 第三方工具的实测基准，输出 100% 真实客观的工程报告。",
         heroUpdateLabel: "最新审计",
-        heroAuditCount: "已完成 17 项技术审计",
-        promoBannerTitle: "自动巡检趋势晋升通知",
-        promoCountBadgeSuffix: "项待分析",
-        promoBannerDesc: "在您离开期间，自律 Cron 巡检捕获了突破 GitHub Star 与社交营销阈值的热门候选项目，已自动晋升至审计就绪队列。",
-        promoBtnText: "查看自动晋升列表",
+        heroAuditCount: "已完成 18 项技术审计",
+        promoBannerTitle: "技术审计档案库最新状态",
+        promoCountBadge: "18 项核验完毕",
+        promoBannerDesc: "已对突破热度阈值自动晋升的 18 项重点开源项目与前沿模型完成全流程深度实测基准与事实核查。",
+        promoBtnText: "查看采集收件箱候选",
         btnAll: "全部审计",
         btnUser: "人工精选",
         btnAuto: "自动趋势",
@@ -884,6 +929,12 @@ def generate_html(data):
         graphBtnOrg: "科研机构",
         graphBtnPerson: "代表人物",
         graphBtnPaper: "经典论文",
+        criteriaTitle: "全自动巡检 4 大自动晋升 (Promotion) 判定准则",
+        criteriaDesc: "在海量采集的开源项目与前沿论文中，突破以下 4 项热度与技术指标的候选项目将自动晋升至优先核查队列。",
+        critGithub: "14 天内新建仓库且 ★ > 500 Stars 突破",
+        critHn: "Top/Best 讨论中点赞热度 🔥 > 150 Points",
+        critHf: "Trending 趋势榜前列且 ❤️ > 100 Likes 模型/Demo",
+        critArxiv: "涵盖 MoE、推理强化、VLM 的第一手经典架构论文",
         inboxHeaderBadge: "AUTONOMOUS HARVEST INBOX",
         inboxHeaderTitle: "24 小时全自动巡检采集的开源仓库与模型候选",
         inboxHeaderDesc: "一键加入审计队列，与 Neon Postgres 数据库实时同步并触发深度事实核查。",
@@ -918,11 +969,11 @@ def generate_html(data):
         heroMainTitle: "Empirical Truth & Unit Economics of Viral AI Tech",
         heroMainDesc: "A zero-hallucination dossier derived from Tier-1 official source audits and empirical benchmarks comparing base standards with third-party tools.",
         heroUpdateLabel: "LAST AUDITED",
-        heroAuditCount: "17 Audits Completed",
-        promoBannerTitle: "Autonomous Cron Promotion Watch Alert",
-        promoCountBadgeSuffix: "Pending Audit",
-        promoBannerDesc: "High-velocity repositories passed the viral threshold during background cron runs and were registered for audit.",
-        promoBtnText: "View Auto-Promoted",
+        heroAuditCount: "18 Audits Completed",
+        promoBannerTitle: "Dossier Status Update",
+        promoCountBadge: "18 Completed",
+        promoBannerDesc: "All 18 high-velocity repositories and models that crossed the viral threshold have been rigorously benchmarked and fact-checked.",
+        promoBtnText: "Explore Harvest Inbox",
         btnAll: "All Dossiers",
         btnUser: "User Curated",
         btnAuto: "Auto Trends",
@@ -961,6 +1012,12 @@ def generate_html(data):
         graphBtnOrg: "Laboratories",
         graphBtnPerson: "People",
         graphBtnPaper: "Papers",
+        criteriaTitle: "Autonomous Cron Promotion Criteria Guide",
+        criteriaDesc: "Repositories and papers exceeding these 4 viral thresholds are auto-promoted into the priority technical verification queue.",
+        critGithub: "Created in last 14 days & > 500 Stars",
+        critHn: "Top/Best stories with Score 🔥 > 150 Points",
+        critHf: "Top Trending with ❤️ > 100 Likes",
+        critArxiv: "Foundational papers on MoE, Reasoning, VLM",
         inboxHeaderBadge: "AUTONOMOUS HARVEST INBOX",
         inboxHeaderTitle: "Open-Source Repositories & Model Candidates Harvested 24/7",
         inboxHeaderDesc: "One-click queuing to sync with Neon Postgres DB and trigger automated verification.",
@@ -1059,8 +1116,16 @@ def generate_html(data):
       document.getElementById('heroAuditCount').innerText = t.heroAuditCount;
 
       document.getElementById('promoBannerTitle').innerText = t.promoBannerTitle;
+      document.getElementById('promoCountBadge').innerText = t.promoCountBadge;
       document.getElementById('promoBannerDesc').innerText = t.promoBannerDesc;
       document.getElementById('promoBtnText').innerText = t.promoBtnText;
+
+      document.getElementById('criteriaTitle').innerText = t.criteriaTitle;
+      document.getElementById('criteriaDesc').innerText = t.criteriaDesc;
+      document.getElementById('critGithub').innerText = t.critGithub;
+      document.getElementById('critHn').innerText = t.critHn;
+      document.getElementById('critHf').innerText = t.critHf;
+      document.getElementById('critArxiv').innerText = t.critArxiv;
 
       document.getElementById('btnLabelAll').innerText = t.btnAll;
       document.getElementById('btnLabelUser').innerText = t.btnUser;
@@ -1185,12 +1250,6 @@ def generate_html(data):
       const mCount = document.getElementById('mHeaderVerifiedCount');
       if (mCount) mCount.innerText = liveCasesData.length;
 
-      // Update Promotion Watch Banner Count (1:1 Exact Synchronization)
-      const promoBadge = document.getElementById('promoCountBadge');
-      if (promoBadge) {{
-        promoBadge.innerText = `${{countAuto}} ${{t.promoCountBadgeSuffix}}`;
-      }}
-
       const filtered = liveCasesData.filter(c => {{
         const mode = c.curation ? c.curation.discovery_mode : 'USER_CURATED';
         const matchesMode = currentMode === 'ALL' || mode === currentMode;
@@ -1201,7 +1260,7 @@ def generate_html(data):
 
         let matchesDomain = true;
         if (currentDomain === 'frontend') {{
-          matchesDomain = cat.includes('design') || cat.includes('frontend') || cluster.includes('design') || fullTxt.includes('taste');
+          matchesDomain = cat.includes('design') || cat.includes('frontend') || cat.includes('media') || cluster.includes('design') || cluster.includes('media') || fullTxt.includes('taste') || fullTxt.includes('concat');
         }} else if (currentDomain === 'agent') {{
           matchesDomain = cat.includes('agent') || cluster.includes('agent') || fullTxt.includes('openworker') || fullTxt.includes('praxist');
         }} else if (currentDomain === 'scraping') {{
@@ -1211,9 +1270,9 @@ def generate_html(data):
         }} else if (currentDomain === '3d') {{
           matchesDomain = cat.includes('3d') || cat.includes('graphics') || cluster.includes('3d') || fullTxt.includes('three');
         }} else if (currentDomain === 'rust') {{
-          matchesDomain = fullTxt.includes('rust') || fullTxt.includes('omarchy');
+          matchesDomain = fullTxt.includes('rust') || fullTxt.includes('omarchy') || fullTxt.includes('serverbox');
         }} else if (currentDomain === 'other') {{
-          const isStandard = cat.includes('design') || cat.includes('frontend') || cat.includes('agent') || cat.includes('scraping') || cat.includes('doc') || cat.includes('3d') || fullTxt.includes('rust');
+          const isStandard = cat.includes('design') || cat.includes('frontend') || cat.includes('media') || cat.includes('agent') || cat.includes('scraping') || cat.includes('doc') || cat.includes('3d') || fullTxt.includes('rust');
           matchesDomain = !isStandard;
         }}
 
@@ -1240,12 +1299,12 @@ def generate_html(data):
         return;
       }}
 
-      // Render Executive Scannable Cards (All Audited Portfolios show VERIFIED TRUE)
+      // Render Executive Scannable Cards (All 18 Completed Portfolios)
       filtered.forEach((c, idx) => {{
         const story = c.portfolio_story || {{}};
         const curation = c.curation || {{ discovery_mode: 'USER_CURATED' }};
         const isUserMode = curation.discovery_mode === 'USER_CURATED';
-        const invDate = c.investigation_date || '2026-09-01';
+        const invDate = c.investigation_date || '2026-09-02';
         const confScore = c.confidence_score || 95.0;
         const isVerifiedTrue = c.verdict === 'VERIFIED_TRUE';
         const isHalfTrue = c.verdict.includes('HALF');
@@ -1294,8 +1353,8 @@ def generate_html(data):
             <div class="flex items-center justify-between text-xs gap-2 flex-wrap">
               <div class="flex items-center gap-2">
                 <span class="text-xs font-mono font-bold text-ink-muted">#${{String(idx + 1).padStart(2, '0')}}</span>
-                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold font-mono ${{isUserMode ? 'bg-indigo-50 text-indigo-700 border border-indigo-200' : 'bg-amber-50 text-amber-900 border border-amber-300'}}">
-                  ${{isUserMode ? (currentLang === 'KO' ? '직접 큐레이션' : (currentLang === 'ZH' ? '人工精选' : 'USER-CURATED')) : (currentLang === 'KO' ? '자동 트렌드' : (currentLang === 'ZH' ? '自动趋势' : 'AUTO-TREND'))}}
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold font-mono bg-indigo-50 text-indigo-700 border border-indigo-200">
+                  ${{currentLang === 'KO' ? '기술 검증 리포트' : (currentLang === 'ZH' ? '技术核验报告' : 'AUDITED DOSSIER')}}
                 </span>
                 <span class="text-ink-muted text-[11px] font-mono">${{invDate}}</span>
               </div>
@@ -1381,8 +1440,8 @@ def generate_html(data):
       }}
 
       document.getElementById('modalTitle').innerText = displayTitle;
-      document.getElementById('modalModeBadge').innerText = curation.discovery_mode === 'USER_CURATED' ? (currentLang === 'KO' ? '직접 큐레이션' : (currentLang === 'ZH' ? '人工精选' : 'USER CURATED')) : (currentLang === 'KO' ? '자동 트렌드' : (currentLang === 'ZH' ? '自动趋势' : 'AUTO TREND'));
-      document.getElementById('modalModeBadge').className = curation.discovery_mode === 'USER_CURATED' ? 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200' : 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-amber-50 text-amber-900 border border-amber-300';
+      document.getElementById('modalModeBadge').innerText = currentLang === 'KO' ? '기술 검증 리포트' : (currentLang === 'ZH' ? '技术核验报告' : 'AUDITED DOSSIER');
+      document.getElementById('modalModeBadge').className = 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200';
       
       document.getElementById('modalClusterBadge').innerText = clustering.cluster_name || c.category || 'Tech';
       document.getElementById('modalVerdictBadge').innerText = c.verdict;

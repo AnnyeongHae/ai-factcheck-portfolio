@@ -360,6 +360,28 @@ def harvest_all():
     for cand in all_candidates:
         slug = slugify(cand["title"])
         case_id = f"{today_str}_{cand['type']}_{slug}"
+
+        # If already exists, update dynamic metrics (Stars / Likes / HN Points)
+        found_inbox_file = None
+        for fn in os.listdir(inbox_dir):
+            if fn.endswith(".json") and slug in fn.lower():
+                found_inbox_file = os.path.join(inbox_dir, fn)
+                break
+
+        if found_inbox_file and os.path.exists(found_inbox_file):
+            try:
+                with open(found_inbox_file, "r", encoding="utf-8") as fp:
+                    old_item = json.load(fp)
+                old_item["description"] = cand["description"]
+                old_item["viral_metric"] = cand["viral_metric"]
+                old_item["last_synced_at"] = today_str
+                with open(found_inbox_file, "w", encoding="utf-8") as fp:
+                    json.dump(old_item, fp, indent=2, ensure_ascii=False)
+            except Exception:
+                pass
+            dup_skipped += 1
+            continue
+
         if case_id.lower() in existing_set:
             dup_skipped += 1
             continue
@@ -373,6 +395,7 @@ def harvest_all():
             "source_platform": cand["source_platform"],
             "source_url": cand["source_url"],
             "type": cand["type"],
+            "category_type": cand.get("category_type", "TECH"),
             "description": cand["description"],
             "viral_metric": cand["viral_metric"],
             "matched_user_domains": matched_domains,
