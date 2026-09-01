@@ -1,5 +1,47 @@
 [
   {
+    "timestamp": "2026-09-01T16:04:04.284560",
+    "date": "2026-09-01",
+    "sources": {
+      "hf_models": {
+        "status": "SUCCESS",
+        "items_found": 0,
+        "duration_sec": 0.06
+      },
+      "hf_spaces": {
+        "status": "SUCCESS",
+        "items_found": 0,
+        "duration_sec": 0.03
+      },
+      "github": {
+        "status": "SUCCESS",
+        "items_found": 0,
+        "duration_sec": 0.57
+      },
+      "hacker_news": {
+        "status": "SUCCESS",
+        "items_found": 0,
+        "duration_sec": 2.32
+      },
+      "arxiv": {
+        "status": "SUCCESS",
+        "items_found": 0,
+        "duration_sec": 0.15
+      },
+      "reddit": {
+        "status": "ERROR",
+        "error": "HTTP Error 403: Blocked",
+        "duration_sec": 0.02
+      }
+    },
+    "summary": {
+      "total_fetched": 0,
+      "new_saved": 0,
+      "duplicates_skipped": 0,
+      "errors": 0
+    }
+  },
+  {
     "timestamp": "2026-09-01T15:38:05.835153",
     "date": "2026-09-01",
     "sources": {
@@ -1213,48 +1255,6 @@
     "summary": {
       "total_fetched": 1,
       "new_saved": 1,
-      "duplicates_skipped": 0,
-      "errors": 0
-    }
-  },
-  {
-    "timestamp": "2026-08-31T16:32:16.742543",
-    "date": "2026-08-31",
-    "sources": {
-      "hf_models": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.08
-      },
-      "hf_spaces": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.03
-      },
-      "github": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.55
-      },
-      "hacker_news": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 2.18
-      },
-      "arxiv": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.15
-      },
-      "reddit": {
-        "status": "ERROR",
-        "error": "HTTP Error 403: Blocked",
-        "duration_sec": 0.02
-      }
-    },
-    "summary": {
-      "total_fetched": 0,
-      "new_saved": 0,
       "duplicates_skipped": 0,
       "errors": 0
     }
