@@ -1,0 +1,42 @@
+{
+  "analysis_key": "prompts_chat_evolution_analysis",
+  "title": "f/prompts.chat (120k Stars): 단순 프롬프트 큐레이션의 바이럴 원인과 4단계 LLM 제어 기술 진화사",
+  "base_standard": "Raw Natural Language Text Prompting (Act as Persona Pattern)",
+  "third_party_ecosystem": "Model Context Protocol & Virtual Machine Harness (Structured Steering & Agentic SOTA)",
+  "core_philosophy_comparison": {
+    "gen1_prompts_chat": {
+      "philosophy": "Crowdsourced Static Persona Prompting (Act as [Role] 패턴의 집대성)",
+      "creator": "Fatih Kadir Akın (@f) - 2022.12",
+      "star_metric": "★ 120k+ GitHub Stars",
+      "pros": "LLM 초창기 인컨텍스트 페르소나 제어의 대중화, 초저진입장벽(Markdown CSV 기여)",
+      "cons": "비구조화된 텍스트로 인한 환각 빈발, 2026년 기준 컨텍스트 윈도우 희석(Attention Dilution) 및 토큰 낭비"
+    },
+    "gen4_modern_harness": {
+      "philosophy": "Deterministic Tool Calling & In-Context Virtual Machine (MCP 및 상태 머신 기반 에이전트 제어)",
+      "pioneers": "Anthropic (MCP), DSPy (Stanford), Claude Code, PRAXIST",
+      "pros": "JSON Schema 기반 100% 결정론적 데이터 입출력, 도구 실행 컨텍스트 자동 압축 및 가설 상속",
+      "cons": "프롬프트 작성보다 높은 시스템 아키텍처 이해도 요구"
+    }
+  },
+  "domain_lineage_matrix": [
+    {
+      "domain": "LLM 페르소나 & 역할 제어",
+      "gen1_prompting": "prompts.chat (2022 - 'Act as a Linux Terminal' 텍스트 주입)",
+      "gen2_structured": "OpenAI System Message & Pydantic Instructor (2023 - 시스템 역할과 스키마 분리)",
+      "gen3_programmatic": "DSPy (2024 - 프롬프트 수동 작성 폐기, 옵티마이저 기반 자동 컴파일)",
+      "gen4_harness_sota": "Model Context Protocol (MCP) & Typed Harness (2026 SOTA - 도구 가상화 및 상태 전이 제어)"
+    }
+  ],
+  "performance_bottlenecks": {
+    "why_120k_stars": [
+      "1. 퍼스트 무버 타이밍(First-Mover Dominance): ChatGPT 출시 직후(2022.12) 전 세계 최초의 프롬프트 저장소 선점",
+      "2. 크라우드소싱 오픈소스 바이럴: 코딩 없이 prompts.csv에 텍스트 1줄만 추가해도 깃허브 기여자가 되는 극저진입장벽",
+      "3. 웹 & 익스텐션 배포: prompts.chat 웹 앱 및 크롬 확장 프로그램을 통한 원클릭 복사 생태계 구축"
+    ],
+    "technical_obsolescence_in_2026": "2026년 최신 모델(Claude 3.5 Sonnet, GPT-4o, DeepSeek-R1)은 Instruction Following 능력이 내재화되어, 구시대의 장황한 'Act as a...' 문구는 어텐션 희석(Context Dilution)을 유발하고 토큰 비용만 낭비하는 레거시 안티패턴으로 전락함."
+  },
+  "engineering_tradeoffs": {
+    "when_simple_prompts_work": "초기 아이디어 브레인스토밍, 단순 카피라이팅 등 비결정론적 창의 작업",
+    "when_to_use_modern_harness": "엔터프라이즈 AI 에이전트, DB/API 연동 자동화, 코드 자율 수정 등 0% 오류율이 요구되는 프로덕션 환경"
+  }
+}
