@@ -45,6 +45,48 @@
     ],
     "history": [
       {
+        "timestamp": "2026-09-01T02:13:07.713999",
+        "date": "2026-09-01",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.16
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.1
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.87
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 2.79
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.42
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.13
+          }
+        },
+        "summary": {
+          "total_fetched": 0,
+          "new_saved": 0,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-09-01T01:56:50.352844",
         "date": "2026-09-01",
         "sources": {
@@ -1261,83 +1303,41 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-08-31T15:36:25.484885",
-        "date": "2026-08-31",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.1
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 1,
-            "duration_sec": 0.06
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.83
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 4,
-            "duration_sec": 3.22
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.19
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.1
-          }
-        },
-        "summary": {
-          "total_fetched": 5,
-          "new_saved": 5,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-01T01:56:50.352844",
+      "timestamp": "2026-09-01T02:13:07.713999",
       "date": "2026-09-01",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.13
+          "duration_sec": 0.16
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.07
+          "duration_sec": 0.1
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.78
+          "duration_sec": 0.87
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 3.52
+          "duration_sec": 2.79
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.38
+          "duration_sec": 0.42
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.1
+          "duration_sec": 0.13
         }
       },
       "summary": {
@@ -4816,7 +4816,7 @@
       "matched_user_domains": [
         "생성형 마케팅 & GEO/SEO 최적화"
       ],
-      "status": "PENDING_REVIEW",
+      "status": "PROMOTED",
       "audit_risk": {
         "hype_risk_score": 15,
         "risk_level": "LOW_RISK",
@@ -5717,9 +5717,9 @@
       }
     },
     {
-      "case_id": "2026-08-31_repo_github_nanako0129sepia",
-      "title": "GitHub: Nanako0129/sepia",
-      "category": "AI 에이전트 및 자동화",
+      "case_id": "2026-08-31_repo_github_cclanklanshu_create_ai_presenter_video",
+      "title": "GitHub: cclank/lanshu-create-ai-presenter-video",
+      "category": "비디오 생성 및 멀티모달",
       "investigation_date": "2026-09-01",
       "verdict": "VERIFIED_TRUE",
       "confidence_score": 93.5,
@@ -5727,14 +5727,14 @@
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Autonomous Harvester Bot",
         "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
-        "target_workflow": "일반 최신 기술 (Tech General) 파이프라인 및 서비스 연계 검증"
+        "target_workflow": "생성형 마케팅 & GEO/SEO 최적화 파이프라인 및 서비스 연계 검증"
       },
       "clustering": {
-        "cluster_id": "cluster_ai_agents",
-        "cluster_name": "AI 에이전트 및 자동화 (AI Agents & Tool Use)",
+        "cluster_id": "cluster_video_generation",
+        "cluster_name": "비디오 생성 및 멀티모달 (Video Gen & Multimodal)",
         "alternatives": [
           {
-            "name": "sepia",
+            "name": "lanshu-create-ai-presenter-video",
             "tech_stack": "GitHub Official",
             "pros": "최신 GitHub Official 실시간 데모 및 경량화 적용으로 접근성 우수",
             "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
@@ -5753,34 +5753,34 @@
         {
           "tier": "Tier 1",
           "type": "Official Repository / Demo",
-          "name": "GitHub: Nanako0129/sepia (GitHub Official)",
-          "url": "https://github.com/Nanako0129/sepia"
+          "name": "GitHub: cclank/lanshu-create-ai-presenter-video (GitHub Official)",
+          "url": "https://github.com/cclank/lanshu-create-ai-presenter-video"
         },
         {
           "tier": "Tier 2",
           "type": "Community Feedback",
           "name": "GitHub Official Trending Registry",
-          "url": "https://github.com/Nanako0129/sepia"
+          "url": "https://github.com/cclank/lanshu-create-ai-presenter-video"
         }
       ],
       "community_reactions": [
         {
           "platform": "GitHub Official",
           "author_type": "AI Practitioner",
-          "quote": "★ 1026 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
-          "url": "https://github.com/Nanako0129/sepia"
+          "quote": "★ 982 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
+          "url": "https://github.com/cclank/lanshu-create-ai-presenter-video"
         }
       ],
       "portfolio_story": {
-        "the_hook": "GitHub Official에서 ★ 1026 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
+        "the_hook": "GitHub Official에서 ★ 982 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
         "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
         "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
-        "future_applications": "사내 일반 최신 기술 (Tech General) 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
+        "future_applications": "사내 생성형 마케팅 & GEO/SEO 최적화 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
         "hands_on_log": {
           "status": "PENDING_RESEARCH",
-          "pipeline_or_url": "https://github.com/Nanako0129/sepia",
+          "pipeline_or_url": "https://github.com/cclank/lanshu-create-ai-presenter-video",
           "test_environment": "Cloud Inference Sandbox",
-          "measured_results": "Trending Score: ★ 1026 Stars",
+          "measured_results": "Trending Score: ★ 982 Stars",
           "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
         }
       }
