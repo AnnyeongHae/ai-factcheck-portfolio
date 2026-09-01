@@ -1,5 +1,131 @@
 [
   {
+    "timestamp": "2026-09-01T15:38:05.835153",
+    "date": "2026-09-01",
+    "sources": {
+      "hf_models": {
+        "status": "SUCCESS",
+        "items_found": 1,
+        "duration_sec": 0.12
+      },
+      "hf_spaces": {
+        "status": "SUCCESS",
+        "items_found": 1,
+        "duration_sec": 0.08
+      },
+      "github": {
+        "status": "SUCCESS",
+        "items_found": 0,
+        "duration_sec": 0.75
+      },
+      "hacker_news": {
+        "status": "SUCCESS",
+        "items_found": 2,
+        "duration_sec": 4.4
+      },
+      "arxiv": {
+        "status": "SUCCESS",
+        "items_found": 0,
+        "duration_sec": 0.15
+      },
+      "reddit": {
+        "status": "ERROR",
+        "error": "HTTP Error 403: Blocked",
+        "duration_sec": 0.03
+      }
+    },
+    "summary": {
+      "total_fetched": 4,
+      "new_saved": 4,
+      "duplicates_skipped": 0,
+      "errors": 0
+    }
+  },
+  {
+    "timestamp": "2026-09-01T10:36:28.465585",
+    "date": "2026-09-01",
+    "sources": {
+      "hf_models": {
+        "status": "SUCCESS",
+        "items_found": 0,
+        "duration_sec": 0.12
+      },
+      "hf_spaces": {
+        "status": "SUCCESS",
+        "items_found": 0,
+        "duration_sec": 0.08
+      },
+      "github": {
+        "status": "SUCCESS",
+        "items_found": 1,
+        "duration_sec": 0.97
+      },
+      "hacker_news": {
+        "status": "SUCCESS",
+        "items_found": 0,
+        "duration_sec": 4.43
+      },
+      "arxiv": {
+        "status": "SUCCESS",
+        "items_found": 0,
+        "duration_sec": 0.09
+      },
+      "reddit": {
+        "status": "ERROR",
+        "error": "HTTP Error 403: Blocked",
+        "duration_sec": 0.02
+      }
+    },
+    "summary": {
+      "total_fetched": 1,
+      "new_saved": 1,
+      "duplicates_skipped": 0,
+      "errors": 0
+    }
+  },
+  {
+    "timestamp": "2026-09-01T09:55:40.080104",
+    "date": "2026-09-01",
+    "sources": {
+      "hf_models": {
+        "status": "SUCCESS",
+        "items_found": 0,
+        "duration_sec": 0.12
+      },
+      "hf_spaces": {
+        "status": "SUCCESS",
+        "items_found": 2,
+        "duration_sec": 0.08
+      },
+      "github": {
+        "status": "SUCCESS",
+        "items_found": 1,
+        "duration_sec": 0.72
+      },
+      "hacker_news": {
+        "status": "SUCCESS",
+        "items_found": 2,
+        "duration_sec": 4.14
+      },
+      "arxiv": {
+        "status": "SUCCESS",
+        "items_found": 20,
+        "duration_sec": 0.13
+      },
+      "reddit": {
+        "status": "ERROR",
+        "error": "HTTP Error 403: Blocked",
+        "duration_sec": 0.02
+      }
+    },
+    "summary": {
+      "total_fetched": 25,
+      "new_saved": 25,
+      "duplicates_skipped": 0,
+      "errors": 0
+    }
+  },
+  {
     "timestamp": "2026-09-01T02:41:57.221357",
     "date": "2026-09-01",
     "sources": {
@@ -1124,132 +1250,6 @@
         "status": "ERROR",
         "error": "HTTP Error 403: Blocked",
         "duration_sec": 0.02
-      }
-    },
-    "summary": {
-      "total_fetched": 0,
-      "new_saved": 0,
-      "duplicates_skipped": 0,
-      "errors": 0
-    }
-  },
-  {
-    "timestamp": "2026-08-31T16:25:29.275016",
-    "date": "2026-08-31",
-    "sources": {
-      "hf_models": {
-        "status": "SUCCESS",
-        "items_found": 1,
-        "duration_sec": 0.11
-      },
-      "hf_spaces": {
-        "status": "SUCCESS",
-        "items_found": 3,
-        "duration_sec": 0.08
-      },
-      "github": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.64
-      },
-      "hacker_news": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 4.2
-      },
-      "arxiv": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.28
-      },
-      "reddit": {
-        "status": "ERROR",
-        "error": "HTTP Error 403: Blocked",
-        "duration_sec": 0.08
-      }
-    },
-    "summary": {
-      "total_fetched": 4,
-      "new_saved": 4,
-      "duplicates_skipped": 0,
-      "errors": 0
-    }
-  },
-  {
-    "timestamp": "2026-08-31T16:10:24.393727",
-    "date": "2026-08-31",
-    "sources": {
-      "hf_models": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.19
-      },
-      "hf_spaces": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.27
-      },
-      "github": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.64
-      },
-      "hacker_news": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 4.18
-      },
-      "arxiv": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.35
-      },
-      "reddit": {
-        "status": "ERROR",
-        "error": "HTTP Error 403: Blocked",
-        "duration_sec": 0.09
-      }
-    },
-    "summary": {
-      "total_fetched": 0,
-      "new_saved": 0,
-      "duplicates_skipped": 0,
-      "errors": 0
-    }
-  },
-  {
-    "timestamp": "2026-08-31T16:06:00.215248",
-    "date": "2026-08-31",
-    "sources": {
-      "hf_models": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.11
-      },
-      "hf_spaces": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.08
-      },
-      "github": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.91
-      },
-      "hacker_news": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 3.01
-      },
-      "arxiv": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.21
-      },
-      "reddit": {
-        "status": "ERROR",
-        "error": "HTTP Error 403: Blocked",
-        "duration_sec": 0.04
       }
     },
     "summary": {
