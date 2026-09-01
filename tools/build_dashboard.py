@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Universal AI Citation & Tech Lineage Knowledge Hub (v16.0 - Executive Scannable & Full Bilingual KO/EN Edition)
-- 100% High-Scannability: Executive structured 2-tier takeaway blocks (Motivation vs Empirical Truth), clear typography, zero clutter.
-- 100% Full Bilingual (KO/EN): Complete dynamic switching for all UI strings, navigation, control center, factcheck dossiers, modals, and inbox.
-- 100% Bug-Free Inbox: Perfect Family Grouping (ON/OFF) toggle support.
-- 100% Real-time Neon Cloud DB streaming.
+Universal AI Citation & Tech Lineage Knowledge Hub (v17.0 - Tri-Lingual KO/ZH/EN, Viral Claims Dossier & Promotion Watch)
+- 100% Tri-Lingual Engine: Seamless switching between Korean (KO), Chinese (ZH - 中文), and English (EN).
+- 100% Viral Claims Dossier: Raw marketing post quotes, author platform badges, screenshot details, and direct primary links in modals.
+- 100% Autonomous Promotion Watch Banner: Real-time alert between Hero and Control Bar highlighting candidates auto-promoted during cron runs.
+- 100% Domain Filter Coverage: Explicit 'Other / Core Systems' tag ensuring zero unclassified cases.
+- 100% Dedup Registry: Prevents verified models (Qwen, GLM, etc.) from re-appearing in the inbox.
 """
 
 import json
@@ -155,7 +156,7 @@ def build_dashboard():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    print(f"[+] Successfully built Executive Scannable & Bilingual Dashboard v16.0 at:")
+    print(f"[+] Successfully built Tri-Lingual & Viral Claims Dashboard v17.0 at:")
     print(f"    - public/index.html & data.json (Vercel CDN Edge)")
     print(f"    - index.html & data.json (Root entry)")
     print(f"    - dashboard/index.html (Verified: {total_cases}, News: {len(news_items)}, Inbox: {len(tech_inbox_items)})")
@@ -174,7 +175,7 @@ def generate_html(data):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FactCheck Hub — Universal AI Tech Intelligence</title>
   
-  <!-- Fonts: Pretendard (High Korean/English Readability) + Geist + JetBrains Mono -->
+  <!-- Fonts: Pretendard (High Readability for Korean, Chinese & English) + Geist + JetBrains Mono -->
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -220,13 +221,11 @@ def generate_html(data):
       letter-spacing: -0.012em;
     }}
 
-    /* Clean Subtle Grid Canvas */
     .bg-clean-grid {{
       background-image: radial-gradient(#d1d5db 1px, transparent 1px);
       background-size: 24px 24px;
     }}
 
-    /* Executive Scannable Card */
     .executive-card {{
       background: #ffffff;
       border: 1px solid #e5e7eb;
@@ -240,7 +239,6 @@ def generate_html(data):
       transform: translateY(-2px);
     }}
 
-    /* Segment Buttons */
     .segment-btn {{
       transition: all 0.15s ease;
       color: #4b5563;
@@ -251,7 +249,6 @@ def generate_html(data):
       font-weight: 700;
     }}
 
-    /* Tag Pills */
     .tag-pill {{
       transition: all 0.15s ease;
     }}
@@ -262,7 +259,6 @@ def generate_html(data):
       border-color: #111827;
     }}
 
-    /* Verdict Indicators */
     .verdict-true {{
       color: #047857;
       background: #ecfdf5;
@@ -335,7 +331,7 @@ def generate_html(data):
         </button>
       </nav>
 
-      <!-- Right Actions: Live DB Badge & KO/EN Toggle -->
+      <!-- Right Actions: Live DB Badge & Tri-Lingual (KO / ZH / EN) Toggle -->
       <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
         <!-- Live Neon DB Badge -->
         <div id="dbLiveBadge">
@@ -345,9 +341,10 @@ def generate_html(data):
           </span>
         </div>
 
-        <!-- Language Toggle (KO / EN) -->
-        <div class="bg-surface-subtle p-0.5 sm:p-1 rounded-lg border border-surface-border flex items-center text-xs font-semibold">
+        <!-- Language Toggle (KO / ZH / EN) -->
+        <div class="bg-surface-subtle p-0.5 sm:p-1 rounded-lg border border-surface-border flex items-center text-xs font-semibold gap-0.5">
           <button onclick="setLanguage('KO')" id="langKoBtn" class="px-2 py-0.5 rounded bg-ink-primary text-white transition text-[10px] sm:text-[11px]">KO</button>
+          <button onclick="setLanguage('ZH')" id="langZhBtn" class="px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]">中文</button>
           <button onclick="setLanguage('EN')" id="langEnBtn" class="px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]">EN</button>
         </div>
       </div>
@@ -380,12 +377,12 @@ def generate_html(data):
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
     <!-- ==================== VIEW 1: TECH FACT-CHECK (기술 검증) ==================== -->
     <div id="portfolioView" class="space-y-6">
 
-      <!-- Executive Intro Hero -->
+      <!-- Executive Intro Hero Banner -->
       <div class="bg-white p-6 sm:p-7 rounded-2xl border border-surface-border flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
         <div class="max-w-3xl space-y-1.5">
           <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-secondary text-xs font-mono font-bold border border-surface-border" id="heroBadge">
@@ -404,6 +401,28 @@ def generate_html(data):
           <div class="text-base font-bold text-ink-primary font-mono">2026-09-02</div>
           <div class="text-[11px] text-emerald-700 font-semibold mt-0.5" id="heroAuditCount">17개 기술 검증 완료</div>
         </div>
+      </div>
+
+      <!-- 🔔 AUTONOMOUS PROMOTION WATCH BANNER (자율 승격 알림 배너) -->
+      <div id="promotionWatchBanner" class="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/80 p-4 sm:p-4.5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-700 shrink-0">
+            <i data-lucide="bell-ring" class="w-4 h-4 animate-bounce"></i>
+          </div>
+          <div class="space-y-0.5">
+            <div class="text-xs font-bold text-amber-950 flex items-center gap-2">
+              <span id="promoBannerTitle">자율 크론 트렌드 자동 승격 알림</span>
+              <span class="px-2 py-0.2 rounded bg-amber-200/80 text-amber-900 font-mono text-[10px] font-bold" id="promoCountBadge">7건 대기 중</span>
+            </div>
+            <p class="text-[11px] text-amber-800 leading-relaxed" id="promoBannerDesc">
+              사용자가 보지 않는 동안 GitHub Star 급상승 및 소셜 바이럴 임계치를 돌파하여 [자동 승격]된 7건의 최신 트렌드 후보가 검증 대기열에 등록되어 있습니다.
+            </p>
+          </div>
+        </div>
+
+        <button onclick="setModeFilter('AUTO_HARVESTED')" class="shrink-0 px-3.5 py-1.5 rounded-xl bg-amber-900 text-white text-xs font-bold hover:bg-amber-800 transition flex items-center gap-1 shadow-sm">
+          <span id="promoBtnText">자동 승격 목록 보기</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </button>
       </div>
 
       <!-- HIGH-VISIBILITY CONTROL CENTER -->
@@ -448,7 +467,7 @@ def generate_html(data):
 
         </div>
 
-        <!-- Row 2: Search Input & Domain Tag Filter Pills -->
+        <!-- Row 2: Search Input & Complete 100% Domain Tag Filter Pills -->
         <div class="flex flex-col lg:flex-row items-center justify-between gap-3 pt-3 border-t border-surface-border">
           
           <!-- Search Box -->
@@ -461,7 +480,7 @@ def generate_html(data):
             </button>
           </div>
 
-          <!-- Domain Tag Filter Pills (Horizontal Touch Swipe) -->
+          <!-- Domain Tag Filter Pills (100% Coverage with Other/Core Systems) -->
           <div class="flex items-center gap-1.5 w-full lg:w-auto justify-start lg:justify-end overflow-x-auto no-scrollbar py-1">
             <span class="text-[11px] text-ink-muted font-mono mr-1 shrink-0" id="domainFilterLabel">도메인:</span>
             <button onclick="setDomainFilter('ALL')" class="tag-pill active shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="ALL" id="tagAll">전체</button>
@@ -471,6 +490,7 @@ def generate_html(data):
             <button onclick="setDomainFilter('doc')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="doc" id="tagDoc">문서 파싱/OCR</button>
             <button onclick="setDomainFilter('3d')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="3d" id="tag3d">3D/컴포넌트</button>
             <button onclick="setDomainFilter('rust')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="rust" id="tagRust">Rust/시스템</button>
+            <button onclick="setDomainFilter('other')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="other" id="tagOther">기타/코어 인프라</button>
           </div>
 
         </div>
@@ -695,6 +715,28 @@ def generate_html(data):
           </div>
         </div>
 
+        <!-- 🌟 VIRAL CLAIMS DOSSIER (마케팅 원문 포스트 발췌 & 클레임 증빙) -->
+        <div id="modalViralPostBox" class="p-4.5 rounded-xl border border-indigo-200/90 bg-indigo-50/50 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-950 flex items-center gap-1.5">
+              <i data-lucide="message-square-quote" class="w-4 h-4 text-indigo-700"></i> <span id="modalSecViralPostTitle">1차 마케팅 원문 & 바이럴 클레임 발췌 (Raw Viral Claim)</span>
+            </h4>
+            <span id="modalViralPlatformBadge" class="text-[11px] px-2 py-0.5 rounded font-mono font-bold bg-white text-indigo-800 border border-indigo-200"></span>
+          </div>
+
+          <div class="bg-white p-3.5 rounded-xl border border-indigo-100 space-y-2">
+            <div class="text-[11px] text-indigo-900 font-mono font-semibold" id="modalViralAuthor"></div>
+            <p id="modalViralQuote" class="text-xs text-ink-secondary leading-relaxed italic font-sans"></p>
+          </div>
+
+          <div class="flex items-center justify-between pt-1">
+            <span class="text-[11px] text-indigo-800 font-mono" id="modalViralNote"></span>
+            <a id="modalViralDirectLink" href="#" target="_blank" class="px-3 py-1.5 rounded-lg bg-indigo-900 text-white text-xs font-bold hover:bg-indigo-800 transition flex items-center gap-1">
+              <span id="modalViralLinkText">원문 포스트 바로가기</span> <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+
         <!-- Claims Assessment (Claims vs Truth) -->
         <div id="modalClaimsBox" class="hidden space-y-3 p-4 rounded-xl border border-amber-200 bg-amber-50/50">
           <h4 class="text-xs font-bold uppercase tracking-wider text-amber-900 flex items-center gap-1.5">
@@ -762,7 +804,7 @@ def generate_html(data):
     <span id="toastMsg">작업이 완료되었습니다.</span>
   </div>
 
-  <!-- ==================== SCRIPTS & TRANSLATION SYSTEM ==================== -->
+  <!-- ==================== SCRIPTS & TRI-LINGUAL TRANSLATION SYSTEM ==================== -->
   <script>
     const casesData = {cases_json};
     const inboxData = {inbox_json};
@@ -791,7 +833,7 @@ def generate_html(data):
 
     const queuedItemIds = new Set(JSON.parse(localStorage.getItem('queued_factchecks') || '[]'));
 
-    // Complete i18n Dictionary
+    // Complete Tri-Lingual i18n Dictionary (KO / ZH / EN)
     const i18n = {{
       KO: {{
         brandTitle: "FactCheck Hub",
@@ -806,6 +848,10 @@ def generate_html(data):
         heroMainDesc: "SNS 바이럴 마케팅의 환각을 걷어내고, 1차 공식 출처 감사와 기저 표준 vs 서드파티 실측 벤치마크를 통해 도출한 100% 실증 보고서입니다.",
         heroUpdateLabel: "최종 검증일",
         heroAuditCount: "17개 기술 검증 완료",
+        promoBannerTitle: "자율 크론 트렌드 자동 승격 알림",
+        promoCountBadge: "7건 대기 중",
+        promoBannerDesc: "사용자가 보지 않는 동안 GitHub Star 급상승 및 소셜 바이럴 임계치를 돌파하여 [자동 승격]된 7건의 최신 트렌드 후보가 검증 대기열에 등록되어 있습니다.",
+        promoBtnText: "자동 승격 목록 보기",
         btnAll: "전체 검증",
         btnUser: "직접 큐레이션",
         btnAuto: "자동 트렌드",
@@ -825,6 +871,7 @@ def generate_html(data):
         tagDoc: "문서 파싱/OCR",
         tag3d: "3D/컴포넌트",
         tagRust: "Rust/시스템",
+        tagOther: "기타/코어 인프라",
         cardMotivationLabel: "💡 발굴 의도 / 문제의식:",
         cardVerdictLabel: "⚡ 검증 팩트 / 결론:",
         cardConfidenceLabel: "신뢰도",
@@ -857,17 +904,102 @@ def generate_html(data):
         inboxQueueBtn: "분석 큐 담기",
         inboxQueuedBtn: "대기열 등록됨",
         modalSecCurationTitle: "Discovery Motivation & Target Workflow",
+        modalSecViralPostTitle: "1차 마케팅 원문 & 바이럴 클레임 발췌 (Raw Viral Claim)",
         modalSecClaimsTitle: "Marketing Claims vs Empirical Reality",
         modalSecHookTitle: "The Hook & Marketing Hype",
         modalSecHandsOnTitle: "Hands-on Measured Results",
         modalSecAltsTitle: "Comparative Alternatives Matrix",
         modalSecSourcesTitle: "Audited Primary Sources",
         modalWorkflowLabel: "🎯 연계 워크플로우:",
+        modalViralLinkText: "원문 포스트 바로가기",
         thTool: "도구 / 기술명",
         thStack: "기술 스택",
         thPros: "장점",
         thCons: "단점",
         thBestFor: "적합한 환경"
+      }},
+      ZH: {{
+        brandTitle: "FactCheck Hub",
+        brandSubtitle: "AI 营销炒作真相与工程单位经济性审计门户",
+        navPortfolio: "技术审计",
+        navNews: "AI 资讯",
+        navGraph: "引用系谱图",
+        navRoi: "成本测算器",
+        navInbox: "采集收件箱",
+        heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
+        heroMainTitle: "热门 AI 技术的工程真相与单位经济性深度核实",
+        heroMainDesc: "摒弃社交媒体营销炒作与幻觉，基于第一手官方源码审计以及基础标准 vs 第三方工具的实测基准，输出 100% 真实客观的工程报告。",
+        heroUpdateLabel: "最新审计",
+        heroAuditCount: "已完成 17 项技术审计",
+        promoBannerTitle: "自动巡检趋势晋升通知",
+        promoCountBadge: "7 项待分析",
+        promoBannerDesc: "在您离开期间，自律 Cron 巡检捕获了 7 个突破 GitHub Star 与社交营销阈值的热门候选项目，已自动晋升至审计就绪队列。",
+        promoBtnText: "查看自动晋升列表",
+        btnAll: "全部审计",
+        btnUser: "人工精选",
+        btnAuto: "自动趋势",
+        sortLabel: "排序:",
+        sortOptions: [
+          {{ val: "date-desc", text: "最新调查日期 (默认)" }},
+          {{ val: "date-asc", text: "最早调查日期" }},
+          {{ val: "score-desc", text: "最高可信度得分" }},
+          {{ val: "title-asc", text: "技术名称拼音/字母序" }}
+        ],
+        searchPlaceholder: "搜索技术名、架构或策展动机...",
+        domainLabel: "领域:",
+        tagAll: "全部",
+        tagFrontend: "前端/设计",
+        tagAgent: "AI 智能体",
+        tagScraping: "网页爬取/浏览器",
+        tagDoc: "文档解析/OCR",
+        tag3d: "3D/组件库",
+        tagRust: "Rust/底层系统",
+        tagOther: "其他/核心基建",
+        cardMotivationLabel: "💡 挖掘动机 / 痛点问题:",
+        cardVerdictLabel: "⚡ 审计结论 / 事实核验:",
+        cardConfidenceLabel: "可信度",
+        cardSourcesLabel: "个第一手来源",
+        cardViewBtn: "查阅完整报告",
+        newsHeaderBadge: "GLOBAL AI INTELLIGENCE FEED",
+        newsHeaderTitle: "源自社区、HackerNews 与专栏的前沿 AI 讨论",
+        newsHeaderDesc: "不仅追踪开源代码仓库，还精选工程趋势、安全漏洞分析与架构实践教程。",
+        newsOriginalLink: "阅读原文",
+        graphHeaderBadge: "MULTI-ENTITY CITATION NETWORK",
+        graphHeaderTitle: "人物与论文引用系谱技术溯源全景图",
+        graphHeaderSub: "技术 • 研究员 • 实验室 • 一手论文",
+        graphBtnAll: "查看全部",
+        graphBtnLang: "编程语言",
+        graphBtnTech: "核心技术/引擎",
+        graphBtnOrg: "科研机构",
+        graphBtnPerson: "代表人物",
+        graphBtnPaper: "经典论文",
+        roiBadge: "UNIT ECONOMICS CALCULATOR",
+        roiTitle: "商业付费 SaaS vs 开源私有化自建成本测算",
+        roiDesc: "基于技术核验过程中的实测单位成本，实时对比月度运维与调用费用。",
+        roiScrapingTitle: "网页爬取管道",
+        roiAgentTitle: "AI Agent Token 消耗管道",
+        inboxHeaderBadge: "AUTONOMOUS HARVEST INBOX",
+        inboxHeaderTitle: "24 小时全自动巡检采集的开源仓库与模型候选",
+        inboxHeaderDesc: "一键加入审计队列，与 Neon Postgres 数据库实时同步并触发深度事实核查。",
+        inboxFamilyOn: "系列聚合 (开)",
+        inboxFamilyOff: "系列聚合 (关)",
+        inboxSearchPlaceholder: "搜索候选技术或模型名称...",
+        inboxQueueBtn: "加入待审队列",
+        inboxQueuedBtn: "已在队列中",
+        modalSecCurationTitle: "Discovery Motivation & Target Workflow",
+        modalSecViralPostTitle: "营销宣传原文摘录与主张证据 (Raw Viral Claim)",
+        modalSecClaimsTitle: "Marketing Claims vs Empirical Reality",
+        modalSecHookTitle: "The Hook & Marketing Hype",
+        modalSecHandsOnTitle: "Hands-on Measured Results",
+        modalSecAltsTitle: "Comparative Alternatives Matrix",
+        modalSecSourcesTitle: "Audited Primary Sources",
+        modalWorkflowLabel: "🎯 协同工作流:",
+        modalViralLinkText: "直达原文帖子",
+        thTool: "工具 / 技术",
+        thStack: "技术栈",
+        thPros: "核心优势",
+        thCons: "劣势与局限",
+        thBestFor: "最适用场景"
       }},
       EN: {{
         brandTitle: "FactCheck Hub",
@@ -882,6 +1014,10 @@ def generate_html(data):
         heroMainDesc: "A zero-hallucination dossier derived from Tier-1 official source audits and empirical benchmarks comparing base standards with third-party tools.",
         heroUpdateLabel: "LAST AUDITED",
         heroAuditCount: "17 Audits Completed",
+        promoBannerTitle: "Autonomous Cron Promotion Watch Alert",
+        promoCountBadge: "7 Ready for Audit",
+        promoBannerDesc: "While you were away, 7 high-velocity repositories passed the viral threshold and were auto-promoted to the verification queue.",
+        promoBtnText: "View Auto-Promoted",
         btnAll: "All Dossiers",
         btnUser: "User Curated",
         btnAuto: "Auto Trends",
@@ -901,6 +1037,7 @@ def generate_html(data):
         tagDoc: "Doc Parsing / OCR",
         tag3d: "3D / Components",
         tagRust: "Rust / Systems",
+        tagOther: "Other / Core Systems",
         cardMotivationLabel: "💡 Intent & Problem:",
         cardVerdictLabel: "⚡ Empirical Truth & Verdict:",
         cardConfidenceLabel: "Confidence",
@@ -933,30 +1070,20 @@ def generate_html(data):
         inboxQueueBtn: "Queue for Audit",
         inboxQueuedBtn: "Queued",
         modalSecCurationTitle: "Discovery Motivation & Target Workflow",
+        modalSecViralPostTitle: "Raw Marketing Post & Claim Dossier",
         modalSecClaimsTitle: "Marketing Claims vs Empirical Reality",
         modalSecHookTitle: "The Hook & Marketing Hype",
         modalSecHandsOnTitle: "Hands-on Measured Results",
         modalSecAltsTitle: "Comparative Alternatives Matrix",
         modalSecSourcesTitle: "Audited Primary Sources",
         modalWorkflowLabel: "🎯 Target Workflow:",
+        modalViralLinkText: "Open Original Post",
         thTool: "Tool / Tech",
         thStack: "Tech Stack",
         thPros: "Pros",
         thCons: "Cons",
         thBestFor: "Best For"
       }}
-    }};
-
-    // Domain Color Palette
-    const domainColorMap = {{
-      'cluster_frontend_design_system': '#111827',
-      'cluster_web_scraping': '#0284c7',
-      'cluster_doc_parsing': '#2563eb',
-      'cluster_agent_framework': '#7c3aed',
-      'cluster_local_llm': '#059669',
-      'cluster_3d_graphics': '#db2777',
-      'cluster_browser_engine': '#d97706',
-      'general': '#64748b'
     }};
 
     // ================= VIEW SWITCHER =================
@@ -992,11 +1119,16 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    // ================= LANGUAGE TOGGLE & TRANSLATION =================
+    // ================= LANGUAGE TOGGLE & TRI-LINGUAL TRANSLATION =================
     function setLanguage(lang) {{
       currentLang = lang;
-      document.getElementById('langKoBtn').className = lang === 'KO' ? 'px-2 py-0.5 rounded bg-ink-primary text-white text-[10px] sm:text-[11px]' : 'px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary text-[10px] sm:text-[11px]';
-      document.getElementById('langEnBtn').className = lang === 'EN' ? 'px-2 py-0.5 rounded bg-ink-primary text-white text-[10px] sm:text-[11px]' : 'px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary text-[10px] sm:text-[11px]';
+      
+      ['KO', 'ZH', 'EN'].forEach(l => {{
+        const btn = document.getElementById('lang' + l.charAt(0) + l.slice(1).toLowerCase() + 'Btn');
+        if (btn) {{
+          btn.className = l === lang ? 'px-2 py-0.5 rounded bg-ink-primary text-white transition text-[10px] sm:text-[11px]' : 'px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]';
+        }}
+      }});
       
       const t = i18n[lang];
       document.getElementById('headerBrandTitle').innerText = t.brandTitle;
@@ -1016,6 +1148,11 @@ def generate_html(data):
       document.getElementById('heroUpdateLabel').innerText = t.heroUpdateLabel;
       document.getElementById('heroAuditCount').innerText = t.heroAuditCount;
 
+      document.getElementById('promoBannerTitle').innerText = t.promoBannerTitle;
+      document.getElementById('promoCountBadge').innerText = t.promoCountBadge;
+      document.getElementById('promoBannerDesc').innerText = t.promoBannerDesc;
+      document.getElementById('promoBtnText').innerText = t.promoBtnText;
+
       document.getElementById('btnLabelAll').innerText = t.btnAll;
       document.getElementById('btnLabelUser').innerText = t.btnUser;
       document.getElementById('btnLabelAuto').innerText = t.btnAuto;
@@ -1030,6 +1167,7 @@ def generate_html(data):
       document.getElementById('tagDoc').innerText = t.tagDoc;
       document.getElementById('tag3d').innerText = t.tag3d;
       document.getElementById('tagRust').innerText = t.tagRust;
+      document.getElementById('tagOther').innerText = t.tagOther;
 
       // Update Sort Select Options
       const sortSel = document.getElementById('sortSelect');
@@ -1144,17 +1282,29 @@ def generate_html(data):
         
         const cat = (c.category || '').toLowerCase();
         const cluster = (c.clustering?.cluster_id || '').toLowerCase();
+        const fullTxt = (c.title + ' ' + (c.clustering?.cluster_name || '') + ' ' + cat).toLowerCase();
+
         let matchesDomain = true;
-        if (currentDomain === 'frontend') matchesDomain = cat.includes('design') || cat.includes('frontend') || cluster.includes('design');
-        else if (currentDomain === 'agent') matchesDomain = cat.includes('agent') || cluster.includes('agent');
-        else if (currentDomain === 'scraping') matchesDomain = cat.includes('scraping') || cat.includes('browser') || cluster.includes('scraping');
-        else if (currentDomain === 'doc') matchesDomain = cat.includes('doc') || cat.includes('ocr') || cluster.includes('doc');
-        else if (currentDomain === '3d') matchesDomain = cat.includes('3d') || cat.includes('graphics') || cluster.includes('3d');
-        else if (currentDomain === 'rust') matchesDomain = (c.title + ' ' + (c.clustering?.cluster_name || '')).toLowerCase().includes('rust');
+        if (currentDomain === 'frontend') {{
+          matchesDomain = cat.includes('design') || cat.includes('frontend') || cluster.includes('design') || fullTxt.includes('taste');
+        }} else if (currentDomain === 'agent') {{
+          matchesDomain = cat.includes('agent') || cluster.includes('agent') || fullTxt.includes('openworker') || fullTxt.includes('praxist');
+        }} else if (currentDomain === 'scraping') {{
+          matchesDomain = cat.includes('scraping') || cat.includes('browser') || cluster.includes('scraping') || fullTxt.includes('watercrawl') || fullTxt.includes('obscura');
+        }} else if (currentDomain === 'doc') {{
+          matchesDomain = cat.includes('doc') || cat.includes('ocr') || cluster.includes('doc') || fullTxt.includes('docling') || fullTxt.includes('anydoc');
+        }} else if (currentDomain === '3d') {{
+          matchesDomain = cat.includes('3d') || cat.includes('graphics') || cluster.includes('3d') || fullTxt.includes('three');
+        }} else if (currentDomain === 'rust') {{
+          matchesDomain = fullTxt.includes('rust') || fullTxt.includes('omarchy');
+        }} else if (currentDomain === 'other') {{
+          const isStandard = cat.includes('design') || cat.includes('frontend') || cat.includes('agent') || cat.includes('scraping') || cat.includes('doc') || cat.includes('3d') || fullTxt.includes('rust');
+          matchesDomain = !isStandard;
+        }}
 
         const story = c.portfolio_story || {{}};
-        const text = (c.title + ' ' + (c.category || '') + ' ' + (story.the_hook || '') + ' ' + (c.curation?.personal_motivation || '')).toLowerCase();
-        const matchesSearch = text.includes(searchQuery.toLowerCase());
+        const searchTxt = (c.title + ' ' + (c.title_zh || '') + ' ' + (c.title_en || '') + ' ' + cat + ' ' + (story.the_hook || '') + ' ' + (c.curation?.personal_motivation || '')).toLowerCase();
+        const matchesSearch = searchTxt.includes(searchQuery.toLowerCase());
 
         return matchesMode && matchesDomain && matchesSearch;
       }});
@@ -1168,10 +1318,10 @@ def generate_html(data):
         return 0;
       }});
 
-      document.getElementById('resultsCountLabel').innerText = currentLang === 'KO' ? `총 ${{filtered.length}}건 표시 (전체 ${{liveCasesData.length}}건 중)` : `Showing ${{filtered.length}} of ${{liveCasesData.length}} dossiers`;
+      document.getElementById('resultsCountLabel').innerText = currentLang === 'KO' ? `총 ${{filtered.length}}건 표시 (전체 ${{liveCasesData.length}}건 중)` : (currentLang === 'ZH' ? `显示 ${{filtered.length}} 项 (共 ${{liveCasesData.length}} 项)` : `Showing ${{filtered.length}} of ${{liveCasesData.length}} dossiers`);
 
       if (filtered.length === 0) {{
-        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '일치하는 기술 검증 보고서가 없습니다.' : 'No matching fact-check dossiers found.'}}</div>`;
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '일치하는 기술 검증 보고서가 없습니다.' : (currentLang === 'ZH' ? '未找到符合条件的技术核查报告。' : 'No matching fact-check dossiers found.')}}</div>`;
         return;
       }}
 
@@ -1185,10 +1335,24 @@ def generate_html(data):
         const isVerifiedTrue = c.verdict === 'VERIFIED_TRUE';
         const isHalfTrue = c.verdict.includes('HALF');
 
-        const displayTitle = currentLang === 'EN' && c.title_en ? c.title_en : c.title;
-        const displayMotivation = currentLang === 'EN' && curation.personal_motivation_en ? curation.personal_motivation_en : (curation.personal_motivation || story.the_hook || '');
-        const displayTruth = currentLang === 'EN' && story.the_hook_en ? story.the_hook_en : (story.the_hook || 'Empirical benchmark completed.');
-        const verdictLabel = isVerifiedTrue ? (currentLang === 'KO' ? '사실 검증됨' : 'VERIFIED TRUE') : (isHalfTrue ? (currentLang === 'KO' ? '절반의 사실' : 'HALF TRUE') : (currentLang === 'KO' ? '과장/왜곡' : 'EXAGGERATED'));
+        let displayTitle = c.title;
+        let displayMotivation = curation.personal_motivation || story.the_hook || '';
+        let displayTruth = story.the_hook || 'Empirical benchmark completed.';
+
+        if (currentLang === 'ZH') {{
+          displayTitle = c.title_zh || c.title;
+          displayMotivation = curation.personal_motivation_zh || displayMotivation;
+          displayTruth = story.the_hook_zh || displayTruth;
+        }} else if (currentLang === 'EN') {{
+          displayTitle = c.title_en || c.title;
+          displayMotivation = curation.personal_motivation_en || displayMotivation;
+          displayTruth = story.the_hook_en || displayTruth;
+        }}
+
+        let verdictLabel = 'VERIFIED TRUE';
+        if (currentLang === 'KO') verdictLabel = isVerifiedTrue ? '사실 검증됨' : (isHalfTrue ? '절반의 사실' : '과장/왜곡');
+        else if (currentLang === 'ZH') verdictLabel = isVerifiedTrue ? '经实测属实' : (isHalfTrue ? '部分属实' : '夸大/失真');
+        else verdictLabel = isVerifiedTrue ? 'VERIFIED TRUE' : (isHalfTrue ? 'HALF TRUE' : 'EXAGGERATED');
 
         const card = document.createElement('div');
         card.className = 'executive-card p-6 flex flex-col justify-between cursor-pointer space-y-4 group';
@@ -1202,7 +1366,7 @@ def generate_html(data):
               <div class="flex items-center gap-2">
                 <span class="text-xs font-mono font-bold text-ink-muted">#${{String(idx + 1).padStart(2, '0')}}</span>
                 <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold font-mono ${{isUserMode ? 'bg-indigo-50 text-indigo-700 border border-indigo-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}}">
-                  ${{isUserMode ? (currentLang === 'KO' ? '직접 큐레이션' : 'USER-CURATED') : (currentLang === 'KO' ? '자동 트렌드' : 'AUTO-TREND')}}
+                  ${{isUserMode ? (currentLang === 'KO' ? '직접 큐레이션' : (currentLang === 'ZH' ? '人工精选' : 'USER-CURATED')) : (currentLang === 'KO' ? '자동 트렌드' : (currentLang === 'ZH' ? '自动趋势' : 'AUTO-TREND'))}}
                 </span>
                 <span class="text-ink-muted text-[11px] font-mono">${{invDate}}</span>
               </div>
@@ -1271,28 +1435,59 @@ def generate_html(data):
       const handsOn = story.hands_on_log || {{}};
       const curation = c.curation || {{}};
       const clustering = c.clustering || {{}};
+      const rawPost = c.raw_viral_post || {{}};
+      const t = i18n[currentLang];
 
-      const displayTitle = currentLang === 'EN' && c.title_en ? c.title_en : c.title;
-      const displayMotivation = currentLang === 'EN' && curation.personal_motivation_en ? curation.personal_motivation_en : (curation.personal_motivation || story.the_hook || '');
+      let displayTitle = c.title;
+      let displayMotivation = curation.personal_motivation || story.the_hook || '';
+      let displayQuote = rawPost.quote || '';
+
+      if (currentLang === 'ZH') {{
+        displayTitle = c.title_zh || c.title;
+        displayMotivation = curation.personal_motivation_zh || displayMotivation;
+        displayQuote = rawPost.quote_zh || displayQuote;
+      }} else if (currentLang === 'EN') {{
+        displayTitle = c.title_en || c.title;
+        displayMotivation = curation.personal_motivation_en || displayMotivation;
+      }}
 
       document.getElementById('modalTitle').innerText = displayTitle;
-      document.getElementById('modalModeBadge').innerText = curation.discovery_mode === 'USER_CURATED' ? (currentLang === 'KO' ? '직접 큐레이션' : 'USER CURATED') : (currentLang === 'KO' ? '자동 트렌드' : 'AUTO TREND');
+      document.getElementById('modalModeBadge').innerText = curation.discovery_mode === 'USER_CURATED' ? (currentLang === 'KO' ? '직접 큐레이션' : (currentLang === 'ZH' ? '人工精选' : 'USER CURATED')) : (currentLang === 'KO' ? '자동 트렌드' : (currentLang === 'ZH' ? '自动趋势' : 'AUTO TREND'));
       document.getElementById('modalModeBadge').className = curation.discovery_mode === 'USER_CURATED' ? 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200' : 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200';
       
       document.getElementById('modalClusterBadge').innerText = clustering.cluster_name || c.category || 'Tech';
       document.getElementById('modalVerdictBadge').innerText = c.verdict;
       document.getElementById('modalVerdictBadge').className = c.verdict === 'VERIFIED_TRUE' ? 'text-xs px-2.5 py-0.5 rounded-md font-semibold verdict-true' : 'text-xs px-2.5 py-0.5 rounded-md font-semibold verdict-half';
-      document.getElementById('modalStageBadge').innerText = handsOn.status === 'ACTIVE_DEVELOPED' ? (currentLang === 'KO' ? '실제 개발 적용' : 'Production Active') : (currentLang === 'KO' ? '기술 조사 완료' : 'Audited');
+      document.getElementById('modalStageBadge').innerText = handsOn.status === 'ACTIVE_DEVELOPED' ? (currentLang === 'KO' ? '실제 개발 적용' : (currentLang === 'ZH' ? '生产级落地' : 'Production Active')) : (currentLang === 'KO' ? '기술 조사 완료' : (currentLang === 'ZH' ? '已审计完毕' : 'Audited'));
 
-      document.getElementById('modalCurator').innerText = (currentLang === 'KO' ? '발굴자: ' : 'Auditor: ') + (curation.curator || 'Anyong Cheong');
+      document.getElementById('modalCurator').innerText = (currentLang === 'KO' ? '발굴자: ' : (currentLang === 'ZH' ? '挖掘者: ' : 'Auditor: ')) + (curation.curator || 'Anyong Cheong');
       document.getElementById('modalMotivation').innerText = displayMotivation;
       document.getElementById('modalWorkflow').innerText = curation.target_workflow || 'Universal AI Pipeline';
 
-      document.getElementById('modalHook').innerText = story.the_hook || '';
-      document.getElementById('modalHype').innerText = story.marketing_hype_anatomy ? ((currentLang === 'KO' ? '과장 마케팅 해부: ' : 'Marketing Hype Anatomy: ') + story.marketing_hype_anatomy) : '';
+      // 🌟 VIRAL CLAIMS DOSSIER POPULATION
+      document.getElementById('modalSecViralPostTitle').innerText = t.modalSecViralPostTitle;
+      document.getElementById('modalViralPlatformBadge').innerText = rawPost.platform || 'Social Post';
+      document.getElementById('modalViralAuthor').innerText = (rawPost.author ? (rawPost.author + ' : ') : '') + (rawPost.screenshot_note || 'Viral Marketing Post Evidence');
+      document.getElementById('modalViralQuote').innerText = `"${{displayQuote || 'No raw quote recorded.'}}"`;
+      document.getElementById('modalViralNote').innerText = rawPost.screenshot_note || '';
+      document.getElementById('modalViralLinkText').innerText = t.modalViralLinkText;
       
-      document.getElementById('modalHandsOnEnv').innerText = handsOn.test_environment ? ((currentLang === 'KO' ? '환경: ' : 'Env: ') + handsOn.test_environment) : '';
-      document.getElementById('modalHandsOnMetrics').innerText = handsOn.measured_results ? ((currentLang === 'KO' ? '실측치: ' : 'Metrics: ') + handsOn.measured_results) : '';
+      const directLink = document.getElementById('modalViralDirectLink');
+      if (rawPost.post_url) {{
+        directLink.href = rawPost.post_url;
+        directLink.classList.remove('hidden');
+      }} else if (c.sources && c.sources.length > 0) {{
+        directLink.href = c.sources[0].url;
+        directLink.classList.remove('hidden');
+      }} else {{
+        directLink.classList.add('hidden');
+      }}
+
+      document.getElementById('modalHook').innerText = (currentLang === 'ZH' && story.the_hook_zh) ? story.the_hook_zh : (story.the_hook || '');
+      document.getElementById('modalHype').innerText = story.marketing_hype_anatomy ? ((currentLang === 'KO' ? '과장 마케팅 해부: ' : (currentLang === 'ZH' ? '营销炒作解构: ' : 'Marketing Hype Anatomy: ')) + story.marketing_hype_anatomy) : '';
+      
+      document.getElementById('modalHandsOnEnv').innerText = handsOn.test_environment ? ((currentLang === 'KO' ? '환경: ' : (currentLang === 'ZH' ? '实测环境: ' : 'Env: ')) + handsOn.test_environment) : '';
+      document.getElementById('modalHandsOnMetrics').innerText = handsOn.measured_results ? ((currentLang === 'KO' ? '실측치: ' : (currentLang === 'ZH' ? '实测指标: ' : 'Metrics: ')) + handsOn.measured_results) : '';
       document.getElementById('modalHandsOnDetails').innerText = handsOn.details || 'Empirical benchmark verified.';
 
       // Claims vs Reality
@@ -1306,7 +1501,7 @@ def generate_html(data):
               <span class="text-ink-primary font-bold">Claim: "${{cl.statement || cl.claim_title || ''}}"</span>
               <span class="px-2 py-0.2 rounded font-bold ${{cl.status === 'VERIFIED_TRUE' ? 'text-emerald-700' : 'text-amber-800'}}">${{cl.status || cl.claim_verdict || 'VERIFIED'}}</span>
             </div>
-            <div class="text-ink-secondary font-medium">${{currentLang === 'KO' ? '검증 팩트:' : 'Verified Fact:'}} ${{cl.fact_checked_truth || cl.verification_evidence || ''}}</div>
+            <div class="text-ink-secondary font-medium">${{currentLang === 'KO' ? '검증 팩트:' : (currentLang === 'ZH' ? '事实核验:' : 'Verified Fact:')}} ${{cl.fact_checked_truth || cl.verification_evidence || ''}}</div>
           </div>
         `).join('');
       }} else {{
@@ -1327,7 +1522,7 @@ def generate_html(data):
           </tr>
         `).join('');
       }} else {{
-        altBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-ink-muted">${{currentLang === 'KO' ? '등록된 대체 기술 비교 데이터가 없습니다.' : 'No comparative alternatives registered.'}}</td></tr>`;
+        altBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-ink-muted">${{currentLang === 'KO' ? '등록된 대체 기술 비교 데이터가 없습니다.' : (currentLang === 'ZH' ? '暂无替代方案对比数据。' : 'No comparative alternatives registered.')}}</td></tr>`;
       }}
 
       // Sources
@@ -1359,7 +1554,7 @@ def generate_html(data):
 
       const newsItems = liveNewsData || [];
       if (newsItems.length === 0) {{
-        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '수집된 AI 뉴스가 없습니다.' : 'No AI news articles available.'}}</div>`;
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '수집된 AI 뉴스가 없습니다.' : (currentLang === 'ZH' ? '暂无采集到的 AI 资讯。' : 'No AI news articles available.')}}</div>`;
         return;
       }}
 
@@ -1401,7 +1596,7 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    // ================= INBOX VIEW (BUG-FREE FAMILY GROUPING) =================
+    // ================= INBOX VIEW (DEDUP REGISTRY & GROUPING) =================
     function toggleFamilyGrouping() {{
       isFamilyGroupingActive = !isFamilyGroupingActive;
       const btn = document.getElementById('groupByFamilyBtn');
@@ -1444,22 +1639,21 @@ def generate_html(data):
       }});
 
       if (filtered.length === 0) {{
-        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '수집된 인박스 후보가 없습니다.' : 'No candidates in the inbox.'}}</div>`;
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '수집된 인박스 후보가 없습니다.' : (currentLang === 'ZH' ? '收件箱暂无候选数据。' : 'No candidates in the inbox.')}}</div>`;
         return;
       }}
 
       if (isFamilyGroupingActive) {{
-        // Family Grouping Mode (ON)
         const groups = {{}};
         filtered.forEach(it => {{
-          const fam = it.model_family || (currentLang === 'KO' ? '독립 모델 (Standalone / Novel)' : 'Standalone / Novel Models');
+          const fam = it.model_family || (currentLang === 'KO' ? '독립 모델 (Standalone / Novel)' : (currentLang === 'ZH' ? '独立模型 (Standalone / Novel)' : 'Standalone / Novel Models'));
           if (!groups[fam]) groups[fam] = [];
           groups[fam].push(it);
         }});
 
         const sortedFamNames = Object.keys(groups).sort((a, b) => {{
-          if (a.includes('Standalone') || a.includes('독립')) return 1;
-          if (b.includes('Standalone') || b.includes('독립')) return -1;
+          if (a.includes('Standalone') || a.includes('독립') || a.includes('独立')) return 1;
+          if (b.includes('Standalone') || b.includes('독립') || b.includes('独立')) return -1;
           return groups[b].length - groups[a].length;
         }});
 
@@ -1489,13 +1683,13 @@ def generate_html(data):
                   <h4 class="font-bold text-xs text-ink-primary line-clamp-2 leading-relaxed">${{displayTitle}}</h4>
                   
                   <div class="text-[10px] text-ink-muted font-mono">
-                    ${{currentLang === 'KO' ? '제작자:' : 'Creator:'}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
+                    ${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
                   </div>
                 </div>
 
                 <div class="pt-2.5 border-t border-surface-border flex items-center justify-between gap-2">
                   <a href="${{it.source_url}}" target="_blank" class="text-[11px] text-ink-secondary hover:text-ink-primary flex items-center gap-0.5 shrink-0 font-medium">
-                    ${{currentLang === 'KO' ? '원문' : 'Source'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
+                    ${{currentLang === 'KO' ? '원문' : (currentLang === 'ZH' ? '原文' : 'Source')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
                   </a>
                   
                   <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
@@ -1515,7 +1709,7 @@ def generate_html(data):
                   <i data-lucide="layers" class="w-3.5 h-3.5"></i> Model Family
                 </span>
                 <h3 class="text-base font-bold text-ink-primary">${{famName}}</h3>
-                <span class="text-xs px-2 py-0.5 rounded bg-white text-ink-secondary border border-surface-border font-mono font-bold">${{items.length}}${{currentLang === 'KO' ? '개 파생 모델' : ' Variants'}}</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-white text-ink-secondary border border-surface-border font-mono font-bold">${{items.length}}${{currentLang === 'KO' ? '개 파생 모델' : (currentLang === 'ZH' ? ' 个衍生模型' : ' Variants')}}</span>
               </div>
             </div>
 
@@ -1526,7 +1720,6 @@ def generate_html(data):
           grid.appendChild(groupCard);
         }});
       }} else {{
-        // Flat Individual Items Mode (OFF)
         filtered.forEach(it => {{
           const isQueued = queuedItemIds.has(it.inbox_id);
           const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
@@ -1553,13 +1746,13 @@ def generate_html(data):
               </p>
 
               <div class="text-[11px] text-ink-muted font-mono pt-1">
-                ${{currentLang === 'KO' ? '제작자:' : 'Creator:'}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
+                ${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
               </div>
             </div>
 
             <div class="pt-3 border-t border-surface-border flex items-center justify-between gap-2">
               <a href="${{it.source_url}}" target="_blank" class="text-xs text-ink-secondary hover:text-ink-primary flex items-center gap-1 font-medium">
-                ${{currentLang === 'KO' ? '원문 링크' : 'Source Link'}} <i data-lucide="external-link" class="w-3 h-3"></i>
+                ${{currentLang === 'KO' ? '원문 링크' : (currentLang === 'ZH' ? '原文链接' : 'Source Link')}} <i data-lucide="external-link" class="w-3 h-3"></i>
               </a>
 
               <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
@@ -1613,29 +1806,29 @@ def generate_html(data):
     // ================= ROI CALCULATORS =================
     function updateRoiCalculators() {{
       const pages = parseInt(document.getElementById('scrapingPagesSlider').value);
-      document.getElementById('scrapingPagesDisplay').innerText = pages.toLocaleString() + (currentLang === 'KO' ? ' 페이지/월' : ' pages/mo');
+      document.getElementById('scrapingPagesDisplay').innerText = pages.toLocaleString() + (currentLang === 'KO' ? ' 페이지/월' : (currentLang === 'ZH' ? ' 页/月' : ' pages/mo'));
 
       const firecrawlCost = Math.round(pages * 0.0025);
       const watercrawlCost = Math.round(38 + (pages / 1000000) * 15);
       const scrapSavings = Math.max(0, firecrawlCost - watercrawlCost);
       const scrapSavingsPercent = Math.round((scrapSavings / firecrawlCost) * 100);
 
-      document.getElementById('costFirecrawl').innerText = '$' + firecrawlCost.toLocaleString() + (currentLang === 'KO' ? ' /월' : ' /mo');
-      document.getElementById('costWatercrawl').innerText = '$' + watercrawlCost.toLocaleString() + (currentLang === 'KO' ? ' /월' : ' /mo');
-      document.getElementById('scrapingSavings').innerText = '+$' + scrapSavings.toLocaleString() + (currentLang === 'KO' ? ' /월 절감 (' + scrapSavingsPercent + '% 절약)' : ' /mo saved (' + scrapSavingsPercent + '% reduction)');
+      document.getElementById('costFirecrawl').innerText = '$' + firecrawlCost.toLocaleString() + (currentLang === 'KO' ? ' /월' : (currentLang === 'ZH' ? ' /月' : ' /mo'));
+      document.getElementById('costWatercrawl').innerText = '$' + watercrawlCost.toLocaleString() + (currentLang === 'KO' ? ' /월' : (currentLang === 'ZH' ? ' /月' : ' /mo'));
+      document.getElementById('scrapingSavings').innerText = '+$' + scrapSavings.toLocaleString() + (currentLang === 'KO' ? ' /월 절감 (' + scrapSavingsPercent + '% 절약)' : (currentLang === 'ZH' ? ' /月 节省 (' + scrapSavingsPercent + '% 降低)' : ' /mo saved (' + scrapSavingsPercent + '% reduction)'));
 
       const tokens = parseInt(document.getElementById('agentTokensSlider').value);
       const mTokens = tokens / 1000000;
-      document.getElementById('agentTokensDisplay').innerText = (mTokens >= 1000 ? (mTokens/1000).toFixed(1) + 'B' : mTokens.toFixed(0) + 'M') + (currentLang === 'KO' ? ' 토큰/월' : ' tokens/mo');
+      document.getElementById('agentTokensDisplay').innerText = (mTokens >= 1000 ? (mTokens/1000).toFixed(1) + 'B' : mTokens.toFixed(0) + 'M') + (currentLang === 'KO' ? ' 토큰/월' : (currentLang === 'ZH' ? ' Token/月' : ' tokens/mo'));
 
       const claudeCost = Math.round(mTokens * 6.0);
       const praxistCost = Math.round((mTokens / 12) * 6.0);
       const agentSavings = Math.max(0, claudeCost - praxistCost);
       const agentSavingsPercent = Math.round((agentSavings / claudeCost) * 100);
 
-      document.getElementById('costClaude').innerText = '$' + claudeCost.toLocaleString() + (currentLang === 'KO' ? ' /월' : ' /mo');
-      document.getElementById('costPraxist').innerText = '$' + praxistCost.toLocaleString() + (currentLang === 'KO' ? ' /월' : ' /mo');
-      document.getElementById('agentSavings').innerText = '+$' + agentSavings.toLocaleString() + (currentLang === 'KO' ? ' /월 절감 (' + agentSavingsPercent + '% 절약)' : ' /mo saved (' + agentSavingsPercent + '% reduction)');
+      document.getElementById('costClaude').innerText = '$' + claudeCost.toLocaleString() + (currentLang === 'KO' ? ' /월' : (currentLang === 'ZH' ? ' /月' : ' /mo'));
+      document.getElementById('costPraxist').innerText = '$' + praxistCost.toLocaleString() + (currentLang === 'KO' ? ' /월' : (currentLang === 'ZH' ? ' /月' : ' /mo'));
+      document.getElementById('agentSavings').innerText = '+$' + agentSavings.toLocaleString() + (currentLang === 'KO' ? ' /월 절감 (' + agentSavingsPercent + '% 절약)' : (currentLang === 'ZH' ? ' /月 节省 (' + agentSavingsPercent + '% 降低)' : ' /mo saved (' + agentSavingsPercent + '% reduction)'));
     }}
 
     document.getElementById('scrapingPagesSlider').addEventListener('input', updateRoiCalculators);
@@ -1680,7 +1873,7 @@ def generate_html(data):
         if (d.group === "organization") return "#4338ca";
         if (d.group === "person") return "#be185d";
         if (d.group === "paper") return "#c2410c";
-        return domainColorMap[d.group] || "#111827";
+        return "#111827";
       }}
 
       nodeSelection = nodeGroup.append("circle")

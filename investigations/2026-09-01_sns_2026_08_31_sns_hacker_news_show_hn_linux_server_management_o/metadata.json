@@ -10,7 +10,8 @@
     "curator": "Anyong Cheong",
     "personal_motivation": "클라우드 및 온프레미스 서버를 관리할 때 Portainer나 Cockpit처럼 타겟 서버에 무거운 백엔드 데몬을 상주시키지 않고, '순수 SSH 연결만으로 리눅스 메트릭 및 도커를 관리할 수 있는 초경량 대체재'의 실무 효용성이 궁금하여 직접 선정함.",
     "target_workflow": "사내 GPU 클러스터 및 개발/스테이징 리눅스 서버 무인 모니터링 & 터널링 관리",
-    "personal_motivation_en": "클라우드 및 온프레미스 서버를 관리할 때 Portainer나 Cockpit처럼 타겟 서버에 무거운 백엔드 데몬을 상주시키지 않고, '순수 SSH 연결만으로 리눅스 메트릭 및 도커를 관리할 수 있는 초경량 대체재'의 실무 효용성이 궁금하여 직접 선정함."
+    "personal_motivation_en": "클라우드 및 온프레미스 서버를 관리할 때 Portainer나 Cockpit처럼 타겟 서버에 무거운 백엔드 데몬을 상주시키지 않고, '순수 SSH 연결만으로 리눅스 메트릭 및 도커를 관리할 수 있는 초경량 대체재'의 실무 효용성이 궁금하여 직접 선정함.",
+    "personal_motivation_zh": "클라우드 및 온프레미스 서버를 관리할 때 Portainer나 Cockpit처럼 타겟 서버에 무거운 백엔드 데몬을 상주시키지 않고, '순수 SSH 연결만으로 리눅스 메트릭 및 도커를 관리할 수 있는 초경량 대체재'의 실무 효용성이 궁금하여 직접 선정함."
   },
   "clustering": {
     "cluster_id": "cluster_server_management",
@@ -91,7 +92,9 @@
       "measured_results": "클라이언트 메모리 점유 34.2MB, 서버 측 CPU 오버헤드 0.01% 미만 확인",
       "details": "자체 리눅스 서버 5대 동시 연결 테스트 완료. Docker 컨테이너 재시작 및 실시간 로그 스트리밍 지연 12ms 기록."
     },
-    "the_hook_en": "서버에 아무것도 설치하지 않고 SSH 터널만으로 풀스택 서버 메트릭을 제어한다는 주장에 주목하여 실측 검증."
+    "the_hook_en": "서버에 아무것도 설치하지 않고 SSH 터널만으로 풀스택 서버 메트릭을 제어한다는 주장에 주목하여 실측 검증.",
+    "the_hook_zh": "서버에 아무것도 설치하지 않고 SSH 터널만으로 풀스택 서버 메트릭을 제어한다는 주장에 주목하여 실측 검증."
   },
-  "title_en": "ServerBox: Rust & Tauri 기반 무설치(Agentless) SSH 리눅스 서버 관리 플랫폼의 경량성과 보안성"
+  "title_en": "ServerBox: Rust & Tauri 기반 무설치(Agentless) SSH 리눅스 서버 관리 플랫폼의 경량성과 보안성",
+  "title_zh": "ServerBox: Rust & Tauri 기반 무설치(Agentless) SSH 리눅스 서버 관리 플랫폼의 경량성과 보안성"
 }

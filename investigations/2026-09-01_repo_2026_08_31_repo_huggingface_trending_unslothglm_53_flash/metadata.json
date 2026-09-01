@@ -10,7 +10,8 @@
     "curator": "Anyong Cheong",
     "personal_motivation": "텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함.",
     "target_workflow": "실시간 음성/화상 AI 비서, 비정형 멀티모달 OCR 및 온디바이스 에이전트",
-    "personal_motivation_en": "텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함."
+    "personal_motivation_en": "텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함.",
+    "personal_motivation_zh": "텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함."
   },
   "clustering": {
     "cluster_id": "cluster_multimodal_foundation",
@@ -127,7 +128,9 @@
       "measured_results": "배치 1 기준 135 tokens/sec 생성 속도 달성, VRAM 점유율 11.4GB 기록 (MM-Vet 68.2점)",
       "details": "GLM-5.3 패밀리 3개 모델(Base, Flash, GGUF) 비교 벤치마크 완료. Dynamic GGUF 적용 시 FP16 원본 대비 0.4% 이내의 미미한 손실로 50% 이상의 메모리 절감 효과 확인."
     },
-    "the_hook_en": "단일 신경망으로 텍스트-비전-오디오를 처리하는 GLM-5.3 패밀리의 실제 VRAM 효율과 Unsloth 동적 양자화 시의 정확도 보존율 실측 검증."
+    "the_hook_en": "단일 신경망으로 텍스트-비전-오디오를 처리하는 GLM-5.3 패밀리의 실제 VRAM 효율과 Unsloth 동적 양자화 시의 정확도 보존율 실측 검증.",
+    "the_hook_zh": "단일 신경망으로 텍스트-비전-오디오를 처리하는 GLM-5.3 패밀리의 실제 VRAM 효율과 Unsloth 동적 양자화 시의 정확도 보존율 실측 검증."
   },
-  "title_en": "GLM-5.3 Multi-Modal Family: 텍스트-비전-오디오 통합 옴니 아키텍처와 Flash/Dynamic GGUF 서빙의 실체"
+  "title_en": "GLM-5.3 Multi-Modal Family: 텍스트-비전-오디오 통합 옴니 아키텍처와 Flash/Dynamic GGUF 서빙의 실체",
+  "title_zh": "GLM-5.3 Multi-Modal Family: 텍스트-비전-오디오 통합 옴니 아키텍처와 Flash/Dynamic GGUF 서빙의 실체"
 }

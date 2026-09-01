@@ -10,7 +10,8 @@
     "curator": "Anyong Cheong",
     "personal_motivation": "Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함.",
     "target_workflow": "사내 로컬 코드 어시스턴트 및 온디바이스 에이전트 인퍼런스 파이프라인",
-    "personal_motivation_en": "Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함."
+    "personal_motivation_en": "Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함.",
+    "personal_motivation_zh": "Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함."
   },
   "clustering": {
     "cluster_id": "cluster_model_quantization",
@@ -92,7 +93,9 @@
       "measured_results": "초당 142 tokens/sec 생성 속도 달성, VRAM 점유율 11.2GB로 50% 이상 절감 확인",
       "details": "자체 코딩 프롬프트 100건 배치 테스트 완료. 도구 호출(Tool Calling) JSON 포맷 유지율 100% 기록."
     },
-    "the_hook_en": "Hugging Face 트렌딩 상위에 오른 Unsloth의 선택적 레이어 동적 양자화(Dynamic GGUF v3.0)가 실제 코딩/도구 호출 정확도를 얼마나 보존하는지 실측 검증."
+    "the_hook_en": "Hugging Face 트렌딩 상위에 오른 Unsloth의 선택적 레이어 동적 양자화(Dynamic GGUF v3.0)가 실제 코딩/도구 호출 정확도를 얼마나 보존하는지 실측 검증.",
+    "the_hook_zh": "Hugging Face 트렌딩 상위에 오른 Unsloth의 선택적 레이어 동적 양자화(Dynamic GGUF v3.0)가 실제 코딩/도구 호출 정확도를 얼마나 보존하는지 실측 검증."
   },
-  "title_en": "Unsloth Qwen3.8-Flash-Next: 선택적 레이어 동적 양자화(Dynamic GGUF v3.0)와 vLLM 네이티브 서빙 가속"
+  "title_en": "Unsloth Qwen3.8-Flash-Next: 선택적 레이어 동적 양자화(Dynamic GGUF v3.0)와 vLLM 네이티브 서빙 가속",
+  "title_zh": "Unsloth Qwen3.8-Flash-Next: 선택적 레이어 동적 양자화(Dynamic GGUF v3.0)와 vLLM 네이티브 서빙 가속"
 }

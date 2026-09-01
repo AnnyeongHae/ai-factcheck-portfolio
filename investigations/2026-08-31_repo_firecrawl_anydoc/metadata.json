@@ -10,7 +10,8 @@
     "curator": "Anyong Cheong",
     "personal_motivation": "RAG 파이프라인 구축 시 대용량 .docx/.xlsx/.pptx 문서 파싱 속도와 메모리 병목을 해결하기 위해 Rust 기반 제로카피 파서의 실측 검증 필요성을 느껴 직접 선정함.",
     "target_workflow": "사내 대용량 오피스 문서 인제스천 및 초고속 RAG 전처리 엔진",
-    "personal_motivation_en": "RAG 파이프라인 구축 시 대용량 .docx/.xlsx/.pptx 문서 파싱 속도와 메모리 병목을 해결하기 위해 Rust 기반 제로카피 파서의 실측 검증 필요성을 느껴 직접 선정함."
+    "personal_motivation_en": "RAG 파이프라인 구축 시 대용량 .docx/.xlsx/.pptx 문서 파싱 속도와 메모리 병목을 해결하기 위해 Rust 기반 제로카피 파서의 실측 검증 필요성을 느껴 직접 선정함.",
+    "personal_motivation_zh": "RAG 파이프라인 구축 시 대용량 .docx/.xlsx/.pptx 문서 파싱 속도와 메모리 병목을 해결하기 위해 Rust 기반 제로카피 파서의 실측 검증 필요성을 느껴 직접 선정함."
   },
   "clustering": {
     "cluster_id": "cluster_doc_parsing",
@@ -91,7 +92,9 @@
       "measured_results": "평균 파싱 레이턴시 4.4ms, 메모리 점유율 12MB 이하 기록",
       "details": "자체 문서 1,000건 벤치마크 수행 완료. 사내 RAG 전처리 파이프라인에 FFI 모듈로 탑재하여 실서비스 운영 중."
     },
-    "the_hook_en": "복잡한 오피스 문서를 단 4.4ms 만에 파싱한다는 주장에 주목하여 실측 진행."
+    "the_hook_en": "복잡한 오피스 문서를 단 4.4ms 만에 파싱한다는 주장에 주목하여 실측 진행.",
+    "the_hook_zh": "복잡한 오피스 문서를 단 4.4ms 만에 파싱한다는 주장에 주목하여 실측 진행."
   },
-  "title_en": "Firecrawl AnyDoc: Rust 기반 4.4ms 제로카피 오피스 문서 파싱 엔진"
+  "title_en": "Firecrawl AnyDoc: Rust 기반 4.4ms 제로카피 오피스 문서 파싱 엔진",
+  "title_zh": "Firecrawl AnyDoc: Rust 기반 4.4ms 제로카피 오피스 문서 파싱 엔진"
 }

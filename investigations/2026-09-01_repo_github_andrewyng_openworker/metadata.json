@@ -10,7 +10,8 @@
     "curator": "Agentic Systems Review Team",
     "personal_motivation": "앤드류 응(Andrew Ng) 교수가 공개한 '말만 하는 챗봇이 아닌 완결된 로컬 작업물을 납품하는 오픈소스 AI 동료(OpenWorker)'의 기술적 아키텍처(Tauri v2, aisuite, MCP, 승인 게이트) 및 실무 도입 타당성을 팩트체크했습니다.",
     "target_workflow": "1인 기업 및 엔지니어를 위한 로컬 파일/캘린더/이메일/Jira 크로스 앱 자동화",
-    "personal_motivation_en": "Audited Andrew Ng's new 16k-star repo to verify if it truly delivers finished desktop artifacts across 25+ tools instead of simple conversational replies."
+    "personal_motivation_en": "Audited Andrew Ng's new 16k-star repo to verify if it truly delivers finished desktop artifacts across 25+ tools instead of simple conversational replies.",
+    "personal_motivation_zh": "审计吴恩达最新 16k Star 项目，验证其是否真能跨 25+ 工具交付已完成的桌面文件，而非仅仅停留在对话聊天层面。"
   },
   "clustering": {
     "cluster_id": "cluster_ai_agents",
@@ -99,7 +100,17 @@
       "measured_results": "유휴 RAM: 152MB / 태스크 분해 지연시간: 1.4초 / 승인 게이트 통과율: 100% (위험 쉘 차단 확인) / MCP 도구 바인딩 정상 작동",
       "details": "Tauri 데스크톱 바이너리 빌드 및 aisuite 멀티 모델 연동 테스트 완료."
     },
-    "the_hook_en": "Tauri v2 + Python architecture featuring typed approval gating and zero model lock-in for one-person business operations."
+    "the_hook_en": "Tauri v2 + Python architecture featuring typed approval gating and zero model lock-in for one-person business operations.",
+    "the_hook_zh": "基于 Tauri v2 + Python 架构，具备严格的敏感操作审批网关与无模型绑定特性，适配一人企业。"
   },
-  "title_en": "Andrew Ng's OpenWorker: Open-Source Local Desktop AI Coworker Delivering Finished Work"
+  "title_en": "Andrew Ng's OpenWorker: Open-Source Local Desktop AI Coworker Delivering Finished Work",
+  "title_zh": "吴恩达 OpenWorker: 交付'已完成成果'而非聊天的开源本地桌面 AI 协同工作者",
+  "raw_viral_post": {
+    "platform": "X (Twitter)",
+    "author": "@vicky_grok",
+    "post_url": "https://x.com/vicky_grok/status/2092990755396870471",
+    "quote": "🚨 THIS IS ACTUALLY INSANE. Andrew Ng just open sourced a free AI coworker that delivers FINISHED work, not chat. The GitHub repo already has 16,000+ stars. Connect 25+ tools — GitHub, Slack, Jira, Notion, Gmail, Calendar — plus anything over MCP. No subscriptions. No model lock-in.",
+    "quote_zh": "🚨 太震撼了！吴恩达刚开源了一款免费 AI 协同工作者，直接交付【已完成的工作】，而不是陪聊。GitHub 已破 1.6 万星，支持连接 25+ 款办公工具及 MCP。",
+    "screenshot_note": "X Viral Tweet on OpenWorker Launch by Andrew Ng"
+  }
 }
