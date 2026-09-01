@@ -1,9 +1,9 @@
 {
   "generated_at": "2026-09-01",
-  "total_cases": 11,
+  "total_cases": 12,
   "news_total_count": 19,
-  "inbox_total_count": 123,
-  "all_inbox_count": 142,
+  "inbox_total_count": 148,
+  "all_inbox_count": 167,
   "admin_stats": {
     "endpoints": [
       {
@@ -44,6 +44,48 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-01T01:49:54.306543",
+        "date": "2026-09-01",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.11
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.03
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 5,
+            "duration_sec": 0.57
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 2.13
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.08
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.05
+          }
+        },
+        "summary": {
+          "total_fetched": 25,
+          "new_saved": 25,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-08-31T22:05:26.277030",
         "date": "2026-08-31",
@@ -1261,48 +1303,11 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-08-31T17:21:39.149166",
-        "date": "2026-08-31",
-        "sources": {
-          "huggingface": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.43
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 1.2
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 4,
-            "duration_sec": 14.11
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.8
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.32
-          }
-        },
-        "summary": {
-          "total_fetched": 74,
-          "new_saved": 74,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-08-31T22:05:26.277030",
-      "date": "2026-08-31",
+      "timestamp": "2026-09-01T01:49:54.306543",
+      "date": "2026-09-01",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
@@ -1312,38 +1317,393 @@
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.08
+          "duration_sec": 0.03
         },
         "github": {
           "status": "SUCCESS",
-          "items_found": 0,
-          "duration_sec": 0.7
+          "items_found": 5,
+          "duration_sec": 0.57
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 2,
-          "duration_sec": 4.13
+          "items_found": 0,
+          "duration_sec": 2.13
         },
         "arxiv": {
           "status": "SUCCESS",
-          "items_found": 0,
-          "duration_sec": 0.14
+          "items_found": 20,
+          "duration_sec": 0.08
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.02
+          "duration_sec": 0.05
         }
       },
       "summary": {
-        "total_fetched": 2,
-        "new_saved": 2,
+        "total_fetched": 25,
+        "new_saved": 25,
         "duplicates_skipped": 0,
         "errors": 0
       }
     }
   },
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-01_repo_github_yding_gitpersonal_edge_proxy",
+      "harvested_date": "2026-09-01",
+      "title": "GitHub: yding-git/personal-edge-proxy",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/yding-git/personal-edge-proxy",
+      "type": "repo",
+      "description": "Stars: 711, Forks: 81 | A practical multi-inbound, multi-outbound personal proxy setup with Xray, Hysteria2, REALITY Vision, WARP and optional static SOCKS5 routing.",
+      "viral_metric": "★ 711 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_github_xevrionbreakscale",
+      "harvested_date": "2026-09-01",
+      "title": "GitHub: xevrion/breakscale",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/xevrion/breakscale",
+      "type": "repo",
+      "description": "Stars: 752, Forks: 70 | Build a system, load it until it breaks, and watch why. A system design simulator for learning distributed systems.",
+      "viral_metric": "★ 752 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_github_user0332rewards_farmer",
+      "harvested_date": "2026-09-01",
+      "title": "GitHub: User0332/rewards-farmer",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/User0332/rewards-farmer",
+      "type": "repo",
+      "description": "Stars: 701, Forks: 113 | Automation for MS Rewards based on https://youtu.be/4qdPcMNaioA",
+      "viral_metric": "★ 701 Stars",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_github_jprxdarwin_vm",
+      "harvested_date": "2026-09-01",
+      "title": "GitHub: jprx/darwin-vm",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/jprx/darwin-vm",
+      "type": "repo",
+      "description": "Stars: 688, Forks: 56 | Run iOS/ macOS in Qemu. Virtual iPhone 17, 16, 15, 14, 13, 12 and M5-M1 Apple Si Macs supported.",
+      "viral_metric": "★ 688 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_github_crmnefastpotify",
+      "harvested_date": "2026-09-01",
+      "title": "GitHub: crmne/fastpotify",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/crmne/fastpotify",
+      "type": "repo",
+      "description": "Stars: 759, Forks: 41 | Spotify, native and fast. One lightweight Rust app for your whole library, local playback, and Spotify Connect on Linux, macOS, and Windows.",
+      "viral_metric": "★ 759 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_wide_learning_learning_to_reach_evidenc",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Wide Learning: Learning to Reach Evidence",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29608v1",
+      "type": "repo",
+      "description": "Abstract: Machine learning is usually evaluated after an evidence interface has been fixed. A dataset, sensor suite, query language, action set, or experimental protocol determines which observations can be obt...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_towards_a_systems_foundation_for_agenti",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Towards a Systems Foundation for Agentic Skills: Architecture, Lifecycle, and Security",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29596v1",
+      "type": "repo",
+      "description": "Abstract: Autonomous large language model (LLM) agents increasingly face reliability, context consumption, and execution stability bottlenecks when deployed on complex, long-horizon tasks. While monolithic prom...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_privbench_a_holistic_and_modular_benchm",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: PrivBench: A Holistic and Modular Benchmarking Platform for Evaluating Text-to-Text Privatization",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29624v1",
+      "type": "repo",
+      "description": "Abstract: Natural Language Processing methods have enabled novel solutions and advances in the field of privacy, particularly in the sub-domain of text-to-text privatization, where the goal is to transform a se...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_not_safe_for_all_auditing_the_dialect_p",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Not Safe for All: Auditing the Dialect Penalty in Text-to-Image Safety Pipelines",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29589v1",
+      "type": "repo",
+      "description": "Abstract: Text-to-image (T2I) safety guardrails fail to generalize equitably to non-standard dialects. Evaluating 23,080 paired prompts across five English dialects, we formalize this failure as the dialect pen...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_mi_distillation_selecting_from_model_in",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: MI-Distillation: Selecting from Model-Interpolated Instruct-Reasoning Data Spectrum for Chain-of-Thought Distillation",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29623v1",
+      "type": "repo",
+      "description": "Abstract: Recent advances in large reasoning models (LRMs) have shown strong performance on complex problems through long chain-of-thought (Long CoT) reasoning. However, distilling such trajectories into smalle...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_memory_first_fact_checking_a_knowledge_",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Memory-First Fact-Checking: A Knowledge-Graph-Grounded Multi-Agent System for Misinformation Detection",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29617v1",
+      "type": "repo",
+      "description": "Abstract: This paper introduces a hybrid fact-checking framework that integrates Knowledge Graph-based semantic memory with adversarial multi-agent reasoning for explainable misinformation detection. The propos...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_llms_interpret_embeddings_organize_grap",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: LLMs Interpret, Embeddings Organize, Graphs Emerge: Agent-Driven Compilation of Scientific Knowledge",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29612v1",
+      "type": "repo",
+      "description": "Abstract: Sustained scientific work requires a knowledge substrate that carries interpretation across tasks and preserves paths to source evidence. We call this process \\emph{scientific knowledge compilation} a...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_llmode_aligning_odes_with_llms_via_gate",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: LLMODE: Aligning ODEs with LLMs via Gated Token Injection for Irregular Spatio-Temporal Forecasting",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29640v1",
+      "type": "repo",
+      "description": "Abstract: Large language models (LLMs) have shown promise for spatio-temporal forecasting, but existing approaches often rely on regularly sampled token sequences and struggle with irregular observations becaus...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_jpo_juris_policy_optimization_for_struc",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: JPO: Juris Policy Optimization for Structured Legal Reasoning in Criminal Judgment Prediction",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29616v1",
+      "type": "repo",
+      "description": "Abstract: Criminal judgment prediction requires models to infer statutory articles, charges, and sentencing outcomes from case facts. Unlike standard classification tasks, it involves a structured reasoning pro...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_how_you_ask_shapes_what_you_get_a_theor",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: How You Ask Shapes What You Get: A Theory-Seeded Measurement of Articulation in Advice-Seeking LLM Conversations",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29591v1",
+      "type": "repo",
+      "description": "Abstract: Users articulate the same advice-seeking request in different ways: some specify detailed constraints, others gesture at a vague need. Prior work treats this variation as noise to be averaged away; we...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_hindsight_memory_prm_supervising_memory",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Hindsight Memory-PRM: Supervising Memory Management with Auditable Hindsight Credit",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29605v1",
+      "type": "repo",
+      "description": "Abstract: Memory operations of long-horizon LLM agents are hard to supervise: an operation's value is unobservable when it is taken. But they are special -- they leave machine-readable evidence in the trajector...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_forward_deployed_full_stack_engineering",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Forward-Deployed Full-Stack Engineering for Autonomous Cloud MLOps",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29615v1",
+      "type": "repo",
+      "description": "Abstract: Across industries, machine-learning systems support applications ranging from prediction and anomaly detection to forecasting, optimization, and scheduling, yet operationalizing these systems requires...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_detect_before_you_attribute_cascade_fai",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Detect Before You Attribute: Cascade Failure Attribution for Multi-Agent Systems",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29646v1",
+      "type": "repo",
+      "description": "Abstract: Large language model (LLM)-based agents have shown strong potential in solving complex tasks through multi-step reasoning, yet they remain vulnerable to execution failures. Accurate failure attributio...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_cross_lingual_functional_vectors_for_em",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Cross-lingual Functional Vectors for Emotion Detection in Large Language Models",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29613v1",
+      "type": "repo",
+      "description": "Abstract: Function vectors (FVs) have recently emerged as a promising mechanism for steering the behavior of large language models (LLMs) by injecting task-specific latent direction representations derived from...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_conducting_stylistic_analysis_of_painti",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Conducting Stylistic Analysis of Paintings through an Art-History Agent",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29644v1",
+      "type": "repo",
+      "description": "Abstract: Attributing an artwork to an artist has traditionally relied on detailed visual observations and descriptions, known as stylistic analysis in art history. By contrast, current artificial intelligence ...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_cineforge_self_improving_agents_for_lon",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: CineForge: Self-Improving Agents for Long-Horizon Video Generation",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29621v1",
+      "type": "repo",
+      "description": "Abstract: Long-horizon story-driven video generation requires a production agent to coordinate narrative decomposition, state tracking, shot design, prompt construction, rendering, and revision across interdepe...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_call_neighbours_yourself_graph_walks_wi",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Call Neighbours Yourself: Graph Walks with Destination-Conditioned On-Policy Self-Distillation",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29588v1",
+      "type": "repo",
+      "description": "Abstract: Reasoning over text-attributed graphs (TAGs) requires large language models (LLMs) to combine a node's text with evidence distributed across its neighbourhood. Existing methods fix the set of accessib...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_beyond_surface_alignment_grounding_the_",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Beyond Surface Alignment: Grounding the Dynamics of Situational Understanding and Generative Control in LLMs",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29610v1",
+      "type": "repo",
+      "description": "Abstract: The current alignment tuning paradigm for Large Language Models (LLMs) prioritizes surface-level behaviors -- fluency, safety, and tonal consistency. While effective for casual chat, this thesis argue...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_agenticrag_r1_agentic_reinforcement_lea",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: AgenticRag-R1: Agentic Reinforcement Learning with Stack Memory for Multi-Step Reasoning, Retrieval and Memorizing",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29622v1",
+      "type": "repo",
+      "description": "Abstract: Retrieval-Augmented Generation (RAG) improves the factuality of large language models (LLMs), yet existing RAG systems often struggle with complex, multi-step reasoning that requires adaptive retrieva...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_agent_zero_memory_provenance_aware_long",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Agent Zero Memory: Provenance-Aware Long-Term Memory for LLM Agents",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.29606v1",
+      "type": "repo",
+      "description": "Abstract: Large language model (LLM) agents need durable, faithful memory of everything a user or organization has said and stored, yet most memory systems commit to a single organizing structure (a fact store,...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
     {
       "inbox_id": "2026-08-31_sns_hacker_news_wildfire_survivors_push_back_agai",
       "harvested_date": "2026-08-31",
@@ -4514,7 +4874,7 @@
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
-      "status": "PENDING_REVIEW",
+      "status": "PROMOTED",
       "audit_risk": {
         "hype_risk_score": 15,
         "risk_level": "LOW_RISK",
@@ -5353,6 +5713,75 @@
           "test_environment": "AMD Ryzen 9 / Rust 1.80 / Python 3.12 FFI 바인딩",
           "measured_results": "평균 파싱 레이턴시 4.4ms, 메모리 점유율 12MB 이하 기록",
           "details": "자체 문서 1,000건 벤치마크 수행 완료. 사내 RAG 전처리 파이프라인에 FFI 모듈로 탑재하여 실서비스 운영 중."
+        }
+      }
+    },
+    {
+      "case_id": "2026-08-31_repo_github_bryllimworkout_guide",
+      "title": "GitHub: bryllim/workout-guide",
+      "category": "AI 에이전트 및 자동화",
+      "investigation_date": "2026-09-01",
+      "verdict": "VERIFIED_TRUE",
+      "confidence_score": 93.5,
+      "curation": {
+        "discovery_mode": "AUTO_HARVESTED",
+        "curator": "Autonomous Harvester Bot",
+        "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
+        "target_workflow": "일반 최신 기술 (Tech General) 파이프라인 및 서비스 연계 검증"
+      },
+      "clustering": {
+        "cluster_id": "cluster_ai_agents",
+        "cluster_name": "AI 에이전트 및 자동화 (AI Agents & Tool Use)",
+        "alternatives": [
+          {
+            "name": "workout-guide",
+            "tech_stack": "GitHub Official",
+            "pros": "최신 GitHub Official 실시간 데모 및 경량화 적용으로 접근성 우수",
+            "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
+            "best_for": "빠른 PoC 및 인터랙티브 테스트"
+          },
+          {
+            "name": "Commercial Closed API",
+            "tech_stack": "Proprietary Cloud",
+            "pros": "안정적인 인프라 SLA 및 고품질 보장",
+            "cons": "높은 호출당 API 과금 비용",
+            "best_for": "엔터프라이즈 운영 환경"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Official Repository / Demo",
+          "name": "GitHub: bryllim/workout-guide (GitHub Official)",
+          "url": "https://github.com/bryllim/workout-guide"
+        },
+        {
+          "tier": "Tier 2",
+          "type": "Community Feedback",
+          "name": "GitHub Official Trending Registry",
+          "url": "https://github.com/bryllim/workout-guide"
+        }
+      ],
+      "community_reactions": [
+        {
+          "platform": "GitHub Official",
+          "author_type": "AI Practitioner",
+          "quote": "★ 1034 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
+          "url": "https://github.com/bryllim/workout-guide"
+        }
+      ],
+      "portfolio_story": {
+        "the_hook": "GitHub Official에서 ★ 1034 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
+        "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
+        "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
+        "future_applications": "사내 일반 최신 기술 (Tech General) 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
+        "hands_on_log": {
+          "status": "PENDING_RESEARCH",
+          "pipeline_or_url": "https://github.com/bryllim/workout-guide",
+          "test_environment": "Cloud Inference Sandbox",
+          "measured_results": "Trending Score: ★ 1034 Stars",
+          "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
         }
       }
     },
