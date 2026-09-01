@@ -240,6 +240,13 @@ def generate_html(data):
       <!-- Controls & 5-Tabs -->
       <div class="flex items-center gap-2 sm:gap-3">
         
+        <!-- Neon DB Real-Time Live Status Badge -->
+        <div id="dbLiveBadge" class="hidden sm:block">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-900 text-slate-400 border border-slate-800">
+            <i data-lucide="database" class="w-3 h-3 text-slate-500"></i> Neon DB Standby
+          </span>
+        </div>
+
         <!-- Language Switcher (Default: KO) -->
         <div class="bg-slate-900 p-1 rounded-xl border border-slate-800 flex items-center text-xs font-semibold">
           <button onclick="setLanguage('KO')" id="langKoBtn" class="px-2.5 py-1 rounded-lg bg-indigo-600 text-white transition">🇰🇷 한국어</button>
@@ -604,6 +611,13 @@ def generate_html(data):
         </div>
 
         <div class="space-y-2">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+            <i data-lucide="shield-check" class="w-4 h-4"></i> 🔬 핵심 팩트체크 클레임 정밀 검증 (Claims Assessment)
+          </h4>
+          <div id="modalClaimsList" class="space-y-2"></div>
+        </div>
+
+        <div class="space-y-2">
           <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
             <i data-lucide="link-2" class="w-4 h-4"></i> 명확한 팩트체크 검증 출처 (Verified Sources)
           </h4>
@@ -670,6 +684,9 @@ def generate_html(data):
     const inboxData = {inbox_json};
     const adminData = {admin_json};
     const graphData = {graph_json};
+
+    let liveCasesData = casesData;
+    let liveAnalysesData = [];
 
     let currentLang = 'KO';
     let currentView = 'portfolio';
@@ -892,6 +909,33 @@ def generate_html(data):
         }}
       }} catch (e) {{
         // Fallback
+      }}
+    }}
+
+    async function syncFromNeonLiveDB() {{
+      try {{
+        const res = await fetch('/api/portfolios');
+        if (res.ok) {{
+          const data = await res.json();
+          if (data.success && data.portfolios && data.portfolios.length > 0) {{
+            liveCasesData = data.portfolios;
+            liveAnalysesData = data.technical_analyses || [];
+            console.log(`[Neon DB] Successfully synchronized ${{data.portfolios.length}} live verified portfolios!`);
+            
+            const badge = document.getElementById('dbLiveBadge');
+            if (badge) {{
+              badge.innerHTML = `
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 animate-pulse">
+                  <i data-lucide="database" class="w-3 h-3 text-emerald-400"></i> Neon DB Live Sync (${{data.portfolios.length}} Cases)
+                </span>
+              `;
+              lucide.createIcons();
+            }}
+            renderCards();
+          }}
+        }}
+      }} catch (err) {{
+        console.warn("[Neon DB] Serverless live fetch fallback:", err);
       }}
     }}
 
@@ -1393,7 +1437,7 @@ def generate_html(data):
       const grid = document.getElementById('cardsGrid');
       grid.innerHTML = '';
 
-      const filtered = casesData.filter(c => {{
+      const filtered = liveCasesData.filter(c => {{
         const story = c.portfolio_story || {{}};
         const handsOn = story.hands_on_log || {{}};
         const stage = handsOn.status || 'PENDING_RESEARCH';
@@ -1533,6 +1577,27 @@ def generate_html(data):
         altBody.innerHTML = '<tr><td colspan="4" class="p-3 text-center text-slate-500">등록된 대체재 정보가 없습니다.</td></tr>';
       }}
 
+      const claimsList = document.getElementById('modalClaimsList');
+      claimsList.innerHTML = '';
+      if (c.claims_assessment && c.claims_assessment.length > 0) {{
+        c.claims_assessment.forEach(cl => {{
+          const item = document.createElement('div');
+          item.className = 'bg-slate-900/90 p-3.5 rounded-xl border border-emerald-500/30 space-y-1.5';
+          item.innerHTML = `
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-emerald-300 flex items-center gap-1">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> ${{cl.claim_id || 'Claim'}}: ${{cl.statement}}
+              </span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">${{cl.status || 'VERIFIED_TRUE'}}</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed pt-1 border-t border-slate-800">${{cl.fact_checked_truth}}</p>
+          `;
+          claimsList.appendChild(item);
+        }});
+      }} else {{
+        claimsList.innerHTML = '<div class="text-xs text-slate-500 bg-slate-900/50 p-2.5 rounded-lg">등록된 클레임 검증 항목이 없습니다.</div>';
+      }}
+
       const sourcesList = document.getElementById('modalSourcesList');
       sourcesList.innerHTML = '';
       if (c.sources && c.sources.length > 0) {{
@@ -1625,6 +1690,7 @@ def generate_html(data):
     document.addEventListener('DOMContentLoaded', () => {{
       lucide.createIcons();
       setLanguage('KO');
+      syncFromNeonLiveDB();
       syncQueueFromBackend();
     }});
   </script>
