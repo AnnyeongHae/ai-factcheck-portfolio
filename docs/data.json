@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-09-01",
-  "total_cases": 12,
+  "total_cases": 11,
   "news_total_count": 19,
   "inbox_total_count": 148,
   "all_inbox_count": 167,
@@ -5717,75 +5717,6 @@
       }
     },
     {
-      "case_id": "2026-08-31_repo_github_bryllimworkout_guide",
-      "title": "GitHub: bryllim/workout-guide",
-      "category": "AI 에이전트 및 자동화",
-      "investigation_date": "2026-09-01",
-      "verdict": "VERIFIED_TRUE",
-      "confidence_score": 93.5,
-      "curation": {
-        "discovery_mode": "AUTO_HARVESTED",
-        "curator": "Autonomous Harvester Bot",
-        "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드로 자동 감지되어 심층 팩트체크가 수행되었습니다.",
-        "target_workflow": "일반 최신 기술 (Tech General) 파이프라인 및 서비스 연계 검증"
-      },
-      "clustering": {
-        "cluster_id": "cluster_ai_agents",
-        "cluster_name": "AI 에이전트 및 자동화 (AI Agents & Tool Use)",
-        "alternatives": [
-          {
-            "name": "workout-guide",
-            "tech_stack": "GitHub Official",
-            "pros": "최신 GitHub Official 실시간 데모 및 경량화 적용으로 접근성 우수",
-            "cons": "프로덕션 대규모 트래픽 시 VRAM/레이턴시 병목 가능성",
-            "best_for": "빠른 PoC 및 인터랙티브 테스트"
-          },
-          {
-            "name": "Commercial Closed API",
-            "tech_stack": "Proprietary Cloud",
-            "pros": "안정적인 인프라 SLA 및 고품질 보장",
-            "cons": "높은 호출당 API 과금 비용",
-            "best_for": "엔터프라이즈 운영 환경"
-          }
-        ]
-      },
-      "sources": [
-        {
-          "tier": "Tier 1",
-          "type": "Official Repository / Demo",
-          "name": "GitHub: bryllim/workout-guide (GitHub Official)",
-          "url": "https://github.com/bryllim/workout-guide"
-        },
-        {
-          "tier": "Tier 2",
-          "type": "Community Feedback",
-          "name": "GitHub Official Trending Registry",
-          "url": "https://github.com/bryllim/workout-guide"
-        }
-      ],
-      "community_reactions": [
-        {
-          "platform": "GitHub Official",
-          "author_type": "AI Practitioner",
-          "quote": "★ 1034 Stars 달성 - 커뮤니티에서 실시간 인터랙티브 데모로 검증 중.",
-          "url": "https://github.com/bryllim/workout-guide"
-        }
-      ],
-      "portfolio_story": {
-        "the_hook": "GitHub Official에서 ★ 1034 Stars을 기록하며 빠르게 확산된 프로젝트로, 실무 파이프라인 적용 가능성을 검증하기 위해 선정되었습니다.",
-        "marketing_hype_anatomy": "마케팅용 벤치마크 결과 외에 실제 배포 환경에서의 VRAM 점유율, 콜드 스타트 지연 시간, 단위 비용을 역산 분석했습니다.",
-        "engineering_takeaways": "1. 실시간 추론 시 가중치 양자화 및 KV 캐시 최적화 수준 확인\n2. 온프레미스 Docker 자가 호스팅 타당성 검토 완료",
-        "future_applications": "사내 일반 최신 기술 (Tech General) 파이프라인 연계 및 인터랙티브 AI 서비스 백엔드 PoC에 활용 가능.",
-        "hands_on_log": {
-          "status": "PENDING_RESEARCH",
-          "pipeline_or_url": "https://github.com/bryllim/workout-guide",
-          "test_environment": "Cloud Inference Sandbox",
-          "measured_results": "Trending Score: ★ 1034 Stars",
-          "details": "자율 수집 봇에 의해 1차 팩트체크가 완료되었으며, 사용자 승인 시 심층 실측 벤치마크가 진행됩니다."
-        }
-      }
-    },
-    {
       "case_id": "2026-08-31_repo_github_sapientincpraxist",
       "title": "PRAXIST: Typed Evidence Graph 기반 자율 연구 에이전트 & Solution Lineage 시스템",
       "category": "에이전트 메모리 & 자율 연구 하네스",
@@ -6737,51 +6668,36 @@
   "graph": {
     "domains": [
       {
-        "id": "inference_serving",
-        "name": "LLM 인퍼런스 & 고속 서빙 (Inference & Serving)",
-        "color": "#06b6d4"
+        "id": "language",
+        "name": "🟡 언어 & 런타임 (Languages)",
+        "color": "#eab308"
       },
       {
-        "id": "web_scraping",
-        "name": "데이터 인제스천 & 파서 계보 (Data Ingestion & Scrapers)",
+        "id": "technology",
+        "name": "🟢 기술 & SOTA 도구 (Tech & SOTA)",
         "color": "#10b981"
       },
       {
-        "id": "agent_lineage",
-        "name": "에이전트 메모리 & 자율 하네스 (Agent & Lineage)",
+        "id": "organization",
+        "name": "🟣 기업 & 연구소 (Institutions)",
         "color": "#8b5cf6"
       },
       {
-        "id": "reasoning_moe",
-        "name": "추론 모델 & 옴니 멀티모달 (Reasoning & Omni Foundation)",
-        "color": "#6366f1"
-      },
-      {
-        "id": "vision_diffusion",
-        "name": "컴퓨터 비전 & 비디오 확산 (Vision & Video Diffusion)",
+        "id": "person",
+        "name": "🔴 인물 & 창시자 (Pioneers)",
         "color": "#ec4899"
       },
       {
-        "id": "voice_tts",
-        "name": "음성 인식 & DSP 가상악기 (Voice & Audio DSP)",
-        "color": "#f59e0b"
-      },
-      {
-        "id": "system_infra",
-        "name": "시스템 인프라 & 네이티브 엔지니어링 (System Infrastructure)",
-        "color": "#14b8a6"
-      },
-      {
-        "id": "lang_runtime",
-        "name": "핵심 언어 & 하드웨어 런타임 (Languages & Core Runtimes)",
-        "color": "#eab308"
+        "id": "paper",
+        "name": "🟠 논문 & 리포트 (Papers)",
+        "color": "#f97316"
       }
     ],
     "nodes": [
       {
         "id": "python",
         "label": "🐍 Python (1991)",
-        "group": "lang_runtime",
+        "group": "language",
         "gen": "Gen 0",
         "type": "root",
         "mentions": 65,
@@ -6791,17 +6707,17 @@
       {
         "id": "rust",
         "label": "🦀 Rust (2010)",
-        "group": "lang_runtime",
+        "group": "language",
         "gen": "Gen 1",
         "type": "root",
         "mentions": 55,
-        "desc": "메모리 안전성(Memory Safety)과 제로비용 추상화(Zero-Cost)를 보장하는 현대 시스템 프로그래밍 표준",
+        "desc": "메모리 안전성과 제로비용 추상화를 보장하는 현대 시스템 프로그래밍 표준",
         "val": 35
       },
       {
         "id": "cuda_cpp",
         "label": "⚡ C++ / CUDA (1985/2006)",
-        "group": "lang_runtime",
+        "group": "language",
         "gen": "Gen 0",
         "type": "root",
         "mentions": 58,
@@ -6811,27 +6727,27 @@
       {
         "id": "transformer",
         "label": "Transformer (2017)",
-        "group": "reasoning_moe",
+        "group": "technology",
         "gen": "Gen 0",
         "type": "root",
         "mentions": 52,
-        "desc": "Self-Attention 메커니즘 기반 현대 생성형 AI의 절대적 모태 (Attention is All You Need)",
+        "desc": "Self-Attention 메커니즘 기반 현대 생성형 AI의 절대적 모태",
         "val": 28
       },
       {
         "id": "flash_attention",
         "label": "FlashAttention (2022)",
-        "group": "inference_serving",
+        "group": "technology",
         "gen": "Gen 1",
         "type": "ancestor",
         "mentions": 38,
-        "desc": "IO-Aware GPU SRAM 메모리 타일링 어텐션 가속 혁신 (Tri Dao)",
-        "val": 28
+        "desc": "IO-Aware GPU SRAM 메모리 타일링 어텐션 가속 혁신",
+        "val": 32
       },
       {
         "id": "llama_cpp",
         "label": "llama.cpp / GGML (2023)",
-        "group": "inference_serving",
+        "group": "technology",
         "gen": "Gen 2",
         "type": "pioneer",
         "mentions": 35,
@@ -6841,27 +6757,27 @@
       {
         "id": "vllm",
         "label": "vLLM / PagedAttention (2023)",
-        "group": "inference_serving",
+        "group": "technology",
         "gen": "Gen 2",
         "type": "pioneer",
         "mentions": 44,
         "desc": "OS 가상 메모리 페이징 기법을 KV 캐시에 도입한 엔터프라이즈 서빙 표준",
-        "val": 43
+        "val": 46
       },
       {
         "id": "sglang",
         "label": "SGLang / RadixAttention (2024)",
-        "group": "inference_serving",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 36,
-        "desc": "Radix 트리 기반 KV 캐시 재사용으로 멀티턴/복합 프롬프트 처리속도 5배 향상 SOTA (Factchecked)",
-        "val": 25
+        "desc": "Radix 트리 기반 KV 캐시 재사용으로 멀티턴 처리속도 5배 향상 SOTA",
+        "val": 28
       },
       {
         "id": "ollama",
         "label": "Ollama (2023)",
-        "group": "inference_serving",
+        "group": "technology",
         "gen": "Gen 2",
         "type": "pioneer",
         "mentions": 30,
@@ -6871,7 +6787,7 @@
       {
         "id": "libxml2",
         "label": "libxml2 / cURL (1998)",
-        "group": "web_scraping",
+        "group": "technology",
         "gen": "Gen 0",
         "type": "root",
         "mentions": 32,
@@ -6881,7 +6797,7 @@
       {
         "id": "beautifulsoup",
         "label": "BeautifulSoup (2004)",
-        "group": "web_scraping",
+        "group": "technology",
         "gen": "Gen 0",
         "type": "root",
         "mentions": 45,
@@ -6891,7 +6807,7 @@
       {
         "id": "selenium",
         "label": "Selenium WebDriver (2004)",
-        "group": "web_scraping",
+        "group": "technology",
         "gen": "Gen 1",
         "type": "ancestor",
         "mentions": 38,
@@ -6901,7 +6817,7 @@
       {
         "id": "scrapy",
         "label": "Scrapy (2008)",
-        "group": "web_scraping",
+        "group": "technology",
         "gen": "Gen 1",
         "type": "ancestor",
         "mentions": 40,
@@ -6911,57 +6827,57 @@
       {
         "id": "readability",
         "label": "Readability.js (2010)",
-        "group": "web_scraping",
+        "group": "technology",
         "gen": "Gen 1",
         "type": "ancestor",
         "mentions": 30,
-        "desc": "Mozilla가 창시한 웹페이지 본문/아티클 핵심 텍스트 추출 휴리스틱 알고리즘",
+        "desc": "웹페이지 본문/아티클 핵심 텍스트 추출 휴리스틱 알고리즘",
         "val": 27
       },
       {
         "id": "puppeteer",
         "label": "Puppeteer (2017)",
-        "group": "web_scraping",
+        "group": "technology",
         "gen": "Gen 2",
         "type": "pioneer",
         "mentions": 35,
-        "desc": "Google Chrome DevTools Protocol(CDP) 기반 헤드리스 브라우저 조작의 표준",
+        "desc": "Chrome DevTools Protocol(CDP) 기반 헤드리스 브라우저 조작 표준",
         "val": 28
       },
       {
         "id": "playwright",
         "label": "🎭 Playwright (2020)",
-        "group": "web_scraping",
+        "group": "technology",
         "gen": "Gen 2",
         "type": "pioneer",
         "mentions": 52,
-        "desc": "Microsoft가 개발한 Chromium/Firefox/WebKit 완벽 지원 초고속 멀티 브라우저 자동화 프레임워크",
+        "desc": "Microsoft가 개발한 초고속 멀티 브라우저 자동화 프레임워크",
         "val": 38
       },
       {
         "id": "firecrawl",
         "label": "Firecrawl (2024)",
-        "group": "web_scraping",
+        "group": "technology",
         "gen": "Gen 2",
         "type": "pioneer",
         "mentions": 42,
-        "desc": "웹 URL을 깨끗한 LLM-Ready Markdown으로 변환하는 클라우드 SaaS 패러다임 창시자",
+        "desc": "웹 URL을 깨끗한 LLM-Ready Markdown으로 변환하는 SaaS 패러다임 창시자",
         "val": 36
       },
       {
         "id": "crawl4ai",
         "label": "🕷️ Crawl4AI (2024)",
-        "group": "web_scraping",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 46,
-        "desc": "Python 비동기(asyncio) + Playwright 브라우저 엔진 결합 초고속 로컬 오픈소스 LLM 크롤러 SOTA",
+        "desc": "Python 비동기 + Playwright 브라우저 엔진 결합 초고속 로컬 오픈소스 LLM 크롤러 SOTA",
         "val": 49
       },
       {
         "id": "watercrawl",
         "label": "WaterCrawl (2024)",
-        "group": "web_scraping",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 36,
@@ -6971,7 +6887,7 @@
       {
         "id": "anydoc",
         "label": "Firecrawl AnyDoc (2025)",
-        "group": "web_scraping",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 34,
@@ -6981,7 +6897,7 @@
       {
         "id": "tree_sitter",
         "label": "Tree-sitter / AST (2018)",
-        "group": "agent_lineage",
+        "group": "technology",
         "gen": "Gen 0",
         "type": "root",
         "mentions": 28,
@@ -6991,7 +6907,7 @@
       {
         "id": "langchain",
         "label": "LangChain (2022)",
-        "group": "agent_lineage",
+        "group": "technology",
         "gen": "Gen 1",
         "type": "ancestor",
         "mentions": 40,
@@ -7001,7 +6917,7 @@
       {
         "id": "llamaindex",
         "label": "LlamaIndex (2022)",
-        "group": "agent_lineage",
+        "group": "technology",
         "gen": "Gen 1",
         "type": "ancestor",
         "mentions": 38,
@@ -7011,7 +6927,7 @@
       {
         "id": "swe_agent",
         "label": "SWE-agent (2024)",
-        "group": "agent_lineage",
+        "group": "technology",
         "gen": "Gen 1",
         "type": "pioneer",
         "mentions": 30,
@@ -7021,7 +6937,7 @@
       {
         "id": "claude_code",
         "label": "Claude Code (2025)",
-        "group": "agent_lineage",
+        "group": "technology",
         "gen": "Gen 2",
         "type": "pioneer",
         "mentions": 38,
@@ -7031,7 +6947,7 @@
       {
         "id": "praxist",
         "label": "PRAXIST (2026)",
-        "group": "agent_lineage",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 35,
@@ -7041,7 +6957,7 @@
       {
         "id": "ffmpeg",
         "label": "FFmpeg (2000)",
-        "group": "vision_diffusion",
+        "group": "technology",
         "gen": "Gen 0",
         "type": "root",
         "mentions": 40,
@@ -7051,7 +6967,7 @@
       {
         "id": "opencv",
         "label": "OpenCV (2000)",
-        "group": "vision_diffusion",
+        "group": "technology",
         "gen": "Gen 0",
         "type": "root",
         "mentions": 32,
@@ -7061,17 +6977,17 @@
       {
         "id": "stable_diffusion",
         "label": "Stable Diffusion (2022)",
-        "group": "vision_diffusion",
+        "group": "technology",
         "gen": "Gen 1",
         "type": "ancestor",
         "mentions": 38,
-        "desc": "잠재 공간(Latent Space) 확산 모델을 통한 오픈소스 이미지 생성 혁명",
-        "val": 32
+        "desc": "잠재 공간 확산 모델을 통한 오픈소스 이미지 생성 혁명",
+        "val": 35
       },
       {
         "id": "comfyui",
         "label": "ComfyUI (2023)",
-        "group": "vision_diffusion",
+        "group": "technology",
         "gen": "Gen 2",
         "type": "pioneer",
         "mentions": 35,
@@ -7081,7 +6997,7 @@
       {
         "id": "flux",
         "label": "FLUX.1 (2024)",
-        "group": "vision_diffusion",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 28,
@@ -7091,7 +7007,7 @@
       {
         "id": "wan_video",
         "label": "Wan 2.1 / Wan2.2 (2025/2026)",
-        "group": "vision_diffusion",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 34,
@@ -7101,7 +7017,7 @@
       {
         "id": "moneyprinterturbo",
         "label": "MoneyPrinterTurbo (2024)",
-        "group": "vision_diffusion",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 25,
@@ -7111,7 +7027,7 @@
       {
         "id": "whisper",
         "label": "OpenAI Whisper (2022)",
-        "group": "voice_tts",
+        "group": "technology",
         "gen": "Gen 1",
         "type": "ancestor",
         "mentions": 36,
@@ -7121,7 +7037,7 @@
       {
         "id": "kokoro_tts",
         "label": "Kokoro-82M (2024)",
-        "group": "voice_tts",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 30,
@@ -7131,7 +7047,7 @@
       {
         "id": "breeze_tts",
         "label": "Breeze-TTS 2 (2026)",
-        "group": "voice_tts",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 28,
@@ -7141,7 +7057,7 @@
       {
         "id": "floe_dsp",
         "label": "🎹 Floe CLAP/VST3 (2026)",
-        "group": "voice_tts",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 32,
@@ -7151,17 +7067,17 @@
       {
         "id": "serverbox",
         "label": "🛡️ ServerBox (2026)",
-        "group": "system_infra",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 34,
-        "desc": "Rust + Tauri 기반 무설치(Agentless) 초경량 SSH 리눅스 서버 모니터링 SOTA (Factchecked)",
+        "desc": "Rust + Tauri 기반 무설치 초경량 SSH 리눅스 서버 모니터링 SOTA (Factchecked)",
         "val": 21
       },
       {
         "id": "glm_53_family",
         "label": "🧬 GLM-5.3 Omni Family (2026)",
-        "group": "reasoning_moe",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 42,
@@ -7171,17 +7087,17 @@
       {
         "id": "deepseek_r1",
         "label": "DeepSeek R1 (2025)",
-        "group": "reasoning_moe",
+        "group": "technology",
         "gen": "Gen 2",
         "type": "sota",
         "mentions": 48,
         "desc": "GRPO 강화학습 기반 초저비용 추론 모델 혁신 (Factchecked)",
-        "val": 27
+        "val": 31
       },
       {
         "id": "qwen38",
         "label": "Qwen3.8-Flash-Next (2026)",
-        "group": "reasoning_moe",
+        "group": "technology",
         "gen": "Gen 3",
         "type": "sota",
         "mentions": 38,
@@ -7191,7 +7107,7 @@
       {
         "id": "org_microsoft",
         "label": "🏛️ Microsoft (DevDiv & Research)",
-        "group": "org",
+        "group": "organization",
         "gen": "Gen 0",
         "type": "org",
         "mentions": 55,
@@ -7201,7 +7117,7 @@
       {
         "id": "org_google",
         "label": "🏛️ Google Research / Chrome Team",
-        "group": "org",
+        "group": "organization",
         "gen": "Gen 0",
         "type": "org",
         "mentions": 60,
@@ -7211,7 +7127,7 @@
       {
         "id": "org_mozilla",
         "label": "🏛️ Mozilla Research",
-        "group": "org",
+        "group": "organization",
         "gen": "Gen 0",
         "type": "org",
         "mentions": 45,
@@ -7221,7 +7137,7 @@
       {
         "id": "org_mendable",
         "label": "🏛️ Mendable AI",
-        "group": "org",
+        "group": "organization",
         "gen": "Gen 2",
         "type": "org",
         "mentions": 35,
@@ -7231,7 +7147,7 @@
       {
         "id": "org_zhipu",
         "label": "🏛️ Zhipu AI / THUDM",
-        "group": "org",
+        "group": "organization",
         "gen": "Gen 1",
         "type": "org",
         "mentions": 48,
@@ -7241,7 +7157,7 @@
       {
         "id": "org_uc_berkeley",
         "label": "🏛️ UC Berkeley SkyLab",
-        "group": "org",
+        "group": "organization",
         "gen": "Gen 0",
         "type": "org",
         "mentions": 50,
@@ -7251,7 +7167,7 @@
       {
         "id": "org_deepseek",
         "label": "🏛️ DeepSeek AI Lab",
-        "group": "org",
+        "group": "organization",
         "gen": "Gen 2",
         "type": "org",
         "mentions": 52,
@@ -7261,7 +7177,7 @@
       {
         "id": "org_stability_ai",
         "label": "🏛️ Stability AI / Black Forest Labs",
-        "group": "org",
+        "group": "organization",
         "gen": "Gen 1",
         "type": "org",
         "mentions": 40,
@@ -7357,6 +7273,56 @@
         "mentions": 34,
         "desc": "LMU Munich / Stability AI 연구원, Stable Diffusion / Latent Diffusion 창시자",
         "val": 26
+      },
+      {
+        "id": "paper_sglang",
+        "label": "📄 arXiv:2312.07104 (SGLang)",
+        "group": "paper",
+        "gen": "Gen 3",
+        "type": "paper",
+        "mentions": 30,
+        "desc": "RadixAttention 및 구조화된 언어 모델 실행 가속 논문",
+        "val": 20
+      },
+      {
+        "id": "paper_vllm",
+        "label": "📄 SOSP '23 (PagedAttention)",
+        "group": "paper",
+        "gen": "Gen 2",
+        "type": "paper",
+        "mentions": 35,
+        "desc": "OS 가상 메모리 페이징 기법을 KV 캐시에 도입한 기념비적 논문",
+        "val": 21
+      },
+      {
+        "id": "paper_flashattn",
+        "label": "📄 NeurIPS '22 (FlashAttention)",
+        "group": "paper",
+        "gen": "Gen 1",
+        "type": "paper",
+        "mentions": 40,
+        "desc": "IO-Aware GPU SRAM 타일링을 통한 어텐션 O(N^2) 메모리 병목 극복 논문",
+        "val": 23
+      },
+      {
+        "id": "paper_deepseek_r1",
+        "label": "📄 arXiv:2501.12948 (DeepSeek-R1)",
+        "group": "paper",
+        "gen": "Gen 2",
+        "type": "paper",
+        "mentions": 48,
+        "desc": "순수 강화학습(GRPO)을 통한 LLM 추론 능력 자가 발현 기술 보고서",
+        "val": 24
+      },
+      {
+        "id": "paper_latent_diffusion",
+        "label": "📄 CVPR '22 (High-Resolution LDM)",
+        "group": "paper",
+        "gen": "Gen 1",
+        "type": "paper",
+        "mentions": 38,
+        "desc": "잠재 공간(Latent Space) 확산 모델을 통한 실시간 이미지 생성 논문",
+        "val": 22
       }
     ],
     "links": [
@@ -7571,9 +7537,24 @@
         "relation": "ATTENTION_BACKEND"
       },
       {
+        "source": "flash_attention",
+        "target": "paper_flashattn",
+        "relation": "PRIMARY_PAPER"
+      },
+      {
         "source": "vllm",
         "target": "sglang",
         "relation": "RADIX_CACHE_EVOLUTION"
+      },
+      {
+        "source": "vllm",
+        "target": "paper_vllm",
+        "relation": "PRIMARY_PAPER"
+      },
+      {
+        "source": "sglang",
+        "target": "paper_sglang",
+        "relation": "PRIMARY_PAPER"
       },
       {
         "source": "llama_cpp",
@@ -7641,6 +7622,11 @@
         "relation": "DEVELOPED"
       },
       {
+        "source": "deepseek_r1",
+        "target": "paper_deepseek_r1",
+        "relation": "PRIMARY_REPORT"
+      },
+      {
         "source": "ffmpeg",
         "target": "wan_video",
         "relation": "VIDEO_STREAM_ENCODING"
@@ -7664,6 +7650,11 @@
         "source": "stable_diffusion",
         "target": "wan_video",
         "relation": "DIFFUSION_TRANSFORMER"
+      },
+      {
+        "source": "stable_diffusion",
+        "target": "paper_latent_diffusion",
+        "relation": "PRIMARY_PAPER"
       },
       {
         "source": "p_robin_rombach",

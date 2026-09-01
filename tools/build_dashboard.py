@@ -345,13 +345,14 @@ def generate_html(data):
             <h2 class="text-xl font-bold text-white mt-1">인물과 논문 인용 계보를 통한 기술 탄생의 뿌리 지도</h2>
           </div>
 
-          <!-- Entity Type Filter Buttons -->
+          <!-- Entity Type Filter Buttons (5대 표준 메타 카테고리) -->
           <div class="flex flex-wrap items-center gap-1.5 bg-slate-900/90 p-1.5 rounded-xl border border-slate-800 text-xs">
-            <button onclick="filterGraphType('ALL')" class="graph-type-btn active px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-medium transition" data-type="ALL">전체 엔티티</button>
-            <button onclick="filterGraphType('person')" class="graph-type-btn px-2.5 py-1 rounded-lg text-amber-400 hover:bg-slate-800 transition" data-type="person">👤 핵심 연구자</button>
-            <button onclick="filterGraphType('org')" class="graph-type-btn px-2.5 py-1 rounded-lg text-yellow-400 hover:bg-slate-800 transition" data-type="org">🏛️ 연구소/기업</button>
-            <button onclick="filterGraphType('paper')" class="graph-type-btn px-2.5 py-1 rounded-lg text-emerald-400 hover:bg-slate-800 transition" data-type="paper">📄 1차 논문</button>
-            <button onclick="filterGraphType('tech')" class="graph-type-btn px-2.5 py-1 rounded-lg text-cyan-400 hover:bg-slate-800 transition" data-type="tech">⚡ 소프트웨어/기술</button>
+            <button onclick="filterGraphGroup('ALL')" class="graph-group-btn active px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-medium transition" data-group="ALL">전체 보기 (All)</button>
+            <button onclick="filterGraphGroup('language')" class="graph-group-btn px-2.5 py-1 rounded-lg text-amber-300 hover:bg-slate-800 transition" data-group="language">🟡 언어 & 런타임</button>
+            <button onclick="filterGraphGroup('technology')" class="graph-group-btn px-2.5 py-1 rounded-lg text-emerald-400 hover:bg-slate-800 transition" data-group="technology">🟢 기술 & SOTA</button>
+            <button onclick="filterGraphGroup('organization')" class="graph-group-btn px-2.5 py-1 rounded-lg text-purple-300 hover:bg-slate-800 transition" data-group="organization">🟣 기업 & 연구소</button>
+            <button onclick="filterGraphGroup('person')" class="graph-group-btn px-2.5 py-1 rounded-lg text-pink-400 hover:bg-slate-800 transition" data-group="person">🔴 인물 & 창시자</button>
+            <button onclick="filterGraphGroup('paper')" class="graph-group-btn px-2.5 py-1 rounded-lg text-orange-400 hover:bg-slate-800 transition" data-group="paper">🟠 1차 논문</button>
           </div>
         </div>
 
@@ -1239,17 +1240,19 @@ def generate_html(data):
           .on("end", dragended));
 
       function getNodeColor(d) {{
-        if (d.type === "person") return "#f59e0b";
-        if (d.type === "org") return "#eab308";
-        if (d.type === "paper") return "#10b981";
-        return domainColorMap[d.group] || "#6366f1";
+        if (d.group === "language") return "#eab308";
+        if (d.group === "technology") return "#10b981";
+        if (d.group === "organization") return "#8b5cf6";
+        if (d.group === "person") return "#ec4899";
+        if (d.group === "paper") return "#f97316";
+        return domainColorMap[d.group] || "#3b82f6";
       }}
 
       nodeSelection = nodeGroup.append("circle")
         .attr("r", d => d.val || 16)
         .attr("fill", d => getNodeColor(d))
         .attr("stroke", "#ffffff")
-        .attr("stroke-width", d => (d.type === "person" || d.type === "org") ? 2.5 : 1)
+        .attr("stroke-width", d => (d.group === "person" || d.group === "organization" || d.group === "language") ? 2.5 : 1.2)
         .attr("opacity", 0.92)
         .attr("cursor", "pointer")
         .on("mouseover", (event, d) => highlightCitationFlow(d))
@@ -1265,8 +1268,8 @@ def generate_html(data):
         .attr("y", d => (d.val || 16) + 12)
         .attr("text-anchor", "middle")
         .attr("fill", "#f1f5f9")
-        .attr("font-size", d => (d.type === "person" || d.type === "org" ? "11px" : "9.5px"))
-        .attr("font-weight", d => (d.type === "person" || d.type === "org" ? "700" : "600"))
+        .attr("font-size", d => (d.group === "person" || d.group === "organization" || d.group === "language" ? "11px" : "9.5px"))
+        .attr("font-weight", d => (d.group === "person" || d.group === "organization" || d.group === "language" ? "700" : "600"))
         .attr("pointer-events", "none");
 
       simulationRef.on("tick", () => {{
@@ -1317,7 +1320,7 @@ def generate_html(data):
 
       const tt = document.getElementById("graphTooltip");
       document.getElementById("tooltipLabel").innerText = selectedNode.label;
-      document.getElementById("tooltipTypeBadge").innerText = (selectedNode.type || 'tech').toUpperCase();
+      document.getElementById("tooltipTypeBadge").innerText = (selectedNode.group || 'tech').toUpperCase();
       document.getElementById("tooltipDesc").innerText = selectedNode.desc || "인물/논문/기술 상세 계보 설명";
       tt.classList.remove("hidden");
     }}
@@ -1334,21 +1337,29 @@ def generate_html(data):
       document.getElementById("graphTooltip").classList.add("hidden");
     }}
 
-    function filterGraphType(entityType) {{
-      currentGraphType = entityType;
-      document.querySelectorAll('.graph-type-btn').forEach(btn => {{
-        if (btn.dataset.type === entityType) {{
+    function filterGraphGroup(group) {{
+      document.querySelectorAll('.graph-group-btn').forEach(btn => {{
+        if (btn.dataset.group === group) {{
           btn.classList.add('bg-indigo-600', 'text-white');
+          btn.classList.remove('hover:bg-slate-800');
         }} else {{
           btn.classList.remove('bg-indigo-600', 'text-white');
+          btn.classList.add('hover:bg-slate-800');
         }}
       }});
 
       if (nodeSelection) {{
         nodeSelection.attr("opacity", d => {{
-          if (entityType === 'ALL') return 0.95;
-          if (entityType === 'tech') return (d.type !== 'person' && d.type !== 'org' && d.type !== 'paper') ? 0.95 : 0.1;
-          return d.type === entityType ? 0.95 : 0.1;
+          if (group === 'ALL') return 0.95;
+          return d.group === group ? 0.95 : 0.08;
+        }});
+      }}
+      if (linkSelection) {{
+        linkSelection.attr("opacity", l => {{
+          if (group === 'ALL') return 0.6;
+          const s = typeof l.source === 'object' ? l.source : graphData.nodes.find(n => n.id === l.source);
+          const t = typeof l.target === 'object' ? l.target : graphData.nodes.find(n => n.id === l.target);
+          return (s && s.group === group) || (t && t.group === group) ? 0.8 : 0.05;
         }});
       }}
     }}
