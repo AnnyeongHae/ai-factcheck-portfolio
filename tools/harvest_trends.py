@@ -238,31 +238,56 @@ def harvest_all():
         logger.log(f"[!] GitHub Search Failed: {e}", level="ERROR")
         harvest_report["summary"]["errors"] += 1
 
-    # 4. Hacker News API
+    # 4. Hacker News API (Top & Best Stories Combined)
     hn_start = time.time()
     try:
-        logger.log("[*] Fetching Hacker News Top Stories (limit=30)...")
-        hn_top_ids = fetch_json("https://hacker-news.firebaseio.com/v0/topstories.json")
+        logger.log("[*] Fetching Hacker News Top & Best Stories (limit=80)...")
+        hn_top_ids = fetch_json("https://hacker-news.firebaseio.com/v0/topstories.json") or []
+        hn_best_ids = fetch_json("https://hacker-news.firebaseio.com/v0/beststories.json") or []
+        
+        # Merge unique story IDs
+        combined_ids = []
+        seen_sids = set()
+        for sid in list(hn_top_ids[:40]) + list(hn_best_ids[:40]):
+            if sid not in seen_sids:
+                seen_sids.add(sid)
+                combined_ids.append(sid)
+
         count = 0
-        if hn_top_ids and isinstance(hn_top_ids, list):
-            for sid in hn_top_ids[:30]:
-                story = fetch_json(f"https://hacker-news.firebaseio.com/v0/item/{sid}.json")
-                if story and "title" in story:
+        hn_keywords = [
+            "ai", "llm", "agent", "rust", "python", "model", "rag", "open-source", 
+            "show hn", "bench", "eval", "gpt", "claude", "deepseek", "llama", 
+            "transformer", "diffusion", "gpu", "cuda", "browser", "vision", 
+            "neural", "inference", "compiler", "linux", "database", "postgres"
+        ]
+
+        for sid in combined_ids[:60]:
+            try:
+                story = fetch_json(f"https://hacker-news.firebaseio.com/v0/item/{sid}.json", timeout=6)
+                if story and "title" in story and story.get("type") == "story":
                     title = story.get("title", "")
                     url = story.get("url", f"https://news.ycombinator.com/item?id={sid}")
-                    if any(kw in title.lower() for kw in ["ai", "llm", "agent", "rust", "python", "model", "rag", "open-source", "show hn", "bench", "eval"]):
+                    title_lower = title.lower()
+                    
+                    if any(kw in title_lower for kw in hn_keywords):
                         if url.lower() not in existing_set:
+                            score = story.get("score", 0)
+                            descendants = story.get("descendants", 0)
                             all_candidates.append({
                                 "title": f"Hacker News: {title}",
                                 "source_platform": "Hacker News",
                                 "source_url": url,
                                 "type": "repo" if "github.com" in url else "sns",
-                                "description": f"HN Score: {story.get('score', 0)} pts, Comments: {story.get('descendants', 0)}",
-                                "viral_metric": f"{story.get('score', 0)} HN Points"
+                                "category_type": "NEWS" if not "github.com" in url else "REPO",
+                                "description": f"HN Score: {score} pts | Comments: {descendants} | {title}",
+                                "viral_metric": f"🔥 {score} HN Points"
                             })
                             count += 1
+            except Exception:
+                continue
+
         harvest_report["sources"]["hacker_news"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - hn_start, 2)}
-        logger.log(f"[+] Hacker News: {count} new items extracted in {time.time() - hn_start:.2f}s")
+        logger.log(f"[+] Hacker News: {count} new AI/Tech items extracted in {time.time() - hn_start:.2f}s")
     except Exception as e:
         harvest_report["sources"]["hacker_news"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - hn_start, 2)}
         logger.log(f"[!] Hacker News Failed: {e}", level="ERROR")

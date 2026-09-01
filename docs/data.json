@@ -2,8 +2,8 @@
   "generated_at": "2026-09-02",
   "total_cases": 17,
   "news_total_count": 19,
-  "inbox_total_count": 179,
-  "all_inbox_count": 198,
+  "inbox_total_count": 190,
+  "all_inbox_count": 209,
   "admin_stats": {
     "endpoints": [
       {
@@ -25,25 +25,61 @@
         "auth": "Unauthenticated (10 req/min)"
       },
       {
+        "name": "Hacker News Top & Best",
+        "url": "https://hacker-news.firebaseio.com/v0/topstories.json",
+        "type": "AI/Engineering Discussions",
+        "auth": "Unauthenticated (Free)"
+      },
+      {
         "name": "ArXiv Preprint API",
         "url": "http://export.arxiv.org/api/query?search_query=cat:cs.AI",
         "type": "1차 연구 논문",
         "auth": "Unauthenticated (Free)"
-      },
-      {
-        "name": "Hacker News Firebase",
-        "url": "https://hacker-news.firebaseio.com/v0/topstories.json",
-        "type": "AI/엔지니어링 토론",
-        "auth": "Unauthenticated (Free)"
-      },
-      {
-        "name": "Reddit r/LocalLLaMA",
-        "url": "https://www.reddit.com/r/LocalLLaMA/hot.json",
-        "type": "커뮤니티 루머/피드백",
-        "auth": "Custom User-Agent"
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-02T01:48:58.243792",
+        "date": "2026-09-02",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.32
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.23
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 2,
+            "duration_sec": 0.85
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 9,
+            "duration_sec": 24.71
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.88
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.28
+          }
+        },
+        "summary": {
+          "total_fetched": 11,
+          "new_saved": 11,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-01T16:31:43.216434",
         "date": "2026-09-01",
@@ -1261,94 +1297,206 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-08-31T17:03:17.112679",
-        "date": "2026-08-31",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.11
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.08
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 1,
-            "duration_sec": 0.68
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 4.29
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.11
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.02
-          }
-        },
-        "summary": {
-          "total_fetched": 1,
-          "new_saved": 0,
-          "duplicates_skipped": 1,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-01T16:31:43.216434",
-      "date": "2026-09-01",
+      "timestamp": "2026-09-02T01:48:58.243792",
+      "date": "2026-09-02",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.08
+          "duration_sec": 0.32
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.03
+          "duration_sec": 0.23
         },
         "github": {
           "status": "SUCCESS",
-          "items_found": 0,
-          "duration_sec": 0.61
+          "items_found": 2,
+          "duration_sec": 0.85
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 0,
-          "duration_sec": 3.67
+          "items_found": 9,
+          "duration_sec": 24.71
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.26
+          "duration_sec": 0.88
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.06
+          "duration_sec": 0.28
         }
       },
       "summary": {
-        "total_fetched": 0,
-        "new_saved": 0,
+        "total_fetched": 11,
+        "new_saved": 11,
         "duplicates_skipped": 0,
         "errors": 0
       }
     }
   },
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_understanding_chatgpt_work",
+      "harvested_date": "2026-09-02",
+      "title": "Hacker News: Understanding ChatGPT Work",
+      "source_platform": "Hacker News",
+      "source_url": "https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/",
+      "type": "sns",
+      "description": "HN Score: 339 pts | Comments: 193 | Understanding ChatGPT Work",
+      "viral_metric": "🔥 339 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_thanks_to_lake_ontario_mapquest_i",
+      "harvested_date": "2026-09-02",
+      "title": "Hacker News: Thanks to Lake Ontario, MapQuest is popular all over again",
+      "source_platform": "Hacker News",
+      "source_url": "https://www.washingtonpost.com/politics/2026/09/01/thanks-lake-ontario-mapquest-is-popular-all-over-again/",
+      "type": "sns",
+      "description": "HN Score: 4 pts | Comments: 2 | Thanks to Lake Ontario, MapQuest is popular all over again",
+      "viral_metric": "🔥 4 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_run_macos_software_on_linux",
+      "harvested_date": "2026-09-02",
+      "title": "Hacker News: Run macOS Software on Linux",
+      "source_platform": "Hacker News",
+      "source_url": "https://www.darlinghq.org/",
+      "type": "sns",
+      "description": "HN Score: 261 pts | Comments: 81 | Run macOS Software on Linux",
+      "viral_metric": "🔥 261 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_i_trained_a_small_transformer_in_",
+      "harvested_date": "2026-09-02",
+      "title": "Hacker News: I trained a small transformer in 1.5hrs and it beats many LLMs",
+      "source_platform": "Hacker News",
+      "source_url": "https://mvakde.github.io/blog/44-on-arc-1/",
+      "type": "sns",
+      "description": "HN Score: 270 pts | Comments: 76 | I trained a small transformer in 1.5hrs and it beats many LLMs",
+      "viral_metric": "🔥 270 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_gpu_world",
+      "harvested_date": "2026-09-02",
+      "title": "Hacker News: GPU World",
+      "source_platform": "Hacker News",
+      "source_url": "https://www.gpuworld.org/",
+      "type": "sns",
+      "description": "HN Score: 358 pts | Comments: 222 | GPU World",
+      "viral_metric": "🔥 358 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_dwarf_fortress_creator_says_the_i",
+      "harvested_date": "2026-09-02",
+      "title": "Hacker News: Dwarf Fortress' creator says the industry's in shambles over AI",
+      "source_platform": "Hacker News",
+      "source_url": "https://www.pcgamer.com/gaming-industry/dwarf-fortress-creator-says-the-industrys-in-shambles-over-ai-and-layoff-happy-ceos-everyone-i-know-their-bosses-are-slowly-getting-psychosis/",
+      "type": "sns",
+      "description": "HN Score: 16 pts | Comments: 0 | Dwarf Fortress' creator says the industry's in shambles over AI",
+      "viral_metric": "🔥 16 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_chatgpt_work_tool_and_skill_refer",
+      "harvested_date": "2026-09-02",
+      "title": "Hacker News: ChatGPT Work Tool and Skill Reference",
+      "source_platform": "Hacker News",
+      "source_url": "https://codex-tool-reference.simonw.chatgpt.site/",
+      "type": "sns",
+      "description": "HN Score: 231 pts | Comments: 57 | ChatGPT Work Tool and Skill Reference",
+      "viral_metric": "🔥 231 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_breaking_claude_code_opus_5_auto_",
+      "harvested_date": "2026-09-02",
+      "title": "Hacker News: Breaking Claude Code Opus 5 Auto Mode",
+      "source_platform": "Hacker News",
+      "source_url": "https://embracethered.com/blog/posts/2026/breaking-claude-code-opus-5-and-automode/",
+      "type": "sns",
+      "description": "HN Score: 387 pts | Comments: 117 | Breaking Claude Code Opus 5 Auto Mode",
+      "viral_metric": "🔥 387 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_a_browser_based_viewer_for_office",
+      "harvested_date": "2026-09-02",
+      "title": "Hacker News: A browser-based viewer for Office Open XML documents",
+      "source_platform": "Hacker News",
+      "source_url": "https://ooxml.silurus.dev/",
+      "type": "sns",
+      "description": "HN Score: 19 pts | Comments: 3 | A browser-based viewer for Office Open XML documents",
+      "viral_metric": "🔥 19 HN Points",
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-02_repo_github_lb623no_negative_echo",
+      "harvested_date": "2026-09-02",
+      "title": "GitHub: LB623/no-negative-echo",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/LB623/no-negative-echo",
+      "type": "repo",
+      "description": "Stars: 662, Forks: 14 | 让 Codex 根据最终结果生成标题、注释、commit 和 PR，减少被否决方案在交付中的残留。",
+      "viral_metric": "★ 662 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-02_repo_github_chrisgregboop",
+      "harvested_date": "2026-09-02",
+      "title": "GitHub: chrisgreg/boop",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/chrisgreg/boop",
+      "type": "repo",
+      "description": "Stars: 673, Forks: 31 | A tiny, self-hosted notification inbox for developers. Something happened in one of your apps; Boop tells you on your phone.",
+      "viral_metric": "★ 673 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
     {
       "inbox_id": "2026-09-01_sns_hacker_news_state_of_open_models_summer_2026_",
       "harvested_date": "2026-09-01",

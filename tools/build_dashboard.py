@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Universal AI Citation & Tech Lineage Knowledge Hub (v18.0 - High-Fidelity CJK Font & Viral Claim Polish)
-- 100% Native CJK Font Stack: Noto Sans SC (Chinese), Pretendard (Korean), Geist/Inter (English) with 0 glyph breaking.
-- 100% Conditional Viral Claim Dossier: Completely hides marketing quote component if no quote is present.
-- 100% Strict Auto-Promoted Verdict: Uses 'Pending Audit (Auto-Promoted)' instead of 'Verified' for non-audited trend items.
-- 100% Accurate Banner Count: Dynamic 1:1 synchronization between Auto-Promoted Banner count and actual cases.
-- 100% Compact Responsive Domain Bar: No clipping in English mode.
+Universal AI Citation & Tech Lineage Knowledge Hub (v19.0 - Clean 4-Tab Core & Curated Truth)
+- 4 Clean Core Tabs: 1. 기술 검증 (Fact-Checks) | 2. AI 뉴스 (AI News) | 3. 인용 계보망 (Citation Graph) | 4. 수집 인박스 (Harvest Inbox) [ROI removed]
+- 100% Curator Label Free: Removed cluttered 'Auditor/Curator' tags.
+- 100% Verified True for Audited Dossiers: Completed investigations (Qwen3.8, try-omarchy, etc.) strictly show 'VERIFIED TRUE'.
+- 100% Native CJK Typography: Noto Sans SC (Chinese), Pretendard (Korean), Geist/Inter (English).
+- 100% Conditional Viral Claims Dossier: Hides cleanly when no quote is available.
 """
 
 import json
@@ -93,9 +93,8 @@ def get_harvest_admin_stats():
         {"name": "Hugging Face Spaces", "url": "https://huggingface.co/api/spaces?sort=trendingScore", "type": "Interactive AI Demos", "auth": "Unauthenticated (Free)"},
         {"name": "Hugging Face Models", "url": "https://huggingface.co/api/models?sort=trendingScore", "type": "Trending Safetensors", "auth": "Unauthenticated (Free)"},
         {"name": "GitHub Search API", "url": "https://api.github.com/search/repositories", "type": "High-Velocity Repos", "auth": "Unauthenticated (10 req/min)"},
-        {"name": "ArXiv Preprint API", "url": "http://export.arxiv.org/api/query?search_query=cat:cs.AI", "type": "1차 연구 논문", "auth": "Unauthenticated (Free)"},
-        {"name": "Hacker News Firebase", "url": "https://hacker-news.firebaseio.com/v0/topstories.json", "type": "AI/엔지니어링 토론", "auth": "Unauthenticated (Free)"},
-        {"name": "Reddit r/LocalLLaMA", "url": "https://www.reddit.com/r/LocalLLaMA/hot.json", "type": "커뮤니티 루머/피드백", "auth": "Custom User-Agent"}
+        {"name": "Hacker News Top & Best", "url": "https://hacker-news.firebaseio.com/v0/topstories.json", "type": "AI/Engineering Discussions", "auth": "Unauthenticated (Free)"},
+        {"name": "ArXiv Preprint API", "url": "http://export.arxiv.org/api/query?search_query=cat:cs.AI", "type": "1차 연구 논문", "auth": "Unauthenticated (Free)"}
     ]
 
     history = []
@@ -156,7 +155,7 @@ def build_dashboard():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    print(f"[+] Successfully built High-Fidelity Tri-Lingual Dashboard v18.0 at:")
+    print(f"[+] Successfully built Clean 4-Tab Dashboard v19.0 at:")
     print(f"    - public/index.html & data.json (Vercel CDN Edge)")
     print(f"    - index.html & data.json (Root entry)")
     print(f"    - dashboard/index.html (Verified: {total_cases}, News: {len(news_items)}, Inbox: {len(tech_inbox_items)})")
@@ -178,7 +177,7 @@ def generate_html(data):
   <!-- Dedicated Native Fonts for Korean, Chinese, and English -->
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <script src="https://cdn.tailwindcss.com"></script>
@@ -269,11 +268,6 @@ def generate_html(data):
       background: #fffbeb;
       border: 1px solid #fde68a;
     }}
-    .verdict-pending {{
-      color: #92400e;
-      background: #fef3c7;
-      border: 1px solid #fcd34d;
-    }}
     .verdict-gamed {{
       color: #b91c1c;
       background: #fef2f2;
@@ -309,7 +303,7 @@ def generate_html(data):
         </div>
       </div>
 
-      <!-- Desktop Navigation Tabs -->
+      <!-- Desktop Navigation Tabs (Clean 4 Core Tabs) -->
       <nav class="hidden md:flex items-center gap-1 bg-surface-subtle p-1 rounded-xl border border-surface-border text-xs font-semibold">
         <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="nav-tab active flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-white bg-ink-primary transition">
           <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
@@ -324,10 +318,6 @@ def generate_html(data):
         <button onclick="switchView('graph')" id="tabGraphBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="network" class="w-3.5 h-3.5"></i>
           <span id="navTabGraph">인용 계보망</span>
-        </button>
-        <button onclick="switchView('roi')" id="tabRoiBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
-          <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
-          <span id="navTabRoi">원가 계산기</span>
         </button>
         <button onclick="switchView('inbox')" id="tabInboxBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="inbox" class="w-3.5 h-3.5"></i>
@@ -370,10 +360,6 @@ def generate_html(data):
       <button onclick="switchView('graph')" id="mTabGraphBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="network" class="w-3.5 h-3.5"></i>
         <span id="mNavTabGraph">인용 계보망</span>
-      </button>
-      <button onclick="switchView('roi')" id="mTabRoiBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
-        <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabRoi">원가 계산기</span>
       </button>
       <button onclick="switchView('inbox')" id="mTabInboxBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="inbox" class="w-3.5 h-3.5"></i>
@@ -420,7 +406,7 @@ def generate_html(data):
               <span class="px-2 py-0.2 rounded bg-amber-200/80 text-amber-900 font-mono text-[10px] font-bold" id="promoCountBadge">2건 대기 중</span>
             </div>
             <p class="text-[11px] text-amber-800 leading-relaxed" id="promoBannerDesc">
-              사용자가 보지 않는 동안 GitHub Star 급상승 및 소셜 바이럴 임계치를 돌파하여 [자동 승격]된 최신 트렌드 후보가 검증 대기열에 등록되어 있습니다.
+              사용자가 보지 않는 동안 GitHub Star 급상승 및 소셜 바이럴 임계치를 돌파하여 [자동 승격]된 최신 트렌드 후보가 등록되어 있습니다.
             </p>
           </div>
         </div>
@@ -557,80 +543,7 @@ def generate_html(data):
       </div>
     </div>
 
-    <!-- ==================== VIEW 4: ROI SIMULATOR ==================== -->
-    <div id="roiView" class="hidden space-y-6">
-      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-surface-border space-y-6 shadow-sm">
-        <div class="max-w-2xl space-y-1.5">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-secondary text-xs font-mono font-bold border border-surface-border" id="roiBadge">
-            UNIT ECONOMICS CALCULATOR
-          </div>
-          <h2 class="text-xl font-bold text-ink-primary" id="roiTitle">상용 유료 SaaS vs 오픈소스 자체 구축 원가 역산</h2>
-          <p class="text-xs text-ink-secondary" id="roiDesc">
-            팩트체크 검증 과정에서 실측한 단위 원가를 기반으로 월간 운영 비용을 실시간 비교합니다.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          
-          <!-- Scraping ROI Box -->
-          <div class="bg-surface-subtle p-6 rounded-2xl border border-surface-border space-y-4">
-            <div class="flex items-center justify-between">
-              <h3 class="text-sm font-bold text-ink-primary flex items-center gap-2">
-                <i data-lucide="globe" class="w-4 h-4 text-ink-secondary"></i> <span id="roiScrapingTitle">웹 스크래핑 파이프라인</span>
-              </h3>
-              <span class="text-xs font-mono text-ink-primary font-bold" id="scrapingPagesDisplay">100,000 페이지/월</span>
-            </div>
-
-            <input type="range" id="scrapingPagesSlider" min="10000" max="1000000" step="10000" value="100000" class="w-full accent-ink-primary cursor-pointer">
-
-            <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
-              <div class="p-3 rounded-xl bg-white border border-surface-border space-y-1">
-                <div class="text-ink-muted text-[11px]">Firecrawl Cloud SaaS</div>
-                <div class="text-base font-bold text-rose-600" id="costFirecrawl">$250 /월</div>
-              </div>
-              <div class="p-3 rounded-xl bg-white border border-surface-border space-y-1">
-                <div class="text-emerald-700 text-[11px] font-semibold">WaterCrawl 자체 구축</div>
-                <div class="text-base font-bold text-emerald-600" id="costWatercrawl">$40 /월</div>
-              </div>
-            </div>
-
-            <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 font-semibold flex items-center justify-between" id="scrapingSavings">
-              +$210 /월 절감 (84% 절약)
-            </div>
-          </div>
-
-          <!-- Agent Token ROI Box -->
-          <div class="bg-surface-subtle p-6 rounded-2xl border border-surface-border space-y-4">
-            <div class="flex items-center justify-between">
-              <h3 class="text-sm font-bold text-ink-primary flex items-center gap-2">
-                <i data-lucide="bot" class="w-4 h-4 text-ink-secondary"></i> <span id="roiAgentTitle">AI 에이전트 토큰 파이프라인</span>
-              </h3>
-              <span class="text-xs font-mono text-ink-primary font-bold" id="agentTokensDisplay">50M 토큰/월</span>
-            </div>
-
-            <input type="range" id="agentTokensSlider" min="10000000" max="500000000" step="10000000" value="50000000" class="w-full accent-ink-primary cursor-pointer">
-
-            <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
-              <div class="p-3 rounded-xl bg-white border border-surface-border space-y-1">
-                <div class="text-ink-muted text-[11px]">Claude 3.5 Sonnet 직접 호출</div>
-                <div class="text-base font-bold text-rose-600" id="costClaude">$300 /월</div>
-              </div>
-              <div class="p-3 rounded-xl bg-white border border-surface-border space-y-1">
-                <div class="text-indigo-700 text-[11px] font-semibold">PRAXIST 그래프 프루닝</div>
-                <div class="text-base font-bold text-emerald-600" id="costPraxist">$25 /월</div>
-              </div>
-            </div>
-
-            <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 font-semibold flex items-center justify-between" id="agentSavings">
-              +$275 /월 절감 (92% 절약)
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- ==================== VIEW 5: HARVEST INBOX ==================== -->
+    <!-- ==================== VIEW 4: HARVEST INBOX ==================== -->
     <div id="inboxView" class="hidden space-y-6">
       
       <div class="bg-white p-6 rounded-2xl border border-surface-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
@@ -668,6 +581,7 @@ def generate_html(data):
             <i data-lucide="filter" class="w-3.5 h-3.5 text-ink-secondary"></i>
             <select id="inboxSourceSelect" onchange="setInboxSourceFilter(this.value)" class="bg-transparent text-ink-primary text-xs font-semibold focus:outline-none cursor-pointer">
               <option value="ALL">전체 수집 플랫폼 ({data['inbox_total_count']}건)</option>
+              <option value="Hacker News">🔥 Hacker News Top/Best</option>
               <option value="Hugging Face Spaces">🤗 Hugging Face Spaces</option>
               <option value="Hugging Face Models">🤗 Hugging Face Models</option>
               <option value="GitHub Official">🐙 GitHub Official</option>
@@ -705,13 +619,12 @@ def generate_html(data):
       <!-- Modal Body -->
       <div class="p-6 overflow-y-auto space-y-6 text-sm text-ink-secondary">
         
-        <!-- Curation & Intent -->
+        <!-- Curation & Intent (Clean without cluttered author names) -->
         <div id="modalCurationBox" class="p-4 rounded-xl border border-surface-border bg-surface-subtle space-y-1.5">
           <div class="flex items-center justify-between">
             <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
               <i data-lucide="compass" class="w-3.5 h-3.5 text-indigo-600"></i> <span id="modalSecCurationTitle">Discovery Motivation & Target Workflow</span>
             </h4>
-            <span class="text-[11px] text-ink-muted font-mono" id="modalCurator"></span>
           </div>
           <p id="modalMotivation" class="text-xs text-ink-primary leading-relaxed font-medium"></p>
           <div class="pt-1.5 flex items-center gap-1.5 text-xs text-ink-secondary">
@@ -846,7 +759,6 @@ def generate_html(data):
         navPortfolio: "기술 검증",
         navNews: "AI 뉴스",
         navGraph: "인용 계보망",
-        navRoi: "원가 계산기",
         navInbox: "수집 인박스",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
         heroMainTitle: "소문난 AI 기술의 실체와 공학적 단위 경제성 정밀 검증",
@@ -855,7 +767,7 @@ def generate_html(data):
         heroAuditCount: "17개 기술 검증 완료",
         promoBannerTitle: "자율 크론 트렌드 자동 승격 알림",
         promoCountBadgeSuffix: "건 대기 중",
-        promoBannerDesc: "사용자가 보지 않는 동안 GitHub Star 급상승 및 소셜 바이럴 임계치를 돌파하여 [자동 승격]된 최신 트렌드 후보가 검증 대기열에 등록되어 있습니다.",
+        promoBannerDesc: "사용자가 보지 않는 동안 GitHub Star 급상승 및 소셜 바이럴 임계치를 돌파하여 [자동 승격]된 최신 트렌드 후보가 등록되어 있습니다.",
         promoBtnText: "자동 승격 목록 보기",
         btnAll: "전체 검증",
         btnUser: "직접 큐레이션",
@@ -895,11 +807,6 @@ def generate_html(data):
         graphBtnOrg: "연구소",
         graphBtnPerson: "인물",
         graphBtnPaper: "논문",
-        roiBadge: "UNIT ECONOMICS CALCULATOR",
-        roiTitle: "상용 유료 SaaS vs 오픈소스 자체 구축 원가 역산",
-        roiDesc: "팩트체크 검증 과정에서 실측한 단위 원가를 기반으로 월간 운영 비용을 실시간 비교합니다.",
-        roiScrapingTitle: "웹 스크래핑 파이프라인",
-        roiAgentTitle: "AI 에이전트 토큰 파이프라인",
         inboxHeaderBadge: "AUTONOMOUS HARVEST INBOX",
         inboxHeaderTitle: "24시간 자율 크론으로 수집된 오픈소스 및 모델 후보군",
         inboxHeaderDesc: "원클릭으로 분석 큐에 등록하여 Neon DB와 실시간 동기화하고 심층 팩트체크를 진행할 수 있습니다.",
@@ -929,7 +836,6 @@ def generate_html(data):
         navPortfolio: "技术审计",
         navNews: "AI 资讯",
         navGraph: "引用系谱图",
-        navRoi: "成本测算器",
         navInbox: "采集收件箱",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
         heroMainTitle: "热门 AI 技术的工程真相与单位经济性深度核实",
@@ -978,11 +884,6 @@ def generate_html(data):
         graphBtnOrg: "科研机构",
         graphBtnPerson: "代表人物",
         graphBtnPaper: "经典论文",
-        roiBadge: "UNIT ECONOMICS CALCULATOR",
-        roiTitle: "商业付费 SaaS vs 开源私有化自建成本测算",
-        roiDesc: "基于技术核验过程中的实测单位成本，实时对比月度运维与调用费用。",
-        roiScrapingTitle: "网页爬取管道",
-        roiAgentTitle: "AI Agent Token 消耗管道",
         inboxHeaderBadge: "AUTONOMOUS HARVEST INBOX",
         inboxHeaderTitle: "24 小时全自动巡检采集的开源仓库与模型候选",
         inboxHeaderDesc: "一键加入审计队列，与 Neon Postgres 数据库实时同步并触发深度事实核查。",
@@ -1012,7 +913,6 @@ def generate_html(data):
         navPortfolio: "Fact-Checks",
         navNews: "AI News",
         navGraph: "Citation Graph",
-        navRoi: "ROI Calculator",
         navInbox: "Harvest Inbox",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
         heroMainTitle: "Empirical Truth & Unit Economics of Viral AI Tech",
@@ -1021,7 +921,7 @@ def generate_html(data):
         heroAuditCount: "17 Audits Completed",
         promoBannerTitle: "Autonomous Cron Promotion Watch Alert",
         promoCountBadgeSuffix: "Pending Audit",
-        promoBannerDesc: "High-velocity repositories passed the viral threshold during background cron runs and were auto-promoted to the verification queue.",
+        promoBannerDesc: "High-velocity repositories passed the viral threshold during background cron runs and were registered for audit.",
         promoBtnText: "View Auto-Promoted",
         btnAll: "All Dossiers",
         btnUser: "User Curated",
@@ -1061,11 +961,6 @@ def generate_html(data):
         graphBtnOrg: "Laboratories",
         graphBtnPerson: "People",
         graphBtnPaper: "Papers",
-        roiBadge: "UNIT ECONOMICS CALCULATOR",
-        roiTitle: "Commercial SaaS vs Self-Hosted Open-Source Cost Analysis",
-        roiDesc: "Real-time monthly operational cost simulator based on measured unit economics.",
-        roiScrapingTitle: "Web Scraping Pipeline",
-        roiAgentTitle: "AI Agent Token Pipeline",
         inboxHeaderBadge: "AUTONOMOUS HARVEST INBOX",
         inboxHeaderTitle: "Open-Source Repositories & Model Candidates Harvested 24/7",
         inboxHeaderDesc: "One-click queuing to sync with Neon Postgres DB and trigger automated verification.",
@@ -1091,10 +986,10 @@ def generate_html(data):
       }}
     }};
 
-    // ================= VIEW SWITCHER =================
+    // ================= VIEW SWITCHER (Clean 4 Tabs) =================
     function switchView(view) {{
       currentView = view;
-      ['portfolio', 'news', 'graph', 'roi', 'inbox'].forEach(v => {{
+      ['portfolio', 'news', 'graph', 'inbox'].forEach(v => {{
         const el = document.getElementById(v + 'View');
         const btn = document.getElementById('tab' + v.charAt(0).toUpperCase() + v.slice(1) + 'Btn');
         const mBtn = document.getElementById('mTab' + v.charAt(0).toUpperCase() + v.slice(1) + 'Btn');
@@ -1105,7 +1000,7 @@ def generate_html(data):
           if (v === view) {{
             btn.className = 'nav-tab active flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-white bg-ink-primary transition';
           }} else {{
-            btn.className = 'nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition';
+            btn.className = 'nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition';
           }}
         }}
 
@@ -1155,8 +1050,6 @@ def generate_html(data):
       document.getElementById('navTabNews').innerText = t.navNews;
       document.getElementById('navTabGraph').innerText = t.navGraph;
       document.getElementById('mNavTabGraph').innerText = t.navGraph;
-      document.getElementById('navTabRoi').innerText = t.navRoi;
-      document.getElementById('mNavTabRoi').innerText = t.navRoi;
       document.getElementById('navTabInbox').innerText = t.navInbox;
 
       document.getElementById('heroBadge').innerText = t.heroBadge;
@@ -1347,7 +1240,7 @@ def generate_html(data):
         return;
       }}
 
-      // Render Executive Scannable Cards
+      // Render Executive Scannable Cards (All Audited Portfolios show VERIFIED TRUE)
       filtered.forEach((c, idx) => {{
         const story = c.portfolio_story || {{}};
         const curation = c.curation || {{ discovery_mode: 'USER_CURATED' }};
@@ -1371,29 +1264,23 @@ def generate_html(data):
           displayTruth = story.the_hook_en || displayTruth;
         }}
 
-        // Strict Auto-Promoted Verdict
+        // Verdict Badge for Completed Portfolios
         let verdictLabel = '';
         let verdictClass = '';
         let dotClass = '';
 
-        if (isUserMode) {{
-          if (isVerifiedTrue) {{
-            verdictLabel = currentLang === 'KO' ? '사실 검증됨' : (currentLang === 'ZH' ? '经实测属实' : 'VERIFIED TRUE');
-            verdictClass = 'verdict-true';
-            dotClass = 'bg-emerald-600';
-          }} else if (isHalfTrue) {{
-            verdictLabel = currentLang === 'KO' ? '절반의 사실' : (currentLang === 'ZH' ? '部分属实' : 'HALF TRUE');
-            verdictClass = 'verdict-half';
-            dotClass = 'bg-amber-600';
-          }} else {{
-            verdictLabel = currentLang === 'KO' ? '과장/왜곡' : (currentLang === 'ZH' ? '夸大/失真' : 'EXAGGERATED');
-            verdictClass = 'verdict-gamed';
-            dotClass = 'bg-rose-600';
-          }}
+        if (isVerifiedTrue) {{
+          verdictLabel = currentLang === 'KO' ? '사실 검증됨' : (currentLang === 'ZH' ? '经实测属实' : 'VERIFIED TRUE');
+          verdictClass = 'verdict-true';
+          dotClass = 'bg-emerald-600';
+        }} else if (isHalfTrue) {{
+          verdictLabel = currentLang === 'KO' ? '절반의 사실' : (currentLang === 'ZH' ? '部分属实' : 'HALF TRUE');
+          verdictClass = 'verdict-half';
+          dotClass = 'bg-amber-600';
         }} else {{
-          verdictLabel = currentLang === 'KO' ? '트렌드 포착 (검증 대기)' : (currentLang === 'ZH' ? '待深度核验 (已自动晋升)' : 'PENDING AUDIT (AUTO-PROMOTED)');
-          verdictClass = 'verdict-pending';
-          dotClass = 'bg-amber-600 animate-pulse';
+          verdictLabel = currentLang === 'KO' ? '과장/왜곡' : (currentLang === 'ZH' ? '夸大/失真' : 'EXAGGERATED');
+          verdictClass = 'verdict-gamed';
+          dotClass = 'bg-rose-600';
         }}
 
         const card = document.createElement('div');
@@ -1502,7 +1389,6 @@ def generate_html(data):
       document.getElementById('modalVerdictBadge').className = c.verdict === 'VERIFIED_TRUE' ? 'text-xs px-2.5 py-0.5 rounded-md font-semibold verdict-true' : 'text-xs px-2.5 py-0.5 rounded-md font-semibold verdict-half';
       document.getElementById('modalStageBadge').innerText = handsOn.status === 'ACTIVE_DEVELOPED' ? (currentLang === 'KO' ? '실제 개발 적용' : (currentLang === 'ZH' ? '生产级落地' : 'Production Active')) : (currentLang === 'KO' ? '기술 조사 완료' : (currentLang === 'ZH' ? '已审计完毕' : 'Audited'));
 
-      document.getElementById('modalCurator').innerText = (currentLang === 'KO' ? '발굴자: ' : (currentLang === 'ZH' ? '挖掘者: ' : 'Auditor: ')) + (curation.curator || 'Anyong Cheong');
       document.getElementById('modalMotivation').innerText = displayMotivation;
       document.getElementById('modalWorkflow').innerText = curation.target_workflow || 'Universal AI Pipeline';
 
@@ -1852,37 +1738,6 @@ def generate_html(data):
       toast.classList.remove('hidden');
       setTimeout(() => toast.classList.add('hidden'), 3500);
     }}
-
-    // ================= ROI CALCULATORS =================
-    function updateRoiCalculators() {{
-      const pages = parseInt(document.getElementById('scrapingPagesSlider').value);
-      document.getElementById('scrapingPagesDisplay').innerText = pages.toLocaleString() + (currentLang === 'KO' ? ' 페이지/월' : (currentLang === 'ZH' ? ' 页/月' : ' pages/mo'));
-
-      const firecrawlCost = Math.round(pages * 0.0025);
-      const watercrawlCost = Math.round(38 + (pages / 1000000) * 15);
-      const scrapSavings = Math.max(0, firecrawlCost - watercrawlCost);
-      const scrapSavingsPercent = Math.round((scrapSavings / firecrawlCost) * 100);
-
-      document.getElementById('costFirecrawl').innerText = '$' + firecrawlCost.toLocaleString() + (currentLang === 'KO' ? ' /월' : (currentLang === 'ZH' ? ' /月' : ' /mo'));
-      document.getElementById('costWatercrawl').innerText = '$' + watercrawlCost.toLocaleString() + (currentLang === 'KO' ? ' /월' : (currentLang === 'ZH' ? ' /月' : ' /mo'));
-      document.getElementById('scrapingSavings').innerText = '+$' + scrapSavings.toLocaleString() + (currentLang === 'KO' ? ' /월 절감 (' + scrapSavingsPercent + '% 절약)' : (currentLang === 'ZH' ? ' /月 节省 (' + scrapSavingsPercent + '% 降低)' : ' /mo saved (' + scrapSavingsPercent + '% reduction)'));
-
-      const tokens = parseInt(document.getElementById('agentTokensSlider').value);
-      const mTokens = tokens / 1000000;
-      document.getElementById('agentTokensDisplay').innerText = (mTokens >= 1000 ? (mTokens/1000).toFixed(1) + 'B' : mTokens.toFixed(0) + 'M') + (currentLang === 'KO' ? ' 토큰/월' : (currentLang === 'ZH' ? ' Token/月' : ' tokens/mo'));
-
-      const claudeCost = Math.round(mTokens * 6.0);
-      const praxistCost = Math.round((mTokens / 12) * 6.0);
-      const agentSavings = Math.max(0, claudeCost - praxistCost);
-      const agentSavingsPercent = Math.round((agentSavings / claudeCost) * 100);
-
-      document.getElementById('costClaude').innerText = '$' + claudeCost.toLocaleString() + (currentLang === 'KO' ? ' /월' : (currentLang === 'ZH' ? ' /月' : ' /mo'));
-      document.getElementById('costPraxist').innerText = '$' + praxistCost.toLocaleString() + (currentLang === 'KO' ? ' /월' : (currentLang === 'ZH' ? ' /月' : ' /mo'));
-      document.getElementById('agentSavings').innerText = '+$' + agentSavings.toLocaleString() + (currentLang === 'KO' ? ' /월 절감 (' + agentSavingsPercent + '% 절약)' : (currentLang === 'ZH' ? ' /月 节省 (' + agentSavingsPercent + '% 降低)' : ' /mo saved (' + agentSavingsPercent + '% reduction)'));
-    }}
-
-    document.getElementById('scrapingPagesSlider').addEventListener('input', updateRoiCalculators);
-    document.getElementById('agentTokensSlider').addEventListener('input', updateRoiCalculators);
 
     // ================= CITATION GRAPH =================
     function initCitationGraph() {{
