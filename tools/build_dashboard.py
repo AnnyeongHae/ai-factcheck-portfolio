@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Universal AI Citation & Tech Lineage Knowledge Hub (v14.0 - Enterprise Clean Design)
-- 100% Anti-AI Vibe: Clean typography, disciplined slate/cyan monochrome palette, refined 1px borders.
-- 100% Live Neon DB Integration: Real-time queries for Verified Cases, Technical Analyses, Inbox, and News.
-- High-Visibility Filter & Sort Control Center.
+Universal AI Citation & Tech Lineage Knowledge Hub (v15.0 - Taste-Skill Editorial Edition)
+- 100% Anti-AI Slop: Warm Off-White / Swiss Editorial Canvas (#FBFBFA), zero neon cyberpunk glow, high-agency typography.
+- 100% Live Neon DB Integration: Real-time queries for 17 Verified Cases, Technical Analyses, Inbox, and News.
+- Dynamic Hero Featured Case + Asymmetric Editorial Grid Layout.
 """
 
 import json
@@ -130,7 +130,7 @@ def build_dashboard():
     tech_inbox_items = [it for it in inbox_items if it.get("category_type") != "NEWS"]
 
     summary_data = {
-        "generated_at": "2026-09-01",
+        "generated_at": "2026-09-02",
         "total_cases": total_cases,
         "news_total_count": len(news_items),
         "inbox_total_count": len(tech_inbox_items),
@@ -154,7 +154,7 @@ def build_dashboard():
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    print(f"[+] Successfully built clean enterprise dashboard v14.0 at:")
+    print(f"[+] Successfully built Taste-Skill Editorial Dashboard v15.0 at:")
     print(f"    - public/index.html & data.json (Vercel CDN Edge)")
     print(f"    - index.html & data.json (Root entry)")
     print(f"    - dashboard/index.html (Verified: {total_cases}, News: {len(news_items)}, Inbox: {len(tech_inbox_items)})")
@@ -167,16 +167,16 @@ def generate_html(data):
     graph_json = json.dumps(data["graph"], ensure_ascii=False)
     
     return f"""<!DOCTYPE html>
-<html lang="ko" class="dark">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FactCheck Engine — Universal AI Tech Intelligence</title>
+  <title>FactCheck Hub — Universal AI Tech Intelligence</title>
   
-  <!-- Fonts & Scripts -->
+  <!-- Fonts: Pretendard + Geist + Newsreader + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -184,27 +184,31 @@ def generate_html(data):
 
   <script>
     tailwind.config = {{
-      darkMode: 'class',
       theme: {{
         extend: {{
           fontFamily: {{
             sans: ['Pretendard', 'Geist', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            serif: ['Newsreader', 'Georgia', 'serif'],
             mono: ['JetBrains Mono', 'monospace'],
           }},
           colors: {{
-            surface: {{
-              bg: '#07090e',
-              card: '#0f121a',
-              cardHover: '#141824',
-              border: '#1e2433',
-              borderHover: '#334155',
+            canvas: {{
+              base: '#fbfbfa',
+              subtle: '#f4f4f2',
+              card: '#ffffff',
+              border: '#e6e6e3',
+              borderDark: '#1e2433',
+            }},
+            ink: {{
+              primary: '#111827',
+              secondary: '#4b5563',
+              muted: '#9ca3af',
             }},
             accent: {{
-              cyan: '#06b6d4',
-              cyanHover: '#22d3ee',
-              emerald: '#10b981',
-              amber: '#f59e0b',
-              rose: '#f43f5e',
+              forest: '#047857',
+              amber: '#b45309',
+              terracotta: '#c2410c',
+              navy: '#1e3a8a',
             }}
           }}
         }}
@@ -215,41 +219,49 @@ def generate_html(data):
   <style>
     body {{
       font-family: 'Pretendard', 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #07090e;
-      color: #e2e8f0;
+      background-color: #fbfbfa;
+      color: #111827;
       letter-spacing: -0.015em;
     }}
 
-    /* Subtle Engineering Grid Background */
-    .bg-grid-pattern {{
-      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
-      background-size: 24px 24px;
+    /* Subtle Paper Texture Line Grid */
+    .bg-paper-grid {{
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
     }}
 
-    /* Clean Card Surface */
-    .clean-card {{
-      background: #0f121a;
-      border: 1px solid #1e2433;
-      border-radius: 14px;
-      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Editorial Card Surface */
+    .editorial-card {{
+      background: #ffffff;
+      border: 1px solid #e6e6e3;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 6px 16px -4px rgba(0, 0, 0, 0.02);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }}
-    .clean-card:hover {{
-      background: #131722;
-      border-color: #38bdf8;
-      box-shadow: 0 8px 24px -8px rgba(6, 182, 212, 0.15);
+    .editorial-card:hover {{
+      border-color: #111827;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
       transform: translateY(-2px);
+    }}
+
+    /* Hero Featured Card */
+    .hero-card {{
+      background: #ffffff;
+      border: 1.5px solid #111827;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px -6px rgba(0, 0, 0, 0.08);
     }}
 
     /* Segment Buttons */
     .segment-btn {{
       transition: all 0.15s ease;
-      color: #94a3b8;
+      color: #6b7280;
     }}
     .segment-btn.active {{
-      background: #ffffff;
-      color: #090a0f;
+      background: #111827;
+      color: #ffffff;
       font-weight: 700;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }}
 
     /* Tag Pills */
@@ -257,84 +269,83 @@ def generate_html(data):
       transition: all 0.15s ease;
     }}
     .tag-pill.active {{
-      background: #06b6d4;
-      color: #041319;
+      background: #111827;
+      color: #ffffff;
       font-weight: 700;
-      border-color: #22d3ee;
+      border-color: #111827;
     }}
 
     /* Verdict Indicators */
     .verdict-true {{
-      color: #34d399;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #047857;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
     }}
     .verdict-half {{
-      color: #fbbf24;
-      background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #b45309;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
     }}
     .verdict-gamed {{
-      color: #f87171;
-      background: rgba(239, 68, 68, 0.12);
-      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #b91c1c;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
     }}
 
     /* Hide scrollbar for Chrome, Safari and Opera */
     .no-scrollbar::-webkit-scrollbar {{
       display: none;
     }}
-    /* Hide scrollbar for IE, Edge and Firefox */
     .no-scrollbar {{
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }}
   </style>
 </head>
-<body class="bg-surface-bg text-slate-200 min-h-screen bg-grid-pattern pb-24 antialiased">
+<body class="bg-canvas-base text-ink-primary min-h-screen bg-paper-grid pb-24 antialiased selection:bg-ink-primary selection:text-white">
 
-  <!-- ==================== HEADER ==================== -->
-  <header class="sticky top-0 z-40 bg-[#07090e]/95 backdrop-blur-md border-b border-surface-border">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-2 sm:gap-4">
+  <!-- ==================== EDITORIAL HEADER ==================== -->
+  <header class="sticky top-0 z-40 bg-canvas-base/95 backdrop-blur-md border-b border-canvas-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3 sm:gap-4">
       
-      <!-- Brand Logo -->
-      <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
-        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-black font-black text-sm sm:text-base shadow-sm">
-          <i data-lucide="shield-check" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-950"></i>
+      <!-- Brand Logo (Swiss Minimalist) -->
+      <div class="flex items-center gap-3 shrink-0">
+        <div class="w-9 h-9 rounded-lg bg-ink-primary flex items-center justify-center text-white font-serif font-bold text-lg shadow-sm">
+          F
         </div>
         <div>
-          <div class="flex items-center gap-1.5 sm:gap-2">
-            <span class="text-xs sm:text-sm font-bold text-white tracking-tight">FactCheck Hub</span>
-            <span class="text-[9px] sm:text-[10px] font-mono px-1 py-0.2 rounded bg-surface-card border border-surface-border text-slate-400 font-semibold">v14.0</span>
+          <div class="flex items-center gap-2">
+            <span class="text-base font-extrabold text-ink-primary tracking-tight font-serif">FactCheck Hub</span>
+            <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-canvas-subtle border border-canvas-border text-ink-secondary font-bold">2026</span>
           </div>
-          <p class="text-[10px] sm:text-[11px] text-slate-400 hidden sm:block">Universal AI Tech & Lineage Intelligence</p>
+          <p class="text-[11px] text-ink-secondary hidden sm:block">Empirical Architecture & Cost Intelligence</p>
         </div>
       </div>
 
       <!-- Desktop Navigation Tabs -->
-      <nav class="hidden md:flex items-center gap-1 bg-surface-card p-1 rounded-xl border border-surface-border text-xs font-semibold">
-        <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="nav-tab active flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-white bg-slate-800 transition">
-          <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-cyan-400"></i>
+      <nav class="hidden md:flex items-center gap-1 bg-canvas-subtle p-1 rounded-xl border border-canvas-border text-xs font-semibold">
+        <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="nav-tab active flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-white bg-ink-primary transition">
+          <i data-lucide="check-circle" class="w-3.5 h-3.5 text-white"></i>
           <span>기술 검증</span>
-          <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-cyan-950 text-cyan-300 font-bold border border-cyan-500/30" id="headerVerifiedCount">{data['total_cases']}</span>
+          <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-white/20 text-white font-bold" id="headerVerifiedCount">{data['total_cases']}</span>
         </button>
-        <button onclick="switchView('news')" id="tabNewsBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">
-          <i data-lucide="newspaper" class="w-3.5 h-3.5 text-sky-400"></i>
+        <button onclick="switchView('news')" id="tabNewsBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+          <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
           <span>AI 뉴스</span>
-          <span class="text-[10px] font-mono text-slate-500">({data['news_total_count']})</span>
+          <span class="text-[10px] font-mono text-ink-muted">({data['news_total_count']})</span>
         </button>
-        <button onclick="switchView('graph')" id="tabGraphBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">
-          <i data-lucide="network" class="w-3.5 h-3.5 text-purple-400"></i>
+        <button onclick="switchView('graph')" id="tabGraphBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+          <i data-lucide="network" class="w-3.5 h-3.5"></i>
           <span>인용 계보망</span>
         </button>
-        <button onclick="switchView('roi')" id="tabRoiBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">
-          <i data-lucide="calculator" class="w-3.5 h-3.5 text-amber-400"></i>
+        <button onclick="switchView('roi')" id="tabRoiBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
           <span>원가 시뮬레이터</span>
         </button>
-        <button onclick="switchView('inbox')" id="tabInboxBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">
-          <i data-lucide="inbox" class="w-3.5 h-3.5 text-emerald-400"></i>
+        <button onclick="switchView('inbox')" id="tabInboxBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+          <i data-lucide="inbox" class="w-3.5 h-3.5"></i>
           <span>수집 인박스</span>
-          <span class="text-[10px] font-mono text-slate-500">({data['inbox_total_count']})</span>
+          <span class="text-[10px] font-mono text-ink-muted">({data['inbox_total_count']})</span>
         </button>
       </nav>
 
@@ -342,156 +353,163 @@ def generate_html(data):
       <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
         <!-- Live DB Sync Badge -->
         <div id="dbLiveBadge">
-          <span class="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-bold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
             <span class="hidden xs:inline sm:inline">Neon DB</span> Live
           </span>
         </div>
 
         <!-- Language Toggle -->
-        <div class="bg-surface-card p-0.5 sm:p-1 rounded-lg border border-surface-border flex items-center text-xs font-semibold">
-          <button onclick="setLanguage('KO')" id="langKoBtn" class="px-2 py-0.5 rounded bg-slate-800 text-white transition text-[10px] sm:text-[11px]">KO</button>
-          <button onclick="setLanguage('EN')" id="langEnBtn" class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition text-[10px] sm:text-[11px]">EN</button>
+        <div class="bg-canvas-subtle p-0.5 sm:p-1 rounded-lg border border-canvas-border flex items-center text-xs font-semibold">
+          <button onclick="setLanguage('KO')" id="langKoBtn" class="px-2 py-0.5 rounded bg-ink-primary text-white transition text-[10px] sm:text-[11px]">KO</button>
+          <button onclick="setLanguage('EN')" id="langEnBtn" class="px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]">EN</button>
         </div>
       </div>
 
     </div>
 
-    <!-- Mobile Scrollable Sub-Navigation Bar (Horizontal Swipe) -->
-    <div class="flex md:hidden items-center gap-1.5 px-3 py-2 overflow-x-auto no-scrollbar border-t border-surface-border/60 bg-[#07090e]">
-      <button onclick="switchView('portfolio')" id="mTabPortfolioBtn" class="mobile-nav-tab active shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-slate-800 transition">
-        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-cyan-400"></i>
+    <!-- Mobile Scrollable Sub-Navigation Bar -->
+    <div class="flex md:hidden items-center gap-1.5 px-3 py-2 overflow-x-auto no-scrollbar border-t border-canvas-border bg-canvas-base">
+      <button onclick="switchView('portfolio')" id="mTabPortfolioBtn" class="mobile-nav-tab active shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-ink-primary transition">
+        <i data-lucide="check-circle" class="w-3.5 h-3.5 text-white"></i>
         <span>기술 검증</span>
-        <span class="text-[9px] font-mono px-1 py-0.2 rounded bg-cyan-950 text-cyan-300 font-bold border border-cyan-500/30" id="mHeaderVerifiedCount">{data['total_cases']}</span>
+        <span class="text-[9px] font-mono px-1 py-0.2 rounded bg-white/20 text-white font-bold" id="mHeaderVerifiedCount">{data['total_cases']}</span>
       </button>
-      <button onclick="switchView('news')" id="mTabNewsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white bg-surface-card border border-surface-border transition">
-        <i data-lucide="newspaper" class="w-3.5 h-3.5 text-sky-400"></i>
+      <button onclick="switchView('news')" id="mTabNewsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-white border border-canvas-border transition">
+        <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
         <span>AI 뉴스 ({data['news_total_count']})</span>
       </button>
-      <button onclick="switchView('graph')" id="mTabGraphBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white bg-surface-card border border-surface-border transition">
-        <i data-lucide="network" class="w-3.5 h-3.5 text-purple-400"></i>
+      <button onclick="switchView('graph')" id="mTabGraphBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-white border border-canvas-border transition">
+        <i data-lucide="network" class="w-3.5 h-3.5"></i>
         <span>인용 계보망</span>
       </button>
-      <button onclick="switchView('roi')" id="mTabRoiBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white bg-surface-card border border-surface-border transition">
-        <i data-lucide="calculator" class="w-3.5 h-3.5 text-amber-400"></i>
+      <button onclick="switchView('roi')" id="mTabRoiBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-white border border-canvas-border transition">
+        <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
         <span>원가 시뮬레이터</span>
       </button>
-      <button onclick="switchView('inbox')" id="mTabInboxBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white bg-surface-card border border-surface-border transition">
-        <i data-lucide="inbox" class="w-3.5 h-3.5 text-emerald-400"></i>
+      <button onclick="switchView('inbox')" id="mTabInboxBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-white border border-canvas-border transition">
+        <i data-lucide="inbox" class="w-3.5 h-3.5"></i>
         <span>수집 인박스 ({data['inbox_total_count']})</span>
       </button>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
 
     <!-- ==================== VIEW 1: TECH FACT-CHECK (기술 검증) ==================== -->
-    <div id="portfolioView" class="space-y-6">
+    <div id="portfolioView" class="space-y-8">
 
-      <!-- Hero Header Section -->
-      <div class="clean-card p-6 sm:p-7 relative overflow-hidden">
+      <!-- Editorial Intro Manifesto -->
+      <div class="border-b border-canvas-border pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div class="max-w-3xl space-y-2">
-          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono font-semibold">
-            <i data-lucide="terminal" class="w-3.5 h-3.5"></i> ZERO-HALLUCINATION VERIFICATION DOSSIER
+          <div class="text-[11px] font-mono font-bold tracking-widest text-ink-muted uppercase">
+            Empirical Architecture & Fact-Check Journal
           </div>
-          <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight pt-1">
-            바이럴 AI 기술의 실체와 공학적 경제성 정밀 검증
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-ink-primary tracking-tight font-serif">
+            소문난 AI 기술의 실체와 공학적 단위 경제성
           </h2>
-          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            직접 문제의식을 갖고 발굴한 <strong>직접 큐레이션</strong> 케이스와, 
-            자동 크론으로 포착된 <strong>실시간 급상승 트렌드</strong>를 
-            <strong>1차 출처 감사, 기저 표준 vs 서드파티 아키텍처 비교, 실측 단위 원가</strong>로 검증합니다.
+          <p class="text-xs sm:text-sm text-ink-secondary leading-relaxed">
+            AI 바이럴 마케팅의 환각을 걷어내고, <strong>1차 공식 출처 감사</strong>와 <strong>기저 표준 vs 서드파티 아키텍처 실측 벤치마크</strong>를 통해 도출한 기술 검증 보고서입니다.
           </p>
+        </div>
+
+        <div class="text-right shrink-0 hidden md:block">
+          <div class="text-xs text-ink-muted font-mono font-medium">LATEST UPDATE</div>
+          <div class="text-sm font-bold text-ink-primary font-mono">2026-09-02</div>
         </div>
       </div>
 
-      <!-- HIGH-VISIBILITY CONTROL CENTER (선명한 필터 & 정렬 컨트롤) -->
-      <div class="bg-surface-card p-4 rounded-2xl border border-surface-border space-y-3.5 shadow-xl">
+      <!-- HIGH-VISIBILITY CONTROL CENTER (선명한 에디토리얼 컨트롤 바) -->
+      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-canvas-border space-y-4 shadow-sm">
         
-        <!-- Row 1: Segment Tabs & Sorting Controls -->
+        <!-- Row 1: 3-Segment Discovery Mode & Sorting Selector -->
         <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
           
-          <!-- Discovery Mode Segment Buttons -->
-          <div class="flex items-center bg-[#07090e] p-1 rounded-xl border border-surface-border text-xs w-full md:w-auto">
+          <!-- Mode Segments -->
+          <div class="flex items-center bg-canvas-subtle p-1 rounded-xl border border-canvas-border text-xs w-full md:w-auto">
             <button onclick="setModeFilter('ALL')" id="modeBtnAll" class="segment-btn active flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5">
               <span>전체 검증</span>
-              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/40 text-slate-300 font-bold" id="badgeCountAll">16</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/10 text-white font-bold" id="badgeCountAll">17</span>
             </button>
-            <button onclick="setModeFilter('USER_CURATED')" id="modeBtnUser" class="segment-btn flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-semibold hover:text-white transition flex items-center justify-center gap-1.5">
-              <i data-lucide="user-check" class="w-3.5 h-3.5 text-indigo-400"></i>
+            <button onclick="setModeFilter('USER_CURATED')" id="modeBtnUser" class="segment-btn flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-semibold hover:text-ink-primary transition flex items-center justify-center gap-1.5">
+              <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
               <span>직접 큐레이션</span>
-              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/40 text-slate-400 font-bold" id="badgeCountUser">9</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/5 text-ink-secondary font-bold" id="badgeCountUser">10</span>
             </button>
-            <button onclick="setModeFilter('AUTO_HARVESTED')" id="modeBtnAuto" class="segment-btn flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-semibold hover:text-white transition flex items-center justify-center gap-1.5">
-              <i data-lucide="bot" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <button onclick="setModeFilter('AUTO_HARVESTED')" id="modeBtnAuto" class="segment-btn flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-semibold hover:text-ink-primary transition flex items-center justify-center gap-1.5">
+              <i data-lucide="bot" class="w-3.5 h-3.5"></i>
               <span>자동 트렌드</span>
-              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/40 text-slate-400 font-bold" id="badgeCountAuto">7</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/5 text-ink-secondary font-bold" id="badgeCountAuto">7</span>
             </button>
           </div>
 
-          <!-- Sort Selector & Counter -->
+          <!-- Sort Select & Results Counter -->
           <div class="flex items-center justify-between w-full md:w-auto gap-3">
-            <span class="text-xs text-slate-400 font-mono" id="resultsCountLabel">총 16건 표시</span>
+            <span class="text-xs text-ink-secondary font-mono" id="resultsCountLabel">총 17건 표시</span>
             
-            <div class="flex items-center gap-2 bg-[#07090e] px-3 py-1.5 rounded-xl border border-surface-border text-xs">
-              <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-cyan-400 shrink-0"></i>
-              <span class="text-slate-400 text-xs font-medium shrink-0">정렬:</span>
-              <select id="sortSelect" onchange="changeSort(this.value)" class="bg-transparent text-white font-bold text-xs focus:outline-none cursor-pointer">
-                <option value="date-desc" class="bg-slate-900 text-white font-medium">최신 조사일자순 (기본)</option>
-                <option value="date-asc" class="bg-slate-900 text-white font-medium">과거 조사일자순</option>
-                <option value="score-desc" class="bg-slate-900 text-white font-medium">높은 신뢰도순</option>
-                <option value="title-asc" class="bg-slate-900 text-white font-medium">기술명 가나다순</option>
+            <div class="flex items-center gap-2 bg-canvas-subtle px-3 py-1.5 rounded-xl border border-canvas-border text-xs">
+              <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-ink-secondary shrink-0"></i>
+              <span class="text-ink-secondary text-xs font-medium shrink-0">정렬:</span>
+              <select id="sortSelect" onchange="changeSort(this.value)" class="bg-transparent text-ink-primary font-bold text-xs focus:outline-none cursor-pointer">
+                <option value="date-desc">최신 조사일자순 (기본)</option>
+                <option value="date-asc">과거 조사일자순</option>
+                <option value="score-desc">높은 신뢰도순</option>
+                <option value="title-asc">기술명 가나다순</option>
               </select>
             </div>
           </div>
 
         </div>
 
-        <!-- Row 2: Search Input & Category Tag Pills -->
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-3 pt-2 border-t border-surface-border/60">
+        <!-- Row 2: Search Input & Domain Tag Filter Pills -->
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-3 pt-3 border-t border-canvas-border">
           
           <!-- Search Box -->
           <div class="relative w-full lg:w-96">
-            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-2.5 text-slate-400"></i>
-            <input type="text" id="searchInput" placeholder="기술명, 아키텍처, 문제의식 키워드 검색..." 
-                   class="w-full bg-[#07090e] border border-surface-border rounded-xl pl-10 pr-9 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition font-medium">
-            <button onclick="clearSearch()" id="clearSearchBtn" class="hidden absolute right-3 top-2.5 text-slate-500 hover:text-white">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-2.5 text-ink-muted"></i>
+            <input type="text" id="searchInput" placeholder="기술명, 아키텍처, 큐레이션 동기 검색..." 
+                   class="w-full bg-canvas-subtle border border-canvas-border rounded-xl pl-10 pr-9 py-2 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
+            <button onclick="clearSearch()" id="clearSearchBtn" class="hidden absolute right-3 top-2.5 text-ink-muted hover:text-ink-primary">
               <i data-lucide="x" class="w-3.5 h-3.5"></i>
             </button>
           </div>
 
-          <!-- Domain Tag Filter Pills (Horizontal scroll on mobile) -->
+          <!-- Domain Tag Filter Pills (Horizontal Touch Swipe) -->
           <div class="flex items-center gap-1.5 w-full lg:w-auto justify-start lg:justify-end overflow-x-auto no-scrollbar py-1">
-            <span class="text-[11px] text-slate-500 font-mono mr-1 shrink-0">도메인:</span>
-            <button onclick="setDomainFilter('ALL')" class="tag-pill active shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[#07090e] text-slate-300 border border-surface-border hover:border-slate-600" data-domain="ALL">전체</button>
-            <button onclick="setDomainFilter('agent')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[#07090e] text-slate-300 border border-surface-border hover:border-slate-600" data-domain="agent">AI 에이전트</button>
-            <button onclick="setDomainFilter('scraping')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[#07090e] text-slate-300 border border-surface-border hover:border-slate-600" data-domain="scraping">웹 스크래핑/브라우저</button>
-            <button onclick="setDomainFilter('doc')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[#07090e] text-slate-300 border border-surface-border hover:border-slate-600" data-domain="doc">문서 파싱/OCR</button>
-            <button onclick="setDomainFilter('3d')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[#07090e] text-slate-300 border border-surface-border hover:border-slate-600" data-domain="3d">3D/그래픽스</button>
-            <button onclick="setDomainFilter('rust')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[#07090e] text-slate-300 border border-surface-border hover:border-slate-600" data-domain="rust">Rust/시스템</button>
+            <span class="text-[11px] text-ink-muted font-mono mr-1 shrink-0">도메인:</span>
+            <button onclick="setDomainFilter('ALL')" class="tag-pill active shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-canvas-subtle text-ink-secondary border border-canvas-border hover:border-ink-primary" data-domain="ALL">전체</button>
+            <button onclick="setDomainFilter('frontend')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-canvas-subtle text-ink-secondary border border-canvas-border hover:border-ink-primary" data-domain="frontend">프론트엔드/디자인</button>
+            <button onclick="setDomainFilter('agent')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-canvas-subtle text-ink-secondary border border-canvas-border hover:border-ink-primary" data-domain="agent">AI 에이전트</button>
+            <button onclick="setDomainFilter('scraping')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-canvas-subtle text-ink-secondary border border-canvas-border hover:border-ink-primary" data-domain="scraping">웹 스크래핑/브라우저</button>
+            <button onclick="setDomainFilter('doc')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-canvas-subtle text-ink-secondary border border-canvas-border hover:border-ink-primary" data-domain="doc">문서 파싱/OCR</button>
+            <button onclick="setDomainFilter('3d')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-canvas-subtle text-ink-secondary border border-canvas-border hover:border-ink-primary" data-domain="3d">3D/컴포넌트</button>
+            <button onclick="setDomainFilter('rust')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-canvas-subtle text-ink-secondary border border-canvas-border hover:border-ink-primary" data-domain="rust">Rust/시스템</button>
           </div>
 
         </div>
 
       </div>
 
-      <!-- Fact-Check Cards Grid (3 Columns) -->
-      <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <!-- FEATURED HERO DOSSIER (1위 최신 케이스 와이드 쇼케이스) -->
+      <div id="featuredHeroContainer"></div>
+
+      <!-- ASYMMETRIC EDITORIAL DOSSIER GRID -->
+      <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"></div>
     </div>
 
     <!-- ==================== VIEW 2: AI NEWS & TRENDS (AI 뉴스 피드) ==================== -->
     <div id="newsView" class="hidden space-y-6">
-      <div class="clean-card p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-sky-500/20">
+      <div class="editorial-card p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div class="space-y-1">
           <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-md bg-sky-500/10 text-sky-400 text-xs font-mono font-bold border border-sky-500/30">
+            <span class="px-2.5 py-0.5 rounded-md bg-canvas-subtle text-ink-primary text-xs font-mono font-bold border border-canvas-border">
               GLOBAL AI INTELLIGENCE FEED
             </span>
-            <span class="text-xs text-slate-400 font-mono">총 {data['news_total_count']}건</span>
+            <span class="text-xs text-ink-secondary font-mono">총 {data['news_total_count']}건</span>
           </div>
-          <h2 class="text-lg font-bold text-white">커뮤니티, 해커뉴스, 1차 사설에서 수집된 주요 AI 기술 담론</h2>
-          <p class="text-xs text-slate-400">
-            소프트웨어 저장소뿐만 아니라 엔지니어링 동향, 보안 리포트, 아키텍처 튜토리얼 기사를 큐레이션합니다.
+          <h2 class="text-lg font-bold text-ink-primary font-serif">커뮤니티, 해커뉴스, 사설에서 수집된 주요 AI 담론</h2>
+          <p class="text-xs text-ink-secondary">
+            소프트웨어 저장소뿐만 아니라 엔지니어링 동향, 보안 리포트, 아키텍처 튜토리얼 기사를 선별합니다.
           </p>
         </div>
       </div>
@@ -501,36 +519,36 @@ def generate_html(data):
 
     <!-- ==================== VIEW 3: CITATION & LINEAGE GRAPH ==================== -->
     <div id="graphView" class="hidden space-y-6">
-      <div class="clean-card p-6 space-y-4">
+      <div class="editorial-card p-6 space-y-4">
         <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
           <div>
             <div class="flex items-center gap-2 flex-wrap">
-              <span class="px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-300 text-xs font-mono font-bold border border-purple-500/30">
+              <span class="px-2.5 py-0.5 rounded-md bg-canvas-subtle text-ink-primary text-xs font-mono font-bold border border-canvas-border">
                 MULTI-ENTITY CITATION NETWORK
               </span>
-              <span class="text-xs text-slate-400">기술 • 연구자 • 연구소 • 1차 논문</span>
+              <span class="text-xs text-ink-secondary">기술 • 연구자 • 연구소 • 1차 논문</span>
             </div>
-            <h2 class="text-lg font-bold text-white mt-1">인물과 논문 인용 계보를 통한 기술 탄생의 뿌리 지도</h2>
+            <h2 class="text-lg font-bold text-ink-primary mt-1 font-serif">인물과 논문 인용 계보를 통한 기술 탄생의 뿌리 지도</h2>
           </div>
 
           <!-- Entity Group Filters -->
-          <div class="flex flex-wrap items-center gap-1.5 bg-[#07090e] p-1.5 rounded-xl border border-surface-border text-xs">
-            <button onclick="filterGraphGroup('ALL')" class="graph-group-btn active px-2.5 py-1 rounded-lg bg-slate-800 text-white font-medium transition" data-group="ALL">전체 보기</button>
-            <button onclick="filterGraphGroup('language')" class="graph-group-btn px-2.5 py-1 rounded-lg text-yellow-400 hover:bg-slate-800 transition" data-group="language">언어</button>
-            <button onclick="filterGraphGroup('technology')" class="graph-group-btn px-2.5 py-1 rounded-lg text-emerald-400 hover:bg-slate-800 transition" data-group="technology">기술/엔진</button>
-            <button onclick="filterGraphGroup('organization')" class="graph-group-btn px-2.5 py-1 rounded-lg text-purple-400 hover:bg-slate-800 transition" data-group="organization">연구소</button>
-            <button onclick="filterGraphGroup('person')" class="graph-group-btn px-2.5 py-1 rounded-lg text-pink-400 hover:bg-slate-800 transition" data-group="person">인물</button>
-            <button onclick="filterGraphGroup('paper')" class="graph-group-btn px-2.5 py-1 rounded-lg text-orange-400 hover:bg-slate-800 transition" data-group="paper">논문</button>
+          <div class="flex flex-wrap items-center gap-1.5 bg-canvas-subtle p-1.5 rounded-xl border border-canvas-border text-xs">
+            <button onclick="filterGraphGroup('ALL')" class="graph-group-btn active px-2.5 py-1 rounded-lg bg-ink-primary text-white font-medium transition" data-group="ALL">전체 보기</button>
+            <button onclick="filterGraphGroup('language')" class="graph-group-btn px-2.5 py-1 rounded-lg text-amber-700 hover:bg-white transition" data-group="language">언어</button>
+            <button onclick="filterGraphGroup('technology')" class="graph-group-btn px-2.5 py-1 rounded-lg text-emerald-700 hover:bg-white transition" data-group="technology">기술/엔진</button>
+            <button onclick="filterGraphGroup('organization')" class="graph-group-btn px-2.5 py-1 rounded-lg text-indigo-700 hover:bg-white transition" data-group="organization">연구소</button>
+            <button onclick="filterGraphGroup('person')" class="graph-group-btn px-2.5 py-1 rounded-lg text-rose-700 hover:bg-white transition" data-group="person">인물</button>
+            <button onclick="filterGraphGroup('paper')" class="graph-group-btn px-2.5 py-1 rounded-lg text-orange-700 hover:bg-white transition" data-group="paper">논문</button>
           </div>
         </div>
 
-        <div class="relative w-full h-[680px] bg-[#07090e] rounded-xl border border-surface-border overflow-hidden">
+        <div class="relative w-full h-[640px] bg-white rounded-xl border border-canvas-border overflow-hidden">
           <svg id="techGraphSvg" class="w-full h-full cursor-grab active:cursor-grabbing"></svg>
           
-          <div class="absolute bottom-4 left-4 bg-surface-card/90 backdrop-blur p-3 rounded-xl border border-surface-border text-xs space-y-1">
-            <div class="text-slate-400 font-semibold text-[11px]">네트워크 인터랙션:</div>
-            <div class="text-slate-300 text-[11px]">• 노드 드래그 및 마우스 휠 줌/팬</div>
-            <div class="text-slate-300 text-[11px]">• 노드 호버 시 직접 인용 연결선 하이라이트</div>
+          <div class="absolute bottom-4 left-4 bg-white/95 backdrop-blur p-3 rounded-xl border border-canvas-border text-xs space-y-1 shadow-sm">
+            <div class="text-ink-secondary font-semibold text-[11px]">네트워크 인터랙션:</div>
+            <div class="text-ink-primary text-[11px]">• 노드 드래그 및 마우스 휠 줌/팬</div>
+            <div class="text-ink-primary text-[11px]">• 노드 호버 시 직접 인용 연결선 하이라이트</div>
           </div>
         </div>
       </div>
@@ -538,13 +556,13 @@ def generate_html(data):
 
     <!-- ==================== VIEW 4: ROI UNIT ECONOMICS SIMULATOR ==================== -->
     <div id="roiView" class="hidden space-y-6">
-      <div class="clean-card p-6 sm:p-8 space-y-6">
+      <div class="editorial-card p-6 sm:p-8 space-y-6">
         <div class="max-w-2xl space-y-1.5">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-400 text-xs font-mono font-bold border border-amber-500/30">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-canvas-subtle text-ink-primary text-xs font-mono font-bold border border-canvas-border">
             UNIT ECONOMICS CALCULATOR
           </div>
-          <h2 class="text-xl font-bold text-white">상용 유료 SaaS vs 오픈소스 자체 구축 원가 역산</h2>
-          <p class="text-xs text-slate-400">
+          <h2 class="text-xl font-bold text-ink-primary font-serif">상용 유료 SaaS vs 오픈소스 자체 구축 원가 역산</h2>
+          <p class="text-xs text-ink-secondary">
             팩트체크 검증 과정에서 실측한 단위 원가를 기반으로 월간 운영 비용을 실시간 비교합니다.
           </p>
         </div>
@@ -552,55 +570,55 @@ def generate_html(data):
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           
           <!-- Scraping ROI Box -->
-          <div class="bg-[#07090e] p-6 rounded-2xl border border-surface-border space-y-4">
+          <div class="bg-canvas-subtle p-6 rounded-2xl border border-canvas-border space-y-4">
             <div class="flex items-center justify-between">
-              <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                <i data-lucide="globe" class="w-4 h-4 text-cyan-400"></i> 웹 스크래핑 파이프라인
+              <h3 class="text-sm font-bold text-ink-primary flex items-center gap-2">
+                <i data-lucide="globe" class="w-4 h-4 text-ink-secondary"></i> 웹 스크래핑 파이프라인
               </h3>
-              <span class="text-xs font-mono text-cyan-400 font-bold" id="scrapingPagesDisplay">100,000 페이지/월</span>
+              <span class="text-xs font-mono text-ink-primary font-bold" id="scrapingPagesDisplay">100,000 페이지/월</span>
             </div>
 
-            <input type="range" id="scrapingPagesSlider" min="10000" max="1000000" step="10000" value="100000" class="w-full accent-cyan-400 cursor-pointer">
+            <input type="range" id="scrapingPagesSlider" min="10000" max="1000000" step="10000" value="100000" class="w-full accent-ink-primary cursor-pointer">
 
             <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
-              <div class="p-3 rounded-xl bg-surface-card border border-surface-border space-y-1">
-                <div class="text-slate-500 text-[11px]">Firecrawl Cloud SaaS</div>
-                <div class="text-base font-bold text-rose-400" id="costFirecrawl">$250 /월</div>
+              <div class="p-3 rounded-xl bg-white border border-canvas-border space-y-1">
+                <div class="text-ink-muted text-[11px]">Firecrawl Cloud SaaS</div>
+                <div class="text-base font-bold text-rose-600" id="costFirecrawl">$250 /월</div>
               </div>
-              <div class="p-3 rounded-xl bg-surface-card border border-cyan-500/30 space-y-1">
-                <div class="text-cyan-400 text-[11px] font-semibold">WaterCrawl 자체 구축</div>
-                <div class="text-base font-bold text-emerald-400" id="costWatercrawl">$40 /월</div>
+              <div class="p-3 rounded-xl bg-white border border-canvas-border space-y-1">
+                <div class="text-emerald-700 text-[11px] font-semibold">WaterCrawl 자체 구축</div>
+                <div class="text-base font-bold text-emerald-600" id="costWatercrawl">$40 /월</div>
               </div>
             </div>
 
-            <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-300 font-semibold flex items-center justify-between" id="scrapingSavings">
+            <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 font-semibold flex items-center justify-between" id="scrapingSavings">
               +$210 /월 절감 (84% 절약)
             </div>
           </div>
 
           <!-- Agent Token ROI Box -->
-          <div class="bg-[#07090e] p-6 rounded-2xl border border-surface-border space-y-4">
+          <div class="bg-canvas-subtle p-6 rounded-2xl border border-canvas-border space-y-4">
             <div class="flex items-center justify-between">
-              <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                <i data-lucide="bot" class="w-4 h-4 text-purple-400"></i> AI 리서치 에이전트 토큰
+              <h3 class="text-sm font-bold text-ink-primary flex items-center gap-2">
+                <i data-lucide="bot" class="w-4 h-4 text-ink-secondary"></i> AI 에이전트 토큰 파이프라인
               </h3>
-              <span class="text-xs font-mono text-purple-400 font-bold" id="agentTokensDisplay">50M 토큰/월</span>
+              <span class="text-xs font-mono text-ink-primary font-bold" id="agentTokensDisplay">50M 토큰/월</span>
             </div>
 
-            <input type="range" id="agentTokensSlider" min="10000000" max="500000000" step="10000000" value="50000000" class="w-full accent-purple-400 cursor-pointer">
+            <input type="range" id="agentTokensSlider" min="10000000" max="500000000" step="10000000" value="50000000" class="w-full accent-ink-primary cursor-pointer">
 
             <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
-              <div class="p-3 rounded-xl bg-surface-card border border-surface-border space-y-1">
-                <div class="text-slate-500 text-[11px]">Claude 3.5 Sonnet 직접 호출</div>
-                <div class="text-base font-bold text-rose-400" id="costClaude">$300 /월</div>
+              <div class="p-3 rounded-xl bg-white border border-canvas-border space-y-1">
+                <div class="text-ink-muted text-[11px]">Claude 3.5 Sonnet 직접 호출</div>
+                <div class="text-base font-bold text-rose-600" id="costClaude">$300 /월</div>
               </div>
-              <div class="p-3 rounded-xl bg-surface-card border border-purple-500/30 space-y-1">
-                <div class="text-purple-400 text-[11px] font-semibold">PRAXIST 그래프 프루닝</div>
-                <div class="text-base font-bold text-emerald-400" id="costPraxist">$25 /월</div>
+              <div class="p-3 rounded-xl bg-white border border-canvas-border space-y-1">
+                <div class="text-indigo-700 text-[11px] font-semibold">PRAXIST 그래프 프루닝</div>
+                <div class="text-base font-bold text-emerald-600" id="costPraxist">$25 /월</div>
               </div>
             </div>
 
-            <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-300 font-semibold flex items-center justify-between" id="agentSavings">
+            <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 font-semibold flex items-center justify-between" id="agentSavings">
               +$275 /월 절감 (92% 절약)
             </div>
           </div>
@@ -612,45 +630,45 @@ def generate_html(data):
     <!-- ==================== VIEW 5: HARVEST INBOX ==================== -->
     <div id="inboxView" class="hidden space-y-6">
       
-      <div class="clean-card p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-emerald-500/20">
+      <div class="editorial-card p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div class="space-y-1">
           <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-mono font-bold border border-emerald-500/30">
+            <span class="px-2.5 py-0.5 rounded-md bg-canvas-subtle text-ink-primary text-xs font-mono font-bold border border-canvas-border">
               AUTONOMOUS HARVEST INBOX
             </span>
-            <span class="text-xs text-slate-400 font-mono">총 {data['inbox_total_count']}건</span>
+            <span class="text-xs text-ink-secondary font-mono">총 {data['inbox_total_count']}건</span>
           </div>
-          <h2 class="text-lg font-bold text-white">24시간 자율 크론으로 수집된 오픈소스 및 모델 후보군</h2>
-          <p class="text-xs text-slate-400">
+          <h2 class="text-lg font-bold text-ink-primary font-serif">24시간 자율 크론으로 수집된 오픈소스 및 모델 후보군</h2>
+          <p class="text-xs text-ink-secondary">
             원클릭으로 분석 큐에 등록하여 Neon DB와 실시간 동기화하고 심층 팩트체크를 진행할 수 있습니다.
           </p>
         </div>
       </div>
 
       <!-- Clean Inbox Controls -->
-      <div class="bg-surface-card p-3.5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-3 border border-surface-border">
+      <div class="bg-white p-3.5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-3 border border-canvas-border">
         <div class="flex items-center gap-2.5 w-full md:w-auto">
           <div class="relative w-full md:w-80">
-            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-2.5 text-slate-400"></i>
+            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-2.5 text-ink-muted"></i>
             <input type="text" id="inboxSearchInput" placeholder="후보 기술 또는 모델명 검색..." 
-                   class="w-full bg-[#07090e] border border-surface-border rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition font-medium">
+                   class="w-full bg-canvas-subtle border border-canvas-border rounded-xl pl-10 pr-4 py-2 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
           </div>
 
-          <button onclick="toggleFamilyGrouping()" id="groupByFamilyBtn" class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-purple-600 hover:bg-purple-500 text-white transition shrink-0">
+          <button onclick="toggleFamilyGrouping()" id="groupByFamilyBtn" class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-ink-primary text-white transition shrink-0">
             <i data-lucide="layers" class="w-4 h-4"></i>
             <span id="groupByFamilyText">패밀리 묶음 (ON)</span>
           </button>
         </div>
 
         <div class="flex items-center gap-2 w-full md:w-auto justify-end">
-          <div class="flex items-center gap-1.5 bg-[#07090e] px-3 py-1.5 rounded-xl border border-surface-border text-xs">
-            <i data-lucide="filter" class="w-3.5 h-3.5 text-cyan-400"></i>
-            <select id="inboxSourceSelect" onchange="setInboxSourceFilter(this.value)" class="bg-transparent text-white text-xs font-semibold focus:outline-none cursor-pointer">
-              <option value="ALL" class="bg-slate-900 text-white">전체 수집 플랫폼 ({data['inbox_total_count']}건)</option>
-              <option value="Hugging Face Spaces" class="bg-slate-900 text-white">🤗 Hugging Face Spaces</option>
-              <option value="Hugging Face Models" class="bg-slate-900 text-white">🤗 Hugging Face Models</option>
-              <option value="GitHub Official" class="bg-slate-900 text-white">🐙 GitHub Official</option>
-              <option value="ArXiv Preprint" class="bg-slate-900 text-white">📄 ArXiv Preprint</option>
+          <div class="flex items-center gap-1.5 bg-canvas-subtle px-3 py-1.5 rounded-xl border border-canvas-border text-xs">
+            <i data-lucide="filter" class="w-3.5 h-3.5 text-ink-secondary"></i>
+            <select id="inboxSourceSelect" onchange="setInboxSourceFilter(this.value)" class="bg-transparent text-ink-primary text-xs font-semibold focus:outline-none cursor-pointer">
+              <option value="ALL">전체 수집 플랫폼 ({data['inbox_total_count']}건)</option>
+              <option value="Hugging Face Spaces">🤗 Hugging Face Spaces</option>
+              <option value="Hugging Face Models">🤗 Hugging Face Models</option>
+              <option value="GitHub Official">🐙 GitHub Official</option>
+              <option value="ArXiv Preprint">📄 ArXiv Preprint</option>
             </select>
           </div>
         </div>
@@ -662,54 +680,54 @@ def generate_html(data):
   </main>
 
   <!-- ==================== DETAILED TECHNICAL DOSSIER MODAL ==================== -->
-  <div id="detailModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-    <div class="clean-card max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl border border-surface-border my-8 max-h-[92vh] flex flex-col bg-[#0b0e14]">
+  <div id="detailModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="editorial-card max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl border border-canvas-border my-8 max-h-[92vh] flex flex-col bg-white">
       
       <!-- Modal Header -->
-      <div class="p-6 border-b border-surface-border flex items-start justify-between bg-[#07090e]">
+      <div class="p-6 border-b border-canvas-border flex items-start justify-between bg-canvas-subtle">
         <div class="space-y-1.5 pr-4">
           <div class="flex items-center gap-2 flex-wrap">
             <span id="modalModeBadge" class="text-xs px-2.5 py-0.5 rounded-md font-semibold"></span>
-            <span id="modalClusterBadge" class="text-xs px-2.5 py-0.5 rounded-md bg-cyan-950 text-cyan-300 border border-cyan-500/30 font-medium"></span>
+            <span id="modalClusterBadge" class="text-xs px-2.5 py-0.5 rounded-md bg-white text-ink-primary border border-canvas-border font-medium"></span>
             <span id="modalVerdictBadge" class="text-xs px-2.5 py-0.5 rounded-md font-semibold"></span>
             <span id="modalStageBadge" class="text-xs px-2.5 py-0.5 rounded-md font-medium"></span>
           </div>
-          <h3 id="modalTitle" class="text-xl font-bold text-white pt-1"></h3>
+          <h3 id="modalTitle" class="text-xl font-bold text-ink-primary pt-1 font-serif"></h3>
         </div>
-        <button onclick="closeModal()" class="text-slate-400 hover:text-white p-1 rounded-lg bg-surface-card hover:bg-slate-800 transition">
+        <button onclick="closeModal()" class="text-ink-secondary hover:text-ink-primary p-1.5 rounded-lg bg-white border border-canvas-border hover:bg-canvas-subtle transition">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
       <!-- Modal Body -->
-      <div class="p-6 overflow-y-auto space-y-6 text-sm text-slate-300">
+      <div class="p-6 overflow-y-auto space-y-6 text-sm text-ink-secondary">
         
         <!-- Curation & Intent -->
-        <div id="modalCurationBox" class="p-4 rounded-xl border border-cyan-500/30 bg-cyan-950/20 space-y-1.5">
+        <div id="modalCurationBox" class="p-4 rounded-xl border border-canvas-border bg-canvas-subtle space-y-1.5">
           <div class="flex items-center justify-between">
-            <h4 class="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
               <i data-lucide="compass" class="w-3.5 h-3.5"></i> Discovery Motivation & Target Workflow
             </h4>
-            <span class="text-[11px] text-slate-400 font-mono" id="modalCurator"></span>
+            <span class="text-[11px] text-ink-muted font-mono" id="modalCurator"></span>
           </div>
-          <p id="modalMotivation" class="text-xs text-slate-200 leading-relaxed font-medium"></p>
-          <div class="pt-1.5 flex items-center gap-1.5 text-xs text-slate-400">
-            <span class="text-slate-500">🎯 연계 워크플로우:</span>
-            <span id="modalWorkflow" class="text-cyan-300 font-semibold font-mono"></span>
+          <p id="modalMotivation" class="text-xs text-ink-primary leading-relaxed font-medium"></p>
+          <div class="pt-1.5 flex items-center gap-1.5 text-xs text-ink-secondary">
+            <span class="text-ink-muted">🎯 연계 워크플로우:</span>
+            <span id="modalWorkflow" class="text-ink-primary font-semibold font-mono"></span>
           </div>
         </div>
 
         <!-- Claims Assessment (Claims vs Truth) -->
-        <div id="modalClaimsBox" class="hidden space-y-3 p-4 rounded-xl border border-amber-500/30 bg-amber-950/10">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+        <div id="modalClaimsBox" class="hidden space-y-3 p-4 rounded-xl border border-amber-200 bg-amber-50/50">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-amber-900 flex items-center gap-1.5">
             <i data-lucide="scale" class="w-3.5 h-3.5"></i> Marketing Claims vs Empirical Reality
           </h4>
           <div id="modalClaimsList" class="space-y-2.5"></div>
         </div>
 
         <!-- Technical Ecosystem Analysis (Standard vs 3rd-party) -->
-        <div id="modalTechAnalysisBox" class="hidden space-y-4 p-4 rounded-xl border border-purple-500/30 bg-purple-950/10">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-purple-300 flex items-center gap-1.5">
+        <div id="modalTechAnalysisBox" class="hidden space-y-4 p-4 rounded-xl border border-canvas-border bg-canvas-subtle">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
             <i data-lucide="cpu" class="w-3.5 h-3.5"></i> Ecosystem Technical Analysis & Architecture
           </h4>
           <div id="modalTechAnalysisContent" class="space-y-3 text-xs"></div>
@@ -717,49 +735,49 @@ def generate_html(data):
 
         <!-- Story & Empirical Proof -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="p-4 rounded-xl bg-surface-card border border-surface-border space-y-2">
-            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-              <i data-lucide="eye" class="w-3.5 h-3.5 text-cyan-400"></i> The Hook & Anatomy
+          <div class="p-4 rounded-xl bg-canvas-subtle border border-canvas-border space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
+              <i data-lucide="eye" class="w-3.5 h-3.5 text-ink-secondary"></i> The Hook & Anatomy
             </h4>
-            <p id="modalHook" class="text-xs text-slate-300 leading-relaxed"></p>
-            <p id="modalHype" class="text-xs text-slate-400 leading-relaxed pt-1 border-t border-surface-border"></p>
+            <p id="modalHook" class="text-xs text-ink-secondary leading-relaxed"></p>
+            <p id="modalHype" class="text-xs text-ink-muted leading-relaxed pt-1 border-t border-canvas-border"></p>
           </div>
 
-          <div class="p-4 rounded-xl bg-surface-card border border-surface-border space-y-2">
-            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-              <i data-lucide="wrench" class="w-3.5 h-3.5 text-emerald-400"></i> Hands-on Measured Results
+          <div class="p-4 rounded-xl bg-canvas-subtle border border-canvas-border space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
+              <i data-lucide="wrench" class="w-3.5 h-3.5 text-emerald-700"></i> Hands-on Measured Results
             </h4>
-            <div id="modalHandsOnEnv" class="text-xs text-slate-400 font-mono"></div>
-            <div id="modalHandsOnMetrics" class="text-xs font-bold text-emerald-300"></div>
-            <p id="modalHandsOnDetails" class="text-xs text-slate-300 leading-relaxed"></p>
+            <div id="modalHandsOnEnv" class="text-xs text-ink-muted font-mono"></div>
+            <div id="modalHandsOnMetrics" class="text-xs font-bold text-emerald-800"></div>
+            <p id="modalHandsOnDetails" class="text-xs text-ink-secondary leading-relaxed"></p>
           </div>
         </div>
 
         <!-- Alternatives Matrix -->
         <div class="space-y-3">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-            <i data-lucide="git-compare" class="w-3.5 h-3.5 text-indigo-400"></i> Comparative Alternatives Matrix
+          <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
+            <i data-lucide="git-compare" class="w-3.5 h-3.5 text-ink-secondary"></i> Comparative Alternatives Matrix
           </h4>
-          <div class="overflow-x-auto rounded-xl border border-surface-border">
+          <div class="overflow-x-auto rounded-xl border border-canvas-border">
             <table class="w-full text-left text-xs border-collapse">
-              <thead class="bg-[#07090e] text-slate-400 font-mono">
+              <thead class="bg-canvas-subtle text-ink-secondary font-mono">
                 <tr>
-                  <th class="p-3 border-b border-surface-border">Tool / Tech</th>
-                  <th class="p-3 border-b border-surface-border">Tech Stack</th>
-                  <th class="p-3 border-b border-surface-border">Pros</th>
-                  <th class="p-3 border-b border-surface-border">Cons</th>
-                  <th class="p-3 border-b border-surface-border">Best For</th>
+                  <th class="p-3 border-b border-canvas-border">Tool / Tech</th>
+                  <th class="p-3 border-b border-canvas-border">Tech Stack</th>
+                  <th class="p-3 border-b border-canvas-border">Pros</th>
+                  <th class="p-3 border-b border-canvas-border">Cons</th>
+                  <th class="p-3 border-b border-canvas-border">Best For</th>
                 </tr>
               </thead>
-              <tbody id="modalAlternativesBody" class="divide-y divide-surface-border bg-surface-card"></tbody>
+              <tbody id="modalAlternativesBody" class="divide-y divide-canvas-border bg-white"></tbody>
             </table>
           </div>
         </div>
 
         <!-- Primary Sources -->
         <div class="space-y-2.5">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-            <i data-lucide="book-open" class="w-3.5 h-3.5 text-cyan-400"></i> Audited Primary Sources
+          <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
+            <i data-lucide="book-open" class="w-3.5 h-3.5 text-ink-secondary"></i> Audited Primary Sources
           </h4>
           <div id="modalSourcesList" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5"></div>
         </div>
@@ -769,8 +787,8 @@ def generate_html(data):
   </div>
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 border border-cyan-500/50 text-white px-4 py-3 rounded-xl shadow-2xl text-xs font-semibold hidden transition-all duration-300 flex items-center gap-2">
-    <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-ink-primary text-white px-4 py-3 rounded-xl shadow-2xl text-xs font-semibold hidden transition-all duration-300 flex items-center gap-2">
+    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
     <span id="toastMsg">작업이 완료되었습니다.</span>
   </div>
 
@@ -803,14 +821,15 @@ def generate_html(data):
 
     const queuedItemIds = new Set(JSON.parse(localStorage.getItem('queued_factchecks') || '[]'));
 
-    // Domain Color Palette
+    // Domain Color Palette for Graph
     const domainColorMap = {{
-      'cluster_web_scraping': '#06b6d4',
-      'cluster_doc_parsing': '#3b82f6',
-      'cluster_agent_framework': '#8b5cf6',
-      'cluster_local_llm': '#10b981',
-      'cluster_3d_graphics': '#ec4899',
-      'cluster_browser_engine': '#f59e0b',
+      'cluster_frontend_design_system': '#0f172a',
+      'cluster_web_scraping': '#0284c7',
+      'cluster_doc_parsing': '#2563eb',
+      'cluster_agent_framework': '#7c3aed',
+      'cluster_local_llm': '#059669',
+      'cluster_3d_graphics': '#db2777',
+      'cluster_browser_engine': '#d97706',
       'general': '#64748b'
     }};
 
@@ -826,19 +845,17 @@ def generate_html(data):
         
         if (btn) {{
           if (v === view) {{
-            btn.classList.add('active', 'bg-slate-800', 'text-white');
-            btn.classList.remove('text-slate-400');
+            btn.className = 'nav-tab active flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-white bg-ink-primary transition';
           }} else {{
-            btn.classList.remove('active', 'bg-slate-800', 'text-white');
-            btn.classList.add('text-slate-400');
+            btn.className = 'nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition';
           }}
         }}
 
         if (mBtn) {{
           if (v === view) {{
-            mBtn.className = 'mobile-nav-tab active shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-slate-800 transition';
+            mBtn.className = 'mobile-nav-tab active shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-ink-primary transition';
           }} else {{
-            mBtn.className = 'mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white bg-surface-card border border-surface-border transition';
+            mBtn.className = 'mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-white border border-canvas-border transition';
           }}
         }}
       }});
@@ -851,8 +868,8 @@ def generate_html(data):
 
     function setLanguage(lang) {{
       currentLang = lang;
-      document.getElementById('langKoBtn').className = lang === 'KO' ? 'px-2 py-0.5 rounded bg-slate-800 text-white text-[11px]' : 'px-2 py-0.5 rounded text-slate-400 hover:text-white text-[11px]';
-      document.getElementById('langEnBtn').className = lang === 'EN' ? 'px-2 py-0.5 rounded bg-slate-800 text-white text-[11px]' : 'px-2 py-0.5 rounded text-slate-400 hover:text-white text-[11px]';
+      document.getElementById('langKoBtn').className = lang === 'KO' ? 'px-2 py-0.5 rounded bg-ink-primary text-white text-[10px] sm:text-[11px]' : 'px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary text-[10px] sm:text-[11px]';
+      document.getElementById('langEnBtn').className = lang === 'EN' ? 'px-2 py-0.5 rounded bg-ink-primary text-white text-[10px] sm:text-[11px]' : 'px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary text-[10px] sm:text-[11px]';
       renderCards();
       renderNews();
       renderInbox();
@@ -873,8 +890,8 @@ def generate_html(data):
             const badge = document.getElementById('dbLiveBadge');
             if (badge) {{
               badge.innerHTML = `
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Neon DB Live (${{data.portfolios.length}})
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Neon DB Live (${{data.portfolios.length}})
                 </span>
               `;
             }}
@@ -951,7 +968,9 @@ def generate_html(data):
     // ================= RENDER FACT-CHECK CARDS =================
     function renderCards() {{
       const grid = document.getElementById('cardsGrid');
+      const heroContainer = document.getElementById('featuredHeroContainer');
       grid.innerHTML = '';
+      heroContainer.innerHTML = '';
 
       // Update Counts
       const countUser = liveCasesData.filter(c => (c.curation?.discovery_mode || 'USER_CURATED') === 'USER_CURATED').length;
@@ -970,7 +989,8 @@ def generate_html(data):
         const cat = (c.category || '').toLowerCase();
         const cluster = (c.clustering?.cluster_id || '').toLowerCase();
         let matchesDomain = true;
-        if (currentDomain === 'agent') matchesDomain = cat.includes('agent') || cluster.includes('agent');
+        if (currentDomain === 'frontend') matchesDomain = cat.includes('design') || cat.includes('frontend') || cluster.includes('design');
+        else if (currentDomain === 'agent') matchesDomain = cat.includes('agent') || cluster.includes('agent');
         else if (currentDomain === 'scraping') matchesDomain = cat.includes('scraping') || cat.includes('browser') || cluster.includes('scraping');
         else if (currentDomain === 'doc') matchesDomain = cat.includes('doc') || cat.includes('ocr') || cluster.includes('doc');
         else if (currentDomain === '3d') matchesDomain = cat.includes('3d') || cat.includes('graphics') || cluster.includes('3d');
@@ -1000,11 +1020,59 @@ def generate_html(data):
       document.getElementById('resultsCountLabel').innerText = `총 ${{filtered.length}}건 표시 (전체 ${{liveCasesData.length}}건 중)`;
 
       if (filtered.length === 0) {{
-        grid.innerHTML = `<div class="col-span-full py-16 text-center text-slate-500 font-medium">검색 및 필터 조건에 일치하는 기술 검증 보고서가 없습니다.</div>`;
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">검색 및 필터 조건에 일치하는 기술 검증 보고서가 없습니다.</div>`;
         return;
       }}
 
-      filtered.forEach((c) => {{
+      // Featured Hero Case (First Top Item when in Default Sort & No Search)
+      if (currentSort === 'date-desc' && !searchQuery && currentDomain === 'ALL' && filtered.length > 0) {{
+        const hero = filtered[0];
+        const heroStory = hero.portfolio_story || {{}};
+        const heroCuration = hero.curation || {{}};
+        const isUserMode = heroCuration.discovery_mode === 'USER_CURATED';
+        const isTrue = hero.verdict === 'VERIFIED_TRUE';
+
+        heroContainer.innerHTML = `
+          <div class="hero-card p-6 sm:p-8 cursor-pointer hover:border-black transition group" onclick="openModal(liveCasesData.find(x => x.case_id === '${{hero.case_id}}'))">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div class="space-y-3.5 max-w-3xl">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold ${{isUserMode ? 'bg-ink-primary text-white' : 'bg-canvas-subtle text-ink-primary border border-canvas-border'}}">
+                    FEATURED DOSSIER
+                  </span>
+                  <span class="text-xs text-ink-muted font-mono">${{hero.investigation_date}}</span>
+                  <span class="px-2 py-0.5 rounded text-[11px] font-bold font-mono ${{isTrue ? 'verdict-true' : 'verdict-half'}}">
+                    ● ${{hero.verdict.replace('_', ' ')}}
+                  </span>
+                </div>
+
+                <h3 class="text-xl sm:text-2xl font-bold text-ink-primary font-serif leading-snug group-hover:underline">
+                  ${{hero.title}}
+                </h3>
+
+                <p class="text-xs sm:text-sm text-ink-secondary leading-relaxed">
+                  ${{heroCuration.personal_motivation || heroStory.the_hook}}
+                </p>
+              </div>
+
+              <div class="flex lg:flex-col items-center lg:items-end justify-between gap-3 shrink-0 pt-4 lg:pt-0 border-t lg:border-t-0 border-canvas-border">
+                <div class="text-right">
+                  <div class="text-[11px] font-mono text-ink-muted">CONFIDENCE SCORE</div>
+                  <div class="text-2xl font-black font-mono text-emerald-700">${{(hero.confidence_score || 95.0).toFixed(1)}}%</div>
+                </div>
+                <button class="px-4 py-2 rounded-xl bg-ink-primary text-white text-xs font-bold group-hover:bg-black transition flex items-center gap-1.5 shadow-sm">
+                  심층 보고서 열람 <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }}
+
+      // Render Editorial Cards
+      const itemsToRender = (currentSort === 'date-desc' && !searchQuery && currentDomain === 'ALL') ? filtered.slice(1) : filtered;
+
+      itemsToRender.forEach((c, idx) => {{
         const story = c.portfolio_story || {{}};
         const curation = c.curation || {{ discovery_mode: 'USER_CURATED' }};
         const isUserMode = curation.discovery_mode === 'USER_CURATED';
@@ -1014,52 +1082,51 @@ def generate_html(data):
         const isHalfTrue = c.verdict.includes('HALF');
 
         const card = document.createElement('div');
-        card.className = 'clean-card p-5 flex flex-col justify-between cursor-pointer space-y-4 group';
+        card.className = 'editorial-card p-6 flex flex-col justify-between cursor-pointer space-y-4 group';
         card.onclick = () => openModal(c);
 
         card.innerHTML = `
           <div class="space-y-3">
-            <!-- Header Metadata -->
+            <!-- Card Header -->
             <div class="flex items-center justify-between text-xs gap-1.5 flex-wrap">
-              <div class="flex items-center gap-1.5">
-                <span class="px-2 py-0.5 rounded text-[11px] font-bold font-mono ${{isUserMode ? 'bg-indigo-500/15 text-indigo-300 border border-indigo-500/30' : 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30'}} flex items-center gap-1">
-                  <i data-lucide="${{isUserMode ? 'user-check' : 'bot'}}" class="w-3 h-3"></i>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-mono font-bold text-ink-muted">#${{String(idx + 1).padStart(2, '0')}}</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold font-mono ${{isUserMode ? 'bg-canvas-subtle text-ink-primary border border-canvas-border' : 'bg-canvas-subtle text-ink-secondary'}}">
                   ${{isUserMode ? 'USER-CURATED' : 'AUTO-TREND'}}
                 </span>
-                <span class="text-slate-500 text-[11px] font-mono">${{invDate}}</span>
+                <span class="text-ink-muted text-[11px] font-mono">${{invDate}}</span>
               </div>
 
               <!-- Verdict Badge -->
               <span class="px-2 py-0.5 rounded text-[11px] font-bold font-mono flex items-center gap-1.5 ${{isVerifiedTrue ? 'verdict-true' : (isHalfTrue ? 'verdict-half' : 'verdict-gamed')}}">
-                <span class="w-1.5 h-1.5 rounded-full ${{isVerifiedTrue ? 'bg-emerald-400' : (isHalfTrue ? 'bg-amber-400' : 'bg-rose-400')}}"></span>
-                ${{c.verdict.replace('_', ' ')}}
+                ● ${{c.verdict.replace('_', ' ')}}
               </span>
             </div>
 
             <!-- Title & Domain -->
             <div class="space-y-1">
-              <span class="text-[11px] text-cyan-400 font-mono font-medium">${{c.category || 'Tech General'}}</span>
-              <h3 class="font-bold text-sm sm:text-base text-slate-100 group-hover:text-cyan-300 transition leading-snug line-clamp-2">
+              <span class="text-[11px] text-ink-muted font-mono font-semibold uppercase tracking-wider">${{c.category || 'Tech General'}}</span>
+              <h3 class="font-bold text-base text-ink-primary group-hover:text-black transition leading-snug font-serif">
                 ${{c.title}}
               </h3>
             </div>
 
-            <!-- Discovery Motivation / Hook Quote -->
-            <div class="border-l-2 border-cyan-500/40 bg-[#07090e] p-2.5 rounded-r-lg text-xs text-slate-300 leading-relaxed line-clamp-2">
+            <!-- Discovery Motivation Quote -->
+            <div class="bg-canvas-subtle p-3 rounded-lg border border-canvas-border text-xs text-ink-secondary leading-relaxed line-clamp-2">
               ${{curation.personal_motivation || story.the_hook || '공학적 실체와 비용 분석 검증 완료.'}}
             </div>
           </div>
 
           <!-- Card Footer -->
-          <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
+          <div class="pt-3 border-t border-canvas-border flex items-center justify-between text-xs">
             <div class="flex items-center gap-2">
-              <span class="text-emerald-400 font-mono font-bold text-[11px]">신뢰도 ${{confScore.toFixed(1)}}%</span>
-              <span class="text-slate-600">•</span>
-              <span class="text-slate-400 text-[11px] font-mono">${{(c.sources || []).length}}개 출처</span>
+              <span class="text-emerald-700 font-mono font-bold text-[11px]">신뢰도 ${{confScore.toFixed(1)}}%</span>
+              <span class="text-canvas-border">•</span>
+              <span class="text-ink-muted text-[11px] font-mono">${{(c.sources || []).length}}개 1차 출처</span>
             </div>
 
-            <span class="text-cyan-400 group-hover:translate-x-0.5 transition font-semibold text-xs flex items-center gap-1">
-              상세 보고서 <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            <span class="text-ink-primary group-hover:translate-x-0.5 transition font-semibold text-xs flex items-center gap-1">
+              보고서 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </span>
           </div>
         `;
@@ -1078,13 +1145,13 @@ def generate_html(data):
       const clustering = c.clustering || {{}};
 
       document.getElementById('modalTitle').innerText = c.title;
-      document.getElementById('modalModeBadge').innerText = curation.discovery_mode === 'USER_CURATED' ? '👤 직접 큐레이션' : '🤖 자동 트렌드';
-      document.getElementById('modalModeBadge').className = curation.discovery_mode === 'USER_CURATED' ? 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/30' : 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30';
+      document.getElementById('modalModeBadge').innerText = curation.discovery_mode === 'USER_CURATED' ? '직접 큐레이션' : '자동 트렌드';
+      document.getElementById('modalModeBadge').className = curation.discovery_mode === 'USER_CURATED' ? 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-canvas-subtle text-ink-primary border border-canvas-border' : 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-canvas-subtle text-ink-secondary';
       
       document.getElementById('modalClusterBadge').innerText = clustering.cluster_name || c.category || 'Tech';
       document.getElementById('modalVerdictBadge').innerText = c.verdict;
       document.getElementById('modalVerdictBadge').className = c.verdict === 'VERIFIED_TRUE' ? 'text-xs px-2.5 py-0.5 rounded-md font-semibold verdict-true' : 'text-xs px-2.5 py-0.5 rounded-md font-semibold verdict-half';
-      document.getElementById('modalStageBadge').innerText = handsOn.status === 'ACTIVE_DEVELOPED' ? '🟢 실제 개발 적용' : '⚪ 기술 조사 완료';
+      document.getElementById('modalStageBadge').innerText = handsOn.status === 'ACTIVE_DEVELOPED' ? '실제 개발 적용' : '기술 조사 완료';
 
       document.getElementById('modalCurator').innerText = '발굴자: ' + (curation.curator || 'Anyong Cheong');
       document.getElementById('modalMotivation').innerText = curation.personal_motivation || story.the_hook || '';
@@ -1103,12 +1170,12 @@ def generate_html(data):
       if (c.claims_assessment && c.claims_assessment.length > 0) {{
         claimsBox.classList.remove('hidden');
         claimsList.innerHTML = c.claims_assessment.map(cl => `
-          <div class="p-3 rounded-lg bg-[#07090e] border border-surface-border text-xs space-y-1">
+          <div class="p-3 rounded-lg bg-white border border-amber-200 text-xs space-y-1">
             <div class="flex items-center justify-between font-mono text-[11px]">
-              <span class="text-slate-400 font-bold">Claim: "${{cl.statement || cl.claim_title || ''}}"</span>
-              <span class="px-2 py-0.2 rounded font-bold ${{cl.status === 'VERIFIED_TRUE' ? 'text-emerald-400' : 'text-amber-400'}}">${{cl.status || cl.claim_verdict || 'VERIFIED'}}</span>
+              <span class="text-ink-primary font-bold">Claim: "${{cl.statement || cl.claim_title || ''}}"</span>
+              <span class="px-2 py-0.2 rounded font-bold ${{cl.status === 'VERIFIED_TRUE' ? 'text-emerald-700' : 'text-amber-800'}}">${{cl.status || cl.claim_verdict || 'VERIFIED'}}</span>
             </div>
-            <div class="text-slate-300 font-medium">검증 팩트: ${{cl.fact_checked_truth || cl.verification_evidence || ''}}</div>
+            <div class="text-ink-secondary font-medium">검증 팩트: ${{cl.fact_checked_truth || cl.verification_evidence || ''}}</div>
           </div>
         `).join('');
       }} else {{
@@ -1121,27 +1188,27 @@ def generate_html(data):
       if (alts.length > 0) {{
         altBody.innerHTML = alts.map(a => `
           <tr>
-            <td class="p-3 font-bold text-white">${{a.name || a.tool_name || ''}}</td>
-            <td class="p-3 font-mono text-cyan-300 text-[11px]">${{a.tech_stack || '-'}}</td>
-            <td class="p-3 text-emerald-400">${{a.pros || '-'}}</td>
-            <td class="p-3 text-rose-400">${{a.cons || '-'}}</td>
-            <td class="p-3 text-slate-300 font-medium">${{a.best_for || '-'}}</td>
+            <td class="p-3 font-bold text-ink-primary">${{a.name || a.tool_name || ''}}</td>
+            <td class="p-3 font-mono text-ink-secondary text-[11px]">${{a.tech_stack || '-'}}</td>
+            <td class="p-3 text-emerald-700">${{a.pros || '-'}}</td>
+            <td class="p-3 text-rose-700">${{a.cons || '-'}}</td>
+            <td class="p-3 text-ink-secondary font-medium">${{a.best_for || '-'}}</td>
           </tr>
         `).join('');
       }} else {{
-        altBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-slate-500">등록된 대체 기술 비교 데이터가 없습니다.</td></tr>`;
+        altBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-ink-muted">등록된 대체 기술 비교 데이터가 없습니다.</td></tr>`;
       }}
 
       // Sources
       const sourcesList = document.getElementById('modalSourcesList');
       const sources = c.sources || [];
       sourcesList.innerHTML = sources.map(s => `
-        <a href="${{s.url}}" target="_blank" class="p-2.5 rounded-xl bg-surface-card border border-surface-border hover:border-cyan-500/40 flex items-center justify-between text-xs text-slate-300 hover:text-white transition">
+        <a href="${{s.url}}" target="_blank" class="p-2.5 rounded-xl bg-canvas-subtle border border-canvas-border hover:border-ink-primary flex items-center justify-between text-xs text-ink-secondary hover:text-ink-primary transition">
           <div class="space-y-0.5">
-            <span class="text-[10px] font-mono text-cyan-400 uppercase font-bold">${{s.tier || 'Tier 1'}} • ${{s.type || 'Repository'}}</span>
-            <div class="font-medium truncate max-w-[240px]">${{s.name || s.title || '출처 링크'}}</div>
+            <span class="text-[10px] font-mono text-ink-primary uppercase font-bold">${{s.tier || 'Tier 1'}} • ${{s.type || 'Repository'}}</span>
+            <div class="font-medium truncate max-w-[240px] text-ink-primary">${{s.name || s.title || '출처 링크'}}</div>
           </div>
-          <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+          <i data-lucide="external-link" class="w-3.5 h-3.5 text-ink-muted shrink-0"></i>
         </a>
       `).join('');
 
@@ -1160,13 +1227,13 @@ def generate_html(data):
 
       const newsItems = liveNewsData || [];
       if (newsItems.length === 0) {{
-        grid.innerHTML = `<div class="col-span-full py-16 text-center text-slate-500 font-medium">수집된 AI 뉴스가 없습니다.</div>`;
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">수집된 AI 뉴스가 없습니다.</div>`;
         return;
       }}
 
       newsItems.forEach(it => {{
         const card = document.createElement('div');
-        card.className = 'clean-card p-5 flex flex-col justify-between space-y-4';
+        card.className = 'editorial-card p-5 flex flex-col justify-between space-y-4';
 
         const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
         const displayDesc = currentLang === 'KO' && it.description_ko ? it.description_ko : (it.description || '');
@@ -1174,24 +1241,24 @@ def generate_html(data):
         card.innerHTML = `
           <div class="space-y-2.5">
             <div class="flex items-center justify-between text-xs font-mono">
-              <span class="px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 font-bold border border-sky-500/30 text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-canvas-subtle text-ink-primary font-bold border border-canvas-border text-[11px]">
                 ${{it.source_platform || 'Tech News'}}
               </span>
-              <span class="text-slate-500 text-[11px]">${{it.viral_metric || ''}}</span>
+              <span class="text-ink-muted text-[11px]">${{it.viral_metric || ''}}</span>
             </div>
 
-            <h3 class="font-bold text-sm text-white hover:text-sky-300 transition leading-snug">
+            <h3 class="font-bold text-sm text-ink-primary hover:text-black transition leading-snug font-serif">
               ${{displayTitle}}
             </h3>
 
-            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">
+            <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
               ${{displayDesc}}
             </p>
           </div>
 
-          <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
-            <span class="text-slate-500 text-[11px] font-mono">${{it.harvested_date || '2026-09-01'}}</span>
-            <a href="${{it.source_url}}" target="_blank" class="text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-1 hover:underline">
+          <div class="pt-3 border-t border-canvas-border flex items-center justify-between text-xs">
+            <span class="text-ink-muted text-[11px] font-mono">${{it.harvested_date || '2026-09-02'}}</span>
+            <a href="${{it.source_url}}" target="_blank" class="text-ink-primary hover:underline font-semibold flex items-center gap-1">
               기사 원문 <i data-lucide="external-link" class="w-3 h-3"></i>
             </a>
           </div>
@@ -1208,10 +1275,10 @@ def generate_html(data):
       const btn = document.getElementById('groupByFamilyBtn');
       const text = document.getElementById('groupByFamilyText');
       if (isFamilyGroupingActive) {{
-        btn.className = 'flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-purple-600 hover:bg-purple-500 text-white transition shrink-0';
+        btn.className = 'flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-ink-primary text-white transition shrink-0';
         text.innerText = '패밀리 묶음 (ON)';
       }} else {{
-        btn.className = 'flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-[#07090e] text-purple-300 border border-purple-500/30 hover:bg-purple-500/10 transition shrink-0';
+        btn.className = 'flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-white text-ink-primary border border-canvas-border hover:bg-canvas-subtle transition shrink-0';
         text.innerText = '패밀리 묶음 (OFF)';
       }}
       renderInbox();
@@ -1242,7 +1309,7 @@ def generate_html(data):
       }});
 
       if (filtered.length === 0) {{
-        grid.innerHTML = `<div class="col-span-full py-16 text-center text-slate-500 font-medium">수집된 인박스 후보가 없습니다.</div>`;
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">수집된 인박스 후보가 없습니다.</div>`;
         return;
       }}
 
@@ -1263,7 +1330,7 @@ def generate_html(data):
         sortedFamNames.forEach(famName => {{
           const items = groups[famName];
           const groupCard = document.createElement('div');
-          groupCard.className = 'col-span-full clean-card p-6 border-purple-500/30 space-y-4 shadow-xl';
+          groupCard.className = 'col-span-full editorial-card p-6 border-canvas-border space-y-4 shadow-sm';
 
           let subItemsHtml = '';
           items.forEach(it => {{
@@ -1272,31 +1339,31 @@ def generate_html(data):
             const roleBadge = it.variant_role || 'Standard';
 
             subItemsHtml += `
-              <div class="bg-[#07090e] p-4 rounded-xl border border-surface-border flex flex-col justify-between space-y-3 hover:border-purple-500/40 transition">
+              <div class="bg-canvas-subtle p-4 rounded-xl border border-canvas-border flex flex-col justify-between space-y-3 hover:border-ink-primary transition">
                 <div class="space-y-2">
                   <div class="flex items-center justify-between text-[11px] font-mono">
-                    <span class="text-amber-400 font-bold">${{it.source_platform || 'Hub'}}</span>
-                    <span class="text-slate-500">${{it.viral_metric || ''}}</span>
+                    <span class="text-ink-primary font-bold">${{it.source_platform || 'Hub'}}</span>
+                    <span class="text-ink-muted">${{it.viral_metric || ''}}</span>
                   </div>
                   
-                  <div class="px-2 py-0.5 rounded text-[10px] font-semibold font-mono bg-purple-950/60 text-purple-300 border border-purple-500/30 inline-block">
+                  <div class="px-2 py-0.5 rounded text-[10px] font-semibold font-mono bg-white text-ink-primary border border-canvas-border inline-block">
                     ${{roleBadge}}
                   </div>
 
-                  <h4 class="font-bold text-xs text-white line-clamp-2 leading-relaxed">${{displayTitle}}</h4>
+                  <h4 class="font-bold text-xs text-ink-primary line-clamp-2 leading-relaxed">${{displayTitle}}</h4>
                   
-                  <div class="text-[10px] text-slate-400 font-mono">
-                    제작: <span class="text-indigo-300 font-semibold">${{it.creator || 'Community'}}</span>
+                  <div class="text-[10px] text-ink-muted font-mono">
+                    제작: <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
                   </div>
                 </div>
 
-                <div class="pt-2.5 border-t border-surface-border flex items-center justify-between gap-2">
-                  <a href="${{it.source_url}}" target="_blank" class="text-[11px] text-slate-400 hover:text-white flex items-center gap-0.5 shrink-0">
+                <div class="pt-2.5 border-t border-canvas-border flex items-center justify-between gap-2">
+                  <a href="${{it.source_url}}" target="_blank" class="text-[11px] text-ink-secondary hover:text-ink-primary flex items-center gap-0.5 shrink-0">
                     원문 <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
                   </a>
                   
                   <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
-                          class="px-2.5 py-1 rounded-lg text-[10px] font-bold transition flex items-center gap-1 ${{isQueued ? 'bg-emerald-500 text-slate-950 font-black' : 'bg-amber-500/15 text-amber-300 hover:bg-amber-500 hover:text-slate-950 border border-amber-500/30'}}">
+                          class="px-2.5 py-1 rounded-lg text-[10px] font-bold transition flex items-center gap-1 ${{isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-white text-ink-primary hover:bg-ink-primary hover:text-white border border-canvas-border'}}">
                     <i data-lucide="${{isQueued ? 'check' : 'zap'}}" class="w-3 h-3"></i>
                     ${{isQueued ? '대기열 등록됨' : '분석 큐 담기'}}
                   </button>
@@ -1306,13 +1373,13 @@ def generate_html(data):
           }});
 
           groupCard.innerHTML = `
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-surface-border gap-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-canvas-border gap-3">
               <div class="flex items-center gap-2.5 flex-wrap">
-                <span class="px-2.5 py-0.5 rounded-md bg-purple-500/15 text-purple-300 text-xs font-mono font-bold border border-purple-500/30 flex items-center gap-1">
+                <span class="px-2.5 py-0.5 rounded-md bg-canvas-subtle text-ink-primary text-xs font-mono font-bold border border-canvas-border flex items-center gap-1">
                   <i data-lucide="layers" class="w-3.5 h-3.5"></i> Model Family
                 </span>
-                <h3 class="text-base font-bold text-white">${{famName}}</h3>
-                <span class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono font-bold">${{items.length}}개 파생 모델</span>
+                <h3 class="text-base font-bold text-ink-primary font-serif">${{famName}}</h3>
+                <span class="text-xs px-2 py-0.5 rounded bg-white text-ink-secondary border border-canvas-border font-mono font-bold">${{items.length}}개 파생 모델</span>
               </div>
             </div>
 
@@ -1397,7 +1464,7 @@ def generate_html(data):
       const svg = d3.select("#techGraphSvg");
       const container = document.getElementById("graphView");
       const width = container.clientWidth || 1100;
-      const height = 680;
+      const height = 640;
       svg.attr("viewBox", [-width / 2, -height / 2, width, height]);
 
       const g = svg.append("g");
@@ -1413,7 +1480,7 @@ def generate_html(data):
         .selectAll("line")
         .data(graphData.links)
         .join("line")
-        .attr("stroke", "rgba(255, 255, 255, 0.15)")
+        .attr("stroke", "rgba(0, 0, 0, 0.12)")
         .attr("stroke-width", 1.5);
 
       const nodeGroup = g.append("g")
@@ -1426,18 +1493,18 @@ def generate_html(data):
           .on("end", dragended));
 
       function getNodeColor(d) {{
-        if (d.group === "language") return "#eab308";
-        if (d.group === "technology") return "#10b981";
-        if (d.group === "organization") return "#8b5cf6";
-        if (d.group === "person") return "#ec4899";
-        if (d.group === "paper") return "#f97316";
-        return domainColorMap[d.group] || "#06b6d4";
+        if (d.group === "language") return "#b45309";
+        if (d.group === "technology") return "#047857";
+        if (d.group === "organization") return "#4338ca";
+        if (d.group === "person") return "#be185d";
+        if (d.group === "paper") return "#c2410c";
+        return domainColorMap[d.group] || "#111827";
       }}
 
       nodeSelection = nodeGroup.append("circle")
         .attr("r", d => d.val || 15)
         .attr("fill", d => getNodeColor(d))
-        .attr("stroke", "#07090e")
+        .attr("stroke", "#ffffff")
         .attr("stroke-width", 2.5);
 
       nodeGroup.append("text")
@@ -1445,7 +1512,7 @@ def generate_html(data):
         .attr("x", 0)
         .attr("y", d => (d.val || 15) + 14)
         .attr("text-anchor", "middle")
-        .attr("fill", "#94a3b8")
+        .attr("fill", "#111827")
         .attr("font-size", "11px")
         .attr("font-family", "Geist, sans-serif")
         .attr("font-weight", "600");
@@ -1477,9 +1544,9 @@ def generate_html(data):
       currentGraphType = group;
       document.querySelectorAll('.graph-group-btn').forEach(btn => {{
         if (btn.dataset.group === group) {{
-          btn.classList.add('active', 'bg-slate-800', 'text-white');
+          btn.classList.add('active', 'bg-ink-primary', 'text-white');
         }} else {{
-          btn.classList.remove('active', 'bg-slate-800', 'text-white');
+          btn.classList.remove('active', 'bg-ink-primary', 'text-white');
         }}
       }});
 
@@ -1488,7 +1555,7 @@ def generate_html(data):
       }}
       if (linkSelection) {{
         linkSelection.attr("opacity", l => {{
-          if (group === 'ALL') return 0.5;
+          if (group === 'ALL') return 0.4;
           const s = typeof l.source === 'object' ? l.source : graphData.nodes.find(n => n.id === l.source);
           const t = typeof l.target === 'object' ? l.target : graphData.nodes.find(n => n.id === l.target);
           return (s && s.group === group) || (t && t.group === group) ? 0.8 : 0.04;
