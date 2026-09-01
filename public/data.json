@@ -2,8 +2,8 @@
   "generated_at": "2026-09-02",
   "total_cases": 17,
   "news_total_count": 19,
-  "inbox_total_count": 148,
-  "all_inbox_count": 167,
+  "inbox_total_count": 178,
+  "all_inbox_count": 197,
   "admin_stats": {
     "endpoints": [
       {
@@ -44,6 +44,132 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-01T15:38:05.835153",
+        "date": "2026-09-01",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 1,
+            "duration_sec": 0.12
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 1,
+            "duration_sec": 0.08
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.75
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 2,
+            "duration_sec": 4.4
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.15
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.03
+          }
+        },
+        "summary": {
+          "total_fetched": 4,
+          "new_saved": 4,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
+      {
+        "timestamp": "2026-09-01T10:36:28.465585",
+        "date": "2026-09-01",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.12
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.08
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 1,
+            "duration_sec": 0.97
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 4.43
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.09
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.02
+          }
+        },
+        "summary": {
+          "total_fetched": 1,
+          "new_saved": 1,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
+      {
+        "timestamp": "2026-09-01T09:55:40.080104",
+        "date": "2026-09-01",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.12
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 2,
+            "duration_sec": 0.08
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 1,
+            "duration_sec": 0.72
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 2,
+            "duration_sec": 4.14
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.13
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.02
+          }
+        },
+        "summary": {
+          "total_fetched": 25,
+          "new_saved": 25,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-01T02:41:57.221357",
         "date": "2026-09-01",
@@ -1177,178 +1303,164 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-08-31T16:25:29.275016",
-        "date": "2026-08-31",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 1,
-            "duration_sec": 0.11
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 3,
-            "duration_sec": 0.08
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.64
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 4.2
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.28
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.08
-          }
-        },
-        "summary": {
-          "total_fetched": 4,
-          "new_saved": 4,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
-      },
-      {
-        "timestamp": "2026-08-31T16:10:24.393727",
-        "date": "2026-08-31",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.19
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.27
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.64
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 4.18
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.35
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.09
-          }
-        },
-        "summary": {
-          "total_fetched": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
-      },
-      {
-        "timestamp": "2026-08-31T16:06:00.215248",
-        "date": "2026-08-31",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.11
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.08
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.91
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 3.01
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.21
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.04
-          }
-        },
-        "summary": {
-          "total_fetched": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-01T02:41:57.221357",
+      "timestamp": "2026-09-01T15:38:05.835153",
       "date": "2026-09-01",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
-          "items_found": 0,
-          "duration_sec": 0.1
+          "items_found": 1,
+          "duration_sec": 0.12
         },
         "hf_spaces": {
           "status": "SUCCESS",
-          "items_found": 0,
-          "duration_sec": 0.05
+          "items_found": 1,
+          "duration_sec": 0.08
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.63
+          "duration_sec": 0.75
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 0,
-          "duration_sec": 1.89
+          "items_found": 2,
+          "duration_sec": 4.4
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.07
+          "duration_sec": 0.15
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.04
+          "duration_sec": 0.03
         }
       },
       "summary": {
-        "total_fetched": 0,
-        "new_saved": 0,
+        "total_fetched": 4,
+        "new_saved": 4,
         "duplicates_skipped": 0,
         "errors": 0
       }
     }
   },
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-01_sns_hacker_news_state_of_open_models_summer_2026_",
+      "harvested_date": "2026-09-01",
+      "title": "Hacker News: State of Open Models: Summer 2026 Observations",
+      "source_platform": "Hacker News",
+      "source_url": "https://huggingface.co/blog/state-of-open-models-summer-2026",
+      "type": "sns",
+      "description": "HN Score: 10 pts, Comments: 0",
+      "viral_metric": "10 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_sns_hacker_news_saab_enters_collaborative_combat_",
+      "harvested_date": "2026-09-01",
+      "title": "Hacker News: Saab Enters Collaborative Combat Aircraft Race with High-End Concept",
+      "source_platform": "Hacker News",
+      "source_url": "https://aviationweek.com/defense/aircraft-propulsion/saab-enters-collaborative-combat-aircraft-race-high-end-concept",
+      "type": "sns",
+      "description": "HN Score: 41 pts, Comments: 15",
+      "viral_metric": "41 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_sns_hacker_news_doltlite_a_sqlite_fork_with_git_s",
+      "harvested_date": "2026-09-01",
+      "title": "Hacker News: DoltLite: A SQLite fork with Git-style version control, built with 2k agent PRs",
+      "source_platform": "Hacker News",
+      "source_url": "https://www.dolthub.com/blog/2026-08-31-doltlite-beta/",
+      "type": "sns",
+      "description": "HN Score: 46 pts, Comments: 31",
+      "viral_metric": "46 HN Points",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_sns_hacker_news_american_airlines_legendary_mecha",
+      "harvested_date": "2026-09-01",
+      "title": "Hacker News: American Airlines' Legendary Mechanic Passes Away at 100 After 80-Year Career",
+      "source_platform": "Hacker News",
+      "source_url": "https://simpleflying.com/american-airlines-mechanic-passes-away-100-record-80-years/",
+      "type": "sns",
+      "description": "HN Score: 29 pts, Comments: 7",
+      "viral_metric": "29 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_huggingface_model_googletimesfm_30_pytorch",
+      "harvested_date": "2026-09-01",
+      "title": "HuggingFace Model: google/timesfm-3.0-pytorch",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/google/timesfm-3.0-pytorch",
+      "type": "repo",
+      "description": "Trending Score: 150, Downloads: 0, Pipeline: time-series-forecasting",
+      "viral_metric": "Trending 150 pts",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_hf_space_zerogpu_aotiwan2_2_fp8da_aoti_faster",
+      "harvested_date": "2026-09-01",
+      "title": "HF Space: zerogpu-aoti/wan2-2-fp8da-aoti-faster",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/zerogpu-aoti/wan2-2-fp8da-aoti-faster",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3433 | Live URL: https://huggingface.co/spaces/zerogpu-aoti/wan2-2-fp8da-aoti-faster",
+      "viral_metric": "❤️ 3433 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PROMOTED"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_hf_space_jitroy2024qwen_img_space",
+      "harvested_date": "2026-09-01",
+      "title": "HF Space: JitRoy2024/Qwen_Img_Space",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/JitRoy2024/Qwen_Img_Space",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 76 | Live URL: https://huggingface.co/spaces/JitRoy2024/Qwen_Img_Space",
+      "viral_metric": "❤️ 76 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_hf_space_black_forest_labsflux2_dev",
+      "harvested_date": "2026-09-01",
+      "title": "HF Space: black-forest-labs/FLUX.2-dev",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/black-forest-labs/FLUX.2-dev",
+      "type": "repo",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 1105 | Live URL: https://huggingface.co/spaces/black-forest-labs/FLUX.2-dev",
+      "viral_metric": "❤️ 1105 Likes (Trending Demo)",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PROMOTED"
+    },
     {
       "inbox_id": "2026-09-01_repo_github_yding_gitpersonal_edge_proxy",
       "harvested_date": "2026-09-01",
@@ -1406,6 +1518,34 @@
       "status": "PENDING_REVIEW"
     },
     {
+      "inbox_id": "2026-09-01_repo_github_gangtailorupgradecoomertool",
+      "harvested_date": "2026-09-01",
+      "title": "GitHub: GangTailorUpgrade/CoomeRtool",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/GangTailorUpgrade/CoomeRtool",
+      "type": "repo",
+      "description": "Stars: 720, Forks: 1 | Coomer Tool",
+      "viral_metric": "★ 720 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_github_damejan80tokentab",
+      "harvested_date": "2026-09-01",
+      "title": "GitHub: damejan80/tokentab",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/damejan80/tokentab",
+      "type": "repo",
+      "description": "Stars: 828, Forks: 194 | A CLI that reads Claude Code, Codex, and Gemini CLI session logs and works out how much they cost, by model, project, and day.",
+      "viral_metric": "★ 828 Stars",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-01_repo_github_crmnefastpotify",
       "harvested_date": "2026-09-01",
       "title": "GitHub: crmne/fastpotify",
@@ -1434,6 +1574,20 @@
       "status": "PENDING_REVIEW"
     },
     {
+      "inbox_id": "2026-09-01_repo_arxiv_when_does_bigger_help_a_controlled_stud",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: When Does Bigger Help? A Controlled Study of LLM Scale for Ontology Learning",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31118v1",
+      "type": "repo",
+      "description": "Abstract: The effect of Large Language Model (LLM) scale on ontology learning (OL) performance remains insufficiently characterized. We present a controlled evaluation of 13 models spanning dense and Mixture-of...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-01_repo_arxiv_towards_a_systems_foundation_for_agenti",
       "harvested_date": "2026-09-01",
       "title": "ArXiv: Towards a Systems Foundation for Agentic Skills: Architecture, Lifecycle, and Security",
@@ -1448,6 +1602,106 @@
       "status": "PENDING_REVIEW"
     },
     {
+      "inbox_id": "2026-09-01_repo_arxiv_token_efficient_data_reasoning_agents_v",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Token-Efficient Data Reasoning Agents via Adaptive Structuring of Unstructured Data",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31082v1",
+      "type": "repo",
+      "description": "Abstract: Valuable data remains embedded in unstructured sources: web pages, reports, contracts, filings, earnings calls, and PDFs. The big bet in enterprise AI is deploying LLM agents that reason over this dat...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_the_first_token_is_a_clue_verbalizing_m",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: The First Token Is a Clue: Verbalizing Multi-Token Concepts from the J-lens",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31084v1",
+      "type": "repo",
+      "description": "Abstract: The Jacobian Lens (J-lens) is a recent tool for interpreting LLMs. It reads a hidden state as a ranked list of vocabulary tokens, leaving multi-token concepts without a representation of their own. Th...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_sun_persistent_programs_for_language_gr",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: SUN: Persistent Programs For Language-Grounded Control-to-Learning-to-Real Policies",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31167v1",
+      "type": "repo",
+      "description": "Abstract: Bridging model-based control and learned policies in long-horizon manipulation has harbored a silent disagreement: control executes specified objectives, learning amortizes that behavior into a reacti...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_scaling_large_reasoning_models_beyond_h",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Scaling Large Reasoning Models beyond Human Supervision: A Path toward Superintelligence",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31075v1",
+      "type": "repo",
+      "description": "Abstract: Recent advances in large reasoning models (LRMs) have shown that reinforcement learning with verifiable rewards (RLVR) can substantially improve reasoning in mathematics and code, where outcomes can b...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_s3gym_can_llms_turn_self_testing_and_se",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: S3Gym: Can LLMs Turn Self-Testing and Self-Judging into Self-Improvement?",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31100v1",
+      "type": "repo",
+      "description": "Abstract: Large language models (LLMs) increasingly interact with external environments and accumulate substantial behavioral experience, yet existing agent benchmarks largely evaluate them as fixed policies. I...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_reconciling_process_supervision_with_ou",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Reconciling Process Supervision with Outcome-Based Credit in Agentic Policy Optimization",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31077v1",
+      "type": "repo",
+      "description": "Abstract: Outcome-based reinforcement learning provides verified feedback for language-model agents, but assigns trajectory-level advantage uniformly to all decisions, yielding coarse credit over long-horizon i...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_real_time_video_anomaly_detection_using",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Real-Time Video Anomaly Detection Using YOLO Pose Estimation and CLIP-Based Semantic Scoring",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31074v1",
+      "type": "repo",
+      "description": "Abstract: We propose a lightweight two-stage framework for real-time video anomaly detection. The first stage employs YOLO v11n-pose to detect persons and extract seventeen skeletal keypoints in a single forwar...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-01_repo_arxiv_privbench_a_holistic_and_modular_benchm",
       "harvested_date": "2026-09-01",
       "title": "ArXiv: PrivBench: A Holistic and Modular Benchmarking Platform for Evaluating Text-to-Text Privatization",
@@ -1458,6 +1712,34 @@
       "viral_metric": "ArXiv Primary Paper",
       "matched_user_domains": [
         "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_papergym_rubric_centered_evolution_for_",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: PaperGym: Rubric-Centered Evolution for Research-Plan Generation",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31119v1",
+      "type": "repo",
+      "description": "Abstract: Research planning is the decisive capability of AI scientists. Yet a research plan admits no verifiable answer, so reinforcement learning lacks the environment it requires: tasks paired with a critic....",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_ontoaligner_ensemble_voting_based_fusio",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: OntoAligner-Ensemble: Voting-Based Fusion across Heterogeneous Ontology Alignment Techniques",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31137v1",
+      "type": "repo",
+      "description": "Abstract: Ontology alignment (OA) has evolved through several methodological paradigms, ranging from lexical and structural aligners to knowledge graph embedding (KGE) models and, more recently, Large Language ...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW"
     },
@@ -1534,6 +1816,34 @@
       "status": "PENDING_REVIEW"
     },
     {
+      "inbox_id": "2026-09-01_repo_arxiv_llm_post_training_as_brownfield_mainten",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: LLM Post-Training as Brownfield Maintenance: An Industrial Perspective on Dataware Engineering",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31102v1",
+      "type": "repo",
+      "description": "Abstract: Industrial post-training is a brownfield regime. Teams inherit a deployed checkpoint and must land targeted improvements under fixed compute and mixture budgets without regressing the rest. The mainta...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_learning_to_evaluate_before_improving_a",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Learning to Evaluate Before Improving: Automatic Rubric Induction for Automatic Research Agents",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31076v1",
+      "type": "repo",
+      "description": "Abstract: Autonomous scientific research agents are increasingly applied to end-to-end scientific workflows, including literature review, data analysis, experimentation, and report generation. However, open-end...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-01_repo_arxiv_jpo_juris_policy_optimization_for_struc",
       "harvested_date": "2026-09-01",
       "title": "ArXiv: JPO: Juris Policy Optimization for Structured Legal Reasoning in Criminal Judgment Prediction",
@@ -1590,6 +1900,20 @@
       "status": "PENDING_REVIEW"
     },
     {
+      "inbox_id": "2026-09-01_repo_arxiv_diasentinel_an_auditable_multi_agent_sy",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: DIASENTINEL: An Auditable Multi-Agent System for Guideline-Grounded Diabetes Risk Screening",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31128v1",
+      "type": "repo",
+      "description": "Abstract: Large language models (LLMs) offer promising clinical decision support but remain vulnerable to hallucinated facts, unsupported recommendations, and citation errors. We present DIASENTINEL, a fully on...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-01_repo_arxiv_detect_before_you_attribute_cascade_fai",
       "harvested_date": "2026-09-01",
       "title": "ArXiv: Detect Before You Attribute: Cascade Failure Attribution for Multi-Agent Systems",
@@ -1604,6 +1928,20 @@
       "status": "PENDING_REVIEW"
     },
     {
+      "inbox_id": "2026-09-01_repo_arxiv_cross_regional_grapevine_cold_hardiness",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Cross-Regional Grapevine Cold Hardiness Prediction via Learned Multimodal Latent Representations",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31097v1",
+      "type": "repo",
+      "description": "Abstract: Accurate daily predictions of cold hardiness in woody plants are critical in regions where freezing temperatures can damage dormant buds and reduce seasonal yield. Existing biophysical, hybrid, and de...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-01_repo_arxiv_cross_lingual_functional_vectors_for_em",
       "harvested_date": "2026-09-01",
       "title": "ArXiv: Cross-lingual Functional Vectors for Emotion Detection in Large Language Models",
@@ -1611,6 +1949,34 @@
       "source_url": "http://arxiv.org/abs/2608.29613v1",
       "type": "repo",
       "description": "Abstract: Function vectors (FVs) have recently emerged as a promising mechanism for steering the behavior of large language models (LLMs) by injecting task-specific latent direction representations derived from...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_context_aware_interleaved_batching_for_",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Context-Aware Interleaved Batching for WhisperX",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31170v1",
+      "type": "repo",
+      "description": "Abstract: While WhisperX accelerates speech transcription via intra-audio batching, it isolates audio segments, losing the historical context needed for coherent punctuation and terminology transcription. Conve...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_configurable_semantic_chunking_for_biom",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Configurable Semantic Chunking for Biomedical Information Extraction in Retrieval-Augmented Generation",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31139v1",
+      "type": "repo",
+      "description": "Abstract: BioMedRAG introduced retrieval-augmented generation with a learned chunk scorer for biomedical information extraction. However, it relies on fixed-size chunking which can fragment semantic evidence. W...",
       "viral_metric": "ArXiv Primary Paper",
       "matched_user_domains": [
         "엔터프라이즈 RAG & 문서 파싱 인프라"
@@ -1661,6 +2027,20 @@
       "status": "PENDING_REVIEW"
     },
     {
+      "inbox_id": "2026-09-01_repo_arxiv_bloom_wilt_logit_tilting_for_behaviour_",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: BLOOM-WILT: Logit Tilting for Behaviour Elicitation in Automated LLM Auditing",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31105v1",
+      "type": "repo",
+      "description": "Abstract: Users of a deployed language model routinely encounter behaviours that testing almost never surfaces, since deployment puts the model through orders of magnitude more interactions than any evaluation ...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-01_repo_arxiv_beyond_surface_alignment_grounding_the_",
       "harvested_date": "2026-09-01",
       "title": "ArXiv: Beyond Surface Alignment: Grounding the Dynamics of Situational Understanding and Generative Control in LLMs",
@@ -1668,6 +2048,34 @@
       "source_url": "http://arxiv.org/abs/2608.29610v1",
       "type": "repo",
       "description": "Abstract: The current alignment tuning paradigm for Large Language Models (LLMs) prioritizes surface-level behaviors -- fluency, safety, and tonal consistency. While effective for casual chat, this thesis argue...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_auditing_anonymous_ai_models_a_four_sta",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Auditing Anonymous AI Models: A Four-Stage Protocol for Black-Box Identity Verification",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31142v1",
+      "type": "repo",
+      "description": "Abstract: The 2025--2026 AI market has seen a wave of stealth releases: frontier models launched anonymously on developer platforms under codenames. For their users, identity determines data-handling terms, sup...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_aspire_can_models_self_evolve_from_vagu",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: Aspire: Can Models Self-Evolve from Vague Goals?",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31111v1",
+      "type": "repo",
+      "description": "Abstract: Many important forms of human learning begin with a vague goal, such as \"become a better physicist\" or \"improve at research.\" Learners must interpret the goal, identify capability gaps, decide how to ...",
       "viral_metric": "ArXiv Primary Paper",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
@@ -1701,6 +2109,20 @@
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_arxiv_a_model_with_no_head_and_many_thoughts",
+      "harvested_date": "2026-09-01",
+      "title": "ArXiv: A Model with No Head and Many Thoughts",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.31069v1",
+      "type": "repo",
+      "description": "Abstract: Large language models decode by projecting hidden states through a large vocabulary head at every step. This operation is computationally costly and forces all reasoning to be expressed in discrete to...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW"
     },
@@ -4671,7 +5093,7 @@
         "DX & Python 업무 프로세스 자동화",
         "이커머스 & 커머스 데이터 수집 인프라"
       ],
-      "status": "PENDING_REVIEW",
+      "status": "PROMOTED",
       "audit_risk": {
         "hype_risk_score": 15,
         "risk_level": "LOW_RISK",
