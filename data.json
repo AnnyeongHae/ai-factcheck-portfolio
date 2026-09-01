@@ -2,8 +2,8 @@
   "generated_at": "2026-09-02",
   "total_cases": 18,
   "news_total_count": 19,
-  "inbox_total_count": 191,
-  "all_inbox_count": 210,
+  "inbox_total_count": 192,
+  "all_inbox_count": 211,
   "admin_stats": {
     "endpoints": [
       {
@@ -38,6 +38,48 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-01T17:01:02.981261",
+        "date": "2026-09-01",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.06
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.05
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.63
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 1,
+            "duration_sec": 20.8
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 0,
+            "duration_sec": 0.15
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.02
+          }
+        },
+        "summary": {
+          "total_fetched": 1,
+          "new_saved": 1,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-01T16:51:01.137287",
         "date": "2026-09-01",
@@ -1255,88 +1297,46 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-08-31T17:13:16.763274",
-        "date": "2026-08-31",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.06
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.02
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.53
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 1,
-            "duration_sec": 2.1
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.13
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.02
-          }
-        },
-        "summary": {
-          "total_fetched": 1,
-          "new_saved": 1,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-01T16:51:01.137287",
+      "timestamp": "2026-09-01T17:01:02.981261",
       "date": "2026-09-01",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.15
+          "duration_sec": 0.06
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.1
+          "duration_sec": 0.05
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 1.01
+          "duration_sec": 0.63
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 0,
-          "duration_sec": 7.4
+          "items_found": 1,
+          "duration_sec": 20.8
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 0,
-          "duration_sec": 0.25
+          "duration_sec": 0.15
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.1
+          "duration_sec": 0.02
         }
       },
       "summary": {
-        "total_fetched": 0,
-        "new_saved": 0,
+        "total_fetched": 1,
+        "new_saved": 1,
         "duplicates_skipped": 0,
         "errors": 0
       }
@@ -2014,6 +2014,21 @@
       },
       "created_at": "2026-09-01",
       "updated_at": "2026-09-01"
+    },
+    {
+      "inbox_id": "2026-09-01_repo_hacker_news_show_hn_running_104gb_qwen38_flas",
+      "harvested_date": "2026-09-01",
+      "title": "Hacker News: Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac with at ~12 tok/s",
+      "source_platform": "Hacker News",
+      "source_url": "https://github.com/carloslfu/slotstream",
+      "type": "repo",
+      "category_type": "REPO",
+      "description": "HN Score: 7 pts | Comments: 0 | Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac with at ~12 tok/s",
+      "viral_metric": "🔥 7 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-01_repo_github_yding_gitpersonal_edge_proxy",
