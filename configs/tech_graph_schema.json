@@ -1,6 +1,6 @@
 {
   "schema_version": "6.0",
-  "updated_at": "2026-09-01",
+  "updated_at": "2026-09-02",
   "domains": [
     {
       "id": "language",
@@ -659,6 +659,46 @@
         "mentions": 38,
         "desc": "잠재 공간(Latent Space) 확산 모델을 통한 실시간 이미지 생성 논문",
         "val": 23
+      },
+      {
+        "id": "microsoft_trellis_2",
+        "label": "🧊 Microsoft TRELLIS.2 (4B)",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "model",
+        "mentions": 38,
+        "desc": "단일 이미지 기반 PBR 재질 3D 에셋 생성 4B 모델 (MIT 라이선스, VRAM 24GB)",
+        "val": 28
+      },
+      {
+        "id": "minimax_h3",
+        "label": "🎬 MiniMax H3 (Video+Audio)",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "model",
+        "mentions": 42,
+        "desc": "오디오 일체형 768p 영상 생성 공개 가중치 모델 (한국/미국/EU 라이선스 제외 지역)",
+        "val": 30
+      },
+      {
+        "id": "gemini_3_5_transcribe",
+        "label": "🎙️ Google Gemini 3.5 Transcribe",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "model",
+        "mentions": 45,
+        "desc": "85개 언어 자동 감지 및 문장 중간 실시간 코드 스위칭 지원 음성 인식 모델",
+        "val": 32
+      },
+      {
+        "id": "google",
+        "label": "🏢 Google DeepMind",
+        "group": "organization",
+        "gen": "Gen 0",
+        "type": "org",
+        "mentions": 50,
+        "desc": "글로벌 AI 프론티어 연구소 및 파운데이션 모델 개발사",
+        "val": 35
       }
     ],
     "links": [
@@ -1041,6 +1081,27 @@
         "source": "ffmpeg",
         "target": "moneyprinterturbo",
         "relation": "VIDEO_MUXING"
+      },
+      {
+        "source": "microsoft_trellis_2",
+        "target": "python",
+        "label": "PyTorch / CUDA 12",
+        "type": "runtime",
+        "desc": "PyTorch 기반 Linux 24GB VRAM 실행"
+      },
+      {
+        "source": "minimax_h3",
+        "target": "python",
+        "label": "DiT Architecture",
+        "type": "runtime",
+        "desc": "Diffusion Transformer 오디오-비디오 잠재 공간 합성"
+      },
+      {
+        "source": "gemini_3_5_transcribe",
+        "target": "google",
+        "label": "Google DeepMind API",
+        "type": "created_by",
+        "desc": "Google DeepMind Speech & Multimodal 연구팀 공식 릴리스"
       }
     ]
   }

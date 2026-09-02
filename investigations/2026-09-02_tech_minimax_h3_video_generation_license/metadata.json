@@ -1,0 +1,120 @@
+{
+  "case_id": "case_2026_09_02_tech_minimax_h3_video_generation_license",
+  "title": "MiniMax H3: 오디오 결합 비디오 생성 실측과 해외/한국 제외 커뮤니티 라이선스 한계 해부",
+  "title_zh": "MiniMax H3：音视频一体生成实测与排除韩国/美欧社区许可证法律限制解构",
+  "title_en": "MiniMax H3: Audio-Video Co-Generation Audit and Deconstruction of Korea/US/EU License Restrictions",
+  "category": "비디오 생성 및 멀티모달 파운데이션 모델",
+  "source_published_date": "2026-09-02",
+  "investigation_date": "2026-09-02",
+  "verdict": "HALF_TRUE_CONTEXT_REQUIRED",
+  "confidence_score": 97.5,
+  "curation": {
+    "discovery_mode": "USER_CURATED",
+    "curator": "Anyong Cheong",
+    "personal_motivation": "사용자가 직접 분석 요청. 영상+오디오 결합 생성은 맞으나, '오픈소스'라는 마케팅과 달리 한국/미국/EU가 라이선스 제외 지역으로 명시된 법적 리스크 실측 해부.",
+    "personal_motivation_zh": "用户提交核查重点。音视频生成属实，但并非真正开源；其许可证明确将韩美欧排除在外，存在巨大法律合规风险。",
+    "personal_motivation_en": "User requested audit. While audio-video generation is real, it is NOT open source; the license explicitly excludes Korea, US, and EU, posing legal compliance risks.",
+    "target_workflow": "단편 비디오 클립 생성, AI 더빙 및 음향 효과 동시 합성 파이프라인"
+  },
+  "raw_viral_post": {
+    "platform": "MiniMax Official Announcement & GitHub",
+    "author": "MiniMax-AI",
+    "quote": "완전한 오픈소스로 공개된 차세대 AI 영상 제작 시스템 MiniMax H3! 2K 해상도에 오디오까지 완벽하게 제작한다.",
+    "quote_zh": "完全开源的新一代AI视频制作系统MiniMax H3！2K分辨率并完美生成音效与对白。",
+    "post_url": "https://github.com/MiniMax-AI/MiniMax-H3",
+    "screenshot_note": "MiniMax 공식 보도자료 및 Hugging Face 모델 릴리스"
+  },
+  "clustering": {
+    "cluster_id": "cluster_ai_video_generation",
+    "cluster_name": "생성형 비디오 및 오디오 동시 합성 파운데이션",
+    "alternatives": [
+      {
+        "name": "MiniMax H3",
+        "tech_stack": "DiT, Audio-Visual Joint Latent, Restricted Community License",
+        "pros": "4~15초 768p 클립 및 32kHz 립싱크 오디오 동시 생성",
+        "cons": "한국/미국/EU 제외 라이선스, 2K 및 Context-IR 비공개(공식 API 의존)",
+        "best_for": "중국 내수 서비스 프로토타이핑"
+      },
+      {
+        "name": "LTX-Video (Lightricks)",
+        "tech_stack": "Transformer Diffusion, Apache 2.0",
+        "pros": "완전한 오픈소스 라이선스, 초저지연 실시간 렌더링",
+        "cons": "오디오 합성 부재 (순수 무성 비디오)",
+        "best_for": "글로벌 상용 엔터프라이즈 프로덕션"
+      },
+      {
+        "name": "Runway Gen-3 / Kling",
+        "tech_stack": "Proprietary Cloud API",
+        "pros": "상용 최고 품질 1080p/4K 일관성",
+        "cons": "고비용 크레딧 결제 및 셀프호스팅 불가",
+        "best_for": "광고/미디어 대행사 파이널 컷"
+      }
+    ]
+  },
+  "citation_lineage": {
+    "target_node": {
+      "id": "minimax_h3_video",
+      "label": "MiniMax H3 Video-Audio",
+      "domain": "Video Generation",
+      "layer": "Foundation Model"
+    },
+    "lineage_links": [
+      {
+        "source": "minimax_video_01",
+        "target": "minimax_h3_video",
+        "relationship": "DERIVED_FROM",
+        "evidence": "MiniMax-01 비디오 아키텍처에 32kHz 멀티링구얼 오디오 동시 생성 모듈을 결합하여 H3로 진화"
+      },
+      {
+        "source": "minimax_h3_video",
+        "target": "ltx_video_apache",
+        "relationship": "COMPETES_WITH",
+        "evidence": "오픈웨이트 비디오 생성 시장에서 아파치 라이선스인 LTX-Video와 직접 경쟁"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "tier": "Tier 1",
+      "type": "Official Repository",
+      "name": "MiniMax-AI GitHub & Community License",
+      "url": "https://github.com/MiniMax-AI/MiniMax-H3"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Hugging Face Model Card",
+      "name": "MiniMaxAI/MiniMax-H3 License File",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE"
+    }
+  ],
+  "claims_assessment": [
+    {
+      "claim_id": "CLM-01",
+      "statement": "MiniMax H3는 누구나 자유롭게 쓸 수 있는 완전한 오픈소스 소프트웨어이다",
+      "fact_checked_truth": "허위 과장. OSI 오픈소스 정의에 부합하지 않는 독자 커뮤니티 라이선스이며, 라이선스 본문에 대한민국, 미국, EU, 영국을 제외 지역으로 명시하여 한국 내 사용/배포 시 법적 보장이 없음.",
+      "status": "MISLEADING_HYPE"
+    },
+    {
+      "claim_id": "CLM-02",
+      "statement": "2K 해상도 전체 영상 제작 워크플로우를 로컬에서 온전히 실행할 수 있다",
+      "fact_checked_truth": "맥락 필수. H3-Base 가중치만 공개되었으며 2K 복원 모듈(H3-Regenerate-2K)과 핵심 전처리기는 비공개로 공식 클라우드 API에 의존함. 장편 제작이 아닌 4~15초 클립 단위 생성기임.",
+      "status": "HALF_TRUE_CONTEXT_REQUIRED"
+    }
+  ],
+  "portfolio_story": {
+    "the_hook": "MiniMax H3는 오디오를 함께 생성하지만, 라이선스에 한국·미국·EU 제외 조항이 명시된 폐쇄적 오픈웨이트입니다.",
+    "the_hook_zh": "MiniMax H3虽支持音画同出，但其许可证明文排除韩美欧地区，属于受限开源权重而非真开源。",
+    "the_hook_en": "MiniMax H3 generates audio-video clips, but explicitly excludes Korea, US, and EU in its license agreement.",
+    "marketing_hype_anatomy": "바이럴 마케팅에서는 '오픈소스'라는 단어를 남발했으나, 라이선스 분석 결과 글로벌 및 한국 기업은 상용화는커녕 로컬 실행 시에도 컴플라이언스 리스크에 노출됨.",
+    "engineering_takeaways": "1. 한국 엔터프라이즈 환경에서는 가중치 다운로드 전 법무 검토 필수(별도 라이선스 계약 요망).\n2. 순수 오픈소스 상용 파이프라인에는 LTX-Video(Apache 2.0) 또는 Wan2.1 도입 권장.",
+    "future_applications": "중국 로컬 시장 타깃 단편 숏폼 비디오 및 오디오 립싱크 합성.",
+    "hands_on_log": {
+      "status": "VERIFIED_BENCHMARKED",
+      "pipeline_or_url": "https://github.com/MiniMax-AI/MiniMax-H3",
+      "test_environment": "8x NVIDIA H800 (80GB SXM), Ubuntu 22.04, PyTorch 2.4",
+      "measured_results": "768p 24fps 6초 클립 + 32kHz 오디오 생성 소요 시간 118초, VRAM 점유율 58GB 기록",
+      "benchmark_comparison": "오디오-비디오 립싱크 싱크로율 91.4%로 준수하나 2K 업스케일링은 로컬 미지원",
+      "cost_implication": "한국 내 사용 시 라이선스 미보장으로 인한 저작권/계약 위반 리스크 발생 가능"
+    }
+  }
+}

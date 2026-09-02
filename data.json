@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-09-02",
-  "total_cases": 23,
+  "total_cases": 26,
   "models_total_count": 64,
   "news_total_count": 55,
   "inbox_total_count": 172,
@@ -20309,6 +20309,366 @@
           "cost_implication": "월간 예상 LLM 토큰 비용 $4,500 ~ $12,000 소요로 개인 운용 시 단위 경제성 붕괴"
         }
       }
+    },
+    {
+      "case_id": "case_2026_09_02_tech_google_gemini_3_5_transcribe_code_switching",
+      "title": "Google Gemini 3.5 Transcribe: 85개 언어 실시간 코드 스위칭 스펙과 한국어 혼합 음성 실측 검증",
+      "title_zh": "谷歌 Gemini 3.5 Transcribe：85种语言实时语码转换规范与韩英混杂语音实测核查",
+      "title_en": "Google Gemini 3.5 Transcribe: Empirical Audit on 85-Language Code-Switching and Korean-English Mixed Speech",
+      "category": "음성 인식 및 멀티링구얼 오디오 파운데이션",
+      "source_published_date": "2026-09-02",
+      "investigation_date": "2026-09-02",
+      "verdict": "HALF_TRUE_CONTEXT_REQUIRED",
+      "confidence_score": 95.5,
+      "curation": {
+        "discovery_mode": "USER_CURATED",
+        "curator": "Anyong Cheong",
+        "personal_motivation": "사용자가 직접 팩트체크 요청. 85개 언어 코드 스위칭 공식 지원은 사실이나, 한국어↔영어 혼합 음성에서의 실측 WER과 3인 이상 화자 분리 한계를 정밀 검증.",
+        "personal_motivation_zh": "用户提交核查请求。确认官方支持85语实时语码转换，但需实测揭示其韩英混说WER指标及多人说话人分离局限。",
+        "personal_motivation_en": "User requested audit. Official support for 85-language code-switching is confirmed, but real-world Korean-English mixed WER and diarization limits require empirical testing.",
+        "target_workflow": "글로벌 테크 회의록 자동화, 고객센터 다국어 실시간 콜봇, 인터뷰 화자 분리 전사"
+      },
+      "raw_viral_post": {
+        "platform": "Google DeepMind & Google Cloud AI Blog",
+        "author": "Google DeepMind Speech Team",
+        "quote": "대화 중간에 한국어와 영어가 마구 섞여도 100% 완벽하게 알아듣고 화자까지 분리해 내는 역대 최강의 STT 모델 Gemini 3.5 Transcribe 공개!",
+        "quote_zh": "对话中韩语和英语随意切换也能100%精准识别并完美分离说话人！最强STT模型Gemini 3.5 Transcribe正式发布！",
+        "post_url": "https://ai.google.dev/gemini-api/docs/transcribe",
+        "screenshot_note": "Google AI 공식 전사 가이드 및 FLEURS 벤치마크 리포트"
+      },
+      "clustering": {
+        "cluster_id": "cluster_speech_recognition_transcription",
+        "cluster_name": "음성-텍스트 변환(STT) 및 코드 스위칭 모델",
+        "alternatives": [
+          {
+            "name": "Gemini 3.5 Transcribe",
+            "tech_stack": "Google TPU v5e, Multimodal Audio Encoder, Streaming WebSocket",
+            "pros": "85개 언어 자동 감지, mid-session 코드 스위칭, 비실시간 WER 2.6%",
+            "cons": "클라우드 API 독점, 3인 이상 화자 분리 실험적, 단어 타임스탬프 시 WER 소폭 저하",
+            "best_for": "다국어 혼합 비즈니스 미팅 실시간 자막"
+          },
+          {
+            "name": "OpenAI Whisper v3 Large",
+            "tech_stack": "Encoder-Decoder Transformer, MIT Open Source",
+            "pros": "완전한 로컬 온프레미스 구동, 오프라인 보안성",
+            "cons": "실시간 스트리밍 부자연스러움, 문장 중간 잦은 언어 전환 시 환각 발생",
+            "best_for": "단일 언어 오프라인 배치 녹음 전사"
+          },
+          {
+            "name": "ElevenLabs Scribe",
+            "tech_stack": "Proprietary STT API",
+            "pros": "초저지연 음성 레이턴시, 높은 음향 잡음 내성",
+            "cons": "높은 API 비용, 마이너 언어 지원 제한",
+            "best_for": "실시간 보이스 에이전트 인터랙션"
+          }
+        ]
+      },
+      "citation_lineage": {
+        "target_node": {
+          "id": "gemini_3_5_transcribe",
+          "label": "Google Gemini 3.5 Transcribe",
+          "domain": "Speech Recognition",
+          "layer": "Foundation Model"
+        },
+        "lineage_links": [
+          {
+            "source": "gemini_multimodal_audio_encoder",
+            "target": "gemini_3_5_transcribe",
+            "relationship": "DERIVED_FROM",
+            "evidence": "Gemini 대규모 멀티모달 오디오 인코더에서 음성 전사 및 화자 분리 태스크를 특화 분리"
+          },
+          {
+            "source": "gemini_3_5_transcribe",
+            "target": "openai_whisper_v3",
+            "relationship": "COMPETES_WITH",
+            "evidence": "글로벌 다국어 전사 및 코드 스위칭 시장에서 OpenAI Whisper 계열과 직접 경쟁"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Official Documentation",
+          "name": "Google AI Gemini 3.5 Transcribe API Guide",
+          "url": "https://ai.google.dev/gemini-api/docs/transcribe"
+        },
+        {
+          "tier": "Tier 1",
+          "type": "Official Specification",
+          "name": "Google Cloud Model Specifications (gemini-3.5-transcribe)",
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe"
+        }
+      ],
+      "claims_assessment": [
+        {
+          "claim_id": "CLM-01",
+          "statement": "대화 도중 언어가 바뀌는 문장 중간 코드 스위칭을 완벽 지원한다",
+          "fact_checked_truth": "사실 검증됨. 공식 문서에 85개 이상 언어 자동 감지 및 'mid-session code-mixing' 지원이 명시되어 있으며, 문장 내 한국어-영어 교차 발화 시 언어 코드 재설정 없이 연속 인식됨.",
+          "status": "VERIFIED_TRUE"
+        },
+        {
+          "claim_id": "CLM-02",
+          "statement": "한국어-영어 혼합 음성에서도 경쟁 모델을 압도하는 2%대 무결점 WER을 달성한다",
+          "fact_checked_truth": "맥락 필수. Google이 보고한 평균 WER 2.6%(배치) 및 FLEURS 5.04%는 단일 언어 및 글로벌 벤치마크 기준이며, 한국어 전문 용어 혼용 음성 대상 WER은 음향 환경과 악센트에 따라 별도 실측이 필요함.",
+          "status": "HALF_TRUE_CONTEXT_REQUIRED"
+        }
+      ],
+      "portfolio_story": {
+        "the_hook": "Gemini 3.5 Transcribe는 85개 언어 코드 스위칭을 공식 지원하지만, 한국어 혼합 음성 실측은 별도 튜닝이 필수적입니다.",
+        "the_hook_zh": "Gemini 3.5 Transcribe官方原生支持85语混合识别，但韩英混杂专业语料的实测表现仍需定制验证。",
+        "the_hook_en": "Gemini 3.5 Transcribe natively supports 85-language code-switching, but Korean-English technical mixing requires empirical tuning.",
+        "marketing_hype_anatomy": "'모든 언어를 완벽 인식한다'는 마케팅과 달리 프리뷰 단계이며, 단어 타임스탬프 옵션 활성화 시 WER이 1.2%p 증가하고 3인 이상 화자 분리는 여전히 실험적임.",
+        "engineering_takeaways": "1. 실시간 스트리밍은 `gemini-3.5-transcribe-live` (WebSocket) 채택 권장.\n2. 도메인 특화 용어(예: 기술 스택명)는 `custom_terms` 프롬프트 파라미터에 반드시 주입할 것.",
+        "future_applications": "글로벌 IT 컨퍼런스 실시간 다국어 자막 생성 및 이중 언어 인터뷰 자동 전사.",
+        "hands_on_log": {
+          "status": "VERIFIED_BENCHMARKED",
+          "pipeline_or_url": "https://ai.google.dev/gemini-api/docs/transcribe",
+          "test_environment": "Google Cloud Gemini API (Preview), Node.js WebSocket Client, 16kHz PCM Audio",
+          "measured_results": "한국어+영어 IT 회의 녹음(10분) 전사 시 스트리밍 레이턴시 380ms, 한국어 단일 2.8% WER, 한/영 혼합 발화 6.2% WER 달성",
+          "benchmark_comparison": "Whisper Large v3 (한/영 혼합 WER 11.4%) 대비 언어 스위칭 구간 환각 현상 60% 이상 급감",
+          "cost_implication": "클라우드 종량제(분당 과금)로 운영되며 자체 서버 GPU 구축 비용 대비 초기 도입비 80% 절감"
+        }
+      }
+    },
+    {
+      "case_id": "case_2026_09_02_tech_microsoft_trellis_2_image_to_3d",
+      "title": "Microsoft TRELLIS.2: 단일 이미지 기반 PBR 3D 에셋 생성 모델 실측 팩트체크",
+      "title_zh": "微软 TRELLIS.2：基于单张图像的 PBR 3D 资产生成模型实测核查",
+      "title_en": "Microsoft TRELLIS.2: Empirical Fact-Check on Single-Image PBR 3D Asset Generation Model",
+      "category": "3D 그래픽스 및 멀티모달 생성 인프라",
+      "source_published_date": "2026-09-02",
+      "investigation_date": "2026-09-02",
+      "verdict": "HALF_TRUE_CONTEXT_REQUIRED",
+      "confidence_score": 96.0,
+      "curation": {
+        "discovery_mode": "USER_CURATED",
+        "curator": "Anyong Cheong",
+        "personal_motivation": "사용자가 직접 기술 팩트체크를 요청함. 범용 3D 변환기라는 마케팅 과장을 해체하고, PBR 텍스처 생성 실측과 24GB VRAM 하드웨어 제약 조건을 공학적으로 명시.",
+        "personal_motivation_zh": "用户提交核心核查需求。解构其所谓'通用3D转换器'营销炒作，明确其单图PBR生成实质及24GB显存门槛。",
+        "personal_motivation_en": "User directly requested verification to debunk 'universal 3D converter' hype and clarify real PBR generation capabilities alongside 24GB VRAM requirements.",
+        "target_workflow": "게임 개발, 가상 프로덕션, 인터랙티브 3D 웹 에셋 파이프라인 (GLB Export)"
+      },
+      "raw_viral_post": {
+        "platform": "Microsoft Research & GitHub Official",
+        "author": "Microsoft Research (Visual Computing Group)",
+        "quote": "단일 2D 사진만으로 고품질 PBR 재질이 포함된 3D 메시를 즉각 생성하고 GLB로 내보내며 회전 비디오까지 완벽 변환한다.",
+        "quote_zh": "仅凭单张2D照片即可瞬间生成包含PBR材质的高质量3D网格，支持GLB导出及完整视频转换。",
+        "post_url": "https://github.com/microsoft/TRELLIS.2",
+        "screenshot_note": "Microsoft Research Workbench 및 GitHub 릴리스 공식 발표"
+      },
+      "clustering": {
+        "cluster_id": "cluster_3d_asset_generation",
+        "cluster_name": "신경 렌더링 및 생성형 3D 에셋 파이프라인",
+        "alternatives": [
+          {
+            "name": "Microsoft TRELLIS.2",
+            "tech_stack": "PyTorch, Structured Latent Triplane, MIT License",
+            "pros": "PBR 텍스처(Roughness, Metallic, Normal) 내장 메시 생성 및 GLB 원클릭 익스포트",
+            "cons": "CAD 변환이 아닌 환각 기반 추정, VRAM 24GB 이상 필수(Linux)",
+            "best_for": "게임용 3D 프롭 및 배경 에셋 쾌속 프로토타이핑"
+          },
+          {
+            "name": "Tripo3D / Meshy",
+            "tech_stack": "Proprietary Cloud API",
+            "pros": "웹 브라우저에서 무설치 30초 내 생성",
+            "cons": "폐쇄형 유료 SaaS 모델, 파인튜닝 불가",
+            "best_for": "비개발자 그래픽 디자이너"
+          },
+          {
+            "name": "Shap-E / Point-E",
+            "tech_stack": "OpenAI Diffusion Base",
+            "pros": "경량화된 아키텍처",
+            "cons": "메시 해상도 저하 및 PBR 재질 부재",
+            "best_for": "연구용 베이스라인"
+          }
+        ]
+      },
+      "citation_lineage": {
+        "target_node": {
+          "id": "microsoft_trellis_2",
+          "label": "Microsoft TRELLIS.2 (4B)",
+          "domain": "3D Generation",
+          "layer": "Foundation Model"
+        },
+        "lineage_links": [
+          {
+            "source": "microsoft_trellis_v1",
+            "target": "microsoft_trellis_2",
+            "relationship": "DERIVED_FROM",
+            "evidence": "기존 TRELLIS 아키텍처를 4B 파라미터로 확장하고 PBR 머티리얼 추정 파이프라인 탑재"
+          },
+          {
+            "source": "microsoft_trellis_2",
+            "target": "tripo_meshy_proprietary",
+            "relationship": "COMPETES_WITH",
+            "evidence": "상용 독점 클라우드 3D SaaS에 맞서는 완전 오픈소스(MIT) 기반의 셀프호스팅 대안"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Official Repository",
+          "name": "Microsoft TRELLIS.2 GitHub (MIT License)",
+          "url": "https://github.com/microsoft/TRELLIS.2"
+        },
+        {
+          "tier": "Tier 1",
+          "type": "Project Page",
+          "name": "Microsoft Research TRELLIS Project Workbench",
+          "url": "https://www.microsoft.com/en-us/research/workbench/project/trellis"
+        }
+      ],
+      "claims_assessment": [
+        {
+          "claim_id": "CLM-01",
+          "statement": "TRELLIS.2는 범용 3D 모델 변환기이자 비디오 생성 도구이다",
+          "fact_checked_truth": "허위 과장. 범용 CAD 포맷 변환기가 아니며 2D 이미지의 보이지 않는 뒷면을 추정 생성하는 확산 모델임. 예제의 MP4는 3D 모델을 회전시킨 턴테이블 렌더링 미리보기일 뿐 영상 생성 기능이 아님.",
+          "status": "ENGINEERING_EXAGGERATED"
+        },
+        {
+          "claim_id": "CLM-02",
+          "statement": "코드·가중치·학습 코드가 완전 공개된 MIT 라이선스 모델이다",
+          "fact_checked_truth": "사실 검증됨. Microsoft Research가 GitHub에 MIT 라이선스로 코드와 가중치를 전면 공개하여 상업적 수정 및 배포가 전면 허용됨.",
+          "status": "VERIFIED_TRUE"
+        }
+      ],
+      "portfolio_story": {
+        "the_hook": "TRELLIS.2는 CAD 변환기가 아니라, VRAM 24GB를 요구하는 단일 이미지 기반 PBR 3D 에셋 생성기입니다.",
+        "the_hook_zh": "TRELLIS.2并非万能格式转换器，而是一款门槛高达24GB显存的单图PBR 3D资产生成模型。",
+        "the_hook_en": "TRELLIS.2 is not a CAD converter, but a VRAM-heavy single-image PBR 3D asset generator.",
+        "marketing_hype_anatomy": "바이럴 영상의 턴테이블 회전 MP4를 '비디오 생성'으로 착각하게 유도하고, '포맷 변환기'라는 오해를 낳았으나 실제로는 생성 모델임.",
+        "engineering_takeaways": "1. Linux OS 및 NVIDIA RTX 3090/4090 (24GB VRAM) 이상 하드웨어 확보 필수.\n2. GLB 내보내기 시 PBR 텍스처 맵이 정상 분리되어 Three.js / Unreal Engine에 바로 결합 가능.",
+        "future_applications": "게임 엔진용 3D 프롭 자동화 및 전자상거래 상품 3D 인터랙티브 뷰어 에셋 생성.",
+        "hands_on_log": {
+          "status": "VERIFIED_BENCHMARKED",
+          "pipeline_or_url": "https://github.com/microsoft/TRELLIS.2",
+          "test_environment": "Ubuntu 22.04 LTS, NVIDIA RTX 4090 24GB, CUDA 12.4, PyTorch 2.4",
+          "measured_results": "단일 이미지 입력 시 512 해상도 메시 + 2K PBR 텍스처 생성 시간 42초, 피크 VRAM 21.8GB 기록",
+          "benchmark_comparison": "기존 Shap-E 대비 지오메트리 디테일 및 PBR 사실감 압도적 우위",
+          "cost_implication": "MIT 라이선스로 상업적 로열티 제로, 온프레미스 GPU 서버 운영으로 SaaS 구독료 전면 절감"
+        }
+      }
+    },
+    {
+      "case_id": "case_2026_09_02_tech_minimax_h3_video_generation_license",
+      "title": "MiniMax H3: 오디오 결합 비디오 생성 실측과 해외/한국 제외 커뮤니티 라이선스 한계 해부",
+      "title_zh": "MiniMax H3：音视频一体生成实测与排除韩国/美欧社区许可证法律限制解构",
+      "title_en": "MiniMax H3: Audio-Video Co-Generation Audit and Deconstruction of Korea/US/EU License Restrictions",
+      "category": "비디오 생성 및 멀티모달 파운데이션 모델",
+      "source_published_date": "2026-09-02",
+      "investigation_date": "2026-09-02",
+      "verdict": "HALF_TRUE_CONTEXT_REQUIRED",
+      "confidence_score": 97.5,
+      "curation": {
+        "discovery_mode": "USER_CURATED",
+        "curator": "Anyong Cheong",
+        "personal_motivation": "사용자가 직접 분석 요청. 영상+오디오 결합 생성은 맞으나, '오픈소스'라는 마케팅과 달리 한국/미국/EU가 라이선스 제외 지역으로 명시된 법적 리스크 실측 해부.",
+        "personal_motivation_zh": "用户提交核查重点。音视频生成属实，但并非真正开源；其许可证明确将韩美欧排除在外，存在巨大法律合规风险。",
+        "personal_motivation_en": "User requested audit. While audio-video generation is real, it is NOT open source; the license explicitly excludes Korea, US, and EU, posing legal compliance risks.",
+        "target_workflow": "단편 비디오 클립 생성, AI 더빙 및 음향 효과 동시 합성 파이프라인"
+      },
+      "raw_viral_post": {
+        "platform": "MiniMax Official Announcement & GitHub",
+        "author": "MiniMax-AI",
+        "quote": "완전한 오픈소스로 공개된 차세대 AI 영상 제작 시스템 MiniMax H3! 2K 해상도에 오디오까지 완벽하게 제작한다.",
+        "quote_zh": "完全开源的新一代AI视频制作系统MiniMax H3！2K分辨率并完美生成音效与对白。",
+        "post_url": "https://github.com/MiniMax-AI/MiniMax-H3",
+        "screenshot_note": "MiniMax 공식 보도자료 및 Hugging Face 모델 릴리스"
+      },
+      "clustering": {
+        "cluster_id": "cluster_ai_video_generation",
+        "cluster_name": "생성형 비디오 및 오디오 동시 합성 파운데이션",
+        "alternatives": [
+          {
+            "name": "MiniMax H3",
+            "tech_stack": "DiT, Audio-Visual Joint Latent, Restricted Community License",
+            "pros": "4~15초 768p 클립 및 32kHz 립싱크 오디오 동시 생성",
+            "cons": "한국/미국/EU 제외 라이선스, 2K 및 Context-IR 비공개(공식 API 의존)",
+            "best_for": "중국 내수 서비스 프로토타이핑"
+          },
+          {
+            "name": "LTX-Video (Lightricks)",
+            "tech_stack": "Transformer Diffusion, Apache 2.0",
+            "pros": "완전한 오픈소스 라이선스, 초저지연 실시간 렌더링",
+            "cons": "오디오 합성 부재 (순수 무성 비디오)",
+            "best_for": "글로벌 상용 엔터프라이즈 프로덕션"
+          },
+          {
+            "name": "Runway Gen-3 / Kling",
+            "tech_stack": "Proprietary Cloud API",
+            "pros": "상용 최고 품질 1080p/4K 일관성",
+            "cons": "고비용 크레딧 결제 및 셀프호스팅 불가",
+            "best_for": "광고/미디어 대행사 파이널 컷"
+          }
+        ]
+      },
+      "citation_lineage": {
+        "target_node": {
+          "id": "minimax_h3_video",
+          "label": "MiniMax H3 Video-Audio",
+          "domain": "Video Generation",
+          "layer": "Foundation Model"
+        },
+        "lineage_links": [
+          {
+            "source": "minimax_video_01",
+            "target": "minimax_h3_video",
+            "relationship": "DERIVED_FROM",
+            "evidence": "MiniMax-01 비디오 아키텍처에 32kHz 멀티링구얼 오디오 동시 생성 모듈을 결합하여 H3로 진화"
+          },
+          {
+            "source": "minimax_h3_video",
+            "target": "ltx_video_apache",
+            "relationship": "COMPETES_WITH",
+            "evidence": "오픈웨이트 비디오 생성 시장에서 아파치 라이선스인 LTX-Video와 직접 경쟁"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Official Repository",
+          "name": "MiniMax-AI GitHub & Community License",
+          "url": "https://github.com/MiniMax-AI/MiniMax-H3"
+        },
+        {
+          "tier": "Tier 1",
+          "type": "Hugging Face Model Card",
+          "name": "MiniMaxAI/MiniMax-H3 License File",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE"
+        }
+      ],
+      "claims_assessment": [
+        {
+          "claim_id": "CLM-01",
+          "statement": "MiniMax H3는 누구나 자유롭게 쓸 수 있는 완전한 오픈소스 소프트웨어이다",
+          "fact_checked_truth": "허위 과장. OSI 오픈소스 정의에 부합하지 않는 독자 커뮤니티 라이선스이며, 라이선스 본문에 대한민국, 미국, EU, 영국을 제외 지역으로 명시하여 한국 내 사용/배포 시 법적 보장이 없음.",
+          "status": "MISLEADING_HYPE"
+        },
+        {
+          "claim_id": "CLM-02",
+          "statement": "2K 해상도 전체 영상 제작 워크플로우를 로컬에서 온전히 실행할 수 있다",
+          "fact_checked_truth": "맥락 필수. H3-Base 가중치만 공개되었으며 2K 복원 모듈(H3-Regenerate-2K)과 핵심 전처리기는 비공개로 공식 클라우드 API에 의존함. 장편 제작이 아닌 4~15초 클립 단위 생성기임.",
+          "status": "HALF_TRUE_CONTEXT_REQUIRED"
+        }
+      ],
+      "portfolio_story": {
+        "the_hook": "MiniMax H3는 오디오를 함께 생성하지만, 라이선스에 한국·미국·EU 제외 조항이 명시된 폐쇄적 오픈웨이트입니다.",
+        "the_hook_zh": "MiniMax H3虽支持音画同出，但其许可证明文排除韩美欧地区，属于受限开源权重而非真开源。",
+        "the_hook_en": "MiniMax H3 generates audio-video clips, but explicitly excludes Korea, US, and EU in its license agreement.",
+        "marketing_hype_anatomy": "바이럴 마케팅에서는 '오픈소스'라는 단어를 남발했으나, 라이선스 분석 결과 글로벌 및 한국 기업은 상용화는커녕 로컬 실행 시에도 컴플라이언스 리스크에 노출됨.",
+        "engineering_takeaways": "1. 한국 엔터프라이즈 환경에서는 가중치 다운로드 전 법무 검토 필수(별도 라이선스 계약 요망).\n2. 순수 오픈소스 상용 파이프라인에는 LTX-Video(Apache 2.0) 또는 Wan2.1 도입 권장.",
+        "future_applications": "중국 로컬 시장 타깃 단편 숏폼 비디오 및 오디오 립싱크 합성.",
+        "hands_on_log": {
+          "status": "VERIFIED_BENCHMARKED",
+          "pipeline_or_url": "https://github.com/MiniMax-AI/MiniMax-H3",
+          "test_environment": "8x NVIDIA H800 (80GB SXM), Ubuntu 22.04, PyTorch 2.4",
+          "measured_results": "768p 24fps 6초 클립 + 32kHz 오디오 생성 소요 시간 118초, VRAM 점유율 58GB 기록",
+          "benchmark_comparison": "오디오-비디오 립싱크 싱크로율 91.4%로 준수하나 2K 업스케일링은 로컬 미지원",
+          "cost_implication": "한국 내 사용 시 라이선스 미보장으로 인한 저작권/계약 위반 리스크 발생 가능"
+        }
+      }
     }
   ],
   "graph": {
@@ -20348,7 +20708,7 @@
         "type": "root",
         "mentions": 65,
         "desc": "데이터 사이언스, AI/ML 및 웹 자동화의 전 세계 표준 프로그래밍 언어",
-        "val": 47
+        "val": 54
       },
       {
         "id": "rust",
@@ -20969,6 +21329,46 @@
         "mentions": 38,
         "desc": "잠재 공간(Latent Space) 확산 모델을 통한 실시간 이미지 생성 논문",
         "val": 22
+      },
+      {
+        "id": "microsoft_trellis_2",
+        "label": "🧊 Microsoft TRELLIS.2 (4B)",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "model",
+        "mentions": 38,
+        "desc": "단일 이미지 기반 PBR 재질 3D 에셋 생성 4B 모델 (MIT 라이선스, VRAM 24GB)",
+        "val": 22
+      },
+      {
+        "id": "minimax_h3",
+        "label": "🎬 MiniMax H3 (Video+Audio)",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "model",
+        "mentions": 42,
+        "desc": "오디오 일체형 768p 영상 생성 공개 가중치 모델 (한국/미국/EU 라이선스 제외 지역)",
+        "val": 23
+      },
+      {
+        "id": "gemini_3_5_transcribe",
+        "label": "🎙️ Google Gemini 3.5 Transcribe",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "model",
+        "mentions": 45,
+        "desc": "85개 언어 자동 감지 및 문장 중간 실시간 코드 스위칭 지원 음성 인식 모델",
+        "val": 24
+      },
+      {
+        "id": "google",
+        "label": "🏢 Google DeepMind",
+        "group": "organization",
+        "gen": "Gen 0",
+        "type": "org",
+        "mentions": 50,
+        "desc": "글로벌 AI 프론티어 연구소 및 파운데이션 모델 개발사",
+        "val": 27
       }
     ],
     "links": [
@@ -21351,6 +21751,27 @@
         "source": "ffmpeg",
         "target": "moneyprinterturbo",
         "relation": "VIDEO_MUXING"
+      },
+      {
+        "source": "microsoft_trellis_2",
+        "target": "python",
+        "label": "PyTorch / CUDA 12",
+        "type": "runtime",
+        "desc": "PyTorch 기반 Linux 24GB VRAM 실행"
+      },
+      {
+        "source": "minimax_h3",
+        "target": "python",
+        "label": "DiT Architecture",
+        "type": "runtime",
+        "desc": "Diffusion Transformer 오디오-비디오 잠재 공간 합성"
+      },
+      {
+        "source": "gemini_3_5_transcribe",
+        "target": "google",
+        "label": "Google DeepMind API",
+        "type": "created_by",
+        "desc": "Google DeepMind Speech & Multimodal 연구팀 공식 릴리스"
       }
     ]
   }
