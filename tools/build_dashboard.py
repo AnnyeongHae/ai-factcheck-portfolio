@@ -145,15 +145,25 @@ def build_dashboard():
     # Write data.json
     for target_dir in [dash_dir, docs_dir, base_dir, public_dir]:
         json_path = os.path.join(target_dir, "data.json")
-        with open(json_path, "w", encoding="utf-8") as f:
-            json.dump(summary_data, f, indent=2, ensure_ascii=False)
+        for _ in range(3):
+            try:
+                with open(json_path, "w", encoding="utf-8") as f:
+                    json.dump(summary_data, f, indent=2, ensure_ascii=False)
+                break
+            except Exception:
+                time.sleep(0.5)
 
     # Generate HTML
     html_content = generate_html(summary_data)
     for target_dir in [dash_dir, docs_dir, base_dir, public_dir]:
         html_path = os.path.join(target_dir, "index.html")
-        with open(html_path, "w", encoding="utf-8") as f:
-            f.write(html_content)
+        for _ in range(3):
+            try:
+                with open(html_path, "w", encoding="utf-8") as f:
+                    f.write(html_content)
+                break
+            except Exception:
+                time.sleep(0.5)
 
     print(f"[+] Successfully built Full 18 Dossiers Dashboard v20.0 at:")
     print(f"    - public/index.html & data.json (Vercel CDN Edge)")
@@ -667,7 +677,6 @@ def generate_html(data):
             <button onclick="setInboxSourceFilter('GitHub')" data-src-val="GitHub" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🐙 GitHub</button>
             <button onclick="setInboxSourceFilter('ArXiv')" data-src-val="ArXiv" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">📄 ArXiv</button>
             <button onclick="setInboxSourceFilter('Hugging Face')" data-src-val="Hugging Face" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🤗 Hugging Face</button>
-            <button onclick="setInboxSourceFilter('Blog')" data-src-val="Blog" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌍 Tech Blogs</button>
           </div>
         </div>
       </div>
@@ -1942,9 +1951,11 @@ def generate_html(data):
         const itemLang = (ai ? ai.source_lang : null) || item.source_lang || 'EN';
         const matchesLang = currentInboxLang === 'ALL' || itemLang === currentInboxLang;
 
-        // 3. 4대 기술 분류 매칭 (TECH, AGENT, MODEL, NEWS)
+        // 3. 4대 기술 분류 매칭 (인박스는 기본적으로 뉴스를 제외한 기술/모델/에이전트/미분석 대기열)
         const itemType = (ai ? ai.type_classification : null) || item.category_type || 'TECH';
-        const matchesType = currentInboxType === 'ALL' || itemType === currentInboxType;
+        const matchesType = currentInboxType === 'ALL' 
+          ? (itemType !== 'NEWS') 
+          : (itemType === currentInboxType);
 
         // 4. 기술 스택/프로그래밍 언어 매칭
         const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || 'General';

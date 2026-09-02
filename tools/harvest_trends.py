@@ -540,8 +540,7 @@ def harvest_all():
     try:
         logger.log("[*] Fetching Curated Global AI RSS Feeds...")
         rss_sources = [
-            ("Hugging Face Blog", "https://huggingface.co/blog/feed.xml", "https://huggingface.co/blog"),
-            ("Simon Willison Weblog", "https://simonwillison.net/atom/everything/", "https://simonwillison.net")
+            ("Hugging Face Blog", "https://huggingface.co/blog/feed.xml", "https://huggingface.co/blog")
         ]
         count = 0
         for sname, sfeed, base_url in rss_sources:
