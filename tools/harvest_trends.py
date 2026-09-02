@@ -10,6 +10,7 @@ Pipeline Architecture:
 import datetime
 import json
 import os
+import random
 import re
 import sys
 import time
@@ -243,6 +244,9 @@ def harvest_all():
     # =========================================================================
     # STEP 1: INGEST ALL DATA (NO PREMATURE FILTERING)
     # =========================================================================
+    all_candidates = []
+    seen_urls_this_run = set()
+
     def validate_candidate(cand):
         url = cand.get("source_url", "").strip()
         if not url or not url.startswith("http"):
@@ -487,6 +491,107 @@ def harvest_all():
         harvest_report["sources"]["reddit"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - reddit_start, 2)}
         logger.log(f"[!] Reddit Note: {e}", level="WARNING")
 
+    # 7. GeekNews (한국판 해커뉴스 - Atom Feed)
+    geek_start = time.time()
+    try:
+        logger.log("[*] Fetching GeekNews Korean Tech Trends (Atom feed)...")
+        xml_data = fetch_xml("https://news.hada.io/rss/news")
+        root = ET.fromstring(xml_data)
+        ns = {'atom': 'http://www.w3.org/2005/Atom'}
+        count = 0
+        for entry in root.findall('atom:entry', ns)[:25]:
+            title_elem = entry.find('atom:title', ns)
+            id_elem = entry.find('atom:id', ns)
+            content_elem = entry.find('atom:content', ns) or entry.find('atom:summary', ns)
+            
+            if title_elem is not None and id_elem is not None:
+                title = title_elem.text.strip() if title_elem.text else ""
+                topic_url = id_elem.text.strip() if id_elem.text else ""
+                content_raw = content_elem.text.strip() if content_elem is not None and content_elem.text else ""
+                clean_desc = re.sub(r'<[^>]+>', ' ', content_raw).strip()[:200]
+                
+                # Check for external article link
+                m_ext = re.search(r'href=[\'"](https?://[^\'"]+)[\'"]', content_raw)
+                article_url = m_ext.group(1) if m_ext else topic_url
+
+                added = add_candidate({
+                    "title": f"GeekNews: {title}",
+                    "title_ko": title,
+                    "source_platform": "GeekNews",
+                    "source_url": topic_url,
+                    "hn_url": topic_url,
+                    "article_url": article_url,
+                    "type": "sns",
+                    "category_type": "NEWS",
+                    "description": clean_desc or f"GeekNews Korean Tech Trend: {title}",
+                    "description_ko": clean_desc or title,
+                    "viral_metric": "🇰🇷 GeekNews 큐레이션"
+                })
+                if added: count += 1
+
+        harvest_report["sources"]["geeknews"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - geek_start, 2)}
+        logger.log(f"[+] GeekNews: {count} Korean tech items ingested in {time.time() - geek_start:.2f}s")
+    except Exception as e:
+        harvest_report["sources"]["geeknews"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - geek_start, 2)}
+        logger.log(f"[!] GeekNews Note: {e}", level="WARNING")
+
+    # 8. Curated AI Engineering RSS (Hugging Face Blog & Simon Willison)
+    rss_start = time.time()
+    try:
+        logger.log("[*] Fetching Curated Global AI RSS Feeds...")
+        rss_sources = [
+            ("Hugging Face Blog", "https://huggingface.co/blog/feed.xml", "https://huggingface.co/blog"),
+            ("Simon Willison Weblog", "https://simonwillison.net/atom/everything/", "https://simonwillison.net")
+        ]
+        count = 0
+        for sname, sfeed, base_url in rss_sources:
+            try:
+                xml_raw = fetch_xml(sfeed)
+                root = ET.fromstring(xml_raw)
+                items = root.findall('.//item')
+                if not items:
+                    ns = {'atom': 'http://www.w3.org/2005/Atom'}
+                    items = root.findall('atom:entry', ns) or root.findall('.//{http://www.w3.org/2005/Atom}entry')
+                
+                for it in items[:10]:
+                    t_node = it.find('title') if it.find('title') is not None else it.find('{http://www.w3.org/2005/Atom}title')
+                    l_node = it.find('link') if it.find('link') is not None else it.find('{http://www.w3.org/2005/Atom}link')
+                    d_node = it.find('description') if it.find('description') is not None else (it.find('{http://www.w3.org/2005/Atom}summary') or it.find('{http://www.w3.org/2005/Atom}content'))
+                    
+                    if t_node is not None and t_node.text:
+                        title = t_node.text.strip()
+                        url = ""
+                        if l_node is not None:
+                            url = l_node.attrib.get('href') if 'href' in l_node.attrib else (l_node.text or "").strip()
+                        if not url:
+                            id_n = it.find('{http://www.w3.org/2005/Atom}id')
+                            if id_n is not None and id_n.text: url = id_n.text.strip()
+                        
+                        desc = ""
+                        if d_node is not None and d_node.text:
+                            desc = re.sub(r'<[^>]+>', ' ', d_node.text).strip()[:180]
+                        
+                        if url:
+                            added = add_candidate({
+                                "title": f"{sname}: {title}",
+                                "source_platform": sname,
+                                "source_url": url,
+                                "article_url": url,
+                                "type": "sns",
+                                "category_type": "NEWS",
+                                "description": desc or f"{sname} Tech Publication: {title}",
+                                "viral_metric": "🌍 Official AI Publication"
+                            })
+                            if added: count += 1
+            except Exception as e_inner:
+                logger.log(f"[!] {sname} feed parse note: {e_inner}", level="WARNING")
+
+        harvest_report["sources"]["curated_rss"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - rss_start, 2)}
+        logger.log(f"[+] Curated AI RSS: {count} publication articles ingested in {time.time() - rss_start:.2f}s")
+    except Exception as e:
+        harvest_report["sources"]["curated_rss"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - rss_start, 2)}
+        logger.log(f"[!] Curated RSS Failed: {e}", level="WARNING")
+
     logger.log(f"[*] Step 1 Complete: Total {len(all_candidates)} candidates fetched from all channels.")
 
     # =========================================================================
@@ -539,6 +644,10 @@ def harvest_all():
                 old_item["description"] = cand["description"]
                 old_item["viral_metric"] = cand["viral_metric"]
                 old_item["updated_at"] = today_str
+                if "title_ko" in cand and not old_item.get("title_ko"): old_item["title_ko"] = cand["title_ko"]
+                if "description_ko" in cand and not old_item.get("description_ko"): old_item["description_ko"] = cand["description_ko"]
+                if "hn_url" in cand and not old_item.get("hn_url"): old_item["hn_url"] = cand["hn_url"]
+                if "article_url" in cand and not old_item.get("article_url"): old_item["article_url"] = cand["article_url"]
 
                 with open(target_inbox_file, "w", encoding="utf-8") as fp:
                     json.dump(old_item, fp, indent=2, ensure_ascii=False)
@@ -597,6 +706,11 @@ def harvest_all():
             "matched_user_domains": matched_domains,
             "status": "PENDING_REVIEW"
         }
+
+        if "title_ko" in cand: inbox_item["title_ko"] = cand["title_ko"]
+        if "description_ko" in cand: inbox_item["description_ko"] = cand["description_ko"]
+        if "hn_url" in cand: inbox_item["hn_url"] = cand["hn_url"]
+        if "article_url" in cand: inbox_item["article_url"] = cand["article_url"]
 
         with open(save_path, "w", encoding="utf-8") as f:
             json.dump(inbox_item, f, indent=2, ensure_ascii=False)

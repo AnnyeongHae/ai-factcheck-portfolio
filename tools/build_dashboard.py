@@ -621,7 +621,9 @@ def generate_html(data):
             <i data-lucide="filter" class="w-3.5 h-3.5 text-ink-secondary"></i>
             <select id="inboxSourceSelect" onchange="setInboxSourceFilter(this.value)" class="bg-transparent text-ink-primary text-xs font-semibold focus:outline-none cursor-pointer">
               <option value="ALL">전체 수집 플랫폼 ({data['inbox_total_count']}건)</option>
+              <option value="GeekNews">🇰🇷 GeekNews (한국판 HN)</option>
               <option value="Hacker News">🔥 Hacker News Top/Best</option>
+              <option value="Blog">🌍 Global AI Tech Blogs</option>
               <option value="Hugging Face Spaces">🤗 Hugging Face Spaces</option>
               <option value="Hugging Face Models">🤗 Hugging Face Models</option>
               <option value="GitHub Official">🐙 GitHub Official</option>
@@ -1562,8 +1564,10 @@ def generate_html(data):
         const displayDesc = currentLang === 'KO' && it.description_ko ? it.description_ko : (it.description || '');
 
         const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
+        const isGn = (it.source_platform || '').includes('GeekNews') || (it.source_url || '').includes('hada.io');
         const hnUrl = it.hn_url || ((it.source_url || '').includes('news.ycombinator.com') ? it.source_url : null);
-        const articleUrl = it.article_url || (it.source_url !== hnUrl ? it.source_url : null);
+        const gnUrl = isGn ? (it.hn_url || it.source_url) : null;
+        const articleUrl = it.article_url || (it.source_url !== (hnUrl || gnUrl) ? it.source_url : null);
 
         let linksHtml = '';
         if (isHn) {{
@@ -1573,6 +1577,15 @@ def generate_html(data):
           }}
           if (hnUrl) {{
             linksHtml += `<a href="${{hnUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-orange-50 text-orange-800 hover:text-orange-950 border border-orange-200 text-[11px] font-bold flex items-center gap-1">🔥 ${{currentLang === 'KO' ? 'HN 토론' : (currentLang === 'ZH' ? 'HN 讨论' : 'HN Thread')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+          }}
+          linksHtml += `</div>`;
+        }} else if (isGn) {{
+          linksHtml = `<div class="flex items-center gap-1.5">`;
+          if (articleUrl && articleUrl !== gnUrl) {{
+            linksHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1">📄 ${{currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+          }}
+          if (gnUrl) {{
+            linksHtml += `<a href="${{gnUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-indigo-50 text-indigo-800 hover:text-indigo-950 border border-indigo-200 text-[11px] font-bold flex items-center gap-1">💬 ${{currentLang === 'KO' ? '긱뉴스 토론' : (currentLang === 'ZH' ? '极客新闻' : 'GeekNews')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
           }}
           linksHtml += `</div>`;
         }} else {{
@@ -1690,8 +1703,10 @@ def generate_html(data):
             const isSpike = tracking.is_spiking || false;
 
             const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
+            const isGn = (it.source_platform || '').includes('GeekNews') || (it.source_url || '').includes('hada.io');
             const hnUrl = it.hn_url || ((it.source_url || '').includes('news.ycombinator.com') ? it.source_url : null);
-            const articleUrl = it.article_url || (it.source_url !== hnUrl ? it.source_url : null);
+            const gnUrl = isGn ? (it.hn_url || it.source_url) : null;
+            const articleUrl = it.article_url || (it.source_url !== (hnUrl || gnUrl) ? it.source_url : null);
 
             let linkHtml = '';
             if (isHn) {{
@@ -1701,6 +1716,15 @@ def generate_html(data):
               }}
               if (hnUrl) {{
                 linkHtml += `<a href="${{hnUrl}}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-orange-800 hover:text-orange-950 flex items-center gap-0.5 font-bold px-1.5 py-0.5 rounded bg-orange-50 border border-orange-200">🔥 ${{currentLang === 'KO' ? 'HN 토론' : (currentLang === 'ZH' ? 'HN 讨论' : 'HN')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+              }}
+              linkHtml += `</div>`;
+            }} else if (isGn) {{
+              linkHtml = `<div class="flex items-center gap-1.5 flex-wrap">`;
+              if (articleUrl && articleUrl !== gnUrl) {{
+                linkHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-ink-secondary hover:text-ink-primary flex items-center gap-0.5 font-medium px-1.5 py-0.5 rounded bg-white border border-surface-border">📄 ${{currentLang === 'KO' ? '기사' : (currentLang === 'ZH' ? '原文' : 'Article')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+              }}
+              if (gnUrl) {{
+                linkHtml += `<a href="${{gnUrl}}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-indigo-800 hover:text-indigo-950 flex items-center gap-0.5 font-bold px-1.5 py-0.5 rounded bg-indigo-50 border border-indigo-200">💬 ${{currentLang === 'KO' ? '긱뉴스' : (currentLang === 'ZH' ? '极客新闻' : 'GN')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
               }}
               linkHtml += `</div>`;
             }} else {{
@@ -1784,8 +1808,10 @@ def generate_html(data):
               const deltaDisplay = tracking.delta_display || '+0';
 
               const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
+              const isGn = (it.source_platform || '').includes('GeekNews') || (it.source_url || '').includes('hada.io');
               const hnUrl = it.hn_url || ((it.source_url || '').includes('news.ycombinator.com') ? it.source_url : null);
-              const articleUrl = it.article_url || (it.source_url !== hnUrl ? it.source_url : null);
+              const gnUrl = isGn ? (it.hn_url || it.source_url) : null;
+              const articleUrl = it.article_url || (it.source_url !== (hnUrl || gnUrl) ? it.source_url : null);
 
               let linkHtml = '';
               if (isHn) {{
@@ -1795,6 +1821,15 @@ def generate_html(data):
                 }}
                 if (hnUrl) {{
                   linkHtml += `<a href="${{hnUrl}}" target="_blank" rel="noopener noreferrer" class="text-xs text-orange-800 hover:text-orange-950 flex items-center gap-1 font-bold px-2 py-1 rounded bg-orange-50 border border-orange-200">🔥 ${{currentLang === 'KO' ? 'HN 토론' : (currentLang === 'ZH' ? 'HN 讨论' : 'HN Thread')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
+                }}
+                linkHtml += `</div>`;
+              }} else if (isGn) {{
+                linkHtml = `<div class="flex items-center gap-1.5 flex-wrap">`;
+                if (articleUrl && articleUrl !== gnUrl) {{
+                  linkHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="text-xs text-ink-secondary hover:text-ink-primary flex items-center gap-1 font-medium px-2 py-1 rounded bg-surface-subtle border border-surface-border">📄 ${{currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
+                }}
+                if (gnUrl) {{
+                  linkHtml += `<a href="${{gnUrl}}" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-800 hover:text-indigo-950 flex items-center gap-1 font-bold px-2 py-1 rounded bg-indigo-50 border border-indigo-200">💬 ${{currentLang === 'KO' ? '긱뉴스 토론' : (currentLang === 'ZH' ? '极客新闻' : 'GeekNews')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
                 }}
                 linkHtml += `</div>`;
               }} else {{

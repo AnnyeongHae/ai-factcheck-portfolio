@@ -1,5 +1,111 @@
 [
   {
+    "timestamp": "2026-09-02T12:58:19.015487",
+    "date": "2026-09-02",
+    "sources": {
+      "hf_models": {
+        "status": "SUCCESS",
+        "items_found": 30,
+        "duration_sec": 0.51
+      },
+      "hf_spaces": {
+        "status": "SUCCESS",
+        "items_found": 25,
+        "duration_sec": 0.4
+      },
+      "github": {
+        "status": "SUCCESS",
+        "items_found": 30,
+        "duration_sec": 1.19
+      },
+      "hacker_news": {
+        "status": "SUCCESS",
+        "items_found": 20,
+        "duration_sec": 32.81
+      },
+      "arxiv": {
+        "status": "SUCCESS",
+        "items_found": 20,
+        "duration_sec": 0.3
+      },
+      "reddit": {
+        "status": "ERROR",
+        "error": "HTTP Error 403: Blocked",
+        "duration_sec": 0.35
+      },
+      "geeknews": {
+        "status": "SUCCESS",
+        "items_found": 25,
+        "duration_sec": 0.26
+      },
+      "curated_rss": {
+        "status": "SUCCESS",
+        "items_found": 20,
+        "duration_sec": 1.37
+      }
+    },
+    "summary": {
+      "total_fetched": 170,
+      "updated_count": 170,
+      "new_saved": 0,
+      "duplicates_skipped": 0,
+      "errors": 0
+    }
+  },
+  {
+    "timestamp": "2026-09-02T12:57:11.710889",
+    "date": "2026-09-02",
+    "sources": {
+      "hf_models": {
+        "status": "SUCCESS",
+        "items_found": 30,
+        "duration_sec": 0.42
+      },
+      "hf_spaces": {
+        "status": "SUCCESS",
+        "items_found": 25,
+        "duration_sec": 0.32
+      },
+      "github": {
+        "status": "SUCCESS",
+        "items_found": 30,
+        "duration_sec": 0.99
+      },
+      "hacker_news": {
+        "status": "SUCCESS",
+        "items_found": 20,
+        "duration_sec": 32.88
+      },
+      "arxiv": {
+        "status": "SUCCESS",
+        "items_found": 20,
+        "duration_sec": 0.87
+      },
+      "reddit": {
+        "status": "ERROR",
+        "error": "HTTP Error 403: Blocked",
+        "duration_sec": 0.38
+      },
+      "geeknews": {
+        "status": "SUCCESS",
+        "items_found": 25,
+        "duration_sec": 0.16
+      },
+      "curated_rss": {
+        "status": "SUCCESS",
+        "items_found": 20,
+        "duration_sec": 1.57
+      }
+    },
+    "summary": {
+      "total_fetched": 170,
+      "updated_count": 125,
+      "new_saved": 45,
+      "duplicates_skipped": 0,
+      "errors": 0
+    }
+  },
+  {
     "timestamp": "2026-09-02T03:32:08.292634",
     "date": "2026-09-02",
     "sources": {
@@ -1168,90 +1274,6 @@
         "status": "ERROR",
         "error": "HTTP Error 403: Blocked",
         "duration_sec": 0.02
-      }
-    },
-    "summary": {
-      "total_fetched": 0,
-      "new_saved": 0,
-      "duplicates_skipped": 0,
-      "errors": 0
-    }
-  },
-  {
-    "timestamp": "2026-08-31T17:31:35.349280",
-    "date": "2026-08-31",
-    "sources": {
-      "hf_models": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.08
-      },
-      "hf_spaces": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.02
-      },
-      "github": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.61
-      },
-      "hacker_news": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 2.13
-      },
-      "arxiv": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.04
-      },
-      "reddit": {
-        "status": "ERROR",
-        "error": "HTTP Error 403: Blocked",
-        "duration_sec": 0.04
-      }
-    },
-    "summary": {
-      "total_fetched": 0,
-      "new_saved": 0,
-      "duplicates_skipped": 0,
-      "errors": 0
-    }
-  },
-  {
-    "timestamp": "2026-08-31T17:29:11.107293",
-    "date": "2026-08-31",
-    "sources": {
-      "hf_models": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.06
-      },
-      "hf_spaces": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.04
-      },
-      "github": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.61
-      },
-      "hacker_news": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 3.01
-      },
-      "arxiv": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.12
-      },
-      "reddit": {
-        "status": "ERROR",
-        "error": "HTTP Error 403: Blocked",
-        "duration_sec": 0.05
       }
     },
     "summary": {
