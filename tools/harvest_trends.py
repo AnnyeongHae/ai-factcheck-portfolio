@@ -37,6 +37,14 @@ TRACKING_PARAMS = {
     'ref', 'ref_src', 'ref_url', 'source', 'fbclid', 'gclid', 'msclkid', 'twclid',
     'si', 'spm', 'igshid', 'yclid', 'mc_cid', 'mc_eid', 'aff', 'affiliate'
 }
+try:
+    from tools.dedup_engine import evaluate_deduplication, normalize_url as canonical_normalize_url
+except Exception:
+    try:
+        from dedup_engine import evaluate_deduplication, normalize_url as canonical_normalize_url
+    except Exception:
+        evaluate_deduplication = None
+        canonical_normalize_url = None
 
 def clean_stealth_url(url: str) -> str:
     """Strips all tracking parameters (UTM, ChatGPT ref, social trackers) to maintain stealth."""
@@ -609,6 +617,26 @@ def harvest_all():
     # =========================================================================
     # STEP 2: UPDATE EXISTING ITEMS (METRIC 갱신 & DELTA 계산)
     # =========================================================================
+    existing_cases_list = []
+    if os.path.exists(investigations_dir):
+        for cdir in os.listdir(investigations_dir):
+            mp = os.path.join(investigations_dir, cdir, "metadata.json")
+            if os.path.isfile(mp):
+                try:
+                    with open(mp, "r", encoding="utf-8") as fp:
+                        existing_cases_list.append(json.load(fp))
+                except Exception:
+                    pass
+
+    existing_inbox_items = []
+    for ipath in set(inbox_hash_map.values()):
+        if os.path.isfile(ipath):
+            try:
+                with open(ipath, "r", encoding="utf-8") as fp:
+                    existing_inbox_items.append(json.load(fp))
+            except Exception:
+                pass
+
     updated_count = 0
     new_saved = 0
     dup_skipped = 0
@@ -620,6 +648,14 @@ def harvest_all():
         plat = cand.get("source_platform", "")
         c_hash = get_canonical_hash(plat, norm_url, cand["title"])
         current_val = extract_metric_number(cand.get("viral_metric", ""))
+
+        # 3-Tier Deduplication & Semantic Matching Gate
+        if evaluate_deduplication:
+            dedup_res = evaluate_deduplication(cand, existing_cases_list, existing_inbox_items, api_key=gemini_api_key)
+            if dedup_res.get("is_duplicate"):
+                dup_skipped += 1
+                logger.log(f"[DEDUP Tier {dedup_res.get('tier')}] Blocked: {cand['title'][:35]} -> Matched {dedup_res.get('matched_id')} ({dedup_res.get('reason')})")
+                continue
 
         # Check if exists in inbox by Hash, URL or Slug (Deduplication & Block)
         target_inbox_file = inbox_hash_map.get(c_hash) or inbox_url_map.get(norm_url) or inbox_slug_map.get(slug)

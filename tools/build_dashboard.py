@@ -146,9 +146,34 @@ def build_dashboard():
             (fam and "General" not in fam and "독립" not in fam and "Harness" not in fam)
         )
 
+    # Set of verified case IDs and URLs to exclude from pending inbox
+    verified_case_urls = set()
+    verified_case_ids = set()
+    for c in cases:
+        verified_case_ids.add(c.get("case_id"))
+        p_url = c.get("raw_viral_post", {}).get("post_url")
+        if p_url: verified_case_urls.add(p_url.rstrip("/"))
+        for s in c.get("sources", []):
+            if s.get("url"): verified_case_urls.add(s.get("url").rstrip("/"))
+
+    def is_already_verified(it):
+        if it.get("status") == "FACT_CHECKED":
+            return True
+        rel_case = it.get("related_dossier", {}).get("case_id")
+        if rel_case and rel_case in verified_case_ids:
+            return True
+        s_url = (it.get("source_url") or "").rstrip("/")
+        if s_url and s_url in verified_case_urls:
+            return True
+        return False
+
     news_items = [it for it in inbox_items if is_news_item(it)]
     model_items = [it for it in inbox_items if is_model_item(it) and not is_news_item(it)]
-    clean_inbox_items = [it for it in inbox_items if not is_model_item(it) and not is_news_item(it)]
+    # Pure unverified inbox candidates (excludes already fact-checked & promoted dossiers)
+    clean_inbox_items = [
+        it for it in inbox_items 
+        if not is_model_item(it) and not is_news_item(it) and not is_already_verified(it)
+    ]
 
     summary_data = {
         "generated_at": "2026-09-02",
