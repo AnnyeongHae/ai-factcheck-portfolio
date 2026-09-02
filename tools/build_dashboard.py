@@ -510,6 +510,16 @@ def generate_html(data):
         </div>
       </div>
 
+      <!-- News Source Controls -->
+      <div class="bg-white p-3.5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-3 border border-surface-border shadow-sm">
+        <div class="flex items-center gap-2 w-full md:w-auto flex-wrap">
+          <button onclick="setNewsSourceFilter('ALL')" class="news-src-btn active px-3 py-1.5 rounded-xl text-xs font-bold bg-ink-primary text-white transition" data-src="ALL">전체 ({data['news_total_count']}건)</button>
+          <button onclick="setNewsSourceFilter('GeekNews')" class="news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="GeekNews">🇰🇷 긱뉴스 (GeekNews)</button>
+          <button onclick="setNewsSourceFilter('Hacker News')" class="news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="Hacker News">🔥 Hacker News</button>
+          <button onclick="setNewsSourceFilter('Blog')" class="news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="Blog">🌍 Tech Blogs</button>
+        </div>
+      </div>
+
       <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
     </div>
 
@@ -620,7 +630,7 @@ def generate_html(data):
           <div class="flex items-center gap-1.5 bg-surface-subtle px-3 py-1.5 rounded-xl border border-surface-border text-xs">
             <i data-lucide="filter" class="w-3.5 h-3.5 text-ink-secondary"></i>
             <select id="inboxSourceSelect" onchange="setInboxSourceFilter(this.value)" class="bg-transparent text-ink-primary text-xs font-semibold focus:outline-none cursor-pointer">
-              <option value="ALL">전체 수집 플랫폼 ({data['inbox_total_count']}건)</option>
+              <option value="ALL">전체 수집 플랫폼 ({data['all_inbox_count']}건)</option>
               <option value="GeekNews">🇰🇷 GeekNews (한국판 HN)</option>
               <option value="Hacker News">🔥 Hacker News Top/Best</option>
               <option value="Blog">🌍 Global AI Tech Blogs</option>
@@ -1545,14 +1555,31 @@ def generate_html(data):
     }}
 
     // ================= NEWS VIEW =================
+    let currentNewsSource = 'ALL';
+    function setNewsSourceFilter(src) {{
+      currentNewsSource = src;
+      document.querySelectorAll('.news-src-btn').forEach(btn => {{
+        if (btn.getAttribute('data-src') === src) {{
+          btn.className = 'news-src-btn active px-3 py-1.5 rounded-xl text-xs font-bold bg-ink-primary text-white transition';
+        }} else {{
+          btn.className = 'news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border';
+        }}
+      }});
+      renderNews();
+    }}
+
     function renderNews() {{
       const grid = document.getElementById('newsGrid');
       grid.innerHTML = '';
       const t = i18n[currentLang];
 
-      const newsItems = liveNewsData || [];
+      const rawNewsItems = liveNewsData || [];
+      const newsItems = rawNewsItems.filter(it => {{
+        return currentNewsSource === 'ALL' || (it.source_platform && it.source_platform.includes(currentNewsSource));
+      }});
+
       if (newsItems.length === 0) {{
-        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '수집된 AI 뉴스가 없습니다.' : (currentLang === 'ZH' ? '暂无采集到的 AI 资讯。' : 'No AI news articles available.')}}</div>`;
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '해당 플랫폼의 수집 AI 뉴스가 없습니다.' : (currentLang === 'ZH' ? '暂无该平台的 AI 资讯。' : 'No AI news articles available for this source.')}}</div>`;
         return;
       }}
 
@@ -1656,11 +1683,12 @@ def generate_html(data):
       const t = i18n[currentLang];
 
       const filtered = liveInboxData.filter(item => {{
-        const isNotNews = item.category_type !== 'NEWS';
         const matchesSrc = currentInboxSource === 'ALL' || (item.source_platform && item.source_platform.includes(currentInboxSource));
+        // 특정 소스(GeekNews, Blog 등) 선택 시에는 category_type 제한 없이 100% 표출
+        const allowCategory = currentInboxSource !== 'ALL' ? true : (item.category_type !== 'NEWS');
         const text = (item.title + ' ' + (item.title_ko || '') + ' ' + (item.description || '') + ' ' + (item.model_family || '') + ' ' + (item.variant_role || '')).toLowerCase();
         const matchesSearch = text.includes(inboxSearchQuery.toLowerCase());
-        return isNotNews && matchesSrc && matchesSearch;
+        return allowCategory && matchesSrc && matchesSearch;
       }});
 
       if (filtered.length === 0) {{
