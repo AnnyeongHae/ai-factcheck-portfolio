@@ -17,6 +17,7 @@ import random
 import re
 import sys
 import time
+from datetime import datetime
 import urllib.request
 import urllib.error
 
@@ -183,7 +184,7 @@ def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> list:
                             gemma_results.append(parsed_single)
                     time.sleep(1)
                 print(f"  [+] Responded by model '{model_name}' (1-by-1 single mode) successfully.")
-                return gemma_results
+                return gemma_results, model_name
             except Exception as e:
                 print(f"  [-] Gemma single call failed: {e}. Falling back...")
                 continue
@@ -200,7 +201,7 @@ def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> list:
                 data = json.loads(resp.read().decode("utf-8"))
                 raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
                 print(f"  [+] Responded by model '{model_name}' successfully.")
-                return json.loads(raw_text)
+                return json.loads(raw_text), model_name
         except urllib.error.HTTPError as e:
             err_msg = e.read().decode("utf-8", errors="ignore")
             if e.code == 429:
@@ -219,7 +220,7 @@ def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> list:
             continue
 
     print("[!] All fallback models in pool exhausted!")
-    return []
+    return [], None
 
 def run_enrichment(limit: int = 12, batch_size: int = 3, random_pick: bool = True):
     key = get_gemini_api_key()
@@ -258,6 +259,18 @@ def run_enrichment(limit: int = 12, batch_size: int = 3, random_pick: bool = Tru
     total_to_process = len(selected)
     num_batches = (total_to_process + batch_size - 1) // batch_size
     success_count = 0
+    session_start_time = datetime.now().astimezone()
+
+    audit_session = {
+        "session_id": f"session_{session_start_time.strftime('%Y%m%d_%H%M%S')}",
+        "timestamp": session_start_time.isoformat(),
+        "total_candidates": len(candidates),
+        "requested_limit": limit,
+        "processed_count": total_to_process,
+        "success_count": 0,
+        "models_used_summary": {},
+        "batches": []
+    }
 
     for b_idx in range(num_batches):
         batch = selected[b_idx * batch_size : (b_idx + 1) * batch_size]
@@ -268,8 +281,21 @@ def run_enrichment(limit: int = 12, batch_size: int = 3, random_pick: bool = Tru
         for _, it in batch:
             print(f"  - [{it.get('source_platform')}] {it.get('title')[:45]}...")
 
-        results = call_gemini_trilingual_batch(key, batch_raw)
+        b_start_time = time.time()
+        results, model_used = call_gemini_trilingual_batch(key, batch_raw)
+        b_latency = round(time.time() - b_start_time, 2)
         res_map = {r["id"]: r for r in results if "id" in r}
+
+        batch_log = {
+            "batch_index": b_idx + 1,
+            "items_count": len(batch),
+            "model_used": model_used or "FAILED",
+            "latency_seconds": b_latency,
+            "items_processed": []
+        }
+
+        if model_used:
+            audit_session["models_used_summary"][model_used] = audit_session["models_used_summary"].get(model_used, 0) + len(results)
 
         for fpath, item in batch:
             iid = item.get("inbox_id")
@@ -280,6 +306,10 @@ def run_enrichment(limit: int = 12, batch_size: int = 3, random_pick: bool = Tru
                     enrich_data = results[idx]
 
             if enrich_data:
+                enrich_time = datetime.now().astimezone().isoformat()
+                enrich_data["enriched_by_model"] = model_used
+                enrich_data["enriched_at"] = enrich_time
+
                 multi = enrich_data.get("multilingual", {})
                 ko_data = multi.get("ko", {})
                 en_data = multi.get("en", {})
@@ -344,17 +374,56 @@ def run_enrichment(limit: int = 12, batch_size: int = 3, random_pick: bool = Tru
                     json.dump(item, fp, indent=2, ensure_ascii=False)
 
                 print(f"  [+] [{c_type} | {item['source_lang']}] {item['title_ko'][:30]}")
+                print(f"      Model: {model_used} | Time: {enrich_time[11:19]}")
                 print(f"      KO: {item['hook_ko'][:45]}...")
                 print(f"      EN: {item['hook_en'][:45]}...")
                 print(f"      ZH: {item['hook_zh'][:45]}...")
                 success_count += 1
 
+                batch_log["items_processed"].append({
+                    "inbox_id": iid,
+                    "title": item.get("title"),
+                    "title_ko": item.get("title_ko"),
+                    "classification": c_type,
+                    "model_family": item.get("model_family"),
+                    "enriched_at": enrich_time
+                })
+
+        audit_session["batches"].append(batch_log)
+
         if b_idx < num_batches - 1:
             print("[*] Sleeping 4.5s for RPM quota safety margin...")
             time.sleep(4.5)
 
+    audit_session["success_count"] = success_count
+
+    # Persist session to logs/ai_enrichment_history.json
+    os.makedirs("logs", exist_ok=True)
+    history_file = "logs/ai_enrichment_history.json"
+    history = []
+    if os.path.exists(history_file):
+        try:
+            with open(history_file, "r", encoding="utf-8") as fp:
+                history = json.load(fp)
+                if not isinstance(history, list):
+                    history = []
+        except Exception:
+            history = []
+
+    history.append(audit_session)
+    history = history[-100:]  # Retain latest 100 audit sessions
+
+    with open(history_file, "w", encoding="utf-8") as fp:
+        json.dump(history, fp, indent=2, ensure_ascii=False)
+
     print(f"\n=======================================================")
-    print(f"[🎉] Complete! {success_count}/{total_to_process} items trilingually enriched!")
+    print(f"[📊 AI ENRICHMENT AUDIT REPORT]")
+    print(f"  - Session ID     : {audit_session['session_id']}")
+    print(f"  - Timestamp      : {audit_session['timestamp']}")
+    print(f"  - Success Rate   : {success_count}/{total_to_process} items ({(success_count/max(1, total_to_process))*100:.1f}%)")
+    print(f"  - Models Active  : {json.dumps(audit_session['models_used_summary'], ensure_ascii=False)}")
+    print(f"  - Audit Trail    : Saved to '{history_file}'")
+    print(f"=======================================================\n")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

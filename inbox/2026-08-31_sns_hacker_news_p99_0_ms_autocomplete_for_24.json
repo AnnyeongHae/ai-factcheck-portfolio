@@ -22,9 +22,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "NEWS",
-  "title_ko": "2억 4천만 개 도메인을 위한 P99 0ms 초고속 자동완성 엔진 설계기",
-  "description_ko": "해커뉴스에서 다수점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
+  "category_type": "TECH",
+  "title_ko": "2억 4천만 개 도메인 이름을 위한 P99 0ms* 자동완성 시스템",
+  "description_ko": "대규모 데이터셋에서 지연 시간을 극한으로 줄여 P99 0ms 대의 자동완성을 달성한 아키텍처 전략입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -47,5 +47,66 @@
   "updated_at": "2026-09-02",
   "article_url": "https://ruurtjan.com/articles/p99-0ms-autocomplete-for-240-million-domain-names",
   "hn_url": "https://news.ycombinator.com/item?id=49505219",
-  "hn_id": "49505219"
+  "hn_id": "49505219",
+  "ai_enrichment": {
+    "id": "2026-08-31_sns_hacker_news_p99_0_ms_autocomplete_for_24",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "검색 및 인덱싱 최적화",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Autocomplete",
+      "P99 Latency",
+      "Performance Optimization"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "2억 4천만 개 도메인 이름을 위한 P99 0ms* 자동완성 시스템",
+        "hook": "대규모 데이터셋에서 지연 시간을 극한으로 줄여 P99 0ms 대의 자동완성을 달성한 아키텍처 전략입니다.",
+        "key_takeaways": [
+          "2억 4천만 개에 달하는 방대한 도메인 데이터 처리",
+          "P99 지연 시간을 사실상 0ms로 수렴시키는 극단적 최적화 기법",
+          "대규모 실시간 검색 및 자동완성 시스템 설계에 필수적인 인사이트"
+        ]
+      },
+      "en": {
+        "title": "P99 0ms* Autocomplete for 240M Domain Names",
+        "hook": "An architectural breakdown of achieving near-zero P99 latency for autocomplete across massive datasets.",
+        "key_takeaways": [
+          "Handling massive scale with 240 million domain names",
+          "Extreme optimization techniques driving P99 latency down to virtually 0ms",
+          "Essential design insights for large-scale real-time search and autocomplete systems"
+        ]
+      },
+      "zh": {
+        "title": "面向 2.4 亿域名的高性能 P99 0ms* 自动补全系统",
+        "hook": "深入探讨如何在海量数据集上实现 P99 几乎为零延迟的自动补全架构与优化策略。",
+        "key_takeaways": [
+          "处理高达 2.4 亿海量域名数据的能力",
+          "将 P99 延迟压缩至几乎 0ms 的极端优化技术",
+          "大规模实时搜索与自动补全系统设计的必备参考"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:14:51.501723+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Autocomplete",
+    "P99 Latency",
+    "Performance Optimization"
+  ],
+  "title_en": "P99 0ms* Autocomplete for 240M Domain Names",
+  "title_zh": "面向 2.4 亿域名的高性能 P99 0ms* 自动补全系统",
+  "hook": "대규모 데이터셋에서 지연 시간을 극한으로 줄여 P99 0ms 대의 자동완성을 달성한 아키텍처 전략입니다.",
+  "hook_ko": "대규모 데이터셋에서 지연 시간을 극한으로 줄여 P99 0ms 대의 자동완성을 달성한 아키텍처 전략입니다.",
+  "hook_en": "An architectural breakdown of achieving near-zero P99 latency for autocomplete across massive datasets.",
+  "hook_zh": "深入探讨如何在海量数据集上实现 P99 几乎为零延迟的自动补全架构与优化策略。",
+  "description_en": "An architectural breakdown of achieving near-zero P99 latency for autocomplete across massive datasets.",
+  "description_zh": "深入探讨如何在海量数据集上实现 P99 几乎为零延迟的自动补全架构与优化策略。"
 }

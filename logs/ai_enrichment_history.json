@@ -1,0 +1,47 @@
+[
+  {
+    "session_id": "session_20260902_161409",
+    "timestamp": "2026-09-02T16:14:09.349474+09:00",
+    "total_candidates": 256,
+    "requested_limit": 3,
+    "processed_count": 3,
+    "success_count": 3,
+    "models_used_summary": {
+      "gemini-flash-lite-latest": 3
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 3,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 42.15,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-02_repo_hf_space_multimodalarth3_acceleration_arena",
+            "title": "HF Space: multimodalart/h3-acceleration-arena",
+            "title_ko": "멀티모달 모델 가속 성능 비교 아레나 (HF Space)",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:14:51.498202+09:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_pnemrowqwen_image_edit_rapid_aio_lor",
+            "title": "HF Space: pnemrow/Qwen-Image-Edit-Rapid-AIO-Loras-Experimental-neo",
+            "title_ko": "Qwen 기반 초고속 이미지 편집 AIO LoRA 실험실",
+            "classification": "MODEL",
+            "model_family": "Qwen",
+            "enriched_at": "2026-09-02T16:14:51.500375+09:00"
+          },
+          {
+            "inbox_id": "2026-08-31_sns_hacker_news_p99_0_ms_autocomplete_for_24",
+            "title": "Hacker News: P99 0 ms* autocomplete for 240M domain names",
+            "title_ko": "2억 4천만 개 도메인 이름을 위한 P99 0ms* 자동완성 시스템",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-02T16:14:51.501723+09:00"
+          }
+        ]
+      }
+    ]
+  }
+]

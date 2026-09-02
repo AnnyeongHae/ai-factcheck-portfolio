@@ -2105,7 +2105,10 @@ def generate_html(data):
           </div>
 
           <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
-            <span class="text-ink-muted text-[11px] font-mono">${{it.harvested_date || '2026-09-02'}}</span>
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="text-ink-muted text-[11px] font-mono">${{it.harvested_date || '2026-09-02'}}</span>
+              ${{ai?.enriched_by_model ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-indigo-700 border border-surface-border">🤖 ${{ai.enriched_by_model.replace('gemini-', '')}}</span>` : ''}}
+            </div>
             <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1">
               <span>원문 / 다운로드</span> <i data-lucide="external-link" class="w-3 h-3"></i>
             </a>
@@ -2392,8 +2395,9 @@ def generate_html(data):
               </div>
             </div>
 
-            <div class="text-[11px] text-ink-muted font-mono pt-1">
-              ${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
+            <div class="text-[11px] text-ink-muted font-mono pt-1 flex items-center justify-between">
+              <div>${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span></div>
+              ${{ai?.enriched_by_model ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-indigo-700 border border-surface-border">🤖 ${{ai.enriched_by_model.replace('gemini-', '')}}</span>` : ''}}
             </div>
           </div>
 
