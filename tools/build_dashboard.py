@@ -765,10 +765,18 @@ def generate_html(data):
                    class="w-full bg-surface-subtle border border-surface-border rounded-xl pl-10 pr-4 py-2 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
           </div>
 
-          <button onclick="toggleFamilyGrouping()" id="groupByFamilyBtn" class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-ink-primary text-white transition shrink-0">
-            <i data-lucide="layers" class="w-4 h-4"></i>
-            <span id="groupByFamilyText">패밀리 묶음 (ON)</span>
-          </button>
+          <!-- 🌟 Standardized Sort Selector (날짜순 / 표준화 인기순) -->
+          <div class="flex items-center gap-1.5 bg-surface-subtle px-3 py-1.5 rounded-xl border border-surface-border text-xs shrink-0">
+            <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-indigo-600"></i>
+            <span class="text-ink-muted text-[11px] font-mono">정렬:</span>
+            <select id="inboxSortSelect" onchange="setInboxSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
+              <option value="date-desc">최신 수집일자순 (Date DESC)</option>
+              <option value="date-asc">오래된 수집일자순 (Date ASC)</option>
+              <option value="viral-desc">🔥 통합 인기순 (Standardized Viral High)</option>
+              <option value="viral-asc">통합 인기 낮은순 (Viral Low)</option>
+              <option value="title-asc">제목 오름차순 (A to Z)</option>
+            </select>
+          </div>
         </div>
 
         <div class="flex items-center gap-2 w-full md:w-auto justify-end">
@@ -2110,20 +2118,48 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    // ================= INBOX VIEW (DEDUP REGISTRY & GROUPING) =================
-    function toggleFamilyGrouping() {{
-      isFamilyGroupingActive = !isFamilyGroupingActive;
-      const btn = document.getElementById('groupByFamilyBtn');
-      const text = document.getElementById('groupByFamilyText');
-      const t = i18n[currentLang];
-      
-      if (isFamilyGroupingActive) {{
-        btn.className = 'flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-ink-primary text-white transition shrink-0';
-        text.innerText = t.inboxFamilyOn;
-      }} else {{
-        btn.className = 'flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-surface-subtle text-ink-primary border border-surface-border hover:bg-white transition shrink-0';
-        text.innerText = t.inboxFamilyOff;
+    // ================= STANDARDIZED CROSS-PLATFORM VIRAL NORMALIZER =================
+    function calculateStandardizedViralScore(item) {{
+      const src = item.source_platform || '';
+      const metric = item.viral_metric || item.description || '';
+      let rawNum = 0;
+
+      const nums = (metric.replace(/,/g, '').match(/\\d+/) || []);
+      if (nums.length > 0) rawNum = parseInt(nums[0], 10);
+
+      let normScore = 25; // Base fallback score
+
+      if (src.includes('GitHub')) {{
+        // GitHub: 5000 stars = 100 pts, 500 stars = ~73 pts
+        normScore = rawNum > 0 ? (Math.log10(rawNum + 1) / Math.log10(5000)) * 100 : 25;
+      }} else if (src.includes('Hacker News')) {{
+        // Hacker News: 800 pts = 100 pts, 150 pts = ~75 pts
+        normScore = rawNum > 0 ? (Math.log10(rawNum + 1) / Math.log10(800)) * 100 : 30;
+      }} else if (src.includes('Hugging Face')) {{
+        // Hugging Face: 300 likes = 100 pts, 50 likes = ~68 pts
+        normScore = rawNum > 0 ? (Math.log10(rawNum + 1) / Math.log10(300)) * 100 : 30;
+      }} else if (src.includes('GeekNews')) {{
+        // GeekNews: 100 pts = 100 pts, 20 pts = ~66 pts
+        normScore = rawNum > 0 ? (Math.log10(rawNum + 1) / Math.log10(100)) * 100 : 35;
+      }} else if (src.includes('ArXiv')) {{
+        normScore = 55; // Peer-reviewed academic baseline
       }}
+
+      normScore = Math.max(5, Math.min(100, Math.round(normScore)));
+
+      // Blend AI enrichment rating if available (70% viral, 30% AI rating)
+      const aiScore = item.ai_enrichment ? item.ai_enrichment.score : null;
+      if (aiScore && aiScore > 0) {{
+        normScore = Math.round((normScore * 0.7) + ((aiScore * 20) * 0.3));
+      }}
+
+      return normScore;
+    }}
+
+    let currentInboxSort = 'date-desc';
+
+    function setInboxSort(val) {{
+      currentInboxSort = val;
       renderInbox();
     }}
 
@@ -2189,6 +2225,7 @@ def generate_html(data):
 
     function renderInbox() {{
       const grid = document.getElementById('inboxGrid');
+      if (!grid) return;
       grid.innerHTML = '';
       const t = i18n[currentLang];
 
@@ -2219,371 +2256,162 @@ def generate_html(data):
         return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
       }});
 
+      // 🌟 Cross-Platform Standardized Sorting
+      filtered.sort((a, b) => {{
+        if (currentInboxSort === 'date-desc') {{
+          return (b.harvested_date || '').localeCompare(a.harvested_date || '');
+        }} else if (currentInboxSort === 'date-asc') {{
+          return (a.harvested_date || '').localeCompare(b.harvested_date || '');
+        }} else if (currentInboxSort === 'viral-desc') {{
+          return calculateStandardizedViralScore(b) - calculateStandardizedViralScore(a);
+        }} else if (currentInboxSort === 'viral-asc') {{
+          return calculateStandardizedViralScore(a) - calculateStandardizedViralScore(b);
+        }} else if (currentInboxSort === 'title-asc') {{
+          return (a.title || '').localeCompare(b.title || '');
+        }}
+        return 0;
+      }});
+
       if (filtered.length === 0) {{
         grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '수집된 인박스 후보가 없습니다.' : (currentLang === 'ZH' ? '收件箱暂无候选数据。' : 'No candidates in the inbox.')}}</div>`;
         return;
       }}
 
-      if (isFamilyGroupingActive) {{
-        const groups = {{}};
-        filtered.forEach(it => {{
-          const fam = it.model_family || (currentLang === 'KO' ? '독립 모델 (Standalone / Novel)' : (currentLang === 'ZH' ? '独立模型 (Standalone / Novel)' : 'Standalone / Novel Models'));
-          if (!groups[fam]) groups[fam] = [];
-          groups[fam].push(it);
-        }});
+      filtered.forEach(it => {{
+        const isQueued = queuedItemIds.has(it.inbox_id);
+        const ai = it.ai_enrichment;
+        const multi = ai ? ai.multilingual : null;
+        const lKey = currentLang.toLowerCase();
 
-        const sortedFamNames = Object.keys(groups).sort((a, b) => {{
-          if (a.includes('Standalone') || a.includes('독립') || a.includes('独立')) return 1;
-          if (b.includes('Standalone') || b.includes('독립') || b.includes('独立')) return -1;
-          return groups[b].length - groups[a].length;
-        }});
+        let displayTitle = (multi && multi[lKey] ? multi[lKey].title : null) || (currentLang === 'KO' ? it.title_ko : (currentLang === 'ZH' ? it.title_zh : it.title_en)) || it.title;
+        let displayHook = (multi && multi[lKey] ? multi[lKey].hook : null) || (currentLang === 'KO' ? it.hook_ko : (currentLang === 'ZH' ? it.hook_zh : it.hook_en)) || it.hook || '';
+        let displayDesc = (currentLang === 'KO' ? it.description_ko : (currentLang === 'ZH' ? it.description_zh : it.description_en)) || it.description || '';
+        let displayTakeaways = (multi && multi[lKey] ? multi[lKey].key_takeaways : null) || (ai ? ai.key_takeaways : []) || [];
 
-        sortedFamNames.forEach(famName => {{
-          const items = groups[famName];
-          const groupCard = document.createElement('div');
-          groupCard.className = 'col-span-full executive-card p-6 border-surface-border space-y-4 shadow-sm';
+        const viralScore = calculateStandardizedViralScore(it);
+        const tracking = it.metric_tracking || {{}};
+        const initDate = tracking.initial_date || (it.harvested_date ? it.harvested_date.substring(5, 10) : '08-31');
+        const latestDate = tracking.latest_date || (it.harvested_date ? it.harvested_date.substring(5, 10) : '09-02');
+        const initVal = tracking.initial_metric || it.viral_metric || '-';
+        const latestVal = tracking.latest_metric || it.viral_metric || '-';
+        const delta = tracking.growth_delta || 0;
+        const deltaDisplay = delta > 0 ? `+${{delta}}` : (delta < 0 ? `${{delta}}` : '0');
 
-          let subItemsHtml = '';
-          items.forEach(it => {{
-            const isQueued = queuedItemIds.has(it.inbox_id);
-            const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
-            const roleBadge = it.variant_role || 'Standard';
+        let typeBadge = '⚡ 신기술';
+        if (ai && ai.type_classification === 'AGENT') typeBadge = '🦾 에이전트';
+        else if (ai && ai.type_classification === 'MODEL') typeBadge = '🤖 모델';
+        else if (ai && ai.type_classification === 'NEWS') typeBadge = '📰 동향';
 
-            const tracking = it.metric_tracking || {{}};
-            const initVal = tracking.initial?.display || it.viral_metric || '';
-            const initDate = tracking.initial?.recorded_at || it.created_at || it.harvested_date || '2026-08-31';
-            const latestVal = tracking.latest?.display || it.viral_metric || '';
-            const latestDate = tracking.latest?.updated_at || it.updated_at || it.harvested_date || '2026-09-02';
-            const delta = tracking.delta || 0;
-            const deltaDisplay = tracking.delta_display || '+0';
-            const isSpike = tracking.is_spiking || false;
+        const card = document.createElement('div');
+        card.className = 'executive-card p-5 flex flex-col justify-between space-y-3.5 hover:border-indigo-400 hover:shadow-md transition';
 
-            const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
-            const isGn = (it.source_platform || '').includes('GeekNews') || (it.source_url || '').includes('hada.io');
-            const hnUrl = it.hn_url || ((it.source_url || '').includes('news.ycombinator.com') ? it.source_url : null);
-            const gnUrl = isGn ? (it.hn_url || it.source_url) : null;
-            const articleUrl = it.article_url || (it.source_url !== (hnUrl || gnUrl) ? it.source_url : null);
+        let hookHtml = '';
+        if (displayHook) {{
+          hookHtml = `
+            <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5">
+              <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
+              <span>${{displayHook}}</span>
+            </div>
+          `;
+        }}
 
-            let linkHtml = '';
-            if (isHn) {{
-              linkHtml = `<div class="flex items-center gap-1.5 flex-wrap">`;
-              if (articleUrl && articleUrl !== hnUrl) {{
-                linkHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-ink-secondary hover:text-ink-primary flex items-center gap-0.5 font-medium px-1.5 py-0.5 rounded bg-white border border-surface-border">📄 ${{currentLang === 'KO' ? '기사' : (currentLang === 'ZH' ? '原文' : 'Article')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-              }}
-              if (hnUrl) {{
-                linkHtml += `<a href="${{hnUrl}}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-orange-800 hover:text-orange-950 flex items-center gap-0.5 font-bold px-1.5 py-0.5 rounded bg-orange-50 border border-orange-200">🔥 ${{currentLang === 'KO' ? 'HN 토론' : (currentLang === 'ZH' ? 'HN 讨论' : 'HN')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-              }}
-              linkHtml += `</div>`;
-            }} else if (isGn) {{
-              linkHtml = `<div class="flex items-center gap-1.5 flex-wrap">`;
-              if (articleUrl && articleUrl !== gnUrl) {{
-                linkHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-ink-secondary hover:text-ink-primary flex items-center gap-0.5 font-medium px-1.5 py-0.5 rounded bg-white border border-surface-border">📄 ${{currentLang === 'KO' ? '기사' : (currentLang === 'ZH' ? '原文' : 'Article')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-              }}
-              if (gnUrl) {{
-                linkHtml += `<a href="${{gnUrl}}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-indigo-800 hover:text-indigo-950 flex items-center gap-0.5 font-bold px-1.5 py-0.5 rounded bg-indigo-50 border border-indigo-200">💬 ${{currentLang === 'KO' ? '긱뉴스' : (currentLang === 'ZH' ? '极客新闻' : 'GN')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-              }}
-              linkHtml += `</div>`;
-            }} else {{
-              linkHtml = `<a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="text-[11px] text-ink-secondary hover:text-ink-primary flex items-center gap-0.5 shrink-0 font-medium">${{currentLang === 'KO' ? '원문' : (currentLang === 'ZH' ? '原文' : 'Source')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-            }}
+        let aiSummaryHtml = '';
+        if (displayTakeaways && displayTakeaways.length > 0) {{
+          aiSummaryHtml = `
+            <div class="mt-2 p-3 rounded-xl bg-gradient-to-br from-indigo-50/50 via-sky-50/40 to-purple-50/50 border border-indigo-100 text-[11px] space-y-1 font-sans">
+              <div class="flex items-center gap-1 text-indigo-950 font-bold text-[10px]">
+                <i data-lucide="sparkles" class="w-3 h-3 text-indigo-600"></i>
+                <span>${{currentLang === 'KO' ? 'AI 3줄 핵심 요약' : (currentLang === 'ZH' ? 'AI 3行核心摘要' : 'AI 3-Line Summary')}}</span>
+              </div>
+              <ul class="space-y-1 text-ink-secondary leading-relaxed list-disc list-inside">
+                ${{displayTakeaways.map(k => `<li>${{k}}</li>`).join('')}}
+              </ul>
+            </div>
+          `;
+        }}
 
-            const ai = it.ai_enrichment;
-            let subHookHtml = '';
-            let subBadgeHtml = '';
-            let subRelatedHtml = '';
-            if (ai) {{
-              const tagBg = ai.worth_investigating === 'HIGH' ? 'bg-orange-50 text-orange-950 border-orange-200' : 'bg-indigo-50 text-indigo-950 border-indigo-200';
-              subBadgeHtml = `
-                <div class="flex items-center gap-1 flex-wrap my-0.5">
-                  <span class="px-1.5 py-0.2 rounded text-[9px] font-bold border ${{tagBg}}">
-                    ${{ai.recommended_tag || '💡 추천'}} ★${{ai.score || ai.worth_score || '4.0'}}
-                  </span>
-                  ${{ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${{ai.programming_lang}}</span>` : ''}}
-                </div>
-              `;
-              const hk = ai.hook || it.hook;
-              if (hk) {{
-                subHookHtml = `
-                  <div class="p-2 rounded-lg bg-amber-50/70 border border-amber-200/80 text-[10px] text-amber-950 leading-relaxed font-sans">
-                    <span class="font-bold text-amber-800">🪝 Hook:</span> ${{hk}}
-                  </div>
-                `;
-              }}
-            }}
-            if (it.related_dossier) {{
-              subRelatedHtml = `
-                <button onclick="openCaseModal('${{it.related_dossier.case_id}}')" class="w-full text-left px-2 py-1 rounded bg-indigo-50/70 hover:bg-indigo-100 text-[10px] text-indigo-950 font-semibold flex items-center justify-between transition border border-indigo-200/70">
-                  <span class="flex items-center gap-1">
-                    <i data-lucide="link-2" class="w-3 h-3 text-indigo-600"></i>
-                    <span>관련 팩트체크: ${{it.related_dossier.target_tech}}</span>
-                  </span>
-                  <i data-lucide="arrow-right" class="w-2.5 h-2.5 text-indigo-400"></i>
-                </button>
-              `;
-            }}
+        let relatedHtml = '';
+        if (it.related_dossier) {{
+          relatedHtml = `
+            <div class="pt-2 border-t border-surface-border">
+              <button onclick="openCaseModal('${{it.related_dossier.case_id}}')" class="w-full text-left px-2.5 py-1.5 rounded-lg bg-indigo-50/70 hover:bg-indigo-100/80 border border-indigo-200/80 text-[11px] text-indigo-950 font-semibold flex items-center justify-between transition">
+                <span class="flex items-center gap-1.5">
+                  <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                  <span>관련 팩트체크: ${{it.related_dossier.target_tech}}</span>
+                </span>
+                <i data-lucide="arrow-right" class="w-3 h-3 text-indigo-400"></i>
+              </button>
+            </div>
+          `;
+        }}
 
-            subItemsHtml += `
-              <div class="bg-surface-subtle p-4 rounded-xl border border-surface-border flex flex-col justify-between space-y-3 hover:border-ink-primary transition">
-                <div class="space-y-2">
-                  <div class="flex items-center justify-between text-[11px] font-mono">
-                    <span class="text-ink-primary font-bold">${{it.source_platform || 'Hub'}}</span>
-                    <span class="px-1.5 py-0.2 rounded text-[10px] font-semibold font-mono bg-white text-ink-primary border border-surface-border">
-                      ${{roleBadge}}
-                    </span>
-                  </div>
+        card.innerHTML = `
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[11px]">
+                ${{it.source_platform || 'Tech Candidate'}}
+              </span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold font-mono ${{viralScore >= 70 ? 'bg-rose-50 text-rose-700 border border-rose-200' : 'bg-amber-50 text-amber-700 border border-amber-200'}}">
+                🔥 인기 ${{viralScore}}점
+              </span>
+            </div>
 
-                  ${{subBadgeHtml}}
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-900 border border-indigo-200">
+                ${{typeBadge}}
+              </span>
+              ${{ai && ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${{ai.programming_lang}}</span>` : ''}}
+              ${{ai && ai.source_lang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">${{ai.source_lang}}</span>` : ''}}
+            </div>
 
-                  <h4 class="font-bold text-xs text-ink-primary line-clamp-2 leading-relaxed">${{displayTitle}}</h4>
+            <h3 class="font-bold text-sm text-ink-primary leading-snug">
+              ${{displayTitle}}
+            </h3>
 
-                  ${{subHookHtml}}
+            ${{hookHtml}}
 
-                  <!-- 🌟 Dynamic Metric Tracking (Created vs Updated) -->
-                  <div class="p-2 rounded-lg bg-white border border-surface-border text-[10px] space-y-1 font-mono">
-                    <div class="flex items-center justify-between text-ink-muted">
-                      <span>${{currentLang === 'KO' ? '최초 수집' : (currentLang === 'ZH' ? '首次采集' : 'Created')}} (${{initDate}}):</span>
-                      <span class="font-semibold text-ink-secondary">${{initVal}}</span>
-                    </div>
-                    <div class="flex items-center justify-between pt-0.5 border-t border-surface-border">
-                      <span class="text-indigo-950 font-bold">${{currentLang === 'KO' ? '최신 갱신' : (currentLang === 'ZH' ? '最新同步' : 'Latest')}} (${{latestDate}}):</span>
-                      <div class="flex items-center gap-1 font-bold">
-                        <span class="${{delta > 0 ? 'text-emerald-700' : 'text-ink-primary'}}">${{latestVal}}</span>
-                        ${{delta > 0 ? `<span class="px-1 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[9px] border border-emerald-200">${{deltaDisplay}} 🔺</span>` : ''}}
-                      </div>
-                    </div>
-                  </div>
+            <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
+              ${{displayDesc}}
+            </p>
 
-                  <div class="text-[10px] text-ink-muted font-mono">
-                    ${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
-                  </div>
-                </div>
+            ${{aiSummaryHtml}}
+            ${{relatedHtml}}
 
-                <div class="pt-2.5 border-t border-surface-border flex items-center justify-between gap-2">
-                  ${{linkHtml}}
-                  
-                  <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
-                          class="px-2.5 py-1 rounded-lg text-[10px] font-bold transition flex items-center gap-1 ${{isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-white text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border'}}">
-                    <i data-lucide="${{isQueued ? 'check' : 'zap'}}" class="w-3 h-3"></i>
-                    ${{isQueued ? t.inboxQueuedBtn : t.inboxQueueBtn}}
-                  </button>
+            <!-- 🌟 Dynamic Metric Tracking (Created vs Updated) -->
+            <div class="p-2.5 rounded-xl bg-surface-subtle border border-surface-border text-[11px] space-y-1 font-mono">
+              <div class="flex items-center justify-between text-ink-muted">
+                <span>${{currentLang === 'KO' ? '최초 수집' : (currentLang === 'ZH' ? '首次采集' : 'Created')}} (${{initDate}}):</span>
+                <span class="font-semibold text-ink-secondary">${{initVal}}</span>
+              </div>
+              <div class="flex items-center justify-between pt-0.5 border-t border-surface-border">
+                <span class="text-indigo-950 font-bold">${{currentLang === 'KO' ? '최신 갱신' : (currentLang === 'ZH' ? '最新同步' : 'Latest')}} (${{latestDate}}):</span>
+                <div class="flex items-center gap-1 font-bold">
+                  <span class="${{delta > 0 ? 'text-emerald-700' : 'text-ink-primary'}}">${{latestVal}}</span>
+                  ${{delta > 0 ? `<span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[10px] border border-emerald-200">${{deltaDisplay}} 🔺</span>` : ''}}
                 </div>
               </div>
-            `;
-              }});
+            </div>
 
-              groupCard.innerHTML = `
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-surface-border gap-3">
-                  <div class="flex items-center gap-2.5 flex-wrap">
-                    <span class="px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-primary text-xs font-mono font-bold border border-surface-border flex items-center gap-1">
-                      <i data-lucide="layers" class="w-3.5 h-3.5"></i> Model Family
-                    </span>
-                    <h3 class="text-base font-bold text-ink-primary">${{famName}}</h3>
-                    <span class="text-xs px-2 py-0.5 rounded bg-white text-ink-secondary border border-surface-border font-mono font-bold">${{items.length}}${{currentLang === 'KO' ? '개 파생 모델' : (currentLang === 'ZH' ? ' 个衍生模型' : ' Variants')}}</span>
-                  </div>
-                </div>
+            <div class="text-[11px] text-ink-muted font-mono pt-1">
+              ${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
+            </div>
+          </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
-                  ${{subItemsHtml}}
-                </div>
-              `;
-              grid.appendChild(groupCard);
-            }});
-          }} else {{
-            filtered.forEach(it => {{
-              const isQueued = queuedItemIds.has(it.inbox_id);
-              const ai = it.ai_enrichment;
-              const multi = ai ? ai.multilingual : null;
-              let displayTitle = it.title;
-              let displayDesc = it.description || '';
-              let displayHook = (ai ? ai.hook : '') || it.hook || '';
-              let displayTakeaways = (ai ? ai.key_takeaways : []) || [];
+          <div class="pt-3 border-t border-surface-border flex items-center justify-between gap-2">
+            <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1">
+              <span>원문 보기</span> <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
 
-              if (multi) {{
-                if (currentLang === 'KO' && multi.ko) {{
-                  displayTitle = multi.ko.title || it.title_ko || displayTitle;
-                  displayHook = multi.ko.hook || it.hook_ko || displayHook;
-                  displayTakeaways = multi.ko.key_takeaways || displayTakeaways;
-                  displayDesc = displayHook || it.description_ko || displayDesc;
-                }} else if (currentLang === 'ZH' && multi.zh) {{
-                  displayTitle = multi.zh.title || it.title_zh || displayTitle;
-                  displayHook = multi.zh.hook || it.hook_zh || displayHook;
-                  displayTakeaways = multi.zh.key_takeaways || displayTakeaways;
-                  displayDesc = displayHook || it.description_zh || displayDesc;
-                }} else if (currentLang === 'EN' && multi.en) {{
-                  displayTitle = multi.en.title || it.title_en || displayTitle;
-                  displayHook = multi.en.hook || it.hook_en || displayHook;
-                  displayTakeaways = multi.en.key_takeaways || displayTakeaways;
-                  displayDesc = displayHook || it.description_en || displayDesc;
-                }}
-              }} else {{
-                if (currentLang === 'KO' && it.title_ko) displayTitle = it.title_ko;
-                if (currentLang === 'ZH' && it.title_zh) displayTitle = it.title_zh;
-                if (currentLang === 'EN' && it.title_en) displayTitle = it.title_en;
-              }}
+            <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
+                    class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${{isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border'}}">
+              <i data-lucide="${{isQueued ? 'check' : 'zap'}}" class="w-3.5 h-3.5"></i>
+              ${{isQueued ? t.inboxQueuedBtn : t.inboxQueueBtn}}
+            </button>
+          </div>
+        `;
 
-              const tracking = it.metric_tracking || {{}};
-              const initVal = tracking.initial?.display || it.viral_metric || '';
-              const initDate = tracking.initial?.recorded_at || it.created_at || it.harvested_date || '2026-08-31';
-              const latestVal = tracking.latest?.display || it.viral_metric || '';
-              const latestDate = tracking.latest?.updated_at || it.updated_at || it.harvested_date || '2026-09-02';
-              const delta = tracking.delta || 0;
-              const deltaDisplay = tracking.delta_display || '+0';
-
-              const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
-              const isGn = (it.source_platform || '').includes('GeekNews') || (it.source_url || '').includes('hada.io');
-              const hnUrl = it.hn_url || ((it.source_url || '').includes('news.ycombinator.com') ? it.source_url : null);
-              const gnUrl = isGn ? (it.hn_url || it.source_url) : null;
-              const articleUrl = it.article_url || (it.source_url !== (hnUrl || gnUrl) ? it.source_url : null);
-
-              let linkHtml = '';
-              if (isHn) {{
-                linkHtml = `<div class="flex items-center gap-1.5 flex-wrap">`;
-                if (articleUrl && articleUrl !== hnUrl) {{
-                  linkHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="text-xs text-ink-secondary hover:text-ink-primary flex items-center gap-1 font-medium px-2 py-1 rounded bg-surface-subtle border border-surface-border">📄 ${{currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
-                }}
-                if (hnUrl) {{
-                  linkHtml += `<a href="${{hnUrl}}" target="_blank" rel="noopener noreferrer" class="text-xs text-orange-800 hover:text-orange-950 flex items-center gap-1 font-bold px-2 py-1 rounded bg-orange-50 border border-orange-200">🔥 ${{currentLang === 'KO' ? 'HN 토론' : (currentLang === 'ZH' ? 'HN 讨论' : 'HN Thread')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
-                }}
-                linkHtml += `</div>`;
-              }} else if (isGn) {{
-                linkHtml = `<div class="flex items-center gap-1.5 flex-wrap">`;
-                if (articleUrl && articleUrl !== gnUrl) {{
-                  linkHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="text-xs text-ink-secondary hover:text-ink-primary flex items-center gap-1 font-medium px-2 py-1 rounded bg-surface-subtle border border-surface-border">📄 ${{currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
-                }}
-                if (gnUrl) {{
-                  linkHtml += `<a href="${{gnUrl}}" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-800 hover:text-indigo-950 flex items-center gap-1 font-bold px-2 py-1 rounded bg-indigo-50 border border-indigo-200">💬 ${{currentLang === 'KO' ? '긱뉴스 토론' : (currentLang === 'ZH' ? '极客新闻' : 'GeekNews')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
-                }}
-                linkHtml += `</div>`;
-              }} else {{
-                linkHtml = `<a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="text-xs text-ink-secondary hover:text-ink-primary flex items-center gap-1 font-medium">${{currentLang === 'KO' ? '원문 링크' : (currentLang === 'ZH' ? '原文链接' : 'Source Link')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
-              }}
-
-              let aiBadgeHtml = '';
-              let aiSummaryHtml = '';
-              let hookHtml = '';
-              let relatedHtml = '';
-
-              if (ai) {{
-                const tagBg = ai.worth_investigating === 'HIGH' ? 'bg-orange-50 text-orange-950 border-orange-200' : 'bg-indigo-50 text-indigo-950 border-indigo-200';
-                const typeLabels = {{
-                  'MODEL': currentLang === 'KO' ? '🤖 모델 발표' : (currentLang === 'ZH' ? '🤖 模型发布' : '🤖 Model'),
-                  'AGENT': currentLang === 'KO' ? '🦾 에이전트' : (currentLang === 'ZH' ? '🦾 智能体' : '🦾 Agent'),
-                  'TECH': currentLang === 'KO' ? '⚡ 신기술/최적화' : (currentLang === 'ZH' ? '⚡ 新技术/架构' : '⚡ Tech/Arch'),
-                  'NEWS': currentLang === 'KO' ? '📰 업계 동향' : (currentLang === 'ZH' ? '📰 行业资讯' : '📰 News')
-                }};
-                const typeBadge = typeLabels[ai.type_classification] || (currentLang === 'KO' ? '💡 기술' : '💡 Tech');
-
-                aiBadgeHtml = `
-                  <div class="flex items-center gap-1.5 flex-wrap my-1">
-                    <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{tagBg}}">
-                      ${{ai.recommended_tag || '💡 추천'}} ★${{ai.score || ai.worth_score || '4.0'}}
-                    </span>
-                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-900 border border-indigo-200">
-                      ${{typeBadge}}
-                    </span>
-                    ${{ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${{ai.programming_lang}}</span>` : ''}}
-                    ${{ai.source_lang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">${{ai.source_lang}}</span>` : ''}}
-                  </div>
-                `;
-
-                if (displayHook) {{
-                  hookHtml = `
-                    <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5">
-                      <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
-                      <span>${{displayHook}}</span>
-                    </div>
-                  `;
-                }}
-
-                if (displayTakeaways && displayTakeaways.length > 0) {{
-                  aiSummaryHtml = `
-                    <div class="mt-2.5 p-3 rounded-xl bg-gradient-to-br from-indigo-50/50 via-sky-50/40 to-purple-50/50 border border-indigo-100 text-[11px] space-y-1.5 font-sans">
-                      <div class="flex items-center gap-1 text-indigo-950 font-bold text-[10px]">
-                        <i data-lucide="sparkles" class="w-3 h-3 text-indigo-600"></i>
-                        <span>${{currentLang === 'KO' ? 'AI 3줄 핵심 요약' : (currentLang === 'ZH' ? 'AI 3行核心摘要' : 'AI 3-Line Summary')}}</span>
-                      </div>
-                      <ul class="space-y-1 text-ink-secondary leading-relaxed list-disc list-inside">
-                        ${{displayTakeaways.map(k => `<li>${{k}}</li>`).join('')}}
-                      </ul>
-                    </div>
-                  `;
-                }}
-              }}
-
-              if (it.related_dossier) {{
-                relatedHtml = `
-                  <div class="pt-2 border-t border-surface-border">
-                    <button onclick="openCaseModal('${{it.related_dossier.case_id}}')" class="w-full text-left px-2.5 py-1.5 rounded-lg bg-indigo-50/70 hover:bg-indigo-100/80 border border-indigo-200/80 text-[11px] text-indigo-950 font-semibold flex items-center justify-between transition">
-                      <span class="flex items-center gap-1.5">
-                        <i data-lucide="link-2" class="w-3.5 h-3.5 text-indigo-600"></i>
-                        <span>관련 팩트체크: ${{it.related_dossier.target_tech}}</span>
-                      </span>
-                      <i data-lucide="arrow-right" class="w-3 h-3 text-indigo-400"></i>
-                    </button>
-                  </div>
-                `;
-              }}
-
-              const card = document.createElement('div');
-              card.className = 'executive-card p-5 flex flex-col justify-between space-y-3.5';
-
-              card.innerHTML = `
-                <div class="space-y-2.5">
-                  <div class="flex items-center justify-between text-xs font-mono">
-                    <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[11px]">
-                      ${{it.source_platform || 'Tech Hub'}}
-                    </span>
-                    <span class="text-ink-muted text-[11px]">${{it.variant_role || 'Standard'}}</span>
-                  </div>
-
-                  ${{aiBadgeHtml}}
-
-                  <h3 class="font-bold text-sm text-ink-primary leading-snug">
-                    ${{displayTitle}}
-                  </h3>
-
-                  ${{hookHtml}}
-
-                  <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
-                    ${{displayDesc}}
-                  </p>
-
-                  ${{aiSummaryHtml}}
-                  ${{relatedHtml}}
-
-                  <!-- 🌟 Dynamic Metric Tracking (Created vs Updated) -->
-                  <div class="p-2.5 rounded-xl bg-surface-subtle border border-surface-border text-[11px] space-y-1 font-mono">
-                    <div class="flex items-center justify-between text-ink-muted">
-                      <span>${{currentLang === 'KO' ? '최초 수집' : (currentLang === 'ZH' ? '首次采集' : 'Created')}} (${{initDate}}):</span>
-                      <span class="font-semibold text-ink-secondary">${{initVal}}</span>
-                    </div>
-                    <div class="flex items-center justify-between pt-1 border-t border-surface-border">
-                      <span class="text-indigo-950 font-bold">${{currentLang === 'KO' ? '최신 갱신' : (currentLang === 'ZH' ? '最新同步' : 'Latest')}} (${{latestDate}}):</span>
-                      <div class="flex items-center gap-1 font-bold">
-                        <span class="${{delta > 0 ? 'text-emerald-700' : 'text-ink-primary'}}">${{latestVal}}</span>
-                        ${{delta > 0 ? `<span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[10px] border border-emerald-200">${{deltaDisplay}} 🔺</span>` : ''}}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="text-[11px] text-ink-muted font-mono pt-1">
-                    ${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
-                  </div>
-                </div>
-
-                <div class="pt-3 border-t border-surface-border flex items-center justify-between gap-2">
-                  ${{linkHtml}}
-
-                  <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
-                          class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${{isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border'}}">
-                    <i data-lucide="${{isQueued ? 'check' : 'zap'}}" class="w-3.5 h-3.5"></i>
-                    ${{isQueued ? t.inboxQueuedBtn : t.inboxQueueBtn}}
-                  </button>
-                </div>
-              `;
-              grid.appendChild(card);
-            }});
-          }}
+        grid.appendChild(card);
+      }});
 
       lucide.createIcons();
     }}
