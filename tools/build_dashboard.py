@@ -1226,7 +1226,7 @@ def generate_html(data):
         
         if (btn) {{
           if (v === view) {{
-            btn.className = 'nav-tab active flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-white bg-ink-primary transition';
+            btn.className = 'nav-tab active flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-white bg-ink-primary transition shadow-sm';
           }} else {{
             btn.className = 'nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition';
           }}
@@ -1234,17 +1234,23 @@ def generate_html(data):
 
         if (mBtn) {{
           if (v === view) {{
-            mBtn.className = 'mobile-nav-tab active shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-ink-primary transition';
+            mBtn.className = 'mobile-nav-tab active shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-ink-primary transition shadow-sm';
           }} else {{
             mBtn.className = 'mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition';
           }}
         }}
       }});
 
-      if (view === 'models') {{
+      // 🌟 Immediate Active View Re-render
+      if (view === 'portfolio') {{
+        renderCards();
+      }} else if (view === 'models') {{
         renderModels();
-      }}
-      if (view === 'graph' && !simulationRef) {{
+      }} else if (view === 'news') {{
+        renderNews();
+      }} else if (view === 'inbox') {{
+        renderInbox();
+      }} else if (view === 'graph' && !simulationRef) {{
         initCitationGraph();
       }}
       lucide.createIcons();
@@ -1266,68 +1272,93 @@ def generate_html(data):
         document.body.style.fontFamily = "'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif";
       }}
 
+      // Language Switcher Button Highlighting
       ['KO', 'ZH', 'EN'].forEach(l => {{
         const btn = document.getElementById('lang' + l.charAt(0) + l.slice(1).toLowerCase() + 'Btn');
         if (btn) {{
-          btn.className = l === lang ? 'px-2 py-0.5 rounded bg-ink-primary text-white transition text-[10px] sm:text-[11px]' : 'px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]';
+          btn.className = l === lang 
+            ? 'px-2 py-0.5 rounded bg-ink-primary text-white font-bold transition text-[10px] sm:text-[11px] shadow-sm' 
+            : 'px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]';
         }}
       }});
       
       const t = i18n[lang];
-      document.getElementById('headerBrandTitle').innerText = t.brandTitle;
-      document.getElementById('headerBrandSubtitle').innerText = t.brandSubtitle;
-      document.getElementById('navTabPortfolio').innerText = t.navPortfolio;
-      document.getElementById('mNavTabPortfolio').innerText = t.navPortfolio;
-      if (document.getElementById('navTabModels')) document.getElementById('navTabModels').innerText = t.navModels;
-      if (document.getElementById('mNavTabModels')) document.getElementById('mNavTabModels').innerText = t.navModels + ` (${{data['models_total_count']}})`;
-      document.getElementById('navTabNews').innerText = t.navNews;
-      document.getElementById('navTabGraph').innerText = t.navGraph;
-      document.getElementById('mNavTabGraph').innerText = t.navGraph;
-      document.getElementById('navTabInbox').innerText = t.navInbox;
+      const safeSetText = (id, txt) => {{
+        const el = document.getElementById(id);
+        if (el) el.innerText = txt;
+      }};
+      const safeSetHtml = (id, html) => {{
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }};
+      const safeSetAttr = (id, attr, val) => {{
+        const el = document.getElementById(id);
+        if (el) el.setAttribute(attr, val);
+      }};
 
-      document.getElementById('heroBadge').innerText = t.heroBadge;
-      document.getElementById('heroMainTitle').innerText = t.heroMainTitle;
-      document.getElementById('heroMainDesc').innerHTML = t.heroMainDesc;
-      document.getElementById('heroUpdateLabel').innerText = t.heroUpdateLabel;
-      document.getElementById('heroAuditCount').innerText = t.heroAuditCount;
+      // Brand & Navigation
+      safeSetText('headerBrandTitle', t.brandTitle);
+      safeSetText('headerBrandSubtitle', t.brandSubtitle);
+      safeSetText('navTabPortfolio', t.navPortfolio);
+      safeSetText('mNavTabPortfolio', t.navPortfolio);
+      safeSetText('navTabModels', t.navModels);
+      safeSetText('mNavTabModels', t.navModels + ` (${{data['models_total_count']}})`);
+      safeSetText('navTabNews', t.navNews);
+      safeSetText('mNavTabNews', t.navNews + ` (${{data['news_total_count']}})`);
+      safeSetText('navTabGraph', t.navGraph);
+      safeSetText('mNavTabGraph', t.navGraph);
+      safeSetText('navTabInbox', t.navInbox);
+      safeSetText('mNavTabInbox', t.navInbox + ` (${{data['inbox_total_count']}})`);
 
-      document.getElementById('promoBannerTitle').innerText = t.promoBannerTitle;
-      document.getElementById('promoBtnText').innerText = t.promoBtnText;
-      updatePromotionBanner();
+      // Hero Elements
+      safeSetText('heroBadge', t.heroBadge);
+      safeSetText('heroMainTitle', t.heroMainTitle);
+      safeSetHtml('heroMainDesc', t.heroMainDesc);
+      safeSetText('heroUpdateLabel', t.heroUpdateLabel);
+      safeSetText('heroAuditCount', t.heroAuditCount);
 
-      document.getElementById('criteriaTitle').innerText = t.criteriaTitle;
-      document.getElementById('criteriaDesc').innerText = t.criteriaDesc;
-      document.getElementById('critGithub').innerText = t.critGithub;
-      document.getElementById('critHn').innerText = t.critHn;
-      document.getElementById('critHf').innerText = t.critHf;
-      document.getElementById('critArxiv').innerText = t.critArxiv;
+      // Promotion Banner
+      safeSetText('promoBannerTitle', t.promoBannerTitle);
+      safeSetText('promoBtnText', t.promoBtnText);
+      try {{ updatePromotionBanner(); }} catch(e) {{}}
 
-      document.getElementById('btnLabelAll').innerText = t.btnAll;
-      document.getElementById('btnLabelUser').innerText = t.btnUser;
-      document.getElementById('btnLabelAuto').innerText = t.btnAuto;
-      document.getElementById('sortLabel').innerText = t.sortLabel;
-      document.getElementById('searchInput').placeholder = t.searchPlaceholder;
-      document.getElementById('domainFilterLabel').innerText = t.domainLabel;
+      // Audit Criteria & Labels
+      safeSetText('criteriaTitle', t.criteriaTitle);
+      safeSetText('criteriaDesc', t.criteriaDesc);
+      safeSetText('critGithub', t.critGithub);
+      safeSetText('critHn', t.critHn);
+      safeSetText('critHf', t.critHf);
+      safeSetText('critArxiv', t.critArxiv);
 
-      document.getElementById('tagAll').innerText = t.tagAll;
-      document.getElementById('tagFrontend').innerText = t.tagFrontend;
-      document.getElementById('tagAgent').innerText = t.tagAgent;
-      document.getElementById('tagScraping').innerText = t.tagScraping;
-      document.getElementById('tagDoc').innerText = t.tagDoc;
-      document.getElementById('tag3d').innerText = t.tag3d;
-      document.getElementById('tagRust').innerText = t.tagRust;
-      document.getElementById('tagOther').innerText = t.tagOther;
+      safeSetText('btnLabelAll', t.btnAll);
+      safeSetText('btnLabelUser', t.btnUser);
+      safeSetText('btnLabelAuto', t.btnAuto);
+      safeSetText('sortLabel', t.sortLabel);
+      safeSetAttr('searchInput', 'placeholder', t.searchPlaceholder);
+      safeSetText('domainFilterLabel', t.domainLabel);
+
+      safeSetText('tagAll', t.tagAll);
+      safeSetText('tagFrontend', t.tagFrontend);
+      safeSetText('tagAgent', t.tagAgent);
+      safeSetText('tagScraping', t.tagScraping);
+      safeSetText('tagDoc', t.tagDoc);
+      safeSetText('tag3d', t.tag3d);
+      safeSetText('tagRust', t.tagRust);
+      safeSetText('tagOther', t.tagOther);
 
       // Update Sort Select Options
       const sortSel = document.getElementById('sortSelect');
-      const curVal = sortSel.value;
-      sortSel.innerHTML = t.sortOptions.map(opt => `<option value="${{opt.val}}" ${{opt.val === curVal ? 'selected' : ''}}>${{opt.text}}</option>`).join('');
+      if (sortSel) {{
+        const curVal = sortSel.value;
+        sortSel.innerHTML = t.sortOptions.map(opt => `<option value="${{opt.val}}" ${{opt.val === curVal ? 'selected' : ''}}>${{opt.text}}</option>`).join('');
+      }}
 
-      // Update Views
+      // 🌟 Instant Full Re-render on Active Views
       renderCards();
       renderModels();
       renderNews();
       renderInbox();
+      lucide.createIcons();
     }}
 
     // ================= REAL-TIME DB SYNC =================

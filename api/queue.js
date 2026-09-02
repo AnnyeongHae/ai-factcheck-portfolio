@@ -168,12 +168,56 @@ module.exports = async (req, res) => {
         `, [updatedStatus, targetId]);
       }
 
+      // 🌟 Synchronize to local inbox files & logs/investigation_queue.json
+      try {
+        const fs = require('fs');
+        const path = require('path');
+        const rootDir = path.resolve(__dirname, '..');
+        const inboxDir = path.join(rootDir, 'inbox');
+        const logPath = path.join(rootDir, 'logs', 'investigation_queue.json');
+
+        if (fs.existsSync(inboxDir)) {
+          const files = fs.readdirSync(inboxDir);
+          for (const file of files) {
+            if (!file.endsWith('.json')) continue;
+            const fullPath = path.join(inboxDir, file);
+            try {
+              const content = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+              if (inbox_ids.includes(content.inbox_id)) {
+                content.status = updatedStatus;
+                content.updated_at = new Date().toISOString();
+                fs.writeFileSync(fullPath, JSON.stringify(content, null, 2), 'utf8');
+              }
+            } catch (e) {}
+          }
+        }
+
+        // Update logs/investigation_queue.json
+        let queueLog = [];
+        if (fs.existsSync(logPath)) {
+          try { queueLog = JSON.parse(fs.readFileSync(logPath, 'utf8')); } catch (e) {}
+        }
+        for (const tid of inbox_ids) {
+          if (updatedStatus === 'QUEUED_FOR_INVESTIGATION') {
+            if (!queueLog.some(x => x.inbox_id === tid)) {
+              queueLog.push({ inbox_id: tid, queued_at: new Date().toISOString(), status: updatedStatus });
+            }
+          } else {
+            queueLog = queueLog.filter(x => x.inbox_id !== tid);
+          }
+        }
+        fs.mkdirSync(path.dirname(logPath), { recursive: true });
+        fs.writeFileSync(logPath, JSON.stringify(queueLog, null, 2), 'utf8');
+      } catch (syncErr) {
+        console.warn("[Queue Local Sync Warning]:", syncErr.message);
+      }
+
       return res.status(200).json({
         success: true,
         action,
         target_status: updatedStatus,
         affected_ids: inbox_ids,
-        message: `Successfully updated ${inbox_ids.length} item(s) to '${updatedStatus}' in Neon DB.`
+        message: `Successfully updated ${inbox_ids.length} item(s) to '${updatedStatus}' in Neon DB & Local Files.`
       });
     }
 
