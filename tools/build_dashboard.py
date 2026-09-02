@@ -129,16 +129,33 @@ def build_dashboard():
     
     total_cases = len(cases)
     news_items = [it for it in inbox_items if it.get("category_type") == "NEWS"]
-    tech_inbox_items = [it for it in inbox_items if it.get("category_type") != "NEWS"]
+
+    def is_model_item(it):
+        ai = it.get("ai_enrichment") or {}
+        cat = it.get("category_type", "")
+        src = it.get("source_platform", "")
+        fam = it.get("model_family", "")
+        return (
+            ai.get("type_classification") == "MODEL" or 
+            cat == "model" or 
+            "Models" in src or 
+            "Spaces" in src or
+            (fam and "General" not in fam and "독립" not in fam and "Harness" not in fam)
+        )
+
+    model_items = [it for it in inbox_items if is_model_item(it) and it.get("category_type") != "NEWS"]
+    clean_inbox_items = [it for it in inbox_items if not is_model_item(it) and it.get("category_type") != "NEWS"]
 
     summary_data = {
         "generated_at": "2026-09-02",
         "total_cases": total_cases,
+        "models_total_count": len(model_items),
         "news_total_count": len(news_items),
-        "inbox_total_count": len(tech_inbox_items),
+        "inbox_total_count": len(clean_inbox_items),
         "all_inbox_count": len(inbox_items),
         "admin_stats": admin_stats,
-        "inbox_items": inbox_items,
+        "model_items": model_items,
+        "inbox_items": clean_inbox_items,
         "cases": cases,
         "graph": graph_data
     }
@@ -168,8 +185,7 @@ def build_dashboard():
 
     print(f"[+] Successfully built Full 18 Dossiers Dashboard v20.0 at:")
     print(f"    - public/index.html & data.json (Vercel CDN Edge)")
-    print(f"    - index.html & data.json (Root entry)")
-    print(f"    - dashboard/index.html (Verified: {total_cases}, News: {len(news_items)}, Inbox: {len(tech_inbox_items)})")
+    print(f"    - dashboard/index.html (Verified: {total_cases}, Models: {len(model_items)}, News: {len(news_items)}, Inbox: {len(clean_inbox_items)})")
     print(f"    - docs/index.html (GitHub Pages hosting)")
 
 def generate_html(data):
@@ -177,6 +193,7 @@ def generate_html(data):
     inbox_json = json.dumps(data["inbox_items"], ensure_ascii=False)
     admin_json = json.dumps(data["admin_stats"], ensure_ascii=False)
     graph_json = json.dumps(data["graph"], ensure_ascii=False)
+    models_json = json.dumps(data.get("model_items", []), ensure_ascii=False)
     
     return f"""<!DOCTYPE html>
 <html lang="ko">
@@ -315,23 +332,28 @@ def generate_html(data):
         </div>
       </div>
 
-      <!-- Desktop Navigation Tabs (Clean 4 Core Tabs) -->
+      <!-- Desktop Navigation Tabs (Clean 5 Core Tabs) -->
       <nav class="hidden md:flex items-center gap-1 bg-surface-subtle p-1 rounded-xl border border-surface-border text-xs font-semibold">
         <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="nav-tab active flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-white bg-ink-primary transition">
           <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
           <span id="navTabPortfolio">기술 검증</span>
           <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-white/20 text-white font-bold" id="headerVerifiedCount">{data['total_cases']}</span>
         </button>
-        <button onclick="switchView('news')" id="tabNewsBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+        <button onclick="switchView('models')" id="tabModelsBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          <span id="navTabModels">AI 모델</span>
+          <span class="text-[10px] font-mono text-ink-muted" id="headerModelsCount">({data['models_total_count']})</span>
+        </button>
+        <button onclick="switchView('news')" id="tabNewsBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
           <span id="navTabNews">AI 뉴스</span>
           <span class="text-[10px] font-mono text-ink-muted" id="headerNewsCount">({data['news_total_count']})</span>
         </button>
-        <button onclick="switchView('graph')" id="tabGraphBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+        <button onclick="switchView('graph')" id="tabGraphBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="network" class="w-3.5 h-3.5"></i>
           <span id="navTabGraph">인용 계보망</span>
         </button>
-        <button onclick="switchView('inbox')" id="tabInboxBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+        <button onclick="switchView('inbox')" id="tabInboxBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="inbox" class="w-3.5 h-3.5"></i>
           <span id="navTabInbox">수집 인박스</span>
           <span class="text-[10px] font-mono text-ink-muted" id="headerInboxCount">({data['inbox_total_count']})</span>
@@ -364,6 +386,10 @@ def generate_html(data):
         <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
         <span id="mNavTabPortfolio">기술 검증</span>
         <span class="text-[9px] font-mono px-1 py-0.2 rounded bg-white/20 text-white font-bold" id="mHeaderVerifiedCount">{data['total_cases']}</span>
+      </button>
+      <button onclick="switchView('models')" id="mTabModelsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
+        <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+        <span id="mNavTabModels">AI 모델 ({data['models_total_count']})</span>
       </button>
       <button onclick="switchView('news')" id="mTabNewsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
@@ -502,6 +528,54 @@ def generate_html(data):
 
       <!-- EXECUTIVE SCANNABLE DOSSIER GRID -->
       <div id="cardsGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
+    </div>
+
+    <!-- ==================== VIEW: AI MODELS REGISTRY ==================== -->
+    <div id="modelsView" class="hidden space-y-6">
+      <!-- Models Header -->
+      <div class="bg-white p-6 rounded-2xl border border-surface-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-primary text-xs font-mono font-bold border border-surface-border" id="modelsHeaderBadge">
+              AI MODEL REGISTRY & FAMILIES
+            </span>
+            <span class="text-xs text-ink-muted font-mono" id="modelsHeaderCount">총 {data['models_total_count']}개 모델</span>
+          </div>
+          <h2 class="text-lg font-bold text-ink-primary" id="modelsHeaderTitle">AI 파운데이션 및 파생 가중치(LoRA/GGUF) 모델 카탈로그</h2>
+          <p class="text-xs text-ink-secondary" id="modelsHeaderDesc">
+            단순 AI 모델 및 데모를 패밀리별로 체계적으로 모아 스펙, 가중치 포맷, 원본 다운로드 링크를 제공합니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- Models Controls & Family Filter Bar -->
+      <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
+        <div class="flex items-center gap-2 flex-wrap text-xs">
+          <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
+            🤖 모델 패밀리:
+          </span>
+          <div class="flex items-center gap-1.5 flex-wrap" id="modelsFamilyFilterRow">
+            <button onclick="setModelsFamilyFilter('ALL')" data-fam="ALL" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">전체 모델</button>
+            <button onclick="setModelsFamilyFilter('Qwen')" data-fam="Qwen" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">Qwen-3.8 Family</button>
+            <button onclick="setModelsFamilyFilter('DeepSeek')" data-fam="DeepSeek" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">DeepSeek Family</button>
+            <button onclick="setModelsFamilyFilter('MiniMax')" data-fam="MiniMax" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">MiniMax / Video</button>
+            <button onclick="setModelsFamilyFilter('Audio')" data-fam="Audio" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">Audio / TTS</button>
+            <button onclick="setModelsFamilyFilter('Standalone')" data-fam="Standalone" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">독립/신규 모델</button>
+          </div>
+        </div>
+
+        <div class="pt-2 border-t border-surface-border flex items-center justify-between gap-3">
+          <div class="relative w-full md:w-80">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-2.5 text-ink-muted"></i>
+            <input type="text" id="modelsSearchInput" placeholder="모델명, 아키텍처, 포맷 검색..." 
+                   class="w-full bg-surface-subtle border border-surface-border rounded-xl pl-10 pr-4 py-2 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
+          </div>
+          <span class="text-xs text-ink-muted font-mono" id="modelsFilteredCount"></span>
+        </div>
+      </div>
+
+      <!-- Models Grid -->
+      <div id="modelsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
     </div>
 
     <!-- ==================== VIEW 2: AI NEWS & TRENDS ==================== -->
@@ -848,11 +922,13 @@ def generate_html(data):
   <!-- ==================== SCRIPTS & TRI-LINGUAL TRANSLATION SYSTEM ==================== -->
   <script>
     const casesData = {cases_json};
+    const modelsData = {models_json};
     const inboxData = {inbox_json};
     const adminData = {admin_json};
     const graphData = {graph_json};
 
     let liveCasesData = casesData;
+    let liveModelsData = modelsData;
     let liveInboxData = inboxData;
     let liveNewsData = inboxData.filter(it => it.category_type === 'NEWS');
     let liveAnalysesData = [];
@@ -880,6 +956,7 @@ def generate_html(data):
         brandTitle: "FactCheck Hub",
         brandSubtitle: "AI 바이럴 마케팅 실체 & 공학적 원가 검증 포털",
         navPortfolio: "기술 검증",
+        navModels: "AI 모델",
         navNews: "AI 뉴스",
         navGraph: "인용 계보망",
         navInbox: "수집 인박스",
@@ -963,6 +1040,7 @@ def generate_html(data):
         brandTitle: "FactCheck Hub",
         brandSubtitle: "AI 营销炒作真相与工程单位经济性审计门户",
         navPortfolio: "技术审计",
+        navModels: "AI 模型",
         navNews: "AI 资讯",
         navGraph: "引用系谱图",
         navInbox: "采集收件箱",
@@ -1046,6 +1124,7 @@ def generate_html(data):
         brandTitle: "FactCheck Hub",
         brandSubtitle: "Universal AI Viral Marketing Audit & Empirical Cost Portal",
         navPortfolio: "Fact-Checks",
+        navModels: "AI Models",
         navNews: "AI News",
         navGraph: "Citation Graph",
         navInbox: "Harvest Inbox",
@@ -1127,10 +1206,10 @@ def generate_html(data):
       }}
     }};
 
-    // ================= VIEW SWITCHER (Clean 4 Tabs) =================
+    // ================= VIEW SWITCHER (Clean 5 Core Tabs) =================
     function switchView(view) {{
       currentView = view;
-      ['portfolio', 'news', 'graph', 'inbox'].forEach(v => {{
+      ['portfolio', 'models', 'news', 'graph', 'inbox'].forEach(v => {{
         const el = document.getElementById(v + 'View');
         const btn = document.getElementById('tab' + v.charAt(0).toUpperCase() + v.slice(1) + 'Btn');
         const mBtn = document.getElementById('mTab' + v.charAt(0).toUpperCase() + v.slice(1) + 'Btn');
@@ -1141,7 +1220,7 @@ def generate_html(data):
           if (v === view) {{
             btn.className = 'nav-tab active flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-white bg-ink-primary transition';
           }} else {{
-            btn.className = 'nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition';
+            btn.className = 'nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition';
           }}
         }}
 
@@ -1154,6 +1233,9 @@ def generate_html(data):
         }}
       }});
 
+      if (view === 'models') {{
+        renderModels();
+      }}
       if (view === 'graph' && !simulationRef) {{
         initCitationGraph();
       }}
@@ -1188,6 +1270,8 @@ def generate_html(data):
       document.getElementById('headerBrandSubtitle').innerText = t.brandSubtitle;
       document.getElementById('navTabPortfolio').innerText = t.navPortfolio;
       document.getElementById('mNavTabPortfolio').innerText = t.navPortfolio;
+      if (document.getElementById('navTabModels')) document.getElementById('navTabModels').innerText = t.navModels;
+      if (document.getElementById('mNavTabModels')) document.getElementById('mNavTabModels').innerText = t.navModels + ` (${{data['models_total_count']}})`;
       document.getElementById('navTabNews').innerText = t.navNews;
       document.getElementById('navTabGraph').innerText = t.navGraph;
       document.getElementById('mNavTabGraph').innerText = t.navGraph;
@@ -1900,6 +1984,132 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
+    // ================= AI MODELS REGISTRY VIEW =================
+    let currentModelsFamily = 'ALL';
+    let modelsSearchQuery = '';
+
+    function setModelsFamilyFilter(fam) {{
+      currentModelsFamily = fam;
+      document.querySelectorAll('.model-fam-pill').forEach(btn => {{
+        if (btn.dataset.fam === fam) {{
+          btn.className = 'model-fam-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+        }} else {{
+          btn.className = 'model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+      renderModels();
+    }}
+
+    document.getElementById('modelsSearchInput')?.addEventListener('input', (e) => {{
+      modelsSearchQuery = e.target.value;
+      renderModels();
+    }});
+
+    function renderModels() {{
+      const grid = document.getElementById('modelsGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      const filtered = liveModelsData.filter(item => {{
+        const fam = item.model_family || '';
+        let matchesFam = true;
+        if (currentModelsFamily === 'Qwen') matchesFam = fam.toLowerCase().includes('qwen');
+        else if (currentModelsFamily === 'DeepSeek') matchesFam = fam.toLowerCase().includes('deepseek');
+        else if (currentModelsFamily === 'MiniMax') matchesFam = fam.toLowerCase().includes('minimax') || fam.toLowerCase().includes('video') || fam.toLowerCase().includes('flux');
+        else if (currentModelsFamily === 'Audio') matchesFam = fam.toLowerCase().includes('audio') || fam.toLowerCase().includes('tts');
+        else if (currentModelsFamily === 'Standalone') matchesFam = fam.toLowerCase().includes('standalone') || fam.toLowerCase().includes('독립');
+        else matchesFam = true;
+
+        const text = (item.title + ' ' + (item.title_ko || '') + ' ' + (item.title_en || '') + ' ' + (item.title_zh || '') + ' ' + (item.description || '') + ' ' + fam).toLowerCase();
+        const matchesSearch = text.includes(modelsSearchQuery.toLowerCase());
+        return matchesFam && matchesSearch;
+      }});
+
+      const countEl = document.getElementById('modelsFilteredCount');
+      if (countEl) countEl.innerText = `${{filtered.length}}개 모델 표출`;
+
+      if (filtered.length === 0) {{
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '일치하는 AI 모델이 없습니다.' : (currentLang === 'ZH' ? '暂无匹配的 AI 模型。' : 'No matching AI models.')}}</div>`;
+        return;
+      }}
+
+      filtered.forEach(it => {{
+        const ai = it.ai_enrichment;
+        const multi = ai?.multilingual;
+        const lKey = currentLang.toLowerCase();
+
+        let displayTitle = (multi && multi[lKey]?.title) || (currentLang === 'KO' ? it.title_ko : (currentLang === 'ZH' ? it.title_zh : it.title_en)) || it.title;
+        let displayHook = (multi && multi[lKey]?.hook) || (currentLang === 'KO' ? it.hook_ko : (currentLang === 'ZH' ? it.hook_zh : it.hook_en)) || it.hook || '';
+        let displayDesc = (currentLang === 'KO' ? it.description_ko : (currentLang === 'ZH' ? it.description_zh : it.description_en)) || it.description || '';
+
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-2xl p-5 border border-surface-border hover:border-indigo-400 hover:shadow-md transition flex flex-col justify-between space-y-4';
+
+        const famBadge = it.model_family ? `
+          <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 font-bold border border-indigo-200 text-[11px] font-mono">
+            🤖 ${{it.model_family}}
+          </span>
+        ` : '';
+
+        let hookHtml = '';
+        if (displayHook) {{
+          hookHtml = `
+            <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5">
+              <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
+              <span>${{displayHook}}</span>
+            </div>
+          `;
+        }}
+
+        let relatedHtml = '';
+        if (it.related_dossier) {{
+          relatedHtml = `
+            <div class="pt-2 border-t border-surface-border">
+              <button onclick="openCaseModal('${{it.related_dossier.case_id}}')" class="w-full text-left px-2.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-[11px] text-emerald-950 font-semibold flex items-center justify-between transition">
+                <span class="flex items-center gap-1.5">
+                  <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                  <span>관련 기술 검증: ${{it.related_dossier.target_tech}}</span>
+                </span>
+                <i data-lucide="arrow-right" class="w-3 h-3 text-emerald-600"></i>
+              </button>
+            </div>
+          `;
+        }}
+
+        card.innerHTML = `
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono">
+              ${{famBadge}}
+              <span class="text-ink-muted text-[11px]">${{it.source_platform || 'Hugging Face'}}</span>
+            </div>
+
+            <h3 class="font-bold text-sm text-ink-primary hover:text-indigo-600 transition leading-snug">
+              ${{displayTitle}}
+            </h3>
+
+            ${{hookHtml}}
+
+            <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
+              ${{displayDesc}}
+            </p>
+
+            ${{relatedHtml}}
+          </div>
+
+          <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
+            <span class="text-ink-muted text-[11px] font-mono">${{it.harvested_date || '2026-09-02'}}</span>
+            <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1">
+              <span>원문 / 다운로드</span> <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      }});
+
+      lucide.createIcons();
+    }}
+
     // ================= INBOX VIEW (DEDUP REGISTRY & GROUPING) =================
     function toggleFamilyGrouping() {{
       isFamilyGroupingActive = !isFamilyGroupingActive;
@@ -2582,6 +2792,7 @@ def generate_html(data):
     // ================= INITIALIZATION =================
     window.addEventListener('DOMContentLoaded', () => {{
       renderCards();
+      renderModels();
       renderNews();
       renderInbox();
       syncFromNeonLiveDB();
