@@ -150,7 +150,7 @@
         <button onclick="switchView('news')" id="tabNewsBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
           <span id="navTabNews">AI 뉴스</span>
-          <span class="text-[10px] font-mono text-ink-muted" id="headerNewsCount">(49)</span>
+          <span class="text-[10px] font-mono text-ink-muted" id="headerNewsCount">(50)</span>
         </button>
         <button onclick="switchView('graph')" id="tabGraphBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="network" class="w-3.5 h-3.5"></i>
@@ -159,7 +159,7 @@
         <button onclick="switchView('inbox')" id="tabInboxBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="inbox" class="w-3.5 h-3.5"></i>
           <span id="navTabInbox">수집 인박스</span>
-          <span class="text-[10px] font-mono text-ink-muted" id="headerInboxCount">(176)</span>
+          <span class="text-[10px] font-mono text-ink-muted" id="headerInboxCount">(177)</span>
         </button>
       </nav>
 
@@ -196,7 +196,7 @@
       </button>
       <button onclick="switchView('news')" id="mTabNewsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabNews">AI 뉴스 (49)</span>
+        <span id="mNavTabNews">AI 뉴스 (50)</span>
       </button>
       <button onclick="switchView('graph')" id="mTabGraphBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="network" class="w-3.5 h-3.5"></i>
@@ -204,7 +204,7 @@
       </button>
       <button onclick="switchView('inbox')" id="mTabInboxBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="inbox" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabInbox">수집 인박스 (176)</span>
+        <span id="mNavTabInbox">수집 인박스 (177)</span>
       </button>
     </div>
   </header>
@@ -385,7 +385,7 @@
             <span class="px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-primary text-xs font-mono font-bold border border-surface-border" id="newsHeaderBadge">
               GLOBAL AI INTELLIGENCE FEED
             </span>
-            <span class="text-xs text-ink-muted font-mono" id="newsHeaderCount">총 49건</span>
+            <span class="text-xs text-ink-muted font-mono" id="newsHeaderCount">총 50건</span>
           </div>
           <h2 class="text-lg font-bold text-ink-primary" id="newsHeaderTitle">커뮤니티, 해커뉴스, 사설에서 수집된 주요 AI 담론</h2>
           <p class="text-xs text-ink-secondary" id="newsHeaderDesc">
@@ -397,7 +397,7 @@
       <!-- News Source & Sort Controls -->
       <div class="bg-white p-3.5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-3 border border-surface-border shadow-sm">
         <div class="flex items-center gap-2 w-full md:w-auto flex-wrap">
-          <button onclick="setNewsSourceFilter('ALL')" class="news-src-btn active px-3 py-1.5 rounded-xl text-xs font-bold bg-ink-primary text-white transition" data-src="ALL">전체 (49건)</button>
+          <button onclick="setNewsSourceFilter('ALL')" class="news-src-btn active px-3 py-1.5 rounded-xl text-xs font-bold bg-ink-primary text-white transition" data-src="ALL">전체 (50건)</button>
           <button onclick="setNewsSourceFilter('GeekNews')" class="news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="GeekNews">🇰🇷 긱뉴스 (GeekNews)</button>
           <button onclick="setNewsSourceFilter('Hacker News')" class="news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="Hacker News">🔥 Hacker News</button>
           <button onclick="setNewsSourceFilter('Blog')" class="news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="Blog">🌍 Tech Blogs</button>
@@ -460,7 +460,7 @@
             <span class="px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-primary text-xs font-mono font-bold border border-surface-border" id="inboxHeaderBadge">
               AUTONOMOUS HARVEST INBOX
             </span>
-            <span class="text-xs text-ink-muted font-mono" id="inboxHeaderCount">총 176건</span>
+            <span class="text-xs text-ink-muted font-mono" id="inboxHeaderCount">총 177건</span>
           </div>
           <h2 class="text-lg font-bold text-ink-primary" id="inboxHeaderTitle">24시간 자율 크론으로 수집된 오픈소스 및 모델 후보군</h2>
           <p class="text-xs text-ink-secondary" id="inboxHeaderDesc">
@@ -596,7 +596,7 @@
           <div class="flex items-center gap-1.5 bg-surface-subtle px-3 py-1.5 rounded-xl border border-surface-border text-xs">
             <i data-lucide="filter" class="w-3.5 h-3.5 text-ink-secondary"></i>
             <select id="inboxSourceSelect" onchange="setInboxSourceFilter(this.value)" class="bg-transparent text-ink-primary text-xs font-semibold focus:outline-none cursor-pointer">
-              <option value="ALL">전체 수집 플랫폼 (286건)</option>
+              <option value="ALL">전체 수집 플랫폼 (288건)</option>
               <option value="GeekNews">🇰🇷 GeekNews (한국판 HN)</option>
               <option value="Hacker News">🔥 Hacker News Top/Best</option>
               <option value="Blog">🌍 Global AI Tech Blogs</option>
