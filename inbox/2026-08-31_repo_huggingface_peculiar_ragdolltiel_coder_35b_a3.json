@@ -5,8 +5,8 @@
   "source_platform": "Hugging Face Hub",
   "source_url": "https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
   "type": "repo",
-  "description": "Trending Score: 118, Downloads: 130086, Likes: 187, Pipeline: image-text-to-text",
-  "viral_metric": "Trending 118 pts (❤️ 187)",
+  "description": "Trending Score: 119, Downloads: 130086, Likes: 188, Pipeline: image-text-to-text",
+  "viral_metric": "Trending 119 pts (❤️ 188)",
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화",
     "엔터프라이즈 RAG & 문서 파싱 인프라",
@@ -19,13 +19,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "Standalone / Novel",
   "detected_formats": [
     "GGUF"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
-  "description_ko": "Trending Score: 144, Downloads: 87848, Pipeline: image-text-to-text",
+  "category_type": "MODEL",
+  "title_ko": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+  "description_ko": "로컬 환경에서 코드 생성 능력을 극대화할 수 있는 GGUF 양자화 코딩 모델입니다.",
   "variant_role": "💾 표준 GGUF 양자화본 (llama.cpp/vLLM)",
   "creator": "Community",
   "metric_tracking": {
@@ -35,15 +35,76 @@
       "recorded_at": "2026-08-31"
     },
     "latest": {
-      "value": 118,
-      "display": "Trending 118 pts (❤️ 187)",
+      "value": 119,
+      "display": "Trending 119 pts (❤️ 188)",
       "updated_at": "2026-09-02"
     },
-    "delta": -26,
-    "delta_display": "-26",
-    "growth_rate_pct": -18.1,
+    "delta": -25,
+    "delta_display": "-25",
+    "growth_rate_pct": -17.4,
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_peculiar_ragdolltiel_coder_35b_a3",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Standalone",
+    "category": "Code Generation",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "GGUF",
+      "Coder",
+      "Quantization"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+        "hook": "로컬 환경에서 코드 생성 능력을 극대화할 수 있는 GGUF 양자화 코딩 모델입니다.",
+        "key_takeaways": [
+          "35B 규모의 강력한 코드 생성 성능 제공",
+          "GGUF 포맷으로 로컬 하드웨어(CPU/GPU) 추론 효율성 극대화",
+          "개발자 생산성 향상을 위한 로컬 코딩 어시스턴트 구축에 적합"
+        ]
+      },
+      "en": {
+        "title": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+        "hook": "Unlock powerful local code generation with this optimized GGUF quantized model.",
+        "key_takeaways": [
+          "Delivers robust coding capabilities at the 35B parameter scale",
+          "GGUF format enables efficient local CPU/GPU inference",
+          "Ideal for building private, high-performance coding assistants"
+        ]
+      },
+      "zh": {
+        "title": "Hugging Face：peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+        "hook": "利用高效 GGUF 量化模型，在本地环境解锁强大的代码生成能力。",
+        "key_takeaways": [
+          "提供 35B 规模的卓越代码生成性能",
+          "采用 GGUF 格式，大幅提升本地软硬件推理效率",
+          "非常适合构建本地私有化代码助手"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T07:29:33.438024+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "GGUF",
+    "Coder",
+    "Quantization"
+  ],
+  "title_en": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+  "title_zh": "Hugging Face：peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+  "hook": "로컬 환경에서 코드 생성 능력을 극대화할 수 있는 GGUF 양자화 코딩 모델입니다.",
+  "hook_ko": "로컬 환경에서 코드 생성 능력을 극대화할 수 있는 GGUF 양자화 코딩 모델입니다.",
+  "hook_en": "Unlock powerful local code generation with this optimized GGUF quantized model.",
+  "hook_zh": "利用高效 GGUF 量化模型，在本地环境解锁强大的代码生成能力。",
+  "description_en": "Unlock powerful local code generation with this optimized GGUF quantized model.",
+  "description_zh": "利用高效 GGUF 量化模型，在本地环境解锁强大的代码生成能力。"
 }

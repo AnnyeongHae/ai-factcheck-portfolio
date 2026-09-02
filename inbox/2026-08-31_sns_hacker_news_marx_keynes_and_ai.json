@@ -12,8 +12,8 @@
   ],
   "status": "PENDING_REVIEW",
   "category_type": "NEWS",
-  "title_ko": "Marx, Keynes, and AI",
-  "description_ko": "해커뉴스에서 43점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
+  "title_ko": "Hacker News: 마르크스, 케인스, 그리고 AI",
+  "description_ko": "AI 시대를 맞이하여 경제학과 사회학적 관점에서 기술 발전을 고찰하는 통찰력 있는 토론입니다.",
   "model_family": "기타 독립 모델 (Standalone / Novel)",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -40,5 +40,66 @@
   "updated_at": "2026-08-31",
   "article_url": "https://www.unpopularfront.news/p/marx-keynes-and-ai",
   "hn_url": "https://news.ycombinator.com/item?id=49510302",
-  "hn_id": "49510302"
+  "hn_id": "49510302",
+  "ai_enrichment": {
+    "id": "2026-08-31_sns_hacker_news_marx_keynes_and_ai",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "AI Economy & Society",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Marx",
+      "Keynes",
+      "AI Economics"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "Hacker News: 마르크스, 케인스, 그리고 AI",
+        "hook": "AI 시대를 맞이하여 경제학과 사회학적 관점에서 기술 발전을 고찰하는 통찰력 있는 토론입니다.",
+        "key_takeaways": [
+          "고전 경제학 사상을 통한 AI 노동 대체 및 생산성 혁명 분석",
+          "기술 실업과 자본 집중 현상에 대한 커뮤니티의 깊이 있는 논쟁",
+          "엔지니어가 거시적 트렌드를 이해하는 데 도움을 주는 인문학적 시각"
+        ]
+      },
+      "en": {
+        "title": "Hacker News: Marx, Keynes, and AI",
+        "hook": "A thought-provoking discussion examining AI through the lens of classical economics and sociology.",
+        "key_takeaways": [
+          "Analyzes AI labor displacement and productivity shifts via classical theories",
+          "Deep community debate on technological unemployment and capital concentration",
+          "Provides macro-level perspectives valuable for tech architects"
+        ]
+      },
+      "zh": {
+        "title": "Hacker News：马克思、凯恩斯与人工智能",
+        "hook": "从古典经济学与社会学视角，深入探讨人工智能时代变革的深度好文。",
+        "key_takeaways": [
+          "通过经典经济学思想剖析 AI 带来的劳动力替代与生产力革命",
+          "社区热议技术性失业与资本高度集中等核心议题",
+          "为技术架构师理解宏观行业趋势提供独特的人文视角"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T07:29:33.438595+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Marx",
+    "Keynes",
+    "AI Economics"
+  ],
+  "title_en": "Hacker News: Marx, Keynes, and AI",
+  "title_zh": "Hacker News：马克思、凯恩斯与人工智能",
+  "hook": "AI 시대를 맞이하여 경제학과 사회학적 관점에서 기술 발전을 고찰하는 통찰력 있는 토론입니다.",
+  "hook_ko": "AI 시대를 맞이하여 경제학과 사회학적 관점에서 기술 발전을 고찰하는 통찰력 있는 토론입니다.",
+  "hook_en": "A thought-provoking discussion examining AI through the lens of classical economics and sociology.",
+  "hook_zh": "从古典经济学与社会学视角，深入探讨人工智能时代变革的深度好文。",
+  "description_en": "A thought-provoking discussion examining AI through the lens of classical economics and sociology.",
+  "description_zh": "从古典经济学与社会学视角，深入探讨人工智能时代变革的深度好文。"
 }

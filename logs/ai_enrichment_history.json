@@ -104,5 +104,80 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260902_072925",
+    "timestamp": "2026-09-02T07:29:25.251264+00:00",
+    "total_candidates": 248,
+    "requested_limit": 15,
+    "processed_count": 15,
+    "success_count": 5,
+    "models_used_summary": {
+      "gemini-flash-lite-latest": 5
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.19,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_huggingface_model_qwenqwen38_flash_next",
+            "title": "HuggingFace Model: Qwen/Qwen3.8-Flash-Next",
+            "title_ko": "Hugging Face 모델: Qwen/Qwen3.8-Flash-Next",
+            "classification": "MODEL",
+            "model_family": "Qwen-3.8",
+            "enriched_at": "2026-09-02T07:29:33.437597+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_huggingface_peculiar_ragdolltiel_coder_35b_a3",
+            "title": "HuggingFace: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+            "title_ko": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+            "classification": "MODEL",
+            "model_family": "Standalone / Novel",
+            "enriched_at": "2026-09-02T07:29:33.438024+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_huggingface_trending_qwenqwen38_27b",
+            "title": "HuggingFace Trending: Qwen/Qwen3.8-27B",
+            "title_ko": "Hugging Face 트렌딩: Qwen/Qwen3.8-27B",
+            "classification": "MODEL",
+            "model_family": "Qwen-3.8",
+            "enriched_at": "2026-09-02T07:29:33.438315+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_sns_hacker_news_marx_keynes_and_ai",
+            "title": "Hacker News: Marx, Keynes, and AI",
+            "title_ko": "Hacker News: 마르크스, 케인스, 그리고 AI",
+            "classification": "NEWS",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-02T07:29:33.438595+00:00"
+          },
+          {
+            "inbox_id": "2026-09-02_repo_arxiv_retrieved_but_not_ranked_surface_form_b",
+            "title": "ArXiv: Retrieved but not ranked: surface-form bias in structural retrieval, from mathematics to agent trajectories",
+            "title_ko": "ArXiv: 검색되었으나 순위가 매겨지지 않음: 구조적 검색에서의 표면형 편향",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-02T07:29:33.438843+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 5,
+        "model_used": "FAILED",
+        "latency_seconds": 159.07,
+        "items_processed": []
+      },
+      {
+        "batch_index": 3,
+        "items_count": 5,
+        "model_used": "FAILED",
+        "latency_seconds": 171.2,
+        "items_processed": []
+      }
+    ]
   }
 ]

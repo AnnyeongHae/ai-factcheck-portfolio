@@ -1,9 +1,9 @@
 {
   "generated_at": "2026-09-02",
   "total_cases": 18,
-  "models_total_count": 57,
+  "models_total_count": 58,
   "news_total_count": 60,
-  "inbox_total_count": 165,
+  "inbox_total_count": 164,
   "all_inbox_count": 282,
   "admin_stats": {
     "endpoints": [
@@ -39,6 +39,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-02T07:29:10.608766",
+        "date": "2026-09-02",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.22
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.19
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.92
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 21,
+            "duration_sec": 11.72
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.21
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.18
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.71
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.34
+          }
+        },
+        "summary": {
+          "total_fetched": 161,
+          "updated_count": 161,
+          "new_saved": 0,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-02T16:22:06.418723",
         "date": "2026-09-02",
@@ -1412,93 +1465,51 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-01T02:13:07.713999",
-        "date": "2026-09-01",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.16
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.1
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.87
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 2.79
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.42
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.13
-          }
-        },
-        "summary": {
-          "total_fetched": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-02T16:22:06.418723",
+      "timestamp": "2026-09-02T07:29:10.608766",
       "date": "2026-09-02",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.58
+          "duration_sec": 0.22
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.34
+          "duration_sec": 0.19
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 1.18
+          "duration_sec": 0.92
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 21,
-          "duration_sec": 35.11
+          "duration_sec": 11.72
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.4
+          "duration_sec": 0.21
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.37
+          "duration_sec": 0.18
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.26
+          "duration_sec": 0.71
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.47
+          "duration_sec": 0.34
         }
       },
       "summary": {
@@ -1554,8 +1565,8 @@
       "source_url": "https://huggingface.co/spaces/multimodalart/h3-acceleration-arena",
       "type": "repo",
       "category_type": "TECH",
-      "description": "Interactive AI Demo (SDK: docker) | Likes: 25 | Live URL: https://huggingface.co/spaces/multimodalart/h3-acceleration-arena",
-      "viral_metric": "❤️ 25 Likes (Trending Demo)",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 26 | Live URL: https://huggingface.co/spaces/multimodalart/h3-acceleration-arena",
+      "viral_metric": "❤️ 26 Likes (Trending Demo)",
       "metric_tracking": {
         "initial": {
           "value": 21,
@@ -1563,13 +1574,13 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 25,
-          "display": "❤️ 25 Likes (Trending Demo)",
+          "value": 26,
+          "display": "❤️ 26 Likes (Trending Demo)",
           "updated_at": "2026-09-02"
         },
-        "delta": 4,
-        "delta_display": "+4",
-        "growth_rate_pct": 19.0,
+        "delta": 5,
+        "delta_display": "+5",
+        "growth_rate_pct": 23.8,
         "is_spiking": false
       },
       "matched_user_domains": [
@@ -1647,8 +1658,8 @@
       "source_platform": "Hugging Face Models",
       "source_url": "https://huggingface.co/google/timesfm-3.0-pytorch",
       "type": "repo",
-      "description": "Trending Score: 220, Downloads: 0, Likes: 238, Pipeline: time-series-forecasting",
-      "viral_metric": "Trending 220 pts (❤️ 238)",
+      "description": "Trending Score: 220, Downloads: 0, Likes: 239, Pipeline: time-series-forecasting",
+      "viral_metric": "Trending 220 pts (❤️ 239)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
       ],
@@ -1661,7 +1672,7 @@
         },
         "latest": {
           "value": 220,
-          "display": "Trending 220 pts (❤️ 238)",
+          "display": "Trending 220 pts (❤️ 239)",
           "updated_at": "2026-09-02"
         },
         "delta": 70,
@@ -1808,9 +1819,9 @@
           "display": "Trending 346 pts (❤️ 3354)",
           "updated_at": "2026-09-02"
         },
-        "delta": -65,
-        "delta_display": "-65",
-        "growth_rate_pct": -15.9,
+        "delta": -64,
+        "delta_display": "-64",
+        "growth_rate_pct": -15.6,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -1823,8 +1834,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
       "type": "repo",
-      "description": "Trending Score: 620, Downloads: 4960483, Likes: 13610, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 620 pts (❤️ 13610)",
+      "description": "Trending Score: 621, Downloads: 4960483, Likes: 13612, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 621 pts (❤️ 13612)",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -1836,13 +1847,13 @@
         "risk_flags": [],
         "audit_notes": []
       },
-      "model_family": "Qwen-3.8-27B Dense/MoE Family",
+      "model_family": "Qwen-3.8",
       "detected_formats": [
         "기본 가중치 (Default Weight)"
       ],
-      "category_type": "TECH",
-      "title_ko": "Qwen/Qwen3.8-27B",
-      "description_ko": "Trending score: 749, downloads: 4511348",
+      "category_type": "MODEL",
+      "title_ko": "Hugging Face 트렌딩: Qwen/Qwen3.8-27B",
+      "description_ko": "현재 오픈소스 커뮤니티에서 가장 주목받는 27B 파라미터 규모의 Qwen 핵심 모델입니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Qwen Alibaba",
       "metric_tracking": {
@@ -1852,17 +1863,78 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 620,
-          "display": "Trending 620 pts (❤️ 13610)",
+          "value": 621,
+          "display": "Trending 621 pts (❤️ 13612)",
           "updated_at": "2026-09-02"
         },
-        "delta": -129,
-        "delta_display": "-129",
-        "growth_rate_pct": -17.2,
+        "delta": -128,
+        "delta_display": "-128",
+        "growth_rate_pct": -17.1,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-09-02"
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_huggingface_trending_qwenqwen38_27b",
+        "source_lang": "EN",
+        "type_classification": "MODEL",
+        "model_family": "Qwen-3.8",
+        "category": "Large Language Model",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Qwen",
+          "27B",
+          "Multimodal"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.9,
+        "multilingual": {
+          "ko": {
+            "title": "Hugging Face 트렌딩: Qwen/Qwen3.8-27B",
+            "hook": "현재 오픈소스 커뮤니티에서 가장 주목받는 27B 파라미터 규모의 Qwen 핵심 모델입니다.",
+            "key_takeaways": [
+              "수백만 회의 다운로드와 수만 개의 좋아요를 기록한 압도적 인기",
+              "뛰어난 텍스트 및 멀티모달 균형감 제공",
+              "프로덕션 환경 도입을 위한 범용 백본 모델로 강력 추천"
+            ]
+          },
+          "en": {
+            "title": "Hugging Face Trending: Qwen/Qwen3.8-27B",
+            "hook": "Explore the 27B parameter powerhouse dominating the open-source community right now.",
+            "key_takeaways": [
+              "Massive adoption with millions of downloads and stellar user ratings",
+              "Delivers an optimal balance of textual and multimodal capabilities",
+              "Highly recommended as a backbone model for production deployments"
+            ]
+          },
+          "zh": {
+            "title": "Hugging Face 热门趋势：Qwen/Qwen3.8-27B",
+            "hook": "当前开源社区备受瞩目的 27B 参数核心大模型，不容错过。",
+            "key_takeaways": [
+              "斩获数百万次下载与极高点赞数，生态热度空前",
+              "在文本和多模态任务中展现出卓越的平衡性能",
+              "强烈推荐作为企业级生产部署的基座模型"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T07:29:33.438315+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Qwen",
+        "27B",
+        "Multimodal"
+      ],
+      "title_en": "Hugging Face Trending: Qwen/Qwen3.8-27B",
+      "title_zh": "Hugging Face 热门趋势：Qwen/Qwen3.8-27B",
+      "hook": "현재 오픈소스 커뮤니티에서 가장 주목받는 27B 파라미터 규모의 Qwen 핵심 모델입니다.",
+      "hook_ko": "현재 오픈소스 커뮤니티에서 가장 주목받는 27B 파라미터 규모의 Qwen 핵심 모델입니다.",
+      "hook_en": "Explore the 27B parameter powerhouse dominating the open-source community right now.",
+      "hook_zh": "当前开源社区备受瞩目的 27B 参数核心大模型，不容错过。",
+      "description_en": "Explore the 27B parameter powerhouse dominating the open-source community right now.",
+      "description_zh": "当前开源社区备受瞩目的 27B 参数核心大模型，不容错过。"
     },
     {
       "inbox_id": "2026-08-31_repo_huggingface_trending_obliteratusqwen38_2",
@@ -1871,8 +1943,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/OBLITERATUS/Qwen3.8-27B-OBLITERATED",
       "type": "repo",
-      "description": "Trending Score: 190, Downloads: 805791, Likes: 1009, Pipeline: text-generation",
-      "viral_metric": "Trending 190 pts (❤️ 1009)",
+      "description": "Trending Score: 191, Downloads: 805791, Likes: 1010, Pipeline: text-generation",
+      "viral_metric": "Trending 191 pts (❤️ 1010)",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -1900,13 +1972,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 190,
-          "display": "Trending 190 pts (❤️ 1009)",
+          "value": 191,
+          "display": "Trending 191 pts (❤️ 1010)",
           "updated_at": "2026-09-02"
         },
-        "delta": -55,
-        "delta_display": "-55",
-        "growth_rate_pct": -22.4,
+        "delta": -54,
+        "delta_display": "-54",
+        "growth_rate_pct": -22.0,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -1959,6 +2031,116 @@
       },
       "created_at": "2026-08-31",
       "updated_at": "2026-09-02"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_huggingface_peculiar_ragdolltiel_coder_35b_a3",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+      "type": "repo",
+      "description": "Trending Score: 119, Downloads: 130086, Likes: 188, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 119 pts (❤️ 188)",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "엔터프라이즈 RAG & 문서 파싱 인프라",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW",
+      "audit_risk": {
+        "hype_risk_score": 15,
+        "risk_level": "LOW_RISK",
+        "risk_flags": [],
+        "audit_notes": []
+      },
+      "model_family": "Standalone / Novel",
+      "detected_formats": [
+        "GGUF"
+      ],
+      "category_type": "MODEL",
+      "title_ko": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+      "description_ko": "로컬 환경에서 코드 생성 능력을 극대화할 수 있는 GGUF 양자화 코딩 모델입니다.",
+      "variant_role": "💾 표준 GGUF 양자화본 (llama.cpp/vLLM)",
+      "creator": "Community",
+      "metric_tracking": {
+        "initial": {
+          "value": 144,
+          "display": "Trending 144 pts",
+          "recorded_at": "2026-08-31"
+        },
+        "latest": {
+          "value": 119,
+          "display": "Trending 119 pts (❤️ 188)",
+          "updated_at": "2026-09-02"
+        },
+        "delta": -25,
+        "delta_display": "-25",
+        "growth_rate_pct": -17.4,
+        "is_spiking": false
+      },
+      "created_at": "2026-08-31",
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_huggingface_peculiar_ragdolltiel_coder_35b_a3",
+        "source_lang": "EN",
+        "type_classification": "MODEL",
+        "model_family": "Standalone",
+        "category": "Code Generation",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "GGUF",
+          "Coder",
+          "Quantization"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+            "hook": "로컬 환경에서 코드 생성 능력을 극대화할 수 있는 GGUF 양자화 코딩 모델입니다.",
+            "key_takeaways": [
+              "35B 규모의 강력한 코드 생성 성능 제공",
+              "GGUF 포맷으로 로컬 하드웨어(CPU/GPU) 추론 효율성 극대화",
+              "개발자 생산성 향상을 위한 로컬 코딩 어시스턴트 구축에 적합"
+            ]
+          },
+          "en": {
+            "title": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+            "hook": "Unlock powerful local code generation with this optimized GGUF quantized model.",
+            "key_takeaways": [
+              "Delivers robust coding capabilities at the 35B parameter scale",
+              "GGUF format enables efficient local CPU/GPU inference",
+              "Ideal for building private, high-performance coding assistants"
+            ]
+          },
+          "zh": {
+            "title": "Hugging Face：peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+            "hook": "利用高效 GGUF 量化模型，在本地环境解锁强大的代码生成能力。",
+            "key_takeaways": [
+              "提供 35B 规模的卓越代码生成性能",
+              "采用 GGUF 格式，大幅提升本地软硬件推理效率",
+              "非常适合构建本地私有化代码助手"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T07:29:33.438024+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "GGUF",
+        "Coder",
+        "Quantization"
+      ],
+      "title_en": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+      "title_zh": "Hugging Face：peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+      "hook": "로컬 환경에서 코드 생성 능력을 극대화할 수 있는 GGUF 양자화 코딩 모델입니다.",
+      "hook_ko": "로컬 환경에서 코드 생성 능력을 극대화할 수 있는 GGUF 양자화 코딩 모델입니다.",
+      "hook_en": "Unlock powerful local code generation with this optimized GGUF quantized model.",
+      "hook_zh": "利用高效 GGUF 量化模型，在本地环境解锁强大的代码生成能力。",
+      "description_en": "Unlock powerful local code generation with this optimized GGUF quantized model.",
+      "description_zh": "利用高效 GGUF 量化模型，在本地环境解锁强大的代码生成能力。"
     },
     {
       "inbox_id": "2026-08-31_repo_huggingface_orcarouterqwen38_flash_next_uncen",
@@ -2015,8 +2197,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-MLX",
       "type": "repo",
-      "description": "Trending Score: 122, Downloads: 121028, Likes: 1263, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 122 pts (❤️ 1263)",
+      "description": "Trending Score: 123, Downloads: 121028, Likes: 1264, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 123 pts (❤️ 1264)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2044,13 +2226,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 122,
-          "display": "Trending 122 pts (❤️ 1263)",
+          "value": 123,
+          "display": "Trending 123 pts (❤️ 1264)",
           "updated_at": "2026-09-02"
         },
-        "delta": -78,
-        "delta_display": "-78",
-        "growth_rate_pct": -39.0,
+        "delta": -77,
+        "delta_display": "-77",
+        "growth_rate_pct": -38.5,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -2122,8 +2304,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-GGUF",
       "type": "repo",
-      "description": "Trending Score: 129, Downloads: 254529, Likes: 638, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 129 pts (❤️ 638)",
+      "description": "Trending Score: 130, Downloads: 254529, Likes: 639, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 130 pts (❤️ 639)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2151,13 +2333,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 129,
-          "display": "Trending 129 pts (❤️ 638)",
+          "value": 130,
+          "display": "Trending 130 pts (❤️ 639)",
           "updated_at": "2026-09-02"
         },
-        "delta": -10,
-        "delta_display": "-10",
-        "growth_rate_pct": -7.2,
+        "delta": -9,
+        "delta_display": "-9",
+        "growth_rate_pct": -6.5,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -2283,8 +2465,8 @@
       "source_platform": "Hugging Face Models",
       "source_url": "https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF",
       "type": "repo",
-      "description": "Trending Score: 665, Downloads: 431339, Likes: 683, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 665 pts (❤️ 683)",
+      "description": "Trending Score: 666, Downloads: 431339, Likes: 684, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 666 pts (❤️ 684)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2306,13 +2488,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 665,
-          "display": "Trending 665 pts (❤️ 683)",
+          "value": 666,
+          "display": "Trending 666 pts (❤️ 684)",
           "updated_at": "2026-09-02"
         },
-        "delta": 52,
-        "delta_display": "+52",
-        "growth_rate_pct": 8.5,
+        "delta": 53,
+        "delta_display": "+53",
+        "growth_rate_pct": 8.6,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -2357,8 +2539,8 @@
       "source_platform": "Hugging Face Models",
       "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
       "type": "repo",
-      "description": "Trending Score: 2438, Downloads: 207941, Likes: 4673, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 2438 pts (❤️ 4673)",
+      "description": "Trending Score: 2409, Downloads: 207941, Likes: 4673, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 2409 pts (❤️ 4673)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2370,13 +2552,13 @@
         "risk_flags": [],
         "audit_notes": []
       },
-      "model_family": "Qwen-3.8-Flash-Next Family",
+      "model_family": "Qwen-3.8",
       "detected_formats": [
         "기본 가중치 (Default Weight)"
       ],
-      "category_type": "TECH",
-      "title_ko": "HuggingFace Model: Qwen/Qwen3.8-Flash-Next",
-      "description_ko": "Trending Score: 4276, Downloads: 158598, Pipeline: image-text-to-text",
+      "category_type": "MODEL",
+      "title_ko": "Hugging Face 모델: Qwen/Qwen3.8-Flash-Next",
+      "description_ko": "최신 Qwen-3.8 플래시 아키텍처 기반의 고속 멀티모달 모델을 지금 바로 적용해 보세요.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Qwen Alibaba",
       "metric_tracking": {
@@ -2386,17 +2568,78 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 2438,
-          "display": "Trending 2438 pts (❤️ 4673)",
+          "value": 2409,
+          "display": "Trending 2409 pts (❤️ 4673)",
           "updated_at": "2026-09-02"
         },
-        "delta": -1838,
-        "delta_display": "-1,838",
-        "growth_rate_pct": -43.0,
+        "delta": -1867,
+        "delta_display": "-1,867",
+        "growth_rate_pct": -43.7,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-09-02"
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_huggingface_model_qwenqwen38_flash_next",
+        "source_lang": "EN",
+        "type_classification": "MODEL",
+        "model_family": "Qwen-3.8",
+        "category": "Multimodal LLM",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Qwen",
+          "Flash-Next",
+          "Image-Text-to-Text"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.8,
+        "multilingual": {
+          "ko": {
+            "title": "Hugging Face 모델: Qwen/Qwen3.8-Flash-Next",
+            "hook": "최신 Qwen-3.8 플래시 아키텍처 기반의 고속 멀티모달 모델을 지금 바로 적용해 보세요.",
+            "key_takeaways": [
+              "압도적인 트렌딩 스코어와 다운로드 수록 입증된 최신 모델",
+              "이미지-텍스트-투-텍스트 파이프라인 지원",
+              "실시간 멀티모달 서비스 구축에 최적화된 성능"
+            ]
+          },
+          "en": {
+            "title": "Hugging Face Model: Qwen/Qwen3.8-Flash-Next",
+            "hook": "Integrate the ultra-fast Qwen-3.8 flash architecture for next-gen multimodal tasks.",
+            "key_takeaways": [
+              "Demonstrates exceptional trending scores and high download volume",
+              "Fully supports image-text-to-text pipeline workflows",
+              "Optimized for low-latency multimodal applications"
+            ]
+          },
+          "zh": {
+            "title": "Hugging Face 模型：Qwen/Qwen3.8-Flash-Next",
+            "hook": "基于全新 Qwen-3.8 Flash 架构的高性能多模态模型，助力极速推理。",
+            "key_takeaways": [
+              "凭借极高的趋势热度与下载量备受瞩目",
+              "原生支持图文互转（image-text-to-text）管道",
+              "专为低延迟多模态服务场景深度优化"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T07:29:33.437597+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Qwen",
+        "Flash-Next",
+        "Image-Text-to-Text"
+      ],
+      "title_en": "Hugging Face Model: Qwen/Qwen3.8-Flash-Next",
+      "title_zh": "Hugging Face 模型：Qwen/Qwen3.8-Flash-Next",
+      "hook": "최신 Qwen-3.8 플래시 아키텍처 기반의 고속 멀티모달 모델을 지금 바로 적용해 보세요.",
+      "hook_ko": "최신 Qwen-3.8 플래시 아키텍처 기반의 고속 멀티모달 모델을 지금 바로 적용해 보세요.",
+      "hook_en": "Integrate the ultra-fast Qwen-3.8 flash architecture for next-gen multimodal tasks.",
+      "hook_zh": "基于全新 Qwen-3.8 Flash 架构的高性能多模态模型，助力极速推理。",
+      "description_en": "Integrate the ultra-fast Qwen-3.8 flash architecture for next-gen multimodal tasks.",
+      "description_zh": "基于全新 Qwen-3.8 Flash 架构的高性能多模态模型，助力极速推理。"
     },
     {
       "inbox_id": "2026-08-31_repo_huggingface_model_orcarouterglm_53_flash_unce",
@@ -2691,8 +2934,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree",
       "type": "repo",
-      "description": "Trending Score: 226, Downloads: 0, Likes: 240, Pipeline: text-to-video",
-      "viral_metric": "Trending 226 pts (❤️ 240)",
+      "description": "Trending Score: 227, Downloads: 0, Likes: 241, Pipeline: text-to-video",
+      "viral_metric": "Trending 227 pts (❤️ 241)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2720,13 +2963,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 226,
-          "display": "Trending 226 pts (❤️ 240)",
+          "value": 227,
+          "display": "Trending 227 pts (❤️ 241)",
           "updated_at": "2026-09-02"
         },
-        "delta": 30,
-        "delta_display": "+30",
-        "growth_rate_pct": 15.3,
+        "delta": 31,
+        "delta_display": "+31",
+        "growth_rate_pct": 15.8,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -2845,8 +3088,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/BreezeBlue/Breeze-TTS-2",
       "type": "repo",
-      "description": "Trending Score: 306, Downloads: 3086, Likes: 324, Pipeline: text-to-speech",
-      "viral_metric": "Trending 306 pts (❤️ 324)",
+      "description": "Trending Score: 305, Downloads: 3086, Likes: 325, Pipeline: text-to-speech",
+      "viral_metric": "Trending 305 pts (❤️ 325)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2874,13 +3117,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 306,
-          "display": "Trending 306 pts (❤️ 324)",
+          "value": 305,
+          "display": "Trending 305 pts (❤️ 325)",
           "updated_at": "2026-09-02"
         },
-        "delta": 92,
-        "delta_display": "+92",
-        "growth_rate_pct": 43.0,
+        "delta": 91,
+        "delta_display": "+91",
+        "growth_rate_pct": 42.5,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -3369,8 +3612,8 @@
       "source_platform": "Hugging Face Spaces (Demo)",
       "source_url": "https://huggingface.co/spaces/Saravutw/Omni-videos-custom",
       "type": "repo",
-      "description": "Interactive AI Demo (SDK: gradio) | Likes: 276 | Live URL: https://huggingface.co/spaces/Saravutw/Omni-videos-custom",
-      "viral_metric": "❤️ 276 Likes (Trending Demo)",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 277 | Live URL: https://huggingface.co/spaces/Saravutw/Omni-videos-custom",
+      "viral_metric": "❤️ 277 Likes (Trending Demo)",
       "matched_user_domains": [
         "생성형 마케팅 & GEO/SEO 최적화"
       ],
@@ -3397,13 +3640,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 276,
-          "display": "❤️ 276 Likes (Trending Demo)",
+          "value": 277,
+          "display": "❤️ 277 Likes (Trending Demo)",
           "updated_at": "2026-09-02"
         },
-        "delta": 26,
-        "delta_display": "+26",
-        "growth_rate_pct": 10.4,
+        "delta": 27,
+        "delta_display": "+27",
+        "growth_rate_pct": 10.8,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -3994,8 +4237,8 @@
       "source_platform": "Hugging Face Spaces (Demo)",
       "source_url": "https://huggingface.co/spaces/kulkas2pintu/wan555",
       "type": "repo",
-      "description": "Interactive AI Demo (SDK: gradio) | Likes: 1674 | Live URL: https://huggingface.co/spaces/kulkas2pintu/wan555",
-      "viral_metric": "❤️ 1674 Likes (Trending Demo)",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 1675 | Live URL: https://huggingface.co/spaces/kulkas2pintu/wan555",
+      "viral_metric": "❤️ 1675 Likes (Trending Demo)",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -4022,13 +4265,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1674,
-          "display": "❤️ 1674 Likes (Trending Demo)",
+          "value": 1675,
+          "display": "❤️ 1675 Likes (Trending Demo)",
           "updated_at": "2026-09-02"
         },
-        "delta": 46,
-        "delta_display": "+46",
-        "growth_rate_pct": 2.8,
+        "delta": 47,
+        "delta_display": "+47",
+        "growth_rate_pct": 2.9,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -4999,8 +5242,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49529132",
       "type": "sns",
       "category_type": "TECH",
-      "description": "HN Score: 160 pts | Comments: 75 | My local model setup on an M4 Pro Mac Mini",
-      "viral_metric": "🔥 160 HN Points",
+      "description": "HN Score: 162 pts | Comments: 76 | My local model setup on an M4 Pro Mac Mini",
+      "viral_metric": "🔥 162 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 91,
@@ -5008,13 +5251,13 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 160,
-          "display": "🔥 160 HN Points",
+          "value": 162,
+          "display": "🔥 162 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 69,
-        "delta_display": "+69",
-        "growth_rate_pct": 75.8,
+        "delta": 71,
+        "delta_display": "+71",
+        "growth_rate_pct": 78.0,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -5776,7 +6019,70 @@
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-02_repo_arxiv_retrieved_but_not_ranked_surface_form_b",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "RAG & Information Retrieval",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Embedding Retrieval",
+          "Surface-Form Bias",
+          "Structural Retrieval"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.7,
+        "multilingual": {
+          "ko": {
+            "title": "ArXiv: 검색되었으나 순위가 매겨지지 않음: 구조적 검색에서의 표면형 편향",
+            "hook": "의미는 같지만 표면 표현이 다른 구조적 검색(RAG)의 치명적인 편향 문제를 해결하는 연구입니다.",
+            "key_takeaways": [
+              "임베딩 검색 시 표면형과 의미를 의도적으로 분리하여 평가 수행",
+              "수학부터 에이전트 궤적까지 다양한 도메인에서 구조적 편향 분석",
+              "고급 RAG 및 에이전트 검색 시스템의 정확도 개선을 위한 필수 연구"
+            ]
+          },
+          "en": {
+            "title": "ArXiv: Retrieved but not ranked: surface-form bias in structural retrieval",
+            "hook": "Examine surface-form bias in embedding retrieval to build more robust structural RAG systems.",
+            "key_takeaways": [
+              "Evaluates embedding retrieval by deliberately decoupling surface form and meaning",
+              "Analyzes structural bias across diverse domains from mathematics to agent trajectories",
+              "Essential reading for improving precision in advanced RAG and agent retrieval pipelines"
+            ]
+          },
+          "zh": {
+            "title": "ArXiv：检索但未排序：结构化检索中的表层形式偏差",
+            "hook": "剖析嵌入检索中语义与表层形式脱节的偏差问题，优化 RAG 与智能体检索架构。",
+            "key_takeaways": [
+              "通过故意剥离表层形式与真实语义来评估嵌入检索性能",
+              "跨数学与智能体轨迹等不同领域深入分析结构化偏差",
+              "提升高阶 RAG 及智能体系统检索准确率的必读前沿论文"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T07:29:33.438843+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Embedding Retrieval",
+        "Surface-Form Bias",
+        "Structural Retrieval"
+      ],
+      "title_ko": "ArXiv: 검색되었으나 순위가 매겨지지 않음: 구조적 검색에서의 표면형 편향",
+      "title_en": "ArXiv: Retrieved but not ranked: surface-form bias in structural retrieval",
+      "title_zh": "ArXiv：检索但未排序：结构化检索中的表层形式偏差",
+      "hook": "의미는 같지만 표면 표현이 다른 구조적 검색(RAG)의 치명적인 편향 문제를 해결하는 연구입니다.",
+      "hook_ko": "의미는 같지만 표면 표현이 다른 구조적 검색(RAG)의 치명적인 편향 문제를 해결하는 연구입니다.",
+      "hook_en": "Examine surface-form bias in embedding retrieval to build more robust structural RAG systems.",
+      "hook_zh": "剖析嵌入检索中语义与表层形式脱节的偏差问题，优化 RAG 与智能体检索架构。",
+      "description_ko": "의미는 같지만 표면 표현이 다른 구조적 검색(RAG)의 치명적인 편향 문제를 해결하는 연구입니다.",
+      "description_en": "Examine surface-form bias in embedding retrieval to build more robust structural RAG systems.",
+      "description_zh": "剖析嵌入检索中语义与表层形式脱节的偏差问题，优化 RAG 与智能体检索架构。"
     },
     {
       "inbox_id": "2026-09-02_repo_arxiv_mechanism_design_for_alignment_and_cont",
@@ -6414,8 +6720,8 @@
       "source_platform": "Hacker News",
       "source_url": "https://news.ycombinator.com/item?id=49523720",
       "type": "sns",
-      "description": "HN Score: 218 pts | Comments: 224 | Dwarf Fortress' creator says the industry's in shambles over AI",
-      "viral_metric": "🔥 218 HN Points",
+      "description": "HN Score: 219 pts | Comments: 224 | Dwarf Fortress' creator says the industry's in shambles over AI",
+      "viral_metric": "🔥 219 HN Points",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -6427,13 +6733,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 218,
-          "display": "🔥 218 HN Points",
+          "value": 219,
+          "display": "🔥 219 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 209,
-        "delta_display": "+209",
-        "growth_rate_pct": 2322.2,
+        "delta": 210,
+        "delta_display": "+210",
+        "growth_rate_pct": 2333.3,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
@@ -6649,8 +6955,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/jprx/darwin-vm",
       "type": "repo",
-      "description": "Stars: 901, Forks: 74 | Run iOS/ macOS in Qemu. Virtual iPhone 17, 16, 15, 14, 13, 12 and M5-M1 Apple Si Macs supported.",
-      "viral_metric": "★ 901 Stars",
+      "description": "Stars: 902, Forks: 74 | Run iOS/ macOS in Qemu. Virtual iPhone 17, 16, 15, 14, 13, 12 and M5-M1 Apple Si Macs supported.",
+      "viral_metric": "★ 902 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -6662,13 +6968,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 901,
-          "display": "★ 901 Stars",
+          "value": 902,
+          "display": "★ 902 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 213,
-        "delta_display": "+213",
-        "growth_rate_pct": 31.0,
+        "delta": 214,
+        "delta_display": "+214",
+        "growth_rate_pct": 31.1,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
@@ -6745,8 +7051,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/crmne/fastpotify",
       "type": "repo",
-      "description": "Stars: 1614, Forks: 65 | Spotify, native and fast. One lightweight Rust app for your whole library, local playback, and Spotify Connect on Linux, macOS, and Windows.",
-      "viral_metric": "★ 1614 Stars",
+      "description": "Stars: 1617, Forks: 65 | Spotify, native and fast. One lightweight Rust app for your whole library, local playback, and Spotify Connect on Linux, macOS, and Windows.",
+      "viral_metric": "★ 1617 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -6758,13 +7064,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 1614,
-          "display": "★ 1614 Stars",
+          "value": 1617,
+          "display": "★ 1617 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 855,
-        "delta_display": "+855",
-        "growth_rate_pct": 112.6,
+        "delta": 858,
+        "delta_display": "+858",
+        "growth_rate_pct": 113.0,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
@@ -8704,8 +9010,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/tencent/Hy4-preview",
       "type": "repo",
-      "description": "Trending Score: 382, Downloads: 3516, Likes: 389, Pipeline: text-generation",
-      "viral_metric": "Trending 382 pts (❤️ 389)",
+      "description": "Trending Score: 383, Downloads: 3516, Likes: 390, Pipeline: text-generation",
+      "viral_metric": "Trending 383 pts (❤️ 390)",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -8733,13 +9039,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 382,
-          "display": "Trending 382 pts (❤️ 389)",
+          "value": 383,
+          "display": "Trending 383 pts (❤️ 390)",
           "updated_at": "2026-09-02"
         },
-        "delta": 59,
-        "delta_display": "+59",
-        "growth_rate_pct": 18.3,
+        "delta": 60,
+        "delta_display": "+60",
+        "growth_rate_pct": 18.6,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -8889,55 +9195,6 @@
       "updated_at": "2026-09-02"
     },
     {
-      "inbox_id": "2026-08-31_repo_huggingface_peculiar_ragdolltiel_coder_35b_a3",
-      "harvested_date": "2026-08-31",
-      "title": "HuggingFace: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
-      "source_platform": "Hugging Face Hub",
-      "source_url": "https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
-      "type": "repo",
-      "description": "Trending Score: 118, Downloads: 130086, Likes: 187, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 118 pts (❤️ 187)",
-      "matched_user_domains": [
-        "DX & Python 업무 프로세스 자동화",
-        "엔터프라이즈 RAG & 문서 파싱 인프라",
-        "생성형 마케팅 & GEO/SEO 최적화"
-      ],
-      "status": "PENDING_REVIEW",
-      "audit_risk": {
-        "hype_risk_score": 15,
-        "risk_level": "LOW_RISK",
-        "risk_flags": [],
-        "audit_notes": []
-      },
-      "model_family": "기타 독립 모델 (Standalone / Novel)",
-      "detected_formats": [
-        "GGUF"
-      ],
-      "category_type": "TECH",
-      "title_ko": "HuggingFace: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
-      "description_ko": "Trending Score: 144, Downloads: 87848, Pipeline: image-text-to-text",
-      "variant_role": "💾 표준 GGUF 양자화본 (llama.cpp/vLLM)",
-      "creator": "Community",
-      "metric_tracking": {
-        "initial": {
-          "value": 144,
-          "display": "Trending 144 pts",
-          "recorded_at": "2026-08-31"
-        },
-        "latest": {
-          "value": 118,
-          "display": "Trending 118 pts (❤️ 187)",
-          "updated_at": "2026-09-02"
-        },
-        "delta": -26,
-        "delta_display": "-26",
-        "growth_rate_pct": -18.1,
-        "is_spiking": false
-      },
-      "created_at": "2026-08-31",
-      "updated_at": "2026-09-02"
-    },
-    {
       "inbox_id": "2026-08-31_repo_huggingface_ornith_aiornith_15_35b_a3b",
       "harvested_date": "2026-08-31",
       "title": "HuggingFace: ornith-ai/Ornith-1.5-35B-A3B",
@@ -9039,8 +9296,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
       "type": "repo",
-      "description": "Trending Score: 227, Downloads: 5532597, Likes: 4772, Pipeline: image-text-to-video",
-      "viral_metric": "Trending 227 pts (❤️ 4772)",
+      "description": "Trending Score: 226, Downloads: 5532597, Likes: 4772, Pipeline: image-text-to-video",
+      "viral_metric": "Trending 226 pts (❤️ 4772)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -9068,13 +9325,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 227,
-          "display": "Trending 227 pts (❤️ 4772)",
+          "value": 226,
+          "display": "Trending 226 pts (❤️ 4772)",
           "updated_at": "2026-09-02"
         },
-        "delta": 17,
-        "delta_display": "+17",
-        "growth_rate_pct": 8.1,
+        "delta": 16,
+        "delta_display": "+16",
+        "growth_rate_pct": 7.6,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -9372,8 +9629,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/XiaoDuoYa/codex-with-chatgpt",
       "type": "repo",
-      "description": "Stars: 2191, Forks: 221 | ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.",
-      "viral_metric": "★ 2191 Stars",
+      "description": "Stars: 2192, Forks: 221 | ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.",
+      "viral_metric": "★ 2192 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -9400,13 +9657,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 2191,
-          "display": "★ 2191 Stars",
+          "value": 2192,
+          "display": "★ 2192 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 614,
-        "delta_display": "+614",
-        "growth_rate_pct": 38.9,
+        "delta": 615,
+        "delta_display": "+615",
+        "growth_rate_pct": 39.0,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -9419,8 +9676,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/wide-trace/open-higgsfield",
       "type": "repo",
-      "description": "Stars: 1219, Forks: 19 | A studio for image and video generation — one prompt bar, each model’s own settings, and every finished run in one gallery.",
-      "viral_metric": "★ 1219 Stars",
+      "description": "Stars: 1220, Forks: 19 | A studio for image and video generation — one prompt bar, each model’s own settings, and every finished run in one gallery.",
+      "viral_metric": "★ 1220 Stars",
       "matched_user_domains": [
         "생성형 마케팅 & GEO/SEO 최적화"
       ],
@@ -9447,13 +9704,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1219,
-          "display": "★ 1219 Stars",
+          "value": 1220,
+          "display": "★ 1220 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 114,
-        "delta_display": "+114",
-        "growth_rate_pct": 10.3,
+        "delta": 115,
+        "delta_display": "+115",
+        "growth_rate_pct": 10.4,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -9759,8 +10016,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/Tencent/WeMM-Embedding",
       "type": "repo",
-      "description": "Stars: 1068, Forks: 80 | WeMM-Embedding is a family of universal multimodal embedding models by the WeChat Vision Team at Tencent, supporting multimodal understanding and retrieval.",
-      "viral_metric": "★ 1068 Stars",
+      "description": "Stars: 1069, Forks: 80 | WeMM-Embedding is a family of universal multimodal embedding models by the WeChat Vision Team at Tencent, supporting multimodal understanding and retrieval.",
+      "viral_metric": "★ 1069 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -9787,13 +10044,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1068,
-          "display": "★ 1068 Stars",
+          "value": 1069,
+          "display": "★ 1069 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 114,
-        "delta_display": "+114",
-        "growth_rate_pct": 11.9,
+        "delta": 115,
+        "delta_display": "+115",
+        "growth_rate_pct": 12.1,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -9854,8 +10111,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/sapientinc/PRAXIST",
       "type": "repo",
-      "description": "Stars: 6404, Forks: 548 | Autonomous research system for measurable, computer-executable research.",
-      "viral_metric": "★ 6404 Stars",
+      "description": "Stars: 6411, Forks: 549 | Autonomous research system for measurable, computer-executable research.",
+      "viral_metric": "★ 6411 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -9882,13 +10139,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 6404,
-          "display": "★ 6404 Stars",
+          "value": 6411,
+          "display": "★ 6411 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 1590,
-        "delta_display": "+1,590",
-        "growth_rate_pct": 33.0,
+        "delta": 1597,
+        "delta_display": "+1,597",
+        "growth_rate_pct": 33.2,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -10009,8 +10266,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/nateherkai/scroll-craft",
       "type": "repo",
-      "description": "Stars: 1442, Forks: 229 | Claude Code skill for premium scroll-driven websites. Scroll becomes the timeline, on a real design floor, verified by screenshotting its own scroll.",
-      "viral_metric": "★ 1442 Stars",
+      "description": "Stars: 1443, Forks: 229 | Claude Code skill for premium scroll-driven websites. Scroll becomes the timeline, on a real design floor, verified by screenshotting its own scroll.",
+      "viral_metric": "★ 1443 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -10037,13 +10294,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1442,
-          "display": "★ 1442 Stars",
+          "value": 1443,
+          "display": "★ 1443 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 142,
-        "delta_display": "+142",
-        "growth_rate_pct": 10.9,
+        "delta": 143,
+        "delta_display": "+143",
+        "growth_rate_pct": 11.0,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -10056,8 +10313,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/Nanako0129/sepia",
       "type": "repo",
-      "description": "Stars: 1380, Forks: 82 | De-AI writing skill for any Agent Skills-compatible agent (77+ via the Skills CLI), with native plugins for Claude Code, Codex, Grok Build, and Antigravity. Narrative-architecture repair for fiction, venue-matched rules for professional prose. Based on StoryScope (arXiv:2604.03136).",
-      "viral_metric": "★ 1380 Stars",
+      "description": "Stars: 1381, Forks: 82 | De-AI writing skill for any Agent Skills-compatible agent (77+ via the Skills CLI), with native plugins for Claude Code, Codex, Grok Build, and Antigravity. Narrative-architecture repair for fiction, venue-matched rules for professional prose. Based on StoryScope (arXiv:2604.03136).",
+      "viral_metric": "★ 1381 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -10084,13 +10341,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1380,
-          "display": "★ 1380 Stars",
+          "value": 1381,
+          "display": "★ 1381 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 354,
-        "delta_display": "+354",
-        "growth_rate_pct": 34.5,
+        "delta": 355,
+        "delta_display": "+355",
+        "growth_rate_pct": 34.6,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -10244,8 +10501,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/MengTo/threeui",
       "type": "repo",
-      "description": "Stars: 4943, Forks: 487 | Open-source ThreeUI Community catalog with live interactive components and complete Community source.",
-      "viral_metric": "★ 4943 Stars",
+      "description": "Stars: 4945, Forks: 487 | Open-source ThreeUI Community catalog with live interactive components and complete Community source.",
+      "viral_metric": "★ 4945 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -10272,12 +10529,12 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 4943,
-          "display": "★ 4943 Stars",
+          "value": 4945,
+          "display": "★ 4945 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 231,
-        "delta_display": "+231",
+        "delta": 233,
+        "delta_display": "+233",
         "growth_rate_pct": 4.9,
         "is_spiking": true
       },
@@ -10397,8 +10654,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/jub0t/Concat",
       "type": "repo",
-      "description": "Stars: 1067, Forks: 92 | Free & Open-Source CapCut replacement. (formerly WolfCut)",
-      "viral_metric": "★ 1067 Stars",
+      "description": "Stars: 1068, Forks: 92 | Free & Open-Source CapCut replacement. (formerly WolfCut)",
+      "viral_metric": "★ 1068 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -10425,13 +10682,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1067,
-          "display": "★ 1067 Stars",
+          "value": 1068,
+          "display": "★ 1068 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 294,
-        "delta_display": "+294",
-        "growth_rate_pct": 38.0,
+        "delta": 295,
+        "delta_display": "+295",
+        "growth_rate_pct": 38.2,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -10692,8 +10949,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/bryllim/workout-guide",
       "type": "repo",
-      "description": "Stars: 1072, Forks: 171 | 302 open exercise illustrations and a framework-neutral npm package by Bryl Lim",
-      "viral_metric": "★ 1072 Stars",
+      "description": "Stars: 1079, Forks: 172 | 302 open exercise illustrations and a framework-neutral npm package by Bryl Lim",
+      "viral_metric": "★ 1079 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -10720,13 +10977,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1072,
-          "display": "★ 1072 Stars",
+          "value": 1079,
+          "display": "★ 1079 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 38,
-        "delta_display": "+38",
-        "growth_rate_pct": 3.7,
+        "delta": 45,
+        "delta_display": "+45",
+        "growth_rate_pct": 4.4,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -10786,8 +11043,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/ApodexAI/FrontierAgent",
       "type": "repo",
-      "description": "Stars: 1372, Forks: 126 | 🧩 FrontierAgent, our agent framework, open-sourced alongside it — native command-line TUI, ReAct and Agent Team modes, one command on macOS and Linux, no preinstall, no hard Docker dependency.",
-      "viral_metric": "★ 1372 Stars",
+      "description": "Stars: 1373, Forks: 126 | 🧩 FrontierAgent, our agent framework, open-sourced alongside it — native command-line TUI, ReAct and Agent Team modes, one command on macOS and Linux, no preinstall, no hard Docker dependency.",
+      "viral_metric": "★ 1373 Stars",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "엔터프라이즈 RAG & 문서 파싱 인프라"
@@ -10815,13 +11072,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1372,
-          "display": "★ 1372 Stars",
+          "value": 1373,
+          "display": "★ 1373 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 53,
-        "delta_display": "+53",
-        "growth_rate_pct": 4.0,
+        "delta": 54,
+        "delta_display": "+54",
+        "growth_rate_pct": 4.1,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
