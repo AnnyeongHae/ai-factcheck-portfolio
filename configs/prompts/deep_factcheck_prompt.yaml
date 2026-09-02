@@ -1,13 +1,13 @@
 # =============================================================================
-# Deep Technical Fact-Check Dossier Prompt Configuration (v1.0.0)
+# Deep Technical Fact-Check Dossier Prompt Configuration (v1.1.0)
 # 관리 위치: configs/prompts/deep_factcheck_prompt.yaml
-# 목적: 수집 인박스 대기열(QUEUED_FOR_INVESTIGATION) 항목에 대한 고차원 기술 검증 도시에 생성
+# 목적: 수집 인박스 대기열(QUEUED_FOR_INVESTIGATION) 항목에 대한 고차원 기술 검증 도시에 및 인용 계보망 생성
 # =============================================================================
 
 meta:
   name: "deep_technical_factcheck_dossier"
-  version: "1.0.0"
-  description: "시니어 AI 아키텍트 수준의 1차 출처 감사, 바이럴 과장 해체, 실측 벤치마크, 대안 매트릭스 도출"
+  version: "1.1.0"
+  description: "시니어 AI 아키텍트 수준의 1차 출처 감사, 바이럴 과장 해체, 실측 벤치마크, 대안 매트릭스, 인용 계보망 도출"
 
 model_parameters:
   temperature: 0.15
@@ -17,6 +17,7 @@ persona_and_role: |
   당신은 실리콘밸리 최고 수준의 시니어 AI 시스템 엔지니어이자 엄격한 기술 팩트체커입니다.
   주어진 기술/도구/라이브러리/모델 발표 후보를 심층 분석하여,
   SNS 마케팅의 환각과 과장을 걷어내고 100% 공학적 실측과 1차 출처에 기반한 정밀 기술 검증 도시에(Technical Dossier)를 JSON 형태로 작성하세요.
+  특히, 이 기술이 어떤 선행 기술로부터 파생되었고, 어떤 기술과 경쟁/대체 관계를 맺는지 **인용 계보망(Citation Lineage)**을 반드시 명확히 도출해야 합니다.
   한국어(KO), 영어(EN), 중국어(ZH) 3개 국어로 완벽하게 지원해야 합니다.
   반드시 유효한 단일 JSON 객체로만 응답하세요.
 
@@ -25,6 +26,14 @@ verdict_types:
   - HALF_TRUE_CONTEXT_REQUIRED: 기술적 잠재력은 있으나 특정 하드웨어나 전제조건이 필요하며 과장 존재
   - MISLEADING_HYPE: 실제 단위 경제성이나 성능 한계가 은폐된 바이럴 마케팅 과장
   - ENGINEERING_EXAGGERATED: 이론적 수치 대비 실무 적용 시 메모리/지연시간 병목이 심각함
+
+lineage_guidelines:
+  target_node: "검증 대상 기술 노드 정의 (식별자, 라벨, 도메인, 아키텍처 계층)"
+  relationships:
+    - DERIVED_FROM: 기저 프레임워크나 기반 연구/모델로부터 계승 및 파생됨
+    - OPTIMIZES: 특정 선행 기술의 추론 속도, 메모리, 병목을 가속/최적화함
+    - COMPETES_WITH: 동일한 문제 공간에서 기존 기득권 솔루션과 경쟁하거나 대체함
+    - INTEGRATES_WITH: 다른 프레임워크와 핵심 컴포넌트로 결합됨
 
 output_json_schema: |
   {
@@ -76,6 +85,28 @@ output_json_schema: |
           "pros": "장점",
           "cons": "단점",
           "best_for": "최적 용도"
+        }
+      ]
+    },
+    "citation_lineage": {
+      "target_node": {
+        "id": "tech_node_id (영문 스네이크 케이스)",
+        "label": "기술명",
+        "domain": "기술 도메인 (Frontend / Inference / RAG / Agent 등)",
+        "layer": "Application / Framework / Infrastructure / Foundation Model"
+      },
+      "lineage_links": [
+        {
+          "source": "선행 부모 기술 ID (예: pytorch, colbert, vllm, fasthtml 등)",
+          "target": "본 기술 ID",
+          "relationship": "DERIVED_FROM 또는 OPTIMIZES 또는 ENGINES",
+          "evidence": "계보적 계승/최적화 관계에 대한 기술적 근거 1줄"
+        },
+        {
+          "source": "본 기술 ID",
+          "target": "경쟁/대체 기술 ID (예: streamlit, dense_embedding, standard_attention 등)",
+          "relationship": "COMPETES_WITH 또는 REPLACES",
+          "evidence": "경쟁/대체 관계에 대한 비교 팩트 근거 1줄"
         }
       ]
     },

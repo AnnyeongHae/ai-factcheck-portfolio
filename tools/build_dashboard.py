@@ -432,27 +432,7 @@ def generate_html(data):
         </div>
       </div>
 
-      <!-- 🔔 AUTONOMOUS PROMOTION WATCH BANNER (자율 승격 알림 배너) -->
-      <div id="promotionWatchBanner" class="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200/80 p-4 sm:p-4.5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-700 shrink-0">
-            <i data-lucide="check-circle" class="w-4 h-4"></i>
-          </div>
-          <div class="space-y-0.5">
-            <div class="text-xs font-bold text-emerald-950 flex items-center gap-2">
-              <span id="promoBannerTitle">기술 검증 포트폴리오 최신 상태 알림</span>
-              <span class="px-2 py-0.2 rounded bg-emerald-200/80 text-emerald-900 font-mono text-[10px] font-bold" id="promoCountBadge">18건 검증 완료</span>
-            </div>
-            <p class="text-[11px] text-emerald-800 leading-relaxed" id="promoBannerDesc">
-              바이럴 임계치를 초과하여 유입된 주요 오픈소스 및 모델 후보군 총 18건에 대한 심층 실측 벤치마크와 팩트체크가 모두 완료되었습니다.
-            </p>
-          </div>
-        </div>
 
-        <button onclick="switchView('inbox')" class="shrink-0 px-3.5 py-1.5 rounded-xl bg-emerald-900 text-white text-xs font-bold hover:bg-emerald-800 transition flex items-center gap-1 shadow-sm">
-          <span id="promoBtnText">수집 인박스 후보군 보기</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-        </button>
-      </div>
 
       <!-- HIGH-VISIBILITY CONTROL CENTER -->
       <div class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border space-y-4 shadow-sm">
@@ -1317,10 +1297,7 @@ def generate_html(data):
       safeSetText('heroUpdateLabel', t.heroUpdateLabel);
       safeSetText('heroAuditCount', t.heroAuditCount);
 
-      // Promotion Banner
-      safeSetText('promoBannerTitle', t.promoBannerTitle);
-      safeSetText('promoBtnText', t.promoBtnText);
-      try {{ updatePromotionBanner(); }} catch(e) {{}}
+
 
       // Audit Criteria & Labels
       safeSetText('criteriaTitle', t.criteriaTitle);
@@ -1442,48 +1419,11 @@ def generate_html(data):
           }}
         }}
 
-        // 3. Update Promotion Watch Banner dynamically with real-time alerts
-        updatePromotionBanner();
+        // Promotion Watch Banner removed as per user design decision
       }} catch (err) {{}}
     }}
 
-    function updatePromotionBanner() {{
-      const banner = document.getElementById('promotionWatchBanner');
-      const badge = document.getElementById('promoCountBadge');
-      const desc = document.getElementById('promoBannerDesc');
-      if (!banner || !badge || !desc) return;
-
-      const totalCount = casesData.length;
-      const now = new Date();
-      const recentCases = casesData.filter(c => {{
-        const dStr = c.created_at || c.investigation_date;
-        if (!dStr) return false;
-        const d = new Date(dStr);
-        return !isNaN(d) && (now - d) < (7 * 24 * 3600 * 1000);
-      }});
-
-      if (recentCases.length > 0) {{
-        const latestCase = recentCases[0];
-        const latestTitle = currentLang === 'KO' ? (latestCase.title_ko || latestCase.title) : (currentLang === 'ZH' ? (latestCase.title_zh || latestCase.title) : (latestCase.title_en || latestCase.title));
-        
-        badge.className = 'px-2 py-0.5 rounded bg-emerald-600 text-white font-mono text-[10px] font-bold flex items-center gap-1 shadow-sm';
-        badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> 🔔 ${{recentCases.length}}건 신규 알림`;
-        
-        desc.innerHTML = currentLang === 'KO'
-          ? `최신 검증 포트폴리오: <strong>${{latestTitle}}</strong> 실측 팩트체크가 완료되어 정본에 등재되었습니다. (총 ${{totalCount}}건 검증 완료)`
-          : (currentLang === 'ZH'
-              ? `最新验证案例：<strong>${{latestTitle}}</strong> 实测核查已纳入正本。（共 ${{totalCount}} 项完成验证）`
-              : `Latest Verified Dossier: <strong>${{latestTitle}}</strong> has been officially incorporated. (Total ${{totalCount}} verified)`);
-      }} else {{
-        badge.className = 'px-2 py-0.2 rounded bg-emerald-200/80 text-emerald-900 font-mono text-[10px] font-bold';
-        badge.innerText = `${{totalCount}}건 검증 완료`;
-        desc.innerText = currentLang === 'KO' 
-          ? `바이럴 임계치를 초과하여 유입된 주요 오픈소스 및 모델 후보군 총 ${{totalCount}}건에 대한 심층 실측 벤치마크와 팩트체크가 모두 완료되었습니다.`
-          : (currentLang === 'ZH'
-              ? `对超过热度阈值的 ${{totalCount}} 个开源技术及模型候选已全数完成深入实测基准事实核查。`
-              : `Deep benchmark investigations and fact-checks have been fully concluded for all ${{totalCount}} qualified high-impact candidates.`);
-      }}
-    }}
+    function updatePromotionBanner() {{}}
 
     // ================= FILTER & SORT HANDLERS =================
     function setModeFilter(mode) {{
@@ -2066,7 +2006,7 @@ def generate_html(data):
       }});
 
       const countEl = document.getElementById('modelsFilteredCount');
-      if (countEl) countEl.innerText = `${{filtered.length}}개 모델 표출`;
+      if (countEl) countEl.innerText = currentLang === 'KO' ? `${{filtered.length}}개 모델 표출` : (currentLang === 'ZH' ? `显示 ${{filtered.length}} 个模型` : `Showing ${{filtered.length}} models`);
 
       if (filtered.length === 0) {{
         grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '일치하는 AI 모델이 없습니다.' : (currentLang === 'ZH' ? '暂无匹配的 AI 模型。' : 'No matching AI models.')}}</div>`;
@@ -2147,7 +2087,7 @@ def generate_html(data):
               ${{ai?.enriched_by_model ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-indigo-700 border border-surface-border">🤖 ${{ai.enriched_by_model.replace('gemini-', '')}}</span>` : ''}}
             </div>
             <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1">
-              <span>원문 / 다운로드</span> <i data-lucide="external-link" class="w-3 h-3"></i>
+              <span>${{currentLang === 'KO' ? '원문 / 다운로드' : (currentLang === 'ZH' ? '原文 / 模型主页' : 'Source / Model')}}</span> <i data-lucide="external-link" class="w-3 h-3"></i>
             </a>
           </div>
         `;
@@ -2337,10 +2277,10 @@ def generate_html(data):
         const delta = tracking.growth_delta || 0;
         const deltaDisplay = delta > 0 ? `+${{delta}}` : (delta < 0 ? `${{delta}}` : '0');
 
-        let typeBadge = '⚡ 신기술';
-        if (ai && ai.type_classification === 'AGENT') typeBadge = '🦾 에이전트';
-        else if (ai && ai.type_classification === 'MODEL') typeBadge = '🤖 모델';
-        else if (ai && ai.type_classification === 'NEWS') typeBadge = '📰 동향';
+        let typeBadge = currentLang === 'KO' ? '⚡ 신기술' : (currentLang === 'ZH' ? '⚡ 新技术' : '⚡ Tech');
+        if (ai && ai.type_classification === 'AGENT') typeBadge = currentLang === 'KO' ? '🦾 에이전트' : (currentLang === 'ZH' ? '🦾 智能体' : '🦾 Agent');
+        else if (ai && ai.type_classification === 'MODEL') typeBadge = currentLang === 'KO' ? '🤖 AI 모델' : (currentLang === 'ZH' ? '🤖 AI 模型' : '🤖 AI Model');
+        else if (ai && ai.type_classification === 'NEWS') typeBadge = currentLang === 'KO' ? '📰 업계 동향' : (currentLang === 'ZH' ? '📰 行业资讯' : '📰 News');
 
         const card = document.createElement('div');
         card.className = 'executive-card p-5 flex flex-col justify-between space-y-3.5 hover:border-indigo-400 hover:shadow-md transition';
@@ -2377,7 +2317,7 @@ def generate_html(data):
               <button onclick="openCaseModal('${{it.related_dossier.case_id}}')" class="w-full text-left px-2.5 py-1.5 rounded-lg bg-indigo-50/70 hover:bg-indigo-100/80 border border-indigo-200/80 text-[11px] text-indigo-950 font-semibold flex items-center justify-between transition">
                 <span class="flex items-center gap-1.5">
                   <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
-                  <span>관련 팩트체크: ${{it.related_dossier.target_tech}}</span>
+                  <span>${{currentLang === 'KO' ? '관련 팩트체크:' : (currentLang === 'ZH' ? '关联事实核查:' : 'Related Audit:')}} ${{it.related_dossier.target_tech}}</span>
                 </span>
                 <i data-lucide="arrow-right" class="w-3 h-3 text-indigo-400"></i>
               </button>
@@ -2392,7 +2332,7 @@ def generate_html(data):
                 ${{it.source_platform || 'Tech Candidate'}}
               </span>
               <span class="px-2 py-0.5 rounded text-[11px] font-bold font-mono ${{viralScore >= 70 ? 'bg-rose-50 text-rose-700 border border-rose-200' : 'bg-amber-50 text-amber-700 border border-amber-200'}}">
-                🔥 인기 ${{viralScore}}점
+                ${{currentLang === 'KO' ? `🔥 인기 ${{viralScore}}점` : (currentLang === 'ZH' ? `🔥 热度 ${{viralScore}}分` : `🔥 Viral ${{viralScore}} pts`)}}
               </span>
             </div>
 
@@ -2441,7 +2381,7 @@ def generate_html(data):
 
           <div class="pt-3 border-t border-surface-border flex items-center justify-between gap-2">
             <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1">
-              <span>원문 보기</span> <i data-lucide="external-link" class="w-3 h-3"></i>
+              <span>${{currentLang === 'KO' ? '원문 보기' : (currentLang === 'ZH' ? '查看原文' : 'View Source')}}</span> <i data-lucide="external-link" class="w-3 h-3"></i>
             </a>
 
             <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 

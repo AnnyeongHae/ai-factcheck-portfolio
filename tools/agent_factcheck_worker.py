@@ -202,7 +202,8 @@ def run_agent_factcheck_worker(limit: int = 10):
             print(f"  [!] Failed to generate dossier for {inbox_id}.")
             continue
 
-        # Case ID normalization
+        # Force current investigation date & clean case_id
+        dossier["investigation_date"] = datetime.now().strftime("%Y-%m-%d")
         case_id = dossier.get("case_id")
         if not case_id or case_id == "investigation 고유 ID":
             slug = re.sub(r"[^a-zA-Z0-9_]", "_", inbox_id).strip("_").lower()[:45]
