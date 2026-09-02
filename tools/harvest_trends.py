@@ -30,9 +30,39 @@ def slugify(text: str) -> str:
     text = re.sub(r'[\s_-]+', '_', text)
     return text[:45]
 
+TRACKING_PARAMS = {
+    'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id',
+    'ref', 'ref_src', 'ref_url', 'source', 'fbclid', 'gclid', 'msclkid', 'twclid',
+    'si', 'spm', 'igshid', 'yclid', 'mc_cid', 'mc_eid', 'aff', 'affiliate'
+}
+
+def clean_stealth_url(url: str) -> str:
+    """Strips all tracking parameters (UTM, ChatGPT ref, social trackers) to maintain stealth."""
+    if not url: return ""
+    try:
+        parsed = urllib.parse.urlparse(url)
+        query_pairs = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
+        clean_pairs = [
+            (k, v) for k, v in query_pairs 
+            if k.lower() not in TRACKING_PARAMS and not k.lower().startswith('utm_')
+        ]
+        clean_query = urllib.parse.urlencode(clean_pairs)
+        cleaned = urllib.parse.urlunparse((
+            parsed.scheme,
+            parsed.netloc,
+            parsed.path,
+            parsed.params,
+            clean_query,
+            parsed.fragment
+        ))
+        return cleaned.rstrip('?')
+    except Exception:
+        return url
+
 def normalize_url(url: str) -> str:
     if not url: return ""
-    u = url.lower().strip()
+    cleaned = clean_stealth_url(url)
+    u = cleaned.lower().strip()
     u = re.sub(r'^https?://', '', u)
     u = re.sub(r'^www\.', '', u)
     u = u.rstrip('/')
@@ -118,20 +148,51 @@ def index_existing_data(base_dir):
 
     return inbox_url_map, inbox_slug_map, investigation_urls
 
+STEALTH_USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_7_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Safari/605.1.15",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
+]
+
+def get_stealth_headers(content_type="json"):
+    ua = random.choice(STEALTH_USER_AGENTS)
+    is_mac = "Macintosh" in ua
+    platform = '"macOS"' if is_mac else '"Windows"'
+    
+    headers = {
+        "User-Agent": ua,
+        "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+        "Sec-Ch-Ua": '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+        "Sec-Ch-Ua-Mobile": "?0",
+        "Sec-Ch-Ua-Platform": platform,
+        "Sec-Fetch-Dest": "empty" if content_type == "json" else "document",
+        "Sec-Fetch-Mode": "cors" if content_type == "json" else "navigate",
+        "Sec-Fetch-Site": "cross-site",
+        "Upgrade-Insecure-Requests": "1"
+    }
+    if content_type == "json":
+        headers["Accept"] = "application/json, text/plain, */*"
+    elif content_type == "xml":
+        headers["Accept"] = "application/xml, text/xml, */*"
+    else:
+        headers["Accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
+    return headers
+
 def fetch_json(url, headers=None, timeout=12):
-    if headers is None:
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-            "Accept": "application/json"
-        }
-    req = urllib.request.Request(url, headers=headers)
+    time.sleep(random.uniform(0.05, 0.15))
+    clean_url = clean_stealth_url(url)
+    h = headers or get_stealth_headers("json")
+    req = urllib.request.Request(clean_url, headers=h)
     with urllib.request.urlopen(req, timeout=timeout) as response:
         return json.loads(response.read().decode('utf-8'))
 
 def fetch_xml(url, headers=None, timeout=12):
-    if headers is None:
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) FactCheck/1.0"}
-    req = urllib.request.Request(url, headers=headers)
+    time.sleep(random.uniform(0.05, 0.15))
+    clean_url = clean_stealth_url(url)
+    h = headers or get_stealth_headers("xml")
+    req = urllib.request.Request(clean_url, headers=h)
     with urllib.request.urlopen(req, timeout=timeout) as response:
         return response.read().decode('utf-8')
 
@@ -200,6 +261,14 @@ def harvest_all():
         return True
 
     def add_candidate(cand):
+        # 🌟 Stealth Mode: Strip all tracking & referrer params (UTM, ChatGPT ref, etc.)
+        if "source_url" in cand:
+            cand["source_url"] = clean_stealth_url(cand["source_url"])
+        if "article_url" in cand:
+            cand["article_url"] = clean_stealth_url(cand["article_url"])
+        if "hn_url" in cand:
+            cand["hn_url"] = clean_stealth_url(cand["hn_url"])
+
         if not validate_candidate(cand):
             return False
         nurl = normalize_url(cand.get("source_url", ""))
