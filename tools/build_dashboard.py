@@ -11,6 +11,7 @@ Universal AI Citation & Tech Lineage Knowledge Hub (v20.0 - 18 Full Dossiers & A
 import json
 import os
 import sys
+import time
 
 # Ensure UTF-8
 if sys.stdout.encoding != 'utf-8':
