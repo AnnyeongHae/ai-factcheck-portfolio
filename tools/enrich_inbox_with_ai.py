@@ -29,8 +29,8 @@ if sys.stdout.encoding != 'utf-8':
         pass
 
 MODEL_POOL = [
-    "gemini-flash-latest",
     "gemini-flash-lite-latest",
+    "gemini-flash-latest",
     "gemma-4-31b-it",
     "gemma-4-26b-a4b-it",
     "gemini-3.6-flash"
@@ -222,7 +222,7 @@ def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> list:
     print("[!] All fallback models in pool exhausted!")
     return [], None
 
-def run_enrichment(limit: int = 12, batch_size: int = 3, random_pick: bool = True):
+def run_enrichment(limit: int = 15, batch_size: int = 5, random_pick: bool = False, only_new: bool = False):
     key = get_gemini_api_key()
     if not key:
         print("[!] ERROR: GEMINI_API_KEY is not set!")
@@ -231,28 +231,47 @@ def run_enrichment(limit: int = 12, batch_size: int = 3, random_pick: bool = Tru
     dossiers = load_existing_dossiers()
     print(f"[*] Loaded {len(dossiers)} verified dossiers.")
 
-    inbox_files = glob.glob("inbox/*.json")
-    print(f"[*] Total files in inbox: {len(inbox_files)}")
-
-    # Load candidates
     candidates = []
-    for f in inbox_files:
+    last_manifest = os.path.join("logs", "last_harvest_new_items.json")
+    
+    # STEP 1: Check brand-new items manifest first for O(1) lightning incremental processing
+    if os.path.exists(last_manifest):
         try:
-            with open(f, "r", encoding="utf-8") as fp:
-                d = json.load(fp)
-                # Pick items that don't have full trilingual yet
-                has_tri = d.get("ai_enrichment", {}).get("multilingual", {}).get("zh")
-                if not has_tri:
-                    candidates.append((f, d))
-        except Exception:
-            continue
+            with open(last_manifest, "r", encoding="utf-8") as fp:
+                m_data = json.load(fp)
+                for fpath in m_data.get("files", []):
+                    if os.path.exists(fpath):
+                        with open(fpath, "r", encoding="utf-8") as ifp:
+                            d = json.load(ifp)
+                            if not d.get("ai_enrichment", {}).get("multilingual", {}).get("zh"):
+                                candidates.append((fpath, d))
+            if candidates:
+                print(f"[*] [O(1) INCREMENTAL] Picked {len(candidates)} brand-new harvested items from manifest!")
+        except Exception as e:
+            print(f"[!] Note on manifest reading: {e}")
 
-    print(f"[*] Candidates pending trilingual enrichment: {len(candidates)}")
+    # STEP 2: Fallback to scanning inbox if not strictly restricted to only_new
+    if not candidates and not only_new:
+        inbox_files = glob.glob("inbox/*.json")
+        print(f"[*] Fallback: Scanning {len(inbox_files)} total files in inbox...")
+        for f in inbox_files:
+            try:
+                with open(f, "r", encoding="utf-8") as fp:
+                    d = json.load(fp)
+                    has_tri = d.get("ai_enrichment", {}).get("multilingual", {}).get("zh")
+                    if not has_tri:
+                        candidates.append((f, d))
+            except Exception:
+                continue
+
+    print(f"[*] Total candidates pending AI enrichment: {len(candidates)}")
+    if not candidates:
+        print("[+] All items are already enriched or no new items found. Skipping AI step cleanly!")
+        return
 
     if random_pick and len(candidates) > limit:
-        # Pick 12 random items as requested by user
         selected = random.sample(candidates, limit)
-        print(f"[*] Randomly selected {limit} items for 4-batch test run.")
+        print(f"[*] Randomly selected {limit} items.")
     else:
         selected = candidates[:limit]
 
@@ -427,8 +446,9 @@ def run_enrichment(limit: int = 12, batch_size: int = 3, random_pick: bool = Tru
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--limit", type=int, default=12, help="Number of items (default: 12)")
-    parser.add_argument("--batch-size", type=int, default=3, help="Batch size (default: 3)")
-    parser.add_argument("--random", action="store_true", default=True, help="Pick randomly")
+    parser.add_argument("--limit", type=int, default=15, help="Number of items to enrich (default: 15)")
+    parser.add_argument("--batch-size", type=int, default=5, help="Batch size (default: 5)")
+    parser.add_argument("--random", action="store_true", default=False, help="Pick randomly from inbox")
+    parser.add_argument("--only-new", action="store_true", default=False, help="Process ONLY newly harvested items from manifest")
     args = parser.parse_args()
-    run_enrichment(limit=args.limit, batch_size=args.batch_size, random_pick=args.random)
+    run_enrichment(limit=args.limit, batch_size=args.batch_size, random_pick=args.random, only_new=args.only_new)

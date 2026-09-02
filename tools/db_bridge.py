@@ -13,6 +13,7 @@ import json
 import os
 import re
 import sys
+import time
 
 # Ensure UTF-8
 if sys.stdout.encoding != 'utf-8':
@@ -102,7 +103,7 @@ def init_schema(clean=True):
         finally:
             conn.close()
 
-def push_inbox_to_neon():
+def push_inbox_to_neon(full_sync=False):
     conn = get_db_connection()
     if not conn: return
 
@@ -110,10 +111,19 @@ def push_inbox_to_neon():
     inbox_dir = os.path.join(base_dir, "inbox")
     
     count = 0
+    now_ts = time.time()
+    twenty_four_hours = 86400
+
     with conn.cursor() as cur:
         for f in sorted(os.listdir(inbox_dir)):
             if f.endswith(".json"):
                 path = os.path.join(inbox_dir, f)
+                # Incremental Optimization: sync only if modified within 24 hours unless full_sync
+                if not full_sync:
+                    mtime = os.path.getmtime(path)
+                    if (now_ts - mtime) > twenty_four_hours:
+                        continue
+
                 try:
                     with open(path, "r", encoding="utf-8") as fp:
                         it = json.load(fp)

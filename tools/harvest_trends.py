@@ -8,6 +8,7 @@ Pipeline Architecture:
 """
 
 import datetime
+import hashlib
 import json
 import os
 import random
@@ -99,13 +100,21 @@ class Logger:
         except Exception:
             pass
 
+def get_canonical_hash(platform: str, url: str, title: str) -> str:
+    norm = normalize_url(url)
+    slug = slugify(title)
+    key = f"{platform.lower()}:{norm or slug}"
+    return hashlib.sha256(key.encode('utf-8')).hexdigest()[:16]
+
 def index_existing_data(base_dir):
     """
     Builds lookup indexes for existing data to enable O(1) matching:
+    - inbox_hash_map: canonical_hash -> filepath
     - inbox_url_map: normalized_url -> filepath
     - inbox_slug_map: slug -> filepath
     - investigation_urls: set of normalized_urls
     """
+    inbox_hash_map = {}
     inbox_url_map = {}
     inbox_slug_map = {}
     investigation_urls = set()
@@ -139,15 +148,18 @@ def index_existing_data(base_dir):
                     with open(fpath, "r", encoding="utf-8") as fp:
                         m = json.load(fp)
                         surl = normalize_url(m.get("source_url", ""))
+                        title = m.get("title", "")
+                        plat = m.get("source_platform", "")
+                        c_hash = get_canonical_hash(plat, surl, title)
+                        inbox_hash_map[c_hash] = fpath
                         if surl:
                             inbox_url_map[surl] = fpath
-                        title = m.get("title", "")
                         if title:
                             inbox_slug_map[slugify(title)] = fpath
                 except Exception:
                     pass
 
-    return inbox_url_map, inbox_slug_map, investigation_urls
+    return inbox_hash_map, inbox_url_map, inbox_slug_map, investigation_urls
 
 STEALTH_USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
@@ -231,8 +243,8 @@ def harvest_all():
             persona_config = json.load(f)
 
     # Index Existing Data (O(1) lookups)
-    inbox_url_map, inbox_slug_map, investigation_urls = index_existing_data(base_dir)
-    logger.log(f"[*] Indexed {len(inbox_url_map)} existing inbox items & {len(investigation_urls)} verified portfolio URLs.")
+    inbox_hash_map, inbox_url_map, inbox_slug_map, investigation_urls = index_existing_data(base_dir)
+    logger.log(f"[*] Indexed {len(inbox_hash_map)} hashes ({len(inbox_url_map)} URLs) & {len(investigation_urls)} verified portfolio URLs.")
 
     harvest_report = {
         "timestamp": datetime.datetime.now().isoformat(),
@@ -599,14 +611,17 @@ def harvest_all():
     updated_count = 0
     new_saved = 0
     dup_skipped = 0
+    newly_harvested_files = []
 
     for cand in all_candidates:
         norm_url = normalize_url(cand["source_url"])
         slug = slugify(cand["title"])
+        plat = cand.get("source_platform", "")
+        c_hash = get_canonical_hash(plat, norm_url, cand["title"])
         current_val = extract_metric_number(cand.get("viral_metric", ""))
 
-        # Check if exists in inbox by URL or Slug
-        target_inbox_file = inbox_url_map.get(norm_url) or inbox_slug_map.get(slug)
+        # Check if exists in inbox by Hash, URL or Slug (Deduplication & Block)
+        target_inbox_file = inbox_hash_map.get(c_hash) or inbox_url_map.get(norm_url) or inbox_slug_map.get(slug)
 
         if target_inbox_file and os.path.exists(target_inbox_file):
             # UPDATE EXISTING ITEM
@@ -714,15 +729,27 @@ def harvest_all():
         with open(save_path, "w", encoding="utf-8") as f:
             json.dump(inbox_item, f, indent=2, ensure_ascii=False)
 
-        # Update in-memory index
+        # Update in-memory index & tracking
+        inbox_hash_map[c_hash] = save_path
         inbox_url_map[norm_url] = save_path
         inbox_slug_map[slug] = save_path
+        newly_harvested_files.append(save_path)
         new_saved += 1
 
     harvest_report["summary"]["total_fetched"] = len(all_candidates)
     harvest_report["summary"]["updated_count"] = updated_count
     harvest_report["summary"]["new_saved"] = new_saved
     harvest_report["summary"]["duplicates_skipped"] = dup_skipped
+
+    # Save newly harvested items manifest for targeted O(1) AI enrichment
+    manifest_path = os.path.join(logs_dir, "last_harvest_new_items.json")
+    with open(manifest_path, "w", encoding="utf-8") as fp:
+        json.dump({
+            "harvested_at": datetime.datetime.now().astimezone().isoformat(),
+            "new_count": len(newly_harvested_files),
+            "files": newly_harvested_files
+        }, fp, indent=2, ensure_ascii=False)
+    logger.log(f"[+] Saved manifest with {len(newly_harvested_files)} novel items to '{manifest_path}'")
 
     logger.log(f"=======================================================")
     logger.log(f"🎯 Harvester Finished Successfully:")

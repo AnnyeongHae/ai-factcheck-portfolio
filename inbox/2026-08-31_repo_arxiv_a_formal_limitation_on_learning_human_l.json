@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "A Formal Limitation on Learning Human Language From Textual Corpora",
-  "description_ko": "Abstract: Can a listener recover what a speaker means from the form of an utterance alone? We answer this question information-theoretically, and for a listener given by any featurizer of text, including the hi...",
+  "title_ko": "텍스트 말뭉치로부터 인간 언어를 학습하는 것의 형식적 한계",
+  "description_ko": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_arxiv_a_formal_limitation_on_learning_human_l",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "자연어 처리 및 정보 이론",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Human Language Learning",
+      "Textual Corpora",
+      "Information Theory"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "텍스트 말뭉치로부터 인간 언어를 학습하는 것의 형식적 한계",
+        "hook": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
+        "key_takeaways": [
+          "정보 이론적 관점에서 발화 형태와 화자 의도 간의 관계 분석",
+          "최신 텍스트 특성 추출기를 포함한 모든 텍스트 기반 리스너의 한계 증명",
+          "텍스트 코퍼스 학습만으로는 인간 언어의 완전한 의미 복원이 불가능함을 시사"
+        ]
+      },
+      "en": {
+        "title": "A Formal Limitation on Learning Human Language From Textual Corpora",
+        "hook": "Can a listener recover speaker intent from utterance form alone? An information-theoretic look at the limits of text-based language learning.",
+        "key_takeaways": [
+          "Analyzes the relationship between utterance form and speaker intent information-theoretically",
+          "Proves fundamental limits for text-based listeners, including advanced text featurizers",
+          "Demonstrates theoretical barriers to recovering full human semantics from text corpora alone"
+        ]
+      },
+      "zh": {
+        "title": "从文本语料库学习人类语言的形式化局限性",
+        "hook": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。",
+        "key_takeaways": [
+          "从信息论视角分析话语形式与说话者意图之间的映射关系",
+          "证明了包括高级文本特征提取器在内的所有文本基听众的局限性",
+          "揭示了仅通过文本语料库学习无法完全恢复人类语义的理论壁垒"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:23:03.541459+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Human Language Learning",
+    "Textual Corpora",
+    "Information Theory"
+  ],
+  "title_en": "A Formal Limitation on Learning Human Language From Textual Corpora",
+  "title_zh": "从文本语料库学习人类语言的形式化局限性",
+  "hook": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
+  "hook_ko": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
+  "hook_en": "Can a listener recover speaker intent from utterance form alone? An information-theoretic look at the limits of text-based language learning.",
+  "hook_zh": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。",
+  "description_en": "Can a listener recover speaker intent from utterance form alone? An information-theoretic look at the limits of text-based language learning.",
+  "description_zh": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。"
 }

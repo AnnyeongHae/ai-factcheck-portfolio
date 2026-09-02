@@ -40,6 +40,59 @@
     ],
     "history": [
       {
+        "timestamp": "2026-09-02T16:22:06.418723",
+        "date": "2026-09-02",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.58
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.34
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 1.18
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 21,
+            "duration_sec": 35.11
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.4
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.37
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.26
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.47
+          }
+        },
+        "summary": {
+          "total_fetched": 161,
+          "updated_count": 161,
+          "new_saved": 0,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-09-02T07:11:58.553275",
         "date": "2026-09-02",
         "sources": {
@@ -1401,93 +1454,51 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-01T01:56:50.352844",
-        "date": "2026-09-01",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.13
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.07
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.78
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 3.52
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.38
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.1
-          }
-        },
-        "summary": {
-          "total_fetched": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-02T07:11:58.553275",
+      "timestamp": "2026-09-02T16:22:06.418723",
       "date": "2026-09-02",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.22
+          "duration_sec": 0.58
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.22
+          "duration_sec": 0.34
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.94
+          "duration_sec": 1.18
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 21,
-          "duration_sec": 12.23
+          "duration_sec": 35.11
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.51
+          "duration_sec": 0.4
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.25
+          "duration_sec": 0.37
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.09
+          "duration_sec": 0.26
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.27
+          "duration_sec": 0.47
         }
       },
       "summary": {
@@ -1636,8 +1647,8 @@
       "source_platform": "Hugging Face Models",
       "source_url": "https://huggingface.co/google/timesfm-3.0-pytorch",
       "type": "repo",
-      "description": "Trending Score: 219, Downloads: 0, Likes: 237, Pipeline: time-series-forecasting",
-      "viral_metric": "Trending 219 pts (❤️ 237)",
+      "description": "Trending Score: 220, Downloads: 0, Likes: 238, Pipeline: time-series-forecasting",
+      "viral_metric": "Trending 220 pts (❤️ 238)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
       ],
@@ -1649,13 +1660,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 219,
-          "display": "Trending 219 pts (❤️ 237)",
+          "value": 220,
+          "display": "Trending 220 pts (❤️ 238)",
           "updated_at": "2026-09-02"
         },
-        "delta": 69,
-        "delta_display": "+69",
-        "growth_rate_pct": 46.0,
+        "delta": 70,
+        "delta_display": "+70",
+        "growth_rate_pct": 46.7,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
@@ -1764,8 +1775,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF",
       "type": "repo",
-      "description": "Trending Score: 346, Downloads: 9354057, Likes: 3353, Pipeline: N/A",
-      "viral_metric": "Trending 346 pts (❤️ 3353)",
+      "description": "Trending Score: 346, Downloads: 9354057, Likes: 3354, Pipeline: N/A",
+      "viral_metric": "Trending 346 pts (❤️ 3354)",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -1794,7 +1805,7 @@
         },
         "latest": {
           "value": 346,
-          "display": "Trending 346 pts (❤️ 3353)",
+          "display": "Trending 346 pts (❤️ 3354)",
           "updated_at": "2026-09-02"
         },
         "delta": -64,
@@ -2004,8 +2015,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-MLX",
       "type": "repo",
-      "description": "Trending Score: 123, Downloads: 121028, Likes: 1263, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 123 pts (❤️ 1263)",
+      "description": "Trending Score: 122, Downloads: 121028, Likes: 1263, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 122 pts (❤️ 1263)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2033,13 +2044,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 123,
-          "display": "Trending 123 pts (❤️ 1263)",
+          "value": 122,
+          "display": "Trending 122 pts (❤️ 1263)",
           "updated_at": "2026-09-02"
         },
-        "delta": -77,
-        "delta_display": "-77",
-        "growth_rate_pct": -38.5,
+        "delta": -78,
+        "delta_display": "-78",
+        "growth_rate_pct": -39.0,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -2159,8 +2170,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-FP8",
       "type": "repo",
-      "description": "Trending Score: 125, Downloads: 316128, Likes: 1353, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 125 pts (❤️ 1353)",
+      "description": "Trending Score: 123, Downloads: 316128, Likes: 1353, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 123 pts (❤️ 1353)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2188,13 +2199,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 125,
-          "display": "Trending 125 pts (❤️ 1353)",
+          "value": 123,
+          "display": "Trending 123 pts (❤️ 1353)",
           "updated_at": "2026-09-02"
         },
-        "delta": -41,
-        "delta_display": "-41",
-        "growth_rate_pct": -24.7,
+        "delta": -43,
+        "delta_display": "-43",
+        "growth_rate_pct": -25.9,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -2240,8 +2251,8 @@
       "source_platform": "Hugging Face Models",
       "source_url": "https://huggingface.co/zai-org/GLM-5.3",
       "type": "repo",
-      "description": "Trending Score: 1398, Downloads: 94403, Likes: 1474, Pipeline: text-generation",
-      "viral_metric": "Trending 1398 pts (❤️ 1474)",
+      "description": "Trending Score: 1399, Downloads: 94403, Likes: 1475, Pipeline: text-generation",
+      "viral_metric": "Trending 1399 pts (❤️ 1475)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
       ],
@@ -2253,13 +2264,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1398,
-          "display": "Trending 1398 pts (❤️ 1474)",
+          "value": 1399,
+          "display": "Trending 1399 pts (❤️ 1475)",
           "updated_at": "2026-09-02"
         },
-        "delta": 59,
-        "delta_display": "+59",
-        "growth_rate_pct": 4.4,
+        "delta": 60,
+        "delta_display": "+60",
+        "growth_rate_pct": 4.5,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -2346,8 +2357,8 @@
       "source_platform": "Hugging Face Models",
       "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
       "type": "repo",
-      "description": "Trending Score: 2466, Downloads: 207941, Likes: 4672, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 2466 pts (❤️ 4672)",
+      "description": "Trending Score: 2438, Downloads: 207941, Likes: 4673, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 2438 pts (❤️ 4673)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2375,13 +2386,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 2466,
-          "display": "Trending 2466 pts (❤️ 4672)",
+          "value": 2438,
+          "display": "Trending 2438 pts (❤️ 4673)",
           "updated_at": "2026-09-02"
         },
-        "delta": -1810,
-        "delta_display": "-1,810",
-        "growth_rate_pct": -42.3,
+        "delta": -1838,
+        "delta_display": "-1,838",
+        "growth_rate_pct": -43.0,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -2632,8 +2643,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
       "type": "repo",
-      "description": "Trending Score: 182, Downloads: 1276092, Likes: 847, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 182 pts (❤️ 847)",
+      "description": "Trending Score: 183, Downloads: 1276092, Likes: 848, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 183 pts (❤️ 848)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2661,13 +2672,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 182,
-          "display": "Trending 182 pts (❤️ 847)",
+          "value": 183,
+          "display": "Trending 183 pts (❤️ 848)",
           "updated_at": "2026-09-02"
         },
-        "delta": -26,
-        "delta_display": "-26",
-        "growth_rate_pct": -12.5,
+        "delta": -25,
+        "delta_display": "-25",
+        "growth_rate_pct": -12.0,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -4230,8 +4241,8 @@
       "source_platform": "Hugging Face Spaces (Demo)",
       "source_url": "https://huggingface.co/spaces/hugging-apps/sensenova-sensenova-u1-5-8b-mot",
       "type": "repo",
-      "description": "Interactive AI Demo (SDK: gradio) | Likes: 102 | Live URL: https://huggingface.co/spaces/hugging-apps/sensenova-sensenova-u1-5-8b-mot",
-      "viral_metric": "❤️ 102 Likes (Trending Demo)",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 103 | Live URL: https://huggingface.co/spaces/hugging-apps/sensenova-sensenova-u1-5-8b-mot",
+      "viral_metric": "❤️ 103 Likes (Trending Demo)",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -4258,13 +4269,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 102,
-          "display": "❤️ 102 Likes (Trending Demo)",
+          "value": 103,
+          "display": "❤️ 103 Likes (Trending Demo)",
           "updated_at": "2026-09-02"
         },
-        "delta": 9,
-        "delta_display": "+9",
-        "growth_rate_pct": 9.7,
+        "delta": 10,
+        "delta_display": "+10",
+        "growth_rate_pct": 10.8,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -4988,8 +4999,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49529132",
       "type": "sns",
       "category_type": "TECH",
-      "description": "HN Score: 155 pts | Comments: 73 | My local model setup on an M4 Pro Mac Mini",
-      "viral_metric": "🔥 155 HN Points",
+      "description": "HN Score: 160 pts | Comments: 75 | My local model setup on an M4 Pro Mac Mini",
+      "viral_metric": "🔥 160 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 91,
@@ -4997,13 +5008,13 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 155,
-          "display": "🔥 155 HN Points",
+          "value": 160,
+          "display": "🔥 160 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 64,
-        "delta_display": "+64",
-        "growth_rate_pct": 70.3,
+        "delta": 69,
+        "delta_display": "+69",
+        "growth_rate_pct": 75.8,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -5081,7 +5092,7 @@
       "source_platform": "Hacker News",
       "source_url": "https://news.ycombinator.com/item?id=49519939",
       "type": "sns",
-      "description": "HN Score: 609 pts | Comments: 156 | I trained a small transformer in 1.5hrs and it beats many LLMs",
+      "description": "HN Score: 609 pts | Comments: 157 | I trained a small transformer in 1.5hrs and it beats many LLMs",
       "viral_metric": "🔥 609 HN Points",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
@@ -5212,8 +5223,8 @@
       "source_platform": "Hacker News",
       "source_url": "https://news.ycombinator.com/item?id=49523720",
       "type": "sns",
-      "description": "HN Score: 210 pts | Comments: 216 | Dwarf Fortress' creator says the industry's in shambles over AI",
-      "viral_metric": "🔥 210 HN Points",
+      "description": "HN Score: 218 pts | Comments: 224 | Dwarf Fortress' creator says the industry's in shambles over AI",
+      "viral_metric": "🔥 218 HN Points",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -5225,13 +5236,13 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 210,
-          "display": "🔥 210 HN Points",
+          "value": 218,
+          "display": "🔥 218 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 194,
-        "delta_display": "+194",
-        "growth_rate_pct": 1212.5,
+        "delta": 202,
+        "delta_display": "+202",
+        "growth_rate_pct": 1262.5,
         "is_spiking": true
       },
       "created_at": "2026-09-02",
@@ -6508,8 +6519,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49524447",
       "type": "repo",
       "category_type": "REPO",
-      "description": "HN Score: 196 pts | Comments: 94 | Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac with at ~12 tok/s",
-      "viral_metric": "🔥 196 HN Points",
+      "description": "HN Score: 197 pts | Comments: 94 | Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac with at ~12 tok/s",
+      "viral_metric": "🔥 197 HN Points",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -6521,13 +6532,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 196,
-          "display": "🔥 196 HN Points",
+          "value": 197,
+          "display": "🔥 197 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 189,
-        "delta_display": "+189",
-        "growth_rate_pct": 2700.0,
+        "delta": 190,
+        "delta_display": "+190",
+        "growth_rate_pct": 2714.3,
         "is_spiking": true
       },
       "updated_at": "2026-09-02",
@@ -6670,8 +6681,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/GangTailorUpgrade/CoomeRtool",
       "type": "repo",
-      "description": "Stars: 856, Forks: 1 | Coomer Tool",
-      "viral_metric": "★ 856 Stars",
+      "description": "Stars: 858, Forks: 1 | Coomer Tool",
+      "viral_metric": "★ 858 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -6683,13 +6694,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 856,
-          "display": "★ 856 Stars",
+          "value": 858,
+          "display": "★ 858 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 136,
-        "delta_display": "+136",
-        "growth_rate_pct": 18.9,
+        "delta": 138,
+        "delta_display": "+138",
+        "growth_rate_pct": 19.2,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
@@ -6734,8 +6745,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/crmne/fastpotify",
       "type": "repo",
-      "description": "Stars: 1612, Forks: 65 | Spotify, native and fast. One lightweight Rust app for your whole library, local playback, and Spotify Connect on Linux, macOS, and Windows.",
-      "viral_metric": "★ 1612 Stars",
+      "description": "Stars: 1614, Forks: 65 | Spotify, native and fast. One lightweight Rust app for your whole library, local playback, and Spotify Connect on Linux, macOS, and Windows.",
+      "viral_metric": "★ 1614 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -6747,13 +6758,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 1612,
-          "display": "★ 1612 Stars",
+          "value": 1614,
+          "display": "★ 1614 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 853,
-        "delta_display": "+853",
-        "growth_rate_pct": 112.4,
+        "delta": 855,
+        "delta_display": "+855",
+        "growth_rate_pct": 112.6,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
@@ -8980,8 +8991,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/moonshotai/Kimi-K3",
       "type": "repo",
-      "description": "Trending Score: 103, Downloads: 2783061, Likes: 11132, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 103 pts (❤️ 11132)",
+      "description": "Trending Score: 102, Downloads: 2783061, Likes: 11132, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 102 pts (❤️ 11132)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -9009,13 +9020,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 103,
-          "display": "Trending 103 pts (❤️ 11132)",
+          "value": 102,
+          "display": "Trending 102 pts (❤️ 11132)",
           "updated_at": "2026-09-02"
         },
-        "delta": -13,
-        "delta_display": "-13",
-        "growth_rate_pct": -11.2,
+        "delta": -14,
+        "delta_display": "-14",
+        "growth_rate_pct": -12.1,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -9361,8 +9372,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/XiaoDuoYa/codex-with-chatgpt",
       "type": "repo",
-      "description": "Stars: 2185, Forks: 220 | ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.",
-      "viral_metric": "★ 2185 Stars",
+      "description": "Stars: 2191, Forks: 221 | ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.",
+      "viral_metric": "★ 2191 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -9389,13 +9400,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 2185,
-          "display": "★ 2185 Stars",
+          "value": 2191,
+          "display": "★ 2191 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 608,
-        "delta_display": "+608",
-        "growth_rate_pct": 38.6,
+        "delta": 614,
+        "delta_display": "+614",
+        "growth_rate_pct": 38.9,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -9408,8 +9419,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/wide-trace/open-higgsfield",
       "type": "repo",
-      "description": "Stars: 1218, Forks: 19 | A studio for image and video generation — one prompt bar, each model’s own settings, and every finished run in one gallery.",
-      "viral_metric": "★ 1218 Stars",
+      "description": "Stars: 1219, Forks: 19 | A studio for image and video generation — one prompt bar, each model’s own settings, and every finished run in one gallery.",
+      "viral_metric": "★ 1219 Stars",
       "matched_user_domains": [
         "생성형 마케팅 & GEO/SEO 최적화"
       ],
@@ -9436,13 +9447,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1218,
-          "display": "★ 1218 Stars",
+          "value": 1219,
+          "display": "★ 1219 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 113,
-        "delta_display": "+113",
-        "growth_rate_pct": 10.2,
+        "delta": 114,
+        "delta_display": "+114",
+        "growth_rate_pct": 10.3,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -9701,8 +9712,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/themartiano/try-omarchy",
       "type": "repo",
-      "description": "Stars: 1278, Forks: 59 | Run Omarchy on MacOS without any setup.",
-      "viral_metric": "★ 1278 Stars",
+      "description": "Stars: 1280, Forks: 60 | Run Omarchy on MacOS without any setup.",
+      "viral_metric": "★ 1280 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -9729,13 +9740,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1278,
-          "display": "★ 1278 Stars",
+          "value": 1280,
+          "display": "★ 1280 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 303,
-        "delta_display": "+303",
-        "growth_rate_pct": 31.1,
+        "delta": 305,
+        "delta_display": "+305",
+        "growth_rate_pct": 31.3,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -9843,8 +9854,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/sapientinc/PRAXIST",
       "type": "repo",
-      "description": "Stars: 6396, Forks: 547 | Autonomous research system for measurable, computer-executable research.",
-      "viral_metric": "★ 6396 Stars",
+      "description": "Stars: 6404, Forks: 548 | Autonomous research system for measurable, computer-executable research.",
+      "viral_metric": "★ 6404 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -9871,13 +9882,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 6396,
-          "display": "★ 6396 Stars",
+          "value": 6404,
+          "display": "★ 6404 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 1582,
-        "delta_display": "+1,582",
-        "growth_rate_pct": 32.9,
+        "delta": 1590,
+        "delta_display": "+1,590",
+        "growth_rate_pct": 33.0,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -9998,7 +10009,7 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/nateherkai/scroll-craft",
       "type": "repo",
-      "description": "Stars: 1442, Forks: 228 | Claude Code skill for premium scroll-driven websites. Scroll becomes the timeline, on a real design floor, verified by screenshotting its own scroll.",
+      "description": "Stars: 1442, Forks: 229 | Claude Code skill for premium scroll-driven websites. Scroll becomes the timeline, on a real design floor, verified by screenshotting its own scroll.",
       "viral_metric": "★ 1442 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
@@ -10280,8 +10291,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/kacperkapusciak/goldie",
       "type": "repo",
-      "description": "Stars: 1406, Forks: 124 | ✨ agentic app store previews and screenshots",
-      "viral_metric": "★ 1406 Stars",
+      "description": "Stars: 1409, Forks: 124 | ✨ agentic app store previews and screenshots",
+      "viral_metric": "★ 1409 Stars",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "이커머스 & 커머스 데이터 수집 인프라"
@@ -10309,13 +10320,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1406,
-          "display": "★ 1406 Stars",
+          "value": 1409,
+          "display": "★ 1409 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 547,
-        "delta_display": "+547",
-        "growth_rate_pct": 63.7,
+        "delta": 550,
+        "delta_display": "+550",
+        "growth_rate_pct": 64.0,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -10634,8 +10645,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/cbrock84/headcount",
       "type": "repo",
-      "description": "Stars: 986, Forks: 153 | An agent organization for Claude Code, structured as a company — 15+ departments, 125+ skills, each independently installable.",
-      "viral_metric": "★ 986 Stars",
+      "description": "Stars: 987, Forks: 153 | An agent organization for Claude Code, structured as a company — 15+ departments, 125+ skills, each independently installable.",
+      "viral_metric": "★ 987 Stars",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
       ],
@@ -10662,13 +10673,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 986,
-          "display": "★ 986 Stars",
+          "value": 987,
+          "display": "★ 987 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 231,
-        "delta_display": "+231",
-        "growth_rate_pct": 30.6,
+        "delta": 232,
+        "delta_display": "+232",
+        "growth_rate_pct": 30.7,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -10681,8 +10692,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/bryllim/workout-guide",
       "type": "repo",
-      "description": "Stars: 1061, Forks: 166 | 302 open exercise illustrations and a framework-neutral npm package by Bryl Lim",
-      "viral_metric": "★ 1061 Stars",
+      "description": "Stars: 1072, Forks: 171 | 302 open exercise illustrations and a framework-neutral npm package by Bryl Lim",
+      "viral_metric": "★ 1072 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -10709,13 +10720,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1061,
-          "display": "★ 1061 Stars",
+          "value": 1072,
+          "display": "★ 1072 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 27,
-        "delta_display": "+27",
-        "growth_rate_pct": 2.6,
+        "delta": 38,
+        "delta_display": "+38",
+        "growth_rate_pct": 3.7,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -11878,8 +11889,8 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "Blog: Survey of Optimizers",
-      "description_ko": "Abstract: Neural-network optimization in 2025-2026 is no longer well described as a succession of new Adam variants. The design space has expanded from coordinates to matrices and layers, from fixed training ho...",
+      "title_ko": "아카이브 블로그: 신경망 옵티마이저 총조사 (2025-2026 트렌드)",
+      "description_ko": "단순한 Adam 변형의 시대를 지나 매트릭스, 레이어, 대규모 학습 호라이즌으로 확장된 최신 옵티마이저 설계 공간을 완벽 정리합니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -11899,7 +11910,68 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-08-31"
+      "updated_at": "2026-08-31",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_arxiv_blog_survey_of_optimizers",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "신경망 최적화 및 학습 알고리즘",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Neural Network Optimization",
+          "Optimizer Survey",
+          "Training Algorithms"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.7,
+        "multilingual": {
+          "ko": {
+            "title": "아카이브 블로그: 신경망 옵티마이저 총조사 (2025-2026 트렌드)",
+            "hook": "단순한 Adam 변형의 시대를 지나 매트릭스, 레이어, 대규모 학습 호라이즌으로 확장된 최신 옵티마이저 설계 공간을 완벽 정리합니다.",
+            "key_takeaways": [
+              "2025-2026년 최신 신경망 최적화 패러다임 변화 조망",
+              "좌표(Coordinate) 중심에서 매트릭스 및 레이어 단위 최적화로의 설계 공간 확장",
+              "고도화된 학습 환경에서의 차세대 옵티마이저 트렌드 파악"
+            ]
+          },
+          "en": {
+            "title": "ArXiv Blog: Survey of Optimizers (2025-2026 Landscape)",
+            "hook": "Move beyond Adam variants: explore how neural network optimization design spaces have expanded to matrices, layers, and modern training horizons.",
+            "key_takeaways": [
+              "Comprehensive overview of neural network optimization shifts in 2025-2026",
+              "Expansion of optimization design space from coordinates to matrices and layers",
+              "Essential insights into next-generation training algorithms and horizons"
+            ]
+          },
+          "zh": {
+            "title": "ArXiv博客：优化器纵览（2025-2026技术全景）",
+            "hook": "告别单纯的Adam变体时代！全面解析扩展至矩阵、层级及全新训练周期的现代神经网络优化器设计空间。",
+            "key_takeaways": [
+              "深入审视2025-2026年神经网络优化的最新范式变革",
+              "剖析优化设计空间从坐标级向矩阵与层级维度的扩展",
+              "掌握下一代训练算法与优化器架构的核心洞察"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:23:03.541822+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Neural Network Optimization",
+        "Optimizer Survey",
+        "Training Algorithms"
+      ],
+      "title_en": "ArXiv Blog: Survey of Optimizers (2025-2026 Landscape)",
+      "title_zh": "ArXiv博客：优化器纵览（2025-2026技术全景）",
+      "hook": "단순한 Adam 변형의 시대를 지나 매트릭스, 레이어, 대규모 학습 호라이즌으로 확장된 최신 옵티마이저 설계 공간을 완벽 정리합니다.",
+      "hook_ko": "단순한 Adam 변형의 시대를 지나 매트릭스, 레이어, 대규모 학습 호라이즌으로 확장된 최신 옵티마이저 설계 공간을 완벽 정리합니다.",
+      "hook_en": "Move beyond Adam variants: explore how neural network optimization design spaces have expanded to matrices, layers, and modern training horizons.",
+      "hook_zh": "告别单纯的Adam变体时代！全面解析扩展至矩阵、层级及全新训练周期的现代神经网络优化器设计空间。",
+      "description_en": "Move beyond Adam variants: explore how neural network optimization design spaces have expanded to matrices, layers, and modern training horizons.",
+      "description_zh": "告别单纯的Adam变体时代！全面解析扩展至矩阵、层级及全新训练周期的现代神经网络优化器设计空间。"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_blind_men_and_the_elephant_probing_the_",
@@ -12030,8 +12102,8 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
-      "description_ko": "Abstract: A code world model accepted by a sampling gate can be exactly right on everything the gate can see and arbitrarily wrong beyond it. We characterize what a certified model can know, and what its errors...",
+      "title_ko": "폐쇄 모드는 게이지 선택이다: 인증된 코드 월드 모델의 도달 범위 대비 위상",
+      "description_ko": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -12051,7 +12123,68 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-08-31"
+      "updated_at": "2026-08-31",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_arxiv_an_enclosed_mode_is_a_gauge_choice_topo",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "코드 월드 모델 및 형식 검증",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Code World Models",
+          "Gauge Choice",
+          "Certified Models"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.9,
+        "multilingual": {
+          "ko": {
+            "title": "폐쇄 모드는 게이지 선택이다: 인증된 코드 월드 모델의 도달 범위 대비 위상",
+            "hook": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
+            "key_takeaways": [
+              "샘플링 게이트 가시 영역 내외부 간의 코드 월드 모델 오류 특성 규명",
+              "인증된 모델이 보장할 수 있는 정보의 범위와 한계 분석",
+              "게이지 선택(Gauge Choice) 관점에서 폐쇄 모드의 수학적 의미 조명"
+            ]
+          },
+          "en": {
+            "title": "An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
+            "hook": "Analyze what certified code models can reliably know and where their errors lie beyond the visibility of sampling gates.",
+            "key_takeaways": [
+              "Characterizes model errors within and beyond sampling gate visibility",
+              "Explores theoretical limits and guarantees of certified code world models",
+              "Examines the mathematical implications of enclosed modes as gauge choices"
+            ]
+          },
+          "zh": {
+            "title": "封闭模式是一种规范选择：认证代码世界模型中相对于可达性的拓扑",
+            "hook": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。",
+            "key_takeaways": [
+              "揭示了代码世界模型在采样门可见范围內外的错误特征",
+              "探讨了认证模型能够确定的信息范围及其理论极限",
+              "从规范选择（Gauge Choice）角度阐明了封闭模式的数学内涵"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:23:03.541092+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Code World Models",
+        "Gauge Choice",
+        "Certified Models"
+      ],
+      "title_en": "An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
+      "title_zh": "封闭模式是一种规范选择：认证代码世界模型中相对于可达性的拓扑",
+      "hook": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
+      "hook_ko": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
+      "hook_en": "Analyze what certified code models can reliably know and where their errors lie beyond the visibility of sampling gates.",
+      "hook_zh": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。",
+      "description_en": "Analyze what certified code models can reliably know and where their errors lie beyond the visibility of sampling gates.",
+      "description_zh": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_aero_hand_open_a_simulation_ready_tendo",
@@ -12077,8 +12210,8 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
-      "description_ko": "Abstract: Tendon-driven hands are anthropomorphic, and moving the actuators off the joints is what makes a hand of this capability affordable to build. Two effects produce that saving. Routing force through a c...",
+      "title_ko": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 준비 완료 텐던 구동 핸드",
+      "description_ko": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -12098,7 +12231,68 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-08-31"
+      "updated_at": "2026-08-31",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_arxiv_aero_hand_open_a_simulation_ready_tendo",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "로봇 공학 및 숙련 조작",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Tendon-Driven Hand",
+          "Dexterous Manipulation",
+          "Simulation-Ready"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.1,
+        "multilingual": {
+          "ko": {
+            "title": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 준비 완료 텐던 구동 핸드",
+            "hook": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
+            "key_takeaways": [
+              "관절 외부 구동기 배치를 통한 제작 비용 대폭 절감",
+              "숙련된 로봇 조작(Dexterous Manipulation) 학습에 최적화된 설계",
+              "시뮬레이션 환경에서 곧바로 테스트 가능한 준비된 구조 제공"
+            ]
+          },
+          "en": {
+            "title": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
+            "hook": "Explore an affordable, anthropomorphic tendon-driven hand designed with off-joint actuators for seamless simulation-to-real learning.",
+            "key_takeaways": [
+              "Significantly reduces manufacturing costs by moving actuators off the joints",
+              "Optimized design for learning complex dexterous robotic manipulation",
+              "Provides a simulation-ready architecture for immediate experimentation"
+            ]
+          },
+          "zh": {
+            "title": "Aero Hand Open：用于灵巧操作学习的仿真就绪肌腱驱动手",
+            "hook": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。",
+            "key_takeaways": [
+              "通过将驱动器移出关节显著降低了制造成本",
+              "专为学习复杂灵巧机器人操作优化的设计",
+              "提供可直接在仿真环境中测试的就绪架构"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:23:03.540662+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Tendon-Driven Hand",
+        "Dexterous Manipulation",
+        "Simulation-Ready"
+      ],
+      "title_en": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
+      "title_zh": "Aero Hand Open：用于灵巧操作学习的仿真就绪肌腱驱动手",
+      "hook": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
+      "hook_ko": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
+      "hook_en": "Explore an affordable, anthropomorphic tendon-driven hand designed with off-joint actuators for seamless simulation-to-real learning.",
+      "hook_zh": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。",
+      "description_en": "Explore an affordable, anthropomorphic tendon-driven hand designed with off-joint actuators for seamless simulation-to-real learning.",
+      "description_zh": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_acrossvam10_particle_world_modeling_for",
@@ -12124,8 +12318,8 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
-      "description_ko": "Abstract: Predicting robot videos requires both precise motion reasoning and preservation of high-frequency appearance, yet monolithic pixel models entangle these objectives and often conceal their progress beh...",
+      "title_ko": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델",
+      "description_ko": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -12145,7 +12339,68 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-08-31"
+      "updated_at": "2026-08-31",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_arxiv_acrossvam10_particle_world_modeling_for",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "로봇 비디오 예측 및 월드 모델",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Particle World Modeling",
+          "Robot Video Prediction",
+          "Motion Reasoning"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델",
+            "hook": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
+            "key_takeaways": [
+              "단일 픽셀 모델의 한계점인 모션과 외형의 얽힘 현상 해결",
+              "텍스트 보조 정보를 활용한 정밀한 로봇 비디오 예측 수행",
+              "파티클 기반 월드 모델을 통한 효율적인 물리적 상호작용 시뮬레이션"
+            ]
+          },
+          "en": {
+            "title": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
+            "hook": "Discover a novel architecture that decouples motion reasoning from high-frequency appearance preservation in robot video forecasting.",
+            "key_takeaways": [
+              "Resolves the entanglement of motion and appearance in monolithic pixel models",
+              "Leverages text assistance for precise robot video prediction",
+              "Applies particle-based world modeling for efficient physical interaction simulation"
+            ]
+          },
+          "zh": {
+            "title": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界模型",
+            "hook": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。",
+            "key_takeaways": [
+              "解决了单体像素模型中运动与外观交织的局限性",
+              "利用文本辅助信息实现精准的机器人视频预测",
+              "通过基于粒子的世界模型进行高效的物理交互模拟"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:23:03.540033+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Particle World Modeling",
+        "Robot Video Prediction",
+        "Motion Reasoning"
+      ],
+      "title_en": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
+      "title_zh": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界模型",
+      "hook": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
+      "hook_ko": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
+      "hook_en": "Discover a novel architecture that decouples motion reasoning from high-frequency appearance preservation in robot video forecasting.",
+      "hook_zh": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。",
+      "description_en": "Discover a novel architecture that decouples motion reasoning from high-frequency appearance preservation in robot video forecasting.",
+      "description_zh": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_a_formal_limitation_on_learning_human_l",
@@ -12171,8 +12426,8 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "A Formal Limitation on Learning Human Language From Textual Corpora",
-      "description_ko": "Abstract: Can a listener recover what a speaker means from the form of an utterance alone? We answer this question information-theoretically, and for a listener given by any featurizer of text, including the hi...",
+      "title_ko": "텍스트 말뭉치로부터 인간 언어를 학습하는 것의 형식적 한계",
+      "description_ko": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -12192,7 +12447,68 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-08-31"
+      "updated_at": "2026-08-31",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_arxiv_a_formal_limitation_on_learning_human_l",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "자연어 처리 및 정보 이론",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Human Language Learning",
+          "Textual Corpora",
+          "Information Theory"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "텍스트 말뭉치로부터 인간 언어를 학습하는 것의 형식적 한계",
+            "hook": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
+            "key_takeaways": [
+              "정보 이론적 관점에서 발화 형태와 화자 의도 간의 관계 분석",
+              "최신 텍스트 특성 추출기를 포함한 모든 텍스트 기반 리스너의 한계 증명",
+              "텍스트 코퍼스 학습만으로는 인간 언어의 완전한 의미 복원이 불가능함을 시사"
+            ]
+          },
+          "en": {
+            "title": "A Formal Limitation on Learning Human Language From Textual Corpora",
+            "hook": "Can a listener recover speaker intent from utterance form alone? An information-theoretic look at the limits of text-based language learning.",
+            "key_takeaways": [
+              "Analyzes the relationship between utterance form and speaker intent information-theoretically",
+              "Proves fundamental limits for text-based listeners, including advanced text featurizers",
+              "Demonstrates theoretical barriers to recovering full human semantics from text corpora alone"
+            ]
+          },
+          "zh": {
+            "title": "从文本语料库学习人类语言的形式化局限性",
+            "hook": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。",
+            "key_takeaways": [
+              "从信息论视角分析话语形式与说话者意图之间的映射关系",
+              "证明了包括高级文本特征提取器在内的所有文本基听众的局限性",
+              "揭示了仅通过文本语料库学习无法完全恢复人类语义的理论壁垒"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:23:03.541459+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Human Language Learning",
+        "Textual Corpora",
+        "Information Theory"
+      ],
+      "title_en": "A Formal Limitation on Learning Human Language From Textual Corpora",
+      "title_zh": "从文本语料库学习人类语言的形式化局限性",
+      "hook": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
+      "hook_ko": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
+      "hook_en": "Can a listener recover speaker intent from utterance form alone? An information-theoretic look at the limits of text-based language learning.",
+      "hook_zh": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。",
+      "description_en": "Can a listener recover speaker intent from utterance form alone? An information-theoretic look at the limits of text-based language learning.",
+      "description_zh": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。"
     }
   ],
   "cases": [

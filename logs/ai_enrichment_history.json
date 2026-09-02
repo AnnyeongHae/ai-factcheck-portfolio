@@ -43,5 +43,66 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260902_162254",
+    "timestamp": "2026-09-02T16:22:54.566738+09:00",
+    "total_candidates": 253,
+    "requested_limit": 5,
+    "processed_count": 5,
+    "success_count": 5,
+    "models_used_summary": {
+      "gemini-flash-lite-latest": 5
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.97,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_acrossvam10_particle_world_modeling_for",
+            "title": "ArXiv: AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
+            "title_ko": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-02T16:23:03.540033+09:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_aero_hand_open_a_simulation_ready_tendo",
+            "title": "ArXiv: Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
+            "title_ko": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 준비 완료 텐던 구동 핸드",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-02T16:23:03.540662+09:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_an_enclosed_mode_is_a_gauge_choice_topo",
+            "title": "ArXiv: An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
+            "title_ko": "폐쇄 모드는 게이지 선택이다: 인증된 코드 월드 모델의 도달 범위 대비 위상",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-02T16:23:03.541092+09:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_a_formal_limitation_on_learning_human_l",
+            "title": "ArXiv: A Formal Limitation on Learning Human Language From Textual Corpora",
+            "title_ko": "텍스트 말뭉치로부터 인간 언어를 학습하는 것의 형식적 한계",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-02T16:23:03.541459+09:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_blog_survey_of_optimizers",
+            "title": "ArXiv: Blog: Survey of Optimizers",
+            "title_ko": "아카이브 블로그: 신경망 옵티마이저 총조사 (2025-2026 트렌드)",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-02T16:23:03.541822+09:00"
+          }
+        ]
+      }
+    ]
   }
 ]

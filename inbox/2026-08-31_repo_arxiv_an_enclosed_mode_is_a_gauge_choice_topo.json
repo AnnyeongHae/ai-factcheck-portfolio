@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
-  "description_ko": "Abstract: A code world model accepted by a sampling gate can be exactly right on everything the gate can see and arbitrarily wrong beyond it. We characterize what a certified model can know, and what its errors...",
+  "title_ko": "폐쇄 모드는 게이지 선택이다: 인증된 코드 월드 모델의 도달 범위 대비 위상",
+  "description_ko": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_arxiv_an_enclosed_mode_is_a_gauge_choice_topo",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "코드 월드 모델 및 형식 검증",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Code World Models",
+      "Gauge Choice",
+      "Certified Models"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.9,
+    "multilingual": {
+      "ko": {
+        "title": "폐쇄 모드는 게이지 선택이다: 인증된 코드 월드 모델의 도달 범위 대비 위상",
+        "hook": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
+        "key_takeaways": [
+          "샘플링 게이트 가시 영역 내외부 간의 코드 월드 모델 오류 특성 규명",
+          "인증된 모델이 보장할 수 있는 정보의 범위와 한계 분석",
+          "게이지 선택(Gauge Choice) 관점에서 폐쇄 모드의 수학적 의미 조명"
+        ]
+      },
+      "en": {
+        "title": "An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
+        "hook": "Analyze what certified code models can reliably know and where their errors lie beyond the visibility of sampling gates.",
+        "key_takeaways": [
+          "Characterizes model errors within and beyond sampling gate visibility",
+          "Explores theoretical limits and guarantees of certified code world models",
+          "Examines the mathematical implications of enclosed modes as gauge choices"
+        ]
+      },
+      "zh": {
+        "title": "封闭模式是一种规范选择：认证代码世界模型中相对于可达性的拓扑",
+        "hook": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。",
+        "key_takeaways": [
+          "揭示了代码世界模型在采样门可见范围內外的错误特征",
+          "探讨了认证模型能够确定的信息范围及其理论极限",
+          "从规范选择（Gauge Choice）角度阐明了封闭模式的数学内涵"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:23:03.541092+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Code World Models",
+    "Gauge Choice",
+    "Certified Models"
+  ],
+  "title_en": "An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
+  "title_zh": "封闭模式是一种规范选择：认证代码世界模型中相对于可达性的拓扑",
+  "hook": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
+  "hook_ko": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
+  "hook_en": "Analyze what certified code models can reliably know and where their errors lie beyond the visibility of sampling gates.",
+  "hook_zh": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。",
+  "description_en": "Analyze what certified code models can reliably know and where their errors lie beyond the visibility of sampling gates.",
+  "description_zh": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。"
 }

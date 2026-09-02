@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
-  "description_ko": "Abstract: Tendon-driven hands are anthropomorphic, and moving the actuators off the joints is what makes a hand of this capability affordable to build. Two effects produce that saving. Routing force through a c...",
+  "title_ko": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 준비 완료 텐던 구동 핸드",
+  "description_ko": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_arxiv_aero_hand_open_a_simulation_ready_tendo",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "로봇 공학 및 숙련 조작",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Tendon-Driven Hand",
+      "Dexterous Manipulation",
+      "Simulation-Ready"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.1,
+    "multilingual": {
+      "ko": {
+        "title": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 준비 완료 텐던 구동 핸드",
+        "hook": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
+        "key_takeaways": [
+          "관절 외부 구동기 배치를 통한 제작 비용 대폭 절감",
+          "숙련된 로봇 조작(Dexterous Manipulation) 학습에 최적화된 설계",
+          "시뮬레이션 환경에서 곧바로 테스트 가능한 준비된 구조 제공"
+        ]
+      },
+      "en": {
+        "title": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
+        "hook": "Explore an affordable, anthropomorphic tendon-driven hand designed with off-joint actuators for seamless simulation-to-real learning.",
+        "key_takeaways": [
+          "Significantly reduces manufacturing costs by moving actuators off the joints",
+          "Optimized design for learning complex dexterous robotic manipulation",
+          "Provides a simulation-ready architecture for immediate experimentation"
+        ]
+      },
+      "zh": {
+        "title": "Aero Hand Open：用于灵巧操作学习的仿真就绪肌腱驱动手",
+        "hook": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。",
+        "key_takeaways": [
+          "通过将驱动器移出关节显著降低了制造成本",
+          "专为学习复杂灵巧机器人操作优化的设计",
+          "提供可直接在仿真环境中测试的就绪架构"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:23:03.540662+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Tendon-Driven Hand",
+    "Dexterous Manipulation",
+    "Simulation-Ready"
+  ],
+  "title_en": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
+  "title_zh": "Aero Hand Open：用于灵巧操作学习的仿真就绪肌腱驱动手",
+  "hook": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
+  "hook_ko": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
+  "hook_en": "Explore an affordable, anthropomorphic tendon-driven hand designed with off-joint actuators for seamless simulation-to-real learning.",
+  "hook_zh": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。",
+  "description_en": "Explore an affordable, anthropomorphic tendon-driven hand designed with off-joint actuators for seamless simulation-to-real learning.",
+  "description_zh": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。"
 }
