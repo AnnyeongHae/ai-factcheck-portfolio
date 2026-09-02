@@ -1619,6 +1619,38 @@ def generate_html(data):
           linksHtml = `<a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="text-ink-primary hover:underline font-semibold flex items-center gap-1">${{t.newsOriginalLink}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
         }}
 
+        const ai = it.ai_enrichment;
+        let aiBadgeHtml = '';
+        let aiSummaryHtml = '';
+
+        if (ai) {{
+          const tagBg = ai.worth_investigating === 'HIGH' ? 'bg-orange-50 text-orange-950 border-orange-200' : 'bg-indigo-50 text-indigo-950 border-indigo-200';
+          aiBadgeHtml = `
+            <div class="flex items-center gap-1.5 flex-wrap my-1">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{tagBg}}">
+                ${{ai.recommended_tag || '💡 추천'}} ★${{ai.score || '4.0'}}
+              </span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-surface-subtle text-ink-primary border border-surface-border">
+                🏷️ ${{ai.category || '기술'}}
+              </span>
+            </div>
+          `;
+
+          if (ai.key_takeaways && ai.key_takeaways.length > 0) {{
+            aiSummaryHtml = `
+              <div class="mt-2.5 p-3 rounded-xl bg-gradient-to-br from-indigo-50/50 via-sky-50/40 to-purple-50/50 border border-indigo-100 text-[11px] space-y-1.5">
+                <div class="flex items-center gap-1 text-indigo-950 font-bold text-[10px]">
+                  <i data-lucide="sparkles" class="w-3 h-3 text-indigo-600"></i>
+                  <span>AI 3줄 핵심 요약</span>
+                </div>
+                <ul class="space-y-1 text-ink-secondary leading-relaxed list-disc list-inside">
+                  ${{ai.key_takeaways.map(k => `<li>${{k}}</li>`).join('')}}
+                </ul>
+              </div>
+            `;
+          }}
+        }}
+
         card.innerHTML = `
           <div class="space-y-2.5">
             <div class="flex items-center justify-between text-xs font-mono">
@@ -1628,6 +1660,8 @@ def generate_html(data):
               <span class="text-ink-muted text-[11px]">${{it.viral_metric || ''}}</span>
             </div>
 
+            ${{aiBadgeHtml}}
+
             <h3 class="font-bold text-sm text-ink-primary hover:text-indigo-600 transition leading-snug">
               ${{displayTitle}}
             </h3>
@@ -1635,6 +1669,8 @@ def generate_html(data):
             <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
               ${{displayDesc}}
             </p>
+
+            ${{aiSummaryHtml}}
           </div>
 
           <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
@@ -1864,6 +1900,38 @@ def generate_html(data):
                 linkHtml = `<a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="text-xs text-ink-secondary hover:text-ink-primary flex items-center gap-1 font-medium">${{currentLang === 'KO' ? '원문 링크' : (currentLang === 'ZH' ? '原文链接' : 'Source Link')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
               }}
 
+              const ai = it.ai_enrichment;
+              let aiBadgeHtml = '';
+              let aiSummaryHtml = '';
+
+              if (ai) {{
+                const tagBg = ai.worth_investigating === 'HIGH' ? 'bg-orange-50 text-orange-950 border-orange-200' : 'bg-indigo-50 text-indigo-950 border-indigo-200';
+                aiBadgeHtml = `
+                  <div class="flex items-center gap-1.5 flex-wrap my-1">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{tagBg}}">
+                      ${{ai.recommended_tag || '💡 추천'}} ★${{ai.score || '4.0'}}
+                    </span>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-surface-subtle text-ink-primary border border-surface-border">
+                      🏷️ ${{ai.category || '기술'}}
+                    </span>
+                  </div>
+                `;
+
+                if (ai.key_takeaways && ai.key_takeaways.length > 0) {{
+                  aiSummaryHtml = `
+                    <div class="mt-2.5 p-3 rounded-xl bg-gradient-to-br from-indigo-50/50 via-sky-50/40 to-purple-50/50 border border-indigo-100 text-[11px] space-y-1.5 font-sans">
+                      <div class="flex items-center gap-1 text-indigo-950 font-bold text-[10px]">
+                        <i data-lucide="sparkles" class="w-3 h-3 text-indigo-600"></i>
+                        <span>AI 3줄 핵심 요약</span>
+                      </div>
+                      <ul class="space-y-1 text-ink-secondary leading-relaxed list-disc list-inside">
+                        ${{ai.key_takeaways.map(k => `<li>${{k}}</li>`).join('')}}
+                      </ul>
+                    </div>
+                  `;
+                }}
+              }}
+
               const card = document.createElement('div');
               card.className = 'executive-card p-5 flex flex-col justify-between space-y-3.5';
 
@@ -1876,6 +1944,8 @@ def generate_html(data):
                     <span class="text-ink-muted text-[11px]">${{it.variant_role || 'Standard'}}</span>
                   </div>
 
+                  ${{aiBadgeHtml}}
+
                   <h3 class="font-bold text-sm text-ink-primary leading-snug">
                     ${{displayTitle}}
                   </h3>
@@ -1883,6 +1953,8 @@ def generate_html(data):
                   <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
                     ${{displayDesc}}
                   </p>
+
+                  ${{aiSummaryHtml}}
 
                   <!-- 🌟 Dynamic Metric Tracking (Created vs Updated) -->
                   <div class="p-2.5 rounded-xl bg-surface-subtle border border-surface-border text-[11px] space-y-1 font-mono">

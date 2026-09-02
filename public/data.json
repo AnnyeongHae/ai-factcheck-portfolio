@@ -39,6 +39,59 @@
     ],
     "history": [
       {
+        "timestamp": "2026-09-02T03:59:37.422009",
+        "date": "2026-09-02",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.21
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.1
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.72
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 19,
+            "duration_sec": 10.08
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.35
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.18
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 1.09
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.35
+          }
+        },
+        "summary": {
+          "total_fetched": 169,
+          "updated_count": 169,
+          "new_saved": 0,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-09-02T12:58:19.015487",
         "date": "2026-09-02",
         "sources": {
@@ -1279,98 +1332,56 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-08-31T17:40:38.786108",
-        "date": "2026-08-31",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.11
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.08
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.76
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 4.27
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.28
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.02
-          }
-        },
-        "summary": {
-          "total_fetched": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-02T12:58:19.015487",
+      "timestamp": "2026-09-02T03:59:37.422009",
       "date": "2026-09-02",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.51
+          "duration_sec": 0.21
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.4
+          "duration_sec": 0.1
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 1.19
+          "duration_sec": 0.72
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 20,
-          "duration_sec": 32.81
+          "items_found": 19,
+          "duration_sec": 10.08
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.3
+          "duration_sec": 0.35
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.35
+          "duration_sec": 0.18
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.26
+          "duration_sec": 1.09
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 1.37
+          "duration_sec": 0.35
         }
       },
       "summary": {
-        "total_fetched": 170,
-        "updated_count": 170,
+        "total_fetched": 169,
+        "updated_count": 169,
         "new_saved": 0,
         "duplicates_skipped": 0,
         "errors": 0
@@ -2103,8 +2114,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49529898",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 61 pts | Comments: 10 | The efficient frontier of LLM inference",
-      "viral_metric": "🔥 61 HN Points",
+      "description": "HN Score: 62 pts | Comments: 10 | The efficient frontier of LLM inference",
+      "viral_metric": "🔥 62 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 58,
@@ -2112,13 +2123,13 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 61,
-          "display": "🔥 61 HN Points",
+          "value": 62,
+          "display": "🔥 62 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 3,
-        "delta_display": "+3",
-        "growth_rate_pct": 5.2,
+        "delta": 4,
+        "delta_display": "+4",
+        "growth_rate_pct": 6.9,
         "is_spiking": false
       },
       "matched_user_domains": [
@@ -2353,7 +2364,7 @@
       "source_url": "https://news.ycombinator.com/item?id=49529132",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 98 pts | Comments: 46 | My local model setup on an M4 Pro Mac Mini",
+      "description": "HN Score: 98 pts | Comments: 47 | My local model setup on an M4 Pro Mac Mini",
       "viral_metric": "🔥 98 HN Points",
       "metric_tracking": {
         "initial": {
@@ -2460,7 +2471,7 @@
       "source_url": "https://news.ycombinator.com/item?id=49526069",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 504 pts | Comments: 586 | How accurate have Ed Zitron's AI skeptic predictions been?",
+      "description": "HN Score: 504 pts | Comments: 590 | How accurate have Ed Zitron's AI skeptic predictions been?",
       "viral_metric": "🔥 504 HN Points",
       "metric_tracking": {
         "initial": {
@@ -2519,7 +2530,22 @@
       "updated_at": "2026-09-02",
       "article_url": "https://www.gpuworld.org/",
       "hn_url": "https://news.ycombinator.com/item?id=49517584",
-      "hn_id": "49517584"
+      "hn_id": "49517584",
+      "ai_enrichment": {
+        "category": "AI 하드웨어/GPU 인프라",
+        "korean_title": "GPU의 세계: AI 시대를 지배하는 하드웨어 생태계와 인프라 심층 분석",
+        "one_line_summary": "AI 대중화 시대를 받치는 GPU 컴퓨팅의 작동 원리, 아키텍처 및 시장 생태계를 다룬 심층 종합 가이드.",
+        "key_takeaways": [
+          "AI/LLM 연산의 중심이 된 GPU 병렬 처리 아키텍처와 컴퓨팅 효율성 분석",
+          "NVIDIA CUDA 생태계의 독점적 지위와 이를 추격하는 대안 하드웨어/소프트웨어 스택 동향",
+          "개발자 및 엔지니어가 알아야 할 GPU 메모리 병목 현상과 인프라 최적화 인사이트 제공"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_investigating": "HIGH",
+        "score": 4.5
+      },
+      "title_ko": "GPU의 세계: AI 시대를 지배하는 하드웨어 생태계와 인프라 심층 분석",
+      "description_ko": "AI 대중화 시대를 받치는 GPU 컴퓨팅의 작동 원리, 아키텍처 및 시장 생태계를 다룬 심층 종합 가이드."
     },
     {
       "inbox_id": "2026-09-02_sns_hacker_news_dwarf_fortress_creator_says_the_i",
@@ -2566,8 +2592,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49525378",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 1001 pts | Comments: 935 | Claude Fable 5.1 and Claude Mythos 5.1",
-      "viral_metric": "🔥 1001 HN Points",
+      "description": "HN Score: 1002 pts | Comments: 935 | Claude Fable 5.1 and Claude Mythos 5.1",
+      "viral_metric": "🔥 1002 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 985,
@@ -2575,19 +2601,19 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 1001,
-          "display": "🔥 1001 HN Points",
+          "value": 1002,
+          "display": "🔥 1002 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 16,
-        "delta_display": "+16",
-        "growth_rate_pct": 1.6,
+        "delta": 17,
+        "delta_display": "+17",
+        "growth_rate_pct": 1.7,
         "is_spiking": false
       },
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
-      "status": "PENDING_REVIEW",
+      "status": "PROMOTED",
       "article_url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
       "hn_url": "https://news.ycombinator.com/item?id=49525378",
       "hn_id": "49525378"
@@ -2949,10 +2975,23 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "소비자 핀테크의 언번들링 - 금융상품을 묶는 앱에서 모든 계좌를 관리하는 AI 에이전트로",
-      "description_ko": "소비자 핀테크의 언번들링 - 금융상품을 묶는 앱에서 모든 계좌를 관리하는 AI 에이전트로",
+      "title_ko": "소비자 핀테크의 언번들링: 통합 금융 앱에서 AI 에이전트 기반 자산 관리로의 전환",
+      "description_ko": "단순 금융 상품 묶음(번들링) 앱의 시대를 넘어, 개인의 모든 계좌를 능동적으로 통합 관리하는 AI 에이전트 중심으로 핀테크 패러다임이 변화하고 있습니다.",
       "hn_url": "https://news.hada.io/topic?id=33145",
-      "article_url": "https://news.hada.io/topic?id=33145"
+      "article_url": "https://news.hada.io/topic?id=33145",
+      "ai_enrichment": {
+        "category": "AI 에이전트 / 핀테크 트렌드",
+        "korean_title": "소비자 핀테크의 언번들링: 통합 금융 앱에서 AI 에이전트 기반 자산 관리로의 전환",
+        "one_line_summary": "단순 금융 상품 묶음(번들링) 앱의 시대를 넘어, 개인의 모든 계좌를 능동적으로 통합 관리하는 AI 에이전트 중심으로 핀테크 패러다임이 변화하고 있습니다.",
+        "key_takeaways": [
+          "기존 핀테크 슈퍼앱 형태의 상품 번들링 구조에서 파편화된 금융 서비스를 개별 연동하는 AI 에이전트 중심의 언번들링으로 진화",
+          "사용자가 여러 앱을 일일이 조작할 필요 없이 AI 에이전트가 데이터 조회, 송금, 자산 최적화 등을 자동 실행",
+          "핀테크 플랫폼의 차별화 포인트가 단순 상품 라인업 확보에서 고도화된 AI 자율 실행 및 데이터 연동성으로 이동"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_investigating": "HIGH",
+        "score": 4.5
+      }
     },
     {
       "inbox_id": "2026-09-02_sns_geeknews_사이보그가_되지_않기_위하여_llm의_말투가_내_생각이_되지_않게",
@@ -4598,8 +4637,8 @@
       "source_platform": "Hacker News",
       "source_url": "https://news.ycombinator.com/item?id=49523720",
       "type": "sns",
-      "description": "HN Score: 208 pts | Comments: 216 | Dwarf Fortress' creator says the industry's in shambles over AI",
-      "viral_metric": "🔥 208 HN Points",
+      "description": "HN Score: 210 pts | Comments: 216 | Dwarf Fortress' creator says the industry's in shambles over AI",
+      "viral_metric": "🔥 210 HN Points",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -4611,17 +4650,17 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 208,
-          "display": "🔥 208 HN Points",
+          "value": 210,
+          "display": "🔥 210 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 199,
-        "delta_display": "+199",
-        "growth_rate_pct": 2211.1,
+        "delta": 201,
+        "delta_display": "+201",
+        "growth_rate_pct": 2233.3,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
-      "updated_at": "2026-09-01",
+      "updated_at": "2026-09-02",
       "article_url": "https://www.pcgamer.com/gaming-industry/dwarf-fortress-creator-says-the-industrys-in-shambles-over-ai-and-layoff-happy-ceos-everyone-i-know-their-bosses-are-slowly-getting-psychosis/",
       "hn_url": "https://news.ycombinator.com/item?id=49523720",
       "hn_id": "49523720"
@@ -7821,8 +7860,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/Lightricks/LTX-2.5",
       "type": "repo",
-      "description": "Trending Score: 335, Downloads: 1232274, Likes: 2472, Pipeline: image-to-video",
-      "viral_metric": "Trending 335 pts (❤️ 2472)",
+      "description": "Trending Score: 336, Downloads: 1232274, Likes: 2473, Pipeline: image-to-video",
+      "viral_metric": "Trending 336 pts (❤️ 2473)",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -7850,13 +7889,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 335,
-          "display": "Trending 335 pts (❤️ 2472)",
+          "value": 336,
+          "display": "Trending 336 pts (❤️ 2473)",
           "updated_at": "2026-09-02"
         },
-        "delta": -13,
-        "delta_display": "-13",
-        "growth_rate_pct": -3.7,
+        "delta": -12,
+        "delta_display": "-12",
+        "growth_rate_pct": -3.4,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -11330,8 +11369,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/MengTo/threeui",
       "type": "repo",
-      "description": "Stars: 4919, Forks: 487 | Open-source ThreeUI Community catalog with live interactive components and complete Community source.",
-      "viral_metric": "★ 4919 Stars",
+      "description": "Stars: 4920, Forks: 487 | Open-source ThreeUI Community catalog with live interactive components and complete Community source.",
+      "viral_metric": "★ 4920 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -11358,12 +11397,12 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 4919,
-          "display": "★ 4919 Stars",
+          "value": 4920,
+          "display": "★ 4920 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 207,
-        "delta_display": "+207",
+        "delta": 208,
+        "delta_display": "+208",
         "growth_rate_pct": 4.4,
         "is_spiking": true
       },
@@ -11442,8 +11481,8 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "jub0t/Concat",
-      "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+      "title_ko": "Concat - CapCut을 대체하는 무료 오픈소스 영상 편집기",
+      "description_ko": "CapCut을 대체할 수 있는 무료 오픈소스 기반의 크로스 플랫폼 영상 편집 도구",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -11463,7 +11502,20 @@
         "is_spiking": true
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-09-02"
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "category": "오픈소스 비디오 편집 도구",
+        "korean_title": "jub0t/Concat: CapCut을 대체하는 무료 오픈소스 영상 편집기",
+        "one_line_summary": "CapCut의 대체재를 지향하는 크로스플랫폼 무료 오픈소스 비디오 편집 소프트웨어",
+        "key_takeaways": [
+          "CapCut과 유사한 편집 경험을 제공하는 무료 오픈소스(FOSS) 대안",
+          "기존 WolfCut 프로젝트에서 Concat으로 리브랜딩되어 지속적 개발 중",
+          "상용 편집 소프트웨어의 구독료 부담과 프라이버시 우려를 해소하는 비디오 제작 도구"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_investigating": "MEDIUM",
+        "score": 4.0
+      }
     },
     {
       "inbox_id": "2026-08-31_repo_github_hejustinsunmy_girlfriend_jingtian_late",
