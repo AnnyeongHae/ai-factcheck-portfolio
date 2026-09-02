@@ -6,7 +6,7 @@
   "verdict": "VERIFIED_TRUE",
   "confidence_score": 97.5,
   "curation": {
-    "discovery_mode": "USER_CURATED",
+    "discovery_mode": "AUTO_HARVESTED",
     "curator": "Anyong Cheong",
     "personal_motivation": "Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함.",
     "target_workflow": "사내 로컬 코드 어시스턴트 및 온디바이스 에이전트 인퍼런스 파이프라인",
@@ -97,5 +97,6 @@
     "the_hook_zh": "Hugging Face 트렌딩 상위에 오른 Unsloth의 선택적 레이어 동적 양자화(Dynamic GGUF v3.0)가 실제 코딩/도구 호출 정확도를 얼마나 보존하는지 실측 검증."
   },
   "title_en": "Unsloth Qwen3.8-Flash-Next: 선택적 레이어 동적 양자화(Dynamic GGUF v3.0)와 vLLM 네이티브 서빙 가속",
-  "title_zh": "Unsloth Qwen3.8-Flash-Next: 선택적 레이어 동적 양자화(Dynamic GGUF v3.0)와 vLLM 네이티브 서빙 가속"
+  "title_zh": "Unsloth Qwen3.8-Flash-Next: 선택적 레이어 동적 양자화(Dynamic GGUF v3.0)와 vLLM 네이티브 서빙 가속",
+  "source_published_date": "2026-09-01"
 }

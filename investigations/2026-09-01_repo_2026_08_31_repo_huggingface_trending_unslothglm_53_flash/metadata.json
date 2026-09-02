@@ -6,7 +6,7 @@
   "verdict": "VERIFIED_TRUE",
   "confidence_score": 97.0,
   "curation": {
-    "discovery_mode": "USER_CURATED",
+    "discovery_mode": "AUTO_HARVESTED",
     "curator": "Anyong Cheong",
     "personal_motivation": "텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함.",
     "target_workflow": "실시간 음성/화상 AI 비서, 비정형 멀티모달 OCR 및 온디바이스 에이전트",
@@ -132,5 +132,6 @@
     "the_hook_zh": "단일 신경망으로 텍스트-비전-오디오를 처리하는 GLM-5.3 패밀리의 실제 VRAM 효율과 Unsloth 동적 양자화 시의 정확도 보존율 실측 검증."
   },
   "title_en": "GLM-5.3 Multi-Modal Family: 텍스트-비전-오디오 통합 옴니 아키텍처와 Flash/Dynamic GGUF 서빙의 실체",
-  "title_zh": "GLM-5.3 Multi-Modal Family: 텍스트-비전-오디오 통합 옴니 아키텍처와 Flash/Dynamic GGUF 서빙의 실체"
+  "title_zh": "GLM-5.3 Multi-Modal Family: 텍스트-비전-오디오 통합 옴니 아키텍처와 Flash/Dynamic GGUF 서빙의 실체",
+  "source_published_date": "2026-09-01"
 }

@@ -8,7 +8,7 @@
   "verdict": "VERIFIED_TRUE",
   "confidence_score": 95.0,
   "curation": {
-    "discovery_mode": "USER_CURATED",
+    "discovery_mode": "AUTO_HARVESTED",
     "curator": "Anyong Cheong",
     "personal_motivation": "실무에서 복잡한 AI 모델 파이프라인을 빠르고 직관적인 프로토타입으로 시각화하고 배포해야 하는 상황에서 Gradio의 최신 워크플로우 기능을 공학적으로 검증할 필요가 있음.",
     "personal_motivation_zh": "在实际工作中，当需要快速直观地将复杂的 AI 模型管道可视化并部署时，必须对 Gradio 的最新工作流功能进行工程验证。",
@@ -101,5 +101,6 @@
       "benchmark_comparison": "기존 Streamlit 대비 복잡한 멀티탭 및 이벤트 트리거 구현 코드 라인 수 40% 이상 감소",
       "cost_implication": "프론트엔드 개발 리소스 절감 및 PoC 기간 단축을 통한 개발 비용 50% 이상 절감 효과"
     }
-  }
+  },
+  "source_published_date": "2026-09-02"
 }

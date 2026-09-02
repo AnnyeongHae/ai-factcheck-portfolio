@@ -8,7 +8,7 @@
   "verdict": "HALF_TRUE_CONTEXT_REQUIRED",
   "confidence_score": 93.5,
   "curation": {
-    "discovery_mode": "USER_CURATED",
+    "discovery_mode": "AUTO_HARVESTED",
     "curator": "Anyong Cheong",
     "personal_motivation": "CapCut(캡컷)의 유료화 및 데이터 프라이버시 이슈 속에서, Tauri와 Rust 기반으로 온디바이스 Whisper 자막과 FFmpeg 파이프라인을 묶은 Concat의 실무 숏폼 편집 대체 가능성을 검증했습니다.",
     "personal_motivation_zh": "针对 CapCut 全面转向收费及云端数据隐私争议，深入验证基于 Tauri 与 Rust 构建、整合本地 Whisper 自动字幕与 FFmpeg 的 Concat 能否真正胜任短视频剪辑流水线。",
@@ -100,5 +100,6 @@
       "measured_results": "유휴 RAM 118MB / 1080p 60fps 컷 분할 지연시간 < 15ms / Whisper 온디바이스 1분 영상 자막 추출 4.2초",
       "details": "Tauri 프론트엔드-백엔드 IPC 구조 및 FFmpeg 렌더링 파이프라인 실측 벤치마크 완료."
     }
-  }
+  },
+  "source_published_date": "2026-09-02"
 }

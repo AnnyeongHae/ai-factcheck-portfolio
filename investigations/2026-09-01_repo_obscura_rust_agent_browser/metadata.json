@@ -6,7 +6,7 @@
   "verdict": "VERIFIED_TRUE",
   "confidence_score": 95.0,
   "curation": {
-    "discovery_mode": "USER_CURATED",
+    "discovery_mode": "AUTO_HARVESTED",
     "curator": "Web Automation & Agent Systems Review Team",
     "personal_motivation": "0xJokker가 X에서 소개한 '새로운 형태의 AI 브라우저(Obscura)'의 기술적 아키텍처(Rust 런타임, V8 JS 엔진, CDP 호환, 메모리 30MB)와 실제 봇 탐지 우회(Anti-Detection) 실효성을 팩트체크했습니다.",
     "target_workflow": "서버리스 환경 및 대규모 AI 에이전트 동시 웹 자동화/RAG 크롤링",
@@ -112,5 +112,6 @@
     "quote": "새로운 형식의 브라우저라고도 할 수 있을거 같은데 흥미롭더라. Rust 기반으로 AI 에이전트에 최적화된 무헤드 브라우징 런타임.",
     "quote_zh": "这是一种全新形态的浏览器，基于 Rust 开发，专为 AI Agent 优化的超轻量无头运行时。",
     "screenshot_note": "X Viral Thread on Rust Browser Runtime for Autonomous Agents"
-  }
+  },
+  "source_published_date": "2026-09-01"
 }

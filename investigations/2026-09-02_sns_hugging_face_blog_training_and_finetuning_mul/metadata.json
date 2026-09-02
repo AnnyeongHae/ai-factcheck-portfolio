@@ -8,7 +8,7 @@
   "verdict": "VERIFIED_TRUE",
   "confidence_score": 96.5,
   "curation": {
-    "discovery_mode": "USER_CURATED",
+    "discovery_mode": "AUTO_HARVESTED",
     "curator": "Anyong Cheong",
     "personal_motivation": "단일 벡터(Single-Vector) RAG의 표현력 한계를 극복하기 위해 멀티 벡터(Multi-Vector) 및 ColBERT 계열 모델을 프로덕션에 도입하려 할 때, 실무 파인튜닝 파이프라인 구축의 복잡성과 메모리 오버헤드를 정확히 파악하기 위함입니다.",
     "personal_motivation_zh": "为了在生产环境中引入多向量和 ColBERT 系列模型以克服单向量 RAG 的表达瓶颈，必须准确评估微调管道的复杂性与显存开销。",
@@ -101,5 +101,6 @@
       "benchmark_comparison": "기존 bi-encoder(Dense Embedding) 방식 대비 복잡한 쿼리 리콜 성능 대폭 우위",
       "cost_implication": "벡터 저장소 용량 증가로 인한 클라우드 스토리지 비용 약 15% 상승 및 GPU 추론 인프라 비용 소폭 증가"
     }
-  }
+  },
+  "source_published_date": "2026-09-02"
 }

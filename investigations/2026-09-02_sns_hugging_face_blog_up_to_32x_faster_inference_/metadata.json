@@ -8,7 +8,7 @@
   "verdict": "HALF_TRUE_CONTEXT_REQUIRED",
   "confidence_score": 94.2,
   "curation": {
-    "discovery_mode": "USER_CURATED",
+    "discovery_mode": "AUTO_HARVESTED",
     "curator": "Anyong Cheong",
     "personal_motivation": "실무에서 거대언어모델의 추론 레이턴시를 줄이기 위해 다양한 아키텍처와 최적화 기법을 도입하고 있으나, '최대 3.2배'라는 마케팅 수치가 특정 제약 조건이나 하드웨어 환경에서만 유효한지 1차 출처 기반으로 명확히 검증할 필요가 있음.",
     "personal_motivation_zh": "在实际业务中，为了降低大语言模型的推理延迟，我们需要引入各种架构与优化技术。必须基于第一手资料严格核实“最高3.2倍”这一营销数字是否依赖于特定的约束条件或硬件环境。",
@@ -101,5 +101,6 @@
       "benchmark_comparison": "동일 파라미터 규모의 표준 트랜스포머 모델 대비 처리량(Throughput) 향상 확인",
       "cost_implication": "GPU 인스턴스 당 동시 처리 가능 사용자 수 증가로 인한 단위 경제성(Unit Economics) 약 25% 개선 효과 예상"
     }
-  }
+  },
+  "source_published_date": "2026-09-02"
 }

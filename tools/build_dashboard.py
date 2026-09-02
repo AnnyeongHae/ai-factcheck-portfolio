@@ -128,7 +128,10 @@ def build_dashboard():
     graph_data = load_graph_data()
     
     total_cases = len(cases)
-    news_items = [it for it in inbox_items if it.get("category_type") == "NEWS"]
+    def is_news_item(it):
+        ai = it.get("ai_enrichment") or {}
+        cat = it.get("category_type", "")
+        return cat == "NEWS" or ai.get("type_classification") == "NEWS"
 
     def is_model_item(it):
         ai = it.get("ai_enrichment") or {}
@@ -143,8 +146,9 @@ def build_dashboard():
             (fam and "General" not in fam and "독립" not in fam and "Harness" not in fam)
         )
 
-    model_items = [it for it in inbox_items if is_model_item(it) and it.get("category_type") != "NEWS"]
-    clean_inbox_items = [it for it in inbox_items if not is_model_item(it) and it.get("category_type") != "NEWS"]
+    news_items = [it for it in inbox_items if is_news_item(it)]
+    model_items = [it for it in inbox_items if is_model_item(it) and not is_news_item(it)]
+    clean_inbox_items = [it for it in inbox_items if not is_model_item(it) and not is_news_item(it)]
 
     summary_data = {
         "generated_at": "2026-09-02",
@@ -155,6 +159,7 @@ def build_dashboard():
         "all_inbox_count": len(inbox_items),
         "admin_stats": admin_stats,
         "model_items": model_items,
+        "news_items": news_items,
         "inbox_items": clean_inbox_items,
         "cases": cases,
         "graph": graph_data
@@ -194,6 +199,7 @@ def generate_html(data):
     admin_json = json.dumps(data["admin_stats"], ensure_ascii=False)
     graph_json = json.dumps(data["graph"], ensure_ascii=False)
     models_json = json.dumps(data.get("model_items", []), ensure_ascii=False)
+    news_json = json.dumps(data.get("news_items", []), ensure_ascii=False)
     
     return f"""<!DOCTYPE html>
 <html lang="ko">
@@ -466,8 +472,10 @@ def generate_html(data):
               <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-ink-secondary shrink-0"></i>
               <span class="text-ink-secondary text-xs font-medium shrink-0" id="sortLabel">정렬:</span>
               <select id="sortSelect" onchange="changeSort(this.value)" class="bg-transparent text-ink-primary font-bold text-xs focus:outline-none cursor-pointer">
-                <option value="date-desc">최신 조사일자순 (기본)</option>
-                <option value="date-asc">과거 조사일자순</option>
+                <option value="date-source-desc">📅 수집/원출처 최신순 (기본)</option>
+                <option value="date-source-asc">📅 수집/원출처 오래된순</option>
+                <option value="date-audit-desc">🔬 분석일자 최신순</option>
+                <option value="date-audit-asc">🔬 분석일자 오래된순</option>
                 <option value="score-desc">높은 신뢰도순</option>
                 <option value="title-asc">기술명 가나다순</option>
               </select>
@@ -544,13 +552,27 @@ def generate_html(data):
           </div>
         </div>
 
-        <div class="pt-2 border-t border-surface-border flex items-center justify-between gap-3">
+        <div class="pt-2 border-t border-surface-border flex flex-col md:flex-row items-center justify-between gap-3">
           <div class="relative w-full md:w-80">
             <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-2.5 text-ink-muted"></i>
             <input type="text" id="modelsSearchInput" placeholder="모델명, 아키텍처, 포맷 검색..." 
                    class="w-full bg-surface-subtle border border-surface-border rounded-xl pl-10 pr-4 py-2 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
           </div>
-          <span class="text-xs text-ink-muted font-mono" id="modelsFilteredCount"></span>
+
+          <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+            <span class="text-xs text-ink-muted font-mono" id="modelsFilteredCount"></span>
+            <div class="flex items-center gap-1.5 bg-surface-subtle px-3 py-1.5 rounded-xl border border-surface-border text-xs shrink-0">
+              <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-indigo-600"></i>
+              <span class="text-ink-muted text-[11px] font-mono">정렬:</span>
+              <select id="modelsSortSelect" onchange="setModelsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
+                <option value="date-source-desc">📅 수집/발표 최신순 (기본)</option>
+                <option value="date-source-asc">📅 수집/발표 오래된순</option>
+                <option value="date-audit-desc">🔬 AI 분석일 최신순</option>
+                <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
+                <option value="title-asc">모델명 가나다순</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -575,13 +597,25 @@ def generate_html(data):
         </div>
       </div>
 
-      <!-- News Source Controls -->
+      <!-- News Source & Sort Controls -->
       <div class="bg-white p-3.5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-3 border border-surface-border shadow-sm">
         <div class="flex items-center gap-2 w-full md:w-auto flex-wrap">
           <button onclick="setNewsSourceFilter('ALL')" class="news-src-btn active px-3 py-1.5 rounded-xl text-xs font-bold bg-ink-primary text-white transition" data-src="ALL">전체 ({data['news_total_count']}건)</button>
           <button onclick="setNewsSourceFilter('GeekNews')" class="news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="GeekNews">🇰🇷 긱뉴스 (GeekNews)</button>
           <button onclick="setNewsSourceFilter('Hacker News')" class="news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="Hacker News">🔥 Hacker News</button>
           <button onclick="setNewsSourceFilter('Blog')" class="news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="Blog">🌍 Tech Blogs</button>
+        </div>
+
+        <div class="flex items-center gap-1.5 bg-surface-subtle px-3 py-1.5 rounded-xl border border-surface-border text-xs shrink-0">
+          <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-indigo-600"></i>
+          <span class="text-ink-muted text-[11px] font-mono">정렬:</span>
+          <select id="newsSortSelect" onchange="setNewsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
+            <option value="date-source-desc">📅 수집/발행 최신순 (기본)</option>
+            <option value="date-source-asc">📅 수집/발행 오래된순</option>
+            <option value="date-audit-desc">🔬 AI 분석일 최신순</option>
+            <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
+            <option value="title-asc">제목 가나다순</option>
+          </select>
         </div>
       </div>
 
@@ -750,8 +784,10 @@ def generate_html(data):
             <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-indigo-600"></i>
             <span class="text-ink-muted text-[11px] font-mono">정렬:</span>
             <select id="inboxSortSelect" onchange="setInboxSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
-              <option value="date-desc">최신 수집일자순 (Date DESC)</option>
-              <option value="date-asc">오래된 수집일자순 (Date ASC)</option>
+              <option value="date-source-desc">📅 수집/발표 최신순 (기본)</option>
+              <option value="date-source-asc">📅 수집/발표 오래된순</option>
+              <option value="date-audit-desc">🔬 AI 분석일 최신순</option>
+              <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
               <option value="viral-desc">🔥 통합 인기순 (Standardized Viral High)</option>
               <option value="viral-asc">통합 인기 낮은순 (Viral Low)</option>
               <option value="title-asc">제목 오름차순 (A to Z)</option>
@@ -911,6 +947,7 @@ def generate_html(data):
   <script>
     const casesData = {cases_json};
     const modelsData = {models_json};
+    const newsData = {news_json};
     const inboxData = {inbox_json};
     const adminData = {admin_json};
     const graphData = {graph_json};
@@ -918,14 +955,14 @@ def generate_html(data):
     let liveCasesData = casesData;
     let liveModelsData = modelsData;
     let liveInboxData = inboxData;
-    let liveNewsData = inboxData.filter(it => it.category_type === 'NEWS');
+    let liveNewsData = newsData;
     let liveAnalysesData = [];
 
     let currentLang = 'KO';
     let currentView = 'portfolio';
     let currentMode = 'ALL';
     let currentDomain = 'ALL';
-    let currentSort = 'date-desc';
+    let currentSort = 'date-source-desc';
     let searchQuery = '';
 
     let currentInboxSource = 'ALL';
@@ -1512,10 +1549,17 @@ def generate_html(data):
         return matchesMode && matchesDomain && matchesSearch;
       }});
 
-      // Sort
+      // Sort (Default: Source Date DESC)
       filtered.sort((a, b) => {{
-        if (currentSort === 'date-desc') return (b.investigation_date || '').localeCompare(a.investigation_date || '');
-        if (currentSort === 'date-asc') return (a.investigation_date || '').localeCompare(b.investigation_date || '');
+        const aSrcDate = a.source_published_date || a.investigation_date || '';
+        const bSrcDate = b.source_published_date || b.investigation_date || '';
+        const aInvDate = a.investigation_date || '';
+        const bInvDate = b.investigation_date || '';
+
+        if (currentSort === 'date-source-desc' || currentSort === 'date-desc') return bSrcDate.localeCompare(aSrcDate);
+        if (currentSort === 'date-source-asc') return aSrcDate.localeCompare(bSrcDate);
+        if (currentSort === 'date-audit-desc') return bInvDate.localeCompare(aInvDate);
+        if (currentSort === 'date-audit-asc') return aInvDate.localeCompare(bInvDate);
         if (currentSort === 'score-desc') return (b.confidence_score || 0) - (a.confidence_score || 0);
         if (currentSort === 'title-asc') return (a.title || '').localeCompare(b.title || '');
         return 0;
@@ -1533,6 +1577,7 @@ def generate_html(data):
         const story = c.portfolio_story || {{}};
         const curation = c.curation || {{ discovery_mode: 'USER_CURATED' }};
         const isUserMode = curation.discovery_mode === 'USER_CURATED';
+        const srcDate = c.source_published_date || c.investigation_date || '2026-08-31';
         const invDate = c.investigation_date || '2026-09-02';
         const confScore = c.confidence_score || 95.0;
         const isVerifiedTrue = c.verdict === 'VERIFIED_TRUE';
@@ -1578,14 +1623,18 @@ def generate_html(data):
         card.innerHTML = `
           <div class="space-y-3.5">
             
-            <!-- Tier 1: Header Meta (ID + Mode Badge + Date + Verdict) -->
+            <!-- Tier 1: Header Meta (ID + Mode Badge + Dual Dates + Verdict) -->
             <div class="flex items-center justify-between text-xs gap-2 flex-wrap">
               <div class="flex items-center gap-2">
                 <span class="text-xs font-mono font-bold text-ink-muted">#${{String(idx + 1).padStart(2, '0')}}</span>
-                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold font-mono bg-indigo-50 text-indigo-700 border border-indigo-200">
-                  ${{currentLang === 'KO' ? '기술 검증 리포트' : (currentLang === 'ZH' ? '技术核验报告' : 'AUDITED DOSSIER')}}
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono ${{isUserMode ? 'bg-indigo-50 text-indigo-700 border border-indigo-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}}">
+                  ${{isUserMode ? (currentLang === 'KO' ? '직접 큐레이션' : (currentLang === 'ZH' ? '手动精选' : 'USER CURATED')) : (currentLang === 'KO' ? '자동 트렌드' : (currentLang === 'ZH' ? '自动趋势' : 'AUTO HARVEST'))}}
                 </span>
-                <span class="text-ink-muted text-[11px] font-mono">${{invDate}}</span>
+                <div class="flex items-center gap-1.5 text-[11px] font-mono text-ink-muted">
+                  <span title="${{currentLang === 'KO' ? '수집/원출처 발행일' : (currentLang === 'ZH' ? '采集/原文发布日' : 'Source Date')}}">📅 ${{srcDate}}</span>
+                  <span>•</span>
+                  <span title="${{currentLang === 'KO' ? '심층 기술 분석일' : (currentLang === 'ZH' ? '深度分析日' : 'Audit Date')}}" class="text-indigo-700 font-semibold">🔬 ${{invDate}}</span>
+                </div>
               </div>
 
               <!-- Verdict Pill Badge -->
@@ -1772,6 +1821,13 @@ def generate_html(data):
 
     // ================= NEWS VIEW =================
     let currentNewsSource = 'ALL';
+    let currentNewsSort = 'date-source-desc';
+
+    function setNewsSort(sort) {{
+      currentNewsSort = sort;
+      renderNews();
+    }}
+
     function setNewsSourceFilter(src) {{
       currentNewsSource = src;
       document.querySelectorAll('.news-src-btn').forEach(btn => {{
@@ -1792,6 +1848,20 @@ def generate_html(data):
       const rawNewsItems = liveNewsData || [];
       const newsItems = rawNewsItems.filter(it => {{
         return currentNewsSource === 'ALL' || (it.source_platform && it.source_platform.includes(currentNewsSource));
+      }});
+
+      // Sort News Items (Default: Source Date DESC)
+      newsItems.sort((a, b) => {{
+        const aSrc = a.harvested_date || '';
+        const bSrc = b.harvested_date || '';
+        const aAudit = a.ai_enrichment?.enriched_at || a.harvested_date || '';
+        const bAudit = b.ai_enrichment?.enriched_at || b.harvested_date || '';
+        if (currentNewsSort === 'date-source-desc') return bSrc.localeCompare(aSrc);
+        if (currentNewsSort === 'date-source-asc') return aSrc.localeCompare(bSrc);
+        if (currentNewsSort === 'date-audit-desc') return bAudit.localeCompare(aAudit);
+        if (currentNewsSort === 'date-audit-asc') return aAudit.localeCompare(bAudit);
+        if (currentNewsSort === 'title-asc') return (a.title || '').localeCompare(b.title || '');
+        return bSrc.localeCompare(aSrc);
       }});
 
       if (newsItems.length === 0) {{
@@ -1954,7 +2024,10 @@ def generate_html(data):
           </div>
 
           <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
-            <span class="text-ink-muted text-[11px] font-mono">${{it.harvested_date || '2026-09-02'}}</span>
+            <div class="flex items-center gap-1.5 text-[11px] font-mono text-ink-muted">
+              <span title="${{currentLang === 'KO' ? '수집/발행일' : (currentLang === 'ZH' ? '采集/发布日' : 'Source Date')}}">📅 ${{it.harvested_date || '2026-08-31'}}</span>
+              ${{ai?.enriched_at ? `<span>•</span><span title="${{currentLang === 'KO' ? 'AI 분석일' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis Date')}}" class="text-indigo-700 font-semibold">🔬 ${{ai.enriched_at.slice(0, 10)}}</span>` : ''}}
+            </div>
             ${{linksHtml}}
           </div>
         `;
@@ -1966,7 +2039,13 @@ def generate_html(data):
 
     // ================= AI MODELS REGISTRY VIEW =================
     let currentModelsFamily = 'ALL';
+    let currentModelsSort = 'date-source-desc';
     let modelsSearchQuery = '';
+
+    function setModelsSort(sort) {{
+      currentModelsSort = sort;
+      renderModels();
+    }}
 
     function setModelsFamilyFilter(fam) {{
       currentModelsFamily = fam;
@@ -2003,6 +2082,20 @@ def generate_html(data):
         const text = (item.title + ' ' + (item.title_ko || '') + ' ' + (item.title_en || '') + ' ' + (item.title_zh || '') + ' ' + (item.description || '') + ' ' + fam).toLowerCase();
         const matchesSearch = text.includes(modelsSearchQuery.toLowerCase());
         return matchesFam && matchesSearch;
+      }});
+
+      // Sort Models (Default: Source Date DESC)
+      filtered.sort((a, b) => {{
+        const aSrc = a.harvested_date || '';
+        const bSrc = b.harvested_date || '';
+        const aAudit = a.ai_enrichment?.enriched_at || a.harvested_date || '';
+        const bAudit = b.ai_enrichment?.enriched_at || b.harvested_date || '';
+        if (currentModelsSort === 'date-source-desc') return bSrc.localeCompare(aSrc);
+        if (currentModelsSort === 'date-source-asc') return aSrc.localeCompare(bSrc);
+        if (currentModelsSort === 'date-audit-desc') return bAudit.localeCompare(aAudit);
+        if (currentModelsSort === 'date-audit-asc') return aAudit.localeCompare(bAudit);
+        if (currentModelsSort === 'title-asc') return (a.title || '').localeCompare(b.title || '');
+        return bSrc.localeCompare(aSrc);
       }});
 
       const countEl = document.getElementById('modelsFilteredCount');
@@ -2082,8 +2175,9 @@ def generate_html(data):
           </div>
 
           <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
-            <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="text-ink-muted text-[11px] font-mono">${{it.harvested_date || '2026-09-02'}}</span>
+            <div class="flex items-center gap-1.5 flex-wrap text-[11px] font-mono text-ink-muted">
+              <span title="${{currentLang === 'KO' ? '수집/발표일' : (currentLang === 'ZH' ? '采集/发布日' : 'Source Date')}}">📅 ${{it.harvested_date || '2026-08-31'}}</span>
+              ${{ai?.enriched_at ? `<span>•</span><span title="${{currentLang === 'KO' ? 'AI 분석일' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis Date')}}" class="text-indigo-700 font-semibold">🔬 ${{ai.enriched_at.slice(0, 10)}}</span>` : ''}}
               ${{ai?.enriched_by_model ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-indigo-700 border border-surface-border">🤖 ${{ai.enriched_by_model.replace('gemini-', '')}}</span>` : ''}}
             </div>
             <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1">
@@ -2236,12 +2330,21 @@ def generate_html(data):
         return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
       }});
 
-      // 🌟 Cross-Platform Standardized Sorting
+      // 🌟 Cross-Platform Standardized Sorting (Default: Source Date DESC)
       filtered.sort((a, b) => {{
-        if (currentInboxSort === 'date-desc') {{
-          return (b.harvested_date || '').localeCompare(a.harvested_date || '');
-        }} else if (currentInboxSort === 'date-asc') {{
-          return (a.harvested_date || '').localeCompare(b.harvested_date || '');
+        const aSrc = a.harvested_date || '';
+        const bSrc = b.harvested_date || '';
+        const aAudit = a.ai_enrichment?.enriched_at || a.harvested_date || '';
+        const bAudit = b.ai_enrichment?.enriched_at || b.harvested_date || '';
+
+        if (currentInboxSort === 'date-source-desc' || currentInboxSort === 'date-desc') {{
+          return bSrc.localeCompare(aSrc);
+        }} else if (currentInboxSort === 'date-source-asc' || currentInboxSort === 'date-asc') {{
+          return aSrc.localeCompare(bSrc);
+        }} else if (currentInboxSort === 'date-audit-desc') {{
+          return bAudit.localeCompare(aAudit);
+        }} else if (currentInboxSort === 'date-audit-asc') {{
+          return aAudit.localeCompare(bAudit);
         }} else if (currentInboxSort === 'viral-desc') {{
           return calculateStandardizedViralScore(b) - calculateStandardizedViralScore(a);
         }} else if (currentInboxSort === 'viral-asc') {{
@@ -2249,7 +2352,7 @@ def generate_html(data):
         }} else if (currentInboxSort === 'title-asc') {{
           return (a.title || '').localeCompare(b.title || '');
         }}
-        return 0;
+        return bSrc.localeCompare(aSrc);
       }});
 
       if (filtered.length === 0) {{
@@ -2373,9 +2476,12 @@ def generate_html(data):
               </div>
             </div>
 
-            <div class="text-[11px] text-ink-muted font-mono pt-1 flex items-center justify-between">
+            <div class="text-[11px] text-ink-muted font-mono pt-1 flex items-center justify-between flex-wrap gap-1">
               <div>${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span></div>
-              ${{ai?.enriched_by_model ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-indigo-700 border border-surface-border">🤖 ${{ai.enriched_by_model.replace('gemini-', '')}}</span>` : ''}}
+              <div class="flex items-center gap-1.5">
+                ${{ai?.enriched_at ? `<span title="${{currentLang === 'KO' ? 'AI 분석일' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis Date')}}" class="text-indigo-700 font-semibold">🔬 ${{ai.enriched_at.slice(0, 10)}}</span>` : ''}}
+                ${{ai?.enriched_by_model ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-indigo-700 border border-surface-border">🤖 ${{ai.enriched_by_model.replace('gemini-', '')}}</span>` : ''}}
+              </div>
             </div>
           </div>
 
