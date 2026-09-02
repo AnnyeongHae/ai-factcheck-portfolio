@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-Multi-Source Enterprise Trend Harvester & Health Monitor (2026 SOTA Framework - v5.5)
-- GitHub, Hugging Face Models, Hugging Face Spaces (인터랙티브 데모), Hacker News, ArXiv, Reddit 수집
-- 비로그인 / 100% 무료 지원
-- 실시간 에러 로깅 및 헬스 모니터
+Multi-Source Enterprise Trend Harvester & Health Monitor (2026 SOTA Framework - v6.0)
+Pipeline Architecture:
+1. Ingest All Data: Fetch 100% candidates from GitHub, Hugging Face, Hacker News, ArXiv, Reddit without early filtering.
+2. Update Existing: Match against existing inbox items by normalized URL / Title, update latest metrics, compute delta & growth rate.
+3. Deduplicate & Save Brand New: Insert only novel items that do not exist anywhere in investigations or inbox.
 """
 
 import datetime
@@ -29,6 +30,30 @@ def slugify(text: str) -> str:
     text = re.sub(r'[\s_-]+', '_', text)
     return text[:45]
 
+def normalize_url(url: str) -> str:
+    if not url: return ""
+    u = url.lower().strip()
+    u = re.sub(r'^https?://', '', u)
+    u = re.sub(r'^www\.', '', u)
+    u = u.rstrip('/')
+    return u
+
+def extract_metric_number(text: str) -> int:
+    if not text: return 0
+    m_k = re.search(r'([\d\.]+)\s*[kK]', str(text))
+    if m_k:
+        try:
+            return int(float(m_k.group(1)) * 1000)
+        except Exception:
+            pass
+    m_num = re.search(r'([\d,]+)', str(text))
+    if m_num:
+        try:
+            return int(m_num.group(1).replace(',', ''))
+        except Exception:
+            pass
+    return 0
+
 class Logger:
     def __init__(self, log_file):
         self.log_file = log_file
@@ -43,52 +68,55 @@ class Logger:
         except Exception:
             pass
 
-def get_existing_ids(base_dir):
-    existing = set()
-    
-    # 1. Investigations
+def index_existing_data(base_dir):
+    """
+    Builds lookup indexes for existing data to enable O(1) matching:
+    - inbox_url_map: normalized_url -> filepath
+    - inbox_slug_map: slug -> filepath
+    - investigation_urls: set of normalized_urls
+    """
+    inbox_url_map = {}
+    inbox_slug_map = {}
+    investigation_urls = set()
+
+    # 1. Investigations (Verified Portfolios)
     inv_dir = os.path.join(base_dir, "investigations")
     if os.path.exists(inv_dir):
         for d in os.listdir(inv_dir):
-            existing.add(d.lower())
             meta_path = os.path.join(inv_dir, d, "metadata.json")
             if os.path.exists(meta_path):
                 try:
                     with open(meta_path, "r", encoding="utf-8") as f:
                         m = json.load(f)
-                        if "target_repo" in m: existing.add(m["target_repo"].lower())
-                        if "source_url" in m: existing.add(m["source_url"].lower())
+                        if "target_repo" in m:
+                            investigation_urls.add(normalize_url(m["target_repo"]))
+                        if "source_url" in m:
+                            investigation_urls.add(normalize_url(m["source_url"]))
+                        for s in m.get("sources", []):
+                            if "url" in s:
+                                investigation_urls.add(normalize_url(s["url"]))
                 except Exception:
                     pass
 
-    # 2. Inbox
+    # 2. Inbox Items
     inbox_dir = os.path.join(base_dir, "inbox")
     if os.path.exists(inbox_dir):
         for f in os.listdir(inbox_dir):
-            if f.endswith(".json"):
-                existing.add(f.replace(".json", "").lower())
+            if f.endswith(".json") and not f.startswith("_"):
+                fpath = os.path.join(inbox_dir, f)
                 try:
-                    with open(os.path.join(inbox_dir, f), "r", encoding="utf-8") as fp:
+                    with open(fpath, "r", encoding="utf-8") as fp:
                         m = json.load(fp)
-                        if "source_url" in m: existing.add(m["source_url"].lower())
+                        surl = normalize_url(m.get("source_url", ""))
+                        if surl:
+                            inbox_url_map[surl] = fpath
+                        title = m.get("title", "")
+                        if title:
+                            inbox_slug_map[slugify(title)] = fpath
                 except Exception:
                     pass
 
-    # 3. Promoted Archive
-    p_dir = os.path.join(base_dir, "inbox", "_promoted")
-    if os.path.exists(p_dir):
-        for f in os.listdir(p_dir):
-            if f.endswith(".json"):
-                existing.add(f.replace(".json", "").lower())
-
-    # 4. Rejected Archive
-    rej_dir = os.path.join(base_dir, "inbox", "_rejected")
-    if os.path.exists(rej_dir):
-        for f in os.listdir(rej_dir):
-            if f.endswith(".json"):
-                existing.add(f.replace(".json", "").lower())
-
-    return existing
+    return inbox_url_map, inbox_slug_map, investigation_urls
 
 def fetch_json(url, headers=None, timeout=12):
     if headers is None:
@@ -130,27 +158,40 @@ def harvest_all():
     logger = Logger(log_file)
 
     logger.log("=======================================================")
-    logger.log("🚀 Multi-Source Trend Harvester Job (v5.5) Started")
+    logger.log("🚀 Multi-Source Trend Harvester Job (v6.0 - 3-Step Pipeline) Started")
     logger.log("=======================================================")
 
-    # Load Persona
+    # Load Persona Config
     persona_path = os.path.join(base_dir, "configs", "user_persona_alignment.json")
     persona_config = {}
     if os.path.exists(persona_path):
         with open(persona_path, "r", encoding="utf-8") as f:
             persona_config = json.load(f)
 
-    existing_set = get_existing_ids(base_dir)
-    logger.log(f"[*] Loaded {len(existing_set)} existing IDs to guarantee 100% deduplication.")
+    # Index Existing Data (O(1) lookups)
+    inbox_url_map, inbox_slug_map, investigation_urls = index_existing_data(base_dir)
+    logger.log(f"[*] Indexed {len(inbox_url_map)} existing inbox items & {len(investigation_urls)} verified portfolio URLs.")
 
     harvest_report = {
         "timestamp": datetime.datetime.now().isoformat(),
         "date": today_str,
         "sources": {},
-        "summary": {"total_fetched": 0, "new_saved": 0, "duplicates_skipped": 0, "errors": 0}
+        "summary": {"total_fetched": 0, "updated_count": 0, "new_saved": 0, "duplicates_skipped": 0, "errors": 0}
     }
 
+    # =========================================================================
+    # STEP 1: INGEST ALL DATA (NO PREMATURE FILTERING)
+    # =========================================================================
     all_candidates = []
+    seen_urls_this_run = set()
+
+    def add_candidate(cand):
+        nurl = normalize_url(cand.get("source_url", ""))
+        if nurl and nurl not in seen_urls_this_run:
+            seen_urls_this_run.add(nurl)
+            all_candidates.append(cand)
+            return True
+        return False
 
     # 1. Hugging Face Models Trending
     hf_start = time.time()
@@ -162,24 +203,27 @@ def harvest_all():
             for item in hf_data:
                 mid = item.get("id", "")
                 url = f"https://huggingface.co/{mid}"
-                if mid and url.lower() not in existing_set:
-                    all_candidates.append({
+                score = round(item.get('trendingScore', 0), 1)
+                downloads = item.get('downloads', 0)
+                likes = item.get('likes', 0)
+                if mid:
+                    added = add_candidate({
                         "title": f"HuggingFace Model: {mid}",
                         "source_platform": "Hugging Face Models",
                         "source_url": url,
                         "type": "repo",
-                        "description": f"Trending Score: {item.get('trendingScore', 0)}, Downloads: {item.get('downloads', 0)}, Pipeline: {item.get('pipeline_tag', 'N/A')}",
-                        "viral_metric": f"Trending {item.get('trendingScore', 0)} pts"
+                        "description": f"Trending Score: {score}, Downloads: {downloads}, Likes: {likes}, Pipeline: {item.get('pipeline_tag', 'N/A')}",
+                        "viral_metric": f"Trending {score} pts (❤️ {likes})"
                     })
-                    count += 1
+                    if added: count += 1
         harvest_report["sources"]["hf_models"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - hf_start, 2)}
-        logger.log(f"[+] Hugging Face Models: {count} new items extracted in {time.time() - hf_start:.2f}s")
+        logger.log(f"[+] Hugging Face Models: {count} candidates ingested in {time.time() - hf_start:.2f}s")
     except Exception as e:
         harvest_report["sources"]["hf_models"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - hf_start, 2)}
         logger.log(f"[!] Hugging Face Models Failed: {e}", level="ERROR")
         harvest_report["summary"]["errors"] += 1
 
-    # 2. Hugging Face Spaces (인터랙티브 데모 및 신기술 실시간 체험관)
+    # 2. Hugging Face Spaces (Interactive Demos)
     spaces_start = time.time()
     try:
         logger.log("[*] Fetching Hugging Face Trending Spaces (limit=25)...")
@@ -191,8 +235,8 @@ def harvest_all():
                 url = f"https://huggingface.co/spaces/{sid}"
                 sdk = item.get("sdk", "gradio")
                 likes = item.get("likes", 0)
-                if sid and url.lower() not in existing_set:
-                    all_candidates.append({
+                if sid:
+                    added = add_candidate({
                         "title": f"HF Space: {sid}",
                         "source_platform": "Hugging Face Spaces (Demo)",
                         "source_url": url,
@@ -200,9 +244,9 @@ def harvest_all():
                         "description": f"Interactive AI Demo (SDK: {sdk}) | Likes: {likes} | Live URL: {url}",
                         "viral_metric": f"❤️ {likes} Likes (Trending Demo)"
                     })
-                    count += 1
+                    if added: count += 1
         harvest_report["sources"]["hf_spaces"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - spaces_start, 2)}
-        logger.log(f"[+] Hugging Face Spaces: {count} new interactive demo items extracted in {time.time() - spaces_start:.2f}s")
+        logger.log(f"[+] Hugging Face Spaces: {count} interactive demo candidates ingested in {time.time() - spaces_start:.2f}s")
     except Exception as e:
         harvest_report["sources"]["hf_spaces"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - spaces_start, 2)}
         logger.log(f"[!] Hugging Face Spaces Failed: {e}", level="ERROR")
@@ -221,18 +265,20 @@ def harvest_all():
                 rname = item.get("full_name", "")
                 url = item.get("html_url", "")
                 desc = item.get("description", "") or "No description"
-                if rname and url.lower() not in existing_set:
-                    all_candidates.append({
+                stars = item.get('stargazers_count', 0)
+                forks = item.get('forks_count', 0)
+                if rname:
+                    added = add_candidate({
                         "title": f"GitHub: {rname}",
                         "source_platform": "GitHub Official",
                         "source_url": url,
                         "type": "repo",
-                        "description": f"Stars: {item.get('stargazers_count', 0)}, Forks: {item.get('forks_count', 0)} | {desc}",
-                        "viral_metric": f"★ {item.get('stargazers_count', 0)} Stars"
+                        "description": f"Stars: {stars}, Forks: {forks} | {desc}",
+                        "viral_metric": f"★ {stars} Stars"
                     })
-                    count += 1
+                    if added: count += 1
         harvest_report["sources"]["github"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - gh_start, 2)}
-        logger.log(f"[+] GitHub Search: {count} new items extracted in {time.time() - gh_start:.2f}s")
+        logger.log(f"[+] GitHub Search: {count} repo candidates ingested in {time.time() - gh_start:.2f}s")
     except Exception as e:
         harvest_report["sources"]["github"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - gh_start, 2)}
         logger.log(f"[!] GitHub Search Failed: {e}", level="ERROR")
@@ -245,7 +291,6 @@ def harvest_all():
         hn_top_ids = fetch_json("https://hacker-news.firebaseio.com/v0/topstories.json") or []
         hn_best_ids = fetch_json("https://hacker-news.firebaseio.com/v0/beststories.json") or []
         
-        # Merge unique story IDs
         combined_ids = []
         seen_sids = set()
         for sid in list(hn_top_ids[:40]) + list(hn_best_ids[:40]):
@@ -270,24 +315,23 @@ def harvest_all():
                     title_lower = title.lower()
                     
                     if any(kw in title_lower for kw in hn_keywords):
-                        if url.lower() not in existing_set:
-                            score = story.get("score", 0)
-                            descendants = story.get("descendants", 0)
-                            all_candidates.append({
-                                "title": f"Hacker News: {title}",
-                                "source_platform": "Hacker News",
-                                "source_url": url,
-                                "type": "repo" if "github.com" in url else "sns",
-                                "category_type": "NEWS" if not "github.com" in url else "REPO",
-                                "description": f"HN Score: {score} pts | Comments: {descendants} | {title}",
-                                "viral_metric": f"🔥 {score} HN Points"
-                            })
-                            count += 1
+                        score = story.get("score", 0)
+                        descendants = story.get("descendants", 0)
+                        added = add_candidate({
+                            "title": f"Hacker News: {title}",
+                            "source_platform": "Hacker News",
+                            "source_url": url,
+                            "type": "repo" if "github.com" in url else "sns",
+                            "category_type": "NEWS" if not "github.com" in url else "REPO",
+                            "description": f"HN Score: {score} pts | Comments: {descendants} | {title}",
+                            "viral_metric": f"🔥 {score} HN Points"
+                        })
+                        if added: count += 1
             except Exception:
                 continue
 
         harvest_report["sources"]["hacker_news"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - hn_start, 2)}
-        logger.log(f"[+] Hacker News: {count} new AI/Tech items extracted in {time.time() - hn_start:.2f}s")
+        logger.log(f"[+] Hacker News: {count} AI/Tech items ingested in {time.time() - hn_start:.2f}s")
     except Exception as e:
         harvest_report["sources"]["hacker_news"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - hn_start, 2)}
         logger.log(f"[!] Hacker News Failed: {e}", level="ERROR")
@@ -308,18 +352,17 @@ def harvest_all():
                 title = title_elem.text.strip().replace("\n", " ")
                 url = id_elem.text.strip()
                 summary = summary_elem.text.strip().replace("\n", " ")[:200] if summary_elem is not None else ""
-                if url.lower() not in existing_set:
-                    all_candidates.append({
-                        "title": f"ArXiv: {title}",
-                        "source_platform": "ArXiv Preprint",
-                        "source_url": url,
-                        "type": "repo",
-                        "description": f"Abstract: {summary}...",
-                        "viral_metric": "ArXiv Primary Paper"
-                    })
-                    count += 1
+                added = add_candidate({
+                    "title": f"ArXiv: {title}",
+                    "source_platform": "ArXiv Preprint",
+                    "source_url": url,
+                    "type": "repo",
+                    "description": f"Abstract: {summary}...",
+                    "viral_metric": "ArXiv Primary Paper"
+                })
+                if added: count += 1
         harvest_report["sources"]["arxiv"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - arxiv_start, 2)}
-        logger.log(f"[+] ArXiv: {count} new items extracted in {time.time() - arxiv_start:.2f}s")
+        logger.log(f"[+] ArXiv: {count} papers ingested in {time.time() - arxiv_start:.2f}s")
     except Exception as e:
         harvest_report["sources"]["arxiv"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - arxiv_start, 2)}
         logger.log(f"[!] ArXiv Failed: {e}", level="ERROR")
@@ -338,8 +381,8 @@ def harvest_all():
                 pdata = post.get("data", {})
                 title = pdata.get("title", "")
                 url = f"https://reddit.com{pdata.get('permalink', '')}"
-                if not pdata.get("stickied", False) and url.lower() not in existing_set:
-                    all_candidates.append({
+                if not pdata.get("stickied", False):
+                    added = add_candidate({
                         "title": f"Reddit: {title}",
                         "source_platform": "Reddit r/LocalLLaMA",
                         "source_url": url,
@@ -347,47 +390,34 @@ def harvest_all():
                         "description": f"Upvotes: {pdata.get('score', 0)}, Comments: {pdata.get('num_comments', 0)}",
                         "viral_metric": f"{pdata.get('score', 0)} Upvotes"
                     })
-                    count += 1
+                    if added: count += 1
         harvest_report["sources"]["reddit"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - reddit_start, 2)}
-        logger.log(f"[+] Reddit: {count} new items extracted in {time.time() - reddit_start:.2f}s")
+        logger.log(f"[+] Reddit: {count} items ingested in {time.time() - reddit_start:.2f}s")
     except Exception as e:
         harvest_report["sources"]["reddit"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - reddit_start, 2)}
         logger.log(f"[!] Reddit Note: {e}", level="WARNING")
 
-def extract_metric_number(text):
-    if not text: return 0
-    m_k = re.search(r'([\d\.]+)\s*[kK]', text)
-    if m_k:
-        try:
-            return int(float(m_k.group(1)) * 1000)
-        except Exception:
-            pass
-    m_num = re.search(r'([\d,]+)', text)
-    if m_num:
-        try:
-            return int(m_num.group(1).replace(',', ''))
-        except Exception:
-            pass
-    return 0
+    logger.log(f"[*] Step 1 Complete: Total {len(all_candidates)} candidates fetched from all channels.")
 
-    # Deduplicate and save into inbox/
+    # =========================================================================
+    # STEP 2: UPDATE EXISTING ITEMS (METRIC 갱신 & DELTA 계산)
+    # =========================================================================
+    updated_count = 0
     new_saved = 0
     dup_skipped = 0
+
     for cand in all_candidates:
+        norm_url = normalize_url(cand["source_url"])
         slug = slugify(cand["title"])
-        case_id = f"{today_str}_{cand['type']}_{slug}"
         current_val = extract_metric_number(cand.get("viral_metric", ""))
 
-        # If already exists, update dynamic metrics (Stars / Likes / HN Points)
-        found_inbox_file = None
-        for fn in os.listdir(inbox_dir):
-            if fn.endswith(".json") and slug in fn.lower():
-                found_inbox_file = os.path.join(inbox_dir, fn)
-                break
+        # Check if exists in inbox by URL or Slug
+        target_inbox_file = inbox_url_map.get(norm_url) or inbox_slug_map.get(slug)
 
-        if found_inbox_file and os.path.exists(found_inbox_file):
+        if target_inbox_file and os.path.exists(target_inbox_file):
+            # UPDATE EXISTING ITEM
             try:
-                with open(found_inbox_file, "r", encoding="utf-8") as fp:
+                with open(target_inbox_file, "r", encoding="utf-8") as fp:
                     old_item = json.load(fp)
 
                 old_tracking = old_item.get("metric_tracking")
@@ -413,21 +443,32 @@ def extract_metric_number(text):
                 old_tracking["delta"] = delta
                 old_tracking["delta_display"] = f"+{delta:,}" if delta > 0 else (f"{delta:,}" if delta < 0 else "0")
                 old_tracking["growth_rate_pct"] = delta_pct
-                old_tracking["is_spiking"] = delta >= 100 or delta_pct >= 50.0
+                old_tracking["is_spiking"] = delta >= 50 or delta_pct >= 30.0
 
                 old_item["metric_tracking"] = old_tracking
                 old_item["description"] = cand["description"]
                 old_item["viral_metric"] = cand["viral_metric"]
                 old_item["updated_at"] = today_str
 
-                with open(found_inbox_file, "w", encoding="utf-8") as fp:
+                with open(target_inbox_file, "w", encoding="utf-8") as fp:
                     json.dump(old_item, fp, indent=2, ensure_ascii=False)
-            except Exception:
-                pass
+
+                updated_count += 1
+            except Exception as e:
+                logger.log(f"[!] Failed to update {target_inbox_file}: {e}", level="ERROR")
+            continue
+
+        # Check if already verified in investigations (Do not duplicate verified portfolios)
+        if norm_url in investigation_urls:
             dup_skipped += 1
             continue
 
-        if case_id.lower() in existing_set:
+        # =========================================================================
+        # STEP 3: DEDUPLICATE & SAVE BRAND NEW ITEMS
+        # =========================================================================
+        case_id = f"{today_str}_{cand['type']}_{slug}"
+        save_path = os.path.join(inbox_dir, f"{case_id}.json")
+        if os.path.exists(save_path):
             dup_skipped += 1
             continue
 
@@ -467,18 +508,25 @@ def extract_metric_number(text):
             "status": "PENDING_REVIEW"
         }
 
-        save_path = os.path.join(inbox_dir, f"{case_id}.json")
         with open(save_path, "w", encoding="utf-8") as f:
             json.dump(inbox_item, f, indent=2, ensure_ascii=False)
-        existing_set.add(case_id.lower())
+
+        # Update in-memory index
+        inbox_url_map[norm_url] = save_path
+        inbox_slug_map[slug] = save_path
         new_saved += 1
 
     harvest_report["summary"]["total_fetched"] = len(all_candidates)
+    harvest_report["summary"]["updated_count"] = updated_count
     harvest_report["summary"]["new_saved"] = new_saved
     harvest_report["summary"]["duplicates_skipped"] = dup_skipped
 
     logger.log(f"=======================================================")
-    logger.log(f"🎯 Harvester Finished: {new_saved} new items saved, {dup_skipped} duplicates skipped.")
+    logger.log(f"🎯 Harvester Finished Successfully:")
+    logger.log(f"    - Total Candidates Ingested: {len(all_candidates)}")
+    logger.log(f"    - Existing Items Updated (Upsert): {updated_count}")
+    logger.log(f"    - Novel Items Saved: {new_saved}")
+    logger.log(f"    - Duplicates / Verified Skipped: {dup_skipped}")
     logger.log(f"=======================================================")
 
     # Update logs/harvest_history.json

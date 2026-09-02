@@ -1,5 +1,48 @@
 [
   {
+    "timestamp": "2026-09-02T12:30:54.368016",
+    "date": "2026-09-02",
+    "sources": {
+      "hf_models": {
+        "status": "SUCCESS",
+        "items_found": 30,
+        "duration_sec": 0.37
+      },
+      "hf_spaces": {
+        "status": "SUCCESS",
+        "items_found": 25,
+        "duration_sec": 0.27
+      },
+      "github": {
+        "status": "SUCCESS",
+        "items_found": 30,
+        "duration_sec": 0.77
+      },
+      "hacker_news": {
+        "status": "SUCCESS",
+        "items_found": 22,
+        "duration_sec": 30.04
+      },
+      "arxiv": {
+        "status": "SUCCESS",
+        "items_found": 20,
+        "duration_sec": 0.32
+      },
+      "reddit": {
+        "status": "ERROR",
+        "error": "HTTP Error 403: Blocked",
+        "duration_sec": 0.32
+      }
+    },
+    "summary": {
+      "total_fetched": 127,
+      "updated_count": 94,
+      "new_saved": 33,
+      "duplicates_skipped": 0,
+      "errors": 0
+    }
+  },
+  {
     "timestamp": "2026-09-01T17:01:02.981261",
     "date": "2026-09-01",
     "sources": {
@@ -1213,48 +1256,6 @@
     "summary": {
       "total_fetched": 3,
       "new_saved": 3,
-      "duplicates_skipped": 0,
-      "errors": 0
-    }
-  },
-  {
-    "timestamp": "2026-08-31T17:17:44.108443",
-    "date": "2026-08-31",
-    "sources": {
-      "hf_models": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.06
-      },
-      "hf_spaces": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.02
-      },
-      "github": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 0.77
-      },
-      "hacker_news": {
-        "status": "SUCCESS",
-        "items_found": 1,
-        "duration_sec": 2.23
-      },
-      "arxiv": {
-        "status": "SUCCESS",
-        "items_found": 0,
-        "duration_sec": 2.15
-      },
-      "reddit": {
-        "status": "ERROR",
-        "error": "HTTP Error 403: Blocked",
-        "duration_sec": 0.09
-      }
-    },
-    "summary": {
-      "total_fetched": 1,
-      "new_saved": 1,
       "duplicates_skipped": 0,
       "errors": 0
     }
