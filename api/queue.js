@@ -43,12 +43,22 @@ module.exports = async (req, res) => {
             inbox_id, 
             title, 
             COALESCE(raw_payload->>'title_ko', title) as title_ko,
+            COALESCE(raw_payload->>'title_en', title) as title_en,
+            COALESCE(raw_payload->>'title_zh', title) as title_zh,
             description, 
             COALESCE(raw_payload->>'description_ko', description) as description_ko,
+            COALESCE(raw_payload->>'description_en', description) as description_en,
+            COALESCE(raw_payload->>'description_zh', description) as description_zh,
             source_platform, 
             source_url, 
             viral_metric, 
             harvested_date, 
+            COALESCE(raw_payload->'ai_enrichment', null) as ai_enrichment,
+            COALESCE(raw_payload->'multilingual', null) as multilingual,
+            COALESCE(raw_payload->>'source_lang', 'EN') as source_lang,
+            COALESCE(raw_payload->>'programming_lang', 'General') as programming_lang,
+            COALESCE(raw_payload->>'hook', null) as hook,
+            COALESCE(raw_payload->'related_dossier', null) as related_dossier,
             'NEWS' as category_type
           FROM raw_trends_inbox
           WHERE item_type = 'news' OR source_platform IN ('Hacker News', 'Reddit', 'AI News Feed')
@@ -68,8 +78,12 @@ module.exports = async (req, res) => {
             inbox_id, 
             title, 
             COALESCE(raw_payload->>'title_ko', title) as title_ko,
+            COALESCE(raw_payload->>'title_en', title) as title_en,
+            COALESCE(raw_payload->>'title_zh', title) as title_zh,
             description, 
             COALESCE(raw_payload->>'description_ko', description) as description_ko,
+            COALESCE(raw_payload->>'description_en', description) as description_en,
+            COALESCE(raw_payload->>'description_zh', description) as description_zh,
             source_platform, 
             source_url, 
             COALESCE(raw_payload->>'creator', 'Community') as creator,
@@ -77,11 +91,20 @@ module.exports = async (req, res) => {
             COALESCE(raw_payload->>'variant_role', 'Standard') as variant_role,
             COALESCE(raw_payload->'detected_formats', '[]'::jsonb) as detected_formats,
             COALESCE(raw_payload->'audit_risk', '{"hype_risk_score": 15, "risk_level": "LOW_RISK"}'::jsonb) as audit_risk,
+            COALESCE(raw_payload->'ai_enrichment', null) as ai_enrichment,
+            COALESCE(raw_payload->'multilingual', null) as multilingual,
+            COALESCE(raw_payload->'metric_tracking', null) as metric_tracking,
+            COALESCE(raw_payload->>'source_lang', 'EN') as source_lang,
+            COALESCE(raw_payload->>'programming_lang', 'General') as programming_lang,
+            COALESCE(raw_payload->>'hook', null) as hook,
+            COALESCE(raw_payload->>'hook_ko', null) as hook_ko,
+            COALESCE(raw_payload->>'hook_en', null) as hook_en,
+            COALESCE(raw_payload->>'hook_zh', null) as hook_zh,
+            COALESCE(raw_payload->'related_dossier', null) as related_dossier,
             triage_status as status, 
             harvested_date, 
-            item_type as category_type
+            COALESCE(raw_payload->>'category_type', item_type) as category_type
           FROM raw_trends_inbox
-          WHERE item_type != 'news'
           ORDER BY harvested_date DESC, created_at DESC;
         `);
         return res.status(200).json({

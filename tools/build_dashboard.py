@@ -611,6 +611,67 @@ def generate_html(data):
         </div>
       </div>
 
+      <!-- 🎛️ Multi-Tier Interactive Filter Toolbar (검색창 위쪽 복합 필터 바) -->
+      <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-2.5">
+        <!-- Row 1: Source Language (원문 언어) -->
+        <div class="flex items-center gap-2 flex-wrap text-xs">
+          <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
+            🌐 원문 언어:
+          </span>
+          <div class="flex items-center gap-1.5 flex-wrap" id="filterLangRow">
+            <button onclick="setInboxLangFilter('ALL')" data-lang-val="ALL" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">전체 언어</button>
+            <button onclick="setInboxLangFilter('KO')" data-lang-val="KO" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🇰🇷 한국어 (KO)</button>
+            <button onclick="setInboxLangFilter('EN')" data-lang-val="EN" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🇬🇧 영어 (EN)</button>
+            <button onclick="setInboxLangFilter('ZH')" data-lang-val="ZH" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🇨🇳 중국어 (ZH)</button>
+          </div>
+        </div>
+
+        <!-- Row 2: 4-Tier Classification (4대 기술 분류) -->
+        <div class="flex items-center gap-2 flex-wrap text-xs pt-2 border-t border-surface-border/60">
+          <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
+            🏷️ 기술 분류:
+          </span>
+          <div class="flex items-center gap-1.5 flex-wrap" id="filterTypeRow">
+            <button onclick="setInboxTypeFilter('ALL')" data-type-val="ALL" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">전체 분류</button>
+            <button onclick="setInboxTypeFilter('TECH')" data-type-val="TECH" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">⚡ 신기술/아키텍처</button>
+            <button onclick="setInboxTypeFilter('AGENT')" data-type-val="AGENT" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🦾 AI 에이전트</button>
+            <button onclick="setInboxTypeFilter('MODEL')" data-type-val="MODEL" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🤖 AI 모델 발표</button>
+            <button onclick="setInboxTypeFilter('NEWS')" data-type-val="NEWS" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">📰 업계 동향/뉴스</button>
+          </div>
+        </div>
+
+        <!-- Row 3: Programming Language (프로그래밍 언어) -->
+        <div class="flex items-center gap-2 flex-wrap text-xs pt-2 border-t border-surface-border/60">
+          <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
+            💻 기술 스택:
+          </span>
+          <div class="flex items-center gap-1.5 flex-wrap" id="filterTechRow">
+            <button onclick="setInboxTechFilter('ALL')" data-tech-val="ALL" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">전체 스택</button>
+            <button onclick="setInboxTechFilter('Python')" data-tech-val="Python" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🐍 Python</button>
+            <button onclick="setInboxTechFilter('Rust')" data-tech-val="Rust" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🦀 Rust</button>
+            <button onclick="setInboxTechFilter('TypeScript')" data-tech-val="TypeScript" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">📘 TypeScript / JS</button>
+            <button onclick="setInboxTechFilter('CUDA')" data-tech-val="CUDA" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">⚡ CUDA / C++</button>
+            <button onclick="setInboxTechFilter('General')" data-tech-val="General" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌐 General / 기타</button>
+          </div>
+        </div>
+
+        <!-- Row 4: Platform Sources (수집 출처) -->
+        <div class="flex items-center gap-2 flex-wrap text-xs pt-2 border-t border-surface-border/60">
+          <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
+            📡 수집 출처:
+          </span>
+          <div class="flex items-center gap-1.5 flex-wrap" id="filterPlatformRow">
+            <button onclick="setInboxSourceFilter('ALL')" data-src-val="ALL" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">전체 출처</button>
+            <button onclick="setInboxSourceFilter('GeekNews')" data-src-val="GeekNews" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🇰🇷 GeekNews</button>
+            <button onclick="setInboxSourceFilter('Hacker News')" data-src-val="Hacker News" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🔥 Hacker News</button>
+            <button onclick="setInboxSourceFilter('GitHub')" data-src-val="GitHub" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🐙 GitHub</button>
+            <button onclick="setInboxSourceFilter('ArXiv')" data-src-val="ArXiv" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">📄 ArXiv</button>
+            <button onclick="setInboxSourceFilter('Hugging Face')" data-src-val="Hugging Face" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🤗 Hugging Face</button>
+            <button onclick="setInboxSourceFilter('Blog')" data-src-val="Blog" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌍 Tech Blogs</button>
+          </div>
+        </div>
+      </div>
+
       <!-- Clean Inbox Controls -->
       <div class="bg-white p-3.5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-3 border border-surface-border shadow-sm">
         <div class="flex items-center gap-2.5 w-full md:w-auto">
@@ -1193,7 +1254,30 @@ def generate_html(data):
         if (resInbox.ok) {{
           const inData = await resInbox.json();
           if (inData.success && inData.items && inData.items.length > 0) {{
-            liveInboxData = inData.items;
+            const staticMap = new Map();
+            inboxData.forEach(item => staticMap.set(item.inbox_id, item));
+
+            liveInboxData = inData.items.map(dbItem => {{
+              const staticItem = staticMap.get(dbItem.inbox_id);
+              if (staticItem) {{
+                return {{
+                  ...staticItem,
+                  ...dbItem,
+                  ai_enrichment: dbItem.ai_enrichment || staticItem.ai_enrichment,
+                  multilingual: dbItem.multilingual || staticItem.multilingual,
+                  hook: dbItem.hook || staticItem.hook,
+                  hook_ko: dbItem.hook_ko || staticItem.hook_ko,
+                  hook_en: dbItem.hook_en || staticItem.hook_en,
+                  hook_zh: dbItem.hook_zh || staticItem.hook_zh,
+                  title_ko: dbItem.title_ko || staticItem.title_ko,
+                  title_en: dbItem.title_en || staticItem.title_en,
+                  title_zh: dbItem.title_zh || staticItem.title_zh,
+                  related_dossier: dbItem.related_dossier || staticItem.related_dossier,
+                  metric_tracking: dbItem.metric_tracking || staticItem.metric_tracking
+                }};
+              }}
+              return dbItem;
+            }});
             renderInbox();
           }}
         }}
@@ -1202,7 +1286,25 @@ def generate_html(data):
         if (resNews.ok) {{
           const newsData = await resNews.json();
           if (newsData.success && newsData.news && newsData.news.length > 0) {{
-            liveNewsData = newsData.news;
+            const staticNewsMap = new Map();
+            if (typeof newsItems !== 'undefined') {{
+              newsItems.forEach(item => staticNewsMap.set(item.inbox_id, item));
+            }}
+
+            liveNewsData = newsData.news.map(dbItem => {{
+              const staticItem = staticNewsMap.get(dbItem.inbox_id);
+              if (staticItem) {{
+                return {{
+                  ...staticItem,
+                  ...dbItem,
+                  ai_enrichment: dbItem.ai_enrichment || staticItem.ai_enrichment,
+                  multilingual: dbItem.multilingual || staticItem.multilingual,
+                  hook: dbItem.hook || staticItem.hook,
+                  related_dossier: dbItem.related_dossier || staticItem.related_dossier
+                }};
+              }}
+              return dbItem;
+            }});
             renderNews();
           }}
         }}
@@ -1765,10 +1867,58 @@ def generate_html(data):
       renderInbox();
     }}
 
+    let currentInboxLang = 'ALL';
+    let currentInboxType = 'ALL';
+    let currentInboxTech = 'ALL';
+
+    function setInboxLangFilter(lang) {{
+      currentInboxLang = lang;
+      document.querySelectorAll('.inbox-filter-pill').forEach(btn => {{
+        if (btn.dataset.langVal === lang) {{
+          btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+        }} else {{
+          btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+      renderInbox();
+    }}
+
+    function setInboxTypeFilter(typeVal) {{
+      currentInboxType = typeVal;
+      document.querySelectorAll('.inbox-type-pill').forEach(btn => {{
+        if (btn.dataset.typeVal === typeVal) {{
+          btn.className = 'inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+        }} else {{
+          btn.className = 'inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+      renderInbox();
+    }}
+
+    function setInboxTechFilter(tech) {{
+      currentInboxTech = tech;
+      document.querySelectorAll('.inbox-tech-pill').forEach(btn => {{
+        if (btn.dataset.techVal === tech) {{
+          btn.className = 'inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+        }} else {{
+          btn.className = 'inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+      renderInbox();
+    }}
+
     function setInboxSourceFilter(src) {{
       currentInboxSource = src;
       const sel = document.getElementById('inboxSourceSelect');
       if (sel && sel.value !== src) sel.value = src;
+
+      document.querySelectorAll('.inbox-src-pill').forEach(btn => {{
+        if (btn.dataset.srcVal === src) {{
+          btn.className = 'inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+        }} else {{
+          btn.className = 'inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
       renderInbox();
     }}
 
@@ -1783,12 +1933,28 @@ def generate_html(data):
       const t = i18n[currentLang];
 
       const filtered = liveInboxData.filter(item => {{
+        const ai = item.ai_enrichment;
+
+        // 1. 수집 플랫폼 매칭
         const matchesSrc = currentInboxSource === 'ALL' || (item.source_platform && item.source_platform.includes(currentInboxSource));
-        // 특정 소스(GeekNews, Blog 등) 선택 시에는 category_type 제한 없이 100% 표출
-        const allowCategory = currentInboxSource !== 'ALL' ? true : (item.category_type !== 'NEWS');
-        const text = (item.title + ' ' + (item.title_ko || '') + ' ' + (item.description || '') + ' ' + (item.model_family || '') + ' ' + (item.variant_role || '')).toLowerCase();
+
+        // 2. 원문 언어 매칭 (KO, EN, ZH)
+        const itemLang = (ai ? ai.source_lang : null) || item.source_lang || 'EN';
+        const matchesLang = currentInboxLang === 'ALL' || itemLang === currentInboxLang;
+
+        // 3. 4대 기술 분류 매칭 (TECH, AGENT, MODEL, NEWS)
+        const itemType = (ai ? ai.type_classification : null) || item.category_type || 'TECH';
+        const matchesType = currentInboxType === 'ALL' || itemType === currentInboxType;
+
+        // 4. 기술 스택/프로그래밍 언어 매칭
+        const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || 'General';
+        const matchesTech = currentInboxTech === 'ALL' || (itemTech.toLowerCase().includes(currentInboxTech.toLowerCase()));
+
+        // 5. 검색어 매칭
+        const text = (item.title + ' ' + (item.title_ko || '') + ' ' + (item.title_en || '') + ' ' + (item.title_zh || '') + ' ' + (item.description || '') + ' ' + (item.model_family || '') + ' ' + (item.variant_role || '') + ' ' + (item.hook || '')).toLowerCase();
         const matchesSearch = text.includes(inboxSearchQuery.toLowerCase());
-        return allowCategory && matchesSrc && matchesSearch;
+
+        return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
       }});
 
       if (filtered.length === 0) {{

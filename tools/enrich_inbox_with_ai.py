@@ -158,6 +158,35 @@ def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> list:
 
     # Model Fallback Loop
     for model_name in MODEL_POOL:
+        is_gemma = "gemma" in model_name.lower()
+
+        # 🌟 User Insight: Gemma models perform best with 1-by-1 single item calls to ensure 100% schema accuracy
+        if is_gemma and len(clean_batch) > 1:
+            print(f"  [*] Gemma model '{model_name}' detected: auto-splitting batch into single items for 100% precision...")
+            gemma_results = []
+            try:
+                for s_item in clean_batch:
+                    s_payload = {
+                        "contents": [{"parts": [{"text": system_prompt + "\n\n분석할 단일 항목:\n" + json.dumps([s_item], ensure_ascii=False)}]}],
+                        "generationConfig": {"responseMimeType": "application/json", "temperature": 0.2}
+                    }
+                    s_url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
+                    s_req = urllib.request.Request(s_url, data=json.dumps(s_payload).encode("utf-8"), headers={"Content-Type": "application/json"})
+                    with urllib.request.urlopen(s_req, timeout=30) as resp:
+                        d = json.loads(resp.read().decode("utf-8"))
+                        txt = d["candidates"][0]["content"]["parts"][0]["text"]
+                        parsed_single = json.loads(txt)
+                        if isinstance(parsed_single, list):
+                            gemma_results.extend(parsed_single)
+                        else:
+                            gemma_results.append(parsed_single)
+                    time.sleep(1)
+                print(f"  [+] Responded by model '{model_name}' (1-by-1 single mode) successfully.")
+                return gemma_results
+            except Exception as e:
+                print(f"  [-] Gemma single call failed: {e}. Falling back...")
+                continue
+
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
         req = urllib.request.Request(
             url,
