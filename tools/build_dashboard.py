@@ -1622,23 +1622,45 @@ def generate_html(data):
         const ai = it.ai_enrichment;
         let aiBadgeHtml = '';
         let aiSummaryHtml = '';
+        let hookHtml = '';
+        let relatedHtml = '';
 
         if (ai) {{
           const tagBg = ai.worth_investigating === 'HIGH' ? 'bg-orange-50 text-orange-950 border-orange-200' : 'bg-indigo-50 text-indigo-950 border-indigo-200';
+          const typeLabels = {{
+            'MODEL': '🤖 모델 발표',
+            'AGENT': '🦾 에이전트',
+            'TECH': '⚡ 신기술/엔지니어링',
+            'NEWS': '📰 업계 동향'
+          }};
+          const typeBadge = typeLabels[ai.type_classification] || '💡 기술';
+
           aiBadgeHtml = `
             <div class="flex items-center gap-1.5 flex-wrap my-1">
               <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{tagBg}}">
-                ${{ai.recommended_tag || '💡 추천'}} ★${{ai.score || '4.0'}}
+                ${{ai.recommended_tag || '💡 추천'}} ★${{ai.score || ai.worth_score || '4.0'}}
               </span>
-              <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-surface-subtle text-ink-primary border border-surface-border">
-                🏷️ ${{ai.category || '기술'}}
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-900 border border-indigo-200">
+                ${{typeBadge}}
               </span>
+              ${{ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${{ai.programming_lang}}</span>` : ''}}
+              ${{ai.source_lang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">${{ai.source_lang}}</span>` : ''}}
             </div>
           `;
 
+          const hookText = ai.hook || it.hook;
+          if (hookText) {{
+            hookHtml = `
+              <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5">
+                <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
+                <span>${{hookText}}</span>
+              </div>
+            `;
+          }}
+
           if (ai.key_takeaways && ai.key_takeaways.length > 0) {{
             aiSummaryHtml = `
-              <div class="mt-2.5 p-3 rounded-xl bg-gradient-to-br from-indigo-50/50 via-sky-50/40 to-purple-50/50 border border-indigo-100 text-[11px] space-y-1.5">
+              <div class="p-3 rounded-xl bg-gradient-to-br from-indigo-50/50 via-sky-50/40 to-purple-50/50 border border-indigo-100 text-[11px] space-y-1.5">
                 <div class="flex items-center gap-1 text-indigo-950 font-bold text-[10px]">
                   <i data-lucide="sparkles" class="w-3 h-3 text-indigo-600"></i>
                   <span>AI 3줄 핵심 요약</span>
@@ -1649,6 +1671,20 @@ def generate_html(data):
               </div>
             `;
           }}
+        }}
+
+        if (it.related_dossier) {{
+          relatedHtml = `
+            <div class="pt-2 border-t border-surface-border">
+              <button onclick="openCaseModal('${{it.related_dossier.case_id}}')" class="w-full text-left px-2.5 py-1.5 rounded-lg bg-indigo-50/70 hover:bg-indigo-100/80 border border-indigo-200/80 text-[11px] text-indigo-950 font-semibold flex items-center justify-between transition">
+                <span class="flex items-center gap-1.5">
+                  <i data-lucide="link-2" class="w-3.5 h-3.5 text-indigo-600"></i>
+                  <span>관련 팩트체크: ${{it.related_dossier.target_tech}}</span>
+                </span>
+                <i data-lucide="arrow-right" class="w-3 h-3 text-indigo-400"></i>
+              </button>
+            </div>
+          `;
         }}
 
         card.innerHTML = `
@@ -1666,11 +1702,14 @@ def generate_html(data):
               ${{displayTitle}}
             </h3>
 
+            ${{hookHtml}}
+
             <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
               ${{displayDesc}}
             </p>
 
             ${{aiSummaryHtml}}
+            ${{relatedHtml}}
           </div>
 
           <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
@@ -1795,6 +1834,41 @@ def generate_html(data):
               linkHtml = `<a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="text-[11px] text-ink-secondary hover:text-ink-primary flex items-center gap-0.5 shrink-0 font-medium">${{currentLang === 'KO' ? '원문' : (currentLang === 'ZH' ? '原文' : 'Source')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
             }}
 
+            const ai = it.ai_enrichment;
+            let subHookHtml = '';
+            let subBadgeHtml = '';
+            let subRelatedHtml = '';
+            if (ai) {{
+              const tagBg = ai.worth_investigating === 'HIGH' ? 'bg-orange-50 text-orange-950 border-orange-200' : 'bg-indigo-50 text-indigo-950 border-indigo-200';
+              subBadgeHtml = `
+                <div class="flex items-center gap-1 flex-wrap my-0.5">
+                  <span class="px-1.5 py-0.2 rounded text-[9px] font-bold border ${{tagBg}}">
+                    ${{ai.recommended_tag || '💡 추천'}} ★${{ai.score || ai.worth_score || '4.0'}}
+                  </span>
+                  ${{ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${{ai.programming_lang}}</span>` : ''}}
+                </div>
+              `;
+              const hk = ai.hook || it.hook;
+              if (hk) {{
+                subHookHtml = `
+                  <div class="p-2 rounded-lg bg-amber-50/70 border border-amber-200/80 text-[10px] text-amber-950 leading-relaxed font-sans">
+                    <span class="font-bold text-amber-800">🪝 Hook:</span> ${{hk}}
+                  </div>
+                `;
+              }}
+            }}
+            if (it.related_dossier) {{
+              subRelatedHtml = `
+                <button onclick="openCaseModal('${{it.related_dossier.case_id}}')" class="w-full text-left px-2 py-1 rounded bg-indigo-50/70 hover:bg-indigo-100 text-[10px] text-indigo-950 font-semibold flex items-center justify-between transition border border-indigo-200/70">
+                  <span class="flex items-center gap-1">
+                    <i data-lucide="link-2" class="w-3 h-3 text-indigo-600"></i>
+                    <span>관련 팩트체크: ${{it.related_dossier.target_tech}}</span>
+                  </span>
+                  <i data-lucide="arrow-right" class="w-2.5 h-2.5 text-indigo-400"></i>
+                </button>
+              `;
+            }}
+
             subItemsHtml += `
               <div class="bg-surface-subtle p-4 rounded-xl border border-surface-border flex flex-col justify-between space-y-3 hover:border-ink-primary transition">
                 <div class="space-y-2">
@@ -1805,7 +1879,11 @@ def generate_html(data):
                     </span>
                   </div>
 
+                  ${{subBadgeHtml}}
+
                   <h4 class="font-bold text-xs text-ink-primary line-clamp-2 leading-relaxed">${{displayTitle}}</h4>
+
+                  ${{subHookHtml}}
 
                   <!-- 🌟 Dynamic Metric Tracking (Created vs Updated) -->
                   <div class="p-2 rounded-lg bg-white border border-surface-border text-[10px] space-y-1 font-mono">
@@ -1903,19 +1981,41 @@ def generate_html(data):
               const ai = it.ai_enrichment;
               let aiBadgeHtml = '';
               let aiSummaryHtml = '';
+              let hookHtml = '';
+              let relatedHtml = '';
 
               if (ai) {{
                 const tagBg = ai.worth_investigating === 'HIGH' ? 'bg-orange-50 text-orange-950 border-orange-200' : 'bg-indigo-50 text-indigo-950 border-indigo-200';
+                const typeLabels = {{
+                  'MODEL': '🤖 모델 발표',
+                  'AGENT': '🦾 에이전트',
+                  'TECH': '⚡ 신기술/엔지니어링',
+                  'NEWS': '📰 업계 동향'
+                }};
+                const typeBadge = typeLabels[ai.type_classification] || '💡 기술';
+
                 aiBadgeHtml = `
                   <div class="flex items-center gap-1.5 flex-wrap my-1">
                     <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{tagBg}}">
-                      ${{ai.recommended_tag || '💡 추천'}} ★${{ai.score || '4.0'}}
+                      ${{ai.recommended_tag || '💡 추천'}} ★${{ai.score || ai.worth_score || '4.0'}}
                     </span>
-                    <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-surface-subtle text-ink-primary border border-surface-border">
-                      🏷️ ${{ai.category || '기술'}}
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-900 border border-indigo-200">
+                      ${{typeBadge}}
                     </span>
+                    ${{ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${{ai.programming_lang}}</span>` : ''}}
+                    ${{ai.source_lang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">${{ai.source_lang}}</span>` : ''}}
                   </div>
                 `;
+
+                const hookText = ai.hook || it.hook;
+                if (hookText) {{
+                  hookHtml = `
+                    <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5">
+                      <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
+                      <span>${{hookText}}</span>
+                    </div>
+                  `;
+                }}
 
                 if (ai.key_takeaways && ai.key_takeaways.length > 0) {{
                   aiSummaryHtml = `
@@ -1930,6 +2030,20 @@ def generate_html(data):
                     </div>
                   `;
                 }}
+              }}
+
+              if (it.related_dossier) {{
+                relatedHtml = `
+                  <div class="pt-2 border-t border-surface-border">
+                    <button onclick="openCaseModal('${{it.related_dossier.case_id}}')" class="w-full text-left px-2.5 py-1.5 rounded-lg bg-indigo-50/70 hover:bg-indigo-100/80 border border-indigo-200/80 text-[11px] text-indigo-950 font-semibold flex items-center justify-between transition">
+                      <span class="flex items-center gap-1.5">
+                        <i data-lucide="link-2" class="w-3.5 h-3.5 text-indigo-600"></i>
+                        <span>관련 팩트체크: ${{it.related_dossier.target_tech}}</span>
+                      </span>
+                      <i data-lucide="arrow-right" class="w-3 h-3 text-indigo-400"></i>
+                    </button>
+                  </div>
+                `;
               }}
 
               const card = document.createElement('div');
@@ -1950,11 +2064,14 @@ def generate_html(data):
                     ${{displayTitle}}
                   </h3>
 
+                  ${{hookHtml}}
+
                   <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
                     ${{displayDesc}}
                   </p>
 
                   ${{aiSummaryHtml}}
+                  ${{relatedHtml}}
 
                   <!-- 🌟 Dynamic Metric Tracking (Created vs Updated) -->
                   <div class="p-2.5 rounded-xl bg-surface-subtle border border-surface-border text-[11px] space-y-1 font-mono">
