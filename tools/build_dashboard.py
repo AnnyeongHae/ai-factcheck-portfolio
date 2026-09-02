@@ -1560,6 +1560,24 @@ def generate_html(data):
         const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
         const displayDesc = currentLang === 'KO' && it.description_ko ? it.description_ko : (it.description || '');
 
+        const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
+        const hnUrl = it.hn_url || ((it.source_url || '').includes('news.ycombinator.com') ? it.source_url : null);
+        const articleUrl = it.article_url || (it.source_url !== hnUrl ? it.source_url : null);
+
+        let linksHtml = '';
+        if (isHn) {{
+          linksHtml = `<div class="flex items-center gap-1.5">`;
+          if (articleUrl && articleUrl !== hnUrl) {{
+            linksHtml += `<a href="${{articleUrl}}" target="_blank" class="px-2 py-1 rounded bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1">📄 ${{currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+          }}
+          if (hnUrl) {{
+            linksHtml += `<a href="${{hnUrl}}" target="_blank" class="px-2 py-1 rounded bg-orange-50 text-orange-800 hover:text-orange-950 border border-orange-200 text-[11px] font-bold flex items-center gap-1">🔥 ${{currentLang === 'KO' ? 'HN 토론' : (currentLang === 'ZH' ? 'HN 讨论' : 'HN Thread')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+          }}
+          linksHtml += `</div>`;
+        }} else {{
+          linksHtml = `<a href="${{it.source_url}}" target="_blank" class="text-ink-primary hover:underline font-semibold flex items-center gap-1">${{t.newsOriginalLink}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
+        }}
+
         card.innerHTML = `
           <div class="space-y-2.5">
             <div class="flex items-center justify-between text-xs font-mono">
@@ -1580,9 +1598,7 @@ def generate_html(data):
 
           <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
             <span class="text-ink-muted text-[11px] font-mono">${{it.harvested_date || '2026-09-02'}}</span>
-            <a href="${{it.source_url}}" target="_blank" class="text-ink-primary hover:underline font-semibold flex items-center gap-1">
-              ${{t.newsOriginalLink}} <i data-lucide="external-link" class="w-3 h-3"></i>
-            </a>
+            ${{linksHtml}}
           </div>
         `;
         grid.appendChild(card);
@@ -1672,6 +1688,24 @@ def generate_html(data):
             const deltaDisplay = tracking.delta_display || '+0';
             const isSpike = tracking.is_spiking || false;
 
+            const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
+            const hnUrl = it.hn_url || ((it.source_url || '').includes('news.ycombinator.com') ? it.source_url : null);
+            const articleUrl = it.article_url || (it.source_url !== hnUrl ? it.source_url : null);
+
+            let linkHtml = '';
+            if (isHn) {{
+              linkHtml = `<div class="flex items-center gap-1.5 flex-wrap">`;
+              if (articleUrl && articleUrl !== hnUrl) {{
+                linkHtml += `<a href="${{articleUrl}}" target="_blank" class="text-[10px] text-ink-secondary hover:text-ink-primary flex items-center gap-0.5 font-medium px-1.5 py-0.5 rounded bg-white border border-surface-border">📄 ${{currentLang === 'KO' ? '기사' : (currentLang === 'ZH' ? '原文' : 'Article')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+              }}
+              if (hnUrl) {{
+                linkHtml += `<a href="${{hnUrl}}" target="_blank" class="text-[10px] text-orange-800 hover:text-orange-950 flex items-center gap-0.5 font-bold px-1.5 py-0.5 rounded bg-orange-50 border border-orange-200">🔥 ${{currentLang === 'KO' ? 'HN 토론' : (currentLang === 'ZH' ? 'HN 讨论' : 'HN')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+              }}
+              linkHtml += `</div>`;
+            }} else {{
+              linkHtml = `<a href="${{it.source_url}}" target="_blank" class="text-[11px] text-ink-secondary hover:text-ink-primary flex items-center gap-0.5 shrink-0 font-medium">${{currentLang === 'KO' ? '원문' : (currentLang === 'ZH' ? '原文' : 'Source')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+            }}
+
             subItemsHtml += `
               <div class="bg-surface-subtle p-4 rounded-xl border border-surface-border flex flex-col justify-between space-y-3 hover:border-ink-primary transition">
                 <div class="space-y-2">
@@ -1705,9 +1739,7 @@ def generate_html(data):
                 </div>
 
                 <div class="pt-2.5 border-t border-surface-border flex items-center justify-between gap-2">
-                  <a href="${{it.source_url}}" target="_blank" class="text-[11px] text-ink-secondary hover:text-ink-primary flex items-center gap-0.5 shrink-0 font-medium">
-                    ${{currentLang === 'KO' ? '원문' : (currentLang === 'ZH' ? '原文' : 'Source')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
-                  </a>
+                  ${{linkHtml}}
                   
                   <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
                           class="px-2.5 py-1 rounded-lg text-[10px] font-bold transition flex items-center gap-1 ${{isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-white text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border'}}">
@@ -1717,94 +1749,110 @@ def generate_html(data):
                 </div>
               </div>
             `;
-          }});
+              }});
 
-          groupCard.innerHTML = `
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-surface-border gap-3">
-              <div class="flex items-center gap-2.5 flex-wrap">
-                <span class="px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-primary text-xs font-mono font-bold border border-surface-border flex items-center gap-1">
-                  <i data-lucide="layers" class="w-3.5 h-3.5"></i> Model Family
-                </span>
-                <h3 class="text-base font-bold text-ink-primary">${{famName}}</h3>
-                <span class="text-xs px-2 py-0.5 rounded bg-white text-ink-secondary border border-surface-border font-mono font-bold">${{items.length}}${{currentLang === 'KO' ? '개 파생 모델' : (currentLang === 'ZH' ? ' 个衍生模型' : ' Variants')}}</span>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
-              ${{subItemsHtml}}
-            </div>
-          `;
-          grid.appendChild(groupCard);
-        }});
-      }} else {{
-        filtered.forEach(it => {{
-          const isQueued = queuedItemIds.has(it.inbox_id);
-          const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
-          const displayDesc = currentLang === 'KO' && it.description_ko ? it.description_ko : (it.description || '');
-
-          const tracking = it.metric_tracking || {{}};
-          const initVal = tracking.initial?.display || it.viral_metric || '';
-          const initDate = tracking.initial?.recorded_at || it.created_at || it.harvested_date || '2026-08-31';
-          const latestVal = tracking.latest?.display || it.viral_metric || '';
-          const latestDate = tracking.latest?.updated_at || it.updated_at || it.harvested_date || '2026-09-02';
-          const delta = tracking.delta || 0;
-          const deltaDisplay = tracking.delta_display || '+0';
-
-          const card = document.createElement('div');
-          card.className = 'executive-card p-5 flex flex-col justify-between space-y-3.5';
-
-          card.innerHTML = `
-            <div class="space-y-2.5">
-              <div class="flex items-center justify-between text-xs font-mono">
-                <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[11px]">
-                  ${{it.source_platform || 'Tech Hub'}}
-                </span>
-                <span class="text-ink-muted text-[11px]">${{it.variant_role || 'Standard'}}</span>
-              </div>
-
-              <h3 class="font-bold text-sm text-ink-primary leading-snug">
-                ${{displayTitle}}
-              </h3>
-
-              <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
-                ${{displayDesc}}
-              </p>
-
-              <!-- 🌟 Dynamic Metric Tracking (Created vs Updated) -->
-              <div class="p-2.5 rounded-xl bg-surface-subtle border border-surface-border text-[11px] space-y-1 font-mono">
-                <div class="flex items-center justify-between text-ink-muted">
-                  <span>${{currentLang === 'KO' ? '최초 수집' : (currentLang === 'ZH' ? '首次采集' : 'Created')}} (${{initDate}}):</span>
-                  <span class="font-semibold text-ink-secondary">${{initVal}}</span>
-                </div>
-                <div class="flex items-center justify-between pt-1 border-t border-surface-border">
-                  <span class="text-indigo-950 font-bold">${{currentLang === 'KO' ? '최신 갱신' : (currentLang === 'ZH' ? '最新同步' : 'Latest')}} (${{latestDate}}):</span>
-                  <div class="flex items-center gap-1 font-bold">
-                    <span class="${{delta > 0 ? 'text-emerald-700' : 'text-ink-primary'}}">${{latestVal}}</span>
-                    ${{delta > 0 ? `<span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[10px] border border-emerald-200">${{deltaDisplay}} 🔺</span>` : ''}}
+              groupCard.innerHTML = `
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-surface-border gap-3">
+                  <div class="flex items-center gap-2.5 flex-wrap">
+                    <span class="px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-primary text-xs font-mono font-bold border border-surface-border flex items-center gap-1">
+                      <i data-lucide="layers" class="w-3.5 h-3.5"></i> Model Family
+                    </span>
+                    <h3 class="text-base font-bold text-ink-primary">${{famName}}</h3>
+                    <span class="text-xs px-2 py-0.5 rounded bg-white text-ink-secondary border border-surface-border font-mono font-bold">${{items.length}}${{currentLang === 'KO' ? '개 파생 모델' : (currentLang === 'ZH' ? ' 个衍生模型' : ' Variants')}}</span>
                   </div>
                 </div>
-              </div>
 
-              <div class="text-[11px] text-ink-muted font-mono pt-1">
-                ${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
-              </div>
-            </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                  ${{subItemsHtml}}
+                </div>
+              `;
+              grid.appendChild(groupCard);
+            }});
+          }} else {{
+            filtered.forEach(it => {{
+              const isQueued = queuedItemIds.has(it.inbox_id);
+              const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
+              const displayDesc = currentLang === 'KO' && it.description_ko ? it.description_ko : (it.description || '');
 
-            <div class="pt-3 border-t border-surface-border flex items-center justify-between gap-2">
-              <a href="${{it.source_url}}" target="_blank" class="text-xs text-ink-secondary hover:text-ink-primary flex items-center gap-1 font-medium">
-                ${{currentLang === 'KO' ? '원문 링크' : (currentLang === 'ZH' ? '原文链接' : 'Source Link')}} <i data-lucide="external-link" class="w-3 h-3"></i>
-              </a>
+              const tracking = it.metric_tracking || {{}};
+              const initVal = tracking.initial?.display || it.viral_metric || '';
+              const initDate = tracking.initial?.recorded_at || it.created_at || it.harvested_date || '2026-08-31';
+              const latestVal = tracking.latest?.display || it.viral_metric || '';
+              const latestDate = tracking.latest?.updated_at || it.updated_at || it.harvested_date || '2026-09-02';
+              const delta = tracking.delta || 0;
+              const deltaDisplay = tracking.delta_display || '+0';
 
-              <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
-                      class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${{isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border'}}">
-                <i data-lucide="${{isQueued ? 'check' : 'zap'}}" class="w-3.5 h-3.5"></i>
-                ${{isQueued ? t.inboxQueuedBtn : t.inboxQueueBtn}}
-              </button>
-            </div>
-          `;
-          grid.appendChild(card);
-        }});
-      }}
+              const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
+              const hnUrl = it.hn_url || ((it.source_url || '').includes('news.ycombinator.com') ? it.source_url : null);
+              const articleUrl = it.article_url || (it.source_url !== hnUrl ? it.source_url : null);
+
+              let linkHtml = '';
+              if (isHn) {{
+                linkHtml = `<div class="flex items-center gap-1.5 flex-wrap">`;
+                if (articleUrl && articleUrl !== hnUrl) {{
+                  linkHtml += `<a href="${{articleUrl}}" target="_blank" class="text-xs text-ink-secondary hover:text-ink-primary flex items-center gap-1 font-medium px-2 py-1 rounded bg-surface-subtle border border-surface-border">📄 ${{currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
+                }}
+                if (hnUrl) {{
+                  linkHtml += `<a href="${{hnUrl}}" target="_blank" class="text-xs text-orange-800 hover:text-orange-950 flex items-center gap-1 font-bold px-2 py-1 rounded bg-orange-50 border border-orange-200">🔥 ${{currentLang === 'KO' ? 'HN 토론' : (currentLang === 'ZH' ? 'HN 讨论' : 'HN Thread')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
+                }}
+                linkHtml += `</div>`;
+              }} else {{
+                linkHtml = `<a href="${{it.source_url}}" target="_blank" class="text-xs text-ink-secondary hover:text-ink-primary flex items-center gap-1 font-medium">${{currentLang === 'KO' ? '원문 링크' : (currentLang === 'ZH' ? '原文链接' : 'Source Link')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
+              }}
+
+              const card = document.createElement('div');
+              card.className = 'executive-card p-5 flex flex-col justify-between space-y-3.5';
+
+              card.innerHTML = `
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between text-xs font-mono">
+                    <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[11px]">
+                      ${{it.source_platform || 'Tech Hub'}}
+                    </span>
+                    <span class="text-ink-muted text-[11px]">${{it.variant_role || 'Standard'}}</span>
+                  </div>
+
+                  <h3 class="font-bold text-sm text-ink-primary leading-snug">
+                    ${{displayTitle}}
+                  </h3>
+
+                  <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
+                    ${{displayDesc}}
+                  </p>
+
+                  <!-- 🌟 Dynamic Metric Tracking (Created vs Updated) -->
+                  <div class="p-2.5 rounded-xl bg-surface-subtle border border-surface-border text-[11px] space-y-1 font-mono">
+                    <div class="flex items-center justify-between text-ink-muted">
+                      <span>${{currentLang === 'KO' ? '최초 수집' : (currentLang === 'ZH' ? '首次采集' : 'Created')}} (${{initDate}}):</span>
+                      <span class="font-semibold text-ink-secondary">${{initVal}}</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-1 border-t border-surface-border">
+                      <span class="text-indigo-950 font-bold">${{currentLang === 'KO' ? '최신 갱신' : (currentLang === 'ZH' ? '最新同步' : 'Latest')}} (${{latestDate}}):</span>
+                      <div class="flex items-center gap-1 font-bold">
+                        <span class="${{delta > 0 ? 'text-emerald-700' : 'text-ink-primary'}}">${{latestVal}}</span>
+                        ${{delta > 0 ? `<span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[10px] border border-emerald-200">${{deltaDisplay}} 🔺</span>` : ''}}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="text-[11px] text-ink-muted font-mono pt-1">
+                    ${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-surface-border flex items-center justify-between gap-2">
+                  ${{linkHtml}}
+
+                  <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
+                          class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${{isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border'}}">
+                    <i data-lucide="${{isQueued ? 'check' : 'zap'}}" class="w-3.5 h-3.5"></i>
+                    ${{isQueued ? t.inboxQueuedBtn : t.inboxQueueBtn}}
+                  </button>
+                </div>
+              `;
+              grid.appendChild(card);
+            }});
+          }}
 
       lucide.createIcons();
     }}

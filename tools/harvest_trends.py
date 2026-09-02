@@ -182,10 +182,26 @@ def harvest_all():
     # =========================================================================
     # STEP 1: INGEST ALL DATA (NO PREMATURE FILTERING)
     # =========================================================================
-    all_candidates = []
-    seen_urls_this_run = set()
+    def validate_candidate(cand):
+        url = cand.get("source_url", "").strip()
+        if not url or not url.startswith("http"):
+            return False
+        # Reject generic root domains
+        if url.rstrip('/') in ["https://news.ycombinator.com", "https://github.com", "https://huggingface.co"]:
+            return False
+        # Reject invalid HN IDs
+        if "news.ycombinator.com/item?id=" in url:
+            if not re.search(r'item\?id=\d+', url):
+                return False
+        # Reject invalid GitHub repo paths
+        if "github.com" in url:
+            if not re.search(r'github\.com/[\w\.-]+/[\w\.-]+', url):
+                return False
+        return True
 
     def add_candidate(cand):
+        if not validate_candidate(cand):
+            return False
         nurl = normalize_url(cand.get("source_url", ""))
         if nurl and nurl not in seen_urls_this_run:
             seen_urls_this_run.add(nurl)
@@ -311,7 +327,8 @@ def harvest_all():
                 story = fetch_json(f"https://hacker-news.firebaseio.com/v0/item/{sid}.json", timeout=6)
                 if story and "title" in story and story.get("type") == "story":
                     title = story.get("title", "")
-                    url = story.get("url", f"https://news.ycombinator.com/item?id={sid}")
+                    hn_discussion_url = f"https://news.ycombinator.com/item?id={sid}"
+                    article_url = story.get("url") or hn_discussion_url
                     title_lower = title.lower()
                     
                     if any(kw in title_lower for kw in hn_keywords):
@@ -320,9 +337,11 @@ def harvest_all():
                         added = add_candidate({
                             "title": f"Hacker News: {title}",
                             "source_platform": "Hacker News",
-                            "source_url": url,
-                            "type": "repo" if "github.com" in url else "sns",
-                            "category_type": "NEWS" if not "github.com" in url else "REPO",
+                            "source_url": hn_discussion_url,
+                            "hn_url": hn_discussion_url,
+                            "article_url": article_url,
+                            "type": "repo" if "github.com" in article_url else "sns",
+                            "category_type": "NEWS" if not "github.com" in article_url else "REPO",
                             "description": f"HN Score: {score} pts | Comments: {descendants} | {title}",
                             "viral_metric": f"🔥 {score} HN Points"
                         })
@@ -331,7 +350,7 @@ def harvest_all():
                 continue
 
         harvest_report["sources"]["hacker_news"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - hn_start, 2)}
-        logger.log(f"[+] Hacker News: {count} AI/Tech items ingested in {time.time() - hn_start:.2f}s")
+        logger.log(f"[+] Hacker News: {count} verified AI/Tech items ingested in {time.time() - hn_start:.2f}s")
     except Exception as e:
         harvest_report["sources"]["hacker_news"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - hn_start, 2)}
         logger.log(f"[!] Hacker News Failed: {e}", level="ERROR")
