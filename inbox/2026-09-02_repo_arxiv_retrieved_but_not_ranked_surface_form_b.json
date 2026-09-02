@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_retrieved_but_not_ranked_surface_form_b",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "RAG & Information Retrieval",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Embedding Retrieval",
+      "Surface-Form Bias",
+      "Structural Retrieval"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "ArXiv: 검색되었으나 순위가 매겨지지 않음: 구조적 검색에서의 표면형 편향",
+        "hook": "의미는 같지만 표면 표현이 다른 구조적 검색(RAG)의 치명적인 편향 문제를 해결하는 연구입니다.",
+        "key_takeaways": [
+          "임베딩 검색 시 표면형과 의미를 의도적으로 분리하여 평가 수행",
+          "수학부터 에이전트 궤적까지 다양한 도메인에서 구조적 편향 분석",
+          "고급 RAG 및 에이전트 검색 시스템의 정확도 개선을 위한 필수 연구"
+        ]
+      },
+      "en": {
+        "title": "ArXiv: Retrieved but not ranked: surface-form bias in structural retrieval",
+        "hook": "Examine surface-form bias in embedding retrieval to build more robust structural RAG systems.",
+        "key_takeaways": [
+          "Evaluates embedding retrieval by deliberately decoupling surface form and meaning",
+          "Analyzes structural bias across diverse domains from mathematics to agent trajectories",
+          "Essential reading for improving precision in advanced RAG and agent retrieval pipelines"
+        ]
+      },
+      "zh": {
+        "title": "ArXiv：检索但未排序：结构化检索中的表层形式偏差",
+        "hook": "剖析嵌入检索中语义与表层形式脱节的偏差问题，优化 RAG 与智能体检索架构。",
+        "key_takeaways": [
+          "通过故意剥离表层形式与真实语义来评估嵌入检索性能",
+          "跨数学与智能体轨迹等不同领域深入分析结构化偏差",
+          "提升高阶 RAG 及智能体系统检索准确率的必读前沿论文"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T07:29:33.438843+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Embedding Retrieval",
+    "Surface-Form Bias",
+    "Structural Retrieval"
+  ],
+  "title_ko": "ArXiv: 검색되었으나 순위가 매겨지지 않음: 구조적 검색에서의 표면형 편향",
+  "title_en": "ArXiv: Retrieved but not ranked: surface-form bias in structural retrieval",
+  "title_zh": "ArXiv：检索但未排序：结构化检索中的表层形式偏差",
+  "hook": "의미는 같지만 표면 표현이 다른 구조적 검색(RAG)의 치명적인 편향 문제를 해결하는 연구입니다.",
+  "hook_ko": "의미는 같지만 표면 표현이 다른 구조적 검색(RAG)의 치명적인 편향 문제를 해결하는 연구입니다.",
+  "hook_en": "Examine surface-form bias in embedding retrieval to build more robust structural RAG systems.",
+  "hook_zh": "剖析嵌入检索中语义与表层形式脱节的偏差问题，优化 RAG 与智能体检索架构。",
+  "description_ko": "의미는 같지만 표면 표현이 다른 구조적 검색(RAG)의 치명적인 편향 문제를 해결하는 연구입니다.",
+  "description_en": "Examine surface-form bias in embedding retrieval to build more robust structural RAG systems.",
+  "description_zh": "剖析嵌入检索中语义与表层形式脱节的偏差问题，优化 RAG 与智能体检索架构。"
 }
