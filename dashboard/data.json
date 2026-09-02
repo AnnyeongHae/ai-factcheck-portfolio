@@ -2,9 +2,9 @@
   "generated_at": "2026-09-02",
   "total_cases": 21,
   "models_total_count": 61,
-  "news_total_count": 49,
+  "news_total_count": 50,
   "inbox_total_count": 176,
-  "all_inbox_count": 286,
+  "all_inbox_count": 287,
   "admin_stats": {
     "endpoints": [
       {
@@ -39,6 +39,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-02T08:19:48.996038",
+        "date": "2026-09-02",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.21
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.15
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.76
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 23,
+            "duration_sec": 14.23
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.27
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.13
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.72
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.19
+          }
+        },
+        "summary": {
+          "total_fetched": 163,
+          "updated_count": 162,
+          "new_saved": 1,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-02T08:10:54.593210",
         "date": "2026-09-02",
@@ -1456,99 +1509,57 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-01T02:41:57.221357",
-        "date": "2026-09-01",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.1
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.05
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.63
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 1.89
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.07
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.04
-          }
-        },
-        "summary": {
-          "total_fetched": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-02T08:10:54.593210",
+      "timestamp": "2026-09-02T08:19:48.996038",
       "date": "2026-09-02",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.27
+          "duration_sec": 0.21
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.16
+          "duration_sec": 0.15
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 1.11
+          "duration_sec": 0.76
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 22,
-          "duration_sec": 12.08
+          "items_found": 23,
+          "duration_sec": 14.23
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.5
+          "duration_sec": 0.27
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.12
+          "duration_sec": 0.13
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.69
+          "duration_sec": 0.72
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.22
+          "duration_sec": 0.19
         }
       },
       "summary": {
-        "total_fetched": 162,
-        "updated_count": 160,
-        "new_saved": 2,
+        "total_fetched": 163,
+        "updated_count": 162,
+        "new_saved": 1,
         "duplicates_skipped": 0,
         "errors": 0
       }
@@ -1763,8 +1774,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49525378",
       "type": "sns",
       "category_type": "MODEL",
-      "description": "HN Score: 1186 pts | Comments: 1109 | Claude Fable 5.1 and Claude Mythos 5.1",
-      "viral_metric": "🔥 1186 HN Points",
+      "description": "HN Score: 1195 pts | Comments: 1116 | Claude Fable 5.1 and Claude Mythos 5.1",
+      "viral_metric": "🔥 1195 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 985,
@@ -1772,13 +1783,13 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 1186,
-          "display": "🔥 1186 HN Points",
+          "value": 1195,
+          "display": "🔥 1195 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 201,
-        "delta_display": "+201",
-        "growth_rate_pct": 20.4,
+        "delta": 210,
+        "delta_display": "+210",
+        "growth_rate_pct": 21.3,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -1897,8 +1908,8 @@
       "source_url": "https://huggingface.co/spaces/multimodalart/h3-acceleration-arena",
       "type": "repo",
       "category_type": "TECH",
-      "description": "Interactive AI Demo (SDK: docker) | Likes: 27 | Live URL: https://huggingface.co/spaces/multimodalart/h3-acceleration-arena",
-      "viral_metric": "❤️ 27 Likes (Trending Demo)",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 28 | Live URL: https://huggingface.co/spaces/multimodalart/h3-acceleration-arena",
+      "viral_metric": "❤️ 28 Likes (Trending Demo)",
       "metric_tracking": {
         "initial": {
           "value": 21,
@@ -1906,14 +1917,14 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 27,
-          "display": "❤️ 27 Likes (Trending Demo)",
+          "value": 28,
+          "display": "❤️ 28 Likes (Trending Demo)",
           "updated_at": "2026-09-02"
         },
-        "delta": 6,
-        "delta_display": "+6",
-        "growth_rate_pct": 28.6,
-        "is_spiking": false
+        "delta": 7,
+        "delta_display": "+7",
+        "growth_rate_pct": 33.3,
+        "is_spiking": true
       },
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
@@ -1990,8 +2001,8 @@
       "source_platform": "Hugging Face Models",
       "source_url": "https://huggingface.co/google/timesfm-3.0-pytorch",
       "type": "repo",
-      "description": "Trending Score: 221, Downloads: 0, Likes: 241, Pipeline: time-series-forecasting",
-      "viral_metric": "Trending 221 pts (❤️ 241)",
+      "description": "Trending Score: 223, Downloads: 0, Likes: 243, Pipeline: time-series-forecasting",
+      "viral_metric": "Trending 223 pts (❤️ 243)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
       ],
@@ -2003,13 +2014,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 221,
-          "display": "Trending 221 pts (❤️ 241)",
+          "value": 223,
+          "display": "Trending 223 pts (❤️ 243)",
           "updated_at": "2026-09-02"
         },
-        "delta": 71,
-        "delta_display": "+71",
-        "growth_rate_pct": 47.3,
+        "delta": 73,
+        "delta_display": "+73",
+        "growth_rate_pct": 48.7,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
@@ -2166,8 +2177,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
       "type": "repo",
-      "description": "Trending Score: 619, Downloads: 4960483, Likes: 13614, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 619 pts (❤️ 13614)",
+      "description": "Trending Score: 618, Downloads: 4960483, Likes: 13614, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 618 pts (❤️ 13614)",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -2195,13 +2206,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 619,
-          "display": "Trending 619 pts (❤️ 13614)",
+          "value": 618,
+          "display": "Trending 618 pts (❤️ 13614)",
           "updated_at": "2026-09-02"
         },
-        "delta": -130,
-        "delta_display": "-130",
-        "growth_rate_pct": -17.4,
+        "delta": -131,
+        "delta_display": "-131",
+        "growth_rate_pct": -17.5,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -2636,8 +2647,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-GGUF",
       "type": "repo",
-      "description": "Trending Score: 131, Downloads: 254529, Likes: 642, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 131 pts (❤️ 642)",
+      "description": "Trending Score: 131, Downloads: 254529, Likes: 643, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 131 pts (❤️ 643)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2666,7 +2677,7 @@
         },
         "latest": {
           "value": 131,
-          "display": "Trending 131 pts (❤️ 642)",
+          "display": "Trending 131 pts (❤️ 643)",
           "updated_at": "2026-09-02"
         },
         "delta": -8,
@@ -2684,8 +2695,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-FP8",
       "type": "repo",
-      "description": "Trending Score: 123, Downloads: 316128, Likes: 1353, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 123 pts (❤️ 1353)",
+      "description": "Trending Score: 123, Downloads: 316128, Likes: 1354, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 123 pts (❤️ 1354)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2714,7 +2725,7 @@
         },
         "latest": {
           "value": 123,
-          "display": "Trending 123 pts (❤️ 1353)",
+          "display": "Trending 123 pts (❤️ 1354)",
           "updated_at": "2026-09-02"
         },
         "delta": -43,
@@ -2732,8 +2743,8 @@
       "source_platform": "Hugging Face Models",
       "source_url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
       "type": "repo",
-      "description": "Trending Score: 1780, Downloads: 441348, Likes: 1902, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 1780 pts (❤️ 1902)",
+      "description": "Trending Score: 1780, Downloads: 441348, Likes: 1903, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 1780 pts (❤️ 1903)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2747,7 +2758,7 @@
         },
         "latest": {
           "value": 1780,
-          "display": "Trending 1780 pts (❤️ 1902)",
+          "display": "Trending 1780 pts (❤️ 1903)",
           "updated_at": "2026-09-02"
         },
         "delta": 91,
@@ -2765,8 +2776,8 @@
       "source_platform": "Hugging Face Models",
       "source_url": "https://huggingface.co/zai-org/GLM-5.3",
       "type": "repo",
-      "description": "Trending Score: 1401, Downloads: 94403, Likes: 1477, Pipeline: text-generation",
-      "viral_metric": "Trending 1401 pts (❤️ 1477)",
+      "description": "Trending Score: 1402, Downloads: 94403, Likes: 1478, Pipeline: text-generation",
+      "viral_metric": "Trending 1402 pts (❤️ 1478)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
       ],
@@ -2778,13 +2789,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1401,
-          "display": "Trending 1401 pts (❤️ 1477)",
+          "value": 1402,
+          "display": "Trending 1402 pts (❤️ 1478)",
           "updated_at": "2026-09-02"
         },
-        "delta": 62,
-        "delta_display": "+62",
-        "growth_rate_pct": 4.6,
+        "delta": 63,
+        "delta_display": "+63",
+        "growth_rate_pct": 4.7,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -2797,8 +2808,8 @@
       "source_platform": "Hugging Face Models",
       "source_url": "https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF",
       "type": "repo",
-      "description": "Trending Score: 667, Downloads: 431339, Likes: 685, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 667 pts (❤️ 685)",
+      "description": "Trending Score: 667, Downloads: 431339, Likes: 686, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 667 pts (❤️ 686)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2821,7 +2832,7 @@
         },
         "latest": {
           "value": 667,
-          "display": "Trending 667 pts (❤️ 685)",
+          "display": "Trending 667 pts (❤️ 686)",
           "updated_at": "2026-09-02"
         },
         "delta": 54,
@@ -2871,8 +2882,8 @@
       "source_platform": "Hugging Face Models",
       "source_url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
       "type": "repo",
-      "description": "Trending Score: 2263, Downloads: 207941, Likes: 4677, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 2263 pts (❤️ 4677)",
+      "description": "Trending Score: 2251, Downloads: 207941, Likes: 4679, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 2251 pts (❤️ 4679)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -2900,13 +2911,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 2263,
-          "display": "Trending 2263 pts (❤️ 4677)",
+          "value": 2251,
+          "display": "Trending 2251 pts (❤️ 4679)",
           "updated_at": "2026-09-02"
         },
-        "delta": -2013,
-        "delta_display": "-2,013",
-        "growth_rate_pct": -47.1,
+        "delta": -2025,
+        "delta_display": "-2,025",
+        "growth_rate_pct": -47.4,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -3218,8 +3229,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
       "type": "repo",
-      "description": "Trending Score: 184, Downloads: 1276092, Likes: 850, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 184 pts (❤️ 850)",
+      "description": "Trending Score: 183, Downloads: 1276092, Likes: 850, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 183 pts (❤️ 850)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -3247,13 +3258,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 184,
-          "display": "Trending 184 pts (❤️ 850)",
+          "value": 183,
+          "display": "Trending 183 pts (❤️ 850)",
           "updated_at": "2026-09-02"
         },
-        "delta": -24,
-        "delta_display": "-24",
-        "growth_rate_pct": -11.5,
+        "delta": -25,
+        "delta_display": "-25",
+        "growth_rate_pct": -12.0,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -5903,8 +5914,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49531651",
       "type": "sns",
       "category_type": "TECH",
-      "description": "HN Score: 102 pts | Comments: 31 | The Emergent Symbolic Structure of Artificial Neural Networks",
-      "viral_metric": "🔥 102 HN Points",
+      "description": "HN Score: 105 pts | Comments: 31 | The Emergent Symbolic Structure of Artificial Neural Networks",
+      "viral_metric": "🔥 105 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 20,
@@ -5912,13 +5923,13 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 102,
-          "display": "🔥 102 HN Points",
+          "value": 105,
+          "display": "🔥 105 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 82,
-        "delta_display": "+82",
-        "growth_rate_pct": 410.0,
+        "delta": 85,
+        "delta_display": "+85",
+        "growth_rate_pct": 425.0,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -6001,8 +6012,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49529898",
       "type": "sns",
       "category_type": "TECH",
-      "description": "HN Score: 109 pts | Comments: 26 | The efficient frontier of LLM inference",
-      "viral_metric": "🔥 109 HN Points",
+      "description": "HN Score: 110 pts | Comments: 27 | The efficient frontier of LLM inference",
+      "viral_metric": "🔥 110 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 58,
@@ -6010,13 +6021,13 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 109,
-          "display": "🔥 109 HN Points",
+          "value": 110,
+          "display": "🔥 110 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 51,
-        "delta_display": "+51",
-        "growth_rate_pct": 87.9,
+        "delta": 52,
+        "delta_display": "+52",
+        "growth_rate_pct": 89.7,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -6100,8 +6111,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49528895",
       "type": "sns",
       "category_type": "AGENT",
-      "description": "HN Score: 126 pts | Comments: 54 | Show HN: Weedout – Safari extension that hides YouTube AI-labeled videos",
-      "viral_metric": "🔥 126 HN Points",
+      "description": "HN Score: 128 pts | Comments: 57 | Show HN: Weedout – Safari extension that hides YouTube AI-labeled videos",
+      "viral_metric": "🔥 128 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 79,
@@ -6109,13 +6120,13 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 126,
-          "display": "🔥 126 HN Points",
+          "value": 128,
+          "display": "🔥 128 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 47,
-        "delta_display": "+47",
-        "growth_rate_pct": 59.5,
+        "delta": 49,
+        "delta_display": "+49",
+        "growth_rate_pct": 62.0,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -6298,8 +6309,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49528057",
       "type": "sns",
       "category_type": "TECH",
-      "description": "HN Score: 81 pts | Comments: 35 | Show HN: HN Match Maker – Matching \"Who Wants to Be Hired?\" With \"Who's Hiring?\"",
-      "viral_metric": "🔥 81 HN Points",
+      "description": "HN Score: 82 pts | Comments: 35 | Show HN: HN Match Maker – Matching \"Who Wants to Be Hired?\" With \"Who's Hiring?\"",
+      "viral_metric": "🔥 82 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 51,
@@ -6307,13 +6318,13 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 81,
-          "display": "🔥 81 HN Points",
+          "value": 82,
+          "display": "🔥 82 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 30,
-        "delta_display": "+30",
-        "growth_rate_pct": 58.8,
+        "delta": 31,
+        "delta_display": "+31",
+        "growth_rate_pct": 60.8,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -6496,8 +6507,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49529132",
       "type": "sns",
       "category_type": "TECH",
-      "description": "HN Score: 177 pts | Comments: 96 | My local model setup on an M4 Pro Mac Mini",
-      "viral_metric": "🔥 177 HN Points",
+      "description": "HN Score: 179 pts | Comments: 98 | My local model setup on an M4 Pro Mac Mini",
+      "viral_metric": "🔥 179 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 91,
@@ -6505,13 +6516,13 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 177,
-          "display": "🔥 177 HN Points",
+          "value": 179,
+          "display": "🔥 179 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 86,
-        "delta_display": "+86",
-        "growth_rate_pct": 94.5,
+        "delta": 88,
+        "delta_display": "+88",
+        "growth_rate_pct": 96.7,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -8987,8 +8998,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49524447",
       "type": "repo",
       "category_type": "REPO",
-      "description": "HN Score: 200 pts | Comments: 95 | Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac with at ~12 tok/s",
-      "viral_metric": "🔥 200 HN Points",
+      "description": "HN Score: 201 pts | Comments: 95 | Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac with at ~12 tok/s",
+      "viral_metric": "🔥 201 HN Points",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -9000,13 +9011,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 200,
-          "display": "🔥 200 HN Points",
+          "value": 201,
+          "display": "🔥 201 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 193,
-        "delta_display": "+193",
-        "growth_rate_pct": 2757.1,
+        "delta": 194,
+        "delta_display": "+194",
+        "growth_rate_pct": 2771.4,
         "is_spiking": true
       },
       "updated_at": "2026-09-02",
@@ -9053,8 +9064,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/xevrion/breakscale",
       "type": "repo",
-      "description": "Stars: 919, Forks: 84 | Build a system, load it until it breaks, and watch why. A system design simulator for learning distributed systems.",
-      "viral_metric": "★ 919 Stars",
+      "description": "Stars: 920, Forks: 84 | Build a system, load it until it breaks, and watch why. A system design simulator for learning distributed systems.",
+      "viral_metric": "★ 920 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -9066,13 +9077,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 919,
-          "display": "★ 919 Stars",
+          "value": 920,
+          "display": "★ 920 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 167,
-        "delta_display": "+167",
-        "growth_rate_pct": 22.2,
+        "delta": 168,
+        "delta_display": "+168",
+        "growth_rate_pct": 22.3,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
@@ -9117,8 +9128,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/jprx/darwin-vm",
       "type": "repo",
-      "description": "Stars: 905, Forks: 74 | Run iOS/ macOS in Qemu. Virtual iPhone 17, 16, 15, 14, 13, 12 and M5-M1 Apple Si Macs supported.",
-      "viral_metric": "★ 905 Stars",
+      "description": "Stars: 907, Forks: 74 | Run iOS/ macOS in Qemu. Virtual iPhone 17, 16, 15, 14, 13, 12 and M5-M1 Apple Si Macs supported.",
+      "viral_metric": "★ 907 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -9130,13 +9141,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 905,
-          "display": "★ 905 Stars",
+          "value": 907,
+          "display": "★ 907 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 217,
-        "delta_display": "+217",
-        "growth_rate_pct": 31.5,
+        "delta": 219,
+        "delta_display": "+219",
+        "growth_rate_pct": 31.8,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
@@ -9213,8 +9224,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/crmne/fastpotify",
       "type": "repo",
-      "description": "Stars: 1635, Forks: 65 | Spotify, native and fast. One lightweight Rust app for your whole library, local playback, and Spotify Connect on Linux, macOS, and Windows.",
-      "viral_metric": "★ 1635 Stars",
+      "description": "Stars: 1639, Forks: 65 | Spotify, native and fast. One lightweight Rust app for your whole library, local playback, and Spotify Connect on Linux, macOS, and Windows.",
+      "viral_metric": "★ 1639 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -9226,13 +9237,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 1635,
-          "display": "★ 1635 Stars",
+          "value": 1639,
+          "display": "★ 1639 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 876,
-        "delta_display": "+876",
-        "growth_rate_pct": 115.4,
+        "delta": 880,
+        "delta_display": "+880",
+        "growth_rate_pct": 115.9,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
@@ -11410,8 +11421,8 @@
       "source_platform": "Hugging Face Hub",
       "source_url": "https://huggingface.co/moonshotai/Kimi-K3",
       "type": "repo",
-      "description": "Trending Score: 103, Downloads: 2783061, Likes: 11133, Pipeline: image-text-to-text",
-      "viral_metric": "Trending 103 pts (❤️ 11133)",
+      "description": "Trending Score: 102, Downloads: 2783061, Likes: 11133, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 102 pts (❤️ 11133)",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -11439,13 +11450,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 103,
-          "display": "Trending 103 pts (❤️ 11133)",
+          "value": 102,
+          "display": "Trending 102 pts (❤️ 11133)",
           "updated_at": "2026-09-02"
         },
-        "delta": -13,
-        "delta_display": "-13",
-        "growth_rate_pct": -11.2,
+        "delta": -14,
+        "delta_display": "-14",
+        "growth_rate_pct": -12.1,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -11791,8 +11802,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/XiaoDuoYa/codex-with-chatgpt",
       "type": "repo",
-      "description": "Stars: 2198, Forks: 222 | ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.",
-      "viral_metric": "★ 2198 Stars",
+      "description": "Stars: 2199, Forks: 222 | ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.",
+      "viral_metric": "★ 2199 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -11819,12 +11830,12 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 2198,
-          "display": "★ 2198 Stars",
+          "value": 2199,
+          "display": "★ 2199 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 621,
-        "delta_display": "+621",
+        "delta": 622,
+        "delta_display": "+622",
         "growth_rate_pct": 39.4,
         "is_spiking": true
       },
@@ -11838,7 +11849,7 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/wide-trace/open-higgsfield",
       "type": "repo",
-      "description": "Stars: 1220, Forks: 20 | A studio for image and video generation — one prompt bar, each model’s own settings, and every finished run in one gallery.",
+      "description": "Stars: 1220, Forks: 19 | A studio for image and video generation — one prompt bar, each model’s own settings, and every finished run in one gallery.",
       "viral_metric": "★ 1220 Stars",
       "matched_user_domains": [
         "생성형 마케팅 & GEO/SEO 최적화"
@@ -12273,8 +12284,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/sapientinc/PRAXIST",
       "type": "repo",
-      "description": "Stars: 6632, Forks: 550 | Autonomous research system for measurable, computer-executable research.",
-      "viral_metric": "★ 6632 Stars",
+      "description": "Stars: 6638, Forks: 550 | Autonomous research system for measurable, computer-executable research.",
+      "viral_metric": "★ 6638 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -12301,13 +12312,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 6632,
-          "display": "★ 6632 Stars",
+          "value": 6638,
+          "display": "★ 6638 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 1818,
-        "delta_display": "+1,818",
-        "growth_rate_pct": 37.8,
+        "delta": 1824,
+        "delta_display": "+1,824",
+        "growth_rate_pct": 37.9,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -12428,8 +12439,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/nateherkai/scroll-craft",
       "type": "repo",
-      "description": "Stars: 1450, Forks: 229 | Claude Code skill for premium scroll-driven websites. Scroll becomes the timeline, on a real design floor, verified by screenshotting its own scroll.",
-      "viral_metric": "★ 1450 Stars",
+      "description": "Stars: 1451, Forks: 229 | Claude Code skill for premium scroll-driven websites. Scroll becomes the timeline, on a real design floor, verified by screenshotting its own scroll.",
+      "viral_metric": "★ 1451 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -12456,13 +12467,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1450,
-          "display": "★ 1450 Stars",
+          "value": 1451,
+          "display": "★ 1451 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 150,
-        "delta_display": "+150",
-        "growth_rate_pct": 11.5,
+        "delta": 151,
+        "delta_display": "+151",
+        "growth_rate_pct": 11.6,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -12475,8 +12486,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/Nanako0129/sepia",
       "type": "repo",
-      "description": "Stars: 1384, Forks: 82 | De-AI writing skill for any Agent Skills-compatible agent (77+ via the Skills CLI), with native plugins for Claude Code, Codex, Grok Build, and Antigravity. Narrative-architecture repair for fiction, venue-matched rules for professional prose. Based on StoryScope (arXiv:2604.03136).",
-      "viral_metric": "★ 1384 Stars",
+      "description": "Stars: 1383, Forks: 82 | De-AI writing skill for any Agent Skills-compatible agent (77+ via the Skills CLI), with native plugins for Claude Code, Codex, Grok Build, and Antigravity. Narrative-architecture repair for fiction, venue-matched rules for professional prose. Based on StoryScope (arXiv:2604.03136).",
+      "viral_metric": "★ 1383 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -12503,13 +12514,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1384,
-          "display": "★ 1384 Stars",
+          "value": 1383,
+          "display": "★ 1383 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 358,
-        "delta_display": "+358",
-        "growth_rate_pct": 34.9,
+        "delta": 357,
+        "delta_display": "+357",
+        "growth_rate_pct": 34.8,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -12663,8 +12674,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/MengTo/threeui",
       "type": "repo",
-      "description": "Stars: 4948, Forks: 487 | Open-source ThreeUI Community catalog with live interactive components and complete Community source.",
-      "viral_metric": "★ 4948 Stars",
+      "description": "Stars: 4949, Forks: 488 | Open-source ThreeUI Community catalog with live interactive components and complete Community source.",
+      "viral_metric": "★ 4949 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -12691,12 +12702,12 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 4948,
-          "display": "★ 4948 Stars",
+          "value": 4949,
+          "display": "★ 4949 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 236,
-        "delta_display": "+236",
+        "delta": 237,
+        "delta_display": "+237",
         "growth_rate_pct": 5.0,
         "is_spiking": true
       },
@@ -12710,8 +12721,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/kacperkapusciak/goldie",
       "type": "repo",
-      "description": "Stars: 1424, Forks: 126 | ✨ agentic app store previews and screenshots",
-      "viral_metric": "★ 1424 Stars",
+      "description": "Stars: 1430, Forks: 126 | ✨ agentic app store previews and screenshots",
+      "viral_metric": "★ 1430 Stars",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "이커머스 & 커머스 데이터 수집 인프라"
@@ -12739,13 +12750,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1424,
-          "display": "★ 1424 Stars",
+          "value": 1430,
+          "display": "★ 1430 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 565,
-        "delta_display": "+565",
-        "growth_rate_pct": 65.8,
+        "delta": 571,
+        "delta_display": "+571",
+        "growth_rate_pct": 66.5,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -13064,8 +13075,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/cbrock84/headcount",
       "type": "repo",
-      "description": "Stars: 990, Forks: 153 | An agent organization for Claude Code, structured as a company — 15+ departments, 125+ skills, each independently installable.",
-      "viral_metric": "★ 990 Stars",
+      "description": "Stars: 991, Forks: 153 | An agent organization for Claude Code, structured as a company — 15+ departments, 125+ skills, each independently installable.",
+      "viral_metric": "★ 991 Stars",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
       ],
@@ -13092,13 +13103,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 990,
-          "display": "★ 990 Stars",
+          "value": 991,
+          "display": "★ 991 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 235,
-        "delta_display": "+235",
-        "growth_rate_pct": 31.1,
+        "delta": 236,
+        "delta_display": "+236",
+        "growth_rate_pct": 31.3,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
@@ -13253,8 +13264,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/amosblomqvist/learn",
       "type": "repo",
-      "description": "Stars: 1139, Forks: 118 | My AI learning system.",
-      "viral_metric": "★ 1139 Stars",
+      "description": "Stars: 1140, Forks: 118 | My AI learning system.",
+      "viral_metric": "★ 1140 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -13281,13 +13292,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1139,
-          "display": "★ 1139 Stars",
+          "value": 1140,
+          "display": "★ 1140 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 196,
-        "delta_display": "+196",
-        "growth_rate_pct": 20.8,
+        "delta": 197,
+        "delta_display": "+197",
+        "growth_rate_pct": 20.9,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
