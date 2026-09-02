@@ -1199,9 +1199,8 @@ def generate_html(data):
       document.getElementById('heroAuditCount').innerText = t.heroAuditCount;
 
       document.getElementById('promoBannerTitle').innerText = t.promoBannerTitle;
-      document.getElementById('promoCountBadge').innerText = t.promoCountBadge;
-      document.getElementById('promoBannerDesc').innerText = t.promoBannerDesc;
       document.getElementById('promoBtnText').innerText = t.promoBtnText;
+      updatePromotionBanner();
 
       document.getElementById('criteriaTitle').innerText = t.criteriaTitle;
       document.getElementById('criteriaDesc').innerText = t.criteriaDesc;
@@ -1317,7 +1316,48 @@ def generate_html(data):
             renderNews();
           }}
         }}
+
+        // 3. Update Promotion Watch Banner dynamically with real-time alerts
+        updatePromotionBanner();
       }} catch (err) {{}}
+    }}
+
+    function updatePromotionBanner() {{
+      const banner = document.getElementById('promotionWatchBanner');
+      const badge = document.getElementById('promoCountBadge');
+      const desc = document.getElementById('promoBannerDesc');
+      if (!banner || !badge || !desc) return;
+
+      const totalCount = casesData.length;
+      const now = new Date();
+      const recentCases = casesData.filter(c => {{
+        const dStr = c.created_at || c.investigation_date;
+        if (!dStr) return false;
+        const d = new Date(dStr);
+        return !isNaN(d) && (now - d) < (7 * 24 * 3600 * 1000);
+      }});
+
+      if (recentCases.length > 0) {{
+        const latestCase = recentCases[0];
+        const latestTitle = currentLang === 'KO' ? (latestCase.title_ko || latestCase.title) : (currentLang === 'ZH' ? (latestCase.title_zh || latestCase.title) : (latestCase.title_en || latestCase.title));
+        
+        badge.className = 'px-2 py-0.5 rounded bg-emerald-600 text-white font-mono text-[10px] font-bold flex items-center gap-1 shadow-sm';
+        badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> 🔔 ${{recentCases.length}}건 신규 알림`;
+        
+        desc.innerHTML = currentLang === 'KO'
+          ? `최신 검증 포트폴리오: <strong>${{latestTitle}}</strong> 실측 팩트체크가 완료되어 정본에 등재되었습니다. (총 ${{totalCount}}건 검증 완료)`
+          : (currentLang === 'ZH'
+              ? `最新验证案例：<strong>${{latestTitle}}</strong> 实测核查已纳入正本。（共 ${{totalCount}} 项完成验证）`
+              : `Latest Verified Dossier: <strong>${{latestTitle}}</strong> has been officially incorporated. (Total ${{totalCount}} verified)`);
+      }} else {{
+        badge.className = 'px-2 py-0.2 rounded bg-emerald-200/80 text-emerald-900 font-mono text-[10px] font-bold';
+        badge.innerText = `${{totalCount}}건 검증 완료`;
+        desc.innerText = currentLang === 'KO' 
+          ? `바이럴 임계치를 초과하여 유입된 주요 오픈소스 및 모델 후보군 총 ${{totalCount}}건에 대한 심층 실측 벤치마크와 팩트체크가 모두 완료되었습니다.`
+          : (currentLang === 'ZH'
+              ? `对超过热度阈值的 ${{totalCount}} 个开源技术及模型候选已全数完成深入实测基准事实核查。`
+              : `Deep benchmark investigations and fact-checks have been fully concluded for all ${{totalCount}} qualified high-impact candidates.`);
+      }}
     }}
 
     // ================= FILTER & SORT HANDLERS =================

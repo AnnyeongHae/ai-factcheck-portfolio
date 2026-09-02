@@ -24,25 +24,11 @@ if base_dir not in sys.path:
 from tools.db_bridge import get_db_connection, push_factchecks_to_neon
 
 def synthesize_top_candidate():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    inbox_dir = os.path.join(base_dir, "inbox")
-    inv_dir = os.path.join(base_dir, "investigations")
-    
-    # 1. Select top candidate
-    pending_items = []
-    for f in os.listdir(inbox_dir):
-        if f.endswith(".json"):
-            path = os.path.join(inbox_dir, f)
-            try:
-                with open(path, "r", encoding="utf-8") as fp:
-                    it = json.load(fp)
-                    if it.get("status", "PENDING_REVIEW") == "PENDING_REVIEW":
-                        pending_items.append(it)
-            except Exception:
-                pass
-
-    if not pending_items:
-        print("[*] No pending candidates in inbox.")
+    # 🚨 CRITICAL GUARDRAIL: Never auto-promote unverified items to VERIFIED_TRUE without human signoff!
+    if "--force-promote" not in sys.argv:
+        print("[!] SAFEGUARD: Auto-promotion of unverified trends to VERIFIED_TRUE is permanently DISABLED.")
+        print("    All inbox trends must remain in inbox until human investigation or explicit promotion sign-off.")
+        return False
         return False
 
     # Sort by candidate quality (Spaces / Models / GitHub repos preferred)
