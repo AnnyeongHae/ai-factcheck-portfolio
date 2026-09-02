@@ -33,18 +33,64 @@
   "hn_url": "https://news.ycombinator.com/item?id=49517584",
   "hn_id": "49517584",
   "ai_enrichment": {
-    "category": "AI 하드웨어/GPU 인프라",
-    "korean_title": "GPU의 세계: AI 시대를 지배하는 하드웨어 생태계와 인프라 심층 분석",
-    "one_line_summary": "AI 대중화 시대를 받치는 GPU 컴퓨팅의 작동 원리, 아키텍처 및 시장 생태계를 다룬 심층 종합 가이드.",
-    "key_takeaways": [
-      "AI/LLM 연산의 중심이 된 GPU 병렬 처리 아키텍처와 컴퓨팅 효율성 분석",
-      "NVIDIA CUDA 생태계의 독점적 지위와 이를 추격하는 대안 하드웨어/소프트웨어 스택 동향",
-      "개발자 및 엔지니어가 알아야 할 GPU 메모리 병목 현상과 인프라 최적화 인사이트 제공"
+    "id": "2026-09-02_sns_hacker_news_gpu_world",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "category": "GPU 컴퓨팅 & AI 인프라",
+    "programming_lang": "CUDA",
+    "root_keywords": [
+      "GPU",
+      "AI Infrastructure",
+      "CUDA"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_investigating": "HIGH",
-    "score": 4.5
+    "worth_score": 4.6,
+    "multilingual": {
+      "ko": {
+        "title": "GPU 세계: 글로벌 AI 인프라와 하드웨어 생태계의 현주소",
+        "hook": "AI 가속기 시장의 독점 구도와 엔지니어링 최적화의 현실을 다각도로 짚어봅니다.",
+        "key_takeaways": [
+          "GPU 시장의 독점 현황과 대체 하드웨어의 도전 과제 분석",
+          "AI 워크로드 확장에 따른 클러스터 구성 및 하드웨어 비용 문제 진단",
+          "CUDA 생태계 락인을 극복하기 위한 소프트웨어 추상화 계층 트렌드"
+        ]
+      },
+      "en": {
+        "title": "GPU World: The Reality of Modern AI Infrastructure and Hardware Ecosystem",
+        "hook": "A deep dive into GPU monopolies, cluster scaling bottlenecks, and the future of AI hardware.",
+        "key_takeaways": [
+          "Analysis of the GPU hardware landscape and competing accelerator architectures",
+          "Engineering challenges in scaling distributed AI training and inference clusters",
+          "Trends in breaking CUDA lock-in through compiler and software abstractions"
+        ]
+      },
+      "zh": {
+        "title": "GPU世界：当代AI算力基础设施与硬件生态全景",
+        "hook": "深入探讨GPU垄断格局、集群扩展瓶颈以及AI算力基础设施的未来。",
+        "key_takeaways": [
+          "GPU硬件生态现状及新兴加速器架构的突破与挑战分析",
+          "AI大模型训练与推理集群扩展中的工程瓶颈与成本优化",
+          "打破CUDA生态锁定的编译器与软件抽象层演进趋势"
+        ]
+      }
+    }
   },
-  "title_ko": "GPU의 세계: AI 시대를 지배하는 하드웨어 생태계와 인프라 심층 분석",
-  "description_ko": "AI 대중화 시대를 받치는 GPU 컴퓨팅의 작동 원리, 아키텍처 및 시장 생태계를 다룬 심층 종합 가이드."
+  "title_ko": "GPU 세계: 글로벌 AI 인프라와 하드웨어 생태계의 현주소",
+  "description_ko": "AI 가속기 시장의 독점 구도와 엔지니어링 최적화의 현실을 다각도로 짚어봅니다.",
+  "source_lang": "EN",
+  "programming_lang": "CUDA",
+  "root_keywords": [
+    "GPU",
+    "AI Infrastructure",
+    "CUDA"
+  ],
+  "title_en": "GPU World: The Reality of Modern AI Infrastructure and Hardware Ecosystem",
+  "title_zh": "GPU世界：当代AI算力基础设施与硬件生态全景",
+  "hook": "AI 가속기 시장의 독점 구도와 엔지니어링 최적화의 현실을 다각도로 짚어봅니다.",
+  "hook_ko": "AI 가속기 시장의 독점 구도와 엔지니어링 최적화의 현실을 다각도로 짚어봅니다.",
+  "hook_en": "A deep dive into GPU monopolies, cluster scaling bottlenecks, and the future of AI hardware.",
+  "hook_zh": "深入探讨GPU垄断格局、集群扩展瓶颈以及AI算力基础设施的未来。",
+  "description_en": "A deep dive into GPU monopolies, cluster scaling bottlenecks, and the future of AI hardware.",
+  "description_zh": "深入探讨GPU垄断格局、集群扩展瓶颈以及AI算力基础设施的未来。",
+  "category_type": "TECH"
 }

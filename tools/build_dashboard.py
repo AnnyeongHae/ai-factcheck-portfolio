@@ -1587,8 +1587,35 @@ def generate_html(data):
         const card = document.createElement('div');
         card.className = 'executive-card p-5 flex flex-col justify-between space-y-4';
 
-        const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
-        const displayDesc = currentLang === 'KO' && it.description_ko ? it.description_ko : (it.description || '');
+        const ai = it.ai_enrichment;
+        const multi = ai ? ai.multilingual : null;
+        let displayTitle = it.title;
+        let displayDesc = it.description || '';
+        let displayHook = (ai ? ai.hook : '') || it.hook || '';
+        let displayTakeaways = (ai ? ai.key_takeaways : []) || [];
+
+        if (multi) {{
+          if (currentLang === 'KO' && multi.ko) {{
+            displayTitle = multi.ko.title || it.title_ko || displayTitle;
+            displayHook = multi.ko.hook || it.hook_ko || displayHook;
+            displayTakeaways = multi.ko.key_takeaways || displayTakeaways;
+            displayDesc = displayHook || it.description_ko || displayDesc;
+          }} else if (currentLang === 'ZH' && multi.zh) {{
+            displayTitle = multi.zh.title || it.title_zh || displayTitle;
+            displayHook = multi.zh.hook || it.hook_zh || displayHook;
+            displayTakeaways = multi.zh.key_takeaways || displayTakeaways;
+            displayDesc = displayHook || it.description_zh || displayDesc;
+          }} else if (currentLang === 'EN' && multi.en) {{
+            displayTitle = multi.en.title || it.title_en || displayTitle;
+            displayHook = multi.en.hook || it.hook_en || displayHook;
+            displayTakeaways = multi.en.key_takeaways || displayTakeaways;
+            displayDesc = displayHook || it.description_en || displayDesc;
+          }}
+        }} else {{
+          if (currentLang === 'KO' && it.title_ko) displayTitle = it.title_ko;
+          if (currentLang === 'ZH' && it.title_zh) displayTitle = it.title_zh;
+          if (currentLang === 'EN' && it.title_en) displayTitle = it.title_en;
+        }}
 
         const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
         const isGn = (it.source_platform || '').includes('GeekNews') || (it.source_url || '').includes('hada.io');
@@ -1619,7 +1646,6 @@ def generate_html(data):
           linksHtml = `<a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="text-ink-primary hover:underline font-semibold flex items-center gap-1">${{t.newsOriginalLink}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
         }}
 
-        const ai = it.ai_enrichment;
         let aiBadgeHtml = '';
         let aiSummaryHtml = '';
         let hookHtml = '';
@@ -1628,12 +1654,12 @@ def generate_html(data):
         if (ai) {{
           const tagBg = ai.worth_investigating === 'HIGH' ? 'bg-orange-50 text-orange-950 border-orange-200' : 'bg-indigo-50 text-indigo-950 border-indigo-200';
           const typeLabels = {{
-            'MODEL': '🤖 모델 발표',
-            'AGENT': '🦾 에이전트',
-            'TECH': '⚡ 신기술/엔지니어링',
-            'NEWS': '📰 업계 동향'
+            'MODEL': currentLang === 'KO' ? '🤖 모델 발표' : (currentLang === 'ZH' ? '🤖 模型发布' : '🤖 Model'),
+            'AGENT': currentLang === 'KO' ? '🦾 에이전트' : (currentLang === 'ZH' ? '🦾 智能体' : '🦾 Agent'),
+            'TECH': currentLang === 'KO' ? '⚡ 신기술/최적화' : (currentLang === 'ZH' ? '⚡ 新技术/架构' : '⚡ Tech/Arch'),
+            'NEWS': currentLang === 'KO' ? '📰 업계 동향' : (currentLang === 'ZH' ? '📰 行业资讯' : '📰 News')
           }};
-          const typeBadge = typeLabels[ai.type_classification] || '💡 기술';
+          const typeBadge = typeLabels[ai.type_classification] || (currentLang === 'KO' ? '💡 기술' : '💡 Tech');
 
           aiBadgeHtml = `
             <div class="flex items-center gap-1.5 flex-wrap my-1">
@@ -1648,25 +1674,24 @@ def generate_html(data):
             </div>
           `;
 
-          const hookText = ai.hook || it.hook;
-          if (hookText) {{
+          if (displayHook) {{
             hookHtml = `
               <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5">
                 <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
-                <span>${{hookText}}</span>
+                <span>${{displayHook}}</span>
               </div>
             `;
           }}
 
-          if (ai.key_takeaways && ai.key_takeaways.length > 0) {{
+          if (displayTakeaways && displayTakeaways.length > 0) {{
             aiSummaryHtml = `
               <div class="p-3 rounded-xl bg-gradient-to-br from-indigo-50/50 via-sky-50/40 to-purple-50/50 border border-indigo-100 text-[11px] space-y-1.5">
                 <div class="flex items-center gap-1 text-indigo-950 font-bold text-[10px]">
                   <i data-lucide="sparkles" class="w-3 h-3 text-indigo-600"></i>
-                  <span>AI 3줄 핵심 요약</span>
+                  <span>${{currentLang === 'KO' ? 'AI 3줄 핵심 요약' : (currentLang === 'ZH' ? 'AI 3行核心摘要' : 'AI 3-Line Summary')}}</span>
                 </div>
                 <ul class="space-y-1 text-ink-secondary leading-relaxed list-disc list-inside">
-                  ${{ai.key_takeaways.map(k => `<li>${{k}}</li>`).join('')}}
+                  ${{displayTakeaways.map(k => `<li>${{k}}</li>`).join('')}}
                 </ul>
               </div>
             `;
@@ -1938,8 +1963,35 @@ def generate_html(data):
           }} else {{
             filtered.forEach(it => {{
               const isQueued = queuedItemIds.has(it.inbox_id);
-              const displayTitle = currentLang === 'KO' && it.title_ko ? it.title_ko : it.title;
-              const displayDesc = currentLang === 'KO' && it.description_ko ? it.description_ko : (it.description || '');
+              const ai = it.ai_enrichment;
+              const multi = ai ? ai.multilingual : null;
+              let displayTitle = it.title;
+              let displayDesc = it.description || '';
+              let displayHook = (ai ? ai.hook : '') || it.hook || '';
+              let displayTakeaways = (ai ? ai.key_takeaways : []) || [];
+
+              if (multi) {{
+                if (currentLang === 'KO' && multi.ko) {{
+                  displayTitle = multi.ko.title || it.title_ko || displayTitle;
+                  displayHook = multi.ko.hook || it.hook_ko || displayHook;
+                  displayTakeaways = multi.ko.key_takeaways || displayTakeaways;
+                  displayDesc = displayHook || it.description_ko || displayDesc;
+                }} else if (currentLang === 'ZH' && multi.zh) {{
+                  displayTitle = multi.zh.title || it.title_zh || displayTitle;
+                  displayHook = multi.zh.hook || it.hook_zh || displayHook;
+                  displayTakeaways = multi.zh.key_takeaways || displayTakeaways;
+                  displayDesc = displayHook || it.description_zh || displayDesc;
+                }} else if (currentLang === 'EN' && multi.en) {{
+                  displayTitle = multi.en.title || it.title_en || displayTitle;
+                  displayHook = multi.en.hook || it.hook_en || displayHook;
+                  displayTakeaways = multi.en.key_takeaways || displayTakeaways;
+                  displayDesc = displayHook || it.description_en || displayDesc;
+                }}
+              }} else {{
+                if (currentLang === 'KO' && it.title_ko) displayTitle = it.title_ko;
+                if (currentLang === 'ZH' && it.title_zh) displayTitle = it.title_zh;
+                if (currentLang === 'EN' && it.title_en) displayTitle = it.title_en;
+              }}
 
               const tracking = it.metric_tracking || {{}};
               const initVal = tracking.initial?.display || it.viral_metric || '';
@@ -1978,7 +2030,6 @@ def generate_html(data):
                 linkHtml = `<a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="text-xs text-ink-secondary hover:text-ink-primary flex items-center gap-1 font-medium">${{currentLang === 'KO' ? '원문 링크' : (currentLang === 'ZH' ? '原文链接' : 'Source Link')}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
               }}
 
-              const ai = it.ai_enrichment;
               let aiBadgeHtml = '';
               let aiSummaryHtml = '';
               let hookHtml = '';
@@ -1987,12 +2038,12 @@ def generate_html(data):
               if (ai) {{
                 const tagBg = ai.worth_investigating === 'HIGH' ? 'bg-orange-50 text-orange-950 border-orange-200' : 'bg-indigo-50 text-indigo-950 border-indigo-200';
                 const typeLabels = {{
-                  'MODEL': '🤖 모델 발표',
-                  'AGENT': '🦾 에이전트',
-                  'TECH': '⚡ 신기술/엔지니어링',
-                  'NEWS': '📰 업계 동향'
+                  'MODEL': currentLang === 'KO' ? '🤖 모델 발표' : (currentLang === 'ZH' ? '🤖 模型发布' : '🤖 Model'),
+                  'AGENT': currentLang === 'KO' ? '🦾 에이전트' : (currentLang === 'ZH' ? '🦾 智能体' : '🦾 Agent'),
+                  'TECH': currentLang === 'KO' ? '⚡ 신기술/최적화' : (currentLang === 'ZH' ? '⚡ 新技术/架构' : '⚡ Tech/Arch'),
+                  'NEWS': currentLang === 'KO' ? '📰 업계 동향' : (currentLang === 'ZH' ? '📰 行业资讯' : '📰 News')
                 }};
-                const typeBadge = typeLabels[ai.type_classification] || '💡 기술';
+                const typeBadge = typeLabels[ai.type_classification] || (currentLang === 'KO' ? '💡 기술' : '💡 Tech');
 
                 aiBadgeHtml = `
                   <div class="flex items-center gap-1.5 flex-wrap my-1">
@@ -2007,25 +2058,24 @@ def generate_html(data):
                   </div>
                 `;
 
-                const hookText = ai.hook || it.hook;
-                if (hookText) {{
+                if (displayHook) {{
                   hookHtml = `
                     <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5">
                       <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
-                      <span>${{hookText}}</span>
+                      <span>${{displayHook}}</span>
                     </div>
                   `;
                 }}
 
-                if (ai.key_takeaways && ai.key_takeaways.length > 0) {{
+                if (displayTakeaways && displayTakeaways.length > 0) {{
                   aiSummaryHtml = `
                     <div class="mt-2.5 p-3 rounded-xl bg-gradient-to-br from-indigo-50/50 via-sky-50/40 to-purple-50/50 border border-indigo-100 text-[11px] space-y-1.5 font-sans">
                       <div class="flex items-center gap-1 text-indigo-950 font-bold text-[10px]">
                         <i data-lucide="sparkles" class="w-3 h-3 text-indigo-600"></i>
-                        <span>AI 3줄 핵심 요약</span>
+                        <span>${{currentLang === 'KO' ? 'AI 3줄 핵심 요약' : (currentLang === 'ZH' ? 'AI 3行核心摘要' : 'AI 3-Line Summary')}}</span>
                       </div>
                       <ul class="space-y-1 text-ink-secondary leading-relaxed list-disc list-inside">
-                        ${{ai.key_takeaways.map(k => `<li>${{k}}</li>`).join('')}}
+                        ${{displayTakeaways.map(k => `<li>${{k}}</li>`).join('')}}
                       </ul>
                     </div>
                   `;

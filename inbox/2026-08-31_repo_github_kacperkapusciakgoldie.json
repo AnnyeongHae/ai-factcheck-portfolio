@@ -22,9 +22,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "kacperkapusciak/goldie",
-  "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+  "category_type": "AGENT",
+  "title_ko": "Goldie: AI 에이전트 기반 앱스토어 스크린샷 및 프리뷰 자동 생성 도구",
+  "description_ko": "반복적인 앱스토어 마케팅 에셋 제작과 다국어 로컬라이제이션을 에이전트 워크플로우로 자동화합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -44,5 +44,63 @@
     "is_spiking": true
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_github_kacperkapusciakgoldie",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "category": "에이전트 기반 UI 자동화 & 마케팅 에셋 생성",
+    "programming_lang": "TypeScript",
+    "root_keywords": [
+      "App Store Screenshots",
+      "Agentic Workflow",
+      "UI Automation"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "Goldie: AI 에이전트 기반 앱스토어 스크린샷 및 프리뷰 자동 생성 도구",
+        "hook": "반복적인 앱스토어 마케팅 에셋 제작과 다국어 로컬라이제이션을 에이전트 워크플로우로 자동화합니다.",
+        "key_takeaways": [
+          "앱 화면 및 메타데이터 기반 앱스토어·구글플레이용 스크린샷 자동 생성",
+          "다양한 디바이스 해상도 대응 및 다국어 로컬라이제이션 파이프라인 지원",
+          "AI 에이전트 워크플로우를 활용한 레이아웃 템플릿 및 마케팅 카피 자동 최적화"
+        ]
+      },
+      "en": {
+        "title": "Goldie: Agentic App Store Preview and Screenshot Generator",
+        "hook": "Automate tedious App Store screenshot creation and localization with intelligent agent workflows.",
+        "key_takeaways": [
+          "Automated creation of high-converting App Store and Google Play screenshots",
+          "Seamless multi-device resolution scaling and automated localization pipeline",
+          "Agent-driven copywriting and visual layout optimization"
+        ]
+      },
+      "zh": {
+        "title": "Goldie：基于AI Agent的应用商店预览图与截图自动生成工具",
+        "hook": "借助智能Agent工作流，一键自动化生成并本地化应用商店营销截图与预览。",
+        "key_takeaways": [
+          "基于应用界面与元数据自动生成高转化率的应用商店营销截图",
+          "支持多设备分辨率适配与多语言本地化资产快速渲染",
+          "结合AI Agent优化视觉排版与文案生成"
+        ]
+      }
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "TypeScript",
+  "root_keywords": [
+    "App Store Screenshots",
+    "Agentic Workflow",
+    "UI Automation"
+  ],
+  "title_en": "Goldie: Agentic App Store Preview and Screenshot Generator",
+  "title_zh": "Goldie：基于AI Agent的应用商店预览图与截图自动生成工具",
+  "hook": "반복적인 앱스토어 마케팅 에셋 제작과 다국어 로컬라이제이션을 에이전트 워크플로우로 자동화합니다.",
+  "hook_ko": "반복적인 앱스토어 마케팅 에셋 제작과 다국어 로컬라이제이션을 에이전트 워크플로우로 자동화합니다.",
+  "hook_en": "Automate tedious App Store screenshot creation and localization with intelligent agent workflows.",
+  "hook_zh": "借助智能Agent工作流，一键自动化生成并本地化应用商店营销截图与预览。",
+  "description_en": "Automate tedious App Store screenshot creation and localization with intelligent agent workflows.",
+  "description_zh": "借助智能Agent工作流，一键自动化生成并本地化应用商店营销截图与预览。"
 }

@@ -1,8 +1,8 @@
 {
   "generated_at": "2026-09-02",
   "total_cases": 18,
-  "news_total_count": 65,
-  "inbox_total_count": 224,
+  "news_total_count": 63,
+  "inbox_total_count": 226,
   "all_inbox_count": 289,
   "admin_stats": {
     "endpoints": [
@@ -1745,7 +1745,7 @@
       "source_platform": "Simon Willison Weblog",
       "source_url": "https://simonwillison.net/2026/Aug/31/introducing-wrapture/",
       "type": "sns",
-      "category_type": "TECH",
+      "category_type": "AGENT",
       "description": "Simon Willison Weblog Tech Publication: Introducing wrapture",
       "viral_metric": "🌍 Official AI Publication",
       "metric_tracking": {
@@ -1772,34 +1772,63 @@
       "ai_enrichment": {
         "id": "2026-09-02_sns_simon_willison_weblog_introducing_wrapture",
         "source_lang": "EN",
-        "type_classification": "TECH",
-        "category": "개발자 도구 및 라이브러리",
+        "type_classification": "AGENT",
+        "category": "개발자 도구 및 래퍼",
         "programming_lang": "Python",
         "root_keywords": [
           "Wrapture",
-          "CLI Automation",
-          "Wrapper Library"
-        ],
-        "korean_title": "wrapture 소개: 반복적인 커스텀 래퍼 작성을 자동화하는 경량화 도구",
-        "hook": "외부 CLI 명령 및 라이브러리 래핑 작업을 획기적으로 줄여 개발 생산성을 극대화해 주는 신규 경량화 유틸리티입니다.",
-        "key_takeaways": [
-          "반복적인 유틸리티 및 CLI 래퍼 작성을 보일러플레이트 없이 구현",
-          "파이프라인 구축 및 자동화 스크립트 작성 효율 향상",
-          "기존 Python 워크플로우에 용이하게 통합 가능한 가벼운 인터페이스 제공"
+          "Simon Willison",
+          "CLI Tools"
         ],
         "recommended_tag": "💡 유용한 도구",
-        "worth_score": 3.7
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "사이먼 윌리슨의 웹로그: Wrapture 소개",
+            "hook": "유명 개발자 Simon Willison이 새롭게 공개한 도구 wrapture의 핵심 기능을 빠르게 파악하세요.",
+            "key_takeaways": [
+              "wrapture 프로젝트의 탄생 배경과 목적",
+              "개발자 워크플로우 개선을 위한 활용 방안",
+              "Simon Willison의 최신 오픈소스 도구 트렌드"
+            ]
+          },
+          "en": {
+            "title": "Simon Willison Weblog: Introducing wrapture",
+            "hook": "Explore the latest developer utility introduced by Simon Willison and how it streamlines workflows.",
+            "key_takeaways": [
+              "Understand the background and purpose of the wrapture project",
+              "Explore integration methods for developer workflows",
+              "Track Simon Willison's latest open-source tooling trends"
+            ]
+          },
+          "zh": {
+            "title": "西蒙·威利森博客：介绍 wrapture",
+            "hook": "快速了解知名开发者 Simon Willison 推出的全新实用工具 wrapture。",
+            "key_takeaways": [
+              "了解 wrapture 项目的背景与核心目的",
+              "探索优化开发者工作流的实际应用方式",
+              "追踪 Simon Willison 最新开源工具趋势"
+            ]
+          }
+        }
       },
       "source_lang": "EN",
       "programming_lang": "Python",
       "root_keywords": [
         "Wrapture",
-        "CLI Automation",
-        "Wrapper Library"
+        "Simon Willison",
+        "CLI Tools"
       ],
-      "hook": "외부 CLI 명령 및 라이브러리 래핑 작업을 획기적으로 줄여 개발 생산성을 극대화해 주는 신규 경량화 유틸리티입니다.",
-      "title_ko": "wrapture 소개: 반복적인 커스텀 래퍼 작성을 자동화하는 경량화 도구",
-      "description_ko": "외부 CLI 명령 및 라이브러리 래핑 작업을 획기적으로 줄여 개발 생산성을 극대화해 주는 신규 경량화 유틸리티입니다."
+      "hook": "유명 개발자 Simon Willison이 새롭게 공개한 도구 wrapture의 핵심 기능을 빠르게 파악하세요.",
+      "title_ko": "사이먼 윌리슨의 웹로그: Wrapture 소개",
+      "description_ko": "유명 개발자 Simon Willison이 새롭게 공개한 도구 wrapture의 핵심 기능을 빠르게 파악하세요.",
+      "title_en": "Simon Willison Weblog: Introducing wrapture",
+      "title_zh": "西蒙·威利森博客：介绍 wrapture",
+      "hook_ko": "유명 개발자 Simon Willison이 새롭게 공개한 도구 wrapture의 핵심 기능을 빠르게 파악하세요.",
+      "hook_en": "Explore the latest developer utility introduced by Simon Willison and how it streamlines workflows.",
+      "hook_zh": "快速了解知名开发者 Simon Willison 推出的全新实用工具 wrapture。",
+      "description_en": "Explore the latest developer utility introduced by Simon Willison and how it streamlines workflows.",
+      "description_zh": "快速了解知名开发者 Simon Willison 推出的全新实用工具 wrapture。"
     },
     {
       "inbox_id": "2026-09-02_sns_simon_willison_weblog_introducing_hy4_preview",
@@ -2395,7 +2424,7 @@
       "source_platform": "Hugging Face Blog",
       "source_url": "https://huggingface.co/blog/asr-benchmark-optimization",
       "type": "sns",
-      "category_type": "NEWS",
+      "category_type": "TECH",
       "description": "Hugging Face Blog Tech Publication: Measuring benchmark optimization in speech recognition",
       "viral_metric": "🌍 Official AI Publication",
       "metric_tracking": {
@@ -2418,7 +2447,67 @@
         "정량 데이터 분석 & 벤치마크 감사"
       ],
       "status": "PENDING_REVIEW",
-      "article_url": "https://huggingface.co/blog/asr-benchmark-optimization"
+      "article_url": "https://huggingface.co/blog/asr-benchmark-optimization",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_hugging_face_blog_measuring_benchmark_optimiz",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "category": "음성 인식 최적화",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Speech Recognition",
+          "Benchmark Optimization",
+          "Hugging Face"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.8,
+        "multilingual": {
+          "ko": {
+            "title": "음성 인식 벤치마크 최적화 측정 방법론",
+            "hook": "음성 AI 모델의 성능을 정확하게 측정하고 최적화하는 실무적인 가이드를 제공합니다.",
+            "key_takeaways": [
+              "음성 인식 모델 벤치마크 측정 방법 소개",
+              "최적화 과정에서 발생하는 성능 병목 분석",
+              "Hugging Face 생태계를 활용한 실무 적용 방안"
+            ]
+          },
+          "en": {
+            "title": "Measuring Benchmark Optimization in Speech Recognition",
+            "hook": "A practical guide to accurately evaluating and optimizing speech AI model performance.",
+            "key_takeaways": [
+              "Overview of speech recognition benchmarking methods",
+              "Analysis of performance bottlenecks during optimization",
+              "Practical implementation using the Hugging Face ecosystem"
+            ]
+          },
+          "zh": {
+            "title": "语音识别基准优化测量方法",
+            "hook": "为您提供准确评估和优化语音AI模型性能的实用指南。",
+            "key_takeaways": [
+              "介绍语音识别基准测试方法",
+              "分析优化过程中的性能瓶颈",
+              "利用Hugging Face生态系统的实际应用方案"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Speech Recognition",
+        "Benchmark Optimization",
+        "Hugging Face"
+      ],
+      "title_ko": "음성 인식 벤치마크 최적화 측정 방법론",
+      "title_en": "Measuring Benchmark Optimization in Speech Recognition",
+      "title_zh": "语音识别基准优化测量方法",
+      "hook": "음성 AI 모델의 성능을 정확하게 측정하고 최적화하는 실무적인 가이드를 제공합니다.",
+      "hook_ko": "음성 AI 모델의 성능을 정확하게 측정하고 최적화하는 실무적인 가이드를 제공합니다.",
+      "hook_en": "A practical guide to accurately evaluating and optimizing speech AI model performance.",
+      "hook_zh": "为您提供准确评估和优化语音AI模型性能的实用指南。",
+      "description_ko": "음성 AI 모델의 성능을 정확하게 측정하고 최적화하는 실무적인 가이드를 제공합니다.",
+      "description_en": "A practical guide to accurately evaluating and optimizing speech AI model performance.",
+      "description_zh": "为您提供准确评估和优化语音AI模型性能的实用指南。"
     },
     {
       "inbox_id": "2026-09-02_sns_hugging_face_blog_introducing_huggingfacekern",
@@ -2850,7 +2939,7 @@
       "source_platform": "Hacker News",
       "source_url": "https://news.ycombinator.com/item?id=49529132",
       "type": "sns",
-      "category_type": "NEWS",
+      "category_type": "TECH",
       "description": "HN Score: 103 pts | Comments: 51 | My local model setup on an M4 Pro Mac Mini",
       "viral_metric": "🔥 103 HN Points",
       "metric_tracking": {
@@ -2875,7 +2964,67 @@
       "status": "PENDING_REVIEW",
       "article_url": "https://lws.io/blog/my-local-model-setup/",
       "hn_url": "https://news.ycombinator.com/item?id=49529132",
-      "hn_id": "49529132"
+      "hn_id": "49529132",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_hacker_news_my_local_model_setup_on_an_m4_pro",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "category": "로컬 LLM 추론 인프라",
+        "programming_lang": "General",
+        "root_keywords": [
+          "M4 Pro",
+          "Apple Silicon",
+          "Local LLM"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.1,
+        "multilingual": {
+          "ko": {
+            "title": "M4 Pro Mac mini 기반 최적의 로컬 LLM 환경 구성 가이드",
+            "hook": "Apple M4 Pro의 통합 메모리 아키텍처를 극대화하여 로컬 LLM을 고성능으로 구동하는 실전 세팅 노하우입니다.",
+            "key_takeaways": [
+              "M4 Pro 칩셋의 높은 메모리 대역폭을 활용한 대형 모델 양자화 추론 세팅",
+              "Ollama, llama.cpp, vLLM 등 로컬 런타임 최적화 설정 공유",
+              "전력 대비 가성비 높은 개인용 AI 워크스테이션 구축 실전 팁"
+            ]
+          },
+          "en": {
+            "title": "Optimal Local LLM Inference Setup on an M4 Pro Mac Mini",
+            "hook": "Unlock maximum local LLM performance by leveraging the unified memory bandwidth of the Apple M4 Pro.",
+            "key_takeaways": [
+              "Configures quantized large model inference using M4 Pro high memory bandwidth",
+              "Shares runtime tuning tips for Ollama, llama.cpp, and local LLM backends",
+              "Offers practical recommendations for building an efficient personal AI workstation"
+            ]
+          },
+          "zh": {
+            "title": "基于 M4 Pro Mac mini 的本地大模型最佳部署实践",
+            "hook": "充分发挥 Apple M4 Pro 统一内存带宽优势，高效运行本地大语言模型的实战配置指南。",
+            "key_takeaways": [
+              "利用 M4 Pro 超高内存带宽实现大模型量化高效推理",
+              "分享 Ollama、llama.cpp 等主流本地运行时的调优参数",
+              "低功耗、高性价比个人 AI 工作站搭建实用建议"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "M4 Pro",
+        "Apple Silicon",
+        "Local LLM"
+      ],
+      "title_ko": "M4 Pro Mac mini 기반 최적의 로컬 LLM 환경 구성 가이드",
+      "title_en": "Optimal Local LLM Inference Setup on an M4 Pro Mac Mini",
+      "title_zh": "基于 M4 Pro Mac mini 的本地大模型最佳部署实践",
+      "hook": "Apple M4 Pro의 통합 메모리 아키텍처를 극대화하여 로컬 LLM을 고성능으로 구동하는 실전 세팅 노하우입니다.",
+      "hook_ko": "Apple M4 Pro의 통합 메모리 아키텍처를 극대화하여 로컬 LLM을 고성능으로 구동하는 실전 세팅 노하우입니다.",
+      "hook_en": "Unlock maximum local LLM performance by leveraging the unified memory bandwidth of the Apple M4 Pro.",
+      "hook_zh": "充分发挥 Apple M4 Pro 统一内存带宽优势，高效运行本地大语言模型的实战配置指南。",
+      "description_ko": "Apple M4 Pro의 통합 메모리 아키텍처를 극대화하여 로컬 LLM을 고성능으로 구동하는 실전 세팅 노하우입니다.",
+      "description_en": "Unlock maximum local LLM performance by leveraging the unified memory bandwidth of the Apple M4 Pro.",
+      "description_zh": "充分发挥 Apple M4 Pro 统一内存带宽优势，高效运行本地大语言模型的实战配置指南。"
     },
     {
       "inbox_id": "2026-09-02_sns_hacker_news_i_used_fable_to_rewrite_65kloc_of",
@@ -3019,20 +3168,66 @@
       "hn_url": "https://news.ycombinator.com/item?id=49517584",
       "hn_id": "49517584",
       "ai_enrichment": {
-        "category": "AI 하드웨어/GPU 인프라",
-        "korean_title": "GPU의 세계: AI 시대를 지배하는 하드웨어 생태계와 인프라 심층 분석",
-        "one_line_summary": "AI 대중화 시대를 받치는 GPU 컴퓨팅의 작동 원리, 아키텍처 및 시장 생태계를 다룬 심층 종합 가이드.",
-        "key_takeaways": [
-          "AI/LLM 연산의 중심이 된 GPU 병렬 처리 아키텍처와 컴퓨팅 효율성 분석",
-          "NVIDIA CUDA 생태계의 독점적 지위와 이를 추격하는 대안 하드웨어/소프트웨어 스택 동향",
-          "개발자 및 엔지니어가 알아야 할 GPU 메모리 병목 현상과 인프라 최적화 인사이트 제공"
+        "id": "2026-09-02_sns_hacker_news_gpu_world",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "category": "GPU 컴퓨팅 & AI 인프라",
+        "programming_lang": "CUDA",
+        "root_keywords": [
+          "GPU",
+          "AI Infrastructure",
+          "CUDA"
         ],
         "recommended_tag": "🔥 강력 추천 (필독)",
-        "worth_investigating": "HIGH",
-        "score": 4.5
+        "worth_score": 4.6,
+        "multilingual": {
+          "ko": {
+            "title": "GPU 세계: 글로벌 AI 인프라와 하드웨어 생태계의 현주소",
+            "hook": "AI 가속기 시장의 독점 구도와 엔지니어링 최적화의 현실을 다각도로 짚어봅니다.",
+            "key_takeaways": [
+              "GPU 시장의 독점 현황과 대체 하드웨어의 도전 과제 분석",
+              "AI 워크로드 확장에 따른 클러스터 구성 및 하드웨어 비용 문제 진단",
+              "CUDA 생태계 락인을 극복하기 위한 소프트웨어 추상화 계층 트렌드"
+            ]
+          },
+          "en": {
+            "title": "GPU World: The Reality of Modern AI Infrastructure and Hardware Ecosystem",
+            "hook": "A deep dive into GPU monopolies, cluster scaling bottlenecks, and the future of AI hardware.",
+            "key_takeaways": [
+              "Analysis of the GPU hardware landscape and competing accelerator architectures",
+              "Engineering challenges in scaling distributed AI training and inference clusters",
+              "Trends in breaking CUDA lock-in through compiler and software abstractions"
+            ]
+          },
+          "zh": {
+            "title": "GPU世界：当代AI算力基础设施与硬件生态全景",
+            "hook": "深入探讨GPU垄断格局、集群扩展瓶颈以及AI算力基础设施的未来。",
+            "key_takeaways": [
+              "GPU硬件生态现状及新兴加速器架构的突破与挑战分析",
+              "AI大模型训练与推理集群扩展中的工程瓶颈与成本优化",
+              "打破CUDA生态锁定的编译器与软件抽象层演进趋势"
+            ]
+          }
+        }
       },
-      "title_ko": "GPU의 세계: AI 시대를 지배하는 하드웨어 생태계와 인프라 심층 분석",
-      "description_ko": "AI 대중화 시대를 받치는 GPU 컴퓨팅의 작동 원리, 아키텍처 및 시장 생태계를 다룬 심층 종합 가이드."
+      "title_ko": "GPU 세계: 글로벌 AI 인프라와 하드웨어 생태계의 현주소",
+      "description_ko": "AI 가속기 시장의 독점 구도와 엔지니어링 최적화의 현실을 다각도로 짚어봅니다.",
+      "source_lang": "EN",
+      "programming_lang": "CUDA",
+      "root_keywords": [
+        "GPU",
+        "AI Infrastructure",
+        "CUDA"
+      ],
+      "title_en": "GPU World: The Reality of Modern AI Infrastructure and Hardware Ecosystem",
+      "title_zh": "GPU世界：当代AI算力基础设施与硬件生态全景",
+      "hook": "AI 가속기 시장의 독점 구도와 엔지니어링 최적화의 현실을 다각도로 짚어봅니다.",
+      "hook_ko": "AI 가속기 시장의 독점 구도와 엔지니어링 최적화의 현실을 다각도로 짚어봅니다.",
+      "hook_en": "A deep dive into GPU monopolies, cluster scaling bottlenecks, and the future of AI hardware.",
+      "hook_zh": "深入探讨GPU垄断格局、集群扩展瓶颈以及AI算力基础设施的未来。",
+      "description_en": "A deep dive into GPU monopolies, cluster scaling bottlenecks, and the future of AI hardware.",
+      "description_zh": "深入探讨GPU垄断格局、集群扩展瓶颈以及AI算力基础设施的未来。",
+      "category_type": "TECH"
     },
     {
       "inbox_id": "2026-09-02_sns_hacker_news_dwarf_fortress_creator_says_the_i",
@@ -3956,10 +4151,68 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "Firefox를 놓지 마라",
-      "description_ko": "Firefox를 놓지 마라",
+      "title_ko": "Firefox를 놓지 마라: 웹 다양성과 Chromium 독점에 맞서는 이유",
+      "description_ko": "크로미움 단일 엔진 독점이 웹 생태계와 개발자 자유에 미치는 영향과 파이어폭스의 존속 가치.",
       "hn_url": "https://news.hada.io/topic?id=33139",
-      "article_url": "https://news.hada.io/topic?id=33139"
+      "article_url": "https://news.hada.io/topic?id=33139",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_firefox를_놓지_마라",
+        "source_lang": "KO",
+        "type_classification": "NEWS",
+        "category": "웹 브라우저 생태계 & 오픈 웹 표준",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Firefox",
+          "Chromium Monopoly",
+          "Web Standards"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.3,
+        "multilingual": {
+          "ko": {
+            "title": "Firefox를 놓지 마라: 웹 다양성과 Chromium 독점에 맞서는 이유",
+            "hook": "크로미움 단일 엔진 독점이 웹 생태계와 개발자 자유에 미치는 영향과 파이어폭스의 존속 가치.",
+            "key_takeaways": [
+              "Chromium 브라우저 독점으로 인한 웹 표준 편향 및 독립성 훼손 위기 진단",
+              "Gecko 독립 엔진 유지의 중요성과 개인정보 보호 중심 브라우징 가치",
+              "웹 개발자가 크로스 브라우징 지원과 Firefox 테스트를 지속해야 하는 당위성"
+            ]
+          },
+          "en": {
+            "title": "Don't Give Up on Firefox: Why Web Diversity Matters in a Chromium-Dominated World",
+            "hook": "Why preserving non-Chromium browser engines is critical for the open web and developer freedom.",
+            "key_takeaways": [
+              "The risks of Chromium monoculture on web standards and independent web architecture",
+              "The vital role of the Gecko engine in preserving user privacy and open standards",
+              "Why engineers must actively support cross-browser compatibility and Firefox testing"
+            ]
+          },
+          "zh": {
+            "title": "别放弃Firefox：Chromium垄断时代守护网络多样性的意义",
+            "hook": "剖析Chromium单引擎垄断对开放网络标准的深远影响，重申坚守Firefox的技术价值。",
+            "key_takeaways": [
+              "Chromium生态过度垄断对开放网络标准与技术创新的潜在威胁",
+              "Gecko引擎在推动隐私保护与去中心化网络架构中的关键角色",
+              "开发者坚持跨浏览器测试并支持Firefox兼容性的必要性"
+            ]
+          }
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Firefox",
+        "Chromium Monopoly",
+        "Web Standards"
+      ],
+      "title_en": "Don't Give Up on Firefox: Why Web Diversity Matters in a Chromium-Dominated World",
+      "title_zh": "别放弃Firefox：Chromium垄断时代守护网络多样性的意义",
+      "hook": "크로미움 단일 엔진 독점이 웹 생태계와 개발자 자유에 미치는 영향과 파이어폭스의 존속 가치.",
+      "hook_ko": "크로미움 단일 엔진 독점이 웹 생태계와 개발자 자유에 미치는 영향과 파이어폭스의 존속 가치.",
+      "hook_en": "Why preserving non-Chromium browser engines is critical for the open web and developer freedom.",
+      "hook_zh": "剖析Chromium单引擎垄断对开放网络标准的深远影响，重申坚守Firefox的技术价值。",
+      "description_en": "Why preserving non-Chromium browser engines is critical for the open web and developer freedom.",
+      "description_zh": "剖析Chromium单引擎垄断对开放网络标准的深远影响，重申坚守Firefox的技术价值。"
     },
     {
       "inbox_id": "2026-09-02_sns_geeknews_ed_zitron의_ai_회의론_예측은_얼마나_정확했나",
@@ -4756,7 +5009,7 @@
       "source_platform": "ArXiv Preprint",
       "source_url": "http://arxiv.org/abs/2609.01600v1",
       "type": "repo",
-      "category_type": "TECH",
+      "category_type": "AGENT",
       "description": "Abstract: Dynamic agent harnesses let language models change the software that shapes their own execution. This flexibility brings a new reasoning burden: a local plugin change can propagate through dependencie...",
       "viral_metric": "ArXiv Primary Paper",
       "metric_tracking": {
@@ -4778,7 +5031,67 @@
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-02_repo_arxiv_cordisbench_can_language_models_reason_",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "category": "에이전트 아키텍처 및 추론",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "CordisBench",
+          "Dynamic Agent Harnesses",
+          "Component Lifecycles"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.7,
+        "multilingual": {
+          "ko": {
+            "title": "CordisBench: 언어 모델은 동적 에이전트 하네스에서 컴포넌트 생명주기를 추론할 수 있는가?",
+            "hook": "자기 수정형 에이전트 아키텍처에서 발생하는 복잡한 의존성 전파와 추론 한계를 파고드는 최신 연구입니다.",
+            "key_takeaways": [
+              "자체 실행 환경을 변경하는 동적 에이전트 하네스 구조 분석",
+              "로컬 플러그인 변경이 의존성을 통해 전파되는 복잡성 문제 제기",
+              "LLM의 컴포넌트 생명주기 추론 능력 검증을 위한 CordisBench 제안"
+            ]
+          },
+          "en": {
+            "title": "CordisBench: Can Language Models Reason About Component Lifecycles in Dynamic Agent Harnesses?",
+            "hook": "Cutting-edge research dissecting complex dependency propagation and reasoning limits in self-modifying agent architectures.",
+            "key_takeaways": [
+              "Analysis of dynamic agent harnesses that alter their own execution environment",
+              "Highlighting complexity issues where local plugin changes propagate through dependencies",
+              "Introduction of CordisBench to evaluate LLM reasoning on component lifecycles"
+            ]
+          },
+          "zh": {
+            "title": "CordisBench：语言模型能否在动态智能体框架中推理组件生命周期？",
+            "hook": "深入探讨自修改智能体架构中复杂的依赖传播与推理极限的最新前沿研究。",
+            "key_takeaways": [
+              "分析可改变自身执行环境的动态智能体框架",
+              "指出本地插件变动通过依赖关系传播的复杂性问题",
+              "提出 CordisBench 以评估大语言模型对组件生命周期的推理能力"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "CordisBench",
+        "Dynamic Agent Harnesses",
+        "Component Lifecycles"
+      ],
+      "title_ko": "CordisBench: 언어 모델은 동적 에이전트 하네스에서 컴포넌트 생명주기를 추론할 수 있는가?",
+      "title_en": "CordisBench: Can Language Models Reason About Component Lifecycles in Dynamic Agent Harnesses?",
+      "title_zh": "CordisBench：语言模型能否在动态智能体框架中推理组件生命周期？",
+      "hook": "자기 수정형 에이전트 아키텍처에서 발생하는 복잡한 의존성 전파와 추론 한계를 파고드는 최신 연구입니다.",
+      "hook_ko": "자기 수정형 에이전트 아키텍처에서 발생하는 복잡한 의존성 전파와 추론 한계를 파고드는 최신 연구입니다.",
+      "hook_en": "Cutting-edge research dissecting complex dependency propagation and reasoning limits in self-modifying agent architectures.",
+      "hook_zh": "深入探讨自修改智能体架构中复杂的依赖传播与推理极限的最新前沿研究。",
+      "description_ko": "자기 수정형 에이전트 아키텍처에서 발생하는 복잡한 의존성 전파와 추론 한계를 파고드는 최신 연구입니다.",
+      "description_en": "Cutting-edge research dissecting complex dependency propagation and reasoning limits in self-modifying agent architectures.",
+      "description_zh": "深入探讨自修改智能体架构中复杂的依赖传播与推理极限的最新前沿研究。"
     },
     {
       "inbox_id": "2026-09-02_repo_arxiv_closing_cost_quality_gap_in_document_vl",
@@ -5606,7 +5919,68 @@
         "is_spiking": true
       },
       "created_at": "2026-09-01",
-      "updated_at": "2026-09-02"
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "id": "2026-09-01_repo_github_crmnefastpotify",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "category": "데스크톱 멀티미디어 앱",
+        "programming_lang": "Rust",
+        "root_keywords": [
+          "Rust",
+          "Spotify",
+          "Native App"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "Rust 기반의 빠르고 가벼운 네이티브 스포티파이 클라이언트, fastpotify",
+            "hook": "무거운 일렉트론 기반 앱에서 벗어나, 리소스 소모가 적은 네이티브 Rust 스포티파이 앱을 경험해 보세요.",
+            "key_takeaways": [
+              "Rust로 구현되어 매우 가볍고 빠른 성능 제공",
+              "로컬 라이브러리 재생 및 Spotify Connect 완벽 지원",
+              "Linux, macOS, Windows 크로스플랫폼 지원"
+            ]
+          },
+          "en": {
+            "title": "Fastpotify: A Native and Fast Spotify Client in Rust",
+            "hook": "Ditch heavy Electron apps for this lightweight, high-performance native Spotify client written in Rust.",
+            "key_takeaways": [
+              "Extremely lightweight and fast performance powered by Rust",
+              "Full support for local playback and Spotify Connect",
+              "Cross-platform support for Linux, macOS, and Windows"
+            ]
+          },
+          "zh": {
+            "title": "Fastpotify：基于 Rust 的快速且轻量级原生 Spotify 客户端",
+            "hook": "告别沉重的 Electron 应用，体验用 Rust 编写的高性能轻量级 Spotify 客户端。",
+            "key_takeaways": [
+              "由 Rust 驱动，提供极致轻量与极速性能",
+              "完美支持本地播放与 Spotify Connect 功能",
+              "全面支持 Linux、macOS 和 Windows 跨平台"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Rust",
+      "root_keywords": [
+        "Rust",
+        "Spotify",
+        "Native App"
+      ],
+      "title_ko": "Rust 기반의 빠르고 가벼운 네이티브 스포티파이 클라이언트, fastpotify",
+      "title_en": "Fastpotify: A Native and Fast Spotify Client in Rust",
+      "title_zh": "Fastpotify：基于 Rust 的快速且轻量级原生 Spotify 客户端",
+      "hook": "무거운 일렉트론 기반 앱에서 벗어나, 리소스 소모가 적은 네이티브 Rust 스포티파이 앱을 경험해 보세요.",
+      "hook_ko": "무거운 일렉트론 기반 앱에서 벗어나, 리소스 소모가 적은 네이티브 Rust 스포티파이 앱을 경험해 보세요.",
+      "hook_en": "Ditch heavy Electron apps for this lightweight, high-performance native Spotify client written in Rust.",
+      "hook_zh": "告别沉重的 Electron 应用，体验用 Rust 编写的高性能轻量级 Spotify 客户端。",
+      "description_ko": "무거운 일렉트론 기반 앱에서 벗어나, 리소스 소모가 적은 네이티브 Rust 스포티파이 앱을 경험해 보세요.",
+      "description_en": "Ditch heavy Electron apps for this lightweight, high-performance native Spotify client written in Rust.",
+      "description_zh": "告别沉重的 Electron 应用，体验用 Rust 编写的高性能轻量级 Spotify 客户端。",
+      "category_type": "TECH"
     },
     {
       "inbox_id": "2026-09-01_repo_arxiv_wide_learning_learning_to_reach_evidenc",
@@ -5735,7 +6109,68 @@
         "is_spiking": false
       },
       "created_at": "2026-09-01",
-      "updated_at": "2026-09-01"
+      "updated_at": "2026-09-01",
+      "ai_enrichment": {
+        "id": "2026-09-01_repo_arxiv_token_efficient_data_reasoning_agents_v",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "category": "에이전트 아키텍처 & 비정형 데이터",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "LLM 에이전트",
+          "토큰 효율화",
+          "비정형 데이터 구조화"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.8,
+        "multilingual": {
+          "ko": {
+            "title": "비정형 데이터의 적응형 구조화를 통한 토큰 효율적 추론 에이전트",
+            "hook": "PDF, 웹페이지, 계약서 등 방대한 비정형 데이터를 토큰 낭비 없이 추론하도록 돕는 차세대 에이전트 아키텍처입니다.",
+            "key_takeaways": [
+              "비정형 데이터(웹, 리포트, PDF 등)를 적응형으로 구조화하여 컨텍스트 토큰 소비 대폭 절감",
+              "엔터프라이즈 환경에서 데이터 추론 에이전트의 지연 시간과 운영 비용 동시 개선",
+              "정보 손실을 최소화하면서 복잡한 추론 궤적을 유지하는 새로운 접근법 제시"
+            ]
+          },
+          "en": {
+            "title": "Token-Efficient Data Reasoning Agents via Adaptive Structuring of Unstructured Data",
+            "hook": "Drastically cut LLM token costs when reasoning over massive unstructured documents with adaptive data structuring.",
+            "key_takeaways": [
+              "Adaptively structures messy inputs (PDFs, filings, reports) to slash context window token usage",
+              "Reduces latency and operational costs for enterprise-scale AI reasoning agents",
+              "Preserves critical information and reasoning fidelity without context bloating"
+            ]
+          },
+          "zh": {
+            "title": "基于非结构化数据自适应结构化的高效 Token 数据推理 Agent",
+            "hook": "通过自适应结构化技术大幅压缩上下文 Token 消耗，让智能体在海量文档上实现低成本高精度推理。",
+            "key_takeaways": [
+              "自适应结构化网页、财报、PDF 等非结构化数据，显著减少上下文 Token 开销",
+              "大幅降低企业级数据推理 Agent 的调用延迟与 API 成本",
+              "在避免上下文冗余的同时保留关键信息与高质量推理链路"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "LLM 에이전트",
+        "토큰 효율화",
+        "비정형 데이터 구조화"
+      ],
+      "title_ko": "비정형 데이터의 적응형 구조화를 통한 토큰 효율적 추론 에이전트",
+      "title_en": "Token-Efficient Data Reasoning Agents via Adaptive Structuring of Unstructured Data",
+      "title_zh": "基于非结构化数据自适应结构化的高效 Token 数据推理 Agent",
+      "hook": "PDF, 웹페이지, 계약서 등 방대한 비정형 데이터를 토큰 낭비 없이 추론하도록 돕는 차세대 에이전트 아키텍처입니다.",
+      "hook_ko": "PDF, 웹페이지, 계약서 등 방대한 비정형 데이터를 토큰 낭비 없이 추론하도록 돕는 차세대 에이전트 아키텍처입니다.",
+      "hook_en": "Drastically cut LLM token costs when reasoning over massive unstructured documents with adaptive data structuring.",
+      "hook_zh": "通过自适应结构化技术大幅压缩上下文 Token 消耗，让智能体在海量文档上实现低成本高精度推理。",
+      "description_ko": "PDF, 웹페이지, 계약서 등 방대한 비정형 데이터를 토큰 낭비 없이 추론하도록 돕는 차세대 에이전트 아키텍처입니다.",
+      "description_en": "Drastically cut LLM token costs when reasoning over massive unstructured documents with adaptive data structuring.",
+      "description_zh": "通过自适应结构化技术大幅压缩上下文 Token 消耗，让智能体在海量文档上实现低成本高精度推理。",
+      "category_type": "TECH"
     },
     {
       "inbox_id": "2026-09-01_repo_arxiv_the_first_token_is_a_clue_verbalizing_m",
@@ -11047,7 +11482,68 @@
       "created_at": "2026-08-31",
       "updated_at": "2026-08-31",
       "article_url": "https://github.com/nilbuild/rundown",
-      "hn_url": "https://news.ycombinator.com"
+      "hn_url": "https://news.ycombinator.com",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_hacker_news_show_hn_an_hn_client_that_summari",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "category": "AI 요약 및 챗봇 인터페이스",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "Hacker News Client",
+          "Thread Summarization",
+          "RAG Chat"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "긴 토론 스레드를 요약하고 대화할 수 있는 Hacker News 클라이언트",
+            "hook": "방대한 댓글 스레드를 AI로 즉시 요약하고 직접 대화하며 인사이트를 얻으세요.",
+            "key_takeaways": [
+              "긴 Hacker News 토론 스레드 자동 요약 기능",
+              "스레드 내 내용 기반 AI 챗봇 대화 인터페이스",
+              "정보 습득 시간을 혁신적으로 단축하는 UX 설계"
+            ]
+          },
+          "en": {
+            "title": "An HN Client That Summarises Long Threads and Lets You Chat with Them",
+            "hook": "Instantly summarize massive comment threads using AI and chat directly with the context.",
+            "key_takeaways": [
+              "Automatic summarization of long Hacker News discussion threads",
+              "AI chatbot interface for querying thread context directly",
+              "Innovative UX design to drastically reduce information intake time"
+            ]
+          },
+          "zh": {
+            "title": "可总结长讨论串并与之对话的 Hacker News 客户端",
+            "hook": "利用AI即时总结庞大的评论串，并直接与其对话以获取洞察。",
+            "key_takeaways": [
+              "自动总结长篇 Hacker News 讨论串",
+              "基于讨论内容的 AI 聊天机器人交互界面",
+              "大幅缩短信息获取时间的创新 UX 设计"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "Hacker News Client",
+        "Thread Summarization",
+        "RAG Chat"
+      ],
+      "title_ko": "긴 토론 스레드를 요약하고 대화할 수 있는 Hacker News 클라이언트",
+      "title_en": "An HN Client That Summarises Long Threads and Lets You Chat with Them",
+      "title_zh": "可总结长讨论串并与之对话的 Hacker News 客户端",
+      "hook": "방대한 댓글 스레드를 AI로 즉시 요약하고 직접 대화하며 인사이트를 얻으세요.",
+      "hook_ko": "방대한 댓글 스레드를 AI로 즉시 요약하고 직접 대화하며 인사이트를 얻으세요.",
+      "hook_en": "Instantly summarize massive comment threads using AI and chat directly with the context.",
+      "hook_zh": "利用AI即时总结庞大的评论串，并直接与其对话以获取洞察。",
+      "description_ko": "방대한 댓글 스레드를 AI로 즉시 요약하고 직접 대화하며 인사이트를 얻으세요.",
+      "description_en": "Instantly summarize massive comment threads using AI and chat directly with the context.",
+      "description_zh": "利用AI即时总结庞大的评论串，并直接与其对话以获取洞察。",
+      "category_type": "AGENT"
     },
     {
       "inbox_id": "2026-08-31_repo_github_yanliudesignmono_color_skill",
@@ -11261,8 +11757,8 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "vvxw/deploy-vercel",
-      "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+      "title_ko": "vvxw/deploy-vercel: Vercel 배포를 위한 자동화 유틸리티",
+      "description_ko": "복잡한 Vercel 배포 및 프리뷰 환경 세팅을 간단한 npm 패키지와 워크플로우로 자동화하세요.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -11282,7 +11778,65 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-08-31"
+      "updated_at": "2026-08-31",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_github_vvxwdeploy_vercel",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "category": "CI/CD & 클라우드 배포",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "Vercel",
+          "배포 자동화",
+          "GitHub Actions"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.8,
+        "multilingual": {
+          "ko": {
+            "title": "vvxw/deploy-vercel: Vercel 배포를 위한 자동화 유틸리티",
+            "hook": "복잡한 Vercel 배포 및 프리뷰 환경 세팅을 간단한 npm 패키지와 워크플로우로 자동화하세요.",
+            "key_takeaways": [
+              "GitHub Actions 및 CI/CD 환경에서 Vercel 배포 프로세스 단순화",
+              "간단한 npm 설치로 즉시 통합 및 CLI 기반 실행 지원",
+              "프리뷰 배포 및 프로덕션 릴리스 관리 효율화"
+            ]
+          },
+          "en": {
+            "title": "vvxw/deploy-vercel: Automated Utility for Vercel Deployments",
+            "hook": "Streamline complex Vercel deployment workflows with a simple, plug-and-play npm package.",
+            "key_takeaways": [
+              "Simplifies Vercel deployment pipelines within CI/CD and GitHub Actions",
+              "Easy integration and CLI execution via standard npm installation",
+              "Optimizes management for preview deployments and production rollouts"
+            ]
+          },
+          "zh": {
+            "title": "vvxw/deploy-vercel: Vercel 自动化部署工具",
+            "hook": "通过极简的 npm 包和工作流，一键简化 Vercel 部署与预览环境配置。",
+            "key_takeaways": [
+              "简化 GitHub Actions 及 CI/CD 流程中的 Vercel 部署步骤",
+              "支持标准 npm 安装，开箱即用并提供 CLI 工具",
+              "高效管理预览环境与生产环境发布流程"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "Vercel",
+        "배포 자동화",
+        "GitHub Actions"
+      ],
+      "title_en": "vvxw/deploy-vercel: Automated Utility for Vercel Deployments",
+      "title_zh": "vvxw/deploy-vercel: Vercel 自动化部署工具",
+      "hook": "복잡한 Vercel 배포 및 프리뷰 환경 세팅을 간단한 npm 패키지와 워크플로우로 자동화하세요.",
+      "hook_ko": "복잡한 Vercel 배포 및 프리뷰 환경 세팅을 간단한 npm 패키지와 워크플로우로 자동화하세요.",
+      "hook_en": "Streamline complex Vercel deployment workflows with a simple, plug-and-play npm package.",
+      "hook_zh": "通过极简的 npm 包和工作流，一键简化 Vercel 部署与预览环境配置。",
+      "description_en": "Streamline complex Vercel deployment workflows with a simple, plug-and-play npm package.",
+      "description_zh": "通过极简的 npm 包和工作流，一键简化 Vercel 部署与预览环境配置。"
     },
     {
       "inbox_id": "2026-08-31_repo_github_tradecatlabsshulihuazixuecongshu",
@@ -11920,9 +12474,9 @@
       "detected_formats": [
         "기본 가중치 (Default Weight)"
       ],
-      "category_type": "TECH",
-      "title_ko": "kacperkapusciak/goldie",
-      "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+      "category_type": "AGENT",
+      "title_ko": "Goldie: AI 에이전트 기반 앱스토어 스크린샷 및 프리뷰 자동 생성 도구",
+      "description_ko": "반복적인 앱스토어 마케팅 에셋 제작과 다국어 로컬라이제이션을 에이전트 워크플로우로 자동화합니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -11942,7 +12496,65 @@
         "is_spiking": true
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-09-02"
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_github_kacperkapusciakgoldie",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "category": "에이전트 기반 UI 자동화 & 마케팅 에셋 생성",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "App Store Screenshots",
+          "Agentic Workflow",
+          "UI Automation"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "Goldie: AI 에이전트 기반 앱스토어 스크린샷 및 프리뷰 자동 생성 도구",
+            "hook": "반복적인 앱스토어 마케팅 에셋 제작과 다국어 로컬라이제이션을 에이전트 워크플로우로 자동화합니다.",
+            "key_takeaways": [
+              "앱 화면 및 메타데이터 기반 앱스토어·구글플레이용 스크린샷 자동 생성",
+              "다양한 디바이스 해상도 대응 및 다국어 로컬라이제이션 파이프라인 지원",
+              "AI 에이전트 워크플로우를 활용한 레이아웃 템플릿 및 마케팅 카피 자동 최적화"
+            ]
+          },
+          "en": {
+            "title": "Goldie: Agentic App Store Preview and Screenshot Generator",
+            "hook": "Automate tedious App Store screenshot creation and localization with intelligent agent workflows.",
+            "key_takeaways": [
+              "Automated creation of high-converting App Store and Google Play screenshots",
+              "Seamless multi-device resolution scaling and automated localization pipeline",
+              "Agent-driven copywriting and visual layout optimization"
+            ]
+          },
+          "zh": {
+            "title": "Goldie：基于AI Agent的应用商店预览图与截图自动生成工具",
+            "hook": "借助智能Agent工作流，一键自动化生成并本地化应用商店营销截图与预览。",
+            "key_takeaways": [
+              "基于应用界面与元数据自动生成高转化率的应用商店营销截图",
+              "支持多设备分辨率适配与多语言本地化资产快速渲染",
+              "结合AI Agent优化视觉排版与文案生成"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "App Store Screenshots",
+        "Agentic Workflow",
+        "UI Automation"
+      ],
+      "title_en": "Goldie: Agentic App Store Preview and Screenshot Generator",
+      "title_zh": "Goldie：基于AI Agent的应用商店预览图与截图自动生成工具",
+      "hook": "반복적인 앱스토어 마케팅 에셋 제작과 다국어 로컬라이제이션을 에이전트 워크플로우로 자동화합니다.",
+      "hook_ko": "반복적인 앱스토어 마케팅 에셋 제작과 다국어 로컬라이제이션을 에이전트 워크플로우로 자동화합니다.",
+      "hook_en": "Automate tedious App Store screenshot creation and localization with intelligent agent workflows.",
+      "hook_zh": "借助智能Agent工作流，一键自动化生成并本地化应用商店营销截图与预览。",
+      "description_en": "Automate tedious App Store screenshot creation and localization with intelligent agent workflows.",
+      "description_zh": "借助智能Agent工作流，一键自动化生成并本地化应用商店营销截图与预览。"
     },
     {
       "inbox_id": "2026-08-31_repo_github_jub0tconcat",
@@ -13254,8 +13866,8 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs under Long-Tail Divergent Knowledge",
-      "description_ko": "Abstract: Factual question answering (QA) typically assumes a single canonical answer, obscuring whether large language models (LLMs) retain divergent accounts of long-tail facts. To address this gap, we introd...",
+      "title_ko": "장기 꼬리 지식 하에서 LLM의 인식적 근시안 탐구",
+      "description_ko": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -13275,7 +13887,65 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-08-31"
+      "updated_at": "2026-08-31",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_arxiv_blind_men_and_the_elephant_probing_the_",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "category": "LLM 환각 및 지식 평가",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "LLM",
+          "Long-Tail Knowledge",
+          "Epistemic Myopia"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "장기 꼬리 지식 하에서 LLM의 인식적 근시안 탐구",
+            "hook": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
+            "key_takeaways": [
+              "팩트 QA의 단일 정답 가정 한계 분석",
+              "LLM의 롱테일 지식 발산 계정 유지 여부 조사",
+              "모델의 인식적 근시안(Epistemic Myopia) 현상 프로빙"
+            ]
+          },
+          "en": {
+            "title": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs",
+            "hook": "Discover how LLMs handle divergent accounts of long-tail facts beyond single canonical answers.",
+            "key_takeaways": [
+              "Analyze limitations of single canonical answers in factual QA",
+              "Investigate retention of divergent accounts for long-tail facts",
+              "Probe epistemic myopia phenomena in large language models"
+            ]
+          },
+          "zh": {
+            "title": "盲人摸象：探究大模型在长尾发散知识下的认知近视",
+            "hook": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。",
+            "key_takeaways": [
+              "分析事实性问答中单一标准答案假设的局限性",
+              "调查大模型是否保留长尾事实的分散记录",
+              "探测大模型的认知近视现象"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "LLM",
+        "Long-Tail Knowledge",
+        "Epistemic Myopia"
+      ],
+      "title_en": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs",
+      "title_zh": "盲人摸象：探究大模型在长尾发散知识下的认知近视",
+      "hook": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
+      "hook_ko": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
+      "hook_en": "Discover how LLMs handle divergent accounts of long-tail facts beyond single canonical answers.",
+      "hook_zh": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。",
+      "description_en": "Discover how LLMs handle divergent accounts of long-tail facts beyond single canonical answers.",
+      "description_zh": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_an_enclosed_mode_is_a_gauge_choice_topo",

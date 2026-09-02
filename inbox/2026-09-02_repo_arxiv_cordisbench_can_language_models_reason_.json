@@ -7,7 +7,7 @@
   "source_platform": "ArXiv Preprint",
   "source_url": "http://arxiv.org/abs/2609.01600v1",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "AGENT",
   "description": "Abstract: Dynamic agent harnesses let language models change the software that shapes their own execution. This flexibility brings a new reasoning burden: a local plugin change can propagate through dependencie...",
   "viral_metric": "ArXiv Primary Paper",
   "metric_tracking": {
@@ -29,5 +29,65 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_cordisbench_can_language_models_reason_",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "category": "에이전트 아키텍처 및 추론",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "CordisBench",
+      "Dynamic Agent Harnesses",
+      "Component Lifecycles"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "CordisBench: 언어 모델은 동적 에이전트 하네스에서 컴포넌트 생명주기를 추론할 수 있는가?",
+        "hook": "자기 수정형 에이전트 아키텍처에서 발생하는 복잡한 의존성 전파와 추론 한계를 파고드는 최신 연구입니다.",
+        "key_takeaways": [
+          "자체 실행 환경을 변경하는 동적 에이전트 하네스 구조 분석",
+          "로컬 플러그인 변경이 의존성을 통해 전파되는 복잡성 문제 제기",
+          "LLM의 컴포넌트 생명주기 추론 능력 검증을 위한 CordisBench 제안"
+        ]
+      },
+      "en": {
+        "title": "CordisBench: Can Language Models Reason About Component Lifecycles in Dynamic Agent Harnesses?",
+        "hook": "Cutting-edge research dissecting complex dependency propagation and reasoning limits in self-modifying agent architectures.",
+        "key_takeaways": [
+          "Analysis of dynamic agent harnesses that alter their own execution environment",
+          "Highlighting complexity issues where local plugin changes propagate through dependencies",
+          "Introduction of CordisBench to evaluate LLM reasoning on component lifecycles"
+        ]
+      },
+      "zh": {
+        "title": "CordisBench：语言模型能否在动态智能体框架中推理组件生命周期？",
+        "hook": "深入探讨自修改智能体架构中复杂的依赖传播与推理极限的最新前沿研究。",
+        "key_takeaways": [
+          "分析可改变自身执行环境的动态智能体框架",
+          "指出本地插件变动通过依赖关系传播的复杂性问题",
+          "提出 CordisBench 以评估大语言模型对组件生命周期的推理能力"
+        ]
+      }
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "CordisBench",
+    "Dynamic Agent Harnesses",
+    "Component Lifecycles"
+  ],
+  "title_ko": "CordisBench: 언어 모델은 동적 에이전트 하네스에서 컴포넌트 생명주기를 추론할 수 있는가?",
+  "title_en": "CordisBench: Can Language Models Reason About Component Lifecycles in Dynamic Agent Harnesses?",
+  "title_zh": "CordisBench：语言模型能否在动态智能体框架中推理组件生命周期？",
+  "hook": "자기 수정형 에이전트 아키텍처에서 발생하는 복잡한 의존성 전파와 추론 한계를 파고드는 최신 연구입니다.",
+  "hook_ko": "자기 수정형 에이전트 아키텍처에서 발생하는 복잡한 의존성 전파와 추론 한계를 파고드는 최신 연구입니다.",
+  "hook_en": "Cutting-edge research dissecting complex dependency propagation and reasoning limits in self-modifying agent architectures.",
+  "hook_zh": "深入探讨自修改智能体架构中复杂的依赖传播与推理极限的最新前沿研究。",
+  "description_ko": "자기 수정형 에이전트 아키텍처에서 발생하는 복잡한 의존성 전파와 추론 한계를 파고드는 최신 연구입니다.",
+  "description_en": "Cutting-edge research dissecting complex dependency propagation and reasoning limits in self-modifying agent architectures.",
+  "description_zh": "深入探讨自修改智能体架构中复杂的依赖传播与推理极限的最新前沿研究。"
 }
