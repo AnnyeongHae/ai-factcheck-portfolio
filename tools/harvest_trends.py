@@ -326,6 +326,8 @@ def harvest_all():
             try:
                 story = fetch_json(f"https://hacker-news.firebaseio.com/v0/item/{sid}.json", timeout=6)
                 if story and "title" in story and story.get("type") == "story":
+                    if story.get("dead") or story.get("deleted"):
+                        continue
                     title = story.get("title", "")
                     hn_discussion_url = f"https://news.ycombinator.com/item?id={sid}"
                     article_url = story.get("url") or hn_discussion_url
