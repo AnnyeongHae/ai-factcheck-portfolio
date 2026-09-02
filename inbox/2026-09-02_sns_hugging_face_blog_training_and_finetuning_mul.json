@@ -35,31 +35,63 @@
     "id": "2026-09-02_sns_hugging_face_blog_training_and_finetuning_mul",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "category": "임베딩 및 정보 검색",
+    "model_family": "Sentence Transformers",
+    "category": "임베딩 및 벡터 검색",
     "programming_lang": "Python",
     "root_keywords": [
       "Multi-Vector Embedding",
       "Sentence Transformers",
-      "Late Interaction"
+      "Fine-Tuning"
     ],
-    "korean_title": "Sentence Transformers를 활용한 다중 벡터(Multi-Vector) 임베딩 모델 학습 및 파인튜닝 가이드",
-    "hook": "단일 벡터의 한계를 넘어 검색 정확도를 극대화하는 ColBERT 스타일 Multi-Vector 임베딩 모델의 실전 학습 기법을 공개합니다.",
-    "key_takeaways": [
-      "Sentence Transformers v3를 활용한 다중 벡터(Multi-Vector) 임베딩 모델 구축 방법 안내",
-      "ColBERT 스타일의 Late Interaction 기법을 통한 시맨틱 검색 성능 극대화",
-      "커스텀 데이터셋 기반 파인튜닝 프로세스 및 손실 함수(Loss Function) 설정 가이드"
-    ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
+    "multilingual": {
+      "ko": {
+        "title": "Sentence Transformers로 멀티 벡터 임베딩 모델 학습 및 파인튜닝하기",
+        "hook": "검색 정확도를 혁신적으로 높이는 멀티 벡터 임베딩 모델의 학습 및 미세 조정 가이드를 확인하세요.",
+        "key_takeaways": [
+          "Sentence Transformers를 이용한 멀티 벡터 모델 구축",
+          "도메인 특화 데이터로 임베딩 성능을 끌어올리는 파인튜닝 기법",
+          "고급 검색 및 RAG 시스템 성능 최적화 방법"
+        ]
+      },
+      "en": {
+        "title": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
+        "hook": "Master the training and fine-tuning of multi-vector embedding models to revolutionize search performance.",
+        "key_takeaways": [
+          "Building multi-vector models using Sentence Transformers",
+          "Fine-tuning techniques to boost embedding performance with domain data",
+          "Optimizing advanced search and RAG system performance"
+        ]
+      },
+      "zh": {
+        "title": "使用 Sentence Transformers 训练和微调多向量嵌入模型",
+        "hook": "掌握多向量嵌入模型的训练与微调方法，全面提升检索与 RAG 系统的性能。",
+        "key_takeaways": [
+          "使用 Sentence Transformers 构建多向量模型",
+          "利用领域数据微调嵌入模型以提升性能的技巧",
+          "优化高级搜索和 RAG 系统的性能方法"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:47:41.729378+09:00"
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Multi-Vector Embedding",
     "Sentence Transformers",
-    "Late Interaction"
+    "Fine-Tuning"
   ],
-  "hook": "단일 벡터의 한계를 넘어 검색 정확도를 극대화하는 ColBERT 스타일 Multi-Vector 임베딩 모델의 실전 학습 기법을 공개합니다.",
-  "title_ko": "Sentence Transformers를 활용한 다중 벡터(Multi-Vector) 임베딩 모델 학습 및 파인튜닝 가이드",
-  "description_ko": "단일 벡터의 한계를 넘어 검색 정확도를 극대화하는 ColBERT 스타일 Multi-Vector 임베딩 모델의 실전 학습 기법을 공개합니다."
+  "hook": "검색 정확도를 혁신적으로 높이는 멀티 벡터 임베딩 모델의 학습 및 미세 조정 가이드를 확인하세요.",
+  "title_ko": "Sentence Transformers로 멀티 벡터 임베딩 모델 학습 및 파인튜닝하기",
+  "description_ko": "검색 정확도를 혁신적으로 높이는 멀티 벡터 임베딩 모델의 학습 및 미세 조정 가이드를 확인하세요.",
+  "title_en": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
+  "title_zh": "使用 Sentence Transformers 训练和微调多向量嵌入模型",
+  "hook_ko": "검색 정확도를 혁신적으로 높이는 멀티 벡터 임베딩 모델의 학습 및 미세 조정 가이드를 확인하세요.",
+  "hook_en": "Master the training and fine-tuning of multi-vector embedding models to revolutionize search performance.",
+  "hook_zh": "掌握多向量嵌入模型的训练与微调方法，全面提升检索与 RAG 系统的性能。",
+  "description_en": "Master the training and fine-tuning of multi-vector embedding models to revolutionize search performance.",
+  "description_zh": "掌握多向量嵌入模型的训练与微调方法，全面提升检索与 RAG 系统的性能。"
 }

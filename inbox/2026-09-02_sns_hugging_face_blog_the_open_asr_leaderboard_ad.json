@@ -35,31 +35,63 @@
     "id": "2026-09-02_sns_hugging_face_blog_the_open_asr_leaderboard_ad",
     "source_lang": "EN",
     "type_classification": "NEWS",
+    "model_family": "Standalone",
     "category": "음성 인식 (ASR)",
     "programming_lang": "General",
     "root_keywords": [
       "Open ASR Leaderboard",
-      "Global South",
+      "Global South Languages",
       "Speech Recognition"
     ],
-    "korean_title": "Open ASR 리더보드, 최초의 글로벌 사우스(Global South) 언어 벤치마크 추가",
-    "hook": "음성 인식 리더보드에 저자원 소수 언어 데이터셋이 최초 탑재되어 오픈소스 ASR의 언어적 다양성이 한층 강화되었습니다.",
-    "key_takeaways": [
-      "Hugging Face Open ASR Leaderboard에 글로벌 사우스(Global South) 언어 벤치마크 최초 도입",
-      "다국어 음성 인식(ASR) 모델의 다양성 및 공정성 평가 범위 확장",
-      "저자원 언어 데이터셋 기반 음성 모델 성능 측정 인프라 구축"
-    ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.5
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "오픈 ASR 리더보드, 최초의 글로벌 사우스 언어 추가",
+        "hook": "음성 인식(ASR) 분야의 다양성과 다국어 지원 확대를 위한 오픈 ASR 리더보드의 최신 업데이트를 확인하세요.",
+        "key_takeaways": [
+          "오픈 ASR 리더보드에 최초로 추가된 글로벌 사우스 언어 소개",
+          "다양한 언어 환경에서의 음성 인식 성능 평가 기준 변화",
+          "글로벌 AI 포용성 확대를 위한 오픈소스 커뮤니티의 동향"
+        ]
+      },
+      "en": {
+        "title": "The Open ASR Leaderboard Adds Its First Global South Language",
+        "hook": "Explore the latest updates to the Open ASR Leaderboard as it expands inclusivity with its first Global South language.",
+        "key_takeaways": [
+          "Introduction of the first Global South language to the Open ASR Leaderboard",
+          "Evolution of speech recognition evaluation metrics across diverse linguistic settings",
+          "Open source community trends toward expanding global AI inclusivity"
+        ]
+      },
+      "zh": {
+        "title": "开源 ASR 排行榜添加首个全球南方语言",
+        "hook": "了解开源 ASR 排行榜的最新进展，它通过纳入首个全球南方语言进一步推动了语音识别的多样性。",
+        "key_takeaways": [
+          "开源 ASR 排行榜引入首个全球南方语言",
+          "多样化语言环境下的语音识别性能评估标准演进",
+          "开源社区扩大全球 AI 包容性的最新动态"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:47:41.730307+09:00"
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "Open ASR Leaderboard",
-    "Global South",
+    "Global South Languages",
     "Speech Recognition"
   ],
-  "hook": "음성 인식 리더보드에 저자원 소수 언어 데이터셋이 최초 탑재되어 오픈소스 ASR의 언어적 다양성이 한층 강화되었습니다.",
-  "title_ko": "Open ASR 리더보드, 최초의 글로벌 사우스(Global South) 언어 벤치마크 추가",
-  "description_ko": "음성 인식 리더보드에 저자원 소수 언어 데이터셋이 최초 탑재되어 오픈소스 ASR의 언어적 다양성이 한층 강화되었습니다."
+  "hook": "음성 인식(ASR) 분야의 다양성과 다국어 지원 확대를 위한 오픈 ASR 리더보드의 최신 업데이트를 확인하세요.",
+  "title_ko": "오픈 ASR 리더보드, 최초의 글로벌 사우스 언어 추가",
+  "description_ko": "음성 인식(ASR) 분야의 다양성과 다국어 지원 확대를 위한 오픈 ASR 리더보드의 최신 업데이트를 확인하세요.",
+  "title_en": "The Open ASR Leaderboard Adds Its First Global South Language",
+  "title_zh": "开源 ASR 排行榜添加首个全球南方语言",
+  "hook_ko": "음성 인식(ASR) 분야의 다양성과 다국어 지원 확대를 위한 오픈 ASR 리더보드의 최신 업데이트를 확인하세요.",
+  "hook_en": "Explore the latest updates to the Open ASR Leaderboard as it expands inclusivity with its first Global South language.",
+  "hook_zh": "了解开源 ASR 排行榜的最新进展，它通过纳入首个全球南方语言进一步推动了语音识别的多样性。",
+  "description_en": "Explore the latest updates to the Open ASR Leaderboard as it expands inclusivity with its first Global South language.",
+  "description_zh": "了解开源 ASR 排行榜的最新进展，它通过纳入首个全球南方语言进一步推动了语音识别的多样性。"
 }

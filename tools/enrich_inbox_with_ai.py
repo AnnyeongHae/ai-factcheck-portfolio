@@ -20,6 +20,7 @@ import time
 from datetime import datetime
 import urllib.request
 import urllib.error
+import yaml
 
 # Force UTF-8 on Windows Console
 if sys.stdout.encoding != 'utf-8':
@@ -98,43 +99,33 @@ def match_dossier(dossiers, title, category, programming_lang, root_keywords):
             }
     return best_match
 
-def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> list:
-    """Calls Gemini with 3-item batch and requests complete KO/EN/ZH trilingual parity."""
-    system_prompt = (
+def load_prompt_config():
+    """Loads external centralized prompt from configs/prompts/inbox_enrichment_prompt.yaml."""
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    yaml_path = os.path.join(base_dir, "configs", "prompts", "inbox_enrichment_prompt.yaml")
+    
+    if os.path.exists(yaml_path):
+        try:
+            with open(yaml_path, "r", encoding="utf-8") as f:
+                cfg = yaml.safe_load(f)
+                persona = cfg.get("persona_and_role", "").strip()
+                schema = cfg.get("output_json_schema", "").strip()
+                temp = cfg.get("model_parameters", {}).get("temperature", 0.2)
+                sys_prompt = f"{persona}\n\n{schema}"
+                return sys_prompt, temp
+        except Exception as e:
+            print(f"[!] Warning: Failed to load YAML prompt: {e}")
+            
+    # Fallback
+    default_prompt = (
         "당신은 글로벌 최고 수준의 다국어 AI 기술 아키텍트입니다.\n"
-        "주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어(KO), 영어(EN), 중국어(ZH) 3개 국어로 완벽하게 번역 및 요약하여 아래 JSON 배열로만 응답하세요.\n"
-        "반드시 JSON 배열만 출력해야 하며 마크다운이나 기타 텍스트는 일절 금지합니다.\n\n"
-        "[\n"
-        "  {\n"
-        '    "id": "입력받은 id",\n'
-        '    "source_lang": "KO 또는 EN 또는 ZH (원문의 원래 언어)",\n'
-        '    "type_classification": "MODEL (새 모델/가중치 발표) 또는 AGENT (에이전트 도구/하네스) 또는 TECH (신기술/아키텍처/최적화) 또는 NEWS (단순 업계동향/통계/칼럼)",\n'
-        '    "model_family": "만약 type_classification이 MODEL인 경우 모델 패밀리명 (예: Qwen-3.8, DeepSeek, MiniMax, Llama, Gemma, Mistral, FLUX 등, 없으면 Standalone)",\n'
-        '    "category": "세부 기술 카테고리 (예: LLM 추론 최적화, 웹 에이전트, 영상 제작 등)",\n'
-        '    "programming_lang": "주요 프로그래밍 언어 (예: Rust, Python, TypeScript, CUDA, C++ 등, 없으면 General)",\n'
-        '    "root_keywords": ["상위 키워드 1", "상위 키워드 2", "상위 키워드 3"],\n'
-        '    "recommended_tag": "🔥 강력 추천 (필독) 또는 💡 유용한 도구 또는 📝 기술 참고",\n'
-        '    "worth_score": 1.0~5.0 사이 점수,\n'
-        '    "multilingual": {\n'
-        '      "ko": {\n'
-        '        "title": "직관적인 한국어 번역 제목",\n'
-        '        "hook": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어)",\n'
-        '        "key_takeaways": ["핵심 포인트 1", "핵심 포인트 2", "핵심 포인트 3"]\n'
-        '      },\n'
-        '      "en": {\n'
-        '        "title": "Refined and attractive English Title",\n'
-        '        "hook": "Compelling 1-line hook for engineers (English)",\n'
-        '        "key_takeaways": ["Key Point 1", "Key Point 2", "Key Point 3"]\n'
-        '      },\n'
-        '      "zh": {\n'
-        '        "title": "精准精炼且具吸引力的中文标题",\n'
-        '        "hook": "直击工程师痛点的1句话亮点与阅读理由 (中文)",\n'
-        '        "key_takeaways": ["核心要点 1", "核心要点 2", "核心要点 3"]\n'
-        '      }\n'
-        '    }\n'
-        "  }\n"
-        "]"
+        "주어진 기술/뉴스 후보 목록을 분석하여 한국어(KO), 영어(EN), 중국어(ZH) 3개 국어로 번역 및 요약하여 JSON 배열로 응답하세요."
     )
+    return default_prompt, 0.2
+
+def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> tuple:
+    """Calls Gemini with batched items using centralized YAML prompt configuration."""
+    system_prompt, temperature = load_prompt_config()
 
     clean_batch = []
     for item in batch_items:
@@ -154,7 +145,7 @@ def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> list:
         ],
         "generationConfig": {
             "responseMimeType": "application/json",
-            "temperature": 0.2
+            "temperature": temperature
         }
     }
 
@@ -252,8 +243,8 @@ def run_enrichment(limit: int = 15, batch_size: int = 5, random_pick: bool = Fal
 
     # STEP 2: Fallback to scanning inbox if not strictly restricted to only_new
     if not candidates and not only_new:
-        inbox_files = glob.glob("inbox/*.json")
-        print(f"[*] Fallback: Scanning {len(inbox_files)} total files in inbox...")
+        inbox_files = sorted(glob.glob("inbox/*.json"), key=lambda x: os.path.basename(x), reverse=True)
+        print(f"[*] Fallback: Scanning {len(inbox_files)} total files in inbox (Newest First)...")
         for f in inbox_files:
             try:
                 with open(f, "r", encoding="utf-8") as fp:
@@ -263,6 +254,9 @@ def run_enrichment(limit: int = 15, batch_size: int = 5, random_pick: bool = Fal
                         candidates.append((f, d))
             except Exception:
                 continue
+
+    # Ensure candidates are ordered by newest harvested/created date
+    candidates.sort(key=lambda pair: (pair[1].get("harvested_date", ""), pair[1].get("created_at", ""), pair[0]), reverse=True)
 
     print(f"[*] Total candidates pending AI enrichment: {len(candidates)}")
     if not candidates:
@@ -357,6 +351,18 @@ def run_enrichment(limit: int = 15, batch_size: int = 5, random_pick: bool = Fal
 
                 # Routing & Automatic Model Family Tagging
                 c_type = enrich_data.get("type_classification", "TECH")
+
+                # Guardrail: Force MODEL classification if source is HF Models or title indicates model release
+                is_explicit_model = (
+                    item.get("source_platform") == "Hugging Face Models" or
+                    "model:" in item.get("title", "").lower() or
+                    "-gguf" in item.get("title", "").lower() or
+                    "gguf" in item.get("title", "").lower() or
+                    "lora" in item.get("title", "").lower()
+                )
+                if is_explicit_model and c_type != "NEWS":
+                    c_type = "MODEL"
+
                 if c_type == "MODEL":
                     fam = enrich_data.get("model_family")
                     if not fam or fam.lower() in ["none", "null", "", "standalone"]:

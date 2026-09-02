@@ -35,22 +35,47 @@
     "id": "2026-09-02_sns_hugging_face_blog_quantization_aware_healing_",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "category": "LLM 양자화 및 추론",
+    "model_family": "Standalone",
+    "category": "모델 경량화 및 양자화",
     "programming_lang": "Python",
     "root_keywords": [
       "Quantization-Aware Healing",
       "4-bit Quantization",
       "Model Compression"
     ],
-    "korean_title": "양자화 인지 복원(Quantization-Aware Healing): 원본 16-bit 성능을 뛰어넘는 4-bit 모델 기법",
-    "hook": "4-bit로 압축되었음에도 풀 프레시전(FP16/FP32) 원본 모델의 성능을 능가하는 파괴적 양자화 최적화 기법이 등장했습니다.",
-    "key_takeaways": [
-      "양자화 정밀도 손실을 능동적으로 복구하는 Quantization-Aware Healing 기법 도입",
-      "4-bit 경량화 모델이 풀 프레시전(Full-Precision) 원본 모델보다 우수한 성능 달성",
-      "메모리 사용량 증대 없이 가속 추론 및 비용 절감을 극대화하는 엔터프라이즈급 최적화"
-    ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.9
+    "worth_score": 4.9,
+    "multilingual": {
+      "ko": {
+        "title": "양자화 인식 힐링(QAH): 원본 고정밀 모델을 뛰어넘는 압축된 4비트 모델",
+        "hook": "손실 없는 양자화를 넘어 원본의 성능마저 뛰어넘는 혁신적인 모델 압축 기법을 만나보세요.",
+        "key_takeaways": [
+          "Quantization-Aware Healing(QAH)의 핵심 원리 및 작동 방식",
+          "4비트 압축 모델이 원본 풀프리시전 모델을 능가하는 이유",
+          "온디바이스 AI 구현을 위한 고효율 모델 최적화 전략"
+        ]
+      },
+      "en": {
+        "title": "Quantization-Aware Healing: A Compressed 4-bit Model That Outperforms Its Full-Precision Original",
+        "hook": "Discover a groundbreaking model compression technique where a 4-bit model surpasses its original full-precision counterpart.",
+        "key_takeaways": [
+          "Core principles and mechanisms of Quantization-Aware Healing (QAH)",
+          "Why a 4-bit compressed model can outperform the original full-precision model",
+          "High-efficiency model optimization strategies for on-device AI implementation"
+        ]
+      },
+      "zh": {
+        "title": "量化感知修复 (QAH)：超越全精度原型的压缩 4 位模型",
+        "hook": "探索颠覆性的模型压缩技术，了解 4 位量化模型如何展现出超越全精度原型的性能。",
+        "key_takeaways": [
+          "量化感知修复 (QAH) 的核心原理与工作机制",
+          "4 位压缩模型超越原始全精度模型的底层原因",
+          "面向端侧 AI 实现的高效模型优化策略"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:47:41.731108+09:00"
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -59,7 +84,14 @@
     "4-bit Quantization",
     "Model Compression"
   ],
-  "hook": "4-bit로 압축되었음에도 풀 프레시전(FP16/FP32) 원본 모델의 성능을 능가하는 파괴적 양자화 최적화 기법이 등장했습니다.",
-  "title_ko": "양자화 인지 복원(Quantization-Aware Healing): 원본 16-bit 성능을 뛰어넘는 4-bit 모델 기법",
-  "description_ko": "4-bit로 압축되었음에도 풀 프레시전(FP16/FP32) 원본 모델의 성능을 능가하는 파괴적 양자화 최적화 기법이 등장했습니다."
+  "hook": "손실 없는 양자화를 넘어 원본의 성능마저 뛰어넘는 혁신적인 모델 압축 기법을 만나보세요.",
+  "title_ko": "양자화 인식 힐링(QAH): 원본 고정밀 모델을 뛰어넘는 압축된 4비트 모델",
+  "description_ko": "손실 없는 양자화를 넘어 원본의 성능마저 뛰어넘는 혁신적인 모델 압축 기법을 만나보세요.",
+  "title_en": "Quantization-Aware Healing: A Compressed 4-bit Model That Outperforms Its Full-Precision Original",
+  "title_zh": "量化感知修复 (QAH)：超越全精度原型的压缩 4 位模型",
+  "hook_ko": "손실 없는 양자화를 넘어 원본의 성능마저 뛰어넘는 혁신적인 모델 압축 기법을 만나보세요.",
+  "hook_en": "Discover a groundbreaking model compression technique where a 4-bit model surpasses its original full-precision counterpart.",
+  "hook_zh": "探索颠覆性的模型压缩技术，了解 4 位量化模型如何展现出超越全精度原型的性能。",
+  "description_en": "Discover a groundbreaking model compression technique where a 4-bit model surpasses its original full-precision counterpart.",
+  "description_zh": "探索颠覆性的模型压缩技术，了解 4 位量化模型如何展现出超越全精度原型的性能。"
 }

@@ -313,6 +313,7 @@ def harvest_all():
                         "source_platform": "Hugging Face Models",
                         "source_url": url,
                         "type": "repo",
+                        "category_type": "MODEL",
                         "description": f"Trending Score: {score}, Downloads: {downloads}, Likes: {likes}, Pipeline: {item.get('pipeline_tag', 'N/A')}",
                         "viral_metric": f"Trending {score} pts (❤️ {likes})"
                     })

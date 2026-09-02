@@ -32,5 +32,68 @@
   "status": "PENDING_REVIEW",
   "article_url": "https://simonwillison.net/2026/Sep/1/codex-libreoffice/",
   "hn_url": "https://news.ycombinator.com/item?id=49527396",
-  "hn_id": "49527396"
+  "hn_id": "49527396",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_hacker_news_the_chatgptcodex_app_bundles_a_fu",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "SW 패키징 및 앱 번들",
+    "programming_lang": "General",
+    "root_keywords": [
+      "ChatGPT 앱",
+      "LibreOffice",
+      "소프트웨어 패키징"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "ChatGPT/Codex 앱 내부에 포함된 LibreOffice 전체 복사본 논란",
+        "hook": "데스크톱 앱 패키징 과정에서 거대한 오피스 스위트가 포함된 흥미로운 소프트웨어 아키텍처 이슈를 다룹니다.",
+        "key_takeaways": [
+          "ChatGPT 및 Codex 데스크톱 앱의 의존성 및 패키징 구조 분석",
+          "오픈소스 소프트웨어 번들링에 대한 기술적·라이선스적 관점",
+          "거대 앱 번들 크기와 최적화에 대한 개발자 커뮤니티 반응"
+        ]
+      },
+      "en": {
+        "title": "The ChatGPT/Codex App Bundles a Full Copy of LibreOffice",
+        "hook": "Uncover the fascinating software packaging quirk where a massive office suite is bundled inside a desktop app.",
+        "key_takeaways": [
+          "Analysis of dependencies and packaging structure in desktop AI apps",
+          "Technical and licensing perspectives on open-source software bundling",
+          "Developer community reactions to bloated app bundle sizes"
+        ]
+      },
+      "zh": {
+        "title": "ChatGPT/Codex 桌面应用内捆绑了完整的 LibreOffice 副本",
+        "hook": "解析桌面AI应用在打包时意外包含庞大开源办公套件的有趣软件工程现象。",
+        "key_takeaways": [
+          "剖析 ChatGPT 与 Codex 桌面应用的依赖与打包结构",
+          "开源软件捆绑的技术与许可视角",
+          "开发者社区对外形臃肿的应用包大小的反应"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:48:05.854182+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "ChatGPT 앱",
+    "LibreOffice",
+    "소프트웨어 패키징"
+  ],
+  "title_ko": "ChatGPT/Codex 앱 내부에 포함된 LibreOffice 전체 복사본 논란",
+  "title_en": "The ChatGPT/Codex App Bundles a Full Copy of LibreOffice",
+  "title_zh": "ChatGPT/Codex 桌面应用内捆绑了完整的 LibreOffice 副本",
+  "hook": "데스크톱 앱 패키징 과정에서 거대한 오피스 스위트가 포함된 흥미로운 소프트웨어 아키텍처 이슈를 다룹니다.",
+  "hook_ko": "데스크톱 앱 패키징 과정에서 거대한 오피스 스위트가 포함된 흥미로운 소프트웨어 아키텍처 이슈를 다룹니다.",
+  "hook_en": "Uncover the fascinating software packaging quirk where a massive office suite is bundled inside a desktop app.",
+  "hook_zh": "解析桌面AI应用在打包时意外包含庞大开源办公套件的有趣软件工程现象。",
+  "description_ko": "데스크톱 앱 패키징 과정에서 거대한 오피스 스위트가 포함된 흥미로운 소프트웨어 아키텍처 이슈를 다룹니다.",
+  "description_en": "Uncover the fascinating software packaging quirk where a massive office suite is bundled inside a desktop app.",
+  "description_zh": "解析桌面AI应用在打包时意外包含庞大开源办公套件的有趣软件工程现象。"
 }

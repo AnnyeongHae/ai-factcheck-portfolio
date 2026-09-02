@@ -35,31 +35,63 @@
     "id": "2026-09-02_sns_hugging_face_blog_up_to_32x_faster_inference_",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "category": "LLM 양자화 및 추론",
+    "model_family": "LFM2.5-DSpark",
+    "category": "LLM 추론 최적화",
     "programming_lang": "Python",
     "root_keywords": [
-      "LFM2.5-DSpark",
       "Inference Acceleration",
-      "LLM Optimization"
-    ],
-    "korean_title": "LFM2.5-DSpark 기반의 최대 3.2배 초고속 LLM 추론 가속 기법",
-    "hook": "동일 하드웨어 대비 추론 속도를 최대 3.2배까지 끌어올려 AI 서빙 비용과 레이턴시를 획기적으로 줄이는 LFM2.5-DSpark 최적화 기법.",
-    "key_takeaways": [
-      "LFM2.5-DSpark 엔진을 활용한 초저지연 LLM 추론 성과 달성",
-      "메모리 대역폭 한계를 극복하고 토큰 생성 속도를 대폭 높이는 핵심 가속 구조",
-      "기존 서빙 파이프라인에 즉시 도입 가능한 실무 중심의 추론 최적화 적용법"
+      "LFM2.5-DSpark",
+      "Performance"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "LFM2.5-DSpark로 최대 3.2배 빨라진 AI 추론 성능 달성하기",
+        "hook": "추론 속도를 극적으로 개선하여 서비스 비용을 절감하고 응답 속도를 높이는 최적화 기법을 확인하세요.",
+        "key_takeaways": [
+          "LFM2.5-DSpark 아키텍처를 통한 추론 속도 3.2배 향상",
+          "성능 저하 없이 처리량을 극대화하는 최적화 전략",
+          "실제 프로덕션 환경 적용을 위한 벤치마크 결과"
+        ]
+      },
+      "en": {
+        "title": "Up to 3.2x Faster Inference with LFM2.5-DSpark",
+        "hook": "Discover how to drastically accelerate AI inference and reduce latency using LFM2.5-DSpark.",
+        "key_takeaways": [
+          "Achieving up to 3.2x inference speedup with LFM2.5-DSpark",
+          "Optimization strategies to maximize throughput without quality loss",
+          "Benchmark results for real-world production environments"
+        ]
+      },
+      "zh": {
+        "title": "使用 LFM2.5-DSpark 实现高达 3.2 倍的推理加速",
+        "hook": "了解如何通过 LFM2.5-DSpark 显著提升 AI 推理速度并降低生产成本。",
+        "key_takeaways": [
+          "利用 LFM2.5-DSpark 架构实现 3.2 倍推理提速",
+          "在不损失精度的情况下最大化吞吐量的优化策略",
+          "适用于实际生产环境的基准测试结果"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:47:41.728488+09:00"
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "LFM2.5-DSpark",
     "Inference Acceleration",
-    "LLM Optimization"
+    "LFM2.5-DSpark",
+    "Performance"
   ],
-  "hook": "동일 하드웨어 대비 추론 속도를 최대 3.2배까지 끌어올려 AI 서빙 비용과 레이턴시를 획기적으로 줄이는 LFM2.5-DSpark 최적화 기법.",
-  "title_ko": "LFM2.5-DSpark 기반의 최대 3.2배 초고속 LLM 추론 가속 기법",
-  "description_ko": "동일 하드웨어 대비 추론 속도를 최대 3.2배까지 끌어올려 AI 서빙 비용과 레이턴시를 획기적으로 줄이는 LFM2.5-DSpark 최적화 기법."
+  "hook": "추론 속도를 극적으로 개선하여 서비스 비용을 절감하고 응답 속도를 높이는 최적화 기법을 확인하세요.",
+  "title_ko": "LFM2.5-DSpark로 최대 3.2배 빨라진 AI 추론 성능 달성하기",
+  "description_ko": "추론 속도를 극적으로 개선하여 서비스 비용을 절감하고 응답 속도를 높이는 최적화 기법을 확인하세요.",
+  "title_en": "Up to 3.2x Faster Inference with LFM2.5-DSpark",
+  "title_zh": "使用 LFM2.5-DSpark 实现高达 3.2 倍的推理加速",
+  "hook_ko": "추론 속도를 극적으로 개선하여 서비스 비용을 절감하고 응답 속도를 높이는 최적화 기법을 확인하세요.",
+  "hook_en": "Discover how to drastically accelerate AI inference and reduce latency using LFM2.5-DSpark.",
+  "hook_zh": "了解如何通过 LFM2.5-DSpark 显著提升 AI 推理速度并降低生产成本。",
+  "description_en": "Discover how to drastically accelerate AI inference and reduce latency using LFM2.5-DSpark.",
+  "description_zh": "了解如何通过 LFM2.5-DSpark 显著提升 AI 推理速度并降低生产成本。"
 }

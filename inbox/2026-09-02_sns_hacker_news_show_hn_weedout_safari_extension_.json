@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49528895",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "AGENT",
   "description": "HN Score: 116 pts | Comments: 45 | Show HN: Weedout – Safari extension that hides YouTube AI-labeled videos",
   "viral_metric": "🔥 116 HN Points",
   "metric_tracking": {
@@ -32,5 +32,68 @@
   "status": "PENDING_REVIEW",
   "article_url": "https://masteranza.github.io/weedout/",
   "hn_url": "https://news.ycombinator.com/item?id=49528895",
-  "hn_id": "49528895"
+  "hn_id": "49528895",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_hacker_news_show_hn_weedout_safari_extension_",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "웹 익스텐션 및 필터링",
+    "programming_lang": "TypeScript",
+    "root_keywords": [
+      "사파리 확장프로그램",
+      "유튜브 AI",
+      "콘텐츠 필터링"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "Show HN: 유튜브 AI 라벨링 영상을 숨겨주는 사파리 확장 프로그램 'Weedout'",
+        "hook": "유튜브에서 AI 관련 라벨이 붙은 영상을 자동으로 필터링해주는 유용한 사파리 브라우저 확장 프로그램입니다.",
+        "key_takeaways": [
+          "유튜브 내 AI 생성 콘텐츠 식별 및 자동 숨김 기능",
+          "Safari 브라우저 환경을 위한 맞춤형 웹 익스텐션 개발",
+          "사용자 피로도를 높이는 AI 콘텐츠 범람에 대응하는 실용적 도구"
+        ]
+      },
+      "en": {
+        "title": "Show HN: Weedout – Safari Extension That Hides YouTube AI-Labeled Videos",
+        "hook": "A practical Safari browser extension designed to automatically filter out AI-labeled videos on YouTube.",
+        "key_takeaways": [
+          "Automatic identification and hiding of AI-generated content on YouTube",
+          "Development of custom web extensions optimized for the Safari browser",
+          "A practical tool to combat user fatigue from flooded AI content"
+        ]
+      },
+      "zh": {
+        "title": "Show HN: Weedout – 隐藏 YouTube AI 标记视频的 Safari 扩展",
+        "hook": "一款可自动过滤并隐藏 YouTube 上 AI 标记视频的实用 Safari 浏览器扩展工具。",
+        "key_takeaways": [
+          "自动识别并隐藏 YouTube 平台上的 AI 生成内容",
+          "针对 Safari 浏览器环境定制的轻量级网页扩展",
+          "应对泛滥的 AI 内容以减轻用户视觉疲劳的实用工具"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:48:05.856141+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "TypeScript",
+  "root_keywords": [
+    "사파리 확장프로그램",
+    "유튜브 AI",
+    "콘텐츠 필터링"
+  ],
+  "title_ko": "Show HN: 유튜브 AI 라벨링 영상을 숨겨주는 사파리 확장 프로그램 'Weedout'",
+  "title_en": "Show HN: Weedout – Safari Extension That Hides YouTube AI-Labeled Videos",
+  "title_zh": "Show HN: Weedout – 隐藏 YouTube AI 标记视频的 Safari 扩展",
+  "hook": "유튜브에서 AI 관련 라벨이 붙은 영상을 자동으로 필터링해주는 유용한 사파리 브라우저 확장 프로그램입니다.",
+  "hook_ko": "유튜브에서 AI 관련 라벨이 붙은 영상을 자동으로 필터링해주는 유용한 사파리 브라우저 확장 프로그램입니다.",
+  "hook_en": "A practical Safari browser extension designed to automatically filter out AI-labeled videos on YouTube.",
+  "hook_zh": "一款可自动过滤并隐藏 YouTube 上 AI 标记视频的实用 Safari 浏览器扩展工具。",
+  "description_ko": "유튜브에서 AI 관련 라벨이 붙은 영상을 자동으로 필터링해주는 유용한 사파리 브라우저 확장 프로그램입니다.",
+  "description_en": "A practical Safari browser extension designed to automatically filter out AI-labeled videos on YouTube.",
+  "description_zh": "一款可自动过滤并隐藏 YouTube 上 AI 标记视频的实用 Safari 浏览器扩展工具。"
 }

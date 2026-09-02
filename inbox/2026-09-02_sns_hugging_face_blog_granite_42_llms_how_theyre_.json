@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Blog",
   "source_url": "https://huggingface.co/blog/ibm-granite/granite-4-2",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "MODEL",
   "description": "Hugging Face Blog Tech Publication: Granite 4.2 LLMs: How They're Built",
   "viral_metric": "🌍 Official AI Publication",
   "metric_tracking": {
@@ -30,5 +30,69 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "article_url": "https://huggingface.co/blog/ibm-granite/granite-4-2"
+  "article_url": "https://huggingface.co/blog/ibm-granite/granite-4-2",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_hugging_face_blog_granite_42_llms_how_theyre_",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Granite",
+    "category": "LLM 아키텍처 및 학습 방법론",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Granite 4.2",
+      "LLM Architecture",
+      "Model Training"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
+    "multilingual": {
+      "ko": {
+        "title": "Granite 4.2 LLM 모델 아키텍처 및 구축 과정 전격 해부",
+        "hook": "최신 Granite 4.2 대형언어모델이 어떤 데이터와 철학으로 설계되었는지 그 내부를 들여다봅니다.",
+        "key_takeaways": [
+          "Granite 4.2 모델의 핵심 설계 아키텍처",
+          "효율적인 엔터프라이즈 LLM 구축 방법론",
+          "학습 데이터 및 최적화 기법 소개"
+        ]
+      },
+      "en": {
+        "title": "Granite 4.2 LLMs: How They're Built",
+        "hook": "An inside look at the architecture, data strategy, and engineering methodologies behind the Granite 4.2 LLM series.",
+        "key_takeaways": [
+          "Core architectural design of Granite 4.2 LLMs",
+          "Methodologies for building efficient enterprise-grade models",
+          "Insights into training data curation and optimization"
+        ]
+      },
+      "zh": {
+        "title": "Granite 4.2大语言模型：它们是如何构建的",
+        "hook": "深入剖析Granite 4.2大模型系列背后的架构设计、数据策略与工程方法论。",
+        "key_takeaways": [
+          "Granite 4.2的核心架构设计",
+          "构建高效企业级大模型的方法论",
+          "训练数据策划与优化洞察"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:47:53.698834+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Granite 4.2",
+    "LLM Architecture",
+    "Model Training"
+  ],
+  "title_ko": "Granite 4.2 LLM 모델 아키텍처 및 구축 과정 전격 해부",
+  "title_en": "Granite 4.2 LLMs: How They're Built",
+  "title_zh": "Granite 4.2大语言模型：它们是如何构建的",
+  "hook": "최신 Granite 4.2 대형언어모델이 어떤 데이터와 철학으로 설계되었는지 그 내부를 들여다봅니다.",
+  "hook_ko": "최신 Granite 4.2 대형언어모델이 어떤 데이터와 철학으로 설계되었는지 그 내부를 들여다봅니다.",
+  "hook_en": "An inside look at the architecture, data strategy, and engineering methodologies behind the Granite 4.2 LLM series.",
+  "hook_zh": "深入剖析Granite 4.2大模型系列背后的架构设计、数据策略与工程方法论。",
+  "description_ko": "최신 Granite 4.2 대형언어모델이 어떤 데이터와 철학으로 설계되었는지 그 내부를 들여다봅니다.",
+  "description_en": "An inside look at the architecture, data strategy, and engineering methodologies behind the Granite 4.2 LLM series.",
+  "description_zh": "深入剖析Granite 4.2大模型系列背后的架构设计、数据策略与工程方法论。",
+  "model_family": "Granite"
 }

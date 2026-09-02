@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49531651",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 74 pts | Comments: 14 | The Emergent Symbolic Structure of Artificial Neural Networks",
   "viral_metric": "🔥 74 HN Points",
   "metric_tracking": {
@@ -31,5 +31,68 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49531651",
-  "article_url": "https://arxiv.org/abs/2608.29530"
+  "article_url": "https://arxiv.org/abs/2608.29530",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_hacker_news_the_emergent_symbolic_structure_o",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "인공신경망 이론 및 구조",
+    "programming_lang": "General",
+    "root_keywords": [
+      "신경망",
+      "상징적 구조",
+      "인공지능 이론"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "인공신경망에서 발현되는 상징적 구조에 대한 고찰",
+        "hook": "블랙박스로 여겨지는 신경망 내부에 어떻게 상징적 구조가 자연스럽게 발현되는지 심층적으로 탐구합니다.",
+        "key_takeaways": [
+          "인공신경망 내 상징적 추론 구조의 발현 현상 분석",
+          "딥러닝과 심볼릭 AI의 융합 가능성에 대한 시사점",
+          "신경망 내부 표현력에 대한 이론적 고찰"
+        ]
+      },
+      "en": {
+        "title": "The Emergent Symbolic Structure of Artificial Neural Networks",
+        "hook": "Explore how symbolic structures naturally emerge within black-box artificial neural networks.",
+        "key_takeaways": [
+          "Analysis of emergent symbolic reasoning structures in neural networks",
+          "Implications for the convergence of deep learning and symbolic AI",
+          "Theoretical insights into internal representations of neural models"
+        ]
+      },
+      "zh": {
+        "title": "人工神经网络中涌现的符号结构",
+        "hook": "深入探讨黑盒神经网络内部如何自然涌现出符号化结构的前沿理论。",
+        "key_takeaways": [
+          "分析神经网络中涌现的符号推理结构",
+          "探讨深度学习与符号AI融合的可能性",
+          "对神经网络内部表征能力的理论思考"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:48:05.851421+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "신경망",
+    "상징적 구조",
+    "인공지능 이론"
+  ],
+  "title_ko": "인공신경망에서 발현되는 상징적 구조에 대한 고찰",
+  "title_en": "The Emergent Symbolic Structure of Artificial Neural Networks",
+  "title_zh": "人工神经网络中涌现的符号结构",
+  "hook": "블랙박스로 여겨지는 신경망 내부에 어떻게 상징적 구조가 자연스럽게 발현되는지 심층적으로 탐구합니다.",
+  "hook_ko": "블랙박스로 여겨지는 신경망 내부에 어떻게 상징적 구조가 자연스럽게 발현되는지 심층적으로 탐구합니다.",
+  "hook_en": "Explore how symbolic structures naturally emerge within black-box artificial neural networks.",
+  "hook_zh": "深入探讨黑盒神经网络内部如何自然涌现出符号化结构的前沿理论。",
+  "description_ko": "블랙박스로 여겨지는 신경망 내부에 어떻게 상징적 구조가 자연스럽게 발현되는지 심층적으로 탐구합니다.",
+  "description_en": "Explore how symbolic structures naturally emerge within black-box artificial neural networks.",
+  "description_zh": "深入探讨黑盒神经网络内部如何自然涌现出符号化结构的前沿理论。"
 }

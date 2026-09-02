@@ -35,31 +35,63 @@
     "id": "2026-09-02_sns_hugging_face_blog_wire_it_run_it_deploy_it_ai",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "category": "AI 워크플로우 및 프로토타이핑",
+    "model_family": "Standalone",
+    "category": "AI 워크플로우 및 UI",
     "programming_lang": "Python",
     "root_keywords": [
       "Gradio",
       "AI Workflows",
-      "Model Deployment"
-    ],
-    "korean_title": "Gradio로 구축하는 멀티노드 AI 워크플로우: 연결, 실행, 그리고 프로덕션 배포",
-    "hook": "Gradio의 신규 워크플로우 기능을 활용하여 복잡한 멀티모달 AI 파이프라인을 몇 줄의 파이썬 코드로 시각화하고 즉시 배포하세요.",
-    "key_takeaways": [
-      "Gradio 기반의 멀티노드 AI 워크플로우 구축 및 직관적 데이터 흐름 제어",
-      "여러 AI 모델을 유기적으로 연결하는 복합 애플리케이션 프로토타이핑 가속",
-      "Hugging Face 플랫폼과의 연동을 통한 손쉬운 웹 서비스 배포 절차"
+      "Deployment"
     ],
     "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.3
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "Gradio로 구현하는 AI 워크플로우: 연결부터 실행, 배포까지",
+        "hook": "Gradio를 활용해 복잡한 AI 워크플로우를 쉽고 빠르게 구축하고 배포하는 방법을 확인하세요.",
+        "key_takeaways": [
+          "Gradio를 활용한 효율적인 AI 파이프라인 구성 방법",
+          "프로토타입에서 실제 프로덕션 배포까지의 흐름",
+          "개발 생산성을 높이는 최신 워크플로우 패턴"
+        ]
+      },
+      "en": {
+        "title": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
+        "hook": "Learn how to build, run, and deploy seamless AI workflows efficiently using Gradio.",
+        "key_takeaways": [
+          "Building efficient AI pipelines with Gradio",
+          "Streamlining the path from prototype to production",
+          "Modern workflow patterns for enhanced development productivity"
+        ]
+      },
+      "zh": {
+        "title": "使用 Gradio 构建、运行和部署 AI 工作流",
+        "hook": "探索如何使用 Gradio 轻松构建并快速部署复杂的 AI 工作流。",
+        "key_takeaways": [
+          "利用 Gradio 构建高效的 AI 管道",
+          "简化从原型到生产部署的流程",
+          "提升开发效率的最新工作流模式"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:47:41.727305+09:00"
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Gradio",
     "AI Workflows",
-    "Model Deployment"
+    "Deployment"
   ],
-  "hook": "Gradio의 신규 워크플로우 기능을 활용하여 복잡한 멀티모달 AI 파이프라인을 몇 줄의 파이썬 코드로 시각화하고 즉시 배포하세요.",
-  "title_ko": "Gradio로 구축하는 멀티노드 AI 워크플로우: 연결, 실행, 그리고 프로덕션 배포",
-  "description_ko": "Gradio의 신규 워크플로우 기능을 활용하여 복잡한 멀티모달 AI 파이프라인을 몇 줄의 파이썬 코드로 시각화하고 즉시 배포하세요."
+  "hook": "Gradio를 활용해 복잡한 AI 워크플로우를 쉽고 빠르게 구축하고 배포하는 방법을 확인하세요.",
+  "title_ko": "Gradio로 구현하는 AI 워크플로우: 연결부터 실행, 배포까지",
+  "description_ko": "Gradio를 활용해 복잡한 AI 워크플로우를 쉽고 빠르게 구축하고 배포하는 방법을 확인하세요.",
+  "title_en": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
+  "title_zh": "使用 Gradio 构建、运行和部署 AI 工作流",
+  "hook_ko": "Gradio를 활용해 복잡한 AI 워크플로우를 쉽고 빠르게 구축하고 배포하는 방법을 확인하세요.",
+  "hook_en": "Learn how to build, run, and deploy seamless AI workflows efficiently using Gradio.",
+  "hook_zh": "探索如何使用 Gradio 轻松构建并快速部署复杂的 AI 工作流。",
+  "description_en": "Learn how to build, run, and deploy seamless AI workflows efficiently using Gradio.",
+  "description_zh": "探索如何使用 Gradio 轻松构建并快速部署复杂的 AI 工作流。"
 }

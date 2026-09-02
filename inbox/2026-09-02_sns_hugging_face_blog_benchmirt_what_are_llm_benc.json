@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Blog",
   "source_url": "https://huggingface.co/blog/allenai/benchmirt",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "Hugging Face Blog Tech Publication: BenchMIRT: What are LLM benchmarks actually measuring?",
   "viral_metric": "🌍 Official AI Publication",
   "metric_tracking": {
@@ -30,5 +30,68 @@
     "정량 데이터 분석 & 벤치마크 감사"
   ],
   "status": "PENDING_REVIEW",
-  "article_url": "https://huggingface.co/blog/allenai/benchmirt"
+  "article_url": "https://huggingface.co/blog/allenai/benchmirt",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_hugging_face_blog_benchmirt_what_are_llm_benc",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 평가 및 벤치마크",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "LLM Benchmarks",
+      "BenchMIRT",
+      "Model Evaluation"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.4,
+    "multilingual": {
+      "ko": {
+        "title": "BenchMIRT: LLM 벤치마크는 실제로 무엇을 측정하고 있는가?",
+        "hook": "난무하는 LLM 벤치마크 점수의 한계를 분석하고 진정한 모델 성능 평가의 본질을 파헤칩니다.",
+        "key_takeaways": [
+          "기존 LLM 벤치마크의 허점과 맹점 분석",
+          "BenchMIRT를 통한 새로운 평가 관점 제시",
+          "실제 업무 적용을 위한 올바른 모델 평가법"
+        ]
+      },
+      "en": {
+        "title": "BenchMIRT: What are LLM benchmarks actually measuring?",
+        "hook": "A critical analysis of current LLM benchmark limitations and a deep dive into what we are truly measuring in AI evaluation.",
+        "key_takeaways": [
+          "Critique of limitations and pitfalls in current LLM evaluations",
+          "New perspectives on AI testing introduced by BenchMIRT",
+          "Practical guidelines for meaningful model evaluation"
+        ]
+      },
+      "zh": {
+        "title": "BenchMIRT：LLM基准测试实际在衡量什么？",
+        "hook": "批判性分析当前大模型基准测试的局限性，深入探讨AI评估的真正本质。",
+        "key_takeaways": [
+          "分析现有大模型评测中的盲点与局限",
+          "通过BenchMIRT提出全新的模型评估视角",
+          "实现有意义的模型评估的实用指南"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:47:53.699758+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "LLM Benchmarks",
+    "BenchMIRT",
+    "Model Evaluation"
+  ],
+  "title_ko": "BenchMIRT: LLM 벤치마크는 실제로 무엇을 측정하고 있는가?",
+  "title_en": "BenchMIRT: What are LLM benchmarks actually measuring?",
+  "title_zh": "BenchMIRT：LLM基准测试实际在衡量什么？",
+  "hook": "난무하는 LLM 벤치마크 점수의 한계를 분석하고 진정한 모델 성능 평가의 본질을 파헤칩니다.",
+  "hook_ko": "난무하는 LLM 벤치마크 점수의 한계를 분석하고 진정한 모델 성능 평가의 본질을 파헤칩니다.",
+  "hook_en": "A critical analysis of current LLM benchmark limitations and a deep dive into what we are truly measuring in AI evaluation.",
+  "hook_zh": "批判性分析当前大模型基准测试的局限性，深入探讨AI评估的真正本质。",
+  "description_ko": "난무하는 LLM 벤치마크 점수의 한계를 분석하고 진정한 모델 성능 평가의 본질을 파헤칩니다.",
+  "description_en": "A critical analysis of current LLM benchmark limitations and a deep dive into what we are truly measuring in AI evaluation.",
+  "description_zh": "批判性分析当前大模型基准测试的局限性，深入探讨AI评估的真正本质。"
 }
