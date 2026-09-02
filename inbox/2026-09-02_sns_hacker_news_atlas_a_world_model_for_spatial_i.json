@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49525160",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 205 pts | Comments: 49 | Atlas: A World Model for Spatial Intelligence",
   "viral_metric": "🔥 205 HN Points",
   "metric_tracking": {
@@ -32,5 +32,68 @@
   "status": "PENDING_REVIEW",
   "article_url": "https://www.worldlabs.ai/blog/atlas",
   "hn_url": "https://news.ycombinator.com/item?id=49525160",
-  "hn_id": "49525160"
+  "hn_id": "49525160",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_hacker_news_atlas_a_world_model_for_spatial_i",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "공간 지능 및 월드 모델",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Atlas",
+      "World Model",
+      "Spatial Intelligence"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "Atlas: 공간 지능을 위한 새로운 월드 모델 공개",
+        "hook": "공간 지능(Spatial Intelligence) 분야의 패러다임을 바꿀 최신 월드 모델 아키텍처를 확인하세요.",
+        "key_takeaways": [
+          "공간 인식 및 물리 세계 이해를 위한 월드 모델 제시",
+          "AI의 3차원 공간 추론 능력 향상 기여",
+          "로보틱스 및 AR/VR 분야에의 응용 가능성 주목"
+        ]
+      },
+      "en": {
+        "title": "Atlas: A World Model for Spatial Intelligence",
+        "hook": "Explore the cutting-edge world model designed to revolutionize spatial intelligence and 3D reasoning.",
+        "key_takeaways": [
+          "Introduces a robust world model for physical world understanding",
+          "Enhances AI's 3D spatial reasoning capabilities",
+          "High potential for robotics and AR/VR applications"
+        ]
+      },
+      "zh": {
+        "title": "Atlas：面向空间智能的世界模型",
+        "hook": "探索旨在革新空间智能与3D推理能力的最新世界模型架构。",
+        "key_takeaways": [
+          "提出用于理解物理世界的强大世界模型",
+          "提升AI的三维空间推理能力",
+          "在机器人和AR/VR领域具有广阔应用前景"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:54:42.435407+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Atlas",
+    "World Model",
+    "Spatial Intelligence"
+  ],
+  "title_ko": "Atlas: 공간 지능을 위한 새로운 월드 모델 공개",
+  "title_en": "Atlas: A World Model for Spatial Intelligence",
+  "title_zh": "Atlas：面向空间智能的世界模型",
+  "hook": "공간 지능(Spatial Intelligence) 분야의 패러다임을 바꿀 최신 월드 모델 아키텍처를 확인하세요.",
+  "hook_ko": "공간 지능(Spatial Intelligence) 분야의 패러다임을 바꿀 최신 월드 모델 아키텍처를 확인하세요.",
+  "hook_en": "Explore the cutting-edge world model designed to revolutionize spatial intelligence and 3D reasoning.",
+  "hook_zh": "探索旨在革新空间智能与3D推理能力的最新世界模型架构。",
+  "description_ko": "공간 지능(Spatial Intelligence) 분야의 패러다임을 바꿀 최신 월드 모델 아키텍처를 확인하세요.",
+  "description_en": "Explore the cutting-edge world model designed to revolutionize spatial intelligence and 3D reasoning.",
+  "description_zh": "探索旨在革新空间智能与3D推理能力的最新世界模型架构。"
 }

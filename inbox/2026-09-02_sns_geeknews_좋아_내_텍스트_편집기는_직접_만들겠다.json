@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33132",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: 좋아, 내 텍스트 편집기는 직접 만들겠다",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -31,7 +31,68 @@
   ],
   "status": "PENDING_REVIEW",
   "title_ko": "좋아, 내 텍스트 편집기는 직접 만들겠다",
-  "description_ko": "좋아, 내 텍스트 편집기는 직접 만들겠다",
+  "description_ko": "기성 도구에 불만족하여 나만의 텍스트 편집기를 직접 구현하고자 하는 개발자의 도전 정신과 아키텍처 인사이트를 확인하세요.",
   "hn_url": "https://news.hada.io/topic?id=33132",
-  "article_url": "https://news.hada.io/topic?id=33132"
+  "article_url": "https://news.hada.io/topic?id=33132",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_geeknews_좋아_내_텍스트_편집기는_직접_만들겠다",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "소프트웨어 아키텍처 및 개발",
+    "programming_lang": "General",
+    "root_keywords": [
+      "텍스트 편집기",
+      "개발자 도구",
+      "개인 프로젝트"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "좋아, 내 텍스트 편집기는 직접 만들겠다",
+        "hook": "기성 도구에 불만족하여 나만의 텍스트 편집기를 직접 구현하고자 하는 개발자의 도전 정신과 아키텍처 인사이트를 확인하세요.",
+        "key_takeaways": [
+          "기존 텍스트 편집기의 한계와 커스텀 에디터 개발 동기",
+          "에디터 구현 시 고려해야 할 핵심 요구사항 및 아키텍처",
+          "개발자 개인 도구 제작을 통한 생산성 향상 경험 공유"
+        ]
+      },
+      "en": {
+        "title": "Fine, I'll Build My Own Text Editor",
+        "hook": "Explore the developer's motivation and architectural insights behind building a custom text editor from scratch.",
+        "key_takeaways": [
+          "Motivations for moving away from off-the-shelf text editors",
+          "Core architecture and requirements for custom editor development",
+          "Enhancing developer productivity through personalized tools"
+        ]
+      },
+      "zh": {
+        "title": "好吧，我自己来写一个文本编辑器",
+        "hook": "了解开发者如何因不满意现有工具而决定从零打造自己的文本编辑器，探索背后的架构设计。",
+        "key_takeaways": [
+          "放弃现成文本编辑器的动机与痛点",
+          "自定义编辑器开发的核心架构与关键需求",
+          "通过打造个性化工具来提升开发效率的经验分享"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:54:55.805151+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "텍스트 편집기",
+    "개발자 도구",
+    "개인 프로젝트"
+  ],
+  "title_en": "Fine, I'll Build My Own Text Editor",
+  "title_zh": "好吧，我自己来写一个文本编辑器",
+  "hook": "기성 도구에 불만족하여 나만의 텍스트 편집기를 직접 구현하고자 하는 개발자의 도전 정신과 아키텍처 인사이트를 확인하세요.",
+  "hook_ko": "기성 도구에 불만족하여 나만의 텍스트 편집기를 직접 구현하고자 하는 개발자의 도전 정신과 아키텍처 인사이트를 확인하세요.",
+  "hook_en": "Explore the developer's motivation and architectural insights behind building a custom text editor from scratch.",
+  "hook_zh": "了解开发者如何因不满意现有工具而决定从零打造自己的文本编辑器，探索背后的架构设计。",
+  "description_en": "Explore the developer's motivation and architectural insights behind building a custom text editor from scratch.",
+  "description_zh": "了解开发者如何因不满意现有工具而决定从零打造自己的文本编辑器，探索背后的架构设计。"
 }

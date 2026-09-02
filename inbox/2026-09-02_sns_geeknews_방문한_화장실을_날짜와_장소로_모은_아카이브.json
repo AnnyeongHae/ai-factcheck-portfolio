@@ -30,8 +30,69 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "방문한 화장실을 날짜와 장소로 모은 아카이브",
-  "description_ko": "방문한 화장실을 날짜와 장소로 모은 아카이브",
+  "title_ko": "방문한 화장실을 날짜와 장소로 기록한 독특한 개인 아카이브",
+  "description_ko": "소소한 일상 데이터를 수집해 독창적인 웹 서비스로 만든 개발자의 이색적인 아카이브 사례입니다.",
   "hn_url": "https://news.hada.io/topic?id=33125",
-  "article_url": "https://news.hada.io/topic?id=33125"
+  "article_url": "https://news.hada.io/topic?id=33125",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_geeknews_방문한_화장실을_날짜와_장소로_모은_아카이브",
+    "source_lang": "KO",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "개발자 개인 프로젝트 및 아카이브",
+    "programming_lang": "General",
+    "root_keywords": [
+      "개인 프로젝트",
+      "아카이브",
+      "라이프 로깅"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.5,
+    "multilingual": {
+      "ko": {
+        "title": "방문한 화장실을 날짜와 장소로 기록한 독특한 개인 아카이브",
+        "hook": "소소한 일상 데이터를 수집해 독창적인 웹 서비스로 만든 개발자의 이색적인 아카이브 사례입니다.",
+        "key_takeaways": [
+          "개인적인 경험을 데이터화하여 아카이브 구축",
+          "날짜와 장소 기반의 단순하지만 확실한 UI/UX 구현",
+          "개발자들의 기발한 사이드 프로젝트 영감 제공"
+        ]
+      },
+      "en": {
+        "title": "A Unique Personal Archive of Visited Restrooms by Date and Location",
+        "hook": "Explore a quirky developer side project that turns everyday life data into a dedicated web archive.",
+        "key_takeaways": [
+          "Digitizing personal real-world experiences into an archive",
+          "Simple yet effective date-and-location-based interface",
+          "Inspiring creative and unconventional developer side projects"
+        ]
+      },
+      "zh": {
+        "title": "按日期和地点记录访问过洗手间的独特个人档案库",
+        "hook": "探索一个将日常琐碎生活数据转化为专属网络档案的极客趣味侧项目。",
+        "key_takeaways": [
+          "将个人真实世界体验数字化的档案库构建",
+          "实现基于日期与地点的简单而有效的界面",
+          "为开发者提供不拘一格的副项目灵感"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:55:08.942640+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "개인 프로젝트",
+    "아카이브",
+    "라이프 로깅"
+  ],
+  "title_en": "A Unique Personal Archive of Visited Restrooms by Date and Location",
+  "title_zh": "按日期和地点记录访问过洗手间的独特个人档案库",
+  "hook": "소소한 일상 데이터를 수집해 독창적인 웹 서비스로 만든 개발자의 이색적인 아카이브 사례입니다.",
+  "hook_ko": "소소한 일상 데이터를 수집해 독창적인 웹 서비스로 만든 개발자의 이색적인 아카이브 사례입니다.",
+  "hook_en": "Explore a quirky developer side project that turns everyday life data into a dedicated web archive.",
+  "hook_zh": "探索一个将日常琐碎生活数据转化为专属网络档案的极客趣味侧项目。",
+  "description_en": "Explore a quirky developer side project that turns everyday life data into a dedicated web archive.",
+  "description_zh": "探索一个将日常琐碎生活数据转化为专属网络档案的极客趣味侧项目。"
 }

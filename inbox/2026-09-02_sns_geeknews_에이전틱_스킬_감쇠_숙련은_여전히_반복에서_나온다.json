@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33140",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "AGENT",
   "description": "GeekNews Korean Tech Trend: 에이전틱 스킬 감쇠 : 숙련은 여전히 반복에서 나온다",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -30,8 +30,69 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "에이전틱 스킬 감쇠 : 숙련은 여전히 반복에서 나온다",
-  "description_ko": "에이전틱 스킬 감쇠 : 숙련은 여전히 반복에서 나온다",
+  "title_ko": "에이전틱 스킬 감쇠: 숙련은 여전히 반복에서 나온다",
+  "description_ko": "AI 에이전트 시대에도 인간의 반복 숙달과 스킬 유지 왜 여전히 중요한지 근본적인 통찰을 제공합니다.",
   "hn_url": "https://news.hada.io/topic?id=33140",
-  "article_url": "https://news.hada.io/topic?id=33140"
+  "article_url": "https://news.hada.io/topic?id=33140",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_geeknews_에이전틱_스킬_감쇠_숙련은_여전히_반복에서_나온다",
+    "source_lang": "KO",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "AI 에이전트 및 스킬 학습",
+    "programming_lang": "General",
+    "root_keywords": [
+      "에이전틱 스킬",
+      "스킬 감쇠",
+      "AI 숙련도"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "에이전틱 스킬 감쇠: 숙련은 여전히 반복에서 나온다",
+        "hook": "AI 에이전트 시대에도 인간의 반복 숙달과 스킬 유지 왜 여전히 중요한지 근본적인 통찰을 제공합니다.",
+        "key_takeaways": [
+          "자동화 환경에서 발생하는 인간의 에이전틱 스킬 감쇠 현상 분석",
+          "반복적 연습과 숙련도가 에이전트 활용 능력에 미치는 영향",
+          "AI 시대 엔지니어의 전문성 유지를 위한 대응 전략"
+        ]
+      },
+      "en": {
+        "title": "Agentic Skill Atrophy: Mastery Still Comes from Repetition",
+        "hook": "Discover why deliberate practice and repetitive skill retention remain crucial even in the age of AI agents.",
+        "key_takeaways": [
+          "Analysis of human agentic skill atrophy in highly automated environments",
+          "The impact of repetitive practice on effectively utilizing AI agents",
+          "Strategies for engineers to maintain core expertise in the AI era"
+        ]
+      },
+      "zh": {
+        "title": "智能体技能退化：熟练度依然源于重复",
+        "hook": "探讨在AI代理时代，为什么人类的重复练习与技能保持依然至关重要，带来深刻的行业洞察。",
+        "key_takeaways": [
+          "高度自动化环境下人类智能体技能退化现象分析",
+          "重复练习对有效运用AI代理能力的深远影响",
+          "AI时代工程师保持核心专业能力应对策略"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:54:55.806546+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "에이전틱 스킬",
+    "스킬 감쇠",
+    "AI 숙련도"
+  ],
+  "title_en": "Agentic Skill Atrophy: Mastery Still Comes from Repetition",
+  "title_zh": "智能体技能退化：熟练度依然源于重复",
+  "hook": "AI 에이전트 시대에도 인간의 반복 숙달과 스킬 유지 왜 여전히 중요한지 근본적인 통찰을 제공합니다.",
+  "hook_ko": "AI 에이전트 시대에도 인간의 반복 숙달과 스킬 유지 왜 여전히 중요한지 근본적인 통찰을 제공합니다.",
+  "hook_en": "Discover why deliberate practice and repetitive skill retention remain crucial even in the age of AI agents.",
+  "hook_zh": "探讨在AI代理时代，为什么人类的重复练习与技能保持依然至关重要，带来深刻的行业洞察。",
+  "description_en": "Discover why deliberate practice and repetitive skill retention remain crucial even in the age of AI agents.",
+  "description_zh": "探讨在AI代理时代，为什么人类的重复练习与技能保持依然至关重要，带来深刻的行业洞察。"
 }

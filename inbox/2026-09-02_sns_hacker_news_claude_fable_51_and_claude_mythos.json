@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49525378",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "MODEL",
   "description": "HN Score: 1161 pts | Comments: 1070 | Claude Fable 5.1 and Claude Mythos 5.1",
   "viral_metric": "🔥 1161 HN Points",
   "metric_tracking": {
@@ -32,5 +32,69 @@
   "status": "PROMOTED",
   "article_url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
   "hn_url": "https://news.ycombinator.com/item?id=49525378",
-  "hn_id": "49525378"
+  "hn_id": "49525378",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_hacker_news_claude_fable_51_and_claude_mythos",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Claude",
+    "category": "차세대 대형 언어 모델",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Claude Fable 5.1",
+      "Claude Mythos 5.1",
+      "Anthropic"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.9,
+    "multilingual": {
+      "ko": {
+        "title": "Claude Fable 5.1 및 Claude Mythos 5.1 모델 전격 분석",
+        "hook": "Anthropic의 최신 차세대 모델 라인업이 제시하는 창의적, 추론적 성능 한계의 확장.",
+        "key_takeaways": [
+          "Claude Fable 5.1 및 Mythos 5.1의 주요 아키텍처 특징",
+          "스토리텔링 및 복잡한 추론 태스크에서의 벤치마크 성능 변화",
+          "엔지니어링 워크플로우에 미칠 실질적인 영향력 평가"
+        ]
+      },
+      "en": {
+        "title": "Claude Fable 5.1 and Claude Mythos 5.1 Unveiled",
+        "hook": "Explore Anthropic's latest next-generation model lineup pushing the boundaries of creativity and reasoning.",
+        "key_takeaways": [
+          "Key architectural upgrades in Claude Fable 5.1 and Mythos 5.1",
+          "Benchmark performance improvements in storytelling and complex reasoning",
+          "Practical implications for engineering workflows and applications"
+        ]
+      },
+      "zh": {
+        "title": "Claude Fable 5.1 与 Claude Mythos 5.1 重磅发布解析",
+        "hook": "探索Anthropic最新一代模型阵容，突破创意与复杂推理的新边界。",
+        "key_takeaways": [
+          "Claude Fable 5.1与Mythos 5.1的核心架构升级",
+          "在故事创作与复杂推理任务中的基准测试表现",
+          "对开发者工作流与实际应用产生的深远影响"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:54:30.303243+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Claude Fable 5.1",
+    "Claude Mythos 5.1",
+    "Anthropic"
+  ],
+  "title_ko": "Claude Fable 5.1 및 Claude Mythos 5.1 모델 전격 분석",
+  "title_en": "Claude Fable 5.1 and Claude Mythos 5.1 Unveiled",
+  "title_zh": "Claude Fable 5.1 与 Claude Mythos 5.1 重磅发布解析",
+  "hook": "Anthropic의 최신 차세대 모델 라인업이 제시하는 창의적, 추론적 성능 한계의 확장.",
+  "hook_ko": "Anthropic의 최신 차세대 모델 라인업이 제시하는 창의적, 추론적 성능 한계의 확장.",
+  "hook_en": "Explore Anthropic's latest next-generation model lineup pushing the boundaries of creativity and reasoning.",
+  "hook_zh": "探索Anthropic最新一代模型阵容，突破创意与复杂推理的新边界。",
+  "description_ko": "Anthropic의 최신 차세대 모델 라인업이 제시하는 창의적, 추론적 성능 한계의 확장.",
+  "description_en": "Explore Anthropic's latest next-generation model lineup pushing the boundaries of creativity and reasoning.",
+  "description_zh": "探索Anthropic最新一代模型阵容，突破创意与复杂推理的新边界。",
+  "model_family": "Claude"
 }

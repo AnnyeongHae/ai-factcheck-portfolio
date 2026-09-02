@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33141",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: Uber 규모의 소프트웨어 팩토리를 효율적으로 운영하는 법",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -30,8 +30,69 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Uber 규모의 소프트웨어 팩토리를 효율적으로 운영하는 법",
-  "description_ko": "Uber 규모의 소프트웨어 팩토리를 효율적으로 운영하는 법",
+  "title_ko": "우버(Uber) 규모에서 소프트웨어 팩토리를 효율적으로 확장하고 운영하는 방법",
+  "description_ko": "대규모 조직에서 소프트웨어 개발 생산성을 극대화하기 위한 우버의 아키텍처와 운영 노하우를 공개합니다.",
   "hn_url": "https://news.hada.io/topic?id=33141",
-  "article_url": "https://news.hada.io/topic?id=33141"
+  "article_url": "https://news.hada.io/topic?id=33141",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_geeknews_uber_규모의_소프트웨어_팩토리를_효율적으로_운영하는_법",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "소프트웨어 아키텍처 및 엔지니어링 관리",
+    "programming_lang": "General",
+    "root_keywords": [
+      "소프트웨어 팩토리",
+      "Uber",
+      "엔지니어링 효율성"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "우버(Uber) 규모에서 소프트웨어 팩토리를 효율적으로 확장하고 운영하는 방법",
+        "hook": "대규모 조직에서 소프트웨어 개발 생산성을 극대화하기 위한 우버의 아키텍처와 운영 노하우를 공개합니다.",
+        "key_takeaways": [
+          "하이퍼 스케일 환경에서의 소프트웨어 개발 표준화 및 자동화 전략",
+          "조직 규모 확장에 따른 엔지니어링 병목 현상 해결 방법",
+          "플랫폼 엔지니어링을 통한 개발자 경험(DevEx) 향상"
+        ]
+      },
+      "en": {
+        "title": "How to Efficiently Operate a Software Factory at Uber Scale",
+        "hook": "Discover Uber's architectural and operational strategies for scaling software engineering productivity.",
+        "key_takeaways": [
+          "Standardization and automation strategies for hyper-scale environments",
+          "Overcoming engineering bottlenecks as organizational scale increases",
+          "Improving developer experience (DevEx) through platform engineering"
+        ]
+      },
+      "zh": {
+        "title": "如何在 Uber 规模下高效运营软件工厂",
+        "hook": "揭秘 Uber 在超大规模下最大化软件开发生产力的架构与运营秘诀。",
+        "key_takeaways": [
+          "超大规模环境下的软件开发标准化与自动化策略",
+          "解决组织规模扩大带来的工程瓶颈的方法",
+          "通过平台工程提升开发者体验 (DevEx)"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:55:08.945328+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "소프트웨어 팩토리",
+    "Uber",
+    "엔지니어링 효율성"
+  ],
+  "title_en": "How to Efficiently Operate a Software Factory at Uber Scale",
+  "title_zh": "如何在 Uber 规模下高效运营软件工厂",
+  "hook": "대규모 조직에서 소프트웨어 개발 생산성을 극대화하기 위한 우버의 아키텍처와 운영 노하우를 공개합니다.",
+  "hook_ko": "대규모 조직에서 소프트웨어 개발 생산성을 극대화하기 위한 우버의 아키텍처와 운영 노하우를 공개합니다.",
+  "hook_en": "Discover Uber's architectural and operational strategies for scaling software engineering productivity.",
+  "hook_zh": "揭秘 Uber 在超大规模下最大化软件开发生产力的架构与运营秘诀。",
+  "description_en": "Discover Uber's architectural and operational strategies for scaling software engineering productivity.",
+  "description_zh": "揭秘 Uber 在超大规模下最大化软件开发生产力的架构与运营秘诀。"
 }

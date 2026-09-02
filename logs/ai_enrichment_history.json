@@ -261,5 +261,258 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260902_165410",
+    "timestamp": "2026-09-02T16:54:10.531856+09:00",
+    "total_candidates": 228,
+    "requested_limit": 25,
+    "processed_count": 25,
+    "success_count": 25,
+    "models_used_summary": {
+      "gemini-flash-lite-latest": 25
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.47,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_show_hn_newtons_orchard_browser_b",
+            "title": "Hacker News: Show HN: Newton's Orchard – Browser-based space/gravity playground",
+            "title_ko": "뉴턴즈 오처드: 브라우저 기반 우주 및 중력 시뮬레이터",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:18.004164+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_show_hn_hn_match_maker_matching_w",
+            "title": "Hacker News: Show HN: HN Match Maker – Matching \"Who Wants to Be Hired?\" With \"Who's Hiring?\"",
+            "title_ko": "HN 매치 메이커: 구직자와 채용 공고를 자동으로 연결하는 도구",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:18.005682+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_run_macos_software_on_linux",
+            "title": "Hacker News: Run macOS Software on Linux",
+            "title_ko": "리눅스 환경에서 macOS 소프트웨어를 구동하는 기술적 접근",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:18.008399+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_i_used_fable_to_rewrite_65kloc_of",
+            "title": "Hacker News: I used Fable to rewrite 65kLoC of Go in Rust. It cost $400",
+            "title_ko": "Fable을 이용해 6만 5천 줄의 Go 코드를 Rust로 단 400달러에 재작성한 사례",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:18.011256+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_i_trained_a_small_transformer_in_",
+            "title": "Hacker News: I trained a small transformer in 1.5hrs and it beats many LLMs",
+            "title_ko": "1시간 반 만에 소형 트랜스포머 모델을 학습시켜 대다수 LLM을 능가한 방법",
+            "classification": "MODEL",
+            "model_family": "Transformer",
+            "enriched_at": "2026-09-02T16:54:18.018799+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.78,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_how_accurate_have_ed_zitrons_ai_s",
+            "title": "Hacker News: How accurate have Ed Zitron's AI skeptic predictions been?",
+            "title_ko": "에드 지트론(Ed Zitron)의 AI 회의론적 예측은 얼마나 정확했는가?",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:30.300574+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_dwarf_fortress_creator_says_the_i",
+            "title": "Hacker News: Dwarf Fortress' creator says the industry's in shambles over AI",
+            "title_ko": "'드워프 포트리스' 개발자: 현재 AI로 인해 게임 산업이 엉망진창이 되었다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:30.302197+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_claude_fable_51_and_claude_mythos",
+            "title": "Hacker News: Claude Fable 5.1 and Claude Mythos 5.1",
+            "title_ko": "Claude Fable 5.1 및 Claude Mythos 5.1 모델 전격 분석",
+            "classification": "MODEL",
+            "model_family": "Claude",
+            "enriched_at": "2026-09-02T16:54:30.303243+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_chatgpt_work_tool_and_skill_refer",
+            "title": "Hacker News: ChatGPT Work Tool and Skill Reference",
+            "title_ko": "ChatGPT 업무 도구 및 스킬 레퍼런스 가이드",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:30.304788+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_breaking_claude_code_opus_5_auto_",
+            "title": "Hacker News: Breaking Claude Code Opus 5 Auto Mode",
+            "title_ko": "Claude Code Opus 5 자동 모드(Auto Mode) 완벽 분석",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:30.306367+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.63,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_atlas_a_world_model_for_spatial_i",
+            "title": "Hacker News: Atlas: A World Model for Spatial Intelligence",
+            "title_ko": "Atlas: 공간 지능을 위한 새로운 월드 모델 공개",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:42.435407+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_apple_reveals_shocking_evidence_f",
+            "title": "Hacker News: Apple reveals 'shocking evidence' from ex-employee's MacBook in OpenAI suit",
+            "title_ko": "애플, OpenAI 소송 관련 전직 직원 맥북에서 '충격적 증거' 공개",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:42.436943+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_ai_is_making_back_office_work_ext",
+            "title": "Hacker News: AI is making back-office work extinct",
+            "title_ko": "AI가 백오피스 업무를 빠르게 소멸시키는 방식",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:42.438123+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_a_browser_based_viewer_for_office",
+            "title": "Hacker News: A browser-based viewer for Office Open XML documents",
+            "title_ko": "Office Open XML 문서를 위한 브라우저 기반 뷰어",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:42.439212+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_평균만으로는_충분하지_않다_딥테크_스타트업을_움직이는_운영체제_유",
+            "title": "GeekNews: 평균만으로는 충분하지 않다, 딥테크 스타트업을 움직이는 운영체제 [유튜브]",
+            "title_ko": "평균만으로는 충분하지 않다: 딥테크 스타트업을 움직이는 운영체제",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:42.440332+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.86,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_좋아_내_텍스트_편집기는_직접_만들겠다",
+            "title": "GeekNews: 좋아, 내 텍스트 편집기는 직접 만들겠다",
+            "title_ko": "좋아, 내 텍스트 편집기는 직접 만들겠다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:55.805151+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_에이전틱_스킬_감쇠_숙련은_여전히_반복에서_나온다",
+            "title": "GeekNews: 에이전틱 스킬 감쇠 : 숙련은 여전히 반복에서 나온다",
+            "title_ko": "에이전틱 스킬 감쇠: 숙련은 여전히 반복에서 나온다",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:55.806546+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_에이전트_메모리는_파이프라인이_아니라_파일_형식이어야_한다",
+            "title": "GeekNews: 에이전트 메모리는 파이프라인이 아니라 파일 형식이어야 한다",
+            "title_ko": "에이전트 메모리는 파이프라인이 아니라 파일 형식이어야 한다",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:55.807602+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_소비자_핀테크의_언번들링_금융상품을_묶는_앱에서_모든_계좌를_관리",
+            "title": "GeekNews: 소비자 핀테크의 언번들링 - 금융상품을 묶는 앱에서 모든 계좌를 관리하는 AI 에이전트로",
+            "title_ko": "소비자 핀테크의 언번들링: 금융상품을 묶는 앱에서 모든 계좌를 관리하는 AI 에이전트로",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:55.808459+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_사이보그가_되지_않기_위하여_llm의_말투가_내_생각이_되지_않게",
+            "title": "GeekNews: 사이보그가 되지 않기 위하여: LLM의 말투가 내 생각이 되지 않게 하기",
+            "title_ko": "사이보그가 되지 않기 위하여: LLM의 말투가 내 생각이 되지 않게 하기",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:54:55.809226+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.63,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_방문한_화장실을_날짜와_장소로_모은_아카이브",
+            "title": "GeekNews: 방문한 화장실을 날짜와 장소로 모은 아카이브",
+            "title_ko": "방문한 화장실을 날짜와 장소로 기록한 독특한 개인 아카이브",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:55:08.942640+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_미루기_연구의_영향력_있는_실험에서_발견된_데이터_조작_증거",
+            "title": "GeekNews: 미루기 연구의 영향력 있는 실험에서 발견된 데이터 조작 증거",
+            "title_ko": "유명 미루기 연구 실험에서 발견된 결정적 데이터 조작 증거",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:55:08.944318+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_uber_규모의_소프트웨어_팩토리를_효율적으로_운영하는_법",
+            "title": "GeekNews: Uber 규모의 소프트웨어 팩토리를 효율적으로 운영하는 법",
+            "title_ko": "우버(Uber) 규모에서 소프트웨어 팩토리를 효율적으로 확장하고 운영하는 방법",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:55:08.945328+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_trueforge_llm을_실제_에이전트로_실행하는_오픈소스_하네",
+            "title": "GeekNews: TrueForge - LLM을 실제 에이전트로 실행하는 오픈소스 하네스",
+            "title_ko": "TrueForge: LLM을 실제 동작하는 에이전트로 배포하는 오픈소스 하네스",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:55:08.946239+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_show_gn_can_i_remove_this_js_의존성_제거를",
+            "title": "GeekNews: Show GN: Can I Remove This? – JS 의존성 제거를 검토하는 Agent Skill",
+            "title_ko": "Show GN: Can I Remove This? – JS 의존성 제거 가능 여부를 진단하는 Agent Skill",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-02T16:55:08.947248+09:00"
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -1325,6 +1325,7 @@ def generate_html(data):
 
       // Update Views
       renderCards();
+      renderModels();
       renderNews();
       renderInbox();
     }}
@@ -2050,6 +2051,11 @@ def generate_html(data):
         let displayHook = (multi && multi[lKey]?.hook) || (currentLang === 'KO' ? it.hook_ko : (currentLang === 'ZH' ? it.hook_zh : it.hook_en)) || it.hook || '';
         let displayDesc = (currentLang === 'KO' ? it.description_ko : (currentLang === 'ZH' ? it.description_zh : it.description_en)) || it.description || '';
 
+        const hasTrilingual = Boolean(multi && multi.zh && multi.ko && multi.en);
+        const langBadge = hasTrilingual 
+          ? `<span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[9px] font-mono font-bold border border-emerald-200">🌐 KO·EN·ZH</span>`
+          : `<span class="px-1.5 py-0.2 rounded bg-surface-subtle text-ink-muted text-[9px] font-mono border border-surface-border">🌐 분석 대기</span>`;
+
         const card = document.createElement('div');
         card.className = 'bg-white rounded-2xl p-5 border border-surface-border hover:border-indigo-400 hover:shadow-md transition flex flex-col justify-between space-y-4';
 
@@ -2364,7 +2370,8 @@ def generate_html(data):
                 ${{typeBadge}}
               </span>
               ${{ai && ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${{ai.programming_lang}}</span>` : ''}}
-              ${{ai && ai.source_lang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">${{ai.source_lang}}</span>` : ''}}
+              ${{ai && ai.source_lang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">🌐 ${{ai.source_lang}}</span>` : ''}}
+              ${{multi && multi.zh && multi.ko && multi.en ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">🌐 KO·EN·ZH</span>` : `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-ink-muted border border-surface-border">🌐 번역 대기</span>`}}
             </div>
 
             <h3 class="font-bold text-sm text-ink-primary leading-snug">

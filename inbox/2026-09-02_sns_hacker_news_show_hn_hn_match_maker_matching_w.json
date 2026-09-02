@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49528057",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 79 pts | Comments: 35 | Show HN: HN Match Maker – Matching \"Who Wants to Be Hired?\" With \"Who's Hiring?\"",
   "viral_metric": "🔥 79 HN Points",
   "metric_tracking": {
@@ -32,5 +32,68 @@
   "status": "PENDING_REVIEW",
   "article_url": "https://hnmatchmaker.com/",
   "hn_url": "https://news.ycombinator.com/item?id=49528057",
-  "hn_id": "49528057"
+  "hn_id": "49528057",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_hacker_news_show_hn_hn_match_maker_matching_w",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "개발자 채용 및 매칭",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Hacker News",
+      "Job Matching",
+      "Hiring"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.2,
+    "multilingual": {
+      "ko": {
+        "title": "HN 매치 메이커: 구직자와 채용 공고를 자동으로 연결하는 도구",
+        "hook": "Hacker News의 '구직 원함'과 '채용 중' 게시판을 분석하여 최적의 매칭을 찾아주는 유용한 서비스입니다.",
+        "key_takeaways": [
+          "Hacker News 채용/구직 스레드 데이터 활용",
+          "개발자와 기업 간의 자동 매칭 솔루션",
+          "커뮤니티 기반 채용 효율성 극대화"
+        ]
+      },
+      "en": {
+        "title": "HN Match Maker: Connecting 'Who Wants to Be Hired?' with 'Who's Hiring?'",
+        "hook": "A useful service that analyzes Hacker News hiring threads to find optimal matches between job seekers and employers.",
+        "key_takeaways": [
+          "Leverages Hacker News hiring and job-seeking thread data",
+          "Automated matching solution between developers and companies",
+          "Maximizing community-driven hiring efficiency"
+        ]
+      },
+      "zh": {
+        "title": "HN 匹配器：将求职者与招聘信息智能连接",
+        "hook": "一个通过分析 Hacker News 招聘与求职板块，实现供需双方最优匹配的实用服务。",
+        "key_takeaways": [
+          "利用 Hacker News 招聘/求职帖子的数据",
+          "开发者与企业之间的自动化匹配解决方案",
+          "最大化社区驱动的招聘效率"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:54:18.005682+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Hacker News",
+    "Job Matching",
+    "Hiring"
+  ],
+  "title_ko": "HN 매치 메이커: 구직자와 채용 공고를 자동으로 연결하는 도구",
+  "title_en": "HN Match Maker: Connecting 'Who Wants to Be Hired?' with 'Who's Hiring?'",
+  "title_zh": "HN 匹配器：将求职者与招聘信息智能连接",
+  "hook": "Hacker News의 '구직 원함'과 '채용 중' 게시판을 분석하여 최적의 매칭을 찾아주는 유용한 서비스입니다.",
+  "hook_ko": "Hacker News의 '구직 원함'과 '채용 중' 게시판을 분석하여 최적의 매칭을 찾아주는 유용한 서비스입니다.",
+  "hook_en": "A useful service that analyzes Hacker News hiring threads to find optimal matches between job seekers and employers.",
+  "hook_zh": "一个通过分析 Hacker News 招聘与求职板块，实现供需双方最优匹配的实用服务。",
+  "description_ko": "Hacker News의 '구직 원함'과 '채용 중' 게시판을 분석하여 최적의 매칭을 찾아주는 유용한 서비스입니다.",
+  "description_en": "A useful service that analyzes Hacker News hiring threads to find optimal matches between job seekers and employers.",
+  "description_zh": "一个通过分析 Hacker News 招聘与求职板块，实现供需双方最优匹配的实用服务。"
 }

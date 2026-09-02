@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33113",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: Show GN: Can I Remove This? – JS 의존성 제거를 검토하는 Agent Skill",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -30,8 +30,69 @@
     "DX & Python 업무 프로세스 자동화"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Show GN: Can I Remove This? – JS 의존성 제거를 검토하는 Agent Skill",
-  "description_ko": "Show GN: Can I Remove This? – JS 의존성 제거를 검토하는 Agent Skill",
+  "title_ko": "Show GN: Can I Remove This? – JS 의존성 제거 가능 여부를 진단하는 Agent Skill",
+  "description_ko": "AI 에이전트 기술을 활용해 프로젝트 내 불필요한 자바스크립트 의존성을 자동으로 분석하고 제거를 돕는 툴입니다.",
   "hn_url": "https://news.hada.io/topic?id=33113",
-  "article_url": "https://news.hada.io/topic?id=33113"
+  "article_url": "https://news.hada.io/topic?id=33113",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_geeknews_show_gn_can_i_remove_this_js_의존성_제거를",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "웹 개발 최적화",
+    "programming_lang": "TypeScript",
+    "root_keywords": [
+      "JS 의존성",
+      "Agent Skill",
+      "코드 최적화"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "Show GN: Can I Remove This? – JS 의존성 제거 가능 여부를 진단하는 Agent Skill",
+        "hook": "AI 에이전트 기술을 활용해 프로젝트 내 불필요한 자바스크립트 의존성을 자동으로 분석하고 제거를 돕는 툴입니다.",
+        "key_takeaways": [
+          "LLM/Agent 기술을 활용한 프론트엔드 코드베이스 코드 최적화",
+          "미사용 자바스크립트 패키지 및 의존성 정밀 분석",
+          "번들 크기 축소 및 유지보수성 향상에 기여"
+        ]
+      },
+      "en": {
+        "title": "Show GN: Can I Remove This? – An Agent Skill for Auditing JS Dependencies",
+        "hook": "Leverage AI agent capabilities to automatically analyze and safely remove unused JavaScript dependencies.",
+        "key_takeaways": [
+          "Frontend codebase optimization powered by LLM/Agent technology",
+          "Precise identification of unused JavaScript packages and dependencies",
+          "Helps reduce bundle size and improve overall maintainability"
+        ]
+      },
+      "zh": {
+        "title": "Show GN: Can I Remove This? – 用于审查 JS 依赖项的智能体技能",
+        "hook": "利用 AI 智能体技术自动分析并安全移除项目中废弃 JavaScript 依赖的高效工具。",
+        "key_takeaways": [
+          "由大模型/智能体技术驱动的前端代码库优化",
+          "精准分析未使用的 JavaScript 软件包与依赖关系",
+          "有效缩减打包体积并提升代码可维护性"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:55:08.947248+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "TypeScript",
+  "root_keywords": [
+    "JS 의존성",
+    "Agent Skill",
+    "코드 최적화"
+  ],
+  "title_en": "Show GN: Can I Remove This? – An Agent Skill for Auditing JS Dependencies",
+  "title_zh": "Show GN: Can I Remove This? – 用于审查 JS 依赖项的智能体技能",
+  "hook": "AI 에이전트 기술을 활용해 프로젝트 내 불필요한 자바스크립트 의존성을 자동으로 분석하고 제거를 돕는 툴입니다.",
+  "hook_ko": "AI 에이전트 기술을 활용해 프로젝트 내 불필요한 자바스크립트 의존성을 자동으로 분석하고 제거를 돕는 툴입니다.",
+  "hook_en": "Leverage AI agent capabilities to automatically analyze and safely remove unused JavaScript dependencies.",
+  "hook_zh": "利用 AI 智能体技术自动分析并安全移除项目中废弃 JavaScript 依赖的高效工具。",
+  "description_en": "Leverage AI agent capabilities to automatically analyze and safely remove unused JavaScript dependencies.",
+  "description_zh": "利用 AI 智能体技术自动分析并安全移除项目中废弃 JavaScript 依赖的高效工具。"
 }

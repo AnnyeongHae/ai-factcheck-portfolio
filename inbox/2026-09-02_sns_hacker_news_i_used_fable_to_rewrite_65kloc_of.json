@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49526131",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 55 pts | Comments: 37 | I used Fable to rewrite 65kLoC of Go in Rust. It cost $400",
   "viral_metric": "🔥 55 HN Points",
   "metric_tracking": {
@@ -32,5 +32,68 @@
   "status": "PENDING_REVIEW",
   "article_url": "https://iurii.net/en/blog/posts/software-engineering/i-used-fable-to-rewrite-65kloc-to-rust/",
   "hn_url": "https://news.ycombinator.com/item?id=49526131",
-  "hn_id": "49526131"
+  "hn_id": "49526131",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_hacker_news_i_used_fable_to_rewrite_65kloc_of",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 기반 코드 마이그레이션",
+    "programming_lang": "Rust",
+    "root_keywords": [
+      "Fable",
+      "Go to Rust",
+      "AI Code Rewrite"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "Fable을 이용해 6만 5천 줄의 Go 코드를 Rust로 단 400달러에 재작성한 사례",
+        "hook": "AI 도구인 Fable을 활용하여 대규모 레거시 Go 코베이스를 단 400달러의 비용으로 안전하게 Rust로 포팅한 혁신적인 사례입니다.",
+        "key_takeaways": [
+          "65,000 LoC 규모의 대형 코드베이스 마이그레이션 성공",
+          "비용 효율적인 AI 에이전트/도구 기반 코드 리라이팅",
+          "Go에서 안전성과 성능이 강화된 Rust로의 전환 방법론"
+        ]
+      },
+      "en": {
+        "title": "Rewriting 65kLoC of Go in Rust Using Fable for $400",
+        "hook": "An innovative case study of porting a massive legacy Go codebase to Rust safely and cheaply using the Fable AI tool.",
+        "key_takeaways": [
+          "Successful migration of a massive 65,000 LoC codebase",
+          "Cost-effective AI agent/tool-based code rewriting",
+          "Methodology for transitioning from Go to memory-safe, performant Rust"
+        ]
+      },
+      "zh": {
+        "title": "使用 Fable 仅花 400 美元将 6.5 万行 Go 代码重写为 Rust",
+        "hook": "利用 AI 工具 Fable 以极低成本将庞大的 Go 代码库安全重写为 Rust 的创新实践案例。",
+        "key_takeaways": [
+          "成功迁移规模达 65,000 行代码的大型代码库",
+          "高性价比的基于 AI 代理/工具的代码重写方案",
+          "从 Go 转向内存安全且高性能的 Rust 的方法论"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-02T16:54:18.011256+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Rust",
+  "root_keywords": [
+    "Fable",
+    "Go to Rust",
+    "AI Code Rewrite"
+  ],
+  "title_ko": "Fable을 이용해 6만 5천 줄의 Go 코드를 Rust로 단 400달러에 재작성한 사례",
+  "title_en": "Rewriting 65kLoC of Go in Rust Using Fable for $400",
+  "title_zh": "使用 Fable 仅花 400 美元将 6.5 万行 Go 代码重写为 Rust",
+  "hook": "AI 도구인 Fable을 활용하여 대규모 레거시 Go 코베이스를 단 400달러의 비용으로 안전하게 Rust로 포팅한 혁신적인 사례입니다.",
+  "hook_ko": "AI 도구인 Fable을 활용하여 대규모 레거시 Go 코베이스를 단 400달러의 비용으로 안전하게 Rust로 포팅한 혁신적인 사례입니다.",
+  "hook_en": "An innovative case study of porting a massive legacy Go codebase to Rust safely and cheaply using the Fable AI tool.",
+  "hook_zh": "利用 AI 工具 Fable 以极低成本将庞大的 Go 代码库安全重写为 Rust 的创新实践案例。",
+  "description_ko": "AI 도구인 Fable을 활용하여 대규모 레거시 Go 코베이스를 단 400달러의 비용으로 안전하게 Rust로 포팅한 혁신적인 사례입니다.",
+  "description_en": "An innovative case study of porting a massive legacy Go codebase to Rust safely and cheaply using the Fable AI tool.",
+  "description_zh": "利用 AI 工具 Fable 以极低成本将庞大的 Go 代码库安全重写为 Rust 的创新实践案例。"
 }

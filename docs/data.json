@@ -1,9 +1,9 @@
 {
   "generated_at": "2026-09-02",
   "total_cases": 18,
-  "models_total_count": 59,
-  "news_total_count": 55,
-  "inbox_total_count": 168,
+  "models_total_count": 61,
+  "news_total_count": 45,
+  "inbox_total_count": 176,
   "all_inbox_count": 282,
   "admin_stats": {
     "endpoints": [
@@ -1619,6 +1619,206 @@
       "description_en": "An inside look at the architecture, data strategy, and engineering methodologies behind the Granite 4.2 LLM series.",
       "description_zh": "深入剖析Granite 4.2大模型系列背后的架构设计、数据策略与工程方法论。",
       "model_family": "Granite"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_i_trained_a_small_transformer_in_",
+      "harvested_date": "2026-09-02",
+      "title": "Hacker News: I trained a small transformer in 1.5hrs and it beats many LLMs",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49519939",
+      "type": "sns",
+      "description": "HN Score: 609 pts | Comments: 157 | I trained a small transformer in 1.5hrs and it beats many LLMs",
+      "viral_metric": "🔥 609 HN Points",
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "metric_tracking": {
+        "initial": {
+          "value": 270,
+          "display": "🔥 270 HN Points",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 609,
+          "display": "🔥 609 HN Points",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 339,
+        "delta_display": "+339",
+        "growth_rate_pct": 125.6,
+        "is_spiking": true
+      },
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "article_url": "https://mvakde.github.io/blog/44-on-arc-1/",
+      "hn_url": "https://news.ycombinator.com/item?id=49519939",
+      "hn_id": "49519939",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_hacker_news_i_trained_a_small_transformer_in_",
+        "source_lang": "EN",
+        "type_classification": "MODEL",
+        "model_family": "Transformer",
+        "category": "소형 언어 모델 학습",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Transformer",
+          "Small LLM",
+          "Training Optimization"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.9,
+        "multilingual": {
+          "ko": {
+            "title": "1시간 반 만에 소형 트랜스포머 모델을 학습시켜 대다수 LLM을 능가한 방법",
+            "hook": "단 1.5시간의 학습만으로 시중의 많은 대형 언어 모델 성능을 뛰어넘는 소형 트랜스포머를 구축한 엔지니어링 노하우입니다.",
+            "key_takeaways": [
+              "1.5시간이라는 극단적으로 짧은 학습 시간과 고효율",
+              "소형 모델 설계 및 아키텍처 최적화 전략",
+              "대형 모델 대비 뛰어난 가성비와 실효성 입증"
+            ]
+          },
+          "en": {
+            "title": "Training a Small Transformer in 1.5 Hours That Beats Many LLMs",
+            "hook": "Engineering breakthroughs in training a compact transformer in just 1.5 hours that outperforms numerous existing LLMs.",
+            "key_takeaways": [
+              "Extremely short training time of 1.5 hours with high efficiency",
+              "Compact model design and architecture optimization strategies",
+              "Proving superior cost-effectiveness and practicality over large models"
+            ]
+          },
+          "zh": {
+            "title": "在 1.5 小时内训练小型 Transformer 并击败众多大模型",
+            "hook": "仅用 1.5 小时训练便超越众多现有大语言模型的紧凑型 Transformer 构建工程经验。",
+            "key_takeaways": [
+              "1.5小时的极短训练时间与极高效率",
+              "小型模型设计与架构优化策略",
+              "证明了相比大模型更具成本效益的实用性"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:18.018799+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Transformer",
+        "Small LLM",
+        "Training Optimization"
+      ],
+      "title_ko": "1시간 반 만에 소형 트랜스포머 모델을 학습시켜 대다수 LLM을 능가한 방법",
+      "title_en": "Training a Small Transformer in 1.5 Hours That Beats Many LLMs",
+      "title_zh": "在 1.5 小时内训练小型 Transformer 并击败众多大模型",
+      "hook": "단 1.5시간의 학습만으로 시중의 많은 대형 언어 모델 성능을 뛰어넘는 소형 트랜스포머를 구축한 엔지니어링 노하우입니다.",
+      "hook_ko": "단 1.5시간의 학습만으로 시중의 많은 대형 언어 모델 성능을 뛰어넘는 소형 트랜스포머를 구축한 엔지니어링 노하우입니다.",
+      "hook_en": "Engineering breakthroughs in training a compact transformer in just 1.5 hours that outperforms numerous existing LLMs.",
+      "hook_zh": "仅用 1.5 小时训练便超越众多现有大语言模型的紧凑型 Transformer 构建工程经验。",
+      "description_ko": "단 1.5시간의 학습만으로 시중의 많은 대형 언어 모델 성능을 뛰어넘는 소형 트랜스포머를 구축한 엔지니어링 노하우입니다.",
+      "description_en": "Engineering breakthroughs in training a compact transformer in just 1.5 hours that outperforms numerous existing LLMs.",
+      "description_zh": "仅用 1.5 小时训练便超越众多现有大语言模型的紧凑型 Transformer 构建工程经验。",
+      "model_family": "Transformer",
+      "category_type": "MODEL"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_claude_fable_51_and_claude_mythos",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "Hacker News: Claude Fable 5.1 and Claude Mythos 5.1",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49525378",
+      "type": "sns",
+      "category_type": "MODEL",
+      "description": "HN Score: 1161 pts | Comments: 1070 | Claude Fable 5.1 and Claude Mythos 5.1",
+      "viral_metric": "🔥 1161 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 985,
+          "display": "🔥 985 HN Points",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 1161,
+          "display": "🔥 1161 HN Points",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 176,
+        "delta_display": "+176",
+        "growth_rate_pct": 17.9,
+        "is_spiking": true
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PROMOTED",
+      "article_url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "hn_url": "https://news.ycombinator.com/item?id=49525378",
+      "hn_id": "49525378",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_hacker_news_claude_fable_51_and_claude_mythos",
+        "source_lang": "EN",
+        "type_classification": "MODEL",
+        "model_family": "Claude",
+        "category": "차세대 대형 언어 모델",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Claude Fable 5.1",
+          "Claude Mythos 5.1",
+          "Anthropic"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.9,
+        "multilingual": {
+          "ko": {
+            "title": "Claude Fable 5.1 및 Claude Mythos 5.1 모델 전격 분석",
+            "hook": "Anthropic의 최신 차세대 모델 라인업이 제시하는 창의적, 추론적 성능 한계의 확장.",
+            "key_takeaways": [
+              "Claude Fable 5.1 및 Mythos 5.1의 주요 아키텍처 특징",
+              "스토리텔링 및 복잡한 추론 태스크에서의 벤치마크 성능 변화",
+              "엔지니어링 워크플로우에 미칠 실질적인 영향력 평가"
+            ]
+          },
+          "en": {
+            "title": "Claude Fable 5.1 and Claude Mythos 5.1 Unveiled",
+            "hook": "Explore Anthropic's latest next-generation model lineup pushing the boundaries of creativity and reasoning.",
+            "key_takeaways": [
+              "Key architectural upgrades in Claude Fable 5.1 and Mythos 5.1",
+              "Benchmark performance improvements in storytelling and complex reasoning",
+              "Practical implications for engineering workflows and applications"
+            ]
+          },
+          "zh": {
+            "title": "Claude Fable 5.1 与 Claude Mythos 5.1 重磅发布解析",
+            "hook": "探索Anthropic最新一代模型阵容，突破创意与复杂推理的新边界。",
+            "key_takeaways": [
+              "Claude Fable 5.1与Mythos 5.1的核心架构升级",
+              "在故事创作与复杂推理任务中的基准测试表现",
+              "对开发者工作流与实际应用产生的深远影响"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:30.303243+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Claude Fable 5.1",
+        "Claude Mythos 5.1",
+        "Anthropic"
+      ],
+      "title_ko": "Claude Fable 5.1 및 Claude Mythos 5.1 모델 전격 분석",
+      "title_en": "Claude Fable 5.1 and Claude Mythos 5.1 Unveiled",
+      "title_zh": "Claude Fable 5.1 与 Claude Mythos 5.1 重磅发布解析",
+      "hook": "Anthropic의 최신 차세대 모델 라인업이 제시하는 창의적, 추론적 성능 한계의 확장.",
+      "hook_ko": "Anthropic의 최신 차세대 모델 라인업이 제시하는 창의적, 추론적 성능 한계의 확장.",
+      "hook_en": "Explore Anthropic's latest next-generation model lineup pushing the boundaries of creativity and reasoning.",
+      "hook_zh": "探索Anthropic最新一代模型阵容，突破创意与复杂推理的新边界。",
+      "description_ko": "Anthropic의 최신 차세대 모델 라인업이 제시하는 창의적, 추론적 성능 한계의 확장.",
+      "description_en": "Explore Anthropic's latest next-generation model lineup pushing the boundaries of creativity and reasoning.",
+      "description_zh": "探索Anthropic最新一代模型阵容，突破创意与复杂推理的新边界。",
+      "model_family": "Claude"
     },
     {
       "inbox_id": "2026-09-02_repo_huggingface_model_ista_daslabqwen38_27b_gsq_r",
@@ -5942,6 +6142,204 @@
       "description_zh": "一款可自动过滤并隐藏 YouTube 上 AI 标记视频的实用 Safari 浏览器扩展工具。"
     },
     {
+      "inbox_id": "2026-09-02_sns_hacker_news_show_hn_newtons_orchard_browser_b",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "Hacker News: Show HN: Newton's Orchard – Browser-based space/gravity playground",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49524469",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 21 pts | Comments: 1 | Show HN: Newton's Orchard – Browser-based space/gravity playground",
+      "viral_metric": "🔥 21 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 21,
+          "display": "🔥 21 HN Points",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 21,
+          "display": "🔥 21 HN Points",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 0,
+        "delta_display": "0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "article_url": "https://newtonsorchard.app",
+      "hn_url": "https://news.ycombinator.com/item?id=49524469",
+      "hn_id": "49524469",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_hacker_news_show_hn_newtons_orchard_browser_b",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "시뮬레이션 및 웹 그래픽",
+        "programming_lang": "JavaScript",
+        "root_keywords": [
+          "Browser",
+          "Gravity",
+          "Simulation"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "뉴턴즈 오처드: 브라우저 기반 우주 및 중력 시뮬레이터",
+            "hook": "웹 브라우저에서 직접 물리 법칙과 중력 시뮬레이션을 구현한 가벼운 인터랙티브 프로젝트입니다.",
+            "key_takeaways": [
+              "웹 기술을 활용한 브라우저 기반 공간 시뮬레이션",
+              "중력 및 천체 물리 법칙의 시각적 구현",
+              "가벼운 인터랙티브 경험 제공"
+            ]
+          },
+          "en": {
+            "title": "Newton's Orchard: Browser-Based Space and Gravity Playground",
+            "hook": "A lightweight interactive project implementing physics and gravity simulations directly in the web browser.",
+            "key_takeaways": [
+              "Browser-based spatial simulation using web technologies",
+              "Visual implementation of gravity and orbital mechanics",
+              "Provides a lightweight interactive experience"
+            ]
+          },
+          "zh": {
+            "title": "牛顿果园：基于浏览器的太空与重力模拟游乐场",
+            "hook": "一个直接在网页浏览器中实现物理定律与重力模拟的轻量级互动项目。",
+            "key_takeaways": [
+              "利用网络技术实现的基于浏览器的空间模拟",
+              "重力与天体物理定律的视觉化实现",
+              "提供轻量级的互动体验"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:18.004164+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "JavaScript",
+      "root_keywords": [
+        "Browser",
+        "Gravity",
+        "Simulation"
+      ],
+      "title_ko": "뉴턴즈 오처드: 브라우저 기반 우주 및 중력 시뮬레이터",
+      "title_en": "Newton's Orchard: Browser-Based Space and Gravity Playground",
+      "title_zh": "牛顿果园：基于浏览器的太空与重力模拟游乐场",
+      "hook": "웹 브라우저에서 직접 물리 법칙과 중력 시뮬레이션을 구현한 가벼운 인터랙티브 프로젝트입니다.",
+      "hook_ko": "웹 브라우저에서 직접 물리 법칙과 중력 시뮬레이션을 구현한 가벼운 인터랙티브 프로젝트입니다.",
+      "hook_en": "A lightweight interactive project implementing physics and gravity simulations directly in the web browser.",
+      "hook_zh": "一个直接在网页浏览器中实现物理定律与重力模拟的轻量级互动项目。",
+      "description_ko": "웹 브라우저에서 직접 물리 법칙과 중력 시뮬레이션을 구현한 가벼운 인터랙티브 프로젝트입니다.",
+      "description_en": "A lightweight interactive project implementing physics and gravity simulations directly in the web browser.",
+      "description_zh": "一个直接在网页浏览器中实现物理定律与重力模拟的轻量级互动项目。"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_show_hn_hn_match_maker_matching_w",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "Hacker News: Show HN: HN Match Maker – Matching \"Who Wants to Be Hired?\" With \"Who's Hiring?\"",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49528057",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 79 pts | Comments: 35 | Show HN: HN Match Maker – Matching \"Who Wants to Be Hired?\" With \"Who's Hiring?\"",
+      "viral_metric": "🔥 79 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 51,
+          "display": "🔥 51 HN Points",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 79,
+          "display": "🔥 79 HN Points",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 28,
+        "delta_display": "+28",
+        "growth_rate_pct": 54.9,
+        "is_spiking": true
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "article_url": "https://hnmatchmaker.com/",
+      "hn_url": "https://news.ycombinator.com/item?id=49528057",
+      "hn_id": "49528057",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_hacker_news_show_hn_hn_match_maker_matching_w",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "개발자 채용 및 매칭",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Hacker News",
+          "Job Matching",
+          "Hiring"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.2,
+        "multilingual": {
+          "ko": {
+            "title": "HN 매치 메이커: 구직자와 채용 공고를 자동으로 연결하는 도구",
+            "hook": "Hacker News의 '구직 원함'과 '채용 중' 게시판을 분석하여 최적의 매칭을 찾아주는 유용한 서비스입니다.",
+            "key_takeaways": [
+              "Hacker News 채용/구직 스레드 데이터 활용",
+              "개발자와 기업 간의 자동 매칭 솔루션",
+              "커뮤니티 기반 채용 효율성 극대화"
+            ]
+          },
+          "en": {
+            "title": "HN Match Maker: Connecting 'Who Wants to Be Hired?' with 'Who's Hiring?'",
+            "hook": "A useful service that analyzes Hacker News hiring threads to find optimal matches between job seekers and employers.",
+            "key_takeaways": [
+              "Leverages Hacker News hiring and job-seeking thread data",
+              "Automated matching solution between developers and companies",
+              "Maximizing community-driven hiring efficiency"
+            ]
+          },
+          "zh": {
+            "title": "HN 匹配器：将求职者与招聘信息智能连接",
+            "hook": "一个通过分析 Hacker News 招聘与求职板块，实现供需双方最优匹配的实用服务。",
+            "key_takeaways": [
+              "利用 Hacker News 招聘/求职帖子的数据",
+              "开发者与企业之间的自动化匹配解决方案",
+              "最大化社区驱动的招聘效率"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:18.005682+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Hacker News",
+        "Job Matching",
+        "Hiring"
+      ],
+      "title_ko": "HN 매치 메이커: 구직자와 채용 공고를 자동으로 연결하는 도구",
+      "title_en": "HN Match Maker: Connecting 'Who Wants to Be Hired?' with 'Who's Hiring?'",
+      "title_zh": "HN 匹配器：将求职者与招聘信息智能连接",
+      "hook": "Hacker News의 '구직 원함'과 '채용 중' 게시판을 분석하여 최적의 매칭을 찾아주는 유용한 서비스입니다.",
+      "hook_ko": "Hacker News의 '구직 원함'과 '채용 중' 게시판을 분석하여 최적의 매칭을 찾아주는 유용한 서비스입니다.",
+      "hook_en": "A useful service that analyzes Hacker News hiring threads to find optimal matches between job seekers and employers.",
+      "hook_zh": "一个通过分析 Hacker News 招聘与求职板块，实现供需双方最优匹配的实用服务。",
+      "description_ko": "Hacker News의 '구직 원함'과 '채용 중' 게시판을 분석하여 최적의 매칭을 찾아주는 유용한 서비스입니다.",
+      "description_en": "A useful service that analyzes Hacker News hiring threads to find optimal matches between job seekers and employers.",
+      "description_zh": "一个通过分析 Hacker News 招聘与求职板块，实现供需双方最优匹配的实用服务。"
+    },
+    {
       "inbox_id": "2026-09-02_sns_hacker_news_run_macos_software_on_linux",
       "harvested_date": "2026-09-02",
       "title": "Hacker News: Run macOS Software on Linux",
@@ -5974,7 +6372,71 @@
       "updated_at": "2026-09-02",
       "article_url": "https://www.darlinghq.org/",
       "hn_url": "https://news.ycombinator.com/item?id=49515830",
-      "hn_id": "49515830"
+      "hn_id": "49515830",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_hacker_news_run_macos_software_on_linux",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "OS 가상화 및 호환성",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "macOS",
+          "Linux",
+          "Compatibility"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "리눅스 환경에서 macOS 소프트웨어를 구동하는 기술적 접근",
+            "hook": "리눅스 시스템 네이티브 환경에서 macOS 전용 소프트웨어를 실행할 수 있게 만드는 흥미롭고 심도 있는 기술입니다.",
+            "key_takeaways": [
+              "리눅스와 macOS 간의 바이너리 호환성 및 레이어 분석",
+              "가상화가닌 에뮬레이션 또는 호환 레이어 접근법",
+              "크로스 플랫폼 개발 및 시스템 엔지니어링의 새로운 가능성"
+            ]
+          },
+          "en": {
+            "title": "Running macOS Software on Linux: Technical Deep Dive",
+            "hook": "An intriguing and deep technical approach enabling macOS-exclusive software to run natively on Linux systems.",
+            "key_takeaways": [
+              "Analysis of binary compatibility and layers between Linux and macOS",
+              "Emulation or compatibility layer approach rather than full virtualization",
+              "New possibilities for cross-platform development and systems engineering"
+            ]
+          },
+          "zh": {
+            "title": "在 Linux 上运行 macOS 软件的技术探索",
+            "hook": "一项令人瞩目的深度技术，使 macOS 专属软件能够在 Linux 系统上原生运行。",
+            "key_takeaways": [
+              "分析 Linux 与 macOS 之间的二进制兼容性与兼容层",
+              "采用模拟或兼容层方法而非完全虚拟化",
+              "为跨平台开发和系统工程开辟新可能"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:18.008399+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "macOS",
+        "Linux",
+        "Compatibility"
+      ],
+      "title_ko": "리눅스 환경에서 macOS 소프트웨어를 구동하는 기술적 접근",
+      "title_en": "Running macOS Software on Linux: Technical Deep Dive",
+      "title_zh": "在 Linux 上运行 macOS 软件的技术探索",
+      "hook": "리눅스 시스템 네이티브 환경에서 macOS 전용 소프트웨어를 실행할 수 있게 만드는 흥미롭고 심도 있는 기술입니다.",
+      "hook_ko": "리눅스 시스템 네이티브 환경에서 macOS 전용 소프트웨어를 실행할 수 있게 만드는 흥미롭고 심도 있는 기술입니다.",
+      "hook_en": "An intriguing and deep technical approach enabling macOS-exclusive software to run natively on Linux systems.",
+      "hook_zh": "一项令人瞩目的深度技术，使 macOS 专属软件能够在 Linux 系统上原生运行。",
+      "description_ko": "리눅스 시스템 네이티브 환경에서 macOS 전용 소프트웨어를 실행할 수 있게 만드는 흥미롭고 심도 있는 기술입니다.",
+      "description_en": "An intriguing and deep technical approach enabling macOS-exclusive software to run natively on Linux systems.",
+      "description_zh": "一项令人瞩目的深度技术，使 macOS 专属软件能够在 Linux 系统上原生运行。",
+      "category_type": "TECH"
     },
     {
       "inbox_id": "2026-09-02_sns_hacker_news_my_local_model_setup_on_an_m4_pro",
@@ -6073,39 +6535,103 @@
       "description_zh": "充分发挥 Apple M4 Pro 统一内存带宽优势，高效运行本地大语言模型的实战配置指南。"
     },
     {
-      "inbox_id": "2026-09-02_sns_hacker_news_i_trained_a_small_transformer_in_",
+      "inbox_id": "2026-09-02_sns_hacker_news_i_used_fable_to_rewrite_65kloc_of",
       "harvested_date": "2026-09-02",
-      "title": "Hacker News: I trained a small transformer in 1.5hrs and it beats many LLMs",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "Hacker News: I used Fable to rewrite 65kLoC of Go in Rust. It cost $400",
       "source_platform": "Hacker News",
-      "source_url": "https://news.ycombinator.com/item?id=49519939",
+      "source_url": "https://news.ycombinator.com/item?id=49526131",
       "type": "sns",
-      "description": "HN Score: 609 pts | Comments: 157 | I trained a small transformer in 1.5hrs and it beats many LLMs",
-      "viral_metric": "🔥 609 HN Points",
+      "category_type": "TECH",
+      "description": "HN Score: 55 pts | Comments: 37 | I used Fable to rewrite 65kLoC of Go in Rust. It cost $400",
+      "viral_metric": "🔥 55 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 51,
+          "display": "🔥 51 HN Points",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 55,
+          "display": "🔥 55 HN Points",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 4,
+        "delta_display": "+4",
+        "growth_rate_pct": 7.8,
+        "is_spiking": false
+      },
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "metric_tracking": {
-        "initial": {
-          "value": 270,
-          "display": "🔥 270 HN Points",
-          "recorded_at": "2026-09-02"
+      "article_url": "https://iurii.net/en/blog/posts/software-engineering/i-used-fable-to-rewrite-65kloc-to-rust/",
+      "hn_url": "https://news.ycombinator.com/item?id=49526131",
+      "hn_id": "49526131",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_hacker_news_i_used_fable_to_rewrite_65kloc_of",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "AI 기반 코드 마이그레이션",
+        "programming_lang": "Rust",
+        "root_keywords": [
+          "Fable",
+          "Go to Rust",
+          "AI Code Rewrite"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.8,
+        "multilingual": {
+          "ko": {
+            "title": "Fable을 이용해 6만 5천 줄의 Go 코드를 Rust로 단 400달러에 재작성한 사례",
+            "hook": "AI 도구인 Fable을 활용하여 대규모 레거시 Go 코베이스를 단 400달러의 비용으로 안전하게 Rust로 포팅한 혁신적인 사례입니다.",
+            "key_takeaways": [
+              "65,000 LoC 규모의 대형 코드베이스 마이그레이션 성공",
+              "비용 효율적인 AI 에이전트/도구 기반 코드 리라이팅",
+              "Go에서 안전성과 성능이 강화된 Rust로의 전환 방법론"
+            ]
+          },
+          "en": {
+            "title": "Rewriting 65kLoC of Go in Rust Using Fable for $400",
+            "hook": "An innovative case study of porting a massive legacy Go codebase to Rust safely and cheaply using the Fable AI tool.",
+            "key_takeaways": [
+              "Successful migration of a massive 65,000 LoC codebase",
+              "Cost-effective AI agent/tool-based code rewriting",
+              "Methodology for transitioning from Go to memory-safe, performant Rust"
+            ]
+          },
+          "zh": {
+            "title": "使用 Fable 仅花 400 美元将 6.5 万行 Go 代码重写为 Rust",
+            "hook": "利用 AI 工具 Fable 以极低成本将庞大的 Go 代码库安全重写为 Rust 的创新实践案例。",
+            "key_takeaways": [
+              "成功迁移规模达 65,000 行代码的大型代码库",
+              "高性价比的基于 AI 代理/工具的代码重写方案",
+              "从 Go 转向内存安全且高性能的 Rust 的方法论"
+            ]
+          }
         },
-        "latest": {
-          "value": 609,
-          "display": "🔥 609 HN Points",
-          "updated_at": "2026-09-02"
-        },
-        "delta": 339,
-        "delta_display": "+339",
-        "growth_rate_pct": 125.6,
-        "is_spiking": true
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:18.011256+09:00"
       },
-      "created_at": "2026-09-02",
-      "updated_at": "2026-09-02",
-      "article_url": "https://mvakde.github.io/blog/44-on-arc-1/",
-      "hn_url": "https://news.ycombinator.com/item?id=49519939",
-      "hn_id": "49519939"
+      "source_lang": "EN",
+      "programming_lang": "Rust",
+      "root_keywords": [
+        "Fable",
+        "Go to Rust",
+        "AI Code Rewrite"
+      ],
+      "title_ko": "Fable을 이용해 6만 5천 줄의 Go 코드를 Rust로 단 400달러에 재작성한 사례",
+      "title_en": "Rewriting 65kLoC of Go in Rust Using Fable for $400",
+      "title_zh": "使用 Fable 仅花 400 美元将 6.5 万行 Go 代码重写为 Rust",
+      "hook": "AI 도구인 Fable을 활용하여 대규모 레거시 Go 코베이스를 단 400달러의 비용으로 안전하게 Rust로 포팅한 혁신적인 사례입니다.",
+      "hook_ko": "AI 도구인 Fable을 활용하여 대규모 레거시 Go 코베이스를 단 400달러의 비용으로 안전하게 Rust로 포팅한 혁신적인 사례입니다.",
+      "hook_en": "An innovative case study of porting a massive legacy Go codebase to Rust safely and cheaply using the Fable AI tool.",
+      "hook_zh": "利用 AI 工具 Fable 以极低成本将庞大的 Go 代码库安全重写为 Rust 的创新实践案例。",
+      "description_ko": "AI 도구인 Fable을 활용하여 대규모 레거시 Go 코베이스를 단 400달러의 비용으로 안전하게 Rust로 포팅한 혁신적인 사례입니다.",
+      "description_en": "An innovative case study of porting a massive legacy Go codebase to Rust safely and cheaply using the Fable AI tool.",
+      "description_zh": "利用 AI 工具 Fable 以极低成本将庞大的 Go 代码库安全重写为 Rust 的创新实践案例。"
     },
     {
       "inbox_id": "2026-09-02_sns_hacker_news_gpu_world",
@@ -6204,41 +6730,6 @@
       "category_type": "TECH"
     },
     {
-      "inbox_id": "2026-09-02_sns_hacker_news_dwarf_fortress_creator_says_the_i",
-      "harvested_date": "2026-09-02",
-      "title": "Hacker News: Dwarf Fortress' creator says the industry's in shambles over AI",
-      "source_platform": "Hacker News",
-      "source_url": "https://news.ycombinator.com/item?id=49523720",
-      "type": "sns",
-      "description": "HN Score: 218 pts | Comments: 224 | Dwarf Fortress' creator says the industry's in shambles over AI",
-      "viral_metric": "🔥 218 HN Points",
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
-      ],
-      "status": "PENDING_REVIEW",
-      "metric_tracking": {
-        "initial": {
-          "value": 16,
-          "display": "🔥 16 HN Points",
-          "recorded_at": "2026-09-02"
-        },
-        "latest": {
-          "value": 218,
-          "display": "🔥 218 HN Points",
-          "updated_at": "2026-09-02"
-        },
-        "delta": 202,
-        "delta_display": "+202",
-        "growth_rate_pct": 1262.5,
-        "is_spiking": true
-      },
-      "created_at": "2026-09-02",
-      "updated_at": "2026-09-02",
-      "article_url": "https://www.pcgamer.com/gaming-industry/dwarf-fortress-creator-says-the-industrys-in-shambles-over-ai-and-layoff-happy-ceos-everyone-i-know-their-bosses-are-slowly-getting-psychosis/",
-      "hn_url": "https://news.ycombinator.com/item?id=49523720",
-      "hn_id": "49523720"
-    },
-    {
       "inbox_id": "2026-09-02_sns_hacker_news_chatgpt_work_tool_and_skill_refer",
       "harvested_date": "2026-09-02",
       "title": "Hacker News: ChatGPT Work Tool and Skill Reference",
@@ -6271,7 +6762,71 @@
       "updated_at": "2026-09-02",
       "article_url": "https://codex-tool-reference.simonw.chatgpt.site/",
       "hn_url": "https://news.ycombinator.com/item?id=49510000",
-      "hn_id": "49510000"
+      "hn_id": "49510000",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_hacker_news_chatgpt_work_tool_and_skill_refer",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "GPT",
+        "category": "업무 자동화 및 LLM 활용 가이드",
+        "programming_lang": "General",
+        "root_keywords": [
+          "ChatGPT",
+          "업무 도구",
+          "스킬 레퍼런스"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.8,
+        "multilingual": {
+          "ko": {
+            "title": "ChatGPT 업무 도구 및 스킬 레퍼런스 가이드",
+            "hook": "실무 생산성을 극대화하기 위한 ChatGPT의 도구 통합 및 스킬 활용 가이드를 확인하세요.",
+            "key_takeaways": [
+              "ChatGPT를 업무 프로세스에 심층 통합하는 방법",
+              "효율적인 프롬프트 엔지니어링 및 스킬 레퍼런스 구성",
+              "실무 자동화 워크플로우 구축을 위한 모범 사례"
+            ]
+          },
+          "en": {
+            "title": "ChatGPT Work Tool and Skill Reference Guide",
+            "hook": "Master tool integration and skill references to maximize professional productivity with ChatGPT.",
+            "key_takeaways": [
+              "Deep integration methods of ChatGPT into business workflows",
+              "Structuring efficient prompt engineering and skill references",
+              "Best practices for building practical automation pipelines"
+            ]
+          },
+          "zh": {
+            "title": "ChatGPT 工作工具与技能参考指南",
+            "hook": "掌握ChatGPT的工具集成与技能参考，大幅提升职场生产力。",
+            "key_takeaways": [
+              "将ChatGPT深度集成到业务流程中的实用方法",
+              "构建高效提示词工程与技能参考体系",
+              "打造实战自动化工作流的最佳实践"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:30.304788+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "ChatGPT",
+        "업무 도구",
+        "스킬 레퍼런스"
+      ],
+      "title_ko": "ChatGPT 업무 도구 및 스킬 레퍼런스 가이드",
+      "title_en": "ChatGPT Work Tool and Skill Reference Guide",
+      "title_zh": "ChatGPT 工作工具与技能参考指南",
+      "hook": "실무 생산성을 극대화하기 위한 ChatGPT의 도구 통합 및 스킬 활용 가이드를 확인하세요.",
+      "hook_ko": "실무 생산성을 극대화하기 위한 ChatGPT의 도구 통합 및 스킬 활용 가이드를 확인하세요.",
+      "hook_en": "Master tool integration and skill references to maximize professional productivity with ChatGPT.",
+      "hook_zh": "掌握ChatGPT的工具集成与技能参考，大幅提升职场生产力。",
+      "description_ko": "실무 생산성을 극대화하기 위한 ChatGPT의 도구 통합 및 스킬 활용 가이드를 확인하세요.",
+      "description_en": "Master tool integration and skill references to maximize professional productivity with ChatGPT.",
+      "description_zh": "掌握ChatGPT的工具集成与技能参考，大幅提升职场生产力。",
+      "category_type": "AGENT"
     },
     {
       "inbox_id": "2026-09-02_sns_hacker_news_breaking_claude_code_opus_5_auto_",
@@ -6306,7 +6861,170 @@
       "updated_at": "2026-09-02",
       "article_url": "https://embracethered.com/blog/posts/2026/breaking-claude-code-opus-5-and-automode/",
       "hn_url": "https://news.ycombinator.com/item?id=49506819",
-      "hn_id": "49506819"
+      "hn_id": "49506819",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_hacker_news_breaking_claude_code_opus_5_auto_",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Claude",
+        "category": "AI 코딩 에이전트 및 자동화",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "Claude Code",
+          "Opus 5",
+          "자동 모드"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.8,
+        "multilingual": {
+          "ko": {
+            "title": "Claude Code Opus 5 자동 모드(Auto Mode) 완벽 분석",
+            "hook": "개발자의 개입을 최소화하고 코딩 태스크를 자율 수행하는 Claude Code Opus 5의 혁신을 경험하세요.",
+            "key_takeaways": [
+              "Claude Code Opus 5의 새로운 'Auto Mode' 작동 원리",
+              "대규모 코드베이스 리팩토링 및 버그 수정 자동화 성능",
+              "자율형 코딩 에이전트 환경에서 실무 개발자의 역할 변화"
+            ]
+          },
+          "en": {
+            "title": "Breaking Down Claude Code Opus 5 Auto Mode",
+            "hook": "Discover how Claude Code Opus 5 Auto Mode revolutionizes autonomous software development with minimal human oversight.",
+            "key_takeaways": [
+              "Under-the-hood mechanics of Claude Code Opus 5 Auto Mode",
+              "Performance metrics in large-scale codebase refactoring and bug fixing",
+              "The shifting paradigm of software engineering in autonomous agent eras"
+            ]
+          },
+          "zh": {
+            "title": "深度剖析 Claude Code Opus 5 自动模式（Auto Mode）",
+            "hook": "体验Claude Code Opus 5如何以极少的人工干预实现软件开发任务的完全自主运行。",
+            "key_takeaways": [
+              "Claude Code Opus 5 新“自动模式”的底层运行机制",
+              "在大规模代码库重构和自动化排错中的基准表现",
+              "在自主编程代理时代下软件工程师角色的演变"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:30.306367+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "Claude Code",
+        "Opus 5",
+        "자동 모드"
+      ],
+      "title_ko": "Claude Code Opus 5 자동 모드(Auto Mode) 완벽 분석",
+      "title_en": "Breaking Down Claude Code Opus 5 Auto Mode",
+      "title_zh": "深度剖析 Claude Code Opus 5 自动模式（Auto Mode）",
+      "hook": "개발자의 개입을 최소화하고 코딩 태스크를 자율 수행하는 Claude Code Opus 5의 혁신을 경험하세요.",
+      "hook_ko": "개발자의 개입을 최소화하고 코딩 태스크를 자율 수행하는 Claude Code Opus 5의 혁신을 경험하세요.",
+      "hook_en": "Discover how Claude Code Opus 5 Auto Mode revolutionizes autonomous software development with minimal human oversight.",
+      "hook_zh": "体验Claude Code Opus 5如何以极少的人工干预实现软件开发任务的完全自主运行。",
+      "description_ko": "개발자의 개입을 최소화하고 코딩 태스크를 자율 수행하는 Claude Code Opus 5의 혁신을 경험하세요.",
+      "description_en": "Discover how Claude Code Opus 5 Auto Mode revolutionizes autonomous software development with minimal human oversight.",
+      "description_zh": "体验Claude Code Opus 5如何以极少的人工干预实现软件开发任务的完全自主运行。",
+      "category_type": "AGENT"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_hacker_news_atlas_a_world_model_for_spatial_i",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "Hacker News: Atlas: A World Model for Spatial Intelligence",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49525160",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 205 pts | Comments: 49 | Atlas: A World Model for Spatial Intelligence",
+      "viral_metric": "🔥 205 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 167,
+          "display": "🔥 167 HN Points",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 205,
+          "display": "🔥 205 HN Points",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 38,
+        "delta_display": "+38",
+        "growth_rate_pct": 22.8,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "article_url": "https://www.worldlabs.ai/blog/atlas",
+      "hn_url": "https://news.ycombinator.com/item?id=49525160",
+      "hn_id": "49525160",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_hacker_news_atlas_a_world_model_for_spatial_i",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "공간 지능 및 월드 모델",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Atlas",
+          "World Model",
+          "Spatial Intelligence"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "Atlas: 공간 지능을 위한 새로운 월드 모델 공개",
+            "hook": "공간 지능(Spatial Intelligence) 분야의 패러다임을 바꿀 최신 월드 모델 아키텍처를 확인하세요.",
+            "key_takeaways": [
+              "공간 인식 및 물리 세계 이해를 위한 월드 모델 제시",
+              "AI의 3차원 공간 추론 능력 향상 기여",
+              "로보틱스 및 AR/VR 분야에의 응용 가능성 주목"
+            ]
+          },
+          "en": {
+            "title": "Atlas: A World Model for Spatial Intelligence",
+            "hook": "Explore the cutting-edge world model designed to revolutionize spatial intelligence and 3D reasoning.",
+            "key_takeaways": [
+              "Introduces a robust world model for physical world understanding",
+              "Enhances AI's 3D spatial reasoning capabilities",
+              "High potential for robotics and AR/VR applications"
+            ]
+          },
+          "zh": {
+            "title": "Atlas：面向空间智能的世界模型",
+            "hook": "探索旨在革新空间智能与3D推理能力的最新世界模型架构。",
+            "key_takeaways": [
+              "提出用于理解物理世界的强大世界模型",
+              "提升AI的三维空间推理能力",
+              "在机器人和AR/VR领域具有广阔应用前景"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:42.435407+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Atlas",
+        "World Model",
+        "Spatial Intelligence"
+      ],
+      "title_ko": "Atlas: 공간 지능을 위한 새로운 월드 모델 공개",
+      "title_en": "Atlas: A World Model for Spatial Intelligence",
+      "title_zh": "Atlas：面向空间智能的世界模型",
+      "hook": "공간 지능(Spatial Intelligence) 분야의 패러다임을 바꿀 최신 월드 모델 아키텍처를 확인하세요.",
+      "hook_ko": "공간 지능(Spatial Intelligence) 분야의 패러다임을 바꿀 최신 월드 모델 아키텍처를 확인하세요.",
+      "hook_en": "Explore the cutting-edge world model designed to revolutionize spatial intelligence and 3D reasoning.",
+      "hook_zh": "探索旨在革新空间智能与3D推理能力的最新世界模型架构。",
+      "description_ko": "공간 지능(Spatial Intelligence) 분야의 패러다임을 바꿀 최신 월드 모델 아키텍처를 확인하세요.",
+      "description_en": "Explore the cutting-edge world model designed to revolutionize spatial intelligence and 3D reasoning.",
+      "description_zh": "探索旨在革新空间智能与3D推理能力的最新世界模型架构。"
     },
     {
       "inbox_id": "2026-09-02_sns_hacker_news_a_browser_based_viewer_for_office",
@@ -6341,7 +7059,659 @@
       "updated_at": "2026-09-02",
       "article_url": "https://ooxml.silurus.dev/",
       "hn_url": "https://news.ycombinator.com/item?id=49523361",
-      "hn_id": "49523361"
+      "hn_id": "49523361",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_hacker_news_a_browser_based_viewer_for_office",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "웹 기술 및 문서 뷰어",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "Office Open XML",
+          "Browser Viewer",
+          "Web Development"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "Office Open XML 문서를 위한 브라우저 기반 뷰어",
+            "hook": "별도의 오피스 프로그램 없이 웹 브라우저에서 직접 문서를 렌더링하는 경량 툴을 만나보세요.",
+            "key_takeaways": [
+              "설치 없이 웹에서 바로 구동되는 OOXML 문서 뷰어",
+              "프론트엔드 개발 시 문서 미리보기 기능 구현에 유용",
+              "오픈소스 기반의 가볍고 빠른 렌더링 성능 제공"
+            ]
+          },
+          "en": {
+            "title": "A Browser-Based Viewer for Office Open XML Documents",
+            "hook": "Discover a lightweight web-based tool to render and view Office documents directly in the browser.",
+            "key_takeaways": [
+              "Zero-install, browser-native rendering for OOXML documents",
+              "Useful for integrating document preview features in web apps",
+              "Open-source implementation focusing on speed and lightweight performance"
+            ]
+          },
+          "zh": {
+            "title": "基于浏览器的Office Open XML文档查看器",
+            "hook": "探索无需安装任何办公软件即可在网页端直接渲染文档的轻量级工具。",
+            "key_takeaways": [
+              "无需安装、网页原生的OOXML文档渲染方案",
+              "适用于在Web应用中集成文档预览功能",
+              "开源实现，注重速度与轻量级性能"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:42.439212+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "Office Open XML",
+        "Browser Viewer",
+        "Web Development"
+      ],
+      "title_ko": "Office Open XML 문서를 위한 브라우저 기반 뷰어",
+      "title_en": "A Browser-Based Viewer for Office Open XML Documents",
+      "title_zh": "基于浏览器的Office Open XML文档查看器",
+      "hook": "별도의 오피스 프로그램 없이 웹 브라우저에서 직접 문서를 렌더링하는 경량 툴을 만나보세요.",
+      "hook_ko": "별도의 오피스 프로그램 없이 웹 브라우저에서 직접 문서를 렌더링하는 경량 툴을 만나보세요.",
+      "hook_en": "Discover a lightweight web-based tool to render and view Office documents directly in the browser.",
+      "hook_zh": "探索无需安装任何办公软件即可在网页端直接渲染文档的轻量级工具。",
+      "description_ko": "별도의 오피스 프로그램 없이 웹 브라우저에서 직접 문서를 렌더링하는 경량 툴을 만나보세요.",
+      "description_en": "Discover a lightweight web-based tool to render and view Office documents directly in the browser.",
+      "description_zh": "探索无需安装任何办公软件即可在网页端直接渲染文档的轻量级工具。",
+      "category_type": "TECH"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_geeknews_좋아_내_텍스트_편집기는_직접_만들겠다",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "GeekNews: 좋아, 내 텍스트 편집기는 직접 만들겠다",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33132",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: 좋아, 내 텍스트 편집기는 직접 만들겠다",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 0,
+        "delta_display": "0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "좋아, 내 텍스트 편집기는 직접 만들겠다",
+      "description_ko": "기성 도구에 불만족하여 나만의 텍스트 편집기를 직접 구현하고자 하는 개발자의 도전 정신과 아키텍처 인사이트를 확인하세요.",
+      "hn_url": "https://news.hada.io/topic?id=33132",
+      "article_url": "https://news.hada.io/topic?id=33132",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_좋아_내_텍스트_편집기는_직접_만들겠다",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "소프트웨어 아키텍처 및 개발",
+        "programming_lang": "General",
+        "root_keywords": [
+          "텍스트 편집기",
+          "개발자 도구",
+          "개인 프로젝트"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "좋아, 내 텍스트 편집기는 직접 만들겠다",
+            "hook": "기성 도구에 불만족하여 나만의 텍스트 편집기를 직접 구현하고자 하는 개발자의 도전 정신과 아키텍처 인사이트를 확인하세요.",
+            "key_takeaways": [
+              "기존 텍스트 편집기의 한계와 커스텀 에디터 개발 동기",
+              "에디터 구현 시 고려해야 할 핵심 요구사항 및 아키텍처",
+              "개발자 개인 도구 제작을 통한 생산성 향상 경험 공유"
+            ]
+          },
+          "en": {
+            "title": "Fine, I'll Build My Own Text Editor",
+            "hook": "Explore the developer's motivation and architectural insights behind building a custom text editor from scratch.",
+            "key_takeaways": [
+              "Motivations for moving away from off-the-shelf text editors",
+              "Core architecture and requirements for custom editor development",
+              "Enhancing developer productivity through personalized tools"
+            ]
+          },
+          "zh": {
+            "title": "好吧，我自己来写一个文本编辑器",
+            "hook": "了解开发者如何因不满意现有工具而决定从零打造自己的文本编辑器，探索背后的架构设计。",
+            "key_takeaways": [
+              "放弃现成文本编辑器的动机与痛点",
+              "自定义编辑器开发的核心架构与关键需求",
+              "通过打造个性化工具来提升开发效率的经验分享"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:55.805151+09:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "텍스트 편집기",
+        "개발자 도구",
+        "개인 프로젝트"
+      ],
+      "title_en": "Fine, I'll Build My Own Text Editor",
+      "title_zh": "好吧，我自己来写一个文本编辑器",
+      "hook": "기성 도구에 불만족하여 나만의 텍스트 편집기를 직접 구현하고자 하는 개발자의 도전 정신과 아키텍처 인사이트를 확인하세요.",
+      "hook_ko": "기성 도구에 불만족하여 나만의 텍스트 편집기를 직접 구현하고자 하는 개발자의 도전 정신과 아키텍처 인사이트를 확인하세요.",
+      "hook_en": "Explore the developer's motivation and architectural insights behind building a custom text editor from scratch.",
+      "hook_zh": "了解开发者如何因不满意现有工具而决定从零打造自己的文本编辑器，探索背后的架构设计。",
+      "description_en": "Explore the developer's motivation and architectural insights behind building a custom text editor from scratch.",
+      "description_zh": "了解开发者如何因不满意现有工具而决定从零打造自己的文本编辑器，探索背后的架构设计。"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_geeknews_에이전틱_스킬_감쇠_숙련은_여전히_반복에서_나온다",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "GeekNews: 에이전틱 스킬 감쇠 : 숙련은 여전히 반복에서 나온다",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33140",
+      "type": "sns",
+      "category_type": "AGENT",
+      "description": "GeekNews Korean Tech Trend: 에이전틱 스킬 감쇠 : 숙련은 여전히 반복에서 나온다",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 0,
+        "delta_display": "0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "에이전틱 스킬 감쇠: 숙련은 여전히 반복에서 나온다",
+      "description_ko": "AI 에이전트 시대에도 인간의 반복 숙달과 스킬 유지 왜 여전히 중요한지 근본적인 통찰을 제공합니다.",
+      "hn_url": "https://news.hada.io/topic?id=33140",
+      "article_url": "https://news.hada.io/topic?id=33140",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_에이전틱_스킬_감쇠_숙련은_여전히_반복에서_나온다",
+        "source_lang": "KO",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "AI 에이전트 및 스킬 학습",
+        "programming_lang": "General",
+        "root_keywords": [
+          "에이전틱 스킬",
+          "스킬 감쇠",
+          "AI 숙련도"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "에이전틱 스킬 감쇠: 숙련은 여전히 반복에서 나온다",
+            "hook": "AI 에이전트 시대에도 인간의 반복 숙달과 스킬 유지 왜 여전히 중요한지 근본적인 통찰을 제공합니다.",
+            "key_takeaways": [
+              "자동화 환경에서 발생하는 인간의 에이전틱 스킬 감쇠 현상 분석",
+              "반복적 연습과 숙련도가 에이전트 활용 능력에 미치는 영향",
+              "AI 시대 엔지니어의 전문성 유지를 위한 대응 전략"
+            ]
+          },
+          "en": {
+            "title": "Agentic Skill Atrophy: Mastery Still Comes from Repetition",
+            "hook": "Discover why deliberate practice and repetitive skill retention remain crucial even in the age of AI agents.",
+            "key_takeaways": [
+              "Analysis of human agentic skill atrophy in highly automated environments",
+              "The impact of repetitive practice on effectively utilizing AI agents",
+              "Strategies for engineers to maintain core expertise in the AI era"
+            ]
+          },
+          "zh": {
+            "title": "智能体技能退化：熟练度依然源于重复",
+            "hook": "探讨在AI代理时代，为什么人类的重复练习与技能保持依然至关重要，带来深刻的行业洞察。",
+            "key_takeaways": [
+              "高度自动化环境下人类智能体技能退化现象分析",
+              "重复练习对有效运用AI代理能力的深远影响",
+              "AI时代工程师保持核心专业能力应对策略"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:55.806546+09:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "에이전틱 스킬",
+        "스킬 감쇠",
+        "AI 숙련도"
+      ],
+      "title_en": "Agentic Skill Atrophy: Mastery Still Comes from Repetition",
+      "title_zh": "智能体技能退化：熟练度依然源于重复",
+      "hook": "AI 에이전트 시대에도 인간의 반복 숙달과 스킬 유지 왜 여전히 중요한지 근본적인 통찰을 제공합니다.",
+      "hook_ko": "AI 에이전트 시대에도 인간의 반복 숙달과 스킬 유지 왜 여전히 중요한지 근본적인 통찰을 제공합니다.",
+      "hook_en": "Discover why deliberate practice and repetitive skill retention remain crucial even in the age of AI agents.",
+      "hook_zh": "探讨在AI代理时代，为什么人类的重复练习与技能保持依然至关重要，带来深刻的行业洞察。",
+      "description_en": "Discover why deliberate practice and repetitive skill retention remain crucial even in the age of AI agents.",
+      "description_zh": "探讨在AI代理时代，为什么人类的重复练习与技能保持依然至关重要，带来深刻的行业洞察。"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_geeknews_에이전트_메모리는_파이프라인이_아니라_파일_형식이어야_한다",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "GeekNews: 에이전트 메모리는 파이프라인이 아니라 파일 형식이어야 한다",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33135",
+      "type": "sns",
+      "category_type": "AGENT",
+      "description": "GeekNews Korean Tech Trend: 에이전트 메모리는 파이프라인이 아니라 파일 형식이어야 한다",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 0,
+        "delta_display": "0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "에이전트 메모리는 파이프라인이 아니라 파일 형식이어야 한다",
+      "description_ko": "복잡한 에이전트 메모리 파이프라인을 단순화하고 지속성을 높이기 위한 새로운 패러다임(파일 형식 기반)을 제안합니다.",
+      "hn_url": "https://news.hada.io/topic?id=33135",
+      "article_url": "https://news.hada.io/topic?id=33135",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_에이전트_메모리는_파이프라인이_아니라_파일_형식이어야_한다",
+        "source_lang": "KO",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "LLM 메모리 아키텍처",
+        "programming_lang": "General",
+        "root_keywords": [
+          "에이전트 메모리",
+          "파일 형식",
+          "파이프라인 아키텍처"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.8,
+        "multilingual": {
+          "ko": {
+            "title": "에이전트 메모리는 파이프라인이 아니라 파일 형식이어야 한다",
+            "hook": "복잡한 에이전트 메모리 파이프라인을 단순화하고 지속성을 높이기 위한 새로운 패러다임(파일 형식 기반)을 제안합니다.",
+            "key_takeaways": [
+              "기존 에이전트 메모리 파이프라인 아키텍처의 한계점 지적",
+              "파일 형식 기반 메모리 저장 및 관리의 장점과 실용성",
+              "에이전트 상태 지속성과 이식성을 높이는 설계 패턴"
+            ]
+          },
+          "en": {
+            "title": "Agent Memory Should Be a File Format, Not a Pipeline",
+            "hook": "Discover a fresh architectural paradigm shifting agent memory from complex pipelines to persistent file formats.",
+            "key_takeaways": [
+              "Critique of current complex agent memory pipeline architectures",
+              "Advantages and practicality of file-based memory storage and management",
+              "Design patterns for enhanced agent state persistence and portability"
+            ]
+          },
+          "zh": {
+            "title": "代理内存应该是一种文件格式，而不是管道",
+            "hook": "探讨将复杂的智能体内存管道转变为持久化文件格式的新架构范式，简化设计并提升可靠性。",
+            "key_takeaways": [
+              "剖析现有智能体内存管道架构的局限性",
+              "基于文件格式的内存存储与管理的优势及实用性",
+              "提升智能体状态持久性与可移植性的设计模式"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:54:55.807602+09:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "에이전트 메모리",
+        "파일 형식",
+        "파이프라인 아키텍처"
+      ],
+      "title_en": "Agent Memory Should Be a File Format, Not a Pipeline",
+      "title_zh": "代理内存应该是一种文件格式，而不是管道",
+      "hook": "복잡한 에이전트 메모리 파이프라인을 단순화하고 지속성을 높이기 위한 새로운 패러다임(파일 형식 기반)을 제안합니다.",
+      "hook_ko": "복잡한 에이전트 메모리 파이프라인을 단순화하고 지속성을 높이기 위한 새로운 패러다임(파일 형식 기반)을 제안합니다.",
+      "hook_en": "Discover a fresh architectural paradigm shifting agent memory from complex pipelines to persistent file formats.",
+      "hook_zh": "探讨将复杂的智能体内存管道转变为持久化文件格式的新架构范式，简化设计并提升可靠性。",
+      "description_en": "Discover a fresh architectural paradigm shifting agent memory from complex pipelines to persistent file formats.",
+      "description_zh": "探讨将复杂的智能体内存管道转变为持久化文件格式的新架构范式，简化设计并提升可靠性。"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_geeknews_uber_규모의_소프트웨어_팩토리를_효율적으로_운영하는_법",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "GeekNews: Uber 규모의 소프트웨어 팩토리를 효율적으로 운영하는 법",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33141",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: Uber 규모의 소프트웨어 팩토리를 효율적으로 운영하는 법",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 0,
+        "delta_display": "0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "우버(Uber) 규모에서 소프트웨어 팩토리를 효율적으로 확장하고 운영하는 방법",
+      "description_ko": "대규모 조직에서 소프트웨어 개발 생산성을 극대화하기 위한 우버의 아키텍처와 운영 노하우를 공개합니다.",
+      "hn_url": "https://news.hada.io/topic?id=33141",
+      "article_url": "https://news.hada.io/topic?id=33141",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_uber_규모의_소프트웨어_팩토리를_효율적으로_운영하는_법",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "소프트웨어 아키텍처 및 엔지니어링 관리",
+        "programming_lang": "General",
+        "root_keywords": [
+          "소프트웨어 팩토리",
+          "Uber",
+          "엔지니어링 효율성"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "우버(Uber) 규모에서 소프트웨어 팩토리를 효율적으로 확장하고 운영하는 방법",
+            "hook": "대규모 조직에서 소프트웨어 개발 생산성을 극대화하기 위한 우버의 아키텍처와 운영 노하우를 공개합니다.",
+            "key_takeaways": [
+              "하이퍼 스케일 환경에서의 소프트웨어 개발 표준화 및 자동화 전략",
+              "조직 규모 확장에 따른 엔지니어링 병목 현상 해결 방법",
+              "플랫폼 엔지니어링을 통한 개발자 경험(DevEx) 향상"
+            ]
+          },
+          "en": {
+            "title": "How to Efficiently Operate a Software Factory at Uber Scale",
+            "hook": "Discover Uber's architectural and operational strategies for scaling software engineering productivity.",
+            "key_takeaways": [
+              "Standardization and automation strategies for hyper-scale environments",
+              "Overcoming engineering bottlenecks as organizational scale increases",
+              "Improving developer experience (DevEx) through platform engineering"
+            ]
+          },
+          "zh": {
+            "title": "如何在 Uber 规模下高效运营软件工厂",
+            "hook": "揭秘 Uber 在超大规模下最大化软件开发生产力的架构与运营秘诀。",
+            "key_takeaways": [
+              "超大规模环境下的软件开发标准化与自动化策略",
+              "解决组织规模扩大带来的工程瓶颈的方法",
+              "通过平台工程提升开发者体验 (DevEx)"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:55:08.945328+09:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "소프트웨어 팩토리",
+        "Uber",
+        "엔지니어링 효율성"
+      ],
+      "title_en": "How to Efficiently Operate a Software Factory at Uber Scale",
+      "title_zh": "如何在 Uber 规模下高效运营软件工厂",
+      "hook": "대규모 조직에서 소프트웨어 개발 생산성을 극대화하기 위한 우버의 아키텍처와 운영 노하우를 공개합니다.",
+      "hook_ko": "대규모 조직에서 소프트웨어 개발 생산성을 극대화하기 위한 우버의 아키텍처와 운영 노하우를 공개합니다.",
+      "hook_en": "Discover Uber's architectural and operational strategies for scaling software engineering productivity.",
+      "hook_zh": "揭秘 Uber 在超大规模下最大化软件开发生产力的架构与运营秘诀。",
+      "description_en": "Discover Uber's architectural and operational strategies for scaling software engineering productivity.",
+      "description_zh": "揭秘 Uber 在超大规模下最大化软件开发生产力的架构与运营秘诀。"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_geeknews_trueforge_llm을_실제_에이전트로_실행하는_오픈소스_하네",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "GeekNews: TrueForge - LLM을 실제 에이전트로 실행하는 오픈소스 하네스",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33138",
+      "type": "sns",
+      "category_type": "AGENT",
+      "description": "GeekNews Korean Tech Trend: TrueForge - LLM을 실제 에이전트로 실행하는 오픈소스 하네스",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 0,
+        "delta_display": "0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "TrueForge: LLM을 실제 동작하는 에이전트로 배포하는 오픈소스 하네스",
+      "description_ko": "LLM을 실험실을 넘어 실제 프로덕션 환경의 에이전트로 구동하기 위한 강력한 오픈소스 하네스 프레임워크입니다.",
+      "hn_url": "https://news.hada.io/topic?id=33138",
+      "article_url": "https://news.hada.io/topic?id=33138",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_trueforge_llm을_실제_에이전트로_실행하는_오픈소스_하네",
+        "source_lang": "KO",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "웹 에이전트",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "TrueForge",
+          "LLM 에이전트",
+          "오픈소스 하네스"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.8,
+        "multilingual": {
+          "ko": {
+            "title": "TrueForge: LLM을 실제 동작하는 에이전트로 배포하는 오픈소스 하네스",
+            "hook": "LLM을 실험실을 넘어 실제 프로덕션 환경의 에이전트로 구동하기 위한 강력한 오픈소스 하네스 프레임워크입니다.",
+            "key_takeaways": [
+              "LLM 기반 에이전트의 실무 배포 및 실행을 돕는 하네스 제공",
+              "안정적인 도구 호출 및 에이전트 오케스트레이션 지원",
+              "오픈소스 기반으로 커스텀 에이전트 구축 프로세스 간소화"
+            ]
+          },
+          "en": {
+            "title": "TrueForge: An Open-Source Harness for Running LLMs as Real-World Agents",
+            "hook": "A powerful open-source harness framework designed to transition LLMs from prototypes into production-grade agents.",
+            "key_takeaways": [
+              "Provides a robust execution harness for deploying LLM-based agents in production",
+              "Supports reliable tool invocation and agent orchestration",
+              "Open-source foundation streamlining custom agent development workflows"
+            ]
+          },
+          "zh": {
+            "title": "TrueForge：将大模型作为真实世界智能体运行的开源测试框架",
+            "hook": "旨在将大模型从实验原型推向生产级智能体部署的强大开源工具框架。",
+            "key_takeaways": [
+              "提供用于在生产环境中部署基于大模型智能体的稳健执行框架",
+              "支持可靠的工具调用与智能体编排",
+              "基于开源简化自定义智能体的构建工作流"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:55:08.946239+09:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "TrueForge",
+        "LLM 에이전트",
+        "오픈소스 하네스"
+      ],
+      "title_en": "TrueForge: An Open-Source Harness for Running LLMs as Real-World Agents",
+      "title_zh": "TrueForge：将大模型作为真实世界智能体运行的开源测试框架",
+      "hook": "LLM을 실험실을 넘어 실제 프로덕션 환경의 에이전트로 구동하기 위한 강력한 오픈소스 하네스 프레임워크입니다.",
+      "hook_ko": "LLM을 실험실을 넘어 실제 프로덕션 환경의 에이전트로 구동하기 위한 강력한 오픈소스 하네스 프레임워크입니다.",
+      "hook_en": "A powerful open-source harness framework designed to transition LLMs from prototypes into production-grade agents.",
+      "hook_zh": "旨在将大模型从实验原型推向生产级智能体部署的强大开源工具框架。",
+      "description_en": "A powerful open-source harness framework designed to transition LLMs from prototypes into production-grade agents.",
+      "description_zh": "旨在将大模型从实验原型推向生产级智能体部署的强大开源工具框架。"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_geeknews_show_gn_can_i_remove_this_js_의존성_제거를",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "GeekNews: Show GN: Can I Remove This? – JS 의존성 제거를 검토하는 Agent Skill",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33113",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: Show GN: Can I Remove This? – JS 의존성 제거를 검토하는 Agent Skill",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 0,
+        "delta_display": "0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Show GN: Can I Remove This? – JS 의존성 제거 가능 여부를 진단하는 Agent Skill",
+      "description_ko": "AI 에이전트 기술을 활용해 프로젝트 내 불필요한 자바스크립트 의존성을 자동으로 분석하고 제거를 돕는 툴입니다.",
+      "hn_url": "https://news.hada.io/topic?id=33113",
+      "article_url": "https://news.hada.io/topic?id=33113",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_show_gn_can_i_remove_this_js_의존성_제거를",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "웹 개발 최적화",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "JS 의존성",
+          "Agent Skill",
+          "코드 최적화"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "Show GN: Can I Remove This? – JS 의존성 제거 가능 여부를 진단하는 Agent Skill",
+            "hook": "AI 에이전트 기술을 활용해 프로젝트 내 불필요한 자바스크립트 의존성을 자동으로 분석하고 제거를 돕는 툴입니다.",
+            "key_takeaways": [
+              "LLM/Agent 기술을 활용한 프론트엔드 코드베이스 코드 최적화",
+              "미사용 자바스크립트 패키지 및 의존성 정밀 분석",
+              "번들 크기 축소 및 유지보수성 향상에 기여"
+            ]
+          },
+          "en": {
+            "title": "Show GN: Can I Remove This? – An Agent Skill for Auditing JS Dependencies",
+            "hook": "Leverage AI agent capabilities to automatically analyze and safely remove unused JavaScript dependencies.",
+            "key_takeaways": [
+              "Frontend codebase optimization powered by LLM/Agent technology",
+              "Precise identification of unused JavaScript packages and dependencies",
+              "Helps reduce bundle size and improve overall maintainability"
+            ]
+          },
+          "zh": {
+            "title": "Show GN: Can I Remove This? – 用于审查 JS 依赖项的智能体技能",
+            "hook": "利用 AI 智能体技术自动分析并安全移除项目中废弃 JavaScript 依赖的高效工具。",
+            "key_takeaways": [
+              "由大模型/智能体技术驱动的前端代码库优化",
+              "精准分析未使用的 JavaScript 软件包与依赖关系",
+              "有效缩减打包体积并提升代码可维护性"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-02T16:55:08.947248+09:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "JS 의존성",
+        "Agent Skill",
+        "코드 최적화"
+      ],
+      "title_en": "Show GN: Can I Remove This? – An Agent Skill for Auditing JS Dependencies",
+      "title_zh": "Show GN: Can I Remove This? – 用于审查 JS 依赖项的智能体技能",
+      "hook": "AI 에이전트 기술을 활용해 프로젝트 내 불필요한 자바스크립트 의존성을 자동으로 분석하고 제거를 돕는 툴입니다.",
+      "hook_ko": "AI 에이전트 기술을 활용해 프로젝트 내 불필요한 자바스크립트 의존성을 자동으로 분석하고 제거를 돕는 툴입니다.",
+      "hook_en": "Leverage AI agent capabilities to automatically analyze and safely remove unused JavaScript dependencies.",
+      "hook_zh": "利用 AI 智能体技术自动分析并安全移除项目中废弃 JavaScript 依赖的高效工具。",
+      "description_en": "Leverage AI agent capabilities to automatically analyze and safely remove unused JavaScript dependencies.",
+      "description_zh": "利用 AI 智能体技术自动分析并安全移除项目中废弃 JavaScript 依赖的高效工具。"
     },
     {
       "inbox_id": "2026-09-02_sns_geeknews_show_gn_booova_당신의_책_한_권을_다_써주는_ai_b",
