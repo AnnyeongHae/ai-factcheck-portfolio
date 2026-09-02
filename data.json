@@ -39,6 +39,49 @@
     ],
     "history": [
       {
+        "timestamp": "2026-09-02T03:32:08.292634",
+        "date": "2026-09-02",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.12
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.08
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.93
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 22,
+            "duration_sec": 6.84
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.11
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.03
+          }
+        },
+        "summary": {
+          "total_fetched": 127,
+          "updated_count": 127,
+          "new_saved": 0,
+          "duplicates_skipped": 0,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-09-02T12:30:54.368016",
         "date": "2026-09-02",
         "sources": {
@@ -1256,89 +1299,47 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-08-31T17:23:11.739410",
-        "date": "2026-08-31",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 1,
-            "duration_sec": 0.05
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.02
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.67
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 2,
-            "duration_sec": 2.15
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.05
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.04
-          }
-        },
-        "summary": {
-          "total_fetched": 3,
-          "new_saved": 3,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-02T12:30:54.368016",
+      "timestamp": "2026-09-02T03:32:08.292634",
       "date": "2026-09-02",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.37
+          "duration_sec": 0.12
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.27
+          "duration_sec": 0.08
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.77
+          "duration_sec": 0.93
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 22,
-          "duration_sec": 30.04
+          "duration_sec": 6.84
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.32
+          "duration_sec": 0.11
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.32
+          "duration_sec": 0.03
         }
       },
       "summary": {
         "total_fetched": 127,
-        "updated_count": 94,
-        "new_saved": 33,
+        "updated_count": 127,
+        "new_saved": 0,
         "duplicates_skipped": 0,
         "errors": 0
       }
@@ -1403,7 +1404,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -1438,7 +1439,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -1507,7 +1508,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -1542,7 +1543,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -1577,7 +1578,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -1646,7 +1647,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -1681,7 +1682,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -1736,8 +1737,8 @@
       "source_url": "https://danluu.com/zitron/",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 483 pts | Comments: 562 | How accurate have Ed Zitron's AI skeptic predictions been?",
-      "viral_metric": "🔥 483 HN Points",
+      "description": "HN Score: 484 pts | Comments: 562 | How accurate have Ed Zitron's AI skeptic predictions been?",
+      "viral_metric": "🔥 484 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 483,
@@ -1745,13 +1746,13 @@
           "recorded_at": "2026-09-02"
         },
         "latest": {
-          "value": 483,
-          "display": "🔥 483 HN Points",
+          "value": 484,
+          "display": "🔥 484 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
+        "delta": 1,
+        "delta_display": "+1",
+        "growth_rate_pct": 0.2,
         "is_spiking": false
       },
       "matched_user_domains": [
@@ -1853,7 +1854,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -1956,7 +1957,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -1991,7 +1992,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2060,7 +2061,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2093,7 +2094,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2190,7 +2191,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2223,7 +2224,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2256,7 +2257,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2289,7 +2290,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2322,7 +2323,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2355,7 +2356,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2388,7 +2389,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2421,7 +2422,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2454,7 +2455,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2487,7 +2488,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2520,7 +2521,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2554,7 +2555,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2587,7 +2588,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2620,7 +2621,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2655,7 +2656,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2688,7 +2689,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2721,7 +2722,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2754,7 +2755,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2787,7 +2788,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2820,7 +2821,7 @@
           "updated_at": "2026-09-02"
         },
         "delta": 0,
-        "delta_display": "+0",
+        "delta_display": "0",
         "growth_rate_pct": 0.0,
         "is_spiking": false
       },
@@ -2938,8 +2939,8 @@
       "source_platform": "Hacker News",
       "source_url": "https://www.pcgamer.com/gaming-industry/dwarf-fortress-creator-says-the-industrys-in-shambles-over-ai-and-layoff-happy-ceos-everyone-i-know-their-bosses-are-slowly-getting-psychosis/",
       "type": "sns",
-      "description": "HN Score: 9 pts, Comments: 0",
-      "viral_metric": "9 HN Points",
+      "description": "HN Score: 208 pts | Comments: 216 | Dwarf Fortress' creator says the industry's in shambles over AI",
+      "viral_metric": "🔥 208 HN Points",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -2951,14 +2952,14 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 9,
-          "display": "9 HN Points",
-          "updated_at": "2026-09-01"
+          "value": 208,
+          "display": "🔥 208 HN Points",
+          "updated_at": "2026-09-02"
         },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
+        "delta": 199,
+        "delta_display": "+199",
+        "growth_rate_pct": 2211.1,
+        "is_spiking": true
       },
       "created_at": "2026-09-01",
       "updated_at": "2026-09-01",
@@ -3169,8 +3170,8 @@
       "source_url": "https://github.com/carloslfu/slotstream",
       "type": "repo",
       "category_type": "REPO",
-      "description": "HN Score: 158 pts | Comments: 90 | Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac with at ~12 tok/s",
-      "viral_metric": "🔥 158 HN Points",
+      "description": "HN Score: 159 pts | Comments: 90 | Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac with at ~12 tok/s",
+      "viral_metric": "🔥 159 HN Points",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -3182,13 +3183,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 158,
-          "display": "🔥 158 HN Points",
+          "value": 159,
+          "display": "🔥 159 HN Points",
           "updated_at": "2026-09-02"
         },
-        "delta": 151,
-        "delta_display": "+151",
-        "growth_rate_pct": 2157.1,
+        "delta": 152,
+        "delta_display": "+152",
+        "growth_rate_pct": 2171.4,
         "is_spiking": true
       },
       "updated_at": "2026-09-02",
@@ -3330,8 +3331,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/GangTailorUpgrade/CoomeRtool",
       "type": "repo",
-      "description": "Stars: 832, Forks: 1 | Coomer Tool",
-      "viral_metric": "★ 832 Stars",
+      "description": "Stars: 833, Forks: 1 | Coomer Tool",
+      "viral_metric": "★ 833 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -3343,13 +3344,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 832,
-          "display": "★ 832 Stars",
+          "value": 833,
+          "display": "★ 833 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 112,
-        "delta_display": "+112",
-        "growth_rate_pct": 15.6,
+        "delta": 113,
+        "delta_display": "+113",
+        "growth_rate_pct": 15.7,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
@@ -3394,8 +3395,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/crmne/fastpotify",
       "type": "repo",
-      "description": "Stars: 1569, Forks: 64 | Spotify, native and fast. One lightweight Rust app for your whole library, local playback, and Spotify Connect on Linux, macOS, and Windows.",
-      "viral_metric": "★ 1569 Stars",
+      "description": "Stars: 1570, Forks: 64 | Spotify, native and fast. One lightweight Rust app for your whole library, local playback, and Spotify Connect on Linux, macOS, and Windows.",
+      "viral_metric": "★ 1570 Stars",
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
@@ -3407,13 +3408,13 @@
           "recorded_at": "2026-09-01"
         },
         "latest": {
-          "value": 1569,
-          "display": "★ 1569 Stars",
+          "value": 1570,
+          "display": "★ 1570 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 810,
-        "delta_display": "+810",
-        "growth_rate_pct": 106.7,
+        "delta": 811,
+        "delta_display": "+811",
+        "growth_rate_pct": 106.9,
         "is_spiking": true
       },
       "created_at": "2026-09-01",
@@ -9687,8 +9688,8 @@
       "source_platform": "GitHub Official",
       "source_url": "https://github.com/kacperkapusciak/goldie",
       "type": "repo",
-      "description": "Stars: 1346, Forks: 119 | ✨ agentic app store previews and screenshots",
-      "viral_metric": "★ 1346 Stars",
+      "description": "Stars: 1347, Forks: 119 | ✨ agentic app store previews and screenshots",
+      "viral_metric": "★ 1347 Stars",
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화",
         "이커머스 & 커머스 데이터 수집 인프라"
@@ -9716,13 +9717,13 @@
           "recorded_at": "2026-08-31"
         },
         "latest": {
-          "value": 1346,
-          "display": "★ 1346 Stars",
+          "value": 1347,
+          "display": "★ 1347 Stars",
           "updated_at": "2026-09-02"
         },
-        "delta": 487,
-        "delta_display": "+487",
-        "growth_rate_pct": 56.7,
+        "delta": 488,
+        "delta_display": "+488",
+        "growth_rate_pct": 56.8,
         "is_spiking": true
       },
       "created_at": "2026-08-31",
