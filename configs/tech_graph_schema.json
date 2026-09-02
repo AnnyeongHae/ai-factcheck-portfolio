@@ -1,6 +1,6 @@
 {
   "schema_version": "6.0",
-  "updated_at": "2026-09-02",
+  "updated_at": "2026-09-03",
   "domains": [
     {
       "id": "language",
@@ -699,6 +699,36 @@
         "mentions": 50,
         "desc": "글로벌 AI 프론티어 연구소 및 파운데이션 모델 개발사",
         "val": 35
+      },
+      {
+        "id": "explee_auto_gtm",
+        "label": "📧 Explee Auto-GTM (Wrapped Claude)",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "tool",
+        "mentions": 30,
+        "desc": "Claude 브랜드를 사칭한 아웃바운드 콜드 이메일 발송 래퍼 SaaS",
+        "val": 22
+      },
+      {
+        "id": "spacexai_fake_playbook",
+        "label": "📑 SpaceXAI GrokBot Playbook (Fabrication)",
+        "group": "paper",
+        "gen": "Gen 3",
+        "type": "paper",
+        "mentions": 34,
+        "desc": "가공의 조직 SpaceXAI를 사칭한 소셜 미디어 리드 마그넷 바이럴 문건",
+        "val": 24
+      },
+      {
+        "id": "astral_uv",
+        "label": "⚡ Astral uv (Rust Package Tool)",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "tool",
+        "mentions": 58,
+        "desc": "Rust로 작성된 초고속 파이썬 패키지 및 가상환경·버전 단일 관리 도구 (pip 대비 100x)",
+        "val": 36
       }
     ],
     "links": [
@@ -1102,6 +1132,20 @@
         "label": "Google DeepMind API",
         "type": "created_by",
         "desc": "Google DeepMind Speech & Multimodal 연구팀 공식 릴리스"
+      },
+      {
+        "source": "astral_uv",
+        "target": "rust",
+        "label": "Written in Rust",
+        "type": "runtime",
+        "desc": "Rust 네이티브 메모리 매핑 및 병렬 I/O 활용"
+      },
+      {
+        "source": "astral_uv",
+        "target": "python",
+        "label": "Replaces pip/pyenv",
+        "type": "optimizes",
+        "desc": "파이썬 패키징 및 가상환경 전면 고속화"
       }
     ]
   }

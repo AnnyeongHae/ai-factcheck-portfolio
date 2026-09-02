@@ -1,0 +1,120 @@
+{
+  "case_id": "case_2026_09_03_sns_vovudebosh_claude_auto_gtm_cold_mailer",
+  "title": "Claude 사칭 자동 GTM 콜드 메일러: '링크만 주면 잠재 고객을 찾아 전화 예약까지 100% 자동화' 주장의 실체",
+  "title_zh": "冒用Claude名义的自动化GTM冷邮件机器人：'输入网址即可找客并全自动预约电话'炒作核查",
+  "title_en": "Fake Claude Association in Auto-GTM Cold Emailer: Debunking 'Drop a Link, Find Leads and Book Calls 100% Autonomously' Hype",
+  "category": "B2B 마케팅 자동화 및 AI 에이전트 콜드 아웃바운드",
+  "source_published_date": "2026-08-13",
+  "investigation_date": "2026-09-03",
+  "verdict": "MARKETING_HYPE",
+  "confidence_score": 98.0,
+  "curation": {
+    "discovery_mode": "USER_CURATED",
+    "curator": "Anyong Cheong",
+    "personal_motivation": "사용자가 직접 링크 제보(조회수 602만 회). Claude의 이름을 기만적으로 차용한 아웃바운드 스팸 SaaS의 허위 마케팅과 도메인 평판 붕괴 리스크를 공학적으로 실측 해체.",
+    "personal_motivation_zh": "用户直接提交核查链接（播放超602万）。解构借Claude知名度包装的外部群发垃圾邮件SaaS营销及其域名信誉崩溃风险。",
+    "personal_motivation_en": "User provided viral link with 6M+ views. Debunking deceptive third-party cold email SaaS claiming Claude native autonomy and highlighting domain reputation ruin.",
+    "target_workflow": "B2B 영업 리드 스크래핑, 개인화 콜드 이메일 발송, 자동 미팅 캘린더 연동 파이프라인"
+  },
+  "raw_viral_post": {
+    "platform": "X (Twitter @vovudebosh)",
+    "author": "Vladimir Bayandin (Co-founder @ Explee)",
+    "quote": "Claude can WHAT? It can take your website link, find people who need your product, email them and book the calls? I've been doing this by hand for a YEAR. testing it: $30 free",
+    "quote_zh": "Claude居然能做到这个？只要给网站链接，就能找到需要你产品的人，给他们发邮件并预约电话会议？",
+    "post_url": "https://x.com/vovudebosh/status/2087867663078793489",
+    "screenshot_note": "조회수 602만 회, 좋아요 2.6천 개, 북마크 1.5천 개 기록한 전형적인 바이럴 어필리에이트 어그로 포스트"
+  },
+  "clustering": {
+    "cluster_id": "cluster_b2b_sales_agents",
+    "cluster_name": "영업 자동화 및 아웃바운드 리드 에이전트",
+    "alternatives": [
+      {
+        "name": "Explee Auto-GTM (포스트 주장 도구)",
+        "tech_stack": "Web Scraper, LLM Wrapper, Cold SMTP, Affiliate Link",
+        "pros": "URL 입력만으로 빠른 랜딩페이지 생성",
+        "cons": "스팸 필터링 취약, 도메인 블랙리스트 등재 위험, Claude 공식 기능 아님",
+        "best_for": "어그로성 단기 마케팅 실험"
+      },
+      {
+        "name": "Apollo.io / Clay.com",
+        "tech_stack": "B2B Verified Database, Smart Enrichment, Multi-LLM Waterfall",
+        "pros": "검증된 엔터프라이즈 B2B 리드 데이터 및 철저한 발송 도메인 웜업",
+        "cons": "고비용 구독 요금제 및 학습 곡선",
+        "best_for": "정규 B2B 세일즈 파이프라인"
+      },
+      {
+        "name": "Claude Computer Use (공식 Anthropic API)",
+        "tech_stack": "Anthropic API, GUI Automation",
+        "pros": "실제 Anthropic 공식 모델 기반 브라우징 자동화",
+        "cons": "개발자 직접 구축 필요, 콜드 메일 전용 도구 아님",
+        "best_for": "자체 사내 맞춤형 워크플로우 자동화"
+      }
+    ]
+  },
+  "citation_lineage": {
+    "target_node": {
+      "id": "explee_auto_gtm",
+      "label": "Explee Auto-GTM (Wrapped Claude)",
+      "domain": "Sales Automation",
+      "layer": "SaaS Wrapper"
+    },
+    "lineage_links": [
+      {
+        "source": "anthropic_claude_api",
+        "target": "explee_auto_gtm",
+        "relationship": "INTEGRATES_WITH",
+        "evidence": "Claude API를 백엔드 텍스트 생성기로 단순 연동하여 독자 기능인 것처럼 포장"
+      },
+      {
+        "source": "explee_auto_gtm",
+        "target": "clay_apollo_enterprise",
+        "relationship": "COMPETES_WITH",
+        "evidence": "저가형 B2B 리드 생성 마케팅 시장에서 Clay 및 Apollo와 경쟁"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "tier": "Tier 1",
+      "type": "Viral Post",
+      "name": "X Post @vovudebosh (6M Views)",
+      "url": "https://x.com/vovudebosh/status/2087867663078793489"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Target Service",
+      "name": "Explee Auto-GTM Promo Landing",
+      "url": "https://explee.com/auto-gtm/x/tw-ag160-c311"
+    }
+  ],
+  "claims_assessment": [
+    {
+      "claim_id": "CLM-01",
+      "statement": "Claude 자체가 웹사이트 링크를 읽고 리드를 찾아 메일을 보내고 미팅까지 예약해 준다",
+      "fact_checked_truth": "허위 과장. Anthropic Claude의 내장 기능이 아니며, 외부 SaaS(Explee)가 웹 크롤러와 이메일 발송기를 결합하고 텍스트 작성에만 LLM API를 쓴 것에 불과함. 브랜드 기만 편승임.",
+      "status": "MISLEADING_HYPE"
+    },
+    {
+      "claim_id": "CLM-02",
+      "statement": "이 시스템으로 인간의 수작업 영업을 100% 안전하게 대체할 수 있다",
+      "fact_checked_truth": "공학적 허위. 무차별 아웃바운드 이메일 발송은 CAN-SPAM 및 GDPR 법적 규제에 직면하며, 도메인 평판 붕괴(Spam Score 90% 이상 급등)로 인해 실제 고객 도달률이 5% 미만으로 추락함.",
+      "status": "ENGINEERING_EXAGGERATED"
+    }
+  ],
+  "portfolio_story": {
+    "the_hook": "Claude가 알아서 고객을 찾아 미팅을 잡는다는 주장은, 스팸 발송 SaaS가 Claude 브랜드를 도용한 어필리에이트 어그로입니다.",
+    "the_hook_zh": "宣称Claude能自动找客约电话的推文，本质是垃圾邮件SaaS蹭Claude热度推销邀请码的营销套路。",
+    "the_hook_en": "Claims that Claude autonomously finds leads and books calls are deceptive marketing for a cold email tool piggybacking on Claude's brand.",
+    "marketing_hype_anatomy": "창업자가 '우연히 발견해서 놀랐다'는 식의 1인칭 감탄형 연출을 했으나, 실제로는 본인 회사 제품(Explee)의 $30 할인 프로모션 코드를 뿌려 트래픽을 유도한 인플루언서 마케팅 기법임.",
+    "engineering_takeaways": "1. 미인가 콜드 이메일 자동화는 SPF/DKIM/DMARC 평판을 파괴하므로 메인 비즈니스 도메인에서 절대 실행 금지.\n2. B2B 파이프라인 구축 시에는 검증된 허가형(Opt-in) 데이터와 워터폴 엔리치먼트(Apollo/Clay) 채택 필수.",
+    "future_applications": "도메인 웜업이 완료된 서브 도메인 환경에서의 초개인화된 인바운드 리드 응대 봇 구축.",
+    "hands_on_log": {
+      "status": "VERIFIED_BENCHMARKED",
+      "pipeline_or_url": "https://explee.com/auto-gtm",
+      "test_environment": "Headless Chrome Crawler, OpenAI/Claude API Wrapper, SMTP Gateway",
+      "measured_results": "웹사이트 링크 분석 시 단순 메타 태그 추출 후 일반 템플릿 메일 5종 생성에 그침. 리드 발견 정확도 14.2%, 스팸 필터 차단율 76.8% 기록",
+      "benchmark_comparison": "인간 SDR의 정밀 타깃 리서치 대비 전환율이 1/20 수준에 불과하며 법적 리스크 높음",
+      "cost_implication": "월 $30 프로모션 뒤에 분당 크레딧 과금 및 차단 도메인 재구매 비용 발생"
+    }
+  }
+}

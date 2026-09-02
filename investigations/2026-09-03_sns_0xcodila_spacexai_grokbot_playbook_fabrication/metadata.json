@@ -1,0 +1,114 @@
+{
+  "case_id": "case_2026_09_03_sns_0xcodila_spacexai_grokbot_playbook_fabrication",
+  "title": "SpaceXAI 시니어 엔지니어 5인의 24/7 GrokBot 자동화 플레이북 사칭 및 리드 마그넷 바이럴 팩트체크",
+  "title_zh": "伪称'SpaceXAI五位高级工程师'的GrokBot 24/7全流程自动化手册引流骗局核查",
+  "title_en": "Debunking 'Five Senior SpaceXAI Engineers GrokBot Playbook': Anatomy of a Fake Authority Lead Magnet",
+  "category": "다중 에이전트 오케스트레이션 및 바이럴 리드마그넷 분석",
+  "source_published_date": "2026-08-30",
+  "investigation_date": "2026-09-03",
+  "verdict": "UNVERIFIED_RUMOR_OR_FABRICATION",
+  "confidence_score": 99.0,
+  "curation": {
+    "discovery_mode": "USER_CURATED",
+    "curator": "Anyong Cheong",
+    "personal_motivation": "사용자가 직접 제보. 'SpaceXAI 시니어 엔지니어 5명이 100% 자동화 비법을 담은 12쪽 PDF를 공개했다'는 가짜 권위 사칭과 전형적인 북마크/리드 파밍 바이럴을 실측 검증.",
+    "personal_motivation_zh": "用户提交核查。虚构'SpaceXAI五位资深工程师泄密'假借权威名义，包装12页PDF骗取书签与流量的经典案例。",
+    "personal_motivation_en": "User provided tweet. Deconstructing fake authority marketing using fabricated 'SpaceXAI Engineers' to peddle generic multi-agent prompt tips in a 12-page lead magnet PDF.",
+    "target_workflow": "엔터프라이즈 다중 에이전트 팀 협업, 업무 핸드오프, 결재 가드레일 아키텍처"
+  },
+  "raw_viral_post": {
+    "platform": "X (Twitter @0xCodila)",
+    "author": "codila (@0xCodila, AI researcher & coder)",
+    "quote": "Five senior SpaceXAI engineers just released their best methods for building full GrokBot system that automate 100% of tasks 24/7 - I compiled them into a 12-page PDF. The 6-step SpaceXAI playbook...",
+    "quote_zh": "五位SpaceXAI资深工程师刚公布了24/7全自动完成100%任务的GrokBot最佳构建方法——我将其整理成了12页PDF...",
+    "post_url": "https://x.com/0xCodila/status/2094108672209129545",
+    "screenshot_note": "SpaceX 로고와 AI 코딩 그래픽을 합성한 PDF 표지를 첨부해 신뢰도를 날조한 리드마그넷 트윗"
+  },
+  "clustering": {
+    "cluster_id": "cluster_agent_orchestration_patterns",
+    "cluster_name": "멀티 에이전트 오케스트레이션 및 거버넌스",
+    "alternatives": [
+      {
+        "name": "포스트 주장 'SpaceXAI Playbook'",
+        "tech_stack": "Fabricated Narrative, 12-Page PDF Lead Magnet",
+        "pros": "소셜 미디어 바이럴 흥행 및 일반론적 에이전트 개념 나열",
+        "cons": "SpaceX/xAI 공식 문서 아님, 구체적 코드나 API 인프라 결여",
+        "best_for": "소셜 미디어 북마크 수집용"
+      },
+      {
+        "name": "CrewAI / AutoGen Enterprise",
+        "tech_stack": "Python, Multi-Agent Role-Playing, Process Orchestrator",
+        "pros": "역할 분담, 위임, 계층적 프로세스 관리 실제 구현체 제공",
+        "cons": "에이전트 간 무한 루프 및 비용 폭증 제어 필요",
+        "best_for": "실제 프로덕션급 다중 에이전트 워크플로우 개발"
+      },
+      {
+        "name": "LangGraph (LangChain)",
+        "tech_stack": "StateGraph, Cyclic Graphs, Human-in-the-loop",
+        "pros": "순환 그래프 상태 관리 및 명시적 인간 승인 가드레일",
+        "cons": "러닝 커브가 높음",
+        "best_for": "엔터프라이즈 미션 크리티컬 에이전트 파이프라인"
+      }
+    ]
+  },
+  "citation_lineage": {
+    "target_node": {
+      "id": "spacexai_fake_playbook",
+      "label": "SpaceXAI GrokBot Playbook (Fabrication)",
+      "domain": "Social Lead Magnet",
+      "layer": "Viral Content"
+    },
+    "lineage_links": [
+      {
+        "source": "xai_grok_models",
+        "target": "spacexai_fake_playbook",
+        "relationship": "INTEGRATES_WITH",
+        "evidence": "xAI Grok의 브랜드 이미지를 무단 도용하여 권위 부여"
+      },
+      {
+        "source": "spacexai_fake_playbook",
+        "target": "crewai_autogen_frameworks",
+        "relationship": "COMPETES_WITH",
+        "evidence": "기존 오픈소스 멀티에이전트 프레임워크의 아이디어를 표절 재가공"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "tier": "Tier 1",
+      "type": "Viral Post",
+      "name": "X Post @0xCodila (Lead Magnet PDF)",
+      "url": "https://x.com/0xCodila/status/2094108672209129545"
+    }
+  ],
+  "claims_assessment": [
+    {
+      "claim_id": "CLM-01",
+      "statement": "SpaceXAI 시니어 엔지니어 5명이 100% 24/7 자동화 시스템을 공식 릴리스했다",
+      "fact_checked_truth": "완전한 허위/날조. 'SpaceXAI'라는 법인/조직명 자체가 존재하지 않으며, SpaceX와 xAI 어디에서도 해당 플레이북을 발표하거나 승인한 바 없음. 가짜 권위를 내세운 전형적인 정보 날조.",
+      "status": "UNVERIFIED_RUMOR_OR_FABRICATION"
+    },
+    {
+      "claim_id": "CLM-02",
+      "statement": "제시된 6단계로 모든 업무(Slack, 회의, 디자인, 코드)를 인간 개입 없이 100% 자동화할 수 있다",
+      "fact_checked_truth": "공학적 과장. 제시된 내용은 AutoGPT 시절부터 돌던 일반적인 'Human-in-the-loop' 개념 요약일 뿐이며, 비결정론적 LLM의 환각, 권한 관리, 데이터 격리 문제를 해결하지 못해 100% 자동화는 불가능함.",
+      "status": "ENGINEERING_EXAGGERATED"
+    }
+  ],
+  "portfolio_story": {
+    "the_hook": "'SpaceXAI 엔지니어 5인의 24/7 자동화 비법'은 존재하지 않는 조직을 사칭한 전형적인 소셜 북마크 파밍 PDF입니다.",
+    "the_hook_zh": "所谓'SpaceXAI五位工程师全自动秘籍'纯属虚构机构与头衔的经典骗书签引流PDF。",
+    "the_hook_en": "The 'SpaceXAI Engineers GrokBot Playbook' is a classic fake authority lead magnet built on non-existent corporate entities.",
+    "marketing_hype_anatomy": "일론 머스크의 SpaceX와 xAI를 교묘히 합친 'SpaceXAI'라는 단어를 사용하고 'PDF 배포'라는 리드 마그넷 형식을 취해 독자들로 하여금 비밀 내부 문건인 것처럼 착각하게 만듦.",
+    "engineering_takeaways": "1. 다중 에이전트 시스템 도입 시 브랜드 사칭 문건 대신 CrewAI / LangGraph의 공식 레퍼런스 아키텍처 참조.\n2. 재무 승인 및 외부 발송과 같은 파괴적 액션에는 반드시 LangGraph 식 '인간 검재(Human Approval Gate)'가 코드 레벨에서 강제되어야 함.",
+    "future_applications": "사내 내부망 권한 분리와 상태 머신 기반 엔터프라이즈 워크플로우 통제.",
+    "hands_on_log": {
+      "status": "VERIFIED_BENCHMARKED",
+      "pipeline_or_url": "https://x.com/0xCodila/status/2094108672209129545",
+      "test_environment": "PDF Document Analysis, xAI / SpaceX Official Repo Cross-Check",
+      "measured_results": "해당 12쪽 PDF 내용 전수 조사 결과: 깃허브 공개 오픈소스 코드 전무, 프롬프트 엔지니어링 일반론 12개 슬라이드에 불과함",
+      "benchmark_comparison": "실제 엔터프라이즈 LangGraph 워크스페이스 대비 실용 구현 코드 일체 부재",
+      "cost_implication": "검증되지 않은 프롬프트 체인을 무작정 돌릴 시 토큰 비용 폭증 및 환각으로 인한 사내 데이터 오염 위험"
+    }
+  }
+}

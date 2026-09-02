@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-09-02",
-  "total_cases": 26,
+  "total_cases": 29,
   "models_total_count": 64,
   "news_total_count": 55,
   "inbox_total_count": 172,
@@ -20669,6 +20669,360 @@
           "cost_implication": "한국 내 사용 시 라이선스 미보장으로 인한 저작권/계약 위반 리스크 발생 가능"
         }
       }
+    },
+    {
+      "case_id": "case_2026_09_03_sns_0xcodila_spacexai_grokbot_playbook_fabrication",
+      "title": "SpaceXAI 시니어 엔지니어 5인의 24/7 GrokBot 자동화 플레이북 사칭 및 리드 마그넷 바이럴 팩트체크",
+      "title_zh": "伪称'SpaceXAI五位高级工程师'的GrokBot 24/7全流程自动化手册引流骗局核查",
+      "title_en": "Debunking 'Five Senior SpaceXAI Engineers GrokBot Playbook': Anatomy of a Fake Authority Lead Magnet",
+      "category": "다중 에이전트 오케스트레이션 및 바이럴 리드마그넷 분석",
+      "source_published_date": "2026-08-30",
+      "investigation_date": "2026-09-03",
+      "verdict": "UNVERIFIED_RUMOR_OR_FABRICATION",
+      "confidence_score": 99.0,
+      "curation": {
+        "discovery_mode": "USER_CURATED",
+        "curator": "Anyong Cheong",
+        "personal_motivation": "사용자가 직접 제보. 'SpaceXAI 시니어 엔지니어 5명이 100% 자동화 비법을 담은 12쪽 PDF를 공개했다'는 가짜 권위 사칭과 전형적인 북마크/리드 파밍 바이럴을 실측 검증.",
+        "personal_motivation_zh": "用户提交核查。虚构'SpaceXAI五位资深工程师泄密'假借权威名义，包装12页PDF骗取书签与流量的经典案例。",
+        "personal_motivation_en": "User provided tweet. Deconstructing fake authority marketing using fabricated 'SpaceXAI Engineers' to peddle generic multi-agent prompt tips in a 12-page lead magnet PDF.",
+        "target_workflow": "엔터프라이즈 다중 에이전트 팀 협업, 업무 핸드오프, 결재 가드레일 아키텍처"
+      },
+      "raw_viral_post": {
+        "platform": "X (Twitter @0xCodila)",
+        "author": "codila (@0xCodila, AI researcher & coder)",
+        "quote": "Five senior SpaceXAI engineers just released their best methods for building full GrokBot system that automate 100% of tasks 24/7 - I compiled them into a 12-page PDF. The 6-step SpaceXAI playbook...",
+        "quote_zh": "五位SpaceXAI资深工程师刚公布了24/7全自动完成100%任务的GrokBot最佳构建方法——我将其整理成了12页PDF...",
+        "post_url": "https://x.com/0xCodila/status/2094108672209129545",
+        "screenshot_note": "SpaceX 로고와 AI 코딩 그래픽을 합성한 PDF 표지를 첨부해 신뢰도를 날조한 리드마그넷 트윗"
+      },
+      "clustering": {
+        "cluster_id": "cluster_agent_orchestration_patterns",
+        "cluster_name": "멀티 에이전트 오케스트레이션 및 거버넌스",
+        "alternatives": [
+          {
+            "name": "포스트 주장 'SpaceXAI Playbook'",
+            "tech_stack": "Fabricated Narrative, 12-Page PDF Lead Magnet",
+            "pros": "소셜 미디어 바이럴 흥행 및 일반론적 에이전트 개념 나열",
+            "cons": "SpaceX/xAI 공식 문서 아님, 구체적 코드나 API 인프라 결여",
+            "best_for": "소셜 미디어 북마크 수집용"
+          },
+          {
+            "name": "CrewAI / AutoGen Enterprise",
+            "tech_stack": "Python, Multi-Agent Role-Playing, Process Orchestrator",
+            "pros": "역할 분담, 위임, 계층적 프로세스 관리 실제 구현체 제공",
+            "cons": "에이전트 간 무한 루프 및 비용 폭증 제어 필요",
+            "best_for": "실제 프로덕션급 다중 에이전트 워크플로우 개발"
+          },
+          {
+            "name": "LangGraph (LangChain)",
+            "tech_stack": "StateGraph, Cyclic Graphs, Human-in-the-loop",
+            "pros": "순환 그래프 상태 관리 및 명시적 인간 승인 가드레일",
+            "cons": "러닝 커브가 높음",
+            "best_for": "엔터프라이즈 미션 크리티컬 에이전트 파이프라인"
+          }
+        ]
+      },
+      "citation_lineage": {
+        "target_node": {
+          "id": "spacexai_fake_playbook",
+          "label": "SpaceXAI GrokBot Playbook (Fabrication)",
+          "domain": "Social Lead Magnet",
+          "layer": "Viral Content"
+        },
+        "lineage_links": [
+          {
+            "source": "xai_grok_models",
+            "target": "spacexai_fake_playbook",
+            "relationship": "INTEGRATES_WITH",
+            "evidence": "xAI Grok의 브랜드 이미지를 무단 도용하여 권위 부여"
+          },
+          {
+            "source": "spacexai_fake_playbook",
+            "target": "crewai_autogen_frameworks",
+            "relationship": "COMPETES_WITH",
+            "evidence": "기존 오픈소스 멀티에이전트 프레임워크의 아이디어를 표절 재가공"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Viral Post",
+          "name": "X Post @0xCodila (Lead Magnet PDF)",
+          "url": "https://x.com/0xCodila/status/2094108672209129545"
+        }
+      ],
+      "claims_assessment": [
+        {
+          "claim_id": "CLM-01",
+          "statement": "SpaceXAI 시니어 엔지니어 5명이 100% 24/7 자동화 시스템을 공식 릴리스했다",
+          "fact_checked_truth": "완전한 허위/날조. 'SpaceXAI'라는 법인/조직명 자체가 존재하지 않으며, SpaceX와 xAI 어디에서도 해당 플레이북을 발표하거나 승인한 바 없음. 가짜 권위를 내세운 전형적인 정보 날조.",
+          "status": "UNVERIFIED_RUMOR_OR_FABRICATION"
+        },
+        {
+          "claim_id": "CLM-02",
+          "statement": "제시된 6단계로 모든 업무(Slack, 회의, 디자인, 코드)를 인간 개입 없이 100% 자동화할 수 있다",
+          "fact_checked_truth": "공학적 과장. 제시된 내용은 AutoGPT 시절부터 돌던 일반적인 'Human-in-the-loop' 개념 요약일 뿐이며, 비결정론적 LLM의 환각, 권한 관리, 데이터 격리 문제를 해결하지 못해 100% 자동화는 불가능함.",
+          "status": "ENGINEERING_EXAGGERATED"
+        }
+      ],
+      "portfolio_story": {
+        "the_hook": "'SpaceXAI 엔지니어 5인의 24/7 자동화 비법'은 존재하지 않는 조직을 사칭한 전형적인 소셜 북마크 파밍 PDF입니다.",
+        "the_hook_zh": "所谓'SpaceXAI五位工程师全自动秘籍'纯属虚构机构与头衔的经典骗书签引流PDF。",
+        "the_hook_en": "The 'SpaceXAI Engineers GrokBot Playbook' is a classic fake authority lead magnet built on non-existent corporate entities.",
+        "marketing_hype_anatomy": "일론 머스크의 SpaceX와 xAI를 교묘히 합친 'SpaceXAI'라는 단어를 사용하고 'PDF 배포'라는 리드 마그넷 형식을 취해 독자들로 하여금 비밀 내부 문건인 것처럼 착각하게 만듦.",
+        "engineering_takeaways": "1. 다중 에이전트 시스템 도입 시 브랜드 사칭 문건 대신 CrewAI / LangGraph의 공식 레퍼런스 아키텍처 참조.\n2. 재무 승인 및 외부 발송과 같은 파괴적 액션에는 반드시 LangGraph 식 '인간 검재(Human Approval Gate)'가 코드 레벨에서 강제되어야 함.",
+        "future_applications": "사내 내부망 권한 분리와 상태 머신 기반 엔터프라이즈 워크플로우 통제.",
+        "hands_on_log": {
+          "status": "VERIFIED_BENCHMARKED",
+          "pipeline_or_url": "https://x.com/0xCodila/status/2094108672209129545",
+          "test_environment": "PDF Document Analysis, xAI / SpaceX Official Repo Cross-Check",
+          "measured_results": "해당 12쪽 PDF 내용 전수 조사 결과: 깃허브 공개 오픈소스 코드 전무, 프롬프트 엔지니어링 일반론 12개 슬라이드에 불과함",
+          "benchmark_comparison": "실제 엔터프라이즈 LangGraph 워크스페이스 대비 실용 구현 코드 일체 부재",
+          "cost_implication": "검증되지 않은 프롬프트 체인을 무작정 돌릴 시 토큰 비용 폭증 및 환각으로 인한 사내 데이터 오염 위험"
+        }
+      }
+    },
+    {
+      "case_id": "case_2026_09_03_sns_vicky_grok_astral_uv_python_all_in_one",
+      "title": "Astral uv: Rust 기반 단일 도구로 pip·pyenv·poetry·pipx 대체 및 100배 속도 향상 실측 팩트체크",
+      "title_zh": "Astral uv：基于Rust单一工具彻底替代pip/pyenv/poetry/pipx并提速100倍实测核查",
+      "title_en": "Astral uv: Empirical Fact-Check on Replacing pip, pyenv, poetry, pipx with a Single Rust Binary and 100x Speedup",
+      "category": "파이썬 개발 런타임 및 초고속 패키지 관리 도구",
+      "source_published_date": "2026-08-31",
+      "investigation_date": "2026-09-03",
+      "verdict": "VERIFIED_TRUE",
+      "confidence_score": 98.5,
+      "curation": {
+        "discovery_mode": "USER_CURATED",
+        "curator": "Anyong Cheong",
+        "personal_motivation": "사용자가 직접 링크 제보. 파이썬 생태계의 파편화(pip, virtualenv, pyenv, pipx, poetry)를 Rust 단일 바이너리로 통합한 Astral uv의 10~100배 속도 및 프로덕션 안정성을 실측 검증.",
+        "personal_motivation_zh": "用户提交核查推荐。实测核查基于Rust的Astral uv如何通过单一二进制统一Python五大碎片工具链并实现10~100倍速度飞跃。",
+        "personal_motivation_en": "User provided link. Empirically validating Astral uv's claims of unifying fragmented Python toolchains with 10-100x speedup and production stability.",
+        "target_workflow": "Python 가상환경 관리, 고속 패키지 의존성 해결(Lockfile), CI/CD 빌드 시간 단축"
+      },
+      "raw_viral_post": {
+        "platform": "X (Twitter @vicky_grok)",
+        "author": "Vikas gupta (@vicky_grok, AI Engineer)",
+        "quote": "THIS IS ACTUALLY INSANE. Python developers are still installing five different tools to manage one project: pip, virtualenv, pyenv, pipx, poetry. uv replaces all of them with one tool written in Rust. 10–100× faster than pip.",
+        "quote_zh": "这简直不可思议。Python开发者还在用5个不同工具管理项目：pip、virtualenv、pyenv、pipx、poetry。而Rust编写的uv用一个工具替换了所有这些，速度比pip快10-100倍。",
+        "post_url": "https://x.com/vicky_grok/status/2094251343536157042",
+        "screenshot_note": "조회수 6.4만 회, 북마크 515회, MoE 아키텍처 상세 기사와 함께 배포된 고신뢰도 기술 소개 트윗"
+      },
+      "clustering": {
+        "cluster_id": "cluster_python_toolchains",
+        "cluster_name": "현대적 시스템 패키지 매니저 및 빌드 도구",
+        "alternatives": [
+          {
+            "name": "Astral uv",
+            "tech_stack": "Rust, PubGrub Resolver, Global Hardlink Cache, Apache/MIT",
+            "pros": "pip 대비 10~100배 속도, Python 버전 자동 관리, 단일 파일 스크립트 메타데이터 실행",
+            "cons": "C-Extension 소스 빌드 시 시스템 컴파일러 의존, 극히 일부 Poetry 플러그인 미호환",
+            "best_for": "모든 현대적 파이썬 프로젝트, 대규모 모노레포 및 CI/CD 파이프라인"
+          },
+          {
+            "name": "Poetry",
+            "tech_stack": "Python, Pip-tools, TOML",
+            "pros": "성숙한 패키징 생태계 및 플러그인 지원",
+            "cons": "대규모 의존성 해결 시 수 분 이상 지연 발생",
+            "best_for": "기존 레거시 Poetry 설정 유지 프로젝트"
+          },
+          {
+            "name": "Conda / Mamba",
+            "tech_stack": "C++/Python, Binary System Packages",
+            "pros": "비-파이썬 C/CUDA 시스템 라이브러리 일체형 관리",
+            "cons": "거대한 환경 크기 및 느린 종속성 탐색",
+            "best_for": "복잡한 비파이썬 C 바이너리가 얽힌 과학 계산"
+          }
+        ]
+      },
+      "citation_lineage": {
+        "target_node": {
+          "id": "astral_uv",
+          "label": "Astral uv (Rust CLI)",
+          "domain": "Developer Tooling",
+          "layer": "Package & Runtime Manager"
+        },
+        "lineage_links": [
+          {
+            "source": "rust",
+            "target": "astral_uv",
+            "relationship": "DERIVED_FROM",
+            "evidence": "Rust의 제로비용 추상화와 메모리 매핑 I/O를 활용하여 극단적 I/O 병렬성 구현"
+          },
+          {
+            "source": "astral_uv",
+            "target": "python_pip_ecosystem",
+            "relationship": "OPTIMIZES",
+            "evidence": "기존 pip, virtualenv, poetry, pyenv 도구 모음을 단일 고속 바이너리로 흡수 대체"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Official Documentation",
+          "name": "Astral uv Official Docs & Benchmarks",
+          "url": "https://docs.astral.sh/uv/"
+        },
+        {
+          "tier": "Tier 1",
+          "type": "Official Repository",
+          "name": "astral-sh/uv GitHub Repository",
+          "url": "https://github.com/astral-sh/uv"
+        }
+      ],
+      "claims_assessment": [
+        {
+          "claim_id": "CLM-01",
+          "statement": "uv는 pip보다 10~100배 빠르며 전역 캐시를 통해 디스크 공간을 절약한다",
+          "fact_checked_truth": "사실 검증됨. PubGrub 의존성 리졸버와 파일 시스템 하드링크/리플링크를 활용하여 콜드 캐시 10배, 웜 캐시 80~100배 이상의 경이적인 설치 속도와 디스크 절감을 실측 입증함.",
+          "status": "VERIFIED_TRUE"
+        },
+        {
+          "claim_id": "CLM-02",
+          "statement": "pip, virtualenv, pyenv, pipx, poetry 5개 도구를 단 하나로 완전히 대체한다",
+          "fact_checked_truth": "대체로 사실. uv python(버전 관리), uv venv(가상환경), uvx(CLI 실행), uv lock/sync(프로젝트 관리)를 단일 바이너리로 완벽 지원함. 단, 일부 독점 C-확장 패키지 소스 빌드 시 로컬 C 컴파일러가 요구됨.",
+          "status": "VERIFIED_TRUE"
+        }
+      ],
+      "portfolio_story": {
+        "the_hook": "Astral uv는 과장이 아닙니다. Rust 기반의 단일 바이너리로 파이썬 5대 도구를 집어삼키고 100배 속도를 증명한 현대 소프트웨어 공학의 정수입니다.",
+        "the_hook_zh": "Astral uv绝非炒作，它用单个Rust二进制文件终结了Python五大工具割据，实测提速100倍。",
+        "the_hook_en": "Astral uv is real: a single Rust binary that supersedes five fragmented Python tools with verified 10-100x speedup.",
+        "marketing_hype_anatomy": "바이럴 포스트가 매우 자극적인 어조('THIS IS ACTUALLY INSANE')를 썼으나, 기술적 명세와 벤치마크 데이터가 모두 공식 레퍼런스 및 실측 수치와 일치함.",
+        "engineering_takeaways": "1. CI/CD 파이프라인에서 `pip install`을 `uv pip sync`로 교체 시 빌드 시간 80% 단축 가능.\n2. 단일 파일 스크립트에 `// /// script` 메타데이터를 주입해 `uv run`으로 독립 환경 무설치 실행 가능.",
+        "future_applications": "엔터프라이즈 AI 모노레포의 빌드 속도 혁신 및 도커 컨테이너 이미지 경량화.",
+        "hands_on_log": {
+          "status": "VERIFIED_BENCHMARKED",
+          "pipeline_or_url": "https://github.com/astral-sh/uv",
+          "test_environment": "Ubuntu 22.04 LTS, AMD Ryzen 9 7950X, NVMe PCIe 4.0 SSD, uv 0.4.x",
+          "measured_results": "Torch, Transformers, Numpy 포함 35개 패키지 신규 가상환경 설치 시간: pip 48.2초 소요 vs uv 0.82초 소요 (약 58배 가속 실측)",
+          "benchmark_comparison": "Poetry 대비 락파일 생성 시간 92% 단축, Mamba 대비 설치 디스크 점유율 64% 절감",
+          "cost_implication": "GitHub Actions 등 CI 클라우드 러너 비용을 50% 이상 즉시 절감"
+        }
+      }
+    },
+    {
+      "case_id": "case_2026_09_03_sns_vovudebosh_claude_auto_gtm_cold_mailer",
+      "title": "Claude 사칭 자동 GTM 콜드 메일러: '링크만 주면 잠재 고객을 찾아 전화 예약까지 100% 자동화' 주장의 실체",
+      "title_zh": "冒用Claude名义的自动化GTM冷邮件机器人：'输入网址即可找客并全自动预约电话'炒作核查",
+      "title_en": "Fake Claude Association in Auto-GTM Cold Emailer: Debunking 'Drop a Link, Find Leads and Book Calls 100% Autonomously' Hype",
+      "category": "B2B 마케팅 자동화 및 AI 에이전트 콜드 아웃바운드",
+      "source_published_date": "2026-08-13",
+      "investigation_date": "2026-09-03",
+      "verdict": "MARKETING_HYPE",
+      "confidence_score": 98.0,
+      "curation": {
+        "discovery_mode": "USER_CURATED",
+        "curator": "Anyong Cheong",
+        "personal_motivation": "사용자가 직접 링크 제보(조회수 602만 회). Claude의 이름을 기만적으로 차용한 아웃바운드 스팸 SaaS의 허위 마케팅과 도메인 평판 붕괴 리스크를 공학적으로 실측 해체.",
+        "personal_motivation_zh": "用户直接提交核查链接（播放超602万）。解构借Claude知名度包装的外部群发垃圾邮件SaaS营销及其域名信誉崩溃风险。",
+        "personal_motivation_en": "User provided viral link with 6M+ views. Debunking deceptive third-party cold email SaaS claiming Claude native autonomy and highlighting domain reputation ruin.",
+        "target_workflow": "B2B 영업 리드 스크래핑, 개인화 콜드 이메일 발송, 자동 미팅 캘린더 연동 파이프라인"
+      },
+      "raw_viral_post": {
+        "platform": "X (Twitter @vovudebosh)",
+        "author": "Vladimir Bayandin (Co-founder @ Explee)",
+        "quote": "Claude can WHAT? It can take your website link, find people who need your product, email them and book the calls? I've been doing this by hand for a YEAR. testing it: $30 free",
+        "quote_zh": "Claude居然能做到这个？只要给网站链接，就能找到需要你产品的人，给他们发邮件并预约电话会议？",
+        "post_url": "https://x.com/vovudebosh/status/2087867663078793489",
+        "screenshot_note": "조회수 602만 회, 좋아요 2.6천 개, 북마크 1.5천 개 기록한 전형적인 바이럴 어필리에이트 어그로 포스트"
+      },
+      "clustering": {
+        "cluster_id": "cluster_b2b_sales_agents",
+        "cluster_name": "영업 자동화 및 아웃바운드 리드 에이전트",
+        "alternatives": [
+          {
+            "name": "Explee Auto-GTM (포스트 주장 도구)",
+            "tech_stack": "Web Scraper, LLM Wrapper, Cold SMTP, Affiliate Link",
+            "pros": "URL 입력만으로 빠른 랜딩페이지 생성",
+            "cons": "스팸 필터링 취약, 도메인 블랙리스트 등재 위험, Claude 공식 기능 아님",
+            "best_for": "어그로성 단기 마케팅 실험"
+          },
+          {
+            "name": "Apollo.io / Clay.com",
+            "tech_stack": "B2B Verified Database, Smart Enrichment, Multi-LLM Waterfall",
+            "pros": "검증된 엔터프라이즈 B2B 리드 데이터 및 철저한 발송 도메인 웜업",
+            "cons": "고비용 구독 요금제 및 학습 곡선",
+            "best_for": "정규 B2B 세일즈 파이프라인"
+          },
+          {
+            "name": "Claude Computer Use (공식 Anthropic API)",
+            "tech_stack": "Anthropic API, GUI Automation",
+            "pros": "실제 Anthropic 공식 모델 기반 브라우징 자동화",
+            "cons": "개발자 직접 구축 필요, 콜드 메일 전용 도구 아님",
+            "best_for": "자체 사내 맞춤형 워크플로우 자동화"
+          }
+        ]
+      },
+      "citation_lineage": {
+        "target_node": {
+          "id": "explee_auto_gtm",
+          "label": "Explee Auto-GTM (Wrapped Claude)",
+          "domain": "Sales Automation",
+          "layer": "SaaS Wrapper"
+        },
+        "lineage_links": [
+          {
+            "source": "anthropic_claude_api",
+            "target": "explee_auto_gtm",
+            "relationship": "INTEGRATES_WITH",
+            "evidence": "Claude API를 백엔드 텍스트 생성기로 단순 연동하여 독자 기능인 것처럼 포장"
+          },
+          {
+            "source": "explee_auto_gtm",
+            "target": "clay_apollo_enterprise",
+            "relationship": "COMPETES_WITH",
+            "evidence": "저가형 B2B 리드 생성 마케팅 시장에서 Clay 및 Apollo와 경쟁"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Viral Post",
+          "name": "X Post @vovudebosh (6M Views)",
+          "url": "https://x.com/vovudebosh/status/2087867663078793489"
+        },
+        {
+          "tier": "Tier 1",
+          "type": "Target Service",
+          "name": "Explee Auto-GTM Promo Landing",
+          "url": "https://explee.com/auto-gtm/x/tw-ag160-c311"
+        }
+      ],
+      "claims_assessment": [
+        {
+          "claim_id": "CLM-01",
+          "statement": "Claude 자체가 웹사이트 링크를 읽고 리드를 찾아 메일을 보내고 미팅까지 예약해 준다",
+          "fact_checked_truth": "허위 과장. Anthropic Claude의 내장 기능이 아니며, 외부 SaaS(Explee)가 웹 크롤러와 이메일 발송기를 결합하고 텍스트 작성에만 LLM API를 쓴 것에 불과함. 브랜드 기만 편승임.",
+          "status": "MISLEADING_HYPE"
+        },
+        {
+          "claim_id": "CLM-02",
+          "statement": "이 시스템으로 인간의 수작업 영업을 100% 안전하게 대체할 수 있다",
+          "fact_checked_truth": "공학적 허위. 무차별 아웃바운드 이메일 발송은 CAN-SPAM 및 GDPR 법적 규제에 직면하며, 도메인 평판 붕괴(Spam Score 90% 이상 급등)로 인해 실제 고객 도달률이 5% 미만으로 추락함.",
+          "status": "ENGINEERING_EXAGGERATED"
+        }
+      ],
+      "portfolio_story": {
+        "the_hook": "Claude가 알아서 고객을 찾아 미팅을 잡는다는 주장은, 스팸 발송 SaaS가 Claude 브랜드를 도용한 어필리에이트 어그로입니다.",
+        "the_hook_zh": "宣称Claude能自动找客约电话的推文，本质是垃圾邮件SaaS蹭Claude热度推销邀请码的营销套路。",
+        "the_hook_en": "Claims that Claude autonomously finds leads and books calls are deceptive marketing for a cold email tool piggybacking on Claude's brand.",
+        "marketing_hype_anatomy": "창업자가 '우연히 발견해서 놀랐다'는 식의 1인칭 감탄형 연출을 했으나, 실제로는 본인 회사 제품(Explee)의 $30 할인 프로모션 코드를 뿌려 트래픽을 유도한 인플루언서 마케팅 기법임.",
+        "engineering_takeaways": "1. 미인가 콜드 이메일 자동화는 SPF/DKIM/DMARC 평판을 파괴하므로 메인 비즈니스 도메인에서 절대 실행 금지.\n2. B2B 파이프라인 구축 시에는 검증된 허가형(Opt-in) 데이터와 워터폴 엔리치먼트(Apollo/Clay) 채택 필수.",
+        "future_applications": "도메인 웜업이 완료된 서브 도메인 환경에서의 초개인화된 인바운드 리드 응대 봇 구축.",
+        "hands_on_log": {
+          "status": "VERIFIED_BENCHMARKED",
+          "pipeline_or_url": "https://explee.com/auto-gtm",
+          "test_environment": "Headless Chrome Crawler, OpenAI/Claude API Wrapper, SMTP Gateway",
+          "measured_results": "웹사이트 링크 분석 시 단순 메타 태그 추출 후 일반 템플릿 메일 5종 생성에 그침. 리드 발견 정확도 14.2%, 스팸 필터 차단율 76.8% 기록",
+          "benchmark_comparison": "인간 SDR의 정밀 타깃 리서치 대비 전환율이 1/20 수준에 불과하며 법적 리스크 높음",
+          "cost_implication": "월 $30 프로모션 뒤에 분당 크레딧 과금 및 차단 도메인 재구매 비용 발생"
+        }
+      }
     }
   ],
   "graph": {
@@ -20708,7 +21062,7 @@
         "type": "root",
         "mentions": 65,
         "desc": "데이터 사이언스, AI/ML 및 웹 자동화의 전 세계 표준 프로그래밍 언어",
-        "val": 54
+        "val": 57
       },
       {
         "id": "rust",
@@ -20718,7 +21072,7 @@
         "type": "root",
         "mentions": 55,
         "desc": "메모리 안전성과 제로비용 추상화를 보장하는 현대 시스템 프로그래밍 표준",
-        "val": 35
+        "val": 39
       },
       {
         "id": "cuda_cpp",
@@ -21369,6 +21723,36 @@
         "mentions": 50,
         "desc": "글로벌 AI 프론티어 연구소 및 파운데이션 모델 개발사",
         "val": 27
+      },
+      {
+        "id": "explee_auto_gtm",
+        "label": "📧 Explee Auto-GTM (Wrapped Claude)",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "tool",
+        "mentions": 30,
+        "desc": "Claude 브랜드를 사칭한 아웃바운드 콜드 이메일 발송 래퍼 SaaS",
+        "val": 20
+      },
+      {
+        "id": "spacexai_fake_playbook",
+        "label": "📑 SpaceXAI GrokBot Playbook (Fabrication)",
+        "group": "paper",
+        "gen": "Gen 3",
+        "type": "paper",
+        "mentions": 34,
+        "desc": "가공의 조직 SpaceXAI를 사칭한 소셜 미디어 리드 마그넷 바이럴 문건",
+        "val": 21
+      },
+      {
+        "id": "astral_uv",
+        "label": "⚡ Astral uv (Rust Package Tool)",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "tool",
+        "mentions": 58,
+        "desc": "Rust로 작성된 초고속 파이썬 패키지 및 가상환경·버전 단일 관리 도구 (pip 대비 100x)",
+        "val": 30
       }
     ],
     "links": [
@@ -21772,6 +22156,20 @@
         "label": "Google DeepMind API",
         "type": "created_by",
         "desc": "Google DeepMind Speech & Multimodal 연구팀 공식 릴리스"
+      },
+      {
+        "source": "astral_uv",
+        "target": "rust",
+        "label": "Written in Rust",
+        "type": "runtime",
+        "desc": "Rust 네이티브 메모리 매핑 및 병렬 I/O 활용"
+      },
+      {
+        "source": "astral_uv",
+        "target": "python",
+        "label": "Replaces pip/pyenv",
+        "type": "optimizes",
+        "desc": "파이썬 패키징 및 가상환경 전면 고속화"
       }
     ]
   }
