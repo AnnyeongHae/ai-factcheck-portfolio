@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "When Robots Mishear Us: Mapping the Safety Risks of Voice-Controlled Embodied AI",
-  "description_ko": "Abstract: We investigate whether automatic speech recognition (ASR) errors in user input can lead to unsafe outputs from Embodied AI (EAI) models. We find that ASR errors can lead to harmful instructions being ...",
+  "title_ko": "음성 인식 오류가 체화형 AI 안전성에 미치는 위험 분석",
+  "description_ko": "로봇 공학 및 음성 제어 AI 시스템 구축 시 음성 인식(ASR) 오인식으로 인한 안전 취약점을 분석합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,64 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_arxiv_when_robots_mishear_us_mapping_the_safe",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "체화형 AI 안전성",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Embodied AI",
+      "ASR",
+      "Safety Risks"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "음성 인식 오류가 체화형 AI 안전성에 미치는 위험 분석",
+        "hook": "로봇 공학 및 음성 제어 AI 시스템 구축 시 음성 인식(ASR) 오인식으로 인한 안전 취약점을 분석합니다.",
+        "key_takeaways": [
+          "사용자 음성 입력의 ASR 오류가 체화형 AI의 위험한 출력으로 이어짐",
+          "유해한 명령 생성 가능성에 대한 실증적 분석",
+          "로봇 음성 제어 시스템의 안전성 가이드라인 제안"
+        ]
+      },
+      "en": {
+        "title": "Mapping Safety Risks of Voice-Controlled Embodied AI",
+        "hook": "Analyze how automatic speech recognition errors trigger hazardous outputs in robotic AI systems.",
+        "key_takeaways": [
+          "ASR errors in user inputs lead to unsafe EAI outputs",
+          "Empirical analysis on harmful instruction generation",
+          "Proposes safety guardrails for voice-controlled robotics"
+        ]
+      },
+      "zh": {
+        "title": "语音识别错误对具身智能安全风险的影响研究",
+        "hook": "探讨语音识别失误如何导致机器人等具身智能系统产生不安全行为。",
+        "key_takeaways": [
+          "用户输入的ASR错误可触发具身智能的不安全输出",
+          "分析了生成有害指令的潜在风险",
+          "为语音控制机器人系统提出安全防御建议"
+        ]
+      }
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Embodied AI",
+    "ASR",
+    "Safety Risks"
+  ],
+  "title_en": "Mapping Safety Risks of Voice-Controlled Embodied AI",
+  "title_zh": "语音识别错误对具身智能安全风险的影响研究",
+  "hook": "로봇 공학 및 음성 제어 AI 시스템 구축 시 음성 인식(ASR) 오인식으로 인한 안전 취약점을 분석합니다.",
+  "hook_ko": "로봇 공학 및 음성 제어 AI 시스템 구축 시 음성 인식(ASR) 오인식으로 인한 안전 취약점을 분석합니다.",
+  "hook_en": "Analyze how automatic speech recognition errors trigger hazardous outputs in robotic AI systems.",
+  "hook_zh": "探讨语音识别失误如何导致机器人等具身智能系统产生不安全行为。",
+  "description_en": "Analyze how automatic speech recognition errors trigger hazardous outputs in robotic AI systems.",
+  "description_zh": "探讨语音识别失误如何导致机器人等具身智能系统产生不安全行为。"
 }

@@ -1,8 +1,8 @@
 {
   "generated_at": "2026-09-02",
   "total_cases": 18,
-  "models_total_count": 56,
-  "news_total_count": 62,
+  "models_total_count": 57,
+  "news_total_count": 61,
   "inbox_total_count": 164,
   "all_inbox_count": 282,
   "admin_stats": {
@@ -1932,13 +1932,13 @@
         "risk_flags": [],
         "audit_notes": []
       },
-      "model_family": "Qwen-3.8-27B Dense/MoE Family",
+      "model_family": "Qwen-3.8",
       "detected_formats": [
         "Fine-tune / Uncensored"
       ],
-      "category_type": "TECH",
-      "title_ko": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-MLX",
-      "description_ko": "Trending Score: 200, Downloads: 109121, Pipeline: image-text-to-text",
+      "category_type": "MODEL",
+      "title_ko": "Qwen3.8-27B-Uncensored-MLX 오픈소스 모델 공개",
+      "description_ko": "Apple Silicon 환경에서 고성능 언어 모델을 활용하고 싶은 개발자를 위한 검열 해제 버전 모델.",
       "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
       "creator": "OrcaRouter Community",
       "metric_tracking": {
@@ -1958,7 +1958,66 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-09-02"
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_huggingface_orcarouterqwen38_27b_uncensored_m",
+        "source_lang": "EN",
+        "type_classification": "MODEL",
+        "model_family": "Qwen-3.8",
+        "category": "오픈소스 LLM 가중치",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Qwen",
+          "Uncensored",
+          "MLX"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "Qwen3.8-27B-Uncensored-MLX 오픈소스 모델 공개",
+            "hook": "Apple Silicon 환경에서 고성능 언어 모델을 활용하고 싶은 개발자를 위한 검열 해제 버전 모델.",
+            "key_takeaways": [
+              "27B 파라미터 규모의 Qwen 기반 검열 해제 모델",
+              "MLX 프레임워크 지원으로 Apple Silicon 최적화",
+              "이미지-텍스트 멀티모달 상호작용 파이프라인 탑재"
+            ]
+          },
+          "en": {
+            "title": "Qwen3.8-27B-Uncensored-MLX Released",
+            "hook": "An uncensored high-parameter model optimized for developers utilizing Apple Silicon hardware.",
+            "key_takeaways": [
+              "27B parameter Qwen-based uncensored variant",
+              "Optimized for MLX framework on Apple Silicon",
+              "Equipped with image-text-to-text pipeline support"
+            ]
+          },
+          "zh": {
+            "title": "Qwen3.8-27B-Uncensored-MLX 开源模型发布",
+            "hook": "专为在苹果芯片上运行高性能大模型而优化的去限制版本。",
+            "key_takeaways": [
+              "基于Qwen架构的27B参数去限制模型",
+              "全面适配Apple Silicon的MLX框架",
+              "支持图文多模态处理流水线"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Qwen",
+        "Uncensored",
+        "MLX"
+      ],
+      "title_en": "Qwen3.8-27B-Uncensored-MLX Released",
+      "title_zh": "Qwen3.8-27B-Uncensored-MLX 开源模型发布",
+      "hook": "Apple Silicon 환경에서 고성능 언어 모델을 활용하고 싶은 개발자를 위한 검열 해제 버전 모델.",
+      "hook_ko": "Apple Silicon 환경에서 고성능 언어 모델을 활용하고 싶은 개발자를 위한 검열 해제 버전 모델.",
+      "hook_en": "An uncensored high-parameter model optimized for developers utilizing Apple Silicon hardware.",
+      "hook_zh": "专为在苹果芯片上运行高性能大模型而优化的去限制版本。",
+      "description_en": "An uncensored high-parameter model optimized for developers utilizing Apple Silicon hardware.",
+      "description_zh": "专为在苹果芯片上运行高性能大模型而优化的去限制版本。"
     },
     {
       "inbox_id": "2026-08-31_repo_huggingface_orcarouterqwen38_27b_uncensored_g",
@@ -2273,7 +2332,70 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-09-02"
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_huggingface_model_orcarouterglm_53_flash_unce",
+        "source_lang": "EN",
+        "type_classification": "MODEL",
+        "model_family": "GLM",
+        "category": "LLM 추론 최적화",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "FP8 Quantization",
+          "Uncensored LLM",
+          "Text Generation"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "orcarouter GLM-5.3-Flash-Uncensored-FP8 모델 공개",
+            "hook": "FP8 양자화가 적용되어 속도와 효율성이 극대화된 고성능 언어 모델을 활용해 보세요.",
+            "key_takeaways": [
+              "FP8 정밀도로 가벼워진 가중치 및 추론 속도 향상",
+              "검열 없는(Uncensored) 유연한 텍스트 생성 기능",
+              "다양한 라우팅 및 텍스트 생성 파이프라인 호환"
+            ]
+          },
+          "en": {
+            "title": "orcarouter GLM-5.3-Flash-Uncensored-FP8 Model Released",
+            "hook": "Utilize a high-performance language model optimized for speed and efficiency using FP8 quantization.",
+            "key_takeaways": [
+              "Lighter weights and faster inference via FP8 precision",
+              "Uncensored and flexible text generation capabilities",
+              "Compatible with various routing and text generation pipelines"
+            ]
+          },
+          "zh": {
+            "title": "orcarouter GLM-5.3-Flash-Uncensored-FP8 模型发布",
+            "hook": "利用应用FP8量化、速度与效率极大化的高性能语言模型。",
+            "key_takeaways": [
+              "通过FP8精度减轻权重并提升推理速度",
+              "具备无审查(Uncensored)且灵活的文本生成能力",
+              "兼容多种路由与文本生成流程"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "FP8 Quantization",
+        "Uncensored LLM",
+        "Text Generation"
+      ],
+      "title_ko": "orcarouter GLM-5.3-Flash-Uncensored-FP8 모델 공개",
+      "title_en": "orcarouter GLM-5.3-Flash-Uncensored-FP8 Model Released",
+      "title_zh": "orcarouter GLM-5.3-Flash-Uncensored-FP8 模型发布",
+      "hook": "FP8 양자화가 적용되어 속도와 효율성이 극대화된 고성능 언어 모델을 활용해 보세요.",
+      "hook_ko": "FP8 양자화가 적용되어 속도와 효율성이 극대화된 고성능 언어 모델을 활용해 보세요.",
+      "hook_en": "Utilize a high-performance language model optimized for speed and efficiency using FP8 quantization.",
+      "hook_zh": "利用应用FP8量化、速度与效率极大化的高性能语言模型。",
+      "description_ko": "FP8 양자화가 적용되어 속도와 효율성이 극대화된 고성능 언어 모델을 활용해 보세요.",
+      "description_en": "Utilize a high-performance language model optimized for speed and efficiency using FP8 quantization.",
+      "description_zh": "利用应用FP8量化、速度与效率极大化的高性能语言模型。",
+      "model_family": "GLM",
+      "category_type": "MODEL"
     },
     {
       "inbox_id": "2026-08-31_repo_huggingface_model_deepseek_aideepseek_v4_flas",
@@ -2467,6 +2589,113 @@
       "updated_at": "2026-09-02"
     },
     {
+      "inbox_id": "2026-08-31_repo_huggingface_fastvideofastvideo_fasth3_4_step_",
+      "harvested_date": "2026-08-31",
+      "title": "HuggingFace: FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree",
+      "source_platform": "Hugging Face Hub",
+      "source_url": "https://huggingface.co/FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree",
+      "type": "repo",
+      "description": "Trending Score: 226, Downloads: 0, Likes: 240, Pipeline: text-to-video",
+      "viral_metric": "Trending 226 pts (❤️ 240)",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW",
+      "audit_risk": {
+        "hype_risk_score": 15,
+        "risk_level": "LOW_RISK",
+        "risk_flags": [],
+        "audit_notes": []
+      },
+      "model_family": "FastVideo",
+      "detected_formats": [
+        "기본 가중치 (Default Weight)"
+      ],
+      "category_type": "MODEL",
+      "title_ko": "FastVideo FastH3 4단계 프리뷰 모델 공개",
+      "description_ko": "단 4단계 추론만으로 고품질 동영상을 생성하는 최신 텍스트-투-비디오 모델을 확인하세요.",
+      "variant_role": "일반 파생/배포본 (Standard Release)",
+      "creator": "Community",
+      "metric_tracking": {
+        "initial": {
+          "value": 196,
+          "display": "Trending 196 pts",
+          "recorded_at": "2026-08-31"
+        },
+        "latest": {
+          "value": 226,
+          "display": "Trending 226 pts (❤️ 240)",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 30,
+        "delta_display": "+30",
+        "growth_rate_pct": 15.3,
+        "is_spiking": false
+      },
+      "created_at": "2026-08-31",
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_huggingface_fastvideofastvideo_fasth3_4_step_",
+        "source_lang": "EN",
+        "type_classification": "MODEL",
+        "model_family": "FastVideo",
+        "category": "영상 생성",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Text-to-Video",
+          "Diffusion Optimization",
+          "4-step Generation"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "FastVideo FastH3 4단계 프리뷰 모델 공개",
+            "hook": "단 4단계 추론만으로 고품질 동영상을 생성하는 최신 텍스트-투-비디오 모델을 확인하세요.",
+            "key_takeaways": [
+              "4단계 초고속 확산 모델 추론 지원",
+              "데이터 프리(Data-Free) 최적화 아키텍처 적용",
+              "텍스트 기반 영상 생성 파이프라인 최적화"
+            ]
+          },
+          "en": {
+            "title": "FastVideo FastH3 4-step Preview Model Released",
+            "hook": "Discover a cutting-edge text-to-video model that generates high-quality videos in just 4 inference steps.",
+            "key_takeaways": [
+              "Supports ultra-fast 4-step diffusion model inference",
+              "Applies data-free optimization architecture",
+              "Optimized text-to-video generation pipeline"
+            ]
+          },
+          "zh": {
+            "title": "FastVideo FastH3 4步预览模型发布",
+            "hook": "探索仅需4步推理即可生成高质量视频的最新文本转视频模型。",
+            "key_takeaways": [
+              "支持超高速4步扩散模型推理",
+              "应用无数据(Data-Free)优化架构",
+              "优化文本转视频生成流程"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Text-to-Video",
+        "Diffusion Optimization",
+        "4-step Generation"
+      ],
+      "title_en": "FastVideo FastH3 4-step Preview Model Released",
+      "title_zh": "FastVideo FastH3 4步预览模型发布",
+      "hook": "단 4단계 추론만으로 고품질 동영상을 생성하는 최신 텍스트-투-비디오 모델을 확인하세요.",
+      "hook_ko": "단 4단계 추론만으로 고품질 동영상을 생성하는 최신 텍스트-투-비디오 모델을 확인하세요.",
+      "hook_en": "Discover a cutting-edge text-to-video model that generates high-quality videos in just 4 inference steps.",
+      "hook_zh": "探索仅需4步推理即可生成高质量视频的最新文本转视频模型。",
+      "description_en": "Discover a cutting-edge text-to-video model that generates high-quality videos in just 4 inference steps.",
+      "description_zh": "探索仅需4步推理即可生成高质量视频的最新文本转视频模型。"
+    },
+    {
       "inbox_id": "2026-08-31_repo_huggingface_deepseek_aideepseek_v4_flash_0731",
       "harvested_date": "2026-08-31",
       "title": "HuggingFace: deepseek-ai/DeepSeek-V4-Flash-0731",
@@ -2533,13 +2762,13 @@
         "risk_flags": [],
         "audit_notes": []
       },
-      "model_family": "Audio/TTS Foundation Family",
+      "model_family": "Audio / TTS",
       "detected_formats": [
         "기본 가중치 (Default Weight)"
       ],
-      "category_type": "TECH",
-      "title_ko": "HuggingFace: BreezeBlue/Breeze-TTS-2",
-      "description_ko": "Trending Score: 214, Downloads: 1838, Pipeline: text-to-speech",
+      "category_type": "MODEL",
+      "title_ko": "Breeze-TTS-2 오픈소스 음성 합성 모델",
+      "description_ko": "최근 트렌딩 차트에서 주목받는 고품질 텍스트 음성 변환 모델 가중치와 파이프라인을 확인하세요.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -2559,7 +2788,66 @@
         "is_spiking": true
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-09-02"
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_huggingface_breezebluebreeze_tts_2",
+        "source_lang": "EN",
+        "type_classification": "MODEL",
+        "model_family": "Standalone",
+        "category": "음성 합성 (TTS)",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Text-to-Speech",
+          "HuggingFace",
+          "Audio Model"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "Breeze-TTS-2 오픈소스 음성 합성 모델",
+            "hook": "최근 트렌딩 차트에서 주목받는 고품질 텍스트 음성 변환 모델 가중치와 파이프라인을 확인하세요.",
+            "key_takeaways": [
+              "Hugging Face 트렌딩 상위권에 오른 고성능 TTS 모델",
+              "텍스트 음성 변환(Text-to-Speech) 파이프라인 기본 지원",
+              "안정적인 다운로드 수와 높은 커뮤니티 선호도 기록"
+            ]
+          },
+          "en": {
+            "title": "Breeze-TTS-2 Open-Source Text-to-Speech Model",
+            "hook": "Explore the weights and pipeline of a high-performance text-to-speech model making waves on trending charts.",
+            "key_takeaways": [
+              "High-performing TTS model climbing Hugging Face trending charts",
+              "Out-of-the-box Text-to-Speech pipeline support",
+              "Robust download stats and high community favorability"
+            ]
+          },
+          "zh": {
+            "title": "Breeze-TTS-2 开源语音合成模型",
+            "hook": "探索在开源趋势榜上备受瞩目的高性能文本转语音模型权重与管道。",
+            "key_takeaways": [
+              "登上 Hugging Face 热门趋势榜的高性能 TTS 模型",
+              "开箱即用的文本转语音 (Text-to-Speech) 管道支持",
+              "稳健的下载量与极高的社区喜爱度"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Text-to-Speech",
+        "HuggingFace",
+        "Audio Model"
+      ],
+      "title_en": "Breeze-TTS-2 Open-Source Text-to-Speech Model",
+      "title_zh": "Breeze-TTS-2 开源语音合成模型",
+      "hook": "최근 트렌딩 차트에서 주목받는 고품질 텍스트 음성 변환 모델 가중치와 파이프라인을 확인하세요.",
+      "hook_ko": "최근 트렌딩 차트에서 주목받는 고품질 텍스트 음성 변환 모델 가중치와 파이프라인을 확인하세요.",
+      "hook_en": "Explore the weights and pipeline of a high-performance text-to-speech model making waves on trending charts.",
+      "hook_zh": "探索在开源趋势榜上备受瞩目的高性能文本转语音模型权重与管道。",
+      "description_en": "Explore the weights and pipeline of a high-performance text-to-speech model making waves on trending charts.",
+      "description_zh": "探索在开源趋势榜上备受瞩目的高性能文本转语音模型权重与管道。"
     },
     {
       "inbox_id": "2026-08-31_repo_hf_space_ziadheropornmaster_krea2",
@@ -3660,8 +3948,8 @@
         "Interactive Web Demo"
       ],
       "category_type": "TECH",
-      "title_ko": "HF Space: k2-fsa/OmniVoice",
-      "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 1256 | Live URL: https://huggingface.co/spaces/k2-fsa/OmniVoice",
+      "title_ko": "HF Space: k2-fsa/OmniVoice 인터랙티브 AI 데모",
+      "description_ko": "오픈소스 음성 기술의 최전선인 OmniVoice의 성능을 웹에서 즉시 테스트할 수 있는 인터랙티브 데모입니다.",
       "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
       "creator": "Community",
       "metric_tracking": {
@@ -3681,7 +3969,66 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-09-02"
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_hf_space_k2_fsaomnivoice",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "음성 인식 및 생성",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "OmniVoice",
+          "Gradio",
+          "Voice AI"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "HF Space: k2-fsa/OmniVoice 인터랙티브 AI 데모",
+            "hook": "오픈소스 음성 기술의 최전선인 OmniVoice의 성능을 웹에서 즉시 테스트할 수 있는 인터랙티브 데모입니다.",
+            "key_takeaways": [
+              "Ggradio SDK 기반으로 구축된 실시간 음성 상호작용 데모",
+              "k2-fsa 오픈소스 음성 프로젝트의 최신 아키텍처 반영",
+              "개발자가 직접 음성 합성 및 인식 성능을 브라우저에서 검증 가능"
+            ]
+          },
+          "en": {
+            "title": "HF Space: k2-fsa/OmniVoice Interactive AI Demo",
+            "hook": "Test the capabilities of OmniVoice instantly in your browser with this interactive live audio demo.",
+            "key_takeaways": [
+              "Real-time voice interaction demo built on the Gradio SDK",
+              "Integrates the latest architecture from the k2-fsa open-source speech project",
+              "Enables developers to validate speech synthesis and recognition performance in browser"
+            ]
+          },
+          "zh": {
+            "title": "HF Space: k2-fsa/OmniVoice 交互式 AI 演示",
+            "hook": "通过此网页端交互式演示，立即体验 OmniVoice 的前沿语音合成与识别性能。",
+            "key_takeaways": [
+              "基于 Gradio SDK 构建的实时语音交互演示",
+              "融入了 k2-fsa 开源语音项目的最新架构成果",
+              "方便开发者在浏览器中直接验证语音模型的各项指标"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "OmniVoice",
+        "Gradio",
+        "Voice AI"
+      ],
+      "title_en": "HF Space: k2-fsa/OmniVoice Interactive AI Demo",
+      "title_zh": "HF Space: k2-fsa/OmniVoice 交互式 AI 演示",
+      "hook": "오픈소스 음성 기술의 최전선인 OmniVoice의 성능을 웹에서 즉시 테스트할 수 있는 인터랙티브 데모입니다.",
+      "hook_ko": "오픈소스 음성 기술의 최전선인 OmniVoice의 성능을 웹에서 즉시 테스트할 수 있는 인터랙티브 데모입니다.",
+      "hook_en": "Test the capabilities of OmniVoice instantly in your browser with this interactive live audio demo.",
+      "hook_zh": "通过此网页端交互式演示，立即体验 OmniVoice 的前沿语音合成与识别性能。",
+      "description_en": "Test the capabilities of OmniVoice instantly in your browser with this interactive live audio demo.",
+      "description_zh": "通过此网页端交互式演示，立即体验 OmniVoice 的前沿语音合成与识别性能。"
     },
     {
       "inbox_id": "2026-08-31_repo_hf_space_jonathancolettiqwen38_27b_uncensored",
@@ -3895,8 +4242,8 @@
         "Interactive Web Demo"
       ],
       "category_type": "TECH",
-      "title_ko": "HF Space: BreezeBlue/breeze-tts-2-demo",
-      "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 26 | Live URL: https://huggingface.co/spaces/BreezeBlue/breeze-tts-2-demo",
+      "title_ko": "Breeze-TTS-2 인터랙티브 그라디오 데모",
+      "description_ko": "최신 고성능 TTS 모델의 음성 합성 품질을 웹 브라우저에서 실시간으로 테스트해보세요.",
       "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
       "creator": "Community",
       "metric_tracking": {
@@ -3916,7 +4263,66 @@
         "is_spiking": true
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-09-02"
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_hf_space_breezebluebreeze_tts_2_demo",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "음성 합성 (TTS)",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "TTS",
+          "Gradio",
+          "Voice Demo"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "Breeze-TTS-2 인터랙티브 그라디오 데모",
+            "hook": "최신 고성능 TTS 모델의 음성 합성 품질을 웹 브라우저에서 실시간으로 테스트해보세요.",
+            "key_takeaways": [
+              "Ggradio 기반의 직관적인 인터페이스 제공",
+              "Breeze-TTS-2 모델의 실시간 음성 합성 성능 체험",
+              "개발자가 간편하게 테스트해볼 수 있는 라이브 데모"
+            ]
+          },
+          "en": {
+            "title": "Breeze-TTS-2 Interactive Gradio Demo",
+            "hook": "Test the real-time speech synthesis quality of the latest TTS model directly in your browser.",
+            "key_takeaways": [
+              "Intuitive interface built with Gradio",
+              "Experience real-time speech synthesis of Breeze-TTS-2",
+              "Live demo for quick and easy developer evaluation"
+            ]
+          },
+          "zh": {
+            "title": "Breeze-TTS-2 交互式 Gradio 演示",
+            "hook": "直接在浏览器中实时测试最新语音合成模型的音频生成质量。",
+            "key_takeaways": [
+              "基于 Gradio 构建的直观界面",
+              "体验 Breeze-TTS-2 的实时语音合成性能",
+              "供开发者快速评估的在线实时演示"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "TTS",
+        "Gradio",
+        "Voice Demo"
+      ],
+      "title_en": "Breeze-TTS-2 Interactive Gradio Demo",
+      "title_zh": "Breeze-TTS-2 交互式 Gradio 演示",
+      "hook": "최신 고성능 TTS 모델의 음성 합성 품질을 웹 브라우저에서 실시간으로 테스트해보세요.",
+      "hook_ko": "최신 고성능 TTS 모델의 음성 합성 품질을 웹 브라우저에서 실시간으로 테스트해보세요.",
+      "hook_en": "Test the real-time speech synthesis quality of the latest TTS model directly in your browser.",
+      "hook_zh": "直接在浏览器中实时测试最新语音合成模型的音频生成质量。",
+      "description_en": "Test the real-time speech synthesis quality of the latest TTS model directly in your browser.",
+      "description_zh": "直接在浏览器中实时测试最新语音合成模型的音频生成质量。"
     },
     {
       "inbox_id": "2026-08-31_repo_hf_space_agent_memory_leaderboardleaderboard",
@@ -4794,6 +5200,102 @@
       "hn_id": "49523361"
     },
     {
+      "inbox_id": "2026-09-02_sns_geeknews_show_gn_booova_당신의_책_한_권을_다_써주는_ai_b",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "GeekNews: Show GN: Booova - 당신의 책 한 권을 다 써주는 AI Book Agent",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33121",
+      "type": "sns",
+      "category_type": "AGENT",
+      "description": "GeekNews Korean Tech Trend: Show GN: Booova - 당신의 책 한 권을 다 써주는 AI Book Agent",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 0,
+        "delta_display": "0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Booova: 당신의 책 한 권을 다 써주는 AI Book Agent",
+      "description_ko": "프롬프트 입력만으로 한 권 분량의 책 구조화 및 집필을 전담하는 실전형 에이전트 도구입니다.",
+      "hn_url": "https://news.hada.io/topic?id=33121",
+      "article_url": "https://news.hada.io/topic?id=33121",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_show_gn_booova_당신의_책_한_권을_다_써주는_ai_b",
+        "source_lang": "KO",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "콘텐츠 생성 에이전트",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "AI Book Agent",
+          "Booova",
+          "Generative AI"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "Booova: 당신의 책 한 권을 다 써주는 AI Book Agent",
+            "hook": "프롬프트 입력만으로 한 권 분량의 책 구조화 및 집필을 전담하는 실전형 에이전트 도구입니다.",
+            "key_takeaways": [
+              "긴 문맥(Long-context)을 활용한 장편 도서 자동 집필 에이전트",
+              "목차 구성부터 챕터별 본문 작성까지 일괄 처리하는 파이프라인",
+              "개인 저작물 및 콘텐츠 마케팅 자동화를 위한 유용한 AI 솔루션"
+            ]
+          },
+          "en": {
+            "title": "Booova: The AI Book Agent That Writes Your Entire Book",
+            "hook": "A production-ready agent tool designed to structure and draft an entire book from simple prompts.",
+            "key_takeaways": [
+              "Long-context automated book writing agent for extensive publications",
+              "End-to-end pipeline handling everything from table of contents to chapter drafts",
+              "Practical AI solution for automated personal publishing and content marketing"
+            ]
+          },
+          "zh": {
+            "title": "Booova：帮你写完整本书的 AI 图书智能体",
+            "hook": "只需输入提示词，即可全权负责一整本书的结构设计与撰写的实战型 AI 智能体工具。",
+            "key_takeaways": [
+              "利用长上下文能力实现长篇图书的自动化写作智能体",
+              "从目录规划到各章节正文编写的全流程流水线处理",
+              "适用于个人著作与内容营销自动化的实用 AI 解决方案"
+            ]
+          }
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "AI Book Agent",
+        "Booova",
+        "Generative AI"
+      ],
+      "title_en": "Booova: The AI Book Agent That Writes Your Entire Book",
+      "title_zh": "Booova：帮你写完整本书的 AI 图书智能体",
+      "hook": "프롬프트 입력만으로 한 권 분량의 책 구조화 및 집필을 전담하는 실전형 에이전트 도구입니다.",
+      "hook_ko": "프롬프트 입력만으로 한 권 분량의 책 구조화 및 집필을 전담하는 실전형 에이전트 도구입니다.",
+      "hook_en": "A production-ready agent tool designed to structure and draft an entire book from simple prompts.",
+      "hook_zh": "只需输入提示词，即可全权负责一整本书的结构设计与撰写的实战型 AI 智能体工具。",
+      "description_en": "A production-ready agent tool designed to structure and draft an entire book from simple prompts.",
+      "description_zh": "只需输入提示词，即可全权负责一整本书的结构设计与撰写的实战型 AI 智能体工具。"
+    },
+    {
       "inbox_id": "2026-09-02_repo_github_lb623no_negative_echo",
       "harvested_date": "2026-09-02",
       "title": "GitHub: LB623/no-negative-echo",
@@ -4855,7 +5357,71 @@
         "is_spiking": false
       },
       "created_at": "2026-09-02",
-      "updated_at": "2026-09-02"
+      "updated_at": "2026-09-02",
+      "ai_enrichment": {
+        "id": "2026-09-02_repo_github_chrisgregboop",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "개발자 도구 및 인프라",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "Notification Inbox",
+          "Self-Hosted",
+          "Developer Tools",
+          "Mobile Alerts"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "chrisgreg/boop: 개발자를 위한 가벼운 셀프 호스팅 알림 인박스",
+            "hook": "애플리케이션 알림을 모바일로 직관적으로 받아볼 수 있는 유용한 오픈소스 툴입니다.",
+            "key_takeaways": [
+              "가볍고 빠르게 구축할 수 있는 셀프 호스팅 알림 시스템",
+              "다양한 앱의 이벤트를 스마트폰으로 실시간 전달",
+              "개발자 개인 워크플로우에 최적화된 심플한 인터페이스"
+            ]
+          },
+          "en": {
+            "title": "chrisgreg/boop: A Tiny, Self-Hosted Notification Inbox for Developers",
+            "hook": "Streamline your app alerts and push notifications directly to your phone with this self-hosted tool.",
+            "key_takeaways": [
+              "Lightweight and easily deployable self-hosted notification hub",
+              "Instantly forwards app events and alerts straight to mobile devices",
+              "Designed specifically for developers seeking streamlined personal monitoring"
+            ]
+          },
+          "zh": {
+            "title": "chrisgreg/boop：一个专为开发者打造的轻量级自托管通知收件箱",
+            "hook": "通过这款自托管工具，将各种应用程序的通知实时推送到手机上。",
+            "key_takeaways": [
+              "轻量级且易于部署的自托管通知中心",
+              "将应用事件和警报实时转发至移动设备",
+              "专为追求高效个人监控的开发者量身设计"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "Notification Inbox",
+        "Self-Hosted",
+        "Developer Tools",
+        "Mobile Alerts"
+      ],
+      "title_ko": "chrisgreg/boop: 개발자를 위한 가벼운 셀프 호스팅 알림 인박스",
+      "title_en": "chrisgreg/boop: A Tiny, Self-Hosted Notification Inbox for Developers",
+      "title_zh": "chrisgreg/boop：一个专为开发者打造的轻量级自托管通知收件箱",
+      "hook": "애플리케이션 알림을 모바일로 직관적으로 받아볼 수 있는 유용한 오픈소스 툴입니다.",
+      "hook_ko": "애플리케이션 알림을 모바일로 직관적으로 받아볼 수 있는 유용한 오픈소스 툴입니다.",
+      "hook_en": "Streamline your app alerts and push notifications directly to your phone with this self-hosted tool.",
+      "hook_zh": "通过这款自托管工具，将各种应用程序的通知实时推送到手机上。",
+      "description_ko": "애플리케이션 알림을 모바일로 직관적으로 받아볼 수 있는 유용한 오픈소스 툴입니다.",
+      "description_en": "Streamline your app alerts and push notifications directly to your phone with this self-hosted tool.",
+      "description_zh": "通过这款自托管工具，将各种应用程序的通知实时推送到手机上。",
+      "category_type": "TECH"
     },
     {
       "inbox_id": "2026-09-02_repo_arxiv_the_structure_of_quantization_damage_in",
@@ -6843,7 +7409,69 @@
         "is_spiking": false
       },
       "created_at": "2026-09-01",
-      "updated_at": "2026-09-01"
+      "updated_at": "2026-09-01",
+      "ai_enrichment": {
+        "id": "2026-09-01_repo_arxiv_jpo_juris_policy_optimization_for_struc",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "구조화된 추론 및 법률 AI",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Legal Reasoning",
+          "Policy Optimization",
+          "Criminal Judgment Prediction"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "범죄 판례 예측을 위한 JPO(Juris Policy Optimization) 프레임워크",
+            "hook": "복잡한 법적 사실 관계로부터 법조문과 형량을 정확히 추론하는 구조화된 추론 방법론을 학습하세요.",
+            "key_takeaways": [
+              "형사 재판 예측을 위한 법률 정책 최적화(JPO) 도입",
+              "사건 사실로부터 법조문 및 죄명 구조적 추론",
+              "기존 분류 작업을 뛰어넘는 고도화된 추론 아키텍처"
+            ]
+          },
+          "en": {
+            "title": "JPO: Juris Policy Optimization for Structured Legal Reasoning",
+            "hook": "Learn a structured reasoning methodology that accurately infers statutory articles and sentencing from complex case facts.",
+            "key_takeaways": [
+              "Introduces Juris Policy Optimization (JPO) for criminal judgment",
+              "Structured inference of statutory articles and charges from case facts",
+              "Advanced reasoning architecture surpassing standard classification"
+            ]
+          },
+          "zh": {
+            "title": "JPO：用于结构化法律推理的判例政策优化框架",
+            "hook": "学习从复杂案件事实中准确推断法条和量刑的结构化推理方法论。",
+            "key_takeaways": [
+              "引入用于刑事判决预测的法律政策优化（JPO）",
+              "从案件事实中结构化推断法条与罪名",
+              "超越标准分类任务的高级推理架构"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Legal Reasoning",
+        "Policy Optimization",
+        "Criminal Judgment Prediction"
+      ],
+      "title_ko": "범죄 판례 예측을 위한 JPO(Juris Policy Optimization) 프레임워크",
+      "title_en": "JPO: Juris Policy Optimization for Structured Legal Reasoning",
+      "title_zh": "JPO：用于结构化法律推理的判例政策优化框架",
+      "hook": "복잡한 법적 사실 관계로부터 법조문과 형량을 정확히 추론하는 구조화된 추론 방법론을 학습하세요.",
+      "hook_ko": "복잡한 법적 사실 관계로부터 법조문과 형량을 정확히 추론하는 구조화된 추론 방법론을 학습하세요.",
+      "hook_en": "Learn a structured reasoning methodology that accurately infers statutory articles and sentencing from complex case facts.",
+      "hook_zh": "学习从复杂案件事实中准确推断法条和量刑的结构化推理方法论。",
+      "description_ko": "복잡한 법적 사실 관계로부터 법조문과 형량을 정확히 추론하는 구조화된 추론 방법론을 학습하세요.",
+      "description_en": "Learn a structured reasoning methodology that accurately infers statutory articles and sentencing from complex case facts.",
+      "description_zh": "学习从复杂案件事实中准确推断法条和量刑的结构化推理方法论。",
+      "category_type": "TECH"
     },
     {
       "inbox_id": "2026-09-01_repo_arxiv_how_you_ask_shapes_what_you_get_a_theor",
@@ -7801,41 +8429,6 @@
       "hn_id": "49514895"
     },
     {
-      "inbox_id": "2026-08-31_sns_hacker_news_apple_caught_off_guard_by_ai_dema",
-      "harvested_date": "2026-08-31",
-      "title": "Hacker News: Apple caught off guard by AI demand for Mac Mini and Mac Studio",
-      "source_platform": "Hacker News",
-      "source_url": "https://news.ycombinator.com/item?id=49508982",
-      "type": "sns",
-      "description": "HN Score: 492 pts | Comments: 588 | Apple caught off guard by AI demand for Mac Mini and Mac Studio",
-      "viral_metric": "🔥 492 HN Points",
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
-      ],
-      "status": "PENDING_REVIEW",
-      "metric_tracking": {
-        "initial": {
-          "value": 83,
-          "display": "83 HN Points",
-          "recorded_at": "2026-08-31"
-        },
-        "latest": {
-          "value": 492,
-          "display": "🔥 492 HN Points",
-          "updated_at": "2026-09-02"
-        },
-        "delta": 409,
-        "delta_display": "+409",
-        "growth_rate_pct": 492.8,
-        "is_spiking": true
-      },
-      "created_at": "2026-08-31",
-      "updated_at": "2026-09-02",
-      "article_url": "https://www.macrumors.com/2026/08/30/apple-unexpected-mac-mini-and-studio-demand/",
-      "hn_url": "https://news.ycombinator.com/item?id=49508982",
-      "hn_id": "49508982"
-    },
-    {
       "inbox_id": "2026-08-31_repo_huggingface_trending_tencenthy4_preview",
       "harvested_date": "2026-08-31",
       "title": "HuggingFace Trending: tencent/Hy4-preview",
@@ -8260,54 +8853,6 @@
         "delta": 12,
         "delta_display": "+12",
         "growth_rate_pct": 10.8,
-        "is_spiking": false
-      },
-      "created_at": "2026-08-31",
-      "updated_at": "2026-09-02"
-    },
-    {
-      "inbox_id": "2026-08-31_repo_huggingface_fastvideofastvideo_fasth3_4_step_",
-      "harvested_date": "2026-08-31",
-      "title": "HuggingFace: FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree",
-      "source_platform": "Hugging Face Hub",
-      "source_url": "https://huggingface.co/FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree",
-      "type": "repo",
-      "description": "Trending Score: 226, Downloads: 0, Likes: 240, Pipeline: text-to-video",
-      "viral_metric": "Trending 226 pts (❤️ 240)",
-      "matched_user_domains": [
-        "DX & Python 업무 프로세스 자동화",
-        "생성형 마케팅 & GEO/SEO 최적화"
-      ],
-      "status": "PENDING_REVIEW",
-      "audit_risk": {
-        "hype_risk_score": 15,
-        "risk_level": "LOW_RISK",
-        "risk_flags": [],
-        "audit_notes": []
-      },
-      "model_family": "기타 독립 모델 (Standalone / Novel)",
-      "detected_formats": [
-        "기본 가중치 (Default Weight)"
-      ],
-      "category_type": "TECH",
-      "title_ko": "HuggingFace: FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree",
-      "description_ko": "Trending Score: 196, Downloads: 0, Pipeline: text-to-video",
-      "variant_role": "일반 파생/배포본 (Standard Release)",
-      "creator": "Community",
-      "metric_tracking": {
-        "initial": {
-          "value": 196,
-          "display": "Trending 196 pts",
-          "recorded_at": "2026-08-31"
-        },
-        "latest": {
-          "value": 226,
-          "display": "Trending 226 pts (❤️ 240)",
-          "updated_at": "2026-09-02"
-        },
-        "delta": 30,
-        "delta_display": "+30",
-        "growth_rate_pct": 15.3,
         "is_spiking": false
       },
       "created_at": "2026-08-31",
@@ -9103,9 +9648,9 @@
       "detected_formats": [
         "기본 가중치 (Default Weight)"
       ],
-      "category_type": "TECH",
-      "title_ko": "s1dashu/ip-as-logo-skill",
-      "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+      "category_type": "AGENT",
+      "title_ko": "s1dashu/ip-as-logo-skill: IP 마스코트 로고 생성을 위한 초간단 에이전트 스킬",
+      "description_ko": "단순화된 네오스쿠어모픽 스타일의 캐릭터 로고를 AI 에이전트로 자동 생성하는 필수 도구입니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -9125,7 +9670,68 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-08-31"
+      "updated_at": "2026-08-31",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_github_s1dashuip_as_logo_skill",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "에이전트 도구 및 스킬",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Agent Skill",
+          "IP Mascot",
+          "Logo Design",
+          "Neo-Skeuomorphism"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "s1dashu/ip-as-logo-skill: IP 마스코트 로고 생성을 위한 초간단 에이전트 스킬",
+            "hook": "단순화된 네오스쿠어모픽 스타일의 캐릭터 로고를 AI 에이전트로 자동 생성하는 필수 도구입니다.",
+            "key_takeaways": [
+              "둥글고 미니멀한 네오스쿠어모픽 스타일의 IP 마스코트 생성 최적화",
+              "에이전트 워크플로우에 즉시 통합 가능한 컴팩트한 스킬 패키지",
+              "디자인 자동화 및 브랜드 에셋 생성 생산성 극대화"
+            ]
+          },
+          "en": {
+            "title": "s1dashu/ip-as-logo-skill: Compact Agent Skill for Neo-Skeuomorphic Mascot Logos",
+            "hook": "Leverage this specialized agent skill to instantly generate stylized, minimalist IP mascot logos.",
+            "key_takeaways": [
+              "Optimized for simplified, rounded, neo-skeuomorphic character designs",
+              "Compact and modular agent skill ready for seamless integration",
+              "Greatly accelerates automated brand asset and logo generation workflows"
+            ]
+          },
+          "zh": {
+            "title": "s1dashu/ip-as-logo-skill：用于生成新拟物风格IP吉祥物Logo的精简Agent技能",
+            "hook": "利用这一专用的Agent技能，快速生成极简且具有新拟物风格的品牌吉祥物。",
+            "key_takeaways": [
+              "专为简化、圆润、新拟物风格的角色设计而优化",
+              "小巧且模块化的Agent技能，可无缝集成到工作流中",
+              "极大地加速了自动化品牌资产与Logo生成流程"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Agent Skill",
+        "IP Mascot",
+        "Logo Design",
+        "Neo-Skeuomorphism"
+      ],
+      "title_en": "s1dashu/ip-as-logo-skill: Compact Agent Skill for Neo-Skeuomorphic Mascot Logos",
+      "title_zh": "s1dashu/ip-as-logo-skill：用于生成新拟物风格IP吉祥物Logo的精简Agent技能",
+      "hook": "단순화된 네오스쿠어모픽 스타일의 캐릭터 로고를 AI 에이전트로 자동 생성하는 필수 도구입니다.",
+      "hook_ko": "단순화된 네오스쿠어모픽 스타일의 캐릭터 로고를 AI 에이전트로 자동 생성하는 필수 도구입니다.",
+      "hook_en": "Leverage this specialized agent skill to instantly generate stylized, minimalist IP mascot logos.",
+      "hook_zh": "利用这一专用的Agent技能，快速生成极简且具有新拟物风格的品牌吉祥物。",
+      "description_en": "Leverage this specialized agent skill to instantly generate stylized, minimalist IP mascot logos.",
+      "description_zh": "利用这一专用的Agent技能，快速生成极简且具有新拟物风格的品牌吉祥物。"
     },
     {
       "inbox_id": "2026-08-31_repo_github_nateherkaiscroll_craft",
@@ -10117,8 +10723,8 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "When Robots Mishear Us: Mapping the Safety Risks of Voice-Controlled Embodied AI",
-      "description_ko": "Abstract: We investigate whether automatic speech recognition (ASR) errors in user input can lead to unsafe outputs from Embodied AI (EAI) models. We find that ASR errors can lead to harmful instructions being ...",
+      "title_ko": "음성 인식 오류가 체화형 AI 안전성에 미치는 위험 분석",
+      "description_ko": "로봇 공학 및 음성 제어 AI 시스템 구축 시 음성 인식(ASR) 오인식으로 인한 안전 취약점을 분석합니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -10138,7 +10744,66 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-08-31"
+      "updated_at": "2026-08-31",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_arxiv_when_robots_mishear_us_mapping_the_safe",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "체화형 AI 안전성",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Embodied AI",
+          "ASR",
+          "Safety Risks"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "음성 인식 오류가 체화형 AI 안전성에 미치는 위험 분석",
+            "hook": "로봇 공학 및 음성 제어 AI 시스템 구축 시 음성 인식(ASR) 오인식으로 인한 안전 취약점을 분석합니다.",
+            "key_takeaways": [
+              "사용자 음성 입력의 ASR 오류가 체화형 AI의 위험한 출력으로 이어짐",
+              "유해한 명령 생성 가능성에 대한 실증적 분석",
+              "로봇 음성 제어 시스템의 안전성 가이드라인 제안"
+            ]
+          },
+          "en": {
+            "title": "Mapping Safety Risks of Voice-Controlled Embodied AI",
+            "hook": "Analyze how automatic speech recognition errors trigger hazardous outputs in robotic AI systems.",
+            "key_takeaways": [
+              "ASR errors in user inputs lead to unsafe EAI outputs",
+              "Empirical analysis on harmful instruction generation",
+              "Proposes safety guardrails for voice-controlled robotics"
+            ]
+          },
+          "zh": {
+            "title": "语音识别错误对具身智能安全风险的影响研究",
+            "hook": "探讨语音识别失误如何导致机器人等具身智能系统产生不安全行为。",
+            "key_takeaways": [
+              "用户输入的ASR错误可触发具身智能的不安全输出",
+              "分析了生成有害指令的潜在风险",
+              "为语音控制机器人系统提出安全防御建议"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Embodied AI",
+        "ASR",
+        "Safety Risks"
+      ],
+      "title_en": "Mapping Safety Risks of Voice-Controlled Embodied AI",
+      "title_zh": "语音识别错误对具身智能安全风险的影响研究",
+      "hook": "로봇 공학 및 음성 제어 AI 시스템 구축 시 음성 인식(ASR) 오인식으로 인한 안전 취약점을 분석합니다.",
+      "hook_ko": "로봇 공학 및 음성 제어 AI 시스템 구축 시 음성 인식(ASR) 오인식으로 인한 안전 취약점을 분석합니다.",
+      "hook_en": "Analyze how automatic speech recognition errors trigger hazardous outputs in robotic AI systems.",
+      "hook_zh": "探讨语音识别失误如何导致机器人等具身智能系统产生不安全行为。",
+      "description_en": "Analyze how automatic speech recognition errors trigger hazardous outputs in robotic AI systems.",
+      "description_zh": "探讨语音识别失误如何导致机器人等具身智能系统产生不安全行为。"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_video_generative_models_as_geometry_lea",
@@ -10306,8 +10971,8 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation",
-      "description_ko": "Abstract: Forced alignment evaluation typically requires manually annotated timestamps, limiting large-scale and multilingual analysis. We introduce two corpus-level metrics based on self-supervised (SSL) speec...",
+      "title_ko": "자기지도학습 음성 표현을 활용한 음소 및 단어 수준 강제 정렬 평가",
+      "description_ko": "수동 라벨링 의존성을 없애고 대규모 다국어 음성 분석을 가능하게 하는 새로운 평가 지표를 제안합니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -10327,7 +10992,172 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-08-31"
+      "updated_at": "2026-08-31",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_arxiv_phoneme_and_word_level_metrics_using_se",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "음성 인식 및 평가",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Forced Alignment",
+          "Self-Supervised Learning",
+          "Speech Metrics"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "자기지도학습 음성 표현을 활용한 음소 및 단어 수준 강제 정렬 평가",
+            "hook": "수동 라벨링 의존성을 없애고 대규모 다국어 음성 분석을 가능하게 하는 새로운 평가 지표를 제안합니다.",
+            "key_takeaways": [
+              "수동 주석 타임스탬프 의존성을 극복한 코퍼스 레벨 평가 지표",
+              "자기지도학습(SSL) 음성 표현 활용",
+              "대규모 및 다국어 음성 분석의 확장성 제고"
+            ]
+          },
+          "en": {
+            "title": "Phoneme- and Word-Level Metrics Using SSL Speech Representations for Forced Alignment Evaluation",
+            "hook": "Discover new corpus-level metrics utilizing self-supervised speech representations to eliminate manual alignment dependencies.",
+            "key_takeaways": [
+              "Corpus-level metrics overcoming manual timestamp annotation limits",
+              "Leveraging self-supervised learning (SSL) speech representations",
+              "Enables large-scale and multilingual speech analysis scalability"
+            ]
+          },
+          "zh": {
+            "title": "利用自监督语音表示进行音素和词级强对齐评估的指标",
+            "hook": "提出利用自监督语音表征的语料库级评估指标，摆脱对手动时间戳标注的依赖。",
+            "key_takeaways": [
+              "克服手动标注时间戳限制的语料库级评估指标",
+              "充分利用自监督学习 (SSL) 语音表征技术",
+              "大幅提升大规模及多语言语音分析的可扩展性"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Forced Alignment",
+        "Self-Supervised Learning",
+        "Speech Metrics"
+      ],
+      "title_en": "Phoneme- and Word-Level Metrics Using SSL Speech Representations for Forced Alignment Evaluation",
+      "title_zh": "利用自监督语音表示进行音素和词级强对齐评估的指标",
+      "hook": "수동 라벨링 의존성을 없애고 대규모 다국어 음성 분석을 가능하게 하는 새로운 평가 지표를 제안합니다.",
+      "hook_ko": "수동 라벨링 의존성을 없애고 대규모 다국어 음성 분석을 가능하게 하는 새로운 평가 지표를 제안합니다.",
+      "hook_en": "Discover new corpus-level metrics utilizing self-supervised speech representations to eliminate manual alignment dependencies.",
+      "hook_zh": "提出利用自监督语音表征的语料库级评估指标，摆脱对手动时间戳标注的依赖。",
+      "description_en": "Discover new corpus-level metrics utilizing self-supervised speech representations to eliminate manual alignment dependencies.",
+      "description_zh": "提出利用自监督语音表征的语料库级评估指标，摆脱对手动时间戳标注的依赖。"
+    },
+    {
+      "inbox_id": "2026-08-31_repo_arxiv_on_the_maintenance_and_co_evolution_of_",
+      "harvested_date": "2026-08-31",
+      "title": "ArXiv: On the Maintenance and Co-evolution of Agent Plugins: An Empirical Study of Claude Code Plugin Marketplaces",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2608.28497v1",
+      "type": "repo",
+      "description": "Abstract: AI coding agents, software tools that automate development tasks through reasoning and tool use, are increasingly extended through plugin marketplaces, yet the structure, maintenance, and co-evolution...",
+      "viral_metric": "ArXiv Primary Paper",
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "audit_risk": {
+        "hype_risk_score": 15,
+        "risk_level": "LOW_RISK",
+        "risk_flags": [],
+        "audit_notes": []
+      },
+      "model_family": "Autonomous Agent Harness Family",
+      "detected_formats": [
+        "기본 가중치 (Default Weight)"
+      ],
+      "category_type": "AGENT",
+      "title_ko": "AI 코딩 에이전트 플러그인의 유지보수와 상호 진화 연구",
+      "description_ko": "Claude Code 생태계 내 플러그인 마켓플레이스를 분석하여 AI 코딩 도구의 확장성과 유지보수 패턴을 파악합니다.",
+      "variant_role": "일반 파생/배포본 (Standard Release)",
+      "creator": "Community",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-08-31"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-08-31"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "created_at": "2026-08-31",
+      "updated_at": "2026-08-31",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_arxiv_on_the_maintenance_and_co_evolution_of_",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "AI 코딩 에이전트",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "AI Coding Agents",
+          "Plugins",
+          "Ecosystem"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "AI 코딩 에이전트 플러그인의 유지보수와 상호 진화 연구",
+            "hook": "Claude Code 생태계 내 플러그인 마켓플레이스를 분석하여 AI 코딩 도구의 확장성과 유지보수 패턴을 파악합니다.",
+            "key_takeaways": [
+              "추론과 도구 사용을 자동화하는 AI 코딩 에이전트 확장 분석",
+              "Claude Code 플러그인 마켓플레이스의 구조적 특징 규명",
+              "플러그인 유지보수 및 상호 진화(co-evolution) 동향 실증 조사"
+            ]
+          },
+          "en": {
+            "title": "Maintenance and Co-evolution of AI Coding Agent Plugins",
+            "hook": "An empirical look at Claude Code plugin marketplaces to understand AI developer tool ecosystems.",
+            "key_takeaways": [
+              "Examines AI coding agents extending capabilities via plugins",
+              "Analyzes structure of Claude Code plugin marketplaces",
+              "Investigates maintenance challenges and co-evolution patterns"
+            ]
+          },
+          "zh": {
+            "title": "AI编码智能体插件的维护与协同演化研究",
+            "hook": "通过对Claude Code插件市场的实证研究，洞察AI开发工具生态的演进规律。",
+            "key_takeaways": [
+              "探讨通过插件扩展AI代码智能体能力的现状",
+              "剖析Claude Code插件市场的底层结构",
+              "研究插件生态系统的维护难点与协同演化机制"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "AI Coding Agents",
+        "Plugins",
+        "Ecosystem"
+      ],
+      "title_en": "Maintenance and Co-evolution of AI Coding Agent Plugins",
+      "title_zh": "AI编码智能体插件的维护与协同演化研究",
+      "hook": "Claude Code 생태계 내 플러그인 마켓플레이스를 분석하여 AI 코딩 도구의 확장성과 유지보수 패턴을 파악합니다.",
+      "hook_ko": "Claude Code 생태계 내 플러그인 마켓플레이스를 분석하여 AI 코딩 도구의 확장성과 유지보수 패턴을 파악합니다.",
+      "hook_en": "An empirical look at Claude Code plugin marketplaces to understand AI developer tool ecosystems.",
+      "hook_zh": "通过对Claude Code插件市场的实证研究，洞察AI开发工具生态的演进规律。",
+      "description_en": "An empirical look at Claude Code plugin marketplaces to understand AI developer tool ecosystems.",
+      "description_zh": "通过对Claude Code插件市场的实证研究，洞察AI开发工具生态的演进规律。"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_nl2agbench_benchmarking_llm_auto_formal",
@@ -10637,8 +11467,8 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "How Proper Scoring Rules Shape LLM Forecasting",
-      "description_ko": "Abstract: This paper evaluates how reward function choice shapes the performance and behavior of LLM forecasters. We compare five proper scoring rules as training objectives for binary forecasts of resolved rea...",
+      "title_ko": "적절한 스코어링 규칙이 LLM 예측 성능에 미치는 영향 분석",
+      "description_ko": "보상 함수 선택이 LLM 예측 에이전트의 행동과 정확도에 미치는 결정적 영향을 파악하세요.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
       "metric_tracking": {
@@ -10658,7 +11488,66 @@
         "is_spiking": false
       },
       "created_at": "2026-08-31",
-      "updated_at": "2026-08-31"
+      "updated_at": "2026-08-31",
+      "ai_enrichment": {
+        "id": "2026-08-31_repo_arxiv_how_proper_scoring_rules_shape_llm_fore",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "LLM 예측 및 평가",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "LLM Forecasting",
+          "Scoring Rules",
+          "Reward Function"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "적절한 스코어링 규칙이 LLM 예측 성능에 미치는 영향 분석",
+            "hook": "보상 함수 선택이 LLM 예측 에이전트의 행동과 정확도에 미치는 결정적 영향을 파악하세요.",
+            "key_takeaways": [
+              "이진 예측 태스크에서 5가지 적절한 스코어링 규칙 비교 분석",
+              "훈련 목표(Training Objective) 설정이 LLM 포캐스터에 미치는 영향 규명",
+              "더욱 신뢰할 수 있는 예측형 AI 시스템 설계 방법론 제시"
+            ]
+          },
+          "en": {
+            "title": "How Proper Scoring Rules Shape LLM Forecasting",
+            "hook": "Discover how the choice of reward function fundamentally shapes the performance and behavior of LLM forecasters.",
+            "key_takeaways": [
+              "Compares five proper scoring rules as training objectives for binary forecasts",
+              "Analyzes how training objectives impact the calibration of LLM predictors",
+              "Provides insights for designing more reliable forecasting AI architectures"
+            ]
+          },
+          "zh": {
+            "title": "恰当的评分规则如何塑造大模型的预测能力",
+            "hook": "深入探讨奖励函数的选择如何根本性地影响大模型预测代理的性能与行为特征。",
+            "key_takeaways": [
+              "对比了五种用于二元预测任务的恰当评分规则",
+              "揭示了训练目标设定对大模型预测校准的具体影响",
+              "为构建更加可靠的预测型 AI 系统提供了理论参考"
+            ]
+          }
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "LLM Forecasting",
+        "Scoring Rules",
+        "Reward Function"
+      ],
+      "title_en": "How Proper Scoring Rules Shape LLM Forecasting",
+      "title_zh": "恰当的评分规则如何塑造大模型的预测能力",
+      "hook": "보상 함수 선택이 LLM 예측 에이전트의 행동과 정확도에 미치는 결정적 영향을 파악하세요.",
+      "hook_ko": "보상 함수 선택이 LLM 예측 에이전트의 행동과 정확도에 미치는 결정적 영향을 파악하세요.",
+      "hook_en": "Discover how the choice of reward function fundamentally shapes the performance and behavior of LLM forecasters.",
+      "hook_zh": "深入探讨奖励函数的选择如何根本性地影响大模型预测代理的性能与行为特征。",
+      "description_en": "Discover how the choice of reward function fundamentally shapes the performance and behavior of LLM forecasters.",
+      "description_zh": "深入探讨奖励函数的选择如何根本性地影响大模型预测代理的性能与行为特征。"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_conformal_uncertainty_quantification_gu",

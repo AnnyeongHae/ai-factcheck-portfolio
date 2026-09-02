@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "FastVideo",
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree",
-  "description_ko": "Trending Score: 196, Downloads: 0, Pipeline: text-to-video",
+  "category_type": "MODEL",
+  "title_ko": "FastVideo FastH3 4단계 프리뷰 모델 공개",
+  "description_ko": "단 4단계 추론만으로 고품질 동영상을 생성하는 최신 텍스트-투-비디오 모델을 확인하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -44,5 +44,64 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_fastvideofastvideo_fasth3_4_step_",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "FastVideo",
+    "category": "영상 생성",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Text-to-Video",
+      "Diffusion Optimization",
+      "4-step Generation"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "FastVideo FastH3 4단계 프리뷰 모델 공개",
+        "hook": "단 4단계 추론만으로 고품질 동영상을 생성하는 최신 텍스트-투-비디오 모델을 확인하세요.",
+        "key_takeaways": [
+          "4단계 초고속 확산 모델 추론 지원",
+          "데이터 프리(Data-Free) 최적화 아키텍처 적용",
+          "텍스트 기반 영상 생성 파이프라인 최적화"
+        ]
+      },
+      "en": {
+        "title": "FastVideo FastH3 4-step Preview Model Released",
+        "hook": "Discover a cutting-edge text-to-video model that generates high-quality videos in just 4 inference steps.",
+        "key_takeaways": [
+          "Supports ultra-fast 4-step diffusion model inference",
+          "Applies data-free optimization architecture",
+          "Optimized text-to-video generation pipeline"
+        ]
+      },
+      "zh": {
+        "title": "FastVideo FastH3 4步预览模型发布",
+        "hook": "探索仅需4步推理即可生成高质量视频的最新文本转视频模型。",
+        "key_takeaways": [
+          "支持超高速4步扩散模型推理",
+          "应用无数据(Data-Free)优化架构",
+          "优化文本转视频生成流程"
+        ]
+      }
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Text-to-Video",
+    "Diffusion Optimization",
+    "4-step Generation"
+  ],
+  "title_en": "FastVideo FastH3 4-step Preview Model Released",
+  "title_zh": "FastVideo FastH3 4步预览模型发布",
+  "hook": "단 4단계 추론만으로 고품질 동영상을 생성하는 최신 텍스트-투-비디오 모델을 확인하세요.",
+  "hook_ko": "단 4단계 추론만으로 고품질 동영상을 생성하는 최신 텍스트-투-비디오 모델을 확인하세요.",
+  "hook_en": "Discover a cutting-edge text-to-video model that generates high-quality videos in just 4 inference steps.",
+  "hook_zh": "探索仅需4步推理即可生成高质量视频的最新文本转视频模型。",
+  "description_en": "Discover a cutting-edge text-to-video model that generates high-quality videos in just 4 inference steps.",
+  "description_zh": "探索仅需4步推理即可生成高质量视频的最新文本转视频模型。"
 }

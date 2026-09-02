@@ -28,5 +28,68 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_model_orcarouterglm_53_flash_unce",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "GLM",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "FP8 Quantization",
+      "Uncensored LLM",
+      "Text Generation"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "orcarouter GLM-5.3-Flash-Uncensored-FP8 모델 공개",
+        "hook": "FP8 양자화가 적용되어 속도와 효율성이 극대화된 고성능 언어 모델을 활용해 보세요.",
+        "key_takeaways": [
+          "FP8 정밀도로 가벼워진 가중치 및 추론 속도 향상",
+          "검열 없는(Uncensored) 유연한 텍스트 생성 기능",
+          "다양한 라우팅 및 텍스트 생성 파이프라인 호환"
+        ]
+      },
+      "en": {
+        "title": "orcarouter GLM-5.3-Flash-Uncensored-FP8 Model Released",
+        "hook": "Utilize a high-performance language model optimized for speed and efficiency using FP8 quantization.",
+        "key_takeaways": [
+          "Lighter weights and faster inference via FP8 precision",
+          "Uncensored and flexible text generation capabilities",
+          "Compatible with various routing and text generation pipelines"
+        ]
+      },
+      "zh": {
+        "title": "orcarouter GLM-5.3-Flash-Uncensored-FP8 模型发布",
+        "hook": "利用应用FP8量化、速度与效率极大化的高性能语言模型。",
+        "key_takeaways": [
+          "通过FP8精度减轻权重并提升推理速度",
+          "具备无审查(Uncensored)且灵活的文本生成能力",
+          "兼容多种路由与文本生成流程"
+        ]
+      }
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "FP8 Quantization",
+    "Uncensored LLM",
+    "Text Generation"
+  ],
+  "title_ko": "orcarouter GLM-5.3-Flash-Uncensored-FP8 모델 공개",
+  "title_en": "orcarouter GLM-5.3-Flash-Uncensored-FP8 Model Released",
+  "title_zh": "orcarouter GLM-5.3-Flash-Uncensored-FP8 模型发布",
+  "hook": "FP8 양자화가 적용되어 속도와 효율성이 극대화된 고성능 언어 모델을 활용해 보세요.",
+  "hook_ko": "FP8 양자화가 적용되어 속도와 효율성이 극대화된 고성능 언어 모델을 활용해 보세요.",
+  "hook_en": "Utilize a high-performance language model optimized for speed and efficiency using FP8 quantization.",
+  "hook_zh": "利用应用FP8量化、速度与效率极大化的高性能语言模型。",
+  "description_ko": "FP8 양자화가 적용되어 속도와 효율성이 극대화된 고성능 언어 모델을 활용해 보세요.",
+  "description_en": "Utilize a high-performance language model optimized for speed and efficiency using FP8 quantization.",
+  "description_zh": "利用应用FP8量化、速度与效率极大化的高性能语言模型。",
+  "model_family": "GLM",
+  "category_type": "MODEL"
 }

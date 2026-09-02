@@ -108,6 +108,7 @@ def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> list:
         '    "id": "입력받은 id",\n'
         '    "source_lang": "KO 또는 EN 또는 ZH (원문의 원래 언어)",\n'
         '    "type_classification": "MODEL (새 모델/가중치 발표) 또는 AGENT (에이전트 도구/하네스) 또는 TECH (신기술/아키텍처/최적화) 또는 NEWS (단순 업계동향/통계/칼럼)",\n'
+        '    "model_family": "만약 type_classification이 MODEL인 경우 모델 패밀리명 (예: Qwen-3.8, DeepSeek, MiniMax, Llama, Gemma, Mistral, FLUX 등, 없으면 Standalone)",\n'
         '    "category": "세부 기술 카테고리 (예: LLM 추론 최적화, 웹 에이전트, 영상 제작 등)",\n'
         '    "programming_lang": "주요 프로그래밍 언어 (예: Rust, Python, TypeScript, CUDA, C++ 등, 없으면 General)",\n'
         '    "root_keywords": ["상위 키워드 1", "상위 키워드 2", "상위 키워드 3"],\n'
@@ -305,9 +306,27 @@ def run_enrichment(limit: int = 12, batch_size: int = 3, random_pick: bool = Tru
                 item["description_en"] = item["hook_en"] or item.get("description_en") or item.get("description")
                 item["description_zh"] = item["hook_zh"] or item.get("description_zh")
 
-                # Routing
+                # Routing & Automatic Model Family Tagging
                 c_type = enrich_data.get("type_classification", "TECH")
-                item["category_type"] = "NEWS" if c_type == "NEWS" else c_type
+                if c_type == "MODEL":
+                    fam = enrich_data.get("model_family")
+                    if not fam or fam.lower() in ["none", "null", "", "standalone"]:
+                        t_lower = (item.get("title", "") + " " + (item.get("title_en", "") or "")).lower()
+                        if "qwen" in t_lower: fam = "Qwen-3.8 Family"
+                        elif "deepseek" in t_lower: fam = "DeepSeek Family"
+                        elif "minimax" in t_lower: fam = "MiniMax / Video"
+                        elif "llama" in t_lower: fam = "Llama Family"
+                        elif "gemma" in t_lower: fam = "Gemma Family"
+                        elif "mistral" in t_lower: fam = "Mistral Family"
+                        elif "flux" in t_lower: fam = "FLUX Family"
+                        elif "audio" in t_lower or "tts" in t_lower or "voice" in t_lower: fam = "Audio / TTS"
+                        else: fam = "Standalone / Novel"
+                    item["model_family"] = fam
+                    item["category_type"] = "MODEL"
+                elif c_type == "NEWS":
+                    item["category_type"] = "NEWS"
+                else:
+                    item["category_type"] = c_type
 
                 # Match with existing 18 dossiers
                 related = match_dossier(

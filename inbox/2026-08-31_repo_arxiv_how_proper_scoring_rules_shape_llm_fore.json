@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "How Proper Scoring Rules Shape LLM Forecasting",
-  "description_ko": "Abstract: This paper evaluates how reward function choice shapes the performance and behavior of LLM forecasters. We compare five proper scoring rules as training objectives for binary forecasts of resolved rea...",
+  "title_ko": "적절한 스코어링 규칙이 LLM 예측 성능에 미치는 영향 분석",
+  "description_ko": "보상 함수 선택이 LLM 예측 에이전트의 행동과 정확도에 미치는 결정적 영향을 파악하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,64 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_arxiv_how_proper_scoring_rules_shape_llm_fore",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 예측 및 평가",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "LLM Forecasting",
+      "Scoring Rules",
+      "Reward Function"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "적절한 스코어링 규칙이 LLM 예측 성능에 미치는 영향 분석",
+        "hook": "보상 함수 선택이 LLM 예측 에이전트의 행동과 정확도에 미치는 결정적 영향을 파악하세요.",
+        "key_takeaways": [
+          "이진 예측 태스크에서 5가지 적절한 스코어링 규칙 비교 분석",
+          "훈련 목표(Training Objective) 설정이 LLM 포캐스터에 미치는 영향 규명",
+          "더욱 신뢰할 수 있는 예측형 AI 시스템 설계 방법론 제시"
+        ]
+      },
+      "en": {
+        "title": "How Proper Scoring Rules Shape LLM Forecasting",
+        "hook": "Discover how the choice of reward function fundamentally shapes the performance and behavior of LLM forecasters.",
+        "key_takeaways": [
+          "Compares five proper scoring rules as training objectives for binary forecasts",
+          "Analyzes how training objectives impact the calibration of LLM predictors",
+          "Provides insights for designing more reliable forecasting AI architectures"
+        ]
+      },
+      "zh": {
+        "title": "恰当的评分规则如何塑造大模型的预测能力",
+        "hook": "深入探讨奖励函数的选择如何根本性地影响大模型预测代理的性能与行为特征。",
+        "key_takeaways": [
+          "对比了五种用于二元预测任务的恰当评分规则",
+          "揭示了训练目标设定对大模型预测校准的具体影响",
+          "为构建更加可靠的预测型 AI 系统提供了理论参考"
+        ]
+      }
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "LLM Forecasting",
+    "Scoring Rules",
+    "Reward Function"
+  ],
+  "title_en": "How Proper Scoring Rules Shape LLM Forecasting",
+  "title_zh": "恰当的评分规则如何塑造大模型的预测能力",
+  "hook": "보상 함수 선택이 LLM 예측 에이전트의 행동과 정확도에 미치는 결정적 영향을 파악하세요.",
+  "hook_ko": "보상 함수 선택이 LLM 예측 에이전트의 행동과 정확도에 미치는 결정적 영향을 파악하세요.",
+  "hook_en": "Discover how the choice of reward function fundamentally shapes the performance and behavior of LLM forecasters.",
+  "hook_zh": "深入探讨奖励函数的选择如何根本性地影响大模型预测代理的性能与行为特征。",
+  "description_en": "Discover how the choice of reward function fundamentally shapes the performance and behavior of LLM forecasters.",
+  "description_zh": "深入探讨奖励函数的选择如何根本性地影响大模型预测代理的性能与行为特征。"
 }

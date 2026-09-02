@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8-27B Dense/MoE Family",
+  "model_family": "Qwen-3.8",
   "detected_formats": [
     "Fine-tune / Uncensored"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-MLX",
-  "description_ko": "Trending Score: 200, Downloads: 109121, Pipeline: image-text-to-text",
+  "category_type": "MODEL",
+  "title_ko": "Qwen3.8-27B-Uncensored-MLX 오픈소스 모델 공개",
+  "description_ko": "Apple Silicon 환경에서 고성능 언어 모델을 활용하고 싶은 개발자를 위한 검열 해제 버전 모델.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "OrcaRouter Community",
   "metric_tracking": {
@@ -44,5 +44,64 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_orcarouterqwen38_27b_uncensored_m",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Qwen-3.8",
+    "category": "오픈소스 LLM 가중치",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Qwen",
+      "Uncensored",
+      "MLX"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "Qwen3.8-27B-Uncensored-MLX 오픈소스 모델 공개",
+        "hook": "Apple Silicon 환경에서 고성능 언어 모델을 활용하고 싶은 개발자를 위한 검열 해제 버전 모델.",
+        "key_takeaways": [
+          "27B 파라미터 규모의 Qwen 기반 검열 해제 모델",
+          "MLX 프레임워크 지원으로 Apple Silicon 최적화",
+          "이미지-텍스트 멀티모달 상호작용 파이프라인 탑재"
+        ]
+      },
+      "en": {
+        "title": "Qwen3.8-27B-Uncensored-MLX Released",
+        "hook": "An uncensored high-parameter model optimized for developers utilizing Apple Silicon hardware.",
+        "key_takeaways": [
+          "27B parameter Qwen-based uncensored variant",
+          "Optimized for MLX framework on Apple Silicon",
+          "Equipped with image-text-to-text pipeline support"
+        ]
+      },
+      "zh": {
+        "title": "Qwen3.8-27B-Uncensored-MLX 开源模型发布",
+        "hook": "专为在苹果芯片上运行高性能大模型而优化的去限制版本。",
+        "key_takeaways": [
+          "基于Qwen架构的27B参数去限制模型",
+          "全面适配Apple Silicon的MLX框架",
+          "支持图文多模态处理流水线"
+        ]
+      }
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Qwen",
+    "Uncensored",
+    "MLX"
+  ],
+  "title_en": "Qwen3.8-27B-Uncensored-MLX Released",
+  "title_zh": "Qwen3.8-27B-Uncensored-MLX 开源模型发布",
+  "hook": "Apple Silicon 환경에서 고성능 언어 모델을 활용하고 싶은 개발자를 위한 검열 해제 버전 모델.",
+  "hook_ko": "Apple Silicon 환경에서 고성능 언어 모델을 활용하고 싶은 개발자를 위한 검열 해제 버전 모델.",
+  "hook_en": "An uncensored high-parameter model optimized for developers utilizing Apple Silicon hardware.",
+  "hook_zh": "专为在苹果芯片上运行高性能大模型而优化的去限制版本。",
+  "description_en": "An uncensored high-parameter model optimized for developers utilizing Apple Silicon hardware.",
+  "description_zh": "专为在苹果芯片上运行高性能大模型而优化的去限制版本。"
 }

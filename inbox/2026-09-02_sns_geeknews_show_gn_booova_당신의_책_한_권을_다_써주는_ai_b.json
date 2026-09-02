@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33121",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "AGENT",
   "description": "GeekNews Korean Tech Trend: Show GN: Booova - 당신의 책 한 권을 다 써주는 AI Book Agent",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -30,8 +30,67 @@
     "DX & Python 업무 프로세스 자동화"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Show GN: Booova - 당신의 책 한 권을 다 써주는 AI Book Agent",
-  "description_ko": "Show GN: Booova - 당신의 책 한 권을 다 써주는 AI Book Agent",
+  "title_ko": "Booova: 당신의 책 한 권을 다 써주는 AI Book Agent",
+  "description_ko": "프롬프트 입력만으로 한 권 분량의 책 구조화 및 집필을 전담하는 실전형 에이전트 도구입니다.",
   "hn_url": "https://news.hada.io/topic?id=33121",
-  "article_url": "https://news.hada.io/topic?id=33121"
+  "article_url": "https://news.hada.io/topic?id=33121",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_geeknews_show_gn_booova_당신의_책_한_권을_다_써주는_ai_b",
+    "source_lang": "KO",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "콘텐츠 생성 에이전트",
+    "programming_lang": "TypeScript",
+    "root_keywords": [
+      "AI Book Agent",
+      "Booova",
+      "Generative AI"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "Booova: 당신의 책 한 권을 다 써주는 AI Book Agent",
+        "hook": "프롬프트 입력만으로 한 권 분량의 책 구조화 및 집필을 전담하는 실전형 에이전트 도구입니다.",
+        "key_takeaways": [
+          "긴 문맥(Long-context)을 활용한 장편 도서 자동 집필 에이전트",
+          "목차 구성부터 챕터별 본문 작성까지 일괄 처리하는 파이프라인",
+          "개인 저작물 및 콘텐츠 마케팅 자동화를 위한 유용한 AI 솔루션"
+        ]
+      },
+      "en": {
+        "title": "Booova: The AI Book Agent That Writes Your Entire Book",
+        "hook": "A production-ready agent tool designed to structure and draft an entire book from simple prompts.",
+        "key_takeaways": [
+          "Long-context automated book writing agent for extensive publications",
+          "End-to-end pipeline handling everything from table of contents to chapter drafts",
+          "Practical AI solution for automated personal publishing and content marketing"
+        ]
+      },
+      "zh": {
+        "title": "Booova：帮你写完整本书的 AI 图书智能体",
+        "hook": "只需输入提示词，即可全权负责一整本书的结构设计与撰写的实战型 AI 智能体工具。",
+        "key_takeaways": [
+          "利用长上下文能力实现长篇图书的自动化写作智能体",
+          "从目录规划到各章节正文编写的全流程流水线处理",
+          "适用于个人著作与内容营销自动化的实用 AI 解决方案"
+        ]
+      }
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "TypeScript",
+  "root_keywords": [
+    "AI Book Agent",
+    "Booova",
+    "Generative AI"
+  ],
+  "title_en": "Booova: The AI Book Agent That Writes Your Entire Book",
+  "title_zh": "Booova：帮你写完整本书的 AI 图书智能体",
+  "hook": "프롬프트 입력만으로 한 권 분량의 책 구조화 및 집필을 전담하는 실전형 에이전트 도구입니다.",
+  "hook_ko": "프롬프트 입력만으로 한 권 분량의 책 구조화 및 집필을 전담하는 실전형 에이전트 도구입니다.",
+  "hook_en": "A production-ready agent tool designed to structure and draft an entire book from simple prompts.",
+  "hook_zh": "只需输入提示词，即可全权负责一整本书的结构设计与撰写的实战型 AI 智能体工具。",
+  "description_en": "A production-ready agent tool designed to structure and draft an entire book from simple prompts.",
+  "description_zh": "只需输入提示词，即可全权负责一整本书的结构设计与撰写的实战型 AI 智能体工具。"
 }
