@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "nateherkai/scroll-craft",
-  "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+  "title_ko": "프리미엄 스크롤 기반 웹사이트를 위한 Claude Code 스킬",
+  "description_ko": "스크롤을 타임라인으로 활용하는 고품질 웹사이트를 AI와 함께 손쉽게 구현하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": true
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_github_nateherkaiscroll_craft",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "웹 개발 및 UI/UX",
+    "programming_lang": "TypeScript",
+    "root_keywords": [
+      "Scroll-Driven Web",
+      "Claude Code Skill",
+      "Web Animation"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.3,
+    "multilingual": {
+      "ko": {
+        "title": "프리미엄 스크롤 기반 웹사이트를 위한 Claude Code 스킬",
+        "hook": "스크롤을 타임라인으로 활용하는 고품질 웹사이트를 AI와 함께 손쉽게 구현하세요.",
+        "key_takeaways": [
+          "Claude Code를 활용한 스크롤 기반 웹 제작",
+          "스크롤 자체를 직관적인 타임라인으로 변환",
+          "자체 스크린샷 캡처를 통한 시각적 검증 기능"
+        ]
+      },
+      "en": {
+        "title": "Scroll-Craft: Claude Code Skill for Premium Scroll-Driven Websites",
+        "hook": "Turn scroll actions into timelines and build stunning web experiences verified by self-screenshotting.",
+        "key_takeaways": [
+          "Claude Code integration for scroll-driven design",
+          "Transforms scrolling into an interactive timeline",
+          "Automated visual verification via self-screenshotting"
+        ]
+      },
+      "zh": {
+        "title": "Scroll-Craft：面向高端滚动网页的 Claude Code 技能",
+        "hook": "将滚动转化为时间轴，打造由自我截图验证的高品质滚动网页。",
+        "key_takeaways": [
+          "无缝集成Claude Code构建滚动驱动网站",
+          "将滚动操作直接映射为动态时间轴",
+          "通过自我截图验证机制确保视觉效果"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:28:02.831012+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "TypeScript",
+  "root_keywords": [
+    "Scroll-Driven Web",
+    "Claude Code Skill",
+    "Web Animation"
+  ],
+  "title_en": "Scroll-Craft: Claude Code Skill for Premium Scroll-Driven Websites",
+  "title_zh": "Scroll-Craft：面向高端滚动网页的 Claude Code 技能",
+  "hook": "스크롤을 타임라인으로 활용하는 고품질 웹사이트를 AI와 함께 손쉽게 구현하세요.",
+  "hook_ko": "스크롤을 타임라인으로 활용하는 고품질 웹사이트를 AI와 함께 손쉽게 구현하세요.",
+  "hook_en": "Turn scroll actions into timelines and build stunning web experiences verified by self-screenshotting.",
+  "hook_zh": "将滚动转化为时间轴，打造由自我截图验证的高品质滚动网页。",
+  "description_en": "Turn scroll actions into timelines and build stunning web experiences verified by self-screenshotting.",
+  "description_zh": "将滚动转化为时间轴，打造由自我截图验证的高品质滚动网页。"
 }

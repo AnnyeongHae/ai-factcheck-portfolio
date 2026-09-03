@@ -17,13 +17,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "MiniMax",
   "detected_formats": [
     "Interactive Web Demo"
   ],
-  "category_type": "TECH",
-  "title_ko": "HF Space: MiniMaxAI/MiniMax-H3-Turbo-Lora",
-  "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 311 | Live URL: https://huggingface.co/spaces/MiniMaxAI/MiniMax-H3-Turbo-Lora",
+  "category_type": "MODEL",
+  "title_ko": "MiniMax-H3-Turbo-Lora 허깅페이스 데모",
+  "description_ko": "고속 추론에 특화된 MiniMax H3 터보 모델의 LoRA 적용 버전을 경험하세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_hf_space_minimaxaiminimax_h3_turbo_lora",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "MiniMax",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "MiniMax-H3-Turbo",
+      "LoRA",
+      "Gradio"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.3,
+    "multilingual": {
+      "ko": {
+        "title": "MiniMax-H3-Turbo-Lora 허깅페이스 데모",
+        "hook": "고속 추론에 특화된 MiniMax H3 터보 모델의 LoRA 적용 버전을 경험하세요.",
+        "key_takeaways": [
+          "MiniMax-H3-Turbo 모델의 LoRA 파인튜닝 결과물 테스트",
+          "경량화 및 고속 추론 성능을 실시간 데모로 확인",
+          "실무 커스텀 모델 적용을 위한 참고 사례 제공"
+        ]
+      },
+      "en": {
+        "title": "MiniMax-H3-Turbo-Lora Hugging Face Demo",
+        "hook": "Experience the LoRA-adapted version of the high-speed inference optimized MiniMax H3 Turbo model.",
+        "key_takeaways": [
+          "Test LoRA fine-tuning results for the MiniMax-H3-Turbo model",
+          "Evaluate lightweight and high-speed inference performance in real-time",
+          "Provides a reference case for custom model deployment in production"
+        ]
+      },
+      "zh": {
+        "title": "MiniMax-H3-Turbo-Lora Hugging Face 演示",
+        "hook": "体验针对高速推理优化的 MiniMax H3 Turbo 模型的 LoRA 微调版本。",
+        "key_takeaways": [
+          "测试 MiniMax-H3-Turbo 模型的 LoRA 微调效果",
+          "实时评估轻量化与高速推理性能",
+          "为生产环境中应用定制模型提供参考案例"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:27:14.611858+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "MiniMax-H3-Turbo",
+    "LoRA",
+    "Gradio"
+  ],
+  "title_en": "MiniMax-H3-Turbo-Lora Hugging Face Demo",
+  "title_zh": "MiniMax-H3-Turbo-Lora Hugging Face 演示",
+  "hook": "고속 추론에 특화된 MiniMax H3 터보 모델의 LoRA 적용 버전을 경험하세요.",
+  "hook_ko": "고속 추론에 특화된 MiniMax H3 터보 모델의 LoRA 적용 버전을 경험하세요.",
+  "hook_en": "Experience the LoRA-adapted version of the high-speed inference optimized MiniMax H3 Turbo model.",
+  "hook_zh": "体验针对高速推理优化的 MiniMax H3 Turbo 模型的 LoRA 微调版本。",
+  "description_en": "Experience the LoRA-adapted version of the high-speed inference optimized MiniMax H3 Turbo model.",
+  "description_zh": "体验针对高速推理优化的 MiniMax H3 Turbo 模型的 LoRA 微调版本。"
 }

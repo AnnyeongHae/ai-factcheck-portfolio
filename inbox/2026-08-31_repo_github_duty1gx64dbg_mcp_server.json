@@ -21,9 +21,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "duty1g/x64dbg-mcp-server",
-  "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+  "category_type": "AGENT",
+  "title_ko": "x64dbg-MCP 서버: AI 어시스턴트로 디버거를 제어하는 Model Context Protocol 플러그인",
+  "description_ko": "Zig로 빌드된 고성능 MCP 서버를 통해 AI가 직접 브레이크포인트를 설정하고 메모리를 덤프하며 디버깅을 수행합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,68 @@
     "is_spiking": true
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_github_duty1gx64dbg_mcp_server",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "리버스 엔지니어링 및 디버깅",
+    "programming_lang": "Zig",
+    "root_keywords": [
+      "MCP",
+      "x64dbg",
+      "Debugger",
+      "AI Assistant"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "x64dbg-MCP 서버: AI 어시스턴트로 디버거를 제어하는 Model Context Protocol 플러그인",
+        "hook": "Zig로 빌드된 고성능 MCP 서버를 통해 AI가 직접 브레이크포인트를 설정하고 메모리를 덤프하며 디버깅을 수행합니다.",
+        "key_takeaways": [
+          "x64dbg의 모든 기능을 HTTP 기반 MCP로 노출하여 AI 어시스턴트 연동",
+          "Zig 언어로 작성되어 외부 종속성 없이 가볍고 빠르게 동작",
+          "코드 스텝, 레지스터 덤프, 메모리 읽기 등 프로그래밍 방식의 디버깅 지원"
+        ]
+      },
+      "en": {
+        "title": "x64dbg-MCP Server: Native Model Context Protocol Plugin for x64dbg Debugger",
+        "hook": "Connect any MCP-compatible AI assistant to control x64dbg programmatically, inspect memory, and set breakpoints.",
+        "key_takeaways": [
+          "Exposes full x64dbg functionality over HTTP via the Model Context Protocol",
+          "Built with Zig ensuring zero dependencies and high performance",
+          "Enables AI-driven debugging including stepping through code and reading registers"
+        ]
+      },
+      "zh": {
+        "title": "x64dbg-MCP 服务：用于 x64dbg 调试器的原生模型上下文协议插件",
+        "hook": "通过 MCP 协议让任意兼容的 AI 助手以编程方式控制 x64dbg 进行断点和内存调试。",
+        "key_takeaways": [
+          "通过 HTTP 将 x64dbg 的完整功能暴露给 MCP 兼容的 AI 助手",
+          "使用 Zig 语言编写，具有零依赖和高性能特点",
+          "支持设置断点、单步执行、读取内存和导出寄存器等AI调试操作"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:28:29.955063+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Zig",
+  "root_keywords": [
+    "MCP",
+    "x64dbg",
+    "Debugger",
+    "AI Assistant"
+  ],
+  "title_en": "x64dbg-MCP Server: Native Model Context Protocol Plugin for x64dbg Debugger",
+  "title_zh": "x64dbg-MCP 服务：用于 x64dbg 调试器的原生模型上下文协议插件",
+  "hook": "Zig로 빌드된 고성능 MCP 서버를 통해 AI가 직접 브레이크포인트를 설정하고 메모리를 덤프하며 디버깅을 수행합니다.",
+  "hook_ko": "Zig로 빌드된 고성능 MCP 서버를 통해 AI가 직접 브레이크포인트를 설정하고 메모리를 덤프하며 디버깅을 수행합니다.",
+  "hook_en": "Connect any MCP-compatible AI assistant to control x64dbg programmatically, inspect memory, and set breakpoints.",
+  "hook_zh": "通过 MCP 协议让任意兼容的 AI 助手以编程方式控制 x64dbg 进行断点和内存调试。",
+  "description_en": "Connect any MCP-compatible AI assistant to control x64dbg programmatically, inspect memory, and set breakpoints.",
+  "description_zh": "通过 MCP 协议让任意兼容的 AI 助手以编程方式控制 x64dbg 进行断点和内存调试。"
 }

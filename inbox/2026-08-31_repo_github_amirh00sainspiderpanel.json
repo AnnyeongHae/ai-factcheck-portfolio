@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "amirh00sain/SpiderPanel",
-  "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+  "title_ko": "SpiderPanel: 서버 및 인프라 관리 패널",
+  "description_ko": "높은 포크 수를 기록하며 개발자 커뮤니티에서 주목받고 있는 서버 관리 패널 도구입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_github_amirh00sainspiderpanel",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "웹 패널 / 인프라",
+    "programming_lang": "General",
+    "root_keywords": [
+      "SpiderPanel",
+      "Server Panel",
+      "Infrastructure"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.5,
+    "multilingual": {
+      "ko": {
+        "title": "SpiderPanel: 서버 및 인프라 관리 패널",
+        "hook": "높은 포크 수를 기록하며 개발자 커뮤니티에서 주목받고 있는 서버 관리 패널 도구입니다.",
+        "key_takeaways": [
+          "다양한 포크와 커뮤니티 기여도 보유",
+          "서버 인프라 관리 자동화 지원",
+          "상세 설명은 부족하지만 높은 활용 가능성"
+        ]
+      },
+      "en": {
+        "title": "SpiderPanel: Server and Infrastructure Management Panel",
+        "hook": "A popular server management panel repository gaining traction with massive forks in the community.",
+        "key_takeaways": [
+          "High number of forks indicating community adaptation",
+          "Designed for server and infrastructure management",
+          "Minimal documentation but high developer interest"
+        ]
+      },
+      "zh": {
+        "title": "SpiderPanel：服务器与基础设施管理面板",
+        "hook": "在开源社区获得大量Fork关注的服务器管理及运维面板工具。",
+        "key_takeaways": [
+          "拥有极高的Fork数量与社区关注度",
+          "专注于服务器及基础设施运维管理",
+          "具备极强的定制与扩展潜力"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:28:42.769757+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "SpiderPanel",
+    "Server Panel",
+    "Infrastructure"
+  ],
+  "title_en": "SpiderPanel: Server and Infrastructure Management Panel",
+  "title_zh": "SpiderPanel：服务器与基础设施管理面板",
+  "hook": "높은 포크 수를 기록하며 개발자 커뮤니티에서 주목받고 있는 서버 관리 패널 도구입니다.",
+  "hook_ko": "높은 포크 수를 기록하며 개발자 커뮤니티에서 주목받고 있는 서버 관리 패널 도구입니다.",
+  "hook_en": "A popular server management panel repository gaining traction with massive forks in the community.",
+  "hook_zh": "在开源社区获得大量Fork关注的服务器管理及运维面板工具。",
+  "description_en": "A popular server management panel repository gaining traction with massive forks in the community.",
+  "description_zh": "在开源社区获得大量Fork关注的服务器管理及运维面板工具。"
 }

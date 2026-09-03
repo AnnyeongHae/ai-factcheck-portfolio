@@ -17,13 +17,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "Qwen",
   "detected_formats": [
     "Interactive Web Demo"
   ],
-  "category_type": "TECH",
-  "title_ko": "HF Space: kulkas2pintu/QWEN_EDIT_IMAGE",
-  "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 84 | Live URL: https://huggingface.co/spaces/kulkas2pintu/QWEN_EDIT_IMAGE",
+  "category_type": "MODEL",
+  "title_ko": "Qwen 이미지 편집 AI 인터랙티브 데모",
+  "description_ko": "Qwen 모델 기반의 이미지 편집 및 조작 성능을 브라우저에서 간편하게 체험하세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Qwen Alibaba",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": true
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_hf_space_kulkas2pintuqwen_edit_image",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Qwen",
+    "category": "이미지 편집 및 조작",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Qwen",
+      "Image Editing",
+      "Gradio"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "Qwen 이미지 편집 AI 인터랙티브 데모",
+        "hook": "Qwen 모델 기반의 이미지 편집 및 조작 성능을 브라우저에서 간편하게 체험하세요.",
+        "key_takeaways": [
+          "Qwen 시리즈를 활용한 이미지 수정 기능 제공",
+          "Gradio 기반의 손쉬운 사용자 경험",
+          "이미지 편집 분야에서 Qwen의 활용도 확인 가능"
+        ]
+      },
+      "en": {
+        "title": "Qwen Image Editing AI Interactive Demo",
+        "hook": "Easily experience Qwen-based image editing and manipulation capabilities in your browser.",
+        "key_takeaways": [
+          "Image modification features powered by the Qwen series",
+          "User-friendly experience built with Gradio",
+          "Demonstrates practical image editing utility of Qwen models"
+        ]
+      },
+      "zh": {
+        "title": "Qwen 图像编辑 AI 交互式演示",
+        "hook": "在浏览器中轻松体验基于 Qwen 模型的图像编辑与处理能力。",
+        "key_takeaways": [
+          "提供利用 Qwen 系列实现的图像修改功能",
+          "基于 Gradio 构建的便捷用户体验",
+          "展示了 Qwen 在图像编辑领域的实用价值"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:27:26.483733+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Qwen",
+    "Image Editing",
+    "Gradio"
+  ],
+  "title_en": "Qwen Image Editing AI Interactive Demo",
+  "title_zh": "Qwen 图像编辑 AI 交互式演示",
+  "hook": "Qwen 모델 기반의 이미지 편집 및 조작 성능을 브라우저에서 간편하게 체험하세요.",
+  "hook_ko": "Qwen 모델 기반의 이미지 편집 및 조작 성능을 브라우저에서 간편하게 체험하세요.",
+  "hook_en": "Easily experience Qwen-based image editing and manipulation capabilities in your browser.",
+  "hook_zh": "在浏览器中轻松体验基于 Qwen 模型的图像编辑与处理能力。",
+  "description_en": "Easily experience Qwen-based image editing and manipulation capabilities in your browser.",
+  "description_zh": "在浏览器中轻松体验基于 Qwen 模型的图像编辑与处理能力。"
 }

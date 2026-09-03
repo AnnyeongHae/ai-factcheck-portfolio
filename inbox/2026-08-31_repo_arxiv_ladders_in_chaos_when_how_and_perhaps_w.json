@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "Ladders in Chaos: When, How, (and Perhaps Why) Does Test-Time Scaling Improve LLM Machine Translation",
-  "description_ko": "Abstract: Two forms of test-time scaling for Large Language Models (LLMs) have emerged as effective and widely adopted paradigms: sequential, in which later answer attempts depend on earlier ones, and parallel,...",
+  "title_ko": "혼돈 속의 사다리: 테스트 타임 스케일링은 언제, 어떻게, 왜 LLM 기계 번역을 개선하는가",
+  "description_ko": "LLM 테스트 타임 스케일링(순차적 vs 병렬적)이 기계 번역 성능에 미치는 영향을 심층 분석했습니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_arxiv_ladders_in_chaos_when_how_and_perhaps_w",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Test-Time Scaling",
+      "Machine Translation",
+      "LLM Inference"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
+    "multilingual": {
+      "ko": {
+        "title": "혼돈 속의 사다리: 테스트 타임 스케일링은 언제, 어떻게, 왜 LLM 기계 번역을 개선하는가",
+        "hook": "LLM 테스트 타임 스케일링(순차적 vs 병렬적)이 기계 번역 성능에 미치는 영향을 심층 분석했습니다.",
+        "key_takeaways": [
+          "순차적(이전 시도에 의존) 및 병렬적 테스트 타임 스케일링 패러다임 비교",
+          "LLM 기반 기계 번역에서 스케일링이 효과적으로 작동하는 조건 규명",
+          "번역 품질 극대화를 위한 최적의 추론 전략 제시"
+        ]
+      },
+      "en": {
+        "title": "Ladders in Chaos: When, How, (and Perhaps Why) Does Test-Time Scaling Improve LLM Machine Translation",
+        "hook": "An in-depth investigation into sequential and parallel test-time scaling for LLM machine translation.",
+        "key_takeaways": [
+          "Compares sequential and parallel test-time scaling paradigms in LLMs",
+          "Identifies the exact conditions under which scaling improves translation",
+          "Provides actionable insights for optimizing LLM inference performance"
+        ]
+      },
+      "zh": {
+        "title": "混乱中的阶梯：测试时扩展何时、如何以及为何能改进大语言模型机器翻译",
+        "hook": "深入剖析序列式与并行式测试时扩展对大语言模型机器翻译性能的影响机制。",
+        "key_takeaways": [
+          "对比大语言模型中序列式与并行式两种主流测试时扩展范式",
+          "明确测试时扩展有效提升机器翻译质量的具体条件",
+          "为优化大语言模型推理阶段提供深刻的理论与实践洞察"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:29:08.256367+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Test-Time Scaling",
+    "Machine Translation",
+    "LLM Inference"
+  ],
+  "title_en": "Ladders in Chaos: When, How, (and Perhaps Why) Does Test-Time Scaling Improve LLM Machine Translation",
+  "title_zh": "混乱中的阶梯：测试时扩展何时、如何以及为何能改进大语言模型机器翻译",
+  "hook": "LLM 테스트 타임 스케일링(순차적 vs 병렬적)이 기계 번역 성능에 미치는 영향을 심층 분석했습니다.",
+  "hook_ko": "LLM 테스트 타임 스케일링(순차적 vs 병렬적)이 기계 번역 성능에 미치는 영향을 심층 분석했습니다.",
+  "hook_en": "An in-depth investigation into sequential and parallel test-time scaling for LLM machine translation.",
+  "hook_zh": "深入剖析序列式与并行式测试时扩展对大语言模型机器翻译性能的影响机制。",
+  "description_en": "An in-depth investigation into sequential and parallel test-time scaling for LLM machine translation.",
+  "description_zh": "深入剖析序列式与并行式测试时扩展对大语言模型机器翻译性能的影响机制。"
 }

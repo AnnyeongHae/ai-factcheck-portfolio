@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "themartiano/try-omarchy",
-  "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+  "title_ko": "Try Omarchy: 복잡한 설정 없이 맥(MacOS)에서 Omarchy 실행하기",
+  "description_ko": "복잡한 수동 설정 과정 없이 MacOS 환경에서 Omarchy를 즉시 구동하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": true
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_github_themartianotry_omarchy",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "OS 환경 설정 및 자동화",
+    "programming_lang": "General",
+    "root_keywords": [
+      "MacOS",
+      "Omarchy",
+      "Environment Setup"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "Try Omarchy: 복잡한 설정 없이 맥(MacOS)에서 Omarchy 실행하기",
+        "hook": "복잡한 수동 설정 과정 없이 MacOS 환경에서 Omarchy를 즉시 구동하세요.",
+        "key_takeaways": [
+          "MacOS 환경에서 별도의 복잡한 셋업 없이 실행 가능",
+          "개발 환경 구축에 소요되는 시간 대폭 절약",
+          "1,300개 이상의 스타를 기록하며 간편함 입증"
+        ]
+      },
+      "en": {
+        "title": "Try Omarchy: Run Omarchy on MacOS Without Setup",
+        "hook": "Instantly run Omarchy on your MacOS environment without any tedious manual configuration.",
+        "key_takeaways": [
+          "Runs smoothly on MacOS with zero complex setup required",
+          "Significantly reduces time spent on environment configuration",
+          "Proven ease of use with over 1,300 stars"
+        ]
+      },
+      "zh": {
+        "title": "Try Omarchy：无需繁琐配置即可在 MacOS 上运行 Omarchy",
+        "hook": "在 MacOS 环境中即开即用，省去繁琐的手动配置步骤。",
+        "key_takeaways": [
+          "无需复杂设置即可在 MacOS 上运行",
+          "大幅节省配置开发环境所需的时间",
+          "凭借简便性获得超过 1300 个 Star"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:27:50.531596+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "MacOS",
+    "Omarchy",
+    "Environment Setup"
+  ],
+  "title_en": "Try Omarchy: Run Omarchy on MacOS Without Setup",
+  "title_zh": "Try Omarchy：无需繁琐配置即可在 MacOS 上运行 Omarchy",
+  "hook": "복잡한 수동 설정 과정 없이 MacOS 환경에서 Omarchy를 즉시 구동하세요.",
+  "hook_ko": "복잡한 수동 설정 과정 없이 MacOS 환경에서 Omarchy를 즉시 구동하세요.",
+  "hook_en": "Instantly run Omarchy on your MacOS environment without any tedious manual configuration.",
+  "hook_zh": "在 MacOS 环境中即开即用，省去繁琐的手动配置步骤。",
+  "description_en": "Instantly run Omarchy on your MacOS environment without any tedious manual configuration.",
+  "description_zh": "在 MacOS 环境中即开即用，省去繁琐的手动配置步骤。"
 }

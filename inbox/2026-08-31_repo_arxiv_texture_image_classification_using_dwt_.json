@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "Texture Image Classification Using DWT AlexNet Feature Fusion and Deep Neural Networks",
-  "description_ko": "Abstract: Texture image classification plays a significant role in computer vision applications, including industrial inspection, medical image analysis, remote sensing, and object recognition. Handcrafted feat...",
+  "title_ko": "DWT와 AlexNet 특징 융합을 활용한 텍스처 이미지 분류",
+  "description_ko": "이산 웨이블릿 변환(DWT)과 심층 신경망을 결합하여 산업 검사 및 의료 영상의 텍스처 분류 정확도를 높이는 방법입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_arxiv_texture_image_classification_using_dwt_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "컴퓨터 비전",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Texture Classification",
+      "DWT",
+      "AlexNet Feature Fusion"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.2,
+    "multilingual": {
+      "ko": {
+        "title": "DWT와 AlexNet 특징 융합을 활용한 텍스처 이미지 분류",
+        "hook": "이산 웨이블릿 변환(DWT)과 심층 신경망을 결합하여 산업 검사 및 의료 영상의 텍스처 분류 정확도를 높이는 방법입니다.",
+        "key_takeaways": [
+          "이산 웨이블릿 변환(DWT)과 AlexNet 특징의 정교한 융합",
+          "산업 현장 검사 및 의료 영상 분석에서의 텍스처 인식 성능 향상",
+          "수작업 특징 추출(Handcrafted features)의 한계 극복"
+        ]
+      },
+      "en": {
+        "title": "Texture Image Classification Using DWT AlexNet Feature Fusion and Deep Neural Networks",
+        "hook": "Enhance texture classification accuracy for industrial inspection and medical imaging by fusing DWT with deep neural features.",
+        "key_takeaways": [
+          "Combines Discrete Wavelet Transform (DWT) with AlexNet feature extraction",
+          "Improves texture recognition in industrial inspection and medical image analysis",
+          "Surpasses traditional handcrafted feature extraction limitations"
+        ]
+      },
+      "zh": {
+        "title": "利用DWT AlexNet特征融合与深度神经网络的纹理图像分类",
+        "hook": "结合离散小波变换（DWT）与深度神经网络，全面提升工业检测与医学影像中的纹理分类精度。",
+        "key_takeaways": [
+          "将离散小波变换（DWT）与AlexNet特征进行深度融合",
+          "增强工业检测和医学图像分析中的纹理识别性能",
+          "有效克服传统手工特征提取的局限性"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:28:55.551861+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Texture Classification",
+    "DWT",
+    "AlexNet Feature Fusion"
+  ],
+  "title_en": "Texture Image Classification Using DWT AlexNet Feature Fusion and Deep Neural Networks",
+  "title_zh": "利用DWT AlexNet特征融合与深度神经网络的纹理图像分类",
+  "hook": "이산 웨이블릿 변환(DWT)과 심층 신경망을 결합하여 산업 검사 및 의료 영상의 텍스처 분류 정확도를 높이는 방법입니다.",
+  "hook_ko": "이산 웨이블릿 변환(DWT)과 심층 신경망을 결합하여 산업 검사 및 의료 영상의 텍스처 분류 정확도를 높이는 방법입니다.",
+  "hook_en": "Enhance texture classification accuracy for industrial inspection and medical imaging by fusing DWT with deep neural features.",
+  "hook_zh": "结合离散小波变换（DWT）与深度神经网络，全面提升工业检测与医学影像中的纹理分类精度。",
+  "description_en": "Enhance texture classification accuracy for industrial inspection and medical imaging by fusing DWT with deep neural features.",
+  "description_zh": "结合离散小波变换（DWT）与深度神经网络，全面提升工业检测与医学影像中的纹理分类精度。"
 }

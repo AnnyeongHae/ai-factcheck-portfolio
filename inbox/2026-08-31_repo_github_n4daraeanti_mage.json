@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "N4darae/anti-mage",
-  "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+  "title_ko": "런타임 일관성 분석 기반 안티 디텍트 브라우저 탐지 도구",
+  "description_ko": "런타임 일관성 분석을 통해 위조된 브라우저 프로필과 안티 디텍트 도구를 정밀하게 탐지합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": true
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_github_n4daraeanti_mage",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "런타임 보안 및 탐지",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "Anti-Detect Browser",
+      "Runtime Coherence",
+      "Profile Spoofing Detection"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
+    "multilingual": {
+      "ko": {
+        "title": "런타임 일관성 분석 기반 안티 디텍트 브라우저 탐지 도구",
+        "hook": "런타임 일관성 분석을 통해 위조된 브라우저 프로필과 안티 디텍트 도구를 정밀하게 탐지합니다.",
+        "key_takeaways": [
+          "안티 디텍트 브라우저의 우회 시도 탐지",
+          "프로필 스푸핑에 대한 런타임 일관성 검증",
+          "고급 봇 및 가상 환경 식별에 유용"
+        ]
+      },
+      "en": {
+        "title": "Anti-Mage: Anti-Detect Browser and Spoofed Profile Detector",
+        "hook": "Detect sophisticated anti-detect browsers and spoofed user profiles using runtime coherence analysis.",
+        "key_takeaways": [
+          "Identifies anti-detect browser bypass attempts",
+          "Applies runtime coherence checks for profile spoofing",
+          "Essential for advanced bot and fraud detection systems"
+        ]
+      },
+      "zh": {
+        "title": "Anti-Mage：基于运行时一致性分析的反检测浏览器检测工具",
+        "hook": "通过运行时一致性分析，精准识别伪造浏览器配置文件与反检测工具。",
+        "key_takeaways": [
+          "有效检测反检测浏览器的规避行为",
+          "针对配置文件伪造执行运行时一致性检查",
+          "适用于高阶反爬虫与反欺诈系统"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:28:02.831499+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "Anti-Detect Browser",
+    "Runtime Coherence",
+    "Profile Spoofing Detection"
+  ],
+  "title_en": "Anti-Mage: Anti-Detect Browser and Spoofed Profile Detector",
+  "title_zh": "Anti-Mage：基于运行时一致性分析的反检测浏览器检测工具",
+  "hook": "런타임 일관성 분석을 통해 위조된 브라우저 프로필과 안티 디텍트 도구를 정밀하게 탐지합니다.",
+  "hook_ko": "런타임 일관성 분석을 통해 위조된 브라우저 프로필과 안티 디텍트 도구를 정밀하게 탐지합니다.",
+  "hook_en": "Detect sophisticated anti-detect browsers and spoofed user profiles using runtime coherence analysis.",
+  "hook_zh": "通过运行时一致性分析，精准识别伪造浏览器配置文件与反检测工具。",
+  "description_en": "Detect sophisticated anti-detect browsers and spoofed user profiles using runtime coherence analysis.",
+  "description_zh": "通过运行时一致性分析，精准识别伪造浏览器配置文件与反检测工具。"
 }

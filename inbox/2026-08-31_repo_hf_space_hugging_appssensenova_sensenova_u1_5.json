@@ -17,13 +17,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "SenseNova",
   "detected_formats": [
     "Interactive Web Demo"
   ],
-  "category_type": "TECH",
-  "title_ko": "HF Space: hugging-apps/sensenova-sensenova-u1-5-8b-mot",
-  "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 93 | Live URL: https://huggingface.co/spaces/hugging-apps/sensenova-sensenova-u1-5-8b-mot",
+  "category_type": "MODEL",
+  "title_ko": "SenseNova-U1.5-8B 멀티모달 모델 데모",
+  "description_ko": "SenseNova의 최신 U1.5 8B 모델을 활용한 시각 및 텍스트 통합 태스크를 체험하세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_hf_space_hugging_appssensenova_sensenova_u1_5",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "SenseNova",
+    "category": "멀티모달 및 비전 AI",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "SenseNova",
+      "Multimodal",
+      "Gradio"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.7,
+    "multilingual": {
+      "ko": {
+        "title": "SenseNova-U1.5-8B 멀티모달 모델 데모",
+        "hook": "SenseNova의 최신 U1.5 8B 모델을 활용한 시각 및 텍스트 통합 태스크를 체험하세요.",
+        "key_takeaways": [
+          "SenseNova U1.5 8B 아키텍처의 성능 검증",
+          "멀티모달 및 시각 관련 태스크 테스트 지원",
+          "Hugging Apps 스페이스를 통한 손쉬운 접근성"
+        ]
+      },
+      "en": {
+        "title": "SenseNova-U1.5-8B Multimodal Model Demo",
+        "hook": "Explore integrated vision and text tasks powered by SenseNova's latest U1.5 8B model.",
+        "key_takeaways": [
+          "Evaluate the capabilities of the SenseNova U1.5 8B architecture",
+          "Support for multimodal and vision-related task testing",
+          "Easy accessibility via Hugging Apps spaces"
+        ]
+      },
+      "zh": {
+        "title": "SenseNova-U1.5-8B 多模态模型演示",
+        "hook": "体验搭载 SenseNova 最新 U1.5 8B 模型的视觉与文本集成处理能力。",
+        "key_takeaways": [
+          "验证 SenseNova U1.5 8B 架构的性能",
+          "支持多模态及视觉相关任务的测试",
+          "通过 Hugging Apps 空间提供便捷的访问体验"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:27:26.484155+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "SenseNova",
+    "Multimodal",
+    "Gradio"
+  ],
+  "title_en": "SenseNova-U1.5-8B Multimodal Model Demo",
+  "title_zh": "SenseNova-U1.5-8B 多模态模型演示",
+  "hook": "SenseNova의 최신 U1.5 8B 모델을 활용한 시각 및 텍스트 통합 태스크를 체험하세요.",
+  "hook_ko": "SenseNova의 최신 U1.5 8B 모델을 활용한 시각 및 텍스트 통합 태스크를 체험하세요.",
+  "hook_en": "Explore integrated vision and text tasks powered by SenseNova's latest U1.5 8B model.",
+  "hook_zh": "体验搭载 SenseNova 最新 U1.5 8B 模型的视觉与文本集成处理能力。",
+  "description_en": "Explore integrated vision and text tasks powered by SenseNova's latest U1.5 8B model.",
+  "description_zh": "体验搭载 SenseNova 最新 U1.5 8B 模型的视觉与文本集成处理能力。"
 }

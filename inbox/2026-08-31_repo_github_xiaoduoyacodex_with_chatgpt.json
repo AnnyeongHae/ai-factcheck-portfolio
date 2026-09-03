@@ -21,9 +21,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "XiaoDuoYa/codex-with-chatgpt",
-  "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+  "category_type": "AGENT",
+  "title_ko": "ChatGPT를 기획 브레인으로, Codex를 실행 도구로 결합하는 코딩 워크플로우",
+  "description_ko": "ChatGPT의 강력한 계획 수립 능력과 Codex의 실행력을 조합하여 최고의 코딩 생산성을 만듭니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,68 @@
     "is_spiking": true
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_github_xiaoduoyacodex_with_chatgpt",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "코딩 에이전트 및 워크플로우",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "ChatGPT",
+      "Codex",
+      "Planning Brain",
+      "Coding Harness"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
+    "multilingual": {
+      "ko": {
+        "title": "ChatGPT를 기획 브레인으로, Codex를 실행 도구로 결합하는 코딩 워크플로우",
+        "hook": "ChatGPT의 강력한 계획 수립 능력과 Codex의 실행력을 조합하여 최고의 코딩 생산성을 만듭니다.",
+        "key_takeaways": [
+          "ChatGPT를 고차원 계획 브레인(Planning Brain)으로 활용",
+          "Codex 하네스를 유지하여 안정적인 코드 구현 보장",
+          "기획과 실행을 분리한 효율적인 AI 코딩 파이프라인 구축"
+        ]
+      },
+      "en": {
+        "title": "Combine ChatGPT Planning Brain with Codex Harness",
+        "hook": "Let ChatGPT think while Codex works, creating an optimal coding workflow.",
+        "key_takeaways": [
+          "Use ChatGPT as the high-level planning brain",
+          "Keep the Codex harness for reliable code execution",
+          "Establish an efficient AI coding pipeline separating planning and execution"
+        ]
+      },
+      "zh": {
+        "title": "将 ChatGPT 规划大脑与 Codex 执行工具相结合的编程工作流",
+        "hook": "让 ChatGPT 负责思考规划，Codex 负责实际编码，实现生产力最大化。",
+        "key_takeaways": [
+          "利用 ChatGPT 作为高层规划大脑",
+          "保留 Codex 框架以确保可靠的代码执行",
+          "建立分离规划与执行的高效 AI 编程流水线"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:27:38.376784+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "ChatGPT",
+    "Codex",
+    "Planning Brain",
+    "Coding Harness"
+  ],
+  "title_en": "Combine ChatGPT Planning Brain with Codex Harness",
+  "title_zh": "将 ChatGPT 规划大脑与 Codex 执行工具相结合的编程工作流",
+  "hook": "ChatGPT의 강력한 계획 수립 능력과 Codex의 실행력을 조합하여 최고의 코딩 생산성을 만듭니다.",
+  "hook_ko": "ChatGPT의 강력한 계획 수립 능력과 Codex의 실행력을 조합하여 최고의 코딩 생산성을 만듭니다.",
+  "hook_en": "Let ChatGPT think while Codex works, creating an optimal coding workflow.",
+  "hook_zh": "让 ChatGPT 负责思考规划，Codex 负责实际编码，实现生产力最大化。",
+  "description_en": "Let ChatGPT think while Codex works, creating an optimal coding workflow.",
+  "description_zh": "让 ChatGPT 负责思考规划，Codex 负责实际编码，实现生产力最大化。"
 }

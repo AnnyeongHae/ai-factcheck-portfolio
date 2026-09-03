@@ -17,13 +17,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "FLUX.1 Diffusion Family",
+  "model_family": "FLUX",
   "detected_formats": [
     "Interactive Web Demo"
   ],
-  "category_type": "TECH",
-  "title_ko": "HF Space: M3st3rJ4k3l/FLUX.2-Klein-Multi-LoRA",
-  "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 479 | Live URL: https://huggingface.co/spaces/M3st3rJ4k3l/FLUX.2-Klein-Multi-LoRA",
+  "category_type": "MODEL",
+  "title_ko": "FLUX.2-Klein-Multi-LoRA 허깅페이스 데모",
+  "description_ko": "여러 개의 LoRA를 동시에 결합하여 FLUX.2 이미지 생성의 한계를 확장하세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_hf_space_m3st3rj4k3lflux2_klein_multi_lora",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "FLUX",
+    "category": "영상 제작 및 이미지 생성",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "FLUX.2",
+      "Multi-LoRA",
+      "Image Generation"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
+    "multilingual": {
+      "ko": {
+        "title": "FLUX.2-Klein-Multi-LoRA 허깅페이스 데모",
+        "hook": "여러 개의 LoRA를 동시에 결합하여 FLUX.2 이미지 생성의 한계를 확장하세요.",
+        "key_takeaways": [
+          "FLUX.2 모델에 멀티 LoRA를 적용한 최신 이미지 생성 데모",
+          "다양한 스타일과 컨셉을 조합하는 고급 파인튜닝 기법 시연",
+          "높은 커뮤니티 호응도를 기록한 검증된 시각 예술 도구"
+        ]
+      },
+      "en": {
+        "title": "FLUX.2-Klein-Multi-LoRA Hugging Face Demo",
+        "hook": "Expand the limits of FLUX.2 image generation by combining multiple LoRAs simultaneously.",
+        "key_takeaways": [
+          "Latest image generation demo applying Multi-LoRA to the FLUX.2 model",
+          "Demonstrates advanced fine-tuning techniques combining styles and concepts",
+          "A highly rated and verified visual art tool within the community"
+        ]
+      },
+      "zh": {
+        "title": "FLUX.2-Klein-Multi-LoRA Hugging Face 演示",
+        "hook": "通过同时结合多个 LoRA，突破 FLUX.2 图像生成的极限。",
+        "key_takeaways": [
+          "在 FLUX.2 模型上应用多重 LoRA 的最新图像生成演示",
+          "展示了组合多种风格与概念的高级微调技术",
+          "备受社区好评并经过验证的视觉艺术工具"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:27:14.612060+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "FLUX.2",
+    "Multi-LoRA",
+    "Image Generation"
+  ],
+  "title_en": "FLUX.2-Klein-Multi-LoRA Hugging Face Demo",
+  "title_zh": "FLUX.2-Klein-Multi-LoRA Hugging Face 演示",
+  "hook": "여러 개의 LoRA를 동시에 결합하여 FLUX.2 이미지 생성의 한계를 확장하세요.",
+  "hook_ko": "여러 개의 LoRA를 동시에 결합하여 FLUX.2 이미지 생성의 한계를 확장하세요.",
+  "hook_en": "Expand the limits of FLUX.2 image generation by combining multiple LoRAs simultaneously.",
+  "hook_zh": "通过同时结合多个 LoRA，突破 FLUX.2 图像生成的极限。",
+  "description_en": "Expand the limits of FLUX.2 image generation by combining multiple LoRAs simultaneously.",
+  "description_zh": "通过同时结合多个 LoRA，突破 FLUX.2 图像生成的极限。"
 }

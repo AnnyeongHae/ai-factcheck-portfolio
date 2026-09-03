@@ -1454,5 +1454,594 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260903_052640",
+    "timestamp": "2026-09-03T05:26:40.482910+00:00",
+    "total_candidates": 60,
+    "requested_limit": 0,
+    "processed_count": 60,
+    "success_count": 60,
+    "models_used_summary": {
+      "gemini-flash-lite-latest": 60
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 9.96,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-01_sns_hacker_news_american_airlines_legendary_mecha",
+            "title": "Hacker News: American Airlines' Legendary Mechanic Passes Away at 100 After 80-Year Career",
+            "title_ko": "아메리칸 항공의 전설적인 정비사, 80년 경력을 뒤로하고 100세로 별세",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T05:26:50.441101+00:00"
+          },
+          {
+            "inbox_id": "2026-09-01_repo_huggingface_model_googletimesfm_30_pytorch",
+            "title": "HuggingFace Model: google/timesfm-3.0-pytorch",
+            "title_ko": "구글 TimesFM 3.0 파이토치 모델 허브 공개",
+            "classification": "MODEL",
+            "model_family": "Google TimesFM",
+            "enriched_at": "2026-09-03T05:26:50.441459+00:00"
+          },
+          {
+            "inbox_id": "2026-09-01_repo_hf_space_zerogpu_aotiwan2_2_fp8da_aoti_faster",
+            "title": "HF Space: zerogpu-aoti/wan2-2-fp8da-aoti-faster",
+            "title_ko": "Wan2.2 FP8 AOTI 초고속 영상 생성 데모 공간",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T05:26:50.441681+00:00"
+          },
+          {
+            "inbox_id": "2026-09-01_repo_hf_space_jitroy2024qwen_img_space",
+            "title": "HF Space: JitRoy2024/Qwen_Img_Space",
+            "title_ko": "Qwen 이미지 생성 및 편집을 위한 허브 스페이스 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T05:26:50.441867+00:00"
+          },
+          {
+            "inbox_id": "2026-09-01_repo_hf_space_black_forest_labsflux2_dev",
+            "title": "HF Space: black-forest-labs/FLUX.2-dev",
+            "title_ko": "블랙 포레스트 랩스 FLUX.2 개발 버전 데모 공간",
+            "classification": "MODEL",
+            "model_family": "FLUX",
+            "enriched_at": "2026-09-03T05:26:50.442044+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 6.72,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_sagebiorare_disease_real_kid_mva_hac",
+            "title": "HF Space: SageBio/rare-disease-real-kid-mva-hackathon-2026",
+            "title_ko": "SageBio 희귀질환 AI 데모 스페이스",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:02.162946+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_prithivmlmodsqwen_image_edit_2511_lo",
+            "title": "HF Space: prithivMLmods/Qwen-Image-Edit-2511-LoRAs-Fast",
+            "title_ko": "Qwen 이미지 편집 2511 LoRA 초고속 데모",
+            "classification": "MODEL",
+            "model_family": "Qwen",
+            "enriched_at": "2026-09-03T05:27:02.163296+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_pollen_roboticsmicroduck_simulator",
+            "title": "HF Space: pollen-robotics/microduck-simulator",
+            "title_ko": "Pollen Robotics 마이크로덕 시뮬레이터",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:02.163519+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_pepe104minimax_h3_turbo_lora_uncenso",
+            "title": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED",
+            "title_ko": "MiniMax H3 터보 LoRA 언센서드 데모",
+            "classification": "MODEL",
+            "model_family": "MiniMax",
+            "enriched_at": "2026-09-03T05:27:02.163756+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_mrfakenameminimax_h3_ultra_fast",
+            "title": "HF Space: mrfakename/minimax-h3-ultra-fast",
+            "title_ko": "MiniMax H3 울트라 패스트 초고속 추론 데모",
+            "classification": "MODEL",
+            "model_family": "MiniMax",
+            "enriched_at": "2026-09-03T05:27:02.163952+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.45,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_minimaxaiminimax_music3",
+            "title": "HF Space: MiniMaxAI/MiniMax-Music3",
+            "title_ko": "MiniMax-Music3 허깅페이스 인터랙티브 데모",
+            "classification": "MODEL",
+            "model_family": "MiniMax",
+            "enriched_at": "2026-09-03T05:27:14.611468+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_minimaxaiminimax_h3_turbo_lora",
+            "title": "HF Space: MiniMaxAI/MiniMax-H3-Turbo-Lora",
+            "title_ko": "MiniMax-H3-Turbo-Lora 허깅페이스 데모",
+            "classification": "MODEL",
+            "model_family": "MiniMax",
+            "enriched_at": "2026-09-03T05:27:14.611858+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_m3st3rj4k3lflux2_klein_multi_lora",
+            "title": "HF Space: M3st3rJ4k3l/FLUX.2-Klein-Multi-LoRA",
+            "title_ko": "FLUX.2-Klein-Multi-LoRA 허깅페이스 데모",
+            "classification": "MODEL",
+            "model_family": "FLUX",
+            "enriched_at": "2026-09-03T05:27:14.612060+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_lynotefree_ai_image_detector",
+            "title": "HF Space: Lynote/free-ai-image-detector",
+            "title_ko": "무료 AI 이미지 감지기 허깅페이스 스페이스",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:14.612246+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_lynotefree_ai_detector",
+            "title": "HF Space: Lynote/free-ai-detector",
+            "title_ko": "무료 통합 AI 감지기 허깅페이스 스페이스",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:14.612422+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 6.87,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_kulkas2pintuwan555",
+            "title": "HF Space: kulkas2pintu/wan555",
+            "title_ko": "wan555 인터랙티브 AI 비디오 생성 데모",
+            "classification": "MODEL",
+            "model_family": "Wan",
+            "enriched_at": "2026-09-03T05:27:26.483346+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_kulkas2pintuqwen_edit_image",
+            "title": "HF Space: kulkas2pintu/QWEN_EDIT_IMAGE",
+            "title_ko": "Qwen 이미지 편집 AI 인터랙티브 데모",
+            "classification": "MODEL",
+            "model_family": "Qwen",
+            "enriched_at": "2026-09-03T05:27:26.483733+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_jonathancolettiqwen38_27b_uncensored",
+            "title": "HF Space: JonathanColetti/Qwen3.8-27B-Uncensored-Demo",
+            "title_ko": "Qwen3.8-27B-Uncensored 언어 모델 데모",
+            "classification": "MODEL",
+            "model_family": "Qwen-3.8",
+            "enriched_at": "2026-09-03T05:27:26.483943+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_hugging_appssensenova_sensenova_u1_5",
+            "title": "HF Space: hugging-apps/sensenova-sensenova-u1-5-8b-mot",
+            "title_ko": "SenseNova-U1.5-8B 멀티모달 모델 데모",
+            "classification": "MODEL",
+            "model_family": "SenseNova",
+            "enriched_at": "2026-09-03T05:27:26.484155+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_hugging_appsfirered_tts3",
+            "title": "HF Space: hugging-apps/firered-tts3",
+            "title_ko": "FireRed-TTS3 음성 합성 인터랙티브 데모",
+            "classification": "MODEL",
+            "model_family": "FireRed",
+            "enriched_at": "2026-09-03T05:27:26.484355+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 6.89,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_chrisssuttestground2",
+            "title": "HF Space: chrisssut/testground2",
+            "title_ko": "Hugging Face Spaces 기반 인터랙티브 AI 테스트그라운드 데모",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:38.375987+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_hf_space_agent_memory_leaderboardleaderboard",
+            "title": "HF Space: agent-memory-leaderboard/leaderboard",
+            "title_ko": "AI 에이전트 메모리 성능을 한눈에 비교하는 리더보드",
+            "classification": "AGENT",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:38.376326+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_yanliudesignmono_color_skill",
+            "title": "GitHub: yanliudesign/mono-color-skill",
+            "title_ko": "모노크롬 에디토리얼 인쇄 스타일 이미지 생성 스킬",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:38.376567+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_xiaoduoyacodex_with_chatgpt",
+            "title": "GitHub: XiaoDuoYa/codex-with-chatgpt",
+            "title_ko": "ChatGPT를 기획 브레인으로, Codex를 실행 도구로 결합하는 코딩 워크플로우",
+            "classification": "AGENT",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:38.376784+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_wide_traceopen_higgsfield",
+            "title": "GitHub: wide-trace/open-higgsfield",
+            "title_ko": "멀티 모델 이미지 및 비디오 생성을 위한 통합 스튜디오 'Open-Higgsfield'",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:38.376990+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.15,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_github_wang2122sprix_sage_router",
+            "title": "GitHub: wang2122/sprix-sage-router",
+            "title_ko": "Sprix Sage Router: A2A 에이전트 네트워크를 위한 상태 인식 라우팅",
+            "classification": "AGENT",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:50.530804+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_tradecatlabsshulihuazixuecongshu",
+            "title": "GitHub: tradecatlabs/shulihuazixuecongshu",
+            "title_ko": "TradeCatLabs Shulihuazixuecongshu 오픈소스 저장소",
+            "classification": "NEWS",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:50.531154+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_tobiwalgit",
+            "title": "GitHub: tobi/walgit",
+            "title_ko": "Tobi Walgit: 개발 워크플로우 개선을 위한 Git 유틸리티",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:50.531372+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_themartianotry_omarchy",
+            "title": "GitHub: themartiano/try-omarchy",
+            "title_ko": "Try Omarchy: 복잡한 설정 없이 맥(MacOS)에서 Omarchy 실행하기",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:27:50.531596+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_tencentwemm_embedding",
+            "title": "GitHub: Tencent/WeMM-Embedding",
+            "title_ko": "Tencent WeMM-Embedding: 텐센트 위챗 비전 팀의 범용 멀티모달 임베딩 모델",
+            "classification": "MODEL",
+            "model_family": "WeMM",
+            "enriched_at": "2026-09-03T05:27:50.531798+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.3,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_github_shadowaqueductwatermark_remover",
+            "title": "GitHub: ShadowAqueduct/watermark-remover",
+            "title_ko": "다양한 벤더의 AI 워터마크 및 메타데이터 제거 도구",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:02.830401+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_sapientincpraxist",
+            "title": "GitHub: sapientinc/PRAXIST",
+            "title_ko": "컴퓨터로 실행 가능한 자율 연구 시스템 PRAXIST",
+            "classification": "AGENT",
+            "model_family": "Autonomous Agent Harness Family",
+            "enriched_at": "2026-09-03T05:28:02.830770+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_nateherkaiscroll_craft",
+            "title": "GitHub: nateherkai/scroll-craft",
+            "title_ko": "프리미엄 스크롤 기반 웹사이트를 위한 Claude Code 스킬",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:02.831012+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_nanako0129sepia",
+            "title": "GitHub: Nanako0129/sepia",
+            "title_ko": "AI 냄새를 지우는 서사 아키텍처 복구 스킬 Sepia",
+            "classification": "AGENT",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:02.831233+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_n4daraeanti_mage",
+            "title": "GitHub: N4darae/anti-mage",
+            "title_ko": "런타임 일관성 분석 기반 안티 디텍트 브라우저 탐지 도구",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:02.831499+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.29,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_github_meteornoxdeepseek_balance_whale_widget",
+            "title": "GitHub: MeteorNOX/DeepSeek-Balance-Whale-Widget",
+            "title_ko": "DeepSeek-Balance-Whale-Widget: DeepSeek 잔액 모니터링 데스크탑 위젯",
+            "classification": "AGENT",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:16.120683+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_metamask_aimetamask_desktop",
+            "title": "GitHub: MetaMask-AI/metamask-desktop",
+            "title_ko": "MetaMask Desktop: 이더리움 블록체인 웹사이트 지원 데스크톱 앱",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:16.121027+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_mengtothreeui",
+            "title": "GitHub: MengTo/threeui",
+            "title_ko": "ThreeUI: 실시간 인터랙티브 컴포넌트가 포함된 오픈소스 UI 카탈로그",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:16.121208+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_jub0tconcat",
+            "title": "GitHub: jub0t/Concat",
+            "title_ko": "Concat (구 WolfCut): CapCut을 대체하는 무료 오픈소스 영상 편집기",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:16.121410+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_hejustinsunmy_girlfriend_jingtian_late",
+            "title": "GitHub: HEJustinSun/my-girlfriend-jingtian-latex",
+            "title_ko": "My-Girlfriend-Jingtian-LaTeX: 재미있는 밈 기반의 LaTeX 문서 저장소",
+            "classification": "NEWS",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:16.121624+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.83,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_github_duty1gx64dbg_mcp_server",
+            "title": "GitHub: duty1g/x64dbg-mcp-server",
+            "title_ko": "x64dbg-MCP 서버: AI 어시스턴트로 디버거를 제어하는 Model Context Protocol 플러그인",
+            "classification": "AGENT",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:29.955063+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_denissergeevitchdesktop_fly",
+            "title": "GitHub: DenisSergeevitch/desktop-fly",
+            "title_ko": "Desktop Fly: FlyWire 커넥톰 실시간 스파이킹 시뮬레이션 기반의 3D 초파리",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:29.955408+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_cclanklanshu_create_ai_presenter_video",
+            "title": "GitHub: cclank/lanshu-create-ai-presenter-video",
+            "title_ko": "Lanshu AI 프레젠터 비디오 생성기: 스크립트와 이미지로 검증된 AI 발표 영상 제작",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:29.955639+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_cbrock84headcount",
+            "title": "GitHub: cbrock84/headcount",
+            "title_ko": "Headcount: 가상의 기업 형태로 구조화된 Claude Code 전용 에이전트 조직 프레임워크",
+            "classification": "AGENT",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:29.955854+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_bryllimworkout_guide",
+            "title": "GitHub: bryllim/workout-guide",
+            "title_ko": "Workout Guide: 302개의 운동 일러스트와 프레임워크 독립형 NPM 패키지",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:29.956054+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.81,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_github_b_nnettgrok_bot_018_reconstructed",
+            "title": "GitHub: b-nnett/grok-bot-0.18-reconstructed",
+            "title_ko": "Grok Bot 0.18 비공식 macOS 재구성 및 확장 버전",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:42.768977+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_apodexaifrontieragent",
+            "title": "GitHub: ApodexAI/FrontierAgent",
+            "title_ko": "FrontierAgent: 네이티브 TUI와 팀 모드를 지원하는 오픈소스 에이전트 프레임워크",
+            "classification": "AGENT",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:42.769321+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_amosblomqvistlearn",
+            "title": "GitHub: amosblomqvist/learn",
+            "title_ko": "개인용 AI 학습 시스템 오픈소스",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:42.769568+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_amirh00sainspiderpanel",
+            "title": "GitHub: amirh00sain/SpiderPanel",
+            "title_ko": "SpiderPanel: 서버 및 인프라 관리 패널",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:42.769757+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_amagine_aiamagine3d",
+            "title": "GitHub: amagine-ai/Amagine3D",
+            "title_ko": "Amagine3D: 하드웨어 요구사항부터 편집 가능한 3D 디자인까지",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:42.769954+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.78,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_video_generative_models_as_geometry_lea",
+            "title": "ArXiv: Video Generative Models as Geometry Learner",
+            "title_ko": "비디오 생성 모델을 기하학 학습기로 활용하기",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:55.551238+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_training_communication_efficient_mixtur",
+            "title": "ArXiv: Training Communication-Efficient Mixture-of-Experts Language Models with Layer Re-Configuration",
+            "title_ko": "레이어 재구성을 통한 통신 효율적인 MoE 언어 모델 학습",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:55.551639+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_texture_image_classification_using_dwt_",
+            "title": "ArXiv: Texture Image Classification Using DWT AlexNet Feature Fusion and Deep Neural Networks",
+            "title_ko": "DWT와 AlexNet 특징 융합을 활용한 텍스처 이미지 분류",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:55.551861+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_nl2agbench_benchmarking_llm_auto_formal",
+            "title": "ArXiv: NL2AGBench: Benchmarking LLM Auto-Formalization for AlphaGeometry",
+            "title_ko": "NL2AGBench: AlphaGeometry를 위한 LLM 자동 형식화 벤치마크",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:55.552072+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_logos_an_agent_harness_on_a_cross_proce",
+            "title": "ArXiv: Logos: An Agent Harness on a Cross-Process Bus",
+            "title_ko": "Logos: 크로스 프로세스 버스 기반의 에이전트 하네스",
+            "classification": "AGENT",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:28:55.552279+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 12,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.7,
+        "items_processed": [
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_llm_based_agents_for_software_and_syste",
+            "title": "ArXiv: LLM-Based Agents for Software and Systems Security: Approaches, Applications, and Assessment",
+            "title_ko": "소프트웨어 및 시스템 보안을 위한 LLM 기반 에이전트: 접근법, 응용 및 평가",
+            "classification": "AGENT",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:29:08.255795+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_learning_a_size_weight_frontier_for_syn",
+            "title": "ArXiv: Learning a Size-Weight Frontier for Synthetic-Augmented Inference",
+            "title_ko": "합성 데이터 증강 추론을 위한 크기-가중치 경계 학습",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:29:08.256150+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_ladders_in_chaos_when_how_and_perhaps_w",
+            "title": "ArXiv: Ladders in Chaos: When, How, (and Perhaps Why) Does Test-Time Scaling Improve LLM Machine Translation",
+            "title_ko": "혼돈 속의 사다리: 테스트 타임 스케일링은 언제, 어떻게, 왜 LLM 기계 번역을 개선하는가",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:29:08.256367+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_instructmesh_selective_refinement_of_ge",
+            "title": "ArXiv: InstructMesh: Selective Refinement of Generative 3D Models for Fabrication",
+            "title_ko": "InstructMesh: 제작을 위한 생성형 3D 모델의 선택적 정제",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:29:08.256606+00:00"
+          },
+          {
+            "inbox_id": "2026-08-31_repo_arxiv_conformal_uncertainty_quantification_gu",
+            "title": "ArXiv: Conformal Uncertainty Quantification Guarantees for Neural Operators",
+            "title_ko": "신경 연산자를 위한 콩포말 불확실성 정량화 보장",
+            "classification": "TECH",
+            "model_family": "기타 독립 모델 (Standalone / Novel)",
+            "enriched_at": "2026-09-03T05:29:08.256814+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
