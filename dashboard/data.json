@@ -40,6 +40,59 @@
     ],
     "history": [
       {
+        "timestamp": "2026-09-03T04:14:08.548982",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.2
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.16
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.89
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 23,
+            "duration_sec": 14.4
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 10.83
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.1
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.83
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.33
+          }
+        },
+        "summary": {
+          "total_fetched": 163,
+          "updated_count": 0,
+          "new_saved": 24,
+          "duplicates_skipped": 139,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-09-03T01:55:40.942486",
         "date": "2026-09-03",
         "sources": {
@@ -1511,58 +1564,16 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-01T16:14:50.372205",
-        "date": "2026-09-01",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.13
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.08
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.68
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 1,
-            "duration_sec": 4.2
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.11
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.02
-          }
-        },
-        "summary": {
-          "total_fetched": 1,
-          "new_saved": 1,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T01:55:40.942486",
+      "timestamp": "2026-09-03T04:14:08.548982",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.25
+          "duration_sec": 0.2
         },
         "hf_spaces": {
           "status": "SUCCESS",
@@ -1572,39 +1583,39 @@
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.91
+          "duration_sec": 0.89
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 26,
-          "duration_sec": 11.51
+          "items_found": 23,
+          "duration_sec": 14.4
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.44
+          "duration_sec": 10.83
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.13
+          "duration_sec": 0.1
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.85
+          "duration_sec": 0.83
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.2
+          "duration_sec": 0.33
         }
       },
       "summary": {
-        "total_fetched": 166,
+        "total_fetched": 163,
         "updated_count": 0,
-        "new_saved": 0,
-        "duplicates_skipped": 166,
+        "new_saved": 24,
+        "duplicates_skipped": 139,
         "errors": 0
       }
     }
@@ -2001,6 +2012,103 @@
       "description_en": "The iconic bidirectional encoder that set the standard for Natural Language Understanding.",
       "description_zh": "奠定自然语言理解双向编码器标准的代表性模型。",
       "model_family": "BERT"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_huggingface_model_distilbertdistilbert_base_u",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HuggingFace Model: distilbert/distilbert-base-uncased",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/distilbert/distilbert-base-uncased",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 114, Downloads: 6870903, Likes: 1051, Pipeline: fill-mask",
+      "viral_metric": "Trending 114 pts (❤️ 1051)",
+      "metric_tracking": {
+        "initial": {
+          "value": 114,
+          "display": "Trending 114 pts (❤️ 1051)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 114,
+          "display": "Trending 114 pts (❤️ 1051)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_huggingface_model_distilbertdistilbert_base_u",
+        "source_lang": "EN",
+        "type_classification": "MODEL",
+        "model_family": "DistilBERT",
+        "category": "LLM 경량화 및 마스크드 LM",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "DistilBERT",
+          "모델 경량화",
+          "Fill-Mask"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "DistilBERT Base Uncased: 검증된 고성능 경량 NLP 모델",
+            "hook": "BERT 대비 크기와 연산량을 대폭 줄이면서도 성능을 유지하여 실무에서 가장 널리 쓰이는 경량 모델입니다.",
+            "key_takeaways": [
+              "BERT 대비 40% 작은 크기와 60% 빠른 속도 제공",
+              "Fill-Mask 및 다양한 자연어 이해(NLU) 태스크에 최적화",
+              "프로덕션 환경 배포에 이상적인 경량화 아키텍처"
+            ]
+          },
+          "en": {
+            "title": "DistilBERT Base Uncased: Proven Lightweight NLP Model",
+            "hook": "A widely adopted lightweight transformer model offering 40% reduction in size and 60% faster inference than BERT.",
+            "key_takeaways": [
+              "Smaller footprint and significantly faster inference speed compared to BERT",
+              "Optimized for fill-mask and various NLU downstream tasks",
+              "Ideal choice for production-ready, resource-constrained environments"
+            ]
+          },
+          "zh": {
+            "title": "DistilBERT Base Uncased: 经验证的高性能轻量化 NLP 模型",
+            "hook": "在保持 BERT 绝大部分性能的同时，大幅减小模型体积并提升推理速度的工业界首选轻量模型。",
+            "key_takeaways": [
+              "相比 BERT 减小 40% 体积并提速 60%",
+              "完美适配填空（Fill-Mask）及各类自然语言理解任务",
+              "非常适合资源受限的生产环境部署"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:14:49.190620+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "DistilBERT",
+        "모델 경량화",
+        "Fill-Mask"
+      ],
+      "title_ko": "DistilBERT Base Uncased: 검증된 고성능 경량 NLP 모델",
+      "title_en": "DistilBERT Base Uncased: Proven Lightweight NLP Model",
+      "title_zh": "DistilBERT Base Uncased: 经验证的高性能轻量化 NLP 模型",
+      "hook": "BERT 대비 크기와 연산량을 대폭 줄이면서도 성능을 유지하여 실무에서 가장 널리 쓰이는 경량 모델입니다.",
+      "hook_ko": "BERT 대비 크기와 연산량을 대폭 줄이면서도 성능을 유지하여 실무에서 가장 널리 쓰이는 경량 모델입니다.",
+      "hook_en": "A widely adopted lightweight transformer model offering 40% reduction in size and 60% faster inference than BERT.",
+      "hook_zh": "在保持 BERT 绝大部分性能的同时，大幅减小模型体积并提升推理速度的工业界首选轻量模型。",
+      "description_ko": "BERT 대비 크기와 연산량을 대폭 줄이면서도 성능을 유지하여 실무에서 가장 널리 쓰이는 경량 모델입니다.",
+      "description_en": "A widely adopted lightweight transformer model offering 40% reduction in size and 60% faster inference than BERT.",
+      "description_zh": "在保持 BERT 绝大部分性能的同时，大幅减小模型体积并提升推理速度的工业界首选轻量模型。",
+      "model_family": "DistilBERT"
     },
     {
       "inbox_id": "2026-09-03_repo_hf_space_mrddickdickensonkrea_2_turbo_i2i",
@@ -6443,6 +6551,104 @@
       "description_zh": "深入剖析在极端复杂系统遭遇致命故障时，冗余设计与工程应对如何挽救全机安全。"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_creating_backup_storage_sucks",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Creating Backup Storage Sucks",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49509606",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 6 pts | Comments: 1 | Creating Backup Storage Sucks",
+      "viral_metric": "🔥 6 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49509606",
+      "article_url": "https://smarmelling.com/posts/creating-backup-storage-sucks.html",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_creating_backup_storage_sucks",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "스토리지 및 인프라",
+        "programming_lang": "General",
+        "root_keywords": [
+          "백업 스토리지",
+          "데이터 관리",
+          "인프라 구축"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "백업 스토리지 구축은 왜 여전히 고통스러울까?",
+            "hook": "현업 개발자와 인프라 엔지니어가 공감하는 백업 스토리지 구축의 현실적인 어려움을 다룬 글입니다.",
+            "key_takeaways": [
+              "백업 스토리지 구축 과정에서 겪는 구조적인 문제점",
+              "안정적인 데이터 보존을 위한 현실적인 고민과 인사이트",
+              "비즈니스 연속성을 위한 인프라 관리의 중요성"
+            ]
+          },
+          "en": {
+            "title": "Why Creating Backup Storage Still Sucks",
+            "hook": "A relatable discussion on the pain points and engineering frustrations of setting up reliable backup storage.",
+            "key_takeaways": [
+              "Common structural challenges in backup storage provisioning",
+              "Real-world frustrations regarding data preservation and reliability",
+              "Insights into improving infrastructure management for business continuity"
+            ]
+          },
+          "zh": {
+            "title": "为什么创建备份存储依然让人头疼",
+            "hook": "探讨软件工程师和运维人员在构建可靠备份存储时面临的现实痛点与挑战。",
+            "key_takeaways": [
+              "备份存储配置过程中的结构性难题",
+              "关于数据保留和系统稳定性的现实困境",
+              "提升基础设施管理以确保业务连续性的见解"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:14:49.189695+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "백업 스토리지",
+        "데이터 관리",
+        "인프라 구축"
+      ],
+      "title_ko": "백업 스토리지 구축은 왜 여전히 고통스러울까?",
+      "title_en": "Why Creating Backup Storage Still Sucks",
+      "title_zh": "为什么创建备份存储依然让人头疼",
+      "hook": "현업 개발자와 인프라 엔지니어가 공감하는 백업 스토리지 구축의 현실적인 어려움을 다룬 글입니다.",
+      "hook_ko": "현업 개발자와 인프라 엔지니어가 공감하는 백업 스토리지 구축의 현실적인 어려움을 다룬 글입니다.",
+      "hook_en": "A relatable discussion on the pain points and engineering frustrations of setting up reliable backup storage.",
+      "hook_zh": "探讨软件工程师和运维人员在构建可靠备份存储时面临的现实痛点与挑战。",
+      "description_ko": "현업 개발자와 인프라 엔지니어가 공감하는 백업 스토리지 구축의 현실적인 어려움을 다룬 글입니다.",
+      "description_en": "A relatable discussion on the pain points and engineering frustrations of setting up reliable backup storage.",
+      "description_zh": "探讨软件工程师和运维人员在构建可靠备份存储时面临的现实痛点与挑战。"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_can_i_opt_out_of_my_input_or_outp",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -6735,6 +6941,104 @@
       "description_ko": "인간의 뇌가 노화함에 따라 개별 기억이 소실되는 대신 서로 융합되는 신경학적 메커니즘을 조명합니다.",
       "description_en": "Highlighting the neurological mechanism where aging brains merge individual memories rather than simply erasing them.",
       "description_zh": "探讨人类大脑在衰老过程中，记忆并非单纯消退，而是相互融合的神经学机制。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_원격근무가_아니라_서투른_비동기_소통이_문제다",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: 원격근무가 아니라 서투른 비동기 소통이 문제다",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33178",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 원격근무가 아니라 서투른 비동기 소통이 문제다",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "원격근무가 아니라 서투른 비동기 소통이 문제다",
+      "description_ko": "원격근무의 성패를 가르는 핵심 요인이 원격 환경 자체가 아니라 미숙한 비동기 커뮤니케이션에 있음을 분석합니다.",
+      "hn_url": "https://news.hada.io/topic?id=33178",
+      "article_url": "https://news.hada.io/topic?id=33178",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_geeknews_원격근무가_아니라_서투른_비동기_소통이_문제다",
+        "source_lang": "KO",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "개발자 문화 및 협업",
+        "programming_lang": "General",
+        "root_keywords": [
+          "원격근무",
+          "비동기 소통",
+          "팀 협업"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "원격근무가 아니라 서투른 비동기 소통이 문제다",
+            "hook": "원격근무의 성패를 가르는 핵심 요인이 원격 환경 자체가 아니라 미숙한 비동기 커뮤니케이션에 있음을 분석합니다.",
+            "key_takeaways": [
+              "원격근무 효율성 저하의 진짜 원인 분석",
+              "효과적인 비동기 소통 프로세스 구축의 필요성",
+              "분산 팀의 생산성을 높이기 위한 조직 문화 개선 방안"
+            ]
+          },
+          "en": {
+            "title": "It's Not Remote Work, It's Poor Async Communication",
+            "hook": "An insightful look into why poor asynchronous communication, rather than remote work itself, breaks team productivity.",
+            "key_takeaways": [
+              "Identifying the root causes of friction in remote environments",
+              "The critical need for well-defined asynchronous communication workflows",
+              "Organizational strategies to boost distributed team productivity"
+            ]
+          },
+          "zh": {
+            "title": "问题不在远程办公，而在拙劣的异步沟通",
+            "hook": "深入剖析远程办公效率低下的根源，指出精妙的异步沟通才是分布式团队成功的关键。",
+            "key_takeaways": [
+              "识别远程工作环境中效率摩擦的真正原因",
+              "建立规范化异步沟通流程的迫切性",
+              "提升分布式团队生产力的组织文化改进方案"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:14:49.190086+00:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "원격근무",
+        "비동기 소통",
+        "팀 협업"
+      ],
+      "title_en": "It's Not Remote Work, It's Poor Async Communication",
+      "title_zh": "问题不在远程办公，而在拙劣的异步沟通",
+      "hook": "원격근무의 성패를 가르는 핵심 요인이 원격 환경 자체가 아니라 미숙한 비동기 커뮤니케이션에 있음을 분석합니다.",
+      "hook_ko": "원격근무의 성패를 가르는 핵심 요인이 원격 환경 자체가 아니라 미숙한 비동기 커뮤니케이션에 있음을 분석합니다.",
+      "hook_en": "An insightful look into why poor asynchronous communication, rather than remote work itself, breaks team productivity.",
+      "hook_zh": "深入剖析远程办公效率低下的根源，指出精妙的异步沟通才是分布式团队成功的关键。",
+      "description_en": "An insightful look into why poor asynchronous communication, rather than remote work itself, breaks team productivity.",
+      "description_zh": "深入剖析远程办公效率低下的根源，指出精妙的异步沟通才是分布式团队成功的关键。"
     },
     {
       "inbox_id": "2026-09-03_sns_geeknews_오픈소스에서_정상화되는_파시즘_dhh_재단에_약정된_1200만_달",
@@ -13265,6 +13569,294 @@
       "description_zh": "无需额外训练即可大幅提升文档VQA与RAG检索效率的高性能架构。"
     },
     {
+      "inbox_id": "2026-09-03_repo_arxiv_user_feedback_provides_a_unique_signal_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: User Feedback Provides a Unique Signal that LLMs Can not Detect",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02859v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Harnessing naturally occurring feedback from user interactions offers a promising learning signal for Large Language Models (LLMs). However, recent studies suggest this feedback is inherently noisy an...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_user_feedback_provides_a_unique_signal_",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "LLM 학습 및 정렬(Alignment)",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "사용자 피드백",
+          "LLM 학습",
+          "RLHF 대체"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.8,
+        "multilingual": {
+          "ko": {
+            "title": "사용자 피드백은 LLM이 스스로 감지할 수 없는 독보적인 학습 시그널을 제공한다",
+            "hook": "LLM의 성능 한계를 극복하기 위해 자연스러운 사용자 상호작용 피드백을 어떻게 학습 시그널로 활용할 수 있는지 분석한 최신 논문입니다.",
+            "key_takeaways": [
+              "모델 자체 평가(Self-Correction)의 한계와 사용자 피드백의 중요성 강조",
+              "상호작용 데이터 기반의 새로운 LLM 학습 및 정렬(Alignment) 방법론 제시",
+              "노이즈가 많은 실제 환경 피드백을 효과적으로 필터링하고 학습하는 기법"
+            ]
+          },
+          "en": {
+            "title": "User Feedback Provides a Unique Signal That LLMs Cannot Detect",
+            "hook": "An essential paper on leveraging natural user interactions as a critical, irreplaceable learning signal for LLMs.",
+            "key_takeaways": [
+              "Highlighting the limits of self-detection and why user feedback is irreplaceable",
+              "Proposing novel LLM alignment and learning paradigms based on interaction data",
+              "Techniques for effectively handling inherently noisy real-world feedback signals"
+            ]
+          },
+          "zh": {
+            "title": "用户反馈提供了大模型无法自主检测的独特学习信号",
+            "hook": "探讨如何利用自然用户交互反馈作为大语言模型不可替代的高价值学习信号的最新前沿研究。",
+            "key_takeaways": [
+              "揭示模型自我检测的局限性以及用户反馈的独特性",
+              "提出基于交互数据的创新大模型对齐与学习新范式",
+              "有效过滤并利用带噪真实世界反馈信号的关键技术"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:14:49.190875+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "사용자 피드백",
+        "LLM 학습",
+        "RLHF 대체"
+      ],
+      "title_ko": "사용자 피드백은 LLM이 스스로 감지할 수 없는 독보적인 학습 시그널을 제공한다",
+      "title_en": "User Feedback Provides a Unique Signal That LLMs Cannot Detect",
+      "title_zh": "用户反馈提供了大模型无法自主检测的独特学习信号",
+      "hook": "LLM의 성능 한계를 극복하기 위해 자연스러운 사용자 상호작용 피드백을 어떻게 학습 시그널로 활용할 수 있는지 분석한 최신 논문입니다.",
+      "hook_ko": "LLM의 성능 한계를 극복하기 위해 자연스러운 사용자 상호작용 피드백을 어떻게 학습 시그널로 활용할 수 있는지 분석한 최신 논문입니다.",
+      "hook_en": "An essential paper on leveraging natural user interactions as a critical, irreplaceable learning signal for LLMs.",
+      "hook_zh": "探讨如何利用自然用户交互反馈作为大语言模型不可替代的高价值学习信号的最新前沿研究。",
+      "description_ko": "LLM의 성능 한계를 극복하기 위해 자연스러운 사용자 상호작용 피드백을 어떻게 학습 시그널로 활용할 수 있는지 분석한 최신 논문입니다.",
+      "description_en": "An essential paper on leveraging natural user interactions as a critical, irreplaceable learning signal for LLMs.",
+      "description_zh": "探讨如何利用自然用户交互反馈作为大语言模型不可替代的高价值学习信号的最新前沿研究。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_untangling_the_mechanisms_of_misleading",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Untangling the Mechanisms of Misleading Context in Medical Question Answering",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02754v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Large language models now answer medical questions with expert-level performance. However, the context these systems act on can be misleading, and misleading context can corrupt a model's medical judg...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_untangling_the_mechanisms_of_misleading",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "의료 LLM 환각 및 신뢰성 분석",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Medical QA",
+          "Misleading Context",
+          "LLM Reliability"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.8,
+        "multilingual": {
+          "ko": {
+            "title": "의료 QA에서 오해를 유발하는 컨텍스트의 메커니즘 분석",
+            "hook": "의료 LLM의 판단을 오염시키는 잘못된 컨텍스트의 작동 원리를 파악하여 신뢰성을 높이세요.",
+            "key_takeaways": [
+              "의료 분야 LLM의 답변 정확도에 영향을 미치는 오탐지 메커니즘 분석",
+              "오해를 유발하는 컨텍스트가 모델의 의학적 판단에 미치는 영향 평가",
+              "의료 AI 시스템의 강건성과 환각 현상 완화를 위한 인사이트 제공"
+            ]
+          },
+          "en": {
+            "title": "Untangling the Mechanisms of Misleading Context in Medical Question Answering",
+            "hook": "Understand how misleading context corrupts LLM medical judgment to build safer healthcare AI.",
+            "key_takeaways": [
+              "Investigates failure mechanisms caused by misleading contexts in medical QA",
+              "Evaluates how corrupted context alters professional-level medical reasoning",
+              "Provides insights for improving robustness and reliability in clinical AI"
+            ]
+          },
+          "zh": {
+            "title": "剖析医疗问答中误导性上下文的作用机制",
+            "hook": "深入理解错误上下文如何影响大模型的医疗决策，提升医疗AI系统的可靠性。",
+            "key_takeaways": [
+              "探讨医疗问答中误导性上下文导致的模型判断偏差机制",
+              "评估不准确信息对大模型专业医学推理过程的腐蚀影响",
+              "为医疗人工智能系统的鲁棒性与安全性优化提供理论支持"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:15:02.665658+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Medical QA",
+        "Misleading Context",
+        "LLM Reliability"
+      ],
+      "title_ko": "의료 QA에서 오해를 유발하는 컨텍스트의 메커니즘 분석",
+      "title_en": "Untangling the Mechanisms of Misleading Context in Medical Question Answering",
+      "title_zh": "剖析医疗问答中误导性上下文的作用机制",
+      "hook": "의료 LLM의 판단을 오염시키는 잘못된 컨텍스트의 작동 원리를 파악하여 신뢰성을 높이세요.",
+      "hook_ko": "의료 LLM의 판단을 오염시키는 잘못된 컨텍스트의 작동 원리를 파악하여 신뢰성을 높이세요.",
+      "hook_en": "Understand how misleading context corrupts LLM medical judgment to build safer healthcare AI.",
+      "hook_zh": "深入理解错误上下文如何影响大模型的医疗决策，提升医疗AI系统的可靠性。",
+      "description_ko": "의료 LLM의 판단을 오염시키는 잘못된 컨텍스트의 작동 원리를 파악하여 신뢰성을 높이세요.",
+      "description_en": "Understand how misleading context corrupts LLM medical judgment to build safer healthcare AI.",
+      "description_zh": "深入理解错误上下文如何影响大模型的医疗决策，提升医疗AI系统的可靠性。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_towards_trustworthy_autonomous_robots_a",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Towards Trustworthy Autonomous Robots: An Explainable AI-Based Decision Framework",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02861v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Autonomous robots powered by deep learning face a fundamental auditability challenge: when incidents occur, investigators cannot reconstruct why the system made specific decisions. This paper presents...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_towards_trustworthy_autonomous_robots_a",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "자율주행 및 로보틱스 XAI",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Autonomous Robots",
+          "Explainable AI",
+          "Decision Framework"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.1,
+        "multilingual": {
+          "ko": {
+            "title": "신뢰할 수 있는 자율 로봇을 향하여: 설명 가능한 AI 기반 결정 프레임워크",
+            "hook": "딥러닝 기반 자율 로봇의 블랙박스 문제를 해결하는 설명 가능한 AI(XAI) 감사 프레임워크를 확인하세요.",
+            "key_takeaways": [
+              "딥러닝 기반 자율 로봇의 근본적인 감사 가능성(Auditability) 문제 해결",
+              "사고 발생 시 시스템의 의사결정 경로를 역추적하는 프레임워크 제안",
+              "로보틱스 및 자율 시스템의 안전성과 책임성 강화"
+            ]
+          },
+          "en": {
+            "title": "Towards Trustworthy Autonomous Robots: An Explainable AI-Based Decision Framework",
+            "hook": "Overcome the auditability challenge in deep learning robotics with an explainable decision framework.",
+            "key_takeaways": [
+              "Addresses fundamental auditability challenges in deep learning autonomous systems",
+              "Proposes an XAI framework to reconstruct accident decision paths",
+              "Enhances safety, accountability, and transparency in robotic deployments"
+            ]
+          },
+          "zh": {
+            "title": "迈向值得信赖的自主机器人：基于可解释AI的决策框架",
+            "hook": "解决深度学习机器人的黑盒审计难题，通过可解释AI确保决策过程可追溯。",
+            "key_takeaways": [
+              "解决基于深度学习的自主机器人面临的根本性可审计性挑战",
+              "提出能够在事故发生时重建系统决策路径的XAI框架",
+              "显著提升具身智能与机器人系统的安全性及透明度"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:15:02.666019+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Autonomous Robots",
+        "Explainable AI",
+        "Decision Framework"
+      ],
+      "title_ko": "신뢰할 수 있는 자율 로봇을 향하여: 설명 가능한 AI 기반 결정 프레임워크",
+      "title_en": "Towards Trustworthy Autonomous Robots: An Explainable AI-Based Decision Framework",
+      "title_zh": "迈向值得信赖的自主机器人：基于可解释AI的决策框架",
+      "hook": "딥러닝 기반 자율 로봇의 블랙박스 문제를 해결하는 설명 가능한 AI(XAI) 감사 프레임워크를 확인하세요.",
+      "hook_ko": "딥러닝 기반 자율 로봇의 블랙박스 문제를 해결하는 설명 가능한 AI(XAI) 감사 프레임워크를 확인하세요.",
+      "hook_en": "Overcome the auditability challenge in deep learning robotics with an explainable decision framework.",
+      "hook_zh": "解决深度学习机器人的黑盒审计难题，通过可解释AI确保决策过程可追溯。",
+      "description_ko": "딥러닝 기반 자율 로봇의 블랙박스 문제를 해결하는 설명 가능한 AI(XAI) 감사 프레임워크를 확인하세요.",
+      "description_en": "Overcome the auditability challenge in deep learning robotics with an explainable decision framework.",
+      "description_zh": "解决深度学习机器人的黑盒审计难题，通过可解释AI确保决策过程可追溯。"
+    },
+    {
       "inbox_id": "2026-09-03_repo_arxiv_spectral_initialization_and_scheduled_g",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -13359,6 +13951,102 @@
       "description_ko": "신뢰도 점수가 포함된 불확실한 지식 그래프의 예측 성능을 높이는 새로운 방법론을 확인하세요.",
       "description_en": "Explore a novel approach to improve link prediction and confidence scoring in uncertain knowledge graphs.",
       "description_zh": "探索一种提高带有置信度分数的不确定知识图谱预测性能的新方法。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_shallowstream_index_shallow_then_answer",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: ShallowStream: Index Shallow then Answer Deep for Streaming Video Understanding",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02780v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Streaming video understanding is a critical capability for real-world applications, including embodied intelligence, autonomous driving, industrial monitoring, surveillance and early warning, and wear...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_shallowstream_index_shallow_then_answer",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "영상 이해 및 스트리밍 AI 최적화",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Streaming Video",
+          "Video Understanding",
+          "Index Shallow"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "ShallowStream: 실시간 비디오 이해를 위한 얕은 인덱싱 후 깊은 답변 아키텍처",
+            "hook": "실시간 스트리밍 비디오 이해의 지연 시간을 극적으로 줄이는 새로운 인덱싱 전략을 도입하세요.",
+            "key_takeaways": [
+              "자율주행, 감시 시스템 등 실시간 스트리밍 비디오 이해를 위한 고효율 아키텍처",
+              "'Shallow then Answer Deep' 패러다임을 통한 연산 비용 및 지연 시간 최적화",
+              "대규모 비디오 스트림에서 핵심 프레임을 빠르게 식별하고 심층 추론 수행"
+            ]
+          },
+          "en": {
+            "title": "ShallowStream: Index Shallow then Answer Deep for Streaming Video Understanding",
+            "hook": "Drastically reduce latency in real-time video understanding with a two-stage indexing paradigm.",
+            "key_takeaways": [
+              "Targets real-time video understanding for autonomous driving and surveillance",
+              "Introduces 'Shallow then Answer Deep' paradigm to minimize computational overhead",
+              "Enables rapid indexing followed by accurate deep reasoning on video streams"
+            ]
+          },
+          "zh": {
+            "title": "ShallowStream：面向流式视频理解的浅层索引与深层回答架构",
+            "hook": "通过创新的双阶段索引策略，大幅降低实时视频理解与自动驾驶的计算延迟。",
+            "key_takeaways": [
+              "针对自动驾驶、工业监控等实时流式视频理解场景设计的高效架构",
+              "采用“先浅层索引、后深层回答”的策略优化计算资源消耗",
+              "在保证高精度的同时实现视频流的超低延迟推理"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:15:02.666281+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Streaming Video",
+        "Video Understanding",
+        "Index Shallow"
+      ],
+      "title_ko": "ShallowStream: 실시간 비디오 이해를 위한 얕은 인덱싱 후 깊은 답변 아키텍처",
+      "title_en": "ShallowStream: Index Shallow then Answer Deep for Streaming Video Understanding",
+      "title_zh": "ShallowStream：面向流式视频理解的浅层索引与深层回答架构",
+      "hook": "실시간 스트리밍 비디오 이해의 지연 시간을 극적으로 줄이는 새로운 인덱싱 전략을 도입하세요.",
+      "hook_ko": "실시간 스트리밍 비디오 이해의 지연 시간을 극적으로 줄이는 새로운 인덱싱 전략을 도입하세요.",
+      "hook_en": "Drastically reduce latency in real-time video understanding with a two-stage indexing paradigm.",
+      "hook_zh": "通过创新的双阶段索引策略，大幅降低实时视频理解与自动驾驶的计算延迟。",
+      "description_ko": "실시간 스트리밍 비디오 이해의 지연 시간을 극적으로 줄이는 새로운 인덱싱 전략을 도입하세요.",
+      "description_en": "Drastically reduce latency in real-time video understanding with a two-stage indexing paradigm.",
+      "description_zh": "通过创新的双阶段索引策略，大幅降低实时视频理解与自动驾驶的计算延迟。"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_scalable_direction_following_tts_via_vo",
@@ -13457,6 +14145,102 @@
       "description_zh": "探索能够根据表演指令调整语调与情感的新一代可扩展语音合成技术。"
     },
     {
+      "inbox_id": "2026-09-03_repo_arxiv_safeevolve_harness_policy_co_evolution_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02786v1",
+      "type": "repo",
+      "category_type": "AGENT",
+      "description": "Abstract: The performance of LLM-based agents is jointly shaped by the base model and the harness used when interacting with the environment. This exposes them to safety risks in both harmful final responses an...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_safeevolve_harness_policy_co_evolution_",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "에이전트 안전성 및 정렬(Alignment)",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Agent Safety",
+          "Co-Evolution",
+          "Policy Alignment"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.6,
+        "multilingual": {
+          "ko": {
+            "title": "SafeEvolve: 에이전트 경험 기반 하네스-정책 동반 진화를 통한 안전성 정렬",
+            "hook": "LLM 에이전트와 실행 하네스의 상호작용 속에서 발생하는 보안 리스크를 동반 진화 방식으로 해결합니다.",
+            "key_takeaways": [
+              "베이스 모델과 환경 상호작용 하네스 간의 결합된 안전 리스크 분석",
+              "에이전트의 실행 경험을 기반으로 하네스와 정책이 함께 진화하는 알고리즘",
+              "최종 응답 및 환경 상호작용 과정에서의 취약점 및 안전성 동시 개선"
+            ]
+          },
+          "en": {
+            "title": "SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment",
+            "hook": "Mitigate security risks in LLM agents by co-evolving the harness and policy based on runtime experience.",
+            "key_takeaways": [
+              "Tackles joint vulnerability risks stemming from base models and execution harnesses",
+              "Introduces a co-evolutionary approach driven by agent environmental interaction data",
+              "Enhances safety alignment in both final generation and dynamic tool usage"
+            ]
+          },
+          "zh": {
+            "title": "SafeEvolve：基于智能体经验的ハーネス与策略协同进化安全对齐",
+            "hook": "通过联合演化执行框架与策略，有效消除大模型智能体在动态环境中的安全隐患。",
+            "key_takeaways": [
+              "分析由基础模型和运行框架共同塑造的智能体安全漏洞",
+              "提出利用智能体交互经验实现框架与策略协同进化的训练机制",
+              "同时解决最终回复文本与动态环境操作中的双重安全风险"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:15:02.666537+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Agent Safety",
+        "Co-Evolution",
+        "Policy Alignment"
+      ],
+      "title_ko": "SafeEvolve: 에이전트 경험 기반 하네스-정책 동반 진화를 통한 안전성 정렬",
+      "title_en": "SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment",
+      "title_zh": "SafeEvolve：基于智能体经验的ハーネス与策略协同进化安全对齐",
+      "hook": "LLM 에이전트와 실행 하네스의 상호작용 속에서 발생하는 보안 리스크를 동반 진화 방식으로 해결합니다.",
+      "hook_ko": "LLM 에이전트와 실행 하네스의 상호작용 속에서 발생하는 보안 리스크를 동반 진화 방식으로 해결합니다.",
+      "hook_en": "Mitigate security risks in LLM agents by co-evolving the harness and policy based on runtime experience.",
+      "hook_zh": "通过联合演化执行框架与策略，有效消除大模型智能体在动态环境中的安全隐患。",
+      "description_ko": "LLM 에이전트와 실행 하네스의 상호작용 속에서 발생하는 보안 리스크를 동반 진화 방식으로 해결합니다.",
+      "description_en": "Mitigate security risks in LLM agents by co-evolving the harness and policy based on runtime experience.",
+      "description_zh": "通过联合演化执行框架与策略，有效消除大模型智能体在动态环境中的安全隐患。"
+    },
+    {
       "inbox_id": "2026-09-03_repo_arxiv_rinse_robust_target_time_normality_esti",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -13551,6 +14335,102 @@
       "description_ko": "도메인 시프트 문제를 해결하여 보지 못한 그래프에서도 이상 징후를 정확히 탐지하는 프레임워크입니다.",
       "description_en": "Overcome domain shift challenges in zero-shot graph anomaly detection with robust normality estimation.",
       "description_zh": "通过鲁棒的正态性估计解决零样本图异常检测中的领域偏移问题。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_repo_to_skill_distilling_github_reposit",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02749v1",
+      "type": "repo",
+      "category_type": "AGENT",
+      "description": "Abstract: Autonomous agents are beginning to carry out machine-learning (ML) research end to end. These agents combine a model backbone with a harness for planning, execution, memory, and verification, but this...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_repo_to_skill_distilling_github_reposit",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "AI4AI 자율 머신러닝 연구 및 스킬 증류",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Repo-To-Skill",
+          "AI4AI",
+          "GitHub Distillation"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.7,
+        "multilingual": {
+          "ko": {
+            "title": "Repo-To-Skill: GitHub 저장소를 AI4AI 스킬로 증류하기",
+            "hook": "오픈소스 GitHub 저장소의 노하우를 자율 에이전트가 즉시 활용 가능한 '스킬'로 자동 변환하세요.",
+            "key_takeaways": [
+              "머신러닝(ML) 연구를 엔드투엔드로 수행하는 자율 에이전트 역량 강화",
+              "GitHub 오픈소스 저장소의 복잡한 구조를 재사용 가능한 AI 스킬로 압축 증류",
+              "계획, 실행, 검증 하네스와 결합하여 에이전트의 연구 개발 자동화 성능 극대화"
+            ]
+          },
+          "en": {
+            "title": "Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills",
+            "hook": "Convert complex GitHub repositories into actionable AI skills to supercharge autonomous research agents.",
+            "key_takeaways": [
+              "Enables autonomous agents to conduct end-to-end machine learning research",
+              "Distills open-source codebases into modular, reusable AI4AI skills",
+              "Boosts planning, execution, and verification capabilities of agent harnesses"
+            ]
+          },
+          "zh": {
+            "title": "Repo-To-Skill：将GitHub仓库蒸馏为AI4AI技能",
+            "hook": "把开源代码库无缝转化为自主科研智能体可直接调用的“专家技能”，大幅提升AI研发能力。",
+            "key_takeaways": [
+              "赋能自主智能体开展端到端的机器学习科研任务",
+              "将复杂的GitHub代码库提炼并蒸馏为可复用的AI4AI技能模块",
+              "与规划、执行和验证框架深度结合，提升智能体自动化研发水平"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:15:02.666792+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Repo-To-Skill",
+        "AI4AI",
+        "GitHub Distillation"
+      ],
+      "title_ko": "Repo-To-Skill: GitHub 저장소를 AI4AI 스킬로 증류하기",
+      "title_en": "Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills",
+      "title_zh": "Repo-To-Skill：将GitHub仓库蒸馏为AI4AI技能",
+      "hook": "오픈소스 GitHub 저장소의 노하우를 자율 에이전트가 즉시 활용 가능한 '스킬'로 자동 변환하세요.",
+      "hook_ko": "오픈소스 GitHub 저장소의 노하우를 자율 에이전트가 즉시 활용 가능한 '스킬'로 자동 변환하세요.",
+      "hook_en": "Convert complex GitHub repositories into actionable AI skills to supercharge autonomous research agents.",
+      "hook_zh": "把开源代码库无缝转化为自主科研智能体可直接调用的“专家技能”，大幅提升AI研发能力。",
+      "description_ko": "오픈소스 GitHub 저장소의 노하우를 자율 에이전트가 즉시 활용 가능한 '스킬'로 자동 변환하세요.",
+      "description_en": "Convert complex GitHub repositories into actionable AI skills to supercharge autonomous research agents.",
+      "description_zh": "把开源代码库无缝转化为自主科研智能体可直接调用的“专家技能”，大幅提升AI研发能力。"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_probematchdti_probe_driven_multi_scale_",
@@ -13843,6 +14723,199 @@
       "description_zh": "了解如何在隐私受限的环境中生成自然且保留意图的合成对话。"
     },
     {
+      "inbox_id": "2026-09-03_repo_arxiv_post_training_language_models_for_gold_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Post-Training Language Models for Gold-Medal Performance in Coding Competitions",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02849v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Competitive programming has become a key test of large language model reasoning, with international competitions such as IOI and ICPC representing its most challenging settings. We present an end-to-e...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_post_training_language_models_for_gold_",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "코드 생성 및 추론 최적화",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Competitive Programming",
+          "Post-Training",
+          "Reasoning"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.8,
+        "multilingual": {
+          "ko": {
+            "title": "코딩 경진대회 금메달을 위한 언어 모델 사후 학습 전략",
+            "hook": "IOI 및 ICPC 등 최고난도 코딩 경진대회에서 금메달급 성능을 달성하는 엔드투엔드 사후 학습 방법론을 공개합니다.",
+            "key_takeaways": [
+              "대규모 언어 모델의 추론 능력 극한 테스트",
+              "고난도 코딩 문제를 위한 엔드투엔드 사후 학습 파이프라인 제시",
+              "실제 경진대회 수준의 알고리즘 문제 해결 성능 검증"
+            ]
+          },
+          "en": {
+            "title": "Post-Training Language Models for Gold-Medal Performance in Coding Competitions",
+            "hook": "Discover the end-to-end post-training methodology to achieve gold-medal-level reasoning in elite coding competitions like IOI and ICPC.",
+            "key_takeaways": [
+              "Pushing the boundaries of LLM reasoning in competitive programming",
+              "Comprehensive end-to-end post-training framework for coding tasks",
+              "Substantial performance gains on world-class algorithmic benchmarks"
+            ]
+          },
+          "zh": {
+            "title": "面向编程竞赛夺金表现的语言模型后训练策略",
+            "hook": "揭秘如何在IOI和ICPC等顶级编程竞赛中，通过端到端后训练让大模型实现金牌级别的复杂推理能力。",
+            "key_takeaways": [
+              "探索大模型在竞技编程推理极限中的表现",
+              "提出针对代码任务的端到端后训练流水线",
+              "验证了模型在世界级算法基准测试中的突破性提升"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:15:15.837672+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Competitive Programming",
+        "Post-Training",
+        "Reasoning"
+      ],
+      "title_ko": "코딩 경진대회 금메달을 위한 언어 모델 사후 학습 전략",
+      "title_en": "Post-Training Language Models for Gold-Medal Performance in Coding Competitions",
+      "title_zh": "面向编程竞赛夺金表现的语言模型后训练策略",
+      "hook": "IOI 및 ICPC 등 최고난도 코딩 경진대회에서 금메달급 성능을 달성하는 엔드투엔드 사후 학습 방법론을 공개합니다.",
+      "hook_ko": "IOI 및 ICPC 등 최고난도 코딩 경진대회에서 금메달급 성능을 달성하는 엔드투엔드 사후 학습 방법론을 공개합니다.",
+      "hook_en": "Discover the end-to-end post-training methodology to achieve gold-medal-level reasoning in elite coding competitions like IOI and ICPC.",
+      "hook_zh": "揭秘如何在IOI和ICPC等顶级编程竞赛中，通过端到端后训练让大模型实现金牌级别的复杂推理能力。",
+      "description_ko": "IOI 및 ICPC 등 최고난도 코딩 경진대회에서 금메달급 성능을 달성하는 엔드투엔드 사후 학습 방법론을 공개합니다.",
+      "description_en": "Discover the end-to-end post-training methodology to achieve gold-medal-level reasoning in elite coding competitions like IOI and ICPC.",
+      "description_zh": "揭秘如何在IOI和ICPC等顶级编程竞赛中，通过端到端后训练让大模型实现金牌级别的复杂推理能力。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_measurement_driven_sub_network_selectio",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Measurement-Driven Sub-Network Selection for On-Premise Retrieval-Augmented Factory Agents",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02760v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: On-premise assistants can give factory workers conversational access to machine documentation, but models capable of the task rarely fit shop-floor hardware. We show that after structural compression ...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_measurement_driven_sub_network_selectio",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "엣지 AI 및 모델 압축",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "Sub-Network Selection",
+          "RAG",
+          "Edge AI"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "온프레미스 공장 에이전트를 위한 측정 기반 서브 네트워크 선택",
+            "hook": "하드웨어 제약이 심한 현장 환경에서 대형 RAG 모델을 구동하기 위한 구조적 압축 및 서브 네트워크 최적화 기법입니다.",
+            "key_takeaways": [
+              "공장 현장(Shop-floor) 하드웨어 제약 극복 방안 제시",
+              "측정 기반의 효율적인 서브 네트워크 선택 알고리즘",
+              "기계 문서 접근을 위한 온프레미스 대화형 에이전트 최적화"
+            ]
+          },
+          "en": {
+            "title": "Measurement-Driven Sub-Network Selection for On-Premise Factory Agents",
+            "hook": "Overcome hardware constraints on the shop-floor by leveraging structural compression and measurement-driven sub-network selection for factory RAG agents.",
+            "key_takeaways": [
+              "Addressing hardware limitations for on-premise industrial assistants",
+              "Measurement-driven approach to optimal sub-network selection",
+              "Enabling conversational machine documentation access on edge devices"
+            ]
+          },
+          "zh": {
+            "title": "面向本地工厂智能体的测量驱动子网络选择方法",
+            "hook": "在严苛的边缘硬件上实现工厂RAG助手的创新方案，通过结构化压缩解决大模型落地难题。",
+            "key_takeaways": [
+              "突破工厂车间硬件资源有限的瓶颈",
+              "基于测量指标的高效子网络选择算法",
+              "实现机械文档的本地化智能对话交互"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:15:15.838018+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "Sub-Network Selection",
+        "RAG",
+        "Edge AI"
+      ],
+      "title_ko": "온프레미스 공장 에이전트를 위한 측정 기반 서브 네트워크 선택",
+      "title_en": "Measurement-Driven Sub-Network Selection for On-Premise Factory Agents",
+      "title_zh": "面向本地工厂智能体的测量驱动子网络选择方法",
+      "hook": "하드웨어 제약이 심한 현장 환경에서 대형 RAG 모델을 구동하기 위한 구조적 압축 및 서브 네트워크 최적화 기법입니다.",
+      "hook_ko": "하드웨어 제약이 심한 현장 환경에서 대형 RAG 모델을 구동하기 위한 구조적 압축 및 서브 네트워크 최적화 기법입니다.",
+      "hook_en": "Overcome hardware constraints on the shop-floor by leveraging structural compression and measurement-driven sub-network selection for factory RAG agents.",
+      "hook_zh": "在严苛的边缘硬件上实现工厂RAG助手的创新方案，通过结构化压缩解决大模型落地难题。",
+      "description_ko": "하드웨어 제약이 심한 현장 환경에서 대형 RAG 모델을 구동하기 위한 구조적 압축 및 서브 네트워크 최적화 기법입니다.",
+      "description_en": "Overcome hardware constraints on the shop-floor by leveraging structural compression and measurement-driven sub-network selection for factory RAG agents.",
+      "description_zh": "在严苛的边缘硬件上实现工厂RAG助手的创新方案，通过结构化压缩解决大模型落地难题。"
+    },
+    {
       "inbox_id": "2026-09-03_repo_arxiv_learning_to_fuse_llms_with_ontology_ran",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -14039,6 +15112,295 @@
       "description_zh": "了解如何通过答案验证蒸馏技术，将多个领域的强大能力融合成一个可部署的单一模型。"
     },
     {
+      "inbox_id": "2026-09-03_repo_arxiv_large_language_models_llms_for_telecom_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Large Language Models (LLMs) for Telecom Root Cause Analysis (RCA): A Structured Reasoning Framework for Evidence-Grounded Diagnosis",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02805v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Root cause analysis (RCA) is a critical task in telecom network operations, but diagnosing performance degradations in modern 5G and emerging 6G networks remains challenging due to complex cross-layer...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_large_language_models_llms_for_telecom_",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "LLM 구조화된 추론 및 진단",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Telecom RCA",
+          "Structured Reasoning",
+          "5G/6G"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "통신 근본 원인 분석(RCA)을 위한 LLM: 증거 기반 진단 프레임워크",
+            "hook": "복잡한 5G 및 차세대 6G 네트워크의 성능 저하를 정확하게 진단하기 위한 구조화된 추론 프레임워크를 확인하세요.",
+            "key_takeaways": [
+              "복잡한 크로스 레이어 텔레콤 환경에서의 근본 원인 분석(RCA)",
+              "증거 기반(Evidence-Grounded) 진단을 위한 LLM 활용법",
+              "차세대 5G 및 6G 네트워크 운영 효율화 방안"
+            ]
+          },
+          "en": {
+            "title": "Large Language Models for Telecom Root Cause Analysis (RCA)",
+            "hook": "Tackle performance degradations in complex 5G and 6G networks using a structured, evidence-grounded LLM diagnostic framework.",
+            "key_takeaways": [
+              "Root cause analysis for modern cross-layer telecom operations",
+              "Evidence-grounded reasoning framework for precise diagnosis",
+              "Enhancing operational reliability in 5G and emerging 6G systems"
+            ]
+          },
+          "zh": {
+            "title": "面向电信根因分析(RCA)的大语言模型：基于证据的结构化推理框架",
+            "hook": "利用结构化大模型推理框架，精准诊断现代5G及新兴6G网络中的复杂跨层性能衰退问题。",
+            "key_takeaways": [
+              "解决现代跨层电信网络运营中的根因分析难题",
+              "构建基于证据支撑的AI诊断推理框架",
+              "提升5G与6G蜂窝网络运维的智能化水平"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:15:15.838315+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Telecom RCA",
+        "Structured Reasoning",
+        "5G/6G"
+      ],
+      "title_ko": "통신 근본 원인 분석(RCA)을 위한 LLM: 증거 기반 진단 프레임워크",
+      "title_en": "Large Language Models for Telecom Root Cause Analysis (RCA)",
+      "title_zh": "面向电信根因分析(RCA)的大语言模型：基于证据的结构化推理框架",
+      "hook": "복잡한 5G 및 차세대 6G 네트워크의 성능 저하를 정확하게 진단하기 위한 구조화된 추론 프레임워크를 확인하세요.",
+      "hook_ko": "복잡한 5G 및 차세대 6G 네트워크의 성능 저하를 정확하게 진단하기 위한 구조화된 추론 프레임워크를 확인하세요.",
+      "hook_en": "Tackle performance degradations in complex 5G and 6G networks using a structured, evidence-grounded LLM diagnostic framework.",
+      "hook_zh": "利用结构化大模型推理框架，精准诊断现代5G及新兴6G网络中的复杂跨层性能衰退问题。",
+      "description_ko": "복잡한 5G 및 차세대 6G 네트워크의 성능 저하를 정확하게 진단하기 위한 구조화된 추론 프레임워크를 확인하세요.",
+      "description_en": "Tackle performance degradations in complex 5G and 6G networks using a structured, evidence-grounded LLM diagnostic framework.",
+      "description_zh": "利用结构化大模型推理框架，精准诊断现代5G及新兴6G网络中的复杂跨层性能衰退问题。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_incremental_pooled_llm_evaluation_for_c",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02745v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Selecting a retrieval model for a production RAG system requires reliable comparative evaluation, but obtaining relevance judgments at scale is expensive and difficult to repeat as new candidate syste...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라",
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_incremental_pooled_llm_evaluation_for_c",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "RAG 및 검색 모델 평가",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Retrieval Model Selection",
+          "Incremental Pooled Evaluation",
+          "Cost-Effective"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.4,
+        "multilingual": {
+          "ko": {
+            "title": "비용 효율적인 검색 모델 선택을 위한 증분 풀링형 LLM 평가",
+            "hook": "프로덕션 RAG 시스템 구축 시 막대한 비용이 드는 관련성 판단 문제를 해결하는 증분 평가 기법을 소개합니다.",
+            "key_takeaways": [
+              "프로덕션 RAG 시스템을 위한 신뢰할 수 있는 검색 모델 비교 평가",
+              "대규모 관련성 판단(Relevance Judgment) 비용 절감",
+              "새로운 후보 시스템 추가 시 반복 평가의 한계 극복"
+            ]
+          },
+          "en": {
+            "title": "Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
+            "hook": "Cut down the high costs of relevance judgments and streamline comparative retrieval model selection for production RAG systems.",
+            "key_takeaways": [
+              "Reliable comparative evaluation for production RAG retrieval models",
+              "Cost-effective alternative to large-scale manual relevance labeling",
+              "Handling frequent candidate updates without prohibitive evaluation costs"
+            ]
+          },
+          "zh": {
+            "title": "面向高性价比检索模型选择的增量池化LLM评估法",
+            "hook": "降低生产级RAG系统中相关性标注的高昂成本，实现高效且可扩展的检索模型对比评估。",
+            "key_takeaways": [
+              "保障生产环境RAG系统检索模型选择的准确性",
+              "大幅降低大规模相关性判断的人力与计算开销",
+              "轻松应对新候选系统不断迭代带来的评估难题"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:15:15.838580+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Retrieval Model Selection",
+        "Incremental Pooled Evaluation",
+        "Cost-Effective"
+      ],
+      "title_ko": "비용 효율적인 검색 모델 선택을 위한 증분 풀링형 LLM 평가",
+      "title_en": "Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
+      "title_zh": "面向高性价比检索模型选择的增量池化LLM评估法",
+      "hook": "프로덕션 RAG 시스템 구축 시 막대한 비용이 드는 관련성 판단 문제를 해결하는 증분 평가 기법을 소개합니다.",
+      "hook_ko": "프로덕션 RAG 시스템 구축 시 막대한 비용이 드는 관련성 판단 문제를 해결하는 증분 평가 기법을 소개합니다.",
+      "hook_en": "Cut down the high costs of relevance judgments and streamline comparative retrieval model selection for production RAG systems.",
+      "hook_zh": "降低生产级RAG系统中相关性标注的高昂成本，实现高效且可扩展的检索模型对比评估。",
+      "description_ko": "프로덕션 RAG 시스템 구축 시 막대한 비용이 드는 관련성 판단 문제를 해결하는 증분 평가 기법을 소개합니다.",
+      "description_en": "Cut down the high costs of relevance judgments and streamline comparative retrieval model selection for production RAG systems.",
+      "description_zh": "降低生产级RAG系统中相关性标注的高昂成本，实现高效且可扩展的检索模型对比评估。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_hyperstyler_low_resource_authorship_sty",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: HyperStyler: Low-resource Authorship Style Transfer via Context-aware Style Navigation and Hypernetworks",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02772v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Low-resource authorship style transfer (LAST) aims to rewrite text into the style of an arbitrary target author using only a few reference examples while preserving the original meaning. Existing meth...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_hyperstyler_low_resource_authorship_sty",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "자연어 처리 및 스타일 변환",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Authorship Style Transfer",
+          "Hypernetworks",
+          "Context-aware"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.1,
+        "multilingual": {
+          "ko": {
+            "title": "하이퍼스타일러: 컨텍스트 인식 스타일 내비게이션과 하이퍼네트워크 기반 저자원 작가 스타일 변환",
+            "hook": "소량의 레퍼런스 예제만으로 원문의 의미를 보존하면서 특정 작가의 문체로 텍스트를 재작성하는 새로운 기법입니다.",
+            "key_takeaways": [
+              "저자원 환경에서의 작가 스타일 변환(LAST) 태스크 혁신",
+              "컨텍스트 인식 스타일 내비게이션 메커니즘 도입",
+              "하이퍼네트워크(Hypernetworks)를 활용한 원문 의미 보존 기술"
+            ]
+          },
+          "en": {
+            "title": "HyperStyler: Low-resource Authorship Style Transfer via Hypernetworks",
+            "hook": "Rewrite text in any author's unique style using just a few reference examples while preserving semantic meaning.",
+            "key_takeaways": [
+              "Advancing low-resource authorship style transfer (LAST) techniques",
+              "Context-aware style navigation for precise author imitation",
+              "Preserving original semantics using advanced hypernetwork architectures"
+            ]
+          },
+          "zh": {
+            "title": "HyperStyler：基于上下文感知样式导航与超网络的低资源作者风格转换",
+            "hook": "仅需少量参考示例，即可在保持原意的前提下将文本改写为任意目标作家的文体风格。",
+            "key_takeaways": [
+              "突破低资源作者风格转换（LAST）的技术瓶颈",
+              "引入上下文感知的样式导航机制",
+              "利用超网络架构完美平衡文体模仿与语义保留"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:15:15.838837+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Authorship Style Transfer",
+        "Hypernetworks",
+        "Context-aware"
+      ],
+      "title_ko": "하이퍼스타일러: 컨텍스트 인식 스타일 내비게이션과 하이퍼네트워크 기반 저자원 작가 스타일 변환",
+      "title_en": "HyperStyler: Low-resource Authorship Style Transfer via Hypernetworks",
+      "title_zh": "HyperStyler：基于上下文感知样式导航与超网络的低资源作者风格转换",
+      "hook": "소량의 레퍼런스 예제만으로 원문의 의미를 보존하면서 특정 작가의 문체로 텍스트를 재작성하는 새로운 기법입니다.",
+      "hook_ko": "소량의 레퍼런스 예제만으로 원문의 의미를 보존하면서 특정 작가의 문체로 텍스트를 재작성하는 새로운 기법입니다.",
+      "hook_en": "Rewrite text in any author's unique style using just a few reference examples while preserving semantic meaning.",
+      "hook_zh": "仅需少量参考示例，即可在保持原意的前提下将文本改写为任意目标作家的文体风格。",
+      "description_ko": "소량의 레퍼런스 예제만으로 원문의 의미를 보존하면서 특정 작가의 문체로 텍스트를 재작성하는 새로운 기법입니다.",
+      "description_en": "Rewrite text in any author's unique style using just a few reference examples while preserving semantic meaning.",
+      "description_zh": "仅需少量参考示例，即可在保持原意的前提下将文本改写为任意目标作家的文体风格。"
+    },
+    {
       "inbox_id": "2026-09-03_repo_arxiv_how_llms_build_fictional_worlds_setting",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -14137,6 +15499,105 @@
       "description_zh": "深入分析大语言模型在创意叙事中采用的世界构建策略及其可量化维度。"
     },
     {
+      "inbox_id": "2026-09-03_repo_arxiv_hipoly_a_hierarchical_polymer_native_ai",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: HiPoly: a hierarchical polymer-native AI framework for property prediction and generative design",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02746v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Polymeric materials are central to modern technologies, with applications ranging from energy to health and transportation. Although AI has made significant advances in materials discovery, the hierar...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_from_reweighting_to_rewriting_unlocking",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: From Reweighting to Rewriting: Unlocking the Intervention Effects of Influential Samples in Training Data Attribution",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02771v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Training data attribution (TDA) aims to identify training examples that shape model behavior, but its intervention value depends on both which examples are selected and how they are modified. Influenc...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_frb100_40_after_two_decades_an_optimali",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: frb100-40 After Two Decades: An Optimality Certificate and a Preregistered Search Study",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02804v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: For more than 20 years, the Model-RB benchmark frb100-40 remained an open challenge; since 2014, its public record had stood at 99 of 100 variables. We give a directly checkable 100-vertex independent...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-03_repo_arxiv_fine_grained_anomaly_perception_in_wild",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -14233,6 +15694,139 @@
       "description_ko": "숏폼 및 소셜 미디어의 이미지 향상 과정에서 발생하는 시각적 이상 현상을 감지하는 새로운 프레임워크를 만나보세요.",
       "description_en": "Discover a new framework for detecting fine-grained visual anomalies introduced during UGC image enhancement.",
       "description_zh": "探索用于检测UGC图像增强过程中产生的细粒度视觉异常的新型框架。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_earlyeval_cheaper_agent_evaluation_via_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: EarlyEval: Cheaper Agent Evaluation via Early Outcome Prediction",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02783v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Evaluating LLM agents is essential for guiding their development, yet it has grown prohibitively expensive: a single pass of a frontier model over an agentic benchmark can cost hundreds to thousands o...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_dutch_books_for_language_models",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Dutch Books for Language Models",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02797v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: People increasingly use language models to support life decisions. Many such decisions involve a probabilistic forecast: How likely is a major life event, a natural disaster, or an economic outcome? U...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_discriminative_world_models_for_web_age",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Discriminative World Models for Web Agents",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02885v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Recent web agents use world models for test-time action selection by sampling candidate actions, predicting the resulting web states, and ranking them with a ranker model or a Process Reward Model (PR...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_discosign_discourse_aware_text_to_sign_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02796v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Sign language processing systems have traditionally operated at the sentence level, ignoring critical discourse phenomena fundamental to sign language comprehension. We introduce DiscoSign, a computat...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_deepaffinity_long_term_aspect_preferenc",
@@ -14716,6 +16310,39 @@
       "description_ko": "추상적 개념을 시각화하는 T2I 모델의 한계를 측정하는 새로운 벤치마크 연구를 확인하세요.",
       "description_en": "Discover a new benchmark evaluating how text-to-image models handle abstract visual metaphors.",
       "description_zh": "探索评估文生图模型处理抽象视觉隐喻能力的全新基准测试研究。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_bilevel_coordinated_reflection_a_game_t",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Bilevel Coordinated Reflection: A Game-Theoretic Approach to Multi-Agent LLM Systems",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02750v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Multi-agent LLM systems commonly use an orchestrator to decompose a task for a team of workers and then improve through textual reflection. Despite strong empirical results, these systems lack a unifi...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_automated_vulnerability_injection_in_sm",

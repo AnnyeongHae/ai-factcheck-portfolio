@@ -1,0 +1,97 @@
+{
+  "inbox_id": "2026-09-03_repo_arxiv_incremental_pooled_llm_evaluation_for_c",
+  "harvested_date": "2026-09-03",
+  "created_at": "2026-09-03",
+  "updated_at": "2026-09-03",
+  "title": "ArXiv: Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
+  "source_platform": "ArXiv Preprint",
+  "source_url": "http://arxiv.org/abs/2609.02745v1",
+  "type": "repo",
+  "category_type": "TECH",
+  "description": "Abstract: Selecting a retrieval model for a production RAG system requires reliable comparative evaluation, but obtaining relevance judgments at scale is expensive and difficult to repeat as new candidate syste...",
+  "viral_metric": "ArXiv Primary Paper",
+  "metric_tracking": {
+    "initial": {
+      "value": 0,
+      "display": "ArXiv Primary Paper",
+      "recorded_at": "2026-09-03"
+    },
+    "latest": {
+      "value": 0,
+      "display": "ArXiv Primary Paper",
+      "updated_at": "2026-09-03"
+    },
+    "delta": 0,
+    "delta_display": "+0",
+    "growth_rate_pct": 0.0,
+    "is_spiking": false
+  },
+  "matched_user_domains": [
+    "엔터프라이즈 RAG & 문서 파싱 인프라",
+    "정량 데이터 분석 & 벤치마크 감사"
+  ],
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_incremental_pooled_llm_evaluation_for_c",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "RAG 및 검색 모델 평가",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Retrieval Model Selection",
+      "Incremental Pooled Evaluation",
+      "Cost-Effective"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.4,
+    "multilingual": {
+      "ko": {
+        "title": "비용 효율적인 검색 모델 선택을 위한 증분 풀링형 LLM 평가",
+        "hook": "프로덕션 RAG 시스템 구축 시 막대한 비용이 드는 관련성 판단 문제를 해결하는 증분 평가 기법을 소개합니다.",
+        "key_takeaways": [
+          "프로덕션 RAG 시스템을 위한 신뢰할 수 있는 검색 모델 비교 평가",
+          "대규모 관련성 판단(Relevance Judgment) 비용 절감",
+          "새로운 후보 시스템 추가 시 반복 평가의 한계 극복"
+        ]
+      },
+      "en": {
+        "title": "Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
+        "hook": "Cut down the high costs of relevance judgments and streamline comparative retrieval model selection for production RAG systems.",
+        "key_takeaways": [
+          "Reliable comparative evaluation for production RAG retrieval models",
+          "Cost-effective alternative to large-scale manual relevance labeling",
+          "Handling frequent candidate updates without prohibitive evaluation costs"
+        ]
+      },
+      "zh": {
+        "title": "面向高性价比检索模型选择的增量池化LLM评估法",
+        "hook": "降低生产级RAG系统中相关性标注的高昂成本，实现高效且可扩展的检索模型对比评估。",
+        "key_takeaways": [
+          "保障生产环境RAG系统检索模型选择的准确性",
+          "大幅降低大规模相关性判断的人力与计算开销",
+          "轻松应对新候选系统不断迭代带来的评估难题"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T04:15:15.838580+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Retrieval Model Selection",
+    "Incremental Pooled Evaluation",
+    "Cost-Effective"
+  ],
+  "title_ko": "비용 효율적인 검색 모델 선택을 위한 증분 풀링형 LLM 평가",
+  "title_en": "Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
+  "title_zh": "面向高性价比检索模型选择的增量池化LLM评估法",
+  "hook": "프로덕션 RAG 시스템 구축 시 막대한 비용이 드는 관련성 판단 문제를 해결하는 증분 평가 기법을 소개합니다.",
+  "hook_ko": "프로덕션 RAG 시스템 구축 시 막대한 비용이 드는 관련성 판단 문제를 해결하는 증분 평가 기법을 소개합니다.",
+  "hook_en": "Cut down the high costs of relevance judgments and streamline comparative retrieval model selection for production RAG systems.",
+  "hook_zh": "降低生产级RAG系统中相关性标注的高昂成本，实现高效且可扩展的检索模型对比评估。",
+  "description_ko": "프로덕션 RAG 시스템 구축 시 막대한 비용이 드는 관련성 판단 문제를 해결하는 증분 평가 기법을 소개합니다.",
+  "description_en": "Cut down the high costs of relevance judgments and streamline comparative retrieval model selection for production RAG systems.",
+  "description_zh": "降低生产级RAG系统中相关性标注的高昂成本，实现高效且可扩展的检索模型对比评估。"
+}
