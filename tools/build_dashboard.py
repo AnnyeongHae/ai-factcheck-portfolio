@@ -12,6 +12,7 @@ import json
 import os
 import sys
 import time
+import datetime
 
 # Ensure UTF-8
 if sys.stdout.encoding != 'utf-8':
@@ -169,15 +170,25 @@ def build_dashboard():
 
     news_items = [it for it in inbox_items if is_news_item(it)]
     model_items = [it for it in inbox_items if is_model_item(it) and not is_news_item(it)]
-    # Pure unverified inbox candidates (excludes already fact-checked & promoted dossiers)
+    # All active unverified inbox candidates (only excludes already verified & promoted dossiers)
     clean_inbox_items = [
         it for it in inbox_items 
-        if not is_model_item(it) and not is_news_item(it) and not is_already_verified(it)
+        if not is_already_verified(it)
     ]
 
+    # Calculate Verdict & Quality Statistics
+    verified_true_count = len([c for c in cases if c.get("verdict") == "VERIFIED_TRUE"])
+    half_true_count = len([c for c in cases if "HALF" in (c.get("verdict") or "")])
+    gamed_count = len([c for c in cases if "GAMED" in (c.get("verdict") or "") or "EXAGGERATED" in (c.get("verdict") or "")])
+    avg_conf = round(sum(c.get("confidence_score", 90.0) for c in cases) / max(1, len(cases)), 1)
+
     summary_data = {
-        "generated_at": "2026-09-02",
+        "generated_at": datetime.date.today().strftime("%Y-%m-%d"),
         "total_cases": total_cases,
+        "verified_true_count": verified_true_count,
+        "half_true_count": half_true_count,
+        "gamed_count": gamed_count,
+        "avg_confidence": avg_conf,
         "models_total_count": len(model_items),
         "news_total_count": len(news_items),
         "inbox_total_count": len(clean_inbox_items),
@@ -458,9 +469,96 @@ def generate_html(data):
 
         <div class="text-right shrink-0 hidden md:block border-l border-surface-border pl-6">
           <div class="text-xs text-ink-muted font-mono font-medium" id="heroUpdateLabel">LAST AUDITED</div>
-          <div class="text-base font-bold text-ink-primary font-mono">2026-09-02</div>
+          <div class="text-base font-bold text-ink-primary font-mono">{data['generated_at']}</div>
           <div class="text-[11px] text-emerald-700 font-semibold mt-0.5" id="heroAuditCount">{data['total_cases']}개 기술 검증 완료</div>
         </div>
+      </div>
+
+      <!-- 🌟 REAL-TIME TELEMETRY & INTELLIGENCE KPI OVERVIEW (실시간 대시보드 종합 통계) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+        
+        <!-- Metric 1: Verified Dossiers -->
+        <div onclick="switchView('portfolio')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-emerald-500 hover:shadow-md transition cursor-pointer group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-ink-muted group-hover:text-emerald-700 transition flex items-center gap-1.5" id="statLabelVerified">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+              <span>공식 기술 검증</span>
+            </span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              Avg {data['avg_confidence']}%
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValVerified">{data['total_cases']}</span>
+            <span class="text-xs text-ink-muted font-medium">Dossiers</span>
+          </div>
+          <div class="mt-2 text-[11px] text-ink-secondary flex items-center gap-2 font-mono">
+            <span class="text-emerald-700 font-bold" title="사실 검증">● {data['verified_true_count']} 사실</span>
+            <span class="text-amber-700 font-bold" title="절반의 사실">● {data['half_true_count']} 부분</span>
+            <span class="text-rose-700 font-bold" title="과장/왜곡">● {data['gamed_count']} 과장</span>
+          </div>
+        </div>
+
+        <!-- Metric 2: Live Harvested Inbox -->
+        <div onclick="switchView('inbox')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-indigo-500 hover:shadow-md transition cursor-pointer group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-ink-muted group-hover:text-indigo-600 transition flex items-center gap-1.5" id="statLabelInbox">
+              <i data-lucide="inbox" class="w-4 h-4 text-indigo-600"></i>
+              <span>수집 인박스</span>
+            </span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+              ⚡ 3h 주기 KST
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValInbox">{data['inbox_total_count']}</span>
+            <span class="text-xs text-ink-muted font-medium">Candidates</span>
+          </div>
+          <p class="mt-2 text-[11px] text-ink-secondary truncate" id="statDescInbox">
+            HN · GeekNews · GitHub · HF 24/7 수집
+          </p>
+        </div>
+
+        <!-- Metric 3: Trending AI Models -->
+        <div onclick="switchView('models')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-purple-500 hover:shadow-md transition cursor-pointer group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-ink-muted group-hover:text-purple-600 transition flex items-center gap-1.5" id="statLabelModels">
+              <i data-lucide="cpu" class="w-4 h-4 text-purple-600"></i>
+              <span>추적 AI 모델</span>
+            </span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-purple-50 text-purple-700 border border-purple-200">
+              SOTA 가중치
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValModels">{data['models_total_count']}</span>
+            <span class="text-xs text-ink-muted font-medium">Models</span>
+          </div>
+          <p class="mt-2 text-[11px] text-ink-secondary truncate" id="statDescModels">
+            MoE, VLM, 추론 특화 오픈 가중치
+          </p>
+        </div>
+
+        <!-- Metric 4: AI News & Industry Reports -->
+        <div onclick="switchView('news')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-amber-500 hover:shadow-md transition cursor-pointer group">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-ink-muted group-hover:text-amber-700 transition flex items-center gap-1.5" id="statLabelNews">
+              <i data-lucide="newspaper" class="w-4 h-4 text-amber-600"></i>
+              <span>AI 테크 동향</span>
+            </span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-50 text-amber-800 border border-amber-200">
+              글로벌 토픽
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValNews">{data['news_total_count']}</span>
+            <span class="text-xs text-ink-muted font-medium">Articles</span>
+          </div>
+          <p class="mt-2 text-[11px] text-ink-secondary truncate" id="statDescNews">
+            CVE 취약점, 인프라 장애, 아키텍처 토론
+          </p>
+        </div>
+
       </div>
 
 
@@ -1344,8 +1442,16 @@ def generate_html(data):
       safeSetText('heroBadge', t.heroBadge);
       safeSetText('heroMainTitle', t.heroMainTitle);
       safeSetHtml('heroMainDesc', t.heroMainDesc);
-      safeSetText('heroUpdateLabel', t.heroUpdateLabel);
       safeSetText('heroAuditCount', t.heroAuditCount);
+
+      // Dashboard KPI Telemetry
+      safeSetText('statLabelVerified', lang === 'KO' ? '공식 기술 검증' : (lang === 'ZH' ? '官方技术核查' : 'Verified Fact-Checks'));
+      safeSetText('statLabelInbox', lang === 'KO' ? '수집 인박스' : (lang === 'ZH' ? '采集收件箱' : 'Harvested Inbox'));
+      safeSetText('statLabelModels', lang === 'KO' ? '추적 AI 모델' : (lang === 'ZH' ? '追踪 AI 模型' : 'Tracked AI Models'));
+      safeSetText('statLabelNews', lang === 'KO' ? 'AI 테크 동향' : (lang === 'ZH' ? 'AI 科技动态' : 'Tech Intelligence'));
+      safeSetText('statDescInbox', lang === 'KO' ? 'HN · GeekNews · GitHub · HF 24/7 수집' : (lang === 'ZH' ? 'HN · GeekNews · GitHub · HF 全天候采集' : 'HN · GeekNews · GitHub · HF 24/7 Ingestion'));
+      safeSetText('statDescModels', lang === 'KO' ? 'MoE, VLM, 추론 특화 오픈 가중치' : (lang === 'ZH' ? 'MoE、VLM与推理优化开源权重' : 'MoE, VLM & Reasoning Open Weights'));
+      safeSetText('statDescNews', lang === 'KO' ? 'CVE 취약점, 인프라 장애, 아키텍처 토론' : (lang === 'ZH' ? 'CVE 漏洞、基础设施故障与架构实践' : 'CVEs, Infra Outages & Architecture Posts'));
 
 
 
