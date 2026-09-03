@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_mechanism_design_for_alignment_and_cont",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Mechanism Design",
+      "AI Alignment",
+      "Agent Control"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.9,
+    "multilingual": {
+      "ko": {
+        "title": "정렬 및 통제를 위한 메커니즘 디자인",
+        "hook": "선호도와 능력이 알려지지 않은 AI 에이전트가 사용자를 대신해 안전하게 행동하도록 돕는 프레임워크입니다.",
+        "key_takeaways": [
+          "정렬 및 능력이 불확실한 AI 에이전트를 위한 프레임워크 개발",
+          "사용자를 대변하여 올바른 행동을 유도하는 메커니즘 설계",
+          "AI 통제력 확보를 위한 이론적 접근 방식 제공"
+        ]
+      },
+      "en": {
+        "title": "Mechanism Design for Alignment and Control",
+        "hook": "Explore a formal framework for designing mechanisms that ensure unknown AI agents act safely on our behalf.",
+        "key_takeaways": [
+          "Develops a framework for AI agents with unknown alignment and capabilities",
+          "Designs mechanisms to incentivize agents to act in our best interest",
+          "Provides a theoretical approach to securing reliable AI control"
+        ]
+      },
+      "zh": {
+        "title": "用于对齐与控制的机制设计",
+        "hook": "构建一个机制设计框架，确保对齐偏好和能力未知的AI智能体能够代表人类安全行事。",
+        "key_takeaways": [
+          "为对齐与能力未知的AI智能体开发全新框架",
+          "设计引导智能体代表用户正确行事的机制",
+          "为确保AI可控性提供坚实的理论方法"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:26:57.504137+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Mechanism Design",
+    "AI Alignment",
+    "Agent Control"
+  ],
+  "title_ko": "정렬 및 통제를 위한 메커니즘 디자인",
+  "title_en": "Mechanism Design for Alignment and Control",
+  "title_zh": "用于对齐与控制的机制设计",
+  "hook": "선호도와 능력이 알려지지 않은 AI 에이전트가 사용자를 대신해 안전하게 행동하도록 돕는 프레임워크입니다.",
+  "hook_ko": "선호도와 능력이 알려지지 않은 AI 에이전트가 사용자를 대신해 안전하게 행동하도록 돕는 프레임워크입니다.",
+  "hook_en": "Explore a formal framework for designing mechanisms that ensure unknown AI agents act safely on our behalf.",
+  "hook_zh": "构建一个机制设计框架，确保对齐偏好和能力未知的AI智能体能够代表人类安全行事。",
+  "description_ko": "선호도와 능력이 알려지지 않은 AI 에이전트가 사용자를 대신해 안전하게 행동하도록 돕는 프레임워크입니다.",
+  "description_en": "Explore a formal framework for designing mechanisms that ensure unknown AI agents act safely on our behalf.",
+  "description_zh": "构建一个机制设计框架，确保对齐偏好和能力未知的AI智能体能够代表人类安全行事。"
 }

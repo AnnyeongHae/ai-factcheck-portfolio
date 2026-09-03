@@ -29,5 +29,69 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_huggingface_model_sentence_transformersall_mi",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "MiniLM",
+    "category": "텍스트 임베딩 및 유사도",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Sentence-Transformers",
+      "MiniLM",
+      "Embedding"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "Hugging Face 모델: sentence-transformers/all-MiniLM-L6-v2",
+        "hook": "검증된 경량 텍스트 임베딩 모델의 다운로드 및 트렌드 현황을 확인하세요.",
+        "key_takeaways": [
+          "누적 다운로드 수가 2억 5천만 회를 넘은 초인기 임베딩 모델",
+          "문장 유사도 및 검색 시스템 구축 시 가볍고 빠른 성능 제공",
+          "다양한 NLP 파이프라인에서 벤치마크 기준점으로 널리 활용"
+        ]
+      },
+      "en": {
+        "title": "Hugging Face Model: sentence-transformers/all-MiniLM-L6-v2",
+        "hook": "Explore the download trends and ecosystem impact of this highly reliable lightweight text embedding model.",
+        "key_takeaways": [
+          "Surpassed 250 million total downloads on Hugging Face",
+          "Provides fast and lightweight sentence similarity and retrieval performance",
+          "Widely adopted as a standard baseline across various NLP pipelines"
+        ]
+      },
+      "zh": {
+        "title": "Hugging Face 模型：sentence-transformers/all-MiniLM-L6-v2",
+        "hook": "了解这款备受推崇的轻量级文本嵌入模型的下载趋势与应用生态。",
+        "key_takeaways": [
+          "在 Hugging Face 上的累计下载量已突破 2.5 亿次",
+          "为句子相似度和检索系统提供轻量且高速的性能",
+          "被广泛用作各类 NLP 管道的标准基准"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:26:32.603019+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Sentence-Transformers",
+    "MiniLM",
+    "Embedding"
+  ],
+  "title_ko": "Hugging Face 모델: sentence-transformers/all-MiniLM-L6-v2",
+  "title_en": "Hugging Face Model: sentence-transformers/all-MiniLM-L6-v2",
+  "title_zh": "Hugging Face 模型：sentence-transformers/all-MiniLM-L6-v2",
+  "hook": "검증된 경량 텍스트 임베딩 모델의 다운로드 및 트렌드 현황을 확인하세요.",
+  "hook_ko": "검증된 경량 텍스트 임베딩 모델의 다운로드 및 트렌드 현황을 확인하세요.",
+  "hook_en": "Explore the download trends and ecosystem impact of this highly reliable lightweight text embedding model.",
+  "hook_zh": "了解这款备受推崇的轻量级文本嵌入模型的下载趋势与应用生态。",
+  "description_ko": "검증된 경량 텍스트 임베딩 모델의 다운로드 및 트렌드 현황을 확인하세요.",
+  "description_en": "Explore the download trends and ecosystem impact of this highly reliable lightweight text embedding model.",
+  "description_zh": "了解这款备受推崇的轻量级文本嵌入模型的下载趋势与应用生态。",
+  "model_family": "MiniLM"
 }

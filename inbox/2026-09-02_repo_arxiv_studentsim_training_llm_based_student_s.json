@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_studentsim_training_llm_based_student_s",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 튜터 및 시뮬레이션",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "StudentSim",
+      "LLM Simulation",
+      "AI Tutors"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "StudentSim: LLM 기반 학생 시뮬레이터 학습 방법론",
+        "hook": "맞춤형 AI 튜터 개발을 위해 학생의 반응을 시뮬레이션하는 LLM 기반 학습 프레임워크입니다.",
+        "key_takeaways": [
+          "학생의 강점, 약점, 선호도에 맞춘 AI 튜터 평가의 한계 극복",
+          "LLM 기반 학생 시뮬레이터(StudentSim)를 통한 효율적인 데이터 수집",
+          "교육용 AI 및 맞춤형 학습 피드백 최적화 연구"
+        ]
+      },
+      "en": {
+        "title": "StudentSim: Training LLM-based Student Simulators",
+        "hook": "A framework for training LLM student simulators to optimize personalized AI tutoring.",
+        "key_takeaways": [
+          "Addresses the high cost and scarcity of student-tutor interaction data",
+          "Trains LLM-based student simulators reflecting diverse strengths and weaknesses",
+          "Enables scalable and adaptive educational AI development"
+        ]
+      },
+      "zh": {
+        "title": "StudentSim：训练基于LLM的学生模拟器",
+        "hook": "利用大语言模型构建学生模拟器，以解决个性化AI导师训练数据稀缺的问题。",
+        "key_takeaways": [
+          "应对传统学生-导师互动数据收集成本高昂的痛点",
+          "训练能够反映不同学生优势与劣势的LLM模拟器",
+          "推动自适应教育AI的高效开发与测试"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:26:44.615247+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "StudentSim",
+    "LLM Simulation",
+    "AI Tutors"
+  ],
+  "title_ko": "StudentSim: LLM 기반 학생 시뮬레이터 학습 방법론",
+  "title_en": "StudentSim: Training LLM-based Student Simulators",
+  "title_zh": "StudentSim：训练基于LLM的学生模拟器",
+  "hook": "맞춤형 AI 튜터 개발을 위해 학생의 반응을 시뮬레이션하는 LLM 기반 학습 프레임워크입니다.",
+  "hook_ko": "맞춤형 AI 튜터 개발을 위해 학생의 반응을 시뮬레이션하는 LLM 기반 학습 프레임워크입니다.",
+  "hook_en": "A framework for training LLM student simulators to optimize personalized AI tutoring.",
+  "hook_zh": "利用大语言模型构建学生模拟器，以解决个性化AI导师训练数据稀缺的问题。",
+  "description_ko": "맞춤형 AI 튜터 개발을 위해 학생의 반응을 시뮬레이션하는 LLM 기반 학습 프레임워크입니다.",
+  "description_en": "A framework for training LLM student simulators to optimize personalized AI tutoring.",
+  "description_zh": "利用大语言模型构建学生模拟器，以解决个性化AI导师训练数据稀缺的问题。"
 }

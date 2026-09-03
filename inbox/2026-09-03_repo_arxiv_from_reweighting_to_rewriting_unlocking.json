@@ -35,62 +35,62 @@
     "source_lang": "EN",
     "type_classification": "TECH",
     "model_family": "Standalone",
-    "category": "훈련 데이터 기여도 분석 및 모델 최적화",
+    "category": "모델 학습 데이터 분석 및 최적화",
     "programming_lang": "Python",
     "root_keywords": [
       "Training Data Attribution",
       "Data Rewriting",
-      "Model Behavior Intervention"
+      "Model Intervention"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.2,
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "가중치 재조정에서 데이터 재작성으로: 훈련 데이터 기여도 분석의 개입 효과 극대화",
-        "hook": "단순 가중치 조정을 넘어 데이터 수정으로 모델 행동을 정밀 제어하는 새로운 패러다임을 만나보세요.",
+        "title": "가중치 재조정에서 데이터 재작성으로: 학습 데이터 기여도 분석에서의 개입 효과 극대화",
+        "hook": "단순한 데이터 가중치 조정을 넘어, 데이터 재작성을 통해 모델 행동을 정밀하게 제어하는 새로운 접근법입니다.",
         "key_takeaways": [
-          "훈련 데이터 기여도 분석(TDA)의 한계 극복 방안 제시",
-          "샘플 선택을 넘어선 데이터 수정(rewriting)의 중요성 강조",
-          "영향력 있는 데이터 샘플의 개입 효과 분석"
+          "학습 데이터 기여도(TDA) 분석의 한계를 극복하기 위한 데이터 재작성 방법론 제시",
+          "샘플 선택을 넘어선 데이터 수정이 모델 개입 효과에 미치는 영향 분석",
+          "LLM 및 머신러닝 모델의 정밀한 데이터 중심 디버깅 가능"
         ]
       },
       "en": {
-        "title": "From Reweighting to Rewriting: Unlocking Intervention Effects in Training Data Attribution",
-        "hook": "Unlock precise model behavior control by moving beyond sample reweighting to direct data rewriting in TDA.",
+        "title": "From Reweighting to Rewriting: Unlocking the Intervention Effects of Influential Samples in Training Data Attribution",
+        "hook": "Move beyond simple sample reweighting—learn how rewriting training data unlocks precise control over model behavior.",
         "key_takeaways": [
-          "Addresses limitations in traditional Training Data Attribution (TDA)",
-          "Highlights the power of data rewriting over simple reweighting",
-          "Analyzes intervention effects of influential training samples"
+          "Proposes data rewriting to overcome limitations in training data attribution (TDA)",
+          "Investigates how modifying influential examples impacts model intervention value",
+          "Provides robust data-centric debugging strategies for deep learning models"
         ]
       },
       "zh": {
-        "title": "从重新加权到重写：解锁训练数据归因中影响力样本的干预效果",
-        "hook": "超越简单的样本权重调整，通过数据重写精确控制模型行为的全新范式。",
+        "title": "从重新加权到重写：释放训练数据归因中影响力样本的干预效果",
+        "hook": "超越单纯的样本权重调整，通过重写训练数据来实现对模型行为的精准干预与控制。",
         "key_takeaways": [
-          "克服传统训练数据归因（TDA）方法的局限性",
-          "强调数据重写（rewriting）相较于重新加权的重要价值",
-          "深入分析影响力训练样本的干预效果"
+          "提出超越传统数据加权的“数据重写”新范式以改进训练数据归因(TDA)",
+          "探讨修改具影响力样本的具体方式如何影响模型干预效果",
+          "为面向数据的深度学习模型调试与优化提供全新理论支撑"
         ]
       }
     },
     "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:23:31.919453+00:00"
+    "enriched_at": "2026-09-03T13:25:36.373736+09:00"
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Training Data Attribution",
     "Data Rewriting",
-    "Model Behavior Intervention"
+    "Model Intervention"
   ],
-  "title_ko": "가중치 재조정에서 데이터 재작성으로: 훈련 데이터 기여도 분석의 개입 효과 극대화",
-  "title_en": "From Reweighting to Rewriting: Unlocking Intervention Effects in Training Data Attribution",
-  "title_zh": "从重新加权到重写：解锁训练数据归因中影响力样本的干预效果",
-  "hook": "단순 가중치 조정을 넘어 데이터 수정으로 모델 행동을 정밀 제어하는 새로운 패러다임을 만나보세요.",
-  "hook_ko": "단순 가중치 조정을 넘어 데이터 수정으로 모델 행동을 정밀 제어하는 새로운 패러다임을 만나보세요.",
-  "hook_en": "Unlock precise model behavior control by moving beyond sample reweighting to direct data rewriting in TDA.",
-  "hook_zh": "超越简单的样本权重调整，通过数据重写精确控制模型行为的全新范式。",
-  "description_ko": "단순 가중치 조정을 넘어 데이터 수정으로 모델 행동을 정밀 제어하는 새로운 패러다임을 만나보세요.",
-  "description_en": "Unlock precise model behavior control by moving beyond sample reweighting to direct data rewriting in TDA.",
-  "description_zh": "超越简单的样本权重调整，通过数据重写精确控制模型行为的全新范式。"
+  "title_ko": "가중치 재조정에서 데이터 재작성으로: 학습 데이터 기여도 분석에서의 개입 효과 극대화",
+  "title_en": "From Reweighting to Rewriting: Unlocking the Intervention Effects of Influential Samples in Training Data Attribution",
+  "title_zh": "从重新加权到重写：释放训练数据归因中影响力样本的干预效果",
+  "hook": "단순한 데이터 가중치 조정을 넘어, 데이터 재작성을 통해 모델 행동을 정밀하게 제어하는 새로운 접근법입니다.",
+  "hook_ko": "단순한 데이터 가중치 조정을 넘어, 데이터 재작성을 통해 모델 행동을 정밀하게 제어하는 새로운 접근법입니다.",
+  "hook_en": "Move beyond simple sample reweighting—learn how rewriting training data unlocks precise control over model behavior.",
+  "hook_zh": "超越单纯的样本权重调整，通过重写训练数据来实现对模型行为的精准干预与控制。",
+  "description_ko": "단순한 데이터 가중치 조정을 넘어, 데이터 재작성을 통해 모델 행동을 정밀하게 제어하는 새로운 접근법입니다.",
+  "description_en": "Move beyond simple sample reweighting—learn how rewriting training data unlocks precise control over model behavior.",
+  "description_zh": "超越单纯的样本权重调整，通过重写训练数据来实现对模型行为的精准干预与控制。"
 }

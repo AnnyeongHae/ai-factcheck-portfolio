@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33137",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: ChatGPT/Codex 앱, macOS 런타임에 헤드리스 LibreOffice 포함",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -31,7 +31,70 @@
   ],
   "status": "PENDING_REVIEW",
   "title_ko": "ChatGPT/Codex 앱, macOS 런타임에 헤드리스 LibreOffice 포함",
-  "description_ko": "ChatGPT/Codex 앱, macOS 런타임에 헤드리스 LibreOffice 포함",
+  "description_ko": "ChatGPT macOS 앱 내부에 LibreOffice가 포함된 기술적 배경과 구현 방식을 파악하세요.",
   "hn_url": "https://news.hada.io/topic?id=33137",
-  "article_url": "https://news.hada.io/topic?id=33137"
+  "article_url": "https://news.hada.io/topic?id=33137",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_geeknews_chatgptcodex_앱_macos_런타임에_헤드리스_libre",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "데스크톱 앱 아키텍처",
+    "programming_lang": "Swift",
+    "root_keywords": [
+      "macOS",
+      "LibreOffice",
+      "ChatGPT",
+      "Runtime"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.0,
+    "multilingual": {
+      "ko": {
+        "title": "ChatGPT/Codex 앱, macOS 런타임에 헤드리스 LibreOffice 포함",
+        "hook": "ChatGPT macOS 앱 내부에 LibreOffice가 포함된 기술적 배경과 구현 방식을 파악하세요.",
+        "key_takeaways": [
+          "macOS 런타임 내 헤드리스 LibreOffice 포함 확인",
+          "문서 변환 및 처리 기능 확장을 위한 아키텍처 분석",
+          "데스크톱 AI 클라이언트의 외부 종속성 관리 방식"
+        ]
+      },
+      "en": {
+        "title": "ChatGPT/Codex App Includes Headless LibreOffice in macOS Runtime",
+        "hook": "Understand the technical background and implementation details of embedding LibreOffice inside the ChatGPT macOS app.",
+        "key_takeaways": [
+          "Inclusion of headless LibreOffice within the macOS runtime",
+          "Architecture analysis for extending document conversion and processing",
+          "External dependency management in desktop AI clients"
+        ]
+      },
+      "zh": {
+        "title": "ChatGPT/Codex 应用在 macOS 运行时中包含无头 LibreOffice",
+        "hook": "了解在 ChatGPT macOS 应用内部嵌入 LibreOffice 的技术背景和实现方式。",
+        "key_takeaways": [
+          "确认 macOS 运行时包含无头 LibreOffice",
+          "分析用于扩展文档转换和处理功能的架构",
+          "桌面端 AI 客户端的外部依赖管理方式"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:26:19.875023+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "Swift",
+  "root_keywords": [
+    "macOS",
+    "LibreOffice",
+    "ChatGPT",
+    "Runtime"
+  ],
+  "title_en": "ChatGPT/Codex App Includes Headless LibreOffice in macOS Runtime",
+  "title_zh": "ChatGPT/Codex 应用在 macOS 运行时中包含无头 LibreOffice",
+  "hook": "ChatGPT macOS 앱 내부에 LibreOffice가 포함된 기술적 배경과 구현 방식을 파악하세요.",
+  "hook_ko": "ChatGPT macOS 앱 내부에 LibreOffice가 포함된 기술적 배경과 구현 방식을 파악하세요.",
+  "hook_en": "Understand the technical background and implementation details of embedding LibreOffice inside the ChatGPT macOS app.",
+  "hook_zh": "了解在 ChatGPT macOS 应用内部嵌入 LibreOffice 的技术背景和实现方式。",
+  "description_en": "Understand the technical background and implementation details of embedding LibreOffice inside the ChatGPT macOS app.",
+  "description_zh": "了解在 ChatGPT macOS 应用内部嵌入 LibreOffice 的技术背景和实现方式。"
 }

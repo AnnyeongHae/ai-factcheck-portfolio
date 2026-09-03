@@ -31,7 +31,7 @@
   ],
   "status": "PENDING_REVIEW",
   "title_ko": "Darling: Linux에서 macOS 소프트웨어 실행하기",
-  "description_ko": "Linux 환경에서 네이티브로 macOS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트를 소개합니다.",
+  "description_ko": "리눅스 환경에서 맥OS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트 소개입니다.",
   "hn_url": "https://news.hada.io/topic?id=33124",
   "article_url": "https://news.hada.io/topic?id=33124",
   "ai_enrichment": {
@@ -39,7 +39,7 @@
     "source_lang": "KO",
     "type_classification": "TECH",
     "model_family": "Standalone",
-    "category": "OS 및 시스템 유틸리티",
+    "category": "OS 및 크로스플랫폼",
     "programming_lang": "C++",
     "root_keywords": [
       "Darling",
@@ -47,38 +47,38 @@
       "macOS 호환성"
     ],
     "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
         "title": "Darling: Linux에서 macOS 소프트웨어 실행하기",
-        "hook": "Linux 환경에서 네이티브로 macOS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트를 소개합니다.",
+        "hook": "리눅스 환경에서 맥OS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트 소개입니다.",
         "key_takeaways": [
-          "Linux에서 macOS 바이너리 실행 원리 (Darling)",
-          "크로스 플랫폼 개발 환경 구축의 새로운 가능성",
-          "현재 지원되는 기능과 제한 사항 분석"
+          "리눅스에서 macOS 바이너리 실행 가능성 검토",
+          "Darwin 커널 번역 레이어 작동 방식",
+          "크로스 플랫폼 개발 및 테스트 환경 구축에 유용"
         ]
       },
       "en": {
         "title": "Darling: Running macOS Software on Linux",
-        "hook": "Discover Darling, an open-source translation layer enabling macOS applications to run natively on Linux.",
+        "hook": "Discover an open-source translation layer allowing macOS applications to run natively on Linux.",
         "key_takeaways": [
-          "How Darling executes macOS binaries on Linux",
-          "New possibilities for cross-platform development environments",
-          "Overview of current supported features and limitations"
+          "Evaluating the feasibility of running macOS binaries on Linux",
+          "How the Darwin kernel translation layer operates",
+          "Useful for cross-platform development and testing environments"
         ]
       },
       "zh": {
         "title": "Darling：在Linux上运行macOS软件",
-        "hook": "介绍一款允许在Linux环境中原生运行macOS应用程序的开源翻译层项目。",
+        "hook": "介绍一款允许在Linux环境中直接运行macOS应用程序的开源翻译层项目。",
         "key_takeaways": [
-          "Darling在Linux上执行macOS二进制文件的原理",
-          "跨平台开发环境构建的新可能性",
-          "当前支持的功能与限制分析"
+          "评估在Linux上运行macOS二进制文件的可行性",
+          "Darwin内核翻译层的工作原理",
+          "有助于构建跨平台开发和测试环境"
         ]
       }
     },
     "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:23:55.388222+00:00"
+    "enriched_at": "2026-09-03T13:26:00.516307+09:00"
   },
   "source_lang": "KO",
   "programming_lang": "C++",
@@ -89,10 +89,10 @@
   ],
   "title_en": "Darling: Running macOS Software on Linux",
   "title_zh": "Darling：在Linux上运行macOS软件",
-  "hook": "Linux 환경에서 네이티브로 macOS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트를 소개합니다.",
-  "hook_ko": "Linux 환경에서 네이티브로 macOS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트를 소개합니다.",
-  "hook_en": "Discover Darling, an open-source translation layer enabling macOS applications to run natively on Linux.",
-  "hook_zh": "介绍一款允许在Linux环境中原生运行macOS应用程序的开源翻译层项目。",
-  "description_en": "Discover Darling, an open-source translation layer enabling macOS applications to run natively on Linux.",
-  "description_zh": "介绍一款允许在Linux环境中原生运行macOS应用程序的开源翻译层项目。"
+  "hook": "리눅스 환경에서 맥OS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트 소개입니다.",
+  "hook_ko": "리눅스 환경에서 맥OS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트 소개입니다.",
+  "hook_en": "Discover an open-source translation layer allowing macOS applications to run natively on Linux.",
+  "hook_zh": "介绍一款允许在Linux环境中直接运行macOS应用程序的开源翻译层项目。",
+  "description_en": "Discover an open-source translation layer allowing macOS applications to run natively on Linux.",
+  "description_zh": "介绍一款允许在Linux环境中直接运行macOS应用程序的开源翻译层项目。"
 }

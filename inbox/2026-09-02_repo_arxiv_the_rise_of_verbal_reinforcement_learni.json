@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_the_rise_of_verbal_reinforcement_learni",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "언어 모델 에이전트",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Verbal RL",
+      "Language Agents",
+      "Reinforcement Learning"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "언어적 강화학습(Verbal Reinforcement Learning)의 부상",
+        "hook": "자연어를 주요 피드백 채널로 사용하여 언어 에이전트를 개선하는 최신 패러다임을 조명합니다.",
+        "key_takeaways": [
+          "자연어를 활용한 언어 에이전트 피드백 메커니즘 분석",
+          "의도, 선호도, 인과관계를 인간과 모델 모두가 해석 가능한 형태로 전달",
+          "차세대 강화학습 및 에이전트 미세조정의 새로운 방향성 제시"
+        ]
+      },
+      "en": {
+        "title": "The Rise of Verbal Reinforcement Learning",
+        "hook": "Exploring natural language as a primary feedback channel for advanced language agents.",
+        "key_takeaways": [
+          "Natural language emerging as a primary feedback loop for language agents",
+          "Conveys intent, preferences, and causal structures effectively",
+          "Interpretable feedback framework for both humans and modern LLMs"
+        ]
+      },
+      "zh": {
+        "title": "言语强化学习的崛起",
+        "hook": "探讨将自然语言作为主要反馈渠道来提升语言智能体的新范式。",
+        "key_takeaways": [
+          "自然语言正成为改进语言智能体的主要反馈通道",
+          "能够以人类和现代模型皆可解释的形式传递意图与偏好",
+          "为下一代AI对齐与强化学习提供创新思路"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:26:44.614105+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Verbal RL",
+    "Language Agents",
+    "Reinforcement Learning"
+  ],
+  "title_ko": "언어적 강화학습(Verbal Reinforcement Learning)의 부상",
+  "title_en": "The Rise of Verbal Reinforcement Learning",
+  "title_zh": "言语强化学习的崛起",
+  "hook": "자연어를 주요 피드백 채널로 사용하여 언어 에이전트를 개선하는 최신 패러다임을 조명합니다.",
+  "hook_ko": "자연어를 주요 피드백 채널로 사용하여 언어 에이전트를 개선하는 최신 패러다임을 조명합니다.",
+  "hook_en": "Exploring natural language as a primary feedback channel for advanced language agents.",
+  "hook_zh": "探讨将自然语言作为主要反馈渠道来提升语言智能体的新范式。",
+  "description_ko": "자연어를 주요 피드백 채널로 사용하여 언어 에이전트를 개선하는 최신 패러다임을 조명합니다.",
+  "description_en": "Exploring natural language as a primary feedback channel for advanced language agents.",
+  "description_zh": "探讨将自然语言作为主要反馈渠道来提升语言智能体的新范式。"
 }

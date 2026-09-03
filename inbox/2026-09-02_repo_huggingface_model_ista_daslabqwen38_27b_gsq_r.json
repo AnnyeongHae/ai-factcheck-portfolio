@@ -8,7 +8,7 @@
   "source_url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
   "type": "repo",
   "category_type": "MODEL",
-  "model_family": "Qwen-3.8 Family",
+  "model_family": "Qwen-3.8",
   "description": "Trending Score: 131, Downloads: 56208, Likes: 139, Pipeline: image-text-to-text",
   "viral_metric": "Trending 131 pts (❤️ 139)",
   "metric_tracking": {
@@ -30,5 +30,68 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_huggingface_model_ista_daslabqwen38_27b_gsq_r",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Qwen-3.8",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "Qwen",
+      "GGUF",
+      "Model Quantization"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "Hugging Face 모델: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+        "hook": "Qwen-3.8 27B 대형 모델을 GGUF 포맷으로 양자화하여 로컬 환경에서 실행하세요.",
+        "key_takeaways": [
+          "GGUF 포맷 양자화를 통해 저사양 하드웨어에서도 27B 모델 추론 가능",
+          "최신 Qwen-3.8 아키텍처의 성능을 효율적으로 유지",
+          "로컬 LLM 배포 및 온디바이스 AI 연구에 최적화된 가중치"
+        ]
+      },
+      "en": {
+        "title": "Hugging Face Model: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+        "hook": "Run the massive Qwen-3.8 27B model locally using high-performance GGUF quantization.",
+        "key_takeaways": [
+          "Enables 27B model inference on consumer hardware via GGUF format",
+          "Efficiently preserves the performance of the latest Qwen-3.8 architecture",
+          "Optimized weights for local LLM deployment and on-device AI research"
+        ]
+      },
+      "zh": {
+        "title": "Hugging Face 模型：ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+        "hook": "利用高性能 GGUF 量化格式，在本地硬件上顺畅运行庞大的 Qwen-3.8 27B 模型。",
+        "key_takeaways": [
+          "通过 GGUF 格式实现消费级硬件上的 27B 模型推理",
+          "高效保持了最新 Qwen-3.8 架构的强大性能",
+          "为本地 LLM 部署和端侧 AI 研究提供了优化的权重"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:26:32.603894+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "Qwen",
+    "GGUF",
+    "Model Quantization"
+  ],
+  "title_ko": "Hugging Face 모델: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+  "title_en": "Hugging Face Model: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+  "title_zh": "Hugging Face 模型：ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+  "hook": "Qwen-3.8 27B 대형 모델을 GGUF 포맷으로 양자화하여 로컬 환경에서 실행하세요.",
+  "hook_ko": "Qwen-3.8 27B 대형 모델을 GGUF 포맷으로 양자화하여 로컬 환경에서 실행하세요.",
+  "hook_en": "Run the massive Qwen-3.8 27B model locally using high-performance GGUF quantization.",
+  "hook_zh": "利用高性能 GGUF 量化格式，在本地硬件上顺畅运行庞大的 Qwen-3.8 27B 模型。",
+  "description_ko": "Qwen-3.8 27B 대형 모델을 GGUF 포맷으로 양자화하여 로컬 환경에서 실행하세요.",
+  "description_en": "Run the massive Qwen-3.8 27B model locally using high-performance GGUF quantization.",
+  "description_zh": "利用高性能 GGUF 量化格式，在本地硬件上顺畅运行庞大的 Qwen-3.8 27B 模型。"
 }

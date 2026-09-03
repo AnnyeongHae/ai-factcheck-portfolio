@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_scaling_near_optimal_sft_rl_annotation_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "SFT",
+      "Reinforcement Learning",
+      "Annotation Budget"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "소형에서 대형 LLM까지 준최적 SFT-RL 어노테이션 예산 배분 확장",
+        "hook": "LLM 후학습 시 SFT와 RL 간의 한정된 어노테이션 예산을 최적으로 분배하는 방법을 다룹니다.",
+        "key_takeaways": [
+          "SFT와 강화학습(RL) 간의 최적 예산 분배 문제 해결",
+          "소형 LLM에서 대형 LLM으로의 확장 가능한 배분 전략 제시",
+          "후학습 효율성 극대화를 위한 데이터 및 자원 관리"
+        ]
+      },
+      "en": {
+        "title": "Scaling Near-Optimal SFT-RL Annotation Budget Allocation from Small to Large LLMs",
+        "hook": "Discover optimal strategies for allocating limited annotation budgets between SFT and RL during LLM post-training.",
+        "key_takeaways": [
+          "Addresses optimal budget allocation between SFT and RL",
+          "Presents scalable allocation strategies from small to large LLMs",
+          "Maximizes post-training efficiency through smart resource management"
+        ]
+      },
+      "zh": {
+        "title": "从小型到大型LLM：扩展近优的SFT-RL标注预算分配",
+        "hook": "探讨在LLM后训练期间如何在SFT和RL之间最优分配有限的标注预算。",
+        "key_takeaways": [
+          "解决SFT与强化学习之间的最优预算分配难题",
+          "提出从小型模型扩展到大型模型的可扩展分配策略",
+          "通过精细的资源管理最大化后训练效率"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:26:57.503483+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "SFT",
+    "Reinforcement Learning",
+    "Annotation Budget"
+  ],
+  "title_ko": "소형에서 대형 LLM까지 준최적 SFT-RL 어노테이션 예산 배분 확장",
+  "title_en": "Scaling Near-Optimal SFT-RL Annotation Budget Allocation from Small to Large LLMs",
+  "title_zh": "从小型到大型LLM：扩展近优的SFT-RL标注预算分配",
+  "hook": "LLM 후학습 시 SFT와 RL 간의 한정된 어노테이션 예산을 최적으로 분배하는 방법을 다룹니다.",
+  "hook_ko": "LLM 후학습 시 SFT와 RL 간의 한정된 어노테이션 예산을 최적으로 분배하는 방법을 다룹니다.",
+  "hook_en": "Discover optimal strategies for allocating limited annotation budgets between SFT and RL during LLM post-training.",
+  "hook_zh": "探讨在LLM后训练期间如何在SFT和RL之间最优分配有限的标注预算。",
+  "description_ko": "LLM 후학습 시 SFT와 RL 간의 한정된 어노테이션 예산을 최적으로 분배하는 방법을 다룹니다.",
+  "description_en": "Discover optimal strategies for allocating limited annotation budgets between SFT and RL during LLM post-training.",
+  "description_zh": "探讨在LLM后训练期间如何在SFT和RL之间最优分配有限的标注预算。"
 }

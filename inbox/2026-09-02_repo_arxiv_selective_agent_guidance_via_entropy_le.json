@@ -7,7 +7,7 @@
   "source_platform": "ArXiv Preprint",
   "source_url": "http://arxiv.org/abs/2609.01567v1",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "AGENT",
   "description": "Abstract: Vision-Language Models (VLMs) provide useful priors for interactive decision-making, but using them directly as policies is expensive and brittle: they must be queried at every step, do not improve fr...",
   "viral_metric": "ArXiv Primary Paper",
   "metric_tracking": {
@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_selective_agent_guidance_via_entropy_le",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "웹 에이전트",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Vision-Language Models",
+      "Entropy Guidance",
+      "Autonomous Policy"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "엔트로피 기반 선택적 에이전트 가이드: 불완전한 VLM 교사로부터 자율 정책 학습",
+        "hook": "비싼 VLM을 매 스텝 호출하는 대신 엔트로피를 활용해 효율적으로 자율 에이전트 정책을 학습하는 방법을 제시합니다.",
+        "key_takeaways": [
+          "VLM을 매번 직접 호출하는 비용과 취약성 문제 해결",
+          "엔트로피 기반 선택적 가이드를 통한 효율적인 정책 학습",
+          "불완전한 교사 모델로부터 자율적이고 강건한 의사결정 유도"
+        ]
+      },
+      "en": {
+        "title": "Selective Agent Guidance via Entropy: Learning Autonomous Policies from Imperfect VLM Teachers",
+        "hook": "Learn how to efficiently train autonomous agent policies using entropy instead of expensive per-step VLM queries.",
+        "key_takeaways": [
+          "Addresses the high cost and brittleness of per-step VLM queries",
+          "Introduces entropy-based selective guidance for efficient policy learning",
+          "Enables robust autonomous decision-making from imperfect teacher models"
+        ]
+      },
+      "zh": {
+        "title": "基于熵的选择性智能体引导：从不完美VLM教师中学习自主策略",
+        "hook": "探讨如何利用熵来替代昂贵的每步VLM查询，从而高效训练自主智能体策略。",
+        "key_takeaways": [
+          "解决了每步查询VLM的高昂成本与脆弱性问题",
+          "引入基于熵的选择性引导机制以实现高效策略学习",
+          "从不完美的教师模型中诱导并构建鲁棒的自主决策"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:26:57.502488+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Vision-Language Models",
+    "Entropy Guidance",
+    "Autonomous Policy"
+  ],
+  "title_ko": "엔트로피 기반 선택적 에이전트 가이드: 불완전한 VLM 교사로부터 자율 정책 학습",
+  "title_en": "Selective Agent Guidance via Entropy: Learning Autonomous Policies from Imperfect VLM Teachers",
+  "title_zh": "基于熵的选择性智能体引导：从不完美VLM教师中学习自主策略",
+  "hook": "비싼 VLM을 매 스텝 호출하는 대신 엔트로피를 활용해 효율적으로 자율 에이전트 정책을 학습하는 방법을 제시합니다.",
+  "hook_ko": "비싼 VLM을 매 스텝 호출하는 대신 엔트로피를 활용해 효율적으로 자율 에이전트 정책을 학습하는 방법을 제시합니다.",
+  "hook_en": "Learn how to efficiently train autonomous agent policies using entropy instead of expensive per-step VLM queries.",
+  "hook_zh": "探讨如何利用熵来替代昂贵的每步VLM查询，从而高效训练自主智能体策略。",
+  "description_ko": "비싼 VLM을 매 스텝 호출하는 대신 엔트로피를 활용해 효율적으로 자율 에이전트 정책을 학습하는 방법을 제시합니다.",
+  "description_en": "Learn how to efficiently train autonomous agent policies using entropy instead of expensive per-step VLM queries.",
+  "description_zh": "探讨如何利用熵来替代昂贵的每步VLM查询，从而高效训练自主智能体策略。"
 }

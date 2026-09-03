@@ -38,61 +38,59 @@
     "category": "자연어 처리 및 수화 번역",
     "programming_lang": "Python",
     "root_keywords": [
-      "Sign Language",
-      "Discourse-Aware",
-      "Text-to-Gloss",
-      "NLP"
+      "수화 번역",
+      "담화 인식",
+      "텍스트 투 사인"
     ],
     "recommended_tag": "📝 기술 참고",
     "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "DiscoSign: 담화 인지형 텍스트-수화 글글로스 번역",
-        "hook": "기존 문장 단위 수화 번역의 한계를 넘어 담화 수준의 맥락을 이해하는 새로운 수화 처리 시스템입니다.",
+        "title": "DiscoSign: 담화 인식을 활용한 텍스트-수화 글스(Gloss) 번역",
+        "hook": "기존 문장 단위 번역의 한계를 넘어, 수화 이해에 필수적인 담화 현상을 반영한 최초의 텍스트-수화 번역 시스템입니다.",
         "key_takeaways": [
-          "문장 단위를 넘어선 담화(Discourse) 현상 반영",
-          "수화 이해도를 높이기 위한 컴퓨테이셔널 프레임워크 제안",
-          "텍스트에서 수화 글글로스(Gloss)로의 정확한 변환 개선"
+          "문장 단위를 넘어선 담화 수준의 수화 처리 시스템 구현",
+          "수화 이해에 필수적인 문맥 및 담화 현상 통합",
+          "텍스트에서 수화 글스로의 번역 품질 대폭 향상"
         ]
       },
       "en": {
         "title": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
-        "hook": "A novel sign language processing system that goes beyond sentence-level translation to capture critical discourse phenomena.",
+        "hook": "Overcoming sentence-level limits by introducing the first discourse-aware sign language translation framework.",
         "key_takeaways": [
-          "Accounts for discourse phenomena beyond traditional sentence-level bounds",
-          "Introduces a computational framework to enhance sign language comprehension",
-          "Improves accurate conversion from text to sign language glosses"
+          "Moves beyond traditional sentence-level sign processing",
+          "Integrates critical discourse phenomena for better comprehension",
+          "Significantly improves text-to-sign gloss translation quality"
         ]
       },
       "zh": {
-        "title": "DiscoSign：语篇感知的手语文本到语标（Gloss）翻译",
-        "hook": "打破传统句子级手语翻译限制，实现捕捉关键语篇现象的全新手语处理系统。",
+        "title": "DiscoSign：具备语篇意识的文本转手语Gloss翻译",
+        "hook": "突破传统句子级限制，首次引入考虑手语理解关键语篇现象的文本转手语翻译系统。",
         "key_takeaways": [
-          "超越传统句子级别，融入语篇（Discourse）现象",
-          "提出旨在提升手语理解力的计算框架",
-          "改善文本到手语语标的精准转换能力"
+          "超越传统句子级，实现语篇级别的符号处理",
+          "整合手语理解不可或缺的语篇与上下文现象",
+          "大幅提升从文本到手语Gloss的翻译质量"
         ]
       }
     },
     "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:23:44.171447+00:00"
+    "enriched_at": "2026-09-03T13:25:48.612883+09:00"
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Sign Language",
-    "Discourse-Aware",
-    "Text-to-Gloss",
-    "NLP"
+    "수화 번역",
+    "담화 인식",
+    "텍스트 투 사인"
   ],
-  "title_ko": "DiscoSign: 담화 인지형 텍스트-수화 글글로스 번역",
+  "title_ko": "DiscoSign: 담화 인식을 활용한 텍스트-수화 글스(Gloss) 번역",
   "title_en": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
-  "title_zh": "DiscoSign：语篇感知的手语文本到语标（Gloss）翻译",
-  "hook": "기존 문장 단위 수화 번역의 한계를 넘어 담화 수준의 맥락을 이해하는 새로운 수화 처리 시스템입니다.",
-  "hook_ko": "기존 문장 단위 수화 번역의 한계를 넘어 담화 수준의 맥락을 이해하는 새로운 수화 처리 시스템입니다.",
-  "hook_en": "A novel sign language processing system that goes beyond sentence-level translation to capture critical discourse phenomena.",
-  "hook_zh": "打破传统句子级手语翻译限制，实现捕捉关键语篇现象的全新手语处理系统。",
-  "description_ko": "기존 문장 단위 수화 번역의 한계를 넘어 담화 수준의 맥락을 이해하는 새로운 수화 처리 시스템입니다.",
-  "description_en": "A novel sign language processing system that goes beyond sentence-level translation to capture critical discourse phenomena.",
-  "description_zh": "打破传统句子级手语翻译限制，实现捕捉关键语篇现象的全新手语处理系统。"
+  "title_zh": "DiscoSign：具备语篇意识的文本转手语Gloss翻译",
+  "hook": "기존 문장 단위 번역의 한계를 넘어, 수화 이해에 필수적인 담화 현상을 반영한 최초의 텍스트-수화 번역 시스템입니다.",
+  "hook_ko": "기존 문장 단위 번역의 한계를 넘어, 수화 이해에 필수적인 담화 현상을 반영한 최초의 텍스트-수화 번역 시스템입니다.",
+  "hook_en": "Overcoming sentence-level limits by introducing the first discourse-aware sign language translation framework.",
+  "hook_zh": "突破传统句子级限制，首次引入考虑手语理解关键语篇现象的文本转手语翻译系统。",
+  "description_ko": "기존 문장 단위 번역의 한계를 넘어, 수화 이해에 필수적인 담화 현상을 반영한 최초의 텍스트-수화 번역 시스템입니다.",
+  "description_en": "Overcoming sentence-level limits by introducing the first discourse-aware sign language translation framework.",
+  "description_zh": "突破传统句子级限制，首次引入考虑手语理解关键语篇现象的文本转手语翻译系统。"
 }

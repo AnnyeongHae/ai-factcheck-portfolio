@@ -31,7 +31,7 @@
   ],
   "status": "PENDING_REVIEW",
   "title_ko": "CSS 축소는 정말 필요한가? (2023)",
-  "description_ko": "현대 웹 환경에서 CSS 파일 축소(Minification)가 성능에 미치는 실질적인 영향을 재조명합니다.",
+  "description_ko": "현대 웹 환경에서 CSS 파일 축소(Minification)가 성능에 미치는 실효성을 재검토합니다.",
   "hn_url": "https://news.hada.io/topic?id=33147",
   "article_url": "https://news.hada.io/topic?id=33147",
   "ai_enrichment": {
@@ -47,38 +47,38 @@
       "프론트엔드 최적화"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.2,
+    "worth_score": 3.5,
     "multilingual": {
       "ko": {
         "title": "CSS 축소는 정말 필요한가? (2023)",
-        "hook": "현대 웹 환경에서 CSS 파일 축소(Minification)가 성능에 미치는 실질적인 영향을 재조명합니다.",
+        "hook": "현대 웹 환경에서 CSS 파일 축소(Minification)가 성능에 미치는 실효성을 재검토합니다.",
         "key_takeaways": [
-          "네트워크 대역폭과 파싱 속도 관점에서의 CSS 축소 효과",
-          "모던 브라우저 및 압축 알고리즘(Gzip/Brotli)과의 관계",
-          "빌드 파이프라인 최적화에 대한 실용적 가이드"
+          "브라우저 압축(Gzip/Brotli) 알고리즘과 CSS 축소의 상호작용",
+          "네트워크 전송 크기와 빌드 시간 간의 트레이드오프",
+          "실무 프론트엔드 최적화 전략 재정립"
         ]
       },
       "en": {
         "title": "Is CSS Minification Really Necessary? (2023)",
-        "hook": "A deep dive into whether CSS minification still provides meaningful performance gains in modern web environments.",
+        "hook": "Re-evaluating the actual effectiveness of CSS minification on modern web performance.",
         "key_takeaways": [
-          "Impact of CSS minification on network bandwidth and parsing speed",
-          "Interaction with modern browsers and compression algorithms (Gzip/Brotli)",
-          "Practical guidance for build pipeline optimization"
+          "Interaction between browser compression (Gzip/Brotli) and CSS minification",
+          "Trade-offs between network transfer size and build time",
+          "Revisiting practical frontend optimization strategies"
         ]
       },
       "zh": {
         "title": "CSS压缩真的有必要吗？(2023)",
-        "hook": "重新审视现代Web环境下CSS文件压缩（Minification）对性能的实际影响。",
+        "hook": "重新评估在现代Web环境下CSS代码压缩对性能的实际影响与效果。",
         "key_takeaways": [
-          "CSS压缩在网络带宽和解析速度层面的效果",
-          "与现代浏览器及压缩算法（Gzip/Brotli）的关系",
-          "构建管道优化的实用指南"
+          "浏览器压缩算法（Gzip/Brotli）与CSS压缩的相互作用",
+          "网络传输大小与构建时间之间的权衡取舍",
+          "重新审视实用的前端优化策略"
         ]
       }
     },
     "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:23:55.388516+00:00"
+    "enriched_at": "2026-09-03T13:26:00.517128+09:00"
   },
   "source_lang": "KO",
   "programming_lang": "TypeScript",
@@ -89,10 +89,10 @@
   ],
   "title_en": "Is CSS Minification Really Necessary? (2023)",
   "title_zh": "CSS压缩真的有必要吗？(2023)",
-  "hook": "현대 웹 환경에서 CSS 파일 축소(Minification)가 성능에 미치는 실질적인 영향을 재조명합니다.",
-  "hook_ko": "현대 웹 환경에서 CSS 파일 축소(Minification)가 성능에 미치는 실질적인 영향을 재조명합니다.",
-  "hook_en": "A deep dive into whether CSS minification still provides meaningful performance gains in modern web environments.",
-  "hook_zh": "重新审视现代Web环境下CSS文件压缩（Minification）对性能的实际影响。",
-  "description_en": "A deep dive into whether CSS minification still provides meaningful performance gains in modern web environments.",
-  "description_zh": "重新审视现代Web环境下CSS文件压缩（Minification）对性能的实际影响。"
+  "hook": "현대 웹 환경에서 CSS 파일 축소(Minification)가 성능에 미치는 실효성을 재검토합니다.",
+  "hook_ko": "현대 웹 환경에서 CSS 파일 축소(Minification)가 성능에 미치는 실효성을 재검토합니다.",
+  "hook_en": "Re-evaluating the actual effectiveness of CSS minification on modern web performance.",
+  "hook_zh": "重新评估在现代Web环境下CSS代码压缩对性能的实际影响与效果。",
+  "description_en": "Re-evaluating the actual effectiveness of CSS minification on modern web performance.",
+  "description_zh": "重新评估在现代Web环境下CSS代码压缩对性能的实际影响与效果。"
 }
