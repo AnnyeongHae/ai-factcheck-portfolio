@@ -1,3 +1,57 @@
+let cachedPool = null;
+
+function getDbPool() {
+  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY;
+  if (!DATABASE_URL) return null;
+  if (!cachedPool) {
+    try {
+      const { Pool } = require('pg');
+      cachedPool = new Pool({
+        connectionString: DATABASE_URL,
+        ssl: { rejectUnauthorized: false },
+        max: 5,
+        idleTimeoutMillis: 30000,
+        connectionTimeoutMillis: 5000
+      });
+      cachedPool.on('error', (err) => {
+        console.error('[PgPool Error in queue]:', err);
+        cachedPool = null;
+      });
+    } catch (e) {
+      console.error('[Pg Driver Error]:', e);
+      return null;
+    }
+  }
+  return cachedPool;
+}
+
+function getStaticQueueFallback(fetchAll, fetchNews) {
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const candidatePaths = [
+      path.join(process.cwd(), 'public', 'data.json'),
+      path.join(process.cwd(), 'dashboard', 'data.json'),
+      path.join(__dirname, '..', 'public', 'data.json'),
+      path.join(__dirname, '..', 'dashboard', 'data.json')
+    ];
+    for (const p of candidatePaths) {
+      if (fs.existsSync(p)) {
+        const d = JSON.parse(fs.readFileSync(p, 'utf8'));
+        if (fetchNews) {
+          const newsList = (d.news || []).length > 0 ? d.news : (d.inbox || []).filter(x => x.category_type === 'NEWS');
+          return { success: true, source: 'static_filesystem_fallback', total_count: newsList.length, news: newsList };
+        }
+        if (fetchAll) {
+          const items = d.inbox || [];
+          return { success: true, source: 'static_filesystem_fallback', total_count: items.length, items: items };
+        }
+      }
+    }
+  } catch (e) {}
+  return null;
+}
+
 module.exports = async (req, res) => {
   // CORS Headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -8,27 +62,13 @@ module.exports = async (req, res) => {
     return res.status(204).end();
   }
 
-  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY;
-
-  if (!DATABASE_URL) {
-    return res.status(200).json({
-      success: false,
-      error: "DATABASE_URL is not configured in Environment Variables."
-    });
-  }
-
-  let dbClient;
-  try {
-    const { Pool } = require('pg');
-    dbClient = new Pool({
-      connectionString: DATABASE_URL,
-      ssl: { rejectUnauthorized: false }
-    });
-  } catch (modErr) {
-    return res.status(200).json({
-      success: false,
-      error: "Postgres driver initialization warning: " + modErr.message
-    });
+  const pool = getDbPool();
+  if (!pool && req.method === 'GET') {
+    const urlObj = new URL(req.url, 'http://localhost:3000');
+    const fetchAll = urlObj.searchParams.get('all') === 'true';
+    const fetchNews = urlObj.searchParams.get('type') === 'NEWS';
+    const fallback = getStaticQueueFallback(fetchAll, fetchNews);
+    if (fallback) return res.status(200).json(fallback);
   }
 
   try {
@@ -38,7 +78,7 @@ module.exports = async (req, res) => {
       const fetchNews = urlObj.searchParams.get('type') === 'NEWS';
 
       if (fetchNews) {
-        const newsResult = await dbClient.query(`
+        const newsResult = await pool.query(`
           SELECT 
             inbox_id, 
             title, 
@@ -73,7 +113,7 @@ module.exports = async (req, res) => {
       }
 
       if (fetchAll) {
-        const allResult = await dbClient.query(`
+        const allResult = await pool.query(`
           SELECT 
             inbox_id, 
             title, 
@@ -115,7 +155,7 @@ module.exports = async (req, res) => {
         });
       }
 
-      const result = await dbClient.query(`
+      const result = await pool.query(`
         SELECT 
           inbox_id, 
           title, 
@@ -152,7 +192,7 @@ module.exports = async (req, res) => {
       if (action === 'unqueue') {
         updatedStatus = "PENDING_REVIEW";
       } else if (action === 'toggle' && inbox_ids.length === 1) {
-        const check = await dbClient.query('SELECT triage_status FROM raw_trends_inbox WHERE inbox_id = $1;', [inbox_ids[0]]);
+        const check = await pool.query('SELECT triage_status FROM raw_trends_inbox WHERE inbox_id = $1;', [inbox_ids[0]]);
         if (check.rows.length > 0 && check.rows[0].triage_status === 'QUEUED_FOR_INVESTIGATION') {
           updatedStatus = "PENDING_REVIEW";
         } else {
@@ -161,7 +201,7 @@ module.exports = async (req, res) => {
       }
 
       for (const targetId of inbox_ids) {
-        await dbClient.query(`
+        await pool.query(`
           UPDATE raw_trends_inbox 
           SET triage_status = $1, updated_at = CURRENT_TIMESTAMP 
           WHERE inbox_id = $2;

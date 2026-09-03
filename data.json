@@ -40,6 +40,59 @@
     ],
     "history": [
       {
+        "timestamp": "2026-09-03T06:00:11.191558",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.22
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.23
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 1.06
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 24,
+            "duration_sec": 13.86
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.27
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.16
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.8
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.23
+          }
+        },
+        "summary": {
+          "total_fetched": 164,
+          "updated_count": 0,
+          "new_saved": 0,
+          "duplicates_skipped": 164,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-09-03T05:26:24.081937",
         "date": "2026-09-03",
         "sources": {
@@ -1555,52 +1608,10 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-01T17:01:02.981261",
-        "date": "2026-09-01",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.06
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.05
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.63
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 1,
-            "duration_sec": 20.8
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.15
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.02
-          }
-        },
-        "summary": {
-          "total_fetched": 1,
-          "new_saved": 1,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T05:26:24.081937",
+      "timestamp": "2026-09-03T06:00:11.191558",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
@@ -1611,44 +1622,44 @@
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.18
+          "duration_sec": 0.23
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 1.03
+          "duration_sec": 1.06
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 25,
-          "duration_sec": 12.27
+          "items_found": 24,
+          "duration_sec": 13.86
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.77
+          "duration_sec": 0.27
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.19
+          "duration_sec": 0.16
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.01
+          "duration_sec": 0.8
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.28
+          "duration_sec": 0.23
         }
       },
       "summary": {
-        "total_fetched": 165,
+        "total_fetched": 164,
         "updated_count": 0,
         "new_saved": 0,
-        "duplicates_skipped": 165,
+        "duplicates_skipped": 164,
         "errors": 0
       }
     }

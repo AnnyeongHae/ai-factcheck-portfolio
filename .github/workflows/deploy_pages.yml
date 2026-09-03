@@ -57,6 +57,11 @@ jobs:
         run: |
           python tools/enrich_inbox_with_ai.py --all --batch-size 5 --cooldown 5.0 || echo "AI enrich step completed or skipped."
 
+      - name: Auto-Factcheck Queued Investigation Items with Token Ledger
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python tools/factcheck_worker.py --limit 3 || echo "Autonomous factcheck worker completed or skipped."
 
       - name: Sync Data to Neon Postgres Cloud DB
         run: |

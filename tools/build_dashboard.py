@@ -1618,7 +1618,7 @@ def generate_html(data):
         
         const parseDate = (d) => {{
           if (!d) return '2026-09-02';
-          const m = String(d).match(/(\d\d\d\d)[-_](\d\d)[-_](\d\d)/);
+          const m = String(d).match(/([0-9][0-9][0-9][0-9])[-_]([0-9][0-9])[-_]([0-9][0-9])/);
           return m ? `${{m[1]}}-${{m[2]}}-${{m[3]}}` : '2026-09-02';
         }};
         const srcDate = parseDate(c.source_published_date || c.investigation_date);
@@ -1738,8 +1738,16 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    // ================= MODAL HANDLER =================
-    function openModal(c) {{
+    // ================= MODAL HANDLER & DEEP LINKING ROUTER =================
+    function openModal(c, skipHistory = false) {{
+      if (!c) return;
+      if (!skipHistory && c.case_id) {{
+        const targetHash = '#case/' + encodeURIComponent(c.case_id);
+        if (window.location.hash !== targetHash) {{
+          try {{ history.pushState({{ caseId: c.case_id }}, '', targetHash); }} catch (e) {{}}
+        }}
+      }}
+
       const modal = document.getElementById('detailModal');
       const story = c.portfolio_story || {{}};
       const handsOn = story.hands_on_log || {{}};
@@ -1859,9 +1867,33 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    function closeModal() {{
-      document.getElementById('detailModal').classList.add('hidden');
+    function closeModal(skipHistory = false) {{
+      const modal = document.getElementById('detailModal');
+      if (modal) modal.classList.add('hidden');
+      if (!skipHistory && window.location.hash.startsWith('#case/')) {{
+        try {{
+          history.pushState(null, '', window.location.pathname + window.location.search);
+        }} catch (e) {{}}
+      }}
     }}
+
+    function handleHashRoute() {{
+      const hash = window.location.hash;
+      if (hash.startsWith('#case/')) {{
+        const targetCaseId = decodeURIComponent(hash.replace('#case/', ''));
+        const target = (liveCasesData || []).find(c => c.case_id === targetCaseId) || (casesData || []).find(c => c.case_id === targetCaseId);
+        if (target) {{
+          openModal(target, true);
+        }}
+      }} else {{
+        closeModal(true);
+      }}
+    }}
+
+    window.addEventListener('popstate', handleHashRoute);
+    window.addEventListener('load', () => {{
+      setTimeout(handleHashRoute, 300);
+    }});
 
     // ================= NEWS VIEW =================
     let currentNewsSource = 'ALL';

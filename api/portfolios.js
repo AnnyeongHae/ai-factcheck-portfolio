@@ -1,3 +1,57 @@
+let cachedPool = null;
+
+function getDbPool() {
+  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY;
+  if (!DATABASE_URL) return null;
+  if (!cachedPool) {
+    try {
+      const { Pool } = require('pg');
+      cachedPool = new Pool({
+        connectionString: DATABASE_URL,
+        ssl: { rejectUnauthorized: false },
+        max: 5,
+        idleTimeoutMillis: 30000,
+        connectionTimeoutMillis: 5000
+      });
+      cachedPool.on('error', (err) => {
+        console.error('[PgPool Error in portfolios]:', err);
+        cachedPool = null;
+      });
+    } catch (e) {
+      console.error('[Pg Driver Error]:', e);
+      return null;
+    }
+  }
+  return cachedPool;
+}
+
+function getStaticFallback() {
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const candidatePaths = [
+      path.join(process.cwd(), 'public', 'data.json'),
+      path.join(process.cwd(), 'dashboard', 'data.json'),
+      path.join(__dirname, '..', 'public', 'data.json'),
+      path.join(__dirname, '..', 'dashboard', 'data.json')
+    ];
+    for (const p of candidatePaths) {
+      if (fs.existsSync(p)) {
+        const d = JSON.parse(fs.readFileSync(p, 'utf8'));
+        if (d && d.cases) {
+          return {
+            success: true,
+            source: 'static_filesystem_fallback',
+            portfolios: d.cases,
+            technical_analyses: d.technical_analyses || []
+          };
+        }
+      }
+    }
+  } catch (e) {}
+  return null;
+}
+
 module.exports = async (req, res) => {
   // CORS Headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -8,39 +62,25 @@ module.exports = async (req, res) => {
     return res.status(204).end();
   }
 
-  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY;
-
-  if (!DATABASE_URL) {
+  const pool = getDbPool();
+  if (!pool) {
+    const fallback = getStaticFallback();
+    if (fallback) return res.status(200).json(fallback);
     return res.status(200).json({
       success: false,
       source: "fallback_static",
-      error: "DATABASE_URL or NEON_KEY is not configured."
-    });
-  }
-
-  let dbClient;
-  try {
-    const { Pool } = require('pg');
-    dbClient = new Pool({
-      connectionString: DATABASE_URL,
-      ssl: { rejectUnauthorized: false }
-    });
-  } catch (modErr) {
-    return res.status(200).json({
-      success: false,
-      source: "fallback_static",
-      error: "Postgres driver initialization warning: " + modErr.message
+      error: "DATABASE_URL is not configured and static fallback unavailable."
     });
   }
 
   try {
     // 1. Fetch Verified Factchecks from Neon DB Tier 2 Knowledge Core
-    const factcheckRows = await dbClient.query(`
+    const factcheckRows = await pool.query(`
       SELECT 
         vf.case_id, 
         vf.title, 
         vf.category, 
-        COALESCE(SUBSTRING(vf.case_id FROM 1 FOR 10), vf.created_at::date::text) as investigation_date,
+        vf.created_at,
         vf.verdict, 
         vf.confidence_score, 
         vf.discovery_mode, 
@@ -65,12 +105,12 @@ module.exports = async (req, res) => {
     `);
 
     // 2. Fetch Alternatives and Community Signals in parallel
-    const altRows = await dbClient.query(`SELECT case_id, tool_name as name, tech_stack, pros, cons, best_for FROM factcheck_alternatives;`);
-    const commRows = await dbClient.query(`SELECT case_id, platform, author_type, quote, source_url as url, signal_type FROM factcheck_community_signals;`);
+    const altRows = await pool.query(`SELECT case_id, tool_name as name, tech_stack, pros, cons, best_for FROM factcheck_alternatives;`);
+    const commRows = await pool.query(`SELECT case_id, platform, author_type, quote, source_url as url, signal_type FROM factcheck_community_signals;`);
     
     let claimsRows = { rows: [] };
     try {
-      claimsRows = await dbClient.query(`SELECT case_id, claim_id, statement, fact_checked_truth, status FROM factcheck_atomic_claims;`);
+      claimsRows = await pool.query(`SELECT case_id, claim_id, statement, fact_checked_truth, status FROM factcheck_atomic_claims;`);
     } catch (cErr) {}
 
     // Group relations by case_id
@@ -161,7 +201,7 @@ module.exports = async (req, res) => {
     // 3. Fetch Technical Ecosystem Analyses from Neon DB
     let analyses = [];
     try {
-      const anaResult = await dbClient.query(`
+      const anaResult = await pool.query(`
         SELECT 
           analysis_key, 
           title, 
@@ -191,6 +231,11 @@ module.exports = async (req, res) => {
 
   } catch (err) {
     console.error("Neon DB query error:", err);
+    const fallback = getStaticFallback();
+    if (fallback) {
+      fallback.warning = "Live DB connection degraded, gracefully fallen back to static core.";
+      return res.status(200).json(fallback);
+    }
     return res.status(200).json({
       success: false,
       source: "fallback_static",
