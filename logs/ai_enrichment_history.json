@@ -2043,5 +2043,34 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260903_061321",
+    "timestamp": "2026-09-03T06:13:21.168907+00:00",
+    "total_candidates": 1,
+    "requested_limit": 0,
+    "processed_count": 1,
+    "success_count": 1,
+    "models_used_summary": {
+      "gemini-flash-lite-latest": 1
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 1.98,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_repo_hf_space_aimeebingmouquprotectbirds",
+            "title": "HF Space: AimeeBingmouQu/ProtectBirds",
+            "title_ko": "Hugging Face 스페이스: AI 기반 조류 보호 인터랙티브 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T06:13:23.148381+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
