@@ -2,9 +2,9 @@
   "generated_at": "2026-09-02",
   "total_cases": 32,
   "models_total_count": 88,
-  "news_total_count": 62,
+  "news_total_count": 63,
   "inbox_total_count": 232,
-  "all_inbox_count": 391,
+  "all_inbox_count": 392,
   "admin_stats": {
     "endpoints": [
       {
@@ -39,6 +39,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T07:37:29.160355",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.27
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.15
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.97
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 12.73
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.57
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.17
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.89
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.19
+          }
+        },
+        "summary": {
+          "total_fetched": 165,
+          "updated_count": 0,
+          "new_saved": 1,
+          "duplicates_skipped": 164,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T06:57:17.180908",
         "date": "2026-09-03",
@@ -1575,111 +1628,58 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T04:08:43.913827",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.23
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.17
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.75
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 19,
-            "duration_sec": 9.93
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.18
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.11
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.82
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.44
-          }
-        },
-        "summary": {
-          "total_fetched": 169,
-          "updated_count": 169,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T06:57:17.180908",
+      "timestamp": "2026-09-03T07:37:29.160355",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.16
+          "duration_sec": 0.27
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.16
+          "duration_sec": 0.15
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.83
+          "duration_sec": 0.97
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 11.48
+          "duration_sec": 12.73
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.27
+          "duration_sec": 0.57
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.16
+          "duration_sec": 0.17
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.9
+          "duration_sec": 0.89
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.36
+          "duration_sec": 0.19
         }
       },
       "summary": {
         "total_fetched": 165,
         "updated_count": 0,
-        "new_saved": 0,
-        "duplicates_skipped": 165,
+        "new_saved": 1,
+        "duplicates_skipped": 164,
         "errors": 0
       }
     }
@@ -12343,6 +12343,43 @@
       "hook_zh": "探讨全天候连接的数字环境中现代人的疲惫感以及数码排毒的必要性。",
       "description_en": "Highlighting modern digital fatigue in an always-connected world and the need for digital detox.",
       "description_zh": "探讨全天候连接的数字环境中现代人的疲惫感以及数码排毒的必要性。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_show_gn_github_trend_radar_빠르게_떠오르는_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Show GN: GitHub Trend Radar - 빠르게 떠오르는 GitHub 저장소를 찾는 랭킹",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33186",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Show GN: GitHub Trend Radar - 빠르게 떠오르는 GitHub 저장소를 찾는 랭킹",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Show GN: GitHub Trend Radar - 빠르게 떠오르는 GitHub 저장소를 찾는 랭킹",
+      "description_ko": "Show GN: GitHub Trend Radar - 빠르게 떠오르는 GitHub 저장소를 찾는 랭킹",
+      "hn_url": "https://news.hada.io/topic?id=33186",
+      "article_url": "https://news.hada.io/topic?id=33186"
     },
     {
       "inbox_id": "2026-09-03_sns_geeknews_perplexity_대량생산된_구매_가이드를_소프트웨어_추천의_근",
