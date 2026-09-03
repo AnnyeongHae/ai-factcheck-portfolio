@@ -40,6 +40,112 @@
     ],
     "history": [
       {
+        "timestamp": "2026-09-03T10:12:35.755034",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.24
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 86,
+            "duration_sec": 0.32
+          },
+          "github": {
+            "status": "ERROR",
+            "error": "HTTP Error 500: internal server error",
+            "duration_sec": 0.67
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 24,
+            "duration_sec": 15.38
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.27
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.14
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.69
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.28
+          }
+        },
+        "summary": {
+          "total_fetched": 195,
+          "updated_count": 0,
+          "new_saved": 1,
+          "duplicates_skipped": 194,
+          "errors": 1
+        }
+      },
+      {
+        "timestamp": "2026-09-03T09:51:49.331995",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.22
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 86,
+            "duration_sec": 0.42
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.95
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 12.25
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.42
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.17
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.82
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.32
+          }
+        },
+        "summary": {
+          "total_fetched": 226,
+          "updated_count": 0,
+          "new_saved": 57,
+          "duplicates_skipped": 169,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-09-03T07:37:29.160355",
         "date": "2026-09-03",
         "sources": {
@@ -1522,165 +1628,59 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T04:41:06.701057",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.21
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.22
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.64
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 14.66
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.34
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.12
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.82
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.56
-          }
-        },
-        "summary": {
-          "total_fetched": 170,
-          "updated_count": 169,
-          "new_saved": 1,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
-      },
-      {
-        "timestamp": "2026-09-02T04:17:34.136986",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.19
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.15
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.74
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 19,
-            "duration_sec": 10.98
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.32
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.15
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.89
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.44
-          }
-        },
-        "summary": {
-          "total_fetched": 169,
-          "updated_count": 169,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T07:37:29.160355",
+      "timestamp": "2026-09-03T10:12:35.755034",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.27
+          "duration_sec": 0.24
         },
         "hf_spaces": {
           "status": "SUCCESS",
-          "items_found": 25,
-          "duration_sec": 0.15
+          "items_found": 86,
+          "duration_sec": 0.32
         },
         "github": {
-          "status": "SUCCESS",
-          "items_found": 30,
-          "duration_sec": 0.97
+          "status": "ERROR",
+          "error": "HTTP Error 500: internal server error",
+          "duration_sec": 0.67
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 25,
-          "duration_sec": 12.73
+          "items_found": 24,
+          "duration_sec": 15.38
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.57
+          "duration_sec": 0.27
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.17
+          "duration_sec": 0.14
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.89
+          "duration_sec": 0.69
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.19
+          "duration_sec": 0.28
         }
       },
       "summary": {
-        "total_fetched": 165,
+        "total_fetched": 195,
         "updated_count": 0,
         "new_saved": 1,
-        "duplicates_skipped": 164,
-        "errors": 0
+        "duplicates_skipped": 194,
+        "errors": 1
       }
     }
   },
@@ -2175,6 +2175,666 @@
       "model_family": "DistilBERT"
     },
     {
+      "inbox_id": "2026-09-03_repo_hf_space_vidraftai_world",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: VIDraft/ai-world",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/VIDraft/ai-world",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 28 | Live URL: https://huggingface.co/spaces/VIDraft/ai-world",
+      "viral_metric": "❤️ 28 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 28,
+          "display": "❤️ 28 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 28,
+          "display": "❤️ 28 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_tencenthunyuan3d_21",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: tencent/Hunyuan3D-2.1",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/tencent/Hunyuan3D-2.1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2215 | Live URL: https://huggingface.co/spaces/tencent/Hunyuan3D-2.1",
+      "viral_metric": "❤️ 2215 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2215,
+          "display": "❤️ 2215 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2215,
+          "display": "❤️ 2215 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_tencenthunyuan3d_2",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: tencent/Hunyuan3D-2",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/tencent/Hunyuan3D-2",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3371 | Live URL: https://huggingface.co/spaces/tencent/Hunyuan3D-2",
+      "viral_metric": "❤️ 3371 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3371,
+          "display": "❤️ 3371 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3371,
+          "display": "❤️ 3371 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_techfreakwormltx23_studio",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: techfreakworm/LTX2.3-Studio",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/techfreakworm/LTX2.3-Studio",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 338 | Live URL: https://huggingface.co/spaces/techfreakworm/LTX2.3-Studio",
+      "viral_metric": "❤️ 338 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 338,
+          "display": "❤️ 338 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 338,
+          "display": "❤️ 338 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_someone_in_the_worldfirered_experime",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: someone-in-the-world/FireRed-Experimental-Turbo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/someone-in-the-world/FireRed-Experimental-Turbo",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 148 | Live URL: https://huggingface.co/spaces/someone-in-the-world/FireRed-Experimental-Turbo",
+      "viral_metric": "❤️ 148 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 148,
+          "display": "❤️ 148 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 148,
+          "display": "❤️ 148 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_sanchit_gandhiwhisper_jax",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: sanchit-gandhi/whisper-jax",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/sanchit-gandhi/whisper-jax",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 2836 | Live URL: https://huggingface.co/spaces/sanchit-gandhi/whisper-jax",
+      "viral_metric": "❤️ 2836 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2836,
+          "display": "❤️ 2836 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2836,
+          "display": "❤️ 2836 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_r3gmwan2_2_fp8da_aoti_preview",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: r3gm/wan2-2-fp8da-aoti-preview",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3043 | Live URL: https://huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview",
+      "viral_metric": "❤️ 3043 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3043,
+          "display": "❤️ 3043 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3043,
+          "display": "❤️ 3043 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_qwenqwen3_tts",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: Qwen/Qwen3-TTS",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Qwen/Qwen3-TTS",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2196 | Live URL: https://huggingface.co/spaces/Qwen/Qwen3-TTS",
+      "viral_metric": "❤️ 2196 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2196,
+          "display": "❤️ 2196 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2196,
+          "display": "❤️ 2196 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_prithivmlmodsqwen38_27b_object_detec",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: prithivMLmods/Qwen3.8-27B-Object-Detection",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/prithivMLmods/Qwen3.8-27B-Object-Detection",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 30 | Live URL: https://huggingface.co/spaces/prithivMLmods/Qwen3.8-27B-Object-Detection",
+      "viral_metric": "❤️ 30 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 30,
+          "display": "❤️ 30 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 30,
+          "display": "❤️ 30 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_pharmapsychoticclip_interrogator",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: pharmapsychotic/CLIP-Interrogator",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/pharmapsychotic/CLIP-Interrogator",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2980 | Live URL: https://huggingface.co/spaces/pharmapsychotic/CLIP-Interrogator",
+      "viral_metric": "❤️ 2980 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2980,
+          "display": "❤️ 2980 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2980,
+          "display": "❤️ 2980 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_openbmbvoxcpm_demo",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: openbmb/VoxCPM-Demo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/openbmb/VoxCPM-Demo",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 747 | Live URL: https://huggingface.co/spaces/openbmb/VoxCPM-Demo",
+      "viral_metric": "❤️ 747 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 747,
+          "display": "❤️ 747 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 747,
+          "display": "❤️ 747 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_openaiwhisper",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: openai/whisper",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/openai/whisper",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2839 | Live URL: https://huggingface.co/spaces/openai/whisper",
+      "viral_metric": "❤️ 2839 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2839,
+          "display": "❤️ 2839 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2839,
+          "display": "❤️ 2839 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_open_llm_leaderboardopen_llm_leaderb",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: open-llm-leaderboard/open_llm_leaderboard",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 14087 | Live URL: https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+      "viral_metric": "❤️ 14087 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 14087,
+          "display": "❤️ 14087 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 14087,
+          "display": "❤️ 14087 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_oniseqwen_image_edit_2509_loras_fast",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: Onise/Qwen-Image-Edit-2509-LoRAs-Fast2",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Onise/Qwen-Image-Edit-2509-LoRAs-Fast2",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 315 | Live URL: https://huggingface.co/spaces/Onise/Qwen-Image-Edit-2509-LoRAs-Fast2",
+      "viral_metric": "❤️ 315 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 315,
+          "display": "❤️ 315 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 315,
+          "display": "❤️ 315 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_not_lainbackground_removal",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: not-lain/background-removal",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/not-lain/background-removal",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2929 | Live URL: https://huggingface.co/spaces/not-lain/background-removal",
+      "viral_metric": "❤️ 2929 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2929,
+          "display": "❤️ 2929 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2929,
+          "display": "❤️ 2929 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_nanotronultrascale_playbook",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: nanotron/ultrascale-playbook",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/nanotron/ultrascale-playbook",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 4001 | Live URL: https://huggingface.co/spaces/nanotron/ultrascale-playbook",
+      "viral_metric": "❤️ 4001 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 4001,
+          "display": "❤️ 4001 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 4001,
+          "display": "❤️ 4001 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_mukaistmidjourney",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: mukaist/Midjourney",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/mukaist/Midjourney",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2994 | Live URL: https://huggingface.co/spaces/mukaist/Midjourney",
+      "viral_metric": "❤️ 2994 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2994,
+          "display": "❤️ 2994 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2994,
+          "display": "❤️ 2994 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_mtebleaderboard",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: mteb/leaderboard",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/mteb/leaderboard",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 7648 | Live URL: https://huggingface.co/spaces/mteb/leaderboard",
+      "viral_metric": "❤️ 7648 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 7648,
+          "display": "❤️ 7648 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 7648,
+          "display": "❤️ 7648 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_mrfakenamez_image_turbo",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: mrfakename/Z-Image-Turbo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/mrfakename/Z-Image-Turbo",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3765 | Live URL: https://huggingface.co/spaces/mrfakename/Z-Image-Turbo",
+      "viral_metric": "❤️ 3765 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3765,
+          "display": "❤️ 3765 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3765,
+          "display": "❤️ 3765 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_mrfakenamee2_f5_tts",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: mrfakename/E2-F5-TTS",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/mrfakename/E2-F5-TTS",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2898 | Live URL: https://huggingface.co/spaces/mrfakename/E2-F5-TTS",
+      "viral_metric": "❤️ 2898 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2898,
+          "display": "❤️ 2898 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2898,
+          "display": "❤️ 2898 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-03_repo_hf_space_mrddickdickensonkrea_2_turbo_i2i",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -2269,6 +2929,171 @@
       "description_ko": "그라디오(Gradio) SDK 기반으로 실시간 이미지 투 이미지(I2I) 변환을 테스트할 수 있는 인터랙티브 데모입니다.",
       "description_en": "An interactive Gradio-based demo testing high-speed image-to-image generation capabilities.",
       "description_zh": "基于 Gradio SDK 的交互式演示，可用于测试高速图像到图像转换能力。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_mmmat32omi_videos_with_wan22_fp8",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: mmmat32/Omi-videos-with_wan2.2-fp8",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/mmmat32/Omi-videos-with_wan2.2-fp8",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 43 | Live URL: https://huggingface.co/spaces/mmmat32/Omi-videos-with_wan2.2-fp8",
+      "viral_metric": "❤️ 43 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 43,
+          "display": "❤️ 43 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 43,
+          "display": "❤️ 43 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_microsofttrellis",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: microsoft/TRELLIS",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/microsoft/TRELLIS",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 4775 | Live URL: https://huggingface.co/spaces/microsoft/TRELLIS",
+      "viral_metric": "❤️ 4775 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 4775,
+          "display": "❤️ 4775 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 4775,
+          "display": "❤️ 4775 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_lmarena_aiarena_leaderboard",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: lmarena-ai/arena-leaderboard",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 4981 | Live URL: https://huggingface.co/spaces/lmarena-ai/arena-leaderboard",
+      "viral_metric": "❤️ 4981 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 4981,
+          "display": "❤️ 4981 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 4981,
+          "display": "❤️ 4981 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_linoytsminimax_h3_inpainting",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: linoyts/minimax-h3-inpainting",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/linoyts/minimax-h3-inpainting",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 30 | Live URL: https://huggingface.co/spaces/linoyts/minimax-h3-inpainting",
+      "viral_metric": "❤️ 30 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 30,
+          "display": "❤️ 30 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 30,
+          "display": "❤️ 30 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_linoytsflux2_klein_face_swap",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: linoyts/Flux2-Klein-Face-Swap",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/linoyts/Flux2-Klein-Face-Swap",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 552 | Live URL: https://huggingface.co/spaces/linoyts/Flux2-Klein-Face-Swap",
+      "viral_metric": "❤️ 552 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 552,
+          "display": "❤️ 552 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 552,
+          "display": "❤️ 552 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-03_repo_hf_space_leosayer06wan555",
@@ -2367,6 +3192,930 @@
       "description_zh": "基于 Gradio 的开放演示空间，可在网页端直接体验最新生成式 AI 模型的效果。"
     },
     {
+      "inbox_id": "2026-09-03_repo_hf_space_kylehessling1v100_homelab_field_guid",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: KyleHessling1/v100-homelab-field-guide",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/KyleHessling1/v100-homelab-field-guide",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 10 | Live URL: https://huggingface.co/spaces/KyleHessling1/v100-homelab-field-guide",
+      "viral_metric": "❤️ 10 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_kwai_kolorskolors_virtual_try_on",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: Kwai-Kolors/Kolors-Virtual-Try-On",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Kwai-Kolors/Kolors-Virtual-Try-On",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 10170 | Live URL: https://huggingface.co/spaces/Kwai-Kolors/Kolors-Virtual-Try-On",
+      "viral_metric": "❤️ 10170 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 10170,
+          "display": "❤️ 10170 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 10170,
+          "display": "❤️ 10170 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_klingteamliveportrait",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: KlingTeam/LivePortrait",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/KlingTeam/LivePortrait",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3785 | Live URL: https://huggingface.co/spaces/KlingTeam/LivePortrait",
+      "viral_metric": "❤️ 3785 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3785,
+          "display": "❤️ 3785 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3785,
+          "display": "❤️ 3785 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_kingnishopengpt_4o",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: KingNish/OpenGPT-4o",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/KingNish/OpenGPT-4o",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 4306 | Live URL: https://huggingface.co/spaces/KingNish/OpenGPT-4o",
+      "viral_metric": "❤️ 4306 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 4306,
+          "display": "❤️ 4306 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 4306,
+          "display": "❤️ 4306 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_jbilcke_hfai_comic_factory",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: jbilcke-hf/ai-comic-factory",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 11236 | Live URL: https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
+      "viral_metric": "❤️ 11236 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 11236,
+          "display": "❤️ 11236 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 11236,
+          "display": "❤️ 11236 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_jasperait2i_technical_interactive_re",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: jasperai/t2i-technical-interactive-report",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/jasperai/t2i-technical-interactive-report",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 10 | Live URL: https://huggingface.co/spaces/jasperai/t2i-technical-interactive-report",
+      "viral_metric": "❤️ 10 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_instantxinstantid",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: InstantX/InstantID",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/InstantX/InstantID",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3641 | Live URL: https://huggingface.co/spaces/InstantX/InstantID",
+      "viral_metric": "❤️ 3641 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3641,
+          "display": "❤️ 3641 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3641,
+          "display": "❤️ 3641 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_ifmylove2011girlslike_lora_gallery",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: ifmylove2011/girlslike_lora_gallery",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/ifmylove2011/girlslike_lora_gallery",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 102 | Live URL: https://huggingface.co/spaces/ifmylove2011/girlslike_lora_gallery",
+      "viral_metric": "❤️ 102 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 102,
+          "display": "❤️ 102 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 102,
+          "display": "❤️ 102 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_humanaigcoutfitanyone",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: HumanAIGC/OutfitAnyone",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/HumanAIGC/OutfitAnyone",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2814 | Live URL: https://huggingface.co/spaces/HumanAIGC/OutfitAnyone",
+      "viral_metric": "❤️ 2814 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2814,
+          "display": "❤️ 2814 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2814,
+          "display": "❤️ 2814 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_huggingfacetbsmol_training_playbook",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: HuggingFaceTB/smol-training-playbook",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 3287 | Live URL: https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook",
+      "viral_metric": "❤️ 3287 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3287,
+          "display": "❤️ 3287 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3287,
+          "display": "❤️ 3287 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_huggingfaceinferencesupport",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: huggingface/InferenceSupport",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/huggingface/InferenceSupport",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 657 | Live URL: https://huggingface.co/spaces/huggingface/InferenceSupport",
+      "viral_metric": "❤️ 657 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 657,
+          "display": "❤️ 657 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 657,
+          "display": "❤️ 657 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_hugging_appsminimax_h3_flashgen_4ste",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: hugging-apps/minimax-h3-flashgen-4step",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/hugging-apps/minimax-h3-flashgen-4step",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 15 | Live URL: https://huggingface.co/spaces/hugging-apps/minimax-h3-flashgen-4step",
+      "viral_metric": "❤️ 15 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 15,
+          "display": "❤️ 15 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 15,
+          "display": "❤️ 15 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_hugging_appsfireredaudio_tts_demo",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: hugging-apps/fireredaudio-tts-demo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/hugging-apps/fireredaudio-tts-demo",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 18 | Live URL: https://huggingface.co/spaces/hugging-apps/fireredaudio-tts-demo",
+      "viral_metric": "❤️ 18 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 18,
+          "display": "❤️ 18 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 18,
+          "display": "❤️ 18 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_hugging_appsfasth3_4step_preview_dem",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: hugging-apps/fasth3-4step-preview-demo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/hugging-apps/fasth3-4step-preview-demo",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 12 | Live URL: https://huggingface.co/spaces/hugging-apps/fasth3-4step-preview-demo",
+      "viral_metric": "❤️ 12 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 12,
+          "display": "❤️ 12 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 12,
+          "display": "❤️ 12 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_hexgradkokoro_tts",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: hexgrad/Kokoro-TTS",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/hexgrad/Kokoro-TTS",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3451 | Live URL: https://huggingface.co/spaces/hexgrad/Kokoro-TTS",
+      "viral_metric": "❤️ 3451 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3451,
+          "display": "❤️ 3451 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3451,
+          "display": "❤️ 3451 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_frameai4687omni_video_factory",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: FrameAI4687/Omni-Video-Factory",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/FrameAI4687/Omni-Video-Factory",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 1445 | Live URL: https://huggingface.co/spaces/FrameAI4687/Omni-Video-Factory",
+      "viral_metric": "❤️ 1445 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 1445,
+          "display": "❤️ 1445 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 1445,
+          "display": "❤️ 1445 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_facebookmusicgen",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: facebook/MusicGen",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/facebook/MusicGen",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 5089 | Live URL: https://huggingface.co/spaces/facebook/MusicGen",
+      "viral_metric": "❤️ 5089 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 5089,
+          "display": "❤️ 5089 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 5089,
+          "display": "❤️ 5089 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_enzostvsdeepsite",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: enzostvs/deepsite",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/enzostvs/deepsite",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 16610 | Live URL: https://huggingface.co/spaces/enzostvs/deepsite",
+      "viral_metric": "❤️ 16610 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 16610,
+          "display": "❤️ 16610 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 16610,
+          "display": "❤️ 16610 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_dream2589632147dream_wan2_2_fp8da_ao",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: dream2589632147/Dream-wan2-2-fp8da-aoti-preview-2",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/dream2589632147/Dream-wan2-2-fp8da-aoti-preview-2",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 142 | Live URL: https://huggingface.co/spaces/dream2589632147/Dream-wan2-2-fp8da-aoti-preview-2",
+      "viral_metric": "❤️ 142 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 142,
+          "display": "❤️ 142 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 142,
+          "display": "❤️ 142 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_dontplantoendugi_leaderboard",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: DontPlanToEnd/UGI-Leaderboard",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/DontPlanToEnd/UGI-Leaderboard",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 2026 | Live URL: https://huggingface.co/spaces/DontPlanToEnd/UGI-Leaderboard",
+      "viral_metric": "❤️ 2026 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2026,
+          "display": "❤️ 2026 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2026,
+          "display": "❤️ 2026 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_dalle_minidalle_mini",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: dalle-mini/dalle-mini",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/dalle-mini/dalle-mini",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 5721 | Live URL: https://huggingface.co/spaces/dalle-mini/dalle-mini",
+      "viral_metric": "❤️ 5721 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 5721,
+          "display": "❤️ 5721 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 5721,
+          "display": "❤️ 5721 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_coherelabscohere_parse",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: CohereLabs/cohere-parse",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/CohereLabs/cohere-parse",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 18 | Live URL: https://huggingface.co/spaces/CohereLabs/cohere-parse",
+      "viral_metric": "❤️ 18 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 18,
+          "display": "❤️ 18 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 18,
+          "display": "❤️ 18 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_codesoftslm_arena",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: CodeSoft/SLM-Arena",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/CodeSoft/SLM-Arena",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 15 | Live URL: https://huggingface.co/spaces/CodeSoft/SLM-Arena",
+      "viral_metric": "❤️ 15 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 15,
+          "display": "❤️ 15 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 15,
+          "display": "❤️ 15 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_black_forest_labsflux1_schnell",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: black-forest-labs/FLUX.1-schnell",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 5119 | Live URL: https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell",
+      "viral_metric": "❤️ 5119 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 5119,
+          "display": "❤️ 5119 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 5119,
+          "display": "❤️ 5119 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_black_forest_labsflux1_dev",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: black-forest-labs/FLUX.1-dev",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/black-forest-labs/FLUX.1-dev",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 9526 | Live URL: https://huggingface.co/spaces/black-forest-labs/FLUX.1-dev",
+      "viral_metric": "❤️ 9526 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 9526,
+          "display": "❤️ 9526 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 9526,
+          "display": "❤️ 9526 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_ast_1320pro_realism_edit_studio_v17",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: AST-1320/Pro-Realism-Edit-Studio-v.17",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/AST-1320/Pro-Realism-Edit-Studio-v.17",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 20 | Live URL: https://huggingface.co/spaces/AST-1320/Pro-Realism-Edit-Studio-v.17",
+      "viral_metric": "❤️ 20 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 20,
+          "display": "❤️ 20 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 20,
+          "display": "❤️ 20 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_ap123illusiondiffusion",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: AP123/IllusionDiffusion",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/AP123/IllusionDiffusion",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 5435 | Live URL: https://huggingface.co/spaces/AP123/IllusionDiffusion",
+      "viral_metric": "❤️ 5435 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 5435,
+          "display": "❤️ 5435 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 5435,
+          "display": "❤️ 5435 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_akhaliqanycoder",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: akhaliq/anycoder",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/akhaliq/anycoder",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 3304 | Live URL: https://huggingface.co/spaces/akhaliq/anycoder",
+      "viral_metric": "❤️ 3304 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3304,
+          "display": "❤️ 3304 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3304,
+          "display": "❤️ 3304 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-03_repo_hf_space_aimeebingmouquprotectbirds",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -2461,6 +4210,39 @@
       "description_ko": "컴퓨터 Vision 기반의 조류 보호 및 생태계 모니터링 AI 데모를 직접 체험해 보세요.",
       "description_en": "Explore an interactive computer vision demo designed for bird protection and ecological monitoring.",
       "description_zh": "探索基于计算机视觉的鸟类保护与生态监测交互式AI演示。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_acvlababot_recon_streaming_3d",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: acvlab/abot-recon-streaming-3d",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/acvlab/abot-recon-streaming-3d",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 10 | Live URL: https://huggingface.co/spaces/acvlab/abot-recon-streaming-3d",
+      "viral_metric": "❤️ 10 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-02_sns_hugging_face_blog_granite_42_llms_how_theyre_",
@@ -10961,6 +12743,40 @@
   ],
   "news_items": [
     {
+      "inbox_id": "2026-09-03_sns_hugging_face_blog_training_a_coding_model_to_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hugging Face Blog: Training a coding model to paint watercolours with TRL and OpenEnv",
+      "source_platform": "Hugging Face Blog",
+      "source_url": "https://huggingface.co/blog/train-to-paint-with-code",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "Hugging Face Blog Tech Publication: Training a coding model to paint watercolours with TRL and OpenEnv",
+      "viral_metric": "🌍 Official AI Publication",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "article_url": "https://huggingface.co/blog/train-to-paint-with-code"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_whistleblower_warns_postal_servic",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -11359,6 +13175,41 @@
       "description_ko": "대규모 언어 모델의 확산이 전 세계 소수 언어와 문화 다양성에 미치는 영향을 분석합니다.",
       "description_en": "An insightful discussion on how the dominance of LLMs impacts minority languages and global cultural diversity.",
       "description_zh": "深入探讨大语言模型的普及对全球少数语言及文化多样性带来的潜在影响。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_the_browsers_main_thread_is_expen",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: The Browser's Main Thread Is Expensive",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49522137",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 46 pts | Comments: 15 | The Browser's Main Thread Is Expensive",
+      "viral_metric": "🔥 46 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 46,
+          "display": "🔥 46 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 46,
+          "display": "🔥 46 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49522137",
+      "article_url": "https://kciter.so/posts/the-expensive-main-thread/en/"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_qantas_airbus_a380_engine_failure",
@@ -12880,6 +14731,43 @@
       "hook_zh": "美国联邦调查局（FBI）正全力调查一起泄露并出售超 1.53 亿份驾驶证记录的非法黑产服务。",
       "description_en": "The FBI is actively investigating an illicit service that leaked and sold over 153 million driver's license records.",
       "description_zh": "美国联邦调查局（FBI）正全力调查一起泄露并出售超 1.53 亿份驾驶证记录的非法黑产服务。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_diffusion으로_ocr_디코딩_가속하기",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Diffusion으로 OCR 디코딩 가속하기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33187",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Diffusion으로 OCR 디코딩 가속하기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Diffusion으로 OCR 디코딩 가속하기",
+      "description_ko": "Diffusion으로 OCR 디코딩 가속하기",
+      "hn_url": "https://news.hada.io/topic?id=33187",
+      "article_url": "https://news.hada.io/topic?id=33187"
     },
     {
       "inbox_id": "2026-09-03_sns_geeknews_commodore_64_1982년_9월_1일_출시",
@@ -19149,6 +21037,39 @@
       "description_ko": "새우조차 영상을 만들 수 있다는 콘셉트의 창의적인 AI 영상 생성 도구를 만나보세요.",
       "description_en": "Explore a whimsical yet powerful AI video generation tool that makes content creation effortless.",
       "description_zh": "探索这款以趣味概念驱动的AI视频生成工具，体验极简的创作流程。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_github_shadcn_uicn",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GitHub: shadcn-ui/cn",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/shadcn-ui/cn",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Stars: 761, Forks: 5 | cn is a new engine for Tailwind class merging and conflict resolution. It replaces tailwind-merge and clsx. Same APIs. Full parity. And it is 30× faster.",
+      "viral_metric": "★ 761 Stars",
+      "metric_tracking": {
+        "initial": {
+          "value": 761,
+          "display": "★ 761 Stars",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 761,
+          "display": "★ 761 Stars",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-03_repo_github_rakanki911dlss5_swapper",
