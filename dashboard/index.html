@@ -145,7 +145,7 @@
         <button onclick="switchView('models')" id="tabModelsBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
           <span id="navTabModels">AI 모델</span>
-          <span class="text-[10px] font-mono text-ink-muted" id="headerModelsCount">(142)</span>
+          <span class="text-[10px] font-mono text-ink-muted" id="headerModelsCount">(143)</span>
         </button>
         <button onclick="switchView('news')" id="tabNewsBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
@@ -192,7 +192,7 @@
       </button>
       <button onclick="switchView('models')" id="mTabModelsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabModels">AI 모델 (142)</span>
+        <span id="mNavTabModels">AI 모델 (143)</span>
       </button>
       <button onclick="switchView('news')" id="mTabNewsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
@@ -324,7 +324,7 @@
             <span class="px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-primary text-xs font-mono font-bold border border-surface-border" id="modelsHeaderBadge">
               AI MODEL REGISTRY & FAMILIES
             </span>
-            <span class="text-xs text-ink-muted font-mono" id="modelsHeaderCount">총 142개 모델</span>
+            <span class="text-xs text-ink-muted font-mono" id="modelsHeaderCount">총 143개 모델</span>
           </div>
           <h2 class="text-lg font-bold text-ink-primary" id="modelsHeaderTitle">AI 파운데이션 및 파생 가중치(LoRA/GGUF) 모델 카탈로그</h2>
           <p class="text-xs text-ink-secondary" id="modelsHeaderDesc">
@@ -1104,7 +1104,7 @@
       safeSetText('navTabPortfolio', t.navPortfolio);
       safeSetText('mNavTabPortfolio', t.navPortfolio);
       safeSetText('navTabModels', t.navModels);
-      safeSetText('mNavTabModels', t.navModels + ' (' + (typeof liveModelsData !== 'undefined' ? liveModelsData.length : 142) + ')');
+      safeSetText('mNavTabModels', t.navModels + ' (' + (typeof liveModelsData !== 'undefined' ? liveModelsData.length : 143) + ')');
       safeSetText('navTabNews', t.navNews);
       safeSetText('mNavTabNews', t.navNews + ' (' + (typeof liveNewsData !== 'undefined' ? liveNewsData.length : 71) + ')');
       safeSetText('navTabGraph', t.navGraph);
