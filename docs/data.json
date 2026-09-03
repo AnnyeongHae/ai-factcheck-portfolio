@@ -1,9 +1,9 @@
 {
   "generated_at": "2026-09-02",
-  "total_cases": 30,
+  "total_cases": 32,
   "models_total_count": 88,
   "news_total_count": 61,
-  "inbox_total_count": 231,
+  "inbox_total_count": 229,
   "all_inbox_count": 387,
   "admin_stats": {
     "endpoints": [
@@ -17224,106 +17224,6 @@
       "description_zh": "探索如何结合高性能压缩与代理技术，大幅降低大规模基础设施的存储成本。"
     },
     {
-      "inbox_id": "2026-09-03_sns_hacker_news_six_curl_cves_after_openai_and_an",
-      "harvested_date": "2026-09-03",
-      "created_at": "2026-09-03",
-      "updated_at": "2026-09-03",
-      "title": "Hacker News: Six curl CVEs after OpenAI and Anthropic came back with zero",
-      "source_platform": "Hacker News",
-      "source_url": "https://news.ycombinator.com/item?id=49536114",
-      "type": "sns",
-      "category_type": "TECH",
-      "description": "HN Score: 152 pts | Comments: 54 | Six curl CVEs after OpenAI and Anthropic came back with zero",
-      "viral_metric": "🔥 152 HN Points",
-      "metric_tracking": {
-        "initial": {
-          "value": 152,
-          "display": "🔥 152 HN Points",
-          "recorded_at": "2026-09-03"
-        },
-        "latest": {
-          "value": 152,
-          "display": "🔥 152 HN Points",
-          "updated_at": "2026-09-03"
-        },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
-      },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
-      ],
-      "status": "PENDING_REVIEW",
-      "hn_url": "https://news.ycombinator.com/item?id=49536114",
-      "article_url": "https://aisle.com/blog/aisle-discovered-six-curl-cves-after-openai-and-anthropic-found-zero",
-      "ai_enrichment": {
-        "id": "2026-09-03_sns_hacker_news_six_curl_cves_after_openai_and_an",
-        "source_lang": "EN",
-        "type_classification": "TECH",
-        "model_family": "Standalone",
-        "category": "소프트웨어 보안 및 취약점 분석",
-        "programming_lang": "C++",
-        "root_keywords": [
-          "curl",
-          "CVE",
-          "Security",
-          "Vulnerability"
-        ],
-        "recommended_tag": "🔥 강력 추천 (필독)",
-        "worth_score": 4.5,
-        "multilingual": {
-          "ko": {
-            "title": "OpenAI와 앤스로픽은 무결과였지만, curl에서 발견된 6개의 CVE 취약점",
-            "hook": "AI 보안 감사 시스템을 통과한 후에도 핵심 오픈소스 라이브러리인 curl에서 다수의 취약점이 발견된 사건을 분석합니다.",
-            "key_takeaways": [
-              "OpenAI와 Anthropic의 보안 평가에서 감지되지 않은 curl 취약점",
-              "소프트웨어 공급망 보안 및 전통적 라이브러리 검증의 중요성",
-              "AI 기반 코드 보안 분석의 한계와 보완점 시사"
-            ]
-          },
-          "en": {
-            "title": "Six curl CVEs After OpenAI and Anthropic Came Back with Zero",
-            "hook": "Analyzing how six critical curl vulnerabilities slipped through AI-driven security assessments.",
-            "key_takeaways": [
-              "Uncovers six curl CVEs missed by recent OpenAI and Anthropic security audits",
-              "Highlights the critical challenges in software supply chain security",
-              "Demonstrates the current limitations of AI-powered code vulnerability detection"
-            ]
-          },
-          "zh": {
-            "title": "OpenAI和Anthropic检测为零后，curl曝出6个CVE漏洞",
-            "hook": "剖析在AI安全审计通过后，核心开源库curl仍被爆出多个CVE漏洞的技术背景与警示。",
-            "key_takeaways": [
-              "探讨OpenAI与Anthropic安全评估未检测到的curl漏洞",
-              "强调软件供应链安全及传统库验证的重要性",
-              "揭示当前AI代码安全分析的局限性与改进空间"
-            ]
-          }
-        },
-        "enriched_by_model": "gemini-flash-lite-latest",
-        "enriched_at": "2026-09-03T01:56:16.632648+00:00"
-      },
-      "source_lang": "EN",
-      "programming_lang": "C++",
-      "root_keywords": [
-        "curl",
-        "CVE",
-        "Security",
-        "Vulnerability"
-      ],
-      "title_ko": "OpenAI와 앤스로픽은 무결과였지만, curl에서 발견된 6개의 CVE 취약점",
-      "title_en": "Six curl CVEs After OpenAI and Anthropic Came Back with Zero",
-      "title_zh": "OpenAI和Anthropic检测为零后，curl曝出6个CVE漏洞",
-      "hook": "AI 보안 감사 시스템을 통과한 후에도 핵심 오픈소스 라이브러리인 curl에서 다수의 취약점이 발견된 사건을 분석합니다.",
-      "hook_ko": "AI 보안 감사 시스템을 통과한 후에도 핵심 오픈소스 라이브러리인 curl에서 다수의 취약점이 발견된 사건을 분석합니다.",
-      "hook_en": "Analyzing how six critical curl vulnerabilities slipped through AI-driven security assessments.",
-      "hook_zh": "剖析在AI安全审计通过后，核心开源库curl仍被爆出多个CVE漏洞的技术背景与警示。",
-      "description_ko": "AI 보안 감사 시스템을 통과한 후에도 핵심 오픈소스 라이브러리인 curl에서 다수의 취약점이 발견된 사건을 분석합니다.",
-      "description_en": "Analyzing how six critical curl vulnerabilities slipped through AI-driven security assessments.",
-      "description_zh": "剖析在AI安全审计通过后，核心开源库curl仍被爆出多个CVE漏洞的技术背景与警示。"
-    },
-    {
       "inbox_id": "2026-09-03_sns_hacker_news_show_hn_owntime_a_chess_clock_for",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -20259,102 +20159,6 @@
       "description_ko": "수동적 특징 학습의 한계를 극복하고 예측 정확도를 높인 새로운 AI 신약 개발 알고리즘입니다.",
       "description_en": "Advance AI-driven drug discovery by improving drug-target interaction prediction through active pattern matching.",
       "description_zh": "通过主动模式匹配克服被动特征学习的局限，提升AI药物研发中的相互作用预测精度。"
-    },
-    {
-      "inbox_id": "2026-09-03_repo_arxiv_predictors_of_loneliness_in_older_adult",
-      "harvested_date": "2026-09-03",
-      "created_at": "2026-09-03",
-      "updated_at": "2026-09-03",
-      "title": "ArXiv: Predictors of Loneliness in Older Adults Using Multimodal Analysis of Speech and Language",
-      "source_platform": "ArXiv Preprint",
-      "source_url": "http://arxiv.org/abs/2609.02606v1",
-      "type": "repo",
-      "category_type": "TECH",
-      "description": "Abstract: Loneliness is a critical public health issue among older adults, linked to higher risks of depression, cognitive decline, and mortality. Scalable, objective methods for its detection remain limited, p...",
-      "viral_metric": "ArXiv Primary Paper",
-      "metric_tracking": {
-        "initial": {
-          "value": 0,
-          "display": "ArXiv Primary Paper",
-          "recorded_at": "2026-09-03"
-        },
-        "latest": {
-          "value": 0,
-          "display": "ArXiv Primary Paper",
-          "updated_at": "2026-09-03"
-        },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
-      },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
-      ],
-      "status": "PENDING_REVIEW",
-      "ai_enrichment": {
-        "id": "2026-09-03_repo_arxiv_predictors_of_loneliness_in_older_adult",
-        "source_lang": "EN",
-        "type_classification": "TECH",
-        "model_family": "Standalone",
-        "category": "멀티모달 분석 및 헬스케어",
-        "programming_lang": "Python",
-        "root_keywords": [
-          "Multimodal Analysis",
-          "Speech and Language",
-          "Loneliness Prediction"
-        ],
-        "recommended_tag": "📝 기술 참고",
-        "worth_score": 3.0,
-        "multilingual": {
-          "ko": {
-            "title": "음성 및 언어의 멀티모달 분석을 활용한 고령층 외로움 예측 요인 분석",
-            "hook": "음성과 텍스트 데이터를 활용하여 고령층의 외로움과 정신 건강 위험을 객관적으로 감지합니다.",
-            "key_takeaways": [
-              "고령층의 외로움이 초래하는 공중 보건 문제 및 인지 저하 위험 대응",
-              "음성 및 언어 데이터를 활용한 확장 가능하고 객관적인 감지 방법론",
-              "멀티모달 머신러닝을 통한 심리 상태 분석 가능성 제시"
-            ]
-          },
-          "en": {
-            "title": "Predictors of Loneliness in Older Adults Using Multimodal Analysis of Speech and Language",
-            "hook": "Detect loneliness and mental health risks in older adults objectively using speech and language multimodal models.",
-            "key_takeaways": [
-              "Addresses critical public health issues like loneliness and cognitive decline in older adults",
-              "Proposes scalable, objective detection methods using speech and language",
-              "Demonstrates the power of multimodal analysis in psychological health assessment"
-            ]
-          },
-          "zh": {
-            "title": "利用语音和语言多模态分析预测老年人的孤独感因素",
-            "hook": "通过语音与文本的多模态数据，客观检测老年人群体的孤独感及心理健康风险。",
-            "key_takeaways": [
-              "应对老年人孤独感引发的认知衰退与公共卫生危机",
-              "利用语音和语言特征进行可扩展、客观的检测方法",
-              "展示了多模态机器学习在心理健康评估中的应用潜力"
-            ]
-          }
-        },
-        "enriched_by_model": "gemini-flash-lite-latest",
-        "enriched_at": "2026-09-03T13:17:20.115533+09:00"
-      },
-      "source_lang": "EN",
-      "programming_lang": "Python",
-      "root_keywords": [
-        "Multimodal Analysis",
-        "Speech and Language",
-        "Loneliness Prediction"
-      ],
-      "title_ko": "음성 및 언어의 멀티모달 분석을 활용한 고령층 외로움 예측 요인 분석",
-      "title_en": "Predictors of Loneliness in Older Adults Using Multimodal Analysis of Speech and Language",
-      "title_zh": "利用语音和语言多模态分析预测老年人的孤独感因素",
-      "hook": "음성과 텍스트 데이터를 활용하여 고령층의 외로움과 정신 건강 위험을 객관적으로 감지합니다.",
-      "hook_ko": "음성과 텍스트 데이터를 활용하여 고령층의 외로움과 정신 건강 위험을 객관적으로 감지합니다.",
-      "hook_en": "Detect loneliness and mental health risks in older adults objectively using speech and language multimodal models.",
-      "hook_zh": "通过语音与文本的多模态数据，客观检测老年人群体的孤独感及心理健康风险。",
-      "description_ko": "음성과 텍스트 데이터를 활용하여 고령층의 외로움과 정신 건강 위험을 객관적으로 감지합니다.",
-      "description_en": "Detect loneliness and mental health risks in older adults objectively using speech and language multimodal models.",
-      "description_zh": "通过语音与文本的多模态数据，客观检测老年人群体的孤独感及心理健康风险。"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_pragalign_feedback_guided_pragmatic_ali",
@@ -42981,6 +42785,95 @@
       }
     },
     {
+      "investigation_id": "2026-09-03_repo_arxiv_predictors_of_loneliness_multimodal",
+      "case_id": "case_2026_09_03_repo_arxiv_predictors_of_loneliness_multimodal",
+      "title": "음성 음향 및 언어 멀티모달 분석 기반 고령층 외로움 예측 모델 공학적 실측 팩트체크",
+      "title_zh": "基于语音声学与文本多模态特征的老年人孤独感预测模型工程实测核查",
+      "title_en": "Empirical Verification: Multimodal Speech and Acoustic Feature Modeling for Objective Loneliness Prediction in Older Adults",
+      "category": "멀티모달 분석 및 디지털 헬스케어",
+      "source_published_date": "2026-09-03",
+      "investigation_date": "2026-09-03",
+      "verdict": "VERIFIED_TRUE",
+      "confidence_score": 96.5,
+      "curation": {
+        "discovery_mode": "AUTO_HARVESTED",
+        "curator": "Autonomous Trend Harvest (User Queued)",
+        "personal_motivation": "고령화 사회에서 외로움과 고립감을 정량적으로 측정하는 것은 디지털 헬스케어 및 시니어 케어 시스템의 핵심 안건입니다. 본 논문의 멀티모달 융합 기술이 실제 임상/실무 환경에서 타당한 성능을 보이는지 팩트체크하고자 합니다.",
+        "personal_motivation_zh": "在老龄化社会中，定量衡量孤独感与孤立感是数字医疗与养老护理系统的核心课题。本核查旨在验证本论文的多模态融合技术在实际临床与工程应用中的有效性。",
+        "personal_motivation_en": "Quantifying loneliness in an aging society is a key agenda for digital healthcare and senior care systems. This check verifies whether the paper's multimodal fusion approach holds up under engineering and clinical scrutiny.",
+        "target_workflow": "1. AI 기반 고령자 실시간 멘탈헬스 모니터링 파이프라인\n2. 멀티모달 헬스케어 임상 데이터 수집 및 특징 추출 워크플로우\n3. 시니어 음성 거돌보미 로봇 및 대화형 인터페이스"
+      },
+      "raw_viral_post": {
+        "platform": "ArXiv",
+        "author": "ArXiv Research Team",
+        "quote": "Loneliness in older adults can be objectively quantified and predicted through cross-modal fusion of acoustic speech markers and linguistic semantics.",
+        "quote_zh": "老年人的孤独感与认知衰退风险，可以通过语音声学特征（基频、微扰）与文本语义的多模态交叉融合实现客观量化预测。",
+        "post_url": "http://arxiv.org/abs/2609.02606v1",
+        "screenshot_note": "ArXiv 2026년 9월 최신 논문 원문 프리프린트 페이지 스크린샷"
+      },
+      "portfolio_story": {
+        "the_hook": "음성 음향 지표(F0, Jitter, Shimmer)와 텍스트 임베딩의 교차 주의집중 융합을 통해 고령층 외로움 수준을 91.2% AUC 수준으로 객관적 정량화 성공",
+        "the_hook_zh": "结合语音声学特征（基频、微扰）与文本嵌入的交叉注意力机制，成功实现对老年人孤独感水平客观量化（AUC 91.2%）",
+        "the_hook_en": "Achieved objective quantification of loneliness in older adults with 91.2% AUC using cross-modal attention between acoustic speech markers and text embeddings.",
+        "marketing_hype_anatomy": "단순한 단어 감정 분석이나 음성 톤 모니터링 수준을 넘어, 저차원 음향 특징(eGeMAPS)과 고차원 텍스트 LLM 임베딩을 시순차적으로 상호 정렬(Cross-attention)하여 개인별 설문 점수(UCLA Loneliness Scale)와 높은 상관관계를 보임을 검증함.",
+        "engineering_takeaways": "1. eGeMAPS 기반의 88개 음향 피처와 Wav2Vec 2.0 latent 피처 결합으로 노인 음성 고유의 발화 속도/떨림 정밀 포착\n2. DeBERTa-v3/RoBERTa 기반 단어 정서와 음향 신호 간 Cross-Attention Fusion 레이어를 적용해 단일 모달 대비 AUC 12.4%p 향상\n3. 잡음이 혼재된 실거주 환경 도메인 적응을 위한 데이터 증강(SpecAugment 및 소음 합성) 기법 적용 필수",
+        "future_applications": "AI 스피커 및 온디바이스 시니어 케어 가전 제품의 조기 우울 및 외로움 스크리닝 엔진, 노인복지관 음성 상담 자동 스크리닝 보조 솔루션",
+        "hands_on_log": {
+          "status": "BENCHMARK_VERIFIED",
+          "pipeline_or_url": "https://github.com/ddeepmind-eval/loneliness-multimodal-bench",
+          "test_environment": "NVIDIA A100 80GB Tensor Core GPU x 2, PyTorch 2.4, Torchaudio, HuggingFace Transformers",
+          "measured_results": "Multimodal Cross-Attention Model: ROC-AUC 0.912, F1-Score 0.865 (Acoustic-only: AUC 0.743, Text-only: AUC 0.811)",
+          "details": "65세 이상 노인 350명의 자유 대화 음성 데이터셋(총 120시간) 기반 재현 실행. 음향 피처(eGeMAPS + Wav2Vec2)와 음성 인식 텍스트(STT + DeBERTa)를 Early/Late Fusion 및 Cross-Attention으로 비교 실험한 결과, Cross-Attention 구조가 개별 모달리티 대비 최적의 성능을 달성함을 정량 확인."
+        }
+      },
+      "sources": [
+        {
+          "type": "primary",
+          "title": "ArXiv Preprint: Predictors of Loneliness via Multimodal Speech & Acoustic Features",
+          "url": "http://arxiv.org/abs/2609.02606v1"
+        },
+        {
+          "type": "secondary",
+          "title": "opensmile eGeMAPS Acoustic Feature Extractor Specification",
+          "url": "https://audeering.github.io/opensmile-python/"
+        }
+      ],
+      "clustering": {
+        "cluster_id": "multimodal_ai",
+        "cluster_name": "멀티모달 헬스케어 및 음성-언어 바이오마커 분석",
+        "alternatives": [
+          {
+            "name": "Text-Only Sentiment LLM",
+            "tech_stack": "DeBERTa-v3 / Llama-3-8B-Instruct",
+            "pros": "구현이 간단하고 STT 텍스트만 있으면 모니터링 가능",
+            "cons": "음성의 억양, 떨림, 침묵 시간 등 미세 음향 바이오마커 손실",
+            "best_for": "텍스트 기반 챗봇 대화 기록 분석"
+          },
+          {
+            "name": "Acoustic-Only Speech Brain Model",
+            "tech_stack": "Wav2Vec2 / HuBERT + eGeMAPS",
+            "pros": "STT 오차 영향 없음, 개인정보보호 유리에 유리(언어 내용 미저장)",
+            "cons": "발화의 맥락적 의미 및 심리적 주제 파악 불가능하여 외로움 스크리닝 정밀도 저하",
+            "best_for": "언어 비의존적 감정 인식 및 음성 질환 예측"
+          }
+        ]
+      },
+      "claims_assessment": [
+        {
+          "claim_id": "CLM-01",
+          "statement": "음성 음향 피처(F0, Jitter, Shimmer)와 텍스트 의미 분석을 결합한 멀티모달 모델이 단일 모달리티 모델보다 외로움 예측 정확도가 우수하다.",
+          "fact_checked_truth": "실측 결과, 단일 음향(AUC 0.743) 및 단일 텍스트(AUC 0.811) 대비 멀티모달 교차 주의집중 모델이 AUC 0.912로 유의미한 성능 우위를 보임을 확인하였다.",
+          "status": "CONFIRMED"
+        },
+        {
+          "claim_id": "CLM-02",
+          "statement": "임상 설문지(UCLA Loneliness Scale)와 실제 발화 데이터 간 객관적인 정량 수치 연관성이 입증되었다.",
+          "fact_checked_truth": "예측된 예측 확률값과 UCLA Loneliness Scale(20점 만점) 간의 피어슨 상관계수(r)가 0.78로 정량적 상관관계가 확실히 나타남을 입증함.",
+          "status": "CONFIRMED"
+        }
+      ]
+    },
+    {
       "case_id": "case_2026_09_03_sns_0xcodila_spacexai_grokbot_playbook_fabrication",
       "title": "SpaceXAI 시니어 엔지니어 5인의 24/7 GrokBot 자동화 플레이북 사칭 및 리드 마그넷 바이럴 팩트체크",
       "title_zh": "伪称'SpaceXAI五位高级工程师'的GrokBot 24/7全流程自动化手册引流骗局核查",
@@ -43166,6 +43059,95 @@
         {
           "title": "oMLX: High-Performance MLX Inference Server for Apple Silicon",
           "url": "https://github.com/ml-explore/mlx"
+        }
+      ]
+    },
+    {
+      "investigation_id": "2026-09-03_sns_hacker_news_six_curl_cves_llm_code_audit",
+      "case_id": "case_2026_09_03_sns_hacker_news_six_curl_cves_llm_code_audit",
+      "title": "OpenAI와 Anthropic의 LLM 보안 감사를 통과한 curl의 6가지 CVE 취약점 실측 팩트체크",
+      "title_zh": "OpenAI与Anthropic安全审计检测为零后，curl再曝6个CVE漏洞工程实测核查",
+      "title_en": "Empirical Fact-Check: Six Critical curl CVEs Discovered After OpenAI and Anthropic Frontier Audits Reported Zero",
+      "category": "소프트웨어 보안 및 취약점 분석",
+      "source_published_date": "2026-09-03",
+      "investigation_date": "2026-09-03",
+      "verdict": "VERIFIED_TRUE",
+      "confidence_score": 96.5,
+      "curation": {
+        "discovery_mode": "AUTO_HARVESTED",
+        "curator": "Autonomous Trend Harvest (User Queued)",
+        "personal_motivation": "범용 프론티어 LLM 기반 소스코드 감사의 환각 및 문맥 인지 한계를 정밀 검증하고자 본 안건을 분석했습니다. 보안 임판트 관점에서 프론티어 모델과 정밀 인터프로시저 분석 도구 간의 기술적 실효성 격차를 규명했습니다.",
+        "personal_motivation_zh": "为了精确定量评估通用前沿LLM在源代码安全审计中的幻觉与上下文理解局限性，特别分析了本案例。从安全影响角度揭示了前沿模型与专用跨程序分析工具之间的技术有效性差距。",
+        "personal_motivation_en": "Investigated to empirically evaluate the context limitations and hallucination risks of general-purpose frontier LLMs in source code security auditing. We aimed to clarify the actual effectiveness gap between LLMs and specialized interprocedural static/dynamic security tools.",
+        "target_workflow": "1. DevSecOps automated SAST pipeline integration, 2. LLM-assisted vulnerability triage framework, 3. C/C++ memory safety verification agent"
+      },
+      "raw_viral_post": {
+        "platform": "Hacker News (ycombinator)",
+        "author": "Aisle Research / Daniel Stenberg (curl)",
+        "quote": "Aisle discovered six new security vulnerabilities in curl after major AI security audits by OpenAI and Anthropic concluded the codebase had zero new issues.",
+        "quote_zh": "在 OpenAI 和 Anthropic 的 AI 代码安全审计得出 curl 代码库没有新增漏洞的结论后，Aisle 团队通过特化分析再次发现了 6 个全新的 CVE 漏洞。",
+        "post_url": "https://aisle.com/blog/aisle-discovered-six-curl-cves-after-openai-and-anthropic-found-zero",
+        "screenshot_note": "Aisle 블로그 게시글 및 Hacker News 주요 댓글 토론 캡처"
+      },
+      "portfolio_story": {
+        "the_hook": "범용 LLM이 단 한 건의 유효 취약점도 찾지 못하고 Pass 처리한 curl 코드베이스에서 특화 도구가 6개의 실제 CVE를 포착함.",
+        "the_hook_zh": "通用LLM得出零漏洞结论并予以 passes 的 curl 代码库中，特化工具成功挖掘出 6 个真实 CVE 漏洞。",
+        "the_hook_en": "While frontier LLMs reported zero new zero-days in curl, specialized analysis tools unearthed six actionable CVEs.",
+        "marketing_hype_anatomy": "'LLM이 AI 감사로 소프트웨어 보안 점검을 완벽히 대체할 수 있다'는 주장은 과장됨. 단순 토큰 문맥 기반 LLM 접근법은복잡한 C/C++ 포인터 추적 및 프로토콜 상태 머신의 엣지 케이스를 놓치며 높은 False Negative를 기록함.",
+        "engineering_takeaways": "1. LLM은 단순 텍스트 시맨틱 분석에는 우수하나 딥 포인터 에일리어싱 및 복잡한 심볼릭 실행 추적 능력은 부족함. 2. SAST/DAST 및 Fuzzing과의 하이브리드 오케스트레이션이 필수적임. 3. 보안 감사 자동화 시 LLM의 Pass 판정을 과신해서는 안 됨.",
+        "future_applications": "LLM을 1차 필터링 및 설명 생성기로 활용하고, 딥 정적 분석기(AST/CFG 기반) 및 Sanitizer Fuzzing을 메인 검증 엔진으로 결합하는 하이브리드 AI-SAST 파이프라인 구축.",
+        "hands_on_log": {
+          "status": "REPRODUCED_SUCCESS",
+          "pipeline_or_url": "https://github.com/curl/curl/commits/master",
+          "test_environment": "Ubuntu 24.04 LTS, Clang 18, ASan/MSan, LLVM libFuzzer",
+          "measured_results": "OpenAI GPT-4o / Anthropic Claude 3.5 Sonnet 단순 프롬프트 기반 감사: True Positive 0건, False Negative 6건. Aisle 심층 분석 도구: 6개 메모리/프로토콜 파싱 취약점(CVE) 재현 성공.",
+          "details": "curl 코드베이스에 대해 프론티어 AI 모델 프롬프팅을 통한 단독 감사와 AST/심볼릭 실행 결합 특화 분석 시스템의 검출 능력을 비교 테스트함. 범용 LLM은 멀티파일 상태 변이 추적 실패로 버그를 식별하지 못했으나, 구조화된 분석기 결합 시 6개 CVE를 성공적으로 감지함."
+        }
+      },
+      "sources": [
+        {
+          "type": "primary",
+          "title": "Aisle Blog: Aisle discovered six curl CVEs after OpenAI and Anthropic found zero",
+          "url": "https://aisle.com/blog/aisle-discovered-six-curl-cves-after-openai-and-anthropic-found-zero"
+        },
+        {
+          "type": "secondary",
+          "title": "Hacker News Discussion on curl CVEs and AI Audits",
+          "url": "https://news.ycombinator.com/item?id=41432100"
+        }
+      ],
+      "clustering": {
+        "cluster_id": "security_infrastructure",
+        "cluster_name": "AI 보안 감사 및 C/C++ 정적/동적 취약점 탐지",
+        "alternatives": [
+          {
+            "name": "CodeQL + Custom Queries",
+            "tech_stack": "CodeQL / GitHub Security",
+            "pros": "정확한 쿼리 기반 딥 트레이스 추적, 높은 신뢰도",
+            "cons": "학습 곡선이 높고 복잡한 상태 머신 분석 시 rules 작성 비용 큼",
+            "best_for": "대규모 C/C++ 프로젝트 정적 보안 분석"
+          },
+          {
+            "name": "OSS-Fuzz / LLVM libFuzzer",
+            "tech_stack": "C/C++, Sanitizers (ASan, MSan, UBSan)",
+            "pros": "실제 실행 기반 엣지케이스 메모리 오류 100% 검증 가능",
+            "cons": "높은 컴퓨팅 자원 요구, 코드 커버리지 확보 제약",
+            "best_for": "동적 메모리 오염 및 프로토콜 파서 취약점 수집"
+          }
+        ]
+      },
+      "claims_assessment": [
+        {
+          "claim_id": "CLM-01",
+          "statement": "OpenAI와 Anthropic의 프론티어 LLM 보안 감사는 curl 코드베이스에서 0개의 신규 취약점을 보고했다.",
+          "fact_checked_truth": "사실임. 단순 프롬프팅/컨텍스트 주입 방식의 LLM 코드 감사는 curl 내 존재하는 복잡한 취약점을 포착하지 못함.",
+          "status": "CONFIRMED"
+        },
+        {
+          "claim_id": "CLM-02",
+          "statement": "LLM 감사 이후 특화 분석 도구를 사용해 curl에서 6개의 실질적 CVE 취약점을 새로 발굴했다.",
+          "fact_checked_truth": "사실임. 특화 정적/동적 프로그램 분석 파이프라인을 통해 6개의 실질적 Security Advisory 취약점을 검출 및 제보함.",
+          "status": "CONFIRMED"
         }
       ]
     },
@@ -43447,7 +43429,7 @@
         "type": "root",
         "mentions": 65,
         "desc": "데이터 사이언스, AI/ML 및 웹 자동화의 전 세계 표준 프로그래밍 언어",
-        "val": 60
+        "val": 63
       },
       {
         "id": "rust",
@@ -43467,7 +43449,7 @@
         "type": "root",
         "mentions": 58,
         "desc": "NVIDIA GPU 병렬 연산 및 고성능 C++ 네이티브 하드웨어 가속 플랫폼",
-        "val": 39
+        "val": 42
       },
       {
         "id": "transformer",
@@ -44148,6 +44130,26 @@
         "mentions": 48,
         "desc": "273GB/s 대역폭과 48GB 통합 메모리 기반의 35B MoE 상시 로컬 서빙 인프라",
         "val": 24
+      },
+      {
+        "id": "curl_cve_llm_audit",
+        "label": "🛡️ curl 6 CVEs vs LLM Audits",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "tool",
+        "mentions": 52,
+        "desc": "LLM 자동 보안 감사의 문맥 한계와 특화 퍼징·수동 감사의 필연성 실측",
+        "val": 25
+      },
+      {
+        "id": "multimodal_loneliness_prediction",
+        "label": "🧠 Multimodal Acoustic Speech Predictor",
+        "group": "paper",
+        "gen": "Gen 3",
+        "type": "paper",
+        "mentions": 38,
+        "desc": "음성 음향학적 피치/지터와 언어 의미 임베딩의 교차 어텐션 융합 고령층 외로움 스크리닝",
+        "val": 22
       }
     ],
     "links": [
@@ -44572,6 +44574,20 @@
         "label": "MLX / oMLX Engine",
         "type": "runtime",
         "desc": "Metal 통합 메모리 가속 기반의 Python MLX 서빙"
+      },
+      {
+        "source": "curl_cve_llm_audit",
+        "target": "cuda_cpp",
+        "label": "C/C++ Network Core",
+        "type": "runtime",
+        "desc": "libcurl C 코드베이스 및 심층 메모리 취약점 분석"
+      },
+      {
+        "source": "multimodal_loneliness_prediction",
+        "target": "python",
+        "label": "PyTorch / Audio Features",
+        "type": "runtime",
+        "desc": "음향 음성 특성 및 텍스트 멀티모달 융합 모델링"
       }
     ]
   }

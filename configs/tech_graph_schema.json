@@ -739,6 +739,26 @@
         "mentions": 48,
         "desc": "273GB/s 대역폭과 48GB 통합 메모리 기반의 35B MoE 상시 로컬 서빙 인프라",
         "val": 32
+      },
+      {
+        "id": "curl_cve_llm_audit",
+        "label": "🛡️ curl 6 CVEs vs LLM Audits",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "tool",
+        "mentions": 52,
+        "desc": "LLM 자동 보안 감사의 문맥 한계와 특화 퍼징·수동 감사의 필연성 실측",
+        "val": 34
+      },
+      {
+        "id": "multimodal_loneliness_prediction",
+        "label": "🧠 Multimodal Acoustic Speech Predictor",
+        "group": "paper",
+        "gen": "Gen 3",
+        "type": "paper",
+        "mentions": 38,
+        "desc": "음성 음향학적 피치/지터와 언어 의미 임베딩의 교차 어텐션 융합 고령층 외로움 스크리닝",
+        "val": 28
       }
     ],
     "links": [
@@ -1163,6 +1183,20 @@
         "label": "MLX / oMLX Engine",
         "type": "runtime",
         "desc": "Metal 통합 메모리 가속 기반의 Python MLX 서빙"
+      },
+      {
+        "source": "curl_cve_llm_audit",
+        "target": "cuda_cpp",
+        "label": "C/C++ Network Core",
+        "type": "runtime",
+        "desc": "libcurl C 코드베이스 및 심층 메모리 취약점 분석"
+      },
+      {
+        "source": "multimodal_loneliness_prediction",
+        "target": "python",
+        "label": "PyTorch / Audio Features",
+        "type": "runtime",
+        "desc": "음향 음성 특성 및 텍스트 멀티모달 융합 모델링"
       }
     ]
   }
