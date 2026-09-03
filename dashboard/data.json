@@ -1,10 +1,10 @@
 {
   "generated_at": "2026-09-02",
   "total_cases": 32,
-  "models_total_count": 88,
-  "news_total_count": 63,
-  "inbox_total_count": 232,
-  "all_inbox_count": 391,
+  "models_total_count": 142,
+  "news_total_count": 69,
+  "inbox_total_count": 233,
+  "all_inbox_count": 452,
   "admin_stats": {
     "endpoints": [
       {
@@ -39,6 +39,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T10:55:44.523027",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.18
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 86,
+            "duration_sec": 0.24
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.71
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 23,
+            "duration_sec": 10.85
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.62
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.13
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 1.02
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.12
+          }
+        },
+        "summary": {
+          "total_fetched": 224,
+          "updated_count": 0,
+          "new_saved": 3,
+          "duplicates_skipped": 221,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T10:12:35.755034",
         "date": "2026-09-03",
@@ -1575,112 +1628,59 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T05:07:43.820860",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.15
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.15
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.68
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 19,
-            "duration_sec": 11.78
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.37
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.17
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 1.03
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.35
-          }
-        },
-        "summary": {
-          "total_fetched": 169,
-          "updated_count": 167,
-          "new_saved": 2,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T10:12:35.755034",
+      "timestamp": "2026-09-03T10:55:44.523027",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.24
+          "duration_sec": 0.18
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 86,
-          "duration_sec": 0.32
+          "duration_sec": 0.24
         },
         "github": {
-          "status": "ERROR",
-          "error": "HTTP Error 500: internal server error",
-          "duration_sec": 0.67
+          "status": "SUCCESS",
+          "items_found": 30,
+          "duration_sec": 0.71
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 24,
-          "duration_sec": 15.38
+          "items_found": 23,
+          "duration_sec": 10.85
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.27
+          "duration_sec": 0.62
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.14
+          "duration_sec": 0.13
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.69
+          "duration_sec": 1.02
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.28
+          "duration_sec": 0.12
         }
       },
       "summary": {
-        "total_fetched": 195,
+        "total_fetched": 224,
         "updated_count": 0,
-        "new_saved": 1,
-        "duplicates_skipped": 194,
-        "errors": 1
+        "new_saved": 3,
+        "duplicates_skipped": 221,
+        "errors": 0
       }
     }
   },
@@ -12777,6 +12777,40 @@
       "article_url": "https://huggingface.co/blog/train-to-paint-with-code"
     },
     {
+      "inbox_id": "2026-09-03_sns_hugging_face_blog_give_your_coding_agents_a_m",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hugging Face Blog: Give Your Coding Agents a Memory You Own",
+      "source_platform": "Hugging Face Blog",
+      "source_url": "https://huggingface.co/blog/funes",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "Hugging Face Blog Tech Publication: Give Your Coding Agents a Memory You Own",
+      "viral_metric": "🌍 Official AI Publication",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "article_url": "https://huggingface.co/blog/funes"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_whistleblower_warns_postal_servic",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -13408,6 +13442,41 @@
       "description_ko": "LLM이 자기 자신을 참조하고 생성된 데이터를 학습할 때 발생하는 현상과 AI 생태계에 미치는 시사점을 다룹니다.",
       "description_en": "Exploring the implications of large language models consuming and referencing their own generated outputs within the AI ecosystem.",
       "description_zh": "探讨大语言模型在消费和引用自身生成内容时对AI生态系统带来的深远影响。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_fish_bad_sugar_good_and_other_med",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Fish Bad, Sugar Good and Other Medieval Ideas About Food",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49513721",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 10 pts | Comments: 0 | Fish Bad, Sugar Good and Other Medieval Ideas About Food",
+      "viral_metric": "🔥 10 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "🔥 10 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 10,
+          "display": "🔥 10 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49513721",
+      "article_url": "https://lithub.com/fish-bad-sugar-good-and-other-medieval-ideas-about-food/"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_creating_backup_storage_sucks",
@@ -14194,6 +14263,43 @@
       "hook_zh": "探讨全天候连接的数字环境中现代人的疲惫感以及数码排毒的必要性。",
       "description_en": "Highlighting modern digital fatigue in an always-connected world and the need for digital detox.",
       "description_zh": "探讨全天候连接的数字环境中现代人的疲惫感以及数码排毒的必要性。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_세계_최대_암흑물질_검출기_이상한_입자_하나를_포착",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: 세계 최대 암흑물질 검출기, 이상한 입자 하나를 포착",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33188",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 세계 최대 암흑물질 검출기, 이상한 입자 하나를 포착",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "세계 최대 암흑물질 검출기, 이상한 입자 하나를 포착",
+      "description_ko": "세계 최대 암흑물질 검출기, 이상한 입자 하나를 포착",
+      "hn_url": "https://news.hada.io/topic?id=33188",
+      "article_url": "https://news.hada.io/topic?id=33188"
     },
     {
       "inbox_id": "2026-09-03_sns_geeknews_show_gn_github_trend_radar_빠르게_떠오르는_",
