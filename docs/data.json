@@ -3,8 +3,8 @@
   "total_cases": 32,
   "models_total_count": 88,
   "news_total_count": 61,
-  "inbox_total_count": 229,
-  "all_inbox_count": 387,
+  "inbox_total_count": 232,
+  "all_inbox_count": 390,
   "admin_stats": {
     "endpoints": [
       {
@@ -39,6 +39,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T06:32:26.649104",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.26
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.23
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.87
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 12.47
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.45
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.19
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.79
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.28
+          }
+        },
+        "summary": {
+          "total_fetched": 165,
+          "updated_count": 0,
+          "new_saved": 1,
+          "duplicates_skipped": 164,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T06:18:54.466559",
         "date": "2026-09-03",
@@ -1575,89 +1628,36 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T12:57:11.710889",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.42
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.32
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.99
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 32.88
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.87
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.38
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.16
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 1.57
-          }
-        },
-        "summary": {
-          "total_fetched": 170,
-          "updated_count": 125,
-          "new_saved": 45,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T06:18:54.466559",
+      "timestamp": "2026-09-03T06:32:26.649104",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.18
+          "duration_sec": 0.26
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.16
+          "duration_sec": 0.23
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.78
+          "duration_sec": 0.87
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 11.08
+          "duration_sec": 12.47
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.16
+          "duration_sec": 0.45
         },
         "reddit": {
           "status": "ERROR",
@@ -1667,19 +1667,19 @@
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.91
+          "duration_sec": 0.79
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.17
+          "duration_sec": 0.28
         }
       },
       "summary": {
         "total_fetched": 165,
         "updated_count": 0,
-        "new_saved": 2,
-        "duplicates_skipped": 163,
+        "new_saved": 1,
+        "duplicates_skipped": 164,
         "errors": 0
       }
     }
@@ -17234,6 +17234,106 @@
       "description_zh": "探索如何结合高性能压缩与代理技术，大幅降低大规模基础设施的存储成本。"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_show_hn_the_cheapest_gpu_cloud_h1",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Show HN: The cheapest GPU cloud – H100s at $2.04/HR, H200s at $3/HR",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49545411",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 5 pts | Comments: 0 | Show HN: The cheapest GPU cloud – H100s at $2.04/HR, H200s at $3/HR",
+      "viral_metric": "🔥 5 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49545411",
+      "article_url": "https://compute.cheap/",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_show_hn_the_cheapest_gpu_cloud_h1",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "인프라 및 GPU 클라우드",
+        "programming_lang": "General",
+        "root_keywords": [
+          "GPU Cloud",
+          "H100",
+          "H200",
+          "Cost Optimization"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "H100 시간당 $2.04, H200 $3 초저가 GPU 클라우드 서비스 등장",
+            "hook": "천문학적인 AI 모델 학습 및 추론 비용을 혁신적으로 절감하고 싶다면 주목해야 할 초저가 GPU 인프라 정보입니다.",
+            "key_takeaways": [
+              "NVIDIA H100 GPU를 시간당 $2.04의 파격적인 가격에 제공",
+              "최신 H200 GPU 역시 시간당 $3의 경쟁력 있는 비용으로 이용 가능",
+              "높은 AI 인프라 비용으로 고민하는 엔지니어와 스타트업에게 유용한 대안"
+            ]
+          },
+          "en": {
+            "title": "Show HN: The Cheapest GPU Cloud Offering H100s at $2.04/HR and H200s at $3/HR",
+            "hook": "Discover a newly announced ultra-low-cost GPU cloud infrastructure designed to dramatically slash heavy AI training and inference costs.",
+            "key_takeaways": [
+              "NVIDIA H100 GPUs available at an aggressive rate of $2.04 per hour",
+              "Latest H200 GPUs offered at just $3 per hour",
+              "An attractive cost-saving alternative for engineers and startups facing high AI workloads"
+            ]
+          },
+          "zh": {
+            "title": "Show HN：最便宜的 GPU 云服务，H100 每小时仅需 2.04 美元，H200 需 3 美元",
+            "hook": "寻找大幅降低大模型训练与推理成本方案的工程师不容错过的超低价 GPU 云基础设施。",
+            "key_takeaways": [
+              "NVIDIA H100 GPU 租赁价格低至每小时 2.04 美元",
+              "最新 H200 GPU 仅需每小时 3 美元",
+              "为面临高昂 AI 算力成本的团队提供极具吸引力的替代方案"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T06:19:12.822437+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "GPU Cloud",
+        "H100",
+        "H200",
+        "Cost Optimization"
+      ],
+      "title_ko": "H100 시간당 $2.04, H200 $3 초저가 GPU 클라우드 서비스 등장",
+      "title_en": "Show HN: The Cheapest GPU Cloud Offering H100s at $2.04/HR and H200s at $3/HR",
+      "title_zh": "Show HN：最便宜的 GPU 云服务，H100 每小时仅需 2.04 美元，H200 需 3 美元",
+      "hook": "천문학적인 AI 모델 학습 및 추론 비용을 혁신적으로 절감하고 싶다면 주목해야 할 초저가 GPU 인프라 정보입니다.",
+      "hook_ko": "천문학적인 AI 모델 학습 및 추론 비용을 혁신적으로 절감하고 싶다면 주목해야 할 초저가 GPU 인프라 정보입니다.",
+      "hook_en": "Discover a newly announced ultra-low-cost GPU cloud infrastructure designed to dramatically slash heavy AI training and inference costs.",
+      "hook_zh": "寻找大幅降低大模型训练与推理成本方案的工程师不容错过的超低价 GPU 云基础设施。",
+      "description_ko": "천문학적인 AI 모델 학습 및 추론 비용을 혁신적으로 절감하고 싶다면 주목해야 할 초저가 GPU 인프라 정보입니다.",
+      "description_en": "Discover a newly announced ultra-low-cost GPU cloud infrastructure designed to dramatically slash heavy AI training and inference costs.",
+      "description_zh": "寻找大幅降低大模型训练与推理成本方案的工程师不容错过的超低价 GPU 云基础设施。"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_show_hn_owntime_a_chess_clock_for",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -18914,6 +19014,102 @@
       "description_ko": "새우조차 영상을 만들 수 있다는 콘셉트의 창의적인 AI 영상 생성 도구를 만나보세요.",
       "description_en": "Explore a whimsical yet powerful AI video generation tool that makes content creation effortless.",
       "description_zh": "探索这款以趣味概念驱动的AI视频生成工具，体验极简的创作流程。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_github_rakanki911dlss5_swapper",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GitHub: rakanki911/DLSS5-Swapper",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/rakanki911/DLSS5-Swapper",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Stars: 727, Forks: 39 | DLSS 5 Swapper is a powerful, easy-to-use tool for installing, managing, and restoring DLSS 5 across games and supported emulators. It features automatic game detection, optional drive scanning, DLSS5-Feeder for compatible titles without native DLSS, emulator support, and compatibility with DirectX 9/10/11/12, Vulkan, and OpenGL.",
+      "viral_metric": "★ 727 Stars",
+      "metric_tracking": {
+        "initial": {
+          "value": 727,
+          "display": "★ 727 Stars",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 727,
+          "display": "★ 727 Stars",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_github_rakanki911dlss5_swapper",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "그래픽 및 업스케일링 최적화",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "DLSS 5",
+          "Upscaling",
+          "Game Optimization"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "DLSS 5-Swapper: 게임 및 에뮬레이터용 DLSS 5 통합 관리 및 설치 도구",
+            "hook": "다양한 게임과 에뮬레이터에서 DLSS 5를 손쉽게 설치하고 관리할 수 있는 강력한 유틸리티입니다.",
+            "key_takeaways": [
+              "게임 자동 감지 및 드라이브 전체 스캔 기능 제공",
+              "네이티브 DLSS가 없는 게임을 위한 DLSS5-Feeder 지원",
+              "DirectX 9부터 12, Vulkan, OpenGL 등 광범위한 그래픽 API 호환"
+            ]
+          },
+          "en": {
+            "title": "DLSS 5-Swapper: A Powerful Utility to Manage and Install DLSS 5",
+            "hook": "Simplify DLSS 5 installation, management, and restoration across various games and emulators with automatic detection.",
+            "key_takeaways": [
+              "Features automatic game detection and optional drive scanning",
+              "Includes DLSS5-Feeder for titles lacking native DLSS support",
+              "Compatible with DirectX 9/10/11/12, Vulkan, and OpenGL"
+            ]
+          },
+          "zh": {
+            "title": "DLSS 5-Swapper：游戏与模拟器 DLSS 5 综合管理与安装工具",
+            "hook": "强大易用的工具，支持在各大游戏及模拟器中轻松安装、管理与恢复 DLSS 5。",
+            "key_takeaways": [
+              "支持自动游戏检测与可选驱动器扫描",
+              "内置 DLSS5-Feeder，适配无原生 DLSS 的游戏",
+              "全面兼容 DirectX 9/10/11/12、Vulkan 及 OpenGL"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T06:32:44.678463+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "DLSS 5",
+        "Upscaling",
+        "Game Optimization"
+      ],
+      "title_ko": "DLSS 5-Swapper: 게임 및 에뮬레이터용 DLSS 5 통합 관리 및 설치 도구",
+      "title_en": "DLSS 5-Swapper: A Powerful Utility to Manage and Install DLSS 5",
+      "title_zh": "DLSS 5-Swapper：游戏与模拟器 DLSS 5 综合管理与安装工具",
+      "hook": "다양한 게임과 에뮬레이터에서 DLSS 5를 손쉽게 설치하고 관리할 수 있는 강력한 유틸리티입니다.",
+      "hook_ko": "다양한 게임과 에뮬레이터에서 DLSS 5를 손쉽게 설치하고 관리할 수 있는 강력한 유틸리티입니다.",
+      "hook_en": "Simplify DLSS 5 installation, management, and restoration across various games and emulators with automatic detection.",
+      "hook_zh": "强大易用的工具，支持在各大游戏及模拟器中轻松安装、管理与恢复 DLSS 5。",
+      "description_ko": "다양한 게임과 에뮬레이터에서 DLSS 5를 손쉽게 설치하고 관리할 수 있는 강력한 유틸리티입니다.",
+      "description_en": "Simplify DLSS 5 installation, management, and restoration across various games and emulators with automatic detection.",
+      "description_zh": "强大易用的工具，支持在各大游戏及模拟器中轻松安装、管理与恢复 DLSS 5。"
     },
     {
       "inbox_id": "2026-09-03_repo_github_brayonpihexstellar",
