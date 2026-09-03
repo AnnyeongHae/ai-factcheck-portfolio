@@ -187,33 +187,36 @@ def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> tuple:
             headers={"Content-Type": "application/json"}
         )
 
-        try:
-            with urllib.request.urlopen(req, timeout=35) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
-                print(f"  [+] Responded by model '{model_name}' successfully.")
-                return json.loads(raw_text), model_name
-        except urllib.error.HTTPError as e:
-            err_msg = e.read().decode("utf-8", errors="ignore")
-            if e.code == 429:
-                print(f"  [-] Model '{model_name}' quota exhausted (429). Trying fallback model...")
-                time.sleep(1)
-                continue
-            elif e.code == 404:
-                continue
-            else:
-                print(f"  [-] HTTP Error {e.code} on '{model_name}': {err_msg[:80]}")
+        # Smart Retry Loop with Exponential Backoff for 429 RPM Quotas
+        for attempt in range(1, 4):
+            try:
+                with urllib.request.urlopen(req, timeout=40) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                    raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
+                    print(f"  [+] Responded by model '{model_name}' successfully.")
+                    return json.loads(raw_text), model_name
+            except urllib.error.HTTPError as e:
+                err_msg = e.read().decode("utf-8", errors="ignore")
+                if e.code == 429:
+                    wait_sec = 6.0 * (2 ** (attempt - 1)) + random.uniform(1.0, 2.5)
+                    print(f"  [-] Model '{model_name}' RPM limit hit (429, attempt {attempt}/3). Backing off {wait_sec:.1f}s for quota recovery...")
+                    time.sleep(wait_sec)
+                    continue
+                elif e.code == 404:
+                    break
+                else:
+                    print(f"  [-] HTTP Error {e.code} on '{model_name}': {err_msg[:80]}")
+                    time.sleep(2)
+                    break
+            except Exception as e:
+                print(f"  [-] Network Error on '{model_name}': {e}")
                 time.sleep(2)
-                continue
-        except Exception as e:
-            print(f"  [-] Network Error on '{model_name}': {e}")
-            time.sleep(2)
-            continue
+                break
 
-    print("[!] All fallback models in pool exhausted!")
+    print("[!] All fallback models in pool exhausted for this batch!")
     return [], None
 
-def run_enrichment(limit: int = 15, batch_size: int = 5, random_pick: bool = False, only_new: bool = False):
+def run_enrichment(limit: int = 0, batch_size: int = 5, random_pick: bool = False, only_new: bool = False, cooldown: float = 4.5):
     key = get_gemini_api_key()
     if not key:
         print("[!] ERROR: GEMINI_API_KEY is not set!")
@@ -263,11 +266,16 @@ def run_enrichment(limit: int = 15, batch_size: int = 5, random_pick: bool = Fal
         print("[+] All items are already enriched or no new items found. Skipping AI step cleanly!")
         return
 
-    if random_pick and len(candidates) > limit:
+    # If limit <= 0, process ALL pending items sequentially without leaving any behind
+    if limit <= 0 or limit >= len(candidates):
+        selected = candidates
+        print(f"[*] [FULL SEQUENTIAL MODE] Processing all {len(selected)} pending items cleanly without omission.")
+    elif random_pick:
         selected = random.sample(candidates, limit)
         print(f"[*] Randomly selected {limit} items.")
     else:
         selected = candidates[:limit]
+        print(f"[*] Sequential batch: Processing {len(selected)} of {len(candidates)} items.")
 
     total_to_process = len(selected)
     num_batches = (total_to_process + batch_size - 1) // batch_size
@@ -417,8 +425,8 @@ def run_enrichment(limit: int = 15, batch_size: int = 5, random_pick: bool = Fal
         audit_session["batches"].append(batch_log)
 
         if b_idx < num_batches - 1:
-            print("[*] Sleeping 4.5s for RPM quota safety margin...")
-            time.sleep(4.5)
+            print(f"[*] Batch {b_idx + 1}/{num_batches} complete. Sleeping {cooldown:.1f}s for RPM safety...")
+            time.sleep(cooldown)
 
     audit_session["success_count"] = success_count
 
@@ -451,10 +459,14 @@ def run_enrichment(limit: int = 15, batch_size: int = 5, random_pick: bool = Fal
     print(f"=======================================================\n")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--limit", type=int, default=15, help="Number of items to enrich (default: 15)")
+    parser = argparse.ArgumentParser(description="Trilingual AI Auto-Enricher with Smart RPM Throttling")
+    parser.add_argument("--limit", type=int, default=0, help="Number of items to enrich (default: 0 = ALL pending unenriched items)")
+    parser.add_argument("--all", action="store_true", default=False, help="Process ALL pending unenriched items without limit")
     parser.add_argument("--batch-size", type=int, default=5, help="Batch size (default: 5)")
+    parser.add_argument("--cooldown", type=float, default=4.5, help="Cooldown seconds between batches (default: 4.5s)")
     parser.add_argument("--random", action="store_true", default=False, help="Pick randomly from inbox")
     parser.add_argument("--only-new", action="store_true", default=False, help="Process ONLY newly harvested items from manifest")
     args = parser.parse_args()
-    run_enrichment(limit=args.limit, batch_size=args.batch_size, random_pick=args.random, only_new=args.only_new)
+
+    effective_limit = 0 if args.all else args.limit
+    run_enrichment(limit=effective_limit, batch_size=args.batch_size, random_pick=args.random, only_new=args.only_new, cooldown=args.cooldown)
