@@ -2109,5 +2109,34 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260903_063242",
+    "timestamp": "2026-09-03T06:32:42.585356+00:00",
+    "total_candidates": 1,
+    "requested_limit": 0,
+    "processed_count": 1,
+    "success_count": 1,
+    "models_used_summary": {
+      "gemini-flash-lite-latest": 1
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 2.09,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_repo_github_rakanki911dlss5_swapper",
+            "title": "GitHub: rakanki911/DLSS5-Swapper",
+            "title_ko": "DLSS 5-Swapper: 게임 및 에뮬레이터용 DLSS 5 통합 관리 및 설치 도구",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T06:32:44.678463+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
