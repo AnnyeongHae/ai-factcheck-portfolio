@@ -28,5 +28,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_wide_learning_learning_to_reach_evidenc",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "머신러닝 방법론 및 증거 수집",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Wide Learning",
+      "Evidence Interface",
+      "Machine Learning"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "와이드 러닝: 증거 도달을 위한 학습 방법론 연구",
+        "hook": "고정된 증거 인터페이스를 넘어, 머신러닝이 관측 가능성을 스스로 학습하는 패러다임을 제시합니다.",
+        "key_takeaways": [
+          "고정된 데이터셋 및 센서 수이트 한계 극복 시도",
+          "증거 도출 프로토콜 자체를 학습하는 새로운 접근법 분석",
+          "향후 실험 프로토콜 설계 및 ML 평가 방식에 시사점 제공"
+        ]
+      },
+      "en": {
+        "title": "Wide Learning: Learning to Reach Evidence",
+        "hook": "Move beyond fixed observation interfaces by exploring how machine learning can learn to acquire evidence dynamically.",
+        "key_takeaways": [
+          "Addresses limitations of evaluating ML models on fixed evidence interfaces",
+          "Introduces methods for learning optimal observation and experimental protocols",
+          "Offers new perspectives on experimental protocol design and ML evaluation"
+        ]
+      },
+      "zh": {
+        "title": "广度学习：学习获取证据的新方法论",
+        "hook": "突破固定证据接口的限制，探索机器学习如何动态学习并获取观测证据。",
+        "key_takeaways": [
+          "解决传统机器学习在固定证据接口下评估的局限性",
+          "提出学习获取观测与实验协议的新方法",
+          "为未来的实验协议设计与ML评估提供全新思路"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:06.255738+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Wide Learning",
+    "Evidence Interface",
+    "Machine Learning"
+  ],
+  "title_ko": "와이드 러닝: 증거 도달을 위한 학습 방법론 연구",
+  "title_en": "Wide Learning: Learning to Reach Evidence",
+  "title_zh": "广度学习：学习获取证据的新方法论",
+  "hook": "고정된 증거 인터페이스를 넘어, 머신러닝이 관측 가능성을 스스로 학습하는 패러다임을 제시합니다.",
+  "hook_ko": "고정된 증거 인터페이스를 넘어, 머신러닝이 관측 가능성을 스스로 학습하는 패러다임을 제시합니다.",
+  "hook_en": "Move beyond fixed observation interfaces by exploring how machine learning can learn to acquire evidence dynamically.",
+  "hook_zh": "突破固定证据接口的限制，探索机器学习如何动态学习并获取观测证据。",
+  "description_ko": "고정된 증거 인터페이스를 넘어, 머신러닝이 관측 가능성을 스스로 학습하는 패러다임을 제시합니다.",
+  "description_en": "Move beyond fixed observation interfaces by exploring how machine learning can learn to acquire evidence dynamically.",
+  "description_zh": "突破固定证据接口的限制，探索机器学习如何动态学习并获取观测证据。",
+  "category_type": "TECH"
 }

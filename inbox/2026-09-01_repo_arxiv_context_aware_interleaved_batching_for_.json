@@ -28,5 +28,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_context_aware_interleaved_batching_for_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "음성 인식 및 추론 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "WhisperX",
+      "Context-Aware Batching",
+      "Speech Transcription"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "WhisperX를 위한 문맥 인식 인터리브 배치 처리",
+        "hook": "오디오 세그먼트 분할로 인한 문맥 손실 문제를 해결하여 WhisperX의 음성 전사 정확도를 극대화합니다.",
+        "key_takeaways": [
+          "오디오 내부 배치 처리 시 발생하는 역사적 문맥(Context) 손실 문제 해결",
+          "구두점 및 전문 용어 전사의 일관성 향상",
+          "WhisperX 성능 최적화를 위한 새로운 배치 알고리즘 제안"
+        ]
+      },
+      "en": {
+        "title": "Context-Aware Interleaved Batching for WhisperX",
+        "hook": "Overcomes context loss in audio segmentation to maximize transcription coherence and accuracy in WhisperX.",
+        "key_takeaways": [
+          "Resolves historical context loss caused by audio segment isolation during batching",
+          "Improves coherence in punctuation and terminology transcription",
+          "Introduces a novel interleaving batch algorithm for WhisperX optimization"
+        ]
+      },
+      "zh": {
+        "title": "面向 WhisperX 的上下文感知交织批处理技术",
+        "hook": "解决音频分段导致的上下文丢失问题，显著提升 WhisperX 语音转录的一致性与准确性。",
+        "key_takeaways": [
+          "解决音频批处理中因隔离导致的歷史上下文丢失问题",
+          "提升标点符号和专业术语转录的连贯性",
+          "为 WhisperX 优化引入创新的交织批处理算法"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:31:09.953274+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "WhisperX",
+    "Context-Aware Batching",
+    "Speech Transcription"
+  ],
+  "title_ko": "WhisperX를 위한 문맥 인식 인터리브 배치 처리",
+  "title_en": "Context-Aware Interleaved Batching for WhisperX",
+  "title_zh": "面向 WhisperX 的上下文感知交织批处理技术",
+  "hook": "오디오 세그먼트 분할로 인한 문맥 손실 문제를 해결하여 WhisperX의 음성 전사 정확도를 극대화합니다.",
+  "hook_ko": "오디오 세그먼트 분할로 인한 문맥 손실 문제를 해결하여 WhisperX의 음성 전사 정확도를 극대화합니다.",
+  "hook_en": "Overcomes context loss in audio segmentation to maximize transcription coherence and accuracy in WhisperX.",
+  "hook_zh": "解决音频分段导致的上下文丢失问题，显著提升 WhisperX 语音转录的一致性与准确性。",
+  "description_ko": "오디오 세그먼트 분할로 인한 문맥 손실 문제를 해결하여 WhisperX의 음성 전사 정확도를 극대화합니다.",
+  "description_en": "Overcomes context loss in audio segmentation to maximize transcription coherence and accuracy in WhisperX.",
+  "description_zh": "解决音频分段导致的上下文丢失问题，显著提升 WhisperX 语音转录的一致性与准确性。",
+  "category_type": "TECH"
 }

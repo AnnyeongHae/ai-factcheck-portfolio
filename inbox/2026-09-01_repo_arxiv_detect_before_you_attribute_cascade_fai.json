@@ -28,5 +28,71 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_detect_before_you_attribute_cascade_fai",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "멀티 에이전트 디버깅 및 연쇄 실패 분석",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Multi-Agent Systems",
+      "Cascade Failure",
+      "Failure Attribution",
+      "Execution Tracing"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "귀인 전 탐지: 멀티 에이전트 시스템을 위한 연쇄 실패 귀인 분석 프레임워크",
+        "hook": "복잡한 멀티 스텝 추론 과정에서 발생하는 멀티 에이전트의 연쇄 실패(Cascade Failure)를 정확히 진단하고 원인을 추적하는 방법론을 제시합니다.",
+        "key_takeaways": [
+          "다중 에이전트 협업 시 발생하는 실행 실패 및 연쇄 오류 진단 한계 극복",
+          "오류의 원인을 정확히 역추적하기 위한 '귀인 전 탐지' 접근법 도입",
+          "복잡한 다단계 추론 작업의 신뢰성과 디버깅 효율성 대폭 향상"
+        ]
+      },
+      "en": {
+        "title": "Detect Before You Attribute: Cascade Failure Attribution for Multi-Agent Systems",
+        "hook": "Accurately trace and diagnose cascading execution failures in multi-agent reasoning workflows before assigning blame.",
+        "key_takeaways": [
+          "Addresses execution failure attribution in complex multi-step reasoning agents",
+          "Introduces a 'detect-before-you-attribute' paradigm for robust error diagnosis",
+          "Enhances reliability and debugging workflows for large-scale multi-agent deployments"
+        ]
+      },
+      "zh": {
+        "title": "先检测后归因：多智能体系统的级联故障归因分析",
+        "hook": "精准诊断多智能体多步推理过程中的级联失效，从根本上解决复杂协作系统的故障追溯难题。",
+        "key_takeaways": [
+          "解决基于大模型的智能体在复杂任务中执行失败的归因难题",
+          "提出“先检测后归因”的新型故障诊断算法范式",
+          "大幅提升多智能体系统在生产环境中的可调试性与鲁棒性"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:57.920503+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Multi-Agent Systems",
+    "Cascade Failure",
+    "Failure Attribution",
+    "Execution Tracing"
+  ],
+  "title_ko": "귀인 전 탐지: 멀티 에이전트 시스템을 위한 연쇄 실패 귀인 분석 프레임워크",
+  "title_en": "Detect Before You Attribute: Cascade Failure Attribution for Multi-Agent Systems",
+  "title_zh": "先检测后归因：多智能体系统的级联故障归因分析",
+  "hook": "복잡한 멀티 스텝 추론 과정에서 발생하는 멀티 에이전트의 연쇄 실패(Cascade Failure)를 정확히 진단하고 원인을 추적하는 방법론을 제시합니다.",
+  "hook_ko": "복잡한 멀티 스텝 추론 과정에서 발생하는 멀티 에이전트의 연쇄 실패(Cascade Failure)를 정확히 진단하고 원인을 추적하는 방법론을 제시합니다.",
+  "hook_en": "Accurately trace and diagnose cascading execution failures in multi-agent reasoning workflows before assigning blame.",
+  "hook_zh": "精准诊断多智能体多步推理过程中的级联失效，从根本上解决复杂协作系统的故障追溯难题。",
+  "description_ko": "복잡한 멀티 스텝 추론 과정에서 발생하는 멀티 에이전트의 연쇄 실패(Cascade Failure)를 정확히 진단하고 원인을 추적하는 방법론을 제시합니다.",
+  "description_en": "Accurately trace and diagnose cascading execution failures in multi-agent reasoning workflows before assigning blame.",
+  "description_zh": "精准诊断多智能体多步推理过程中的级联失效，从根本上解决复杂协作系统的故障追溯难题。",
+  "category_type": "AGENT"
 }

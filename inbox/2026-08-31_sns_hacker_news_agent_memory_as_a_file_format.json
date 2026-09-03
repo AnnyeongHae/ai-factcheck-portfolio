@@ -21,9 +21,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "NEWS",
-  "title_ko": "Agent Memory as a File Format",
-  "description_ko": "해커뉴스에서 17점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
+  "category_type": "AGENT",
+  "title_ko": "파일 형식으로 정의하는 AI 에이전트 메모리(Agent Memory as a File Format)",
+  "description_ko": "에이전트의 기억과 상태를 표준화된 파일 포맷으로 관리하여 이식성을 높이는 혁신적인 접근법을 확인하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -46,5 +46,66 @@
   "updated_at": "2026-09-02",
   "article_url": "https://calpaterson.com/memoryfields.html",
   "hn_url": "https://news.ycombinator.com/item?id=49508317",
-  "hn_id": "49508317"
+  "hn_id": "49508317",
+  "ai_enrichment": {
+    "id": "2026-08-31_sns_hacker_news_agent_memory_as_a_file_format",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "AI 에이전트 메모리 아키텍처",
+    "programming_lang": "TypeScript",
+    "root_keywords": [
+      "Agent Memory",
+      "File Format",
+      "State Management"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "파일 형식으로 정의하는 AI 에이전트 메모리(Agent Memory as a File Format)",
+        "hook": "에이전트의 기억과 상태를 표준화된 파일 포맷으로 관리하여 이식성을 높이는 혁신적인 접근법을 확인하세요.",
+        "key_takeaways": [
+          "에이전트 상태 및 장기 기억의 파일 포맷 표준화",
+          "서로 다른 프레임워크 간 에이전트 메모리 이식성 향상",
+          "디버깅과 버전 관리가 용이한 상태 관리 아키텍처"
+        ]
+      },
+      "en": {
+        "title": "Agent Memory as a File Format",
+        "hook": "Discover an innovative approach to standardizing agent memory and state into portable file formats.",
+        "key_takeaways": [
+          "Standardizing agent state and long-term memory into file formats",
+          "Improving agent memory portability across different frameworks",
+          "State management architectures enabling easy debugging and version control"
+        ]
+      },
+      "zh": {
+        "title": "将 AI 代理记忆设计为统一的文件格式",
+        "hook": "探索一种将代理记忆与状态进行标准化封装以提升可移植性的创新架构。",
+        "key_takeaways": [
+          "将代理状态与长期记忆结构化为标准文件格式",
+          "提升不同框架之间代理记忆的互操作性与迁移能力",
+          "实现轻松调试和版本控制的状态管理架构"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:32:34.812629+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "TypeScript",
+  "root_keywords": [
+    "Agent Memory",
+    "File Format",
+    "State Management"
+  ],
+  "title_en": "Agent Memory as a File Format",
+  "title_zh": "将 AI 代理记忆设计为统一的文件格式",
+  "hook": "에이전트의 기억과 상태를 표준화된 파일 포맷으로 관리하여 이식성을 높이는 혁신적인 접근법을 확인하세요.",
+  "hook_ko": "에이전트의 기억과 상태를 표준화된 파일 포맷으로 관리하여 이식성을 높이는 혁신적인 접근법을 확인하세요.",
+  "hook_en": "Discover an innovative approach to standardizing agent memory and state into portable file formats.",
+  "hook_zh": "探索一种将代理记忆与状态进行标准化封装以提升可移植性的创新架构。",
+  "description_en": "Discover an innovative approach to standardizing agent memory and state into portable file formats.",
+  "description_zh": "探索一种将代理记忆与状态进行标准化封装以提升可移植性的创新架构。"
 }

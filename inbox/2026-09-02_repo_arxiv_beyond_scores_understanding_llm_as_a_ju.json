@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "정량 데이터 분석 & 벤치마크 감사"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_beyond_scores_understanding_llm_as_a_ju",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 평가 및 분석",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "LLM-as-a-Judge",
+      "Summarization Evaluation",
+      "Model Interpretability"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "점수 그 너머: 요약 평가에서 LLM-as-a-Judge 메커니즘 이해하기",
+        "hook": "LLM이 평가자로서 점수를 매기는 내부 메커니즘을 파악하여 신뢰성 있는 평가 체계를 구축하세요.",
+        "key_takeaways": [
+          "LLM 기반 평가자의 내부 채점 절차 심층 분석",
+          "자연어 생성(NLG) 요약 품질 평가의 한계 극복",
+          "자동 학습 신호 및 스코어링 툴의 신뢰성 검증"
+        ]
+      },
+      "en": {
+        "title": "Beyond Scores: Understanding LLM-as-a-Judge Mechanisms in Summarization Evaluation",
+        "hook": "Uncover the internal mechanisms behind LLM-based evaluators to build more reliable evaluation pipelines.",
+        "key_takeaways": [
+          "Deep dive into internal rating procedures of LLM evaluators",
+          "Overcoming limitations in NLG summarization quality assessment",
+          "Validating reliability for automated training signals and scoring"
+        ]
+      },
+      "zh": {
+        "title": "超越分数：理解摘要评估中LLM作为裁判的机制",
+        "hook": "深入剖析LLM评委打分的内部运作机制，打造更可靠的文本生成评估体系。",
+        "key_takeaways": [
+          "深入分析LLM评估器的内部评分流程",
+          "解决自然语言生成摘要质量评估的局限性",
+          "验证自动化训练信号与评分工具的可靠性"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:27:21.945668+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "LLM-as-a-Judge",
+    "Summarization Evaluation",
+    "Model Interpretability"
+  ],
+  "title_ko": "점수 그 너머: 요약 평가에서 LLM-as-a-Judge 메커니즘 이해하기",
+  "title_en": "Beyond Scores: Understanding LLM-as-a-Judge Mechanisms in Summarization Evaluation",
+  "title_zh": "超越分数：理解摘要评估中LLM作为裁判的机制",
+  "hook": "LLM이 평가자로서 점수를 매기는 내부 메커니즘을 파악하여 신뢰성 있는 평가 체계를 구축하세요.",
+  "hook_ko": "LLM이 평가자로서 점수를 매기는 내부 메커니즘을 파악하여 신뢰성 있는 평가 체계를 구축하세요.",
+  "hook_en": "Uncover the internal mechanisms behind LLM-based evaluators to build more reliable evaluation pipelines.",
+  "hook_zh": "深入剖析LLM评委打分的内部运作机制，打造更可靠的文本生成评估体系。",
+  "description_ko": "LLM이 평가자로서 점수를 매기는 내부 메커니즘을 파악하여 신뢰성 있는 평가 체계를 구축하세요.",
+  "description_en": "Uncover the internal mechanisms behind LLM-based evaluators to build more reliable evaluation pipelines.",
+  "description_zh": "深入剖析LLM评委打分的内部运作机制，打造更可靠的文本生成评估体系。"
 }

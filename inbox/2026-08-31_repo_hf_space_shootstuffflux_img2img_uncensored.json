@@ -17,13 +17,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "FLUX.1 Diffusion Family",
+  "model_family": "FLUX",
   "detected_formats": [
     "Interactive Web Demo"
   ],
-  "category_type": "TECH",
-  "title_ko": "HF Space: shootstuff/flux-img2img-uncensored",
-  "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 207 | Live URL: https://huggingface.co/spaces/shootstuff/flux-img2img-uncensored",
+  "category_type": "MODEL",
+  "title_ko": "FLUX 기반 언센서드 Img2Img 인터랙티브 AI 데모",
+  "description_ko": "검열 없는 고성능 FLUX 이미지 투 이미지 변환 모델의 성능을 직접 테스트해보세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_hf_space_shootstuffflux_img2img_uncensored",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "FLUX",
+    "category": "이미지 변환 및 생성",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "FLUX",
+      "Img2Img",
+      "Uncensored"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "FLUX 기반 언센서드 Img2Img 인터랙티브 AI 데모",
+        "hook": "검열 없는 고성능 FLUX 이미지 투 이미지 변환 모델의 성능을 직접 테스트해보세요.",
+        "key_takeaways": [
+          "FLUX 아키텍처를 활용한 Img2Img 변환 기능",
+          "제한 없는 자유로운 이미지 생성 및 편집 환경",
+          "Gradio를 통한 직관적인 웹 데모 제공"
+        ]
+      },
+      "en": {
+        "title": "Uncensored FLUX Img2Img Interactive AI Demo",
+        "hook": "Test the capabilities of high-performance, uncensored FLUX image-to-image transformation models directly.",
+        "key_takeaways": [
+          "Img2Img transformation powered by FLUX architecture",
+          "Unrestricted and flexible image generation and editing environment",
+          "Intuitive web demo built with Gradio"
+        ]
+      },
+      "zh": {
+        "title": "基于 FLUX 的无限制图生图交互式 AI 演示",
+        "hook": "直接体验无过滤的高性能 FLUX 图像到图像转换模型的强大性能。",
+        "key_takeaways": [
+          "利用 FLUX 架构实现的图生图转换功能",
+          "无限制且灵活的图像生成与编辑环境",
+          "通过 Gradio 提供直观的网页端演示"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:34:00.364263+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "FLUX",
+    "Img2Img",
+    "Uncensored"
+  ],
+  "title_en": "Uncensored FLUX Img2Img Interactive AI Demo",
+  "title_zh": "基于 FLUX 的无限制图生图交互式 AI 演示",
+  "hook": "검열 없는 고성능 FLUX 이미지 투 이미지 변환 모델의 성능을 직접 테스트해보세요.",
+  "hook_ko": "검열 없는 고성능 FLUX 이미지 투 이미지 변환 모델의 성능을 직접 테스트해보세요.",
+  "hook_en": "Test the capabilities of high-performance, uncensored FLUX image-to-image transformation models directly.",
+  "hook_zh": "直接体验无过滤的高性能 FLUX 图像到图像转换模型的强大性能。",
+  "description_en": "Test the capabilities of high-performance, uncensored FLUX image-to-image transformation models directly.",
+  "description_zh": "直接体验无过滤的高性能 FLUX 图像到图像转换模型的强大性能。"
 }

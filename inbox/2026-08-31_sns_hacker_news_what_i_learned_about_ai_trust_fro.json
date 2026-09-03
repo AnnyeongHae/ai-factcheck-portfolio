@@ -21,9 +21,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "NEWS",
-  "title_ko": "1,000억 건의 금융 거래를 검증하며 배운 AI 신뢰성에 대한 교훈",
-  "description_ko": "해커뉴스에서 6점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
+  "category_type": "TECH",
+  "title_ko": "1,000억 건 이상의 트랜잭션 대조를 통해 배운 AI 신뢰성에 대한 교훈",
+  "description_ko": "대규모 프로덕션 환경에서 AI 시스템의 신뢰를 구축하고 대량의 데이터를 검증하는 실무적 인사이트를 제공합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -46,5 +46,66 @@
   "updated_at": "2026-08-31",
   "article_url": "https://engineering.moniepoint.com/what-i-learned-about-ai-trust-from-reconciling",
   "hn_url": "https://news.ycombinator.com/item?id=49508443",
-  "hn_id": "49508443"
+  "hn_id": "49508443",
+  "ai_enrichment": {
+    "id": "2026-08-31_sns_hacker_news_what_i_learned_about_ai_trust_from",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 신뢰성 및 데이터 검증",
+    "programming_lang": "General",
+    "root_keywords": [
+      "AI Trust",
+      "Transactions",
+      "Data Reconciliation"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "1,000억 건 이상의 트랜잭션 대조를 통해 배운 AI 신뢰성에 대한 교훈",
+        "hook": "대규모 프로덕션 환경에서 AI 시스템의 신뢰를 구축하고 대량의 데이터를 검증하는 실무적 인사이트를 제공합니다.",
+        "key_takeaways": [
+          "1,000억 건 이상의 트랜잭션 처리 과정에서 얻은 AI 신뢰 구축 경험",
+          "대규모 데이터 대조를 통한 오류 검출 및 환각 방지 전략",
+          "프로덕션 레벨에서 AI 의사결정을 검증하는 실용적 방법론"
+        ]
+      },
+      "en": {
+        "title": "What I Learned About AI Trust from Reconciling over 100B Transactions",
+        "hook": "Gain practical insights on building AI trust and validating massive data scales in production environments.",
+        "key_takeaways": [
+          "Lessons learned on AI trust from reconciling over 100B transactions",
+          "Strategies for error detection and hallucination mitigation at scale",
+          "Practical methodologies for validating AI decisions in production"
+        ]
+      },
+      "zh": {
+        "title": "从核对超1000亿笔交易中获得的AI信任经验",
+        "hook": "获取在生产环境中建立AI信任并验证海量数据的实战洞察。",
+        "key_takeaways": [
+          "处理超1000亿笔交易中积累的AI信任构建经验",
+          "大规模数据对账中的错误检测与幻觉防范策略",
+          "在生产级别验证AI决策的实用方法论"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:31:46.705321+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "AI Trust",
+    "Transactions",
+    "Data Reconciliation"
+  ],
+  "title_en": "What I Learned About AI Trust from Reconciling over 100B Transactions",
+  "title_zh": "从核对超1000亿笔交易中获得的AI信任经验",
+  "hook": "대규모 프로덕션 환경에서 AI 시스템의 신뢰를 구축하고 대량의 데이터를 검증하는 실무적 인사이트를 제공합니다.",
+  "hook_ko": "대규모 프로덕션 환경에서 AI 시스템의 신뢰를 구축하고 대량의 데이터를 검증하는 실무적 인사이트를 제공합니다.",
+  "hook_en": "Gain practical insights on building AI trust and validating massive data scales in production environments.",
+  "hook_zh": "获取在生产环境中建立AI信任并验证海量数据的实战洞察。",
+  "description_en": "Gain practical insights on building AI trust and validating massive data scales in production environments.",
+  "description_zh": "获取在生产环境中建立AI信任并验证海量数据的实战洞察。"
 }

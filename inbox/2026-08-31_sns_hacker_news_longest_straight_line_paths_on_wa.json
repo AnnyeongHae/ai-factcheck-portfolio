@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "NEWS",
-  "title_ko": "Longest Straight Line Paths on Water or Land on the Earth (2018)",
-  "description_ko": "해커뉴스에서 203점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
+  "title_ko": "지구상에서 물이나 육지를 가로지르는 가장 긴 직선 경로",
+  "description_ko": "지구 표면에서 끊김 없이 갈 수 있는 최장 직선 경로를 다룬 흥미로운 지리 및 알고리즘 분석",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -46,5 +46,66 @@
   "updated_at": "2026-08-31",
   "article_url": "https://arxiv.org/abs/1804.07389",
   "hn_url": "https://news.ycombinator.com/item?id=49496782",
-  "hn_id": "49496782"
+  "hn_id": "49496782",
+  "ai_enrichment": {
+    "id": "2026-08-31_sns_hacker_news_longest_straight_line_paths_on_wa",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "지리 정보 및 알고리즘",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Straight Line Path",
+      "Earth Geography",
+      "Algorithm"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.5,
+    "multilingual": {
+      "ko": {
+        "title": "지구상에서 물이나 육지를 가로지르는 가장 긴 직선 경로",
+        "hook": "지구 표면에서 끊김 없이 갈 수 있는 최장 직선 경로를 다룬 흥미로운 지리 및 알고리즘 분석",
+        "key_takeaways": [
+          "지구 표면의 지형을 활용한 최장 직선 경로 탐색",
+          "공간 데이터 및 경로 계산 알고리즘의 응용 사례",
+          "개발자 흥미를 유발하는 지리 정보 데이터 분석"
+        ]
+      },
+      "en": {
+        "title": "Longest Straight Line Paths on Water or Land on the Earth",
+        "hook": "An intriguing geographical and algorithmic analysis of the longest continuous straight-line paths on Earth.",
+        "key_takeaways": [
+          "Exploration of extreme distance paths across the Earth's surface",
+          "Application of spatial data and routing algorithms",
+          "Fascinating geo-spatial data analysis case study"
+        ]
+      },
+      "zh": {
+        "title": "地球上水域或陆地的最长直线路径",
+        "hook": "探讨地球表面最长连续直线路径的地理与算法分析趣文。",
+        "key_takeaways": [
+          "探索地球表面的极限距离路径规划",
+          "空间数据与路线计算算法的实际应用",
+          "引人入胜的地理空间数据分析案例"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:32:22.761129+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Straight Line Path",
+    "Earth Geography",
+    "Algorithm"
+  ],
+  "title_en": "Longest Straight Line Paths on Water or Land on the Earth",
+  "title_zh": "地球上水域或陆地的最长直线路径",
+  "hook": "지구 표면에서 끊김 없이 갈 수 있는 최장 직선 경로를 다룬 흥미로운 지리 및 알고리즘 분석",
+  "hook_ko": "지구 표면에서 끊김 없이 갈 수 있는 최장 직선 경로를 다룬 흥미로운 지리 및 알고리즘 분석",
+  "hook_en": "An intriguing geographical and algorithmic analysis of the longest continuous straight-line paths on Earth.",
+  "hook_zh": "探讨地球表面最长连续直线路径的地理与算法分析趣文。",
+  "description_en": "An intriguing geographical and algorithmic analysis of the longest continuous straight-line paths on Earth.",
+  "description_zh": "探讨地球表面最长连续直线路径的地理与算法分析趣文。"
 }

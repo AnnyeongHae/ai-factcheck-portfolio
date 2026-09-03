@@ -28,5 +28,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_when_does_bigger_help_a_controlled_stud",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 스케일링 법칙 및 온톨로지 학습",
+    "programming_lang": "General",
+    "root_keywords": [
+      "LLM Scale",
+      "Ontology Learning",
+      "Controlled Study"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "모델이 커지면 정말 좋아질까? LLM 규모가 온톨로지 학습에 미치는 영향에 대한 통제 실험",
+        "hook": "13개 모델을 대상으로 한 정밀한 통제 실험을 통해 LLM 규모 확장이 온톨로지 구축에 미치는 실효성을 파악하세요.",
+        "key_takeaways": [
+          "조밀(Dense) 모델과 MoE 구조를 포함한 13개 모델 비교 분석",
+          "온톨로지 학습(OL) 성능에서 모델 스케일이 갖는 실질적 한계와 이점 규명",
+          "도메인 지식 구축 작업 시 최적의 모델 크기 선택 가이드라인 제시"
+        ]
+      },
+      "en": {
+        "title": "When Does Bigger Help? A Controlled Study of LLM Scale for Ontology Learning",
+        "hook": "Discover the true impact of LLM scaling on ontology construction through a rigorous controlled evaluation of 13 models.",
+        "key_takeaways": [
+          "Controlled evaluation across 13 dense and Mixture-of-Experts models",
+          "Identifies exact performance boundaries and gains of scaling for ontology learning",
+          "Provides guidelines for selecting optimal model size in knowledge graph tasks"
+        ]
+      },
+      "zh": {
+        "title": "模型更大真的更好吗？LLM规模对本体学习影响的对照研究",
+        "hook": "通过对13个密集和MoE模型的严谨对照评估，揭示大模型规模对本体构建的真实效用。",
+        "key_takeaways": [
+          "涵盖密集模型与MoE架构的13个大模型横向评测",
+          "明确模型规模扩展在本体学习（OL）中的性能边界与实际收益",
+          "为知识图谱与本体构建任务中选择最佳模型规模提供实证参考"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:06.256700+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "LLM Scale",
+    "Ontology Learning",
+    "Controlled Study"
+  ],
+  "title_ko": "모델이 커지면 정말 좋아질까? LLM 규모가 온톨로지 학습에 미치는 영향에 대한 통제 실험",
+  "title_en": "When Does Bigger Help? A Controlled Study of LLM Scale for Ontology Learning",
+  "title_zh": "模型更大真的更好吗？LLM规模对本体学习影响的对照研究",
+  "hook": "13개 모델을 대상으로 한 정밀한 통제 실험을 통해 LLM 규모 확장이 온톨로지 구축에 미치는 실효성을 파악하세요.",
+  "hook_ko": "13개 모델을 대상으로 한 정밀한 통제 실험을 통해 LLM 규모 확장이 온톨로지 구축에 미치는 실효성을 파악하세요.",
+  "hook_en": "Discover the true impact of LLM scaling on ontology construction through a rigorous controlled evaluation of 13 models.",
+  "hook_zh": "通过对13个密集和MoE模型的严谨对照评估，揭示大模型规模对本体构建的真实效用。",
+  "description_ko": "13개 모델을 대상으로 한 정밀한 통제 실험을 통해 LLM 규모 확장이 온톨로지 구축에 미치는 실효성을 파악하세요.",
+  "description_en": "Discover the true impact of LLM scaling on ontology construction through a rigorous controlled evaluation of 13 models.",
+  "description_zh": "通过对13个密集和MoE模型的严谨对照评估，揭示大模型规模对本体构建的真实效用。",
+  "category_type": "TECH"
 }

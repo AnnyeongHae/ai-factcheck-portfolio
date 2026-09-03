@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "MiniMax",
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: alibaba-pai/MiniMax-H3-Acc-LoRAs",
-  "description_ko": "Trending Score: 149, Downloads: 23734, Pipeline: text-to-video",
+  "category_type": "MODEL",
+  "title_ko": "MiniMax-H3-Acc-LoRAs 모델",
+  "description_ko": "MiniMax H3 비디오 생성 모델의 속도를 획기적으로 가속화하는 최적화 LoRA 가중치입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -44,5 +44,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_alibaba_paiminimax_h3_acc_loras",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "MiniMax",
+    "category": "비디오 생성 가속 및 LoRA",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "MiniMax-H3",
+      "Acc-LoRAs",
+      "Text-to-Video"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.3,
+    "multilingual": {
+      "ko": {
+        "title": "MiniMax-H3-Acc-LoRAs 모델",
+        "hook": "MiniMax H3 비디오 생성 모델의 속도를 획기적으로 가속화하는 최적화 LoRA 가중치입니다.",
+        "key_takeaways": [
+          "비디오 생성 추론 시간을 단축하는 Acc-LoRA 가중치",
+          "품질 저하를 최소화하면서 가속 효과 달성",
+          "실시간에 가까운 비디오 생성 워크플로우 지원"
+        ]
+      },
+      "en": {
+        "title": "MiniMax-H3-Acc-LoRAs Model",
+        "hook": "Drastically accelerate your MiniMax H3 video generation pipelines with these specialized acceleration LoRAs.",
+        "key_takeaways": [
+          "Specialized Acc-LoRA weights to speed up video inference",
+          "Achieves significant performance gains with minimal quality loss",
+          "Enables near-real-time video generation workflows"
+        ]
+      },
+      "zh": {
+        "title": "MiniMax-H3-Acc-LoRAs 模型",
+        "hook": "通过专用的加速 LoRA 权重，大幅提升 MiniMax H3 视频生成模型的运行速度。",
+        "key_takeaways": [
+          "专为缩短视频推理时间而设计的 Acc-LoRA",
+          "在保持画质的同时实现显著的速度提升",
+          "助力实现接近实时的视频生成工作流"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:33:36.551593+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "MiniMax-H3",
+    "Acc-LoRAs",
+    "Text-to-Video"
+  ],
+  "title_en": "MiniMax-H3-Acc-LoRAs Model",
+  "title_zh": "MiniMax-H3-Acc-LoRAs 模型",
+  "hook": "MiniMax H3 비디오 생성 모델의 속도를 획기적으로 가속화하는 최적화 LoRA 가중치입니다.",
+  "hook_ko": "MiniMax H3 비디오 생성 모델의 속도를 획기적으로 가속화하는 최적화 LoRA 가중치입니다.",
+  "hook_en": "Drastically accelerate your MiniMax H3 video generation pipelines with these specialized acceleration LoRAs.",
+  "hook_zh": "通过专用的加速 LoRA 权重，大幅提升 MiniMax H3 视频生成模型的运行速度。",
+  "description_en": "Drastically accelerate your MiniMax H3 video generation pipelines with these specialized acceleration LoRAs.",
+  "description_zh": "通过专用的加速 LoRA 权重，大幅提升 MiniMax H3 视频生成模型的运行速度。"
 }

@@ -17,13 +17,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "Standalone / Novel",
   "detected_formats": [
     "Interactive Web Demo"
   ],
-  "category_type": "TECH",
-  "title_ko": "HF Space: Saravutw/Omni-videos-custom",
-  "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 250 | Live URL: https://huggingface.co/spaces/Saravutw/Omni-videos-custom",
+  "category_type": "MODEL",
+  "title_ko": "옴니 비디오스 커스텀: 맞춤형 AI 비디오 생성 데모",
+  "description_ko": "사용자 맞춤형 설정으로 고유한 AI 비디오를 제작할 수 있는 Omni-videos-custom 데모를 확인해보세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_hf_space_saravutwomni_videos_custom",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Standalone",
+    "category": "영상 제작 및 비디오 생성",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Omni-videos",
+      "Video Customization",
+      "AI Video"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.9,
+    "multilingual": {
+      "ko": {
+        "title": "옴니 비디오스 커스텀: 맞춤형 AI 비디오 생성 데모",
+        "hook": "사용자 맞춤형 설정으로 고유한 AI 비디오를 제작할 수 있는 Omni-videos-custom 데모를 확인해보세요.",
+        "key_takeaways": [
+          "커스텀 파라미터를 지원하는 Omni 비디오 생성 모델",
+          "다양한 영상 스타일과 옵션을 적용할 수 있는 유연성",
+          "Ggradio 기반의 사용자 친화적 웹 플레이그라운드"
+        ]
+      },
+      "en": {
+        "title": "Omni-Videos Custom: Tailored AI Video Generation Demo",
+        "hook": "Check out the Omni-videos-custom demo to create unique AI videos with user-defined settings.",
+        "key_takeaways": [
+          "Omni video generation model supporting custom parameters",
+          "Flexibility to apply various video styles and options",
+          "Gradio-based user-friendly web playground"
+        ]
+      },
+      "zh": {
+        "title": "全能视频定制版：个性化 AI 视频生成演示",
+        "hook": "查看 Omni-videos-custom 演示，利用用户自定义设置创建独特的 AI 视频。",
+        "key_takeaways": [
+          "支持自定义参数的 Omni 视频生成模型",
+          "能够应用多种视频风格与选项的灵活性",
+          "基于 Gradio 构建的友好网页端游乐场"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:34:00.367492+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Omni-videos",
+    "Video Customization",
+    "AI Video"
+  ],
+  "title_en": "Omni-Videos Custom: Tailored AI Video Generation Demo",
+  "title_zh": "全能视频定制版：个性化 AI 视频生成演示",
+  "hook": "사용자 맞춤형 설정으로 고유한 AI 비디오를 제작할 수 있는 Omni-videos-custom 데모를 확인해보세요.",
+  "hook_ko": "사용자 맞춤형 설정으로 고유한 AI 비디오를 제작할 수 있는 Omni-videos-custom 데모를 확인해보세요.",
+  "hook_en": "Check out the Omni-videos-custom demo to create unique AI videos with user-defined settings.",
+  "hook_zh": "查看 Omni-videos-custom 演示，利用用户自定义设置创建独特的 AI 视频。",
+  "description_en": "Check out the Omni-videos-custom demo to create unique AI videos with user-defined settings.",
+  "description_zh": "查看 Omni-videos-custom 演示，利用用户自定义设置创建独特的 AI 视频。"
 }

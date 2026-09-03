@@ -28,5 +28,67 @@
     "is_spiking": true
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_github_gangtailorupgradecoomertool",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "기타 유틸리티",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Utility",
+      "Tool"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.5,
+    "multilingual": {
+      "ko": {
+        "title": "커머 툴(CoomeRtool) GitHub 저장소",
+        "hook": "특정 유틸리티 목적을 가진 오픈소스 프로젝트 저장소입니다.",
+        "key_takeaways": [
+          "오픈소스 유틸리티 도구",
+          "현재 제한적인 포크 및 정보 제공",
+          "프로젝트 코드 구조 참고용"
+        ]
+      },
+      "en": {
+        "title": "CoomeRtool GitHub Repository",
+        "hook": "An open-source repository designed for specific utility purposes.",
+        "key_takeaways": [
+          "Open-source utility tool",
+          "Limited forks and community activity",
+          "Reference for specific project structures"
+        ]
+      },
+      "zh": {
+        "title": "CoomeRtool GitHub 开源仓库",
+        "hook": "一个针对特定实用工具目的开源项目代码库。",
+        "key_takeaways": [
+          "开源实用工具项目",
+          "目前分支与社区活动较少",
+          "可作为特定代码结构的参考"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:29:53.226569+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Utility",
+    "Tool"
+  ],
+  "title_ko": "커머 툴(CoomeRtool) GitHub 저장소",
+  "title_en": "CoomeRtool GitHub Repository",
+  "title_zh": "CoomeRtool GitHub 开源仓库",
+  "hook": "특정 유틸리티 목적을 가진 오픈소스 프로젝트 저장소입니다.",
+  "hook_ko": "특정 유틸리티 목적을 가진 오픈소스 프로젝트 저장소입니다.",
+  "hook_en": "An open-source repository designed for specific utility purposes.",
+  "hook_zh": "一个针对特定实用工具目的开源项目代码库。",
+  "description_ko": "특정 유틸리티 목적을 가진 오픈소스 프로젝트 저장소입니다.",
+  "description_en": "An open-source repository designed for specific utility purposes.",
+  "description_zh": "一个针对特定实用工具目的开源项目代码库。",
+  "category_type": "NEWS"
 }

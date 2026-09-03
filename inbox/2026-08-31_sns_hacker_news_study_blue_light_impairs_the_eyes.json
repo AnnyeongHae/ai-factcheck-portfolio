@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "NEWS",
-  "title_ko": "연구: 블루라이트가 세밀한 디테일을 구별하는 시각 능력을 가장 크게 저하시킴",
-  "description_ko": "해커뉴스에서 11점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
+  "title_ko": "연구: 블루라이트가 눈의 미세 세부 식별 능력을 가장 크게 저하시킨다",
+  "description_ko": "장시간 화면을 보는 개발자라면 주목해야 할 블루라이트의 시력 영향 최신 연구 결과입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -46,5 +46,66 @@
   "updated_at": "2026-08-31",
   "article_url": "https://research.uga.edu/news/blue-light-has-a-surprising-effect-on-your-eyes-study-finds/",
   "hn_url": "https://news.ycombinator.com/item?id=49507121",
-  "hn_id": "49507121"
+  "hn_id": "49507121",
+  "ai_enrichment": {
+    "id": "2026-08-31_sns_hacker_news_study_blue_light_impairs_the_eyes",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "헬스케어 및 인체공학",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Blue Light",
+      "Vision Impairment",
+      "Health"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.5,
+    "multilingual": {
+      "ko": {
+        "title": "연구: 블루라이트가 눈의 미세 세부 식별 능력을 가장 크게 저하시킨다",
+        "hook": "장시간 화면을 보는 개발자라면 주목해야 할 블루라이트의 시력 영향 최신 연구 결과입니다.",
+        "key_takeaways": [
+          "블루라이트가 미세 시각 정보 처리에 미치는 악영향",
+          "디스플레이 장시간 노출 시 주의할 점",
+          "엔지니어의 안구 건강 관리를 위한 인사이트"
+        ]
+      },
+      "en": {
+        "title": "Study: Blue Light Impairs the Eye's Ability to Distinguish Fine Detail Most",
+        "hook": "Discover the latest findings on how blue light affects visual acuity for screen-heavy developers.",
+        "key_takeaways": [
+          "Negative impact of blue light on processing fine visual details",
+          "Precautions for prolonged display exposure",
+          "Insights for maintaining developer eye health"
+        ]
+      },
+      "zh": {
+        "title": "研究：蓝光对眼睛辨别精细细节的能力损害最大",
+        "hook": "长期面对屏幕的开发者必须了解的蓝光对视力影响的最新研究成果。",
+        "key_takeaways": [
+          "蓝光对处理精细视觉信息的负面影响",
+          "长时间暴露在显示器前需要注意的事项",
+          "为工程师眼部健康维护提供的见解"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:31:58.111519+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Blue Light",
+    "Vision Impairment",
+    "Health"
+  ],
+  "title_en": "Study: Blue Light Impairs the Eye's Ability to Distinguish Fine Detail Most",
+  "title_zh": "研究：蓝光对眼睛辨别精细细节的能力损害最大",
+  "hook": "장시간 화면을 보는 개발자라면 주목해야 할 블루라이트의 시력 영향 최신 연구 결과입니다.",
+  "hook_ko": "장시간 화면을 보는 개발자라면 주목해야 할 블루라이트의 시력 영향 최신 연구 결과입니다.",
+  "hook_en": "Discover the latest findings on how blue light affects visual acuity for screen-heavy developers.",
+  "hook_zh": "长期面对屏幕的开发者必须了解的蓝光对视力影响的最新研究成果。",
+  "description_en": "Discover the latest findings on how blue light affects visual acuity for screen-heavy developers.",
+  "description_zh": "长期面对屏幕的开发者必须了解的蓝光对视力影响的最新研究成果。"
 }

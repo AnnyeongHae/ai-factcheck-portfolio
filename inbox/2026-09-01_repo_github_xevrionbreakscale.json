@@ -28,5 +28,69 @@
     "is_spiking": true
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_github_xevrionbreakscale",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "분산 시스템 및 아키텍처",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Distributed Systems",
+      "System Design",
+      "Simulator"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "분산 시스템 학습을 위한 부하 및 장애 시뮬레이터",
+        "hook": "시스템을 설계하고 한계치까지 부하를 가한 뒤 병목 현상과 장애 원인을 시각적으로 분석할 수 있습니다.",
+        "key_takeaways": [
+          "분산 시스템 아키텍처 학습용 시뮬레이터",
+          "극한의 부하 테스트 및 장애 모니터링",
+          "시스템 설계 및 병목 분석 능력 향상"
+        ]
+      },
+      "en": {
+        "title": "Breakscale: Distributed Systems Load and Failure Simulator",
+        "hook": "Build systems, push them to their breaking points, and visually analyze failure causes for system design mastery.",
+        "key_takeaways": [
+          "Designed for learning distributed systems",
+          "Load testing until failure with visual feedback",
+          "Improves system architecture and debugging skills"
+        ]
+      },
+      "zh": {
+        "title": "Breakscale：分布式系统负载与故障模拟器",
+        "hook": "构建系统并施加极限负载，直观观察崩溃原因，是学习分布式系统设计的利器。",
+        "key_takeaways": [
+          "专为分布式系统架构学习设计",
+          "支持极限负载压测与故障监控",
+          "有效提升系统设计与瓶颈分析能力"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:29:53.223802+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Distributed Systems",
+    "System Design",
+    "Simulator"
+  ],
+  "title_ko": "분산 시스템 학습을 위한 부하 및 장애 시뮬레이터",
+  "title_en": "Breakscale: Distributed Systems Load and Failure Simulator",
+  "title_zh": "Breakscale：分布式系统负载与故障模拟器",
+  "hook": "시스템을 설계하고 한계치까지 부하를 가한 뒤 병목 현상과 장애 원인을 시각적으로 분석할 수 있습니다.",
+  "hook_ko": "시스템을 설계하고 한계치까지 부하를 가한 뒤 병목 현상과 장애 원인을 시각적으로 분석할 수 있습니다.",
+  "hook_en": "Build systems, push them to their breaking points, and visually analyze failure causes for system design mastery.",
+  "hook_zh": "构建系统并施加极限负载，直观观察崩溃原因，是学习分布式系统设计的利器。",
+  "description_ko": "시스템을 설계하고 한계치까지 부하를 가한 뒤 병목 현상과 장애 원인을 시각적으로 분석할 수 있습니다.",
+  "description_en": "Build systems, push them to their breaking points, and visually analyze failure causes for system design mastery.",
+  "description_zh": "构建系统并施加极限负载，直观观察崩溃原因，是学习分布式系统设计的利器。",
+  "category_type": "TECH"
 }

@@ -1344,13 +1344,13 @@ def generate_html(data):
       safeSetText('navTabPortfolio', t.navPortfolio);
       safeSetText('mNavTabPortfolio', t.navPortfolio);
       safeSetText('navTabModels', t.navModels);
-      safeSetText('mNavTabModels', t.navModels + ` (${{data['models_total_count']}})`);
+      safeSetText('mNavTabModels', t.navModels + ' (' + (typeof liveModelsData !== 'undefined' ? liveModelsData.length : {data['models_total_count']}) + ')');
       safeSetText('navTabNews', t.navNews);
-      safeSetText('mNavTabNews', t.navNews + ` (${{data['news_total_count']}})`);
+      safeSetText('mNavTabNews', t.navNews + ' (' + (typeof liveNewsData !== 'undefined' ? liveNewsData.length : {data['news_total_count']}) + ')');
       safeSetText('navTabGraph', t.navGraph);
       safeSetText('mNavTabGraph', t.navGraph);
       safeSetText('navTabInbox', t.navInbox);
-      safeSetText('mNavTabInbox', t.navInbox + ` (${{data['inbox_total_count']}})`);
+      safeSetText('mNavTabInbox', t.navInbox + ' (' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : {data['inbox_total_count']}) + ')');
 
       // Hero Elements
       safeSetText('heroBadge', t.heroBadge);

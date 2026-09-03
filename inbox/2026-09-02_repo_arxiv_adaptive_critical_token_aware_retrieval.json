@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_adaptive_critical_token_aware_retrieval",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "코드 생성 및 검색 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Code Generation",
+      "Token-Aware Retrieval",
+      "Repository-Level AI"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
+    "multilingual": {
+      "ko": {
+        "title": "저장소 수준 코드 생성을 위한 적응형 중요 토큰 인식 검색",
+        "hook": "대규모 코드베이스에서 핵심 컨텍스트를 정확히 포착하는 토큰 인식 검색 기법을 적용해 보세요.",
+        "key_takeaways": [
+          "저장소 수준의 복잡한 코드 생성 태스크 최적화",
+          "적응형 중요 토큰 인식을 통한 관련 컨텍스트 추출",
+          "타겟 리포지토리 일관성 유지 성능 향상"
+        ]
+      },
+      "en": {
+        "title": "Adaptive Critical Token-Aware Retrieval for Repository-Level Code Generation",
+        "hook": "Enhance repository-level code generation by accurately retrieving critical context with token awareness.",
+        "key_takeaways": [
+          "Optimizes complex repository-level code generation tasks",
+          "Extracts relevant context via adaptive critical token awareness",
+          "Improves consistency maintenance with the target codebase"
+        ]
+      },
+      "zh": {
+        "title": "面向仓库级代码生成的自适应关键Token感知检索",
+        "hook": "利用Token感知检索技术精准捕获核心上下文，全面提升大模型仓库级代码生成能力。",
+        "key_takeaways": [
+          "优化复杂的仓库级代码生成任务",
+          "通过自适应关键Token感知提取相关上下文",
+          "提升与目标代码库的一致性保持能力"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:27:21.948581+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Code Generation",
+    "Token-Aware Retrieval",
+    "Repository-Level AI"
+  ],
+  "title_ko": "저장소 수준 코드 생성을 위한 적응형 중요 토큰 인식 검색",
+  "title_en": "Adaptive Critical Token-Aware Retrieval for Repository-Level Code Generation",
+  "title_zh": "面向仓库级代码生成的自适应关键Token感知检索",
+  "hook": "대규모 코드베이스에서 핵심 컨텍스트를 정확히 포착하는 토큰 인식 검색 기법을 적용해 보세요.",
+  "hook_ko": "대규모 코드베이스에서 핵심 컨텍스트를 정확히 포착하는 토큰 인식 검색 기법을 적용해 보세요.",
+  "hook_en": "Enhance repository-level code generation by accurately retrieving critical context with token awareness.",
+  "hook_zh": "利用Token感知检索技术精准捕获核心上下文，全面提升大模型仓库级代码生成能力。",
+  "description_ko": "대규모 코드베이스에서 핵심 컨텍스트를 정확히 포착하는 토큰 인식 검색 기법을 적용해 보세요.",
+  "description_en": "Enhance repository-level code generation by accurately retrieving critical context with token awareness.",
+  "description_zh": "利用Token感知检索技术精准捕获核心上下文，全面提升大模型仓库级代码生成能力。"
 }

@@ -29,5 +29,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_not_safe_for_all_auditing_the_dialect_p",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "멀티모달 안전성 및 공정성",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Text-to-Image",
+      "Safety Guardrails",
+      "Dialect Penalty"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "모두에게 안전하지 않다: 텍스트-이미지 안전 파이프라인의 방언 페널티 감사",
+        "hook": "T2I 가드레일이 비표준 방언에 대해 공정하게 작동하지 않는 현상을 방언 페널티(Dialect Penalty) 개념으로 파헤친 연구입니다.",
+        "key_takeaways": [
+          "5개 영어 방언에 걸친 23,080개의 프롬프트 분석을 통해 T2I 가드레일의 편향성 입증",
+          "비표준 방언 사용자가 겪는 안전성 필터링의 불공정성(Dialect Penalty) 공식화",
+          "멀티모달 모델 안전 파이프라인의 공정성 개선 필요성 강조"
+        ]
+      },
+      "en": {
+        "title": "Not Safe for All: Auditing the Dialect Penalty in Text-to-Image Safety Pipelines",
+        "hook": "Uncover how text-to-image safety guardrails unfairly penalize non-standard dialects across 23,080 audited prompts.",
+        "key_takeaways": [
+          "Audits T2I safety pipelines using 23,080 paired prompts across 5 English dialects",
+          "Formalizes 'dialect penalty' to explain disparate guardrail failures",
+          "Highlights critical equity and bias issues in generative AI safety filters"
+        ]
+      },
+      "zh": {
+        "title": "并非对所有人安全：审计文本到图像安全管道中的方言惩罚",
+        "hook": "揭示文本生成图像（T2I）安全护栏对非标准方言存在的不平等审查与偏见现象。",
+        "key_takeaways": [
+          "跨5种英语方言测试了23080个配对提示词，审计T2I安全机制",
+          "首次提出并形式化了“方言惩罚(Dialect Penalty)”概念",
+          "呼吁解决生成式AI安全过滤器的公平性与包容性问题"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:32.551840+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Text-to-Image",
+    "Safety Guardrails",
+    "Dialect Penalty"
+  ],
+  "title_ko": "모두에게 안전하지 않다: 텍스트-이미지 안전 파이프라인의 방언 페널티 감사",
+  "title_en": "Not Safe for All: Auditing the Dialect Penalty in Text-to-Image Safety Pipelines",
+  "title_zh": "并非对所有人安全：审计文本到图像安全管道中的方言惩罚",
+  "hook": "T2I 가드레일이 비표준 방언에 대해 공정하게 작동하지 않는 현상을 방언 페널티(Dialect Penalty) 개념으로 파헤친 연구입니다.",
+  "hook_ko": "T2I 가드레일이 비표준 방언에 대해 공정하게 작동하지 않는 현상을 방언 페널티(Dialect Penalty) 개념으로 파헤친 연구입니다.",
+  "hook_en": "Uncover how text-to-image safety guardrails unfairly penalize non-standard dialects across 23,080 audited prompts.",
+  "hook_zh": "揭示文本生成图像（T2I）安全护栏对非标准方言存在的不平等审查与偏见现象。",
+  "description_ko": "T2I 가드레일이 비표준 방언에 대해 공정하게 작동하지 않는 현상을 방언 페널티(Dialect Penalty) 개념으로 파헤친 연구입니다.",
+  "description_en": "Uncover how text-to-image safety guardrails unfairly penalize non-standard dialects across 23,080 audited prompts.",
+  "description_zh": "揭示文本生成图像（T2I）安全护栏对非标准方言存在的不平等审查与偏见现象。",
+  "category_type": "TECH"
 }

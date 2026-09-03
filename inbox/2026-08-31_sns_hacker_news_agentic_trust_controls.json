@@ -21,9 +21,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "NEWS",
-  "title_ko": "Agentic Trust Controls",
-  "description_ko": "해커뉴스에서 6점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
+  "category_type": "AGENT",
+  "title_ko": "자율형 AI를 위한 신뢰 제어(Agentic Trust Controls) 체계",
+  "description_ko": "에이전트의 자율성이 높아질수록 필수적인 권한 통제와 보안 거버넌스 아키텍처를 살펴봅니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -46,5 +46,66 @@
   "updated_at": "2026-08-31",
   "article_url": "https://trustcontrols.ai/",
   "hn_url": "https://news.ycombinator.com/item?id=49510612",
-  "hn_id": "49510612"
+  "hn_id": "49510612",
+  "ai_enrichment": {
+    "id": "2026-08-31_sns_hacker_news_agentic_trust_controls",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "AI 에이전트 보안 및 거버넌스",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Agentic Trust",
+      "Access Control",
+      "AI Governance"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "자율형 AI를 위한 신뢰 제어(Agentic Trust Controls) 체계",
+        "hook": "에이전트의 자율성이 높아질수록 필수적인 권한 통제와 보안 거버넌스 아키텍처를 살펴봅니다.",
+        "key_takeaways": [
+          "자율 에이전트 환경에서의 접근 제어 모델",
+          "위험한 액션 실행 전 인간 개입(Human-in-the-loop) 설계",
+          "엔터프라이즈 AI 배포를 위한 보안 가이드라인"
+        ]
+      },
+      "en": {
+        "title": "Agentic Trust Controls for Autonomous AI Systems",
+        "hook": "Explore the essential permission controls and security governance architectures for autonomous agents.",
+        "key_takeaways": [
+          "Access control models tailored for autonomous agent environments",
+          "Human-in-the-loop design patterns for high-risk actions",
+          "Security guidelines for enterprise AI deployments"
+        ]
+      },
+      "zh": {
+        "title": "面向自主 AI 系统的代理信任控制机制",
+        "hook": "探讨随着 AI 自主性提升而变得至关重要的权限控制与安全治理架构。",
+        "key_takeaways": [
+          "专为自主代理环境设计的访问控制模型",
+          "高风险操作中的“人在回路(Human-in-the-loop)”设计",
+          "企业级 AI 部署的安全合规指南"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:32:34.811797+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Agentic Trust",
+    "Access Control",
+    "AI Governance"
+  ],
+  "title_en": "Agentic Trust Controls for Autonomous AI Systems",
+  "title_zh": "面向自主 AI 系统的代理信任控制机制",
+  "hook": "에이전트의 자율성이 높아질수록 필수적인 권한 통제와 보안 거버넌스 아키텍처를 살펴봅니다.",
+  "hook_ko": "에이전트의 자율성이 높아질수록 필수적인 권한 통제와 보안 거버넌스 아키텍처를 살펴봅니다.",
+  "hook_en": "Explore the essential permission controls and security governance architectures for autonomous agents.",
+  "hook_zh": "探讨随着 AI 自主性提升而变得至关重要的权限控制与安全治理架构。",
+  "description_en": "Explore the essential permission controls and security governance architectures for autonomous agents.",
+  "description_zh": "探讨随着 AI 自主性提升而变得至关重要的权限控制与安全治理架构。"
 }

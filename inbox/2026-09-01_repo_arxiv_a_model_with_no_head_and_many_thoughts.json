@@ -28,5 +28,71 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_a_model_with_no_head_and_many_thoughts",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 추론 최적화 및 아키텍처",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "Hidden States",
+      "Token-free Reasoning",
+      "Inference Optimization",
+      "LLM Architecture"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "머리는 없고 생각은 많은 모델: 토큰 한계를 뛰어넘는 비(非)출력 추론 아키텍처",
+        "hook": "매 스텝마다 거대한 어휘 헤드를 거치는 연산 비용을 제거하고, 연속적인 사고 과정을 구현한 혁신적 논문입니다.",
+        "key_takeaways": [
+          "대규모 어휘 헤드 투영(Projection) 연산 비용 병목 현상 분석",
+          "이산적 토큰 제약을 우회하여 히든 스테이트 기반의 사고(Thought) 구현",
+          "LLM 추론 속도 및 효율성을 극단적으로 끌어올리는 새로운 패러다임"
+        ]
+      },
+      "en": {
+        "title": "A Model with No Head and Many Thoughts",
+        "hook": "Eliminate costly vocabulary head projections at every decoding step and enable continuous thought representation.",
+        "key_takeaways": [
+          "Analysis of computational bottlenecks in large vocabulary head projections",
+          "Implementation of hidden-state-based reasoning bypassing discrete token constraints",
+          "A new paradigm for radically boosting LLM inference speed and efficiency"
+        ]
+      },
+      "zh": {
+        "title": "无头多思模型：突破离散token限制的全新推理架构",
+        "hook": "消除每一步解码时庞大词表头投影的巨额计算成本，实现连续的深度思考过程。",
+        "key_takeaways": [
+          "剖析大规模词表头投影带来的计算性能瓶颈",
+          "绕过离散token约束，实现基于隐状态（Hidden States）的思考过程",
+          "大幅提升大模型推理速度与效率的全新架构范式"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:31:34.696390+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "Hidden States",
+    "Token-free Reasoning",
+    "Inference Optimization",
+    "LLM Architecture"
+  ],
+  "title_ko": "머리는 없고 생각은 많은 모델: 토큰 한계를 뛰어넘는 비(非)출력 추론 아키텍처",
+  "title_en": "A Model with No Head and Many Thoughts",
+  "title_zh": "无头多思模型：突破离散token限制的全新推理架构",
+  "hook": "매 스텝마다 거대한 어휘 헤드를 거치는 연산 비용을 제거하고, 연속적인 사고 과정을 구현한 혁신적 논문입니다.",
+  "hook_ko": "매 스텝마다 거대한 어휘 헤드를 거치는 연산 비용을 제거하고, 연속적인 사고 과정을 구현한 혁신적 논문입니다.",
+  "hook_en": "Eliminate costly vocabulary head projections at every decoding step and enable continuous thought representation.",
+  "hook_zh": "消除每一步解码时庞大词表头投影的巨额计算成本，实现连续的深度思考过程。",
+  "description_ko": "매 스텝마다 거대한 어휘 헤드를 거치는 연산 비용을 제거하고, 연속적인 사고 과정을 구현한 혁신적 논문입니다.",
+  "description_en": "Eliminate costly vocabulary head projections at every decoding step and enable continuous thought representation.",
+  "description_zh": "消除每一步解码时庞大词表头投影的巨额计算成本，实现连续的深度思考过程。",
+  "category_type": "TECH"
 }

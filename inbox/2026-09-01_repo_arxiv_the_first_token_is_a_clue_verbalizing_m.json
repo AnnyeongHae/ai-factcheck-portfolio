@@ -28,5 +28,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_the_first_token_is_a_clue_verbalizing_m",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 내부 해석력 및 토큰 분석",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "J-lens",
+      "Interpretability",
+      "Multi-token Concepts"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "첫 번째 토큰은 단서다: J-렌즈를 통한 다중 토큰 개념의 언어화",
+        "hook": "J-렌즈(Jacobian Lens)를 확장하여 LLM 내부의 은닉 상태에 숨겨진 다중 토큰 개념을 명확하게 해석하세요.",
+        "key_takeaways": [
+          "최근 LLM 해석력 도구인 J-렌즈의 한계(다중 토큰 표현 부재) 극복",
+          "은닉 상태를 순위가 매겨진 어휘 토큰 리스트로 읽어내는 방식 개선",
+          "복잡한 다중 토큰 개념을 인간이 이해할 수 있는 언어로 언어화하는 기법"
+        ]
+      },
+      "en": {
+        "title": "The First Token Is a Clue: Verbalizing Multi-Token Concepts from the J-lens",
+        "hook": "Unlock hidden multi-token concepts within LLM hidden states by advancing the Jacobian Lens interpretability method.",
+        "key_takeaways": [
+          "Addresses the limitation of the Jacobian Lens (J-lens) regarding multi-token concepts",
+          "Interprets hidden states as ranked vocabulary token lists with enhanced precision",
+          "Introduces novel techniques to verbalize complex hidden concepts into readable terms"
+        ]
+      },
+      "zh": {
+        "title": "第一个Token是线索：从J-lens中具象化多Token概念",
+        "hook": "借助雅可比透镜（J-lens）的可解释性工具，精准解析并具象化大模型隐藏状态中的多Token复杂概念。",
+        "key_takeaways": [
+          "突破近期LLM可解释性工具J-lens无法有效表示多Token概念的局限",
+          "优化将隐藏状态读取为排序词汇Token列表的方法",
+          "提出将复杂内部概念转化为人类可读语义的创新文本化技术"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:06.258935+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "J-lens",
+    "Interpretability",
+    "Multi-token Concepts"
+  ],
+  "title_ko": "첫 번째 토큰은 단서다: J-렌즈를 통한 다중 토큰 개념의 언어화",
+  "title_en": "The First Token Is a Clue: Verbalizing Multi-Token Concepts from the J-lens",
+  "title_zh": "第一个Token是线索：从J-lens中具象化多Token概念",
+  "hook": "J-렌즈(Jacobian Lens)를 확장하여 LLM 내부의 은닉 상태에 숨겨진 다중 토큰 개념을 명확하게 해석하세요.",
+  "hook_ko": "J-렌즈(Jacobian Lens)를 확장하여 LLM 내부의 은닉 상태에 숨겨진 다중 토큰 개념을 명확하게 해석하세요.",
+  "hook_en": "Unlock hidden multi-token concepts within LLM hidden states by advancing the Jacobian Lens interpretability method.",
+  "hook_zh": "借助雅可比透镜（J-lens）的可解释性工具，精准解析并具象化大模型隐藏状态中的多Token复杂概念。",
+  "description_ko": "J-렌즈(Jacobian Lens)를 확장하여 LLM 내부의 은닉 상태에 숨겨진 다중 토큰 개념을 명확하게 해석하세요.",
+  "description_en": "Unlock hidden multi-token concepts within LLM hidden states by advancing the Jacobian Lens interpretability method.",
+  "description_zh": "借助雅可比透镜（J-lens）的可解释性工具，精准解析并具象化大模型隐藏状态中的多Token复杂概念。",
+  "category_type": "TECH"
 }

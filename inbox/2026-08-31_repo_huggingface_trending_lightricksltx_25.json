@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "Standalone / Novel",
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "Lightricks/LTX-2.5",
-  "description_ko": "Trending score: 348, downloads: 1137181",
+  "category_type": "MODEL",
+  "title_ko": "Lightricks, 고성능 이미지-투-비디오 모델 LTX-2.5 공개",
+  "description_ko": "이미지를 생동감 넘치는 고화질 영상으로 변환하는 최신 LTX-2.5 모델을 지금 확인하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -44,5 +44,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_trending_lightricksltx_25",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Standalone",
+    "category": "영상 제작",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Lightricks",
+      "LTX-2.5",
+      "Image-to-Video"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.9,
+    "multilingual": {
+      "ko": {
+        "title": "Lightricks, 고성능 이미지-투-비디오 모델 LTX-2.5 공개",
+        "hook": "이미지를 생동감 넘치는 고화질 영상으로 변환하는 최신 LTX-2.5 모델을 지금 확인하세요.",
+        "key_takeaways": [
+          "Lightricks의 최첨단 이미지-투-비디오(Image-to-Video) 생성 모델",
+          "120만 이상의 압도적인 다운로드 수와 강력한 커뮤니티 지지",
+          "생성형 영상 콘텐츠 제작 파이프라인의 성능 대폭 향상"
+        ]
+      },
+      "en": {
+        "title": "Lightricks Releases Advanced Image-to-Video Model LTX-2.5",
+        "hook": "Transform static images into cinematic videos with Lightricks' cutting-edge LTX-2.5 model.",
+        "key_takeaways": [
+          "State-of-the-art image-to-video generation model by Lightricks",
+          "Massive adoption with over 1.2M downloads and high engagement",
+          "Significantly upgrades generative video production workflows"
+        ]
+      },
+      "zh": {
+        "title": "Lightricks 发布先进的图生视频模型 LTX-2.5",
+        "hook": "利用 Lightricks 的尖端 LTX-2.5 模型，将静态图像转化为生动的高清视频。",
+        "key_takeaways": [
+          "Lightricks 开发的前沿图生视频（Image-to-Video）生成模型",
+          "获得超过 120 万次下载及社区的高度认可",
+          "大幅提升生成式视频内容制作的工作流效率"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:32:47.289322+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Lightricks",
+    "LTX-2.5",
+    "Image-to-Video"
+  ],
+  "title_en": "Lightricks Releases Advanced Image-to-Video Model LTX-2.5",
+  "title_zh": "Lightricks 发布先进的图生视频模型 LTX-2.5",
+  "hook": "이미지를 생동감 넘치는 고화질 영상으로 변환하는 최신 LTX-2.5 모델을 지금 확인하세요.",
+  "hook_ko": "이미지를 생동감 넘치는 고화질 영상으로 변환하는 최신 LTX-2.5 모델을 지금 확인하세요.",
+  "hook_en": "Transform static images into cinematic videos with Lightricks' cutting-edge LTX-2.5 model.",
+  "hook_zh": "利用 Lightricks 的尖端 LTX-2.5 模型，将静态图像转化为生动的高清视频。",
+  "description_en": "Transform static images into cinematic videos with Lightricks' cutting-edge LTX-2.5 model.",
+  "description_zh": "利用 Lightricks 的尖端 LTX-2.5 模型，将静态图像转化为生动的高清视频。"
 }

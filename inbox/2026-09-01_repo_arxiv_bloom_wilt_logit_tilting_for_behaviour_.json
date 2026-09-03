@@ -28,5 +28,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_bloom_wilt_logit_tilting_for_behaviour_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 보안 및 감사",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Logit Tilting",
+      "Behavior Elicitation",
+      "Automated Auditing"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "BLOOM-WILT: 자동화된 LLM 감사를 위한 행동 유도 로짓 틸팅",
+        "hook": "배포 전 테스트에서 발견하기 어려운 희귀 모델 행동을 효과적으로 유도하고 감사하는 로짓 틸팅 기법을 확인하세요.",
+        "key_takeaways": [
+          "배포 환경의 방대한 상호작용에서 발생하는 숨겨진 행동 탐지",
+          "로짓 틸팅(Logit Tilting)을 통한 효율적인 행동 유도(Behaviour Elicitation)",
+          "자동화된 LLM 감사 프로토콜 강화"
+        ]
+      },
+      "en": {
+        "title": "BLOOM-WILT: Logit Tilting for Behaviour Elicitation in Automated LLM Auditing",
+        "hook": "Discover a logit tilting technique to effectively elicit and audit rare model behaviors rarely surfaced during standard testing.",
+        "key_takeaways": [
+          "Detecting hidden behaviors exposed in deployment-scale interactions",
+          "Efficient behavior elicitation via logit tilting",
+          "Strengthening automated LLM auditing protocols"
+        ]
+      },
+      "zh": {
+        "title": "BLOOM-WILT：用于自动化大模型审计的行为引导Logit倾斜技术",
+        "hook": "了解通过Logit倾斜技术有效诱导和审计标准测试中难以发现的罕见模型行为。",
+        "key_takeaways": [
+          "检测部署规模交互中暴露的隐藏行为",
+          "通过Logit倾斜实现高效的行为诱导",
+          "增强自动化大模型审计协议"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:31:21.828638+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Logit Tilting",
+    "Behavior Elicitation",
+    "Automated Auditing"
+  ],
+  "title_ko": "BLOOM-WILT: 자동화된 LLM 감사를 위한 행동 유도 로짓 틸팅",
+  "title_en": "BLOOM-WILT: Logit Tilting for Behaviour Elicitation in Automated LLM Auditing",
+  "title_zh": "BLOOM-WILT：用于自动化大模型审计的行为引导Logit倾斜技术",
+  "hook": "배포 전 테스트에서 발견하기 어려운 희귀 모델 행동을 효과적으로 유도하고 감사하는 로짓 틸팅 기법을 확인하세요.",
+  "hook_ko": "배포 전 테스트에서 발견하기 어려운 희귀 모델 행동을 효과적으로 유도하고 감사하는 로짓 틸팅 기법을 확인하세요.",
+  "hook_en": "Discover a logit tilting technique to effectively elicit and audit rare model behaviors rarely surfaced during standard testing.",
+  "hook_zh": "了解通过Logit倾斜技术有效诱导和审计标准测试中难以发现的罕见模型行为。",
+  "description_ko": "배포 전 테스트에서 발견하기 어려운 희귀 모델 행동을 효과적으로 유도하고 감사하는 로짓 틸팅 기법을 확인하세요.",
+  "description_en": "Discover a logit tilting technique to effectively elicit and audit rare model behaviors rarely surfaced during standard testing.",
+  "description_zh": "了解通过Logit倾斜技术有效诱导和审计标准测试中难以发现的罕见模型行为。",
+  "category_type": "TECH"
 }

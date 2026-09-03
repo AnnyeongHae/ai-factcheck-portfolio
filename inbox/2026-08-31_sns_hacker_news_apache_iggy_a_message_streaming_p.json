@@ -21,9 +21,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "NEWS",
-  "title_ko": "Apache Iggy, a message streaming platform in Rust, graduates to an Apache TLP",
-  "description_ko": "해커뉴스에서 22점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
+  "category_type": "TECH",
+  "title_ko": "러스트(Rust) 기반 메시징 플랫폼 Apache Iggy, 아파치 TLP 승격",
+  "description_ko": "초고속 메시지 스트리밍을 구현하는 Rust 기반 오픈소스 프로젝트 Iggy의 최신 동향을 파악하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -46,5 +46,66 @@
   "updated_at": "2026-08-31",
   "article_url": "https://iggy.apache.org/blogs/2026/08/24/apache-iggy-top-level-project-tlp-graduation/",
   "hn_url": "https://news.ycombinator.com/item?id=49510540",
-  "hn_id": "49510540"
+  "hn_id": "49510540",
+  "ai_enrichment": {
+    "id": "2026-08-31_sns_hacker_news_apache_iggy_a_message_streaming_p",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "고성능 메시지 스트리밍",
+    "programming_lang": "Rust",
+    "root_keywords": [
+      "Apache Iggy",
+      "Message Streaming",
+      "Rust"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "러스트(Rust) 기반 메시징 플랫폼 Apache Iggy, 아파치 TLP 승격",
+        "hook": "초고속 메시지 스트리밍을 구현하는 Rust 기반 오픈소스 프로젝트 Iggy의 최신 동향을 파악하세요.",
+        "key_takeaways": [
+          "Rust로 구현된 고성능 메시지 스트리밍 아키텍처",
+          "Apache Top-Level Project(TLP) 승격의 의미",
+          "실시간 데이터 파이프라인 적용 가능성"
+        ]
+      },
+      "en": {
+        "title": "Apache Iggy: Rust-Based Message Streaming Platform Graduates to TLP",
+        "hook": "Discover the latest milestone of Iggy, a high-performance message streaming platform built in Rust.",
+        "key_takeaways": [
+          "High-performance message streaming architecture in Rust",
+          "Significance of graduating to an Apache Top-Level Project (TLP)",
+          "Applicability in real-time data pipelines"
+        ]
+      },
+      "zh": {
+        "title": "基于Rust的消息流平台 Apache Iggy 晋升为 Apache 顶级项目",
+        "hook": "了解用 Rust 构建的高性能消息流开源项目 Iggy 的最新里程碑。",
+        "key_takeaways": [
+          "采用 Rust 构建的高性能消息流架构",
+          "晋升为 Apache 顶级项目(TLP)的重要意义",
+          "在实时数据管道中的应用潜力"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:32:34.809866+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Rust",
+  "root_keywords": [
+    "Apache Iggy",
+    "Message Streaming",
+    "Rust"
+  ],
+  "title_en": "Apache Iggy: Rust-Based Message Streaming Platform Graduates to TLP",
+  "title_zh": "基于Rust的消息流平台 Apache Iggy 晋升为 Apache 顶级项目",
+  "hook": "초고속 메시지 스트리밍을 구현하는 Rust 기반 오픈소스 프로젝트 Iggy의 최신 동향을 파악하세요.",
+  "hook_ko": "초고속 메시지 스트리밍을 구현하는 Rust 기반 오픈소스 프로젝트 Iggy의 최신 동향을 파악하세요.",
+  "hook_en": "Discover the latest milestone of Iggy, a high-performance message streaming platform built in Rust.",
+  "hook_zh": "了解用 Rust 构建的高性能消息流开源项目 Iggy 的最新里程碑。",
+  "description_en": "Discover the latest milestone of Iggy, a high-performance message streaming platform built in Rust.",
+  "description_zh": "了解用 Rust 构建的高性能消息流开源项目 Iggy 的最新里程碑。"
 }

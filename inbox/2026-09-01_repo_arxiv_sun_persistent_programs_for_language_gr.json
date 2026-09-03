@@ -28,5 +28,71 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_sun_persistent_programs_for_language_gr",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "로보틱스 및 제어 학습",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Robotics",
+      "Control-to-Learning",
+      "Language-Grounded",
+      "Persistent Programs"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
+    "multilingual": {
+      "ko": {
+        "title": "언어 기반 제어-학습-실세계 정책을 위한 지속형 프로그램(SUN)",
+        "hook": "모델 기반 제어와 학습된 정책 사이의 간극을 메우는 새로운 로봇 제어 프레임워크를 확인하세요.",
+        "key_takeaways": [
+          "장기 조작(long-horizon manipulation) 작업에서의 제어와 학습 통합",
+          "언어 기반 명령어에 대한 실세계 정책 적용력 향상",
+          "지속형 프로그램(Persistent Programs)을 통한 제어 목적의 구조화"
+        ]
+      },
+      "en": {
+        "title": "SUN: Persistent Programs For Language-Grounded Control-to-Learning-to-Real Policies",
+        "hook": "Discover a novel framework bridging model-based control and learned policies for long-horizon robot manipulation.",
+        "key_takeaways": [
+          "Bridges model-based control and learned policies in long-horizon manipulation",
+          "Enhances language-grounded control and real-world policy execution",
+          "Introduces persistent programs to structure control objectives effectively"
+        ]
+      },
+      "zh": {
+        "title": "SUN：面向语言 grounding 的控制到学习到真实世界策略的持久程序",
+        "hook": "探索弥合模型化控制与学习型策略差距的新型机器人长期操作框架。",
+        "key_takeaways": [
+          "弥合了长期操作中基于模型的控制与学习策略",
+          "增强了语言 grounded 的真实世界策略执行能力",
+          "通过持久程序有效地结构化控制目标"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:18.803828+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Robotics",
+    "Control-to-Learning",
+    "Language-Grounded",
+    "Persistent Programs"
+  ],
+  "title_ko": "언어 기반 제어-학습-실세계 정책을 위한 지속형 프로그램(SUN)",
+  "title_en": "SUN: Persistent Programs For Language-Grounded Control-to-Learning-to-Real Policies",
+  "title_zh": "SUN：面向语言 grounding 的控制到学习到真实世界策略的持久程序",
+  "hook": "모델 기반 제어와 학습된 정책 사이의 간극을 메우는 새로운 로봇 제어 프레임워크를 확인하세요.",
+  "hook_ko": "모델 기반 제어와 학습된 정책 사이의 간극을 메우는 새로운 로봇 제어 프레임워크를 확인하세요.",
+  "hook_en": "Discover a novel framework bridging model-based control and learned policies for long-horizon robot manipulation.",
+  "hook_zh": "探索弥合模型化控制与学习型策略差距的新型机器人长期操作框架。",
+  "description_ko": "모델 기반 제어와 학습된 정책 사이의 간극을 메우는 새로운 로봇 제어 프레임워크를 확인하세요.",
+  "description_en": "Discover a novel framework bridging model-based control and learned policies for long-horizon robot manipulation.",
+  "description_zh": "探索弥合模型化控制与学习型策略差距的新型机器人长期操作框架。",
+  "category_type": "TECH"
 }

@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8-Flash-Next Family",
+  "model_family": "Qwen-3.8",
   "detected_formats": [
     "Fine-tune / Uncensored"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
-  "description_ko": "Trending Score: 117, Downloads: 42864, Pipeline: image-text-to-text",
+  "description_ko": "로컬 환경에서 강력한 성능을 내는 Qwen3.8 플래시 언검센서드 GGUF 버전입니다.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "OrcaRouter Community",
   "metric_tracking": {
@@ -44,5 +44,68 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_orcarouterqwen38_flash_next_uncen",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Qwen-3.8",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "GGUF",
+      "Uncensored",
+      "Qwen-3.8",
+      "Local Inference"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.6,
+    "multilingual": {
+      "ko": {
+        "title": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+        "hook": "로컬 환경에서 강력한 성능을 내는 Qwen3.8 플래시 언검센서드 GGUF 버전입니다.",
+        "key_takeaways": [
+          "GGUF 포맷으로 로컬 하드웨어(CPU/GPU) 구동 최적화",
+          "검열이 해제된(Uncensored) 가중치로 자유로운 프롬프트 테스팅",
+          "이미지-텍스트 입력 처리 능력 유지"
+        ]
+      },
+      "en": {
+        "title": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+        "hook": "Run high-performance, uncensored multimodal inference locally with Qwen3.8 GGUF.",
+        "key_takeaways": [
+          "Optimized for local hardware (CPU/GPU) via GGUF format",
+          "Uncensored weights for unrestricted prompt testing and flexibility",
+          "Retains image-text processing capabilities"
+        ]
+      },
+      "zh": {
+        "title": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+        "hook": "在本地硬件上运行功能强大的Qwen3.8免审查（Uncensored）GGUF版本。",
+        "key_takeaways": [
+          "通过GGUF格式优化本地硬件（CPU/GPU）运行",
+          "提供无审查的权重，便于灵活测试各种提示词",
+          "保留了图像-文本输入处理能力"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:32:58.984590+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "GGUF",
+    "Uncensored",
+    "Qwen-3.8",
+    "Local Inference"
+  ],
+  "title_en": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+  "title_zh": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+  "hook": "로컬 환경에서 강력한 성능을 내는 Qwen3.8 플래시 언검센서드 GGUF 버전입니다.",
+  "hook_ko": "로컬 환경에서 강력한 성능을 내는 Qwen3.8 플래시 언검센서드 GGUF 버전입니다.",
+  "hook_en": "Run high-performance, uncensored multimodal inference locally with Qwen3.8 GGUF.",
+  "hook_zh": "在本地硬件上运行功能强大的Qwen3.8免审查（Uncensored）GGUF版本。",
+  "description_en": "Run high-performance, uncensored multimodal inference locally with Qwen3.8 GGUF.",
+  "description_zh": "在本地硬件上运行功能强大的Qwen3.8免审查（Uncensored）GGUF版本。"
 }

@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8-27B Dense/MoE Family",
+  "model_family": "Qwen-3.8",
   "detected_formats": [
     "Fine-tune / Uncensored"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
-  "description_ko": "Trending Score: 208, Downloads: 1158065, Pipeline: image-text-to-text",
+  "category_type": "MODEL",
+  "title_ko": "Qwen3.8-27B-Uncensored-HauhauCS MTP-GGUF 모델",
+  "description_ko": "공격적인 MTP 최적화와 검열 해제가 적용된 고성능 27B 모델로 로컬 추론 성능을 극대화하세요.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "HauhauCS",
   "metric_tracking": {
@@ -44,5 +44,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_hauhaucsqwen38_27b_uncensored_hau",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Qwen-3.8",
+    "category": "LLM 언어 모델 및 검열 해제 가중치",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Qwen-3.8",
+      "Uncensored",
+      "MTP-GGUF"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "Qwen3.8-27B-Uncensored-HauhauCS MTP-GGUF 모델",
+        "hook": "공격적인 MTP 최적화와 검열 해제가 적용된 고성능 27B 모델로 로컬 추론 성능을 극대화하세요.",
+        "key_takeaways": [
+          "대규모 다운로드 및 높은 좋아요를 기록하며 검증된 모델",
+          "Aggressive MTP 적용으로 추론 속도 및 효율성 강화",
+          "완전한 검열 해제(Uncensored) 버전"
+        ]
+      },
+      "en": {
+        "title": "Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
+        "hook": "Maximize local inference performance with this highly popular, aggressively optimized, and fully uncensored 27B model.",
+        "key_takeaways": [
+          "Proven popularity with massive downloads and community likes",
+          "Enhanced inference speed and efficiency via aggressive MTP",
+          "Fully uncensored behavior for unrestricted use cases"
+        ]
+      },
+      "zh": {
+        "title": "Qwen3.8-27B-Uncensored-HauhauCS 激进 MTP-GGUF 模型",
+        "hook": "利用高下载量与社区好评的去限制 27B 模型，借助激进 MTP 优化本地推理。",
+        "key_takeaways": [
+          "备受社区青睐，下载量与点赞数极高",
+          "通过激进 MTP 优化提升推理速度与效率",
+          "完全解除内容限制的无约束版本"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:33:36.548839+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Qwen-3.8",
+    "Uncensored",
+    "MTP-GGUF"
+  ],
+  "title_en": "Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
+  "title_zh": "Qwen3.8-27B-Uncensored-HauhauCS 激进 MTP-GGUF 模型",
+  "hook": "공격적인 MTP 최적화와 검열 해제가 적용된 고성능 27B 모델로 로컬 추론 성능을 극대화하세요.",
+  "hook_ko": "공격적인 MTP 최적화와 검열 해제가 적용된 고성능 27B 모델로 로컬 추론 성능을 극대화하세요.",
+  "hook_en": "Maximize local inference performance with this highly popular, aggressively optimized, and fully uncensored 27B model.",
+  "hook_zh": "利用高下载量与社区好评的去限制 27B 模型，借助激进 MTP 优化本地推理。",
+  "description_en": "Maximize local inference performance with this highly popular, aggressively optimized, and fully uncensored 27B model.",
+  "description_zh": "利用高下载量与社区好评的去限制 27B 模型，借助激进 MTP 优化本地推理。"
 }

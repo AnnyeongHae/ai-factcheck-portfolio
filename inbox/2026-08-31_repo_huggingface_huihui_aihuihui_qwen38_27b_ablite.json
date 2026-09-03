@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8-27B Dense/MoE Family",
+  "model_family": "Qwen-3.8",
   "detected_formats": [
     "Fine-tune / Uncensored"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
-  "description_ko": "Trending Score: 121, Downloads: 1622056, Pipeline: image-text-to-text",
+  "category_type": "MODEL",
+  "title_ko": "Huihui-Qwen3.8-27B-abliterated-GGUF 모델",
+  "description_ko": "검열이 해제된 Qwen3.8 27B 모델을 로컬 환경(GGUF)에서 곧바로 구동하고 싶다면 지금 확인하세요.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "Huihui AI",
   "metric_tracking": {
@@ -44,5 +44,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_huihui_aihuihui_qwen38_27b_ablite",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Qwen-3.8",
+    "category": "LLM 언어 모델 및 검열 해제 가중치",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Qwen-3.8",
+      "GGUF",
+      "Abliterated"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "Huihui-Qwen3.8-27B-abliterated-GGUF 모델",
+        "hook": "검열이 해제된 Qwen3.8 27B 모델을 로컬 환경(GGUF)에서 곧바로 구동하고 싶다면 지금 확인하세요.",
+        "key_takeaways": [
+          "Qwen3.8 27B 아키텍처 기반의 가중치 모델",
+          "abliteration 기법을 통한 프롬프트 검열 해제",
+          "효율적인 로컬 추론을 위한 GGUF 포맷 지원"
+        ]
+      },
+      "en": {
+        "title": "Huihui-Qwen3.8-27B-abliterated-GGUF Model",
+        "hook": "Discover the uncensored Qwen3.8 27B GGUF weights optimized for local deployment and advanced tasks.",
+        "key_takeaways": [
+          "Based on the powerful Qwen3.8 27B architecture",
+          "Uncensored via abliteration techniques for maximum flexibility",
+          "Provided in GGUF format for efficient local inference"
+        ]
+      },
+      "zh": {
+        "title": "Huihui-Qwen3.8-27B-abliterated-GGUF 模型",
+        "hook": "探索去除了内容限制的 Qwen3.8 27B 权重，完美适配本地高性能 GGUF 推理。",
+        "key_takeaways": [
+          "基于强大的 Qwen3.8 27B 架构",
+          "通过去限制技术实现内容审查解除",
+          "提供 GGUF 格式以支持高效的本地推理"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:33:36.547850+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Qwen-3.8",
+    "GGUF",
+    "Abliterated"
+  ],
+  "title_en": "Huihui-Qwen3.8-27B-abliterated-GGUF Model",
+  "title_zh": "Huihui-Qwen3.8-27B-abliterated-GGUF 模型",
+  "hook": "검열이 해제된 Qwen3.8 27B 모델을 로컬 환경(GGUF)에서 곧바로 구동하고 싶다면 지금 확인하세요.",
+  "hook_ko": "검열이 해제된 Qwen3.8 27B 모델을 로컬 환경(GGUF)에서 곧바로 구동하고 싶다면 지금 확인하세요.",
+  "hook_en": "Discover the uncensored Qwen3.8 27B GGUF weights optimized for local deployment and advanced tasks.",
+  "hook_zh": "探索去除了内容限制的 Qwen3.8 27B 权重，完美适配本地高性能 GGUF 推理。",
+  "description_en": "Discover the uncensored Qwen3.8 27B GGUF weights optimized for local deployment and advanced tasks.",
+  "description_zh": "探索去除了内容限制的 Qwen3.8 27B 权重，完美适配本地高性能 GGUF 推理。"
 }

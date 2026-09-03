@@ -28,5 +28,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_github_yding_gitpersonal_edge_proxy",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "네트워크 및 프록시 설정",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Xray",
+      "Hysteria2",
+      "Proxy"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "다중 인바운드/아웃바운드 개인 프록시 셋업 도구",
+        "hook": "Xray, Hysteria2, REALITY, WARP 등 다양한 네트워크 프로토콜을 통합하여 개인 프록시 환경을 구축할 수 있습니다.",
+        "key_takeaways": [
+          "Xray 및 Hysteria2 프로토콜 지원",
+          "REALITY Vision 및 WARP 연동 가능",
+          "선택적 정적 SOCKS5 라우팅 제공"
+        ]
+      },
+      "en": {
+        "title": "Practical Multi-Inbound/Outbound Personal Proxy Setup",
+        "hook": "Easily set up a versatile personal proxy environment integrating modern protocols like Xray, Hysteria2, and WARP.",
+        "key_takeaways": [
+          "Supports Xray and Hysteria2 protocols",
+          "Integrates REALITY Vision and WARP",
+          "Includes optional static SOCKS5 routing"
+        ]
+      },
+      "zh": {
+        "title": "实用多入站/出站个人代理配置工具",
+        "hook": "集成Xray、Hysteria2、REALITY和WARP等多种现代网络协议，轻松搭建个人代理环境。",
+        "key_takeaways": [
+          "支持Xray与Hysteria2协议",
+          "可对接REALITY Vision与WARP",
+          "提供可选的静态SOCKS5路由功能"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:29:53.222697+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Xray",
+    "Hysteria2",
+    "Proxy"
+  ],
+  "title_ko": "다중 인바운드/아웃바운드 개인 프록시 셋업 도구",
+  "title_en": "Practical Multi-Inbound/Outbound Personal Proxy Setup",
+  "title_zh": "实用多入站/出站个人代理配置工具",
+  "hook": "Xray, Hysteria2, REALITY, WARP 등 다양한 네트워크 프로토콜을 통합하여 개인 프록시 환경을 구축할 수 있습니다.",
+  "hook_ko": "Xray, Hysteria2, REALITY, WARP 등 다양한 네트워크 프로토콜을 통합하여 개인 프록시 환경을 구축할 수 있습니다.",
+  "hook_en": "Easily set up a versatile personal proxy environment integrating modern protocols like Xray, Hysteria2, and WARP.",
+  "hook_zh": "集成Xray、Hysteria2、REALITY和WARP等多种现代网络协议，轻松搭建个人代理环境。",
+  "description_ko": "Xray, Hysteria2, REALITY, WARP 등 다양한 네트워크 프로토콜을 통합하여 개인 프록시 환경을 구축할 수 있습니다.",
+  "description_en": "Easily set up a versatile personal proxy environment integrating modern protocols like Xray, Hysteria2, and WARP.",
+  "description_zh": "集成Xray、Hysteria2、REALITY和WARP等多种现代网络协议，轻松搭建个人代理环境。",
+  "category_type": "TECH"
 }

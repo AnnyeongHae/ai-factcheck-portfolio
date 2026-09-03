@@ -28,5 +28,71 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_llmode_aligning_odes_with_llms_via_gate",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "시공간 예측 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "LLM",
+      "ODE",
+      "Spatio-Temporal Forecasting",
+      "Token Injection"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "게이트 토큰 주입을 통한 상미분방정식(ODE)과 LLM 정렬: 불규칙 시공간 예측",
+        "hook": "불규칙한 시공간 데이터 예측의 한계를 극복하기 위해 ODE와 LLM을 결합한 최신 아키텍처를 확인하세요.",
+        "key_takeaways": [
+          "게이트 토큰 주입(Gated Token Injection) 메커니즘 도입",
+          "불규칙한 관측 데이터를 처리하기 위한 ODE와 LLM 정렬",
+          "시공간 예측 성능 및 일반화 능력 향상"
+        ]
+      },
+      "en": {
+        "title": "LLMODE: Aligning ODEs with LLMs via Gated Token Injection for Forecasting",
+        "hook": "Overcome irregular spatio-temporal forecasting challenges by aligning ODEs with LLMs using gated token injection.",
+        "key_takeaways": [
+          "Introduces gated token injection mechanism",
+          "Aligns ordinary differential equations (ODEs) with LLMs",
+          "Effectively handles irregular spatio-temporal observations"
+        ]
+      },
+      "zh": {
+        "title": "LLMODE：通过门控Token注入将ODE与LLM对齐以进行时空预测",
+        "hook": "利用门控Token注入机制将常微分方程与大语言模型对齐，攻克不规则时空预测难题。",
+        "key_takeaways": [
+          "引入门控Token注入机制",
+          "实现常微分方程与LLM的深度对齐",
+          "有效处理不规则采样的时空观测数据"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:44.455790+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "LLM",
+    "ODE",
+    "Spatio-Temporal Forecasting",
+    "Token Injection"
+  ],
+  "title_ko": "게이트 토큰 주입을 통한 상미분방정식(ODE)과 LLM 정렬: 불규칙 시공간 예측",
+  "title_en": "LLMODE: Aligning ODEs with LLMs via Gated Token Injection for Forecasting",
+  "title_zh": "LLMODE：通过门控Token注入将ODE与LLM对齐以进行时空预测",
+  "hook": "불규칙한 시공간 데이터 예측의 한계를 극복하기 위해 ODE와 LLM을 결합한 최신 아키텍처를 확인하세요.",
+  "hook_ko": "불규칙한 시공간 데이터 예측의 한계를 극복하기 위해 ODE와 LLM을 결합한 최신 아키텍처를 확인하세요.",
+  "hook_en": "Overcome irregular spatio-temporal forecasting challenges by aligning ODEs with LLMs using gated token injection.",
+  "hook_zh": "利用门控Token注入机制将常微分方程与大语言模型对齐，攻克不规则时空预测难题。",
+  "description_ko": "불규칙한 시공간 데이터 예측의 한계를 극복하기 위해 ODE와 LLM을 결합한 최신 아키텍처를 확인하세요.",
+  "description_en": "Overcome irregular spatio-temporal forecasting challenges by aligning ODEs with LLMs using gated token injection.",
+  "description_zh": "利用门控Token注入机制将常微分方程与大语言模型对齐，攻克不规则时空预测难题。",
+  "category_type": "TECH"
 }

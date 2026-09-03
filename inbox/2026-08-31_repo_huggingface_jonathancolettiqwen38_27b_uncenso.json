@@ -17,13 +17,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8-27B Dense/MoE Family",
+  "model_family": "Qwen-3.8",
   "detected_formats": [
     "Fine-tune / Uncensored"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
-  "description_ko": "Trending Score: 143, Downloads: 1991437, Pipeline: text-generation",
+  "category_type": "MODEL",
+  "title_ko": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF 무검열 대형 모델",
+  "description_ko": "제약 없는 창의적 작업과 복잡한 추론을 위한 Qwen3.8 27B 언센서드 GGUF 버전입니다.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "Jonathan Coletti",
   "metric_tracking": {
@@ -43,5 +43,68 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_jonathancolettiqwen38_27b_uncenso",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Qwen-3.8",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "Qwen3.8",
+      "Uncensored",
+      "GGUF",
+      "27B"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.3,
+    "multilingual": {
+      "ko": {
+        "title": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF 무검열 대형 모델",
+        "hook": "제약 없는 창의적 작업과 복잡한 추론을 위한 Qwen3.8 27B 언센서드 GGUF 버전입니다.",
+        "key_takeaways": [
+          "Qwen3.8 27B 아키텍처 기반의 고성능 무검열(Uncensored) 모델",
+          "GGUF 포맷 지원으로 소비자용 GPU에서도 원활한 구동",
+          "높은 다운로드 수로 입증된 로컬 LLM 사용자들의 선호도"
+        ]
+      },
+      "en": {
+        "title": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF Model",
+        "hook": "The uncensored GGUF version of Qwen3.8 27B optimized for unrestricted creative tasks.",
+        "key_takeaways": [
+          "High-performance uncensored model based on the Qwen3.8 27B architecture",
+          "GGUF format support for smooth execution on consumer GPUs",
+          "Favored by local LLM users backed by massive download volumes"
+        ]
+      },
+      "zh": {
+        "title": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF 去限制大模型",
+        "hook": "针对无限制创意任务与复杂推理打造的 Qwen3.8 27B 去限制（Uncensored）GGUF 版本。",
+        "key_takeaways": [
+          "基于 Qwen3.8 27B 架构的高性能去限制模型",
+          "支持 GGUF 格式，可在消费级显卡上流畅运行",
+          "海量下载量证明其备受本地大模型用户青睐"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:33:23.903666+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "Qwen3.8",
+    "Uncensored",
+    "GGUF",
+    "27B"
+  ],
+  "title_en": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF Model",
+  "title_zh": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF 去限制大模型",
+  "hook": "제약 없는 창의적 작업과 복잡한 추론을 위한 Qwen3.8 27B 언센서드 GGUF 버전입니다.",
+  "hook_ko": "제약 없는 창의적 작업과 복잡한 추론을 위한 Qwen3.8 27B 언센서드 GGUF 버전입니다.",
+  "hook_en": "The uncensored GGUF version of Qwen3.8 27B optimized for unrestricted creative tasks.",
+  "hook_zh": "针对无限制创意任务与复杂推理打造的 Qwen3.8 27B 去限制（Uncensored）GGUF 版本。",
+  "description_en": "The uncensored GGUF version of Qwen3.8 27B optimized for unrestricted creative tasks.",
+  "description_zh": "针对无限制创意任务与复杂推理打造的 Qwen3.8 27B 去限制（Uncensored）GGUF 版本。"
 }

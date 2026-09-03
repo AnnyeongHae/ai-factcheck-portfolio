@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "MiniMax",
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: MiniMaxAI/MiniMax-H3",
-  "description_ko": "Trending Score: 210, Downloads: 5263381, Pipeline: image-text-to-video",
+  "category_type": "MODEL",
+  "title_ko": "MiniMaxAI/MiniMax-H3 차세대 영상 생성 모델",
+  "description_ko": "수백만 다운로드가 증명하는 최고 수준의 이미지-텍스트-투-비디오(Image-to-Video) 생성 모델입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -44,5 +44,68 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_minimaxaiminimax_h3",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "MiniMax",
+    "category": "영상 제작 및 생성",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "MiniMax-H3",
+      "Video Generation",
+      "Multimodal",
+      "Image-Text-to-Video"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.9,
+    "multilingual": {
+      "ko": {
+        "title": "MiniMaxAI/MiniMax-H3 차세대 영상 생성 모델",
+        "hook": "수백만 다운로드가 증명하는 최고 수준의 이미지-텍스트-투-비디오(Image-to-Video) 생성 모델입니다.",
+        "key_takeaways": [
+          "압도적인 다운로드 및 좋아요 수로 입증된 글로벌 인기 모델",
+          "텍스트와 이미지 입력 기반의 고품질 영상 생성 파이프라인",
+          "AIGC 영상 제작 워크플로우에 즉시 도입 가능한 고성능 모델"
+        ]
+      },
+      "en": {
+        "title": "MiniMaxAI/MiniMax-H3 Next-Gen Video Generation Model",
+        "hook": "Discover the top-tier image-to-video generation model backed by millions of downloads.",
+        "key_takeaways": [
+          "Global popularity proven by massive download and like metrics",
+          "High-quality video generation pipeline driven by text and image inputs",
+          "High-performance model ready for immediate AIGC video workflows"
+        ]
+      },
+      "zh": {
+        "title": "MiniMaxAI/MiniMax-H3 新一代视频生成模型",
+        "hook": "探索备受数百万下载量验证的顶尖图文转视频（Image-to-Video）生成模型。",
+        "key_takeaways": [
+          "海量下载与点赞量证实的全球热门模型",
+          "基于图文输入的优质视频生成管线",
+          "可直接应用于 AIGC 视频制作工作流的高性能模型"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:33:23.901910+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "MiniMax-H3",
+    "Video Generation",
+    "Multimodal",
+    "Image-Text-to-Video"
+  ],
+  "title_en": "MiniMaxAI/MiniMax-H3 Next-Gen Video Generation Model",
+  "title_zh": "MiniMaxAI/MiniMax-H3 新一代视频生成模型",
+  "hook": "수백만 다운로드가 증명하는 최고 수준의 이미지-텍스트-투-비디오(Image-to-Video) 생성 모델입니다.",
+  "hook_ko": "수백만 다운로드가 증명하는 최고 수준의 이미지-텍스트-투-비디오(Image-to-Video) 생성 모델입니다.",
+  "hook_en": "Discover the top-tier image-to-video generation model backed by millions of downloads.",
+  "hook_zh": "探索备受数百万下载量验证的顶尖图文转视频（Image-to-Video）生成模型。",
+  "description_en": "Discover the top-tier image-to-video generation model backed by millions of downloads.",
+  "description_zh": "探索备受数百万下载量验证的顶尖图文转视频（Image-to-Video）生成模型。"
 }

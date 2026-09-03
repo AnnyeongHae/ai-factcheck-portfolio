@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8-27B Dense/MoE Family",
+  "model_family": "Qwen-3.8",
   "detected_formats": [
     "Fine-tune / Uncensored"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-FP8",
-  "description_ko": "Trending Score: 166, Downloads: 301964, Pipeline: image-text-to-text",
+  "category_type": "MODEL",
+  "title_ko": "orcarouter/Qwen3.8-27B-Uncensored-FP8 모델 공개",
+  "description_ko": "검열이 해제된 Qwen3.8 27B 모델을 FP8 양자화로 가볍고 빠르게 서빙하고 싶다면 지금 확인하세요.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "OrcaRouter Community",
   "metric_tracking": {
@@ -44,5 +44,68 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_orcarouterqwen38_27b_uncensored_f",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Qwen-3.8",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Qwen-3.8",
+      "FP8",
+      "Uncensored",
+      "Hugging Face"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8 모델 공개",
+        "hook": "검열이 해제된 Qwen3.8 27B 모델을 FP8 양자화로 가볍고 빠르게 서빙하고 싶다면 지금 확인하세요.",
+        "key_takeaways": [
+          "Qwen3.8 아키텍처 기반의 27B 파라미터 모델",
+          "FP8 양자화 적용으로 VRAM 사용량 대폭 절감",
+          "검열이 해제되어 다양한 도메인에서 자유로운 활용 가능"
+        ]
+      },
+      "en": {
+        "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8 Model Release",
+        "hook": "Deploy the uncensored Qwen3.8 27B model efficiently with FP8 quantization for high-speed inference.",
+        "key_takeaways": [
+          "27B parameter model built on the Qwen3.8 architecture",
+          "Significantly reduced VRAM footprint via FP8 quantization",
+          "Uncensored weights for unrestricted task execution"
+        ]
+      },
+      "zh": {
+        "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8 模型发布",
+        "hook": "通过 FP8 量化技术高效部署无审查的 Qwen3.8 27B 模型，兼顾性能与速度。",
+        "key_takeaways": [
+          "基于 Qwen3.8 架构的 27B 参数大模型",
+          "应用 FP8 量化，大幅降低显存占用",
+          "去除审查限制，适用于更多样化的任务场景"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:33:11.837105+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Qwen-3.8",
+    "FP8",
+    "Uncensored",
+    "Hugging Face"
+  ],
+  "title_en": "orcarouter/Qwen3.8-27B-Uncensored-FP8 Model Release",
+  "title_zh": "orcarouter/Qwen3.8-27B-Uncensored-FP8 模型发布",
+  "hook": "검열이 해제된 Qwen3.8 27B 모델을 FP8 양자화로 가볍고 빠르게 서빙하고 싶다면 지금 확인하세요.",
+  "hook_ko": "검열이 해제된 Qwen3.8 27B 모델을 FP8 양자화로 가볍고 빠르게 서빙하고 싶다면 지금 확인하세요.",
+  "hook_en": "Deploy the uncensored Qwen3.8 27B model efficiently with FP8 quantization for high-speed inference.",
+  "hook_zh": "通过 FP8 量化技术高效部署无审查的 Qwen3.8 27B 模型，兼顾性能与速度。",
+  "description_en": "Deploy the uncensored Qwen3.8 27B model efficiently with FP8 quantization for high-speed inference.",
+  "description_zh": "通过 FP8 量化技术高效部署无审查的 Qwen3.8 27B 模型，兼顾性能与速度。"
 }

@@ -28,5 +28,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_towards_a_systems_foundation_for_agenti",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "에이전트 아키텍처 및 시스템 인프라",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Agentic Skills",
+      "Systems Architecture",
+      "Reliability"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "에이전틱 스킬의 시스템 기반을 향하여: 아키텍처, 라이프사이클 및 보안",
+        "hook": "복잡하고 장기적인 태스크에서 LLM 에이전트가 직면한 신뢰성 및 컨텍스트 병목을 해결할 시스템 아키텍처를 확인하세요.",
+        "key_takeaways": [
+          "모놀리식 프롬프트 방식의 한계와 에이전트 신뢰성 문제 분석",
+          "에이전틱 스킬의 전체 라이프사이클 및 실행 안정성 확보 방안 제안",
+          "프로덕션 환경 배포를 위한 에이전트 보안 및 시스템 설계 표준 정립"
+        ]
+      },
+      "en": {
+        "title": "Towards a Systems Foundation for Agentic Skills: Architecture, Lifecycle, and Security",
+        "hook": "Overcome reliability and context bottlenecks in long-horizon LLM agent tasks with a robust systems-level architecture.",
+        "key_takeaways": [
+          "Analyzes reliability and stability bottlenecks of monolithic prompt approaches",
+          "Proposes a comprehensive architecture and lifecycle for agentic skills",
+          "Establishes foundational security and execution standards for production agents"
+        ]
+      },
+      "zh": {
+        "title": "构建智能体技能的系统基础：架构、生命周期与安全",
+        "hook": "从系统层架构破解大模型智能体在长周期复杂任务中的可靠性与上下文瓶颈。",
+        "key_takeaways": [
+          "剖析单体提示词（Monolithic prompt）方案的可靠性与稳定性瓶颈",
+          "提出智能体技能的完整架构、生命周期管理与执行稳定方案",
+          "为生产环境中部署智能体奠定底层安全与系统工程标准"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:06.257641+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Agentic Skills",
+    "Systems Architecture",
+    "Reliability"
+  ],
+  "title_ko": "에이전틱 스킬의 시스템 기반을 향하여: 아키텍처, 라이프사이클 및 보안",
+  "title_en": "Towards a Systems Foundation for Agentic Skills: Architecture, Lifecycle, and Security",
+  "title_zh": "构建智能体技能的系统基础：架构、生命周期与安全",
+  "hook": "복잡하고 장기적인 태스크에서 LLM 에이전트가 직면한 신뢰성 및 컨텍스트 병목을 해결할 시스템 아키텍처를 확인하세요.",
+  "hook_ko": "복잡하고 장기적인 태스크에서 LLM 에이전트가 직면한 신뢰성 및 컨텍스트 병목을 해결할 시스템 아키텍처를 확인하세요.",
+  "hook_en": "Overcome reliability and context bottlenecks in long-horizon LLM agent tasks with a robust systems-level architecture.",
+  "hook_zh": "从系统层架构破解大模型智能体在长周期复杂任务中的可靠性与上下文瓶颈。",
+  "description_ko": "복잡하고 장기적인 태스크에서 LLM 에이전트가 직면한 신뢰성 및 컨텍스트 병목을 해결할 시스템 아키텍처를 확인하세요.",
+  "description_en": "Overcome reliability and context bottlenecks in long-horizon LLM agent tasks with a robust systems-level architecture.",
+  "description_zh": "从系统层架构破解大模型智能体在长周期复杂任务中的可靠性与上下文瓶颈。",
+  "category_type": "AGENT"
 }

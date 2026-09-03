@@ -12,8 +12,8 @@
   ],
   "status": "PENDING_REVIEW",
   "category_type": "NEWS",
-  "title_ko": "Wildfire Survivors Push Back Against Newsom-Led Utility Bailout",
-  "description_ko": "해커뉴스에서 10점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
+  "title_ko": "산불 생존자들, 뉴섬 주도 유틸리티 구제금융에 반발",
+  "description_ko": "에너지 인프라 및 공공 정책과 관련된 최신 사회적 갈등 동향을 파악할 수 있는 글입니다.",
   "model_family": "기타 독립 모델 (Standalone / Novel)",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -40,5 +40,66 @@
   "updated_at": "2026-08-31",
   "article_url": "https://prospect.org/2026/08/28/wildfire-survivors-push-back-against-newsom-led-utility-bailout/",
   "hn_url": "https://news.ycombinator.com/item?id=49511664",
-  "hn_id": "49511664"
+  "hn_id": "49511664",
+  "ai_enrichment": {
+    "id": "2026-08-31_sns_hacker_news_wildfire_survivors_push_back_agai",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "업계 동향 및 정책",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Wildfire",
+      "Utility Bailout",
+      "Newsom"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 1.5,
+    "multilingual": {
+      "ko": {
+        "title": "산불 생존자들, 뉴섬 주도 유틸리티 구제금융에 반발",
+        "hook": "에너지 인프라 및 공공 정책과 관련된 최신 사회적 갈등 동향을 파악할 수 있는 글입니다.",
+        "key_takeaways": [
+          "캘리포니아 산불 생존자들의 유틸리티 구제금융 반대 움직임",
+          "주 정부 정책과 피해 주민 간의 갈등 심화",
+          "인프라 관련 공공 책임성에 대한 시사점"
+        ]
+      },
+      "en": {
+        "title": "Wildfire Survivors Push Back Against Newsom-Led Utility Bailout",
+        "hook": "Understand the latest social and regulatory frictions surrounding utility bailouts and public infrastructure.",
+        "key_takeaways": [
+          "Wildfire survivors oppose the utility bailout led by Newsom",
+          "Escalating tensions between state policies and affected communities",
+          "Implications for public accountability in infrastructure"
+        ]
+      },
+      "zh": {
+        "title": "野火幸存者反对纽森主导的公用事业救助计划",
+        "hook": "了解围绕公用事业救助与公共基础设施的最新社会与监管博弈。",
+        "key_takeaways": [
+          "野火幸存者坚决反对纽森领导的公用事业纾困",
+          "州政府政策与受影响社区之间的矛盾加剧",
+          "对基础设施公共问责制的启示"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:31:46.703832+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Wildfire",
+    "Utility Bailout",
+    "Newsom"
+  ],
+  "title_en": "Wildfire Survivors Push Back Against Newsom-Led Utility Bailout",
+  "title_zh": "野火幸存者反对纽森主导的公用事业救助计划",
+  "hook": "에너지 인프라 및 공공 정책과 관련된 최신 사회적 갈등 동향을 파악할 수 있는 글입니다.",
+  "hook_ko": "에너지 인프라 및 공공 정책과 관련된 최신 사회적 갈등 동향을 파악할 수 있는 글입니다.",
+  "hook_en": "Understand the latest social and regulatory frictions surrounding utility bailouts and public infrastructure.",
+  "hook_zh": "了解围绕公用事业救助与公共基础设施的最新社会与监管博弈。",
+  "description_en": "Understand the latest social and regulatory frictions surrounding utility bailouts and public infrastructure.",
+  "description_zh": "了解围绕公用事业救助与公共基础设施的最新社会与监管博弈。"
 }

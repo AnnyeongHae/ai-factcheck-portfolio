@@ -15,9 +15,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "NEWS",
-  "title_ko": "오픈소스 비디오 편집기 OpenShot 4.0 대규모 업데이트 릴리즈",
-  "description_ko": "해커뉴스에서 417점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
+  "category_type": "TECH",
+  "title_ko": "Hacker News: 오픈소스 동영상 편집기 OpenShot 4.0 출시",
+  "description_ko": "대대적인 성능 개선과 신기능으로 무장한 오픈소스 비디오 에디터 메이저 업데이트입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -40,5 +40,66 @@
   "updated_at": "2026-09-02",
   "article_url": "https://www.openshot.org/blog/2026/08/30/openshot-40-record-edit-color-like-never-before/",
   "hn_url": "https://news.ycombinator.com/item?id=49507822",
-  "hn_id": "49507822"
+  "hn_id": "49507822",
+  "ai_enrichment": {
+    "id": "2026-08-31_sns_hacker_news_openshot_40_open_source_video_edi",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "멀티미디어 및 비디오 처리",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "OpenShot 4.0",
+      "Video Editor",
+      "Open Source"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "Hacker News: 오픈소스 동영상 편집기 OpenShot 4.0 출시",
+        "hook": "대대적인 성능 개선과 신기능으로 무장한 오픈소스 비디오 에디터 메이저 업데이트입니다.",
+        "key_takeaways": [
+          "렌더링 성능 향상 및 타임라인 최적화",
+          "오픈소스 기반 크로스플랫폼 영상 편집 툴",
+          "개발자 및 크리에이터를 위한 유용한 멀티미디어 도구"
+        ]
+      },
+      "en": {
+        "title": "Hacker News: OpenShot 4.0 – Open-source video editor",
+        "hook": "A major update to the popular open-source video editor featuring massive performance upgrades.",
+        "key_takeaways": [
+          "Significant rendering performance boosts and timeline optimizations",
+          "Cross-platform open-source video editing software",
+          "A valuable multimedia tool for developers and content creators"
+        ]
+      },
+      "zh": {
+        "title": "Hacker News: OpenShot 4.0 – 开源视频编辑器发布",
+        "hook": "备受瞩目的开源视频编辑器迎来重大版本更新，性能大幅提升。",
+        "key_takeaways": [
+          "显著提升的渲染性能与时间轴优化",
+          "跨平台的开源视频编辑软件",
+          "面向开发者与创作者的实用多媒体工具"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:32:10.252282+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "OpenShot 4.0",
+    "Video Editor",
+    "Open Source"
+  ],
+  "title_en": "Hacker News: OpenShot 4.0 – Open-source video editor",
+  "title_zh": "Hacker News: OpenShot 4.0 – 开源视频编辑器发布",
+  "hook": "대대적인 성능 개선과 신기능으로 무장한 오픈소스 비디오 에디터 메이저 업데이트입니다.",
+  "hook_ko": "대대적인 성능 개선과 신기능으로 무장한 오픈소스 비디오 에디터 메이저 업데이트입니다.",
+  "hook_en": "A major update to the popular open-source video editor featuring massive performance upgrades.",
+  "hook_zh": "备受瞩目的开源视频编辑器迎来重大版本更新，性能大幅提升。",
+  "description_en": "A major update to the popular open-source video editor featuring massive performance upgrades.",
+  "description_zh": "备受瞩目的开源视频编辑器迎来重大版本更新，性能大幅提升。"
 }

@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "Standalone / Novel",
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: thomsonreuters/Thomson-1.0-Small",
-  "description_ko": "Trending Score: 154, Downloads: 1009, Pipeline: image-text-to-text",
+  "category_type": "MODEL",
+  "title_ko": "톰슨로이터, 법률·금융 특화 멀티모달 모델 Thomson-1.0-Small 공개",
+  "description_ko": "신뢰도 높은 도메인 데이터를 학습한 톰슨로이터의 멀티모달 모델로 전문 업무를 혁신하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -44,5 +44,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_thomsonreutersthomson_10_small",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Standalone",
+    "category": "멀티모달",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Thomson Reuters",
+      "Thomson-1.0-Small",
+      "Multimodal"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.1,
+    "multilingual": {
+      "ko": {
+        "title": "톰슨로이터, 법률·금융 특화 멀티모달 모델 Thomson-1.0-Small 공개",
+        "hook": "신뢰도 높은 도메인 데이터를 학습한 톰슨로이터의 멀티모달 모델로 전문 업무를 혁신하세요.",
+        "key_takeaways": [
+          "Thomson Reuters가 선보인 이미지-텍스트 멀티모달 소형 모델",
+          "법률 및 금융 등 전문 도메인 문서 분석에 최적화된 아키텍처",
+          "경량화된 사이즈로 효율적인 온프레미스 배포 가능"
+        ]
+      },
+      "en": {
+        "title": "Thomson Reuters Launches Thomson-1.0-Small Multimodal Model",
+        "hook": "Empower legal and financial workflows with Thomson Reuters' domain-specialized multimodal model.",
+        "key_takeaways": [
+          "Image-text-to-text multimodal small model by Thomson Reuters",
+          "Optimized architecture for analyzing professional domain documents like legal and finance",
+          "Lightweight size enabling efficient on-premise enterprise deployment"
+        ]
+      },
+      "zh": {
+        "title": "汤森路透推出 Thomson-1.0-Small 多模态模型",
+        "hook": "借助汤森路透专为法律与金融领域打造的多模态模型，赋能专业业务场景。",
+        "key_takeaways": [
+          "由汤森路透（Thomson Reuters）开发的图文多模态小型模型",
+          "针对法律、金融等专业领域文档分析优化的架构设计",
+          "轻量化尺寸支持高效的企业本地化部署"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:32:47.289911+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Thomson Reuters",
+    "Thomson-1.0-Small",
+    "Multimodal"
+  ],
+  "title_en": "Thomson Reuters Launches Thomson-1.0-Small Multimodal Model",
+  "title_zh": "汤森路透推出 Thomson-1.0-Small 多模态模型",
+  "hook": "신뢰도 높은 도메인 데이터를 학습한 톰슨로이터의 멀티모달 모델로 전문 업무를 혁신하세요.",
+  "hook_ko": "신뢰도 높은 도메인 데이터를 학습한 톰슨로이터의 멀티모달 모델로 전문 업무를 혁신하세요.",
+  "hook_en": "Empower legal and financial workflows with Thomson Reuters' domain-specialized multimodal model.",
+  "hook_zh": "借助汤森路透专为法律与金融领域打造的多模态模型，赋能专业业务场景。",
+  "description_en": "Empower legal and financial workflows with Thomson Reuters' domain-specialized multimodal model.",
+  "description_zh": "借助汤森路透专为法律与金融领域打造的多模态模型，赋能专业业务场景。"
 }

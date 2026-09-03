@@ -28,5 +28,71 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_diasentinel_an_auditable_multi_agent_sy",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "의료 AI 및 감사 가능한 멀티 에이전트 시스템",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Multi-Agent System",
+      "Clinical Decision Support",
+      "Diabetes Risk Screening",
+      "Hallucination Mitigation"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "DIASENTINEL: 가이드라인 기반 당뇨병 위험 스크리닝을 위한 감사 가능 멀티 에이전트 시스템",
+        "hook": "LLM의 환각 현상과 인용 오류를 원천 차단하고, 의료 가이드라인에 엄격히 부합하는 신뢰도 높은 임상 결정 지원 멀티 에이전트 시스템을 소개합니다.",
+        "key_takeaways": [
+          "의료 분야 LLM의 고질적 문제인 환각 및 근거 없는 추천 방지",
+          "임상 가이드라인을 엄격히 준수하는 온프레미스형 멀티 에이전트 아키텍처",
+          "당뇨병 위험 스크리닝 과정에서의 감사 가능성(Auditable) 확보"
+        ]
+      },
+      "en": {
+        "title": "DIASENTINEL: An Auditable Multi-Agent System for Guideline-Grounded Diabetes Risk Screening",
+        "hook": "Eliminate LLM hallucinations in healthcare with a fully auditable multi-agent system designed for rigorous clinical guideline compliance.",
+        "key_takeaways": [
+          "Mitigates hallucinations and citation errors in large language model clinical support",
+          "Implements an auditable multi-agent architecture grounded in medical guidelines",
+          "Focuses on safe and reliable diabetes risk screening workflows"
+        ]
+      },
+      "zh": {
+        "title": "DIASENTINEL：一个基于指南的可审计多智能体糖尿病风险筛查系统",
+        "hook": "有效根除医疗大模型的幻觉与引用错误，构建严格遵循临床指南的可审计多智能体医疗辅助系统。",
+        "key_takeaways": [
+          "克服大语言模型在临床决策支持中易产生幻觉和无依据推荐的缺陷",
+          "构建完全基于医学指南的可审计多智能体框架",
+          "专注于安全可靠的糖尿病风险筛查与决策验证"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:57.919186+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Multi-Agent System",
+    "Clinical Decision Support",
+    "Diabetes Risk Screening",
+    "Hallucination Mitigation"
+  ],
+  "title_ko": "DIASENTINEL: 가이드라인 기반 당뇨병 위험 스크리닝을 위한 감사 가능 멀티 에이전트 시스템",
+  "title_en": "DIASENTINEL: An Auditable Multi-Agent System for Guideline-Grounded Diabetes Risk Screening",
+  "title_zh": "DIASENTINEL：一个基于指南的可审计多智能体糖尿病风险筛查系统",
+  "hook": "LLM의 환각 현상과 인용 오류를 원천 차단하고, 의료 가이드라인에 엄격히 부합하는 신뢰도 높은 임상 결정 지원 멀티 에이전트 시스템을 소개합니다.",
+  "hook_ko": "LLM의 환각 현상과 인용 오류를 원천 차단하고, 의료 가이드라인에 엄격히 부합하는 신뢰도 높은 임상 결정 지원 멀티 에이전트 시스템을 소개합니다.",
+  "hook_en": "Eliminate LLM hallucinations in healthcare with a fully auditable multi-agent system designed for rigorous clinical guideline compliance.",
+  "hook_zh": "有效根除医疗大模型的幻觉与引用错误，构建严格遵循临床指南的可审计多智能体医疗辅助系统。",
+  "description_ko": "LLM의 환각 현상과 인용 오류를 원천 차단하고, 의료 가이드라인에 엄격히 부합하는 신뢰도 높은 임상 결정 지원 멀티 에이전트 시스템을 소개합니다.",
+  "description_en": "Eliminate LLM hallucinations in healthcare with a fully auditable multi-agent system designed for rigorous clinical guideline compliance.",
+  "description_zh": "有效根除医疗大模型的幻觉与引用错误，构建严格遵循临床指南的可审计多智能体医疗辅助系统。",
+  "category_type": "AGENT"
 }

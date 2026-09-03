@@ -28,5 +28,71 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_how_you_ask_shapes_what_you_get_a_theor",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 프롬프트 엔지니어링 및 상호작용 이론",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Prompt Engineering",
+      "LLM Conversations",
+      "Advice-Seeking",
+      "Theory-Seeded Measurement"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
+    "multilingual": {
+      "ko": {
+        "title": "질문 방식이 결과물을 결정한다: 조언 요청형 LLM 대화에서의 표현 방식 측정 이론",
+        "hook": "사용자의 질문 방식(상세함 vs 모호함)이 LLM 응답 품질에 미치는 영향을 이론적으로 분석하여 프롬프트 최적화의 새로운 기준을 제시합니다.",
+        "key_takeaways": [
+          "사용자의 제약 조건 명시 여부가 LLM 대화의 결과물에 미치는 영향 분석",
+          "변동성을 노이즈로 보지 않고 이론적으로 측정하는 프레임워크 제안",
+          "효과적인 조언 요청을 위한 프롬프트 엔지니어링 인사이트 도출"
+        ]
+      },
+      "en": {
+        "title": "How You Ask Shapes What You Get: A Theory-Seeded Measurement of Articulation in Advice-Seeking LLM Conversations",
+        "hook": "Discover how user phrasing and constraints fundamentally alter LLM output quality through a rigorous theoretical measurement framework.",
+        "key_takeaways": [
+          "Analyzes how user variation in advice-seeking requests impacts LLM responses",
+          "Treats conversational variation as a measurable signal rather than mere noise",
+          "Provides actionable insights for advanced prompt engineering and interaction design"
+        ]
+      },
+      "zh": {
+        "title": "你如何提问决定了你获得什么：求助型LLM对话中表达方式的理论化测量",
+        "hook": "深入剖析用户提问方式对大模型输出质量的决定性影响，为提示词工程提供理论测量依据。",
+        "key_takeaways": [
+          "分析用户约束条件的详尽程度如何影响LLM的对话结果",
+          "将对话变异性视为可测量信号而非单纯噪声的新框架",
+          "为高效提示词设计与交互优化提供深度洞察"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:57.911523+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Prompt Engineering",
+    "LLM Conversations",
+    "Advice-Seeking",
+    "Theory-Seeded Measurement"
+  ],
+  "title_ko": "질문 방식이 결과물을 결정한다: 조언 요청형 LLM 대화에서의 표현 방식 측정 이론",
+  "title_en": "How You Ask Shapes What You Get: A Theory-Seeded Measurement of Articulation in Advice-Seeking LLM Conversations",
+  "title_zh": "你如何提问决定了你获得什么：求助型LLM对话中表达方式的理论化测量",
+  "hook": "사용자의 질문 방식(상세함 vs 모호함)이 LLM 응답 품질에 미치는 영향을 이론적으로 분석하여 프롬프트 최적화의 새로운 기준을 제시합니다.",
+  "hook_ko": "사용자의 질문 방식(상세함 vs 모호함)이 LLM 응답 품질에 미치는 영향을 이론적으로 분석하여 프롬프트 최적화의 새로운 기준을 제시합니다.",
+  "hook_en": "Discover how user phrasing and constraints fundamentally alter LLM output quality through a rigorous theoretical measurement framework.",
+  "hook_zh": "深入剖析用户提问方式对大模型输出质量的决定性影响，为提示词工程提供理论测量依据。",
+  "description_ko": "사용자의 질문 방식(상세함 vs 모호함)이 LLM 응답 품질에 미치는 영향을 이론적으로 분석하여 프롬프트 최적화의 새로운 기준을 제시합니다.",
+  "description_en": "Discover how user phrasing and constraints fundamentally alter LLM output quality through a rigorous theoretical measurement framework.",
+  "description_zh": "深入剖析用户提问方式对大模型输出质量的决定性影响，为提示词工程提供理论测量依据。",
+  "category_type": "TECH"
 }

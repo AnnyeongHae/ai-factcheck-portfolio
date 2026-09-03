@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_from_confusion_to_clarity_confusion_awa",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "텍스트 분류 및 검색 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Text Classification",
+      "Retrieval-Augmented Generation",
+      "Knowledge Injection"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "혼동 인지형 검색 및 지식 주입을 통한 텍스트 분류 개선",
+        "hook": "유사한 레이블이 많은 복잡한 분류 과제에서 LLM의 한계를 극복하는 방법을 확인하세요.",
+        "key_takeaways": [
+          "의미적으로 유사한 레이블 간의 혼동 문제를 해결하는 아키텍처 제시",
+          "도메인 특화 지식을 효과적으로 주입하여 분류 정확도 향상",
+          "복잡한 택소노미(Taxonomy) 환경에서의 성능 검증"
+        ]
+      },
+      "en": {
+        "title": "From Confusion to Clarity: Confusion-Aware Retrieval and Knowledge Injection for Text Classification",
+        "hook": "Discover how to overcome LLM limitations in classifying texts with highly similar labels using confusion-aware retrieval.",
+        "key_takeaways": [
+          "Addresses classification challenges among semantically overlapping labels",
+          "Introduces domain-specific knowledge injection mechanisms",
+          "Improves taxonomy-based classification accuracy"
+        ]
+      },
+      "zh": {
+        "title": "从迷茫到清晰：用于文本分类的混淆感知检索与知识注入",
+        "hook": "了解如何解决大模型在处理高度相似标签分类时的性能瓶颈。",
+        "key_takeaways": [
+          "解决语义重叠标签之间的分类混淆问题",
+          "引入领域特定知识注入机制提升准确率",
+          "验证复杂分类体系下的有效性"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:27:09.802302+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Text Classification",
+    "Retrieval-Augmented Generation",
+    "Knowledge Injection"
+  ],
+  "title_ko": "혼동 인지형 검색 및 지식 주입을 통한 텍스트 분류 개선",
+  "title_en": "From Confusion to Clarity: Confusion-Aware Retrieval and Knowledge Injection for Text Classification",
+  "title_zh": "从迷茫到清晰：用于文本分类的混淆感知检索与知识注入",
+  "hook": "유사한 레이블이 많은 복잡한 분류 과제에서 LLM의 한계를 극복하는 방법을 확인하세요.",
+  "hook_ko": "유사한 레이블이 많은 복잡한 분류 과제에서 LLM의 한계를 극복하는 방법을 확인하세요.",
+  "hook_en": "Discover how to overcome LLM limitations in classifying texts with highly similar labels using confusion-aware retrieval.",
+  "hook_zh": "了解如何解决大模型在处理高度相似标签分类时的性能瓶颈。",
+  "description_ko": "유사한 레이블이 많은 복잡한 분류 과제에서 LLM의 한계를 극복하는 방법을 확인하세요.",
+  "description_en": "Discover how to overcome LLM limitations in classifying texts with highly similar labels using confusion-aware retrieval.",
+  "description_zh": "了解如何解决大模型在处理高度相似标签分类时的性能瓶颈。"
 }

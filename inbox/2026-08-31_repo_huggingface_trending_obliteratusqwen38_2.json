@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8-27B Dense/MoE Family",
+  "model_family": "Qwen-3.8",
   "detected_formats": [
     "Fine-tune / Uncensored"
   ],
-  "category_type": "TECH",
-  "title_ko": "OBLITERATUS/Qwen3.8-27B-OBLITERATED",
-  "description_ko": "Trending score: 245, downloads: 725757",
+  "category_type": "MODEL",
+  "title_ko": "Qwen3.8-27B-OBLITERATED 모델: 정렬 제거 버전 공개",
+  "description_ko": "특정 안전 정렬(Alignment)이 제거된 언어 모델을 통해 연구 및 맞춤형 튜닝의 한계를 넓혀보세요.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "OBLITERATUS Project",
   "metric_tracking": {
@@ -44,5 +44,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_trending_obliteratusqwen38_2",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Qwen-3.8",
+    "category": "LLM 파인튜닝",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Qwen3.8",
+      "Obliterated",
+      "Alignment Removal"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "Qwen3.8-27B-OBLITERATED 모델: 정렬 제거 버전 공개",
+        "hook": "특정 안전 정렬(Alignment)이 제거된 언어 모델을 통해 연구 및 맞춤형 튜닝의 한계를 넓혀보세요.",
+        "key_takeaways": [
+          "Qwen3.8-27B 기반의 언어 모델에서 기본 정렬 제약을 해제한 버전",
+          "높은 다운로드 수로 개발자들 사이에서 높은 활용도 입증",
+          "모델 가중치 조작 및 프라이버시/안전 연구에 활용 가능"
+        ]
+      },
+      "en": {
+        "title": "Qwen3.8-27B-OBLITERATED: Alignment-Free Model Released",
+        "hook": "Explore custom tuning possibilities with this alignment-removed version of Qwen3.8-27B.",
+        "key_takeaways": [
+          "Qwen3.8-27B variant with removed default safety alignments",
+          "Demonstrates high utility among developers with strong download metrics",
+          "Useful for weight manipulation and custom alignment research"
+        ]
+      },
+      "zh": {
+        "title": "Qwen3.8-27B-OBLITERATED：解除对齐限制的模型发布",
+        "hook": "通过剥离默认安全对齐的 Qwen3.8-27B 版本，拓展定制化微调与研究的边界。",
+        "key_takeaways": [
+          "基于 Qwen3.8-27B 移除默认安全对齐约束的变体模型",
+          "凭借庞大的下载量证明了其在开发者群体中的实用性",
+          "适用于模型权重研究及定制化对齐实验"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:32:47.288718+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Qwen3.8",
+    "Obliterated",
+    "Alignment Removal"
+  ],
+  "title_en": "Qwen3.8-27B-OBLITERATED: Alignment-Free Model Released",
+  "title_zh": "Qwen3.8-27B-OBLITERATED：解除对齐限制的模型发布",
+  "hook": "특정 안전 정렬(Alignment)이 제거된 언어 모델을 통해 연구 및 맞춤형 튜닝의 한계를 넓혀보세요.",
+  "hook_ko": "특정 안전 정렬(Alignment)이 제거된 언어 모델을 통해 연구 및 맞춤형 튜닝의 한계를 넓혀보세요.",
+  "hook_en": "Explore custom tuning possibilities with this alignment-removed version of Qwen3.8-27B.",
+  "hook_zh": "通过剥离默认安全对齐的 Qwen3.8-27B 版本，拓展定制化微调与研究的边界。",
+  "description_en": "Explore custom tuning possibilities with this alignment-removed version of Qwen3.8-27B.",
+  "description_zh": "通过剥离默认安全对齐的 Qwen3.8-27B 版本，拓展定制化微调与研究的边界。"
 }

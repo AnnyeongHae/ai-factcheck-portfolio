@@ -28,5 +28,71 @@
     "is_spiking": true
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_github_jprxdarwin_vm",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "가상화 및 에뮬레이션",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "Qemu",
+      "iOS",
+      "macOS",
+      "Virtualization"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
+    "multilingual": {
+      "ko": {
+        "title": "Qemu 기반 iOS 및 macOS 가상 머신 실행 도구",
+        "hook": "Qemu 환경에서 가상 iPhone 및 Apple Silicon Mac(M1-M5)을 구동할 수 있는 혁신적인 가상화 도구입니다.",
+        "key_takeaways": [
+          "Qemu를 통한 iOS 및 macOS 에뮬레이션",
+          "가상 iPhone(12~17) 및 M1~M5 Mac 지원",
+          "모바일/데스크톱 크로스 플랫폼 테스팅에 유용"
+        ]
+      },
+      "en": {
+        "title": "Darwin-VM: Run iOS and macOS inside Qemu",
+        "hook": "Run virtual iPhones (12 to 17) and Apple Silicon Macs (M1-M5) seamlessly using Qemu.",
+        "key_takeaways": [
+          "iOS and macOS emulation via Qemu",
+          "Supports virtual iPhone 12-17 and M1-M5 Macs",
+          "Great for cross-platform development and testing"
+        ]
+      },
+      "zh": {
+        "title": "Darwin-VM：在 Qemu 中运行 iOS 与 macOS",
+        "hook": "通过 Qemu 在虚拟机中流畅运行虚拟 iPhone 及苹果芯片 Mac（M1-M5）的强大工具。",
+        "key_takeaways": [
+          "基于 Qemu 实现 iOS 与 macOS 模拟",
+          "支持虚拟 iPhone 12 至 17 及 M1-M5 Mac",
+          "非常适合跨平台开发与测试场景"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:29:53.225703+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "Qemu",
+    "iOS",
+    "macOS",
+    "Virtualization"
+  ],
+  "title_ko": "Qemu 기반 iOS 및 macOS 가상 머신 실행 도구",
+  "title_en": "Darwin-VM: Run iOS and macOS inside Qemu",
+  "title_zh": "Darwin-VM：在 Qemu 中运行 iOS 与 macOS",
+  "hook": "Qemu 환경에서 가상 iPhone 및 Apple Silicon Mac(M1-M5)을 구동할 수 있는 혁신적인 가상화 도구입니다.",
+  "hook_ko": "Qemu 환경에서 가상 iPhone 및 Apple Silicon Mac(M1-M5)을 구동할 수 있는 혁신적인 가상화 도구입니다.",
+  "hook_en": "Run virtual iPhones (12 to 17) and Apple Silicon Macs (M1-M5) seamlessly using Qemu.",
+  "hook_zh": "通过 Qemu 在虚拟机中流畅运行虚拟 iPhone 及苹果芯片 Mac（M1-M5）的强大工具。",
+  "description_ko": "Qemu 환경에서 가상 iPhone 및 Apple Silicon Mac(M1-M5)을 구동할 수 있는 혁신적인 가상화 도구입니다.",
+  "description_en": "Run virtual iPhones (12 to 17) and Apple Silicon Macs (M1-M5) seamlessly using Qemu.",
+  "description_zh": "通过 Qemu 在虚拟机中流畅运行虚拟 iPhone 及苹果芯片 Mac（M1-M5）的强大工具。",
+  "category_type": "TECH"
 }

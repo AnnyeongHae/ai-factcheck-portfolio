@@ -17,13 +17,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "MiniMax",
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: Kijai/MiniMax-H3-experimental",
-  "description_ko": "Trending Score: 111, Downloads: 0, Pipeline: N/A",
+  "category_type": "MODEL",
+  "title_ko": "Kijai/MiniMax-H3-experimental 실험적 래퍼 및 통합",
+  "description_ko": "ComfyUI 생태계에서 MiniMax-H3 모델을 활용하기 위한 필수 실험용 저장소입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,68 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_kijaiminimax_h3_experimental",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "MiniMax",
+    "category": "영상 제작 및 생성",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "MiniMax-H3",
+      "Kijai",
+      "ComfyUI",
+      "Experimental"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "Kijai/MiniMax-H3-experimental 실험적 래퍼 및 통합",
+        "hook": "ComfyUI 생태계에서 MiniMax-H3 모델을 활용하기 위한 필수 실험용 저장소입니다.",
+        "key_takeaways": [
+          "유명 오픈소스 개발자 Kijai의 미니맥스 H3 통합 패키지",
+          "커스텀 워크플로우 및 ComfyUI 연동을 위한 실험적 툴셋",
+          "최신 영상 생성 모델을 실무 파이프라인에 적용하기 위한 선행 도구"
+        ]
+      },
+      "en": {
+        "title": "Kijai/MiniMax-H3-experimental Wrapper and Integration",
+        "hook": "Essential experimental repository for running MiniMax-H3 within the ComfyUI ecosystem.",
+        "key_takeaways": [
+          "MiniMax-H3 integration package by prominent open-source developer Kijai",
+          "Experimental toolset for custom workflows and ComfyUI integration",
+          "Leading tool to integrate cutting-edge video generation models into pipelines"
+        ]
+      },
+      "zh": {
+        "title": "Kijai/MiniMax-H3-experimental 实验性封装与集成",
+        "hook": "在 ComfyUI 生态系统中运行 MiniMax-H3 模型的必备实验性代码库。",
+        "key_takeaways": [
+          "由知名开源开发者 Kijai 推出的 MiniMax-H3 集成包",
+          "用于自定义工作流与 ComfyUI 联动的实验性工具集",
+          "将最新视频生成模型引入实际生产管线的先导工具"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:33:23.902865+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "MiniMax-H3",
+    "Kijai",
+    "ComfyUI",
+    "Experimental"
+  ],
+  "title_en": "Kijai/MiniMax-H3-experimental Wrapper and Integration",
+  "title_zh": "Kijai/MiniMax-H3-experimental 实验性封装与集成",
+  "hook": "ComfyUI 생태계에서 MiniMax-H3 모델을 활용하기 위한 필수 실험용 저장소입니다.",
+  "hook_ko": "ComfyUI 생태계에서 MiniMax-H3 모델을 활용하기 위한 필수 실험용 저장소입니다.",
+  "hook_en": "Essential experimental repository for running MiniMax-H3 within the ComfyUI ecosystem.",
+  "hook_zh": "在 ComfyUI 生态系统中运行 MiniMax-H3 模型的必备实验性代码库。",
+  "description_en": "Essential experimental repository for running MiniMax-H3 within the ComfyUI ecosystem.",
+  "description_zh": "在 ComfyUI 生态系统中运行 MiniMax-H3 模型的必备实验性代码库。"
 }

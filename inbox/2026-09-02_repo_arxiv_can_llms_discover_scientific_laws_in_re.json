@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_can_llms_discover_scientific_laws_in_re",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "과학적 방정식 발견 및 LLM 추론",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Scientific Discovery",
+      "Equation Generation",
+      "LLM Reasoning"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
+    "multilingual": {
+      "ko": {
+        "title": "LLM이 현실 및 평행 세계에서 과학적 법칙을 발견할 수 있는가?",
+        "hook": "과학적 방정식 발견 과정에서 LLM의 가설 생성 및 검증 능력을 심층 분석한 연구를 확인하세요.",
+        "key_takeaways": [
+          "가설 생성, 관측 테스트, 정제 주기를 통한 과학적 방정식 발견",
+          "현실 및 평행 세계 시나리오에서의 LLM 일반화 능력 평가",
+          "과학적 제약 조건 하에서의 AI 추론 한계와 가능성 탐구"
+        ]
+      },
+      "en": {
+        "title": "Can LLMs Discover Scientific Laws in Real and Parallel Worlds?",
+        "hook": "Explore whether LLMs can genuinely perform scientific equation discovery through iterative reasoning.",
+        "key_takeaways": [
+          "Investigates automated scientific discovery via hypothesis generation and testing",
+          "Evaluates LLM generalization in real and parallel world scenarios",
+          "Analyzes AI reasoning limits under strict scientific constraints"
+        ]
+      },
+      "zh": {
+        "title": "大模型能否在现实与平行世界中发现科学定律？",
+        "hook": "深入探讨大模型在科学方程式发现任务中的假设生成与验证能力。",
+        "key_takeaways": [
+          "研究通过假设生成与检验实现的自动化科学发现",
+          "评估大模型在现实和平行世界场景中的泛化能力",
+          "分析在严格科学约束下AI推理的边界与潜力"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:27:09.810782+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Scientific Discovery",
+    "Equation Generation",
+    "LLM Reasoning"
+  ],
+  "title_ko": "LLM이 현실 및 평행 세계에서 과학적 법칙을 발견할 수 있는가?",
+  "title_en": "Can LLMs Discover Scientific Laws in Real and Parallel Worlds?",
+  "title_zh": "大模型能否在现实与平行世界中发现科学定律？",
+  "hook": "과학적 방정식 발견 과정에서 LLM의 가설 생성 및 검증 능력을 심층 분석한 연구를 확인하세요.",
+  "hook_ko": "과학적 방정식 발견 과정에서 LLM의 가설 생성 및 검증 능력을 심층 분석한 연구를 확인하세요.",
+  "hook_en": "Explore whether LLMs can genuinely perform scientific equation discovery through iterative reasoning.",
+  "hook_zh": "深入探讨大模型在科学方程式发现任务中的假设生成与验证能力。",
+  "description_ko": "과학적 방정식 발견 과정에서 LLM의 가설 생성 및 검증 능력을 심층 분석한 연구를 확인하세요.",
+  "description_en": "Explore whether LLMs can genuinely perform scientific equation discovery through iterative reasoning.",
+  "description_zh": "深入探讨大模型在科学方程式发现任务中的假设生成与验证能力。"
 }

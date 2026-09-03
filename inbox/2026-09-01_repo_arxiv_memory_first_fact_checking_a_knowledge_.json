@@ -28,5 +28,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_memory_first_fact_checking_a_knowledge_",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "멀티 에이전트 팩트체크",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Knowledge Graph",
+      "Multi-Agent",
+      "Misinformation Detection"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "지식그래프와 멀티 에이전트 기반 하이브리드 팩트체킹 시스템",
+        "hook": "가짜 뉴스 탐지의 정확도와 설명 가능성을 동시에 높이는 지식그래프 기반 멀티 에이전트 프레임워크를 확인하세요.",
+        "key_takeaways": [
+          "지식그래프 기반 시맨틱 메모리를 결합한 팩트체킹 아키텍처",
+          "적대적 멀티 에이전트 추론을 통한 오정보 탐지 강화",
+          "설명 가능한(Explainable) 추론 결과 제공"
+        ]
+      },
+      "en": {
+        "title": "Memory-First Fact-Checking: A Knowledge-Graph-Grounded Multi-Agent System",
+        "hook": "Discover a hybrid fact-checking framework combining semantic memory with adversarial multi-agent reasoning.",
+        "key_takeaways": [
+          "Integrates knowledge graph-based semantic memory",
+          "Employs adversarial multi-agent reasoning for robust misinformation detection",
+          "Delivers explainable AI outputs for verification tasks"
+        ]
+      },
+      "zh": {
+        "title": "内存优先的事实核查：基于知识图谱的多智能体虚假信息检测系统",
+        "hook": "结合知识图谱与对抗性多智能体推理，提升虚假信息检测的准确性与可解释性。",
+        "key_takeaways": [
+          "融合知识图谱的语义记忆架构",
+          "通过对抗性多智能体推理增强虚假信息检测",
+          "提供可解释的推理结果"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:44.449772+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Knowledge Graph",
+    "Multi-Agent",
+    "Misinformation Detection"
+  ],
+  "title_ko": "지식그래프와 멀티 에이전트 기반 하이브리드 팩트체킹 시스템",
+  "title_en": "Memory-First Fact-Checking: A Knowledge-Graph-Grounded Multi-Agent System",
+  "title_zh": "内存优先的事实核查：基于知识图谱的多智能体虚假信息检测系统",
+  "hook": "가짜 뉴스 탐지의 정확도와 설명 가능성을 동시에 높이는 지식그래프 기반 멀티 에이전트 프레임워크를 확인하세요.",
+  "hook_ko": "가짜 뉴스 탐지의 정확도와 설명 가능성을 동시에 높이는 지식그래프 기반 멀티 에이전트 프레임워크를 확인하세요.",
+  "hook_en": "Discover a hybrid fact-checking framework combining semantic memory with adversarial multi-agent reasoning.",
+  "hook_zh": "结合知识图谱与对抗性多智能体推理，提升虚假信息检测的准确性与可解释性。",
+  "description_ko": "가짜 뉴스 탐지의 정확도와 설명 가능성을 동시에 높이는 지식그래프 기반 멀티 에이전트 프레임워크를 확인하세요.",
+  "description_en": "Discover a hybrid fact-checking framework combining semantic memory with adversarial multi-agent reasoning.",
+  "description_zh": "结合知识图谱与对抗性多智能体推理，提升虚假信息检测的准确性与可解释性。",
+  "category_type": "AGENT"
 }

@@ -28,5 +28,71 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_forward_deployed_full_stack_engineering",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "클라우드 MLOps 및 풀스택 엔지니어링",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "MLOps",
+      "Autonomous Cloud",
+      "Full-Stack Engineering",
+      "Machine Learning Systems"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.3,
+    "multilingual": {
+      "ko": {
+        "title": "자율형 클라우드 MLOps를 위한 현장 배치형 풀스택 엔지니어링",
+        "hook": "예측, 이상 탐지, 최적화 등 다양한 머신러닝 시스템을 클라우드 환경에서 운영하기 위한 실전 풀스택 MLOps 아키텍처를 제시합니다.",
+        "key_takeaways": [
+          "다양한 산업군의 ML 시스템(예측, 최적화 등) 운영상의 복잡성 해결",
+          "클라우드 환경에서 자율형 MLOps 파이프라인 구축을 위한 풀스택 엔지니어링 전략",
+          "프로덕션 환경 배포 및 모니터링 자동화 모범 사례"
+        ]
+      },
+      "en": {
+        "title": "Forward-Deployed Full-Stack Engineering for Autonomous Cloud MLOps",
+        "hook": "Master production-grade cloud MLOps by bridging the gap between ML models and autonomous full-stack deployment.",
+        "key_takeaways": [
+          "Addresses operational challenges across predictive, optimization, and anomaly detection systems",
+          "Outlines forward-deployed full-stack strategies for autonomous MLOps pipelines",
+          "Bridges real-world software engineering with machine learning operations"
+        ]
+      },
+      "zh": {
+        "title": "面向自主云MLOps的前沿部署全栈工程",
+        "hook": "打通机器学习模型与实际生产环境的鸿沟，提供构建自主云端MLOps流水线的全栈工程方案。",
+        "key_takeaways": [
+          "解决各行业在预测、异常检测及优化系统中部署ML的痛点",
+          "提出支持自主MLOps流水线的全栈工程策略",
+          "实现生产环境机器学习系统的可靠运维与监控自动化"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:57.914750+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "MLOps",
+    "Autonomous Cloud",
+    "Full-Stack Engineering",
+    "Machine Learning Systems"
+  ],
+  "title_ko": "자율형 클라우드 MLOps를 위한 현장 배치형 풀스택 엔지니어링",
+  "title_en": "Forward-Deployed Full-Stack Engineering for Autonomous Cloud MLOps",
+  "title_zh": "面向自主云MLOps的前沿部署全栈工程",
+  "hook": "예측, 이상 탐지, 최적화 등 다양한 머신러닝 시스템을 클라우드 환경에서 운영하기 위한 실전 풀스택 MLOps 아키텍처를 제시합니다.",
+  "hook_ko": "예측, 이상 탐지, 최적화 등 다양한 머신러닝 시스템을 클라우드 환경에서 운영하기 위한 실전 풀스택 MLOps 아키텍처를 제시합니다.",
+  "hook_en": "Master production-grade cloud MLOps by bridging the gap between ML models and autonomous full-stack deployment.",
+  "hook_zh": "打通机器学习模型与实际生产环境的鸿沟，提供构建自主云端MLOps流水线的全栈工程方案。",
+  "description_ko": "예측, 이상 탐지, 최적화 등 다양한 머신러닝 시스템을 클라우드 환경에서 운영하기 위한 실전 풀스택 MLOps 아키텍처를 제시합니다.",
+  "description_en": "Master production-grade cloud MLOps by bridging the gap between ML models and autonomous full-stack deployment.",
+  "description_zh": "打通机器学习模型与实际生产环境的鸿沟，提供构建自主云端MLOps流水线的全栈工程方案。",
+  "category_type": "TECH"
 }

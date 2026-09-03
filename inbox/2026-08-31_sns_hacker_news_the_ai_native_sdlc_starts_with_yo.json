@@ -21,9 +21,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "NEWS",
-  "title_ko": "AI 네이티브 개발 수명주기(SDLC)는 인프라에서 시작된다",
-  "description_ko": "해커뉴스에서 5점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
+  "category_type": "TECH",
+  "title_ko": "AI 네이티브 SDLC(소프트웨어 개발 생명주기)는 인프라 구축에서 시작된다",
+  "description_ko": "AI 기반 개발 프로세스를 성공적으로 도입하기 위해 밑바닥 인프라를 어떻게 설계해야 하는지 다룹니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -46,5 +46,66 @@
   "updated_at": "2026-08-31",
   "article_url": "https://metalbear.com/blog/ai-native-sdlc-infrastructure/",
   "hn_url": "https://news.ycombinator.com/item?id=49508200",
-  "hn_id": "49508200"
+  "hn_id": "49508200",
+  "ai_enrichment": {
+    "id": "2026-08-31_sns_hacker_news_the_ai_native_sdlc_starts_with_yo",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 네이티브 SDLC 및 인프라",
+    "programming_lang": "General",
+    "root_keywords": [
+      "AI-Native",
+      "SDLC",
+      "Infrastructure"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "AI 네이티브 SDLC(소프트웨어 개발 생명주기)는 인프라 구축에서 시작된다",
+        "hook": "AI 기반 개발 프로세스를 성공적으로 도입하기 위해 밑바닥 인프라를 어떻게 설계해야 하는지 다룹니다.",
+        "key_takeaways": [
+          "AI 네이티브 SDLC 구현을 위한 기반 인프라 요건",
+          "개발 생명주기 전반에 AI를 통합하기 위한 아키텍처 설계 전략",
+          "코드 생성부터 배포까지 파이프라인 최적화 방안"
+        ]
+      },
+      "en": {
+        "title": "The AI-Native SDLC Starts with Your Infrastructure",
+        "hook": "Learn how to design foundational infrastructure for a successful AI-driven software development lifecycle.",
+        "key_takeaways": [
+          "Foundational infrastructure requirements for AI-native SDLC",
+          "Architectural design strategies for integrating AI across the development lifecycle",
+          "Pipeline optimization methods from code generation to deployment"
+        ]
+      },
+      "zh": {
+        "title": "AI原生SDLC（软件开发生命周期）始于您的基础设施",
+        "hook": "探讨如何为成功引入AI驱动的软件开发生命周期设计底层基础设施。",
+        "key_takeaways": [
+          "实现AI原生SDLC的基础设施核心要求",
+          "在整个开发生命周期中集成AI的架构设计策略",
+          "从代码生成到部署的流水线优化方案"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:31:46.707997+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "AI-Native",
+    "SDLC",
+    "Infrastructure"
+  ],
+  "title_en": "The AI-Native SDLC Starts with Your Infrastructure",
+  "title_zh": "AI原生SDLC（软件开发生命周期）始于您的基础设施",
+  "hook": "AI 기반 개발 프로세스를 성공적으로 도입하기 위해 밑바닥 인프라를 어떻게 설계해야 하는지 다룹니다.",
+  "hook_ko": "AI 기반 개발 프로세스를 성공적으로 도입하기 위해 밑바닥 인프라를 어떻게 설계해야 하는지 다룹니다.",
+  "hook_en": "Learn how to design foundational infrastructure for a successful AI-driven software development lifecycle.",
+  "hook_zh": "探讨如何为成功引入AI驱动的软件开发生命周期设计底层基础设施。",
+  "description_en": "Learn how to design foundational infrastructure for a successful AI-driven software development lifecycle.",
+  "description_zh": "探讨如何为成功引入AI驱动的软件开发生命周期设计底层基础设施。"
 }

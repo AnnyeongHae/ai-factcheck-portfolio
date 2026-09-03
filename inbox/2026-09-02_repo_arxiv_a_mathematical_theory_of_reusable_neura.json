@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_a_mathematical_theory_of_reusable_neura",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "신경망 압축 및 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Neural Network Compression",
+      "Reusable Neural Bases",
+      "Mathematical Theory"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "네트워크 압축을 위한 재사용 가능 신경망 기저의 수학적 이론",
+        "hook": "대형 AI 모델의 학습 및 추론 메모리 병목 현상을 해결하는 재사용 가능 신경망 기저 이론을 만나보세요.",
+        "key_takeaways": [
+          "대형 AI 모델의 메모리 비용 및 병목 현상 완화",
+          "재사용 가능한 신경망 기저(Neural Bases) 도입",
+          "학습 및 추론 효율성을 높이는 네트워크 압축 이론"
+        ]
+      },
+      "en": {
+        "title": "A Mathematical Theory of Reusable Neural Bases for Network Compression",
+        "hook": "Overcome memory bottlenecks in large AI models with a novel mathematical theory for network compression.",
+        "key_takeaways": [
+          "Mitigates memory bottlenecks in training and inference",
+          "Introduces reusable neural bases for efficient representation",
+          "Provides a solid mathematical foundation for network compression"
+        ]
+      },
+      "zh": {
+        "title": "用于网络压缩的可复用神经网络基的数学理论",
+        "hook": "通过新颖的网络压缩数学理论，有效解决大型AI模型训练与推理中的内存瓶颈。",
+        "key_takeaways": [
+          "缓解训练和推理过程中的内存成本瓶颈",
+          "引入可复用的神经网络基（Neural Bases）",
+          "为网络压缩提供坚实的数学理论基础"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:27:21.950572+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Neural Network Compression",
+    "Reusable Neural Bases",
+    "Mathematical Theory"
+  ],
+  "title_ko": "네트워크 압축을 위한 재사용 가능 신경망 기저의 수학적 이론",
+  "title_en": "A Mathematical Theory of Reusable Neural Bases for Network Compression",
+  "title_zh": "用于网络压缩的可复用神经网络基的数学理论",
+  "hook": "대형 AI 모델의 학습 및 추론 메모리 병목 현상을 해결하는 재사용 가능 신경망 기저 이론을 만나보세요.",
+  "hook_ko": "대형 AI 모델의 학습 및 추론 메모리 병목 현상을 해결하는 재사용 가능 신경망 기저 이론을 만나보세요.",
+  "hook_en": "Overcome memory bottlenecks in large AI models with a novel mathematical theory for network compression.",
+  "hook_zh": "通过新颖的网络压缩数学理论，有效解决大型AI模型训练与推理中的内存瓶颈。",
+  "description_ko": "대형 AI 모델의 학습 및 추론 메모리 병목 현상을 해결하는 재사용 가능 신경망 기저 이론을 만나보세요.",
+  "description_en": "Overcome memory bottlenecks in large AI models with a novel mathematical theory for network compression.",
+  "description_zh": "通过新颖的网络压缩数学理论，有效解决大型AI模型训练与推理中的内存瓶颈。"
 }

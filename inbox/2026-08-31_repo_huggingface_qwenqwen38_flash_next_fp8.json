@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8-Flash-Next Family",
+  "model_family": "Qwen-3.8",
   "detected_formats": [
     "FP8/AWQ"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: Qwen/Qwen3.8-Flash-Next-FP8",
-  "description_ko": "Trending Score: 158, Downloads: 76935, Pipeline: image-text-to-text",
+  "category_type": "MODEL",
+  "title_ko": "HuggingFace: Qwen/Qwen3.8-Flash-Next-FP8 출시",
+  "description_ko": "FP8 양자화가 적용된 Qwen3.8 멀티모달 플래시 모델로 추론 속도를 극대화하세요.",
   "variant_role": "⚡ GPU 전용 고속 양자화 (FP8/AWQ)",
   "creator": "Qwen Alibaba",
   "metric_tracking": {
@@ -44,5 +44,68 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_qwenqwen38_flash_next_fp8",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Qwen-3.8",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Qwen",
+      "FP8",
+      "Multimodal",
+      "Flash Inference"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "HuggingFace: Qwen/Qwen3.8-Flash-Next-FP8 출시",
+        "hook": "FP8 양자화가 적용된 Qwen3.8 멀티모달 플래시 모델로 추론 속도를 극대화하세요.",
+        "key_takeaways": [
+          "FP8 정밀도로 메모리 사용량 대폭 절감",
+          "이미지-텍스트 동시 처리(image-text-to-text) 파이프라인 지원",
+          "고성능 서비스 환경을 위한 최적화된 가중치 제공"
+        ]
+      },
+      "en": {
+        "title": "HuggingFace: Qwen/Qwen3.8-Flash-Next-FP8 Released",
+        "hook": "Maximize inference throughput with the FP8 quantized Qwen3.8 multimodal flash model.",
+        "key_takeaways": [
+          "Significant memory reduction via FP8 precision",
+          "Supports image-text-to-text pipeline for multimodal tasks",
+          "Optimized weights tailored for high-performance production environments"
+        ]
+      },
+      "zh": {
+        "title": "HuggingFace: Qwen/Qwen3.8-Flash-Next-FP8 发布",
+        "hook": "利用应用FP8量化的Qwen3.8多模态闪电模型，将推理性能推向极致。",
+        "key_takeaways": [
+          "通过FP8精度显著降低内存占用",
+          "支持图文互传（image-text-to-text）处理管道",
+          "为高性能生产环境提供深度优化的模型权重"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:32:58.962243+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Qwen",
+    "FP8",
+    "Multimodal",
+    "Flash Inference"
+  ],
+  "title_en": "HuggingFace: Qwen/Qwen3.8-Flash-Next-FP8 Released",
+  "title_zh": "HuggingFace: Qwen/Qwen3.8-Flash-Next-FP8 发布",
+  "hook": "FP8 양자화가 적용된 Qwen3.8 멀티모달 플래시 모델로 추론 속도를 극대화하세요.",
+  "hook_ko": "FP8 양자화가 적용된 Qwen3.8 멀티모달 플래시 모델로 추론 속도를 극대화하세요.",
+  "hook_en": "Maximize inference throughput with the FP8 quantized Qwen3.8 multimodal flash model.",
+  "hook_zh": "利用应用FP8量化的Qwen3.8多模态闪电模型，将推理性能推向极致。",
+  "description_en": "Maximize inference throughput with the FP8 quantized Qwen3.8 multimodal flash model.",
+  "description_zh": "利用应用FP8量化的Qwen3.8多模态闪电模型，将推理性能推向极致。"
 }

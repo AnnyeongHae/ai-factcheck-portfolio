@@ -7,7 +7,7 @@
   "source_platform": "ArXiv Preprint",
   "source_url": "http://arxiv.org/abs/2609.01588v1",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "AGENT",
   "description": "Abstract: Writing involves diverse cognitive activities, from ideation to revision, and writers' needs vary across individuals and moments. Proactive AI promises to provide the right support at the right time, ...",
   "viral_metric": "ArXiv Primary Paper",
   "metric_tracking": {
@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-02_repo_arxiv_designing_proactive_thought_partners_fo",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "AI 작문 보조 및 에이전트",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Proactive AI",
+      "Thought Partner",
+      "Writing Assistant"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "작문을 위한 능동적 사고 파트너 설계",
+        "hook": "단순 응답을 넘어 작가와 상호작용하며 적시에 도움을 주는 능동적 AI 파트너 설계 방법론을 확인하세요.",
+        "key_takeaways": [
+          "아이디어 구상부터 수정까지 작문의 전 과정 지원",
+          "사용자의 필요와 문맥에 맞추어 개입하는 능동적 AI 아키텍처",
+          "AI와 인간 작가 간의 생산적 협업 모델 제시"
+        ]
+      },
+      "en": {
+        "title": "Designing Proactive Thought Partners for Writing",
+        "hook": "Discover how proactive AI can act as a dynamic thought partner to support writers across all cognitive stages.",
+        "key_takeaways": [
+          "Supports diverse cognitive activities from ideation to revision",
+          "Proactive AI architecture that provides the right support at the right time",
+          "Enhances collaborative writing experiences between humans and AI"
+        ]
+      },
+      "zh": {
+        "title": "设计面向写作的主动式思维伙伴",
+        "hook": "了解主动式AI如何成为动态思维伙伴，在写作的全过程提供恰到好处的协助。",
+        "key_takeaways": [
+          "支持从构思到修订的各种认知活动",
+          "在正确时机提供支持的主动式AI架构",
+          "提升人类与AI之间的协作写作体验"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:27:09.809078+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Proactive AI",
+    "Thought Partner",
+    "Writing Assistant"
+  ],
+  "title_ko": "작문을 위한 능동적 사고 파트너 설계",
+  "title_en": "Designing Proactive Thought Partners for Writing",
+  "title_zh": "设计面向写作的主动式思维伙伴",
+  "hook": "단순 응답을 넘어 작가와 상호작용하며 적시에 도움을 주는 능동적 AI 파트너 설계 방법론을 확인하세요.",
+  "hook_ko": "단순 응답을 넘어 작가와 상호작용하며 적시에 도움을 주는 능동적 AI 파트너 설계 방법론을 확인하세요.",
+  "hook_en": "Discover how proactive AI can act as a dynamic thought partner to support writers across all cognitive stages.",
+  "hook_zh": "了解主动式AI如何成为动态思维伙伴，在写作的全过程提供恰到好处的协助。",
+  "description_ko": "단순 응답을 넘어 작가와 상호작용하며 적시에 도움을 주는 능동적 AI 파트너 설계 방법론을 확인하세요.",
+  "description_en": "Discover how proactive AI can act as a dynamic thought partner to support writers across all cognitive stages.",
+  "description_zh": "了解主动式AI如何成为动态思维伙伴，在写作的全过程提供恰到好处的协助。"
 }

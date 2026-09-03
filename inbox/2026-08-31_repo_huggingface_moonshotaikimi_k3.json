@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "Moonshot",
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "HuggingFace: moonshotai/Kimi-K3",
-  "description_ko": "Trending Score: 116, Downloads: 2794721, Pipeline: image-text-to-text",
+  "category_type": "MODEL",
+  "title_ko": "moonshotai/Kimi-K3 멀티모달 모델 공개",
+  "description_ko": "엄청난 다운로드와 좋아요를 기록 중인 Kimi-K3 비전-텍스트 모델의 성능을 직접 테스트해보세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -44,5 +44,68 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_moonshotaikimi_k3",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Moonshot",
+    "category": "멀티모달 비전 모델",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Moonshot",
+      "Kimi-K3",
+      "Image-Text-to-Text",
+      "Hugging Face"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "moonshotai/Kimi-K3 멀티모달 모델 공개",
+        "hook": "엄청난 다운로드와 좋아요를 기록 중인 Kimi-K3 비전-텍스트 모델의 성능을 직접 테스트해보세요.",
+        "key_takeaways": [
+          "Moonshot AI의 최신 Kimi-K3 멀티모달 아키텍처",
+          "압도적인 다운로드 수와 커뮤니티 검증 완료",
+          "이미지와 텍스트를 동시에 처리하는 강력한 이미지-텍스트 파이프라인"
+        ]
+      },
+      "en": {
+        "title": "moonshotai/Kimi-K3 Multimodal Model Release",
+        "hook": "Explore the trending Kimi-K3 vision-language model boasting massive community adoption and downloads.",
+        "key_takeaways": [
+          "Latest Kimi-K3 multimodal architecture by Moonshot AI",
+          "Extremely high download count and community validation",
+          "Powerful image-text pipeline for complex cross-modal tasks"
+        ]
+      },
+      "zh": {
+        "title": "moonshotai/Kimi-K3 多模态模型发布",
+        "hook": "探索备受瞩目的 Kimi-K3 视觉语言模型，体验极高下载量与社区验证的强大性能。",
+        "key_takeaways": [
+          "月之暗面（Moonshot AI）最新的 Kimi-K3 多模态架构",
+          "极高的下载量与广泛的社区认可度",
+          "强大的图文处理能力，支持跨模态复杂任务"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:33:11.837824+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Moonshot",
+    "Kimi-K3",
+    "Image-Text-to-Text",
+    "Hugging Face"
+  ],
+  "title_en": "moonshotai/Kimi-K3 Multimodal Model Release",
+  "title_zh": "moonshotai/Kimi-K3 多模态模型发布",
+  "hook": "엄청난 다운로드와 좋아요를 기록 중인 Kimi-K3 비전-텍스트 모델의 성능을 직접 테스트해보세요.",
+  "hook_ko": "엄청난 다운로드와 좋아요를 기록 중인 Kimi-K3 비전-텍스트 모델의 성능을 직접 테스트해보세요.",
+  "hook_en": "Explore the trending Kimi-K3 vision-language model boasting massive community adoption and downloads.",
+  "hook_zh": "探索备受瞩目的 Kimi-K3 视觉语言模型，体验极高下载量与社区验证的强大性能。",
+  "description_en": "Explore the trending Kimi-K3 vision-language model boasting massive community adoption and downloads.",
+  "description_zh": "探索备受瞩目的 Kimi-K3 视觉语言模型，体验极高下载量与社区验证的强大性能。"
 }

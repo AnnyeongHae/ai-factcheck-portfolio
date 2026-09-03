@@ -18,13 +18,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "Standalone / Novel",
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "tencent/Hy4-preview",
-  "description_ko": "Trending score: 323, downloads: 2123",
+  "category_type": "MODEL",
+  "title_ko": "텐센트, Hy4-preview 텍스트 생성 모델 프리뷰 공개",
+  "description_ko": "텐센트의 최신 텍스트 생성 모델 프리뷰를 통해 새로운 아키텍처의 성능을 미리 체험해보세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -44,5 +44,66 @@
     "is_spiking": true
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_huggingface_trending_tencenthy4_preview",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Standalone",
+    "category": "텍스트 생성",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Tencent",
+      "Hy4-preview",
+      "Text Generation"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "텐센트, Hy4-preview 텍스트 생성 모델 프리뷰 공개",
+        "hook": "텐센트의 최신 텍스트 생성 모델 프리뷰를 통해 새로운 아키텍처의 성능을 미리 체험해보세요.",
+        "key_takeaways": [
+          "텐센트가 개발한 최신 Hy4-preview 텍스트 생성 모델",
+          "높은 트렌딩 점수와 함께 학계 및 업계의 큰 주목",
+          "다양한 자연어 처리 태스크에서의 잠재력 확인 가능"
+        ]
+      },
+      "en": {
+        "title": "Tencent Releases Hy4-preview Text Generation Model",
+        "hook": "Preview Tencent's latest text generation model and explore its cutting-edge architecture.",
+        "key_takeaways": [
+          "Latest Hy4-preview text generation model developed by Tencent",
+          "Gaining significant attention from the AI community with high trending scores",
+          "Potential for robust performance across various NLP tasks"
+        ]
+      },
+      "zh": {
+        "title": "腾讯发布 Hy4-preview 文本生成模型预览版",
+        "hook": "抢先体验腾讯最新文本生成模型，探索前沿架构的实际表现。",
+        "key_takeaways": [
+          "腾讯开发的最新 Hy4-preview 文本生成模型",
+          "凭借亮眼的热度指数备受AI社区瞩目",
+          "展现出在多类自然语言处理任务中的强大潜力"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:32:47.287910+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Tencent",
+    "Hy4-preview",
+    "Text Generation"
+  ],
+  "title_en": "Tencent Releases Hy4-preview Text Generation Model",
+  "title_zh": "腾讯发布 Hy4-preview 文本生成模型预览版",
+  "hook": "텐센트의 최신 텍스트 생성 모델 프리뷰를 통해 새로운 아키텍처의 성능을 미리 체험해보세요.",
+  "hook_ko": "텐센트의 최신 텍스트 생성 모델 프리뷰를 통해 새로운 아키텍처의 성능을 미리 체험해보세요.",
+  "hook_en": "Preview Tencent's latest text generation model and explore its cutting-edge architecture.",
+  "hook_zh": "抢先体验腾讯最新文本生成模型，探索前沿架构的实际表现。",
+  "description_en": "Preview Tencent's latest text generation model and explore its cutting-edge architecture.",
+  "description_zh": "抢先体验腾讯最新文本生成模型，探索前沿架构的实际表现。"
 }

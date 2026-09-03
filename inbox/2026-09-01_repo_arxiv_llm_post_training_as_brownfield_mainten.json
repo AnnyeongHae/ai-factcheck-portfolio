@@ -28,5 +28,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_llm_post_training_as_brownfield_mainten",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 사후 학습 엔지니어링",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Post-Training",
+      "Brownfield Maintenance",
+      "Dataware Engineering"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "브라운필드 유지보수 관점에서의 LLM 사후 학습: 데이터웨어 엔지니어링의 산업적 시각",
+        "hook": "이미 배포된 모델을 한정된 컴퓨팅 자원 속에서 성능 저하 없이 타겟 개선하는 실전 MLOps 전략을 확인하세요.",
+        "key_takeaways": [
+          "산업 현장의 LLM 사후 학습을 브라운필드 유지보수 관점으로 정의",
+          "고정된 컴퓨팅 및 데이터 믹스 예산 내에서 타겟 개선 달성",
+          "기존 모델 성능 퇴행(Regression) 방지 전략"
+        ]
+      },
+      "en": {
+        "title": "LLM Post-Training as Brownfield Maintenance: An Industrial Perspective",
+        "hook": "Learn practical MLOps strategies for targeted model improvements under fixed compute and budget constraints.",
+        "key_takeaways": [
+          "Frames industrial post-training as brownfield maintenance",
+          "Optimizes updates within fixed compute and data mixture budgets",
+          "Prevents regression on previously deployed checkpoints"
+        ]
+      },
+      "zh": {
+        "title": "作为棕地维护的LLM后训练：数据仓库工程的工业视角",
+        "hook": "探讨如何在固定算力和预算限制下，对已部署的大模型进行无退化的精准迭代维护。",
+        "key_takeaways": [
+          "将工业后训练界定为棕地维护模式",
+          "在固定算力与数据配比预算内实现目标改进",
+          "防止已有模型检查点发生性能退化"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:44.456164+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Post-Training",
+    "Brownfield Maintenance",
+    "Dataware Engineering"
+  ],
+  "title_ko": "브라운필드 유지보수 관점에서의 LLM 사후 학습: 데이터웨어 엔지니어링의 산업적 시각",
+  "title_en": "LLM Post-Training as Brownfield Maintenance: An Industrial Perspective",
+  "title_zh": "作为棕地维护的LLM后训练：数据仓库工程的工业视角",
+  "hook": "이미 배포된 모델을 한정된 컴퓨팅 자원 속에서 성능 저하 없이 타겟 개선하는 실전 MLOps 전략을 확인하세요.",
+  "hook_ko": "이미 배포된 모델을 한정된 컴퓨팅 자원 속에서 성능 저하 없이 타겟 개선하는 실전 MLOps 전략을 확인하세요.",
+  "hook_en": "Learn practical MLOps strategies for targeted model improvements under fixed compute and budget constraints.",
+  "hook_zh": "探讨如何在固定算力和预算限制下，对已部署的大模型进行无退化的精准迭代维护。",
+  "description_ko": "이미 배포된 모델을 한정된 컴퓨팅 자원 속에서 성능 저하 없이 타겟 개선하는 실전 MLOps 전략을 확인하세요.",
+  "description_en": "Learn practical MLOps strategies for targeted model improvements under fixed compute and budget constraints.",
+  "description_zh": "探讨如何在固定算力和预算限制下，对已部署的大模型进行无退化的精准迭代维护。",
+  "category_type": "TECH"
 }

@@ -28,5 +28,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_papergym_rubric_centered_evolution_for_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 과학자 및 연구 계획 생성",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "PaperGym",
+      "Research-Plan Generation",
+      "Reinforcement Learning"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "PaperGym: 연구 계획 생성을 위한 루브릭 중심의 진화 알고리즘",
+        "hook": "강화학습 환경이 부족했던 AI 연구 계획 생성 분야에 정량적 평가 기준(루브릭)을 도입한 혁신적인 프레임워크입니다.",
+        "key_takeaways": [
+          "검증 가능한 정답이 없는 연구 계획 생성에 루브릭 기반 평가 환경 제공",
+          "강화학습을 위한 비평가(critic)와 작업(task) 쌍의 환경 구축",
+          "AI 과학자의 핵심 역량인 연구 계획 수립 능력 고도화"
+        ]
+      },
+      "en": {
+        "title": "PaperGym: Rubric-Centered Evolution for Research-Plan Generation",
+        "hook": "Explore how PaperGym introduces a critic-paired RL environment to revolutionize AI-driven research planning.",
+        "key_takeaways": [
+          "Addresses the lack of verifiable environments for AI research planning",
+          "Utilizes rubric-centered evolution to guide research-plan generation",
+          "Empowers reinforcement learning agents with structured evaluation critics"
+        ]
+      },
+      "zh": {
+        "title": "PaperGym：面向研究计划生成的以评分标准为中心的进化框架",
+        "hook": "为缺乏可验证环境的AI研究计划生成任务引入了基于评分标准的强化学习环境，极具前瞻性。",
+        "key_takeaways": [
+          "解决了AI研究计划生成缺乏可验证标准与强化学习环境的痛点",
+          "采用以评分标准(Rubric)为中心的进化机制指导研究规划",
+          "为构建自主AI科学家铺平了道路"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:32.545300+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "PaperGym",
+    "Research-Plan Generation",
+    "Reinforcement Learning"
+  ],
+  "title_ko": "PaperGym: 연구 계획 생성을 위한 루브릭 중심의 진화 알고리즘",
+  "title_en": "PaperGym: Rubric-Centered Evolution for Research-Plan Generation",
+  "title_zh": "PaperGym：面向研究计划生成的以评分标准为中心的进化框架",
+  "hook": "강화학습 환경이 부족했던 AI 연구 계획 생성 분야에 정량적 평가 기준(루브릭)을 도입한 혁신적인 프레임워크입니다.",
+  "hook_ko": "강화학습 환경이 부족했던 AI 연구 계획 생성 분야에 정량적 평가 기준(루브릭)을 도입한 혁신적인 프레임워크입니다.",
+  "hook_en": "Explore how PaperGym introduces a critic-paired RL environment to revolutionize AI-driven research planning.",
+  "hook_zh": "为缺乏可验证环境的AI研究计划生成任务引入了基于评分标准的强化学习环境，极具前瞻性。",
+  "description_ko": "강화학습 환경이 부족했던 AI 연구 계획 생성 분야에 정량적 평가 기준(루브릭)을 도입한 혁신적인 프레임워크입니다.",
+  "description_en": "Explore how PaperGym introduces a critic-paired RL environment to revolutionize AI-driven research planning.",
+  "description_zh": "为缺乏可验证环境的AI研究计划生成任务引入了基于评分标准的强化学习环境，极具前瞻性。",
+  "category_type": "TECH"
 }

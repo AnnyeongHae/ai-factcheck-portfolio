@@ -17,13 +17,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Wan-2.x Video Generation Family",
+  "model_family": "Standalone / Novel",
   "detected_formats": [
     "Interactive Web Demo"
   ],
-  "category_type": "TECH",
-  "title_ko": "HF Space: Saravutw/WAN2.2_I2V_LIGHTNING_4-8step_custom",
-  "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 249 | Live URL: https://huggingface.co/spaces/Saravutw/WAN2.2_I2V_LIGHTNING_4-8step_custom",
+  "category_type": "MODEL",
+  "title_ko": "WAN2.2 I2V 라이트닝 4-8스텝 초고속 비디오 생성 데모",
+  "description_ko": "단 4~8스텝만에 고품질 비디오를 생성하는 WAN2.2 I2V Lightning 모델의 속도 혁신을 경험하세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_hf_space_saravutwwan22_i2v_lightning_4_8step_",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Standalone",
+    "category": "영상 제작 및 비디오 생성",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "WAN2.2",
+      "I2V-Lightning",
+      "Video Generation"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "WAN2.2 I2V 라이트닝 4-8스텝 초고속 비디오 생성 데모",
+        "hook": "단 4~8스텝만에 고품질 비디오를 생성하는 WAN2.2 I2V Lightning 모델의 속도 혁신을 경험하세요.",
+        "key_takeaways": [
+          "WAN2.2 기반 4~8스텝 고속 이미지 투 비디오(I2V) 생성",
+          "추론 시간을 극적으로 단축한 라이트닝 최적화 적용",
+          "웹 인터페이스를 통한 실시간 비디오 생성 테스트"
+        ]
+      },
+      "en": {
+        "title": "WAN2.2 I2V Lightning 4-8 Step Ultra-Fast Video Generation Demo",
+        "hook": "Experience the speed revolution of the WAN2.2 I2V Lightning model, generating high-quality video in just 4-8 steps.",
+        "key_takeaways": [
+          "Ultra-fast 4 to 8-step Image-to-Video (I2V) generation powered by WAN2.2",
+          "Lightning optimization that dramatically reduces inference time",
+          "Real-time video generation testing through a web interface"
+        ]
+      },
+      "zh": {
+        "title": "WAN2.2 I2V Lightning 4-8步极速视频生成演示",
+        "hook": "体验 WAN2.2 I2V Lightning 模型的速度革命，仅需 4-8 步即可生成高质量视频。",
+        "key_takeaways": [
+          "基于 WAN2.2 实现的 4-8 步超快速图生视频（I2V）生成",
+          "大幅缩短推理时间的 Lightning 优化技术",
+          "通过网页端接口进行实时的视频生成测试"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:34:00.366264+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "WAN2.2",
+    "I2V-Lightning",
+    "Video Generation"
+  ],
+  "title_en": "WAN2.2 I2V Lightning 4-8 Step Ultra-Fast Video Generation Demo",
+  "title_zh": "WAN2.2 I2V Lightning 4-8步极速视频生成演示",
+  "hook": "단 4~8스텝만에 고품질 비디오를 생성하는 WAN2.2 I2V Lightning 모델의 속도 혁신을 경험하세요.",
+  "hook_ko": "단 4~8스텝만에 고품질 비디오를 생성하는 WAN2.2 I2V Lightning 모델의 속도 혁신을 경험하세요.",
+  "hook_en": "Experience the speed revolution of the WAN2.2 I2V Lightning model, generating high-quality video in just 4-8 steps.",
+  "hook_zh": "体验 WAN2.2 I2V Lightning 模型的速度革命，仅需 4-8 步即可生成高质量视频。",
+  "description_en": "Experience the speed revolution of the WAN2.2 I2V Lightning model, generating high-quality video in just 4-8 steps.",
+  "description_zh": "体验 WAN2.2 I2V Lightning 模型的速度革命，仅需 4-8 步即可生成高质量视频。"
 }

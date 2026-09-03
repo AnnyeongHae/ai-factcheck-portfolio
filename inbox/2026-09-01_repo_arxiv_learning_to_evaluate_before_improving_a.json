@@ -28,5 +28,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_arxiv_learning_to_evaluate_before_improving_a",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "자율 연구 에이전트",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Research Agents",
+      "Rubric Induction",
+      "Automatic Evaluation"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.3,
+    "multilingual": {
+      "ko": {
+        "title": "개선하기 전에 평가를 배우다: 자율 연구 에이전트를 위한 자동 루브릭 유도",
+        "hook": "자율 과학 연구 에이전트의 개방형 워크플로우 성능을 평가하고 개선하기 위한 자동 평가 기준 생성법을 확인하세요.",
+        "key_takeaways": [
+          "자율 과학 연구 에이전트를 위한 자동 루브릭(평가 기준) 유도 기법",
+          "문헌 검토, 실험, 보고서 생성 등 엔드투엔드 워크플로우 지원",
+          "개방형(Open-ended) 과제에서의 평가 자동화 및 품질 향상"
+        ]
+      },
+      "en": {
+        "title": "Learning to Evaluate Before Improving: Automatic Rubric Induction for Agents",
+        "hook": "Enhance autonomous research agents with automatic rubric induction for robust evaluation and improvement.",
+        "key_takeaways": [
+          "Proposes automatic rubric induction for scientific research agents",
+          "Supports end-to-end scientific workflows like experiments and reports",
+          "Addresses evaluation bottlenecks in open-ended agentic tasks"
+        ]
+      },
+      "zh": {
+        "title": "先评估后改进：面向自主研究智能体的自动评分标准归纳",
+        "hook": "为自主科学研究智能体引入自动评分标准（Rubric）归纳方法，攻克开放式任务评估难题。",
+        "key_takeaways": [
+          "提出面向科学研究智能体的自动评分标准归纳技术",
+          "支持文献综述、实验和报告生成等端到端工作流",
+          "解决开放式智能体任务中的评估瓶颈"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:30:44.456521+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Research Agents",
+    "Rubric Induction",
+    "Automatic Evaluation"
+  ],
+  "title_ko": "개선하기 전에 평가를 배우다: 자율 연구 에이전트를 위한 자동 루브릭 유도",
+  "title_en": "Learning to Evaluate Before Improving: Automatic Rubric Induction for Agents",
+  "title_zh": "先评估后改进：面向自主研究智能体的自动评分标准归纳",
+  "hook": "자율 과학 연구 에이전트의 개방형 워크플로우 성능을 평가하고 개선하기 위한 자동 평가 기준 생성법을 확인하세요.",
+  "hook_ko": "자율 과학 연구 에이전트의 개방형 워크플로우 성능을 평가하고 개선하기 위한 자동 평가 기준 생성법을 확인하세요.",
+  "hook_en": "Enhance autonomous research agents with automatic rubric induction for robust evaluation and improvement.",
+  "hook_zh": "为自主科学研究智能体引入自动评分标准（Rubric）归纳方法，攻克开放式任务评估难题。",
+  "description_ko": "자율 과학 연구 에이전트의 개방형 워크플로우 성능을 평가하고 개선하기 위한 자동 평가 기준 생성법을 확인하세요.",
+  "description_en": "Enhance autonomous research agents with automatic rubric induction for robust evaluation and improvement.",
+  "description_zh": "为自主科学研究智能体引入自动评分标准（Rubric）归纳方法，攻克开放式任务评估难题。",
+  "category_type": "AGENT"
 }

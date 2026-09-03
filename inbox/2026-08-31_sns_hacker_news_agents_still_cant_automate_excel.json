@@ -16,8 +16,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "NEWS",
-  "title_ko": "Agents still can't automate Excel",
-  "description_ko": "해커뉴스에서 8점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
+  "title_ko": "AI 에이전트가 여전히 엑셀(Excel)을 완벽히 자동화하지 못하는 이유",
+  "description_ko": "복잡한 스프레드시트 자동화 과정에서 AI 에이전트가 직면한 실무적 난제들을 분석합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -40,5 +40,66 @@
   "updated_at": "2026-08-31",
   "article_url": "https://www.orcaset.com/blog/agents-still-can-t-automate-excel",
   "hn_url": "https://news.ycombinator.com/item?id=49467016",
-  "hn_id": "49467016"
+  "hn_id": "49467016",
+  "ai_enrichment": {
+    "id": "2026-08-31_sns_hacker_news_agents_still_cant_automate_excel",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "AI 에이전트 한계 분석",
+    "programming_lang": "General",
+    "root_keywords": [
+      "AI Agents",
+      "Excel Automation",
+      "Limitations"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "AI 에이전트가 여전히 엑셀(Excel)을 완벽히 자동화하지 못하는 이유",
+        "hook": "복잡한 스프레드시트 자동화 과정에서 AI 에이전트가 직면한 실무적 난제들을 분석합니다.",
+        "key_takeaways": [
+          "스프레드시트 구조의 복잡성과 문맥 이해의 한계",
+          "에이전트가 시트 내 오류를 감지하고 수정하는 과정의 어려움",
+          "실무 자동화를 위한 향후 보완 방향"
+        ]
+      },
+      "en": {
+        "title": "Why AI Agents Still Can't Automate Excel",
+        "hook": "Analyze the practical hurdles AI agents face when attempting complex spreadsheet automation.",
+        "key_takeaways": [
+          "Complexity of spreadsheet structures and context understanding limitations",
+          "Difficulty for agents in detecting and fixing formula/data errors",
+          "Future improvements needed for reliable business automation"
+        ]
+      },
+      "zh": {
+        "title": "为什么 AI 代理仍然无法完全自动化 Excel",
+        "hook": "剖析 AI 代理在处理复杂的电子表格自动化时面临的实际痛点与技术瓶颈。",
+        "key_takeaways": [
+          "电子表格结构的复杂性与上下文理解限制",
+          "代理在检测和纠正错误方面的技术难点",
+          "实现可靠业务自动化的未来改进方向"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:32:34.810656+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "AI Agents",
+    "Excel Automation",
+    "Limitations"
+  ],
+  "title_en": "Why AI Agents Still Can't Automate Excel",
+  "title_zh": "为什么 AI 代理仍然无法完全自动化 Excel",
+  "hook": "복잡한 스프레드시트 자동화 과정에서 AI 에이전트가 직면한 실무적 난제들을 분석합니다.",
+  "hook_ko": "복잡한 스프레드시트 자동화 과정에서 AI 에이전트가 직면한 실무적 난제들을 분석합니다.",
+  "hook_en": "Analyze the practical hurdles AI agents face when attempting complex spreadsheet automation.",
+  "hook_zh": "剖析 AI 代理在处理复杂的电子表格自动化时面临的实际痛点与技术瓶颈。",
+  "description_en": "Analyze the practical hurdles AI agents face when attempting complex spreadsheet automation.",
+  "description_zh": "剖析 AI 代理在处理复杂的电子表格自动化时面临的实际痛点与技术瓶颈。"
 }

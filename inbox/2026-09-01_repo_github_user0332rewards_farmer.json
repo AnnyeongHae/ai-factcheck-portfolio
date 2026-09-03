@@ -28,5 +28,69 @@
     "is_spiking": false
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-01"
+  "updated_at": "2026-09-01",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_github_user0332rewards_farmer",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "작업 자동화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Automation",
+      "MS Rewards",
+      "Scraping"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.0,
+    "multilingual": {
+      "ko": {
+        "title": "마이크로소프트 리워드 자동화 봇",
+        "hook": "유튜브 가이드를 기반으로 MS Rewards 적립 과정을 자동화하는 스크립트입니다.",
+        "key_takeaways": [
+          "MS Rewards 포인트 자동 획득",
+          "유튜브 튜토리얼 기반 구현",
+          "웹 자동화 및 스크립팅 예제"
+        ]
+      },
+      "en": {
+        "title": "Automated Reward Farming Tool for MS Rewards",
+        "hook": "Automate your MS Rewards point-earning routine based on community video guides.",
+        "key_takeaways": [
+          "Automates MS Rewards point collection",
+          "Based on community tutorial guidelines",
+          "Useful example of web automation scripting"
+        ]
+      },
+      "zh": {
+        "title": "微软积分（MS Rewards）自动化获取工具",
+        "hook": "根据社区视频教程构建的MS Rewards积分自动获取脚本。",
+        "key_takeaways": [
+          "实现微软积分自动收集",
+          "基于社区教程指南构建",
+          "网页自动化脚本的参考示例"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:29:53.224834+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Automation",
+    "MS Rewards",
+    "Scraping"
+  ],
+  "title_ko": "마이크로소프트 리워드 자동화 봇",
+  "title_en": "Automated Reward Farming Tool for MS Rewards",
+  "title_zh": "微软积分（MS Rewards）自动化获取工具",
+  "hook": "유튜브 가이드를 기반으로 MS Rewards 적립 과정을 자동화하는 스크립트입니다.",
+  "hook_ko": "유튜브 가이드를 기반으로 MS Rewards 적립 과정을 자동화하는 스크립트입니다.",
+  "hook_en": "Automate your MS Rewards point-earning routine based on community video guides.",
+  "hook_zh": "根据社区视频教程构建的MS Rewards积分自动获取脚本。",
+  "description_ko": "유튜브 가이드를 기반으로 MS Rewards 적립 과정을 자동화하는 스크립트입니다.",
+  "description_en": "Automate your MS Rewards point-earning routine based on community video guides.",
+  "description_zh": "根据社区视频教程构建的MS Rewards积分自动获取脚本。",
+  "category_type": "TECH"
 }
