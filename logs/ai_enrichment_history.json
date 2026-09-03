@@ -671,5 +671,162 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260903_041441",
+    "timestamp": "2026-09-03T04:14:41.398178+00:00",
+    "total_candidates": 24,
+    "requested_limit": 15,
+    "processed_count": 15,
+    "success_count": 15,
+    "models_used_summary": {
+      "gemini-flash-lite-latest": 15
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.79,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_sns_hacker_news_creating_backup_storage_sucks",
+            "title": "Hacker News: Creating Backup Storage Sucks",
+            "title_ko": "백업 스토리지 구축은 왜 여전히 고통스러울까?",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:14:49.189695+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_원격근무가_아니라_서투른_비동기_소통이_문제다",
+            "title": "GeekNews: 원격근무가 아니라 서투른 비동기 소통이 문제다",
+            "title_ko": "원격근무가 아니라 서투른 비동기 소통이 문제다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:14:49.190086+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_show_gn_json_byte",
+            "title": "GeekNews: Show GN: JSON Byte",
+            "title_ko": "Show GN: JSON Byte - 효율적인 JSON 데이터 처리 도구",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:14:49.190351+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_huggingface_model_distilbertdistilbert_base_u",
+            "title": "HuggingFace Model: distilbert/distilbert-base-uncased",
+            "title_ko": "DistilBERT Base Uncased: 검증된 고성능 경량 NLP 모델",
+            "classification": "MODEL",
+            "model_family": "DistilBERT",
+            "enriched_at": "2026-09-03T04:14:49.190620+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_user_feedback_provides_a_unique_signal_",
+            "title": "ArXiv: User Feedback Provides a Unique Signal that LLMs Can not Detect",
+            "title_ko": "사용자 피드백은 LLM이 스스로 감지할 수 없는 독보적인 학습 시그널을 제공한다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:14:49.190875+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.97,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_untangling_the_mechanisms_of_misleading",
+            "title": "ArXiv: Untangling the Mechanisms of Misleading Context in Medical Question Answering",
+            "title_ko": "의료 QA에서 오해를 유발하는 컨텍스트의 메커니즘 분석",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:15:02.665658+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_towards_trustworthy_autonomous_robots_a",
+            "title": "ArXiv: Towards Trustworthy Autonomous Robots: An Explainable AI-Based Decision Framework",
+            "title_ko": "신뢰할 수 있는 자율 로봇을 향하여: 설명 가능한 AI 기반 결정 프레임워크",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:15:02.666019+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_shallowstream_index_shallow_then_answer",
+            "title": "ArXiv: ShallowStream: Index Shallow then Answer Deep for Streaming Video Understanding",
+            "title_ko": "ShallowStream: 실시간 비디오 이해를 위한 얕은 인덱싱 후 깊은 답변 아키텍처",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:15:02.666281+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_safeevolve_harness_policy_co_evolution_",
+            "title": "ArXiv: SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment",
+            "title_ko": "SafeEvolve: 에이전트 경험 기반 하네스-정책 동반 진화를 통한 안전성 정렬",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:15:02.666537+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_repo_to_skill_distilling_github_reposit",
+            "title": "ArXiv: Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills",
+            "title_ko": "Repo-To-Skill: GitHub 저장소를 AI4AI 스킬로 증류하기",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:15:02.666792+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.67,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_post_training_language_models_for_gold_",
+            "title": "ArXiv: Post-Training Language Models for Gold-Medal Performance in Coding Competitions",
+            "title_ko": "코딩 경진대회 금메달을 위한 언어 모델 사후 학습 전략",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:15:15.837672+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_measurement_driven_sub_network_selectio",
+            "title": "ArXiv: Measurement-Driven Sub-Network Selection for On-Premise Retrieval-Augmented Factory Agents",
+            "title_ko": "온프레미스 공장 에이전트를 위한 측정 기반 서브 네트워크 선택",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:15:15.838018+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_large_language_models_llms_for_telecom_",
+            "title": "ArXiv: Large Language Models (LLMs) for Telecom Root Cause Analysis (RCA): A Structured Reasoning Framework for Evidence-Grounded Diagnosis",
+            "title_ko": "통신 근본 원인 분석(RCA)을 위한 LLM: 증거 기반 진단 프레임워크",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:15:15.838315+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_incremental_pooled_llm_evaluation_for_c",
+            "title": "ArXiv: Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
+            "title_ko": "비용 효율적인 검색 모델 선택을 위한 증분 풀링형 LLM 평가",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:15:15.838580+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_hyperstyler_low_resource_authorship_sty",
+            "title": "ArXiv: HyperStyler: Low-resource Authorship Style Transfer via Context-aware Style Navigation and Hypernetworks",
+            "title_ko": "하이퍼스타일러: 컨텍스트 인식 스타일 내비게이션과 하이퍼네트워크 기반 저자원 작가 스타일 변환",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:15:15.838837+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -1,0 +1,96 @@
+{
+  "inbox_id": "2026-09-03_repo_arxiv_hyperstyler_low_resource_authorship_sty",
+  "harvested_date": "2026-09-03",
+  "created_at": "2026-09-03",
+  "updated_at": "2026-09-03",
+  "title": "ArXiv: HyperStyler: Low-resource Authorship Style Transfer via Context-aware Style Navigation and Hypernetworks",
+  "source_platform": "ArXiv Preprint",
+  "source_url": "http://arxiv.org/abs/2609.02772v1",
+  "type": "repo",
+  "category_type": "TECH",
+  "description": "Abstract: Low-resource authorship style transfer (LAST) aims to rewrite text into the style of an arbitrary target author using only a few reference examples while preserving the original meaning. Existing meth...",
+  "viral_metric": "ArXiv Primary Paper",
+  "metric_tracking": {
+    "initial": {
+      "value": 0,
+      "display": "ArXiv Primary Paper",
+      "recorded_at": "2026-09-03"
+    },
+    "latest": {
+      "value": 0,
+      "display": "ArXiv Primary Paper",
+      "updated_at": "2026-09-03"
+    },
+    "delta": 0,
+    "delta_display": "+0",
+    "growth_rate_pct": 0.0,
+    "is_spiking": false
+  },
+  "matched_user_domains": [
+    "일반 최신 기술 (Tech General)"
+  ],
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_hyperstyler_low_resource_authorship_sty",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "자연어 처리 및 스타일 변환",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Authorship Style Transfer",
+      "Hypernetworks",
+      "Context-aware"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
+    "multilingual": {
+      "ko": {
+        "title": "하이퍼스타일러: 컨텍스트 인식 스타일 내비게이션과 하이퍼네트워크 기반 저자원 작가 스타일 변환",
+        "hook": "소량의 레퍼런스 예제만으로 원문의 의미를 보존하면서 특정 작가의 문체로 텍스트를 재작성하는 새로운 기법입니다.",
+        "key_takeaways": [
+          "저자원 환경에서의 작가 스타일 변환(LAST) 태스크 혁신",
+          "컨텍스트 인식 스타일 내비게이션 메커니즘 도입",
+          "하이퍼네트워크(Hypernetworks)를 활용한 원문 의미 보존 기술"
+        ]
+      },
+      "en": {
+        "title": "HyperStyler: Low-resource Authorship Style Transfer via Hypernetworks",
+        "hook": "Rewrite text in any author's unique style using just a few reference examples while preserving semantic meaning.",
+        "key_takeaways": [
+          "Advancing low-resource authorship style transfer (LAST) techniques",
+          "Context-aware style navigation for precise author imitation",
+          "Preserving original semantics using advanced hypernetwork architectures"
+        ]
+      },
+      "zh": {
+        "title": "HyperStyler：基于上下文感知样式导航与超网络的低资源作者风格转换",
+        "hook": "仅需少量参考示例，即可在保持原意的前提下将文本改写为任意目标作家的文体风格。",
+        "key_takeaways": [
+          "突破低资源作者风格转换（LAST）的技术瓶颈",
+          "引入上下文感知的样式导航机制",
+          "利用超网络架构完美平衡文体模仿与语义保留"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T04:15:15.838837+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Authorship Style Transfer",
+    "Hypernetworks",
+    "Context-aware"
+  ],
+  "title_ko": "하이퍼스타일러: 컨텍스트 인식 스타일 내비게이션과 하이퍼네트워크 기반 저자원 작가 스타일 변환",
+  "title_en": "HyperStyler: Low-resource Authorship Style Transfer via Hypernetworks",
+  "title_zh": "HyperStyler：基于上下文感知样式导航与超网络的低资源作者风格转换",
+  "hook": "소량의 레퍼런스 예제만으로 원문의 의미를 보존하면서 특정 작가의 문체로 텍스트를 재작성하는 새로운 기법입니다.",
+  "hook_ko": "소량의 레퍼런스 예제만으로 원문의 의미를 보존하면서 특정 작가의 문체로 텍스트를 재작성하는 새로운 기법입니다.",
+  "hook_en": "Rewrite text in any author's unique style using just a few reference examples while preserving semantic meaning.",
+  "hook_zh": "仅需少量参考示例，即可在保持原意的前提下将文本改写为任意目标作家的文体风格。",
+  "description_ko": "소량의 레퍼런스 예제만으로 원문의 의미를 보존하면서 특정 작가의 문체로 텍스트를 재작성하는 새로운 기법입니다.",
+  "description_en": "Rewrite text in any author's unique style using just a few reference examples while preserving semantic meaning.",
+  "description_zh": "仅需少量参考示例，即可在保持原意的前提下将文本改写为任意目标作家的文体风格。"
+}
