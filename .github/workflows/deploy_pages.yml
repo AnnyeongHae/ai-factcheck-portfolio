@@ -84,12 +84,18 @@ jobs:
           python tools/build_dashboard.py
 
       - name: Commit & Push Harvested Updates to Git (if any)
+        continue-on-error: true
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add inbox/ docs/ dashboard/ logs/
-          git diff --quiet && git diff --staged --quiet || git commit -m "chore(auto-harvest): Daily multi-source trend collection & Neon DB sync"
-          git push origin main || echo "No changes to push or push completed"
+          if ! git diff --staged --quiet; then
+            git commit -m "chore(auto-harvest): Daily multi-source trend collection & Neon DB sync"
+            git pull origin main --rebase --autostash || true
+            git push origin main || echo "Push rejected or already up-to-date, proceeding to deployment."
+          else
+            echo "No staged changes to commit."
+          fi
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
