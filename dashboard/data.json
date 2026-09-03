@@ -3,8 +3,8 @@
   "total_cases": 30,
   "models_total_count": 88,
   "news_total_count": 61,
-  "inbox_total_count": 231,
-  "all_inbox_count": 387,
+  "inbox_total_count": 233,
+  "all_inbox_count": 389,
   "admin_stats": {
     "endpoints": [
       {
@@ -39,6 +39,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T06:18:54.466559",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.18
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.16
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.78
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 11.08
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.16
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.19
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.91
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.17
+          }
+        },
+        "summary": {
+          "total_fetched": 165,
+          "updated_count": 0,
+          "new_saved": 2,
+          "duplicates_skipped": 163,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T06:13:05.540711",
         "date": "2026-09-03",
@@ -1575,101 +1628,58 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T03:32:08.292634",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.12
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.08
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.93
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 22,
-            "duration_sec": 6.84
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.11
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.03
-          }
-        },
-        "summary": {
-          "total_fetched": 127,
-          "updated_count": 127,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T06:13:05.540711",
+      "timestamp": "2026-09-03T06:18:54.466559",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.15
+          "duration_sec": 0.18
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.14
+          "duration_sec": 0.16
         },
         "github": {
           "status": "SUCCESS",
-          "items_found": 0,
-          "duration_sec": 2.28
+          "items_found": 30,
+          "duration_sec": 0.78
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 24,
-          "duration_sec": 10.36
+          "items_found": 25,
+          "duration_sec": 11.08
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.36
+          "duration_sec": 0.16
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.17
+          "duration_sec": 0.19
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.44
+          "duration_sec": 0.91
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.19
+          "duration_sec": 0.17
         }
       },
       "summary": {
-        "total_fetched": 134,
+        "total_fetched": 165,
         "updated_count": 0,
-        "new_saved": 1,
-        "duplicates_skipped": 133,
+        "new_saved": 2,
+        "duplicates_skipped": 163,
         "errors": 0
       }
     }
@@ -17324,6 +17334,106 @@
       "description_zh": "剖析在AI安全审计通过后，核心开源库curl仍被爆出多个CVE漏洞的技术背景与警示。"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_show_hn_the_cheapest_gpu_cloud_h1",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Show HN: The cheapest GPU cloud – H100s at $2.04/HR, H200s at $3/HR",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49545411",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 5 pts | Comments: 0 | Show HN: The cheapest GPU cloud – H100s at $2.04/HR, H200s at $3/HR",
+      "viral_metric": "🔥 5 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49545411",
+      "article_url": "https://compute.cheap/",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_show_hn_the_cheapest_gpu_cloud_h1",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "인프라 및 GPU 클라우드",
+        "programming_lang": "General",
+        "root_keywords": [
+          "GPU Cloud",
+          "H100",
+          "H200",
+          "Cost Optimization"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "H100 시간당 $2.04, H200 $3 초저가 GPU 클라우드 서비스 등장",
+            "hook": "천문학적인 AI 모델 학습 및 추론 비용을 혁신적으로 절감하고 싶다면 주목해야 할 초저가 GPU 인프라 정보입니다.",
+            "key_takeaways": [
+              "NVIDIA H100 GPU를 시간당 $2.04의 파격적인 가격에 제공",
+              "최신 H200 GPU 역시 시간당 $3의 경쟁력 있는 비용으로 이용 가능",
+              "높은 AI 인프라 비용으로 고민하는 엔지니어와 스타트업에게 유용한 대안"
+            ]
+          },
+          "en": {
+            "title": "Show HN: The Cheapest GPU Cloud Offering H100s at $2.04/HR and H200s at $3/HR",
+            "hook": "Discover a newly announced ultra-low-cost GPU cloud infrastructure designed to dramatically slash heavy AI training and inference costs.",
+            "key_takeaways": [
+              "NVIDIA H100 GPUs available at an aggressive rate of $2.04 per hour",
+              "Latest H200 GPUs offered at just $3 per hour",
+              "An attractive cost-saving alternative for engineers and startups facing high AI workloads"
+            ]
+          },
+          "zh": {
+            "title": "Show HN：最便宜的 GPU 云服务，H100 每小时仅需 2.04 美元，H200 需 3 美元",
+            "hook": "寻找大幅降低大模型训练与推理成本方案的工程师不容错过的超低价 GPU 云基础设施。",
+            "key_takeaways": [
+              "NVIDIA H100 GPU 租赁价格低至每小时 2.04 美元",
+              "最新 H200 GPU 仅需每小时 3 美元",
+              "为面临高昂 AI 算力成本的团队提供极具吸引力的替代方案"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T06:19:12.822437+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "GPU Cloud",
+        "H100",
+        "H200",
+        "Cost Optimization"
+      ],
+      "title_ko": "H100 시간당 $2.04, H200 $3 초저가 GPU 클라우드 서비스 등장",
+      "title_en": "Show HN: The Cheapest GPU Cloud Offering H100s at $2.04/HR and H200s at $3/HR",
+      "title_zh": "Show HN：最便宜的 GPU 云服务，H100 每小时仅需 2.04 美元，H200 需 3 美元",
+      "hook": "천문학적인 AI 모델 학습 및 추론 비용을 혁신적으로 절감하고 싶다면 주목해야 할 초저가 GPU 인프라 정보입니다.",
+      "hook_ko": "천문학적인 AI 모델 학습 및 추론 비용을 혁신적으로 절감하고 싶다면 주목해야 할 초저가 GPU 인프라 정보입니다.",
+      "hook_en": "Discover a newly announced ultra-low-cost GPU cloud infrastructure designed to dramatically slash heavy AI training and inference costs.",
+      "hook_zh": "寻找大幅降低大模型训练与推理成本方案的工程师不容错过的超低价 GPU 云基础设施。",
+      "description_ko": "천문학적인 AI 모델 학습 및 추론 비용을 혁신적으로 절감하고 싶다면 주목해야 할 초저가 GPU 인프라 정보입니다.",
+      "description_en": "Discover a newly announced ultra-low-cost GPU cloud infrastructure designed to dramatically slash heavy AI training and inference costs.",
+      "description_zh": "寻找大幅降低大模型训练与推理成本方案的工程师不容错过的超低价 GPU 云基础设施。"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_show_hn_owntime_a_chess_clock_for",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -19103,6 +19213,104 @@
       "description_ko": "소프트웨어 가속 최적화와 양자 계산을 지원하는 파이썬 기반 과학 연구 에이전트 도구를 즉시 도입하세요.",
       "description_en": "Upgrade your AI agents with software-accelerated optimization, quantum computing, and verifiable execution.",
       "description_zh": "通过软件加速优化、量子计算与可验证执行，打造具备科研能力的顶尖AI代理系统。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_github_anthropicscommerce_agents",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GitHub: anthropics/commerce-agents",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/anthropics/commerce-agents",
+      "type": "repo",
+      "category_type": "AGENT",
+      "description": "Stars: 731, Forks: 115 | Reference blueprint for building shopping and merchant agents with Claude. Examples in retail, commerce, telecom, and entertainment included.",
+      "viral_metric": "★ 731 Stars",
+      "metric_tracking": {
+        "initial": {
+          "value": 731,
+          "display": "★ 731 Stars",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 731,
+          "display": "★ 731 Stars",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_github_anthropicscommerce_agents",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "웹 에이전트",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Claude",
+          "Shopping Agents",
+          "Merchant Agents",
+          "Reference Blueprint"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.8,
+        "multilingual": {
+          "ko": {
+            "title": "Anthropic 공식 쇼핑 및 커머스 에이전트 구축 레퍼런스 청사진 공개",
+            "hook": "Claude를 활용해 실제 쇼핑 및 유통, 통신 분야의 상업용 AI 에이전트를 구축하는 가장 모범적인 레퍼런스 코드를 확인하세요.",
+            "key_takeaways": [
+              "Anthropic이 직접 공개한 쇼핑 및 상거래 에이전트 설계 레퍼런스",
+              "소매, 유통, 통신, 엔터테인먼트 등 다양한 산업군의 구체적 예제 포함",
+              "Claude 기반의 고도화된 자율형 커머스 에이전트 구현 패턴 학습 가능"
+            ]
+          },
+          "en": {
+            "title": "Anthropic Commerce-Agents: Reference Blueprint for Building Shopping Agents with Claude",
+            "hook": "Explore the official reference implementation by Anthropic to build robust shopping and merchant AI agents using Claude.",
+            "key_takeaways": [
+              "Official reference blueprint for developing shopping and commerce agents using Claude",
+              "Includes practical examples across retail, commerce, telecom, and entertainment sectors",
+              "Ideal for learning advanced architectural patterns for autonomous commerce agents"
+            ]
+          },
+          "zh": {
+            "title": "Anthropic 推出 commerce-agents：基于 Claude 构建购物与商业智能体的官方参考蓝图",
+            "hook": "深入了解 Anthropic 官方开源的参考架构，学习如何利用 Claude 构建覆盖零售、电信等行业的商业智能体。",
+            "key_takeaways": [
+              "Anthropic 官方打造的购物与商业智能体开发基准参考",
+              "内含零售、电商、电信和娱乐等多个领域的真实实现示例",
+              "掌握基于 Claude 构建复杂自主商业代理的核心架构设计模式"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T06:19:12.822881+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Claude",
+        "Shopping Agents",
+        "Merchant Agents",
+        "Reference Blueprint"
+      ],
+      "title_ko": "Anthropic 공식 쇼핑 및 커머스 에이전트 구축 레퍼런스 청사진 공개",
+      "title_en": "Anthropic Commerce-Agents: Reference Blueprint for Building Shopping Agents with Claude",
+      "title_zh": "Anthropic 推出 commerce-agents：基于 Claude 构建购物与商业智能体的官方参考蓝图",
+      "hook": "Claude를 활용해 실제 쇼핑 및 유통, 통신 분야의 상업용 AI 에이전트를 구축하는 가장 모범적인 레퍼런스 코드를 확인하세요.",
+      "hook_ko": "Claude를 활용해 실제 쇼핑 및 유통, 통신 분야의 상업용 AI 에이전트를 구축하는 가장 모범적인 레퍼런스 코드를 확인하세요.",
+      "hook_en": "Explore the official reference implementation by Anthropic to build robust shopping and merchant AI agents using Claude.",
+      "hook_zh": "深入了解 Anthropic 官方开源的参考架构，学习如何利用 Claude 构建覆盖零售、电信等行业的商业智能体。",
+      "description_ko": "Claude를 활용해 실제 쇼핑 및 유통, 통신 분야의 상업용 AI 에이전트를 구축하는 가장 모범적인 레퍼런스 코드를 확인하세요.",
+      "description_en": "Explore the official reference implementation by Anthropic to build robust shopping and merchant AI agents using Claude.",
+      "description_zh": "深入了解 Anthropic 官方开源的参考架构，学习如何利用 Claude 构建覆盖零售、电信等行业的商业智能体。"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_when_persona_attributes_improve_populat",
