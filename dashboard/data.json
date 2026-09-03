@@ -9,8 +9,8 @@
   "avg_confidence": 96.2,
   "models_total_count": 111,
   "news_total_count": 97,
-  "inbox_total_count": 556,
-  "all_inbox_count": 566,
+  "inbox_total_count": 568,
+  "all_inbox_count": 578,
   "admin_stats": {
     "endpoints": [
       {
@@ -45,6 +45,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T22:52:11.727887",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.17
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 85,
+            "duration_sec": 0.36
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.95
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 12.68
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 2.9
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.23
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.92
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.24
+          }
+        },
+        "summary": {
+          "total_fetched": 259,
+          "updated_count": 1,
+          "new_saved": 12,
+          "duplicates_skipped": 246,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T20:11:22.295049",
         "date": "2026-09-03",
@@ -1581,111 +1634,58 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T07:57:53.680542",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.23
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.14
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.76
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 22,
-            "duration_sec": 10.56
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.22
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.22
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.94
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.15
-          }
-        },
-        "summary": {
-          "total_fetched": 162,
-          "updated_count": 162,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T20:11:22.295049",
+      "timestamp": "2026-09-03T22:52:11.727887",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.13
+          "duration_sec": 0.17
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 85,
-          "duration_sec": 0.26
+          "duration_sec": 0.36
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.77
+          "duration_sec": 0.95
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 10.51
+          "duration_sec": 12.68
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.49
+          "duration_sec": 2.9
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.1
+          "duration_sec": 0.23
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.18
+          "duration_sec": 0.92
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.17
+          "duration_sec": 0.24
         }
       },
       "summary": {
         "total_fetched": 259,
         "updated_count": 1,
-        "new_saved": 22,
-        "duplicates_skipped": 236,
+        "new_saved": 12,
+        "duplicates_skipped": 246,
         "errors": 0
       }
     }
@@ -1700,19 +1700,19 @@
     {
       "day_ko": "화",
       "day_en": "Tue",
-      "inbox_count": 67,
+      "inbox_count": 69,
       "verified_count": 8
     },
     {
       "day_ko": "수",
       "day_en": "Wed",
-      "inbox_count": 112,
+      "inbox_count": 115,
       "verified_count": 10
     },
     {
       "day_ko": "목",
       "day_en": "Thu",
-      "inbox_count": 216,
+      "inbox_count": 223,
       "verified_count": 6
     },
     {
@@ -1787,7 +1787,7 @@
       "month_key": "2026-09",
       "month_ko": "9월",
       "month_en": "Sep",
-      "inbox_count": 409,
+      "inbox_count": 421,
       "verified_count": 22,
       "cumulative_verified": 35
     }
@@ -32638,6 +32638,43 @@
       "article_url": "https://zed.dev/blog/agentic-xanadu"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_working_to_make_python_lazy",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T22:52:32.394338",
+      "published_at": "2026-09-01T18:44:28",
+      "created_at": "2026-09-01T18:44:28",
+      "updated_at": "2026-09-03T22:52:32.394338",
+      "title": "Hacker News: Working to Make Python Lazy",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49526210",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 16 pts | Comments: 0 | Working to Make Python Lazy",
+      "viral_metric": "🔥 16 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 16,
+          "display": "🔥 16 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 16,
+          "display": "🔥 16 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49526210",
+      "article_url": "https://iscinumpy.dev/post/flake8-lazy/"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_winter_20262027_first_forecast_su",
       "harvested_date": "2026-09-03",
       "harvested_at": "2026-09-03T18:13:50.446946",
@@ -32812,6 +32849,43 @@
       "description_zh": "了解有关邮政邮件选票系统关键安全漏洞和系统缺陷的内部举报内容。",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_which_tools_do_claude_codex_and_c",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T22:52:31.452663",
+      "published_at": "2026-09-03T21:20:34",
+      "created_at": "2026-09-03T21:20:34",
+      "updated_at": "2026-09-03T22:52:31.452663",
+      "title": "Hacker News: Which tools do Claude, Codex and Cursor choose? We measured 17k runs to find out",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49557206",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 37 pts | Comments: 9 | Which tools do Claude, Codex and Cursor choose? We measured 17k runs to find out",
+      "viral_metric": "🔥 37 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 37,
+          "display": "🔥 37 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 37,
+          "display": "🔥 37 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49557206",
+      "article_url": "https://armature.tech/blog/which-tools-coding-agents-install"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_welcome_to_the_agi_era_openai_say",
@@ -33038,8 +33112,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 83 pts | Comments: 110 | VC isn't VC anymore",
-      "viral_metric": "🔥 83 HN Points",
+      "description": "HN Score: 196 pts | Comments: 169 | VC isn't VC anymore",
+      "viral_metric": "🔥 196 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -33047,13 +33121,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 83,
-          "display": "🔥 83 HN Points",
+          "value": 196,
+          "display": "🔥 196 HN Points",
           "updated_at": "2026-09-03"
         },
-        "delta": 75,
-        "delta_display": "+75",
-        "growth_rate_pct": 937.5,
+        "delta": 188,
+        "delta_display": "+188",
+        "growth_rate_pct": 2350.0,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -34527,6 +34601,43 @@
       "article_url": "https://worldofmatthew.com/blog/bc250/"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_models_dont_go_rogue",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T22:52:32.414659",
+      "published_at": "2026-09-03T22:26:46",
+      "created_at": "2026-09-03T22:26:46",
+      "updated_at": "2026-09-03T22:52:32.414659",
+      "title": "Hacker News: Models Don't Go Rogue",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49557988",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 3 pts | Comments: 0 | Models Don't Go Rogue",
+      "viral_metric": "🔥 3 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49557988",
+      "article_url": "https://mail.cyberneticforests.com/models-dont-go-rogue/"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_microsoft_announces_change_to_xbo",
       "harvested_date": "2026-09-03",
       "harvested_at": "2026-09-03T18:13:51.560064",
@@ -34912,6 +35023,43 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49551601",
       "article_url": "https://www.ft.com/content/549f2e23-5aa2-49c7-9ea6-a9784ab7087c"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_i_dont_have_a_smartphone",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T22:52:32.478109",
+      "published_at": "2026-09-02T17:51:29",
+      "created_at": "2026-09-02T17:51:29",
+      "updated_at": "2026-09-03T22:52:32.478109",
+      "title": "Hacker News: I Don't Have a Smartphone",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49539872",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 240 pts | Comments: 247 | I Don't Have a Smartphone",
+      "viral_metric": "🔥 240 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 240,
+          "display": "🔥 240 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 240,
+          "display": "🔥 240 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49539872",
+      "article_url": "https://ploum.net/2026-09-02-i_dont_have_a_smartphone.html"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_how_to_get_a_free_arpa_domain",
@@ -35382,6 +35530,80 @@
       "description_zh": "评估 Rust RTOS 作为传统基于 C 的实时操作系统 (RTOS) 替代方案的实际可行性。",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_dutch_central_bank_moves_share_of",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T22:52:32.483544",
+      "published_at": "2026-09-02T12:55:40",
+      "created_at": "2026-09-02T12:55:40",
+      "updated_at": "2026-09-03T22:52:32.483544",
+      "title": "Hacker News: Dutch central bank moves share of gold from U.S., Canada to London",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49535526",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 237 pts | Comments: 242 | Dutch central bank moves share of gold from U.S., Canada to London",
+      "viral_metric": "🔥 237 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 237,
+          "display": "🔥 237 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 237,
+          "display": "🔥 237 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49535526",
+      "article_url": "https://nltimes.nl/2026/09/02/dutch-central-bank-moves-share-gold-us-canada-london-cites-instability"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_dextroproporphan_an_analogue_for_",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T22:52:32.409559",
+      "published_at": "2026-09-02T11:06:05",
+      "created_at": "2026-09-02T11:06:05",
+      "updated_at": "2026-09-03T22:52:32.409559",
+      "title": "Hacker News: Dextroproporphan: An Analogue for a Better Dextromethorphan",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49534573",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 16 pts | Comments: 7 | Dextroproporphan: An Analogue for a Better Dextromethorphan",
+      "viral_metric": "🔥 16 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 16,
+          "display": "🔥 16 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 16,
+          "display": "🔥 16 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49534573",
+      "article_url": "https://monfak.top/blog/posts/dextroproporphan"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_creating_backup_storage_sucks",
@@ -36030,6 +36252,43 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49521933",
       "article_url": "https://info.zcu.cz/clanek.jsp?id=9882&lang=en"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_a_pcb_business_card_with_a_batter",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T22:52:32.400348",
+      "published_at": "2026-09-01T20:46:03",
+      "created_at": "2026-09-01T20:46:03",
+      "updated_at": "2026-09-03T22:52:32.400348",
+      "title": "Hacker News: A PCB business card with a batteryless LED, powered by the phone that taps it",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49527967",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 6 pts | Comments: 0 | A PCB business card with a batteryless LED, powered by the phone that taps it",
+      "viral_metric": "🔥 6 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49527967",
+      "article_url": "https://www.kevin.md/the-business-card-that-lights-up.md/"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_a_dark_horse_enters_chinas_ai_rac",
@@ -37268,6 +37527,45 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_geeknews_qwen_38_27b_cerebras에서_초당_1500토큰으로_제",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T22:52:32.538652",
+      "published_at": "2026-09-03T22:52:32.538652",
+      "created_at": "2026-09-03T22:52:32.538652",
+      "updated_at": "2026-09-03T22:52:32.538652",
+      "title": "GeekNews: Qwen 3.8 27B, Cerebras에서 초당 1,500토큰으로 제공",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33201",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Qwen 3.8 27B, Cerebras에서 초당 1,500토큰으로 제공",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Qwen 3.8 27B, Cerebras에서 초당 1,500토큰으로 제공",
+      "description_ko": "Qwen 3.8 27B, Cerebras에서 초당 1,500토큰으로 제공",
+      "hn_url": "https://news.hada.io/topic?id=33201",
+      "article_url": "https://news.hada.io/topic?id=33201"
+    },
+    {
       "inbox_id": "2026-09-03_sns_geeknews_polars_20_프리릴리스",
       "harvested_date": "2026-09-03",
       "harvested_at": "2026-09-03T16:49:09.406945",
@@ -37407,6 +37705,45 @@
       "description_zh": "剖析当 AI 搜索引擎将 SEO 垃圾内容与批量购买指南作为信源时，对推荐质量带来的隐患。",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_openai_gpt_6_astra_공개",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T22:52:32.550654",
+      "published_at": "2026-09-03T22:52:32.550654",
+      "created_at": "2026-09-03T22:52:32.550654",
+      "updated_at": "2026-09-03T22:52:32.550654",
+      "title": "GeekNews: OpenAI, GPT-6 Astra 공개",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33199",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: OpenAI, GPT-6 Astra 공개",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "OpenAI, GPT-6 Astra 공개",
+      "description_ko": "OpenAI, GPT-6 Astra 공개",
+      "hn_url": "https://news.hada.io/topic?id=33199",
+      "article_url": "https://news.hada.io/topic?id=33199"
     },
     {
       "inbox_id": "2026-09-03_sns_geeknews_name_3단계_도메인_종료",
@@ -38541,6 +38878,84 @@
       "article_url": "https://news.hada.io/topic?id=33195"
     },
     {
+      "inbox_id": "2026-09-03_sns_geeknews_arc_agi_3에서_인간의_행동_효율성을_넘어선_openai_g",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T22:52:32.532642",
+      "published_at": "2026-09-03T22:52:32.532642",
+      "created_at": "2026-09-03T22:52:32.532642",
+      "updated_at": "2026-09-03T22:52:32.532642",
+      "title": "GeekNews: ARC-AGI-3에서 인간의 행동 효율성을 넘어선 OpenAI GPT-6 Astra",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33202",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: ARC-AGI-3에서 인간의 행동 효율성을 넘어선 OpenAI GPT-6 Astra",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "ARC-AGI-3에서 인간의 행동 효율성을 넘어선 OpenAI GPT-6 Astra",
+      "description_ko": "ARC-AGI-3에서 인간의 행동 효율성을 넘어선 OpenAI GPT-6 Astra",
+      "hn_url": "https://news.hada.io/topic?id=33202",
+      "article_url": "https://news.hada.io/topic?id=33202"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_any_human_ever_인류_역사상_살았던_1000억_명_중_",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T22:52:32.544883",
+      "published_at": "2026-09-03T22:52:32.544883",
+      "created_at": "2026-09-03T22:52:32.544883",
+      "updated_at": "2026-09-03T22:52:32.544883",
+      "title": "GeekNews: Any Human Ever - 인류 역사상 살았던 1,000억 명 중 한 사람을 무작위로 만나기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33200",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Any Human Ever - 인류 역사상 살았던 1,000억 명 중 한 사람을 무작위로 만나기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Any Human Ever - 인류 역사상 살았던 1,000억 명 중 한 사람을 무작위로 만나기",
+      "description_ko": "Any Human Ever - 인류 역사상 살았던 1,000억 명 중 한 사람을 무작위로 만나기",
+      "hn_url": "https://news.hada.io/topic?id=33200",
+      "article_url": "https://news.hada.io/topic?id=33200"
+    },
+    {
       "inbox_id": "2026-09-03_sns_geeknews_ai_시대에_가장_안전한_직업은_글쓰기일_수_있다",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -38762,6 +39177,42 @@
         "latest": {
           "value": 123,
           "display": "Trending 123 pts (❤️ 123)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_huggingface_model_openaiclip_vit_base_patch32",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T22:52:30.275935",
+      "published_at": "2026-09-03T22:52:30.275935",
+      "created_at": "2026-09-03T22:52:30.275935",
+      "updated_at": "2026-09-03T22:52:30.275935",
+      "title": "HuggingFace Model: openai/clip-vit-base-patch32",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/openai/clip-vit-base-patch32",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 120, Downloads: 19936700, Likes: 1127, Pipeline: zero-shot-image-classification",
+      "viral_metric": "Trending 120 pts (❤️ 1127)",
+      "metric_tracking": {
+        "initial": {
+          "value": 120,
+          "display": "Trending 120 pts (❤️ 1127)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 120,
+          "display": "Trending 120 pts (❤️ 1127)",
           "updated_at": "2026-09-03"
         },
         "delta": 0,
