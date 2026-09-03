@@ -729,6 +729,16 @@
         "mentions": 58,
         "desc": "Rust로 작성된 초고속 파이썬 패키지 및 가상환경·버전 단일 관리 도구 (pip 대비 100x)",
         "val": 36
+      },
+      {
+        "id": "m4_pro_local_llm",
+        "label": "🍎 M4 Pro 48GB Local LLM Server",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "tool",
+        "mentions": 48,
+        "desc": "273GB/s 대역폭과 48GB 통합 메모리 기반의 35B MoE 상시 로컬 서빙 인프라",
+        "val": 32
       }
     ],
     "links": [
@@ -1146,6 +1156,13 @@
         "label": "Replaces pip/pyenv",
         "type": "optimizes",
         "desc": "파이썬 패키징 및 가상환경 전면 고속화"
+      },
+      {
+        "source": "m4_pro_local_llm",
+        "target": "python",
+        "label": "MLX / oMLX Engine",
+        "type": "runtime",
+        "desc": "Metal 통합 메모리 가속 기반의 Python MLX 서빙"
       }
     ]
   }

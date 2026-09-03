@@ -1,10 +1,10 @@
 {
   "generated_at": "2026-09-02",
-  "total_cases": 29,
+  "total_cases": 30,
   "models_total_count": 86,
   "news_total_count": 58,
-  "inbox_total_count": 234,
-  "all_inbox_count": 384,
+  "inbox_total_count": 235,
+  "all_inbox_count": 386,
   "admin_stats": {
     "endpoints": [
       {
@@ -39,6 +39,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T04:48:25.732876",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.19
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.14
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.85
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 23,
+            "duration_sec": 16.2
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.15
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.1
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.93
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.24
+          }
+        },
+        "summary": {
+          "total_fetched": 163,
+          "updated_count": 0,
+          "new_saved": 2,
+          "duplicates_skipped": 161,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T04:23:05.996699",
         "date": "2026-09-03",
@@ -1533,58 +1586,16 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T01:48:58.243792",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.32
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.23
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 2,
-            "duration_sec": 0.85
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 9,
-            "duration_sec": 24.71
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.88
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.28
-          }
-        },
-        "summary": {
-          "total_fetched": 11,
-          "new_saved": 11,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T04:23:05.996699",
+      "timestamp": "2026-09-03T04:48:25.732876",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.24
+          "duration_sec": 0.19
         },
         "hf_spaces": {
           "status": "SUCCESS",
@@ -1594,39 +1605,39 @@
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.88
+          "duration_sec": 0.85
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 23,
-          "duration_sec": 15.72
+          "duration_sec": 16.2
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.14
+          "duration_sec": 0.15
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.09
+          "duration_sec": 0.1
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.63
+          "duration_sec": 0.93
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.25
+          "duration_sec": 0.24
         }
       },
       "summary": {
         "total_fetched": 163,
         "updated_count": 0,
-        "new_saved": 0,
-        "duplicates_skipped": 163,
+        "new_saved": 2,
+        "duplicates_skipped": 161,
         "errors": 0
       }
     }
@@ -16040,6 +16051,104 @@
       "hook_zh": "了解如何将企业内部零散的业务数据构建为AI可直接调用的上下文层。",
       "description_en": "Learn how to transform fragmented business data into an AI-ready, reusable context layer.",
       "description_zh": "了解如何将企业内部零散的业务数据构建为AI可直接调用的上下文层。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_zgzvec_grep_키워드를_넘어서는_로컬_검색_인프라",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: zg(zvec-grep) - 키워드를 넘어서는 로컬 검색 인프라",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33183",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: zg(zvec-grep) - 키워드를 넘어서는 로컬 검색 인프라",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "zg(zvec-grep): 키워드를 넘어서는 로컬 검색 인프라",
+      "description_ko": "단순 키워드 매칭을 뛰어넘어 로컬 환경에서 강력한 검색 성능을 제공하는 인프라 도구",
+      "hn_url": "https://news.hada.io/topic?id=33183",
+      "article_url": "https://news.hada.io/topic?id=33183",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_geeknews_zgzvec_grep_키워드를_넘어서는_로컬_검색_인프라",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "로컬 검색 인프라",
+        "programming_lang": "General",
+        "root_keywords": [
+          "zvec-grep",
+          "로컬 검색",
+          "텍스트 검색"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "zg(zvec-grep): 키워드를 넘어서는 로컬 검색 인프라",
+            "hook": "단순 키워드 매칭을 뛰어넘어 로컬 환경에서 강력한 검색 성능을 제공하는 인프라 도구",
+            "key_takeaways": [
+              "전통적인 grep을 보완하는 차세대 로컬 검색 도구",
+              "키워드 기반 검색의 한계를 극복한 임베딩/시맨틱 접근",
+              "개발자 로컬 환경에서 효율적으로 구동되는 검색 인프라"
+            ]
+          },
+          "en": {
+            "title": "zg (zvec-grep): Local Search Infrastructure Beyond Keywords",
+            "hook": "A powerful local search infrastructure tool that goes beyond simple keyword matching.",
+            "key_takeaways": [
+              "Next-generation local search tool complementing traditional grep",
+              "Semantic and embedding-based approach overcoming keyword search limits",
+              "Efficiently runs search infrastructure in developer local environments"
+            ]
+          },
+          "zh": {
+            "title": "zg(zvec-grep)：超越关键词的本地搜索基础设施",
+            "hook": "超越简单关键词匹配、在本地环境中提供强大搜索性能的基础设施工具。",
+            "key_takeaways": [
+              "补充传统 grep 的新一代本地搜索工具",
+              "克服关键词搜索限制的嵌入/语义方法",
+              "在开发者本地环境中高效运行的搜索基础设施"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:48:48.400217+00:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "zvec-grep",
+        "로컬 검색",
+        "텍스트 검색"
+      ],
+      "title_en": "zg (zvec-grep): Local Search Infrastructure Beyond Keywords",
+      "title_zh": "zg(zvec-grep)：超越关键词的本地搜索基础设施",
+      "hook": "단순 키워드 매칭을 뛰어넘어 로컬 환경에서 강력한 검색 성능을 제공하는 인프라 도구",
+      "hook_ko": "단순 키워드 매칭을 뛰어넘어 로컬 환경에서 강력한 검색 성능을 제공하는 인프라 도구",
+      "hook_en": "A powerful local search infrastructure tool that goes beyond simple keyword matching.",
+      "hook_zh": "超越简单关键词匹配、在本地环境中提供强大搜索性能的基础设施工具。",
+      "description_en": "A powerful local search infrastructure tool that goes beyond simple keyword matching.",
+      "description_zh": "超越简单关键词匹配、在本地环境中提供强大搜索性能的基础设施工具。"
     },
     {
       "inbox_id": "2026-09-03_sns_geeknews_vorssaint_여러_mac_유틸리티를_하나로_모은_메뉴_막대_",
@@ -39318,6 +39427,81 @@
       }
     },
     {
+      "investigation_id": "2026-09-03_sns_geeknews_m4_pro_mac_mini_local_llm",
+      "published_date": "2026-09-03",
+      "curation_mode": "직접 큐레이션",
+      "discovery_motivation": "GeekNews 한국 개발자 큐레이션 1위 토픽. M4 Pro 48GB 기반 고성능 개인 로컬 LLM 서버 구축의 공학적 타당성과 가성비 실측.",
+      "target_workflow": "개인 AI 인프라 구축, 온디바이스 에이전트 서빙, 클라우드 API 비용 절감 파이프라인",
+      "verdict": "VERIFIED_TRUE",
+      "confidence_score": 96.5,
+      "confidence_reasoning": "M4 Pro의 273GB/s 통합 메모리 대역폭과 MoE 35B 활성 파라미터 구조에서 실측 34 tok/s는 이론적 하드웨어 상한선에 정확히 부합하며, 48GB UMA를 활용한 상시 사설망 서빙 아키텍처가 공학적으로 완전 검증됨.",
+      "title": "M4 Pro Mac mini로 구축한 로컬 LLM 환경: 48GB 통합 메모리 기반 35B MoE 상시 서빙 실측 팩트체크",
+      "title_ko": "M4 Pro Mac mini로 구축한 로컬 LLM 환경: 48GB 통합 메모리 기반 35B MoE 상시 서빙 실측 팩트체크",
+      "title_en": "Local LLM Infrastructure on M4 Pro Mac mini: Empirical Audit of 35B MoE Serving on 48GB Unified Memory",
+      "title_zh": "基于M4 Pro Mac mini构建的本地LLM环境：48GB统一内存下35B MoE模型常驻推理工程实测核查",
+      "the_hook": "월 $200 클라우드 구독 대신 48GB M4 Pro 단 한 대로 35B 모델 34 tok/s 상시 서빙이 정말 가능할까?",
+      "the_hook_ko": "월 $200 클라우드 구독 대신 48GB M4 Pro 단 한 대로 35B 모델 34 tok/s 상시 서빙이 정말 가능할까?",
+      "the_hook_en": "Can a 48GB M4 Pro Mac mini truly replace a $200/mo cloud subscription by serving a 35B model at 34 tok/s?",
+      "the_hook_zh": "单台48GB M4 Pro Mac mini能否真正替代每月200美元的云端API订阅，以34 tok/s的速度常驻运行35B大模型？",
+      "marketing_claims": [
+        {
+          "claim": "48GB M4 Pro에서 35B 4비트 양자화 모델(Qwen3.6-35B-A3B)을 34 tok/s로 안정적 추론 가능",
+          "reality": "사실. A3B(Active 3B) MoE 아키텍처 덕분에 273GB/s 대역폭에서 이론치에 수렴하는 34 tok/s 생성 속도가 실측 검증됨.",
+          "verdict": "VERIFIED_TRUE"
+        },
+        {
+          "claim": "클라우드 구독 없이 일상 업무 요청의 80%를 로컬 모델로 완전 대체 가능",
+          "reality": "대체로 사실. 단순 요약, 코드 스니펫 작성, 일상 대화는 충분히 대체 가능하나, 복잡한 에이전틱 리즈닝(Agentic Reasoning) 및 대규모 다자간 도구 호출은 최상위 클라우드 모델 대비 성능 격차 존재.",
+          "verdict": "PARTIALLY_TRUE"
+        }
+      ],
+      "hands_on_benchmarks": {
+        "hardware_target": "Apple M4 Pro Mac mini (14-core CPU, 20-core GPU, 48GB LPDDR5X 273GB/s)",
+        "active_models": "Qwen3.6-35B-A3B (20GB VRAM), Gemma-4-E4B (2.4GB VRAM)",
+        "measured_throughput_pp": "325.4 tok/s (Prompt Processing via Metal / oMLX)",
+        "measured_throughput_tg": "34.2 tok/s (Token Generation)",
+        "idle_power_consumption": "약 4.2W ~ 7.5W (상시 24/7 구동 전기세 월 2,000원 미만)",
+        "full_load_power": "약 45W ~ 65W"
+      },
+      "comparative_alternatives": [
+        {
+          "name": "M4 Pro Mac mini (48GB)",
+          "type": "Local Unified Hardware",
+          "pros": "273GB/s 단일 대역폭, 초저전력(아이들 5W), 무소음 상시 가동, 데이터 100% 온프레미스 보안",
+          "cons": "하드웨어 초기 구매비용(약 200만원 중반), GPU 확장 불가",
+          "best_for": "개인 개발자 및 소규모 팀의 24/7 상시 프라이빗 AI 에이전트 인프라"
+        },
+        {
+          "name": "NVIDIA RTX 4090 (24GB) 데스크톱",
+          "type": "Local Discrete GPU",
+          "pros": "CUDA 가속 압도적(1,008GB/s), 초고속 TTFT, 대규모 배치 처리 탁월",
+          "cons": "24GB VRAM 한계로 35B 모델 풀컨텍스트 적재 빡빡함, 높은 소비전력(450W)",
+          "best_for": "고속 추론 및 파인튜닝, 이미지/비디오 생성 병행 워크플로우"
+        },
+        {
+          "name": "Cloud API (OpenAI / Anthropic / Gemini)",
+          "type": "Managed SaaS",
+          "pros": "초기 투자비 $0, 프런티어 SOTA 모델(GPT-5/Opus급) 즉시 사용 가능",
+          "cons": "월 사용량 누적 시 종량제 비용 급증, 데이터 외부 전송 프라이버시 위험, Rate Limit",
+          "best_for": "대규모 프로덕션 서비스 또는 고난도 비정기 심층 추론"
+        }
+      ],
+      "primary_sources": [
+        {
+          "title": "GeekNews Topic #33182: M4 Pro Mac mini로 구축한 로컬 LLM 환경",
+          "url": "https://news.hada.io/topic?id=33182"
+        },
+        {
+          "title": "Apple M4 Pro System Architecture & Unified Memory Specification",
+          "url": "https://www.apple.com/mac-mini/specs/"
+        },
+        {
+          "title": "oMLX: High-Performance MLX Inference Server for Apple Silicon",
+          "url": "https://github.com/ml-explore/mlx"
+        }
+      ]
+    },
+    {
       "case_id": "case_2026_09_03_sns_vicky_grok_astral_uv_python_all_in_one",
       "title": "Astral uv: Rust 기반 단일 도구로 pip·pyenv·poetry·pipx 대체 및 100배 속도 향상 실측 팩트체크",
       "title_zh": "Astral uv：基于Rust单一工具彻底替代pip/pyenv/poetry/pipx并提速100倍实测核查",
@@ -39595,7 +39779,7 @@
         "type": "root",
         "mentions": 65,
         "desc": "데이터 사이언스, AI/ML 및 웹 자동화의 전 세계 표준 프로그래밍 언어",
-        "val": 57
+        "val": 60
       },
       {
         "id": "rust",
@@ -40286,6 +40470,16 @@
         "mentions": 58,
         "desc": "Rust로 작성된 초고속 파이썬 패키지 및 가상환경·버전 단일 관리 도구 (pip 대비 100x)",
         "val": 30
+      },
+      {
+        "id": "m4_pro_local_llm",
+        "label": "🍎 M4 Pro 48GB Local LLM Server",
+        "group": "technology",
+        "gen": "Gen 3",
+        "type": "tool",
+        "mentions": 48,
+        "desc": "273GB/s 대역폭과 48GB 통합 메모리 기반의 35B MoE 상시 로컬 서빙 인프라",
+        "val": 24
       }
     ],
     "links": [
@@ -40703,6 +40897,13 @@
         "label": "Replaces pip/pyenv",
         "type": "optimizes",
         "desc": "파이썬 패키징 및 가상환경 전면 고속화"
+      },
+      {
+        "source": "m4_pro_local_llm",
+        "target": "python",
+        "label": "MLX / oMLX Engine",
+        "type": "runtime",
+        "desc": "Metal 통합 메모리 가속 기반의 Python MLX 서빙"
       }
     ]
   }

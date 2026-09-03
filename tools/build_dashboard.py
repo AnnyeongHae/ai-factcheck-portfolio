@@ -983,6 +983,8 @@ def generate_html(data):
     let liveNewsData = newsData;
     let liveAnalysesData = [];
 
+    const API_BASE = (window.location.hostname.includes('github.io')) ? 'https://ai-factcheck-portfolio.vercel.app' : '';
+
     let currentLang = 'KO';
     let currentView = 'portfolio';
     let currentMode = 'ALL';
@@ -1403,7 +1405,7 @@ def generate_html(data):
     // ================= REAL-TIME DB SYNC =================
     async function syncFromNeonLiveDB() {{
       try {{
-        const resPort = await fetch('/api/portfolios');
+        const resPort = await fetch(API_BASE + '/api/portfolios');
         if (resPort.ok) {{
           const data = await resPort.json();
           if (data.success && data.portfolios && data.portfolios.length > 0) {{
@@ -1422,7 +1424,7 @@ def generate_html(data):
           }}
         }}
 
-        const resInbox = await fetch('/api/queue?all=true');
+        const resInbox = await fetch(API_BASE + '/api/queue?all=true');
         if (resInbox.ok) {{
           const inData = await resInbox.json();
           if (inData.success && inData.items && inData.items.length > 0) {{
@@ -1454,7 +1456,7 @@ def generate_html(data):
           }}
         }}
 
-        const resNews = await fetch('/api/queue?type=NEWS');
+        const resNews = await fetch(API_BASE + '/api/queue?type=NEWS');
         if (resNews.ok) {{
           const newsData = await resNews.json();
           if (newsData.success && newsData.news && newsData.news.length > 0) {{
@@ -2542,7 +2544,7 @@ def generate_html(data):
       renderInbox();
 
       try {{
-        const res = await fetch('/api/queue', {{
+        const res = await fetch(API_BASE + '/api/queue', {{
           method: 'POST',
           headers: {{ 'Content-Type': 'application/json' }},
           body: JSON.stringify({{ inbox_id: inboxId, action: action }})
