@@ -477,15 +477,17 @@ def harvest_all():
                     article_url = story.get("url") or hn_discussion_url
                     title_lower = title.lower()
                     
-                    if any(kw in title_lower for kw in hn_keywords):
                         score = story.get("score", 0)
                         descendants = story.get("descendants", 0)
+                        story_time = story.get("time")
+                        published_at = datetime.datetime.fromtimestamp(story_time).isoformat() if story_time else datetime.datetime.now().isoformat()
                         added = add_candidate({
                             "title": f"Hacker News: {title}",
                             "source_platform": "Hacker News",
                             "source_url": hn_discussion_url,
                             "hn_url": hn_discussion_url,
                             "article_url": article_url,
+                            "published_at": published_at,
                             "type": "repo" if "github.com" in article_url else "sns",
                             "category_type": "NEWS" if not "github.com" in article_url else "REPO",
                             "description": f"HN Score: {score} pts | Comments: {descendants} | {title}",
@@ -802,11 +804,16 @@ def harvest_all():
             "is_spiking": False
         }
 
+        now_iso = datetime.datetime.now().isoformat()
+        pub_iso = cand.get("published_at") or now_iso
+
         inbox_item = {
             "inbox_id": case_id,
             "harvested_date": today_str,
-            "created_at": today_str,
-            "updated_at": today_str,
+            "harvested_at": now_iso,
+            "published_at": pub_iso,
+            "created_at": pub_iso,
+            "updated_at": now_iso,
             "title": cand["title"],
             "source_platform": cand["source_platform"],
             "source_url": cand["source_url"],

@@ -1524,6 +1524,32 @@ def generate_html(data):
       renderCards();
     }});
 
+    // 🌟 Precise DateTime Helpers for Sub-Second Sorting & Multi-Platform Timestamps
+    function parseItemTimestamp(item, preferField) {{
+      if (!item) return 0;
+      let raw = '';
+      if (preferField === 'audit') {{
+        raw = item.ai_enrichment?.enriched_at || item.audited_at || item.investigation_date || item.harvested_at || item.updated_at || item.created_at || item.harvested_date;
+      }} else {{
+        raw = item.published_at || item.source_published_date || item.created_at || item.harvested_at || item.harvested_date;
+      }}
+      if (!raw) return 0;
+      const ms = new Date(raw).getTime();
+      return isNaN(ms) ? 0 : ms;
+    }}
+
+    function formatDateTime(raw) {{
+      if (!raw) return '-';
+      const d = new Date(raw);
+      if (isNaN(d.getTime())) return String(raw).substring(0, 10);
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      const hh = String(d.getHours()).padStart(2, '0');
+      const mm = String(d.getMinutes()).padStart(2, '0');
+      return `${{y}}-${{m}}-${{day}} ${{hh}}:${{mm}}`;
+    }}
+
     // ================= RENDER EXECUTIVE SCANNABLE CARDS =================
     function renderCards() {{
       const grid = document.getElementById('cardsGrid');
@@ -1572,20 +1598,23 @@ def generate_html(data):
         return matchesMode && matchesDomain && matchesSearch;
       }});
 
-      // Sort (Default: Source Date DESC)
+      // 🌟 Precision DateTime Sorting (Default: Source Date/Time DESC)
       filtered.sort((a, b) => {{
-        const aSrcDate = a.source_published_date || a.investigation_date || '';
-        const bSrcDate = b.source_published_date || b.investigation_date || '';
-        const aInvDate = a.investigation_date || '';
-        const bInvDate = b.investigation_date || '';
-
-        if (currentSort === 'date-source-desc' || currentSort === 'date-desc') return bSrcDate.localeCompare(aSrcDate);
-        if (currentSort === 'date-source-asc') return aSrcDate.localeCompare(bSrcDate);
-        if (currentSort === 'date-audit-desc') return bInvDate.localeCompare(aInvDate);
-        if (currentSort === 'date-audit-asc') return aInvDate.localeCompare(bInvDate);
+        if (currentSort === 'date-source-desc' || currentSort === 'date-desc') {{
+          return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
+        }}
+        if (currentSort === 'date-source-asc') {{
+          return parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
+        }}
+        if (currentSort === 'date-audit-desc') {{
+          return parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
+        }}
+        if (currentSort === 'date-audit-asc') {{
+          return parseItemTimestamp(a, 'audit') - parseItemTimestamp(b, 'audit');
+        }}
         if (currentSort === 'score-desc') return (b.confidence_score || 0) - (a.confidence_score || 0);
         if (currentSort === 'title-asc') return (a.title || '').localeCompare(b.title || '');
-        return 0;
+        return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
       }});
 
       document.getElementById('resultsCountLabel').innerText = currentLang === 'KO' ? `총 ${{filtered.length}}건 표시 (전체 ${{liveCasesData.length}}건 중)` : (currentLang === 'ZH' ? `显示 ${{filtered.length}} 项 (共 ${{liveCasesData.length}} 项)` : `Showing ${{filtered.length}} of ${{liveCasesData.length}} dossiers`);
@@ -1918,18 +1947,22 @@ def generate_html(data):
         return currentNewsSource === 'ALL' || (it.source_platform && it.source_platform.includes(currentNewsSource));
       }});
 
-      // Sort News Items (Default: Source Date DESC)
+      // 🌟 Precision DateTime Sorting (Default: Source Date/Time DESC)
       newsItems.sort((a, b) => {{
-        const aSrc = a.harvested_date || '';
-        const bSrc = b.harvested_date || '';
-        const aAudit = a.ai_enrichment?.enriched_at || a.harvested_date || '';
-        const bAudit = b.ai_enrichment?.enriched_at || b.harvested_date || '';
-        if (currentNewsSort === 'date-source-desc') return bSrc.localeCompare(aSrc);
-        if (currentNewsSort === 'date-source-asc') return aSrc.localeCompare(bSrc);
-        if (currentNewsSort === 'date-audit-desc') return bAudit.localeCompare(aAudit);
-        if (currentNewsSort === 'date-audit-asc') return aAudit.localeCompare(bAudit);
+        if (currentNewsSort === 'date-source-desc') {{
+          return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
+        }}
+        if (currentNewsSort === 'date-source-asc') {{
+          return parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
+        }}
+        if (currentNewsSort === 'date-audit-desc') {{
+          return parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
+        }}
+        if (currentNewsSort === 'date-audit-asc') {{
+          return parseItemTimestamp(a, 'audit') - parseItemTimestamp(b, 'audit');
+        }}
         if (currentNewsSort === 'title-asc') return (a.title || '').localeCompare(b.title || '');
-        return bSrc.localeCompare(aSrc);
+        return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
       }});
 
       if (newsItems.length === 0) {{
@@ -2093,8 +2126,8 @@ def generate_html(data):
 
           <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
             <div class="flex items-center gap-1.5 text-[11px] font-mono text-ink-muted">
-              <span title="${{currentLang === 'KO' ? '수집/발행일' : (currentLang === 'ZH' ? '采集/发布日' : 'Source Date')}}">📅 ${{it.harvested_date || '2026-08-31'}}</span>
-              ${{ai?.enriched_at ? `<span>•</span><span title="${{currentLang === 'KO' ? 'AI 분석일' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis Date')}}" class="text-indigo-700 font-semibold">🔬 ${{ai.enriched_at.slice(0, 10)}}</span>` : ''}}
+              <span title="${{currentLang === 'KO' ? '수집/발행 일시' : (currentLang === 'ZH' ? '采集/发布日' : 'Source DateTime')}}">📅 ${{formatDateTime(it.published_at || it.harvested_at || it.harvested_date)}}</span>
+              ${{ai?.enriched_at ? `<span>•</span><span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold">🔬 ${{formatDateTime(ai.enriched_at)}}</span>` : ''}}
             </div>
             ${{linksHtml}}
           </div>
@@ -2152,18 +2185,22 @@ def generate_html(data):
         return matchesFam && matchesSearch;
       }});
 
-      // Sort Models (Default: Source Date DESC)
+      // 🌟 Precision DateTime Sorting (Default: Source Date/Time DESC)
       filtered.sort((a, b) => {{
-        const aSrc = a.harvested_date || '';
-        const bSrc = b.harvested_date || '';
-        const aAudit = a.ai_enrichment?.enriched_at || a.harvested_date || '';
-        const bAudit = b.ai_enrichment?.enriched_at || b.harvested_date || '';
-        if (currentModelsSort === 'date-source-desc') return bSrc.localeCompare(aSrc);
-        if (currentModelsSort === 'date-source-asc') return aSrc.localeCompare(bSrc);
-        if (currentModelsSort === 'date-audit-desc') return bAudit.localeCompare(aAudit);
-        if (currentModelsSort === 'date-audit-asc') return aAudit.localeCompare(bAudit);
+        if (currentModelsSort === 'date-source-desc') {{
+          return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
+        }}
+        if (currentModelsSort === 'date-source-asc') {{
+          return parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
+        }}
+        if (currentModelsSort === 'date-audit-desc') {{
+          return parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
+        }}
+        if (currentModelsSort === 'date-audit-asc') {{
+          return parseItemTimestamp(a, 'audit') - parseItemTimestamp(b, 'audit');
+        }}
         if (currentModelsSort === 'title-asc') return (a.title || '').localeCompare(b.title || '');
-        return bSrc.localeCompare(aSrc);
+        return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
       }});
 
       const countEl = document.getElementById('modelsFilteredCount');
@@ -2244,8 +2281,8 @@ def generate_html(data):
 
           <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
             <div class="flex items-center gap-1.5 flex-wrap text-[11px] font-mono text-ink-muted">
-              <span title="${{currentLang === 'KO' ? '수집/발표일' : (currentLang === 'ZH' ? '采集/发布日' : 'Source Date')}}">📅 ${{it.harvested_date || '2026-08-31'}}</span>
-              ${{ai?.enriched_at ? `<span>•</span><span title="${{currentLang === 'KO' ? 'AI 분석일' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis Date')}}" class="text-indigo-700 font-semibold">🔬 ${{ai.enriched_at.slice(0, 10)}}</span>` : ''}}
+              <span title="${{currentLang === 'KO' ? '수집/발표 일시' : (currentLang === 'ZH' ? '采集/发布日' : 'Source DateTime')}}">📅 ${{formatDateTime(it.published_at || it.harvested_at || it.harvested_date)}}</span>
+              ${{ai?.enriched_at ? `<span>•</span><span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold">🔬 ${{formatDateTime(ai.enriched_at)}}</span>` : ''}}
               ${{ai?.enriched_by_model ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-indigo-700 border border-surface-border">🤖 ${{ai.enriched_by_model.replace('gemini-', '')}}</span>` : ''}}
             </div>
             <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1">
@@ -2398,21 +2435,16 @@ def generate_html(data):
         return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
       }});
 
-      // 🌟 Cross-Platform Standardized Sorting (Default: Source Date DESC)
+      // 🌟 Precision DateTime Sorting (Default: Source Date/Time DESC)
       filtered.sort((a, b) => {{
-        const aSrc = a.harvested_date || '';
-        const bSrc = b.harvested_date || '';
-        const aAudit = a.ai_enrichment?.enriched_at || a.harvested_date || '';
-        const bAudit = b.ai_enrichment?.enriched_at || b.harvested_date || '';
-
         if (currentInboxSort === 'date-source-desc' || currentInboxSort === 'date-desc') {{
-          return bSrc.localeCompare(aSrc);
+          return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
         }} else if (currentInboxSort === 'date-source-asc' || currentInboxSort === 'date-asc') {{
-          return aSrc.localeCompare(bSrc);
+          return parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
         }} else if (currentInboxSort === 'date-audit-desc') {{
-          return bAudit.localeCompare(aAudit);
+          return parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
         }} else if (currentInboxSort === 'date-audit-asc') {{
-          return aAudit.localeCompare(bAudit);
+          return parseItemTimestamp(a, 'audit') - parseItemTimestamp(b, 'audit');
         }} else if (currentInboxSort === 'viral-desc') {{
           return calculateStandardizedViralScore(b) - calculateStandardizedViralScore(a);
         }} else if (currentInboxSort === 'viral-asc') {{
@@ -2420,7 +2452,7 @@ def generate_html(data):
         }} else if (currentInboxSort === 'title-asc') {{
           return (a.title || '').localeCompare(b.title || '');
         }}
-        return bSrc.localeCompare(aSrc);
+        return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
       }});
 
       if (filtered.length === 0) {{
@@ -2545,9 +2577,9 @@ def generate_html(data):
             </div>
 
             <div class="text-[11px] text-ink-muted font-mono pt-1 flex items-center justify-between flex-wrap gap-1">
-              <div>${{currentLang === 'KO' ? '제작자:' : (currentLang === 'ZH' ? '创作者:' : 'Creator:')}} <span class="text-ink-primary font-semibold">${{it.creator || 'Community'}}</span></div>
+              <div>📅 <span title="${{currentLang === 'KO' ? '수집/발표 일시' : (currentLang === 'ZH' ? '采集/发布日' : 'Source DateTime')}}" class="text-ink-secondary font-semibold">${{formatDateTime(it.published_at || it.created_at || it.harvested_at)}}</span></div>
               <div class="flex items-center gap-1.5">
-                ${{ai?.enriched_at ? `<span title="${{currentLang === 'KO' ? 'AI 분석일' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis Date')}}" class="text-indigo-700 font-semibold">🔬 ${{ai.enriched_at.slice(0, 10)}}</span>` : ''}}
+                ${{ai?.enriched_at ? `<span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold">🔬 ${{formatDateTime(ai.enriched_at)}}</span>` : ''}}
                 ${{ai?.enriched_by_model ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-indigo-700 border border-surface-border">🤖 ${{ai.enriched_by_model.replace('gemini-', '')}}</span>` : ''}}
               </div>
             </div>
