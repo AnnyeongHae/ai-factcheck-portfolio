@@ -1,10 +1,10 @@
 {
   "generated_at": "2026-09-02",
   "total_cases": 32,
-  "models_total_count": 141,
+  "models_total_count": 142,
   "news_total_count": 66,
   "inbox_total_count": 233,
-  "all_inbox_count": 449,
+  "all_inbox_count": 450,
   "admin_stats": {
     "endpoints": [
       {
@@ -39,6 +39,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T10:12:35.755034",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.24
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 86,
+            "duration_sec": 0.32
+          },
+          "github": {
+            "status": "ERROR",
+            "error": "HTTP Error 500: internal server error",
+            "duration_sec": 0.67
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 24,
+            "duration_sec": 15.38
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.27
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.14
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.69
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.28
+          }
+        },
+        "summary": {
+          "total_fetched": 195,
+          "updated_count": 0,
+          "new_saved": 1,
+          "duplicates_skipped": 194,
+          "errors": 1
+        }
+      },
       {
         "timestamp": "2026-09-03T09:51:49.331995",
         "date": "2026-09-03",
@@ -1575,112 +1628,59 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T04:41:06.701057",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.21
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.22
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.64
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 14.66
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.34
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.12
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.82
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.56
-          }
-        },
-        "summary": {
-          "total_fetched": 170,
-          "updated_count": 169,
-          "new_saved": 1,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T09:51:49.331995",
+      "timestamp": "2026-09-03T10:12:35.755034",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.22
+          "duration_sec": 0.24
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 86,
-          "duration_sec": 0.42
+          "duration_sec": 0.32
         },
         "github": {
-          "status": "SUCCESS",
-          "items_found": 30,
-          "duration_sec": 0.95
+          "status": "ERROR",
+          "error": "HTTP Error 500: internal server error",
+          "duration_sec": 0.67
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 25,
-          "duration_sec": 12.25
+          "items_found": 24,
+          "duration_sec": 15.38
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.42
+          "duration_sec": 0.27
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.17
+          "duration_sec": 0.14
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.82
+          "duration_sec": 0.69
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.32
+          "duration_sec": 0.28
         }
       },
       "summary": {
-        "total_fetched": 226,
+        "total_fetched": 195,
         "updated_count": 0,
-        "new_saved": 57,
-        "duplicates_skipped": 169,
-        "errors": 0
+        "new_saved": 1,
+        "duplicates_skipped": 194,
+        "errors": 1
       }
     }
   },
@@ -4210,6 +4210,39 @@
       "description_ko": "컴퓨터 Vision 기반의 조류 보호 및 생태계 모니터링 AI 데모를 직접 체험해 보세요.",
       "description_en": "Explore an interactive computer vision demo designed for bird protection and ecological monitoring.",
       "description_zh": "探索基于计算机视觉的鸟类保护与生态监测交互式AI演示。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_acvlababot_recon_streaming_3d",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: acvlab/abot-recon-streaming-3d",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/acvlab/abot-recon-streaming-3d",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 10 | Live URL: https://huggingface.co/spaces/acvlab/abot-recon-streaming-3d",
+      "viral_metric": "❤️ 10 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-02_sns_hugging_face_blog_granite_42_llms_how_theyre_",
