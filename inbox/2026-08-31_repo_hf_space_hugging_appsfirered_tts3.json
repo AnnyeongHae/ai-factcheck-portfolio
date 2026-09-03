@@ -17,13 +17,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "FireRed",
   "detected_formats": [
     "Interactive Web Demo"
   ],
-  "category_type": "TECH",
-  "title_ko": "HF Space: hugging-apps/firered-tts3",
-  "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 62 | Live URL: https://huggingface.co/spaces/hugging-apps/firered-tts3",
+  "category_type": "MODEL",
+  "title_ko": "FireRed-TTS3 음성 합성 인터랙티브 데모",
+  "description_ko": "고품질 음성 합성을 지원하는 FireRed TTS3 모델의 오디오 생성 능력을 테스트하세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_hf_space_hugging_appsfirered_tts3",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "FireRed",
+    "category": "음성 합성 및 TTS",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "FireRed",
+      "TTS",
+      "Speech Synthesis"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.6,
+    "multilingual": {
+      "ko": {
+        "title": "FireRed-TTS3 음성 합성 인터랙티브 데모",
+        "hook": "고품질 음성 합성을 지원하는 FireRed TTS3 모델의 오디오 생성 능력을 테스트하세요.",
+        "key_takeaways": [
+          "FireRed-TTS3 모델을 활용한 실시간 텍스트 음성 변환",
+          "다양한 음성 톤과 자연스러움 확인 가능",
+          "오디오 및 음성 AI 개발자를 위한 빠른 프로토타이핑 지원"
+        ]
+      },
+      "en": {
+        "title": "FireRed-TTS3 Speech Synthesis Interactive Demo",
+        "hook": "Test the audio generation capabilities of the FireRed TTS3 model for high-quality speech synthesis.",
+        "key_takeaways": [
+          "Real-time text-to-speech conversion using the FireRed-TTS3 model",
+          "Evaluate voice tone variation and natural output quality",
+          "Enables rapid prototyping for audio and voice AI developers"
+        ]
+      },
+      "zh": {
+        "title": "FireRed-TTS3 语音合成交互式演示",
+        "hook": "测试支持高质量语音合成的 FireRed TTS3 模型的音频生成能力。",
+        "key_takeaways": [
+          "利用 FireRed-TTS3 模型进行实时文本转语音",
+          "可评估语音语调的变化及自然度",
+          "为音频与语音 AI 开发者提供快速原型测试支持"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:27:26.484355+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "FireRed",
+    "TTS",
+    "Speech Synthesis"
+  ],
+  "title_en": "FireRed-TTS3 Speech Synthesis Interactive Demo",
+  "title_zh": "FireRed-TTS3 语音合成交互式演示",
+  "hook": "고품질 음성 합성을 지원하는 FireRed TTS3 모델의 오디오 생성 능력을 테스트하세요.",
+  "hook_ko": "고품질 음성 합성을 지원하는 FireRed TTS3 모델의 오디오 생성 능력을 테스트하세요.",
+  "hook_en": "Test the audio generation capabilities of the FireRed TTS3 model for high-quality speech synthesis.",
+  "hook_zh": "测试支持高质量语音合成的 FireRed TTS3 模型的音频生成能力。",
+  "description_en": "Test the audio generation capabilities of the FireRed TTS3 model for high-quality speech synthesis.",
+  "description_zh": "测试支持高质量语音合成的 FireRed TTS3 模型的音频生成能力。"
 }

@@ -21,9 +21,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "sapientinc/PRAXIST",
-  "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+  "category_type": "AGENT",
+  "title_ko": "컴퓨터로 실행 가능한 자율 연구 시스템 PRAXIST",
+  "description_ko": "측정 가능하고 컴퓨터에서 직접 실행할 수 있는 과학적 연구를 수행하는 자율 시스템입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": true
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_github_sapientincpraxist",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "자율 연구 에이전트",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Autonomous Research",
+      "Executable Research",
+      "AI Scientist"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "컴퓨터로 실행 가능한 자율 연구 시스템 PRAXIST",
+        "hook": "측정 가능하고 컴퓨터에서 직접 실행할 수 있는 과학적 연구를 수행하는 자율 시스템입니다.",
+        "key_takeaways": [
+          "완전 자율형 연구 프로세스 설계",
+          "측정 가능하고 실행 가능한 결과물 도출",
+          "연구 자동화 분야의 혁신적인 아키텍처 제공"
+        ]
+      },
+      "en": {
+        "title": "PRAXIST: Autonomous Research System for Executable Science",
+        "hook": "Discover an autonomous research system built for measurable, computer-executable scientific workflows.",
+        "key_takeaways": [
+          "End-to-end autonomous research process",
+          "Produces measurable, computer-executable results",
+          "Advanced architecture for scientific automation"
+        ]
+      },
+      "zh": {
+        "title": "PRAXIST：可执行研究的自主研究系统",
+        "hook": "构建可量化、可由计算机执行的科学研究自主系统，开启科研自动化新时代。",
+        "key_takeaways": [
+          "端到端全自动科研流程",
+          "生成可量化、可执行的验证结果",
+          "领先的研究自动化架构设计"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:28:02.830770+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Autonomous Research",
+    "Executable Research",
+    "AI Scientist"
+  ],
+  "title_en": "PRAXIST: Autonomous Research System for Executable Science",
+  "title_zh": "PRAXIST：可执行研究的自主研究系统",
+  "hook": "측정 가능하고 컴퓨터에서 직접 실행할 수 있는 과학적 연구를 수행하는 자율 시스템입니다.",
+  "hook_ko": "측정 가능하고 컴퓨터에서 직접 실행할 수 있는 과학적 연구를 수행하는 자율 시스템입니다.",
+  "hook_en": "Discover an autonomous research system built for measurable, computer-executable scientific workflows.",
+  "hook_zh": "构建可量化、可由计算机执行的科学研究自主系统，开启科研自动化新时代。",
+  "description_en": "Discover an autonomous research system built for measurable, computer-executable scientific workflows.",
+  "description_zh": "构建可量化、可由计算机执行的科学研究自主系统，开启科研自动化新时代。"
 }

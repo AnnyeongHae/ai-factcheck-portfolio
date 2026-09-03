@@ -21,9 +21,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "wang2122/sprix-sage-router",
-  "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+  "category_type": "AGENT",
+  "title_ko": "Sprix Sage Router: A2A 에이전트 네트워크를 위한 상태 인식 라우팅",
+  "description_ko": "멀티 에이전트 시스템에서 에이전트 간 협업과 핸드오프를 지능적으로 제어하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_github_wang2122sprix_sage_router",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "에이전트 네트워크 라우팅",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "A2A",
+      "Agent Routing",
+      "Self-Collaborate"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "Sprix Sage Router: A2A 에이전트 네트워크를 위한 상태 인식 라우팅",
+        "hook": "멀티 에이전트 시스템에서 에이전트 간 협업과 핸드오프를 지능적으로 제어하세요.",
+        "key_takeaways": [
+          "상태 인식을 통한 SELF, COLLABORATE, HANDOFF 라우팅 지원",
+          "A2A(Agent-to-Agent) 네트워크 구조 최적화",
+          "복잡한 멀티 에이전트 워크플로우의 효율성 향상"
+        ]
+      },
+      "en": {
+        "title": "Sprix Sage Router: State-Aware Routing for A2A Agent Networks",
+        "hook": "Intelligently manage collaboration and handoffs in multi-agent systems with state awareness.",
+        "key_takeaways": [
+          "Supports SELF, COLLABORATE, and HANDOFF routing via state awareness",
+          "Optimizes Agent-to-Agent (A2A) network architectures",
+          "Enhances efficiency in complex multi-agent workflows"
+        ]
+      },
+      "zh": {
+        "title": "Sprix Sage Router：面向 A2A 智能体网络的感知状态路由",
+        "hook": "在多智能体系统中智能控制协作与交接，提升工作流效率。",
+        "key_takeaways": [
+          "支持基于状态感知的 SELF、COLLABORATE、HANDOFF 路由",
+          "优化 A2A（智能体到智能体）网络架构",
+          "提高复杂多智能体工作流的执行效率"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:27:50.530804+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "A2A",
+    "Agent Routing",
+    "Self-Collaborate"
+  ],
+  "title_en": "Sprix Sage Router: State-Aware Routing for A2A Agent Networks",
+  "title_zh": "Sprix Sage Router：面向 A2A 智能体网络的感知状态路由",
+  "hook": "멀티 에이전트 시스템에서 에이전트 간 협업과 핸드오프를 지능적으로 제어하세요.",
+  "hook_ko": "멀티 에이전트 시스템에서 에이전트 간 협업과 핸드오프를 지능적으로 제어하세요.",
+  "hook_en": "Intelligently manage collaboration and handoffs in multi-agent systems with state awareness.",
+  "hook_zh": "在多智能体系统中智能控制协作与交接，提升工作流效率。",
+  "description_en": "Intelligently manage collaboration and handoffs in multi-agent systems with state awareness.",
+  "description_zh": "在多智能体系统中智能控制协作与交接，提升工作流效率。"
 }

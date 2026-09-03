@@ -28,5 +28,72 @@
     "is_spiking": true
   },
   "created_at": "2026-09-01",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-09-01_repo_huggingface_model_googletimesfm_30_pytorch",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Google TimesFM",
+    "category": "시계열 예측 (Time Series Forecasting)",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "TimesFM",
+      "Time Series",
+      "Google",
+      "PyTorch"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "구글 TimesFM 3.0 파이토치 모델 허브 공개",
+        "hook": "구글의 최신 시계열 예측 파운데이션 모델(TimesFM 3.0)을 프로젝트에 즉시 도입하세요.",
+        "key_takeaways": [
+          "구글의 고성능 시계열 예측 모델 TimesFM 최신 버전",
+          "PyTorch 네이티브 지원으로 향상된 개발자 친화성",
+          "다양한 산업군의 시계열 데이터 분석 및 예측 성능 극대화"
+        ]
+      },
+      "en": {
+        "title": "Google Releases TimesFM 3.0 PyTorch Model on Hugging Face",
+        "hook": "Integrate Google's state-of-the-art time-series foundation model into your forecasting pipeline.",
+        "key_takeaways": [
+          "Latest version of Google's robust TimesFM time-series model",
+          "Native PyTorch support for seamless integration",
+          "High performance across diverse time-series forecasting benchmarks"
+        ]
+      },
+      "zh": {
+        "title": "谷歌 TimesFM 3.0 PyTorch 模型登陆 Hugging Face",
+        "hook": "立即将谷歌最新的时间序列预测基础模型应用到您的生产环境中。",
+        "key_takeaways": [
+          "谷歌高性能时间序列预测模型 TimesFM 最新升级版",
+          "提供对 PyTorch 的原生支持，便于集成",
+          "在各类时间序列预测任务中展现卓越性能"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:26:50.441459+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "TimesFM",
+    "Time Series",
+    "Google",
+    "PyTorch"
+  ],
+  "title_ko": "구글 TimesFM 3.0 파이토치 모델 허브 공개",
+  "title_en": "Google Releases TimesFM 3.0 PyTorch Model on Hugging Face",
+  "title_zh": "谷歌 TimesFM 3.0 PyTorch 模型登陆 Hugging Face",
+  "hook": "구글의 최신 시계열 예측 파운데이션 모델(TimesFM 3.0)을 프로젝트에 즉시 도입하세요.",
+  "hook_ko": "구글의 최신 시계열 예측 파운데이션 모델(TimesFM 3.0)을 프로젝트에 즉시 도입하세요.",
+  "hook_en": "Integrate Google's state-of-the-art time-series foundation model into your forecasting pipeline.",
+  "hook_zh": "立即将谷歌最新的时间序列预测基础模型应用到您的生产环境中。",
+  "description_ko": "구글의 최신 시계열 예측 파운데이션 모델(TimesFM 3.0)을 프로젝트에 즉시 도입하세요.",
+  "description_en": "Integrate Google's state-of-the-art time-series foundation model into your forecasting pipeline.",
+  "description_zh": "立即将谷歌最新的时间序列预测基础模型应用到您的生产环境中。",
+  "model_family": "Google TimesFM",
+  "category_type": "MODEL"
 }

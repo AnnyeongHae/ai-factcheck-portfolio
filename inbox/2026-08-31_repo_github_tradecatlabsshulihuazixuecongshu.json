@@ -21,9 +21,9 @@
   "detected_formats": [
     "기본 가중치 (Default Weight)"
   ],
-  "category_type": "TECH",
-  "title_ko": "tradecatlabs/shulihuazixuecongshu",
-  "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+  "category_type": "NEWS",
+  "title_ko": "TradeCatLabs Shulihuazixuecongshu 오픈소스 저장소",
+  "description_ko": "설명이 없는 저장소이지만 커뮤니티에서 주목받고 있는 오픈소스 프로젝트입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_github_tradecatlabsshulihuazixuecongshu",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "오픈소스 동향",
+    "programming_lang": "General",
+    "root_keywords": [
+      "GitHub",
+      "Open Source",
+      "Collection"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.5,
+    "multilingual": {
+      "ko": {
+        "title": "TradeCatLabs Shulihuazixuecongshu 오픈소스 저장소",
+        "hook": "설명이 없는 저장소이지만 커뮤니티에서 주목받고 있는 오픈소스 프로젝트입니다.",
+        "key_takeaways": [
+          "상세 설명이 제공되지 않는 오픈소스 리포지토리",
+          "스타(Star) 850개 이상을 기록하며 개발자들의 관심을 끎",
+          "추후 업데이트 및 문서화 모니터링 필요"
+        ]
+      },
+      "en": {
+        "title": "TradeCatLabs Shulihuazixuecongshu Repository",
+        "hook": "An open-source repository gaining community attention despite the lack of description.",
+        "key_takeaways": [
+          "Open-source repository provided without a detailed description",
+          "Gained over 850 stars, capturing developer interest",
+          "Requires ongoing monitoring for future updates and documentation"
+        ]
+      },
+      "zh": {
+        "title": "TradeCatLabs Shulihuazixuecongshu 开源仓库",
+        "hook": "虽然缺乏详细描述，但在开源社区中受到一定关注的存储库。",
+        "key_takeaways": [
+          "未提供详细说明的开源存储库",
+          "获得超过 850 个 Star，引起了开发者的关注",
+          "需要持续关注后续更新与文档补充"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:27:50.531154+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "GitHub",
+    "Open Source",
+    "Collection"
+  ],
+  "title_en": "TradeCatLabs Shulihuazixuecongshu Repository",
+  "title_zh": "TradeCatLabs Shulihuazixuecongshu 开源仓库",
+  "hook": "설명이 없는 저장소이지만 커뮤니티에서 주목받고 있는 오픈소스 프로젝트입니다.",
+  "hook_ko": "설명이 없는 저장소이지만 커뮤니티에서 주목받고 있는 오픈소스 프로젝트입니다.",
+  "hook_en": "An open-source repository gaining community attention despite the lack of description.",
+  "hook_zh": "虽然缺乏详细描述，但在开源社区中受到一定关注的存储库。",
+  "description_en": "An open-source repository gaining community attention despite the lack of description.",
+  "description_zh": "虽然缺乏详细描述，但在开源社区中受到一定关注的存储库。"
 }

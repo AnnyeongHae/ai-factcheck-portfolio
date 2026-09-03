@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "Training Communication-Efficient Mixture-of-Experts Language Models with Layer Re-Configuration",
-  "description_ko": "Abstract: When training Mixture-of-Experts (MoE) language models with expert parallelism, all-to-all token dispatch and combine collectives can consume a substantial fraction of end-to-end training time. In thi...",
+  "title_ko": "레이어 재구성을 통한 통신 효율적인 MoE 언어 모델 학습",
+  "description_ko": "MoE 모델 학습 시 병목 현상의 주범인 all-to-all 통신 비용을 획기적으로 줄여주는 레이어 재구성 기법을 만나보세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_arxiv_training_communication_efficient_mixtur",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "Mixture-of-Experts",
+      "Distributed Training",
+      "Communication Efficiency"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
+    "multilingual": {
+      "ko": {
+        "title": "레이어 재구성을 통한 통신 효율적인 MoE 언어 모델 학습",
+        "hook": "MoE 모델 학습 시 병목 현상의 주범인 all-to-all 통신 비용을 획기적으로 줄여주는 레이어 재구성 기법을 만나보세요.",
+        "key_takeaways": [
+          "전문가 병렬화(Expert Parallelism)에서 토큰 디스패치 및 통신 병목 해결",
+          "레이어 재구성을 통한 엔드투엔드 학습 시간 대폭 단축",
+          "대규모 언어 모델 분산 학습의 확장성(Scalability) 극대화"
+        ]
+      },
+      "en": {
+        "title": "Training Communication-Efficient MoE Language Models with Layer Re-Configuration",
+        "hook": "Overcome the all-to-all communication bottleneck in large-scale Mixture-of-Experts training with clever layer re-configuration.",
+        "key_takeaways": [
+          "Addresses heavy communication overhead in expert parallelism (all-to-all token dispatch)",
+          "Introduces layer re-configuration to drastically reduce end-to-end training time",
+          "Maximizes scalability for distributed large language model training"
+        ]
+      },
+      "zh": {
+        "title": "通过层重配置训练通信高效的混合专家(MoE)语言模型",
+        "hook": "通过巧妙的层重配置技术，大幅减少MoE模型分布式训练中的all-to-all通信瓶颈。",
+        "key_takeaways": [
+          "解决专家并行中all-to-all词元分发带来的繁重通信开销",
+          "通过层重配置显著缩短端到端训练时间",
+          "极大提升大规模语言模型分布式训练的可扩展性"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:28:55.551639+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "Mixture-of-Experts",
+    "Distributed Training",
+    "Communication Efficiency"
+  ],
+  "title_en": "Training Communication-Efficient MoE Language Models with Layer Re-Configuration",
+  "title_zh": "通过层重配置训练通信高效的混合专家(MoE)语言模型",
+  "hook": "MoE 모델 학습 시 병목 현상의 주범인 all-to-all 통신 비용을 획기적으로 줄여주는 레이어 재구성 기법을 만나보세요.",
+  "hook_ko": "MoE 모델 학습 시 병목 현상의 주범인 all-to-all 통신 비용을 획기적으로 줄여주는 레이어 재구성 기법을 만나보세요.",
+  "hook_en": "Overcome the all-to-all communication bottleneck in large-scale Mixture-of-Experts training with clever layer re-configuration.",
+  "hook_zh": "通过巧妙的层重配置技术，大幅减少MoE模型分布式训练中的all-to-all通信瓶颈。",
+  "description_en": "Overcome the all-to-all communication bottleneck in large-scale Mixture-of-Experts training with clever layer re-configuration.",
+  "description_zh": "通过巧妙的层重配置技术，大幅减少MoE模型分布式训练中的all-to-all通信瓶颈。"
 }

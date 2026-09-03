@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "Learning a Size-Weight Frontier for Synthetic-Augmented 추론",
-  "description_ko": "Abstract: Synthetic data can improve statistical inference when real data are scarce, but naively treating synthetic samples as real data can introduce bias and lead to unreliable inference. We develop a genera...",
+  "title_ko": "합성 데이터 증강 추론을 위한 크기-가중치 경계 학습",
+  "description_ko": "합성 데이터를 실제 데이터처럼 다룰 때 발생하는 편향 문제를 해결하고 신뢰성 있는 추론을 유도합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_arxiv_learning_a_size_weight_frontier_for_syn",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "합성 데이터 및 통계적 추론",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Synthetic Data",
+      "Statistical Inference",
+      "Uncertainty Estimation"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.1,
+    "multilingual": {
+      "ko": {
+        "title": "합성 데이터 증강 추론을 위한 크기-가중치 경계 학습",
+        "hook": "합성 데이터를 실제 데이터처럼 다룰 때 발생하는 편향 문제를 해결하고 신뢰성 있는 추론을 유도합니다.",
+        "key_takeaways": [
+          "실데이터 부족 시 합성 데이터 사용으로 인한 편향 및 신뢰성 저하 문제 지적",
+          "크기-가중치 경계(Size-Weight Frontier) 학습을 통한 최적의 데이터 혼합 전략 제안",
+          "통계적 추론의 정확도를 높이는 새로운 방법론 검증"
+        ]
+      },
+      "en": {
+        "title": "Learning a Size-Weight Frontier for Synthetic-Augmented Inference",
+        "hook": "Overcoming bias and unreliability when treating synthetic data as real data in statistical inference.",
+        "key_takeaways": [
+          "Addresses bias and unreliability caused by naive use of synthetic data",
+          "Develops a generative framework to learn an optimal size-weight frontier",
+          "Improves statistical inference accuracy under data scarcity constraints"
+        ]
+      },
+      "zh": {
+        "title": "学习用于合成增强推理的大小-权重边界",
+        "hook": "解决在统计推断中将合成数据直接视为真实数据所带来的偏差与不可靠性问题。",
+        "key_takeaways": [
+          "指出直接盲目使用合成样本带来的偏差与不可靠推断问题",
+          "通过学习大小-权重边界优化合成数据的生成与融合策略",
+          "在真实数据稀缺的情况下显著提升统计推断的准确性"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:29:08.256150+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Synthetic Data",
+    "Statistical Inference",
+    "Uncertainty Estimation"
+  ],
+  "title_en": "Learning a Size-Weight Frontier for Synthetic-Augmented Inference",
+  "title_zh": "学习用于合成增强推理的大小-权重边界",
+  "hook": "합성 데이터를 실제 데이터처럼 다룰 때 발생하는 편향 문제를 해결하고 신뢰성 있는 추론을 유도합니다.",
+  "hook_ko": "합성 데이터를 실제 데이터처럼 다룰 때 발생하는 편향 문제를 해결하고 신뢰성 있는 추론을 유도합니다.",
+  "hook_en": "Overcoming bias and unreliability when treating synthetic data as real data in statistical inference.",
+  "hook_zh": "解决在统计推断中将合成数据直接视为真实数据所带来的偏差与不可靠性问题。",
+  "description_en": "Overcoming bias and unreliability when treating synthetic data as real data in statistical inference.",
+  "description_zh": "解决在统计推断中将合成数据直接视为真实数据所带来的偏差与不可靠性问题。"
 }

@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "cclank/lanshu-create-ai-presenter-video",
-  "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+  "title_ko": "Lanshu AI 프레젠터 비디오 생성기: 스크립트와 이미지로 검증된 AI 발표 영상 제작",
+  "description_ko": "텍스트 스크립트와 승인된 발표자 이미지 한 장으로 고품질의 AI 프레젠터 영상을 자동으로 생성합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,68 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_github_cclanklanshu_create_ai_presenter_video",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "영상 제작 및 생성형 AI",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "AI Presenter",
+      "Codex Skill",
+      "Video Generation",
+      "Script"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "Lanshu AI 프레젠터 비디오 생성기: 스크립트와 이미지로 검증된 AI 발표 영상 제작",
+        "hook": "텍스트 스크립트와 승인된 발표자 이미지 한 장으로 고품질의 AI 프레젠터 영상을 자동으로 생성합니다.",
+        "key_takeaways": [
+          "프로바이더 중립적 Codex Skill을 활용한 모듈형 AI 영상 제작 파이프라인",
+          "스크립트와 발표자 이미지만으로 검증된 프레젠테이션 영상 출력",
+          "마케팅, 교육, 콘텐츠 제작에 즉시 활용 가능한 자동화 도구"
+        ]
+      },
+      "en": {
+        "title": "Lanshu: Provider-Neutral Codex Skill for AI Presenter Video Production",
+        "hook": "Produce verified, high-quality AI presenter videos from a simple script and an authorized presenter image.",
+        "key_takeaways": [
+          "Provider-neutral Codex Skill designed for automated video synthesis",
+          "Converts text scripts and a single presenter image into dynamic video output",
+          "Streamlines content creation for tutorials, marketing, and automated media"
+        ]
+      },
+      "zh": {
+        "title": "Lanshu AI 演说视频生成器：通过脚本与形象制作AI数字人视频",
+        "hook": "利用提供商中立的 Codex Skill，仅凭文案脚本和人物图像即可快速生成专业的AI数字人演示视频。",
+        "key_takeaways": [
+          "支持提供商中立的 Codex Skill 架构，灵活度高",
+          "通过输入剧本与指定演说者头像自动合成验证过的视频内容",
+          "极大地简化了营销视频与教学短片的制作流程"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:28:29.955639+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "AI Presenter",
+    "Codex Skill",
+    "Video Generation",
+    "Script"
+  ],
+  "title_en": "Lanshu: Provider-Neutral Codex Skill for AI Presenter Video Production",
+  "title_zh": "Lanshu AI 演说视频生成器：通过脚本与形象制作AI数字人视频",
+  "hook": "텍스트 스크립트와 승인된 발표자 이미지 한 장으로 고품질의 AI 프레젠터 영상을 자동으로 생성합니다.",
+  "hook_ko": "텍스트 스크립트와 승인된 발표자 이미지 한 장으로 고품질의 AI 프레젠터 영상을 자동으로 생성합니다.",
+  "hook_en": "Produce verified, high-quality AI presenter videos from a simple script and an authorized presenter image.",
+  "hook_zh": "利用提供商中立的 Codex Skill，仅凭文案脚本和人物图像即可快速生成专业的AI数字人演示视频。",
+  "description_en": "Produce verified, high-quality AI presenter videos from a simple script and an authorized presenter image.",
+  "description_zh": "利用提供商中立的 Codex Skill，仅凭文案脚本和人物图像即可快速生成专业的AI数字人演示视频。"
 }

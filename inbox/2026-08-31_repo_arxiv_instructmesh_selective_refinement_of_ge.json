@@ -23,8 +23,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "InstructMesh: Selective Refinement of Generative 3D Models for Fabrication",
-  "description_ko": "Abstract: Recent advances in generative AI allow users to create 3D models from text or images. However, these models prioritize visual plausibility over geometric accuracy, often generating results with flaws ...",
+  "title_ko": "InstructMesh: 제작을 위한 생성형 3D 모델의 선택적 정제",
+  "description_ko": "시각적 타당성에만 치우친 생성형 3D 모델의 기하학적 결함을 정밀하게 보정하는 기술입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -44,5 +44,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_arxiv_instructmesh_selective_refinement_of_ge",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "3D 생성 및 비전 AI",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Generative 3D Models",
+      "Mesh Refinement",
+      "Geometric Accuracy"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "InstructMesh: 제작을 위한 생성형 3D 모델의 선택적 정제",
+        "hook": "시각적 타당성에만 치우친 생성형 3D 모델의 기하학적 결함을 정밀하게 보정하는 기술입니다.",
+        "key_takeaways": [
+          "텍스트/이미지 기반 생성형 3D 모델의 기하학적 정확도 한계 극복",
+          "실제 제작(Fabrication)에 적합하도록 메쉬(Mesh)를 선택적으로 정제하는 알고리즘",
+          "시각적 품질과 구조적 무결성을 동시에 만족시키는 결과물 생성"
+        ]
+      },
+      "en": {
+        "title": "InstructMesh: Selective Refinement of Generative 3D Models for Fabrication",
+        "hook": "A novel technique to selectively refine generative 3D meshes for high geometric accuracy in fabrication.",
+        "key_takeaways": [
+          "Addresses the geometric inaccuracy of visual-first generative 3D models",
+          "Introduces selective mesh refinement specifically tailored for fabrication",
+          "Achieves a balance between visual plausibility and structural integrity"
+        ]
+      },
+      "zh": {
+        "title": "InstructMesh：面向制造的生成式3D模型选择性精炼",
+        "hook": "精准修复过度侧重视觉合理性而忽视几何精度的生成式3D模型的底层技术。",
+        "key_takeaways": [
+          "克服文本或图像生成3D模型在几何精度上的根本缺陷",
+          "提出专为实际制造设计网格（Mesh）选择性精炼的新方法",
+          "实现视觉逼真度与结构几何准确性的完美平衡"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:29:08.256606+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Generative 3D Models",
+    "Mesh Refinement",
+    "Geometric Accuracy"
+  ],
+  "title_en": "InstructMesh: Selective Refinement of Generative 3D Models for Fabrication",
+  "title_zh": "InstructMesh：面向制造的生成式3D模型选择性精炼",
+  "hook": "시각적 타당성에만 치우친 생성형 3D 모델의 기하학적 결함을 정밀하게 보정하는 기술입니다.",
+  "hook_ko": "시각적 타당성에만 치우친 생성형 3D 모델의 기하학적 결함을 정밀하게 보정하는 기술입니다.",
+  "hook_en": "A novel technique to selectively refine generative 3D meshes for high geometric accuracy in fabrication.",
+  "hook_zh": "精准修复过度侧重视觉合理性而忽视几何精度的生成式3D模型的底层技术。",
+  "description_en": "A novel technique to selectively refine generative 3D meshes for high geometric accuracy in fabrication.",
+  "description_zh": "精准修复过度侧重视觉合理性而忽视几何精度的生成式3D模型的底层技术。"
 }

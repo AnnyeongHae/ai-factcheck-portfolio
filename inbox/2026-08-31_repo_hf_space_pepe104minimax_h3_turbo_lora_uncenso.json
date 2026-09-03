@@ -17,13 +17,13 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "MiniMax",
   "detected_formats": [
     "Interactive Web Demo"
   ],
-  "category_type": "TECH",
-  "title_ko": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED",
-  "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 47 | Live URL: https://huggingface.co/spaces/Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED",
+  "category_type": "MODEL",
+  "title_ko": "MiniMax H3 터보 LoRA 언센서드 데모",
+  "description_ko": "MiniMax H3 모델을 기반으로 제약이 해제된(Uncensored) 터보 LoRA 추론 모델을 테스트합니다.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,68 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_hf_space_pepe104minimax_h3_turbo_lora_uncenso",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "MiniMax",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "MiniMax",
+      "LoRA",
+      "Turbo",
+      "언센서드"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "MiniMax H3 터보 LoRA 언센서드 데모",
+        "hook": "MiniMax H3 모델을 기반으로 제약이 해제된(Uncensored) 터보 LoRA 추론 모델을 테스트합니다.",
+        "key_takeaways": [
+          "MiniMax H3 아키텍처에 적용된 맞춤형 LoRA 가중치",
+          "검열 없는 대화 및 창작 작업에 최적화된 성능",
+          "Gradio를 통한 간편한 웹 테스트 환경"
+        ]
+      },
+      "en": {
+        "title": "MiniMax H3 Turbo LoRA Uncensored Demo",
+        "hook": "Test an uncensored turbo LoRA inference model built upon the MiniMax H3 architecture.",
+        "key_takeaways": [
+          "Custom LoRA weights applied to the MiniMax H3 architecture",
+          "Optimized performance for unrestricted conversation and creative tasks",
+          "Easy web testing environment via Gradio"
+        ]
+      },
+      "zh": {
+        "title": "MiniMax H3 Turbo LoRA 越狱版演示",
+        "hook": "测试基于 MiniMax H3 架构构建的无限制（Uncensored）Turbo LoRA 推理模型。",
+        "key_takeaways": [
+          "应用于 MiniMax H3 架构的定制 LoRA 权重",
+          "针对无限制对话与创意任务优化的性能",
+          "通过 Gradio 提供便捷的网页测试环境"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:27:02.163756+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "MiniMax",
+    "LoRA",
+    "Turbo",
+    "언센서드"
+  ],
+  "title_en": "MiniMax H3 Turbo LoRA Uncensored Demo",
+  "title_zh": "MiniMax H3 Turbo LoRA 越狱版演示",
+  "hook": "MiniMax H3 모델을 기반으로 제약이 해제된(Uncensored) 터보 LoRA 추론 모델을 테스트합니다.",
+  "hook_ko": "MiniMax H3 모델을 기반으로 제약이 해제된(Uncensored) 터보 LoRA 추론 모델을 테스트합니다.",
+  "hook_en": "Test an uncensored turbo LoRA inference model built upon the MiniMax H3 architecture.",
+  "hook_zh": "测试基于 MiniMax H3 架构构建的无限制（Uncensored）Turbo LoRA 推理模型。",
+  "description_en": "Test an uncensored turbo LoRA inference model built upon the MiniMax H3 architecture.",
+  "description_zh": "测试基于 MiniMax H3 架构构建的无限制（Uncensored）Turbo LoRA 推理模型。"
 }

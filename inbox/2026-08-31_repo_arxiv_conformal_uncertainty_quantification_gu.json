@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "Conformal Uncertainty Quantification Guarantees for Neural Operators",
-  "description_ko": "Abstract: Neural operators provide fast surrogate models for approximating operators between function spaces, but their predictions often lack uncertainty quantification. We develop a split conformal framework ...",
+  "title_ko": "신경 연산자를 위한 콩포말 불확실성 정량화 보장",
+  "description_ko": "함수 공간 간 연산자를 근사하는 신경 연산자에 통계적 신뢰성을 부여하는 프레임워크입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_arxiv_conformal_uncertainty_quantification_gu",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "신경 연산자 및 불확실성 정량화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Neural Operators",
+      "Uncertainty Quantification",
+      "Conformal Prediction"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "신경 연산자를 위한 콩포말 불확실성 정량화 보장",
+        "hook": "함수 공간 간 연산자를 근사하는 신경 연산자에 통계적 신뢰성을 부여하는 프레임워크입니다.",
+        "key_takeaways": [
+          "빠른 대리 모델(Surrogate model)인 신경 연산자의 불확실성 결여 문제 해결",
+          "분할 콩포말 예측(Split conformal framework)을 통한 엄격한 불확실성 보장",
+          "복잡한 함수 공간에서의 예측 신뢰도 향상"
+        ]
+      },
+      "en": {
+        "title": "Conformal Uncertainty Quantification Guarantees for Neural Operators",
+        "hook": "Establishing rigorous uncertainty guarantees for fast neural operators approximating function spaces.",
+        "key_takeaways": [
+          "Addresses the lack of uncertainty quantification in neural operator predictions",
+          "Develops a split conformal framework to provide rigorous error bounds",
+          "Enhances prediction reliability in complex function space approximations"
+        ]
+      },
+      "zh": {
+        "title": "神经算子的保角不确定性量化保证",
+        "hook": "为用于逼近函数空间算子的神经算子提供严格不确定性量化保证的创新框架。",
+        "key_takeaways": [
+          "解决快速代理模型——神经算子缺乏不确定性量化的痛点",
+          "开发分割保角预测框架（Split conformal framework），提供严格的误差保证",
+          "显著提升复杂函数空间近似预测的可靠性"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:29:08.256814+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Neural Operators",
+    "Uncertainty Quantification",
+    "Conformal Prediction"
+  ],
+  "title_en": "Conformal Uncertainty Quantification Guarantees for Neural Operators",
+  "title_zh": "神经算子的保角不确定性量化保证",
+  "hook": "함수 공간 간 연산자를 근사하는 신경 연산자에 통계적 신뢰성을 부여하는 프레임워크입니다.",
+  "hook_ko": "함수 공간 간 연산자를 근사하는 신경 연산자에 통계적 신뢰성을 부여하는 프레임워크입니다.",
+  "hook_en": "Establishing rigorous uncertainty guarantees for fast neural operators approximating function spaces.",
+  "hook_zh": "为用于逼近函数空间算子的神经算子提供严格不确定性量化保证的创新框架。",
+  "description_en": "Establishing rigorous uncertainty guarantees for fast neural operators approximating function spaces.",
+  "description_zh": "为用于逼近函数空间算子的神经算子提供严格不确定性量化保证的创新框架。"
 }

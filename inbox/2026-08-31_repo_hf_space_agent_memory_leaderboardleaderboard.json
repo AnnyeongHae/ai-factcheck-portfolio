@@ -21,9 +21,9 @@
   "detected_formats": [
     "Interactive Web Demo"
   ],
-  "category_type": "TECH",
-  "title_ko": "HF Space: agent-memory-leaderboard/leaderboard",
-  "description_ko": "Interactive AI Demo (SDK: static) | Likes: 767 | Live URL: https://huggingface.co/spaces/agent-memory-leaderboard/leaderboard",
+  "category_type": "AGENT",
+  "title_ko": "AI 에이전트 메모리 성능을 한눈에 비교하는 리더보드",
+  "description_ko": "AI 에이전트의 장기 기억 및 컨텍스트 유지 능력을 평가하는 최신 벤치마크입니다.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,66 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-08-31"
+  "updated_at": "2026-08-31",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_hf_space_agent_memory_leaderboardleaderboard",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "에이전트 메모리 평가",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Agent Memory",
+      "Leaderboard",
+      "LLM Evaluation"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "AI 에이전트 메모리 성능을 한눈에 비교하는 리더보드",
+        "hook": "AI 에이전트의 장기 기억 및 컨텍스트 유지 능력을 평가하는 최신 벤치마크입니다.",
+        "key_takeaways": [
+          "AI 에이전트 메모리 시스템의 성능 순위 제공",
+          "다양한 에이전트 아키텍처의 기억 유지력 비교 분석",
+          "에이전트 개발 시 메모리 모듈 선택을 위한 핵심 지표 제공"
+        ]
+      },
+      "en": {
+        "title": "Agent Memory Performance Leaderboard",
+        "hook": "A comprehensive benchmark tracking long-term memory and context retention in AI agents.",
+        "key_takeaways": [
+          "Performance rankings for AI agent memory systems",
+          "Comparative analysis of memory retention across agent architectures",
+          "Key metric reference for selecting memory modules in agent development"
+        ]
+      },
+      "zh": {
+        "title": "AI 智能体记忆性能排行榜",
+        "hook": "追踪和评估 AI 智能体长期记忆与上下文保持能力的最新基准测试。",
+        "key_takeaways": [
+          "提供 AI 智能体记忆系统的性能排名",
+          "对比分析不同智能体架构的记忆保持能力",
+          "为智能体开发中的内存模块选择提供核心指标参考"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:27:38.376326+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Agent Memory",
+    "Leaderboard",
+    "LLM Evaluation"
+  ],
+  "title_en": "Agent Memory Performance Leaderboard",
+  "title_zh": "AI 智能体记忆性能排行榜",
+  "hook": "AI 에이전트의 장기 기억 및 컨텍스트 유지 능력을 평가하는 최신 벤치마크입니다.",
+  "hook_ko": "AI 에이전트의 장기 기억 및 컨텍스트 유지 능력을 평가하는 최신 벤치마크입니다.",
+  "hook_en": "A comprehensive benchmark tracking long-term memory and context retention in AI agents.",
+  "hook_zh": "追踪和评估 AI 智能体长期记忆与上下文保持能力的最新基准测试。",
+  "description_en": "A comprehensive benchmark tracking long-term memory and context retention in AI agents.",
+  "description_zh": "追踪和评估 AI 智能体长期记忆与上下文保持能力的最新基准测试。"
 }

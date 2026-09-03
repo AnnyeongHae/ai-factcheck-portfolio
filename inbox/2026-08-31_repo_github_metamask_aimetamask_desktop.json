@@ -22,8 +22,8 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "MetaMask-AI/metamask-desktop",
-  "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
+  "title_ko": "MetaMask Desktop: 이더리움 블록체인 웹사이트 지원 데스크톱 앱",
+  "description_ko": "브라우저 확장을 넘어 네이티브 데스크톱 환경에서 이더리움 웹3 앱을 직접 탐색하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
   "metric_tracking": {
@@ -43,5 +43,68 @@
     "is_spiking": false
   },
   "created_at": "2026-08-31",
-  "updated_at": "2026-09-02"
+  "updated_at": "2026-09-02",
+  "ai_enrichment": {
+    "id": "2026-08-31_repo_github_metamask_aimetamask_desktop",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "블록체인 및 웹3 애플리케이션",
+    "programming_lang": "TypeScript",
+    "root_keywords": [
+      "MetaMask",
+      "Ethereum",
+      "Desktop App",
+      "Web3"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "MetaMask Desktop: 이더리움 블록체인 웹사이트 지원 데스크톱 앱",
+        "hook": "브라우저 확장을 넘어 네이티브 데스크톱 환경에서 이더리움 웹3 앱을 직접 탐색하세요.",
+        "key_takeaways": [
+          "이더리움 블록체인 지원 웹사이트 탐색을 위한 공식 MetaMask 데스크톱 애플리케이션",
+          "브라우저 독립적인 안전한 웹3 환경 제공",
+          "확장 프로그램의 한계를 넘어선 향상된 데스크톱 지갑 및 브라우징 경험"
+        ]
+      },
+      "en": {
+        "title": "MetaMask Desktop: Native Application for Ethereum Blockchain Browsing",
+        "hook": "Access and interact with Ethereum-enabled Web3 websites directly from a standalone desktop app.",
+        "key_takeaways": [
+          "Official MetaMask desktop application enabling seamless browsing of Ethereum websites",
+          "Provides a browser-independent, secure environment for Web3 interactions",
+          "Enhanced user experience beyond traditional browser extensions"
+        ]
+      },
+      "zh": {
+        "title": "MetaMask Desktop: 支持以太坊区块链网站浏览的桌面客户端",
+        "hook": "摆脱浏览器限制，在独立的桌面应用中直接畅游以太坊 Web3 生态。",
+        "key_takeaways": [
+          "MetaMask 官方桌面应用程序，支持浏览以太坊区块链支持的网站",
+          "提供独立于浏览器的安全 Web3 交互环境",
+          "带来比传统浏览器插件更出色的桌面端钱包与应用体验"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T05:28:16.121027+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "TypeScript",
+  "root_keywords": [
+    "MetaMask",
+    "Ethereum",
+    "Desktop App",
+    "Web3"
+  ],
+  "title_en": "MetaMask Desktop: Native Application for Ethereum Blockchain Browsing",
+  "title_zh": "MetaMask Desktop: 支持以太坊区块链网站浏览的桌面客户端",
+  "hook": "브라우저 확장을 넘어 네이티브 데스크톱 환경에서 이더리움 웹3 앱을 직접 탐색하세요.",
+  "hook_ko": "브라우저 확장을 넘어 네이티브 데스크톱 환경에서 이더리움 웹3 앱을 직접 탐색하세요.",
+  "hook_en": "Access and interact with Ethereum-enabled Web3 websites directly from a standalone desktop app.",
+  "hook_zh": "摆脱浏览器限制，在独立的桌面应用中直接畅游以太坊 Web3 生态。",
+  "description_en": "Access and interact with Ethereum-enabled Web3 websites directly from a standalone desktop app.",
+  "description_zh": "摆脱浏览器限制，在独立的桌面应用中直接畅游以太坊 Web3 生态。"
 }
