@@ -2138,5 +2138,34 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260903_065057",
+    "timestamp": "2026-09-03T06:50:57.235162+00:00",
+    "total_candidates": 1,
+    "requested_limit": 0,
+    "processed_count": 1,
+    "success_count": 1,
+    "models_used_summary": {
+      "gemini-flash-lite-latest": 1
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 2.2,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_sns_hacker_news_llms_and_self_referentiality",
+            "title": "Hacker News: LLMs and Self-Referentiality",
+            "title_ko": "Hacker News: LLM과 자기참조성(Self-Referentiality)",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T06:50:59.439293+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
