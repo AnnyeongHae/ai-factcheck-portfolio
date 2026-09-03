@@ -2,8 +2,8 @@
   "generated_at": "2026-09-02",
   "total_cases": 29,
   "models_total_count": 69,
-  "news_total_count": 89,
-  "inbox_total_count": 196,
+  "news_total_count": 82,
+  "inbox_total_count": 203,
   "all_inbox_count": 360,
   "admin_stats": {
     "endpoints": [
@@ -39,6 +39,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T01:55:40.942486",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.25
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.16
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.91
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 26,
+            "duration_sec": 11.51
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.44
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.13
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.85
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.2
+          }
+        },
+        "summary": {
+          "total_fetched": 166,
+          "updated_count": 0,
+          "new_saved": 0,
+          "duplicates_skipped": 166,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T10:53:48.357133",
         "date": "2026-09-03",
@@ -1500,100 +1553,58 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-01T16:04:04.284560",
-        "date": "2026-09-01",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.06
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.03
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.57
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 2.32
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.15
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.02
-          }
-        },
-        "summary": {
-          "total_fetched": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T10:53:48.357133",
+      "timestamp": "2026-09-03T01:55:40.942486",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.35
+          "duration_sec": 0.25
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.28
+          "duration_sec": 0.16
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.89
+          "duration_sec": 0.91
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 26,
-          "duration_sec": 31.14
+          "duration_sec": 11.51
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.18
+          "duration_sec": 0.44
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.41
+          "duration_sec": 0.13
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.23
+          "duration_sec": 0.85
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.7
+          "duration_sec": 0.2
         }
       },
       "summary": {
         "total_fetched": 166,
         "updated_count": 0,
-        "new_saved": 63,
-        "duplicates_skipped": 103,
+        "new_saved": 0,
+        "duplicates_skipped": 166,
         "errors": 0
       }
     }
@@ -5414,40 +5425,6 @@
   ],
   "news_items": [
     {
-      "inbox_id": "2026-09-03_sns_hugging_face_blog_real_time_intelligence_with",
-      "harvested_date": "2026-09-03",
-      "created_at": "2026-09-03",
-      "updated_at": "2026-09-03",
-      "title": "Hugging Face Blog: Real-Time Intelligence with IBM Time Series Models on Confluent",
-      "source_platform": "Hugging Face Blog",
-      "source_url": "https://huggingface.co/blog/ibm-research/real-time-intelligence",
-      "type": "sns",
-      "category_type": "NEWS",
-      "description": "Hugging Face Blog Tech Publication: Real-Time Intelligence with IBM Time Series Models on Confluent",
-      "viral_metric": "🌍 Official AI Publication",
-      "metric_tracking": {
-        "initial": {
-          "value": 0,
-          "display": "🌍 Official AI Publication",
-          "recorded_at": "2026-09-03"
-        },
-        "latest": {
-          "value": 0,
-          "display": "🌍 Official AI Publication",
-          "updated_at": "2026-09-03"
-        },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
-      },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
-      ],
-      "status": "PENDING_REVIEW",
-      "article_url": "https://huggingface.co/blog/ibm-research/real-time-intelligence"
-    },
-    {
       "inbox_id": "2026-09-03_sns_hacker_news_whistleblower_warns_postal_servic",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -5480,42 +5457,72 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49524428",
-      "article_url": "https://www.cbsnews.com/news/whistleblower-postal-service-new-mail-ballot-system/"
-    },
-    {
-      "inbox_id": "2026-09-03_sns_hacker_news_we_could_save_petabytes_of_cache_",
-      "harvested_date": "2026-09-03",
-      "created_at": "2026-09-03",
-      "updated_at": "2026-09-03",
-      "title": "Hacker News: We could save petabytes of cache storage with Zstandard and Pingora",
-      "source_platform": "Hacker News",
-      "source_url": "https://news.ycombinator.com/item?id=49521909",
-      "type": "sns",
-      "category_type": "NEWS",
-      "description": "HN Score: 67 pts | Comments: 29 | We could save petabytes of cache storage with Zstandard and Pingora",
-      "viral_metric": "🔥 67 HN Points",
-      "metric_tracking": {
-        "initial": {
-          "value": 67,
-          "display": "🔥 67 HN Points",
-          "recorded_at": "2026-09-03"
+      "article_url": "https://www.cbsnews.com/news/whistleblower-postal-service-new-mail-ballot-system/",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_whistleblower_warns_postal_servic",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "보안 및 공공 시스템",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Postal Service",
+          "Mail Ballot",
+          "Security Risk",
+          "Whistleblower"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "우정사업본부 우편 투표 시스템의 심각한 결함을 고발한 내부자 경고",
+            "hook": "공공 우편 투표 시스템의 보안 취약점과 시스템 결함에 대한 내부고발 이슈를 다룹니다.",
+            "key_takeaways": [
+              "우편 투표 시스템 내 잠재적 치명적 결함 제기",
+              "공공 IT 인프라 및 선거 보안의 중요성",
+              "내부고발을 통한 시스템 신뢰성 논란"
+            ]
+          },
+          "en": {
+            "title": "Whistleblower Warns Postal Service Mail Ballot System Has Catastrophic Problems",
+            "hook": "Examine the whistleblower reports highlighting critical security vulnerabilities in postal mail ballot systems.",
+            "key_takeaways": [
+              "Allegations of catastrophic flaws in postal voting systems",
+              "Importance of public IT infrastructure and election security",
+              "System reliability concerns raised by whistleblowers"
+            ]
+          },
+          "zh": {
+            "title": "内部举报人警告邮政服务邮件选票系统存在灾难性问题",
+            "hook": "了解有关邮政邮件选票系统关键安全漏洞和系统缺陷的内部举报内容。",
+            "key_takeaways": [
+              "邮政投票系统中存在潜在灾难性缺陷的指控",
+              "公共 IT 基础设施与选举安全的重要性",
+              "因内部举报引发的系统可靠性争议"
+            ]
+          }
         },
-        "latest": {
-          "value": 67,
-          "display": "🔥 67 HN Points",
-          "updated_at": "2026-09-03"
-        },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:03.661687+00:00"
       },
-      "matched_user_domains": [
-        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Postal Service",
+        "Mail Ballot",
+        "Security Risk",
+        "Whistleblower"
       ],
-      "status": "PENDING_REVIEW",
-      "hn_url": "https://news.ycombinator.com/item?id=49521909",
-      "article_url": "https://blog.cloudflare.com/cache-transcoding/"
+      "title_ko": "우정사업본부 우편 투표 시스템의 심각한 결함을 고발한 내부자 경고",
+      "title_en": "Whistleblower Warns Postal Service Mail Ballot System Has Catastrophic Problems",
+      "title_zh": "内部举报人警告邮政服务邮件选票系统存在灾难性问题",
+      "hook": "공공 우편 투표 시스템의 보안 취약점과 시스템 결함에 대한 내부고발 이슈를 다룹니다.",
+      "hook_ko": "공공 우편 투표 시스템의 보안 취약점과 시스템 결함에 대한 내부고발 이슈를 다룹니다.",
+      "hook_en": "Examine the whistleblower reports highlighting critical security vulnerabilities in postal mail ballot systems.",
+      "hook_zh": "了解有关邮政邮件选票系统关键安全漏洞和系统缺陷的内部举报内容。",
+      "description_ko": "공공 우편 투표 시스템의 보안 취약점과 시스템 결함에 대한 내부고발 이슈를 다룹니다.",
+      "description_en": "Examine the whistleblower reports highlighting critical security vulnerabilities in postal mail ballot systems.",
+      "description_zh": "了解有关邮政邮件选票系统关键安全漏洞和系统缺陷的内部举报内容。"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_us_gov_sides_with_openai_on_issue",
@@ -5550,7 +5557,72 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49544650",
-      "article_url": "https://techcrunch.com/2026/09/02/u-s-government-sides-with-openai-on-issue-of-training-llms-on-copyrighted-material/"
+      "article_url": "https://techcrunch.com/2026/09/02/u-s-government-sides-with-openai-on-issue-of-training-llms-on-copyrighted-material/",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_us_gov_sides_with_openai_on_issue",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI 법률 및 저작권",
+        "programming_lang": "General",
+        "root_keywords": [
+          "US Government",
+          "OpenAI",
+          "Copyright",
+          "LLM Training"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.8,
+        "multilingual": {
+          "ko": {
+            "title": "미 정부, 저작물 LLM 학습 이슈에서 OpenAI 편에 서다",
+            "hook": "AI 모델 학습과 저작권 침해 논란에 대한 미국 정부의 공식적인 법적 입장 변화를 파악하세요.",
+            "key_takeaways": [
+              "저작물 활용 LLM 학습에 대한 미 정부의 입장 표명",
+              "AI 기업과 저작권자 간의 법적 공방에 미치는 영향",
+              "공정 이용(Fair Use) 원칙의 AI 학습 적용 범위 논쟁"
+            ]
+          },
+          "en": {
+            "title": "US Gov Sides with OpenAI on Issue of Training LLMs on Copyrighted Material",
+            "hook": "Understand the shifting legal landscape as the US government takes a stance on AI model training and copyright.",
+            "key_takeaways": [
+              "US government's official stance on training LLMs with copyrighted data",
+              "Implications for ongoing legal battles between AI firms and creators",
+              "Debates over the application of Fair Use principles to AI training"
+            ]
+          },
+          "zh": {
+            "title": "美国政府在版权数据训练 LLM 问题上站在 OpenAI 一边",
+            "hook": "了解美国政府就 AI 模型训练与版权争议表态所带来的法律格局变化。",
+            "key_takeaways": [
+              "美国政府对使用受版权保护数据训练 LLM 的官方立场",
+              "对 AI 公司与创作者之间持续法律诉讼的影响",
+              "公平使用原则适用于 AI 训练的范围争议"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:03.662280+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "US Government",
+        "OpenAI",
+        "Copyright",
+        "LLM Training"
+      ],
+      "title_ko": "미 정부, 저작물 LLM 학습 이슈에서 OpenAI 편에 서다",
+      "title_en": "US Gov Sides with OpenAI on Issue of Training LLMs on Copyrighted Material",
+      "title_zh": "美国政府在版权数据训练 LLM 问题上站在 OpenAI 一边",
+      "hook": "AI 모델 학습과 저작권 침해 논란에 대한 미국 정부의 공식적인 법적 입장 변화를 파악하세요.",
+      "hook_ko": "AI 모델 학습과 저작권 침해 논란에 대한 미국 정부의 공식적인 법적 입장 변화를 파악하세요.",
+      "hook_en": "Understand the shifting legal landscape as the US government takes a stance on AI model training and copyright.",
+      "hook_zh": "了解美国政府就 AI 模型训练与版权争议表态所带来的法律格局变化。",
+      "description_ko": "AI 모델 학습과 저작권 침해 논란에 대한 미국 정부의 공식적인 법적 입장 변화를 파악하세요.",
+      "description_en": "Understand the shifting legal landscape as the US government takes a stance on AI model training and copyright.",
+      "description_zh": "了解美国政府就 AI 模型训练与版权争议表态所带来的法律格局变化。"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_three_sites_made_215128_best_soft",
@@ -5585,7 +5657,72 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49536375",
-      "article_url": "https://trellner.com/reports/manufactured-sources-behind-ai-recommendations/"
+      "article_url": "https://trellner.com/reports/manufactured-sources-behind-ai-recommendations/",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_three_sites_made_215128_best_soft",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "SEO 및 검색 엔진(Perplexity)",
+        "programming_lang": "General",
+        "root_keywords": [
+          "SEO Spam",
+          "Perplexity",
+          "AI Content",
+          "Software Reviews"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.1,
+        "multilingual": {
+          "ko": {
+            "title": "AI를 위한 21만여 개의 가짜 '최고의 소프트웨어' 페이지를 대량 생성한 사이트들과 Perplexity의 인용",
+            "hook": "AI 검색 엔진의 취약점을 파악하고 대규모 SEO 스팸이 생성하는 환각 및 인용 왜곡 문제를 고발합니다.",
+            "key_takeaways": [
+              "자동화된 AI 콘텐츠 공장이 생산한 21만 개 이상의 스팸 페이지",
+              "Perplexity와 같은 AI 검색 엔진이 스팸 사이트를 인용하는 메커니즘의 문제점",
+              "현대 AI 검색 환경에서의 SEO 조작 및 신뢰도 위기"
+            ]
+          },
+          "en": {
+            "title": "Three Sites Made 215,128 'Best Software' Pages for AI, Cited by Perplexity",
+            "hook": "Examine how programmatic SEO spam exploits modern AI search engines and influences citations.",
+            "key_takeaways": [
+              "Over 215,000 automated spam pages generated by AI content factories",
+              "Vulnerabilities in how AI search engines like Perplexity cite sources",
+              "The growing crisis of SEO manipulation and trust in modern AI search"
+            ]
+          },
+          "zh": {
+            "title": "三个网站为 AI 批量生成 215,128 个“最佳软件”页面并被 Perplexity 引用",
+            "hook": "剖析程序化 SEO 垃圾内容如何利用现代 AI 搜索引擎并操纵引用来源。",
+            "key_takeaways": [
+              "AI 内容工厂批量生成的超 21 万个垃圾页面",
+              "像 Perplexity 这样的 AI 搜索引擎在引用来源机制上的漏洞",
+              "现代 AI 搜索中日益严峻的 SEO 操纵与信任危机"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:03.662500+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "SEO Spam",
+        "Perplexity",
+        "AI Content",
+        "Software Reviews"
+      ],
+      "title_ko": "AI를 위한 21만여 개의 가짜 '최고의 소프트웨어' 페이지를 대량 생성한 사이트들과 Perplexity의 인용",
+      "title_en": "Three Sites Made 215,128 'Best Software' Pages for AI, Cited by Perplexity",
+      "title_zh": "三个网站为 AI 批量生成 215,128 个“最佳软件”页面并被 Perplexity 引用",
+      "hook": "AI 검색 엔진의 취약점을 파악하고 대규모 SEO 스팸이 생성하는 환각 및 인용 왜곡 문제를 고발합니다.",
+      "hook_ko": "AI 검색 엔진의 취약점을 파악하고 대규모 SEO 스팸이 생성하는 환각 및 인용 왜곡 문제를 고발합니다.",
+      "hook_en": "Examine how programmatic SEO spam exploits modern AI search engines and influences citations.",
+      "hook_zh": "剖析程序化 SEO 垃圾内容如何利用现代 AI 搜索引擎并操纵引用来源。",
+      "description_ko": "AI 검색 엔진의 취약점을 파악하고 대규모 SEO 스팸이 생성하는 환각 및 인용 왜곡 문제를 고발합니다.",
+      "description_en": "Examine how programmatic SEO spam exploits modern AI search engines and influences citations.",
+      "description_zh": "剖析程序化 SEO 垃圾内容如何利用现代 AI 搜索引擎并操纵引用来源。"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_the_shrinking_landscape_of_lingui",
@@ -5620,77 +5757,72 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49497996",
-      "article_url": "https://www.nature.com/articles/s41562-026-02550-0"
-    },
-    {
-      "inbox_id": "2026-09-03_sns_hacker_news_six_curl_cves_after_openai_and_an",
-      "harvested_date": "2026-09-03",
-      "created_at": "2026-09-03",
-      "updated_at": "2026-09-03",
-      "title": "Hacker News: Six curl CVEs after OpenAI and Anthropic came back with zero",
-      "source_platform": "Hacker News",
-      "source_url": "https://news.ycombinator.com/item?id=49536114",
-      "type": "sns",
-      "category_type": "NEWS",
-      "description": "HN Score: 152 pts | Comments: 54 | Six curl CVEs after OpenAI and Anthropic came back with zero",
-      "viral_metric": "🔥 152 HN Points",
-      "metric_tracking": {
-        "initial": {
-          "value": 152,
-          "display": "🔥 152 HN Points",
-          "recorded_at": "2026-09-03"
+      "article_url": "https://www.nature.com/articles/s41562-026-02550-0",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_the_shrinking_landscape_of_lingui",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "언어 다양성 및 AI 영향 분석",
+        "programming_lang": "General",
+        "root_keywords": [
+          "LLM",
+          "Linguistic Diversity",
+          "Culture",
+          "AI Impact"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.2,
+        "multilingual": {
+          "ko": {
+            "title": "LLM 시대에 줄어드는 언어 다양성의 풍경",
+            "hook": "대규모 언어 모델의 확산이 전 세계 소수 언어와 문화 다양성에 미치는 영향을 분석합니다.",
+            "key_takeaways": [
+              "LLM 중심의 기술 생태계가 언어 다양성에 미치는 위협 고찰",
+              "주요 언어 편중 현상으로 인한 문화적 손실 가능성 분석",
+              "AI 시대의 다국어 공존을 위한 기술적·사회적 과제 논의"
+            ]
+          },
+          "en": {
+            "title": "The Shrinking Landscape of Linguistic Diversity in the Age of LLMs",
+            "hook": "An insightful discussion on how the dominance of LLMs impacts minority languages and global cultural diversity.",
+            "key_takeaways": [
+              "Examines the threat of LLM ecosystems to linguistic diversity",
+              "Analyzes cultural loss resulting from major language bias",
+              "Discusses technological and social challenges for multilingual coexistence"
+            ]
+          },
+          "zh": {
+            "title": "大模型时代的语言多样性萎缩景观",
+            "hook": "深入探讨大语言模型的普及对全球少数语言及文化多样性带来的潜在影响。",
+            "key_takeaways": [
+              "审视LLM主导的技术生态对语言多样性的威胁",
+              "分析主要语言偏见导致的文化流失可能性",
+              "讨论AI时代多语言共存的技术与社会挑战"
+            ]
+          }
         },
-        "latest": {
-          "value": 152,
-          "display": "🔥 152 HN Points",
-          "updated_at": "2026-09-03"
-        },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:16.632247+00:00"
       },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "LLM",
+        "Linguistic Diversity",
+        "Culture",
+        "AI Impact"
       ],
-      "status": "PENDING_REVIEW",
-      "hn_url": "https://news.ycombinator.com/item?id=49536114",
-      "article_url": "https://aisle.com/blog/aisle-discovered-six-curl-cves-after-openai-and-anthropic-found-zero"
-    },
-    {
-      "inbox_id": "2026-09-03_sns_hacker_news_show_hn_owntime_a_chess_clock_for",
-      "harvested_date": "2026-09-03",
-      "created_at": "2026-09-03",
-      "updated_at": "2026-09-03",
-      "title": "Hacker News: Show HN: OwnTime – a chess clock for your day's priorities",
-      "source_platform": "Hacker News",
-      "source_url": "https://news.ycombinator.com/item?id=49528506",
-      "type": "sns",
-      "category_type": "NEWS",
-      "description": "HN Score: 22 pts | Comments: 5 | Show HN: OwnTime – a chess clock for your day's priorities",
-      "viral_metric": "🔥 22 HN Points",
-      "metric_tracking": {
-        "initial": {
-          "value": 22,
-          "display": "🔥 22 HN Points",
-          "recorded_at": "2026-09-03"
-        },
-        "latest": {
-          "value": 22,
-          "display": "🔥 22 HN Points",
-          "updated_at": "2026-09-03"
-        },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
-      },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
-      ],
-      "status": "PENDING_REVIEW",
-      "hn_url": "https://news.ycombinator.com/item?id=49528506",
-      "article_url": "https://owntime.app/"
+      "title_ko": "LLM 시대에 줄어드는 언어 다양성의 풍경",
+      "title_en": "The Shrinking Landscape of Linguistic Diversity in the Age of LLMs",
+      "title_zh": "大模型时代的语言多样性萎缩景观",
+      "hook": "대규모 언어 모델의 확산이 전 세계 소수 언어와 문화 다양성에 미치는 영향을 분석합니다.",
+      "hook_ko": "대규모 언어 모델의 확산이 전 세계 소수 언어와 문화 다양성에 미치는 영향을 분석합니다.",
+      "hook_en": "An insightful discussion on how the dominance of LLMs impacts minority languages and global cultural diversity.",
+      "hook_zh": "深入探讨大语言模型的普及对全球少数语言及文化多样性带来的潜在影响。",
+      "description_ko": "대규모 언어 모델의 확산이 전 세계 소수 언어와 문화 다양성에 미치는 영향을 분석합니다.",
+      "description_en": "An insightful discussion on how the dominance of LLMs impacts minority languages and global cultural diversity.",
+      "description_zh": "深入探讨大语言模型的普及对全球少数语言及文化多样性带来的潜在影响。"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_qantas_airbus_a380_engine_failure",
@@ -5725,77 +5857,72 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49540565",
-      "article_url": "https://admiralcloudberg.medium.com/a-matter-of-millimeters-the-story-of-qantas-flight-32-bdaa62dc98e7"
-    },
-    {
-      "inbox_id": "2026-09-03_sns_hacker_news_metr_report_on_openai_hugging_fac",
-      "harvested_date": "2026-09-03",
-      "created_at": "2026-09-03",
-      "updated_at": "2026-09-03",
-      "title": "Hacker News: METR Report on OpenAI / Hugging Face Hacking Incident",
-      "source_platform": "Hacker News",
-      "source_url": "https://news.ycombinator.com/item?id=49543841",
-      "type": "sns",
-      "category_type": "NEWS",
-      "description": "HN Score: 86 pts | Comments: 70 | METR Report on OpenAI / Hugging Face Hacking Incident",
-      "viral_metric": "🔥 86 HN Points",
-      "metric_tracking": {
-        "initial": {
-          "value": 86,
-          "display": "🔥 86 HN Points",
-          "recorded_at": "2026-09-03"
+      "article_url": "https://admiralcloudberg.medium.com/a-matter-of-millimeters-the-story-of-qantas-flight-32-bdaa62dc98e7",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_qantas_airbus_a380_engine_failure",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "시스템 안정성 및 사고 분석",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Aviation",
+          "System Failure",
+          "Reliability",
+          "Case Study"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "2010년 콴타스 항공 에어버스 A380 엔진 폭발 사고 재조명",
+            "hook": "복잡한 대형 시스템에서 치명적인 고장 발생 시 다중 중복 시스템과 엔지니어링 대처가 어떻게 생명을 구했는지 분석합니다.",
+            "key_takeaways": [
+              "2010년 콴타스 32편 엔진 고장 당시의 복잡한 시스템 장애 분석",
+              "미션 크리티컬 시스템에서의 철저한 중복 설계 중요성",
+              "위기 상황 속 엔지니어와 조종사의 인적 요소(Human Factors) 관리"
+            ]
+          },
+          "en": {
+            "title": "Qantas Airbus A380 Engine Failure in 2010 (Case Study)",
+            "hook": "A deep dive into how redundancy and engineering resilience saved a massive critical system from complete failure.",
+            "key_takeaways": [
+              "Analyzes the complex system failures during Qantas Flight 32",
+              "Emphasizes the critical importance of fault-tolerant design in mission-critical systems",
+              "Examines human factors and crisis management by engineers and crew"
+            ]
+          },
+          "zh": {
+            "title": "回顾2010年澳洲航空A380发动机故障事故",
+            "hook": "深入剖析在极端复杂系统遭遇致命故障时，冗余设计与工程应对如何挽救全机安全。",
+            "key_takeaways": [
+              "分析澳航32号航班遭遇严重发动机故障时的系统崩溃全过程",
+              "强调高可靠性关键任务系统中容错设计的重要性",
+              "探讨危机情况下工程人员与机组人员的人为因素管理"
+            ]
+          }
         },
-        "latest": {
-          "value": 86,
-          "display": "🔥 86 HN Points",
-          "updated_at": "2026-09-03"
-        },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:16.633325+00:00"
       },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Aviation",
+        "System Failure",
+        "Reliability",
+        "Case Study"
       ],
-      "status": "PENDING_REVIEW",
-      "hn_url": "https://news.ycombinator.com/item?id=49543841",
-      "article_url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident"
-    },
-    {
-      "inbox_id": "2026-09-03_sns_hacker_news_embedded_rust_rtos_vs_c_rtos",
-      "harvested_date": "2026-09-03",
-      "created_at": "2026-09-03",
-      "updated_at": "2026-09-03",
-      "title": "Hacker News: Embedded Rust RTOS vs. C RTOS",
-      "source_platform": "Hacker News",
-      "source_url": "https://news.ycombinator.com/item?id=49540415",
-      "type": "sns",
-      "category_type": "NEWS",
-      "description": "HN Score: 55 pts | Comments: 29 | Embedded Rust RTOS vs. C RTOS",
-      "viral_metric": "🔥 55 HN Points",
-      "metric_tracking": {
-        "initial": {
-          "value": 55,
-          "display": "🔥 55 HN Points",
-          "recorded_at": "2026-09-03"
-        },
-        "latest": {
-          "value": 55,
-          "display": "🔥 55 HN Points",
-          "updated_at": "2026-09-03"
-        },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
-      },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
-      ],
-      "status": "PENDING_REVIEW",
-      "hn_url": "https://news.ycombinator.com/item?id=49540415",
-      "article_url": "https://tweedegolf.nl/en/blog/65/async-rust-vs-rtos-showdown/"
+      "title_ko": "2010년 콴타스 항공 에어버스 A380 엔진 폭발 사고 재조명",
+      "title_en": "Qantas Airbus A380 Engine Failure in 2010 (Case Study)",
+      "title_zh": "回顾2010年澳洲航空A380发动机故障事故",
+      "hook": "복잡한 대형 시스템에서 치명적인 고장 발생 시 다중 중복 시스템과 엔지니어링 대처가 어떻게 생명을 구했는지 분석합니다.",
+      "hook_ko": "복잡한 대형 시스템에서 치명적인 고장 발생 시 다중 중복 시스템과 엔지니어링 대처가 어떻게 생명을 구했는지 분석합니다.",
+      "hook_en": "A deep dive into how redundancy and engineering resilience saved a massive critical system from complete failure.",
+      "hook_zh": "深入剖析在极端复杂系统遭遇致命故障时，冗余设计与工程应对如何挽救全机安全。",
+      "description_ko": "복잡한 대형 시스템에서 치명적인 고장 발생 시 다중 중복 시스템과 엔지니어링 대처가 어떻게 생명을 구했는지 분석합니다.",
+      "description_en": "A deep dive into how redundancy and engineering resilience saved a massive critical system from complete failure.",
+      "description_zh": "深入剖析在极端复杂系统遭遇致命故障时，冗余设计与工程应对如何挽救全机安全。"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_can_i_opt_out_of_my_input_or_outp",
@@ -5830,42 +5957,70 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49535284",
-      "article_url": "https://help.mistral.ai/en/articles/455207-can-i-opt-out-of-my-input-or-output-data-being-used-for-training"
-    },
-    {
-      "inbox_id": "2026-09-03_sns_hacker_news_altair_basic_interpreter_source_c",
-      "harvested_date": "2026-09-03",
-      "created_at": "2026-09-03",
-      "updated_at": "2026-09-03",
-      "title": "Hacker News: Altair Basic Interpreter Source Code (1975) [pdf]",
-      "source_platform": "Hacker News",
-      "source_url": "https://news.ycombinator.com/item?id=49541754",
-      "type": "sns",
-      "category_type": "NEWS",
-      "description": "HN Score: 40 pts | Comments: 22 | Altair Basic Interpreter Source Code (1975) [pdf]",
-      "viral_metric": "🔥 40 HN Points",
-      "metric_tracking": {
-        "initial": {
-          "value": 40,
-          "display": "🔥 40 HN Points",
-          "recorded_at": "2026-09-03"
+      "article_url": "https://help.mistral.ai/en/articles/455207-can-i-opt-out-of-my-input-or-output-data-being-used-for-training",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_can_i_opt_out_of_my_input_or_outp",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI 윤리 및 데이터 프라이버시",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI Training",
+          "Data Privacy",
+          "Opt-Out Policy"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "AI 모델 훈련 데이터 수집 거부(Opt-out): 사용자의 입력과 출력 데이터를 보호하는 방법",
+            "hook": "AI 기업들의 무분별한 데이터 수집 속에서 사용자가 자신의 입출력 데이터를 모델 훈련으로부터 거부할 수 있는 권리와 방법론을 다룹니다.",
+            "key_takeaways": [
+              "주요 AI 플랫폼의 데이터 수집 정책 및 옵트아웃 제공 여부",
+              "엔터프라이즈 및 개인 사용자의 데이터 프라이버시 보호 방안",
+              "AI 모델 학습 방지를 위한 기술적·법적 한계와 과제"
+            ]
+          },
+          "en": {
+            "title": "Opting Out of AI Training: How to Protect Your Input and Output Data",
+            "hook": "Exploring user rights and methodologies to prevent input and output data from being used in AI model training.",
+            "key_takeaways": [
+              "Data collection policies of major AI platforms and opt-out availability",
+              "Data privacy protection strategies for enterprise and individual users",
+              "Technical and legal limitations in preventing AI model training"
+            ]
+          },
+          "zh": {
+            "title": "拒绝 AI 训练：如何保护您的输入和输出数据不被用于模型训练",
+            "hook": "探讨用户在各大 AI 平台拒绝将其输入和输出数据用于模型训练的权利与方法论。",
+            "key_takeaways": [
+              "各大 AI 平台的数据收集政策及退出机制现状",
+              "企业和个人用户的数据隐私保护策略",
+              "防止 AI 模型训练的技术与法律局限性"
+            ]
+          }
         },
-        "latest": {
-          "value": 40,
-          "display": "🔥 40 HN Points",
-          "updated_at": "2026-09-03"
-        },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:28.606788+00:00"
       },
-      "matched_user_domains": [
-        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI Training",
+        "Data Privacy",
+        "Opt-Out Policy"
       ],
-      "status": "PENDING_REVIEW",
-      "hn_url": "https://news.ycombinator.com/item?id=49541754",
-      "article_url": "https://images.gatesnotes.com/12514eb8-7b51-008e-41a9-512542cf683b/34d561c8-cf5c-4e69-af47-3782ea11482e/Original-Microsoft-Source-Code.pdf"
+      "title_ko": "AI 모델 훈련 데이터 수집 거부(Opt-out): 사용자의 입력과 출력 데이터를 보호하는 방법",
+      "title_en": "Opting Out of AI Training: How to Protect Your Input and Output Data",
+      "title_zh": "拒绝 AI 训练：如何保护您的输入和输出数据不被用于模型训练",
+      "hook": "AI 기업들의 무분별한 데이터 수집 속에서 사용자가 자신의 입출력 데이터를 모델 훈련으로부터 거부할 수 있는 권리와 방법론을 다룹니다.",
+      "hook_ko": "AI 기업들의 무분별한 데이터 수집 속에서 사용자가 자신의 입출력 데이터를 모델 훈련으로부터 거부할 수 있는 권리와 방법론을 다룹니다.",
+      "hook_en": "Exploring user rights and methodologies to prevent input and output data from being used in AI model training.",
+      "hook_zh": "探讨用户在各大 AI 平台拒绝将其输入和输出数据用于模型训练的权利与方法论。",
+      "description_ko": "AI 기업들의 무분별한 데이터 수집 속에서 사용자가 자신의 입출력 데이터를 모델 훈련으로부터 거부할 수 있는 권리와 방법론을 다룹니다.",
+      "description_en": "Exploring user rights and methodologies to prevent input and output data from being used in AI model training.",
+      "description_zh": "探讨用户在各大 AI 平台拒绝将其输入和输出数据用于模型训练的权利与方法论。"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_ai_is_stopping_startups_from_comp",
@@ -5900,7 +6055,70 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49540078",
-      "article_url": "https://ashley.rolfmore.com/ai-is-stopping-startups-from-completing-puberty/"
+      "article_url": "https://ashley.rolfmore.com/ai-is-stopping-startups-from-completing-puberty/",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_ai_is_stopping_startups_from_comp",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI 산업 동향 및 스타트업",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI Startups",
+          "Venture Capital",
+          "Industry Trends"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "AI가 스타트업의 성장을 방해하는가?: '사춘기'를 겪지 못하는 기업 생태계",
+            "hook": "생성형 AI의 급격한 부상이 초기 스타트업의 자연스러운 성장 주기를 어떻게 왜곡하고 있는지 분석합니다.",
+            "key_takeaways": [
+              "AI 대기업 중심의 시장 독점으로 인한 초기 스타트업의 진입 장벽",
+              "전통적인 '제품-시장 적합성(PMF)' 검증 주기의 단축 및 변질",
+              "스타트업 투자 생태계와 비즈니스 모델의 구조적 변화"
+            ]
+          },
+          "en": {
+            "title": "Is AI Stopping Startups from Completing Puberty? The Shift in Ecosystem",
+            "hook": "Analyzing how the rapid rise of generative AI distorts the natural growth cycles of early-stage startups.",
+            "key_takeaways": [
+              "Barriers to entry for early startups due to AI tech giant monopolies",
+              "Distortion and compression of traditional Product-Market Fit (PMF) validation cycles",
+              "Structural changes in startup investment ecosystems and business models"
+            ]
+          },
+          "zh": {
+            "title": "AI 是否正在阻碍初创公司完成“成长期”？生态系统的深刻变革",
+            "hook": "分析生成式 AI 的迅猛崛起如何扭曲了早期初创公司的自然生长周期。",
+            "key_takeaways": [
+              "由于 AI 科技巨头垄断导致的早期初创公司进入壁垒",
+              "传统“产品-市场匹配 (PMF)”验证周期的压缩与变形",
+              "初创企业投资生态系统与商业模式的结构性变化"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:28.607349+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI Startups",
+        "Venture Capital",
+        "Industry Trends"
+      ],
+      "title_ko": "AI가 스타트업의 성장을 방해하는가?: '사춘기'를 겪지 못하는 기업 생태계",
+      "title_en": "Is AI Stopping Startups from Completing Puberty? The Shift in Ecosystem",
+      "title_zh": "AI 是否正在阻碍初创公司完成“成长期”？生态系统的深刻变革",
+      "hook": "생성형 AI의 급격한 부상이 초기 스타트업의 자연스러운 성장 주기를 어떻게 왜곡하고 있는지 분석합니다.",
+      "hook_ko": "생성형 AI의 급격한 부상이 초기 스타트업의 자연스러운 성장 주기를 어떻게 왜곡하고 있는지 분석합니다.",
+      "hook_en": "Analyzing how the rapid rise of generative AI distorts the natural growth cycles of early-stage startups.",
+      "hook_zh": "分析生成式 AI 的迅猛崛起如何扭曲了早期初创公司的自然生长周期。",
+      "description_ko": "생성형 AI의 급격한 부상이 초기 스타트업의 자연스러운 성장 주기를 어떻게 왜곡하고 있는지 분석합니다.",
+      "description_en": "Analyzing how the rapid rise of generative AI distorts the natural growth cycles of early-stage startups.",
+      "description_zh": "分析生成式 AI 的迅猛崛起如何扭曲了早期初创公司的自然生长周期。"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_aging_brains_blend_memories_toget",
@@ -5935,7 +6153,70 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49535548",
-      "article_url": "https://studyfinds.com/aging-brains-blend-memories-together-instead-of-forgetting-them-study-finds/"
+      "article_url": "https://studyfinds.com/aging-brains-blend-memories-together-instead-of-forgetting-them-study-finds/",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_aging_brains_blend_memories_toget",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "인지과학 및 신경예술",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Aging Brain",
+          "Memory Merging",
+          "Cognitive Science"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "노화된 뇌는 단순히 기억을 잊는 것이 아니라 기억들을 서로 섞는다",
+            "hook": "인간의 뇌가 노화함에 따라 개별 기억이 소실되는 대신 서로 융합되는 신경학적 메커니즘을 조명합니다.",
+            "key_takeaways": [
+              "노화에 따른 기억 인코딩 및 회상 방식의 변화",
+              "기억이 서로 병합(Blending)되는 신경과학적 원리",
+              "인공지능 메모리 및 데이터 압축 알고리즘 설계에 주는 시사점"
+            ]
+          },
+          "en": {
+            "title": "Aging Brains Blend Memories Together Instead of Just Forgetting Them",
+            "hook": "Highlighting the neurological mechanism where aging brains merge individual memories rather than simply erasing them.",
+            "key_takeaways": [
+              "Changes in memory encoding and retrieval processes associated with aging",
+              "Neurological principles behind memory blending",
+              "Implications for designing AI memory and data compression algorithms"
+            ]
+          },
+          "zh": {
+            "title": "衰老的大脑不会轻易遗忘，而是将记忆融为一体",
+            "hook": "探讨人类大脑在衰老过程中，记忆并非单纯消退，而是相互融合的神经学机制。",
+            "key_takeaways": [
+              "与衰老相关的记忆编码和检索方式的变化",
+              "记忆相互融合（Blending）的神经科学原理",
+              "对设计 AI 记忆与数据压缩算法的启示"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:28.607596+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Aging Brain",
+        "Memory Merging",
+        "Cognitive Science"
+      ],
+      "title_ko": "노화된 뇌는 단순히 기억을 잊는 것이 아니라 기억들을 서로 섞는다",
+      "title_en": "Aging Brains Blend Memories Together Instead of Just Forgetting Them",
+      "title_zh": "衰老的大脑不会轻易遗忘，而是将记忆融为一体",
+      "hook": "인간의 뇌가 노화함에 따라 개별 기억이 소실되는 대신 서로 융합되는 신경학적 메커니즘을 조명합니다.",
+      "hook_ko": "인간의 뇌가 노화함에 따라 개별 기억이 소실되는 대신 서로 융합되는 신경학적 메커니즘을 조명합니다.",
+      "hook_en": "Highlighting the neurological mechanism where aging brains merge individual memories rather than simply erasing them.",
+      "hook_zh": "探讨人类大脑在衰老过程中，记忆并非单纯消退，而是相互融合的神经学机制。",
+      "description_ko": "인간의 뇌가 노화함에 따라 개별 기억이 소실되는 대신 서로 융합되는 신경학적 메커니즘을 조명합니다.",
+      "description_en": "Highlighting the neurological mechanism where aging brains merge individual memories rather than simply erasing them.",
+      "description_zh": "探讨人类大脑在衰老过程中，记忆并非单纯消退，而是相互融合的神经学机制。"
     },
     {
       "inbox_id": "2026-09-03_sns_geeknews_오픈소스에서_정상화되는_파시즘_dhh_재단에_약정된_1200만_달",
@@ -9842,6 +10123,701 @@
     }
   ],
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-03_sns_hugging_face_blog_real_time_intelligence_with",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hugging Face Blog: Real-Time Intelligence with IBM Time Series Models on Confluent",
+      "source_platform": "Hugging Face Blog",
+      "source_url": "https://huggingface.co/blog/ibm-research/real-time-intelligence",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "Hugging Face Blog Tech Publication: Real-Time Intelligence with IBM Time Series Models on Confluent",
+      "viral_metric": "🌍 Official AI Publication",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "article_url": "https://huggingface.co/blog/ibm-research/real-time-intelligence",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hugging_face_blog_real_time_intelligence_with",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "IBM",
+        "category": "시계열 데이터 및 실시간 인텔리전스",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Time Series",
+          "Confluent",
+          "Real-Time AI",
+          "IBM"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "Confluent와 IBM 시계열 모델을 활용한 실시간 인텔리전스 구축",
+            "hook": "스트리밍 데이터 환경에서 IBM의 시계열 모델을 Confluent와 연동하여 실시간 예측을 수행하는 방법을 확인하세요.",
+            "key_takeaways": [
+              "Confluent 스트리밍 플랫폼과 IBM 시계열 모델의 결합 아키텍처",
+              "실시간 데이터 파이프라인에서 AI 인텔리전스 적용 사례",
+              "엔터프라이즈 환경에서의 시계열 예측 최적화 방안"
+            ]
+          },
+          "en": {
+            "title": "Real-Time Intelligence with IBM Time Series Models on Confluent",
+            "hook": "Learn how to integrate IBM's time series models with Confluent for real-time predictive intelligence in streaming pipelines.",
+            "key_takeaways": [
+              "Architecture combining Confluent streaming with IBM time series models",
+              "Practical application of AI intelligence in real-time data pipelines",
+              "Optimizing time series forecasting for enterprise environments"
+            ]
+          },
+          "zh": {
+            "title": "结合 Confluent 与 IBM 时间序列模型的实时智能方案",
+            "hook": "探索如何在流式数据管道中集成 IBM 时间序列模型与 Confluent，实现实时预测智能。",
+            "key_takeaways": [
+              "Confluent 流处理与 IBM 时间序列模型的结合架构",
+              "AI 智能在实时数据管道中的实际应用案例",
+              "企业环境中时间序列预测的优化方案"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:03.661282+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Time Series",
+        "Confluent",
+        "Real-Time AI",
+        "IBM"
+      ],
+      "title_ko": "Confluent와 IBM 시계열 모델을 활용한 실시간 인텔리전스 구축",
+      "title_en": "Real-Time Intelligence with IBM Time Series Models on Confluent",
+      "title_zh": "结合 Confluent 与 IBM 时间序列模型的实时智能方案",
+      "hook": "스트리밍 데이터 환경에서 IBM의 시계열 모델을 Confluent와 연동하여 실시간 예측을 수행하는 방법을 확인하세요.",
+      "hook_ko": "스트리밍 데이터 환경에서 IBM의 시계열 모델을 Confluent와 연동하여 실시간 예측을 수행하는 방법을 확인하세요.",
+      "hook_en": "Learn how to integrate IBM's time series models with Confluent for real-time predictive intelligence in streaming pipelines.",
+      "hook_zh": "探索如何在流式数据管道中集成 IBM 时间序列模型与 Confluent，实现实时预测智能。",
+      "description_ko": "스트리밍 데이터 환경에서 IBM의 시계열 모델을 Confluent와 연동하여 실시간 예측을 수행하는 방법을 확인하세요.",
+      "description_en": "Learn how to integrate IBM's time series models with Confluent for real-time predictive intelligence in streaming pipelines.",
+      "description_zh": "探索如何在流式数据管道中集成 IBM 时间序列模型与 Confluent，实现实时预测智能。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_we_could_save_petabytes_of_cache_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: We could save petabytes of cache storage with Zstandard and Pingora",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49521909",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 67 pts | Comments: 29 | We could save petabytes of cache storage with Zstandard and Pingora",
+      "viral_metric": "🔥 67 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 67,
+          "display": "🔥 67 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 67,
+          "display": "🔥 67 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49521909",
+      "article_url": "https://blog.cloudflare.com/cache-transcoding/",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_we_could_save_petabytes_of_cache_",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "인프라 및 캐시 최적화",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "Zstandard",
+          "Pingora",
+          "Cache Storage",
+          "Compression"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.8,
+        "multilingual": {
+          "ko": {
+            "title": "Zstandard와 Pingora를 활용한 페타바이트 규모의 캐시 스토리지 절감",
+            "hook": "효율적인 압축 알고리즘과 프록시 기술을 결합하여 대규모 인프라 비용을 극적으로 절감하는 아키텍처를 분석합니다.",
+            "key_takeaways": [
+              "Zstandard(zstd) 압축을 통한 캐시 저장 공간 최적화",
+              "Cloudflare Pingora 기반의 고성능 프록시 아키텍처 활용",
+              "대규모 데이터 센터에서 페타바이트 단위 스토리지를 절감한 엔지니어링 인사이트"
+            ]
+          },
+          "en": {
+            "title": "Saving Petabytes of Cache Storage with Zstandard and Pingora",
+            "hook": "Discover how combining high-performance compression and proxy technologies can dramatically slash large-scale infrastructure costs.",
+            "key_takeaways": [
+              "Optimizing cache storage footprint using Zstandard (zstd) compression",
+              "Leveraging Cloudflare Pingora-based high-performance proxy architecture",
+              "Engineering insights on saving petabytes of storage in data centers"
+            ]
+          },
+          "zh": {
+            "title": "使用 Zstandard 和 Pingora 节省数PB的缓存存储空间",
+            "hook": "探索如何结合高性能压缩与代理技术，大幅降低大规模基础设施的存储成本。",
+            "key_takeaways": [
+              "利用 Zstandard (zstd) 压缩优化缓存存储占用空间",
+              "借助基于 Cloudflare Pingora 的高性能代理架构",
+              "在数据中心节省 PB 级存储空间的工程实践洞察"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:03.662045+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "Zstandard",
+        "Pingora",
+        "Cache Storage",
+        "Compression"
+      ],
+      "title_ko": "Zstandard와 Pingora를 활용한 페타바이트 규모의 캐시 스토리지 절감",
+      "title_en": "Saving Petabytes of Cache Storage with Zstandard and Pingora",
+      "title_zh": "使用 Zstandard 和 Pingora 节省数PB的缓存存储空间",
+      "hook": "효율적인 압축 알고리즘과 프록시 기술을 결합하여 대규모 인프라 비용을 극적으로 절감하는 아키텍처를 분석합니다.",
+      "hook_ko": "효율적인 압축 알고리즘과 프록시 기술을 결합하여 대규모 인프라 비용을 극적으로 절감하는 아키텍처를 분석합니다.",
+      "hook_en": "Discover how combining high-performance compression and proxy technologies can dramatically slash large-scale infrastructure costs.",
+      "hook_zh": "探索如何结合高性能压缩与代理技术，大幅降低大规模基础设施的存储成本。",
+      "description_ko": "효율적인 압축 알고리즘과 프록시 기술을 결합하여 대규모 인프라 비용을 극적으로 절감하는 아키텍처를 분석합니다.",
+      "description_en": "Discover how combining high-performance compression and proxy technologies can dramatically slash large-scale infrastructure costs.",
+      "description_zh": "探索如何结合高性能压缩与代理技术，大幅降低大规模基础设施的存储成本。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_six_curl_cves_after_openai_and_an",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Six curl CVEs after OpenAI and Anthropic came back with zero",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49536114",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 152 pts | Comments: 54 | Six curl CVEs after OpenAI and Anthropic came back with zero",
+      "viral_metric": "🔥 152 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 152,
+          "display": "🔥 152 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 152,
+          "display": "🔥 152 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49536114",
+      "article_url": "https://aisle.com/blog/aisle-discovered-six-curl-cves-after-openai-and-anthropic-found-zero",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_six_curl_cves_after_openai_and_an",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "소프트웨어 보안 및 취약점 분석",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "curl",
+          "CVE",
+          "Security",
+          "Vulnerability"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "OpenAI와 앤스로픽은 무결과였지만, curl에서 발견된 6개의 CVE 취약점",
+            "hook": "AI 보안 감사 시스템을 통과한 후에도 핵심 오픈소스 라이브러리인 curl에서 다수의 취약점이 발견된 사건을 분석합니다.",
+            "key_takeaways": [
+              "OpenAI와 Anthropic의 보안 평가에서 감지되지 않은 curl 취약점",
+              "소프트웨어 공급망 보안 및 전통적 라이브러리 검증의 중요성",
+              "AI 기반 코드 보안 분석의 한계와 보완점 시사"
+            ]
+          },
+          "en": {
+            "title": "Six curl CVEs After OpenAI and Anthropic Came Back with Zero",
+            "hook": "Analyzing how six critical curl vulnerabilities slipped through AI-driven security assessments.",
+            "key_takeaways": [
+              "Uncovers six curl CVEs missed by recent OpenAI and Anthropic security audits",
+              "Highlights the critical challenges in software supply chain security",
+              "Demonstrates the current limitations of AI-powered code vulnerability detection"
+            ]
+          },
+          "zh": {
+            "title": "OpenAI和Anthropic检测为零后，curl曝出6个CVE漏洞",
+            "hook": "剖析在AI安全审计通过后，核心开源库curl仍被爆出多个CVE漏洞的技术背景与警示。",
+            "key_takeaways": [
+              "探讨OpenAI与Anthropic安全评估未检测到的curl漏洞",
+              "强调软件供应链安全及传统库验证的重要性",
+              "揭示当前AI代码安全分析的局限性与改进空间"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:16.632648+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "curl",
+        "CVE",
+        "Security",
+        "Vulnerability"
+      ],
+      "title_ko": "OpenAI와 앤스로픽은 무결과였지만, curl에서 발견된 6개의 CVE 취약점",
+      "title_en": "Six curl CVEs After OpenAI and Anthropic Came Back with Zero",
+      "title_zh": "OpenAI和Anthropic检测为零后，curl曝出6个CVE漏洞",
+      "hook": "AI 보안 감사 시스템을 통과한 후에도 핵심 오픈소스 라이브러리인 curl에서 다수의 취약점이 발견된 사건을 분석합니다.",
+      "hook_ko": "AI 보안 감사 시스템을 통과한 후에도 핵심 오픈소스 라이브러리인 curl에서 다수의 취약점이 발견된 사건을 분석합니다.",
+      "hook_en": "Analyzing how six critical curl vulnerabilities slipped through AI-driven security assessments.",
+      "hook_zh": "剖析在AI安全审计通过后，核心开源库curl仍被爆出多个CVE漏洞的技术背景与警示。",
+      "description_ko": "AI 보안 감사 시스템을 통과한 후에도 핵심 오픈소스 라이브러리인 curl에서 다수의 취약점이 발견된 사건을 분석합니다.",
+      "description_en": "Analyzing how six critical curl vulnerabilities slipped through AI-driven security assessments.",
+      "description_zh": "剖析在AI安全审计通过后，核心开源库curl仍被爆出多个CVE漏洞的技术背景与警示。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_show_hn_owntime_a_chess_clock_for",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Show HN: OwnTime – a chess clock for your day's priorities",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49528506",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 22 pts | Comments: 5 | Show HN: OwnTime – a chess clock for your day's priorities",
+      "viral_metric": "🔥 22 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 22,
+          "display": "🔥 22 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 22,
+          "display": "🔥 22 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49528506",
+      "article_url": "https://owntime.app/",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_show_hn_owntime_a_chess_clock_for",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "생산성 도구 및 시간 관리",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "Productivity",
+          "Time Management",
+          "Show HN",
+          "Chess Clock"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.8,
+        "multilingual": {
+          "ko": {
+            "title": "Show HN: OwnTime – 하루의 우선순위를 위한 체스 시계",
+            "hook": "체스 시계의 개념을 차용해 일상 업무와 우선순위 관리를 혁신하는 독창적인 생산성 도구를 소개합니다.",
+            "key_takeaways": [
+              "체스 타이머 원리를 적용한 독특한 시간 관리 방법론",
+              "작업별 시간 할당 및 집중도 향상을 위한 인터페이스",
+              "개발자와 지식 노동자의 효율적인 타임 블로킹 지원"
+            ]
+          },
+          "en": {
+            "title": "Show HN: OwnTime – A Chess Clock for Your Day's Priorities",
+            "hook": "A creative productivity tool that applies the chess clock concept to manage daily tasks and priorities effectively.",
+            "key_takeaways": [
+              "Applies chess timer mechanics to daily time management",
+              "Provides an intuitive interface for allocating and tracking task duration",
+              "Helps developers and knowledge workers master time-blocking"
+            ]
+          },
+          "zh": {
+            "title": "Show HN: OwnTime – 为日常优先级打造的国际象棋时钟",
+            "hook": "借鉴国际象棋时钟概念，旨在优化日常工作任务与时间分配的创新生产力工具。",
+            "key_takeaways": [
+              "将国际象棋计时机制应用于日常任务管理",
+              "提供直观的界面以分配和追踪任务执行时间",
+              "帮助开发者和知识工作者实现高效的时间块管理"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:16.632900+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "Productivity",
+        "Time Management",
+        "Show HN",
+        "Chess Clock"
+      ],
+      "title_ko": "Show HN: OwnTime – 하루의 우선순위를 위한 체스 시계",
+      "title_en": "Show HN: OwnTime – A Chess Clock for Your Day's Priorities",
+      "title_zh": "Show HN: OwnTime – 为日常优先级打造的国际象棋时钟",
+      "hook": "체스 시계의 개념을 차용해 일상 업무와 우선순위 관리를 혁신하는 독창적인 생산성 도구를 소개합니다.",
+      "hook_ko": "체스 시계의 개념을 차용해 일상 업무와 우선순위 관리를 혁신하는 독창적인 생산성 도구를 소개합니다.",
+      "hook_en": "A creative productivity tool that applies the chess clock concept to manage daily tasks and priorities effectively.",
+      "hook_zh": "借鉴国际象棋时钟概念，旨在优化日常工作任务与时间分配的创新生产力工具。",
+      "description_ko": "체스 시계의 개념을 차용해 일상 업무와 우선순위 관리를 혁신하는 독창적인 생산성 도구를 소개합니다.",
+      "description_en": "A creative productivity tool that applies the chess clock concept to manage daily tasks and priorities effectively.",
+      "description_zh": "借鉴国际象棋时钟概念，旨在优化日常工作任务与时间分配的创新生产力工具。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_metr_report_on_openai_hugging_fac",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: METR Report on OpenAI / Hugging Face Hacking Incident",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49543841",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 86 pts | Comments: 70 | METR Report on OpenAI / Hugging Face Hacking Incident",
+      "viral_metric": "🔥 86 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 86,
+          "display": "🔥 86 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 86,
+          "display": "🔥 86 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49543841",
+      "article_url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_metr_report_on_openai_hugging_fac",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "AI 안전성 및 해킹 인시던트",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "METR",
+          "OpenAI",
+          "Hugging Face",
+          "AI Security"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.7,
+        "multilingual": {
+          "ko": {
+            "title": "METR 보고서: OpenAI 및 허깅페이스 해킹 인시던트 분석",
+            "hook": "METR(Model Evaluation and Threat Research)이 발표한 AI 관련 플랫폼 해킹 사건 분석과 보안 시사점을 확인하세요.",
+            "key_takeaways": [
+              "OpenAI 및 Hugging Face 생태계를 겨냥한 해킹 인시던트 상세 분석",
+              "METR이 평가한 AI 모델의 자율 해킹 및 위협 잠재력 검토",
+              "AI 연구소 및 플랫폼 운영자를 위한 보안 강화 가이드라인 제시"
+            ]
+          },
+          "en": {
+            "title": "METR Report on OpenAI and Hugging Face Hacking Incident",
+            "hook": "Key findings from the METR report examining recent security incidents involving OpenAI and Hugging Face.",
+            "key_takeaways": [
+              "Detailed breakdown of security incidents targeting OpenAI and Hugging Face",
+              "Evaluates AI model autonomous exploitation capabilities assessed by METR",
+              "Provides critical security recommendations for AI platform operators and labs"
+            ]
+          },
+          "zh": {
+            "title": "METR关于OpenAI与Hugging Face黑客事件的报告",
+            "hook": "解析METR（模型评估与威胁研究）针对OpenAI及Hugging Face安全事件的深度调查报告。",
+            "key_takeaways": [
+              "详细剖析针对OpenAI和Hugging Face生态的安全入侵事件",
+              "评估METR报告中关于AI自主攻击与潜在威胁的发现",
+              "为AI研究机构与平台运营方提出关键安全防范建议"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:16.633585+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "METR",
+        "OpenAI",
+        "Hugging Face",
+        "AI Security"
+      ],
+      "title_ko": "METR 보고서: OpenAI 및 허깅페이스 해킹 인시던트 분석",
+      "title_en": "METR Report on OpenAI and Hugging Face Hacking Incident",
+      "title_zh": "METR关于OpenAI与Hugging Face黑客事件的报告",
+      "hook": "METR(Model Evaluation and Threat Research)이 발표한 AI 관련 플랫폼 해킹 사건 분석과 보안 시사점을 확인하세요.",
+      "hook_ko": "METR(Model Evaluation and Threat Research)이 발표한 AI 관련 플랫폼 해킹 사건 분석과 보안 시사점을 확인하세요.",
+      "hook_en": "Key findings from the METR report examining recent security incidents involving OpenAI and Hugging Face.",
+      "hook_zh": "解析METR（模型评估与威胁研究）针对OpenAI及Hugging Face安全事件的深度调查报告。",
+      "description_ko": "METR(Model Evaluation and Threat Research)이 발표한 AI 관련 플랫폼 해킹 사건 분석과 보안 시사점을 확인하세요.",
+      "description_en": "Key findings from the METR report examining recent security incidents involving OpenAI and Hugging Face.",
+      "description_zh": "解析METR（模型评估与威胁研究）针对OpenAI及Hugging Face安全事件的深度调查报告。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_embedded_rust_rtos_vs_c_rtos",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Embedded Rust RTOS vs. C RTOS",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49540415",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 55 pts | Comments: 29 | Embedded Rust RTOS vs. C RTOS",
+      "viral_metric": "🔥 55 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 55,
+          "display": "🔥 55 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 55,
+          "display": "🔥 55 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49540415",
+      "article_url": "https://tweedegolf.nl/en/blog/65/async-rust-vs-rtos-showdown/",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_embedded_rust_rtos_vs_c_rtos",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "임베디드 시스템 및 OS",
+        "programming_lang": "Rust",
+        "root_keywords": [
+          "Embedded Systems",
+          "Rust RTOS",
+          "C RTOS"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "임베디드 시스템 개발의 패러다임: Rust RTOS 대 C RTOS 비교 분석",
+            "hook": "안전성과 성능 면에서 전통적인 C 기반 실시간 운영체제(RTOS)를 대체하려는 Rust RTOS의 실효성을 분석합니다.",
+            "key_takeaways": [
+              "메모리 안전성과 동시성 제어 측면에서의 Rust RTOS 장점",
+              "임베디드 레거시 시스템 및 C RTOS와의 실무적 호환성 문제",
+              "하드웨어 자원이 제한된 환경에서의 성능 오버헤드 비교"
+            ]
+          },
+          "en": {
+            "title": "Embedded Systems Paradigm: Rust RTOS vs. C RTOS Comparison",
+            "hook": "Evaluating the practical viability of Rust RTOS as a replacement for traditional C-based real-time operating systems.",
+            "key_takeaways": [
+              "Advantages of Rust RTOS in memory safety and concurrency control",
+              "Practical compatibility challenges with legacy embedded systems and C RTOS",
+              "Performance overhead comparison in resource-constrained hardware environments"
+            ]
+          },
+          "zh": {
+            "title": "嵌入式系统范式：Rust RTOS 与 C RTOS 对比分析",
+            "hook": "评估 Rust RTOS 作为传统基于 C 的实时操作系统 (RTOS) 替代方案的实际可行性。",
+            "key_takeaways": [
+              "Rust RTOS 在内存安全和并发控制方面的优势",
+              "与嵌入式遗留系统和 C RTOS 的实际兼容性挑战",
+              "资源受限硬件环境下的性能开销对比"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:28.606424+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Rust",
+      "root_keywords": [
+        "Embedded Systems",
+        "Rust RTOS",
+        "C RTOS"
+      ],
+      "title_ko": "임베디드 시스템 개발의 패러다임: Rust RTOS 대 C RTOS 비교 분석",
+      "title_en": "Embedded Systems Paradigm: Rust RTOS vs. C RTOS Comparison",
+      "title_zh": "嵌入式系统范式：Rust RTOS 与 C RTOS 对比分析",
+      "hook": "안전성과 성능 면에서 전통적인 C 기반 실시간 운영체제(RTOS)를 대체하려는 Rust RTOS의 실효성을 분석합니다.",
+      "hook_ko": "안전성과 성능 면에서 전통적인 C 기반 실시간 운영체제(RTOS)를 대체하려는 Rust RTOS의 실효성을 분석합니다.",
+      "hook_en": "Evaluating the practical viability of Rust RTOS as a replacement for traditional C-based real-time operating systems.",
+      "hook_zh": "评估 Rust RTOS 作为传统基于 C 的实时操作系统 (RTOS) 替代方案的实际可行性。",
+      "description_ko": "안전성과 성능 면에서 전통적인 C 기반 실시간 운영체제(RTOS)를 대체하려는 Rust RTOS의 실효성을 분석합니다.",
+      "description_en": "Evaluating the practical viability of Rust RTOS as a replacement for traditional C-based real-time operating systems.",
+      "description_zh": "评估 Rust RTOS 作为传统基于 C 的实时操作系统 (RTOS) 替代方案的实际可行性。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_altair_basic_interpreter_source_c",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Altair Basic Interpreter Source Code (1975) [pdf]",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49541754",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 40 pts | Comments: 22 | Altair Basic Interpreter Source Code (1975) [pdf]",
+      "viral_metric": "🔥 40 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 40,
+          "display": "🔥 40 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 40,
+          "display": "🔥 40 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49541754",
+      "article_url": "https://images.gatesnotes.com/12514eb8-7b51-008e-41a9-512542cf683b/34d561c8-cf5c-4e69-af47-3782ea11482e/Original-Microsoft-Source-Code.pdf",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_hacker_news_altair_basic_interpreter_source_c",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "소프트웨어 역사 및 소스 코드",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "Altair BASIC",
+          "Source Code",
+          "Retro Computing"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "1975년 마이크로컴퓨터의 서막: Altair BASIC 인터프리터 원스 소스 코드 공개",
+            "hook": "마이크로소프트의 시초가 된 역사적인 Altair BASIC 1975년 원스 소스 코드를 통해 초기 프로그래밍의 정수를 엿봅니다.",
+            "key_takeaways": [
+              "초기 마이크로컴퓨터용 BASIC 인터프리터의 아키텍처 구조",
+              "자원이 극도로 부족한 하드웨어에서의 메모리 최적화 기법",
+              "소프트웨어 역사적 관점에서 빌 게이츠와 폴 알렌의 초기 코드 스타일"
+            ]
+          },
+          "en": {
+            "title": "Dawn of Microcomputers: Altair BASIC Interpreter Source Code (1975)",
+            "hook": "Exploring the roots of Microsoft through the historical 1975 source code of Altair BASIC.",
+            "key_takeaways": [
+              "Architectural design of early microcomputer BASIC interpreters",
+              "Memory optimization techniques for severely constrained hardware",
+              "Early coding styles of Bill Gates and Paul Allen from a software history perspective"
+            ]
+          },
+          "zh": {
+            "title": "微型计算机的曙光：1975年 Altair BASIC 解释器源代码",
+            "hook": "通过 1975 年 Altair BASIC 的历史源代码，探索微软的起源与早期编程的精髓。",
+            "key_takeaways": [
+              "早期微型计算机 BASIC 解释器的架构设计",
+              "在极其有限硬件资源下的内存优化技巧",
+              "从软件历史角度审视比尔·盖茨和保罗·艾伦的早期编码风格"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T01:56:28.607094+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "Altair BASIC",
+        "Source Code",
+        "Retro Computing"
+      ],
+      "title_ko": "1975년 마이크로컴퓨터의 서막: Altair BASIC 인터프리터 원스 소스 코드 공개",
+      "title_en": "Dawn of Microcomputers: Altair BASIC Interpreter Source Code (1975)",
+      "title_zh": "微型计算机的曙光：1975年 Altair BASIC 解释器源代码",
+      "hook": "마이크로소프트의 시초가 된 역사적인 Altair BASIC 1975년 원스 소스 코드를 통해 초기 프로그래밍의 정수를 엿봅니다.",
+      "hook_ko": "마이크로소프트의 시초가 된 역사적인 Altair BASIC 1975년 원스 소스 코드를 통해 초기 프로그래밍의 정수를 엿봅니다.",
+      "hook_en": "Exploring the roots of Microsoft through the historical 1975 source code of Altair BASIC.",
+      "hook_zh": "通过 1975 年 Altair BASIC 的历史源代码，探索微软的起源与早期编程的精髓。",
+      "description_ko": "마이크로소프트의 시초가 된 역사적인 Altair BASIC 1975년 원스 소스 코드를 통해 초기 프로그래밍의 정수를 엿봅니다.",
+      "description_en": "Exploring the roots of Microsoft through the historical 1975 source code of Altair BASIC.",
+      "description_zh": "通过 1975 年 Altair BASIC 的历史源代码，探索微软的起源与早期编程的精髓。"
+    },
     {
       "inbox_id": "2026-09-03_repo_hacker_news_webllm_high_performance_in_browse",
       "harvested_date": "2026-09-03",

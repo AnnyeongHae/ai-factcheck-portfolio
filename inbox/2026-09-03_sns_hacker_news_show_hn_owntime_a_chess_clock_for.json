@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49528506",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 22 pts | Comments: 5 | Show HN: OwnTime – a chess clock for your day's priorities",
   "viral_metric": "🔥 22 HN Points",
   "metric_tracking": {
@@ -31,5 +31,70 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49528506",
-  "article_url": "https://owntime.app/"
+  "article_url": "https://owntime.app/",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_show_hn_owntime_a_chess_clock_for",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "생산성 도구 및 시간 관리",
+    "programming_lang": "TypeScript",
+    "root_keywords": [
+      "Productivity",
+      "Time Management",
+      "Show HN",
+      "Chess Clock"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "Show HN: OwnTime – 하루의 우선순위를 위한 체스 시계",
+        "hook": "체스 시계의 개념을 차용해 일상 업무와 우선순위 관리를 혁신하는 독창적인 생산성 도구를 소개합니다.",
+        "key_takeaways": [
+          "체스 타이머 원리를 적용한 독특한 시간 관리 방법론",
+          "작업별 시간 할당 및 집중도 향상을 위한 인터페이스",
+          "개발자와 지식 노동자의 효율적인 타임 블로킹 지원"
+        ]
+      },
+      "en": {
+        "title": "Show HN: OwnTime – A Chess Clock for Your Day's Priorities",
+        "hook": "A creative productivity tool that applies the chess clock concept to manage daily tasks and priorities effectively.",
+        "key_takeaways": [
+          "Applies chess timer mechanics to daily time management",
+          "Provides an intuitive interface for allocating and tracking task duration",
+          "Helps developers and knowledge workers master time-blocking"
+        ]
+      },
+      "zh": {
+        "title": "Show HN: OwnTime – 为日常优先级打造的国际象棋时钟",
+        "hook": "借鉴国际象棋时钟概念，旨在优化日常工作任务与时间分配的创新生产力工具。",
+        "key_takeaways": [
+          "将国际象棋计时机制应用于日常任务管理",
+          "提供直观的界面以分配和追踪任务执行时间",
+          "帮助开发者和知识工作者实现高效的时间块管理"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T01:56:16.632900+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "TypeScript",
+  "root_keywords": [
+    "Productivity",
+    "Time Management",
+    "Show HN",
+    "Chess Clock"
+  ],
+  "title_ko": "Show HN: OwnTime – 하루의 우선순위를 위한 체스 시계",
+  "title_en": "Show HN: OwnTime – A Chess Clock for Your Day's Priorities",
+  "title_zh": "Show HN: OwnTime – 为日常优先级打造的国际象棋时钟",
+  "hook": "체스 시계의 개념을 차용해 일상 업무와 우선순위 관리를 혁신하는 독창적인 생산성 도구를 소개합니다.",
+  "hook_ko": "체스 시계의 개념을 차용해 일상 업무와 우선순위 관리를 혁신하는 독창적인 생산성 도구를 소개합니다.",
+  "hook_en": "A creative productivity tool that applies the chess clock concept to manage daily tasks and priorities effectively.",
+  "hook_zh": "借鉴国际象棋时钟概念，旨在优化日常工作任务与时间分配的创新生产力工具。",
+  "description_ko": "체스 시계의 개념을 차용해 일상 업무와 우선순위 관리를 혁신하는 독창적인 생산성 도구를 소개합니다.",
+  "description_en": "A creative productivity tool that applies the chess clock concept to manage daily tasks and priorities effectively.",
+  "description_zh": "借鉴国际象棋时钟概念，旨在优化日常工作任务与时间分配的创新生产力工具。"
 }

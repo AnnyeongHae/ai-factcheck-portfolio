@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49541754",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 40 pts | Comments: 22 | Altair Basic Interpreter Source Code (1975) [pdf]",
   "viral_metric": "🔥 40 HN Points",
   "metric_tracking": {
@@ -31,5 +31,68 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49541754",
-  "article_url": "https://images.gatesnotes.com/12514eb8-7b51-008e-41a9-512542cf683b/34d561c8-cf5c-4e69-af47-3782ea11482e/Original-Microsoft-Source-Code.pdf"
+  "article_url": "https://images.gatesnotes.com/12514eb8-7b51-008e-41a9-512542cf683b/34d561c8-cf5c-4e69-af47-3782ea11482e/Original-Microsoft-Source-Code.pdf",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_altair_basic_interpreter_source_c",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "소프트웨어 역사 및 소스 코드",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "Altair BASIC",
+      "Source Code",
+      "Retro Computing"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.0,
+    "multilingual": {
+      "ko": {
+        "title": "1975년 마이크로컴퓨터의 서막: Altair BASIC 인터프리터 원스 소스 코드 공개",
+        "hook": "마이크로소프트의 시초가 된 역사적인 Altair BASIC 1975년 원스 소스 코드를 통해 초기 프로그래밍의 정수를 엿봅니다.",
+        "key_takeaways": [
+          "초기 마이크로컴퓨터용 BASIC 인터프리터의 아키텍처 구조",
+          "자원이 극도로 부족한 하드웨어에서의 메모리 최적화 기법",
+          "소프트웨어 역사적 관점에서 빌 게이츠와 폴 알렌의 초기 코드 스타일"
+        ]
+      },
+      "en": {
+        "title": "Dawn of Microcomputers: Altair BASIC Interpreter Source Code (1975)",
+        "hook": "Exploring the roots of Microsoft through the historical 1975 source code of Altair BASIC.",
+        "key_takeaways": [
+          "Architectural design of early microcomputer BASIC interpreters",
+          "Memory optimization techniques for severely constrained hardware",
+          "Early coding styles of Bill Gates and Paul Allen from a software history perspective"
+        ]
+      },
+      "zh": {
+        "title": "微型计算机的曙光：1975年 Altair BASIC 解释器源代码",
+        "hook": "通过 1975 年 Altair BASIC 的历史源代码，探索微软的起源与早期编程的精髓。",
+        "key_takeaways": [
+          "早期微型计算机 BASIC 解释器的架构设计",
+          "在极其有限硬件资源下的内存优化技巧",
+          "从软件历史角度审视比尔·盖茨和保罗·艾伦的早期编码风格"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T01:56:28.607094+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "Altair BASIC",
+    "Source Code",
+    "Retro Computing"
+  ],
+  "title_ko": "1975년 마이크로컴퓨터의 서막: Altair BASIC 인터프리터 원스 소스 코드 공개",
+  "title_en": "Dawn of Microcomputers: Altair BASIC Interpreter Source Code (1975)",
+  "title_zh": "微型计算机的曙光：1975年 Altair BASIC 解释器源代码",
+  "hook": "마이크로소프트의 시초가 된 역사적인 Altair BASIC 1975년 원스 소스 코드를 통해 초기 프로그래밍의 정수를 엿봅니다.",
+  "hook_ko": "마이크로소프트의 시초가 된 역사적인 Altair BASIC 1975년 원스 소스 코드를 통해 초기 프로그래밍의 정수를 엿봅니다.",
+  "hook_en": "Exploring the roots of Microsoft through the historical 1975 source code of Altair BASIC.",
+  "hook_zh": "通过 1975 年 Altair BASIC 的历史源代码，探索微软的起源与早期编程的精髓。",
+  "description_ko": "마이크로소프트의 시초가 된 역사적인 Altair BASIC 1975년 원스 소스 코드를 통해 초기 프로그래밍의 정수를 엿봅니다.",
+  "description_en": "Exploring the roots of Microsoft through the historical 1975 source code of Altair BASIC.",
+  "description_zh": "通过 1975 年 Altair BASIC 的历史源代码，探索微软的起源与早期编程的精髓。"
 }

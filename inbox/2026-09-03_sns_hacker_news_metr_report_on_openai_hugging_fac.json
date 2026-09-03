@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49543841",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 86 pts | Comments: 70 | METR Report on OpenAI / Hugging Face Hacking Incident",
   "viral_metric": "🔥 86 HN Points",
   "metric_tracking": {
@@ -31,5 +31,70 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49543841",
-  "article_url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident"
+  "article_url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_metr_report_on_openai_hugging_fac",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 안전성 및 해킹 인시던트",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "METR",
+      "OpenAI",
+      "Hugging Face",
+      "AI Security"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "METR 보고서: OpenAI 및 허깅페이스 해킹 인시던트 분석",
+        "hook": "METR(Model Evaluation and Threat Research)이 발표한 AI 관련 플랫폼 해킹 사건 분석과 보안 시사점을 확인하세요.",
+        "key_takeaways": [
+          "OpenAI 및 Hugging Face 생태계를 겨냥한 해킹 인시던트 상세 분석",
+          "METR이 평가한 AI 모델의 자율 해킹 및 위협 잠재력 검토",
+          "AI 연구소 및 플랫폼 운영자를 위한 보안 강화 가이드라인 제시"
+        ]
+      },
+      "en": {
+        "title": "METR Report on OpenAI and Hugging Face Hacking Incident",
+        "hook": "Key findings from the METR report examining recent security incidents involving OpenAI and Hugging Face.",
+        "key_takeaways": [
+          "Detailed breakdown of security incidents targeting OpenAI and Hugging Face",
+          "Evaluates AI model autonomous exploitation capabilities assessed by METR",
+          "Provides critical security recommendations for AI platform operators and labs"
+        ]
+      },
+      "zh": {
+        "title": "METR关于OpenAI与Hugging Face黑客事件的报告",
+        "hook": "解析METR（模型评估与威胁研究）针对OpenAI及Hugging Face安全事件的深度调查报告。",
+        "key_takeaways": [
+          "详细剖析针对OpenAI和Hugging Face生态的安全入侵事件",
+          "评估METR报告中关于AI自主攻击与潜在威胁的发现",
+          "为AI研究机构与平台运营方提出关键安全防范建议"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T01:56:16.633585+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "METR",
+    "OpenAI",
+    "Hugging Face",
+    "AI Security"
+  ],
+  "title_ko": "METR 보고서: OpenAI 및 허깅페이스 해킹 인시던트 분석",
+  "title_en": "METR Report on OpenAI and Hugging Face Hacking Incident",
+  "title_zh": "METR关于OpenAI与Hugging Face黑客事件的报告",
+  "hook": "METR(Model Evaluation and Threat Research)이 발표한 AI 관련 플랫폼 해킹 사건 분석과 보안 시사점을 확인하세요.",
+  "hook_ko": "METR(Model Evaluation and Threat Research)이 발표한 AI 관련 플랫폼 해킹 사건 분석과 보안 시사점을 확인하세요.",
+  "hook_en": "Key findings from the METR report examining recent security incidents involving OpenAI and Hugging Face.",
+  "hook_zh": "解析METR（模型评估与威胁研究）针对OpenAI及Hugging Face安全事件的深度调查报告。",
+  "description_ko": "METR(Model Evaluation and Threat Research)이 발표한 AI 관련 플랫폼 해킹 사건 분석과 보안 시사점을 확인하세요.",
+  "description_en": "Key findings from the METR report examining recent security incidents involving OpenAI and Hugging Face.",
+  "description_zh": "解析METR（模型评估与威胁研究）针对OpenAI及Hugging Face安全事件的深度调查报告。"
 }

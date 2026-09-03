@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Blog",
   "source_url": "https://huggingface.co/blog/ibm-research/real-time-intelligence",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "Hugging Face Blog Tech Publication: Real-Time Intelligence with IBM Time Series Models on Confluent",
   "viral_metric": "🌍 Official AI Publication",
   "metric_tracking": {
@@ -30,5 +30,70 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "article_url": "https://huggingface.co/blog/ibm-research/real-time-intelligence"
+  "article_url": "https://huggingface.co/blog/ibm-research/real-time-intelligence",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hugging_face_blog_real_time_intelligence_with",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "IBM",
+    "category": "시계열 데이터 및 실시간 인텔리전스",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Time Series",
+      "Confluent",
+      "Real-Time AI",
+      "IBM"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "Confluent와 IBM 시계열 모델을 활용한 실시간 인텔리전스 구축",
+        "hook": "스트리밍 데이터 환경에서 IBM의 시계열 모델을 Confluent와 연동하여 실시간 예측을 수행하는 방법을 확인하세요.",
+        "key_takeaways": [
+          "Confluent 스트리밍 플랫폼과 IBM 시계열 모델의 결합 아키텍처",
+          "실시간 데이터 파이프라인에서 AI 인텔리전스 적용 사례",
+          "엔터프라이즈 환경에서의 시계열 예측 최적화 방안"
+        ]
+      },
+      "en": {
+        "title": "Real-Time Intelligence with IBM Time Series Models on Confluent",
+        "hook": "Learn how to integrate IBM's time series models with Confluent for real-time predictive intelligence in streaming pipelines.",
+        "key_takeaways": [
+          "Architecture combining Confluent streaming with IBM time series models",
+          "Practical application of AI intelligence in real-time data pipelines",
+          "Optimizing time series forecasting for enterprise environments"
+        ]
+      },
+      "zh": {
+        "title": "结合 Confluent 与 IBM 时间序列模型的实时智能方案",
+        "hook": "探索如何在流式数据管道中集成 IBM 时间序列模型与 Confluent，实现实时预测智能。",
+        "key_takeaways": [
+          "Confluent 流处理与 IBM 时间序列模型的结合架构",
+          "AI 智能在实时数据管道中的实际应用案例",
+          "企业环境中时间序列预测的优化方案"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T01:56:03.661282+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Time Series",
+    "Confluent",
+    "Real-Time AI",
+    "IBM"
+  ],
+  "title_ko": "Confluent와 IBM 시계열 모델을 활용한 실시간 인텔리전스 구축",
+  "title_en": "Real-Time Intelligence with IBM Time Series Models on Confluent",
+  "title_zh": "结合 Confluent 与 IBM 时间序列模型的实时智能方案",
+  "hook": "스트리밍 데이터 환경에서 IBM의 시계열 모델을 Confluent와 연동하여 실시간 예측을 수행하는 방법을 확인하세요.",
+  "hook_ko": "스트리밍 데이터 환경에서 IBM의 시계열 모델을 Confluent와 연동하여 실시간 예측을 수행하는 방법을 확인하세요.",
+  "hook_en": "Learn how to integrate IBM's time series models with Confluent for real-time predictive intelligence in streaming pipelines.",
+  "hook_zh": "探索如何在流式数据管道中集成 IBM 时间序列模型与 Confluent，实现实时预测智能。",
+  "description_ko": "스트리밍 데이터 환경에서 IBM의 시계열 모델을 Confluent와 연동하여 실시간 예측을 수행하는 방법을 확인하세요.",
+  "description_en": "Learn how to integrate IBM's time series models with Confluent for real-time predictive intelligence in streaming pipelines.",
+  "description_zh": "探索如何在流式数据管道中集成 IBM 时间序列模型与 Confluent，实现实时预测智能。"
 }
