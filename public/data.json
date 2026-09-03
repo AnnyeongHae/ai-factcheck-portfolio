@@ -1,10 +1,10 @@
 {
   "generated_at": "2026-09-02",
   "total_cases": 32,
-  "models_total_count": 88,
-  "news_total_count": 63,
-  "inbox_total_count": 232,
-  "all_inbox_count": 391,
+  "models_total_count": 142,
+  "news_total_count": 66,
+  "inbox_total_count": 233,
+  "all_inbox_count": 449,
   "admin_stats": {
     "endpoints": [
       {
@@ -39,6 +39,112 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T10:12:35.755034",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.24
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 86,
+            "duration_sec": 0.32
+          },
+          "github": {
+            "status": "ERROR",
+            "error": "HTTP Error 500: internal server error",
+            "duration_sec": 0.67
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 24,
+            "duration_sec": 15.38
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.27
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.14
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.69
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.28
+          }
+        },
+        "summary": {
+          "total_fetched": 195,
+          "updated_count": 0,
+          "new_saved": 1,
+          "duplicates_skipped": 194,
+          "errors": 1
+        }
+      },
+      {
+        "timestamp": "2026-09-03T09:51:49.331995",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.22
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 86,
+            "duration_sec": 0.42
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.95
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 12.25
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.42
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.17
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.82
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.32
+          }
+        },
+        "summary": {
+          "total_fetched": 226,
+          "updated_count": 0,
+          "new_saved": 57,
+          "duplicates_skipped": 169,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T07:37:29.160355",
         "date": "2026-09-03",
@@ -1522,165 +1628,59 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T04:41:06.701057",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.21
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.22
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.64
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 14.66
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.34
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.12
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.82
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.56
-          }
-        },
-        "summary": {
-          "total_fetched": 170,
-          "updated_count": 169,
-          "new_saved": 1,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
-      },
-      {
-        "timestamp": "2026-09-02T04:17:34.136986",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.19
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.15
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.74
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 19,
-            "duration_sec": 10.98
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.32
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.15
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.89
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.44
-          }
-        },
-        "summary": {
-          "total_fetched": 169,
-          "updated_count": 169,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T07:37:29.160355",
+      "timestamp": "2026-09-03T10:12:35.755034",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.27
+          "duration_sec": 0.24
         },
         "hf_spaces": {
           "status": "SUCCESS",
-          "items_found": 25,
-          "duration_sec": 0.15
+          "items_found": 86,
+          "duration_sec": 0.32
         },
         "github": {
-          "status": "SUCCESS",
-          "items_found": 30,
-          "duration_sec": 0.97
+          "status": "ERROR",
+          "error": "HTTP Error 500: internal server error",
+          "duration_sec": 0.67
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 25,
-          "duration_sec": 12.73
+          "items_found": 24,
+          "duration_sec": 15.38
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.57
+          "duration_sec": 0.27
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.17
+          "duration_sec": 0.14
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.89
+          "duration_sec": 0.69
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.19
+          "duration_sec": 0.28
         }
       },
       "summary": {
-        "total_fetched": 165,
+        "total_fetched": 195,
         "updated_count": 0,
         "new_saved": 1,
-        "duplicates_skipped": 164,
-        "errors": 0
+        "duplicates_skipped": 194,
+        "errors": 1
       }
     }
   },
@@ -2175,6 +2175,666 @@
       "model_family": "DistilBERT"
     },
     {
+      "inbox_id": "2026-09-03_repo_hf_space_vidraftai_world",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: VIDraft/ai-world",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/VIDraft/ai-world",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 28 | Live URL: https://huggingface.co/spaces/VIDraft/ai-world",
+      "viral_metric": "❤️ 28 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 28,
+          "display": "❤️ 28 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 28,
+          "display": "❤️ 28 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_tencenthunyuan3d_21",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: tencent/Hunyuan3D-2.1",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/tencent/Hunyuan3D-2.1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2215 | Live URL: https://huggingface.co/spaces/tencent/Hunyuan3D-2.1",
+      "viral_metric": "❤️ 2215 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2215,
+          "display": "❤️ 2215 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2215,
+          "display": "❤️ 2215 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_tencenthunyuan3d_2",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: tencent/Hunyuan3D-2",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/tencent/Hunyuan3D-2",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3371 | Live URL: https://huggingface.co/spaces/tencent/Hunyuan3D-2",
+      "viral_metric": "❤️ 3371 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3371,
+          "display": "❤️ 3371 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3371,
+          "display": "❤️ 3371 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_techfreakwormltx23_studio",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: techfreakworm/LTX2.3-Studio",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/techfreakworm/LTX2.3-Studio",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 338 | Live URL: https://huggingface.co/spaces/techfreakworm/LTX2.3-Studio",
+      "viral_metric": "❤️ 338 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 338,
+          "display": "❤️ 338 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 338,
+          "display": "❤️ 338 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_someone_in_the_worldfirered_experime",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: someone-in-the-world/FireRed-Experimental-Turbo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/someone-in-the-world/FireRed-Experimental-Turbo",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 148 | Live URL: https://huggingface.co/spaces/someone-in-the-world/FireRed-Experimental-Turbo",
+      "viral_metric": "❤️ 148 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 148,
+          "display": "❤️ 148 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 148,
+          "display": "❤️ 148 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_sanchit_gandhiwhisper_jax",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: sanchit-gandhi/whisper-jax",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/sanchit-gandhi/whisper-jax",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 2836 | Live URL: https://huggingface.co/spaces/sanchit-gandhi/whisper-jax",
+      "viral_metric": "❤️ 2836 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2836,
+          "display": "❤️ 2836 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2836,
+          "display": "❤️ 2836 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_r3gmwan2_2_fp8da_aoti_preview",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: r3gm/wan2-2-fp8da-aoti-preview",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3043 | Live URL: https://huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview",
+      "viral_metric": "❤️ 3043 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3043,
+          "display": "❤️ 3043 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3043,
+          "display": "❤️ 3043 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_qwenqwen3_tts",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: Qwen/Qwen3-TTS",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Qwen/Qwen3-TTS",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2196 | Live URL: https://huggingface.co/spaces/Qwen/Qwen3-TTS",
+      "viral_metric": "❤️ 2196 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2196,
+          "display": "❤️ 2196 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2196,
+          "display": "❤️ 2196 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_prithivmlmodsqwen38_27b_object_detec",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: prithivMLmods/Qwen3.8-27B-Object-Detection",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/prithivMLmods/Qwen3.8-27B-Object-Detection",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 30 | Live URL: https://huggingface.co/spaces/prithivMLmods/Qwen3.8-27B-Object-Detection",
+      "viral_metric": "❤️ 30 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 30,
+          "display": "❤️ 30 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 30,
+          "display": "❤️ 30 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_pharmapsychoticclip_interrogator",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: pharmapsychotic/CLIP-Interrogator",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/pharmapsychotic/CLIP-Interrogator",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2980 | Live URL: https://huggingface.co/spaces/pharmapsychotic/CLIP-Interrogator",
+      "viral_metric": "❤️ 2980 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2980,
+          "display": "❤️ 2980 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2980,
+          "display": "❤️ 2980 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_openbmbvoxcpm_demo",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: openbmb/VoxCPM-Demo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/openbmb/VoxCPM-Demo",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 747 | Live URL: https://huggingface.co/spaces/openbmb/VoxCPM-Demo",
+      "viral_metric": "❤️ 747 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 747,
+          "display": "❤️ 747 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 747,
+          "display": "❤️ 747 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_openaiwhisper",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: openai/whisper",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/openai/whisper",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2839 | Live URL: https://huggingface.co/spaces/openai/whisper",
+      "viral_metric": "❤️ 2839 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2839,
+          "display": "❤️ 2839 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2839,
+          "display": "❤️ 2839 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_open_llm_leaderboardopen_llm_leaderb",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: open-llm-leaderboard/open_llm_leaderboard",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 14087 | Live URL: https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+      "viral_metric": "❤️ 14087 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 14087,
+          "display": "❤️ 14087 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 14087,
+          "display": "❤️ 14087 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_oniseqwen_image_edit_2509_loras_fast",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: Onise/Qwen-Image-Edit-2509-LoRAs-Fast2",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Onise/Qwen-Image-Edit-2509-LoRAs-Fast2",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 315 | Live URL: https://huggingface.co/spaces/Onise/Qwen-Image-Edit-2509-LoRAs-Fast2",
+      "viral_metric": "❤️ 315 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 315,
+          "display": "❤️ 315 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 315,
+          "display": "❤️ 315 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_not_lainbackground_removal",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: not-lain/background-removal",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/not-lain/background-removal",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2929 | Live URL: https://huggingface.co/spaces/not-lain/background-removal",
+      "viral_metric": "❤️ 2929 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2929,
+          "display": "❤️ 2929 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2929,
+          "display": "❤️ 2929 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_nanotronultrascale_playbook",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: nanotron/ultrascale-playbook",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/nanotron/ultrascale-playbook",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 4001 | Live URL: https://huggingface.co/spaces/nanotron/ultrascale-playbook",
+      "viral_metric": "❤️ 4001 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 4001,
+          "display": "❤️ 4001 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 4001,
+          "display": "❤️ 4001 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_mukaistmidjourney",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: mukaist/Midjourney",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/mukaist/Midjourney",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2994 | Live URL: https://huggingface.co/spaces/mukaist/Midjourney",
+      "viral_metric": "❤️ 2994 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2994,
+          "display": "❤️ 2994 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2994,
+          "display": "❤️ 2994 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_mtebleaderboard",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: mteb/leaderboard",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/mteb/leaderboard",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 7648 | Live URL: https://huggingface.co/spaces/mteb/leaderboard",
+      "viral_metric": "❤️ 7648 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 7648,
+          "display": "❤️ 7648 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 7648,
+          "display": "❤️ 7648 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_mrfakenamez_image_turbo",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: mrfakename/Z-Image-Turbo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/mrfakename/Z-Image-Turbo",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3765 | Live URL: https://huggingface.co/spaces/mrfakename/Z-Image-Turbo",
+      "viral_metric": "❤️ 3765 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3765,
+          "display": "❤️ 3765 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3765,
+          "display": "❤️ 3765 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_mrfakenamee2_f5_tts",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: mrfakename/E2-F5-TTS",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/mrfakename/E2-F5-TTS",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2898 | Live URL: https://huggingface.co/spaces/mrfakename/E2-F5-TTS",
+      "viral_metric": "❤️ 2898 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2898,
+          "display": "❤️ 2898 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2898,
+          "display": "❤️ 2898 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-03_repo_hf_space_mrddickdickensonkrea_2_turbo_i2i",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -2269,6 +2929,171 @@
       "description_ko": "그라디오(Gradio) SDK 기반으로 실시간 이미지 투 이미지(I2I) 변환을 테스트할 수 있는 인터랙티브 데모입니다.",
       "description_en": "An interactive Gradio-based demo testing high-speed image-to-image generation capabilities.",
       "description_zh": "基于 Gradio SDK 的交互式演示，可用于测试高速图像到图像转换能力。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_mmmat32omi_videos_with_wan22_fp8",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: mmmat32/Omi-videos-with_wan2.2-fp8",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/mmmat32/Omi-videos-with_wan2.2-fp8",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 43 | Live URL: https://huggingface.co/spaces/mmmat32/Omi-videos-with_wan2.2-fp8",
+      "viral_metric": "❤️ 43 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 43,
+          "display": "❤️ 43 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 43,
+          "display": "❤️ 43 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_microsofttrellis",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: microsoft/TRELLIS",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/microsoft/TRELLIS",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 4775 | Live URL: https://huggingface.co/spaces/microsoft/TRELLIS",
+      "viral_metric": "❤️ 4775 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 4775,
+          "display": "❤️ 4775 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 4775,
+          "display": "❤️ 4775 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_lmarena_aiarena_leaderboard",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: lmarena-ai/arena-leaderboard",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 4981 | Live URL: https://huggingface.co/spaces/lmarena-ai/arena-leaderboard",
+      "viral_metric": "❤️ 4981 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 4981,
+          "display": "❤️ 4981 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 4981,
+          "display": "❤️ 4981 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_linoytsminimax_h3_inpainting",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: linoyts/minimax-h3-inpainting",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/linoyts/minimax-h3-inpainting",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 30 | Live URL: https://huggingface.co/spaces/linoyts/minimax-h3-inpainting",
+      "viral_metric": "❤️ 30 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 30,
+          "display": "❤️ 30 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 30,
+          "display": "❤️ 30 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_linoytsflux2_klein_face_swap",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: linoyts/Flux2-Klein-Face-Swap",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/linoyts/Flux2-Klein-Face-Swap",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 552 | Live URL: https://huggingface.co/spaces/linoyts/Flux2-Klein-Face-Swap",
+      "viral_metric": "❤️ 552 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 552,
+          "display": "❤️ 552 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 552,
+          "display": "❤️ 552 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-03_repo_hf_space_leosayer06wan555",
@@ -2367,6 +3192,930 @@
       "description_zh": "基于 Gradio 的开放演示空间，可在网页端直接体验最新生成式 AI 模型的效果。"
     },
     {
+      "inbox_id": "2026-09-03_repo_hf_space_kylehessling1v100_homelab_field_guid",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: KyleHessling1/v100-homelab-field-guide",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/KyleHessling1/v100-homelab-field-guide",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 10 | Live URL: https://huggingface.co/spaces/KyleHessling1/v100-homelab-field-guide",
+      "viral_metric": "❤️ 10 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_kwai_kolorskolors_virtual_try_on",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: Kwai-Kolors/Kolors-Virtual-Try-On",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Kwai-Kolors/Kolors-Virtual-Try-On",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 10170 | Live URL: https://huggingface.co/spaces/Kwai-Kolors/Kolors-Virtual-Try-On",
+      "viral_metric": "❤️ 10170 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 10170,
+          "display": "❤️ 10170 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 10170,
+          "display": "❤️ 10170 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_klingteamliveportrait",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: KlingTeam/LivePortrait",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/KlingTeam/LivePortrait",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3785 | Live URL: https://huggingface.co/spaces/KlingTeam/LivePortrait",
+      "viral_metric": "❤️ 3785 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3785,
+          "display": "❤️ 3785 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3785,
+          "display": "❤️ 3785 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_kingnishopengpt_4o",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: KingNish/OpenGPT-4o",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/KingNish/OpenGPT-4o",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 4306 | Live URL: https://huggingface.co/spaces/KingNish/OpenGPT-4o",
+      "viral_metric": "❤️ 4306 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 4306,
+          "display": "❤️ 4306 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 4306,
+          "display": "❤️ 4306 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_jbilcke_hfai_comic_factory",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: jbilcke-hf/ai-comic-factory",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 11236 | Live URL: https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
+      "viral_metric": "❤️ 11236 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 11236,
+          "display": "❤️ 11236 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 11236,
+          "display": "❤️ 11236 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_jasperait2i_technical_interactive_re",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: jasperai/t2i-technical-interactive-report",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/jasperai/t2i-technical-interactive-report",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 10 | Live URL: https://huggingface.co/spaces/jasperai/t2i-technical-interactive-report",
+      "viral_metric": "❤️ 10 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_instantxinstantid",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: InstantX/InstantID",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/InstantX/InstantID",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3641 | Live URL: https://huggingface.co/spaces/InstantX/InstantID",
+      "viral_metric": "❤️ 3641 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3641,
+          "display": "❤️ 3641 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3641,
+          "display": "❤️ 3641 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_ifmylove2011girlslike_lora_gallery",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: ifmylove2011/girlslike_lora_gallery",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/ifmylove2011/girlslike_lora_gallery",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 102 | Live URL: https://huggingface.co/spaces/ifmylove2011/girlslike_lora_gallery",
+      "viral_metric": "❤️ 102 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 102,
+          "display": "❤️ 102 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 102,
+          "display": "❤️ 102 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_humanaigcoutfitanyone",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: HumanAIGC/OutfitAnyone",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/HumanAIGC/OutfitAnyone",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2814 | Live URL: https://huggingface.co/spaces/HumanAIGC/OutfitAnyone",
+      "viral_metric": "❤️ 2814 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2814,
+          "display": "❤️ 2814 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2814,
+          "display": "❤️ 2814 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_huggingfacetbsmol_training_playbook",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: HuggingFaceTB/smol-training-playbook",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 3287 | Live URL: https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook",
+      "viral_metric": "❤️ 3287 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3287,
+          "display": "❤️ 3287 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3287,
+          "display": "❤️ 3287 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_huggingfaceinferencesupport",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: huggingface/InferenceSupport",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/huggingface/InferenceSupport",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 657 | Live URL: https://huggingface.co/spaces/huggingface/InferenceSupport",
+      "viral_metric": "❤️ 657 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 657,
+          "display": "❤️ 657 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 657,
+          "display": "❤️ 657 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_hugging_appsminimax_h3_flashgen_4ste",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: hugging-apps/minimax-h3-flashgen-4step",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/hugging-apps/minimax-h3-flashgen-4step",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 15 | Live URL: https://huggingface.co/spaces/hugging-apps/minimax-h3-flashgen-4step",
+      "viral_metric": "❤️ 15 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 15,
+          "display": "❤️ 15 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 15,
+          "display": "❤️ 15 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_hugging_appsfireredaudio_tts_demo",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: hugging-apps/fireredaudio-tts-demo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/hugging-apps/fireredaudio-tts-demo",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 18 | Live URL: https://huggingface.co/spaces/hugging-apps/fireredaudio-tts-demo",
+      "viral_metric": "❤️ 18 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 18,
+          "display": "❤️ 18 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 18,
+          "display": "❤️ 18 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_hugging_appsfasth3_4step_preview_dem",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: hugging-apps/fasth3-4step-preview-demo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/hugging-apps/fasth3-4step-preview-demo",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 12 | Live URL: https://huggingface.co/spaces/hugging-apps/fasth3-4step-preview-demo",
+      "viral_metric": "❤️ 12 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 12,
+          "display": "❤️ 12 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 12,
+          "display": "❤️ 12 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_hexgradkokoro_tts",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: hexgrad/Kokoro-TTS",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/hexgrad/Kokoro-TTS",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 3451 | Live URL: https://huggingface.co/spaces/hexgrad/Kokoro-TTS",
+      "viral_metric": "❤️ 3451 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3451,
+          "display": "❤️ 3451 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3451,
+          "display": "❤️ 3451 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_frameai4687omni_video_factory",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: FrameAI4687/Omni-Video-Factory",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/FrameAI4687/Omni-Video-Factory",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 1445 | Live URL: https://huggingface.co/spaces/FrameAI4687/Omni-Video-Factory",
+      "viral_metric": "❤️ 1445 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 1445,
+          "display": "❤️ 1445 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 1445,
+          "display": "❤️ 1445 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_facebookmusicgen",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: facebook/MusicGen",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/facebook/MusicGen",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 5089 | Live URL: https://huggingface.co/spaces/facebook/MusicGen",
+      "viral_metric": "❤️ 5089 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 5089,
+          "display": "❤️ 5089 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 5089,
+          "display": "❤️ 5089 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_enzostvsdeepsite",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: enzostvs/deepsite",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/enzostvs/deepsite",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 16610 | Live URL: https://huggingface.co/spaces/enzostvs/deepsite",
+      "viral_metric": "❤️ 16610 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 16610,
+          "display": "❤️ 16610 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 16610,
+          "display": "❤️ 16610 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_dream2589632147dream_wan2_2_fp8da_ao",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: dream2589632147/Dream-wan2-2-fp8da-aoti-preview-2",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/dream2589632147/Dream-wan2-2-fp8da-aoti-preview-2",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 142 | Live URL: https://huggingface.co/spaces/dream2589632147/Dream-wan2-2-fp8da-aoti-preview-2",
+      "viral_metric": "❤️ 142 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 142,
+          "display": "❤️ 142 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 142,
+          "display": "❤️ 142 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_dontplantoendugi_leaderboard",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: DontPlanToEnd/UGI-Leaderboard",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/DontPlanToEnd/UGI-Leaderboard",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 2026 | Live URL: https://huggingface.co/spaces/DontPlanToEnd/UGI-Leaderboard",
+      "viral_metric": "❤️ 2026 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2026,
+          "display": "❤️ 2026 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2026,
+          "display": "❤️ 2026 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_dalle_minidalle_mini",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: dalle-mini/dalle-mini",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/dalle-mini/dalle-mini",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 5721 | Live URL: https://huggingface.co/spaces/dalle-mini/dalle-mini",
+      "viral_metric": "❤️ 5721 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 5721,
+          "display": "❤️ 5721 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 5721,
+          "display": "❤️ 5721 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_coherelabscohere_parse",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: CohereLabs/cohere-parse",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/CohereLabs/cohere-parse",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 18 | Live URL: https://huggingface.co/spaces/CohereLabs/cohere-parse",
+      "viral_metric": "❤️ 18 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 18,
+          "display": "❤️ 18 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 18,
+          "display": "❤️ 18 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_codesoftslm_arena",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: CodeSoft/SLM-Arena",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/CodeSoft/SLM-Arena",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 15 | Live URL: https://huggingface.co/spaces/CodeSoft/SLM-Arena",
+      "viral_metric": "❤️ 15 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 15,
+          "display": "❤️ 15 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 15,
+          "display": "❤️ 15 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_black_forest_labsflux1_schnell",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: black-forest-labs/FLUX.1-schnell",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 5119 | Live URL: https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell",
+      "viral_metric": "❤️ 5119 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 5119,
+          "display": "❤️ 5119 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 5119,
+          "display": "❤️ 5119 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_black_forest_labsflux1_dev",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: black-forest-labs/FLUX.1-dev",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/black-forest-labs/FLUX.1-dev",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 9526 | Live URL: https://huggingface.co/spaces/black-forest-labs/FLUX.1-dev",
+      "viral_metric": "❤️ 9526 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 9526,
+          "display": "❤️ 9526 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 9526,
+          "display": "❤️ 9526 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_ast_1320pro_realism_edit_studio_v17",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: AST-1320/Pro-Realism-Edit-Studio-v.17",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/AST-1320/Pro-Realism-Edit-Studio-v.17",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 20 | Live URL: https://huggingface.co/spaces/AST-1320/Pro-Realism-Edit-Studio-v.17",
+      "viral_metric": "❤️ 20 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 20,
+          "display": "❤️ 20 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 20,
+          "display": "❤️ 20 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_ap123illusiondiffusion",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: AP123/IllusionDiffusion",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/AP123/IllusionDiffusion",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 5435 | Live URL: https://huggingface.co/spaces/AP123/IllusionDiffusion",
+      "viral_metric": "❤️ 5435 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 5435,
+          "display": "❤️ 5435 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 5435,
+          "display": "❤️ 5435 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_akhaliqanycoder",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: akhaliq/anycoder",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/akhaliq/anycoder",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: docker) | Likes: 3304 | Live URL: https://huggingface.co/spaces/akhaliq/anycoder",
+      "viral_metric": "❤️ 3304 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 3304,
+          "display": "❤️ 3304 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3304,
+          "display": "❤️ 3304 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-03_repo_hf_space_aimeebingmouquprotectbirds",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -2461,6 +4210,39 @@
       "description_ko": "컴퓨터 Vision 기반의 조류 보호 및 생태계 모니터링 AI 데모를 직접 체험해 보세요.",
       "description_en": "Explore an interactive computer vision demo designed for bird protection and ecological monitoring.",
       "description_zh": "探索基于计算机视觉的鸟类保护与生态监测交互式AI演示。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_acvlababot_recon_streaming_3d",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: acvlab/abot-recon-streaming-3d",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/acvlab/abot-recon-streaming-3d",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 10 | Live URL: https://huggingface.co/spaces/acvlab/abot-recon-streaming-3d",
+      "viral_metric": "❤️ 10 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-02_sns_hugging_face_blog_granite_42_llms_how_theyre_",
@@ -10961,6 +12743,40 @@
   ],
   "news_items": [
     {
+      "inbox_id": "2026-09-03_sns_hugging_face_blog_training_a_coding_model_to_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hugging Face Blog: Training a coding model to paint watercolours with TRL and OpenEnv",
+      "source_platform": "Hugging Face Blog",
+      "source_url": "https://huggingface.co/blog/train-to-paint-with-code",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "Hugging Face Blog Tech Publication: Training a coding model to paint watercolours with TRL and OpenEnv",
+      "viral_metric": "🌍 Official AI Publication",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "article_url": "https://huggingface.co/blog/train-to-paint-with-code"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_whistleblower_warns_postal_servic",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -11359,6 +13175,41 @@
       "description_ko": "대규모 언어 모델의 확산이 전 세계 소수 언어와 문화 다양성에 미치는 영향을 분석합니다.",
       "description_en": "An insightful discussion on how the dominance of LLMs impacts minority languages and global cultural diversity.",
       "description_zh": "深入探讨大语言模型的普及对全球少数语言及文化多样性带来的潜在影响。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_the_browsers_main_thread_is_expen",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: The Browser's Main Thread Is Expensive",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49522137",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 46 pts | Comments: 15 | The Browser's Main Thread Is Expensive",
+      "viral_metric": "🔥 46 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 46,
+          "display": "🔥 46 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 46,
+          "display": "🔥 46 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49522137",
+      "article_url": "https://kciter.so/posts/the-expensive-main-thread/en/"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_qantas_airbus_a380_engine_failure",
@@ -12880,6 +14731,43 @@
       "hook_zh": "美国联邦调查局（FBI）正全力调查一起泄露并出售超 1.53 亿份驾驶证记录的非法黑产服务。",
       "description_en": "The FBI is actively investigating an illicit service that leaked and sold over 153 million driver's license records.",
       "description_zh": "美国联邦调查局（FBI）正全力调查一起泄露并出售超 1.53 亿份驾驶证记录的非法黑产服务。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_diffusion으로_ocr_디코딩_가속하기",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Diffusion으로 OCR 디코딩 가속하기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33187",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Diffusion으로 OCR 디코딩 가속하기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Diffusion으로 OCR 디코딩 가속하기",
+      "description_ko": "Diffusion으로 OCR 디코딩 가속하기",
+      "hn_url": "https://news.hada.io/topic?id=33187",
+      "article_url": "https://news.hada.io/topic?id=33187"
     },
     {
       "inbox_id": "2026-09-03_sns_geeknews_commodore_64_1982년_9월_1일_출시",
@@ -19149,6 +21037,39 @@
       "description_ko": "새우조차 영상을 만들 수 있다는 콘셉트의 창의적인 AI 영상 생성 도구를 만나보세요.",
       "description_en": "Explore a whimsical yet powerful AI video generation tool that makes content creation effortless.",
       "description_zh": "探索这款以趣味概念驱动的AI视频生成工具，体验极简的创作流程。"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_github_shadcn_uicn",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GitHub: shadcn-ui/cn",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/shadcn-ui/cn",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Stars: 761, Forks: 5 | cn is a new engine for Tailwind class merging and conflict resolution. It replaces tailwind-merge and clsx. Same APIs. Full parity. And it is 30× faster.",
+      "viral_metric": "★ 761 Stars",
+      "metric_tracking": {
+        "initial": {
+          "value": 761,
+          "display": "★ 761 Stars",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 761,
+          "display": "★ 761 Stars",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-03_repo_github_rakanki911dlss5_swapper",
@@ -39909,7 +41830,7 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "장기 꼬리 지식 하에서 LLM의 인식적 근시안 탐구",
+      "title_ko": "장님 코끼리 만지기: 롱테일 이견(異見) 지식에 대한 LLM의 인식적 근시안 탐구",
       "description_ko": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
@@ -39935,41 +41856,44 @@
         "id": "2026-08-31_repo_arxiv_blind_men_and_the_elephant_probing_the_",
         "source_lang": "EN",
         "type_classification": "TECH",
-        "category": "LLM 환각 및 지식 평가",
+        "model_family": "LLM Evaluator",
+        "category": "Natural Language Processing",
         "programming_lang": "Python",
         "root_keywords": [
-          "LLM",
+          "Epistemic Myopia",
           "Long-Tail Knowledge",
-          "Epistemic Myopia"
+          "Factual QA",
+          "LLM Evaluation",
+          "Divergent Knowledge"
         ],
         "recommended_tag": "📝 기술 참고",
-        "worth_score": 4.0,
+        "worth_score": 4.2,
         "multilingual": {
           "ko": {
-            "title": "장기 꼬리 지식 하에서 LLM의 인식적 근시안 탐구",
-            "hook": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
+            "title": "장님 코끼리 만지기: 롱테일 이견(異見) 지식에 대한 LLM의 인식적 근시안 탐구",
+            "hook": "단일 정답 중심 평가를 넘어 롱테일 영역에서 존재하는 대립적·다양한 지식을 LLM이 어떻게 다루는지 분석한 연구",
             "key_takeaways": [
-              "팩트 QA의 단일 정답 가정 한계 분석",
-              "LLM의 롱테일 지식 발산 계정 유지 여부 조사",
-              "모델의 인식적 근시안(Epistemic Myopia) 현상 프로빙"
+              "단일 표준 정답(Canonical Answer)만을 가정하는 기존 지식 QA의 구조적 한계 지적",
+              "LLM이 롱테일 영역의 대립적 관점이나 수용된 이견을 제대로 인지하지 못하는 '인식적 근시안' 현상 규명",
+              "다양한 지식과 상충하는 사실을 포함하는 롱테일 도메인에서의 LLM 평가 프로빙 방법론 제시"
             ]
           },
           "en": {
-            "title": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs",
-            "hook": "Discover how LLMs handle divergent accounts of long-tail facts beyond single canonical answers.",
+            "title": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs under Long-Tail Divergent Knowledge",
+            "hook": "Investigates how LLMs fail to capture divergent accounts of long-tail facts beyond single canonical QA pairs.",
             "key_takeaways": [
-              "Analyze limitations of single canonical answers in factual QA",
-              "Investigate retention of divergent accounts for long-tail facts",
-              "Probe epistemic myopia phenomena in large language models"
+              "Highlights the limitations of assuming a single canonical answer in standard factual QA benchmarks.",
+              "Identifies 'Epistemic Myopia', where LLMs fail to retain or recognize conflicting long-tail knowledge.",
+              "Proposes a new probing strategy to evaluate LLM robustness across divergent and multi-perspective factual domains."
             ]
           },
           "zh": {
-            "title": "盲人摸象：探究大模型在长尾发散知识下的认知近视",
-            "hook": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。",
+            "title": "盲人摸象：探究大语言模型在长尾分歧知识下的认识论近视",
+            "hook": "揭示大语言模型在处理长尾且存在分歧的事实知识时，超出单一标准答案之外的认知局限性",
             "key_takeaways": [
-              "分析事实性问答中单一标准答案假设的局限性",
-              "调查大模型是否保留长尾事实的分散记录",
-              "探测大模型的认知近视现象"
+              "指出传统事实问答基准仅假设单一标准答案的局限性",
+              "界定并剖析了 LLM 难以保留或理解长尾知识中多元分歧观点的“认识论近视”现象",
+              "提出了用于探测和评估 LLM 对长尾多视角事实掌握能力的新方法"
             ]
           }
         }
@@ -39977,18 +41901,51 @@
       "source_lang": "EN",
       "programming_lang": "Python",
       "root_keywords": [
-        "LLM",
+        "Epistemic Myopia",
         "Long-Tail Knowledge",
-        "Epistemic Myopia"
+        "Factual QA",
+        "LLM Evaluation",
+        "Divergent Knowledge"
       ],
-      "title_en": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs",
-      "title_zh": "盲人摸象：探究大模型在长尾发散知识下的认知近视",
+      "title_en": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs under Long-Tail Divergent Knowledge",
+      "title_zh": "盲人摸象：探究大语言模型在长尾分歧知识下的认识论近视",
       "hook": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
-      "hook_ko": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
-      "hook_en": "Discover how LLMs handle divergent accounts of long-tail facts beyond single canonical answers.",
-      "hook_zh": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。",
+      "hook_ko": "단일 정답 중심 평가를 넘어 롱테일 영역에서 존재하는 대립적·다양한 지식을 LLM이 어떻게 다루는지 분석한 연구",
+      "hook_en": "Investigates how LLMs fail to capture divergent accounts of long-tail facts beyond single canonical QA pairs.",
+      "hook_zh": "揭示大语言模型在处理长尾且存在分歧的事实知识时，超出单一标准答案之外的认知局限性",
       "description_en": "Discover how LLMs handle divergent accounts of long-tail facts beyond single canonical answers.",
-      "description_zh": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。"
+      "description_zh": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。",
+      "multilingual": {
+        "ko": {
+          "title": "장님 코끼리 만지기: 롱테일 이견(異見) 지식에 대한 LLM의 인식적 근시안 탐구",
+          "hook": "단일 정답 중심 평가를 넘어 롱테일 영역에서 존재하는 대립적·다양한 지식을 LLM이 어떻게 다루는지 분석한 연구",
+          "key_takeaways": [
+            "단일 표준 정답(Canonical Answer)만을 가정하는 기존 지식 QA의 구조적 한계 지적",
+            "LLM이 롱테일 영역의 대립적 관점이나 수용된 이견을 제대로 인지하지 못하는 '인식적 근시안' 현상 규명",
+            "다양한 지식과 상충하는 사실을 포함하는 롱테일 도메인에서의 LLM 평가 프로빙 방법론 제시"
+          ]
+        },
+        "en": {
+          "title": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs under Long-Tail Divergent Knowledge",
+          "hook": "Investigates how LLMs fail to capture divergent accounts of long-tail facts beyond single canonical QA pairs.",
+          "key_takeaways": [
+            "Highlights the limitations of assuming a single canonical answer in standard factual QA benchmarks.",
+            "Identifies 'Epistemic Myopia', where LLMs fail to retain or recognize conflicting long-tail knowledge.",
+            "Proposes a new probing strategy to evaluate LLM robustness across divergent and multi-perspective factual domains."
+          ]
+        },
+        "zh": {
+          "title": "盲人摸象：探究大语言模型在长尾分歧知识下的认识论近视",
+          "hook": "揭示大语言模型在处理长尾且存在分歧的事实知识时，超出单一标准答案之外的认知局限性",
+          "key_takeaways": [
+            "指出传统事实问答基准仅假设单一标准答案的局限性",
+            "界定并剖析了 LLM 难以保留或理解长尾知识中多元分歧观点的“认识论近视”现象",
+            "提出了用于探测和评估 LLM 对长尾多视角事实掌握能力的新方法"
+          ]
+        }
+      },
+      "enriched_by": "gemini-3.6-flash-batch-api",
+      "enriched_at": "2026-09-03T20:01:10.155412"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_an_enclosed_mode_is_a_gauge_choice_topo",
@@ -40014,7 +41971,7 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "폐쇄 모드는 게이지 선택이다: 인증된 코드 월드 모델의 도달 범위 대비 위상",
+      "title_ko": "밀폐된 모드는 게이지 선택이다: 검증된 코드 월드 모델에서 도달 범위에 상대적인 위상 수학",
       "description_ko": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
@@ -40040,63 +41997,96 @@
         "id": "2026-08-31_repo_arxiv_an_enclosed_mode_is_a_gauge_choice_topo",
         "source_lang": "EN",
         "type_classification": "TECH",
-        "model_family": "Standalone",
-        "category": "코드 월드 모델 및 형식 검증",
-        "programming_lang": "Python",
+        "model_family": "World Models",
+        "category": "AI & Machine Learning Theory",
+        "programming_lang": "General",
         "root_keywords": [
-          "Code World Models",
-          "Gauge Choice",
-          "Certified Models"
+          "World Models",
+          "Formal Verification",
+          "Sampling Gate",
+          "Code Generation",
+          "Gauge Choice"
         ],
         "recommended_tag": "📝 기술 참고",
-        "worth_score": 3.9,
+        "worth_score": 4.0,
         "multilingual": {
           "ko": {
-            "title": "폐쇄 모드는 게이지 선택이다: 인증된 코드 월드 모델의 도달 범위 대비 위상",
-            "hook": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
+            "title": "밀폐된 모드는 게이지 선택이다: 검증된 코드 월드 모델에서 도달 범위에 상대적인 위상 수학",
+            "hook": "샘플링 게이트를 통과한 코드 월드 모델의 인식 한계 및 오차 특성을 이론적으로 규명",
             "key_takeaways": [
-              "샘플링 게이트 가시 영역 내외부 간의 코드 월드 모델 오류 특성 규명",
-              "인증된 모델이 보장할 수 있는 정보의 범위와 한계 분석",
-              "게이지 선택(Gauge Choice) 관점에서 폐쇄 모드의 수학적 의미 조명"
+              "샘플링 게이트가 관측 가능한 범위 내에서는 완벽히 동작하지만 그 범위를 벗어나면 임의의 오류가 발생할 수 있음을 증명",
+              "검증된 월드 모델이 알 수 있는 영역과 오류의 한계를 '게이지 선택' 개념으로 수학적으로 정형화",
+              "코드 기반 월드 모델 및 AI 안전성 검증의 이론적 가이드라인 제안"
             ]
           },
           "en": {
             "title": "An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
-            "hook": "Analyze what certified code models can reliably know and where their errors lie beyond the visibility of sampling gates.",
+            "hook": "Mathematical characterization of knowledge limits and error boundaries in certified code world models.",
             "key_takeaways": [
-              "Characterizes model errors within and beyond sampling gate visibility",
-              "Explores theoretical limits and guarantees of certified code world models",
-              "Examines the mathematical implications of enclosed modes as gauge choices"
+              "Proves that models accepted by a sampling gate are exact within observable reach but can fail arbitrarily beyond it.",
+              "Formulates the knowledge boundaries and error limits of certified world models through a gauge choice framework.",
+              "Provides theoretical foundations for AI safety and formal verification in code-based world models."
             ]
           },
           "zh": {
-            "title": "封闭模式是一种规范选择：认证代码世界模型中相对于可达性的拓扑",
-            "hook": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。",
+            "title": "封闭模式即规范选择：可验证代码世界模型中相对于可达性的拓扑学",
+            "hook": "从理论上阐明经采样门验证的代码世界模型的认知边界与误差特性",
             "key_takeaways": [
-              "揭示了代码世界模型在采样门可见范围內外的错误特征",
-              "探讨了认证模型能够确定的信息范围及其理论极限",
-              "从规范选择（Gauge Choice）角度阐明了封闭模式的数学内涵"
+              "证明了被采样门接受的模型在其可观察范围内准确无误，但在观察范围之外可能引发任意错误的特性",
+              "利用规范选择与拓扑框架，形式化定义了经认证的世界模型所能掌握的信息及误差极限",
+              "为代码世界模型与 AI 安全性的形式化验证提供了理论基础"
             ]
           }
-        },
-        "enriched_by_model": "gemini-flash-lite-latest",
-        "enriched_at": "2026-09-02T16:23:03.541092+09:00"
+        }
       },
       "source_lang": "EN",
-      "programming_lang": "Python",
+      "programming_lang": "General",
       "root_keywords": [
-        "Code World Models",
-        "Gauge Choice",
-        "Certified Models"
+        "World Models",
+        "Formal Verification",
+        "Sampling Gate",
+        "Code Generation",
+        "Gauge Choice"
       ],
       "title_en": "An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
-      "title_zh": "封闭模式是一种规范选择：认证代码世界模型中相对于可达性的拓扑",
+      "title_zh": "封闭模式即规范选择：可验证代码世界模型中相对于可达性的拓扑学",
       "hook": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
-      "hook_ko": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
-      "hook_en": "Analyze what certified code models can reliably know and where their errors lie beyond the visibility of sampling gates.",
-      "hook_zh": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。",
+      "hook_ko": "샘플링 게이트를 통과한 코드 월드 모델의 인식 한계 및 오차 특성을 이론적으로 규명",
+      "hook_en": "Mathematical characterization of knowledge limits and error boundaries in certified code world models.",
+      "hook_zh": "从理论上阐明经采样门验证的代码世界模型的认知边界与误差特性",
       "description_en": "Analyze what certified code models can reliably know and where their errors lie beyond the visibility of sampling gates.",
-      "description_zh": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。"
+      "description_zh": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。",
+      "multilingual": {
+        "ko": {
+          "title": "밀폐된 모드는 게이지 선택이다: 검증된 코드 월드 모델에서 도달 범위에 상대적인 위상 수학",
+          "hook": "샘플링 게이트를 통과한 코드 월드 모델의 인식 한계 및 오차 특성을 이론적으로 규명",
+          "key_takeaways": [
+            "샘플링 게이트가 관측 가능한 범위 내에서는 완벽히 동작하지만 그 범위를 벗어나면 임의의 오류가 발생할 수 있음을 증명",
+            "검증된 월드 모델이 알 수 있는 영역과 오류의 한계를 '게이지 선택' 개념으로 수학적으로 정형화",
+            "코드 기반 월드 모델 및 AI 안전성 검증의 이론적 가이드라인 제안"
+          ]
+        },
+        "en": {
+          "title": "An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
+          "hook": "Mathematical characterization of knowledge limits and error boundaries in certified code world models.",
+          "key_takeaways": [
+            "Proves that models accepted by a sampling gate are exact within observable reach but can fail arbitrarily beyond it.",
+            "Formulates the knowledge boundaries and error limits of certified world models through a gauge choice framework.",
+            "Provides theoretical foundations for AI safety and formal verification in code-based world models."
+          ]
+        },
+        "zh": {
+          "title": "封闭模式即规范选择：可验证代码世界模型中相对于可达性的拓扑学",
+          "hook": "从理论上阐明经采样门验证的代码世界模型的认知边界与误差特性",
+          "key_takeaways": [
+            "证明了被采样门接受的模型在其可观察范围内准确无误，但在观察范围之外可能引发任意错误的特性",
+            "利用规范选择与拓扑框架，形式化定义了经认证的世界模型所能掌握的信息及误差极限",
+            "为代码世界模型与 AI 安全性的形式化验证提供了理论基础"
+          ]
+        }
+      },
+      "enriched_by": "gemini-3.6-flash-batch-api",
+      "enriched_at": "2026-09-03T20:01:10.136287"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_aero_hand_open_a_simulation_ready_tendo",
@@ -40122,7 +42112,7 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 준비 완료 텐던 구동 핸드",
+      "title_ko": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 지원 텐던 구동 로봇 손",
       "description_ko": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
@@ -40148,63 +42138,96 @@
         "id": "2026-08-31_repo_arxiv_aero_hand_open_a_simulation_ready_tendo",
         "source_lang": "EN",
         "type_classification": "TECH",
-        "model_family": "Standalone",
-        "category": "로봇 공학 및 숙련 조작",
+        "model_family": "Robotics / Hardware & Embodied AI",
+        "category": "Robotics",
         "programming_lang": "Python",
         "root_keywords": [
-          "Tendon-Driven Hand",
+          "Tendon-driven Hand",
           "Dexterous Manipulation",
-          "Simulation-Ready"
+          "Robotics Simulation",
+          "Sim-to-Real",
+          "Open Hardware"
         ],
-        "recommended_tag": "💡 유용한 도구",
-        "worth_score": 4.1,
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
         "multilingual": {
           "ko": {
-            "title": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 준비 완료 텐던 구동 핸드",
-            "hook": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
+            "title": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 지원 텐던 구동 로봇 손",
+            "hook": "액추에이터를 관절 외부에 배치해 단가를 획기적으로 낮추고 시뮬레이션과 호환성을 극대화한 오픈소스 텐던 구동 로봇 손 프로젝트",
             "key_takeaways": [
-              "관절 외부 구동기 배치를 통한 제작 비용 대폭 절감",
-              "숙련된 로봇 조작(Dexterous Manipulation) 학습에 최적화된 설계",
-              "시뮬레이션 환경에서 곧바로 테스트 가능한 준비된 구조 제공"
+              "관절 외 액추에이터 배치로 인체공학적 구조와 저비용 제작을 동시에 달성",
+              "강화학습 및 Sim-to-Real 연구에 바로 활용할 수 있는 정밀한 시뮬레이션 환경 구축",
+              "고난도 정밀 조작(Dexterous Manipulation) 연구를 위한 오픈소스 하드웨어 및 소프트웨어 인프라 제공"
             ]
           },
           "en": {
             "title": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
-            "hook": "Explore an affordable, anthropomorphic tendon-driven hand designed with off-joint actuators for seamless simulation-to-real learning.",
+            "hook": "An affordable, open-source tendon-driven robotic hand featuring optimized physics for seamless sim-to-real transfer in dexterous manipulation tasks.",
             "key_takeaways": [
-              "Significantly reduces manufacturing costs by moving actuators off the joints",
-              "Optimized design for learning complex dexterous robotic manipulation",
-              "Provides a simulation-ready architecture for immediate experimentation"
+              "Achieves low-cost anthropomorphic design by relocating actuators off the hand joints.",
+              "Provides accurate simulation environments optimized for reinforcement learning and sim-to-real transfer.",
+              "Delivers an open-source hardware and software platform to accelerate complex manipulation research."
             ]
           },
           "zh": {
-            "title": "Aero Hand Open：用于灵巧操作学习的仿真就绪肌腱驱动手",
-            "hook": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。",
+            "title": "Aero Hand Open：面向精细操作学习的即插即用仿真腱驱动机械手",
+            "hook": "通过将驱动器移出关节大幅降低成本，并提供完美契合 Sim-to-Real 强化学习的开源腱驱动仿生机械手。",
             "key_takeaways": [
-              "通过将驱动器移出关节显著降低了制造成本",
-              "专为学习复杂灵巧机器人操作优化的设计",
-              "提供可直接在仿真环境中测试的就绪架构"
+              "采用腱驱动结构将驱动器外置，兼具高性价比与仿生人手形态",
+              "提供预先调优的仿真物理模型，显著降低 Sim-to-Real 迁移的测试门槛",
+              "全面开源硬件设计与软件接口，推动复杂的灵巧操作 (Dexterous Manipulation) 算法研究"
             ]
           }
-        },
-        "enriched_by_model": "gemini-flash-lite-latest",
-        "enriched_at": "2026-09-02T16:23:03.540662+09:00"
+        }
       },
       "source_lang": "EN",
       "programming_lang": "Python",
       "root_keywords": [
-        "Tendon-Driven Hand",
+        "Tendon-driven Hand",
         "Dexterous Manipulation",
-        "Simulation-Ready"
+        "Robotics Simulation",
+        "Sim-to-Real",
+        "Open Hardware"
       ],
       "title_en": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
-      "title_zh": "Aero Hand Open：用于灵巧操作学习的仿真就绪肌腱驱动手",
+      "title_zh": "Aero Hand Open：面向精细操作学习的即插即用仿真腱驱动机械手",
       "hook": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
-      "hook_ko": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
-      "hook_en": "Explore an affordable, anthropomorphic tendon-driven hand designed with off-joint actuators for seamless simulation-to-real learning.",
-      "hook_zh": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。",
+      "hook_ko": "액추에이터를 관절 외부에 배치해 단가를 획기적으로 낮추고 시뮬레이션과 호환성을 극대화한 오픈소스 텐던 구동 로봇 손 프로젝트",
+      "hook_en": "An affordable, open-source tendon-driven robotic hand featuring optimized physics for seamless sim-to-real transfer in dexterous manipulation tasks.",
+      "hook_zh": "通过将驱动器移出关节大幅降低成本，并提供完美契合 Sim-to-Real 强化学习的开源腱驱动仿生机械手。",
       "description_en": "Explore an affordable, anthropomorphic tendon-driven hand designed with off-joint actuators for seamless simulation-to-real learning.",
-      "description_zh": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。"
+      "description_zh": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。",
+      "multilingual": {
+        "ko": {
+          "title": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 지원 텐던 구동 로봇 손",
+          "hook": "액추에이터를 관절 외부에 배치해 단가를 획기적으로 낮추고 시뮬레이션과 호환성을 극대화한 오픈소스 텐던 구동 로봇 손 프로젝트",
+          "key_takeaways": [
+            "관절 외 액추에이터 배치로 인체공학적 구조와 저비용 제작을 동시에 달성",
+            "강화학습 및 Sim-to-Real 연구에 바로 활용할 수 있는 정밀한 시뮬레이션 환경 구축",
+            "고난도 정밀 조작(Dexterous Manipulation) 연구를 위한 오픈소스 하드웨어 및 소프트웨어 인프라 제공"
+          ]
+        },
+        "en": {
+          "title": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
+          "hook": "An affordable, open-source tendon-driven robotic hand featuring optimized physics for seamless sim-to-real transfer in dexterous manipulation tasks.",
+          "key_takeaways": [
+            "Achieves low-cost anthropomorphic design by relocating actuators off the hand joints.",
+            "Provides accurate simulation environments optimized for reinforcement learning and sim-to-real transfer.",
+            "Delivers an open-source hardware and software platform to accelerate complex manipulation research."
+          ]
+        },
+        "zh": {
+          "title": "Aero Hand Open：面向精细操作学习的即插即用仿真腱驱动机械手",
+          "hook": "通过将驱动器移出关节大幅降低成本，并提供完美契合 Sim-to-Real 强化学习的开源腱驱动仿生机械手。",
+          "key_takeaways": [
+            "采用腱驱动结构将驱动器外置，兼具高性价比与仿生人手形态",
+            "提供预先调优的仿真物理模型，显著降低 Sim-to-Real 迁移的测试门槛",
+            "全面开源硬件设计与软件接口，推动复杂的灵巧操作 (Dexterous Manipulation) 算法研究"
+          ]
+        }
+      },
+      "enriched_by": "gemini-3.6-flash-batch-api",
+      "enriched_at": "2026-09-03T20:01:10.135628"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_acrossvam10_particle_world_modeling_for",
@@ -40230,7 +42253,7 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델",
+      "title_ko": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델링",
       "description_ko": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
@@ -40256,63 +42279,94 @@
         "id": "2026-08-31_repo_arxiv_acrossvam10_particle_world_modeling_for",
         "source_lang": "EN",
         "type_classification": "TECH",
-        "model_family": "Standalone",
-        "category": "로봇 비디오 예측 및 월드 모델",
+        "model_family": "World Model",
+        "category": "Robotics",
         "programming_lang": "Python",
         "root_keywords": [
-          "Particle World Modeling",
+          "Particle World Model",
           "Robot Video Prediction",
-          "Motion Reasoning"
+          "Motion Reasoning",
+          "Text-Assisted Prediction"
         ],
-        "recommended_tag": "💡 유용한 도구",
-        "worth_score": 4.2,
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
         "multilingual": {
           "ko": {
-            "title": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델",
-            "hook": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
+            "title": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델링",
+            "hook": "동작 추론과 외관 보존을 분리하여 로봇 비디오 예측의 정밀도와 물리적 해석 가능성을 극대화한 파티클 월드 모델",
             "key_takeaways": [
-              "단일 픽셀 모델의 한계점인 모션과 외형의 얽힘 현상 해결",
-              "텍스트 보조 정보를 활용한 정밀한 로봇 비디오 예측 수행",
-              "파티클 기반 월드 모델을 통한 효율적인 물리적 상호작용 시뮬레이션"
+              "정밀한 동작 추론과 고주파 외관 보존을 분리하는 파티클 기반 월드 모델 구조 제시",
+              "텍스트 안내를 결합해 로봇의 미래 동작 및 비디오 프레임 예측 정확도 대폭 향상",
+              "기존 단일 픽셀 기반 모델의 불투명성과 모션 왜곡 문제를 효과적으로 해결"
             ]
           },
           "en": {
             "title": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
-            "hook": "Discover a novel architecture that decouples motion reasoning from high-frequency appearance preservation in robot video forecasting.",
+            "hook": "A particle-based world model disentangling motion reasoning from appearance preservation for highly accurate robot video prediction.",
             "key_takeaways": [
-              "Resolves the entanglement of motion and appearance in monolithic pixel models",
-              "Leverages text assistance for precise robot video prediction",
-              "Applies particle-based world modeling for efficient physical interaction simulation"
+              "Proposes a particle world model that separates motion reasoning from high-frequency appearance preservation.",
+              "Leverages text conditioning to guide precise robotic movement and enhance future video frame generation.",
+              "Overcomes limitations of monolithic pixel models by improving visual fidelity and physical interpretability."
             ]
           },
           "zh": {
-            "title": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界模型",
-            "hook": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。",
+            "title": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界建模",
+            "hook": "通过解耦运动推理与外观保留，显著提升机器人视频预测精度的粒子世界模型",
             "key_takeaways": [
-              "解决了单体像素模型中运动与外观交织的局限性",
-              "利用文本辅助信息实现精准的机器人视频预测",
-              "通过基于粒子的世界模型进行高效的物理交互模拟"
+              "提出解耦运动推理与高频外观保留的粒子世界模型架构",
+              "结合文本提示引导精确的机器人动作，提高未来视频预测的真实度与准确性",
+              "克服传统单体像素模型的局限，改善预测过程的可解释性与物理精度"
             ]
           }
-        },
-        "enriched_by_model": "gemini-flash-lite-latest",
-        "enriched_at": "2026-09-02T16:23:03.540033+09:00"
+        }
       },
       "source_lang": "EN",
       "programming_lang": "Python",
       "root_keywords": [
-        "Particle World Modeling",
+        "Particle World Model",
         "Robot Video Prediction",
-        "Motion Reasoning"
+        "Motion Reasoning",
+        "Text-Assisted Prediction"
       ],
       "title_en": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
-      "title_zh": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界模型",
+      "title_zh": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界建模",
       "hook": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
-      "hook_ko": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
-      "hook_en": "Discover a novel architecture that decouples motion reasoning from high-frequency appearance preservation in robot video forecasting.",
-      "hook_zh": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。",
+      "hook_ko": "동작 추론과 외관 보존을 분리하여 로봇 비디오 예측의 정밀도와 물리적 해석 가능성을 극대화한 파티클 월드 모델",
+      "hook_en": "A particle-based world model disentangling motion reasoning from appearance preservation for highly accurate robot video prediction.",
+      "hook_zh": "通过解耦运动推理与外观保留，显著提升机器人视频预测精度的粒子世界模型",
       "description_en": "Discover a novel architecture that decouples motion reasoning from high-frequency appearance preservation in robot video forecasting.",
-      "description_zh": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。"
+      "description_zh": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。",
+      "multilingual": {
+        "ko": {
+          "title": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델링",
+          "hook": "동작 추론과 외관 보존을 분리하여 로봇 비디오 예측의 정밀도와 물리적 해석 가능성을 극대화한 파티클 월드 모델",
+          "key_takeaways": [
+            "정밀한 동작 추론과 고주파 외관 보존을 분리하는 파티클 기반 월드 모델 구조 제시",
+            "텍스트 안내를 결합해 로봇의 미래 동작 및 비디오 프레임 예측 정확도 대폭 향상",
+            "기존 단일 픽셀 기반 모델의 불투명성과 모션 왜곡 문제를 효과적으로 해결"
+          ]
+        },
+        "en": {
+          "title": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
+          "hook": "A particle-based world model disentangling motion reasoning from appearance preservation for highly accurate robot video prediction.",
+          "key_takeaways": [
+            "Proposes a particle world model that separates motion reasoning from high-frequency appearance preservation.",
+            "Leverages text conditioning to guide precise robotic movement and enhance future video frame generation.",
+            "Overcomes limitations of monolithic pixel models by improving visual fidelity and physical interpretability."
+          ]
+        },
+        "zh": {
+          "title": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界建模",
+          "hook": "通过解耦运动推理与外观保留，显著提升机器人视频预测精度的粒子世界模型",
+          "key_takeaways": [
+            "提出解耦运动推理与高频外观保留的粒子世界模型架构",
+            "结合文本提示引导精确的机器人动作，提高未来视频预测的真实度与准确性",
+            "克服传统单体像素模型的局限，改善预测过程的可解释性与物理精度"
+          ]
+        }
+      },
+      "enriched_by": "gemini-3.6-flash-batch-api",
+      "enriched_at": "2026-09-03T20:01:10.134831"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_a_formal_limitation_on_learning_human_l",
@@ -40338,7 +42392,7 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "텍스트 말뭉치로부터 인간 언어를 학습하는 것의 형식적 한계",
+      "title_ko": "텍스트 코퍼스만으로 인간 언어를 학습하는 것의 형식적 한계",
       "description_ko": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
@@ -40364,63 +42418,94 @@
         "id": "2026-08-31_repo_arxiv_a_formal_limitation_on_learning_human_l",
         "source_lang": "EN",
         "type_classification": "TECH",
-        "model_family": "Standalone",
-        "category": "자연어 처리 및 정보 이론",
+        "model_family": "LLM Theory",
+        "category": "Natural Language Processing",
         "programming_lang": "General",
         "root_keywords": [
-          "Human Language Learning",
-          "Textual Corpora",
-          "Information Theory"
+          "Information Theory",
+          "Natural Language Semantics",
+          "Textual Corpora Limitation",
+          "Language Grounding"
         ],
-        "recommended_tag": "📝 기술 참고",
-        "worth_score": 4.0,
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
         "multilingual": {
           "ko": {
-            "title": "텍스트 말뭉치로부터 인간 언어를 학습하는 것의 형식적 한계",
-            "hook": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
+            "title": "텍스트 코퍼스만으로 인간 언어를 학습하는 것의 형식적 한계",
+            "hook": "텍스트의 형태만으로 의미를 완전히 복원할 수 없음을 밝힌 정보이론적 논문",
             "key_takeaways": [
-              "정보 이론적 관점에서 발화 형태와 화자 의도 간의 관계 분석",
-              "최신 텍스트 특성 추출기를 포함한 모든 텍스트 기반 리스너의 한계 증명",
-              "텍스트 코퍼스 학습만으로는 인간 언어의 완전한 의미 복원이 불가능함을 시사"
+              "텍스트 형태만 학습하는 모델이 의미를 복원하는 것에 대한 정보이론적 한계 규명",
+              "임의의 텍스트 특징 추출기(Featurizer) 및 대형 언어 모델 표현에 폭넓게 적용 가능",
+              "멀티모달 grounding 없이 순수 텍스트 코퍼스에만 의존하는 모델의 근본적 단점 제시"
             ]
           },
           "en": {
             "title": "A Formal Limitation on Learning Human Language From Textual Corpora",
-            "hook": "Can a listener recover speaker intent from utterance form alone? An information-theoretic look at the limits of text-based language learning.",
+            "hook": "An information-theoretic proof establishing the fundamental impossibility of fully recovering meaning from text form alone.",
             "key_takeaways": [
-              "Analyzes the relationship between utterance form and speaker intent information-theoretically",
-              "Proves fundamental limits for text-based listeners, including advanced text featurizers",
-              "Demonstrates theoretical barriers to recovering full human semantics from text corpora alone"
+              "Proves information-theoretic limits on recovering speaker meaning strictly from text utterances.",
+              "Applies broadly to any text featurizer, including representations used in modern LLMs.",
+              "Emphasizes the intrinsic bottleneck of text-only training corpora without external grounding."
             ]
           },
           "zh": {
-            "title": "从文本语料库学习人类语言的形式化局限性",
-            "hook": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。",
+            "title": "仅凭文本语料库学习人类语言的形式化局限性",
+            "hook": "从信息论角度证明了仅通过文本形式完全恢复语义的根本局限性",
             "key_takeaways": [
-              "从信息论视角分析话语形式与说话者意图之间的映射关系",
-              "证明了包括高级文本特征提取器在内的所有文本基听众的局限性",
-              "揭示了仅通过文本语料库学习无法完全恢复人类语义的理论壁垒"
+              "阐明了仅凭文本表达形式完全还原说话者意图的信息论极限",
+              "适用于任何文本特征提取器以及现代大语言模型的特征表示",
+              "揭示了缺乏多模态锚定（Grounding）、仅依赖纯文本训练的内在瓶颈"
             ]
           }
-        },
-        "enriched_by_model": "gemini-flash-lite-latest",
-        "enriched_at": "2026-09-02T16:23:03.541459+09:00"
+        }
       },
       "source_lang": "EN",
       "programming_lang": "General",
       "root_keywords": [
-        "Human Language Learning",
-        "Textual Corpora",
-        "Information Theory"
+        "Information Theory",
+        "Natural Language Semantics",
+        "Textual Corpora Limitation",
+        "Language Grounding"
       ],
       "title_en": "A Formal Limitation on Learning Human Language From Textual Corpora",
-      "title_zh": "从文本语料库学习人类语言的形式化局限性",
+      "title_zh": "仅凭文本语料库学习人类语言的形式化局限性",
       "hook": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
-      "hook_ko": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
-      "hook_en": "Can a listener recover speaker intent from utterance form alone? An information-theoretic look at the limits of text-based language learning.",
-      "hook_zh": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。",
+      "hook_ko": "텍스트의 형태만으로 의미를 완전히 복원할 수 없음을 밝힌 정보이론적 논문",
+      "hook_en": "An information-theoretic proof establishing the fundamental impossibility of fully recovering meaning from text form alone.",
+      "hook_zh": "从信息论角度证明了仅通过文本形式完全恢复语义的根本局限性",
       "description_en": "Can a listener recover speaker intent from utterance form alone? An information-theoretic look at the limits of text-based language learning.",
-      "description_zh": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。"
+      "description_zh": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。",
+      "multilingual": {
+        "ko": {
+          "title": "텍스트 코퍼스만으로 인간 언어를 학습하는 것의 형식적 한계",
+          "hook": "텍스트의 형태만으로 의미를 완전히 복원할 수 없음을 밝힌 정보이론적 논문",
+          "key_takeaways": [
+            "텍스트 형태만 학습하는 모델이 의미를 복원하는 것에 대한 정보이론적 한계 규명",
+            "임의의 텍스트 특징 추출기(Featurizer) 및 대형 언어 모델 표현에 폭넓게 적용 가능",
+            "멀티모달 grounding 없이 순수 텍스트 코퍼스에만 의존하는 모델의 근본적 단점 제시"
+          ]
+        },
+        "en": {
+          "title": "A Formal Limitation on Learning Human Language From Textual Corpora",
+          "hook": "An information-theoretic proof establishing the fundamental impossibility of fully recovering meaning from text form alone.",
+          "key_takeaways": [
+            "Proves information-theoretic limits on recovering speaker meaning strictly from text utterances.",
+            "Applies broadly to any text featurizer, including representations used in modern LLMs.",
+            "Emphasizes the intrinsic bottleneck of text-only training corpora without external grounding."
+          ]
+        },
+        "zh": {
+          "title": "仅凭文本语料库学习人类语言的形式化局限性",
+          "hook": "从信息论角度证明了仅通过文本形式完全恢复语义的根本局限性",
+          "key_takeaways": [
+            "阐明了仅凭文本表达形式完全还原说话者意图的信息论极限",
+            "适用于任何文本特征提取器以及现代大语言模型的特征表示",
+            "揭示了缺乏多模态锚定（Grounding）、仅依赖纯文本训练的内在瓶颈"
+          ]
+        }
+      },
+      "enriched_by": "gemini-3.6-flash-batch-api",
+      "enriched_at": "2026-09-03T20:01:10.133745"
     }
   ],
   "cases": [

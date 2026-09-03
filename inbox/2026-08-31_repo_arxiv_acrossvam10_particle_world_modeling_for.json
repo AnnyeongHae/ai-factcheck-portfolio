@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델",
+  "title_ko": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델링",
   "description_ko": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,61 +48,92 @@
     "id": "2026-08-31_repo_arxiv_acrossvam10_particle_world_modeling_for",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "로봇 비디오 예측 및 월드 모델",
+    "model_family": "World Model",
+    "category": "Robotics",
     "programming_lang": "Python",
     "root_keywords": [
-      "Particle World Modeling",
+      "Particle World Model",
       "Robot Video Prediction",
-      "Motion Reasoning"
+      "Motion Reasoning",
+      "Text-Assisted Prediction"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델",
-        "hook": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
+        "title": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델링",
+        "hook": "동작 추론과 외관 보존을 분리하여 로봇 비디오 예측의 정밀도와 물리적 해석 가능성을 극대화한 파티클 월드 모델",
         "key_takeaways": [
-          "단일 픽셀 모델의 한계점인 모션과 외형의 얽힘 현상 해결",
-          "텍스트 보조 정보를 활용한 정밀한 로봇 비디오 예측 수행",
-          "파티클 기반 월드 모델을 통한 효율적인 물리적 상호작용 시뮬레이션"
+          "정밀한 동작 추론과 고주파 외관 보존을 분리하는 파티클 기반 월드 모델 구조 제시",
+          "텍스트 안내를 결합해 로봇의 미래 동작 및 비디오 프레임 예측 정확도 대폭 향상",
+          "기존 단일 픽셀 기반 모델의 불투명성과 모션 왜곡 문제를 효과적으로 해결"
         ]
       },
       "en": {
         "title": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
-        "hook": "Discover a novel architecture that decouples motion reasoning from high-frequency appearance preservation in robot video forecasting.",
+        "hook": "A particle-based world model disentangling motion reasoning from appearance preservation for highly accurate robot video prediction.",
         "key_takeaways": [
-          "Resolves the entanglement of motion and appearance in monolithic pixel models",
-          "Leverages text assistance for precise robot video prediction",
-          "Applies particle-based world modeling for efficient physical interaction simulation"
+          "Proposes a particle world model that separates motion reasoning from high-frequency appearance preservation.",
+          "Leverages text conditioning to guide precise robotic movement and enhance future video frame generation.",
+          "Overcomes limitations of monolithic pixel models by improving visual fidelity and physical interpretability."
         ]
       },
       "zh": {
-        "title": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界模型",
-        "hook": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。",
+        "title": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界建模",
+        "hook": "通过解耦运动推理与外观保留，显著提升机器人视频预测精度的粒子世界模型",
         "key_takeaways": [
-          "解决了单体像素模型中运动与外观交织的局限性",
-          "利用文本辅助信息实现精准的机器人视频预测",
-          "通过基于粒子的世界模型进行高效的物理交互模拟"
+          "提出解耦运动推理与高频外观保留的粒子世界模型架构",
+          "结合文本提示引导精确的机器人动作，提高未来视频预测的真实度与准确性",
+          "克服传统单体像素模型的局限，改善预测过程的可解释性与物理精度"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:23:03.540033+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Particle World Modeling",
+    "Particle World Model",
     "Robot Video Prediction",
-    "Motion Reasoning"
+    "Motion Reasoning",
+    "Text-Assisted Prediction"
   ],
   "title_en": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
-  "title_zh": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界模型",
+  "title_zh": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界建模",
   "hook": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
-  "hook_ko": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
-  "hook_en": "Discover a novel architecture that decouples motion reasoning from high-frequency appearance preservation in robot video forecasting.",
-  "hook_zh": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。",
+  "hook_ko": "동작 추론과 외관 보존을 분리하여 로봇 비디오 예측의 정밀도와 물리적 해석 가능성을 극대화한 파티클 월드 모델",
+  "hook_en": "A particle-based world model disentangling motion reasoning from appearance preservation for highly accurate robot video prediction.",
+  "hook_zh": "通过解耦运动推理与外观保留，显著提升机器人视频预测精度的粒子世界模型",
   "description_en": "Discover a novel architecture that decouples motion reasoning from high-frequency appearance preservation in robot video forecasting.",
-  "description_zh": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。"
+  "description_zh": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。",
+  "multilingual": {
+    "ko": {
+      "title": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델링",
+      "hook": "동작 추론과 외관 보존을 분리하여 로봇 비디오 예측의 정밀도와 물리적 해석 가능성을 극대화한 파티클 월드 모델",
+      "key_takeaways": [
+        "정밀한 동작 추론과 고주파 외관 보존을 분리하는 파티클 기반 월드 모델 구조 제시",
+        "텍스트 안내를 결합해 로봇의 미래 동작 및 비디오 프레임 예측 정확도 대폭 향상",
+        "기존 단일 픽셀 기반 모델의 불투명성과 모션 왜곡 문제를 효과적으로 해결"
+      ]
+    },
+    "en": {
+      "title": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
+      "hook": "A particle-based world model disentangling motion reasoning from appearance preservation for highly accurate robot video prediction.",
+      "key_takeaways": [
+        "Proposes a particle world model that separates motion reasoning from high-frequency appearance preservation.",
+        "Leverages text conditioning to guide precise robotic movement and enhance future video frame generation.",
+        "Overcomes limitations of monolithic pixel models by improving visual fidelity and physical interpretability."
+      ]
+    },
+    "zh": {
+      "title": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界建模",
+      "hook": "通过解耦运动推理与外观保留，显著提升机器人视频预测精度的粒子世界模型",
+      "key_takeaways": [
+        "提出解耦运动推理与高频外观保留的粒子世界模型架构",
+        "结合文本提示引导精确的机器人动作，提高未来视频预测的真实度与准确性",
+        "克服传统单体像素模型的局限，改善预测过程的可解释性与物理精度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T20:01:10.134831"
 }

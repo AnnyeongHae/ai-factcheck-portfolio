@@ -1,10 +1,10 @@
 {
   "generated_at": "2026-09-02",
   "total_cases": 32,
-  "models_total_count": 88,
-  "news_total_count": 63,
-  "inbox_total_count": 232,
-  "all_inbox_count": 391,
+  "models_total_count": 142,
+  "news_total_count": 66,
+  "inbox_total_count": 233,
+  "all_inbox_count": 449,
   "admin_stats": {
     "endpoints": [
       {
@@ -41830,7 +41830,7 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "장기 꼬리 지식 하에서 LLM의 인식적 근시안 탐구",
+      "title_ko": "장님 코끼리 만지기: 롱테일 이견(異見) 지식에 대한 LLM의 인식적 근시안 탐구",
       "description_ko": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
@@ -41856,41 +41856,44 @@
         "id": "2026-08-31_repo_arxiv_blind_men_and_the_elephant_probing_the_",
         "source_lang": "EN",
         "type_classification": "TECH",
-        "category": "LLM 환각 및 지식 평가",
+        "model_family": "LLM Evaluator",
+        "category": "Natural Language Processing",
         "programming_lang": "Python",
         "root_keywords": [
-          "LLM",
+          "Epistemic Myopia",
           "Long-Tail Knowledge",
-          "Epistemic Myopia"
+          "Factual QA",
+          "LLM Evaluation",
+          "Divergent Knowledge"
         ],
         "recommended_tag": "📝 기술 참고",
-        "worth_score": 4.0,
+        "worth_score": 4.2,
         "multilingual": {
           "ko": {
-            "title": "장기 꼬리 지식 하에서 LLM의 인식적 근시안 탐구",
-            "hook": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
+            "title": "장님 코끼리 만지기: 롱테일 이견(異見) 지식에 대한 LLM의 인식적 근시안 탐구",
+            "hook": "단일 정답 중심 평가를 넘어 롱테일 영역에서 존재하는 대립적·다양한 지식을 LLM이 어떻게 다루는지 분석한 연구",
             "key_takeaways": [
-              "팩트 QA의 단일 정답 가정 한계 분석",
-              "LLM의 롱테일 지식 발산 계정 유지 여부 조사",
-              "모델의 인식적 근시안(Epistemic Myopia) 현상 프로빙"
+              "단일 표준 정답(Canonical Answer)만을 가정하는 기존 지식 QA의 구조적 한계 지적",
+              "LLM이 롱테일 영역의 대립적 관점이나 수용된 이견을 제대로 인지하지 못하는 '인식적 근시안' 현상 규명",
+              "다양한 지식과 상충하는 사실을 포함하는 롱테일 도메인에서의 LLM 평가 프로빙 방법론 제시"
             ]
           },
           "en": {
-            "title": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs",
-            "hook": "Discover how LLMs handle divergent accounts of long-tail facts beyond single canonical answers.",
+            "title": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs under Long-Tail Divergent Knowledge",
+            "hook": "Investigates how LLMs fail to capture divergent accounts of long-tail facts beyond single canonical QA pairs.",
             "key_takeaways": [
-              "Analyze limitations of single canonical answers in factual QA",
-              "Investigate retention of divergent accounts for long-tail facts",
-              "Probe epistemic myopia phenomena in large language models"
+              "Highlights the limitations of assuming a single canonical answer in standard factual QA benchmarks.",
+              "Identifies 'Epistemic Myopia', where LLMs fail to retain or recognize conflicting long-tail knowledge.",
+              "Proposes a new probing strategy to evaluate LLM robustness across divergent and multi-perspective factual domains."
             ]
           },
           "zh": {
-            "title": "盲人摸象：探究大模型在长尾发散知识下的认知近视",
-            "hook": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。",
+            "title": "盲人摸象：探究大语言模型在长尾分歧知识下的认识论近视",
+            "hook": "揭示大语言模型在处理长尾且存在分歧的事实知识时，超出单一标准答案之外的认知局限性",
             "key_takeaways": [
-              "分析事实性问答中单一标准答案假设的局限性",
-              "调查大模型是否保留长尾事实的分散记录",
-              "探测大模型的认知近视现象"
+              "指出传统事实问答基准仅假设单一标准答案的局限性",
+              "界定并剖析了 LLM 难以保留或理解长尾知识中多元分歧观点的“认识论近视”现象",
+              "提出了用于探测和评估 LLM 对长尾多视角事实掌握能力的新方法"
             ]
           }
         }
@@ -41898,18 +41901,51 @@
       "source_lang": "EN",
       "programming_lang": "Python",
       "root_keywords": [
-        "LLM",
+        "Epistemic Myopia",
         "Long-Tail Knowledge",
-        "Epistemic Myopia"
+        "Factual QA",
+        "LLM Evaluation",
+        "Divergent Knowledge"
       ],
-      "title_en": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs",
-      "title_zh": "盲人摸象：探究大模型在长尾发散知识下的认知近视",
+      "title_en": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs under Long-Tail Divergent Knowledge",
+      "title_zh": "盲人摸象：探究大语言模型在长尾分歧知识下的认识论近视",
       "hook": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
-      "hook_ko": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
-      "hook_en": "Discover how LLMs handle divergent accounts of long-tail facts beyond single canonical answers.",
-      "hook_zh": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。",
+      "hook_ko": "단일 정답 중심 평가를 넘어 롱테일 영역에서 존재하는 대립적·다양한 지식을 LLM이 어떻게 다루는지 분석한 연구",
+      "hook_en": "Investigates how LLMs fail to capture divergent accounts of long-tail facts beyond single canonical QA pairs.",
+      "hook_zh": "揭示大语言模型在处理长尾且存在分歧的事实知识时，超出单一标准答案之外的认知局限性",
       "description_en": "Discover how LLMs handle divergent accounts of long-tail facts beyond single canonical answers.",
-      "description_zh": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。"
+      "description_zh": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。",
+      "multilingual": {
+        "ko": {
+          "title": "장님 코끼리 만지기: 롱테일 이견(異見) 지식에 대한 LLM의 인식적 근시안 탐구",
+          "hook": "단일 정답 중심 평가를 넘어 롱테일 영역에서 존재하는 대립적·다양한 지식을 LLM이 어떻게 다루는지 분석한 연구",
+          "key_takeaways": [
+            "단일 표준 정답(Canonical Answer)만을 가정하는 기존 지식 QA의 구조적 한계 지적",
+            "LLM이 롱테일 영역의 대립적 관점이나 수용된 이견을 제대로 인지하지 못하는 '인식적 근시안' 현상 규명",
+            "다양한 지식과 상충하는 사실을 포함하는 롱테일 도메인에서의 LLM 평가 프로빙 방법론 제시"
+          ]
+        },
+        "en": {
+          "title": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs under Long-Tail Divergent Knowledge",
+          "hook": "Investigates how LLMs fail to capture divergent accounts of long-tail facts beyond single canonical QA pairs.",
+          "key_takeaways": [
+            "Highlights the limitations of assuming a single canonical answer in standard factual QA benchmarks.",
+            "Identifies 'Epistemic Myopia', where LLMs fail to retain or recognize conflicting long-tail knowledge.",
+            "Proposes a new probing strategy to evaluate LLM robustness across divergent and multi-perspective factual domains."
+          ]
+        },
+        "zh": {
+          "title": "盲人摸象：探究大语言模型在长尾分歧知识下的认识论近视",
+          "hook": "揭示大语言模型在处理长尾且存在分歧的事实知识时，超出单一标准答案之外的认知局限性",
+          "key_takeaways": [
+            "指出传统事实问答基准仅假设单一标准答案的局限性",
+            "界定并剖析了 LLM 难以保留或理解长尾知识中多元分歧观点的“认识论近视”现象",
+            "提出了用于探测和评估 LLM 对长尾多视角事实掌握能力的新方法"
+          ]
+        }
+      },
+      "enriched_by": "gemini-3.6-flash-batch-api",
+      "enriched_at": "2026-09-03T20:01:10.155412"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_an_enclosed_mode_is_a_gauge_choice_topo",
@@ -41935,7 +41971,7 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "폐쇄 모드는 게이지 선택이다: 인증된 코드 월드 모델의 도달 범위 대비 위상",
+      "title_ko": "밀폐된 모드는 게이지 선택이다: 검증된 코드 월드 모델에서 도달 범위에 상대적인 위상 수학",
       "description_ko": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
@@ -41961,63 +41997,96 @@
         "id": "2026-08-31_repo_arxiv_an_enclosed_mode_is_a_gauge_choice_topo",
         "source_lang": "EN",
         "type_classification": "TECH",
-        "model_family": "Standalone",
-        "category": "코드 월드 모델 및 형식 검증",
-        "programming_lang": "Python",
+        "model_family": "World Models",
+        "category": "AI & Machine Learning Theory",
+        "programming_lang": "General",
         "root_keywords": [
-          "Code World Models",
-          "Gauge Choice",
-          "Certified Models"
+          "World Models",
+          "Formal Verification",
+          "Sampling Gate",
+          "Code Generation",
+          "Gauge Choice"
         ],
         "recommended_tag": "📝 기술 참고",
-        "worth_score": 3.9,
+        "worth_score": 4.0,
         "multilingual": {
           "ko": {
-            "title": "폐쇄 모드는 게이지 선택이다: 인증된 코드 월드 모델의 도달 범위 대비 위상",
-            "hook": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
+            "title": "밀폐된 모드는 게이지 선택이다: 검증된 코드 월드 모델에서 도달 범위에 상대적인 위상 수학",
+            "hook": "샘플링 게이트를 통과한 코드 월드 모델의 인식 한계 및 오차 특성을 이론적으로 규명",
             "key_takeaways": [
-              "샘플링 게이트 가시 영역 내외부 간의 코드 월드 모델 오류 특성 규명",
-              "인증된 모델이 보장할 수 있는 정보의 범위와 한계 분석",
-              "게이지 선택(Gauge Choice) 관점에서 폐쇄 모드의 수학적 의미 조명"
+              "샘플링 게이트가 관측 가능한 범위 내에서는 완벽히 동작하지만 그 범위를 벗어나면 임의의 오류가 발생할 수 있음을 증명",
+              "검증된 월드 모델이 알 수 있는 영역과 오류의 한계를 '게이지 선택' 개념으로 수학적으로 정형화",
+              "코드 기반 월드 모델 및 AI 안전성 검증의 이론적 가이드라인 제안"
             ]
           },
           "en": {
             "title": "An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
-            "hook": "Analyze what certified code models can reliably know and where their errors lie beyond the visibility of sampling gates.",
+            "hook": "Mathematical characterization of knowledge limits and error boundaries in certified code world models.",
             "key_takeaways": [
-              "Characterizes model errors within and beyond sampling gate visibility",
-              "Explores theoretical limits and guarantees of certified code world models",
-              "Examines the mathematical implications of enclosed modes as gauge choices"
+              "Proves that models accepted by a sampling gate are exact within observable reach but can fail arbitrarily beyond it.",
+              "Formulates the knowledge boundaries and error limits of certified world models through a gauge choice framework.",
+              "Provides theoretical foundations for AI safety and formal verification in code-based world models."
             ]
           },
           "zh": {
-            "title": "封闭模式是一种规范选择：认证代码世界模型中相对于可达性的拓扑",
-            "hook": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。",
+            "title": "封闭模式即规范选择：可验证代码世界模型中相对于可达性的拓扑学",
+            "hook": "从理论上阐明经采样门验证的代码世界模型的认知边界与误差特性",
             "key_takeaways": [
-              "揭示了代码世界模型在采样门可见范围內外的错误特征",
-              "探讨了认证模型能够确定的信息范围及其理论极限",
-              "从规范选择（Gauge Choice）角度阐明了封闭模式的数学内涵"
+              "证明了被采样门接受的模型在其可观察范围内准确无误，但在观察范围之外可能引发任意错误的特性",
+              "利用规范选择与拓扑框架，形式化定义了经认证的世界模型所能掌握的信息及误差极限",
+              "为代码世界模型与 AI 安全性的形式化验证提供了理论基础"
             ]
           }
-        },
-        "enriched_by_model": "gemini-flash-lite-latest",
-        "enriched_at": "2026-09-02T16:23:03.541092+09:00"
+        }
       },
       "source_lang": "EN",
-      "programming_lang": "Python",
+      "programming_lang": "General",
       "root_keywords": [
-        "Code World Models",
-        "Gauge Choice",
-        "Certified Models"
+        "World Models",
+        "Formal Verification",
+        "Sampling Gate",
+        "Code Generation",
+        "Gauge Choice"
       ],
       "title_en": "An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
-      "title_zh": "封闭模式是一种规范选择：认证代码世界模型中相对于可达性的拓扑",
+      "title_zh": "封闭模式即规范选择：可验证代码世界模型中相对于可达性的拓扑学",
       "hook": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
-      "hook_ko": "샘플링 게이트가 관측할 수 있는 범위와 그 외의 영역 사이에서 인증된 코드 모델이 갖는 한계와 오류 특성을 분석합니다.",
-      "hook_en": "Analyze what certified code models can reliably know and where their errors lie beyond the visibility of sampling gates.",
-      "hook_zh": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。",
+      "hook_ko": "샘플링 게이트를 통과한 코드 월드 모델의 인식 한계 및 오차 특성을 이론적으로 규명",
+      "hook_en": "Mathematical characterization of knowledge limits and error boundaries in certified code world models.",
+      "hook_zh": "从理论上阐明经采样门验证的代码世界模型的认知边界与误差特性",
       "description_en": "Analyze what certified code models can reliably know and where their errors lie beyond the visibility of sampling gates.",
-      "description_zh": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。"
+      "description_zh": "深入分析认证代码模型在采样门可见范围内外的可靠性界限及其误差特征。",
+      "multilingual": {
+        "ko": {
+          "title": "밀폐된 모드는 게이지 선택이다: 검증된 코드 월드 모델에서 도달 범위에 상대적인 위상 수학",
+          "hook": "샘플링 게이트를 통과한 코드 월드 모델의 인식 한계 및 오차 특성을 이론적으로 규명",
+          "key_takeaways": [
+            "샘플링 게이트가 관측 가능한 범위 내에서는 완벽히 동작하지만 그 범위를 벗어나면 임의의 오류가 발생할 수 있음을 증명",
+            "검증된 월드 모델이 알 수 있는 영역과 오류의 한계를 '게이지 선택' 개념으로 수학적으로 정형화",
+            "코드 기반 월드 모델 및 AI 안전성 검증의 이론적 가이드라인 제안"
+          ]
+        },
+        "en": {
+          "title": "An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models",
+          "hook": "Mathematical characterization of knowledge limits and error boundaries in certified code world models.",
+          "key_takeaways": [
+            "Proves that models accepted by a sampling gate are exact within observable reach but can fail arbitrarily beyond it.",
+            "Formulates the knowledge boundaries and error limits of certified world models through a gauge choice framework.",
+            "Provides theoretical foundations for AI safety and formal verification in code-based world models."
+          ]
+        },
+        "zh": {
+          "title": "封闭模式即规范选择：可验证代码世界模型中相对于可达性的拓扑学",
+          "hook": "从理论上阐明经采样门验证的代码世界模型的认知边界与误差特性",
+          "key_takeaways": [
+            "证明了被采样门接受的模型在其可观察范围内准确无误，但在观察范围之外可能引发任意错误的特性",
+            "利用规范选择与拓扑框架，形式化定义了经认证的世界模型所能掌握的信息及误差极限",
+            "为代码世界模型与 AI 安全性的形式化验证提供了理论基础"
+          ]
+        }
+      },
+      "enriched_by": "gemini-3.6-flash-batch-api",
+      "enriched_at": "2026-09-03T20:01:10.136287"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_aero_hand_open_a_simulation_ready_tendo",
@@ -42043,7 +42112,7 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 준비 완료 텐던 구동 핸드",
+      "title_ko": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 지원 텐던 구동 로봇 손",
       "description_ko": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
@@ -42069,63 +42138,96 @@
         "id": "2026-08-31_repo_arxiv_aero_hand_open_a_simulation_ready_tendo",
         "source_lang": "EN",
         "type_classification": "TECH",
-        "model_family": "Standalone",
-        "category": "로봇 공학 및 숙련 조작",
+        "model_family": "Robotics / Hardware & Embodied AI",
+        "category": "Robotics",
         "programming_lang": "Python",
         "root_keywords": [
-          "Tendon-Driven Hand",
+          "Tendon-driven Hand",
           "Dexterous Manipulation",
-          "Simulation-Ready"
+          "Robotics Simulation",
+          "Sim-to-Real",
+          "Open Hardware"
         ],
-        "recommended_tag": "💡 유용한 도구",
-        "worth_score": 4.1,
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
         "multilingual": {
           "ko": {
-            "title": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 준비 완료 텐던 구동 핸드",
-            "hook": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
+            "title": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 지원 텐던 구동 로봇 손",
+            "hook": "액추에이터를 관절 외부에 배치해 단가를 획기적으로 낮추고 시뮬레이션과 호환성을 극대화한 오픈소스 텐던 구동 로봇 손 프로젝트",
             "key_takeaways": [
-              "관절 외부 구동기 배치를 통한 제작 비용 대폭 절감",
-              "숙련된 로봇 조작(Dexterous Manipulation) 학습에 최적화된 설계",
-              "시뮬레이션 환경에서 곧바로 테스트 가능한 준비된 구조 제공"
+              "관절 외 액추에이터 배치로 인체공학적 구조와 저비용 제작을 동시에 달성",
+              "강화학습 및 Sim-to-Real 연구에 바로 활용할 수 있는 정밀한 시뮬레이션 환경 구축",
+              "고난도 정밀 조작(Dexterous Manipulation) 연구를 위한 오픈소스 하드웨어 및 소프트웨어 인프라 제공"
             ]
           },
           "en": {
             "title": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
-            "hook": "Explore an affordable, anthropomorphic tendon-driven hand designed with off-joint actuators for seamless simulation-to-real learning.",
+            "hook": "An affordable, open-source tendon-driven robotic hand featuring optimized physics for seamless sim-to-real transfer in dexterous manipulation tasks.",
             "key_takeaways": [
-              "Significantly reduces manufacturing costs by moving actuators off the joints",
-              "Optimized design for learning complex dexterous robotic manipulation",
-              "Provides a simulation-ready architecture for immediate experimentation"
+              "Achieves low-cost anthropomorphic design by relocating actuators off the hand joints.",
+              "Provides accurate simulation environments optimized for reinforcement learning and sim-to-real transfer.",
+              "Delivers an open-source hardware and software platform to accelerate complex manipulation research."
             ]
           },
           "zh": {
-            "title": "Aero Hand Open：用于灵巧操作学习的仿真就绪肌腱驱动手",
-            "hook": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。",
+            "title": "Aero Hand Open：面向精细操作学习的即插即用仿真腱驱动机械手",
+            "hook": "通过将驱动器移出关节大幅降低成本，并提供完美契合 Sim-to-Real 强化学习的开源腱驱动仿生机械手。",
             "key_takeaways": [
-              "通过将驱动器移出关节显著降低了制造成本",
-              "专为学习复杂灵巧机器人操作优化的设计",
-              "提供可直接在仿真环境中测试的就绪架构"
+              "采用腱驱动结构将驱动器外置，兼具高性价比与仿生人手形态",
+              "提供预先调优的仿真物理模型，显著降低 Sim-to-Real 迁移的测试门槛",
+              "全面开源硬件设计与软件接口，推动复杂的灵巧操作 (Dexterous Manipulation) 算法研究"
             ]
           }
-        },
-        "enriched_by_model": "gemini-flash-lite-latest",
-        "enriched_at": "2026-09-02T16:23:03.540662+09:00"
+        }
       },
       "source_lang": "EN",
       "programming_lang": "Python",
       "root_keywords": [
-        "Tendon-Driven Hand",
+        "Tendon-driven Hand",
         "Dexterous Manipulation",
-        "Simulation-Ready"
+        "Robotics Simulation",
+        "Sim-to-Real",
+        "Open Hardware"
       ],
       "title_en": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
-      "title_zh": "Aero Hand Open：用于灵巧操作学习的仿真就绪肌腱驱动手",
+      "title_zh": "Aero Hand Open：面向精细操作学习的即插即用仿真腱驱动机械手",
       "hook": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
-      "hook_ko": "구동기를 관절 외부에 배치하여 비용을 절감하고 시뮬레이션 연동이 가능한 경제적인 휴머노이드 텐던 핸드 오픈소스.",
-      "hook_en": "Explore an affordable, anthropomorphic tendon-driven hand designed with off-joint actuators for seamless simulation-to-real learning.",
-      "hook_zh": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。",
+      "hook_ko": "액추에이터를 관절 외부에 배치해 단가를 획기적으로 낮추고 시뮬레이션과 호환성을 극대화한 오픈소스 텐던 구동 로봇 손 프로젝트",
+      "hook_en": "An affordable, open-source tendon-driven robotic hand featuring optimized physics for seamless sim-to-real transfer in dexterous manipulation tasks.",
+      "hook_zh": "通过将驱动器移出关节大幅降低成本，并提供完美契合 Sim-to-Real 强化学习的开源腱驱动仿生机械手。",
       "description_en": "Explore an affordable, anthropomorphic tendon-driven hand designed with off-joint actuators for seamless simulation-to-real learning.",
-      "description_zh": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。"
+      "description_zh": "探索这款将驱动器移至关节之外、兼具经济性与仿生学的肌腱驱动机械手开源方案。",
+      "multilingual": {
+        "ko": {
+          "title": "Aero Hand Open: 정교한 조작 학습을 위한 시뮬레이션 지원 텐던 구동 로봇 손",
+          "hook": "액추에이터를 관절 외부에 배치해 단가를 획기적으로 낮추고 시뮬레이션과 호환성을 극대화한 오픈소스 텐던 구동 로봇 손 프로젝트",
+          "key_takeaways": [
+            "관절 외 액추에이터 배치로 인체공학적 구조와 저비용 제작을 동시에 달성",
+            "강화학습 및 Sim-to-Real 연구에 바로 활용할 수 있는 정밀한 시뮬레이션 환경 구축",
+            "고난도 정밀 조작(Dexterous Manipulation) 연구를 위한 오픈소스 하드웨어 및 소프트웨어 인프라 제공"
+          ]
+        },
+        "en": {
+          "title": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
+          "hook": "An affordable, open-source tendon-driven robotic hand featuring optimized physics for seamless sim-to-real transfer in dexterous manipulation tasks.",
+          "key_takeaways": [
+            "Achieves low-cost anthropomorphic design by relocating actuators off the hand joints.",
+            "Provides accurate simulation environments optimized for reinforcement learning and sim-to-real transfer.",
+            "Delivers an open-source hardware and software platform to accelerate complex manipulation research."
+          ]
+        },
+        "zh": {
+          "title": "Aero Hand Open：面向精细操作学习的即插即用仿真腱驱动机械手",
+          "hook": "通过将驱动器移出关节大幅降低成本，并提供完美契合 Sim-to-Real 强化学习的开源腱驱动仿生机械手。",
+          "key_takeaways": [
+            "采用腱驱动结构将驱动器外置，兼具高性价比与仿生人手形态",
+            "提供预先调优的仿真物理模型，显著降低 Sim-to-Real 迁移的测试门槛",
+            "全面开源硬件设计与软件接口，推动复杂的灵巧操作 (Dexterous Manipulation) 算法研究"
+          ]
+        }
+      },
+      "enriched_by": "gemini-3.6-flash-batch-api",
+      "enriched_at": "2026-09-03T20:01:10.135628"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_acrossvam10_particle_world_modeling_for",
@@ -42151,7 +42253,7 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델",
+      "title_ko": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델링",
       "description_ko": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
@@ -42177,63 +42279,94 @@
         "id": "2026-08-31_repo_arxiv_acrossvam10_particle_world_modeling_for",
         "source_lang": "EN",
         "type_classification": "TECH",
-        "model_family": "Standalone",
-        "category": "로봇 비디오 예측 및 월드 모델",
+        "model_family": "World Model",
+        "category": "Robotics",
         "programming_lang": "Python",
         "root_keywords": [
-          "Particle World Modeling",
+          "Particle World Model",
           "Robot Video Prediction",
-          "Motion Reasoning"
+          "Motion Reasoning",
+          "Text-Assisted Prediction"
         ],
-        "recommended_tag": "💡 유용한 도구",
-        "worth_score": 4.2,
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
         "multilingual": {
           "ko": {
-            "title": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델",
-            "hook": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
+            "title": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델링",
+            "hook": "동작 추론과 외관 보존을 분리하여 로봇 비디오 예측의 정밀도와 물리적 해석 가능성을 극대화한 파티클 월드 모델",
             "key_takeaways": [
-              "단일 픽셀 모델의 한계점인 모션과 외형의 얽힘 현상 해결",
-              "텍스트 보조 정보를 활용한 정밀한 로봇 비디오 예측 수행",
-              "파티클 기반 월드 모델을 통한 효율적인 물리적 상호작용 시뮬레이션"
+              "정밀한 동작 추론과 고주파 외관 보존을 분리하는 파티클 기반 월드 모델 구조 제시",
+              "텍스트 안내를 결합해 로봇의 미래 동작 및 비디오 프레임 예측 정확도 대폭 향상",
+              "기존 단일 픽셀 기반 모델의 불투명성과 모션 왜곡 문제를 효과적으로 해결"
             ]
           },
           "en": {
             "title": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
-            "hook": "Discover a novel architecture that decouples motion reasoning from high-frequency appearance preservation in robot video forecasting.",
+            "hook": "A particle-based world model disentangling motion reasoning from appearance preservation for highly accurate robot video prediction.",
             "key_takeaways": [
-              "Resolves the entanglement of motion and appearance in monolithic pixel models",
-              "Leverages text assistance for precise robot video prediction",
-              "Applies particle-based world modeling for efficient physical interaction simulation"
+              "Proposes a particle world model that separates motion reasoning from high-frequency appearance preservation.",
+              "Leverages text conditioning to guide precise robotic movement and enhance future video frame generation.",
+              "Overcomes limitations of monolithic pixel models by improving visual fidelity and physical interpretability."
             ]
           },
           "zh": {
-            "title": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界模型",
-            "hook": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。",
+            "title": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界建模",
+            "hook": "通过解耦运动推理与外观保留，显著提升机器人视频预测精度的粒子世界模型",
             "key_takeaways": [
-              "解决了单体像素模型中运动与外观交织的局限性",
-              "利用文本辅助信息实现精准的机器人视频预测",
-              "通过基于粒子的世界模型进行高效的物理交互模拟"
+              "提出解耦运动推理与高频外观保留的粒子世界模型架构",
+              "结合文本提示引导精确的机器人动作，提高未来视频预测的真实度与准确性",
+              "克服传统单体像素模型的局限，改善预测过程的可解释性与物理精度"
             ]
           }
-        },
-        "enriched_by_model": "gemini-flash-lite-latest",
-        "enriched_at": "2026-09-02T16:23:03.540033+09:00"
+        }
       },
       "source_lang": "EN",
       "programming_lang": "Python",
       "root_keywords": [
-        "Particle World Modeling",
+        "Particle World Model",
         "Robot Video Prediction",
-        "Motion Reasoning"
+        "Motion Reasoning",
+        "Text-Assisted Prediction"
       ],
       "title_en": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
-      "title_zh": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界模型",
+      "title_zh": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界建模",
       "hook": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
-      "hook_ko": "복잡한 로봇 비디오 예측에서 모션 추론과 고주파 외형 보존을 분리하여 정확도를 높인 새로운 아키텍처를 확인하세요.",
-      "hook_en": "Discover a novel architecture that decouples motion reasoning from high-frequency appearance preservation in robot video forecasting.",
-      "hook_zh": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。",
+      "hook_ko": "동작 추론과 외관 보존을 분리하여 로봇 비디오 예측의 정밀도와 물리적 해석 가능성을 극대화한 파티클 월드 모델",
+      "hook_en": "A particle-based world model disentangling motion reasoning from appearance preservation for highly accurate robot video prediction.",
+      "hook_zh": "通过解耦运动推理与外观保留，显著提升机器人视频预测精度的粒子世界模型",
       "description_en": "Discover a novel architecture that decouples motion reasoning from high-frequency appearance preservation in robot video forecasting.",
-      "description_zh": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。"
+      "description_zh": "了解这一创新架构，它解耦了机器人视频预测中的运动推理与高频外观保持，显著提升准确率。",
+      "multilingual": {
+        "ko": {
+          "title": "AcrossVAM1.0: 텍스트 보조 로봇 비디오 예측을 위한 파티클 월드 모델링",
+          "hook": "동작 추론과 외관 보존을 분리하여 로봇 비디오 예측의 정밀도와 물리적 해석 가능성을 극대화한 파티클 월드 모델",
+          "key_takeaways": [
+            "정밀한 동작 추론과 고주파 외관 보존을 분리하는 파티클 기반 월드 모델 구조 제시",
+            "텍스트 안내를 결합해 로봇의 미래 동작 및 비디오 프레임 예측 정확도 대폭 향상",
+            "기존 단일 픽셀 기반 모델의 불투명성과 모션 왜곡 문제를 효과적으로 해결"
+          ]
+        },
+        "en": {
+          "title": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
+          "hook": "A particle-based world model disentangling motion reasoning from appearance preservation for highly accurate robot video prediction.",
+          "key_takeaways": [
+            "Proposes a particle world model that separates motion reasoning from high-frequency appearance preservation.",
+            "Leverages text conditioning to guide precise robotic movement and enhance future video frame generation.",
+            "Overcomes limitations of monolithic pixel models by improving visual fidelity and physical interpretability."
+          ]
+        },
+        "zh": {
+          "title": "AcrossVAM1.0：用于文本辅助机器人视频预测的粒子世界建模",
+          "hook": "通过解耦运动推理与外观保留，显著提升机器人视频预测精度的粒子世界模型",
+          "key_takeaways": [
+            "提出解耦运动推理与高频外观保留的粒子世界模型架构",
+            "结合文本提示引导精确的机器人动作，提高未来视频预测的真实度与准确性",
+            "克服传统单体像素模型的局限，改善预测过程的可解释性与物理精度"
+          ]
+        }
+      },
+      "enriched_by": "gemini-3.6-flash-batch-api",
+      "enriched_at": "2026-09-03T20:01:10.134831"
     },
     {
       "inbox_id": "2026-08-31_repo_arxiv_a_formal_limitation_on_learning_human_l",
@@ -42259,7 +42392,7 @@
         "기본 가중치 (Default Weight)"
       ],
       "category_type": "TECH",
-      "title_ko": "텍스트 말뭉치로부터 인간 언어를 학습하는 것의 형식적 한계",
+      "title_ko": "텍스트 코퍼스만으로 인간 언어를 학습하는 것의 형식적 한계",
       "description_ko": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
       "variant_role": "일반 파생/배포본 (Standard Release)",
       "creator": "Community",
@@ -42285,63 +42418,94 @@
         "id": "2026-08-31_repo_arxiv_a_formal_limitation_on_learning_human_l",
         "source_lang": "EN",
         "type_classification": "TECH",
-        "model_family": "Standalone",
-        "category": "자연어 처리 및 정보 이론",
+        "model_family": "LLM Theory",
+        "category": "Natural Language Processing",
         "programming_lang": "General",
         "root_keywords": [
-          "Human Language Learning",
-          "Textual Corpora",
-          "Information Theory"
+          "Information Theory",
+          "Natural Language Semantics",
+          "Textual Corpora Limitation",
+          "Language Grounding"
         ],
-        "recommended_tag": "📝 기술 참고",
-        "worth_score": 4.0,
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
         "multilingual": {
           "ko": {
-            "title": "텍스트 말뭉치로부터 인간 언어를 학습하는 것의 형식적 한계",
-            "hook": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
+            "title": "텍스트 코퍼스만으로 인간 언어를 학습하는 것의 형식적 한계",
+            "hook": "텍스트의 형태만으로 의미를 완전히 복원할 수 없음을 밝힌 정보이론적 논문",
             "key_takeaways": [
-              "정보 이론적 관점에서 발화 형태와 화자 의도 간의 관계 분석",
-              "최신 텍스트 특성 추출기를 포함한 모든 텍스트 기반 리스너의 한계 증명",
-              "텍스트 코퍼스 학습만으로는 인간 언어의 완전한 의미 복원이 불가능함을 시사"
+              "텍스트 형태만 학습하는 모델이 의미를 복원하는 것에 대한 정보이론적 한계 규명",
+              "임의의 텍스트 특징 추출기(Featurizer) 및 대형 언어 모델 표현에 폭넓게 적용 가능",
+              "멀티모달 grounding 없이 순수 텍스트 코퍼스에만 의존하는 모델의 근본적 단점 제시"
             ]
           },
           "en": {
             "title": "A Formal Limitation on Learning Human Language From Textual Corpora",
-            "hook": "Can a listener recover speaker intent from utterance form alone? An information-theoretic look at the limits of text-based language learning.",
+            "hook": "An information-theoretic proof establishing the fundamental impossibility of fully recovering meaning from text form alone.",
             "key_takeaways": [
-              "Analyzes the relationship between utterance form and speaker intent information-theoretically",
-              "Proves fundamental limits for text-based listeners, including advanced text featurizers",
-              "Demonstrates theoretical barriers to recovering full human semantics from text corpora alone"
+              "Proves information-theoretic limits on recovering speaker meaning strictly from text utterances.",
+              "Applies broadly to any text featurizer, including representations used in modern LLMs.",
+              "Emphasizes the intrinsic bottleneck of text-only training corpora without external grounding."
             ]
           },
           "zh": {
-            "title": "从文本语料库学习人类语言的形式化局限性",
-            "hook": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。",
+            "title": "仅凭文本语料库学习人类语言的形式化局限性",
+            "hook": "从信息论角度证明了仅通过文本形式完全恢复语义的根本局限性",
             "key_takeaways": [
-              "从信息论视角分析话语形式与说话者意图之间的映射关系",
-              "证明了包括高级文本特征提取器在内的所有文本基听众的局限性",
-              "揭示了仅通过文本语料库学习无法完全恢复人类语义的理论壁垒"
+              "阐明了仅凭文本表达形式完全还原说话者意图的信息论极限",
+              "适用于任何文本特征提取器以及现代大语言模型的特征表示",
+              "揭示了缺乏多模态锚定（Grounding）、仅依赖纯文本训练的内在瓶颈"
             ]
           }
-        },
-        "enriched_by_model": "gemini-flash-lite-latest",
-        "enriched_at": "2026-09-02T16:23:03.541459+09:00"
+        }
       },
       "source_lang": "EN",
       "programming_lang": "General",
       "root_keywords": [
-        "Human Language Learning",
-        "Textual Corpora",
-        "Information Theory"
+        "Information Theory",
+        "Natural Language Semantics",
+        "Textual Corpora Limitation",
+        "Language Grounding"
       ],
       "title_en": "A Formal Limitation on Learning Human Language From Textual Corpora",
-      "title_zh": "从文本语料库学习人类语言的形式化局限性",
+      "title_zh": "仅凭文本语料库学习人类语言的形式化局限性",
       "hook": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
-      "hook_ko": "발화의 형태만으로 화자의 의도를 완전히 복원할 수 있는가? 정보 이론을 통해 텍스트 기반 언어 모델의 본질적 한계를 파헤칩니다.",
-      "hook_en": "Can a listener recover speaker intent from utterance form alone? An information-theoretic look at the limits of text-based language learning.",
-      "hook_zh": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。",
+      "hook_ko": "텍스트의 형태만으로 의미를 완전히 복원할 수 없음을 밝힌 정보이론적 논문",
+      "hook_en": "An information-theoretic proof establishing the fundamental impossibility of fully recovering meaning from text form alone.",
+      "hook_zh": "从信息论角度证明了仅通过文本形式完全恢复语义的根本局限性",
       "description_en": "Can a listener recover speaker intent from utterance form alone? An information-theoretic look at the limits of text-based language learning.",
-      "description_zh": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。"
+      "description_zh": "听众能否仅从话语形式恢复说话者的真实意图？通过信息论探讨基于文本的语言学习的本质局限。",
+      "multilingual": {
+        "ko": {
+          "title": "텍스트 코퍼스만으로 인간 언어를 학습하는 것의 형식적 한계",
+          "hook": "텍스트의 형태만으로 의미를 완전히 복원할 수 없음을 밝힌 정보이론적 논문",
+          "key_takeaways": [
+            "텍스트 형태만 학습하는 모델이 의미를 복원하는 것에 대한 정보이론적 한계 규명",
+            "임의의 텍스트 특징 추출기(Featurizer) 및 대형 언어 모델 표현에 폭넓게 적용 가능",
+            "멀티모달 grounding 없이 순수 텍스트 코퍼스에만 의존하는 모델의 근본적 단점 제시"
+          ]
+        },
+        "en": {
+          "title": "A Formal Limitation on Learning Human Language From Textual Corpora",
+          "hook": "An information-theoretic proof establishing the fundamental impossibility of fully recovering meaning from text form alone.",
+          "key_takeaways": [
+            "Proves information-theoretic limits on recovering speaker meaning strictly from text utterances.",
+            "Applies broadly to any text featurizer, including representations used in modern LLMs.",
+            "Emphasizes the intrinsic bottleneck of text-only training corpora without external grounding."
+          ]
+        },
+        "zh": {
+          "title": "仅凭文本语料库学习人类语言的形式化局限性",
+          "hook": "从信息论角度证明了仅通过文本形式完全恢复语义的根本局限性",
+          "key_takeaways": [
+            "阐明了仅凭文本表达形式完全还原说话者意图的信息论极限",
+            "适用于任何文本特征提取器以及现代大语言模型的特征表示",
+            "揭示了缺乏多模态锚定（Grounding）、仅依赖纯文本训练的内在瓶颈"
+          ]
+        }
+      },
+      "enriched_by": "gemini-3.6-flash-batch-api",
+      "enriched_at": "2026-09-03T20:01:10.133745"
     }
   ],
   "cases": [

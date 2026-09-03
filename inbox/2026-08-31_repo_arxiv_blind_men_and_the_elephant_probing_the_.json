@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "장기 꼬리 지식 하에서 LLM의 인식적 근시안 탐구",
+  "title_ko": "장님 코끼리 만지기: 롱테일 이견(異見) 지식에 대한 LLM의 인식적 근시안 탐구",
   "description_ko": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,41 +48,44 @@
     "id": "2026-08-31_repo_arxiv_blind_men_and_the_elephant_probing_the_",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "category": "LLM 환각 및 지식 평가",
+    "model_family": "LLM Evaluator",
+    "category": "Natural Language Processing",
     "programming_lang": "Python",
     "root_keywords": [
-      "LLM",
+      "Epistemic Myopia",
       "Long-Tail Knowledge",
-      "Epistemic Myopia"
+      "Factual QA",
+      "LLM Evaluation",
+      "Divergent Knowledge"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.0,
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "장기 꼬리 지식 하에서 LLM의 인식적 근시안 탐구",
-        "hook": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
+        "title": "장님 코끼리 만지기: 롱테일 이견(異見) 지식에 대한 LLM의 인식적 근시안 탐구",
+        "hook": "단일 정답 중심 평가를 넘어 롱테일 영역에서 존재하는 대립적·다양한 지식을 LLM이 어떻게 다루는지 분석한 연구",
         "key_takeaways": [
-          "팩트 QA의 단일 정답 가정 한계 분석",
-          "LLM의 롱테일 지식 발산 계정 유지 여부 조사",
-          "모델의 인식적 근시안(Epistemic Myopia) 현상 프로빙"
+          "단일 표준 정답(Canonical Answer)만을 가정하는 기존 지식 QA의 구조적 한계 지적",
+          "LLM이 롱테일 영역의 대립적 관점이나 수용된 이견을 제대로 인지하지 못하는 '인식적 근시안' 현상 규명",
+          "다양한 지식과 상충하는 사실을 포함하는 롱테일 도메인에서의 LLM 평가 프로빙 방법론 제시"
         ]
       },
       "en": {
-        "title": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs",
-        "hook": "Discover how LLMs handle divergent accounts of long-tail facts beyond single canonical answers.",
+        "title": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs under Long-Tail Divergent Knowledge",
+        "hook": "Investigates how LLMs fail to capture divergent accounts of long-tail facts beyond single canonical QA pairs.",
         "key_takeaways": [
-          "Analyze limitations of single canonical answers in factual QA",
-          "Investigate retention of divergent accounts for long-tail facts",
-          "Probe epistemic myopia phenomena in large language models"
+          "Highlights the limitations of assuming a single canonical answer in standard factual QA benchmarks.",
+          "Identifies 'Epistemic Myopia', where LLMs fail to retain or recognize conflicting long-tail knowledge.",
+          "Proposes a new probing strategy to evaluate LLM robustness across divergent and multi-perspective factual domains."
         ]
       },
       "zh": {
-        "title": "盲人摸象：探究大模型在长尾发散知识下的认知近视",
-        "hook": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。",
+        "title": "盲人摸象：探究大语言模型在长尾分歧知识下的认识论近视",
+        "hook": "揭示大语言模型在处理长尾且存在分歧的事实知识时，超出单一标准答案之外的认知局限性",
         "key_takeaways": [
-          "分析事实性问答中单一标准答案假设的局限性",
-          "调查大模型是否保留长尾事实的分散记录",
-          "探测大模型的认知近视现象"
+          "指出传统事实问答基准仅假设单一标准答案的局限性",
+          "界定并剖析了 LLM 难以保留或理解长尾知识中多元分歧观点的“认识论近视”现象",
+          "提出了用于探测和评估 LLM 对长尾多视角事实掌握能力的新方法"
         ]
       }
     }
@@ -90,16 +93,49 @@
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "LLM",
+    "Epistemic Myopia",
     "Long-Tail Knowledge",
-    "Epistemic Myopia"
+    "Factual QA",
+    "LLM Evaluation",
+    "Divergent Knowledge"
   ],
-  "title_en": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs",
-  "title_zh": "盲人摸象：探究大模型在长尾发散知识下的认知近视",
+  "title_en": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs under Long-Tail Divergent Knowledge",
+  "title_zh": "盲人摸象：探究大语言模型在长尾分歧知识下的认识论近视",
   "hook": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
-  "hook_ko": "LLM이 롱테일 지식 속에서 다양한 관점을 이해하고 있는지 평가하는 새로운 접근법을 확인하세요.",
-  "hook_en": "Discover how LLMs handle divergent accounts of long-tail facts beyond single canonical answers.",
-  "hook_zh": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。",
+  "hook_ko": "단일 정답 중심 평가를 넘어 롱테일 영역에서 존재하는 대립적·다양한 지식을 LLM이 어떻게 다루는지 분석한 연구",
+  "hook_en": "Investigates how LLMs fail to capture divergent accounts of long-tail facts beyond single canonical QA pairs.",
+  "hook_zh": "揭示大语言模型在处理长尾且存在分歧的事实知识时，超出单一标准答案之外的认知局限性",
   "description_en": "Discover how LLMs handle divergent accounts of long-tail facts beyond single canonical answers.",
-  "description_zh": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。"
+  "description_zh": "深入了解大模型在处理长尾知识时如何应对多元且分歧的观点。",
+  "multilingual": {
+    "ko": {
+      "title": "장님 코끼리 만지기: 롱테일 이견(異見) 지식에 대한 LLM의 인식적 근시안 탐구",
+      "hook": "단일 정답 중심 평가를 넘어 롱테일 영역에서 존재하는 대립적·다양한 지식을 LLM이 어떻게 다루는지 분석한 연구",
+      "key_takeaways": [
+        "단일 표준 정답(Canonical Answer)만을 가정하는 기존 지식 QA의 구조적 한계 지적",
+        "LLM이 롱테일 영역의 대립적 관점이나 수용된 이견을 제대로 인지하지 못하는 '인식적 근시안' 현상 규명",
+        "다양한 지식과 상충하는 사실을 포함하는 롱테일 도메인에서의 LLM 평가 프로빙 방법론 제시"
+      ]
+    },
+    "en": {
+      "title": "Blind Men and the Elephant: Probing the Epistemic Myopia of LLMs under Long-Tail Divergent Knowledge",
+      "hook": "Investigates how LLMs fail to capture divergent accounts of long-tail facts beyond single canonical QA pairs.",
+      "key_takeaways": [
+        "Highlights the limitations of assuming a single canonical answer in standard factual QA benchmarks.",
+        "Identifies 'Epistemic Myopia', where LLMs fail to retain or recognize conflicting long-tail knowledge.",
+        "Proposes a new probing strategy to evaluate LLM robustness across divergent and multi-perspective factual domains."
+      ]
+    },
+    "zh": {
+      "title": "盲人摸象：探究大语言模型在长尾分歧知识下的认识论近视",
+      "hook": "揭示大语言模型在处理长尾且存在分歧的事实知识时，超出单一标准答案之外的认知局限性",
+      "key_takeaways": [
+        "指出传统事实问答基准仅假设单一标准答案的局限性",
+        "界定并剖析了 LLM 难以保留或理解长尾知识中多元分歧观点的“认识论近视”现象",
+        "提出了用于探测和评估 LLM 对长尾多视角事实掌握能力的新方法"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T20:01:10.155412"
 }
