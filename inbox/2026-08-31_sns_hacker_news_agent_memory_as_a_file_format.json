@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "AGENT",
-  "title_ko": "파일 형식으로 정의하는 AI 에이전트 메모리(Agent Memory as a File Format)",
+  "title_ko": "에이전트 메모리를 표준 파일 형식으로 정의하기",
   "description_ko": "에이전트의 기억과 상태를 표준화된 파일 포맷으로 관리하여 이식성을 높이는 혁신적인 접근법을 확인하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -50,64 +50,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_sns_hacker_news_agent_memory_as_a_file_format",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "AI 에이전트 메모리 아키텍처",
-    "programming_lang": "TypeScript",
+    "type_classification": "TECH",
+    "model_family": "AI Agent Architecture",
+    "category": "LLM Infrastructure",
+    "programming_lang": "General",
     "root_keywords": [
-      "Agent Memory",
+      "AI Agent Memory",
       "File Format",
-      "State Management"
+      "Context Management",
+      "State Serialization"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "파일 형식으로 정의하는 AI 에이전트 메모리(Agent Memory as a File Format)",
-        "hook": "에이전트의 기억과 상태를 표준화된 파일 포맷으로 관리하여 이식성을 높이는 혁신적인 접근법을 확인하세요.",
+        "title": "에이전트 메모리를 표준 파일 형식으로 정의하기",
+        "hook": "AI 에이전트의 컨텍스트 및 상태 메모리를 이식성과 상호운용 가능한 파일 포맷으로 규격화하는 기술 제안",
         "key_takeaways": [
-          "에이전트 상태 및 장기 기억의 파일 포맷 표준화",
-          "서로 다른 프레임워크 간 에이전트 메모리 이식성 향상",
-          "디버깅과 버전 관리가 용이한 상태 관리 아키텍처"
+          "벡터 DB 기반 관리를 넘어 에이전트 상태 및 메모리를 표준 파일 형식으로 직렬화하는 접근법 제시",
+          "에이전트 컨텍스트, 실행 스냅샷, 이력을 단일 포맷으로 캡슐화하여 이식성 및 이동성 확보",
+          "서로 다른 에이전트 프레임워크 간의 데이터 공유 및 복원(Restoration)을 단순화"
         ]
       },
       "en": {
         "title": "Agent Memory as a File Format",
-        "hook": "Discover an innovative approach to standardizing agent memory and state into portable file formats.",
+        "hook": "A proposal to standardize AI agent memory and execution context into portable, interoperable file formats",
         "key_takeaways": [
-          "Standardizing agent state and long-term memory into file formats",
-          "Improving agent memory portability across different frameworks",
-          "State management architectures enabling easy debugging and version control"
+          "Shifts beyond vector databases by serializing agent states and memory into standardized file structures.",
+          "Encapsulates context, runtime snapshots, and interaction history for high portability across environments.",
+          "Simplifies state restoration and cross-framework memory sharing for autonomous AI systems."
         ]
       },
       "zh": {
-        "title": "将 AI 代理记忆设计为统一的文件格式",
-        "hook": "探索一种将代理记忆与状态进行标准化封装以提升可移植性的创新架构。",
+        "title": "将 AI Agent 内存定义为一种文件格式",
+        "hook": "提出将 AI Agent 的上下文与运行状态序列化为标准化可移植文件格式的架构新思路",
         "key_takeaways": [
-          "将代理状态与长期记忆结构化为标准文件格式",
-          "提升不同框架之间代理记忆的互操作性与迁移能力",
-          "实现轻松调试和版本控制的状态管理架构"
+          "超越传统向量数据库架构，将 Agent 内存与状态序列化为结构化文件格式",
+          "打包封装 Agent 上下文、运行快照与历史记录，实现高度可移植性与跨环境迁移",
+          "简化不同 Agent 框架之间的数据共享与状态恢复流程"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:34.812629+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "TypeScript",
+  "programming_lang": "General",
   "root_keywords": [
-    "Agent Memory",
+    "AI Agent Memory",
     "File Format",
-    "State Management"
+    "Context Management",
+    "State Serialization"
   ],
   "title_en": "Agent Memory as a File Format",
-  "title_zh": "将 AI 代理记忆设计为统一的文件格式",
+  "title_zh": "将 AI Agent 内存定义为一种文件格式",
   "hook": "에이전트의 기억과 상태를 표준화된 파일 포맷으로 관리하여 이식성을 높이는 혁신적인 접근법을 확인하세요.",
-  "hook_ko": "에이전트의 기억과 상태를 표준화된 파일 포맷으로 관리하여 이식성을 높이는 혁신적인 접근법을 확인하세요.",
-  "hook_en": "Discover an innovative approach to standardizing agent memory and state into portable file formats.",
-  "hook_zh": "探索一种将代理记忆与状态进行标准化封装以提升可移植性的创新架构。",
+  "hook_ko": "AI 에이전트의 컨텍스트 및 상태 메모리를 이식성과 상호운용 가능한 파일 포맷으로 규격화하는 기술 제안",
+  "hook_en": "A proposal to standardize AI agent memory and execution context into portable, interoperable file formats",
+  "hook_zh": "提出将 AI Agent 的上下文与运行状态序列化为标准化可移植文件格式的架构新思路",
   "description_en": "Discover an innovative approach to standardizing agent memory and state into portable file formats.",
   "description_zh": "探索一种将代理记忆与状态进行标准化封装以提升可移植性的创新架构。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "에이전트 메모리를 표준 파일 형식으로 정의하기",
+      "hook": "AI 에이전트의 컨텍스트 및 상태 메모리를 이식성과 상호운용 가능한 파일 포맷으로 규격화하는 기술 제안",
+      "key_takeaways": [
+        "벡터 DB 기반 관리를 넘어 에이전트 상태 및 메모리를 표준 파일 형식으로 직렬화하는 접근법 제시",
+        "에이전트 컨텍스트, 실행 스냅샷, 이력을 단일 포맷으로 캡슐화하여 이식성 및 이동성 확보",
+        "서로 다른 에이전트 프레임워크 간의 데이터 공유 및 복원(Restoration)을 단순화"
+      ]
+    },
+    "en": {
+      "title": "Agent Memory as a File Format",
+      "hook": "A proposal to standardize AI agent memory and execution context into portable, interoperable file formats",
+      "key_takeaways": [
+        "Shifts beyond vector databases by serializing agent states and memory into standardized file structures.",
+        "Encapsulates context, runtime snapshots, and interaction history for high portability across environments.",
+        "Simplifies state restoration and cross-framework memory sharing for autonomous AI systems."
+      ]
+    },
+    "zh": {
+      "title": "将 AI Agent 内存定义为一种文件格式",
+      "hook": "提出将 AI Agent 的上下文与运行状态序列化为标准化可移植文件格式的架构新思路",
+      "key_takeaways": [
+        "超越传统向量数据库架构，将 Agent 内存与状态序列化为结构化文件格式",
+        "打包封装 Agent 上下文、运行快照与历史记录，实现高度可移植性与跨环境迁移",
+        "简化不同 Agent 框架之间的数据共享与状态恢复流程"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.890257"
 }

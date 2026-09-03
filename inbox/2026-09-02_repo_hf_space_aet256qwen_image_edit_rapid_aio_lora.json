@@ -35,65 +35,98 @@
     "source_lang": "EN",
     "type_classification": "TECH",
     "model_family": "Qwen",
-    "category": "이미지 편집",
+    "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
-      "Qwen-Image",
+      "Qwen",
+      "Image Editing",
       "LoRA",
-      "Image Editing"
+      "Gradio",
+      "Diffusion Models"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face 스페이스: Qwen-Image-Edit-Rapid-AIO-Loras",
-        "hook": "Qwen 기반의 통합 LoRA 이미지 편집 기능을 웹에서 빠르고 간편하게 테스트하세요.",
+        "title": "Qwen 이미지 편집 Rapid AIO LoRA 실험용 Hugging Face Space",
+        "hook": "Qwen 기반의 다양한 All-In-One LoRA를 적용하여 고속 이미지 편집 및 스타일 변환을 실습할 수 있는 데모",
         "key_takeaways": [
-          "Qwen 이미지 편집 모델과 다양한 LoRA를 결합한 올인원 데모",
-          "고속 이미지 편집 및 스타일 변환 성능을 실시간으로 확인",
-          "커뮤니티에서 높은 관심을 받으며 활발히 실험 중인 프로젝트"
+          "Qwen 기반 모델과 통합 LoRA(AIO LoRA)를 결합한 이미지 편집 성능 검증",
+          "Gradio 기반의 대화형 웹 인터페이스로 손쉬운 파라미터 조절 및 결과 비교 가능",
+          "단일/복합 LoRA 가중치 적용을 통한 효율적인 튜닝 및 생성 제어 흐름 제시"
         ]
       },
       "en": {
-        "title": "HF Space: Qwen-Image-Edit-Rapid-AIO-Loras",
-        "hook": "Quickly test rapid, all-in-one LoRA image editing capabilities powered by Qwen in your browser.",
+        "title": "Qwen Image Edit Rapid AIO LoRAs Experimental Space",
+        "hook": "An interactive Gradio space demonstrating rapid image editing using all-in-one LoRA combinations with Qwen models.",
         "key_takeaways": [
-          "All-in-one demo combining Qwen image editing models with versatile LoRAs",
-          "Real-time evaluation of high-speed image editing and style transfer",
-          "An experimental project gaining strong community traction and likes"
+          "Demonstrates Qwen-based image editing capabilities using merged LoRA weights",
+          "Built with Gradio SDK for real-time parameter tuning and visual testing",
+          "Explores All-In-One (AIO) LoRA techniques for efficient style and structure control"
         ]
       },
       "zh": {
-        "title": "HF 空间：Qwen-Image-Edit-Rapid-AIO-Loras",
-        "hook": "在网页端快速测试由 Qwen 驱动的极速、多合一 LoRA 图像编辑功能。",
+        "title": "Qwen 图像编辑 Rapid AIO LoRA 实验性 Hugging Face Space",
+        "hook": "基于 Qwen 模型与多合一 LoRA 的快速图像编辑与交互式效果演示",
         "key_takeaways": [
-          "结合了 Qwen 图像编辑模型与多种 LoRA 的一体化演示",
-          "实时验证高速图像编辑与风格转换性能",
-          "在社区中备受关注并正处于积极实验中的项目"
+          "展示基于 Qwen 模型与融合 LoRA 权重的图像高效率编辑",
+          "基于 Gradio SDK 构建，支持实时参数调节与编辑效果对比",
+          "探索 All-In-One (AIO) LoRA 组合技术，实现更灵活的图像控制"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:32.605095+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Qwen-Image",
+    "Qwen",
+    "Image Editing",
     "LoRA",
-    "Image Editing"
+    "Gradio",
+    "Diffusion Models"
   ],
-  "title_ko": "Hugging Face 스페이스: Qwen-Image-Edit-Rapid-AIO-Loras",
-  "title_en": "HF Space: Qwen-Image-Edit-Rapid-AIO-Loras",
-  "title_zh": "HF 空间：Qwen-Image-Edit-Rapid-AIO-Loras",
+  "title_ko": "Qwen 이미지 편집 Rapid AIO LoRA 실험용 Hugging Face Space",
+  "title_en": "Qwen Image Edit Rapid AIO LoRAs Experimental Space",
+  "title_zh": "Qwen 图像编辑 Rapid AIO LoRA 实验性 Hugging Face Space",
   "hook": "Qwen 기반의 통합 LoRA 이미지 편집 기능을 웹에서 빠르고 간편하게 테스트하세요.",
-  "hook_ko": "Qwen 기반의 통합 LoRA 이미지 편집 기능을 웹에서 빠르고 간편하게 테스트하세요.",
-  "hook_en": "Quickly test rapid, all-in-one LoRA image editing capabilities powered by Qwen in your browser.",
-  "hook_zh": "在网页端快速测试由 Qwen 驱动的极速、多合一 LoRA 图像编辑功能。",
+  "hook_ko": "Qwen 기반의 다양한 All-In-One LoRA를 적용하여 고속 이미지 편집 및 스타일 변환을 실습할 수 있는 데모",
+  "hook_en": "An interactive Gradio space demonstrating rapid image editing using all-in-one LoRA combinations with Qwen models.",
+  "hook_zh": "基于 Qwen 模型与多合一 LoRA 的快速图像编辑与交互式效果演示",
   "description_ko": "Qwen 기반의 통합 LoRA 이미지 편집 기능을 웹에서 빠르고 간편하게 테스트하세요.",
   "description_en": "Quickly test rapid, all-in-one LoRA image editing capabilities powered by Qwen in your browser.",
   "description_zh": "在网页端快速测试由 Qwen 驱动的极速、多合一 LoRA 图像编辑功能。",
   "model_family": "Qwen",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Qwen 이미지 편집 Rapid AIO LoRA 실험용 Hugging Face Space",
+      "hook": "Qwen 기반의 다양한 All-In-One LoRA를 적용하여 고속 이미지 편집 및 스타일 변환을 실습할 수 있는 데모",
+      "key_takeaways": [
+        "Qwen 기반 모델과 통합 LoRA(AIO LoRA)를 결합한 이미지 편집 성능 검증",
+        "Gradio 기반의 대화형 웹 인터페이스로 손쉬운 파라미터 조절 및 결과 비교 가능",
+        "단일/복합 LoRA 가중치 적용을 통한 효율적인 튜닝 및 생성 제어 흐름 제시"
+      ]
+    },
+    "en": {
+      "title": "Qwen Image Edit Rapid AIO LoRAs Experimental Space",
+      "hook": "An interactive Gradio space demonstrating rapid image editing using all-in-one LoRA combinations with Qwen models.",
+      "key_takeaways": [
+        "Demonstrates Qwen-based image editing capabilities using merged LoRA weights",
+        "Built with Gradio SDK for real-time parameter tuning and visual testing",
+        "Explores All-In-One (AIO) LoRA techniques for efficient style and structure control"
+      ]
+    },
+    "zh": {
+      "title": "Qwen 图像编辑 Rapid AIO LoRA 实验性 Hugging Face Space",
+      "hook": "基于 Qwen 模型与多合一 LoRA 的快速图像编辑与交互式效果演示",
+      "key_takeaways": [
+        "展示基于 Qwen 模型与融合 LoRA 权重的图像高效率编辑",
+        "基于 Gradio SDK 构建，支持实时参数调节与编辑效果对比",
+        "探索 All-In-One (AIO) LoRA 组合技术，实现更灵活的图像控制"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.997388"
 }

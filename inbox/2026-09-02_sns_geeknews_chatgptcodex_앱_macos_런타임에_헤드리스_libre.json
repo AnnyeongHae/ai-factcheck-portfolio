@@ -30,7 +30,7 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "ChatGPT/Codex 앱, macOS 런타임에 헤드리스 LibreOffice 포함",
+  "title_ko": "ChatGPT/Codex macOS 앱, 런타임 내 헤드리스 LibreOffice 번들 포함",
   "description_ko": "ChatGPT macOS 앱 내부에 LibreOffice가 포함된 기술적 배경과 구현 방식을 파악하세요.",
   "hn_url": "https://news.hada.io/topic?id=33137",
   "article_url": "https://news.hada.io/topic?id=33137",
@@ -38,65 +38,98 @@
     "id": "2026-09-02_sns_geeknews_chatgptcodex_앱_macos_런타임에_헤드리스_libre",
     "source_lang": "KO",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "데스크톱 앱 아키텍처",
-    "programming_lang": "Swift",
+    "model_family": "Desktop AI Client",
+    "category": "AI Application Architecture",
+    "programming_lang": "General",
     "root_keywords": [
-      "macOS",
-      "LibreOffice",
       "ChatGPT",
-      "Runtime"
+      "Codex",
+      "LibreOffice",
+      "Headless",
+      "macOS Runtime",
+      "Document Processing"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.0,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.3,
     "multilingual": {
       "ko": {
-        "title": "ChatGPT/Codex 앱, macOS 런타임에 헤드리스 LibreOffice 포함",
-        "hook": "ChatGPT macOS 앱 내부에 LibreOffice가 포함된 기술적 배경과 구현 방식을 파악하세요.",
+        "title": "ChatGPT/Codex macOS 앱, 런타임 내 헤드리스 LibreOffice 번들 포함",
+        "hook": "로컬 환경에서의 문서 파싱 및 연산을 위해 macOS용 ChatGPT/Codex 앱 내에 헤드리스 LibreOffice가 내장된 구조 분석",
         "key_takeaways": [
-          "macOS 런타임 내 헤드리스 LibreOffice 포함 확인",
-          "문서 변환 및 처리 기능 확장을 위한 아키텍처 분석",
-          "데스크톱 AI 클라이언트의 외부 종속성 관리 방식"
+          "ChatGPT/Codex macOS 애플리케이션 패키지에 헤드리스(Headless) LibreOffice 런타임이 동반 설치되어 있는 현상 발견",
+          "서버 전송 없이 로컬에서 DOCX, PPTX, XLSX 등 다양한 오피스 문서 및 PDF 변환을 고속으로 수행하기 위한 목적으로 추정",
+          "로컬 AI 에이전트의 오프라인 처리 능력 확장 및 사용자 프라이버시 강화를 고려한 클라이언트 설계 사례"
         ]
       },
       "en": {
-        "title": "ChatGPT/Codex App Includes Headless LibreOffice in macOS Runtime",
-        "hook": "Understand the technical background and implementation details of embedding LibreOffice inside the ChatGPT macOS app.",
+        "title": "ChatGPT/Codex macOS App Embeds Headless LibreOffice in Its Runtime",
+        "hook": "Analysis of ChatGPT/Codex desktop app bundling headless LibreOffice for local document processing on macOS",
         "key_takeaways": [
-          "Inclusion of headless LibreOffice within the macOS runtime",
-          "Architecture analysis for extending document conversion and processing",
-          "External dependency management in desktop AI clients"
+          "Headless LibreOffice runtime discovered embedded directly inside the ChatGPT/Codex macOS application bundle",
+          "Enables high-speed local parsing and conversion of office formats (DOCX, PPTX, XLSX, PDF) without sending raw files to the cloud",
+          "Illustrates a design pattern for AI desktop agents prioritizing local file processing capabilities and privacy"
         ]
       },
       "zh": {
-        "title": "ChatGPT/Codex 应用在 macOS 运行时中包含无头 LibreOffice",
-        "hook": "了解在 ChatGPT macOS 应用内部嵌入 LibreOffice 的技术背景和实现方式。",
+        "title": "ChatGPT/Codex macOS 应用在运行时内置无头 LibreOffice",
+        "hook": "分析 ChatGPT/Codex 桌面应用内置 Headless LibreOffice 以在 macOS 本地处理文档的技术策略",
         "key_takeaways": [
-          "确认 macOS 运行时包含无头 LibreOffice",
-          "分析用于扩展文档转换和处理功能的架构",
-          "桌面端 AI 客户端的外部依赖管理方式"
+          "ChatGPT/Codex macOS 应用程序包中被发现集成了 Headless LibreOffice 运行时",
+          "推测用于在本地直接解析与转换各类 Office 文档格式（如 DOCX, PPTX, PDF），减少对云端的依赖",
+          "体现了 AI 桌面 Client/Agent 强化本地文件处理能力与保障数据隐私的设计趋势"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:19.875023+09:00"
+    }
   },
   "source_lang": "KO",
-  "programming_lang": "Swift",
+  "programming_lang": "General",
   "root_keywords": [
-    "macOS",
-    "LibreOffice",
     "ChatGPT",
-    "Runtime"
+    "Codex",
+    "LibreOffice",
+    "Headless",
+    "macOS Runtime",
+    "Document Processing"
   ],
-  "title_en": "ChatGPT/Codex App Includes Headless LibreOffice in macOS Runtime",
-  "title_zh": "ChatGPT/Codex 应用在 macOS 运行时中包含无头 LibreOffice",
+  "title_en": "ChatGPT/Codex macOS App Embeds Headless LibreOffice in Its Runtime",
+  "title_zh": "ChatGPT/Codex macOS 应用在运行时内置无头 LibreOffice",
   "hook": "ChatGPT macOS 앱 내부에 LibreOffice가 포함된 기술적 배경과 구현 방식을 파악하세요.",
-  "hook_ko": "ChatGPT macOS 앱 내부에 LibreOffice가 포함된 기술적 배경과 구현 방식을 파악하세요.",
-  "hook_en": "Understand the technical background and implementation details of embedding LibreOffice inside the ChatGPT macOS app.",
-  "hook_zh": "了解在 ChatGPT macOS 应用内部嵌入 LibreOffice 的技术背景和实现方式。",
+  "hook_ko": "로컬 환경에서의 문서 파싱 및 연산을 위해 macOS용 ChatGPT/Codex 앱 내에 헤드리스 LibreOffice가 내장된 구조 분석",
+  "hook_en": "Analysis of ChatGPT/Codex desktop app bundling headless LibreOffice for local document processing on macOS",
+  "hook_zh": "分析 ChatGPT/Codex 桌面应用内置 Headless LibreOffice 以在 macOS 本地处理文档的技术策略",
   "description_en": "Understand the technical background and implementation details of embedding LibreOffice inside the ChatGPT macOS app.",
   "description_zh": "了解在 ChatGPT macOS 应用内部嵌入 LibreOffice 的技术背景和实现方式。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "ChatGPT/Codex macOS 앱, 런타임 내 헤드리스 LibreOffice 번들 포함",
+      "hook": "로컬 환경에서의 문서 파싱 및 연산을 위해 macOS용 ChatGPT/Codex 앱 내에 헤드리스 LibreOffice가 내장된 구조 분석",
+      "key_takeaways": [
+        "ChatGPT/Codex macOS 애플리케이션 패키지에 헤드리스(Headless) LibreOffice 런타임이 동반 설치되어 있는 현상 발견",
+        "서버 전송 없이 로컬에서 DOCX, PPTX, XLSX 등 다양한 오피스 문서 및 PDF 변환을 고속으로 수행하기 위한 목적으로 추정",
+        "로컬 AI 에이전트의 오프라인 처리 능력 확장 및 사용자 프라이버시 강화를 고려한 클라이언트 설계 사례"
+      ]
+    },
+    "en": {
+      "title": "ChatGPT/Codex macOS App Embeds Headless LibreOffice in Its Runtime",
+      "hook": "Analysis of ChatGPT/Codex desktop app bundling headless LibreOffice for local document processing on macOS",
+      "key_takeaways": [
+        "Headless LibreOffice runtime discovered embedded directly inside the ChatGPT/Codex macOS application bundle",
+        "Enables high-speed local parsing and conversion of office formats (DOCX, PPTX, XLSX, PDF) without sending raw files to the cloud",
+        "Illustrates a design pattern for AI desktop agents prioritizing local file processing capabilities and privacy"
+      ]
+    },
+    "zh": {
+      "title": "ChatGPT/Codex macOS 应用在运行时内置无头 LibreOffice",
+      "hook": "分析 ChatGPT/Codex 桌面应用内置 Headless LibreOffice 以在 macOS 本地处理文档的技术策略",
+      "key_takeaways": [
+        "ChatGPT/Codex macOS 应用程序包中被发现集成了 Headless LibreOffice 运行时",
+        "推测用于在本地直接解析与转换各类 Office 文档格式（如 DOCX, PPTX, PDF），减少对云端的依赖",
+        "体现了 AI 桌面 Client/Agent 强化本地文件处理能力与保障数据隐私的设计趋势"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.008863"
 }

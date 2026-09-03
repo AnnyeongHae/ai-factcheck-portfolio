@@ -34,64 +34,98 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hacker_news_show_hn_an_hn_client_that_summari",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "category": "AI 요약 및 챗봇 인터페이스",
-    "programming_lang": "TypeScript",
+    "type_classification": "TECH",
+    "model_family": "LLM Application",
+    "category": "Developer Tools",
+    "programming_lang": "General",
     "root_keywords": [
-      "Hacker News Client",
+      "Hacker News",
       "Thread Summarization",
-      "RAG Chat"
+      "LLM Chat",
+      "HN Client"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.0,
     "multilingual": {
       "ko": {
-        "title": "긴 토론 스레드를 요약하고 대화할 수 있는 Hacker News 클라이언트",
-        "hook": "방대한 댓글 스레드를 AI로 즉시 요약하고 직접 대화하며 인사이트를 얻으세요.",
+        "title": "Show HN: 긴 댓글 스레드를 요약하고 대화할 수 있는 Hacker News 클라이언트",
+        "hook": "LLM을 활용해 복잡한 Hacker News 스레드를 요약하고 대화형으로 탐색할 수 있는 도구입니다.",
         "key_takeaways": [
-          "긴 Hacker News 토론 스레드 자동 요약 기능",
-          "스레드 내 내용 기반 AI 챗봇 대화 인터페이스",
-          "정보 습득 시간을 혁신적으로 단축하는 UX 설계"
+          "긴 스레드의 핵심 내용을 AI 기반으로 빠르게 요약",
+          "스레드 맥락 기반으로 질의응답이 가능한 대화형 인터페이스 제공",
+          "Hacker News 유저의 정보 소비 효율성을 극대화하는 클라이언트"
         ]
       },
       "en": {
-        "title": "An HN Client That Summarises Long Threads and Lets You Chat with Them",
-        "hook": "Instantly summarize massive comment threads using AI and chat directly with the context.",
+        "title": "Show HN: An HN client that summarises long threads and lets you chat with them",
+        "hook": "An open-source Hacker News client utilizing LLMs to summarize lengthy comment threads and enable interactive Q&A.",
         "key_takeaways": [
-          "Automatic summarization of long Hacker News discussion threads",
-          "AI chatbot interface for querying thread context directly",
-          "Innovative UX design to drastically reduce information intake time"
+          "AI-powered summarization for long Hacker News discussion threads",
+          "Interactive chat interface grounded in thread comment context",
+          "Enhances information consumption efficiency for HN users"
         ]
       },
       "zh": {
-        "title": "可总结长讨论串并与之对话的 Hacker News 客户端",
-        "hook": "利用AI即时总结庞大的评论串，并直接与其对话以获取洞察。",
+        "title": "Show HN：可总结长帖子并支持对话的 Hacker News 客户端",
+        "hook": "利用大语言模型总结 Hacker News 长评论串并提供交互式对话的开源客户端。",
         "key_takeaways": [
-          "自动总结长篇 Hacker News 讨论串",
-          "基于讨论内容的 AI 聊天机器人交互界面",
-          "大幅缩短信息获取时间的创新 UX 设计"
+          "基于 AI 快速总结 Hacker News 上的长篇讨论",
+          "提供结合帖子上下文的交互式 Q&A 对话界面",
+          "为 HN 用户提升信息获取与阅读效率"
         ]
       }
     }
   },
   "source_lang": "EN",
-  "programming_lang": "TypeScript",
+  "programming_lang": "General",
   "root_keywords": [
-    "Hacker News Client",
+    "Hacker News",
     "Thread Summarization",
-    "RAG Chat"
+    "LLM Chat",
+    "HN Client"
   ],
-  "title_ko": "긴 토론 스레드를 요약하고 대화할 수 있는 Hacker News 클라이언트",
-  "title_en": "An HN Client That Summarises Long Threads and Lets You Chat with Them",
-  "title_zh": "可总结长讨论串并与之对话的 Hacker News 客户端",
+  "title_ko": "Show HN: 긴 댓글 스레드를 요약하고 대화할 수 있는 Hacker News 클라이언트",
+  "title_en": "Show HN: An HN client that summarises long threads and lets you chat with them",
+  "title_zh": "Show HN：可总结长帖子并支持对话的 Hacker News 客户端",
   "hook": "방대한 댓글 스레드를 AI로 즉시 요약하고 직접 대화하며 인사이트를 얻으세요.",
-  "hook_ko": "방대한 댓글 스레드를 AI로 즉시 요약하고 직접 대화하며 인사이트를 얻으세요.",
-  "hook_en": "Instantly summarize massive comment threads using AI and chat directly with the context.",
-  "hook_zh": "利用AI即时总结庞大的评论串，并直接与其对话以获取洞察。",
+  "hook_ko": "LLM을 활용해 복잡한 Hacker News 스레드를 요약하고 대화형으로 탐색할 수 있는 도구입니다.",
+  "hook_en": "An open-source Hacker News client utilizing LLMs to summarize lengthy comment threads and enable interactive Q&A.",
+  "hook_zh": "利用大语言模型总结 Hacker News 长评论串并提供交互式对话的开源客户端。",
   "description_ko": "방대한 댓글 스레드를 AI로 즉시 요약하고 직접 대화하며 인사이트를 얻으세요.",
   "description_en": "Instantly summarize massive comment threads using AI and chat directly with the context.",
   "description_zh": "利用AI即时总结庞大的评论串，并直接与其对话以获取洞察。",
   "category_type": "AGENT",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Show HN: 긴 댓글 스레드를 요약하고 대화할 수 있는 Hacker News 클라이언트",
+      "hook": "LLM을 활용해 복잡한 Hacker News 스레드를 요약하고 대화형으로 탐색할 수 있는 도구입니다.",
+      "key_takeaways": [
+        "긴 스레드의 핵심 내용을 AI 기반으로 빠르게 요약",
+        "스레드 맥락 기반으로 질의응답이 가능한 대화형 인터페이스 제공",
+        "Hacker News 유저의 정보 소비 효율성을 극대화하는 클라이언트"
+      ]
+    },
+    "en": {
+      "title": "Show HN: An HN client that summarises long threads and lets you chat with them",
+      "hook": "An open-source Hacker News client utilizing LLMs to summarize lengthy comment threads and enable interactive Q&A.",
+      "key_takeaways": [
+        "AI-powered summarization for long Hacker News discussion threads",
+        "Interactive chat interface grounded in thread comment context",
+        "Enhances information consumption efficiency for HN users"
+      ]
+    },
+    "zh": {
+      "title": "Show HN：可总结长帖子并支持对话的 Hacker News 客户端",
+      "hook": "利用大语言模型总结 Hacker News 长评论串并提供交互式对话的开源客户端。",
+      "key_takeaways": [
+        "基于 AI 快速总结 Hacker News 上的长篇讨论",
+        "提供结合帖子上下文的交互式 Q&A 对话界面",
+        "为 HN 用户提升信息获取与阅读效率"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.811736"
 }

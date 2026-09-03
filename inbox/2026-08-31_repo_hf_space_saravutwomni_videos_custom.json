@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "옴니 비디오스 커스텀: 맞춤형 AI 비디오 생성 데모",
+  "title_ko": "HF Space: Saravutw/Omni-videos-custom - 맞춤형 옴니 비디오 생성 데모",
   "description_ko": "사용자 맞춤형 설정으로 고유한 AI 비디오를 제작할 수 있는 Omni-videos-custom 데모를 확인해보세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,64 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_saravutwomni_videos_custom",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Standalone",
-    "category": "영상 제작 및 비디오 생성",
+    "type_classification": "TECH",
+    "model_family": "Omni / Video Generation",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "Omni-videos",
-      "Video Customization",
-      "AI Video"
+      "video generation",
+      "omni-video",
+      "gradio",
+      "interactive demo",
+      "huggingface spaces"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.9,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "옴니 비디오스 커스텀: 맞춤형 AI 비디오 생성 데모",
-        "hook": "사용자 맞춤형 설정으로 고유한 AI 비디오를 제작할 수 있는 Omni-videos-custom 데모를 확인해보세요.",
+        "title": "HF Space: Saravutw/Omni-videos-custom - 맞춤형 옴니 비디오 생성 데모",
+        "hook": "Gradio 기반의 인터랙티브 인터페이스를 통해 맞춤형 비디오 생성 기술을 실습할 수 있는 AI 데모",
         "key_takeaways": [
-          "커스텀 파라미터를 지원하는 Omni 비디오 생성 모델",
-          "다양한 영상 스타일과 옵션을 적용할 수 있는 유연성",
-          "Ggradio 기반의 사용자 친화적 웹 플레이그라운드"
+          "Gradio SDK 기반의 직관적인 비디오 생성 시각화 인터페이스 제공",
+          "맞춤형(Custom) 옴니 비디오 생성 파이프라인의 실시간 연산 데모 환경 구축",
+          "290개 이상의 좋아요를 획득하며 커뮤니티에서 유의미한 반응을 얻은 비디오 AI 데모"
         ]
       },
       "en": {
-        "title": "Omni-Videos Custom: Tailored AI Video Generation Demo",
-        "hook": "Check out the Omni-videos-custom demo to create unique AI videos with user-defined settings.",
+        "title": "HF Space: Saravutw/Omni-videos-custom - Interactive Omni Video Generation Demo",
+        "hook": "An interactive Gradio-based AI space enabling users to explore and generate custom omni-video content.",
         "key_takeaways": [
-          "Omni video generation model supporting custom parameters",
-          "Flexibility to apply various video styles and options",
-          "Gradio-based user-friendly web playground"
+          "Provides an intuitive Gradio SDK interface for experimenting with video generation models",
+          "Enables real-time testing and inference of custom omni-video generation pipelines",
+          "Gained solid community interest with over 290 likes on Hugging Face Spaces"
         ]
       },
       "zh": {
-        "title": "全能视频定制版：个性化 AI 视频生成演示",
-        "hook": "查看 Omni-videos-custom 演示，利用用户自定义设置创建独特的 AI 视频。",
+        "title": "HF Space: Saravutw/Omni-videos-custom - 定制化全能视频生成 Demo",
+        "hook": "基于 Gradio 的交互式 AI 演示空间，支持在线体验与测试定制化全能视频生成技术",
         "key_takeaways": [
-          "支持自定义参数的 Omni 视频生成模型",
-          "能够应用多种视频风格与选项的灵活性",
-          "基于 Gradio 构建的友好网页端游乐场"
+          "基于 Gradio SDK 构建，提供简单易用的视频生成交互界面",
+          "支持测试与评估自定义全能视频 (Omni-video) 生成管线的推理效果",
+          "获得 Hugging Face 社区广泛关注 (290+ Likes)"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:34:00.367492+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Omni-videos",
-    "Video Customization",
-    "AI Video"
+    "video generation",
+    "omni-video",
+    "gradio",
+    "interactive demo",
+    "huggingface spaces"
   ],
-  "title_en": "Omni-Videos Custom: Tailored AI Video Generation Demo",
-  "title_zh": "全能视频定制版：个性化 AI 视频生成演示",
+  "title_en": "HF Space: Saravutw/Omni-videos-custom - Interactive Omni Video Generation Demo",
+  "title_zh": "HF Space: Saravutw/Omni-videos-custom - 定制化全能视频生成 Demo",
   "hook": "사용자 맞춤형 설정으로 고유한 AI 비디오를 제작할 수 있는 Omni-videos-custom 데모를 확인해보세요.",
-  "hook_ko": "사용자 맞춤형 설정으로 고유한 AI 비디오를 제작할 수 있는 Omni-videos-custom 데모를 확인해보세요.",
-  "hook_en": "Check out the Omni-videos-custom demo to create unique AI videos with user-defined settings.",
-  "hook_zh": "查看 Omni-videos-custom 演示，利用用户自定义设置创建独特的 AI 视频。",
+  "hook_ko": "Gradio 기반의 인터랙티브 인터페이스를 통해 맞춤형 비디오 생성 기술을 실습할 수 있는 AI 데모",
+  "hook_en": "An interactive Gradio-based AI space enabling users to explore and generate custom omni-video content.",
+  "hook_zh": "基于 Gradio 的交互式 AI 演示空间，支持在线体验与测试定制化全能视频生成技术",
   "description_en": "Check out the Omni-videos-custom demo to create unique AI videos with user-defined settings.",
   "description_zh": "查看 Omni-videos-custom 演示，利用用户自定义设置创建独特的 AI 视频。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: Saravutw/Omni-videos-custom - 맞춤형 옴니 비디오 생성 데모",
+      "hook": "Gradio 기반의 인터랙티브 인터페이스를 통해 맞춤형 비디오 생성 기술을 실습할 수 있는 AI 데모",
+      "key_takeaways": [
+        "Gradio SDK 기반의 직관적인 비디오 생성 시각화 인터페이스 제공",
+        "맞춤형(Custom) 옴니 비디오 생성 파이프라인의 실시간 연산 데모 환경 구축",
+        "290개 이상의 좋아요를 획득하며 커뮤니티에서 유의미한 반응을 얻은 비디오 AI 데모"
+      ]
+    },
+    "en": {
+      "title": "HF Space: Saravutw/Omni-videos-custom - Interactive Omni Video Generation Demo",
+      "hook": "An interactive Gradio-based AI space enabling users to explore and generate custom omni-video content.",
+      "key_takeaways": [
+        "Provides an intuitive Gradio SDK interface for experimenting with video generation models",
+        "Enables real-time testing and inference of custom omni-video generation pipelines",
+        "Gained solid community interest with over 290 likes on Hugging Face Spaces"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: Saravutw/Omni-videos-custom - 定制化全能视频生成 Demo",
+      "hook": "基于 Gradio 的交互式 AI 演示空间，支持在线体验与测试定制化全能视频生成技术",
+      "key_takeaways": [
+        "基于 Gradio SDK 构建，提供简单易用的视频生成交互界面",
+        "支持测试与评估自定义全能视频 (Omni-video) 生成管线的推理效果",
+        "获得 Hugging Face 社区广泛关注 (290+ Likes)"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.838433"
 }

@@ -33,66 +33,99 @@
     "id": "2026-09-01_repo_arxiv_when_does_bigger_help_a_controlled_stud",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 스케일링 법칙 및 온톨로지 학습",
+    "model_family": "LLM Evaluation / Benchmark",
+    "category": "Artificial Intelligence",
     "programming_lang": "General",
     "root_keywords": [
-      "LLM Scale",
       "Ontology Learning",
-      "Controlled Study"
+      "LLM Scaling",
+      "Model Evaluation",
+      "Mixture-of-Experts",
+      "Dense Models"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "모델이 커지면 정말 좋아질까? LLM 규모가 온톨로지 학습에 미치는 영향에 대한 통제 실험",
-        "hook": "13개 모델을 대상으로 한 정밀한 통제 실험을 통해 LLM 규모 확장이 온톨로지 구축에 미치는 실효성을 파악하세요.",
+        "title": "크기가 항상 도움이 되는가? 온톨로지 학습을 위한 LLM 규모에 대한 통제 연구",
+        "hook": "LLM의 모델 크기 및 아키텍처(Dense vs MoE)가 온톨로지 학습 성능에 미치는 영향을 13개 모델로 평가한 실증 연구",
         "key_takeaways": [
-          "조밀(Dense) 모델과 MoE 구조를 포함한 13개 모델 비교 분석",
-          "온톨로지 학습(OL) 성능에서 모델 스케일이 갖는 실질적 한계와 이점 규명",
-          "도메인 지식 구축 작업 시 최적의 모델 크기 선택 가이드라인 제시"
+          "Dense 및 MoE 아키텍처를 아우르는 13개 LLM 모델에 대한 온톨로지 학습(OL) 성능 통제 평가 수행",
+          "모델 스케일 확대가 온톨로지 학습의 특정 하위 과제(개념 추출, 관계 추출 등)에 미치는 실질적 영향 분석",
+          "무조건적인 모델 확장보다 작업 특성에 맞춘 효율적인 스케일링 전략 수립의 필요성 제시"
         ]
       },
       "en": {
         "title": "When Does Bigger Help? A Controlled Study of LLM Scale for Ontology Learning",
-        "hook": "Discover the true impact of LLM scaling on ontology construction through a rigorous controlled evaluation of 13 models.",
+        "hook": "A controlled empirical study evaluating 13 dense and MoE models to quantify the impact of LLM scale on ontology learning.",
         "key_takeaways": [
-          "Controlled evaluation across 13 dense and Mixture-of-Experts models",
-          "Identifies exact performance boundaries and gains of scaling for ontology learning",
-          "Provides guidelines for selecting optimal model size in knowledge graph tasks"
+          "Controlled evaluation across 13 LLMs spanning both dense and Mixture-of-Experts architectures.",
+          "Detailed analysis of how scaling model parameter sizes impacts specific ontology learning subtasks.",
+          "Provides practical insights on when model scaling yields diminishing returns for structured knowledge extraction."
         ]
       },
       "zh": {
-        "title": "模型更大真的更好吗？LLM规模对本体学习影响的对照研究",
-        "hook": "通过对13个密集和MoE模型的严谨对照评估，揭示大模型规模对本体构建的真实效用。",
+        "title": "越大就越好吗？LLM 规模对本体学习影响的受控研究",
+        "hook": "一项针对 13 个 Dense 和 MoE 模型进行的受控实证研究，量化评估了 LLM 规模对本体学习（OL）性能的实际影响。",
         "key_takeaways": [
-          "涵盖密集模型与MoE架构的13个大模型横向评测",
-          "明确模型规模扩展在本体学习（OL）中的性能边界与实际收益",
-          "为知识图谱与本体构建任务中选择最佳模型规模提供实证参考"
+          "涵盖 13 个 Dense 和 MoE 架构 LLM 的本体学习 (OL) 受控评估",
+          "深入分析模型参数规模对本体构建各子任务的具体影响",
+          "揭示了针对结构化知识提取任务时，模型盲目扩充规模的边际效应"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:06.256700+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
-    "LLM Scale",
     "Ontology Learning",
-    "Controlled Study"
+    "LLM Scaling",
+    "Model Evaluation",
+    "Mixture-of-Experts",
+    "Dense Models"
   ],
-  "title_ko": "모델이 커지면 정말 좋아질까? LLM 규모가 온톨로지 학습에 미치는 영향에 대한 통제 실험",
+  "title_ko": "크기가 항상 도움이 되는가? 온톨로지 학습을 위한 LLM 규모에 대한 통제 연구",
   "title_en": "When Does Bigger Help? A Controlled Study of LLM Scale for Ontology Learning",
-  "title_zh": "模型更大真的更好吗？LLM规模对本体学习影响的对照研究",
+  "title_zh": "越大就越好吗？LLM 规模对本体学习影响的受控研究",
   "hook": "13개 모델을 대상으로 한 정밀한 통제 실험을 통해 LLM 규모 확장이 온톨로지 구축에 미치는 실효성을 파악하세요.",
-  "hook_ko": "13개 모델을 대상으로 한 정밀한 통제 실험을 통해 LLM 규모 확장이 온톨로지 구축에 미치는 실효성을 파악하세요.",
-  "hook_en": "Discover the true impact of LLM scaling on ontology construction through a rigorous controlled evaluation of 13 models.",
-  "hook_zh": "通过对13个密集和MoE模型的严谨对照评估，揭示大模型规模对本体构建的真实效用。",
+  "hook_ko": "LLM의 모델 크기 및 아키텍처(Dense vs MoE)가 온톨로지 학습 성능에 미치는 영향을 13개 모델로 평가한 실증 연구",
+  "hook_en": "A controlled empirical study evaluating 13 dense and MoE models to quantify the impact of LLM scale on ontology learning.",
+  "hook_zh": "一项针对 13 个 Dense 和 MoE 模型进行的受控实证研究，量化评估了 LLM 规模对本体学习（OL）性能的实际影响。",
   "description_ko": "13개 모델을 대상으로 한 정밀한 통제 실험을 통해 LLM 규모 확장이 온톨로지 구축에 미치는 실효성을 파악하세요.",
   "description_en": "Discover the true impact of LLM scaling on ontology construction through a rigorous controlled evaluation of 13 models.",
   "description_zh": "通过对13个密集和MoE模型的严谨对照评估，揭示大模型规模对本体构建的真实效用。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "크기가 항상 도움이 되는가? 온톨로지 학습을 위한 LLM 규모에 대한 통제 연구",
+      "hook": "LLM의 모델 크기 및 아키텍처(Dense vs MoE)가 온톨로지 학습 성능에 미치는 영향을 13개 모델로 평가한 실증 연구",
+      "key_takeaways": [
+        "Dense 및 MoE 아키텍처를 아우르는 13개 LLM 모델에 대한 온톨로지 학습(OL) 성능 통제 평가 수행",
+        "모델 스케일 확대가 온톨로지 학습의 특정 하위 과제(개념 추출, 관계 추출 등)에 미치는 실질적 영향 분석",
+        "무조건적인 모델 확장보다 작업 특성에 맞춘 효율적인 스케일링 전략 수립의 필요성 제시"
+      ]
+    },
+    "en": {
+      "title": "When Does Bigger Help? A Controlled Study of LLM Scale for Ontology Learning",
+      "hook": "A controlled empirical study evaluating 13 dense and MoE models to quantify the impact of LLM scale on ontology learning.",
+      "key_takeaways": [
+        "Controlled evaluation across 13 LLMs spanning both dense and Mixture-of-Experts architectures.",
+        "Detailed analysis of how scaling model parameter sizes impacts specific ontology learning subtasks.",
+        "Provides practical insights on when model scaling yields diminishing returns for structured knowledge extraction."
+      ]
+    },
+    "zh": {
+      "title": "越大就越好吗？LLM 规模对本体学习影响的受控研究",
+      "hook": "一项针对 13 个 Dense 和 MoE 模型进行的受控实证研究，量化评估了 LLM 规模对本体学习（OL）性能的实际影响。",
+      "key_takeaways": [
+        "涵盖 13 个 Dense 和 MoE 架构 LLM 的本体学习 (OL) 受控评估",
+        "深入分析模型参数规模对本体构建各子任务的具体影响",
+        "揭示了针对结构化知识提取任务时，模型盲目扩充规模的边际效应"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.949550"
 }

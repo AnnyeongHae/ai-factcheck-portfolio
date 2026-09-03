@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "NEWS",
-  "title_ko": "지구상에서 물이나 육지를 가로지르는 가장 긴 직선 경로",
+  "title_ko": "지구상에서 육지나 바다를 가로지르는 가장 긴 직진 경로",
   "description_ko": "지구 표면에서 끊김 없이 갈 수 있는 최장 직선 경로를 다룬 흥미로운 지리 및 알고리즘 분석",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -50,64 +50,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_sns_hacker_news_longest_straight_line_paths_on_wa",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "지리 정보 및 알고리즘",
+    "type_classification": "TECH",
+    "model_family": "Computational Geometry",
+    "category": "Algorithms & GIS",
     "programming_lang": "General",
     "root_keywords": [
-      "Straight Line Path",
-      "Earth Geography",
-      "Algorithm"
+      "Geodesic Path",
+      "Computational Geometry",
+      "GIS",
+      "Great Circle Distance"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 2.5,
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "지구상에서 물이나 육지를 가로지르는 가장 긴 직선 경로",
-        "hook": "지구 표면에서 끊김 없이 갈 수 있는 최장 직선 경로를 다룬 흥미로운 지리 및 알고리즘 분석",
+        "title": "지구상에서 육지나 바다를 가로지르는 가장 긴 직진 경로",
+        "hook": "지구 타원체 모델에서 섬이나 대륙을 통과하지 않고 이동할 수 있는 최장 대권 항로 계산 알고리즘 분석",
         "key_takeaways": [
-          "지구 표면의 지형을 활용한 최장 직선 경로 탐색",
-          "공간 데이터 및 경로 계산 알고리즘의 응용 사례",
-          "개발자 흥미를 유발하는 지리 정보 데이터 분석"
+          "고해상도 수심 및 지형 데이터를 기반으로 육지/해양을 차단막으로 삼는 최장 대권 경로 탐색",
+          "방대한 글로벌 공간 데이터셋 처리를 위한 공간 인덱싱 및 계산 기하학 최적화 기법 활용",
+          "구면/타원체 지오메트리 계산을 최적화 문제로 전환하여 최단 경로/직선 경로를 도출하는 접근법"
         ]
       },
       "en": {
         "title": "Longest Straight Line Paths on Water or Land on the Earth",
-        "hook": "An intriguing geographical and algorithmic analysis of the longest continuous straight-line paths on Earth.",
+        "hook": "Exploring geodesic algorithms that calculate the longest uninterrupted straight-line sailable or walkable paths on Earth's ellipsoid model.",
         "key_takeaways": [
-          "Exploration of extreme distance paths across the Earth's surface",
-          "Application of spatial data and routing algorithms",
-          "Fascinating geo-spatial data analysis case study"
+          "Calculating the longest continuous great-circle path without hitting land or sea using high-resolution terrain data.",
+          "Leveraging spatial indexing and computational geometry optimization to handle massive global datasets.",
+          "Demonstrating practical applications of 3D spherical geometry and global search optimization techniques."
         ]
       },
       "zh": {
-        "title": "地球上水域或陆地的最长直线路径",
-        "hook": "探讨地球表面最长连续直线路径的地理与算法分析趣文。",
+        "title": "地球上最长的水上或陆上直线路径",
+        "hook": "探索在大圆路径与地球椭球体模型上计算不中断的最长航行或步行直线路径的地理信息算法。",
         "key_takeaways": [
-          "探索地球表面的极限距离路径规划",
-          "空间数据与路线计算算法的实际应用",
-          "引人入胜的地理空间数据分析案例"
+          "基于高分辨率地形与海洋数据，计算不穿过陆地（或海洋）的最长连续大圆路径",
+          "结合空间索引与计算几何优化算法，高效处理全球规模的空间数据集",
+          "展示了三维球面几何与全局搜索优化算法在地理信息系统（GIS）中的实际应用"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:22.761129+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
-    "Straight Line Path",
-    "Earth Geography",
-    "Algorithm"
+    "Geodesic Path",
+    "Computational Geometry",
+    "GIS",
+    "Great Circle Distance"
   ],
   "title_en": "Longest Straight Line Paths on Water or Land on the Earth",
-  "title_zh": "地球上水域或陆地的最长直线路径",
+  "title_zh": "地球上最长的水上或陆上直线路径",
   "hook": "지구 표면에서 끊김 없이 갈 수 있는 최장 직선 경로를 다룬 흥미로운 지리 및 알고리즘 분석",
-  "hook_ko": "지구 표면에서 끊김 없이 갈 수 있는 최장 직선 경로를 다룬 흥미로운 지리 및 알고리즘 분석",
-  "hook_en": "An intriguing geographical and algorithmic analysis of the longest continuous straight-line paths on Earth.",
-  "hook_zh": "探讨地球表面最长连续直线路径的地理与算法分析趣文。",
+  "hook_ko": "지구 타원체 모델에서 섬이나 대륙을 통과하지 않고 이동할 수 있는 최장 대권 항로 계산 알고리즘 분석",
+  "hook_en": "Exploring geodesic algorithms that calculate the longest uninterrupted straight-line sailable or walkable paths on Earth's ellipsoid model.",
+  "hook_zh": "探索在大圆路径与地球椭球体模型上计算不中断的最长航行或步行直线路径的地理信息算法。",
   "description_en": "An intriguing geographical and algorithmic analysis of the longest continuous straight-line paths on Earth.",
   "description_zh": "探讨地球表面最长连续直线路径的地理与算法分析趣文。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "지구상에서 육지나 바다를 가로지르는 가장 긴 직진 경로",
+      "hook": "지구 타원체 모델에서 섬이나 대륙을 통과하지 않고 이동할 수 있는 최장 대권 항로 계산 알고리즘 분석",
+      "key_takeaways": [
+        "고해상도 수심 및 지형 데이터를 기반으로 육지/해양을 차단막으로 삼는 최장 대권 경로 탐색",
+        "방대한 글로벌 공간 데이터셋 처리를 위한 공간 인덱싱 및 계산 기하학 최적화 기법 활용",
+        "구면/타원체 지오메트리 계산을 최적화 문제로 전환하여 최단 경로/직선 경로를 도출하는 접근법"
+      ]
+    },
+    "en": {
+      "title": "Longest Straight Line Paths on Water or Land on the Earth",
+      "hook": "Exploring geodesic algorithms that calculate the longest uninterrupted straight-line sailable or walkable paths on Earth's ellipsoid model.",
+      "key_takeaways": [
+        "Calculating the longest continuous great-circle path without hitting land or sea using high-resolution terrain data.",
+        "Leveraging spatial indexing and computational geometry optimization to handle massive global datasets.",
+        "Demonstrating practical applications of 3D spherical geometry and global search optimization techniques."
+      ]
+    },
+    "zh": {
+      "title": "地球上最长的水上或陆上直线路径",
+      "hook": "探索在大圆路径与地球椭球体模型上计算不中断的最长航行或步行直线路径的地理信息算法。",
+      "key_takeaways": [
+        "基于高分辨率地形与海洋数据，计算不穿过陆地（或海洋）的最长连续大圆路径",
+        "结合空间索引与计算几何优化算法，高效处理全球规模的空间数据集",
+        "展示了三维球面几何与全局搜索优化算法在地理信息系统（GIS）中的实际应用"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.899088"
 }

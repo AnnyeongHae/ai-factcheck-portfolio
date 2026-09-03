@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "MiniMax Music3 잼 인터랙티브 AI 음악 생성 데모",
+  "title_ko": "HF Space: MiniMax-Music3-Jam 인터랙티브 음악 생성 데모",
   "description_ko": "최신 MiniMax 음향 모델의 성능을 웹에서 즉시 체험하고 음악 생성 워크플로우를 테스트해보세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,64 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_victorminimax_music3_jam",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "MiniMax",
-    "category": "음성 및 음악 생성",
+    "type_classification": "TECH",
+    "model_family": "MiniMax Music",
+    "category": "Audio & Speech AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "MiniMax-Music3",
-      "Audio Generation",
-      "Gradio"
+      "MiniMax",
+      "Music Generation",
+      "Text-to-Music",
+      "Gradio",
+      "Audio AI"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "MiniMax Music3 잼 인터랙티브 AI 음악 생성 데모",
-        "hook": "최신 MiniMax 음향 모델의 성능을 웹에서 즉시 체험하고 음악 생성 워크플로우를 테스트해보세요.",
+        "title": "HF Space: MiniMax-Music3-Jam 인터랙티브 음악 생성 데모",
+        "hook": "MiniMax의 최신 음악 생성 모델을 Gradio 웹 인터페이스로 직접 체감할 수 있는 AI 데모",
         "key_takeaways": [
-          "Ggradio 기반의 인터랙티브 AI 음악 생성 데모",
-          "MiniMax-Music3 모델의 실시간 오디오 생성 능력 검증",
-          "웹 브라우저를 통한 간편한 인터페이스 제공"
+          "MiniMax-Music3 모델 기반의 고품질 텍스트 기반 음악(Text-to-Music) 합성",
+          "Gradio SDK를 활용해 가사와 스타일 프롬프트를 조합할 수 있는 웹 플레이그라운드 제공",
+          "인공지능 오디오 생성 기술의 실제 응용 가능성 및 성능 검증 인터페이스"
         ]
       },
       "en": {
-        "title": "Interactive AI Music Generation Demo with MiniMax-Music3",
-        "hook": "Instantly experience and test the latest MiniMax audio generation capabilities directly in your browser.",
+        "title": "HF Space: victor/MiniMax-Music3-Jam Interactive Music Generation Demo",
+        "hook": "An interactive Gradio playground demonstrating real-time music synthesis with MiniMax Music models.",
         "key_takeaways": [
-          "Gradio-powered interactive AI music generation demo",
-          "Evaluates real-time audio generation of MiniMax-Music3",
-          "Provides a seamless web browser interface for creators"
+          "High-quality text-to-music generation powered by the MiniMax-Music3 architecture",
+          "User-friendly Gradio web interface supporting dynamic prompt and lyric inputs",
+          "Provides an accessible benchmark for evaluating state-of-the-art AI music synthesis capabilities"
         ]
       },
       "zh": {
-        "title": "基于 MiniMax-Music3 的交互式 AI 音乐生成演示",
-        "hook": "在网页端即时体验最新 MiniMax 音频生成模型，测试其音乐创作能力。",
+        "title": "HF Space: victor/MiniMax-Music3-Jam 交互式 AI 音乐生成 Demo",
+        "hook": "基于 MiniMax 音乐生成模型的 Gradio 交互式 AI 音乐创作与体验空间",
         "key_takeaways": [
-          "基于 Gradio 构建的交互式 AI 音乐生成演示",
-          "验证 MiniMax-Music3 模型的实时音频生成效果",
-          "提供便捷易用的网页端操作界面"
+          "基于 MiniMax-Music3 架构的高质量文本生成音乐（Text-to-Music）演示",
+          "采用 Gradio SDK 构建，支持灵活输入提示词与歌词生成多风格音频",
+          "直观展现前沿 AI 音乐合成模型的实际生成效果与工程交互设计"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:34:00.363435+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "MiniMax-Music3",
-    "Audio Generation",
-    "Gradio"
+    "MiniMax",
+    "Music Generation",
+    "Text-to-Music",
+    "Gradio",
+    "Audio AI"
   ],
-  "title_en": "Interactive AI Music Generation Demo with MiniMax-Music3",
-  "title_zh": "基于 MiniMax-Music3 的交互式 AI 音乐生成演示",
+  "title_en": "HF Space: victor/MiniMax-Music3-Jam Interactive Music Generation Demo",
+  "title_zh": "HF Space: victor/MiniMax-Music3-Jam 交互式 AI 音乐生成 Demo",
   "hook": "최신 MiniMax 음향 모델의 성능을 웹에서 즉시 체험하고 음악 생성 워크플로우를 테스트해보세요.",
-  "hook_ko": "최신 MiniMax 음향 모델의 성능을 웹에서 즉시 체험하고 음악 생성 워크플로우를 테스트해보세요.",
-  "hook_en": "Instantly experience and test the latest MiniMax audio generation capabilities directly in your browser.",
-  "hook_zh": "在网页端即时体验最新 MiniMax 音频生成模型，测试其音乐创作能力。",
+  "hook_ko": "MiniMax의 최신 음악 생성 모델을 Gradio 웹 인터페이스로 직접 체감할 수 있는 AI 데모",
+  "hook_en": "An interactive Gradio playground demonstrating real-time music synthesis with MiniMax Music models.",
+  "hook_zh": "基于 MiniMax 音乐生成模型的 Gradio 交互式 AI 音乐创作与体验空间",
   "description_en": "Instantly experience and test the latest MiniMax audio generation capabilities directly in your browser.",
   "description_zh": "在网页端即时体验最新 MiniMax 音频生成模型，测试其音乐创作能力。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: MiniMax-Music3-Jam 인터랙티브 음악 생성 데모",
+      "hook": "MiniMax의 최신 음악 생성 모델을 Gradio 웹 인터페이스로 직접 체감할 수 있는 AI 데모",
+      "key_takeaways": [
+        "MiniMax-Music3 모델 기반의 고품질 텍스트 기반 음악(Text-to-Music) 합성",
+        "Gradio SDK를 활용해 가사와 스타일 프롬프트를 조합할 수 있는 웹 플레이그라운드 제공",
+        "인공지능 오디오 생성 기술의 실제 응용 가능성 및 성능 검증 인터페이스"
+      ]
+    },
+    "en": {
+      "title": "HF Space: victor/MiniMax-Music3-Jam Interactive Music Generation Demo",
+      "hook": "An interactive Gradio playground demonstrating real-time music synthesis with MiniMax Music models.",
+      "key_takeaways": [
+        "High-quality text-to-music generation powered by the MiniMax-Music3 architecture",
+        "User-friendly Gradio web interface supporting dynamic prompt and lyric inputs",
+        "Provides an accessible benchmark for evaluating state-of-the-art AI music synthesis capabilities"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: victor/MiniMax-Music3-Jam 交互式 AI 音乐生成 Demo",
+      "hook": "基于 MiniMax 音乐生成模型的 Gradio 交互式 AI 音乐创作与体验空间",
+      "key_takeaways": [
+        "基于 MiniMax-Music3 架构的高质量文本生成音乐（Text-to-Music）演示",
+        "采用 Gradio SDK 构建，支持灵活输入提示词与歌词生成多风格音频",
+        "直观展现前沿 AI 音乐合成模型的实际生成效果与工程交互设计"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.843208"
 }

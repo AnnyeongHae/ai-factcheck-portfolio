@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "디퓨전 언어 모델(Diffusion Language Model)을 구축하는 방법",
+  "title_ko": "디퓨전 언어 모델(Diffusion Language Model) 구축 방법",
   "description_ko": "기존 자기회귀(Autoregressive) 방식과 다른 확산 모델 기반 언어 모델의 원리 구현 가이드",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -52,63 +52,96 @@
     "id": "2026-08-31_sns_hacker_news_how_to_build_a_diffusion_lan",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "생성형 AI 및 언어 모델",
+    "model_family": "Diffusion Models",
+    "category": "Natural Language Processing",
     "programming_lang": "Python",
     "root_keywords": [
-      "Diffusion Model",
-      "Language Model",
-      "Generative AI"
+      "diffusion language model",
+      "discrete diffusion",
+      "generative AI",
+      "text generation",
+      "differentiable masking"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "디퓨전 언어 모델(Diffusion Language Model)을 구축하는 방법",
-        "hook": "기존 자기회귀(Autoregressive) 방식과 다른 확산 모델 기반 언어 모델의 원리 구현 가이드",
+        "title": "디퓨전 언어 모델(Diffusion Language Model) 구축 방법",
+        "hook": "기존 자동회귀(Autoregressive) 방식을 대체하는 디퓨전 기반 언어 모델의 메커니즘과 구현 방식을 설명하는 가이드",
         "key_takeaways": [
-          "텍스트 생성에 디퓨전 프로세스를 적용하는 수학적·구조적 원리",
-          "기존 자기회귀 LLM과의 아키텍처 차이점 비교",
-          "비동기식 병렬 토큰 생성을 위한 구현 접근법"
+          "이산적 텍스트 데이터를 처리하기 위한 디퓨전 프로세스 및 디노이징 모델링 기법",
+          "자동회귀(AR) 모델과 디퓨전 언어 모델 간의 병렬 생성 성능 및 품질 차이 분석",
+          "노이즈 스케줄링, 디코딩 전략 및 실제 구현 코드 안내"
         ]
       },
       "en": {
-        "title": "How to build a diffusion language model",
-        "hook": "An implementation guide on understanding and building language models based on diffusion processes instead of autoregression.",
+        "title": "How to Build a Diffusion Language Model",
+        "hook": "A practical technical breakdown of designing and training diffusion-based language models as alternatives to autoregressive architectures",
         "key_takeaways": [
-          "Mathematical and structural principles of applying diffusion to text",
-          "Architectural differences compared to traditional autoregressive LLMs",
-          "Implementation approaches for parallel non-autoregressive token generation"
+          "Adapting continuous diffusion frameworks to discrete text token spaces",
+          "Comparing parallel generation capabilities and trade-offs between AR and Diffusion LMs",
+          "Hands-on architectural guidance covering noise schedules, denoising transformers, and sampling"
         ]
       },
       "zh": {
         "title": "如何构建扩散语言模型 (Diffusion Language Model)",
-        "hook": "深入探讨并实现基于扩散过程而非自回归机制的创新语言模型架构。",
+        "hook": "探索替代传统自回归架构的扩散语言模型设计原理与具体实现指南",
         "key_takeaways": [
-          "将扩散过程应用于文本生成的数学与结构原理",
-          "与传统自回归 LLM 的架构对比",
-          "实现并行非自回归文本生成的底层方法"
+          "将连续扩散框架应用于离散文本 Token 空间的技术方法",
+          "对比自回归 (AR) 模型与扩散语言模型在并行生成与性能上的优劣",
+          "涵盖噪声调度、去噪 Transformer 架构及采样解码策略的实践指导"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:22.764877+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Diffusion Model",
-    "Language Model",
-    "Generative AI"
+    "diffusion language model",
+    "discrete diffusion",
+    "generative AI",
+    "text generation",
+    "differentiable masking"
   ],
-  "title_en": "How to build a diffusion language model",
+  "title_en": "How to Build a Diffusion Language Model",
   "title_zh": "如何构建扩散语言模型 (Diffusion Language Model)",
   "hook": "기존 자기회귀(Autoregressive) 방식과 다른 확산 모델 기반 언어 모델의 원리 구현 가이드",
-  "hook_ko": "기존 자기회귀(Autoregressive) 방식과 다른 확산 모델 기반 언어 모델의 원리 구현 가이드",
-  "hook_en": "An implementation guide on understanding and building language models based on diffusion processes instead of autoregression.",
-  "hook_zh": "深入探讨并实现基于扩散过程而非自回归机制的创新语言模型架构。",
+  "hook_ko": "기존 자동회귀(Autoregressive) 방식을 대체하는 디퓨전 기반 언어 모델의 메커니즘과 구현 방식을 설명하는 가이드",
+  "hook_en": "A practical technical breakdown of designing and training diffusion-based language models as alternatives to autoregressive architectures",
+  "hook_zh": "探索替代传统自回归架构的扩散语言模型设计原理与具体实现指南",
   "description_en": "An implementation guide on understanding and building language models based on diffusion processes instead of autoregression.",
   "description_zh": "深入探讨并实现基于扩散过程而非自回归机制的创新语言模型架构。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "디퓨전 언어 모델(Diffusion Language Model) 구축 방법",
+      "hook": "기존 자동회귀(Autoregressive) 방식을 대체하는 디퓨전 기반 언어 모델의 메커니즘과 구현 방식을 설명하는 가이드",
+      "key_takeaways": [
+        "이산적 텍스트 데이터를 처리하기 위한 디퓨전 프로세스 및 디노이징 모델링 기법",
+        "자동회귀(AR) 모델과 디퓨전 언어 모델 간의 병렬 생성 성능 및 품질 차이 분석",
+        "노이즈 스케줄링, 디코딩 전략 및 실제 구현 코드 안내"
+      ]
+    },
+    "en": {
+      "title": "How to Build a Diffusion Language Model",
+      "hook": "A practical technical breakdown of designing and training diffusion-based language models as alternatives to autoregressive architectures",
+      "key_takeaways": [
+        "Adapting continuous diffusion frameworks to discrete text token spaces",
+        "Comparing parallel generation capabilities and trade-offs between AR and Diffusion LMs",
+        "Hands-on architectural guidance covering noise schedules, denoising transformers, and sampling"
+      ]
+    },
+    "zh": {
+      "title": "如何构建扩散语言模型 (Diffusion Language Model)",
+      "hook": "探索替代传统自回归架构的扩散语言模型设计原理与具体实现指南",
+      "key_takeaways": [
+        "将连续扩散框架应用于离散文本 Token 空间的技术方法",
+        "对比自回归 (AR) 模型与扩散语言模型在并行生成与性能上的优劣",
+        "涵盖噪声调度、去噪 Transformer 架构及采样解码策略的实践指导"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.896553"
 }

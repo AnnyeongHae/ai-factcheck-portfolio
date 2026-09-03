@@ -32,67 +32,100 @@
   "ai_enrichment": {
     "id": "2026-09-01_repo_github_damejan80tokentab",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "LLM 비용 모니터링 및 CLI 도구",
-    "programming_lang": "Python",
+    "type_classification": "TECH",
+    "model_family": "LLM Analytics & Operations",
+    "category": "Developer Tools",
+    "programming_lang": "General",
     "root_keywords": [
-      "CLI",
-      "Cost Optimization",
-      "Claude Code"
+      "LLM Cost Calculator",
+      "Claude Code",
+      "Codex",
+      "Gemini CLI",
+      "Token Usage Tracking"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "TokenTab: Claude Code 및 다양한 CLI 도구의 토큰 사용량과 비용을 추적하는 CLI",
-        "hook": "개발 중 무심코 소모되는 LLM API 비용을 모델별, 프로젝트별, 일별로 정확하게 파악하세요.",
+        "title": "tokentab: Claude Code, Codex, Gemini CLI 세션 로그 기반 LLM 비용 분석 CLI",
+        "hook": "AI 코딩 어시스턴트 세션 로그를 분석해 모델, 프로젝트, 일별 토큰 비용을 산출해 주는 개발자 필수 CLI 도구",
         "key_takeaways": [
-          "Claude Code, Codex, Gemini CLI 세션 로그 자동 분석",
-          "모델별, 프로젝트별, 일별 비용 산출 및 시각화",
-          "개발자 비용 절감을 위한 가벼운 CLI 인터페이스 제공"
+          "Claude Code, Codex, Gemini CLI의 세션 로그 자동 추적 및 비용 산출",
+          "모델별, 프로젝트별, 일자별 사용금액 및 토큰 소모량 상세 분석 지원",
+          "개발자 개인 및 팀 단위의 AI 인프라 비용 추적 및 지출 최적화에 유용"
         ]
       },
       "en": {
-        "title": "TokenTab: A CLI to Track Token Usage and Costs for Claude Code and CLI Tools",
-        "hook": "Instantly calculate your LLM session expenses across models, projects, and days to prevent hidden API cost spikes.",
+        "title": "tokentab: CLI Tool to Calculate LLM Costs from Claude Code, Codex, and Gemini CLI Session Logs",
+        "hook": "A practical CLI tool that parses session logs from AI coding assistants to break down costs by model, project, and date.",
         "key_takeaways": [
-          "Parses session logs from Claude Code, Codex, and Gemini CLI",
-          "Breaks down costs by model, project, and daily usage",
-          "Lightweight CLI tool designed for developer cost efficiency"
+          "Automatically parses session logs from Claude Code, Codex, and Gemini CLI",
+          "Provides structured cost breakdowns filtered by model, project, and day",
+          "Helps developers and engineering teams track and control LLM consumption expenditures"
         ]
       },
       "zh": {
-        "title": "TokenTab：用于追踪 Claude Code 等 CLI 工具Token消耗与成本的命令行工具",
-        "hook": "精准统计多模型、多项目、每日的 LLM 开发成本，告别 API 费用失控。",
+        "title": "tokentab：基于 Claude Code、Codex 与 Gemini CLI 会话日志的 LLM 成本统计 CLI 工具",
+        "hook": "通过解析 AI 编码助手会话日志，按模型、项目和日期精准统计 LLM 使用成本的终端命令行工具。",
         "key_takeaways": [
-          "自动读取 Claude Code、Codex 和 Gemini CLI 的会话日志",
-          "按模型、项目和日期详细拆解和计算费用",
-          "专为开发者设计的轻量级成本监控 CLI 工具"
+          "自动解析 Claude Code、Codex 和 Gemini CLI 的本地会话日志",
+          "按模型、项目与日期维度统计 Token 消耗并计算具体费用",
+          "帮助开发者与团队清晰掌控 AI 工具使用开支，优化 API 成本"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:06.254449+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
-    "CLI",
-    "Cost Optimization",
-    "Claude Code"
+    "LLM Cost Calculator",
+    "Claude Code",
+    "Codex",
+    "Gemini CLI",
+    "Token Usage Tracking"
   ],
-  "title_ko": "TokenTab: Claude Code 및 다양한 CLI 도구의 토큰 사용량과 비용을 추적하는 CLI",
-  "title_en": "TokenTab: A CLI to Track Token Usage and Costs for Claude Code and CLI Tools",
-  "title_zh": "TokenTab：用于追踪 Claude Code 等 CLI 工具Token消耗与成本的命令行工具",
+  "title_ko": "tokentab: Claude Code, Codex, Gemini CLI 세션 로그 기반 LLM 비용 분석 CLI",
+  "title_en": "tokentab: CLI Tool to Calculate LLM Costs from Claude Code, Codex, and Gemini CLI Session Logs",
+  "title_zh": "tokentab：基于 Claude Code、Codex 与 Gemini CLI 会话日志的 LLM 成本统计 CLI 工具",
   "hook": "개발 중 무심코 소모되는 LLM API 비용을 모델별, 프로젝트별, 일별로 정확하게 파악하세요.",
-  "hook_ko": "개발 중 무심코 소모되는 LLM API 비용을 모델별, 프로젝트별, 일별로 정확하게 파악하세요.",
-  "hook_en": "Instantly calculate your LLM session expenses across models, projects, and days to prevent hidden API cost spikes.",
-  "hook_zh": "精准统计多模型、多项目、每日的 LLM 开发成本，告别 API 费用失控。",
+  "hook_ko": "AI 코딩 어시스턴트 세션 로그를 분석해 모델, 프로젝트, 일별 토큰 비용을 산출해 주는 개발자 필수 CLI 도구",
+  "hook_en": "A practical CLI tool that parses session logs from AI coding assistants to break down costs by model, project, and date.",
+  "hook_zh": "通过解析 AI 编码助手会话日志，按模型、项目和日期精准统计 LLM 使用成本的终端命令行工具。",
   "description_ko": "개발 중 무심코 소모되는 LLM API 비용을 모델별, 프로젝트별, 일별로 정확하게 파악하세요.",
   "description_en": "Instantly calculate your LLM session expenses across models, projects, and days to prevent hidden API cost spikes.",
   "description_zh": "精准统计多模型、多项目、每日的 LLM 开发成本，告别 API 费用失控。",
   "category_type": "AGENT",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "tokentab: Claude Code, Codex, Gemini CLI 세션 로그 기반 LLM 비용 분석 CLI",
+      "hook": "AI 코딩 어시스턴트 세션 로그를 분석해 모델, 프로젝트, 일별 토큰 비용을 산출해 주는 개발자 필수 CLI 도구",
+      "key_takeaways": [
+        "Claude Code, Codex, Gemini CLI의 세션 로그 자동 추적 및 비용 산출",
+        "모델별, 프로젝트별, 일자별 사용금액 및 토큰 소모량 상세 분석 지원",
+        "개발자 개인 및 팀 단위의 AI 인프라 비용 추적 및 지출 최적화에 유용"
+      ]
+    },
+    "en": {
+      "title": "tokentab: CLI Tool to Calculate LLM Costs from Claude Code, Codex, and Gemini CLI Session Logs",
+      "hook": "A practical CLI tool that parses session logs from AI coding assistants to break down costs by model, project, and date.",
+      "key_takeaways": [
+        "Automatically parses session logs from Claude Code, Codex, and Gemini CLI",
+        "Provides structured cost breakdowns filtered by model, project, and day",
+        "Helps developers and engineering teams track and control LLM consumption expenditures"
+      ]
+    },
+    "zh": {
+      "title": "tokentab：基于 Claude Code、Codex 与 Gemini CLI 会话日志的 LLM 成本统计 CLI 工具",
+      "hook": "通过解析 AI 编码助手会话日志，按模型、项目和日期精准统计 LLM 使用成本的终端命令行工具。",
+      "key_takeaways": [
+        "自动解析 Claude Code、Codex 和 Gemini CLI 的本地会话日志",
+        "按模型、项目与日期维度统计 Token 消耗并计算具体费用",
+        "帮助开发者与团队清晰掌控 AI 工具使用开支，优化 API 成本"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.952095"
 }

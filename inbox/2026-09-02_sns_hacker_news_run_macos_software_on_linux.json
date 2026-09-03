@@ -36,66 +36,99 @@
     "id": "2026-09-02_sns_hacker_news_run_macos_software_on_linux",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "OS 가상화 및 호환성",
-    "programming_lang": "C++",
+    "model_family": "Operating Systems & Emulation",
+    "category": "System Software",
+    "programming_lang": "C/C++",
     "root_keywords": [
       "macOS",
       "Linux",
-      "Compatibility"
+      "Darwin",
+      "Emulation",
+      "Compatibility Layer"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "리눅스 환경에서 macOS 소프트웨어를 구동하는 기술적 접근",
-        "hook": "리눅스 시스템 네이티브 환경에서 macOS 전용 소프트웨어를 실행할 수 있게 만드는 흥미롭고 심도 있는 기술입니다.",
+        "title": "Linux에서 macOS 소프트웨어 실행하기",
+        "hook": "Linux 환경에서 macOS 바이너리를 직접 실행하기 위한 호환성 레이어 및 기술적 접근 방식",
         "key_takeaways": [
-          "리눅스와 macOS 간의 바이너리 호환성 및 레이어 분석",
-          "가상화가닌 에뮬레이션 또는 호환 레이어 접근법",
-          "크로스 플랫폼 개발 및 시스템 엔지니어링의 새로운 가능성"
+          "Mach-O 바이너리를 Linux 커널 상에서 변환 및 실행하는 기술 구조",
+          "Cocoa 및 CoreFoundation 등 macOS 전용 프레임워크의 매핑과 구현 과제",
+          "Linux 생태계에서 macOS 독점 생산성 애플리케이션 활용 가능성"
         ]
       },
       "en": {
-        "title": "Running macOS Software on Linux: Technical Deep Dive",
-        "hook": "An intriguing and deep technical approach enabling macOS-exclusive software to run natively on Linux systems.",
+        "title": "Run macOS Software on Linux",
+        "hook": "Exploring compatibility layers and translation technologies to execute native macOS binaries on Linux.",
         "key_takeaways": [
-          "Analysis of binary compatibility and layers between Linux and macOS",
-          "Emulation or compatibility layer approach rather than full virtualization",
-          "New possibilities for cross-platform development and systems engineering"
+          "Translating Mach-O binaries to run natively on the Linux kernel.",
+          "Engineering challenges in mapping Cocoa and CoreFoundation frameworks to Linux equivalents.",
+          "Unlocking macOS-exclusive productivity software for Linux power users."
         ]
       },
       "zh": {
-        "title": "在 Linux 上运行 macOS 软件的技术探索",
-        "hook": "一项令人瞩目的深度技术，使 macOS 专属软件能够在 Linux 系统上原生运行。",
+        "title": "在 Linux 上运行 macOS 软件",
+        "hook": "探索在 Linux 上直接运行原生 macOS 二进制文件的兼容层与翻译技术。",
         "key_takeaways": [
-          "分析 Linux 与 macOS 之间的二进制兼容性与兼容层",
-          "采用模拟或兼容层方法而非完全虚拟化",
-          "为跨平台开发和系统工程开辟新可能"
+          "在 Linux 内核上转换并直接运行 Mach-O 二进制文件的实现机制",
+          "映射 Cocoa 和 CoreFoundation 等 macOS 专属框架的技术难点与突破",
+          "为 Linux 用户在 Linux 生态中运行 macOS 独占软件提供可行方案"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:54:18.008399+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "C++",
+  "programming_lang": "C/C++",
   "root_keywords": [
     "macOS",
     "Linux",
-    "Compatibility"
+    "Darwin",
+    "Emulation",
+    "Compatibility Layer"
   ],
-  "title_ko": "리눅스 환경에서 macOS 소프트웨어를 구동하는 기술적 접근",
-  "title_en": "Running macOS Software on Linux: Technical Deep Dive",
-  "title_zh": "在 Linux 上运行 macOS 软件的技术探索",
+  "title_ko": "Linux에서 macOS 소프트웨어 실행하기",
+  "title_en": "Run macOS Software on Linux",
+  "title_zh": "在 Linux 上运行 macOS 软件",
   "hook": "리눅스 시스템 네이티브 환경에서 macOS 전용 소프트웨어를 실행할 수 있게 만드는 흥미롭고 심도 있는 기술입니다.",
-  "hook_ko": "리눅스 시스템 네이티브 환경에서 macOS 전용 소프트웨어를 실행할 수 있게 만드는 흥미롭고 심도 있는 기술입니다.",
-  "hook_en": "An intriguing and deep technical approach enabling macOS-exclusive software to run natively on Linux systems.",
-  "hook_zh": "一项令人瞩目的深度技术，使 macOS 专属软件能够在 Linux 系统上原生运行。",
+  "hook_ko": "Linux 환경에서 macOS 바이너리를 직접 실행하기 위한 호환성 레이어 및 기술적 접근 방식",
+  "hook_en": "Exploring compatibility layers and translation technologies to execute native macOS binaries on Linux.",
+  "hook_zh": "探索在 Linux 上直接运行原生 macOS 二进制文件的兼容层与翻译技术。",
   "description_ko": "리눅스 시스템 네이티브 환경에서 macOS 전용 소프트웨어를 실행할 수 있게 만드는 흥미롭고 심도 있는 기술입니다.",
   "description_en": "An intriguing and deep technical approach enabling macOS-exclusive software to run natively on Linux systems.",
   "description_zh": "一项令人瞩目的深度技术，使 macOS 专属软件能够在 Linux 系统上原生运行。",
   "category_type": "TECH",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Linux에서 macOS 소프트웨어 실행하기",
+      "hook": "Linux 환경에서 macOS 바이너리를 직접 실행하기 위한 호환성 레이어 및 기술적 접근 방식",
+      "key_takeaways": [
+        "Mach-O 바이너리를 Linux 커널 상에서 변환 및 실행하는 기술 구조",
+        "Cocoa 및 CoreFoundation 등 macOS 전용 프레임워크의 매핑과 구현 과제",
+        "Linux 생태계에서 macOS 독점 생산성 애플리케이션 활용 가능성"
+      ]
+    },
+    "en": {
+      "title": "Run macOS Software on Linux",
+      "hook": "Exploring compatibility layers and translation technologies to execute native macOS binaries on Linux.",
+      "key_takeaways": [
+        "Translating Mach-O binaries to run natively on the Linux kernel.",
+        "Engineering challenges in mapping Cocoa and CoreFoundation frameworks to Linux equivalents.",
+        "Unlocking macOS-exclusive productivity software for Linux power users."
+      ]
+    },
+    "zh": {
+      "title": "在 Linux 上运行 macOS 软件",
+      "hook": "探索在 Linux 上直接运行原生 macOS 二进制文件的兼容层与翻译技术。",
+      "key_takeaways": [
+        "在 Linux 内核上转换并直接运行 Mach-O 二进制文件的实现机制",
+        "映射 Cocoa 和 CoreFoundation 等 macOS 专属框架的技术难点与突破",
+        "为 Linux 用户在 Linux 生态中运行 macOS 独占软件提供可行方案"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.101232"
 }

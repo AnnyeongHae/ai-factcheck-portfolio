@@ -23,7 +23,7 @@
     "Fine-tune / Uncensored"
   ],
   "category_type": "MODEL",
-  "title_ko": "orcarouter/Qwen3.8-27B-Uncensored-FP8 모델 공개",
+  "title_ko": "orcarouter/Qwen3.8-27B-Uncensored-FP8: 제약 없는 FP8 양자화 시각-언어 모델",
   "description_ko": "검열이 해제된 Qwen3.8 27B 모델을 FP8 양자화로 가볍고 빠르게 서빙하고 싶다면 지금 확인하세요.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "OrcaRouter Community",
@@ -48,66 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_orcarouterqwen38_27b_uncensored_f",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "LLM 추론 최적화",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "Qwen-3.8",
-      "FP8",
-      "Uncensored",
-      "Hugging Face"
+      "Qwen",
+      "FP8 Quantization",
+      "Uncensored Model",
+      "Vision-Language",
+      "Multimodal"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.5,
+    "worth_score": 4.6,
     "multilingual": {
       "ko": {
-        "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8 모델 공개",
-        "hook": "검열이 해제된 Qwen3.8 27B 모델을 FP8 양자화로 가볍고 빠르게 서빙하고 싶다면 지금 확인하세요.",
+        "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8: 제약 없는 FP8 양자화 시각-언어 모델",
+        "hook": "높은 효율의 FP8 양자화가 적용된 27B 규모의 멀티모달 무검열 모델",
         "key_takeaways": [
-          "Qwen3.8 아키텍처 기반의 27B 파라미터 모델",
-          "FP8 양자화 적용으로 VRAM 사용량 대폭 절감",
-          "검열이 해제되어 다양한 도메인에서 자유로운 활용 가능"
+          "31만 건 이상의 다운로드를 기록하며 높은 활용성을 보인 FP8 양자화 모델",
+          "이미지와 텍스트 입력(image-text-to-text)을 모두 지원하는 27B 대규모 시각-언어 모델",
+          "안전성 가이드라인으로 인한 거절 응답을 최소화한 Uncensored 버전"
         ]
       },
       "en": {
-        "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8 Model Release",
-        "hook": "Deploy the uncensored Qwen3.8 27B model efficiently with FP8 quantization for high-speed inference.",
+        "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8: Uncensored FP8 Quantized Vision-Language Model",
+        "hook": "A highly efficient 27B parameter uncensored multimodal model utilizing FP8 precision.",
         "key_takeaways": [
-          "27B parameter model built on the Qwen3.8 architecture",
-          "Significantly reduced VRAM footprint via FP8 quantization",
-          "Uncensored weights for unrestricted task execution"
+          "High adoption with over 310K downloads, optimized via FP8 precision quantization.",
+          "Supports multimodal image-text-to-text pipeline based on the Qwen architecture.",
+          "Designed without safety alignment filters for unrestricted generation tasks."
         ]
       },
       "zh": {
-        "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8 模型发布",
-        "hook": "通过 FP8 量化技术高效部署无审查的 Qwen3.8 27B 模型，兼顾性能与速度。",
+        "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8: 无限制 FP8 量化多模态视觉语言模型",
+        "hook": "兼具高效能与高自由度、基于 FP8 量化的 27B 多模态无审查模型",
         "key_takeaways": [
-          "基于 Qwen3.8 架构的 27B 参数大模型",
-          "应用 FP8 量化，大幅降低显存占用",
-          "去除审查限制，适用于更多样化的任务场景"
+          "获得超过 31 万次下载，采用 FP8 量化以大幅降低显存占用与推理延迟",
+          "支持图像与文本双重输入的 27B 规模 image-text-to-text 管道",
+          "移除安全审查限制，为特定无干预生成场景提供更大自由度"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:33:11.837105+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Qwen-3.8",
-    "FP8",
-    "Uncensored",
-    "Hugging Face"
+    "Qwen",
+    "FP8 Quantization",
+    "Uncensored Model",
+    "Vision-Language",
+    "Multimodal"
   ],
-  "title_en": "orcarouter/Qwen3.8-27B-Uncensored-FP8 Model Release",
-  "title_zh": "orcarouter/Qwen3.8-27B-Uncensored-FP8 模型发布",
+  "title_en": "orcarouter/Qwen3.8-27B-Uncensored-FP8: Uncensored FP8 Quantized Vision-Language Model",
+  "title_zh": "orcarouter/Qwen3.8-27B-Uncensored-FP8: 无限制 FP8 量化多模态视觉语言模型",
   "hook": "검열이 해제된 Qwen3.8 27B 모델을 FP8 양자화로 가볍고 빠르게 서빙하고 싶다면 지금 확인하세요.",
-  "hook_ko": "검열이 해제된 Qwen3.8 27B 모델을 FP8 양자화로 가볍고 빠르게 서빙하고 싶다면 지금 확인하세요.",
-  "hook_en": "Deploy the uncensored Qwen3.8 27B model efficiently with FP8 quantization for high-speed inference.",
-  "hook_zh": "通过 FP8 量化技术高效部署无审查的 Qwen3.8 27B 模型，兼顾性能与速度。",
+  "hook_ko": "높은 효율의 FP8 양자화가 적용된 27B 규모의 멀티모달 무검열 모델",
+  "hook_en": "A highly efficient 27B parameter uncensored multimodal model utilizing FP8 precision.",
+  "hook_zh": "兼具高效能与高自由度、基于 FP8 量化的 27B 多模态无审查模型",
   "description_en": "Deploy the uncensored Qwen3.8 27B model efficiently with FP8 quantization for high-speed inference.",
   "description_zh": "通过 FP8 量化技术高效部署无审查的 Qwen3.8 27B 模型，兼顾性能与速度。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8: 제약 없는 FP8 양자화 시각-언어 모델",
+      "hook": "높은 효율의 FP8 양자화가 적용된 27B 규모의 멀티모달 무검열 모델",
+      "key_takeaways": [
+        "31만 건 이상의 다운로드를 기록하며 높은 활용성을 보인 FP8 양자화 모델",
+        "이미지와 텍스트 입력(image-text-to-text)을 모두 지원하는 27B 대규모 시각-언어 모델",
+        "안전성 가이드라인으로 인한 거절 응답을 최소화한 Uncensored 버전"
+      ]
+    },
+    "en": {
+      "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8: Uncensored FP8 Quantized Vision-Language Model",
+      "hook": "A highly efficient 27B parameter uncensored multimodal model utilizing FP8 precision.",
+      "key_takeaways": [
+        "High adoption with over 310K downloads, optimized via FP8 precision quantization.",
+        "Supports multimodal image-text-to-text pipeline based on the Qwen architecture.",
+        "Designed without safety alignment filters for unrestricted generation tasks."
+      ]
+    },
+    "zh": {
+      "title": "orcarouter/Qwen3.8-27B-Uncensored-FP8: 无限制 FP8 量化多模态视觉语言模型",
+      "hook": "兼具高效能与高自由度、基于 FP8 量化的 27B 多模态无审查模型",
+      "key_takeaways": [
+        "获得超过 31 万次下载，采用 FP8 量化以大幅降低显存占用与推理延迟",
+        "支持图像与文本双重输入的 27B 规模 image-text-to-text 管道",
+        "移除安全审查限制，为特定无干预生成场景提供更大自由度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.868635"
 }

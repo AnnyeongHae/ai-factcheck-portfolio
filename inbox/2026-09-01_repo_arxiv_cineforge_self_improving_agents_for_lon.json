@@ -33,67 +33,100 @@
   "ai_enrichment": {
     "id": "2026-09-01_repo_arxiv_cineforge_self_improving_agents_for_lon",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "영상 제작",
+    "type_classification": "TECH",
+    "model_family": "Agentic AI",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
       "Video Generation",
-      "Self-Improving Agents",
-      "Long-Horizon"
+      "AI Agents",
+      "Self-Improvement",
+      "Long-Horizon Planning",
+      "CineForge"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "CineForge: 장편 비디오 생성을 위한 자기 개선형 에이전트",
-        "hook": "서사 분해부터 렌더링까지 자동화하는 장편 비디오 생성 프로덕션 에이전트의 혁신적 접근법을 확인하세요.",
+        "title": "CineForge: 장기 비디오 생성을 위한 자가 개선 에이전트",
+        "hook": "내러티브 분해, 숏 설계, 렌더링을 조율하여 장편 스토리 기반 영상을 생성하는 자가 개선 AI 에이전트 프레임워크",
         "key_takeaways": [
-          "내러티브 분해 및 상태 추적을 위한 멀티 에이전트 조율",
-          "숏 디자인과 프롬프트 구성을 통합한 자동화 파이프라인",
-          "자기 개선 메커니즘을 통한 렌더링 및 수정 품질 향상"
+          "스토리 분해, 상태 추적, 숏 설계 및 연출 전반을 조율하는 엔드투엔드 비디오 프로덕션 에이전트",
+          "피드백 루프를 통해 프롬프트와 렌더링 결과를 반복적으로 수정하는 자가 개선(Self-Improving) 메커니즘",
+          "장기 비디오 생성 시 발생하는 서사적 일관성 및 시각적 상태 유지 문제 해결"
         ]
       },
       "en": {
         "title": "CineForge: Self-Improving Agents for Long-Horizon Video Generation",
-        "hook": "Discover how a production agent coordinates narrative decomposition, rendering, and revision for long-horizon video generation.",
+        "hook": "A self-improving AI agent framework coordinating narrative decomposition, shot design, and rendering for long-form video generation.",
         "key_takeaways": [
-          "Multi-agent coordination for narrative decomposition and state tracking",
-          "Automated pipeline integrating shot design and prompt construction",
-          "Self-improving mechanism to enhance rendering and revision quality"
+          "Coordinates end-to-end video production workflows including story decomposition, state tracking, and shot design.",
+          "Utilizes self-improving agentic mechanisms to iteratively revise prompts and rendered video outputs.",
+          "Addresses narrative consistency and temporal continuity challenges in long-horizon story-driven generation."
         ]
       },
       "zh": {
-        "title": "CineForge：用于长周期视频生成的自我改进智能体",
-        "hook": "了解如何通过生产智能体协调叙事分解、渲染和修订，实现长周期故事驱动的视频生成。",
+        "title": "CineForge：用于长时序视频生成的自我改进智能体",
+        "hook": "通过协调叙事分解、分镜设计与渲染，实现长时序故事驱动视频生成的自我改进 AI 智能体",
         "key_takeaways": [
-          "多智能体协同进行叙事分解与状态追踪",
-          "集成镜头设计与提示词构建的自动化流水线",
-          "通过自我改进机制提升渲染和修改质量"
+          "协调包括故事分解、状态跟踪和分镜设计在内的端到端视频制作工作流",
+          "利用自我改进智能体机制迭代修改提示词和渲染出的视频输出",
+          "解决长时序故事生成中的叙事一致性与视觉连贯性挑战"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:21.827458+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Video Generation",
-    "Self-Improving Agents",
-    "Long-Horizon"
+    "AI Agents",
+    "Self-Improvement",
+    "Long-Horizon Planning",
+    "CineForge"
   ],
-  "title_ko": "CineForge: 장편 비디오 생성을 위한 자기 개선형 에이전트",
+  "title_ko": "CineForge: 장기 비디오 생성을 위한 자가 개선 에이전트",
   "title_en": "CineForge: Self-Improving Agents for Long-Horizon Video Generation",
-  "title_zh": "CineForge：用于长周期视频生成的自我改进智能体",
+  "title_zh": "CineForge：用于长时序视频生成的自我改进智能体",
   "hook": "서사 분해부터 렌더링까지 자동화하는 장편 비디오 생성 프로덕션 에이전트의 혁신적 접근법을 확인하세요.",
-  "hook_ko": "서사 분해부터 렌더링까지 자동화하는 장편 비디오 생성 프로덕션 에이전트의 혁신적 접근법을 확인하세요.",
-  "hook_en": "Discover how a production agent coordinates narrative decomposition, rendering, and revision for long-horizon video generation.",
-  "hook_zh": "了解如何通过生产智能体协调叙事分解、渲染和修订，实现长周期故事驱动的视频生成。",
+  "hook_ko": "내러티브 분해, 숏 설계, 렌더링을 조율하여 장편 스토리 기반 영상을 생성하는 자가 개선 AI 에이전트 프레임워크",
+  "hook_en": "A self-improving AI agent framework coordinating narrative decomposition, shot design, and rendering for long-form video generation.",
+  "hook_zh": "通过协调叙事分解、分镜设计与渲染，实现长时序故事驱动视频生成的自我改进 AI 智能体",
   "description_ko": "서사 분해부터 렌더링까지 자동화하는 장편 비디오 생성 프로덕션 에이전트의 혁신적 접근법을 확인하세요.",
   "description_en": "Discover how a production agent coordinates narrative decomposition, rendering, and revision for long-horizon video generation.",
   "description_zh": "了解如何通过生产智能体协调叙事分解、渲染和修订，实现长周期故事驱动的视频生成。",
   "category_type": "AGENT",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "CineForge: 장기 비디오 생성을 위한 자가 개선 에이전트",
+      "hook": "내러티브 분해, 숏 설계, 렌더링을 조율하여 장편 스토리 기반 영상을 생성하는 자가 개선 AI 에이전트 프레임워크",
+      "key_takeaways": [
+        "스토리 분해, 상태 추적, 숏 설계 및 연출 전반을 조율하는 엔드투엔드 비디오 프로덕션 에이전트",
+        "피드백 루프를 통해 프롬프트와 렌더링 결과를 반복적으로 수정하는 자가 개선(Self-Improving) 메커니즘",
+        "장기 비디오 생성 시 발생하는 서사적 일관성 및 시각적 상태 유지 문제 해결"
+      ]
+    },
+    "en": {
+      "title": "CineForge: Self-Improving Agents for Long-Horizon Video Generation",
+      "hook": "A self-improving AI agent framework coordinating narrative decomposition, shot design, and rendering for long-form video generation.",
+      "key_takeaways": [
+        "Coordinates end-to-end video production workflows including story decomposition, state tracking, and shot design.",
+        "Utilizes self-improving agentic mechanisms to iteratively revise prompts and rendered video outputs.",
+        "Addresses narrative consistency and temporal continuity challenges in long-horizon story-driven generation."
+      ]
+    },
+    "zh": {
+      "title": "CineForge：用于长时序视频生成的自我改进智能体",
+      "hook": "通过协调叙事分解、分镜设计与渲染，实现长时序故事驱动视频生成的自我改进 AI 智能体",
+      "key_takeaways": [
+        "协调包括故事分解、状态跟踪和分镜设计在内的端到端视频制作工作流",
+        "利用自我改进智能体机制迭代修改提示词和渲染出的视频输出",
+        "解决长时序故事生成中的叙事一致性与视觉连贯性挑战"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.921836"
 }

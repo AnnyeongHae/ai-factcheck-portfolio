@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "2억 4천만 개 도메인 이름을 위한 P99 0ms* 자동완성 시스템",
+  "title_ko": "2억 4천만 개 도메인 이름을 처리하는 P99 0ms 자동완성 시스템",
   "description_ko": "대규모 데이터셋에서 지연 시간을 극한으로 줄여 P99 0ms 대의 자동완성을 달성한 아키텍처 전략입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -52,63 +52,96 @@
     "id": "2026-08-31_sns_hacker_news_p99_0_ms_autocomplete_for_24",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "검색 및 인덱싱 최적화",
+    "model_family": "Algorithms & Data Structures",
+    "category": "Database & Search Engine",
     "programming_lang": "General",
     "root_keywords": [
       "Autocomplete",
+      "Trie Index",
+      "Ultra-low Latency",
       "P99 Latency",
-      "Performance Optimization"
+      "In-memory Search"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "2억 4천만 개 도메인 이름을 위한 P99 0ms* 자동완성 시스템",
-        "hook": "대규모 데이터셋에서 지연 시간을 극한으로 줄여 P99 0ms 대의 자동완성을 달성한 아키텍처 전략입니다.",
+        "title": "2억 4천만 개 도메인 이름을 처리하는 P99 0ms 자동완성 시스템",
+        "hook": "2.4억 개의 도메인 데이터를 1ms 미만의 초저지연 시간(P99 0ms)으로 검색하는 인메모리 자동완성 설계 노하우",
         "key_takeaways": [
-          "2억 4천만 개에 달하는 방대한 도메인 데이터 처리",
-          "P99 지연 시간을 사실상 0ms로 수렴시키는 극단적 최적화 기법",
-          "대규모 실시간 검색 및 자동완성 시스템 설계에 필수적인 인사이트"
+          "2억 4천만 개 도메인 검색 시 P99 응답 시간 0ms(1ms 미만)를 달성한 초고속 자동완성 엔진 아키텍처",
+          "메모리 사용량을 축소하고 CPU 캐시 효율성을 극대화한 컴팩트 트라이(Trie) 구조 활용",
+          "무거운 외부 검색 클러스터 없이 대용량 데이터의 서브 밀리초 검색을 구현한 실전 엔지니어링 사례"
         ]
       },
       "en": {
-        "title": "P99 0ms* Autocomplete for 240M Domain Names",
-        "hook": "An architectural breakdown of achieving near-zero P99 latency for autocomplete across massive datasets.",
+        "title": "P99 0 ms Autocomplete for 240 Million Domain Names",
+        "hook": "An architectural breakdown of building a sub-millisecond autocomplete engine across 240M domain names.",
         "key_takeaways": [
-          "Handling massive scale with 240 million domain names",
-          "Extreme optimization techniques driving P99 latency down to virtually 0ms",
-          "Essential design insights for large-scale real-time search and autocomplete systems"
+          "Achieved sub-millisecond (P99 0 ms) autocomplete performance across a massive 240 million domain dataset.",
+          "Leveraged compact, cache-friendly in-memory index structures (e.g., Tries) to optimize memory and CPU cycles.",
+          "Demonstrated practical engineering techniques for scaling real-time string search without heavy external engine clusters."
         ]
       },
       "zh": {
-        "title": "面向 2.4 亿域名的高性能 P99 0ms* 自动补全系统",
-        "hook": "深入探讨如何在海量数据集上实现 P99 几乎为零延迟的自动补全架构与优化策略。",
+        "title": "针对 2.4 亿个域名实现 P99 0 毫秒级的自动补全系统",
+        "hook": "揭秘如何在 2.4 亿大规模域名数据集上实现低于 1 毫秒（P99 0ms）的超低延迟自动补全架构。",
         "key_takeaways": [
-          "处理高达 2.4 亿海量域名数据的能力",
-          "将 P99 延迟压缩至几乎 0ms 的极端优化技术",
-          "大规模实时搜索与自动补全系统设计的必备参考"
+          "在 2.4 亿域名规模下实现 P99 延迟接近 0 毫秒（<1ms）的高性能自动补全",
+          "采用高度优化的内存索引与前缀树结构，极大提升 CPU 缓存利用率与内存效率",
+          "无需依赖重型外部搜索引擎，实现轻量级、超低时延实时文本检索系统的设计经验"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:14:51.501723+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "Autocomplete",
+    "Trie Index",
+    "Ultra-low Latency",
     "P99 Latency",
-    "Performance Optimization"
+    "In-memory Search"
   ],
-  "title_en": "P99 0ms* Autocomplete for 240M Domain Names",
-  "title_zh": "面向 2.4 亿域名的高性能 P99 0ms* 自动补全系统",
+  "title_en": "P99 0 ms Autocomplete for 240 Million Domain Names",
+  "title_zh": "针对 2.4 亿个域名实现 P99 0 毫秒级的自动补全系统",
   "hook": "대규모 데이터셋에서 지연 시간을 극한으로 줄여 P99 0ms 대의 자동완성을 달성한 아키텍처 전략입니다.",
-  "hook_ko": "대규모 데이터셋에서 지연 시간을 극한으로 줄여 P99 0ms 대의 자동완성을 달성한 아키텍처 전략입니다.",
-  "hook_en": "An architectural breakdown of achieving near-zero P99 latency for autocomplete across massive datasets.",
-  "hook_zh": "深入探讨如何在海量数据集上实现 P99 几乎为零延迟的自动补全架构与优化策略。",
+  "hook_ko": "2.4억 개의 도메인 데이터를 1ms 미만의 초저지연 시간(P99 0ms)으로 검색하는 인메모리 자동완성 설계 노하우",
+  "hook_en": "An architectural breakdown of building a sub-millisecond autocomplete engine across 240M domain names.",
+  "hook_zh": "揭秘如何在 2.4 亿大规模域名数据集上实现低于 1 毫秒（P99 0ms）的超低延迟自动补全架构。",
   "description_en": "An architectural breakdown of achieving near-zero P99 latency for autocomplete across massive datasets.",
   "description_zh": "深入探讨如何在海量数据集上实现 P99 几乎为零延迟的自动补全架构与优化策略。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "2억 4천만 개 도메인 이름을 처리하는 P99 0ms 자동완성 시스템",
+      "hook": "2.4억 개의 도메인 데이터를 1ms 미만의 초저지연 시간(P99 0ms)으로 검색하는 인메모리 자동완성 설계 노하우",
+      "key_takeaways": [
+        "2억 4천만 개 도메인 검색 시 P99 응답 시간 0ms(1ms 미만)를 달성한 초고속 자동완성 엔진 아키텍처",
+        "메모리 사용량을 축소하고 CPU 캐시 효율성을 극대화한 컴팩트 트라이(Trie) 구조 활용",
+        "무거운 외부 검색 클러스터 없이 대용량 데이터의 서브 밀리초 검색을 구현한 실전 엔지니어링 사례"
+      ]
+    },
+    "en": {
+      "title": "P99 0 ms Autocomplete for 240 Million Domain Names",
+      "hook": "An architectural breakdown of building a sub-millisecond autocomplete engine across 240M domain names.",
+      "key_takeaways": [
+        "Achieved sub-millisecond (P99 0 ms) autocomplete performance across a massive 240 million domain dataset.",
+        "Leveraged compact, cache-friendly in-memory index structures (e.g., Tries) to optimize memory and CPU cycles.",
+        "Demonstrated practical engineering techniques for scaling real-time string search without heavy external engine clusters."
+      ]
+    },
+    "zh": {
+      "title": "针对 2.4 亿个域名实现 P99 0 毫秒级的自动补全系统",
+      "hook": "揭秘如何在 2.4 亿大规模域名数据集上实现低于 1 毫秒（P99 0ms）的超低延迟自动补全架构。",
+      "key_takeaways": [
+        "在 2.4 亿域名规模下实现 P99 延迟接近 0 毫秒（<1ms）的高性能自动补全",
+        "采用高度优化的内存索引与前缀树结构，极大提升 CPU 缓存利用率与内存效率",
+        "无需依赖重型外部搜索引擎，实现轻量级、超低时延实时文本检索系统的设计经验"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.903000"
 }

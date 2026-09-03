@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "Hugging Face Space: wank3r/Wan_2.2_I2V_14B-Clean",
+  "title_ko": "HF Space: Wan 2.2 I2V 14B Clean - 이미지 기반 비디오 생성 데모",
   "description_ko": "차세대 대형 영상 생성 모델인 Wan 2.2 I2V 14B의 고품질 이미지-투-비디오 기능을 직접 테스트해보세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,66 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_wank3rwan_22_i2v_14b_clean",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Wan",
-    "category": "이미지 투 비디오 (I2V)",
+    "type_classification": "TECH",
+    "model_family": "Diffusion Transformer (DiT)",
+    "category": "Computer Vision / Video Generation",
     "programming_lang": "Python",
     "root_keywords": [
+      "Image-to-Video",
       "Wan 2.2",
-      "I2V",
-      "14B",
+      "14B Model",
+      "Gradio",
       "Video Generation"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face Space: wank3r/Wan_2.2_I2V_14B-Clean",
-        "hook": "차세대 대형 영상 생성 모델인 Wan 2.2 I2V 14B의 고품질 이미지-투-비디오 기능을 직접 테스트해보세요.",
+        "title": "HF Space: Wan 2.2 I2V 14B Clean - 이미지 기반 비디오 생성 데모",
+        "hook": "140억 매개변수 규모의 Wan 2.2 이미지-비디오(I2V) 모델을 경험할 수 있는 클린 Gradio 데모",
         "key_takeaways": [
-          "Wan 2.2 I2V 14B 대형 모델 기반의 뛰어난 영상 생성 성능",
-          "정제된(Clean) 인터페이스로 안정적인 I2V 추론 테스트 가능",
-          "고해상도 이미지 기반 동영상 생성 워크플로우 지원"
+          "Wan 2.2 14B 기반의 고품질 이미지-투-비디오(I2V) 변환 기능 제공",
+          "불필요한 요소를 배제한 클린(Clean) Gradio 인터페이스 구성",
+          "대규모 비디오 생성 모델의 실제 성능 및 프롬프트 제어 가능성 평가 가능"
         ]
       },
       "en": {
-        "title": "Hugging Face Space: wank3r/Wan_2.2_I2V_14B-Clean",
-        "hook": "Test out high-performance image-to-video generation using the advanced Wan 2.2 I2V 14B model.",
+        "title": "HF Space: Wan 2.2 I2V 14B Clean - Image-to-Video Demo",
+        "hook": "An interactive Gradio demo showcasing the Wan 2.2 14B Image-to-Video generation model",
         "key_takeaways": [
-          "Exceptional video generation performance powered by Wan 2.2 I2V 14B",
-          "Clean interface enabling stable I2V inference testing",
-          "Supports high-resolution image-to-video generation workflows"
+          "Provides high-quality Image-to-Video (I2V) synthesis using the Wan 2.2 14B parameter model",
+          "Features a clean, streamlined Gradio user interface designed for rapid testing",
+          "Enables direct hands-on evaluation of large-scale open video generation capabilities"
         ]
       },
       "zh": {
-        "title": "Hugging Face 空间：wank3r/Wan_2.2_I2V_14B-Clean",
-        "hook": "使用先进的 Wan 2.2 I2V 14B 模型亲自测试高质量的图生视频功能。",
+        "title": "HF Space: Wan 2.2 I2V 14B Clean - 图生视频 Interactive Demo",
+        "hook": "基于 140 亿参数 Wan 2.2 模型的简洁版图生视频（I2V）Gradio 交互 Demo",
         "key_takeaways": [
-          "基于 Wan 2.2 I2V 14B 大型模型的卓越视频生成性能",
-          "通过简洁的界面实现稳定的图生视频推理测试",
-          "支持高分辨率图像到视频的生成工作流"
+          "基于 Wan 2.2 14B 大模型提供高质量图生视频（I2V）生成能力",
+          "采用精简干净的 Gradio UI 界面，提升测试体验",
+          "为开发者提供大规模视频生成模型的在线演示与效果评估"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:33:48.651422+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
+    "Image-to-Video",
     "Wan 2.2",
-    "I2V",
-    "14B",
+    "14B Model",
+    "Gradio",
     "Video Generation"
   ],
-  "title_en": "Hugging Face Space: wank3r/Wan_2.2_I2V_14B-Clean",
-  "title_zh": "Hugging Face 空间：wank3r/Wan_2.2_I2V_14B-Clean",
+  "title_en": "HF Space: Wan 2.2 I2V 14B Clean - Image-to-Video Demo",
+  "title_zh": "HF Space: Wan 2.2 I2V 14B Clean - 图生视频 Interactive Demo",
   "hook": "차세대 대형 영상 생성 모델인 Wan 2.2 I2V 14B의 고품질 이미지-투-비디오 기능을 직접 테스트해보세요.",
-  "hook_ko": "차세대 대형 영상 생성 모델인 Wan 2.2 I2V 14B의 고품질 이미지-투-비디오 기능을 직접 테스트해보세요.",
-  "hook_en": "Test out high-performance image-to-video generation using the advanced Wan 2.2 I2V 14B model.",
-  "hook_zh": "使用先进的 Wan 2.2 I2V 14B 模型亲自测试高质量的图生视频功能。",
+  "hook_ko": "140억 매개변수 규모의 Wan 2.2 이미지-비디오(I2V) 모델을 경험할 수 있는 클린 Gradio 데모",
+  "hook_en": "An interactive Gradio demo showcasing the Wan 2.2 14B Image-to-Video generation model",
+  "hook_zh": "基于 140 亿参数 Wan 2.2 模型的简洁版图生视频（I2V）Gradio 交互 Demo",
   "description_en": "Test out high-performance image-to-video generation using the advanced Wan 2.2 I2V 14B model.",
   "description_zh": "使用先进的 Wan 2.2 I2V 14B 模型亲自测试高质量的图生视频功能。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: Wan 2.2 I2V 14B Clean - 이미지 기반 비디오 생성 데모",
+      "hook": "140억 매개변수 규모의 Wan 2.2 이미지-비디오(I2V) 모델을 경험할 수 있는 클린 Gradio 데모",
+      "key_takeaways": [
+        "Wan 2.2 14B 기반의 고품질 이미지-투-비디오(I2V) 변환 기능 제공",
+        "불필요한 요소를 배제한 클린(Clean) Gradio 인터페이스 구성",
+        "대규모 비디오 생성 모델의 실제 성능 및 프롬프트 제어 가능성 평가 가능"
+      ]
+    },
+    "en": {
+      "title": "HF Space: Wan 2.2 I2V 14B Clean - Image-to-Video Demo",
+      "hook": "An interactive Gradio demo showcasing the Wan 2.2 14B Image-to-Video generation model",
+      "key_takeaways": [
+        "Provides high-quality Image-to-Video (I2V) synthesis using the Wan 2.2 14B parameter model",
+        "Features a clean, streamlined Gradio user interface designed for rapid testing",
+        "Enables direct hands-on evaluation of large-scale open video generation capabilities"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: Wan 2.2 I2V 14B Clean - 图生视频 Interactive Demo",
+      "hook": "基于 140 亿参数 Wan 2.2 模型的简洁版图生视频（I2V）Gradio 交互 Demo",
+      "key_takeaways": [
+        "基于 Wan 2.2 14B 大模型提供高质量图生视频（I2V）生成能力",
+        "采用精简干净的 Gradio UI 界面，提升测试体验",
+        "为开发者提供大规模视频生成模型的在线演示与效果评估"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.845618"
 }

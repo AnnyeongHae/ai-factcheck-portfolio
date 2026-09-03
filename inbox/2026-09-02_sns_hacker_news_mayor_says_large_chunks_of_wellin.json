@@ -35,66 +35,99 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_hacker_news_mayor_says_large_chunks_of_wellin",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "AI 윤리 및 거버넌스",
+    "type_classification": "TECH",
+    "model_family": "Generative AI",
+    "category": "AI Ethics & Governance",
     "programming_lang": "General",
     "root_keywords": [
-      "AI 보고서",
-      "공공 부문 AI",
-      "AI 거버넌스"
+      "AI Governance",
+      "Generative AI",
+      "Deloitte",
+      "Consulting",
+      "LLM Ethics"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.0,
+    "worth_score": 3.2,
     "multilingual": {
       "ko": {
-        "title": "웰링턴 시의회 딜로이트 보고서의 상당 부분이 AI로 작성되었다",
-        "hook": "공공 행정 및 공식 컨설팅 보고서 내 생성형 AI 활용에 대한 사회적 논란을 확인하세요.",
+        "title": "웰링턴 시장, 딜로이트 시의회 보고서의 '상당 부분'이 AI로 작성되었다고 지적",
+        "hook": "전문 컨설팅 보고서에 대규모 언어 모델(LLM)이 무분별하게 사용될 때 발생하는 신뢰성 및 품질 검증 문제",
         "key_takeaways": [
-          "웰링턴 시의회 공식 보고서의 AI 대필 논란",
-          "컨설팅 및 공공 기관의 AI 활용 투명성 이슈",
-          "AI 도입에 따른 법적·윤리적 책임 소재 대두"
+          "뉴질랜드 웰링턴 시장이 딜로이트의 시의회 보고서 상당 부분이 AI로 생성되었다고 주장",
+          "고비용 외주 컨설팅 산출물의 실제 가치와 AI 활용 표기 투명성에 대한 논란 재점화",
+          "공공 부문 보고서 작성 시 AI 활용 가이드라인과 인간에 의한 결과물 검토 프로세스의 필요성 강조"
         ]
       },
       "en": {
-        "title": "Mayor Says Large Chunks of Wellington Council Deloitte Report Written by AI",
-        "hook": "Examine the public controversy surrounding generative AI usage in official consulting reports.",
+        "title": "Mayor Claims Large Chunks of Deloitte Report for Wellington Council Were Written by AI",
+        "hook": "Emerging concerns over accountability, verification, and output quality when consulting firms use LLMs for public sector deliverables.",
         "key_takeaways": [
-          "AI-generated content discovered in Wellington council's official report",
-          "Transparency issues regarding AI adoption in public and consulting sectors",
-          "Legal and ethical accountability concerns surrounding AI usage"
+          "Wellington mayor highlights that substantial portions of a Deloitte consulting report appeared to be AI-generated.",
+          "Questions the value proposition of high-cost corporate consulting when relying heavily on unverified LLM output.",
+          "Underscores the need for clear guidelines and human oversight in public governance AI adoption."
         ]
       },
       "zh": {
-        "title": "市长称惠灵顿市议会德勤报告的“很大一部分”由AI编写",
-        "hook": "审视公共行政与官方咨询报告中使用生成式AI所引发的社会争议。",
+        "title": "惠灵顿市长称德勤提交的市议会报告“很大一部分”由 AI 撰写",
+        "hook": "探讨咨询公司在公共部门交付物中重度依赖大语言模型引发的质量与合规风险",
         "key_takeaways": [
-          "惠灵顿市议会官方报告中发现大量AI生成内容",
-          "公共及咨询机构采用AI的透明度问题",
-          "AI应用带来的法律与道德责任归属争议"
+          "新西兰惠灵顿市长指出，德勤提交的咨询报告中有相当多内容显现出 AI 生成的痕迹",
+          "引发对昂贵的企业咨询服务中 LLM 使用透明度与实际价值的质疑",
+          "凸显了在公共治理与官方报告中明确 AI 使用规范及人工审查机制的必要性"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:18:09.703336+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
-    "AI 보고서",
-    "공공 부문 AI",
-    "AI 거버넌스"
+    "AI Governance",
+    "Generative AI",
+    "Deloitte",
+    "Consulting",
+    "LLM Ethics"
   ],
-  "title_ko": "웰링턴 시의회 딜로이트 보고서의 상당 부분이 AI로 작성되었다",
-  "title_en": "Mayor Says Large Chunks of Wellington Council Deloitte Report Written by AI",
-  "title_zh": "市长称惠灵顿市议会德勤报告的“很大一部分”由AI编写",
+  "title_ko": "웰링턴 시장, 딜로이트 시의회 보고서의 '상당 부분'이 AI로 작성되었다고 지적",
+  "title_en": "Mayor Claims Large Chunks of Deloitte Report for Wellington Council Were Written by AI",
+  "title_zh": "惠灵顿市长称德勤提交的市议会报告“很大一部分”由 AI 撰写",
   "hook": "공공 행정 및 공식 컨설팅 보고서 내 생성형 AI 활용에 대한 사회적 논란을 확인하세요.",
-  "hook_ko": "공공 행정 및 공식 컨설팅 보고서 내 생성형 AI 활용에 대한 사회적 논란을 확인하세요.",
-  "hook_en": "Examine the public controversy surrounding generative AI usage in official consulting reports.",
-  "hook_zh": "审视公共行政与官方咨询报告中使用生成式AI所引发的社会争议。",
+  "hook_ko": "전문 컨설팅 보고서에 대규모 언어 모델(LLM)이 무분별하게 사용될 때 발생하는 신뢰성 및 품질 검증 문제",
+  "hook_en": "Emerging concerns over accountability, verification, and output quality when consulting firms use LLMs for public sector deliverables.",
+  "hook_zh": "探讨咨询公司在公共部门交付物中重度依赖大语言模型引发的质量与合规风险",
   "description_ko": "공공 행정 및 공식 컨설팅 보고서 내 생성형 AI 활용에 대한 사회적 논란을 확인하세요.",
   "description_en": "Examine the public controversy surrounding generative AI usage in official consulting reports.",
   "description_zh": "审视公共行政与官方咨询报告中使用生成式AI所引发的社会争议。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "웰링턴 시장, 딜로이트 시의회 보고서의 '상당 부분'이 AI로 작성되었다고 지적",
+      "hook": "전문 컨설팅 보고서에 대규모 언어 모델(LLM)이 무분별하게 사용될 때 발생하는 신뢰성 및 품질 검증 문제",
+      "key_takeaways": [
+        "뉴질랜드 웰링턴 시장이 딜로이트의 시의회 보고서 상당 부분이 AI로 생성되었다고 주장",
+        "고비용 외주 컨설팅 산출물의 실제 가치와 AI 활용 표기 투명성에 대한 논란 재점화",
+        "공공 부문 보고서 작성 시 AI 활용 가이드라인과 인간에 의한 결과물 검토 프로세스의 필요성 강조"
+      ]
+    },
+    "en": {
+      "title": "Mayor Claims Large Chunks of Deloitte Report for Wellington Council Were Written by AI",
+      "hook": "Emerging concerns over accountability, verification, and output quality when consulting firms use LLMs for public sector deliverables.",
+      "key_takeaways": [
+        "Wellington mayor highlights that substantial portions of a Deloitte consulting report appeared to be AI-generated.",
+        "Questions the value proposition of high-cost corporate consulting when relying heavily on unverified LLM output.",
+        "Underscores the need for clear guidelines and human oversight in public governance AI adoption."
+      ]
+    },
+    "zh": {
+      "title": "惠灵顿市长称德勤提交的市议会报告“很大一部分”由 AI 撰写",
+      "hook": "探讨咨询公司在公共部门交付物中重度依赖大语言模型引发的质量与合规风险",
+      "key_takeaways": [
+        "新西兰惠灵顿市长指出，德勤提交的咨询报告中有相当多内容显现出 AI 生成的痕迹",
+        "引发对昂贵的企业咨询服务中 LLM 使用透明度与实际价值的质疑",
+        "凸显了在公共治理与官方报告中明确 AI 使用规范及人工审查机制的必要性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.093907"
 }

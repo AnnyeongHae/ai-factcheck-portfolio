@@ -34,65 +34,96 @@
     "id": "2026-09-02_repo_hf_space_wepenerdltx_ripple_demo",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "영상 제작",
+    "model_family": "LTX Video",
+    "category": "Computer Vision & Multimodal",
     "programming_lang": "Python",
     "root_keywords": [
+      "LTX Video",
       "Gradio",
-      "Interactive Demo",
-      "Video AI"
+      "Video Generation",
+      "Interactive AI Demo"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.8,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face 스페이스: WepeNerd/ltx-ripple-demo",
-        "hook": "Gradio 기반의 인터랙티브 AI 데모를 통해 최신 영상 생성 기술을 즉시 체험해보세요.",
+        "title": "HF Space: WepeNerd/ltx-ripple-demo (LTX 비디오 인터랙티브 데모)",
+        "hook": "LTX 비디오 모델 기반의 리플 이펙트 및 비디오 생성 기능을 실시간으로 실험할 수 있는 Gradio 인터랙티브 데모",
         "key_takeaways": [
-          "웹 브라우저에서 간편하게 테스트할 수 있는 인터랙티브 AI 데모 공간",
-          "최신 AI 영상 생성 및 처리 기술을 시각적으로 검증 가능",
-          "Gradio SDK를 활용하여 빠르고 직관적인 UI 제공"
+          "Gradio SDK를 활용하여 구현된 LTX 비디오 제어 및 테스트 웹 인터페이스",
+          "이미지/비디오 시각 효과(Ripple) 생성을 위한 파라미터 조정 환경 제공",
+          "경량화된 비디오 생성 모델 실습 및 커뮤니티 데모 프로토타입"
         ]
       },
       "en": {
         "title": "HF Space: WepeNerd/ltx-ripple-demo",
-        "hook": "Test out cutting-edge video generation capabilities instantly via an interactive Gradio web demo.",
+        "hook": "An interactive Gradio demo showcasing ripple effects and video generation driven by LTX Video models.",
         "key_takeaways": [
-          "Interactive AI demo space easily testable directly in the browser",
-          "Visually validates cutting-edge video generation and processing techniques",
-          "Provides a fast and intuitive UI powered by Gradio SDK"
+          "Web-based interactive interface built with Gradio SDK for LTX models.",
+          "Provides dynamic parameter tuning for video synthesis and visual ripple effects.",
+          "Serves as a lightweight prototype playground for fast video diffusion experiments."
         ]
       },
       "zh": {
-        "title": "HF 空间：WepeNerd/ltx-ripple-demo",
-        "hook": "通过基于 Gradio 的交互式网络演示，即时体验前沿的视频生成技术。",
+        "title": "HF Space: WepeNerd/ltx-ripple-demo (LTX 视频交互式演示)",
+        "hook": "基于 LTX Video 模型构建的波纹特效与视频生成 Gradio 交互式 Demo。",
         "key_takeaways": [
-          "可在网页浏览器中轻松测试的交互式 AI 演示空间",
-          "直观验证最新的视频生成与处理技术",
-          "借助 Gradio SDK 提供快速且直观的用户界面"
+          "基于 Gradio SDK 构建的 LTX 视频模型 Web 交互测试界面",
+          "提供用于视频合成与视觉波纹效果调参的实验环境",
+          "便于快速体验与评估轻量化视频扩散模型的 Demo 原型"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:32.604532+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
+    "LTX Video",
     "Gradio",
-    "Interactive Demo",
-    "Video AI"
+    "Video Generation",
+    "Interactive AI Demo"
   ],
-  "title_ko": "Hugging Face 스페이스: WepeNerd/ltx-ripple-demo",
+  "title_ko": "HF Space: WepeNerd/ltx-ripple-demo (LTX 비디오 인터랙티브 데모)",
   "title_en": "HF Space: WepeNerd/ltx-ripple-demo",
-  "title_zh": "HF 空间：WepeNerd/ltx-ripple-demo",
+  "title_zh": "HF Space: WepeNerd/ltx-ripple-demo (LTX 视频交互式演示)",
   "hook": "Gradio 기반의 인터랙티브 AI 데모를 통해 최신 영상 생성 기술을 즉시 체험해보세요.",
-  "hook_ko": "Gradio 기반의 인터랙티브 AI 데모를 통해 최신 영상 생성 기술을 즉시 체험해보세요.",
-  "hook_en": "Test out cutting-edge video generation capabilities instantly via an interactive Gradio web demo.",
-  "hook_zh": "通过基于 Gradio 的交互式网络演示，即时体验前沿的视频生成技术。",
+  "hook_ko": "LTX 비디오 모델 기반의 리플 이펙트 및 비디오 생성 기능을 실시간으로 실험할 수 있는 Gradio 인터랙티브 데모",
+  "hook_en": "An interactive Gradio demo showcasing ripple effects and video generation driven by LTX Video models.",
+  "hook_zh": "基于 LTX Video 模型构建的波纹特效与视频生成 Gradio 交互式 Demo。",
   "description_ko": "Gradio 기반의 인터랙티브 AI 데모를 통해 최신 영상 생성 기술을 즉시 체험해보세요.",
   "description_en": "Test out cutting-edge video generation capabilities instantly via an interactive Gradio web demo.",
   "description_zh": "通过基于 Gradio 的交互式网络演示，即时体验前沿的视频生成技术。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: WepeNerd/ltx-ripple-demo (LTX 비디오 인터랙티브 데모)",
+      "hook": "LTX 비디오 모델 기반의 리플 이펙트 및 비디오 생성 기능을 실시간으로 실험할 수 있는 Gradio 인터랙티브 데모",
+      "key_takeaways": [
+        "Gradio SDK를 활용하여 구현된 LTX 비디오 제어 및 테스트 웹 인터페이스",
+        "이미지/비디오 시각 효과(Ripple) 생성을 위한 파라미터 조정 환경 제공",
+        "경량화된 비디오 생성 모델 실습 및 커뮤니티 데모 프로토타입"
+      ]
+    },
+    "en": {
+      "title": "HF Space: WepeNerd/ltx-ripple-demo",
+      "hook": "An interactive Gradio demo showcasing ripple effects and video generation driven by LTX Video models.",
+      "key_takeaways": [
+        "Web-based interactive interface built with Gradio SDK for LTX models.",
+        "Provides dynamic parameter tuning for video synthesis and visual ripple effects.",
+        "Serves as a lightweight prototype playground for fast video diffusion experiments."
+      ]
+    },
+    "zh": {
+      "title": "HF Space: WepeNerd/ltx-ripple-demo (LTX 视频交互式演示)",
+      "hook": "基于 LTX Video 模型构建的波纹特效与视频生成 Gradio 交互式 Demo。",
+      "key_takeaways": [
+        "基于 Gradio SDK 构建的 LTX 视频模型 Web 交互测试界面",
+        "提供用于视频合成与视觉波纹效果调参的实验环境",
+        "便于快速体验与评估轻量化视频扩散模型的 Demo 原型"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.998979"
 }

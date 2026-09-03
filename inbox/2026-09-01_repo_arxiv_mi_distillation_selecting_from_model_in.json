@@ -33,66 +33,97 @@
     "id": "2026-09-01_repo_arxiv_mi_distillation_selecting_from_model_in",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 추론 최적화 및 지식 증류",
+    "model_family": "Large Language Models",
+    "category": "Natural Language Processing",
     "programming_lang": "Python",
     "root_keywords": [
-      "MI-Distillation",
       "Chain-of-Thought",
-      "Model Interpolation"
+      "Model Distillation",
+      "Model Interpolation",
+      "Reasoning Models"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.7,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "MI-Distillation: 사고의 사슬 증류를 위한 모델보간형 지시-추론 데이터 스펙트럼 선택",
-        "hook": "대형 추론 모델(LRM)의 긴 사고의 사슬(Long CoT)을 소형 모델로 효율적으로 증류하는 새로운 데이터 선택 방법론입니다.",
+        "title": "MI-Distillation: 모델 보간 지시-추론 데이터 스펙트럼에서 연쇄 사고 지식 증류를 위한 데이터 선택",
+        "hook": "소형 모델의 효율적인 추론 능력을 위해 모델 보간법을 활용해 연쇄 사고(CoT) 데이터를 선별하여 증류하는 기법",
         "key_takeaways": [
-          "대형 추론 모델의 복잡한 Long CoT 추론 궤적을 소형 모델에 성공적으로 증류",
-          "모델 보간 기반의 인스트럭트-추론 데이터 스펙트럼(MI-Distillation) 도입",
-          "추론 능력(Reasoning capability)을 유지하면서도 모델 크기를 혁신적으로 축소"
+          "대형 추론 모델(LRM)의 긴 연쇄 사고(Long CoT) 경로를 소형 모델로 효율적으로 증류하는 새로운 프레임워크 제시",
+          "지시어 처리 능력과 추론 능력 간의 스펙트럼을 모델 보간(Model Interpolation)을 통해 조율하고 최적의 데이터 선택",
+          "소형 모델의 복잡한 문제 해결 능력 및 추론 효율성 대폭 향상"
         ]
       },
       "en": {
         "title": "MI-Distillation: Selecting from Model-Interpolated Instruct-Reasoning Data Spectrum for Chain-of-Thought Distillation",
-        "hook": "Master efficient Long CoT distillation for smaller models using model-interpolated instruct-reasoning data spectra.",
+        "hook": "A novel framework for distilling long Chain-of-Thought reasoning into smaller models using model-interpolated data selection.",
         "key_takeaways": [
-          "Targets the efficient distillation of large reasoning models (LRMs) into compact sizes",
-          "Introduces MI-Distillation to strategically select from model-interpolated data",
-          "Significantly boosts small model reasoning performance via optimized CoT trajectories"
+          "Proposes MI-Distillation to transfer reasoning capabilities from Large Reasoning Models (LRMs) to smaller models.",
+          "Leverages model interpolation to create a balanced spectrum between instruct-following and deep reasoning data.",
+          "Demonstrates significant performance gains on complex problem-solving tasks while maintaining efficiency."
         ]
       },
       "zh": {
-        "title": "MI-Distillation：用于思维链蒸馏的模型插值指令推理数据谱系选择方法",
-        "hook": "如何将大型推理模型（LRM）的长思维链高效蒸馏到小型模型中？这项最新研究给出了创新方案。",
+        "title": "MI-Distillation：从模型插值指令-推理数据光谱中选择用于思维链蒸馏的数据",
+        "hook": "通过模型插值筛选思维链数据，将大型推理模型的长 CoT 能力高效蒸馏至小型模型",
         "key_takeaways": [
-          "解决大推理模型长思维链轨迹向小模型蒸馏的难题",
-          "提出模型插值指令推理数据谱系（MI-Distillation）选择策略",
-          "大幅提升了小型模型在复杂推理任务上的表现力与效率"
+          "提出了 MI-Distillation 框架，旨在将大型推理模型（LRM）的长思维链能力迁移至小模型",
+          "利用模型插值技术在指令遵循与深度推理之间建立平衡的数据光谱",
+          "显著提升小模型在复杂问题解决上的推理效率与准确率"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:32.553602+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "MI-Distillation",
     "Chain-of-Thought",
-    "Model Interpolation"
+    "Model Distillation",
+    "Model Interpolation",
+    "Reasoning Models"
   ],
-  "title_ko": "MI-Distillation: 사고의 사슬 증류를 위한 모델보간형 지시-추론 데이터 스펙트럼 선택",
+  "title_ko": "MI-Distillation: 모델 보간 지시-추론 데이터 스펙트럼에서 연쇄 사고 지식 증류를 위한 데이터 선택",
   "title_en": "MI-Distillation: Selecting from Model-Interpolated Instruct-Reasoning Data Spectrum for Chain-of-Thought Distillation",
-  "title_zh": "MI-Distillation：用于思维链蒸馏的模型插值指令推理数据谱系选择方法",
+  "title_zh": "MI-Distillation：从模型插值指令-推理数据光谱中选择用于思维链蒸馏的数据",
   "hook": "대형 추론 모델(LRM)의 긴 사고의 사슬(Long CoT)을 소형 모델로 효율적으로 증류하는 새로운 데이터 선택 방법론입니다.",
-  "hook_ko": "대형 추론 모델(LRM)의 긴 사고의 사슬(Long CoT)을 소형 모델로 효율적으로 증류하는 새로운 데이터 선택 방법론입니다.",
-  "hook_en": "Master efficient Long CoT distillation for smaller models using model-interpolated instruct-reasoning data spectra.",
-  "hook_zh": "如何将大型推理模型（LRM）的长思维链高效蒸馏到小型模型中？这项最新研究给出了创新方案。",
+  "hook_ko": "소형 모델의 효율적인 추론 능력을 위해 모델 보간법을 활용해 연쇄 사고(CoT) 데이터를 선별하여 증류하는 기법",
+  "hook_en": "A novel framework for distilling long Chain-of-Thought reasoning into smaller models using model-interpolated data selection.",
+  "hook_zh": "通过模型插值筛选思维链数据，将大型推理模型的长 CoT 能力高效蒸馏至小型模型",
   "description_ko": "대형 추론 모델(LRM)의 긴 사고의 사슬(Long CoT)을 소형 모델로 효율적으로 증류하는 새로운 데이터 선택 방법론입니다.",
   "description_en": "Master efficient Long CoT distillation for smaller models using model-interpolated instruct-reasoning data spectra.",
   "description_zh": "如何将大型推理模型（LRM）的长思维链高效蒸馏到小型模型中？这项最新研究给出了创新方案。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "MI-Distillation: 모델 보간 지시-추론 데이터 스펙트럼에서 연쇄 사고 지식 증류를 위한 데이터 선택",
+      "hook": "소형 모델의 효율적인 추론 능력을 위해 모델 보간법을 활용해 연쇄 사고(CoT) 데이터를 선별하여 증류하는 기법",
+      "key_takeaways": [
+        "대형 추론 모델(LRM)의 긴 연쇄 사고(Long CoT) 경로를 소형 모델로 효율적으로 증류하는 새로운 프레임워크 제시",
+        "지시어 처리 능력과 추론 능력 간의 스펙트럼을 모델 보간(Model Interpolation)을 통해 조율하고 최적의 데이터 선택",
+        "소형 모델의 복잡한 문제 해결 능력 및 추론 효율성 대폭 향상"
+      ]
+    },
+    "en": {
+      "title": "MI-Distillation: Selecting from Model-Interpolated Instruct-Reasoning Data Spectrum for Chain-of-Thought Distillation",
+      "hook": "A novel framework for distilling long Chain-of-Thought reasoning into smaller models using model-interpolated data selection.",
+      "key_takeaways": [
+        "Proposes MI-Distillation to transfer reasoning capabilities from Large Reasoning Models (LRMs) to smaller models.",
+        "Leverages model interpolation to create a balanced spectrum between instruct-following and deep reasoning data.",
+        "Demonstrates significant performance gains on complex problem-solving tasks while maintaining efficiency."
+      ]
+    },
+    "zh": {
+      "title": "MI-Distillation：从模型插值指令-推理数据光谱中选择用于思维链蒸馏的数据",
+      "hook": "通过模型插值筛选思维链数据，将大型推理模型的长 CoT 能力高效蒸馏至小型模型",
+      "key_takeaways": [
+        "提出了 MI-Distillation 框架，旨在将大型推理模型（LRM）的长思维链能力迁移至小模型",
+        "利用模型插值技术在指令遵循与深度推理之间建立平衡的数据光谱",
+        "显著提升小模型在复杂问题解决上的推理效率与准确率"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.937420"
 }

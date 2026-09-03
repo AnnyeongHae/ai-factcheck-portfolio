@@ -35,68 +35,99 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_hacker_news_i_trained_a_small_transformer_in_",
     "source_lang": "EN",
-    "type_classification": "MODEL",
+    "type_classification": "TECH",
     "model_family": "Transformer",
-    "category": "소형 언어 모델 학습",
+    "category": "AI / ML",
     "programming_lang": "Python",
     "root_keywords": [
-      "Transformer",
-      "Small LLM",
-      "Training Optimization"
+      "Small Transformer",
+      "Model Training",
+      "LLM Benchmark",
+      "Efficiency"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.9,
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "1시간 반 만에 소형 트랜스포머 모델을 학습시켜 대다수 LLM을 능가한 방법",
-        "hook": "단 1.5시간의 학습만으로 시중의 많은 대형 언어 모델 성능을 뛰어넘는 소형 트랜스포머를 구축한 엔지니어링 노하우입니다.",
+        "title": "1.5시간 만에 학습시킨 소형 트랜스포머가 다수의 대형 LLM을 압도하다",
+        "hook": "단 1.5시간의 효율적인 학습만으로 특정 벤치마크에서 대형 LLM을 능가하는 소형 모델 구축 사례",
         "key_takeaways": [
-          "1.5시간이라는 극단적으로 짧은 학습 시간과 고효율",
-          "소형 모델 설계 및 아키텍처 최적화 전략",
-          "대형 모델 대비 뛰어난 가성비와 실효성 입증"
+          "1.5시간이라는 짧은 시간 내에 고효율 소형 트랜스포머 모델 학습 성공",
+          "특정 도메인 및 벤치마크에서 대규모 범용 LLM 모델들을 상회하는 성능 기록",
+          "비용 효율적인 소형 맞춤형 언어 모델(SLM) 접근법의 가능성 제시"
         ]
       },
       "en": {
-        "title": "Training a Small Transformer in 1.5 Hours That Beats Many LLMs",
-        "hook": "Engineering breakthroughs in training a compact transformer in just 1.5 hours that outperforms numerous existing LLMs.",
+        "title": "Trained a Small Transformer in 1.5 Hours That Beats Many LLMs",
+        "hook": "Demonstrating how efficient training of a small transformer in just 1.5 hours can outperform larger general-purpose LLMs.",
         "key_takeaways": [
-          "Extremely short training time of 1.5 hours with high efficiency",
-          "Compact model design and architecture optimization strategies",
-          "Proving superior cost-effectiveness and practicality over large models"
+          "Successfully trained a highly efficient small transformer model in just 1.5 hours.",
+          "Outperformed several larger LLMs on specific benchmarks and tasks.",
+          "Highlights the strong viability and cost-efficiency of task-specific Small Language Models (SLMs)."
         ]
       },
       "zh": {
-        "title": "在 1.5 小时内训练小型 Transformer 并击败众多大模型",
-        "hook": "仅用 1.5 小时训练便超越众多现有大语言模型的紧凑型 Transformer 构建工程经验。",
+        "title": "仅用1.5小时训练的小型Transformer模型击败了众多大型LLM",
+        "hook": "展示了仅耗时1.5小时高效训练的小型 Transformer 模型如何在特定任务上超越大型通用 LLM。",
         "key_takeaways": [
-          "1.5小时的极短训练时间与极高效率",
-          "小型模型设计与架构优化策略",
-          "证明了相比大模型更具成本效益的实用性"
+          "仅用 1.5 小时成功训练出高效的小型 Transformer 模型。",
+          "在特定基准和任务上的表现超越了多个规模更大的 LLM。",
+          "突出了针对特定任务的小型语言模型（SLM）的高性价比与可行性。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:54:18.018799+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Transformer",
-    "Small LLM",
-    "Training Optimization"
+    "Small Transformer",
+    "Model Training",
+    "LLM Benchmark",
+    "Efficiency"
   ],
-  "title_ko": "1시간 반 만에 소형 트랜스포머 모델을 학습시켜 대다수 LLM을 능가한 방법",
-  "title_en": "Training a Small Transformer in 1.5 Hours That Beats Many LLMs",
-  "title_zh": "在 1.5 小时内训练小型 Transformer 并击败众多大模型",
+  "title_ko": "1.5시간 만에 학습시킨 소형 트랜스포머가 다수의 대형 LLM을 압도하다",
+  "title_en": "Trained a Small Transformer in 1.5 Hours That Beats Many LLMs",
+  "title_zh": "仅用1.5小时训练的小型Transformer模型击败了众多大型LLM",
   "hook": "단 1.5시간의 학습만으로 시중의 많은 대형 언어 모델 성능을 뛰어넘는 소형 트랜스포머를 구축한 엔지니어링 노하우입니다.",
-  "hook_ko": "단 1.5시간의 학습만으로 시중의 많은 대형 언어 모델 성능을 뛰어넘는 소형 트랜스포머를 구축한 엔지니어링 노하우입니다.",
-  "hook_en": "Engineering breakthroughs in training a compact transformer in just 1.5 hours that outperforms numerous existing LLMs.",
-  "hook_zh": "仅用 1.5 小时训练便超越众多现有大语言模型的紧凑型 Transformer 构建工程经验。",
+  "hook_ko": "단 1.5시간의 효율적인 학습만으로 특정 벤치마크에서 대형 LLM을 능가하는 소형 모델 구축 사례",
+  "hook_en": "Demonstrating how efficient training of a small transformer in just 1.5 hours can outperform larger general-purpose LLMs.",
+  "hook_zh": "展示了仅耗时1.5小时高效训练的小型 Transformer 模型如何在特定任务上超越大型通用 LLM。",
   "description_ko": "단 1.5시간의 학습만으로 시중의 많은 대형 언어 모델 성능을 뛰어넘는 소형 트랜스포머를 구축한 엔지니어링 노하우입니다.",
   "description_en": "Engineering breakthroughs in training a compact transformer in just 1.5 hours that outperforms numerous existing LLMs.",
   "description_zh": "仅用 1.5 小时训练便超越众多现有大语言模型的紧凑型 Transformer 构建工程经验。",
   "model_family": "Transformer",
   "category_type": "MODEL",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "1.5시간 만에 학습시킨 소형 트랜스포머가 다수의 대형 LLM을 압도하다",
+      "hook": "단 1.5시간의 효율적인 학습만으로 특정 벤치마크에서 대형 LLM을 능가하는 소형 모델 구축 사례",
+      "key_takeaways": [
+        "1.5시간이라는 짧은 시간 내에 고효율 소형 트랜스포머 모델 학습 성공",
+        "특정 도메인 및 벤치마크에서 대규모 범용 LLM 모델들을 상회하는 성능 기록",
+        "비용 효율적인 소형 맞춤형 언어 모델(SLM) 접근법의 가능성 제시"
+      ]
+    },
+    "en": {
+      "title": "Trained a Small Transformer in 1.5 Hours That Beats Many LLMs",
+      "hook": "Demonstrating how efficient training of a small transformer in just 1.5 hours can outperform larger general-purpose LLMs.",
+      "key_takeaways": [
+        "Successfully trained a highly efficient small transformer model in just 1.5 hours.",
+        "Outperformed several larger LLMs on specific benchmarks and tasks.",
+        "Highlights the strong viability and cost-efficiency of task-specific Small Language Models (SLMs)."
+      ]
+    },
+    "zh": {
+      "title": "仅用1.5小时训练的小型Transformer模型击败了众多大型LLM",
+      "hook": "展示了仅耗时1.5小时高效训练的小型 Transformer 模型如何在特定任务上超越大型通用 LLM。",
+      "key_takeaways": [
+        "仅用 1.5 小时成功训练出高效的小型 Transformer 模型。",
+        "在特定基准和任务上的表现超越了多个规模更大的 LLM。",
+        "突出了针对特定任务的小型语言模型（SLM）的高性价比与可行性。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.089908"
 }

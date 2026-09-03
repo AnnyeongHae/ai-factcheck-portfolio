@@ -32,43 +32,45 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_model_orcarouterglm_53_flash_unce",
     "source_lang": "EN",
-    "type_classification": "MODEL",
+    "type_classification": "TECH",
     "model_family": "GLM",
-    "category": "LLM 추론 최적화",
+    "category": "LLM / Text Generation",
     "programming_lang": "Python",
     "root_keywords": [
+      "GLM",
+      "Uncensored",
       "FP8 Quantization",
-      "Uncensored LLM",
-      "Text Generation"
+      "Text Generation",
+      "LLM"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "orcarouter GLM-5.3-Flash-Uncensored-FP8 모델 공개",
-        "hook": "FP8 양자화가 적용되어 속도와 효율성이 극대화된 고성능 언어 모델을 활용해 보세요.",
+        "title": "GLM-5.3-Flash 무검열 FP8 양자화 모델",
+        "hook": "검열이 제거된 FP8 양자화 기반 GLM-5.3-Flash 모델로 빠른 추론과 유연한 텍스트 생성 제공",
         "key_takeaways": [
-          "FP8 정밀도로 가벼워진 가중치 및 추론 속도 향상",
-          "검열 없는(Uncensored) 유연한 텍스트 생성 기능",
-          "다양한 라우팅 및 텍스트 생성 파이프라인 호환"
+          "속도가 강화된 GLM-5.3-Flash 아키텍처 기반",
+          "FP8 양자화를 적용하여 VRAM 사용량 감소 및 추론 효율성 극대화",
+          "안전성 가이드라인 제한이 향상된 무검열(Uncensored) 파인튜닝 버전"
         ]
       },
       "en": {
-        "title": "orcarouter GLM-5.3-Flash-Uncensored-FP8 Model Released",
-        "hook": "Utilize a high-performance language model optimized for speed and efficiency using FP8 quantization.",
+        "title": "orcarouter/GLM-5.3-Flash-Uncensored-FP8",
+        "hook": "An uncensored FP8 quantized variant of GLM-5.3-Flash optimized for fast and unrestricted text generation.",
         "key_takeaways": [
-          "Lighter weights and faster inference via FP8 precision",
-          "Uncensored and flexible text generation capabilities",
-          "Compatible with various routing and text generation pipelines"
+          "Based on the high-speed GLM-5.3-Flash model architecture",
+          "Utilizes FP8 quantization to reduce GPU memory footprint and boost inference efficiency",
+          "Uncensored finetuning removes default alignment restrictions for broader applications"
         ]
       },
       "zh": {
-        "title": "orcarouter GLM-5.3-Flash-Uncensored-FP8 模型发布",
-        "hook": "利用应用FP8量化、速度与效率极大化的高性能语言模型。",
+        "title": "GLM-5.3-Flash 未审核 FP8 量化模型",
+        "hook": "基于 FP8 量化的未审核 GLM-5.3-Flash 模型，兼具高效推理与灵活无限制的文本生成能力。",
         "key_takeaways": [
-          "通过FP8精度减轻权重并提升推理速度",
-          "具备无审查(Uncensored)且灵活的文本生成能力",
-          "兼容多种路由与文本生成流程"
+          "基于快速推理的 GLM-5.3-Flash 架构",
+          "采用 FP8 量化技术，大幅降低显存占用并提升生成速度",
+          "解除默认安全对齐限制（Uncensored），扩展使用自由度"
         ]
       }
     }
@@ -76,22 +78,55 @@
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
+    "GLM",
+    "Uncensored",
     "FP8 Quantization",
-    "Uncensored LLM",
-    "Text Generation"
+    "Text Generation",
+    "LLM"
   ],
-  "title_ko": "orcarouter GLM-5.3-Flash-Uncensored-FP8 모델 공개",
-  "title_en": "orcarouter GLM-5.3-Flash-Uncensored-FP8 Model Released",
-  "title_zh": "orcarouter GLM-5.3-Flash-Uncensored-FP8 模型发布",
+  "title_ko": "GLM-5.3-Flash 무검열 FP8 양자화 모델",
+  "title_en": "orcarouter/GLM-5.3-Flash-Uncensored-FP8",
+  "title_zh": "GLM-5.3-Flash 未审核 FP8 量化模型",
   "hook": "FP8 양자화가 적용되어 속도와 효율성이 극대화된 고성능 언어 모델을 활용해 보세요.",
-  "hook_ko": "FP8 양자화가 적용되어 속도와 효율성이 극대화된 고성능 언어 모델을 활용해 보세요.",
-  "hook_en": "Utilize a high-performance language model optimized for speed and efficiency using FP8 quantization.",
-  "hook_zh": "利用应用FP8量化、速度与效率极大化的高性能语言模型。",
+  "hook_ko": "검열이 제거된 FP8 양자화 기반 GLM-5.3-Flash 모델로 빠른 추론과 유연한 텍스트 생성 제공",
+  "hook_en": "An uncensored FP8 quantized variant of GLM-5.3-Flash optimized for fast and unrestricted text generation.",
+  "hook_zh": "基于 FP8 量化的未审核 GLM-5.3-Flash 模型，兼具高效推理与灵活无限制的文本生成能力。",
   "description_ko": "FP8 양자화가 적용되어 속도와 효율성이 극대화된 고성능 언어 모델을 활용해 보세요.",
   "description_en": "Utilize a high-performance language model optimized for speed and efficiency using FP8 quantization.",
   "description_zh": "利用应用FP8量化、速度与效率极大化的高性能语言模型。",
   "model_family": "GLM",
   "category_type": "MODEL",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "GLM-5.3-Flash 무검열 FP8 양자화 모델",
+      "hook": "검열이 제거된 FP8 양자화 기반 GLM-5.3-Flash 모델로 빠른 추론과 유연한 텍스트 생성 제공",
+      "key_takeaways": [
+        "속도가 강화된 GLM-5.3-Flash 아키텍처 기반",
+        "FP8 양자화를 적용하여 VRAM 사용량 감소 및 추론 효율성 극대화",
+        "안전성 가이드라인 제한이 향상된 무검열(Uncensored) 파인튜닝 버전"
+      ]
+    },
+    "en": {
+      "title": "orcarouter/GLM-5.3-Flash-Uncensored-FP8",
+      "hook": "An uncensored FP8 quantized variant of GLM-5.3-Flash optimized for fast and unrestricted text generation.",
+      "key_takeaways": [
+        "Based on the high-speed GLM-5.3-Flash model architecture",
+        "Utilizes FP8 quantization to reduce GPU memory footprint and boost inference efficiency",
+        "Uncensored finetuning removes default alignment restrictions for broader applications"
+      ]
+    },
+    "zh": {
+      "title": "GLM-5.3-Flash 未审核 FP8 量化模型",
+      "hook": "基于 FP8 量化的未审核 GLM-5.3-Flash 模型，兼具高效推理与灵活无限制的文本生成能力。",
+      "key_takeaways": [
+        "基于快速推理的 GLM-5.3-Flash 架构",
+        "采用 FP8 量化技术，大幅降低显存占用并提升生成速度",
+        "解除默认安全对齐限制（Uncensored），扩展使用自由度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.860607"
 }

@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "MODEL",
-  "title_ko": "Lightricks, 고성능 이미지-투-비디오 모델 LTX-2.5 공개",
+  "title_ko": "Lightricks/LTX-2.5: 고품질 이미지-투-비디오 생성 오픈 모델",
   "description_ko": "이미지를 생동감 넘치는 고화질 영상으로 변환하는 최신 LTX-2.5 모델을 지금 확인하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,64 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_trending_lightricksltx_25",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Standalone",
-    "category": "영상 제작",
+    "type_classification": "TECH",
+    "model_family": "Diffusion Transformer",
+    "category": "Computer Vision / Video Generation",
     "programming_lang": "Python",
     "root_keywords": [
-      "Lightricks",
+      "image-to-video",
       "LTX-2.5",
-      "Image-to-Video"
+      "Lightricks",
+      "video generation",
+      "diffusion model"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.9,
+    "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "Lightricks, 고성능 이미지-투-비디오 모델 LTX-2.5 공개",
-        "hook": "이미지를 생동감 넘치는 고화질 영상으로 변환하는 최신 LTX-2.5 모델을 지금 확인하세요.",
+        "title": "Lightricks/LTX-2.5: 고품질 이미지-투-비디오 생성 오픈 모델",
+        "hook": "Lightricks에서 공개한 최신 이미지-투-비디오 모델 LTX-2.5로, 120만 회 이상의 다운로드를 기록하며 비디오 생성 생태계를 이끌고 있습니다.",
         "key_takeaways": [
-          "Lightricks의 최첨단 이미지-투-비디오(Image-to-Video) 생성 모델",
-          "120만 이상의 압도적인 다운로드 수와 강력한 커뮤니티 지지",
-          "생성형 영상 콘텐츠 제작 파이프라인의 성능 대폭 향상"
+          "Lightricks의 이미지-투-비디오(Image-to-Video) 전용 AI 파이프라인 LTX-2.5",
+          "120만 회 이상의 누적 다운로드 및 커뮤니티 트렌딩 달성",
+          "우수한 시간적 일관성 및 고품질 프레임 생성 기능 제공"
         ]
       },
       "en": {
-        "title": "Lightricks Releases Advanced Image-to-Video Model LTX-2.5",
-        "hook": "Transform static images into cinematic videos with Lightricks' cutting-edge LTX-2.5 model.",
+        "title": "Lightricks/LTX-2.5: High-Performance Image-to-Video Generation Model",
+        "hook": "Lightricks' latest image-to-video model LTX-2.5 gains massive community traction with over 1.2 million downloads.",
         "key_takeaways": [
-          "State-of-the-art image-to-video generation model by Lightricks",
-          "Massive adoption with over 1.2M downloads and high engagement",
-          "Significantly upgrades generative video production workflows"
+          "Specialized image-to-video generation pipeline by Lightricks",
+          "Surpassed 1.2 million downloads on Hugging Face Hub",
+          "Provides robust temporal consistency and high visual fidelity for video diffusion"
         ]
       },
       "zh": {
-        "title": "Lightricks 发布先进的图生视频模型 LTX-2.5",
-        "hook": "利用 Lightricks 的尖端 LTX-2.5 模型，将静态图像转化为生动的高清视频。",
+        "title": "Lightricks/LTX-2.5：高性能图生视频生成模型",
+        "hook": "Lightricks 推出的最新图生视频模型 LTX-2.5 在 Hugging Face 下载量突破 120 万次。",
         "key_takeaways": [
-          "Lightricks 开发的前沿图生视频（Image-to-Video）生成模型",
-          "获得超过 120 万次下载及社区的高度认可",
-          "大幅提升生成式视频内容制作的工作流效率"
+          "Lightricks 专为图生视频（Image-to-Video）打造的高效 AI 模型",
+          "Hugging Face 平台下载量超 120 万，获社区广泛关注",
+          "具备出色的时间连续性与高清晰度视频生成能力"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:47.289322+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Lightricks",
+    "image-to-video",
     "LTX-2.5",
-    "Image-to-Video"
+    "Lightricks",
+    "video generation",
+    "diffusion model"
   ],
-  "title_en": "Lightricks Releases Advanced Image-to-Video Model LTX-2.5",
-  "title_zh": "Lightricks 发布先进的图生视频模型 LTX-2.5",
+  "title_en": "Lightricks/LTX-2.5: High-Performance Image-to-Video Generation Model",
+  "title_zh": "Lightricks/LTX-2.5：高性能图生视频生成模型",
   "hook": "이미지를 생동감 넘치는 고화질 영상으로 변환하는 최신 LTX-2.5 모델을 지금 확인하세요.",
-  "hook_ko": "이미지를 생동감 넘치는 고화질 영상으로 변환하는 최신 LTX-2.5 모델을 지금 확인하세요.",
-  "hook_en": "Transform static images into cinematic videos with Lightricks' cutting-edge LTX-2.5 model.",
-  "hook_zh": "利用 Lightricks 的尖端 LTX-2.5 模型，将静态图像转化为生动的高清视频。",
+  "hook_ko": "Lightricks에서 공개한 최신 이미지-투-비디오 모델 LTX-2.5로, 120만 회 이상의 다운로드를 기록하며 비디오 생성 생태계를 이끌고 있습니다.",
+  "hook_en": "Lightricks' latest image-to-video model LTX-2.5 gains massive community traction with over 1.2 million downloads.",
+  "hook_zh": "Lightricks 推出的最新图生视频模型 LTX-2.5 在 Hugging Face 下载量突破 120 万次。",
   "description_en": "Transform static images into cinematic videos with Lightricks' cutting-edge LTX-2.5 model.",
   "description_zh": "利用 Lightricks 的尖端 LTX-2.5 模型，将静态图像转化为生动的高清视频。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Lightricks/LTX-2.5: 고품질 이미지-투-비디오 생성 오픈 모델",
+      "hook": "Lightricks에서 공개한 최신 이미지-투-비디오 모델 LTX-2.5로, 120만 회 이상의 다운로드를 기록하며 비디오 생성 생태계를 이끌고 있습니다.",
+      "key_takeaways": [
+        "Lightricks의 이미지-투-비디오(Image-to-Video) 전용 AI 파이프라인 LTX-2.5",
+        "120만 회 이상의 누적 다운로드 및 커뮤니티 트렌딩 달성",
+        "우수한 시간적 일관성 및 고품질 프레임 생성 기능 제공"
+      ]
+    },
+    "en": {
+      "title": "Lightricks/LTX-2.5: High-Performance Image-to-Video Generation Model",
+      "hook": "Lightricks' latest image-to-video model LTX-2.5 gains massive community traction with over 1.2 million downloads.",
+      "key_takeaways": [
+        "Specialized image-to-video generation pipeline by Lightricks",
+        "Surpassed 1.2 million downloads on Hugging Face Hub",
+        "Provides robust temporal consistency and high visual fidelity for video diffusion"
+      ]
+    },
+    "zh": {
+      "title": "Lightricks/LTX-2.5：高性能图生视频生成模型",
+      "hook": "Lightricks 推出的最新图生视频模型 LTX-2.5 在 Hugging Face 下载量突破 120 万次。",
+      "key_takeaways": [
+        "Lightricks 专为图生视频（Image-to-Video）打造的高效 AI 模型",
+        "Hugging Face 平台下载量超 120 万，获社区广泛关注",
+        "具备出色的时间连续性与高清晰度视频生成能力"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.883236"
 }

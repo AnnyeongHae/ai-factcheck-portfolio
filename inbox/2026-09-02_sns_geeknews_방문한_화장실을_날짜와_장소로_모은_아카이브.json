@@ -30,71 +30,102 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "방문한 화장실을 날짜와 장소로 기록한 독특한 개인 아카이브",
+  "title_ko": "방문한 화장실을 날짜와 장소로 모은 아카이브",
   "description_ko": "소소한 일상 데이터를 수집해 독창적인 웹 서비스로 만든 개발자의 이색적인 아카이브 사례입니다.",
   "hn_url": "https://news.hada.io/topic?id=33125",
   "article_url": "https://news.hada.io/topic?id=33125",
   "ai_enrichment": {
     "id": "2026-09-02_sns_geeknews_방문한_화장실을_날짜와_장소로_모은_아카이브",
     "source_lang": "KO",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "개발자 개인 프로젝트 및 아카이브",
+    "type_classification": "TECH",
+    "model_family": "Web Application",
+    "category": "Web & Data Archiving",
     "programming_lang": "General",
     "root_keywords": [
-      "개인 프로젝트",
-      "아카이브",
-      "라이프 로깅"
+      "Lifelogging",
+      "Personal Archiving",
+      "Map Visualization",
+      "Location Data"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 2.5,
+    "worth_score": 3.2,
     "multilingual": {
       "ko": {
-        "title": "방문한 화장실을 날짜와 장소로 기록한 독특한 개인 아카이브",
-        "hook": "소소한 일상 데이터를 수집해 독창적인 웹 서비스로 만든 개발자의 이색적인 아카이브 사례입니다.",
+        "title": "방문한 화장실을 날짜와 장소로 모은 아카이브",
+        "hook": "개인 방문 화장실 데이터를 위치와 날짜별로 수집하고 시각화한 독특한 라이프로깅 프로젝트",
         "key_takeaways": [
-          "개인적인 경험을 데이터화하여 아카이브 구축",
-          "날짜와 장소 기반의 단순하지만 확실한 UI/UX 구현",
-          "개발자들의 기발한 사이드 프로젝트 영감 제공"
+          "개인 일상 데이터(화장실 방문)를 공간 및 시간 축으로 기록하고 시각화",
+          "소소한 개인 프로젝트로서의 라이프로깅(Lifelogging) 활용 아이디어 제공",
+          "지도 인터페이스와 타임라인을 결합한 데이터 웹 아카이빙 사례"
         ]
       },
       "en": {
-        "title": "A Unique Personal Archive of Visited Restrooms by Date and Location",
-        "hook": "Explore a quirky developer side project that turns everyday life data into a dedicated web archive.",
+        "title": "An Archive Mapping Visited Restrooms by Date and Location",
+        "hook": "A unique personal lifelogging project that records and visualizes visited restrooms on a map with timestamps.",
         "key_takeaways": [
-          "Digitizing personal real-world experiences into an archive",
-          "Simple yet effective date-and-location-based interface",
-          "Inspiring creative and unconventional developer side projects"
+          "Archives personal everyday data using geospatial points and timestamps",
+          "A novel example of niche lifelogging and personal side-project execution",
+          "Demonstrates web data visualization combining mapping and timeline components"
         ]
       },
       "zh": {
-        "title": "按日期和地点记录访问过洗手间的独特个人档案库",
-        "hook": "探索一个将日常琐碎生活数据转化为专属网络档案的极客趣味侧项目。",
+        "title": "按日期和地点记录洗手间访问历史的归档项目",
+        "hook": "一个结合地图与时间轴，整理并可视化个人洗手间见闻的趣味生活记录项目",
         "key_takeaways": [
-          "将个人真实世界体验数字化的档案库构建",
-          "实现基于日期与地点的简单而有效的界面",
-          "为开发者提供不拘一格的副项目灵感"
+          "通过地理空间点和时间戳对日常个人数据（洗手间访问）进行归档",
+          "展示了一个极具趣味性的个人 Side Project 与生活记录（Lifelogging）范例",
+          "结合了地图界面与时间线交互的 Web 数据可视化实践"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:55:08.942640+09:00"
+    }
   },
   "source_lang": "KO",
   "programming_lang": "General",
   "root_keywords": [
-    "개인 프로젝트",
-    "아카이브",
-    "라이프 로깅"
+    "Lifelogging",
+    "Personal Archiving",
+    "Map Visualization",
+    "Location Data"
   ],
-  "title_en": "A Unique Personal Archive of Visited Restrooms by Date and Location",
-  "title_zh": "按日期和地点记录访问过洗手间的独特个人档案库",
+  "title_en": "An Archive Mapping Visited Restrooms by Date and Location",
+  "title_zh": "按日期和地点记录洗手间访问历史的归档项目",
   "hook": "소소한 일상 데이터를 수집해 독창적인 웹 서비스로 만든 개발자의 이색적인 아카이브 사례입니다.",
-  "hook_ko": "소소한 일상 데이터를 수집해 독창적인 웹 서비스로 만든 개발자의 이색적인 아카이브 사례입니다.",
-  "hook_en": "Explore a quirky developer side project that turns everyday life data into a dedicated web archive.",
-  "hook_zh": "探索一个将日常琐碎生活数据转化为专属网络档案的极客趣味侧项目。",
+  "hook_ko": "개인 방문 화장실 데이터를 위치와 날짜별로 수집하고 시각화한 독특한 라이프로깅 프로젝트",
+  "hook_en": "A unique personal lifelogging project that records and visualizes visited restrooms on a map with timestamps.",
+  "hook_zh": "一个结合地图与时间轴，整理并可视化个人洗手间见闻的趣味生活记录项目",
   "description_en": "Explore a quirky developer side project that turns everyday life data into a dedicated web archive.",
   "description_zh": "探索一个将日常琐碎生活数据转化为专属网络档案的极客趣味侧项目。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "방문한 화장실을 날짜와 장소로 모은 아카이브",
+      "hook": "개인 방문 화장실 데이터를 위치와 날짜별로 수집하고 시각화한 독특한 라이프로깅 프로젝트",
+      "key_takeaways": [
+        "개인 일상 데이터(화장실 방문)를 공간 및 시간 축으로 기록하고 시각화",
+        "소소한 개인 프로젝트로서의 라이프로깅(Lifelogging) 활용 아이디어 제공",
+        "지도 인터페이스와 타임라인을 결합한 데이터 웹 아카이빙 사례"
+      ]
+    },
+    "en": {
+      "title": "An Archive Mapping Visited Restrooms by Date and Location",
+      "hook": "A unique personal lifelogging project that records and visualizes visited restrooms on a map with timestamps.",
+      "key_takeaways": [
+        "Archives personal everyday data using geospatial points and timestamps",
+        "A novel example of niche lifelogging and personal side-project execution",
+        "Demonstrates web data visualization combining mapping and timeline components"
+      ]
+    },
+    "zh": {
+      "title": "按日期和地点记录洗手间访问历史的归档项目",
+      "hook": "一个结合地图与时间轴，整理并可视化个人洗手间见闻的趣味生活记录项目",
+      "key_takeaways": [
+        "通过地理空间点和时间戳对日常个人数据（洗手间访问）进行归档",
+        "展示了一个极具趣味性的个人 Side Project 与生活记录（Lifelogging）范例",
+        "结合了地图界面与时间线交互的 Web 数据可视化实践"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.054539"
 }

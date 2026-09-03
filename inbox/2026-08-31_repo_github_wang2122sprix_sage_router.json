@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "AGENT",
-  "title_ko": "Sprix Sage Router: A2A 에이전트 네트워크를 위한 상태 인식 라우팅",
+  "title_ko": "Sprix AI SAGE Router: A2A 에이전트 네트워크를 위한 상태 기반 라우팅",
   "description_ko": "멀티 에이전트 시스템에서 에이전트 간 협업과 핸드오프를 지능적으로 제어하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -47,64 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_github_wang2122sprix_sage_router",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "에이전트 네트워크 라우팅",
+    "type_classification": "TECH",
+    "model_family": "Agentic AI / Multi-Agent Systems",
+    "category": "Autonomous Agents",
     "programming_lang": "Python",
     "root_keywords": [
-      "A2A",
-      "Agent Routing",
-      "Self-Collaborate"
+      "A2A Network",
+      "Agent Router",
+      "State-Aware Routing",
+      "Multi-Agent Orchestration",
+      "Sprix AI"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Sprix Sage Router: A2A 에이전트 네트워크를 위한 상태 인식 라우팅",
-        "hook": "멀티 에이전트 시스템에서 에이전트 간 협업과 핸드오프를 지능적으로 제어하세요.",
+        "title": "Sprix AI SAGE Router: A2A 에이전트 네트워크를 위한 상태 기반 라우팅",
+        "hook": "에이전트 간 단독 실행, 협업 및 핸드오프를 동적으로 제어하는 상태 인지형 A2A 라우터",
         "key_takeaways": [
-          "상태 인식을 통한 SELF, COLLABORATE, HANDOFF 라우팅 지원",
-          "A2A(Agent-to-Agent) 네트워크 구조 최적화",
-          "복잡한 멀티 에이전트 워크플로우의 효율성 향상"
+          "SELF/COLLABORATE/HANDOFF 모드로 분기되는 에이전트 작업 처리 라우팅",
+          "상태 인지(State-aware) 메커니즘으로 에이전트 간 연동 최적화",
+          "복잡한 멀티 에이전트 시스템(A2A)의 효율적 스케일링 지원"
         ]
       },
       "en": {
-        "title": "Sprix Sage Router: State-Aware Routing for A2A Agent Networks",
-        "hook": "Intelligently manage collaboration and handoffs in multi-agent systems with state awareness.",
+        "title": "Sprix AI SAGE Router: State-Aware Routing for A2A Agent Networks",
+        "hook": "A state-aware routing engine providing SELF/COLLABORATE/HANDOFF modes for Agent-to-Agent architectures.",
         "key_takeaways": [
-          "Supports SELF, COLLABORATE, and HANDOFF routing via state awareness",
-          "Optimizes Agent-to-Agent (A2A) network architectures",
-          "Enhances efficiency in complex multi-agent workflows"
+          "Implements triple-mode routing (SELF, COLLABORATE, HANDOFF) for dynamic agent task allocation",
+          "State-aware decision-making for seamless Agent-to-Agent (A2A) network collaboration",
+          "Provides foundational infrastructure for complex multi-agent workflows"
         ]
       },
       "zh": {
-        "title": "Sprix Sage Router：面向 A2A 智能体网络的感知状态路由",
-        "hook": "在多智能体系统中智能控制协作与交接，提升工作流效率。",
+        "title": "Sprix AI SAGE Router：面向 A2A 智能体网络的状态感知路由",
+        "hook": "通过 SELF / COLLABORATE / HANDOFF 模式实现状态感知的多智能体（A2A）路由控制",
         "key_takeaways": [
-          "支持基于状态感知的 SELF、COLLABORATE、HANDOFF 路由",
-          "优化 A2A（智能体到智能体）网络架构",
-          "提高复杂多智能体工作流的执行效率"
+          "支持 SELF（自处理）、COLLABORATE（协作）和 HANDOFF（移交）三种动态路由状态",
+          "基于状态感知（State-aware）机制提升智能体网络间的协同效率",
+          "为复杂的 Agent-to-Agent 多智能体系统提供强大网络治理能力"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:50.530804+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "A2A",
-    "Agent Routing",
-    "Self-Collaborate"
+    "A2A Network",
+    "Agent Router",
+    "State-Aware Routing",
+    "Multi-Agent Orchestration",
+    "Sprix AI"
   ],
-  "title_en": "Sprix Sage Router: State-Aware Routing for A2A Agent Networks",
-  "title_zh": "Sprix Sage Router：面向 A2A 智能体网络的感知状态路由",
+  "title_en": "Sprix AI SAGE Router: State-Aware Routing for A2A Agent Networks",
+  "title_zh": "Sprix AI SAGE Router：面向 A2A 智能体网络的状态感知路由",
   "hook": "멀티 에이전트 시스템에서 에이전트 간 협업과 핸드오프를 지능적으로 제어하세요.",
-  "hook_ko": "멀티 에이전트 시스템에서 에이전트 간 협업과 핸드오프를 지능적으로 제어하세요.",
-  "hook_en": "Intelligently manage collaboration and handoffs in multi-agent systems with state awareness.",
-  "hook_zh": "在多智能体系统中智能控制协作与交接，提升工作流效率。",
+  "hook_ko": "에이전트 간 단독 실행, 협업 및 핸드오프를 동적으로 제어하는 상태 인지형 A2A 라우터",
+  "hook_en": "A state-aware routing engine providing SELF/COLLABORATE/HANDOFF modes for Agent-to-Agent architectures.",
+  "hook_zh": "通过 SELF / COLLABORATE / HANDOFF 模式实现状态感知的多智能体（A2A）路由控制",
   "description_en": "Intelligently manage collaboration and handoffs in multi-agent systems with state awareness.",
   "description_zh": "在多智能体系统中智能控制协作与交接，提升工作流效率。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Sprix AI SAGE Router: A2A 에이전트 네트워크를 위한 상태 기반 라우팅",
+      "hook": "에이전트 간 단독 실행, 협업 및 핸드오프를 동적으로 제어하는 상태 인지형 A2A 라우터",
+      "key_takeaways": [
+        "SELF/COLLABORATE/HANDOFF 모드로 분기되는 에이전트 작업 처리 라우팅",
+        "상태 인지(State-aware) 메커니즘으로 에이전트 간 연동 최적화",
+        "복잡한 멀티 에이전트 시스템(A2A)의 효율적 스케일링 지원"
+      ]
+    },
+    "en": {
+      "title": "Sprix AI SAGE Router: State-Aware Routing for A2A Agent Networks",
+      "hook": "A state-aware routing engine providing SELF/COLLABORATE/HANDOFF modes for Agent-to-Agent architectures.",
+      "key_takeaways": [
+        "Implements triple-mode routing (SELF, COLLABORATE, HANDOFF) for dynamic agent task allocation",
+        "State-aware decision-making for seamless Agent-to-Agent (A2A) network collaboration",
+        "Provides foundational infrastructure for complex multi-agent workflows"
+      ]
+    },
+    "zh": {
+      "title": "Sprix AI SAGE Router：面向 A2A 智能体网络的状态感知路由",
+      "hook": "通过 SELF / COLLABORATE / HANDOFF 模式实现状态感知的多智能体（A2A）路由控制",
+      "key_takeaways": [
+        "支持 SELF（自处理）、COLLABORATE（协作）和 HANDOFF（移交）三种动态路由状态",
+        "基于状态感知（State-aware）机制提升智能体网络间的协同效率",
+        "为复杂的 Agent-to-Agent 多智能体系统提供强大网络治理能力"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.807593"
 }

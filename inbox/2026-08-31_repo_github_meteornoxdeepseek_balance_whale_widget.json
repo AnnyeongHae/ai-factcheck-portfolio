@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "AGENT",
-  "title_ko": "DeepSeek-Balance-Whale-Widget: DeepSeek 잔액 모니터링 데스크탑 위젯",
+  "title_ko": "DeepSeek-Balance-Whale-Widget: DeepSeek 계정 잔액 모니터링 위젯",
   "description_ko": "DeepSeek API 잔액을 실시간으로 귀여운 애니메이션과 함께 모니터링하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -47,66 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_github_meteornoxdeepseek_balance_whale_widget",
     "source_lang": "ZH",
-    "type_classification": "AGENT",
-    "model_family": "DeepSeek",
-    "category": "개발자 도구 및 UI 위젯",
-    "programming_lang": "TypeScript",
+    "type_classification": "TECH",
+    "model_family": "LLM Utilities",
+    "category": "Developer Tools",
+    "programming_lang": "JavaScript",
     "root_keywords": [
       "DeepSeek",
-      "Widget",
-      "UI Animation",
-      "API Monitor"
+      "DeepSeek Harness",
+      "API Balance Monitor",
+      "UI Widget",
+      "Desktop Mascot"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.2,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "DeepSeek-Balance-Whale-Widget: DeepSeek 잔액 모니터링 데스크탑 위젯",
-        "hook": "DeepSeek API 잔액을 실시간으로 귀여운 애니메이션과 함께 모니터링하세요.",
+        "title": "DeepSeek-Balance-Whale-Widget: DeepSeek 계정 잔액 모니터링 위젯",
+        "hook": "DeepSeek Harness(DSH) 인터페이스에서 API 잔액을 실시간으로 보여주는 애니메이션 마스코트 위젯",
         "key_takeaways": [
-          "DeepSeek Harness 인터페이스 우측 하단에 위치하는 귀여운 고래 위젯",
-          "드래그 앤 드롭 흡착, 화면 자동 활성화, 숫자 스크롤 애니메이션 지원",
-          "개발 중 API 잔액 부족을 방지하기 위한 가볍고 실용적인 오픈소스 도구"
+          "DeepSeek Harness(DSH) 화면 우측 하단에 상주하여 API 잔액 모니터링 지원",
+          "드래그 앤 드롭 화면 흡착, 위치 반전, 숫자 스크롤 애니메이션 등 인터랙티브 UI 구현",
+          "DeepSeek 사용자를 위한 친근하고 직관적인 크레딧 소비 추적 도구"
         ]
       },
       "en": {
-        "title": "DeepSeek-Balance-Whale-Widget: Cute Real-time Balance Monitor for DeepSeek",
-        "hook": "Keep an eye on your DeepSeek account balance with an interactive, bouncy desktop whale widget.",
+        "title": "DeepSeek-Balance-Whale-Widget: Animated Balance Monitor for DeepSeek Harness",
+        "hook": "An interactive desktop-mascot UI widget designed to monitor DeepSeek API account balance seamlessly.",
         "key_takeaways": [
-          "Features a cute desktop companion widget on the bottom right of the DSH interface",
-          "Supports drag-and-drop snapping, flip animations, and smooth numeric scrolling",
-          "Lightweight open-source tool for developers to conveniently track API usage"
+          "Monitors DeepSeek API balance in real-time within the DeepSeek Harness (DSH) UI",
+          "Includes smooth UX features like drag-and-drop snapping, directional flip, and rolling counter animations",
+          "Enhances developer workflow by offering intuitive balance visibility during heavy LLM API usage"
         ]
       },
       "zh": {
-        "title": "DeepSeek-Balance-Whale-Widget: 监控 DeepSeek 账户余额的可爱桌面小鲸鱼插件",
-        "hook": "在 DeepSeek 界面右下角放置一只Q弹的小鲸鱼，助你实时盯着账户余额。",
+        "title": "DeepSeek-Balance-Whale-Widget：DeepSeek 账户余额监控小鲸鱼挂件",
+        "hook": "适用于 DeepSeek Harness (DSH) 界面、支持丰富交互动画的 API 余额动态监控挂件",
         "key_takeaways": [
-          "常驻 DeepSeek 界面右下角的动态小鲸鱼伴侣",
-          "支持拖拽吸附、翻转特效及数字滚动动画，随界面自动启用",
-          "实用且生动的开源小工具，防止 API 额度耗尽时措手不及"
+          "常驻 DeepSeek Harness (DSH) 界面右下角，实时监测 DeepSeek 账户 API 余额",
+          "支持拖拽吸附、边缘翻转及数字滚动动画等交互效果",
+          "为 DeepSeek 开发者提供直观、生动的用量与余额追踪体验"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:16.120683+00:00"
+    }
   },
   "source_lang": "ZH",
-  "programming_lang": "TypeScript",
+  "programming_lang": "JavaScript",
   "root_keywords": [
     "DeepSeek",
-    "Widget",
-    "UI Animation",
-    "API Monitor"
+    "DeepSeek Harness",
+    "API Balance Monitor",
+    "UI Widget",
+    "Desktop Mascot"
   ],
-  "title_en": "DeepSeek-Balance-Whale-Widget: Cute Real-time Balance Monitor for DeepSeek",
-  "title_zh": "DeepSeek-Balance-Whale-Widget: 监控 DeepSeek 账户余额的可爱桌面小鲸鱼插件",
+  "title_en": "DeepSeek-Balance-Whale-Widget: Animated Balance Monitor for DeepSeek Harness",
+  "title_zh": "DeepSeek-Balance-Whale-Widget：DeepSeek 账户余额监控小鲸鱼挂件",
   "hook": "DeepSeek API 잔액을 실시간으로 귀여운 애니메이션과 함께 모니터링하세요.",
-  "hook_ko": "DeepSeek API 잔액을 실시간으로 귀여운 애니메이션과 함께 모니터링하세요.",
-  "hook_en": "Keep an eye on your DeepSeek account balance with an interactive, bouncy desktop whale widget.",
-  "hook_zh": "在 DeepSeek 界面右下角放置一只Q弹的小鲸鱼，助你实时盯着账户余额。",
+  "hook_ko": "DeepSeek Harness(DSH) 인터페이스에서 API 잔액을 실시간으로 보여주는 애니메이션 마스코트 위젯",
+  "hook_en": "An interactive desktop-mascot UI widget designed to monitor DeepSeek API account balance seamlessly.",
+  "hook_zh": "适用于 DeepSeek Harness (DSH) 界面、支持丰富交互动画的 API 余额动态监控挂件",
   "description_en": "Keep an eye on your DeepSeek account balance with an interactive, bouncy desktop whale widget.",
   "description_zh": "在 DeepSeek 界面右下角放置一只Q弹的小鲸鱼，助你实时盯着账户余额。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "DeepSeek-Balance-Whale-Widget: DeepSeek 계정 잔액 모니터링 위젯",
+      "hook": "DeepSeek Harness(DSH) 인터페이스에서 API 잔액을 실시간으로 보여주는 애니메이션 마스코트 위젯",
+      "key_takeaways": [
+        "DeepSeek Harness(DSH) 화면 우측 하단에 상주하여 API 잔액 모니터링 지원",
+        "드래그 앤 드롭 화면 흡착, 위치 반전, 숫자 스크롤 애니메이션 등 인터랙티브 UI 구현",
+        "DeepSeek 사용자를 위한 친근하고 직관적인 크레딧 소비 추적 도구"
+      ]
+    },
+    "en": {
+      "title": "DeepSeek-Balance-Whale-Widget: Animated Balance Monitor for DeepSeek Harness",
+      "hook": "An interactive desktop-mascot UI widget designed to monitor DeepSeek API account balance seamlessly.",
+      "key_takeaways": [
+        "Monitors DeepSeek API balance in real-time within the DeepSeek Harness (DSH) UI",
+        "Includes smooth UX features like drag-and-drop snapping, directional flip, and rolling counter animations",
+        "Enhances developer workflow by offering intuitive balance visibility during heavy LLM API usage"
+      ]
+    },
+    "zh": {
+      "title": "DeepSeek-Balance-Whale-Widget：DeepSeek 账户余额监控小鲸鱼挂件",
+      "hook": "适用于 DeepSeek Harness (DSH) 界面、支持丰富交互动画的 API 余额动态监控挂件",
+      "key_takeaways": [
+        "常驻 DeepSeek Harness (DSH) 界面右下角，实时监测 DeepSeek 账户 API 余额",
+        "支持拖拽吸附、边缘翻转及数字滚动动画等交互效果",
+        "为 DeepSeek 开发者提供直观、生动的用量与余额追踪体验"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.792959"
 }

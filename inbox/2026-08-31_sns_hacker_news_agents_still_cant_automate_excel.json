@@ -16,7 +16,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "NEWS",
-  "title_ko": "AI 에이전트가 여전히 엑셀(Excel)을 완벽히 자동화하지 못하는 이유",
+  "title_ko": "AI 에이전트는 여전히 엑셀을 자동화하지 못한다",
   "description_ko": "복잡한 스프레드시트 자동화 과정에서 AI 에이전트가 직면한 실무적 난제들을 분석합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -44,64 +44,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_sns_hacker_news_agents_still_cant_automate_excel",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "AI 에이전트 한계 분석",
+    "type_classification": "TECH",
+    "model_family": "AI Agents",
+    "category": "AI / Automation",
     "programming_lang": "General",
     "root_keywords": [
       "AI Agents",
       "Excel Automation",
-      "Limitations"
+      "LLM Limitations",
+      "Spreadsheets"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.5,
+    "worth_score": 3.0,
     "multilingual": {
       "ko": {
-        "title": "AI 에이전트가 여전히 엑셀(Excel)을 완벽히 자동화하지 못하는 이유",
-        "hook": "복잡한 스프레드시트 자동화 과정에서 AI 에이전트가 직면한 실무적 난제들을 분석합니다.",
+        "title": "AI 에이전트는 여전히 엑셀을 자동화하지 못한다",
+        "hook": "LLM 기반 에이전트가 복잡한 엑셀 수식 및 비정형 스프레드시트 작업 자동화에서 겪는 기술적 한계 논의",
         "key_takeaways": [
-          "스프레드시트 구조의 복잡성과 문맥 이해의 한계",
-          "에이전트가 시트 내 오류를 감지하고 수정하는 과정의 어려움",
-          "실무 자동화를 위한 향후 보완 방향"
+          "비정형 데이터 및 복잡한 참조 수식 해석 시 고질적으로 발생하는 오류",
+          "GUI 제어 및 API 연동 방식 모두에서 발생하는 높은 실패율",
+          "실무 환경에 적용 가능한 신뢰성 높은 엔터프라이즈 에이전트 개발의 난제"
         ]
       },
       "en": {
-        "title": "Why AI Agents Still Can't Automate Excel",
-        "hook": "Analyze the practical hurdles AI agents face when attempting complex spreadsheet automation.",
+        "title": "Agents Still Can't Automate Excel",
+        "hook": "A discussion on the technical limitations LLM agents face when attempting to automate complex spreadsheet workflows.",
         "key_takeaways": [
-          "Complexity of spreadsheet structures and context understanding limitations",
-          "Difficulty for agents in detecting and fixing formula/data errors",
-          "Future improvements needed for reliable business automation"
+          "Persistent errors when parsing unstructured layouts and intricate formulas",
+          "High failure rates in both GUI-driven interaction and code-gen API approaches",
+          "Key roadblocks to achieving production-ready enterprise office automation"
         ]
       },
       "zh": {
-        "title": "为什么 AI 代理仍然无法完全自动化 Excel",
-        "hook": "剖析 AI 代理在处理复杂的电子表格自动化时面临的实际痛点与技术瓶颈。",
+        "title": "AI 智能体依然无法完全自动化 Excel",
+        "hook": "探讨 LLM 智能体在自动化处理复杂 Excel 表格与工作流时面临的工程瓶颈",
         "key_takeaways": [
-          "电子表格结构的复杂性与上下文理解限制",
-          "代理在检测和纠正错误方面的技术难点",
-          "实现可靠业务自动化的未来改进方向"
+          "解析非结构化布局与复杂关联公式时的常见错误",
+          "无论是 GUI 交互还是代码生成 API 方式均存在较高失败率",
+          "实现真正企业级办公自动化 Agent 面临的核心难题"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:34.810656+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "AI Agents",
     "Excel Automation",
-    "Limitations"
+    "LLM Limitations",
+    "Spreadsheets"
   ],
-  "title_en": "Why AI Agents Still Can't Automate Excel",
-  "title_zh": "为什么 AI 代理仍然无法完全自动化 Excel",
+  "title_en": "Agents Still Can't Automate Excel",
+  "title_zh": "AI 智能体依然无法完全自动化 Excel",
   "hook": "복잡한 스프레드시트 자동화 과정에서 AI 에이전트가 직면한 실무적 난제들을 분석합니다.",
-  "hook_ko": "복잡한 스프레드시트 자동화 과정에서 AI 에이전트가 직면한 실무적 난제들을 분석합니다.",
-  "hook_en": "Analyze the practical hurdles AI agents face when attempting complex spreadsheet automation.",
-  "hook_zh": "剖析 AI 代理在处理复杂的电子表格自动化时面临的实际痛点与技术瓶颈。",
+  "hook_ko": "LLM 기반 에이전트가 복잡한 엑셀 수식 및 비정형 스프레드시트 작업 자동화에서 겪는 기술적 한계 논의",
+  "hook_en": "A discussion on the technical limitations LLM agents face when attempting to automate complex spreadsheet workflows.",
+  "hook_zh": "探讨 LLM 智能体在自动化处理复杂 Excel 表格与工作流时面临的工程瓶颈",
   "description_en": "Analyze the practical hurdles AI agents face when attempting complex spreadsheet automation.",
   "description_zh": "剖析 AI 代理在处理复杂的电子表格自动化时面临的实际痛点与技术瓶颈。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "AI 에이전트는 여전히 엑셀을 자동화하지 못한다",
+      "hook": "LLM 기반 에이전트가 복잡한 엑셀 수식 및 비정형 스프레드시트 작업 자동화에서 겪는 기술적 한계 논의",
+      "key_takeaways": [
+        "비정형 데이터 및 복잡한 참조 수식 해석 시 고질적으로 발생하는 오류",
+        "GUI 제어 및 API 연동 방식 모두에서 발생하는 높은 실패율",
+        "실무 환경에 적용 가능한 신뢰성 높은 엔터프라이즈 에이전트 개발의 난제"
+      ]
+    },
+    "en": {
+      "title": "Agents Still Can't Automate Excel",
+      "hook": "A discussion on the technical limitations LLM agents face when attempting to automate complex spreadsheet workflows.",
+      "key_takeaways": [
+        "Persistent errors when parsing unstructured layouts and intricate formulas",
+        "High failure rates in both GUI-driven interaction and code-gen API approaches",
+        "Key roadblocks to achieving production-ready enterprise office automation"
+      ]
+    },
+    "zh": {
+      "title": "AI 智能体依然无法完全自动化 Excel",
+      "hook": "探讨 LLM 智能体在自动化处理复杂 Excel 表格与工作流时面临的工程瓶颈",
+      "key_takeaways": [
+        "解析非结构化布局与复杂关联公式时的常见错误",
+        "无论是 GUI 交互还是代码生成 API 方式均存在较高失败率",
+        "实现真正企业级办公自动化 Agent 面临的核心难题"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.892561"
 }

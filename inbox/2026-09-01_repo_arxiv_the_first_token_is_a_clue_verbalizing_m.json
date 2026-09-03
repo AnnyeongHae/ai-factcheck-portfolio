@@ -33,66 +33,97 @@
     "id": "2026-09-01_repo_arxiv_the_first_token_is_a_clue_verbalizing_m",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 내부 해석력 및 토큰 분석",
+    "model_family": "Interpretability",
+    "category": "AI Research",
     "programming_lang": "Python",
     "root_keywords": [
-      "J-lens",
-      "Interpretability",
-      "Multi-token Concepts"
+      "Jacobian Lens",
+      "Multi-Token Concepts",
+      "Mechanistic Interpretability",
+      "Hidden States"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.0,
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "첫 번째 토큰은 단서다: J-렌즈를 통한 다중 토큰 개념의 언어화",
-        "hook": "J-렌즈(Jacobian Lens)를 확장하여 LLM 내부의 은닉 상태에 숨겨진 다중 토큰 개념을 명확하게 해석하세요.",
+        "title": "첫 번째 토큰이 힌트다: 야코비안 렌즈(J-lens) 기반의 다중 토큰 개념 언어화",
+        "hook": "LLM 숨은 상태 해석 도구인 야코비안 렌즈의 단일 토큰 한계를 넘어서는 다중 토큰 개념 언어화 기법",
         "key_takeaways": [
-          "최근 LLM 해석력 도구인 J-렌즈의 한계(다중 토큰 표현 부재) 극복",
-          "은닉 상태를 순위가 매겨진 어휘 토큰 리스트로 읽어내는 방식 개선",
-          "복잡한 다중 토큰 개념을 인간이 이해할 수 있는 언어로 언어화하는 기법"
+          "야코비안 렌즈(J-lens)의 단일 어휘 토큰 표상 한계를 극복하기 위한 다중 토큰 개념 분석 접근법 제공",
+          "생성된 첫 번째 토큰 단서를 활용해 잠재 벡터에 담긴 복합적인 개념을 텍스트로 명확하게 언어화",
+          "대형 언어 모델의 메커니스틱 해석 가능성(Mechanistic Interpretability) 고도화"
         ]
       },
       "en": {
         "title": "The First Token Is a Clue: Verbalizing Multi-Token Concepts from the J-lens",
-        "hook": "Unlock hidden multi-token concepts within LLM hidden states by advancing the Jacobian Lens interpretability method.",
+        "hook": "Extending the Jacobian Lens framework to effectively verbalize multi-token concepts from LLM hidden states.",
         "key_takeaways": [
-          "Addresses the limitation of the Jacobian Lens (J-lens) regarding multi-token concepts",
-          "Interprets hidden states as ranked vocabulary token lists with enhanced precision",
-          "Introduces novel techniques to verbalize complex hidden concepts into readable terms"
+          "Addresses the single-token mapping limitations of the Jacobian Lens in LLM interpretability.",
+          "Leverages the initial output token as a clue to uncover and verbalize complex multi-token representations.",
+          "Advances mechanistic interpretability techniques for deeper understanding of internal LLM concepts."
         ]
       },
       "zh": {
-        "title": "第一个Token是线索：从J-lens中具象化多Token概念",
-        "hook": "借助雅可比透镜（J-lens）的可解释性工具，精准解析并具象化大模型隐藏状态中的多Token复杂概念。",
+        "title": "首个 Token 是关键线索：利用雅可比透镜（J-lens）转译多 Token 概念",
+        "hook": "突破雅可比透镜的单 Token 表征局限，实现 LLM 隐藏状态中多 Token 复杂概念的转译",
         "key_takeaways": [
-          "突破近期LLM可解释性工具J-lens无法有效表示多Token概念的局限",
-          "优化将隐藏状态读取为排序词汇Token列表的方法",
-          "提出将复杂内部概念转化为人类可读语义的创新文本化技术"
+          "分析并解决了雅可比透镜（J-lens）在表达 LLM 隐藏状态时缺乏多 Token 概念独立表征的问题",
+          "提出利用首个 Token 作为线索，将隐藏向量中蕴含的复合概念转化为显式文本",
+          "提升了 LLM 机制可解释性（Mechanistic Interpretability），拓展了内部特征分析的手段"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:06.258935+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "J-lens",
-    "Interpretability",
-    "Multi-token Concepts"
+    "Jacobian Lens",
+    "Multi-Token Concepts",
+    "Mechanistic Interpretability",
+    "Hidden States"
   ],
-  "title_ko": "첫 번째 토큰은 단서다: J-렌즈를 통한 다중 토큰 개념의 언어화",
+  "title_ko": "첫 번째 토큰이 힌트다: 야코비안 렌즈(J-lens) 기반의 다중 토큰 개념 언어화",
   "title_en": "The First Token Is a Clue: Verbalizing Multi-Token Concepts from the J-lens",
-  "title_zh": "第一个Token是线索：从J-lens中具象化多Token概念",
+  "title_zh": "首个 Token 是关键线索：利用雅可比透镜（J-lens）转译多 Token 概念",
   "hook": "J-렌즈(Jacobian Lens)를 확장하여 LLM 내부의 은닉 상태에 숨겨진 다중 토큰 개념을 명확하게 해석하세요.",
-  "hook_ko": "J-렌즈(Jacobian Lens)를 확장하여 LLM 내부의 은닉 상태에 숨겨진 다중 토큰 개념을 명확하게 해석하세요.",
-  "hook_en": "Unlock hidden multi-token concepts within LLM hidden states by advancing the Jacobian Lens interpretability method.",
-  "hook_zh": "借助雅可比透镜（J-lens）的可解释性工具，精准解析并具象化大模型隐藏状态中的多Token复杂概念。",
+  "hook_ko": "LLM 숨은 상태 해석 도구인 야코비안 렌즈의 단일 토큰 한계를 넘어서는 다중 토큰 개념 언어화 기법",
+  "hook_en": "Extending the Jacobian Lens framework to effectively verbalize multi-token concepts from LLM hidden states.",
+  "hook_zh": "突破雅可比透镜的单 Token 表征局限，实现 LLM 隐藏状态中多 Token 复杂概念的转译",
   "description_ko": "J-렌즈(Jacobian Lens)를 확장하여 LLM 내부의 은닉 상태에 숨겨진 다중 토큰 개념을 명확하게 해석하세요.",
   "description_en": "Unlock hidden multi-token concepts within LLM hidden states by advancing the Jacobian Lens interpretability method.",
   "description_zh": "借助雅可比透镜（J-lens）的可解释性工具，精准解析并具象化大模型隐藏状态中的多Token复杂概念。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "첫 번째 토큰이 힌트다: 야코비안 렌즈(J-lens) 기반의 다중 토큰 개념 언어화",
+      "hook": "LLM 숨은 상태 해석 도구인 야코비안 렌즈의 단일 토큰 한계를 넘어서는 다중 토큰 개념 언어화 기법",
+      "key_takeaways": [
+        "야코비안 렌즈(J-lens)의 단일 어휘 토큰 표상 한계를 극복하기 위한 다중 토큰 개념 분석 접근법 제공",
+        "생성된 첫 번째 토큰 단서를 활용해 잠재 벡터에 담긴 복합적인 개념을 텍스트로 명확하게 언어화",
+        "대형 언어 모델의 메커니스틱 해석 가능성(Mechanistic Interpretability) 고도화"
+      ]
+    },
+    "en": {
+      "title": "The First Token Is a Clue: Verbalizing Multi-Token Concepts from the J-lens",
+      "hook": "Extending the Jacobian Lens framework to effectively verbalize multi-token concepts from LLM hidden states.",
+      "key_takeaways": [
+        "Addresses the single-token mapping limitations of the Jacobian Lens in LLM interpretability.",
+        "Leverages the initial output token as a clue to uncover and verbalize complex multi-token representations.",
+        "Advances mechanistic interpretability techniques for deeper understanding of internal LLM concepts."
+      ]
+    },
+    "zh": {
+      "title": "首个 Token 是关键线索：利用雅可比透镜（J-lens）转译多 Token 概念",
+      "hook": "突破雅可比透镜的单 Token 表征局限，实现 LLM 隐藏状态中多 Token 复杂概念的转译",
+      "key_takeaways": [
+        "分析并解决了雅可比透镜（J-lens）在表达 LLM 隐藏状态时缺乏多 Token 概念独立表征的问题",
+        "提出利用首个 Token 作为线索，将隐藏向量中蕴含的复合概念转化为显式文本",
+        "提升了 LLM 机制可解释性（Mechanistic Interpretability），拓展了内部特征分析的手段"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.945978"
 }

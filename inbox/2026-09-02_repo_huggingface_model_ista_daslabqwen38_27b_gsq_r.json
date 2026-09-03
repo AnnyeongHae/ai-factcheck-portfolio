@@ -34,66 +34,99 @@
   "ai_enrichment": {
     "id": "2026-09-02_repo_huggingface_model_ista_daslabqwen38_27b_gsq_r",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "LLM 추론 최적화",
-    "programming_lang": "C++",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "Multimodal AI",
+    "programming_lang": "Python",
     "root_keywords": [
       "Qwen",
       "GGUF",
-      "Model Quantization"
+      "GSQ-RCO",
+      "Quantization",
+      "Multimodal"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face 모델: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-        "hook": "Qwen-3.8 27B 대형 모델을 GGUF 포맷으로 양자화하여 로컬 환경에서 실행하세요.",
+        "title": "HuggingFace 모델: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+        "hook": "GSQ-RCO 양자화 기법을 적용해 로컬 환경에서도 대형 멀티모달 모델을 효율적으로 추론 가능한 GGUF 가중치",
         "key_takeaways": [
-          "GGUF 포맷 양자화를 통해 저사양 하드웨어에서도 27B 모델 추론 가능",
-          "최신 Qwen-3.8 아키텍처의 성능을 효율적으로 유지",
-          "로컬 LLM 배포 및 온디바이스 AI 연구에 최적화된 가중치"
+          "Qwen 27B 기반 비전-언어 모델의 GGUF 포맷 양자화 지원",
+          "GSQ-RCO 양자화 연구 기법을 통한 메모리 압축 및 추론 효율성 최적화",
+          "llama.cpp 및 다양한 GGUF 런타임 환경에서 로컬 멀티모달 작업 수행 가능"
         ]
       },
       "en": {
-        "title": "Hugging Face Model: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-        "hook": "Run the massive Qwen-3.8 27B model locally using high-performance GGUF quantization.",
+        "title": "HuggingFace Model: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+        "hook": "A GGUF-quantized Qwen 27B vision-language model optimized via GSQ-RCO for high-efficiency local inference.",
         "key_takeaways": [
-          "Enables 27B model inference on consumer hardware via GGUF format",
-          "Efficiently preserves the performance of the latest Qwen-3.8 architecture",
-          "Optimized weights for local LLM deployment and on-device AI research"
+          "Provides GGUF quantized weights for the 27B Qwen vision-language architecture",
+          "Utilizes GSQ-RCO quantization techniques to achieve optimal memory-to-performance ratio",
+          "Enables local image-text processing through llama.cpp and compatible edge inference runtimes"
         ]
       },
       "zh": {
-        "title": "Hugging Face 模型：ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-        "hook": "利用高性能 GGUF 量化格式，在本地硬件上顺畅运行庞大的 Qwen-3.8 27B 模型。",
+        "title": "HuggingFace 模型：ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+        "hook": "基于 GSQ-RCO 量化技术的 Qwen 27B 多模态 GGUF 模型，极大地降低了本地推理的资源门槛。",
         "key_takeaways": [
-          "通过 GGUF 格式实现消费级硬件上的 27B 模型推理",
-          "高效保持了最新 Qwen-3.8 架构的强大性能",
-          "为本地 LLM 部署和端侧 AI 研究提供了优化的权重"
+          "提供 Qwen 27B 视觉语言模型的 GGUF 量化版本",
+          "结合 GSQ-RCO 量化研究成果，优化显存占用与推理速度",
+          "支持通过 llama.cpp 等轻量级推理框架在本地边缘设备部署图文交互"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:32.603894+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "C++",
+  "programming_lang": "Python",
   "root_keywords": [
     "Qwen",
     "GGUF",
-    "Model Quantization"
+    "GSQ-RCO",
+    "Quantization",
+    "Multimodal"
   ],
-  "title_ko": "Hugging Face 모델: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-  "title_en": "Hugging Face Model: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-  "title_zh": "Hugging Face 模型：ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+  "title_ko": "HuggingFace 모델: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+  "title_en": "HuggingFace Model: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+  "title_zh": "HuggingFace 模型：ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
   "hook": "Qwen-3.8 27B 대형 모델을 GGUF 포맷으로 양자화하여 로컬 환경에서 실행하세요.",
-  "hook_ko": "Qwen-3.8 27B 대형 모델을 GGUF 포맷으로 양자화하여 로컬 환경에서 실행하세요.",
-  "hook_en": "Run the massive Qwen-3.8 27B model locally using high-performance GGUF quantization.",
-  "hook_zh": "利用高性能 GGUF 量化格式，在本地硬件上顺畅运行庞大的 Qwen-3.8 27B 模型。",
+  "hook_ko": "GSQ-RCO 양자화 기법을 적용해 로컬 환경에서도 대형 멀티모달 모델을 효율적으로 추론 가능한 GGUF 가중치",
+  "hook_en": "A GGUF-quantized Qwen 27B vision-language model optimized via GSQ-RCO for high-efficiency local inference.",
+  "hook_zh": "基于 GSQ-RCO 量化技术的 Qwen 27B 多模态 GGUF 模型，极大地降低了本地推理的资源门槛。",
   "description_ko": "Qwen-3.8 27B 대형 모델을 GGUF 포맷으로 양자화하여 로컬 환경에서 실행하세요.",
   "description_en": "Run the massive Qwen-3.8 27B model locally using high-performance GGUF quantization.",
   "description_zh": "利用高性能 GGUF 量化格式，在本地硬件上顺畅运行庞大的 Qwen-3.8 27B 模型。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HuggingFace 모델: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+      "hook": "GSQ-RCO 양자화 기법을 적용해 로컬 환경에서도 대형 멀티모달 모델을 효율적으로 추론 가능한 GGUF 가중치",
+      "key_takeaways": [
+        "Qwen 27B 기반 비전-언어 모델의 GGUF 포맷 양자화 지원",
+        "GSQ-RCO 양자화 연구 기법을 통한 메모리 압축 및 추론 효율성 최적화",
+        "llama.cpp 및 다양한 GGUF 런타임 환경에서 로컬 멀티모달 작업 수행 가능"
+      ]
+    },
+    "en": {
+      "title": "HuggingFace Model: ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+      "hook": "A GGUF-quantized Qwen 27B vision-language model optimized via GSQ-RCO for high-efficiency local inference.",
+      "key_takeaways": [
+        "Provides GGUF quantized weights for the 27B Qwen vision-language architecture",
+        "Utilizes GSQ-RCO quantization techniques to achieve optimal memory-to-performance ratio",
+        "Enables local image-text processing through llama.cpp and compatible edge inference runtimes"
+      ]
+    },
+    "zh": {
+      "title": "HuggingFace 模型：ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+      "hook": "基于 GSQ-RCO 量化技术的 Qwen 27B 多模态 GGUF 模型，极大地降低了本地推理的资源门槛。",
+      "key_takeaways": [
+        "提供 Qwen 27B 视觉语言模型的 GGUF 量化版本",
+        "结合 GSQ-RCO 量化研究成果，优化显存占用与推理速度",
+        "支持通过 llama.cpp 等轻量级推理框架在本地边缘设备部署图文交互"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.999765"
 }

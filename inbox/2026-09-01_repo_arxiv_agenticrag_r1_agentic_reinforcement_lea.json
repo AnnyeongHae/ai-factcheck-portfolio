@@ -34,68 +34,97 @@
     "id": "2026-09-01_repo_arxiv_agenticrag_r1_agentic_reinforcement_lea",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "검색 증강 생성(RAG) 및 강화학습",
+    "model_family": "Agentic AI / RAG",
+    "category": "LLM & AI Research",
     "programming_lang": "Python",
     "root_keywords": [
       "Agentic RAG",
       "Reinforcement Learning",
-      "Multi-Step Reasoning",
-      "Stack Memory"
+      "Stack Memory",
+      "Multi-Step Reasoning"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "AgenticRag-R1: 다단계 추론과 검색을 위한 스택 메모리 기반 에이전트 강화학습",
-        "hook": "복잡하고 다단계인 추론 및 검색 한계를 극복하는 최신 RAG 강화학습 아키텍처를 도입하세요.",
+        "title": "AgenticRag-R1: 다단계 추론, 검색 및 기억을 위한 스택 메모리 기반 에이전틱 강화학습",
+        "hook": "복잡한 다단계 추론과 적응형 검색 문제를 해결하기 위해 스택 메모리와 강화학습을 결합한 혁신적인 RAG 프레임워크",
         "key_takeaways": [
-          "스택 메모리를 활용한 다단계 추론 및 동적 검색 고도화",
-          "RAG 시스템의 사실 정확도 및 기억 능력 동시 향상",
-          "에이전트 기반 강화학습을 통한 검색-생성 파이프라인 최적화"
+          "복잡한 다단계 추론 과정에서 적응형 정보 검색 및 메모리 관리 체계 통합",
+          "스택 메모리(Stack Memory) 구조를 도입하여 이전 추론 및 검색 컨텍스트를 효율적으로 유지 및 복원",
+          "강화학습(RL) 기반 탐색을 통해 최적의 검색 시점과 추론 경로를 자율적으로 학습"
         ]
       },
       "en": {
-        "title": "AgenticRag-R1: Agentic Reinforcement Learning with Stack Memory for Multi-Step Reasoning",
-        "hook": "Implement advanced RAG reinforcement learning to overcome complex, multi-step reasoning and dynamic retrieval bottlenecks.",
+        "title": "AgenticRag-R1: Agentic Reinforcement Learning with Stack Memory for Multi-Step Reasoning, Retrieval and Memorizing",
+        "hook": "An agentic RAG framework combining stack memory and reinforcement learning to solve complex multi-step reasoning and adaptive retrieval.",
         "key_takeaways": [
-          "Advanced multi-step reasoning and dynamic retrieval using stack memory",
-          "Simultaneous improvement of factuality and memorization in RAG systems",
-          "Optimization of retrieve-generate pipelines via agentic reinforcement learning"
+          "Integrates adaptive retrieval and memory management for complex multi-step reasoning tasks.",
+          "Introduces a stack memory architecture to systematically retain and restore reasoning contexts.",
+          "Leverages reinforcement learning to autonomously discover optimal retrieval timing and reasoning paths."
         ]
       },
       "zh": {
-        "title": "AgenticRag-R1：结合栈内存与智能体强化学习的多步推理与检索",
-        "hook": "采用最新的RAG强化学习架构，突破复杂多步推理与动态检索的性能瓶颈。",
+        "title": "AgenticRag-R1：结合栈内存与智能体强化学习的多步推理、检索与记忆机制",
+        "hook": "结合栈内存与强化学习的智能体 RAG 框架，攻克复杂多步推理与自适应检索难题。",
         "key_takeaways": [
-          "利用栈内存推进多步推理与动态检索的深度优化",
-          "同步提升RAG系统的真实性与记忆能力",
-          "通过智能体强化学习优化检索-生成全链路"
+          "针对复杂多步推理任务，深度集成自适应检索与动态内存管理",
+          "引入栈内存（Stack Memory）结构，高效保存与复原推理及检索上下文",
+          "基于强化学习（RL）自主探索并优化最佳检索时机与推理路径"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:34.694351+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Agentic RAG",
     "Reinforcement Learning",
-    "Multi-Step Reasoning",
-    "Stack Memory"
+    "Stack Memory",
+    "Multi-Step Reasoning"
   ],
-  "title_ko": "AgenticRag-R1: 다단계 추론과 검색을 위한 스택 메모리 기반 에이전트 강화학습",
-  "title_en": "AgenticRag-R1: Agentic Reinforcement Learning with Stack Memory for Multi-Step Reasoning",
-  "title_zh": "AgenticRag-R1：结合栈内存与智能体强化学习的多步推理与检索",
+  "title_ko": "AgenticRag-R1: 다단계 추론, 검색 및 기억을 위한 스택 메모리 기반 에이전틱 강화학습",
+  "title_en": "AgenticRag-R1: Agentic Reinforcement Learning with Stack Memory for Multi-Step Reasoning, Retrieval and Memorizing",
+  "title_zh": "AgenticRag-R1：结合栈内存与智能体强化学习的多步推理、检索与记忆机制",
   "hook": "복잡하고 다단계인 추론 및 검색 한계를 극복하는 최신 RAG 강화학습 아키텍처를 도입하세요.",
-  "hook_ko": "복잡하고 다단계인 추론 및 검색 한계를 극복하는 최신 RAG 강화학습 아키텍처를 도입하세요.",
-  "hook_en": "Implement advanced RAG reinforcement learning to overcome complex, multi-step reasoning and dynamic retrieval bottlenecks.",
-  "hook_zh": "采用最新的RAG强化学习架构，突破复杂多步推理与动态检索的性能瓶颈。",
+  "hook_ko": "복잡한 다단계 추론과 적응형 검색 문제를 해결하기 위해 스택 메모리와 강화학습을 결합한 혁신적인 RAG 프레임워크",
+  "hook_en": "An agentic RAG framework combining stack memory and reinforcement learning to solve complex multi-step reasoning and adaptive retrieval.",
+  "hook_zh": "结合栈内存与强化学习的智能体 RAG 框架，攻克复杂多步推理与自适应检索难题。",
   "description_ko": "복잡하고 다단계인 추론 및 검색 한계를 극복하는 최신 RAG 강화학습 아키텍처를 도입하세요.",
   "description_en": "Implement advanced RAG reinforcement learning to overcome complex, multi-step reasoning and dynamic retrieval bottlenecks.",
   "description_zh": "采用最新的RAG强化学习架构，突破复杂多步推理与动态检索的性能瓶颈。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "AgenticRag-R1: 다단계 추론, 검색 및 기억을 위한 스택 메모리 기반 에이전틱 강화학습",
+      "hook": "복잡한 다단계 추론과 적응형 검색 문제를 해결하기 위해 스택 메모리와 강화학습을 결합한 혁신적인 RAG 프레임워크",
+      "key_takeaways": [
+        "복잡한 다단계 추론 과정에서 적응형 정보 검색 및 메모리 관리 체계 통합",
+        "스택 메모리(Stack Memory) 구조를 도입하여 이전 추론 및 검색 컨텍스트를 효율적으로 유지 및 복원",
+        "강화학습(RL) 기반 탐색을 통해 최적의 검색 시점과 추론 경로를 자율적으로 학습"
+      ]
+    },
+    "en": {
+      "title": "AgenticRag-R1: Agentic Reinforcement Learning with Stack Memory for Multi-Step Reasoning, Retrieval and Memorizing",
+      "hook": "An agentic RAG framework combining stack memory and reinforcement learning to solve complex multi-step reasoning and adaptive retrieval.",
+      "key_takeaways": [
+        "Integrates adaptive retrieval and memory management for complex multi-step reasoning tasks.",
+        "Introduces a stack memory architecture to systematically retain and restore reasoning contexts.",
+        "Leverages reinforcement learning to autonomously discover optimal retrieval timing and reasoning paths."
+      ]
+    },
+    "zh": {
+      "title": "AgenticRag-R1：结合栈内存与智能体强化学习的多步推理、检索与记忆机制",
+      "hook": "结合栈内存与强化学习的智能体 RAG 框架，攻克复杂多步推理与自适应检索难题。",
+      "key_takeaways": [
+        "针对复杂多步推理任务，深度集成自适应检索与动态内存管理",
+        "引入栈内存（Stack Memory）结构，高效保存与复原推理及检索上下文",
+        "基于强化学习（RL）自主探索并优化最佳检索时机与推理路径"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.915693"
 }

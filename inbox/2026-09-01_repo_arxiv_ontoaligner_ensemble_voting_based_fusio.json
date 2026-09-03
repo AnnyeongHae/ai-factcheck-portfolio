@@ -33,66 +33,99 @@
     "id": "2026-09-01_repo_arxiv_ontoaligner_ensemble_voting_based_fusio",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "온톨로지 정렬 및 지식 그래프",
+    "model_family": "Ensemble Learning",
+    "category": "Knowledge Graph & Semantic Web",
     "programming_lang": "Python",
     "root_keywords": [
-      "OntoAligner",
       "Ontology Alignment",
-      "Ensemble Voting"
+      "Ensemble Fusion",
+      "Knowledge Graph Embeddings",
+      "LLM",
+      "Voting Paradigm"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.9,
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "OntoAligner-Ensemble: 이질적인 온톨로지 정렬 기법 간의 앙상블 투표 기반 융합",
-        "hook": "다양한 온톨로지 정렬 기법의 한계를 극복하고 앙상블 투표로 정밀도를 극대화한 최신 지식 그래프 통합 방법론입니다.",
+        "title": "OntoAligner-Ensemble: 이종 온톨로지 정렬 기법 간 보팅 기반 융합",
+        "hook": "어휘·구조적 기법, 지식 그래프 임베딩(KGE), 대형 언어 모델(LLM)을 투표 기반 패러다임으로 결합한 온톨로지 정렬 프레임워크",
         "key_takeaways": [
-          "어휘/구조적 정렬기, KGE 모델, LLM 등 이질적인 온톨로지 정렬 기법 통합",
-          "앙상블 투표(Voting-Based Fusion)를 통한 정합성 및 신뢰도 향상",
-          "복잡한 지식 그래프 정렬 작업의 성능 최적화 제시"
+          "어휘, 구조, KGE 및 LLM 기반의 서로 다른 이종 온톨로지 정렬 모델의 강점을 보팅(Voting) 메커니즘으로 유기적 통합",
+          "단일 패러다임 방식의 한계를 극복하고 매핑 정밀도 및 재현율 향상",
+          "다양한 지식 베이스 및 엔터프라이즈 데이터 통합 시나리오에서의 실용적 적용 가능성 검증"
         ]
       },
       "en": {
-        "title": "OntoAligner-Ensemble: Voting-Based Fusion across Heterogeneous Ontology Alignment Techniques",
-        "hook": "Learn how ensemble voting fuses heterogeneous ontology alignment methods, from classical aligners to modern LLMs.",
+        "title": "OntoAligner-Ensemble: Voting-Based Fusion Across Heterogeneous Ontology Alignment Techniques",
+        "hook": "A framework combining lexical, structural, Knowledge Graph Embeddings, and LLM techniques through a voting-based ensemble paradigm.",
         "key_takeaways": [
-          "Bridges lexical, structural, KGE, and LLM-based ontology aligners",
-          "Improves alignment robustness using voting-based fusion strategies",
-          "Advances automated knowledge graph integration and semantic mapping"
+          "Integrates diverse paradigms (Lexical, Structural, KGE, LLM) using a voting-based fusion approach.",
+          "Overcomes individual paradigm limitations to boost mapping precision and recall.",
+          "Demonstrates practical robustness in complex enterprise data integration and knowledge graph alignment."
         ]
       },
       "zh": {
-        "title": "OntoAligner-Ensemble：基于集成投票的异构本体对齐技术融合",
-        "hook": "通过集成投票机制融合从传统词汇结构对齐器到现代大语言模型的异构本体对齐方法。",
+        "title": "OntoAligner-Ensemble：跨异构本体对齐技术的基于投票的融合",
+        "hook": "一种融合词汇、结构、知识图谱嵌入(KGE)与大语言模型(LLM)技术的集成投票本体对齐框架",
         "key_takeaways": [
-          "整合了词法、结构对齐器、KGE模型以及大语言模型等多种方法",
-          "利用集成投票策略显著提升了本体对齐的准确性与鲁棒性",
-          "为知识图谱的自动化融合提供了高效的技术路径"
+          "利用投票融合机制将词汇、结构、KGE 和 LLM 等异构本体对齐模型有机结合",
+          "克服单一范式的局限性，显著提升映射精准度与召回率",
+          "在复杂知识图谱与数据集成场景中展现出极高实用价值"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:32.551195+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "OntoAligner",
     "Ontology Alignment",
-    "Ensemble Voting"
+    "Ensemble Fusion",
+    "Knowledge Graph Embeddings",
+    "LLM",
+    "Voting Paradigm"
   ],
-  "title_ko": "OntoAligner-Ensemble: 이질적인 온톨로지 정렬 기법 간의 앙상블 투표 기반 융합",
-  "title_en": "OntoAligner-Ensemble: Voting-Based Fusion across Heterogeneous Ontology Alignment Techniques",
-  "title_zh": "OntoAligner-Ensemble：基于集成投票的异构本体对齐技术融合",
+  "title_ko": "OntoAligner-Ensemble: 이종 온톨로지 정렬 기법 간 보팅 기반 융합",
+  "title_en": "OntoAligner-Ensemble: Voting-Based Fusion Across Heterogeneous Ontology Alignment Techniques",
+  "title_zh": "OntoAligner-Ensemble：跨异构本体对齐技术的基于投票的融合",
   "hook": "다양한 온톨로지 정렬 기법의 한계를 극복하고 앙상블 투표로 정밀도를 극대화한 최신 지식 그래프 통합 방법론입니다.",
-  "hook_ko": "다양한 온톨로지 정렬 기법의 한계를 극복하고 앙상블 투표로 정밀도를 극대화한 최신 지식 그래프 통합 방법론입니다.",
-  "hook_en": "Learn how ensemble voting fuses heterogeneous ontology alignment methods, from classical aligners to modern LLMs.",
-  "hook_zh": "通过集成投票机制融合从传统词汇结构对齐器到现代大语言模型的异构本体对齐方法。",
+  "hook_ko": "어휘·구조적 기법, 지식 그래프 임베딩(KGE), 대형 언어 모델(LLM)을 투표 기반 패러다임으로 결합한 온톨로지 정렬 프레임워크",
+  "hook_en": "A framework combining lexical, structural, Knowledge Graph Embeddings, and LLM techniques through a voting-based ensemble paradigm.",
+  "hook_zh": "一种融合词汇、结构、知识图谱嵌入(KGE)与大语言模型(LLM)技术的集成投票本体对齐框架",
   "description_ko": "다양한 온톨로지 정렬 기법의 한계를 극복하고 앙상블 투표로 정밀도를 극대화한 최신 지식 그래프 통합 방법론입니다.",
   "description_en": "Learn how ensemble voting fuses heterogeneous ontology alignment methods, from classical aligners to modern LLMs.",
   "description_zh": "通过集成投票机制融合从传统词汇结构对齐器到现代大语言模型的异构本体对齐方法。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "OntoAligner-Ensemble: 이종 온톨로지 정렬 기법 간 보팅 기반 융합",
+      "hook": "어휘·구조적 기법, 지식 그래프 임베딩(KGE), 대형 언어 모델(LLM)을 투표 기반 패러다임으로 결합한 온톨로지 정렬 프레임워크",
+      "key_takeaways": [
+        "어휘, 구조, KGE 및 LLM 기반의 서로 다른 이종 온톨로지 정렬 모델의 강점을 보팅(Voting) 메커니즘으로 유기적 통합",
+        "단일 패러다임 방식의 한계를 극복하고 매핑 정밀도 및 재현율 향상",
+        "다양한 지식 베이스 및 엔터프라이즈 데이터 통합 시나리오에서의 실용적 적용 가능성 검증"
+      ]
+    },
+    "en": {
+      "title": "OntoAligner-Ensemble: Voting-Based Fusion Across Heterogeneous Ontology Alignment Techniques",
+      "hook": "A framework combining lexical, structural, Knowledge Graph Embeddings, and LLM techniques through a voting-based ensemble paradigm.",
+      "key_takeaways": [
+        "Integrates diverse paradigms (Lexical, Structural, KGE, LLM) using a voting-based fusion approach.",
+        "Overcomes individual paradigm limitations to boost mapping precision and recall.",
+        "Demonstrates practical robustness in complex enterprise data integration and knowledge graph alignment."
+      ]
+    },
+    "zh": {
+      "title": "OntoAligner-Ensemble：跨异构本体对齐技术的基于投票的融合",
+      "hook": "一种融合词汇、结构、知识图谱嵌入(KGE)与大语言模型(LLM)技术的集成投票本体对齐框架",
+      "key_takeaways": [
+        "利用投票融合机制将词汇、结构、KGE 和 LLM 等异构本体对齐模型有机结合",
+        "克服单一范式的局限性，显著提升映射精准度与召回率",
+        "在复杂知识图谱与数据集成场景中展现出极高实用价值"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.938947"
 }

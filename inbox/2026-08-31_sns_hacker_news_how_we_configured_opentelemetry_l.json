@@ -36,66 +36,99 @@
     "id": "2026-08-31_sns_hacker_news_how_we_configured_opentelemetry_l",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "백엔드 및 모니터링",
-    "programming_lang": "Ruby",
+    "model_family": "Observability",
+    "category": "DevOps & Cloud",
+    "programming_lang": "General",
     "root_keywords": [
       "OpenTelemetry",
-      "Rails",
-      "Log Monitoring"
+      "Ruby on Rails",
+      "Logging",
+      "Observability",
+      "Telemetry"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.5,
+    "worth_score": 3.0,
     "multilingual": {
       "ko": {
-        "title": "Rails 애플리케이션에서 OpenTelemetry 로그를 구성한 방법",
-        "hook": "Ruby on Rails 환경에서 OpenTelemetry를 활용해 분산 추적 및 로그 수집을 구축한 실무 가이드",
+        "title": "Ruby on Rails 환경에서 OpenTelemetry 로그를 설정하는 방법",
+        "hook": "Rails 애플리케이션에서 OpenTelemetry 표준을 활용해 로그 추적성 및 관측 가능성을 구현하는 실무 가이드",
         "key_takeaways": [
-          "Rails 환경에서의 OpenTelemetry 설정 모범 사례",
-          "로그와 트레이스의 유기적인 연동 방법",
-          "프로덕션 환경에서의 모니터링 파이프라인 최적화"
+          "Ruby on Rails 환경 내 OpenTelemetry 로그 수집기 설정 및 구성 방법",
+          "기존 Rails Logger와 OpenTelemetry SDK를 연동하여 구조화된 로그 수집",
+          "분산 추적(Distributed Tracing) 콘텍스트와 로그 데이터를 결합하는 디버깅 기법"
         ]
       },
       "en": {
-        "title": "How we configured OpenTelemetry logs in Rails",
-        "hook": "A practical production guide on setting up distributed tracing and log collection using OpenTelemetry in Ruby on Rails.",
+        "title": "How We Configured OpenTelemetry Logs in Rails",
+        "hook": "A practical guide to implementing log observability and distributed context in Ruby on Rails using OpenTelemetry",
         "key_takeaways": [
-          "Best practices for OpenTelemetry configuration in Rails",
-          "Seamless correlation between logs and traces",
-          "Optimizing monitoring pipelines in production environments"
+          "Configuring OpenTelemetry log exporters within a Ruby on Rails environment",
+          "Integrating standard Rails logger with the OpenTelemetry SDK for structured output",
+          "Correlating trace contexts with log entries for streamlined observability and debugging"
         ]
       },
       "zh": {
-        "title": "我们是如何在 Rails 中配置 OpenTelemetry 日志的",
-        "hook": "在 Ruby on Rails 环境中使用 OpenTelemetry 构建分布式追踪与日志收集的实战指南。",
+        "title": "如何在 Rails 中配置 OpenTelemetry 日志",
+        "hook": "在 Ruby on Rails 应用中使用 OpenTelemetry 实现标准日志采集与可观测性的实践指南",
         "key_takeaways": [
-          "Rails 环境下配置 OpenTelemetry 的最佳实践",
-          "日志与链路追踪（Trace）的无缝关联方法",
-          "生产环境中监控管道的优化技巧"
+          "在 Ruby on Rails 环境中配置 OpenTelemetry 日志导出器",
+          "将传统 Rails 日志与 OpenTelemetry SDK 无缝结合",
+          "关联分布式追踪上下文与日志数据，提升系统排障效率"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:22.763777+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Ruby",
+  "programming_lang": "General",
   "root_keywords": [
     "OpenTelemetry",
-    "Rails",
-    "Log Monitoring"
+    "Ruby on Rails",
+    "Logging",
+    "Observability",
+    "Telemetry"
   ],
-  "title_ko": "Rails 애플리케이션에서 OpenTelemetry 로그를 구성한 방법",
-  "title_en": "How we configured OpenTelemetry logs in Rails",
-  "title_zh": "我们是如何在 Rails 中配置 OpenTelemetry 日志的",
+  "title_ko": "Ruby on Rails 환경에서 OpenTelemetry 로그를 설정하는 방법",
+  "title_en": "How We Configured OpenTelemetry Logs in Rails",
+  "title_zh": "如何在 Rails 中配置 OpenTelemetry 日志",
   "hook": "Ruby on Rails 환경에서 OpenTelemetry를 활용해 분산 추적 및 로그 수집을 구축한 실무 가이드",
-  "hook_ko": "Ruby on Rails 환경에서 OpenTelemetry를 활용해 분산 추적 및 로그 수집을 구축한 실무 가이드",
-  "hook_en": "A practical production guide on setting up distributed tracing and log collection using OpenTelemetry in Ruby on Rails.",
-  "hook_zh": "在 Ruby on Rails 环境中使用 OpenTelemetry 构建分布式追踪与日志收集的实战指南。",
+  "hook_ko": "Rails 애플리케이션에서 OpenTelemetry 표준을 활용해 로그 추적성 및 관측 가능성을 구현하는 실무 가이드",
+  "hook_en": "A practical guide to implementing log observability and distributed context in Ruby on Rails using OpenTelemetry",
+  "hook_zh": "在 Ruby on Rails 应用中使用 OpenTelemetry 实现标准日志采集与可观测性的实践指南",
   "description_ko": "Ruby on Rails 환경에서 OpenTelemetry를 활용해 분산 추적 및 로그 수집을 구축한 실무 가이드",
   "description_en": "A practical production guide on setting up distributed tracing and log collection using OpenTelemetry in Ruby on Rails.",
   "description_zh": "在 Ruby on Rails 环境中使用 OpenTelemetry 构建分布式追踪与日志收集的实战指南。",
   "category_type": "TECH",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Ruby on Rails 환경에서 OpenTelemetry 로그를 설정하는 방법",
+      "hook": "Rails 애플리케이션에서 OpenTelemetry 표준을 활용해 로그 추적성 및 관측 가능성을 구현하는 실무 가이드",
+      "key_takeaways": [
+        "Ruby on Rails 환경 내 OpenTelemetry 로그 수집기 설정 및 구성 방법",
+        "기존 Rails Logger와 OpenTelemetry SDK를 연동하여 구조화된 로그 수집",
+        "분산 추적(Distributed Tracing) 콘텍스트와 로그 데이터를 결합하는 디버깅 기법"
+      ]
+    },
+    "en": {
+      "title": "How We Configured OpenTelemetry Logs in Rails",
+      "hook": "A practical guide to implementing log observability and distributed context in Ruby on Rails using OpenTelemetry",
+      "key_takeaways": [
+        "Configuring OpenTelemetry log exporters within a Ruby on Rails environment",
+        "Integrating standard Rails logger with the OpenTelemetry SDK for structured output",
+        "Correlating trace contexts with log entries for streamlined observability and debugging"
+      ]
+    },
+    "zh": {
+      "title": "如何在 Rails 中配置 OpenTelemetry 日志",
+      "hook": "在 Ruby on Rails 应用中使用 OpenTelemetry 实现标准日志采集与可观测性的实践指南",
+      "key_takeaways": [
+        "在 Ruby on Rails 环境中配置 OpenTelemetry 日志导出器",
+        "将传统 Rails 日志与 OpenTelemetry SDK 无缝结合",
+        "关联分布式追踪上下文与日志数据，提升系统排障效率"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.897351"
 }

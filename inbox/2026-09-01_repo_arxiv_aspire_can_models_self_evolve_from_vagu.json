@@ -33,68 +33,99 @@
     "id": "2026-09-01_repo_arxiv_aspire_can_models_self_evolve_from_vagu",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "자기진화형 AI 및 강화학습",
-    "programming_lang": "Python",
+    "model_family": "Self-Improvement / Agentic LLM",
+    "category": "Artificial Intelligence",
+    "programming_lang": "General",
     "root_keywords": [
-      "Self-Evolving",
-      "Vague Goals",
-      "Reinforcement Learning",
-      "AI Alignment"
+      "Self-Evolution",
+      "Goal Decomposition",
+      "Capability Gap Analysis",
+      "Autonomous Learning",
+      "LLM Alignment"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.5,
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "Aspire: 모호한 목표로부터 AI 모델은 스스로 진화할 수 있는가?",
-        "hook": "인간처럼 모호한 지시에서 출발해 스스로 학습 목표를 세우고 진화하는 차세대 AI 아키텍처를 확인하세요.",
+        "title": "Aspire: AI 모델은 모호한 목표로부터 스스로 진화할 수 있는가?",
+        "hook": "모호하고 추상적인 고차원 목표를 스스로 해석하고 역량 공백을 진단하여 진화하는 자율 학습 메커니즘",
         "key_takeaways": [
-          "모호한 목표 해석 및 능력 격차 식별 메커니즘 분석",
-          "LLM의 자율적 자기 주도 학습 및 진화 가능성 검증",
-          "차세대 에이전트 자율성 향상을 위한 핵심 인사이트 제공"
+          "모호한 목표('연구 능력 향상' 등)를 구체적인 자율 학습 이정표 및 과제로 분해하는 접근법 제시",
+          "모델 고유의 역량 공백(Capability Gap)을 스스로 진단하고 맞춤형 피드백 루프를 형성하는 구조",
+          "명확한 레이블이나 밀도 높은 지도 학습 없이도 모델이 자수성가형으로 성장할 수 있는 가능성 검증"
         ]
       },
       "en": {
         "title": "Aspire: Can Models Self-Evolve from Vague Goals?",
-        "hook": "Discover how AI models can interpret vague objectives, identify capability gaps, and autonomously self-evolve like humans.",
+        "hook": "A framework exploring how LLMs can interpret abstract high-level goals, identify internal capability gaps, and self-evolve autonomously.",
         "key_takeaways": [
-          "Analysis of mechanisms for interpreting vague goals and identifying capability gaps",
-          "Verification of autonomous self-directed learning and evolution in LLMs",
-          "Key insights for enhancing next-generation agent autonomy"
+          "Proposes a method to decompose high-level vague objectives (e.g., 'become a better researcher') into actionable learning tasks",
+          "Enables self-diagnosis of capability gaps to generate targeted synthetic training signals",
+          "Demonstrates the feasibility of continuous autonomous self-improvement without dense human supervision"
         ]
       },
       "zh": {
-        "title": "Aspire：模型能否从模糊的目标中实现自我进化？",
-        "hook": "探索AI模型如何像人类一样从模糊的指令出发，自主设定学习目标并实现进化。",
+        "title": "Aspire：大模型能否从模糊目标中实现自我进化？",
+        "hook": "探索大语言模型如何自主解析高层模糊目标、诊断能力短板并实现自我进化的全新框架",
         "key_takeaways": [
-          "分析解释模糊目标和识别能力差距的机制",
-          "验证大语言模型的自主自我导向学习与进化潜力",
-          "为提升下一代智能体自主性提供核心洞察"
+          "提出将“成为更好的研究者”等抽象目标分解为具体自学里程碑的方法",
+          "支持模型自我诊断能力缺口（Capability Gap）并生成针对性训练反馈",
+          "拓展了无需密集人工监督下AI Agent自主持续自我提升的边界"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:34.692942+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
-    "Self-Evolving",
-    "Vague Goals",
-    "Reinforcement Learning",
-    "AI Alignment"
+    "Self-Evolution",
+    "Goal Decomposition",
+    "Capability Gap Analysis",
+    "Autonomous Learning",
+    "LLM Alignment"
   ],
-  "title_ko": "Aspire: 모호한 목표로부터 AI 모델은 스스로 진화할 수 있는가?",
+  "title_ko": "Aspire: AI 모델은 모호한 목표로부터 스스로 진화할 수 있는가?",
   "title_en": "Aspire: Can Models Self-Evolve from Vague Goals?",
-  "title_zh": "Aspire：模型能否从模糊的目标中实现自我进化？",
+  "title_zh": "Aspire：大模型能否从模糊目标中实现自我进化？",
   "hook": "인간처럼 모호한 지시에서 출발해 스스로 학습 목표를 세우고 진화하는 차세대 AI 아키텍처를 확인하세요.",
-  "hook_ko": "인간처럼 모호한 지시에서 출발해 스스로 학습 목표를 세우고 진화하는 차세대 AI 아키텍처를 확인하세요.",
-  "hook_en": "Discover how AI models can interpret vague objectives, identify capability gaps, and autonomously self-evolve like humans.",
-  "hook_zh": "探索AI模型如何像人类一样从模糊的指令出发，自主设定学习目标并实现进化。",
+  "hook_ko": "모호하고 추상적인 고차원 목표를 스스로 해석하고 역량 공백을 진단하여 진화하는 자율 학습 메커니즘",
+  "hook_en": "A framework exploring how LLMs can interpret abstract high-level goals, identify internal capability gaps, and self-evolve autonomously.",
+  "hook_zh": "探索大语言模型如何自主解析高层模糊目标、诊断能力短板并实现自我进化的全新框架",
   "description_ko": "인간처럼 모호한 지시에서 출발해 스스로 학습 목표를 세우고 진화하는 차세대 AI 아키텍처를 확인하세요.",
   "description_en": "Discover how AI models can interpret vague objectives, identify capability gaps, and autonomously self-evolve like humans.",
   "description_zh": "探索AI模型如何像人类一样从模糊的指令出发，自主设定学习目标并实现进化。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Aspire: AI 모델은 모호한 목표로부터 스스로 진화할 수 있는가?",
+      "hook": "모호하고 추상적인 고차원 목표를 스스로 해석하고 역량 공백을 진단하여 진화하는 자율 학습 메커니즘",
+      "key_takeaways": [
+        "모호한 목표('연구 능력 향상' 등)를 구체적인 자율 학습 이정표 및 과제로 분해하는 접근법 제시",
+        "모델 고유의 역량 공백(Capability Gap)을 스스로 진단하고 맞춤형 피드백 루프를 형성하는 구조",
+        "명확한 레이블이나 밀도 높은 지도 학습 없이도 모델이 자수성가형으로 성장할 수 있는 가능성 검증"
+      ]
+    },
+    "en": {
+      "title": "Aspire: Can Models Self-Evolve from Vague Goals?",
+      "hook": "A framework exploring how LLMs can interpret abstract high-level goals, identify internal capability gaps, and self-evolve autonomously.",
+      "key_takeaways": [
+        "Proposes a method to decompose high-level vague objectives (e.g., 'become a better researcher') into actionable learning tasks",
+        "Enables self-diagnosis of capability gaps to generate targeted synthetic training signals",
+        "Demonstrates the feasibility of continuous autonomous self-improvement without dense human supervision"
+      ]
+    },
+    "zh": {
+      "title": "Aspire：大模型能否从模糊目标中实现自我进化？",
+      "hook": "探索大语言模型如何自主解析高层模糊目标、诊断能力短板并实现自我进化的全新框架",
+      "key_takeaways": [
+        "提出将“成为更好的研究者”等抽象目标分解为具体自学里程碑的方法",
+        "支持模型自我诊断能力缺口（Capability Gap）并生成针对性训练反馈",
+        "拓展了无需密集人工监督下AI Agent自主持续自我提升的边界"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.917220"
 }

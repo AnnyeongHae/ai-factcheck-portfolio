@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "러스트(Rust) 기반 메시징 플랫폼 Apache Iggy, 아파치 TLP 승격",
+  "title_ko": "Apache Iggy: Rust 기반 메시지 스트리밍 플랫폼, 아파치 재단 최상위 프로젝트(TLP) 승격",
   "description_ko": "초고속 메시지 스트리밍을 구현하는 Rust 기반 오픈소스 프로젝트 Iggy의 최신 동향을 파악하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -51,63 +51,96 @@
     "id": "2026-08-31_sns_hacker_news_apache_iggy_a_message_streaming_p",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "고성능 메시지 스트리밍",
+    "model_family": "Message Streaming",
+    "category": "Data Engineering",
     "programming_lang": "Rust",
     "root_keywords": [
       "Apache Iggy",
+      "Rust",
       "Message Streaming",
-      "Rust"
+      "Apache TLP",
+      "Data Infrastructure"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "러스트(Rust) 기반 메시징 플랫폼 Apache Iggy, 아파치 TLP 승격",
-        "hook": "초고속 메시지 스트리밍을 구현하는 Rust 기반 오픈소스 프로젝트 Iggy의 최신 동향을 파악하세요.",
+        "title": "Apache Iggy: Rust 기반 메시지 스트리밍 플랫폼, 아파치 재단 최상위 프로젝트(TLP) 승격",
+        "hook": "고성능 Rust 언어로 작성된 차세대 메시지 스트리밍 플랫폼 Apache Iggy가 아파치 재단 최상위 프로젝트로 승격되었습니다.",
         "key_takeaways": [
-          "Rust로 구현된 고성능 메시지 스트리밍 아키텍처",
-          "Apache Top-Level Project(TLP) 승격의 의미",
-          "실시간 데이터 파이프라인 적용 가능성"
+          "Rust 기반 개발로 높은 메모리 안전성, 저지연성, 고성능 I/O 스트리밍 처리 제공",
+          "Apache TLP(Top-Level Project) 승격을 통한 오픈소스 거버넌스 및 커뮤니티 안정성 확보",
+          "Apache Kafka 및 Redpanda에 비견되는 고성능 분산 스트리밍 인프라의 새로운 대안"
         ]
       },
       "en": {
-        "title": "Apache Iggy: Rust-Based Message Streaming Platform Graduates to TLP",
-        "hook": "Discover the latest milestone of Iggy, a high-performance message streaming platform built in Rust.",
+        "title": "Apache Iggy: Rust-based Message Streaming Platform Graduates to Apache TLP",
+        "hook": "High-performance Rust-native streaming platform Apache Iggy officially graduates to an Apache Top-Level Project.",
         "key_takeaways": [
-          "High-performance message streaming architecture in Rust",
-          "Significance of graduating to an Apache Top-Level Project (TLP)",
-          "Applicability in real-time data pipelines"
+          "Built in Rust to deliver high I/O throughput, low latency, and memory safety",
+          "Graduation to Apache TLP guarantees long-term open-source governance and ecosystem stability",
+          "Emerging as a lightweight, high-performance Rust alternative to Kafka and Redpanda"
         ]
       },
       "zh": {
-        "title": "基于Rust的消息流平台 Apache Iggy 晋升为 Apache 顶级项目",
-        "hook": "了解用 Rust 构建的高性能消息流开源项目 Iggy 的最新里程碑。",
+        "title": "Apache Iggy：基于 Rust 的消息流平台正式升格为 Apache 顶级项目 (TLP)",
+        "hook": "基于 Rust 编写的高性能消息流平台 Apache Iggy 顺利从孵化器毕业，正式成为 Apache 顶级项目。",
         "key_takeaways": [
-          "采用 Rust 构建的高性能消息流架构",
-          "晋升为 Apache 顶级项目(TLP)的重要意义",
-          "在实时数据管道中的应用潜力"
+          "基于 Rust 构建，兼具极高的 I/O 吞吐、超低延迟与内存安全性",
+          "升格为 Apache 顶级项目标志着其开源治理与社区生态迈入成熟期",
+          "作为 Kafka 和 Redpanda 的新型 Rust 原生替代方案，在流数据基础设施领域引发关注"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:34.809866+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Rust",
   "root_keywords": [
     "Apache Iggy",
+    "Rust",
     "Message Streaming",
-    "Rust"
+    "Apache TLP",
+    "Data Infrastructure"
   ],
-  "title_en": "Apache Iggy: Rust-Based Message Streaming Platform Graduates to TLP",
-  "title_zh": "基于Rust的消息流平台 Apache Iggy 晋升为 Apache 顶级项目",
+  "title_en": "Apache Iggy: Rust-based Message Streaming Platform Graduates to Apache TLP",
+  "title_zh": "Apache Iggy：基于 Rust 的消息流平台正式升格为 Apache 顶级项目 (TLP)",
   "hook": "초고속 메시지 스트리밍을 구현하는 Rust 기반 오픈소스 프로젝트 Iggy의 최신 동향을 파악하세요.",
-  "hook_ko": "초고속 메시지 스트리밍을 구현하는 Rust 기반 오픈소스 프로젝트 Iggy의 최신 동향을 파악하세요.",
-  "hook_en": "Discover the latest milestone of Iggy, a high-performance message streaming platform built in Rust.",
-  "hook_zh": "了解用 Rust 构建的高性能消息流开源项目 Iggy 的最新里程碑。",
+  "hook_ko": "고성능 Rust 언어로 작성된 차세대 메시지 스트리밍 플랫폼 Apache Iggy가 아파치 재단 최상위 프로젝트로 승격되었습니다.",
+  "hook_en": "High-performance Rust-native streaming platform Apache Iggy officially graduates to an Apache Top-Level Project.",
+  "hook_zh": "基于 Rust 编写的高性能消息流平台 Apache Iggy 顺利从孵化器毕业，正式成为 Apache 顶级项目。",
   "description_en": "Discover the latest milestone of Iggy, a high-performance message streaming platform built in Rust.",
   "description_zh": "了解用 Rust 构建的高性能消息流开源项目 Iggy 的最新里程碑。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Apache Iggy: Rust 기반 메시지 스트리밍 플랫폼, 아파치 재단 최상위 프로젝트(TLP) 승격",
+      "hook": "고성능 Rust 언어로 작성된 차세대 메시지 스트리밍 플랫폼 Apache Iggy가 아파치 재단 최상위 프로젝트로 승격되었습니다.",
+      "key_takeaways": [
+        "Rust 기반 개발로 높은 메모리 안전성, 저지연성, 고성능 I/O 스트리밍 처리 제공",
+        "Apache TLP(Top-Level Project) 승격을 통한 오픈소스 거버넌스 및 커뮤니티 안정성 확보",
+        "Apache Kafka 및 Redpanda에 비견되는 고성능 분산 스트리밍 인프라의 새로운 대안"
+      ]
+    },
+    "en": {
+      "title": "Apache Iggy: Rust-based Message Streaming Platform Graduates to Apache TLP",
+      "hook": "High-performance Rust-native streaming platform Apache Iggy officially graduates to an Apache Top-Level Project.",
+      "key_takeaways": [
+        "Built in Rust to deliver high I/O throughput, low latency, and memory safety",
+        "Graduation to Apache TLP guarantees long-term open-source governance and ecosystem stability",
+        "Emerging as a lightweight, high-performance Rust alternative to Kafka and Redpanda"
+      ]
+    },
+    "zh": {
+      "title": "Apache Iggy：基于 Rust 的消息流平台正式升格为 Apache 顶级项目 (TLP)",
+      "hook": "基于 Rust 编写的高性能消息流平台 Apache Iggy 顺利从孵化器毕业，正式成为 Apache 顶级项目。",
+      "key_takeaways": [
+        "基于 Rust 构建，兼具极高的 I/O 吞吐、超低延迟与内存安全性",
+        "升格为 Apache 顶级项目标志着其开源治理与社区生态迈入成熟期",
+        "作为 Kafka 和 Redpanda 的新型 Rust 原生替代方案，在流数据基础设施领域引发关注"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.893326"
 }

@@ -131,19 +131,23 @@ def build_dashboard():
     total_cases = len(cases)
     def is_news_item(it):
         ai = it.get("ai_enrichment") or {}
+        has_ai = bool(ai and it.get("multilingual"))
         cat = it.get("category_type", "")
-        return cat == "NEWS" or ai.get("type_classification") == "NEWS"
+        src = it.get("source_platform", "")
+        is_news_src = any(k in src for k in ["News", "Hacker", "Blog"])
+        return has_ai and (ai.get("type_classification") == "NEWS" or cat == "NEWS" or is_news_src)
 
     def is_model_item(it):
         ai = it.get("ai_enrichment") or {}
+        has_ai = bool(ai and it.get("multilingual"))
         cat = it.get("category_type", "")
         src = it.get("source_platform", "")
         fam = it.get("model_family", "")
-        return (
+        is_model_src = any(k in src for k in ["Models", "Spaces", "Hub"])
+        return has_ai and not is_news_item(it) and (
             ai.get("type_classification") == "MODEL" or 
             cat == "model" or 
-            "Models" in src or 
-            "Spaces" in src or
+            is_model_src or 
             (fam and "General" not in fam and "독립" not in fam and "Harness" not in fam)
         )
 
@@ -452,8 +456,8 @@ def generate_html(data):
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-surface-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3 sm:gap-4">
       
-      <!-- Brand Logo (Click to Home) -->
-      <div class="flex items-center gap-3 shrink-0 cursor-pointer select-none group transition hover:opacity-95" onclick="switchView('portfolio')" title="홈(기술 검증 대시보드)으로 이동">
+      <!-- Brand Logo (Click to #home) -->
+      <div class="flex items-center gap-3 shrink-0 cursor-pointer select-none group transition hover:opacity-95" onclick="switchView('home')" title="대시보드 홈으로 이동 (#home)">
         <div class="w-9 h-9 rounded-xl bg-ink-primary flex items-center justify-center text-white font-bold text-base shadow-sm">
           <i data-lucide="shield-check" class="w-5 h-5 text-white"></i>
         </div>

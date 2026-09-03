@@ -37,64 +37,97 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_geeknews_사이보그가_되지_않기_위하여_llm의_말투가_내_생각이_되지_않게",
     "source_lang": "KO",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "LLM 활용 및 비판적 사고",
+    "type_classification": "PERSPECTIVE",
+    "model_family": "LLM",
+    "category": "AI Ethics & Philosophy",
     "programming_lang": "General",
     "root_keywords": [
       "LLM",
-      "비판적 사고",
-      "사고의 주체성"
+      "Cognitive Assimilation",
+      "Human-AI Interaction",
+      "Critical Thinking",
+      "Tone of Voice"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
+    "recommended_tag": "📝 기술 참고",
     "worth_score": 4.2,
     "multilingual": {
       "ko": {
         "title": "사이보그가 되지 않기 위하여: LLM의 말투가 내 생각이 되지 않게 하기",
-        "hook": "LLM이 생성하는 정형화된 텍스트와 말투가 무의식적으로 인간의 사고 방식을 오염시키는 현상을 경고합니다.",
+        "hook": "LLM의 획일화된 문체에 장기간 노출되어 일어나는 인지적 동화 현상을 경계하고 주체적 사고를 유지는 고찰",
         "key_takeaways": [
-          "LLM 출력물에 무비판적으로 의존할 때 발생하는 사고의 표준화 및 획일화",
-          "AI 시대에 인간 고유의 비판적 사고와 독립적인 목소리를 지키는 방법",
-          "도구로서의 LLM과 주체적인 인간 지성 간의 올바른 관계 설정"
+          "LLM이 생성하는 특유의 어조와 패턴에 의존하다 보면 인간 독자적인 비판적 사고와 고유한 표현력이 약화될 수 있음",
+          "AI 보조 도구를 사용하더라도 고유의 관점과 어조를 유지하기 위한 프롬프팅 및 사후 편집 절차의 중요성",
+          "기술에 대한 과도한 인지적 의존도를 줄이고 LLM을 도구로서만 조율하는 균형 잡힌 인공지능 활용법 제안"
         ]
       },
       "en": {
-        "title": "Avoiding Cyborgization: Preventing LLM Tones from Becoming Your Own Thoughts",
-        "hook": "A critical warning on how LLM-generated phrasing can unconsciously colonize and standardize human thinking.",
+        "title": "To Avoid Becoming a Cyborg: Preventing LLM's Tone from Shaping My Thoughts",
+        "hook": "Reflections on preventing cognitive assimilation caused by reliance on uniform LLM tone and preserving independent thinking.",
         "key_takeaways": [
-          "The homogenization of thought resulting from uncritical reliance on LLM outputs",
-          "Methods to preserve human critical thinking and independent voice in the AI era",
-          "Establishing a healthy relationship between LLM as a tool and human agency"
+          "Continuous exposure to repetitive LLM phrasing risks diminishing original critical thinking and distinct human voice.",
+          "The importance of mindful prompting and editing to maintain unique perspectives while utilizing AI writing tools.",
+          "Proposing a balanced relationship with AI to minimize cognitive dependency while taking full leverage of LLMs purely as tools."
         ]
       },
       "zh": {
-        "title": "为了不变成赛博格：防止LLM的语调成为你的思维方式",
-        "hook": "警惕LLM生成的格式化文本与语调在不知不觉中同质化并侵蚀人类独立思考能力的现象。",
+        "title": "为了不成为赛博格：不让 LLM 的语气同化我们自己的思考",
+        "hook": "警惕因过度依赖 LLM 统一生成文体而导致的认知同化现象，并保持主体思考与独立表达能力。",
         "key_takeaways": [
-          "盲目依赖LLM输出所导致的思维标准化与同质化风险",
-          "在AI时代如何保持人类独有的批判性思维与独立声音",
-          "确立作为工具的LLM与作为主体的独立思考之间的正确关系"
+          "长期过度依赖 LLM 的固定句式与语气可能会削弱人类本身的批判性思维与独特表达",
+          "在使用 AI 工具写作时，通过精细化提示和后期修辞来保持独立视角的重要性",
+          "提出减少对 AI 的认知依赖，将 LLM 仅作为高效生产力工具的平衡视角"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:54:55.809226+09:00"
+    }
   },
   "source_lang": "KO",
   "programming_lang": "General",
   "root_keywords": [
     "LLM",
-    "비판적 사고",
-    "사고의 주체성"
+    "Cognitive Assimilation",
+    "Human-AI Interaction",
+    "Critical Thinking",
+    "Tone of Voice"
   ],
-  "title_en": "Avoiding Cyborgization: Preventing LLM Tones from Becoming Your Own Thoughts",
-  "title_zh": "为了不变成赛博格：防止LLM的语调成为你的思维方式",
+  "title_en": "To Avoid Becoming a Cyborg: Preventing LLM's Tone from Shaping My Thoughts",
+  "title_zh": "为了不成为赛博格：不让 LLM 的语气同化我们自己的思考",
   "hook": "LLM이 생성하는 정형화된 텍스트와 말투가 무의식적으로 인간의 사고 방식을 오염시키는 현상을 경고합니다.",
-  "hook_ko": "LLM이 생성하는 정형화된 텍스트와 말투가 무의식적으로 인간의 사고 방식을 오염시키는 현상을 경고합니다.",
-  "hook_en": "A critical warning on how LLM-generated phrasing can unconsciously colonize and standardize human thinking.",
-  "hook_zh": "警惕LLM生成的格式化文本与语调在不知不觉中同质化并侵蚀人类独立思考能力的现象。",
+  "hook_ko": "LLM의 획일화된 문체에 장기간 노출되어 일어나는 인지적 동화 현상을 경계하고 주체적 사고를 유지는 고찰",
+  "hook_en": "Reflections on preventing cognitive assimilation caused by reliance on uniform LLM tone and preserving independent thinking.",
+  "hook_zh": "警惕因过度依赖 LLM 统一生成文体而导致的认知同化现象，并保持主体思考与独立表达能力。",
   "description_en": "A critical warning on how LLM-generated phrasing can unconsciously colonize and standardize human thinking.",
   "description_zh": "警惕LLM生成的格式化文本与语调在不知不觉中同质化并侵蚀人类独立思考能力的现象。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "사이보그가 되지 않기 위하여: LLM의 말투가 내 생각이 되지 않게 하기",
+      "hook": "LLM의 획일화된 문체에 장기간 노출되어 일어나는 인지적 동화 현상을 경계하고 주체적 사고를 유지는 고찰",
+      "key_takeaways": [
+        "LLM이 생성하는 특유의 어조와 패턴에 의존하다 보면 인간 독자적인 비판적 사고와 고유한 표현력이 약화될 수 있음",
+        "AI 보조 도구를 사용하더라도 고유의 관점과 어조를 유지하기 위한 프롬프팅 및 사후 편집 절차의 중요성",
+        "기술에 대한 과도한 인지적 의존도를 줄이고 LLM을 도구로서만 조율하는 균형 잡힌 인공지능 활용법 제안"
+      ]
+    },
+    "en": {
+      "title": "To Avoid Becoming a Cyborg: Preventing LLM's Tone from Shaping My Thoughts",
+      "hook": "Reflections on preventing cognitive assimilation caused by reliance on uniform LLM tone and preserving independent thinking.",
+      "key_takeaways": [
+        "Continuous exposure to repetitive LLM phrasing risks diminishing original critical thinking and distinct human voice.",
+        "The importance of mindful prompting and editing to maintain unique perspectives while utilizing AI writing tools.",
+        "Proposing a balanced relationship with AI to minimize cognitive dependency while taking full leverage of LLMs purely as tools."
+      ]
+    },
+    "zh": {
+      "title": "为了不成为赛博格：不让 LLM 的语气同化我们自己的思考",
+      "hook": "警惕因过度依赖 LLM 统一生成文体而导致的认知同化现象，并保持主体思考与独立表达能力。",
+      "key_takeaways": [
+        "长期过度依赖 LLM 的固定句式与语气可能会削弱人类本身的批判性思维与独特表达",
+        "在使用 AI 工具写作时，通过精细化提示和后期修辞来保持独立视角的重要性",
+        "提出减少对 AI 的认知依赖，将 LLM 仅作为高效生产力工具的平衡视角"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.055934"
 }

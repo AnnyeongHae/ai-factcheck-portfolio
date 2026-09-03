@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "NEWS",
-  "title_ko": "연구: 블루라이트가 눈의 미세 세부 식별 능력을 가장 크게 저하시킨다",
+  "title_ko": "연구: 블루라이트가 눈의 미세한 디테일 구별 능력을 가장 크게 저하시킨다",
   "description_ko": "장시간 화면을 보는 개발자라면 주목해야 할 블루라이트의 시력 영향 최신 연구 결과입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -50,64 +50,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_sns_hacker_news_study_blue_light_impairs_the_eyes",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "헬스케어 및 인체공학",
+    "type_classification": "TECH",
+    "model_family": "Vision Science",
+    "category": "Display Tech & HCI",
     "programming_lang": "General",
     "root_keywords": [
       "Blue Light",
-      "Vision Impairment",
-      "Health"
+      "Visual Acuity",
+      "Chromatic Aberration",
+      "Display Ergonomics",
+      "Eye Strain"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 2.5,
+    "worth_score": 2.8,
     "multilingual": {
       "ko": {
-        "title": "연구: 블루라이트가 눈의 미세 세부 식별 능력을 가장 크게 저하시킨다",
-        "hook": "장시간 화면을 보는 개발자라면 주목해야 할 블루라이트의 시력 영향 최신 연구 결과입니다.",
+        "title": "연구: 블루라이트가 눈의 미세한 디테일 구별 능력을 가장 크게 저하시킨다",
+        "hook": "청색광이 인체의 시각적 해상도와 디테일 인지 능력에 미치는 악영향을 다룬 연구",
         "key_takeaways": [
-          "블루라이트가 미세 시각 정보 처리에 미치는 악영향",
-          "디스플레이 장시간 노출 시 주의할 점",
-          "엔지니어의 안구 건강 관리를 위한 인사이트"
+          "다른 파장의 빛에 비해 청색광(블루라이트)이 미세한 디테일의 시각적 식별 능력을 가장 많이 떨어뜨림",
+          "디스플레이 색상 배합 및 UI ergonomics(인간공학) 설계 시 대비와 가독성 고려 요소로 작용",
+          "안구의 색수차 현상과 망막 수용체 분포가 주요 원인으로 지목됨"
         ]
       },
       "en": {
-        "title": "Study: Blue Light Impairs the Eye's Ability to Distinguish Fine Detail Most",
-        "hook": "Discover the latest findings on how blue light affects visual acuity for screen-heavy developers.",
+        "title": "Study: Blue light impairs the eye's ability to distinguish fine detail most",
+        "hook": "Scientific study highlighting how short-wavelength blue light selectively impairs human visual acuity for fine details",
         "key_takeaways": [
-          "Negative impact of blue light on processing fine visual details",
-          "Precautions for prolonged display exposure",
-          "Insights for maintaining developer eye health"
+          "Blue light causes the greatest reduction in visual acuity for fine details compared to other wavelengths",
+          "Offers insights for display design, UI color selection, and ergonomic night mode adjustments",
+          "Mechanisms are linked to chromatic aberration and human retinal photoreceptor distribution"
         ]
       },
       "zh": {
-        "title": "研究：蓝光对眼睛辨别精细细节的能力损害最大",
-        "hook": "长期面对屏幕的开发者必须了解的蓝光对视力影响的最新研究成果。",
+        "title": "研究：蓝光最严重地削弱眼睛辨别微小细节的能力",
+        "hook": "科学研究揭示短波长蓝光如何显著降低人眼对精细细节的分辨能力",
         "key_takeaways": [
-          "蓝光对处理精细视觉信息的负面影响",
-          "长时间暴露在显示器前需要注意的事项",
-          "为工程师眼部健康维护提供的见解"
+          "与其它波长的光相比，蓝光对精细细节的视觉分辨能力削弱最为显著",
+          "为显示屏色彩工程、UI 界面对比度设计及护眼模式提供了人机工程学依据",
+          "其成因主要在于人眼色差现象及视网膜感光细胞的生理分布特点"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:58.111519+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "Blue Light",
-    "Vision Impairment",
-    "Health"
+    "Visual Acuity",
+    "Chromatic Aberration",
+    "Display Ergonomics",
+    "Eye Strain"
   ],
-  "title_en": "Study: Blue Light Impairs the Eye's Ability to Distinguish Fine Detail Most",
-  "title_zh": "研究：蓝光对眼睛辨别精细细节的能力损害最大",
+  "title_en": "Study: Blue light impairs the eye's ability to distinguish fine detail most",
+  "title_zh": "研究：蓝光最严重地削弱眼睛辨别微小细节的能力",
   "hook": "장시간 화면을 보는 개발자라면 주목해야 할 블루라이트의 시력 영향 최신 연구 결과입니다.",
-  "hook_ko": "장시간 화면을 보는 개발자라면 주목해야 할 블루라이트의 시력 영향 최신 연구 결과입니다.",
-  "hook_en": "Discover the latest findings on how blue light affects visual acuity for screen-heavy developers.",
-  "hook_zh": "长期面对屏幕的开发者必须了解的蓝光对视力影响的最新研究成果。",
+  "hook_ko": "청색광이 인체의 시각적 해상도와 디테일 인지 능력에 미치는 악영향을 다룬 연구",
+  "hook_en": "Scientific study highlighting how short-wavelength blue light selectively impairs human visual acuity for fine details",
+  "hook_zh": "科学研究揭示短波长蓝光如何显著降低人眼对精细细节的分辨能力",
   "description_en": "Discover the latest findings on how blue light affects visual acuity for screen-heavy developers.",
   "description_zh": "长期面对屏幕的开发者必须了解的蓝光对视力影响的最新研究成果。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "연구: 블루라이트가 눈의 미세한 디테일 구별 능력을 가장 크게 저하시킨다",
+      "hook": "청색광이 인체의 시각적 해상도와 디테일 인지 능력에 미치는 악영향을 다룬 연구",
+      "key_takeaways": [
+        "다른 파장의 빛에 비해 청색광(블루라이트)이 미세한 디테일의 시각적 식별 능력을 가장 많이 떨어뜨림",
+        "디스플레이 색상 배합 및 UI ergonomics(인간공학) 설계 시 대비와 가독성 고려 요소로 작용",
+        "안구의 색수차 현상과 망막 수용체 분포가 주요 원인으로 지목됨"
+      ]
+    },
+    "en": {
+      "title": "Study: Blue light impairs the eye's ability to distinguish fine detail most",
+      "hook": "Scientific study highlighting how short-wavelength blue light selectively impairs human visual acuity for fine details",
+      "key_takeaways": [
+        "Blue light causes the greatest reduction in visual acuity for fine details compared to other wavelengths",
+        "Offers insights for display design, UI color selection, and ergonomic night mode adjustments",
+        "Mechanisms are linked to chromatic aberration and human retinal photoreceptor distribution"
+      ]
+    },
+    "zh": {
+      "title": "研究：蓝光最严重地削弱眼睛辨别微小细节的能力",
+      "hook": "科学研究揭示短波长蓝光如何显著降低人眼对精细细节的分辨能力",
+      "key_takeaways": [
+        "与其它波长的光相比，蓝光对精细细节的视觉分辨能力削弱最为显著",
+        "为显示屏色彩工程、UI 界面对比度设计及护眼模式提供了人机工程学依据",
+        "其成因主要在于人眼色差现象及视网膜感光细胞的生理分布特点"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.908903"
 }

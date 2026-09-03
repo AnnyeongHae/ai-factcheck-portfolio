@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "MiniMax-Music3 허깅페이스 인터랙티브 데모",
+  "title_ko": "HF Space: MiniMax-Music3 - 차세대 AI 음악 생성 데모",
   "description_ko": "최신 MiniMax 음악 생성 모델의 성능을 웹에서 즉시 테스트해보세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,64 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_minimaxaiminimax_music3",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "MiniMax",
-    "category": "음성 및 음악 생성",
+    "type_classification": "TECH",
+    "model_family": "Audio Foundation Model",
+    "category": "Audio & Speech AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "MiniMax-Music3",
+      "MiniMax",
       "Music Generation",
-      "Gradio"
+      "Text-to-Music",
+      "Gradio",
+      "AI Audio"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "MiniMax-Music3 허깅페이스 인터랙티브 데모",
-        "hook": "최신 MiniMax 음악 생성 모델의 성능을 웹에서 즉시 테스트해보세요.",
+        "title": "HF Space: MiniMax-Music3 - 차세대 AI 음악 생성 데모",
+        "hook": "MiniMax에서 공개한 고품질 텍스트 기반 AI 음악 및 음향 생성 인터랙티브 데모",
         "key_takeaways": [
-          "MiniMax-Music3 모델 기반의 고품질 음악 생성 데모 제공",
-          "Gradio SDK를 활용하여 직관적인 웹 인터페이스 구축",
-          "최신 생성형 오디오 기술 트렌드를 빠르게 파악 가능"
+          "Gradio 기반의 사용하기 쉬운 인터랙티브 AI 음악 생성 웹 인터페이스 제공",
+          "MiniMax의 최신 음악 생성 AI 모델(Music3)을 직접 경험하고 테스트할 수 있는 라이브 공간",
+          "텍스트 프롬프트를 통한 스타일, 보컬, 멜로디의 고품질 음원 합성 기능 데모"
         ]
       },
       "en": {
-        "title": "MiniMax-Music3 Hugging Face Interactive Demo",
-        "hook": "Test the capabilities of the latest MiniMax music generation model directly in your browser.",
+        "title": "HF Space: MiniMax-Music3 - Interactive AI Music Generation Demo",
+        "hook": "Interactive Gradio demo showcasing MiniMax's latest AI music generation model capabilities.",
         "key_takeaways": [
-          "High-quality music generation demo powered by MiniMax-Music3",
-          "Built with Gradio SDK for an intuitive web interface",
-          "Quickly explore the latest trends in generative audio technology"
+          "Provides a Gradio-based interactive web interface for AI-powered music generation.",
+          "Allows live testing and evaluation of MiniMax's Music3 audio foundation model.",
+          "Demonstrates high-quality text-to-music, vocal synthesis, and style matching capabilities."
         ]
       },
       "zh": {
-        "title": "MiniMax-Music3 Hugging Face 交互式演示",
-        "hook": "立即在网页上测试最新 MiniMax 音乐生成模型的性能表现。",
+        "title": "HF Space: MiniMax-Music3 - 交互式 AI 音乐生成 Demo",
+        "hook": "MiniMax 推出的最新 AI 音乐生成模型 MiniMax-Music3 交互式 Gradio 演示",
         "key_takeaways": [
-          "基于 MiniMax-Music3 模型的高质量音乐生成演示",
-          "使用 Gradio SDK 构建直观的网页交互界面",
-          "快速掌握生成式音频技术的最新发展趋势"
+          "提供基于 Gradio 的易用 Web 界面，体验 AI 音乐生成功能",
+          "可在线测试 MiniMax-Music3 在文本生成音乐、人声合成与风格匹配上的表现",
+          "展示了音频生成大模型在音乐创作领域的最新工程实践"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:14.611468+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "MiniMax-Music3",
+    "MiniMax",
     "Music Generation",
-    "Gradio"
+    "Text-to-Music",
+    "Gradio",
+    "AI Audio"
   ],
-  "title_en": "MiniMax-Music3 Hugging Face Interactive Demo",
-  "title_zh": "MiniMax-Music3 Hugging Face 交互式演示",
+  "title_en": "HF Space: MiniMax-Music3 - Interactive AI Music Generation Demo",
+  "title_zh": "HF Space: MiniMax-Music3 - 交互式 AI 音乐生成 Demo",
   "hook": "최신 MiniMax 음악 생성 모델의 성능을 웹에서 즉시 테스트해보세요.",
-  "hook_ko": "최신 MiniMax 음악 생성 모델의 성능을 웹에서 즉시 테스트해보세요.",
-  "hook_en": "Test the capabilities of the latest MiniMax music generation model directly in your browser.",
-  "hook_zh": "立即在网页上测试最新 MiniMax 音乐生成模型的性能表现。",
+  "hook_ko": "MiniMax에서 공개한 고품질 텍스트 기반 AI 음악 및 음향 생성 인터랙티브 데모",
+  "hook_en": "Interactive Gradio demo showcasing MiniMax's latest AI music generation model capabilities.",
+  "hook_zh": "MiniMax 推出的最新 AI 音乐生成模型 MiniMax-Music3 交互式 Gradio 演示",
   "description_en": "Test the capabilities of the latest MiniMax music generation model directly in your browser.",
   "description_zh": "立即在网页上测试最新 MiniMax 音乐生成模型的性能表现。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: MiniMax-Music3 - 차세대 AI 음악 생성 데모",
+      "hook": "MiniMax에서 공개한 고품질 텍스트 기반 AI 음악 및 음향 생성 인터랙티브 데모",
+      "key_takeaways": [
+        "Gradio 기반의 사용하기 쉬운 인터랙티브 AI 음악 생성 웹 인터페이스 제공",
+        "MiniMax의 최신 음악 생성 AI 모델(Music3)을 직접 경험하고 테스트할 수 있는 라이브 공간",
+        "텍스트 프롬프트를 통한 스타일, 보컬, 멜로디의 고품질 음원 합성 기능 데모"
+      ]
+    },
+    "en": {
+      "title": "HF Space: MiniMax-Music3 - Interactive AI Music Generation Demo",
+      "hook": "Interactive Gradio demo showcasing MiniMax's latest AI music generation model capabilities.",
+      "key_takeaways": [
+        "Provides a Gradio-based interactive web interface for AI-powered music generation.",
+        "Allows live testing and evaluation of MiniMax's Music3 audio foundation model.",
+        "Demonstrates high-quality text-to-music, vocal synthesis, and style matching capabilities."
+      ]
+    },
+    "zh": {
+      "title": "HF Space: MiniMax-Music3 - 交互式 AI 音乐生成 Demo",
+      "hook": "MiniMax 推出的最新 AI 音乐生成模型 MiniMax-Music3 交互式 Gradio 演示",
+      "key_takeaways": [
+        "提供基于 Gradio 的易用 Web 界面，体验 AI 音乐生成功能",
+        "可在线测试 MiniMax-Music3 在文本生成音乐、人声合成与风格匹配上的表现",
+        "展示了音频生成大模型在音乐创作领域的最新工程实践"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.832338"
 }

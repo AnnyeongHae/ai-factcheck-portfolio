@@ -37,41 +37,44 @@
     "id": "2026-09-02_sns_hacker_news_my_local_model_setup_on_an_m4_pro",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "category": "로컬 LLM 추론 인프라",
+    "model_family": "Local LLM Inference",
+    "category": "AI/ML Infrastructure",
     "programming_lang": "General",
     "root_keywords": [
-      "M4 Pro",
       "Apple Silicon",
-      "Local LLM"
+      "M4 Pro",
+      "Local LLM",
+      "Ollama",
+      "MLX"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.1,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "M4 Pro Mac mini 기반 최적의 로컬 LLM 환경 구성 가이드",
-        "hook": "Apple M4 Pro의 통합 메모리 아키텍처를 극대화하여 로컬 LLM을 고성능으로 구동하는 실전 세팅 노하우입니다.",
+        "title": "M4 Pro Mac Mini에서의 로컬 AI 모델 구축 및 환경 설정",
+        "hook": "Apple M4 Pro의 통합 메모리 대역폭을 최대로 활용한 효율적인 로컬 LLM 추론 구축 가이드",
         "key_takeaways": [
-          "M4 Pro 칩셋의 높은 메모리 대역폭을 활용한 대형 모델 양자화 추론 세팅",
-          "Ollama, llama.cpp, vLLM 등 로컬 런타임 최적화 설정 공유",
-          "전력 대비 가성비 높은 개인용 AI 워크스테이션 구축 실전 팁"
+          "M4 Pro 칩셋의 뛰어난 메모리 대역폭을 활용해 온디바이스 LLM 추론 속도 대폭 향상",
+          "Ollama 및 Apple MLX 프레임워크를 조합한 최적의 로컬 모델 운용 워크플로우 제안",
+          "개발 환경에 맞춘 양자화(Quantization) 모델선택과 메모리 관리 팁 공유"
         ]
       },
       "en": {
-        "title": "Optimal Local LLM Inference Setup on an M4 Pro Mac Mini",
-        "hook": "Unlock maximum local LLM performance by leveraging the unified memory bandwidth of the Apple M4 Pro.",
+        "title": "Setting Up Local AI Models on an M4 Pro Mac Mini",
+        "hook": "Maximizing on-device LLM inference using Apple M4 Pro's unified memory architecture and optimized toolchains",
         "key_takeaways": [
-          "Configures quantized large model inference using M4 Pro high memory bandwidth",
-          "Shares runtime tuning tips for Ollama, llama.cpp, and local LLM backends",
-          "Offers practical recommendations for building an efficient personal AI workstation"
+          "Leverages M4 Pro high memory bandwidth for significantly faster local LLM execution",
+          "Combines Ollama and Apple MLX framework for an efficient local development workflow",
+          "Provides practical guidance on model quantization choices and unified memory management"
         ]
       },
       "zh": {
-        "title": "基于 M4 Pro Mac mini 的本地大模型最佳部署实践",
-        "hook": "充分发挥 Apple M4 Pro 统一内存带宽优势，高效运行本地大语言模型的实战配置指南。",
+        "title": "在 M4 Pro Mac Mini 上构建本地 AI 模型环境",
+        "hook": "利用 Apple M4 Pro 统一内存的高带宽优势构建高效的端侧大语言模型推理环境",
         "key_takeaways": [
-          "利用 M4 Pro 超高内存带宽实现大模型量化高效推理",
-          "分享 Ollama、llama.cpp 等主流本地运行时的调优参数",
-          "低功耗、高性价比个人 AI 工作站搭建实用建议"
+          "充分利用 M4 Pro 的高内存带宽大幅提升本地 LLM 推理与响应速度",
+          "结合 Ollama 与 Apple MLX 框架搭建极简且强大的本地 AI 开发工作流",
+          "分享实用的模型量化策略与统一内存资源分配经验"
         ]
       }
     }
@@ -79,20 +82,53 @@
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
-    "M4 Pro",
     "Apple Silicon",
-    "Local LLM"
+    "M4 Pro",
+    "Local LLM",
+    "Ollama",
+    "MLX"
   ],
-  "title_ko": "M4 Pro Mac mini 기반 최적의 로컬 LLM 환경 구성 가이드",
-  "title_en": "Optimal Local LLM Inference Setup on an M4 Pro Mac Mini",
-  "title_zh": "基于 M4 Pro Mac mini 的本地大模型最佳部署实践",
+  "title_ko": "M4 Pro Mac Mini에서의 로컬 AI 모델 구축 및 환경 설정",
+  "title_en": "Setting Up Local AI Models on an M4 Pro Mac Mini",
+  "title_zh": "在 M4 Pro Mac Mini 上构建本地 AI 模型环境",
   "hook": "Apple M4 Pro의 통합 메모리 아키텍처를 극대화하여 로컬 LLM을 고성능으로 구동하는 실전 세팅 노하우입니다.",
-  "hook_ko": "Apple M4 Pro의 통합 메모리 아키텍처를 극대화하여 로컬 LLM을 고성능으로 구동하는 실전 세팅 노하우입니다.",
-  "hook_en": "Unlock maximum local LLM performance by leveraging the unified memory bandwidth of the Apple M4 Pro.",
-  "hook_zh": "充分发挥 Apple M4 Pro 统一内存带宽优势，高效运行本地大语言模型的实战配置指南。",
+  "hook_ko": "Apple M4 Pro의 통합 메모리 대역폭을 최대로 활용한 효율적인 로컬 LLM 추론 구축 가이드",
+  "hook_en": "Maximizing on-device LLM inference using Apple M4 Pro's unified memory architecture and optimized toolchains",
+  "hook_zh": "利用 Apple M4 Pro 统一内存的高带宽优势构建高效的端侧大语言模型推理环境",
   "description_ko": "Apple M4 Pro의 통합 메모리 아키텍처를 극대화하여 로컬 LLM을 고성능으로 구동하는 실전 세팅 노하우입니다.",
   "description_en": "Unlock maximum local LLM performance by leveraging the unified memory bandwidth of the Apple M4 Pro.",
   "description_zh": "充分发挥 Apple M4 Pro 统一内存带宽优势，高效运行本地大语言模型的实战配置指南。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "M4 Pro Mac Mini에서의 로컬 AI 모델 구축 및 환경 설정",
+      "hook": "Apple M4 Pro의 통합 메모리 대역폭을 최대로 활용한 효율적인 로컬 LLM 추론 구축 가이드",
+      "key_takeaways": [
+        "M4 Pro 칩셋의 뛰어난 메모리 대역폭을 활용해 온디바이스 LLM 추론 속도 대폭 향상",
+        "Ollama 및 Apple MLX 프레임워크를 조합한 최적의 로컬 모델 운용 워크플로우 제안",
+        "개발 환경에 맞춘 양자화(Quantization) 모델선택과 메모리 관리 팁 공유"
+      ]
+    },
+    "en": {
+      "title": "Setting Up Local AI Models on an M4 Pro Mac Mini",
+      "hook": "Maximizing on-device LLM inference using Apple M4 Pro's unified memory architecture and optimized toolchains",
+      "key_takeaways": [
+        "Leverages M4 Pro high memory bandwidth for significantly faster local LLM execution",
+        "Combines Ollama and Apple MLX framework for an efficient local development workflow",
+        "Provides practical guidance on model quantization choices and unified memory management"
+      ]
+    },
+    "zh": {
+      "title": "在 M4 Pro Mac Mini 上构建本地 AI 模型环境",
+      "hook": "利用 Apple M4 Pro 统一内存的高带宽优势构建高效的端侧大语言模型推理环境",
+      "key_takeaways": [
+        "充分利用 M4 Pro 的高内存带宽大幅提升本地 LLM 推理与响应速度",
+        "结合 Ollama 与 Apple MLX 框架搭建极简且强大的本地 AI 开发工作流",
+        "分享实用的模型量化策略与统一内存资源分配经验"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.096870"
 }

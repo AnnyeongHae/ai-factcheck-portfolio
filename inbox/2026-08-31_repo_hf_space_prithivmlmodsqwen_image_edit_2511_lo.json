@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "Qwen 이미지 편집 2511 LoRA 초고속 데모",
+  "title_ko": "Qwen 이미지 편집 및 고속 LoRA 적용 데모 (HF Space)",
   "description_ko": "Qwen 기반 이미지 편집 LoRA를 활용해 고성능 이미지 조작을 실시간으로 체험할 수 있습니다.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Qwen Alibaba",
@@ -47,66 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_prithivmlmodsqwen_image_edit_2511_lo",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen",
-    "category": "이미지 편집 및 생성",
+    "type_classification": "TECH",
+    "model_family": "Qwen / Diffusion Models",
+    "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
       "Qwen",
+      "Image Editing",
       "LoRA",
-      "이미지 편집",
-      "초고속 추론"
+      "Gradio",
+      "Hugging Face Spaces"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Qwen 이미지 편집 2511 LoRA 초고속 데모",
-        "hook": "Qwen 기반 이미지 편집 LoRA를 활용해 고성능 이미지 조작을 실시간으로 체험할 수 있습니다.",
+        "title": "Qwen 이미지 편집 및 고속 LoRA 적용 데모 (HF Space)",
+        "hook": "Qwen 기반 이미지 편집 모델과 고속 LoRA 기법을 결합하여 가볍고 빠르게 이미지 편집을 실행할 수 있는 웹 데모",
         "key_takeaways": [
-          "Qwen 모델 기반의 최적화된 이미지 편집 LoRA 적용",
-          "높은 좋아요(2,700+)를 기록하며 실효성 입증",
-          "Gradio 기반의 빠른 웹 인터페이스 및 반응 속도"
+          "Qwen 이미지 편집 파이프라인과 초고속 LoRA 모듈 적용",
+          "Gradio 기반 UI를 통한 실시간 프롬프트 기반 이미지 수정 지원",
+          "2,700개 이상의 좋아요를 받으며 호응을 얻고 있는 인기 텍스트-이미지 편집 데모"
         ]
       },
       "en": {
-        "title": "Qwen Image Edit 2511 LoRA Fast Demo",
-        "hook": "Experience high-performance real-time image manipulation using Qwen-based image editing LoRAs.",
+        "title": "Qwen-Image-Edit-2511-LoRAs-Fast on Hugging Face Spaces",
+        "hook": "An interactive Gradio space offering rapid text-guided image editing using Qwen models accelerated with specialized LoRAs.",
         "key_takeaways": [
-          "Optimized image editing LoRA built on Qwen models",
-          "Proven effectiveness with high likes (2,700+)",
-          "Fast web interface and response time powered by Gradio"
+          "Fast image editing pipeline leveraging Qwen-based architectures and optimized LoRAs",
+          "Interactive Gradio interface allowing intuitive text-prompted image manipulations",
+          "Gained high community engagement with over 2,700 likes on Hugging Face"
         ]
       },
       "zh": {
-        "title": "Qwen 图像编辑 2511 LoRA 超速演示",
-        "hook": "利用基于 Qwen 的图像编辑 LoRA，实时体验高性能的图像处理与修改。",
+        "title": "Qwen 图像编辑与快速 LoRA 交互演示 (HF Space)",
+        "hook": "结合 Qwen 图像编辑模型与轻量化 LoRA 技术的超快速文本引导图像修改 Demo",
         "key_takeaways": [
-          "基于 Qwen 模型构建的优化图像编辑 LoRA",
-          "获得高点赞量（2,700+），实用性备受认可",
-          "基于 Gradio 的快速网页界面与响应速度"
+          "利用 Qwen 图像编辑模型与 LoRA 微调实现高效快速推理",
+          "基于 Gradio 框架构建，支持用户通过文本指令实时预览和编辑图像",
+          "获得超过 2700 个赞的高人气 Hugging Face 社区应用"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:02.163296+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Qwen",
+    "Image Editing",
     "LoRA",
-    "이미지 편집",
-    "초고속 추론"
+    "Gradio",
+    "Hugging Face Spaces"
   ],
-  "title_en": "Qwen Image Edit 2511 LoRA Fast Demo",
-  "title_zh": "Qwen 图像编辑 2511 LoRA 超速演示",
+  "title_en": "Qwen-Image-Edit-2511-LoRAs-Fast on Hugging Face Spaces",
+  "title_zh": "Qwen 图像编辑与快速 LoRA 交互演示 (HF Space)",
   "hook": "Qwen 기반 이미지 편집 LoRA를 활용해 고성능 이미지 조작을 실시간으로 체험할 수 있습니다.",
-  "hook_ko": "Qwen 기반 이미지 편집 LoRA를 활용해 고성능 이미지 조작을 실시간으로 체험할 수 있습니다.",
-  "hook_en": "Experience high-performance real-time image manipulation using Qwen-based image editing LoRAs.",
-  "hook_zh": "利用基于 Qwen 的图像编辑 LoRA，实时体验高性能的图像处理与修改。",
+  "hook_ko": "Qwen 기반 이미지 편집 모델과 고속 LoRA 기법을 결합하여 가볍고 빠르게 이미지 편집을 실행할 수 있는 웹 데모",
+  "hook_en": "An interactive Gradio space offering rapid text-guided image editing using Qwen models accelerated with specialized LoRAs.",
+  "hook_zh": "结合 Qwen 图像编辑模型与轻量化 LoRA 技术的超快速文本引导图像修改 Demo",
   "description_en": "Experience high-performance real-time image manipulation using Qwen-based image editing LoRAs.",
   "description_zh": "利用基于 Qwen 的图像编辑 LoRA，实时体验高性能的图像处理与修改。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Qwen 이미지 편집 및 고속 LoRA 적용 데모 (HF Space)",
+      "hook": "Qwen 기반 이미지 편집 모델과 고속 LoRA 기법을 결합하여 가볍고 빠르게 이미지 편집을 실행할 수 있는 웹 데모",
+      "key_takeaways": [
+        "Qwen 이미지 편집 파이프라인과 초고속 LoRA 모듈 적용",
+        "Gradio 기반 UI를 통한 실시간 프롬프트 기반 이미지 수정 지원",
+        "2,700개 이상의 좋아요를 받으며 호응을 얻고 있는 인기 텍스트-이미지 편집 데모"
+      ]
+    },
+    "en": {
+      "title": "Qwen-Image-Edit-2511-LoRAs-Fast on Hugging Face Spaces",
+      "hook": "An interactive Gradio space offering rapid text-guided image editing using Qwen models accelerated with specialized LoRAs.",
+      "key_takeaways": [
+        "Fast image editing pipeline leveraging Qwen-based architectures and optimized LoRAs",
+        "Interactive Gradio interface allowing intuitive text-prompted image manipulations",
+        "Gained high community engagement with over 2,700 likes on Hugging Face"
+      ]
+    },
+    "zh": {
+      "title": "Qwen 图像编辑与快速 LoRA 交互演示 (HF Space)",
+      "hook": "结合 Qwen 图像编辑模型与轻量化 LoRA 技术的超快速文本引导图像修改 Demo",
+      "key_takeaways": [
+        "利用 Qwen 图像编辑模型与 LoRA 微调实现高效快速推理",
+        "基于 Gradio 框架构建，支持用户通过文本指令实时预览和编辑图像",
+        "获得超过 2700 个赞的高人气 Hugging Face 社区应用"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.836784"
 }

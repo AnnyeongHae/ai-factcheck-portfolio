@@ -35,66 +35,99 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_hacker_news_apple_reveals_shocking_evidence_f",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "AI 업계 동향 및 소송",
+    "type_classification": "TECH",
+    "model_family": "Legal & IP in AI",
+    "category": "Tech Industry & Legal",
     "programming_lang": "General",
     "root_keywords": [
       "Apple",
       "OpenAI",
-      "Lawsuit"
+      "Lawsuit",
+      "MacBook",
+      "Trade Secrets"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.5,
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "애플, OpenAI 소송 관련 전직 직원 맥북에서 '충격적 증거' 공개",
-        "hook": "빅테크 간의 치열한 법적 공방 속에서 드러난 새로운 내부 증거와 업계 파장을 분석합니다.",
+        "title": "애플, OpenAI 소송 중 전 직원의 맥북에서 '충격적 증거' 공개",
+        "hook": "애플이 OpenAI로 이직한 전 직원의 맥북 포렌식을 통해 기업 비밀 유출 증거를 확보하며 소송전 격화",
         "key_takeaways": [
-          "애플과 OpenAI 간 소송의 새로운 국면 전환",
-          "전직 직원 맥북에서 발견된 결정적 증거 확보",
-          "AI 업계의 데이터 수집 및 기밀 유지 관행에 대한 시사점"
+          "애플이 OpenAI로 이직한 전 직원의 맥북에서 상업적/기술적 비밀 유출 정황 증거를 제출함",
+          "AI 인재 유치전 속에서 기밀 유지 계약(NDA) 및 영업비밀 침해 관련 법적 공방이 격화됨",
+          "빅테크 기업 간 AI 핵심 기술 보호 및 디지털 포렌식 조사의 중요성이 더욱 부각됨"
         ]
       },
       "en": {
-        "title": "Apple Reveals 'Shocking Evidence' from Ex-Employee's MacBook in OpenAI Suit",
-        "hook": "Uncover the latest dramatic turn in Big Tech legal battles involving internal data and security claims.",
+        "title": "Apple reveals 'shocking evidence' from ex-employee's MacBook in OpenAI suit",
+        "hook": "Apple uncovers forensic evidence on a former employee's MacBook in an ongoing lawsuit involving OpenAI trade secrets.",
         "key_takeaways": [
-          "New developments in the legal dispute between Apple and OpenAI",
-          "Critical evidence discovered on an ex-employee's MacBook",
-          "Implications for AI industry data collection and confidentiality practices"
+          "Apple submitted forensic evidence from a former employee's laptop who departed for OpenAI",
+          "Escalating legal battle highlights fierce competition for AI talent and strict trade secret enforcement",
+          "Underscores the critical role of enterprise digital forensics and IP protection in high-stakes AI poaching"
         ]
       },
       "zh": {
-        "title": "苹果在与OpenAI的诉讼中从前员工MacBook中披露‘惊人证据’",
-        "hook": "揭秘科技巨头法律战中的最新戏剧性进展与机密数据争议。",
+        "title": "苹果在 OpenAI 诉讼中出示前员工 MacBook 中的“惊人证据”",
+        "hook": "苹果通过对跳槽至 OpenAI 的前员工 MacBook 进行取证，获取了泄漏商业机密的关键证据。",
         "key_takeaways": [
-          "苹果与OpenAI法律纠纷的新进展",
-          "在前员工MacBook上发现的关键证据",
-          "对AI行业数据收集与保密惯例的影响"
+          "苹果提交了跳槽至 OpenAI 的前员工电脑中的数字取证证据",
+          "围绕 AI 人才争夺与商业机密保护的法律拉锯战进一步升级",
+          "突显了顶尖科技公司在 AI 竞争中对知识产权与数字取证的高度重视"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:54:42.436943+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "Apple",
     "OpenAI",
-    "Lawsuit"
+    "Lawsuit",
+    "MacBook",
+    "Trade Secrets"
   ],
-  "title_ko": "애플, OpenAI 소송 관련 전직 직원 맥북에서 '충격적 증거' 공개",
-  "title_en": "Apple Reveals 'Shocking Evidence' from Ex-Employee's MacBook in OpenAI Suit",
-  "title_zh": "苹果在与OpenAI的诉讼中从前员工MacBook中披露‘惊人证据’",
+  "title_ko": "애플, OpenAI 소송 중 전 직원의 맥북에서 '충격적 증거' 공개",
+  "title_en": "Apple reveals 'shocking evidence' from ex-employee's MacBook in OpenAI suit",
+  "title_zh": "苹果在 OpenAI 诉讼中出示前员工 MacBook 中的“惊人证据”",
   "hook": "빅테크 간의 치열한 법적 공방 속에서 드러난 새로운 내부 증거와 업계 파장을 분석합니다.",
-  "hook_ko": "빅테크 간의 치열한 법적 공방 속에서 드러난 새로운 내부 증거와 업계 파장을 분석합니다.",
-  "hook_en": "Uncover the latest dramatic turn in Big Tech legal battles involving internal data and security claims.",
-  "hook_zh": "揭秘科技巨头法律战中的最新戏剧性进展与机密数据争议。",
+  "hook_ko": "애플이 OpenAI로 이직한 전 직원의 맥북 포렌식을 통해 기업 비밀 유출 증거를 확보하며 소송전 격화",
+  "hook_en": "Apple uncovers forensic evidence on a former employee's MacBook in an ongoing lawsuit involving OpenAI trade secrets.",
+  "hook_zh": "苹果通过对跳槽至 OpenAI 的前员工 MacBook 进行取证，获取了泄漏商业机密的关键证据。",
   "description_ko": "빅테크 간의 치열한 법적 공방 속에서 드러난 새로운 내부 증거와 업계 파장을 분석합니다.",
   "description_en": "Uncover the latest dramatic turn in Big Tech legal battles involving internal data and security claims.",
   "description_zh": "揭秘科技巨头法律战中的最新戏剧性进展与机密数据争议。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "애플, OpenAI 소송 중 전 직원의 맥북에서 '충격적 증거' 공개",
+      "hook": "애플이 OpenAI로 이직한 전 직원의 맥북 포렌식을 통해 기업 비밀 유출 증거를 확보하며 소송전 격화",
+      "key_takeaways": [
+        "애플이 OpenAI로 이직한 전 직원의 맥북에서 상업적/기술적 비밀 유출 정황 증거를 제출함",
+        "AI 인재 유치전 속에서 기밀 유지 계약(NDA) 및 영업비밀 침해 관련 법적 공방이 격화됨",
+        "빅테크 기업 간 AI 핵심 기술 보호 및 디지털 포렌식 조사의 중요성이 더욱 부각됨"
+      ]
+    },
+    "en": {
+      "title": "Apple reveals 'shocking evidence' from ex-employee's MacBook in OpenAI suit",
+      "hook": "Apple uncovers forensic evidence on a former employee's MacBook in an ongoing lawsuit involving OpenAI trade secrets.",
+      "key_takeaways": [
+        "Apple submitted forensic evidence from a former employee's laptop who departed for OpenAI",
+        "Escalating legal battle highlights fierce competition for AI talent and strict trade secret enforcement",
+        "Underscores the critical role of enterprise digital forensics and IP protection in high-stakes AI poaching"
+      ]
+    },
+    "zh": {
+      "title": "苹果在 OpenAI 诉讼中出示前员工 MacBook 中的“惊人证据”",
+      "hook": "苹果通过对跳槽至 OpenAI 的前员工 MacBook 进行取证，获取了泄漏商业机密的关键证据。",
+      "key_takeaways": [
+        "苹果提交了跳槽至 OpenAI 的前员工电脑中的数字取证证据",
+        "围绕 AI 人才争夺与商业机密保护的法律拉锯战进一步升级",
+        "突显了顶尖科技公司在 AI 竞争中对知识产权与数字取证的高度重视"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.067158"
 }

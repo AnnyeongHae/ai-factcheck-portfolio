@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "연속형 확산 언어 모델(CDLM)의 등장과 기술적 의의",
+  "title_ko": "연속 디퓨전 언어 모델 (CDLM)",
   "description_ko": "기존 자기회귀 모델의 한계를 극복할 새로운 생성 패러다임, 연속형 확산 언어 모델을 지금 확인하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -51,63 +51,96 @@
     "id": "2026-08-31_sns_hacker_news_continuous_diffusion_language_mod",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "연속형 확산 언어 모델",
+    "model_family": "Diffusion Models",
+    "category": "Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
       "Continuous Diffusion",
+      "CDLM",
       "Language Models",
-      "CDLM"
+      "Non-Autoregressive",
+      "Generative AI"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.5,
+    "worth_score": 4.3,
     "multilingual": {
       "ko": {
-        "title": "연속형 확산 언어 모델(CDLM)의 등장과 기술적 의의",
-        "hook": "기존 자기회귀 모델의 한계를 극복할 새로운 생성 패러다임, 연속형 확산 언어 모델을 지금 확인하세요.",
+        "title": "연속 디퓨전 언어 모델 (CDLM)",
+        "hook": "기존 이산형 자가회귀(AR) 방식의 한계를 극복하고 연속 공간 디퓨전을 언어 모델링에 적용하는 최신 접근법 분석",
         "key_takeaways": [
-          "연속 잠재 공간에서의 텍스트 생성 방식 분석",
-          "자기회귀(Autoregressive) 방식과의 아키텍처 차이점",
-          "향후 LLM 패러다임 변화 가능성 검토"
+          "이산적 토큰 단위 예측 대신 연속적 임베딩 공간에서의 노이즈 제거 방식으로 텍스트 생성",
+          "병렬 생성을 통한 속도 향상 및 문맥 전체에 대한 동시 양방향 제어 가능성 제기",
+          "토크나이저 의존성을 줄이고 복잡한 시퀀스 계획 및 수정 작업에 유연하게 대응 가능"
         ]
       },
       "en": {
         "title": "Continuous Diffusion Language Models (CDLMs)",
-        "hook": "Explore the new generation paradigm aiming to overcome autoregressive limitations in language modeling.",
+        "hook": "Exploring continuous space diffusion mechanisms in language modeling as an alternative to discrete autoregressive generation.",
         "key_takeaways": [
-          "Analysis of text generation in continuous latent spaces",
-          "Architectural differences from standard autoregressive models",
-          "Implications for future LLM paradigm shifts"
+          "Replaces discrete next-token prediction with continuous representation space denoising for text generation",
+          "Enables potential parallel text decoding and bi-directional global context control",
+          "Addresses limitations of discrete tokenizers and opens avenues for non-autoregressive sequence editing"
         ]
       },
       "zh": {
-        "title": "连续扩散语言模型 (CDLM) 的技术解析",
-        "hook": "探索旨在突破自回归模型局限性的全新文本生成范式。",
+        "title": "连续扩散语言模型 (CDLM)",
+        "hook": "探索将连续空间扩散机制引入语言建模，以突破传统离散自回归生成的局限。",
         "key_takeaways": [
-          "分析连续潜在空间中的文本生成机制",
-          "与传统自回归架构的核心差异",
-          "评估未来大语言模型范式转变的潜力"
+          "利用连续嵌入空间中的去噪过程替代传统的离散 Token 逐字预测",
+          "具备并行解码潜力，并能够提供双向全局上下文的精准控制",
+          "降低对传统分词器（Tokenizer）的依赖，增强复杂文本编辑与序列规划能力"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:34.808483+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Continuous Diffusion",
+    "CDLM",
     "Language Models",
-    "CDLM"
+    "Non-Autoregressive",
+    "Generative AI"
   ],
   "title_en": "Continuous Diffusion Language Models (CDLMs)",
-  "title_zh": "连续扩散语言模型 (CDLM) 的技术解析",
+  "title_zh": "连续扩散语言模型 (CDLM)",
   "hook": "기존 자기회귀 모델의 한계를 극복할 새로운 생성 패러다임, 연속형 확산 언어 모델을 지금 확인하세요.",
-  "hook_ko": "기존 자기회귀 모델의 한계를 극복할 새로운 생성 패러다임, 연속형 확산 언어 모델을 지금 확인하세요.",
-  "hook_en": "Explore the new generation paradigm aiming to overcome autoregressive limitations in language modeling.",
-  "hook_zh": "探索旨在突破自回归模型局限性的全新文本生成范式。",
+  "hook_ko": "기존 이산형 자가회귀(AR) 방식의 한계를 극복하고 연속 공간 디퓨전을 언어 모델링에 적용하는 최신 접근법 분석",
+  "hook_en": "Exploring continuous space diffusion mechanisms in language modeling as an alternative to discrete autoregressive generation.",
+  "hook_zh": "探索将连续空间扩散机制引入语言建模，以突破传统离散自回归生成的局限。",
   "description_en": "Explore the new generation paradigm aiming to overcome autoregressive limitations in language modeling.",
   "description_zh": "探索旨在突破自回归模型局限性的全新文本生成范式。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "연속 디퓨전 언어 모델 (CDLM)",
+      "hook": "기존 이산형 자가회귀(AR) 방식의 한계를 극복하고 연속 공간 디퓨전을 언어 모델링에 적용하는 최신 접근법 분석",
+      "key_takeaways": [
+        "이산적 토큰 단위 예측 대신 연속적 임베딩 공간에서의 노이즈 제거 방식으로 텍스트 생성",
+        "병렬 생성을 통한 속도 향상 및 문맥 전체에 대한 동시 양방향 제어 가능성 제기",
+        "토크나이저 의존성을 줄이고 복잡한 시퀀스 계획 및 수정 작업에 유연하게 대응 가능"
+      ]
+    },
+    "en": {
+      "title": "Continuous Diffusion Language Models (CDLMs)",
+      "hook": "Exploring continuous space diffusion mechanisms in language modeling as an alternative to discrete autoregressive generation.",
+      "key_takeaways": [
+        "Replaces discrete next-token prediction with continuous representation space denoising for text generation",
+        "Enables potential parallel text decoding and bi-directional global context control",
+        "Addresses limitations of discrete tokenizers and opens avenues for non-autoregressive sequence editing"
+      ]
+    },
+    "zh": {
+      "title": "连续扩散语言模型 (CDLM)",
+      "hook": "探索将连续空间扩散机制引入语言建模，以突破传统离散自回归生成的局限。",
+      "key_takeaways": [
+        "利用连续嵌入空间中的去噪过程替代传统的离散 Token 逐字预测",
+        "具备并行解码潜力，并能够提供双向全局上下文的精准控制",
+        "降低对传统分词器（Tokenizer）的依赖，增强复杂文本编辑与序列规划能力"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.894950"
 }

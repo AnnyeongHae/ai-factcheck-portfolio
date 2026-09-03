@@ -23,7 +23,7 @@
     "Fine-tune / Uncensored"
   ],
   "category_type": "MODEL",
-  "title_ko": "Qwen3.8-27B-OBLITERATED 모델: 정렬 제거 버전 공개",
+  "title_ko": "OBLITERATUS/Qwen3.8-27B-OBLITERATED - 허깅페이스 인기 LLM",
   "description_ko": "특정 안전 정렬(Alignment)이 제거된 언어 모델을 통해 연구 및 맞춤형 튜닝의 한계를 넓혀보세요.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "OBLITERATUS Project",
@@ -48,64 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_trending_obliteratusqwen38_2",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "LLM 파인튜닝",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "LLM / Open Source AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "Qwen3.8",
-      "Obliterated",
-      "Alignment Removal"
+      "Qwen",
+      "LLM",
+      "Uncensored Model",
+      "Text Generation",
+      "Fine-Tuning"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.0,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Qwen3.8-27B-OBLITERATED 모델: 정렬 제거 버전 공개",
-        "hook": "특정 안전 정렬(Alignment)이 제거된 언어 모델을 통해 연구 및 맞춤형 튜닝의 한계를 넓혀보세요.",
+        "title": "OBLITERATUS/Qwen3.8-27B-OBLITERATED - 허깅페이스 인기 LLM",
+        "hook": "거부 반응(Refusal) 요소를 제거하여 자유로운 응답 생성을 가능하게 한 Qwen 기반 27B 오픈소스 모델",
         "key_takeaways": [
-          "Qwen3.8-27B 기반의 언어 모델에서 기본 정렬 제약을 해제한 버전",
-          "높은 다운로드 수로 개발자들 사이에서 높은 활용도 입증",
-          "모델 가중치 조작 및 프라이버시/안전 연구에 활용 가능"
+          "80만 회 이상의 다운로드와 1,000개 이상의 좋아요를 기록한 인기 트렌딩 모델",
+          "Qwen 27B 아키텍처를 기반으로 정렬 제약(Alignment/Refusal)을 최소화한 파인튜닝",
+          "텍스트 생성(Text Generation) 파이프라인에 즉시 배포 가능"
         ]
       },
       "en": {
-        "title": "Qwen3.8-27B-OBLITERATED: Alignment-Free Model Released",
-        "hook": "Explore custom tuning possibilities with this alignment-removed version of Qwen3.8-27B.",
+        "title": "OBLITERATUS/Qwen3.8-27B-OBLITERATED - Hugging Face Trending LLM",
+        "hook": "An uncensored 27B fine-tuned model based on Qwen designed to bypass refusal boundaries for unrestricted text generation.",
         "key_takeaways": [
-          "Qwen3.8-27B variant with removed default safety alignments",
-          "Demonstrates high utility among developers with strong download metrics",
-          "Useful for weight manipulation and custom alignment research"
+          "High community traction with over 800k downloads and 1,000+ likes",
+          "Fine-tuned to neutralize refusal mechanisms inherent in standard instruction-tuned models",
+          "Compatible with standard Hugging Face text-generation inference pipelines"
         ]
       },
       "zh": {
-        "title": "Qwen3.8-27B-OBLITERATED：解除对齐限制的模型发布",
-        "hook": "通过剥离默认安全对齐的 Qwen3.8-27B 版本，拓展定制化微调与研究的边界。",
+        "title": "OBLITERATUS/Qwen3.8-27B-OBLITERATED - Hugging Face 热门 LLM",
+        "hook": "基于 Qwen 架构微调并去除拒绝响应机制（Uncensored）的 27B 开源大语言模型",
         "key_takeaways": [
-          "基于 Qwen3.8-27B 移除默认安全对齐约束的变体模型",
-          "凭借庞大的下载量证明了其在开发者群体中的实用性",
-          "适用于模型权重研究及定制化对齐实验"
+          "获得超过 80 万次下载和 1000+ 点赞的高人气模型",
+          "移除对齐限制（Alignment Refusal），专注于提升模型生成自由度",
+          "完全适配 Hugging Face 标准文本生成（Text Generation）管道"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:47.288718+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Qwen3.8",
-    "Obliterated",
-    "Alignment Removal"
+    "Qwen",
+    "LLM",
+    "Uncensored Model",
+    "Text Generation",
+    "Fine-Tuning"
   ],
-  "title_en": "Qwen3.8-27B-OBLITERATED: Alignment-Free Model Released",
-  "title_zh": "Qwen3.8-27B-OBLITERATED：解除对齐限制的模型发布",
+  "title_en": "OBLITERATUS/Qwen3.8-27B-OBLITERATED - Hugging Face Trending LLM",
+  "title_zh": "OBLITERATUS/Qwen3.8-27B-OBLITERATED - Hugging Face 热门 LLM",
   "hook": "특정 안전 정렬(Alignment)이 제거된 언어 모델을 통해 연구 및 맞춤형 튜닝의 한계를 넓혀보세요.",
-  "hook_ko": "특정 안전 정렬(Alignment)이 제거된 언어 모델을 통해 연구 및 맞춤형 튜닝의 한계를 넓혀보세요.",
-  "hook_en": "Explore custom tuning possibilities with this alignment-removed version of Qwen3.8-27B.",
-  "hook_zh": "通过剥离默认安全对齐的 Qwen3.8-27B 版本，拓展定制化微调与研究的边界。",
+  "hook_ko": "거부 반응(Refusal) 요소를 제거하여 자유로운 응답 생성을 가능하게 한 Qwen 기반 27B 오픈소스 모델",
+  "hook_en": "An uncensored 27B fine-tuned model based on Qwen designed to bypass refusal boundaries for unrestricted text generation.",
+  "hook_zh": "基于 Qwen 架构微调并去除拒绝响应机制（Uncensored）的 27B 开源大语言模型",
   "description_en": "Explore custom tuning possibilities with this alignment-removed version of Qwen3.8-27B.",
   "description_zh": "通过剥离默认安全对齐的 Qwen3.8-27B 版本，拓展定制化微调与研究的边界。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "OBLITERATUS/Qwen3.8-27B-OBLITERATED - 허깅페이스 인기 LLM",
+      "hook": "거부 반응(Refusal) 요소를 제거하여 자유로운 응답 생성을 가능하게 한 Qwen 기반 27B 오픈소스 모델",
+      "key_takeaways": [
+        "80만 회 이상의 다운로드와 1,000개 이상의 좋아요를 기록한 인기 트렌딩 모델",
+        "Qwen 27B 아키텍처를 기반으로 정렬 제약(Alignment/Refusal)을 최소화한 파인튜닝",
+        "텍스트 생성(Text Generation) 파이프라인에 즉시 배포 가능"
+      ]
+    },
+    "en": {
+      "title": "OBLITERATUS/Qwen3.8-27B-OBLITERATED - Hugging Face Trending LLM",
+      "hook": "An uncensored 27B fine-tuned model based on Qwen designed to bypass refusal boundaries for unrestricted text generation.",
+      "key_takeaways": [
+        "High community traction with over 800k downloads and 1,000+ likes",
+        "Fine-tuned to neutralize refusal mechanisms inherent in standard instruction-tuned models",
+        "Compatible with standard Hugging Face text-generation inference pipelines"
+      ]
+    },
+    "zh": {
+      "title": "OBLITERATUS/Qwen3.8-27B-OBLITERATED - Hugging Face 热门 LLM",
+      "hook": "基于 Qwen 架构微调并去除拒绝响应机制（Uncensored）的 27B 开源大语言模型",
+      "key_takeaways": [
+        "获得超过 80 万次下载和 1000+ 点赞的高人气模型",
+        "移除对齐限制（Alignment Refusal），专注于提升模型生成自由度",
+        "完全适配 Hugging Face 标准文本生成（Text Generation）管道"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.884713"
 }

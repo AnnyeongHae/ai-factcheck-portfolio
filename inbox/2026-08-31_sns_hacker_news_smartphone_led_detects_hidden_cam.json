@@ -36,66 +36,99 @@
     "id": "2026-08-31_sns_hacker_news_smartphone_led_detects_hidden_cam",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "AI 모바일 비전",
-    "programming_lang": "Python",
+    "model_family": "Computer Vision",
+    "category": "Cybersecurity",
+    "programming_lang": "General",
     "root_keywords": [
-      "Smartphone LED",
-      "Hidden Camera Detection",
-      "Computer Vision"
+      "hidden camera detection",
+      "smartphone LED",
+      "computer vision",
+      "edge AI",
+      "privacy"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.2,
     "multilingual": {
       "ko": {
-        "title": "스마트폰 LED와 AI를 활용한 숨겨진 카메라 탐지 기술",
-        "hook": "스마트폰의 센서와 인공지능을 결합해 몰래카메라를 탐지하는 실용적인 온디바이스 기술입니다.",
+        "title": "스마트폰 LED와 AI를 활용한 몰래카메라 탐지 기술",
+        "hook": "스마트폰 플래시 LED와 AI 영상 분석을 결합하여 미세 카메라 렌즈 반사를 실시간 탐지하는 기술",
         "key_takeaways": [
-          "스마트폰 LED와 카메라를 활용한 탐지 메커니즘",
-          "AI 비전 모델을 통한 숨겨진 렌즈 반사 식별",
-          "실생활 보안에 적용 가능한 온디바이스 AI 응용"
+          "스마트폰 카메라 플래시(LED)의 광원 반사 특성을 이용해 가려진 렌즈 반사광 탐지",
+          "온디바이스 AI 경량화 모델을 활용한 외부 서버 연결 없는 실시간 영상 처리",
+          "별도 장비 없이 기존 스마트폰 HW만으로 개인정보 보호 및 보안 분석 가능성을 제시"
         ]
       },
       "en": {
-        "title": "Smartphone LED Detects Hidden Cameras with AI",
-        "hook": "Explore a practical on-device AI technique that spots hidden cameras using standard smartphone hardware.",
+        "title": "Detecting Hidden Cameras Using Smartphone LED and AI",
+        "hook": "Leveraging smartphone LED flash and AI image analysis to detect lens reflections from hidden cameras in real time.",
         "key_takeaways": [
-          "Detection mechanism leveraging smartphone LEDs and cameras",
-          "Identifying hidden lens reflections via AI vision models",
-          "Real-world security application of on-device AI"
+          "Identifies concealed camera lenses using optical reflection properties from smartphone LED flashes.",
+          "Utilizes lightweight on-device AI for real-time image processing without external servers.",
+          "Offers an accessible privacy-protection method utilizing standard smartphone hardware."
         ]
       },
       "zh": {
-        "title": "利用智能手机 LED 与 AI 检测隐藏摄像头的技术",
-        "hook": "结合智能手机硬件与人工智能，实现随身携带的隐形摄像头检测方案。",
+        "title": "利用智能手机 LED 和 AI 检测隐藏摄像头",
+        "hook": "结合智能手机闪光灯 LED 与 AI 图像分析，实时检测隐藏摄像头的微小镜头反射。",
         "key_takeaways": [
-          "利用手机 LED 和相机的检测机制",
-          "通过 AI 视觉模型识别隐藏的镜头反光",
-          "可应用于现实安全场景的端侧 AI 应用"
+          "利用智能手机 LED 闪光灯的光学反射特性识别隐藏的针孔镜头。",
+          "采用轻量级端侧 AI 模型，无需依赖外部服务器即可完成实时图像分析。",
+          "为个人隐私保护提供了一种基于日常智能手机硬件的便捷解决方案。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:58.113397+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
-    "Smartphone LED",
-    "Hidden Camera Detection",
-    "Computer Vision"
+    "hidden camera detection",
+    "smartphone LED",
+    "computer vision",
+    "edge AI",
+    "privacy"
   ],
-  "title_ko": "스마트폰 LED와 AI를 활용한 숨겨진 카메라 탐지 기술",
-  "title_en": "Smartphone LED Detects Hidden Cameras with AI",
-  "title_zh": "利用智能手机 LED 与 AI 检测隐藏摄像头的技术",
+  "title_ko": "스마트폰 LED와 AI를 활용한 몰래카메라 탐지 기술",
+  "title_en": "Detecting Hidden Cameras Using Smartphone LED and AI",
+  "title_zh": "利用智能手机 LED 和 AI 检测隐藏摄像头",
   "hook": "스마트폰의 센서와 인공지능을 결합해 몰래카메라를 탐지하는 실용적인 온디바이스 기술입니다.",
-  "hook_ko": "스마트폰의 센서와 인공지능을 결합해 몰래카메라를 탐지하는 실용적인 온디바이스 기술입니다.",
-  "hook_en": "Explore a practical on-device AI technique that spots hidden cameras using standard smartphone hardware.",
-  "hook_zh": "结合智能手机硬件与人工智能，实现随身携带的隐形摄像头检测方案。",
+  "hook_ko": "스마트폰 플래시 LED와 AI 영상 분석을 결합하여 미세 카메라 렌즈 반사를 실시간 탐지하는 기술",
+  "hook_en": "Leveraging smartphone LED flash and AI image analysis to detect lens reflections from hidden cameras in real time.",
+  "hook_zh": "结合智能手机闪光灯 LED 与 AI 图像分析，实时检测隐藏摄像头的微小镜头反射。",
   "description_ko": "스마트폰의 센서와 인공지능을 결합해 몰래카메라를 탐지하는 실용적인 온디바이스 기술입니다.",
   "description_en": "Explore a practical on-device AI technique that spots hidden cameras using standard smartphone hardware.",
   "description_zh": "结合智能手机硬件与人工智能，实现随身携带的隐形摄像头检测方案。",
   "category_type": "TECH",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "스마트폰 LED와 AI를 활용한 몰래카메라 탐지 기술",
+      "hook": "스마트폰 플래시 LED와 AI 영상 분석을 결합하여 미세 카메라 렌즈 반사를 실시간 탐지하는 기술",
+      "key_takeaways": [
+        "스마트폰 카메라 플래시(LED)의 광원 반사 특성을 이용해 가려진 렌즈 반사광 탐지",
+        "온디바이스 AI 경량화 모델을 활용한 외부 서버 연결 없는 실시간 영상 처리",
+        "별도 장비 없이 기존 스마트폰 HW만으로 개인정보 보호 및 보안 분석 가능성을 제시"
+      ]
+    },
+    "en": {
+      "title": "Detecting Hidden Cameras Using Smartphone LED and AI",
+      "hook": "Leveraging smartphone LED flash and AI image analysis to detect lens reflections from hidden cameras in real time.",
+      "key_takeaways": [
+        "Identifies concealed camera lenses using optical reflection properties from smartphone LED flashes.",
+        "Utilizes lightweight on-device AI for real-time image processing without external servers.",
+        "Offers an accessible privacy-protection method utilizing standard smartphone hardware."
+      ]
+    },
+    "zh": {
+      "title": "利用智能手机 LED 和 AI 检测隐藏摄像头",
+      "hook": "结合智能手机闪光灯 LED 与 AI 图像分析，实时检测隐藏摄像头的微小镜头反射。",
+      "key_takeaways": [
+        "利用智能手机 LED 闪光灯的光学反射特性识别隐藏的针孔镜头。",
+        "采用轻量级端侧 AI 模型，无需依赖外部服务器即可完成实时图像分析。",
+        "为个人隐私保护提供了一种基于日常智能手机硬件的便捷解决方案。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.908157"
 }

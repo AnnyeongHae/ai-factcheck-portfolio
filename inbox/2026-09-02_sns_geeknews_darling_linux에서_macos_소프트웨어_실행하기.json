@@ -30,7 +30,7 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Darling: Linux에서 macOS 소프트웨어 실행하기",
+  "title_ko": "Darling - Linux에서 macOS 소프트웨어 실행하기",
   "description_ko": "리눅스 환경에서 맥OS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트 소개입니다.",
   "hn_url": "https://news.hada.io/topic?id=33124",
   "article_url": "https://news.hada.io/topic?id=33124",
@@ -38,63 +38,96 @@
     "id": "2026-09-02_sns_geeknews_darling_linux에서_macos_소프트웨어_실행하기",
     "source_lang": "KO",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "OS 및 크로스플랫폼",
+    "model_family": "Compatibility Layer",
+    "category": "Operating Systems",
     "programming_lang": "C++",
     "root_keywords": [
       "Darling",
+      "macOS Compatibility",
       "Linux",
-      "macOS 호환성"
+      "Mach-O",
+      "Darwin"
     ],
-    "recommended_tag": "💡 유용한 도구",
+    "recommended_tag": "📝 기술 참고",
     "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "Darling: Linux에서 macOS 소프트웨어 실행하기",
-        "hook": "리눅스 환경에서 맥OS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트 소개입니다.",
+        "title": "Darling - Linux에서 macOS 소프트웨어 실행하기",
+        "hook": "Wine이 Windows 앱을 실행하듯 macOS 바이너리를 Linux에서 구동하는 오픈소스 호환성 레이어",
         "key_takeaways": [
-          "리눅스에서 macOS 바이너리 실행 가능성 검토",
-          "Darwin 커널 번역 레이어 작동 방식",
-          "크로스 플랫폼 개발 및 테스트 환경 구축에 유용"
+          "macOS의 Mach-O 바이너리와 Cocoa 라이브러리를 Linux 환경에서 에뮬레이션 없이 직접 실행",
+          "커널 모듈을 활용해 Darwin 및 Mach 커널 IPC, 파일 시스템 구조를 모사",
+          "현재 커맨드라인(CLI) 개발 도구 지원이 우수하며, GUI 앱 지원은 지속적으로 확장 중"
         ]
       },
       "en": {
-        "title": "Darling: Running macOS Software on Linux",
-        "hook": "Discover an open-source translation layer allowing macOS applications to run natively on Linux.",
+        "title": "Darling - Running macOS Software on Linux",
+        "hook": "An open-source translation layer that runs macOS binaries directly on Linux, similar to Wine for Windows",
         "key_takeaways": [
-          "Evaluating the feasibility of running macOS binaries on Linux",
-          "How the Darwin kernel translation layer operates",
-          "Useful for cross-platform development and testing environments"
+          "Executes macOS Mach-O binaries and Cocoa frameworks natively on Linux without full OS virtualization",
+          "Emulates Darwin/Mach IPC and macOS directory layouts via dedicated kernel modules",
+          "Provides robust support for CLI development tools while GUI support remains in active development"
         ]
       },
       "zh": {
-        "title": "Darling：在Linux上运行macOS软件",
-        "hook": "介绍一款允许在Linux环境中直接运行macOS应用程序的开源翻译层项目。",
+        "title": "Darling - 在 Linux 上运行 macOS 软件",
+        "hook": "类似于 Wine 运行 Windows 程序，可在 Linux 上直接运行 macOS 二进制文件的开源兼容层",
         "key_takeaways": [
-          "评估在Linux上运行macOS二进制文件的可行性",
-          "Darwin内核翻译层的工作原理",
-          "有助于构建跨平台开发和测试环境"
+          "无需完整虚拟机即可在 Linux 上原生解析并运行 macOS Mach-O 二进制文件与 Cocoa 框架",
+          "利用内核模块模拟 Darwin/Mach IPC 通信机制与 macOS 文件系统结构",
+          "目前对命令行(CLI)工具与开发环境支持良好，GUI 应用支持正在积极开发中"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:00.516307+09:00"
+    }
   },
   "source_lang": "KO",
   "programming_lang": "C++",
   "root_keywords": [
     "Darling",
+    "macOS Compatibility",
     "Linux",
-    "macOS 호환성"
+    "Mach-O",
+    "Darwin"
   ],
-  "title_en": "Darling: Running macOS Software on Linux",
-  "title_zh": "Darling：在Linux上运行macOS软件",
+  "title_en": "Darling - Running macOS Software on Linux",
+  "title_zh": "Darling - 在 Linux 上运行 macOS 软件",
   "hook": "리눅스 환경에서 맥OS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트 소개입니다.",
-  "hook_ko": "리눅스 환경에서 맥OS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트 소개입니다.",
-  "hook_en": "Discover an open-source translation layer allowing macOS applications to run natively on Linux.",
-  "hook_zh": "介绍一款允许在Linux环境中直接运行macOS应用程序的开源翻译层项目。",
+  "hook_ko": "Wine이 Windows 앱을 실행하듯 macOS 바이너리를 Linux에서 구동하는 오픈소스 호환성 레이어",
+  "hook_en": "An open-source translation layer that runs macOS binaries directly on Linux, similar to Wine for Windows",
+  "hook_zh": "类似于 Wine 运行 Windows 程序，可在 Linux 上直接运行 macOS 二进制文件的开源兼容层",
   "description_en": "Discover an open-source translation layer allowing macOS applications to run natively on Linux.",
   "description_zh": "介绍一款允许在Linux环境中直接运行macOS应用程序的开源翻译层项目。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Darling - Linux에서 macOS 소프트웨어 실행하기",
+      "hook": "Wine이 Windows 앱을 실행하듯 macOS 바이너리를 Linux에서 구동하는 오픈소스 호환성 레이어",
+      "key_takeaways": [
+        "macOS의 Mach-O 바이너리와 Cocoa 라이브러리를 Linux 환경에서 에뮬레이션 없이 직접 실행",
+        "커널 모듈을 활용해 Darwin 및 Mach 커널 IPC, 파일 시스템 구조를 모사",
+        "현재 커맨드라인(CLI) 개발 도구 지원이 우수하며, GUI 앱 지원은 지속적으로 확장 중"
+      ]
+    },
+    "en": {
+      "title": "Darling - Running macOS Software on Linux",
+      "hook": "An open-source translation layer that runs macOS binaries directly on Linux, similar to Wine for Windows",
+      "key_takeaways": [
+        "Executes macOS Mach-O binaries and Cocoa frameworks natively on Linux without full OS virtualization",
+        "Emulates Darwin/Mach IPC and macOS directory layouts via dedicated kernel modules",
+        "Provides robust support for CLI development tools while GUI support remains in active development"
+      ]
+    },
+    "zh": {
+      "title": "Darling - 在 Linux 上运行 macOS 软件",
+      "hook": "类似于 Wine 运行 Windows 程序，可在 Linux 上直接运行 macOS 二进制文件的开源兼容层",
+      "key_takeaways": [
+        "无需完整虚拟机即可在 Linux 上原生解析并运行 macOS Mach-O 二进制文件与 Cocoa 框架",
+        "利用内核模块模拟 Darwin/Mach IPC 通信机制与 macOS 文件系统结构",
+        "目前对命令行(CLI)工具与开发环境支持良好，GUI 应用支持正在积极开发中"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.022021"
 }

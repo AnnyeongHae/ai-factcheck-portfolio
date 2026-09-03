@@ -33,66 +33,99 @@
     "id": "2026-09-01_repo_github_yding_gitpersonal_edge_proxy",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "네트워크 및 프록시 설정",
+    "model_family": "Networking & Proxy",
+    "category": "Networking & Security",
     "programming_lang": "General",
     "root_keywords": [
+      "Proxy",
       "Xray",
       "Hysteria2",
-      "Proxy"
+      "REALITY Vision",
+      "WARP"
     ],
-    "recommended_tag": "💡 유용한 도구",
+    "recommended_tag": "📝 기술 참고",
     "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "다중 인바운드/아웃바운드 개인 프록시 셋업 도구",
-        "hook": "Xray, Hysteria2, REALITY, WARP 등 다양한 네트워크 프로토콜을 통합하여 개인 프록시 환경을 구축할 수 있습니다.",
+        "title": "yding-git/personal-edge-proxy: Xray, Hysteria2, REALITY 기반 개인용 다중 인/아웃바운드 프록시",
+        "hook": "Xray, Hysteria2, REALITY Vision, Cloudflare WARP를 결합한 실용적인 다중 인바운드/아웃바운드 개인 프록시 구축 환경",
         "key_takeaways": [
-          "Xray 및 Hysteria2 프로토콜 지원",
-          "REALITY Vision 및 WARP 연동 가능",
-          "선택적 정적 SOCKS5 라우팅 제공"
+          "Xray, Hysteria2, REALITY Vision 등 최신 암호화 프록시 프로토콜 통합 지원",
+          "Cloudflare WARP 및 정적 SOCKS5 라우팅을 통한 유연한 아웃바운드 트래픽 제어",
+          "실용적인 다중 인바운드/아웃바운드 설정을 제공하여 나만의 최적화된 에지 프록시 구축 가능"
         ]
       },
       "en": {
-        "title": "Practical Multi-Inbound/Outbound Personal Proxy Setup",
-        "hook": "Easily set up a versatile personal proxy environment integrating modern protocols like Xray, Hysteria2, and WARP.",
+        "title": "yding-git/personal-edge-proxy: Multi-inbound/outbound personal proxy setup with Xray & Hysteria2",
+        "hook": "A practical personal edge proxy system combining Xray, Hysteria2, REALITY Vision, and Cloudflare WARP.",
         "key_takeaways": [
-          "Supports Xray and Hysteria2 protocols",
-          "Integrates REALITY Vision and WARP",
-          "Includes optional static SOCKS5 routing"
+          "Integrates modern proxy protocols including Xray, Hysteria2, and REALITY Vision",
+          "Supports flexible outbound traffic routing via Cloudflare WARP and static SOCKS5",
+          "Enables a customizable multi-inbound and multi-outbound network setup for edge proxies"
         ]
       },
       "zh": {
-        "title": "实用多入站/出站个人代理配置工具",
-        "hook": "集成Xray、Hysteria2、REALITY和WARP等多种现代网络协议，轻松搭建个人代理环境。",
+        "title": "yding-git/personal-edge-proxy: 基于 Xray 与 Hysteria2 的多进多出个人边缘代理",
+        "hook": "结合 Xray、Hysteria2、REALITY Vision 和 Cloudflare WARP 的实用多进多出个人代理方案",
         "key_takeaways": [
-          "支持Xray与Hysteria2协议",
-          "可对接REALITY Vision与WARP",
-          "提供可选的静态SOCKS5路由功能"
+          "集成 Xray、Hysteria2、REALITY Vision 等现代化加密代理协议",
+          "支持 Cloudflare WARP 和静态 SOCKS5 的灵活出站路由选择",
+          "提供模块化配置，便于搭建和优化定制化的个人边缘代理网络"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:29:53.222697+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
+    "Proxy",
     "Xray",
     "Hysteria2",
-    "Proxy"
+    "REALITY Vision",
+    "WARP"
   ],
-  "title_ko": "다중 인바운드/아웃바운드 개인 프록시 셋업 도구",
-  "title_en": "Practical Multi-Inbound/Outbound Personal Proxy Setup",
-  "title_zh": "实用多入站/出站个人代理配置工具",
+  "title_ko": "yding-git/personal-edge-proxy: Xray, Hysteria2, REALITY 기반 개인용 다중 인/아웃바운드 프록시",
+  "title_en": "yding-git/personal-edge-proxy: Multi-inbound/outbound personal proxy setup with Xray & Hysteria2",
+  "title_zh": "yding-git/personal-edge-proxy: 基于 Xray 与 Hysteria2 的多进多出个人边缘代理",
   "hook": "Xray, Hysteria2, REALITY, WARP 등 다양한 네트워크 프로토콜을 통합하여 개인 프록시 환경을 구축할 수 있습니다.",
-  "hook_ko": "Xray, Hysteria2, REALITY, WARP 등 다양한 네트워크 프로토콜을 통합하여 개인 프록시 환경을 구축할 수 있습니다.",
-  "hook_en": "Easily set up a versatile personal proxy environment integrating modern protocols like Xray, Hysteria2, and WARP.",
-  "hook_zh": "集成Xray、Hysteria2、REALITY和WARP等多种现代网络协议，轻松搭建个人代理环境。",
+  "hook_ko": "Xray, Hysteria2, REALITY Vision, Cloudflare WARP를 결합한 실용적인 다중 인바운드/아웃바운드 개인 프록시 구축 환경",
+  "hook_en": "A practical personal edge proxy system combining Xray, Hysteria2, REALITY Vision, and Cloudflare WARP.",
+  "hook_zh": "结合 Xray、Hysteria2、REALITY Vision 和 Cloudflare WARP 的实用多进多出个人代理方案",
   "description_ko": "Xray, Hysteria2, REALITY, WARP 등 다양한 네트워크 프로토콜을 통합하여 개인 프록시 환경을 구축할 수 있습니다.",
   "description_en": "Easily set up a versatile personal proxy environment integrating modern protocols like Xray, Hysteria2, and WARP.",
   "description_zh": "集成Xray、Hysteria2、REALITY和WARP等多种现代网络协议，轻松搭建个人代理环境。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "yding-git/personal-edge-proxy: Xray, Hysteria2, REALITY 기반 개인용 다중 인/아웃바운드 프록시",
+      "hook": "Xray, Hysteria2, REALITY Vision, Cloudflare WARP를 결합한 실용적인 다중 인바운드/아웃바운드 개인 프록시 구축 환경",
+      "key_takeaways": [
+        "Xray, Hysteria2, REALITY Vision 등 최신 암호화 프록시 프로토콜 통합 지원",
+        "Cloudflare WARP 및 정적 SOCKS5 라우팅을 통한 유연한 아웃바운드 트래픽 제어",
+        "실용적인 다중 인바운드/아웃바운드 설정을 제공하여 나만의 최적화된 에지 프록시 구축 가능"
+      ]
+    },
+    "en": {
+      "title": "yding-git/personal-edge-proxy: Multi-inbound/outbound personal proxy setup with Xray & Hysteria2",
+      "hook": "A practical personal edge proxy system combining Xray, Hysteria2, REALITY Vision, and Cloudflare WARP.",
+      "key_takeaways": [
+        "Integrates modern proxy protocols including Xray, Hysteria2, and REALITY Vision",
+        "Supports flexible outbound traffic routing via Cloudflare WARP and static SOCKS5",
+        "Enables a customizable multi-inbound and multi-outbound network setup for edge proxies"
+      ]
+    },
+    "zh": {
+      "title": "yding-git/personal-edge-proxy: 基于 Xray 与 Hysteria2 的多进多出个人边缘代理",
+      "hook": "结合 Xray、Hysteria2、REALITY Vision 和 Cloudflare WARP 的实用多进多出个人代理方案",
+      "key_takeaways": [
+        "集成 Xray、Hysteria2、REALITY Vision 等现代化加密代理协议",
+        "支持 Cloudflare WARP 和静态 SOCKS5 的灵活出站路由选择",
+        "提供模块化配置，便于搭建和优化定制化的个人边缘代理网络"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.955990"
 }

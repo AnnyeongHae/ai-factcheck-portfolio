@@ -37,65 +37,98 @@
     "id": "2026-09-02_sns_hacker_news_the_efficient_frontier_of_llm_inf",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 추론 최적화",
-    "programming_lang": "Python",
+    "model_family": "LLM Inference Optimization",
+    "category": "Artificial Intelligence / Machine Learning",
+    "programming_lang": "General",
     "root_keywords": [
-      "LLM 추론",
-      "효율적 프론티어",
-      "성능 최적화"
+      "LLM inference",
+      "efficient frontier",
+      "latency vs throughput",
+      "cost optimization",
+      "model serving"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "LLM 추론의 효율적 프론티어(Efficient Frontier) 분석",
-        "hook": "비용과 지연 시간 사이의 최적 균형점을 찾아내어 LLM 추론 성능을 극대화하는 방법을 확인하세요.",
+        "title": "LLM 추론의 효율적 경계 (The Efficient Frontier of LLM Inference)",
+        "hook": "LLM 서빙 환경에서 지연 시간(Latency), 처리량(Throughput), 비용 간 최적의 트레이드오프 패러다임을 분석한 기술 글",
         "key_takeaways": [
-          "LLM 추론 비용과 성능 간의 효율적 프론티어 곡선 분석",
-          "실제 서비스 환경에서의 지연 시간 및 처리량 최적화 전략",
-          "하드웨어 자원 활용 효율을 높이는 아키텍처적 접근"
+          "LLM 서빙에서 지연 시간(TTFT/TPOT)과 배치 크기 및 처리량 간의 최적 절충점 분석",
+          "GPU/TPU 가속기 자원 활용도를 극대화하여 토큰당 비용(Cost-per-token)을 절감하는 공학적 접근법",
+          "양자화, 컨텍스트 길이, 아키텍처 변형이 추론 효율적 경계(Pareto Frontier)에 미치는 영향 검토"
         ]
       },
       "en": {
         "title": "The Efficient Frontier of LLM Inference",
-        "hook": "Discover how to maximize LLM inference performance by finding the optimal balance between cost and latency.",
+        "hook": "A deep technical analysis exploring optimal Pareto trade-offs between latency, throughput, and cost in LLM serving.",
         "key_takeaways": [
-          "Analysis of the efficient frontier curve between LLM cost and performance",
-          "Strategies for optimizing latency and throughput in production environments",
-          "Architectural approaches to enhance hardware resource utilization"
+          "Analysis of trade-offs between TTFT, TPOT, batch size, and throughput for production LLM deployments.",
+          "Engineering strategies to maximize GPU utilization and reduce cost-per-token metrics.",
+          "Evaluation of how quantization, context window scaling, and model size shift the efficiency frontier."
         ]
       },
       "zh": {
-        "title": "大语言模型推理的高效边界 (Efficient Frontier)",
-        "hook": "寻找成本与延迟之间的最佳平衡点，掌握最大化大模型推理性能的核心方法。",
+        "title": "LLM 推理的效率前沿 (The Efficient Frontier of LLM Inference)",
+        "hook": "探讨 LLM 服务中延迟、吞吐量与成本之间帕累托最优权衡的技术深度解析。",
         "key_takeaways": [
-          "分析LLM推理成本与性能之间的权衡曲线",
-          "生产环境中优化延迟与吞吐量的策略",
-          "提高硬件资源利用效率的架构设计方法"
+          "分析生产环境中 LLM 延迟（TTFT/TPOT）与批处理大小及吞吐量之间的平衡点。",
+          "提高 GPU 利用率并降低每 Token 运营成本的工程优化策略。",
+          "评估量化、上下文长度扩展与模型架构对推理效率前沿曲线的影响。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:48:05.852928+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
-    "LLM 추론",
-    "효율적 프론티어",
-    "성능 최적화"
+    "LLM inference",
+    "efficient frontier",
+    "latency vs throughput",
+    "cost optimization",
+    "model serving"
   ],
-  "title_ko": "LLM 추론의 효율적 프론티어(Efficient Frontier) 분석",
+  "title_ko": "LLM 추론의 효율적 경계 (The Efficient Frontier of LLM Inference)",
   "title_en": "The Efficient Frontier of LLM Inference",
-  "title_zh": "大语言模型推理的高效边界 (Efficient Frontier)",
+  "title_zh": "LLM 推理的效率前沿 (The Efficient Frontier of LLM Inference)",
   "hook": "비용과 지연 시간 사이의 최적 균형점을 찾아내어 LLM 추론 성능을 극대화하는 방법을 확인하세요.",
-  "hook_ko": "비용과 지연 시간 사이의 최적 균형점을 찾아내어 LLM 추론 성능을 극대화하는 방법을 확인하세요.",
-  "hook_en": "Discover how to maximize LLM inference performance by finding the optimal balance between cost and latency.",
-  "hook_zh": "寻找成本与延迟之间的最佳平衡点，掌握最大化大模型推理性能的核心方法。",
+  "hook_ko": "LLM 서빙 환경에서 지연 시간(Latency), 처리량(Throughput), 비용 간 최적의 트레이드오프 패러다임을 분석한 기술 글",
+  "hook_en": "A deep technical analysis exploring optimal Pareto trade-offs between latency, throughput, and cost in LLM serving.",
+  "hook_zh": "探讨 LLM 服务中延迟、吞吐量与成本之间帕累托最优权衡的技术深度解析。",
   "description_ko": "비용과 지연 시간 사이의 최적 균형점을 찾아내어 LLM 추론 성능을 극대화하는 방법을 확인하세요.",
   "description_en": "Discover how to maximize LLM inference performance by finding the optimal balance between cost and latency.",
   "description_zh": "寻找成本与延迟之间的最佳平衡点，掌握最大化大模型推理性能的核心方法。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "LLM 추론의 효율적 경계 (The Efficient Frontier of LLM Inference)",
+      "hook": "LLM 서빙 환경에서 지연 시간(Latency), 처리량(Throughput), 비용 간 최적의 트레이드오프 패러다임을 분석한 기술 글",
+      "key_takeaways": [
+        "LLM 서빙에서 지연 시간(TTFT/TPOT)과 배치 크기 및 처리량 간의 최적 절충점 분석",
+        "GPU/TPU 가속기 자원 활용도를 극대화하여 토큰당 비용(Cost-per-token)을 절감하는 공학적 접근법",
+        "양자화, 컨텍스트 길이, 아키텍처 변형이 추론 효율적 경계(Pareto Frontier)에 미치는 영향 검토"
+      ]
+    },
+    "en": {
+      "title": "The Efficient Frontier of LLM Inference",
+      "hook": "A deep technical analysis exploring optimal Pareto trade-offs between latency, throughput, and cost in LLM serving.",
+      "key_takeaways": [
+        "Analysis of trade-offs between TTFT, TPOT, batch size, and throughput for production LLM deployments.",
+        "Engineering strategies to maximize GPU utilization and reduce cost-per-token metrics.",
+        "Evaluation of how quantization, context window scaling, and model size shift the efficiency frontier."
+      ]
+    },
+    "zh": {
+      "title": "LLM 推理的效率前沿 (The Efficient Frontier of LLM Inference)",
+      "hook": "探讨 LLM 服务中延迟、吞吐量与成本之间帕累托最优权衡的技术深度解析。",
+      "key_takeaways": [
+        "分析生产环境中 LLM 延迟（TTFT/TPOT）与批处理大小及吞吐量之间的平衡点。",
+        "提高 GPU 利用率并降低每 Token 运营成本的工程优化策略。",
+        "评估量化、上下文长度扩展与模型架构对推理效率前沿曲线的影响。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.114815"
 }

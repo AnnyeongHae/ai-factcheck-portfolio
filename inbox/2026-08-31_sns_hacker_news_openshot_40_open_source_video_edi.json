@@ -16,7 +16,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "Hacker News: 오픈소스 동영상 편집기 OpenShot 4.0 출시",
+  "title_ko": "OpenShot 4.0 – 오픈소스 동영상 편집기 메이저 업데이트",
   "description_ko": "대대적인 성능 개선과 신기능으로 무장한 오픈소스 비디오 에디터 메이저 업데이트입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -45,63 +45,96 @@
     "id": "2026-08-31_sns_hacker_news_openshot_40_open_source_video_edi",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "멀티미디어 및 비디오 처리",
-    "programming_lang": "C++",
+    "model_family": "Desktop Applications",
+    "category": "Media Processing & Open Source Tools",
+    "programming_lang": "Python",
     "root_keywords": [
-      "OpenShot 4.0",
+      "OpenShot",
       "Video Editor",
-      "Open Source"
+      "Open Source",
+      "FFmpeg",
+      "Qt"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "Hacker News: 오픈소스 동영상 편집기 OpenShot 4.0 출시",
-        "hook": "대대적인 성능 개선과 신기능으로 무장한 오픈소스 비디오 에디터 메이저 업데이트입니다.",
+        "title": "OpenShot 4.0 – 오픈소스 동영상 편집기 메이저 업데이트",
+        "hook": "성능 및 타임라인 처리 안정성이 대폭 향상된 오픈소스 비디오 편집기 OpenShot의 4.0 버전에 대한 디스커션",
         "key_takeaways": [
-          "렌더링 성능 향상 및 타임라인 최적화",
-          "오픈소스 기반 크로스플랫폼 영상 편집 툴",
-          "개발자 및 크리에이터를 위한 유용한 멀티미디어 도구"
+          "FFmpeg 및 libopenshot 백엔드 최적화를 통한 재생 및 타임라인 렌더링 성능 개선",
+          "Qt 기반 인터페이스 개편으로 반응성 및 사용자 경험(UX) 현대화",
+          "멀티스레딩 아키텍처 및 크래시 관리 개선으로 프로그램 안정성 확보"
         ]
       },
       "en": {
-        "title": "Hacker News: OpenShot 4.0 – Open-source video editor",
-        "hook": "A major update to the popular open-source video editor featuring massive performance upgrades.",
+        "title": "OpenShot 4.0 – Open-source Video Editor Major Release",
+        "hook": "OpenShot 4.0 brings significant performance optimizations, modernized UI, and stability updates to the open-source video editing ecosystem.",
         "key_takeaways": [
-          "Significant rendering performance boosts and timeline optimizations",
-          "Cross-platform open-source video editing software",
-          "A valuable multimedia tool for developers and content creators"
+          "Engine optimizations in libopenshot/FFmpeg for smoother timeline playback and faster rendering.",
+          "Modernized Qt-based UI/UX layout with improved responsiveness.",
+          "Architectural improvements in multithreading and crash handling for higher application stability."
         ]
       },
       "zh": {
-        "title": "Hacker News: OpenShot 4.0 – 开源视频编辑器发布",
-        "hook": "备受瞩目的开源视频编辑器迎来重大版本更新，性能大幅提升。",
+        "title": "OpenShot 4.0 – 开源跨平台视频编辑器重磅更新",
+        "hook": "开源视频编辑器 OpenShot 迎来 4.0 大版本更新，主打性能重构、UI 现代与稳定性提升",
         "key_takeaways": [
-          "显著提升的渲染性能与时间轴优化",
-          "跨平台的开源视频编辑软件",
-          "面向开发者与创作者的实用多媒体工具"
+          "优化 libopenshot 与 FFmpeg 后端，大幅改善时间线实时预览与渲染效率",
+          "基于 Qt 框架重构 UI/UX，提升响应速度与交互体验",
+          "改进多线程架构与异常捕获机制，大幅提升软件运行稳定性"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:10.252282+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "C++",
+  "programming_lang": "Python",
   "root_keywords": [
-    "OpenShot 4.0",
+    "OpenShot",
     "Video Editor",
-    "Open Source"
+    "Open Source",
+    "FFmpeg",
+    "Qt"
   ],
-  "title_en": "Hacker News: OpenShot 4.0 – Open-source video editor",
-  "title_zh": "Hacker News: OpenShot 4.0 – 开源视频编辑器发布",
+  "title_en": "OpenShot 4.0 – Open-source Video Editor Major Release",
+  "title_zh": "OpenShot 4.0 – 开源跨平台视频编辑器重磅更新",
   "hook": "대대적인 성능 개선과 신기능으로 무장한 오픈소스 비디오 에디터 메이저 업데이트입니다.",
-  "hook_ko": "대대적인 성능 개선과 신기능으로 무장한 오픈소스 비디오 에디터 메이저 업데이트입니다.",
-  "hook_en": "A major update to the popular open-source video editor featuring massive performance upgrades.",
-  "hook_zh": "备受瞩目的开源视频编辑器迎来重大版本更新，性能大幅提升。",
+  "hook_ko": "성능 및 타임라인 처리 안정성이 대폭 향상된 오픈소스 비디오 편집기 OpenShot의 4.0 버전에 대한 디스커션",
+  "hook_en": "OpenShot 4.0 brings significant performance optimizations, modernized UI, and stability updates to the open-source video editing ecosystem.",
+  "hook_zh": "开源视频编辑器 OpenShot 迎来 4.0 大版本更新，主打性能重构、UI 现代与稳定性提升",
   "description_en": "A major update to the popular open-source video editor featuring massive performance upgrades.",
   "description_zh": "备受瞩目的开源视频编辑器迎来重大版本更新，性能大幅提升。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "OpenShot 4.0 – 오픈소스 동영상 편집기 메이저 업데이트",
+      "hook": "성능 및 타임라인 처리 안정성이 대폭 향상된 오픈소스 비디오 편집기 OpenShot의 4.0 버전에 대한 디스커션",
+      "key_takeaways": [
+        "FFmpeg 및 libopenshot 백엔드 최적화를 통한 재생 및 타임라인 렌더링 성능 개선",
+        "Qt 기반 인터페이스 개편으로 반응성 및 사용자 경험(UX) 현대화",
+        "멀티스레딩 아키텍처 및 크래시 관리 개선으로 프로그램 안정성 확보"
+      ]
+    },
+    "en": {
+      "title": "OpenShot 4.0 – Open-source Video Editor Major Release",
+      "hook": "OpenShot 4.0 brings significant performance optimizations, modernized UI, and stability updates to the open-source video editing ecosystem.",
+      "key_takeaways": [
+        "Engine optimizations in libopenshot/FFmpeg for smoother timeline playback and faster rendering.",
+        "Modernized Qt-based UI/UX layout with improved responsiveness.",
+        "Architectural improvements in multithreading and crash handling for higher application stability."
+      ]
+    },
+    "zh": {
+      "title": "OpenShot 4.0 – 开源跨平台视频编辑器重磅更新",
+      "hook": "开源视频编辑器 OpenShot 迎来 4.0 大版本更新，主打性能重构、UI 现代与稳定性提升",
+      "key_takeaways": [
+        "优化 libopenshot 与 FFmpeg 后端，大幅改善时间线实时预览与渲染效率",
+        "基于 Qt 框架重构 UI/UX，提升响应速度与交互体验",
+        "改进多线程架构与异常捕获机制，大幅提升软件运行稳定性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.902215"
 }

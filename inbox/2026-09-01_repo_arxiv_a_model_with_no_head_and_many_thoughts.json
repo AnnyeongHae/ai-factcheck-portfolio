@@ -33,68 +33,99 @@
     "id": "2026-09-01_repo_arxiv_a_model_with_no_head_and_many_thoughts",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 추론 최적화 및 아키텍처",
-    "programming_lang": "C++",
+    "model_family": "Transformer Variants",
+    "category": "Artificial Intelligence",
+    "programming_lang": "Python",
     "root_keywords": [
-      "Hidden States",
-      "Token-free Reasoning",
-      "Inference Optimization",
-      "LLM Architecture"
+      "headless decoding",
+      "latent reasoning",
+      "soft thoughts",
+      "LLM efficiency",
+      "vocabulary projection"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "머리는 없고 생각은 많은 모델: 토큰 한계를 뛰어넘는 비(非)출력 추론 아키텍처",
-        "hook": "매 스텝마다 거대한 어휘 헤드를 거치는 연산 비용을 제거하고, 연속적인 사고 과정을 구현한 혁신적 논문입니다.",
+        "title": "머리(LM Head) 없는 언어 모델과 연속적 추론(Soft Thoughts)",
+        "hook": "매 토큰 출력마다 비싼 LM Head 프로젝션을 거치지 않고 잠재 공간에서 연속적 추론을 수행하는 연산 효율적 LLM 구조",
         "key_takeaways": [
-          "대규모 어휘 헤드 투영(Projection) 연산 비용 병목 현상 분석",
-          "이산적 토큰 제약을 우회하여 히든 스테이트 기반의 사고(Thought) 구현",
-          "LLM 추론 속도 및 효율성을 극단적으로 끌어올리는 새로운 패러다임"
+          "매 추론 단계마다 대규모 어휘 목록(LM Head)으로 프로젝션하는 고비용 연산 문제 해결",
+          "이산적(Discrete) 토큰 생성 없이 연속적 잠재 공간(Latent Space)에서 생각/추론을 이어가는 혁신적 구조",
+          "최종 답변 단계에서만 어휘 프로젝션을 수행하여 추론 속도 및 계산 효율성 대폭 향상"
         ]
       },
       "en": {
         "title": "A Model with No Head and Many Thoughts",
-        "hook": "Eliminate costly vocabulary head projections at every decoding step and enable continuous thought representation.",
+        "hook": "An efficient LLM architecture that performs continuous latent reasoning without invoking expensive LM vocabulary heads at every decoding step.",
         "key_takeaways": [
-          "Analysis of computational bottlenecks in large vocabulary head projections",
-          "Implementation of hidden-state-based reasoning bypassing discrete token constraints",
-          "A new paradigm for radically boosting LLM inference speed and efficiency"
+          "Bypasses costly vocabulary projections at intermediate reasoning steps to reduce decoding overhead.",
+          "Enables 'soft thoughts' in continuous latent space instead of forcing reasoning into discrete tokens.",
+          "Projects back to discrete tokens only when generating final outputs, boosting inference speed."
         ]
       },
       "zh": {
-        "title": "无头多思模型：突破离散token限制的全新推理架构",
-        "hook": "消除每一步解码时庞大词表头投影的巨额计算成本，实现连续的深度思考过程。",
+        "title": "无头且多思的大语言模型架构",
+        "hook": "一种无需在每一步调用高昂词表投影头、直接在连续隐空间进行推理的高效LLM架构",
         "key_takeaways": [
-          "剖析大规模词表头投影带来的计算性能瓶颈",
-          "绕过离散token约束，实现基于隐状态（Hidden States）的思考过程",
-          "大幅提升大模型推理速度与效率的全新架构范式"
+          "解决了每步解码均需向庞大词表(LM Head)投影的高计算成本问题。",
+          "允许模型在连续潜在空间中展开“软思考”，而非受限于离散 Token 表达。",
+          "仅在输出最终文本时才进行词表投影，极大地提升了推理效率与解码速度。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:34.696390+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "C++",
+  "programming_lang": "Python",
   "root_keywords": [
-    "Hidden States",
-    "Token-free Reasoning",
-    "Inference Optimization",
-    "LLM Architecture"
+    "headless decoding",
+    "latent reasoning",
+    "soft thoughts",
+    "LLM efficiency",
+    "vocabulary projection"
   ],
-  "title_ko": "머리는 없고 생각은 많은 모델: 토큰 한계를 뛰어넘는 비(非)출력 추론 아키텍처",
+  "title_ko": "머리(LM Head) 없는 언어 모델과 연속적 추론(Soft Thoughts)",
   "title_en": "A Model with No Head and Many Thoughts",
-  "title_zh": "无头多思模型：突破离散token限制的全新推理架构",
+  "title_zh": "无头且多思的大语言模型架构",
   "hook": "매 스텝마다 거대한 어휘 헤드를 거치는 연산 비용을 제거하고, 연속적인 사고 과정을 구현한 혁신적 논문입니다.",
-  "hook_ko": "매 스텝마다 거대한 어휘 헤드를 거치는 연산 비용을 제거하고, 연속적인 사고 과정을 구현한 혁신적 논문입니다.",
-  "hook_en": "Eliminate costly vocabulary head projections at every decoding step and enable continuous thought representation.",
-  "hook_zh": "消除每一步解码时庞大词表头投影的巨额计算成本，实现连续的深度思考过程。",
+  "hook_ko": "매 토큰 출력마다 비싼 LM Head 프로젝션을 거치지 않고 잠재 공간에서 연속적 추론을 수행하는 연산 효율적 LLM 구조",
+  "hook_en": "An efficient LLM architecture that performs continuous latent reasoning without invoking expensive LM vocabulary heads at every decoding step.",
+  "hook_zh": "一种无需在每一步调用高昂词表投影头、直接在连续隐空间进行推理的高效LLM架构",
   "description_ko": "매 스텝마다 거대한 어휘 헤드를 거치는 연산 비용을 제거하고, 연속적인 사고 과정을 구현한 혁신적 논문입니다.",
   "description_en": "Eliminate costly vocabulary head projections at every decoding step and enable continuous thought representation.",
   "description_zh": "消除每一步解码时庞大词表头投影的巨额计算成本，实现连续的深度思考过程。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "머리(LM Head) 없는 언어 모델과 연속적 추론(Soft Thoughts)",
+      "hook": "매 토큰 출력마다 비싼 LM Head 프로젝션을 거치지 않고 잠재 공간에서 연속적 추론을 수행하는 연산 효율적 LLM 구조",
+      "key_takeaways": [
+        "매 추론 단계마다 대규모 어휘 목록(LM Head)으로 프로젝션하는 고비용 연산 문제 해결",
+        "이산적(Discrete) 토큰 생성 없이 연속적 잠재 공간(Latent Space)에서 생각/추론을 이어가는 혁신적 구조",
+        "최종 답변 단계에서만 어휘 프로젝션을 수행하여 추론 속도 및 계산 효율성 대폭 향상"
+      ]
+    },
+    "en": {
+      "title": "A Model with No Head and Many Thoughts",
+      "hook": "An efficient LLM architecture that performs continuous latent reasoning without invoking expensive LM vocabulary heads at every decoding step.",
+      "key_takeaways": [
+        "Bypasses costly vocabulary projections at intermediate reasoning steps to reduce decoding overhead.",
+        "Enables 'soft thoughts' in continuous latent space instead of forcing reasoning into discrete tokens.",
+        "Projects back to discrete tokens only when generating final outputs, boosting inference speed."
+      ]
+    },
+    "zh": {
+      "title": "无头且多思的大语言模型架构",
+      "hook": "一种无需在每一步调用高昂词表投影头、直接在连续隐空间进行推理的高效LLM架构",
+      "key_takeaways": [
+        "解决了每步解码均需向庞大词表(LM Head)投影的高计算成本问题。",
+        "允许模型在连续潜在空间中展开“软思考”，而非受限于离散 Token 表达。",
+        "仅在输出最终文本时才进行词表投影，极大地提升了推理效率与解码速度。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.914203"
 }

@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "MODEL",
-  "title_ko": "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp 실험적 비전 모델",
+  "title_ko": "DeepSeek-V4-Flash-Vision-Exp: 딥시크의 차세대 경량 비전-언어 멀티모달 모델",
   "description_ko": "차세대 DeepSeek-V4 아키텍처 기반의 초고속 멀티모달 비전 모델을 지금 체험해보세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "DeepSeek AI",
@@ -48,66 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_model_deepseek_aideepseek_v4_flas",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "DeepSeek",
-    "category": "비전 멀티모달 LLM",
+    "type_classification": "TECH",
+    "model_family": "Vision Language Model",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "DeepSeek-V4",
-      "Vision-Exp",
+      "DeepSeek",
+      "Vision Language Model",
       "Multimodal",
-      "Image-Text"
+      "Flash Architecture",
+      "Image-to-Text"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp 실험적 비전 모델",
-        "hook": "차세대 DeepSeek-V4 아키텍처 기반의 초고속 멀티모달 비전 모델을 지금 체험해보세요.",
+        "title": "DeepSeek-V4-Flash-Vision-Exp: 딥시크의 차세대 경량 비전-언어 멀티모달 모델",
+        "hook": "초고속 추론 성능과 연산 효율성을 결합한 딥시크의 실험적 비전-텍스트 멀티모달 모델",
         "key_takeaways": [
-          "DeepSeek-V4 기반의 이미지-텍스트 동시 처리 역량",
-          "Flash 및 실험적(Exp) 최적화를 통한 응답 속도 개선",
-          "최신 멀티모달 어플리케이션 개발을 위한 필수 실험 모델"
+          "이미지와 텍스트 입력을 동시에 처리하는 image-text-to-text 전용 모델",
+          "Flash 아키텍처 적용으로 저지연 초고속 실시간 비전 추론 제공",
+          "시각적 추론, 대화형 멀티모달 task 및 문맥 기반 이미지 분석에 최적화"
         ]
       },
       "en": {
-        "title": "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp Experimental Vision Model",
-        "hook": "Explore the ultra-fast multimodal vision model powered by the next-gen DeepSeek-V4 architecture.",
+        "title": "DeepSeek-V4-Flash-Vision-Exp: Next-Gen Lightweight Vision-Language Model",
+        "hook": "DeepSeek's experimental vision-language model optimized for ultra-fast, high-efficiency multimodal inference.",
         "key_takeaways": [
-          "Simultaneous image and text processing powered by DeepSeek-V4",
-          "Enhanced response speeds through Flash and experimental optimizations",
-          "Essential experimental model for next-gen multimodal applications"
+          "Designed specifically for image-text-to-text multimodal pipelines",
+          "Leverages Flash architectural optimizations for low-latency visual understanding",
+          "Ideal for real-time visual reasoning and complex multimodal conversation tasks"
         ]
       },
       "zh": {
-        "title": "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp 实验性视觉模型",
-        "hook": "立即体验基于下一代 DeepSeek-V4 架构的超高速多模态视觉模型。",
+        "title": "DeepSeek-V4-Flash-Vision-Exp：深度求索下一代轻量级视觉语言模型",
+        "hook": "兼具超高速推理与高计算效率的 DeepSeek 实验性视觉-文本多模态模型",
         "key_takeaways": [
-          "基于 DeepSeek-V4 的图文联合处理能力",
-          "通过 Flash 及实验性优化显著提升响应速度",
-          "构建最新多模态应用的必备实验模型"
+          "专为图像-文本到文本（image-text-to-text）管道设计的 DeepSeek V4 实验模型",
+          "采用 Flash 架构优化，大幅降低推理延迟并提升计算效率",
+          "适用于实时多模态交互、复杂的视觉推理与上下文图像理解场景"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:33:23.901017+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "DeepSeek-V4",
-    "Vision-Exp",
+    "DeepSeek",
+    "Vision Language Model",
     "Multimodal",
-    "Image-Text"
+    "Flash Architecture",
+    "Image-to-Text"
   ],
-  "title_en": "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp Experimental Vision Model",
-  "title_zh": "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp 实验性视觉模型",
+  "title_en": "DeepSeek-V4-Flash-Vision-Exp: Next-Gen Lightweight Vision-Language Model",
+  "title_zh": "DeepSeek-V4-Flash-Vision-Exp：深度求索下一代轻量级视觉语言模型",
   "hook": "차세대 DeepSeek-V4 아키텍처 기반의 초고속 멀티모달 비전 모델을 지금 체험해보세요.",
-  "hook_ko": "차세대 DeepSeek-V4 아키텍처 기반의 초고속 멀티모달 비전 모델을 지금 체험해보세요.",
-  "hook_en": "Explore the ultra-fast multimodal vision model powered by the next-gen DeepSeek-V4 architecture.",
-  "hook_zh": "立即体验基于下一代 DeepSeek-V4 架构的超高速多模态视觉模型。",
+  "hook_ko": "초고속 추론 성능과 연산 효율성을 결합한 딥시크의 실험적 비전-텍스트 멀티모달 모델",
+  "hook_en": "DeepSeek's experimental vision-language model optimized for ultra-fast, high-efficiency multimodal inference.",
+  "hook_zh": "兼具超高速推理与高计算效率的 DeepSeek 实验性视觉-文本多模态模型",
   "description_en": "Explore the ultra-fast multimodal vision model powered by the next-gen DeepSeek-V4 architecture.",
   "description_zh": "立即体验基于下一代 DeepSeek-V4 架构的超高速多模态视觉模型。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "DeepSeek-V4-Flash-Vision-Exp: 딥시크의 차세대 경량 비전-언어 멀티모달 모델",
+      "hook": "초고속 추론 성능과 연산 효율성을 결합한 딥시크의 실험적 비전-텍스트 멀티모달 모델",
+      "key_takeaways": [
+        "이미지와 텍스트 입력을 동시에 처리하는 image-text-to-text 전용 모델",
+        "Flash 아키텍처 적용으로 저지연 초고속 실시간 비전 추론 제공",
+        "시각적 추론, 대화형 멀티모달 task 및 문맥 기반 이미지 분석에 최적화"
+      ]
+    },
+    "en": {
+      "title": "DeepSeek-V4-Flash-Vision-Exp: Next-Gen Lightweight Vision-Language Model",
+      "hook": "DeepSeek's experimental vision-language model optimized for ultra-fast, high-efficiency multimodal inference.",
+      "key_takeaways": [
+        "Designed specifically for image-text-to-text multimodal pipelines",
+        "Leverages Flash architectural optimizations for low-latency visual understanding",
+        "Ideal for real-time visual reasoning and complex multimodal conversation tasks"
+      ]
+    },
+    "zh": {
+      "title": "DeepSeek-V4-Flash-Vision-Exp：深度求索下一代轻量级视觉语言模型",
+      "hook": "兼具超高速推理与高计算效率的 DeepSeek 实验性视觉-文本多模态模型",
+      "key_takeaways": [
+        "专为图像-文本到文本（image-text-to-text）管道设计的 DeepSeek V4 实验模型",
+        "采用 Flash 架构优化，大幅降低推理延迟并提升计算效率",
+        "适用于实时多模态交互、复杂的视觉推理与上下文图像理解场景"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.858488"
 }

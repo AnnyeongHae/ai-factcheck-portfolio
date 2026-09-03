@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "MODEL",
-  "title_ko": "FastVideo FastH3 4단계 프리뷰 모델 공개",
+  "title_ko": "FastVideo: 4단계 추론만으로 생성되는 FastH3 데이터-프리 비디오 생성 모델",
   "description_ko": "단 4단계 추론만으로 고품질 동영상을 생성하는 최신 텍스트-투-비디오 모델을 확인하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,43 +48,45 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_fastvideofastvideo_fasth3_4_step_",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "FastVideo",
-    "category": "영상 생성",
+    "type_classification": "TECH",
+    "model_family": "FastVideo / Diffusion Transformer",
+    "category": "Computer Vision / Text-to-Video",
     "programming_lang": "Python",
     "root_keywords": [
-      "Text-to-Video",
-      "Diffusion Optimization",
-      "4-step Generation"
+      "text-to-video",
+      "FastVideo",
+      "distillation",
+      "4-step generation",
+      "VSA-DataFree"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "FastVideo FastH3 4단계 프리뷰 모델 공개",
-        "hook": "단 4단계 추론만으로 고품질 동영상을 생성하는 최신 텍스트-투-비디오 모델을 확인하세요.",
+        "title": "FastVideo: 4단계 추론만으로 생성되는 FastH3 데이터-프리 비디오 생성 모델",
+        "hook": "데이터 프리 VSA 증류 기법을 통해 단 4단계의 스텝만으로 고품질 텍스트-투-비디오 생성을 지원하는 모델",
         "key_takeaways": [
-          "4단계 초고속 확산 모델 추론 지원",
-          "데이터 프리(Data-Free) 최적화 아키텍처 적용",
-          "텍스트 기반 영상 생성 파이프라인 최적화"
+          "단 4번의 추론 스텝으로 영상 생성을 완료하는 초고속 텍스트-투-비디오 파이프라인",
+          "학습 데이터에 대한 의존성을 줄인 VSA(Value-Score Alignment) Data-Free 증류 기술 적용",
+          "비디오 생성 컴퓨팅 비용과 추론 지연 시간을 획기적으로 축소"
         ]
       },
       "en": {
-        "title": "FastVideo FastH3 4-step Preview Model Released",
-        "hook": "Discover a cutting-edge text-to-video model that generates high-quality videos in just 4 inference steps.",
+        "title": "FastVideo: FastH3 4-Step Preview-v1 (VSA-DataFree)",
+        "hook": "Ultra-fast text-to-video model achieving high-quality generation in just 4 inference steps using data-free VSA distillation.",
         "key_takeaways": [
-          "Supports ultra-fast 4-step diffusion model inference",
-          "Applies data-free optimization architecture",
-          "Optimized text-to-video generation pipeline"
+          "Ultra-fast video generation requiring only 4 inference steps",
+          "Utilizes VSA (Value-Score Alignment) Data-Free distillation method",
+          "Drastically lowers computational costs and inference latency for video diffusion"
         ]
       },
       "zh": {
-        "title": "FastVideo FastH3 4步预览模型发布",
-        "hook": "探索仅需4步推理即可生成高质量视频的最新文本转视频模型。",
+        "title": "FastVideo：仅需 4 步推理的 FastH3 无数据视频生成预览模型",
+        "hook": "基于无数据 VSA 蒸馏技术，仅需 4 步推理即可实现高效高质的文本生成视频",
         "key_takeaways": [
-          "支持超高速4步扩散模型推理",
-          "应用无数据(Data-Free)优化架构",
-          "优化文本转视频生成流程"
+          "仅需 4 个推理步骤即可完成高性能文本到视频生成",
+          "采用无需训练数据的 VSA（Value-Score Alignment）蒸馏方案",
+          "大幅降低视频扩散模型的计算开销与推理延迟"
         ]
       }
     }
@@ -92,18 +94,51 @@
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Text-to-Video",
-    "Diffusion Optimization",
-    "4-step Generation"
+    "text-to-video",
+    "FastVideo",
+    "distillation",
+    "4-step generation",
+    "VSA-DataFree"
   ],
-  "title_en": "FastVideo FastH3 4-step Preview Model Released",
-  "title_zh": "FastVideo FastH3 4步预览模型发布",
+  "title_en": "FastVideo: FastH3 4-Step Preview-v1 (VSA-DataFree)",
+  "title_zh": "FastVideo：仅需 4 步推理的 FastH3 无数据视频生成预览模型",
   "hook": "단 4단계 추론만으로 고품질 동영상을 생성하는 최신 텍스트-투-비디오 모델을 확인하세요.",
-  "hook_ko": "단 4단계 추론만으로 고품질 동영상을 생성하는 최신 텍스트-투-비디오 모델을 확인하세요.",
-  "hook_en": "Discover a cutting-edge text-to-video model that generates high-quality videos in just 4 inference steps.",
-  "hook_zh": "探索仅需4步推理即可生成高质量视频的最新文本转视频模型。",
+  "hook_ko": "데이터 프리 VSA 증류 기법을 통해 단 4단계의 스텝만으로 고품질 텍스트-투-비디오 생성을 지원하는 모델",
+  "hook_en": "Ultra-fast text-to-video model achieving high-quality generation in just 4 inference steps using data-free VSA distillation.",
+  "hook_zh": "基于无数据 VSA 蒸馏技术，仅需 4 步推理即可实现高效高质的文本生成视频",
   "description_en": "Discover a cutting-edge text-to-video model that generates high-quality videos in just 4 inference steps.",
   "description_zh": "探索仅需4步推理即可生成高质量视频的最新文本转视频模型。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "FastVideo: 4단계 추론만으로 생성되는 FastH3 데이터-프리 비디오 생성 모델",
+      "hook": "데이터 프리 VSA 증류 기법을 통해 단 4단계의 스텝만으로 고품질 텍스트-투-비디오 생성을 지원하는 모델",
+      "key_takeaways": [
+        "단 4번의 추론 스텝으로 영상 생성을 완료하는 초고속 텍스트-투-비디오 파이프라인",
+        "학습 데이터에 대한 의존성을 줄인 VSA(Value-Score Alignment) Data-Free 증류 기술 적용",
+        "비디오 생성 컴퓨팅 비용과 추론 지연 시간을 획기적으로 축소"
+      ]
+    },
+    "en": {
+      "title": "FastVideo: FastH3 4-Step Preview-v1 (VSA-DataFree)",
+      "hook": "Ultra-fast text-to-video model achieving high-quality generation in just 4 inference steps using data-free VSA distillation.",
+      "key_takeaways": [
+        "Ultra-fast video generation requiring only 4 inference steps",
+        "Utilizes VSA (Value-Score Alignment) Data-Free distillation method",
+        "Drastically lowers computational costs and inference latency for video diffusion"
+      ]
+    },
+    "zh": {
+      "title": "FastVideo：仅需 4 步推理的 FastH3 无数据视频生成预览模型",
+      "hook": "基于无数据 VSA 蒸馏技术，仅需 4 步推理即可实现高效高质的文本生成视频",
+      "key_takeaways": [
+        "仅需 4 个推理步骤即可完成高性能文本到视频生成",
+        "采用无需训练数据的 VSA（Value-Score Alignment）蒸馏方案",
+        "大幅降低视频扩散模型的计算开销与推理延迟"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.851165"
 }

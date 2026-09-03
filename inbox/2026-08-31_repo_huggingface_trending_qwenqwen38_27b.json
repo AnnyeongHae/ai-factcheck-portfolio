@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "MODEL",
-  "title_ko": "Hugging Face 트렌딩: Qwen/Qwen3.8-27B",
+  "title_ko": "HuggingFace 트렌딩: Qwen/Qwen3.8-27B",
   "description_ko": "현재 오픈소스 커뮤니티에서 가장 주목받는 27B 파라미터 규모의 Qwen 핵심 모델입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Qwen Alibaba",
@@ -48,64 +48,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_trending_qwenqwen38_27b",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "Large Language Model",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
       "Qwen",
-      "27B",
-      "Multimodal"
+      "Vision Language Model",
+      "Multimodal",
+      "Image-to-Text"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.9,
+    "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face 트렌딩: Qwen/Qwen3.8-27B",
-        "hook": "현재 오픈소스 커뮤니티에서 가장 주목받는 27B 파라미터 규모의 Qwen 핵심 모델입니다.",
+        "title": "HuggingFace 트렌딩: Qwen/Qwen3.8-27B",
+        "hook": "490만 회 이상 다운로드된 Qwen 시리즈의 27B 규모 고성능 시각-언어 멀티모달 모델",
         "key_takeaways": [
-          "수백만 회의 다운로드와 수만 개의 좋아요를 기록한 압도적 인기",
-          "뛰어난 텍스트 및 멀티모달 균형감 제공",
-          "프로덕션 환경 도입을 위한 범용 백본 모델로 강력 추천"
+          "이미지와 텍스트 입력을 모두 지원하는 27B 파라미터 시각-언어 모델",
+          "490만 건 이상의 높은 누적 다운로드 수로 검증된 강력한 오프소스 생태계",
+          "Hugging Face image-text-to-text 파이프라인과 완벽하게 호환"
         ]
       },
       "en": {
-        "title": "Hugging Face Trending: Qwen/Qwen3.8-27B",
-        "hook": "Explore the 27B parameter powerhouse dominating the open-source community right now.",
+        "title": "HuggingFace Trending: Qwen/Qwen3.8-27B",
+        "hook": "A highly popular 27B image-text-to-text multimodal model with over 4.9 million downloads.",
         "key_takeaways": [
-          "Massive adoption with millions of downloads and stellar user ratings",
-          "Delivers an optimal balance of textual and multimodal capabilities",
-          "Highly recommended as a backbone model for production deployments"
+          "27B parameter vision-language model capable of rich multimodal understanding",
+          "Massive open-source adoption with over 4.9M total downloads",
+          "Fully integrated with the standard Hugging Face image-text-to-text pipeline"
         ]
       },
       "zh": {
-        "title": "Hugging Face 热门趋势：Qwen/Qwen3.8-27B",
-        "hook": "当前开源社区备受瞩目的 27B 参数核心大模型，不容错过。",
+        "title": "HuggingFace 趋势项目：Qwen/Qwen3.8-27B",
+        "hook": "下载量突破 490 万次的高性能 27B 参数图文多模态大模型",
         "key_takeaways": [
-          "斩获数百万次下载与极高点赞数，生态热度空前",
-          "在文本和多模态任务中展现出卓越的平衡性能",
-          "强烈推荐作为企业级生产部署的基座模型"
+          "支持图像与文本输入的 27B 参数量视觉-语言模型",
+          "累计下载量超过 490 万次，拥有广泛且活跃的开源生态",
+          "完美适配 Hugging Face 图文生成文本（image-text-to-text）Pipeline"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T07:29:33.438315+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Qwen",
-    "27B",
-    "Multimodal"
+    "Vision Language Model",
+    "Multimodal",
+    "Image-to-Text"
   ],
-  "title_en": "Hugging Face Trending: Qwen/Qwen3.8-27B",
-  "title_zh": "Hugging Face 热门趋势：Qwen/Qwen3.8-27B",
+  "title_en": "HuggingFace Trending: Qwen/Qwen3.8-27B",
+  "title_zh": "HuggingFace 趋势项目：Qwen/Qwen3.8-27B",
   "hook": "현재 오픈소스 커뮤니티에서 가장 주목받는 27B 파라미터 규모의 Qwen 핵심 모델입니다.",
-  "hook_ko": "현재 오픈소스 커뮤니티에서 가장 주목받는 27B 파라미터 규모의 Qwen 핵심 모델입니다.",
-  "hook_en": "Explore the 27B parameter powerhouse dominating the open-source community right now.",
-  "hook_zh": "当前开源社区备受瞩目的 27B 参数核心大模型，不容错过。",
+  "hook_ko": "490만 회 이상 다운로드된 Qwen 시리즈의 27B 규모 고성능 시각-언어 멀티모달 모델",
+  "hook_en": "A highly popular 27B image-text-to-text multimodal model with over 4.9 million downloads.",
+  "hook_zh": "下载量突破 490 万次的高性能 27B 参数图文多模态大模型",
   "description_en": "Explore the 27B parameter powerhouse dominating the open-source community right now.",
   "description_zh": "当前开源社区备受瞩目的 27B 参数核心大模型，不容错过。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HuggingFace 트렌딩: Qwen/Qwen3.8-27B",
+      "hook": "490만 회 이상 다운로드된 Qwen 시리즈의 27B 규모 고성능 시각-언어 멀티모달 모델",
+      "key_takeaways": [
+        "이미지와 텍스트 입력을 모두 지원하는 27B 파라미터 시각-언어 모델",
+        "490만 건 이상의 높은 누적 다운로드 수로 검증된 강력한 오프소스 생태계",
+        "Hugging Face image-text-to-text 파이프라인과 완벽하게 호환"
+      ]
+    },
+    "en": {
+      "title": "HuggingFace Trending: Qwen/Qwen3.8-27B",
+      "hook": "A highly popular 27B image-text-to-text multimodal model with over 4.9 million downloads.",
+      "key_takeaways": [
+        "27B parameter vision-language model capable of rich multimodal understanding",
+        "Massive open-source adoption with over 4.9M total downloads",
+        "Fully integrated with the standard Hugging Face image-text-to-text pipeline"
+      ]
+    },
+    "zh": {
+      "title": "HuggingFace 趋势项目：Qwen/Qwen3.8-27B",
+      "hook": "下载量突破 490 万次的高性能 27B 参数图文多模态大模型",
+      "key_takeaways": [
+        "支持图像与文本输入的 27B 参数量视觉-语言模型",
+        "累计下载量超过 490 万次，拥有广泛且活跃的开源生态",
+        "完美适配 Hugging Face 图文生成文本（image-text-to-text）Pipeline"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.887297"
 }

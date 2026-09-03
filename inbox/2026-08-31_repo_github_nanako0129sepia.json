@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "AGENT",
-  "title_ko": "AI 냄새를 지우는 서사 아키텍처 복구 스킬 Sepia",
+  "title_ko": "sepia - AI 특유의 상투적 문체를 제거하는 에이전트 스킬 및 글쓰기 교정 도구",
   "description_ko": "모든 에이전트와 호환되며 소설 및 전문 글쓰기에서 AI 흔적을 지우고 자연스러운 문장으로 복구합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -47,64 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_github_nanako0129sepia",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "AI 글쓰기 및 에이전트 스킬",
+    "type_classification": "TECH",
+    "model_family": "Agent Skills",
+    "category": "AI Agents & Tooling",
     "programming_lang": "Python",
     "root_keywords": [
-      "De-AI Writing",
       "Agent Skills",
-      "StoryScope"
+      "De-AI Writing",
+      "StoryScope",
+      "Claude Code",
+      "Grok Build"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.7,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "AI 냄새를 지우는 서사 아키텍처 복구 스킬 Sepia",
-        "hook": "모든 에이전트와 호환되며 소설 및 전문 글쓰기에서 AI 흔적을 지우고 자연스러운 문장으로 복구합니다.",
+        "title": "sepia - AI 특유의 상투적 문체를 제거하는 에이전트 스킬 및 글쓰기 교정 도구",
+        "hook": "AI가 작성한 문장의 어색함을 지우고 서사 구조를 보정하는 Agent Skills 호환 플러그인",
         "key_takeaways": [
-          "Skills CLI를 통해 77개 이상의 에이전트 스킬과 호환",
-          "Claude Code, Codex, Grok Build 등 네이티브 플러그인 지원",
-          "StoryScope(arXiv:2604.03136) 기반 서사 구조 복구 엔진"
+          "Skills CLI를 통해 Claude Code, Codex, Grok Build 등 77개 이상의 AI 에이전트와 즉시 연동 가능",
+          "소설/픽션을 위한 서사 구조 복원 및 다목적 전문 문서용 맞춤 글쓰기 규칙 적용",
+          "StoryScope 연구 논문(arXiv:2604.03136)을 기반으로 한 De-AI 텍스트 교정 메커니즘 제공"
         ]
       },
       "en": {
-        "title": "Sepia: De-AI Writing Skill for Agent Frameworks",
-        "hook": "Remove the AI-generated tone from fiction and professional prose using advanced narrative repair.",
+        "title": "sepia - De-AI Writing Skill for Agent Skills-Compatible AI Agents",
+        "hook": "Remove AI-generated prose clichés and repair narrative architecture across Claude Code, Codex, and Grok Build.",
         "key_takeaways": [
-          "Compatible with 77+ agents via Skills CLI",
-          "Native plugins for Claude Code, Codex, and Grok Build",
-          "Built on StoryScope (arXiv:2604.03136) narrative architecture"
+          "Seamless integration with 77+ AI agents via Skills CLI with native plugin support",
+          "Provides narrative-architecture repair for fiction and venue-matched rules for professional prose",
+          "Built on research from the StoryScope paper (arXiv:2604.03136) for de-AI style refinement"
         ]
       },
       "zh": {
-        "title": "Sepia：适用于各类智能体的去AI化写作技能",
-        "hook": "修复小说与专业散文的叙事架构，彻底清除AI写作痕迹恢复人类笔触。",
+        "title": "sepia - 适用于 AI Agent 的 去 AI 化写作修饰与文本修复技能工具",
+        "hook": "消除 AI 生成文本的机械僵硬感，通过 Agent Skills 插件修复文章叙事结构",
         "key_takeaways": [
-          "通过Skills CLI兼容77种以上智能体技能",
-          "原生支持Claude Code、Codex和Grok Build",
-          "基于StoryScope（arXiv:2604.03136）叙事架构"
+          "支持通过 Skills CLI 无缝接入 Claude Code、Codex、Grok Build 等 77+ 个 AI Agent",
+          "针对虚构创作提供叙事架构修复，针对专业散文提供契合具体场景的语言规约",
+          "基于 StoryScope 学术研究 (arXiv:2604.03136) 构建的高效去 AI 化文本润色机制"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:02.831233+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "De-AI Writing",
     "Agent Skills",
-    "StoryScope"
+    "De-AI Writing",
+    "StoryScope",
+    "Claude Code",
+    "Grok Build"
   ],
-  "title_en": "Sepia: De-AI Writing Skill for Agent Frameworks",
-  "title_zh": "Sepia：适用于各类智能体的去AI化写作技能",
+  "title_en": "sepia - De-AI Writing Skill for Agent Skills-Compatible AI Agents",
+  "title_zh": "sepia - 适用于 AI Agent 的 去 AI 化写作修饰与文本修复技能工具",
   "hook": "모든 에이전트와 호환되며 소설 및 전문 글쓰기에서 AI 흔적을 지우고 자연스러운 문장으로 복구합니다.",
-  "hook_ko": "모든 에이전트와 호환되며 소설 및 전문 글쓰기에서 AI 흔적을 지우고 자연스러운 문장으로 복구합니다.",
-  "hook_en": "Remove the AI-generated tone from fiction and professional prose using advanced narrative repair.",
-  "hook_zh": "修复小说与专业散文的叙事架构，彻底清除AI写作痕迹恢复人类笔触。",
+  "hook_ko": "AI가 작성한 문장의 어색함을 지우고 서사 구조를 보정하는 Agent Skills 호환 플러그인",
+  "hook_en": "Remove AI-generated prose clichés and repair narrative architecture across Claude Code, Codex, and Grok Build.",
+  "hook_zh": "消除 AI 生成文本的机械僵硬感，通过 Agent Skills 插件修复文章叙事结构",
   "description_en": "Remove the AI-generated tone from fiction and professional prose using advanced narrative repair.",
   "description_zh": "修复小说与专业散文的叙事架构，彻底清除AI写作痕迹恢复人类笔触。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "sepia - AI 특유의 상투적 문체를 제거하는 에이전트 스킬 및 글쓰기 교정 도구",
+      "hook": "AI가 작성한 문장의 어색함을 지우고 서사 구조를 보정하는 Agent Skills 호환 플러그인",
+      "key_takeaways": [
+        "Skills CLI를 통해 Claude Code, Codex, Grok Build 등 77개 이상의 AI 에이전트와 즉시 연동 가능",
+        "소설/픽션을 위한 서사 구조 복원 및 다목적 전문 문서용 맞춤 글쓰기 규칙 적용",
+        "StoryScope 연구 논문(arXiv:2604.03136)을 기반으로 한 De-AI 텍스트 교정 메커니즘 제공"
+      ]
+    },
+    "en": {
+      "title": "sepia - De-AI Writing Skill for Agent Skills-Compatible AI Agents",
+      "hook": "Remove AI-generated prose clichés and repair narrative architecture across Claude Code, Codex, and Grok Build.",
+      "key_takeaways": [
+        "Seamless integration with 77+ AI agents via Skills CLI with native plugin support",
+        "Provides narrative-architecture repair for fiction and venue-matched rules for professional prose",
+        "Built on research from the StoryScope paper (arXiv:2604.03136) for de-AI style refinement"
+      ]
+    },
+    "zh": {
+      "title": "sepia - 适用于 AI Agent 的 去 AI 化写作修饰与文本修复技能工具",
+      "hook": "消除 AI 生成文本的机械僵硬感，通过 Agent Skills 插件修复文章叙事结构",
+      "key_takeaways": [
+        "支持通过 Skills CLI 无缝接入 Claude Code、Codex、Grok Build 等 77+ 个 AI Agent",
+        "针对虚构创作提供叙事架构修复，针对专业散文提供契合具体场景的语言规约",
+        "基于 StoryScope 学术研究 (arXiv:2604.03136) 构建的高效去 AI 化文本润色机制"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.797235"
 }

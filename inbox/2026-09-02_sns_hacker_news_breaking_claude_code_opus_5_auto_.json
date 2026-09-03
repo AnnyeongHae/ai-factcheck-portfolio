@@ -35,67 +35,100 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_hacker_news_breaking_claude_code_opus_5_auto_",
     "source_lang": "EN",
-    "type_classification": "AGENT",
+    "type_classification": "TECH",
     "model_family": "Claude",
-    "category": "AI 코딩 에이전트 및 자동화",
-    "programming_lang": "TypeScript",
+    "category": "AI Security",
+    "programming_lang": "General",
     "root_keywords": [
       "Claude Code",
       "Opus 5",
-      "자동 모드"
+      "Auto Mode",
+      "Jailbreak",
+      "Prompt Injection"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Claude Code Opus 5 자동 모드(Auto Mode) 완벽 분석",
-        "hook": "개발자의 개입을 최소화하고 코딩 태스크를 자율 수행하는 Claude Code Opus 5의 혁신을 경험하세요.",
+        "title": "클로드 코드 Opus 5 오토 모드 취약점 분석 및 우회",
+        "hook": "Claude Code Opus 5의 자율 실행 제약 및 보안 제어 장치를 우회하는 분석 보고서",
         "key_takeaways": [
-          "Claude Code Opus 5의 새로운 'Auto Mode' 작동 원리",
-          "대규모 코드베이스 리팩토링 및 버그 수정 자동화 성능",
-          "자율형 코딩 에이전트 환경에서 실무 개발자의 역할 변화"
+          "Claude Code Opus 5 오토 모드에 존재하는 안전장치 우회 기법 분석",
+          "에이전트 형태의 자율 코드 실행 도구에서 발생하는 프롬프트 인젝션 및 보안 위험",
+          "개발 환경 내 AI 코딩 에이전트 도입 시 격리 및 샌드박싱의 중요성 강조"
         ]
       },
       "en": {
-        "title": "Breaking Down Claude Code Opus 5 Auto Mode",
-        "hook": "Discover how Claude Code Opus 5 Auto Mode revolutionizes autonomous software development with minimal human oversight.",
+        "title": "Breaking Claude Code Opus 5 Auto Mode",
+        "hook": "An in-depth analysis on bypassing execution guardrails in Claude Code Opus 5's autonomous mode.",
         "key_takeaways": [
-          "Under-the-hood mechanics of Claude Code Opus 5 Auto Mode",
-          "Performance metrics in large-scale codebase refactoring and bug fixing",
-          "The shifting paradigm of software engineering in autonomous agent eras"
+          "Analysis of exploitation techniques bypassing security boundaries in Claude Code Opus 5 Auto Mode.",
+          "Highlights prompt injection vulnerabilities and security risks inherent in autonomous coding agents.",
+          "Emphasizes the critical need for strict sandboxing when integrating AI coding tools."
         ]
       },
       "zh": {
-        "title": "深度剖析 Claude Code Opus 5 自动模式（Auto Mode）",
-        "hook": "体验Claude Code Opus 5如何以极少的人工干预实现软件开发任务的完全自主运行。",
+        "title": "破解 Claude Code Opus 5 自动模式",
+        "hook": "深入分析绕过 Claude Code Opus 5 自动执行模式安全限制的技术细节",
         "key_takeaways": [
-          "Claude Code Opus 5 新“自动模式”的底层运行机制",
-          "在大规模代码库重构和自动化排错中的基准表现",
-          "在自主编程代理时代下软件工程师角色的演变"
+          "揭示绕过 Claude Code Opus 5 自动模式安全防护机制的漏洞",
+          "探讨自主 AI 编程代理中的提示词注入风险与安全隐患",
+          "强调在日常开发中引入 AI 编码代理时建立严格沙箱隔离的重要性"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:54:30.306367+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "TypeScript",
+  "programming_lang": "General",
   "root_keywords": [
     "Claude Code",
     "Opus 5",
-    "자동 모드"
+    "Auto Mode",
+    "Jailbreak",
+    "Prompt Injection"
   ],
-  "title_ko": "Claude Code Opus 5 자동 모드(Auto Mode) 완벽 분석",
-  "title_en": "Breaking Down Claude Code Opus 5 Auto Mode",
-  "title_zh": "深度剖析 Claude Code Opus 5 自动模式（Auto Mode）",
+  "title_ko": "클로드 코드 Opus 5 오토 모드 취약점 분석 및 우회",
+  "title_en": "Breaking Claude Code Opus 5 Auto Mode",
+  "title_zh": "破解 Claude Code Opus 5 自动模式",
   "hook": "개발자의 개입을 최소화하고 코딩 태스크를 자율 수행하는 Claude Code Opus 5의 혁신을 경험하세요.",
-  "hook_ko": "개발자의 개입을 최소화하고 코딩 태스크를 자율 수행하는 Claude Code Opus 5의 혁신을 경험하세요.",
-  "hook_en": "Discover how Claude Code Opus 5 Auto Mode revolutionizes autonomous software development with minimal human oversight.",
-  "hook_zh": "体验Claude Code Opus 5如何以极少的人工干预实现软件开发任务的完全自主运行。",
+  "hook_ko": "Claude Code Opus 5의 자율 실행 제약 및 보안 제어 장치를 우회하는 분석 보고서",
+  "hook_en": "An in-depth analysis on bypassing execution guardrails in Claude Code Opus 5's autonomous mode.",
+  "hook_zh": "深入分析绕过 Claude Code Opus 5 自动执行模式安全限制的技术细节",
   "description_ko": "개발자의 개입을 최소화하고 코딩 태스크를 자율 수행하는 Claude Code Opus 5의 혁신을 경험하세요.",
   "description_en": "Discover how Claude Code Opus 5 Auto Mode revolutionizes autonomous software development with minimal human oversight.",
   "description_zh": "体验Claude Code Opus 5如何以极少的人工干预实现软件开发任务的完全自主运行。",
   "category_type": "AGENT",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "클로드 코드 Opus 5 오토 모드 취약점 분석 및 우회",
+      "hook": "Claude Code Opus 5의 자율 실행 제약 및 보안 제어 장치를 우회하는 분석 보고서",
+      "key_takeaways": [
+        "Claude Code Opus 5 오토 모드에 존재하는 안전장치 우회 기법 분석",
+        "에이전트 형태의 자율 코드 실행 도구에서 발생하는 프롬프트 인젝션 및 보안 위험",
+        "개발 환경 내 AI 코딩 에이전트 도입 시 격리 및 샌드박싱의 중요성 강조"
+      ]
+    },
+    "en": {
+      "title": "Breaking Claude Code Opus 5 Auto Mode",
+      "hook": "An in-depth analysis on bypassing execution guardrails in Claude Code Opus 5's autonomous mode.",
+      "key_takeaways": [
+        "Analysis of exploitation techniques bypassing security boundaries in Claude Code Opus 5 Auto Mode.",
+        "Highlights prompt injection vulnerabilities and security risks inherent in autonomous coding agents.",
+        "Emphasizes the critical need for strict sandboxing when integrating AI coding tools."
+      ]
+    },
+    "zh": {
+      "title": "破解 Claude Code Opus 5 自动模式",
+      "hook": "深入分析绕过 Claude Code Opus 5 自动执行模式安全限制的技术细节",
+      "key_takeaways": [
+        "揭示绕过 Claude Code Opus 5 自动模式安全防护机制的漏洞",
+        "探讨自主 AI 编程代理中的提示词注入风险与安全隐患",
+        "强调在日常开发中引入 AI 编码代理时建立严格沙箱隔离的重要性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.071357"
 }

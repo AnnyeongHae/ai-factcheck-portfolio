@@ -34,65 +34,98 @@
     "id": "2026-09-02_repo_arxiv_retrieved_but_not_ranked_surface_form_b",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "RAG & Information Retrieval",
+    "model_family": "Embedding / Vector Retrieval",
+    "category": "Information Retrieval & AI Agents",
     "programming_lang": "Python",
     "root_keywords": [
-      "Embedding Retrieval",
-      "Surface-Form Bias",
-      "Structural Retrieval"
+      "embedding retrieval",
+      "surface-form bias",
+      "structural retrieval",
+      "agent trajectories",
+      "RAG"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.7,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.3,
     "multilingual": {
       "ko": {
-        "title": "ArXiv: 검색되었으나 순위가 매겨지지 않음: 구조적 검색에서의 표면형 편향",
-        "hook": "의미는 같지만 표면 표현이 다른 구조적 검색(RAG)의 치명적인 편향 문제를 해결하는 연구입니다.",
+        "title": "검색은 되지만 순위에는 못 드는 이유: 수학에서 에이전트 궤적까지, 구조적 검색에서의 표면 형태 편향",
+        "hook": "표면적 단어 유사성과 내재된 의미 구조가 다를 때 임베딩 검색 모델이 보이는 편향성을 분석한 연구",
         "key_takeaways": [
-          "임베딩 검색 시 표면형과 의미를 의도적으로 분리하여 평가 수행",
-          "수학부터 에이전트 궤적까지 다양한 도메인에서 구조적 편향 분석",
-          "고급 RAG 및 에이전트 검색 시스템의 정확도 개선을 위한 필수 연구"
+          "표면적 어휘 표현과 내재된 구조적 의미를 의도적으로 분리하여 임베딩 검색 성능을 평가하는 프레임워크 제시",
+          "수학적 증명과 LLM 에이전트 실행 궤적이라는 두 가지 이질적인 영역에서 임베딩 검색의 한계 검증",
+          "단순 표면 유의성에 의존하는 현행 RAG 및 임베딩 모델의 구조적 검색 실패 원인 규명"
         ]
       },
       "en": {
-        "title": "ArXiv: Retrieved but not ranked: surface-form bias in structural retrieval",
-        "hook": "Examine surface-form bias in embedding retrieval to build more robust structural RAG systems.",
+        "title": "Retrieved but not ranked: surface-form bias in structural retrieval, from mathematics to agent trajectories",
+        "hook": "Analyzing surface-form bias in dense embedding retrieval when structural semantics diverge from literal wording.",
         "key_takeaways": [
-          "Evaluates embedding retrieval by deliberately decoupling surface form and meaning",
-          "Analyzes structural bias across diverse domains from mathematics to agent trajectories",
-          "Essential reading for improving precision in advanced RAG and agent retrieval pipelines"
+          "Proposes an evaluation protocol that deliberately separates surface text phrasing from underlying structural logic.",
+          "Demonstrates retrieval failure modes across mathematical reasoning and LLM agent execution trajectories.",
+          "Highlights the critical need for structure-aware embedding and re-ranking techniques in modern RAG systems."
         ]
       },
       "zh": {
-        "title": "ArXiv：检索但未排序：结构化检索中的表层形式偏差",
-        "hook": "剖析嵌入检索中语义与表层形式脱节的偏差问题，优化 RAG 与智能体检索架构。",
+        "title": "被检索但未被排序：从数学到智能体轨迹，结构化检索中的表象形式偏见",
+        "hook": "深入剖析当表面文本表达与底层结构语义分离时，向量嵌入检索模型所展现的偏见问题。",
         "key_takeaways": [
-          "通过故意剥离表层形式与真实语义来评估嵌入检索性能",
-          "跨数学与智能体轨迹等不同领域深入分析结构化偏差",
-          "提升高阶 RAG 及智能体系统检索准确率的必读前沿论文"
+          "提出了故意剥离表面文本与底层结构语义的嵌入检索评估协议。",
+          "在数学推理与大模型智能体执行轨迹两个截然不同的领域验证了检索模型的缺陷。",
+          "揭示了现有 RAG 与向量检索在处理表达不同但结构相似的数据时重新排序能力的局限性。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T07:29:33.438843+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Embedding Retrieval",
-    "Surface-Form Bias",
-    "Structural Retrieval"
+    "embedding retrieval",
+    "surface-form bias",
+    "structural retrieval",
+    "agent trajectories",
+    "RAG"
   ],
-  "title_ko": "ArXiv: 검색되었으나 순위가 매겨지지 않음: 구조적 검색에서의 표면형 편향",
-  "title_en": "ArXiv: Retrieved but not ranked: surface-form bias in structural retrieval",
-  "title_zh": "ArXiv：检索但未排序：结构化检索中的表层形式偏差",
+  "title_ko": "검색은 되지만 순위에는 못 드는 이유: 수학에서 에이전트 궤적까지, 구조적 검색에서의 표면 형태 편향",
+  "title_en": "Retrieved but not ranked: surface-form bias in structural retrieval, from mathematics to agent trajectories",
+  "title_zh": "被检索但未被排序：从数学到智能体轨迹，结构化检索中的表象形式偏见",
   "hook": "의미는 같지만 표면 표현이 다른 구조적 검색(RAG)의 치명적인 편향 문제를 해결하는 연구입니다.",
-  "hook_ko": "의미는 같지만 표면 표현이 다른 구조적 검색(RAG)의 치명적인 편향 문제를 해결하는 연구입니다.",
-  "hook_en": "Examine surface-form bias in embedding retrieval to build more robust structural RAG systems.",
-  "hook_zh": "剖析嵌入检索中语义与表层形式脱节的偏差问题，优化 RAG 与智能体检索架构。",
+  "hook_ko": "표면적 단어 유사성과 내재된 의미 구조가 다를 때 임베딩 검색 모델이 보이는 편향성을 분석한 연구",
+  "hook_en": "Analyzing surface-form bias in dense embedding retrieval when structural semantics diverge from literal wording.",
+  "hook_zh": "深入剖析当表面文本表达与底层结构语义分离时，向量嵌入检索模型所展现的偏见问题。",
   "description_ko": "의미는 같지만 표면 표현이 다른 구조적 검색(RAG)의 치명적인 편향 문제를 해결하는 연구입니다.",
   "description_en": "Examine surface-form bias in embedding retrieval to build more robust structural RAG systems.",
   "description_zh": "剖析嵌入检索中语义与表层形式脱节的偏差问题，优化 RAG 与智能体检索架构。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "검색은 되지만 순위에는 못 드는 이유: 수학에서 에이전트 궤적까지, 구조적 검색에서의 표면 형태 편향",
+      "hook": "표면적 단어 유사성과 내재된 의미 구조가 다를 때 임베딩 검색 모델이 보이는 편향성을 분석한 연구",
+      "key_takeaways": [
+        "표면적 어휘 표현과 내재된 구조적 의미를 의도적으로 분리하여 임베딩 검색 성능을 평가하는 프레임워크 제시",
+        "수학적 증명과 LLM 에이전트 실행 궤적이라는 두 가지 이질적인 영역에서 임베딩 검색의 한계 검증",
+        "단순 표면 유의성에 의존하는 현행 RAG 및 임베딩 모델의 구조적 검색 실패 원인 규명"
+      ]
+    },
+    "en": {
+      "title": "Retrieved but not ranked: surface-form bias in structural retrieval, from mathematics to agent trajectories",
+      "hook": "Analyzing surface-form bias in dense embedding retrieval when structural semantics diverge from literal wording.",
+      "key_takeaways": [
+        "Proposes an evaluation protocol that deliberately separates surface text phrasing from underlying structural logic.",
+        "Demonstrates retrieval failure modes across mathematical reasoning and LLM agent execution trajectories.",
+        "Highlights the critical need for structure-aware embedding and re-ranking techniques in modern RAG systems."
+      ]
+    },
+    "zh": {
+      "title": "被检索但未被排序：从数学到智能体轨迹，结构化检索中的表象形式偏见",
+      "hook": "深入剖析当表面文本表达与底层结构语义分离时，向量嵌入检索模型所展现的偏见问题。",
+      "key_takeaways": [
+        "提出了故意剥离表面文本与底层结构语义的嵌入检索评估协议。",
+        "在数学推理与大模型智能体执行轨迹两个截然不同的领域验证了检索模型的缺陷。",
+        "揭示了现有 RAG 与向量检索在处理表达不同但结构相似的数据时重新排序能力的局限性。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.985678"
 }

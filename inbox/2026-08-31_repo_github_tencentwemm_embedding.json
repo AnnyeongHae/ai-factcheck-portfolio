@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "MODEL",
-  "title_ko": "Tencent WeMM-Embedding: 텐센트 위챗 비전 팀의 범용 멀티모달 임베딩 모델",
+  "title_ko": "Tencent/WeMM-Embedding: 텐센트의 범용 멀티모달 임베딩 모델 시리즈",
   "description_ko": "텍스트와 이미지를 아우르는 강력한 멀티모달 이해 및 검색 모델 패밀리를 만나보세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -47,66 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_github_tencentwemm_embedding",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "WeMM",
-    "category": "멀티모달 임베딩 및 검색",
+    "type_classification": "TECH",
+    "model_family": "Multimodal Embedding",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "Multimodal",
-      "Embedding",
+      "Multimodal Embedding",
+      "WeMM",
+      "Cross-Modal Retrieval",
       "Tencent",
-      "Retrieval"
+      "Vector Search"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.6,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Tencent WeMM-Embedding: 텐센트 위챗 비전 팀의 범용 멀티모달 임베딩 모델",
-        "hook": "텍스트와 이미지를 아우르는 강력한 멀티모달 이해 및 검색 모델 패밀리를 만나보세요.",
+        "title": "Tencent/WeMM-Embedding: 텐센트의 범용 멀티모달 임베딩 모델 시리즈",
+        "hook": "텐센트 위챗 비전 팀이 개발한 크로스모달 검색 및 이해를 위한 고성능 멀티모달 임베딩 프레임워크",
         "key_takeaways": [
-          "텐센트 위챗 비전 팀(WeChat Vision Team)이 개발한 범용 멀티모달 임베딩",
-          "멀티모달 이해(Understanding) 및 검색(Retrieval) 성능 극대화",
-          "다양한 비전-언어 태스크 및 멀티모달 RAG 파이프라인에 적용 가능"
+          "텐센트 위챗 비전 팀(WeChat Vision Team)에서 공개한 범용 멀티모달 임베딩 모델",
+          "텍스트, 이미지 등 이종 모달리티 간의 유기적인 통합 표征 및 크로스모달 검색 지원",
+          "다양한 비전-언어 다운스트림 태스크 및 실무 검색 시스템 적용 가능"
         ]
       },
       "en": {
-        "title": "Tencent WeMM-Embedding: Universal Multimodal Embedding by Tencent",
-        "hook": "Discover a powerful family of multimodal understanding and retrieval models spanning text and images.",
+        "title": "Tencent/WeMM-Embedding: Universal Multimodal Embedding Models",
+        "hook": "A family of universal multimodal embedding models by Tencent WeChat Vision Team for cross-modal retrieval and understanding.",
         "key_takeaways": [
-          "Developed by the WeChat Vision Team at Tencent",
-          "Maximized performance for multimodal understanding and retrieval",
-          "Applicable to diverse vision-language tasks and multimodal RAG pipelines"
+          "Developed by Tencent's WeChat Vision Team as a universal multimodal embedding framework",
+          "Supports unified representations across text, image, and vision-language tasks",
+          "Optimized for high-performance cross-modal retrieval and vector search pipelines"
         ]
       },
       "zh": {
-        "title": "Tencent WeMM-Embedding：腾讯微信视觉团队推出的通用多模态嵌入模型",
-        "hook": "探索涵盖文本与图像的强大多模态理解与检索模型系列。",
+        "title": "Tencent/WeMM-Embedding：腾讯通用多模态嵌入模型系列",
+        "hook": "腾讯微信视觉团队开源的通用多模态嵌入模型，全面支持多模态理解与跨模态检索",
         "key_takeaways": [
-          "由腾讯微信视觉团队（WeChat Vision Team）倾力打造",
-          "极致的多模态理解与检索性能",
-          "适用于各类视觉-语言任务及多模态 RAG 管道"
+          "由腾讯微信视觉团队研制的通用多模态表征与嵌入模型族",
+          "实现文本与图像等异构数据的统一向量编码与高效跨模态检索",
+          "广泛适用于复杂多模态搜索、RAG 以及视觉-语言下游应用场景"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:50.531798+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Multimodal",
-    "Embedding",
+    "Multimodal Embedding",
+    "WeMM",
+    "Cross-Modal Retrieval",
     "Tencent",
-    "Retrieval"
+    "Vector Search"
   ],
-  "title_en": "Tencent WeMM-Embedding: Universal Multimodal Embedding by Tencent",
-  "title_zh": "Tencent WeMM-Embedding：腾讯微信视觉团队推出的通用多模态嵌入模型",
+  "title_en": "Tencent/WeMM-Embedding: Universal Multimodal Embedding Models",
+  "title_zh": "Tencent/WeMM-Embedding：腾讯通用多模态嵌入模型系列",
   "hook": "텍스트와 이미지를 아우르는 강력한 멀티모달 이해 및 검색 모델 패밀리를 만나보세요.",
-  "hook_ko": "텍스트와 이미지를 아우르는 강력한 멀티모달 이해 및 검색 모델 패밀리를 만나보세요.",
-  "hook_en": "Discover a powerful family of multimodal understanding and retrieval models spanning text and images.",
-  "hook_zh": "探索涵盖文本与图像的强大多模态理解与检索模型系列。",
+  "hook_ko": "텐센트 위챗 비전 팀이 개발한 크로스모달 검색 및 이해를 위한 고성능 멀티모달 임베딩 프레임워크",
+  "hook_en": "A family of universal multimodal embedding models by Tencent WeChat Vision Team for cross-modal retrieval and understanding.",
+  "hook_zh": "腾讯微信视觉团队开源的通用多模态嵌入模型，全面支持多模态理解与跨模态检索",
   "description_en": "Discover a powerful family of multimodal understanding and retrieval models spanning text and images.",
   "description_zh": "探索涵盖文本与图像的强大多模态理解与检索模型系列。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Tencent/WeMM-Embedding: 텐센트의 범용 멀티모달 임베딩 모델 시리즈",
+      "hook": "텐센트 위챗 비전 팀이 개발한 크로스모달 검색 및 이해를 위한 고성능 멀티모달 임베딩 프레임워크",
+      "key_takeaways": [
+        "텐센트 위챗 비전 팀(WeChat Vision Team)에서 공개한 범용 멀티모달 임베딩 모델",
+        "텍스트, 이미지 등 이종 모달리티 간의 유기적인 통합 표征 및 크로스모달 검색 지원",
+        "다양한 비전-언어 다운스트림 태스크 및 실무 검색 시스템 적용 가능"
+      ]
+    },
+    "en": {
+      "title": "Tencent/WeMM-Embedding: Universal Multimodal Embedding Models",
+      "hook": "A family of universal multimodal embedding models by Tencent WeChat Vision Team for cross-modal retrieval and understanding.",
+      "key_takeaways": [
+        "Developed by Tencent's WeChat Vision Team as a universal multimodal embedding framework",
+        "Supports unified representations across text, image, and vision-language tasks",
+        "Optimized for high-performance cross-modal retrieval and vector search pipelines"
+      ]
+    },
+    "zh": {
+      "title": "Tencent/WeMM-Embedding：腾讯通用多模态嵌入模型系列",
+      "hook": "腾讯微信视觉团队开源的通用多模态嵌入模型，全面支持多模态理解与跨模态检索",
+      "key_takeaways": [
+        "由腾讯微信视觉团队研制的通用多模态表征与嵌入模型族",
+        "实现文本与图像等异构数据的统一向量编码与高效跨模态检索",
+        "广泛适用于复杂多模态搜索、RAG 以及视觉-语言下游应用场景"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.802972"
 }

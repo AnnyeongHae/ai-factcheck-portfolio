@@ -33,66 +33,97 @@
   "ai_enrichment": {
     "id": "2026-09-02_repo_github_git_agniprod_farm_ios_core",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "모바일 자동화",
-    "programming_lang": "Python",
+    "type_classification": "TECH",
+    "model_family": "Device Automation / Testing Infrastructure",
+    "category": "Mobile Automation",
+    "programming_lang": "General",
     "root_keywords": [
-      "iOS",
-      "Device Automation",
-      "Self-hosted"
+      "iOS Device Farm",
+      "Mobile Automation",
+      "Live Device Control",
+      "PostgreSQL Scheduler"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Mac에서 구동되는 실물 아이폰 자동화 팜 FARM-IOS-Core",
-        "hook": "실제 아이폰 기기들을 Mac에서 직접 제어하고 자동화할 수 있는 오픈소스 솔루션입니다.",
+        "title": "Git-Agni/prod-FARM-IOS-Core: Mac에서 구축하는 오픈소스 실물 iPhone 디바이스 팜",
+        "hook": "Mac 기반으로 실물 iPhone 디바이스 팜을 운용하며 포스트그레스 스케줄러로 제어하는 오픈소스 iOS 자동화 플랫폼",
         "key_takeaways": [
-          "맥에서 실물 iOS 기기들을 직접 제어 및 자동화",
-          "Postgres 기반의 안정적인 스케줄러 내장",
-          "틱톡(TikTok) 등 실제 워크플로우에 최적화된 오픈소스"
+          "실시간 디바이스 원격 제어 및 스트리밍을 지원하는 셀프호스팅 iOS 팜 구동 인프라",
+          "PostgreSQL 연동 작업 스케줄러와 TikTok 전용 자동화 워크플로우 기본 내장",
+          "Apache-2.0 라이선스로 구현되어 상용 모바일 클라우드 서비스를 대체 가능한 유연한 구조"
         ]
       },
       "en": {
-        "title": "FARM-IOS-Core: Real iPhone Automation Farm Run from Mac",
-        "hook": "An open-source self-hosted iOS device automation framework with live control and scheduling.",
+        "title": "Git-Agni/prod-FARM-IOS-Core: Open-Source Real iPhone Device Farm Managed from Your Mac",
+        "hook": "An open-source iOS device automation platform offering live control and Postgres-backed scheduling on real iPhones via Mac.",
         "key_takeaways": [
-          "Run a farm of real iPhones directly from your Mac",
-          "Postgres-backed robust scheduler for workflows",
-          "Apache-2.0 licensed open-source for mobile automation"
+          "Self-hosted infrastructure to manage clusters of real iPhones directly from a host Mac",
+          "Includes real-time device screen streaming, Postgres task scheduling, and ready-to-use TikTok workflows",
+          "Apache-2.0 open-source alternative to costly commercial mobile device testing clouds"
         ]
       },
       "zh": {
-        "title": "FARM-IOS-Core：基于Mac的真实iPhone自动化农场",
-        "hook": "一个可在Mac上运行的开源真实iOS设备自动化与实时控制解决方案。",
+        "title": "Git-Agni/prod-FARM-IOS-Core：基于 Mac 的开源 iOS 真机设备农场",
+        "hook": "在 Mac 上直接构建和管理真实 iPhone 集群，集成实时控制与 PostgreSQL 任务调度的开源自动化框架。",
         "key_takeaways": [
-          "直接从Mac管理和自动化真实的iPhone设备群",
-          "内置基于Postgres的调度器支持复杂工作流",
-          "适用于自动化任务的开源自托管工具"
+          "自托管的 iOS 真机设备农场，支持实时屏幕预览与远程操控",
+          "内置基于 PostgreSQL 的任务调度器与 TikTok 场景自动化工作流",
+          "基于 Apache-2.0 开源协议，是替代商业云端真机测试平台的极佳方案"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:44.590368+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
-    "iOS",
-    "Device Automation",
-    "Self-hosted"
+    "iOS Device Farm",
+    "Mobile Automation",
+    "Live Device Control",
+    "PostgreSQL Scheduler"
   ],
-  "title_ko": "Mac에서 구동되는 실물 아이폰 자동화 팜 FARM-IOS-Core",
-  "title_en": "FARM-IOS-Core: Real iPhone Automation Farm Run from Mac",
-  "title_zh": "FARM-IOS-Core：基于Mac的真实iPhone自动化农场",
+  "title_ko": "Git-Agni/prod-FARM-IOS-Core: Mac에서 구축하는 오픈소스 실물 iPhone 디바이스 팜",
+  "title_en": "Git-Agni/prod-FARM-IOS-Core: Open-Source Real iPhone Device Farm Managed from Your Mac",
+  "title_zh": "Git-Agni/prod-FARM-IOS-Core：基于 Mac 的开源 iOS 真机设备农场",
   "hook": "실제 아이폰 기기들을 Mac에서 직접 제어하고 자동화할 수 있는 오픈소스 솔루션입니다.",
-  "hook_ko": "실제 아이폰 기기들을 Mac에서 직접 제어하고 자동화할 수 있는 오픈소스 솔루션입니다.",
-  "hook_en": "An open-source self-hosted iOS device automation framework with live control and scheduling.",
-  "hook_zh": "一个可在Mac上运行的开源真实iOS设备自动化与实时控制解决方案。",
+  "hook_ko": "Mac 기반으로 실물 iPhone 디바이스 팜을 운용하며 포스트그레스 스케줄러로 제어하는 오픈소스 iOS 자동화 플랫폼",
+  "hook_en": "An open-source iOS device automation platform offering live control and Postgres-backed scheduling on real iPhones via Mac.",
+  "hook_zh": "在 Mac 上直接构建和管理真实 iPhone 集群，集成实时控制与 PostgreSQL 任务调度的开源自动化框架。",
   "description_ko": "실제 아이폰 기기들을 Mac에서 직접 제어하고 자동화할 수 있는 오픈소스 솔루션입니다.",
   "description_en": "An open-source self-hosted iOS device automation framework with live control and scheduling.",
   "description_zh": "一个可在Mac上运行的开源真实iOS设备自动化与实时控制解决方案。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Git-Agni/prod-FARM-IOS-Core: Mac에서 구축하는 오픈소스 실물 iPhone 디바이스 팜",
+      "hook": "Mac 기반으로 실물 iPhone 디바이스 팜을 운용하며 포스트그레스 스케줄러로 제어하는 오픈소스 iOS 자동화 플랫폼",
+      "key_takeaways": [
+        "실시간 디바이스 원격 제어 및 스트리밍을 지원하는 셀프호스팅 iOS 팜 구동 인프라",
+        "PostgreSQL 연동 작업 스케줄러와 TikTok 전용 자동화 워크플로우 기본 내장",
+        "Apache-2.0 라이선스로 구현되어 상용 모바일 클라우드 서비스를 대체 가능한 유연한 구조"
+      ]
+    },
+    "en": {
+      "title": "Git-Agni/prod-FARM-IOS-Core: Open-Source Real iPhone Device Farm Managed from Your Mac",
+      "hook": "An open-source iOS device automation platform offering live control and Postgres-backed scheduling on real iPhones via Mac.",
+      "key_takeaways": [
+        "Self-hosted infrastructure to manage clusters of real iPhones directly from a host Mac",
+        "Includes real-time device screen streaming, Postgres task scheduling, and ready-to-use TikTok workflows",
+        "Apache-2.0 open-source alternative to costly commercial mobile device testing clouds"
+      ]
+    },
+    "zh": {
+      "title": "Git-Agni/prod-FARM-IOS-Core：基于 Mac 的开源 iOS 真机设备农场",
+      "hook": "在 Mac 上直接构建和管理真实 iPhone 集群，集成实时控制与 PostgreSQL 任务调度的开源自动化框架。",
+      "key_takeaways": [
+        "自托管的 iOS 真机设备农场，支持实时屏幕预览与远程操控",
+        "内置基于 PostgreSQL 的任务调度器与 TikTok 场景自动化工作流",
+        "基于 Apache-2.0 开源协议，是替代商业云端真机测试平台的极佳方案"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.995546"
 }

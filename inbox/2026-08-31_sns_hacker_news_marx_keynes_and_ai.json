@@ -12,7 +12,7 @@
   ],
   "status": "PENDING_REVIEW",
   "category_type": "NEWS",
-  "title_ko": "Hacker News: 마르크스, 케인스, 그리고 AI",
+  "title_ko": "마르크스, 케인스, 그리고 인공지능",
   "description_ko": "AI 시대를 맞이하여 경제학과 사회학적 관점에서 기술 발전을 고찰하는 통찰력 있는 토론입니다.",
   "model_family": "기타 독립 모델 (Standalone / Novel)",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -44,64 +44,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_sns_hacker_news_marx_keynes_and_ai",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "AI Economy & Society",
+    "type_classification": "TECH",
+    "model_family": "AI Economics & Policy",
+    "category": "AI Economics & Future of Work",
     "programming_lang": "General",
     "root_keywords": [
       "Marx",
       "Keynes",
-      "AI Economics"
+      "AI Economics",
+      "Technological Unemployment",
+      "Labor Markets"
     ],
     "recommended_tag": "📝 기술 참고",
     "worth_score": 3.5,
     "multilingual": {
       "ko": {
-        "title": "Hacker News: 마르크스, 케인스, 그리고 AI",
-        "hook": "AI 시대를 맞이하여 경제학과 사회학적 관점에서 기술 발전을 고찰하는 통찰력 있는 토론입니다.",
+        "title": "마르크스, 케인스, 그리고 인공지능",
+        "hook": "고전 경제학자들의 이론을 관점으로 AI 자동화가 현대 노동 및 자본 분배에 미치는 파급력 분석",
         "key_takeaways": [
-          "고전 경제학 사상을 통한 AI 노동 대체 및 생산성 혁명 분석",
-          "기술 실업과 자본 집중 현상에 대한 커뮤니티의 깊이 있는 논쟁",
-          "엔지니어가 거시적 트렌드를 이해하는 데 도움을 주는 인문학적 시각"
+          "마르크스의 잉여가치론과 케인스의 기술적 실업 이론을 현대 generative AI 시대에 재해석",
+          "단순한 업무 자동화를 넘어 AI가 자본 및 노동 간의 권력과 생산성 분배에 미치는 영향 분석",
+          "생산성 폭발 상황 속에서 노동 시간 감소와 소득 불평등 문제에 대한 에세이적 고찰"
         ]
       },
       "en": {
-        "title": "Hacker News: Marx, Keynes, and AI",
-        "hook": "A thought-provoking discussion examining AI through the lens of classical economics and sociology.",
+        "title": "Marx, Keynes, and AI",
+        "hook": "Analyzing the impact of AI automation on labor and capital through classic economic frameworks.",
         "key_takeaways": [
-          "Analyzes AI labor displacement and productivity shifts via classical theories",
-          "Deep community debate on technological unemployment and capital concentration",
-          "Provides macro-level perspectives valuable for tech architects"
+          "Re-examines Marxian surplus value and Keynesian technological unemployment in the era of generative AI.",
+          "Discusses how AI shifts political economy dynamics between capital and labor beyond simple task automation.",
+          "Explores perspectives on productivity surges, income distribution, and the potential reduction of work hours."
         ]
       },
       "zh": {
-        "title": "Hacker News：马克思、凯恩斯与人工智能",
-        "hook": "从古典经济学与社会学视角，深入探讨人工智能时代变革的深度好文。",
+        "title": "马克思、凯恩斯与人工智能",
+        "hook": "运用古典经济学理论透视 AI 自动化对现代劳动与资本分配的深远影响",
         "key_takeaways": [
-          "通过经典经济学思想剖析 AI 带来的劳动力替代与生产力革命",
-          "社区热议技术性失业与资本高度集中等核心议题",
-          "为技术架构师理解宏观行业趋势提供独特的人文视角"
+          "在生成式 AI 时代重新审视马克思的剩余价值理论与凯恩斯的技术性失业理论",
+          "探讨 AI 如何超出单纯的工作替代，进而重塑资本与劳动之间的权力与生产力分配",
+          "从政治经济学视角分析生产率飞跃、收入分配不均以及工时缩短的可能性"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T07:29:33.438595+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "Marx",
     "Keynes",
-    "AI Economics"
+    "AI Economics",
+    "Technological Unemployment",
+    "Labor Markets"
   ],
-  "title_en": "Hacker News: Marx, Keynes, and AI",
-  "title_zh": "Hacker News：马克思、凯恩斯与人工智能",
+  "title_en": "Marx, Keynes, and AI",
+  "title_zh": "马克思、凯恩斯与人工智能",
   "hook": "AI 시대를 맞이하여 경제학과 사회학적 관점에서 기술 발전을 고찰하는 통찰력 있는 토론입니다.",
-  "hook_ko": "AI 시대를 맞이하여 경제학과 사회학적 관점에서 기술 발전을 고찰하는 통찰력 있는 토론입니다.",
-  "hook_en": "A thought-provoking discussion examining AI through the lens of classical economics and sociology.",
-  "hook_zh": "从古典经济学与社会学视角，深入探讨人工智能时代变革的深度好文。",
+  "hook_ko": "고전 경제학자들의 이론을 관점으로 AI 자동화가 현대 노동 및 자본 분배에 미치는 파급력 분석",
+  "hook_en": "Analyzing the impact of AI automation on labor and capital through classic economic frameworks.",
+  "hook_zh": "运用古典经济学理论透视 AI 自动化对现代劳动与资本分配的深远影响",
   "description_en": "A thought-provoking discussion examining AI through the lens of classical economics and sociology.",
   "description_zh": "从古典经济学与社会学视角，深入探讨人工智能时代变革的深度好文。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "마르크스, 케인스, 그리고 인공지능",
+      "hook": "고전 경제학자들의 이론을 관점으로 AI 자동화가 현대 노동 및 자본 분배에 미치는 파급력 분석",
+      "key_takeaways": [
+        "마르크스의 잉여가치론과 케인스의 기술적 실업 이론을 현대 generative AI 시대에 재해석",
+        "단순한 업무 자동화를 넘어 AI가 자본 및 노동 간의 권력과 생산성 분배에 미치는 영향 분석",
+        "생산성 폭발 상황 속에서 노동 시간 감소와 소득 불평등 문제에 대한 에세이적 고찰"
+      ]
+    },
+    "en": {
+      "title": "Marx, Keynes, and AI",
+      "hook": "Analyzing the impact of AI automation on labor and capital through classic economic frameworks.",
+      "key_takeaways": [
+        "Re-examines Marxian surplus value and Keynesian technological unemployment in the era of generative AI.",
+        "Discusses how AI shifts political economy dynamics between capital and labor beyond simple task automation.",
+        "Explores perspectives on productivity surges, income distribution, and the potential reduction of work hours."
+      ]
+    },
+    "zh": {
+      "title": "马克思、凯恩斯与人工智能",
+      "hook": "运用古典经济学理论透视 AI 自动化对现代劳动与资本分配的深远影响",
+      "key_takeaways": [
+        "在生成式 AI 时代重新审视马克思的剩余价值理论与凯恩斯的技术性失业理论",
+        "探讨 AI 如何超出单纯的工作替代，进而重塑资本与劳动之间的权力与生产力分配",
+        "从政治经济学视角分析生产率飞跃、收入分配不均以及工时缩短的可能性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.899874"
 }

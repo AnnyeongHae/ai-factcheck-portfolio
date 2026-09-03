@@ -35,67 +35,100 @@
   "ai_enrichment": {
     "id": "2026-09-01_sns_hacker_news_keenable_select_an_agent_that_sea",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "웹 에이전트",
-    "programming_lang": "Python",
+    "type_classification": "TECH",
+    "model_family": "AI Agents / Web Search",
+    "category": "AI Agents",
+    "programming_lang": "SQL",
     "root_keywords": [
-      "Web Search",
       "SQL",
-      "AI Agent"
+      "AI Agent",
+      "Web Search",
+      "Keenable SELECT",
+      "Structured Search"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.1,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
     "multilingual": {
       "ko": {
-        "title": "Keenable SELECT: SQL을 활용해 웹을 탐색하는 AI 에이전트",
-        "hook": "SQL 쿼리 패러다임을 웹 검색과 데이터 추출에 결합하여 정교한 정보 탐색을 수행하는 새로운 에이전트 도구입니다.",
+        "title": "Keenable SELECT: SQL 언어로 웹을 검색하는 AI 에이전트",
+        "hook": "정교한 SQL 인터페이스를 통해 웹 데이터를 구조화하고 검색하는 AI 에이전트 도구",
         "key_takeaways": [
-          "SQL 문법을 사용하여 웹 데이터를 구조화하고 검색하는 에이전트 아키텍처",
-          "정형 및 비정형 웹 데이터 탐색 과정의 효율성 극대화",
-          "데이터 엔지니어링 및 리서치 자동화에 활용 가능한 실용적 도구"
+          "SQL 쿼리 구문을 활용하여 웹 검색 및 정보 추출 작업을 에이전트에 지시",
+          "비구조화된 웹 데이터를 SQL 기반의 구조화된 데이터 형태로 변환 및 조회 가능",
+          "기존 데이터베이스 워크플로우에 웹 검색 기능을 통합할 수 있는 새로운 접근 방식"
         ]
       },
       "en": {
         "title": "Keenable SELECT: An Agent That Searches the Web in SQL",
-        "hook": "Discover a novel AI agent that bridges SQL query paradigms with web data retrieval for precise information gathering.",
+        "hook": "An AI agent interface that leverages SQL syntax to query and extract structured information from the live web.",
         "key_takeaways": [
-          "Agent architecture leveraging SQL syntax to query and structure web data",
-          "Maximizing efficiency in exploring structured and unstructured web resources",
-          "Practical utility for automated data engineering and web research tasks"
+          "Translates SQL queries into web search and scraping tasks executed by autonomous agents.",
+          "Allows developers to query unstructured web content as if it were a structured database table.",
+          "Enables seamless integration of real-time web search capabilities into SQL-driven data pipelines."
         ]
       },
       "zh": {
-        "title": "Keenable SELECT：一个用SQL进行网页搜索的AI智能体",
-        "hook": "探索将SQL查询范式与网页数据检索相结合，实现精准信息搜集的创新智能体工具。",
+        "title": "Keenable SELECT：一个通过 SQL 搜索网页的 AI 智能体",
+        "hook": "允许开发者使用 SQL 语法对网络数据进行查询与结构化提取的 AI 智能体",
         "key_takeaways": [
-          "利用SQL语法查询和结构化网页数据的智能体架构",
-          "大幅提升探索结构化与非结构化网络资源的效率",
-          "适用于数据工程与自动化研究的实用工具"
+          "利用 SQL 查询语法指导智能体进行网页搜索与数据提取",
+          "将非结构化的网页内容转化为类似于 SQL 数据库表的可查询结构",
+          "为将实时 Web 搜索集成到现有的 SQL 数据管道中提供了新思路"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:27:37.279118+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "SQL",
   "root_keywords": [
-    "Web Search",
     "SQL",
-    "AI Agent"
+    "AI Agent",
+    "Web Search",
+    "Keenable SELECT",
+    "Structured Search"
   ],
-  "title_ko": "Keenable SELECT: SQL을 활용해 웹을 탐색하는 AI 에이전트",
+  "title_ko": "Keenable SELECT: SQL 언어로 웹을 검색하는 AI 에이전트",
   "title_en": "Keenable SELECT: An Agent That Searches the Web in SQL",
-  "title_zh": "Keenable SELECT：一个用SQL进行网页搜索的AI智能体",
+  "title_zh": "Keenable SELECT：一个通过 SQL 搜索网页的 AI 智能体",
   "hook": "SQL 쿼리 패러다임을 웹 검색과 데이터 추출에 결합하여 정교한 정보 탐색을 수행하는 새로운 에이전트 도구입니다.",
-  "hook_ko": "SQL 쿼리 패러다임을 웹 검색과 데이터 추출에 결합하여 정교한 정보 탐색을 수행하는 새로운 에이전트 도구입니다.",
-  "hook_en": "Discover a novel AI agent that bridges SQL query paradigms with web data retrieval for precise information gathering.",
-  "hook_zh": "探索将SQL查询范式与网页数据检索相结合，实现精准信息搜集的创新智能体工具。",
+  "hook_ko": "정교한 SQL 인터페이스를 통해 웹 데이터를 구조화하고 검색하는 AI 에이전트 도구",
+  "hook_en": "An AI agent interface that leverages SQL syntax to query and extract structured information from the live web.",
+  "hook_zh": "允许开发者使用 SQL 语法对网络数据进行查询与结构化提取的 AI 智能体",
   "description_ko": "SQL 쿼리 패러다임을 웹 검색과 데이터 추출에 결합하여 정교한 정보 탐색을 수행하는 새로운 에이전트 도구입니다.",
   "description_en": "Discover a novel AI agent that bridges SQL query paradigms with web data retrieval for precise information gathering.",
   "description_zh": "探索将SQL查询范式与网页数据检索相结合，实现精准信息搜集的创新智能体工具。",
   "category_type": "AGENT",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Keenable SELECT: SQL 언어로 웹을 검색하는 AI 에이전트",
+      "hook": "정교한 SQL 인터페이스를 통해 웹 데이터를 구조화하고 검색하는 AI 에이전트 도구",
+      "key_takeaways": [
+        "SQL 쿼리 구문을 활용하여 웹 검색 및 정보 추출 작업을 에이전트에 지시",
+        "비구조화된 웹 데이터를 SQL 기반의 구조화된 데이터 형태로 변환 및 조회 가능",
+        "기존 데이터베이스 워크플로우에 웹 검색 기능을 통합할 수 있는 새로운 접근 방식"
+      ]
+    },
+    "en": {
+      "title": "Keenable SELECT: An Agent That Searches the Web in SQL",
+      "hook": "An AI agent interface that leverages SQL syntax to query and extract structured information from the live web.",
+      "key_takeaways": [
+        "Translates SQL queries into web search and scraping tasks executed by autonomous agents.",
+        "Allows developers to query unstructured web content as if it were a structured database table.",
+        "Enables seamless integration of real-time web search capabilities into SQL-driven data pipelines."
+      ]
+    },
+    "zh": {
+      "title": "Keenable SELECT：一个通过 SQL 搜索网页的 AI 智能体",
+      "hook": "允许开发者使用 SQL 语法对网络数据进行查询与结构化提取的 AI 智能体",
+      "key_takeaways": [
+        "利用 SQL 查询语法指导智能体进行网页搜索与数据提取",
+        "将非结构化的网页内容转化为类似于 SQL 数据库表的可查询结构",
+        "为将实时 Web 搜索集成到现有的 SQL 数据管道中提供了新思路"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.965099"
 }

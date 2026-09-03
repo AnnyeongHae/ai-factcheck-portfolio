@@ -33,66 +33,99 @@
     "id": "2026-09-01_repo_arxiv_cross_regional_grapevine_cold_hardiness",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "농업 AI 및 멀티모달 예측",
+    "model_family": "Multimodal Representation Learning",
+    "category": "Applied AI / Precision Agriculture",
     "programming_lang": "Python",
     "root_keywords": [
+      "Grapevine Cold Hardiness",
       "Multimodal Latent Representations",
-      "Cold Hardiness Prediction",
-      "Biophysical Modeling"
+      "Cross-Regional Prediction",
+      "Climate AI",
+      "AgriTech"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.0,
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "학습된 멀티모달 잠재 표현을 통한 지역 간 포도나무 내한성 예측",
-        "hook": "동결 피해를 방지하기 위해 멀티모달 잠재 표현을 활용한 고정밀 포도나무 내한성 예측 모델입니다.",
+        "title": "멀티모달 잠재 표현 학습을 통한 지역 간 포도나무 내한성 예측",
+        "hook": "멀티모달 잠재 공간 학습으로 기후와 생물물리학 데이터의 격차를 줄여 지역 간 포도나무 동결 피해를 예측하는 AI 연구",
         "key_takeaways": [
-          "목본 식물의 일일 내한성 예측 정확도 향상",
-          "기존 생물물리학적 모델의 한계 극복",
-          "멀티모달 잠재 표현을 활용한 농업 기후 대응 기법"
+          "기후 및 생물물리학적 데이터를 결합한 멀티모달 잠재 공간 학습 접근법 제시",
+          "지역별 환경 차이를 극복하는 크로스 리전(Cross-Regional) 내한성 일반화 예측 지원",
+          "이상 기후로 인한 농작물 동결 피해를 방지하는 실용적 AI 기술 적용 사례"
         ]
       },
       "en": {
         "title": "Cross-Regional Grapevine Cold Hardiness Prediction via Learned Multimodal Latent Representations",
-        "hook": "High-precision daily cold hardiness prediction for woody plants using learned multimodal latent representations.",
+        "hook": "An AI framework utilizing multimodal latent representations to reliably predict grapevine cold hardiness across varying geographical regions.",
         "key_takeaways": [
-          "Improves daily cold hardiness prediction accuracy for woody plants",
-          "Overrides limitations of traditional biophysical and hybrid models",
-          "Applies multimodal latent representations to agricultural climate resilience"
+          "Proposes a multimodal latent space learning method integrating climate and biophysical indicators.",
+          "Enables robust cross-regional predictions by generalizing over localized environmental variations.",
+          "Demonstrates domain-specific ML applications to mitigate agricultural freeze damage."
         ]
       },
       "zh": {
-        "title": "通过学习的多模态潜在表示进行跨区域葡萄抗寒性预测",
-        "hook": "利用多模态潜在表示实现木本植物抗寒性的高精度日常预测，有效应对极端冻害。",
+        "title": "基于多模态潜表示学习的跨区域葡萄藤抗寒性预测",
+        "hook": "通过多模态潜空间学习消除区域气候差异，精准预测葡萄藤抗寒性的AI框架",
         "key_takeaways": [
-          "提高木本植物日常抗寒性预测的准确性",
-          "克服传统生物物理和混合模型的局限性",
-          "应用多模态潜在表示应对农业气候挑战"
+          "提出了结合气候与生物物理指标的多模态潜空间学习方法",
+          "克服了局部环境变异，实现了具有泛化能力的跨区域抗寒性预测",
+          "展示了利用特定领域机器学习减轻农业冻害的实用路线"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:09.950821+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
+    "Grapevine Cold Hardiness",
     "Multimodal Latent Representations",
-    "Cold Hardiness Prediction",
-    "Biophysical Modeling"
+    "Cross-Regional Prediction",
+    "Climate AI",
+    "AgriTech"
   ],
-  "title_ko": "학습된 멀티모달 잠재 표현을 통한 지역 간 포도나무 내한성 예측",
+  "title_ko": "멀티모달 잠재 표현 학습을 통한 지역 간 포도나무 내한성 예측",
   "title_en": "Cross-Regional Grapevine Cold Hardiness Prediction via Learned Multimodal Latent Representations",
-  "title_zh": "通过学习的多模态潜在表示进行跨区域葡萄抗寒性预测",
+  "title_zh": "基于多模态潜表示学习的跨区域葡萄藤抗寒性预测",
   "hook": "동결 피해를 방지하기 위해 멀티모달 잠재 표현을 활용한 고정밀 포도나무 내한성 예측 모델입니다.",
-  "hook_ko": "동결 피해를 방지하기 위해 멀티모달 잠재 표현을 활용한 고정밀 포도나무 내한성 예측 모델입니다.",
-  "hook_en": "High-precision daily cold hardiness prediction for woody plants using learned multimodal latent representations.",
-  "hook_zh": "利用多模态潜在表示实现木本植物抗寒性的高精度日常预测，有效应对极端冻害。",
+  "hook_ko": "멀티모달 잠재 공간 학습으로 기후와 생물물리학 데이터의 격차를 줄여 지역 간 포도나무 동결 피해를 예측하는 AI 연구",
+  "hook_en": "An AI framework utilizing multimodal latent representations to reliably predict grapevine cold hardiness across varying geographical regions.",
+  "hook_zh": "通过多模态潜空间学习消除区域气候差异，精准预测葡萄藤抗寒性的AI框架",
   "description_ko": "동결 피해를 방지하기 위해 멀티모달 잠재 표현을 활용한 고정밀 포도나무 내한성 예측 모델입니다.",
   "description_en": "High-precision daily cold hardiness prediction for woody plants using learned multimodal latent representations.",
   "description_zh": "利用多模态潜在表示实现木本植物抗寒性的高精度日常预测，有效应对极端冻害。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "멀티모달 잠재 표현 학습을 통한 지역 간 포도나무 내한성 예측",
+      "hook": "멀티모달 잠재 공간 학습으로 기후와 생물물리학 데이터의 격차를 줄여 지역 간 포도나무 동결 피해를 예측하는 AI 연구",
+      "key_takeaways": [
+        "기후 및 생물물리학적 데이터를 결합한 멀티모달 잠재 공간 학습 접근법 제시",
+        "지역별 환경 차이를 극복하는 크로스 리전(Cross-Regional) 내한성 일반화 예측 지원",
+        "이상 기후로 인한 농작물 동결 피해를 방지하는 실용적 AI 기술 적용 사례"
+      ]
+    },
+    "en": {
+      "title": "Cross-Regional Grapevine Cold Hardiness Prediction via Learned Multimodal Latent Representations",
+      "hook": "An AI framework utilizing multimodal latent representations to reliably predict grapevine cold hardiness across varying geographical regions.",
+      "key_takeaways": [
+        "Proposes a multimodal latent space learning method integrating climate and biophysical indicators.",
+        "Enables robust cross-regional predictions by generalizing over localized environmental variations.",
+        "Demonstrates domain-specific ML applications to mitigate agricultural freeze damage."
+      ]
+    },
+    "zh": {
+      "title": "基于多模态潜表示学习的跨区域葡萄藤抗寒性预测",
+      "hook": "通过多模态潜空间学习消除区域气候差异，精准预测葡萄藤抗寒性的AI框架",
+      "key_takeaways": [
+        "提出了结合气候与生物物理指标的多模态潜空间学习方法",
+        "克服了局部环境变异，实现了具有泛化能力的跨区域抗寒性预测",
+        "展示了利用特定领域机器学习减轻农业冻害的实用路线"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.925844"
 }

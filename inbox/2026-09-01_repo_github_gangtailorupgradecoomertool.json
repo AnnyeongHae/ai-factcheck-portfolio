@@ -32,65 +32,98 @@
   "ai_enrichment": {
     "id": "2026-09-01_repo_github_gangtailorupgradecoomertool",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "기타 유틸리티",
-    "programming_lang": "General",
+    "type_classification": "TECH",
+    "model_family": "Web Scraping Utility",
+    "category": "Web Scraping & Automation",
+    "programming_lang": "Python",
     "root_keywords": [
-      "Utility",
-      "Tool"
+      "scraper",
+      "downloader",
+      "coomer",
+      "media-automation"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 2.5,
+    "worth_score": 3.0,
     "multilingual": {
       "ko": {
-        "title": "커머 툴(CoomeRtool) GitHub 저장소",
-        "hook": "특정 유틸리티 목적을 가진 오픈소스 프로젝트 저장소입니다.",
+        "title": "GangTailorUpgrade/CoomeRtool: Coomer 미디어 수집 및 다운로드 툴",
+        "hook": "크리에이터 미디어 플랫폼의 콘텐츠를 효율적으로 일괄 수집하고 다운로드할 수 있는 자동화 도구",
         "key_takeaways": [
-          "오픈소스 유틸리티 도구",
-          "현재 제한적인 포크 및 정보 제공",
-          "프로젝트 코드 구조 참고용"
+          "Coomer 플랫폼 기반 콘텐츠 일괄 다운로드 기능 제공",
+          "자동화된 미디어 크롤링 및 파일 저장 관리",
+          "사용자 편의성을 고려한 데이터 수집 파이프라인"
         ]
       },
       "en": {
-        "title": "CoomeRtool GitHub Repository",
-        "hook": "An open-source repository designed for specific utility purposes.",
+        "title": "GangTailorUpgrade/CoomeRtool: Automated Coomer Media Scraper & Downloader",
+        "hook": "An automated utility designed for bulk scraping and downloading media content from creator platforms.",
         "key_takeaways": [
-          "Open-source utility tool",
-          "Limited forks and community activity",
-          "Reference for specific project structures"
+          "Provides batch downloading capabilities for Coomer platform media",
+          "Automated media crawling and local file organization",
+          "Customizable pipeline for efficient media retrieval workflows"
         ]
       },
       "zh": {
-        "title": "CoomeRtool GitHub 开源仓库",
-        "hook": "一个针对特定实用工具目的开源项目代码库。",
+        "title": "GangTailorUpgrade/CoomeRtool: Coomer 媒体自动抓取与下载工具",
+        "hook": "用于从创作者平台批量抓取和下载媒体内容的自动化工具。",
         "key_takeaways": [
-          "开源实用工具项目",
-          "目前分支与社区活动较少",
-          "可作为特定代码结构的参考"
+          "提供基于 Coomer 平台的媒体批量下载功能",
+          "自动化的媒体爬取与本地文件存储管理",
+          "便捷的自定义数据抓取工作流"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:29:53.226569+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "General",
+  "programming_lang": "Python",
   "root_keywords": [
-    "Utility",
-    "Tool"
+    "scraper",
+    "downloader",
+    "coomer",
+    "media-automation"
   ],
-  "title_ko": "커머 툴(CoomeRtool) GitHub 저장소",
-  "title_en": "CoomeRtool GitHub Repository",
-  "title_zh": "CoomeRtool GitHub 开源仓库",
+  "title_ko": "GangTailorUpgrade/CoomeRtool: Coomer 미디어 수집 및 다운로드 툴",
+  "title_en": "GangTailorUpgrade/CoomeRtool: Automated Coomer Media Scraper & Downloader",
+  "title_zh": "GangTailorUpgrade/CoomeRtool: Coomer 媒体自动抓取与下载工具",
   "hook": "특정 유틸리티 목적을 가진 오픈소스 프로젝트 저장소입니다.",
-  "hook_ko": "특정 유틸리티 목적을 가진 오픈소스 프로젝트 저장소입니다.",
-  "hook_en": "An open-source repository designed for specific utility purposes.",
-  "hook_zh": "一个针对特定实用工具目的开源项目代码库。",
+  "hook_ko": "크리에이터 미디어 플랫폼의 콘텐츠를 효율적으로 일괄 수집하고 다운로드할 수 있는 자동화 도구",
+  "hook_en": "An automated utility designed for bulk scraping and downloading media content from creator platforms.",
+  "hook_zh": "用于从创作者平台批量抓取和下载媒体内容的自动化工具。",
   "description_ko": "특정 유틸리티 목적을 가진 오픈소스 프로젝트 저장소입니다.",
   "description_en": "An open-source repository designed for specific utility purposes.",
   "description_zh": "一个针对特定实用工具目的开源项目代码库。",
   "category_type": "NEWS",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "GangTailorUpgrade/CoomeRtool: Coomer 미디어 수집 및 다운로드 툴",
+      "hook": "크리에이터 미디어 플랫폼의 콘텐츠를 효율적으로 일괄 수집하고 다운로드할 수 있는 자동화 도구",
+      "key_takeaways": [
+        "Coomer 플랫폼 기반 콘텐츠 일괄 다운로드 기능 제공",
+        "자동화된 미디어 크롤링 및 파일 저장 관리",
+        "사용자 편의성을 고려한 데이터 수집 파이프라인"
+      ]
+    },
+    "en": {
+      "title": "GangTailorUpgrade/CoomeRtool: Automated Coomer Media Scraper & Downloader",
+      "hook": "An automated utility designed for bulk scraping and downloading media content from creator platforms.",
+      "key_takeaways": [
+        "Provides batch downloading capabilities for Coomer platform media",
+        "Automated media crawling and local file organization",
+        "Customizable pipeline for efficient media retrieval workflows"
+      ]
+    },
+    "zh": {
+      "title": "GangTailorUpgrade/CoomeRtool: Coomer 媒体自动抓取与下载工具",
+      "hook": "用于从创作者平台批量抓取和下载媒体内容的自动化工具。",
+      "key_takeaways": [
+        "提供基于 Coomer 平台的媒体批量下载功能",
+        "自动化的媒体爬取与本地文件存储管理",
+        "便捷的自定义数据抓取工作流"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.952906"
 }

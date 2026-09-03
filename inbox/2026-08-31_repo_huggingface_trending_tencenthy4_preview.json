@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "MODEL",
-  "title_ko": "텐센트, Hy4-preview 텍스트 생성 모델 프리뷰 공개",
+  "title_ko": "텐센트 Hy4-preview: 차세대 텍스트 생성 언어 모델 프리뷰",
   "description_ko": "텐센트의 최신 텍스트 생성 모델 프리뷰를 통해 새로운 아키텍처의 성능을 미리 체험해보세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,64 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_trending_tencenthy4_preview",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Standalone",
-    "category": "텍스트 생성",
+    "type_classification": "TECH",
+    "model_family": "Hunyuan / Text Generation",
+    "category": "LLM / Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
       "Tencent",
-      "Hy4-preview",
-      "Text Generation"
+      "Hy4",
+      "Text Generation",
+      "LLM",
+      "HuggingFace"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "텐센트, Hy4-preview 텍스트 생성 모델 프리뷰 공개",
-        "hook": "텐센트의 최신 텍스트 생성 모델 프리뷰를 통해 새로운 아키텍처의 성능을 미리 체험해보세요.",
+        "title": "텐센트 Hy4-preview: 차세대 텍스트 생성 언어 모델 프리뷰",
+        "hook": "텐센트가 허깅페이스를 통해 선보인 신규 텍스트 생성 파이프라인 Hy4 프리뷰 모델",
         "key_takeaways": [
-          "텐센트가 개발한 최신 Hy4-preview 텍스트 생성 모델",
-          "높은 트렌딩 점수와 함께 학계 및 업계의 큰 주목",
-          "다양한 자연어 처리 태스크에서의 잠재력 확인 가능"
+          "허깅페이스 트렌딩 상위권에 등재된 텐센트의 차세대 LLM 프리뷰",
+          "텍스트 생성(text-generation) 파이프라인에 최적화된 최신 아키텍처",
+          "빠른 다운로드 수 상승과 높은 관심도를 기록 중인 오픈 프리뷰 모델"
         ]
       },
       "en": {
-        "title": "Tencent Releases Hy4-preview Text Generation Model",
-        "hook": "Preview Tencent's latest text generation model and explore its cutting-edge architecture.",
+        "title": "Tencent Hy4-preview: Preview Release of Next-Gen Text Generation LLM",
+        "hook": "Tencent's preview release of its upcoming Hy4 text generation large language model on Hugging Face.",
         "key_takeaways": [
-          "Latest Hy4-preview text generation model developed by Tencent",
-          "Gaining significant attention from the AI community with high trending scores",
-          "Potential for robust performance across various NLP tasks"
+          "Newly trending text generation model released by Tencent on Hugging Face Hub",
+          "Preview release showcasing capabilities for advanced natural language and text generation tasks",
+          "Gaining rapid community traction with high download numbers and likes"
         ]
       },
       "zh": {
-        "title": "腾讯发布 Hy4-preview 文本生成模型预览版",
-        "hook": "抢先体验腾讯最新文本生成模型，探索前沿架构的实际表现。",
+        "title": "腾讯 Hy4-preview：新一代文本生成大语言模型预览版",
+        "hook": "腾讯在 Hugging Face 上发布的最新 Hy4 文本生成 LLM 预览模型",
         "key_takeaways": [
-          "腾讯开发的最新 Hy4-preview 文本生成模型",
-          "凭借亮眼的热度指数备受AI社区瞩目",
-          "展现出在多类自然语言处理任务中的强大潜力"
+          "登上 Hugging Face 热门榜单的腾讯全新文本生成模型",
+          "专注于文本生成 Pipeline 的新一代架构技术预览",
+          "社区关注度极高，下载量与 Likes 迅速攀升"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:47.287910+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Tencent",
-    "Hy4-preview",
-    "Text Generation"
+    "Hy4",
+    "Text Generation",
+    "LLM",
+    "HuggingFace"
   ],
-  "title_en": "Tencent Releases Hy4-preview Text Generation Model",
-  "title_zh": "腾讯发布 Hy4-preview 文本生成模型预览版",
+  "title_en": "Tencent Hy4-preview: Preview Release of Next-Gen Text Generation LLM",
+  "title_zh": "腾讯 Hy4-preview：新一代文本生成大语言模型预览版",
   "hook": "텐센트의 최신 텍스트 생성 모델 프리뷰를 통해 새로운 아키텍처의 성능을 미리 체험해보세요.",
-  "hook_ko": "텐센트의 최신 텍스트 생성 모델 프리뷰를 통해 새로운 아키텍처의 성능을 미리 체험해보세요.",
-  "hook_en": "Preview Tencent's latest text generation model and explore its cutting-edge architecture.",
-  "hook_zh": "抢先体验腾讯最新文本生成模型，探索前沿架构的实际表现。",
+  "hook_ko": "텐센트가 허깅페이스를 통해 선보인 신규 텍스트 생성 파이프라인 Hy4 프리뷰 모델",
+  "hook_en": "Tencent's preview release of its upcoming Hy4 text generation large language model on Hugging Face.",
+  "hook_zh": "腾讯在 Hugging Face 上发布的最新 Hy4 文本生成 LLM 预览模型",
   "description_en": "Preview Tencent's latest text generation model and explore its cutting-edge architecture.",
   "description_zh": "抢先体验腾讯最新文本生成模型，探索前沿架构的实际表现。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "텐센트 Hy4-preview: 차세대 텍스트 생성 언어 모델 프리뷰",
+      "hook": "텐센트가 허깅페이스를 통해 선보인 신규 텍스트 생성 파이프라인 Hy4 프리뷰 모델",
+      "key_takeaways": [
+        "허깅페이스 트렌딩 상위권에 등재된 텐센트의 차세대 LLM 프리뷰",
+        "텍스트 생성(text-generation) 파이프라인에 최적화된 최신 아키텍처",
+        "빠른 다운로드 수 상승과 높은 관심도를 기록 중인 오픈 프리뷰 모델"
+      ]
+    },
+    "en": {
+      "title": "Tencent Hy4-preview: Preview Release of Next-Gen Text Generation LLM",
+      "hook": "Tencent's preview release of its upcoming Hy4 text generation large language model on Hugging Face.",
+      "key_takeaways": [
+        "Newly trending text generation model released by Tencent on Hugging Face Hub",
+        "Preview release showcasing capabilities for advanced natural language and text generation tasks",
+        "Gaining rapid community traction with high download numbers and likes"
+      ]
+    },
+    "zh": {
+      "title": "腾讯 Hy4-preview：新一代文本生成大语言模型预览版",
+      "hook": "腾讯在 Hugging Face 上发布的最新 Hy4 文本生成 LLM 预览模型",
+      "key_takeaways": [
+        "登上 Hugging Face 热门榜单的腾讯全新文本生成模型",
+        "专注于文本生成 Pipeline 的新一代架构技术预览",
+        "社区关注度极高，下载量与 Likes 迅速攀升"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.888324"
 }

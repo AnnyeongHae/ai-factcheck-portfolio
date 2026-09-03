@@ -33,68 +33,99 @@
     "id": "2026-09-01_repo_hf_space_zerogpu_aotiwan2_2_fp8da_aoti_faster",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Wan2.1 / Wan2.2",
-    "category": "영상 생성 및 추론 최적화",
+    "model_family": "Wan Diffusion / Video Generation",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "Wan2.2",
-      "FP8",
-      "AOTI",
+      "Wan2",
+      "FP8 Quantization",
+      "AOTInductor",
+      "ZeroGPU",
       "Video Generation"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.3,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "Wan2.2 FP8 AOTI 초고속 영상 생성 데모 공간",
-        "hook": "AOTI와 FP8 최적화를 통해 훨씬 빨라진 Wan2.2 영상 생성 모델을 직접 테스트해보세요.",
+        "title": "HF Space: AOTInductor 및 FP8 가속 기반 Wan2.2 초고속 비디오 생성 데모",
+        "hook": "PyTorch AOTInductor 컴파일과 FP8 양자화를 결합해 Wan2 비디오 생성 속도를 대폭 끌어올린 실시간 데모",
         "key_takeaways": [
-          "FP8 및 AOTI 컴파일 기법을 적용한 고속 영상 생성 추론",
-          "Gradio 기반의 직관적인 인터랙티브 AI 데모 제공",
-          "최신 비디오 제너레이션 모델의 실시간 성능 체감 가능"
+          "PyTorch AOTInductor(AOTI) 사전 컴파일을 통한 추론 레이턴시 극대화",
+          "FP8 정밀도 양자화를 적용해 VRAM 사용량 절감 및 계산 효율성 확보",
+          "Hugging Face ZeroGPU 환경에서 완벽하게 구동되는 비디오 생성 파이프라인 제공"
         ]
       },
       "en": {
-        "title": "Wan2.2 FP8 AOTI Faster Video Generation Demo Space",
-        "hook": "Test the blazing-fast Wan2.2 video generation model optimized with FP8 and AOTI.",
+        "title": "HF Space: Ultra-Fast Wan2.2 Video Generation via AOTInductor & FP8",
+        "hook": "Accelerating Wan2 video synthesis using PyTorch AOTInductor compilation and FP8 quantization on ZeroGPU.",
         "key_takeaways": [
-          "Accelerated video generation using FP8 quantization and AOTI",
-          "Interactive Gradio-based live web demo",
-          "High-throughput inference for cutting-edge generative video"
+          "Utilizes PyTorch AOTInductor (AOTI) ahead-of-time compilation for minimized inference latency",
+          "Applies FP8 quantization to reduce VRAM footprint while keeping generation quality high",
+          "Optimized for seamless zero-cost execution on Hugging Face ZeroGPU infrastructure"
         ]
       },
       "zh": {
-        "title": "Wan2.2 FP8 AOTI 超高速视频生成演示空间",
-        "hook": "体验通过 FP8 与 AOTI 极致优化的 Wan2.2 视频生成模型的高速度。",
+        "title": "HF Space: 基于 AOTInductor 与 FP8 极速加持的 Wan2.2 视频生成 Demo",
+        "hook": "融合 PyTorch AOTInductor 编译与 FP8 量化技术，极大地提升了 Wan2 视频模型在 ZeroGPU 上的生成效率。",
         "key_takeaways": [
-          "利用 FP8 量化与 AOTI 编译技术实现视频生成加速",
-          "基于 Gradio 构建的便捷交互式网页演示",
-          "感受前沿视频生成模型的卓越推理性能"
+          "应用 PyTorch AOTInductor (AOTI) 提前编译，有效消除运行时开销与延迟",
+          "采用 FP8 精度量化降低显存占用，优化 GPU 算力利用率",
+          "针对 Hugging Face ZeroGPU 算力环境进行了高度优化的交互式 Demo"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:26:50.441681+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Wan2.2",
-    "FP8",
-    "AOTI",
+    "Wan2",
+    "FP8 Quantization",
+    "AOTInductor",
+    "ZeroGPU",
     "Video Generation"
   ],
-  "title_ko": "Wan2.2 FP8 AOTI 초고속 영상 생성 데모 공간",
-  "title_en": "Wan2.2 FP8 AOTI Faster Video Generation Demo Space",
-  "title_zh": "Wan2.2 FP8 AOTI 超高速视频生成演示空间",
+  "title_ko": "HF Space: AOTInductor 및 FP8 가속 기반 Wan2.2 초고속 비디오 생성 데모",
+  "title_en": "HF Space: Ultra-Fast Wan2.2 Video Generation via AOTInductor & FP8",
+  "title_zh": "HF Space: 基于 AOTInductor 与 FP8 极速加持的 Wan2.2 视频生成 Demo",
   "hook": "AOTI와 FP8 최적화를 통해 훨씬 빨라진 Wan2.2 영상 생성 모델을 직접 테스트해보세요.",
-  "hook_ko": "AOTI와 FP8 최적화를 통해 훨씬 빨라진 Wan2.2 영상 생성 모델을 직접 테스트해보세요.",
-  "hook_en": "Test the blazing-fast Wan2.2 video generation model optimized with FP8 and AOTI.",
-  "hook_zh": "体验通过 FP8 与 AOTI 极致优化的 Wan2.2 视频生成模型的高速度。",
+  "hook_ko": "PyTorch AOTInductor 컴파일과 FP8 양자화를 결합해 Wan2 비디오 생성 속도를 대폭 끌어올린 실시간 데모",
+  "hook_en": "Accelerating Wan2 video synthesis using PyTorch AOTInductor compilation and FP8 quantization on ZeroGPU.",
+  "hook_zh": "融合 PyTorch AOTInductor 编译与 FP8 量化技术，极大地提升了 Wan2 视频模型在 ZeroGPU 上的生成效率。",
   "description_ko": "AOTI와 FP8 최적화를 통해 훨씬 빨라진 Wan2.2 영상 생성 모델을 직접 테스트해보세요.",
   "description_en": "Test the blazing-fast Wan2.2 video generation model optimized with FP8 and AOTI.",
   "description_zh": "体验通过 FP8 与 AOTI 极致优化的 Wan2.2 视频生成模型的高速度。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: AOTInductor 및 FP8 가속 기반 Wan2.2 초고속 비디오 생성 데모",
+      "hook": "PyTorch AOTInductor 컴파일과 FP8 양자화를 결합해 Wan2 비디오 생성 속도를 대폭 끌어올린 실시간 데모",
+      "key_takeaways": [
+        "PyTorch AOTInductor(AOTI) 사전 컴파일을 통한 추론 레이턴시 극대화",
+        "FP8 정밀도 양자화를 적용해 VRAM 사용량 절감 및 계산 효율성 확보",
+        "Hugging Face ZeroGPU 환경에서 완벽하게 구동되는 비디오 생성 파이프라인 제공"
+      ]
+    },
+    "en": {
+      "title": "HF Space: Ultra-Fast Wan2.2 Video Generation via AOTInductor & FP8",
+      "hook": "Accelerating Wan2 video synthesis using PyTorch AOTInductor compilation and FP8 quantization on ZeroGPU.",
+      "key_takeaways": [
+        "Utilizes PyTorch AOTInductor (AOTI) ahead-of-time compilation for minimized inference latency",
+        "Applies FP8 quantization to reduce VRAM footprint while keeping generation quality high",
+        "Optimized for seamless zero-cost execution on Hugging Face ZeroGPU infrastructure"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: 基于 AOTInductor 与 FP8 极速加持的 Wan2.2 视频生成 Demo",
+      "hook": "融合 PyTorch AOTInductor 编译与 FP8 量化技术，极大地提升了 Wan2 视频模型在 ZeroGPU 上的生成效率。",
+      "key_takeaways": [
+        "应用 PyTorch AOTInductor (AOTI) 提前编译，有效消除运行时开销与延迟",
+        "采用 FP8 精度量化降低显存占用，优化 GPU 算力利用率",
+        "针对 Hugging Face ZeroGPU 算力环境进行了高度优化的交互式 Demo"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.959564"
 }

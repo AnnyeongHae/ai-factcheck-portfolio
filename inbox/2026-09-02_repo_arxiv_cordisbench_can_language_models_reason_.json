@@ -33,42 +33,45 @@
   "ai_enrichment": {
     "id": "2026-09-02_repo_arxiv_cordisbench_can_language_models_reason_",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "category": "에이전트 아키텍처 및 추론",
+    "type_classification": "TECH",
+    "model_family": "LLM Evaluation / AI Agents",
+    "category": "AI Agents & Reasoning",
     "programming_lang": "Python",
     "root_keywords": [
-      "CordisBench",
-      "Dynamic Agent Harnesses",
-      "Component Lifecycles"
+      "LLM Agents",
+      "Dynamic Harnesses",
+      "Component Lifecycle",
+      "Reasoning Benchmark",
+      "CordisBench"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.7,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "CordisBench: 언어 모델은 동적 에이전트 하네스에서 컴포넌트 생명주기를 추론할 수 있는가?",
-        "hook": "자기 수정형 에이전트 아키텍처에서 발생하는 복잡한 의존성 전파와 추론 한계를 파고드는 최신 연구입니다.",
+        "title": "CordisBench: 언어 모델은 동적 에이전트 하네스의 컴포넌트 생명주기를 추론할 수 있는가?",
+        "hook": "동적으로 소프트웨어 환경을 수정하는 AI 에이전트의 컴포넌트 생명주기 및 의존성 추론 능력을 평가하는 새로운 벤치마크",
         "key_takeaways": [
-          "자체 실행 환경을 변경하는 동적 에이전트 하네스 구조 분석",
-          "로컬 플러그인 변경이 의존성을 통해 전파되는 복잡성 문제 제기",
-          "LLM의 컴포넌트 생명주기 추론 능력 검증을 위한 CordisBench 제안"
+          "동적 에이전트 하네스 환경에서 플러그인 및 모듈 변경이 전체 시스템에 미치는 영향 분석",
+          "컴포넌트 생명주기와 의존성 전파 추론 성능을 측정하는 CordisBench 제안",
+          "자율적으로 실행 환경을 수정하는 차세대 AI 에이전트의 안정성 확보를 위한 핵심 평가 기준 제시"
         ]
       },
       "en": {
         "title": "CordisBench: Can Language Models Reason About Component Lifecycles in Dynamic Agent Harnesses?",
-        "hook": "Cutting-edge research dissecting complex dependency propagation and reasoning limits in self-modifying agent architectures.",
+        "hook": "A new benchmark evaluating LLM capabilities in reasoning about component lifecycles and dependency propagation in dynamic agent harnesses.",
         "key_takeaways": [
-          "Analysis of dynamic agent harnesses that alter their own execution environment",
-          "Highlighting complexity issues where local plugin changes propagate through dependencies",
-          "Introduction of CordisBench to evaluate LLM reasoning on component lifecycles"
+          "Evaluates how local plugin modifications propagate through dependencies in self-modifying agent environments.",
+          "Introduces CordisBench to measure reasoning over component lifecycles and software execution harnesses.",
+          "Provides foundational benchmarks for building robust, self-adapting autonomous AI agents."
         ]
       },
       "zh": {
-        "title": "CordisBench：语言模型能否在动态智能体框架中推理组件生命周期？",
-        "hook": "深入探讨自修改智能体架构中复杂的依赖传播与推理极限的最新前沿研究。",
+        "title": "CordisBench：语言模型能否推断动态 Agent Harness 中的组件生命周期？",
+        "hook": "评估大语言模型在动态 Agent 环境中对组件生命周期与依赖传播推理能力的新基准",
         "key_takeaways": [
-          "分析可改变自身执行环境的动态智能体框架",
-          "指出本地插件变动通过依赖关系传播的复杂性问题",
-          "提出 CordisBench 以评估大语言模型对组件生命周期的推理能力"
+          "评估自主 Agent 修改自身执行环境时插件变更在依赖项中的传播效应",
+          "推出 CordisBench，用于测量 LLM 对组件生命周期与系统架构的推理能力",
+          "为构建具备自我修改与高可靠性的下一代 AI Agent 提供关键评估标准"
         ]
       }
     }
@@ -76,20 +79,53 @@
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "CordisBench",
-    "Dynamic Agent Harnesses",
-    "Component Lifecycles"
+    "LLM Agents",
+    "Dynamic Harnesses",
+    "Component Lifecycle",
+    "Reasoning Benchmark",
+    "CordisBench"
   ],
-  "title_ko": "CordisBench: 언어 모델은 동적 에이전트 하네스에서 컴포넌트 생명주기를 추론할 수 있는가?",
+  "title_ko": "CordisBench: 언어 모델은 동적 에이전트 하네스의 컴포넌트 생명주기를 추론할 수 있는가?",
   "title_en": "CordisBench: Can Language Models Reason About Component Lifecycles in Dynamic Agent Harnesses?",
-  "title_zh": "CordisBench：语言模型能否在动态智能体框架中推理组件生命周期？",
+  "title_zh": "CordisBench：语言模型能否推断动态 Agent Harness 中的组件生命周期？",
   "hook": "자기 수정형 에이전트 아키텍처에서 발생하는 복잡한 의존성 전파와 추론 한계를 파고드는 최신 연구입니다.",
-  "hook_ko": "자기 수정형 에이전트 아키텍처에서 발생하는 복잡한 의존성 전파와 추론 한계를 파고드는 최신 연구입니다.",
-  "hook_en": "Cutting-edge research dissecting complex dependency propagation and reasoning limits in self-modifying agent architectures.",
-  "hook_zh": "深入探讨自修改智能体架构中复杂的依赖传播与推理极限的最新前沿研究。",
+  "hook_ko": "동적으로 소프트웨어 환경을 수정하는 AI 에이전트의 컴포넌트 생명주기 및 의존성 추론 능력을 평가하는 새로운 벤치마크",
+  "hook_en": "A new benchmark evaluating LLM capabilities in reasoning about component lifecycles and dependency propagation in dynamic agent harnesses.",
+  "hook_zh": "评估大语言模型在动态 Agent 环境中对组件生命周期与依赖传播推理能力的新基准",
   "description_ko": "자기 수정형 에이전트 아키텍처에서 발생하는 복잡한 의존성 전파와 추론 한계를 파고드는 최신 연구입니다.",
   "description_en": "Cutting-edge research dissecting complex dependency propagation and reasoning limits in self-modifying agent architectures.",
   "description_zh": "深入探讨自修改智能体架构中复杂的依赖传播与推理极限的最新前沿研究。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "CordisBench: 언어 모델은 동적 에이전트 하네스의 컴포넌트 생명주기를 추론할 수 있는가?",
+      "hook": "동적으로 소프트웨어 환경을 수정하는 AI 에이전트의 컴포넌트 생명주기 및 의존성 추론 능력을 평가하는 새로운 벤치마크",
+      "key_takeaways": [
+        "동적 에이전트 하네스 환경에서 플러그인 및 모듈 변경이 전체 시스템에 미치는 영향 분석",
+        "컴포넌트 생명주기와 의존성 전파 추론 성능을 측정하는 CordisBench 제안",
+        "자율적으로 실행 환경을 수정하는 차세대 AI 에이전트의 안정성 확보를 위한 핵심 평가 기준 제시"
+      ]
+    },
+    "en": {
+      "title": "CordisBench: Can Language Models Reason About Component Lifecycles in Dynamic Agent Harnesses?",
+      "hook": "A new benchmark evaluating LLM capabilities in reasoning about component lifecycles and dependency propagation in dynamic agent harnesses.",
+      "key_takeaways": [
+        "Evaluates how local plugin modifications propagate through dependencies in self-modifying agent environments.",
+        "Introduces CordisBench to measure reasoning over component lifecycles and software execution harnesses.",
+        "Provides foundational benchmarks for building robust, self-adapting autonomous AI agents."
+      ]
+    },
+    "zh": {
+      "title": "CordisBench：语言模型能否推断动态 Agent Harness 中的组件生命周期？",
+      "hook": "评估大语言模型在动态 Agent 环境中对组件生命周期与依赖传播推理能力的新基准",
+      "key_takeaways": [
+        "评估自主 Agent 修改自身执行环境时插件变更在依赖项中的传播效应",
+        "推出 CordisBench，用于测量 LLM 对组件生命周期与系统架构的推理能力",
+        "为构建具备自我修改与高可靠性的下一代 AI Agent 提供关键评估标准"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.978577"
 }

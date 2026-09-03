@@ -23,7 +23,7 @@
     "Fine-tune / Uncensored"
   ],
   "category_type": "MODEL",
-  "title_ko": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+  "title_ko": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
   "description_ko": "압도적인 다운로드와 좋아요를 기록한 27B 규모의 언검센서드 GGUF 모델입니다.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "OrcaRouter Community",
@@ -48,66 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_orcarouterqwen38_27b_uncensored_g",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "LLM 추론 최적화",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "Vision-Language & LLM Quantization",
     "programming_lang": "C++",
     "root_keywords": [
       "Qwen",
-      "27B",
       "GGUF",
-      "Uncensored"
+      "Uncensored",
+      "Vision-Language",
+      "Multimodal"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.7,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-GGUF",
-        "hook": "압도적인 다운로드와 좋아요를 기록한 27B 규모의 언검센서드 GGUF 모델입니다.",
+        "title": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+        "hook": "로컬 추론 환경에 최적화된 27B 규모의 멀티모달 무검열 Qwen GGUF 모델",
         "key_takeaways": [
-          "25만 회 이상의 폭발적인 다운로드와 높은 선호도 검증",
-          "검열 없는 대규모 파라미터(27B) 모델의 로컬 배포 가능",
-          "고성능 로컬 추론을 위한 필수 GGUF 파일 제공"
+          "llama.cpp 등 로컬 런타임에서 효율적으로 구동되는 GGUF 포맷 제공",
+          "제약 없는 표현 및 답변 생성이 가능한 무검열(Uncensored) 버전",
+          "이미지와 텍스트를 동시에 처리하는 27B 파라미터 기반 강력한 멀티모달 성능"
         ]
       },
       "en": {
-        "title": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-GGUF",
-        "hook": "A highly favored 27B uncensored GGUF model boasting massive downloads and likes.",
+        "title": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+        "hook": "A powerful 27B uncensored vision-language model optimized for local inference with GGUF quantization.",
         "key_takeaways": [
-          "Verified popularity with over 250k downloads and high community likes",
-          "Enables local deployment of a large-scale (27B) uncensored model",
-          "Provides essential GGUF files for high-performance local inference"
+          "Provides GGUF quantization for lightweight and efficient local inference using engines like llama.cpp",
+          "Uncensored fine-tuning allows unrestricted prompts and flexible response generation",
+          "High-capacity 27B parameter multimodal architecture supporting image-text-to-text pipeline"
         ]
       },
       "zh": {
-        "title": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-GGUF",
-        "hook": "拥有惊人下载量与高点赞数的27B规模免审查GGUF模型。",
+        "title": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+        "hook": "针对本地推理优化的 27B 参数无审查多模态 Qwen GGUF 模型",
         "key_takeaways": [
-          "经受住超过25万次下载与高好评率的市场验证",
-          "支持在本地部署大规模（27B）免审查模型",
-          "提供用于高性能本地推理的必备GGUF文件"
+          "提供 GGUF 量化格式，支持在 llama.cpp 等本地引擎中高效运行",
+          "经过无审查（Uncensored）微调，能够更灵活地响应多样化提示词",
+          "基于 27B 参数规模，具备出色的图文多模态理解与生成能力"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:58.986070+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "C++",
   "root_keywords": [
     "Qwen",
-    "27B",
     "GGUF",
-    "Uncensored"
+    "Uncensored",
+    "Vision-Language",
+    "Multimodal"
   ],
-  "title_en": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-GGUF",
-  "title_zh": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+  "title_en": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+  "title_zh": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
   "hook": "압도적인 다운로드와 좋아요를 기록한 27B 규모의 언검센서드 GGUF 모델입니다.",
-  "hook_ko": "압도적인 다운로드와 좋아요를 기록한 27B 규모의 언검센서드 GGUF 모델입니다.",
-  "hook_en": "A highly favored 27B uncensored GGUF model boasting massive downloads and likes.",
-  "hook_zh": "拥有惊人下载量与高点赞数的27B规模免审查GGUF模型。",
+  "hook_ko": "로컬 추론 환경에 최적화된 27B 규모의 멀티모달 무검열 Qwen GGUF 모델",
+  "hook_en": "A powerful 27B uncensored vision-language model optimized for local inference with GGUF quantization.",
+  "hook_zh": "针对本地推理优化的 27B 参数无审查多模态 Qwen GGUF 模型",
   "description_en": "A highly favored 27B uncensored GGUF model boasting massive downloads and likes.",
   "description_zh": "拥有惊人下载量与高点赞数的27B规模免审查GGUF模型。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+      "hook": "로컬 추론 환경에 최적화된 27B 규모의 멀티모달 무검열 Qwen GGUF 모델",
+      "key_takeaways": [
+        "llama.cpp 등 로컬 런타임에서 효율적으로 구동되는 GGUF 포맷 제공",
+        "제약 없는 표현 및 답변 생성이 가능한 무검열(Uncensored) 버전",
+        "이미지와 텍스트를 동시에 처리하는 27B 파라미터 기반 강력한 멀티모달 성능"
+      ]
+    },
+    "en": {
+      "title": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+      "hook": "A powerful 27B uncensored vision-language model optimized for local inference with GGUF quantization.",
+      "key_takeaways": [
+        "Provides GGUF quantization for lightweight and efficient local inference using engines like llama.cpp",
+        "Uncensored fine-tuning allows unrestricted prompts and flexible response generation",
+        "High-capacity 27B parameter multimodal architecture supporting image-text-to-text pipeline"
+      ]
+    },
+    "zh": {
+      "title": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
+      "hook": "针对本地推理优化的 27B 参数无审查多模态 Qwen GGUF 模型",
+      "key_takeaways": [
+        "提供 GGUF 量化格式，支持在 llama.cpp 等本地引擎中高效运行",
+        "经过无审查（Uncensored）微调，能够更灵活地响应多样化提示词",
+        "基于 27B 参数规模，具备出色的图文多模态理解与生成能力"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.870299"
 }

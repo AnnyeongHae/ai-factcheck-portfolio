@@ -32,67 +32,98 @@
   "ai_enrichment": {
     "id": "2026-09-01_repo_arxiv_conducting_stylistic_analysis_of_painti",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "예술사 에이전트 및 시각 분석",
+    "type_classification": "TECH",
+    "model_family": "LLM Agent",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "Art-History Agent",
+      "Art History Agent",
       "Stylistic Analysis",
+      "Multimodal AI",
       "Artwork Attribution"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "예술사 에이전트를 통한 회화의 양식적 분석 수행",
-        "hook": "인공지능 에이전트가 미술사의 핵심인 세부 시각 관찰과 양식적 분석을 자동화하여 예술가 귀속 작업을 지원합니다.",
+        "title": "미술사 에이전트를 통한 회화 양식 분석 수행",
+        "hook": "전통적인 미술사의 화풍 분석 방식을 멀티모달 AI 에이전트로 구현한 연구",
         "key_takeaways": [
-          "예술사 관점의 체계적인 양식 분석을 수행하는 AI 에이전트",
-          "작품의 시각적 특징과 상세 묘사 자동화",
-          "예술가 판별(Artwork Attribution) 프로세스 혁신"
+          "세부 시각적 관찰 및 기법 설명을 기반으로 한 화가 감정 작업의 자동화",
+          "기존 AI 도상학 접근법을 넘어선 미술사학적 도메인 특화 에이전트 설계",
+          "회화 작품의 양식적 특징 추출 및 설명 가능성 향상"
         ]
       },
       "en": {
         "title": "Conducting Stylistic Analysis of Paintings through an Art-History Agent",
-        "hook": "Automates traditional art-historical stylistic analysis and artwork attribution using a specialized AI agent.",
+        "hook": "Automating art attribution through detailed stylistic analysis using domain-specific multimodal AI agents",
         "key_takeaways": [
-          "Introduces an AI agent performing systematic art-historical stylistic analysis",
-          "Automates detailed visual observations and descriptions of artworks",
-          "Innovates the artwork attribution workflow using advanced AI"
+          "Translates traditional art historical observation techniques into AI agent workflows",
+          "Goes beyond basic image classification to provide explainable stylistic descriptions",
+          "Combines visual analysis with domain knowledge for refined artwork attribution"
         ]
       },
       "zh": {
-        "title": "通过艺术史智能体对绘画进行风格分析",
-        "hook": "利用专用的AI智能体自动执行传统艺术史中的详细视觉观察与风格分析，辅助艺术品归属判定。",
+        "title": "通过艺术史智能体开展绘画风格分析",
+        "hook": "基于领域专用多模态 AI 智能体实现传统艺术史风格分析与画作鉴定",
         "key_takeaways": [
-          "引入能够执行系统性艺术史风格分析的AI智能体",
-          "实现艺术品详细视觉观察与描述的自动化",
-          "利用先进AI革新艺术品归属判定工作流"
+          "将传统艺术史中的细致视觉观察与描述流程进行 AI 智能体化",
+          "超越简单的图像分类，提供具有解释性的绘画风格特征分析",
+          "融合视觉分析与艺术史专业知识，提升画作归属鉴定的精准度"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:09.955381+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Art-History Agent",
+    "Art History Agent",
     "Stylistic Analysis",
+    "Multimodal AI",
     "Artwork Attribution"
   ],
-  "title_ko": "예술사 에이전트를 통한 회화의 양식적 분석 수행",
+  "title_ko": "미술사 에이전트를 통한 회화 양식 분석 수행",
   "title_en": "Conducting Stylistic Analysis of Paintings through an Art-History Agent",
-  "title_zh": "通过艺术史智能体对绘画进行风格分析",
+  "title_zh": "通过艺术史智能体开展绘画风格分析",
   "hook": "인공지능 에이전트가 미술사의 핵심인 세부 시각 관찰과 양식적 분석을 자동화하여 예술가 귀속 작업을 지원합니다.",
-  "hook_ko": "인공지능 에이전트가 미술사의 핵심인 세부 시각 관찰과 양식적 분석을 자동화하여 예술가 귀속 작업을 지원합니다.",
-  "hook_en": "Automates traditional art-historical stylistic analysis and artwork attribution using a specialized AI agent.",
-  "hook_zh": "利用专用的AI智能体自动执行传统艺术史中的详细视觉观察与风格分析，辅助艺术品归属判定。",
+  "hook_ko": "전통적인 미술사의 화풍 분석 방식을 멀티모달 AI 에이전트로 구현한 연구",
+  "hook_en": "Automating art attribution through detailed stylistic analysis using domain-specific multimodal AI agents",
+  "hook_zh": "基于领域专用多模态 AI 智能体实现传统艺术史风格分析与画作鉴定",
   "description_ko": "인공지능 에이전트가 미술사의 핵심인 세부 시각 관찰과 양식적 분석을 자동화하여 예술가 귀속 작업을 지원합니다.",
   "description_en": "Automates traditional art-historical stylistic analysis and artwork attribution using a specialized AI agent.",
   "description_zh": "利用专用的AI智能体自动执行传统艺术史中的详细视觉观察与风格分析，辅助艺术品归属判定。",
   "category_type": "AGENT",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "미술사 에이전트를 통한 회화 양식 분석 수행",
+      "hook": "전통적인 미술사의 화풍 분석 방식을 멀티모달 AI 에이전트로 구현한 연구",
+      "key_takeaways": [
+        "세부 시각적 관찰 및 기법 설명을 기반으로 한 화가 감정 작업의 자동화",
+        "기존 AI 도상학 접근법을 넘어선 미술사학적 도메인 특화 에이전트 설계",
+        "회화 작품의 양식적 특징 추출 및 설명 가능성 향상"
+      ]
+    },
+    "en": {
+      "title": "Conducting Stylistic Analysis of Paintings through an Art-History Agent",
+      "hook": "Automating art attribution through detailed stylistic analysis using domain-specific multimodal AI agents",
+      "key_takeaways": [
+        "Translates traditional art historical observation techniques into AI agent workflows",
+        "Goes beyond basic image classification to provide explainable stylistic descriptions",
+        "Combines visual analysis with domain knowledge for refined artwork attribution"
+      ]
+    },
+    "zh": {
+      "title": "通过艺术史智能体开展绘画风格分析",
+      "hook": "基于领域专用多模态 AI 智能体实现传统艺术史风格分析与画作鉴定",
+      "key_takeaways": [
+        "将传统艺术史中的细致视觉观察与描述流程进行 AI 智能体化",
+        "超越简单的图像分类，提供具有解释性的绘画风格特征分析",
+        "融合视觉分析与艺术史专业知识，提升画作归属鉴定的精准度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.922583"
 }

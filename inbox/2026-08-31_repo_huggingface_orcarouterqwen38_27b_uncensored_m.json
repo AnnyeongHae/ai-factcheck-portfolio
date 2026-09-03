@@ -23,7 +23,7 @@
     "Fine-tune / Uncensored"
   ],
   "category_type": "MODEL",
-  "title_ko": "Qwen3.8-27B-Uncensored-MLX 오픈소스 모델 공개",
+  "title_ko": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
   "description_ko": "Apple Silicon 환경에서 고성능 언어 모델을 활용하고 싶은 개발자를 위한 검열 해제 버전 모델.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "OrcaRouter Community",
@@ -48,43 +48,45 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_orcarouterqwen38_27b_uncensored_m",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "오픈소스 LLM 가중치",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
       "Qwen",
+      "MLX",
       "Uncensored",
-      "MLX"
+      "Vision-Language Model",
+      "Apple Silicon"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
     "multilingual": {
       "ko": {
-        "title": "Qwen3.8-27B-Uncensored-MLX 오픈소스 모델 공개",
-        "hook": "Apple Silicon 환경에서 고성능 언어 모델을 활용하고 싶은 개발자를 위한 검열 해제 버전 모델.",
+        "title": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
+        "hook": "Apple Silicon(MLX) 환경에서 온디바이스 실행이 가능한 27B 무검열 시각-언어 모델",
         "key_takeaways": [
-          "27B 파라미터 규모의 Qwen 기반 검열 해제 모델",
-          "MLX 프레임워크 지원으로 Apple Silicon 최적화",
-          "이미지-텍스트 멀티모달 상호작용 파이프라인 탑재"
+          "Apple Silicon에 최적화된 MLX 프레임워크 지원으로 고성능 온디바이스 추론 구현",
+          "안전 가이드라인 제한이 완화된 27B 파라미터 기반의 무검열(Uncensored) 모델",
+          "이미지 및 텍스트 입력을 모두 처리하는 image-text-to-text 멀티모달 파이프라인"
         ]
       },
       "en": {
-        "title": "Qwen3.8-27B-Uncensored-MLX Released",
-        "hook": "An uncensored high-parameter model optimized for developers utilizing Apple Silicon hardware.",
+        "title": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
+        "hook": "An uncensored 27B vision-language multimodal model optimized for local inference on Apple Silicon via MLX.",
         "key_takeaways": [
-          "27B parameter Qwen-based uncensored variant",
-          "Optimized for MLX framework on Apple Silicon",
-          "Equipped with image-text-to-text pipeline support"
+          "Optimized with the MLX framework for efficient local on-device inference on Apple Silicon.",
+          "Uncensored 27B parameter architecture delivering flexible, unrestricted multimodal output.",
+          "Supports image-text-to-text pipeline for processing multi-modal inputs."
         ]
       },
       "zh": {
-        "title": "Qwen3.8-27B-Uncensored-MLX 开源模型发布",
-        "hook": "专为在苹果芯片上运行高性能大模型而优化的去限制版本。",
+        "title": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
+        "hook": "针对 Apple Silicon (MLX) 优化的 27B 无限制视觉-语言多模态模型",
         "key_takeaways": [
-          "基于Qwen架构的27B参数去限制模型",
-          "全面适配Apple Silicon的MLX框架",
-          "支持图文多模态处理流水线"
+          "基于 MLX 框架优化，支持 Apple Silicon 设备上的高效本地端侧推理",
+          "解除安全限制的 Uncensored 27B 参数视觉语言模型",
+          "支持图文输入到文本输出 (image-text-to-text) 的多模态 Pipeline"
         ]
       }
     }
@@ -93,17 +95,50 @@
   "programming_lang": "Python",
   "root_keywords": [
     "Qwen",
+    "MLX",
     "Uncensored",
-    "MLX"
+    "Vision-Language Model",
+    "Apple Silicon"
   ],
-  "title_en": "Qwen3.8-27B-Uncensored-MLX Released",
-  "title_zh": "Qwen3.8-27B-Uncensored-MLX 开源模型发布",
+  "title_en": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
+  "title_zh": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
   "hook": "Apple Silicon 환경에서 고성능 언어 모델을 활용하고 싶은 개발자를 위한 검열 해제 버전 모델.",
-  "hook_ko": "Apple Silicon 환경에서 고성능 언어 모델을 활용하고 싶은 개발자를 위한 검열 해제 버전 모델.",
-  "hook_en": "An uncensored high-parameter model optimized for developers utilizing Apple Silicon hardware.",
-  "hook_zh": "专为在苹果芯片上运行高性能大模型而优化的去限制版本。",
+  "hook_ko": "Apple Silicon(MLX) 환경에서 온디바이스 실행이 가능한 27B 무검열 시각-언어 모델",
+  "hook_en": "An uncensored 27B vision-language multimodal model optimized for local inference on Apple Silicon via MLX.",
+  "hook_zh": "针对 Apple Silicon (MLX) 优化的 27B 无限制视觉-语言多模态模型",
   "description_en": "An uncensored high-parameter model optimized for developers utilizing Apple Silicon hardware.",
   "description_zh": "专为在苹果芯片上运行高性能大模型而优化的去限制版本。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
+      "hook": "Apple Silicon(MLX) 환경에서 온디바이스 실행이 가능한 27B 무검열 시각-언어 모델",
+      "key_takeaways": [
+        "Apple Silicon에 최적화된 MLX 프레임워크 지원으로 고성능 온디바이스 추론 구현",
+        "안전 가이드라인 제한이 완화된 27B 파라미터 기반의 무검열(Uncensored) 모델",
+        "이미지 및 텍스트 입력을 모두 처리하는 image-text-to-text 멀티모달 파이프라인"
+      ]
+    },
+    "en": {
+      "title": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
+      "hook": "An uncensored 27B vision-language multimodal model optimized for local inference on Apple Silicon via MLX.",
+      "key_takeaways": [
+        "Optimized with the MLX framework for efficient local on-device inference on Apple Silicon.",
+        "Uncensored 27B parameter architecture delivering flexible, unrestricted multimodal output.",
+        "Supports image-text-to-text pipeline for processing multi-modal inputs."
+      ]
+    },
+    "zh": {
+      "title": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
+      "hook": "针对 Apple Silicon (MLX) 优化的 27B 无限制视觉-语言多模态模型",
+      "key_takeaways": [
+        "基于 MLX 框架优化，支持 Apple Silicon 设备上的高效本地端侧推理",
+        "解除安全限制的 Uncensored 27B 参数视觉语言模型",
+        "支持图文输入到文本输出 (image-text-to-text) 的多模态 Pipeline"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.872812"
 }

@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "옴니 이미지 에디터: 차세대 멀티모달 이미지 편집 데모",
+  "title_ko": "Omni-Image-Editor: Gradio 기반 올인원 AI 이미지 에디터",
   "description_ko": "높은 인기를 얻고 있는 최신 Omni-Image-Editor로 복잡한 이미지 편집 작업을 손쉽게 수행하세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,64 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_selfit_cameraomni_image_editor",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Standalone",
-    "category": "컴퓨터 비전 및 이미지 편집",
+    "type_classification": "TECH",
+    "model_family": "Diffusion Models",
+    "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
       "Omni-Image-Editor",
       "Image Editing",
-      "Computer Vision"
+      "Gradio",
+      "Diffusion",
+      "AI Camera"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "옴니 이미지 에디터: 차세대 멀티모달 이미지 편집 데모",
-        "hook": "높은 인기를 얻고 있는 최신 Omni-Image-Editor로 복잡한 이미지 편집 작업을 손쉽게 수행하세요.",
+        "title": "Omni-Image-Editor: Gradio 기반 올인원 AI 이미지 에디터",
+        "hook": "다양한 이미지 편집 및 변환 기능을 통합 제공하는 고성능 인터랙티브 AI 데모",
         "key_takeaways": [
-          "Hugging Face에서 폭발적인 관심을 받은 고성능 이미지 에디터",
-          "멀티모달 기반의 직관적이고 강력한 이미지 조작 기능",
-          "실무 및 개인 프로젝트에 즉시 활용 가능한 웹 데모"
+          "Gradio SDK를 활용하여 직관적인 웹 인터페이스 제공",
+          "단일 데모 내에서 정밀한 AI 기반 이미지 조작 및 스타일 편집 지원",
+          "2,500개 이상의 높은 좋아요 수를 기록한 커뮤니티 검증 Space"
         ]
       },
       "en": {
-        "title": "Omni-Image-Editor: Next-Gen Multimodal Image Editing Demo",
-        "hook": "Easily perform complex image editing tasks with the highly popular Omni-Image-Editor.",
+        "title": "Omni-Image-Editor: Gradio-powered All-in-One AI Image Editing Space",
+        "hook": "An interactive AI demo offering versatile image editing and manipulation capabilities.",
         "key_takeaways": [
-          "Highly trending high-performance image editor on Hugging Face",
-          "Intuitive and powerful multimodal-based image manipulation",
-          "Ready-to-use web demo for production and personal projects"
+          "Provides an intuitive web interface built with the Gradio SDK",
+          "Supports diverse AI-driven image editing and manipulation tasks in one space",
+          "Highly popular community demo with over 2,500 likes on Hugging Face"
         ]
       },
       "zh": {
-        "title": "全能图像编辑器：下一代多模态图像编辑演示",
-        "hook": "利用备受瞩目的最新全能图像编辑器（Omni-Image-Editor），轻松完成复杂的图像编辑任务。",
+        "title": "Omni-Image-Editor：基于 Gradio 的全能 AI 图像编辑空间",
+        "hook": "集成多种 AI 图像编辑与转换功能的交互式 Demo 空间",
         "key_takeaways": [
-          "在 Hugging Face 上备受追捧的高性能图像编辑器",
-          "基于多模态的直观且强大的图像处理功能",
-          "可直接用于实际项目和个人创作的网页演示"
+          "基于 Gradio SDK 构建的高效直观 Web 交互界面",
+          "在单一空间中支持多种精细化的 AI 图像处理与编辑操作",
+          "获得 Hugging Face 社区 2,500+ Likes 的高人气验证"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:34:00.364900+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Omni-Image-Editor",
     "Image Editing",
-    "Computer Vision"
+    "Gradio",
+    "Diffusion",
+    "AI Camera"
   ],
-  "title_en": "Omni-Image-Editor: Next-Gen Multimodal Image Editing Demo",
-  "title_zh": "全能图像编辑器：下一代多模态图像编辑演示",
+  "title_en": "Omni-Image-Editor: Gradio-powered All-in-One AI Image Editing Space",
+  "title_zh": "Omni-Image-Editor：基于 Gradio 的全能 AI 图像编辑空间",
   "hook": "높은 인기를 얻고 있는 최신 Omni-Image-Editor로 복잡한 이미지 편집 작업을 손쉽게 수행하세요.",
-  "hook_ko": "높은 인기를 얻고 있는 최신 Omni-Image-Editor로 복잡한 이미지 편집 작업을 손쉽게 수행하세요.",
-  "hook_en": "Easily perform complex image editing tasks with the highly popular Omni-Image-Editor.",
-  "hook_zh": "利用备受瞩目的最新全能图像编辑器（Omni-Image-Editor），轻松完成复杂的图像编辑任务。",
+  "hook_ko": "다양한 이미지 편집 및 변환 기능을 통합 제공하는 고성능 인터랙티브 AI 데모",
+  "hook_en": "An interactive AI demo offering versatile image editing and manipulation capabilities.",
+  "hook_zh": "集成多种 AI 图像编辑与转换功能的交互式 Demo 空间",
   "description_en": "Easily perform complex image editing tasks with the highly popular Omni-Image-Editor.",
   "description_zh": "利用备受瞩目的最新全能图像编辑器（Omni-Image-Editor），轻松完成复杂的图像编辑任务。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Omni-Image-Editor: Gradio 기반 올인원 AI 이미지 에디터",
+      "hook": "다양한 이미지 편집 및 변환 기능을 통합 제공하는 고성능 인터랙티브 AI 데모",
+      "key_takeaways": [
+        "Gradio SDK를 활용하여 직관적인 웹 인터페이스 제공",
+        "단일 데모 내에서 정밀한 AI 기반 이미지 조작 및 스타일 편집 지원",
+        "2,500개 이상의 높은 좋아요 수를 기록한 커뮤니티 검증 Space"
+      ]
+    },
+    "en": {
+      "title": "Omni-Image-Editor: Gradio-powered All-in-One AI Image Editing Space",
+      "hook": "An interactive AI demo offering versatile image editing and manipulation capabilities.",
+      "key_takeaways": [
+        "Provides an intuitive web interface built with the Gradio SDK",
+        "Supports diverse AI-driven image editing and manipulation tasks in one space",
+        "Highly popular community demo with over 2,500 likes on Hugging Face"
+      ]
+    },
+    "zh": {
+      "title": "Omni-Image-Editor：基于 Gradio 的全能 AI 图像编辑空间",
+      "hook": "集成多种 AI 图像编辑与转换功能的交互式 Demo 空间",
+      "key_takeaways": [
+        "基于 Gradio SDK 构建的高效直观 Web 交互界面",
+        "在单一空间中支持多种精细化的 AI 图像处理与编辑操作",
+        "获得 Hugging Face 社区 2,500+ Likes 的高人气验证"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.839992"
 }

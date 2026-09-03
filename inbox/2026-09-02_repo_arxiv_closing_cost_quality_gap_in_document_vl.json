@@ -36,65 +36,98 @@
     "id": "2026-09-02_repo_arxiv_closing_cost_quality_gap_in_document_vl",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "문서 VLM 및 비용 최적화",
+    "model_family": "Vision-Language Models",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "Document VLM",
+      "Document VLMs",
       "Data Curation",
-      "Deployment Economics"
+      "Deployment Economics",
+      "Document Processing",
+      "Cost Optimization"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.3,
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "문서 VLM의 비용-품질 격차 해소: 난이도 인지형 데이터 큐레이션 및 경제성 최적화",
-        "hook": "규제 산업에서 막대한 문서 처리 비용을 절감하면서도 VLM 성능을 유지하는 실무형 배포 전략을 확인하세요.",
+        "title": "문서 VLM의 비용-품질 격차 해소: 난이도 인지 데이터 큐레이션 및 품질 조정 배포 경제학",
+        "hook": "문서 처리용 VLM 구축 시 비용과 정확도를 동시에 최적화하는 난이도 기반 데이터 큐레이션 및 효율적 배포 프레임워크",
         "key_takeaways": [
-          "규제 산업의 문서 파싱 및 구조화 비용 문제 분석",
-          "난이도 인지형 데이터 큐레이션을 통한 효율성 극대화",
-          "품질을 유지하면서 배포 경제성을 높이는 최적화 모델 제시"
+          "문서 난이도를 인지하는 체계적 데이터 큐레이션을 통한 VLM 학습 효율 극대화",
+          "품질 저하 없이 엔터프라이즈 환경의 서빙 비용을 절감하는 배포 경제성 기법 제안",
+          "규제 산업군에서 기존 OCR 캐스케이드 및 외부 API의 한계를 극복하는 실용적 대안 제공"
         ]
       },
       "en": {
-        "title": "Closing Cost-Quality Gap in Document VLMs: Difficulty-Aware Data Curation and Deployment Economics",
-        "hook": "Learn how to bridge the cost-quality gap in document VLM deployments for highly regulated industries.",
+        "title": "Closing Cost-Quality Gap in Document VLMs: Difficulty-Aware Data Curation and Quality-Adjusted Deployment Economics",
+        "hook": "A framework optimizing both cost and accuracy for document VLMs using difficulty-aware curation and serving economics.",
         "key_takeaways": [
-          "Addresses high costs of structured extraction in regulated environments",
-          "Utilizes difficulty-aware data curation to optimize performance",
-          "Balances deployment economics with document processing quality"
+          "Proposes difficulty-aware data curation to boost document VLM training efficiency.",
+          "Introduces quality-adjusted deployment economics to drastically reduce enterprise serving costs.",
+          "Provides a scalable alternative to traditional OCR cascades and external APIs under privacy constraints."
         ]
       },
       "zh": {
-        "title": "缩小文档视觉语言模型的成本-质量差距：难度感知数据筛选与部署经济学",
-        "hook": "探索如何在严格监管的行业中降低文档处理成本，同时保持高质量的视觉语言模型性能。",
+        "title": "缩小文档 VLM 的成本-质量差距：难易度感知的数据策划与质量调整的部署经济学",
+        "hook": "结合难度感知数据筛选与部署经济学，在维持高精度的同时显著降低文档 VLM 的推理与服务成本。",
         "key_takeaways": [
-          "解决受监管环境中结构化信息提取的高昂成本问题",
-          "利用难度感知的数据筛选优化模型性能",
-          "平衡部署经济效益与文档处理质量"
+          "提出基于文档复杂度的难度感知数据策划方案",
+          "构建兼顾提取质量与部署成本的企业级 VLM 经济学模型",
+          "解决受限行业中传统 OCR 级联与外部 API 的隐私与成本痛点"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:27:09.809858+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Document VLM",
+    "Document VLMs",
     "Data Curation",
-    "Deployment Economics"
+    "Deployment Economics",
+    "Document Processing",
+    "Cost Optimization"
   ],
-  "title_ko": "문서 VLM의 비용-품질 격차 해소: 난이도 인지형 데이터 큐레이션 및 경제성 최적화",
-  "title_en": "Closing Cost-Quality Gap in Document VLMs: Difficulty-Aware Data Curation and Deployment Economics",
-  "title_zh": "缩小文档视觉语言模型的成本-质量差距：难度感知数据筛选与部署经济学",
+  "title_ko": "문서 VLM의 비용-품질 격차 해소: 난이도 인지 데이터 큐레이션 및 품질 조정 배포 경제학",
+  "title_en": "Closing Cost-Quality Gap in Document VLMs: Difficulty-Aware Data Curation and Quality-Adjusted Deployment Economics",
+  "title_zh": "缩小文档 VLM 的成本-质量差距：难易度感知的数据策划与质量调整的部署经济学",
   "hook": "규제 산업에서 막대한 문서 처리 비용을 절감하면서도 VLM 성능을 유지하는 실무형 배포 전략을 확인하세요.",
-  "hook_ko": "규제 산업에서 막대한 문서 처리 비용을 절감하면서도 VLM 성능을 유지하는 실무형 배포 전략을 확인하세요.",
-  "hook_en": "Learn how to bridge the cost-quality gap in document VLM deployments for highly regulated industries.",
-  "hook_zh": "探索如何在严格监管的行业中降低文档处理成本，同时保持高质量的视觉语言模型性能。",
+  "hook_ko": "문서 처리용 VLM 구축 시 비용과 정확도를 동시에 최적화하는 난이도 기반 데이터 큐레이션 및 효율적 배포 프레임워크",
+  "hook_en": "A framework optimizing both cost and accuracy for document VLMs using difficulty-aware curation and serving economics.",
+  "hook_zh": "结合难度感知数据筛选与部署经济学，在维持高精度的同时显著降低文档 VLM 的推理与服务成本。",
   "description_ko": "규제 산업에서 막대한 문서 처리 비용을 절감하면서도 VLM 성능을 유지하는 실무형 배포 전략을 확인하세요.",
   "description_en": "Learn how to bridge the cost-quality gap in document VLM deployments for highly regulated industries.",
   "description_zh": "探索如何在严格监管的行业中降低文档处理成本，同时保持高质量的视觉语言模型性能。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "문서 VLM의 비용-품질 격차 해소: 난이도 인지 데이터 큐레이션 및 품질 조정 배포 경제학",
+      "hook": "문서 처리용 VLM 구축 시 비용과 정확도를 동시에 최적화하는 난이도 기반 데이터 큐레이션 및 효율적 배포 프레임워크",
+      "key_takeaways": [
+        "문서 난이도를 인지하는 체계적 데이터 큐레이션을 통한 VLM 학습 효율 극대화",
+        "품질 저하 없이 엔터프라이즈 환경의 서빙 비용을 절감하는 배포 경제성 기법 제안",
+        "규제 산업군에서 기존 OCR 캐스케이드 및 외부 API의 한계를 극복하는 실용적 대안 제공"
+      ]
+    },
+    "en": {
+      "title": "Closing Cost-Quality Gap in Document VLMs: Difficulty-Aware Data Curation and Quality-Adjusted Deployment Economics",
+      "hook": "A framework optimizing both cost and accuracy for document VLMs using difficulty-aware curation and serving economics.",
+      "key_takeaways": [
+        "Proposes difficulty-aware data curation to boost document VLM training efficiency.",
+        "Introduces quality-adjusted deployment economics to drastically reduce enterprise serving costs.",
+        "Provides a scalable alternative to traditional OCR cascades and external APIs under privacy constraints."
+      ]
+    },
+    "zh": {
+      "title": "缩小文档 VLM 的成本-质量差距：难易度感知的数据策划与质量调整的部署经济学",
+      "hook": "结合难度感知数据筛选与部署经济学，在维持高精度的同时显著降低文档 VLM 的推理与服务成本。",
+      "key_takeaways": [
+        "提出基于文档复杂度的难度感知数据策划方案",
+        "构建兼顾提取质量与部署成本的企业级 VLM 经济学模型",
+        "解决受限行业中传统 OCR 级联与外部 API 的隐私与成本痛点"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.977320"
 }

@@ -23,7 +23,7 @@
     "Fine-tune / Uncensored"
   ],
   "category_type": "MODEL",
-  "title_ko": "Huihui-Qwen3.8-27B-abliterated-GGUF 모델",
+  "title_ko": "Huihui-Qwen3.8-27B-abliterated-GGUF: 거부 반응을 제거한 멀티모달 GGUF 모델",
   "description_ko": "검열이 해제된 Qwen3.8 27B 모델을 로컬 환경(GGUF)에서 곧바로 구동하고 싶다면 지금 확인하세요.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "Huihui AI",
@@ -48,64 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_huihui_aihuihui_qwen38_27b_ablite",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "LLM 언어 모델 및 검열 해제 가중치",
-    "programming_lang": "Python",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "Multimodal AI",
+    "programming_lang": "C++",
     "root_keywords": [
-      "Qwen-3.8",
+      "Qwen",
       "GGUF",
-      "Abliterated"
+      "Abliterated",
+      "Multimodal",
+      "Image-to-Text"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "Huihui-Qwen3.8-27B-abliterated-GGUF 모델",
-        "hook": "검열이 해제된 Qwen3.8 27B 모델을 로컬 환경(GGUF)에서 곧바로 구동하고 싶다면 지금 확인하세요.",
+        "title": "Huihui-Qwen3.8-27B-abliterated-GGUF: 거부 반응을 제거한 멀티모달 GGUF 모델",
+        "hook": "Qwen 27B 기반의 검열 제거(Abliterated) 기법 및 GGUF 양자화를 결합한 고성능 로컬 이미지-텍스트 AI 모델",
         "key_takeaways": [
-          "Qwen3.8 27B 아키텍처 기반의 가중치 모델",
-          "abliteration 기법을 통한 프롬프트 검열 해제",
-          "효율적인 로컬 추론을 위한 GGUF 포맷 지원"
+          "160만 회 이상의 다운로드를 기록하며 대형 온디바이스 멀티모달 모델 수요를 입증",
+          "Refusal Vector 제거 기법(Abliteration)을 통해 과도한 답변 거부 현상을 대폭 개선",
+          "GGUF 양자화 포맷을 채택하여 llama.cpp 등 로컬 저전력/저메모리 환경에서 유연한 추론 지원"
         ]
       },
       "en": {
-        "title": "Huihui-Qwen3.8-27B-abliterated-GGUF Model",
-        "hook": "Discover the uncensored Qwen3.8 27B GGUF weights optimized for local deployment and advanced tasks.",
+        "title": "Huihui-Qwen3.8-27B-abliterated-GGUF: Uncensored Multimodal Model in GGUF Format",
+        "hook": "An abliterated vision-language model based on Qwen 27B, quantized to GGUF format for low-refusal local inferencing.",
         "key_takeaways": [
-          "Based on the powerful Qwen3.8 27B architecture",
-          "Uncensored via abliteration techniques for maximum flexibility",
-          "Provided in GGUF format for efficient local inference"
+          "Achieved over 1.6 million downloads, highlighting massive community adoption for local multimodal models",
+          "Applies refusal-direction abliteration techniques to minimize over-refusal while maintaining capabilities",
+          "Optimized in GGUF format for memory-efficient execution using llama.cpp and compatible local runtimes"
         ]
       },
       "zh": {
-        "title": "Huihui-Qwen3.8-27B-abliterated-GGUF 模型",
-        "hook": "探索去除了内容限制的 Qwen3.8 27B 权重，完美适配本地高性能 GGUF 推理。",
+        "title": "Huihui-Qwen3.8-27B-abliterated-GGUF：移除拒答限制的 GGUF 多模态模型",
+        "hook": "基于 Qwen 27B 的无审查视觉语言模型，通过 GGUF 量化格式提速本地跨平台推理。",
         "key_takeaways": [
-          "基于强大的 Qwen3.8 27B 架构",
-          "通过去限制技术实现内容审查解除",
-          "提供 GGUF 格式以支持高效的本地推理"
+          "下载量突破 160 万次，展现了开发者社区对去限制多模态模型的高需求",
+          "采用 Abliteration 技术剥离拒绝向量，降低模型的过度拒绝倾向",
+          "适配 GGUF 量化格式，轻松在 llama.cpp 等本地推理框架上高效运行"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:33:36.547850+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "C++",
   "root_keywords": [
-    "Qwen-3.8",
+    "Qwen",
     "GGUF",
-    "Abliterated"
+    "Abliterated",
+    "Multimodal",
+    "Image-to-Text"
   ],
-  "title_en": "Huihui-Qwen3.8-27B-abliterated-GGUF Model",
-  "title_zh": "Huihui-Qwen3.8-27B-abliterated-GGUF 模型",
+  "title_en": "Huihui-Qwen3.8-27B-abliterated-GGUF: Uncensored Multimodal Model in GGUF Format",
+  "title_zh": "Huihui-Qwen3.8-27B-abliterated-GGUF：移除拒答限制的 GGUF 多模态模型",
   "hook": "검열이 해제된 Qwen3.8 27B 모델을 로컬 환경(GGUF)에서 곧바로 구동하고 싶다면 지금 확인하세요.",
-  "hook_ko": "검열이 해제된 Qwen3.8 27B 모델을 로컬 환경(GGUF)에서 곧바로 구동하고 싶다면 지금 확인하세요.",
-  "hook_en": "Discover the uncensored Qwen3.8 27B GGUF weights optimized for local deployment and advanced tasks.",
-  "hook_zh": "探索去除了内容限制的 Qwen3.8 27B 权重，完美适配本地高性能 GGUF 推理。",
+  "hook_ko": "Qwen 27B 기반의 검열 제거(Abliterated) 기법 및 GGUF 양자화를 결합한 고성능 로컬 이미지-텍스트 AI 모델",
+  "hook_en": "An abliterated vision-language model based on Qwen 27B, quantized to GGUF format for low-refusal local inferencing.",
+  "hook_zh": "基于 Qwen 27B 的无审查视觉语言模型，通过 GGUF 量化格式提速本地跨平台推理。",
   "description_en": "Discover the uncensored Qwen3.8 27B GGUF weights optimized for local deployment and advanced tasks.",
   "description_zh": "探索去除了内容限制的 Qwen3.8 27B 权重，完美适配本地高性能 GGUF 推理。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Huihui-Qwen3.8-27B-abliterated-GGUF: 거부 반응을 제거한 멀티모달 GGUF 모델",
+      "hook": "Qwen 27B 기반의 검열 제거(Abliterated) 기법 및 GGUF 양자화를 결합한 고성능 로컬 이미지-텍스트 AI 모델",
+      "key_takeaways": [
+        "160만 회 이상의 다운로드를 기록하며 대형 온디바이스 멀티모달 모델 수요를 입증",
+        "Refusal Vector 제거 기법(Abliteration)을 통해 과도한 답변 거부 현상을 대폭 개선",
+        "GGUF 양자화 포맷을 채택하여 llama.cpp 등 로컬 저전력/저메모리 환경에서 유연한 추론 지원"
+      ]
+    },
+    "en": {
+      "title": "Huihui-Qwen3.8-27B-abliterated-GGUF: Uncensored Multimodal Model in GGUF Format",
+      "hook": "An abliterated vision-language model based on Qwen 27B, quantized to GGUF format for low-refusal local inferencing.",
+      "key_takeaways": [
+        "Achieved over 1.6 million downloads, highlighting massive community adoption for local multimodal models",
+        "Applies refusal-direction abliteration techniques to minimize over-refusal while maintaining capabilities",
+        "Optimized in GGUF format for memory-efficient execution using llama.cpp and compatible local runtimes"
+      ]
+    },
+    "zh": {
+      "title": "Huihui-Qwen3.8-27B-abliterated-GGUF：移除拒答限制的 GGUF 多模态模型",
+      "hook": "基于 Qwen 27B 的无审查视觉语言模型，通过 GGUF 量化格式提速本地跨平台推理。",
+      "key_takeaways": [
+        "下载量突破 160 万次，展现了开发者社区对去限制多模态模型的高需求",
+        "采用 Abliteration 技术剥离拒绝向量，降低模型的过度拒绝倾向",
+        "适配 GGUF 量化格式，轻松在 llama.cpp 等本地推理框架上高效运行"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.852709"
 }

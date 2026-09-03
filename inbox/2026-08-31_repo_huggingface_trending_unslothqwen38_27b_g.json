@@ -23,7 +23,7 @@
     "Dynamic GGUF v3.0"
   ],
   "category_type": "MODEL",
-  "title_ko": "Unsloth, Qwen3.8-27B GGUF 양자화 모델 공개",
+  "title_ko": "Unsloth의 Qwen3.8-27B GGUF 양자화 모델",
   "description_ko": "Unsloth로 최적화된 Qwen3.8-27B GGUF 모델로 저사양 환경에서도 고성능 LLM을 구동하세요.",
   "variant_role": "⚡ Unsloth 선택적 동적 양자화 (Dynamic GGUF)",
   "creator": "Unsloth AI",
@@ -48,64 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_trending_unslothqwen38_27b_g",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "LLM 추론 최적화",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "LLM",
     "programming_lang": "Python",
     "root_keywords": [
-      "Qwen3.8",
+      "Qwen",
       "GGUF",
-      "Unsloth"
+      "Unsloth",
+      "Quantization",
+      "LLM"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "Unsloth, Qwen3.8-27B GGUF 양자화 모델 공개",
-        "hook": "Unsloth로 최적화된 Qwen3.8-27B GGUF 모델로 저사양 환경에서도 고성능 LLM을 구동하세요.",
+        "title": "Unsloth의 Qwen3.8-27B GGUF 양자화 모델",
+        "hook": "Unsloth가 최적화한 Qwen3.8 27B의 GGUF 양자화 포맷으로, 로컬 환경에서 압도적인 메모리 효율성과 빠른 추론 성능 제공",
         "key_takeaways": [
-          "Unsloth 고유의 최적화가 적용된 Qwen3.8-27B GGUF 가중치 제공",
-          "탁월한 다운로드 및 트렌딩 지표로 검증된 실용성",
-          "로컬 환경 및 엣지 디바이스에서의 LLM 추론 효율 극대화"
+          "Unsloth 기술이 적용되어 메모리 사용량과 추론 속도가 크게 개선된 Qwen3.8 27B 모델",
+          "GGUF 포맷 제공으로 llama.cpp, Ollama 등 다양한 로컬 LLM 런타임 환경에서 용이하게 구동 가능",
+          "900만 건 이상의 높은 다운로드 수를 기록하며 로컬 추론용 인기 라이브러리로 입증됨"
         ]
       },
       "en": {
-        "title": "Unsloth Releases Qwen3.8-27B GGUF Quantized Weights",
-        "hook": "Run high-performance Qwen3.8-27B on consumer hardware with Unsloth's optimized GGUF weights.",
+        "title": "Unsloth's Qwen3.8-27B GGUF Quantized Model",
+        "hook": "Optimized GGUF quantization of Qwen3.8-27B by Unsloth, providing exceptional memory efficiency and fast inference for local deployment.",
         "key_takeaways": [
-          "Provides GGUF format weights for Qwen3.8-27B optimized by Unsloth",
-          "Proven utility with massive downloads and strong community engagement",
-          "Maximizes LLM inference efficiency for local and edge environments"
+          "Memory-efficient and accelerated Qwen3.8 27B model powered by Unsloth optimization",
+          "GGUF format integration ensuring seamless execution on llama.cpp, Ollama, and other local LLM engines",
+          "Proven reliability and immense popularity with over 9 million downloads on Hugging Face"
         ]
       },
       "zh": {
-        "title": "Unsloth 发布 Qwen3.8-27B GGUF 量化模型",
-        "hook": "利用 Unsloth 优化的 Qwen3.8-27B GGUF 模型，在消费级硬件上高效运行大模型。",
+        "title": "Unsloth Qwen3.8-27B GGUF 量化模型",
+        "hook": "由 Unsloth 优化的 Qwen3.8 27B GGUF 量化版本，为本地部署提供出色的显存效率与高速推理能力。",
         "key_takeaways": [
-          "提供经 Unsloth 独特优化的 Qwen3.8-27B GGUF 权重",
-          "凭借极高的下载量与社区热度验证了其实用价值",
-          "大幅提升本地及边缘设备上的大模型推理效率"
+          "经过 Unsloth 优化与量化的 Qwen3.8 27B 模型，大幅降低内存与显存占用",
+          "原生支持 GGUF 格式，完美兼容 llama.cpp、Ollama 等本地 LLM 运行框架",
+          "在 Hugging Face 上拥有超过 900 万次下载，是极为热门的本地推理模型选择"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:47.287010+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Qwen3.8",
+    "Qwen",
     "GGUF",
-    "Unsloth"
+    "Unsloth",
+    "Quantization",
+    "LLM"
   ],
-  "title_en": "Unsloth Releases Qwen3.8-27B GGUF Quantized Weights",
-  "title_zh": "Unsloth 发布 Qwen3.8-27B GGUF 量化模型",
+  "title_en": "Unsloth's Qwen3.8-27B GGUF Quantized Model",
+  "title_zh": "Unsloth Qwen3.8-27B GGUF 量化模型",
   "hook": "Unsloth로 최적화된 Qwen3.8-27B GGUF 모델로 저사양 환경에서도 고성능 LLM을 구동하세요.",
-  "hook_ko": "Unsloth로 최적화된 Qwen3.8-27B GGUF 모델로 저사양 환경에서도 고성능 LLM을 구동하세요.",
-  "hook_en": "Run high-performance Qwen3.8-27B on consumer hardware with Unsloth's optimized GGUF weights.",
-  "hook_zh": "利用 Unsloth 优化的 Qwen3.8-27B GGUF 模型，在消费级硬件上高效运行大模型。",
+  "hook_ko": "Unsloth가 최적화한 Qwen3.8 27B의 GGUF 양자화 포맷으로, 로컬 환경에서 압도적인 메모리 효율성과 빠른 추론 성능 제공",
+  "hook_en": "Optimized GGUF quantization of Qwen3.8-27B by Unsloth, providing exceptional memory efficiency and fast inference for local deployment.",
+  "hook_zh": "由 Unsloth 优化的 Qwen3.8 27B GGUF 量化版本，为本地部署提供出色的显存效率与高速推理能力。",
   "description_en": "Run high-performance Qwen3.8-27B on consumer hardware with Unsloth's optimized GGUF weights.",
   "description_zh": "利用 Unsloth 优化的 Qwen3.8-27B GGUF 模型，在消费级硬件上高效运行大模型。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Unsloth의 Qwen3.8-27B GGUF 양자화 모델",
+      "hook": "Unsloth가 최적화한 Qwen3.8 27B의 GGUF 양자화 포맷으로, 로컬 환경에서 압도적인 메모리 효율성과 빠른 추론 성능 제공",
+      "key_takeaways": [
+        "Unsloth 기술이 적용되어 메모리 사용량과 추론 속도가 크게 개선된 Qwen3.8 27B 모델",
+        "GGUF 포맷 제공으로 llama.cpp, Ollama 등 다양한 로컬 LLM 런타임 환경에서 용이하게 구동 가능",
+        "900만 건 이상의 높은 다운로드 수를 기록하며 로컬 추론용 인기 라이브러리로 입증됨"
+      ]
+    },
+    "en": {
+      "title": "Unsloth's Qwen3.8-27B GGUF Quantized Model",
+      "hook": "Optimized GGUF quantization of Qwen3.8-27B by Unsloth, providing exceptional memory efficiency and fast inference for local deployment.",
+      "key_takeaways": [
+        "Memory-efficient and accelerated Qwen3.8 27B model powered by Unsloth optimization",
+        "GGUF format integration ensuring seamless execution on llama.cpp, Ollama, and other local LLM engines",
+        "Proven reliability and immense popularity with over 9 million downloads on Hugging Face"
+      ]
+    },
+    "zh": {
+      "title": "Unsloth Qwen3.8-27B GGUF 量化模型",
+      "hook": "由 Unsloth 优化的 Qwen3.8 27B GGUF 量化版本，为本地部署提供出色的显存效率与高速推理能力。",
+      "key_takeaways": [
+        "经过 Unsloth 优化与量化的 Qwen3.8 27B 模型，大幅降低内存与显存占用",
+        "原生支持 GGUF 格式，完美兼容 llama.cpp、Ollama 等本地 LLM 运行框架",
+        "在 Hugging Face 上拥有超过 900 万次下载，是极为热门的本地推理模型选择"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.889161"
 }

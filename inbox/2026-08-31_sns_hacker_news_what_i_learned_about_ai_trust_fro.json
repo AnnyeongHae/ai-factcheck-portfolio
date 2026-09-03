@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "1,000억 건 이상의 트랜잭션 대조를 통해 배운 AI 신뢰성에 대한 교훈",
+  "title_ko": "1000억 건의 거래를 대조 정산하며 배운 AI 신뢰성에 대한 교훈",
   "description_ko": "대규모 프로덕션 환경에서 AI 시스템의 신뢰를 구축하고 대량의 데이터를 검증하는 실무적 인사이트를 제공합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,66 +48,97 @@
   "hn_url": "https://news.ycombinator.com/item?id=49508443",
   "hn_id": "49508443",
   "ai_enrichment": {
-    "id": "2026-08-31_sns_hacker_news_what_i_learned_about_ai_trust_from",
+    "id": "2026-08-31_sns_hacker_news_what_i_learned_about_ai_trust_fro",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "AI 신뢰성 및 데이터 검증",
+    "model_family": "AI Trust & Reliability",
+    "category": "AI / Fintech",
     "programming_lang": "General",
     "root_keywords": [
       "AI Trust",
-      "Transactions",
-      "Data Reconciliation"
+      "Data Reconciliation",
+      "LLM Reliability",
+      "Fintech"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.2,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.3,
     "multilingual": {
       "ko": {
-        "title": "1,000억 건 이상의 트랜잭션 대조를 통해 배운 AI 신뢰성에 대한 교훈",
-        "hook": "대규모 프로덕션 환경에서 AI 시스템의 신뢰를 구축하고 대량의 데이터를 검증하는 실무적 인사이트를 제공합니다.",
+        "title": "1000억 건의 거래를 대조 정산하며 배운 AI 신뢰성에 대한 교훈",
+        "hook": "대규모 금융 거래 정산 업무에 AI를 도입하며 경험한 검증 가능성과 신뢰도 확보 전략.",
         "key_takeaways": [
-          "1,000억 건 이상의 트랜잭션 처리 과정에서 얻은 AI 신뢰 구축 경험",
-          "대규모 데이터 대조를 통한 오류 검출 및 환각 방지 전략",
-          "프로덕션 레벨에서 AI 의사결정을 검증하는 실용적 방법론"
+          "대규모 거래 대조 시 LLM의 불확실성을 완화하는 기술적 접근법",
+          "결과 검증성(Auditability)과 신뢰성을 확보하기 위한 하이브리드 설계",
+          "고위험 금융 프로세스에서 AI 오류를 보완하는 시스템 아키텍처"
         ]
       },
       "en": {
         "title": "What I Learned About AI Trust from Reconciling over 100B Transactions",
-        "hook": "Gain practical insights on building AI trust and validating massive data scales in production environments.",
+        "hook": "Practical insights on building trust, auditability, and accuracy when applying AI to massive-scale financial transaction reconciliation.",
         "key_takeaways": [
-          "Lessons learned on AI trust from reconciling over 100B transactions",
-          "Strategies for error detection and hallucination mitigation at scale",
-          "Practical methodologies for validating AI decisions in production"
+          "Techniques for mitigating LLM non-determinism in massive data reconciliation",
+          "Hybrid architecture patterns for ensuring auditability and system trust",
+          "Combining automated AI logic with human-in-the-loop validation in high-stakes domains"
         ]
       },
       "zh": {
-        "title": "从核对超1000亿笔交易中获得的AI信任经验",
-        "hook": "获取在生产环境中建立AI信任并验证海量数据的实战洞察。",
+        "title": "从核对超1000亿笔交易中得到的AI信任启示",
+        "hook": "在大规模金融交易对账实践中，如何构建可审计且高可靠的AI系统。",
         "key_takeaways": [
-          "处理超1000亿笔交易中积累的AI信任构建经验",
-          "大规模数据对账中的错误检测与幻觉防范策略",
-          "在生产级别验证AI决策的实用方法论"
+          "在大规模数据核对中应对大模型非确定性的实用策略",
+          "确保系统可审计性与信任度的混合架构设计",
+          "高风险金融业务中结合自动化AI与人工复核机制"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:46.705321+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "AI Trust",
-    "Transactions",
-    "Data Reconciliation"
+    "Data Reconciliation",
+    "LLM Reliability",
+    "Fintech"
   ],
   "title_en": "What I Learned About AI Trust from Reconciling over 100B Transactions",
-  "title_zh": "从核对超1000亿笔交易中获得的AI信任经验",
+  "title_zh": "从核对超1000亿笔交易中得到的AI信任启示",
   "hook": "대규모 프로덕션 환경에서 AI 시스템의 신뢰를 구축하고 대량의 데이터를 검증하는 실무적 인사이트를 제공합니다.",
-  "hook_ko": "대규모 프로덕션 환경에서 AI 시스템의 신뢰를 구축하고 대량의 데이터를 검증하는 실무적 인사이트를 제공합니다.",
-  "hook_en": "Gain practical insights on building AI trust and validating massive data scales in production environments.",
-  "hook_zh": "获取在生产环境中建立AI信任并验证海量数据的实战洞察。",
+  "hook_ko": "대규모 금융 거래 정산 업무에 AI를 도입하며 경험한 검증 가능성과 신뢰도 확보 전략.",
+  "hook_en": "Practical insights on building trust, auditability, and accuracy when applying AI to massive-scale financial transaction reconciliation.",
+  "hook_zh": "在大规模金融交易对账实践中，如何构建可审计且高可靠的AI系统。",
   "description_en": "Gain practical insights on building AI trust and validating massive data scales in production environments.",
   "description_zh": "获取在生产环境中建立AI信任并验证海量数据的实战洞察。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "1000억 건의 거래를 대조 정산하며 배운 AI 신뢰성에 대한 교훈",
+      "hook": "대규모 금융 거래 정산 업무에 AI를 도입하며 경험한 검증 가능성과 신뢰도 확보 전략.",
+      "key_takeaways": [
+        "대규모 거래 대조 시 LLM의 불확실성을 완화하는 기술적 접근법",
+        "결과 검증성(Auditability)과 신뢰성을 확보하기 위한 하이브리드 설계",
+        "고위험 금융 프로세스에서 AI 오류를 보완하는 시스템 아키텍처"
+      ]
+    },
+    "en": {
+      "title": "What I Learned About AI Trust from Reconciling over 100B Transactions",
+      "hook": "Practical insights on building trust, auditability, and accuracy when applying AI to massive-scale financial transaction reconciliation.",
+      "key_takeaways": [
+        "Techniques for mitigating LLM non-determinism in massive data reconciliation",
+        "Hybrid architecture patterns for ensuring auditability and system trust",
+        "Combining automated AI logic with human-in-the-loop validation in high-stakes domains"
+      ]
+    },
+    "zh": {
+      "title": "从核对超1000亿笔交易中得到的AI信任启示",
+      "hook": "在大规模金融交易对账实践中，如何构建可审计且高可靠的AI系统。",
+      "key_takeaways": [
+        "在大规模数据核对中应对大模型非确定性的实用策略",
+        "确保系统可审计性与信任度的混合架构设计",
+        "高风险金融业务中结合自动化AI与人工复核机制"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.912691"
 }

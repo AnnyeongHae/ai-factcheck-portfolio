@@ -33,42 +33,44 @@
     "id": "2026-09-01_repo_arxiv_jpo_juris_policy_optimization_for_struc",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "구조화된 추론 및 법률 AI",
+    "model_family": "Reinforcement Learning / LLM Fine-tuning",
+    "category": "AI / Natural Language Processing / Legal Tech",
     "programming_lang": "Python",
     "root_keywords": [
-      "Legal Reasoning",
-      "Policy Optimization",
-      "Criminal Judgment Prediction"
+      "Criminal Judgment Prediction",
+      "Juris Policy Optimization",
+      "Structured Legal Reasoning",
+      "Reinforcement Learning",
+      "Large Language Models"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.5,
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "범죄 판례 예측을 위한 JPO(Juris Policy Optimization) 프레임워크",
-        "hook": "복잡한 법적 사실 관계로부터 법조문과 형량을 정확히 추론하는 구조화된 추론 방법론을 학습하세요.",
+        "title": "JPO: 형사 판결 예측의 구조화된 법률 추론을 위한 법률 정책 최적화",
+        "hook": "법조항 적용부터 죄목 결정, 형량 산출까지 단계적 추론을 강화하는 RL 기반 법률 정책 최적화 프레임워크",
         "key_takeaways": [
-          "형사 재판 예측을 위한 법률 정책 최적화(JPO) 도입",
-          "사건 사실로부터 법조문 및 죄명 구조적 추론",
-          "기존 분류 작업을 뛰어넘는 고도화된 추론 아키텍처"
+          "단순 분류를 넘어 법조항 추론, 죄목 결정, 형량 산출을 다단계로 연계하는 구조화된 추론 모델 제시",
+          "강화학습 기반 법률 정책 최적화(JPO)를 적용해 법적 논리성과 판단 일관성 개선",
+          "기존 LLM의 환각 현상을 줄이고 법률 도메인 특화 형사 판결 예측 정확도를 대폭 향상"
         ]
       },
       "en": {
-        "title": "JPO: Juris Policy Optimization for Structured Legal Reasoning",
-        "hook": "Learn a structured reasoning methodology that accurately infers statutory articles and sentencing from complex case facts.",
+        "title": "JPO: Juris Policy Optimization for Structured Legal Reasoning in Criminal Judgment Prediction",
+        "hook": "A reinforcement learning-based policy optimization framework designed for structured, multi-stage legal reasoning in criminal judgments.",
         "key_takeaways": [
-          "Introduces Juris Policy Optimization (JPO) for criminal judgment",
-          "Structured inference of statutory articles and charges from case facts",
-          "Advanced reasoning architecture surpassing standard classification"
+          "Establishes a structured reasoning framework connecting statutory articles, charges, and sentencing outcomes.",
+          "Applies Juris Policy Optimization (JPO) to enhance legal logic and prediction accuracy.",
+          "Mitigates LLM hallucinations and outperforms baseline models in complex criminal judgment tasks."
         ]
       },
       "zh": {
-        "title": "JPO：用于结构化法律推理的判例政策优化框架",
-        "hook": "学习从复杂案件事实中准确推断法条和量刑的结构化推理方法论。",
+        "title": "JPO：用于刑事裁判预测中结构化法律推理的法律策略优化",
+        "hook": "融合法条引用、罪名认定与量刑推导的强化学习法律策略优化（JPO）框架",
         "key_takeaways": [
-          "引入用于刑事判决预测的法律政策优化（JPO）",
-          "从案件事实中结构化推断法条与罪名",
-          "超越标准分类任务的高级推理架构"
+          "构建多阶段结构化法律推理机制，实现案情到法条、罪名与刑期的链条化推导",
+          "采用 Juris Policy Optimization (JPO) 强化学习策略，显著增强法律逻辑一致性",
+          "有效缓解大语言模型在法律推演中的幻觉现象，提升刑事裁判预测精度"
         ]
       }
     }
@@ -76,21 +78,54 @@
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Legal Reasoning",
-    "Policy Optimization",
-    "Criminal Judgment Prediction"
+    "Criminal Judgment Prediction",
+    "Juris Policy Optimization",
+    "Structured Legal Reasoning",
+    "Reinforcement Learning",
+    "Large Language Models"
   ],
-  "title_ko": "범죄 판례 예측을 위한 JPO(Juris Policy Optimization) 프레임워크",
-  "title_en": "JPO: Juris Policy Optimization for Structured Legal Reasoning",
-  "title_zh": "JPO：用于结构化法律推理的判例政策优化框架",
+  "title_ko": "JPO: 형사 판결 예측의 구조화된 법률 추론을 위한 법률 정책 최적화",
+  "title_en": "JPO: Juris Policy Optimization for Structured Legal Reasoning in Criminal Judgment Prediction",
+  "title_zh": "JPO：用于刑事裁判预测中结构化法律推理的法律策略优化",
   "hook": "복잡한 법적 사실 관계로부터 법조문과 형량을 정확히 추론하는 구조화된 추론 방법론을 학습하세요.",
-  "hook_ko": "복잡한 법적 사실 관계로부터 법조문과 형량을 정확히 추론하는 구조화된 추론 방법론을 학습하세요.",
-  "hook_en": "Learn a structured reasoning methodology that accurately infers statutory articles and sentencing from complex case facts.",
-  "hook_zh": "学习从复杂案件事实中准确推断法条和量刑的结构化推理方法论。",
+  "hook_ko": "법조항 적용부터 죄목 결정, 형량 산출까지 단계적 추론을 강화하는 RL 기반 법률 정책 최적화 프레임워크",
+  "hook_en": "A reinforcement learning-based policy optimization framework designed for structured, multi-stage legal reasoning in criminal judgments.",
+  "hook_zh": "融合法条引用、罪名认定与量刑推导的强化学习法律策略优化（JPO）框架",
   "description_ko": "복잡한 법적 사실 관계로부터 법조문과 형량을 정확히 추론하는 구조화된 추론 방법론을 학습하세요.",
   "description_en": "Learn a structured reasoning methodology that accurately infers statutory articles and sentencing from complex case facts.",
   "description_zh": "学习从复杂案件事实中准确推断法条和量刑的结构化推理方法论。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "JPO: 형사 판결 예측의 구조화된 법률 추론을 위한 법률 정책 최적화",
+      "hook": "법조항 적용부터 죄목 결정, 형량 산출까지 단계적 추론을 강화하는 RL 기반 법률 정책 최적화 프레임워크",
+      "key_takeaways": [
+        "단순 분류를 넘어 법조항 추론, 죄목 결정, 형량 산출을 다단계로 연계하는 구조화된 추론 모델 제시",
+        "강화학습 기반 법률 정책 최적화(JPO)를 적용해 법적 논리성과 판단 일관성 개선",
+        "기존 LLM의 환각 현상을 줄이고 법률 도메인 특화 형사 판결 예측 정확도를 대폭 향상"
+      ]
+    },
+    "en": {
+      "title": "JPO: Juris Policy Optimization for Structured Legal Reasoning in Criminal Judgment Prediction",
+      "hook": "A reinforcement learning-based policy optimization framework designed for structured, multi-stage legal reasoning in criminal judgments.",
+      "key_takeaways": [
+        "Establishes a structured reasoning framework connecting statutory articles, charges, and sentencing outcomes.",
+        "Applies Juris Policy Optimization (JPO) to enhance legal logic and prediction accuracy.",
+        "Mitigates LLM hallucinations and outperforms baseline models in complex criminal judgment tasks."
+      ]
+    },
+    "zh": {
+      "title": "JPO：用于刑事裁判预测中结构化法律推理的法律策略优化",
+      "hook": "融合法条引用、罪名认定与量刑推导的强化学习法律策略优化（JPO）框架",
+      "key_takeaways": [
+        "构建多阶段结构化法律推理机制，实现案情到法条、罪名与刑期的链条化推导",
+        "采用 Juris Policy Optimization (JPO) 强化学习策略，显著增强法律逻辑一致性",
+        "有效缓解大语言模型在法律推演中的幻觉现象，提升刑事裁判预测精度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.930486"
 }

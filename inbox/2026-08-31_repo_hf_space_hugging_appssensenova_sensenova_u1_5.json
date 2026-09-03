@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "SenseNova-U1.5-8B 멀티모달 모델 데모",
+  "title_ko": "센스노바(SenseNova) U1.5 8B MoT 대화형 데모",
   "description_ko": "SenseNova의 최신 U1.5 8B 모델을 활용한 시각 및 텍스트 통합 태스크를 체험하세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,64 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_hugging_appssensenova_sensenova_u1_5",
     "source_lang": "EN",
-    "type_classification": "MODEL",
+    "type_classification": "TECH",
     "model_family": "SenseNova",
-    "category": "멀티모달 및 비전 AI",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
       "SenseNova",
-      "Multimodal",
-      "Gradio"
+      "SenseTime",
+      "8B Model",
+      "Gradio",
+      "Multimodal AI"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.7,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "SenseNova-U1.5-8B 멀티모달 모델 데모",
-        "hook": "SenseNova의 최신 U1.5 8B 모델을 활용한 시각 및 텍스트 통합 태스크를 체험하세요.",
+        "title": "센스노바(SenseNova) U1.5 8B MoT 대화형 데모",
+        "hook": "센스타임의 SenseNova U1.5 8B MoT 모델을 웹 기반 Gradio 인터페이스로 직접 체험 가능한 데모",
         "key_takeaways": [
-          "SenseNova U1.5 8B 아키텍처의 성능 검증",
-          "멀티모달 및 시각 관련 태스크 테스트 지원",
-          "Hugging Apps 스페이스를 통한 손쉬운 접근성"
+          "SenseTime의 센스노바(SenseNova) U1.5 8B 모델 기반 인터랙티브 공간",
+          "Gradio SDK를 통한 직관적인 웹 대화형 추론 테스트 환경",
+          "8B 경량화 멀티모달/추론 모델의 시각 및 텍스트 처리 능력 검증 가능"
         ]
       },
       "en": {
-        "title": "SenseNova-U1.5-8B Multimodal Model Demo",
-        "hook": "Explore integrated vision and text tasks powered by SenseNova's latest U1.5 8B model.",
+        "title": "SenseNova U1.5 8B MoT Interactive Demo Space",
+        "hook": "An interactive web demo to test SenseTime's SenseNova U1.5 8B MoT model via Gradio.",
         "key_takeaways": [
-          "Evaluate the capabilities of the SenseNova U1.5 8B architecture",
-          "Support for multimodal and vision-related task testing",
-          "Easy accessibility via Hugging Apps spaces"
+          "Interactive space showcasing SenseTime's SenseNova U1.5 8B model.",
+          "Built with Gradio SDK for seamless multi-modal reasoning and evaluation.",
+          "Provides an easy way to evaluate lightweight 8B parameter model capabilities."
         ]
       },
       "zh": {
-        "title": "SenseNova-U1.5-8B 多模态模型演示",
-        "hook": "体验搭载 SenseNova 最新 U1.5 8B 模型的视觉与文本集成处理能力。",
+        "title": "商汤 SenseNova U1.5 8B MoT 交互式 Demo",
+        "hook": "通过 Gradio 界面在线体验商汤 SenseNova U1.5 8B MoT 模型的多模态推理能力",
         "key_takeaways": [
-          "验证 SenseNova U1.5 8B 架构的性能",
-          "支持多模态及视觉相关任务的测试",
-          "通过 Hugging Apps 空间提供便捷的访问体验"
+          "展示商汤 SenseNova U1.5 8B MoT 模型的 Hugging Face 交互 Demo",
+          "基于 Gradio SDK 构建，支持快速实测多模态与推理能力",
+          "方便开发者直观评估 8B 轻量化大模型在实际应用中的表现"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:26.484155+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "SenseNova",
-    "Multimodal",
-    "Gradio"
+    "SenseTime",
+    "8B Model",
+    "Gradio",
+    "Multimodal AI"
   ],
-  "title_en": "SenseNova-U1.5-8B Multimodal Model Demo",
-  "title_zh": "SenseNova-U1.5-8B 多模态模型演示",
+  "title_en": "SenseNova U1.5 8B MoT Interactive Demo Space",
+  "title_zh": "商汤 SenseNova U1.5 8B MoT 交互式 Demo",
   "hook": "SenseNova의 최신 U1.5 8B 모델을 활용한 시각 및 텍스트 통합 태스크를 체험하세요.",
-  "hook_ko": "SenseNova의 최신 U1.5 8B 모델을 활용한 시각 및 텍스트 통합 태스크를 체험하세요.",
-  "hook_en": "Explore integrated vision and text tasks powered by SenseNova's latest U1.5 8B model.",
-  "hook_zh": "体验搭载 SenseNova 最新 U1.5 8B 模型的视觉与文本集成处理能力。",
+  "hook_ko": "센스타임의 SenseNova U1.5 8B MoT 모델을 웹 기반 Gradio 인터페이스로 직접 체험 가능한 데모",
+  "hook_en": "An interactive web demo to test SenseTime's SenseNova U1.5 8B MoT model via Gradio.",
+  "hook_zh": "通过 Gradio 界面在线体验商汤 SenseNova U1.5 8B MoT 模型的多模态推理能力",
   "description_en": "Explore integrated vision and text tasks powered by SenseNova's latest U1.5 8B model.",
   "description_zh": "体验搭载 SenseNova 最新 U1.5 8B 模型的视觉与文本集成处理能力。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "센스노바(SenseNova) U1.5 8B MoT 대화형 데모",
+      "hook": "센스타임의 SenseNova U1.5 8B MoT 모델을 웹 기반 Gradio 인터페이스로 직접 체험 가능한 데모",
+      "key_takeaways": [
+        "SenseTime의 센스노바(SenseNova) U1.5 8B 모델 기반 인터랙티브 공간",
+        "Gradio SDK를 통한 직관적인 웹 대화형 추론 테스트 환경",
+        "8B 경량화 멀티모달/추론 모델의 시각 및 텍스트 처리 능력 검증 가능"
+      ]
+    },
+    "en": {
+      "title": "SenseNova U1.5 8B MoT Interactive Demo Space",
+      "hook": "An interactive web demo to test SenseTime's SenseNova U1.5 8B MoT model via Gradio.",
+      "key_takeaways": [
+        "Interactive space showcasing SenseTime's SenseNova U1.5 8B model.",
+        "Built with Gradio SDK for seamless multi-modal reasoning and evaluation.",
+        "Provides an easy way to evaluate lightweight 8B parameter model capabilities."
+      ]
+    },
+    "zh": {
+      "title": "商汤 SenseNova U1.5 8B MoT 交互式 Demo",
+      "hook": "通过 Gradio 界面在线体验商汤 SenseNova U1.5 8B MoT 模型的多模态推理能力",
+      "key_takeaways": [
+        "展示商汤 SenseNova U1.5 8B MoT 模型的 Hugging Face 交互 Demo",
+        "基于 Gradio SDK 构建，支持快速实测多模态与推理能力",
+        "方便开发者直观评估 8B 轻量化大模型在实际应用中的表现"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.820634"
 }

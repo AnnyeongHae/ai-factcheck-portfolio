@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "MODEL",
-  "title_ko": "HuggingFace: ornith-ai/Ornith-1.5-35B-A3B",
+  "title_ko": "Hugging Face: ornith-ai/Ornith-1.5-35B-A3B 오픈소스 모델",
   "description_ko": "압도적인 다운로드 수를 기록하며 급부상 중인 35B 규모의 고성능 오픈 소스 모델입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -47,66 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_ornith_aiornith_15_35b_a3b",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Standalone",
-    "category": "대형 언어 모델",
+    "type_classification": "TECH",
+    "model_family": "Ornith / Large Language Model",
+    "category": "Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
       "Ornith",
-      "35B",
       "Text Generation",
-      "Open Weights"
+      "LLM",
+      "Hugging Face",
+      "Active Parameters"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.2,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.3,
     "multilingual": {
       "ko": {
-        "title": "HuggingFace: ornith-ai/Ornith-1.5-35B-A3B",
-        "hook": "압도적인 다운로드 수를 기록하며 급부상 중인 35B 규모의 고성능 오픈 소스 모델입니다.",
+        "title": "Hugging Face: ornith-ai/Ornith-1.5-35B-A3B 오픈소스 모델",
+        "hook": "14만 회 이상 다운로드된 고성능 35B 오픈소스 텍스트 생성 모델",
         "key_takeaways": [
-          "35B 파라미터 규모의 균형 잡힌 성능",
-          "폭발적인 커뮤니티 다운로드 및 높은 관심도 반영",
-          "일반 텍스트 생성 작업에 뛰어난 범용성 제공"
+          "147,000회 이상의 높은 다운로드 수 및 127점의 트렌딩 스코어 기록",
+          "텍스트 생성(text-generation) 파이프라인 기반의 LLM",
+          "35B 규모의 파라미터 구조로 효율적이고 정교한 자연어 처리 지원"
         ]
       },
       "en": {
-        "title": "HuggingFace: ornith-ai/Ornith-1.5-35B-A3B",
-        "hook": "A surging 35B high-performance open-source model with massive community downloads.",
+        "title": "Hugging Face: ornith-ai/Ornith-1.5-35B-A3B Open-Source LLM",
+        "hook": "A trending 35B parameter text-generation model with over 147k downloads.",
         "key_takeaways": [
-          "Balanced performance with 35B parameters",
-          "Reflects explosive community adoption and high interest",
-          "Exceptional versatility for general text generation tasks"
+          "Gaining high adoption with 147k+ downloads and a trending score of 127",
+          "Designed specifically for high-efficiency text-generation pipelines",
+          "Provides 35B scale performance suitable for advanced LLM applications"
         ]
       },
       "zh": {
-        "title": "HuggingFace: ornith-ai/Ornith-1.5-35B-A3B",
-        "hook": "凭借庞大的下载量备受瞩目的35B规模高性能开源模型。",
+        "title": "Hugging Face: ornith-ai/Ornith-1.5-35B-A3B 开源大语言模型",
+        "hook": "下载量突破 14 万的高性能 35B 参数文本生成开源模型",
         "key_takeaways": [
-          "拥有35B参数规模的均衡性能表现",
-          "反映出社区爆炸式的下载热度与关注度",
-          "为通用文本生成任务提供卓越的通用性"
+          "在 Hugging Face 平台上斩获 14.7 万+ 下载量与 127 的趋势得分",
+          "专为文本生成 (text-generation) 任务优化的语言模型",
+          "具备 35B 参数规模，兼顾高效推理与出色的生成质量"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:58.964698+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Ornith",
-    "35B",
     "Text Generation",
-    "Open Weights"
+    "LLM",
+    "Hugging Face",
+    "Active Parameters"
   ],
-  "title_en": "HuggingFace: ornith-ai/Ornith-1.5-35B-A3B",
-  "title_zh": "HuggingFace: ornith-ai/Ornith-1.5-35B-A3B",
+  "title_en": "Hugging Face: ornith-ai/Ornith-1.5-35B-A3B Open-Source LLM",
+  "title_zh": "Hugging Face: ornith-ai/Ornith-1.5-35B-A3B 开源大语言模型",
   "hook": "압도적인 다운로드 수를 기록하며 급부상 중인 35B 규모의 고성능 오픈 소스 모델입니다.",
-  "hook_ko": "압도적인 다운로드 수를 기록하며 급부상 중인 35B 규모의 고성능 오픈 소스 모델입니다.",
-  "hook_en": "A surging 35B high-performance open-source model with massive community downloads.",
-  "hook_zh": "凭借庞大的下载量备受瞩目的35B规模高性能开源模型。",
+  "hook_ko": "14만 회 이상 다운로드된 고성능 35B 오픈소스 텍스트 생성 모델",
+  "hook_en": "A trending 35B parameter text-generation model with over 147k downloads.",
+  "hook_zh": "下载量突破 14 万的高性能 35B 参数文本生成开源模型",
   "description_en": "A surging 35B high-performance open-source model with massive community downloads.",
   "description_zh": "凭借庞大的下载量备受瞩目的35B规模高性能开源模型。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Hugging Face: ornith-ai/Ornith-1.5-35B-A3B 오픈소스 모델",
+      "hook": "14만 회 이상 다운로드된 고성능 35B 오픈소스 텍스트 생성 모델",
+      "key_takeaways": [
+        "147,000회 이상의 높은 다운로드 수 및 127점의 트렌딩 스코어 기록",
+        "텍스트 생성(text-generation) 파이프라인 기반의 LLM",
+        "35B 규모의 파라미터 구조로 효율적이고 정교한 자연어 처리 지원"
+      ]
+    },
+    "en": {
+      "title": "Hugging Face: ornith-ai/Ornith-1.5-35B-A3B Open-Source LLM",
+      "hook": "A trending 35B parameter text-generation model with over 147k downloads.",
+      "key_takeaways": [
+        "Gaining high adoption with 147k+ downloads and a trending score of 127",
+        "Designed specifically for high-efficiency text-generation pipelines",
+        "Provides 35B scale performance suitable for advanced LLM applications"
+      ]
+    },
+    "zh": {
+      "title": "Hugging Face: ornith-ai/Ornith-1.5-35B-A3B 开源大语言模型",
+      "hook": "下载量突破 14 万的高性能 35B 参数文本生成开源模型",
+      "key_takeaways": [
+        "在 Hugging Face 平台上斩获 14.7 万+ 下载量与 127 的趋势得分",
+        "专为文本生成 (text-generation) 任务优化的语言模型",
+        "具备 35B 参数规模，兼顾高效推理与出色的生成质量"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.876173"
 }

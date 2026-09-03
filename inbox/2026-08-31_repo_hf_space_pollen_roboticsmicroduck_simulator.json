@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "TECH",
-  "title_ko": "Pollen Robotics 마이크로덕 시뮬레이터",
+  "title_ko": "HF Space: Pollen Robotics 마이크로덕 시뮬레이터",
   "description_ko": "Docker 기반의 가상 환경에서 소형 로봇 시스템을 테스트할 수 있는 시뮬레이터입니다.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -48,65 +48,96 @@
     "id": "2026-08-31_repo_hf_space_pollen_roboticsmicroduck_simulator",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "로보틱스 시뮬레이션",
+    "model_family": "Robotics Simulation",
+    "category": "Robotics & Embodied AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "로보틱스",
-      "시뮬레이터",
-      "Docker",
-      "오픈소스 로봇"
+      "Pollen Robotics",
+      "Robotics Simulator",
+      "Embodied AI",
+      "Microduck",
+      "Docker Simulation"
     ],
-    "recommended_tag": "💡 유용한 도구",
+    "recommended_tag": "📝 기술 참고",
     "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "Pollen Robotics 마이크로덕 시뮬레이터",
-        "hook": "Docker 기반의 가상 환경에서 소형 로봇 시스템을 테스트할 수 있는 시뮬레이터입니다.",
+        "title": "HF Space: Pollen Robotics 마이크로덕 시뮬레이터",
+        "hook": "Pollen Robotics에서 제공하는 대화형 로봇 제어 및 자율 주행 시뮬레이션 데모 환경",
         "key_takeaways": [
-          "Docker SDK를 활용한 격리되고 안정적인 실행 환경",
-          "오픈소스 로보틱스 연구 및 제어 알고리즘 테스트에 적합",
-          "시뮬레이션을 통한 하드웨어 제어 검증 용이"
+          "도커(Docker) 기반의 이식성 뛰어난 웹 시뮬레이션 환경 제공",
+          "로봇 제어 알고리즘 및 비전 기반 자율 주행의 온라인 테스트 지원",
+          "Pollen Robotics의 오픈소스 具身 AI(Embodied AI) 에코시스템 확장"
         ]
       },
       "en": {
-        "title": "Pollen Robotics Microduck Simulator",
-        "hook": "A simulator designed to test small robotic systems in a containerized Docker environment.",
+        "title": "HF Space: Pollen Robotics Microduck Simulator",
+        "hook": "An interactive robotics simulation environment for testing embodied AI models hosted by Pollen Robotics.",
         "key_takeaways": [
-          "Isolated and stable execution environment utilizing Docker SDK",
-          "Ideal for open-source robotics research and control algorithm testing",
-          "Facilitates hardware control verification via simulation"
+          "Provides a containerized Docker-based simulation setup for seamless reproducibility",
+          "Enables interactive testing and prototyping of robotics control and navigation algorithms",
+          "Expands Pollen Robotics' open-source ecosystem for embodied AI research"
         ]
       },
       "zh": {
-        "title": "Pollen Robotics 微型鸭子模拟器",
-        "hook": "一个可在容器化 Docker 环境中测试小型机器人系统的模拟器。",
+        "title": "HF Space: Pollen Robotics Microduck 机器人仿真器",
+        "hook": "由 Pollen Robotics 推出的基于 Hugging Face 的交互式机器人控制与仿真测试环境",
         "key_takeaways": [
-          "利用 Docker SDK 提供隔离且稳定的运行环境",
-          "非常适合开源机器人研究与控制算法测试",
-          "通过模拟便于验证硬件控制"
+          "基于 Docker 容器化的高可复现性仿真环境",
+          "支持机器人控制算法与视觉导航模型的在线交互测试",
+          "进一步丰富 Pollen Robotics 在开源具身智能领域的生态布局"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:02.163519+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "로보틱스",
-    "시뮬레이터",
-    "Docker",
-    "오픈소스 로봇"
+    "Pollen Robotics",
+    "Robotics Simulator",
+    "Embodied AI",
+    "Microduck",
+    "Docker Simulation"
   ],
-  "title_en": "Pollen Robotics Microduck Simulator",
-  "title_zh": "Pollen Robotics 微型鸭子模拟器",
+  "title_en": "HF Space: Pollen Robotics Microduck Simulator",
+  "title_zh": "HF Space: Pollen Robotics Microduck 机器人仿真器",
   "hook": "Docker 기반의 가상 환경에서 소형 로봇 시스템을 테스트할 수 있는 시뮬레이터입니다.",
-  "hook_ko": "Docker 기반의 가상 환경에서 소형 로봇 시스템을 테스트할 수 있는 시뮬레이터입니다.",
-  "hook_en": "A simulator designed to test small robotic systems in a containerized Docker environment.",
-  "hook_zh": "一个可在容器化 Docker 环境中测试小型机器人系统的模拟器。",
+  "hook_ko": "Pollen Robotics에서 제공하는 대화형 로봇 제어 및 자율 주행 시뮬레이션 데모 환경",
+  "hook_en": "An interactive robotics simulation environment for testing embodied AI models hosted by Pollen Robotics.",
+  "hook_zh": "由 Pollen Robotics 推出的基于 Hugging Face 的交互式机器人控制与仿真测试环境",
   "description_en": "A simulator designed to test small robotic systems in a containerized Docker environment.",
   "description_zh": "一个可在容器化 Docker 环境中测试小型机器人系统的模拟器。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: Pollen Robotics 마이크로덕 시뮬레이터",
+      "hook": "Pollen Robotics에서 제공하는 대화형 로봇 제어 및 자율 주행 시뮬레이션 데모 환경",
+      "key_takeaways": [
+        "도커(Docker) 기반의 이식성 뛰어난 웹 시뮬레이션 환경 제공",
+        "로봇 제어 알고리즘 및 비전 기반 자율 주행의 온라인 테스트 지원",
+        "Pollen Robotics의 오픈소스 具身 AI(Embodied AI) 에코시스템 확장"
+      ]
+    },
+    "en": {
+      "title": "HF Space: Pollen Robotics Microduck Simulator",
+      "hook": "An interactive robotics simulation environment for testing embodied AI models hosted by Pollen Robotics.",
+      "key_takeaways": [
+        "Provides a containerized Docker-based simulation setup for seamless reproducibility",
+        "Enables interactive testing and prototyping of robotics control and navigation algorithms",
+        "Expands Pollen Robotics' open-source ecosystem for embodied AI research"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: Pollen Robotics Microduck 机器人仿真器",
+      "hook": "由 Pollen Robotics 推出的基于 Hugging Face 的交互式机器人控制与仿真测试环境",
+      "key_takeaways": [
+        "基于 Docker 容器化的高可复现性仿真环境",
+        "支持机器人控制算法与视觉导航模型的在线交互测试",
+        "进一步丰富 Pollen Robotics 在开源具身智能领域的生态布局"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.835950"
 }

@@ -33,68 +33,99 @@
     "id": "2026-09-01_repo_arxiv_sun_persistent_programs_for_language_gr",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "로보틱스 및 제어 학습",
+    "model_family": "Embodied AI / Neuro-Symbolic",
+    "category": "Robotics & AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "Robotics",
-      "Control-to-Learning",
-      "Language-Grounded",
-      "Persistent Programs"
+      "Embodied AI",
+      "Language-Grounded Control",
+      "Sim-to-Real",
+      "Long-Horizon Manipulation",
+      "Program Synthesis"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.1,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
     "multilingual": {
       "ko": {
-        "title": "언어 기반 제어-학습-실세계 정책을 위한 지속형 프로그램(SUN)",
-        "hook": "모델 기반 제어와 학습된 정책 사이의 간극을 메우는 새로운 로봇 제어 프레임워크를 확인하세요.",
+        "title": "SUN: 언어 기반 제어-학습-실제 로봇 정책을 위한 지속성 프로그램",
+        "hook": "모델 기반 제어와 학습 정책을 지속성 프로그램 구조로 결합하여 장기 로봇 조작 과제의 Sim-to-Real 성능 극대화",
         "key_takeaways": [
-          "장기 조작(long-horizon manipulation) 작업에서의 제어와 학습 통합",
-          "언어 기반 명령어에 대한 실세계 정책 적용력 향상",
-          "지속형 프로그램(Persistent Programs)을 통한 제어 목적의 구조화"
+          "모델 기반 제어 방식의 명확성과 학습 기반 정책의 반응성을 결합한 구조 제시",
+          "자연어 지시어를 바탕으로 복잡하고 긴 호라이즌(Long-horizon)의 로봇 조작 task 수행",
+          "시뮬레이션 기반 제어-학습 프로세스를 실세계 로봇(Sim-to-Real)으로 안정적으로 전이"
         ]
       },
       "en": {
         "title": "SUN: Persistent Programs For Language-Grounded Control-to-Learning-to-Real Policies",
-        "hook": "Discover a novel framework bridging model-based control and learned policies for long-horizon robot manipulation.",
+        "hook": "Bridging model-based control and reactive learned policies via persistent programs for robust long-horizon robotic manipulation.",
         "key_takeaways": [
-          "Bridges model-based control and learned policies in long-horizon manipulation",
-          "Enhances language-grounded control and real-world policy execution",
-          "Introduces persistent programs to structure control objectives effectively"
+          "Resolves the disagreement between explicit model-based control objectives and amortized reactive policies.",
+          "Enables persistent language-grounded program execution for long-horizon robot manipulation tasks.",
+          "Facilitates smooth Control-to-Learning-to-Real transfer in embodied robotics."
         ]
       },
       "zh": {
-        "title": "SUN：面向语言 grounding 的控制到学习到真实世界策略的持久程序",
-        "hook": "探索弥合模型化控制与学习型策略差距的新型机器人长期操作框架。",
+        "title": "SUN：面向语言接地“控制-学习-真实”策略的持久化程序",
+        "hook": "通过持久化程序弥合模型控制与反应式学习策略，突破长程机器人操控的 Sim-to-Real 瓶颈",
         "key_takeaways": [
-          "弥合了长期操作中基于模型的控制与学习策略",
-          "增强了语言 grounded 的真实世界策略执行能力",
-          "通过持久程序有效地结构化控制目标"
+          "融合基于模型的显式控制与数据驱动的反应式策略优势",
+          "支持基于自然语言指令的长程（Long-horizon）复杂机器人操控任务",
+          "实现了从控制到学习再到真实环境（Control-to-Learning-to-Real）的高效迁移"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:18.803828+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Robotics",
-    "Control-to-Learning",
-    "Language-Grounded",
-    "Persistent Programs"
+    "Embodied AI",
+    "Language-Grounded Control",
+    "Sim-to-Real",
+    "Long-Horizon Manipulation",
+    "Program Synthesis"
   ],
-  "title_ko": "언어 기반 제어-학습-실세계 정책을 위한 지속형 프로그램(SUN)",
+  "title_ko": "SUN: 언어 기반 제어-학습-실제 로봇 정책을 위한 지속성 프로그램",
   "title_en": "SUN: Persistent Programs For Language-Grounded Control-to-Learning-to-Real Policies",
-  "title_zh": "SUN：面向语言 grounding 的控制到学习到真实世界策略的持久程序",
+  "title_zh": "SUN：面向语言接地“控制-学习-真实”策略的持久化程序",
   "hook": "모델 기반 제어와 학습된 정책 사이의 간극을 메우는 새로운 로봇 제어 프레임워크를 확인하세요.",
-  "hook_ko": "모델 기반 제어와 학습된 정책 사이의 간극을 메우는 새로운 로봇 제어 프레임워크를 확인하세요.",
-  "hook_en": "Discover a novel framework bridging model-based control and learned policies for long-horizon robot manipulation.",
-  "hook_zh": "探索弥合模型化控制与学习型策略差距的新型机器人长期操作框架。",
+  "hook_ko": "모델 기반 제어와 학습 정책을 지속성 프로그램 구조로 결합하여 장기 로봇 조작 과제의 Sim-to-Real 성능 극대화",
+  "hook_en": "Bridging model-based control and reactive learned policies via persistent programs for robust long-horizon robotic manipulation.",
+  "hook_zh": "通过持久化程序弥合模型控制与反应式学习策略，突破长程机器人操控的 Sim-to-Real 瓶颈",
   "description_ko": "모델 기반 제어와 학습된 정책 사이의 간극을 메우는 새로운 로봇 제어 프레임워크를 확인하세요.",
   "description_en": "Discover a novel framework bridging model-based control and learned policies for long-horizon robot manipulation.",
   "description_zh": "探索弥合模型化控制与学习型策略差距的新型机器人长期操作框架。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "SUN: 언어 기반 제어-학습-실제 로봇 정책을 위한 지속성 프로그램",
+      "hook": "모델 기반 제어와 학습 정책을 지속성 프로그램 구조로 결합하여 장기 로봇 조작 과제의 Sim-to-Real 성능 극대화",
+      "key_takeaways": [
+        "모델 기반 제어 방식의 명확성과 학습 기반 정책의 반응성을 결합한 구조 제시",
+        "자연어 지시어를 바탕으로 복잡하고 긴 호라이즌(Long-horizon)의 로봇 조작 task 수행",
+        "시뮬레이션 기반 제어-학습 프로세스를 실세계 로봇(Sim-to-Real)으로 안정적으로 전이"
+      ]
+    },
+    "en": {
+      "title": "SUN: Persistent Programs For Language-Grounded Control-to-Learning-to-Real Policies",
+      "hook": "Bridging model-based control and reactive learned policies via persistent programs for robust long-horizon robotic manipulation.",
+      "key_takeaways": [
+        "Resolves the disagreement between explicit model-based control objectives and amortized reactive policies.",
+        "Enables persistent language-grounded program execution for long-horizon robot manipulation tasks.",
+        "Facilitates smooth Control-to-Learning-to-Real transfer in embodied robotics."
+      ]
+    },
+    "zh": {
+      "title": "SUN：面向语言接地“控制-学习-真实”策略的持久化程序",
+      "hook": "通过持久化程序弥合模型控制与反应式学习策略，突破长程机器人操控的 Sim-to-Real 瓶颈",
+      "key_takeaways": [
+        "融合基于模型的显式控制与数据驱动的反应式策略优势",
+        "支持基于自然语言指令的长程（Long-horizon）复杂机器人操控任务",
+        "实现了从控制到学习再到真实环境（Control-to-Learning-to-Real）的高效迁移"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.945146"
 }

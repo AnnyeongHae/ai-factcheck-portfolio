@@ -33,66 +33,99 @@
     "id": "2026-09-01_repo_arxiv_cross_lingual_functional_vectors_for_em",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 내부 조작 및 감성 분석",
+    "model_family": "LLM Steering / Representation Engineering",
+    "category": "Natural Language Processing",
     "programming_lang": "Python",
     "root_keywords": [
-      "Functional Vectors",
+      "Function Vectors",
+      "Cross-lingual Transfer",
       "Emotion Detection",
-      "Cross-lingual LLM Steering"
+      "LLM Steering",
+      "Representation Engineering"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "대형 언어 모델의 감성 검출을 위한 언어 간 기능 벡터",
-        "hook": "작업별 잠재 방향 표현을 주입하여 LLM의 감성 검출 동작을 언어 경계를 넘어 제어하는 기법입니다.",
+        "title": "대형 언어 모델의 감정 탐지를 위한 다국어 기능 벡터(Cross-lingual Functional Vectors)",
+        "hook": "LLM 내부 잠재 공간의 기능 벡터를 활용하여 다국어 환경에서 별도 파인튜닝 없이 감정 탐지 성능을 제어하는 연구",
         "key_takeaways": [
-          "기능 벡터(FV)를 활용한 LLM 행동 제어 메커니즘",
-          "다양한 언어 간 감성 검출 성능의 일관성 확보",
-          "잠재 공간 조작을 통한 모델 응답 유도"
+          "기능 벡터(Function Vectors)를 이용한 LLM 액티베이션 스티어링 기법 적용",
+          "감정 표현 잠재 공간의 언어 간 전이 가능성(Cross-lingual Transferability) 검증",
+          "모델 파라미터 업데이트 없이 잠재 표현 주입만으로 다국어 태스크 성능 향상"
         ]
       },
       "en": {
         "title": "Cross-lingual Functional Vectors for Emotion Detection in Large Language Models",
-        "hook": "Steer LLM behavior for cross-lingual emotion detection by injecting task-specific latent direction representations.",
+        "hook": "Steering LLM emotion detection across multiple languages by injecting task-specific latent function vectors without model fine-tuning.",
         "key_takeaways": [
-          "Leverages functional vectors (FVs) to steer LLM behavior",
-          "Ensures consistent cross-lingual emotion detection performance",
-          "Directs model responses through latent space manipulation"
+          "Leverages Function Vectors (FVs) for task-specific activation steering in LLMs.",
+          "Demonstrates the cross-lingual transferability of latent emotion representations.",
+          "Enables zero-shot or low-resource task adaptation without altering base model weights."
         ]
       },
       "zh": {
-        "title": "大语言模型中用于情感检测的跨语言功能向量",
-        "hook": "通过注入特定任务的潜在方向表示，跨语言精准引导和控制LLM的情感检测行为。",
+        "title": "用于大语言模型情感检测的跨语言功能向量",
+        "hook": "通过注入特定任务的潜层功能向量，在无需全量微调的情况下实现大模型的跨语言情感检测控制。",
         "key_takeaways": [
-          "利用功能向量(FVs)控制大语言模型行为",
-          "确保跨语言情感检测性能的一致性",
-          "通过潜在空间操作引导模型响应"
+          "利用功能向量（Function Vectors）对 LLM 进行激活引导与行为控制",
+          "验证了情感检测潜在表示在不同语言之间的可迁移性",
+          "无需更新模型权重，仅凭潜层向量注入即可提升跨语言任务表现"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:09.952243+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Functional Vectors",
+    "Function Vectors",
+    "Cross-lingual Transfer",
     "Emotion Detection",
-    "Cross-lingual LLM Steering"
+    "LLM Steering",
+    "Representation Engineering"
   ],
-  "title_ko": "대형 언어 모델의 감성 검출을 위한 언어 간 기능 벡터",
+  "title_ko": "대형 언어 모델의 감정 탐지를 위한 다국어 기능 벡터(Cross-lingual Functional Vectors)",
   "title_en": "Cross-lingual Functional Vectors for Emotion Detection in Large Language Models",
-  "title_zh": "大语言模型中用于情感检测的跨语言功能向量",
+  "title_zh": "用于大语言模型情感检测的跨语言功能向量",
   "hook": "작업별 잠재 방향 표현을 주입하여 LLM의 감성 검출 동작을 언어 경계를 넘어 제어하는 기법입니다.",
-  "hook_ko": "작업별 잠재 방향 표현을 주입하여 LLM의 감성 검출 동작을 언어 경계를 넘어 제어하는 기법입니다.",
-  "hook_en": "Steer LLM behavior for cross-lingual emotion detection by injecting task-specific latent direction representations.",
-  "hook_zh": "通过注入特定任务的潜在方向表示，跨语言精准引导和控制LLM的情感检测行为。",
+  "hook_ko": "LLM 내부 잠재 공간의 기능 벡터를 활용하여 다국어 환경에서 별도 파인튜닝 없이 감정 탐지 성능을 제어하는 연구",
+  "hook_en": "Steering LLM emotion detection across multiple languages by injecting task-specific latent function vectors without model fine-tuning.",
+  "hook_zh": "通过注入特定任务的潜层功能向量，在无需全量微调的情况下实现大模型的跨语言情感检测控制。",
   "description_ko": "작업별 잠재 방향 표현을 주입하여 LLM의 감성 검출 동작을 언어 경계를 넘어 제어하는 기법입니다.",
   "description_en": "Steer LLM behavior for cross-lingual emotion detection by injecting task-specific latent direction representations.",
   "description_zh": "通过注入特定任务的潜在方向表示，跨语言精准引导和控制LLM的情感检测行为。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "대형 언어 모델의 감정 탐지를 위한 다국어 기능 벡터(Cross-lingual Functional Vectors)",
+      "hook": "LLM 내부 잠재 공간의 기능 벡터를 활용하여 다국어 환경에서 별도 파인튜닝 없이 감정 탐지 성능을 제어하는 연구",
+      "key_takeaways": [
+        "기능 벡터(Function Vectors)를 이용한 LLM 액티베이션 스티어링 기법 적용",
+        "감정 표현 잠재 공간의 언어 간 전이 가능성(Cross-lingual Transferability) 검증",
+        "모델 파라미터 업데이트 없이 잠재 표현 주입만으로 다국어 태스크 성능 향상"
+      ]
+    },
+    "en": {
+      "title": "Cross-lingual Functional Vectors for Emotion Detection in Large Language Models",
+      "hook": "Steering LLM emotion detection across multiple languages by injecting task-specific latent function vectors without model fine-tuning.",
+      "key_takeaways": [
+        "Leverages Function Vectors (FVs) for task-specific activation steering in LLMs.",
+        "Demonstrates the cross-lingual transferability of latent emotion representations.",
+        "Enables zero-shot or low-resource task adaptation without altering base model weights."
+      ]
+    },
+    "zh": {
+      "title": "用于大语言模型情感检测的跨语言功能向量",
+      "hook": "通过注入特定任务的潜层功能向量，在无需全量微调的情况下实现大模型的跨语言情感检测控制。",
+      "key_takeaways": [
+        "利用功能向量（Function Vectors）对 LLM 进行激活引导与行为控制",
+        "验证了情感检测潜在表示在不同语言之间的可迁移性",
+        "无需更新模型权重，仅凭潜层向量注入即可提升跨语言任务表现"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.924873"
 }

@@ -36,66 +36,97 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_hacker_news_ai_is_making_back_office_work_ext",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "업계 동향 및 자동화",
+    "type_classification": "TECH",
+    "model_family": "LLM Application",
+    "category": "AI Automation",
     "programming_lang": "General",
     "root_keywords": [
-      "Back-office",
-      "Automation",
-      "AI Impact"
+      "AI Automation",
+      "Back-Office",
+      "Future of Work",
+      "Enterprise AI"
     ],
     "recommended_tag": "📝 기술 참고",
     "worth_score": 3.0,
     "multilingual": {
       "ko": {
-        "title": "AI가 백오피스 업무를 빠르게 소멸시키는 방식",
-        "hook": "생성형 AI와 자동화가 기업의 백오피스 생태계와 직무 구조를 어떻게 재편하고 있는지 확인하세요.",
+        "title": "AI로 인해 백오피스 업무가 사라지고 있다",
+        "hook": "인공지능 기반 자동화가 데이터 입력, 문서 처리 등 기업의 백오피스 레이어를 빠르게 대체하고 있는 현상 분석.",
         "key_takeaways": [
-          "전통적인 백오피스 업무의 급격한 자동화 진행",
-          "기업 효율성 증대와 인력 구조 변화의 명암",
-          "AI 에이전트 도입에 따른 기업 운영 방식의 진화"
+          "LLM 및 에이전틱 워크플로우의 발전으로 데이터 엔트리, 문서 분류 등 전통적인 백오피스 역할의 소멸 가속화",
+          "단순 비용 절감을 넘어 프로세스 전체를 자동화하는 인텔리전트 워크플로우 시스템 구축 트렌드 확산",
+          "자동화 도입 시 데이터 정확도 검증 시스템과 사람의 개입(Human-in-the-loop) 설계의 중요성 증대"
         ]
       },
       "en": {
         "title": "AI Is Making Back-Office Work Extinct",
-        "hook": "Understand how generative AI and automation are reshaping enterprise back-office operations and jobs.",
+        "hook": "An examination of how AI-driven automation is rapidly replacing traditional enterprise back-office functions like data entry and administration.",
         "key_takeaways": [
-          "Rapid automation of traditional back-office tasks",
-          "The dual impact of increased efficiency and shifting workforce structures",
-          "Evolution of enterprise operations driven by AI agents"
+          "Advancements in LLMs and agentic workflows are accelerating the obsolescence of traditional back-office roles.",
+          "Enterprise tech adoption is shifting from incremental task automation to end-to-end intelligent workflow replacements.",
+          "Key system implementation challenges focus on data validation pipelines and human-in-the-loop architecture."
         ]
       },
       "zh": {
-        "title": "AI正在让中后台工作走向消亡",
-        "hook": "了解生成式AI与自动化技术如何重塑企业中后台运营与就业结构。",
+        "title": "人工智能正在让后台文职工作走向消亡",
+        "hook": "分析人工智能驱动的自动化如何迅速取代数据录入和行政等传统企业后台职能。",
         "key_takeaways": [
-          "传统中后台任务的快速自动化",
-          "效率提升与劳动力结构调整的双重影响",
-          "AI代理驱动的企业运营模式演进"
+          "大语言模型与智能体工作流的发展正在加速淘汰传统后台职位",
+          "企业技术应用正在从单项任务自动化转向端到端智能工作流重构",
+          "系统落地中的关键挑战在于数据校验流水线与人机协同（Human-in-the-loop）机制的构建"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:54:42.438123+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
-    "Back-office",
-    "Automation",
-    "AI Impact"
+    "AI Automation",
+    "Back-Office",
+    "Future of Work",
+    "Enterprise AI"
   ],
-  "title_ko": "AI가 백오피스 업무를 빠르게 소멸시키는 방식",
+  "title_ko": "AI로 인해 백오피스 업무가 사라지고 있다",
   "title_en": "AI Is Making Back-Office Work Extinct",
-  "title_zh": "AI正在让中后台工作走向消亡",
+  "title_zh": "人工智能正在让后台文职工作走向消亡",
   "hook": "생성형 AI와 자동화가 기업의 백오피스 생태계와 직무 구조를 어떻게 재편하고 있는지 확인하세요.",
-  "hook_ko": "생성형 AI와 자동화가 기업의 백오피스 생태계와 직무 구조를 어떻게 재편하고 있는지 확인하세요.",
-  "hook_en": "Understand how generative AI and automation are reshaping enterprise back-office operations and jobs.",
-  "hook_zh": "了解生成式AI与自动化技术如何重塑企业中后台运营与就业结构。",
+  "hook_ko": "인공지능 기반 자동화가 데이터 입력, 문서 처리 등 기업의 백오피스 레이어를 빠르게 대체하고 있는 현상 분석.",
+  "hook_en": "An examination of how AI-driven automation is rapidly replacing traditional enterprise back-office functions like data entry and administration.",
+  "hook_zh": "分析人工智能驱动的自动化如何迅速取代数据录入和行政等传统企业后台职能。",
   "description_ko": "생성형 AI와 자동화가 기업의 백오피스 생태계와 직무 구조를 어떻게 재편하고 있는지 확인하세요.",
   "description_en": "Understand how generative AI and automation are reshaping enterprise back-office operations and jobs.",
   "description_zh": "了解生成式AI与自动化技术如何重塑企业中后台运营与就业结构。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "AI로 인해 백오피스 업무가 사라지고 있다",
+      "hook": "인공지능 기반 자동화가 데이터 입력, 문서 처리 등 기업의 백오피스 레이어를 빠르게 대체하고 있는 현상 분석.",
+      "key_takeaways": [
+        "LLM 및 에이전틱 워크플로우의 발전으로 데이터 엔트리, 문서 분류 등 전통적인 백오피스 역할의 소멸 가속화",
+        "단순 비용 절감을 넘어 프로세스 전체를 자동화하는 인텔리전트 워크플로우 시스템 구축 트렌드 확산",
+        "자동화 도입 시 데이터 정확도 검증 시스템과 사람의 개입(Human-in-the-loop) 설계의 중요성 증대"
+      ]
+    },
+    "en": {
+      "title": "AI Is Making Back-Office Work Extinct",
+      "hook": "An examination of how AI-driven automation is rapidly replacing traditional enterprise back-office functions like data entry and administration.",
+      "key_takeaways": [
+        "Advancements in LLMs and agentic workflows are accelerating the obsolescence of traditional back-office roles.",
+        "Enterprise tech adoption is shifting from incremental task automation to end-to-end intelligent workflow replacements.",
+        "Key system implementation challenges focus on data validation pipelines and human-in-the-loop architecture."
+      ]
+    },
+    "zh": {
+      "title": "人工智能正在让后台文职工作走向消亡",
+      "hook": "分析人工智能驱动的自动化如何迅速取代数据录入和行政等传统企业后台职能。",
+      "key_takeaways": [
+        "大语言模型与智能体工作流的发展正在加速淘汰传统后台职位",
+        "企业技术应用正在从单项任务自动化转向端到端智能工作流重构",
+        "系统落地中的关键挑战在于数据校验流水线与人机协同（Human-in-the-loop）机制的构建"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.066071"
 }

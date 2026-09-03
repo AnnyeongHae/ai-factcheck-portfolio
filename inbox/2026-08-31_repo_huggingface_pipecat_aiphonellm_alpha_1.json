@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "MODEL",
-  "title_ko": "HuggingFace: pipecat-ai/phonellm-alpha-1",
+  "title_ko": "Hugging Face: pipecat-ai/phonellm-alpha-1",
   "description_ko": "전화 및 실시간 음성 상호작용에 특화된 차세대 대화형 언어 모델입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -47,66 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_pipecat_aiphonellm_alpha_1",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Standalone",
-    "category": "음성 및 대화형 LLM",
+    "type_classification": "TECH",
+    "model_family": "PhoneLLM",
+    "category": "Voice AI / Conversational AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "PhoneLLM",
-      "Voice Agent",
-      "Real-time AI",
-      "Pipecat"
+      "pipecat",
+      "phonellm",
+      "voice-ai",
+      "conversational-agent",
+      "text-generation"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.5,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.3,
     "multilingual": {
       "ko": {
-        "title": "HuggingFace: pipecat-ai/phonellm-alpha-1",
-        "hook": "전화 및 실시간 음성 상호작용에 특화된 차세대 대화형 언어 모델입니다.",
+        "title": "Hugging Face: pipecat-ai/phonellm-alpha-1",
+        "hook": "실시간 음성 대화 및 전화 에이전트에 최적화된 Pipecat의 특화 LLM 알파 버전",
         "key_takeaways": [
-          "실시간 음성 에이전트 및 폰트래픽 연동 최적화",
-          "Pipecat 에코시스템과의 강력한 호환성",
-          "텍스트 생성 파이프라인 기반의 자연스러운 대화 흐름"
+          "음성 AI 프레임워크 Pipecat 개발사가 공개한 음성 및 전화 에이전트 전용 LLM",
+          "실시간 음성 파이프라인 연동 시 저지연 반응성과 자연스러운 대화 흐름 지원",
+          "Hugging Face text-generation 파이프라인 지원으로 빠른 텔레포니 에이전트 구축 가능"
         ]
       },
       "en": {
-        "title": "HuggingFace: pipecat-ai/phonellm-alpha-1",
-        "hook": "Next-gen conversational language model optimized for phone and real-time voice interactions.",
+        "title": "Hugging Face: pipecat-ai/phonellm-alpha-1",
+        "hook": "An alpha LLM release optimized for real-time voice agents and telephony conversational pipelines by Pipecat AI",
         "key_takeaways": [
-          "Optimized for real-time voice agents and telephony integrations",
-          "Seamless compatibility with the Pipecat ecosystem",
-          "Natural conversation flow powered by text generation pipeline"
+          "Specialized open-source LLM tailored for real-time voice agents and telephony integration",
+          "Optimized for low latency and fluid conversational turn-taking in voice AI workflows",
+          "Fully compatible with Hugging Face text-generation pipelines with rapidly growing adoption"
         ]
       },
       "zh": {
-        "title": "HuggingFace: pipecat-ai/phonellm-alpha-1",
-        "hook": "专为电话及实时语音交互深度优化的次世代对话语言模型。",
+        "title": "Hugging Face: pipecat-ai/phonellm-alpha-1",
+        "hook": "Pipecat 推出专为实时语音对话和电话 Agent 优化的 Alpha 版语言模型",
         "key_takeaways": [
-          "针对实时语音代理与电话通信集成进行优化",
-          "与 Pipecat 生态系统保持高度兼容",
-          "基于文本生成管道带来流畅自然的对话体验"
+          "由语音 AI 框架 Pipecat 团队打造，专为电话与语音交互场景设计的 LLM",
+          "针对实时语音管线的低延迟响应与自然轮流说话（Turn-taking）特点进行了深度优化",
+          "无缝兼容 Hugging Face 文本生成管线，为实时 Voice Agent 提供强大底层支持"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:58.963654+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "PhoneLLM",
-    "Voice Agent",
-    "Real-time AI",
-    "Pipecat"
+    "pipecat",
+    "phonellm",
+    "voice-ai",
+    "conversational-agent",
+    "text-generation"
   ],
-  "title_en": "HuggingFace: pipecat-ai/phonellm-alpha-1",
-  "title_zh": "HuggingFace: pipecat-ai/phonellm-alpha-1",
+  "title_en": "Hugging Face: pipecat-ai/phonellm-alpha-1",
+  "title_zh": "Hugging Face: pipecat-ai/phonellm-alpha-1",
   "hook": "전화 및 실시간 음성 상호작용에 특화된 차세대 대화형 언어 모델입니다.",
-  "hook_ko": "전화 및 실시간 음성 상호작용에 특화된 차세대 대화형 언어 모델입니다.",
-  "hook_en": "Next-gen conversational language model optimized for phone and real-time voice interactions.",
-  "hook_zh": "专为电话及实时语音交互深度优化的次世代对话语言模型。",
+  "hook_ko": "실시간 음성 대화 및 전화 에이전트에 최적화된 Pipecat의 특화 LLM 알파 버전",
+  "hook_en": "An alpha LLM release optimized for real-time voice agents and telephony conversational pipelines by Pipecat AI",
+  "hook_zh": "Pipecat 推出专为实时语音对话和电话 Agent 优化的 Alpha 版语言模型",
   "description_en": "Next-gen conversational language model optimized for phone and real-time voice interactions.",
   "description_zh": "专为电话及实时语音交互深度优化的次世代对话语言模型。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Hugging Face: pipecat-ai/phonellm-alpha-1",
+      "hook": "실시간 음성 대화 및 전화 에이전트에 최적화된 Pipecat의 특화 LLM 알파 버전",
+      "key_takeaways": [
+        "음성 AI 프레임워크 Pipecat 개발사가 공개한 음성 및 전화 에이전트 전용 LLM",
+        "실시간 음성 파이프라인 연동 시 저지연 반응성과 자연스러운 대화 흐름 지원",
+        "Hugging Face text-generation 파이프라인 지원으로 빠른 텔레포니 에이전트 구축 가능"
+      ]
+    },
+    "en": {
+      "title": "Hugging Face: pipecat-ai/phonellm-alpha-1",
+      "hook": "An alpha LLM release optimized for real-time voice agents and telephony conversational pipelines by Pipecat AI",
+      "key_takeaways": [
+        "Specialized open-source LLM tailored for real-time voice agents and telephony integration",
+        "Optimized for low latency and fluid conversational turn-taking in voice AI workflows",
+        "Fully compatible with Hugging Face text-generation pipelines with rapidly growing adoption"
+      ]
+    },
+    "zh": {
+      "title": "Hugging Face: pipecat-ai/phonellm-alpha-1",
+      "hook": "Pipecat 推出专为实时语音对话和电话 Agent 优化的 Alpha 版语言模型",
+      "key_takeaways": [
+        "由语音 AI 框架 Pipecat 团队打造，专为电话与语音交互场景设计的 LLM",
+        "针对实时语音管线的低延迟响应与自然轮流说话（Turn-taking）特点进行了深度优化",
+        "无缝兼容 Hugging Face 文本生成管线，为实时 Voice Agent 提供强大底层支持"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.879301"
 }

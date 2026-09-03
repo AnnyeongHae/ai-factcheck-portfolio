@@ -23,7 +23,7 @@
     "Fine-tune / Uncensored"
   ],
   "category_type": "MODEL",
-  "title_ko": "Qwen3.8-27B-Uncensored-HauhauCS MTP-GGUF 모델",
+  "title_ko": "HauhauCS/Qwen3.8-27B-Uncensored - MTP 적용 GGUF 모델",
   "description_ko": "공격적인 MTP 최적화와 검열 해제가 적용된 고성능 27B 모델로 로컬 추론 성능을 극대화하세요.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "HauhauCS",
@@ -48,64 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_hauhaucsqwen38_27b_uncensored_hau",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "LLM 언어 모델 및 검열 해제 가중치",
-    "programming_lang": "Python",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "Multimodal AI",
+    "programming_lang": "C++",
     "root_keywords": [
-      "Qwen-3.8",
+      "Qwen",
+      "GGUF",
       "Uncensored",
-      "MTP-GGUF"
+      "Multi-Token Prediction",
+      "Image-Text-to-Text"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.5,
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "Qwen3.8-27B-Uncensored-HauhauCS MTP-GGUF 모델",
-        "hook": "공격적인 MTP 최적화와 검열 해제가 적용된 고성능 27B 모델로 로컬 추론 성능을 극대화하세요.",
+        "title": "HauhauCS/Qwen3.8-27B-Uncensored - MTP 적용 GGUF 모델",
+        "hook": "120만회 이상 다운로드된 Qwen 기반 검열 해제 멀티모달 GGUF 양자화 모델",
         "key_takeaways": [
-          "대규모 다운로드 및 높은 좋아요를 기록하며 검증된 모델",
-          "Aggressive MTP 적용으로 추론 속도 및 효율성 강화",
-          "완전한 검열 해제(Uncensored) 버전"
+          "Qwen 27B 멀티모달 비전-언어 모델 기반의 검열 해제(Uncensored) 버전",
+          "공격적인 MTP(Multi-Token Prediction) 기법과 GGUF 양자화를 통한 로컬 추론 속도 최적화",
+          "이미지 및 텍스트 입력을 처리하는 비전-텍스트 생성(Image-Text-to-Text) 파이프라인 지원"
         ]
       },
       "en": {
-        "title": "Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
-        "hook": "Maximize local inference performance with this highly popular, aggressively optimized, and fully uncensored 27B model.",
+        "title": "HauhauCS/Qwen3.8-27B-Uncensored - Aggressive MTP GGUF Quant",
+        "hook": "High-throughput uncensored multimodal model optimized with aggressive MTP and GGUF quantization.",
         "key_takeaways": [
-          "Proven popularity with massive downloads and community likes",
-          "Enhanced inference speed and efficiency via aggressive MTP",
-          "Fully uncensored behavior for unrestricted use cases"
+          "Uncensored fine-tune built on the Qwen 27B vision-language architecture.",
+          "Combines Aggressive Multi-Token Prediction (MTP) and GGUF format for fast local inference.",
+          "Supports image-text-to-text tasks with over 1.2M community downloads."
         ]
       },
       "zh": {
-        "title": "Qwen3.8-27B-Uncensored-HauhauCS 激进 MTP-GGUF 模型",
-        "hook": "利用高下载量与社区好评的去限制 27B 模型，借助激进 MTP 优化本地推理。",
+        "title": "HauhauCS/Qwen3.8-27B-Uncensored - 激进 MTP GGUF 量化模型",
+        "hook": "突破 120 万下载量的 Qwen 无过滤多模态 GGUF 量化模型，结合 MTP 加速推理",
         "key_takeaways": [
-          "备受社区青睐，下载量与点赞数极高",
-          "通过激进 MTP 优化提升推理速度与效率",
-          "完全解除内容限制的无约束版本"
+          "基于 Qwen 27B 视觉语言架构的无过滤（Uncensored）微调版本",
+          "融合激进多 Token 预测（MTP）与 GGUF 量化，大幅提升边缘/本地推理效率",
+          "支持图文到文本（Image-Text-to-Text）的多模态交互与任务生成"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:33:36.548839+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "C++",
   "root_keywords": [
-    "Qwen-3.8",
+    "Qwen",
+    "GGUF",
     "Uncensored",
-    "MTP-GGUF"
+    "Multi-Token Prediction",
+    "Image-Text-to-Text"
   ],
-  "title_en": "Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
-  "title_zh": "Qwen3.8-27B-Uncensored-HauhauCS 激进 MTP-GGUF 模型",
+  "title_en": "HauhauCS/Qwen3.8-27B-Uncensored - Aggressive MTP GGUF Quant",
+  "title_zh": "HauhauCS/Qwen3.8-27B-Uncensored - 激进 MTP GGUF 量化模型",
   "hook": "공격적인 MTP 최적화와 검열 해제가 적용된 고성능 27B 모델로 로컬 추론 성능을 극대화하세요.",
-  "hook_ko": "공격적인 MTP 최적화와 검열 해제가 적용된 고성능 27B 모델로 로컬 추론 성능을 극대화하세요.",
-  "hook_en": "Maximize local inference performance with this highly popular, aggressively optimized, and fully uncensored 27B model.",
-  "hook_zh": "利用高下载量与社区好评的去限制 27B 模型，借助激进 MTP 优化本地推理。",
+  "hook_ko": "120만회 이상 다운로드된 Qwen 기반 검열 해제 멀티모달 GGUF 양자화 모델",
+  "hook_en": "High-throughput uncensored multimodal model optimized with aggressive MTP and GGUF quantization.",
+  "hook_zh": "突破 120 万下载量的 Qwen 无过滤多模态 GGUF 量化模型，结合 MTP 加速推理",
   "description_en": "Maximize local inference performance with this highly popular, aggressively optimized, and fully uncensored 27B model.",
   "description_zh": "利用高下载量与社区好评的去限制 27B 模型，借助激进 MTP 优化本地推理。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HauhauCS/Qwen3.8-27B-Uncensored - MTP 적용 GGUF 모델",
+      "hook": "120만회 이상 다운로드된 Qwen 기반 검열 해제 멀티모달 GGUF 양자화 모델",
+      "key_takeaways": [
+        "Qwen 27B 멀티모달 비전-언어 모델 기반의 검열 해제(Uncensored) 버전",
+        "공격적인 MTP(Multi-Token Prediction) 기법과 GGUF 양자화를 통한 로컬 추론 속도 최적화",
+        "이미지 및 텍스트 입력을 처리하는 비전-텍스트 생성(Image-Text-to-Text) 파이프라인 지원"
+      ]
+    },
+    "en": {
+      "title": "HauhauCS/Qwen3.8-27B-Uncensored - Aggressive MTP GGUF Quant",
+      "hook": "High-throughput uncensored multimodal model optimized with aggressive MTP and GGUF quantization.",
+      "key_takeaways": [
+        "Uncensored fine-tune built on the Qwen 27B vision-language architecture.",
+        "Combines Aggressive Multi-Token Prediction (MTP) and GGUF format for fast local inference.",
+        "Supports image-text-to-text tasks with over 1.2M community downloads."
+      ]
+    },
+    "zh": {
+      "title": "HauhauCS/Qwen3.8-27B-Uncensored - 激进 MTP GGUF 量化模型",
+      "hook": "突破 120 万下载量的 Qwen 无过滤多模态 GGUF 量化模型，结合 MTP 加速推理",
+      "key_takeaways": [
+        "基于 Qwen 27B 视觉语言架构的无过滤（Uncensored）微调版本",
+        "融合激进多 Token 预测（MTP）与 GGUF 量化，大幅提升边缘/本地推理效率",
+        "支持图文到文本（Image-Text-to-Text）的多模态交互与任务生成"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.851947"
 }

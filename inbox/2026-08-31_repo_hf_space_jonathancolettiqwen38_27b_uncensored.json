@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "Qwen3.8-27B-Uncensored 언어 모델 데모",
+  "title_ko": "Qwen3.8-27B 언센서드 모델 인터랙티브 데모",
   "description_ko": "제한 없는 대형 언어 모델 Qwen3.8-27B의 원시 응답 성능을 웹에서 직접 테스트하세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Jonathan Coletti",
@@ -47,64 +47,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_jonathancolettiqwen38_27b_uncensored",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "LLM 추론 및 언어 모델",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "Qwen-3.8",
+      "Qwen",
       "Uncensored LLM",
-      "Gradio"
+      "Gradio",
+      "Hugging Face Spaces"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.2,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "Qwen3.8-27B-Uncensored 언어 모델 데모",
-        "hook": "제한 없는 대형 언어 모델 Qwen3.8-27B의 원시 응답 성능을 웹에서 직접 테스트하세요.",
+        "title": "Qwen3.8-27B 언센서드 모델 인터랙티브 데모",
+        "hook": "제약 없는 자연어 생성 및 대화를 테스트할 수 있는 Qwen 27B 언센서드 모델 데모",
         "key_takeaways": [
-          "Qwen-3.8 패밀리의 27B 대규모 언어 모델 탑재",
-          "검열되지 않은(Uncensored) 모델의 특성과 응답 성향 분석 가능",
-          "Gradio 인터페이스를 통한 빠른 텍스트 생성 테스트"
+          "Gradio SDK 기반의 손쉬운 대화형 웹 인터페이스 제공",
+          "Qwen 기반 27B 대규모 언어 모델의 언센서드 미세조정 버전을 클라우드에서 바로 테스트",
+          "안전성 가드레일이 제거된 오픈소스 LLM의 응답 특성 검증 가능"
         ]
       },
       "en": {
-        "title": "Qwen3.8-27B-Uncensored LLM Demo",
-        "hook": "Test the raw text generation and unrestricted conversational capabilities of Qwen3.8-27B instantly.",
+        "title": "Qwen3.8-27B Uncensored Interactive Demo",
+        "hook": "An interactive Gradio demo showcasing an uncensored 27B Qwen model variant.",
         "key_takeaways": [
-          "Features the 27B large language model from the Qwen-3.8 family",
-          "Analyze the unique behavioral traits and responses of uncensored models",
-          "Quick text generation testing via a Gradio interface"
+          "Interactive web interface built using Gradio SDK",
+          "Test an uncensored 27B parameter Qwen model directly in the browser",
+          "Useful for analyzing model behavior without safety alignment guardrails"
         ]
       },
       "zh": {
-        "title": "Qwen3.8-27B-Uncensored 语言模型演示",
-        "hook": "在线直接测试无审查大语言模型 Qwen3.8-27B 的原始文本生成与对话能力。",
+        "title": "Qwen3.8-27B 无过滤版交互式演示",
+        "hook": "基于 Gradio 展示的 Qwen 27B 无过滤大语言模型在线测试 Demo",
         "key_takeaways": [
-          "搭载 Qwen-3.8 系列的 27B 大语言模型",
-          "可分析无审查（Uncensored）模型的特性与回应倾向",
-          "通过 Gradio 界面快速进行文本生成测试"
+          "基于 Gradio SDK 构建的便捷 Web 交互界面",
+          "支持直接在线测试 27B 参数规模的 Qwen 无过滤微调模型",
+          "可用于评估解除安全对齐限制后的 LLM 生成特性"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:26.483943+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Qwen-3.8",
+    "Qwen",
     "Uncensored LLM",
-    "Gradio"
+    "Gradio",
+    "Hugging Face Spaces"
   ],
-  "title_en": "Qwen3.8-27B-Uncensored LLM Demo",
-  "title_zh": "Qwen3.8-27B-Uncensored 语言模型演示",
+  "title_en": "Qwen3.8-27B Uncensored Interactive Demo",
+  "title_zh": "Qwen3.8-27B 无过滤版交互式演示",
   "hook": "제한 없는 대형 언어 모델 Qwen3.8-27B의 원시 응답 성능을 웹에서 직접 테스트하세요.",
-  "hook_ko": "제한 없는 대형 언어 모델 Qwen3.8-27B의 원시 응답 성능을 웹에서 직접 테스트하세요.",
-  "hook_en": "Test the raw text generation and unrestricted conversational capabilities of Qwen3.8-27B instantly.",
-  "hook_zh": "在线直接测试无审查大语言模型 Qwen3.8-27B 的原始文本生成与对话能力。",
+  "hook_ko": "제약 없는 자연어 생성 및 대화를 테스트할 수 있는 Qwen 27B 언센서드 모델 데모",
+  "hook_en": "An interactive Gradio demo showcasing an uncensored 27B Qwen model variant.",
+  "hook_zh": "基于 Gradio 展示的 Qwen 27B 无过滤大语言模型在线测试 Demo",
   "description_en": "Test the raw text generation and unrestricted conversational capabilities of Qwen3.8-27B instantly.",
   "description_zh": "在线直接测试无审查大语言模型 Qwen3.8-27B 的原始文本生成与对话能力。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Qwen3.8-27B 언센서드 모델 인터랙티브 데모",
+      "hook": "제약 없는 자연어 생성 및 대화를 테스트할 수 있는 Qwen 27B 언센서드 모델 데모",
+      "key_takeaways": [
+        "Gradio SDK 기반의 손쉬운 대화형 웹 인터페이스 제공",
+        "Qwen 기반 27B 대규모 언어 모델의 언센서드 미세조정 버전을 클라우드에서 바로 테스트",
+        "안전성 가드레일이 제거된 오픈소스 LLM의 응답 특성 검증 가능"
+      ]
+    },
+    "en": {
+      "title": "Qwen3.8-27B Uncensored Interactive Demo",
+      "hook": "An interactive Gradio demo showcasing an uncensored 27B Qwen model variant.",
+      "key_takeaways": [
+        "Interactive web interface built using Gradio SDK",
+        "Test an uncensored 27B parameter Qwen model directly in the browser",
+        "Useful for analyzing model behavior without safety alignment guardrails"
+      ]
+    },
+    "zh": {
+      "title": "Qwen3.8-27B 无过滤版交互式演示",
+      "hook": "基于 Gradio 展示的 Qwen 27B 无过滤大语言模型在线测试 Demo",
+      "key_takeaways": [
+        "基于 Gradio SDK 构建的便捷 Web 交互界面",
+        "支持直接在线测试 27B 参数规模的 Qwen 无过滤微调模型",
+        "可用于评估解除安全对齐限制后的 LLM 生成特性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.821726"
 }

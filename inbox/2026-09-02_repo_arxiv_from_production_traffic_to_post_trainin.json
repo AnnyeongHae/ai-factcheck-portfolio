@@ -34,65 +34,98 @@
     "id": "2026-09-02_repo_arxiv_from_production_traffic_to_post_trainin",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 추론 최적화",
+    "model_family": "LLM Infrastructure & Post-Training",
+    "category": "AI Infrastructure & Enterprise AI Systems",
     "programming_lang": "Python",
     "root_keywords": [
-      "Self-Hosted LLM",
-      "Production Traffic",
-      "Post-Training"
+      "Enterprise LLM",
+      "Post-Training",
+      "Data Residency",
+      "GPU Efficiency",
+      "Model Consolidation"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.6,
     "multilingual": {
       "ko": {
-        "title": "프로덕션 트래픽에서 후학습까지: 기업 요청을 완벽 커버하는 자체 호스팅 LLM 구축",
-        "hook": "데이터 거버넌스 제약 속에서 기업의 실제 트래픽을 효율적으로 처리하는 자체 호스팅 LLM 구축 전략을 살펴봅니다.",
+        "title": "프로덕션 트래픽에서 사후 학습까지: 기업용 요청 트래픽을 소화하는 단일 자체 호스팅 LLM 구축법",
+        "hook": "파편화된 enterprise LLM 인프라와 GPU 낭비를 해결하기 위해 프로덕션 트래픽 기반 포스트 트레이닝으로 단일 통합 모델을 구축하는 실전 방법론",
         "key_takeaways": [
-          "데이터 거버넌스 제약(데이터 레지던시)을 만족하는 자체 호스팅 LLM 구축",
-          "파편화된 GPU 풀과 서빙 함대 최적화 전략",
-          "실제 프로덕션 트래픽 기반의 효율적인 후학습 프로세스"
+          "데이터 거주성(Data-Residency) 제약으로 인한 파편화된 기업 내 모델 서버 및 GPU 자원 낭비 문제 분석",
+          "실제 프로덕션 서비스 요청 트래픽 스트림을 수집 및 정제하여 LLM 사후 학습(Post-Training)에 활용하는 기법",
+          "다양한 비즈니스 요청 유스케이스를 소화하면서 레거시 모델들을 대체해 GPU 운용 효율성을 극대화하는 방안"
         ]
       },
       "en": {
         "title": "From Production Traffic to Post-Training: Building a Self-Hosted LLM That Covers the Corporate Request Mix",
-        "hook": "Learn how to build and optimize self-hosted LLMs that handle diverse corporate traffic under data residency constraints.",
+        "hook": "A practical guide to solving GPU fragmentation and model sprawl by post-training a unified self-hosted LLM on real corporate traffic.",
         "key_takeaways": [
-          "Solves data residency constraints through self-hosted LLM architecture",
-          "Optimizes fragmented GPU serving fleets and cuts operational overhead",
-          "Leverages real production traffic to drive efficient post-training"
+          "Addresses GPU fleet fragmentation caused by enterprise data residency constraints and continuous adoption of newer models.",
+          "Leverages live corporate production request streams to curate high-value datasets for targeted post-training.",
+          "Consolidates multiple specialized legacy LLMs into a unified self-hosted model, dramatically improving GPU utilization and TCO."
         ]
       },
       "zh": {
-        "title": "从生产流量到后训练：构建覆盖企业请求混合的自托管LLM",
-        "hook": "探讨如何在数据驻留约束下，利用真实生产流量构建并优化能够处理多样化企业请求的自托管LLM。",
+        "title": "从生产流量到后训练：构建覆盖企业综合请求的自托管大语言模型",
+        "hook": "利用真实生产流量进行后训练，解决企业 GPU 碎片化与多模型冗余部署的实战指南",
         "key_takeaways": [
-          "满足数据驻留合规要求，构建企业级自托管LLM",
-          "优化碎片化的GPU推理集群，减少服务器规模膨胀",
-          "基于真实的生产流量实现高效的后训练循环"
+          "剖析企业数据驻留限制引发的模型膨胀（Model Sprawl）与 GPU 资源碎片化难题",
+          "提出收集与清洗真实生产请求流量并用于大模型后训练（Post-Training）的具体方案",
+          "使用单一高效的自托管统一模型替代传统多模型并行，极大地提升 GPU 部署与运营效率"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:57.505825+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Self-Hosted LLM",
-    "Production Traffic",
-    "Post-Training"
+    "Enterprise LLM",
+    "Post-Training",
+    "Data Residency",
+    "GPU Efficiency",
+    "Model Consolidation"
   ],
-  "title_ko": "프로덕션 트래픽에서 후학습까지: 기업 요청을 완벽 커버하는 자체 호스팅 LLM 구축",
+  "title_ko": "프로덕션 트래픽에서 사후 학습까지: 기업용 요청 트래픽을 소화하는 단일 자체 호스팅 LLM 구축법",
   "title_en": "From Production Traffic to Post-Training: Building a Self-Hosted LLM That Covers the Corporate Request Mix",
-  "title_zh": "从生产流量到后训练：构建覆盖企业请求混合的自托管LLM",
+  "title_zh": "从生产流量到后训练：构建覆盖企业综合请求的自托管大语言模型",
   "hook": "데이터 거버넌스 제약 속에서 기업의 실제 트래픽을 효율적으로 처리하는 자체 호스팅 LLM 구축 전략을 살펴봅니다.",
-  "hook_ko": "데이터 거버넌스 제약 속에서 기업의 실제 트래픽을 효율적으로 처리하는 자체 호스팅 LLM 구축 전략을 살펴봅니다.",
-  "hook_en": "Learn how to build and optimize self-hosted LLMs that handle diverse corporate traffic under data residency constraints.",
-  "hook_zh": "探讨如何在数据驻留约束下，利用真实生产流量构建并优化能够处理多样化企业请求的自托管LLM。",
+  "hook_ko": "파편화된 enterprise LLM 인프라와 GPU 낭비를 해결하기 위해 프로덕션 트래픽 기반 포스트 트레이닝으로 단일 통합 모델을 구축하는 실전 방법론",
+  "hook_en": "A practical guide to solving GPU fragmentation and model sprawl by post-training a unified self-hosted LLM on real corporate traffic.",
+  "hook_zh": "利用真实生产流量进行后训练，解决企业 GPU 碎片化与多模型冗余部署的实战指南",
   "description_ko": "데이터 거버넌스 제약 속에서 기업의 실제 트래픽을 효율적으로 처리하는 자체 호스팅 LLM 구축 전략을 살펴봅니다.",
   "description_en": "Learn how to build and optimize self-hosted LLMs that handle diverse corporate traffic under data residency constraints.",
   "description_zh": "探讨如何在数据驻留约束下，利用真实生产流量构建并优化能够处理多样化企业请求的自托管LLM。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "프로덕션 트래픽에서 사후 학습까지: 기업용 요청 트래픽을 소화하는 단일 자체 호스팅 LLM 구축법",
+      "hook": "파편화된 enterprise LLM 인프라와 GPU 낭비를 해결하기 위해 프로덕션 트래픽 기반 포스트 트레이닝으로 단일 통합 모델을 구축하는 실전 방법론",
+      "key_takeaways": [
+        "데이터 거주성(Data-Residency) 제약으로 인한 파편화된 기업 내 모델 서버 및 GPU 자원 낭비 문제 분석",
+        "실제 프로덕션 서비스 요청 트래픽 스트림을 수집 및 정제하여 LLM 사후 학습(Post-Training)에 활용하는 기법",
+        "다양한 비즈니스 요청 유스케이스를 소화하면서 레거시 모델들을 대체해 GPU 운용 효율성을 극대화하는 방안"
+      ]
+    },
+    "en": {
+      "title": "From Production Traffic to Post-Training: Building a Self-Hosted LLM That Covers the Corporate Request Mix",
+      "hook": "A practical guide to solving GPU fragmentation and model sprawl by post-training a unified self-hosted LLM on real corporate traffic.",
+      "key_takeaways": [
+        "Addresses GPU fleet fragmentation caused by enterprise data residency constraints and continuous adoption of newer models.",
+        "Leverages live corporate production request streams to curate high-value datasets for targeted post-training.",
+        "Consolidates multiple specialized legacy LLMs into a unified self-hosted model, dramatically improving GPU utilization and TCO."
+      ]
+    },
+    "zh": {
+      "title": "从生产流量到后训练：构建覆盖企业综合请求的自托管大语言模型",
+      "hook": "利用真实生产流量进行后训练，解决企业 GPU 碎片化与多模型冗余部署的实战指南",
+      "key_takeaways": [
+        "剖析企业数据驻留限制引发的模型膨胀（Model Sprawl）与 GPU 资源碎片化难题",
+        "提出收集与清洗真实生产请求流量并用于大模型后训练（Post-Training）的具体方案",
+        "使用单一高效的自托管统一模型替代传统多模型并行，极大地提升 GPU 部署与运营效率"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.982146"
 }

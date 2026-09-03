@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "Hugging Face Space: wank3r/wan2-2-i2v-v3-WOW",
+  "title_ko": "Wan2-2 이미지-투-비디오(I2V) v3 대화형 데모",
   "description_ko": "Wan 2.2 I2V 모델의 최신 v3 버전을 활용하여 더욱 향상된 비디오 생성 결과물을 확인하세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,66 +47,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_wank3rwan2_2_i2v_v3_wow",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Wan",
-    "category": "이미지 투 비디오 (I2V)",
+    "type_classification": "TECH",
+    "model_family": "Wan Video Diffusion",
+    "category": "Computer Vision & Video Generation",
     "programming_lang": "Python",
     "root_keywords": [
-      "Wan 2.2",
-      "I2V v3",
-      "Video Generation",
+      "Image-to-Video",
+      "Wan2.1",
+      "Video Diffusion",
       "Gradio"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.3,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face Space: wank3r/wan2-2-i2v-v3-WOW",
-        "hook": "Wan 2.2 I2V 모델의 최신 v3 버전을 활용하여 더욱 향상된 비디오 생성 결과물을 확인하세요.",
+        "title": "Wan2-2 이미지-투-비디오(I2V) v3 대화형 데모",
+        "hook": "Wan2.1 비디오 확산 모델 기반의 고품질 Image-to-Video 생성을 실습해볼 수 있는 Gradio 웹 데모",
         "key_takeaways": [
-          "Wan 2.2 I2V v3 최신 아키텍처 적용",
-          "개선된 모션 일관성과 시각적 품질 제공",
-          "인터랙티브 웹 데모를 통한 빠른 결과 검증"
+          "Wan 비디오 확산 아키텍처를 적용한 Image-to-Video(I2V) 파이프라인 데모",
+          "Gradio UI를 활용한 매개변수 조절 및 즉시적인 비디오 생성 결과 확인 가능",
+          "모션 자연스러움과 프롬프트 충실도가 개선된 v3 커뮤니티 파이프라인 적용"
         ]
       },
       "en": {
-        "title": "Hugging Face Space: wank3r/wan2-2-i2v-v3-WOW",
-        "hook": "Explore enhanced video generation results utilizing the latest v3 version of the Wan 2.2 I2V model.",
+        "title": "Wan2-2 Image-to-Video (I2V) v3 Interactive Demo",
+        "hook": "An interactive Gradio demo showcasing high-quality Image-to-Video generation powered by Wan video diffusion architecture.",
         "key_takeaways": [
-          "Integrated with the latest Wan 2.2 I2V v3 architecture",
-          "Delivers improved motion consistency and visual quality",
-          "Rapid result validation through an interactive web demo"
+          "Interactive Image-to-Video (I2V) demonstration built on Wan video diffusion models.",
+          "Provides a user-friendly Gradio UI for parameter tuning and quick generation testing.",
+          "Integrates community v3 pipeline optimizations for enhanced motion fidelity."
         ]
       },
       "zh": {
-        "title": "Hugging Face 空间：wank3r/wan2-2-i2v-v3-WOW",
-        "hook": "利用 Wan 2.2 I2V 模型的最新 v3 版本，体验更出色的视频生成效果。",
+        "title": "Wan2-2 图生视频 (I2V) v3 交互式 Demo",
+        "hook": "基于 Wan 视频扩散模型的高质量图生视频 Gradio 交互式演示平台",
         "key_takeaways": [
-          "应用了 Wan 2.2 I2V v3 最新架构",
-          "提供更好的运动一致性与视觉质量",
-          "通过交互式网页演示快速验证生成效果"
+          "基于 Wan 视频扩散架构的图生视频 (I2V) 管线演示",
+          "提供直观的 Gradio 界面，便于调参及实时测试生成效果",
+          "集成社区改进的 v3 优化管线，提升动态连贯性与表现力"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:33:48.653433+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Wan 2.2",
-    "I2V v3",
-    "Video Generation",
+    "Image-to-Video",
+    "Wan2.1",
+    "Video Diffusion",
     "Gradio"
   ],
-  "title_en": "Hugging Face Space: wank3r/wan2-2-i2v-v3-WOW",
-  "title_zh": "Hugging Face 空间：wank3r/wan2-2-i2v-v3-WOW",
+  "title_en": "Wan2-2 Image-to-Video (I2V) v3 Interactive Demo",
+  "title_zh": "Wan2-2 图生视频 (I2V) v3 交互式 Demo",
   "hook": "Wan 2.2 I2V 모델의 최신 v3 버전을 활용하여 더욱 향상된 비디오 생성 결과물을 확인하세요.",
-  "hook_ko": "Wan 2.2 I2V 모델의 최신 v3 버전을 활용하여 더욱 향상된 비디오 생성 결과물을 확인하세요.",
-  "hook_en": "Explore enhanced video generation results utilizing the latest v3 version of the Wan 2.2 I2V model.",
-  "hook_zh": "利用 Wan 2.2 I2V 模型的最新 v3 版本，体验更出色的视频生成效果。",
+  "hook_ko": "Wan2.1 비디오 확산 모델 기반의 고품질 Image-to-Video 생성을 실습해볼 수 있는 Gradio 웹 데모",
+  "hook_en": "An interactive Gradio demo showcasing high-quality Image-to-Video generation powered by Wan video diffusion architecture.",
+  "hook_zh": "基于 Wan 视频扩散模型的高质量图生视频 Gradio 交互式演示平台",
   "description_en": "Explore enhanced video generation results utilizing the latest v3 version of the Wan 2.2 I2V model.",
   "description_zh": "利用 Wan 2.2 I2V 模型的最新 v3 版本，体验更出色的视频生成效果。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Wan2-2 이미지-투-비디오(I2V) v3 대화형 데모",
+      "hook": "Wan2.1 비디오 확산 모델 기반의 고품질 Image-to-Video 생성을 실습해볼 수 있는 Gradio 웹 데모",
+      "key_takeaways": [
+        "Wan 비디오 확산 아키텍처를 적용한 Image-to-Video(I2V) 파이프라인 데모",
+        "Gradio UI를 활용한 매개변수 조절 및 즉시적인 비디오 생성 결과 확인 가능",
+        "모션 자연스러움과 프롬프트 충실도가 개선된 v3 커뮤니티 파이프라인 적용"
+      ]
+    },
+    "en": {
+      "title": "Wan2-2 Image-to-Video (I2V) v3 Interactive Demo",
+      "hook": "An interactive Gradio demo showcasing high-quality Image-to-Video generation powered by Wan video diffusion architecture.",
+      "key_takeaways": [
+        "Interactive Image-to-Video (I2V) demonstration built on Wan video diffusion models.",
+        "Provides a user-friendly Gradio UI for parameter tuning and quick generation testing.",
+        "Integrates community v3 pipeline optimizations for enhanced motion fidelity."
+      ]
+    },
+    "zh": {
+      "title": "Wan2-2 图生视频 (I2V) v3 交互式 Demo",
+      "hook": "基于 Wan 视频扩散模型的高质量图生视频 Gradio 交互式演示平台",
+      "key_takeaways": [
+        "基于 Wan 视频扩散架构的图生视频 (I2V) 管线演示",
+        "提供直观的 Gradio 界面，便于调参及实时测试生成效果",
+        "集成社区改进的 v3 优化管线，提升动态连贯性与表现力"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.844842"
 }

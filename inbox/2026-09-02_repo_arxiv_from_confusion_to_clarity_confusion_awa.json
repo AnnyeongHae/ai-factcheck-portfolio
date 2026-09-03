@@ -34,65 +34,98 @@
     "id": "2026-09-02_repo_arxiv_from_confusion_to_clarity_confusion_awa",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "텍스트 분류 및 검색 최적화",
+    "model_family": "LLM / RAG",
+    "category": "Natural Language Processing",
     "programming_lang": "Python",
     "root_keywords": [
       "Text Classification",
+      "Confusion-Aware Retrieval",
+      "Knowledge Injection",
       "Retrieval-Augmented Generation",
-      "Knowledge Injection"
+      "Taxonomy Classification"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.8,
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "혼동 인지형 검색 및 지식 주입을 통한 텍스트 분류 개선",
-        "hook": "유사한 레이블이 많은 복잡한 분류 과제에서 LLM의 한계를 극복하는 방법을 확인하세요.",
+        "title": "혼동에서 명확함으로: 텍스트 분류를 위한 혼동 인지 검색 및 지식 주입",
+        "hook": "유사 레이블 분류에 취약한 LLM의 한계를 극복하는 혼동 인지형 검색 및 도메인 지식 주입 기법",
         "key_takeaways": [
-          "의미적으로 유사한 레이블 간의 혼동 문제를 해결하는 아키텍처 제시",
-          "도메인 특화 지식을 효과적으로 주입하여 분류 정확도 향상",
-          "복잡한 택소노미(Taxonomy) 환경에서의 성능 검증"
+          "세밀하고 유사한 레이블이 많은 복잡한 분류체계에서 발생하는 LLM 모호성 문제 해결",
+          "혼동렬(Confusion Matrix) 및 레이블 간 모호성 특성을 반영한 타겟 검색(Confusion-Aware Retrieval) 메커니즘 제시",
+          "도메인 특화 지식을 검색 및 주입하여 프롬프트 분류 성능 및 대형 분류 정확도 대폭 향상"
         ]
       },
       "en": {
         "title": "From Confusion to Clarity: Confusion-Aware Retrieval and Knowledge Injection for Text Classification",
-        "hook": "Discover how to overcome LLM limitations in classifying texts with highly similar labels using confusion-aware retrieval.",
+        "hook": "Enhancing LLM text classification accuracy on complex taxonomies through confusion-aware retrieval and domain knowledge injection.",
         "key_takeaways": [
-          "Addresses classification challenges among semantically overlapping labels",
-          "Introduces domain-specific knowledge injection mechanisms",
-          "Improves taxonomy-based classification accuracy"
+          "Addresses LLM limitations in classifying text with fine-grained, semantically similar taxonomy labels.",
+          "Introduces confusion-aware retrieval to dynamically pull context for easily confused label pairs.",
+          "Injects domain-specific knowledge into LLM prompts to drastically improve fine-grained text classification precision."
         ]
       },
       "zh": {
-        "title": "从迷茫到清晰：用于文本分类的混淆感知检索与知识注入",
-        "hook": "了解如何解决大模型在处理高度相似标签分类时的性能瓶颈。",
+        "title": "化混淆为清晰：用于文本分类的混淆感知检索与知识注入",
+        "hook": "通过混淆感知检索与领域知识注入，提升大语言模型在复杂细粒度标签分类中的准确率。",
         "key_takeaways": [
-          "解决语义重叠标签之间的分类混淆问题",
-          "引入领域特定知识注入机制提升准确率",
-          "验证复杂分类体系下的有效性"
+          "解决 LLM 在面对高度语义相似标签和复杂分类体系时的区分能力不足问题",
+          "引入混淆感知检索机制，针对易混淆的标签对动态检索和提供差异化上下文",
+          "有效注入特定领域知识，大幅提升细粒度文本分类任务的精确度"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:27:09.802302+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Text Classification",
+    "Confusion-Aware Retrieval",
+    "Knowledge Injection",
     "Retrieval-Augmented Generation",
-    "Knowledge Injection"
+    "Taxonomy Classification"
   ],
-  "title_ko": "혼동 인지형 검색 및 지식 주입을 통한 텍스트 분류 개선",
+  "title_ko": "혼동에서 명확함으로: 텍스트 분류를 위한 혼동 인지 검색 및 지식 주입",
   "title_en": "From Confusion to Clarity: Confusion-Aware Retrieval and Knowledge Injection for Text Classification",
-  "title_zh": "从迷茫到清晰：用于文本分类的混淆感知检索与知识注入",
+  "title_zh": "化混淆为清晰：用于文本分类的混淆感知检索与知识注入",
   "hook": "유사한 레이블이 많은 복잡한 분류 과제에서 LLM의 한계를 극복하는 방법을 확인하세요.",
-  "hook_ko": "유사한 레이블이 많은 복잡한 분류 과제에서 LLM의 한계를 극복하는 방법을 확인하세요.",
-  "hook_en": "Discover how to overcome LLM limitations in classifying texts with highly similar labels using confusion-aware retrieval.",
-  "hook_zh": "了解如何解决大模型在处理高度相似标签分类时的性能瓶颈。",
+  "hook_ko": "유사 레이블 분류에 취약한 LLM의 한계를 극복하는 혼동 인지형 검색 및 도메인 지식 주입 기법",
+  "hook_en": "Enhancing LLM text classification accuracy on complex taxonomies through confusion-aware retrieval and domain knowledge injection.",
+  "hook_zh": "通过混淆感知检索与领域知识注入，提升大语言模型在复杂细粒度标签分类中的准确率。",
   "description_ko": "유사한 레이블이 많은 복잡한 분류 과제에서 LLM의 한계를 극복하는 방법을 확인하세요.",
   "description_en": "Discover how to overcome LLM limitations in classifying texts with highly similar labels using confusion-aware retrieval.",
   "description_zh": "了解如何解决大模型在处理高度相似标签分类时的性能瓶颈。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "혼동에서 명확함으로: 텍스트 분류를 위한 혼동 인지 검색 및 지식 주입",
+      "hook": "유사 레이블 분류에 취약한 LLM의 한계를 극복하는 혼동 인지형 검색 및 도메인 지식 주입 기법",
+      "key_takeaways": [
+        "세밀하고 유사한 레이블이 많은 복잡한 분류체계에서 발생하는 LLM 모호성 문제 해결",
+        "혼동렬(Confusion Matrix) 및 레이블 간 모호성 특성을 반영한 타겟 검색(Confusion-Aware Retrieval) 메커니즘 제시",
+        "도메인 특화 지식을 검색 및 주입하여 프롬프트 분류 성능 및 대형 분류 정확도 대폭 향상"
+      ]
+    },
+    "en": {
+      "title": "From Confusion to Clarity: Confusion-Aware Retrieval and Knowledge Injection for Text Classification",
+      "hook": "Enhancing LLM text classification accuracy on complex taxonomies through confusion-aware retrieval and domain knowledge injection.",
+      "key_takeaways": [
+        "Addresses LLM limitations in classifying text with fine-grained, semantically similar taxonomy labels.",
+        "Introduces confusion-aware retrieval to dynamically pull context for easily confused label pairs.",
+        "Injects domain-specific knowledge into LLM prompts to drastically improve fine-grained text classification precision."
+      ]
+    },
+    "zh": {
+      "title": "化混淆为清晰：用于文本分类的混淆感知检索与知识注入",
+      "hook": "通过混淆感知检索与领域知识注入，提升大语言模型在复杂细粒度标签分类中的准确率。",
+      "key_takeaways": [
+        "解决 LLM 在面对高度语义相似标签和复杂分类体系时的区分能力不足问题",
+        "引入混淆感知检索机制，针对易混淆的标签对动态检索和提供差异化上下文",
+        "有效注入特定领域知识，大幅提升细粒度文本分类任务的精确度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.981279"
 }

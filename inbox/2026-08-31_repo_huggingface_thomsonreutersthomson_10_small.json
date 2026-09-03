@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "MODEL",
-  "title_ko": "톰슨로이터, 법률·금융 특화 멀티모달 모델 Thomson-1.0-Small 공개",
+  "title_ko": "Thomson Reuters의 초소형 멀티모달 모델: Thomson-1.0-Small",
   "description_ko": "신뢰도 높은 도메인 데이터를 학습한 톰슨로이터의 멀티모달 모델로 전문 업무를 혁신하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,64 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_thomsonreutersthomson_10_small",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Standalone",
-    "category": "멀티모달",
+    "type_classification": "TECH",
+    "model_family": "Vision-Language Model",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
       "Thomson Reuters",
-      "Thomson-1.0-Small",
-      "Multimodal"
+      "Thomson-1.0",
+      "Multimodal",
+      "Vision-Language Model",
+      "Image-to-Text"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.1,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "톰슨로이터, 법률·금융 특화 멀티모달 모델 Thomson-1.0-Small 공개",
-        "hook": "신뢰도 높은 도메인 데이터를 학습한 톰슨로이터의 멀티모달 모델로 전문 업무를 혁신하세요.",
+        "title": "Thomson Reuters의 초소형 멀티모달 모델: Thomson-1.0-Small",
+        "hook": "Thomson Reuters가 공개한 이미지 및 텍스트 처리 지원 소형 멀티모달 AI 모델",
         "key_takeaways": [
-          "Thomson Reuters가 선보인 이미지-텍스트 멀티모달 소형 모델",
-          "법률 및 금융 등 전문 도메인 문서 분석에 최적화된 아키텍처",
-          "경량화된 사이즈로 효율적인 온프레미스 배포 가능"
+          "이미지와 텍스트 입력을 모두 처리할 수 있는 image-text-to-text 비전-언어 모델",
+          "자원 효율성과 빠른 추론을 고려하여 경량화된 Small 버전",
+          "전문 분야 문서 분석, 시각 자료 이해 등 다양한 엔터프라이즈 멀티모달 태스크에 응용 가능"
         ]
       },
       "en": {
-        "title": "Thomson Reuters Launches Thomson-1.0-Small Multimodal Model",
-        "hook": "Empower legal and financial workflows with Thomson Reuters' domain-specialized multimodal model.",
+        "title": "Thomson Reuters Thomson-1.0-Small: Lightweight Multimodal VLM",
+        "hook": "A lightweight vision-language model developed by Thomson Reuters for multimodal document and image understanding.",
         "key_takeaways": [
-          "Image-text-to-text multimodal small model by Thomson Reuters",
-          "Optimized architecture for analyzing professional domain documents like legal and finance",
-          "Lightweight size enabling efficient on-premise enterprise deployment"
+          "Supports image-text-to-text pipeline for multimodal reasoning tasks.",
+          "Small-footprint architecture designed for enterprise efficiency and specialized domain applications.",
+          "Enhances document processing and visual text extraction capabilities."
         ]
       },
       "zh": {
-        "title": "汤森路透推出 Thomson-1.0-Small 多模态模型",
-        "hook": "借助汤森路透专为法律与金融领域打造的多模态模型，赋能专业业务场景。",
+        "title": "汤森路透 Thomson-1.0-Small：轻量级多模态图文大模型",
+        "hook": "汤森路透推出的支持图像与文本输入的轻量级多模态 AI 模型",
         "key_takeaways": [
-          "由汤森路透（Thomson Reuters）开发的图文多模态小型模型",
-          "针对法律、金融等专业领域文档分析优化的架构设计",
-          "轻量化尺寸支持高效的企业本地化部署"
+          "支持图文到文本（image-text-to-text）的多模态推理与理解",
+          "1.0-Small 版本兼顾高效率与低计算资源占用",
+          "适用于专业领域文档解析与视觉文本分析等企业级场景"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:47.289911+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Thomson Reuters",
-    "Thomson-1.0-Small",
-    "Multimodal"
+    "Thomson-1.0",
+    "Multimodal",
+    "Vision-Language Model",
+    "Image-to-Text"
   ],
-  "title_en": "Thomson Reuters Launches Thomson-1.0-Small Multimodal Model",
-  "title_zh": "汤森路透推出 Thomson-1.0-Small 多模态模型",
+  "title_en": "Thomson Reuters Thomson-1.0-Small: Lightweight Multimodal VLM",
+  "title_zh": "汤森路透 Thomson-1.0-Small：轻量级多模态图文大模型",
   "hook": "신뢰도 높은 도메인 데이터를 학습한 톰슨로이터의 멀티모달 모델로 전문 업무를 혁신하세요.",
-  "hook_ko": "신뢰도 높은 도메인 데이터를 학습한 톰슨로이터의 멀티모달 모델로 전문 업무를 혁신하세요.",
-  "hook_en": "Empower legal and financial workflows with Thomson Reuters' domain-specialized multimodal model.",
-  "hook_zh": "借助汤森路透专为法律与金融领域打造的多模态模型，赋能专业业务场景。",
+  "hook_ko": "Thomson Reuters가 공개한 이미지 및 텍스트 처리 지원 소형 멀티모달 AI 모델",
+  "hook_en": "A lightweight vision-language model developed by Thomson Reuters for multimodal document and image understanding.",
+  "hook_zh": "汤森路透推出的支持图像与文本输入的轻量级多模态 AI 模型",
   "description_en": "Empower legal and financial workflows with Thomson Reuters' domain-specialized multimodal model.",
   "description_zh": "借助汤森路透专为法律与金融领域打造的多模态模型，赋能专业业务场景。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Thomson Reuters의 초소형 멀티모달 모델: Thomson-1.0-Small",
+      "hook": "Thomson Reuters가 공개한 이미지 및 텍스트 처리 지원 소형 멀티모달 AI 모델",
+      "key_takeaways": [
+        "이미지와 텍스트 입력을 모두 처리할 수 있는 image-text-to-text 비전-언어 모델",
+        "자원 효율성과 빠른 추론을 고려하여 경량화된 Small 버전",
+        "전문 분야 문서 분석, 시각 자료 이해 등 다양한 엔터프라이즈 멀티모달 태스크에 응용 가능"
+      ]
+    },
+    "en": {
+      "title": "Thomson Reuters Thomson-1.0-Small: Lightweight Multimodal VLM",
+      "hook": "A lightweight vision-language model developed by Thomson Reuters for multimodal document and image understanding.",
+      "key_takeaways": [
+        "Supports image-text-to-text pipeline for multimodal reasoning tasks.",
+        "Small-footprint architecture designed for enterprise efficiency and specialized domain applications.",
+        "Enhances document processing and visual text extraction capabilities."
+      ]
+    },
+    "zh": {
+      "title": "汤森路透 Thomson-1.0-Small：轻量级多模态图文大模型",
+      "hook": "汤森路透推出的支持图像与文本输入的轻量级多模态 AI 模型",
+      "key_takeaways": [
+        "支持图文到文本（image-text-to-text）的多模态推理与理解",
+        "1.0-Small 版本兼顾高效率与低计算资源占用",
+        "适用于专业领域文档解析与视觉文本分析等企业级场景"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.881801"
 }

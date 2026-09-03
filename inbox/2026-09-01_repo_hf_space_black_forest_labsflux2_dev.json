@@ -32,70 +32,101 @@
   "ai_enrichment": {
     "id": "2026-09-01_repo_hf_space_black_forest_labsflux2_dev",
     "source_lang": "EN",
-    "type_classification": "MODEL",
+    "type_classification": "TECH",
     "model_family": "FLUX",
-    "category": "이미지 생성 (Text-to-Image)",
+    "category": "Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "FLUX.2",
-      "Black Forest Labs",
+      "FLUX.2-dev",
       "Text-to-Image",
-      "Generative AI"
+      "Diffusion Models",
+      "Black Forest Labs",
+      "Gradio"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "블랙 포레스트 랩스 FLUX.2 개발 버전 데모 공간",
-        "hook": "업계 최고 수준의 이미지 생성 모델 FLUX의 차세대 버전(FLUX.2-dev)을 직접 체험해 보세요.",
+        "title": "Black Forest Labs의 FLUX.2-dev Gradio 데모 공간",
+        "hook": "차세대 텍스트-투-이미지 생성 모델 FLUX.2-dev를 직접 체험할 수 있는 대화형 데모 공간",
         "key_takeaways": [
-          "Black Forest Labs의 차세대 이미지 생성 모델 FLUX.2 공개",
-          "향상된 텍스트 이해력과 고품질 디테일의 이미지 렌더링",
-          "오픈 소스 및 개발자 생태계에 큰 파장을 일으키는 고성능 모델"
+          "Black Forest Labs의 최신 FLUX.2-dev 모델을 손쉽게 웹에서 테스트할 수 있는 HF Space",
+          "Gradio SDK를 사용하여 파라미터 조절 및 실시간 이미지 생성 지원",
+          "향상된 텍스트 프롬프트 추종성과 뛰어난 화질 및 세부 디테일 제공"
         ]
       },
       "en": {
-        "title": "Black Forest Labs FLUX.2 Dev Interactive Space",
-        "hook": "Test-drive the next-generation FLUX.2-dev text-to-image model by Black Forest Labs.",
+        "title": "Black Forest Labs FLUX.2-dev Gradio Demo Space",
+        "hook": "An interactive Gradio demo space to experience Black Forest Labs' next-generation FLUX.2-dev text-to-image model.",
         "key_takeaways": [
-          "Next-gen iteration of the state-of-the-art FLUX image model family",
-          "Superior prompt adherence and ultra-realistic visual quality",
-          "High community interest and robust developer ecosystem support"
+          "Hugging Face Space featuring the newly released FLUX.2-dev text-to-image model",
+          "Powered by Gradio SDK for easy parameter tweaking and real-time generation testing",
+          "Demonstrates superior text prompt alignment, high-fidelity visual outputs, and refined detail"
         ]
       },
       "zh": {
-        "title": "Black Forest Labs FLUX.2 开发版交互演示空间",
-        "hook": "抢先体验由黑森林实验室打造的次世代图文生成模型 FLUX.2-dev。",
+        "title": "Black Forest Labs FLUX.2-dev Gradio 交互演示空间",
+        "hook": "直观体验 Black Forest Labs 下一代文生图大模型 FLUX.2-dev 的在线交互演示空间",
         "key_takeaways": [
-          "顶尖图像生成模型 FLUX 系列的全新迭代版本",
-          "具备更强的提示词理解能力与极致的画质表现",
-          "在开源AI社区备受瞩目的重磅图像生成工具"
+          "搭载最新 FLUX.2-dev 文生图模型的 Hugging Face 在线演示 Space",
+          "基于 Gradio SDK 构建，支持便捷调节参数与实时的 Prompt 效果测试",
+          "展现出极高的文本提示词遵从度、画质细腻度与视觉表达力"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:26:50.442044+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "FLUX.2",
-    "Black Forest Labs",
+    "FLUX.2-dev",
     "Text-to-Image",
-    "Generative AI"
+    "Diffusion Models",
+    "Black Forest Labs",
+    "Gradio"
   ],
-  "title_ko": "블랙 포레스트 랩스 FLUX.2 개발 버전 데모 공간",
-  "title_en": "Black Forest Labs FLUX.2 Dev Interactive Space",
-  "title_zh": "Black Forest Labs FLUX.2 开发版交互演示空间",
+  "title_ko": "Black Forest Labs의 FLUX.2-dev Gradio 데모 공간",
+  "title_en": "Black Forest Labs FLUX.2-dev Gradio Demo Space",
+  "title_zh": "Black Forest Labs FLUX.2-dev Gradio 交互演示空间",
   "hook": "업계 최고 수준의 이미지 생성 모델 FLUX의 차세대 버전(FLUX.2-dev)을 직접 체험해 보세요.",
-  "hook_ko": "업계 최고 수준의 이미지 생성 모델 FLUX의 차세대 버전(FLUX.2-dev)을 직접 체험해 보세요.",
-  "hook_en": "Test-drive the next-generation FLUX.2-dev text-to-image model by Black Forest Labs.",
-  "hook_zh": "抢先体验由黑森林实验室打造的次世代图文生成模型 FLUX.2-dev。",
+  "hook_ko": "차세대 텍스트-투-이미지 생성 모델 FLUX.2-dev를 직접 체험할 수 있는 대화형 데모 공간",
+  "hook_en": "An interactive Gradio demo space to experience Black Forest Labs' next-generation FLUX.2-dev text-to-image model.",
+  "hook_zh": "直观体验 Black Forest Labs 下一代文生图大模型 FLUX.2-dev 的在线交互演示空间",
   "description_ko": "업계 최고 수준의 이미지 생성 모델 FLUX의 차세대 버전(FLUX.2-dev)을 직접 체험해 보세요.",
   "description_en": "Test-drive the next-generation FLUX.2-dev text-to-image model by Black Forest Labs.",
   "description_zh": "抢先体验由黑森林实验室打造的次世代图文生成模型 FLUX.2-dev。",
   "model_family": "FLUX",
   "category_type": "MODEL",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Black Forest Labs의 FLUX.2-dev Gradio 데모 공간",
+      "hook": "차세대 텍스트-투-이미지 생성 모델 FLUX.2-dev를 직접 체험할 수 있는 대화형 데모 공간",
+      "key_takeaways": [
+        "Black Forest Labs의 최신 FLUX.2-dev 모델을 손쉽게 웹에서 테스트할 수 있는 HF Space",
+        "Gradio SDK를 사용하여 파라미터 조절 및 실시간 이미지 생성 지원",
+        "향상된 텍스트 프롬프트 추종성과 뛰어난 화질 및 세부 디테일 제공"
+      ]
+    },
+    "en": {
+      "title": "Black Forest Labs FLUX.2-dev Gradio Demo Space",
+      "hook": "An interactive Gradio demo space to experience Black Forest Labs' next-generation FLUX.2-dev text-to-image model.",
+      "key_takeaways": [
+        "Hugging Face Space featuring the newly released FLUX.2-dev text-to-image model",
+        "Powered by Gradio SDK for easy parameter tweaking and real-time generation testing",
+        "Demonstrates superior text prompt alignment, high-fidelity visual outputs, and refined detail"
+      ]
+    },
+    "zh": {
+      "title": "Black Forest Labs FLUX.2-dev Gradio 交互演示空间",
+      "hook": "直观体验 Black Forest Labs 下一代文生图大模型 FLUX.2-dev 的在线交互演示空间",
+      "key_takeaways": [
+        "搭载最新 FLUX.2-dev 文生图模型的 Hugging Face 在线演示 Space",
+        "基于 Gradio SDK 构建，支持便捷调节参数与实时的 Prompt 效果测试",
+        "展现出极高的文本提示词遵从度、画质细腻度与视觉表达力"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.957988"
 }

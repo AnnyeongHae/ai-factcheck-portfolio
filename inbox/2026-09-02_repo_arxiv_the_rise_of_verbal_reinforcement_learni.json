@@ -34,65 +34,96 @@
     "id": "2026-09-02_repo_arxiv_the_rise_of_verbal_reinforcement_learni",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "언어 모델 에이전트",
+    "model_family": "LLM Agents / Reinforcement Learning",
+    "category": "Artificial Intelligence",
     "programming_lang": "Python",
     "root_keywords": [
-      "Verbal RL",
+      "Verbal Reinforcement Learning",
       "Language Agents",
-      "Reinforcement Learning"
+      "Natural Language Feedback",
+      "Self-Improvement"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.7,
     "multilingual": {
       "ko": {
         "title": "언어적 강화학습(Verbal Reinforcement Learning)의 부상",
-        "hook": "자연어를 주요 피드백 채널로 사용하여 언어 에이전트를 개선하는 최신 패러다임을 조명합니다.",
+        "hook": "자연어를 수치 보상 대신 핵심 피드백 채널로 활용해 LLM 에이전트의 의도 학습과 인과 추론 능력을 극대화하는 새로운 패러다임",
         "key_takeaways": [
-          "자연어를 활용한 언어 에이전트 피드백 메커니즘 분석",
-          "의도, 선호도, 인과관계를 인간과 모델 모두가 해석 가능한 형태로 전달",
-          "차세대 강화학습 및 에이전트 미세조정의 새로운 방향성 제시"
+          "기존의 단일 수치(Scalar) 보상 한계를 넘어 자연어 형태의 풍부한 피드백을 전달",
+          "사람과 모델 모두 이해 가능한 방식으로 의도, 선호도 및 인과 구조 표현",
+          "자율형 LLM 에이전트의 적응성과 지속적 자기 개선(Self-Improvement) 성능 향상"
         ]
       },
       "en": {
         "title": "The Rise of Verbal Reinforcement Learning",
-        "hook": "Exploring natural language as a primary feedback channel for advanced language agents.",
+        "hook": "A novel RL paradigm leveraging natural language as a primary feedback channel to convey intent, preferences, and causal structure to LLM agents.",
         "key_takeaways": [
-          "Natural language emerging as a primary feedback loop for language agents",
-          "Conveys intent, preferences, and causal structures effectively",
-          "Interpretable feedback framework for both humans and modern LLMs"
+          "Replaces simple scalar rewards with rich natural language feedback for higher information density.",
+          "Conveys nuanced intent, preferences, and causal relationships in human- and model-interpretable formats.",
+          "Accelerates self-improvement and real-time adaptability in autonomous LLM agents."
         ]
       },
       "zh": {
-        "title": "言语强化学习的崛起",
-        "hook": "探讨将自然语言作为主要反馈渠道来提升语言智能体的新范式。",
+        "title": "语言强化学习（Verbal Reinforcement Learning）的兴起",
+        "hook": "将自然语言作为核心反馈渠道，赋予LLM智能体理解意图、偏好与因果结构的新型强化学习范式",
         "key_takeaways": [
-          "自然语言正成为改进语言智能体的主要反馈通道",
-          "能够以人类和现代模型皆可解释的形式传递意图与偏好",
-          "为下一代AI对齐与强化学习提供创新思路"
+          "打破传统标量标定奖励的局限，提供信息密度更高的自然语言反馈",
+          "以人类与模型皆易读的形式高效传达复杂意图与因果推理结构",
+          "显著增强自主大语言模型智能体的自我迭代与适应能力"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:44.614105+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Verbal RL",
+    "Verbal Reinforcement Learning",
     "Language Agents",
-    "Reinforcement Learning"
+    "Natural Language Feedback",
+    "Self-Improvement"
   ],
   "title_ko": "언어적 강화학습(Verbal Reinforcement Learning)의 부상",
   "title_en": "The Rise of Verbal Reinforcement Learning",
-  "title_zh": "言语强化学习的崛起",
+  "title_zh": "语言强化学习（Verbal Reinforcement Learning）的兴起",
   "hook": "자연어를 주요 피드백 채널로 사용하여 언어 에이전트를 개선하는 최신 패러다임을 조명합니다.",
-  "hook_ko": "자연어를 주요 피드백 채널로 사용하여 언어 에이전트를 개선하는 최신 패러다임을 조명합니다.",
-  "hook_en": "Exploring natural language as a primary feedback channel for advanced language agents.",
-  "hook_zh": "探讨将自然语言作为主要反馈渠道来提升语言智能体的新范式。",
+  "hook_ko": "자연어를 수치 보상 대신 핵심 피드백 채널로 활용해 LLM 에이전트의 의도 학습과 인과 추론 능력을 극대화하는 새로운 패러다임",
+  "hook_en": "A novel RL paradigm leveraging natural language as a primary feedback channel to convey intent, preferences, and causal structure to LLM agents.",
+  "hook_zh": "将自然语言作为核心反馈渠道，赋予LLM智能体理解意图、偏好与因果结构的新型强化学习范式",
   "description_ko": "자연어를 주요 피드백 채널로 사용하여 언어 에이전트를 개선하는 최신 패러다임을 조명합니다.",
   "description_en": "Exploring natural language as a primary feedback channel for advanced language agents.",
   "description_zh": "探讨将自然语言作为主要反馈渠道来提升语言智能体的新范式。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "언어적 강화학습(Verbal Reinforcement Learning)의 부상",
+      "hook": "자연어를 수치 보상 대신 핵심 피드백 채널로 활용해 LLM 에이전트의 의도 학습과 인과 추론 능력을 극대화하는 새로운 패러다임",
+      "key_takeaways": [
+        "기존의 단일 수치(Scalar) 보상 한계를 넘어 자연어 형태의 풍부한 피드백을 전달",
+        "사람과 모델 모두 이해 가능한 방식으로 의도, 선호도 및 인과 구조 표현",
+        "자율형 LLM 에이전트의 적응성과 지속적 자기 개선(Self-Improvement) 성능 향상"
+      ]
+    },
+    "en": {
+      "title": "The Rise of Verbal Reinforcement Learning",
+      "hook": "A novel RL paradigm leveraging natural language as a primary feedback channel to convey intent, preferences, and causal structure to LLM agents.",
+      "key_takeaways": [
+        "Replaces simple scalar rewards with rich natural language feedback for higher information density.",
+        "Conveys nuanced intent, preferences, and causal relationships in human- and model-interpretable formats.",
+        "Accelerates self-improvement and real-time adaptability in autonomous LLM agents."
+      ]
+    },
+    "zh": {
+      "title": "语言强化学习（Verbal Reinforcement Learning）的兴起",
+      "hook": "将自然语言作为核心反馈渠道，赋予LLM智能体理解意图、偏好与因果结构的新型强化学习范式",
+      "key_takeaways": [
+        "打破传统标量标定奖励的局限，提供信息密度更高的自然语言反馈",
+        "以人类与模型皆易读的形式高效传达复杂意图与因果推理结构",
+        "显著增强自主大语言模型智能体的自我迭代与适应能力"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.989491"
 }

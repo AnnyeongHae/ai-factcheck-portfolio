@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "FLUX 기반 언센서드 Img2Img 인터랙티브 AI 데모",
+  "title_ko": "HF Space: shootstuff/flux-img2img-uncensored (FLUX 기반 이미지 대 이미지 변환 데모)",
   "description_ko": "검열 없는 고성능 FLUX 이미지 투 이미지 변환 모델의 성능을 직접 테스트해보세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,64 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_shootstuffflux_img2img_uncensored",
     "source_lang": "EN",
-    "type_classification": "MODEL",
+    "type_classification": "TECH",
     "model_family": "FLUX",
-    "category": "이미지 변환 및 생성",
+    "category": "Computer Vision & Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
       "FLUX",
-      "Img2Img",
-      "Uncensored"
+      "img2img",
+      "Image Generation",
+      "Uncensored AI",
+      "Gradio"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.8,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
     "multilingual": {
       "ko": {
-        "title": "FLUX 기반 언센서드 Img2Img 인터랙티브 AI 데모",
-        "hook": "검열 없는 고성능 FLUX 이미지 투 이미지 변환 모델의 성능을 직접 테스트해보세요.",
+        "title": "HF Space: shootstuff/flux-img2img-uncensored (FLUX 기반 이미지 대 이미지 변환 데모)",
+        "hook": "FLUX 디퓨전 모델을 활용하여 자유로운 이미지 간 변환 및 편집을 지원하는 Gradio 대화형 데모",
         "key_takeaways": [
-          "FLUX 아키텍처를 활용한 Img2Img 변환 기능",
-          "제한 없는 자유로운 이미지 생성 및 편집 환경",
-          "Gradio를 통한 직관적인 웹 데모 제공"
+          "FLUX 디퓨전 모델 기반의 Image-to-Image (img2img) 파이프라인 구현",
+          "검열 제약을 최소화하여 다채로운 이미지 스타일 변환 및 재구성 실험 가능",
+          "Gradio SDK를 활용하여 빠른 웹 인터페이스 구현 및 대화형 시각화 제공"
         ]
       },
       "en": {
-        "title": "Uncensored FLUX Img2Img Interactive AI Demo",
-        "hook": "Test the capabilities of high-performance, uncensored FLUX image-to-image transformation models directly.",
+        "title": "HF Space: shootstuff/flux-img2img-uncensored",
+        "hook": "Interactive Gradio demo enabling unrestricted image-to-image transformations powered by FLUX diffusion models.",
         "key_takeaways": [
-          "Img2Img transformation powered by FLUX architecture",
-          "Unrestricted and flexible image generation and editing environment",
-          "Intuitive web demo built with Gradio"
+          "Implements an Image-to-Image pipeline leveraging the high-quality FLUX architecture",
+          "Offers unrestricted image editing, style transfer, and visual modifications",
+          "Utilizes Gradio SDK for quick deployment and interactive web-based experimentation"
         ]
       },
       "zh": {
-        "title": "基于 FLUX 的无限制图生图交互式 AI 演示",
-        "hook": "直接体验无过滤的高性能 FLUX 图像到图像转换模型的强大性能。",
+        "title": "HF Space: shootstuff/flux-img2img-uncensored (基于 FLUX 的图生图 Demo)",
+        "hook": "基于 FLUX 扩散模型构建的 Gradio 交互式图生图（img2img）无审查图像转换 Demo",
         "key_takeaways": [
-          "利用 FLUX 架构实现的图生图转换功能",
-          "无限制且灵活的图像生成与编辑环境",
-          "通过 Gradio 提供直观的网页端演示"
+          "基于 FLUX 扩散模型架构实现高质量的图生图（img2img）转换",
+          "支持无限制的图像编辑、风格迁移与提示词驱动的图像重构",
+          "结合 Gradio SDK 提供便捷的 Web UI 交互与快速原型验证"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:34:00.364263+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "FLUX",
-    "Img2Img",
-    "Uncensored"
+    "img2img",
+    "Image Generation",
+    "Uncensored AI",
+    "Gradio"
   ],
-  "title_en": "Uncensored FLUX Img2Img Interactive AI Demo",
-  "title_zh": "基于 FLUX 的无限制图生图交互式 AI 演示",
+  "title_en": "HF Space: shootstuff/flux-img2img-uncensored",
+  "title_zh": "HF Space: shootstuff/flux-img2img-uncensored (基于 FLUX 的图生图 Demo)",
   "hook": "검열 없는 고성능 FLUX 이미지 투 이미지 변환 모델의 성능을 직접 테스트해보세요.",
-  "hook_ko": "검열 없는 고성능 FLUX 이미지 투 이미지 변환 모델의 성능을 직접 테스트해보세요.",
-  "hook_en": "Test the capabilities of high-performance, uncensored FLUX image-to-image transformation models directly.",
-  "hook_zh": "直接体验无过滤的高性能 FLUX 图像到图像转换模型的强大性能。",
+  "hook_ko": "FLUX 디퓨전 모델을 활용하여 자유로운 이미지 간 변환 및 편집을 지원하는 Gradio 대화형 데모",
+  "hook_en": "Interactive Gradio demo enabling unrestricted image-to-image transformations powered by FLUX diffusion models.",
+  "hook_zh": "基于 FLUX 扩散模型构建的 Gradio 交互式图生图（img2img）无审查图像转换 Demo",
   "description_en": "Test the capabilities of high-performance, uncensored FLUX image-to-image transformation models directly.",
   "description_zh": "直接体验无过滤的高性能 FLUX 图像到图像转换模型的强大性能。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: shootstuff/flux-img2img-uncensored (FLUX 기반 이미지 대 이미지 변환 데모)",
+      "hook": "FLUX 디퓨전 모델을 활용하여 자유로운 이미지 간 변환 및 편집을 지원하는 Gradio 대화형 데모",
+      "key_takeaways": [
+        "FLUX 디퓨전 모델 기반의 Image-to-Image (img2img) 파이프라인 구현",
+        "검열 제약을 최소화하여 다채로운 이미지 스타일 변환 및 재구성 실험 가능",
+        "Gradio SDK를 활용하여 빠른 웹 인터페이스 구현 및 대화형 시각화 제공"
+      ]
+    },
+    "en": {
+      "title": "HF Space: shootstuff/flux-img2img-uncensored",
+      "hook": "Interactive Gradio demo enabling unrestricted image-to-image transformations powered by FLUX diffusion models.",
+      "key_takeaways": [
+        "Implements an Image-to-Image pipeline leveraging the high-quality FLUX architecture",
+        "Offers unrestricted image editing, style transfer, and visual modifications",
+        "Utilizes Gradio SDK for quick deployment and interactive web-based experimentation"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: shootstuff/flux-img2img-uncensored (基于 FLUX 的图生图 Demo)",
+      "hook": "基于 FLUX 扩散模型构建的 Gradio 交互式图生图（img2img）无审查图像转换 Demo",
+      "key_takeaways": [
+        "基于 FLUX 扩散模型架构实现高质量的图生图（img2img）转换",
+        "支持无限制的图像编辑、风格迁移与提示词驱动的图像重构",
+        "结合 Gradio SDK 提供便捷的 Web UI 交互与快速原型验证"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.842089"
 }

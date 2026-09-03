@@ -34,66 +34,99 @@
     "id": "2026-09-01_repo_arxiv_not_safe_for_all_auditing_the_dialect_p",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "멀티모달 안전성 및 공정성",
+    "model_family": "Diffusion Models",
+    "category": "AI Safety & Ethics",
     "programming_lang": "Python",
     "root_keywords": [
       "Text-to-Image",
       "Safety Guardrails",
-      "Dialect Penalty"
+      "Dialect Penalty",
+      "AI Bias",
+      "Content Moderation"
     ],
-    "recommended_tag": "💡 유용한 도구",
+    "recommended_tag": "📝 기술 참고",
     "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "모두에게 안전하지 않다: 텍스트-이미지 안전 파이프라인의 방언 페널티 감사",
-        "hook": "T2I 가드레일이 비표준 방언에 대해 공정하게 작동하지 않는 현상을 방언 페널티(Dialect Penalty) 개념으로 파헤친 연구입니다.",
+        "title": "모두에게 안전하지는 않다: 텍스트-이미지 안전 파이프라인의 방언 패널티 감사",
+        "hook": "비표준 방언 프롬프트에서 텍스트-이미지 모델의 안전 가드레일이 오작동하는 '방언 패널티' 실증 분석",
         "key_takeaways": [
-          "5개 영어 방언에 걸친 23,080개의 프롬프트 분석을 통해 T2I 가드레일의 편향성 입증",
-          "비표준 방언 사용자가 겪는 안전성 필터링의 불공정성(Dialect Penalty) 공식화",
-          "멀티모달 모델 안전 파이프라인의 공정성 개선 필요성 강조"
+          "5개 영어 방언에 걸친 23,080개 쌍(paired) 프롬프트를 기반으로 T2I 안전 파이프라인의 형평성 평가",
+          "비표준 방언 프롬프트 사용 시 유해하지 않은 텍스트가 과도하게 차단되는 '방언 패널티' 현상 정식화",
+          "다양한 방언 환경에서도 공정하게 작동하는 AI 콘텐츠 모더레이션 시스템 구축의 필요성 제시"
         ]
       },
       "en": {
         "title": "Not Safe for All: Auditing the Dialect Penalty in Text-to-Image Safety Pipelines",
-        "hook": "Uncover how text-to-image safety guardrails unfairly penalize non-standard dialects across 23,080 audited prompts.",
+        "hook": "Empirical audit revealing how text-to-image safety guardrails fail equitably across non-standard English dialects.",
         "key_takeaways": [
-          "Audits T2I safety pipelines using 23,080 paired prompts across 5 English dialects",
-          "Formalizes 'dialect penalty' to explain disparate guardrail failures",
-          "Highlights critical equity and bias issues in generative AI safety filters"
+          "Evaluated 23,080 paired prompts across five English dialects to benchmark safety guardrail fairness in T2I models.",
+          "Formalized the 'dialect penalty', demonstrating disproportionate over-blocking and false positives on non-standard dialects.",
+          "Highlights the urgent need for dialect-aware moderation pipelines in generative AI systems."
         ]
       },
       "zh": {
-        "title": "并非对所有人安全：审计文本到图像安全管道中的方言惩罚",
-        "hook": "揭示文本生成图像（T2I）安全护栏对非标准方言存在的不平等审查与偏见现象。",
+        "title": "并非对所有人安全：审计文本生成图像安全管线中的方言惩罚",
+        "hook": "实证审计揭示文本生成图像（T2I）安全护栏在非标准英语方言上的不平等失效现象",
         "key_takeaways": [
-          "跨5种英语方言测试了23080个配对提示词，审计T2I安全机制",
-          "首次提出并形式化了“方言惩罚(Dialect Penalty)”概念",
-          "呼吁解决生成式AI安全过滤器的公平性与包容性问题"
+          "通过涵盖 5 种英语方言的 23,080 个成对提示词，评估 T2I 模型安全护栏的公平性",
+          "正式提出“方言惩罚”概念，指明非标准方言提示词面临更高的误报率与过度拦截",
+          "强调了在生成式 AI 内容审核管线中引入多方言感知防御机制的必要性"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:32.551840+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Text-to-Image",
     "Safety Guardrails",
-    "Dialect Penalty"
+    "Dialect Penalty",
+    "AI Bias",
+    "Content Moderation"
   ],
-  "title_ko": "모두에게 안전하지 않다: 텍스트-이미지 안전 파이프라인의 방언 페널티 감사",
+  "title_ko": "모두에게 안전하지는 않다: 텍스트-이미지 안전 파이프라인의 방언 패널티 감사",
   "title_en": "Not Safe for All: Auditing the Dialect Penalty in Text-to-Image Safety Pipelines",
-  "title_zh": "并非对所有人安全：审计文本到图像安全管道中的方言惩罚",
+  "title_zh": "并非对所有人安全：审计文本生成图像安全管线中的方言惩罚",
   "hook": "T2I 가드레일이 비표준 방언에 대해 공정하게 작동하지 않는 현상을 방언 페널티(Dialect Penalty) 개념으로 파헤친 연구입니다.",
-  "hook_ko": "T2I 가드레일이 비표준 방언에 대해 공정하게 작동하지 않는 현상을 방언 페널티(Dialect Penalty) 개념으로 파헤친 연구입니다.",
-  "hook_en": "Uncover how text-to-image safety guardrails unfairly penalize non-standard dialects across 23,080 audited prompts.",
-  "hook_zh": "揭示文本生成图像（T2I）安全护栏对非标准方言存在的不平等审查与偏见现象。",
+  "hook_ko": "비표준 방언 프롬프트에서 텍스트-이미지 모델의 안전 가드레일이 오작동하는 '방언 패널티' 실증 분석",
+  "hook_en": "Empirical audit revealing how text-to-image safety guardrails fail equitably across non-standard English dialects.",
+  "hook_zh": "实证审计揭示文本生成图像（T2I）安全护栏在非标准英语方言上的不平等失效现象",
   "description_ko": "T2I 가드레일이 비표준 방언에 대해 공정하게 작동하지 않는 현상을 방언 페널티(Dialect Penalty) 개념으로 파헤친 연구입니다.",
   "description_en": "Uncover how text-to-image safety guardrails unfairly penalize non-standard dialects across 23,080 audited prompts.",
   "description_zh": "揭示文本生成图像（T2I）安全护栏对非标准方言存在的不平等审查与偏见现象。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "모두에게 안전하지는 않다: 텍스트-이미지 안전 파이프라인의 방언 패널티 감사",
+      "hook": "비표준 방언 프롬프트에서 텍스트-이미지 모델의 안전 가드레일이 오작동하는 '방언 패널티' 실증 분석",
+      "key_takeaways": [
+        "5개 영어 방언에 걸친 23,080개 쌍(paired) 프롬프트를 기반으로 T2I 안전 파이프라인의 형평성 평가",
+        "비표준 방언 프롬프트 사용 시 유해하지 않은 텍스트가 과도하게 차단되는 '방언 패널티' 현상 정식화",
+        "다양한 방언 환경에서도 공정하게 작동하는 AI 콘텐츠 모더레이션 시스템 구축의 필요성 제시"
+      ]
+    },
+    "en": {
+      "title": "Not Safe for All: Auditing the Dialect Penalty in Text-to-Image Safety Pipelines",
+      "hook": "Empirical audit revealing how text-to-image safety guardrails fail equitably across non-standard English dialects.",
+      "key_takeaways": [
+        "Evaluated 23,080 paired prompts across five English dialects to benchmark safety guardrail fairness in T2I models.",
+        "Formalized the 'dialect penalty', demonstrating disproportionate over-blocking and false positives on non-standard dialects.",
+        "Highlights the urgent need for dialect-aware moderation pipelines in generative AI systems."
+      ]
+    },
+    "zh": {
+      "title": "并非对所有人安全：审计文本生成图像安全管线中的方言惩罚",
+      "hook": "实证审计揭示文本生成图像（T2I）安全护栏在非标准英语方言上的不平等失效现象",
+      "key_takeaways": [
+        "通过涵盖 5 种英语方言的 23,080 个成对提示词，评估 T2I 模型安全护栏的公平性",
+        "正式提出“方言惩罚”概念，指明非标准方言提示词面临更高的误报率与过度拦截",
+        "强调了在生成式 AI 内容审核管线中引入多方言感知防御机制的必要性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.938202"
 }

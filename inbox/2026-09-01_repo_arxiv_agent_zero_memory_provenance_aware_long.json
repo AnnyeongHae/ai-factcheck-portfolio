@@ -33,69 +33,98 @@
   "ai_enrichment": {
     "id": "2026-09-01_repo_arxiv_agent_zero_memory_provenance_aware_long",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "LLM 에이전트 메모리 시스템",
-    "programming_lang": "Python",
+    "type_classification": "TECH",
+    "model_family": "LLM Memory Architectures",
+    "category": "AI Engineering",
+    "programming_lang": "General",
     "root_keywords": [
       "LLM Agents",
       "Long-Term Memory",
-      "Provenance-Aware",
-      "Memory Architecture"
+      "Provenance Tracking",
+      "Agent Architecture"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.3,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Agent Zero Memory: LLM 에이전트를 위한 출처 추적형 장기 메모리",
-        "hook": "단순 팩트 저장소를 넘어, 조직의 모든 대화와 데이터에 대한 신뢰도 높은 장기 기억 시스템을 구축하세요.",
+        "title": "Agent Zero Memory: LLM 에이전트를 위한 출처 인지형 장기 기억 시스템",
+        "hook": "LLM 에이전트의 환각을 줄이고 검증 가능성을 높이는 출처 추적 기반 장기 기억 아키텍처",
         "key_takeaways": [
-          "출처(Provenance) 인식을 통한 신뢰성 있는 장기 메모리 아키텍처",
-          "단일 구조의 한계를 극복한 유연한 에이전트 기억 관리 시스템",
-          "엔터프라이즈 환경에서의 정확하고 지속적인 맥락 유지 구현"
+          "단일 구조에 국한되지 않고 데이터의 출처(Provenance)를 보존하는 가변형 장기 기억 구조 제안",
+          "에이전트 답변의 근거 추적 및 신뢰할 수 있는 장기 지속 메모리 메커니즘 구현",
+          "복잡한 사용자 대화 및 조직 데이터 이력의 정밀한 회상과 사실 관계 검증 지원"
         ]
       },
       "en": {
         "title": "Agent Zero Memory: Provenance-Aware Long-Term Memory for LLM Agents",
-        "hook": "Build faithful, long-term memory systems for LLM agents that track provenance beyond simple fact stores.",
+        "hook": "A provenance-aware long-term memory framework designed to enhance context faithfulness and verification in LLM agents.",
         "key_takeaways": [
-          "Provenance-aware reliable long-term memory architecture",
-          "Flexible agent memory management overcoming single-structure limits",
-          "Accurate and persistent context maintenance for enterprise environments"
+          "Addresses limitations of single-structure memory stores by introducing provenance tracking.",
+          "Ensures durable and faithful retention of multi-user and organizational historical context.",
+          "Improves recall accuracy and reduces hallucination through traceable source attribution."
         ]
       },
       "zh": {
-        "title": "Agent Zero Memory：面向LLM智能体的来源溯源感知长效记忆",
-        "hook": "超越简单的单一事实存储，为LLM智能体打造具备完整溯源能力的高可靠长效记忆系统。",
+        "title": "Agent Zero Memory：面向 LLM 智能体的来源感知型长期记忆",
+        "hook": "一种通过数据来源跟踪提升 LLM 智能体回答忠实度与可验证性的长期记忆架构",
         "key_takeaways": [
-          "基于来源感知的可靠长效记忆架构设计",
-          "突破单一组织结构限制的灵活智能体记忆管理",
-          "在企业级环境中实现准确且持久的上下文保持"
+          "突破单一存储结构局限，引入出处感知（Provenance-Aware）的长期记忆机制",
+          "确保对用户及组织历史对话与存储内容的持久化与高忠实度保留",
+          "通过精准的可追溯源归因，有效降低幻觉并提升检索与回溯准确率"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:34.695376+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
     "LLM Agents",
     "Long-Term Memory",
-    "Provenance-Aware",
-    "Memory Architecture"
+    "Provenance Tracking",
+    "Agent Architecture"
   ],
-  "title_ko": "Agent Zero Memory: LLM 에이전트를 위한 출처 추적형 장기 메모리",
+  "title_ko": "Agent Zero Memory: LLM 에이전트를 위한 출처 인지형 장기 기억 시스템",
   "title_en": "Agent Zero Memory: Provenance-Aware Long-Term Memory for LLM Agents",
-  "title_zh": "Agent Zero Memory：面向LLM智能体的来源溯源感知长效记忆",
+  "title_zh": "Agent Zero Memory：面向 LLM 智能体的来源感知型长期记忆",
   "hook": "단순 팩트 저장소를 넘어, 조직의 모든 대화와 데이터에 대한 신뢰도 높은 장기 기억 시스템을 구축하세요.",
-  "hook_ko": "단순 팩트 저장소를 넘어, 조직의 모든 대화와 데이터에 대한 신뢰도 높은 장기 기억 시스템을 구축하세요.",
-  "hook_en": "Build faithful, long-term memory systems for LLM agents that track provenance beyond simple fact stores.",
-  "hook_zh": "超越简单的单一事实存储，为LLM智能体打造具备完整溯源能力的高可靠长效记忆系统。",
+  "hook_ko": "LLM 에이전트의 환각을 줄이고 검증 가능성을 높이는 출처 추적 기반 장기 기억 아키텍처",
+  "hook_en": "A provenance-aware long-term memory framework designed to enhance context faithfulness and verification in LLM agents.",
+  "hook_zh": "一种通过数据来源跟踪提升 LLM 智能体回答忠实度与可验证性的长期记忆架构",
   "description_ko": "단순 팩트 저장소를 넘어, 조직의 모든 대화와 데이터에 대한 신뢰도 높은 장기 기억 시스템을 구축하세요.",
   "description_en": "Build faithful, long-term memory systems for LLM agents that track provenance beyond simple fact stores.",
   "description_zh": "超越简单的单一事实存储，为LLM智能体打造具备完整溯源能力的高可靠长效记忆系统。",
   "category_type": "AGENT",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Agent Zero Memory: LLM 에이전트를 위한 출처 인지형 장기 기억 시스템",
+      "hook": "LLM 에이전트의 환각을 줄이고 검증 가능성을 높이는 출처 추적 기반 장기 기억 아키텍처",
+      "key_takeaways": [
+        "단일 구조에 국한되지 않고 데이터의 출처(Provenance)를 보존하는 가변형 장기 기억 구조 제안",
+        "에이전트 답변의 근거 추적 및 신뢰할 수 있는 장기 지속 메모리 메커니즘 구현",
+        "복잡한 사용자 대화 및 조직 데이터 이력의 정밀한 회상과 사실 관계 검증 지원"
+      ]
+    },
+    "en": {
+      "title": "Agent Zero Memory: Provenance-Aware Long-Term Memory for LLM Agents",
+      "hook": "A provenance-aware long-term memory framework designed to enhance context faithfulness and verification in LLM agents.",
+      "key_takeaways": [
+        "Addresses limitations of single-structure memory stores by introducing provenance tracking.",
+        "Ensures durable and faithful retention of multi-user and organizational historical context.",
+        "Improves recall accuracy and reduces hallucination through traceable source attribution."
+      ]
+    },
+    "zh": {
+      "title": "Agent Zero Memory：面向 LLM 智能体的来源感知型长期记忆",
+      "hook": "一种通过数据来源跟踪提升 LLM 智能体回答忠实度与可验证性的长期记忆架构",
+      "key_takeaways": [
+        "突破单一存储结构局限，引入出处感知（Provenance-Aware）的长期记忆机制",
+        "确保对用户及组织历史对话与存储内容的持久化与高忠实度保留",
+        "通过精准的可追溯源归因，有效降低幻觉并提升检索与回溯准确率"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.914954"
 }

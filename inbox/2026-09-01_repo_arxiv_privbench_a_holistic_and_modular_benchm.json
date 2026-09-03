@@ -33,66 +33,99 @@
     "id": "2026-09-01_repo_arxiv_privbench_a_holistic_and_modular_benchm",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "텍스트 프라이버시 및 보안 벤치마크",
+    "model_family": "Evaluation & Benchmarking",
+    "category": "AI / Privacy & Security",
     "programming_lang": "Python",
     "root_keywords": [
       "PrivBench",
       "Text Privatization",
-      "Privacy Benchmarking"
+      "Privacy Benchmarking",
+      "Differential Privacy",
+      "NLP Privacy"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.8,
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "PrivBench: 텍스트 사생활 보호 평가를 위한 종합적이고 모듈화된 벤치마킹 플랫폼",
-        "hook": "텍스트 프라이버시 및 사생활 보호 기술의 성능을 객관적으로 평가하고 싶다면 주목해야 할 최신 벤치마크 논문입니다.",
+        "title": "PrivBench: 텍스트 민감정보 비식별화 기술 평가를 위한 모듈형 종합 벤치마킹 플랫폼",
+        "hook": "텍스트 가공 기반의 프라이버시 보호(Text-to-Text Privatization) 기법들의 성능과 실용성을 다각도로 벤치마킹할 수 있는 모듈형 평가 플랫폼",
         "key_takeaways": [
-          "텍스트 간 프라이버시 보호(text-to-text privatization)를 위한 종합 평가 플랫폼 제시",
-          "모듈식 구조를 통해 다양한 프라이버시 변환 방법론 비교 가능",
-          "자연어 처리 분야의 민감 정보 보호 성능 측정 표준화 기여"
+          "텍스트 변환 기반 프라이버시 보호 모델의 효과성, 유틸리티 유지력, 프라이버시 수준을 체계적으로 측정",
+          "모듈형 구성을 통해 다양한 비식별화 알고리즘과 데이터셋을 손쉽게 확장 및 평가 가능",
+          "NLP 프라이버시 분야 연구자 및 실무자를 위한 표준화된 평가 지표 제공"
         ]
       },
       "en": {
         "title": "PrivBench: A Holistic and Modular Benchmarking Platform for Evaluating Text-to-Text Privatization",
-        "hook": "Discover a modular benchmarking platform designed to rigorously evaluate text-to-text privatization and NLP privacy methods.",
+        "hook": "A modular benchmark framework to systematically evaluate privacy-preserving text-to-text transformations and utility tradeoffs.",
         "key_takeaways": [
-          "Introduces a holistic framework for text-to-text privatization assessment",
-          "Modular architecture allows flexible comparison of privacy-preserving transformations",
-          "Bridges the gap in standardized privacy evaluation for NLP pipelines"
+          "Comprehensive evaluation of text privatization methods across privacy preservation, utility retention, and language quality.",
+          "Modular architecture allowing easy integration of new privatization algorithms and evaluation metrics.",
+          "Provides standardized benchmarks for NLP researchers working on data anonymization and privacy protection."
         ]
       },
       "zh": {
-        "title": "PrivBench：用于评估文本到文本隐私保护的全面且模块化的基准测试平台",
-        "hook": "全面评估文本隐私保护与NLP隐私转换技术的最新基准工具，值得安全与NLP工程师参考。",
+        "title": "PrivBench：用于评估文本到文本脱敏技术的模块化综合基准测试平台",
+        "hook": "针对文本脱敏与隐私保护技术而设计的模块化评估平台，全方位衡量隐私度与文本实用性。",
         "key_takeaways": [
-          "提出了一套用于文本隐私转换的综合评估框架",
-          "采用模块化架构，便于灵活对比不同的隐私保护方法",
-          "推动了自然语言处理中敏感信息保护评估的标准化"
+          "系统化评估文本隐私保护模型在隐私度、语义实用性与语言质量上的表现",
+          "模块化架构设计，支持灵活扩展和接入全新的脱敏算法与测试集",
+          "为NLP隐私保护与数据去标识化研究者提供统一的标准评估指标"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:32.544432+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "PrivBench",
     "Text Privatization",
-    "Privacy Benchmarking"
+    "Privacy Benchmarking",
+    "Differential Privacy",
+    "NLP Privacy"
   ],
-  "title_ko": "PrivBench: 텍스트 사생활 보호 평가를 위한 종합적이고 모듈화된 벤치마킹 플랫폼",
+  "title_ko": "PrivBench: 텍스트 민감정보 비식별화 기술 평가를 위한 모듈형 종합 벤치마킹 플랫폼",
   "title_en": "PrivBench: A Holistic and Modular Benchmarking Platform for Evaluating Text-to-Text Privatization",
-  "title_zh": "PrivBench：用于评估文本到文本隐私保护的全面且模块化的基准测试平台",
+  "title_zh": "PrivBench：用于评估文本到文本脱敏技术的模块化综合基准测试平台",
   "hook": "텍스트 프라이버시 및 사생활 보호 기술의 성능을 객관적으로 평가하고 싶다면 주목해야 할 최신 벤치마크 논문입니다.",
-  "hook_ko": "텍스트 프라이버시 및 사생활 보호 기술의 성능을 객관적으로 평가하고 싶다면 주목해야 할 최신 벤치마크 논문입니다.",
-  "hook_en": "Discover a modular benchmarking platform designed to rigorously evaluate text-to-text privatization and NLP privacy methods.",
-  "hook_zh": "全面评估文本隐私保护与NLP隐私转换技术的最新基准工具，值得安全与NLP工程师参考。",
+  "hook_ko": "텍스트 가공 기반의 프라이버시 보호(Text-to-Text Privatization) 기법들의 성능과 실용성을 다각도로 벤치마킹할 수 있는 모듈형 평가 플랫폼",
+  "hook_en": "A modular benchmark framework to systematically evaluate privacy-preserving text-to-text transformations and utility tradeoffs.",
+  "hook_zh": "针对文本脱敏与隐私保护技术而设计的模块化评估平台，全方位衡量隐私度与文本实用性。",
   "description_ko": "텍스트 프라이버시 및 사생활 보호 기술의 성능을 객관적으로 평가하고 싶다면 주목해야 할 최신 벤치마크 논문입니다.",
   "description_en": "Discover a modular benchmarking platform designed to rigorously evaluate text-to-text privatization and NLP privacy methods.",
   "description_zh": "全面评估文本隐私保护与NLP隐私转换技术的最新基准工具，值得安全与NLP工程师参考。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "PrivBench: 텍스트 민감정보 비식별화 기술 평가를 위한 모듈형 종합 벤치마킹 플랫폼",
+      "hook": "텍스트 가공 기반의 프라이버시 보호(Text-to-Text Privatization) 기법들의 성능과 실용성을 다각도로 벤치마킹할 수 있는 모듈형 평가 플랫폼",
+      "key_takeaways": [
+        "텍스트 변환 기반 프라이버시 보호 모델의 효과성, 유틸리티 유지력, 프라이버시 수준을 체계적으로 측정",
+        "모듈형 구성을 통해 다양한 비식별화 알고리즘과 데이터셋을 손쉽게 확장 및 평가 가능",
+        "NLP 프라이버시 분야 연구자 및 실무자를 위한 표준화된 평가 지표 제공"
+      ]
+    },
+    "en": {
+      "title": "PrivBench: A Holistic and Modular Benchmarking Platform for Evaluating Text-to-Text Privatization",
+      "hook": "A modular benchmark framework to systematically evaluate privacy-preserving text-to-text transformations and utility tradeoffs.",
+      "key_takeaways": [
+        "Comprehensive evaluation of text privatization methods across privacy preservation, utility retention, and language quality.",
+        "Modular architecture allowing easy integration of new privatization algorithms and evaluation metrics.",
+        "Provides standardized benchmarks for NLP researchers working on data anonymization and privacy protection."
+      ]
+    },
+    "zh": {
+      "title": "PrivBench：用于评估文本到文本脱敏技术的模块化综合基准测试平台",
+      "hook": "针对文本脱敏与隐私保护技术而设计的模块化评估平台，全方位衡量隐私度与文本实用性。",
+      "key_takeaways": [
+        "系统化评估文本隐私保护模型在隐私度、语义实用性与语言质量上的表现",
+        "模块化架构设计，支持灵活扩展和接入全新的脱敏算法与测试集",
+        "为NLP隐私保护与数据去标识化研究者提供统一的标准评估指标"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.940652"
 }

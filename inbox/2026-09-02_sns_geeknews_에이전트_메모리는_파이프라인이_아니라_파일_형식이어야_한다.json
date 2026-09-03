@@ -37,64 +37,97 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_geeknews_에이전트_메모리는_파이프라인이_아니라_파일_형식이어야_한다",
     "source_lang": "KO",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "LLM 메모리 아키텍처",
+    "type_classification": "TECH",
+    "model_family": "AI Agents",
+    "category": "AI Infrastructure",
     "programming_lang": "General",
     "root_keywords": [
-      "에이전트 메모리",
-      "파일 형식",
-      "파이프라인 아키텍처"
+      "Agent Memory",
+      "AI Agents",
+      "LLM Architecture",
+      "File Format",
+      "Context Management"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
         "title": "에이전트 메모리는 파이프라인이 아니라 파일 형식이어야 한다",
-        "hook": "복잡한 에이전트 메모리 파이프라인을 단순화하고 지속성을 높이기 위한 새로운 패러다임(파일 형식 기반)을 제안합니다.",
+        "hook": "복잡한 처리 파이프라인 대신 이식성 있고 표준화된 파일 형식으로 에이전트 메모리를 다루는 새로운 설계를 제안합니다.",
         "key_takeaways": [
-          "기존 에이전트 메모리 파이프라인 아키텍처의 한계점 지적",
-          "파일 형식 기반 메모리 저장 및 관리의 장점과 실용성",
-          "에이전트 상태 지속성과 이식성을 높이는 설계 패턴"
+          "에이전트 메모리를 특정 파이프라인이나 프레임워크에 종속시키지 않는 표준화된 파일 구조의 필요성 강조",
+          "메모리의 이식성, 버전 관리, 디버깅 용이성 향상",
+          "다양한 LLM 에이전트 환경 간 컨텍스트 공유 및 상태 저장 단순화"
         ]
       },
       "en": {
         "title": "Agent Memory Should Be a File Format, Not a Pipeline",
-        "hook": "Discover a fresh architectural paradigm shifting agent memory from complex pipelines to persistent file formats.",
+        "hook": "Proposes treating agent memory as a portable, standardized file format rather than a rigid processing pipeline.",
         "key_takeaways": [
-          "Critique of current complex agent memory pipeline architectures",
-          "Advantages and practicality of file-based memory storage and management",
-          "Design patterns for enhanced agent state persistence and portability"
+          "Highlights the need for standardized file structures over framework-locked memory pipelines.",
+          "Improves memory portability, version control, and ease of debugging across agent systems.",
+          "Simplifies state persistence and context sharing between heterogeneous LLM agents."
         ]
       },
       "zh": {
-        "title": "代理内存应该是一种文件格式，而不是管道",
-        "hook": "探讨将复杂的智能体内存管道转变为持久化文件格式的新架构范式，简化设计并提升可靠性。",
+        "title": "智能体内存应该是文件格式，而非流水线",
+        "hook": "提出将 AI 智能体内存设计为可移植的标准化文件格式，而非僵化的处理流水线。",
         "key_takeaways": [
-          "剖析现有智能体内存管道架构的局限性",
-          "基于文件格式的内存存储与管理的优势及实用性",
-          "提升智能体状态持久性与可移植性的设计模式"
+          "强调建立标准化文件结构而非将内存绑定于特定框架流水线的重要性",
+          "提升智能体在不同系统间的内存可移植性、版本控制与调试便利性",
+          "简化异构 LLM 智能体之间的状态持久化与上下文共享"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:54:55.807602+09:00"
+    }
   },
   "source_lang": "KO",
   "programming_lang": "General",
   "root_keywords": [
-    "에이전트 메모리",
-    "파일 형식",
-    "파이프라인 아키텍처"
+    "Agent Memory",
+    "AI Agents",
+    "LLM Architecture",
+    "File Format",
+    "Context Management"
   ],
   "title_en": "Agent Memory Should Be a File Format, Not a Pipeline",
-  "title_zh": "代理内存应该是一种文件格式，而不是管道",
+  "title_zh": "智能体内存应该是文件格式，而非流水线",
   "hook": "복잡한 에이전트 메모리 파이프라인을 단순화하고 지속성을 높이기 위한 새로운 패러다임(파일 형식 기반)을 제안합니다.",
-  "hook_ko": "복잡한 에이전트 메모리 파이프라인을 단순화하고 지속성을 높이기 위한 새로운 패러다임(파일 형식 기반)을 제안합니다.",
-  "hook_en": "Discover a fresh architectural paradigm shifting agent memory from complex pipelines to persistent file formats.",
-  "hook_zh": "探讨将复杂的智能体内存管道转变为持久化文件格式的新架构范式，简化设计并提升可靠性。",
+  "hook_ko": "복잡한 처리 파이프라인 대신 이식성 있고 표준화된 파일 형식으로 에이전트 메모리를 다루는 새로운 설계를 제안합니다.",
+  "hook_en": "Proposes treating agent memory as a portable, standardized file format rather than a rigid processing pipeline.",
+  "hook_zh": "提出将 AI 智能体内存设计为可移植的标准化文件格式，而非僵化的处理流水线。",
   "description_en": "Discover a fresh architectural paradigm shifting agent memory from complex pipelines to persistent file formats.",
   "description_zh": "探讨将复杂的智能体内存管道转变为持久化文件格式的新架构范式，简化设计并提升可靠性。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "에이전트 메모리는 파이프라인이 아니라 파일 형식이어야 한다",
+      "hook": "복잡한 처리 파이프라인 대신 이식성 있고 표준화된 파일 형식으로 에이전트 메모리를 다루는 새로운 설계를 제안합니다.",
+      "key_takeaways": [
+        "에이전트 메모리를 특정 파이프라인이나 프레임워크에 종속시키지 않는 표준화된 파일 구조의 필요성 강조",
+        "메모리의 이식성, 버전 관리, 디버깅 용이성 향상",
+        "다양한 LLM 에이전트 환경 간 컨텍스트 공유 및 상태 저장 단순화"
+      ]
+    },
+    "en": {
+      "title": "Agent Memory Should Be a File Format, Not a Pipeline",
+      "hook": "Proposes treating agent memory as a portable, standardized file format rather than a rigid processing pipeline.",
+      "key_takeaways": [
+        "Highlights the need for standardized file structures over framework-locked memory pipelines.",
+        "Improves memory portability, version control, and ease of debugging across agent systems.",
+        "Simplifies state persistence and context sharing between heterogeneous LLM agents."
+      ]
+    },
+    "zh": {
+      "title": "智能体内存应该是文件格式，而非流水线",
+      "hook": "提出将 AI 智能体内存设计为可移植的标准化文件格式，而非僵化的处理流水线。",
+      "key_takeaways": [
+        "强调建立标准化文件结构而非将内存绑定于特定框架流水线的重要性",
+        "提升智能体在不同系统间的内存可移植性、版本控制与调试便利性",
+        "简化异构 LLM 智能体之间的状态持久化与上下文共享"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.058564"
 }

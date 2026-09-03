@@ -37,49 +37,48 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_geeknews_ankidroid_google_play가_더_이상_open_col",
     "source_lang": "KO",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "앱스토어 정책",
+    "type_classification": "TECH",
+    "model_family": "Mobile / Open Source Governance",
+    "category": "Mobile Development",
     "programming_lang": "General",
     "root_keywords": [
       "AnkiDroid",
       "Google Play",
       "Open Collective",
-      "Policy"
+      "Open Source Monetization",
+      "App Store Policy"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 2.5,
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
         "title": "AnkiDroid: Google Play가 더 이상 Open Collective 후원 링크를 허용하지 않음",
-        "hook": "오픈소스 프로젝트의 후원 링크 정책 변경에 따른 구글 플레이스토어의 제약을 확인하세요.",
+        "hook": "Google Play 정책 강황에 따라 안드로이드 오픈소스 앱 내 외부 후원(Open Collective) 링크 게재가 제한되었습니다.",
         "key_takeaways": [
-          "Google Play의 외부 후원 링크 관련 정책 강화",
-          "AnkiDroid 오픈소스 프로젝트의 대응 방향",
-          "오픈소스 개발자의 수익화 및 기부금 모금 제약"
+          "Google Play Store 정책 준수를 위해 AnkiDroid 앱 내 Open Collective 후원 링크가 제거되었습니다.",
+          "앱 내 결제(In-App Purchase) 시스템 외의 인앱 외부 링크 및 직접 후원에 대한 구글의 제재가 강화되었습니다.",
+          "스토어 가이드라인 강화로 인해 오픈소스 프로젝트의 생계 유지 및 투명한 후원금 모금에 어려움이 가중되고 있습니다."
         ]
       },
       "en": {
-        "title": "AnkiDroid: Google Play No Longer Allows Open Collective Sponsorship Links",
-        "hook": "Review the restrictions imposed by Google Play on open-source project donation policies.",
+        "title": "AnkiDroid: Google Play No Longer Allows Open Collective Donation Links",
+        "hook": "Google Play policy enforcement bans external donation links like Open Collective inside published Android apps.",
         "key_takeaways": [
-          "Google Play's tightened policies on external sponsorship links",
-          "Response strategy of the AnkiDroid open-source project",
-          "Monetization and fundraising constraints for open-source developers"
+          "AnkiDroid was forced to remove its Open Collective link to comply with strict Google Play Store policies.",
+          "Demonstrates Google's tightening control over non-IAP monetization and external links within Android apps.",
+          "Creates new hurdles for open-source software relying on transparent platform-based donations."
         ]
       },
       "zh": {
-        "title": "AnkiDroid：Google Play 不再允许 Open Collective 赞助链接",
-        "hook": "了解 Google Play 针对开源项目赞助链接政策收紧带来的影响。",
+        "title": "AnkiDroid：Google Play 不再允许放置 Open Collective 赞助链接",
+        "hook": "Google Play 政策收紧，禁止在 Android 应用内包含 Open Collective 等第三方捐赠链接。",
         "key_takeaways": [
-          "Google Play 关于外部赞助链接政策的收紧",
-          "AnkiDroid 开源项目的应对方向",
-          "开源开发者在变现和筹款方面受到的限制"
+          "AnkiDroid 迫于 Google Play 政策合规压力，移除了应用内的 Open Collective 捐赠入口。",
+          "反映了 Google 对应用内非 IAP 渠道及外部赞助链接越来越严格的审查与限制。",
+          "给依赖公开透明众筹机制维系的开源软件生态带来了新的分发与资金获取挑战。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:19.876536+09:00"
+    }
   },
   "source_lang": "KO",
   "programming_lang": "General",
@@ -87,16 +86,48 @@
     "AnkiDroid",
     "Google Play",
     "Open Collective",
-    "Policy"
+    "Open Source Monetization",
+    "App Store Policy"
   ],
-  "title_en": "AnkiDroid: Google Play No Longer Allows Open Collective Sponsorship Links",
-  "title_zh": "AnkiDroid：Google Play 不再允许 Open Collective 赞助链接",
+  "title_en": "AnkiDroid: Google Play No Longer Allows Open Collective Donation Links",
+  "title_zh": "AnkiDroid：Google Play 不再允许放置 Open Collective 赞助链接",
   "hook": "오픈소스 프로젝트의 후원 링크 정책 변경에 따른 구글 플레이스토어의 제약을 확인하세요.",
-  "hook_ko": "오픈소스 프로젝트의 후원 링크 정책 변경에 따른 구글 플레이스토어의 제약을 확인하세요.",
-  "hook_en": "Review the restrictions imposed by Google Play on open-source project donation policies.",
-  "hook_zh": "了解 Google Play 针对开源项目赞助链接政策收紧带来的影响。",
+  "hook_ko": "Google Play 정책 강황에 따라 안드로이드 오픈소스 앱 내 외부 후원(Open Collective) 링크 게재가 제한되었습니다.",
+  "hook_en": "Google Play policy enforcement bans external donation links like Open Collective inside published Android apps.",
+  "hook_zh": "Google Play 政策收紧，禁止在 Android 应用内包含 Open Collective 等第三方捐赠链接。",
   "description_en": "Review the restrictions imposed by Google Play on open-source project donation policies.",
   "description_zh": "了解 Google Play 针对开源项目赞助链接政策收紧带来的影响。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "AnkiDroid: Google Play가 더 이상 Open Collective 후원 링크를 허용하지 않음",
+      "hook": "Google Play 정책 강황에 따라 안드로이드 오픈소스 앱 내 외부 후원(Open Collective) 링크 게재가 제한되었습니다.",
+      "key_takeaways": [
+        "Google Play Store 정책 준수를 위해 AnkiDroid 앱 내 Open Collective 후원 링크가 제거되었습니다.",
+        "앱 내 결제(In-App Purchase) 시스템 외의 인앱 외부 링크 및 직접 후원에 대한 구글의 제재가 강화되었습니다.",
+        "스토어 가이드라인 강화로 인해 오픈소스 프로젝트의 생계 유지 및 투명한 후원금 모금에 어려움이 가중되고 있습니다."
+      ]
+    },
+    "en": {
+      "title": "AnkiDroid: Google Play No Longer Allows Open Collective Donation Links",
+      "hook": "Google Play policy enforcement bans external donation links like Open Collective inside published Android apps.",
+      "key_takeaways": [
+        "AnkiDroid was forced to remove its Open Collective link to comply with strict Google Play Store policies.",
+        "Demonstrates Google's tightening control over non-IAP monetization and external links within Android apps.",
+        "Creates new hurdles for open-source software relying on transparent platform-based donations."
+      ]
+    },
+    "zh": {
+      "title": "AnkiDroid：Google Play 不再允许放置 Open Collective 赞助链接",
+      "hook": "Google Play 政策收紧，禁止在 Android 应用内包含 Open Collective 等第三方捐赠链接。",
+      "key_takeaways": [
+        "AnkiDroid 迫于 Google Play 政策合规压力，移除了应用内的 Open Collective 捐赠入口。",
+        "反映了 Google 对应用内非 IAP 渠道及外部赞助链接越来越严格的审查与限制。",
+        "给依赖公开透明众筹机制维系的开源软件生态带来了新的分发与资金获取挑战。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.003281"
 }

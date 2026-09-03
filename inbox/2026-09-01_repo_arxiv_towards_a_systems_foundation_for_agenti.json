@@ -32,67 +32,100 @@
   "ai_enrichment": {
     "id": "2026-09-01_repo_arxiv_towards_a_systems_foundation_for_agenti",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "에이전트 아키텍처 및 시스템 인프라",
-    "programming_lang": "Python",
+    "type_classification": "TECH",
+    "model_family": "LLM Agent Infrastructure",
+    "category": "AI Systems & Agents",
+    "programming_lang": "General",
     "root_keywords": [
       "Agentic Skills",
-      "Systems Architecture",
-      "Reliability"
+      "LLM Agent Systems",
+      "Agent Security",
+      "Context Optimization",
+      "Agent Lifecycle"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "에이전틱 스킬의 시스템 기반을 향하여: 아키텍처, 라이프사이클 및 보안",
-        "hook": "복잡하고 장기적인 태스크에서 LLM 에이전트가 직면한 신뢰성 및 컨텍스트 병목을 해결할 시스템 아키텍처를 확인하세요.",
+        "title": "에이전트 스킬을 위한 시스템 기반: 아키텍처, 라이프사이클 및 보안",
+        "hook": "복잡한 장기 실행 과제에서 LLM 에이전트의 신뢰성과 컨텍스트 병목 현상을 해결하는 시스템 아키텍처 제안",
         "key_takeaways": [
-          "모놀리식 프롬프트 방식의 한계와 에이전트 신뢰성 문제 분석",
-          "에이전틱 스킬의 전체 라이프사이클 및 실행 안정성 확보 방안 제안",
-          "프로덕션 환경 배포를 위한 에이전트 보안 및 시스템 설계 표준 정립"
+          "LLM 에이전트 스킬의 모듈화 및 체계적 라이프사이클 관리 아키텍처 제시",
+          "장기 작업 실행 시 발생하는 컨텍스트 과다 소모 및 실행 불안정성 해결",
+          "자율적 스킬 실행 과정에서의 시스템 차원 보안 및 제어 메커니즘 정립"
         ]
       },
       "en": {
         "title": "Towards a Systems Foundation for Agentic Skills: Architecture, Lifecycle, and Security",
-        "hook": "Overcome reliability and context bottlenecks in long-horizon LLM agent tasks with a robust systems-level architecture.",
+        "hook": "Proposing a system foundation to solve reliability, context consumption, and stability bottlenecks in LLM agent skills",
         "key_takeaways": [
-          "Analyzes reliability and stability bottlenecks of monolithic prompt approaches",
-          "Proposes a comprehensive architecture and lifecycle for agentic skills",
-          "Establishes foundational security and execution standards for production agents"
+          "Defines a modular architecture and lifecycle for managing complex agentic skills.",
+          "Tackles context bloat and execution instability during long-horizon LLM tasks.",
+          "Introduces system-level security and control frameworks for autonomous skill execution."
         ]
       },
       "zh": {
-        "title": "构建智能体技能的系统基础：架构、生命周期与安全",
-        "hook": "从系统层架构破解大模型智能体在长周期复杂任务中的可靠性与上下文瓶颈。",
+        "title": "Agentic Skill 的系统基础：架构、生命周期与安全性",
+        "hook": "为解决 LLM Agent 在长流程任务中的可靠性与上下文消耗瓶颈提供系统级架构支撑",
         "key_takeaways": [
-          "剖析单体提示词（Monolithic prompt）方案的可靠性与稳定性瓶颈",
-          "提出智能体技能的完整架构、生命周期管理与执行稳定方案",
-          "为生产环境中部署智能体奠定底层安全与系统工程标准"
+          "提出了 Agent 技能的模块化架构与全生命周期管理方案",
+          "有效解决长程任务执行中的上下文膨胀与系统稳定性瓶颈",
+          "引入系统级安全隔离与访问控制机制，提升自主 Agent 的运行可靠性"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:06.257641+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
     "Agentic Skills",
-    "Systems Architecture",
-    "Reliability"
+    "LLM Agent Systems",
+    "Agent Security",
+    "Context Optimization",
+    "Agent Lifecycle"
   ],
-  "title_ko": "에이전틱 스킬의 시스템 기반을 향하여: 아키텍처, 라이프사이클 및 보안",
+  "title_ko": "에이전트 스킬을 위한 시스템 기반: 아키텍처, 라이프사이클 및 보안",
   "title_en": "Towards a Systems Foundation for Agentic Skills: Architecture, Lifecycle, and Security",
-  "title_zh": "构建智能体技能的系统基础：架构、生命周期与安全",
+  "title_zh": "Agentic Skill 的系统基础：架构、生命周期与安全性",
   "hook": "복잡하고 장기적인 태스크에서 LLM 에이전트가 직면한 신뢰성 및 컨텍스트 병목을 해결할 시스템 아키텍처를 확인하세요.",
-  "hook_ko": "복잡하고 장기적인 태스크에서 LLM 에이전트가 직면한 신뢰성 및 컨텍스트 병목을 해결할 시스템 아키텍처를 확인하세요.",
-  "hook_en": "Overcome reliability and context bottlenecks in long-horizon LLM agent tasks with a robust systems-level architecture.",
-  "hook_zh": "从系统层架构破解大模型智能体在长周期复杂任务中的可靠性与上下文瓶颈。",
+  "hook_ko": "복잡한 장기 실행 과제에서 LLM 에이전트의 신뢰성과 컨텍스트 병목 현상을 해결하는 시스템 아키텍처 제안",
+  "hook_en": "Proposing a system foundation to solve reliability, context consumption, and stability bottlenecks in LLM agent skills",
+  "hook_zh": "为解决 LLM Agent 在长流程任务中的可靠性与上下文消耗瓶颈提供系统级架构支撑",
   "description_ko": "복잡하고 장기적인 태스크에서 LLM 에이전트가 직면한 신뢰성 및 컨텍스트 병목을 해결할 시스템 아키텍처를 확인하세요.",
   "description_en": "Overcome reliability and context bottlenecks in long-horizon LLM agent tasks with a robust systems-level architecture.",
   "description_zh": "从系统层架构破解大模型智能体在长周期复杂任务中的可靠性与上下文瓶颈。",
   "category_type": "AGENT",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "에이전트 스킬을 위한 시스템 기반: 아키텍처, 라이프사이클 및 보안",
+      "hook": "복잡한 장기 실행 과제에서 LLM 에이전트의 신뢰성과 컨텍스트 병목 현상을 해결하는 시스템 아키텍처 제안",
+      "key_takeaways": [
+        "LLM 에이전트 스킬의 모듈화 및 체계적 라이프사이클 관리 아키텍처 제시",
+        "장기 작업 실행 시 발생하는 컨텍스트 과다 소모 및 실행 불안정성 해결",
+        "자율적 스킬 실행 과정에서의 시스템 차원 보안 및 제어 메커니즘 정립"
+      ]
+    },
+    "en": {
+      "title": "Towards a Systems Foundation for Agentic Skills: Architecture, Lifecycle, and Security",
+      "hook": "Proposing a system foundation to solve reliability, context consumption, and stability bottlenecks in LLM agent skills",
+      "key_takeaways": [
+        "Defines a modular architecture and lifecycle for managing complex agentic skills.",
+        "Tackles context bloat and execution instability during long-horizon LLM tasks.",
+        "Introduces system-level security and control frameworks for autonomous skill execution."
+      ]
+    },
+    "zh": {
+      "title": "Agentic Skill 的系统基础：架构、生命周期与安全性",
+      "hook": "为解决 LLM Agent 在长流程任务中的可靠性与上下文消耗瓶颈提供系统级架构支撑",
+      "key_takeaways": [
+        "提出了 Agent 技能的模块化架构与全生命周期管理方案",
+        "有效解决长程任务执行中的上下文膨胀与系统稳定性瓶颈",
+        "引入系统级安全隔离与访问控制机制，提升自主 Agent 的运行可靠性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.948797"
 }

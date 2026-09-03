@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "TECH",
-  "title_ko": "HF Space: k2-fsa/OmniVoice 인터랙티브 AI 데모",
+  "title_ko": "OmniVoice 대화형 AI 데모 - k2-fsa의 범용 음성 합성 시스템",
   "description_ko": "오픈소스 음성 기술의 최전선인 OmniVoice의 성능을 웹에서 즉시 테스트할 수 있는 인터랙티브 데모입니다.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -48,42 +48,44 @@
     "id": "2026-08-31_repo_hf_space_k2_fsaomnivoice",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "음성 인식 및 생성",
+    "model_family": "Speech Generation / Zero-Shot TTS",
+    "category": "Audio & Speech AI",
     "programming_lang": "Python",
     "root_keywords": [
       "OmniVoice",
-      "Gradio",
-      "Voice AI"
+      "Text-to-Speech",
+      "k2-fsa",
+      "Zero-Shot TTS",
+      "Voice Cloning"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "HF Space: k2-fsa/OmniVoice 인터랙티브 AI 데모",
-        "hook": "오픈소스 음성 기술의 최전선인 OmniVoice의 성능을 웹에서 즉시 테스트할 수 있는 인터랙티브 데모입니다.",
+        "title": "OmniVoice 대화형 AI 데모 - k2-fsa의 범용 음성 합성 시스템",
+        "hook": "k2-fsa 팀이 개발한 고성능 제로샷 음성 합성 및 다국어 TTS 모델의 실시간 대화형 데모",
         "key_takeaways": [
-          "Ggradio SDK 기반으로 구축된 실시간 음성 상호작용 데모",
-          "k2-fsa 오픈소스 음성 프로젝트의 최신 아키텍처 반영",
-          "개발자가 직접 음성 합성 및 인식 성능을 브라우저에서 검증 가능"
+          "k2-fsa 생태계 기반의 고품질 제로샷(Zero-shot) 음성 합성 및 음색 복제 지원",
+          "Gradio 기반의 직관적인 사용자 인터페이스로 실시간 음성 생성 체험 제공",
+          "다양한 화자 스타일 및 고품질 다국어 텍스트 음성 변환(TTS) 성능 검증"
         ]
       },
       "en": {
-        "title": "HF Space: k2-fsa/OmniVoice Interactive AI Demo",
-        "hook": "Test the capabilities of OmniVoice instantly in your browser with this interactive live audio demo.",
+        "title": "OmniVoice Interactive AI Demo - Versatile Speech Synthesis by k2-fsa",
+        "hook": "Interactive Gradio demo showcasing k2-fsa's high-performance zero-shot speech synthesis and TTS capabilities.",
         "key_takeaways": [
-          "Real-time voice interaction demo built on the Gradio SDK",
-          "Integrates the latest architecture from the k2-fsa open-source speech project",
-          "Enables developers to validate speech synthesis and recognition performance in browser"
+          "High-quality zero-shot voice cloning and speech generation built on the k2-fsa ecosystem",
+          "User-friendly Gradio SDK interface for real-time speech synthesis evaluation",
+          "Supports multi-speaker voice matching and robust multilingual text-to-speech tasks"
         ]
       },
       "zh": {
-        "title": "HF Space: k2-fsa/OmniVoice 交互式 AI 演示",
-        "hook": "通过此网页端交互式演示，立即体验 OmniVoice 的前沿语音合成与识别性能。",
+        "title": "OmniVoice 交互式 AI 演示 - k2-fsa 推出的通用语音合成系统",
+        "hook": "展示 k2-fsa 团队开发的高性能零样本语音合成与多语言 TTS 能力的 Gradio 实时演示",
         "key_takeaways": [
-          "基于 Gradio SDK 构建的实时语音交互演示",
-          "融入了 k2-fsa 开源语音项目的最新架构成果",
-          "方便开发者在浏览器中直接验证语音模型的各项指标"
+          "基于 k2-fsa 生态的高质量零样本 (Zero-shot) 语音克隆与生成",
+          "提供直观的 Gradio 界面，方便实时测试与评估语音合成效果",
+          "支持多语种文本转语音及灵活的说话人音色克隆"
         ]
       }
     }
@@ -92,17 +94,50 @@
   "programming_lang": "Python",
   "root_keywords": [
     "OmniVoice",
-    "Gradio",
-    "Voice AI"
+    "Text-to-Speech",
+    "k2-fsa",
+    "Zero-Shot TTS",
+    "Voice Cloning"
   ],
-  "title_en": "HF Space: k2-fsa/OmniVoice Interactive AI Demo",
-  "title_zh": "HF Space: k2-fsa/OmniVoice 交互式 AI 演示",
+  "title_en": "OmniVoice Interactive AI Demo - Versatile Speech Synthesis by k2-fsa",
+  "title_zh": "OmniVoice 交互式 AI 演示 - k2-fsa 推出的通用语音合成系统",
   "hook": "오픈소스 음성 기술의 최전선인 OmniVoice의 성능을 웹에서 즉시 테스트할 수 있는 인터랙티브 데모입니다.",
-  "hook_ko": "오픈소스 음성 기술의 최전선인 OmniVoice의 성능을 웹에서 즉시 테스트할 수 있는 인터랙티브 데모입니다.",
-  "hook_en": "Test the capabilities of OmniVoice instantly in your browser with this interactive live audio demo.",
-  "hook_zh": "通过此网页端交互式演示，立即体验 OmniVoice 的前沿语音合成与识别性能。",
+  "hook_ko": "k2-fsa 팀이 개발한 고성능 제로샷 음성 합성 및 다국어 TTS 모델의 실시간 대화형 데모",
+  "hook_en": "Interactive Gradio demo showcasing k2-fsa's high-performance zero-shot speech synthesis and TTS capabilities.",
+  "hook_zh": "展示 k2-fsa 团队开发的高性能零样本语音合成与多语言 TTS 能力的 Gradio 实时演示",
   "description_en": "Test the capabilities of OmniVoice instantly in your browser with this interactive live audio demo.",
   "description_zh": "通过此网页端交互式演示，立即体验 OmniVoice 的前沿语音合成与识别性能。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "OmniVoice 대화형 AI 데모 - k2-fsa의 범용 음성 합성 시스템",
+      "hook": "k2-fsa 팀이 개발한 고성능 제로샷 음성 합성 및 다국어 TTS 모델의 실시간 대화형 데모",
+      "key_takeaways": [
+        "k2-fsa 생태계 기반의 고품질 제로샷(Zero-shot) 음성 합성 및 음색 복제 지원",
+        "Gradio 기반의 직관적인 사용자 인터페이스로 실시간 음성 생성 체험 제공",
+        "다양한 화자 스타일 및 고품질 다국어 텍스트 음성 변환(TTS) 성능 검증"
+      ]
+    },
+    "en": {
+      "title": "OmniVoice Interactive AI Demo - Versatile Speech Synthesis by k2-fsa",
+      "hook": "Interactive Gradio demo showcasing k2-fsa's high-performance zero-shot speech synthesis and TTS capabilities.",
+      "key_takeaways": [
+        "High-quality zero-shot voice cloning and speech generation built on the k2-fsa ecosystem",
+        "User-friendly Gradio SDK interface for real-time speech synthesis evaluation",
+        "Supports multi-speaker voice matching and robust multilingual text-to-speech tasks"
+      ]
+    },
+    "zh": {
+      "title": "OmniVoice 交互式 AI 演示 - k2-fsa 推出的通用语音合成系统",
+      "hook": "展示 k2-fsa 团队开发的高性能零样本语音合成与多语言 TTS 能力的 Gradio 实时演示",
+      "key_takeaways": [
+        "基于 k2-fsa 生态的高质量零样本 (Zero-shot) 语音克隆与生成",
+        "提供直观的 Gradio 界面，方便实时测试与评估语音合成效果",
+        "支持多语种文本转语音及灵活的说话人音色克隆"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.822791"
 }

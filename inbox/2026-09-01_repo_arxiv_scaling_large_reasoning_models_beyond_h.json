@@ -33,12 +33,13 @@
     "id": "2026-09-01_repo_arxiv_scaling_large_reasoning_models_beyond_h",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "대규모 추론 모델 및 RLVR",
+    "model_family": "Large Reasoning Models (LRMs)",
+    "category": "Artificial Intelligence",
     "programming_lang": "Python",
     "root_keywords": [
-      "Large Reasoning Models",
+      "Reasoning Models",
       "RLVR",
+      "Human Supervision",
       "Superintelligence",
       "Reinforcement Learning"
     ],
@@ -46,55 +47,85 @@
     "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "인간 감독을 넘어선 대규모 추론 모델 스케일링: 초지능을 향한 길",
-        "hook": "검증 가능한 보상을 통한 강화학습(RLVR)이 어떻게 수학과 코드 추론 능력을 극대화하는지 확인하세요.",
+        "title": "인간 감독을 넘어선 대형 추론 모델(LRM) 확장: 초지능을 향한 길",
+        "hook": "검증 가능한 보상 기반 강화학습(RLVR)을 통해 인간 감독의 한계를 극복하고 모델 추론 능력을 극대화하는 스케일링 패러다임",
         "key_takeaways": [
-          "검증 가능한 보상을 활용한 강화학습(RLVR)의 대규모 추론 모델 적용",
-          "인간의 직접적인 감독 한계를 뛰어넘는 자가 발전 가능성 탐구",
-          "수학 및 프로그래밍 도메인에서의 압도적인 추론 성능 향상"
+          "검증 가능한 보상 기반 강화학습(RLVR)을 통한 수학 및 코딩 분야 추론 성능의 비약적 향상",
+          "인간 피드백 및 감독 병목 현상을 우회하는 차세대 대형 추론 모델 자율 스케일링 기법",
+          "인공 일반 지능(AGI) 및 초지능 달성을 위한 LRM의 장기적인 발전 방향성 제시"
         ]
       },
       "en": {
-        "title": "Scaling Large Reasoning Models beyond Human Supervision: A Path toward Superintelligence",
-        "hook": "Learn how reinforcement learning with verifiable rewards (RLVR) pushes mathematical and coding reasoning beyond human limits.",
+        "title": "Scaling Large Reasoning Models Beyond Human Supervision: A Path Toward Superintelligence",
+        "hook": "Exploring how Reinforcement Learning with Verifiable Rewards (RLVR) enables reasoning models to surpass human supervision bottlenecks.",
         "key_takeaways": [
-          "Applies reinforcement learning with verifiable rewards (RLVR) to large reasoning models",
-          "Explores pathways to bypass human supervision limitations for superintelligence",
-          "Substantially improves performance in mathematics and code reasoning domains"
+          "Demonstrates significant leaps in mathematical and code reasoning through Reinforcement Learning with Verifiable Rewards (RLVR).",
+          "Proposes a novel scaling paradigm that bypasses traditional human feedback and supervision bottlenecks.",
+          "Outlines a structured roadmap for advancing Large Reasoning Models toward superintelligence."
         ]
       },
       "zh": {
-        "title": "超越人类监督的大规模推理模型扩展：通往超级智能之路",
-        "hook": "了解基于可验证奖励的强化学习（RLVR）如何将数学与代码推理推向人类极限。",
+        "title": "超越人类监督的大型推理模型扩展：通往超级智能之路",
+        "hook": "探讨如何通过可验证奖励强化学习（RLVR）突破人类监督瓶颈，极大提升复杂推理能力。",
         "key_takeaways": [
-          "将具有可验证奖励的强化学习（RLVR）应用于大型推理模型",
-          "探索超越人类监督限制以实现超级智能的途径",
-          "大幅提升数学和代码推理领域的性能"
+          "利用可验证奖励强化学习（RLVR）显著提升数学与编程领域的复杂推理能力。",
+          "提出突破传统人类反馈与监督瓶颈的新型模型扩展范式。",
+          "描绘了推动大型推理模型迈向超级智能的技术路线图。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:18.804648+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Large Reasoning Models",
+    "Reasoning Models",
     "RLVR",
+    "Human Supervision",
     "Superintelligence",
     "Reinforcement Learning"
   ],
-  "title_ko": "인간 감독을 넘어선 대규모 추론 모델 스케일링: 초지능을 향한 길",
-  "title_en": "Scaling Large Reasoning Models beyond Human Supervision: A Path toward Superintelligence",
-  "title_zh": "超越人类监督的大规模推理模型扩展：通往超级智能之路",
+  "title_ko": "인간 감독을 넘어선 대형 추론 모델(LRM) 확장: 초지능을 향한 길",
+  "title_en": "Scaling Large Reasoning Models Beyond Human Supervision: A Path Toward Superintelligence",
+  "title_zh": "超越人类监督的大型推理模型扩展：通往超级智能之路",
   "hook": "검증 가능한 보상을 통한 강화학습(RLVR)이 어떻게 수학과 코드 추론 능력을 극대화하는지 확인하세요.",
-  "hook_ko": "검증 가능한 보상을 통한 강화학습(RLVR)이 어떻게 수학과 코드 추론 능력을 극대화하는지 확인하세요.",
-  "hook_en": "Learn how reinforcement learning with verifiable rewards (RLVR) pushes mathematical and coding reasoning beyond human limits.",
-  "hook_zh": "了解基于可验证奖励的强化学习（RLVR）如何将数学与代码推理推向人类极限。",
+  "hook_ko": "검증 가능한 보상 기반 강화학습(RLVR)을 통해 인간 감독의 한계를 극복하고 모델 추론 능력을 극대화하는 스케일링 패러다임",
+  "hook_en": "Exploring how Reinforcement Learning with Verifiable Rewards (RLVR) enables reasoning models to surpass human supervision bottlenecks.",
+  "hook_zh": "探讨如何通过可验证奖励强化学习（RLVR）突破人类监督瓶颈，极大提升复杂推理能力。",
   "description_ko": "검증 가능한 보상을 통한 강화학습(RLVR)이 어떻게 수학과 코드 추론 능력을 극대화하는지 확인하세요.",
   "description_en": "Learn how reinforcement learning with verifiable rewards (RLVR) pushes mathematical and coding reasoning beyond human limits.",
   "description_zh": "了解基于可验证奖励的强化学习（RLVR）如何将数学与代码推理推向人类极限。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "인간 감독을 넘어선 대형 추론 모델(LRM) 확장: 초지능을 향한 길",
+      "hook": "검증 가능한 보상 기반 강화학습(RLVR)을 통해 인간 감독의 한계를 극복하고 모델 추론 능력을 극대화하는 스케일링 패러다임",
+      "key_takeaways": [
+        "검증 가능한 보상 기반 강화학습(RLVR)을 통한 수학 및 코딩 분야 추론 성능의 비약적 향상",
+        "인간 피드백 및 감독 병목 현상을 우회하는 차세대 대형 추론 모델 자율 스케일링 기법",
+        "인공 일반 지능(AGI) 및 초지능 달성을 위한 LRM의 장기적인 발전 방향성 제시"
+      ]
+    },
+    "en": {
+      "title": "Scaling Large Reasoning Models Beyond Human Supervision: A Path Toward Superintelligence",
+      "hook": "Exploring how Reinforcement Learning with Verifiable Rewards (RLVR) enables reasoning models to surpass human supervision bottlenecks.",
+      "key_takeaways": [
+        "Demonstrates significant leaps in mathematical and code reasoning through Reinforcement Learning with Verifiable Rewards (RLVR).",
+        "Proposes a novel scaling paradigm that bypasses traditional human feedback and supervision bottlenecks.",
+        "Outlines a structured roadmap for advancing Large Reasoning Models toward superintelligence."
+      ]
+    },
+    "zh": {
+      "title": "超越人类监督的大型推理模型扩展：通往超级智能之路",
+      "hook": "探讨如何通过可验证奖励强化学习（RLVR）突破人类监督瓶颈，极大提升复杂推理能力。",
+      "key_takeaways": [
+        "利用可验证奖励强化学习（RLVR）显著提升数学与编程领域的复杂推理能力。",
+        "提出突破传统人类反馈与监督瓶颈的新型模型扩展范式。",
+        "描绘了推动大型推理模型迈向超级智能的技术路线图。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.944406"
 }

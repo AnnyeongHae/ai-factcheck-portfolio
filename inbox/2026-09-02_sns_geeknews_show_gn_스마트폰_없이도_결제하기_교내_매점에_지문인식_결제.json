@@ -30,7 +30,7 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "스마트폰 없이 교내 매점에서 사용하는 지문인식 결제 시스템 직접 구축기",
+  "title_ko": "스마트폰 없이 결제하기 — 교내 매점 지문인식 결제 시스템 구축 및 배포기",
   "description_ko": "실제 하드웨어와 생체인식 센서를 활용해 실생활에 유용한 결제 시스템을 처음부터 끝까지 개발한 생생한 경험담을 확인하세요.",
   "hn_url": "https://news.hada.io/topic?id=33148",
   "article_url": "https://news.hada.io/topic?id=33148",
@@ -38,65 +38,96 @@
     "id": "2026-09-02_sns_geeknews_show_gn_스마트폰_없이도_결제하기_교내_매점에_지문인식_결제",
     "source_lang": "KO",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "임베디드 및 생체인식 시스템",
-    "programming_lang": "C++",
+    "model_family": "Embedded & Biometrics",
+    "category": "IoT / Fintech",
+    "programming_lang": "General",
     "root_keywords": [
-      "지문인식",
-      "결제 시스템",
-      "하드웨어",
-      "임베디드"
+      "Fingerprint Payment",
+      "Biometric Authentication",
+      "IoT",
+      "Embedded Systems",
+      "School Cafeteria"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.3,
     "multilingual": {
       "ko": {
-        "title": "스마트폰 없이 교내 매점에서 사용하는 지문인식 결제 시스템 직접 구축기",
-        "hook": "실제 하드웨어와 생체인식 센서를 활용해 실생활에 유용한 결제 시스템을 처음부터 끝까지 개발한 생생한 경험담을 확인하세요.",
+        "title": "스마트폰 없이 결제하기 — 교내 매점 지문인식 결제 시스템 구축 및 배포기",
+        "hook": "스마트폰이나 카드 없이 생체 지문 인식만으로 결제할 수 있는 교내 매점 맞춤형 결제 시스템의 자체 제작 및 실무 배포 이야기",
         "key_takeaways": [
-          "스마트폰 의존성을 낮추는 독립형 지문인식 결제 하드웨어 아키텍처 설계",
-          "교내 매점 환경에 실제 배포하여 운영한 실무 레슨런과 트러블슈팅",
-          "임베디드 디바이스와 백엔드 서버 간의 보안 통신 및 데이터 처리 방식"
+          "지문 인식 모듈과 하드웨어를 활용한 노-디바이스(No-device) 결제 환경 구축",
+          "교내 매점 운영 환경에 최적화된 인증 및 데이터 처리 로직 구현",
+          "실제 사용자 대상 테스트 및 배포를 통한 운용 경험과 문제 해결 노하우"
         ]
       },
       "en": {
-        "title": "Building a Fingerprint Payment System for a School Cafeteria Without Smartphones",
-        "hook": "Discover how a developer successfully built and deployed a real-world biometric payment system from scratch.",
+        "title": "Paying Without a Smartphone — Building and Deploying a Fingerprint Payment System for a School Store",
+        "hook": "A hands-on case study of building and deploying a custom biometric fingerprint payment system that enables device-free transactions for a school cafeteria.",
         "key_takeaways": [
-          "Designing a standalone biometric payment hardware architecture minimizing phone dependency",
-          "Real-world deployment lessons and troubleshooting in a campus cafeteria environment",
-          "Secure communication and data processing between embedded devices and backend servers"
+          "Created a no-device payment environment utilizing fingerprint recognition hardware and embedded modules.",
+          "Implemented authentication and transaction processing logic tailored to school store operations.",
+          "Gained practical operational experience and troubleshooting insights through real-world deployment and user testing."
         ]
       },
       "zh": {
-        "title": "无需智能手机：从零打造校园小卖部指纹识别支付系统",
-        "hook": "了解开发者如何利用真实硬件与生物识别传感器，从头构建并部署实用的校园支付系统。",
+        "title": "无需手机即可支付 — 校园小卖部指纹识别支付系统的自主开发与部署历程",
+        "hook": "自行开发并部署面向校园小卖部的指纹识别支付系统，实现无需手机或银行卡的便利无感支付体验。",
         "key_takeaways": [
-          "设计降低手机依赖的独立指纹识别支付硬件架构",
-          "在校园小卖部环境中实际部署的经验教训与故障排查",
-          "嵌入式设备与后端服务器之间的安全通信与数据处理方式"
+          "利用指纹识别硬件与嵌入式模块搭建无需自带设备的支付环境",
+          "实现针对校园小卖部场景优化的身份验证与交易处理逻辑",
+          "分享真实用户测试与上线部署过程中的运维经验与问题解决技巧"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:18:23.047954+09:00"
+    }
   },
   "source_lang": "KO",
-  "programming_lang": "C++",
+  "programming_lang": "General",
   "root_keywords": [
-    "지문인식",
-    "결제 시스템",
-    "하드웨어",
-    "임베디드"
+    "Fingerprint Payment",
+    "Biometric Authentication",
+    "IoT",
+    "Embedded Systems",
+    "School Cafeteria"
   ],
-  "title_en": "Building a Fingerprint Payment System for a School Cafeteria Without Smartphones",
-  "title_zh": "无需智能手机：从零打造校园小卖部指纹识别支付系统",
+  "title_en": "Paying Without a Smartphone — Building and Deploying a Fingerprint Payment System for a School Store",
+  "title_zh": "无需手机即可支付 — 校园小卖部指纹识别支付系统的自主开发与部署历程",
   "hook": "실제 하드웨어와 생체인식 센서를 활용해 실생활에 유용한 결제 시스템을 처음부터 끝까지 개발한 생생한 경험담을 확인하세요.",
-  "hook_ko": "실제 하드웨어와 생체인식 센서를 활용해 실생활에 유용한 결제 시스템을 처음부터 끝까지 개발한 생생한 경험담을 확인하세요.",
-  "hook_en": "Discover how a developer successfully built and deployed a real-world biometric payment system from scratch.",
-  "hook_zh": "了解开发者如何利用真实硬件与生物识别传感器，从头构建并部署实用的校园支付系统。",
+  "hook_ko": "스마트폰이나 카드 없이 생체 지문 인식만으로 결제할 수 있는 교내 매점 맞춤형 결제 시스템의 자체 제작 및 실무 배포 이야기",
+  "hook_en": "A hands-on case study of building and deploying a custom biometric fingerprint payment system that enables device-free transactions for a school cafeteria.",
+  "hook_zh": "自行开发并部署面向校园小卖部的指纹识别支付系统，实现无需手机或银行卡的便利无感支付体验。",
   "description_en": "Discover how a developer successfully built and deployed a real-world biometric payment system from scratch.",
   "description_zh": "了解开发者如何利用真实硬件与生物识别传感器，从头构建并部署实用的校园支付系统。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "스마트폰 없이 결제하기 — 교내 매점 지문인식 결제 시스템 구축 및 배포기",
+      "hook": "스마트폰이나 카드 없이 생체 지문 인식만으로 결제할 수 있는 교내 매점 맞춤형 결제 시스템의 자체 제작 및 실무 배포 이야기",
+      "key_takeaways": [
+        "지문 인식 모듈과 하드웨어를 활용한 노-디바이스(No-device) 결제 환경 구축",
+        "교내 매점 운영 환경에 최적화된 인증 및 데이터 처리 로직 구현",
+        "실제 사용자 대상 테스트 및 배포를 통한 운용 경험과 문제 해결 노하우"
+      ]
+    },
+    "en": {
+      "title": "Paying Without a Smartphone — Building and Deploying a Fingerprint Payment System for a School Store",
+      "hook": "A hands-on case study of building and deploying a custom biometric fingerprint payment system that enables device-free transactions for a school cafeteria.",
+      "key_takeaways": [
+        "Created a no-device payment environment utilizing fingerprint recognition hardware and embedded modules.",
+        "Implemented authentication and transaction processing logic tailored to school store operations.",
+        "Gained practical operational experience and troubleshooting insights through real-world deployment and user testing."
+      ]
+    },
+    "zh": {
+      "title": "无需手机即可支付 — 校园小卖部指纹识别支付系统的自主开发与部署历程",
+      "hook": "自行开发并部署面向校园小卖部的指纹识别支付系统，实现无需手机或银行卡的便利无感支付体验。",
+      "key_takeaways": [
+        "利用指纹识别硬件与嵌入式模块搭建无需自带设备的支付环境",
+        "实现针对校园小卖部场景优化的身份验证与交易处理逻辑",
+        "分享真实用户测试与上线部署过程中的运维经验与问题解决技巧"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.043248"
 }

@@ -36,66 +36,99 @@
     "id": "2026-09-02_sns_hacker_news_a_browser_based_viewer_for_office",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "웹 기술 및 문서 뷰어",
-    "programming_lang": "TypeScript",
+    "model_family": "Web Applications",
+    "category": "Web Tools & Utilities",
+    "programming_lang": "JavaScript/TypeScript",
     "root_keywords": [
       "Office Open XML",
-      "Browser Viewer",
-      "Web Development"
+      "OOXML",
+      "Docx Viewer",
+      "Client-side Rendering",
+      "Web Application"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.0,
     "multilingual": {
       "ko": {
-        "title": "Office Open XML 문서를 위한 브라우저 기반 뷰어",
-        "hook": "별도의 오피스 프로그램 없이 웹 브라우저에서 직접 문서를 렌더링하는 경량 툴을 만나보세요.",
+        "title": "브라우저 기반 Office Open XML 문서 뷰어",
+        "hook": "서버 연동 없이 브라우저에서 직접 Office Open XML(DOCX 등) 문서를 파싱 및 시각화하는 클라이언트 라이브러리/도구.",
         "key_takeaways": [
-          "설치 없이 웹에서 바로 구동되는 OOXML 문서 뷰어",
-          "프론트엔드 개발 시 문서 미리보기 기능 구현에 유용",
-          "오픈소스 기반의 가볍고 빠른 렌더링 성능 제공"
+          "별도 서버 처리 과정 없이 브라우저 단에서 OOXML 문서를 안전하게 랜더링",
+          "웹 애플리케이션 내 파일 미리보기 기능 구현 시 유용하게 활용 가능",
+          "클라이언트 사이드 파일 파싱을 통한 빠른 초기 로딩 및 보안 이점 제공"
         ]
       },
       "en": {
         "title": "A Browser-Based Viewer for Office Open XML Documents",
-        "hook": "Discover a lightweight web-based tool to render and view Office documents directly in the browser.",
+        "hook": "A lightweight client-side tool to parse and render Office Open XML (OOXML) documents directly inside the browser without server side processing.",
         "key_takeaways": [
-          "Zero-install, browser-native rendering for OOXML documents",
-          "Useful for integrating document preview features in web apps",
-          "Open-source implementation focusing on speed and lightweight performance"
+          "Renders OOXML files entirely on the client side, enhancing user data privacy and reducing server load.",
+          "Provides a streamlined component for embedding document previews into web applications.",
+          "Leverages modern browser APIs and frontend parsing techniques for efficient file handling."
         ]
       },
       "zh": {
-        "title": "基于浏览器的Office Open XML文档查看器",
-        "hook": "探索无需安装任何办公软件即可在网页端直接渲染文档的轻量级工具。",
+        "title": "基于浏览器的 Office Open XML 文档查看器",
+        "hook": "无需服务器端参与，直接在浏览器端解析并渲染 Office Open XML 文档的客户端轻量级工具。",
         "key_takeaways": [
-          "无需安装、网页原生的OOXML文档渲染方案",
-          "适用于在Web应用中集成文档预览功能",
-          "开源实现，注重速度与轻量级性能"
+          "完全在客户端解析 OOXML 文件，保障数据隐私并降低服务端负载",
+          "为 Web 应用快速集成文档在线预览功能提供便捷方案",
+          "利用现代 Web API 和前端解析技术实现高效的文档渲染"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:54:42.439212+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "TypeScript",
+  "programming_lang": "JavaScript/TypeScript",
   "root_keywords": [
     "Office Open XML",
-    "Browser Viewer",
-    "Web Development"
+    "OOXML",
+    "Docx Viewer",
+    "Client-side Rendering",
+    "Web Application"
   ],
-  "title_ko": "Office Open XML 문서를 위한 브라우저 기반 뷰어",
+  "title_ko": "브라우저 기반 Office Open XML 문서 뷰어",
   "title_en": "A Browser-Based Viewer for Office Open XML Documents",
-  "title_zh": "基于浏览器的Office Open XML文档查看器",
+  "title_zh": "基于浏览器的 Office Open XML 文档查看器",
   "hook": "별도의 오피스 프로그램 없이 웹 브라우저에서 직접 문서를 렌더링하는 경량 툴을 만나보세요.",
-  "hook_ko": "별도의 오피스 프로그램 없이 웹 브라우저에서 직접 문서를 렌더링하는 경량 툴을 만나보세요.",
-  "hook_en": "Discover a lightweight web-based tool to render and view Office documents directly in the browser.",
-  "hook_zh": "探索无需安装任何办公软件即可在网页端直接渲染文档的轻量级工具。",
+  "hook_ko": "서버 연동 없이 브라우저에서 직접 Office Open XML(DOCX 등) 문서를 파싱 및 시각화하는 클라이언트 라이브러리/도구.",
+  "hook_en": "A lightweight client-side tool to parse and render Office Open XML (OOXML) documents directly inside the browser without server side processing.",
+  "hook_zh": "无需服务器端参与，直接在浏览器端解析并渲染 Office Open XML 文档的客户端轻量级工具。",
   "description_ko": "별도의 오피스 프로그램 없이 웹 브라우저에서 직접 문서를 렌더링하는 경량 툴을 만나보세요.",
   "description_en": "Discover a lightweight web-based tool to render and view Office documents directly in the browser.",
   "description_zh": "探索无需安装任何办公软件即可在网页端直接渲染文档的轻量级工具。",
   "category_type": "TECH",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "브라우저 기반 Office Open XML 문서 뷰어",
+      "hook": "서버 연동 없이 브라우저에서 직접 Office Open XML(DOCX 등) 문서를 파싱 및 시각화하는 클라이언트 라이브러리/도구.",
+      "key_takeaways": [
+        "별도 서버 처리 과정 없이 브라우저 단에서 OOXML 문서를 안전하게 랜더링",
+        "웹 애플리케이션 내 파일 미리보기 기능 구현 시 유용하게 활용 가능",
+        "클라이언트 사이드 파일 파싱을 통한 빠른 초기 로딩 및 보안 이점 제공"
+      ]
+    },
+    "en": {
+      "title": "A Browser-Based Viewer for Office Open XML Documents",
+      "hook": "A lightweight client-side tool to parse and render Office Open XML (OOXML) documents directly inside the browser without server side processing.",
+      "key_takeaways": [
+        "Renders OOXML files entirely on the client side, enhancing user data privacy and reducing server load.",
+        "Provides a streamlined component for embedding document previews into web applications.",
+        "Leverages modern browser APIs and frontend parsing techniques for efficient file handling."
+      ]
+    },
+    "zh": {
+      "title": "基于浏览器的 Office Open XML 文档查看器",
+      "hook": "无需服务器端参与，直接在浏览器端解析并渲染 Office Open XML 文档的客户端轻量级工具。",
+      "key_takeaways": [
+        "完全在客户端解析 OOXML 文件，保障数据隐私并降低服务端负载",
+        "为 Web 应用快速集成文档在线预览功能提供便捷方案",
+        "利用现代 Web API 和前端解析技术实现高效的文档渲染"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.064042"
 }

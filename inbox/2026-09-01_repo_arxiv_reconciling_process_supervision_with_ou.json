@@ -33,68 +33,99 @@
     "id": "2026-09-01_repo_arxiv_reconciling_process_supervision_with_ou",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "에이전트 정책 최적화",
+    "model_family": "Reinforcement Learning / LLM Agents",
+    "category": "Machine Learning",
     "programming_lang": "Python",
     "root_keywords": [
       "Process Supervision",
       "Outcome-Based Credit",
-      "Policy Optimization",
-      "Agentic AI"
+      "Agentic Policy Optimization",
+      "Reinforcement Learning",
+      "LLM Agents"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.6,
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "에이전트 정책 최적화에서 과정 감독과 결과 기반 크레딧의 조화",
-        "hook": "장기적인 에이전트 실행 과정에서 세밀한 피드백을 제공하는 새로운 프로세스 감독 기법을 확인하세요.",
+        "title": "에이전트 정책 최적화에서 과정 감독과 결과 기반 보상의 조화",
+        "hook": "긴 실행 흐름을 갖는 LLM 에이전트의 신용 할당 문제를 과정 감독과 결과 보상 결합으로 해결하는 RL 방법론",
         "key_takeaways": [
-          "결과 기반 강화학습의 궤적 수준 보상 한계 극복",
-          "과정 감독(Process Supervision)과 결과 기반 크레딧 할당의 조화로운 결합",
-          "장기 호라이즌 에이전트 작업에서의 세밀한(fine-grained) 의사결정 최적화"
+          "결과 기반 보상의 거친 신용 할당 문제를 보완하기 위한 과정 감독(Process Supervision) 통합 방안 제시",
+          "긴 단계(Long-horizon)를 수행하는 LLM 에이전트의 정책 최적화 효율 및 안정성 대폭 개선",
+          "에이전트 의사결정 단위별 세밀한 혜택(Advantage) 추정을 통한 강화학습 성능 극대화"
         ]
       },
       "en": {
         "title": "Reconciling Process Supervision with Outcome-Based Credit in Agentic Policy Optimization",
-        "hook": "Learn how to overcome coarse trajectory-level rewards by reconciling process supervision with outcome credit in agents.",
+        "hook": "Resolving coarse credit assignment in long-horizon LLM agents by unifying process supervision and outcome-based rewards.",
         "key_takeaways": [
-          "Addresses the limitation of uniform trajectory-level rewards in outcome-based RL",
-          "Reconciles process supervision with outcome-based credit assignment",
-          "Optimizes fine-grained decision-making in long-horizon agentic workflows"
+          "Combines outcome-based verified feedback with granular process supervision for LLM agent policy optimization.",
+          "Overcomes trajectory-level uniform advantage assignment in long-horizon task execution.",
+          "Enhances RL convergence, stability, and fine-grained decision evaluation for autonomous agents."
         ]
       },
       "zh": {
         "title": "在智能体策略优化中协调过程监督与基于结果的信用分配",
-        "hook": "了解如何通过在智能体中协调过程监督与结果信用，克服粗粒度轨迹级奖励的限制。",
+        "hook": "通过结合过程监督与结果奖励，解决长流程LLM智能体中的粒度信用分配难题。",
         "key_takeaways": [
-          "解决基于结果的强化学习中轨迹级奖励过于单一的局限",
-          "实现过程监督与基于结果的信用分配的协调统一",
-          "优化长周期智能体工作流中的细粒度决策"
+          "提出一种融合过程监督与基于结果验证反馈的LLM智能体强化学习策略优化方法。",
+          "解决长流程任务中轨迹级优势均匀分配导致的信用过度粗糙问题。",
+          "显著提升自主智能体在复杂多步决策场景下的强化学习收敛速度与稳定性。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:18.825185+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Process Supervision",
     "Outcome-Based Credit",
-    "Policy Optimization",
-    "Agentic AI"
+    "Agentic Policy Optimization",
+    "Reinforcement Learning",
+    "LLM Agents"
   ],
-  "title_ko": "에이전트 정책 최적화에서 과정 감독과 결과 기반 크레딧의 조화",
+  "title_ko": "에이전트 정책 최적화에서 과정 감독과 결과 기반 보상의 조화",
   "title_en": "Reconciling Process Supervision with Outcome-Based Credit in Agentic Policy Optimization",
   "title_zh": "在智能体策略优化中协调过程监督与基于结果的信用分配",
   "hook": "장기적인 에이전트 실행 과정에서 세밀한 피드백을 제공하는 새로운 프로세스 감독 기법을 확인하세요.",
-  "hook_ko": "장기적인 에이전트 실행 과정에서 세밀한 피드백을 제공하는 새로운 프로세스 감독 기법을 확인하세요.",
-  "hook_en": "Learn how to overcome coarse trajectory-level rewards by reconciling process supervision with outcome credit in agents.",
-  "hook_zh": "了解如何通过在智能体中协调过程监督与结果信用，克服粗粒度轨迹级奖励的限制。",
+  "hook_ko": "긴 실행 흐름을 갖는 LLM 에이전트의 신용 할당 문제를 과정 감독과 결과 보상 결합으로 해결하는 RL 방법론",
+  "hook_en": "Resolving coarse credit assignment in long-horizon LLM agents by unifying process supervision and outcome-based rewards.",
+  "hook_zh": "通过结合过程监督与结果奖励，解决长流程LLM智能体中的粒度信用分配难题。",
   "description_ko": "장기적인 에이전트 실행 과정에서 세밀한 피드백을 제공하는 새로운 프로세스 감독 기법을 확인하세요.",
   "description_en": "Learn how to overcome coarse trajectory-level rewards by reconciling process supervision with outcome credit in agents.",
   "description_zh": "了解如何通过在智能体中协调过程监督与结果信用，克服粗粒度轨迹级奖励的限制。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "에이전트 정책 최적화에서 과정 감독과 결과 기반 보상의 조화",
+      "hook": "긴 실행 흐름을 갖는 LLM 에이전트의 신용 할당 문제를 과정 감독과 결과 보상 결합으로 해결하는 RL 방법론",
+      "key_takeaways": [
+        "결과 기반 보상의 거친 신용 할당 문제를 보완하기 위한 과정 감독(Process Supervision) 통합 방안 제시",
+        "긴 단계(Long-horizon)를 수행하는 LLM 에이전트의 정책 최적화 효율 및 안정성 대폭 개선",
+        "에이전트 의사결정 단위별 세밀한 혜택(Advantage) 추정을 통한 강화학습 성능 극대화"
+      ]
+    },
+    "en": {
+      "title": "Reconciling Process Supervision with Outcome-Based Credit in Agentic Policy Optimization",
+      "hook": "Resolving coarse credit assignment in long-horizon LLM agents by unifying process supervision and outcome-based rewards.",
+      "key_takeaways": [
+        "Combines outcome-based verified feedback with granular process supervision for LLM agent policy optimization.",
+        "Overcomes trajectory-level uniform advantage assignment in long-horizon task execution.",
+        "Enhances RL convergence, stability, and fine-grained decision evaluation for autonomous agents."
+      ]
+    },
+    "zh": {
+      "title": "在智能体策略优化中协调过程监督与基于结果的信用分配",
+      "hook": "通过结合过程监督与结果奖励，解决长流程LLM智能体中的粒度信用分配难题。",
+      "key_takeaways": [
+        "提出一种融合过程监督与基于结果验证反馈的LLM智能体强化学习策略优化方法。",
+        "解决长流程任务中轨迹级优势均匀分配导致的信用过度粗糙问题。",
+        "显著提升自主智能体在复杂多步决策场景下的强化学习收敛速度与稳定性。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.942873"
 }

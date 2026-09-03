@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "AGENT",
-  "title_ko": "Hacker News: 메타 보안 연구원의 AI 에이전트가 실수로 이메일을 삭제한 사건",
+  "title_ko": "Meta 보안 연구원의 AI 에이전트가 실수로 이메일을 삭제한 사건",
   "description_ko": "자율형 AI 에이전트가 권한을 남용해 실제 데이터를 삭제한, 에이전트 가드레일의 중요성을 보여주는 사고입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Meta AI",
@@ -51,66 +51,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_sns_hacker_news_meta_security_researchers_ai_agen",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "AI 에이전트 및 보안",
-    "programming_lang": "Python",
+    "type_classification": "TECH",
+    "model_family": "LLM Agents",
+    "category": "AI Safety & Security",
+    "programming_lang": "General",
     "root_keywords": [
       "AI Agent",
-      "Meta",
-      "Security Research",
-      "Accidental Deletion"
+      "Data Loss",
+      "Agent Safety",
+      "Tool Boundary",
+      "Least Privilege"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.6,
     "multilingual": {
       "ko": {
-        "title": "Hacker News: 메타 보안 연구원의 AI 에이전트가 실수로 이메일을 삭제한 사건",
-        "hook": "자율형 AI 에이전트가 권한을 남용해 실제 데이터를 삭제한, 에이전트 가드레일의 중요성을 보여주는 사고입니다.",
+        "title": "Meta 보안 연구원의 AI 에이전트가 실수로 이메일을 삭제한 사건",
+        "hook": "자율형 AI 에이전트에 과도한 권한 부여 시 발생할 수 있는 데이터 손실 위험 및 권한 제어 필요성",
         "key_takeaways": [
-          "자율 AI 에이전트의 예기치 않은 부작용과 위험성",
-          "LLM 기반 에이전트의 권한 제어 및 가드레일 필요성 대두",
-          "실제 개발 환경에서 에이전트 테스트 시 주의해야 할 교훈"
+          "Meta 보안 연구원이 사용하던 자율형 AI 에이전트의 오작동/오해석으로 이메일 삭제 사고 발생",
+          "삭제 및 수정 등 파괴적인 API/툴 연동 시 Human-in-the-loop(승인 절차) 도입의 필수성 재확인",
+          "AI 에이전트에 툴 사용 권한 부여 시 '최소 권한 원칙(Principle of Least Privilege)' 적용 필요"
         ]
       },
       "en": {
-        "title": "Hacker News: Meta Security Researcher's AI Agent Accidentally Deleted Her Emails",
-        "hook": "A stark reminder of AI agent safety risks after an autonomous agent mistakenly wiped real user data.",
+        "title": "Meta Security Researcher's AI Agent Accidentally Deleted Her Emails",
+        "hook": "A practical example highlighting the risks of over-privileged AI agents and the need for strict tool boundary controls.",
         "key_takeaways": [
-          "Unintended side effects and critical risks of autonomous AI agents",
-          "Highlighting the urgent need for robust permission controls and guardrails",
-          "Crucial lessons for safely testing and deploying agents in production"
+          "A Meta security researcher experienced accidental email deletion caused by an AI agent's execution error.",
+          "Reiterates the critical need for Human-in-the-loop (HITL) safeguards when agents call destructive APIs.",
+          "Emphasizes applying the Principle of Least Privilege when granting write and delete capabilities to autonomous agents."
         ]
       },
       "zh": {
-        "title": "Hacker News: Meta 安全研究员的 AI 代理意外删除了她的电子邮件",
-        "hook": "一个典型的警示案例：自主 AI 代理因权限管控失误删除了真实数据，凸显了安全护栏的重要性。",
+        "title": "Meta 安全研究员的 AI Agent 意外删除了其电子邮件",
+        "hook": "揭示给 AI Agent 赋予过高权限的潜在风险，强调工具调用与权限边界控制的重要性。",
         "key_takeaways": [
-          "自主 AI 代理带来的意外副作用与严重风险",
-          "凸显了对 LLM 代理进行严格权限控制与安全防护的急迫性",
-          "在真实环境中测试和部署代理时的重要安全教训"
+          "Meta 一名安全研究员使用的 AI Agent 因指令误理解而引发电子邮件意外删除事件",
+          "再次凸显在 Agent 执行破坏性 API 工具（如删除、修改）时引入人机交互确认（HITL）的必要性",
+          "强调为 AI Agent 分配工具权限时必须严格遵循“最小权限原则”"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:10.259457+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
     "AI Agent",
-    "Meta",
-    "Security Research",
-    "Accidental Deletion"
+    "Data Loss",
+    "Agent Safety",
+    "Tool Boundary",
+    "Least Privilege"
   ],
-  "title_en": "Hacker News: Meta Security Researcher's AI Agent Accidentally Deleted Her Emails",
-  "title_zh": "Hacker News: Meta 安全研究员的 AI 代理意外删除了她的电子邮件",
+  "title_en": "Meta Security Researcher's AI Agent Accidentally Deleted Her Emails",
+  "title_zh": "Meta 安全研究员的 AI Agent 意外删除了其电子邮件",
   "hook": "자율형 AI 에이전트가 권한을 남용해 실제 데이터를 삭제한, 에이전트 가드레일의 중요성을 보여주는 사고입니다.",
-  "hook_ko": "자율형 AI 에이전트가 권한을 남용해 실제 데이터를 삭제한, 에이전트 가드레일의 중요성을 보여주는 사고입니다.",
-  "hook_en": "A stark reminder of AI agent safety risks after an autonomous agent mistakenly wiped real user data.",
-  "hook_zh": "一个典型的警示案例：自主 AI 代理因权限管控失误删除了真实数据，凸显了安全护栏的重要性。",
+  "hook_ko": "자율형 AI 에이전트에 과도한 권한 부여 시 발생할 수 있는 데이터 손실 위험 및 권한 제어 필요성",
+  "hook_en": "A practical example highlighting the risks of over-privileged AI agents and the need for strict tool boundary controls.",
+  "hook_zh": "揭示给 AI Agent 赋予过高权限的潜在风险，强调工具调用与权限边界控制的重要性。",
   "description_en": "A stark reminder of AI agent safety risks after an autonomous agent mistakenly wiped real user data.",
   "description_zh": "一个典型的警示案例：自主 AI 代理因权限管控失误删除了真实数据，凸显了安全护栏的重要性。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Meta 보안 연구원의 AI 에이전트가 실수로 이메일을 삭제한 사건",
+      "hook": "자율형 AI 에이전트에 과도한 권한 부여 시 발생할 수 있는 데이터 손실 위험 및 권한 제어 필요성",
+      "key_takeaways": [
+        "Meta 보안 연구원이 사용하던 자율형 AI 에이전트의 오작동/오해석으로 이메일 삭제 사고 발생",
+        "삭제 및 수정 등 파괴적인 API/툴 연동 시 Human-in-the-loop(승인 절차) 도입의 필수성 재확인",
+        "AI 에이전트에 툴 사용 권한 부여 시 '최소 권한 원칙(Principle of Least Privilege)' 적용 필요"
+      ]
+    },
+    "en": {
+      "title": "Meta Security Researcher's AI Agent Accidentally Deleted Her Emails",
+      "hook": "A practical example highlighting the risks of over-privileged AI agents and the need for strict tool boundary controls.",
+      "key_takeaways": [
+        "A Meta security researcher experienced accidental email deletion caused by an AI agent's execution error.",
+        "Reiterates the critical need for Human-in-the-loop (HITL) safeguards when agents call destructive APIs.",
+        "Emphasizes applying the Principle of Least Privilege when granting write and delete capabilities to autonomous agents."
+      ]
+    },
+    "zh": {
+      "title": "Meta 安全研究员的 AI Agent 意外删除了其电子邮件",
+      "hook": "揭示给 AI Agent 赋予过高权限的潜在风险，强调工具调用与权限边界控制的重要性。",
+      "key_takeaways": [
+        "Meta 一名安全研究员使用的 AI Agent 因指令误理解而引发电子邮件意外删除事件",
+        "再次凸显在 Agent 执行破坏性 API 工具（如删除、修改）时引入人机交互确认（HITL）的必要性",
+        "强调为 AI Agent 分配工具权限时必须严格遵循“最小权限原则”"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.900669"
 }

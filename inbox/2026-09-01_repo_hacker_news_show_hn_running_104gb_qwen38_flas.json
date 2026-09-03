@@ -35,69 +35,100 @@
   "ai_enrichment": {
     "id": "2026-09-01_repo_hacker_news_show_hn_running_104gb_qwen38_flas",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "LLM 추론 최적화",
+    "type_classification": "TECH",
+    "model_family": "LLM Inference & Quantization",
+    "category": "Local AI & Edge Computing",
     "programming_lang": "C++",
     "root_keywords": [
-      "Qwen3.8-Flash",
-      "Mac Local Execution",
-      "LLM Quantization",
-      "Inference Speed"
+      "Qwen3.8",
+      "Model Offloading",
+      "Quantization",
+      "Apple Silicon",
+      "Local LLM"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.6,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "Show HN: 48GB Mac에서 104GB Qwen3.8-Flash-Next 모델을 초당 12토큰으로 구동하기",
-        "hook": "제한된 하드웨어 사양(48GB Mac)에서 대형 모델(104GB)을 고속으로 실행하는 엔지니어링 묘수와 최적화 노하우를 확인하세요.",
+        "title": "Show HN: 48GB Mac에서 104GB Qwen3.8-Flash-Next를 초당 ~12 토큰 속도로 구동하기",
+        "hook": "혁신적인 메모리 오프로딩 및 양자화 기법을 통해 48GB 통합 메모리 Mac에서 104GB 대형 모델 추론 성공",
         "key_takeaways": [
-          "48GB 통합 메모리 Mac 환경에서 104GB 대형 모델 로컬 구동 달성",
-          "약 12 tok/s의 실용적인 추론 속도를 이끌어낸 양자화 및 메모리 관리 기법",
-          "엣지 디바이스 및 고성능 로컬 AI 실행을 위한 실전 최적화 팁"
+          "고성능 양자화와 레이어별 메모리 오프로딩 기법을 결합하여 메모리 한계 극복",
+          "Apple Silicon Unified Memory의 대역폭을 극대화하여 초당 약 12토큰의 실용적인 속도 달성",
+          "개인 단말에서 100GB급 이상 초대형 모델을 구동할 수 있는 가능성 제시"
         ]
       },
       "en": {
         "title": "Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac at ~12 tok/s",
-        "hook": "Discover the ingenious engineering and quantization tricks to run a massive 104GB model on a 48GB Mac at usable speeds.",
+        "hook": "Achieved ~12 tok/s inference speed for a 104GB LLM on a 48GB Mac using advanced offloading and quantization.",
         "key_takeaways": [
-          "Local execution of a 104GB large model on a 48GB unified memory Mac",
-          "Quantization and memory management techniques achieving ~12 tok/s inference speed",
-          "Practical optimization tips for running large models on edge hardware"
+          "Combines aggressive quantization and memory offloading to overcome physical VRAM/RAM constraints.",
+          "Maximizes memory bandwidth usage on Apple Silicon Unified Memory architecture.",
+          "Demonstrates practical local inference feasibility for 100GB+ models on personal hardware."
         ]
       },
       "zh": {
-        "title": "Show HN：在48GB Mac上以约12 tok/s的速度运行104GB的Qwen3.8-Flash-Next",
-        "hook": "探索如何在有限的48GB Mac硬件上通过巧妙的工程优化高速运行104GB超大模型。",
+        "title": "Show HN：在 48GB Mac 上以约 12 tok/s 运行 104GB 的 Qwen3.8-Flash-Next",
+        "hook": "通过极化量化与内存卸载优化，成功在 48GB 内存 Mac 上以 12 tok/s 实用速度运行 104GB 模型",
         "key_takeaways": [
-          "在48GB统一内存Mac上成功本地部署104GB大模型",
-          "实现约12 tok/s实用推理速度的量化与内存管理技巧",
-          "面向边缘设备与本地AI部署的实战优化指南"
+          "结合高效量化与分层内存卸载技术，突破硬件物理内存限制",
+          "充分利用 Apple Silicon 统一内存架构的高带宽吞吐优势",
+          "为在个人消费级设备上本地部署百吉字节级超大模型开辟可行路径"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:34.697265+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "C++",
   "root_keywords": [
-    "Qwen3.8-Flash",
-    "Mac Local Execution",
-    "LLM Quantization",
-    "Inference Speed"
+    "Qwen3.8",
+    "Model Offloading",
+    "Quantization",
+    "Apple Silicon",
+    "Local LLM"
   ],
-  "title_ko": "Show HN: 48GB Mac에서 104GB Qwen3.8-Flash-Next 모델을 초당 12토큰으로 구동하기",
+  "title_ko": "Show HN: 48GB Mac에서 104GB Qwen3.8-Flash-Next를 초당 ~12 토큰 속도로 구동하기",
   "title_en": "Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac at ~12 tok/s",
-  "title_zh": "Show HN：在48GB Mac上以约12 tok/s的速度运行104GB的Qwen3.8-Flash-Next",
+  "title_zh": "Show HN：在 48GB Mac 上以约 12 tok/s 运行 104GB 的 Qwen3.8-Flash-Next",
   "hook": "제한된 하드웨어 사양(48GB Mac)에서 대형 모델(104GB)을 고속으로 실행하는 엔지니어링 묘수와 최적화 노하우를 확인하세요.",
-  "hook_ko": "제한된 하드웨어 사양(48GB Mac)에서 대형 모델(104GB)을 고속으로 실행하는 엔지니어링 묘수와 최적화 노하우를 확인하세요.",
-  "hook_en": "Discover the ingenious engineering and quantization tricks to run a massive 104GB model on a 48GB Mac at usable speeds.",
-  "hook_zh": "探索如何在有限的48GB Mac硬件上通过巧妙的工程优化高速运行104GB超大模型。",
+  "hook_ko": "혁신적인 메모리 오프로딩 및 양자화 기법을 통해 48GB 통합 메모리 Mac에서 104GB 대형 모델 추론 성공",
+  "hook_en": "Achieved ~12 tok/s inference speed for a 104GB LLM on a 48GB Mac using advanced offloading and quantization.",
+  "hook_zh": "通过极化量化与内存卸载优化，成功在 48GB 内存 Mac 上以 12 tok/s 实用速度运行 104GB 模型",
   "description_ko": "제한된 하드웨어 사양(48GB Mac)에서 대형 모델(104GB)을 고속으로 실행하는 엔지니어링 묘수와 최적화 노하우를 확인하세요.",
   "description_en": "Discover the ingenious engineering and quantization tricks to run a massive 104GB model on a 48GB Mac at usable speeds.",
   "description_zh": "探索如何在有限的48GB Mac硬件上通过巧妙的工程优化高速运行104GB超大模型。",
   "model_family": "Qwen-3.8",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Show HN: 48GB Mac에서 104GB Qwen3.8-Flash-Next를 초당 ~12 토큰 속도로 구동하기",
+      "hook": "혁신적인 메모리 오프로딩 및 양자화 기법을 통해 48GB 통합 메모리 Mac에서 104GB 대형 모델 추론 성공",
+      "key_takeaways": [
+        "고성능 양자화와 레이어별 메모리 오프로딩 기법을 결합하여 메모리 한계 극복",
+        "Apple Silicon Unified Memory의 대역폭을 극대화하여 초당 약 12토큰의 실용적인 속도 달성",
+        "개인 단말에서 100GB급 이상 초대형 모델을 구동할 수 있는 가능성 제시"
+      ]
+    },
+    "en": {
+      "title": "Show HN: Running 104GB Qwen3.8-Flash-Next on 48GB Mac at ~12 tok/s",
+      "hook": "Achieved ~12 tok/s inference speed for a 104GB LLM on a 48GB Mac using advanced offloading and quantization.",
+      "key_takeaways": [
+        "Combines aggressive quantization and memory offloading to overcome physical VRAM/RAM constraints.",
+        "Maximizes memory bandwidth usage on Apple Silicon Unified Memory architecture.",
+        "Demonstrates practical local inference feasibility for 100GB+ models on personal hardware."
+      ]
+    },
+    "zh": {
+      "title": "Show HN：在 48GB Mac 上以约 12 tok/s 运行 104GB 的 Qwen3.8-Flash-Next",
+      "hook": "通过极化量化与内存卸载优化，成功在 48GB 内存 Mac 上以 12 tok/s 实用速度运行 104GB 模型",
+      "key_takeaways": [
+        "结合高效量化与分层内存卸载技术，突破硬件物理内存限制",
+        "充分利用 Apple Silicon 统一内存架构的高带宽吞吐优势",
+        "为在个人消费级设备上本地部署百吉字节级超大模型开辟可行路径"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.956811"
 }

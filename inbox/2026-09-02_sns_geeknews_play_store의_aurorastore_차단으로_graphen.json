@@ -30,73 +30,104 @@
     "이커머스 & 커머스 데이터 수집 인프라"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Play Store의 AuroraStore 차단 조치로 인한 GrapheneOS 사용자 피해 발생",
+  "title_ko": "Play Store의 AuroraStore 차단으로 GrapheneOS 사용자 피해",
   "description_ko": "개인정보 보호 중심 OS 사용자들이 직면한 최신 앱 생태계 접근성 이슈와 보안 트렌드를 파악하세요.",
   "hn_url": "https://news.hada.io/topic?id=33128",
   "article_url": "https://news.hada.io/topic?id=33128",
   "ai_enrichment": {
     "id": "2026-09-02_sns_geeknews_play_store의_aurorastore_차단으로_graphen",
     "source_lang": "KO",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "보안 및 프라이버시",
+    "type_classification": "TECH",
+    "model_family": "Mobile Ecosystem",
+    "category": "Mobile Security & Open Source",
     "programming_lang": "General",
     "root_keywords": [
-      "GrapheneOS",
       "AuroraStore",
+      "GrapheneOS",
       "Play Store",
-      "보안"
+      "Android Security",
+      "Open Source"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.5,
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "Play Store의 AuroraStore 차단 조치로 인한 GrapheneOS 사용자 피해 발생",
-        "hook": "개인정보 보호 중심 OS 사용자들이 직면한 최신 앱 생태계 접근성 이슈와 보안 트렌드를 파악하세요.",
+        "title": "Play Store의 AuroraStore 차단으로 GrapheneOS 사용자 피해",
+        "hook": "구글의 대체 Play Store 클라이언트 차단으로 인해 GrapheneOS 등 개인정보 보호 중심 Android 사용자 생태계 타격.",
         "key_takeaways": [
-          "구글 플레이스토어의 AuroraStore 차단이 프라이버시 중심 OS에 미치는 영향 분석",
-          "GrapheneOS 등 대안 운영체제 사용자들이 겪는 대체 앱 다운로드 한계",
-          "플랫폼 종속성과 개방형 생태계 간의 지속적인 갈등 요인 점검"
+          "구글이 Play Store 익명 API 요청 및 AuroraStore 관련 연결을 광범위하게 차단",
+          "Google Play Services 없이 앱을 설치하던 GrapheneOS 및 탈구글(de-Googled) 사용자의 앱 업데이트 불가 현상 발생",
+          "빅테크 기업의 앱 생태계 독점 및 오픈소스 대체 클라이언트제재 이슈 재부각"
         ]
       },
       "en": {
-        "title": "GrapheneOS Users Impacted by Play Store's Blocking of AuroraStore",
-        "hook": "Analyze the latest app ecosystem accessibility issues and security hurdles faced by privacy-focused OS users.",
+        "title": "Play Store Blocks AuroraStore, Impacting GrapheneOS Users",
+        "hook": "Google's block on alternative Play Store client AuroraStore hits privacy-focused Android users relying on de-Googled OS like GrapheneOS.",
         "key_takeaways": [
-          "Impact of Google Play Store's blocking of AuroraStore on privacy-centric operating systems",
-          "Limitations in alternative app acquisition for GrapheneOS and similar platforms",
-          "Ongoing friction between platform walled gardens and open ecosystem necessities"
+          "Google Play Store blocks API requests and anonymous account logins from AuroraStore",
+          "Directly affects GrapheneOS and privacy-centric users operating without Google Play Services",
+          "Highlights growing concerns over platform monopolization and restrictions on open-source app distribution"
         ]
       },
       "zh": {
-        "title": "Play Store封锁AuroraStore导致GrapheneOS用户受影响",
-        "hook": "了解注重隐私的操作系统用户在当前应用生态中面临的最新访问性与安全挑战。",
+        "title": "Google Play 封锁 AuroraStore，影响 GrapheneOS 用户",
+        "hook": "Google 封锁第三方客户端 AuroraStore，直接冲击了依赖 GrapheneOS 等去 Google 化系统的隐私用户群。",
         "key_takeaways": [
-          "分析谷歌应用商店封锁AuroraStore对隐私导向OS的影响",
-          "GrapheneOS等替代操作系统用户在获取应用时面临的局限性",
-          "平台封闭性与开放生态之间持续存在的冲突审视"
+          "Google Play Store 大规模封锁来自 AuroraStore 的 API 请求与匿名账号",
+          "导致无 Google 服务（de-Googled）的 GrapheneOS 用户无法正常下载与更新应用",
+          "引发关于大厂垄断应用分发渠道以及限制开源生态发展的讨论"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:18:23.067806+09:00"
+    }
   },
   "source_lang": "KO",
   "programming_lang": "General",
   "root_keywords": [
-    "GrapheneOS",
     "AuroraStore",
+    "GrapheneOS",
     "Play Store",
-    "보안"
+    "Android Security",
+    "Open Source"
   ],
-  "title_en": "GrapheneOS Users Impacted by Play Store's Blocking of AuroraStore",
-  "title_zh": "Play Store封锁AuroraStore导致GrapheneOS用户受影响",
+  "title_en": "Play Store Blocks AuroraStore, Impacting GrapheneOS Users",
+  "title_zh": "Google Play 封锁 AuroraStore，影响 GrapheneOS 用户",
   "hook": "개인정보 보호 중심 OS 사용자들이 직면한 최신 앱 생태계 접근성 이슈와 보안 트렌드를 파악하세요.",
-  "hook_ko": "개인정보 보호 중심 OS 사용자들이 직면한 최신 앱 생태계 접근성 이슈와 보안 트렌드를 파악하세요.",
-  "hook_en": "Analyze the latest app ecosystem accessibility issues and security hurdles faced by privacy-focused OS users.",
-  "hook_zh": "了解注重隐私的操作系统用户在当前应用生态中面临的最新访问性与安全挑战。",
+  "hook_ko": "구글의 대체 Play Store 클라이언트 차단으로 인해 GrapheneOS 등 개인정보 보호 중심 Android 사용자 생태계 타격.",
+  "hook_en": "Google's block on alternative Play Store client AuroraStore hits privacy-focused Android users relying on de-Googled OS like GrapheneOS.",
+  "hook_zh": "Google 封锁第三方客户端 AuroraStore，直接冲击了依赖 GrapheneOS 等去 Google 化系统的隐私用户群。",
   "description_en": "Analyze the latest app ecosystem accessibility issues and security hurdles faced by privacy-focused OS users.",
   "description_zh": "了解注重隐私的操作系统用户在当前应用生态中面临的最新访问性与安全挑战。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Play Store의 AuroraStore 차단으로 GrapheneOS 사용자 피해",
+      "hook": "구글의 대체 Play Store 클라이언트 차단으로 인해 GrapheneOS 등 개인정보 보호 중심 Android 사용자 생태계 타격.",
+      "key_takeaways": [
+        "구글이 Play Store 익명 API 요청 및 AuroraStore 관련 연결을 광범위하게 차단",
+        "Google Play Services 없이 앱을 설치하던 GrapheneOS 및 탈구글(de-Googled) 사용자의 앱 업데이트 불가 현상 발생",
+        "빅테크 기업의 앱 생태계 독점 및 오픈소스 대체 클라이언트제재 이슈 재부각"
+      ]
+    },
+    "en": {
+      "title": "Play Store Blocks AuroraStore, Impacting GrapheneOS Users",
+      "hook": "Google's block on alternative Play Store client AuroraStore hits privacy-focused Android users relying on de-Googled OS like GrapheneOS.",
+      "key_takeaways": [
+        "Google Play Store blocks API requests and anonymous account logins from AuroraStore",
+        "Directly affects GrapheneOS and privacy-centric users operating without Google Play Services",
+        "Highlights growing concerns over platform monopolization and restrictions on open-source app distribution"
+      ]
+    },
+    "zh": {
+      "title": "Google Play 封锁 AuroraStore，影响 GrapheneOS 用户",
+      "hook": "Google 封锁第三方客户端 AuroraStore，直接冲击了依赖 GrapheneOS 等去 Google 化系统的隐私用户群。",
+      "key_takeaways": [
+        "Google Play Store 大规模封锁来自 AuroraStore 的 API 请求与匿名账号",
+        "导致无 Google 服务（de-Googled）的 GrapheneOS 用户无法正常下载与更新应用",
+        "引发关于大厂垄断应用分发渠道以及限制开源生态发展的讨论"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.035917"
 }

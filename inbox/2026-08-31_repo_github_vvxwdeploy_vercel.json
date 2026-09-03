@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "vvxw/deploy-vercel: Vercel 배포를 위한 자동화 유틸리티",
+  "title_ko": "vvxw/deploy-vercel: Vercel 자동 배포 CLI 도구",
   "description_ko": "복잡한 Vercel 배포 및 프리뷰 환경 세팅을 간단한 npm 패키지와 워크플로우로 자동화하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,60 +48,94 @@
     "id": "2026-08-31_repo_github_vvxwdeploy_vercel",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "category": "CI/CD & 클라우드 배포",
-    "programming_lang": "TypeScript",
+    "model_family": "DevOps & Automation",
+    "category": "Cloud & Infrastructure",
+    "programming_lang": "JavaScript",
     "root_keywords": [
       "Vercel",
-      "배포 자동화",
-      "GitHub Actions"
+      "Deployment",
+      "CI/CD",
+      "Automation"
     ],
-    "recommended_tag": "💡 유용한 도구",
+    "recommended_tag": "📝 기술 참고",
     "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "vvxw/deploy-vercel: Vercel 배포를 위한 자동화 유틸리티",
-        "hook": "복잡한 Vercel 배포 및 프리뷰 환경 세팅을 간단한 npm 패키지와 워크플로우로 자동화하세요.",
+        "title": "vvxw/deploy-vercel: Vercel 자동 배포 CLI 도구",
+        "hook": "CI/CD 파이프라인에서 Vercel 프로젝트 배포를 가속화하는 자동화 유틸리티",
         "key_takeaways": [
-          "GitHub Actions 및 CI/CD 환경에서 Vercel 배포 프로세스 단순화",
-          "간단한 npm 설치로 즉시 통합 및 CLI 기반 실행 지원",
-          "프리뷰 배포 및 프로덕션 릴리스 관리 효율화"
+          "npm을 통한 간편한 설치 및 통합 환경 제공",
+          "CI/CD 워크플로우에 직접 연동 가능한 Vercel 배포 자동화 지원",
+          "1,500개 이상의 스타를 받으며 검증된 오픈소스 배포 솔루션"
         ]
       },
       "en": {
-        "title": "vvxw/deploy-vercel: Automated Utility for Vercel Deployments",
-        "hook": "Streamline complex Vercel deployment workflows with a simple, plug-and-play npm package.",
+        "title": "vvxw/deploy-vercel: Automated Vercel Deployment CLI Tool",
+        "hook": "Streamline Vercel deployments directly within CI/CD pipelines with a simple CLI tool",
         "key_takeaways": [
-          "Simplifies Vercel deployment pipelines within CI/CD and GitHub Actions",
-          "Easy integration and CLI execution via standard npm installation",
-          "Optimizes management for preview deployments and production rollouts"
+          "Easy installation via npm for quick workflow integration",
+          "Automates Vercel project building and deployment procedures",
+          "Popular community-backed tool with over 1.5k GitHub stars"
         ]
       },
       "zh": {
         "title": "vvxw/deploy-vercel: Vercel 自动化部署工具",
-        "hook": "通过极简的 npm 包和工作流，一键简化 Vercel 部署与预览环境配置。",
+        "hook": "在 CI/CD 流水线中轻松实现 Vercel 项目的自动化构建与部署",
         "key_takeaways": [
-          "简化 GitHub Actions 及 CI/CD 流程中的 Vercel 部署步骤",
-          "支持标准 npm 安装，开箱即用并提供 CLI 工具",
-          "高效管理预览环境与生产环境发布流程"
+          "通过 npm 即可快速安装并集成至持续集成工具",
+          "自动化处理 Vercel 项目的部署流程",
+          "拥有超过 1,500 个 Star 的实用开源部署利器"
         ]
       }
     }
   },
   "source_lang": "EN",
-  "programming_lang": "TypeScript",
+  "programming_lang": "JavaScript",
   "root_keywords": [
     "Vercel",
-    "배포 자동화",
-    "GitHub Actions"
+    "Deployment",
+    "CI/CD",
+    "Automation"
   ],
-  "title_en": "vvxw/deploy-vercel: Automated Utility for Vercel Deployments",
+  "title_en": "vvxw/deploy-vercel: Automated Vercel Deployment CLI Tool",
   "title_zh": "vvxw/deploy-vercel: Vercel 自动化部署工具",
   "hook": "복잡한 Vercel 배포 및 프리뷰 환경 세팅을 간단한 npm 패키지와 워크플로우로 자동화하세요.",
-  "hook_ko": "복잡한 Vercel 배포 및 프리뷰 환경 세팅을 간단한 npm 패키지와 워크플로우로 자동화하세요.",
-  "hook_en": "Streamline complex Vercel deployment workflows with a simple, plug-and-play npm package.",
-  "hook_zh": "通过极简的 npm 包和工作流，一键简化 Vercel 部署与预览环境配置。",
+  "hook_ko": "CI/CD 파이프라인에서 Vercel 프로젝트 배포를 가속화하는 자동화 유틸리티",
+  "hook_en": "Streamline Vercel deployments directly within CI/CD pipelines with a simple CLI tool",
+  "hook_zh": "在 CI/CD 流水线中轻松实现 Vercel 项目的自动化构建与部署",
   "description_en": "Streamline complex Vercel deployment workflows with a simple, plug-and-play npm package.",
   "description_zh": "通过极简的 npm 包和工作流，一键简化 Vercel 部署与预览环境配置。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "vvxw/deploy-vercel: Vercel 자동 배포 CLI 도구",
+      "hook": "CI/CD 파이프라인에서 Vercel 프로젝트 배포를 가속화하는 자동화 유틸리티",
+      "key_takeaways": [
+        "npm을 통한 간편한 설치 및 통합 환경 제공",
+        "CI/CD 워크플로우에 직접 연동 가능한 Vercel 배포 자동화 지원",
+        "1,500개 이상의 스타를 받으며 검증된 오픈소스 배포 솔루션"
+      ]
+    },
+    "en": {
+      "title": "vvxw/deploy-vercel: Automated Vercel Deployment CLI Tool",
+      "hook": "Streamline Vercel deployments directly within CI/CD pipelines with a simple CLI tool",
+      "key_takeaways": [
+        "Easy installation via npm for quick workflow integration",
+        "Automates Vercel project building and deployment procedures",
+        "Popular community-backed tool with over 1.5k GitHub stars"
+      ]
+    },
+    "zh": {
+      "title": "vvxw/deploy-vercel: Vercel 自动化部署工具",
+      "hook": "在 CI/CD 流水线中轻松实现 Vercel 项目的自动化构建与部署",
+      "key_takeaways": [
+        "通过 npm 即可快速安装并集成至持续集成工具",
+        "自动化处理 Vercel 项目的部署流程",
+        "拥有超过 1,500 个 Star 的实用开源部署利器"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.806785"
 }

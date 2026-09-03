@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "NEWS",
-  "title_ko": "TradeCatLabs Shulihuazixuecongshu 오픈소스 저장소",
+  "title_ko": "수리화 자학총서 (수학·물리·화학 독학 총서 디지털 아카이브)",
   "description_ko": "설명이 없는 저장소이지만 커뮤니티에서 주목받고 있는 오픈소스 프로젝트입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -46,65 +46,98 @@
   "updated_at": "2026-09-02",
   "ai_enrichment": {
     "id": "2026-08-31_repo_github_tradecatlabsshulihuazixuecongshu",
-    "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "오픈소스 동향",
+    "source_lang": "ZH",
+    "type_classification": "RESOURCE",
+    "model_family": "Educational Resources",
+    "category": "Education / Digital Archiving",
     "programming_lang": "General",
     "root_keywords": [
-      "GitHub",
-      "Open Source",
-      "Collection"
+      "数理化自学丛书",
+      "Mathematics",
+      "Physics",
+      "Chemistry",
+      "Self-Study"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 2.5,
+    "worth_score": 3.5,
     "multilingual": {
       "ko": {
-        "title": "TradeCatLabs Shulihuazixuecongshu 오픈소스 저장소",
-        "hook": "설명이 없는 저장소이지만 커뮤니티에서 주목받고 있는 오픈소스 프로젝트입니다.",
+        "title": "수리화 자학총서 (수학·물리·화학 독학 총서 디지털 아카이브)",
+        "hook": "기초 수학, 물리학, 화학 독학을 위한 고전 수리화 자학총서 디지털 자료집",
         "key_takeaways": [
-          "상세 설명이 제공되지 않는 오픈소스 리포지토리",
-          "스타(Star) 850개 이상을 기록하며 개발자들의 관심을 끎",
-          "추후 업데이트 및 문서화 모니터링 필요"
+          "중국의 고전 기초 과학 독학 도서 시리즈 스캔 및 디지털화",
+          "수학, 물리, 화학 기초 개념 및 문제 풀이 자료 제공",
+          "자연과학 기초 체계 학습 및 연구를 위한 공개 리소스"
         ]
       },
       "en": {
-        "title": "TradeCatLabs Shulihuazixuecongshu Repository",
-        "hook": "An open-source repository gaining community attention despite the lack of description.",
+        "title": "Shulihua Zixue Congshu (Self-Study Series on Math, Physics, and Chemistry Archive)",
+        "hook": "Digital archive of classic self-study textbooks for foundational mathematics, physics, and chemistry",
         "key_takeaways": [
-          "Open-source repository provided without a detailed description",
-          "Gained over 850 stars, capturing developer interest",
-          "Requires ongoing monitoring for future updates and documentation"
+          "Digitized collection of classic STEM self-study textbooks",
+          "Covers foundational concepts in mathematics, physics, and chemistry",
+          "Open resource for self-learners and educational archival research"
         ]
       },
       "zh": {
-        "title": "TradeCatLabs Shulihuazixuecongshu 开源仓库",
-        "hook": "虽然缺乏详细描述，但在开源社区中受到一定关注的存储库。",
+        "title": "《数理化自学丛书》数字存档与资源库",
+        "hook": "经典数理化自学丛书的数字整理与开源学习资源",
         "key_takeaways": [
-          "未提供详细说明的开源存储库",
-          "获得超过 850 个 Star，引起了开发者的关注",
-          "需要持续关注后续更新与文档补充"
+          "重现经典数理化自学丛书的电子化资源",
+          "涵盖数学、物理、化学基础理论与例题解析",
+          "适用于科学基础自学与教学参考的数字档案"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:50.531154+00:00"
+    }
   },
-  "source_lang": "EN",
+  "source_lang": "ZH",
   "programming_lang": "General",
   "root_keywords": [
-    "GitHub",
-    "Open Source",
-    "Collection"
+    "数理化自学丛书",
+    "Mathematics",
+    "Physics",
+    "Chemistry",
+    "Self-Study"
   ],
-  "title_en": "TradeCatLabs Shulihuazixuecongshu Repository",
-  "title_zh": "TradeCatLabs Shulihuazixuecongshu 开源仓库",
+  "title_en": "Shulihua Zixue Congshu (Self-Study Series on Math, Physics, and Chemistry Archive)",
+  "title_zh": "《数理化自学丛书》数字存档与资源库",
   "hook": "설명이 없는 저장소이지만 커뮤니티에서 주목받고 있는 오픈소스 프로젝트입니다.",
-  "hook_ko": "설명이 없는 저장소이지만 커뮤니티에서 주목받고 있는 오픈소스 프로젝트입니다.",
-  "hook_en": "An open-source repository gaining community attention despite the lack of description.",
-  "hook_zh": "虽然缺乏详细描述，但在开源社区中受到一定关注的存储库。",
+  "hook_ko": "기초 수학, 물리학, 화학 독학을 위한 고전 수리화 자학총서 디지털 자료집",
+  "hook_en": "Digital archive of classic self-study textbooks for foundational mathematics, physics, and chemistry",
+  "hook_zh": "经典数理化自学丛书的数字整理与开源学习资源",
   "description_en": "An open-source repository gaining community attention despite the lack of description.",
   "description_zh": "虽然缺乏详细描述，但在开源社区中受到一定关注的存储库。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "수리화 자학총서 (수학·물리·화학 독학 총서 디지털 아카이브)",
+      "hook": "기초 수학, 물리학, 화학 독학을 위한 고전 수리화 자학총서 디지털 자료집",
+      "key_takeaways": [
+        "중국의 고전 기초 과학 독학 도서 시리즈 스캔 및 디지털화",
+        "수학, 물리, 화학 기초 개념 및 문제 풀이 자료 제공",
+        "자연과학 기초 체계 학습 및 연구를 위한 공개 리소스"
+      ]
+    },
+    "en": {
+      "title": "Shulihua Zixue Congshu (Self-Study Series on Math, Physics, and Chemistry Archive)",
+      "hook": "Digital archive of classic self-study textbooks for foundational mathematics, physics, and chemistry",
+      "key_takeaways": [
+        "Digitized collection of classic STEM self-study textbooks",
+        "Covers foundational concepts in mathematics, physics, and chemistry",
+        "Open resource for self-learners and educational archival research"
+      ]
+    },
+    "zh": {
+      "title": "《数理化自学丛书》数字存档与资源库",
+      "hook": "经典数理化自学丛书的数字整理与开源学习资源",
+      "key_takeaways": [
+        "重现经典数理化自学丛书的电子化资源",
+        "涵盖数学、物理、化学基础理论与例题解析",
+        "适用于科学基础自学与教学参考的数字档案"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.805921"
 }

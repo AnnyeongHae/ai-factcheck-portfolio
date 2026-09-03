@@ -33,66 +33,97 @@
     "id": "2026-09-01_repo_arxiv_call_neighbours_yourself_graph_walks_wi",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 추론 최적화",
+    "model_family": "Graph Reasoning LLMs",
+    "category": "Artificial Intelligence",
     "programming_lang": "Python",
     "root_keywords": [
-      "Graph Walks",
+      "Text-Attributed Graphs",
+      "Graph Walk",
       "Self-Distillation",
-      "Text-Attributed Graphs"
+      "LLM Reasoning"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.1,
+    "worth_score": 4.3,
     "multilingual": {
       "ko": {
-        "title": "직접 이웃을 호출하라: 목적지 조건부 온정책 자체 증류를 통한 그래프 워크",
-        "hook": "텍스트 속성 그래프(TAG)에서 LLM의 추론 능력을 극대화하는 새로운 그래프 탐색 및 자체 증류 기법을 만나보세요.",
+        "title": "스스로 이웃을 호출하라: 목적지 조건부 온폴리시 자체 증류를 활용한 그래프 탐색",
+        "hook": "텍스트 속성 그래프(TAG) 상에서 LLM이 능동적으로 이웃 노드를 탐색하고 추론할 수 있도록 돕는 목적지 조건부 자체 증류 기법",
         "key_takeaways": [
-          "노드 텍스트와 주변부 증거를 결합하는 새로운 그래프 워크 방식",
-          "목적지 조건부 온정책 자체 증류(Self-Distillation) 적용",
-          "복잡한 그래프 구조에서 LLM 추론 성능 향상"
+          "고정된 이웃 노드 접근 한계를 극복하기 위해 LLM 기반의 자율적 그래프 워크(Graph Walk) 기법 제시",
+          "목적지 조건부 온폴리시(On-Policy) 자체 증류를 통해 탐색 효율성 및 추론 정확도 향상",
+          "텍스트 속성 그래프(TAG) 기반 복합 추론 과제에서 뛰어난 성능 입증"
         ]
       },
       "en": {
         "title": "Call Neighbours Yourself: Graph Walks with Destination-Conditioned On-Policy Self-Distillation",
-        "hook": "Explore a novel graph walk and self-distillation technique to maximize LLM reasoning capabilities over text-attributed graphs.",
+        "hook": "Empowering LLMs with dynamic graph walks via destination-conditioned on-policy self-distillation for reasoning over text-attributed graphs.",
         "key_takeaways": [
-          "New graph walk approach combining node text with neighbourhood evidence",
-          "Application of destination-conditioned on-policy self-distillation",
-          "Enhanced LLM reasoning performance on complex graph structures"
+          "Proposes autonomous graph walks for LLMs to overcome fixed neighborhood constraints on Text-Attributed Graphs (TAGs).",
+          "Utilizes destination-conditioned on-policy self-distillation to improve walk efficiency and reasoning precision.",
+          "Demonstrates superior performance across complex graph-text reasoning benchmarks."
         ]
       },
       "zh": {
-        "title": "自己呼叫邻居：结合目标条件在线自蒸馏的图游走方法",
-        "hook": "探索在文本属性图（TAG）上最大化大语言模型推理能力的新型图游走与自蒸馏技术。",
+        "title": "亲自调用邻居：基于目标条件在线策略自蒸馏的图游走",
+        "hook": "通过目标条件在线策略自蒸馏，赋能大语言模型在文本属性图上实现动态自主图游走与推理",
         "key_takeaways": [
-          "结合节点文本与邻域证据的新型图游走方法",
-          "应用目标条件在线自蒸馏技术",
-          "提升复杂图结构下大模型的推理性能"
+          "提出 LLM 自主图游走机制，打破文本属性图（TAG）中固定邻居检索的局限",
+          "采用目标条件在线策略（On-Policy）自蒸馏，提升图游走路径的有效性与推理准确度",
+          "在复杂的图与文本联合推理任务中展现出卓越的性能"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:21.828135+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Graph Walks",
+    "Text-Attributed Graphs",
+    "Graph Walk",
     "Self-Distillation",
-    "Text-Attributed Graphs"
+    "LLM Reasoning"
   ],
-  "title_ko": "직접 이웃을 호출하라: 목적지 조건부 온정책 자체 증류를 통한 그래프 워크",
+  "title_ko": "스스로 이웃을 호출하라: 목적지 조건부 온폴리시 자체 증류를 활용한 그래프 탐색",
   "title_en": "Call Neighbours Yourself: Graph Walks with Destination-Conditioned On-Policy Self-Distillation",
-  "title_zh": "自己呼叫邻居：结合目标条件在线自蒸馏的图游走方法",
+  "title_zh": "亲自调用邻居：基于目标条件在线策略自蒸馏的图游走",
   "hook": "텍스트 속성 그래프(TAG)에서 LLM의 추론 능력을 극대화하는 새로운 그래프 탐색 및 자체 증류 기법을 만나보세요.",
-  "hook_ko": "텍스트 속성 그래프(TAG)에서 LLM의 추론 능력을 극대화하는 새로운 그래프 탐색 및 자체 증류 기법을 만나보세요.",
-  "hook_en": "Explore a novel graph walk and self-distillation technique to maximize LLM reasoning capabilities over text-attributed graphs.",
-  "hook_zh": "探索在文本属性图（TAG）上最大化大语言模型推理能力的新型图游走与自蒸馏技术。",
+  "hook_ko": "텍스트 속성 그래프(TAG) 상에서 LLM이 능동적으로 이웃 노드를 탐색하고 추론할 수 있도록 돕는 목적지 조건부 자체 증류 기법",
+  "hook_en": "Empowering LLMs with dynamic graph walks via destination-conditioned on-policy self-distillation for reasoning over text-attributed graphs.",
+  "hook_zh": "通过目标条件在线策略自蒸馏，赋能大语言模型在文本属性图上实现动态自主图游走与推理",
   "description_ko": "텍스트 속성 그래프(TAG)에서 LLM의 추론 능력을 극대화하는 새로운 그래프 탐색 및 자체 증류 기법을 만나보세요.",
   "description_en": "Explore a novel graph walk and self-distillation technique to maximize LLM reasoning capabilities over text-attributed graphs.",
   "description_zh": "探索在文本属性图（TAG）上最大化大语言模型推理能力的新型图游走与自蒸馏技术。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "스스로 이웃을 호출하라: 목적지 조건부 온폴리시 자체 증류를 활용한 그래프 탐색",
+      "hook": "텍스트 속성 그래프(TAG) 상에서 LLM이 능동적으로 이웃 노드를 탐색하고 추론할 수 있도록 돕는 목적지 조건부 자체 증류 기법",
+      "key_takeaways": [
+        "고정된 이웃 노드 접근 한계를 극복하기 위해 LLM 기반의 자율적 그래프 워크(Graph Walk) 기법 제시",
+        "목적지 조건부 온폴리시(On-Policy) 자체 증류를 통해 탐색 효율성 및 추론 정확도 향상",
+        "텍스트 속성 그래프(TAG) 기반 복합 추론 과제에서 뛰어난 성능 입증"
+      ]
+    },
+    "en": {
+      "title": "Call Neighbours Yourself: Graph Walks with Destination-Conditioned On-Policy Self-Distillation",
+      "hook": "Empowering LLMs with dynamic graph walks via destination-conditioned on-policy self-distillation for reasoning over text-attributed graphs.",
+      "key_takeaways": [
+        "Proposes autonomous graph walks for LLMs to overcome fixed neighborhood constraints on Text-Attributed Graphs (TAGs).",
+        "Utilizes destination-conditioned on-policy self-distillation to improve walk efficiency and reasoning precision.",
+        "Demonstrates superior performance across complex graph-text reasoning benchmarks."
+      ]
+    },
+    "zh": {
+      "title": "亲自调用邻居：基于目标条件在线策略自蒸馏的图游走",
+      "hook": "通过目标条件在线策略自蒸馏，赋能大语言模型在文本属性图上实现动态自主图游走与推理",
+      "key_takeaways": [
+        "提出 LLM 自主图游走机制，打破文本属性图（TAG）中固定邻居检索的局限",
+        "采用目标条件在线策略（On-Policy）自蒸馏，提升图游走路径的有效性与推理准确度",
+        "在复杂的图与文本联合推理任务中展现出卓越的性能"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.921073"
 }

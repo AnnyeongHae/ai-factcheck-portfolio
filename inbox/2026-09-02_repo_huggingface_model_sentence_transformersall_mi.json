@@ -33,67 +33,100 @@
   "ai_enrichment": {
     "id": "2026-09-02_repo_huggingface_model_sentence_transformersall_mi",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "MiniLM",
-    "category": "텍스트 임베딩 및 유사도",
+    "type_classification": "TECH",
+    "model_family": "MiniLM / Sentence-Transformers",
+    "category": "Natural Language Processing / Embeddings",
     "programming_lang": "Python",
     "root_keywords": [
-      "Sentence-Transformers",
-      "MiniLM",
-      "Embedding"
+      "sentence-transformers",
+      "all-MiniLM-L6-v2",
+      "text-embeddings",
+      "sentence-similarity",
+      "semantic-search"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.5,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 5.0,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face 모델: sentence-transformers/all-MiniLM-L6-v2",
-        "hook": "검증된 경량 텍스트 임베딩 모델의 다운로드 및 트렌드 현황을 확인하세요.",
+        "title": "sentence-transformers/all-MiniLM-L6-v2: 경량화 문장 임베딩의 표준 모델",
+        "hook": "2억 5천만 회 이상의 누적 다운로드를 자랑하는 시맨틱 검색 및 문장 유사도 계산용 대표 경량 임베딩 모델입니다.",
         "key_takeaways": [
-          "누적 다운로드 수가 2억 5천만 회를 넘은 초인기 임베딩 모델",
-          "문장 유사도 및 검색 시스템 구축 시 가볍고 빠른 성능 제공",
-          "다양한 NLP 파이프라인에서 벤치마크 기준점으로 널리 활용"
+          "6개 레이어의 MiniLM 기반으로 빠른 속도와 적은 리소스 소비 제공",
+          "문장을 384차원 고밀도 벡터 공간으로 매핑하여 문장 유사도 및 검색에 최적화",
+          "임베딩 및 시맨틱 검색 파이프라인 구축 시 대중적으로 쓰이는 글로벌 베이스라인"
         ]
       },
       "en": {
-        "title": "Hugging Face Model: sentence-transformers/all-MiniLM-L6-v2",
-        "hook": "Explore the download trends and ecosystem impact of this highly reliable lightweight text embedding model.",
+        "title": "sentence-transformers/all-MiniLM-L6-v2: The Standard Lightweight Sentence Embedding Model",
+        "hook": "An ubiquitous sentence embedding model with over 250M downloads, optimized for fast and accurate semantic search.",
         "key_takeaways": [
-          "Surpassed 250 million total downloads on Hugging Face",
-          "Provides fast and lightweight sentence similarity and retrieval performance",
-          "Widely adopted as a standard baseline across various NLP pipelines"
+          "Maps text to a 384-dimensional dense vector space for efficient sentence similarity computation.",
+          "Built on a 6-layer MiniLM architecture for minimal latency and memory footprint.",
+          "Serves as an essential industry standard baseline for semantic search and clustering tasks."
         ]
       },
       "zh": {
-        "title": "Hugging Face 模型：sentence-transformers/all-MiniLM-L6-v2",
-        "hook": "了解这款备受推崇的轻量级文本嵌入模型的下载趋势与应用生态。",
+        "title": "sentence-transformers/all-MiniLM-L6-v2：轻量级句子嵌入标杆模型",
+        "hook": "下载量突破2.5亿次的超强轻量级文本向量模型，专为语义搜索和句子相似度任务打造。",
         "key_takeaways": [
-          "在 Hugging Face 上的累计下载量已突破 2.5 亿次",
-          "为句子相似度和检索系统提供轻量且高速的性能",
-          "被广泛用作各类 NLP 管道的标准基准"
+          "基于6层MiniLM架构，推理延迟极低且资源占用极少",
+          "将文本映射为384维稠密向量，平衡高吞吐与高准确度",
+          "作为工业界构建语义检索与聚类 pipeline 的通用基准模型"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:32.603019+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Sentence-Transformers",
-    "MiniLM",
-    "Embedding"
+    "sentence-transformers",
+    "all-MiniLM-L6-v2",
+    "text-embeddings",
+    "sentence-similarity",
+    "semantic-search"
   ],
-  "title_ko": "Hugging Face 모델: sentence-transformers/all-MiniLM-L6-v2",
-  "title_en": "Hugging Face Model: sentence-transformers/all-MiniLM-L6-v2",
-  "title_zh": "Hugging Face 模型：sentence-transformers/all-MiniLM-L6-v2",
+  "title_ko": "sentence-transformers/all-MiniLM-L6-v2: 경량화 문장 임베딩의 표준 모델",
+  "title_en": "sentence-transformers/all-MiniLM-L6-v2: The Standard Lightweight Sentence Embedding Model",
+  "title_zh": "sentence-transformers/all-MiniLM-L6-v2：轻量级句子嵌入标杆模型",
   "hook": "검증된 경량 텍스트 임베딩 모델의 다운로드 및 트렌드 현황을 확인하세요.",
-  "hook_ko": "검증된 경량 텍스트 임베딩 모델의 다운로드 및 트렌드 현황을 확인하세요.",
-  "hook_en": "Explore the download trends and ecosystem impact of this highly reliable lightweight text embedding model.",
-  "hook_zh": "了解这款备受推崇的轻量级文本嵌入模型的下载趋势与应用生态。",
+  "hook_ko": "2억 5천만 회 이상의 누적 다운로드를 자랑하는 시맨틱 검색 및 문장 유사도 계산용 대표 경량 임베딩 모델입니다.",
+  "hook_en": "An ubiquitous sentence embedding model with over 250M downloads, optimized for fast and accurate semantic search.",
+  "hook_zh": "下载量突破2.5亿次的超强轻量级文本向量模型，专为语义搜索和句子相似度任务打造。",
   "description_ko": "검증된 경량 텍스트 임베딩 모델의 다운로드 및 트렌드 현황을 확인하세요.",
   "description_en": "Explore the download trends and ecosystem impact of this highly reliable lightweight text embedding model.",
   "description_zh": "了解这款备受推崇的轻量级文本嵌入模型的下载趋势与应用生态。",
   "model_family": "MiniLM",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "sentence-transformers/all-MiniLM-L6-v2: 경량화 문장 임베딩의 표준 모델",
+      "hook": "2억 5천만 회 이상의 누적 다운로드를 자랑하는 시맨틱 검색 및 문장 유사도 계산용 대표 경량 임베딩 모델입니다.",
+      "key_takeaways": [
+        "6개 레이어의 MiniLM 기반으로 빠른 속도와 적은 리소스 소비 제공",
+        "문장을 384차원 고밀도 벡터 공간으로 매핑하여 문장 유사도 및 검색에 최적화",
+        "임베딩 및 시맨틱 검색 파이프라인 구축 시 대중적으로 쓰이는 글로벌 베이스라인"
+      ]
+    },
+    "en": {
+      "title": "sentence-transformers/all-MiniLM-L6-v2: The Standard Lightweight Sentence Embedding Model",
+      "hook": "An ubiquitous sentence embedding model with over 250M downloads, optimized for fast and accurate semantic search.",
+      "key_takeaways": [
+        "Maps text to a 384-dimensional dense vector space for efficient sentence similarity computation.",
+        "Built on a 6-layer MiniLM architecture for minimal latency and memory footprint.",
+        "Serves as an essential industry standard baseline for semantic search and clustering tasks."
+      ]
+    },
+    "zh": {
+      "title": "sentence-transformers/all-MiniLM-L6-v2：轻量级句子嵌入标杆模型",
+      "hook": "下载量突破2.5亿次的超强轻量级文本向量模型，专为语义搜索和句子相似度任务打造。",
+      "key_takeaways": [
+        "基于6层MiniLM架构，推理延迟极低且资源占用极少",
+        "将文本映射为384维稠密向量，平衡高吞吐与高准确度",
+        "作为工业界构建语义检索与聚类 pipeline 的通用基准模型"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.000588"
 }

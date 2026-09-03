@@ -32,67 +32,100 @@
   "ai_enrichment": {
     "id": "2026-09-02_repo_github_lb623no_negative_echo",
     "source_lang": "ZH",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "코딩 에이전트 및 워크플로우",
+    "type_classification": "TECH",
+    "model_family": "LLM Tooling / Code Generation",
+    "category": "Software Engineering & AI Tools",
     "programming_lang": "General",
     "root_keywords": [
       "Codex",
+      "Code Generation",
       "Git Workflow",
-      "AI Coding Assistant"
+      "Clean Commits",
+      "PR Automation"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.7,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "GitHub: LB623/no-negative-echo",
-        "hook": "Codex가 최종 결과물을 기반으로 제목, 커밋, PR을 작성하게 하여 불필요한 시행착오 잔여물을 제거하세요.",
+        "title": "LB623/no-negative-echo: 최종 코드 결과 기반 커밋 및 PR 자동 생성 도구",
+        "hook": "AI 코딩 과정 중 폐기된 시행착오 잔재가 커밋 메시지와 PR에 오염되는 것을 방지하는 워크플로우 도구",
         "key_takeaways": [
-          "최종 성공 결과물만을 기준으로 주석, 커밋 메시지, PR 본문 자동 생성",
-          "개발 과정에서 폐기되거나 거절된 대안 및 잔여 코드의 노출 최소화",
-          "코드 리뷰의 품질을 높이고 깔끔한 Git 히스토리 유지에 기여"
+          "AI 프로그래밍 중 발생한 중간 오류 및 거절된 대안이 커밋 메시지/PR 설명에 잔류하는 문제 해결",
+          "Codex를 활용해 최종 코드 변경점(Diff)만을 분석하여 깨끗한 주석, 커밋, PR 문서 작성",
+          "Git 히스토리의 노이즈를 줄이고 AI 기반 개발 프로세스의 품질 및 가독성 향상"
         ]
       },
       "en": {
-        "title": "GitHub: LB623/no-negative-echo",
-        "hook": "Let Codex generate titles, comments, and PRs from final outcomes to eliminate failed trial residues.",
+        "title": "LB623/no-negative-echo: Generate Clean Commits and PRs from Final AI Code Output",
+        "hook": "Eliminate residual noise from discarded AI iterations by generating commit messages and PRs strictly from the final code diff.",
         "key_takeaways": [
-          "Automatically generates comments, commits, and PRs based solely on the final successful result",
-          "Minimizes the residue of rejected solutions or discarded ideas during the coding process",
-          "Enhances code review quality and maintains a clean, professional Git history"
+          "Prevents rejected intermediate AI solutions from polluting commit messages and PR descriptions.",
+          "Uses Codex to analyze final implementation results to generate precise documentation, comments, and titles.",
+          "Maintains clean Git commit history and improves code review quality in AI-assisted development."
         ]
       },
       "zh": {
-        "title": "GitHub：LB623/no-negative-echo",
-        "hook": "让 Codex 根据最终结果生成标题、注释、commit 和 PR，减少被否决方案在交付中的残留。",
+        "title": "LB623/no-negative-echo：基于最终代码生成 Clean Commit 和 PR 的 AI 工具",
+        "hook": "通过 Codex 仅依据最终代码结果生成提交与 PR 信息，消除被否决方案在交付物中的残留。",
         "key_takeaways": [
-          "仅根据最终结果生成代码注释、提交信息以及 PR 描述",
-          "有效减少开发过程中被否决的方案或废弃代码的残留",
-          "提升代码审查质量，保持干净整洁的 Git 提交历史"
+          "解决 AI 编程过程中中间冗余或被否决的方案对 Commit Message 和 PR 描述的污染问题",
+          "利用 Codex 对最终的 diff 和结果进行分析，生成精准的标题、注释与说明文档",
+          "提升 AI 交付代码库的规范性与可读性，保持 Git 历史的干净无杂音"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:32.605721+09:00"
+    }
   },
   "source_lang": "ZH",
   "programming_lang": "General",
   "root_keywords": [
     "Codex",
+    "Code Generation",
     "Git Workflow",
-    "AI Coding Assistant"
+    "Clean Commits",
+    "PR Automation"
   ],
-  "title_ko": "GitHub: LB623/no-negative-echo",
-  "title_en": "GitHub: LB623/no-negative-echo",
-  "title_zh": "GitHub：LB623/no-negative-echo",
+  "title_ko": "LB623/no-negative-echo: 최종 코드 결과 기반 커밋 및 PR 자동 생성 도구",
+  "title_en": "LB623/no-negative-echo: Generate Clean Commits and PRs from Final AI Code Output",
+  "title_zh": "LB623/no-negative-echo：基于最终代码生成 Clean Commit 和 PR 的 AI 工具",
   "hook": "Codex가 최종 결과물을 기반으로 제목, 커밋, PR을 작성하게 하여 불필요한 시행착오 잔여물을 제거하세요.",
-  "hook_ko": "Codex가 최종 결과물을 기반으로 제목, 커밋, PR을 작성하게 하여 불필요한 시행착오 잔여물을 제거하세요.",
-  "hook_en": "Let Codex generate titles, comments, and PRs from final outcomes to eliminate failed trial residues.",
-  "hook_zh": "让 Codex 根据最终结果生成标题、注释、commit 和 PR，减少被否决方案在交付中的残留。",
+  "hook_ko": "AI 코딩 과정 중 폐기된 시행착오 잔재가 커밋 메시지와 PR에 오염되는 것을 방지하는 워크플로우 도구",
+  "hook_en": "Eliminate residual noise from discarded AI iterations by generating commit messages and PRs strictly from the final code diff.",
+  "hook_zh": "通过 Codex 仅依据最终代码结果生成提交与 PR 信息，消除被否决方案在交付物中的残留。",
   "description_ko": "Codex가 최종 결과물을 기반으로 제목, 커밋, PR을 작성하게 하여 불필요한 시행착오 잔여물을 제거하세요.",
   "description_en": "Let Codex generate titles, comments, and PRs from final outcomes to eliminate failed trial residues.",
   "description_zh": "让 Codex 根据最终结果生成标题、注释、commit 和 PR，减少被否决方案在交付中的残留。",
   "category_type": "AGENT",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "LB623/no-negative-echo: 최종 코드 결과 기반 커밋 및 PR 자동 생성 도구",
+      "hook": "AI 코딩 과정 중 폐기된 시행착오 잔재가 커밋 메시지와 PR에 오염되는 것을 방지하는 워크플로우 도구",
+      "key_takeaways": [
+        "AI 프로그래밍 중 발생한 중간 오류 및 거절된 대안이 커밋 메시지/PR 설명에 잔류하는 문제 해결",
+        "Codex를 활용해 최종 코드 변경점(Diff)만을 분석하여 깨끗한 주석, 커밋, PR 문서 작성",
+        "Git 히스토리의 노이즈를 줄이고 AI 기반 개발 프로세스의 품질 및 가독성 향상"
+      ]
+    },
+    "en": {
+      "title": "LB623/no-negative-echo: Generate Clean Commits and PRs from Final AI Code Output",
+      "hook": "Eliminate residual noise from discarded AI iterations by generating commit messages and PRs strictly from the final code diff.",
+      "key_takeaways": [
+        "Prevents rejected intermediate AI solutions from polluting commit messages and PR descriptions.",
+        "Uses Codex to analyze final implementation results to generate precise documentation, comments, and titles.",
+        "Maintains clean Git commit history and improves code review quality in AI-assisted development."
+      ]
+    },
+    "zh": {
+      "title": "LB623/no-negative-echo：基于最终代码生成 Clean Commit 和 PR 的 AI 工具",
+      "hook": "通过 Codex 仅依据最终代码结果生成提交与 PR 信息，消除被否决方案在交付物中的残留。",
+      "key_takeaways": [
+        "解决 AI 编程过程中中间冗余或被否决的方案对 Commit Message 和 PR 描述的污染问题",
+        "利用 Codex 对最终的 diff 和结果进行分析，生成精准的标题、注释与说明文档",
+        "提升 AI 交付代码库的规范性与可读性，保持 Git 历史的干净无杂音"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.996396"
 }

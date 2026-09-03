@@ -23,7 +23,7 @@
     "Fine-tune / Uncensored"
   ],
   "category_type": "MODEL",
-  "title_ko": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+  "title_ko": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF - 언센서드 멀티모달 GGUF 모델",
   "description_ko": "로컬 환경에서 강력한 성능을 내는 Qwen3.8 플래시 언검센서드 GGUF 버전입니다.",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
   "creator": "OrcaRouter Community",
@@ -48,66 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_orcarouterqwen38_flash_next_uncen",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "LLM 추론 최적화",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "Multimodal AI",
     "programming_lang": "C++",
     "root_keywords": [
+      "Qwen",
       "GGUF",
       "Uncensored",
-      "Qwen-3.8",
-      "Local Inference"
+      "Multimodal",
+      "Vision-Language"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.6,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.3,
     "multilingual": {
       "ko": {
-        "title": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
-        "hook": "로컬 환경에서 강력한 성능을 내는 Qwen3.8 플래시 언검센서드 GGUF 버전입니다.",
+        "title": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF - 언센서드 멀티모달 GGUF 모델",
+        "hook": "시각-텍스트 추론 능력을 갖추고 안전성 제약을 완화한 Qwen 기반의 초경량 GGUF 모델",
         "key_takeaways": [
-          "GGUF 포맷으로 로컬 하드웨어(CPU/GPU) 구동 최적화",
-          "검열이 해제된(Uncensored) 가중치로 자유로운 프롬프트 테스팅",
-          "이미지-텍스트 입력 처리 능력 유지"
+          "GGUF 포맷 최적화를 통해 CPU 및 일반 디바이스 환경에서 빠른 추론 가능",
+          "이미지와 텍스트를 함께 처리하는 image-text-to-text 파이프라인 지원",
+          "64,000회 이상의 다운로드를 기록하며 높은 활용도를 보이고 있는 언센서드 변형 모델"
         ]
       },
       "en": {
-        "title": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
-        "hook": "Run high-performance, uncensored multimodal inference locally with Qwen3.8 GGUF.",
+        "title": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF - Uncensored Multimodal GGUF Model",
+        "hook": "A quantized, uncensored Qwen-based vision-language model optimized in GGUF format for fast edge deployment.",
         "key_takeaways": [
-          "Optimized for local hardware (CPU/GPU) via GGUF format",
-          "Uncensored weights for unrestricted prompt testing and flexibility",
-          "Retains image-text processing capabilities"
+          "Quantized into GGUF format for efficient CPU/GPU inference via llama.cpp",
+          "Supports multimodal image-text-to-text tasks with uncensored response flexibility",
+          "Achieved over 64,000 downloads and strong community traction"
         ]
       },
       "zh": {
-        "title": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
-        "hook": "在本地硬件上运行功能强大的Qwen3.8免审查（Uncensored）GGUF版本。",
+        "title": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF - 无过滤多模态 GGUF 模型",
+        "hook": "基于通义千问（Qwen）架构的 GGUF 量化版无过滤视觉语言模型，适用于低资源高效推理。",
         "key_takeaways": [
-          "通过GGUF格式优化本地硬件（CPU/GPU）运行",
-          "提供无审查的权重，便于灵活测试各种提示词",
-          "保留了图像-文本输入处理能力"
+          "转换为 GGUF 格式，方便在 CPU 和轻量级硬件上通过 llama.cpp 快速部署",
+          "支持图文到文本的多模态推理任务，且移除了标准内容过滤限制",
+          "在 Hugging Face 平台上受到关注，下载量已突破 6.4 万次"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:58.984590+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "C++",
   "root_keywords": [
+    "Qwen",
     "GGUF",
     "Uncensored",
-    "Qwen-3.8",
-    "Local Inference"
+    "Multimodal",
+    "Vision-Language"
   ],
-  "title_en": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
-  "title_zh": "HuggingFace: orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+  "title_en": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF - Uncensored Multimodal GGUF Model",
+  "title_zh": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF - 无过滤多模态 GGUF 模型",
   "hook": "로컬 환경에서 강력한 성능을 내는 Qwen3.8 플래시 언검센서드 GGUF 버전입니다.",
-  "hook_ko": "로컬 환경에서 강력한 성능을 내는 Qwen3.8 플래시 언검센서드 GGUF 버전입니다.",
-  "hook_en": "Run high-performance, uncensored multimodal inference locally with Qwen3.8 GGUF.",
-  "hook_zh": "在本地硬件上运行功能强大的Qwen3.8免审查（Uncensored）GGUF版本。",
+  "hook_ko": "시각-텍스트 추론 능력을 갖추고 안전성 제약을 완화한 Qwen 기반의 초경량 GGUF 모델",
+  "hook_en": "A quantized, uncensored Qwen-based vision-language model optimized in GGUF format for fast edge deployment.",
+  "hook_zh": "基于通义千问（Qwen）架构的 GGUF 量化版无过滤视觉语言模型，适用于低资源高效推理。",
   "description_en": "Run high-performance, uncensored multimodal inference locally with Qwen3.8 GGUF.",
   "description_zh": "在本地硬件上运行功能强大的Qwen3.8免审查（Uncensored）GGUF版本。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF - 언센서드 멀티모달 GGUF 모델",
+      "hook": "시각-텍스트 추론 능력을 갖추고 안전성 제약을 완화한 Qwen 기반의 초경량 GGUF 모델",
+      "key_takeaways": [
+        "GGUF 포맷 최적화를 통해 CPU 및 일반 디바이스 환경에서 빠른 추론 가능",
+        "이미지와 텍스트를 함께 처리하는 image-text-to-text 파이프라인 지원",
+        "64,000회 이상의 다운로드를 기록하며 높은 활용도를 보이고 있는 언센서드 변형 모델"
+      ]
+    },
+    "en": {
+      "title": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF - Uncensored Multimodal GGUF Model",
+      "hook": "A quantized, uncensored Qwen-based vision-language model optimized in GGUF format for fast edge deployment.",
+      "key_takeaways": [
+        "Quantized into GGUF format for efficient CPU/GPU inference via llama.cpp",
+        "Supports multimodal image-text-to-text tasks with uncensored response flexibility",
+        "Achieved over 64,000 downloads and strong community traction"
+      ]
+    },
+    "zh": {
+      "title": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF - 无过滤多模态 GGUF 模型",
+      "hook": "基于通义千问（Qwen）架构的 GGUF 量化版无过滤视觉语言模型，适用于低资源高效推理。",
+      "key_takeaways": [
+        "转换为 GGUF 格式，方便在 CPU 和轻量级硬件上通过 llama.cpp 快速部署",
+        "支持图文到文本的多模态推理任务，且移除了标准内容过滤限制",
+        "在 Hugging Face 平台上受到关注，下载量已突破 6.4 万次"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.874669"
 }

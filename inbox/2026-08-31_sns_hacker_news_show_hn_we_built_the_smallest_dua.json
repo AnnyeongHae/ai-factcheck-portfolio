@@ -36,66 +36,99 @@
     "id": "2026-08-31_sns_hacker_news_show_hn_we_built_the_smallest_dua",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "임베디드 하드웨어",
+    "model_family": "Embedded Systems",
+    "category": "Hardware & IoT",
     "programming_lang": "C++",
     "root_keywords": [
-      "Dual-band",
+      "ADS-B",
       "Aircraft Tracker",
-      "Embedded Systems"
+      "Dual-Band RF",
+      "Embedded Hardware",
+      "Avionics"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "Show HN: 세계에서 가장 작은 듀얼밴드 항공기 트래커 제작기",
-        "hook": "초소형 하드웨어 설계와 무선 통신 수신 기술의 극한을 보여주는 하드웨어 해킹 프로젝트입니다.",
+        "title": "Show HN: 세계에서 가장 작은 듀얼 밴드 항공기 추적기 제작기",
+        "hook": "초소형 폼팩터에서 1090MHz와 978MHz ADS-B 신호를 동시에 수신하도록 설계된 임베디드 항공기 추적 프로젝트",
         "key_takeaways": [
-          "초소형 듀얼밴드 항공기 트래커 하드웨어 설계",
-          "무선 주파수 수신 및 데이터 파싱 최적화",
-          "임베디드 엔지니어를 위한 흥미로운 메이커 프로젝트"
+          "1090MHz(ES) 및 978MHz(UAT) 주파수를 동시에 지원하는 초소형 듀얼 밴드 하드웨어 설계",
+          "드론 및 초경량 비행체 탑재가 가능하도록 초소형·저전력 사양에 극도로 최적화",
+          "자체 커스텀 RF 회로 설계와 임베디드 신호 처리 알고리즘 적용"
         ]
       },
       "en": {
         "title": "Show HN: We Built the Smallest Dual-Band Aircraft Tracker",
-        "hook": "Check out this extreme hardware engineering feat building an ultra-compact dual-band aircraft tracking device.",
+        "hook": "An ultra-compact embedded hardware project implementing simultaneous 1090MHz and 978MHz ADS-B aircraft tracking.",
         "key_takeaways": [
-          "Ultra-compact dual-band aircraft tracker hardware design",
-          "RF signal reception and data parsing optimization",
-          "Fascinating maker project for embedded engineers"
+          "Simultaneous reception of 1090MHz ES and 978MHz UAT signals in a miniature form factor.",
+          "Extremely optimized size and power consumption tailored for small drones and portable avionics.",
+          "Custom RF circuit engineering combined with efficient embedded signal processing."
         ]
       },
       "zh": {
-        "title": "Show HN：我们打造了最小的双频飞机追踪器",
-        "hook": "探索将超小型硬件设计与无线电接收技术结合到极致的创客项目。",
+        "title": "Show HN：我们打造了全球最小的双频飞机追踪器",
+        "hook": "采用超小型嵌入式硬件设计，实现 1090MHz 与 978MHz 双频 ADS-B 航空器实时追踪。",
         "key_takeaways": [
-          "超小型双频飞机追踪器硬件设计",
-          "射频信号接收与数据解析优化",
-          "面向嵌入式工程师的极具吸引力的创客项目"
+          "在微型尺寸内同时支持 1090MHz ES 与 978MHz UAT 信号接收",
+          "针对小型无人机及便携式设备进行了极佳的尺寸与功耗优化",
+          "集成了自研 RF 电路设计与高效的嵌入式信号处理算法"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:58.114724+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "C++",
   "root_keywords": [
-    "Dual-band",
+    "ADS-B",
     "Aircraft Tracker",
-    "Embedded Systems"
+    "Dual-Band RF",
+    "Embedded Hardware",
+    "Avionics"
   ],
-  "title_ko": "Show HN: 세계에서 가장 작은 듀얼밴드 항공기 트래커 제작기",
+  "title_ko": "Show HN: 세계에서 가장 작은 듀얼 밴드 항공기 추적기 제작기",
   "title_en": "Show HN: We Built the Smallest Dual-Band Aircraft Tracker",
-  "title_zh": "Show HN：我们打造了最小的双频飞机追踪器",
+  "title_zh": "Show HN：我们打造了全球最小的双频飞机追踪器",
   "hook": "초소형 하드웨어 설계와 무선 통신 수신 기술의 극한을 보여주는 하드웨어 해킹 프로젝트입니다.",
-  "hook_ko": "초소형 하드웨어 설계와 무선 통신 수신 기술의 극한을 보여주는 하드웨어 해킹 프로젝트입니다.",
-  "hook_en": "Check out this extreme hardware engineering feat building an ultra-compact dual-band aircraft tracking device.",
-  "hook_zh": "探索将超小型硬件设计与无线电接收技术结合到极致的创客项目。",
+  "hook_ko": "초소형 폼팩터에서 1090MHz와 978MHz ADS-B 신호를 동시에 수신하도록 설계된 임베디드 항공기 추적 프로젝트",
+  "hook_en": "An ultra-compact embedded hardware project implementing simultaneous 1090MHz and 978MHz ADS-B aircraft tracking.",
+  "hook_zh": "采用超小型嵌入式硬件设计，实现 1090MHz 与 978MHz 双频 ADS-B 航空器实时追踪。",
   "description_ko": "초소형 하드웨어 설계와 무선 통신 수신 기술의 극한을 보여주는 하드웨어 해킹 프로젝트입니다.",
   "description_en": "Check out this extreme hardware engineering feat building an ultra-compact dual-band aircraft tracking device.",
   "description_zh": "探索将超小型硬件设计与无线电接收技术结合到极致的创客项目。",
   "category_type": "TECH",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Show HN: 세계에서 가장 작은 듀얼 밴드 항공기 추적기 제작기",
+      "hook": "초소형 폼팩터에서 1090MHz와 978MHz ADS-B 신호를 동시에 수신하도록 설계된 임베디드 항공기 추적 프로젝트",
+      "key_takeaways": [
+        "1090MHz(ES) 및 978MHz(UAT) 주파수를 동시에 지원하는 초소형 듀얼 밴드 하드웨어 설계",
+        "드론 및 초경량 비행체 탑재가 가능하도록 초소형·저전력 사양에 극도로 최적화",
+        "자체 커스텀 RF 회로 설계와 임베디드 신호 처리 알고리즘 적용"
+      ]
+    },
+    "en": {
+      "title": "Show HN: We Built the Smallest Dual-Band Aircraft Tracker",
+      "hook": "An ultra-compact embedded hardware project implementing simultaneous 1090MHz and 978MHz ADS-B aircraft tracking.",
+      "key_takeaways": [
+        "Simultaneous reception of 1090MHz ES and 978MHz UAT signals in a miniature form factor.",
+        "Extremely optimized size and power consumption tailored for small drones and portable avionics.",
+        "Custom RF circuit engineering combined with efficient embedded signal processing."
+      ]
+    },
+    "zh": {
+      "title": "Show HN：我们打造了全球最小的双频飞机追踪器",
+      "hook": "采用超小型嵌入式硬件设计，实现 1090MHz 与 978MHz 双频 ADS-B 航空器实时追踪。",
+      "key_takeaways": [
+        "在微型尺寸内同时支持 1090MHz ES 与 978MHz UAT 信号接收",
+        "针对小型无人机及便携式设备进行了极佳的尺寸与功耗优化",
+        "集成了自研 RF 电路设计与高效的嵌入式信号处理算法"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.907404"
 }

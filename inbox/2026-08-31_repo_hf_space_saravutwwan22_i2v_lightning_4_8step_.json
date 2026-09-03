@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "WAN2.2 I2V 라이트닝 4-8스텝 초고속 비디오 생성 데모",
+  "title_ko": "Wan2.2 I2V Lightning (4-8단계 초고속 비디오 생성 데모)",
   "description_ko": "단 4~8스텝만에 고품질 비디오를 생성하는 WAN2.2 I2V Lightning 모델의 속도 혁신을 경험하세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,64 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_saravutwwan22_i2v_lightning_4_8step_",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Standalone",
-    "category": "영상 제작 및 비디오 생성",
+    "type_classification": "TECH",
+    "model_family": "Wan",
+    "category": "Video Generation",
     "programming_lang": "Python",
     "root_keywords": [
-      "WAN2.2",
-      "I2V-Lightning",
-      "Video Generation"
+      "Wan2.2",
+      "Image-to-Video",
+      "I2V",
+      "Lightning",
+      "Gradio"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "WAN2.2 I2V 라이트닝 4-8스텝 초고속 비디오 생성 데모",
-        "hook": "단 4~8스텝만에 고품질 비디오를 생성하는 WAN2.2 I2V Lightning 모델의 속도 혁신을 경험하세요.",
+        "title": "Wan2.2 I2V Lightning (4-8단계 초고속 비디오 생성 데모)",
+        "hook": "단 4~8단계 추론만으로 고품질 이미지-비디오 변환을 수행하는 Wan2.2 Lightning 데모",
         "key_takeaways": [
-          "WAN2.2 기반 4~8스텝 고속 이미지 투 비디오(I2V) 생성",
-          "추론 시간을 극적으로 단축한 라이트닝 최적화 적용",
-          "웹 인터페이스를 통한 실시간 비디오 생성 테스트"
+          "Wan2.2 비디오 모델 기반으로 Lightning 가속을 적용하여 4~8 스텝 만에 생성 완료",
+          "단일 이미지 입력으로부터 고품질 비디오를 실시간에 가깝게 생성 가능",
+          "Gradio 기반의 직관적인 데모로 HF Spaces에서 직접 체험 가능"
         ]
       },
       "en": {
-        "title": "WAN2.2 I2V Lightning 4-8 Step Ultra-Fast Video Generation Demo",
-        "hook": "Experience the speed revolution of the WAN2.2 I2V Lightning model, generating high-quality video in just 4-8 steps.",
+        "title": "Wan2.2 I2V Lightning (4-8 Step Fast Video Gen Demo)",
+        "hook": "Fast Image-to-Video generation using Wan2.2 Lightning accelerated to 4-8 inference steps",
         "key_takeaways": [
-          "Ultra-fast 4 to 8-step Image-to-Video (I2V) generation powered by WAN2.2",
-          "Lightning optimization that dramatically reduces inference time",
-          "Real-time video generation testing through a web interface"
+          "Accelerates Wan2.2 architecture for ultra-fast Image-to-Video synthesis in 4-8 sampling steps",
+          "Generates realistic and coherent video clips from a single static image input",
+          "Interactive Gradio UI running on Hugging Face Spaces for quick experimentation"
         ]
       },
       "zh": {
-        "title": "WAN2.2 I2V Lightning 4-8步极速视频生成演示",
-        "hook": "体验 WAN2.2 I2V Lightning 模型的速度革命，仅需 4-8 步即可生成高质量视频。",
+        "title": "Wan2.2 I2V Lightning（4-8步极速图生视频 Demo）",
+        "hook": "仅需 4-8 步采样即可将静态图片快速生成高质量视频的 Wan2.2 Lightning 演示",
         "key_takeaways": [
-          "基于 WAN2.2 实现的 4-8 步超快速图生视频（I2V）生成",
-          "大幅缩短推理时间的 Lightning 优化技术",
-          "通过网页端接口进行实时的视频生成测试"
+          "基于 Wan2.2 架构并融合 Lightning 加速技术，实现 4-8 步极速图生视频",
+          "支持从单张输入图像快速生成自然流畅的动态视频",
+          "部署于 Hugging Face Spaces，提供简单易用的 Gradio 交互界面"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:34:00.366264+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "WAN2.2",
-    "I2V-Lightning",
-    "Video Generation"
+    "Wan2.2",
+    "Image-to-Video",
+    "I2V",
+    "Lightning",
+    "Gradio"
   ],
-  "title_en": "WAN2.2 I2V Lightning 4-8 Step Ultra-Fast Video Generation Demo",
-  "title_zh": "WAN2.2 I2V Lightning 4-8步极速视频生成演示",
+  "title_en": "Wan2.2 I2V Lightning (4-8 Step Fast Video Gen Demo)",
+  "title_zh": "Wan2.2 I2V Lightning（4-8步极速图生视频 Demo）",
   "hook": "단 4~8스텝만에 고품질 비디오를 생성하는 WAN2.2 I2V Lightning 모델의 속도 혁신을 경험하세요.",
-  "hook_ko": "단 4~8스텝만에 고품질 비디오를 생성하는 WAN2.2 I2V Lightning 모델의 속도 혁신을 경험하세요.",
-  "hook_en": "Experience the speed revolution of the WAN2.2 I2V Lightning model, generating high-quality video in just 4-8 steps.",
-  "hook_zh": "体验 WAN2.2 I2V Lightning 模型的速度革命，仅需 4-8 步即可生成高质量视频。",
+  "hook_ko": "단 4~8단계 추론만으로 고품질 이미지-비디오 변환을 수행하는 Wan2.2 Lightning 데모",
+  "hook_en": "Fast Image-to-Video generation using Wan2.2 Lightning accelerated to 4-8 inference steps",
+  "hook_zh": "仅需 4-8 步采样即可将静态图片快速生成高质量视频的 Wan2.2 Lightning 演示",
   "description_en": "Experience the speed revolution of the WAN2.2 I2V Lightning model, generating high-quality video in just 4-8 steps.",
   "description_zh": "体验 WAN2.2 I2V Lightning 模型的速度革命，仅需 4-8 步即可生成高质量视频。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Wan2.2 I2V Lightning (4-8단계 초고속 비디오 생성 데모)",
+      "hook": "단 4~8단계 추론만으로 고품질 이미지-비디오 변환을 수행하는 Wan2.2 Lightning 데모",
+      "key_takeaways": [
+        "Wan2.2 비디오 모델 기반으로 Lightning 가속을 적용하여 4~8 스텝 만에 생성 완료",
+        "단일 이미지 입력으로부터 고품질 비디오를 실시간에 가깝게 생성 가능",
+        "Gradio 기반의 직관적인 데모로 HF Spaces에서 직접 체험 가능"
+      ]
+    },
+    "en": {
+      "title": "Wan2.2 I2V Lightning (4-8 Step Fast Video Gen Demo)",
+      "hook": "Fast Image-to-Video generation using Wan2.2 Lightning accelerated to 4-8 inference steps",
+      "key_takeaways": [
+        "Accelerates Wan2.2 architecture for ultra-fast Image-to-Video synthesis in 4-8 sampling steps",
+        "Generates realistic and coherent video clips from a single static image input",
+        "Interactive Gradio UI running on Hugging Face Spaces for quick experimentation"
+      ]
+    },
+    "zh": {
+      "title": "Wan2.2 I2V Lightning（4-8步极速图生视频 Demo）",
+      "hook": "仅需 4-8 步采样即可将静态图片快速生成高质量视频的 Wan2.2 Lightning 演示",
+      "key_takeaways": [
+        "基于 Wan2.2 架构并融合 Lightning 加速技术，实现 4-8 步极速图生视频",
+        "支持从单张输入图像快速生成自然流畅的动态视频",
+        "部署于 Hugging Face Spaces，提供简单易用的 Gradio 交互界面"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.839205"
 }

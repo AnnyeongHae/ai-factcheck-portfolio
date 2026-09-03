@@ -35,66 +35,99 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_hacker_news_ai_can_make_you_suck_faster_too",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "AI 생산성 및 엔지니어링 방법론",
+    "type_classification": "TECH",
+    "model_family": "Developer Productivity / Generative AI",
+    "category": "Software Engineering",
     "programming_lang": "General",
     "root_keywords": [
-      "AI 생산성",
-      "개발 방법론",
-      "AI 함정"
+      "AI Coding",
+      "Developer Productivity",
+      "Code Quality",
+      "Technical Debt",
+      "Software Architecture"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "AI는 당신의 실수를 더 빠르게 저지르도록 도울 수도 있습니다",
-        "hook": "맹목적인 AI 도구 도입이 개발 속도만 높이고 기술 부채와 품질 저하를 가속화하는 이유를 분석합니다.",
+        "title": "AI는 당신이 더 빠르게 나빠지도록(망가지도록) 만들 수도 있다",
+        "hook": "AI 도구가 개발 속도뿐만 아니라 저품질 코드와 기술 부채 생성을 가속화하는 명암을 분석한 논의",
         "key_takeaways": [
-          "속도와 생산성 환상에 가려진 잘못된 코드 양산 위험",
-          "엔지니어의 기본 역량과 코드 리뷰 프로세스의 중요성",
-          "AI 시대에 지속 가능한 소프트웨어 개발 방법론 재정립"
+          "AI 생산성 도구는 올바른 엔지니어링 기본기 없이 사용할 경우 잘못된 구조와 버그 양산을 가속화함",
+          "품질 검증 및 코드 리뷰 절차 없이 AI 코드를 수용하는 것은 기술 부채를 급격히 늘리는 결과 초래",
+          "AI 시대일수록 개발자의 주도적인 엔지니어링 판단력과 아키텍처 설계 능력이 더욱 중요해짐"
         ]
       },
       "en": {
-        "title": "AI Can Make You Suck Faster, Too",
-        "hook": "Analyze why blindly adopting AI tools accelerates technical debt and bad code instead of true productivity.",
+        "title": "AI Can Make You Suck Faster Too",
+        "hook": "A critical discussion on how AI coding assistants can accelerate bad habits and technical debt if used without foundational expertise.",
         "key_takeaways": [
-          "The danger of mass-producing flawed code driven by the illusion of speed",
-          "The critical importance of foundational engineering skills and code reviews",
-          "Re-evaluating sustainable software development methodologies in the AI era"
+          "AI productivity tools serve as force multipliers for both good design and bad engineering practices.",
+          "Blind adoption of generated code without thorough review rapidly expands technical debt and architecture flaws.",
+          "Core software engineering fundamentals and critical code review skills become even more vital in the AI era."
         ]
       },
       "zh": {
-        "title": "AI 也能让你以更快的速度“搞砸”事情",
-        "hook": "剖析盲目采用AI工具如何加速技术债务和低质量代码的泛滥，而非真正提升生产力。",
+        "title": "AI 也会让你变差得更快",
+        "hook": "深入探讨 AI 代码生成工具如何在缺乏扎实工程基础的情况下加速技术债务和不良习惯的累积",
         "key_takeaways": [
-          "速度与生产力假象背后的错误代码量产风险",
-          "扎实的工程基本功与代码审查流程的核心重要性",
-          "AI时代下如何重新审视可持续软件开发方法论"
+          "AI 辅助工具是双刃剑，它既能提高效率，也会成倍放大低质量的代码和架构缺陷",
+          "缺乏严格审查即直接采纳 AI 代码会导致技术债务呈指数级增长",
+          "在 AI 时代，开发人员的核心工程能力和批判性代码审查能力比以往任何时候都更加关键"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:18:09.707118+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
-    "AI 생산성",
-    "개발 방법론",
-    "AI 함정"
+    "AI Coding",
+    "Developer Productivity",
+    "Code Quality",
+    "Technical Debt",
+    "Software Architecture"
   ],
-  "title_ko": "AI는 당신의 실수를 더 빠르게 저지르도록 도울 수도 있습니다",
-  "title_en": "AI Can Make You Suck Faster, Too",
-  "title_zh": "AI 也能让你以更快的速度“搞砸”事情",
+  "title_ko": "AI는 당신이 더 빠르게 나빠지도록(망가지도록) 만들 수도 있다",
+  "title_en": "AI Can Make You Suck Faster Too",
+  "title_zh": "AI 也会让你变差得更快",
   "hook": "맹목적인 AI 도구 도입이 개발 속도만 높이고 기술 부채와 품질 저하를 가속화하는 이유를 분석합니다.",
-  "hook_ko": "맹목적인 AI 도구 도입이 개발 속도만 높이고 기술 부채와 품질 저하를 가속화하는 이유를 분석합니다.",
-  "hook_en": "Analyze why blindly adopting AI tools accelerates technical debt and bad code instead of true productivity.",
-  "hook_zh": "剖析盲目采用AI工具如何加速技术债务和低质量代码的泛滥，而非真正提升生产力。",
+  "hook_ko": "AI 도구가 개발 속도뿐만 아니라 저품질 코드와 기술 부채 생성을 가속화하는 명암을 분석한 논의",
+  "hook_en": "A critical discussion on how AI coding assistants can accelerate bad habits and technical debt if used without foundational expertise.",
+  "hook_zh": "深入探讨 AI 代码生成工具如何在缺乏扎实工程基础的情况下加速技术债务和不良习惯的累积",
   "description_ko": "맹목적인 AI 도구 도입이 개발 속도만 높이고 기술 부채와 품질 저하를 가속화하는 이유를 분석합니다.",
   "description_en": "Analyze why blindly adopting AI tools accelerates technical debt and bad code instead of true productivity.",
   "description_zh": "剖析盲目采用AI工具如何加速技术债务和低质量代码的泛滥，而非真正提升生产力。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "AI는 당신이 더 빠르게 나빠지도록(망가지도록) 만들 수도 있다",
+      "hook": "AI 도구가 개발 속도뿐만 아니라 저품질 코드와 기술 부채 생성을 가속화하는 명암을 분석한 논의",
+      "key_takeaways": [
+        "AI 생산성 도구는 올바른 엔지니어링 기본기 없이 사용할 경우 잘못된 구조와 버그 양산을 가속화함",
+        "품질 검증 및 코드 리뷰 절차 없이 AI 코드를 수용하는 것은 기술 부채를 급격히 늘리는 결과 초래",
+        "AI 시대일수록 개발자의 주도적인 엔지니어링 판단력과 아키텍처 설계 능력이 더욱 중요해짐"
+      ]
+    },
+    "en": {
+      "title": "AI Can Make You Suck Faster Too",
+      "hook": "A critical discussion on how AI coding assistants can accelerate bad habits and technical debt if used without foundational expertise.",
+      "key_takeaways": [
+        "AI productivity tools serve as force multipliers for both good design and bad engineering practices.",
+        "Blind adoption of generated code without thorough review rapidly expands technical debt and architecture flaws.",
+        "Core software engineering fundamentals and critical code review skills become even more vital in the AI era."
+      ]
+    },
+    "zh": {
+      "title": "AI 也会让你变差得更快",
+      "hook": "深入探讨 AI 代码生成工具如何在缺乏扎实工程基础的情况下加速技术债务和不良习惯的累积",
+      "key_takeaways": [
+        "AI 辅助工具是双刃剑，它既能提高效率，也会成倍放大低质量的代码和架构缺陷",
+        "缺乏严格审查即直接采纳 AI 代码会导致技术债务呈指数级增长",
+        "在 AI 时代，开发人员的核心工程能力和批判性代码审查能力比以往任何时候都更加关键"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.065001"
 }

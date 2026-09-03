@@ -24,7 +24,7 @@
     "GGUF"
   ],
   "category_type": "MODEL",
-  "title_ko": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+  "title_ko": "HuggingFace: Tiel-Coder-35B-A3B GGUF 양자화 모델",
   "description_ko": "로컬 환경에서 코드 생성 능력을 극대화할 수 있는 GGUF 양자화 코딩 모델입니다.",
   "variant_role": "💾 표준 GGUF 양자화본 (llama.cpp/vLLM)",
   "creator": "Community",
@@ -48,65 +48,98 @@
   "updated_at": "2026-09-02",
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_peculiar_ragdolltiel_coder_35b_a3",
-    "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Standalone",
-    "category": "Code Generation",
-    "programming_lang": "C++",
+    "source_lang": "AUTO",
+    "type_classification": "TECH",
+    "model_family": "Multimodal Code LLM",
+    "category": "Code Generation & Multimodal AI",
+    "programming_lang": "Python",
     "root_keywords": [
       "GGUF",
-      "Coder",
-      "Quantization"
+      "Code LLM",
+      "Multimodal",
+      "Vision-Language",
+      "35B Model"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.3,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
-        "hook": "로컬 환경에서 코드 생성 능력을 극대화할 수 있는 GGUF 양자화 코딩 모델입니다.",
+        "title": "HuggingFace: Tiel-Coder-35B-A3B GGUF 양자화 모델",
+        "hook": "이미지 및 텍스트 입력을 지원하는 35B 멀티모달 코딩 특화 모델의 로컬 실행용 GGUF 포맷",
         "key_takeaways": [
-          "35B 규모의 강력한 코드 생성 성능 제공",
-          "GGUF 포맷으로 로컬 하드웨어(CPU/GPU) 추론 효율성 극대화",
-          "개발자 생산성 향상을 위한 로컬 코딩 어시스턴트 구축에 적합"
+          "시각적 정보(다이어그램, UI 등)와 텍스트를 복합적으로 처리하는 35B 멀티모달 코드 AI",
+          "llama.cpp 호환 GGUF 양자화로 개인 그래픽카드 및 로컬 환경에서 효율적 추론 가능",
+          "13만 회 이상의 높은 다운로드 수를 기록하며 검증된 실용성 및 커뮤니티 관심도"
         ]
       },
       "en": {
-        "title": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
-        "hook": "Unlock powerful local code generation with this optimized GGUF quantized model.",
+        "title": "HuggingFace: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+        "hook": "A 35B multimodal code LLM in GGUF format for local, efficient image-to-code and text inference.",
         "key_takeaways": [
-          "Delivers robust coding capabilities at the 35B parameter scale",
-          "GGUF format enables efficient local CPU/GPU inference",
-          "Ideal for building private, high-performance coding assistants"
+          "35B parameter vision-language model optimized for multimodal coding tasks and visual reasoning.",
+          "GGUF quantization format allows seamless and fast execution on local devices using llama.cpp.",
+          "High adoption rate with over 130,000 downloads reflecting strong practical utility."
         ]
       },
       "zh": {
-        "title": "Hugging Face：peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
-        "hook": "利用高效 GGUF 量化模型，在本地环境解锁强大的代码生成能力。",
+        "title": "HuggingFace: Tiel-Coder-35B-A3B GGUF 量化模型",
+        "hook": "支持图文输入的多模态代码特化 35B 模型，提供适用于本地高效推理的 GGUF 格式",
         "key_takeaways": [
-          "提供 35B 规模的卓越代码生成性能",
-          "采用 GGUF 格式，大幅提升本地软硬件推理效率",
-          "非常适合构建本地私有化代码助手"
+          "针对代码生成与图表/界面视觉理解优化的 35B 参数多模态大语言模型",
+          "兼容 llama.cpp 的 GGUF 量化格式，方便在个人设备及本地环境中低成本运行",
+          "拥有超过 13 万次下载，展示出极高的实用价值与开发者关注度"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T07:29:33.438024+00:00"
+    }
   },
-  "source_lang": "EN",
-  "programming_lang": "C++",
+  "source_lang": "AUTO",
+  "programming_lang": "Python",
   "root_keywords": [
     "GGUF",
-    "Coder",
-    "Quantization"
+    "Code LLM",
+    "Multimodal",
+    "Vision-Language",
+    "35B Model"
   ],
-  "title_en": "Hugging Face: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
-  "title_zh": "Hugging Face：peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+  "title_en": "HuggingFace: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+  "title_zh": "HuggingFace: Tiel-Coder-35B-A3B GGUF 量化模型",
   "hook": "로컬 환경에서 코드 생성 능력을 극대화할 수 있는 GGUF 양자화 코딩 모델입니다.",
-  "hook_ko": "로컬 환경에서 코드 생성 능력을 극대화할 수 있는 GGUF 양자화 코딩 모델입니다.",
-  "hook_en": "Unlock powerful local code generation with this optimized GGUF quantized model.",
-  "hook_zh": "利用高效 GGUF 量化模型，在本地环境解锁强大的代码生成能力。",
+  "hook_ko": "이미지 및 텍스트 입력을 지원하는 35B 멀티모달 코딩 특화 모델의 로컬 실행용 GGUF 포맷",
+  "hook_en": "A 35B multimodal code LLM in GGUF format for local, efficient image-to-code and text inference.",
+  "hook_zh": "支持图文输入的多模态代码特化 35B 模型，提供适用于本地高效推理的 GGUF 格式",
   "description_en": "Unlock powerful local code generation with this optimized GGUF quantized model.",
   "description_zh": "利用高效 GGUF 量化模型，在本地环境解锁强大的代码生成能力。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HuggingFace: Tiel-Coder-35B-A3B GGUF 양자화 모델",
+      "hook": "이미지 및 텍스트 입력을 지원하는 35B 멀티모달 코딩 특화 모델의 로컬 실행용 GGUF 포맷",
+      "key_takeaways": [
+        "시각적 정보(다이어그램, UI 등)와 텍스트를 복합적으로 처리하는 35B 멀티모달 코드 AI",
+        "llama.cpp 호환 GGUF 양자화로 개인 그래픽카드 및 로컬 환경에서 효율적 추론 가능",
+        "13만 회 이상의 높은 다운로드 수를 기록하며 검증된 실용성 및 커뮤니티 관심도"
+      ]
+    },
+    "en": {
+      "title": "HuggingFace: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
+      "hook": "A 35B multimodal code LLM in GGUF format for local, efficient image-to-code and text inference.",
+      "key_takeaways": [
+        "35B parameter vision-language model optimized for multimodal coding tasks and visual reasoning.",
+        "GGUF quantization format allows seamless and fast execution on local devices using llama.cpp.",
+        "High adoption rate with over 130,000 downloads reflecting strong practical utility."
+      ]
+    },
+    "zh": {
+      "title": "HuggingFace: Tiel-Coder-35B-A3B GGUF 量化模型",
+      "hook": "支持图文输入的多模态代码特化 35B 模型，提供适用于本地高效推理的 GGUF 格式",
+      "key_takeaways": [
+        "针对代码生成与图表/界面视觉理解优化的 35B 参数多模态大语言模型",
+        "兼容 llama.cpp 的 GGUF 量化格式，方便在个人设备及本地环境中低成本运行",
+        "拥有超过 13 万次下载，展示出极高的实用价值与开发者关注度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.877698"
 }

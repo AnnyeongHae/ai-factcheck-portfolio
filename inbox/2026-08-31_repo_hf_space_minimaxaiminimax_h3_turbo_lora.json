@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "MiniMax-H3-Turbo-Lora 허깅페이스 데모",
+  "title_ko": "HF 스페이스: MiniMax-H3-Turbo-Lora 데모",
   "description_ko": "고속 추론에 특화된 MiniMax H3 터보 모델의 LoRA 적용 버전을 경험하세요.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -46,65 +46,98 @@
   "updated_at": "2026-09-02",
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_minimaxaiminimax_h3_turbo_lora",
-    "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "MiniMax",
-    "category": "LLM 추론 최적화",
+    "source_lang": "AUTO",
+    "type_classification": "TECH",
+    "model_family": "MiniMax / LoRA",
+    "category": "Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "MiniMax-H3-Turbo",
+      "MiniMax",
       "LoRA",
-      "Gradio"
+      "Gradio",
+      "Fine-Tuning",
+      "LLM"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.3,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "MiniMax-H3-Turbo-Lora 허깅페이스 데모",
-        "hook": "고속 추론에 특화된 MiniMax H3 터보 모델의 LoRA 적용 버전을 경험하세요.",
+        "title": "HF 스페이스: MiniMax-H3-Turbo-Lora 데모",
+        "hook": "MiniMax-H3-Turbo 모델의 LoRA 파인튜닝 효과를 직접 체감할 수 있는 대화형 Gradio 데모",
         "key_takeaways": [
-          "MiniMax-H3-Turbo 모델의 LoRA 파인튜닝 결과물 테스트",
-          "경량화 및 고속 추론 성능을 실시간 데모로 확인",
-          "실무 커스텀 모델 적용을 위한 참고 사례 제공"
+          "MiniMax-H3-Turbo 모델 기반의 LoRA 경량 파인튜닝 시연",
+          "Gradio SDK를 활용한 대화형 웹 인터페이스 제공",
+          "커스텀 파인튜닝 모델의 생능 성능 및 응답 속도 테스트 가능"
         ]
       },
       "en": {
-        "title": "MiniMax-H3-Turbo-Lora Hugging Face Demo",
-        "hook": "Experience the LoRA-adapted version of the high-speed inference optimized MiniMax H3 Turbo model.",
+        "title": "HF Space: MiniMax-H3-Turbo-Lora Demo",
+        "hook": "An interactive Gradio demo showcasing LoRA fine-tuning capabilities on MiniMax-H3-Turbo.",
         "key_takeaways": [
-          "Test LoRA fine-tuning results for the MiniMax-H3-Turbo model",
-          "Evaluate lightweight and high-speed inference performance in real-time",
-          "Provides a reference case for custom model deployment in production"
+          "Demonstrates lightweight LoRA fine-tuning applied to MiniMax-H3-Turbo",
+          "Powered by Gradio SDK for seamless, interactive web UI testing",
+          "Allows direct evaluation of fine-tuned model performance and generation speed"
         ]
       },
       "zh": {
-        "title": "MiniMax-H3-Turbo-Lora Hugging Face 演示",
-        "hook": "体验针对高速推理优化的 MiniMax H3 Turbo 模型的 LoRA 微调版本。",
+        "title": "HF Space: MiniMax-H3-Turbo-Lora 交互演示",
+        "hook": "展示基于 MiniMax-H3-Turbo 模型进行 LoRA 微调效果的 Gradio 交互式 Demo",
         "key_takeaways": [
-          "测试 MiniMax-H3-Turbo 模型的 LoRA 微调效果",
-          "实时评估轻量化与高速推理性能",
-          "为生产环境中应用定制模型提供参考案例"
+          "展示 MiniMax-H3-Turbo 模型的高效 LoRA 轻量化微调成果",
+          "基于 Gradio SDK 构建，提供即时交互的 Web 测试界面",
+          "方便评估微调模型的文本生成质量与推理效率"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:14.611858+00:00"
+    }
   },
-  "source_lang": "EN",
+  "source_lang": "AUTO",
   "programming_lang": "Python",
   "root_keywords": [
-    "MiniMax-H3-Turbo",
+    "MiniMax",
     "LoRA",
-    "Gradio"
+    "Gradio",
+    "Fine-Tuning",
+    "LLM"
   ],
-  "title_en": "MiniMax-H3-Turbo-Lora Hugging Face Demo",
-  "title_zh": "MiniMax-H3-Turbo-Lora Hugging Face 演示",
+  "title_en": "HF Space: MiniMax-H3-Turbo-Lora Demo",
+  "title_zh": "HF Space: MiniMax-H3-Turbo-Lora 交互演示",
   "hook": "고속 추론에 특화된 MiniMax H3 터보 모델의 LoRA 적용 버전을 경험하세요.",
-  "hook_ko": "고속 추론에 특화된 MiniMax H3 터보 모델의 LoRA 적용 버전을 경험하세요.",
-  "hook_en": "Experience the LoRA-adapted version of the high-speed inference optimized MiniMax H3 Turbo model.",
-  "hook_zh": "体验针对高速推理优化的 MiniMax H3 Turbo 模型的 LoRA 微调版本。",
+  "hook_ko": "MiniMax-H3-Turbo 모델의 LoRA 파인튜닝 효과를 직접 체감할 수 있는 대화형 Gradio 데모",
+  "hook_en": "An interactive Gradio demo showcasing LoRA fine-tuning capabilities on MiniMax-H3-Turbo.",
+  "hook_zh": "展示基于 MiniMax-H3-Turbo 模型进行 LoRA 微调效果的 Gradio 交互式 Demo",
   "description_en": "Experience the LoRA-adapted version of the high-speed inference optimized MiniMax H3 Turbo model.",
   "description_zh": "体验针对高速推理优化的 MiniMax H3 Turbo 模型的 LoRA 微调版本。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF 스페이스: MiniMax-H3-Turbo-Lora 데모",
+      "hook": "MiniMax-H3-Turbo 모델의 LoRA 파인튜닝 효과를 직접 체감할 수 있는 대화형 Gradio 데모",
+      "key_takeaways": [
+        "MiniMax-H3-Turbo 모델 기반의 LoRA 경량 파인튜닝 시연",
+        "Gradio SDK를 활용한 대화형 웹 인터페이스 제공",
+        "커스텀 파인튜닝 모델의 생능 성능 및 응답 속도 테스트 가능"
+      ]
+    },
+    "en": {
+      "title": "HF Space: MiniMax-H3-Turbo-Lora Demo",
+      "hook": "An interactive Gradio demo showcasing LoRA fine-tuning capabilities on MiniMax-H3-Turbo.",
+      "key_takeaways": [
+        "Demonstrates lightweight LoRA fine-tuning applied to MiniMax-H3-Turbo",
+        "Powered by Gradio SDK for seamless, interactive web UI testing",
+        "Allows direct evaluation of fine-tuned model performance and generation speed"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: MiniMax-H3-Turbo-Lora 交互演示",
+      "hook": "展示基于 MiniMax-H3-Turbo 模型进行 LoRA 微调效果的 Gradio 交互式 Demo",
+      "key_takeaways": [
+        "展示 MiniMax-H3-Turbo 模型的高效 LoRA 轻量化微调成果",
+        "基于 Gradio SDK 构建，提供即时交互的 Web 测试界面",
+        "方便评估微调模型的文本生成质量与推理效率"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.831513"
 }

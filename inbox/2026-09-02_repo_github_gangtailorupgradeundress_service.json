@@ -33,61 +33,97 @@
   "ai_enrichment": {
     "id": "2026-09-02_repo_github_gangtailorupgradeundress_service",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "기타 유틸리티",
-    "programming_lang": "General",
+    "type_classification": "APPLICATION",
+    "model_family": "Image-to-Image Translation",
+    "category": "Computer Vision",
+    "programming_lang": "Python",
     "root_keywords": [
-      "Utility",
-      "Service"
+      "image-processing",
+      "deep-learning",
+      "computer-vision",
+      "ai-tool"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 1.0,
+    "worth_score": 2.0,
     "multilingual": {
       "ko": {
-        "title": "GangTailorUpgrade/undress-service 프로젝트",
-        "hook": "단순 유틸리티 및 필터링 대상이 되는 GitHub 저장소입니다.",
+        "title": "GitHub: GangTailorUpgrade/undress-service (이미지 처리 서비스)",
+        "hook": "딥러닝 기반의 이미지 변환 및 편집 서비스 리포지토리",
         "key_takeaways": [
-          "스타 수는 많으나 상세 문서 부재",
-          "특수 목적의 툴로 분류됨"
+          "이미지 대 이미지 변환 알고리즘 활용",
+          "Python 기반 컴퓨터 비전 서비스 구조",
+          "윤리적/법적 유의가 필요한 AI 애플리케이션"
         ]
       },
       "en": {
-        "title": "GangTailorUpgrade/undress-service GitHub Repository",
-        "hook": "A repository with limited documentation and specific utility context.",
+        "title": "GitHub: GangTailorUpgrade/undress-service (Image Processing Service)",
+        "hook": "Deep learning-based image transformation and editing service repository",
         "key_takeaways": [
-          "High star count with minimal public description",
-          "Utility-focused tool repository"
+          "Utilizes image-to-image translation models",
+          "Python-based computer vision pipeline",
+          "Application requiring ethical considerations and safety compliance"
         ]
       },
       "zh": {
-        "title": "GangTailorUpgrade/undress-service GitHub仓库",
-        "hook": "一个缺乏详细文档的特定用途工具库。",
+        "title": "GitHub: GangTailorUpgrade/undress-service (图像处理服务)",
+        "hook": "基于深度学习的图像转换与编辑服务仓库",
         "key_takeaways": [
-          "星标数较高但说明较少",
-          "归类为独立工具项目"
+          "采用图像到图像转换模型",
+          "基于 Python 的计算机视觉处理流程",
+          "涉及伦理风险与使用规范的应用"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:44.592807+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "General",
+  "programming_lang": "Python",
   "root_keywords": [
-    "Utility",
-    "Service"
+    "image-processing",
+    "deep-learning",
+    "computer-vision",
+    "ai-tool"
   ],
-  "title_ko": "GangTailorUpgrade/undress-service 프로젝트",
-  "title_en": "GangTailorUpgrade/undress-service GitHub Repository",
-  "title_zh": "GangTailorUpgrade/undress-service GitHub仓库",
+  "title_ko": "GitHub: GangTailorUpgrade/undress-service (이미지 처리 서비스)",
+  "title_en": "GitHub: GangTailorUpgrade/undress-service (Image Processing Service)",
+  "title_zh": "GitHub: GangTailorUpgrade/undress-service (图像处理服务)",
   "hook": "단순 유틸리티 및 필터링 대상이 되는 GitHub 저장소입니다.",
-  "hook_ko": "단순 유틸리티 및 필터링 대상이 되는 GitHub 저장소입니다.",
-  "hook_en": "A repository with limited documentation and specific utility context.",
-  "hook_zh": "一个缺乏详细文档的特定用途工具库。",
+  "hook_ko": "딥러닝 기반의 이미지 변환 및 편집 서비스 리포지토리",
+  "hook_en": "Deep learning-based image transformation and editing service repository",
+  "hook_zh": "基于深度学习的图像转换与编辑服务仓库",
   "description_ko": "단순 유틸리티 및 필터링 대상이 되는 GitHub 저장소입니다.",
   "description_en": "A repository with limited documentation and specific utility context.",
   "description_zh": "一个缺乏详细文档的特定用途工具库。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "GitHub: GangTailorUpgrade/undress-service (이미지 처리 서비스)",
+      "hook": "딥러닝 기반의 이미지 변환 및 편집 서비스 리포지토리",
+      "key_takeaways": [
+        "이미지 대 이미지 변환 알고리즘 활용",
+        "Python 기반 컴퓨터 비전 서비스 구조",
+        "윤리적/법적 유의가 필요한 AI 애플리케이션"
+      ]
+    },
+    "en": {
+      "title": "GitHub: GangTailorUpgrade/undress-service (Image Processing Service)",
+      "hook": "Deep learning-based image transformation and editing service repository",
+      "key_takeaways": [
+        "Utilizes image-to-image translation models",
+        "Python-based computer vision pipeline",
+        "Application requiring ethical considerations and safety compliance"
+      ]
+    },
+    "zh": {
+      "title": "GitHub: GangTailorUpgrade/undress-service (图像处理服务)",
+      "hook": "基于深度学习的图像转换与编辑服务仓库",
+      "key_takeaways": [
+        "采用图像到图像转换模型",
+        "基于 Python 的计算机视觉处理流程",
+        "涉及伦理风险与使用规范的应用"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.994189"
 }

@@ -33,66 +33,99 @@
     "id": "2026-09-01_repo_github_xevrionbreakscale",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "분산 시스템 및 아키텍처",
+    "model_family": "Distributed Systems Simulator",
+    "category": "System Architecture",
     "programming_lang": "General",
     "root_keywords": [
       "Distributed Systems",
       "System Design",
-      "Simulator"
+      "Load Simulation",
+      "Chaos Engineering",
+      "Architecture Testing"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "분산 시스템 학습을 위한 부하 및 장애 시뮬레이터",
-        "hook": "시스템을 설계하고 한계치까지 부하를 가한 뒤 병목 현상과 장애 원인을 시각적으로 분석할 수 있습니다.",
+        "title": "breakscale: 분산 시스템의 한계와 장애를 시각적으로 학습하는 시스템 설계 시뮬레이터",
+        "hook": "시스템을 구축하고 한계까지 부하를 가해 파괴되는 원인을 직관적으로 분석하는 인터랙티브 시뮬레이터",
         "key_takeaways": [
-          "분산 시스템 아키텍처 학습용 시뮬레이터",
-          "극한의 부하 테스트 및 장애 모니터링",
-          "시스템 설계 및 병목 분석 능력 향상"
+          "분산 시스템 아키텍처 구축 후 한계 부하까지 가해보며 장애 원인을 실시간 추적",
+          "실제 복잡한 인프라 구성 없이 병목 지점 및 장애 패턴을 직관적으로 학습 가능",
+          "시스템 설계(System Design) 역량 강화 및 아키텍처 검증용 교육적 도구 제공"
         ]
       },
       "en": {
-        "title": "Breakscale: Distributed Systems Load and Failure Simulator",
-        "hook": "Build systems, push them to their breaking points, and visually analyze failure causes for system design mastery.",
+        "title": "breakscale: Interactive System Design Simulator for Learning Distributed Systems",
+        "hook": "Build a system, stress it to its limits, and visually analyze why and where it fails.",
         "key_takeaways": [
-          "Designed for learning distributed systems",
-          "Load testing until failure with visual feedback",
-          "Improves system architecture and debugging skills"
+          "Interactive simulator that models distributed architecture behavior under extreme load",
+          "Allows developers to analyze bottlenecks and failure modes without deploying real infrastructure",
+          "Excellent tool for practicing system design principles and building resilient architectures"
         ]
       },
       "zh": {
-        "title": "Breakscale：分布式系统负载与故障模拟器",
-        "hook": "构建系统并施加极限负载，直观观察崩溃原因，是学习分布式系统设计的利器。",
+        "title": "breakscale：用于学习分布式系统崩溃与极限架构的系统设计模拟器",
+        "hook": "构建系统并持续施加负载直到崩溃，直观观察分布式系统的失效机制与瓶颈",
         "key_takeaways": [
-          "专为分布式系统架构学习设计",
-          "支持极限负载压测与故障监控",
-          "有效提升系统设计与瓶颈分析能力"
+          "在极限负载下可视化模拟分布式系统架构，实时追踪故障根因",
+          "无需部署复杂的真实基础设施即可直观学习系统瓶颈与失效模式",
+          "提升系统设计（System Design）能力与架构容错验证的理想学习工具"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:29:53.223802+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "Distributed Systems",
     "System Design",
-    "Simulator"
+    "Load Simulation",
+    "Chaos Engineering",
+    "Architecture Testing"
   ],
-  "title_ko": "분산 시스템 학습을 위한 부하 및 장애 시뮬레이터",
-  "title_en": "Breakscale: Distributed Systems Load and Failure Simulator",
-  "title_zh": "Breakscale：分布式系统负载与故障模拟器",
+  "title_ko": "breakscale: 분산 시스템의 한계와 장애를 시각적으로 학습하는 시스템 설계 시뮬레이터",
+  "title_en": "breakscale: Interactive System Design Simulator for Learning Distributed Systems",
+  "title_zh": "breakscale：用于学习分布式系统崩溃与极限架构的系统设计模拟器",
   "hook": "시스템을 설계하고 한계치까지 부하를 가한 뒤 병목 현상과 장애 원인을 시각적으로 분석할 수 있습니다.",
-  "hook_ko": "시스템을 설계하고 한계치까지 부하를 가한 뒤 병목 현상과 장애 원인을 시각적으로 분석할 수 있습니다.",
-  "hook_en": "Build systems, push them to their breaking points, and visually analyze failure causes for system design mastery.",
-  "hook_zh": "构建系统并施加极限负载，直观观察崩溃原因，是学习分布式系统设计的利器。",
+  "hook_ko": "시스템을 구축하고 한계까지 부하를 가해 파괴되는 원인을 직관적으로 분석하는 인터랙티브 시뮬레이터",
+  "hook_en": "Build a system, stress it to its limits, and visually analyze why and where it fails.",
+  "hook_zh": "构建系统并持续施加负载直到崩溃，直观观察分布式系统的失效机制与瓶颈",
   "description_ko": "시스템을 설계하고 한계치까지 부하를 가한 뒤 병목 현상과 장애 원인을 시각적으로 분석할 수 있습니다.",
   "description_en": "Build systems, push them to their breaking points, and visually analyze failure causes for system design mastery.",
   "description_zh": "构建系统并施加极限负载，直观观察崩溃原因，是学习分布式系统设计的利器。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "breakscale: 분산 시스템의 한계와 장애를 시각적으로 학습하는 시스템 설계 시뮬레이터",
+      "hook": "시스템을 구축하고 한계까지 부하를 가해 파괴되는 원인을 직관적으로 분석하는 인터랙티브 시뮬레이터",
+      "key_takeaways": [
+        "분산 시스템 아키텍처 구축 후 한계 부하까지 가해보며 장애 원인을 실시간 추적",
+        "실제 복잡한 인프라 구성 없이 병목 지점 및 장애 패턴을 직관적으로 학습 가능",
+        "시스템 설계(System Design) 역량 강화 및 아키텍처 검증용 교육적 도구 제공"
+      ]
+    },
+    "en": {
+      "title": "breakscale: Interactive System Design Simulator for Learning Distributed Systems",
+      "hook": "Build a system, stress it to its limits, and visually analyze why and where it fails.",
+      "key_takeaways": [
+        "Interactive simulator that models distributed architecture behavior under extreme load",
+        "Allows developers to analyze bottlenecks and failure modes without deploying real infrastructure",
+        "Excellent tool for practicing system design principles and building resilient architectures"
+      ]
+    },
+    "zh": {
+      "title": "breakscale：用于学习分布式系统崩溃与极限架构的系统设计模拟器",
+      "hook": "构建系统并持续施加负载直到崩溃，直观观察分布式系统的失效机制与瓶颈",
+      "key_takeaways": [
+        "在极限负载下可视化模拟分布式系统架构，实时追踪故障根因",
+        "无需部署复杂的真实基础设施即可直观学习系统瓶颈与失效模式",
+        "提升系统设计（System Design）能力与架构容错验证的理想学习工具"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.955224"
 }

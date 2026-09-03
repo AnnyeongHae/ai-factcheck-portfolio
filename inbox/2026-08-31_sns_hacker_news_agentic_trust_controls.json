@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "AGENT",
-  "title_ko": "자율형 AI를 위한 신뢰 제어(Agentic Trust Controls) 체계",
+  "title_ko": "에이전틱 트러스트 제어: 자율형 AI 에이전트의 신뢰 및 보안 제어 메커니즘",
   "description_ko": "에이전트의 자율성이 높아질수록 필수적인 권한 통제와 보안 거버넌스 아키텍처를 살펴봅니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -50,64 +50,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_sns_hacker_news_agentic_trust_controls",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "AI 에이전트 보안 및 거버넌스",
-    "programming_lang": "Python",
+    "type_classification": "TECH",
+    "model_family": "Agentic Systems / AI Governance",
+    "category": "AI Security",
+    "programming_lang": "General",
     "root_keywords": [
-      "Agentic Trust",
-      "Access Control",
-      "AI Governance"
+      "Agentic Trust Controls",
+      "AI Agent Security",
+      "Autonomous Agents",
+      "AI Governance",
+      "Trust Framework"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.0,
     "multilingual": {
       "ko": {
-        "title": "자율형 AI를 위한 신뢰 제어(Agentic Trust Controls) 체계",
-        "hook": "에이전트의 자율성이 높아질수록 필수적인 권한 통제와 보안 거버넌스 아키텍처를 살펴봅니다.",
+        "title": "에이전틱 트러스트 제어: 자율형 AI 에이전트의 신뢰 및 보안 제어 메커니즘",
+        "hook": "자율 행동을 수행하는 AI 에이전트의 권한 통제 및 안전성 확보를 위한 트러스트 제어 프레임워크",
         "key_takeaways": [
-          "자율 에이전트 환경에서의 접근 제어 모델",
-          "위험한 액션 실행 전 인간 개입(Human-in-the-loop) 설계",
-          "엔터프라이즈 AI 배포를 위한 보안 가이드라인"
+          "자율형 AI 에이전트의 시스템 접근 권한 및 행동을 제한하고 제어하는 보안 개념",
+          "에이전트 오작동 및 독단적 실행으로 인한 위험 방지 및 가시성 제공",
+          "안전한 AI 에이전트 상용화를 위한 핵심 신뢰 제어 방안 논의"
         ]
       },
       "en": {
-        "title": "Agentic Trust Controls for Autonomous AI Systems",
-        "hook": "Explore the essential permission controls and security governance architectures for autonomous agents.",
+        "title": "Agentic Trust Controls: Security and Trust Mechanisms for Autonomous AI Agents",
+        "hook": "A trust control framework designed to govern permissions and ensure safety in autonomous AI agents.",
         "key_takeaways": [
-          "Access control models tailored for autonomous agent environments",
-          "Human-in-the-loop design patterns for high-risk actions",
-          "Security guidelines for enterprise AI deployments"
+          "A security framework for governing system access and controlling autonomous AI agent actions.",
+          "Mitigates risks associated with rogue agent executions and provides audit visibility.",
+          "Discusses core trust controls required for safe commercial deployment of AI agents."
         ]
       },
       "zh": {
-        "title": "面向自主 AI 系统的代理信任控制机制",
-        "hook": "探讨随着 AI 自主性提升而变得至关重要的权限控制与安全治理架构。",
+        "title": "智能体信任控制：自主 AI 智能体的安全与信任控制机制",
+        "hook": "旨在治理自主 AI 智能体权限并确保其安全性的信任控制框架。",
         "key_takeaways": [
-          "专为自主代理环境设计的访问控制模型",
-          "高风险操作中的“人在回路(Human-in-the-loop)”设计",
-          "企业级 AI 部署的安全合规指南"
+          "用于管理系统访问和控制自主 AI 智能体行为的安全框架。",
+          "降低智能体误操作或未授权执行的风险，并提供审计可见性。",
+          "讨论了安全推进 AI 智能体商业化部署所需的核心信任控制措施。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:34.811797+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
-    "Agentic Trust",
-    "Access Control",
-    "AI Governance"
+    "Agentic Trust Controls",
+    "AI Agent Security",
+    "Autonomous Agents",
+    "AI Governance",
+    "Trust Framework"
   ],
-  "title_en": "Agentic Trust Controls for Autonomous AI Systems",
-  "title_zh": "面向自主 AI 系统的代理信任控制机制",
+  "title_en": "Agentic Trust Controls: Security and Trust Mechanisms for Autonomous AI Agents",
+  "title_zh": "智能体信任控制：自主 AI 智能体的安全与信任控制机制",
   "hook": "에이전트의 자율성이 높아질수록 필수적인 권한 통제와 보안 거버넌스 아키텍처를 살펴봅니다.",
-  "hook_ko": "에이전트의 자율성이 높아질수록 필수적인 권한 통제와 보안 거버넌스 아키텍처를 살펴봅니다.",
-  "hook_en": "Explore the essential permission controls and security governance architectures for autonomous agents.",
-  "hook_zh": "探讨随着 AI 自主性提升而变得至关重要的权限控制与安全治理架构。",
+  "hook_ko": "자율 행동을 수행하는 AI 에이전트의 권한 통제 및 안전성 확보를 위한 트러스트 제어 프레임워크",
+  "hook_en": "A trust control framework designed to govern permissions and ensure safety in autonomous AI agents.",
+  "hook_zh": "旨在治理自主 AI 智能体权限并确保其安全性的信任控制框架。",
   "description_en": "Explore the essential permission controls and security governance architectures for autonomous agents.",
   "description_zh": "探讨随着 AI 自主性提升而变得至关重要的权限控制与安全治理架构。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "에이전틱 트러스트 제어: 자율형 AI 에이전트의 신뢰 및 보안 제어 메커니즘",
+      "hook": "자율 행동을 수행하는 AI 에이전트의 권한 통제 및 안전성 확보를 위한 트러스트 제어 프레임워크",
+      "key_takeaways": [
+        "자율형 AI 에이전트의 시스템 접근 권한 및 행동을 제한하고 제어하는 보안 개념",
+        "에이전트 오작동 및 독단적 실행으로 인한 위험 방지 및 가시성 제공",
+        "안전한 AI 에이전트 상용화를 위한 핵심 신뢰 제어 방안 논의"
+      ]
+    },
+    "en": {
+      "title": "Agentic Trust Controls: Security and Trust Mechanisms for Autonomous AI Agents",
+      "hook": "A trust control framework designed to govern permissions and ensure safety in autonomous AI agents.",
+      "key_takeaways": [
+        "A security framework for governing system access and controlling autonomous AI agent actions.",
+        "Mitigates risks associated with rogue agent executions and provides audit visibility.",
+        "Discusses core trust controls required for safe commercial deployment of AI agents."
+      ]
+    },
+    "zh": {
+      "title": "智能体信任控制：自主 AI 智能体的安全与信任控制机制",
+      "hook": "旨在治理自主 AI 智能体权限并确保其安全性的信任控制框架。",
+      "key_takeaways": [
+        "用于管理系统访问和控制自主 AI 智能体行为的安全框架。",
+        "降低智能体误操作或未授权执行的风险，并提供审计可见性。",
+        "讨论了安全推进 AI 智能体商业化部署所需的核心信任控制措施。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.891760"
 }

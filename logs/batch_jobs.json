@@ -176,9 +176,9 @@
     "gemini_job_name": "batches/bes8rrpjinc68tjmci2atbjwrr5xk7bmbi2j",
     "model": "models/gemini-3.6-flash",
     "item_count": 100,
-    "status": "JOB_STATE_PENDING",
+    "status": "HARVESTED",
     "submitted_at": "2026-09-04T01:26:25.162771",
-    "completed_at": null,
+    "completed_at": "2026-09-04T02:18:14.217151",
     "items": [
       {
         "inbox_id": "2026-08-31_repo_github_metamask_aimetamask_desktop",
@@ -580,16 +580,21 @@
         "inbox_id": "2026-08-31_sns_hacker_news_show_hn_we_built_the_smallest_dua",
         "title": "Hacker News: Show HN: We built the smallest dual-band aircraft tracker"
       }
-    ]
+    ],
+    "total_prompt_tokens": 51388,
+    "total_candidate_tokens": 60242,
+    "total_tokens": 111630,
+    "cost_usd": 0.021926699999999997,
+    "cost_krw": 30.258845999999995
   },
   {
     "batch_uuid": "batch_20260904_012635_e60740",
     "gemini_job_name": "batches/wicl8f9zhqk9xveu66kucinltqwhiwclluqt",
     "model": "models/gemini-3.6-flash",
     "item_count": 150,
-    "status": "JOB_STATE_PENDING",
+    "status": "HARVESTED",
     "submitted_at": "2026-09-04T01:26:41.588496",
-    "completed_at": null,
+    "completed_at": "2026-09-04T02:18:17.286690",
     "items": [
       {
         "inbox_id": "2026-08-31_repo_github_metamask_aimetamask_desktop",
@@ -1191,16 +1196,21 @@
         "inbox_id": "2026-09-01_repo_github_damejan80tokentab",
         "title": "GitHub: damejan80/tokentab"
       }
-    ]
+    ],
+    "total_prompt_tokens": 77058,
+    "total_candidate_tokens": 91117,
+    "total_tokens": 168175,
+    "cost_usd": 0.033114450000000004,
+    "cost_krw": 45.69794100000001
   },
   {
     "batch_uuid": "batch_20260904_012647_13a613",
     "gemini_job_name": "batches/q5kl429c2vpbhnw9pkpa56mubvyh6mwo25to",
     "model": "models/gemini-3.6-flash",
     "item_count": 250,
-    "status": "JOB_STATE_PENDING",
+    "status": "HARVESTED",
     "submitted_at": "2026-09-04T01:26:54.456214",
-    "completed_at": null,
+    "completed_at": "2026-09-04T02:18:22.116826",
     "items": [
       {
         "inbox_id": "2026-08-31_repo_github_metamask_aimetamask_desktop",
@@ -2202,6 +2212,11 @@
         "inbox_id": "2026-09-02_sns_hacker_news_the_emergent_symbolic_structure_o",
         "title": "Hacker News: The Emergent Symbolic Structure of Artificial Neural Networks"
       }
-    ]
+    ],
+    "total_prompt_tokens": 128266,
+    "total_candidate_tokens": 151518,
+    "total_tokens": 279784,
+    "cost_usd": 0.055075349999999995,
+    "cost_krw": 76.00398299999999
   }
 ]

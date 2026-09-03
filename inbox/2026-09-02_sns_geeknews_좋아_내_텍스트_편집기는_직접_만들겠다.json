@@ -38,63 +38,94 @@
     "id": "2026-09-02_sns_geeknews_좋아_내_텍스트_편집기는_직접_만들겠다",
     "source_lang": "KO",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "소프트웨어 아키텍처 및 개발",
+    "model_family": "Developer Tools",
+    "category": "Software Engineering",
     "programming_lang": "General",
     "root_keywords": [
-      "텍스트 편집기",
-      "개발자 도구",
-      "개인 프로젝트"
+      "Text Editor",
+      "Software Architecture",
+      "Custom Tooling",
+      "DIY"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.5,
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
         "title": "좋아, 내 텍스트 편집기는 직접 만들겠다",
-        "hook": "기성 도구에 불만족하여 나만의 텍스트 편집기를 직접 구현하고자 하는 개발자의 도전 정신과 아키텍처 인사이트를 확인하세요.",
+        "hook": "기존 에디터의 한계에서 벗어나 자신만의 맞춤형 텍스트 에디터를 직접 제작하는 여정과 핵심 설계 원리",
         "key_takeaways": [
-          "기존 텍스트 편집기의 한계와 커스텀 에디터 개발 동기",
-          "에디터 구현 시 고려해야 할 핵심 요구사항 및 아키텍처",
-          "개발자 개인 도구 제작을 통한 생산성 향상 경험 공유"
+          "상용 텍스트 에디터의 성능 및 기능적 한계와 커스텀 제작 동기",
+          "텍스트 버퍼 관리 및 가상화 렌더링 등 에디터 코어 엔진 구조",
+          "자체 제작 도구를 통한 개인 맞춤형 개발 환경 구축과 생산성 극대화"
         ]
       },
       "en": {
         "title": "Fine, I'll Build My Own Text Editor",
-        "hook": "Explore the developer's motivation and architectural insights behind building a custom text editor from scratch.",
+        "hook": "A journey into building a custom text editor from scratch to overcome the constraints of existing tools.",
         "key_takeaways": [
-          "Motivations for moving away from off-the-shelf text editors",
-          "Core architecture and requirements for custom editor development",
-          "Enhancing developer productivity through personalized tools"
+          "Motivations for departing from commercial text editors in favor of a bespoke solution",
+          "Core engine architecture covering text buffer management and rendering mechanics",
+          "Maximizing productivity and technical growth through custom-tailored developer tools"
         ]
       },
       "zh": {
-        "title": "好吧，我自己来写一个文本编辑器",
-        "hook": "了解开发者如何因不满意现有工具而决定从零打造自己的文本编辑器，探索背后的架构设计。",
+        "title": "好吧，我自己来做文本编辑器",
+        "hook": "摆脱现有编辑器的局限，从零开始打造自定义文本编辑器的旅程与核心架构设计",
         "key_takeaways": [
-          "放弃现成文本编辑器的动机与痛点",
-          "自定义编辑器开发的核心架构与关键需求",
-          "通过打造个性化工具来提升开发效率的经验分享"
+          "放弃现有商业编辑器转而自研的核心动机",
+          "涵盖文本缓冲区管理与渲染机制的编辑器核心架构设计",
+          "通过量身定制开发工具实现个人生产力与技术的双重提升"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:54:55.805151+09:00"
+    }
   },
   "source_lang": "KO",
   "programming_lang": "General",
   "root_keywords": [
-    "텍스트 편집기",
-    "개발자 도구",
-    "개인 프로젝트"
+    "Text Editor",
+    "Software Architecture",
+    "Custom Tooling",
+    "DIY"
   ],
   "title_en": "Fine, I'll Build My Own Text Editor",
-  "title_zh": "好吧，我自己来写一个文本编辑器",
+  "title_zh": "好吧，我自己来做文本编辑器",
   "hook": "기성 도구에 불만족하여 나만의 텍스트 편집기를 직접 구현하고자 하는 개발자의 도전 정신과 아키텍처 인사이트를 확인하세요.",
-  "hook_ko": "기성 도구에 불만족하여 나만의 텍스트 편집기를 직접 구현하고자 하는 개발자의 도전 정신과 아키텍처 인사이트를 확인하세요.",
-  "hook_en": "Explore the developer's motivation and architectural insights behind building a custom text editor from scratch.",
-  "hook_zh": "了解开发者如何因不满意现有工具而决定从零打造自己的文本编辑器，探索背后的架构设计。",
+  "hook_ko": "기존 에디터의 한계에서 벗어나 자신만의 맞춤형 텍스트 에디터를 직접 제작하는 여정과 핵심 설계 원리",
+  "hook_en": "A journey into building a custom text editor from scratch to overcome the constraints of existing tools.",
+  "hook_zh": "摆脱现有编辑器的局限，从零开始打造自定义文本编辑器的旅程与核心架构设计",
   "description_en": "Explore the developer's motivation and architectural insights behind building a custom text editor from scratch.",
   "description_zh": "了解开发者如何因不满意现有工具而决定从零打造自己的文本编辑器，探索背后的架构设计。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "좋아, 내 텍스트 편집기는 직접 만들겠다",
+      "hook": "기존 에디터의 한계에서 벗어나 자신만의 맞춤형 텍스트 에디터를 직접 제작하는 여정과 핵심 설계 원리",
+      "key_takeaways": [
+        "상용 텍스트 에디터의 성능 및 기능적 한계와 커스텀 제작 동기",
+        "텍스트 버퍼 관리 및 가상화 렌더링 등 에디터 코어 엔진 구조",
+        "자체 제작 도구를 통한 개인 맞춤형 개발 환경 구축과 생산성 극대화"
+      ]
+    },
+    "en": {
+      "title": "Fine, I'll Build My Own Text Editor",
+      "hook": "A journey into building a custom text editor from scratch to overcome the constraints of existing tools.",
+      "key_takeaways": [
+        "Motivations for departing from commercial text editors in favor of a bespoke solution",
+        "Core engine architecture covering text buffer management and rendering mechanics",
+        "Maximizing productivity and technical growth through custom-tailored developer tools"
+      ]
+    },
+    "zh": {
+      "title": "好吧，我自己来做文本编辑器",
+      "hook": "摆脱现有编辑器的局限，从零开始打造自定义文本编辑器的旅程与核心架构设计",
+      "key_takeaways": [
+        "放弃现有商业编辑器转而自研的核心动机",
+        "涵盖文本缓冲区管理与渲染机制的编辑器核心架构设计",
+        "通过量身定制开发工具实现个人生产力与技术的双重提升"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.061263"
 }

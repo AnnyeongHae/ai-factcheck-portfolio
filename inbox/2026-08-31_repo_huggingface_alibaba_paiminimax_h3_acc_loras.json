@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "MODEL",
-  "title_ko": "MiniMax-H3-Acc-LoRAs 모델",
+  "title_ko": "알리바바 PAI: MiniMax 비디오 생성 가속을 위한 H3 Acc-LoRAs",
   "description_ko": "MiniMax H3 비디오 생성 모델의 속도를 획기적으로 가속화하는 최적화 LoRA 가중치입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,64 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_alibaba_paiminimax_h3_acc_loras",
     "source_lang": "EN",
-    "type_classification": "MODEL",
+    "type_classification": "TECH",
     "model_family": "MiniMax",
-    "category": "비디오 생성 가속 및 LoRA",
+    "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
-      "MiniMax-H3",
-      "Acc-LoRAs",
-      "Text-to-Video"
+      "Text-to-Video",
+      "LoRA Acceleration",
+      "MiniMax",
+      "Alibaba PAI",
+      "Video Generation"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.3,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "MiniMax-H3-Acc-LoRAs 모델",
-        "hook": "MiniMax H3 비디오 생성 모델의 속도를 획기적으로 가속화하는 최적화 LoRA 가중치입니다.",
+        "title": "알리바바 PAI: MiniMax 비디오 생성 가속을 위한 H3 Acc-LoRAs",
+        "hook": "MiniMax 비디오 생성 모델의 추론 속도를 획기적으로 개선하는 알리바바 PAI의 가속 LoRA 가중치",
         "key_takeaways": [
-          "비디오 생성 추론 시간을 단축하는 Acc-LoRA 가중치",
-          "품질 저하를 최소화하면서 가속 효과 달성",
-          "실시간에 가까운 비디오 생성 워크플로우 지원"
+          "MiniMax 계열 비디오 생성 모델을 위한 전용 Acceleration LoRA 제공",
+          "품질 저하를 최소화하면서 텍스트-투-비디오 추론 스텝 및 생성 시간 감축",
+          "알리바바 PAI 팀에서 공개하여 빠르게 확산 중인 고성능 가속 기술"
         ]
       },
       "en": {
-        "title": "MiniMax-H3-Acc-LoRAs Model",
-        "hook": "Drastically accelerate your MiniMax H3 video generation pipelines with these specialized acceleration LoRAs.",
+        "title": "Alibaba PAI: MiniMax-H3-Acc-LoRAs for Accelerated Video Generation",
+        "hook": "Accelerate MiniMax text-to-video inference speed using Alibaba PAI's optimized acceleration LoRAs.",
         "key_takeaways": [
-          "Specialized Acc-LoRA weights to speed up video inference",
-          "Achieves significant performance gains with minimal quality loss",
-          "Enables near-real-time video generation workflows"
+          "Dedicated acceleration LoRAs designed for MiniMax video generation models",
+          "Significantly reduces sampling steps while maintaining video generation quality",
+          "Developed and open-sourced by Alibaba PAI team with high community adoption"
         ]
       },
       "zh": {
-        "title": "MiniMax-H3-Acc-LoRAs 模型",
-        "hook": "通过专用的加速 LoRA 权重，大幅提升 MiniMax H3 视频生成模型的运行速度。",
+        "title": "阿里 PAI：MiniMax-H3-Acc-LoRAs 视频生成加速 LoRA 权重",
+        "hook": "阿里 PAI 团队推出的 MiniMax 文本生成视频推理加速 LoRA 权重",
         "key_takeaways": [
-          "专为缩短视频推理时间而设计的 Acc-LoRA",
-          "在保持画质的同时实现显著的速度提升",
-          "助力实现接近实时的视频生成工作流"
+          "专为 MiniMax 系列视频生成模型设计的加速 LoRA 权重",
+          "在保持高质量视频输出的同时大幅减少推理采样步数",
+          "由阿里云 PAI 团队开源，关注度与下载量持续攀升"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:33:36.551593+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "MiniMax-H3",
-    "Acc-LoRAs",
-    "Text-to-Video"
+    "Text-to-Video",
+    "LoRA Acceleration",
+    "MiniMax",
+    "Alibaba PAI",
+    "Video Generation"
   ],
-  "title_en": "MiniMax-H3-Acc-LoRAs Model",
-  "title_zh": "MiniMax-H3-Acc-LoRAs 模型",
+  "title_en": "Alibaba PAI: MiniMax-H3-Acc-LoRAs for Accelerated Video Generation",
+  "title_zh": "阿里 PAI：MiniMax-H3-Acc-LoRAs 视频生成加速 LoRA 权重",
   "hook": "MiniMax H3 비디오 생성 모델의 속도를 획기적으로 가속화하는 최적화 LoRA 가중치입니다.",
-  "hook_ko": "MiniMax H3 비디오 생성 모델의 속도를 획기적으로 가속화하는 최적화 LoRA 가중치입니다.",
-  "hook_en": "Drastically accelerate your MiniMax H3 video generation pipelines with these specialized acceleration LoRAs.",
-  "hook_zh": "通过专用的加速 LoRA 权重，大幅提升 MiniMax H3 视频生成模型的运行速度。",
+  "hook_ko": "MiniMax 비디오 생성 모델의 추론 속도를 획기적으로 개선하는 알리바바 PAI의 가속 LoRA 가중치",
+  "hook_en": "Accelerate MiniMax text-to-video inference speed using Alibaba PAI's optimized acceleration LoRAs.",
+  "hook_zh": "阿里 PAI 团队推出的 MiniMax 文本生成视频推理加速 LoRA 权重",
   "description_en": "Drastically accelerate your MiniMax H3 video generation pipelines with these specialized acceleration LoRAs.",
   "description_zh": "通过专用的加速 LoRA 权重，大幅提升 MiniMax H3 视频生成模型的运行速度。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "알리바바 PAI: MiniMax 비디오 생성 가속을 위한 H3 Acc-LoRAs",
+      "hook": "MiniMax 비디오 생성 모델의 추론 속도를 획기적으로 개선하는 알리바바 PAI의 가속 LoRA 가중치",
+      "key_takeaways": [
+        "MiniMax 계열 비디오 생성 모델을 위한 전용 Acceleration LoRA 제공",
+        "품질 저하를 최소화하면서 텍스트-투-비디오 추론 스텝 및 생성 시간 감축",
+        "알리바바 PAI 팀에서 공개하여 빠르게 확산 중인 고성능 가속 기술"
+      ]
+    },
+    "en": {
+      "title": "Alibaba PAI: MiniMax-H3-Acc-LoRAs for Accelerated Video Generation",
+      "hook": "Accelerate MiniMax text-to-video inference speed using Alibaba PAI's optimized acceleration LoRAs.",
+      "key_takeaways": [
+        "Dedicated acceleration LoRAs designed for MiniMax video generation models",
+        "Significantly reduces sampling steps while maintaining video generation quality",
+        "Developed and open-sourced by Alibaba PAI team with high community adoption"
+      ]
+    },
+    "zh": {
+      "title": "阿里 PAI：MiniMax-H3-Acc-LoRAs 视频生成加速 LoRA 权重",
+      "hook": "阿里 PAI 团队推出的 MiniMax 文本生成视频推理加速 LoRA 权重",
+      "key_takeaways": [
+        "专为 MiniMax 系列视频生成模型设计的加速 LoRA 权重",
+        "在保持高质量视频输出的同时大幅减少推理采样步数",
+        "由阿里云 PAI 团队开源，关注度与下载量持续攀升"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.847910"
 }

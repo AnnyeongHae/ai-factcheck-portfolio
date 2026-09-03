@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "Show HN: MCU가 탑재된 NFC 에너지 하베스팅 PCB 명함",
+  "title_ko": "Show HN: MCU를 탑재한 NFC 에너지 하베스팅 PCB 명함",
   "description_ko": "배터리 없이 NFC 태자 전력만으로 MCU를 구동하는 기발한 혁신적 PCB 설계 프로젝트입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -51,65 +51,96 @@
     "id": "2026-08-31_sns_hacker_news_show_hn_nfc_energy_harvesting_pcb",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "IoT 및 하드웨어",
-    "programming_lang": "C",
+    "model_family": "Hardware / Embedded Systems",
+    "category": "Embedded Systems & Hardware",
+    "programming_lang": "C/C++",
     "root_keywords": [
       "NFC",
       "Energy Harvesting",
-      "PCB Business Card",
-      "MCU"
+      "PCB Design",
+      "Microcontroller",
+      "Business Card"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "Show HN: MCU가 탑재된 NFC 에너지 하베스팅 PCB 명함",
-        "hook": "배터리 없이 NFC 태자 전력만으로 MCU를 구동하는 기발한 혁신적 PCB 설계 프로젝트입니다.",
+        "title": "Show HN: MCU를 탑재한 NFC 에너지 하베스팅 PCB 명함",
+        "hook": "스마트폰 NFC 전파만으로 배터리 없이 마이크로컨트롤러를 구동하는 초소형 PCB 명함 프로젝트",
         "key_takeaways": [
-          "배터리 없는 NFC 에너지 하베스팅 회로 설계",
-          "초저전력 MCU 구동 및 인터랙션 구현",
-          "하드웨어 및 IoT 엔지니어를 위한 창의적인 포트폴리오"
+          "별도 배터리 없이 스마트폰의 NFC RF 전력 하베스팅으로 MCU 구동",
+          "초소형 PCB 안테나 설계 및 저전력 전원 관리 기술 적용",
+          "임베디드 개발자 및 하드웨어 해커를 위한 독창적인 PCB 명함 구현 사례"
         ]
       },
       "en": {
         "title": "Show HN: NFC Energy-Harvesting PCB Business Card with an MCU",
-        "hook": "Discover an ingenious batteryless PCB design powered entirely by NFC energy harvesting to run an MCU.",
+        "hook": "An innovative PCB business card powered battery-free by harvesting RF energy directly from smartphone NFC scans.",
         "key_takeaways": [
-          "Batteryless NFC energy harvesting circuit design",
-          "Ultra-low-power MCU execution and interaction implementation",
-          "Creative portfolio project for hardware and IoT engineers"
+          "Operates a microcontroller without a battery by harvesting power from smartphone NFC scans.",
+          "Demonstrates compact PCB antenna tuning and ultra-low-power embedded design.",
+          "Provides an inspiring practical project reference for hardware hackers and IoT developers."
         ]
       },
       "zh": {
-        "title": "Show HN：搭载 MCU 的 NFC 能量采集 PCB 名片",
-        "hook": "无需电池，仅靠 NFC 射频能量驱动 MCU 的极具创新性的 PCB 设计项目。",
+        "title": "Show HN：搭载 MCU 的 NFC 能量收集 PCB 名片",
+        "hook": "无需电池，仅利用智能手机 NFC 扫描的能量即可驱动微控制器的超小型 PCB 名片",
         "key_takeaways": [
-          "无电池 NFC 能量采集电路设计",
-          "超低功耗 MCU 运行与交互实现",
-          "面向硬件与物联网工程师的创意作品"
+          "无需外部电池，完全依靠智能手机 NFC 的 RF 射频能量收集来驱动板载 MCU",
+          "展示了紧凑型 PCB 天线调谐与超低功耗电源管理设计",
+          "为硬件创客和物联网开发者提供了极具实用价值的嵌入式电路参考"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:58.115771+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "C",
+  "programming_lang": "C/C++",
   "root_keywords": [
     "NFC",
     "Energy Harvesting",
-    "PCB Business Card",
-    "MCU"
+    "PCB Design",
+    "Microcontroller",
+    "Business Card"
   ],
   "title_en": "Show HN: NFC Energy-Harvesting PCB Business Card with an MCU",
-  "title_zh": "Show HN：搭载 MCU 的 NFC 能量采集 PCB 名片",
+  "title_zh": "Show HN：搭载 MCU 的 NFC 能量收集 PCB 名片",
   "hook": "배터리 없이 NFC 태자 전력만으로 MCU를 구동하는 기발한 혁신적 PCB 설계 프로젝트입니다.",
-  "hook_ko": "배터리 없이 NFC 태자 전력만으로 MCU를 구동하는 기발한 혁신적 PCB 설계 프로젝트입니다.",
-  "hook_en": "Discover an ingenious batteryless PCB design powered entirely by NFC energy harvesting to run an MCU.",
-  "hook_zh": "无需电池，仅靠 NFC 射频能量驱动 MCU 的极具创新性的 PCB 设计项目。",
+  "hook_ko": "스마트폰 NFC 전파만으로 배터리 없이 마이크로컨트롤러를 구동하는 초소형 PCB 명함 프로젝트",
+  "hook_en": "An innovative PCB business card powered battery-free by harvesting RF energy directly from smartphone NFC scans.",
+  "hook_zh": "无需电池，仅利用智能手机 NFC 扫描的能量即可驱动微控制器的超小型 PCB 名片",
   "description_en": "Discover an ingenious batteryless PCB design powered entirely by NFC energy harvesting to run an MCU.",
   "description_zh": "无需电池，仅靠 NFC 射频能量驱动 MCU 的极具创新性的 PCB 设计项目。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Show HN: MCU를 탑재한 NFC 에너지 하베스팅 PCB 명함",
+      "hook": "스마트폰 NFC 전파만으로 배터리 없이 마이크로컨트롤러를 구동하는 초소형 PCB 명함 프로젝트",
+      "key_takeaways": [
+        "별도 배터리 없이 스마트폰의 NFC RF 전력 하베스팅으로 MCU 구동",
+        "초소형 PCB 안테나 설계 및 저전력 전원 관리 기술 적용",
+        "임베디드 개발자 및 하드웨어 해커를 위한 독창적인 PCB 명함 구현 사례"
+      ]
+    },
+    "en": {
+      "title": "Show HN: NFC Energy-Harvesting PCB Business Card with an MCU",
+      "hook": "An innovative PCB business card powered battery-free by harvesting RF energy directly from smartphone NFC scans.",
+      "key_takeaways": [
+        "Operates a microcontroller without a battery by harvesting power from smartphone NFC scans.",
+        "Demonstrates compact PCB antenna tuning and ultra-low-power embedded design.",
+        "Provides an inspiring practical project reference for hardware hackers and IoT developers."
+      ]
+    },
+    "zh": {
+      "title": "Show HN：搭载 MCU 的 NFC 能量收集 PCB 名片",
+      "hook": "无需电池，仅利用智能手机 NFC 扫描的能量即可驱动微控制器的超小型 PCB 名片",
+      "key_takeaways": [
+        "无需外部电池，完全依靠智能手机 NFC 的 RF 射频能量收集来驱动板载 MCU",
+        "展示了紧凑型 PCB 天线调谐与超低功耗电源管理设计",
+        "为硬件创客和物联网开发者提供了极具实用价值的嵌入式电路参考"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.906590"
 }

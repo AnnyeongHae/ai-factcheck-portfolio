@@ -33,69 +33,100 @@
   "ai_enrichment": {
     "id": "2026-09-01_repo_arxiv_s3gym_can_llms_turn_self_testing_and_se",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "웹 에이전트 및 자기 개선",
+    "type_classification": "TECH",
+    "model_family": "LLM / Autonomous Agents",
+    "category": "Artificial Intelligence",
     "programming_lang": "Python",
     "root_keywords": [
-      "S3Gym",
+      "LLM",
       "Self-Improvement",
-      "LLM Agents",
+      "S3Gym",
+      "Agent Benchmark",
       "Self-Testing"
     ],
-    "recommended_tag": "💡 유용한 도구",
+    "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "S3Gym: LLM은 자체 테스트와 자체 평가를 통해 스스로 발전할 수 있는가?",
-        "hook": "고정된 정책을 넘어 외부 환경에서 스스로 테스트하고 판단하며 진화하는 LLM 에이전트 환경을 만나보세요.",
+        "title": "S3Gym: LLM은 자가 테스트 및 자가 평가를 통해 스스로 성능을 향상시킬 수 있는가?",
+        "hook": "외부 환경과의 상호작용 경험을 바탕으로 LLM이 스스로 시험을 설계하고 평가하여 자가 개선(Self-Improvement)을 이루는지 검증하는 벤치마크",
         "key_takeaways": [
-          "LLM의 외부 환경 상호작용 및 행동 경험 누적 메커니즘 분석",
-          "자체 테스트(Self-Testing)와 자체 평가(Self-Judging)를 통한 자기 개선(Self-Improvement)",
-          "고정된 에이전트 벤치마크의 한계를 극복하는 동적 평가 환경 제공"
+          "고정된 정책 평가라는 기존 LLM 에이전트 벤치마크의 한계를 극복하는 S3Gym 프레임워크 제안",
+          "자가 테스트(Self-Testing) 및 자가 판단(Self-Judging)을 통해 경험을 누적하고 능동적으로 성능을 향상시키는 구조 분석",
+          "상호작용 환경에서 에이전트의 지속적 자가 학습 및 진화 가능성을 탐구하는 새로운 평가 패러다임 제공"
         ]
       },
       "en": {
         "title": "S3Gym: Can LLMs Turn Self-Testing and Self-Judging into Self-Improvement?",
-        "hook": "Discover how LLM agents can evolve beyond fixed policies through self-testing and self-judging in dynamic environments.",
+        "hook": "A benchmark framework exploring whether LLM agents can leverage self-testing and self-judging to achieve continuous self-improvement in interactive environments.",
         "key_takeaways": [
-          "Analyzes how LLMs interact with external environments and accumulate behavioral experience",
-          "Enables self-improvement via self-testing and self-judging mechanisms",
-          "Goes beyond fixed agent benchmarks to evaluate dynamic evolution capabilities"
+          "Introduces S3Gym, a novel benchmark evaluating LLM agents beyond static fixed-policy setups.",
+          "Focuses on agents accumulating behavioral experience through self-generated testing and self-judgment.",
+          "Provides fresh insights and evaluation paradigms for autonomous learning and self-evolving AI agents."
         ]
       },
       "zh": {
-        "title": "S3Gym：LLM 能否将自我测试和自我评估转化为自我改进？",
-        "hook": "探索大语言模型代理如何通过动态环境中的自我测试和自我评估超越固定策略进行进化。",
+        "title": "S3Gym：LLM 能否将自我测试与自我判别转化为自我提升？",
+        "hook": "探索大语言模型 Agent 能否在交互式环境中通过自我测试与自我评估实现持续自我提升的全新 Benchmark 框架。",
         "key_takeaways": [
-          "分析 LLM 如何与外部环境交互并积累行为经验",
-          "通过自我测试和自我评估机制实现自我改进",
-          "突破固定代理基准的限制，评估动态进化能力"
+          "提出了 S3Gym，突破了传统 Benchmark 仅将 LLM 作为静态策略评估 ignore 演进能力的局限",
+          "重点评估 Agent 通过自生成测试和自我判别积累行为经验并实现自我改善的能力",
+          "为 AI Agent 的自主学习、经验积累与自我演进提供了全新的评估与训练范式"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:18.823992+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "S3Gym",
+    "LLM",
     "Self-Improvement",
-    "LLM Agents",
+    "S3Gym",
+    "Agent Benchmark",
     "Self-Testing"
   ],
-  "title_ko": "S3Gym: LLM은 자체 테스트와 자체 평가를 통해 스스로 발전할 수 있는가?",
+  "title_ko": "S3Gym: LLM은 자가 테스트 및 자가 평가를 통해 스스로 성능을 향상시킬 수 있는가?",
   "title_en": "S3Gym: Can LLMs Turn Self-Testing and Self-Judging into Self-Improvement?",
-  "title_zh": "S3Gym：LLM 能否将自我测试和自我评估转化为自我改进？",
+  "title_zh": "S3Gym：LLM 能否将自我测试与自我判别转化为自我提升？",
   "hook": "고정된 정책을 넘어 외부 환경에서 스스로 테스트하고 판단하며 진화하는 LLM 에이전트 환경을 만나보세요.",
-  "hook_ko": "고정된 정책을 넘어 외부 환경에서 스스로 테스트하고 판단하며 진화하는 LLM 에이전트 환경을 만나보세요.",
-  "hook_en": "Discover how LLM agents can evolve beyond fixed policies through self-testing and self-judging in dynamic environments.",
-  "hook_zh": "探索大语言模型代理如何通过动态环境中的自我测试和自我评估超越固定策略进行进化。",
+  "hook_ko": "외부 환경과의 상호작용 경험을 바탕으로 LLM이 스스로 시험을 설계하고 평가하여 자가 개선(Self-Improvement)을 이루는지 검증하는 벤치마크",
+  "hook_en": "A benchmark framework exploring whether LLM agents can leverage self-testing and self-judging to achieve continuous self-improvement in interactive environments.",
+  "hook_zh": "探索大语言模型 Agent 能否在交互式环境中通过自我测试与自我评估实现持续自我提升的全新 Benchmark 框架。",
   "description_ko": "고정된 정책을 넘어 외부 환경에서 스스로 테스트하고 판단하며 진화하는 LLM 에이전트 환경을 만나보세요.",
   "description_en": "Discover how LLM agents can evolve beyond fixed policies through self-testing and self-judging in dynamic environments.",
   "description_zh": "探索大语言模型代理如何通过动态环境中的自我测试和自我评估超越固定策略进行进化。",
   "category_type": "AGENT",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "S3Gym: LLM은 자가 테스트 및 자가 평가를 통해 스스로 성능을 향상시킬 수 있는가?",
+      "hook": "외부 환경과의 상호작용 경험을 바탕으로 LLM이 스스로 시험을 설계하고 평가하여 자가 개선(Self-Improvement)을 이루는지 검증하는 벤치마크",
+      "key_takeaways": [
+        "고정된 정책 평가라는 기존 LLM 에이전트 벤치마크의 한계를 극복하는 S3Gym 프레임워크 제안",
+        "자가 테스트(Self-Testing) 및 자가 판단(Self-Judging)을 통해 경험을 누적하고 능동적으로 성능을 향상시키는 구조 분석",
+        "상호작용 환경에서 에이전트의 지속적 자가 학습 및 진화 가능성을 탐구하는 새로운 평가 패러다임 제공"
+      ]
+    },
+    "en": {
+      "title": "S3Gym: Can LLMs Turn Self-Testing and Self-Judging into Self-Improvement?",
+      "hook": "A benchmark framework exploring whether LLM agents can leverage self-testing and self-judging to achieve continuous self-improvement in interactive environments.",
+      "key_takeaways": [
+        "Introduces S3Gym, a novel benchmark evaluating LLM agents beyond static fixed-policy setups.",
+        "Focuses on agents accumulating behavioral experience through self-generated testing and self-judgment.",
+        "Provides fresh insights and evaluation paradigms for autonomous learning and self-evolving AI agents."
+      ]
+    },
+    "zh": {
+      "title": "S3Gym：LLM 能否将自我测试与自我判别转化为自我提升？",
+      "hook": "探索大语言模型 Agent 能否在交互式环境中通过自我测试与自我评估实现持续自我提升的全新 Benchmark 框架。",
+      "key_takeaways": [
+        "提出了 S3Gym，突破了传统 Benchmark 仅将 LLM 作为静态策略评估 ignore 演进能力的局限",
+        "重点评估 Agent 通过自生成测试和自我判别积累行为经验并实现自我改善的能力",
+        "为 AI Agent 的自主学习、经验积累与自我演进提供了全新的评估与训练范式"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.943620"
 }

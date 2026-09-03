@@ -33,67 +33,100 @@
   "ai_enrichment": {
     "id": "2026-09-02_repo_arxiv_h3_world_turning_language_understanding",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "MiniMax",
-    "category": "영상 제작",
+    "type_classification": "TECH",
+    "model_family": "Video World Models",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "Video Generator",
       "World Model",
-      "MiniMax-H3"
+      "Video Generation",
+      "MiniMax-H3",
+      "Interactive Control",
+      "Language Understanding"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "H3-World: 언어 이해를 월드 컨트롤로 전환하기",
-        "hook": "33B MiniMax-H3 비디오 생성기를 상호작용 가능한 월드 모델로 변환하는 혁신적인 프레임워크를 공개합니다.",
+        "title": "H3-World: 언어 이해를 대화형 월드 제어로 전환하는 월드 모델 프레임워크",
+        "hook": "33B 규모의 비디오 생성 모델 MiniMax-H3를 인터랙티브 월드 모델로 변환하여 언어 지시어 기반 제어를 구현한 연구",
         "key_takeaways": [
-          "MiniMax-H3 비디오 생성기를 인터랙티브 월드 모델로 확장",
-          "언어 이해 능력이 고도화된 비디오 제어 메커니즘 구현",
-          "생성형 AI와 시뮬레이션 월드 모델 간의 새로운 융합 제시"
+          "33B 파라미터 기반 MiniMax-H3 비디오 생성기를 고성능 상호작용형 월드 모델로 확장",
+          "자연어 이해 능력을 가상 환경 제어 및 행동 시뮬레이션 능력으로 전환하는 프레임워크 제안",
+          "대규모 비디오 생성 모델의 발전이 대화형 시뮬레이션 및 월드 제어로 이어지는 기술적 가능성 입증"
         ]
       },
       "en": {
         "title": "H3-World: Turning Language Understanding into World Control",
-        "hook": "Discover H3-World, an efficient framework transforming the 33B MiniMax-H3 video generator into an interactive world model.",
+        "hook": "Transforming the 33B MiniMax-H3 video generator into an interactive world model driven by natural language",
         "key_takeaways": [
-          "Transforms the 33B MiniMax-H3 video generator into an interactive world model",
-          "Leverages advanced language understanding for world control",
-          "Bridges generative AI and interactive simulation environments"
+          "Extends the 33B MiniMax-H3 video generation architecture into an interactive world model",
+          "Bridges natural language understanding with interactive action control and state simulation",
+          "Demonstrates the potential of large video generators as actionable, controllable world simulators"
         ]
       },
       "zh": {
-        "title": "H3-World：将语言理解转化为世界控制",
-        "hook": "介绍H3-World，一个将33B MiniMax-H3视频生成器转变为交互式世界模型的强大框架。",
+        "title": "H3-World：将语言理解转化为世界控制的交互式世界模型",
+        "hook": "将 33B MiniMax-H3 视频生成器重塑为可由自然语言直接交互与控制的世界模型",
         "key_takeaways": [
-          "将33B MiniMax-H3视频生成器升级为交互式世界模型",
-          "利用强大的语言理解能力实现精准的视频世界控制",
-          "开辟生成式AI与交互式仿真模型融合的新途径"
+          "基于 33B 参数的 MiniMax-H3 视频生成模型，扩展构建高效交互式世界模型",
+          "实现将自然语言理解能力直接转化为对虚拟环境的精细化行动与状态控制",
+          "验证了大模型时代下视频生成器作为通用交互式世界模拟器的可行性与优越性"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:57.504932+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Video Generator",
     "World Model",
-    "MiniMax-H3"
+    "Video Generation",
+    "MiniMax-H3",
+    "Interactive Control",
+    "Language Understanding"
   ],
-  "title_ko": "H3-World: 언어 이해를 월드 컨트롤로 전환하기",
+  "title_ko": "H3-World: 언어 이해를 대화형 월드 제어로 전환하는 월드 모델 프레임워크",
   "title_en": "H3-World: Turning Language Understanding into World Control",
-  "title_zh": "H3-World：将语言理解转化为世界控制",
+  "title_zh": "H3-World：将语言理解转化为世界控制的交互式世界模型",
   "hook": "33B MiniMax-H3 비디오 생성기를 상호작용 가능한 월드 모델로 변환하는 혁신적인 프레임워크를 공개합니다.",
-  "hook_ko": "33B MiniMax-H3 비디오 생성기를 상호작용 가능한 월드 모델로 변환하는 혁신적인 프레임워크를 공개합니다.",
-  "hook_en": "Discover H3-World, an efficient framework transforming the 33B MiniMax-H3 video generator into an interactive world model.",
-  "hook_zh": "介绍H3-World，一个将33B MiniMax-H3视频生成器转变为交互式世界模型的强大框架。",
+  "hook_ko": "33B 규모의 비디오 생성 모델 MiniMax-H3를 인터랙티브 월드 모델로 변환하여 언어 지시어 기반 제어를 구현한 연구",
+  "hook_en": "Transforming the 33B MiniMax-H3 video generator into an interactive world model driven by natural language",
+  "hook_zh": "将 33B MiniMax-H3 视频生成器重塑为可由自然语言直接交互与控制的世界模型",
   "description_ko": "33B MiniMax-H3 비디오 생성기를 상호작용 가능한 월드 모델로 변환하는 혁신적인 프레임워크를 공개합니다.",
   "description_en": "Discover H3-World, an efficient framework transforming the 33B MiniMax-H3 video generator into an interactive world model.",
   "description_zh": "介绍H3-World，一个将33B MiniMax-H3视频生成器转变为交互式世界模型的强大框架。",
   "model_family": "MiniMax",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "H3-World: 언어 이해를 대화형 월드 제어로 전환하는 월드 모델 프레임워크",
+      "hook": "33B 규모의 비디오 생성 모델 MiniMax-H3를 인터랙티브 월드 모델로 변환하여 언어 지시어 기반 제어를 구현한 연구",
+      "key_takeaways": [
+        "33B 파라미터 기반 MiniMax-H3 비디오 생성기를 고성능 상호작용형 월드 모델로 확장",
+        "자연어 이해 능력을 가상 환경 제어 및 행동 시뮬레이션 능력으로 전환하는 프레임워크 제안",
+        "대규모 비디오 생성 모델의 발전이 대화형 시뮬레이션 및 월드 제어로 이어지는 기술적 가능성 입증"
+      ]
+    },
+    "en": {
+      "title": "H3-World: Turning Language Understanding into World Control",
+      "hook": "Transforming the 33B MiniMax-H3 video generator into an interactive world model driven by natural language",
+      "key_takeaways": [
+        "Extends the 33B MiniMax-H3 video generation architecture into an interactive world model",
+        "Bridges natural language understanding with interactive action control and state simulation",
+        "Demonstrates the potential of large video generators as actionable, controllable world simulators"
+      ]
+    },
+    "zh": {
+      "title": "H3-World：将语言理解转化为世界控制的交互式世界模型",
+      "hook": "将 33B MiniMax-H3 视频生成器重塑为可由自然语言直接交互与控制的世界模型",
+      "key_takeaways": [
+        "基于 33B 参数的 MiniMax-H3 视频生成模型，扩展构建高效交互式世界模型",
+        "实现将自然语言理解能力直接转化为对虚拟环境的精细化行动与状态控制",
+        "验证了大模型时代下视频生成器作为通用交互式世界模拟器的可行性与优越性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.983141"
 }

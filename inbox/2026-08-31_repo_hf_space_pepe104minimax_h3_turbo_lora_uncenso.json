@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "MiniMax H3 터보 LoRA 언센서드 데모",
+  "title_ko": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED 데모",
   "description_ko": "MiniMax H3 모델을 기반으로 제약이 해제된(Uncensored) 터보 LoRA 추론 모델을 테스트합니다.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,66 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_pepe104minimax_h3_turbo_lora_uncenso",
     "source_lang": "EN",
-    "type_classification": "MODEL",
+    "type_classification": "TECH",
     "model_family": "MiniMax",
-    "category": "LLM 추론 최적화",
+    "category": "LLM & Fine-Tuning",
     "programming_lang": "Python",
     "root_keywords": [
       "MiniMax",
       "LoRA",
-      "Turbo",
-      "언센서드"
+      "Uncensored LLM",
+      "Gradio",
+      "Fine-Tuning"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.8,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
     "multilingual": {
       "ko": {
-        "title": "MiniMax H3 터보 LoRA 언센서드 데모",
-        "hook": "MiniMax H3 모델을 기반으로 제약이 해제된(Uncensored) 터보 LoRA 추론 모델을 테스트합니다.",
+        "title": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED 데모",
+        "hook": "MiniMax-H3-Turbo 모델의 Uncensored LoRA 파인튜닝 성능을 직접 테스트할 수 있는 대화형 Gradio 데모",
         "key_takeaways": [
-          "MiniMax H3 아키텍처에 적용된 맞춤형 LoRA 가중치",
-          "검열 없는 대화 및 창작 작업에 최적화된 성능",
-          "Gradio를 통한 간편한 웹 테스트 환경"
+          "MiniMax-H3-Turbo 아키텍처에 언센서드(Uncensored) LoRA 어댑터를 적용한 실습 인터페이스",
+          "Gradio SDK를 기반으로 구축되어 즉각적인 웹 대화 및 결과 검증 가능",
+          "안전성 제약 조건 완화에 따른 모델의 생성 능력 및 파인튜닝 효과 평가에 유용"
         ]
       },
       "en": {
-        "title": "MiniMax H3 Turbo LoRA Uncensored Demo",
-        "hook": "Test an uncensored turbo LoRA inference model built upon the MiniMax H3 architecture.",
+        "title": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED Demo",
+        "hook": "An interactive Gradio demonstration for evaluating uncensored LoRA fine-tuning on MiniMax-H3-Turbo.",
         "key_takeaways": [
-          "Custom LoRA weights applied to the MiniMax H3 architecture",
-          "Optimized performance for unrestricted conversation and creative tasks",
-          "Easy web testing environment via Gradio"
+          "Demonstrates an uncensored LoRA adapter applied to the MiniMax-H3-Turbo base model.",
+          "Built with Gradio SDK for straightforward web-based inference and testing.",
+          "Useful for evaluating the text generation behavior and performance under reduced alignment constraints."
         ]
       },
       "zh": {
-        "title": "MiniMax H3 Turbo LoRA 越狱版演示",
-        "hook": "测试基于 MiniMax H3 架构构建的无限制（Uncensored）Turbo LoRA 推理模型。",
+        "title": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED 演示",
+        "hook": "基于 Gradio 的交互式演示空间，用于测试 MiniMax-H3-Turbo 的无审查 LoRA 微调模型。",
         "key_takeaways": [
-          "应用于 MiniMax H3 架构的定制 LoRA 权重",
-          "针对无限制对话与创意任务优化的性能",
-          "通过 Gradio 提供便捷的网页测试环境"
+          "展示应用于 MiniMax-H3-Turbo 基础模型的无审查 (Uncensored) LoRA 适配器",
+          "采用 Gradio SDK 构建，方便在线进行实时文本生成与推理测试",
+          "适用于评估去除安全对齐限制后的模型生成特性与微调效果"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:02.163756+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "MiniMax",
     "LoRA",
-    "Turbo",
-    "언센서드"
+    "Uncensored LLM",
+    "Gradio",
+    "Fine-Tuning"
   ],
-  "title_en": "MiniMax H3 Turbo LoRA Uncensored Demo",
-  "title_zh": "MiniMax H3 Turbo LoRA 越狱版演示",
+  "title_en": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED Demo",
+  "title_zh": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED 演示",
   "hook": "MiniMax H3 모델을 기반으로 제약이 해제된(Uncensored) 터보 LoRA 추론 모델을 테스트합니다.",
-  "hook_ko": "MiniMax H3 모델을 기반으로 제약이 해제된(Uncensored) 터보 LoRA 추론 모델을 테스트합니다.",
-  "hook_en": "Test an uncensored turbo LoRA inference model built upon the MiniMax H3 architecture.",
-  "hook_zh": "测试基于 MiniMax H3 架构构建的无限制（Uncensored）Turbo LoRA 推理模型。",
+  "hook_ko": "MiniMax-H3-Turbo 모델의 Uncensored LoRA 파인튜닝 성능을 직접 테스트할 수 있는 대화형 Gradio 데모",
+  "hook_en": "An interactive Gradio demonstration for evaluating uncensored LoRA fine-tuning on MiniMax-H3-Turbo.",
+  "hook_zh": "基于 Gradio 的交互式演示空间，用于测试 MiniMax-H3-Turbo 的无审查 LoRA 微调模型。",
   "description_en": "Test an uncensored turbo LoRA inference model built upon the MiniMax H3 architecture.",
   "description_zh": "测试基于 MiniMax H3 架构构建的无限制（Uncensored）Turbo LoRA 推理模型。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED 데모",
+      "hook": "MiniMax-H3-Turbo 모델의 Uncensored LoRA 파인튜닝 성능을 직접 테스트할 수 있는 대화형 Gradio 데모",
+      "key_takeaways": [
+        "MiniMax-H3-Turbo 아키텍처에 언센서드(Uncensored) LoRA 어댑터를 적용한 실습 인터페이스",
+        "Gradio SDK를 기반으로 구축되어 즉각적인 웹 대화 및 결과 검증 가능",
+        "안전성 제약 조건 완화에 따른 모델의 생성 능력 및 파인튜닝 효과 평가에 유용"
+      ]
+    },
+    "en": {
+      "title": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED Demo",
+      "hook": "An interactive Gradio demonstration for evaluating uncensored LoRA fine-tuning on MiniMax-H3-Turbo.",
+      "key_takeaways": [
+        "Demonstrates an uncensored LoRA adapter applied to the MiniMax-H3-Turbo base model.",
+        "Built with Gradio SDK for straightforward web-based inference and testing.",
+        "Useful for evaluating the text generation behavior and performance under reduced alignment constraints."
+      ]
+    },
+    "zh": {
+      "title": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED 演示",
+      "hook": "基于 Gradio 的交互式演示空间，用于测试 MiniMax-H3-Turbo 的无审查 LoRA 微调模型。",
+      "key_takeaways": [
+        "展示应用于 MiniMax-H3-Turbo 基础模型的无审查 (Uncensored) LoRA 适配器",
+        "采用 Gradio SDK 构建，方便在线进行实时文本生成与推理测试",
+        "适用于评估去除安全对齐限制后的模型生成特性与微调效果"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.834037"
 }

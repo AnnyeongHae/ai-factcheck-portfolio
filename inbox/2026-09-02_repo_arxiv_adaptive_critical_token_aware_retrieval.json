@@ -34,65 +34,98 @@
     "id": "2026-09-02_repo_arxiv_adaptive_critical_token_aware_retrieval",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "코드 생성 및 검색 최적화",
-    "programming_lang": "Python",
+    "model_family": "Code LLM / RAG",
+    "category": "AI & Machine Learning",
+    "programming_lang": "General",
     "root_keywords": [
-      "Code Generation",
-      "Token-Aware Retrieval",
-      "Repository-Level AI"
+      "Repository-Level Code Generation",
+      "Critical Token-Aware Retrieval",
+      "RAG",
+      "Code Synthesis",
+      "Context Retrieval"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.6,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.3,
     "multilingual": {
       "ko": {
-        "title": "저장소 수준 코드 생성을 위한 적응형 중요 토큰 인식 검색",
-        "hook": "대규모 코드베이스에서 핵심 컨텍스트를 정확히 포착하는 토큰 인식 검색 기법을 적용해 보세요.",
+        "title": "저장소 수준 코드 생성을 위한 적응형 핵심 토큰 인지 검색 기법",
+        "hook": "코드베이스 맥락 유지와 노이즈 저감을 위한 적응형 핵심 토큰 검색 기술",
         "key_takeaways": [
-          "저장소 수준의 복잡한 코드 생성 태스크 최적화",
-          "적응형 중요 토큰 인식을 통한 관련 컨텍스트 추출",
-          "타겟 리포지토리 일관성 유지 성능 향상"
+          "저장소 수준 코드 생성 시 발생하는 불필요한 맥락 노이즈 축소",
+          "핵심 토큰(Critical Token)을 선별 및 추적하여 생성 코드와 기존 프로젝트 간 일관성 보장",
+          "대규모 코드베이스 대상 RAG 성능 및 생성 정확도 대폭 개선"
         ]
       },
       "en": {
         "title": "Adaptive Critical Token-Aware Retrieval for Repository-Level Code Generation",
-        "hook": "Enhance repository-level code generation by accurately retrieving critical context with token awareness.",
+        "hook": "Enhances repository-level code generation accuracy by dynamically filtering context via critical tokens.",
         "key_takeaways": [
-          "Optimizes complex repository-level code generation tasks",
-          "Extracts relevant context via adaptive critical token awareness",
-          "Improves consistency maintenance with the target codebase"
+          "Reduces context noise during repository-level code synthesis",
+          "Adaptively identifies critical tokens to maintain stylistic and structural consistency across the repository",
+          "Significantly improves retrieval efficiency and code generation accuracy for large codebases"
         ]
       },
       "zh": {
-        "title": "面向仓库级代码生成的自适应关键Token感知检索",
-        "hook": "利用Token感知检索技术精准捕获核心上下文，全面提升大模型仓库级代码生成能力。",
+        "title": "面向代码库级代码生成的自适应关键 Token 感知检索",
+        "hook": "通过自适应识别关键 Token 上下文，降低检索噪声并提升代码库一致性",
         "key_takeaways": [
-          "优化复杂的仓库级代码生成任务",
-          "通过自适应关键Token感知提取相关上下文",
-          "提升与目标代码库的一致性保持能力"
+          "有效减少代码库级别代码生成过程中的无关上下文干扰",
+          "自适应筛选关键 Token，确保生成代码与原有项目结构高度契合",
+          "提升复杂项目级 RAG 检索在代码生成中的准确率与效率"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:27:21.948581+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
-    "Code Generation",
-    "Token-Aware Retrieval",
-    "Repository-Level AI"
+    "Repository-Level Code Generation",
+    "Critical Token-Aware Retrieval",
+    "RAG",
+    "Code Synthesis",
+    "Context Retrieval"
   ],
-  "title_ko": "저장소 수준 코드 생성을 위한 적응형 중요 토큰 인식 검색",
+  "title_ko": "저장소 수준 코드 생성을 위한 적응형 핵심 토큰 인지 검색 기법",
   "title_en": "Adaptive Critical Token-Aware Retrieval for Repository-Level Code Generation",
-  "title_zh": "面向仓库级代码生成的自适应关键Token感知检索",
+  "title_zh": "面向代码库级代码生成的自适应关键 Token 感知检索",
   "hook": "대규모 코드베이스에서 핵심 컨텍스트를 정확히 포착하는 토큰 인식 검색 기법을 적용해 보세요.",
-  "hook_ko": "대규모 코드베이스에서 핵심 컨텍스트를 정확히 포착하는 토큰 인식 검색 기법을 적용해 보세요.",
-  "hook_en": "Enhance repository-level code generation by accurately retrieving critical context with token awareness.",
-  "hook_zh": "利用Token感知检索技术精准捕获核心上下文，全面提升大模型仓库级代码生成能力。",
+  "hook_ko": "코드베이스 맥락 유지와 노이즈 저감을 위한 적응형 핵심 토큰 검색 기술",
+  "hook_en": "Enhances repository-level code generation accuracy by dynamically filtering context via critical tokens.",
+  "hook_zh": "通过自适应识别关键 Token 上下文，降低检索噪声并提升代码库一致性",
   "description_ko": "대규모 코드베이스에서 핵심 컨텍스트를 정확히 포착하는 토큰 인식 검색 기법을 적용해 보세요.",
   "description_en": "Enhance repository-level code generation by accurately retrieving critical context with token awareness.",
   "description_zh": "利用Token感知检索技术精准捕获核心上下文，全面提升大模型仓库级代码生成能力。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "저장소 수준 코드 생성을 위한 적응형 핵심 토큰 인지 검색 기법",
+      "hook": "코드베이스 맥락 유지와 노이즈 저감을 위한 적응형 핵심 토큰 검색 기술",
+      "key_takeaways": [
+        "저장소 수준 코드 생성 시 발생하는 불필요한 맥락 노이즈 축소",
+        "핵심 토큰(Critical Token)을 선별 및 추적하여 생성 코드와 기존 프로젝트 간 일관성 보장",
+        "대규모 코드베이스 대상 RAG 성능 및 생성 정확도 대폭 개선"
+      ]
+    },
+    "en": {
+      "title": "Adaptive Critical Token-Aware Retrieval for Repository-Level Code Generation",
+      "hook": "Enhances repository-level code generation accuracy by dynamically filtering context via critical tokens.",
+      "key_takeaways": [
+        "Reduces context noise during repository-level code synthesis",
+        "Adaptively identifies critical tokens to maintain stylistic and structural consistency across the repository",
+        "Significantly improves retrieval efficiency and code generation accuracy for large codebases"
+      ]
+    },
+    "zh": {
+      "title": "面向代码库级代码生成的自适应关键 Token 感知检索",
+      "hook": "通过自适应识别关键 Token 上下文，降低检索噪声并提升代码库一致性",
+      "key_takeaways": [
+        "有效减少代码库级别代码生成过程中的无关上下文干扰",
+        "自适应筛选关键 Token，确保生成代码与原有项目结构高度契合",
+        "提升复杂项目级 RAG 检索在代码生成中的准确率与效率"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.970215"
 }

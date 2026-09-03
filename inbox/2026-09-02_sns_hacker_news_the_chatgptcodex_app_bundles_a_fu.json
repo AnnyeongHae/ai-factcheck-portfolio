@@ -36,66 +36,99 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_hacker_news_the_chatgptcodex_app_bundles_a_fu",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "SW 패키징 및 앱 번들",
+    "type_classification": "TECH",
+    "model_family": "ChatGPT Desktop / Tooling",
+    "category": "Software Architecture",
     "programming_lang": "General",
     "root_keywords": [
-      "ChatGPT 앱",
+      "ChatGPT",
+      "Codex",
       "LibreOffice",
-      "소프트웨어 패키징"
+      "App Packaging",
+      "Document Processing"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "ChatGPT/Codex 앱 내부에 포함된 LibreOffice 전체 복사본 논란",
-        "hook": "데스크톱 앱 패키징 과정에서 거대한 오피스 스위트가 포함된 흥미로운 소프트웨어 아키텍처 이슈를 다룹니다.",
+        "title": "ChatGPT/Codex 앱에 LibreOffice 전체가 번들로 포함되어 있는 이유",
+        "hook": "로컬 문서 변환 및 분석을 위해 오픈소스 무거운 소프트웨어를 내장한 AI 데스크톱 앱의 아키텍처적 선택",
         "key_takeaways": [
-          "ChatGPT 및 Codex 데스크톱 앱의 의존성 및 패키징 구조 분석",
-          "오픈소스 소프트웨어 번들링에 대한 기술적·라이선스적 관점",
-          "거대 앱 번들 크기와 최적화에 대한 개발자 커뮤니티 반응"
+          "ChatGPT/Codex 데스크톱 앱 내부 바이너리에 전체 LibreOffice 패키지가 포함되어 있음이 확인됨",
+          "클라우드 처리 없이 오피스 문서(DOCX, PPTX 등)를 로컬에서 PDF 또는 텍스트로 변환하기 위한 엔지니어링 우회 전략",
+          "앱용량 커짐 문제와 오픈소스 라이선스(MPL/LGPL) 준수 이슈에 관한 커뮤니티 토론 형성"
         ]
       },
       "en": {
         "title": "The ChatGPT/Codex App Bundles a Full Copy of LibreOffice",
-        "hook": "Uncover the fascinating software packaging quirk where a massive office suite is bundled inside a desktop app.",
+        "hook": "An architectural discovery revealing why OpenAI embedded a full office suite into its desktop app for local document processing.",
         "key_takeaways": [
-          "Analysis of dependencies and packaging structure in desktop AI apps",
-          "Technical and licensing perspectives on open-source software bundling",
-          "Developer community reactions to bloated app bundle sizes"
+          "The ChatGPT/Codex desktop client was found to package a complete LibreOffice installation inside its app bundle.",
+          "Used as a local fallback for parsing and converting office documents (DOCX, PPTX) to plaintext or PDF offline.",
+          "Triggered discussions around desktop app bloat, local vs server-side parsing, and open-source licensing compliance."
         ]
       },
       "zh": {
-        "title": "ChatGPT/Codex 桌面应用内捆绑了完整的 LibreOffice 副本",
-        "hook": "解析桌面AI应用在打包时意外包含庞大开源办公套件的有趣软件工程现象。",
+        "title": "ChatGPT/Codex 桌面应用内置了完整的 LibreOffice 副本",
+        "hook": "揭示 OpenAI 为了实现本地文档解析与转换，在桌面客户端中嵌入完整开源办公套件的架构考量。",
         "key_takeaways": [
-          "剖析 ChatGPT 与 Codex 桌面应用的依赖与打包结构",
-          "开源软件捆绑的技术与许可视角",
-          "开发者社区对外形臃肿的应用包大小的反应"
+          "开发者发现 ChatGPT/Codex 桌面应用安装包中内嵌了完整的 LibreOffice 二进制文件。",
+          "此设计主要用于在本地将各类 Office 文档（如 DOCX、PPTX）解析并转换为可读文本或 PDF。",
+          "引发了关于应用体积膨胀、本地与云端解析权衡以及开源许可证（MPL/GPL）合规性的讨论。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:48:05.854182+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
-    "ChatGPT 앱",
+    "ChatGPT",
+    "Codex",
     "LibreOffice",
-    "소프트웨어 패키징"
+    "App Packaging",
+    "Document Processing"
   ],
-  "title_ko": "ChatGPT/Codex 앱 내부에 포함된 LibreOffice 전체 복사본 논란",
+  "title_ko": "ChatGPT/Codex 앱에 LibreOffice 전체가 번들로 포함되어 있는 이유",
   "title_en": "The ChatGPT/Codex App Bundles a Full Copy of LibreOffice",
-  "title_zh": "ChatGPT/Codex 桌面应用内捆绑了完整的 LibreOffice 副本",
+  "title_zh": "ChatGPT/Codex 桌面应用内置了完整的 LibreOffice 副本",
   "hook": "데스크톱 앱 패키징 과정에서 거대한 오피스 스위트가 포함된 흥미로운 소프트웨어 아키텍처 이슈를 다룹니다.",
-  "hook_ko": "데스크톱 앱 패키징 과정에서 거대한 오피스 스위트가 포함된 흥미로운 소프트웨어 아키텍처 이슈를 다룹니다.",
-  "hook_en": "Uncover the fascinating software packaging quirk where a massive office suite is bundled inside a desktop app.",
-  "hook_zh": "解析桌面AI应用在打包时意外包含庞大开源办公套件的有趣软件工程现象。",
+  "hook_ko": "로컬 문서 변환 및 분석을 위해 오픈소스 무거운 소프트웨어를 내장한 AI 데스크톱 앱의 아키텍처적 선택",
+  "hook_en": "An architectural discovery revealing why OpenAI embedded a full office suite into its desktop app for local document processing.",
+  "hook_zh": "揭示 OpenAI 为了实现本地文档解析与转换，在桌面客户端中嵌入完整开源办公套件的架构考量。",
   "description_ko": "데스크톱 앱 패키징 과정에서 거대한 오피스 스위트가 포함된 흥미로운 소프트웨어 아키텍처 이슈를 다룹니다.",
   "description_en": "Uncover the fascinating software packaging quirk where a massive office suite is bundled inside a desktop app.",
   "description_zh": "解析桌面AI应用在打包时意外包含庞大开源办公套件的有趣软件工程现象。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "ChatGPT/Codex 앱에 LibreOffice 전체가 번들로 포함되어 있는 이유",
+      "hook": "로컬 문서 변환 및 분석을 위해 오픈소스 무거운 소프트웨어를 내장한 AI 데스크톱 앱의 아키텍처적 선택",
+      "key_takeaways": [
+        "ChatGPT/Codex 데스크톱 앱 내부 바이너리에 전체 LibreOffice 패키지가 포함되어 있음이 확인됨",
+        "클라우드 처리 없이 오피스 문서(DOCX, PPTX 등)를 로컬에서 PDF 또는 텍스트로 변환하기 위한 엔지니어링 우회 전략",
+        "앱용량 커짐 문제와 오픈소스 라이선스(MPL/LGPL) 준수 이슈에 관한 커뮤니티 토론 형성"
+      ]
+    },
+    "en": {
+      "title": "The ChatGPT/Codex App Bundles a Full Copy of LibreOffice",
+      "hook": "An architectural discovery revealing why OpenAI embedded a full office suite into its desktop app for local document processing.",
+      "key_takeaways": [
+        "The ChatGPT/Codex desktop client was found to package a complete LibreOffice installation inside its app bundle.",
+        "Used as a local fallback for parsing and converting office documents (DOCX, PPTX) to plaintext or PDF offline.",
+        "Triggered discussions around desktop app bloat, local vs server-side parsing, and open-source licensing compliance."
+      ]
+    },
+    "zh": {
+      "title": "ChatGPT/Codex 桌面应用内置了完整的 LibreOffice 副本",
+      "hook": "揭示 OpenAI 为了实现本地文档解析与转换，在桌面客户端中嵌入完整开源办公套件的架构考量。",
+      "key_takeaways": [
+        "开发者发现 ChatGPT/Codex 桌面应用安装包中内嵌了完整的 LibreOffice 二进制文件。",
+        "此设计主要用于在本地将各类 Office 文档（如 DOCX、PPTX）解析并转换为可读文本或 PDF。",
+        "引发了关于应用体积膨胀、本地与云端解析权衡以及开源许可证（MPL/GPL）合规性的讨论。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.111668"
 }

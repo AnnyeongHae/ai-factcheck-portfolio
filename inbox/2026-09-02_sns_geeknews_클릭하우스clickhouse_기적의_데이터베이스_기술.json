@@ -30,71 +30,104 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "클릭하우스(ClickHouse) – 기적의 데이터베이스 기술 분석",
+  "title_ko": "클릭하우스(ClickHouse): 기적의 OLAP 데이터베이스 기술",
   "description_ko": "대규모 분석 쿼리에서 압도적인 성능을 발휘하는 ClickHouse의 아키텍처와 최적화 노하우를 확인하세요.",
   "hn_url": "https://news.hada.io/topic?id=33149",
   "article_url": "https://news.hada.io/topic?id=33149",
   "ai_enrichment": {
-    "id": "2026-09-02_sns_geeknews_clickhouse_miracle_db",
+    "id": "2026-09-02_sns_geeknews_클릭하우스clickhouse_기적의_데이터베이스_기술",
     "source_lang": "KO",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "데이터베이스 최적화",
+    "model_family": "OLAP Database",
+    "category": "Data Engineering",
     "programming_lang": "C++",
     "root_keywords": [
       "ClickHouse",
-      "컬럼 기반 데이터베이스",
-      "대용량 데이터"
+      "OLAP",
+      "Columnar Database",
+      "Real-time Analytics",
+      "Big Data"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.6,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "클릭하우스(ClickHouse) – 기적의 데이터베이스 기술 분석",
-        "hook": "대규모 분석 쿼리에서 압도적인 성능을 발휘하는 ClickHouse의 아키텍처와 최적화 노하우를 확인하세요.",
+        "title": "클릭하우스(ClickHouse): 기적의 OLAP 데이터베이스 기술",
+        "hook": "초당 수억 건의 레코드를 실시간 처리하는 압도적 성능의 컬럼 기반 DBMS 클릭하우스 탐구",
         "key_takeaways": [
-          "초고속 OLAP 처리를 위한 컬럼형(Column-oriented) 저장소 구조",
-          "실시간 대용량 데이터 집계 및 분석 쿼리 최적화",
-          "실무 도입 시 고려해야 할 인프라 및 아키텍처 패턴"
+          "컬럼 지향 구조 및 압축 기술을 통한 초고속 데이터 쿼리 연산 성능",
+          "대규모 실시간 대시보드 및 로그 분석 시스템 구축에 최적화",
+          "기존 RDBMS 대비 비약적으로 뛰어난 수평 확장성과 리소스 효율성"
         ]
       },
       "en": {
-        "title": "ClickHouse: The Miraculous Database Technology",
-        "hook": "Explore the architecture and optimization techniques of ClickHouse, delivering unmatched performance for analytics queries.",
+        "title": "ClickHouse: The Miracle Database Technology for Real-Time Analytics",
+        "hook": "An exploration of ClickHouse, an extremely fast columnar DBMS capable of processing hundreds of millions of rows per second in real time.",
         "key_takeaways": [
-          "Column-oriented storage structure optimized for ultra-fast OLAP processing",
-          "Real-time large-scale data aggregation and query optimization",
-          "Infrastructure and architecture patterns to consider for production"
+          "Ultra-fast data query processing enabled by columnar architecture and efficient compression.",
+          "Optimized for large-scale real-time dashboards and high-throughput log analytics.",
+          "Superior horizontal scalability and resource efficiency compared to traditional RDBMS."
         ]
       },
       "zh": {
-        "title": "ClickHouse：堪称奇迹的数据库技术解析",
-        "hook": "探索在海量分析查询中展现压倒性性能的 ClickHouse 架构与优化技巧。",
+        "title": "ClickHouse：奇迹般的实时分析型数据库技术",
+        "hook": "深入探索 ClickHouse：一款能够实时处理每秒数亿条记录的超高性能列式 DBMS。",
         "key_takeaways": [
-          "专为超高速 OLAP 处理而设计的列式存储结构",
-          "实时海量数据聚合与查询性能优化",
-          "生产环境落地时需要考量的人员与架构模式"
+          "通过列式存储架构与高效压缩实现极致的数据查询性能",
+          "专为大规模实时仪表盘与高吞吐量日志分析系统而优化",
+          "相较于传统 RDBMS 具有卓越的水平扩展性与资源利用效率"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:18:09.708439+09:00"
+    }
   },
   "source_lang": "KO",
   "programming_lang": "C++",
   "root_keywords": [
     "ClickHouse",
-    "컬럼 기반 데이터베이스",
-    "대용량 데이터"
+    "OLAP",
+    "Columnar Database",
+    "Real-time Analytics",
+    "Big Data"
   ],
-  "title_en": "ClickHouse: The Miraculous Database Technology",
-  "title_zh": "ClickHouse：堪称奇迹的数据库技术解析",
+  "title_en": "ClickHouse: The Miracle Database Technology for Real-Time Analytics",
+  "title_zh": "ClickHouse：奇迹般的实时分析型数据库技术",
   "hook": "대규모 분석 쿼리에서 압도적인 성능을 발휘하는 ClickHouse의 아키텍처와 최적화 노하우를 확인하세요.",
-  "hook_ko": "대규모 분석 쿼리에서 압도적인 성능을 발휘하는 ClickHouse의 아키텍처와 최적화 노하우를 확인하세요.",
-  "hook_en": "Explore the architecture and optimization techniques of ClickHouse, delivering unmatched performance for analytics queries.",
-  "hook_zh": "探索在海量分析查询中展现压倒性性能的 ClickHouse 架构与优化技巧。",
+  "hook_ko": "초당 수억 건의 레코드를 실시간 처리하는 압도적 성능의 컬럼 기반 DBMS 클릭하우스 탐구",
+  "hook_en": "An exploration of ClickHouse, an extremely fast columnar DBMS capable of processing hundreds of millions of rows per second in real time.",
+  "hook_zh": "深入探索 ClickHouse：一款能够实时处理每秒数亿条记录的超高性能列式 DBMS。",
   "description_en": "Explore the architecture and optimization techniques of ClickHouse, delivering unmatched performance for analytics queries.",
   "description_zh": "探索在海量分析查询中展现压倒性性能的 ClickHouse 架构与优化技巧。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "클릭하우스(ClickHouse): 기적의 OLAP 데이터베이스 기술",
+      "hook": "초당 수억 건의 레코드를 실시간 처리하는 압도적 성능의 컬럼 기반 DBMS 클릭하우스 탐구",
+      "key_takeaways": [
+        "컬럼 지향 구조 및 압축 기술을 통한 초고속 데이터 쿼리 연산 성능",
+        "대규모 실시간 대시보드 및 로그 분석 시스템 구축에 최적화",
+        "기존 RDBMS 대비 비약적으로 뛰어난 수평 확장성과 리소스 효율성"
+      ]
+    },
+    "en": {
+      "title": "ClickHouse: The Miracle Database Technology for Real-Time Analytics",
+      "hook": "An exploration of ClickHouse, an extremely fast columnar DBMS capable of processing hundreds of millions of rows per second in real time.",
+      "key_takeaways": [
+        "Ultra-fast data query processing enabled by columnar architecture and efficient compression.",
+        "Optimized for large-scale real-time dashboards and high-throughput log analytics.",
+        "Superior horizontal scalability and resource efficiency compared to traditional RDBMS."
+      ]
+    },
+    "zh": {
+      "title": "ClickHouse：奇迹般的实时分析型数据库技术",
+      "hook": "深入探索 ClickHouse：一款能够实时处理每秒数亿条记录的超高性能列式 DBMS。",
+      "key_takeaways": [
+        "通过列式存储架构与高效压缩实现极致的数据查询性能",
+        "专为大规模实时仪表盘与高吞吐量日志分析系统而优化",
+        "相较于传统 RDBMS 具有卓越的水平扩展性与资源利用效率"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.062219"
 }

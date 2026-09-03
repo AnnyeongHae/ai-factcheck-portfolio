@@ -34,66 +34,99 @@
   "ai_enrichment": {
     "id": "2026-09-02_repo_arxiv_efficient_swe_agent_benchmarking_via_tr",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "소프트웨어 에이전트 및 벤치마크",
+    "type_classification": "TECH",
+    "model_family": "Agent Evaluation Frameworks",
+    "category": "AI Engineering",
     "programming_lang": "Python",
     "root_keywords": [
       "SWE Agent",
       "Benchmarking",
-      "Trajectory-Aware Evaluation"
+      "Trajectory-Aware Evaluation",
+      "LLM Evaluation",
+      "Cost Efficiency"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "궤적 인식 평가를 통한 효율적인 소프트웨어 엔지니어링 에이전트 벤치마킹",
-        "hook": "고비용의 소프트웨어 에이전트 평가 과정을 획기적으로 줄여주는 궤적 기반 평가 기법을 만나보세요.",
+        "title": "ArXiv: 궤적 인지형 평가를 통한 효율적인 소프트웨어 엔지니어링(SWE) 에이전트 벤치마킹",
+        "hook": "에이전트의 실행 경로(Trajectory)를 활용해 비싼 엔드투엔드 테스트 비용을 대폭 줄이는 차세대 SWE 벤치마킹 방법론",
         "key_takeaways": [
-          "소프트웨어 에이전트 평가에 소요되는 높은 비용과 시간 문제 해결",
-          "전체 실행 과정(Trajectory)을 분석하는 효율적인 평가 프레임워크 제안",
-          "코드 탐색 및 수정 과정의 정밀한 성능 측정 가능"
+          "다단계 코드 탐색 및 테스트 실행에 소요되는 고비용 SWE 에이전트 평가 문제 해결",
+          "에이전트의 중간 수행 궤적(Trajectory)을 분석해 전체 재실행 없이 정확도를 추정하는 효율적 평가 제공",
+          "SWE-bench 등 기존 AI 개발 에이전트 평가 환경의 소요 시간 및 연산 비용 단축"
         ]
       },
       "en": {
-        "title": "Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation",
-        "hook": "Optimize high-cost software engineering agent evaluations with novel trajectory-aware benchmarking.",
+        "title": "ArXiv: Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation",
+        "hook": "A cost-effective evaluation framework for software engineering agents leveraging execution trajectory analysis.",
         "key_takeaways": [
-          "Reduces the high computational and time cost of realistic SWE agent benchmarks",
-          "Introduces trajectory-aware evaluation frameworks",
-          "Enables precise performance measurement across code exploration and testing"
+          "Addresses high computational costs and long execution times in multi-step SWE agent benchmarking.",
+          "Leverages agent intermediate execution trajectories to predict evaluation metrics without expensive full test execution.",
+          "Accelerates developer agent benchmark loops for platforms like SWE-bench while maintaining high accuracy."
         ]
       },
       "zh": {
-        "title": "通过轨迹感知评估实现高效的软件工程智能体基准测试",
-        "hook": "探索如何通过轨迹感知评估大幅降低软件工程智能体的测试成本。",
+        "title": "ArXiv: 基于轨迹感知评估的高效软件工程 (SWE) Agent 基准测试",
+        "hook": "利用智能体中间执行轨迹大幅降低 SWE Agent 评估成本与耗时的创新方案",
         "key_takeaways": [
-          "解决现实软件工程基准测试的高昂成本问题",
-          "提出分析执行轨迹的高效评估框架",
-          "实现对代码探索和修改过程的精确性能衡量"
+          "解决 SWE Agent 在多步骤代码探索与测试执行中评估成本高昂的瓶颈",
+          "通过分析智能体执行轨迹（Trajectory）实现高效、低成本的基准测试",
+          "显著加速 SWE-bench 等复杂 AI 编程代理测试平台的评估效率"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:27:09.803454+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "SWE Agent",
     "Benchmarking",
-    "Trajectory-Aware Evaluation"
+    "Trajectory-Aware Evaluation",
+    "LLM Evaluation",
+    "Cost Efficiency"
   ],
-  "title_ko": "궤적 인식 평가를 통한 효율적인 소프트웨어 엔지니어링 에이전트 벤치마킹",
-  "title_en": "Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation",
-  "title_zh": "通过轨迹感知评估实现高效的软件工程智能体基准测试",
+  "title_ko": "ArXiv: 궤적 인지형 평가를 통한 효율적인 소프트웨어 엔지니어링(SWE) 에이전트 벤치마킹",
+  "title_en": "ArXiv: Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation",
+  "title_zh": "ArXiv: 基于轨迹感知评估的高效软件工程 (SWE) Agent 基准测试",
   "hook": "고비용의 소프트웨어 에이전트 평가 과정을 획기적으로 줄여주는 궤적 기반 평가 기법을 만나보세요.",
-  "hook_ko": "고비용의 소프트웨어 에이전트 평가 과정을 획기적으로 줄여주는 궤적 기반 평가 기법을 만나보세요.",
-  "hook_en": "Optimize high-cost software engineering agent evaluations with novel trajectory-aware benchmarking.",
-  "hook_zh": "探索如何通过轨迹感知评估大幅降低软件工程智能体的测试成本。",
+  "hook_ko": "에이전트의 실행 경로(Trajectory)를 활용해 비싼 엔드투엔드 테스트 비용을 대폭 줄이는 차세대 SWE 벤치마킹 방법론",
+  "hook_en": "A cost-effective evaluation framework for software engineering agents leveraging execution trajectory analysis.",
+  "hook_zh": "利用智能体中间执行轨迹大幅降低 SWE Agent 评估成本与耗时的创新方案",
   "description_ko": "고비용의 소프트웨어 에이전트 평가 과정을 획기적으로 줄여주는 궤적 기반 평가 기법을 만나보세요.",
   "description_en": "Optimize high-cost software engineering agent evaluations with novel trajectory-aware benchmarking.",
   "description_zh": "探索如何通过轨迹感知评估大幅降低软件工程智能体的测试成本。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "ArXiv: 궤적 인지형 평가를 통한 효율적인 소프트웨어 엔지니어링(SWE) 에이전트 벤치마킹",
+      "hook": "에이전트의 실행 경로(Trajectory)를 활용해 비싼 엔드투엔드 테스트 비용을 대폭 줄이는 차세대 SWE 벤치마킹 방법론",
+      "key_takeaways": [
+        "다단계 코드 탐색 및 테스트 실행에 소요되는 고비용 SWE 에이전트 평가 문제 해결",
+        "에이전트의 중간 수행 궤적(Trajectory)을 분석해 전체 재실행 없이 정확도를 추정하는 효율적 평가 제공",
+        "SWE-bench 등 기존 AI 개발 에이전트 평가 환경의 소요 시간 및 연산 비용 단축"
+      ]
+    },
+    "en": {
+      "title": "ArXiv: Efficient SWE Agent Benchmarking via Trajectory-Aware Evaluation",
+      "hook": "A cost-effective evaluation framework for software engineering agents leveraging execution trajectory analysis.",
+      "key_takeaways": [
+        "Addresses high computational costs and long execution times in multi-step SWE agent benchmarking.",
+        "Leverages agent intermediate execution trajectories to predict evaluation metrics without expensive full test execution.",
+        "Accelerates developer agent benchmark loops for platforms like SWE-bench while maintaining high accuracy."
+      ]
+    },
+    "zh": {
+      "title": "ArXiv: 基于轨迹感知评估的高效软件工程 (SWE) Agent 基准测试",
+      "hook": "利用智能体中间执行轨迹大幅降低 SWE Agent 评估成本与耗时的创新方案",
+      "key_takeaways": [
+        "解决 SWE Agent 在多步骤代码探索与测试执行中评估成本高昂的瓶颈",
+        "通过分析智能体执行轨迹（Trajectory）实现高效、低成本的基准测试",
+        "显著加速 SWE-bench 等复杂 AI 编程代理测试平台的评估效率"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.980284"
 }

@@ -12,7 +12,7 @@
   ],
   "status": "PENDING_REVIEW",
   "category_type": "NEWS",
-  "title_ko": "Hacker News: 라쿠텐 코보, 매출 두 배 증가에 힘입어 미국 소매 시장 재진입",
+  "title_ko": "라쿠텐 코보(Rakuten Kobo), 매출 2배 증가에 힘입어 미국 소매 시장 재진출",
   "description_ko": "전자책 시장에서 아마존 킨들에 대항하는 라쿠텐 코보의 비즈니스 확장 소식입니다.",
   "model_family": "기타 독립 모델 (Standalone / Novel)",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -44,64 +44,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_sns_hacker_news_rakuten_kobo_returns_to_us_retail",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "업계 동향 및 비즈니스",
+    "type_classification": "Hardware",
+    "model_family": "E-readers",
+    "category": "Consumer Hardware",
     "programming_lang": "General",
     "root_keywords": [
       "Rakuten Kobo",
       "E-reader",
-      "Retail Market"
+      "E-ink",
+      "US Retail",
+      "Amazon Kindle"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 2.0,
+    "worth_score": 3.6,
     "multilingual": {
       "ko": {
-        "title": "Hacker News: 라쿠텐 코보, 매출 두 배 증가에 힘입어 미국 소매 시장 재진입",
-        "hook": "전자책 시장에서 아마존 킨들에 대항하는 라쿠텐 코보의 비즈니스 확장 소식입니다.",
+        "title": "라쿠텐 코보(Rakuten Kobo), 매출 2배 증가에 힘입어 미국 소매 시장 재진출",
+        "hook": "아마존 킨들 독점 시장에 도전하는 라쿠텐 코보의 미국 오프라인 소매 시장 재진출 및 E-ink 단말기 성장세",
         "key_takeaways": [
-          "매출 급증에 따른 미국 리테일 시장 재공략",
-          "아마존 독점 구조의 전자책 시장 변화 가능성",
-          "하드웨어 및 콘텐츠 플랫폼 비즈니스 전략"
+          "라쿠텐 코보가 매출 2배 성장을 바탕으로 미국 내 오프라인 소매 매장에 다시 진출",
+          "아마존 킨들에 대항하는 대표적인 개방형 전자책 및 E-ink 단말기 생태계 확장",
+          "오프라인 유통망 확대를 통한 북미 전자책 디바이스 시장 점유율 강화 전략"
         ]
       },
       "en": {
-        "title": "Hacker News: Rakuten Kobo returns to U.S. retail as sales double",
-        "hook": "Rakuten Kobo expands its e-reader hardware footprint back into U.S. retail following strong sales growth.",
+        "title": "Rakuten Kobo Returns to U.S. Retail as Sales Double",
+        "hook": "Rakuten Kobo expands physical retail presence in the US following a doubling of sales, challenging Kindle's market dominance.",
         "key_takeaways": [
-          "Re-entering U.S. retail markets driven by surging sales",
-          "Potential shifts in the Amazon-dominated e-reader landscape",
-          "Insights into hardware and content platform business strategies"
+          "Rakuten Kobo re-enters US physical retail channels backed by doubled sales performance.",
+          "Presents a growing open-ecosystem alternative to Amazon's dominant Kindle line.",
+          "Reflects renewed consumer demand and physical distribution growth in the E-ink device market."
         ]
       },
       "zh": {
-        "title": "Hacker News: 乐天 Kobo 销售额翻倍，重返美国零售市场",
-        "hook": "随着销售额强劲增长，乐天 Kobo 重新将其电子书硬件业务拓展至美国零售市场。",
+        "title": "乐天Kobo由于销量翻倍重返美国零售市场",
+        "hook": "随着销售额翻倍，乐天Kobo重返美国实体零售领域，在电子墨水屏设备领域挑战Kindle的独占地位。",
         "key_takeaways": [
-          "在销售额激增的推动下重新进军美国零售市场",
-          "亚马逊主导的电子书市场格局可能出现变化",
-          "了解硬件与内容平台商业战略的窗口"
+          "乐天Kobo在业绩实现倍增后重新进入美国实体零售渠道。",
+          "作为亚马逊Kindle生态系统的替代方案，提供更开放的电子书体验。",
+          "反映出电子墨水屏设备及电子书市场的强劲复苏与线下分销增长。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:10.249882+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "Rakuten Kobo",
     "E-reader",
-    "Retail Market"
+    "E-ink",
+    "US Retail",
+    "Amazon Kindle"
   ],
-  "title_en": "Hacker News: Rakuten Kobo returns to U.S. retail as sales double",
-  "title_zh": "Hacker News: 乐天 Kobo 销售额翻倍，重返美国零售市场",
+  "title_en": "Rakuten Kobo Returns to U.S. Retail as Sales Double",
+  "title_zh": "乐天Kobo由于销量翻倍重返美国零售市场",
   "hook": "전자책 시장에서 아마존 킨들에 대항하는 라쿠텐 코보의 비즈니스 확장 소식입니다.",
-  "hook_ko": "전자책 시장에서 아마존 킨들에 대항하는 라쿠텐 코보의 비즈니스 확장 소식입니다.",
-  "hook_en": "Rakuten Kobo expands its e-reader hardware footprint back into U.S. retail following strong sales growth.",
-  "hook_zh": "随着销售额强劲增长，乐天 Kobo 重新将其电子书硬件业务拓展至美国零售市场。",
+  "hook_ko": "아마존 킨들 독점 시장에 도전하는 라쿠텐 코보의 미국 오프라인 소매 시장 재진출 및 E-ink 단말기 성장세",
+  "hook_en": "Rakuten Kobo expands physical retail presence in the US following a doubling of sales, challenging Kindle's market dominance.",
+  "hook_zh": "随着销售额翻倍，乐天Kobo重返美国实体零售领域，在电子墨水屏设备领域挑战Kindle的独占地位。",
   "description_en": "Rakuten Kobo expands its e-reader hardware footprint back into U.S. retail following strong sales growth.",
   "description_zh": "随着销售额强劲增长，乐天 Kobo 重新将其电子书硬件业务拓展至美国零售市场。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "라쿠텐 코보(Rakuten Kobo), 매출 2배 증가에 힘입어 미국 소매 시장 재진출",
+      "hook": "아마존 킨들 독점 시장에 도전하는 라쿠텐 코보의 미국 오프라인 소매 시장 재진출 및 E-ink 단말기 성장세",
+      "key_takeaways": [
+        "라쿠텐 코보가 매출 2배 성장을 바탕으로 미국 내 오프라인 소매 매장에 다시 진출",
+        "아마존 킨들에 대항하는 대표적인 개방형 전자책 및 E-ink 단말기 생태계 확장",
+        "오프라인 유통망 확대를 통한 북미 전자책 디바이스 시장 점유율 강화 전략"
+      ]
+    },
+    "en": {
+      "title": "Rakuten Kobo Returns to U.S. Retail as Sales Double",
+      "hook": "Rakuten Kobo expands physical retail presence in the US following a doubling of sales, challenging Kindle's market dominance.",
+      "key_takeaways": [
+        "Rakuten Kobo re-enters US physical retail channels backed by doubled sales performance.",
+        "Presents a growing open-ecosystem alternative to Amazon's dominant Kindle line.",
+        "Reflects renewed consumer demand and physical distribution growth in the E-ink device market."
+      ]
+    },
+    "zh": {
+      "title": "乐天Kobo由于销量翻倍重返美国零售市场",
+      "hook": "随着销售额翻倍，乐天Kobo重返美国实体零售领域，在电子墨水屏设备领域挑战Kindle的独占地位。",
+      "key_takeaways": [
+        "乐天Kobo在业绩实现倍增后重新进入美国实体零售渠道。",
+        "作为亚马逊Kindle生态系统的替代方案，提供更开放的电子书体验。",
+        "反映出电子墨水屏设备及电子书市场的强劲复苏与线下分销增长。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.904195"
 }

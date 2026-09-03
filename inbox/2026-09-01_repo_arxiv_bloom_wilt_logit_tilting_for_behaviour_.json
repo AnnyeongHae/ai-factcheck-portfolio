@@ -33,66 +33,99 @@
     "id": "2026-09-01_repo_arxiv_bloom_wilt_logit_tilting_for_behaviour_",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 보안 및 감사",
+    "model_family": "LLM Alignment & Safety",
+    "category": "AI Safety & Auditing",
     "programming_lang": "Python",
     "root_keywords": [
       "Logit Tilting",
+      "LLM Auditing",
       "Behavior Elicitation",
-      "Automated Auditing"
+      "Red Teaming",
+      "AI Safety"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.3,
     "multilingual": {
       "ko": {
-        "title": "BLOOM-WILT: 자동화된 LLM 감사를 위한 행동 유도 로짓 틸팅",
-        "hook": "배포 전 테스트에서 발견하기 어려운 희귀 모델 행동을 효과적으로 유도하고 감사하는 로짓 틸팅 기법을 확인하세요.",
+        "title": "BLOOM-WILT: 자동화된 LLM 감사에서 행위 유출을 위한 로짓 틸팅 (Logit Tilting)",
+        "hook": "로짓 틸팅(Logit Tilting) 기법을 활용하여 기존 평가 시스템이 발견하지 못한 LLM의 숨겨진 유해/특이 행동을 자동 탐지하는 방안 제시",
         "key_takeaways": [
-          "배포 환경의 방대한 상호작용에서 발생하는 숨겨진 행동 탐지",
-          "로짓 틸팅(Logit Tilting)을 통한 효율적인 행동 유도(Behaviour Elicitation)",
-          "자동화된 LLM 감사 프로토콜 강화"
+          "배포 환경에서 발견되는 복잡한 LLM 코너 케이스 및 유해 동작을 사전에 추출하는 BLOOM-WILT 방법론 제안",
+          "모델 출력 로짓 분포를 효과적으로 편향(Tilting)시켜 특정 위험 행동 유도 확률 극대화",
+          "기존 자동화된 레드티밍 및 평가 도구 대비 비정상적 행동 탐지 효율성 증대"
         ]
       },
       "en": {
         "title": "BLOOM-WILT: Logit Tilting for Behaviour Elicitation in Automated LLM Auditing",
-        "hook": "Discover a logit tilting technique to effectively elicit and audit rare model behaviors rarely surfaced during standard testing.",
+        "hook": "Eliciting rare and unexpected LLM behaviors during automated auditing via targeted logit tilting.",
         "key_takeaways": [
-          "Detecting hidden behaviors exposed in deployment-scale interactions",
-          "Efficient behavior elicitation via logit tilting",
-          "Strengthening automated LLM auditing protocols"
+          "Introduces BLOOM-WILT to systematically uncover hidden model behaviors rarely captured by standard evaluations.",
+          "Leverages logit tilting techniques to steer generation towards unexamined boundary conditions during auditing.",
+          "Enhances the effectiveness of automated AI safety testing and red-teaming frameworks."
         ]
       },
       "zh": {
-        "title": "BLOOM-WILT：用于自动化大模型审计的行为引导Logit倾斜技术",
-        "hook": "了解通过Logit倾斜技术有效诱导和审计标准测试中难以发现的罕见模型行为。",
+        "title": "BLOOM-WILT：用于自动化 LLM 审计中行为诱发 Logit 倾斜技术",
+        "hook": "通过 Logit 倾斜技术在自动化 LLM 审计中有效诱发隐藏的大模型边缘行为。",
         "key_takeaways": [
-          "检测部署规模交互中暴露的隐藏行为",
-          "通过Logit倾斜实现高效的行为诱导",
-          "增强自动化大模型审计协议"
+          "提出 BLOOM-WILT 方法，用于自动挖掘常规评估难以察觉的 LLM 部署后潜在异常行为。",
+          "利用 Logit 倾斜（Logit Tilting）调整模型输出概率分布，高效诱发特定风险行为。",
+          "显著提升了自动化 AI 安全审计与红队测试（Red-Teaming）的覆盖率与效率。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:21.828638+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Logit Tilting",
+    "LLM Auditing",
     "Behavior Elicitation",
-    "Automated Auditing"
+    "Red Teaming",
+    "AI Safety"
   ],
-  "title_ko": "BLOOM-WILT: 자동화된 LLM 감사를 위한 행동 유도 로짓 틸팅",
+  "title_ko": "BLOOM-WILT: 자동화된 LLM 감사에서 행위 유출을 위한 로짓 틸팅 (Logit Tilting)",
   "title_en": "BLOOM-WILT: Logit Tilting for Behaviour Elicitation in Automated LLM Auditing",
-  "title_zh": "BLOOM-WILT：用于自动化大模型审计的行为引导Logit倾斜技术",
+  "title_zh": "BLOOM-WILT：用于自动化 LLM 审计中行为诱发 Logit 倾斜技术",
   "hook": "배포 전 테스트에서 발견하기 어려운 희귀 모델 행동을 효과적으로 유도하고 감사하는 로짓 틸팅 기법을 확인하세요.",
-  "hook_ko": "배포 전 테스트에서 발견하기 어려운 희귀 모델 행동을 효과적으로 유도하고 감사하는 로짓 틸팅 기법을 확인하세요.",
-  "hook_en": "Discover a logit tilting technique to effectively elicit and audit rare model behaviors rarely surfaced during standard testing.",
-  "hook_zh": "了解通过Logit倾斜技术有效诱导和审计标准测试中难以发现的罕见模型行为。",
+  "hook_ko": "로짓 틸팅(Logit Tilting) 기법을 활용하여 기존 평가 시스템이 발견하지 못한 LLM의 숨겨진 유해/특이 행동을 자동 탐지하는 방안 제시",
+  "hook_en": "Eliciting rare and unexpected LLM behaviors during automated auditing via targeted logit tilting.",
+  "hook_zh": "通过 Logit 倾斜技术在自动化 LLM 审计中有效诱发隐藏的大模型边缘行为。",
   "description_ko": "배포 전 테스트에서 발견하기 어려운 희귀 모델 행동을 효과적으로 유도하고 감사하는 로짓 틸팅 기법을 확인하세요.",
   "description_en": "Discover a logit tilting technique to effectively elicit and audit rare model behaviors rarely surfaced during standard testing.",
   "description_zh": "了解通过Logit倾斜技术有效诱导和审计标准测试中难以发现的罕见模型行为。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "BLOOM-WILT: 자동화된 LLM 감사에서 행위 유출을 위한 로짓 틸팅 (Logit Tilting)",
+      "hook": "로짓 틸팅(Logit Tilting) 기법을 활용하여 기존 평가 시스템이 발견하지 못한 LLM의 숨겨진 유해/특이 행동을 자동 탐지하는 방안 제시",
+      "key_takeaways": [
+        "배포 환경에서 발견되는 복잡한 LLM 코너 케이스 및 유해 동작을 사전에 추출하는 BLOOM-WILT 방법론 제안",
+        "모델 출력 로짓 분포를 효과적으로 편향(Tilting)시켜 특정 위험 행동 유도 확률 극대화",
+        "기존 자동화된 레드티밍 및 평가 도구 대비 비정상적 행동 탐지 효율성 증대"
+      ]
+    },
+    "en": {
+      "title": "BLOOM-WILT: Logit Tilting for Behaviour Elicitation in Automated LLM Auditing",
+      "hook": "Eliciting rare and unexpected LLM behaviors during automated auditing via targeted logit tilting.",
+      "key_takeaways": [
+        "Introduces BLOOM-WILT to systematically uncover hidden model behaviors rarely captured by standard evaluations.",
+        "Leverages logit tilting techniques to steer generation towards unexamined boundary conditions during auditing.",
+        "Enhances the effectiveness of automated AI safety testing and red-teaming frameworks."
+      ]
+    },
+    "zh": {
+      "title": "BLOOM-WILT：用于自动化 LLM 审计中行为诱发 Logit 倾斜技术",
+      "hook": "通过 Logit 倾斜技术在自动化 LLM 审计中有效诱发隐藏的大模型边缘行为。",
+      "key_takeaways": [
+        "提出 BLOOM-WILT 方法，用于自动挖掘常规评估难以察觉的 LLM 部署后潜在异常行为。",
+        "利用 Logit 倾斜（Logit Tilting）调整模型输出概率分布，高效诱发特定风险行为。",
+        "显著提升了自动化 AI 安全审计与红队测试（Red-Teaming）的覆盖率与效率。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.920309"
 }

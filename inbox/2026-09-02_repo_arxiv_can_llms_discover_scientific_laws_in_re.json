@@ -34,65 +34,98 @@
     "id": "2026-09-02_repo_arxiv_can_llms_discover_scientific_laws_in_re",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "과학적 방정식 발견 및 LLM 추론",
+    "model_family": "LLM / AI for Science",
+    "category": "AI for Science",
     "programming_lang": "Python",
     "root_keywords": [
       "Scientific Discovery",
-      "Equation Generation",
-      "LLM Reasoning"
+      "Symbolic Regression",
+      "LLM Evaluation",
+      "AI for Science",
+      "Equation Discovery"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.1,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "LLM이 현실 및 평행 세계에서 과학적 법칙을 발견할 수 있는가?",
-        "hook": "과학적 방정식 발견 과정에서 LLM의 가설 생성 및 검증 능력을 심층 분석한 연구를 확인하세요.",
+        "title": "LLM은 현실 세계와 가상 세계의 과학적 법칙을 발견할 수 있는가?",
+        "hook": "대형 언어 모델(LLM)이 수식 발견 및 가설 검증을 통해 단순 암기를 넘어 과학적 법칙을 스스로 도출할 수 있는지 평가하는 연구",
         "key_takeaways": [
-          "가설 생성, 관측 테스트, 정제 주기를 통한 과학적 방정식 발견",
-          "현실 및 평행 세계 시나리오에서의 LLM 일반화 능력 평가",
-          "과학적 제약 조건 하에서의 AI 추론 한계와 가능성 탐구"
+          "기존 데이터 암기 효과를 배제하기 위해 가상의 물리학 법칙을 따르는 '평행 세계' 벤치마크 도입",
+          "관측 데이터 수집, 가설 생성 및 수식 도출의 반복적 주기를 통한 LLM의 과학적 추론 능력 검증",
+          "LLM이 심볼릭 회귀 및 도메인 제약 조건 하에서 작동하는 과학적 발견 에이전트로서의 가능성 탐색"
         ]
       },
       "en": {
         "title": "Can LLMs Discover Scientific Laws in Real and Parallel Worlds?",
-        "hook": "Explore whether LLMs can genuinely perform scientific equation discovery through iterative reasoning.",
+        "hook": "A benchmark study evaluating whether LLMs can discover mathematical and physical scientific laws through iterative hypothesis testing beyond simple memorization.",
         "key_takeaways": [
-          "Investigates automated scientific discovery via hypothesis generation and testing",
-          "Evaluates LLM generalization in real and parallel world scenarios",
-          "Analyzes AI reasoning limits under strict scientific constraints"
+          "Introduces a synthetic 'parallel worlds' benchmark to prevent data contamination and memorization bias.",
+          "Evaluates LLMs across the full cycle of scientific discovery: hypothesis generation, observational testing, and equation fitting.",
+          "Highlights the strengths and limitations of LLM agents acting as symbolic regression engines under physical constraints."
         ]
       },
       "zh": {
-        "title": "大模型能否在现实与平行世界中发现科学定律？",
-        "hook": "深入探讨大模型在科学方程式发现任务中的假设生成与验证能力。",
+        "title": "大语言模型能否在真实与平行世界中发现科学定律？",
+        "hook": "评估大语言模型（LLM）能否超越单纯的数据记忆，通过迭代假设生成与观察测试发现科学公式与物理定律的研究",
         "key_takeaways": [
-          "研究通过假设生成与检验实现的自动化科学发现",
-          "评估大模型在现实和平行世界场景中的泛化能力",
-          "分析在严格科学约束下AI推理的边界与潜力"
+          "引入包含不同物理法则的“平行世界”基准，以排除预训练数据的记忆干扰",
+          "在包含假设生成、观察测试和公式拟合的完整科学探索循环中评估 LLM 的能力",
+          "探讨 LLM 作为受约束条件驱动的科学发现 Agent 在符号回归领域的潜力与局限性"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:27:09.810782+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Scientific Discovery",
-    "Equation Generation",
-    "LLM Reasoning"
+    "Symbolic Regression",
+    "LLM Evaluation",
+    "AI for Science",
+    "Equation Discovery"
   ],
-  "title_ko": "LLM이 현실 및 평행 세계에서 과학적 법칙을 발견할 수 있는가?",
+  "title_ko": "LLM은 현실 세계와 가상 세계의 과학적 법칙을 발견할 수 있는가?",
   "title_en": "Can LLMs Discover Scientific Laws in Real and Parallel Worlds?",
-  "title_zh": "大模型能否在现实与平行世界中发现科学定律？",
+  "title_zh": "大语言模型能否在真实与平行世界中发现科学定律？",
   "hook": "과학적 방정식 발견 과정에서 LLM의 가설 생성 및 검증 능력을 심층 분석한 연구를 확인하세요.",
-  "hook_ko": "과학적 방정식 발견 과정에서 LLM의 가설 생성 및 검증 능력을 심층 분석한 연구를 확인하세요.",
-  "hook_en": "Explore whether LLMs can genuinely perform scientific equation discovery through iterative reasoning.",
-  "hook_zh": "深入探讨大模型在科学方程式发现任务中的假设生成与验证能力。",
+  "hook_ko": "대형 언어 모델(LLM)이 수식 발견 및 가설 검증을 통해 단순 암기를 넘어 과학적 법칙을 스스로 도출할 수 있는지 평가하는 연구",
+  "hook_en": "A benchmark study evaluating whether LLMs can discover mathematical and physical scientific laws through iterative hypothesis testing beyond simple memorization.",
+  "hook_zh": "评估大语言模型（LLM）能否超越单纯的数据记忆，通过迭代假设生成与观察测试发现科学公式与物理定律的研究",
   "description_ko": "과학적 방정식 발견 과정에서 LLM의 가설 생성 및 검증 능력을 심층 분석한 연구를 확인하세요.",
   "description_en": "Explore whether LLMs can genuinely perform scientific equation discovery through iterative reasoning.",
   "description_zh": "深入探讨大模型在科学方程式发现任务中的假设生成与验证能力。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "LLM은 현실 세계와 가상 세계의 과학적 법칙을 발견할 수 있는가?",
+      "hook": "대형 언어 모델(LLM)이 수식 발견 및 가설 검증을 통해 단순 암기를 넘어 과학적 법칙을 스스로 도출할 수 있는지 평가하는 연구",
+      "key_takeaways": [
+        "기존 데이터 암기 효과를 배제하기 위해 가상의 물리학 법칙을 따르는 '평행 세계' 벤치마크 도입",
+        "관측 데이터 수집, 가설 생성 및 수식 도출의 반복적 주기를 통한 LLM의 과학적 추론 능력 검증",
+        "LLM이 심볼릭 회귀 및 도메인 제약 조건 하에서 작동하는 과학적 발견 에이전트로서의 가능성 탐색"
+      ]
+    },
+    "en": {
+      "title": "Can LLMs Discover Scientific Laws in Real and Parallel Worlds?",
+      "hook": "A benchmark study evaluating whether LLMs can discover mathematical and physical scientific laws through iterative hypothesis testing beyond simple memorization.",
+      "key_takeaways": [
+        "Introduces a synthetic 'parallel worlds' benchmark to prevent data contamination and memorization bias.",
+        "Evaluates LLMs across the full cycle of scientific discovery: hypothesis generation, observational testing, and equation fitting.",
+        "Highlights the strengths and limitations of LLM agents acting as symbolic regression engines under physical constraints."
+      ]
+    },
+    "zh": {
+      "title": "大语言模型能否在真实与平行世界中发现科学定律？",
+      "hook": "评估大语言模型（LLM）能否超越单纯的数据记忆，通过迭代假设生成与观察测试发现科学公式与物理定律的研究",
+      "key_takeaways": [
+        "引入包含不同物理法则的“平行世界”基准，以排除预训练数据的记忆干扰",
+        "在包含假设生成、观察测试和公式拟合的完整科学探索循环中评估 LLM 的能力",
+        "探讨 LLM 作为受约束条件驱动的科学发现 Agent 在符号回归领域的潜力与局限性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.976217"
 }

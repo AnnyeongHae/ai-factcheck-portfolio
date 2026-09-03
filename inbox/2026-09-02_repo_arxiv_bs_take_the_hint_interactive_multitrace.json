@@ -35,64 +35,97 @@
     "source_lang": "EN",
     "type_classification": "TECH",
     "model_family": "ResEnc U-Net",
-    "category": "의료 영상 세분화",
+    "category": "Computer Vision / Medical Imaging",
     "programming_lang": "Python",
     "root_keywords": [
       "PET/CT",
       "Lesion Segmentation",
-      "Interactive AI"
+      "Interactive Segmentation",
+      "Scribble-Conditioned",
+      "ResEnc U-Net"
     ],
     "recommended_tag": "📝 기술 참고",
     "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "스크리블 기반 U-Net을 활용한 대화형 다중 트레이서 PET/CT 병변 분할",
-        "hook": "복잡한 PET/CT 영상에서 다양한 트레이서 패턴을 극복하는 대화형 병변 분할 기법을 확인하세요.",
+        "title": "Take the Hint: 스크리블 조건부 ResEnc U-Net을 활용한 대화형 다중 추적자 PET/CT 병변 분할",
+        "hook": "사용자의 스크리블 힌트를 조건으로 활용해 다중 추적자 PET/CT 영상 내 병변 분할 정확도를 극대화한 ResEnc U-Net 모델",
         "key_takeaways": [
-          "다양한 생리학적 트레이서 흡수 패턴 대응",
-          "스크리블 조건부 ResEnc U-Net 아키텍처 적용",
-          "전신 PET/CT 자동 병변 분할 정확도 개선"
+          "다양한 추적자(Tracer) 환경에서 발생하는 생리적 섭취 패턴 차이와 병변 형태 변화 문제를 해결",
+          "사용자가 간편하게 입력하는 스크리블(Scribble) 기반의 인터랙티브 조건부 ResEnc U-Net 구조 제안",
+          "autoPET/CT V 챌린지와 같은 복잡한 전신 의료 영상의 병변 분할 정확도 및 정밀도 향상"
         ]
       },
       "en": {
-        "title": "Take the Hint: Interactive Multitracer PET/CT Lesion Segmentation via Scribble-Conditioned ResEnc U-Net",
-        "hook": "Discover how interactive scribble conditioning improves lesion segmentation across diverse PET/CT tracers.",
+        "title": "Take the Hint: Interactive Multitracer PET/CT Lesion Segmentation with a Scribble-Conditioned ResEnc U-Net",
+        "hook": "Leverages interactive scribble prompts to improve lesion segmentation across diverse PET/CT tracer patterns using a ResEnc U-Net architecture.",
         "key_takeaways": [
-          "Handles varied physiological tracer uptake patterns",
-          "Applies scribble-conditioned ResEnc U-Net architecture",
-          "Improves whole-body PET/CT automated lesion segmentation"
+          "Addresses variations in tracer uptake patterns and lesion appearances across whole-body PET/CT imaging.",
+          "Introduces a scribble-conditioned ResEnc U-Net that seamlessly incorporates user hints interactively.",
+          "Enhances segmentation performance and generalizability for complex multitracer medical imaging benchmarks."
         ]
       },
       "zh": {
-        "title": "采用涂鸦条件ResEnc U-Net的交互式多示踪剂PET/CT病变分割",
-        "hook": "了解如何通过交互式涂鸦条件化来克服复杂PET/CT影像中的多示踪剂变化难题。",
+        "title": "Take the Hint：基于涂鸦条件 ResEnc U-Net 的交互式多追踪剂 PET/CT 病灶分割",
+        "hook": "结合交互式涂鸦提示与 ResEnc U-Net，有效解决多追踪剂 PET/CT 图像中复杂病灶精细分割难题",
         "key_takeaways": [
-          "应对多样化的生理示踪剂摄取模式",
-          "应用涂鸦条件化的ResEnc U-Net架构",
-          "提升全身PET/CT自动病变分割准确率"
+          "针对全身 PET/CT 中不同追踪剂吸收模式导致的病灶形态差异提供有效分割方案",
+          "提出基于涂鸦（Scribble）条件引导的 ResEnc U-Net，能够实时融合用户交互提示",
+          "显著提升复杂医疗图像场景与 autoPET/CT 挑战赛任务中的病灶分割准确度"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:27:21.943833+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "PET/CT",
     "Lesion Segmentation",
-    "Interactive AI"
+    "Interactive Segmentation",
+    "Scribble-Conditioned",
+    "ResEnc U-Net"
   ],
-  "title_ko": "스크리블 기반 U-Net을 활용한 대화형 다중 트레이서 PET/CT 병변 분할",
-  "title_en": "Take the Hint: Interactive Multitracer PET/CT Lesion Segmentation via Scribble-Conditioned ResEnc U-Net",
-  "title_zh": "采用涂鸦条件ResEnc U-Net的交互式多示踪剂PET/CT病变分割",
+  "title_ko": "Take the Hint: 스크리블 조건부 ResEnc U-Net을 활용한 대화형 다중 추적자 PET/CT 병변 분할",
+  "title_en": "Take the Hint: Interactive Multitracer PET/CT Lesion Segmentation with a Scribble-Conditioned ResEnc U-Net",
+  "title_zh": "Take the Hint：基于涂鸦条件 ResEnc U-Net 的交互式多追踪剂 PET/CT 病灶分割",
   "hook": "복잡한 PET/CT 영상에서 다양한 트레이서 패턴을 극복하는 대화형 병변 분할 기법을 확인하세요.",
-  "hook_ko": "복잡한 PET/CT 영상에서 다양한 트레이서 패턴을 극복하는 대화형 병변 분할 기법을 확인하세요.",
-  "hook_en": "Discover how interactive scribble conditioning improves lesion segmentation across diverse PET/CT tracers.",
-  "hook_zh": "了解如何通过交互式涂鸦条件化来克服复杂PET/CT影像中的多示踪剂变化难题。",
+  "hook_ko": "사용자의 스크리블 힌트를 조건으로 활용해 다중 추적자 PET/CT 영상 내 병변 분할 정확도를 극대화한 ResEnc U-Net 모델",
+  "hook_en": "Leverages interactive scribble prompts to improve lesion segmentation across diverse PET/CT tracer patterns using a ResEnc U-Net architecture.",
+  "hook_zh": "结合交互式涂鸦提示与 ResEnc U-Net，有效解决多追踪剂 PET/CT 图像中复杂病灶精细分割难题",
   "description_ko": "복잡한 PET/CT 영상에서 다양한 트레이서 패턴을 극복하는 대화형 병변 분할 기법을 확인하세요.",
   "description_en": "Discover how interactive scribble conditioning improves lesion segmentation across diverse PET/CT tracers.",
   "description_zh": "了解如何通过交互式涂鸦条件化来克服复杂PET/CT影像中的多示踪剂变化难题。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Take the Hint: 스크리블 조건부 ResEnc U-Net을 활용한 대화형 다중 추적자 PET/CT 병변 분할",
+      "hook": "사용자의 스크리블 힌트를 조건으로 활용해 다중 추적자 PET/CT 영상 내 병변 분할 정확도를 극대화한 ResEnc U-Net 모델",
+      "key_takeaways": [
+        "다양한 추적자(Tracer) 환경에서 발생하는 생리적 섭취 패턴 차이와 병변 형태 변화 문제를 해결",
+        "사용자가 간편하게 입력하는 스크리블(Scribble) 기반의 인터랙티브 조건부 ResEnc U-Net 구조 제안",
+        "autoPET/CT V 챌린지와 같은 복잡한 전신 의료 영상의 병변 분할 정확도 및 정밀도 향상"
+      ]
+    },
+    "en": {
+      "title": "Take the Hint: Interactive Multitracer PET/CT Lesion Segmentation with a Scribble-Conditioned ResEnc U-Net",
+      "hook": "Leverages interactive scribble prompts to improve lesion segmentation across diverse PET/CT tracer patterns using a ResEnc U-Net architecture.",
+      "key_takeaways": [
+        "Addresses variations in tracer uptake patterns and lesion appearances across whole-body PET/CT imaging.",
+        "Introduces a scribble-conditioned ResEnc U-Net that seamlessly incorporates user hints interactively.",
+        "Enhances segmentation performance and generalizability for complex multitracer medical imaging benchmarks."
+      ]
+    },
+    "zh": {
+      "title": "Take the Hint：基于涂鸦条件 ResEnc U-Net 的交互式多追踪剂 PET/CT 病灶分割",
+      "hook": "结合交互式涂鸦提示与 ResEnc U-Net，有效解决多追踪剂 PET/CT 图像中复杂病灶精细分割难题",
+      "key_takeaways": [
+        "针对全身 PET/CT 中不同追踪剂吸收模式导致的病灶形态差异提供有效分割方案",
+        "提出基于涂鸦（Scribble）条件引导的 ResEnc U-Net，能够实时融合用户交互提示",
+        "显著提升复杂医疗图像场景与 autoPET/CT 挑战赛任务中的病灶分割准确度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.975367"
 }

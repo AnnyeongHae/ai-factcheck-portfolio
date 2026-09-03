@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "Hacker News: ravynOS: 다윈, FreeBSD, 애플 오픈소스를 기반으로 한 프리알파 오픈소스 OS",
+  "title_ko": "ravynOS: Darwin, FreeBSD, Apple 오픈소스를 기반으로 하는 프리알파 단계의 오픈소스 OS",
   "description_ko": "macOS 인터페이스와 FreeBSD 커널을 융합하려는 대담한 오픈소스 운영체제 프로젝트입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -51,65 +51,96 @@
     "id": "2026-08-31_sns_hacker_news_ravynos_pre_alpha_open_source_os_",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "운영체제 및 커널",
-    "programming_lang": "C++",
+    "model_family": "Operating Systems",
+    "category": "Systems Engineering",
+    "programming_lang": "General",
     "root_keywords": [
       "ravynOS",
-      "FreeBSD",
       "Darwin",
+      "FreeBSD",
+      "macOS compatibility",
       "Open Source OS"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.2,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "Hacker News: ravynOS: 다윈, FreeBSD, 애플 오픈소스를 기반으로 한 프리알파 오픈소스 OS",
-        "hook": "macOS 인터페이스와 FreeBSD 커널을 융합하려는 대담한 오픈소스 운영체제 프로젝트입니다.",
+        "title": "ravynOS: Darwin, FreeBSD, Apple 오픈소스를 기반으로 하는 프리알파 단계의 오픈소스 OS",
+        "hook": "macOS와의 호환성을 목표로 FreeBSD와 Darwin을 결합해 개발 중인 오픈소스 운영체제",
         "key_takeaways": [
-          "Darwin 및 FreeBSD 기반의 독자적 유닉스 계열 OS 구축",
-          "macOS 앱 호환성 및 유사한 사용자 경험 목표",
-          "오픈소스 커널 및 시스템 아키텍처 연구에 매우 유익한 자료"
+          "FreeBSD 커널과 Apple의 Darwin 코드베이스를 기반으로 macOS UX 및 시스템 구조 재현",
+          "Cocoa 및 Objective-C API 수준의 호환성을 지향하는 초기 프리알파(Pre-alpha) 프로젝트",
+          "Linux 기반이 아닌 BSD 생태계와 Apple의 오픈소스 구성요소를 적극 활용"
         ]
       },
       "en": {
-        "title": "Hacker News: ravynOS: Pre-alpha open-source OS based on Darwin, FreeBSD, Apple open-source",
-        "hook": "An ambitious open-source operating system project aiming to merge macOS UX with a FreeBSD core.",
+        "title": "ravynOS: Pre-alpha open-source OS based on Darwin, FreeBSD, and Apple open-source",
+        "hook": "An open-source OS project aiming for macOS compatibility built on top of FreeBSD and Darwin.",
         "key_takeaways": [
-          "Building a custom Unix-like OS based on Darwin and FreeBSD",
-          "Targeting macOS application compatibility and similar user experience",
-          "Great resource for studying open-source kernels and system architecture"
+          "Combines the FreeBSD kernel and Apple's Darwin codebase to recreate macOS architecture and UX.",
+          "Currently in pre-alpha, aiming for compatibility with macOS applications and Cocoa/Objective-C APIs.",
+          "Leverages the BSD ecosystem and Apple open-source components instead of a Linux base."
         ]
       },
       "zh": {
-        "title": "Hacker News: ravynOS：基于 Darwin、FreeBSD 及苹果开源代码的预 alpha 版开源操作系统",
-        "hook": "一个旨在将 macOS 用户体验与 FreeBSD 内核相融合的雄心勃勃的开源操作系统项目。",
+        "title": "ravynOS：基于 Darwin、FreeBSD 和 Apple 开源项目的 Pre-alpha 开源操作系统",
+        "hook": "旨在基于 FreeBSD 和 Darwin 构建与 macOS 兼容的开源操作系统项目",
         "key_takeaways": [
-          "构建基于 Darwin 和 FreeBSD 的定制类 Unix 操作系统",
-          "目标实现 macOS 应用程序兼容性与相似的用户体验",
-          "研究开源内核与系统架构的优质参考资料"
+          "结合 FreeBSD 内核与 Apple Darwin 代码库，尝试重现 macOS 的架构与用户体验",
+          "处于 pre-alpha 开发阶段，以实现与 macOS 应用程序及 Cocoa/Objective-C API 兼容为目标",
+          "不同于传统 Linux 发行版，主要依托 BSD 生态系统与 Apple 开源组件"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:32:10.244341+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "C++",
+  "programming_lang": "General",
   "root_keywords": [
     "ravynOS",
-    "FreeBSD",
     "Darwin",
+    "FreeBSD",
+    "macOS compatibility",
     "Open Source OS"
   ],
-  "title_en": "Hacker News: ravynOS: Pre-alpha open-source OS based on Darwin, FreeBSD, Apple open-source",
-  "title_zh": "Hacker News: ravynOS：基于 Darwin、FreeBSD 及苹果开源代码的预 alpha 版开源操作系统",
+  "title_en": "ravynOS: Pre-alpha open-source OS based on Darwin, FreeBSD, and Apple open-source",
+  "title_zh": "ravynOS：基于 Darwin、FreeBSD 和 Apple 开源项目的 Pre-alpha 开源操作系统",
   "hook": "macOS 인터페이스와 FreeBSD 커널을 융합하려는 대담한 오픈소스 운영체제 프로젝트입니다.",
-  "hook_ko": "macOS 인터페이스와 FreeBSD 커널을 융합하려는 대담한 오픈소스 운영체제 프로젝트입니다.",
-  "hook_en": "An ambitious open-source operating system project aiming to merge macOS UX with a FreeBSD core.",
-  "hook_zh": "一个旨在将 macOS 用户体验与 FreeBSD 内核相融合的雄心勃勃的开源操作系统项目。",
+  "hook_ko": "macOS와의 호환성을 목표로 FreeBSD와 Darwin을 결합해 개발 중인 오픈소스 운영체제",
+  "hook_en": "An open-source OS project aiming for macOS compatibility built on top of FreeBSD and Darwin.",
+  "hook_zh": "旨在基于 FreeBSD 和 Darwin 构建与 macOS 兼容的开源操作系统项目",
   "description_en": "An ambitious open-source operating system project aiming to merge macOS UX with a FreeBSD core.",
   "description_zh": "一个旨在将 macOS 用户体验与 FreeBSD 内核相融合的雄心勃勃的开源操作系统项目。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "ravynOS: Darwin, FreeBSD, Apple 오픈소스를 기반으로 하는 프리알파 단계의 오픈소스 OS",
+      "hook": "macOS와의 호환성을 목표로 FreeBSD와 Darwin을 결합해 개발 중인 오픈소스 운영체제",
+      "key_takeaways": [
+        "FreeBSD 커널과 Apple의 Darwin 코드베이스를 기반으로 macOS UX 및 시스템 구조 재현",
+        "Cocoa 및 Objective-C API 수준의 호환성을 지향하는 초기 프리알파(Pre-alpha) 프로젝트",
+        "Linux 기반이 아닌 BSD 생태계와 Apple의 오픈소스 구성요소를 적극 활용"
+      ]
+    },
+    "en": {
+      "title": "ravynOS: Pre-alpha open-source OS based on Darwin, FreeBSD, and Apple open-source",
+      "hook": "An open-source OS project aiming for macOS compatibility built on top of FreeBSD and Darwin.",
+      "key_takeaways": [
+        "Combines the FreeBSD kernel and Apple's Darwin codebase to recreate macOS architecture and UX.",
+        "Currently in pre-alpha, aiming for compatibility with macOS applications and Cocoa/Objective-C APIs.",
+        "Leverages the BSD ecosystem and Apple open-source components instead of a Linux base."
+      ]
+    },
+    "zh": {
+      "title": "ravynOS：基于 Darwin、FreeBSD 和 Apple 开源项目的 Pre-alpha 开源操作系统",
+      "hook": "旨在基于 FreeBSD 和 Darwin 构建与 macOS 兼容的开源操作系统项目",
+      "key_takeaways": [
+        "结合 FreeBSD 内核与 Apple Darwin 代码库，尝试重现 macOS 的架构与用户体验",
+        "处于 pre-alpha 开发阶段，以实现与 macOS 应用程序及 Cocoa/Objective-C API 兼容为目标",
+        "不同于传统 Linux 发行版，主要依托 BSD 生态系统与 Apple 开源组件"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.904979"
 }

@@ -34,65 +34,96 @@
     "id": "2026-09-02_repo_hf_space_multimodalarth3_acceleration_arena",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "멀티모달 추론 최적화",
+    "model_family": "Inference Benchmarking",
+    "category": "AI Infrastructure & Acceleration",
     "programming_lang": "Python",
     "root_keywords": [
-      "Hugging Face",
-      "Acceleration Arena",
-      "Multimodal"
+      "acceleration",
+      "inference-optimization",
+      "benchmark-arena",
+      "huggingface-spaces"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "멀티모달 모델 가속 성능 비교 아레나 (HF Space)",
-        "hook": "다양한 멀티모달 모델들의 가속 및 추론 성능을 실시간으로 비교하고 테스트할 수 있는 데모입니다.",
+        "title": "HF Space: multimodalart/h3-acceleration-arena (가속 아레나)",
+        "hook": "추론 가속화 기법 및 프레임워크 성능을 직접 비교해볼 수 있는 대화형 벤치마크 공간",
         "key_takeaways": [
-          "멀티모달 가속 기술의 실시간 비교 인터페이스 제공",
-          "Hugging Face Spaces 기반의 도커 데모 환경",
-          "개발자가 최적화 기법의 성능 차이를 직관적으로 파악 가능"
+          "다양한 가속화 백엔드 및 추론 최적화 기법에 대한 라이브 비교 분석 제공",
+          "Docker SDK 기반 환경으로 구성된 대화형 인터랙티브 데모",
+          "실시간 성능 최적화 실험 및 대기 시간(Latency) 벤치마크 평가 가능"
         ]
       },
       "en": {
-        "title": "Multimodal Model Acceleration Performance Arena on HF Space",
-        "hook": "Test and compare real-time acceleration and inference performance across various multimodal models.",
+        "title": "HF Space: multimodalart/h3-acceleration-arena",
+        "hook": "An interactive benchmark arena comparing model acceleration techniques and backend performance.",
         "key_takeaways": [
-          "Provides a real-time comparison interface for multimodal acceleration",
-          "Built on Hugging Face Spaces with a Docker-based SDK",
-          "Enables developers to intuitively evaluate performance gaps of optimization techniques"
+          "Provides live comparative analysis for model acceleration techniques and frameworks",
+          "Built using Docker SDK for robust, customized execution environments",
+          "Interactive sandbox for testing inference optimization and latency metrics"
         ]
       },
       "zh": {
-        "title": "多模态模型加速性能竞技场 (HF Space)",
-        "hook": "实时测试和比较各种多模态模型的加速与推理性能的交互式演示。",
+        "title": "HF Space: multimodalart/h3-acceleration-arena (加速竞技场)",
+        "hook": "用于直接对比各种推理加速技术与框架性能的交互式基准测试竞技场",
         "key_takeaways": [
-          "提供多模态加速技术的实时对比界面",
-          "基于 Hugging Face Spaces 的 Docker 演示环境",
-          "使开发人员能够直观评估优化技术的性能差异"
+          "提供模型加速技术与后端性能的实时对比分析与演示",
+          "基于 Docker SDK 构建，支持灵活定制的运行环境",
+          "用于测试推理优化、吞吐量与延迟表现的交互式沙盒"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:14:51.498202+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Hugging Face",
-    "Acceleration Arena",
-    "Multimodal"
+    "acceleration",
+    "inference-optimization",
+    "benchmark-arena",
+    "huggingface-spaces"
   ],
-  "title_ko": "멀티모달 모델 가속 성능 비교 아레나 (HF Space)",
-  "title_en": "Multimodal Model Acceleration Performance Arena on HF Space",
-  "title_zh": "多模态模型加速性能竞技场 (HF Space)",
+  "title_ko": "HF Space: multimodalart/h3-acceleration-arena (가속 아레나)",
+  "title_en": "HF Space: multimodalart/h3-acceleration-arena",
+  "title_zh": "HF Space: multimodalart/h3-acceleration-arena (加速竞技场)",
   "hook": "다양한 멀티모달 모델들의 가속 및 추론 성능을 실시간으로 비교하고 테스트할 수 있는 데모입니다.",
-  "hook_ko": "다양한 멀티모달 모델들의 가속 및 추론 성능을 실시간으로 비교하고 테스트할 수 있는 데모입니다.",
-  "hook_en": "Test and compare real-time acceleration and inference performance across various multimodal models.",
-  "hook_zh": "实时测试和比较各种多模态模型的加速与推理性能的交互式演示。",
+  "hook_ko": "추론 가속화 기법 및 프레임워크 성능을 직접 비교해볼 수 있는 대화형 벤치마크 공간",
+  "hook_en": "An interactive benchmark arena comparing model acceleration techniques and backend performance.",
+  "hook_zh": "用于直接对比各种推理加速技术与框架性能的交互式基准测试竞技场",
   "description_ko": "다양한 멀티모달 모델들의 가속 및 추론 성능을 실시간으로 비교하고 테스트할 수 있는 데모입니다.",
   "description_en": "Test and compare real-time acceleration and inference performance across various multimodal models.",
   "description_zh": "实时测试和比较各种多模态模型的加速与推理性能的交互式演示。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: multimodalart/h3-acceleration-arena (가속 아레나)",
+      "hook": "추론 가속화 기법 및 프레임워크 성능을 직접 비교해볼 수 있는 대화형 벤치마크 공간",
+      "key_takeaways": [
+        "다양한 가속화 백엔드 및 추론 최적화 기법에 대한 라이브 비교 분석 제공",
+        "Docker SDK 기반 환경으로 구성된 대화형 인터랙티브 데모",
+        "실시간 성능 최적화 실험 및 대기 시간(Latency) 벤치마크 평가 가능"
+      ]
+    },
+    "en": {
+      "title": "HF Space: multimodalart/h3-acceleration-arena",
+      "hook": "An interactive benchmark arena comparing model acceleration techniques and backend performance.",
+      "key_takeaways": [
+        "Provides live comparative analysis for model acceleration techniques and frameworks",
+        "Built using Docker SDK for robust, customized execution environments",
+        "Interactive sandbox for testing inference optimization and latency metrics"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: multimodalart/h3-acceleration-arena (加速竞技场)",
+      "hook": "用于直接对比各种推理加速技术与框架性能的交互式基准测试竞技场",
+      "key_takeaways": [
+        "提供模型加速技术与后端性能的实时对比分析与演示",
+        "基于 Docker SDK 构建，支持灵活定制的运行环境",
+        "用于测试推理优化、吞吐量与延迟表现的交互式沙盒"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.998185"
 }

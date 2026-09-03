@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "AGENT",
-  "title_ko": "컴퓨터로 실행 가능한 자율 연구 시스템 PRAXIST",
+  "title_ko": "sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스템",
   "description_ko": "측정 가능하고 컴퓨터에서 직접 실행할 수 있는 과학적 연구를 수행하는 자율 시스템입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -47,64 +47,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_github_sapientincpraxist",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "자율 연구 에이전트",
+    "type_classification": "TECH",
+    "model_family": "Agentic AI",
+    "category": "Autonomous Agents",
     "programming_lang": "Python",
     "root_keywords": [
       "Autonomous Research",
-      "Executable Research",
-      "AI Scientist"
+      "AI Agents",
+      "Executable Science",
+      "Automated Discovery"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "컴퓨터로 실행 가능한 자율 연구 시스템 PRAXIST",
-        "hook": "측정 가능하고 컴퓨터에서 직접 실행할 수 있는 과학적 연구를 수행하는 자율 시스템입니다.",
+        "title": "sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스템",
+        "hook": "컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
         "key_takeaways": [
-          "완전 자율형 연구 프로세스 설계",
-          "측정 가능하고 실행 가능한 결과물 도출",
-          "연구 자동화 분야의 혁신적인 아키텍처 제공"
+          "측정 가능하고 컴퓨터에서 직접 실행 가능한 연구 흐름 전반을 자동화",
+          "AI 에이전트 기반의 가설 설정, 실험 코드 작성, 실행 및 결과 데이터 검증",
+          "재현 가능하고 정량 평가 가능한 과학적 연구(Reproducible Science) 구현"
         ]
       },
       "en": {
-        "title": "PRAXIST: Autonomous Research System for Executable Science",
-        "hook": "Discover an autonomous research system built for measurable, computer-executable scientific workflows.",
+        "title": "sapientinc/PRAXIST - Autonomous System for Executable Research",
+        "hook": "An autonomous research framework designed for measurable, computer-executable scientific discovery and experimentation.",
         "key_takeaways": [
-          "End-to-end autonomous research process",
-          "Produces measurable, computer-executable results",
-          "Advanced architecture for scientific automation"
+          "Automates end-to-end research workflows that can be executed directly on computers",
+          "Enables AI agent-driven hypothesis generation, code execution, and quantitative verification",
+          "Focuses on reproducible and verifiable automated research methodology"
         ]
       },
       "zh": {
-        "title": "PRAXIST：可执行研究的自主研究系统",
-        "hook": "构建可量化、可由计算机执行的科学研究自主系统，开启科研自动化新时代。",
+        "title": "sapientinc/PRAXIST - 可测量且可计算机执行的自主研究系统",
+        "hook": "旨在实现可测量、可计算机直接执行的科学探索与实验的自主研究 AI 框架",
         "key_takeaways": [
-          "端到端全自动科研流程",
-          "生成可量化、可执行的验证结果",
-          "领先的研究自动化架构设计"
+          "自动化可在计算机上直接运行的完整科学研究工作流",
+          "基于 AI 智能体驱动假设生成、代码编写与定量结果验证",
+          "专注于可复现且可定量的自动化科研新范式"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:02.830770+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Autonomous Research",
-    "Executable Research",
-    "AI Scientist"
+    "AI Agents",
+    "Executable Science",
+    "Automated Discovery"
   ],
-  "title_en": "PRAXIST: Autonomous Research System for Executable Science",
-  "title_zh": "PRAXIST：可执行研究的自主研究系统",
+  "title_en": "sapientinc/PRAXIST - Autonomous System for Executable Research",
+  "title_zh": "sapientinc/PRAXIST - 可测量且可计算机执行的自主研究系统",
   "hook": "측정 가능하고 컴퓨터에서 직접 실행할 수 있는 과학적 연구를 수행하는 자율 시스템입니다.",
-  "hook_ko": "측정 가능하고 컴퓨터에서 직접 실행할 수 있는 과학적 연구를 수행하는 자율 시스템입니다.",
-  "hook_en": "Discover an autonomous research system built for measurable, computer-executable scientific workflows.",
-  "hook_zh": "构建可量化、可由计算机执行的科学研究自主系统，开启科研自动化新时代。",
+  "hook_ko": "컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
+  "hook_en": "An autonomous research framework designed for measurable, computer-executable scientific discovery and experimentation.",
+  "hook_zh": "旨在实现可测量、可计算机直接执行的科学探索与实验的自主研究 AI 框架",
   "description_en": "Discover an autonomous research system built for measurable, computer-executable scientific workflows.",
   "description_zh": "构建可量化、可由计算机执行的科学研究自主系统，开启科研自动化新时代。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스템",
+      "hook": "컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
+      "key_takeaways": [
+        "측정 가능하고 컴퓨터에서 직접 실행 가능한 연구 흐름 전반을 자동화",
+        "AI 에이전트 기반의 가설 설정, 실험 코드 작성, 실행 및 결과 데이터 검증",
+        "재현 가능하고 정량 평가 가능한 과학적 연구(Reproducible Science) 구현"
+      ]
+    },
+    "en": {
+      "title": "sapientinc/PRAXIST - Autonomous System for Executable Research",
+      "hook": "An autonomous research framework designed for measurable, computer-executable scientific discovery and experimentation.",
+      "key_takeaways": [
+        "Automates end-to-end research workflows that can be executed directly on computers",
+        "Enables AI agent-driven hypothesis generation, code execution, and quantitative verification",
+        "Focuses on reproducible and verifiable automated research methodology"
+      ]
+    },
+    "zh": {
+      "title": "sapientinc/PRAXIST - 可测量且可计算机执行的自主研究系统",
+      "hook": "旨在实现可测量、可计算机直接执行的科学探索与实验的自主研究 AI 框架",
+      "key_takeaways": [
+        "自动化可在计算机上直接运行的完整科学研究工作流",
+        "基于 AI 智能体驱动假设生成、代码编写与定量结果验证",
+        "专注于可复现且可定量的自动化科研新范式"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.800508"
 }

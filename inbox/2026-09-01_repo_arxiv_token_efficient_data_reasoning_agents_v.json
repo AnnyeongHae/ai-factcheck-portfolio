@@ -34,63 +34,99 @@
     "id": "2026-09-01_repo_arxiv_token_efficient_data_reasoning_agents_v",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "category": "에이전트 아키텍처 & 비정형 데이터",
-    "programming_lang": "Python",
+    "model_family": "LLM Agents / Adaptive RAG",
+    "category": "LLM & AI Agents",
+    "programming_lang": "General",
     "root_keywords": [
-      "LLM 에이전트",
-      "토큰 효율화",
-      "비정형 데이터 구조화"
+      "Token Efficiency",
+      "LLM Agents",
+      "Unstructured Data",
+      "Adaptive Structuring",
+      "Enterprise AI"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "비정형 데이터의 적응형 구조화를 통한 토큰 효율적 추론 에이전트",
-        "hook": "PDF, 웹페이지, 계약서 등 방대한 비정형 데이터를 토큰 낭비 없이 추론하도록 돕는 차세대 에이전트 아키텍처입니다.",
+        "title": "비구조화 데이터의 적응형 구조화를 통한 토큰 효율적 데이터 추론 에이전트",
+        "hook": "비구조화 데이터 처리 시 토큰 소비를 대폭 줄이고 LLM 에이전트의 데이터 추론 비용 및 연산 속도를 개선하는 기법",
         "key_takeaways": [
-          "비정형 데이터(웹, 리포트, PDF 등)를 적응형으로 구조화하여 컨텍스트 토큰 소비 대폭 절감",
-          "엔터프라이즈 환경에서 데이터 추론 에이전트의 지연 시간과 운영 비용 동시 개선",
-          "정보 손실을 최소화하면서 복잡한 추론 궤적을 유지하는 새로운 접근법 제시"
+          "웹페이지, 보고서, PDF 등 비구조화된 정보 원천을 적응형으로 동적 구조화하여 토큰 소모 최소화",
+          "엔터프라이즈 AI 시스템을 위한 비용 효율적이고 고성능인 LLM 데이터 추론 파이프라인 제안",
+          "대용량 데이터 연산 시 발생하는 비용 부담 및 컨텍스트 윈도우 병목을 극복"
         ]
       },
       "en": {
         "title": "Token-Efficient Data Reasoning Agents via Adaptive Structuring of Unstructured Data",
-        "hook": "Drastically cut LLM token costs when reasoning over massive unstructured documents with adaptive data structuring.",
+        "hook": "Optimizing token overhead and reasoning latency in LLM agents processing unstructured enterprise data via dynamic structuring.",
         "key_takeaways": [
-          "Adaptively structures messy inputs (PDFs, filings, reports) to slash context window token usage",
-          "Reduces latency and operational costs for enterprise-scale AI reasoning agents",
-          "Preserves critical information and reasoning fidelity without context bloating"
+          "Dynamically structures unstructured sources like PDFs and reports to drastically reduce token consumption.",
+          "Delivers a cost-effective architectural framework tailored for enterprise LLM agent data reasoning.",
+          "Overcomes context length limits and high API latency associated with raw long-context retrieval."
         ]
       },
       "zh": {
-        "title": "基于非结构化数据自适应结构化的高效 Token 数据推理 Agent",
-        "hook": "通过自适应结构化技术大幅压缩上下文 Token 消耗，让智能体在海量文档上实现低成本高精度推理。",
+        "title": "基于非结构化数据自适应结构化的高效Token数据推理智能体",
+        "hook": "通过动态自适应结构化非结构化数据，显著降低大语言模型智能体的 Token 消耗与推理成本。",
         "key_takeaways": [
-          "自适应结构化网页、财报、PDF 等非结构化数据，显著减少上下文 Token 开销",
-          "大幅降低企业级数据推理 Agent 的调用延迟与 API 成本",
-          "在避免上下文冗余的同时保留关键信息与高质量推理链路"
+          "对网页、PDF和报告等非结构化数据进行动态自适应结构化，大幅削减Token开销",
+          "为企业级 AI 智能体的数据推理任务提供低成本、高效率的架构方案",
+          "有效缓解长文本上下文窗口限制及高昂的 API 调用成本问题"
         ]
       }
     }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
-    "LLM 에이전트",
-    "토큰 효율화",
-    "비정형 데이터 구조화"
+    "Token Efficiency",
+    "LLM Agents",
+    "Unstructured Data",
+    "Adaptive Structuring",
+    "Enterprise AI"
   ],
-  "title_ko": "비정형 데이터의 적응형 구조화를 통한 토큰 효율적 추론 에이전트",
+  "title_ko": "비구조화 데이터의 적응형 구조화를 통한 토큰 효율적 데이터 추론 에이전트",
   "title_en": "Token-Efficient Data Reasoning Agents via Adaptive Structuring of Unstructured Data",
-  "title_zh": "基于非结构化数据自适应结构化的高效 Token 数据推理 Agent",
+  "title_zh": "基于非结构化数据自适应结构化的高效Token数据推理智能体",
   "hook": "PDF, 웹페이지, 계약서 등 방대한 비정형 데이터를 토큰 낭비 없이 추론하도록 돕는 차세대 에이전트 아키텍처입니다.",
-  "hook_ko": "PDF, 웹페이지, 계약서 등 방대한 비정형 데이터를 토큰 낭비 없이 추론하도록 돕는 차세대 에이전트 아키텍처입니다.",
-  "hook_en": "Drastically cut LLM token costs when reasoning over massive unstructured documents with adaptive data structuring.",
-  "hook_zh": "通过自适应结构化技术大幅压缩上下文 Token 消耗，让智能体在海量文档上实现低成本高精度推理。",
+  "hook_ko": "비구조화 데이터 처리 시 토큰 소비를 대폭 줄이고 LLM 에이전트의 데이터 추론 비용 및 연산 속도를 개선하는 기법",
+  "hook_en": "Optimizing token overhead and reasoning latency in LLM agents processing unstructured enterprise data via dynamic structuring.",
+  "hook_zh": "通过动态自适应结构化非结构化数据，显著降低大语言模型智能体的 Token 消耗与推理成本。",
   "description_ko": "PDF, 웹페이지, 계약서 등 방대한 비정형 데이터를 토큰 낭비 없이 추론하도록 돕는 차세대 에이전트 아키텍처입니다.",
   "description_en": "Drastically cut LLM token costs when reasoning over massive unstructured documents with adaptive data structuring.",
   "description_zh": "通过自适应结构化技术大幅压缩上下文 Token 消耗，让智能体在海量文档上实现低成本高精度推理。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "비구조화 데이터의 적응형 구조화를 통한 토큰 효율적 데이터 추론 에이전트",
+      "hook": "비구조화 데이터 처리 시 토큰 소비를 대폭 줄이고 LLM 에이전트의 데이터 추론 비용 및 연산 속도를 개선하는 기법",
+      "key_takeaways": [
+        "웹페이지, 보고서, PDF 등 비구조화된 정보 원천을 적응형으로 동적 구조화하여 토큰 소모 최소화",
+        "엔터프라이즈 AI 시스템을 위한 비용 효율적이고 고성능인 LLM 데이터 추론 파이프라인 제안",
+        "대용량 데이터 연산 시 발생하는 비용 부담 및 컨텍스트 윈도우 병목을 극복"
+      ]
+    },
+    "en": {
+      "title": "Token-Efficient Data Reasoning Agents via Adaptive Structuring of Unstructured Data",
+      "hook": "Optimizing token overhead and reasoning latency in LLM agents processing unstructured enterprise data via dynamic structuring.",
+      "key_takeaways": [
+        "Dynamically structures unstructured sources like PDFs and reports to drastically reduce token consumption.",
+        "Delivers a cost-effective architectural framework tailored for enterprise LLM agent data reasoning.",
+        "Overcomes context length limits and high API latency associated with raw long-context retrieval."
+      ]
+    },
+    "zh": {
+      "title": "基于非结构化数据自适应结构化的高效Token数据推理智能体",
+      "hook": "通过动态自适应结构化非结构化数据，显著降低大语言模型智能体的 Token 消耗与推理成本。",
+      "key_takeaways": [
+        "对网页、PDF和报告等非结构化数据进行动态自适应结构化，大幅削减Token开销",
+        "为企业级 AI 智能体的数据推理任务提供低成本、高效率的架构方案",
+        "有效缓解长文本上下文窗口限制及高昂的 API 调用成本问题"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.946819"
 }

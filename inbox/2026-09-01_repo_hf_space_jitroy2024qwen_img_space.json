@@ -34,67 +34,98 @@
     "source_lang": "EN",
     "type_classification": "TECH",
     "model_family": "Qwen",
-    "category": "이미지 처리 및 멀티모달",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
       "Qwen",
-      "Image Space",
-      "Multimodal",
-      "Gradio"
+      "Vision Language Model",
+      "Gradio",
+      "Multimodal AI",
+      "Hugging Face Spaces"
     ],
-    "recommended_tag": "💡 유용한 도구",
+    "recommended_tag": "📝 기술 참고",
     "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "Qwen 이미지 생성 및 편집을 위한 허브 스페이스 데모",
-        "hook": "Qwen 모델 기반의 이미지 관련 태스크를 웹 인터페이스에서 간편하게 실행해 보세요.",
+        "title": "HF Space: JitRoy2024/Qwen_Img_Space (Qwen 기반 이미지 처리/이해 데모)",
+        "hook": "Qwen 비전-언어 모델을 활용하여 이미지 이해 및 멀티모달 분석 기능을 체험할 수 있는 Gradio 데모",
         "key_takeaways": [
-          "Qwen 모델 아키텍처를 활용한 이미지 인터랙션 스페이스",
-          "Gradio SDK를 통한 간편한 UI 및 테스트 환경 구축",
-          "멀티모달 시각 작업 실험에 유용한 레퍼런스"
+          "Qwen 멀티모달 비전 모델을 웹 상에서 직접 테스트할 수 있는 데모 환경",
+          "Gradio SDK를 기반으로 구축되어 직관적이고 용이한 UI 인터페이스 제공",
+          "시각적 질문 답변(VQA) 및 이미지 분석 기능을 포함한 멀티모달 태스크 수행"
         ]
       },
       "en": {
-        "title": "Qwen Image Space Demo for Vision Tasks",
-        "hook": "Explore interactive image generation and processing features powered by Qwen models.",
+        "title": "HF Space: JitRoy2024/Qwen_Img_Space",
+        "hook": "An interactive Gradio web demo showcasing Qwen vision-language model capabilities for image understanding and analysis.",
         "key_takeaways": [
-          "Image-centric interaction space leveraging the Qwen ecosystem",
-          "User-friendly web UI powered by Gradio SDK",
-          "Great reference for multimodal vision experiments"
+          "Interactive web demonstration for testing Qwen vision-language multimodal capabilities.",
+          "Built with Gradio SDK for quick prototyping and intuitive user interaction.",
+          "Supports visual reasoning, visual question answering (VQA), and detailed image analysis."
         ]
       },
       "zh": {
-        "title": "基于 Qwen 的图像处理与生成演示空间",
-        "hook": "在网页端轻松测试由 Qwen 模型驱动的图像视觉交互功能。",
+        "title": "HF Space: JitRoy2024/Qwen_Img_Space (通义千问图像/视觉演示空间)",
+        "hook": "基于 Gradio 构建的 Qwen 视觉语言模型交互式 Web 演示空间，展示图像理解与多模态能力。",
         "key_takeaways": [
-          "利用 Qwen 模型生态构建的图像交互空间",
-          "通过 Gradio SDK 提供友好的用户界面",
-          "多模态视觉任务实验的优秀参考工具"
+          "可在线便捷体验 Qwen 视觉多模态模型的图像分析与理解能力",
+          "基于 Gradio SDK 搭建，界面直观，适合快速验证与交互测试",
+          "涵盖视觉问答（VQA）与图像描述等多种多模态推理任务"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:26:50.441867+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Qwen",
-    "Image Space",
-    "Multimodal",
-    "Gradio"
+    "Vision Language Model",
+    "Gradio",
+    "Multimodal AI",
+    "Hugging Face Spaces"
   ],
-  "title_ko": "Qwen 이미지 생성 및 편집을 위한 허브 스페이스 데모",
-  "title_en": "Qwen Image Space Demo for Vision Tasks",
-  "title_zh": "基于 Qwen 的图像处理与生成演示空间",
+  "title_ko": "HF Space: JitRoy2024/Qwen_Img_Space (Qwen 기반 이미지 처리/이해 데모)",
+  "title_en": "HF Space: JitRoy2024/Qwen_Img_Space",
+  "title_zh": "HF Space: JitRoy2024/Qwen_Img_Space (通义千问图像/视觉演示空间)",
   "hook": "Qwen 모델 기반의 이미지 관련 태스크를 웹 인터페이스에서 간편하게 실행해 보세요.",
-  "hook_ko": "Qwen 모델 기반의 이미지 관련 태스크를 웹 인터페이스에서 간편하게 실행해 보세요.",
-  "hook_en": "Explore interactive image generation and processing features powered by Qwen models.",
-  "hook_zh": "在网页端轻松测试由 Qwen 模型驱动的图像视觉交互功能。",
+  "hook_ko": "Qwen 비전-언어 모델을 활용하여 이미지 이해 및 멀티모달 분석 기능을 체험할 수 있는 Gradio 데모",
+  "hook_en": "An interactive Gradio web demo showcasing Qwen vision-language model capabilities for image understanding and analysis.",
+  "hook_zh": "基于 Gradio 构建的 Qwen 视觉语言模型交互式 Web 演示空间，展示图像理解与多模态能力。",
   "description_ko": "Qwen 모델 기반의 이미지 관련 태스크를 웹 인터페이스에서 간편하게 실행해 보세요.",
   "description_en": "Explore interactive image generation and processing features powered by Qwen models.",
   "description_zh": "在网页端轻松测试由 Qwen 模型驱动的图像视觉交互功能。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: JitRoy2024/Qwen_Img_Space (Qwen 기반 이미지 처리/이해 데모)",
+      "hook": "Qwen 비전-언어 모델을 활용하여 이미지 이해 및 멀티모달 분석 기능을 체험할 수 있는 Gradio 데모",
+      "key_takeaways": [
+        "Qwen 멀티모달 비전 모델을 웹 상에서 직접 테스트할 수 있는 데모 환경",
+        "Gradio SDK를 기반으로 구축되어 직관적이고 용이한 UI 인터페이스 제공",
+        "시각적 질문 답변(VQA) 및 이미지 분석 기능을 포함한 멀티모달 태스크 수행"
+      ]
+    },
+    "en": {
+      "title": "HF Space: JitRoy2024/Qwen_Img_Space",
+      "hook": "An interactive Gradio web demo showcasing Qwen vision-language model capabilities for image understanding and analysis.",
+      "key_takeaways": [
+        "Interactive web demonstration for testing Qwen vision-language multimodal capabilities.",
+        "Built with Gradio SDK for quick prototyping and intuitive user interaction.",
+        "Supports visual reasoning, visual question answering (VQA), and detailed image analysis."
+      ]
+    },
+    "zh": {
+      "title": "HF Space: JitRoy2024/Qwen_Img_Space (通义千问图像/视觉演示空间)",
+      "hook": "基于 Gradio 构建的 Qwen 视觉语言模型交互式 Web 演示空间，展示图像理解与多模态能力。",
+      "key_takeaways": [
+        "可在线便捷体验 Qwen 视觉多模态模型的图像分析与理解能力",
+        "基于 Gradio SDK 搭建，界面直观，适合快速验证与交互测试",
+        "涵盖视觉问答（VQA）与图像描述等多种多模态推理任务"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.958803"
 }

@@ -33,66 +33,97 @@
     "id": "2026-09-01_repo_arxiv_configurable_semantic_chunking_for_biom",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "RAG 및 정보 추출",
+    "model_family": "Retrieval-Augmented Generation",
+    "category": "Biomedical AI",
     "programming_lang": "Python",
     "root_keywords": [
+      "RAG",
       "Semantic Chunking",
-      "Biomedical RAG",
-      "Information Extraction"
+      "Biomedical Information Extraction",
+      "BioMedRAG"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "RAG의 생물 의학 정보 추출을 위한 설정형 의미론적 청킹",
-        "hook": "고정 크기 청킹의 한계를 극복하고 생물 의학 데이터에서 의미론적 증거 조각화를 방지하는 최적화 기법입니다.",
+        "title": "ArXiv: 바이오메디컬 정보 추출 및 RAG를 위한 가변형 시맨틱 청킹 기술",
+        "hook": "고정 크기 청킹으로 인한 텍스트 문맥 파편화를 해결하는 바이오메디컬 RAG 가변형 시맨틱 청킹 기법",
         "key_takeaways": [
-          "기존 BioMedRAG의 고정 크기 청킹 단점 보완",
-          "생물 의학 정보 추출을 위한 설정 가능한 의미론적 청킹 도입",
-          "RAG 파이프라인에서의 검색 정확도 및 증거 보존력 증대"
+          "기존 BioMedRAG의 고정 크기 청킹 한계점(의미론적 근거 단절) 극복",
+          "문맥 유지를 위해 의미 단위를 보존하는 가변형(Configurable) 시맨틱 청킹 알고리즘 제안",
+          "바이오메디컬 도메인 특화 정보 추출 정확도 및 검색 성능 개선"
         ]
       },
       "en": {
-        "title": "Configurable Semantic Chunking for Biomedical Information Extraction in RAG",
-        "hook": "Avoids semantic fragmentation in biomedical RAG by replacing fixed-size chunking with configurable semantic chunking.",
+        "title": "ArXiv: Configurable Semantic Chunking for Biomedical Information Extraction in Retrieval-Augmented Generation",
+        "hook": "Overcoming semantic fragmentation in biomedical RAG through configurable, context-aware semantic chunking.",
         "key_takeaways": [
-          "Addresses limitations of fixed-size chunking in BioMedRAG",
-          "Introduces configurable semantic chunking for biomedical information extraction",
-          "Enhances retrieval accuracy and evidence preservation in RAG pipelines"
+          "Addresses the limitations of fixed-size chunking in biomedical document retrieval.",
+          "Introduces a configurable semantic chunking method to preserve context integrity.",
+          "Improves retrieval performance and accuracy for complex biomedical information extraction tasks."
         ]
       },
       "zh": {
-        "title": "RAG中用于生物医学信息提取的可配置语义分块技术",
-        "hook": "用可配置语义分块替代固定大小分块，彻底解决生物医学数据检索增强生成中的语义碎片化问题。",
+        "title": "ArXiv: 面向生物医学信息提取与 RAG 的可配置语义切片技术",
+        "hook": "通过可配置的语义切片技术解决生物医学 RAG 中固定块导致的语义碎片化问题。",
         "key_takeaways": [
-          "弥补 BioMedRAG 固定大小分块的不足",
-          "引入针对生物医学信息提取的可配置语义分块",
-          "提升RAG管道中的检索准确性与证据完整性"
+          "克服传统 BioMedRAG 中固定大小切片导致的语义断裂问题",
+          "提出可配置的语义切片方法，保留完整的上下文语义",
+          "显著提升复杂生物医学文本检索与信息提取的准确度"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:09.954307+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
+    "RAG",
     "Semantic Chunking",
-    "Biomedical RAG",
-    "Information Extraction"
+    "Biomedical Information Extraction",
+    "BioMedRAG"
   ],
-  "title_ko": "RAG의 생물 의학 정보 추출을 위한 설정형 의미론적 청킹",
-  "title_en": "Configurable Semantic Chunking for Biomedical Information Extraction in RAG",
-  "title_zh": "RAG中用于生物医学信息提取的可配置语义分块技术",
+  "title_ko": "ArXiv: 바이오메디컬 정보 추출 및 RAG를 위한 가변형 시맨틱 청킹 기술",
+  "title_en": "ArXiv: Configurable Semantic Chunking for Biomedical Information Extraction in Retrieval-Augmented Generation",
+  "title_zh": "ArXiv: 面向生物医学信息提取与 RAG 的可配置语义切片技术",
   "hook": "고정 크기 청킹의 한계를 극복하고 생물 의학 데이터에서 의미론적 증거 조각화를 방지하는 최적화 기법입니다.",
-  "hook_ko": "고정 크기 청킹의 한계를 극복하고 생물 의학 데이터에서 의미론적 증거 조각화를 방지하는 최적화 기법입니다.",
-  "hook_en": "Avoids semantic fragmentation in biomedical RAG by replacing fixed-size chunking with configurable semantic chunking.",
-  "hook_zh": "用可配置语义分块替代固定大小分块，彻底解决生物医学数据检索增强生成中的语义碎片化问题。",
+  "hook_ko": "고정 크기 청킹으로 인한 텍스트 문맥 파편화를 해결하는 바이오메디컬 RAG 가변형 시맨틱 청킹 기법",
+  "hook_en": "Overcoming semantic fragmentation in biomedical RAG through configurable, context-aware semantic chunking.",
+  "hook_zh": "通过可配置的语义切片技术解决生物医学 RAG 中固定块导致的语义碎片化问题。",
   "description_ko": "고정 크기 청킹의 한계를 극복하고 생물 의학 데이터에서 의미론적 증거 조각화를 방지하는 최적화 기법입니다.",
   "description_en": "Avoids semantic fragmentation in biomedical RAG by replacing fixed-size chunking with configurable semantic chunking.",
   "description_zh": "用可配置语义分块替代固定大小分块，彻底解决生物医学数据检索增强生成中的语义碎片化问题。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "ArXiv: 바이오메디컬 정보 추출 및 RAG를 위한 가변형 시맨틱 청킹 기술",
+      "hook": "고정 크기 청킹으로 인한 텍스트 문맥 파편화를 해결하는 바이오메디컬 RAG 가변형 시맨틱 청킹 기법",
+      "key_takeaways": [
+        "기존 BioMedRAG의 고정 크기 청킹 한계점(의미론적 근거 단절) 극복",
+        "문맥 유지를 위해 의미 단위를 보존하는 가변형(Configurable) 시맨틱 청킹 알고리즘 제안",
+        "바이오메디컬 도메인 특화 정보 추출 정확도 및 검색 성능 개선"
+      ]
+    },
+    "en": {
+      "title": "ArXiv: Configurable Semantic Chunking for Biomedical Information Extraction in Retrieval-Augmented Generation",
+      "hook": "Overcoming semantic fragmentation in biomedical RAG through configurable, context-aware semantic chunking.",
+      "key_takeaways": [
+        "Addresses the limitations of fixed-size chunking in biomedical document retrieval.",
+        "Introduces a configurable semantic chunking method to preserve context integrity.",
+        "Improves retrieval performance and accuracy for complex biomedical information extraction tasks."
+      ]
+    },
+    "zh": {
+      "title": "ArXiv: 面向生物医学信息提取与 RAG 的可配置语义切片技术",
+      "hook": "通过可配置的语义切片技术解决生物医学 RAG 中固定块导致的语义碎片化问题。",
+      "key_takeaways": [
+        "克服传统 BioMedRAG 中固定大小切片导致的语义断裂问题",
+        "提出可配置的语义切片方法，保留完整的上下文语义",
+        "显著提升复杂生物医学文本检索与信息提取的准确度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.923329"
 }

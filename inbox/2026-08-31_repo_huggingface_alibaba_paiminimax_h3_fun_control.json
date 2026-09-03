@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "MODEL",
-  "title_ko": "MiniMax-H3-Fun-Controlnet-Union 모델",
+  "title_ko": "알리바바 PAI: MiniMax-H3 Fun-Controlnet-Union (비디오 제어 모델)",
   "description_ko": "텍스트-투-비디오(Text-to-Video) 생성의 제어력을 극대화하는 MiniMax H3 유니온 콘트롤넷입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,64 +48,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_alibaba_paiminimax_h3_fun_control",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "MiniMax",
-    "category": "AI 영상 제작 및 ControlNet",
+    "type_classification": "TECH",
+    "model_family": "ControlNet",
+    "category": "Video Generation",
     "programming_lang": "Python",
     "root_keywords": [
+      "ControlNet",
+      "Text-to-Video",
       "MiniMax-H3",
-      "Controlnet-Union",
-      "Text-to-Video"
+      "Alibaba PAI",
+      "Video Diffusion"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.1,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "MiniMax-H3-Fun-Controlnet-Union 모델",
-        "hook": "텍스트-투-비디오(Text-to-Video) 생성의 제어력을 극대화하는 MiniMax H3 유니온 콘트롤넷입니다.",
+        "title": "알리바바 PAI: MiniMax-H3 Fun-Controlnet-Union (비디오 제어 모델)",
+        "hook": "MiniMax-H3 기반 비디오 생성에 정밀한 조건 제어를 더한 통합 ControlNet 모델",
         "key_takeaways": [
-          "MiniMax-H3 비디오 생성 모델과 연동되는 ControlNet",
-          "다양한 조건(포즈, 깊이 등)을 통한 정밀한 영상 제어",
-          "고급 비디오 생성 파이프라인 구축에 필수적"
+          "포즈, 깊이, 에지 등 다양한 제어 조건을 단일 모델로 통합한 ControlNet Union",
+          "알리바바 PAI에서 공개한 고품질 텍스트-투-비디오(Text-to-Video) 구도 및 동작 제어 파이프라인",
+          "비디오 디퓨전 모델의 시공간적 일관성을 유지하면서 세밀한 연출 가능"
         ]
       },
       "en": {
-        "title": "MiniMax-H3-Fun-Controlnet-Union Model",
-        "hook": "Achieve unprecedented control over AI video generation with the new MiniMax H3 union controlnet.",
+        "title": "Alibaba PAI: MiniMax-H3 Fun-Controlnet-Union for Text-to-Video Control",
+        "hook": "A unified ControlNet adapter for MiniMax-H3 enabling multi-condition text-to-video generation.",
         "key_takeaways": [
-          "Designed to integrate seamlessly with MiniMax-H3 video models",
-          "Enables precise multi-condition video generation and control",
-          "Essential for advanced creative video pipelines"
+          "Combines multiple structural conditions (depth, pose, edge) into a single unified video ControlNet.",
+          "Built by Alibaba PAI to bring fine-grained motion and composition control to video diffusion.",
+          "Maintains strong temporal consistency and visual fidelity across generated video frames."
         ]
       },
       "zh": {
-        "title": "MiniMax-H3-Fun-Controlnet-Union 模型",
-        "hook": "利用全新的 MiniMax H3 联合控制网，实现对 AI 视频生成的精准控制。",
+        "title": "阿里 PAI：MiniMax-H3 Fun-Controlnet-Union (可控视频生成模型)",
+        "hook": "针对 MiniMax-H3 的一体化 ControlNet 模型，赋予视频生成精准的多条件控制能力",
         "key_takeaways": [
-          "无缝集成于 MiniMax-H3 视频生成模型",
-          "支持多条件联合控制，提升视频生成精度",
-          "高级创意视频工作流的必备利器"
+          "将姿态、深度、边缘等多种控制模态融合为一体的视频 ControlNet 统一模型",
+          "由阿里 PAI 团队研发，极大提升了文本到视频（Text-to-Video）的精细化操控度",
+          "保障视频生成过程中的时序一致性与复杂动作引导"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:33:36.550624+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
+    "ControlNet",
+    "Text-to-Video",
     "MiniMax-H3",
-    "Controlnet-Union",
-    "Text-to-Video"
+    "Alibaba PAI",
+    "Video Diffusion"
   ],
-  "title_en": "MiniMax-H3-Fun-Controlnet-Union Model",
-  "title_zh": "MiniMax-H3-Fun-Controlnet-Union 模型",
+  "title_en": "Alibaba PAI: MiniMax-H3 Fun-Controlnet-Union for Text-to-Video Control",
+  "title_zh": "阿里 PAI：MiniMax-H3 Fun-Controlnet-Union (可控视频生成模型)",
   "hook": "텍스트-투-비디오(Text-to-Video) 생성의 제어력을 극대화하는 MiniMax H3 유니온 콘트롤넷입니다.",
-  "hook_ko": "텍스트-투-비디오(Text-to-Video) 생성의 제어력을 극대화하는 MiniMax H3 유니온 콘트롤넷입니다.",
-  "hook_en": "Achieve unprecedented control over AI video generation with the new MiniMax H3 union controlnet.",
-  "hook_zh": "利用全新的 MiniMax H3 联合控制网，实现对 AI 视频生成的精准控制。",
+  "hook_ko": "MiniMax-H3 기반 비디오 생성에 정밀한 조건 제어를 더한 통합 ControlNet 모델",
+  "hook_en": "A unified ControlNet adapter for MiniMax-H3 enabling multi-condition text-to-video generation.",
+  "hook_zh": "针对 MiniMax-H3 的一体化 ControlNet 模型，赋予视频生成精准的多条件控制能力",
   "description_en": "Achieve unprecedented control over AI video generation with the new MiniMax H3 union controlnet.",
   "description_zh": "利用全新的 MiniMax H3 联合控制网，实现对 AI 视频生成的精准控制。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "알리바바 PAI: MiniMax-H3 Fun-Controlnet-Union (비디오 제어 모델)",
+      "hook": "MiniMax-H3 기반 비디오 생성에 정밀한 조건 제어를 더한 통합 ControlNet 모델",
+      "key_takeaways": [
+        "포즈, 깊이, 에지 등 다양한 제어 조건을 단일 모델로 통합한 ControlNet Union",
+        "알리바바 PAI에서 공개한 고품질 텍스트-투-비디오(Text-to-Video) 구도 및 동작 제어 파이프라인",
+        "비디오 디퓨전 모델의 시공간적 일관성을 유지하면서 세밀한 연출 가능"
+      ]
+    },
+    "en": {
+      "title": "Alibaba PAI: MiniMax-H3 Fun-Controlnet-Union for Text-to-Video Control",
+      "hook": "A unified ControlNet adapter for MiniMax-H3 enabling multi-condition text-to-video generation.",
+      "key_takeaways": [
+        "Combines multiple structural conditions (depth, pose, edge) into a single unified video ControlNet.",
+        "Built by Alibaba PAI to bring fine-grained motion and composition control to video diffusion.",
+        "Maintains strong temporal consistency and visual fidelity across generated video frames."
+      ]
+    },
+    "zh": {
+      "title": "阿里 PAI：MiniMax-H3 Fun-Controlnet-Union (可控视频生成模型)",
+      "hook": "针对 MiniMax-H3 的一体化 ControlNet 模型，赋予视频生成精准的多条件控制能力",
+      "key_takeaways": [
+        "将姿态、深度、边缘等多种控制模态融合为一体的视频 ControlNet 统一模型",
+        "由阿里 PAI 团队研发，极大提升了文本到视频（Text-to-Video）的精细化操控度",
+        "保障视频生成过程中的时序一致性与复杂动作引导"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.848806"
 }

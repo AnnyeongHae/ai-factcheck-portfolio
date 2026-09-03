@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "모노크롬 에디토리얼 인쇄 스타일 이미지 생성 스킬",
+  "title_ko": "yanliudesign/mono-color-skill: 단색 에디토리얼 인쇄 스타일 이미지 생성 스킬",
   "description_ko": "따뜻한 질감의 종이, 하프톤 사진, 감각적인 여백을 살린 에디토리얼 디자인 스킬입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -47,66 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_github_yanliudesignmono_color_skill",
     "source_lang": "EN",
-    "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "이미지 생성 및 디자인",
+    "type_classification": "Generative AI",
+    "model_family": "Image Generation / Prompt Engineering",
+    "category": "Design & Generative AI",
     "programming_lang": "General",
     "root_keywords": [
-      "Mono Color",
-      "Editorial Print",
-      "Halftone",
-      "Typography"
+      "mono-color",
+      "halftone",
+      "editorial print",
+      "prompt engineering",
+      "image generation"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.8,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "모노크롬 에디토리얼 인쇄 스타일 이미지 생성 스킬",
-        "hook": "따뜻한 질감의 종이, 하프톤 사진, 감각적인 여백을 살린 에디토리얼 디자인 스킬입니다.",
+        "title": "yanliudesign/mono-color-skill: 단색 에디토리얼 인쇄 스타일 이미지 생성 스킬",
+        "hook": "따뜻한 종이 질감과 하프톤 스타일을 살린 단색 에디토리얼 이미지 생성 AI 스킬",
         "key_takeaways": [
-          "원잉크(One-ink) 에디토리얼 인쇄 스타일 구현",
-          "따뜻한 종이 질감 및 하프톤 사진 효과 적용",
-          "절제된 타이포그래피와 액티브한 네거티브 스페이스 강조"
+          "단일 잉크(One-ink) 기반의 에디토리얼 그래픽 디자인 AI 스타일 정의",
+          "하프톤 패터닝, 따뜻한 종이 질감, 여백을 활용한 고품질 프롬프트 구성",
+          "절제된 타이포그래피와 조화를 이루는 시각적 이미지 생성 제어 기법"
         ]
       },
       "en": {
-        "title": "Mono-Color Editorial Print Image Skill",
-        "hook": "Create editorial designs featuring warm paper textures, halftone photography, and restrained typography.",
+        "title": "yanliudesign/mono-color-skill: One-ink Editorial Print Image Skill",
+        "hook": "Specialized AI image skill for creating one-ink editorial print aesthetics with halftone effects and warm paper textures.",
         "key_takeaways": [
-          "Implementation of one-ink editorial print styles",
-          "Application of warm paper textures and halftone photo effects",
-          "Emphasis on restrained typography and active negative space"
+          "Structured skill definition for one-ink editorial print visual styles in AI image generation",
+          "Incorporate halftone photography, warm paper textures, and active negative space",
+          "Provides precise aesthetic and composition rules for restrained design outputs"
         ]
       },
       "zh": {
-        "title": "单色编辑印刷风格图像技能",
-        "hook": "打造具有温暖纸张质感、网目调摄影和克制排版的编辑设计效果。",
+        "title": "yanliudesign/mono-color-skill: 单色编辑印刷风格图像生成技能",
+        "hook": "结合暖色纸张、网屏摄影与留白艺术的单色编辑印刷 AI 图像生成 Prompt 技能",
         "key_takeaways": [
-          "实现单墨编辑印刷风格",
-          "应用温暖的纸张质感和网目调照片效果",
-          "强调克制的排版与活跃的负空间运用"
+          "专注于单色（One-ink）编辑印刷视觉风格的 AI 图像生成规则",
+          "融合网屏半音（Halftone）、暖色纸纹理与积极留白的构图控制",
+          "为注重设计的 AI 图像生成提供精细的视觉与排版美学指南"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:38.376567+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
-    "Mono Color",
-    "Editorial Print",
-    "Halftone",
-    "Typography"
+    "mono-color",
+    "halftone",
+    "editorial print",
+    "prompt engineering",
+    "image generation"
   ],
-  "title_en": "Mono-Color Editorial Print Image Skill",
-  "title_zh": "单色编辑印刷风格图像技能",
+  "title_en": "yanliudesign/mono-color-skill: One-ink Editorial Print Image Skill",
+  "title_zh": "yanliudesign/mono-color-skill: 单色编辑印刷风格图像生成技能",
   "hook": "따뜻한 질감의 종이, 하프톤 사진, 감각적인 여백을 살린 에디토리얼 디자인 스킬입니다.",
-  "hook_ko": "따뜻한 질감의 종이, 하프톤 사진, 감각적인 여백을 살린 에디토리얼 디자인 스킬입니다.",
-  "hook_en": "Create editorial designs featuring warm paper textures, halftone photography, and restrained typography.",
-  "hook_zh": "打造具有温暖纸张质感、网目调摄影和克制排版的编辑设计效果。",
+  "hook_ko": "따뜻한 종이 질감과 하프톤 스타일을 살린 단색 에디토리얼 이미지 생성 AI 스킬",
+  "hook_en": "Specialized AI image skill for creating one-ink editorial print aesthetics with halftone effects and warm paper textures.",
+  "hook_zh": "结合暖色纸张、网屏摄影与留白艺术的单色编辑印刷 AI 图像生成 Prompt 技能",
   "description_en": "Create editorial designs featuring warm paper textures, halftone photography, and restrained typography.",
   "description_zh": "打造具有温暖纸张质感、网目调摄影和克制排版的编辑设计效果。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "yanliudesign/mono-color-skill: 단색 에디토리얼 인쇄 스타일 이미지 생성 스킬",
+      "hook": "따뜻한 종이 질감과 하프톤 스타일을 살린 단색 에디토리얼 이미지 생성 AI 스킬",
+      "key_takeaways": [
+        "단일 잉크(One-ink) 기반의 에디토리얼 그래픽 디자인 AI 스타일 정의",
+        "하프톤 패터닝, 따뜻한 종이 질감, 여백을 활용한 고품질 프롬프트 구성",
+        "절제된 타이포그래피와 조화를 이루는 시각적 이미지 생성 제어 기법"
+      ]
+    },
+    "en": {
+      "title": "yanliudesign/mono-color-skill: One-ink Editorial Print Image Skill",
+      "hook": "Specialized AI image skill for creating one-ink editorial print aesthetics with halftone effects and warm paper textures.",
+      "key_takeaways": [
+        "Structured skill definition for one-ink editorial print visual styles in AI image generation",
+        "Incorporate halftone photography, warm paper textures, and active negative space",
+        "Provides precise aesthetic and composition rules for restrained design outputs"
+      ]
+    },
+    "zh": {
+      "title": "yanliudesign/mono-color-skill: 单色编辑印刷风格图像生成技能",
+      "hook": "结合暖色纸张、网屏摄影与留白艺术的单色编辑印刷 AI 图像生成 Prompt 技能",
+      "key_takeaways": [
+        "专注于单色（One-ink）编辑印刷视觉风格的 AI 图像生成规则",
+        "融合网屏半音（Halftone）、暖色纸纹理与积极留白的构图控制",
+        "为注重设计的 AI 图像生成提供精细的视觉与排版美学指南"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.809933"
 }

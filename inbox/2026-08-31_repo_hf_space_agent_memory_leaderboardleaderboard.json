@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "AGENT",
-  "title_ko": "AI 에이전트 메모리 성능을 한눈에 비교하는 리더보드",
+  "title_ko": "Agent Memory Leaderboard: AI 에이전트 메모리 성능 리더보드",
   "description_ko": "AI 에이전트의 장기 기억 및 컨텍스트 유지 능력을 평가하는 최신 벤치마크입니다.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,64 +47,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_agent_memory_leaderboardleaderboard",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "에이전트 메모리 평가",
+    "type_classification": "TECH",
+    "model_family": "Autonomous Agents",
+    "category": "AI Agents & Evaluation",
     "programming_lang": "Python",
     "root_keywords": [
       "Agent Memory",
-      "Leaderboard",
-      "LLM Evaluation"
+      "AI Leaderboard",
+      "LLM Benchmark",
+      "Long-term Memory"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "AI 에이전트 메모리 성능을 한눈에 비교하는 리더보드",
-        "hook": "AI 에이전트의 장기 기억 및 컨텍스트 유지 능력을 평가하는 최신 벤치마크입니다.",
+        "title": "Agent Memory Leaderboard: AI 에이전트 메모리 성능 리더보드",
+        "hook": "AI 에이전트의 장기 기억 및 컨텍스트 관리 성능을 비교·평가하는 전용 리더보드",
         "key_takeaways": [
-          "AI 에이전트 메모리 시스템의 성능 순위 제공",
-          "다양한 에이전트 아키텍처의 기억 유지력 비교 분석",
-          "에이전트 개발 시 메모리 모듈 선택을 위한 핵심 지표 제공"
+          "다양한 에이전트 메모리 프레임워크 및 구조의 기억 회상 및 추론 능력 평가",
+          "장기 컨텍스트(Long-context) 및 외부 데이터 저장소 연동 성능 지표 제공",
+          "에이전트 시스템 빌더를 위한 메모리 모듈 선택 가이드라인 제시"
         ]
       },
       "en": {
-        "title": "Agent Memory Performance Leaderboard",
-        "hook": "A comprehensive benchmark tracking long-term memory and context retention in AI agents.",
+        "title": "Agent Memory Leaderboard: Benchmark for AI Agent Memory Systems",
+        "hook": "A specialized leaderboard for benchmarking long-term memory and context retrieval in AI agents",
         "key_takeaways": [
-          "Performance rankings for AI agent memory systems",
-          "Comparative analysis of memory retention across agent architectures",
-          "Key metric reference for selecting memory modules in agent development"
+          "Evaluates recall and reasoning capabilities across different agent memory architectures",
+          "Provides benchmark metrics for long-context handling and external vector store integration",
+          "Offers actionable selection guidelines for developers building autonomous agent memory modules"
         ]
       },
       "zh": {
-        "title": "AI 智能体记忆性能排行榜",
-        "hook": "追踪和评估 AI 智能体长期记忆与上下文保持能力的最新基准测试。",
+        "title": "Agent Memory Leaderboard：AI 智能体记忆能力排行榜",
+        "hook": "旨在评估与比较 AI 智能体长期记忆与上下文检索能力的基准排行榜",
         "key_takeaways": [
-          "提供 AI 智能体记忆系统的性能排名",
-          "对比分析不同智能体架构的记忆保持能力",
-          "为智能体开发中的内存模块选择提供核心指标参考"
+          "评估不同智能体记忆架构在信息召回与推理方面的能力",
+          "提供长上下文处理及外部向量存储集成的基准测试指标",
+          "为构建自主智能体系统的开发者提供记忆模块选型指南"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:38.376326+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Agent Memory",
-    "Leaderboard",
-    "LLM Evaluation"
+    "AI Leaderboard",
+    "LLM Benchmark",
+    "Long-term Memory"
   ],
-  "title_en": "Agent Memory Performance Leaderboard",
-  "title_zh": "AI 智能体记忆性能排行榜",
+  "title_en": "Agent Memory Leaderboard: Benchmark for AI Agent Memory Systems",
+  "title_zh": "Agent Memory Leaderboard：AI 智能体记忆能力排行榜",
   "hook": "AI 에이전트의 장기 기억 및 컨텍스트 유지 능력을 평가하는 최신 벤치마크입니다.",
-  "hook_ko": "AI 에이전트의 장기 기억 및 컨텍스트 유지 능력을 평가하는 최신 벤치마크입니다.",
-  "hook_en": "A comprehensive benchmark tracking long-term memory and context retention in AI agents.",
-  "hook_zh": "追踪和评估 AI 智能体长期记忆与上下文保持能力的最新基准测试。",
+  "hook_ko": "AI 에이전트의 장기 기억 및 컨텍스트 관리 성능을 비교·평가하는 전용 리더보드",
+  "hook_en": "A specialized leaderboard for benchmarking long-term memory and context retrieval in AI agents",
+  "hook_zh": "旨在评估与比较 AI 智能体长期记忆与上下文检索能力的基准排行榜",
   "description_en": "A comprehensive benchmark tracking long-term memory and context retention in AI agents.",
   "description_zh": "追踪和评估 AI 智能体长期记忆与上下文保持能力的最新基准测试。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Agent Memory Leaderboard: AI 에이전트 메모리 성능 리더보드",
+      "hook": "AI 에이전트의 장기 기억 및 컨텍스트 관리 성능을 비교·평가하는 전용 리더보드",
+      "key_takeaways": [
+        "다양한 에이전트 메모리 프레임워크 및 구조의 기억 회상 및 추론 능력 평가",
+        "장기 컨텍스트(Long-context) 및 외부 데이터 저장소 연동 성능 지표 제공",
+        "에이전트 시스템 빌더를 위한 메모리 모듈 선택 가이드라인 제시"
+      ]
+    },
+    "en": {
+      "title": "Agent Memory Leaderboard: Benchmark for AI Agent Memory Systems",
+      "hook": "A specialized leaderboard for benchmarking long-term memory and context retrieval in AI agents",
+      "key_takeaways": [
+        "Evaluates recall and reasoning capabilities across different agent memory architectures",
+        "Provides benchmark metrics for long-context handling and external vector store integration",
+        "Offers actionable selection guidelines for developers building autonomous agent memory modules"
+      ]
+    },
+    "zh": {
+      "title": "Agent Memory Leaderboard：AI 智能体记忆能力排行榜",
+      "hook": "旨在评估与比较 AI 智能体长期记忆与上下文检索能力的基准排行榜",
+      "key_takeaways": [
+        "评估不同智能体记忆架构在信息召回与推理方面的能力",
+        "提供长上下文处理及外部向量存储集成的基准测试指标",
+        "为构建自主智能体系统的开发者提供记忆模块选型指南"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.813903"
 }

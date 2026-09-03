@@ -33,66 +33,99 @@
   "ai_enrichment": {
     "id": "2026-09-02_repo_arxiv_selective_agent_guidance_via_entropy_le",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "웹 에이전트",
+    "type_classification": "TECH",
+    "model_family": "Vision-Language Models / Agentic Reinforcement Learning",
+    "category": "Autonomous Agents",
     "programming_lang": "Python",
     "root_keywords": [
-      "Vision-Language Models",
+      "VLM",
       "Entropy Guidance",
-      "Autonomous Policy"
+      "Autonomous Policy",
+      "Teacher-Student Distillation",
+      "Interactive Decision Making"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "엔트로피 기반 선택적 에이전트 가이드: 불완전한 VLM 교사로부터 자율 정책 학습",
-        "hook": "비싼 VLM을 매 스텝 호출하는 대신 엔트로피를 활용해 효율적으로 자율 에이전트 정책을 학습하는 방법을 제시합니다.",
+        "title": "엔트로피 기반 선택적 에이전트 가이드: 불완전한 VLM 교사로부터 자율 정책 학습하기",
+        "hook": "매 단계 VLM을 직접 호출하는 비효율성을 극복하고 엔트로피 가이던스로 비용과 성능을 최적화한 정책 학습 프레임워크",
         "key_takeaways": [
-          "VLM을 매번 직접 호출하는 비용과 취약성 문제 해결",
-          "엔트로피 기반 선택적 가이드를 통한 효율적인 정책 학습",
-          "불완전한 교사 모델로부터 자율적이고 강건한 의사결정 유도"
+          "VLM을 지속적인 정책으로 사용하는 대신 불확실성이 높을 때만 가이드를 제공하는 교사(Teacher)로 활용",
+          "엔트로피 기반 메트릭으로 VLM 질의 타이밍을 제어하여 지연 시간 및 추론 비용 대폭 감소",
+          "교사 모델인 VLM의 불완전하거나 일관성이 떨어지는 피드백 조건에서도 안정적으로 자율 정책을 고도화"
         ]
       },
       "en": {
         "title": "Selective Agent Guidance via Entropy: Learning Autonomous Policies from Imperfect VLM Teachers",
-        "hook": "Learn how to efficiently train autonomous agent policies using entropy instead of expensive per-step VLM queries.",
+        "hook": "An efficient policy learning framework that uses entropy guidance to reduce query costs and optimize decision-making with VLM teachers.",
         "key_takeaways": [
-          "Addresses the high cost and brittleness of per-step VLM queries",
-          "Introduces entropy-based selective guidance for efficient policy learning",
-          "Enables robust autonomous decision-making from imperfect teacher models"
+          "Uses VLMs as selective teacher guidance instead of querying them directly at every decision step.",
+          "Leverages entropy-based uncertainty thresholds to trigger VLM queries only when necessary, saving inference costs.",
+          "Enables robust autonomous policy improvement even when learning from imperfect or noisy VLM feedback."
         ]
       },
       "zh": {
-        "title": "基于熵的选择性智能体引导：从不完美VLM教师中学习自主策略",
-        "hook": "探讨如何利用熵来替代昂贵的每步VLM查询，从而高效训练自主智能体策略。",
+        "title": "通过熵实现选择性智能体指导：从不完美的 VLM 教师中学习自主策略",
+        "hook": "通过引入基于熵的选择性指导，避免每一步直接调用 VLM 的巨大开销，实现高效稳健的智能体策略学习。",
         "key_takeaways": [
-          "解决了每步查询VLM的高昂成本与脆弱性问题",
-          "引入基于熵的选择性引导机制以实现高效策略学习",
-          "从不完美的教师模型中诱导并构建鲁棒的自主决策"
+          "将 VLM 作为选择性指导教师，取代每一步均进行查询的高成本策略调用模式。",
+          "利用基于熵的不确定性指标精确控制 VLM 查询时机，显著降低推理延迟与 API 费用。",
+          "在 VLM 教师反馈存在噪音或不完美的情况下，仍能保证自主策略的稳定与持续提升。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:57.502488+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Vision-Language Models",
+    "VLM",
     "Entropy Guidance",
-    "Autonomous Policy"
+    "Autonomous Policy",
+    "Teacher-Student Distillation",
+    "Interactive Decision Making"
   ],
-  "title_ko": "엔트로피 기반 선택적 에이전트 가이드: 불완전한 VLM 교사로부터 자율 정책 학습",
+  "title_ko": "엔트로피 기반 선택적 에이전트 가이드: 불완전한 VLM 교사로부터 자율 정책 학습하기",
   "title_en": "Selective Agent Guidance via Entropy: Learning Autonomous Policies from Imperfect VLM Teachers",
-  "title_zh": "基于熵的选择性智能体引导：从不完美VLM教师中学习自主策略",
+  "title_zh": "通过熵实现选择性智能体指导：从不完美的 VLM 教师中学习自主策略",
   "hook": "비싼 VLM을 매 스텝 호출하는 대신 엔트로피를 활용해 효율적으로 자율 에이전트 정책을 학습하는 방법을 제시합니다.",
-  "hook_ko": "비싼 VLM을 매 스텝 호출하는 대신 엔트로피를 활용해 효율적으로 자율 에이전트 정책을 학습하는 방법을 제시합니다.",
-  "hook_en": "Learn how to efficiently train autonomous agent policies using entropy instead of expensive per-step VLM queries.",
-  "hook_zh": "探讨如何利用熵来替代昂贵的每步VLM查询，从而高效训练自主智能体策略。",
+  "hook_ko": "매 단계 VLM을 직접 호출하는 비효율성을 극복하고 엔트로피 가이던스로 비용과 성능을 최적화한 정책 학습 프레임워크",
+  "hook_en": "An efficient policy learning framework that uses entropy guidance to reduce query costs and optimize decision-making with VLM teachers.",
+  "hook_zh": "通过引入基于熵的选择性指导，避免每一步直接调用 VLM 的巨大开销，实现高效稳健的智能体策略学习。",
   "description_ko": "비싼 VLM을 매 스텝 호출하는 대신 엔트로피를 활용해 효율적으로 자율 에이전트 정책을 학습하는 방법을 제시합니다.",
   "description_en": "Learn how to efficiently train autonomous agent policies using entropy instead of expensive per-step VLM queries.",
   "description_zh": "探讨如何利用熵来替代昂贵的每步VLM查询，从而高效训练自主智能体策略。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "엔트로피 기반 선택적 에이전트 가이드: 불완전한 VLM 교사로부터 자율 정책 학습하기",
+      "hook": "매 단계 VLM을 직접 호출하는 비효율성을 극복하고 엔트로피 가이던스로 비용과 성능을 최적화한 정책 학습 프레임워크",
+      "key_takeaways": [
+        "VLM을 지속적인 정책으로 사용하는 대신 불확실성이 높을 때만 가이드를 제공하는 교사(Teacher)로 활용",
+        "엔트로피 기반 메트릭으로 VLM 질의 타이밍을 제어하여 지연 시간 및 추론 비용 대폭 감소",
+        "교사 모델인 VLM의 불완전하거나 일관성이 떨어지는 피드백 조건에서도 안정적으로 자율 정책을 고도화"
+      ]
+    },
+    "en": {
+      "title": "Selective Agent Guidance via Entropy: Learning Autonomous Policies from Imperfect VLM Teachers",
+      "hook": "An efficient policy learning framework that uses entropy guidance to reduce query costs and optimize decision-making with VLM teachers.",
+      "key_takeaways": [
+        "Uses VLMs as selective teacher guidance instead of querying them directly at every decision step.",
+        "Leverages entropy-based uncertainty thresholds to trigger VLM queries only when necessary, saving inference costs.",
+        "Enables robust autonomous policy improvement even when learning from imperfect or noisy VLM feedback."
+      ]
+    },
+    "zh": {
+      "title": "通过熵实现选择性智能体指导：从不完美的 VLM 教师中学习自主策略",
+      "hook": "通过引入基于熵的选择性指导，避免每一步直接调用 VLM 的巨大开销，实现高效稳健的智能体策略学习。",
+      "key_takeaways": [
+        "将 VLM 作为选择性指导教师，取代每一步均进行查询的高成本策略调用模式。",
+        "利用基于熵的不确定性指标精确控制 VLM 查询时机，显著降低推理延迟与 API 费用。",
+        "在 VLM 教师反馈存在噪音或不完美的情况下，仍能保证自主策略的稳定与持续提升。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.987292"
 }

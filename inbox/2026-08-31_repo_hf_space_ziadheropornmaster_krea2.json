@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "Hugging Face Space: Ziadhero/pornmaster-krea2",
+  "title_ko": "HF Space: Ziadhero/pornmaster-krea2",
   "description_ko": "Krea2 기반 이미지 생성 및 시각화 AI 모델을 웹에서 바로 테스트할 수 있는 Gradio 데모입니다.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,66 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_ziadheropornmaster_krea2",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Krea",
-    "category": "이미지 생성 및 업스케일링",
+    "type_classification": "TECH",
+    "model_family": "Diffusion Models",
+    "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
-      "Krea2",
+      "Hugging Face Spaces",
       "Gradio",
+      "Image Generation",
       "AI Demo",
-      "Image Generation"
+      "Diffusion"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.5,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face Space: Ziadhero/pornmaster-krea2",
-        "hook": "Krea2 기반 이미지 생성 및 시각화 AI 모델을 웹에서 바로 테스트할 수 있는 Gradio 데모입니다.",
+        "title": "HF Space: Ziadhero/pornmaster-krea2",
+        "hook": "Gradio 기반의 이미지 생성 AI 인터랙티브 데모 공간",
         "key_takeaways": [
-          "Gradio 기반의 직관적인 인터랙티브 AI 데모 제공",
-          "Krea2 아키텍처를 활용한 시각적 결과물 테스트 가능",
-          "웹 브라우저에서 즉시 실행 및 활용 가능"
+          "Gradio SDK를 활용한 웹 UI 데모 구현",
+          "이미지 생성 Diffusion 모델 인터페이스 제공",
+          "Hugging Face Spaces를 통한 AI 애플리케이션 호스팅 예시"
         ]
       },
       "en": {
-        "title": "Hugging Face Space: Ziadhero/pornmaster-krea2",
-        "hook": "An interactive Gradio web demo to test and explore the Krea2 image generation AI model.",
+        "title": "HF Space: Ziadhero/pornmaster-krea2",
+        "hook": "Interactive Gradio-based AI image generation demo space on Hugging Face",
         "key_takeaways": [
-          "Interactive AI demo powered by Gradio",
-          "Test visual capabilities based on the Krea2 architecture",
-          "Ready-to-use direct execution in the browser"
+          "Utilizes Gradio SDK for interactive web UI generation",
+          "Provides an interface for image generation diffusion models",
+          "Demonstrates hosting AI applications on Hugging Face Spaces"
         ]
       },
       "zh": {
-        "title": "Hugging Face 空间：Ziadhero/pornmaster-krea2",
-        "hook": "基于 Gradio 的交互式网页演示，可直接测试 Krea2 图像生成 AI 模型。",
+        "title": "HF Space: Ziadhero/pornmaster-krea2",
+        "hook": "基于 Gradio 的 Hugging Face 交互式 AI 图像生成 Demo 空间",
         "key_takeaways": [
-          "提供基于 Gradio 的直观交互式 AI 演示",
-          "测试基于 Krea2 架构的视觉生成效果",
-          "支持在网页浏览器中直接运行和体验"
+          "使用 Gradio SDK 构建交互式 Web UI",
+          "提供图像生成 Diffusion 模型的测试接口",
+          "展示在 Hugging Face Spaces 上部署 AI 应用的实例"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:33:48.644953+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Krea2",
+    "Hugging Face Spaces",
     "Gradio",
+    "Image Generation",
     "AI Demo",
-    "Image Generation"
+    "Diffusion"
   ],
-  "title_en": "Hugging Face Space: Ziadhero/pornmaster-krea2",
-  "title_zh": "Hugging Face 空间：Ziadhero/pornmaster-krea2",
+  "title_en": "HF Space: Ziadhero/pornmaster-krea2",
+  "title_zh": "HF Space: Ziadhero/pornmaster-krea2",
   "hook": "Krea2 기반 이미지 생성 및 시각화 AI 모델을 웹에서 바로 테스트할 수 있는 Gradio 데모입니다.",
-  "hook_ko": "Krea2 기반 이미지 생성 및 시각화 AI 모델을 웹에서 바로 테스트할 수 있는 Gradio 데모입니다.",
-  "hook_en": "An interactive Gradio web demo to test and explore the Krea2 image generation AI model.",
-  "hook_zh": "基于 Gradio 的交互式网页演示，可直接测试 Krea2 图像生成 AI 模型。",
+  "hook_ko": "Gradio 기반의 이미지 생성 AI 인터랙티브 데모 공간",
+  "hook_en": "Interactive Gradio-based AI image generation demo space on Hugging Face",
+  "hook_zh": "基于 Gradio 的 Hugging Face 交互式 AI 图像生成 Demo 空间",
   "description_en": "An interactive Gradio web demo to test and explore the Krea2 image generation AI model.",
   "description_zh": "基于 Gradio 的交互式网页演示，可直接测试 Krea2 图像生成 AI 模型。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: Ziadhero/pornmaster-krea2",
+      "hook": "Gradio 기반의 이미지 생성 AI 인터랙티브 데모 공간",
+      "key_takeaways": [
+        "Gradio SDK를 활용한 웹 UI 데모 구현",
+        "이미지 생성 Diffusion 모델 인터페이스 제공",
+        "Hugging Face Spaces를 통한 AI 애플리케이션 호스팅 예시"
+      ]
+    },
+    "en": {
+      "title": "HF Space: Ziadhero/pornmaster-krea2",
+      "hook": "Interactive Gradio-based AI image generation demo space on Hugging Face",
+      "key_takeaways": [
+        "Utilizes Gradio SDK for interactive web UI generation",
+        "Provides an interface for image generation diffusion models",
+        "Demonstrates hosting AI applications on Hugging Face Spaces"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: Ziadhero/pornmaster-krea2",
+      "hook": "基于 Gradio 的 Hugging Face 交互式 AI 图像生成 Demo 空间",
+      "key_takeaways": [
+        "使用 Gradio SDK 构建交互式 Web UI",
+        "提供图像生成 Diffusion 模型的测试接口",
+        "展示在 Hugging Face Spaces 上部署 AI 应用的实例"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.847149"
 }

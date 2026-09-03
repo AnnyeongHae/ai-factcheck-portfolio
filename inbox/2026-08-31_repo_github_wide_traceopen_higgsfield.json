@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "멀티 모델 이미지 및 비디오 생성을 위한 통합 스튜디오 'Open-Higgsfield'",
+  "title_ko": "open-higgsfield: 단일 프롬프트 바 기반 이미지 및 비디오 생성 스튜디오",
   "description_ko": "단 하나의 프롬프트바로 다양한 모델의 설정과 결과물을 통합 관리하는 생성형 AI 스튜디오입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,65 +48,96 @@
     "id": "2026-08-31_repo_github_wide_traceopen_higgsfield",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "영상 및 이미지 생성 스튜디오",
-    "programming_lang": "Python",
+    "model_family": "Generative AI Studio",
+    "category": "Generative AI",
+    "programming_lang": "TypeScript",
     "root_keywords": [
       "Image Generation",
       "Video Generation",
-      "AI Studio",
-      "Prompt Bar"
+      "Unified UI",
+      "Multi-model Studio",
+      "Prompt Studio"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.7,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "멀티 모델 이미지 및 비디오 생성을 위한 통합 스튜디오 'Open-Higgsfield'",
-        "hook": "단 하나의 프롬프트바로 다양한 모델의 설정과 결과물을 통합 관리하는 생성형 AI 스튜디오입니다.",
+        "title": "open-higgsfield: 단일 프롬프트 바 기반 이미지 및 비디오 생성 스튜디오",
+        "hook": "여러 이미지/비디오 생성 모델을 하나의 프롬프트 바와 통합 갤러리로 관리하는 오픈소스 생성 스튜디오",
         "key_takeaways": [
-          "단일 프롬프트바로 여러 이미지·비디오 모델 동시 제어",
-          "각 모델별 맞춤형 세부 설정 지원",
-          "모든 생성 완료 결과물을 단일 갤러리에서 통합 관리"
+          "단일 프롬프트 바에서 다양한 이미지 및 비디오 AI 모델 실행 지원",
+          "각 모델별 전용 설정 파라미터 제어 및 통합 갤러리 제공",
+          "생성형 미디어 워크플로우를 간소화하는 직관적인 오픈소스 UI"
         ]
       },
       "en": {
-        "title": "Open-Higgsfield: Studio for Image and Video Generation",
-        "hook": "A unified studio featuring a single prompt bar, model-specific settings, and a centralized gallery for all runs.",
+        "title": "open-higgsfield: Unified Studio for Image and Video Generation",
+        "hook": "An open-source AI studio unifying multi-model image and video generation into a single prompt bar and gallery.",
         "key_takeaways": [
-          "Control multiple image and video models with a single prompt bar",
-          "Support for individual model settings and configurations",
-          "Centralized gallery to manage all finished generation runs"
+          "Unified prompt bar supporting execution across multiple image and video AI models",
+          "Per-model custom parameter controls paired with a centralized output gallery",
+          "Streamlines generative media creation workflows with an intuitive studio interface"
         ]
       },
       "zh": {
-        "title": "Open-Higgsfield：图像与视频生成统一工作室",
-        "hook": "通过单一提示词栏、模型专属设置以及集中式画廊，轻松管理各类图像与视频生成。",
+        "title": "open-higgsfield: 统一的图像与视频生成工作室",
+        "hook": "将多模型图像和视频生成集成至单一提示词栏与统一画廊的开源 AI 工作室",
         "key_takeaways": [
-          "使用单个提示词栏控制多个图像和视频模型",
-          "支持各模型的独立参数设置",
-          "在一个集中式画廊中管理所有生成结果"
+          "支持在统一提示词栏中运行多种图像与视频 AI 模型",
+          "针对各模型提供专属参数控制及集中式生成结果画廊",
+          "简化复杂生成式媒体创作工作流的直观开源 Studio UI"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:38.376990+00:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "TypeScript",
   "root_keywords": [
     "Image Generation",
     "Video Generation",
-    "AI Studio",
-    "Prompt Bar"
+    "Unified UI",
+    "Multi-model Studio",
+    "Prompt Studio"
   ],
-  "title_en": "Open-Higgsfield: Studio for Image and Video Generation",
-  "title_zh": "Open-Higgsfield：图像与视频生成统一工作室",
+  "title_en": "open-higgsfield: Unified Studio for Image and Video Generation",
+  "title_zh": "open-higgsfield: 统一的图像与视频生成工作室",
   "hook": "단 하나의 프롬프트바로 다양한 모델의 설정과 결과물을 통합 관리하는 생성형 AI 스튜디오입니다.",
-  "hook_ko": "단 하나의 프롬프트바로 다양한 모델의 설정과 결과물을 통합 관리하는 생성형 AI 스튜디오입니다.",
-  "hook_en": "A unified studio featuring a single prompt bar, model-specific settings, and a centralized gallery for all runs.",
-  "hook_zh": "通过单一提示词栏、模型专属设置以及集中式画廊，轻松管理各类图像与视频生成。",
+  "hook_ko": "여러 이미지/비디오 생성 모델을 하나의 프롬프트 바와 통합 갤러리로 관리하는 오픈소스 생성 스튜디오",
+  "hook_en": "An open-source AI studio unifying multi-model image and video generation into a single prompt bar and gallery.",
+  "hook_zh": "将多模型图像和视频生成集成至单一提示词栏与统一画廊的开源 AI 工作室",
   "description_en": "A unified studio featuring a single prompt bar, model-specific settings, and a centralized gallery for all runs.",
   "description_zh": "通过单一提示词栏、模型专属设置以及集中式画廊，轻松管理各类图像与视频生成。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "open-higgsfield: 단일 프롬프트 바 기반 이미지 및 비디오 생성 스튜디오",
+      "hook": "여러 이미지/비디오 생성 모델을 하나의 프롬프트 바와 통합 갤러리로 관리하는 오픈소스 생성 스튜디오",
+      "key_takeaways": [
+        "단일 프롬프트 바에서 다양한 이미지 및 비디오 AI 모델 실행 지원",
+        "각 모델별 전용 설정 파라미터 제어 및 통합 갤러리 제공",
+        "생성형 미디어 워크플로우를 간소화하는 직관적인 오픈소스 UI"
+      ]
+    },
+    "en": {
+      "title": "open-higgsfield: Unified Studio for Image and Video Generation",
+      "hook": "An open-source AI studio unifying multi-model image and video generation into a single prompt bar and gallery.",
+      "key_takeaways": [
+        "Unified prompt bar supporting execution across multiple image and video AI models",
+        "Per-model custom parameter controls paired with a centralized output gallery",
+        "Streamlines generative media creation workflows with an intuitive studio interface"
+      ]
+    },
+    "zh": {
+      "title": "open-higgsfield: 统一的图像与视频生成工作室",
+      "hook": "将多模型图像和视频生成集成至单一提示词栏与统一画廊的开源 AI 工作室",
+      "key_takeaways": [
+        "支持在统一提示词栏中运行多种图像与视频 AI 模型",
+        "针对各模型提供专属参数控制及集中式生成结果画廊",
+        "简化复杂生成式媒体创作工作流的直观开源 Studio UI"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.808373"
 }

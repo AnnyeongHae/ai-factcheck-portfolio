@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "다양한 벤더의 AI 워터마크 및 메타데이터 제거 도구",
+  "title_ko": "ShadowAqueduct/watermark-remover: 멀티 벤더 AI 워터마크 및 C2PA 메타데이터 제거 툴",
   "description_ko": "멀티 벤더 AI 워터마크와 C2PA 메타데이터를 한 번에 제거하여 프라이버시를 보호하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -49,63 +49,94 @@
     "id": "2026-08-31_repo_github_shadowaqueductwatermark_remover",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "보안 및 데이터 프라이버시",
-    "programming_lang": "General",
+    "model_family": "AI Output Sanitization",
+    "category": "AI Security & Utility",
+    "programming_lang": "Python",
     "root_keywords": [
-      "AI Watermark",
-      "Metadata Cleaner",
-      "C2PA"
+      "AI Watermark Remover",
+      "C2PA Sanitization",
+      "Unicode Cleaning",
+      "Metadata Removal"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "다양한 벤더의 AI 워터마크 및 메타데이터 제거 도구",
-        "hook": "멀티 벤더 AI 워터마크와 C2PA 메타데이터를 한 번에 제거하여 프라이버시를 보호하세요.",
+        "title": "ShadowAqueduct/watermark-remover: 멀티 벤더 AI 워터마크 및 C2PA 메타데이터 제거 툴",
+        "hook": "텍스트 유니코드 정형화부터 이미지·문서 C2PA 메타데이터 및 AI 워터마크까지 일괄 제거하는 오픈소스 도구",
         "key_takeaways": [
-          "유니코드 텍스트 정화 및 통계적 재작성 훅 적용",
-          "PNG, JPEG, SVG, PDF, DOCX 등 다양한 포맷 지원",
-          "C2PA 및 숨겨진 메타데이터 완전 삭제"
+          "PNG, JPEG, SVG, PDF, DOCX 등 다양한 미디어 및 문서 포맷에서 C2PA 및 메타데이터 완벽 제거",
+          "생성형 AI 텍스트 출력을 위한 유니코드 정화 및 통계적 리라이트 훅 지원",
+          "다양한 AI 벤더의 보이지 않는 워터마크 방식을 무력화하는 정밀 패치 제공"
         ]
       },
       "en": {
-        "title": "Multi-Vendor AI Watermark and Metadata Remover",
-        "hook": "Strip multi-vendor AI watermarks, C2PA, and hidden metadata across various file formats instantly.",
+        "title": "ShadowAqueduct/watermark-remover: Purge Multi-Vendor AI Watermarks and C2PA Metadata",
+        "hook": "An open-source utility to strip C2PA metadata, clean Unicode text, and remove multi-vendor AI watermarks across text and media formats.",
         "key_takeaways": [
-          "Cleans Unicode text and applies statistical rewrite hooks",
-          "Supports PNG, JPEG, SVG, PDF, DOCX, HTML, and MD",
-          "Completely clears C2PA and file metadata"
+          "Clears C2PA provenance and EXIF metadata from PNG, JPEG, SVG, PDF, DOCX, HTML, and MD",
+          "Cleans invisible AI text watermarks via Unicode normalization and statistical rewrite hooks",
+          "Provides unified multi-vendor AI watermark purging across text and visual media"
         ]
       },
       "zh": {
-        "title": "多厂商 AI 水印与元数据清除工具",
-        "hook": "一键清除多厂商AI水印及C2PA元数据，全方位保护数据隐私。",
+        "title": "ShadowAqueduct/watermark-remover: 多厂商 AI 水印与 C2PA 元数据清除工具",
+        "hook": "支持清除图像/文档中的 C2PA 元数据并结合 Unicode 规范化抹除 AI 文本与多媒体水印的开源工具",
         "key_takeaways": [
-          "净化Unicode文本并应用统计重写钩子",
-          "支持PNG、JPEG、SVG、PDF、DOCX、HTML和MD格式",
-          "彻底清除C2PA及各类文件元数据"
+          "支持清除 PNG、JPEG、SVG、PDF、DOCX 等多种格式中的 C2PA 及元数据",
+          "提供针对生成式 AI 文本的 Unicode 清洗与统计重写 Hook 机制",
+          "一站式消除各大 AI 厂商在文本和多媒体中植入的隐形水印"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:02.830401+00:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "General",
+  "programming_lang": "Python",
   "root_keywords": [
-    "AI Watermark",
-    "Metadata Cleaner",
-    "C2PA"
+    "AI Watermark Remover",
+    "C2PA Sanitization",
+    "Unicode Cleaning",
+    "Metadata Removal"
   ],
-  "title_en": "Multi-Vendor AI Watermark and Metadata Remover",
-  "title_zh": "多厂商 AI 水印与元数据清除工具",
+  "title_en": "ShadowAqueduct/watermark-remover: Purge Multi-Vendor AI Watermarks and C2PA Metadata",
+  "title_zh": "ShadowAqueduct/watermark-remover: 多厂商 AI 水印与 C2PA 元数据清除工具",
   "hook": "멀티 벤더 AI 워터마크와 C2PA 메타데이터를 한 번에 제거하여 프라이버시를 보호하세요.",
-  "hook_ko": "멀티 벤더 AI 워터마크와 C2PA 메타데이터를 한 번에 제거하여 프라이버시를 보호하세요.",
-  "hook_en": "Strip multi-vendor AI watermarks, C2PA, and hidden metadata across various file formats instantly.",
-  "hook_zh": "一键清除多厂商AI水印及C2PA元数据，全方位保护数据隐私。",
+  "hook_ko": "텍스트 유니코드 정형화부터 이미지·문서 C2PA 메타데이터 및 AI 워터마크까지 일괄 제거하는 오픈소스 도구",
+  "hook_en": "An open-source utility to strip C2PA metadata, clean Unicode text, and remove multi-vendor AI watermarks across text and media formats.",
+  "hook_zh": "支持清除图像/文档中的 C2PA 元数据并结合 Unicode 规范化抹除 AI 文本与多媒体水印的开源工具",
   "description_en": "Strip multi-vendor AI watermarks, C2PA, and hidden metadata across various file formats instantly.",
   "description_zh": "一键清除多厂商AI水印及C2PA元数据，全方位保护数据隐私。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "ShadowAqueduct/watermark-remover: 멀티 벤더 AI 워터마크 및 C2PA 메타데이터 제거 툴",
+      "hook": "텍스트 유니코드 정형화부터 이미지·문서 C2PA 메타데이터 및 AI 워터마크까지 일괄 제거하는 오픈소스 도구",
+      "key_takeaways": [
+        "PNG, JPEG, SVG, PDF, DOCX 등 다양한 미디어 및 문서 포맷에서 C2PA 및 메타데이터 완벽 제거",
+        "생성형 AI 텍스트 출력을 위한 유니코드 정화 및 통계적 리라이트 훅 지원",
+        "다양한 AI 벤더의 보이지 않는 워터마크 방식을 무력화하는 정밀 패치 제공"
+      ]
+    },
+    "en": {
+      "title": "ShadowAqueduct/watermark-remover: Purge Multi-Vendor AI Watermarks and C2PA Metadata",
+      "hook": "An open-source utility to strip C2PA metadata, clean Unicode text, and remove multi-vendor AI watermarks across text and media formats.",
+      "key_takeaways": [
+        "Clears C2PA provenance and EXIF metadata from PNG, JPEG, SVG, PDF, DOCX, HTML, and MD",
+        "Cleans invisible AI text watermarks via Unicode normalization and statistical rewrite hooks",
+        "Provides unified multi-vendor AI watermark purging across text and visual media"
+      ]
+    },
+    "zh": {
+      "title": "ShadowAqueduct/watermark-remover: 多厂商 AI 水印与 C2PA 元数据清除工具",
+      "hook": "支持清除图像/文档中的 C2PA 元数据并结合 Unicode 规范化抹除 AI 文本与多媒体水印的开源工具",
+      "key_takeaways": [
+        "支持清除 PNG、JPEG、SVG、PDF、DOCX 等多种格式中的 C2PA 及元数据",
+        "提供针对生成式 AI 文本的 Unicode 清洗与统计重写 Hook 机制",
+        "一站式消除各大 AI 厂商在文本和多媒体中植入的隐形水印"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.801638"
 }

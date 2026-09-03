@@ -30,7 +30,7 @@
     "DX & Python 업무 프로세스 자동화"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Show GN: Can I Remove This? – JS 의존성 제거 가능 여부를 진단하는 Agent Skill",
+  "title_ko": "Show GN: Can I Remove This? – JS 의존성 제거를 검토하는 Agent Skill",
   "description_ko": "AI 에이전트 기술을 활용해 프로젝트 내 불필요한 자바스크립트 의존성을 자동으로 분석하고 제거를 돕는 툴입니다.",
   "hn_url": "https://news.hada.io/topic?id=33113",
   "article_url": "https://news.hada.io/topic?id=33113",
@@ -38,63 +38,96 @@
     "id": "2026-09-02_sns_geeknews_show_gn_can_i_remove_this_js_의존성_제거를",
     "source_lang": "KO",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "웹 개발 최적화",
-    "programming_lang": "TypeScript",
+    "model_family": "AI Agent / Software Engineering Tools",
+    "category": "Developer Tools",
+    "programming_lang": "JavaScript",
     "root_keywords": [
-      "JS 의존성",
       "Agent Skill",
-      "코드 최적화"
+      "JavaScript Dependencies",
+      "Dependency Management",
+      "Code Refactoring",
+      "LLM Agent"
     ],
-    "recommended_tag": "💡 유용한 도구",
+    "recommended_tag": "📝 기술 참고",
     "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "Show GN: Can I Remove This? – JS 의존성 제거 가능 여부를 진단하는 Agent Skill",
-        "hook": "AI 에이전트 기술을 활용해 프로젝트 내 불필요한 자바스크립트 의존성을 자동으로 분석하고 제거를 돕는 툴입니다.",
+        "title": "Show GN: Can I Remove This? – JS 의존성 제거를 검토하는 Agent Skill",
+        "hook": "불필요한 JavaScript 패키지 의존성을 AI 에이전트가 자동 검토하고 제거 가능 여부를 판단해 주는 스킬",
         "key_takeaways": [
-          "LLM/Agent 기술을 활용한 프론트엔드 코드베이스 코드 최적화",
-          "미사용 자바스크립트 패키지 및 의존성 정밀 분석",
-          "번들 크기 축소 및 유지보수성 향상에 기여"
+          "프로젝트 내 사용되지 않거나 대체 가능한 JS 패키지 의존성을 자동으로 탐색 및 분석",
+          "LLM 기반 에이전트 스킬 형태로 구현되어 기존 코드 분석 에이전트에 쉽게 확장 등록 가능",
+          "웹 애플리케이션 번들 크기 감축 및 레거시 의존성 정리 절차의 자동화 지원"
         ]
       },
       "en": {
-        "title": "Show GN: Can I Remove This? – An Agent Skill for Auditing JS Dependencies",
-        "hook": "Leverage AI agent capabilities to automatically analyze and safely remove unused JavaScript dependencies.",
+        "title": "Show GN: Can I Remove This? – An Agent Skill for JS Dependency Removal",
+        "hook": "An AI Agent skill designed to automatically analyze and evaluate whether JavaScript package dependencies can be safely removed.",
         "key_takeaways": [
-          "Frontend codebase optimization powered by LLM/Agent technology",
-          "Precise identification of unused JavaScript packages and dependencies",
-          "Helps reduce bundle size and improve overall maintainability"
+          "Automatically scans and analyzes unused or replaceable JS package dependencies within a project",
+          "Implemented as an LLM Agent Skill, easily extendable into existing code-analysis AI workflows",
+          "Helps reduce web bundle size and automates legacy dependency refactoring"
         ]
       },
       "zh": {
-        "title": "Show GN: Can I Remove This? – 用于审查 JS 依赖项的智能体技能",
-        "hook": "利用 AI 智能体技术自动分析并安全移除项目中废弃 JavaScript 依赖的高效工具。",
+        "title": "Show GN: Can I Remove This? – 评估 JS 依赖项移除的 Agent Skill",
+        "hook": "一款旨在让 AI Agent 自动分析并评估 JavaScript 包依赖项是否可以安全移除的 Agent 技能",
         "key_takeaways": [
-          "由大模型/智能体技术驱动的前端代码库优化",
-          "精准分析未使用的 JavaScript 软件包与依赖关系",
-          "有效缩减打包体积并提升代码可维护性"
+          "自动扫描并分析项目中未使用或可被替换的 JavaScript 包依赖",
+          "以 LLM Agent Skill 形式实现，方便集成到现有的代码分析 Agent 工作流中",
+          "有助于减小 Web 构建包体积并实现旧版依赖项清理的自动化"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:55:08.947248+09:00"
+    }
   },
   "source_lang": "KO",
-  "programming_lang": "TypeScript",
+  "programming_lang": "JavaScript",
   "root_keywords": [
-    "JS 의존성",
     "Agent Skill",
-    "코드 최적화"
+    "JavaScript Dependencies",
+    "Dependency Management",
+    "Code Refactoring",
+    "LLM Agent"
   ],
-  "title_en": "Show GN: Can I Remove This? – An Agent Skill for Auditing JS Dependencies",
-  "title_zh": "Show GN: Can I Remove This? – 用于审查 JS 依赖项的智能体技能",
+  "title_en": "Show GN: Can I Remove This? – An Agent Skill for JS Dependency Removal",
+  "title_zh": "Show GN: Can I Remove This? – 评估 JS 依赖项移除的 Agent Skill",
   "hook": "AI 에이전트 기술을 활용해 프로젝트 내 불필요한 자바스크립트 의존성을 자동으로 분석하고 제거를 돕는 툴입니다.",
-  "hook_ko": "AI 에이전트 기술을 활용해 프로젝트 내 불필요한 자바스크립트 의존성을 자동으로 분석하고 제거를 돕는 툴입니다.",
-  "hook_en": "Leverage AI agent capabilities to automatically analyze and safely remove unused JavaScript dependencies.",
-  "hook_zh": "利用 AI 智能体技术自动分析并安全移除项目中废弃 JavaScript 依赖的高效工具。",
+  "hook_ko": "불필요한 JavaScript 패키지 의존성을 AI 에이전트가 자동 검토하고 제거 가능 여부를 판단해 주는 스킬",
+  "hook_en": "An AI Agent skill designed to automatically analyze and evaluate whether JavaScript package dependencies can be safely removed.",
+  "hook_zh": "一款旨在让 AI Agent 自动分析并评估 JavaScript 包依赖项是否可以安全移除的 Agent 技能",
   "description_en": "Leverage AI agent capabilities to automatically analyze and safely remove unused JavaScript dependencies.",
   "description_zh": "利用 AI 智能体技术自动分析并安全移除项目中废弃 JavaScript 依赖的高效工具。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Show GN: Can I Remove This? – JS 의존성 제거를 검토하는 Agent Skill",
+      "hook": "불필요한 JavaScript 패키지 의존성을 AI 에이전트가 자동 검토하고 제거 가능 여부를 판단해 주는 스킬",
+      "key_takeaways": [
+        "프로젝트 내 사용되지 않거나 대체 가능한 JS 패키지 의존성을 자동으로 탐색 및 분석",
+        "LLM 기반 에이전트 스킬 형태로 구현되어 기존 코드 분석 에이전트에 쉽게 확장 등록 가능",
+        "웹 애플리케이션 번들 크기 감축 및 레거시 의존성 정리 절차의 자동화 지원"
+      ]
+    },
+    "en": {
+      "title": "Show GN: Can I Remove This? – An Agent Skill for JS Dependency Removal",
+      "hook": "An AI Agent skill designed to automatically analyze and evaluate whether JavaScript package dependencies can be safely removed.",
+      "key_takeaways": [
+        "Automatically scans and analyzes unused or replaceable JS package dependencies within a project",
+        "Implemented as an LLM Agent Skill, easily extendable into existing code-analysis AI workflows",
+        "Helps reduce web bundle size and automates legacy dependency refactoring"
+      ]
+    },
+    "zh": {
+      "title": "Show GN: Can I Remove This? – 评估 JS 依赖项移除的 Agent Skill",
+      "hook": "一款旨在让 AI Agent 自动分析并评估 JavaScript 包依赖项是否可以安全移除的 Agent 技能",
+      "key_takeaways": [
+        "自动扫描并分析项目中未使用或可被替换的 JavaScript 包依赖",
+        "以 LLM Agent Skill 形式实现，方便集成到现有的代码分析 Agent 工作流中",
+        "有助于减小 Web 构建包体积并实现旧版依赖项清理的自动化"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.041112"
 }

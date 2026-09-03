@@ -34,65 +34,96 @@
     "id": "2026-09-02_repo_arxiv_the_structure_of_quantization_damage_in",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 추론 최적화",
+    "model_family": "Quantization",
+    "category": "AI / ML Engineering",
     "programming_lang": "Python",
     "root_keywords": [
-      "Quantization",
-      "PTQ",
-      "LLM Optimization"
+      "LLM Quantization",
+      "Post-Training Quantization",
+      "Bit Allocation",
+      "Model Compression"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "LLM 양자화 손상의 구조: 다음 비트를 글로벌하게 할당해야 하는 이유",
-        "hook": "사후 양자화(PTQ) 시 모델 전체의 정확도 손실 패턴을 분석하고 최적화 방향을 제시합니다.",
+        "title": "LLM 양자화 손실의 구조: 왜 비트 할당을 전역적으로 재배치해야 하는가",
+        "hook": "사후 양자화(PTQ)가 LLM 레이어별로 미치는 손실 구조를 분석하고 전역 비트 할당의 필요성을 제시합니다.",
         "key_takeaways": [
-          "LLM 양자화로 인한 정확도 손실이 불균일하게 발생함을 분석",
-          "모델별 튜닝을 넘어선 전역적(Global) 비트 할당의 필요성 입증",
-          "대형 언어 모델 서빙 비용 절감을 위한 핵심 양자화 이론 연구"
+          "기존 PTQ 방식의 균일/국소적 비트 할당이 특정 중요 레이어에서 심각한 손실을 발생시킴을 도출",
+          "전체 모델 차원에서 비트 예산을 유연하게 할당하는 전역(Global) 비트 분배 전략 제시",
+          "서빙 비용을 최소화하면서 양자화 모델의 정확도 추락을 대폭 방지할 수 있는 실용적 인사이트 제공"
         ]
       },
       "en": {
-        "title": "The Structure of Quantization Damage in LLMs: Global Bit Allocation",
-        "hook": "A deep dive into Post-Training Quantization (PTQ) accuracy loss patterns and global allocation.",
+        "title": "The Structure of Quantization Damage in LLMs: Why the Next Bit Should Be Spent Globally",
+        "hook": "Analyzes how Post-Training Quantization (PTQ) degrades LLM accuracy unevenly and proposes a global bit allocation framework across layers.",
         "key_takeaways": [
-          "Analyzes uneven accuracy costs across post-training quantization in LLMs",
-          "Demonstrates why bit allocation should be optimized globally rather than per layer",
-          "Crucial insights for efficient LLM serving and model compression"
+          "Demonstrates that uniform or localized bit allocation in PTQ causes disproportionate accuracy loss in key layers.",
+          "Proposes a global bit allocation framework that flexibly distributes the precision budget across the entire network.",
+          "Provides practical guidelines to minimize quantization damage while maintaining low serving costs."
         ]
       },
       "zh": {
-        "title": "大模型量化损伤的结构：为什么下一比特应当全局分配",
-        "hook": "深入探讨大语言模型训练后量化（PTQ）的精度损失模式与全局优化策略。",
+        "title": "大语言模型量化损伤的结构：为何下一比特应全局分配",
+        "hook": "分析训练后量化（PTQ）给LLM带来的不均匀准确率损失，并提出全局跨层比特分配策略。",
         "key_takeaways": [
-          "分析大模型量化过程中不均等的精度损失代价",
-          "论证全局分配比特而非单纯局部微调的必要性",
-          "为降低LLM推理成本提供重要的量化理论参考"
+          "揭示了现有PTQ中均匀或局部比特分配会在特定关键层引发严重的准确率损失",
+          "提出了全局比特分配框架，在整个模型范围内灵活管理精度预算",
+          "提供了实用指导，在不增加推理成本的前提下有效减缓量化带来的性能损伤"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:26:44.594329+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Quantization",
-    "PTQ",
-    "LLM Optimization"
+    "LLM Quantization",
+    "Post-Training Quantization",
+    "Bit Allocation",
+    "Model Compression"
   ],
-  "title_ko": "LLM 양자화 손상의 구조: 다음 비트를 글로벌하게 할당해야 하는 이유",
-  "title_en": "The Structure of Quantization Damage in LLMs: Global Bit Allocation",
-  "title_zh": "大模型量化损伤的结构：为什么下一比特应当全局分配",
+  "title_ko": "LLM 양자화 손실의 구조: 왜 비트 할당을 전역적으로 재배치해야 하는가",
+  "title_en": "The Structure of Quantization Damage in LLMs: Why the Next Bit Should Be Spent Globally",
+  "title_zh": "大语言模型量化损伤的结构：为何下一比特应全局分配",
   "hook": "사후 양자화(PTQ) 시 모델 전체의 정확도 손실 패턴을 분석하고 최적화 방향을 제시합니다.",
-  "hook_ko": "사후 양자화(PTQ) 시 모델 전체의 정확도 손실 패턴을 분석하고 최적화 방향을 제시합니다.",
-  "hook_en": "A deep dive into Post-Training Quantization (PTQ) accuracy loss patterns and global allocation.",
-  "hook_zh": "深入探讨大语言模型训练后量化（PTQ）的精度损失模式与全局优化策略。",
+  "hook_ko": "사후 양자화(PTQ)가 LLM 레이어별로 미치는 손실 구조를 분석하고 전역 비트 할당의 필요성을 제시합니다.",
+  "hook_en": "Analyzes how Post-Training Quantization (PTQ) degrades LLM accuracy unevenly and proposes a global bit allocation framework across layers.",
+  "hook_zh": "分析训练后量化（PTQ）给LLM带来的不均匀准确率损失，并提出全局跨层比特分配策略。",
   "description_ko": "사후 양자화(PTQ) 시 모델 전체의 정확도 손실 패턴을 분석하고 최적화 방향을 제시합니다.",
   "description_en": "A deep dive into Post-Training Quantization (PTQ) accuracy loss patterns and global allocation.",
   "description_zh": "深入探讨大语言模型训练后量化（PTQ）的精度损失模式与全局优化策略。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "LLM 양자화 손실의 구조: 왜 비트 할당을 전역적으로 재배치해야 하는가",
+      "hook": "사후 양자화(PTQ)가 LLM 레이어별로 미치는 손실 구조를 분석하고 전역 비트 할당의 필요성을 제시합니다.",
+      "key_takeaways": [
+        "기존 PTQ 방식의 균일/국소적 비트 할당이 특정 중요 레이어에서 심각한 손실을 발생시킴을 도출",
+        "전체 모델 차원에서 비트 예산을 유연하게 할당하는 전역(Global) 비트 분배 전략 제시",
+        "서빙 비용을 최소화하면서 양자화 모델의 정확도 추락을 대폭 방지할 수 있는 실용적 인사이트 제공"
+      ]
+    },
+    "en": {
+      "title": "The Structure of Quantization Damage in LLMs: Why the Next Bit Should Be Spent Globally",
+      "hook": "Analyzes how Post-Training Quantization (PTQ) degrades LLM accuracy unevenly and proposes a global bit allocation framework across layers.",
+      "key_takeaways": [
+        "Demonstrates that uniform or localized bit allocation in PTQ causes disproportionate accuracy loss in key layers.",
+        "Proposes a global bit allocation framework that flexibly distributes the precision budget across the entire network.",
+        "Provides practical guidelines to minimize quantization damage while maintaining low serving costs."
+      ]
+    },
+    "zh": {
+      "title": "大语言模型量化损伤的结构：为何下一比特应全局分配",
+      "hook": "分析训练后量化（PTQ）给LLM带来的不均匀准确率损失，并提出全局跨层比特分配策略。",
+      "key_takeaways": [
+        "揭示了现有PTQ中均匀或局部比特分配会在特定关键层引发严重的准确率损失",
+        "提出了全局比特分配框架，在整个模型范围内灵活管理精度预算",
+        "提供了实用指导，在不增加推理成本的前提下有效减缓量化带来的性能损伤"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.990475"
 }

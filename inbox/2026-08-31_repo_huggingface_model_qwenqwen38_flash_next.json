@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "MODEL",
-  "title_ko": "Hugging Face 모델: Qwen/Qwen3.8-Flash-Next",
+  "title_ko": "HuggingFace 모델: Qwen/Qwen3.8-Flash-Next",
   "description_ko": "최신 Qwen-3.8 플래시 아키텍처 기반의 고속 멀티모달 모델을 지금 바로 적용해 보세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Qwen Alibaba",
@@ -48,12 +48,14 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_huggingface_model_qwenqwen38_flash_next",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "Qwen-3.8",
-    "category": "Multimodal LLM",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
       "Qwen",
+      "Multimodal",
+      "Vision-Language Model",
       "Flash-Next",
       "Image-Text-to-Text"
     ],
@@ -61,51 +63,82 @@
     "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face 모델: Qwen/Qwen3.8-Flash-Next",
-        "hook": "최신 Qwen-3.8 플래시 아키텍처 기반의 고속 멀티모달 모델을 지금 바로 적용해 보세요.",
+        "title": "HuggingFace 모델: Qwen/Qwen3.8-Flash-Next",
+        "hook": "높은 효율성과 초고속 추론 성능을 제공하는 Qwen 시리즈의 차세대 다중모달(Image-Text-to-Text) 모델",
         "key_takeaways": [
-          "압도적인 트렌딩 스코어와 다운로드 수록 입증된 최신 모델",
-          "이미지-텍스트-투-텍스트 파이프라인 지원",
-          "실시간 멀티모달 서비스 구축에 최적화된 성능"
+          "이미지와 텍스트 복합 입력을 지원하는 차세대 image-text-to-text 멀티모달 파이프라인",
+          "20만 회 이상의 다운로드와 높은 좋아요 수를 기록하며 입증된 뛰어난 대중성 및 실전 성능",
+          "빠른 응답 속도와 저지연 추론이 중요한 비전 에이전트 및 실시간 대화형 서비스에 최적화"
         ]
       },
       "en": {
-        "title": "Hugging Face Model: Qwen/Qwen3.8-Flash-Next",
-        "hook": "Integrate the ultra-fast Qwen-3.8 flash architecture for next-gen multimodal tasks.",
+        "title": "HuggingFace Model: Qwen/Qwen3.8-Flash-Next",
+        "hook": "A next-generation multimodal vision-language model in the Qwen family built for ultra-fast inference and high efficiency.",
         "key_takeaways": [
-          "Demonstrates exceptional trending scores and high download volume",
-          "Fully supports image-text-to-text pipeline workflows",
-          "Optimized for low-latency multimodal applications"
+          "Supports image-text-to-text pipeline for advanced visual reasoning and understanding.",
+          "Proven community adoption with over 200,000 downloads and top-tier trending scores.",
+          "Optimized for low-latency visual agents and real-time multimodal applications."
         ]
       },
       "zh": {
-        "title": "Hugging Face 模型：Qwen/Qwen3.8-Flash-Next",
-        "hook": "基于全新 Qwen-3.8 Flash 架构的高性能多模态模型，助力极速推理。",
+        "title": "HuggingFace 模型：Qwen/Qwen3.8-Flash-Next",
+        "hook": "Qwen 系列下一代多模态视觉语言模型，专为极速推理与高效能场景打造",
         "key_takeaways": [
-          "凭借极高的趋势热度与下载量备受瞩目",
-          "原生支持图文互转（image-text-to-text）管道",
-          "专为低延迟多模态服务场景深度优化"
+          "支持图文到文本（image-text-to-text）管道，具备出色的多模态理解与推理能力",
+          "突破 20 万次下载量，获得高热度关注，展现出极高的实用价值与社区认可度",
+          "非常适合低延迟要求的实时视觉 Agent、图像问答及多模态交互应用"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T07:29:33.437597+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Qwen",
+    "Multimodal",
+    "Vision-Language Model",
     "Flash-Next",
     "Image-Text-to-Text"
   ],
-  "title_en": "Hugging Face Model: Qwen/Qwen3.8-Flash-Next",
-  "title_zh": "Hugging Face 模型：Qwen/Qwen3.8-Flash-Next",
+  "title_en": "HuggingFace Model: Qwen/Qwen3.8-Flash-Next",
+  "title_zh": "HuggingFace 模型：Qwen/Qwen3.8-Flash-Next",
   "hook": "최신 Qwen-3.8 플래시 아키텍처 기반의 고속 멀티모달 모델을 지금 바로 적용해 보세요.",
-  "hook_ko": "최신 Qwen-3.8 플래시 아키텍처 기반의 고속 멀티모달 모델을 지금 바로 적용해 보세요.",
-  "hook_en": "Integrate the ultra-fast Qwen-3.8 flash architecture for next-gen multimodal tasks.",
-  "hook_zh": "基于全新 Qwen-3.8 Flash 架构的高性能多模态模型，助力极速推理。",
+  "hook_ko": "높은 효율성과 초고속 추론 성능을 제공하는 Qwen 시리즈의 차세대 다중모달(Image-Text-to-Text) 모델",
+  "hook_en": "A next-generation multimodal vision-language model in the Qwen family built for ultra-fast inference and high efficiency.",
+  "hook_zh": "Qwen 系列下一代多模态视觉语言模型，专为极速推理与高效能场景打造",
   "description_en": "Integrate the ultra-fast Qwen-3.8 flash architecture for next-gen multimodal tasks.",
   "description_zh": "基于全新 Qwen-3.8 Flash 架构的高性能多模态模型，助力极速推理。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HuggingFace 모델: Qwen/Qwen3.8-Flash-Next",
+      "hook": "높은 효율성과 초고속 추론 성능을 제공하는 Qwen 시리즈의 차세대 다중모달(Image-Text-to-Text) 모델",
+      "key_takeaways": [
+        "이미지와 텍스트 복합 입력을 지원하는 차세대 image-text-to-text 멀티모달 파이프라인",
+        "20만 회 이상의 다운로드와 높은 좋아요 수를 기록하며 입증된 뛰어난 대중성 및 실전 성능",
+        "빠른 응답 속도와 저지연 추론이 중요한 비전 에이전트 및 실시간 대화형 서비스에 최적화"
+      ]
+    },
+    "en": {
+      "title": "HuggingFace Model: Qwen/Qwen3.8-Flash-Next",
+      "hook": "A next-generation multimodal vision-language model in the Qwen family built for ultra-fast inference and high efficiency.",
+      "key_takeaways": [
+        "Supports image-text-to-text pipeline for advanced visual reasoning and understanding.",
+        "Proven community adoption with over 200,000 downloads and top-tier trending scores.",
+        "Optimized for low-latency visual agents and real-time multimodal applications."
+      ]
+    },
+    "zh": {
+      "title": "HuggingFace 模型：Qwen/Qwen3.8-Flash-Next",
+      "hook": "Qwen 系列下一代多模态视觉语言模型，专为极速推理与高效能场景打造",
+      "key_takeaways": [
+        "支持图文到文本（image-text-to-text）管道，具备出色的多模态理解与推理能力",
+        "突破 20 万次下载量，获得高热度关注，展现出极高的实用价值与社区认可度",
+        "非常适合低延迟要求的实时视觉 Agent、图像问答及多模态交互应用"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.861512"
 }

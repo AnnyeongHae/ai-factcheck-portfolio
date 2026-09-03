@@ -32,67 +32,100 @@
   "ai_enrichment": {
     "id": "2026-09-01_repo_arxiv_auditing_anonymous_ai_models_a_four_sta",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "AI 업계 동향 및 보안",
+    "type_classification": "TECH",
+    "model_family": "AI Governance & Security",
+    "category": "AI Safety & Benchmarking",
     "programming_lang": "General",
     "root_keywords": [
+      "Model Identity Verification",
+      "Black-Box Auditing",
       "Anonymous AI Models",
-      "Black-Box Identity Verification",
-      "Auditing Protocol"
+      "AI Governance",
+      "Stealth Model Releases"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.3,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
     "multilingual": {
       "ko": {
-        "title": "익명 AI 모델 감사: 블랙박스 신원 확인을 위한 4단계 프로토콜",
-        "hook": "코드명으로 익명 출시되는 프론티어 AI 모델의 실제 정체를 밝히기 위한 블랙박스 신원 검증 프로토콜을 살펴보세요.",
+        "title": "익명 AI 모델 감사: 블랙박스 정체성 검증을 위한 4단계 프로토콜",
+        "hook": "코드명으로 익명 출시되는 프론티어 AI 모델의 실체를 블랙박스 방식으로 역추적 및 검증하는 감사 프레임워크",
         "key_takeaways": [
-          "2025~2026년 급증하는 은밀한 출시(stealth release) 모델 대응 방안",
-          "데이터 처리 약관 및 지원 확인을 위한 신원 검증의 중요성",
-          "블랙박스 환경에서의 체계적인 4단계 감사 프로토콜 제시"
+          "코드명으로 기습 공개되는 프론티어 AI 모델의 데이터 처리 약관 및 보안 위험성 문제 제기",
+          "가중치 접근 없이 API 입출력만으로 모델의 계통과 정체성을 식별하는 4단계 블랙박스 검증 프로토콜 제시",
+          "AI 거버넌스, 라이선스 준수, 플랫폼 신뢰성 확보를 위한 실무적 감사 가이드라인 제공"
         ]
       },
       "en": {
         "title": "Auditing Anonymous AI Models: A Four-Stage Protocol for Black-Box Identity Verification",
-        "hook": "Discover a four-stage black-box identity verification protocol to audit stealth-released anonymous frontier AI models.",
+        "hook": "A four-stage black-box auditing protocol to verify the identity and lineage of stealth-released anonymous AI models.",
         "key_takeaways": [
-          "Addressing the wave of stealth-released anonymous models in 2025-2026",
-          "Importance of identity verification for data-handling terms and support",
-          "Systematic four-stage auditing protocol for black-box environments"
+          "Addresses compliance and privacy risks associated with stealth-released frontier models operating under codenames.",
+          "Proposes a practical four-stage black-box protocol to infer model identity without requiring parameter/weight access.",
+          "Provides foundational technical guidelines for AI governance, model licensing audit, and platform transparency."
         ]
       },
       "zh": {
-        "title": "匿名AI模型审计：黑盒身份验证的四阶段协议",
-        "hook": "探索用于审计秘密发布的匿名基础AI模型的四阶段黑盒身份验证协议。",
+        "title": "审计匿名 AI 模型：黑盒身份验证的四阶段协议",
+        "hook": "针对以代号隐秘发布的匿名前沿 AI 模型，提供一套黑盒身份与血统反向验证的四阶段审计框架",
         "key_takeaways": [
-          "应对2025-2026年激增的匿名隐蔽发布模型趋势",
-          "身份验证对于数据处理条款和技术支持的重要性",
-          "黑盒环境下的系统化四阶段审计协议"
+          "解决以代号暗中发布的匿名前沿 AI 模型带来的数据处理协议与合规安全隐患",
+          "提出无需模型权重权限、仅凭黑盒 API 交互即可识别模型身份与血统的四阶段验证协议",
+          "为 AI 治理、授权审计以及建立平台信任提供技术化落地指南"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:31:21.829525+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
+    "Model Identity Verification",
+    "Black-Box Auditing",
     "Anonymous AI Models",
-    "Black-Box Identity Verification",
-    "Auditing Protocol"
+    "AI Governance",
+    "Stealth Model Releases"
   ],
-  "title_ko": "익명 AI 모델 감사: 블랙박스 신원 확인을 위한 4단계 프로토콜",
+  "title_ko": "익명 AI 모델 감사: 블랙박스 정체성 검증을 위한 4단계 프로토콜",
   "title_en": "Auditing Anonymous AI Models: A Four-Stage Protocol for Black-Box Identity Verification",
-  "title_zh": "匿名AI模型审计：黑盒身份验证的四阶段协议",
+  "title_zh": "审计匿名 AI 模型：黑盒身份验证的四阶段协议",
   "hook": "코드명으로 익명 출시되는 프론티어 AI 모델의 실제 정체를 밝히기 위한 블랙박스 신원 검증 프로토콜을 살펴보세요.",
-  "hook_ko": "코드명으로 익명 출시되는 프론티어 AI 모델의 실제 정체를 밝히기 위한 블랙박스 신원 검증 프로토콜을 살펴보세요.",
-  "hook_en": "Discover a four-stage black-box identity verification protocol to audit stealth-released anonymous frontier AI models.",
-  "hook_zh": "探索用于审计秘密发布的匿名基础AI模型的四阶段黑盒身份验证协议。",
+  "hook_ko": "코드명으로 익명 출시되는 프론티어 AI 모델의 실체를 블랙박스 방식으로 역추적 및 검증하는 감사 프레임워크",
+  "hook_en": "A four-stage black-box auditing protocol to verify the identity and lineage of stealth-released anonymous AI models.",
+  "hook_zh": "针对以代号隐秘发布的匿名前沿 AI 模型，提供一套黑盒身份与血统反向验证的四阶段审计框架",
   "description_ko": "코드명으로 익명 출시되는 프론티어 AI 모델의 실제 정체를 밝히기 위한 블랙박스 신원 검증 프로토콜을 살펴보세요.",
   "description_en": "Discover a four-stage black-box identity verification protocol to audit stealth-released anonymous frontier AI models.",
   "description_zh": "探索用于审计秘密发布的匿名基础AI模型的四阶段黑盒身份验证协议。",
   "category_type": "NEWS",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "익명 AI 모델 감사: 블랙박스 정체성 검증을 위한 4단계 프로토콜",
+      "hook": "코드명으로 익명 출시되는 프론티어 AI 모델의 실체를 블랙박스 방식으로 역추적 및 검증하는 감사 프레임워크",
+      "key_takeaways": [
+        "코드명으로 기습 공개되는 프론티어 AI 모델의 데이터 처리 약관 및 보안 위험성 문제 제기",
+        "가중치 접근 없이 API 입출력만으로 모델의 계통과 정체성을 식별하는 4단계 블랙박스 검증 프로토콜 제시",
+        "AI 거버넌스, 라이선스 준수, 플랫폼 신뢰성 확보를 위한 실무적 감사 가이드라인 제공"
+      ]
+    },
+    "en": {
+      "title": "Auditing Anonymous AI Models: A Four-Stage Protocol for Black-Box Identity Verification",
+      "hook": "A four-stage black-box auditing protocol to verify the identity and lineage of stealth-released anonymous AI models.",
+      "key_takeaways": [
+        "Addresses compliance and privacy risks associated with stealth-released frontier models operating under codenames.",
+        "Proposes a practical four-stage black-box protocol to infer model identity without requiring parameter/weight access.",
+        "Provides foundational technical guidelines for AI governance, model licensing audit, and platform transparency."
+      ]
+    },
+    "zh": {
+      "title": "审计匿名 AI 模型：黑盒身份验证的四阶段协议",
+      "hook": "针对以代号隐秘发布的匿名前沿 AI 模型，提供一套黑盒身份与血统反向验证的四阶段审计框架",
+      "key_takeaways": [
+        "解决以代号暗中发布的匿名前沿 AI 模型带来的数据处理协议与合规安全隐患",
+        "提出无需模型权重权限、仅凭黑盒 API 交互即可识别模型身份与血统的四阶段验证协议",
+        "为 AI 治理、授权审计以及建立平台信任提供技术化落地指南"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.917967"
 }

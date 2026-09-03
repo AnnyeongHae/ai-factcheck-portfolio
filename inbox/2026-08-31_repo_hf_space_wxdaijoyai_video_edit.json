@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "TECH",
-  "title_ko": "Hugging Face Space: wxDai/joyai-video-edit",
+  "title_ko": "JoyAI 비디오 에디팅 Gradio 인터랙티브 데모",
   "description_ko": "JoyAI 기반의 비디오 편집 기능을 웹 인터페이스로 손쉽게 체험할 수 있는 Gradio 데모입니다.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -46,67 +46,96 @@
   "updated_at": "2026-09-02",
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_wxdaijoyai_video_edit",
-    "source_lang": "EN",
+    "source_lang": "AUTO",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "영상 제작 및 편집",
+    "model_family": "Video Editing",
+    "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
-      "Video Editing",
-      "JoyAI",
-      "Gradio",
-      "AI Demo"
+      "video editing",
+      "generative ai",
+      "gradio",
+      "huggingface spaces"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.2,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.7,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face Space: wxDai/joyai-video-edit",
-        "hook": "JoyAI 기반의 비디오 편집 기능을 웹 인터페이스로 손쉽게 체험할 수 있는 Gradio 데모입니다.",
+        "title": "JoyAI 비디오 에디팅 Gradio 인터랙티브 데모",
+        "hook": "Gradio 기반으로 직관적인 AI 비디오 편집 및 스타일 변환을 구현한 실시간 데모",
         "key_takeaways": [
-          "JoyAI 엔진을 활용한 비디오 편집 데모",
-          "Gradio SDK를 통한 간편한 웹 인터페이스",
-          "AI 기반 동영상 처리 파이프라인 실습 가능"
+          "Gradio UI를 활용한 직관적인 AI 비디오 편집 및 변환 인터페이스 제공",
+          "비디오 생성 모델을 응용한 실시간 인퍼런스 및 효과 적용",
+          "Hugging Face Spaces를 통한 빠른 프로토타이핑 및 손쉬운 공유 지원"
         ]
       },
       "en": {
-        "title": "Hugging Face Space: wxDai/joyai-video-edit",
-        "hook": "A Gradio web demo offering easy hands-on experience with JoyAI video editing features.",
+        "title": "JoyAI Video Editing Interactive Gradio Demo",
+        "hook": "An interactive Gradio-based demo for AI-powered video editing and transformation.",
         "key_takeaways": [
-          "Video editing demo powered by the JoyAI engine",
-          "Intuitive web interface built with Gradio SDK",
-          "Hands-on practice for AI-driven video processing"
+          "Provides an intuitive user interface powered by Gradio for interactive video editing.",
+          "Demonstrates generative video-to-video modification and styling capabilities.",
+          "Hosted on Hugging Face Spaces for rapid prototyping and immediate online testing."
         ]
       },
       "zh": {
-        "title": "Hugging Face 空间：wxDai/joyai-video-edit",
-        "hook": "通过网页界面轻松体验基于 JoyAI 的视频编辑功能的 Gradio 演示。",
+        "title": "JoyAI 视频编辑 Gradio 交互式 Demo",
+        "hook": "基于 Gradio 构建的在线 AI 视频编辑与微调交互演示平台",
         "key_takeaways": [
-          "利用 JoyAI 引擎实现的视频编辑演示",
-          "通过 Gradio SDK 提供便捷的网页交互界面",
-          "可直接上手体验基于 AI 的视频处理管线"
+          "利用 Gradio 构建直观的生成式 AI 视频编辑交互界面",
+          "支持视频到视频 (Video-to-Video) 的生成与风格转换功能",
+          "托管于 Hugging Face Spaces，便于快速验证与原型展示"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:33:48.648319+09:00"
+    }
   },
-  "source_lang": "EN",
+  "source_lang": "AUTO",
   "programming_lang": "Python",
   "root_keywords": [
-    "Video Editing",
-    "JoyAI",
-    "Gradio",
-    "AI Demo"
+    "video editing",
+    "generative ai",
+    "gradio",
+    "huggingface spaces"
   ],
-  "title_en": "Hugging Face Space: wxDai/joyai-video-edit",
-  "title_zh": "Hugging Face 空间：wxDai/joyai-video-edit",
+  "title_en": "JoyAI Video Editing Interactive Gradio Demo",
+  "title_zh": "JoyAI 视频编辑 Gradio 交互式 Demo",
   "hook": "JoyAI 기반의 비디오 편집 기능을 웹 인터페이스로 손쉽게 체험할 수 있는 Gradio 데모입니다.",
-  "hook_ko": "JoyAI 기반의 비디오 편집 기능을 웹 인터페이스로 손쉽게 체험할 수 있는 Gradio 데모입니다.",
-  "hook_en": "A Gradio web demo offering easy hands-on experience with JoyAI video editing features.",
-  "hook_zh": "通过网页界面轻松体验基于 JoyAI 的视频编辑功能的 Gradio 演示。",
+  "hook_ko": "Gradio 기반으로 직관적인 AI 비디오 편집 및 스타일 변환을 구현한 실시간 데모",
+  "hook_en": "An interactive Gradio-based demo for AI-powered video editing and transformation.",
+  "hook_zh": "基于 Gradio 构建的在线 AI 视频编辑与微调交互演示平台",
   "description_en": "A Gradio web demo offering easy hands-on experience with JoyAI video editing features.",
   "description_zh": "通过网页界面轻松体验基于 JoyAI 的视频编辑功能的 Gradio 演示。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "JoyAI 비디오 에디팅 Gradio 인터랙티브 데모",
+      "hook": "Gradio 기반으로 직관적인 AI 비디오 편집 및 스타일 변환을 구현한 실시간 데모",
+      "key_takeaways": [
+        "Gradio UI를 활용한 직관적인 AI 비디오 편집 및 변환 인터페이스 제공",
+        "비디오 생성 모델을 응용한 실시간 인퍼런스 및 효과 적용",
+        "Hugging Face Spaces를 통한 빠른 프로토타이핑 및 손쉬운 공유 지원"
+      ]
+    },
+    "en": {
+      "title": "JoyAI Video Editing Interactive Gradio Demo",
+      "hook": "An interactive Gradio-based demo for AI-powered video editing and transformation.",
+      "key_takeaways": [
+        "Provides an intuitive user interface powered by Gradio for interactive video editing.",
+        "Demonstrates generative video-to-video modification and styling capabilities.",
+        "Hosted on Hugging Face Spaces for rapid prototyping and immediate online testing."
+      ]
+    },
+    "zh": {
+      "title": "JoyAI 视频编辑 Gradio 交互式 Demo",
+      "hook": "基于 Gradio 构建的在线 AI 视频编辑与微调交互演示平台",
+      "key_takeaways": [
+        "利用 Gradio 构建直观的生成式 AI 视频编辑交互界面",
+        "支持视频到视频 (Video-to-Video) 的生成与风格转换功能",
+        "托管于 Hugging Face Spaces，便于快速验证与原型展示"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.846379"
 }

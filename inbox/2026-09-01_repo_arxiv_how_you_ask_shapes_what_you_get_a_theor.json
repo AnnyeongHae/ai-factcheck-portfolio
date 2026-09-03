@@ -33,68 +33,99 @@
     "id": "2026-09-01_repo_arxiv_how_you_ask_shapes_what_you_get_a_theor",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 프롬프트 엔지니어링 및 상호작용 이론",
-    "programming_lang": "Python",
+    "model_family": "Human-AI Interaction / LLM Evaluation",
+    "category": "LLM & Human-AI Interaction",
+    "programming_lang": "General",
     "root_keywords": [
       "Prompt Engineering",
       "LLM Conversations",
-      "Advice-Seeking",
-      "Theory-Seeded Measurement"
+      "Articulation Measurement",
+      "Human-AI Interaction",
+      "Advice-Seeking LLMs"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.1,
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "질문 방식이 결과물을 결정한다: 조언 요청형 LLM 대화에서의 표현 방식 측정 이론",
-        "hook": "사용자의 질문 방식(상세함 vs 모호함)이 LLM 응답 품질에 미치는 영향을 이론적으로 분석하여 프롬프트 최적화의 새로운 기준을 제시합니다.",
+        "title": "질문 방식이 답을 결정한다: 조언 구하기 LLM 대화에서의 표현 명확도 측정을 위한 이론적 연구",
+        "hook": "프롬프트의 구체성과 명확도(Articulation)가 LLM 답변 품질에 미치는 영향 및 측정 방식에 대한 이론 기반 분석",
         "key_takeaways": [
-          "사용자의 제약 조건 명시 여부가 LLM 대화의 결과물에 미치는 영향 분석",
-          "변동성을 노이즈로 보지 않고 이론적으로 측정하는 프레임워크 제안",
-          "효과적인 조언 요청을 위한 프롬프트 엔지니어링 인사이트 도출"
+          "사용자의 질문 방식 차이(모호함 vs 구체적 제약 조건)를 단순 노이즈가 아닌 핵심 측정 변수로 분석",
+          "이론 기반(Theory-seeded) 접근법을 통해 LLM 대화 내 프롬프트 명확도(Articulation) 계량화",
+          "상황에 따른 질문 구성 방식이 LLM의 최종 응답 품질과 조언 적합성에 미치는 실증적 영향 입증"
         ]
       },
       "en": {
         "title": "How You Ask Shapes What You Get: A Theory-Seeded Measurement of Articulation in Advice-Seeking LLM Conversations",
-        "hook": "Discover how user phrasing and constraints fundamentally alter LLM output quality through a rigorous theoretical measurement framework.",
+        "hook": "A theoretical measurement framework analyzing how prompt articulation and constraints impact advice quality in LLM conversations.",
         "key_takeaways": [
-          "Analyzes how user variation in advice-seeking requests impacts LLM responses",
-          "Treats conversational variation as a measurable signal rather than mere noise",
-          "Provides actionable insights for advanced prompt engineering and interaction design"
+          "Moves beyond treating user prompt variation as noise by modeling query articulation systematically.",
+          "Introduces a theory-seeded measurement method to quantify prompt clarity and specificity in LLM interactions.",
+          "Demonstrates how user query structure directly influences advice quality and response alignment."
         ]
       },
       "zh": {
-        "title": "你如何提问决定了你获得什么：求助型LLM对话中表达方式的理论化测量",
-        "hook": "深入剖析用户提问方式对大模型输出质量的决定性影响，为提示词工程提供理论测量依据。",
+        "title": "提问方式决定回答质量：大语言模型咨询对话中表述清晰度的理论基准测量",
+        "hook": "探索提示词具体性与表述清晰度（Articulation）如何影响 LLM 建议质量的理论分析框架",
         "key_takeaways": [
-          "分析用户约束条件的详尽程度如何影响LLM的对话结果",
-          "将对话变异性视为可测量信号而非单纯噪声的新框架",
-          "为高效提示词设计与交互优化提供深度洞察"
+          "打破将用户提问差异视作噪音的传统观点，对提问表述进行系统化建模",
+          "提出基于理论的测量方法，用于量化 LLM 交互中的提示词清晰度与约束条件",
+          "揭示提问结构如何直接影响大模型生成的建议质量与匹配度"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:30:57.911523+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
     "Prompt Engineering",
     "LLM Conversations",
-    "Advice-Seeking",
-    "Theory-Seeded Measurement"
+    "Articulation Measurement",
+    "Human-AI Interaction",
+    "Advice-Seeking LLMs"
   ],
-  "title_ko": "질문 방식이 결과물을 결정한다: 조언 요청형 LLM 대화에서의 표현 방식 측정 이론",
+  "title_ko": "질문 방식이 답을 결정한다: 조언 구하기 LLM 대화에서의 표현 명확도 측정을 위한 이론적 연구",
   "title_en": "How You Ask Shapes What You Get: A Theory-Seeded Measurement of Articulation in Advice-Seeking LLM Conversations",
-  "title_zh": "你如何提问决定了你获得什么：求助型LLM对话中表达方式的理论化测量",
+  "title_zh": "提问方式决定回答质量：大语言模型咨询对话中表述清晰度的理论基准测量",
   "hook": "사용자의 질문 방식(상세함 vs 모호함)이 LLM 응답 품질에 미치는 영향을 이론적으로 분석하여 프롬프트 최적화의 새로운 기준을 제시합니다.",
-  "hook_ko": "사용자의 질문 방식(상세함 vs 모호함)이 LLM 응답 품질에 미치는 영향을 이론적으로 분석하여 프롬프트 최적화의 새로운 기준을 제시합니다.",
-  "hook_en": "Discover how user phrasing and constraints fundamentally alter LLM output quality through a rigorous theoretical measurement framework.",
-  "hook_zh": "深入剖析用户提问方式对大模型输出质量的决定性影响，为提示词工程提供理论测量依据。",
+  "hook_ko": "프롬프트의 구체성과 명확도(Articulation)가 LLM 답변 품질에 미치는 영향 및 측정 방식에 대한 이론 기반 분석",
+  "hook_en": "A theoretical measurement framework analyzing how prompt articulation and constraints impact advice quality in LLM conversations.",
+  "hook_zh": "探索提示词具体性与表述清晰度（Articulation）如何影响 LLM 建议质量的理论分析框架",
   "description_ko": "사용자의 질문 방식(상세함 vs 모호함)이 LLM 응답 품질에 미치는 영향을 이론적으로 분석하여 프롬프트 최적화의 새로운 기준을 제시합니다.",
   "description_en": "Discover how user phrasing and constraints fundamentally alter LLM output quality through a rigorous theoretical measurement framework.",
   "description_zh": "深入剖析用户提问方式对大模型输出质量的决定性影响，为提示词工程提供理论测量依据。",
   "category_type": "TECH",
   "harvested_at": "2026-09-01T12:00:00+09:00",
-  "published_at": "2026-09-01T12:00:00+09:00"
+  "published_at": "2026-09-01T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "질문 방식이 답을 결정한다: 조언 구하기 LLM 대화에서의 표현 명확도 측정을 위한 이론적 연구",
+      "hook": "프롬프트의 구체성과 명확도(Articulation)가 LLM 답변 품질에 미치는 영향 및 측정 방식에 대한 이론 기반 분석",
+      "key_takeaways": [
+        "사용자의 질문 방식 차이(모호함 vs 구체적 제약 조건)를 단순 노이즈가 아닌 핵심 측정 변수로 분석",
+        "이론 기반(Theory-seeded) 접근법을 통해 LLM 대화 내 프롬프트 명확도(Articulation) 계량화",
+        "상황에 따른 질문 구성 방식이 LLM의 최종 응답 품질과 조언 적합성에 미치는 실증적 영향 입증"
+      ]
+    },
+    "en": {
+      "title": "How You Ask Shapes What You Get: A Theory-Seeded Measurement of Articulation in Advice-Seeking LLM Conversations",
+      "hook": "A theoretical measurement framework analyzing how prompt articulation and constraints impact advice quality in LLM conversations.",
+      "key_takeaways": [
+        "Moves beyond treating user prompt variation as noise by modeling query articulation systematically.",
+        "Introduces a theory-seeded measurement method to quantify prompt clarity and specificity in LLM interactions.",
+        "Demonstrates how user query structure directly influences advice quality and response alignment."
+      ]
+    },
+    "zh": {
+      "title": "提问方式决定回答质量：大语言模型咨询对话中表述清晰度的理论基准测量",
+      "hook": "探索提示词具体性与表述清晰度（Articulation）如何影响 LLM 建议质量的理论分析框架",
+      "key_takeaways": [
+        "打破将用户提问差异视作噪音的传统观点，对提问表述进行系统化建模",
+        "提出基于理论的测量方法，用于量化 LLM 交互中的提示词清晰度与约束条件",
+        "揭示提问结构如何直接影响大模型生成的建议质量与匹配度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.929720"
 }

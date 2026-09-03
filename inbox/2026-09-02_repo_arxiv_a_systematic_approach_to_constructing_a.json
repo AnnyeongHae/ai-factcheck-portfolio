@@ -33,66 +33,99 @@
   "ai_enrichment": {
     "id": "2026-09-02_repo_arxiv_a_systematic_approach_to_constructing_a",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "공급망 및 리스크 분석",
-    "programming_lang": "General",
+    "type_classification": "TECH",
+    "model_family": "Risk Assessment & Information Extraction",
+    "category": "Data Engineering & Analytics",
+    "programming_lang": "Python",
     "root_keywords": [
       "Semiconductor Supply Chain",
-      "Risk Matrix",
-      "Systematic Extraction"
+      "Chance-and-Risk Matrix",
+      "Risk Assessment",
+      "Information Extraction",
+      "Geopolitical Risk"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.2,
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "반도체 공급망을 위한 기회-위험 매트릭스 구축 체계적 접근법",
-        "hook": "지정학적 리스크와 기술 변화에 대응하는 반도체 공급망 분석 및 구조화 자동화 체계를 확인하세요.",
+        "title": "반도체 공급망을 위한 기회 및 위험 매트릭스 구축의 체계적 접근 방식",
+        "hook": "지정학적 리스크와 기술 변화에 대응하여 반도체 공급망 데이터를 체계적으로 추출·구조화하는 리스크 평가 프레임워크",
         "key_takeaways": [
-          "반도체 공급망의 지정학적 및 기술적 리스크 분석",
-          "확장 가능한 리스크 정보 자동 추출 및 구조화",
-          "기회와 위험 요소를 매트릭스로 체계화"
+          "반도체 공급망의 지정학적·지리적 집중 위험을 관리하기 위한 체계적인 매트릭스 구축 방법론 제안",
+          "비구조화된 공급망 관련 데이터를 지속적으로 추출, 구조화 및 우선순위화하는 확장의 용이한 시스템",
+          "위험 요인뿐만 아니라 시장 및 기술적 기회 요인을 동시에 다각도로 분석할 수 있는 체계 제공"
         ]
       },
       "en": {
         "title": "A Systematic Approach to Constructing a Chance-and-Risk Matrix for Semiconductor Supply Chains",
-        "hook": "Explore a scalable system for extracting and structuring semiconductor supply chain risks and opportunities.",
+        "hook": "A systematic framework for extracting and structuring supply chain risk data to mitigate geopolitical and technological disruptions.",
         "key_takeaways": [
-          "Analyzes geopolitical and technological risks in supply chains",
-          "Scalable automated extraction and structuring of risk data",
-          "Systematizes opportunities and threats into a clear matrix"
+          "Proposes a systematic methodology to construct a Chance-and-Risk matrix tailored for the semiconductor industry.",
+          "Enables scalable, continuous extraction and structuring of unstructured supply chain intelligence.",
+          "Provides a dual framework to evaluate both risk vulnerabilities and emerging technological opportunities simultaneously."
         ]
       },
       "zh": {
         "title": "构建半导体供应链机遇与风险矩阵的系统化方法",
-        "hook": "探索用于提取和构建半导体供应链风险与机遇的可扩展自动化分析系统。",
+        "hook": "一种旨在应对地缘政治与技术变革风险、系统化提取与结构化半导体供应链情报的评估框架",
         "key_takeaways": [
-          "分析供应链中的地缘政治与技术风险",
-          "可扩展的风险数据自动提取与结构化处理",
-          "将机遇与威胁因素转化为系统化矩阵"
+          "提出了针对半导体供应链构建“机遇与风险矩阵”的系统化方法",
+          "能够可扩展且持续地提取、结构化和处理非结构化供应链情报",
+          "建立能够同时评估潜在供应链威胁与技术发展机遇的双重分析框架"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:27:21.949655+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "General",
+  "programming_lang": "Python",
   "root_keywords": [
     "Semiconductor Supply Chain",
-    "Risk Matrix",
-    "Systematic Extraction"
+    "Chance-and-Risk Matrix",
+    "Risk Assessment",
+    "Information Extraction",
+    "Geopolitical Risk"
   ],
-  "title_ko": "반도체 공급망을 위한 기회-위험 매트릭스 구축 체계적 접근법",
+  "title_ko": "반도체 공급망을 위한 기회 및 위험 매트릭스 구축의 체계적 접근 방식",
   "title_en": "A Systematic Approach to Constructing a Chance-and-Risk Matrix for Semiconductor Supply Chains",
   "title_zh": "构建半导体供应链机遇与风险矩阵的系统化方法",
   "hook": "지정학적 리스크와 기술 변화에 대응하는 반도체 공급망 분석 및 구조화 자동화 체계를 확인하세요.",
-  "hook_ko": "지정학적 리스크와 기술 변화에 대응하는 반도체 공급망 분석 및 구조화 자동화 체계를 확인하세요.",
-  "hook_en": "Explore a scalable system for extracting and structuring semiconductor supply chain risks and opportunities.",
-  "hook_zh": "探索用于提取和构建半导体供应链风险与机遇的可扩展自动化分析系统。",
+  "hook_ko": "지정학적 리스크와 기술 변화에 대응하여 반도체 공급망 데이터를 체계적으로 추출·구조화하는 리스크 평가 프레임워크",
+  "hook_en": "A systematic framework for extracting and structuring supply chain risk data to mitigate geopolitical and technological disruptions.",
+  "hook_zh": "一种旨在应对地缘政治与技术变革风险、系统化提取与结构化半导体供应链情报的评估框架",
   "description_ko": "지정학적 리스크와 기술 변화에 대응하는 반도체 공급망 분석 및 구조화 자동화 체계를 확인하세요.",
   "description_en": "Explore a scalable system for extracting and structuring semiconductor supply chain risks and opportunities.",
   "description_zh": "探索用于提取和构建半导体供应链风险与机遇的可扩展自动化分析系统。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "반도체 공급망을 위한 기회 및 위험 매트릭스 구축의 체계적 접근 방식",
+      "hook": "지정학적 리스크와 기술 변화에 대응하여 반도체 공급망 데이터를 체계적으로 추출·구조화하는 리스크 평가 프레임워크",
+      "key_takeaways": [
+        "반도체 공급망의 지정학적·지리적 집중 위험을 관리하기 위한 체계적인 매트릭스 구축 방법론 제안",
+        "비구조화된 공급망 관련 데이터를 지속적으로 추출, 구조화 및 우선순위화하는 확장의 용이한 시스템",
+        "위험 요인뿐만 아니라 시장 및 기술적 기회 요인을 동시에 다각도로 분석할 수 있는 체계 제공"
+      ]
+    },
+    "en": {
+      "title": "A Systematic Approach to Constructing a Chance-and-Risk Matrix for Semiconductor Supply Chains",
+      "hook": "A systematic framework for extracting and structuring supply chain risk data to mitigate geopolitical and technological disruptions.",
+      "key_takeaways": [
+        "Proposes a systematic methodology to construct a Chance-and-Risk matrix tailored for the semiconductor industry.",
+        "Enables scalable, continuous extraction and structuring of unstructured supply chain intelligence.",
+        "Provides a dual framework to evaluate both risk vulnerabilities and emerging technological opportunities simultaneously."
+      ]
+    },
+    "zh": {
+      "title": "构建半导体供应链机遇与风险矩阵的系统化方法",
+      "hook": "一种旨在应对地缘政治与技术变革风险、系统化提取与结构化半导体供应链情报的评估框架",
+      "key_takeaways": [
+        "提出了针对半导体供应链构建“机遇与风险矩阵”的系统化方法",
+        "能够可扩展且持续地提取、结构化和处理非结构化供应链情报",
+        "建立能够同时评估潜在供应链威胁与技术发展机遇的双重分析框架"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.968493"
 }

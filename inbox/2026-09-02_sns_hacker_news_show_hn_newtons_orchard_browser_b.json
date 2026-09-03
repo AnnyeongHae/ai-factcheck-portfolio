@@ -37,65 +37,98 @@
     "id": "2026-09-02_sns_hacker_news_show_hn_newtons_orchard_browser_b",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "시뮬레이션 및 웹 그래픽",
-    "programming_lang": "JavaScript",
+    "model_family": "Interactive Web / Simulation Engine",
+    "category": "Web Development & Physics Simulation",
+    "programming_lang": "JavaScript/General",
     "root_keywords": [
-      "Browser",
-      "Gravity",
-      "Simulation"
+      "physics simulation",
+      "gravity sandbox",
+      "orbital mechanics",
+      "browser playground",
+      "web physics"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 2.5,
+    "worth_score": 3.3,
     "multilingual": {
       "ko": {
-        "title": "뉴턴즈 오처드: 브라우저 기반 우주 및 중력 시뮬레이터",
-        "hook": "웹 브라우저에서 직접 물리 법칙과 중력 시뮬레이션을 구현한 가벼운 인터랙티브 프로젝트입니다.",
+        "title": "Newton's Orchard – 웹 브라우저 기반 우주/중력 시뮬레이션 놀이터",
+        "hook": "웹 브라우저에서 뉴턴 역학과 천체 중력을 직접 실시간으로 실험할 수 있는 인터랙티브 시뮬레이터",
         "key_takeaways": [
-          "웹 기술을 활용한 브라우저 기반 공간 시뮬레이션",
-          "중력 및 천체 물리 법칙의 시각적 구현",
-          "가벼운 인터랙티브 경험 제공"
+          "별도의 설치 없이 브라우저에서 동작하는 실시간 중력 시뮬레이션",
+          "천체 배치 및 시공간 궤도 변화 시각화 기능 제공",
+          "웹 기반 물리학 엔진 및 캔버스 연산 구현 기술 참고 자료"
         ]
       },
       "en": {
-        "title": "Newton's Orchard: Browser-Based Space and Gravity Playground",
-        "hook": "A lightweight interactive project implementing physics and gravity simulations directly in the web browser.",
+        "title": "Newton's Orchard – Browser-based Space/Gravity Playground",
+        "hook": "An interactive web sandbox for simulating Newtonian gravity and orbital mechanics in real-time.",
         "key_takeaways": [
-          "Browser-based spatial simulation using web technologies",
-          "Visual implementation of gravity and orbital mechanics",
-          "Provides a lightweight interactive experience"
+          "Real-time Newtonian physics and gravitational simulation running directly in the browser",
+          "Interactive tools for spawning celestial bodies and visualizing orbital trajectories",
+          "A practical reference project for Web Graphics and interactive physics engine development"
         ]
       },
       "zh": {
-        "title": "牛顿果园：基于浏览器的太空与重力模拟游乐场",
-        "hook": "一个直接在网页浏览器中实现物理定律与重力模拟的轻量级互动项目。",
+        "title": "Newton's Orchard – 基于浏览器的太空/重力模拟游乐场",
+        "hook": "一款直接在浏览器中运行的交互式沙盒，用于实时模拟牛顿重力和天体轨道力学。",
         "key_takeaways": [
-          "利用网络技术实现的基于浏览器的空间模拟",
-          "重力与天体物理定律的视觉化实现",
-          "提供轻量级的互动体验"
+          "无需安装即可在浏览器中运行的实时牛顿物理与重力模拟",
+          "提供自定义天体放置与轨道轨迹可视化功能",
+          "Web 物理引擎与 Canvas 交互开发的优秀参考案例"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:54:18.004164+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "JavaScript",
+  "programming_lang": "JavaScript/General",
   "root_keywords": [
-    "Browser",
-    "Gravity",
-    "Simulation"
+    "physics simulation",
+    "gravity sandbox",
+    "orbital mechanics",
+    "browser playground",
+    "web physics"
   ],
-  "title_ko": "뉴턴즈 오처드: 브라우저 기반 우주 및 중력 시뮬레이터",
-  "title_en": "Newton's Orchard: Browser-Based Space and Gravity Playground",
-  "title_zh": "牛顿果园：基于浏览器的太空与重力模拟游乐场",
+  "title_ko": "Newton's Orchard – 웹 브라우저 기반 우주/중력 시뮬레이션 놀이터",
+  "title_en": "Newton's Orchard – Browser-based Space/Gravity Playground",
+  "title_zh": "Newton's Orchard – 基于浏览器的太空/重力模拟游乐场",
   "hook": "웹 브라우저에서 직접 물리 법칙과 중력 시뮬레이션을 구현한 가벼운 인터랙티브 프로젝트입니다.",
-  "hook_ko": "웹 브라우저에서 직접 물리 법칙과 중력 시뮬레이션을 구현한 가벼운 인터랙티브 프로젝트입니다.",
-  "hook_en": "A lightweight interactive project implementing physics and gravity simulations directly in the web browser.",
-  "hook_zh": "一个直接在网页浏览器中实现物理定律与重力模拟的轻量级互动项目。",
+  "hook_ko": "웹 브라우저에서 뉴턴 역학과 천체 중력을 직접 실시간으로 실험할 수 있는 인터랙티브 시뮬레이터",
+  "hook_en": "An interactive web sandbox for simulating Newtonian gravity and orbital mechanics in real-time.",
+  "hook_zh": "一款直接在浏览器中运行的交互式沙盒，用于实时模拟牛顿重力和天体轨道力学。",
   "description_ko": "웹 브라우저에서 직접 물리 법칙과 중력 시뮬레이션을 구현한 가벼운 인터랙티브 프로젝트입니다.",
   "description_en": "A lightweight interactive project implementing physics and gravity simulations directly in the web browser.",
   "description_zh": "一个直接在网页浏览器中实现物理定律与重力模拟的轻量级互动项目。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Newton's Orchard – 웹 브라우저 기반 우주/중력 시뮬레이션 놀이터",
+      "hook": "웹 브라우저에서 뉴턴 역학과 천체 중력을 직접 실시간으로 실험할 수 있는 인터랙티브 시뮬레이터",
+      "key_takeaways": [
+        "별도의 설치 없이 브라우저에서 동작하는 실시간 중력 시뮬레이션",
+        "천체 배치 및 시공간 궤도 변화 시각화 기능 제공",
+        "웹 기반 물리학 엔진 및 캔버스 연산 구현 기술 참고 자료"
+      ]
+    },
+    "en": {
+      "title": "Newton's Orchard – Browser-based Space/Gravity Playground",
+      "hook": "An interactive web sandbox for simulating Newtonian gravity and orbital mechanics in real-time.",
+      "key_takeaways": [
+        "Real-time Newtonian physics and gravitational simulation running directly in the browser",
+        "Interactive tools for spawning celestial bodies and visualizing orbital trajectories",
+        "A practical reference project for Web Graphics and interactive physics engine development"
+      ]
+    },
+    "zh": {
+      "title": "Newton's Orchard – 基于浏览器的太空/重力模拟游乐场",
+      "hook": "一款直接在浏览器中运行的交互式沙盒，用于实时模拟牛顿重力和天体轨道力学。",
+      "key_takeaways": [
+        "无需安装即可在浏览器中运行的实时牛顿物理与重力模拟",
+        "提供自定义天体放置与轨道轨迹可视化功能",
+        "Web 物理引擎与 Canvas 交互开发的优秀参考案例"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:22.105520"
 }

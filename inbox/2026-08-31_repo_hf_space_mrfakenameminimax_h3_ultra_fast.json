@@ -22,7 +22,7 @@
     "Interactive Web Demo"
   ],
   "category_type": "MODEL",
-  "title_ko": "MiniMax H3 울트라 패스트 초고속 추론 데모",
+  "title_ko": "MiniMax H3 초고속 음성 합성 Gradio 데모",
   "description_ko": "MiniMax H3 모델의 추론 속도를 극대화한 초고속 웹 데모 애플리케이션입니다.",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
   "creator": "Community",
@@ -47,66 +47,97 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_hf_space_mrfakenameminimax_h3_ultra_fast",
     "source_lang": "EN",
-    "type_classification": "MODEL",
+    "type_classification": "TECH",
     "model_family": "MiniMax",
-    "category": "LLM 추론 최적화",
+    "category": "Audio AI / Speech Synthesis",
     "programming_lang": "Python",
     "root_keywords": [
       "MiniMax",
-      "초고속 추론",
-      "H3",
-      "LLM 최적화"
+      "Text-to-Speech",
+      "Ultra-Fast",
+      "Gradio",
+      "Hugging Face Spaces"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.2,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "MiniMax H3 울트라 패스트 초고속 추론 데모",
-        "hook": "MiniMax H3 모델의 추론 속도를 극대화한 초고속 웹 데모 애플리케이션입니다.",
+        "title": "MiniMax H3 초고속 음성 합성 Gradio 데모",
+        "hook": "MiniMax H3 모델을 활용한 극도로 빠른 실시간 텍스트-음성 변환(TTS) 대화형 데모",
         "key_takeaways": [
-          "저지연 응답을 위해 최적화된 MiniMax H3 파이프라인",
-          "실무 환경에서 즉시 활용 가능한 고성능 LLM 속도 체감",
-          "Gradio 기반의 깔끔하고 빠른 사용자 인터페이스"
+          "Gradio SDK를 사용하여 구축된 웹 기반 초고속 음성 생성 인터페이스",
+          "MiniMax H3 모델을 활용하여 음성 합성 지연 시간을 크게 단축",
+          "실시간 대화형 AI 및 스트리밍 음성 서비스 응용 개발에 유용"
         ]
       },
       "en": {
-        "title": "MiniMax H3 Ultra Fast Inference Demo",
-        "hook": "An ultra-fast web demo application maximizing the inference speed of the MiniMax H3 model.",
+        "title": "MiniMax H3 Ultra-Fast Speech Synthesis Demo",
+        "hook": "An interactive Hugging Face Space showcasing ultra-fast text-to-speech generation powered by MiniMax H3.",
         "key_takeaways": [
-          "Optimized MiniMax H3 pipeline designed for low-latency responses",
-          "Experience high-performance LLM speeds ready for practical environments",
-          "Clean and responsive user interface powered by Gradio"
+          "Web-based interactive audio synthesis interface powered by Gradio SDK",
+          "Optimized runtime latency leveraging the MiniMax H3 speech model",
+          "Ideal reference for building real-time voice applications and streaming TTS systems"
         ]
       },
       "zh": {
-        "title": "MiniMax H3 超高速推理演示",
-        "hook": "将 MiniMax H3 模型推理速度发挥到极致的超高速网页演示应用程序。",
+        "title": "MiniMax H3 超高速语音合成 Gradio 演示",
+        "hook": "基于 MiniMax H3 模型打造的超低延迟文本转语音（TTS）交互式 Demo",
         "key_takeaways": [
-          "为低延迟响应而优化的 MiniMax H3 管道",
-          "体验可在实际环境中立即使用的高性能大模型速度",
-          "基于 Gradio 打造的简洁且快速的用户界面"
+          "基于 Gradio SDK 构建的高效 Web 端音频交互生成界面",
+          "利用 MiniMax H3 语音模型大幅降低推理延迟与生成耗时",
+          "为构建实时语音对话与流式语音合成应用提供实用参考"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:27:02.163952+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "MiniMax",
-    "초고속 추론",
-    "H3",
-    "LLM 최적화"
+    "Text-to-Speech",
+    "Ultra-Fast",
+    "Gradio",
+    "Hugging Face Spaces"
   ],
-  "title_en": "MiniMax H3 Ultra Fast Inference Demo",
-  "title_zh": "MiniMax H3 超高速推理演示",
+  "title_en": "MiniMax H3 Ultra-Fast Speech Synthesis Demo",
+  "title_zh": "MiniMax H3 超高速语音合成 Gradio 演示",
   "hook": "MiniMax H3 모델의 추론 속도를 극대화한 초고속 웹 데모 애플리케이션입니다.",
-  "hook_ko": "MiniMax H3 모델의 추론 속도를 극대화한 초고속 웹 데모 애플리케이션입니다.",
-  "hook_en": "An ultra-fast web demo application maximizing the inference speed of the MiniMax H3 model.",
-  "hook_zh": "将 MiniMax H3 模型推理速度发挥到极致的超高速网页演示应用程序。",
+  "hook_ko": "MiniMax H3 모델을 활용한 극도로 빠른 실시간 텍스트-음성 변환(TTS) 대화형 데모",
+  "hook_en": "An interactive Hugging Face Space showcasing ultra-fast text-to-speech generation powered by MiniMax H3.",
+  "hook_zh": "基于 MiniMax H3 模型打造的超低延迟文本转语音（TTS）交互式 Demo",
   "description_en": "An ultra-fast web demo application maximizing the inference speed of the MiniMax H3 model.",
   "description_zh": "将 MiniMax H3 模型推理速度发挥到极致的超高速网页演示应用程序。",
   "harvested_at": "2026-08-31T12:00:00+09:00",
-  "published_at": "2026-08-31T12:00:00+09:00"
+  "published_at": "2026-08-31T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "MiniMax H3 초고속 음성 합성 Gradio 데모",
+      "hook": "MiniMax H3 모델을 활용한 극도로 빠른 실시간 텍스트-음성 변환(TTS) 대화형 데모",
+      "key_takeaways": [
+        "Gradio SDK를 사용하여 구축된 웹 기반 초고속 음성 생성 인터페이스",
+        "MiniMax H3 모델을 활용하여 음성 합성 지연 시간을 크게 단축",
+        "실시간 대화형 AI 및 스트리밍 음성 서비스 응용 개발에 유용"
+      ]
+    },
+    "en": {
+      "title": "MiniMax H3 Ultra-Fast Speech Synthesis Demo",
+      "hook": "An interactive Hugging Face Space showcasing ultra-fast text-to-speech generation powered by MiniMax H3.",
+      "key_takeaways": [
+        "Web-based interactive audio synthesis interface powered by Gradio SDK",
+        "Optimized runtime latency leveraging the MiniMax H3 speech model",
+        "Ideal reference for building real-time voice applications and streaming TTS systems"
+      ]
+    },
+    "zh": {
+      "title": "MiniMax H3 超高速语音合成 Gradio 演示",
+      "hook": "基于 MiniMax H3 模型打造的超低延迟文本转语音（TTS）交互式 Demo",
+      "key_takeaways": [
+        "基于 Gradio SDK 构建的高效 Web 端音频交互生成界面",
+        "利用 MiniMax H3 语音模型大幅降低推理延迟与生成耗时",
+        "为构建实时语音对话与流式语音合成应用提供实用参考"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T02:18:21.833165"
 }
