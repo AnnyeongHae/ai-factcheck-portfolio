@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03",
+  "generated_at": "2026-09-04",
   "total_cases": 35,
   "user_curated_count": 12,
   "auto_harvested_count": 23,
@@ -7,10 +7,10 @@
   "half_true_count": 9,
   "gamed_count": 2,
   "avg_confidence": 96.2,
-  "models_total_count": 143,
-  "news_total_count": 75,
-  "inbox_total_count": 449,
-  "all_inbox_count": 459,
+  "models_total_count": 145,
+  "news_total_count": 121,
+  "inbox_total_count": 499,
+  "all_inbox_count": 509,
   "admin_stats": {
     "endpoints": [
       {
@@ -45,6 +45,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T01:24:26.686353",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.43
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 85,
+            "duration_sec": 0.67
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 1.01
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 33.24
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.49
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.52
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.2
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.47
+          }
+        },
+        "summary": {
+          "total_fetched": 259,
+          "updated_count": 0,
+          "new_saved": 50,
+          "duplicates_skipped": 209,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T12:10:29.116830",
         "date": "2026-09-03",
@@ -1581,111 +1634,58 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T06:33:19.136040",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.28
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.23
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.83
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 13.98
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.28
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.18
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.83
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.29
-          }
-        },
-        "summary": {
-          "total_fetched": 160,
-          "updated_count": 159,
-          "new_saved": 1,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T12:10:29.116830",
-      "date": "2026-09-03",
+      "timestamp": "2026-09-04T01:24:26.686353",
+      "date": "2026-09-04",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.27
+          "duration_sec": 0.43
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 85,
-          "duration_sec": 0.38
+          "duration_sec": 0.67
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.76
+          "duration_sec": 1.01
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 23,
-          "duration_sec": 15.24
+          "items_found": 59,
+          "duration_sec": 33.24
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.48
+          "duration_sec": 0.49
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.1
+          "duration_sec": 0.52
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.64
+          "duration_sec": 0.2
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.28
+          "duration_sec": 0.47
         }
       },
       "summary": {
-        "total_fetched": 223,
+        "total_fetched": 259,
         "updated_count": 0,
-        "new_saved": 5,
-        "duplicates_skipped": 218,
+        "new_saved": 50,
+        "duplicates_skipped": 209,
         "errors": 0
       }
     }
@@ -1694,31 +1694,31 @@
     {
       "day_ko": "월",
       "day_en": "Mon",
-      "inbox_count": 139,
+      "inbox_count": 143,
       "verified_count": 10
     },
     {
       "day_ko": "화",
       "day_en": "Tue",
-      "inbox_count": 58,
+      "inbox_count": 62,
       "verified_count": 8
     },
     {
       "day_ko": "수",
       "day_en": "Wed",
-      "inbox_count": 93,
+      "inbox_count": 106,
       "verified_count": 10
     },
     {
       "day_ko": "목",
       "day_en": "Thu",
-      "inbox_count": 159,
+      "inbox_count": 173,
       "verified_count": 6
     },
     {
       "day_ko": "금",
       "day_en": "Fri",
-      "inbox_count": 0,
+      "inbox_count": 14,
       "verified_count": 0
     },
     {
@@ -1730,7 +1730,7 @@
     {
       "day_ko": "일",
       "day_en": "Sun",
-      "inbox_count": 0,
+      "inbox_count": 1,
       "verified_count": 1
     }
   ],
@@ -1779,7 +1779,7 @@
       "month_key": "2026-08",
       "month_ko": "8월",
       "month_en": "Aug",
-      "inbox_count": 139,
+      "inbox_count": 144,
       "verified_count": 13,
       "cumulative_verified": 29
     },
@@ -1787,12 +1787,83 @@
       "month_key": "2026-09",
       "month_ko": "9월",
       "month_en": "Sep",
-      "inbox_count": 310,
+      "inbox_count": 355,
       "verified_count": 22,
       "cumulative_verified": 35
     }
   ],
   "model_items": [
+    {
+      "inbox_id": "2026-09-04_repo_huggingface_model_davidauqwen38_27b_turbo_fab",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:13.230072",
+      "published_at": "2026-09-04T01:25:13.230072",
+      "created_at": "2026-09-04T01:25:13.230072",
+      "updated_at": "2026-09-04T01:25:13.230072",
+      "title": "HuggingFace Model: DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 115, Downloads: 39646, Likes: 119, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 115 pts (❤️ 119)",
+      "metric_tracking": {
+        "initial": {
+          "value": 115,
+          "display": "Trending 115 pts (❤️ 119)",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 115,
+          "display": "Trending 115 pts (❤️ 119)",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_hf_space_signsur4739379373image_editor",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.535027",
+      "published_at": "2026-09-04T01:25:16.535027",
+      "created_at": "2026-09-04T01:25:16.535027",
+      "updated_at": "2026-09-04T01:25:16.535027",
+      "title": "HF Space: signsur4739379373/Image-Editor",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/signsur4739379373/Image-Editor",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 21 | Live URL: https://huggingface.co/spaces/signsur4739379373/Image-Editor",
+      "viral_metric": "❤️ 21 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 21,
+          "display": "❤️ 21 Likes (Trending Demo)",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 21,
+          "display": "❤️ 21 Likes (Trending Demo)",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
     {
       "inbox_id": "2026-09-03_sns_geeknews_google_코딩과_에이전트를_강화한_gemini_38_flash",
       "harvested_date": "2026-09-03",
@@ -13260,6 +13331,1263 @@
   ],
   "news_items": [
     {
+      "inbox_id": "2026-09-04_sns_hugging_face_blog_neomme_an_efficient_multimo",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.710085",
+      "published_at": "2026-09-04T01:25:53.710085",
+      "created_at": "2026-09-04T01:25:53.710085",
+      "updated_at": "2026-09-04T01:25:53.710085",
+      "title": "Hugging Face Blog: NeoMME: an efficient Multimodal-native and Multilingual Encoder",
+      "source_platform": "Hugging Face Blog",
+      "source_url": "https://huggingface.co/blog/Hcompany/neomme",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "Hugging Face Blog Tech Publication: NeoMME: an efficient Multimodal-native and Multilingual Encoder",
+      "viral_metric": "🌍 Official AI Publication",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "article_url": "https://huggingface.co/blog/Hcompany/neomme"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_what_i_learned_from_my_mom_1941_2",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:23.703132",
+      "published_at": "2026-08-30T04:52:51",
+      "created_at": "2026-08-30T04:52:51",
+      "updated_at": "2026-09-04T01:25:23.703132",
+      "title": "Hacker News: What I Learned from My Mom (1941-2026)",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49492796",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 193 pts | Comments: 8 | What I Learned from My Mom (1941-2026)",
+      "viral_metric": "🔥 193 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 193,
+          "display": "🔥 193 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 193,
+          "display": "🔥 193 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49492796",
+      "article_url": "https://experimentalliving.substack.com/p/what-i-learned-from-my-mom-1941-2026"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_wendell_berry_has_died",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.280479",
+      "published_at": "2026-09-01T10:49:58",
+      "created_at": "2026-09-01T10:49:58",
+      "updated_at": "2026-09-04T01:25:53.280479",
+      "title": "Hacker News: Wendell Berry has died",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49517018",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 227 pts | Comments: 115 | Wendell Berry has died",
+      "viral_metric": "🔥 227 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 227,
+          "display": "🔥 227 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 227,
+          "display": "🔥 227 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49517018",
+      "article_url": "https://www.nytimes.com/2026/08/31/us/wendell-berry-dead.html"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_true_rate_of_unemployment",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.413732",
+      "published_at": "2026-09-02T11:21:10",
+      "created_at": "2026-09-02T11:21:10",
+      "updated_at": "2026-09-04T01:25:53.413732",
+      "title": "Hacker News: True Rate of Unemployment",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49530989",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 306 pts | Comments: 348 | True Rate of Unemployment",
+      "viral_metric": "🔥 306 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 306,
+          "display": "🔥 306 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 306,
+          "display": "🔥 306 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49530989",
+      "article_url": "https://www.lisep.org/tru"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_three_schoolgirls_in_kinsale_pull",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.224661",
+      "published_at": "2026-09-03T16:04:13",
+      "created_at": "2026-09-03T16:04:13",
+      "updated_at": "2026-09-04T01:25:53.224661",
+      "title": "Hacker News: Three schoolgirls in Kinsale pulled up a pea plant covered in warts (2016)",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49546800",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 127 pts | Comments: 52 | Three schoolgirls in Kinsale pulled up a pea plant covered in warts (2016)",
+      "viral_metric": "🔥 127 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 127,
+          "display": "🔥 127 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 127,
+          "display": "🔥 127 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49546800",
+      "article_url": "https://scienceblog.com/b-three-schoolgirls-in-kinsale-pulled-up-a-pea-plant-covered-in-warts-and-instead-of-binning-it-spent-three-years-testing-13000-seeds-in-a-spare-bedroom-the-bacteria-living-in-those-warts-made-barley/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_the_creator_of_jujutsu_has_joined",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.457705",
+      "published_at": "2026-09-02T02:46:21",
+      "created_at": "2026-09-02T02:46:21",
+      "updated_at": "2026-09-04T01:25:53.457705",
+      "title": "Hacker News: The creator of Jujutsu has joined ERSC",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49525297",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 263 pts | Comments: 264 | The creator of Jujutsu has joined ERSC",
+      "viral_metric": "🔥 263 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 263,
+          "display": "🔥 263 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 263,
+          "display": "🔥 263 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49525297",
+      "article_url": "https://ersc.io/blog/martin-joins-ersc"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_the_computer_museum_of_america_re",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:46.946746",
+      "published_at": "2026-09-01T01:15:37",
+      "created_at": "2026-09-01T01:15:37",
+      "updated_at": "2026-09-04T01:25:46.946746",
+      "title": "Hacker News: The Computer Museum of America reclamation project",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49511493",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 90 pts | Comments: 37 | The Computer Museum of America reclamation project",
+      "viral_metric": "🔥 90 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 90,
+          "display": "🔥 90 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 90,
+          "display": "🔥 90 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49511493",
+      "article_url": "https://computer-museum.org/wp/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_texas_data_center_map_see_where_d",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:49.920301",
+      "published_at": "2026-09-04T01:10:12",
+      "created_at": "2026-09-04T01:10:12",
+      "updated_at": "2026-09-04T01:25:49.920301",
+      "title": "Hacker News: Texas Data Center Map: See where data centers are operating or planned",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49552375",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 4 pts | Comments: 0 | Texas Data Center Map: See where data centers are operating or planned",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49552375",
+      "article_url": "https://www.kxan.com/news/texas/texas-data-center-tracker-see-where-600-projects-are-operating-or-planned-across-state-in-interactive-map/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_sony_makes_bold_claim_about_game_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.865023",
+      "published_at": "2026-09-04T00:44:54",
+      "created_at": "2026-09-04T00:44:54",
+      "updated_at": "2026-09-04T01:25:16.865023",
+      "title": "Hacker News: Sony makes bold claim about game ownership",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551925",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 69 pts | Comments: 59 | Sony makes bold claim about game ownership",
+      "viral_metric": "🔥 69 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 69,
+          "display": "🔥 69 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 69,
+          "display": "🔥 69 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551925",
+      "article_url": "https://aginggamer.net/game-industry/sony-makes-bold-claim-about-game-ownership/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_reverse_engineering_unknown_file_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:49.994805",
+      "published_at": "2026-08-31T21:01:05",
+      "created_at": "2026-08-31T21:01:05",
+      "updated_at": "2026-09-04T01:25:49.994805",
+      "title": "Hacker News: Reverse Engineering Unknown File Formats with ImHex",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49508608",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 243 pts | Comments: 46 | Reverse Engineering Unknown File Formats with ImHex",
+      "viral_metric": "🔥 243 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 243,
+          "display": "🔥 243 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 243,
+          "display": "🔥 243 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49508608",
+      "article_url": "https://werwolv.net/posts/file_format_reverse_engineering/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_prediction_ai_will_collapse",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:49.974439",
+      "published_at": "2026-09-04T01:08:44",
+      "created_at": "2026-09-04T01:08:44",
+      "updated_at": "2026-09-04T01:25:49.974439",
+      "title": "Hacker News: Prediction: AI Will Collapse",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49552347",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 6 pts | Comments: 0 | Prediction: AI Will Collapse",
+      "viral_metric": "🔥 6 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49552347",
+      "article_url": "https://twitter.com/wordgrammer/status/2095263188153401712"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_pre_release_of_polars_20",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.884997",
+      "published_at": "2026-09-03T15:59:08",
+      "created_at": "2026-09-03T15:59:08",
+      "updated_at": "2026-09-04T01:25:16.884997",
+      "title": "Hacker News: Pre-Release of Polars 2.0",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49546753",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 320 pts | Comments: 106 | Pre-Release of Polars 2.0",
+      "viral_metric": "🔥 320 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 320,
+          "display": "🔥 320 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 320,
+          "display": "🔥 320 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49546753",
+      "article_url": "https://pola.rs/posts/announcing-polars-2/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_play_store_blocks_aurorastore_hur",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.352499",
+      "published_at": "2026-09-02T00:55:53",
+      "created_at": "2026-09-02T00:55:53",
+      "updated_at": "2026-09-04T01:25:53.352499",
+      "title": "Hacker News: Play Store blocks AuroraStore, hurting GrapheneOS users",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49523754",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 558 pts | Comments: 258 | Play Store blocks AuroraStore, hurting GrapheneOS users",
+      "viral_metric": "🔥 558 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 558,
+          "display": "🔥 558 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 558,
+          "display": "🔥 558 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49523754",
+      "article_url": "https://gitlab.com/AuroraOSS/AuroraStore/-/work_items/1566"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_nvidia_to_acquire_hugging_face",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:44.082703",
+      "published_at": "2026-09-03T21:10:33",
+      "created_at": "2026-09-03T21:10:33",
+      "updated_at": "2026-09-04T01:25:44.082703",
+      "title": "Hacker News: Nvidia to Acquire Hugging Face",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49548952",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 190 pts | Comments: 54 | Nvidia to Acquire Hugging Face",
+      "viral_metric": "🔥 190 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 190,
+          "display": "🔥 190 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 190,
+          "display": "🔥 190 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49548952",
+      "article_url": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_nobody_has_actually_built_a_softw",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:23.692577",
+      "published_at": "2026-09-01T00:20:22",
+      "created_at": "2026-09-01T00:20:22",
+      "updated_at": "2026-09-04T01:25:23.692577",
+      "title": "Hacker News: Nobody Has Actually Built a Software Factory",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49510843",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 29 pts | Comments: 24 | Nobody Has Actually Built a Software Factory",
+      "viral_metric": "🔥 29 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 29,
+          "display": "🔥 29 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 29,
+          "display": "🔥 29 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49510843",
+      "article_url": "https://medium.com/@NMitchem/nobody-has-actually-built-a-software-factory-77ffdc0c3efc"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_new_york_times_and_the_athletic_w",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.855853",
+      "published_at": "2026-09-03T22:51:44",
+      "created_at": "2026-09-03T22:51:44",
+      "updated_at": "2026-09-04T01:25:16.855853",
+      "title": "Hacker News: New York Times and The Athletic workers demand company scrap Kalshi deal",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49549919",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 73 pts | Comments: 19 | New York Times and The Athletic workers demand company scrap Kalshi deal",
+      "viral_metric": "🔥 73 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 73,
+          "display": "🔥 73 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 73,
+          "display": "🔥 73 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49549919",
+      "article_url": "https://newsguild.org/new-york-times-and-the-athletic-workers-demand-company-scrap-kalshi-deal/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_name_termination",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.837594",
+      "published_at": "2026-09-03T23:54:39",
+      "created_at": "2026-09-03T23:54:39",
+      "updated_at": "2026-09-04T01:25:16.837594",
+      "title": "Hacker News: .name Termination",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49550772",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 98 pts | Comments: 24 | .name Termination",
+      "viral_metric": "🔥 98 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 98,
+          "display": "🔥 98 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 98,
+          "display": "🔥 98 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49550772",
+      "article_url": "https://neil.fraser.name/news/2026/09/03/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_muse_spark_13",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:35.352190",
+      "published_at": "2026-09-03T04:35:04",
+      "created_at": "2026-09-03T04:35:04",
+      "updated_at": "2026-09-04T01:25:35.352190",
+      "title": "Hacker News: Muse Spark 1.3",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49541256",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 661 pts | Comments: 432 | Muse Spark 1.3",
+      "viral_metric": "🔥 661 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 661,
+          "display": "🔥 661 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 661,
+          "display": "🔥 661 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49541256",
+      "article_url": "https://developer.meta.com/ai/models/muse-spark/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_movie_scene_map_13312_films_serie",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.404368",
+      "published_at": "2026-09-02T01:34:45",
+      "created_at": "2026-09-02T01:34:45",
+      "updated_at": "2026-09-04T01:25:53.404368",
+      "title": "Hacker News: Movie Scene Map – 13,312 films, series, games, anime and manga",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49524320",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 335 pts | Comments: 48 | Movie Scene Map – 13,312 films, series, games, anime and manga",
+      "viral_metric": "🔥 335 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 335,
+          "display": "🔥 335 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 335,
+          "display": "🔥 335 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49524320",
+      "article_url": "https://moviescenemap.com/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_launch_hn_ronanrx_yc_s26_personal",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:44.110328",
+      "published_at": "2026-09-03T07:36:04",
+      "created_at": "2026-09-03T07:36:04",
+      "updated_at": "2026-09-04T01:25:44.110328",
+      "title": "Hacker News: Launch HN: RonanRX (YC S26) – Personalized Peptides and GLP-1s",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49543530",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 103 pts | Comments: 78 | Launch HN: RonanRX (YC S26) – Personalized Peptides and GLP-1s",
+      "viral_metric": "🔥 103 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 103,
+          "display": "🔥 103 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 103,
+          "display": "🔥 103 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49543530",
+      "article_url": "https://news.ycombinator.com/item?id=49543530"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_k2_horizon_frontier_performance_r",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.846473",
+      "published_at": "2026-09-04T00:36:43",
+      "created_at": "2026-09-04T00:36:43",
+      "updated_at": "2026-09-04T01:25:16.846473",
+      "title": "Hacker News: K2 Horizon: Frontier Performance, Radically Open",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551760",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 30 pts | Comments: 5 | K2 Horizon: Frontier Performance, Radically Open",
+      "viral_metric": "🔥 30 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 30,
+          "display": "🔥 30 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 30,
+          "display": "🔥 30 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551760",
+      "article_url": "https://ifm.ai/blog/k2/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_invisible_companies",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:23.683746",
+      "published_at": "2026-09-01T21:48:40",
+      "created_at": "2026-09-01T21:48:40",
+      "updated_at": "2026-09-04T01:25:23.683746",
+      "title": "Hacker News: Invisible Companies",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49521264",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 111 pts | Comments: 34 | Invisible Companies",
+      "viral_metric": "🔥 111 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 111,
+          "display": "🔥 111 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 111,
+          "display": "🔥 111 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49521264",
+      "article_url": "https://colossus.com/article/invisible-companies/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_intrusive_linked_lists",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:23.718339",
+      "published_at": "2026-08-31T12:28:32",
+      "created_at": "2026-08-31T12:28:32",
+      "updated_at": "2026-09-04T01:25:23.718339",
+      "title": "Hacker News: Intrusive Linked Lists",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49505257",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 58 pts | Comments: 31 | Intrusive Linked Lists",
+      "viral_metric": "🔥 58 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 58,
+          "display": "🔥 58 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 58,
+          "display": "🔥 58 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49505257",
+      "article_url": "https://www.data-structures-in-practice.com/intrusive-linked-lists/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_i_wanna_live_an_npc_life",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.448522",
+      "published_at": "2026-09-03T04:52:53",
+      "created_at": "2026-09-03T04:52:53",
+      "updated_at": "2026-09-04T01:25:53.448522",
+      "title": "Hacker News: I wanna live an NPC life",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49541519",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 276 pts | Comments: 251 | I wanna live an NPC life",
+      "viral_metric": "🔥 276 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 276,
+          "display": "🔥 276 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 276,
+          "display": "🔥 276 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49541519",
+      "article_url": "https://signalundefied.bearblog.dev/i-wanna-live-an-npc-life/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_holdens_lightning_flight",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:49.897062",
+      "published_at": "2026-08-31T20:29:44",
+      "created_at": "2026-08-31T20:29:44",
+      "updated_at": "2026-09-04T01:25:49.897062",
+      "title": "Hacker News: Holden's Lightning Flight",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49508405",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 209 pts | Comments: 45 | Holden's Lightning Flight",
+      "viral_metric": "🔥 209 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 209,
+          "display": "🔥 209 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 209,
+          "display": "🔥 209 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49508405",
+      "article_url": "https://en.wikipedia.org/wiki/Holden%27s_Lightning_flight"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_hang_on_to_your_firefox",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.303514",
+      "published_at": "2026-09-02T05:30:51",
+      "created_at": "2026-09-02T05:30:51",
+      "updated_at": "2026-09-04T01:25:53.303514",
+      "title": "Hacker News: Hang on to Your Firefox",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49527748",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 952 pts | Comments: 521 | Hang on to Your Firefox",
+      "viral_metric": "🔥 952 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 952,
+          "display": "🔥 952 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 952,
+          "display": "🔥 952 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49527748",
+      "article_url": "https://www.newsonaut.com/articles/hang-on-to-your-firefox"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_grok_outage",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.893932",
+      "published_at": "2026-09-04T00:26:01",
+      "created_at": "2026-09-04T00:26:01",
+      "updated_at": "2026-09-04T01:25:16.893932",
+      "title": "Hacker News: Grok Outage",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551589",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 122 pts | Comments: 92 | Grok Outage",
+      "viral_metric": "🔥 122 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 122,
+          "display": "🔥 122 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 122,
+          "display": "🔥 122 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551589",
+      "article_url": "https://status.x.ai/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_google_avoids_a_breakup_of_its_ad",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:49.875302",
+      "published_at": "2026-09-02T23:46:16",
+      "created_at": "2026-09-02T23:46:16",
+      "updated_at": "2026-09-04T01:25:49.875302",
+      "title": "Hacker News: Google avoids a breakup of its ad tech business",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49537131",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 452 pts | Comments: 324 | Google avoids a breakup of its ad tech business",
+      "viral_metric": "🔥 452 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 452,
+          "display": "🔥 452 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 452,
+          "display": "🔥 452 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49537131",
+      "article_url": "https://www.nytimes.com/2026/09/02/technology/google-ad-tech-remedies.html"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_gemini_38_flash_and_38_flash_cybe",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:35.319137",
+      "published_at": "2026-09-03T00:12:40",
+      "created_at": "2026-09-03T00:12:40",
+      "updated_at": "2026-09-04T01:25:35.319137",
+      "title": "Hacker News: Gemini 3.8 Flash and 3.8 Flash Cyber",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49537553",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 1125 pts | Comments: 633 | Gemini 3.8 Flash and 3.8 Flash Cyber",
+      "viral_metric": "🔥 1125 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 1125,
+          "display": "🔥 1125 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 1125,
+          "display": "🔥 1125 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49537553",
+      "article_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_fine_ill_build_my_own_text_editor",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.476627",
+      "published_at": "2026-09-02T02:12:15",
+      "created_at": "2026-09-02T02:12:15",
+      "updated_at": "2026-09-04T01:25:53.476627",
+      "title": "Hacker News: Fine, I'll build my own text editor",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49524863",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 253 pts | Comments: 248 | Fine, I'll build my own text editor",
+      "viral_metric": "🔥 253 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 253,
+          "display": "🔥 253 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 253,
+          "display": "🔥 253 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49524863",
+      "article_url": "https://dbushell.com/2026/09/01/text-editor/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_fbi_probes_service_selling_153m_d",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.369515",
+      "published_at": "2026-09-02T08:17:43",
+      "created_at": "2026-09-02T08:17:43",
+      "updated_at": "2026-09-04T01:25:53.369515",
+      "title": "Hacker News: FBI Probes Service Selling 153M+ Drivers Licenses",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49529621",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 409 pts | Comments: 271 | FBI Probes Service Selling 153M+ Drivers Licenses",
+      "viral_metric": "🔥 409 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 409,
+          "display": "🔥 409 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 409,
+          "display": "🔥 409 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49529621",
+      "article_url": "https://krebsonsecurity.com/2026/09/fbi-probes-service-selling-153m-drivers-licenses/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_exit_the_cave",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.432206",
+      "published_at": "2026-09-02T23:16:45",
+      "created_at": "2026-09-02T23:16:45",
+      "updated_at": "2026-09-04T01:25:53.432206",
+      "title": "Hacker News: Exit the Cave",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49536606",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 293 pts | Comments: 102 | Exit the Cave",
+      "viral_metric": "🔥 293 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 293,
+          "display": "🔥 293 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 293,
+          "display": "🔥 293 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49536606",
+      "article_url": "https://turtlespace.blog/p/exit-the-cave"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_elevated_errors_for_multiple_mode",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.904651",
+      "published_at": "2026-09-03T22:29:12",
+      "created_at": "2026-09-03T22:29:12",
+      "updated_at": "2026-09-04T01:25:16.904651",
+      "title": "Hacker News: Elevated Errors for Multiple Models",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49549676",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 193 pts | Comments: 146 | Elevated Errors for Multiple Models",
+      "viral_metric": "🔥 193 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 193,
+          "display": "🔥 193 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 193,
+          "display": "🔥 193 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49549676",
+      "article_url": "https://status.claude.com/incidents/461yvfrzpwtt"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_commodore_64_released_september_1",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.379727",
+      "published_at": "2026-09-02T17:36:43",
+      "created_at": "2026-09-02T17:36:43",
+      "updated_at": "2026-09-04T01:25:53.379727",
+      "title": "Hacker News: Commodore 64 released September 1, 1982",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49533497",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 347 pts | Comments: 178 | Commodore 64 released September 1, 1982",
+      "viral_metric": "🔥 347 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 347,
+          "display": "🔥 347 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 347,
+          "display": "🔥 347 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49533497",
+      "article_url": "https://dfarq.homeip.net/commodore-64-released-september-1-1982/"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_chatgpt_is_throwing_404",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T00:15:49.219197",
@@ -13323,6 +14651,456 @@
           }
         }
       }
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_chatgpt_claude_and_grok_are_down",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:23.673216",
+      "published_at": "2026-09-04T00:30:10",
+      "created_at": "2026-09-04T00:30:10",
+      "updated_at": "2026-09-04T01:25:23.673216",
+      "title": "Hacker News: ChatGPT, Claude, and Grok Are Down",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551658",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 60 pts | Comments: 19 | ChatGPT, Claude, and Grok Are Down",
+      "viral_metric": "🔥 60 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 60,
+          "display": "🔥 60 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 60,
+          "display": "🔥 60 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551658",
+      "article_url": "https://www.macrumors.com/2026/09/03/chatgpt-claude-and-grok-are-down/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_biggest_dark_matter_detector_spot",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.240972",
+      "published_at": "2026-09-02T22:40:29",
+      "created_at": "2026-09-02T22:40:29",
+      "updated_at": "2026-09-04T01:25:53.240972",
+      "title": "Hacker News: Biggest dark matter detector spots a single weird particle",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49536079",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 331 pts | Comments: 120 | Biggest dark matter detector spots a single weird particle",
+      "viral_metric": "🔥 331 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 331,
+          "display": "🔥 331 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 331,
+          "display": "🔥 331 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49536079",
+      "article_url": "https://www.science.org/content/article/world-s-biggest-dark-matter-detector-spots-single-weird-particle"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_astronomers_detect_a_10_sided_str",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:49.939531",
+      "published_at": "2026-09-03T22:47:38",
+      "created_at": "2026-09-03T22:47:38",
+      "updated_at": "2026-09-04T01:25:49.939531",
+      "title": "Hacker News: Astronomers Detect a 10-Sided Structure in Saturn's Atmosphere",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49549877",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 42 pts | Comments: 10 | Astronomers Detect a 10-Sided Structure in Saturn's Atmosphere",
+      "viral_metric": "🔥 42 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 42,
+          "display": "🔥 42 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 42,
+          "display": "🔥 42 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49549877",
+      "article_url": "https://www.sciencealert.com/astronomers-spot-an-uncannily-geometric-10-sided-structure-in-saturns-atmosphere"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_ask_hn_why_are_openai_claude_and_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:46.924685",
+      "published_at": "2026-09-04T00:07:01",
+      "created_at": "2026-09-04T00:07:01",
+      "updated_at": "2026-09-04T01:25:46.924685",
+      "title": "Hacker News: Ask HN: Why are OpenAI, Claude, and Grok simultaneously down? Coincidence?",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551096",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 79 pts | Comments: 60 | Ask HN: Why are OpenAI, Claude, and Grok simultaneously down? Coincidence?",
+      "viral_metric": "🔥 79 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 79,
+          "display": "🔥 79 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 79,
+          "display": "🔥 79 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551096",
+      "article_url": "https://news.ycombinator.com/item?id=49551096"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_any_human_ever_one_life_drawn_at_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.918439",
+      "published_at": "2026-09-03T23:51:10",
+      "created_at": "2026-09-03T23:51:10",
+      "updated_at": "2026-09-04T01:25:16.918439",
+      "title": "Hacker News: Any Human Ever – One life, drawn at random from all who have ever lived",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49550698",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 82 pts | Comments: 47 | Any Human Ever – One life, drawn at random from all who have ever lived",
+      "viral_metric": "🔥 82 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 82,
+          "display": "🔥 82 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 82,
+          "display": "🔥 82 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49550698",
+      "article_url": "https://anyhumanever.com/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_anatomy_of_a_browser",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.258356",
+      "published_at": "2026-09-04T00:14:14",
+      "created_at": "2026-09-04T00:14:14",
+      "updated_at": "2026-09-04T01:25:53.258356",
+      "title": "Hacker News: Anatomy of a Browser",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551293",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 8 pts | Comments: 0 | Anatomy of a Browser",
+      "viral_metric": "🔥 8 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551293",
+      "article_url": "https://medium.com/@Koukyosyumei/anatomy-of-a-browser-95014ab378f8"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_ambient_css_v3_blender_meets_css",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.423357",
+      "published_at": "2026-09-02T00:35:11",
+      "created_at": "2026-09-02T00:35:11",
+      "updated_at": "2026-09-04T01:25:53.423357",
+      "title": "Hacker News: Ambient CSS v3 – Blender meets CSS",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49523387",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 304 pts | Comments: 97 | Ambient CSS v3 – Blender meets CSS",
+      "viral_metric": "🔥 304 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 304,
+          "display": "🔥 304 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 304,
+          "display": "🔥 304 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49523387",
+      "article_url": "https://ambientcss.vercel.app/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_amazon_stonehenge_parque_arqueoló",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:44.093826",
+      "published_at": "2026-08-31T12:37:12",
+      "created_at": "2026-08-31T12:37:12",
+      "updated_at": "2026-09-04T01:25:44.093826",
+      "title": "Hacker News: Amazon Stonehenge: Parque Arqueológico do Solstício",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49505306",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 32 pts | Comments: 8 | Amazon Stonehenge: Parque Arqueológico do Solstício",
+      "viral_metric": "🔥 32 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 32,
+          "display": "🔥 32 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 32,
+          "display": "🔥 32 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49505306",
+      "article_url": "https://en.wikipedia.org/wiki/Parque_Arqueol%C3%B3gico_do_Solst%C3%ADcio"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_a_note_on_subscription_prices_fro",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.332822",
+      "published_at": "2026-09-02T22:17:12",
+      "created_at": "2026-09-02T22:17:12",
+      "updated_at": "2026-09-04T01:25:53.332822",
+      "title": "Hacker News: A note on subscription prices from LWN",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49535752",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 715 pts | Comments: 147 | A note on subscription prices from LWN",
+      "viral_metric": "🔥 715 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 715,
+          "display": "🔥 715 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 715,
+          "display": "🔥 715 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49535752",
+      "article_url": "https://lwn.net/Articles/1090585/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_show_gn_first_mind_정보보안에_있어서_진입장벽을_없",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.602943",
+      "published_at": "2026-09-04T01:25:53.602943",
+      "created_at": "2026-09-04T01:25:53.602943",
+      "updated_at": "2026-09-04T01:25:53.602943",
+      "title": "GeekNews: Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33193",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
+      "description_ko": "Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
+      "hn_url": "https://news.hada.io/topic?id=33193",
+      "article_url": "https://news.hada.io/topic?id=33193"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_fable_51_월드_모델링",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.591168",
+      "published_at": "2026-09-04T01:25:53.591168",
+      "created_at": "2026-09-04T01:25:53.591168",
+      "updated_at": "2026-09-04T01:25:53.591168",
+      "title": "GeekNews: Fable 5.1 월드 모델링",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33194",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Fable 5.1 월드 모델링",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Fable 5.1 월드 모델링",
+      "description_ko": "Fable 5.1 월드 모델링",
+      "hn_url": "https://news.hada.io/topic?id=33194",
+      "article_url": "https://news.hada.io/topic?id=33194"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_audacity_40_출시",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.613708",
+      "published_at": "2026-09-04T01:25:53.613708",
+      "created_at": "2026-09-04T01:25:53.613708",
+      "updated_at": "2026-09-04T01:25:53.613708",
+      "title": "GeekNews: Audacity 4.0 출시",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33192",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Audacity 4.0 출시",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Audacity 4.0 출시",
+      "description_ko": "Audacity 4.0 출시",
+      "hn_url": "https://news.hada.io/topic?id=33192",
+      "article_url": "https://news.hada.io/topic?id=33192"
     },
     {
       "inbox_id": "2026-09-03_sns_hugging_face_blog_training_a_coding_model_to_",
@@ -20092,6 +21870,1858 @@
     }
   ],
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-04_sns_hugging_face_blog_neomme_an_efficient_multimo",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.710085",
+      "published_at": "2026-09-04T01:25:53.710085",
+      "created_at": "2026-09-04T01:25:53.710085",
+      "updated_at": "2026-09-04T01:25:53.710085",
+      "title": "Hugging Face Blog: NeoMME: an efficient Multimodal-native and Multilingual Encoder",
+      "source_platform": "Hugging Face Blog",
+      "source_url": "https://huggingface.co/blog/Hcompany/neomme",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "Hugging Face Blog Tech Publication: NeoMME: an efficient Multimodal-native and Multilingual Encoder",
+      "viral_metric": "🌍 Official AI Publication",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "article_url": "https://huggingface.co/blog/Hcompany/neomme"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_what_i_learned_from_my_mom_1941_2",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:23.703132",
+      "published_at": "2026-08-30T04:52:51",
+      "created_at": "2026-08-30T04:52:51",
+      "updated_at": "2026-09-04T01:25:23.703132",
+      "title": "Hacker News: What I Learned from My Mom (1941-2026)",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49492796",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 193 pts | Comments: 8 | What I Learned from My Mom (1941-2026)",
+      "viral_metric": "🔥 193 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 193,
+          "display": "🔥 193 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 193,
+          "display": "🔥 193 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49492796",
+      "article_url": "https://experimentalliving.substack.com/p/what-i-learned-from-my-mom-1941-2026"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_wendell_berry_has_died",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.280479",
+      "published_at": "2026-09-01T10:49:58",
+      "created_at": "2026-09-01T10:49:58",
+      "updated_at": "2026-09-04T01:25:53.280479",
+      "title": "Hacker News: Wendell Berry has died",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49517018",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 227 pts | Comments: 115 | Wendell Berry has died",
+      "viral_metric": "🔥 227 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 227,
+          "display": "🔥 227 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 227,
+          "display": "🔥 227 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49517018",
+      "article_url": "https://www.nytimes.com/2026/08/31/us/wendell-berry-dead.html"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_true_rate_of_unemployment",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.413732",
+      "published_at": "2026-09-02T11:21:10",
+      "created_at": "2026-09-02T11:21:10",
+      "updated_at": "2026-09-04T01:25:53.413732",
+      "title": "Hacker News: True Rate of Unemployment",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49530989",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 306 pts | Comments: 348 | True Rate of Unemployment",
+      "viral_metric": "🔥 306 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 306,
+          "display": "🔥 306 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 306,
+          "display": "🔥 306 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49530989",
+      "article_url": "https://www.lisep.org/tru"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_three_schoolgirls_in_kinsale_pull",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.224661",
+      "published_at": "2026-09-03T16:04:13",
+      "created_at": "2026-09-03T16:04:13",
+      "updated_at": "2026-09-04T01:25:53.224661",
+      "title": "Hacker News: Three schoolgirls in Kinsale pulled up a pea plant covered in warts (2016)",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49546800",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 127 pts | Comments: 52 | Three schoolgirls in Kinsale pulled up a pea plant covered in warts (2016)",
+      "viral_metric": "🔥 127 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 127,
+          "display": "🔥 127 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 127,
+          "display": "🔥 127 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49546800",
+      "article_url": "https://scienceblog.com/b-three-schoolgirls-in-kinsale-pulled-up-a-pea-plant-covered-in-warts-and-instead-of-binning-it-spent-three-years-testing-13000-seeds-in-a-spare-bedroom-the-bacteria-living-in-those-warts-made-barley/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_the_creator_of_jujutsu_has_joined",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.457705",
+      "published_at": "2026-09-02T02:46:21",
+      "created_at": "2026-09-02T02:46:21",
+      "updated_at": "2026-09-04T01:25:53.457705",
+      "title": "Hacker News: The creator of Jujutsu has joined ERSC",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49525297",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 263 pts | Comments: 264 | The creator of Jujutsu has joined ERSC",
+      "viral_metric": "🔥 263 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 263,
+          "display": "🔥 263 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 263,
+          "display": "🔥 263 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49525297",
+      "article_url": "https://ersc.io/blog/martin-joins-ersc"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_the_computer_museum_of_america_re",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:46.946746",
+      "published_at": "2026-09-01T01:15:37",
+      "created_at": "2026-09-01T01:15:37",
+      "updated_at": "2026-09-04T01:25:46.946746",
+      "title": "Hacker News: The Computer Museum of America reclamation project",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49511493",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 90 pts | Comments: 37 | The Computer Museum of America reclamation project",
+      "viral_metric": "🔥 90 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 90,
+          "display": "🔥 90 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 90,
+          "display": "🔥 90 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49511493",
+      "article_url": "https://computer-museum.org/wp/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_texas_data_center_map_see_where_d",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:49.920301",
+      "published_at": "2026-09-04T01:10:12",
+      "created_at": "2026-09-04T01:10:12",
+      "updated_at": "2026-09-04T01:25:49.920301",
+      "title": "Hacker News: Texas Data Center Map: See where data centers are operating or planned",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49552375",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 4 pts | Comments: 0 | Texas Data Center Map: See where data centers are operating or planned",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49552375",
+      "article_url": "https://www.kxan.com/news/texas/texas-data-center-tracker-see-where-600-projects-are-operating-or-planned-across-state-in-interactive-map/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_sony_makes_bold_claim_about_game_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.865023",
+      "published_at": "2026-09-04T00:44:54",
+      "created_at": "2026-09-04T00:44:54",
+      "updated_at": "2026-09-04T01:25:16.865023",
+      "title": "Hacker News: Sony makes bold claim about game ownership",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551925",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 69 pts | Comments: 59 | Sony makes bold claim about game ownership",
+      "viral_metric": "🔥 69 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 69,
+          "display": "🔥 69 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 69,
+          "display": "🔥 69 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551925",
+      "article_url": "https://aginggamer.net/game-industry/sony-makes-bold-claim-about-game-ownership/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_reverse_engineering_unknown_file_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:49.994805",
+      "published_at": "2026-08-31T21:01:05",
+      "created_at": "2026-08-31T21:01:05",
+      "updated_at": "2026-09-04T01:25:49.994805",
+      "title": "Hacker News: Reverse Engineering Unknown File Formats with ImHex",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49508608",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 243 pts | Comments: 46 | Reverse Engineering Unknown File Formats with ImHex",
+      "viral_metric": "🔥 243 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 243,
+          "display": "🔥 243 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 243,
+          "display": "🔥 243 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49508608",
+      "article_url": "https://werwolv.net/posts/file_format_reverse_engineering/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_prediction_ai_will_collapse",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:49.974439",
+      "published_at": "2026-09-04T01:08:44",
+      "created_at": "2026-09-04T01:08:44",
+      "updated_at": "2026-09-04T01:25:49.974439",
+      "title": "Hacker News: Prediction: AI Will Collapse",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49552347",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 6 pts | Comments: 0 | Prediction: AI Will Collapse",
+      "viral_metric": "🔥 6 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49552347",
+      "article_url": "https://twitter.com/wordgrammer/status/2095263188153401712"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_pre_release_of_polars_20",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.884997",
+      "published_at": "2026-09-03T15:59:08",
+      "created_at": "2026-09-03T15:59:08",
+      "updated_at": "2026-09-04T01:25:16.884997",
+      "title": "Hacker News: Pre-Release of Polars 2.0",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49546753",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 320 pts | Comments: 106 | Pre-Release of Polars 2.0",
+      "viral_metric": "🔥 320 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 320,
+          "display": "🔥 320 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 320,
+          "display": "🔥 320 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49546753",
+      "article_url": "https://pola.rs/posts/announcing-polars-2/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_play_store_blocks_aurorastore_hur",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.352499",
+      "published_at": "2026-09-02T00:55:53",
+      "created_at": "2026-09-02T00:55:53",
+      "updated_at": "2026-09-04T01:25:53.352499",
+      "title": "Hacker News: Play Store blocks AuroraStore, hurting GrapheneOS users",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49523754",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 558 pts | Comments: 258 | Play Store blocks AuroraStore, hurting GrapheneOS users",
+      "viral_metric": "🔥 558 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 558,
+          "display": "🔥 558 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 558,
+          "display": "🔥 558 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49523754",
+      "article_url": "https://gitlab.com/AuroraOSS/AuroraStore/-/work_items/1566"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_nvidia_to_acquire_hugging_face",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:44.082703",
+      "published_at": "2026-09-03T21:10:33",
+      "created_at": "2026-09-03T21:10:33",
+      "updated_at": "2026-09-04T01:25:44.082703",
+      "title": "Hacker News: Nvidia to Acquire Hugging Face",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49548952",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 190 pts | Comments: 54 | Nvidia to Acquire Hugging Face",
+      "viral_metric": "🔥 190 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 190,
+          "display": "🔥 190 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 190,
+          "display": "🔥 190 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49548952",
+      "article_url": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_nobody_has_actually_built_a_softw",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:23.692577",
+      "published_at": "2026-09-01T00:20:22",
+      "created_at": "2026-09-01T00:20:22",
+      "updated_at": "2026-09-04T01:25:23.692577",
+      "title": "Hacker News: Nobody Has Actually Built a Software Factory",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49510843",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 29 pts | Comments: 24 | Nobody Has Actually Built a Software Factory",
+      "viral_metric": "🔥 29 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 29,
+          "display": "🔥 29 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 29,
+          "display": "🔥 29 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49510843",
+      "article_url": "https://medium.com/@NMitchem/nobody-has-actually-built-a-software-factory-77ffdc0c3efc"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_new_york_times_and_the_athletic_w",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.855853",
+      "published_at": "2026-09-03T22:51:44",
+      "created_at": "2026-09-03T22:51:44",
+      "updated_at": "2026-09-04T01:25:16.855853",
+      "title": "Hacker News: New York Times and The Athletic workers demand company scrap Kalshi deal",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49549919",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 73 pts | Comments: 19 | New York Times and The Athletic workers demand company scrap Kalshi deal",
+      "viral_metric": "🔥 73 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 73,
+          "display": "🔥 73 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 73,
+          "display": "🔥 73 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49549919",
+      "article_url": "https://newsguild.org/new-york-times-and-the-athletic-workers-demand-company-scrap-kalshi-deal/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_name_termination",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.837594",
+      "published_at": "2026-09-03T23:54:39",
+      "created_at": "2026-09-03T23:54:39",
+      "updated_at": "2026-09-04T01:25:16.837594",
+      "title": "Hacker News: .name Termination",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49550772",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 98 pts | Comments: 24 | .name Termination",
+      "viral_metric": "🔥 98 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 98,
+          "display": "🔥 98 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 98,
+          "display": "🔥 98 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49550772",
+      "article_url": "https://neil.fraser.name/news/2026/09/03/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_muse_spark_13",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:35.352190",
+      "published_at": "2026-09-03T04:35:04",
+      "created_at": "2026-09-03T04:35:04",
+      "updated_at": "2026-09-04T01:25:35.352190",
+      "title": "Hacker News: Muse Spark 1.3",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49541256",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 661 pts | Comments: 432 | Muse Spark 1.3",
+      "viral_metric": "🔥 661 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 661,
+          "display": "🔥 661 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 661,
+          "display": "🔥 661 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49541256",
+      "article_url": "https://developer.meta.com/ai/models/muse-spark/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_movie_scene_map_13312_films_serie",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.404368",
+      "published_at": "2026-09-02T01:34:45",
+      "created_at": "2026-09-02T01:34:45",
+      "updated_at": "2026-09-04T01:25:53.404368",
+      "title": "Hacker News: Movie Scene Map – 13,312 films, series, games, anime and manga",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49524320",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 335 pts | Comments: 48 | Movie Scene Map – 13,312 films, series, games, anime and manga",
+      "viral_metric": "🔥 335 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 335,
+          "display": "🔥 335 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 335,
+          "display": "🔥 335 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49524320",
+      "article_url": "https://moviescenemap.com/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_launch_hn_ronanrx_yc_s26_personal",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:44.110328",
+      "published_at": "2026-09-03T07:36:04",
+      "created_at": "2026-09-03T07:36:04",
+      "updated_at": "2026-09-04T01:25:44.110328",
+      "title": "Hacker News: Launch HN: RonanRX (YC S26) – Personalized Peptides and GLP-1s",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49543530",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 103 pts | Comments: 78 | Launch HN: RonanRX (YC S26) – Personalized Peptides and GLP-1s",
+      "viral_metric": "🔥 103 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 103,
+          "display": "🔥 103 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 103,
+          "display": "🔥 103 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49543530",
+      "article_url": "https://news.ycombinator.com/item?id=49543530"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_k2_horizon_frontier_performance_r",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.846473",
+      "published_at": "2026-09-04T00:36:43",
+      "created_at": "2026-09-04T00:36:43",
+      "updated_at": "2026-09-04T01:25:16.846473",
+      "title": "Hacker News: K2 Horizon: Frontier Performance, Radically Open",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551760",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 30 pts | Comments: 5 | K2 Horizon: Frontier Performance, Radically Open",
+      "viral_metric": "🔥 30 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 30,
+          "display": "🔥 30 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 30,
+          "display": "🔥 30 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551760",
+      "article_url": "https://ifm.ai/blog/k2/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_invisible_companies",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:23.683746",
+      "published_at": "2026-09-01T21:48:40",
+      "created_at": "2026-09-01T21:48:40",
+      "updated_at": "2026-09-04T01:25:23.683746",
+      "title": "Hacker News: Invisible Companies",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49521264",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 111 pts | Comments: 34 | Invisible Companies",
+      "viral_metric": "🔥 111 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 111,
+          "display": "🔥 111 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 111,
+          "display": "🔥 111 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49521264",
+      "article_url": "https://colossus.com/article/invisible-companies/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_intrusive_linked_lists",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:23.718339",
+      "published_at": "2026-08-31T12:28:32",
+      "created_at": "2026-08-31T12:28:32",
+      "updated_at": "2026-09-04T01:25:23.718339",
+      "title": "Hacker News: Intrusive Linked Lists",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49505257",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 58 pts | Comments: 31 | Intrusive Linked Lists",
+      "viral_metric": "🔥 58 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 58,
+          "display": "🔥 58 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 58,
+          "display": "🔥 58 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49505257",
+      "article_url": "https://www.data-structures-in-practice.com/intrusive-linked-lists/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_i_wanna_live_an_npc_life",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.448522",
+      "published_at": "2026-09-03T04:52:53",
+      "created_at": "2026-09-03T04:52:53",
+      "updated_at": "2026-09-04T01:25:53.448522",
+      "title": "Hacker News: I wanna live an NPC life",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49541519",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 276 pts | Comments: 251 | I wanna live an NPC life",
+      "viral_metric": "🔥 276 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 276,
+          "display": "🔥 276 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 276,
+          "display": "🔥 276 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49541519",
+      "article_url": "https://signalundefied.bearblog.dev/i-wanna-live-an-npc-life/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_holdens_lightning_flight",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:49.897062",
+      "published_at": "2026-08-31T20:29:44",
+      "created_at": "2026-08-31T20:29:44",
+      "updated_at": "2026-09-04T01:25:49.897062",
+      "title": "Hacker News: Holden's Lightning Flight",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49508405",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 209 pts | Comments: 45 | Holden's Lightning Flight",
+      "viral_metric": "🔥 209 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 209,
+          "display": "🔥 209 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 209,
+          "display": "🔥 209 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49508405",
+      "article_url": "https://en.wikipedia.org/wiki/Holden%27s_Lightning_flight"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_hang_on_to_your_firefox",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.303514",
+      "published_at": "2026-09-02T05:30:51",
+      "created_at": "2026-09-02T05:30:51",
+      "updated_at": "2026-09-04T01:25:53.303514",
+      "title": "Hacker News: Hang on to Your Firefox",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49527748",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 952 pts | Comments: 521 | Hang on to Your Firefox",
+      "viral_metric": "🔥 952 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 952,
+          "display": "🔥 952 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 952,
+          "display": "🔥 952 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49527748",
+      "article_url": "https://www.newsonaut.com/articles/hang-on-to-your-firefox"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_grok_outage",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.893932",
+      "published_at": "2026-09-04T00:26:01",
+      "created_at": "2026-09-04T00:26:01",
+      "updated_at": "2026-09-04T01:25:16.893932",
+      "title": "Hacker News: Grok Outage",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551589",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 122 pts | Comments: 92 | Grok Outage",
+      "viral_metric": "🔥 122 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 122,
+          "display": "🔥 122 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 122,
+          "display": "🔥 122 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551589",
+      "article_url": "https://status.x.ai/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_google_avoids_a_breakup_of_its_ad",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:49.875302",
+      "published_at": "2026-09-02T23:46:16",
+      "created_at": "2026-09-02T23:46:16",
+      "updated_at": "2026-09-04T01:25:49.875302",
+      "title": "Hacker News: Google avoids a breakup of its ad tech business",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49537131",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 452 pts | Comments: 324 | Google avoids a breakup of its ad tech business",
+      "viral_metric": "🔥 452 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 452,
+          "display": "🔥 452 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 452,
+          "display": "🔥 452 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49537131",
+      "article_url": "https://www.nytimes.com/2026/09/02/technology/google-ad-tech-remedies.html"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_gemini_38_flash_and_38_flash_cybe",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:35.319137",
+      "published_at": "2026-09-03T00:12:40",
+      "created_at": "2026-09-03T00:12:40",
+      "updated_at": "2026-09-04T01:25:35.319137",
+      "title": "Hacker News: Gemini 3.8 Flash and 3.8 Flash Cyber",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49537553",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 1125 pts | Comments: 633 | Gemini 3.8 Flash and 3.8 Flash Cyber",
+      "viral_metric": "🔥 1125 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 1125,
+          "display": "🔥 1125 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 1125,
+          "display": "🔥 1125 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49537553",
+      "article_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_fine_ill_build_my_own_text_editor",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.476627",
+      "published_at": "2026-09-02T02:12:15",
+      "created_at": "2026-09-02T02:12:15",
+      "updated_at": "2026-09-04T01:25:53.476627",
+      "title": "Hacker News: Fine, I'll build my own text editor",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49524863",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 253 pts | Comments: 248 | Fine, I'll build my own text editor",
+      "viral_metric": "🔥 253 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 253,
+          "display": "🔥 253 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 253,
+          "display": "🔥 253 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49524863",
+      "article_url": "https://dbushell.com/2026/09/01/text-editor/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_fbi_probes_service_selling_153m_d",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.369515",
+      "published_at": "2026-09-02T08:17:43",
+      "created_at": "2026-09-02T08:17:43",
+      "updated_at": "2026-09-04T01:25:53.369515",
+      "title": "Hacker News: FBI Probes Service Selling 153M+ Drivers Licenses",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49529621",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 409 pts | Comments: 271 | FBI Probes Service Selling 153M+ Drivers Licenses",
+      "viral_metric": "🔥 409 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 409,
+          "display": "🔥 409 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 409,
+          "display": "🔥 409 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49529621",
+      "article_url": "https://krebsonsecurity.com/2026/09/fbi-probes-service-selling-153m-drivers-licenses/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_exit_the_cave",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.432206",
+      "published_at": "2026-09-02T23:16:45",
+      "created_at": "2026-09-02T23:16:45",
+      "updated_at": "2026-09-04T01:25:53.432206",
+      "title": "Hacker News: Exit the Cave",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49536606",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 293 pts | Comments: 102 | Exit the Cave",
+      "viral_metric": "🔥 293 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 293,
+          "display": "🔥 293 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 293,
+          "display": "🔥 293 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49536606",
+      "article_url": "https://turtlespace.blog/p/exit-the-cave"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_elevated_errors_for_multiple_mode",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.904651",
+      "published_at": "2026-09-03T22:29:12",
+      "created_at": "2026-09-03T22:29:12",
+      "updated_at": "2026-09-04T01:25:16.904651",
+      "title": "Hacker News: Elevated Errors for Multiple Models",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49549676",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 193 pts | Comments: 146 | Elevated Errors for Multiple Models",
+      "viral_metric": "🔥 193 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 193,
+          "display": "🔥 193 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 193,
+          "display": "🔥 193 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49549676",
+      "article_url": "https://status.claude.com/incidents/461yvfrzpwtt"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_commodore_64_released_september_1",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.379727",
+      "published_at": "2026-09-02T17:36:43",
+      "created_at": "2026-09-02T17:36:43",
+      "updated_at": "2026-09-04T01:25:53.379727",
+      "title": "Hacker News: Commodore 64 released September 1, 1982",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49533497",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 347 pts | Comments: 178 | Commodore 64 released September 1, 1982",
+      "viral_metric": "🔥 347 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 347,
+          "display": "🔥 347 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 347,
+          "display": "🔥 347 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49533497",
+      "article_url": "https://dfarq.homeip.net/commodore-64-released-september-1-1982/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_chatgpt_claude_and_grok_are_down",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:23.673216",
+      "published_at": "2026-09-04T00:30:10",
+      "created_at": "2026-09-04T00:30:10",
+      "updated_at": "2026-09-04T01:25:23.673216",
+      "title": "Hacker News: ChatGPT, Claude, and Grok Are Down",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551658",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 60 pts | Comments: 19 | ChatGPT, Claude, and Grok Are Down",
+      "viral_metric": "🔥 60 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 60,
+          "display": "🔥 60 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 60,
+          "display": "🔥 60 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551658",
+      "article_url": "https://www.macrumors.com/2026/09/03/chatgpt-claude-and-grok-are-down/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_biggest_dark_matter_detector_spot",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.240972",
+      "published_at": "2026-09-02T22:40:29",
+      "created_at": "2026-09-02T22:40:29",
+      "updated_at": "2026-09-04T01:25:53.240972",
+      "title": "Hacker News: Biggest dark matter detector spots a single weird particle",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49536079",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 331 pts | Comments: 120 | Biggest dark matter detector spots a single weird particle",
+      "viral_metric": "🔥 331 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 331,
+          "display": "🔥 331 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 331,
+          "display": "🔥 331 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49536079",
+      "article_url": "https://www.science.org/content/article/world-s-biggest-dark-matter-detector-spots-single-weird-particle"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_astronomers_detect_a_10_sided_str",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:49.939531",
+      "published_at": "2026-09-03T22:47:38",
+      "created_at": "2026-09-03T22:47:38",
+      "updated_at": "2026-09-04T01:25:49.939531",
+      "title": "Hacker News: Astronomers Detect a 10-Sided Structure in Saturn's Atmosphere",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49549877",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 42 pts | Comments: 10 | Astronomers Detect a 10-Sided Structure in Saturn's Atmosphere",
+      "viral_metric": "🔥 42 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 42,
+          "display": "🔥 42 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 42,
+          "display": "🔥 42 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49549877",
+      "article_url": "https://www.sciencealert.com/astronomers-spot-an-uncannily-geometric-10-sided-structure-in-saturns-atmosphere"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_ask_hn_why_are_openai_claude_and_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:46.924685",
+      "published_at": "2026-09-04T00:07:01",
+      "created_at": "2026-09-04T00:07:01",
+      "updated_at": "2026-09-04T01:25:46.924685",
+      "title": "Hacker News: Ask HN: Why are OpenAI, Claude, and Grok simultaneously down? Coincidence?",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551096",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 79 pts | Comments: 60 | Ask HN: Why are OpenAI, Claude, and Grok simultaneously down? Coincidence?",
+      "viral_metric": "🔥 79 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 79,
+          "display": "🔥 79 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 79,
+          "display": "🔥 79 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551096",
+      "article_url": "https://news.ycombinator.com/item?id=49551096"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_any_human_ever_one_life_drawn_at_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.918439",
+      "published_at": "2026-09-03T23:51:10",
+      "created_at": "2026-09-03T23:51:10",
+      "updated_at": "2026-09-04T01:25:16.918439",
+      "title": "Hacker News: Any Human Ever – One life, drawn at random from all who have ever lived",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49550698",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 82 pts | Comments: 47 | Any Human Ever – One life, drawn at random from all who have ever lived",
+      "viral_metric": "🔥 82 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 82,
+          "display": "🔥 82 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 82,
+          "display": "🔥 82 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49550698",
+      "article_url": "https://anyhumanever.com/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_anatomy_of_a_browser",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.258356",
+      "published_at": "2026-09-04T00:14:14",
+      "created_at": "2026-09-04T00:14:14",
+      "updated_at": "2026-09-04T01:25:53.258356",
+      "title": "Hacker News: Anatomy of a Browser",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551293",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 8 pts | Comments: 0 | Anatomy of a Browser",
+      "viral_metric": "🔥 8 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551293",
+      "article_url": "https://medium.com/@Koukyosyumei/anatomy-of-a-browser-95014ab378f8"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_ambient_css_v3_blender_meets_css",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.423357",
+      "published_at": "2026-09-02T00:35:11",
+      "created_at": "2026-09-02T00:35:11",
+      "updated_at": "2026-09-04T01:25:53.423357",
+      "title": "Hacker News: Ambient CSS v3 – Blender meets CSS",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49523387",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 304 pts | Comments: 97 | Ambient CSS v3 – Blender meets CSS",
+      "viral_metric": "🔥 304 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 304,
+          "display": "🔥 304 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 304,
+          "display": "🔥 304 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49523387",
+      "article_url": "https://ambientcss.vercel.app/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_amazon_stonehenge_parque_arqueoló",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:44.093826",
+      "published_at": "2026-08-31T12:37:12",
+      "created_at": "2026-08-31T12:37:12",
+      "updated_at": "2026-09-04T01:25:44.093826",
+      "title": "Hacker News: Amazon Stonehenge: Parque Arqueológico do Solstício",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49505306",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 32 pts | Comments: 8 | Amazon Stonehenge: Parque Arqueológico do Solstício",
+      "viral_metric": "🔥 32 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 32,
+          "display": "🔥 32 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 32,
+          "display": "🔥 32 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49505306",
+      "article_url": "https://en.wikipedia.org/wiki/Parque_Arqueol%C3%B3gico_do_Solst%C3%ADcio"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_a_note_on_subscription_prices_fro",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.332822",
+      "published_at": "2026-09-02T22:17:12",
+      "created_at": "2026-09-02T22:17:12",
+      "updated_at": "2026-09-04T01:25:53.332822",
+      "title": "Hacker News: A note on subscription prices from LWN",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49535752",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 715 pts | Comments: 147 | A note on subscription prices from LWN",
+      "viral_metric": "🔥 715 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 715,
+          "display": "🔥 715 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 715,
+          "display": "🔥 715 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49535752",
+      "article_url": "https://lwn.net/Articles/1090585/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_show_gn_first_mind_정보보안에_있어서_진입장벽을_없",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.602943",
+      "published_at": "2026-09-04T01:25:53.602943",
+      "created_at": "2026-09-04T01:25:53.602943",
+      "updated_at": "2026-09-04T01:25:53.602943",
+      "title": "GeekNews: Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33193",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
+      "description_ko": "Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
+      "hn_url": "https://news.hada.io/topic?id=33193",
+      "article_url": "https://news.hada.io/topic?id=33193"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_fable_51_월드_모델링",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.591168",
+      "published_at": "2026-09-04T01:25:53.591168",
+      "created_at": "2026-09-04T01:25:53.591168",
+      "updated_at": "2026-09-04T01:25:53.591168",
+      "title": "GeekNews: Fable 5.1 월드 모델링",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33194",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Fable 5.1 월드 모델링",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Fable 5.1 월드 모델링",
+      "description_ko": "Fable 5.1 월드 모델링",
+      "hn_url": "https://news.hada.io/topic?id=33194",
+      "article_url": "https://news.hada.io/topic?id=33194"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_audacity_40_출시",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:53.613708",
+      "published_at": "2026-09-04T01:25:53.613708",
+      "created_at": "2026-09-04T01:25:53.613708",
+      "updated_at": "2026-09-04T01:25:53.613708",
+      "title": "GeekNews: Audacity 4.0 출시",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33192",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Audacity 4.0 출시",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Audacity 4.0 출시",
+      "description_ko": "Audacity 4.0 출시",
+      "hn_url": "https://news.hada.io/topic?id=33192",
+      "article_url": "https://news.hada.io/topic?id=33192"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_huggingface_model_davidauqwen38_27b_turbo_fab",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:13.230072",
+      "published_at": "2026-09-04T01:25:13.230072",
+      "created_at": "2026-09-04T01:25:13.230072",
+      "updated_at": "2026-09-04T01:25:13.230072",
+      "title": "HuggingFace Model: DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 115, Downloads: 39646, Likes: 119, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 115 pts (❤️ 119)",
+      "metric_tracking": {
+        "initial": {
+          "value": 115,
+          "display": "Trending 115 pts (❤️ 119)",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 115,
+          "display": "Trending 115 pts (❤️ 119)",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_hf_space_signsur4739379373image_editor",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.535027",
+      "published_at": "2026-09-04T01:25:16.535027",
+      "created_at": "2026-09-04T01:25:16.535027",
+      "updated_at": "2026-09-04T01:25:16.535027",
+      "title": "HF Space: signsur4739379373/Image-Editor",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/signsur4739379373/Image-Editor",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 21 | Live URL: https://huggingface.co/spaces/signsur4739379373/Image-Editor",
+      "viral_metric": "❤️ 21 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 21,
+          "display": "❤️ 21 Likes (Trending Demo)",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 21,
+          "display": "❤️ 21 Likes (Trending Demo)",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_hacker_news_codex_is_down",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:23.735363",
+      "published_at": "2026-09-03T23:54:31",
+      "created_at": "2026-09-03T23:54:31",
+      "updated_at": "2026-09-04T01:25:23.735363",
+      "title": "Hacker News: Codex Is Down",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49550769",
+      "type": "repo",
+      "category_type": "REPO",
+      "description": "HN Score: 96 pts | Comments: 41 | Codex Is Down",
+      "viral_metric": "🔥 96 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 96,
+          "display": "🔥 96 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 96,
+          "display": "🔥 96 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49550769",
+      "article_url": "https://github.com/openai/codex/issues/28756"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_hacker_news_audacity_40",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T01:25:16.828777",
+      "published_at": "2026-09-03T19:53:08",
+      "created_at": "2026-09-03T19:53:08",
+      "updated_at": "2026-09-04T01:25:16.828777",
+      "title": "Hacker News: Audacity 4.0",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49548395",
+      "type": "repo",
+      "category_type": "REPO",
+      "description": "HN Score: 738 pts | Comments: 168 | Audacity 4.0",
+      "viral_metric": "🔥 738 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 738,
+          "display": "🔥 738 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 738,
+          "display": "🔥 738 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49548395",
+      "article_url": "https://github.com/audacity/audacity/releases/tag/Audacity-4.0.0"
+    },
     {
       "inbox_id": "2026-09-03_sns_hugging_face_blog_training_a_coding_model_to_",
       "harvested_date": "2026-09-03",

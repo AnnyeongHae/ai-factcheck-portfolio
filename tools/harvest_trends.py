@@ -476,24 +476,23 @@ def harvest_all():
                     hn_discussion_url = f"https://news.ycombinator.com/item?id={sid}"
                     article_url = story.get("url") or hn_discussion_url
                     title_lower = title.lower()
-                    
-                        score = story.get("score", 0)
-                        descendants = story.get("descendants", 0)
-                        story_time = story.get("time")
-                        published_at = datetime.datetime.fromtimestamp(story_time).isoformat() if story_time else datetime.datetime.now().isoformat()
-                        added = add_candidate({
-                            "title": f"Hacker News: {title}",
-                            "source_platform": "Hacker News",
-                            "source_url": hn_discussion_url,
-                            "hn_url": hn_discussion_url,
-                            "article_url": article_url,
-                            "published_at": published_at,
-                            "type": "repo" if "github.com" in article_url else "sns",
-                            "category_type": "NEWS" if not "github.com" in article_url else "REPO",
-                            "description": f"HN Score: {score} pts | Comments: {descendants} | {title}",
-                            "viral_metric": f"🔥 {score} HN Points"
-                        })
-                        if added: count += 1
+                    score = story.get("score", 0)
+                    descendants = story.get("descendants", 0)
+                    story_time = story.get("time")
+                    published_at = datetime.datetime.fromtimestamp(story_time).isoformat() if story_time else datetime.datetime.now().isoformat()
+                    added = add_candidate({
+                        "title": f"Hacker News: {title}",
+                        "source_platform": "Hacker News",
+                        "source_url": hn_discussion_url,
+                        "hn_url": hn_discussion_url,
+                        "article_url": article_url,
+                        "published_at": published_at,
+                        "type": "repo" if "github.com" in article_url else "sns",
+                        "category_type": "NEWS" if not "github.com" in article_url else "REPO",
+                        "description": f"HN Score: {score} pts | Comments: {descendants} | {title}",
+                        "viral_metric": f"🔥 {score} HN Points"
+                    })
+                    if added: count += 1
             except Exception:
                 continue
 

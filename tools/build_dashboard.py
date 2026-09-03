@@ -466,28 +466,32 @@ def generate_html(data):
         </div>
       </div>
 
-      <!-- Desktop Navigation Tabs (Clean 5 Core Tabs) -->
+      <!-- Desktop Navigation Tabs (Clean 6 Core Tabs) -->
       <nav class="hidden md:flex items-center gap-1 bg-surface-subtle p-1 rounded-xl border border-surface-border text-xs font-semibold">
-        <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="nav-tab active flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-white bg-ink-primary transition">
-          <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
-          <span id="navTabPortfolio">기술 검증</span>
+        <button onclick="switchView('home')" id="tabHomeBtn" class="nav-tab active flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-white bg-ink-primary transition">
+          <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i>
+          <span id="navTabHome">대시보드</span>
+        </button>
+        <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+          <span id="navTabPortfolio">공식 검증</span>
           <span class="text-[10px] font-mono text-ink-muted" id="headerVerifiedCount">({data['total_cases']})</span>
         </button>
-        <button onclick="switchView('models')" id="tabModelsBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
-          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-          <span id="navTabModels">AI 모델</span>
-          <span class="text-[10px] font-mono text-ink-muted" id="headerModelsCount">({data['models_total_count']})</span>
-        </button>
-        <button onclick="switchView('news')" id="tabNewsBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+        <button onclick="switchView('news')" id="tabNewsBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
-          <span id="navTabNews">AI 뉴스</span>
+          <span id="navTabNews">AI 테크 동향</span>
           <span class="text-[10px] font-mono text-ink-muted" id="headerNewsCount">({data['news_total_count']})</span>
         </button>
-        <button onclick="switchView('graph')" id="tabGraphBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+        <button onclick="switchView('models')" id="tabModelsBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          <span id="navTabModels">추적 AI 모델</span>
+          <span class="text-[10px] font-mono text-ink-muted" id="headerModelsCount">({data['models_total_count']})</span>
+        </button>
+        <button onclick="switchView('graph')" id="tabGraphBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="network" class="w-3.5 h-3.5"></i>
           <span id="navTabGraph">인용 계보망</span>
         </button>
-        <button onclick="switchView('inbox')" id="tabInboxBtn" class="nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+        <button onclick="switchView('inbox')" id="tabInboxBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="inbox" class="w-3.5 h-3.5"></i>
           <span id="navTabInbox">수집 인박스</span>
           <span class="text-[10px] font-mono text-ink-muted" id="headerInboxCount">({data['inbox_total_count']})</span>
@@ -516,18 +520,21 @@ def generate_html(data):
 
     <!-- Mobile Scrollable Sub-Navigation Bar -->
     <div class="flex md:hidden items-center gap-1.5 px-3 py-2 overflow-x-auto no-scrollbar border-t border-surface-border bg-white">
-      <button onclick="switchView('portfolio')" id="mTabPortfolioBtn" class="mobile-nav-tab active shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-ink-primary transition">
-        <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabPortfolio">기술 검증</span>
-        <span class="text-[10px] font-mono text-ink-muted" id="mHeaderVerifiedCount">({data['total_cases']})</span>
+      <button onclick="switchView('home')" id="mTabHomeBtn" class="mobile-nav-tab active shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-ink-primary transition">
+        <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i>
+        <span id="mNavTabHome">대시보드</span>
       </button>
-      <button onclick="switchView('models')" id="mTabModelsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
-        <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabModels">AI 모델 ({data['models_total_count']})</span>
+      <button onclick="switchView('portfolio')" id="mTabPortfolioBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
+        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+        <span id="mNavTabPortfolio">공식 검증 ({data['total_cases']})</span>
       </button>
       <button onclick="switchView('news')" id="mTabNewsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
         <span id="mNavTabNews">AI 뉴스 ({data['news_total_count']})</span>
+      </button>
+      <button onclick="switchView('models')" id="mTabModelsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
+        <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+        <span id="mNavTabModels">AI 모델 ({data['models_total_count']})</span>
       </button>
       <button onclick="switchView('graph')" id="mTabGraphBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="network" class="w-3.5 h-3.5"></i>
@@ -542,8 +549,8 @@ def generate_html(data):
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
-    <!-- ==================== VIEW 1: TECH FACT-CHECK (기술 검증) ==================== -->
-    <div id="portfolioView" class="space-y-6">
+    <!-- ==================== VIEW 0: HOME DASHBOARD (순수 종합 대시보드 뷰) ==================== -->
+    <div id="homeView" class="space-y-6">
 
       <!-- Executive Intro Hero Banner -->
       <div class="bg-white p-6 sm:p-7 rounded-2xl border border-surface-border flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
@@ -729,7 +736,49 @@ def generate_html(data):
 
       </div>
 
+      <!-- 🌟 RECENT VERIFIED FACT-CHECKS PREVIEW (대시보드 하단 최신 팩트체크 Top 3 하이라이트) -->
+      <div class="bg-white p-5 sm:p-6 rounded-2xl border border-surface-border shadow-sm space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <h3 class="text-sm font-bold text-ink-primary font-mono" id="homeTopPicksTitle">최신 심층 기술 검증 하이라이트</h3>
+          </div>
+          <button onclick="switchView('portfolio')" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 transition flex items-center gap-1 font-mono">
+            <span>전체 {data['total_cases']}개 검증 도시에 보러가기</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5" id="homeTopPicksContainer">
+          <!-- Dynamically populated Top 3 latest verified cases -->
+        </div>
+      </div>
 
+    </div>
+
+    <!-- ==================== VIEW 1: TECH FACT-CHECK (기술 검증 포트폴리오 35건 전용 뷰) ==================== -->
+    <div id="portfolioView" class="hidden space-y-6">
+
+      <!-- Portfolio Header Bar -->
+      <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+              EMPIRICAL DOSSIERS
+            </span>
+            <span class="text-xs font-mono text-ink-muted">총 {data['total_cases']}건 완료</span>
+          </div>
+          <h2 class="text-lg sm:text-xl font-extrabold text-ink-primary" id="portfolioViewTitle">
+            공식 기술 실측 검증 포트폴리오
+          </h2>
+          <p class="text-xs text-ink-secondary" id="portfolioViewDesc">
+            SNS 바이럴 마케팅의 환각을 걷어내고, 1차 공식 문서 및 코드 레벨 벤치마크로 완성된 기술 검증 보고서 전편
+          </p>
+        </div>
+
+        <button onclick="switchView('home')" class="self-start md:self-auto px-3.5 py-1.5 rounded-xl bg-surface-subtle hover:bg-surface-canvas border border-surface-border text-xs font-bold text-ink-secondary hover:text-ink-primary transition flex items-center gap-1.5">
+          <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i>
+          <span id="backToHomeBtnText">대시보드로 돌아가기</span>
+        </button>
+      </div>
 
       <!-- HIGH-VISIBILITY CONTROL CENTER -->
       <div class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border space-y-4 shadow-sm">
@@ -1240,7 +1289,7 @@ def generate_html(data):
     const API_BASE = (window.location.hostname.includes('github.io')) ? 'https://ai-factcheck-portfolio.vercel.app' : '';
 
     let currentLang = 'KO';
-    let currentView = 'portfolio';
+    let currentView = 'home';
     let currentMode = 'ALL';
     let currentDomain = 'ALL';
     let currentSort = 'date-source-desc';
@@ -1261,9 +1310,10 @@ def generate_html(data):
       KO: {{
         brandTitle: "FactCheck Hub",
         brandSubtitle: "AI 바이럴 마케팅 실체 & 공학적 원가 검증 포털",
-        navPortfolio: "기술 검증",
-        navModels: "AI 모델",
-        navNews: "AI 뉴스",
+        navHome: "대시보드",
+        navPortfolio: "공식 검증",
+        navModels: "추적 AI 모델",
+        navNews: "AI 테크 동향",
         navGraph: "인용 계보망",
         navInbox: "수집 인박스",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
@@ -1345,9 +1395,10 @@ def generate_html(data):
       ZH: {{
         brandTitle: "FactCheck Hub",
         brandSubtitle: "AI 营销炒作真相与工程单位经济性审计门户",
-        navPortfolio: "技术审计",
-        navModels: "AI 模型",
-        navNews: "AI 资讯",
+        navHome: "仪表盘",
+        navPortfolio: "官方核查",
+        navModels: "追踪 AI 模型",
+        navNews: "AI 科技动态",
         navGraph: "引用系谱图",
         navInbox: "采集收件箱",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
@@ -1429,6 +1480,7 @@ def generate_html(data):
       EN: {{
         brandTitle: "FactCheck Hub",
         brandSubtitle: "Universal AI Viral Marketing Audit & Empirical Cost Portal",
+        navHome: "Dashboard",
         navPortfolio: "Fact-Checks",
         navModels: "AI Models",
         navNews: "AI News",
@@ -1512,10 +1564,23 @@ def generate_html(data):
       }}
     }};
 
-    // ================= VIEW SWITCHER (Clean 5 Core Tabs) =================
-    function switchView(view) {{
+    // ================= URL ROUTING & BROWSER HISTORY ENGINE =================
+    const ROUTES = {{
+      'home': '#/home',
+      'portfolio': '#/factchecks',
+      'news': '#/news',
+      'models': '#/models',
+      'graph': '#/graph',
+      'inbox': '#/inbox'
+    }};
+
+    // ================= VIEW SWITCHER (Clean 6 Core Tabs with History Support) =================
+    function switchView(view, pushHistory = true) {{
       currentView = view;
-      ['portfolio', 'models', 'news', 'graph', 'inbox'].forEach(v => {{
+      const validViews = ['home', 'portfolio', 'news', 'models', 'graph', 'inbox'];
+      if (!validViews.includes(view)) view = 'home';
+
+      validViews.forEach(v => {{
         const el = document.getElementById(v + 'View');
         const btn = document.getElementById('tab' + v.charAt(0).toUpperCase() + v.slice(1) + 'Btn');
         const mBtn = document.getElementById('mTab' + v.charAt(0).toUpperCase() + v.slice(1) + 'Btn');
@@ -1524,9 +1589,9 @@ def generate_html(data):
         
         if (btn) {{
           if (v === view) {{
-            btn.className = 'nav-tab active flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-white bg-ink-primary transition shadow-sm';
+            btn.className = 'nav-tab active flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-white bg-ink-primary transition shadow-sm';
           }} else {{
-            btn.className = 'nav-tab flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition';
+            btn.className = 'nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition';
           }}
         }}
 
@@ -1539,10 +1604,24 @@ def generate_html(data):
         }}
       }});
 
+      // Synchronize Clean URL and Push to Browser History
+      if (pushHistory) {{
+        const targetHash = ROUTES[view] || '#/' + view;
+        if (window.location.hash !== targetHash) {{
+          try {{
+            history.pushState({{ view: view }}, '', targetHash);
+          }} catch (e) {{
+            window.location.hash = targetHash;
+          }}
+        }}
+      }}
+
       // 🌟 Immediate Active View Re-render
-      if (view === 'portfolio') {{
-        renderCards();
+      if (view === 'home') {{
         renderTelemetryCharts();
+        renderHomeTopPicks();
+      }} else if (view === 'portfolio') {{
+        renderCards();
       }} else if (view === 'models') {{
         renderModels();
       }} else if (view === 'news') {{
@@ -1552,6 +1631,47 @@ def generate_html(data):
       }} else if (view === 'graph' && !simulationRef) {{
         initCitationGraph();
       }}
+
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
+      lucide.createIcons();
+    }}
+
+    // ================= RENDER HOME TOP PICKS PREVIEW =================
+    function renderHomeTopPicks() {{
+      const container = document.getElementById('homeTopPicksContainer');
+      if (!container) return;
+      container.innerHTML = '';
+      const top3 = (liveCasesData || []).slice(0, 3);
+
+      top3.forEach(c => {{
+        const card = document.createElement('div');
+        card.className = 'p-4 rounded-xl border border-surface-border bg-surface-subtle hover:bg-white hover:border-ink-primary hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-2.5';
+        card.onclick = () => openModal(c);
+
+        const isVerifiedTrue = c.verdict === 'VERIFIED_TRUE';
+        const isHalfTrue = (c.verdict || '').includes('HALF');
+        const badgeColor = isVerifiedTrue ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : (isHalfTrue ? 'bg-amber-50 text-amber-900 border-amber-200' : 'bg-rose-50 text-rose-800 border-rose-200');
+        const badgeLabel = isVerifiedTrue ? (currentLang === 'KO' ? '사실 검증됨' : (currentLang === 'ZH' ? '事实已核验' : 'Verified True')) : (isHalfTrue ? (currentLang === 'KO' ? '절반의 사실' : (currentLang === 'ZH' ? '部分属实' : 'Half True')) : (currentLang === 'KO' ? '과장/왜곡' : (currentLang === 'ZH' ? '夸大/失实' : 'Gamed/Hype')));
+
+        const story = c.portfolio_story || {{}};
+        const hook = story.the_hook || c.curation?.personal_motivation || '';
+
+        card.innerHTML = `
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{badgeColor}}">${{badgeLabel}}</span>
+              <span class="text-ink-muted text-[11px] font-semibold">${{c.confidence_score || 95}}%</span>
+            </div>
+            <h4 class="text-xs sm:text-sm font-bold text-ink-primary line-clamp-2 leading-snug hover:text-indigo-600 transition">${{c.title}}</h4>
+            <p class="text-[11px] text-ink-secondary line-clamp-2 leading-relaxed">${{hook}}</p>
+          </div>
+          <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[10px] font-mono text-ink-muted">
+            <span>📅 ${{formatDateTime(c.source_published_date || c.investigation_date)}}</span>
+            <span class="font-bold text-indigo-700 flex items-center gap-0.5">${{currentLang === 'KO' ? '상세 보고서' : (currentLang === 'ZH' ? '查看报告' : 'View Dossier')}} <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+          </div>
+        `;
+        container.appendChild(card);
+      }});
       lucide.createIcons();
     }}
 
@@ -1598,6 +1718,8 @@ def generate_html(data):
       // Brand & Navigation
       safeSetText('headerBrandTitle', t.brandTitle);
       safeSetText('headerBrandSubtitle', t.brandSubtitle);
+      safeSetText('navTabHome', t.navHome || '대시보드');
+      safeSetText('mNavTabHome', t.navHome || '대시보드');
       safeSetText('navTabPortfolio', t.navPortfolio);
       safeSetText('mNavTabPortfolio', t.navPortfolio);
       safeSetText('navTabModels', t.navModels);
@@ -2241,32 +2363,190 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    function closeModal(skipHistory = false) {{
+    function openModal(c, pushHistory = true) {{
+      if (!c) return;
+      const caseId = c.case_id || c.investigation_id;
+
+      if (pushHistory && caseId) {{
+        const targetHash = '#/factchecks?case=' + encodeURIComponent(caseId);
+        if (window.location.hash !== targetHash) {{
+          try {{
+            history.pushState({{ modalCaseId: caseId, view: currentView }}, '', targetHash);
+          }} catch (e) {{
+            window.location.hash = targetHash;
+          }}
+        }}
+      }}
+
+      const modal = document.getElementById('detailModal');
+      const story = c.portfolio_story || {{}};
+      const handsOn = story.hands_on_log || {{}};
+      const curation = c.curation || {{}};
+      const clustering = c.clustering || {{}};
+      const rawPost = c.raw_viral_post || {{}};
+      const t = i18n[currentLang];
+
+      let displayTitle = c.title;
+      let displayMotivation = curation.personal_motivation || story.the_hook || '';
+      let displayQuote = rawPost.quote || '';
+
+      if (currentLang === 'ZH') {{
+        displayTitle = c.title_zh || c.title;
+        displayMotivation = curation.personal_motivation_zh || displayMotivation;
+        displayQuote = rawPost.quote_zh || displayQuote;
+      }} else if (currentLang === 'EN') {{
+        displayTitle = c.title_en || c.title;
+        displayMotivation = curation.personal_motivation_en || displayMotivation;
+      }}
+
+      document.getElementById('modalTitle').innerText = displayTitle;
+      document.getElementById('modalModeBadge').innerText = currentLang === 'KO' ? '공식 기술 검증 도시에' : (currentLang === 'ZH' ? '官方技术核查档案' : 'AUDITED DOSSIER');
+      document.getElementById('modalModeBadge').className = 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200';
+      
+      document.getElementById('modalClusterBadge').innerText = clustering.cluster_name || c.category || 'Tech';
+      document.getElementById('modalVerdictBadge').innerText = c.verdict;
+      document.getElementById('modalVerdictBadge').className = c.verdict === 'VERIFIED_TRUE' ? 'text-xs px-2.5 py-0.5 rounded-md font-semibold verdict-true' : 'text-xs px-2.5 py-0.5 rounded-md font-semibold verdict-half';
+      document.getElementById('modalStageBadge').innerText = handsOn.status === 'ACTIVE_DEVELOPED' ? (currentLang === 'KO' ? '실제 개발 적용' : (currentLang === 'ZH' ? '生产级落地' : 'Production Active')) : (currentLang === 'KO' ? '기술 조사 완료' : (currentLang === 'ZH' ? '已审计完毕' : 'Audited'));
+
+      document.getElementById('modalMotivation').innerText = displayMotivation;
+      document.getElementById('modalWorkflow').innerText = curation.target_workflow || 'Universal AI Pipeline';
+
+      // 🌟 VIRAL CLAIMS DOSSIER (Hides cleanly when quote is missing)
+      const viralBox = document.getElementById('modalViralPostBox');
+      const hasQuote = displayQuote && displayQuote.trim().length > 0;
+
+      if (hasQuote) {{
+        viralBox.classList.remove('hidden');
+        document.getElementById('modalViralPlatformBadge').innerText = rawPost.platform || 'Viral Media';
+        document.getElementById('modalViralAuthor').innerText = rawPost.author ? `@${{rawPost.author}}` : 'Viral Source';
+        document.getElementById('modalViralQuote').innerText = `"${{displayQuote}}"`;
+        document.getElementById('modalViralNote').innerText = rawPost.archive_note || 'Tier-1 Raw Marketing Post Captured';
+        
+        const directLink = document.getElementById('modalViralDirectLink');
+        if (rawPost.url) {{
+          directLink.href = rawPost.url;
+          directLink.classList.remove('hidden');
+        }} else {{
+          directLink.classList.add('hidden');
+        }}
+      }} else {{
+        viralBox.classList.add('hidden');
+      }}
+
+      // Claims
+      const claimsContainer = document.getElementById('modalClaimsContainer');
+      const claims = c.marketing_claims || [];
+      claimsContainer.innerHTML = claims.map(cl => `
+        <div class="p-3.5 rounded-xl border border-surface-border bg-white space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-ink-primary font-mono">${{cl.claim_id || 'CLAIM'}}</span>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${{cl.status === 'DEBUNKED' ? 'bg-rose-50 text-rose-800' : 'bg-emerald-50 text-emerald-800'}}">${{cl.status}}</span>
+          </div>
+          <div class="text-xs text-rose-800 font-medium">❌ Hype: ${{cl.marketing_hook || cl.claim_text}}</div>
+          <div class="text-xs text-emerald-800 font-semibold">✅ Reality: ${{cl.empirical_reality || cl.reality_check}}</div>
+        </div>
+      `).join('');
+
+      // Hands-on Log
+      document.getElementById('modalHandsOnEnv').innerText = handsOn.environment || 'Local Benchmark Suite';
+      document.getElementById('modalHandsOnMetrics').innerText = handsOn.measured_metrics ? Object.entries(handsOn.measured_metrics).map(([k, v]) => `${{k}}: ${{v}}`).join(' | ') : '100% Zero-Hallucination Audited';
+      document.getElementById('modalHandsOnDetails').innerText = handsOn.failure_modes || story.empirical_findings || 'Empirical measurements completed without anomalies.';
+
+      // Alternatives Table
+      const altsBody = document.getElementById('modalAlternativesBody');
+      const alts = c.alternatives || [];
+      altsBody.innerHTML = alts.map(a => `
+        <tr class="hover:bg-surface-subtle transition">
+          <td class="p-3 font-semibold text-ink-primary">${{a.name || a.tool_name}}</td>
+          <td class="p-3 font-mono text-[11px] text-ink-secondary">${{a.stack || '-'}}</td>
+          <td class="p-3 text-emerald-700">${{a.pros || '-'}}</td>
+          <td class="p-3 text-rose-700">${{a.cons || '-'}}</td>
+          <td class="p-3 font-medium text-ink-primary">${{a.best_for || '-'}}</td>
+        </tr>
+      `).join('');
+
+      // Sources
+      const sourcesList = document.getElementById('modalSourcesList');
+      const sources = c.sources || [];
+      sourcesList.innerHTML = sources.map(s => `
+        <a href="${{s.url}}" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-surface-subtle border border-surface-border hover:border-ink-primary flex items-center justify-between text-xs text-ink-secondary hover:text-ink-primary transition">
+          <div class="space-y-0.5">
+            <span class="text-[10px] font-mono text-ink-primary uppercase font-bold">${{s.tier || 'Tier 1'}} • ${{s.type || 'Repository'}}</span>
+            <div class="font-medium truncate max-w-[240px] text-ink-primary">${{s.name || s.title || 'Source Link'}}</div>
+          </div>
+          <i data-lucide="external-link" class="w-3.5 h-3.5 text-ink-muted shrink-0"></i>
+        </a>
+      `).join('');
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }}
+
+    function closeModal(pushHistory = true) {{
       const modal = document.getElementById('detailModal');
       if (modal) modal.classList.add('hidden');
-      if (!skipHistory && window.location.hash.startsWith('#case/')) {{
-        try {{
-          history.pushState(null, '', window.location.pathname + window.location.search);
-        }} catch (e) {{}}
+      document.body.style.overflow = 'auto';
+
+      if (pushHistory) {{
+        const targetHash = ROUTES[currentView] || '#/' + currentView;
+        if (window.location.hash !== targetHash) {{
+          try {{
+            history.pushState({{ view: currentView }}, '', targetHash);
+          }} catch (e) {{
+            window.location.hash = targetHash;
+          }}
+        }}
       }}
     }}
 
+    // ================= UNIVERSAL ROUTE & POPSTATE DISPATCHER =================
     function handleHashRoute() {{
-      const hash = window.location.hash;
-      if (hash.startsWith('#case/')) {{
-        const targetCaseId = decodeURIComponent(hash.replace('#case/', ''));
-        const target = (liveCasesData || []).find(c => c.case_id === targetCaseId) || (casesData || []).find(c => c.case_id === targetCaseId);
-        if (target) {{
-          openModal(target, true);
+      const hash = window.location.hash || '';
+
+      // 1. Deep Link to Modal: #/factchecks?case=... or #case/...
+      if (hash.includes('case=') || hash.startsWith('#case/')) {{
+        let targetCaseId = '';
+        if (hash.includes('case=')) {{
+          const m = hash.match(/case=([^&]+)/);
+          if (m) targetCaseId = decodeURIComponent(m[1]);
+        }} else {{
+          targetCaseId = decodeURIComponent(hash.replace('#case/', ''));
         }}
+
+        if (targetCaseId) {{
+          switchView('portfolio', false);
+          const target = (liveCasesData || []).find(c => c.case_id === targetCaseId || c.investigation_id === targetCaseId) || (casesData || []).find(c => c.case_id === targetCaseId);
+          if (target) {{
+            openModal(target, false);
+            return;
+          }}
+        }}
+      }}
+
+      // If modal is open and user navigates back to tab without modal query, close modal
+      closeModal(false);
+
+      // 2. Tab Navigation Routing
+      if (hash.startsWith('#/factchecks') || hash.startsWith('#factchecks') || hash.startsWith('#/portfolio')) {{
+        switchView('portfolio', false);
+      }} else if (hash.startsWith('#/news') || hash.startsWith('#news')) {{
+        switchView('news', false);
+      }} else if (hash.startsWith('#/models') || hash.startsWith('#models')) {{
+        switchView('models', false);
+      }} else if (hash.startsWith('#/graph') || hash.startsWith('#graph')) {{
+        switchView('graph', false);
+      }} else if (hash.startsWith('#/inbox') || hash.startsWith('#inbox')) {{
+        switchView('inbox', false);
       }} else {{
-        closeModal(true);
+        switchView('home', false);
       }}
     }}
 
     window.addEventListener('popstate', handleHashRoute);
+    window.addEventListener('hashchange', handleHashRoute);
     window.addEventListener('load', () => {{
-      setTimeout(handleHashRoute, 300);
+      setTimeout(handleHashRoute, 150);
     }});
 
     // ================= NEWS VIEW =================

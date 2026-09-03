@@ -59,7 +59,7 @@ jobs:
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
-          python tools/harvest_trends.py || echo "Harvester completed with warning notes."
+          python tools/harvest_trends.py
 
       - name: Submit Newly Harvested Items to Gemini Batch API (50% Cost Cut)
         env:
@@ -67,7 +67,7 @@ jobs:
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
-          python tools/enrich_inbox_with_ai.py --submit-batch --limit 20 || echo "Submit batch completed or skipped."
+          python tools/enrich_inbox_with_ai.py --submit-batch --limit 100 || echo "Submit batch completed or skipped."
 
       - name: Auto-Factcheck Queued Investigation Items with Token Ledger
         env:
