@@ -10,10 +10,11 @@
   "curation": {
     "discovery_mode": "AUTO_HARVESTED",
     "curator": "Anyong Cheong",
-    "personal_motivation": "단일 벡터(Single-Vector) RAG의 표현력 한계를 극복하기 위해 멀티 벡터(Multi-Vector) 및 ColBERT 계열 모델을 프로덕션에 도입하려 할 때, 실무 파인튜닝 파이프라인 구축의 복잡성과 메모리 오버헤드를 정확히 파악하기 위함입니다.",
+    "personal_motivation": "[🌍 Official AI Publication] 단일 벡터(Single-Vector) RAG의 표현력 한계를 극복하기 위해 멀티 벡터(Multi-Vector) 및 ColBERT 계열 모델을 프로덕션에 도입하려 할 때, 실무 파인튜닝 파이프라인 구축의 복잡성과 메모리 오버헤드를 정확히 파악하기 위함입니다.",
     "personal_motivation_zh": "为了在生产环境中引入多向量和 ColBERT 系列模型以克服单向量 RAG 的表达瓶颈，必须准确评估微调管道的复杂性与显存开销。",
-    "personal_motivation_en": "To accurately assess the pipeline complexity and memory overhead of fine-tuning multi-vector and ColBERT-style models in production, overcoming single-vector RAG limitations.",
-    "target_workflow": "도메인 특화 문서 검색(RAG)을 위한 멀티 벡터 임베딩 모델 커스텀 파인튜닝 및 추론 인프라 구축"
+    "personal_motivation_en": "[🌍 Official AI Publication] To accurately assess the pipeline complexity and memory overhead of fine-tuning multi-vector and ColBERT-style models in production, overcoming single-vector RAG limitations.",
+    "target_workflow": "도메인 특화 문서 검색(RAG)을 위한 멀티 벡터 임베딩 모델 커스텀 파인튜닝 및 추론 인프라 구축",
+    "viral_metric": "🌍 Official AI Publication"
   },
   "raw_viral_post": {
     "platform": "Hugging Face Blog",
@@ -21,7 +22,8 @@
     "quote": "Sentence Transformers를 사용하여 고성능 멀티 벡터 임베딩 모델을 손쉽게 학습하고 파인튜닝하세요. 복잡한 검색 쿼리에서 정확도를 극적으로 향상시킵니다.",
     "quote_zh": "使用 Sentence Transformers 轻松训练和微调高性能多向量嵌入模型，大幅提升复杂搜索查询的准确率。",
     "post_url": "https://huggingface.co/blog/train-multi-vector-encoder",
-    "screenshot_note": "공식 Sentence Transformers 라이브러리를 활용한 ColBERT 및 멀티 벡터 학습 코드 스니펫 및 벤치마크"
+    "screenshot_note": "공식 Sentence Transformers 라이브러리를 활용한 ColBERT 및 멀티 벡터 학습 코드 스니펫 및 벤치마크",
+    "viral_metric": "🌍 Official AI Publication"
   },
   "clustering": {
     "cluster_id": "cluster_multi_vector_embedding",

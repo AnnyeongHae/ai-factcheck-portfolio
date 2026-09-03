@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 tools/factcheck_worker.py
@@ -97,18 +97,21 @@ def main():
 
         client = genai.Client(api_key=api_key)
         
+        viral_metric = item.get('viral_metric', '') or item.get('metric_tracking', {}).get('latest', {}).get('display', '')
         prompt = f"""
 다음 안건에 대해 시니어 엔지니어링 팩트체크 도시에를 생성하세요:
 - 제목: {title}
 - 플랫폼: {item.get('source_platform', '')}
+- 바이럴/인게이지먼트 지표: {viral_metric}
 - 설명: {item.get('description', '')}
 - 출처 URL: {item.get('source_url', '')}
 
 요구사항:
 1. 완전한 유효 JSON으로만 응답할 것 (마크다운 코드블록 제외 또는 순수 JSON).
-2. 한국어, 영어, 중국어 3개국어 대칭 필드(title_ko, title_en, title_zh, quote, quote_zh, the_hook, the_hook_zh, the_hook_en) 포함.
-3. verdict는 VERIFIED_TRUE, HALF_TRUE, GAMED_OR_EXAGGERATED 중 하나.
-4. confidence_score(0~100 float) 및 구체적 하드웨어/아키텍처 실측 메트릭.
+2. curation.personal_motivation 및 personal_motivation_en의 맨 앞부분에 반드시 "[{viral_metric}] "를 명시하여 발굴 의도에 좋아요/추천수 지표를 승계할 것.
+3. 한국어, 영어, 중국어 3개국어 대칭 필드(title_ko, title_en, title_zh, quote, quote_zh, the_hook, the_hook_zh, the_hook_en) 포함.
+4. verdict는 VERIFIED_TRUE, HALF_TRUE, GAMED_OR_EXAGGERATED 중 하나.
+5. confidence_score(0~100 float) 및 구체적 하드웨어/아키텍처 실측 메트릭.
 """
 
         print("[*] Calling Gemini 3.6 Flash with token accounting...")

@@ -12,10 +12,11 @@
   "curation": {
     "discovery_mode": "AUTO_HARVESTED",
     "curator": "Autonomous Trend Harvest (User Queued)",
-    "personal_motivation": "범용 프론티어 LLM 기반 소스코드 감사의 환각 및 문맥 인지 한계를 정밀 검증하고자 본 안건을 분석했습니다. 보안 임판트 관점에서 프론티어 모델과 정밀 인터프로시저 분석 도구 간의 기술적 실효성 격차를 규명했습니다.",
+    "personal_motivation": "[🔥 152 HN Points] 범용 프론티어 LLM 기반 소스코드 감사의 환각 및 문맥 인지 한계를 정밀 검증하고자 본 안건을 분석했습니다. 보안 임판트 관점에서 프론티어 모델과 정밀 인터프로시저 분석 도구 간의 기술적 실효성 격차를 규명했습니다.",
     "personal_motivation_zh": "为了精确定量评估通用前沿LLM在源代码安全审计中的幻觉与上下文理解局限性，特别分析了本案例。从安全影响角度揭示了前沿模型与专用跨程序分析工具之间的技术有效性差距。",
-    "personal_motivation_en": "Investigated to empirically evaluate the context limitations and hallucination risks of general-purpose frontier LLMs in source code security auditing. We aimed to clarify the actual effectiveness gap between LLMs and specialized interprocedural static/dynamic security tools.",
-    "target_workflow": "1. DevSecOps automated SAST pipeline integration, 2. LLM-assisted vulnerability triage framework, 3. C/C++ memory safety verification agent"
+    "personal_motivation_en": "[🔥 152 HN Points] Investigated to empirically evaluate the context limitations and hallucination risks of general-purpose frontier LLMs in source code security auditing. We aimed to clarify the actual effectiveness gap between LLMs and specialized interprocedural static/dynamic security tools.",
+    "target_workflow": "1. DevSecOps automated SAST pipeline integration, 2. LLM-assisted vulnerability triage framework, 3. C/C++ memory safety verification agent",
+    "viral_metric": "🔥 152 HN Points"
   },
   "raw_viral_post": {
     "platform": "Hacker News (ycombinator)",
@@ -23,7 +24,8 @@
     "quote": "Aisle discovered six new security vulnerabilities in curl after major AI security audits by OpenAI and Anthropic concluded the codebase had zero new issues.",
     "quote_zh": "在 OpenAI 和 Anthropic 的 AI 代码安全审计得出 curl 代码库没有新增漏洞的结论后，Aisle 团队通过特化分析再次发现了 6 个全新的 CVE 漏洞。",
     "post_url": "https://aisle.com/blog/aisle-discovered-six-curl-cves-after-openai-and-anthropic-found-zero",
-    "screenshot_note": "Aisle 블로그 게시글 및 Hacker News 주요 댓글 토론 캡처"
+    "screenshot_note": "Aisle 블로그 게시글 및 Hacker News 주요 댓글 토론 캡처",
+    "viral_metric": "🔥 152 HN Points"
   },
   "portfolio_story": {
     "the_hook": "범용 LLM이 단 한 건의 유효 취약점도 찾지 못하고 Pass 처리한 curl 코드베이스에서 특화 도구가 6개의 실제 CVE를 포착함.",

@@ -1626,6 +1626,13 @@ def generate_html(data):
           displayTruth = story.the_hook_en || displayTruth;
         }}
 
+        // 🌟 Engagement Metric Tag Enhancement for Motivation
+        let motivationHtml = displayMotivation;
+        const tagMatch = displayMotivation.match(new RegExp('^\\\\[(.*?)\\\\]\\\\s*(.*)$'));
+        if (tagMatch) {{
+          motivationHtml = `<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold font-mono bg-indigo-50 text-indigo-700 border border-indigo-200 mr-1.5">${{tagMatch[1]}}</span><span>${{tagMatch[2]}}</span>`;
+        }}
+
         // Verdict Badge for Completed Portfolios
         let verdictLabel = '';
         let verdictClass = '';
@@ -1688,7 +1695,7 @@ def generate_html(data):
                 <div class="text-[11px] font-bold text-ink-secondary flex items-center gap-1.5">
                   <i data-lucide="compass" class="w-3.5 h-3.5 text-indigo-600"></i> ${{t.cardMotivationLabel}}
                 </div>
-                <p class="text-xs text-ink-secondary leading-relaxed line-clamp-2">${{displayMotivation}}</p>
+                <p class="text-xs text-ink-secondary leading-relaxed line-clamp-2">${{motivationHtml}}</p>
               </div>
 
               <!-- Block 2: Key Verdict / Truth -->

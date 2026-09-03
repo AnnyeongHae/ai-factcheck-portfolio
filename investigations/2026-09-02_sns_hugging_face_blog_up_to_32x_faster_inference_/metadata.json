@@ -10,10 +10,11 @@
   "curation": {
     "discovery_mode": "AUTO_HARVESTED",
     "curator": "Anyong Cheong",
-    "personal_motivation": "실무에서 거대언어모델의 추론 레이턴시를 줄이기 위해 다양한 아키텍처와 최적화 기법을 도입하고 있으나, '최대 3.2배'라는 마케팅 수치가 특정 제약 조건이나 하드웨어 환경에서만 유효한지 1차 출처 기반으로 명확히 검증할 필요가 있음.",
+    "personal_motivation": "[🌍 Official AI Publication] 실무에서 거대언어모델의 추론 레이턴시를 줄이기 위해 다양한 아키텍처와 최적화 기법을 도입하고 있으나, '최대 3.2배'라는 마케팅 수치가 특정 제약 조건이나 하드웨어 환경에서만 유효한지 1차 출처 기반으로 명확히 검증할 필요가 있음.",
     "personal_motivation_zh": "在实际业务中，为了降低大语言模型的推理延迟，我们需要引入各种架构与优化技术。必须基于第一手资料严格核实“最高3.2倍”这一营销数字是否依赖于特定的约束条件或硬件环境。",
-    "personal_motivation_en": "In practical workflows, we constantly evaluate architectures and optimization techniques to reduce LLM inference latency. It is critical to audit the 'up to 3.2x' marketing claim against first-party sources to understand underlying constraints and hardware dependencies.",
-    "target_workflow": "고부하 프로덕션 환경에서의 LLM 실시간 추론 레이턴시 최적화 및 토큰당 비용 절감 파이프라인"
+    "personal_motivation_en": "[🌍 Official AI Publication] In practical workflows, we constantly evaluate architectures and optimization techniques to reduce LLM inference latency. It is critical to audit the 'up to 3.2x' marketing claim against first-party sources to understand underlying constraints and hardware dependencies.",
+    "target_workflow": "고부하 프로덕션 환경에서의 LLM 실시간 추론 레이턴시 최적화 및 토큰당 비용 절감 파이프라인",
+    "viral_metric": "🌍 Official AI Publication"
   },
   "raw_viral_post": {
     "platform": "Hugging Face Official Blog",
@@ -21,7 +22,8 @@
     "quote": "LFM2.5-DSpark를 통해 기존 모델 대비 최대 3.2배 빠른 추론 성능과 뛰어난 효율성을 경험하세요.",
     "quote_zh": "通过 Lfm2.5-DSpark 实现高达 3.2 倍的推理性能提升与卓越效率。",
     "post_url": "https://huggingface.co/blog/LiquidAI/lfm25-dspark",
-    "screenshot_note": "공식 블로그 벤치마크 및 아키텍처 설명 섹션"
+    "screenshot_note": "공식 블로그 벤치마크 및 아키텍처 설명 섹션",
+    "viral_metric": "🌍 Official AI Publication"
   },
   "clustering": {
     "cluster_id": "cluster_llm_inference_optimization",

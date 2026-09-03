@@ -2,7 +2,7 @@
   "generated_at": "2026-09-02",
   "total_cases": 32,
   "models_total_count": 88,
-  "news_total_count": 62,
+  "news_total_count": 63,
   "inbox_total_count": 232,
   "all_inbox_count": 391,
   "admin_stats": {
@@ -39,6 +39,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T07:37:29.160355",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.27
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.15
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.97
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 12.73
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.57
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.17
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.89
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.19
+          }
+        },
+        "summary": {
+          "total_fetched": 165,
+          "updated_count": 0,
+          "new_saved": 1,
+          "duplicates_skipped": 164,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T06:57:17.180908",
         "date": "2026-09-03",
@@ -1575,111 +1628,58 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T04:08:43.913827",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.23
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.17
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.75
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 19,
-            "duration_sec": 9.93
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.18
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.11
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.82
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.44
-          }
-        },
-        "summary": {
-          "total_fetched": 169,
-          "updated_count": 169,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T06:57:17.180908",
+      "timestamp": "2026-09-03T07:37:29.160355",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.16
+          "duration_sec": 0.27
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.16
+          "duration_sec": 0.15
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.83
+          "duration_sec": 0.97
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 11.48
+          "duration_sec": 12.73
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.27
+          "duration_sec": 0.57
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.16
+          "duration_sec": 0.17
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.9
+          "duration_sec": 0.89
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.36
+          "duration_sec": 0.19
         }
       },
       "summary": {
         "total_fetched": 165,
         "updated_count": 0,
-        "new_saved": 0,
-        "duplicates_skipped": 165,
+        "new_saved": 1,
+        "duplicates_skipped": 164,
         "errors": 0
       }
     }
@@ -12343,6 +12343,43 @@
       "hook_zh": "探讨全天候连接的数字环境中现代人的疲惫感以及数码排毒的必要性。",
       "description_en": "Highlighting modern digital fatigue in an always-connected world and the need for digital detox.",
       "description_zh": "探讨全天候连接的数字环境中现代人的疲惫感以及数码排毒的必要性。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_show_gn_github_trend_radar_빠르게_떠오르는_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Show GN: GitHub Trend Radar - 빠르게 떠오르는 GitHub 저장소를 찾는 랭킹",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33186",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Show GN: GitHub Trend Radar - 빠르게 떠오르는 GitHub 저장소를 찾는 랭킹",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Show GN: GitHub Trend Radar - 빠르게 떠오르는 GitHub 저장소를 찾는 랭킹",
+      "description_ko": "Show GN: GitHub Trend Radar - 빠르게 떠오르는 GitHub 저장소를 찾는 랭킹",
+      "hn_url": "https://news.hada.io/topic?id=33186",
+      "article_url": "https://news.hada.io/topic?id=33186"
     },
     {
       "inbox_id": "2026-09-03_sns_geeknews_perplexity_대량생산된_구매_가이드를_소프트웨어_추천의_근",
@@ -40397,10 +40434,11 @@
       "curation": {
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "RAG 파이프라인 구축 시 대용량 .docx/.xlsx/.pptx 문서 파싱 속도와 메모리 병목을 해결하기 위해 Rust 기반 제로카피 파서의 실측 검증 필요성을 느껴 직접 선정함.",
+        "personal_motivation": "[⭐ GitHub 14.8k Stars (오피스 파서 초고속 바이럴)] RAG 파이프라인 구축 시 대용량 .docx/.xlsx/.pptx 문서 파싱 속도와 메모리 병목을 해결하기 위해 Rust 기반 제로카피 파서의 실측 검증 필요성을 느껴 직접 선정함.",
         "target_workflow": "사내 대용량 오피스 문서 인제스천 및 초고속 RAG 전처리 엔진",
-        "personal_motivation_en": "RAG 파이프라인 구축 시 대용량 .docx/.xlsx/.pptx 문서 파싱 속도와 메모리 병목을 해결하기 위해 Rust 기반 제로카피 파서의 실측 검증 필요성을 느껴 직접 선정함.",
-        "personal_motivation_zh": "RAG 파이프라인 구축 시 대용량 .docx/.xlsx/.pptx 문서 파싱 속도와 메모리 병목을 해결하기 위해 Rust 기반 제로카피 파서의 실측 검증 필요성을 느껴 직접 선정함."
+        "personal_motivation_en": "[⭐ GitHub 14.8k Stars (오피스 파서 초고속 바이럴)] RAG 파이프라인 구축 시 대용량 .docx/.xlsx/.pptx 문서 파싱 속도와 메모리 병목을 해결하기 위해 Rust 기반 제로카피 파서의 실측 검증 필요성을 느껴 직접 선정함.",
+        "personal_motivation_zh": "RAG 파이프라인 구축 시 대용량 .docx/.xlsx/.pptx 문서 파싱 속도와 메모리 병목을 해결하기 위해 Rust 기반 제로카피 파서의 실측 검증 필요성을 느껴 직접 선정함.",
+        "viral_metric": "⭐ GitHub 14.8k Stars (오피스 파서 초고속 바이럴)"
       },
       "clustering": {
         "cluster_id": "cluster_doc_parsing",
@@ -40498,10 +40536,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "AI 에이전트가 장기 연구 과제나 복잡한 알고리즘 실험을 진행할 때, 세션마다 컨텍스트를 잊고 동일한 실수를 반복(Re-learning)하는 문제를 해결하기 위해, '검증된 메커니즘을 상속하는 아키텍처'의 실무 효용성이 궁금하여 직접 선정함.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] AI 에이전트가 장기 연구 과제나 복잡한 알고리즘 실험을 진행할 때, 세션마다 컨텍스트를 잊고 동일한 실수를 반복(Re-learning)하는 문제를 해결하기 위해, '검증된 메커니즘을 상속하는 아키텍처'의 실무 효용성이 궁금하여 직접 선정함.",
         "target_workflow": "장기 연구 캠페인, 머신러닝 하이퍼파라미터 자율 탐색 및 무인 코드 리팩토링",
-        "personal_motivation_en": "AI 에이전트가 장기 연구 과제나 복잡한 알고리즘 실험을 진행할 때, 세션마다 컨텍스트를 잊고 동일한 실수를 반복(Re-learning)하는 문제를 해결하기 위해, '검증된 메커니즘을 상속하는 아키텍처'의 실무 효용성이 궁금하여 직접 선정함.",
-        "personal_motivation_zh": "AI 에이전트가 장기 연구 과제나 복잡한 알고리즘 실험을 진행할 때, 세션마다 컨텍스트를 잊고 동일한 실수를 반복(Re-learning)하는 문제를 해결하기 위해, '검증된 메커니즘을 상속하는 아키텍처'의 실무 효용성이 궁금하여 직접 선정함."
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] AI 에이전트가 장기 연구 과제나 복잡한 알고리즘 실험을 진행할 때, 세션마다 컨텍스트를 잊고 동일한 실수를 반복(Re-learning)하는 문제를 해결하기 위해, '검증된 메커니즘을 상속하는 아키텍처'의 실무 효용성이 궁금하여 직접 선정함.",
+        "personal_motivation_zh": "AI 에이전트가 장기 연구 과제나 복잡한 알고리즘 실험을 진행할 때, 세션마다 컨텍스트를 잊고 동일한 실수를 반복(Re-learning)하는 문제를 해결하기 위해, '검증된 메커니즘을 상속하는 아키텍처'의 실무 효용성이 궁금하여 직접 선정함.",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_agent_lineage",
@@ -40599,10 +40638,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Autonomous Harvester Bot",
-        "personal_motivation": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드(★ 975 Stars)로 자동 감지되어 macOS 개발자를 위한 Linux 타일링 윈도우 매니저 가상화 타당성을 심층 팩트체크했습니다.",
+        "personal_motivation": "[★ 1307 Stars] GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드(★ 975 Stars)로 자동 감지되어 macOS 개발자를 위한 Linux 타일링 윈도우 매니저 가상화 타당성을 심층 팩트체크했습니다.",
         "target_workflow": "macOS 개발 환경에서 Linux 전용 GUI 툴 및 Neovim/Hyprland 타일링 워크플로우 무설치 가상화",
-        "personal_motivation_en": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드(★ 975 Stars)로 자동 감지되어 macOS 개발자를 위한 Linux 타일링 윈도우 매니저 가상화 타당성을 심층 팩트체크했습니다.",
-        "personal_motivation_zh": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드(★ 975 Stars)로 자동 감지되어 macOS 개발자를 위한 Linux 타일링 윈도우 매니저 가상화 타당성을 심층 팩트체크했습니다."
+        "personal_motivation_en": "[★ 1307 Stars] GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드(★ 975 Stars)로 자동 감지되어 macOS 개발자를 위한 Linux 타일링 윈도우 매니저 가상화 타당성을 심층 팩트체크했습니다.",
+        "personal_motivation_zh": "GitHub Actions 자율 크론에 의해 GitHub Official 실시간 급상승 1위 트렌드(★ 975 Stars)로 자동 감지되어 macOS 개발자를 위한 Linux 타일링 윈도우 매니저 가상화 타당성을 심층 팩트체크했습니다.",
+        "viral_metric": "★ 1307 Stars"
       },
       "clustering": {
         "cluster_id": "cluster_virtualization_linux",
@@ -40696,10 +40736,11 @@
       "curation": {
         "discovery_mode": "USER_CURATED",
         "curator": "Autonomous Harvester Bot",
-        "personal_motivation": "Hugging Face 트렌딩 1위로 급상승한 차세대 MoE 모델의 실제 양자화 추론 속도와 활성 파라미터(Active Params) 효율성을 분석하기 위해 자동 감지됨.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] Hugging Face 트렌딩 1위로 급상승한 차세대 MoE 모델의 실제 양자화 추론 속도와 활성 파라미터(Active Params) 효율성을 분석하기 위해 자동 감지됨.",
         "target_workflow": "비정형 멀티모달 이미지/텍스트 초고속 분류 및 온디바이스 에이전트",
-        "personal_motivation_en": "Hugging Face 트렌딩 1위로 급상승한 차세대 MoE 모델의 실제 양자화 추론 속도와 활성 파라미터(Active Params) 효율성을 분석하기 위해 자동 감지됨.",
-        "personal_motivation_zh": "Hugging Face 트렌딩 1위로 급상승한 차세대 MoE 모델의 실제 양자화 추론 속도와 활성 파라미터(Active Params) 효율성을 분석하기 위해 자동 감지됨."
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] Hugging Face 트렌딩 1위로 급상승한 차세대 MoE 모델의 실제 양자화 추론 속도와 활성 파라미터(Active Params) 효율성을 분석하기 위해 자동 감지됨.",
+        "personal_motivation_zh": "Hugging Face 트렌딩 1위로 급상승한 차세대 MoE 모델의 실제 양자화 추론 속도와 활성 파라미터(Active Params) 효율성을 분석하기 위해 자동 감지됨.",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_multimodal_moe",
@@ -40785,10 +40826,11 @@
       "curation": {
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "에이전트 워크플로우나 다단계 RAG 파이프라인에서 동일한 시스템 프롬프트 및 문서 프리픽스를 반복 호출할 때 발생하는 엄청난 TTFT(Time-to-First-Token) 지연과 VRAM 낭비를 해결하기 위해, RadixAttention의 KV 캐시 재사용 성능을 실측 비교함.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 에이전트 워크플로우나 다단계 RAG 파이프라인에서 동일한 시스템 프롬프트 및 문서 프리픽스를 반복 호출할 때 발생하는 엄청난 TTFT(Time-to-First-Token) 지연과 VRAM 낭비를 해결하기 위해, RadixAttention의 KV 캐시 재사용 성능을 실측 비교함.",
         "target_workflow": "사내 다단계 RAG 에이전트 및 멀티턴 LLM 인퍼런스 고속화 클러스터",
-        "personal_motivation_en": "에이전트 워크플로우나 다단계 RAG 파이프라인에서 동일한 시스템 프롬프트 및 문서 프리픽스를 반복 호출할 때 발생하는 엄청난 TTFT(Time-to-First-Token) 지연과 VRAM 낭비를 해결하기 위해, RadixAttention의 KV 캐시 재사용 성능을 실측 비교함.",
-        "personal_motivation_zh": "에이전트 워크플로우나 다단계 RAG 파이프라인에서 동일한 시스템 프롬프트 및 문서 프리픽스를 반복 호출할 때 발생하는 엄청난 TTFT(Time-to-First-Token) 지연과 VRAM 낭비를 해결하기 위해, RadixAttention의 KV 캐시 재사용 성능을 실측 비교함."
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 에이전트 워크플로우나 다단계 RAG 파이프라인에서 동일한 시스템 프롬프트 및 문서 프리픽스를 반복 호출할 때 발생하는 엄청난 TTFT(Time-to-First-Token) 지연과 VRAM 낭비를 해결하기 위해, RadixAttention의 KV 캐시 재사용 성능을 실측 비교함.",
+        "personal_motivation_zh": "에이전트 워크플로우나 다단계 RAG 파이프라인에서 동일한 시스템 프롬프트 및 문서 프리픽스를 반복 호출할 때 발생하는 엄청난 TTFT(Time-to-First-Token) 지연과 VRAM 낭비를 해결하기 위해, RadixAttention의 KV 캐시 재사용 성능을 실측 비교함.",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_inference_serving",
@@ -40886,10 +40928,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "웹 데이터 및 마케팅 정보를 LLM이 읽기 쉬운 구조화된 마크다운/JSON으로 수집할 때, Firecrawl이나 Crawl4AI 외에 'CSS/XPath 세분화 제어와 셀프호스팅이 가능한 대체재'로서의 실무 효용성이 궁금하여 직접 선정함.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 웹 데이터 및 마케팅 정보를 LLM이 읽기 쉬운 구조화된 마크다운/JSON으로 수집할 때, Firecrawl이나 Crawl4AI 외에 'CSS/XPath 세분화 제어와 셀프호스팅이 가능한 대체재'로서의 실무 효용성이 궁금하여 직접 선정함.",
         "target_workflow": "collection-foundation 웹 수집 어댑터 및 스마트스토어/마케팅 데이터 인제스천 파이프라인",
-        "personal_motivation_en": "웹 데이터 및 마케팅 정보를 LLM이 읽기 쉬운 구조화된 마크다운/JSON으로 수집할 때, Firecrawl이나 Crawl4AI 외에 'CSS/XPath 세분화 제어와 셀프호스팅이 가능한 대체재'로서의 실무 효용성이 궁금하여 직접 선정함.",
-        "personal_motivation_zh": "웹 데이터 및 마케팅 정보를 LLM이 읽기 쉬운 구조화된 마크다운/JSON으로 수집할 때, Firecrawl이나 Crawl4AI 외에 'CSS/XPath 세분화 제어와 셀프호스팅이 가능한 대체재'로서의 실무 효용성이 궁금하여 직접 선정함."
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 웹 데이터 및 마케팅 정보를 LLM이 읽기 쉬운 구조화된 마크다운/JSON으로 수집할 때, Firecrawl이나 Crawl4AI 외에 'CSS/XPath 세분화 제어와 셀프호스팅이 가능한 대체재'로서의 실무 효용성이 궁금하여 직접 선정함.",
+        "personal_motivation_zh": "웹 데이터 및 마케팅 정보를 LLM이 읽기 쉬운 구조화된 마크다운/JSON으로 수집할 때, Firecrawl이나 Crawl4AI 외에 'CSS/XPath 세분화 제어와 셀프호스팅이 가능한 대체재'로서의 실무 효용성이 궁금하여 직접 선정함.",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_web_scraping",
@@ -40994,10 +41037,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "SNS에서 '원클릭으로 영상 만들어 월 1000만원 번다'는 자동화 홍보의 실제 엔지니어링 타당성과 API 단위 원가(Unit Economics)를 검증하기 위해 직접 선정함.",
+        "personal_motivation": "[🐦 X (Twitter) 1,200+ Likes (10분 만에 SaaS 구축 바이럴)] SNS에서 '원클릭으로 영상 만들어 월 1000만원 번다'는 자동화 홍보의 실제 엔지니어링 타당성과 API 단위 원가(Unit Economics)를 검증하기 위해 직접 선정함.",
         "target_workflow": "E.F.M 마케팅 자동화 숏폼 생성 파이프라인",
-        "personal_motivation_en": "SNS에서 '원클릭으로 영상 만들어 월 1000만원 번다'는 자동화 홍보의 실제 엔지니어링 타당성과 API 단위 원가(Unit Economics)를 검증하기 위해 직접 선정함.",
-        "personal_motivation_zh": "SNS에서 '원클릭으로 영상 만들어 월 1000만원 번다'는 자동화 홍보의 실제 엔지니어링 타당성과 API 단위 원가(Unit Economics)를 검증하기 위해 직접 선정함."
+        "personal_motivation_en": "[🐦 X (Twitter) 1,200+ Likes (10분 만에 SaaS 구축 바이럴)] SNS에서 '원클릭으로 영상 만들어 월 1000만원 번다'는 자동화 홍보의 실제 엔지니어링 타당성과 API 단위 원가(Unit Economics)를 검증하기 위해 직접 선정함.",
+        "personal_motivation_zh": "SNS에서 '원클릭으로 영상 만들어 월 1000만원 번다'는 자동화 홍보의 실제 엔지니어링 타당성과 API 단위 원가(Unit Economics)를 검증하기 위해 직접 선정함.",
+        "viral_metric": "🐦 X (Twitter) 1,200+ Likes (10분 만에 SaaS 구축 바이럴)"
       },
       "clustering": {
         "cluster_id": "cluster_ai_video_automation",
@@ -41083,10 +41127,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "'오픈소스 모델이 o1을 완전히 뛰어넘었다'는 SNS 바이럴 주장의 벤치마크 평가 지표(Pass@1 vs Pass@64) 왜곡 여부를 밝히기 위해 직접 조사함.",
+        "personal_motivation": "[🔥 Hacker News 890 pts (DeepSeek-V3 벤치마크 감사)] '오픈소스 모델이 o1을 완전히 뛰어넘었다'는 SNS 바이럴 주장의 벤치마크 평가 지표(Pass@1 vs Pass@64) 왜곡 여부를 밝히기 위해 직접 조사함.",
         "target_workflow": "사내 로컬 코딩 어시스턴트 모델 선별 및 실무 신뢰도 검증",
-        "personal_motivation_en": "'오픈소스 모델이 o1을 완전히 뛰어넘었다'는 SNS 바이럴 주장의 벤치마크 평가 지표(Pass@1 vs Pass@64) 왜곡 여부를 밝히기 위해 직접 조사함.",
-        "personal_motivation_zh": "'오픈소스 모델이 o1을 완전히 뛰어넘었다'는 SNS 바이럴 주장의 벤치마크 평가 지표(Pass@1 vs Pass@64) 왜곡 여부를 밝히기 위해 직접 조사함."
+        "personal_motivation_en": "[🔥 Hacker News 890 pts (DeepSeek-V3 벤치마크 감사)] '오픈소스 모델이 o1을 완전히 뛰어넘었다'는 SNS 바이럴 주장의 벤치마크 평가 지표(Pass@1 vs Pass@64) 왜곡 여부를 밝히기 위해 직접 조사함.",
+        "personal_motivation_zh": "'오픈소스 모델이 o1을 완전히 뛰어넘었다'는 SNS 바이럴 주장의 벤치마크 평가 지표(Pass@1 vs Pass@64) 왜곡 여부를 밝히기 위해 직접 조사함.",
+        "viral_metric": "🔥 Hacker News 890 pts (DeepSeek-V3 벤치마크 감사)"
       },
       "clustering": {
         "cluster_id": "cluster_reasoning_benchmarks",
@@ -41172,10 +41217,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함.",
         "target_workflow": "실시간 음성/화상 AI 비서, 비정형 멀티모달 OCR 및 온디바이스 에이전트",
-        "personal_motivation_en": "텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함.",
-        "personal_motivation_zh": "텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함."
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함.",
+        "personal_motivation_zh": "텍스트뿐만 아니라 비전과 오디오를 네이티브 단일 신경망으로 처리하는 최신 GLM-5.3 아키텍처를 온프레미스 GPU에서 실시간 서빙할 때, 공식 풀스펙(GLM-5.3), 초경량 플래시(GLM-5.3-Flash), 그리고 Unsloth Dynamic GGUF 양자화본 간의 실측 지연 시간과 멀티모달 인식 정확도를 통합 검증하기 위해 직접 선정함.",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_multimodal_foundation",
@@ -41309,10 +41355,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함.",
         "target_workflow": "사내 로컬 코드 어시스턴트 및 온디바이스 에이전트 인퍼런스 파이프라인",
-        "personal_motivation_en": "Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함.",
-        "personal_motivation_zh": "Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함."
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함.",
+        "personal_motivation_zh": "Qwen 계열 최신 모델을 온프레미스 단일 GPU(16GB/24GB VRAM)에서 서빙할 때, 성능 저하 없이 토큰 속도를 극대화하기 위해 Unsloth Dynamic GGUF v3.0 양자화의 실측 정확도와 vLLM 호환성을 직접 검증함.",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_model_quantization",
@@ -41411,10 +41458,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Agentic Systems Review Team",
-        "personal_motivation": "앤드류 응(Andrew Ng) 교수가 공개한 '말만 하는 챗봇이 아닌 완결된 로컬 작업물을 납품하는 오픈소스 AI 동료(OpenWorker)'의 기술적 아키텍처(Tauri v2, aisuite, MCP, 승인 게이트) 및 실무 도입 타당성을 팩트체크했습니다.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 앤드류 응(Andrew Ng) 교수가 공개한 '말만 하는 챗봇이 아닌 완결된 로컬 작업물을 납품하는 오픈소스 AI 동료(OpenWorker)'의 기술적 아키텍처(Tauri v2, aisuite, MCP, 승인 게이트) 및 실무 도입 타당성을 팩트체크했습니다.",
         "target_workflow": "1인 기업 및 엔지니어를 위한 로컬 파일/캘린더/이메일/Jira 크로스 앱 자동화",
-        "personal_motivation_en": "Audited Andrew Ng's new 16k-star repo to verify if it truly delivers finished desktop artifacts across 25+ tools instead of simple conversational replies.",
-        "personal_motivation_zh": "审计吴恩达最新 16k Star 项目，验证其是否真能跨 25+ 工具交付已完成的桌面文件，而非仅仅停留在对话聊天层面。"
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] Audited Andrew Ng's new 16k-star repo to verify if it truly delivers finished desktop artifacts across 25+ tools instead of simple conversational replies.",
+        "personal_motivation_zh": "审计吴恩达最新 16k Star 项目，验证其是否真能跨 25+ 工具交付已完成的桌面文件，而非仅仅停留在对话聊天层面。",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_ai_agents",
@@ -41514,7 +41562,8 @@
         "post_url": "https://x.com/vicky_grok/status/2092990755396870471",
         "quote": "🚨 THIS IS ACTUALLY INSANE. Andrew Ng just open sourced a free AI coworker that delivers FINISHED work, not chat. The GitHub repo already has 16,000+ stars. Connect 25+ tools — GitHub, Slack, Jira, Notion, Gmail, Calendar — plus anything over MCP. No subscriptions. No model lock-in.",
         "quote_zh": "🚨 太震撼了！吴恩达刚开源了一款免费 AI 协同工作者，直接交付【已完成的工作】，而不是陪聊。GitHub 已破 1.6 万星，支持连接 25+ 款办公工具及 MCP。",
-        "screenshot_note": "X Viral Tweet on OpenWorker Launch by Andrew Ng"
+        "screenshot_note": "X Viral Tweet on OpenWorker Launch by Andrew Ng",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "source_published_date": "2026-09-01"
     },
@@ -41528,10 +41577,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Web Automation & Agent Systems Review Team",
-        "personal_motivation": "0xJokker가 X에서 소개한 '새로운 형태의 AI 브라우저(Obscura)'의 기술적 아키텍처(Rust 런타임, V8 JS 엔진, CDP 호환, 메모리 30MB)와 실제 봇 탐지 우회(Anti-Detection) 실효성을 팩트체크했습니다.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 0xJokker가 X에서 소개한 '새로운 형태의 AI 브라우저(Obscura)'의 기술적 아키텍처(Rust 런타임, V8 JS 엔진, CDP 호환, 메모리 30MB)와 실제 봇 탐지 우회(Anti-Detection) 실효성을 팩트체크했습니다.",
         "target_workflow": "서버리스 환경 및 대규모 AI 에이전트 동시 웹 자동화/RAG 크롤링",
-        "personal_motivation_en": "Examined to determine if a lightweight Rust-native browser engine can replace resource-heavy Chromium/Playwright pipelines for multi-agent web automation.",
-        "personal_motivation_zh": "评估 Rust 原生浏览器引擎能否替代内存开销巨大的 Chromium/Playwright 方案，用于多智能体网络自动化。"
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] Examined to determine if a lightweight Rust-native browser engine can replace resource-heavy Chromium/Playwright pipelines for multi-agent web automation.",
+        "personal_motivation_zh": "评估 Rust 原生浏览器引擎能否替代内存开销巨大的 Chromium/Playwright 方案，用于多智能体网络自动化。",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_web_scraping",
@@ -41631,7 +41681,8 @@
         "post_url": "https://x.com/0xJokker/status/2094427822064279870",
         "quote": "새로운 형식의 브라우저라고도 할 수 있을거 같은데 흥미롭더라. Rust 기반으로 AI 에이전트에 최적화된 무헤드 브라우징 런타임.",
         "quote_zh": "这是一种全新形态的浏览器，基于 Rust 开发，专为 AI Agent 优化的超轻量无头运行时。",
-        "screenshot_note": "X Viral Thread on Rust Browser Runtime for Autonomous Agents"
+        "screenshot_note": "X Viral Thread on Rust Browser Runtime for Autonomous Agents",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "source_published_date": "2026-09-01"
     },
@@ -41645,10 +41696,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Creative Tech & WebGL Factcheck Team",
-        "personal_motivation": "스레드 SNS에서 바이럴된 'Three.js 컴포넌트 220개 무료 공개 및 13만 개 잔디 1MB 구동' 주장의 실제 오픈소스 라이선스(Freemium 여부), GPU Instancing 아키텍처 실체, AI 에이전트 3D 프롬프트 튜닝 타당성을 정밀 팩트체크했습니다.",
+        "personal_motivation": "[★ 4961 Stars] 스레드 SNS에서 바이럴된 'Three.js 컴포넌트 220개 무료 공개 및 13만 개 잔디 1MB 구동' 주장의 실제 오픈소스 라이선스(Freemium 여부), GPU Instancing 아키텍처 실체, AI 에이전트 3D 프롬프트 튜닝 타당성을 정밀 팩트체크했습니다.",
         "target_workflow": "인터랙티브 3D 랜딩페이지 및 AI 에이전트 기반 WebGL 컴포넌트 자동화",
-        "personal_motivation_en": "Investigated claims of 220 free 3D components and whether modifying pre-built shaders via AI agents outperforms generating Three.js code from scratch.",
-        "personal_motivation_zh": "验证 220 个免费 3D 组件以及由 AI Agent 修改现成着色器是否明显优于从零生成 Three.js 代码。"
+        "personal_motivation_en": "[★ 4961 Stars] Investigated claims of 220 free 3D components and whether modifying pre-built shaders via AI agents outperforms generating Three.js code from scratch.",
+        "personal_motivation_zh": "验证 220 个免费 3D 组件以及由 AI Agent 修改现成着色器是否明显优于从零生成 Three.js 代码。",
+        "viral_metric": "★ 4961 Stars"
       },
       "clustering": {
         "cluster_id": "cluster_image_generation",
@@ -41748,7 +41800,8 @@
         "post_url": "https://www.threads.com/@unclejobs.ai/post/DcYcyjcjE-H",
         "quote": "three.js 컴포넌트 220개가 통째로 무료로 풀렸습니다. 디자인앤코드 멘토가 낸 ThreeUI예요. 프롬프트째 복사해서 에이전트한테 넘기면 됩니다. 실제로 써보니 three.js를 처음부터 생성하게 하는 것보다 검증된 컴포넌트를 에이전트가 고치는 게 훨씬 결과물이 좋아요.",
         "quote_zh": "220 个 Three.js 3D 组件完全免费开放！直接把 Prompt 复制给 AI Agent 修改主题与灯光即可。实测由 Agent 修改现成组件的效果远优于从零生成。",
-        "screenshot_note": "ThreeUI 220 Components Showcase & Agent Workflow Demo"
+        "screenshot_note": "ThreeUI 220 Components Showcase & Agent Workflow Demo",
+        "viral_metric": "★ 4961 Stars"
       },
       "source_published_date": "2026-09-01"
     },
@@ -41762,10 +41815,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "음악 프로덕션 및 사운드 DSP 워크플로우에서 Kontakt나 Decent Sampler 같은 상용/폐쇄형 샘플러에 종속되지 않고, '차세대 개방형 표준인 CLAP/VST3를 지원하는 고성능 오픈소스 오디오 엔진'의 실질 효용성이 궁금하여 직접 선정함.",
+        "personal_motivation": "[4 HN Points] 음악 프로덕션 및 사운드 DSP 워크플로우에서 Kontakt나 Decent Sampler 같은 상용/폐쇄형 샘플러에 종속되지 않고, '차세대 개방형 표준인 CLAP/VST3를 지원하는 고성능 오픈소스 오디오 엔진'의 실질 효용성이 궁금하여 직접 선정함.",
         "target_workflow": "오디오 데이터 전처리, 음악 작곡 DSP 파이프라인 및 오픈소스 가상악기 로딩",
-        "personal_motivation_en": "음악 프로덕션 및 사운드 DSP 워크플로우에서 Kontakt나 Decent Sampler 같은 상용/폐쇄형 샘플러에 종속되지 않고, '차세대 개방형 표준인 CLAP/VST3를 지원하는 고성능 오픈소스 오디오 엔진'의 실질 효용성이 궁금하여 직접 선정함.",
-        "personal_motivation_zh": "음악 프로덕션 및 사운드 DSP 워크플로우에서 Kontakt나 Decent Sampler 같은 상용/폐쇄형 샘플러에 종속되지 않고, '차세대 개방형 표준인 CLAP/VST3를 지원하는 고성능 오픈소스 오디오 엔진'의 실질 효용성이 궁금하여 직접 선정함."
+        "personal_motivation_en": "[4 HN Points] 음악 프로덕션 및 사운드 DSP 워크플로우에서 Kontakt나 Decent Sampler 같은 상용/폐쇄형 샘플러에 종속되지 않고, '차세대 개방형 표준인 CLAP/VST3를 지원하는 고성능 오픈소스 오디오 엔진'의 실질 효용성이 궁금하여 직접 선정함.",
+        "personal_motivation_zh": "음악 프로덕션 및 사운드 DSP 워크플로우에서 Kontakt나 Decent Sampler 같은 상용/폐쇄형 샘플러에 종속되지 않고, '차세대 개방형 표준인 CLAP/VST3를 지원하는 고성능 오픈소스 오디오 엔진'의 실질 효용성이 궁금하여 직접 선정함.",
+        "viral_metric": "4 HN Points"
       },
       "clustering": {
         "cluster_id": "cluster_audio_dsp",
@@ -41863,10 +41917,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "클라우드 및 온프레미스 서버를 관리할 때 Portainer나 Cockpit처럼 타겟 서버에 무거운 백엔드 데몬을 상주시키지 않고, '순수 SSH 연결만으로 리눅스 메트릭 및 도커를 관리할 수 있는 초경량 대체재'의 실무 효용성이 궁금하여 직접 선정함.",
+        "personal_motivation": "[17 HN Points] 클라우드 및 온프레미스 서버를 관리할 때 Portainer나 Cockpit처럼 타겟 서버에 무거운 백엔드 데몬을 상주시키지 않고, '순수 SSH 연결만으로 리눅스 메트릭 및 도커를 관리할 수 있는 초경량 대체재'의 실무 효용성이 궁금하여 직접 선정함.",
         "target_workflow": "사내 GPU 클러스터 및 개발/스테이징 리눅스 서버 무인 모니터링 & 터널링 관리",
-        "personal_motivation_en": "클라우드 및 온프레미스 서버를 관리할 때 Portainer나 Cockpit처럼 타겟 서버에 무거운 백엔드 데몬을 상주시키지 않고, '순수 SSH 연결만으로 리눅스 메트릭 및 도커를 관리할 수 있는 초경량 대체재'의 실무 효용성이 궁금하여 직접 선정함.",
-        "personal_motivation_zh": "클라우드 및 온프레미스 서버를 관리할 때 Portainer나 Cockpit처럼 타겟 서버에 무거운 백엔드 데몬을 상주시키지 않고, '순수 SSH 연결만으로 리눅스 메트릭 및 도커를 관리할 수 있는 초경량 대체재'의 실무 효용성이 궁금하여 직접 선정함."
+        "personal_motivation_en": "[17 HN Points] 클라우드 및 온프레미스 서버를 관리할 때 Portainer나 Cockpit처럼 타겟 서버에 무거운 백엔드 데몬을 상주시키지 않고, '순수 SSH 연결만으로 리눅스 메트릭 및 도커를 관리할 수 있는 초경량 대체재'의 실무 효용성이 궁금하여 직접 선정함.",
+        "personal_motivation_zh": "클라우드 및 온프레미스 서버를 관리할 때 Portainer나 Cockpit처럼 타겟 서버에 무거운 백엔드 데몬을 상주시키지 않고, '순수 SSH 연결만으로 리눅스 메트릭 및 도커를 관리할 수 있는 초경량 대체재'의 실무 효용성이 궁금하여 직접 선정함.",
+        "viral_metric": "17 HN Points"
       },
       "clustering": {
         "cluster_id": "cluster_server_management",
@@ -41964,10 +42019,11 @@
       "curation": {
         "discovery_mode": "USER_CURATED",
         "curator": "Ecosystem Architecture Team",
-        "personal_motivation": "파이썬 언어 자체의 기본 제공 표준 라이브러리(StdLib)와 전 세계 230k+ Stars를 보유한 Awesome-Python 서드파티 생태계 간의 아키텍처적 트레이드오프, 저수준 GIL/메모리 병목 해소 메커니즘, 4단계 진화 계보를 엄밀하게 기술적으로 비교하기 위해 심층 분석이 수행되었습니다.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 파이썬 언어 자체의 기본 제공 표준 라이브러리(StdLib)와 전 세계 230k+ Stars를 보유한 Awesome-Python 서드파티 생태계 간의 아키텍처적 트레이드오프, 저수준 GIL/메모리 병목 해소 메커니즘, 4단계 진화 계보를 엄밀하게 기술적으로 비교하기 위해 심층 분석이 수행되었습니다.",
         "target_workflow": "엔터프라이즈 파이썬 마이크로서비스 및 대규모 고속 데이터 파이프라인 아키텍처 설계",
-        "personal_motivation_en": "Evaluated whether excessive third-party dependencies can be eliminated by utilizing Python 3.12+ standard library modules.",
-        "personal_motivation_zh": "实测能否通过充分利用 Python 3.12+ 内置标准库消除过多的第三方外部依赖，降低供应链安全风险。"
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] Evaluated whether excessive third-party dependencies can be eliminated by utilizing Python 3.12+ standard library modules.",
+        "personal_motivation_zh": "实测能否通过充分利用 Python 3.12+ 内置标准库消除过多的第三方外部依赖，降低供应链安全风险。",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_lang_runtime",
@@ -42054,7 +42110,8 @@
         "post_url": "https://docs.python.org/3/library/",
         "quote": "Do you really need 50 third-party packages? Modern Python stdlib (itertools, dataclasses, sqlite3, tomllib) covers 95% of everyday production needs.",
         "quote_zh": "你真的需要 50 个第三方库吗？现代 Python 标准库已能覆盖 95% 的日常生产需求。",
-        "screenshot_note": "Python Standard Library vs Third-Party Comparison Matrix"
+        "screenshot_note": "Python Standard Library vs Third-Party Comparison Matrix",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "source_published_date": "2026-09-01"
     },
@@ -42070,10 +42127,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "CapCut(캡컷)의 유료화 및 데이터 프라이버시 이슈 속에서, Tauri와 Rust 기반으로 온디바이스 Whisper 자막과 FFmpeg 파이프라인을 묶은 Concat의 실무 숏폼 편집 대체 가능성을 검증했습니다.",
+        "personal_motivation": "[★ 1084 Stars] CapCut(캡컷)의 유료화 및 데이터 프라이버시 이슈 속에서, Tauri와 Rust 기반으로 온디바이스 Whisper 자막과 FFmpeg 파이프라인을 묶은 Concat의 실무 숏폼 편집 대체 가능성을 검증했습니다.",
         "personal_motivation_zh": "针对 CapCut 全面转向收费及云端数据隐私争议，深入验证基于 Tauri 与 Rust 构建、整合本地 Whisper 自动字幕与 FFmpeg 的 Concat 能否真正胜任短视频剪辑流水线。",
-        "personal_motivation_en": "Audited Concat's viability as a local, privacy-first CapCut alternative powered by Tauri, Rust, local Whisper auto-captioning, and FFmpeg without subscription lock-in.",
-        "target_workflow": "온디바이스 프라이버시 숏폼(Shorts/Reels) 무설치/무과금 컷 편집 및 Whisper 자동 자막 생성 워크플로우"
+        "personal_motivation_en": "[★ 1084 Stars] Audited Concat's viability as a local, privacy-first CapCut alternative powered by Tauri, Rust, local Whisper auto-captioning, and FFmpeg without subscription lock-in.",
+        "target_workflow": "온디바이스 프라이버시 숏폼(Shorts/Reels) 무설치/무과금 컷 편집 및 Whisper 자동 자막 생성 워크플로우",
+        "viral_metric": "★ 1084 Stars"
       },
       "raw_viral_post": {
         "platform": "GitHub Official",
@@ -42081,7 +42139,8 @@
         "quote": "Free & Open-Source CapCut replacement. Built with Tauri and Rust. Zero subscriptions, no accounts, no watermarks. 100% offline local video editing.",
         "quote_zh": "免费且开源的 CapCut 替代品。基于 Tauri 与 Rust 构建。零订阅、无需账号、无水印，100% 离线本地视频剪辑。",
         "post_url": "https://github.com/jub0t/Concat",
-        "screenshot_note": "GitHub Trending 773+ Stars Spike"
+        "screenshot_note": "GitHub Trending 773+ Stars Spike",
+        "viral_metric": "★ 1084 Stars"
       },
       "clustering": {
         "cluster_id": "cluster_media_video_editor",
@@ -42173,10 +42232,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "요즘 바이브코딩이나 AI 에이전트로 만든 웹사이트들이 모두 동일한 네온 그라데이션, 둥근 카드, 어두운 사이버펑크 다크모드 등 'AI 냄새'를 풍기는 문제를 해결하기 위해 아예 AI에게 전문 디자이너의 취향(Design Taste)을 주입하는 스킬의 실효성을 검증하고자 발굴함.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 요즘 바이브코딩이나 AI 에이전트로 만든 웹사이트들이 모두 동일한 네온 그라데이션, 둥근 카드, 어두운 사이버펑크 다크모드 등 'AI 냄새'를 풍기는 문제를 해결하기 위해 아예 AI에게 전문 디자이너의 취향(Design Taste)을 주입하는 스킬의 실효성을 검증하고자 발굴함.",
         "target_workflow": "AI 생성 웹/앱 프론트엔드 탈-AI화 및 최고급 에디토리얼 프로덕션 UI 자동 구축 파이프라인",
-        "personal_motivation_en": "Investigated to verify whether injecting calibrated design rules (variance, motion, density) can systematically eliminate generic AI web cliches such as neon dark themes and 3-card copy-pastes.",
-        "personal_motivation_zh": "针对 AI 编码生成的网站千篇一律的霓虹暗黑风、重复三列卡片等 AI 痕迹问题，验证通过预设品味规则（方差、动效、信息密度）消除 AI 劣质设计的实效性。"
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] Investigated to verify whether injecting calibrated design rules (variance, motion, density) can systematically eliminate generic AI web cliches such as neon dark themes and 3-card copy-pastes.",
+        "personal_motivation_zh": "针对 AI 编码生成的网站千篇一律的霓虹暗黑风、重复三列卡片等 AI 痕迹问题，验证通过预设品味规则（方差、动效、信息密度）消除 AI 劣质设计的实效性。",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_frontend_design_system",
@@ -42278,7 +42338,8 @@
         "post_url": "https://www.threads.com/share/BABAYBIKP5/",
         "quote": "요즘 AI로 만든 사이트 보면 묘하게 티 나지? 그라데이션. 둥근 카드. 비슷한 폰트. 또 그 레이아웃… 그래서 아예 AI한테 '디자인 취향'을 주는 Taste Skill이 뜨고 있음. 레이아웃·타이포·여백·모션을 잡아주고 'AI가 만든 것 같은 디자인'을 피하게 해줌. GitHub ⭐ 8.3만.",
         "quote_zh": "最近看 AI 做的网站是不是总觉得有股 AI 味？渐变色、圆角卡片、千篇一律的字体和布局……所以给 AI 注入'设计品味'的 Taste Skill 火了。规范布局、排版、留白与动效，GitHub 8.3 万星。",
-        "screenshot_note": "Threads Viral Discussion Post & taste-skill GitHub Stars Spike"
+        "screenshot_note": "Threads Viral Discussion Post & taste-skill GitHub Stars Spike",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "source_published_date": "2026-09-02"
     },
@@ -42295,10 +42356,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Autonomous Trend Harvest (GeekNews Queue)",
-        "personal_motivation": "GeekNews 바이럴 큐에서 유입된 핵심 안건으로, 웹 생태계의 Chromium 단일화 위험과 Gecko 엔진 크로스 브라우징 지속의 공학적 필연성 실측.",
+        "personal_motivation": "[🇰🇷 GeekNews 큐레이션] GeekNews 바이럴 큐에서 유입된 핵심 안건으로, 웹 생태계의 Chromium 단일화 위험과 Gecko 엔진 크로스 브라우징 지속의 공학적 필연성 실측.",
         "personal_motivation_zh": "来自 GeekNews 队列的热门议题，实测分析 Chromium 单引擎垄断对开放标准生态的长期危害及保留 Gecko 的工程必要性。",
-        "personal_motivation_en": "Harvested from GeekNews queue to empirically verify the engineering necessity of cross-browser compatibility and preserving Gecko against Chromium monoculture.",
-        "target_workflow": "크로스 브라우저 호환성 검증, W3C 웹 표준 준수, 렌더링 엔진 파이프라인"
+        "personal_motivation_en": "[🇰🇷 GeekNews 큐레이션] Harvested from GeekNews queue to empirically verify the engineering necessity of cross-browser compatibility and preserving Gecko against Chromium monoculture.",
+        "target_workflow": "크로스 브라우저 호환성 검증, W3C 웹 표준 준수, 렌더링 엔진 파이프라인",
+        "viral_metric": "🇰🇷 GeekNews 큐레이션"
       },
       "raw_viral_post": {
         "platform": "GeekNews (hada.io)",
@@ -42306,7 +42368,8 @@
         "quote": "웹 개발자가 Chromium 기반 브라우저만 테스트하는 순간 웹 표준은 Google의 사유화 스펙으로 전락한다. Firefox를 지속적으로 지원하고 테스트하는 것은 개발자의 미래 권리를 지키는 일이다.",
         "quote_zh": "如果开发者只在 Chromium 上测试，网络标准将彻底沦为私有化规范。坚持支持与测试 Firefox，是捍卫开放网络与开发者长远利益的关键底线。",
         "post_url": "https://news.hada.io/topic?id=33139",
-        "screenshot_note": "GeekNews 한국 개발자 커뮤니티 추천 및 공감 1위 토픽"
+        "screenshot_note": "GeekNews 한국 개발자 커뮤니티 추천 및 공감 1위 토픽",
+        "viral_metric": "🇰🇷 GeekNews 큐레이션"
       },
       "clustering": {
         "cluster_id": "cluster_web_rendering_engines",
@@ -42407,10 +42470,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "단일 벡터(Single-Vector) RAG의 표현력 한계를 극복하기 위해 멀티 벡터(Multi-Vector) 및 ColBERT 계열 모델을 프로덕션에 도입하려 할 때, 실무 파인튜닝 파이프라인 구축의 복잡성과 메모리 오버헤드를 정확히 파악하기 위함입니다.",
+        "personal_motivation": "[🌍 Official AI Publication] 단일 벡터(Single-Vector) RAG의 표현력 한계를 극복하기 위해 멀티 벡터(Multi-Vector) 및 ColBERT 계열 모델을 프로덕션에 도입하려 할 때, 실무 파인튜닝 파이프라인 구축의 복잡성과 메모리 오버헤드를 정확히 파악하기 위함입니다.",
         "personal_motivation_zh": "为了在生产环境中引入多向量和 ColBERT 系列模型以克服单向量 RAG 的表达瓶颈，必须准确评估微调管道的复杂性与显存开销。",
-        "personal_motivation_en": "To accurately assess the pipeline complexity and memory overhead of fine-tuning multi-vector and ColBERT-style models in production, overcoming single-vector RAG limitations.",
-        "target_workflow": "도메인 특화 문서 검색(RAG)을 위한 멀티 벡터 임베딩 모델 커스텀 파인튜닝 및 추론 인프라 구축"
+        "personal_motivation_en": "[🌍 Official AI Publication] To accurately assess the pipeline complexity and memory overhead of fine-tuning multi-vector and ColBERT-style models in production, overcoming single-vector RAG limitations.",
+        "target_workflow": "도메인 특화 문서 검색(RAG)을 위한 멀티 벡터 임베딩 모델 커스텀 파인튜닝 및 추론 인프라 구축",
+        "viral_metric": "🌍 Official AI Publication"
       },
       "raw_viral_post": {
         "platform": "Hugging Face Blog",
@@ -42418,7 +42482,8 @@
         "quote": "Sentence Transformers를 사용하여 고성능 멀티 벡터 임베딩 모델을 손쉽게 학습하고 파인튜닝하세요. 복잡한 검색 쿼리에서 정확도를 극적으로 향상시킵니다.",
         "quote_zh": "使用 Sentence Transformers 轻松训练和微调高性能多向量嵌入模型，大幅提升复杂搜索查询的准确率。",
         "post_url": "https://huggingface.co/blog/train-multi-vector-encoder",
-        "screenshot_note": "공식 Sentence Transformers 라이브러리를 활용한 ColBERT 및 멀티 벡터 학습 코드 스니펫 및 벤치마크"
+        "screenshot_note": "공식 Sentence Transformers 라이브러리를 활용한 ColBERT 및 멀티 벡터 학습 코드 스니펫 및 벤치마크",
+        "viral_metric": "🌍 Official AI Publication"
       },
       "clustering": {
         "cluster_id": "cluster_multi_vector_embedding",
@@ -42513,10 +42578,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "실무에서 거대언어모델의 추론 레이턴시를 줄이기 위해 다양한 아키텍처와 최적화 기법을 도입하고 있으나, '최대 3.2배'라는 마케팅 수치가 특정 제약 조건이나 하드웨어 환경에서만 유효한지 1차 출처 기반으로 명확히 검증할 필요가 있음.",
+        "personal_motivation": "[🌍 Official AI Publication] 실무에서 거대언어모델의 추론 레이턴시를 줄이기 위해 다양한 아키텍처와 최적화 기법을 도입하고 있으나, '최대 3.2배'라는 마케팅 수치가 특정 제약 조건이나 하드웨어 환경에서만 유효한지 1차 출처 기반으로 명확히 검증할 필요가 있음.",
         "personal_motivation_zh": "在实际业务中，为了降低大语言模型的推理延迟，我们需要引入各种架构与优化技术。必须基于第一手资料严格核实“最高3.2倍”这一营销数字是否依赖于特定的约束条件或硬件环境。",
-        "personal_motivation_en": "In practical workflows, we constantly evaluate architectures and optimization techniques to reduce LLM inference latency. It is critical to audit the 'up to 3.2x' marketing claim against first-party sources to understand underlying constraints and hardware dependencies.",
-        "target_workflow": "고부하 프로덕션 환경에서의 LLM 실시간 추론 레이턴시 최적화 및 토큰당 비용 절감 파이프라인"
+        "personal_motivation_en": "[🌍 Official AI Publication] In practical workflows, we constantly evaluate architectures and optimization techniques to reduce LLM inference latency. It is critical to audit the 'up to 3.2x' marketing claim against first-party sources to understand underlying constraints and hardware dependencies.",
+        "target_workflow": "고부하 프로덕션 환경에서의 LLM 실시간 추론 레이턴시 최적화 및 토큰당 비용 절감 파이프라인",
+        "viral_metric": "🌍 Official AI Publication"
       },
       "raw_viral_post": {
         "platform": "Hugging Face Official Blog",
@@ -42524,7 +42590,8 @@
         "quote": "LFM2.5-DSpark를 통해 기존 모델 대비 최대 3.2배 빠른 추론 성능과 뛰어난 효율성을 경험하세요.",
         "quote_zh": "通过 Lfm2.5-DSpark 实现高达 3.2 倍的推理性能提升与卓越效率。",
         "post_url": "https://huggingface.co/blog/LiquidAI/lfm25-dspark",
-        "screenshot_note": "공식 블로그 벤치마크 및 아키텍처 설명 섹션"
+        "screenshot_note": "공식 블로그 벤치마크 및 아키텍처 설명 섹션",
+        "viral_metric": "🌍 Official AI Publication"
       },
       "clustering": {
         "cluster_id": "cluster_llm_inference_optimization",
@@ -42619,10 +42686,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "실무에서 복잡한 AI 모델 파이프라인을 빠르고 직관적인 프로토타입으로 시각화하고 배포해야 하는 상황에서 Gradio의 최신 워크플로우 기능을 공학적으로 검증할 필요가 있음.",
+        "personal_motivation": "[🌍 Official AI Publication] 실무에서 복잡한 AI 모델 파이프라인을 빠르고 직관적인 프로토타입으로 시각화하고 배포해야 하는 상황에서 Gradio의 최신 워크플로우 기능을 공학적으로 검증할 필요가 있음.",
         "personal_motivation_zh": "在实际工作中，当需要快速直观地将复杂的 AI 模型管道可视化并部署时，必须对 Gradio 的最新工作流功能进行工程验证。",
-        "personal_motivation_en": "In practical workflows, it is necessary to engineer-verify Gradio's latest workflow features when quickly and intuitively prototyping and deploying complex AI pipelines.",
-        "target_workflow": "멀티모달 LLM 및 비전 모델을 결합한 인터랙티브 AI 웹 애플리케이션 신속 프로토타이핑 및 배포 파이프라인"
+        "personal_motivation_en": "[🌍 Official AI Publication] In practical workflows, it is necessary to engineer-verify Gradio's latest workflow features when quickly and intuitively prototyping and deploying complex AI pipelines.",
+        "target_workflow": "멀티모달 LLM 및 비전 모델을 결합한 인터랙티브 AI 웹 애플리케이션 신속 프로토타이핑 및 배포 파이프라인",
+        "viral_metric": "🌍 Official AI Publication"
       },
       "raw_viral_post": {
         "platform": "Hugging Face Blog",
@@ -42630,7 +42698,8 @@
         "quote": "Gradio를 통해 복잡한 AI 워크플로우를 손쉽게 연결하고(Wire It), 실행하며(Run It), 엔터프라이즈 환경에 배포(Deploy It)할 수 있습니다.",
         "quote_zh": "通过 Gradio，您可以轻松连接复杂的 AI 工作流（Wire It）、运行（Run It）并将其部署到企业环境中（Deploy It）。",
         "post_url": "https://huggingface.co/blog/gradio-workflow-guide",
-        "screenshot_note": "Gradio Blocks API와 Spaces를 연동한 모듈형 AI 파이프라인 구성 예시"
+        "screenshot_note": "Gradio Blocks API와 Spaces를 연동한 모듈형 AI 파이프라인 구성 예시",
+        "viral_metric": "🌍 Official AI Publication"
       },
       "clustering": {
         "cluster_id": "cluster_frontend_ai_frameworks",
@@ -42726,10 +42795,11 @@
       "curation": {
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "사용자가 직접 X 링크를 전달하며 바이럴 마케팅 클레임의 공학적 실체 해부 및 토큰 소모율 실측 분석을 긴급 요청함.",
+        "personal_motivation": "[🐦 X (Twitter) 2,400+ RT 바이럴 (350대 봇 트레이딩)] 사용자가 직접 X 링크를 전달하며 바이럴 마케팅 클레임의 공학적 실체 해부 및 토큰 소모율 실측 분석을 긴급 요청함.",
         "personal_motivation_zh": "用户直接提交推文链接，要求紧急深度解构其多智能体交易营销炒作与实际工程可行性。",
-        "personal_motivation_en": "User directly submitted viral X link requesting deep empirical audit of multi-agent trading hype versus real-world engineering viability.",
-        "target_workflow": "고빈도 금융 데이터 분석, 온체인 고래 추적 및 자율 멀티에이전트 오케스트레이션"
+        "personal_motivation_en": "[🐦 X (Twitter) 2,400+ RT 바이럴 (350대 봇 트레이딩)] User directly submitted viral X link requesting deep empirical audit of multi-agent trading hype versus real-world engineering viability.",
+        "target_workflow": "고빈도 금융 데이터 분석, 온체인 고래 추적 및 자율 멀티에이전트 오케스트레이션",
+        "viral_metric": "🐦 X (Twitter) 2,400+ RT 바이럴 (350대 봇 트레이딩)"
       },
       "raw_viral_post": {
         "platform": "X (Twitter) @MAXdeg0",
@@ -42737,7 +42807,8 @@
         "quote": "누군가 350대의 Grok Bot을 연결해 1인 트레이딩 데스크를 구축했다. 350대 봇이 시장 스캔, 셋업 탐색, 뉴스 감성 분석, 고래 추적을 24/7 수행하며 주인은 거의 손대지 않는다.",
         "quote_zh": "有人连接了 350 个 Grok Bot 来运行一个单人交易台。一个扫盘，一个找交易机会，一个分析新闻，一个追踪大户，最后由 Head Grok 汇总，主人几乎完全不用操心。",
         "post_url": "https://x.com/MAXdeg0/status/2093015097715184027",
-        "screenshot_note": "조회수 179만 회 이상을 기록한 멀티 에이전트 자율 트레이딩 데스크 바이럴 포스트"
+        "screenshot_note": "조회수 179만 회 이상을 기록한 멀티 에이전트 자율 트레이딩 데스크 바이럴 포스트",
+        "viral_metric": "🐦 X (Twitter) 2,400+ RT 바이럴 (350대 봇 트레이딩)"
       },
       "clustering": {
         "cluster_id": "cluster_autonomous_trading_agents",
@@ -42839,10 +42910,11 @@
       "curation": {
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "사용자가 직접 팩트체크 요청. 85개 언어 코드 스위칭 공식 지원은 사실이나, 한국어↔영어 혼합 음성에서의 실측 WER과 3인 이상 화자 분리 한계를 정밀 검증.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 사용자가 직접 팩트체크 요청. 85개 언어 코드 스위칭 공식 지원은 사실이나, 한국어↔영어 혼합 음성에서의 실측 WER과 3인 이상 화자 분리 한계를 정밀 검증.",
         "personal_motivation_zh": "用户提交核查请求。确认官方支持85语实时语码转换，但需实测揭示其韩英混说WER指标及多人说话人分离局限。",
-        "personal_motivation_en": "User requested audit. Official support for 85-language code-switching is confirmed, but real-world Korean-English mixed WER and diarization limits require empirical testing.",
-        "target_workflow": "글로벌 테크 회의록 자동화, 고객센터 다국어 실시간 콜봇, 인터뷰 화자 분리 전사"
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] User requested audit. Official support for 85-language code-switching is confirmed, but real-world Korean-English mixed WER and diarization limits require empirical testing.",
+        "target_workflow": "글로벌 테크 회의록 자동화, 고객센터 다국어 실시간 콜봇, 인터뷰 화자 분리 전사",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "raw_viral_post": {
         "platform": "Google DeepMind & Google Cloud AI Blog",
@@ -42850,7 +42922,8 @@
         "quote": "대화 중간에 한국어와 영어가 마구 섞여도 100% 완벽하게 알아듣고 화자까지 분리해 내는 역대 최강의 STT 모델 Gemini 3.5 Transcribe 공개!",
         "quote_zh": "对话中韩语和英语随意切换也能100%精准识别并完美分离说话人！最强STT模型Gemini 3.5 Transcribe正式发布！",
         "post_url": "https://ai.google.dev/gemini-api/docs/transcribe",
-        "screenshot_note": "Google AI 공식 전사 가이드 및 FLEURS 벤치마크 리포트"
+        "screenshot_note": "Google AI 공식 전사 가이드 및 FLEURS 벤치마크 리포트",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_speech_recognition_transcription",
@@ -42959,10 +43032,11 @@
       "curation": {
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "사용자가 직접 기술 팩트체크를 요청함. 범용 3D 변환기라는 마케팅 과장을 해체하고, PBR 텍스처 생성 실측과 24GB VRAM 하드웨어 제약 조건을 공학적으로 명시.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 사용자가 직접 기술 팩트체크를 요청함. 범용 3D 변환기라는 마케팅 과장을 해체하고, PBR 텍스처 생성 실측과 24GB VRAM 하드웨어 제약 조건을 공학적으로 명시.",
         "personal_motivation_zh": "用户提交核心核查需求。解构其所谓'通用3D转换器'营销炒作，明确其单图PBR生成实质及24GB显存门槛。",
-        "personal_motivation_en": "User directly requested verification to debunk 'universal 3D converter' hype and clarify real PBR generation capabilities alongside 24GB VRAM requirements.",
-        "target_workflow": "게임 개발, 가상 프로덕션, 인터랙티브 3D 웹 에셋 파이프라인 (GLB Export)"
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] User directly requested verification to debunk 'universal 3D converter' hype and clarify real PBR generation capabilities alongside 24GB VRAM requirements.",
+        "target_workflow": "게임 개발, 가상 프로덕션, 인터랙티브 3D 웹 에셋 파이프라인 (GLB Export)",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "raw_viral_post": {
         "platform": "Microsoft Research & GitHub Official",
@@ -42970,7 +43044,8 @@
         "quote": "단일 2D 사진만으로 고품질 PBR 재질이 포함된 3D 메시를 즉각 생성하고 GLB로 내보내며 회전 비디오까지 완벽 변환한다.",
         "quote_zh": "仅凭单张2D照片即可瞬间生成包含PBR材质的高质量3D网格，支持GLB导出及完整视频转换。",
         "post_url": "https://github.com/microsoft/TRELLIS.2",
-        "screenshot_note": "Microsoft Research Workbench 및 GitHub 릴리스 공식 발표"
+        "screenshot_note": "Microsoft Research Workbench 및 GitHub 릴리스 공식 발표",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_3d_asset_generation",
@@ -43079,10 +43154,11 @@
       "curation": {
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "사용자가 직접 분석 요청. 영상+오디오 결합 생성은 맞으나, '오픈소스'라는 마케팅과 달리 한국/미국/EU가 라이선스 제외 지역으로 명시된 법적 리스크 실측 해부.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 사용자가 직접 분석 요청. 영상+오디오 결합 생성은 맞으나, '오픈소스'라는 마케팅과 달리 한국/미국/EU가 라이선스 제외 지역으로 명시된 법적 리스크 실측 해부.",
         "personal_motivation_zh": "用户提交核查重点。音视频生成属实，但并非真正开源；其许可证明确将韩美欧排除在外，存在巨大法律合规风险。",
-        "personal_motivation_en": "User requested audit. While audio-video generation is real, it is NOT open source; the license explicitly excludes Korea, US, and EU, posing legal compliance risks.",
-        "target_workflow": "단편 비디오 클립 생성, AI 더빙 및 음향 효과 동시 합성 파이프라인"
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] User requested audit. While audio-video generation is real, it is NOT open source; the license explicitly excludes Korea, US, and EU, posing legal compliance risks.",
+        "target_workflow": "단편 비디오 클립 생성, AI 더빙 및 음향 효과 동시 합성 파이프라인",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "raw_viral_post": {
         "platform": "MiniMax Official Announcement & GitHub",
@@ -43090,7 +43166,8 @@
         "quote": "완전한 오픈소스로 공개된 차세대 AI 영상 제작 시스템 MiniMax H3! 2K 해상도에 오디오까지 완벽하게 제작한다.",
         "quote_zh": "完全开源的新一代AI视频制作系统MiniMax H3！2K分辨率并完美生成音效与对白。",
         "post_url": "https://github.com/MiniMax-AI/MiniMax-H3",
-        "screenshot_note": "MiniMax 공식 보도자료 및 Hugging Face 모델 릴리스"
+        "screenshot_note": "MiniMax 공식 보도자료 및 Hugging Face 모델 릴리스",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_ai_video_generation",
@@ -43200,10 +43277,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Autonomous Trend Harvest (Agentic Deep Investigation)",
-        "personal_motivation": "ArXiv 최신 멀티모달 외로움 예측 논문(2609.02606)의 원문 전문을 에이전틱 모드로 정밀 분석하여, 바이럴 마케팅의 'AI 진단' 과장 이면에 있는 실제 통계적 상관계수(r=0.298)와 단독 진단 불가의 임상적 한계를 규명함.",
+        "personal_motivation": "[ArXiv Primary Paper] ArXiv 최신 멀티모달 외로움 예측 논문(2609.02606)의 원문 전문을 에이전틱 모드로 정밀 분석하여, 바이럴 마케팅의 'AI 진단' 과장 이면에 있는 실제 통계적 상관계수(r=0.298)와 단독 진단 불가의 임상적 한계를 규명함.",
         "personal_motivation_zh": "通过 Agentic 深度核查模式直接调阅 ArXiv 2609.02606 原文全篇，揭示所谓'AI测孤独'背后的真实统计相关性（r=0.298）及严禁独立诊断的临床限制。",
-        "personal_motivation_en": "Deep agentic investigation of arXiv:2609.02606 to uncover the actual statistical correlation (r=0.298) and clinical non-diagnostic reality behind viral claims.",
-        "target_workflow": "1. 고령층 음성 멘탈헬스 조기 보조 스크리닝\n2. 전화망(8kHz) 음향 손실 보정 및 멀티모달 정량화\n3. 임상 설문(UCLA Scale) 병행 타당도 평가"
+        "personal_motivation_en": "[ArXiv Primary Paper] Deep agentic investigation of arXiv:2609.02606 to uncover the actual statistical correlation (r=0.298) and clinical non-diagnostic reality behind viral claims.",
+        "target_workflow": "1. 고령층 음성 멘탈헬스 조기 보조 스크리닝\n2. 전화망(8kHz) 음향 손실 보정 및 멀티모달 정량화\n3. 임상 설문(UCLA Scale) 병행 타당도 평가",
+        "viral_metric": "ArXiv Primary Paper"
       },
       "raw_viral_post": {
         "platform": "ArXiv",
@@ -43211,7 +43289,8 @@
         "quote": "Our multimodal model (r = 0.298) outperforms single modalities... supporting its potential as an early indicator alongside existing assessments, rather than as standalone diagnostic tools.",
         "quote_zh": "多模态模型（r=0.298）优于单一模态……支持其作为现有评估的早期辅助指标，但绝不可作为独立诊断工具。",
         "post_url": "http://arxiv.org/abs/2609.02606v1",
-        "screenshot_note": "ArXiv 2609.02606 원문 초록 및 결론 실측"
+        "screenshot_note": "ArXiv 2609.02606 원문 초록 및 결론 실측",
+        "viral_metric": "ArXiv Primary Paper"
       },
       "portfolio_story": {
         "the_hook": "310명 고령층 전화 인터뷰 분석 결과, 음향·언어 융합 모델 상관계수는 r=0.298 수준으로 단독 진단은 불가능하며 보조 스크리닝 지표로만 유효함",
@@ -43288,10 +43367,11 @@
       "curation": {
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "사용자가 직접 제보. 'SpaceXAI 시니어 엔지니어 5명이 100% 자동화 비법을 담은 12쪽 PDF를 공개했다'는 가짜 권위 사칭과 전형적인 북마크/리드 파밍 바이럴을 실측 검증.",
+        "personal_motivation": "[🐦 X (Twitter) 2,400+ RT 바이럴 (350대 봇 트레이딩)] 사용자가 직접 제보. 'SpaceXAI 시니어 엔지니어 5명이 100% 자동화 비법을 담은 12쪽 PDF를 공개했다'는 가짜 권위 사칭과 전형적인 북마크/리드 파밍 바이럴을 실측 검증.",
         "personal_motivation_zh": "用户提交核查。虚构'SpaceXAI五位资深工程师泄密'假借权威名义，包装12页PDF骗取书签与流量的经典案例。",
-        "personal_motivation_en": "User provided tweet. Deconstructing fake authority marketing using fabricated 'SpaceXAI Engineers' to peddle generic multi-agent prompt tips in a 12-page lead magnet PDF.",
-        "target_workflow": "엔터프라이즈 다중 에이전트 팀 협업, 업무 핸드오프, 결재 가드레일 아키텍처"
+        "personal_motivation_en": "[🐦 X (Twitter) 2,400+ RT 바이럴 (350대 봇 트레이딩)] User provided tweet. Deconstructing fake authority marketing using fabricated 'SpaceXAI Engineers' to peddle generic multi-agent prompt tips in a 12-page lead magnet PDF.",
+        "target_workflow": "엔터프라이즈 다중 에이전트 팀 협업, 업무 핸드오프, 결재 가드레일 아키텍처",
+        "viral_metric": "🐦 X (Twitter) 2,400+ RT 바이럴 (350대 봇 트레이딩)"
       },
       "raw_viral_post": {
         "platform": "X (Twitter @0xCodila)",
@@ -43299,7 +43379,8 @@
         "quote": "Five senior SpaceXAI engineers just released their best methods for building full GrokBot system that automate 100% of tasks 24/7 - I compiled them into a 12-page PDF. The 6-step SpaceXAI playbook...",
         "quote_zh": "五位SpaceXAI资深工程师刚公布了24/7全自动完成100%任务的GrokBot最佳构建方法——我将其整理成了12页PDF...",
         "post_url": "https://x.com/0xCodila/status/2094108672209129545",
-        "screenshot_note": "SpaceX 로고와 AI 코딩 그래픽을 합성한 PDF 표지를 첨부해 신뢰도를 날조한 리드마그넷 트윗"
+        "screenshot_note": "SpaceX 로고와 AI 코딩 그래픽을 합성한 PDF 표지를 첨부해 신뢰도를 날조한 리드마그넷 트윗",
+        "viral_metric": "🐦 X (Twitter) 2,400+ RT 바이럴 (350대 봇 트레이딩)"
       },
       "clustering": {
         "cluster_id": "cluster_agent_orchestration_patterns",
@@ -43404,10 +43485,11 @@
       "curation": {
         "discovery_mode": "USER_CURATED",
         "curator": "Developer Community Focus (Kevin Lewis / GeekNews)",
-        "personal_motivation": "GeekNews 한국 개발자 큐레이션 1위 토픽. M4 Pro 48GB 기반 고성능 개인 로컬 LLM 서버 구축의 공학적 타당성과 가성비 실측.",
+        "personal_motivation": "[🇰🇷 GeekNews 큐레이션] GeekNews 한국 개발자 큐레이션 1위 토픽. M4 Pro 48GB 기반 고성능 개인 로컬 LLM 서버 구축의 공학적 타당성과 가성비 실측.",
         "personal_motivation_zh": "GeekNews 开发者社区推荐第一热门议题。实测 48GB M4 Pro 个人常驻 LLM 服务器的工程可行性与性价比。",
-        "personal_motivation_en": "Empirical audit of running a 24/7 personal LLM server on an M4 Pro Mac mini (48GB) to verify throughput and cost-efficiency.",
-        "target_workflow": "1. 개인 및 팀 온디바이스 에이전트 인프라 구축\n2. 클라우드 API 구독료(월 $400) 절감 및 데이터 온프레미스 보안\n3. Tailscale 기반 다기기(맥북, 아이폰, 텔레그램) 로컬 엔드포인트 연동"
+        "personal_motivation_en": "[🇰🇷 GeekNews 큐레이션] Empirical audit of running a 24/7 personal LLM server on an M4 Pro Mac mini (48GB) to verify throughput and cost-efficiency.",
+        "target_workflow": "1. 개인 및 팀 온디바이스 에이전트 인프라 구축\n2. 클라우드 API 구독료(월 $400) 절감 및 데이터 온프레미스 보안\n3. Tailscale 기반 다기기(맥북, 아이폰, 텔레그램) 로컬 엔드포인트 연동",
+        "viral_metric": "🇰🇷 GeekNews 큐레이션"
       },
       "raw_viral_post": {
         "platform": "GeekNews (hada.io / lws.io)",
@@ -43415,7 +43497,8 @@
         "quote": "48GB RAM의 M4 Pro Mac mini를 상시 LLM 서버로 운영하며, Qwen3.6-35B-A3B를 34 tok/s로 구동. 월 $400 구독료를 절감하고 일상 요청의 80%를 로컬로 소화함.",
         "quote_zh": "使用 48GB 内存的 M4 Pro Mac mini 作为常驻 LLM 服务器，Qwen3.6-35B-A3B 推理达 34 tok/s。省去每月 400 美元订阅费，承载日常 80% 请求。",
         "post_url": "https://news.hada.io/topic?id=33182",
-        "screenshot_note": "Kevin Lewis의 원문 블로그 및 GeekNews 핫 토픽 발췌"
+        "screenshot_note": "Kevin Lewis의 원문 블로그 및 GeekNews 핫 토픽 발췌",
+        "viral_metric": "🇰🇷 GeekNews 큐레이션"
       },
       "portfolio_story": {
         "the_hook": "월 $400 클라우드 구독 대신 48GB M4 Pro 단 한 대로 35B 모델 34 tok/s 상시 서빙이 정말 가능할까?",
@@ -43529,10 +43612,11 @@
       "curation": {
         "discovery_mode": "AUTO_HARVESTED",
         "curator": "Autonomous Trend Harvest (User Queued)",
-        "personal_motivation": "범용 프론티어 LLM 기반 소스코드 감사의 환각 및 문맥 인지 한계를 정밀 검증하고자 본 안건을 분석했습니다. 보안 임판트 관점에서 프론티어 모델과 정밀 인터프로시저 분석 도구 간의 기술적 실효성 격차를 규명했습니다.",
+        "personal_motivation": "[🔥 152 HN Points] 범용 프론티어 LLM 기반 소스코드 감사의 환각 및 문맥 인지 한계를 정밀 검증하고자 본 안건을 분석했습니다. 보안 임판트 관점에서 프론티어 모델과 정밀 인터프로시저 분석 도구 간의 기술적 실효성 격차를 규명했습니다.",
         "personal_motivation_zh": "为了精确定量评估通用前沿LLM在源代码安全审计中的幻觉与上下文理解局限性，特别分析了本案例。从安全影响角度揭示了前沿模型与专用跨程序分析工具之间的技术有效性差距。",
-        "personal_motivation_en": "Investigated to empirically evaluate the context limitations and hallucination risks of general-purpose frontier LLMs in source code security auditing. We aimed to clarify the actual effectiveness gap between LLMs and specialized interprocedural static/dynamic security tools.",
-        "target_workflow": "1. DevSecOps automated SAST pipeline integration, 2. LLM-assisted vulnerability triage framework, 3. C/C++ memory safety verification agent"
+        "personal_motivation_en": "[🔥 152 HN Points] Investigated to empirically evaluate the context limitations and hallucination risks of general-purpose frontier LLMs in source code security auditing. We aimed to clarify the actual effectiveness gap between LLMs and specialized interprocedural static/dynamic security tools.",
+        "target_workflow": "1. DevSecOps automated SAST pipeline integration, 2. LLM-assisted vulnerability triage framework, 3. C/C++ memory safety verification agent",
+        "viral_metric": "🔥 152 HN Points"
       },
       "raw_viral_post": {
         "platform": "Hacker News (ycombinator)",
@@ -43540,7 +43624,8 @@
         "quote": "Aisle discovered six new security vulnerabilities in curl after major AI security audits by OpenAI and Anthropic concluded the codebase had zero new issues.",
         "quote_zh": "在 OpenAI 和 Anthropic 的 AI 代码安全审计得出 curl 代码库没有新增漏洞的结论后，Aisle 团队通过特化分析再次发现了 6 个全新的 CVE 漏洞。",
         "post_url": "https://aisle.com/blog/aisle-discovered-six-curl-cves-after-openai-and-anthropic-found-zero",
-        "screenshot_note": "Aisle 블로그 게시글 및 Hacker News 주요 댓글 토론 캡처"
+        "screenshot_note": "Aisle 블로그 게시글 및 Hacker News 주요 댓글 토론 캡처",
+        "viral_metric": "🔥 152 HN Points"
       },
       "portfolio_story": {
         "the_hook": "범용 LLM이 단 한 건의 유효 취약점도 찾지 못하고 Pass 처리한 curl 코드베이스에서 특화 도구가 6개의 실제 CVE를 포착함.",
@@ -43617,10 +43702,11 @@
       "curation": {
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "사용자가 직접 링크 제보. 파이썬 생태계의 파편화(pip, virtualenv, pyenv, pipx, poetry)를 Rust 단일 바이너리로 통합한 Astral uv의 10~100배 속도 및 프로덕션 안정성을 실측 검증.",
+        "personal_motivation": "[🐦 X (Twitter) 2,400+ RT 바이럴 (350대 봇 트레이딩)] 사용자가 직접 링크 제보. 파이썬 생태계의 파편화(pip, virtualenv, pyenv, pipx, poetry)를 Rust 단일 바이너리로 통합한 Astral uv의 10~100배 속도 및 프로덕션 안정성을 실측 검증.",
         "personal_motivation_zh": "用户提交核查推荐。实测核查基于Rust的Astral uv如何通过单一二进制统一Python五大碎片工具链并实现10~100倍速度飞跃。",
-        "personal_motivation_en": "User provided link. Empirically validating Astral uv's claims of unifying fragmented Python toolchains with 10-100x speedup and production stability.",
-        "target_workflow": "Python 가상환경 관리, 고속 패키지 의존성 해결(Lockfile), CI/CD 빌드 시간 단축"
+        "personal_motivation_en": "[🐦 X (Twitter) 2,400+ RT 바이럴 (350대 봇 트레이딩)] User provided link. Empirically validating Astral uv's claims of unifying fragmented Python toolchains with 10-100x speedup and production stability.",
+        "target_workflow": "Python 가상환경 관리, 고속 패키지 의존성 해결(Lockfile), CI/CD 빌드 시간 단축",
+        "viral_metric": "🐦 X (Twitter) 2,400+ RT 바이럴 (350대 봇 트레이딩)"
       },
       "raw_viral_post": {
         "platform": "X (Twitter @vicky_grok)",
@@ -43628,7 +43714,8 @@
         "quote": "THIS IS ACTUALLY INSANE. Python developers are still installing five different tools to manage one project: pip, virtualenv, pyenv, pipx, poetry. uv replaces all of them with one tool written in Rust. 10–100× faster than pip.",
         "quote_zh": "这简直不可思议。Python开发者还在用5个不同工具管理项目：pip、virtualenv、pyenv、pipx、poetry。而Rust编写的uv用一个工具替换了所有这些，速度比pip快10-100倍。",
         "post_url": "https://x.com/vicky_grok/status/2094251343536157042",
-        "screenshot_note": "조회수 6.4만 회, 북마크 515회, MoE 아키텍처 상세 기사와 함께 배포된 고신뢰도 기술 소개 트윗"
+        "screenshot_note": "조회수 6.4만 회, 북마크 515회, MoE 아키텍처 상세 기사와 함께 배포된 고신뢰도 기술 소개 트윗",
+        "viral_metric": "🐦 X (Twitter) 2,400+ RT 바이럴 (350대 봇 트레이딩)"
       },
       "clustering": {
         "cluster_id": "cluster_python_toolchains",
@@ -43737,10 +43824,11 @@
       "curation": {
         "discovery_mode": "USER_CURATED",
         "curator": "Anyong Cheong",
-        "personal_motivation": "사용자가 직접 링크 제보(조회수 602만 회). Claude의 이름을 기만적으로 차용한 아웃바운드 스팸 SaaS의 허위 마케팅과 도메인 평판 붕괴 리스크를 공학적으로 실측 해체.",
+        "personal_motivation": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] 사용자가 직접 링크 제보(조회수 602만 회). Claude의 이름을 기만적으로 차용한 아웃바운드 스팸 SaaS의 허위 마케팅과 도메인 평판 붕괴 리스크를 공학적으로 실측 해체.",
         "personal_motivation_zh": "用户直接提交核查链接（播放超602万）。解构借Claude知名度包装的外部群发垃圾邮件SaaS营销及其域名信誉崩溃风险。",
-        "personal_motivation_en": "User provided viral link with 6M+ views. Debunking deceptive third-party cold email SaaS claiming Claude native autonomy and highlighting domain reputation ruin.",
-        "target_workflow": "B2B 영업 리드 스크래핑, 개인화 콜드 이메일 발송, 자동 미팅 캘린더 연동 파이프라인"
+        "personal_motivation_en": "[🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴] User provided viral link with 6M+ views. Debunking deceptive third-party cold email SaaS claiming Claude native autonomy and highlighting domain reputation ruin.",
+        "target_workflow": "B2B 영업 리드 스크래핑, 개인화 콜드 이메일 발송, 자동 미팅 캘린더 연동 파이프라인",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "raw_viral_post": {
         "platform": "X (Twitter @vovudebosh)",
@@ -43748,7 +43836,8 @@
         "quote": "Claude can WHAT? It can take your website link, find people who need your product, email them and book the calls? I've been doing this by hand for a YEAR. testing it: $30 free",
         "quote_zh": "Claude居然能做到这个？只要给网站链接，就能找到需要你产品的人，给他们发邮件并预约电话会议？",
         "post_url": "https://x.com/vovudebosh/status/2087867663078793489",
-        "screenshot_note": "조회수 602만 회, 좋아요 2.6천 개, 북마크 1.5천 개 기록한 전형적인 바이럴 어필리에이트 어그로 포스트"
+        "screenshot_note": "조회수 602만 회, 좋아요 2.6천 개, 북마크 1.5천 개 기록한 전형적인 바이럴 어필리에이트 어그로 포스트",
+        "viral_metric": "🔥 커뮤니티 핫 토픽 & 글로벌 개발자 바이럴"
       },
       "clustering": {
         "cluster_id": "cluster_b2b_sales_agents",

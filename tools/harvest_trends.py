@@ -158,13 +158,24 @@ def index_existing_data(base_dir):
                 try:
                     with open(meta_path, "r", encoding="utf-8") as f:
                         m = json.load(f)
-                        if "target_repo" in m:
-                            investigation_urls.add(normalize_url(m["target_repo"]))
-                        if "source_url" in m:
-                            investigation_urls.add(normalize_url(m["source_url"]))
+                        # Extract all possible URLs associated with this verified dossier
+                        urls_to_add = [
+                            m.get("target_repo"),
+                            m.get("source_url"),
+                            m.get("raw_viral_post", {}).get("post_url"),
+                            m.get("portfolio_story", {}).get("hands_on_log", {}).get("pipeline_or_url")
+                        ]
                         for s in m.get("sources", []):
-                            if "url" in s:
-                                investigation_urls.add(normalize_url(s["url"]))
+                            if isinstance(s, dict) and "url" in s:
+                                urls_to_add.append(s["url"])
+                        for s in m.get("primary_sources", []):
+                            if isinstance(s, dict) and "url" in s:
+                                urls_to_add.append(s["url"])
+                        
+                        for u in urls_to_add:
+                            nu = normalize_url(u)
+                            if nu:
+                                investigation_urls.add(nu)
                 except Exception:
                     pass
 
@@ -178,12 +189,18 @@ def index_existing_data(base_dir):
                     with open(fpath, "r", encoding="utf-8") as fp:
                         m = json.load(fp)
                         surl = normalize_url(m.get("source_url", ""))
+                        aurl = normalize_url(m.get("article_url", ""))
+                        hnurl = normalize_url(m.get("hn_url", ""))
                         title = m.get("title", "")
                         plat = m.get("source_platform", "")
                         c_hash = get_canonical_hash(plat, surl, title)
                         inbox_hash_map[c_hash] = fpath
                         if surl:
                             inbox_url_map[surl] = fpath
+                        if aurl:
+                            inbox_url_map[aurl] = fpath
+                        if hnurl:
+                            inbox_url_map[hnurl] = fpath
                         if title:
                             inbox_slug_map[slugify(title)] = fpath
                 except Exception:
@@ -684,6 +701,16 @@ def harvest_all():
         c_hash = get_canonical_hash(plat, norm_url, cand["title"])
         current_val = extract_metric_number(cand.get("viral_metric", ""))
 
+        # Extract all normalized URLs for this candidate
+        cand_urls = [normalize_url(cand.get("source_url")), normalize_url(cand.get("article_url")), normalize_url(cand.get("hn_url"))]
+        cand_urls = [u for u in cand_urls if u]
+
+        # 🌟 Check 1: Block immediately if already in verified investigations (Omni-URL check)
+        if any(u in investigation_urls for u in cand_urls):
+            dup_skipped += 1
+            logger.log(f"[DEDUP Verified Case] Blocked already verified dossier: {cand['title'][:40]}")
+            continue
+
         # 3-Tier Deduplication & Semantic Matching Gate
         if evaluate_deduplication:
             try:
@@ -695,8 +722,9 @@ def harvest_all():
             except Exception as dedup_err:
                 logger.log(f"[!] Dedup check note: {dedup_err}", level="WARNING")
 
-        # Check if exists in inbox by Hash, URL or Slug (Deduplication & Block)
-        target_inbox_file = inbox_hash_map.get(c_hash) or inbox_url_map.get(norm_url) or inbox_slug_map.get(slug)
+        # Check if exists in inbox by Hash, Omni-URL or Slug (Deduplication & Block)
+        matched_inbox_by_url = next((inbox_url_map[u] for u in cand_urls if u in inbox_url_map), None)
+        target_inbox_file = inbox_hash_map.get(c_hash) or matched_inbox_by_url or inbox_slug_map.get(slug)
 
         if target_inbox_file and os.path.exists(target_inbox_file):
             # UPDATE EXISTING ITEM
@@ -744,11 +772,6 @@ def harvest_all():
                 updated_count += 1
             except Exception as e:
                 logger.log(f"[!] Failed to update {target_inbox_file}: {e}", level="ERROR")
-            continue
-
-        # Check if already verified in investigations (Do not duplicate verified portfolios)
-        if norm_url in investigation_urls:
-            dup_skipped += 1
             continue
 
         # =========================================================================
