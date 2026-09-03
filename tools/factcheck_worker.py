@@ -71,12 +71,11 @@ def main():
     parser.add_argument("--limit", type=int, default=1, help="Max items to process in one run")
     args = parser.parse_args()
 
-    queued = get_queued_items()
-    print(f"[*] Found {len(queued)} item(s) in investigation queue.")
-
-    if not queued:
-        print("[+] Investigation queue is clear. No pending items.")
-        return
+    # 🚨 STRICT SAFETY POLICY: 외부 유료 API 토큰을 소모하는 자동 심층 팩트체크는 영구 금지됩니다.
+    # 심층 팩트체크는 Antigravity 에이전트와의 로컬 페어 프로그래밍으로만 생성됩니다.
+    print("[🛡️ SAFETY GUARD] External API-based factcheck worker is PERMANENTLY DISABLED.")
+    print("                 Deep investigations must be conducted exclusively via Local Agent Pair Programming.")
+    return
 
     for idx, (fpath, item) in enumerate(queued[:args.limit]):
         inbox_id = item.get('inbox_id', 'unknown')

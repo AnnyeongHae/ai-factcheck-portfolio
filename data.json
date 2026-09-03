@@ -9,8 +9,8 @@
   "avg_confidence": 96.2,
   "models_total_count": 111,
   "news_total_count": 97,
-  "inbox_total_count": 519,
-  "all_inbox_count": 529,
+  "inbox_total_count": 525,
+  "all_inbox_count": 535,
   "admin_stats": {
     "endpoints": [
       {
@@ -45,6 +45,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T17:33:30.926216",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.21
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 85,
+            "duration_sec": 0.37
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.95
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 11.68
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.37
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.22
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 1.04
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.29
+          }
+        },
+        "summary": {
+          "total_fetched": 259,
+          "updated_count": 0,
+          "new_saved": 6,
+          "duplicates_skipped": 253,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T17:21:35.555546",
         "date": "2026-09-03",
@@ -1581,89 +1634,36 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T16:22:06.418723",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.58
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.34
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 1.18
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 21,
-            "duration_sec": 35.11
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.4
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.37
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.26
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.47
-          }
-        },
-        "summary": {
-          "total_fetched": 161,
-          "updated_count": 161,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T17:21:35.555546",
+      "timestamp": "2026-09-03T17:33:30.926216",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.22
+          "duration_sec": 0.21
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 85,
-          "duration_sec": 0.35
+          "duration_sec": 0.37
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 1.12
+          "duration_sec": 0.95
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 12.54
+          "duration_sec": 11.68
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.68
+          "duration_sec": 0.37
         },
         "reddit": {
           "status": "ERROR",
@@ -1673,12 +1673,12 @@
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.02
+          "duration_sec": 1.04
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.26
+          "duration_sec": 0.29
         }
       },
       "summary": {
@@ -1712,7 +1712,7 @@
     {
       "day_ko": "목",
       "day_en": "Thu",
-      "inbox_count": 189,
+      "inbox_count": 195,
       "verified_count": 6
     },
     {
@@ -1787,7 +1787,7 @@
       "month_key": "2026-09",
       "month_ko": "9월",
       "month_en": "Sep",
-      "inbox_count": 374,
+      "inbox_count": 380,
       "verified_count": 22,
       "cumulative_verified": 35
     }
@@ -32564,6 +32564,43 @@
       "article_url": "https://huggingface.co/blog/grpo-with-trl-ifstruct"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_why_office_workers_are_turning_ag",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T17:33:46.733500",
+      "published_at": "2026-09-03T17:16:53",
+      "created_at": "2026-09-03T17:16:53",
+      "updated_at": "2026-09-03T17:33:46.733500",
+      "title": "Hacker News: Why office workers are turning against AI",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49553414",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 7 pts | Comments: 0 | Why office workers are turning against AI",
+      "viral_metric": "🔥 7 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 7,
+          "display": "🔥 7 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 7,
+          "display": "🔥 7 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49553414",
+      "article_url": "https://www.bloodinthemachine.com/p/why-office-workers-are-turning-against"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_whistleblower_warns_postal_servic",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -32840,6 +32877,43 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49552055",
       "article_url": "https://www.anildash.com/2026/09/02/cancer-capital/"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_usbsid_pico_bridging_real_commodo",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T17:33:46.632013",
+      "published_at": "2026-09-03T17:09:04",
+      "created_at": "2026-09-03T17:09:04",
+      "updated_at": "2026-09-03T17:33:46.632013",
+      "title": "Hacker News: Usbsid-Pico: Bridging Real Commodore 64 Sound to Modern USB",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49553303",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 5 pts | Comments: 0 | Usbsid-Pico: Bridging Real Commodore 64 Sound to Modern USB",
+      "viral_metric": "🔥 5 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49553303",
+      "article_url": "https://smallrun.net/blog/loud/usbsid-pico-sids-on-usb"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_us_gov_sides_with_openai_on_issue",
@@ -33463,6 +33537,43 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_sanders_introduces_bill_to_ban_ar",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T17:33:46.713360",
+      "published_at": "2026-09-03T17:20:29",
+      "created_at": "2026-09-03T17:20:29",
+      "updated_at": "2026-09-03T17:33:46.713360",
+      "title": "Hacker News: Sanders introduces bill to ban artificial superintelligence and pause AI",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49553463",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 7 pts | Comments: 3 | Sanders introduces bill to ban artificial superintelligence and pause AI",
+      "viral_metric": "🔥 7 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 7,
+          "display": "🔥 7 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 7,
+          "display": "🔥 7 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49553463",
+      "article_url": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_qantas_airbus_a380_engine_failure",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -33813,6 +33924,43 @@
       "description_zh": "解析METR（模型评估与威胁研究）针对OpenAI及Hugging Face安全事件的深度调查报告。",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_meta_wanted_to_reduce_teams_by_60",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T17:33:46.721963",
+      "published_at": "2026-09-03T17:18:25",
+      "created_at": "2026-09-03T17:18:25",
+      "updated_at": "2026-09-03T17:33:46.721963",
+      "title": "Hacker News: Meta wanted to reduce teams by 60% because of AI",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49553438",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 5 pts | Comments: 0 | Meta wanted to reduce teams by 60% because of AI",
+      "viral_metric": "🔥 5 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49553438",
+      "article_url": "https://newsletter.pragmaticengineer.com/p/the-pulse-meta-wanted-to-reduce-teams"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_llms_and_self_referentiality",
@@ -34372,6 +34520,43 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49547888",
       "article_url": "https://claude.com/blog/claude-for-commerce-agents"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_cheap_desktop_400gbe_switch_mikro",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T17:33:46.750299",
+      "published_at": "2026-09-03T17:05:24",
+      "created_at": "2026-09-03T17:05:24",
+      "updated_at": "2026-09-03T17:33:46.750299",
+      "title": "Hacker News: Cheap Desktop 400GbE Switch MikroTik CRS804-4DDQ-HRM Review",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49553253",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 4 pts | Comments: 0 | Cheap Desktop 400GbE Switch MikroTik CRS804-4DDQ-HRM Review",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49553253",
+      "article_url": "https://www.servethehome.com/mikrotik-crs804-4ddq-hrm-review-marvell-annapurna-labs-400gbe/"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_can_i_opt_out_of_my_input_or_outp",
@@ -36147,6 +36332,45 @@
       "description_zh": "剖析当 AI 搜索引擎将 SEO 垃圾内容与批量购买指南作为信源时，对推荐质量带来的隐患。",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_name_3단계_도메인_종료",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T17:33:46.888815",
+      "published_at": "2026-09-03T17:33:46.888815",
+      "created_at": "2026-09-03T17:33:46.888815",
+      "updated_at": "2026-09-03T17:33:46.888815",
+      "title": "GeekNews: .name 3단계 도메인 종료",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33197",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: .name 3단계 도메인 종료",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": ".name 3단계 도메인 종료",
+      "description_ko": ".name 3단계 도메인 종료",
+      "hn_url": "https://news.hada.io/topic?id=33197",
+      "article_url": "https://news.hada.io/topic?id=33197"
     },
     {
       "inbox_id": "2026-09-03_sns_geeknews_muse_spark_13_공개_긴_에이전트_작업과_코딩_효율_개선",
