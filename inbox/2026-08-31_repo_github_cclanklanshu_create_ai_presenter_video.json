@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "Lanshu AI 프레젠터 비디오 생성기: 스크립트와 이미지로 검증된 AI 발표 영상 제작",
+  "title_ko": "Lanshu - 스크립트와 이미지 기반 AI 발표자 비디오 생성 Codex 스킬",
   "description_ko": "텍스트 스크립트와 승인된 발표자 이미지 한 장으로 고품질의 AI 프레젠터 영상을 자동으로 생성합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,63 +48,94 @@
     "id": "2026-08-31_repo_github_cclanklanshu_create_ai_presenter_video",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "영상 제작 및 생성형 AI",
+    "model_family": "Codex Skills / AI Video",
+    "category": "Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "AI Presenter",
+      "AI Presenter Video",
       "Codex Skill",
-      "Video Generation",
-      "Script"
+      "Talking Head",
+      "Script to Video",
+      "Lanshu"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "Lanshu AI 프레젠터 비디오 생성기: 스크립트와 이미지로 검증된 AI 발표 영상 제작",
-        "hook": "텍스트 스크립트와 승인된 발표자 이미지 한 장으로 고품질의 AI 프레젠터 영상을 자동으로 생성합니다.",
+        "title": "Lanshu - 스크립트와 이미지 기반 AI 발표자 비디오 생성 Codex 스킬",
+        "hook": "스크립트와 발표자 이미지로 인증된 AI 아바타 영상을 생성하는 제공자 중립적 Codex 스킬",
         "key_takeaways": [
-          "프로바이더 중립적 Codex Skill을 활용한 모듈형 AI 영상 제작 파이프라인",
-          "스크립트와 발표자 이미지만으로 검증된 프레젠테이션 영상 출력",
-          "마케팅, 교육, 콘텐츠 제작에 즉시 활용 가능한 자동화 도구"
+          "특정 AI 비디오 API에 종속되지 않는 제공자 중립적(Provider-neutral) 구조",
+          "텍스트 대본과 인물 이미지를 입력받아 고품질 AI 발표자 비디오 자동 파이프라인 제공",
+          "LLM 및 Codex 에이전트 워크플로우에 손쉽게 연동 가능한 확장 가능한 스킬 형식"
         ]
       },
       "en": {
-        "title": "Lanshu: Provider-Neutral Codex Skill for AI Presenter Video Production",
-        "hook": "Produce verified, high-quality AI presenter videos from a simple script and an authorized presenter image.",
+        "title": "Lanshu - Provider-neutral Codex Skill for AI Presenter Video Generation",
+        "hook": "A provider-neutral Codex Skill that automates verified AI presenter video generation from text scripts and presenter images.",
         "key_takeaways": [
-          "Provider-neutral Codex Skill designed for automated video synthesis",
-          "Converts text scripts and a single presenter image into dynamic video output",
-          "Streamlines content creation for tutorials, marketing, and automated media"
+          "Provider-neutral architecture compatible across various AI video synthesis backends.",
+          "Automates the end-to-end video production pipeline using script and presenter image inputs.",
+          "Designed as a modular Codex Skill for seamless integration into LLM agent workflows."
         ]
       },
       "zh": {
-        "title": "Lanshu AI 演说视频生成器：通过脚本与形象制作AI数字人视频",
-        "hook": "利用提供商中立的 Codex Skill，仅凭文案脚本和人物图像即可快速生成专业的AI数字人演示视频。",
+        "title": "Lanshu - 基于脚本与图片的 AI 演示视频生成 Codex Skill",
+        "hook": "供应商中立的 Codex Skill，只需文本脚本与人像照片即可自动生成 AI 演示者视频",
         "key_takeaways": [
-          "支持提供商中立的 Codex Skill 架构，灵活度高",
-          "通过输入剧本与指定演说者头像自动合成验证过的视频内容",
-          "极大地简化了营销视频与教学短片的制作流程"
+          "具备供应商中立的架构设计，可自由适配不同的 AI 视频生成后端",
+          "自动解析文本脚本与目标人像，完成端到端的 AI 演讲视频合成",
+          "作为 Codex Skill 编写，极易整合至 LLM Agent 及自动化工作流"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:29.955639+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "AI Presenter",
+    "AI Presenter Video",
     "Codex Skill",
-    "Video Generation",
-    "Script"
+    "Talking Head",
+    "Script to Video",
+    "Lanshu"
   ],
-  "title_en": "Lanshu: Provider-Neutral Codex Skill for AI Presenter Video Production",
-  "title_zh": "Lanshu AI 演说视频生成器：通过脚本与形象制作AI数字人视频",
+  "title_en": "Lanshu - Provider-neutral Codex Skill for AI Presenter Video Generation",
+  "title_zh": "Lanshu - 基于脚本与图片的 AI 演示视频生成 Codex Skill",
   "hook": "텍스트 스크립트와 승인된 발표자 이미지 한 장으로 고품질의 AI 프레젠터 영상을 자동으로 생성합니다.",
-  "hook_ko": "텍스트 스크립트와 승인된 발표자 이미지 한 장으로 고품질의 AI 프레젠터 영상을 자동으로 생성합니다.",
-  "hook_en": "Produce verified, high-quality AI presenter videos from a simple script and an authorized presenter image.",
-  "hook_zh": "利用提供商中立的 Codex Skill，仅凭文案脚本和人物图像即可快速生成专业的AI数字人演示视频。",
+  "hook_ko": "스크립트와 발표자 이미지로 인증된 AI 아바타 영상을 생성하는 제공자 중립적 Codex 스킬",
+  "hook_en": "A provider-neutral Codex Skill that automates verified AI presenter video generation from text scripts and presenter images.",
+  "hook_zh": "供应商中立的 Codex Skill，只需文本脚本与人像照片即可自动生成 AI 演示者视频",
   "description_en": "Produce verified, high-quality AI presenter videos from a simple script and an authorized presenter image.",
-  "description_zh": "利用提供商中立的 Codex Skill，仅凭文案脚本和人物图像即可快速生成专业的AI数字人演示视频。"
+  "description_zh": "利用提供商中立的 Codex Skill，仅凭文案脚本和人物图像即可快速生成专业的AI数字人演示视频。",
+  "multilingual": {
+    "ko": {
+      "title": "Lanshu - 스크립트와 이미지 기반 AI 발표자 비디오 생성 Codex 스킬",
+      "hook": "스크립트와 발표자 이미지로 인증된 AI 아바타 영상을 생성하는 제공자 중립적 Codex 스킬",
+      "key_takeaways": [
+        "특정 AI 비디오 API에 종속되지 않는 제공자 중립적(Provider-neutral) 구조",
+        "텍스트 대본과 인물 이미지를 입력받아 고품질 AI 발표자 비디오 자동 파이프라인 제공",
+        "LLM 및 Codex 에이전트 워크플로우에 손쉽게 연동 가능한 확장 가능한 스킬 형식"
+      ]
+    },
+    "en": {
+      "title": "Lanshu - Provider-neutral Codex Skill for AI Presenter Video Generation",
+      "hook": "A provider-neutral Codex Skill that automates verified AI presenter video generation from text scripts and presenter images.",
+      "key_takeaways": [
+        "Provider-neutral architecture compatible across various AI video synthesis backends.",
+        "Automates the end-to-end video production pipeline using script and presenter image inputs.",
+        "Designed as a modular Codex Skill for seamless integration into LLM agent workflows."
+      ]
+    },
+    "zh": {
+      "title": "Lanshu - 基于脚本与图片的 AI 演示视频生成 Codex Skill",
+      "hook": "供应商中立的 Codex Skill，只需文本脚本与人像照片即可自动生成 AI 演示者视频",
+      "key_takeaways": [
+        "具备供应商中立的架构设计，可自由适配不同的 AI 视频生成后端",
+        "自动解析文本脚本与目标人像，完成端到端的 AI 演讲视频合成",
+        "作为 Codex Skill 编写，极易整合至 LLM Agent 及自动化工作流"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.799322"
 }

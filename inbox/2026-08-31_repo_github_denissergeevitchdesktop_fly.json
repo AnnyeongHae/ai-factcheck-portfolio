@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "Desktop Fly: FlyWire 커넥톰 실시간 스파이킹 시뮬레이션 기반의 3D 초파리",
+  "title_ko": "DenisSergeevitch/desktop-fly: 실제 초파리 커넥톰 신경망 기반 macOS 3D 인터랙티브 에이전트",
   "description_ko": "macOS 바탕화면 위에서 실제 초파리의 신경망 연결망(커넥톰) 시뮬레이션으로 살아 움직이는 3D 초파리입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,63 +48,94 @@
     "id": "2026-08-31_repo_github_denissergeevitchdesktop_fly",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "시뮬레이션 및 3D 그래픽",
+    "model_family": "Biological Neural Network / Simulation",
+    "category": "Computational Neuroscience & Graphics",
     "programming_lang": "General",
     "root_keywords": [
       "Connectome",
-      "Simulation",
-      "macOS Desktop",
-      "Neuroscience"
+      "FlyWire",
+      "Spiking Neural Network",
+      "Biological Simulation",
+      "macOS Desktop"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "Desktop Fly: FlyWire 커넥톰 실시간 스파이킹 시뮬레이션 기반의 3D 초파리",
-        "hook": "macOS 바탕화면 위에서 실제 초파리의 신경망 연결망(커넥톰) 시뮬레이션으로 살아 움직이는 3D 초파리입니다.",
+        "title": "DenisSergeevitch/desktop-fly: 실제 초파리 커넥톰 신경망 기반 macOS 3D 인터랙티브 에이전트",
+        "hook": "실제 초파리(FlyWire) 뇌 커넥톰의 실시간 스파이킹 신경망(SNN) 시뮬레이션으로 작동하는 macOS 데스크톱 3D 초파리 프로젝트",
         "key_takeaways": [
-          "실제 FlyWire 신경망 커넥톰 데이터를 기반으로 한 생체 모방 시뮬레이션",
-          "macOS 데스크톱 환경에서 시각적으로 구동되는 독창적인 3D 인터랙션",
-          "신경과학과 AI 시뮬레이션의 결합을 보여주는 재미있는 오픈소스 프로젝트"
+          "FlyWire 프로젝트의 실제 초파리 뇌 커넥톰 데이터를 실시간 스파이킹 신경망(SNN)으로 시뮬레이션",
+          "macOS 데스크톱 환경에서 신경 활동 변화에 상응하여 반응하는 3D 초파리 가상 생명체 구현",
+          "생물학적 뇌 신경 연결 구조와 컴퓨터 그래픽스/인터랙티브 에이전트 기술의 혁신적 융합 사례"
         ]
       },
       "en": {
-        "title": "Desktop Fly: 3D Fruit Fly Driven by Live Spiking Connectome Simulation",
-        "hook": "A virtual fruit fly living on your macOS desktop powered by realistic neural connectome simulations.",
+        "title": "DenisSergeevitch/desktop-fly: A 3D macOS desktop fruit fly driven by a live FlyWire connectome simulation",
+        "hook": "Bring a live 3D fruit fly to your macOS desktop powered by real-time spiking neural network simulations of the actual FlyWire connectome.",
         "key_takeaways": [
-          "Simulates a real FlyWire connectome with live spiking neural behavior",
-          "Rendered as a 3D interactive organism directly on your macOS desktop",
-          "Fascinating crossover project blending neuroscience, simulation, and desktop apps"
+          "Simulates the real-world FlyWire brain connectome dataset using spiking neural networks (SNNs) in real time.",
+          "Renders an interactive 3D fruit fly on macOS that responds visually to underlying neural firing activity.",
+          "Demonstrates a novel blend of computational neuroscience, connectomics, and interactive desktop agent development."
         ]
       },
       "zh": {
-        "title": "桌面果蝇：基于真实神经连接组实时脉冲模拟的 3D 桌面果蝇",
-        "hook": "在 macOS 桌面上一只由真实 FlyWire 神经连接组模拟驱动的活体 3D 果蝇。",
+        "title": "DenisSergeevitch/desktop-fly：基于 FlyWire 真实神经连接组模拟的 macOS 桌面 3D 果蝇",
+        "hook": "基于 FlyWire 真实果蝇大脑连接组的实时脉冲神经网络（SNN）模拟，在 macOS 桌面上驱动 3D 果蝇。",
         "key_takeaways": [
-          "基于真实生物 FlyWire 连接组数据的实时神经脉冲模拟",
-          "在 macOS 桌面环境中生动运行的 3D 可视化生物体",
-          "融合了神经科学与桌面软件开发的趣味开源项目"
+          "利用 FlyWire 果蝇大脑神经连接组数据，进行实时脉冲神经网络 (SNN) 物理模拟",
+          "在 macOS 桌面呈现根据神经元脉冲活动实时做出动作反应的 3D 虚拟果蝇",
+          "计算神经科学、连接组学与桌面交互式 AI 智能体结合的创新开源实践"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:29.955408+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "Connectome",
-    "Simulation",
-    "macOS Desktop",
-    "Neuroscience"
+    "FlyWire",
+    "Spiking Neural Network",
+    "Biological Simulation",
+    "macOS Desktop"
   ],
-  "title_en": "Desktop Fly: 3D Fruit Fly Driven by Live Spiking Connectome Simulation",
-  "title_zh": "桌面果蝇：基于真实神经连接组实时脉冲模拟的 3D 桌面果蝇",
+  "title_en": "DenisSergeevitch/desktop-fly: A 3D macOS desktop fruit fly driven by a live FlyWire connectome simulation",
+  "title_zh": "DenisSergeevitch/desktop-fly：基于 FlyWire 真实神经连接组模拟的 macOS 桌面 3D 果蝇",
   "hook": "macOS 바탕화면 위에서 실제 초파리의 신경망 연결망(커넥톰) 시뮬레이션으로 살아 움직이는 3D 초파리입니다.",
-  "hook_ko": "macOS 바탕화면 위에서 실제 초파리의 신경망 연결망(커넥톰) 시뮬레이션으로 살아 움직이는 3D 초파리입니다.",
-  "hook_en": "A virtual fruit fly living on your macOS desktop powered by realistic neural connectome simulations.",
-  "hook_zh": "在 macOS 桌面上一只由真实 FlyWire 神经连接组模拟驱动的活体 3D 果蝇。",
+  "hook_ko": "실제 초파리(FlyWire) 뇌 커넥톰의 실시간 스파이킹 신경망(SNN) 시뮬레이션으로 작동하는 macOS 데스크톱 3D 초파리 프로젝트",
+  "hook_en": "Bring a live 3D fruit fly to your macOS desktop powered by real-time spiking neural network simulations of the actual FlyWire connectome.",
+  "hook_zh": "基于 FlyWire 真实果蝇大脑连接组的实时脉冲神经网络（SNN）模拟，在 macOS 桌面上驱动 3D 果蝇。",
   "description_en": "A virtual fruit fly living on your macOS desktop powered by realistic neural connectome simulations.",
-  "description_zh": "在 macOS 桌面上一只由真实 FlyWire 神经连接组模拟驱动的活体 3D 果蝇。"
+  "description_zh": "在 macOS 桌面上一只由真实 FlyWire 神经连接组模拟驱动的活体 3D 果蝇。",
+  "multilingual": {
+    "ko": {
+      "title": "DenisSergeevitch/desktop-fly: 실제 초파리 커넥톰 신경망 기반 macOS 3D 인터랙티브 에이전트",
+      "hook": "실제 초파리(FlyWire) 뇌 커넥톰의 실시간 스파이킹 신경망(SNN) 시뮬레이션으로 작동하는 macOS 데스크톱 3D 초파리 프로젝트",
+      "key_takeaways": [
+        "FlyWire 프로젝트의 실제 초파리 뇌 커넥톰 데이터를 실시간 스파이킹 신경망(SNN)으로 시뮬레이션",
+        "macOS 데스크톱 환경에서 신경 활동 변화에 상응하여 반응하는 3D 초파리 가상 생명체 구현",
+        "생물학적 뇌 신경 연결 구조와 컴퓨터 그래픽스/인터랙티브 에이전트 기술의 혁신적 융합 사례"
+      ]
+    },
+    "en": {
+      "title": "DenisSergeevitch/desktop-fly: A 3D macOS desktop fruit fly driven by a live FlyWire connectome simulation",
+      "hook": "Bring a live 3D fruit fly to your macOS desktop powered by real-time spiking neural network simulations of the actual FlyWire connectome.",
+      "key_takeaways": [
+        "Simulates the real-world FlyWire brain connectome dataset using spiking neural networks (SNNs) in real time.",
+        "Renders an interactive 3D fruit fly on macOS that responds visually to underlying neural firing activity.",
+        "Demonstrates a novel blend of computational neuroscience, connectomics, and interactive desktop agent development."
+      ]
+    },
+    "zh": {
+      "title": "DenisSergeevitch/desktop-fly：基于 FlyWire 真实神经连接组模拟的 macOS 桌面 3D 果蝇",
+      "hook": "基于 FlyWire 真实果蝇大脑连接组的实时脉冲神经网络（SNN）模拟，在 macOS 桌面上驱动 3D 果蝇。",
+      "key_takeaways": [
+        "利用 FlyWire 果蝇大脑神经连接组数据，进行实时脉冲神经网络 (SNN) 物理模拟",
+        "在 macOS 桌面呈现根据神经元脉冲活动实时做出动作反应的 3D 虚拟果蝇",
+        "计算神经科学、连接组学与桌面交互式 AI 智能体结合的创新开源实践"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.800105"
 }

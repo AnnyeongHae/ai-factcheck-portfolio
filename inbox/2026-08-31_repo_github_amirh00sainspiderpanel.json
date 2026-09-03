@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "SpiderPanel: 서버 및 인프라 관리 패널",
+  "title_ko": "SpiderPanel - 프록시 및 네트워크 관리를 위한 웹 패널",
   "description_ko": "높은 포크 수를 기록하며 개발자 커뮤니티에서 주목받고 있는 서버 관리 패널 도구입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,61 +48,92 @@
     "id": "2026-08-31_repo_github_amirh00sainspiderpanel",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "웹 패널 / 인프라",
-    "programming_lang": "General",
+    "model_family": "Web Panel",
+    "category": "Networking & Security",
+    "programming_lang": "Python",
     "root_keywords": [
       "SpiderPanel",
-      "Server Panel",
-      "Infrastructure"
+      "proxy-panel",
+      "web-dashboard",
+      "network-management"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 2.5,
+    "worth_score": 3.5,
     "multilingual": {
       "ko": {
-        "title": "SpiderPanel: 서버 및 인프라 관리 패널",
-        "hook": "높은 포크 수를 기록하며 개발자 커뮤니티에서 주목받고 있는 서버 관리 패널 도구입니다.",
+        "title": "SpiderPanel - 프록시 및 네트워크 관리를 위한 웹 패널",
+        "hook": "웹 인터페이스를 통해 네트워크 노드 및 세션을 효율적으로 관리하는 오픈소스 대시보드",
         "key_takeaways": [
-          "다양한 포크와 커뮤니티 기여도 보유",
-          "서버 인프라 관리 자동화 지원",
-          "상세 설명은 부족하지만 높은 활용 가능성"
+          "포크 수가 별 수보다 훨씬 높아 활발히 자가 배포 및 커스텀되는 네트워크 관리 스크립트",
+          "웹 대시보드를 통한 서버 모니터링 및 트래픽 관리 기능 제공",
+          "네트워크 시스템 관리를 위한 경량화된 오픈소스 제어 패널"
         ]
       },
       "en": {
-        "title": "SpiderPanel: Server and Infrastructure Management Panel",
-        "hook": "A popular server management panel repository gaining traction with massive forks in the community.",
+        "title": "SpiderPanel - Web Management Panel for Network Nodes & Proxies",
+        "hook": "An open-source web dashboard designed for managing network nodes and user traffic efficiently.",
         "key_takeaways": [
-          "High number of forks indicating community adaptation",
-          "Designed for server and infrastructure management",
-          "Minimal documentation but high developer interest"
+          "High fork count relative to stars, indicating widespread self-hosted deployment and customization",
+          "Provides an intuitive web dashboard for server monitoring and session control",
+          "Lightweight open-source control panel solution for network administration"
         ]
       },
       "zh": {
-        "title": "SpiderPanel：服务器与基础设施管理面板",
-        "hook": "在开源社区获得大量Fork关注的服务器管理及运维面板工具。",
+        "title": "SpiderPanel - 用于网络节点和代理的 Web 控制面板",
+        "hook": "一款用于高效管理网络节点和用户流量的开源 Web 仪表板",
         "key_takeaways": [
-          "拥有极高的Fork数量与社区关注度",
-          "专注于服务器及基础设施运维管理",
-          "具备极强的定制与扩展潜力"
+          "Fork 数量显著高于 Star 数量，表明其在自托管部署和二次开发中非常活跃",
+          "提供用于服务器监控和流量管理的直观 Web 界面",
+          "面向网络运维与管理的轻量级开源控制面板"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:42.769757+00:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "General",
+  "programming_lang": "Python",
   "root_keywords": [
     "SpiderPanel",
-    "Server Panel",
-    "Infrastructure"
+    "proxy-panel",
+    "web-dashboard",
+    "network-management"
   ],
-  "title_en": "SpiderPanel: Server and Infrastructure Management Panel",
-  "title_zh": "SpiderPanel：服务器与基础设施管理面板",
+  "title_en": "SpiderPanel - Web Management Panel for Network Nodes & Proxies",
+  "title_zh": "SpiderPanel - 用于网络节点和代理的 Web 控制面板",
   "hook": "높은 포크 수를 기록하며 개발자 커뮤니티에서 주목받고 있는 서버 관리 패널 도구입니다.",
-  "hook_ko": "높은 포크 수를 기록하며 개발자 커뮤니티에서 주목받고 있는 서버 관리 패널 도구입니다.",
-  "hook_en": "A popular server management panel repository gaining traction with massive forks in the community.",
-  "hook_zh": "在开源社区获得大量Fork关注的服务器管理及运维面板工具。",
+  "hook_ko": "웹 인터페이스를 통해 네트워크 노드 및 세션을 효율적으로 관리하는 오픈소스 대시보드",
+  "hook_en": "An open-source web dashboard designed for managing network nodes and user traffic efficiently.",
+  "hook_zh": "一款用于高效管理网络节点和用户流量的开源 Web 仪表板",
   "description_en": "A popular server management panel repository gaining traction with massive forks in the community.",
-  "description_zh": "在开源社区获得大量Fork关注的服务器管理及运维面板工具。"
+  "description_zh": "在开源社区获得大量Fork关注的服务器管理及运维面板工具。",
+  "multilingual": {
+    "ko": {
+      "title": "SpiderPanel - 프록시 및 네트워크 관리를 위한 웹 패널",
+      "hook": "웹 인터페이스를 통해 네트워크 노드 및 세션을 효율적으로 관리하는 오픈소스 대시보드",
+      "key_takeaways": [
+        "포크 수가 별 수보다 훨씬 높아 활발히 자가 배포 및 커스텀되는 네트워크 관리 스크립트",
+        "웹 대시보드를 통한 서버 모니터링 및 트래픽 관리 기능 제공",
+        "네트워크 시스템 관리를 위한 경량화된 오픈소스 제어 패널"
+      ]
+    },
+    "en": {
+      "title": "SpiderPanel - Web Management Panel for Network Nodes & Proxies",
+      "hook": "An open-source web dashboard designed for managing network nodes and user traffic efficiently.",
+      "key_takeaways": [
+        "High fork count relative to stars, indicating widespread self-hosted deployment and customization",
+        "Provides an intuitive web dashboard for server monitoring and session control",
+        "Lightweight open-source control panel solution for network administration"
+      ]
+    },
+    "zh": {
+      "title": "SpiderPanel - 用于网络节点和代理的 Web 控制面板",
+      "hook": "一款用于高效管理网络节点和用户流量的开源 Web 仪表板",
+      "key_takeaways": [
+        "Fork 数量显著高于 Star 数量，表明其在自托管部署和二次开发中非常活跃",
+        "提供用于服务器监控和流量管理的直观 Web 界面",
+        "面向网络运维与管理的轻量级开源控制面板"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.792708"
 }

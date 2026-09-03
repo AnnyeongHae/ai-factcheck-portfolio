@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "적절한 스코어링 규칙이 LLM 예측 성능에 미치는 영향 분석",
+  "title_ko": "적절한 스코어링 규칙(Proper Scoring Rules)이 LLM 예측 성능에 미치는 영향",
   "description_ko": "보상 함수 선택이 LLM 예측 에이전트의 행동과 정확도에 미치는 결정적 영향을 파악하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,42 +48,44 @@
     "id": "2026-08-31_repo_arxiv_how_proper_scoring_rules_shape_llm_fore",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 예측 및 평가",
+    "model_family": "LLM Calibration",
+    "category": "AI Research & Forecasting",
     "programming_lang": "Python",
     "root_keywords": [
       "LLM Forecasting",
-      "Scoring Rules",
-      "Reward Function"
+      "Proper Scoring Rules",
+      "Reward Function",
+      "Model Calibration",
+      "Probabilistic Forecasting"
     ],
-    "recommended_tag": "📝 기술 참고",
+    "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "적절한 스코어링 규칙이 LLM 예측 성능에 미치는 영향 분석",
-        "hook": "보상 함수 선택이 LLM 예측 에이전트의 행동과 정확도에 미치는 결정적 영향을 파악하세요.",
+        "title": "적절한 스코어링 규칙(Proper Scoring Rules)이 LLM 예측 성능에 미치는 영향",
+        "hook": "보상 함수 선택이 LLM의 확률적 예측 불확실성 보정 및 정밀도에 미치는 영향을 메타 평가",
         "key_takeaways": [
-          "이진 예측 태스크에서 5가지 적절한 스코어링 규칙 비교 분석",
-          "훈련 목표(Training Objective) 설정이 LLM 포캐스터에 미치는 영향 규명",
-          "더욱 신뢰할 수 있는 예측형 AI 시스템 설계 방법론 제시"
+          "5가지 적절한 스코어링 규칙(Proper Scoring Rules)을 LLM 예측 학습 목표로 비교 분석",
+          "보상 함수 타입이 모델의 확률적 보정(Calibration)과 예측 신뢰도에 직접적인 형성을 미침을 증명",
+          "실제 바이너리 이벤트 예측 과제에서 최적의 LLM 학습 손실 함수 가이드라인 제시"
         ]
       },
       "en": {
-        "title": "How Proper Scoring Rules Shape LLM Forecasting",
-        "hook": "Discover how the choice of reward function fundamentally shapes the performance and behavior of LLM forecasters.",
+        "title": "ArXiv: How Proper Scoring Rules Shape LLM Forecasting",
+        "hook": "Evaluating how the choice of reward function directly shapes probabilistic calibration and forecasting performance in LLMs.",
         "key_takeaways": [
-          "Compares five proper scoring rules as training objectives for binary forecasts",
-          "Analyzes how training objectives impact the calibration of LLM predictors",
-          "Provides insights for designing more reliable forecasting AI architectures"
+          "Compares five proper scoring rules as training objectives for fine-tuning LLM forecasters on binary events.",
+          "Demonstrates how reward selection dictates model confidence calibration and risk-aware uncertainty estimation.",
+          "Provides practical loss function selection insights for training robust probabilistic LLM agents."
         ]
       },
       "zh": {
-        "title": "恰当的评分规则如何塑造大模型的预测能力",
-        "hook": "深入探讨奖励函数的选择如何根本性地影响大模型预测代理的性能与行为特征。",
+        "title": "ArXiv: 严格妥当评分规则（Proper Scoring Rules）如何塑造 LLM 的预测能力",
+        "hook": "评估不同奖励函数设计对大语言模型概率预测校准度与准确率的塑造作用。",
         "key_takeaways": [
-          "对比了五种用于二元预测任务的恰当评分规则",
-          "揭示了训练目标设定对大模型预测校准的具体影响",
-          "为构建更加可靠的预测型 AI 系统提供了理论参考"
+          "对比了五种严格妥当评分规则作为 LLM 二元事件预测微调训练目标的效果",
+          "揭示了奖励函数选择对模型概率置信度校准与不确定性表达的深远影响",
+          "为构建高可靠性概率预测 LLM Agent 提供了实证损失函数选型指南"
         ]
       }
     }
@@ -92,15 +94,48 @@
   "programming_lang": "Python",
   "root_keywords": [
     "LLM Forecasting",
-    "Scoring Rules",
-    "Reward Function"
+    "Proper Scoring Rules",
+    "Reward Function",
+    "Model Calibration",
+    "Probabilistic Forecasting"
   ],
-  "title_en": "How Proper Scoring Rules Shape LLM Forecasting",
-  "title_zh": "恰当的评分规则如何塑造大模型的预测能力",
+  "title_en": "ArXiv: How Proper Scoring Rules Shape LLM Forecasting",
+  "title_zh": "ArXiv: 严格妥当评分规则（Proper Scoring Rules）如何塑造 LLM 的预测能力",
   "hook": "보상 함수 선택이 LLM 예측 에이전트의 행동과 정확도에 미치는 결정적 영향을 파악하세요.",
-  "hook_ko": "보상 함수 선택이 LLM 예측 에이전트의 행동과 정확도에 미치는 결정적 영향을 파악하세요.",
-  "hook_en": "Discover how the choice of reward function fundamentally shapes the performance and behavior of LLM forecasters.",
-  "hook_zh": "深入探讨奖励函数的选择如何根本性地影响大模型预测代理的性能与行为特征。",
+  "hook_ko": "보상 함수 선택이 LLM의 확률적 예측 불확실성 보정 및 정밀도에 미치는 영향을 메타 평가",
+  "hook_en": "Evaluating how the choice of reward function directly shapes probabilistic calibration and forecasting performance in LLMs.",
+  "hook_zh": "评估不同奖励函数设计对大语言模型概率预测校准度与准确率的塑造作用。",
   "description_en": "Discover how the choice of reward function fundamentally shapes the performance and behavior of LLM forecasters.",
-  "description_zh": "深入探讨奖励函数的选择如何根本性地影响大模型预测代理的性能与行为特征。"
+  "description_zh": "深入探讨奖励函数的选择如何根本性地影响大模型预测代理的性能与行为特征。",
+  "multilingual": {
+    "ko": {
+      "title": "적절한 스코어링 규칙(Proper Scoring Rules)이 LLM 예측 성능에 미치는 영향",
+      "hook": "보상 함수 선택이 LLM의 확률적 예측 불확실성 보정 및 정밀도에 미치는 영향을 메타 평가",
+      "key_takeaways": [
+        "5가지 적절한 스코어링 규칙(Proper Scoring Rules)을 LLM 예측 학습 목표로 비교 분석",
+        "보상 함수 타입이 모델의 확률적 보정(Calibration)과 예측 신뢰도에 직접적인 형성을 미침을 증명",
+        "실제 바이너리 이벤트 예측 과제에서 최적의 LLM 학습 손실 함수 가이드라인 제시"
+      ]
+    },
+    "en": {
+      "title": "ArXiv: How Proper Scoring Rules Shape LLM Forecasting",
+      "hook": "Evaluating how the choice of reward function directly shapes probabilistic calibration and forecasting performance in LLMs.",
+      "key_takeaways": [
+        "Compares five proper scoring rules as training objectives for fine-tuning LLM forecasters on binary events.",
+        "Demonstrates how reward selection dictates model confidence calibration and risk-aware uncertainty estimation.",
+        "Provides practical loss function selection insights for training robust probabilistic LLM agents."
+      ]
+    },
+    "zh": {
+      "title": "ArXiv: 严格妥当评分规则（Proper Scoring Rules）如何塑造 LLM 的预测能力",
+      "hook": "评估不同奖励函数设计对大语言模型概率预测校准度与准确率的塑造作用。",
+      "key_takeaways": [
+        "对比了五种严格妥当评分规则作为 LLM 二元事件预测微调训练目标的效果",
+        "揭示了奖励函数选择对模型概率置信度校准与不确定性表达的深远影响",
+        "为构建高可靠性概率预测 LLM Agent 提供了实证损失函数选型指南"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.779797"
 }

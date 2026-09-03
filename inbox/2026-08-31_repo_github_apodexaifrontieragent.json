@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "AGENT",
-  "title_ko": "FrontierAgent: 네이티브 TUI와 팀 모드를 지원하는 오픈소스 에이전트 프레임워크",
+  "title_ko": "FrontierAgent: Docker 의존성 없이 터미널에서 구동되는 오픈소스 AI 에이전트 프레임워크",
   "description_ko": "Docker 의존성 없이 macOS와 Linux에서 명령어 한 줄로 실행 가능한 차세대 에이전트 프레임워크입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,64 +48,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_github_apodexaifrontieragent",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "웹 에이전트",
+    "type_classification": "TECH",
+    "model_family": "Agentic AI Framework",
+    "category": "LLM & AI Infrastructure",
     "programming_lang": "Python",
     "root_keywords": [
-      "FrontierAgent",
       "Agent Framework",
-      "TUI",
-      "ReAct"
+      "CLI TUI",
+      "ReAct",
+      "Multi-Agent Teams",
+      "Zero-Dependency"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "FrontierAgent: 네이티브 TUI와 팀 모드를 지원하는 오픈소스 에이전트 프레임워크",
-        "hook": "Docker 의존성 없이 macOS와 Linux에서 명령어 한 줄로 실행 가능한 차세대 에이전트 프레임워크입니다.",
+        "title": "FrontierAgent: Docker 의존성 없이 터미널에서 구동되는 오픈소스 AI 에이전트 프레임워크",
+        "hook": "ReAct 및 멀티 에이전트 팀 모드를 지원하며 사전 설치나 Docker 없이 단일 명령어로 즉시 구동되는 터미널 네이티브 에이전트 프레임워크",
         "key_takeaways": [
-          "네이티브 커맨드라인 TUI 환경 제공",
-          "ReAct 및 에이전트 팀 모드 지원",
-          "사전 설치나 복잡한 Docker 의존성 없는 간편한 실행"
+          "네이티브 커맨드라인 TUI를 제공하여 터미널 환경에서 가볍고 직관적인 작업 흐름 구현",
+          "단일 에이전트 ReAct 추론 모드 및 복합 과제 수행을 위한 Agent Team 모드 지원",
+          "Docker나 복잡한 사전 작업 없이 macOS 및 Linux 환경에서 한 줄 명령어로 즉시 실행 가능"
         ]
       },
       "en": {
-        "title": "FrontierAgent: Open-Source Agent Framework with Native TUI and Team Modes",
-        "hook": "Run sophisticated AI agents with native TUI and team modes using a single command, free of hard Docker dependencies.",
+        "title": "FrontierAgent: Open-Source Dependency-Free Terminal AI Agent Framework",
+        "hook": "An open-source AI agent framework featuring native CLI TUI, ReAct, and multi-agent team modes with zero heavy Docker dependencies.",
         "key_takeaways": [
-          "Native command-line TUI interface",
-          "Supports ReAct and Agent Team execution modes",
-          "Zero pre-installation and no hard Docker dependency on macOS/Linux"
+          "Native command-line TUI interface delivering a lightweight terminal-first developer experience",
+          "Flexible operational modes supporting both single-agent ReAct reasoning and multi-agent team execution",
+          "No complex pre-installations or Docker dependencies, enabling immediate one-command launch on macOS and Linux"
         ]
       },
       "zh": {
-        "title": "FrontierAgent：支持原生TUI与团队模式的开源AI代理框架",
-        "hook": "无需复杂Docker依赖，在macOS和Linux上通过单条命令即可运行的轻量级代理框架。",
+        "title": "FrontierAgent：无需 Docker 依赖的终端原生 AI Agent 框架",
+        "hook": "支持 ReAct 与多 Agent 团队模式，无需 Docker 与复杂预装，一行命令即可在 macOS/Linux 上即刻运行的 Agent 框架",
         "key_takeaways": [
-          "原生命令行TUI交互界面",
-          "支持ReAct及Agent Team工作模式",
-          "免预装、无硬性Docker依赖，开箱即用"
+          "提供原生命令行 TUI 界面，打造轻量级终端交互与开发体验",
+          "同时支持单 Agent ReAct 推理模式与复杂任务的多 Agent 团队协作模式",
+          "无需 Docker 或复杂的环境配置，macOS 和 Linux 下一条命令开箱即用"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:42.769321+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "FrontierAgent",
     "Agent Framework",
-    "TUI",
-    "ReAct"
+    "CLI TUI",
+    "ReAct",
+    "Multi-Agent Teams",
+    "Zero-Dependency"
   ],
-  "title_en": "FrontierAgent: Open-Source Agent Framework with Native TUI and Team Modes",
-  "title_zh": "FrontierAgent：支持原生TUI与团队模式的开源AI代理框架",
+  "title_en": "FrontierAgent: Open-Source Dependency-Free Terminal AI Agent Framework",
+  "title_zh": "FrontierAgent：无需 Docker 依赖的终端原生 AI Agent 框架",
   "hook": "Docker 의존성 없이 macOS와 Linux에서 명령어 한 줄로 실행 가능한 차세대 에이전트 프레임워크입니다.",
-  "hook_ko": "Docker 의존성 없이 macOS와 Linux에서 명령어 한 줄로 실행 가능한 차세대 에이전트 프레임워크입니다.",
-  "hook_en": "Run sophisticated AI agents with native TUI and team modes using a single command, free of hard Docker dependencies.",
-  "hook_zh": "无需复杂Docker依赖，在macOS和Linux上通过单条命令即可运行的轻量级代理框架。",
+  "hook_ko": "ReAct 및 멀티 에이전트 팀 모드를 지원하며 사전 설치나 Docker 없이 단일 명령어로 즉시 구동되는 터미널 네이티브 에이전트 프레임워크",
+  "hook_en": "An open-source AI agent framework featuring native CLI TUI, ReAct, and multi-agent team modes with zero heavy Docker dependencies.",
+  "hook_zh": "支持 ReAct 与多 Agent 团队模式，无需 Docker 与复杂预装，一行命令即可在 macOS/Linux 上即刻运行的 Agent 框架",
   "description_en": "Run sophisticated AI agents with native TUI and team modes using a single command, free of hard Docker dependencies.",
-  "description_zh": "无需复杂Docker依赖，在macOS和Linux上通过单条命令即可运行的轻量级代理框架。"
+  "description_zh": "无需复杂Docker依赖，在macOS和Linux上通过单条命令即可运行的轻量级代理框架。",
+  "multilingual": {
+    "ko": {
+      "title": "FrontierAgent: Docker 의존성 없이 터미널에서 구동되는 오픈소스 AI 에이전트 프레임워크",
+      "hook": "ReAct 및 멀티 에이전트 팀 모드를 지원하며 사전 설치나 Docker 없이 단일 명령어로 즉시 구동되는 터미널 네이티브 에이전트 프레임워크",
+      "key_takeaways": [
+        "네이티브 커맨드라인 TUI를 제공하여 터미널 환경에서 가볍고 직관적인 작업 흐름 구현",
+        "단일 에이전트 ReAct 추론 모드 및 복합 과제 수행을 위한 Agent Team 모드 지원",
+        "Docker나 복잡한 사전 작업 없이 macOS 및 Linux 환경에서 한 줄 명령어로 즉시 실행 가능"
+      ]
+    },
+    "en": {
+      "title": "FrontierAgent: Open-Source Dependency-Free Terminal AI Agent Framework",
+      "hook": "An open-source AI agent framework featuring native CLI TUI, ReAct, and multi-agent team modes with zero heavy Docker dependencies.",
+      "key_takeaways": [
+        "Native command-line TUI interface delivering a lightweight terminal-first developer experience",
+        "Flexible operational modes supporting both single-agent ReAct reasoning and multi-agent team execution",
+        "No complex pre-installations or Docker dependencies, enabling immediate one-command launch on macOS and Linux"
+      ]
+    },
+    "zh": {
+      "title": "FrontierAgent：无需 Docker 依赖的终端原生 AI Agent 框架",
+      "hook": "支持 ReAct 与多 Agent 团队模式，无需 Docker 与复杂预装，一行命令即可在 macOS/Linux 上即刻运行的 Agent 框架",
+      "key_takeaways": [
+        "提供原生命令行 TUI 界面，打造轻量级终端交互与开发体验",
+        "同时支持单 Agent ReAct 推理模式与复杂任务的多 Agent 团队协作模式",
+        "无需 Docker 或复杂的环境配置，macOS 和 Linux 下一条命令开箱即用"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.795584"
 }

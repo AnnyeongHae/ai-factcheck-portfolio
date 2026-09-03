@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "음성 인식 오류가 체화형 AI 안전성에 미치는 위험 분석",
+  "title_ko": "로봇이 음성을 잘못 들었을 때: 음성 제어 체계적 구동 AI의 안전 리스크 분석",
   "description_ko": "로봇 공학 및 음성 제어 AI 시스템 구축 시 음성 인식(ASR) 오인식으로 인한 안전 취약점을 분석합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,42 +48,44 @@
     "id": "2026-08-31_repo_arxiv_when_robots_mishear_us_mapping_the_safe",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "체화형 AI 안전성",
+    "model_family": "Embodied AI / Speech Recognition",
+    "category": "AI Safety & Robotics",
     "programming_lang": "General",
     "root_keywords": [
       "Embodied AI",
-      "ASR",
-      "Safety Risks"
+      "Automatic Speech Recognition",
+      "ASR Errors",
+      "AI Safety",
+      "Voice Control Risks"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.0,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "음성 인식 오류가 체화형 AI 안전성에 미치는 위험 분석",
-        "hook": "로봇 공학 및 음성 제어 AI 시스템 구축 시 음성 인식(ASR) 오인식으로 인한 안전 취약점을 분석합니다.",
+        "title": "로봇이 음성을 잘못 들었을 때: 음성 제어 체계적 구동 AI의 안전 리스크 분석",
+        "hook": "음성 인식(ASR) 오류가 음성 제어 기반 로봇 및 체계적 구동 AI(Embodied AI)의 위험 행동으로 이어질 수 있음을 밝힌 연구",
         "key_takeaways": [
-          "사용자 음성 입력의 ASR 오류가 체화형 AI의 위험한 출력으로 이어짐",
-          "유해한 명령 생성 가능성에 대한 실증적 분석",
-          "로봇 음성 제어 시스템의 안전성 가이드라인 제안"
+          "음성 인식(ASR) 시스템의 오인식 결과가 Embodied AI의 치명적 오작동 및 위험 명령어 수행으로 전이되는 경로 분석",
+          "단순 언어 모델 안전성 평가를 넘어 실제 물리적 상호작용 환경에서의 에이전트 안전 리스크 체계화",
+          "음성 제어 로봇 시스템 설계를 위한 강건한 신호 검증 및 안전 가드레일 필요성 제시"
         ]
       },
       "en": {
-        "title": "Mapping Safety Risks of Voice-Controlled Embodied AI",
-        "hook": "Analyze how automatic speech recognition errors trigger hazardous outputs in robotic AI systems.",
+        "title": "When Robots Mishear Us: Mapping the Safety Risks of Voice-Controlled Embodied AI",
+        "hook": "Investigating how Automatic Speech Recognition (ASR) errors can trigger dangerous behaviors in Embodied AI models",
         "key_takeaways": [
-          "ASR errors in user inputs lead to unsafe EAI outputs",
-          "Empirical analysis on harmful instruction generation",
-          "Proposes safety guardrails for voice-controlled robotics"
+          "Analyzes the cascading safety risks caused by ASR translation errors in voice-driven Embodied AI systems",
+          "Extends AI safety research from digital text domains to physical robotic manipulation contexts",
+          "Highlights the urgent need for speech verification mechanisms and robust safety guardrails in voice-controlled agents"
         ]
       },
       "zh": {
-        "title": "语音识别错误对具身智能安全风险的影响研究",
-        "hook": "探讨语音识别失误如何导致机器人等具身智能系统产生不安全行为。",
+        "title": "当机器人听错指令：语音控制具身智能的安全风险图谱",
+        "hook": "揭示自动语音识别（ASR）错误如何引发具身智能（EAI）模型产生危险指令与物理安全风险",
         "key_takeaways": [
-          "用户输入的ASR错误可触发具身智能的不安全输出",
-          "分析了生成有害指令的潜在风险",
-          "为语音控制机器人系统提出安全防御建议"
+          "分析了语音识别（ASR）误判传导至具身智能（Embodied AI）执行有害指令的具体路径",
+          "将 AI 安全评估从纯文本交互拓展至物理世界中的机器人操作与行为控制",
+          "强调了在语音控制智能体中引入鲁棒语音校验与物理防护栏（Guardrails）的必要性"
         ]
       }
     }
@@ -92,15 +94,48 @@
   "programming_lang": "General",
   "root_keywords": [
     "Embodied AI",
-    "ASR",
-    "Safety Risks"
+    "Automatic Speech Recognition",
+    "ASR Errors",
+    "AI Safety",
+    "Voice Control Risks"
   ],
-  "title_en": "Mapping Safety Risks of Voice-Controlled Embodied AI",
-  "title_zh": "语音识别错误对具身智能安全风险的影响研究",
+  "title_en": "When Robots Mishear Us: Mapping the Safety Risks of Voice-Controlled Embodied AI",
+  "title_zh": "当机器人听错指令：语音控制具身智能的安全风险图谱",
   "hook": "로봇 공학 및 음성 제어 AI 시스템 구축 시 음성 인식(ASR) 오인식으로 인한 안전 취약점을 분석합니다.",
-  "hook_ko": "로봇 공학 및 음성 제어 AI 시스템 구축 시 음성 인식(ASR) 오인식으로 인한 안전 취약점을 분석합니다.",
-  "hook_en": "Analyze how automatic speech recognition errors trigger hazardous outputs in robotic AI systems.",
-  "hook_zh": "探讨语音识别失误如何导致机器人等具身智能系统产生不安全行为。",
+  "hook_ko": "음성 인식(ASR) 오류가 음성 제어 기반 로봇 및 체계적 구동 AI(Embodied AI)의 위험 행동으로 이어질 수 있음을 밝힌 연구",
+  "hook_en": "Investigating how Automatic Speech Recognition (ASR) errors can trigger dangerous behaviors in Embodied AI models",
+  "hook_zh": "揭示自动语音识别（ASR）错误如何引发具身智能（EAI）模型产生危险指令与物理安全风险",
   "description_en": "Analyze how automatic speech recognition errors trigger hazardous outputs in robotic AI systems.",
-  "description_zh": "探讨语音识别失误如何导致机器人等具身智能系统产生不安全行为。"
+  "description_zh": "探讨语音识别失误如何导致机器人等具身智能系统产生不安全行为。",
+  "multilingual": {
+    "ko": {
+      "title": "로봇이 음성을 잘못 들었을 때: 음성 제어 체계적 구동 AI의 안전 리스크 분석",
+      "hook": "음성 인식(ASR) 오류가 음성 제어 기반 로봇 및 체계적 구동 AI(Embodied AI)의 위험 행동으로 이어질 수 있음을 밝힌 연구",
+      "key_takeaways": [
+        "음성 인식(ASR) 시스템의 오인식 결과가 Embodied AI의 치명적 오작동 및 위험 명령어 수행으로 전이되는 경로 분석",
+        "단순 언어 모델 안전성 평가를 넘어 실제 물리적 상호작용 환경에서의 에이전트 안전 리스크 체계화",
+        "음성 제어 로봇 시스템 설계를 위한 강건한 신호 검증 및 안전 가드레일 필요성 제시"
+      ]
+    },
+    "en": {
+      "title": "When Robots Mishear Us: Mapping the Safety Risks of Voice-Controlled Embodied AI",
+      "hook": "Investigating how Automatic Speech Recognition (ASR) errors can trigger dangerous behaviors in Embodied AI models",
+      "key_takeaways": [
+        "Analyzes the cascading safety risks caused by ASR translation errors in voice-driven Embodied AI systems",
+        "Extends AI safety research from digital text domains to physical robotic manipulation contexts",
+        "Highlights the urgent need for speech verification mechanisms and robust safety guardrails in voice-controlled agents"
+      ]
+    },
+    "zh": {
+      "title": "当机器人听错指令：语音控制具身智能的安全风险图谱",
+      "hook": "揭示自动语音识别（ASR）错误如何引发具身智能（EAI）模型产生危险指令与物理安全风险",
+      "key_takeaways": [
+        "分析了语音识别（ASR）误判传导至具身智能（Embodied AI）执行有害指令的具体路径",
+        "将 AI 安全评估从纯文本交互拓展至物理世界中的机器人操作与行为控制",
+        "强调了在语音控制智能体中引入鲁棒语音校验与物理防护栏（Guardrails）的必要性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.790715"
 }

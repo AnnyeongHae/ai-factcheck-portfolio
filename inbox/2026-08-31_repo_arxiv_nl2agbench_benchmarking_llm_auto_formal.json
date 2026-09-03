@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "NL2AGBench: AlphaGeometry를 위한 LLM 자동 형식화 벤치마크",
+  "title_ko": "NL2AGBench: 알파지오메트리를 위한 LLM 자동 정형화 평가 벤치마크",
   "description_ko": "LLM이 비형식적 수학 문제를 기하학적 정형 언어로 얼마나 잘 번역하는지 평가하는 최신 벤치마크를 확인하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -49,61 +49,94 @@
     "id": "2026-08-31_repo_arxiv_nl2agbench_benchmarking_llm_auto_formal",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 평가 및 벤치마크",
+    "model_family": "LLM / Formal Reasoning",
+    "category": "AI / Automated Reasoning",
     "programming_lang": "Python",
     "root_keywords": [
-      "NL2AGBench",
       "Auto-Formalization",
-      "AlphaGeometry"
+      "AlphaGeometry",
+      "NL2AGBench",
+      "LLM Benchmark",
+      "Mathematical Reasoning"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.3,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.9,
     "multilingual": {
       "ko": {
-        "title": "NL2AGBench: AlphaGeometry를 위한 LLM 자동 형식화 벤치마크",
-        "hook": "LLM이 비형식적 수학 문제를 기하학적 정형 언어로 얼마나 잘 번역하는지 평가하는 최신 벤치마크를 확인하세요.",
+        "title": "NL2AGBench: 알파지오메트리를 위한 LLM 자동 정형화 평가 벤치마크",
+        "hook": "자연어 기하 문제를 AlphaGeometry용 정형 논리로 자동 변환하는 LLM의 성능 평가 벤치마크",
         "key_takeaways": [
-          "AlphaGeometry를 위한 LLM 기반 자동 형식화(Auto-Formalization) 능력 평가",
-          "자연어 수학 문제를 기계 가독형 형식으로 변환하는 성능 측정",
-          "LLM의 수학적 추론 및 기하학 문제 해결 능력 검증을 위한 표준 제시"
+          "비정형 자연어 수학 문제를 AlphaGeometry 전용 정형 언어로 변환하는 LLM 능력 검증",
+          "기하학 영역의 자동 정형화(Auto-Formalization) 성능과 한계를 정밀 측정하는 NL2AGBench 구축",
+          "자연어 이해 모델과 자동 정리 증명 시스템 간의 세만틱 갭(Semantic Gap) 분석"
         ]
       },
       "en": {
         "title": "NL2AGBench: Benchmarking LLM Auto-Formalization for AlphaGeometry",
-        "hook": "Evaluate how effectively LLMs translate informal math problems into formal geometric languages with this new benchmark.",
+        "hook": "A specialized benchmark measuring LLM capabilities in auto-formalizing natural language geometry problems into AlphaGeometry specifications.",
         "key_takeaways": [
-          "Benchmarks LLM-driven auto-formalization specifically tailored for AlphaGeometry",
-          "Measures translation accuracy from informal natural language math to formal logic",
-          "Provides a standardized evaluation for advanced mathematical reasoning in LLMs"
+          "Evaluates LLMs on translating informal natural language math statements into formal input representations for AlphaGeometry.",
+          "Establishes NL2AGBench to systematically quantify correctness and consistency in geometric auto-formalization.",
+          "Identifies key bottleneck issues in bridging natural language reasoning with formal geometric deduction engines."
         ]
       },
       "zh": {
-        "title": "NL2AGBench：面向AlphaGeometry的大模型自动形式化基准测试",
-        "hook": "通过全新基准测试，评估大语言模型将非形式化数学问题转化为几何形式化语言的能力。",
+        "title": "NL2AGBench：面向 AlphaGeometry 的大语言模型自动形式化基准测试",
+        "hook": "评估大语言模型将自然语言几何问题自动转换为 AlphaGeometry 形式化规范能力的测试基准",
         "key_takeaways": [
-          "针对AlphaGeometry评估大模型的自动形式化（Auto-Formalization）能力",
-          "衡量自然语言数学问题向机器可读形式转化的准确度",
-          "为验证大模型高级数学推理能力提供标准化评估方案"
+          "评估 LLM 将非形式化自然语言数学问题转换为 AlphaGeometry 所需形式化逻辑表示的能力",
+          "构建 NL2AGBench 以系统化测量几何自动形式化（Auto-Formalization）的准确度与一致性",
+          "揭示了自然语言推理与形式化几何证明引擎之间衔接的关键工程瓶颈"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:55.552072+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "NL2AGBench",
     "Auto-Formalization",
-    "AlphaGeometry"
+    "AlphaGeometry",
+    "NL2AGBench",
+    "LLM Benchmark",
+    "Mathematical Reasoning"
   ],
   "title_en": "NL2AGBench: Benchmarking LLM Auto-Formalization for AlphaGeometry",
-  "title_zh": "NL2AGBench：面向AlphaGeometry的大模型自动形式化基准测试",
+  "title_zh": "NL2AGBench：面向 AlphaGeometry 的大语言模型自动形式化基准测试",
   "hook": "LLM이 비형식적 수학 문제를 기하학적 정형 언어로 얼마나 잘 번역하는지 평가하는 최신 벤치마크를 확인하세요.",
-  "hook_ko": "LLM이 비형식적 수학 문제를 기하학적 정형 언어로 얼마나 잘 번역하는지 평가하는 최신 벤치마크를 확인하세요.",
-  "hook_en": "Evaluate how effectively LLMs translate informal math problems into formal geometric languages with this new benchmark.",
-  "hook_zh": "通过全新基准测试，评估大语言模型将非形式化数学问题转化为几何形式化语言的能力。",
+  "hook_ko": "자연어 기하 문제를 AlphaGeometry용 정형 논리로 자동 변환하는 LLM의 성능 평가 벤치마크",
+  "hook_en": "A specialized benchmark measuring LLM capabilities in auto-formalizing natural language geometry problems into AlphaGeometry specifications.",
+  "hook_zh": "评估大语言模型将自然语言几何问题自动转换为 AlphaGeometry 形式化规范能力的测试基准",
   "description_en": "Evaluate how effectively LLMs translate informal math problems into formal geometric languages with this new benchmark.",
-  "description_zh": "通过全新基准测试，评估大语言模型将非形式化数学问题转化为几何形式化语言的能力。"
+  "description_zh": "通过全新基准测试，评估大语言模型将非形式化数学问题转化为几何形式化语言的能力。",
+  "multilingual": {
+    "ko": {
+      "title": "NL2AGBench: 알파지오메트리를 위한 LLM 자동 정형화 평가 벤치마크",
+      "hook": "자연어 기하 문제를 AlphaGeometry용 정형 논리로 자동 변환하는 LLM의 성능 평가 벤치마크",
+      "key_takeaways": [
+        "비정형 자연어 수학 문제를 AlphaGeometry 전용 정형 언어로 변환하는 LLM 능력 검증",
+        "기하학 영역의 자동 정형화(Auto-Formalization) 성능과 한계를 정밀 측정하는 NL2AGBench 구축",
+        "자연어 이해 모델과 자동 정리 증명 시스템 간의 세만틱 갭(Semantic Gap) 분석"
+      ]
+    },
+    "en": {
+      "title": "NL2AGBench: Benchmarking LLM Auto-Formalization for AlphaGeometry",
+      "hook": "A specialized benchmark measuring LLM capabilities in auto-formalizing natural language geometry problems into AlphaGeometry specifications.",
+      "key_takeaways": [
+        "Evaluates LLMs on translating informal natural language math statements into formal input representations for AlphaGeometry.",
+        "Establishes NL2AGBench to systematically quantify correctness and consistency in geometric auto-formalization.",
+        "Identifies key bottleneck issues in bridging natural language reasoning with formal geometric deduction engines."
+      ]
+    },
+    "zh": {
+      "title": "NL2AGBench：面向 AlphaGeometry 的大语言模型自动形式化基准测试",
+      "hook": "评估大语言模型将自然语言几何问题自动转换为 AlphaGeometry 形式化规范能力的测试基准",
+      "key_takeaways": [
+        "评估 LLM 将非形式化自然语言数学问题转换为 AlphaGeometry 所需形式化逻辑表示的能力",
+        "构建 NL2AGBench 以系统化测量几何自动形式化（Auto-Formalization）的准确度与一致性",
+        "揭示了自然语言推理与形式化几何证明引擎之间衔接的关键工程瓶颈"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.785533"
 }

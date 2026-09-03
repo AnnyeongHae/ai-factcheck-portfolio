@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "자기지도학습 음성 표현을 활용한 음소 및 단어 수준 강제 정렬 평가",
+  "title_ko": "자기지도 학습 음성 표현을 활용한 강제 정렬 평가용 음소 및 단어 수준 메트릭",
   "description_ko": "수동 라벨링 의존성을 없애고 대규모 다국어 음성 분석을 가능하게 하는 새로운 평가 지표를 제안합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,42 +48,44 @@
     "id": "2026-08-31_repo_arxiv_phoneme_and_word_level_metrics_using_se",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "음성 인식 및 평가",
+    "model_family": "Self-Supervised Learning",
+    "category": "Speech Recognition",
     "programming_lang": "Python",
     "root_keywords": [
-      "Forced Alignment",
-      "Self-Supervised Learning",
-      "Speech Metrics"
+      "forced alignment",
+      "self-supervised speech representations",
+      "speech evaluation metrics",
+      "phoneme alignment",
+      "speech processing"
     ],
     "recommended_tag": "📝 기술 참고",
     "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "자기지도학습 음성 표현을 활용한 음소 및 단어 수준 강제 정렬 평가",
-        "hook": "수동 라벨링 의존성을 없애고 대규모 다국어 음성 분석을 가능하게 하는 새로운 평가 지표를 제안합니다.",
+        "title": "자기지도 학습 음성 표현을 활용한 강제 정렬 평가용 음소 및 단어 수준 메트릭",
+        "hook": "수동 타임스탬프 어노테이션 없이 SSL 음성 표현을 이용해 대규모·다국어 강제 정렬 성능을 평가하는 새로운 메트릭",
         "key_takeaways": [
-          "수동 주석 타임스탬프 의존성을 극복한 코퍼스 레벨 평가 지표",
-          "자기지도학습(SSL) 음성 표현 활용",
-          "대규모 및 다국어 음성 분석의 확장성 제고"
+          "수동 타임스탬프 어노테이션 한계를 극복하는 SSL 기반 강제 정렬 평가 제안",
+          "음소 및 단어 수준에서 작동하는 두 가지 코퍼스 단위 자동 평가 메트릭 도입",
+          "대규모 다국어 음성 데이터셋 및 음성 합성·인식 정렬 시스템 평가 효율성 향상"
         ]
       },
       "en": {
-        "title": "Phoneme- and Word-Level Metrics Using SSL Speech Representations for Forced Alignment Evaluation",
-        "hook": "Discover new corpus-level metrics utilizing self-supervised speech representations to eliminate manual alignment dependencies.",
+        "title": "Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation",
+        "hook": "Evaluates forced alignment quality without manual timestamps using novel corpus-level metrics derived from SSL speech representations.",
         "key_takeaways": [
-          "Corpus-level metrics overcoming manual timestamp annotation limits",
-          "Leveraging self-supervised learning (SSL) speech representations",
-          "Enables large-scale and multilingual speech analysis scalability"
+          "Eliminates the dependency on costly manual reference timestamps for forced alignment evaluation.",
+          "Introduces two SSL-based corpus-level metrics operating at both phoneme and word levels.",
+          "Facilitates scalable, multilingual benchmarking of speech alignment architectures."
         ]
       },
       "zh": {
-        "title": "利用自监督语音表示进行音素和词级强对齐评估的指标",
-        "hook": "提出利用自监督语音表征的语料库级评估指标，摆脱对手动时间戳标注的依赖。",
+        "title": "基于自监督语音表示的强制对齐评估音素级与词级指标",
+        "hook": "无需人工时间戳标注，利用 SSL 语音表示实现大规模与多语言强制对齐的自动评估",
         "key_takeaways": [
-          "克服手动标注时间戳限制的语料库级评估指标",
-          "充分利用自监督学习 (SSL) 语音表征技术",
-          "大幅提升大规模及多语言语音分析的可扩展性"
+          "摆脱对人工标注时间戳的依赖，突破大规模评估瓶颈",
+          "提出基于自监督学习（SSL）语音表示的音素级与词级语料库指标",
+          "支持高效的大规模及多语言语音对齐系统 Benchmark 评估"
         ]
       }
     }
@@ -91,16 +93,49 @@
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Forced Alignment",
-    "Self-Supervised Learning",
-    "Speech Metrics"
+    "forced alignment",
+    "self-supervised speech representations",
+    "speech evaluation metrics",
+    "phoneme alignment",
+    "speech processing"
   ],
-  "title_en": "Phoneme- and Word-Level Metrics Using SSL Speech Representations for Forced Alignment Evaluation",
-  "title_zh": "利用自监督语音表示进行音素和词级强对齐评估的指标",
+  "title_en": "Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation",
+  "title_zh": "基于自监督语音表示的强制对齐评估音素级与词级指标",
   "hook": "수동 라벨링 의존성을 없애고 대규모 다국어 음성 분석을 가능하게 하는 새로운 평가 지표를 제안합니다.",
-  "hook_ko": "수동 라벨링 의존성을 없애고 대규모 다국어 음성 분석을 가능하게 하는 새로운 평가 지표를 제안합니다.",
-  "hook_en": "Discover new corpus-level metrics utilizing self-supervised speech representations to eliminate manual alignment dependencies.",
-  "hook_zh": "提出利用自监督语音表征的语料库级评估指标，摆脱对手动时间戳标注的依赖。",
+  "hook_ko": "수동 타임스탬프 어노테이션 없이 SSL 음성 표현을 이용해 대규모·다국어 강제 정렬 성능을 평가하는 새로운 메트릭",
+  "hook_en": "Evaluates forced alignment quality without manual timestamps using novel corpus-level metrics derived from SSL speech representations.",
+  "hook_zh": "无需人工时间戳标注，利用 SSL 语音表示实现大规模与多语言强制对齐的自动评估",
   "description_en": "Discover new corpus-level metrics utilizing self-supervised speech representations to eliminate manual alignment dependencies.",
-  "description_zh": "提出利用自监督语音表征的语料库级评估指标，摆脱对手动时间戳标注的依赖。"
+  "description_zh": "提出利用自监督语音表征的语料库级评估指标，摆脱对手动时间戳标注的依赖。",
+  "multilingual": {
+    "ko": {
+      "title": "자기지도 학습 음성 표현을 활용한 강제 정렬 평가용 음소 및 단어 수준 메트릭",
+      "hook": "수동 타임스탬프 어노테이션 없이 SSL 음성 표현을 이용해 대규모·다국어 강제 정렬 성능을 평가하는 새로운 메트릭",
+      "key_takeaways": [
+        "수동 타임스탬프 어노테이션 한계를 극복하는 SSL 기반 강제 정렬 평가 제안",
+        "음소 및 단어 수준에서 작동하는 두 가지 코퍼스 단위 자동 평가 메트릭 도입",
+        "대규모 다국어 음성 데이터셋 및 음성 합성·인식 정렬 시스템 평가 효율성 향상"
+      ]
+    },
+    "en": {
+      "title": "Phoneme- and Word-Level Metrics Using Self-Supervised Speech Representations for Forced Alignment Evaluation",
+      "hook": "Evaluates forced alignment quality without manual timestamps using novel corpus-level metrics derived from SSL speech representations.",
+      "key_takeaways": [
+        "Eliminates the dependency on costly manual reference timestamps for forced alignment evaluation.",
+        "Introduces two SSL-based corpus-level metrics operating at both phoneme and word levels.",
+        "Facilitates scalable, multilingual benchmarking of speech alignment architectures."
+      ]
+    },
+    "zh": {
+      "title": "基于自监督语音表示的强制对齐评估音素级与词级指标",
+      "hook": "无需人工时间戳标注，利用 SSL 语音表示实现大规模与多语言强制对齐的自动评估",
+      "key_takeaways": [
+        "摆脱对人工标注时间戳的依赖，突破大规模评估瓶颈",
+        "提出基于自监督学习（SSL）语音表示的音素级与词级语料库指标",
+        "支持高效的大规模及多语言语音对齐系统 Benchmark 评估"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.787089"
 }

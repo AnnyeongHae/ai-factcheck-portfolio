@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "AGENT",
-  "title_ko": "AI 코딩 에이전트 플러그인의 유지보수와 상호 진화 연구",
+  "title_ko": "에이전트 플러그인의 유지보수 및 공진화에 관한 실증 연구: Claude Code 플러그인 마켓플레이스를 중심으로",
   "description_ko": "Claude Code 생태계 내 플러그인 마켓플레이스를 분석하여 AI 코딩 도구의 확장성과 유지보수 패턴을 파악합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -47,60 +47,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_arxiv_on_the_maintenance_and_co_evolution_of_",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "AI 코딩 에이전트",
-    "programming_lang": "TypeScript",
+    "type_classification": "TECH",
+    "model_family": "Claude / AI Coding Agents",
+    "category": "AI Agents & Software Engineering",
+    "programming_lang": "General",
     "root_keywords": [
       "AI Coding Agents",
-      "Plugins",
-      "Ecosystem"
+      "Claude Code",
+      "Plugin Ecosystem",
+      "Software Maintenance",
+      "Co-evolution"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "AI 코딩 에이전트 플러그인의 유지보수와 상호 진화 연구",
-        "hook": "Claude Code 생태계 내 플러그인 마켓플레이스를 분석하여 AI 코딩 도구의 확장성과 유지보수 패턴을 파악합니다.",
+        "title": "에이전트 플러그인의 유지보수 및 공진화에 관한 실증 연구: Claude Code 플러그인 마켓플레이스를 중심으로",
+        "hook": "AI 코딩 에이전트 플러그인 생태계의 실제 유지보수 및 생태계 변화 양상을 분석한 실증 연구 논문",
         "key_takeaways": [
-          "추론과 도구 사용을 자동화하는 AI 코딩 에이전트 확장 분석",
-          "Claude Code 플러그인 마켓플레이스의 구조적 특징 규명",
-          "플러그인 유지보수 및 상호 진화(co-evolution) 동향 실증 조사"
+          "AI 코딩 에이전트 마켓플레이스 내 플러그인의 구조적 특징과 의존성 관계 분석",
+          "에이전트 프레임워크 업데이트에 따른 플러그인 호환성 및 유지보수 패턴 실증 조사",
+          "지속 가능한 AI 에이전트 생태계 구축을 위한 소프트웨어 공학적 가이드라인 제시"
         ]
       },
       "en": {
-        "title": "Maintenance and Co-evolution of AI Coding Agent Plugins",
-        "hook": "An empirical look at Claude Code plugin marketplaces to understand AI developer tool ecosystems.",
+        "title": "On the Maintenance and Co-evolution of Agent Plugins: An Empirical Study of Claude Code Plugin Marketplaces",
+        "hook": "An empirical study exploring the structure, maintenance challenges, and co-evolution of AI coding agent plugin ecosystems.",
         "key_takeaways": [
-          "Examines AI coding agents extending capabilities via plugins",
-          "Analyzes structure of Claude Code plugin marketplaces",
-          "Investigates maintenance challenges and co-evolution patterns"
+          "Analyzes structural characteristics and dependency patterns in AI coding agent plugin marketplaces.",
+          "Investigates plugin compatibility and maintenance efforts driven by underlying agent framework updates.",
+          "Provides actionable software engineering insights for building sustainable AI agent ecosystems."
         ]
       },
       "zh": {
-        "title": "AI编码智能体插件的维护与协同演化研究",
-        "hook": "通过对Claude Code插件市场的实证研究，洞察AI开发工具生态的演进规律。",
+        "title": "智能体插件的维护与共同演化：Claude Code 插件市场的实证研究",
+        "hook": "针对 AI 编程智能体插件生态系统的结构、维护挑战与演化规律的实证研究",
         "key_takeaways": [
-          "探讨通过插件扩展AI代码智能体能力的现状",
-          "剖析Claude Code插件市场的底层结构",
-          "研究插件生态系统的维护难点与协同演化机制"
+          "分析 AI 编程智能体插件市场的结构特征与依赖关系",
+          "实证调查底层智能体框架更新对插件兼容性与维护工作的影响",
+          "为构建可持续的 AI 智能体生态系统提供软件工程方面的指导建议"
         ]
       }
     }
   },
   "source_lang": "EN",
-  "programming_lang": "TypeScript",
+  "programming_lang": "General",
   "root_keywords": [
     "AI Coding Agents",
-    "Plugins",
-    "Ecosystem"
+    "Claude Code",
+    "Plugin Ecosystem",
+    "Software Maintenance",
+    "Co-evolution"
   ],
-  "title_en": "Maintenance and Co-evolution of AI Coding Agent Plugins",
-  "title_zh": "AI编码智能体插件的维护与协同演化研究",
+  "title_en": "On the Maintenance and Co-evolution of Agent Plugins: An Empirical Study of Claude Code Plugin Marketplaces",
+  "title_zh": "智能体插件的维护与共同演化：Claude Code 插件市场的实证研究",
   "hook": "Claude Code 생태계 내 플러그인 마켓플레이스를 분석하여 AI 코딩 도구의 확장성과 유지보수 패턴을 파악합니다.",
-  "hook_ko": "Claude Code 생태계 내 플러그인 마켓플레이스를 분석하여 AI 코딩 도구의 확장성과 유지보수 패턴을 파악합니다.",
-  "hook_en": "An empirical look at Claude Code plugin marketplaces to understand AI developer tool ecosystems.",
-  "hook_zh": "通过对Claude Code插件市场的实证研究，洞察AI开发工具生态的演进规律。",
+  "hook_ko": "AI 코딩 에이전트 플러그인 생태계의 실제 유지보수 및 생태계 변화 양상을 분석한 실증 연구 논문",
+  "hook_en": "An empirical study exploring the structure, maintenance challenges, and co-evolution of AI coding agent plugin ecosystems.",
+  "hook_zh": "针对 AI 编程智能体插件生态系统的结构、维护挑战与演化规律的实证研究",
   "description_en": "An empirical look at Claude Code plugin marketplaces to understand AI developer tool ecosystems.",
-  "description_zh": "通过对Claude Code插件市场的实证研究，洞察AI开发工具生态的演进规律。"
+  "description_zh": "通过对Claude Code插件市场的实证研究，洞察AI开发工具生态的演进规律。",
+  "multilingual": {
+    "ko": {
+      "title": "에이전트 플러그인의 유지보수 및 공진화에 관한 실증 연구: Claude Code 플러그인 마켓플레이스를 중심으로",
+      "hook": "AI 코딩 에이전트 플러그인 생태계의 실제 유지보수 및 생태계 변화 양상을 분석한 실증 연구 논문",
+      "key_takeaways": [
+        "AI 코딩 에이전트 마켓플레이스 내 플러그인의 구조적 특징과 의존성 관계 분석",
+        "에이전트 프레임워크 업데이트에 따른 플러그인 호환성 및 유지보수 패턴 실증 조사",
+        "지속 가능한 AI 에이전트 생태계 구축을 위한 소프트웨어 공학적 가이드라인 제시"
+      ]
+    },
+    "en": {
+      "title": "On the Maintenance and Co-evolution of Agent Plugins: An Empirical Study of Claude Code Plugin Marketplaces",
+      "hook": "An empirical study exploring the structure, maintenance challenges, and co-evolution of AI coding agent plugin ecosystems.",
+      "key_takeaways": [
+        "Analyzes structural characteristics and dependency patterns in AI coding agent plugin marketplaces.",
+        "Investigates plugin compatibility and maintenance efforts driven by underlying agent framework updates.",
+        "Provides actionable software engineering insights for building sustainable AI agent ecosystems."
+      ]
+    },
+    "zh": {
+      "title": "智能体插件的维护与共同演化：Claude Code 插件市场的实证研究",
+      "hook": "针对 AI 编程智能体插件生态系统的结构、维护挑战与演化规律的实证研究",
+      "key_takeaways": [
+        "分析 AI 编程智能体插件市场的结构特征与依赖关系",
+        "实证调查底层智能体框架更新对插件兼容性与维护工作的影响",
+        "为构建可持续的 AI 智能体生态系统提供软件工程方面的指导建议"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.786317"
 }

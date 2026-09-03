@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "AGENT",
-  "title_ko": "소프트웨어 및 시스템 보안을 위한 LLM 기반 에이전트: 접근법, 응용 및 평가",
+  "title_ko": "소프트웨어 및 시스템 보안을 위한 LLM 기반 에이전트: 접근법, 응용 분야 및 평가",
   "description_ko": "보안 워크플로우를 자동화하는 LLM 에이전트의 현재와 미래를 체계적으로 정리한 필수 논문입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -47,62 +47,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_arxiv_llm_based_agents_for_software_and_syste",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "보안 에이전트 및 시스템 분석",
-    "programming_lang": "Python",
+    "type_classification": "TECH",
+    "model_family": "LLM Agents",
+    "category": "Cybersecurity & AI",
+    "programming_lang": "General",
     "root_keywords": [
       "LLM Agents",
       "Software Security",
-      "Systems Security"
+      "Systems Security",
+      "Automated Vulnerability Analysis",
+      "Security Workflows"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "소프트웨어 및 시스템 보안을 위한 LLM 기반 에이전트: 접근법, 응용 및 평가",
-        "hook": "보안 워크플로우를 자동화하는 LLM 에이전트의 현재와 미래를 체계적으로 정리한 필수 논문입니다.",
+        "title": "소프트웨어 및 시스템 보안을 위한 LLM 기반 에이전트: 접근법, 응용 분야 및 평가",
+        "hook": "보안 분석가의 추론 및 도구 활용 프로세스를 자동화하는 LLM 에이전트의 보안 분야 적용 현황 체계화",
         "key_takeaways": [
-          "이종 아티팩트 검사 및 가설 수립 등 보안 분석가의 절차적 작업 자동화",
-          "다양한 LLM 기반 보안 에이전트의 접근 방식 및 실제 응용 사례 분석",
-          "보안 에이전트 성능 평가를 위한 새로운 프레임워크 및 한계점 제시"
+          "이기종 아티팩트 분석, 가설 수립, 도구 실행, 계획 수정으로 이어지는 보안 분석 워크플로우의 에이전트화",
+          "취약점 탐지, 역공학, 패치 생성 등 소프트웨어 및 시스템 보안 분야에서의 LLM 에이전트 핵심 접근법 분류",
+          "현재 LLM 기반 보안 에이전트의 한계점과 실제 시스템 도입을 위한 신뢰성 평가 기준 제시"
         ]
       },
       "en": {
         "title": "LLM-Based Agents for Software and Systems Security: Approaches, Applications, and Assessment",
-        "hook": "A comprehensive survey on how LLM agents automate procedural software and systems security workflows.",
+        "hook": "A comprehensive survey on automating security analysis workflows using reasoning and tool-using LLM agents",
         "key_takeaways": [
-          "Automates procedural security workflows like artifact inspection and hypothesis generation",
-          "Reviews various approaches and real-world applications of LLM-driven security agents",
-          "Evaluates current assessment frameworks and open challenges in security agent evaluation"
+          "Formalization of procedural security workflows into autonomous LLM agent execution loops",
+          "Categorization of key applications including vulnerability discovery, reverse engineering, and automated patching",
+          "Assessment of current capabilities, reliability constraints, and future research benchmarks"
         ]
       },
       "zh": {
-        "title": "基于大语言模型的软件与系统安全智能体：方法、应用与评估",
-        "hook": "系统梳理利用大语言模型智能体自动化软件与系统安全工作流的必读综述。",
+        "title": "用于软件与系统安全的基于 LLM 的智能体：方法、应用与评估",
+        "hook": "系统梳理利用具备推理与工具调用能力的大模型智能体自动化安全分析流程的技术前沿",
         "key_takeaways": [
-          "自动化分析异构工件、生成假设等安全分析师的程序化工作流",
-          "深入探讨各类大语言模型安全智能体的方法论与实际应用案例",
-          "提出评估安全智能体性能的全新框架与未来挑战"
+          "将包含假说建立、工具调用与计划修正的安全分析流程转化为智能体工作流",
+          "分类归纳智能体在漏洞挖掘、逆向工程与自动补丁生成中的关键应用",
+          "评估当前 LLM 安全智能体的鲁棒性瓶颈与未来基准测试方向"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:29:08.255795+00:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
     "LLM Agents",
     "Software Security",
-    "Systems Security"
+    "Systems Security",
+    "Automated Vulnerability Analysis",
+    "Security Workflows"
   ],
   "title_en": "LLM-Based Agents for Software and Systems Security: Approaches, Applications, and Assessment",
-  "title_zh": "基于大语言模型的软件与系统安全智能体：方法、应用与评估",
+  "title_zh": "用于软件与系统安全的基于 LLM 的智能体：方法、应用与评估",
   "hook": "보안 워크플로우를 자동화하는 LLM 에이전트의 현재와 미래를 체계적으로 정리한 필수 논문입니다.",
-  "hook_ko": "보안 워크플로우를 자동화하는 LLM 에이전트의 현재와 미래를 체계적으로 정리한 필수 논문입니다.",
-  "hook_en": "A comprehensive survey on how LLM agents automate procedural software and systems security workflows.",
-  "hook_zh": "系统梳理利用大语言模型智能体自动化软件与系统安全工作流的必读综述。",
+  "hook_ko": "보안 분석가의 추론 및 도구 활용 프로세스를 자동화하는 LLM 에이전트의 보안 분야 적용 현황 체계화",
+  "hook_en": "A comprehensive survey on automating security analysis workflows using reasoning and tool-using LLM agents",
+  "hook_zh": "系统梳理利用具备推理与工具调用能力的大模型智能体自动化安全分析流程的技术前沿",
   "description_en": "A comprehensive survey on how LLM agents automate procedural software and systems security workflows.",
-  "description_zh": "系统梳理利用大语言模型智能体自动化软件与系统安全工作流的必读综述。"
+  "description_zh": "系统梳理利用大语言模型智能体自动化软件与系统安全工作流的必读综述。",
+  "multilingual": {
+    "ko": {
+      "title": "소프트웨어 및 시스템 보안을 위한 LLM 기반 에이전트: 접근법, 응용 분야 및 평가",
+      "hook": "보안 분석가의 추론 및 도구 활용 프로세스를 자동화하는 LLM 에이전트의 보안 분야 적용 현황 체계화",
+      "key_takeaways": [
+        "이기종 아티팩트 분석, 가설 수립, 도구 실행, 계획 수정으로 이어지는 보안 분석 워크플로우의 에이전트화",
+        "취약점 탐지, 역공학, 패치 생성 등 소프트웨어 및 시스템 보안 분야에서의 LLM 에이전트 핵심 접근법 분류",
+        "현재 LLM 기반 보안 에이전트의 한계점과 실제 시스템 도입을 위한 신뢰성 평가 기준 제시"
+      ]
+    },
+    "en": {
+      "title": "LLM-Based Agents for Software and Systems Security: Approaches, Applications, and Assessment",
+      "hook": "A comprehensive survey on automating security analysis workflows using reasoning and tool-using LLM agents",
+      "key_takeaways": [
+        "Formalization of procedural security workflows into autonomous LLM agent execution loops",
+        "Categorization of key applications including vulnerability discovery, reverse engineering, and automated patching",
+        "Assessment of current capabilities, reliability constraints, and future research benchmarks"
+      ]
+    },
+    "zh": {
+      "title": "用于软件与系统安全的基于 LLM 的智能体：方法、应用与评估",
+      "hook": "系统梳理利用具备推理与工具调用能力的大模型智能体自动化安全分析流程的技术前沿",
+      "key_takeaways": [
+        "将包含假说建立、工具调用与计划修正的安全分析流程转化为智能体工作流",
+        "分类归纳智能体在漏洞挖掘、逆向工程与自动补丁生成中的关键应用",
+        "评估当前 LLM 安全智能体的鲁棒性瓶颈与未来基准测试方向"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.783826"
 }

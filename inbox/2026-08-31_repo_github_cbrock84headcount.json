@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "AGENT",
-  "title_ko": "Headcount: 가상의 기업 형태로 구조화된 Claude Code 전용 에이전트 조직 프레임워크",
+  "title_ko": "Claude Code를 위한 회사 구조 기반 에이전트 프레임워크: Headcount",
   "description_ko": "15개 이상의 부서와 125개 이상의 독립 설치 가능한 스킬로 구성되어 Claude Code를 기업처럼 운영합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -47,64 +47,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_github_cbrock84headcount",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "AI 에이전트 오케스트레이션",
-    "programming_lang": "TypeScript",
+    "type_classification": "TECH",
+    "model_family": "Multi-Agent Frameworks",
+    "category": "AI Agents & Tools",
+    "programming_lang": "General",
     "root_keywords": [
       "Claude Code",
+      "Multi-Agent Architecture",
       "Agent Organization",
-      "Enterprise Structure",
-      "Skills"
+      "Modular Skills",
+      "LLM Orchestration"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.9,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Headcount: 가상의 기업 형태로 구조화된 Claude Code 전용 에이전트 조직 프레임워크",
-        "hook": "15개 이상의 부서와 125개 이상의 독립 설치 가능한 스킬로 구성되어 Claude Code를 기업처럼 운영합니다.",
+        "title": "Claude Code를 위한 회사 구조 기반 에이전트 프레임워크: Headcount",
+        "hook": "15개 이상의 부서와 125개 이상의 독립 스킬로 Claude Code 작업을 기업 단위로 모듈화",
         "key_takeaways": [
-          "Claude Code를 위한 멀티 에이전트 기업 조직형 아키텍처",
-          "15개 이상의 전문 부서와 125개 이상의 독립적 스킬 제공",
-          "대규모 복잡한 소프트웨어 프로젝트를 체계적인 부서별 에이전트에 위임"
+          "실제 기업 조직 체계(15개 이상 부서)를 모방하여 에이전트 역할과 책임을 명확히 분리",
+          "125개 이상의 독립적으로 설치 및 확장 가능한 모듈형 스킬 세트 제공",
+          "복잡한 코드 작성 및 업무 자동화 파이프라인을 부서별 전문 에이전트로 세분화하여 효율성 극대화"
         ]
       },
       "en": {
-        "title": "Headcount: Enterprise-Structured Agent Organization Framework for Claude Code",
-        "hook": "An agent organization structured like a company with 15+ departments and 125+ independently installable skills.",
+        "title": "Headcount: A Company-Structured Agent Organization for Claude Code",
+        "hook": "Organizes Claude Code workflows into a corporate structure with 15+ departments and 125+ modular skills.",
         "key_takeaways": [
-          "Designed specifically for Claude Code with a corporate organizational layout",
-          "Includes over 15 distinct departments and 125+ modular skills",
-          "Enables structured delegation for complex enterprise software development tasks"
+          "Architects Claude Code workflows around real-world functional company departments (15+ departments).",
+          "Features 125+ independently installable skills for tailored agent capability expansion.",
+          "Improves task execution efficiency by delegating complex engineering pipelines to domain-specific agents."
         ]
       },
       "zh": {
-        "title": "Headcount：为 Claude Code 设计的企业化智能体组织框架",
-        "hook": "将 Claude Code 构建为一家拥有 15+ 部门和 125+ 独立技能的虚拟AI公司组织。",
+        "title": "Headcount：面向 Claude Code 的公司化 Agent 组织架构",
+        "hook": "为 Claude Code 构建类公司组织架构，提供 15+ 个部门与 125+ 个可独立安装的技能模块。",
         "key_takeaways": [
-          "专门针对 Claude Code 的多智能体企业级组织架构",
-          "包含 15 个以上专业部门与 125 种可独立安装的技能模块",
-          "实现复杂软件研发任务的系统化部门分工与协作"
+          "采用企业级部门架构（15+ 部门）明确拆分 Claude Code 的各类任务职责",
+          "提供 125+ 个解耦且可独立安装的模块化 Agent 技能",
+          "通过专业化分工提升复杂软件工程与日常业务流程的自动化处理效率"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:29.955854+00:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "TypeScript",
+  "programming_lang": "General",
   "root_keywords": [
     "Claude Code",
+    "Multi-Agent Architecture",
     "Agent Organization",
-    "Enterprise Structure",
-    "Skills"
+    "Modular Skills",
+    "LLM Orchestration"
   ],
-  "title_en": "Headcount: Enterprise-Structured Agent Organization Framework for Claude Code",
-  "title_zh": "Headcount：为 Claude Code 设计的企业化智能体组织框架",
+  "title_en": "Headcount: A Company-Structured Agent Organization for Claude Code",
+  "title_zh": "Headcount：面向 Claude Code 的公司化 Agent 组织架构",
   "hook": "15개 이상의 부서와 125개 이상의 독립 설치 가능한 스킬로 구성되어 Claude Code를 기업처럼 운영합니다.",
-  "hook_ko": "15개 이상의 부서와 125개 이상의 독립 설치 가능한 스킬로 구성되어 Claude Code를 기업처럼 운영합니다.",
-  "hook_en": "An agent organization structured like a company with 15+ departments and 125+ independently installable skills.",
-  "hook_zh": "将 Claude Code 构建为一家拥有 15+ 部门和 125+ 独立技能的虚拟AI公司组织。",
+  "hook_ko": "15개 이상의 부서와 125개 이상의 독립 스킬로 Claude Code 작업을 기업 단위로 모듈화",
+  "hook_en": "Organizes Claude Code workflows into a corporate structure with 15+ departments and 125+ modular skills.",
+  "hook_zh": "为 Claude Code 构建类公司组织架构，提供 15+ 个部门与 125+ 个可独立安装的技能模块。",
   "description_en": "An agent organization structured like a company with 15+ departments and 125+ independently installable skills.",
-  "description_zh": "将 Claude Code 构建为一家拥有 15+ 部门和 125+ 独立技能的虚拟AI公司组织。"
+  "description_zh": "将 Claude Code 构建为一家拥有 15+ 部门和 125+ 独立技能的虚拟AI公司组织。",
+  "multilingual": {
+    "ko": {
+      "title": "Claude Code를 위한 회사 구조 기반 에이전트 프레임워크: Headcount",
+      "hook": "15개 이상의 부서와 125개 이상의 독립 스킬로 Claude Code 작업을 기업 단위로 모듈화",
+      "key_takeaways": [
+        "실제 기업 조직 체계(15개 이상 부서)를 모방하여 에이전트 역할과 책임을 명확히 분리",
+        "125개 이상의 독립적으로 설치 및 확장 가능한 모듈형 스킬 세트 제공",
+        "복잡한 코드 작성 및 업무 자동화 파이프라인을 부서별 전문 에이전트로 세분화하여 효율성 극대화"
+      ]
+    },
+    "en": {
+      "title": "Headcount: A Company-Structured Agent Organization for Claude Code",
+      "hook": "Organizes Claude Code workflows into a corporate structure with 15+ departments and 125+ modular skills.",
+      "key_takeaways": [
+        "Architects Claude Code workflows around real-world functional company departments (15+ departments).",
+        "Features 125+ independently installable skills for tailored agent capability expansion.",
+        "Improves task execution efficiency by delegating complex engineering pipelines to domain-specific agents."
+      ]
+    },
+    "zh": {
+      "title": "Headcount：面向 Claude Code 的公司化 Agent 组织架构",
+      "hook": "为 Claude Code 构建类公司组织架构，提供 15+ 个部门与 125+ 个可独立安装的技能模块。",
+      "key_takeaways": [
+        "采用企业级部门架构（15+ 部门）明确拆分 Claude Code 的各类任务职责",
+        "提供 125+ 个解耦且可独立安装的模块化 Agent 技能",
+        "通过专业化分工提升复杂软件工程与日常业务流程的自动化处理效率"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.798501"
 }

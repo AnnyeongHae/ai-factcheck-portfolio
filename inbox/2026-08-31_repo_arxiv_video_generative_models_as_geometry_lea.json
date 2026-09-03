@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "비디오 생성 모델을 기하학 학습기로 활용하기",
+  "title_ko": "기하학 학습기로서의 비디오 생성 모델",
   "description_ko": "사전학습된 비디오 및 이미지 디퓨전 모델을 활용하여 복잡한 3D 기하학 추정 성능을 극대화하는 혁신적인 접근법을 확인하세요.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -49,61 +49,92 @@
     "id": "2026-08-31_repo_arxiv_video_generative_models_as_geometry_lea",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "3D/영상 생성",
+    "model_family": "Diffusion Models",
+    "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
-      "Video Generation",
-      "Geometry Estimation",
-      "Diffusion Models"
+      "video generative models",
+      "geometry estimation",
+      "diffusion models",
+      "3D reconstruction"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.1,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "비디오 생성 모델을 기하학 학습기로 활용하기",
-        "hook": "사전학습된 비디오 및 이미지 디퓨전 모델을 활용하여 복잡한 3D 기하학 추정 성능을 극대화하는 혁신적인 접근법을 확인하세요.",
+        "title": "기하학 학습기로서의 비디오 생성 모델",
+        "hook": "비디오 생성 모델의 시간적 일관성을 활용하여 정밀한 3D 기하학 및 깊이 정보를 추정하는 새로운 접근법",
         "key_takeaways": [
-          "기존 이미지 디퓨전 모델을 기하학 추정 작업에 적응시키는 새로운 패러다임",
-          "조건부 생성(Conditioned Generation)을 통한 공간 인식 능력 향상",
-          "컴퓨터 비전 및 3D 씬 Reconstruction 분야의 효율성 제고"
+          "기존 이미지 diffusion 모델 중심의 3D 추정 방식을 비디오 생성 모델 기반으로 확장",
+          "비디오 모델이 가진 시간적·시공간적 표현력을 통해 다중 시점(Multi-view) 3D 일관성 대폭 향상",
+          "복잡한 장면 및 동적 객체에 대한 고품질 기하 구조(Geometry) 복원 능력 입증"
         ]
       },
       "en": {
-        "title": "Video Generative Models as Geometry Learners",
-        "hook": "Discover how adapting pretrained diffusion models unlocks powerful 3D geometry estimation capabilities from video data.",
+        "title": "Video Generative Models as Geometry Learner",
+        "hook": "Leveraging pretrained video diffusion models to learn highly consistent multi-view 3D geometry representation",
         "key_takeaways": [
-          "Adapts pretrained image/video diffusion models for geometry estimation tasks",
-          "Treats spatial understanding as image-conditioned generation",
-          "Significantly improves 3D reconstruction and spatial awareness in CV"
+          "Extends image-conditioned diffusion approaches by leveraging temporal features of video generative models",
+          "Achieves superior multi-view 3D consistency by harnessing spatiotemporal priors inherent in video architectures",
+          "Demonstrates robust performance in depth estimation and complex 3D scene reconstruction"
         ]
       },
       "zh": {
-        "title": "将视频生成模型作为几何学习器",
-        "hook": "探索如何利用预训练扩散模型，将视频生成转化为强大的3D几何估计任务。",
+        "title": "作为几何学习者的视频生成模型",
+        "hook": "利用预训练视频生成模型提取高级时空特征，实现精确的三维几何与深度估计",
         "key_takeaways": [
-          "将现有的图像/视频扩散模型适配于几何估计任务",
-          "把空间理解视为条件图像生成问题",
-          "显著提升计算机视觉中的3D重建与空间感知能力"
+          "突破传统的图像扩散模型限制，将视频生成模型用于 3D 几何结构学习",
+          "利用视频模型自带的时空先验显著提升多视角（Multi-view）3D 一致性",
+          "在复杂与动态场景的深度估计与 3D 重建任务中表现出色"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:55.551238+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Video Generation",
-    "Geometry Estimation",
-    "Diffusion Models"
+    "video generative models",
+    "geometry estimation",
+    "diffusion models",
+    "3D reconstruction"
   ],
-  "title_en": "Video Generative Models as Geometry Learners",
-  "title_zh": "将视频生成模型作为几何学习器",
+  "title_en": "Video Generative Models as Geometry Learner",
+  "title_zh": "作为几何学习者的视频生成模型",
   "hook": "사전학습된 비디오 및 이미지 디퓨전 모델을 활용하여 복잡한 3D 기하학 추정 성능을 극대화하는 혁신적인 접근법을 확인하세요.",
-  "hook_ko": "사전학습된 비디오 및 이미지 디퓨전 모델을 활용하여 복잡한 3D 기하학 추정 성능을 극대화하는 혁신적인 접근법을 확인하세요.",
-  "hook_en": "Discover how adapting pretrained diffusion models unlocks powerful 3D geometry estimation capabilities from video data.",
-  "hook_zh": "探索如何利用预训练扩散模型，将视频生成转化为强大的3D几何估计任务。",
+  "hook_ko": "비디오 생성 모델의 시간적 일관성을 활용하여 정밀한 3D 기하학 및 깊이 정보를 추정하는 새로운 접근법",
+  "hook_en": "Leveraging pretrained video diffusion models to learn highly consistent multi-view 3D geometry representation",
+  "hook_zh": "利用预训练视频生成模型提取高级时空特征，实现精确的三维几何与深度估计",
   "description_en": "Discover how adapting pretrained diffusion models unlocks powerful 3D geometry estimation capabilities from video data.",
-  "description_zh": "探索如何利用预训练扩散模型，将视频生成转化为强大的3D几何估计任务。"
+  "description_zh": "探索如何利用预训练扩散模型，将视频生成转化为强大的3D几何估计任务。",
+  "multilingual": {
+    "ko": {
+      "title": "기하학 학습기로서의 비디오 생성 모델",
+      "hook": "비디오 생성 모델의 시간적 일관성을 활용하여 정밀한 3D 기하학 및 깊이 정보를 추정하는 새로운 접근법",
+      "key_takeaways": [
+        "기존 이미지 diffusion 모델 중심의 3D 추정 방식을 비디오 생성 모델 기반으로 확장",
+        "비디오 모델이 가진 시간적·시공간적 표현력을 통해 다중 시점(Multi-view) 3D 일관성 대폭 향상",
+        "복잡한 장면 및 동적 객체에 대한 고품질 기하 구조(Geometry) 복원 능력 입증"
+      ]
+    },
+    "en": {
+      "title": "Video Generative Models as Geometry Learner",
+      "hook": "Leveraging pretrained video diffusion models to learn highly consistent multi-view 3D geometry representation",
+      "key_takeaways": [
+        "Extends image-conditioned diffusion approaches by leveraging temporal features of video generative models",
+        "Achieves superior multi-view 3D consistency by harnessing spatiotemporal priors inherent in video architectures",
+        "Demonstrates robust performance in depth estimation and complex 3D scene reconstruction"
+      ]
+    },
+    "zh": {
+      "title": "作为几何学习者的视频生成模型",
+      "hook": "利用预训练视频生成模型提取高级时空特征，实现精确的三维几何与深度估计",
+      "key_takeaways": [
+        "突破传统的图像扩散模型限制，将视频生成模型用于 3D 几何结构学习",
+        "利用视频模型自带的时空先验显著提升多视角（Multi-view）3D 一致性",
+        "在复杂与动态场景的深度估计与 3D 重建任务中表现出色"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.789919"
 }

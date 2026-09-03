@@ -23,7 +23,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "InstructMesh: 제작을 위한 생성형 3D 모델의 선택적 정제",
+  "title_ko": "InstructMesh: 실물 제조를 위한 생성형 3D 모델의 선택적 기하 정밀화",
   "description_ko": "시각적 타당성에만 치우친 생성형 3D 모델의 기하학적 결함을 정밀하게 보정하는 기술입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -49,61 +49,94 @@
     "id": "2026-08-31_repo_arxiv_instructmesh_selective_refinement_of_ge",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "3D 생성 및 비전 AI",
+    "model_family": "3D Generative AI",
+    "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
-      "Generative 3D Models",
-      "Mesh Refinement",
+      "3D Mesh Refinement",
+      "Generative AI",
+      "Selective Refinement",
+      "Digital Fabrication",
       "Geometric Accuracy"
     ],
-    "recommended_tag": "💡 유용한 도구",
+    "recommended_tag": "📝 기술 참고",
     "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "InstructMesh: 제작을 위한 생성형 3D 모델의 선택적 정제",
-        "hook": "시각적 타당성에만 치우친 생성형 3D 모델의 기하학적 결함을 정밀하게 보정하는 기술입니다.",
+        "title": "InstructMesh: 실물 제조를 위한 생성형 3D 모델의 선택적 기하 정밀화",
+        "hook": "생성형 AI가 만든 3D 모델의 기하학적 결함을 선택적으로 수정하여 실제 3D 출력 및 제조에 적합하게 정밀화하는 기술",
         "key_takeaways": [
-          "텍스트/이미지 기반 생성형 3D 모델의 기하학적 정확도 한계 극복",
-          "실제 제작(Fabrication)에 적합하도록 메쉬(Mesh)를 선택적으로 정제하는 알고리즘",
-          "시각적 품질과 구조적 무결성을 동시에 만족시키는 결과물 생성"
+          "시각적 완성도에 치우친 기존 3D 생성 AI의 구조적/기하학적 오류 문제 해결",
+          "전체 재구성 없이 결함이 있는 메쉬 영역만 선택적으로 보정하는 Selective Refinement 기법 적용",
+          "실제 3D 프린팅 및 제조(Fabrication) 파이프라인에 즉시 투입 가능한 정밀 3D 모델 제작 가능"
         ]
       },
       "en": {
         "title": "InstructMesh: Selective Refinement of Generative 3D Models for Fabrication",
-        "hook": "A novel technique to selectively refine generative 3D meshes for high geometric accuracy in fabrication.",
+        "hook": "Selectively refines geometric defects in AI-generated 3D models to make them physically fabricable and ready for 3D printing.",
         "key_takeaways": [
-          "Addresses the geometric inaccuracy of visual-first generative 3D models",
-          "Introduces selective mesh refinement specifically tailored for fabrication",
-          "Achieves a balance between visual plausibility and structural integrity"
+          "Solves the issue where 3D generative AI prioritizes visual plausibility over geometric precision.",
+          "Applies a selective refinement mechanism to correct local mesh defects without losing global structure.",
+          "Bridging the gap between text/image-to-3D generation and practical physical manufacturing."
         ]
       },
       "zh": {
-        "title": "InstructMesh：面向制造的生成式3D模型选择性精炼",
-        "hook": "精准修复过度侧重视觉合理性而忽视几何精度的生成式3D模型的底层技术。",
+        "title": "InstructMesh：面向实际制造的生成式 3D 模型选择性精细化",
+        "hook": "针对 AI 生成 3D 模型中的几何缺陷提供选择性修复，使其符合实际 3D 打印与制造标准",
         "key_takeaways": [
-          "克服文本或图像生成3D模型在几何精度上的根本缺陷",
-          "提出专为实际制造设计网格（Mesh）选择性精炼的新方法",
-          "实现视觉逼真度与结构几何准确性的完美平衡"
+          "解决 3D 生成模型过度追求视觉逼真而缺乏几何精度的难题",
+          "采用选择性精细化机制（Selective Refinement），在保留整体外观的同时局部修补网格缺陷",
+          "打通了文本/图像生成 3D 模型与物理制造之间的实际落地瓶颈"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:29:08.256606+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Generative 3D Models",
-    "Mesh Refinement",
+    "3D Mesh Refinement",
+    "Generative AI",
+    "Selective Refinement",
+    "Digital Fabrication",
     "Geometric Accuracy"
   ],
   "title_en": "InstructMesh: Selective Refinement of Generative 3D Models for Fabrication",
-  "title_zh": "InstructMesh：面向制造的生成式3D模型选择性精炼",
+  "title_zh": "InstructMesh：面向实际制造的生成式 3D 模型选择性精细化",
   "hook": "시각적 타당성에만 치우친 생성형 3D 모델의 기하학적 결함을 정밀하게 보정하는 기술입니다.",
-  "hook_ko": "시각적 타당성에만 치우친 생성형 3D 모델의 기하학적 결함을 정밀하게 보정하는 기술입니다.",
-  "hook_en": "A novel technique to selectively refine generative 3D meshes for high geometric accuracy in fabrication.",
-  "hook_zh": "精准修复过度侧重视觉合理性而忽视几何精度的生成式3D模型的底层技术。",
+  "hook_ko": "생성형 AI가 만든 3D 모델의 기하학적 결함을 선택적으로 수정하여 실제 3D 출력 및 제조에 적합하게 정밀화하는 기술",
+  "hook_en": "Selectively refines geometric defects in AI-generated 3D models to make them physically fabricable and ready for 3D printing.",
+  "hook_zh": "针对 AI 生成 3D 模型中的几何缺陷提供选择性修复，使其符合实际 3D 打印与制造标准",
   "description_en": "A novel technique to selectively refine generative 3D meshes for high geometric accuracy in fabrication.",
-  "description_zh": "精准修复过度侧重视觉合理性而忽视几何精度的生成式3D模型的底层技术。"
+  "description_zh": "精准修复过度侧重视觉合理性而忽视几何精度的生成式3D模型的底层技术。",
+  "multilingual": {
+    "ko": {
+      "title": "InstructMesh: 실물 제조를 위한 생성형 3D 모델의 선택적 기하 정밀화",
+      "hook": "생성형 AI가 만든 3D 모델의 기하학적 결함을 선택적으로 수정하여 실제 3D 출력 및 제조에 적합하게 정밀화하는 기술",
+      "key_takeaways": [
+        "시각적 완성도에 치우친 기존 3D 생성 AI의 구조적/기하학적 오류 문제 해결",
+        "전체 재구성 없이 결함이 있는 메쉬 영역만 선택적으로 보정하는 Selective Refinement 기법 적용",
+        "실제 3D 프린팅 및 제조(Fabrication) 파이프라인에 즉시 투입 가능한 정밀 3D 모델 제작 가능"
+      ]
+    },
+    "en": {
+      "title": "InstructMesh: Selective Refinement of Generative 3D Models for Fabrication",
+      "hook": "Selectively refines geometric defects in AI-generated 3D models to make them physically fabricable and ready for 3D printing.",
+      "key_takeaways": [
+        "Solves the issue where 3D generative AI prioritizes visual plausibility over geometric precision.",
+        "Applies a selective refinement mechanism to correct local mesh defects without losing global structure.",
+        "Bridging the gap between text/image-to-3D generation and practical physical manufacturing."
+      ]
+    },
+    "zh": {
+      "title": "InstructMesh：面向实际制造的生成式 3D 模型选择性精细化",
+      "hook": "针对 AI 生成 3D 模型中的几何缺陷提供选择性修复，使其符合实际 3D 打印与制造标准",
+      "key_takeaways": [
+        "解决 3D 生成模型过度追求视觉逼真而缺乏几何精度的难题",
+        "采用选择性精细化机制（Selective Refinement），在保留整体外观的同时局部修补网格缺陷",
+        "打通了文本/图像生成 3D 模型与物理制造之间的实际落地瓶颈"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.781231"
 }

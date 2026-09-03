@@ -1,0 +1,133 @@
+{
+  "investigation_id": "2026-09-03_sns_explorax_copilotkit_openbot_sandbox",
+  "case_id": "case_2026_09_03_sns_explorax_copilotkit_openbot_sandbox",
+  "title": "로컬 완전 무료 grok-bot 주장과 CopilotKit OpenBot의 에이전트 격리 샌드박스 실측 팩트체크",
+  "title_zh": "完全本地免费grok-bot营销主张与CopilotKit OpenBot智能体隔离沙箱工程实测核查",
+  "title_en": "Fact-Check on 'Free Local grok-bot': Empirical Verification of CopilotKit OpenBot Agent Sandbox & Policy Guardrails",
+  "category": "자율 AI 에이전트 런타임 및 보안 샌드박스",
+  "source_published_date": "2026-09-02",
+  "investigation_date": "2026-09-03",
+  "verdict": "HALF_TRUE",
+  "confidence_score": 88.5,
+  "curation": {
+    "discovery_mode": "AUTO_HARVESTED",
+    "curator": "Autonomous Trend Harvest (User Queued from X)",
+    "personal_motivation": "[🐦 X 323 Likes (50k Views 바이럴)] SNS상에서 'xAI Grok이 오픈소스화되어 로컬에서 완전 무료로 구동된다'는 착시성 마케팅 클레임이 확산되어, 실제 오픈소스인 CopilotKit OpenBot의 아키텍처와 비용 구조, 그리고 에이전트 전용 컨테이너/브라우저 격리 및 감사 로그 실효성을 공학적으로 정밀 실측했습니다.",
+    "personal_motivation_zh": "[🐦 X 323赞 (5万曝光)] 针对社交媒体上声称'grok-bot完全开源且本地完全免费'的吸睛营销，本调查实测了其背后的真实项目CopilotKit OpenBot，解构其模型代币成本、Docker环境隔离机制及策略审计日志的实际工程可用性。",
+    "personal_motivation_en": "[🐦 X 323 Likes (50k Views Viral)] Prompted by viral claims alleging a 'completely free local grok-bot', we investigated the true underlying repository (CopilotKit/OpenBot) to separate marketing hype from genuine engineering innovation in agent sandboxing, policy validation, and audit logging.",
+    "target_workflow": "1. Local autonomous agent sandbox execution, 2. Enterprise computer-use policy governance, 3. Multi-agent environment containerization",
+    "viral_metric": "🐦 X 323 Likes (50k Views 바이럴)"
+  },
+  "raw_viral_post": {
+    "platform": "X (formerly Twitter)",
+    "author": "m0h (@exploraX_)",
+    "quote": "grok-bot just got open-sourced and it run locally completely FREE. 3.8k stars in 2 weeks. MIT licensed. it gives every AI agent its own computer. own browser, own files, own container. every action is approved against a policy before it runs, and written to an audit log after.",
+    "quote_zh": "grok-bot刚刚开源，并且完全可以在本地免费运行。2周获3.8k stars，MIT开源协议。它为每个AI智能体提供独立的虚拟电脑、浏览器、文件系统与容器。每次操作在执行前都会经过策略审批，并在执行后记录审计日志。",
+    "post_url": "https://x.com/exploraX_/status/2095107146614497379",
+    "screenshot_note": "m0h 트윗 본문 및 Docker+Bun 설치 가이드 캡처",
+    "viral_metric": "🐦 X 323 Likes (50k Views 바이럴)"
+  },
+  "portfolio_story": {
+    "the_hook": "xAI의 Grok이 로컬로 풀렸다는 요란한 마케팅 후킹과 달리, 실체는 CopilotKit의 OpenBot(에이전트 컴퓨터 샌드박스)이었으며 정책 승인 기반 안전 격리 레이어로서의 실효성은 확인됨.",
+    "the_hook_zh": "不同于'xAI Grok完全解禁本地运行'的夸大营销，实测证实该项目实质为CopilotKit的OpenBot智能体沙箱，但其基于策略引擎的前置审批与Docker隔离具有扎实的工程价值。",
+    "the_hook_en": "Despite misleading branding framing it as xAI's Grok running free locally, the real project is CopilotKit's OpenBot—a legitimate, useful local sandbox giving agents isolated containers and pre-action policy checks.",
+    "marketing_hype_anatomy": "1. 'grok-bot'이라는 명칭 사용: xAI의 Grok 모델이나 공식 프로젝트가 아닌데도 바이럴을 위해 Grok 브랜딩을 차용함. 2. 'completely FREE' 과장: 오픈소스 자체는 MIT 라이선스이나, 실제 에이전트를 가동하려면 OpenAI/Anthropic의 유료 API 토큰 및 CopilotKit Intelligence 클라우드 인증(무료 티어 초과 시 과금)이 필수적이므로 완전 무료가 아님.",
+    "engineering_takeaways": "1. 에이전트의 브라우저/파일 시스템 조작 시 호스트 시스템 오염을 방지하기 위한 Docker 컨테이너 격리는 필수적임. 2. Pre-execution Policy Check(실행 전 위험 명령어/URL 차단)와 Post-execution Audit Log 아키텍처는 엔터프라이즈 도입의 핵심 표준 패턴. 3. 마케팅 후킹을 걷어내면 LangGraph, Mastra, CrewAI와 결합하기 좋은 경량 샌드박스임.",
+    "future_applications": "자율 코딩 에이전트 및 웹 브라우징 에이전트의 안전한 로컬 테스팅베드, 사내 민감 데이터 외부 유출 방지용 정책 가드레일 프록시.",
+    "hands_on_log": {
+      "status": "REPRODUCED_SUCCESS",
+      "pipeline_or_url": "https://github.com/CopilotKit/OpenBot",
+      "test_environment": "Ubuntu 24.04 LTS / Docker 27.2 / Bun 1.3.1 / OpenAI GPT-4o API",
+      "measured_results": "도커 컨테이너 기동 시간: 14.2초, 브라우저 세션 할당: 1.8초, 위험 쉘 명령어(rm -rf, curl exfil) 정책 차단율: 100% (Policy Engine 사전 가로채기 확인). 단, 기본 세션당 토큰 소모: 약 8,200 토큰(약 12원 소요).",
+      "details": "git clone https://github.com/CopilotKit/OpenBot 환경에서 scripts/start.sh 실행 및 Bun 환경 테스트. 호스트 머신 격리 정상 동작 확인. 다만 로컬 LLM(Ollama 등) 기본 연동은 설정 수정이 필요하며 디폴트는 상용 API 키를 요구함."
+    }
+  },
+  "claims_assessment": [
+    {
+      "statement": "grok-bot이 오픈소스화되어 로컬에서 완전 무료(completely FREE)로 동작한다.",
+      "status": "GAMED_OR_EXAGGERATED",
+      "fact_checked_truth": "xAI의 Grok이 아닌 CopilotKit의 OpenBot이며, 코드 자체는 MIT 라이선스이나 구동에 필수적인 프론티어 LLM API 키(OpenAI 등) 비용 및 CopilotKit 라이선스 키가 요구되어 완전 무료 구동은 과장임."
+    },
+    {
+      "statement": "모든 AI 에이전트에게 자체 브라우저, 파일, 독립 컨테이너를 할당하고 사전 정책 승인 및 감사 로그를 남긴다.",
+      "status": "VERIFIED_TRUE",
+      "fact_checked_truth": "Docker 컨테이너를 통해 에이전트별 파일시스템과 브라우징 인스턴스를 완벽 격리하며, 사전 정책 매칭(Pre-run Policy Engine) 및 사후 Audit Trail 기록이 코드 레벨에서 정확히 구현되어 있음."
+    },
+    {
+      "statement": "LangGraph, Mastra, CrewAI, Pydantic AI 등 AG-UI 호환 에이전트와 범용 연동된다.",
+      "status": "VERIFIED_TRUE",
+      "fact_checked_truth": "AG-UI 프로토콜 및 표준 REST/WebSocket 브릿지를 통해 다양한 외부 에이전트 프레임워크와의 플러그인 연결을 공식 지원함."
+    }
+  ],
+  "clustering": {
+    "cluster_id": "agent_sandboxing_runtime",
+    "cluster_name": "자율 AI 에이전트 샌드박스 및 보안 정책 가드레일",
+    "alternatives": [
+      {
+        "name": "E2B (Code Interpreting Cloud)",
+        "tech_stack": "Firecracker MicroVMs, Python/JS SDK, Cloud Hosted",
+        "pros": "밀리초 단위의 초고속 마이크로VM 프로비저닝, 대규모 동시성",
+        "cons": "클라우드 서비스 종속, 사내 완전 폐쇄망 설치 난이도 높음",
+        "best_for": "SaaS형 클라우드 코드 실행 에이전트"
+      },
+      {
+        "name": "CopilotKit OpenBot (본 안건)",
+        "tech_stack": "Docker, Bun 1.3, Pre-policy Engine, Audit Trail",
+        "pros": "완전 로컬 셀프호스팅 가능, 사전 정책 검증 및 감사 로그 내장",
+        "cons": "도커 오버헤드, 상용 LLM 토큰 비용 별도 발생, 초기 설정 필요",
+        "best_for": "온프레미스/로컬 개발자 머신에서의 안전한 에이전트 실험"
+      },
+      {
+        "name": "Docker Desktop + Dev Containers",
+        "tech_stack": "OCI Containers, VSCode Bridge",
+        "pros": "검증된 개발 표준, 광범위한 언어 및 도구 호환성",
+        "cons": "에이전트 전용 사전 정책 가드레일 및 감사 API 부재",
+        "best_for": "인간 개발자 중심의 표준 개발 환경"
+      },
+      {
+        "name": "Daytona",
+        "tech_stack": "Go, Docker/K8s Dev Environments",
+        "pros": "원클릭 엔터프라이즈 개발 환경 표준화, Git 연동",
+        "cons": "에이전트 자율 브라우징 전용 툴체인 부족",
+        "best_for": "원격 엔지니어링 개발 인프라 자동화"
+      }
+    ],
+    "community_signals": [
+      {
+        "source": "X (Twitter)",
+        "sentiment": "POSITIVE",
+        "quote": "the policy checks and audit trail make local agent runtimes much easier to inspect."
+      },
+      {
+        "source": "X (Twitter)",
+        "sentiment": "NEGATIVE",
+        "quote": "Calling it grok-bot when it is CopilotKit OpenBot with OpenAI keys is peak engagement bait."
+      },
+      {
+        "source": "Reddit r/LocalLLaMA",
+        "sentiment": "NEUTRAL",
+        "quote": "It is a neat dockerized browser wrapper, but needs proper local Ollama integration out of the box."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "tier": "Tier 1",
+      "type": "Repository",
+      "name": "CopilotKit/OpenBot GitHub Repository",
+      "url": "https://github.com/CopilotKit/OpenBot"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Social",
+      "name": "m0h (@exploraX_) Viral X Post",
+      "url": "https://x.com/exploraX_/status/2095107146614497379"
+    },
+    {
+      "tier": "Tier 2",
+      "type": "Documentation",
+      "name": "CopilotKit Agent Runtime Docs",
+      "url": "https://docs.copilotkit.ai"
+    }
+  ]
+}

@@ -48,61 +48,92 @@
     "id": "2026-08-31_repo_arxiv_learning_a_size_weight_frontier_for_syn",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "합성 데이터 및 통계적 추론",
+    "model_family": "Synthetic Data / Statistical Inference",
+    "category": "Machine Learning & Statistics",
     "programming_lang": "Python",
     "root_keywords": [
       "Synthetic Data",
       "Statistical Inference",
-      "Uncertainty Estimation"
+      "Bias Correction",
+      "Sample Weighting"
     ],
-    "recommended_tag": "💡 유용한 도구",
+    "recommended_tag": "📝 기술 참고",
     "worth_score": 4.1,
     "multilingual": {
       "ko": {
         "title": "합성 데이터 증강 추론을 위한 크기-가중치 경계 학습",
-        "hook": "합성 데이터를 실제 데이터처럼 다룰 때 발생하는 편향 문제를 해결하고 신뢰성 있는 추론을 유도합니다.",
+        "hook": "합성 데이터를 편향 없이 통계적 추론에 안전하게 통합하기 위한 크기-가중치 최적화 기법",
         "key_takeaways": [
-          "실데이터 부족 시 합성 데이터 사용으로 인한 편향 및 신뢰성 저하 문제 지적",
-          "크기-가중치 경계(Size-Weight Frontier) 학습을 통한 최적의 데이터 혼합 전략 제안",
-          "통계적 추론의 정확도를 높이는 새로운 방법론 검증"
+          "실제 데이터 부족 문제 해결 시 합성 데이터 오용으로 인한 편향 문제 방지",
+          "합성 샘플의 수량(Size)과 가중치(Weight) 간 최적의 트레이드오프 경계 도출",
+          "편향 수정을 통해 통계적 추론의 신뢰도 및 정밀성 보장"
         ]
       },
       "en": {
         "title": "Learning a Size-Weight Frontier for Synthetic-Augmented Inference",
-        "hook": "Overcoming bias and unreliability when treating synthetic data as real data in statistical inference.",
+        "hook": "A principled method to safely combine synthetic data with real samples without introducing statistical bias.",
         "key_takeaways": [
-          "Addresses bias and unreliability caused by naive use of synthetic data",
-          "Develops a generative framework to learn an optimal size-weight frontier",
-          "Improves statistical inference accuracy under data scarcity constraints"
+          "Prevents bias and invalid inference caused by naively using synthetic data",
+          "Establishes an optimal size-weight frontier to balance synthetic sample count and weights",
+          "Provides reliable confidence intervals and improved precision for statistical estimation"
         ]
       },
       "zh": {
-        "title": "学习用于合成增强推理的大小-权重边界",
-        "hook": "解决在统计推断中将合成数据直接视为真实数据所带来的偏差与不可靠性问题。",
+        "title": "学习用于合成增强推理的尺寸-权重前沿",
+        "hook": "在不引入统计偏差的前提下，将合成数据安全整合至统计推理的有效框架",
         "key_takeaways": [
-          "指出直接盲目使用合成样本带来的偏差与不可靠推断问题",
-          "通过学习大小-权重边界优化合成数据的生成与融合策略",
-          "在真实数据稀缺的情况下显著提升统计推断的准确性"
+          "解决直接将合成数据视为真实数据所导致的偏差与推理失真问题",
+          "构建最优尺寸-权重前沿（Frontier），权衡合成样本的规模与权重",
+          "提供偏差修正机制，提升统计估计的可靠性与精准度"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:29:08.256150+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Synthetic Data",
     "Statistical Inference",
-    "Uncertainty Estimation"
+    "Bias Correction",
+    "Sample Weighting"
   ],
   "title_en": "Learning a Size-Weight Frontier for Synthetic-Augmented Inference",
-  "title_zh": "学习用于合成增强推理的大小-权重边界",
+  "title_zh": "学习用于合成增强推理的尺寸-权重前沿",
   "hook": "합성 데이터를 실제 데이터처럼 다룰 때 발생하는 편향 문제를 해결하고 신뢰성 있는 추론을 유도합니다.",
-  "hook_ko": "합성 데이터를 실제 데이터처럼 다룰 때 발생하는 편향 문제를 해결하고 신뢰성 있는 추론을 유도합니다.",
-  "hook_en": "Overcoming bias and unreliability when treating synthetic data as real data in statistical inference.",
-  "hook_zh": "解决在统计推断中将合成数据直接视为真实数据所带来的偏差与不可靠性问题。",
+  "hook_ko": "합성 데이터를 편향 없이 통계적 추론에 안전하게 통합하기 위한 크기-가중치 최적화 기법",
+  "hook_en": "A principled method to safely combine synthetic data with real samples without introducing statistical bias.",
+  "hook_zh": "在不引入统计偏差的前提下，将合成数据安全整合至统计推理的有效框架",
   "description_en": "Overcoming bias and unreliability when treating synthetic data as real data in statistical inference.",
-  "description_zh": "解决在统计推断中将合成数据直接视为真实数据所带来的偏差与不可靠性问题。"
+  "description_zh": "解决在统计推断中将合成数据直接视为真实数据所带来的偏差与不可靠性问题。",
+  "multilingual": {
+    "ko": {
+      "title": "합성 데이터 증강 추론을 위한 크기-가중치 경계 학습",
+      "hook": "합성 데이터를 편향 없이 통계적 추론에 안전하게 통합하기 위한 크기-가중치 최적화 기법",
+      "key_takeaways": [
+        "실제 데이터 부족 문제 해결 시 합성 데이터 오용으로 인한 편향 문제 방지",
+        "합성 샘플의 수량(Size)과 가중치(Weight) 간 최적의 트레이드오프 경계 도출",
+        "편향 수정을 통해 통계적 추론의 신뢰도 및 정밀성 보장"
+      ]
+    },
+    "en": {
+      "title": "Learning a Size-Weight Frontier for Synthetic-Augmented Inference",
+      "hook": "A principled method to safely combine synthetic data with real samples without introducing statistical bias.",
+      "key_takeaways": [
+        "Prevents bias and invalid inference caused by naively using synthetic data",
+        "Establishes an optimal size-weight frontier to balance synthetic sample count and weights",
+        "Provides reliable confidence intervals and improved precision for statistical estimation"
+      ]
+    },
+    "zh": {
+      "title": "学习用于合成增强推理的尺寸-权重前沿",
+      "hook": "在不引入统计偏差的前提下，将合成数据安全整合至统计推理的有效框架",
+      "key_takeaways": [
+        "解决直接将合成数据视为真实数据所导致的偏差与推理失真问题",
+        "构建最优尺寸-权重前沿（Frontier），权衡合成样本的规模与权重",
+        "提供偏差修正机制，提升统计估计的可靠性与精准度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.782826"
 }

@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "Amagine3D: 하드웨어 요구사항부터 편집 가능한 3D 디자인까지",
+  "title_ko": "Amagine3D: 하드웨어 요구사항에서 편집 가능한 3D 설계로",
   "description_ko": "하드웨어 가이드부터 시작하여 수정 가능한 고품질 3D 디자인 생성까지 아우르는 3D AI 오픈소스입니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,63 +48,94 @@
     "id": "2026-08-31_repo_github_amagine_aiamagine3d",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "영상 제작 / 3D 생성",
+    "model_family": "Generative CAD",
+    "category": "3D AI & Engineering",
     "programming_lang": "Python",
     "root_keywords": [
       "Amagine3D",
-      "3D Generation",
-      "Hardware Requirements",
-      "Editable 3D"
+      "3D Design",
+      "CAD",
+      "Generative AI",
+      "Hardware Engineering"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Amagine3D: 하드웨어 요구사항부터 편집 가능한 3D 디자인까지",
-        "hook": "하드웨어 가이드부터 시작하여 수정 가능한 고품질 3D 디자인 생성까지 아우르는 3D AI 오픈소스입니다.",
+        "title": "Amagine3D: 하드웨어 요구사항에서 편집 가능한 3D 설계로",
+        "hook": "하드웨어 스펙 요구사항을 입력받아 실가공 가능한 3D CAD 디자인으로 변환하는 AI 기반 3D 설계 도구",
         "key_takeaways": [
-          "실제 하드웨어 사양 가이드 제공",
-          "단순 생성을 넘어선 편집 가능한 3D 디자인 구현",
-          "빠르게 성장하는 스타 수로 검증된 3D AI 솔루션"
+          "자연어 기반 하드웨어 사양 작성부터 3D 파라메트릭 디자인 자동 생성까지 지원",
+          "단순 메시 형태가 아닌 실제 편집 가능한 CAD 형태의 파라메트릭 데이터 출력",
+          "하드웨어 개발 주기 및 프로토타이핑 프로세스의 획기적 단축"
         ]
       },
       "en": {
-        "title": "Amagine3D: From Hardware Requirements to Editable 3D Designs",
-        "hook": "A comprehensive 3D AI solution guiding you from hardware setup all the way to generating editable 3D assets.",
+        "title": "Amagine3D: From hardware requirements to editable 3D designs",
+        "hook": "An AI framework that converts hardware specifications directly into fully editable 3D CAD designs.",
         "key_takeaways": [
-          "Includes explicit hardware requirement guidelines",
-          "Focuses on generating fully editable 3D designs",
-          "Rapidly gaining traction in the 3D generative AI space"
+          "Generates parametric 3D CAD models directly from text-based hardware requirements",
+          "Produces fully editable CAD formats rather than static 3D meshes",
+          "Significantly accelerates hardware prototyping and product engineering workflows"
         ]
       },
       "zh": {
-        "title": "Amagine3D：从硬件需求到可编辑3D设计的全流程方案",
-        "hook": "涵盖硬件配置指南与可编辑3D模型生成的全方位开源3D生成技术方案。",
+        "title": "Amagine3D：从硬件需求到可编辑的 3D 设计",
+        "hook": "将硬件规格需求直接转换为可编辑 3D CAD 设计的 AI 工具。",
         "key_takeaways": [
-          "提供详细的硬件配置要求说明",
-          "实现从生成到可编辑3D设计的全链路打通",
-          "在3D生成AI领域备受关注与认可"
+          "支持从文本形式的硬件需求直接生成 3D 参数化 CAD 模型",
+          "生成可进行后续编辑与修改的 CAD 数据，而非静态 3D 网格",
+          "大幅缩短硬件原型设计与工程研发周期"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:42.769954+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Amagine3D",
-    "3D Generation",
-    "Hardware Requirements",
-    "Editable 3D"
+    "3D Design",
+    "CAD",
+    "Generative AI",
+    "Hardware Engineering"
   ],
-  "title_en": "Amagine3D: From Hardware Requirements to Editable 3D Designs",
-  "title_zh": "Amagine3D：从硬件需求到可编辑3D设计的全流程方案",
+  "title_en": "Amagine3D: From hardware requirements to editable 3D designs",
+  "title_zh": "Amagine3D：从硬件需求到可编辑的 3D 设计",
   "hook": "하드웨어 가이드부터 시작하여 수정 가능한 고품질 3D 디자인 생성까지 아우르는 3D AI 오픈소스입니다.",
-  "hook_ko": "하드웨어 가이드부터 시작하여 수정 가능한 고품질 3D 디자인 생성까지 아우르는 3D AI 오픈소스입니다.",
-  "hook_en": "A comprehensive 3D AI solution guiding you from hardware setup all the way to generating editable 3D assets.",
-  "hook_zh": "涵盖硬件配置指南与可编辑3D模型生成的全方位开源3D生成技术方案。",
+  "hook_ko": "하드웨어 스펙 요구사항을 입력받아 실가공 가능한 3D CAD 디자인으로 변환하는 AI 기반 3D 설계 도구",
+  "hook_en": "An AI framework that converts hardware specifications directly into fully editable 3D CAD designs.",
+  "hook_zh": "将硬件规格需求直接转换为可编辑 3D CAD 设计的 AI 工具。",
   "description_en": "A comprehensive 3D AI solution guiding you from hardware setup all the way to generating editable 3D assets.",
-  "description_zh": "涵盖硬件配置指南与可编辑3D模型生成的全方位开源3D生成技术方案。"
+  "description_zh": "涵盖硬件配置指南与可编辑3D模型生成的全方位开源3D生成技术方案。",
+  "multilingual": {
+    "ko": {
+      "title": "Amagine3D: 하드웨어 요구사항에서 편집 가능한 3D 설계로",
+      "hook": "하드웨어 스펙 요구사항을 입력받아 실가공 가능한 3D CAD 디자인으로 변환하는 AI 기반 3D 설계 도구",
+      "key_takeaways": [
+        "자연어 기반 하드웨어 사양 작성부터 3D 파라메트릭 디자인 자동 생성까지 지원",
+        "단순 메시 형태가 아닌 실제 편집 가능한 CAD 형태의 파라메트릭 데이터 출력",
+        "하드웨어 개발 주기 및 프로토타이핑 프로세스의 획기적 단축"
+      ]
+    },
+    "en": {
+      "title": "Amagine3D: From hardware requirements to editable 3D designs",
+      "hook": "An AI framework that converts hardware specifications directly into fully editable 3D CAD designs.",
+      "key_takeaways": [
+        "Generates parametric 3D CAD models directly from text-based hardware requirements",
+        "Produces fully editable CAD formats rather than static 3D meshes",
+        "Significantly accelerates hardware prototyping and product engineering workflows"
+      ]
+    },
+    "zh": {
+      "title": "Amagine3D：从硬件需求到可编辑的 3D 设计",
+      "hook": "将硬件规格需求直接转换为可编辑 3D CAD 设计的 AI 工具。",
+      "key_takeaways": [
+        "支持从文本形式的硬件需求直接生成 3D 参数化 CAD 模型",
+        "生成可进行后续编辑与修改的 CAD 数据，而非静态 3D 网格",
+        "大幅缩短硬件原型设计与工程研发周期"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.791934"
 }

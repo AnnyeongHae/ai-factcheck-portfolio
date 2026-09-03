@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "AGENT",
-  "title_ko": "Logos: 크로스 프로세스 버스 기반의 에이전트 하네스",
+  "title_ko": "Logos: 프로세스 간 버스 기반의 에이전트 하네스 및 동적 기능 합성",
   "description_ko": "런타임에 동적으로 에이전트 기능을 조합하고 시공간적 합성 미적분을 적용한 최첨단 에이전트 하네스 구조를 분석합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -47,62 +47,95 @@
   "ai_enrichment": {
     "id": "2026-08-31_repo_arxiv_logos_an_agent_harness_on_a_cross_proce",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "에이전트 하네스/런타임",
-    "programming_lang": "Rust",
+    "type_classification": "TECH",
+    "model_family": "Agent Infrastructure",
+    "category": "AI Engineering & Systems",
+    "programming_lang": "General",
     "root_keywords": [
+      "AI Agents",
       "Agent Harness",
       "Cross-Process Bus",
-      "Dynamic Composition"
+      "Spatiotemporal Composability",
+      "Runtime Capability Composition"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.7,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "Logos: 크로스 프로세스 버스 기반의 에이전트 하네스",
-        "hook": "런타임에 동적으로 에이전트 기능을 조합하고 시공간적 합성 미적분을 적용한 최첨단 에이전트 하네스 구조를 분석합니다.",
+        "title": "Logos: 프로세스 간 버스 기반의 에이전트 하네스 및 동적 기능 합성",
+        "hook": "런타임 시점에 역동적으로 기능을 조합하는 AI 에이전트 시스템을 위한 IPC 버스 기반 하네스 구조",
         "key_takeaways": [
-          "크로스 프로세스 버스(Cross-Process Bus) 기반의 모던 에이전트 아키텍처",
-          "런타임 시 시공간적 구성(Spatiotemporal-composability)을 활용한 동적 기능 조합",
-          "복잡한 멀티 에이전트 시스템의 안정성과 유연성 동시 확보"
+          "시공간 합성가능성 연산(Spatiotemporal-composability calculus) 기반의 수학적·이론적 프레임워크 제공",
+          "프로세스 간 통신(IPC) 버스를 통해 개별 에이전트 모듈 및 에이전트 역량을 상호 격리 및 런타임 바인딩",
+          "에이전트 시스템의 모듈성, 확장성 및 형식적 안전성을 보장하는 분산 시스템 하네스 설계"
         ]
       },
       "en": {
         "title": "Logos: An Agent Harness on a Cross-Process Bus",
-        "hook": "Explore 'Logos', a cutting-edge agent harness leveraging cross-process buses and spatiotemporal composability for dynamic runtimes.",
+        "hook": "An IPC bus-based agent harness architecture facilitating formal dynamic capability composition at runtime",
         "key_takeaways": [
-          "Modern agent architecture built on a robust cross-process bus",
-          "Applies spatiotemporal-composability calculus for dynamic runtime capability assembly",
-          "Enhances stability and flexibility in complex multi-agent systems"
+          "Provides a formal theoretical foundation using spatiotemporal-composability calculus for agent systems",
+          "Enables dynamic runtime capability binding and process isolation via a cross-process communication bus",
+          "Improves modularity, scalability, and safety guarantees for complex multi-agent system execution"
         ]
       },
       "zh": {
-        "title": "Logos：基于跨进程总线的智能体执行框架(Agent Harness)",
-        "hook": "深入解析利用跨进程总线与时空可组合性算子实现动态运行时组装的尖端智能体框架Logos。",
+        "title": "Logos：基于跨进程总线的 Agent 测试脚手架与动态能力组合",
+        "hook": "基于进程间通信总线的 AI Agent 框架，实现能力的运行时动态组合与形式化验证",
         "key_takeaways": [
-          "构建于强大跨进程总线之上的现代智能体架构",
-          "应用时空可组合性演算实现运行时的动态功能组装",
-          "同时保障复杂多智能体系统的稳定性与灵活性"
+          "基于时空可组合性演算（Spatiotemporal-composability calculus）提供严谨的形式化理论支撑",
+          "通过跨进程总线实现模块隔离与动态运行时绑定，提升系统的解耦程度",
+          "增强复杂多 Agent 系统在执行过程中的模块化、可扩展性与形式化安全保障"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T05:28:55.552279+00:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Rust",
+  "programming_lang": "General",
   "root_keywords": [
+    "AI Agents",
     "Agent Harness",
     "Cross-Process Bus",
-    "Dynamic Composition"
+    "Spatiotemporal Composability",
+    "Runtime Capability Composition"
   ],
   "title_en": "Logos: An Agent Harness on a Cross-Process Bus",
-  "title_zh": "Logos：基于跨进程总线的智能体执行框架(Agent Harness)",
+  "title_zh": "Logos：基于跨进程总线的 Agent 测试脚手架与动态能力组合",
   "hook": "런타임에 동적으로 에이전트 기능을 조합하고 시공간적 합성 미적분을 적용한 최첨단 에이전트 하네스 구조를 분석합니다.",
-  "hook_ko": "런타임에 동적으로 에이전트 기능을 조합하고 시공간적 합성 미적분을 적용한 최첨단 에이전트 하네스 구조를 분석합니다.",
-  "hook_en": "Explore 'Logos', a cutting-edge agent harness leveraging cross-process buses and spatiotemporal composability for dynamic runtimes.",
-  "hook_zh": "深入解析利用跨进程总线与时空可组合性算子实现动态运行时组装的尖端智能体框架Logos。",
+  "hook_ko": "런타임 시점에 역동적으로 기능을 조합하는 AI 에이전트 시스템을 위한 IPC 버스 기반 하네스 구조",
+  "hook_en": "An IPC bus-based agent harness architecture facilitating formal dynamic capability composition at runtime",
+  "hook_zh": "基于进程间通信总线的 AI Agent 框架，实现能力的运行时动态组合与形式化验证",
   "description_en": "Explore 'Logos', a cutting-edge agent harness leveraging cross-process buses and spatiotemporal composability for dynamic runtimes.",
-  "description_zh": "深入解析利用跨进程总线与时空可组合性算子实现动态运行时组装的尖端智能体框架Logos。"
+  "description_zh": "深入解析利用跨进程总线与时空可组合性算子实现动态运行时组装的尖端智能体框架Logos。",
+  "multilingual": {
+    "ko": {
+      "title": "Logos: 프로세스 간 버스 기반의 에이전트 하네스 및 동적 기능 합성",
+      "hook": "런타임 시점에 역동적으로 기능을 조합하는 AI 에이전트 시스템을 위한 IPC 버스 기반 하네스 구조",
+      "key_takeaways": [
+        "시공간 합성가능성 연산(Spatiotemporal-composability calculus) 기반의 수학적·이론적 프레임워크 제공",
+        "프로세스 간 통신(IPC) 버스를 통해 개별 에이전트 모듈 및 에이전트 역량을 상호 격리 및 런타임 바인딩",
+        "에이전트 시스템의 모듈성, 확장성 및 형식적 안전성을 보장하는 분산 시스템 하네스 설계"
+      ]
+    },
+    "en": {
+      "title": "Logos: An Agent Harness on a Cross-Process Bus",
+      "hook": "An IPC bus-based agent harness architecture facilitating formal dynamic capability composition at runtime",
+      "key_takeaways": [
+        "Provides a formal theoretical foundation using spatiotemporal-composability calculus for agent systems",
+        "Enables dynamic runtime capability binding and process isolation via a cross-process communication bus",
+        "Improves modularity, scalability, and safety guarantees for complex multi-agent system execution"
+      ]
+    },
+    "zh": {
+      "title": "Logos：基于跨进程总线的 Agent 测试脚手架与动态能力组合",
+      "hook": "基于进程间通信总线的 AI Agent 框架，实现能力的运行时动态组合与形式化验证",
+      "key_takeaways": [
+        "基于时空可组合性演算（Spatiotemporal-composability calculus）提供严谨的形式化理论支撑",
+        "通过跨进程总线实现模块隔离与动态运行时绑定，提升系统的解耦程度",
+        "增强复杂多 Agent 系统在执行过程中的模块化、可扩展性与形式化安全保障"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.784729"
 }

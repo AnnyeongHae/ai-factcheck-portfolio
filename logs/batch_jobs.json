@@ -40,9 +40,9 @@
     "gemini_job_name": "batches/1wqm4vl2nflqi6c04jodvqzei3q8v5fndzwf",
     "model": "models/gemini-3.6-flash",
     "item_count": 30,
-    "status": "JOB_STATE_RUNNING",
+    "status": "HARVESTED",
     "submitted_at": "2026-09-03T20:01:41.128486",
-    "completed_at": null,
+    "completed_at": "2026-09-03T21:09:35.804834",
     "items": [
       {
         "inbox_id": "2026-09-03_repo_hf_space_nanotronultrascale_playbook",
@@ -164,6 +164,11 @@
         "inbox_id": "2026-08-31_repo_github_mengtothreeui",
         "title": "GitHub: MengTo/threeui"
       }
-    ]
+    ],
+    "total_prompt_tokens": 15127,
+    "total_candidate_tokens": 18214,
+    "total_tokens": 33341,
+    "cost_usd": 0.006598725,
+    "cost_krw": 9.1062405
   }
 ]

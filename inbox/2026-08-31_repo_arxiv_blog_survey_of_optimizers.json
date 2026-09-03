@@ -22,7 +22,7 @@
     "기본 가중치 (Default Weight)"
   ],
   "category_type": "TECH",
-  "title_ko": "아카이브 블로그: 신경망 옵티마이저 총조사 (2025-2026 트렌드)",
+  "title_ko": "신경망 최적화 가속기 서베이: Adam을 넘어선 최신 최적화 기법 분석",
   "description_ko": "단순한 Adam 변형의 시대를 지나 매트릭스, 레이어, 대규모 학습 호라이즌으로 확장된 최신 옵티마이저 설계 공간을 완벽 정리합니다.",
   "variant_role": "일반 파생/배포본 (Standard Release)",
   "creator": "Community",
@@ -48,61 +48,94 @@
     "id": "2026-08-31_repo_arxiv_blog_survey_of_optimizers",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "신경망 최적화 및 학습 알고리즘",
+    "model_family": "Optimization Algorithms",
+    "category": "Machine Learning Infrastructure",
     "programming_lang": "Python",
     "root_keywords": [
-      "Neural Network Optimization",
-      "Optimizer Survey",
-      "Training Algorithms"
+      "Optimizers",
+      "Neural Network Training",
+      "Adam Variants",
+      "Matrix Optimization",
+      "Deep Learning"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "아카이브 블로그: 신경망 옵티마이저 총조사 (2025-2026 트렌드)",
-        "hook": "단순한 Adam 변형의 시대를 지나 매트릭스, 레이어, 대규모 학습 호라이즌으로 확장된 최신 옵티마이저 설계 공간을 완벽 정리합니다.",
+        "title": "신경망 최적화 가속기 서베이: Adam을 넘어선 최신 최적화 기법 분석",
+        "hook": "단순한 Adam 변형을 넘어 좌표, 행렬, 레이어 단위로 확장된 최신 신경망 최적화 패러다임을 정립한 서베이 논문",
         "key_takeaways": [
-          "2025-2026년 최신 신경망 최적화 패러다임 변화 조망",
-          "좌표(Coordinate) 중심에서 매트릭스 및 레이어 단위 최적화로의 설계 공간 확장",
-          "고도화된 학습 환경에서의 차세대 옵티마이저 트렌드 파악"
+          "Adam 계열 변형을 넘어선 행렬 및 레이어 수준 최적화 기법의 패러다임 변화 정리",
+          "고정된 학습 기간(Training Horizon) 제약을 탈피한 최신 최적화 알고리즘 분석",
+          "대규모 AI 모델의 훈련 효율성을 대폭 향상시키는 옵티마이저 설계 공간 체계화"
         ]
       },
       "en": {
-        "title": "ArXiv Blog: Survey of Optimizers (2025-2026 Landscape)",
-        "hook": "Move beyond Adam variants: explore how neural network optimization design spaces have expanded to matrices, layers, and modern training horizons.",
+        "title": "Survey of Optimizers: Neural Network Optimization Beyond Adam",
+        "hook": "A comprehensive survey exploring the expansion of optimizer design space from coordinate-level Adam variants to matrix and layer-level paradigms.",
         "key_takeaways": [
-          "Comprehensive overview of neural network optimization shifts in 2025-2026",
-          "Expansion of optimization design space from coordinates to matrices and layers",
-          "Essential insights into next-generation training algorithms and horizons"
+          "Shift from standard Adam variants to matrix-level and layer-wise optimization designs.",
+          "Exploration of optimization strategies beyond fixed training horizon constraints.",
+          "Systematic taxonomy of modern optimizer design spaces to enhance LLM and AI training efficiency."
         ]
       },
       "zh": {
-        "title": "ArXiv博客：优化器纵览（2025-2026技术全景）",
-        "hook": "告别单纯的Adam变体时代！全面解析扩展至矩阵、层级及全新训练周期的现代神经网络优化器设计空间。",
+        "title": "优化器综述：超越 Adam 的现代化神经网络优化技术",
+        "hook": "全面梳理神经网络优化设计空间从坐标级（Adam变体）向矩阵与层级扩展的最新综述。",
         "key_takeaways": [
-          "深入审视2025-2026年神经网络优化的最新范式变革",
-          "剖析优化设计空间从坐标级向矩阵与层级维度的扩展",
-          "掌握下一代训练算法与优化器架构的核心洞察"
+          "分析从 Adam 变体到矩阵级和层级优化的范式转变",
+          "探讨突破固定训练周期（Training Horizon）限制的动态优化策略",
+          "分类总结用于提升大模型训练效率的现代化优化器设计空间"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:23:03.541822+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Neural Network Optimization",
-    "Optimizer Survey",
-    "Training Algorithms"
+    "Optimizers",
+    "Neural Network Training",
+    "Adam Variants",
+    "Matrix Optimization",
+    "Deep Learning"
   ],
-  "title_en": "ArXiv Blog: Survey of Optimizers (2025-2026 Landscape)",
-  "title_zh": "ArXiv博客：优化器纵览（2025-2026技术全景）",
+  "title_en": "Survey of Optimizers: Neural Network Optimization Beyond Adam",
+  "title_zh": "优化器综述：超越 Adam 的现代化神经网络优化技术",
   "hook": "단순한 Adam 변형의 시대를 지나 매트릭스, 레이어, 대규모 학습 호라이즌으로 확장된 최신 옵티마이저 설계 공간을 완벽 정리합니다.",
-  "hook_ko": "단순한 Adam 변형의 시대를 지나 매트릭스, 레이어, 대규모 학습 호라이즌으로 확장된 최신 옵티마이저 설계 공간을 완벽 정리합니다.",
-  "hook_en": "Move beyond Adam variants: explore how neural network optimization design spaces have expanded to matrices, layers, and modern training horizons.",
-  "hook_zh": "告别单纯的Adam变体时代！全面解析扩展至矩阵、层级及全新训练周期的现代神经网络优化器设计空间。",
+  "hook_ko": "단순한 Adam 변형을 넘어 좌표, 행렬, 레이어 단위로 확장된 최신 신경망 최적화 패러다임을 정립한 서베이 논문",
+  "hook_en": "A comprehensive survey exploring the expansion of optimizer design space from coordinate-level Adam variants to matrix and layer-level paradigms.",
+  "hook_zh": "全面梳理神经网络优化设计空间从坐标级（Adam变体）向矩阵与层级扩展的最新综述。",
   "description_en": "Move beyond Adam variants: explore how neural network optimization design spaces have expanded to matrices, layers, and modern training horizons.",
-  "description_zh": "告别单纯的Adam变体时代！全面解析扩展至矩阵、层级及全新训练周期的现代神经网络优化器设计空间。"
+  "description_zh": "告别单纯的Adam变体时代！全面解析扩展至矩阵、层级及全新训练周期的现代神经网络优化器设计空间。",
+  "multilingual": {
+    "ko": {
+      "title": "신경망 최적화 가속기 서베이: Adam을 넘어선 최신 최적화 기법 분석",
+      "hook": "단순한 Adam 변형을 넘어 좌표, 행렬, 레이어 단위로 확장된 최신 신경망 최적화 패러다임을 정립한 서베이 논문",
+      "key_takeaways": [
+        "Adam 계열 변형을 넘어선 행렬 및 레이어 수준 최적화 기법의 패러다임 변화 정리",
+        "고정된 학습 기간(Training Horizon) 제약을 탈피한 최신 최적화 알고리즘 분석",
+        "대규모 AI 모델의 훈련 효율성을 대폭 향상시키는 옵티마이저 설계 공간 체계화"
+      ]
+    },
+    "en": {
+      "title": "Survey of Optimizers: Neural Network Optimization Beyond Adam",
+      "hook": "A comprehensive survey exploring the expansion of optimizer design space from coordinate-level Adam variants to matrix and layer-level paradigms.",
+      "key_takeaways": [
+        "Shift from standard Adam variants to matrix-level and layer-wise optimization designs.",
+        "Exploration of optimization strategies beyond fixed training horizon constraints.",
+        "Systematic taxonomy of modern optimizer design spaces to enhance LLM and AI training efficiency."
+      ]
+    },
+    "zh": {
+      "title": "优化器综述：超越 Adam 的现代化神经网络优化技术",
+      "hook": "全面梳理神经网络优化设计空间从坐标级（Adam变体）向矩阵与层级扩展的最新综述。",
+      "key_takeaways": [
+        "分析从 Adam 变体到矩阵级和层级优化的范式转变",
+        "探讨突破固定训练周期（Training Horizon）限制的动态优化策略",
+        "分类总结用于提升大模型训练效率的现代化优化器设计空间"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-03T21:09:35.759281"
 }
