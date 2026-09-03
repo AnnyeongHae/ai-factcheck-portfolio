@@ -18,11 +18,27 @@ import time
 import urllib.request
 import urllib.parse
 import xml.etree.ElementTree as ET
-
 # Ensure UTF-8
-if sys.stdout.encoding != 'utf-8':
+try:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    if hasattr(sys.stderr, "reconfigure"):
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
+# Auto-load .env
+env_file = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env")
+if os.path.exists(env_file):
     try:
-        sys.stdout.reconfigure(encoding='utf-8')
+        with open(env_file, "r", encoding="utf-8") as ef:
+            for eline in ef:
+                eline = eline.strip()
+                if eline and not eline.startswith("#") and "=" in eline:
+                    ek, ev = eline.split("=", 1)
+                    ek, ev = ek.strip(), ev.strip()
+                    if ek and not os.getenv(ek):
+                        os.environ[ek] = ev
     except Exception:
         pass
 
@@ -101,7 +117,13 @@ class Logger:
     def log(self, msg, level="INFO"):
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         formatted = f"[{timestamp}] [{level}] {msg}"
-        print(formatted)
+        try:
+            print(formatted)
+        except Exception:
+            try:
+                print(formatted.encode("ascii", "replace").decode("ascii"))
+            except Exception:
+                pass
         try:
             with open(self.log_file, "a", encoding="utf-8") as f:
                 f.write(formatted + "\n")
@@ -231,8 +253,10 @@ def match_persona_domain(title, desc, persona_config):
 def harvest_all():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     inbox_dir = os.path.join(base_dir, "inbox")
+    investigations_dir = os.path.join(base_dir, "investigations")
     logs_dir = os.path.join(base_dir, "logs")
     os.makedirs(inbox_dir, exist_ok=True)
+    os.makedirs(investigations_dir, exist_ok=True)
     os.makedirs(logs_dir, exist_ok=True)
 
     today_str = datetime.date.today().strftime("%Y-%m-%d")
@@ -637,6 +661,8 @@ def harvest_all():
             except Exception:
                 pass
 
+    gemini_api_key = os.getenv("GEMINI_API_KEY", "")
+
     updated_count = 0
     new_saved = 0
     dup_skipped = 0
@@ -651,11 +677,14 @@ def harvest_all():
 
         # 3-Tier Deduplication & Semantic Matching Gate
         if evaluate_deduplication:
-            dedup_res = evaluate_deduplication(cand, existing_cases_list, existing_inbox_items, api_key=gemini_api_key)
-            if dedup_res.get("is_duplicate"):
-                dup_skipped += 1
-                logger.log(f"[DEDUP Tier {dedup_res.get('tier')}] Blocked: {cand['title'][:35]} -> Matched {dedup_res.get('matched_id')} ({dedup_res.get('reason')})")
-                continue
+            try:
+                dedup_res = evaluate_deduplication(cand, existing_cases_list, existing_inbox_items, api_key=gemini_api_key)
+                if dedup_res.get("is_duplicate"):
+                    dup_skipped += 1
+                    logger.log(f"[DEDUP Tier {dedup_res.get('tier')}] Blocked: {cand['title'][:35]} -> Matched {dedup_res.get('matched_id')} ({dedup_res.get('reason')})")
+                    continue
+            except Exception as dedup_err:
+                logger.log(f"[!] Dedup check note: {dedup_err}", level="WARNING")
 
         # Check if exists in inbox by Hash, URL or Slug (Deduplication & Block)
         target_inbox_file = inbox_hash_map.get(c_hash) or inbox_url_map.get(norm_url) or inbox_slug_map.get(slug)

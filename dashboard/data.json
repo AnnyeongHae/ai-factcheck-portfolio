@@ -1,10 +1,10 @@
 {
   "generated_at": "2026-09-02",
   "total_cases": 29,
-  "models_total_count": 64,
-  "news_total_count": 55,
-  "inbox_total_count": 172,
-  "all_inbox_count": 297,
+  "models_total_count": 69,
+  "news_total_count": 89,
+  "inbox_total_count": 196,
+  "all_inbox_count": 360,
   "admin_stats": {
     "endpoints": [
       {
@@ -39,6 +39,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T10:53:48.357133",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.35
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.28
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.89
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 26,
+            "duration_sec": 31.14
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.18
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.41
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.23
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.7
+          }
+        },
+        "summary": {
+          "total_fetched": 166,
+          "updated_count": 0,
+          "new_saved": 63,
+          "duplicates_skipped": 103,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-02T12:29:12.803030",
         "date": "2026-09-02",
@@ -1489,105 +1542,228 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-01T15:38:05.835153",
-        "date": "2026-09-01",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 1,
-            "duration_sec": 0.12
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 1,
-            "duration_sec": 0.08
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.75
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 2,
-            "duration_sec": 4.4
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.15
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.03
-          }
-        },
-        "summary": {
-          "total_fetched": 4,
-          "new_saved": 4,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-02T12:29:12.803030",
-      "date": "2026-09-02",
+      "timestamp": "2026-09-03T10:53:48.357133",
+      "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.3
+          "duration_sec": 0.35
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.18
+          "duration_sec": 0.28
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.76
+          "duration_sec": 0.89
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 21,
-          "duration_sec": 14.34
+          "items_found": 26,
+          "duration_sec": 31.14
         },
         "arxiv": {
-          "status": "ERROR",
-          "error": "The read operation timed out",
-          "duration_sec": 12.4
+          "status": "SUCCESS",
+          "items_found": 20,
+          "duration_sec": 0.18
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.16
+          "duration_sec": 0.41
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.85
+          "duration_sec": 0.23
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.42
+          "duration_sec": 0.7
         }
       },
       "summary": {
-        "total_fetched": 141,
-        "updated_count": 132,
-        "new_saved": 9,
-        "duplicates_skipped": 0,
-        "errors": 1
+        "total_fetched": 166,
+        "updated_count": 0,
+        "new_saved": 63,
+        "duplicates_skipped": 103,
+        "errors": 0
       }
     }
   },
   "model_items": [
+    {
+      "inbox_id": "2026-09-03_repo_huggingface_model_xhtokenspark_x25_4b",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HuggingFace Model: XHToken/Spark-X2.5-4B",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/XHToken/Spark-X2.5-4B",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 121, Downloads: 429, Likes: 123, Pipeline: text-generation",
+      "viral_metric": "Trending 121 pts (❤️ 123)",
+      "metric_tracking": {
+        "initial": {
+          "value": 121,
+          "display": "Trending 121 pts (❤️ 123)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 121,
+          "display": "Trending 121 pts (❤️ 123)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_huggingface_model_openai_communitygpt2",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HuggingFace Model: openai-community/gpt2",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/openai-community/gpt2",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 109, Downloads: 14290101, Likes: 3534, Pipeline: text-generation",
+      "viral_metric": "Trending 109 pts (❤️ 3534)",
+      "metric_tracking": {
+        "initial": {
+          "value": 109,
+          "display": "Trending 109 pts (❤️ 3534)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 109,
+          "display": "Trending 109 pts (❤️ 3534)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_huggingface_model_google_bertbert_base_uncase",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HuggingFace Model: google-bert/bert-base-uncased",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/google-bert/bert-base-uncased",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 114, Downloads: 63694017, Likes: 2861, Pipeline: fill-mask",
+      "viral_metric": "Trending 114 pts (❤️ 2861)",
+      "metric_tracking": {
+        "initial": {
+          "value": 114,
+          "display": "Trending 114 pts (❤️ 2861)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 114,
+          "display": "Trending 114 pts (❤️ 2861)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_mrddickdickensonkrea_2_turbo_i2i",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: MrdDickDickenson/Krea-2-Turbo_I2I",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/MrdDickDickenson/Krea-2-Turbo_I2I",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 27 | Live URL: https://huggingface.co/spaces/MrdDickDickenson/Krea-2-Turbo_I2I",
+      "viral_metric": "❤️ 27 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 27,
+          "display": "❤️ 27 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 27,
+          "display": "❤️ 27 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_leosayer06wan555",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "HF Space: leosayer06/wan555",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/leosayer06/wan555",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 22 | Live URL: https://huggingface.co/spaces/leosayer06/wan555",
+      "viral_metric": "❤️ 22 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 22,
+          "display": "❤️ 22 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 22,
+          "display": "❤️ 22 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
     {
       "inbox_id": "2026-09-02_sns_hugging_face_blog_granite_42_llms_how_theyre_",
       "harvested_date": "2026-09-02",
@@ -5238,6 +5414,1233 @@
   ],
   "news_items": [
     {
+      "inbox_id": "2026-09-03_sns_hugging_face_blog_real_time_intelligence_with",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hugging Face Blog: Real-Time Intelligence with IBM Time Series Models on Confluent",
+      "source_platform": "Hugging Face Blog",
+      "source_url": "https://huggingface.co/blog/ibm-research/real-time-intelligence",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "Hugging Face Blog Tech Publication: Real-Time Intelligence with IBM Time Series Models on Confluent",
+      "viral_metric": "🌍 Official AI Publication",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🌍 Official AI Publication",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "article_url": "https://huggingface.co/blog/ibm-research/real-time-intelligence"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_whistleblower_warns_postal_servic",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Whistleblower warns Postal Service mail ballot system has catastrophic problems",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49524428",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 82 pts | Comments: 52 | Whistleblower warns Postal Service mail ballot system has catastrophic problems",
+      "viral_metric": "🔥 82 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 82,
+          "display": "🔥 82 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 82,
+          "display": "🔥 82 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49524428",
+      "article_url": "https://www.cbsnews.com/news/whistleblower-postal-service-new-mail-ballot-system/"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_we_could_save_petabytes_of_cache_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: We could save petabytes of cache storage with Zstandard and Pingora",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49521909",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 67 pts | Comments: 29 | We could save petabytes of cache storage with Zstandard and Pingora",
+      "viral_metric": "🔥 67 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 67,
+          "display": "🔥 67 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 67,
+          "display": "🔥 67 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49521909",
+      "article_url": "https://blog.cloudflare.com/cache-transcoding/"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_us_gov_sides_with_openai_on_issue",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: US gov sides with OpenAI on issue of training LLMs on copyrighted material",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49544650",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 14 pts | Comments: 1 | US gov sides with OpenAI on issue of training LLMs on copyrighted material",
+      "viral_metric": "🔥 14 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49544650",
+      "article_url": "https://techcrunch.com/2026/09/02/u-s-government-sides-with-openai-on-issue-of-training-llms-on-copyrighted-material/"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_three_sites_made_215128_best_soft",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Three sites made 215,128 “best software” pages for AI. Perplexity cites them",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49536375",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 314 pts | Comments: 143 | Three sites made 215,128 “best software” pages for AI. Perplexity cites them",
+      "viral_metric": "🔥 314 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 314,
+          "display": "🔥 314 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 314,
+          "display": "🔥 314 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49536375",
+      "article_url": "https://trellner.com/reports/manufactured-sources-behind-ai-recommendations/"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_the_shrinking_landscape_of_lingui",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: The shrinking landscape of linguistic diversity in the age of LLMs",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49497996",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 33 pts | Comments: 6 | The shrinking landscape of linguistic diversity in the age of LLMs",
+      "viral_metric": "🔥 33 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 33,
+          "display": "🔥 33 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 33,
+          "display": "🔥 33 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49497996",
+      "article_url": "https://www.nature.com/articles/s41562-026-02550-0"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_six_curl_cves_after_openai_and_an",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Six curl CVEs after OpenAI and Anthropic came back with zero",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49536114",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 152 pts | Comments: 54 | Six curl CVEs after OpenAI and Anthropic came back with zero",
+      "viral_metric": "🔥 152 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 152,
+          "display": "🔥 152 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 152,
+          "display": "🔥 152 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49536114",
+      "article_url": "https://aisle.com/blog/aisle-discovered-six-curl-cves-after-openai-and-anthropic-found-zero"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_show_hn_owntime_a_chess_clock_for",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Show HN: OwnTime – a chess clock for your day's priorities",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49528506",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 22 pts | Comments: 5 | Show HN: OwnTime – a chess clock for your day's priorities",
+      "viral_metric": "🔥 22 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 22,
+          "display": "🔥 22 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 22,
+          "display": "🔥 22 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49528506",
+      "article_url": "https://owntime.app/"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_qantas_airbus_a380_engine_failure",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Qantas Airbus A380 engine failure in 2010 (2023)",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49540565",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 83 pts | Comments: 48 | Qantas Airbus A380 engine failure in 2010 (2023)",
+      "viral_metric": "🔥 83 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 83,
+          "display": "🔥 83 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 83,
+          "display": "🔥 83 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49540565",
+      "article_url": "https://admiralcloudberg.medium.com/a-matter-of-millimeters-the-story-of-qantas-flight-32-bdaa62dc98e7"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_metr_report_on_openai_hugging_fac",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: METR Report on OpenAI / Hugging Face Hacking Incident",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49543841",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 86 pts | Comments: 70 | METR Report on OpenAI / Hugging Face Hacking Incident",
+      "viral_metric": "🔥 86 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 86,
+          "display": "🔥 86 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 86,
+          "display": "🔥 86 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49543841",
+      "article_url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_embedded_rust_rtos_vs_c_rtos",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Embedded Rust RTOS vs. C RTOS",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49540415",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 55 pts | Comments: 29 | Embedded Rust RTOS vs. C RTOS",
+      "viral_metric": "🔥 55 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 55,
+          "display": "🔥 55 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 55,
+          "display": "🔥 55 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49540415",
+      "article_url": "https://tweedegolf.nl/en/blog/65/async-rust-vs-rtos-showdown/"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_can_i_opt_out_of_my_input_or_outp",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Can I opt out of my input or output data being used for training?",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49535284",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 371 pts | Comments: 164 | Can I opt out of my input or output data being used for training?",
+      "viral_metric": "🔥 371 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 371,
+          "display": "🔥 371 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 371,
+          "display": "🔥 371 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49535284",
+      "article_url": "https://help.mistral.ai/en/articles/455207-can-i-opt-out-of-my-input-or-output-data-being-used-for-training"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_altair_basic_interpreter_source_c",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Altair Basic Interpreter Source Code (1975) [pdf]",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49541754",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 40 pts | Comments: 22 | Altair Basic Interpreter Source Code (1975) [pdf]",
+      "viral_metric": "🔥 40 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 40,
+          "display": "🔥 40 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 40,
+          "display": "🔥 40 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49541754",
+      "article_url": "https://images.gatesnotes.com/12514eb8-7b51-008e-41a9-512542cf683b/34d561c8-cf5c-4e69-af47-3782ea11482e/Original-Microsoft-Source-Code.pdf"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_ai_is_stopping_startups_from_comp",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: AI is stopping startups from completing puberty",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49540078",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 27 pts | Comments: 1 | AI is stopping startups from completing puberty",
+      "viral_metric": "🔥 27 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 27,
+          "display": "🔥 27 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 27,
+          "display": "🔥 27 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49540078",
+      "article_url": "https://ashley.rolfmore.com/ai-is-stopping-startups-from-completing-puberty/"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_aging_brains_blend_memories_toget",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Aging brains blend memories together instead of just forgetting them",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49535548",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 214 pts | Comments: 92 | Aging brains blend memories together instead of just forgetting them",
+      "viral_metric": "🔥 214 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 214,
+          "display": "🔥 214 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 214,
+          "display": "🔥 214 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49535548",
+      "article_url": "https://studyfinds.com/aging-brains-blend-memories-together-instead-of-forgetting-them-study-finds/"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_오픈소스에서_정상화되는_파시즘_dhh_재단에_약정된_1200만_달",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: 오픈소스에서 정상화되는 파시즘, DHH 재단에 약정된 1,200만 달러",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33171",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 오픈소스에서 정상화되는 파시즘, DHH 재단에 약정된 1,200만 달러",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "오픈소스에서 정상화되는 파시즘, DHH 재단에 약정된 1,200만 달러",
+      "description_ko": "오픈소스에서 정상화되는 파시즘, DHH 재단에 약정된 1,200만 달러",
+      "hn_url": "https://news.hada.io/topic?id=33171",
+      "article_url": "https://news.hada.io/topic?id=33171"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_실제_실업률",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: 실제 실업률",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33159",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 실제 실업률",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "실제 실업률",
+      "description_ko": "실제 실업률",
+      "hn_url": "https://news.hada.io/topic?id=33159",
+      "article_url": "https://news.hada.io/topic?id=33159"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_스마트폰이_없습니다_아니_없었으면_좋겠습니다",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: 스마트폰이 없습니다… 아니 없었으면 좋겠습니다",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33172",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 스마트폰이 없습니다… 아니 없었으면 좋겠습니다",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "스마트폰이 없습니다… 아니 없었으면 좋겠습니다",
+      "description_ko": "스마트폰이 없습니다… 아니 없었으면 좋겠습니다",
+      "hn_url": "https://news.hada.io/topic?id=33172",
+      "article_url": "https://news.hada.io/topic?id=33172"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_범용_로봇은_어디까지_왔나_유튜브",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: 범용 로봇은 어디까지 왔나 [유튜브]",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33173",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 범용 로봇은 어디까지 왔나 [유튜브]",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "범용 로봇은 어디까지 왔나 [유튜브]",
+      "description_ko": "범용 로봇은 어디까지 왔나 [유튜브]",
+      "hn_url": "https://news.hada.io/topic?id=33173",
+      "article_url": "https://news.hada.io/topic?id=33173"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_마케팅_인텔리전스_레이어_흩어진_경험을_ai의_재사용_가능한_컨텍",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: 마케팅 인텔리전스 레이어 - 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33177",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 마케팅 인텔리전스 레이어 - 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "마케팅 인텔리전스 레이어 - 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
+      "description_ko": "마케팅 인텔리전스 레이어 - 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
+      "hn_url": "https://news.hada.io/topic?id=33177",
+      "article_url": "https://news.hada.io/topic?id=33177"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_vorssaint_여러_mac_유틸리티를_하나로_모은_메뉴_막대_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Vorssaint - 여러 Mac 유틸리티를 하나로 모은 메뉴 막대 앱",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33174",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Vorssaint - 여러 Mac 유틸리티를 하나로 모은 메뉴 막대 앱",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Vorssaint - 여러 Mac 유틸리티를 하나로 모은 메뉴 막대 앱",
+      "description_ko": "Vorssaint - 여러 Mac 유틸리티를 하나로 모은 메뉴 막대 앱",
+      "hn_url": "https://news.hada.io/topic?id=33174",
+      "article_url": "https://news.hada.io/topic?id=33174"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_show_gn_ratatosk_cncf_주요_프로젝트_릴리스_노트",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Show GN: Ratatosk - CNCF 주요 프로젝트 릴리스 노트에서 보안 수정, 브레이킹 체인지와 같은 중요한 정보를 골...",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33164",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Show GN: Ratatosk - CNCF 주요 프로젝트 릴리스 노트에서 보안 수정, 브레이킹 체인지와 같은 중요한 정보를 골...",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Show GN: Ratatosk - CNCF 주요 프로젝트 릴리스 노트에서 보안 수정, 브레이킹 체인지와 같은 중요한 정보를 골...",
+      "description_ko": "Show GN: Ratatosk - CNCF 주요 프로젝트 릴리스 노트에서 보안 수정, 브레이킹 체인지와 같은 중요한 정보를 골...",
+      "hn_url": "https://news.hada.io/topic?id=33164",
+      "article_url": "https://news.hada.io/topic?id=33164"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_perplexity_대량생산된_구매_가이드를_소프트웨어_추천의_근",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Perplexity, 대량생산된 구매 가이드를 소프트웨어 추천의 근거로 제시",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33169",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Perplexity, 대량생산된 구매 가이드를 소프트웨어 추천의 근거로 제시",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Perplexity, 대량생산된 구매 가이드를 소프트웨어 추천의 근거로 제시",
+      "description_ko": "Perplexity, 대량생산된 구매 가이드를 소프트웨어 추천의 근거로 제시",
+      "hn_url": "https://news.hada.io/topic?id=33169",
+      "article_url": "https://news.hada.io/topic?id=33169"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_muse_spark_13_공개_긴_에이전트_작업과_코딩_효율_개선",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Muse Spark 1.3 공개, 긴 에이전트 작업과 코딩 효율 개선",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33166",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Muse Spark 1.3 공개, 긴 에이전트 작업과 코딩 효율 개선",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Muse Spark 1.3 공개, 긴 에이전트 작업과 코딩 효율 개선",
+      "description_ko": "Muse Spark 1.3 공개, 긴 에이전트 작업과 코딩 효율 개선",
+      "hn_url": "https://news.hada.io/topic?id=33166",
+      "article_url": "https://news.hada.io/topic?id=33166"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_movie_scene_map_영화tv게임애니만화의_실제_촬영지와_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Movie Scene Map - 영화/TV/게임/애니/만화의 실제 촬영지와 배경을 탐색하는 지도",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33153",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Movie Scene Map - 영화/TV/게임/애니/만화의 실제 촬영지와 배경을 탐색하는 지도",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Movie Scene Map - 영화/TV/게임/애니/만화의 실제 촬영지와 배경을 탐색하는 지도",
+      "description_ko": "Movie Scene Map - 영화/TV/게임/애니/만화의 실제 촬영지와 배경을 탐색하는 지도",
+      "hn_url": "https://news.hada.io/topic?id=33153",
+      "article_url": "https://news.hada.io/topic?id=33153"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_mistral_enterprise_제외_사용자_입출력을_기본_학습",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Mistral, Enterprise 제외 사용자 입출력을 기본 학습에 활용",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33165",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Mistral, Enterprise 제외 사용자 입출력을 기본 학습에 활용",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Mistral, Enterprise 제외 사용자 입출력을 기본 학습에 활용",
+      "description_ko": "Mistral, Enterprise 제외 사용자 입출력을 기본 학습에 활용",
+      "hn_url": "https://news.hada.io/topic?id=33165",
+      "article_url": "https://news.hada.io/topic?id=33165"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_lwn_구독료_20_인상_안내",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: LWN 구독료 20% 인상 안내",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33158",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: LWN 구독료 20% 인상 안내",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "LWN 구독료 20% 인상 안내",
+      "description_ko": "LWN 구독료 20% 인상 안내",
+      "hn_url": "https://news.hada.io/topic?id=33158",
+      "article_url": "https://news.hada.io/topic?id=33158"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_google_코딩과_에이전트를_강화한_gemini_38_flash",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Google, 코딩과 에이전트를 강화한 Gemini 3.8 Flash 및 보안 특화 Flash Cyber 공개",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33161",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Google, 코딩과 에이전트를 강화한 Gemini 3.8 Flash 및 보안 특화 Flash Cyber 공개",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Google, 코딩과 에이전트를 강화한 Gemini 3.8 Flash 및 보안 특화 Flash Cyber 공개",
+      "description_ko": "Google, 코딩과 에이전트를 강화한 Gemini 3.8 Flash 및 보안 특화 Flash Cyber 공개",
+      "hn_url": "https://news.hada.io/topic?id=33161",
+      "article_url": "https://news.hada.io/topic?id=33161"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_google_광고_기술_독점_판결에도_사업_분할은_피하다",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Google, 광고 기술 독점 판결에도 사업 분할은 피하다",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33167",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Google, 광고 기술 독점 판결에도 사업 분할은 피하다",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Google, 광고 기술 독점 판결에도 사업 분할은 피하다",
+      "description_ko": "Google, 광고 기술 독점 판결에도 사업 분할은 피하다",
+      "hn_url": "https://news.hada.io/topic?id=33167",
+      "article_url": "https://news.hada.io/topic?id=33167"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_fbi_운전면허증_1억_5300만_건_이상_판매한_서비스_수사",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: FBI, 운전면허증 1억 5,300만 건 이상 판매한 서비스 수사",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33154",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: FBI, 운전면허증 1억 5,300만 건 이상 판매한 서비스 수사",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "FBI, 운전면허증 1억 5,300만 건 이상 판매한 서비스 수사",
+      "description_ko": "FBI, 운전면허증 1억 5,300만 건 이상 판매한 서비스 수사",
+      "hn_url": "https://news.hada.io/topic?id=33154",
+      "article_url": "https://news.hada.io/topic?id=33154"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_commodore_64_1982년_9월_1일_출시",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Commodore 64, 1982년 9월 1일 출시",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33168",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Commodore 64, 1982년 9월 1일 출시",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Commodore 64, 1982년 9월 1일 출시",
+      "description_ko": "Commodore 64, 1982년 9월 1일 출시",
+      "hn_url": "https://news.hada.io/topic?id=33168",
+      "article_url": "https://news.hada.io/topic?id=33168"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_claude로_커머스_에이전트_구축하기",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Claude로 커머스 에이전트 구축하기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33176",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Claude로 커머스 에이전트 구축하기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Claude로 커머스 에이전트 구축하기",
+      "description_ko": "Claude로 커머스 에이전트 구축하기",
+      "hn_url": "https://news.hada.io/topic?id=33176",
+      "article_url": "https://news.hada.io/topic?id=33176"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_claude_fable_51_프롬프팅_가이드",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: Claude Fable 5.1 프롬프팅 가이드",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33175",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Claude Fable 5.1 프롬프팅 가이드",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Claude Fable 5.1 프롬프팅 가이드",
+      "description_ko": "Claude Fable 5.1 프롬프팅 가이드",
+      "hn_url": "https://news.hada.io/topic?id=33175",
+      "article_url": "https://news.hada.io/topic?id=33175"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_ai_시대에_가장_안전한_직업은_글쓰기일_수_있다",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: AI 시대에 가장 안전한 직업은 글쓰기일 수 있다",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33170",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: AI 시대에 가장 안전한 직업은 글쓰기일 수 있다",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "AI 시대에 가장 안전한 직업은 글쓰기일 수 있다",
+      "description_ko": "AI 시대에 가장 안전한 직업은 글쓰기일 수 있다",
+      "hn_url": "https://news.hada.io/topic?id=33170",
+      "article_url": "https://news.hada.io/topic?id=33170"
+    },
+    {
       "inbox_id": "2026-09-02_sns_hugging_face_blog_the_open_asr_leaderboard_ad",
       "harvested_date": "2026-09-02",
       "created_at": "2026-09-02",
@@ -8439,6 +9842,806 @@
     }
   ],
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-03_repo_hacker_news_webllm_high_performance_in_browse",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: WebLLM: high-performance in-browser LLM inference engine",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49536411",
+      "type": "repo",
+      "category_type": "REPO",
+      "description": "HN Score: 90 pts | Comments: 17 | WebLLM: high-performance in-browser LLM inference engine",
+      "viral_metric": "🔥 90 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 90,
+          "display": "🔥 90 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 90,
+          "display": "🔥 90 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49536411",
+      "article_url": "https://github.com/mlc-ai/web-llm"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hacker_news_fable_51_world_modeling",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: Fable 5.1 World Modeling",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49541458",
+      "type": "repo",
+      "category_type": "REPO",
+      "description": "HN Score: 144 pts | Comments: 51 | Fable 5.1 World Modeling",
+      "viral_metric": "🔥 144 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 144,
+          "display": "🔥 144 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 144,
+          "display": "🔥 144 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49541458",
+      "article_url": "https://github.com/PhiloLabs/fable51-worlds"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_github_soirihirokashrimply",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GitHub: soirihiroka/shrimply",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/soirihiroka/shrimply",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Stars: 713, Forks: 39 | you're telling me a shrimp made this video?",
+      "viral_metric": "★ 713 Stars",
+      "metric_tracking": {
+        "initial": {
+          "value": 713,
+          "display": "★ 713 Stars",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 713,
+          "display": "★ 713 Stars",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_github_brayonpihexstellar",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GitHub: brayonpi/hexstellar",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/brayonpi/hexstellar",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Stars: 705, Forks: 52 | Turn any AI agent into a computational researcher. HexStellar Cortex delivers software-accelerated optimization, quantum computing, scientific computing, decision intelligence, and verifiable execution through a Python CLI and API—with certainty labels, verification receipts, examples, and a free sandbox. Start instantly: pip install hexstellar",
+      "viral_metric": "★ 705 Stars",
+      "metric_tracking": {
+        "initial": {
+          "value": 705,
+          "display": "★ 705 Stars",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 705,
+          "display": "★ 705 Stars",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_when_persona_attributes_improve_populat",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: When Persona Attributes Improve Population Alignment in Large Language Models",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02526v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Large Language Models (LLMs) are increasingly used to predict the responses of human participants in survey panels. Towards that goal, persona prompting has recently emerged as a technique to inform a...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_visar_training_free_adaptive_k_retrieva",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: ViSAR: Training-Free Adaptive-$k$ Retrieval for Visual Document Question Answering",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02486v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Document Visual Question Answering (DocVQA) often leverages Retrieval-Augmented Generation (RAG), where late-interaction encoders are commonly used to identify document pages relevant to a user query,...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_spectral_initialization_and_scheduled_g",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Spectral Initialization and Scheduled Graph Smoothness for Uncertain Knowledge Graph Completion",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02519v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Uncertain knowledge graphs (UKGs) extend knowledge graphs by assigning each triple a continuous confidence score. Since most possible triples lack observed confidences, recent methods rely on semi-sup...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_scalable_direction_following_tts_via_vo",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Scalable Direction-Following TTS via Voice Impression-Guided Pseudo Triplet Construction",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02623v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Voice actors often re-read the same script while modifying their delivery in response to performance directions. We study this setting as direction-following TTS, where a system generates a new uttera...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_rinse_robust_target_time_normality_esti",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: RINSE: Robust Target-Time Normality Estimation for Zero-Shot Graph Anomaly Detection",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02497v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Zero-shot graph anomaly detection seeks to deploy a detector trained on source graphs to unseen, unlabeled targets, yet domain shift can make source-derived notions of normality unreliable. We introdu...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_probematchdti_probe_driven_multi_scale_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: ProbeMatchDTI: Probe-Driven Multi-Scale Biochemical Pattern Matching for Drug-Target Interaction Prediction",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02549v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Drug-target interaction (DTI) prediction is an important task in AI-driven drug discovery. Although recent biochemical representation learning methods have improved DTI prediction, their passive featu...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_predictors_of_loneliness_in_older_adult",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Predictors of Loneliness in Older Adults Using Multimodal Analysis of Speech and Language",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02606v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Loneliness is a critical public health issue among older adults, linked to higher risks of depression, cognitive decline, and mortality. Scalable, objective methods for its detection remain limited, p...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_pragalign_feedback_guided_pragmatic_ali",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: PragAlign: Feedback-Guided Pragmatic Alignment for Controlled Synthetic Dialogue Generation",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02480v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Synthetic dialogue generation can support research in privacy-restricted service settings, but generated conversations must preserve communicative intent, affective meaning, and natural dialogue flow....",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_learning_to_fuse_llms_with_ontology_ran",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Learning to Fuse LLMs with Ontology Rankers for Rare-Disease Diagnosis",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02473v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Ontology rankers remain useful for rare-disease diagnosis because each candidate can be traced to matched patient phenotypes. Large language models (LLMs) can generate differential diagnoses from the ...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_learn_from_whoever_is_right_answer_veri",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Learn from Whoever Is Right: Answer-Verified Multi-Teacher Distillation for Multi-Domain LLMs",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02548v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Modern large language models (LLMs) rely on reinforcement learning to build strong capabilities in individual domains, but integrating those capabilities into a single deployable model remains challen...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_how_llms_build_fictional_worlds_setting",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: How LLMs Build Fictional Worlds: Setting and Narrative Space in AI-Generated Creative Storytelling",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02482v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: In this paper, we analyze how Large Language Models (LLMs) employ worldbuilding strategies, focusing on setting as one measurable dimension of storyworld construction. We compare 1,000 AI-generated st...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_fine_grained_anomaly_perception_in_wild",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Fine-Grained Anomaly Perception in Wild UGC-Enhanced Images: A Comprehensive Dataset and Difference-Fusion Framework",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02529v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Image enhancement and restoration have become standard back-end operations on short-video and social media platforms to boost UGC visual experience. Yet these processes inevitably introduce visual ano...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_deepaffinity_long_term_aspect_preferenc",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: DeepAffinity: Long-Term Aspect Preference Prediction in eCommerce using Small Language Models",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02468v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: We explore predicting eCommerce user preferences for product aspects such as brand, size, and color - a task we define as Aspect Affinity. Solving this task improves customer understanding and enables...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_debias_sparsegpt_bias_aware_pruning_for",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Debias-SparseGPT: Bias-Aware Pruning for Large Language Models",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02496v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Model compression techniques such as pruning and quantization facilitate the efficient deployment and acceleration of Large Language Models (LLMs). However, recent studies show that weight sparsificat...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_competitive_market_behavior_of_llms",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Competitive Market Behavior of LLMs",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02580v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Large language models (LLMs) are increasingly deployed as economic agents, yet there is little evidence whether LLM agents are suited for participating in market mechanisms designed for humans, and wh...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_collective_creativity_in_hybrid_societi",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Collective creativity in hybrid societies",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02620v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Generative AI is changing how cultural artifacts are created and circulated, and with it our understanding of creativity itself. Researchers disagree about whether these tools enrich or impoverish cul...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_civbench_a_long_horizon_benchmark_for_t",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: CivBench: A Long-Horizon Benchmark for Tool-Mediated Agents in Civilization VI",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02459v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: We present CivBench, an open-source benchmark for evaluating language model agents in long-horizon, tool-mediated environments through the Model Context Protocol (MCP). A single episode spans 300+ tur...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_blending_concepts_benchmarking_visual_m",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Blending Concepts: Benchmarking Visual Metaphor Generation in Text-to-Image Models",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02502v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Text-to-image (T2I) models have achieved remarkable success at faithfully rendering specified objects and attributes, yet their ability to produce visual metaphors, images that convey abstract ideas b...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화",
+        "이커머스 & 커머스 데이터 수집 인프라",
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_automated_vulnerability_injection_in_sm",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Automated Vulnerability Injection in Smart Contracts Using Large Language Models",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02624v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Assessing vulnerability detection tools for smart contracts requires datasets with known ground truth, yet such datasets are scarce and difficult to build by hand. We propose an approach that uses Lar...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_arxiv_addressing_trust_in_ai_systems_through_",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "ArXiv: Addressing Trust in AI Systems through Education: A Didactic Perspective",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.02453v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Machine learning (ML) education faces two persistent and connected obstacles: many educational tools present ML as an opaque black box, which leaves learners with a superficial understanding, and this...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
     {
       "inbox_id": "2026-09-02_sns_hugging_face_blog_quantization_aware_healing_",
       "harvested_date": "2026-09-02",
