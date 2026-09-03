@@ -9,8 +9,8 @@
   "avg_confidence": 96.2,
   "models_total_count": 111,
   "news_total_count": 97,
-  "inbox_total_count": 513,
-  "all_inbox_count": 523,
+  "inbox_total_count": 519,
+  "all_inbox_count": 529,
   "admin_stats": {
     "endpoints": [
       {
@@ -45,6 +45,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T17:21:35.555546",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.22
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 85,
+            "duration_sec": 0.35
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 1.12
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 12.54
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.68
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.22
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 1.02
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.26
+          }
+        },
+        "summary": {
+          "total_fetched": 259,
+          "updated_count": 0,
+          "new_saved": 6,
+          "duplicates_skipped": 253,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T16:48:53.856060",
         "date": "2026-09-03",
@@ -1581,111 +1634,58 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T07:11:58.553275",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.22
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.22
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.94
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 21,
-            "duration_sec": 12.23
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.51
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.25
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 1.09
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.27
-          }
-        },
-        "summary": {
-          "total_fetched": 161,
-          "updated_count": 161,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T16:48:53.856060",
+      "timestamp": "2026-09-03T17:21:35.555546",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.27
+          "duration_sec": 0.22
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 85,
-          "duration_sec": 0.32
+          "duration_sec": 0.35
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.8
+          "duration_sec": 1.12
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 10.99
+          "duration_sec": 12.54
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.23
+          "duration_sec": 0.68
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.17
+          "duration_sec": 0.22
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.03
+          "duration_sec": 1.02
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.14
+          "duration_sec": 0.26
         }
       },
       "summary": {
         "total_fetched": 259,
         "updated_count": 0,
-        "new_saved": 14,
-        "duplicates_skipped": 245,
+        "new_saved": 6,
+        "duplicates_skipped": 253,
         "errors": 0
       }
     }
@@ -1706,13 +1706,13 @@
     {
       "day_ko": "수",
       "day_en": "Wed",
-      "inbox_count": 106,
+      "inbox_count": 107,
       "verified_count": 10
     },
     {
       "day_ko": "목",
       "day_en": "Thu",
-      "inbox_count": 184,
+      "inbox_count": 189,
       "verified_count": 6
     },
     {
@@ -1787,7 +1787,7 @@
       "month_key": "2026-09",
       "month_ko": "9월",
       "month_en": "Sep",
-      "inbox_count": 368,
+      "inbox_count": 374,
       "verified_count": 22,
       "cumulative_verified": 35
     }
@@ -33185,6 +33185,43 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_static_allocation_constant_work",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T17:21:52.795081",
+      "published_at": "2026-09-02T17:30:55",
+      "created_at": "2026-09-02T17:30:55",
+      "updated_at": "2026-09-03T17:21:52.795081",
+      "title": "Hacker News: Static Allocation, Constant Work",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49539556",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 15 pts | Comments: 0 | Static Allocation, Constant Work",
+      "viral_metric": "🔥 15 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 15,
+          "display": "🔥 15 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 15,
+          "display": "🔥 15 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49539556",
+      "article_url": "https://matklad.github.io/2026/09/02/static-allocation-constant-work.html"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_show_hn_the_cheapest_gpu_cloud_h1",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -33285,6 +33322,43 @@
       "description_zh": "寻找大幅降低大模型训练与推理成本方案的工程师不容错过的超低价 GPU 云基础设施。",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_show_hn_real_time_ai_news_aggrega",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T17:21:53.209928",
+      "published_at": "2026-09-03T14:39:27",
+      "created_at": "2026-09-03T14:39:27",
+      "updated_at": "2026-09-03T17:21:53.209928",
+      "title": "Hacker News: Show HN: Real-time AI news aggregator with daily digest",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49550515",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 6 pts | Comments: 4 | Show HN: Real-time AI news aggregator with daily digest",
+      "viral_metric": "🔥 6 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49550515",
+      "article_url": "https://aibriefs.news"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_show_hn_owntime_a_chess_clock_for",
@@ -33491,6 +33565,43 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_openais_new_reasoning_technique_a",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T17:21:53.200887",
+      "published_at": "2026-09-03T16:11:24",
+      "created_at": "2026-09-03T16:11:24",
+      "updated_at": "2026-09-03T17:21:53.200887",
+      "title": "Hacker News: OpenAI's new reasoning technique alarms AI safety experts",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49552395",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 14 pts | Comments: 3 | OpenAI's new reasoning technique alarms AI safety experts",
+      "viral_metric": "🔥 14 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49552395",
+      "article_url": "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_open_ai_x_post_on_astra",
       "harvested_date": "2026-09-03",
       "harvested_at": "2026-09-03T16:49:09.291102",
@@ -33526,6 +33637,43 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49551018",
       "article_url": "https://twitter.com/OpenAI/status/2095527557924082061"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_nginx_1315_introduces_a_built_in_",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T17:21:53.235181",
+      "published_at": "2026-09-03T12:51:21",
+      "created_at": "2026-09-03T12:51:21",
+      "updated_at": "2026-09-03T17:21:53.235181",
+      "title": "Hacker News: Nginx 1.31.5 introduces a built-in JSON parser, Control API, and predicate locat",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49549308",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 9 pts | Comments: 0 | Nginx 1.31.5 introduces a built-in JSON parser, Control API, and predicate locat",
+      "viral_metric": "🔥 9 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49549308",
+      "article_url": "https://www.linuxcompatible.org/story/nginx-1315-introduces-a-builtin-json-parser-control-api-and-predicate-locations-in-september-mainline-release/"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_my_bc_250_journey_with_40_cus_unl",
@@ -33878,6 +34026,43 @@
       "article_url": "https://arxiv.org/abs/2504.00506"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_google_antigravity_tos_3rd_party_",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T17:21:52.780705",
+      "published_at": "2026-09-03T11:01:04",
+      "created_at": "2026-09-03T11:01:04",
+      "updated_at": "2026-09-03T17:21:52.780705",
+      "title": "Hacker News: Google Antigravity TOS: 3rd party usage can get Google account suspended",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49548452",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 126 pts | Comments: 81 | Google Antigravity TOS: 3rd party usage can get Google account suspended",
+      "viral_metric": "🔥 126 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 126,
+          "display": "🔥 126 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 126,
+          "display": "🔥 126 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49548452",
+      "article_url": "https://twitter.com/GergelyOrosz/status/2095453567955968398"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_fish_bad_sugar_good_and_other_med",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -34150,6 +34335,43 @@
       "description_zh": "探讨软件工程师和运维人员在构建可靠备份存储时面临的现实痛点与挑战。",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_claude_for_commerce_agents",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T17:21:53.029043",
+      "published_at": "2026-09-03T09:37:55",
+      "created_at": "2026-09-03T09:37:55",
+      "updated_at": "2026-09-03T17:21:53.029043",
+      "title": "Hacker News: Claude for Commerce Agents",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49547888",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 45 pts | Comments: 50 | Claude for Commerce Agents",
+      "viral_metric": "🔥 45 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 45,
+          "display": "🔥 45 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 45,
+          "display": "🔥 45 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49547888",
+      "article_url": "https://claude.com/blog/claude-for-commerce-agents"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_can_i_opt_out_of_my_input_or_outp",
