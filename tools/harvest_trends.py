@@ -360,25 +360,34 @@ def harvest_all():
     # 2. Hugging Face Spaces (Interactive Demos)
     spaces_start = time.time()
     try:
-        logger.log("[*] Fetching Hugging Face Trending Spaces (limit=25)...")
-        sp_data = fetch_json("https://huggingface.co/api/spaces?sort=trendingScore&direction=-1&limit=25")
+        logger.log("[*] Fetching Hugging Face Trending & Popular Spaces (limit=60)...")
+        # 2-1: Trending Spaces
+        sp_data_trending = fetch_json("https://huggingface.co/api/spaces?sort=trendingScore&direction=-1&limit=60")
+        # 2-2: Most Liked Recent Spaces
+        sp_data_liked = fetch_json("https://huggingface.co/api/spaces?sort=likes&direction=-1&limit=30")
+        
+        combined_spaces = {}
+        for sp_list in [sp_data_trending, sp_data_liked]:
+            if sp_list and isinstance(sp_list, list):
+                for item in sp_list:
+                    sid = item.get("id")
+                    if sid and sid not in combined_spaces:
+                        combined_spaces[sid] = item
+
         count = 0
-        if sp_data and isinstance(sp_data, list):
-            for item in sp_data:
-                sid = item.get("id", "")
-                url = f"https://huggingface.co/spaces/{sid}"
-                sdk = item.get("sdk", "gradio")
-                likes = item.get("likes", 0)
-                if sid:
-                    added = add_candidate({
-                        "title": f"HF Space: {sid}",
-                        "source_platform": "Hugging Face Spaces (Demo)",
-                        "source_url": url,
-                        "type": "repo",
-                        "description": f"Interactive AI Demo (SDK: {sdk}) | Likes: {likes} | Live URL: {url}",
-                        "viral_metric": f"❤️ {likes} Likes (Trending Demo)"
-                    })
-                    if added: count += 1
+        for sid, item in combined_spaces.items():
+            url = f"https://huggingface.co/spaces/{sid}"
+            sdk = item.get("sdk", "gradio")
+            likes = item.get("likes", 0)
+            added = add_candidate({
+                "title": f"HF Space: {sid}",
+                "source_platform": "Hugging Face Spaces (Demo)",
+                "source_url": url,
+                "type": "repo",
+                "description": f"Interactive AI Demo (SDK: {sdk}) | Likes: {likes} | Live URL: {url}",
+                "viral_metric": f"❤️ {likes} Likes (Trending Demo)"
+            })
+            if added: count += 1
         harvest_report["sources"]["hf_spaces"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - spaces_start, 2)}
         logger.log(f"[+] Hugging Face Spaces: {count} interactive demo candidates ingested in {time.time() - spaces_start:.2f}s")
     except Exception as e:
