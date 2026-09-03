@@ -36,9 +36,15 @@ ENV/
 *.log
 scratch/
 scratch*
-*.swp
-*.swo
+dom_dump.html
+*.tmp
+*.dump
+*.bak
 
-# OS
+# OS & Editors
 .DS_Store
 Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
