@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_predictors_of_loneliness_in_older_adult",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "멀티모달 분석 및 헬스케어",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Multimodal Analysis",
+      "Speech and Language",
+      "Loneliness Prediction"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.0,
+    "multilingual": {
+      "ko": {
+        "title": "음성 및 언어의 멀티모달 분석을 활용한 고령층 외로움 예측 요인 분석",
+        "hook": "음성과 텍스트 데이터를 활용하여 고령층의 외로움과 정신 건강 위험을 객관적으로 감지합니다.",
+        "key_takeaways": [
+          "고령층의 외로움이 초래하는 공중 보건 문제 및 인지 저하 위험 대응",
+          "음성 및 언어 데이터를 활용한 확장 가능하고 객관적인 감지 방법론",
+          "멀티모달 머신러닝을 통한 심리 상태 분석 가능성 제시"
+        ]
+      },
+      "en": {
+        "title": "Predictors of Loneliness in Older Adults Using Multimodal Analysis of Speech and Language",
+        "hook": "Detect loneliness and mental health risks in older adults objectively using speech and language multimodal models.",
+        "key_takeaways": [
+          "Addresses critical public health issues like loneliness and cognitive decline in older adults",
+          "Proposes scalable, objective detection methods using speech and language",
+          "Demonstrates the power of multimodal analysis in psychological health assessment"
+        ]
+      },
+      "zh": {
+        "title": "利用语音和语言多模态分析预测老年人的孤独感因素",
+        "hook": "通过语音与文本的多模态数据，客观检测老年人群体的孤独感及心理健康风险。",
+        "key_takeaways": [
+          "应对老年人孤独感引发的认知衰退与公共卫生危机",
+          "利用语音和语言特征进行可扩展、客观的检测方法",
+          "展示了多模态机器学习在心理健康评估中的应用潜力"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:20.115533+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Multimodal Analysis",
+    "Speech and Language",
+    "Loneliness Prediction"
+  ],
+  "title_ko": "음성 및 언어의 멀티모달 분석을 활용한 고령층 외로움 예측 요인 분석",
+  "title_en": "Predictors of Loneliness in Older Adults Using Multimodal Analysis of Speech and Language",
+  "title_zh": "利用语音和语言多模态分析预测老年人的孤独感因素",
+  "hook": "음성과 텍스트 데이터를 활용하여 고령층의 외로움과 정신 건강 위험을 객관적으로 감지합니다.",
+  "hook_ko": "음성과 텍스트 데이터를 활용하여 고령층의 외로움과 정신 건강 위험을 객관적으로 감지합니다.",
+  "hook_en": "Detect loneliness and mental health risks in older adults objectively using speech and language multimodal models.",
+  "hook_zh": "通过语音与文本的多模态数据，客观检测老年人群体的孤独感及心理健康风险。",
+  "description_ko": "음성과 텍스트 데이터를 활용하여 고령층의 외로움과 정신 건강 위험을 객관적으로 감지합니다.",
+  "description_en": "Detect loneliness and mental health risks in older adults objectively using speech and language multimodal models.",
+  "description_zh": "通过语音与文本的多模态数据，客观检测老年人群体的孤独感及心理健康风险。"
 }

@@ -7,7 +7,7 @@
   "source_platform": "ArXiv Preprint",
   "source_url": "http://arxiv.org/abs/2609.02459v1",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "AGENT",
   "description": "Abstract: We present CivBench, an open-source benchmark for evaluating language model agents in long-horizon, tool-mediated environments through the Model Context Protocol (MCP). A single episode spans 300+ tur...",
   "viral_metric": "ArXiv Primary Paper",
   "metric_tracking": {
@@ -30,5 +30,68 @@
     "DX & Python 업무 프로세스 자동화",
     "정량 데이터 분석 & 벤치마크 감사"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_civbench_a_long_horizon_benchmark_for_t",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "웹/게임 에이전트 및 벤치마크",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Agent Benchmark",
+      "Model Context Protocol",
+      "Long-Horizon"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "CivBench: 문명 6 환경의 툴 기반 장기 호라이즌 에이전트 벤치마크",
+        "hook": "300턴 이상의 복잡하고 긴 호라이즌을 가진 문명 6 환경에서 LLM 에이전트의 능력을 평가하는 최신 오픈소스 벤치마크를 확인하세요.",
+        "key_takeaways": [
+          "Model Context Protocol(MCP)을 활용한 툴 기반 장기 에이전트 평가 벤치마크 CivBench 공개",
+          "단일 에피소드가 300턴 이상 지속되는 복잡한 전략 게임 환경 시뮬레이션",
+          "복잡한 멀티스텝 의사결정 및 도구 활용 능력을 측정하는 핵심 지표 제공"
+        ]
+      },
+      "en": {
+        "title": "CivBench: A Long-Horizon Benchmark for Tool-Mediated Agents in Civilization VI",
+        "hook": "Evaluate language model agents in complex, long-horizon environments spanning over 300 turns using Model Context Protocol.",
+        "key_takeaways": [
+          "Introduces CivBench, an open-source benchmark for tool-mediated LLM agents",
+          "Utilizes Civilization VI with episodes lasting 300+ turns",
+          "Tests advanced multi-step reasoning, strategy, and MCP tool usage"
+        ]
+      },
+      "zh": {
+        "title": "CivBench：基于《文明6》的工具介导智能体长周期基准测试",
+        "hook": "借助模型上下文协议（MCP），在跨越300多轮的复杂《文明6》环境中评估大模型智能体的长周期规划能力。",
+        "key_takeaways": [
+          "推出开源基准测试CivBench，用于评估工具介导的LLM智能体",
+          "单局游戏跨越300多个回合，高度考验长周期策略与决策",
+          "利用Model Context Protocol（MCP）测量复杂的多步交互与工具调用能力"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:44.807637+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Agent Benchmark",
+    "Model Context Protocol",
+    "Long-Horizon"
+  ],
+  "title_ko": "CivBench: 문명 6 환경의 툴 기반 장기 호라이즌 에이전트 벤치마크",
+  "title_en": "CivBench: A Long-Horizon Benchmark for Tool-Mediated Agents in Civilization VI",
+  "title_zh": "CivBench：基于《文明6》的工具介导智能体长周期基准测试",
+  "hook": "300턴 이상의 복잡하고 긴 호라이즌을 가진 문명 6 환경에서 LLM 에이전트의 능력을 평가하는 최신 오픈소스 벤치마크를 확인하세요.",
+  "hook_ko": "300턴 이상의 복잡하고 긴 호라이즌을 가진 문명 6 환경에서 LLM 에이전트의 능력을 평가하는 최신 오픈소스 벤치마크를 확인하세요.",
+  "hook_en": "Evaluate language model agents in complex, long-horizon environments spanning over 300 turns using Model Context Protocol.",
+  "hook_zh": "借助模型上下文协议（MCP），在跨越300多轮的复杂《文明6》环境中评估大模型智能体的长周期规划能力。",
+  "description_ko": "300턴 이상의 복잡하고 긴 호라이즌을 가진 문명 6 환경에서 LLM 에이전트의 능력을 평가하는 최신 오픈소스 벤치마크를 확인하세요.",
+  "description_en": "Evaluate language model agents in complex, long-horizon environments spanning over 300 turns using Model Context Protocol.",
+  "description_zh": "借助模型上下文协议（MCP），在跨越300多轮的复杂《文明6》环境中评估大模型智能体的长周期规划能力。"
 }

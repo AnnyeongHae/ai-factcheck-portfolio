@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33161",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "MODEL",
   "description": "GeekNews Korean Tech Trend: Google, 코딩과 에이전트를 강화한 Gemini 3.8 Flash 및 보안 특화 Flash Cyber 공개",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -31,7 +31,71 @@
   ],
   "status": "PENDING_REVIEW",
   "title_ko": "Google, 코딩과 에이전트를 강화한 Gemini 3.8 Flash 및 보안 특화 Flash Cyber 공개",
-  "description_ko": "Google, 코딩과 에이전트를 강화한 Gemini 3.8 Flash 및 보안 특화 Flash Cyber 공개",
+  "description_ko": "코딩 및 에이전트 성능이 대폭 향상된 최신 Gemini 3.8 Flash와 보안 특화 모델이 공개되었습니다.",
   "hn_url": "https://news.hada.io/topic?id=33161",
-  "article_url": "https://news.hada.io/topic?id=33161"
+  "article_url": "https://news.hada.io/topic?id=33161",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_geeknews_google_코딩과_에이전트를_강화한_gemini_38_flash",
+    "source_lang": "KO",
+    "type_classification": "MODEL",
+    "model_family": "Gemini",
+    "category": "LLM 추론 및 코딩 에이전트",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Gemini 3.8 Flash",
+      "Flash Cyber",
+      "Google",
+      "코딩 에이전트"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "Google, 코딩과 에이전트를 강화한 Gemini 3.8 Flash 및 보안 특화 Flash Cyber 공개",
+        "hook": "코딩 및 에이전트 성능이 대폭 향상된 최신 Gemini 3.8 Flash와 보안 특화 모델이 공개되었습니다.",
+        "key_takeaways": [
+          "코딩 성능과 에이전트 실행 능력이 대폭 강화된 Gemini 3.8 Flash 발표",
+          "사이버 보안 작업에 특화된 파생 모델 'Flash Cyber' 동시 공개",
+          "실무 개발 및 자동화 파이프라인에서의 활용도 극대화 예상"
+        ]
+      },
+      "en": {
+        "title": "Google Releases Gemini 3.8 Flash Enhanced for Coding and Agents, Plus Security-Focused Flash Cyber",
+        "hook": "Discover the latest Gemini 3.8 Flash with significantly boosted coding and agent capabilities, alongside a security-focused model.",
+        "key_takeaways": [
+          "Gemini 3.8 Flash released with vastly improved coding performance and agent execution capabilities",
+          "Simultaneous introduction of 'Flash Cyber', specialized for cybersecurity tasks",
+          "Expected to maximize utility in production development and automated pipelines"
+        ]
+      },
+      "zh": {
+        "title": "谷歌发布强化编程与智能体能力的 Gemini 3.8 Flash 及安全专属 Flash Cyber",
+        "hook": "大幅提升编程与智能体性能的最新 Gemini 3.8 Flash 及其安全特化版本正式亮相。",
+        "key_takeaways": [
+          "发布的 Gemini 3.8 Flash 显著增强了编程性能和智能体执行能力",
+          "同步推出专注于网络安全任务的衍生模型“Flash Cyber”",
+          "预计将极大提升实际开发和自动化流水线中的应用效率"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:16:31.084180+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Gemini 3.8 Flash",
+    "Flash Cyber",
+    "Google",
+    "코딩 에이전트"
+  ],
+  "title_en": "Google Releases Gemini 3.8 Flash Enhanced for Coding and Agents, Plus Security-Focused Flash Cyber",
+  "title_zh": "谷歌发布强化编程与智能体能力的 Gemini 3.8 Flash 及安全专属 Flash Cyber",
+  "hook": "코딩 및 에이전트 성능이 대폭 향상된 최신 Gemini 3.8 Flash와 보안 특화 모델이 공개되었습니다.",
+  "hook_ko": "코딩 및 에이전트 성능이 대폭 향상된 최신 Gemini 3.8 Flash와 보안 특화 모델이 공개되었습니다.",
+  "hook_en": "Discover the latest Gemini 3.8 Flash with significantly boosted coding and agent capabilities, alongside a security-focused model.",
+  "hook_zh": "大幅提升编程与智能体性能的最新 Gemini 3.8 Flash 及其安全特化版本正式亮相。",
+  "description_en": "Discover the latest Gemini 3.8 Flash with significantly boosted coding and agent capabilities, alongside a security-focused model.",
+  "description_zh": "大幅提升编程与智能体性能的最新 Gemini 3.8 Flash 及其安全特化版本正式亮相。",
+  "model_family": "Gemini"
 }

@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_rinse_robust_target_time_normality_esti",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "그래프 이상 탐지",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Zero-Shot Learning",
+      "Graph Anomaly Detection",
+      "Normality Estimation"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.1,
+    "multilingual": {
+      "ko": {
+        "title": "RINSE: 제로샷 그래프 이상 탐지를 위한 강건한 타겟 타임 정규성 추정",
+        "hook": "도메인 시프트 문제를 해결하여 보지 못한 그래프에서도 이상 징후를 정확히 탐지하는 프레임워크입니다.",
+        "key_takeaways": [
+          "라벨이 없는 타겟 그래프에 소스 학습 모델을 적용하는 제로샷 이상 탐지",
+          "도메인 시프트로 인한 정규성 판단 오류 문제 해결",
+          "강건한 타겟 타임 정규성 추정(RINSE) 방법론 제시"
+        ]
+      },
+      "en": {
+        "title": "RINSE: Robust Target-Time Normality Estimation for Zero-Shot Graph Anomaly Detection",
+        "hook": "Overcome domain shift challenges in zero-shot graph anomaly detection with robust normality estimation.",
+        "key_takeaways": [
+          "Tackles zero-shot graph anomaly detection on unseen, unlabeled targets",
+          "Mitigates unreliability caused by domain shifts in normality definitions",
+          "Proposes the RINSE framework for robust target-time estimation"
+        ]
+      },
+      "zh": {
+        "title": "RINSE：用于零样本图异常检测的鲁棒目标时间正态性估计",
+        "hook": "通过鲁棒的正态性估计解决零样本图异常检测中的领域偏移问题。",
+        "key_takeaways": [
+          "针对未见过的无标签目标图进行零样本异常检测",
+          "缓解领域偏移导致的正态性概念不可靠问题",
+          "提出RINSE框架以实现鲁棒的目标时间估计"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:20.114226+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Zero-Shot Learning",
+    "Graph Anomaly Detection",
+    "Normality Estimation"
+  ],
+  "title_ko": "RINSE: 제로샷 그래프 이상 탐지를 위한 강건한 타겟 타임 정규성 추정",
+  "title_en": "RINSE: Robust Target-Time Normality Estimation for Zero-Shot Graph Anomaly Detection",
+  "title_zh": "RINSE：用于零样本图异常检测的鲁棒目标时间正态性估计",
+  "hook": "도메인 시프트 문제를 해결하여 보지 못한 그래프에서도 이상 징후를 정확히 탐지하는 프레임워크입니다.",
+  "hook_ko": "도메인 시프트 문제를 해결하여 보지 못한 그래프에서도 이상 징후를 정확히 탐지하는 프레임워크입니다.",
+  "hook_en": "Overcome domain shift challenges in zero-shot graph anomaly detection with robust normality estimation.",
+  "hook_zh": "通过鲁棒的正态性估计解决零样本图异常检测中的领域偏移问题。",
+  "description_ko": "도메인 시프트 문제를 해결하여 보지 못한 그래프에서도 이상 징후를 정확히 탐지하는 프레임워크입니다.",
+  "description_en": "Overcome domain shift challenges in zero-shot graph anomaly detection with robust normality estimation.",
+  "description_zh": "通过鲁棒的正态性估计解决零样本图异常检测中的领域偏移问题。"
 }

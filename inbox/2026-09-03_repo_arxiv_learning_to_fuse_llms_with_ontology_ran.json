@@ -29,5 +29,70 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_learning_to_fuse_llms_with_ontology_ran",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "의료 AI 및 LLM 융합",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Ontology Ranker",
+      "Rare-Disease Diagnosis",
+      "LLM Fusion",
+      "Medical AI"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "희귀 질환 진단을 위한 온톨로지 랭커와 LLM 융합 학습",
+        "hook": "LLM과 온톨로지 랭커를 결합하여 희귀 질환 진단의 정확도와 설명 가능성을 높이는 방법을 알아보세요.",
+        "key_takeaways": [
+          "환자 표현형과 매칭되는 온톨로지 랭커 활용",
+          "LLM을 통한 감별 진단 생성 능력 결합",
+          "희귀 질환 진단 프로세스의 신뢰성 향상"
+        ]
+      },
+      "en": {
+        "title": "Learning to Fuse LLMs with Ontology Rankers for Rare-Disease Diagnosis",
+        "hook": "Discover how combining LLMs with ontology rankers improves accuracy and interpretability in rare-disease diagnosis.",
+        "key_takeaways": [
+          "Leverages ontology rankers traceable to patient phenotypes",
+          "Combines differential diagnosis generation using LLMs",
+          "Enhances reliability in rare-disease diagnostic workflows"
+        ]
+      },
+      "zh": {
+        "title": "学习将大语言模型与本体排序器融合以用于罕见病诊断",
+        "hook": "探索如何结合大语言模型与本体排序器，以提高罕见病诊断的准确性和可解释性。",
+        "key_takeaways": [
+          "利用可追溯至患者表型的本体排序器",
+          "结合大语言模型生成鉴别诊断的能力",
+          "提升罕见病诊断工作流的可靠性"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:31.851968+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Ontology Ranker",
+    "Rare-Disease Diagnosis",
+    "LLM Fusion",
+    "Medical AI"
+  ],
+  "title_ko": "희귀 질환 진단을 위한 온톨로지 랭커와 LLM 융합 학습",
+  "title_en": "Learning to Fuse LLMs with Ontology Rankers for Rare-Disease Diagnosis",
+  "title_zh": "学习将大语言模型与本体排序器融合以用于罕见病诊断",
+  "hook": "LLM과 온톨로지 랭커를 결합하여 희귀 질환 진단의 정확도와 설명 가능성을 높이는 방법을 알아보세요.",
+  "hook_ko": "LLM과 온톨로지 랭커를 결합하여 희귀 질환 진단의 정확도와 설명 가능성을 높이는 방법을 알아보세요.",
+  "hook_en": "Discover how combining LLMs with ontology rankers improves accuracy and interpretability in rare-disease diagnosis.",
+  "hook_zh": "探索如何结合大语言模型与本体排序器，以提高罕见病诊断的准确性和可解释性。",
+  "description_ko": "LLM과 온톨로지 랭커를 결합하여 희귀 질환 진단의 정확도와 설명 가능성을 높이는 방법을 알아보세요.",
+  "description_en": "Discover how combining LLMs with ontology rankers improves accuracy and interpretability in rare-disease diagnosis.",
+  "description_zh": "探索如何结合大语言模型与本体排序器，以提高罕见病诊断的准确性和可解释性。"
 }

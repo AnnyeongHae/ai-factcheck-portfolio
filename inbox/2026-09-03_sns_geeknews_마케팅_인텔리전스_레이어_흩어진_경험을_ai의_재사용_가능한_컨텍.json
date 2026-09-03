@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33177",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: 마케팅 인텔리전스 레이어 - 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -30,8 +30,71 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "마케팅 인텔리전스 레이어 - 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
-  "description_ko": "마케팅 인텔리전스 레이어 - 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
+  "title_ko": "마케팅 인텔리전스 레이어: 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
+  "description_ko": "기업 내 흩어진 비즈니스 데이터를 AI가 즉시 활용할 수 있는 컨텍스트 레이어로 구축하는 방법을 확인하세요.",
   "hn_url": "https://news.hada.io/topic?id=33177",
-  "article_url": "https://news.hada.io/topic?id=33177"
+  "article_url": "https://news.hada.io/topic?id=33177",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_geeknews_마케팅_인텔리전스_레이어_흩어진_경험을_ai의_재사용_가능한_컨텍",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 컨텍스트 및 데이터 인프라",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "마케팅 인텔리전스",
+      "AI 컨텍스트",
+      "데이터 레이어",
+      "RAG"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "마케팅 인텔리전스 레이어: 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
+        "hook": "기업 내 흩어진 비즈니스 데이터를 AI가 즉시 활용할 수 있는 컨텍스트 레이어로 구축하는 방법을 확인하세요.",
+        "key_takeaways": [
+          "마케팅 데이터 파편화 문제 해결을 위한 아키텍처",
+          "AI 에이전트와 LLM을 위한 재사용 가능한 컨텍스트 설계",
+          "데이터 인프라 통합을 통한 비즈니스 자동화"
+        ]
+      },
+      "en": {
+        "title": "Marketing Intelligence Layer: Turning Scattered Experience into Reusable AI Context",
+        "hook": "Learn how to transform fragmented business data into an AI-ready, reusable context layer.",
+        "key_takeaways": [
+          "Architecture for solving marketing data fragmentation",
+          "Designing reusable contexts for AI agents and LLMs",
+          "Business automation through data infrastructure integration"
+        ]
+      },
+      "zh": {
+        "title": "营销智能层：将分散的经验转化为AI可复用的上下文",
+        "hook": "了解如何将企业内部零散的业务数据构建为AI可直接调用的上下文层。",
+        "key_takeaways": [
+          "解决营销数据碎片化问题的架构设计",
+          "为AI智能体与大语言模型设计可复用的上下文",
+          "通过数据基础设施整合实现业务自动化"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:16:05.445247+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "마케팅 인텔리전스",
+    "AI 컨텍스트",
+    "데이터 레이어",
+    "RAG"
+  ],
+  "title_en": "Marketing Intelligence Layer: Turning Scattered Experience into Reusable AI Context",
+  "title_zh": "营销智能层：将分散的经验转化为AI可复用的上下文",
+  "hook": "기업 내 흩어진 비즈니스 데이터를 AI가 즉시 활용할 수 있는 컨텍스트 레이어로 구축하는 방법을 확인하세요.",
+  "hook_ko": "기업 내 흩어진 비즈니스 데이터를 AI가 즉시 활용할 수 있는 컨텍스트 레이어로 구축하는 방법을 확인하세요.",
+  "hook_en": "Learn how to transform fragmented business data into an AI-ready, reusable context layer.",
+  "hook_zh": "了解如何将企业内部零散的业务数据构建为AI可直接调用的上下文层。",
+  "description_en": "Learn how to transform fragmented business data into an AI-ready, reusable context layer.",
+  "description_zh": "了解如何将企业内部零散的业务数据构建为AI可直接调用的上下文层。"
 }

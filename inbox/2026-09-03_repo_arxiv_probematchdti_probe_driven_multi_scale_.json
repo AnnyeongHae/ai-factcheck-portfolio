@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_probematchdti_probe_driven_multi_scale_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 신약 개발 (Bio-AI)",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Drug-Target Interaction",
+      "Multi-Scale Pattern Matching",
+      "Biochemical Representation"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.4,
+    "multilingual": {
+      "ko": {
+        "title": "ProbeMatchDTI: 약물-표적 상호작용 예측을 위한 프로브 기반 다중 스케일 생화학적 패턴 매칭",
+        "hook": "수동적 특징 학습의 한계를 극복하고 예측 정확도를 높인 새로운 AI 신약 개발 알고리즘입니다.",
+        "key_takeaways": [
+          "약물-표적 상호작용(DTI) 예측 성능을 극대화하는 신규 아키텍처",
+          "프로브 기반의 능동적이고 정밀한 다중 스케일 생화학적 패턴 매칭",
+          "기존 수동적 특징 표현 방식의 한계점 극복"
+        ]
+      },
+      "en": {
+        "title": "ProbeMatchDTI: Probe-Driven Multi-Scale Biochemical Pattern Matching for Drug-Target Interaction Prediction",
+        "hook": "Advance AI-driven drug discovery by improving drug-target interaction prediction through active pattern matching.",
+        "key_takeaways": [
+          "Improves drug-target interaction (DTI) prediction in computational drug discovery",
+          "Introduces probe-driven active multi-scale biochemical pattern matching",
+          "Overcomes limitations of passive feature learning in representation methods"
+        ]
+      },
+      "zh": {
+        "title": "ProbeMatchDTI：用于药物-靶标相互作用预测的探针驱动多尺度生化模式匹配",
+        "hook": "通过主动模式匹配克服被动特征学习的局限，提升AI药物研发中的相互作用预测精度。",
+        "key_takeaways": [
+          "提升药物-靶标相互作用（DTI）预测性能的创新架构",
+          "采用探针驱动的主动多尺度生化模式匹配机制",
+          "突破传统表征学习中被动特征提取的瓶颈"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:20.114873+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Drug-Target Interaction",
+    "Multi-Scale Pattern Matching",
+    "Biochemical Representation"
+  ],
+  "title_ko": "ProbeMatchDTI: 약물-표적 상호작용 예측을 위한 프로브 기반 다중 스케일 생화학적 패턴 매칭",
+  "title_en": "ProbeMatchDTI: Probe-Driven Multi-Scale Biochemical Pattern Matching for Drug-Target Interaction Prediction",
+  "title_zh": "ProbeMatchDTI：用于药物-靶标相互作用预测的探针驱动多尺度生化模式匹配",
+  "hook": "수동적 특징 학습의 한계를 극복하고 예측 정확도를 높인 새로운 AI 신약 개발 알고리즘입니다.",
+  "hook_ko": "수동적 특징 학습의 한계를 극복하고 예측 정확도를 높인 새로운 AI 신약 개발 알고리즘입니다.",
+  "hook_en": "Advance AI-driven drug discovery by improving drug-target interaction prediction through active pattern matching.",
+  "hook_zh": "通过主动模式匹配克服被动特征学习的局限，提升AI药物研发中的相互作用预测精度。",
+  "description_ko": "수동적 특징 학습의 한계를 극복하고 예측 정확도를 높인 새로운 AI 신약 개발 알고리즘입니다.",
+  "description_en": "Advance AI-driven drug discovery by improving drug-target interaction prediction through active pattern matching.",
+  "description_zh": "通过主动模式匹配克服被动特征学习的局限，提升AI药物研发中的相互作用预测精度。"
 }

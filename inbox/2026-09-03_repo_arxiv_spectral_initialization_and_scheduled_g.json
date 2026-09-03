@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_spectral_initialization_and_scheduled_g",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "지식 그래프 및 그래프 신경망",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Uncertain Knowledge Graphs",
+      "Spectral Initialization",
+      "Graph Smoothness"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.2,
+    "multilingual": {
+      "ko": {
+        "title": "불확실한 지식 그래프 완성을 위한 스펙트럴 초기화 및 스케줄드 그래프 부드러움 기법",
+        "hook": "신뢰도 점수가 포함된 불확실한 지식 그래프의 예측 성능을 높이는 새로운 방법론을 확인하세요.",
+        "key_takeaways": [
+          "불확실한 지식 그래프(UKG)의 신뢰도 예측 문제 해결",
+          "스펙트럴 초기화(Spectral Initialization)를 통한 최적화 개선",
+          "그래프 부드러움(Graph Smoothness) 스케줄링 도입"
+        ]
+      },
+      "en": {
+        "title": "Spectral Initialization and Scheduled Graph Smoothness for Uncertain Knowledge Graph Completion",
+        "hook": "Explore a novel approach to improve link prediction and confidence scoring in uncertain knowledge graphs.",
+        "key_takeaways": [
+          "Addresses limitations in uncertain knowledge graphs (UKGs) with confidence scores",
+          "Utilizes spectral initialization for better structural representation",
+          "Implements scheduled graph smoothness to stabilize training"
+        ]
+      },
+      "zh": {
+        "title": "用于不确定知识图谱补全的光谱初始化与计划图平滑方法",
+        "hook": "探索一种提高带有置信度分数的不确定知识图谱预测性能的新方法。",
+        "key_takeaways": [
+          "解决不确定知识图谱（UKG）中的置信度预测问题",
+          "通过光谱初始化改善底层结构表征",
+          "引入计划图平滑机制以稳定训练过程"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:20.107459+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Uncertain Knowledge Graphs",
+    "Spectral Initialization",
+    "Graph Smoothness"
+  ],
+  "title_ko": "불확실한 지식 그래프 완성을 위한 스펙트럴 초기화 및 스케줄드 그래프 부드러움 기법",
+  "title_en": "Spectral Initialization and Scheduled Graph Smoothness for Uncertain Knowledge Graph Completion",
+  "title_zh": "用于不确定知识图谱补全的光谱初始化与计划图平滑方法",
+  "hook": "신뢰도 점수가 포함된 불확실한 지식 그래프의 예측 성능을 높이는 새로운 방법론을 확인하세요.",
+  "hook_ko": "신뢰도 점수가 포함된 불확실한 지식 그래프의 예측 성능을 높이는 새로운 방법론을 확인하세요.",
+  "hook_en": "Explore a novel approach to improve link prediction and confidence scoring in uncertain knowledge graphs.",
+  "hook_zh": "探索一种提高带有置信度分数的不确定知识图谱预测性能的新方法。",
+  "description_ko": "신뢰도 점수가 포함된 불확실한 지식 그래프의 예측 성능을 높이는 새로운 방법론을 확인하세요.",
+  "description_en": "Explore a novel approach to improve link prediction and confidence scoring in uncertain knowledge graphs.",
+  "description_zh": "探索一种提高带有置信度分数的不确定知识图谱预测性能的新方法。"
 }

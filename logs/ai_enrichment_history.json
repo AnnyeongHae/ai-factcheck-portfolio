@@ -671,5 +671,594 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260903_131558",
+    "timestamp": "2026-09-03T13:15:58.243622+09:00",
+    "total_candidates": 266,
+    "requested_limit": 60,
+    "processed_count": 60,
+    "success_count": 60,
+    "models_used_summary": {
+      "gemini-flash-lite-latest": 60
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.2,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_오픈소스에서_정상화되는_파시즘_dhh_재단에_약정된_1200만_달",
+            "title": "GeekNews: 오픈소스에서 정상화되는 파시즘, DHH 재단에 약정된 1,200만 달러",
+            "title_ko": "오픈소스에서 정상화되는 파시즘과 DHH 재단에 약정된 1,200만 달러",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:05.441714+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_실제_실업률",
+            "title": "GeekNews: 실제 실업률",
+            "title_ko": "공식 통계 이면의 실제 실업률 분석",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:05.442363+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_스마트폰이_없습니다_아니_없었으면_좋겠습니다",
+            "title": "GeekNews: 스마트폰이 없습니다… 아니 없었으면 좋겠습니다",
+            "title_ko": "스마트폰이 없습니다… 아니 없었으면 좋겠습니다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:05.443354+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_범용_로봇은_어디까지_왔나_유튜브",
+            "title": "GeekNews: 범용 로봇은 어디까지 왔나 [유튜브]",
+            "title_ko": "범용 로봇 기술의 현주소와 발전 동향 분석",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:05.444235+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_마케팅_인텔리전스_레이어_흩어진_경험을_ai의_재사용_가능한_컨텍",
+            "title": "GeekNews: 마케팅 인텔리전스 레이어 - 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
+            "title_ko": "마케팅 인텔리전스 레이어: 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:05.445247+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.15,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_vorssaint_여러_mac_유틸리티를_하나로_모은_메뉴_막대_",
+            "title": "GeekNews: Vorssaint - 여러 Mac 유틸리티를 하나로 모은 메뉴 막대 앱",
+            "title_ko": "Vorssaint: 여러 Mac 유틸리티를 하나로 모은 메뉴 막대 앱",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:18.094034+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_show_gn_ratatosk_cncf_주요_프로젝트_릴리스_노트",
+            "title": "GeekNews: Show GN: Ratatosk - CNCF 주요 프로젝트 릴리스 노트에서 보안 수정, 브레이킹 체인지와 같은 중요한 정보를 골...",
+            "title_ko": "Show GN: Ratatosk - CNCF 프로젝트 릴리스 노트 자동 분석기",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:18.095872+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_perplexity_대량생산된_구매_가이드를_소프트웨어_추천의_근",
+            "title": "GeekNews: Perplexity, 대량생산된 구매 가이드를 소프트웨어 추천의 근거로 제시",
+            "title_ko": "Perplexity, 대량생산된 구매 가이드를 소프트웨어 추천 근거로 채택",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:18.097146+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_muse_spark_13_공개_긴_에이전트_작업과_코딩_효율_개선",
+            "title": "GeekNews: Muse Spark 1.3 공개, 긴 에이전트 작업과 코딩 효율 개선",
+            "title_ko": "Muse Spark 1.3 공개: 긴 에이전트 작업과 코딩 효율 대폭 개선",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:18.098421+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_movie_scene_map_영화tv게임애니만화의_실제_촬영지와_",
+            "title": "GeekNews: Movie Scene Map - 영화/TV/게임/애니/만화의 실제 촬영지와 배경을 탐색하는 지도",
+            "title_ko": "Movie Scene Map: 영화·TV·게임·애니의 실제 촬영지와 배경을 탐색하는 지도",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:18.099558+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.46,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_mistral_enterprise_제외_사용자_입출력을_기본_학습",
+            "title": "GeekNews: Mistral, Enterprise 제외 사용자 입출력을 기본 학습에 활용",
+            "title_ko": "Mistral, Enterprise 제외 사용자 입출력을 기본 학습에 활용",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:31.063484+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_lwn_구독료_20_인상_안내",
+            "title": "GeekNews: LWN 구독료 20% 인상 안내",
+            "title_ko": "리눅스 전문 매체 LWN, 구독료 20% 인상 안내",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:31.064362+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_google_코딩과_에이전트를_강화한_gemini_38_flash",
+            "title": "GeekNews: Google, 코딩과 에이전트를 강화한 Gemini 3.8 Flash 및 보안 특화 Flash Cyber 공개",
+            "title_ko": "Google, 코딩과 에이전트를 강화한 Gemini 3.8 Flash 및 보안 특화 Flash Cyber 공개",
+            "classification": "MODEL",
+            "model_family": "Gemini",
+            "enriched_at": "2026-09-03T13:16:31.084180+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_google_광고_기술_독점_판결에도_사업_분할은_피하다",
+            "title": "GeekNews: Google, 광고 기술 독점 판결에도 사업 분할은 피하다",
+            "title_ko": "Google, 광고 기술 독점 판결에도 사업 분할은 피하다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:31.085004+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_fbi_운전면허증_1억_5300만_건_이상_판매한_서비스_수사",
+            "title": "GeekNews: FBI, 운전면허증 1억 5,300만 건 이상 판매한 서비스 수사",
+            "title_ko": "FBI, 운전면허증 1억 5,300만 건 이상 판매한 불법 서비스 수사 착수",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:31.085646+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.73,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_commodore_64_1982년_9월_1일_출시",
+            "title": "GeekNews: Commodore 64, 1982년 9월 1일 출시",
+            "title_ko": "전설적인 8비트 컴퓨터, Commodore 64 출시 역사 돌아보기",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:43.314026+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_claude로_커머스_에이전트_구축하기",
+            "title": "GeekNews: Claude로 커머스 에이전트 구축하기",
+            "title_ko": "Claude를 활용한 실전 커머스 AI 에이전트 구축 가이드",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:43.315797+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_claude_fable_51_프롬프팅_가이드",
+            "title": "GeekNews: Claude Fable 5.1 프롬프팅 가이드",
+            "title_ko": "Claude Fable 5.1 모델을 위한 심층 프롬프팅 가이드",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:43.316802+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_ai_시대에_가장_안전한_직업은_글쓰기일_수_있다",
+            "title": "GeekNews: AI 시대에 가장 안전한 직업은 글쓰기일 수 있다",
+            "title_ko": "AI 시대, 글쓰기가 가장 안전한 직업이 될 수 있는 이유",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:43.318363+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_huggingface_model_xhtokenspark_x25_4b",
+            "title": "HuggingFace Model: XHToken/Spark-X2.5-4B",
+            "title_ko": "XHToken/Spark-X2.5-4B 모델 허브 공개 분석",
+            "classification": "MODEL",
+            "model_family": "Spark",
+            "enriched_at": "2026-09-03T13:16:43.319872+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.4,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_repo_huggingface_model_openai_communitygpt2",
+            "title": "HuggingFace Model: openai-community/gpt2",
+            "title_ko": "Hugging Face 모델: openai-community/gpt2",
+            "classification": "MODEL",
+            "model_family": "GPT-2",
+            "enriched_at": "2026-09-03T13:16:55.222071+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_huggingface_model_google_bertbert_base_uncase",
+            "title": "HuggingFace Model: google-bert/bert-base-uncased",
+            "title_ko": "Hugging Face 모델: google-bert/bert-base-uncased",
+            "classification": "MODEL",
+            "model_family": "BERT",
+            "enriched_at": "2026-09-03T13:16:55.223712+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_hf_space_mrddickdickensonkrea_2_turbo_i2i",
+            "title": "HF Space: MrdDickDickenson/Krea-2-Turbo_I2I",
+            "title_ko": "HF Space: Krea-2-Turbo 이미지 변환(I2I) 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:55.224979+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_hf_space_leosayer06wan555",
+            "title": "HF Space: leosayer06/wan555",
+            "title_ko": "HF Space: wan555 인터랙티브 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:55.232390+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_hacker_news_webllm_high_performance_in_browse",
+            "title": "Hacker News: WebLLM: high-performance in-browser LLM inference engine",
+            "title_ko": "Hacker News: WebLLM 고성능 인브라우저 LLM 추론 엔진",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:16:55.235612+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.69,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_repo_hacker_news_fable_51_world_modeling",
+            "title": "Hacker News: Fable 5.1 World Modeling",
+            "title_ko": "Fable 5.1 월드 모델링: 새로운 시뮬레이션 패러다임",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:07.429734+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_github_soirihirokashrimply",
+            "title": "GitHub: soirihiroka/shrimply",
+            "title_ko": "Shrimply: AI 기반의 독창적인 영상 제작 오픈소스",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:07.450317+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_github_brayonpihexstellar",
+            "title": "GitHub: brayonpi/hexstellar",
+            "title_ko": "HexStellar Cortex: AI 에이전트를 과학 연구원으로 전환",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:07.452892+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_when_persona_attributes_improve_populat",
+            "title": "ArXiv: When Persona Attributes Improve Population Alignment in Large Language Models",
+            "title_ko": "페르소나 속성이 LLM의 인구 집단 정렬을 개선하는 조건",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:07.455084+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_visar_training_free_adaptive_k_retrieva",
+            "title": "ArXiv: ViSAR: Training-Free Adaptive-$k$ Retrieval for Visual Document Question Answering",
+            "title_ko": "ViSAR: 시각 문서 질의응답을 위한 학습 없는 적응형-$k$ 검색",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:07.459295+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.14,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_spectral_initialization_and_scheduled_g",
+            "title": "ArXiv: Spectral Initialization and Scheduled Graph Smoothness for Uncertain Knowledge Graph Completion",
+            "title_ko": "불확실한 지식 그래프 완성을 위한 스펙트럴 초기화 및 스케줄드 그래프 부드러움 기법",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:20.107459+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_scalable_direction_following_tts_via_vo",
+            "title": "ArXiv: Scalable Direction-Following TTS via Voice Impression-Guided Pseudo Triplet Construction",
+            "title_ko": "음성 인상 유도 의사 삼중구조 구축을 통한 확장 가능한 디렉션 팔로잉 TTS",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:20.108123+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_rinse_robust_target_time_normality_esti",
+            "title": "ArXiv: RINSE: Robust Target-Time Normality Estimation for Zero-Shot Graph Anomaly Detection",
+            "title_ko": "RINSE: 제로샷 그래프 이상 탐지를 위한 강건한 타겟 타임 정규성 추정",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:20.114226+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_probematchdti_probe_driven_multi_scale_",
+            "title": "ArXiv: ProbeMatchDTI: Probe-Driven Multi-Scale Biochemical Pattern Matching for Drug-Target Interaction Prediction",
+            "title_ko": "ProbeMatchDTI: 약물-표적 상호작용 예측을 위한 프로브 기반 다중 스케일 생화학적 패턴 매칭",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:20.114873+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_predictors_of_loneliness_in_older_adult",
+            "title": "ArXiv: Predictors of Loneliness in Older Adults Using Multimodal Analysis of Speech and Language",
+            "title_ko": "음성 및 언어의 멀티모달 분석을 활용한 고령층 외로움 예측 요인 분석",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:20.115533+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.23,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_pragalign_feedback_guided_pragmatic_ali",
+            "title": "ArXiv: PragAlign: Feedback-Guided Pragmatic Alignment for Controlled Synthetic Dialogue Generation",
+            "title_ko": "PragAlign: 피드백 기반 실용적 정렬을 활용한 제어된 합성 대화 생성",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:31.850727+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_learning_to_fuse_llms_with_ontology_ran",
+            "title": "ArXiv: Learning to Fuse LLMs with Ontology Rankers for Rare-Disease Diagnosis",
+            "title_ko": "희귀 질환 진단을 위한 온톨로지 랭커와 LLM 융합 학습",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:31.851968+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_learn_from_whoever_is_right_answer_veri",
+            "title": "ArXiv: Learn from Whoever Is Right: Answer-Verified Multi-Teacher Distillation for Multi-Domain LLMs",
+            "title_ko": "맞는 사람에게 배운다: 다중 도메인 LLM을 위한 정답 검증 기반 다중 교사 지식 증류",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:31.853232+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_how_llms_build_fictional_worlds_setting",
+            "title": "ArXiv: How LLMs Build Fictional Worlds: Setting and Narrative Space in AI-Generated Creative Storytelling",
+            "title_ko": "LLM이 가상 세계를 구축하는 방법: AI 생성 창의적 스토리텔링의 배경과 내러티브 공간",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:31.855090+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_fine_grained_anomaly_perception_in_wild",
+            "title": "ArXiv: Fine-Grained Anomaly Perception in Wild UGC-Enhanced Images: A Comprehensive Dataset and Difference-Fusion Framework",
+            "title_ko": "야생 UGC 강화 이미지의 미세 이상 감지: 종합 데이터셋 및 차이 융합 프레임워크",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:31.855726+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.44,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_deepaffinity_long_term_aspect_preferenc",
+            "title": "ArXiv: DeepAffinity: Long-Term Aspect Preference Prediction in eCommerce using Small Language Models",
+            "title_ko": "DeepAffinity: 소형 언어 모델을 활용한 이커머스 장기 속성 선호도 예측",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:44.798389+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_debias_sparsegpt_bias_aware_pruning_for",
+            "title": "ArXiv: Debias-SparseGPT: Bias-Aware Pruning for Large Language Models",
+            "title_ko": "Debias-SparseGPT: 대형 언어 모델을 위한 편향 인지형 가지치기 기법",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:44.799846+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_competitive_market_behavior_of_llms",
+            "title": "ArXiv: Competitive Market Behavior of LLMs",
+            "title_ko": "LLM의 경쟁적 시장 행동 분석",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:44.806203+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_collective_creativity_in_hybrid_societi",
+            "title": "ArXiv: Collective creativity in hybrid societies",
+            "title_ko": "하이브리드 사회에서의 집단 창의성",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:44.807189+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_civbench_a_long_horizon_benchmark_for_t",
+            "title": "ArXiv: CivBench: A Long-Horizon Benchmark for Tool-Mediated Agents in Civilization VI",
+            "title_ko": "CivBench: 문명 6 환경의 툴 기반 장기 호라이즌 에이전트 벤치마크",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:44.807637+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.35,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_blending_concepts_benchmarking_visual_m",
+            "title": "ArXiv: Blending Concepts: Benchmarking Visual Metaphor Generation in Text-to-Image Models",
+            "title_ko": "텍스트-이미지 모델의 시각적 은유 생성 능력 벤치마킹",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:57.659155+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_automated_vulnerability_injection_in_sm",
+            "title": "ArXiv: Automated Vulnerability Injection in Smart Contracts Using Large Language Models",
+            "title_ko": "대형 언어 모델을 활용한 스마트 컨트랙트 자동 취약점 주입",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:57.661114+09:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_arxiv_addressing_trust_in_ai_systems_through_",
+            "title": "ArXiv: Addressing Trust in AI Systems through Education: A Didactic Perspective",
+            "title_ko": "교육을 통한 AI 시스템 신뢰 구축: 교수법적 관점",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:57.668349+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_you_know_who_hates_ai_insurance_c",
+            "title": "Hacker News: You Know Who Hates AI? Insurance Claims Adjusters",
+            "title_ko": "AI를 싫어하는 사람: 보험 손해사정사",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:57.669842+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_when_claude_code_went_rogue_years",
+            "title": "Hacker News: When Claude Code went rogue, years of Bengaluru heritage work disappeared",
+            "title_ko": "Claude Code가 폭주했을 때: 수년간의 벵갈루루 유산 코드가 사라지다",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:17:57.670870+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 7.51,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_quasar_438b_europes_leading_ai_mo",
+            "title": "Hacker News: Quasar 438B: Europe's Leading AI Model",
+            "title_ko": "Quasar 438B: 유럽을 대표하는 차세대 대형 AI 모델 등장",
+            "classification": "MODEL",
+            "model_family": "Quasar",
+            "enriched_at": "2026-09-03T13:18:09.682938+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_mayor_says_large_chunks_of_wellin",
+            "title": "Hacker News: Mayor says 'large chunks' of Wellington council Deloitte report written by AI",
+            "title_ko": "웰링턴 시의회 딜로이트 보고서의 상당 부분이 AI로 작성되었다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:18:09.703336+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_google_pics_is_generally_availabl",
+            "title": "Hacker News: Google Pics is generally available starting today",
+            "title_ko": "구글 픽스(Google Pics) 정식 서비스 개시",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:18:09.705194+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_ai_can_make_you_suck_faster_too",
+            "title": "Hacker News: AI Can Make You Suck Faster Too",
+            "title_ko": "AI는 당신의 실수를 더 빠르게 저지르도록 도울 수도 있습니다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:18:09.707118+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_클릭하우스clickhouse_기적의_데이터베이스_기술",
+            "title": "GeekNews: 클릭하우스(ClickHouse) – 기적의 데이터베이스 기술",
+            "title_ko": "클릭하우스(ClickHouse) – 기적의 데이터베이스 기술 분석",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:18:09.708439+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 12,
+        "items_count": 5,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 8.84,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_zuzai_ai를_쓰지_않았음을_나타내는_새로운_단어",
+            "title": "GeekNews: Zuzai, AI를 쓰지 않았음을 나타내는 새로운 단어",
+            "title_ko": "Zuzai: AI를 사용하지 않았음을 뜻하는 새로운 문화적 신조어",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:18:23.045818+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_show_gn_스마트폰_없이도_결제하기_교내_매점에_지문인식_결제",
+            "title": "GeekNews: Show GN: 스마트폰 없이도 결제하기 — 교내 매점에 지문인식 결제 시스템을 직접 만들어 배포한 이야기",
+            "title_ko": "스마트폰 없이 교내 매점에서 사용하는 지문인식 결제 시스템 직접 구축기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:18:23.047954+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_play_store의_aurorastore_차단으로_graphen",
+            "title": "GeekNews: Play Store의 AuroraStore 차단으로 GrapheneOS 사용자 피해",
+            "title_ko": "Play Store의 AuroraStore 차단 조치로 인한 GrapheneOS 사용자 피해 발생",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:18:23.067806+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_m4로_openbsd_httpd_설정의_반복_줄이기",
+            "title": "GeekNews: m4로 OpenBSD httpd 설정의 반복 줄이기",
+            "title_ko": "m4 매크로 프로세서를 활용해 OpenBSD httpd 설정 파일의 중복 줄이기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:18:23.068539+09:00"
+          },
+          {
+            "inbox_id": "2026-09-02_sns_geeknews_janet_1420",
+            "title": "GeekNews: Janet 1.42.0",
+            "title_ko": "경량 프로그래밍 언어 Janet 1.42.0 신규 버전 출시",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T13:18:23.069608+09:00"
+          }
+        ]
+      }
+    ]
   }
 ]

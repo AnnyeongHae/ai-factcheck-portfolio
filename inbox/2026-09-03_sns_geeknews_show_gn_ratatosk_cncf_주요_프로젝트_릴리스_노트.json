@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33164",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "AGENT",
   "description": "GeekNews Korean Tech Trend: Show GN: Ratatosk - CNCF 주요 프로젝트 릴리스 노트에서 보안 수정, 브레이킹 체인지와 같은 중요한 정보를 골...",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -30,8 +30,71 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Show GN: Ratatosk - CNCF 주요 프로젝트 릴리스 노트에서 보안 수정, 브레이킹 체인지와 같은 중요한 정보를 골...",
-  "description_ko": "Show GN: Ratatosk - CNCF 주요 프로젝트 릴리스 노트에서 보안 수정, 브레이킹 체인지와 같은 중요한 정보를 골...",
+  "title_ko": "Show GN: Ratatosk - CNCF 프로젝트 릴리스 노트 자동 분석기",
+  "description_ko": "방대한 CNCF 프로젝트 릴리스 노트에서 치명적인 보안 수정과 브레이킹 체인지를 자동으로 추출합니다.",
   "hn_url": "https://news.hada.io/topic?id=33164",
-  "article_url": "https://news.hada.io/topic?id=33164"
+  "article_url": "https://news.hada.io/topic?id=33164",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_geeknews_show_gn_ratatosk_cncf_주요_프로젝트_릴리스_노트",
+    "source_lang": "KO",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "DevOps 및 보안 자동화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "CNCF",
+      "릴리스 노트",
+      "보안 수정",
+      "자동화"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "Show GN: Ratatosk - CNCF 프로젝트 릴리스 노트 자동 분석기",
+        "hook": "방대한 CNCF 프로젝트 릴리스 노트에서 치명적인 보안 수정과 브레이킹 체인지를 자동으로 추출합니다.",
+        "key_takeaways": [
+          "CNCF 주요 프로젝트의 릴리스 노트를 자동으로 파싱 및 분석",
+          "보안 패치 및 브레이킹 체인지 등 핵심 변경 사항만 요약",
+          "인프라 엔지니어의 업그레이드 리스크 사전 식별 지원"
+        ]
+      },
+      "en": {
+        "title": "Show GN: Ratatosk - Automated CNCF Release Note Analyzer",
+        "hook": "Automatically extract critical security fixes and breaking changes from massive CNCF project release notes.",
+        "key_takeaways": [
+          "Automates parsing and analysis of major CNCF project release notes",
+          "Isolates critical updates like security patches and breaking changes",
+          "Helps infrastructure engineers proactively identify upgrade risks"
+        ]
+      },
+      "zh": {
+        "title": "Show GN: Ratatosk - CNCF 项目发布说明自动化分析工具",
+        "hook": "自动从海量的 CNCF 项目发布说明中提取关键安全补丁与重大变更（Breaking Changes）。",
+        "key_takeaways": [
+          "自动解析与分析主要的 CNCF 项目发布说明",
+          "精准提取安全修复和重大变更等核心更新",
+          "帮助基础设施工程师提前识别升级风险"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:16:18.095872+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "CNCF",
+    "릴리스 노트",
+    "보안 수정",
+    "자동화"
+  ],
+  "title_en": "Show GN: Ratatosk - Automated CNCF Release Note Analyzer",
+  "title_zh": "Show GN: Ratatosk - CNCF 项目发布说明自动化分析工具",
+  "hook": "방대한 CNCF 프로젝트 릴리스 노트에서 치명적인 보안 수정과 브레이킹 체인지를 자동으로 추출합니다.",
+  "hook_ko": "방대한 CNCF 프로젝트 릴리스 노트에서 치명적인 보안 수정과 브레이킹 체인지를 자동으로 추출합니다.",
+  "hook_en": "Automatically extract critical security fixes and breaking changes from massive CNCF project release notes.",
+  "hook_zh": "自动从海量的 CNCF 项目发布说明中提取关键安全补丁与重大变更（Breaking Changes）。",
+  "description_en": "Automatically extract critical security fixes and breaking changes from massive CNCF project release notes.",
+  "description_zh": "自动从海量的 CNCF 项目发布说明中提取关键安全补丁与重大变更（Breaking Changes）。"
 }

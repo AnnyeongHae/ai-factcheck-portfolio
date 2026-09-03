@@ -29,5 +29,69 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hugging_face_model_google_bertbert_base_uncase",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "BERT",
+    "category": "자연어 이해",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "BERT",
+      "Google",
+      "Fill-Mask"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.0,
+    "multilingual": {
+      "ko": {
+        "title": "Hugging Face 모델: google-bert/bert-base-uncased",
+        "hook": "자연어 처리 역사에서 양방향 인코더의 표준을 정립한 대표적인 엠베딩/분류 모델입니다.",
+        "key_takeaways": [
+          "누적 다운로드 6,300만 회를 상회하는 압도적 활용도",
+          "Fill-mask(마스크 채우기) 및 양방향 문맥 이해에 최적화",
+          "다양한 NLP 다운스트림 태스크의 기본 인코더로 활용"
+        ]
+      },
+      "en": {
+        "title": "Hugging Face Model: google-bert/bert-base-uncased",
+        "hook": "The iconic bidirectional encoder that set the standard for Natural Language Understanding.",
+        "key_takeaways": [
+          "Massive adoption with over 63 million total downloads",
+          "Optimized for fill-mask and bidirectional context comprehension",
+          "Widely used as a foundational encoder for various NLP downstream tasks"
+        ]
+      },
+      "zh": {
+        "title": "Hugging Face 模型：google-bert/bert-base-uncased",
+        "hook": "奠定自然语言理解双向编码器标准的代表性模型。",
+        "key_takeaways": [
+          "累计下载量超过 6,300 万次，应用极其广泛",
+          "针对 Mask 填充与双向上下文理解进行了优化",
+          "广泛用作各种 NLP 下游任务的基础编码器"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:16:55.223712+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "BERT",
+    "Google",
+    "Fill-Mask"
+  ],
+  "title_ko": "Hugging Face 모델: google-bert/bert-base-uncased",
+  "title_en": "Hugging Face Model: google-bert/bert-base-uncased",
+  "title_zh": "Hugging Face 模型：google-bert/bert-base-uncased",
+  "hook": "자연어 처리 역사에서 양방향 인코더의 표준을 정립한 대표적인 엠베딩/분류 모델입니다.",
+  "hook_ko": "자연어 처리 역사에서 양방향 인코더의 표준을 정립한 대표적인 엠베딩/분류 모델입니다.",
+  "hook_en": "The iconic bidirectional encoder that set the standard for Natural Language Understanding.",
+  "hook_zh": "奠定自然语言理解双向编码器标准的代表性模型。",
+  "description_ko": "자연어 처리 역사에서 양방향 인코더의 표준을 정립한 대표적인 엠베딩/분류 모델입니다.",
+  "description_en": "The iconic bidirectional encoder that set the standard for Natural Language Understanding.",
+  "description_zh": "奠定自然语言理解双向编码器标准的代表性模型。",
+  "model_family": "BERT"
 }

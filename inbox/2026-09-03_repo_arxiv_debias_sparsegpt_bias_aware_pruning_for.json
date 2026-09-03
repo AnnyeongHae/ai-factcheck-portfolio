@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "정량 데이터 분석 & 벤치마크 감사"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_debias_sparsegpt_bias_aware_pruning_for",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 추론 최적화 및 경량화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Model Pruning",
+      "SparseGPT",
+      "Bias-Aware"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "Debias-SparseGPT: 대형 언어 모델을 위한 편향 인지형 가지치기 기법",
+        "hook": "모델 압축 시 발생하는 편향 심화 문제를 해결하는 혁신적인 가중치 가지치기(Pruning) 기법을 만나보세요.",
+        "key_takeaways": [
+          "가중치 희소화(Sparsification) 과정에서 발생하는 모델 편향 문제 지적",
+          "편향을 인식하고 보정하는 새로운 SparseGPT 프레임워크 제안",
+          "성능 저하를 최소화하면서 안전하고 효율적인 LLM 압축 달성"
+        ]
+      },
+      "en": {
+        "title": "Debias-SparseGPT: Bias-Aware Pruning for Large Language Models",
+        "hook": "Overcome the exacerbation of model bias during weight pruning with this innovative bias-aware compression technique.",
+        "key_takeaways": [
+          "Addresses the hidden bias introduced by weight sparsification",
+          "Introduces a novel bias-aware pruning mechanism into SparseGPT",
+          "Achieves efficient LLM compression while minimizing accuracy and fairness degradation"
+        ]
+      },
+      "zh": {
+        "title": "Debias-SparseGPT：面向大型语言模型的偏见感知剪枝技术",
+        "hook": "通过创新的偏见感知剪枝技术，解决大语言模型在压缩过程中产生的偏见加剧问题。",
+        "key_takeaways": [
+          "指出权重稀疏化过程中带来的模型偏见问题",
+          "提出全新的偏见感知SparseGPT剪枝框架",
+          "在实现高效模型压缩的同时最小化性能与公平性损失"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:44.799846+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Model Pruning",
+    "SparseGPT",
+    "Bias-Aware"
+  ],
+  "title_ko": "Debias-SparseGPT: 대형 언어 모델을 위한 편향 인지형 가지치기 기법",
+  "title_en": "Debias-SparseGPT: Bias-Aware Pruning for Large Language Models",
+  "title_zh": "Debias-SparseGPT：面向大型语言模型的偏见感知剪枝技术",
+  "hook": "모델 압축 시 발생하는 편향 심화 문제를 해결하는 혁신적인 가중치 가지치기(Pruning) 기법을 만나보세요.",
+  "hook_ko": "모델 압축 시 발생하는 편향 심화 문제를 해결하는 혁신적인 가중치 가지치기(Pruning) 기법을 만나보세요.",
+  "hook_en": "Overcome the exacerbation of model bias during weight pruning with this innovative bias-aware compression technique.",
+  "hook_zh": "通过创新的偏见感知剪枝技术，解决大语言模型在压缩过程中产生的偏见加剧问题。",
+  "description_ko": "모델 압축 시 발생하는 편향 심화 문제를 해결하는 혁신적인 가중치 가지치기(Pruning) 기법을 만나보세요.",
+  "description_en": "Overcome the exacerbation of model bias during weight pruning with this innovative bias-aware compression technique.",
+  "description_zh": "通过创新的偏见感知剪枝技术，解决大语言模型在压缩过程中产生的偏见加剧问题。"
 }

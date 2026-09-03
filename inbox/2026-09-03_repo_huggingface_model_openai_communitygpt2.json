@@ -29,5 +29,69 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_huggingface_model_openai_communitygpt2",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "GPT-2",
+    "category": "텍스트 생성",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "GPT-2",
+      "OpenAI",
+      "Text Generation"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.0,
+    "multilingual": {
+      "ko": {
+        "title": "Hugging Face 모델: openai-community/gpt2",
+        "hook": "오픈소스 언어 모델의 역사적인 기준점이자 텍스트 생성 파이프라인의 기초 모델입니다.",
+        "key_takeaways": [
+          "누적 다운로드 1,400만 회 이상 기록",
+          "텍스트 생성(text-generation) 파이프라인 기본 지원",
+          "경량화 및 파인튜닝 실험을 위한 전통적인 벤치마크 모델"
+        ]
+      },
+      "en": {
+        "title": "Hugging Face Model: openai-community/gpt2",
+        "hook": "The historical baseline and foundational text-generation model for open-source LLMs.",
+        "key_takeaways": [
+          "Over 14 million total downloads on Hugging Face",
+          "Native support for text-generation pipelines",
+          "Traditional benchmark model for lightweight and fine-tuning experiments"
+        ]
+      },
+      "zh": {
+        "title": "Hugging Face 模型：openai-community/gpt2",
+        "hook": "开源大语言模型的历史基准与文本生成基础模型。",
+        "key_takeaways": [
+          "累计下载量突破 1,400 万次",
+          "原生支持文本生成（text-generation）流水线",
+          "轻量化和微调实验的经典基准模型"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:16:55.222071+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "GPT-2",
+    "OpenAI",
+    "Text Generation"
+  ],
+  "title_ko": "Hugging Face 모델: openai-community/gpt2",
+  "title_en": "Hugging Face Model: openai-community/gpt2",
+  "title_zh": "Hugging Face 模型：openai-community/gpt2",
+  "hook": "오픈소스 언어 모델의 역사적인 기준점이자 텍스트 생성 파이프라인의 기초 모델입니다.",
+  "hook_ko": "오픈소스 언어 모델의 역사적인 기준점이자 텍스트 생성 파이프라인의 기초 모델입니다.",
+  "hook_en": "The historical baseline and foundational text-generation model for open-source LLMs.",
+  "hook_zh": "开源大语言模型的历史基准与文本生成基础模型。",
+  "description_ko": "오픈소스 언어 모델의 역사적인 기준점이자 텍스트 생성 파이프라인의 기초 모델입니다.",
+  "description_en": "The historical baseline and foundational text-generation model for open-source LLMs.",
+  "description_zh": "开源大语言模型的历史基准与文本生成基础模型。",
+  "model_family": "GPT-2"
 }

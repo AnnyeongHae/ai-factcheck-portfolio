@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49534132",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "MODEL",
   "description": "HN Score: 18 pts | Comments: 1 | Quasar 438B: Europe's Leading AI Model",
   "viral_metric": "🔥 18 HN Points",
   "metric_tracking": {
@@ -31,5 +31,69 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49534132",
-  "article_url": "https://multiversecomputing.com/resources/introducing-quasar-438b-europe-s-leading-ai-model"
+  "article_url": "https://multiversecomputing.com/resources/introducing-quasar-438b-europe-s-leading-ai-model",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_hacker_news_quasar_438b_europes_leading_ai_mo",
+    "source_lang": "EN",
+    "type_classification": "MODEL",
+    "model_family": "Quasar",
+    "category": "대형 언어 모델 (LLM)",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Quasar 438B",
+      "유럽 AI",
+      "오픈 소스 모델"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "Quasar 438B: 유럽을 대표하는 차세대 대형 AI 모델 등장",
+        "hook": "유럽 AI 생태계의 판도를 바꿀 438B 규모의 거대 모델 아키텍처와 성능을 파악하세요.",
+        "key_takeaways": [
+          "유럽에서 개발된 대규모 438B 파라미터 모델",
+          "글로벌 탑티어 모델들과의 경쟁력 분석 필요",
+          "오픈 소스 및 상용 생태계에 미치는 영향"
+        ]
+      },
+      "en": {
+        "title": "Quasar 438B: Europe's Leading AI Model Emerges",
+        "hook": "Discover the architecture and performance of a 438B parameter model reshaping Europe's AI landscape.",
+        "key_takeaways": [
+          "Large-scale 438B parameter model developed in Europe",
+          "Evaluation against global tier-1 AI models",
+          "Implications for the open-source and commercial ecosystem"
+        ]
+      },
+      "zh": {
+        "title": "Quasar 438B：欧洲领先的大型AI模型正式亮相",
+        "hook": "深入了解重塑欧洲AI格局的438B参数大模型的架构与性能表现。",
+        "key_takeaways": [
+          "欧洲本土开发的大规模438B参数模型",
+          "与全球顶尖大模型的竞争力对比",
+          "对开源及商业生态系统的深远影响"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:18:09.682938+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Quasar 438B",
+    "유럽 AI",
+    "오픈 소스 모델"
+  ],
+  "title_ko": "Quasar 438B: 유럽을 대표하는 차세대 대형 AI 모델 등장",
+  "title_en": "Quasar 438B: Europe's Leading AI Model Emerges",
+  "title_zh": "Quasar 438B：欧洲领先的大型AI模型正式亮相",
+  "hook": "유럽 AI 생태계의 판도를 바꿀 438B 규모의 거대 모델 아키텍처와 성능을 파악하세요.",
+  "hook_ko": "유럽 AI 생태계의 판도를 바꿀 438B 규모의 거대 모델 아키텍처와 성능을 파악하세요.",
+  "hook_en": "Discover the architecture and performance of a 438B parameter model reshaping Europe's AI landscape.",
+  "hook_zh": "深入了解重塑欧洲AI格局的438B参数大模型的架构与性能表现。",
+  "description_ko": "유럽 AI 생태계의 판도를 바꿀 438B 규모의 거대 모델 아키텍처와 성능을 파악하세요.",
+  "description_en": "Discover the architecture and performance of a 438B parameter model reshaping Europe's AI landscape.",
+  "description_zh": "深入了解重塑欧洲AI格局的438B参数大模型的架构与性能表现。",
+  "model_family": "Quasar"
 }

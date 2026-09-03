@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33174",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: Vorssaint - 여러 Mac 유틸리티를 하나로 모은 메뉴 막대 앱",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -30,8 +30,71 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Vorssaint - 여러 Mac 유틸리티를 하나로 모은 메뉴 막대 앱",
-  "description_ko": "Vorssaint - 여러 Mac 유틸리티를 하나로 모은 메뉴 막대 앱",
+  "title_ko": "Vorssaint: 여러 Mac 유틸리티를 하나로 모은 메뉴 막대 앱",
+  "description_ko": "여러 개로 흩어져 있던 Mac 유틸리티 앱들을 깔끔하게 메뉴 막대 하나로 통합하세요.",
   "hn_url": "https://news.hada.io/topic?id=33174",
-  "article_url": "https://news.hada.io/topic?id=33174"
+  "article_url": "https://news.hada.io/topic?id=33174",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_geeknews_vorssaint_여러_mac_유틸리티를_하나로_모은_메뉴_막대_",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "Mac 유틸리티 및 생산성",
+    "programming_lang": "Swift",
+    "root_keywords": [
+      "Mac",
+      "메뉴 막대",
+      "생산성",
+      "유틸리티"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.2,
+    "multilingual": {
+      "ko": {
+        "title": "Vorssaint: 여러 Mac 유틸리티를 하나로 모은 메뉴 막대 앱",
+        "hook": "여러 개로 흩어져 있던 Mac 유틸리티 앱들을 깔끔하게 메뉴 막대 하나로 통합하세요.",
+        "key_takeaways": [
+          "다양한 Mac 유틸리티 기능을 단일 메뉴 막대 인터페이스로 통합",
+          "시스템 리소스 절약 및 작업 공간 최적화",
+          "개발자 및 파워 유저를 위한 빠른 접근성 제공"
+        ]
+      },
+      "en": {
+        "title": "Vorssaint: All-in-One Mac Menu Bar Utility App",
+        "hook": "Streamline your workflow by combining multiple Mac utility apps into a single menu bar interface.",
+        "key_takeaways": [
+          "Consolidates various Mac utility functions into one menu bar",
+          "Saves system resources and declutters workspace",
+          "Provides quick accessibility for developers and power users"
+        ]
+      },
+      "zh": {
+        "title": "Vorssaint：集成多个 Mac 实用工具的菜单栏应用",
+        "hook": "将散乱的 Mac 实用工具整合到一个精简的菜单栏中，大幅提升工作效率。",
+        "key_takeaways": [
+          "将多种 Mac 实用工具功能集成至单一菜单栏界面",
+          "节省系统资源并优化工作空间",
+          "为开发者和高阶用户提供便捷的快速访问"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:16:18.094034+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "Swift",
+  "root_keywords": [
+    "Mac",
+    "메뉴 막대",
+    "생산성",
+    "유틸리티"
+  ],
+  "title_en": "Vorssaint: All-in-One Mac Menu Bar Utility App",
+  "title_zh": "Vorssaint：集成多个 Mac 实用工具的菜单栏应用",
+  "hook": "여러 개로 흩어져 있던 Mac 유틸리티 앱들을 깔끔하게 메뉴 막대 하나로 통합하세요.",
+  "hook_ko": "여러 개로 흩어져 있던 Mac 유틸리티 앱들을 깔끔하게 메뉴 막대 하나로 통합하세요.",
+  "hook_en": "Streamline your workflow by combining multiple Mac utility apps into a single menu bar interface.",
+  "hook_zh": "将散乱的 Mac 实用工具整合到一个精简的菜单栏中，大幅提升工作效率。",
+  "description_en": "Streamline your workflow by combining multiple Mac utility apps into a single menu bar interface.",
+  "description_zh": "将散乱的 Mac 实用工具整合到一个精简的菜单栏中，大幅提升工作效率。"
 }

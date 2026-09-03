@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33133",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: Janet 1.42.0",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -30,8 +30,71 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Janet 1.42.0",
-  "description_ko": "Janet 1.42.0",
+  "title_ko": "경량 프로그래밍 언어 Janet 1.42.0 신규 버전 출시",
+  "description_ko": "Lisp 계열의 가볍고 강력한 임베디드 프로그래밍 언어 Janet의 최신 업데이트와 주요 변경 사항을 확인하세요.",
   "hn_url": "https://news.hada.io/topic?id=33133",
-  "article_url": "https://news.hada.io/topic?id=33133"
+  "article_url": "https://news.hada.io/topic?id=33133",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_geeknews_janet_1420",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "프로그래밍 언어 및 런타임",
+    "programming_lang": "C",
+    "root_keywords": [
+      "Janet",
+      "Lisp",
+      "프로그래밍 언어",
+      "임베디드"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.1,
+    "multilingual": {
+      "ko": {
+        "title": "경량 프로그래밍 언어 Janet 1.42.0 신규 버전 출시",
+        "hook": "Lisp 계열의 가볍고 강력한 임베디드 프로그래밍 언어 Janet의 최신 업데이트와 주요 변경 사항을 확인하세요.",
+        "key_takeaways": [
+          "Janet 언어 1.42.0 버전의 주요 성능 개선 및 신규 기능 추가 사항 분석",
+          "C 언어와의 뛰어난 상호운용성과 경량화된 런타임 환경의 장점",
+          "스크립팅 및 임베디드 시스템 개발에서 Janet 활용 방안 제시"
+        ]
+      },
+      "en": {
+        "title": "Lightweight Programming Language Janet 1.42.0 Released",
+        "hook": "Explore the latest updates and major improvements in Janet, a lightweight and embeddable Lisp-dialect programming language.",
+        "key_takeaways": [
+          "Analysis of key performance updates and new features introduced in Janet 1.42.0",
+          "Advantages of excellent C interoperability and a lightweight runtime environment",
+          "Practical use cases for Janet in scripting and embedded systems development"
+        ]
+      },
+      "zh": {
+        "title": "轻量级编程语言 Janet 1.42.0 版本正式发布",
+        "hook": "了解类Lisp轻量级嵌入式编程语言 Janet 的最新版本更新与核心改进内容。",
+        "key_takeaways": [
+          "深入解析 Janet 1.42.0 版本带来的性能提升与新特性",
+          "突出的 C 语言互操作性与轻量级运行环境的优势所在",
+          "Janet 在脚本编写与嵌入式系统开发中的应用前景"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:18:23.069608+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "C",
+  "root_keywords": [
+    "Janet",
+    "Lisp",
+    "프로그래밍 언어",
+    "임베디드"
+  ],
+  "title_en": "Lightweight Programming Language Janet 1.42.0 Released",
+  "title_zh": "轻量级编程语言 Janet 1.42.0 版本正式发布",
+  "hook": "Lisp 계열의 가볍고 강력한 임베디드 프로그래밍 언어 Janet의 최신 업데이트와 주요 변경 사항을 확인하세요.",
+  "hook_ko": "Lisp 계열의 가볍고 강력한 임베디드 프로그래밍 언어 Janet의 최신 업데이트와 주요 변경 사항을 확인하세요.",
+  "hook_en": "Explore the latest updates and major improvements in Janet, a lightweight and embeddable Lisp-dialect programming language.",
+  "hook_zh": "了解类Lisp轻量级嵌入式编程语言 Janet 的最新版本更新与核心改进内容。",
+  "description_en": "Explore the latest updates and major improvements in Janet, a lightweight and embeddable Lisp-dialect programming language.",
+  "description_zh": "了解类Lisp轻量级嵌入式编程语言 Janet 的最新版本更新与核心改进内容。"
 }

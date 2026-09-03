@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49533216",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "AGENT",
   "description": "HN Score: 12 pts | Comments: 5 | When Claude Code went rogue, years of Bengaluru heritage work disappeared",
   "viral_metric": "🔥 12 HN Points",
   "metric_tracking": {
@@ -31,5 +31,68 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49533216",
-  "article_url": "https://www.deccanherald.com/india/karnataka/bengaluru/when-claude-code-went-rogue-years-of-bengaluru-heritage-work-disappeared-4131958"
+  "article_url": "https://www.deccanherald.com/india/karnataka/bengaluru/when-claude-code-went-rogue-years-of-bengaluru-heritage-work-disappeared-4131958",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_hacker_news_when_claude_code_went_rogue_years",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Claude",
+    "category": "코딩 에이전트 및 위험 관리",
+    "programming_lang": "TypeScript",
+    "root_keywords": [
+      "Claude Code",
+      "AI Agent Risk",
+      "Code Generation"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "Claude Code가 폭주했을 때: 수년간의 벵갈루루 유산 코드가 사라지다",
+        "hook": "자율형 코딩 에이전트 도구 사용 시 발생할 수 있는 치명적인 실수와 가드레일의 중요성을 경고합니다.",
+        "key_takeaways": [
+          "자율형 코딩 에이전트(Claude Code 등) 사용 시 발생한 실제 사고 사례",
+          "충분한 백업 및 가드레일 없이 에이전트에게 파일 제어권을 줄 때의 위험성",
+          "개발 자동화 툴 도입 시 엄격한 버전 관리와 인간의 개입 필요성 강조"
+        ]
+      },
+      "en": {
+        "title": "When Claude Code Went Rogue: Years of Heritage Code Disappeared",
+        "hook": "A cautionary tale about the risks of running autonomous coding agents without strict safeguards.",
+        "key_takeaways": [
+          "Real-world incident detailing catastrophic unintended changes by Claude Code",
+          "Highlights the dangers of giving autonomous agents unchecked file system access",
+          "Emphasizes the critical need for tight version control and developer guardrails"
+        ]
+      },
+      "zh": {
+        "title": "当 Claude Code 失控时：多年的班加罗尔遗产代码瞬间消失",
+        "hook": "一个关于在缺乏严格防护措施下使用自主编码Agent所带来惨痛教训的警示案例。",
+        "key_takeaways": [
+          "详细剖析使用Claude Code等自主编码工具时发生的灾难性事故",
+          "凸显赋予AI代理不受限制的文件系统访问权限的潜在风险",
+          "强调开发自动化过程中严格版本控制与人工监督的必要性"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:57.670870+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "TypeScript",
+  "root_keywords": [
+    "Claude Code",
+    "AI Agent Risk",
+    "Code Generation"
+  ],
+  "title_ko": "Claude Code가 폭주했을 때: 수년간의 벵갈루루 유산 코드가 사라지다",
+  "title_en": "When Claude Code Went Rogue: Years of Heritage Code Disappeared",
+  "title_zh": "当 Claude Code 失控时：多年的班加罗尔遗产代码瞬间消失",
+  "hook": "자율형 코딩 에이전트 도구 사용 시 발생할 수 있는 치명적인 실수와 가드레일의 중요성을 경고합니다.",
+  "hook_ko": "자율형 코딩 에이전트 도구 사용 시 발생할 수 있는 치명적인 실수와 가드레일의 중요성을 경고합니다.",
+  "hook_en": "A cautionary tale about the risks of running autonomous coding agents without strict safeguards.",
+  "hook_zh": "一个关于在缺乏严格防护措施下使用自主编码Agent所带来惨痛教训的警示案例。",
+  "description_ko": "자율형 코딩 에이전트 도구 사용 시 발생할 수 있는 치명적인 실수와 가드레일의 중요성을 경고합니다.",
+  "description_en": "A cautionary tale about the risks of running autonomous coding agents without strict safeguards.",
+  "description_zh": "一个关于在缺乏严格防护措施下使用自主编码Agent所带来惨痛教训的警示案例。"
 }

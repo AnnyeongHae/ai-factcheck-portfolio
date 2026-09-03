@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33109",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: m4로 OpenBSD httpd 설정의 반복 줄이기",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -30,8 +30,71 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "m4로 OpenBSD httpd 설정의 반복 줄이기",
-  "description_ko": "m4로 OpenBSD httpd 설정의 반복 줄이기",
+  "title_ko": "m4 매크로 프로세서를 활용해 OpenBSD httpd 설정 파일의 중복 줄이기",
+  "description_ko": "반복되는 웹서버 설정 코드를 깔끔하게 리팩토링하고 유지보수성을 극대화하는 실용적인 시스템 관리 팁을 확인하세요.",
   "hn_url": "https://news.hada.io/topic?id=33109",
-  "article_url": "https://news.hada.io/topic?id=33109"
+  "article_url": "https://news.hada.io/topic?id=33109",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_geeknews_m4로_openbsd_httpd_설정의_반복_줄이기",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "시스템 인프라 및 설정 최적화",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "OpenBSD",
+      "httpd",
+      "m4",
+      "매크로"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "m4 매크로 프로세서를 활용해 OpenBSD httpd 설정 파일의 중복 줄이기",
+        "hook": "반복되는 웹서버 설정 코드를 깔끔하게 리팩토링하고 유지보수성을 극대화하는 실용적인 시스템 관리 팁을 확인하세요.",
+        "key_takeaways": [
+          "m4 매크로 언어를 이용한 OpenBSD httpd 설정 자동화 및 템플릿화",
+          "중복 코드를 제거하여 설정 파일의 가독성과 유지보수성 향상",
+          "시스템 관리 작업을 효율화하는 전통적인 UNIX 도구의 재발견"
+        ]
+      },
+      "en": {
+        "title": "Reducing OpenBSD httpd Configuration Duplication with m4",
+        "hook": "Discover a practical systems administration tip to refactor repetitive web server configurations and maximize maintainability.",
+        "key_takeaways": [
+          "Automating and templating OpenBSD httpd configurations using the m4 macro processor",
+          "Eliminating boilerplate code to improve readability and maintainability of config files",
+          "Rediscovering traditional UNIX tools to streamline infrastructure management tasks"
+        ]
+      },
+      "zh": {
+        "title": "使用 m4 宏处理器减少 OpenBSD httpd 配置的重复性",
+        "hook": "了解如何通过实用技巧重构冗长的Web服务器配置文件，大幅提升系统的可维护性。",
+        "key_takeaways": [
+          "利用 m4 宏语言实现 OpenBSD httpd 配置的自动化与模板化",
+          "消除样板代码，提升配置文件清晰度与后期维护效率",
+          "重新发掘传统 UNIX 工具在精简系统管理任务中的威力"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:18:23.068539+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "OpenBSD",
+    "httpd",
+    "m4",
+    "매크로"
+  ],
+  "title_en": "Reducing OpenBSD httpd Configuration Duplication with m4",
+  "title_zh": "使用 m4 宏处理器减少 OpenBSD httpd 配置的重复性",
+  "hook": "반복되는 웹서버 설정 코드를 깔끔하게 리팩토링하고 유지보수성을 극대화하는 실용적인 시스템 관리 팁을 확인하세요.",
+  "hook_ko": "반복되는 웹서버 설정 코드를 깔끔하게 리팩토링하고 유지보수성을 극대화하는 실용적인 시스템 관리 팁을 확인하세요.",
+  "hook_en": "Discover a practical systems administration tip to refactor repetitive web server configurations and maximize maintainability.",
+  "hook_zh": "了解如何通过实用技巧重构冗长的Web服务器配置文件，大幅提升系统的可维护性。",
+  "description_en": "Discover a practical systems administration tip to refactor repetitive web server configurations and maximize maintainability.",
+  "description_zh": "了解如何通过实用技巧重构冗长的Web服务器配置文件，大幅提升系统的可维护性。"
 }

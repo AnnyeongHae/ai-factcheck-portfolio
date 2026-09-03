@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_leosayer06wan555",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 미디어 생성",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Wan555",
+      "Gradio",
+      "AI Demo"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.3,
+    "multilingual": {
+      "ko": {
+        "title": "HF Space: wan555 인터랙티브 데모",
+        "hook": "최신 생성형 AI 모델의 성능을 웹에서 곧바로 체험할 수 있는 Gradio 기반 오픈 데모 공간입니다.",
+        "key_takeaways": [
+          "Gradio SDK를 활용한 간편한 웹 인터페이스 구현",
+          "최신 AI 모델의 실시간 성능 검증에 용이",
+          "개발자 및 연구원들을 위한 커뮤니티 공유 데모"
+        ]
+      },
+      "en": {
+        "title": "HF Space: wan555 Interactive Demo",
+        "hook": "An open Gradio-based demo space to experience cutting-edge generative AI models directly in the browser.",
+        "key_takeaways": [
+          "Simple web interface implemented using the Gradio SDK",
+          "Ideal for real-time performance validation of emerging AI models",
+          "Community-shared demo tailored for developers and researchers"
+        ]
+      },
+      "zh": {
+        "title": "HF Space：wan555 交互式演示",
+        "hook": "基于 Gradio 的开放演示空间，可在网页端直接体验最新生成式 AI 模型的效果。",
+        "key_takeaways": [
+          "利用 Gradio SDK 实现简洁的网页交互界面",
+          "非常适合实时验证前沿 AI 模型的性能表现",
+          "专为开发者和研究人员打造的社区共享演示"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:16:55.232390+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Wan555",
+    "Gradio",
+    "AI Demo"
+  ],
+  "title_ko": "HF Space: wan555 인터랙티브 데모",
+  "title_en": "HF Space: wan555 Interactive Demo",
+  "title_zh": "HF Space：wan555 交互式演示",
+  "hook": "최신 생성형 AI 모델의 성능을 웹에서 곧바로 체험할 수 있는 Gradio 기반 오픈 데모 공간입니다.",
+  "hook_ko": "최신 생성형 AI 모델의 성능을 웹에서 곧바로 체험할 수 있는 Gradio 기반 오픈 데모 공간입니다.",
+  "hook_en": "An open Gradio-based demo space to experience cutting-edge generative AI models directly in the browser.",
+  "hook_zh": "基于 Gradio 的开放演示空间，可在网页端直接体验最新生成式 AI 模型的效果。",
+  "description_ko": "최신 생성형 AI 모델의 성능을 웹에서 곧바로 체험할 수 있는 Gradio 기반 오픈 데모 공간입니다.",
+  "description_en": "An open Gradio-based demo space to experience cutting-edge generative AI models directly in the browser.",
+  "description_zh": "基于 Gradio 的开放演示空间，可在网页端直接体验最新生成式 AI 模型的效果。"
 }

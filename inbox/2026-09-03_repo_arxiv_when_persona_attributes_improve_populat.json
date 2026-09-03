@@ -29,5 +29,70 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_when_persona_attributes_improve_populat",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 정렬 및 페르소나",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Persona Prompting",
+      "Population Alignment",
+      "Survey Panels",
+      "LLM Alignment"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
+    "multilingual": {
+      "ko": {
+        "title": "페르소나 속성이 LLM의 인구 집단 정렬을 개선하는 조건",
+        "hook": "설문 조사 패널에서 인간 응답을 예측할 때 페르소나 프롬프팅이 어떻게 정확도를 높이는지 분석합니다.",
+        "key_takeaways": [
+          "인구 집단 반응 예측에서 페르소나 속성의 역할 분석",
+          "LLM 설문 응답 시뮬레이션의 정확도 향상 기법",
+          "사회과학 및 시장 조사 분야에서의 LLM 활용 최적화 방안"
+        ]
+      },
+      "en": {
+        "title": "When Persona Attributes Improve Population Alignment in LLMs",
+        "hook": "Analyze how persona prompting enhances the accuracy of LLMs in predicting human survey responses.",
+        "key_takeaways": [
+          "Analysis of persona attributes in population response prediction",
+          "Techniques for improving accuracy in LLM survey simulations",
+          "Optimization strategies for LLM deployment in social science and market research"
+        ]
+      },
+      "zh": {
+        "title": "角色属性何时能提升大语言模型的群体对齐能力",
+        "hook": "深入探讨角色提示词技术如何有效提升大模型在预测人类调查问卷中的准确性。",
+        "key_takeaways": [
+          "分析角色属性在群体反应预测中的核心作用",
+          "提升大模型调查模拟准确率的方法论",
+          "在社会科学与市场调研中优化大模型应用的策略"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:07.455084+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Persona Prompting",
+    "Population Alignment",
+    "Survey Panels",
+    "LLM Alignment"
+  ],
+  "title_ko": "페르소나 속성이 LLM의 인구 집단 정렬을 개선하는 조건",
+  "title_en": "When Persona Attributes Improve Population Alignment in LLMs",
+  "title_zh": "角色属性何时能提升大语言模型的群体对齐能力",
+  "hook": "설문 조사 패널에서 인간 응답을 예측할 때 페르소나 프롬프팅이 어떻게 정확도를 높이는지 분석합니다.",
+  "hook_ko": "설문 조사 패널에서 인간 응답을 예측할 때 페르소나 프롬프팅이 어떻게 정확도를 높이는지 분석합니다.",
+  "hook_en": "Analyze how persona prompting enhances the accuracy of LLMs in predicting human survey responses.",
+  "hook_zh": "深入探讨角色提示词技术如何有效提升大模型在预测人类调查问卷中的准确性。",
+  "description_ko": "설문 조사 패널에서 인간 응답을 예측할 때 페르소나 프롬프팅이 어떻게 정확도를 높이는지 분석합니다.",
+  "description_en": "Analyze how persona prompting enhances the accuracy of LLMs in predicting human survey responses.",
+  "description_zh": "深入探讨角色提示词技术如何有效提升大模型在预测人类调查问卷中的准确性。"
 }

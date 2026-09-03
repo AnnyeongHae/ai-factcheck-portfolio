@@ -31,7 +31,70 @@
   ],
   "status": "PENDING_REVIEW",
   "title_ko": "Mistral, Enterprise 제외 사용자 입출력을 기본 학습에 활용",
-  "description_ko": "Mistral, Enterprise 제외 사용자 입출력을 기본 학습에 활용",
+  "description_ko": "엔터프라이즈 플랜을 제외한 사용자 데이터가 기본적으로 모델 학습에 사용되므로 사내 데이터 보안 시 주의가 필요합니다.",
   "hn_url": "https://news.hada.io/topic?id=33165",
-  "article_url": "https://news.hada.io/topic?id=33165"
+  "article_url": "https://news.hada.io/topic?id=33165",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_geeknews_mistral_enterprise_제외_사용자_입출력을_기본_학습",
+    "source_lang": "KO",
+    "type_classification": "NEWS",
+    "model_family": "Mistral",
+    "category": "AI 프라이버시 및 정책",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Mistral AI",
+      "데이터 프라이버시",
+      "엔터프라이즈",
+      "모델 학습"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "Mistral, Enterprise 제외 사용자 입출력을 기본 학습에 활용",
+        "hook": "엔터프라이즈 플랜을 제외한 사용자 데이터가 기본적으로 모델 학습에 사용되므로 사내 데이터 보안 시 주의가 필요합니다.",
+        "key_takeaways": [
+          "Mistral은 Enterprise 등급을 제외한 일반 사용자 입출력을 기본 학습 데이터로 활용",
+          "기업 환경에서 AI 도입 시 데이터 프라이버시 및 보안 정책 검토 필수",
+          "민감한 사내 데이터 유출 방지를 위한 요금제별 설정 확인 필요"
+        ]
+      },
+      "en": {
+        "title": "Mistral Uses Default User Inputs/Outputs for Training, Excluding Enterprise",
+        "hook": "Be aware of your data privacy as non-enterprise user inputs are used for default model training by Mistral.",
+        "key_takeaways": [
+          "Mistral utilizes general user inputs and outputs for default training, excluding Enterprise tiers",
+          "Essential review of data privacy and security policies required for enterprise AI adoption",
+          "Check pricing tier settings to prevent the leakage of sensitive internal data"
+        ]
+      },
+      "zh": {
+        "title": "Mistral 将除企业版外的用户输入输出用于默认训练",
+        "hook": "非企业版用户的输入数据默认会被用于模型训练，企业内部使用时需格外注意数据隐私。",
+        "key_takeaways": [
+          "Mistral 将除企业版以外的普通用户输入输出作为默认训练数据",
+          "企业在引入 AI 时必须重新审视数据隐私与安全策略",
+          "需检查不同订阅级别的设置以防止敏感内部数据泄露"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:16:31.063484+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Mistral AI",
+    "데이터 프라이버시",
+    "엔터프라이즈",
+    "모델 학습"
+  ],
+  "title_en": "Mistral Uses Default User Inputs/Outputs for Training, Excluding Enterprise",
+  "title_zh": "Mistral 将除企业版外的用户输入输出用于默认训练",
+  "hook": "엔터프라이즈 플랜을 제외한 사용자 데이터가 기본적으로 모델 학습에 사용되므로 사내 데이터 보안 시 주의가 필요합니다.",
+  "hook_ko": "엔터프라이즈 플랜을 제외한 사용자 데이터가 기본적으로 모델 학습에 사용되므로 사내 데이터 보안 시 주의가 필요합니다.",
+  "hook_en": "Be aware of your data privacy as non-enterprise user inputs are used for default model training by Mistral.",
+  "hook_zh": "非企业版用户的输入数据默认会被用于模型训练，企业内部使用时需格外注意数据隐私。",
+  "description_en": "Be aware of your data privacy as non-enterprise user inputs are used for default model training by Mistral.",
+  "description_zh": "非企业版用户的输入数据默认会被用于模型训练，企业内部使用时需格外注意数据隐私。"
 }

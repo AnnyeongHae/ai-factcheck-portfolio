@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49536411",
   "type": "repo",
-  "category_type": "REPO",
+  "category_type": "TECH",
   "description": "HN Score: 90 pts | Comments: 17 | WebLLM: high-performance in-browser LLM inference engine",
   "viral_metric": "🔥 90 HN Points",
   "metric_tracking": {
@@ -31,5 +31,70 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49536411",
-  "article_url": "https://github.com/mlc-ai/web-llm"
+  "article_url": "https://github.com/mlc-ai/web-llm",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hacker_news_webllm_high_performance_in_browse",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 추론 최적화",
+    "programming_lang": "JavaScript",
+    "root_keywords": [
+      "WebLLM",
+      "In-Browser",
+      "WASM",
+      "WebGPU"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
+    "multilingual": {
+      "ko": {
+        "title": "Hacker News: WebLLM 고성능 인브라우저 LLM 추론 엔진",
+        "hook": "서버 비용 없이 브라우저 내에서 직접 대형 언어 모델을 고성능으로 구동하는 WebGPU/WASM 기반 인프라입니다.",
+        "key_takeaways": [
+          "WebGPU를 활용한 브라우저 내부 네이티브 수준의 가속 추론",
+          "서버 인프라 비용 절감 및 프라이버시가 보장되는 클라이언트 사이드 AI",
+          "프론트엔드 환경에서의 LLM 통합을 위한 혁신적인 아키텍처"
+        ]
+      },
+      "en": {
+        "title": "Hacker News: WebLLM: High-Performance In-Browser LLM Inference Engine",
+        "hook": "A WebGPU/WASM-based inference engine that runs large language models locally inside the browser with high performance.",
+        "key_takeaways": [
+          "Native-level accelerated LLM inference in-browser using WebGPU",
+          "Zero server infrastructure cost and complete privacy via client-side AI",
+          "Innovative architecture for integrating LLMs into frontend applications"
+        ]
+      },
+      "zh": {
+        "title": "Hacker News：WebLLM 高性能浏览器端 LLM 推理引擎",
+        "hook": "基于 WebGPU/WASM 的高性能浏览器端推理引擎，无需服务器即可在本地运行大语言模型。",
+        "key_takeaways": [
+          "利用 WebGPU 在浏览器中实现接近原生级别的加速推理",
+          "通过客户端 AI 彻底消除服务器成本并保障隐私安全",
+          "将大模型深度集成到前端应用中的创新架构方案"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:16:55.235612+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "JavaScript",
+  "root_keywords": [
+    "WebLLM",
+    "In-Browser",
+    "WASM",
+    "WebGPU"
+  ],
+  "title_ko": "Hacker News: WebLLM 고성능 인브라우저 LLM 추론 엔진",
+  "title_en": "Hacker News: WebLLM: High-Performance In-Browser LLM Inference Engine",
+  "title_zh": "Hacker News：WebLLM 高性能浏览器端 LLM 推理引擎",
+  "hook": "서버 비용 없이 브라우저 내에서 직접 대형 언어 모델을 고성능으로 구동하는 WebGPU/WASM 기반 인프라입니다.",
+  "hook_ko": "서버 비용 없이 브라우저 내에서 직접 대형 언어 모델을 고성능으로 구동하는 WebGPU/WASM 기반 인프라입니다.",
+  "hook_en": "A WebGPU/WASM-based inference engine that runs large language models locally inside the browser with high performance.",
+  "hook_zh": "基于 WebGPU/WASM 的高性能浏览器端推理引擎，无需服务器即可在本地运行大语言模型。",
+  "description_ko": "서버 비용 없이 브라우저 내에서 직접 대형 언어 모델을 고성능으로 구동하는 WebGPU/WASM 기반 인프라입니다.",
+  "description_en": "A WebGPU/WASM-based inference engine that runs large language models locally inside the browser with high performance.",
+  "description_zh": "基于 WebGPU/WASM 的高性能浏览器端推理引擎，无需服务器即可在本地运行大语言模型。"
 }

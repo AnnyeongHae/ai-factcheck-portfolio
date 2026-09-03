@@ -31,5 +31,68 @@
     "이커머스 & 커머스 데이터 수집 인프라",
     "정량 데이터 분석 & 벤치마크 감사"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_blending_concepts_benchmarking_visual_m",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "텍스트-이미지 생성 및 벤치마크",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Text-to-Image",
+      "Visual Metaphor",
+      "Benchmarking"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "텍스트-이미지 모델의 시각적 은유 생성 능력 벤치마킹",
+        "hook": "추상적 개념을 시각화하는 T2I 모델의 한계를 측정하는 새로운 벤치마크 연구를 확인하세요.",
+        "key_takeaways": [
+          "텍스트-이미지 모델의 은유적 표현력 평가 방법론 제시",
+          "추상적 아이디어를 시각화하는 모델의 성능 한계 분석",
+          "향후 생성 모델의 창의적 정합성 향상을 위한 방향성 제안"
+        ]
+      },
+      "en": {
+        "title": "Blending Concepts: Benchmarking Visual Metaphor Generation in T2I Models",
+        "hook": "Discover a new benchmark evaluating how text-to-image models handle abstract visual metaphors.",
+        "key_takeaways": [
+          "Introduces a benchmark for measuring visual metaphor generation in T2I models",
+          "Analyzes current limitations in rendering abstract ideas visually",
+          "Provides insights for improving creative alignment in generative models"
+        ]
+      },
+      "zh": {
+        "title": "融合概念：文本到图像模型中视觉隐喻生成的基准测试",
+        "hook": "探索评估文生图模型处理抽象视觉隐喻能力的全新基准测试研究。",
+        "key_takeaways": [
+          "提出用于衡量文生图模型隐喻表达能力的基准测试方法",
+          "分析当前模型在视觉化呈现抽象概念时的局限性",
+          "为提升生成模型在创意对齐方面的表现提供方向"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:57.659155+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Text-to-Image",
+    "Visual Metaphor",
+    "Benchmarking"
+  ],
+  "title_ko": "텍스트-이미지 모델의 시각적 은유 생성 능력 벤치마킹",
+  "title_en": "Blending Concepts: Benchmarking Visual Metaphor Generation in T2I Models",
+  "title_zh": "融合概念：文本到图像模型中视觉隐喻生成的基准测试",
+  "hook": "추상적 개념을 시각화하는 T2I 모델의 한계를 측정하는 새로운 벤치마크 연구를 확인하세요.",
+  "hook_ko": "추상적 개념을 시각화하는 T2I 모델의 한계를 측정하는 새로운 벤치마크 연구를 확인하세요.",
+  "hook_en": "Discover a new benchmark evaluating how text-to-image models handle abstract visual metaphors.",
+  "hook_zh": "探索评估文生图模型处理抽象视觉隐喻能力的全新基准测试研究。",
+  "description_ko": "추상적 개념을 시각화하는 T2I 모델의 한계를 측정하는 새로운 벤치마크 연구를 확인하세요.",
+  "description_en": "Discover a new benchmark evaluating how text-to-image models handle abstract visual metaphors.",
+  "description_zh": "探索评估文生图模型处理抽象视觉隐喻能力的全新基准测试研究。"
 }

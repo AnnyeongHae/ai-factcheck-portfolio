@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "생성형 마케팅 & GEO/SEO 최적화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_scalable_direction_following_tts_via_vo",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "음성 합성 (TTS)",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Direction-Following TTS",
+      "Voice Impression",
+      "Pseudo Triplet Construction"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "음성 인상 유도 의사 삼중구조 구축을 통한 확장 가능한 디렉션 팔로잉 TTS",
+        "hook": "연기자의 디렉션 변화를 반영하여 세밀한 감정과 톤을 조절할 수 있는 차세대 TTS 기술을 만나보세요.",
+        "key_takeaways": [
+          "연기 디렉션에 따라 음성 출력을 조절하는 디렉션 팔로잉 TTS 연구",
+          "음성 인상 유도 방식을 활용한 의사 삼중구조(Pseudo Triplet) 생성",
+          "다양한 감정과 뉘앙스를 확장성 있게 제어 가능"
+        ]
+      },
+      "en": {
+        "title": "Scalable Direction-Following TTS via Voice Impression-Guided Pseudo Triplet Construction",
+        "hook": "Discover a scalable text-to-speech framework that adapts vocal delivery based on performance directions.",
+        "key_takeaways": [
+          "Focuses on direction-following TTS mirroring professional voice acting",
+          "Introduces voice impression-guided pseudo triplet construction",
+          "Enables scalable control over delivery styles and emotional nuances"
+        ]
+      },
+      "zh": {
+        "title": "通过声音印象引导的伪三元组构建实现可扩展的定向跟随TTS",
+        "hook": "探索能够根据表演指令调整语调与情感的新一代可扩展语音合成技术。",
+        "key_takeaways": [
+          "研究根据配音导演指令调整输出的定向跟随TTS",
+          "利用声音印象引导构建伪三元组",
+          "实现对语音表现力和情感细微差别的可扩展控制"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:20.108123+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Direction-Following TTS",
+    "Voice Impression",
+    "Pseudo Triplet Construction"
+  ],
+  "title_ko": "음성 인상 유도 의사 삼중구조 구축을 통한 확장 가능한 디렉션 팔로잉 TTS",
+  "title_en": "Scalable Direction-Following TTS via Voice Impression-Guided Pseudo Triplet Construction",
+  "title_zh": "通过声音印象引导的伪三元组构建实现可扩展的定向跟随TTS",
+  "hook": "연기자의 디렉션 변화를 반영하여 세밀한 감정과 톤을 조절할 수 있는 차세대 TTS 기술을 만나보세요.",
+  "hook_ko": "연기자의 디렉션 변화를 반영하여 세밀한 감정과 톤을 조절할 수 있는 차세대 TTS 기술을 만나보세요.",
+  "hook_en": "Discover a scalable text-to-speech framework that adapts vocal delivery based on performance directions.",
+  "hook_zh": "探索能够根据表演指令调整语调与情感的新一代可扩展语音合成技术。",
+  "description_ko": "연기자의 디렉션 변화를 반영하여 세밀한 감정과 톤을 조절할 수 있는 차세대 TTS 기술을 만나보세요.",
+  "description_en": "Discover a scalable text-to-speech framework that adapts vocal delivery based on performance directions.",
+  "description_zh": "探索能够根据表演指令调整语调与情感的新一代可扩展语音合成技术。"
 }

@@ -7,7 +7,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49532773",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 6 pts | Comments: 2 | Google Pics is generally available starting today",
   "viral_metric": "🔥 6 HN Points",
   "metric_tracking": {
@@ -31,5 +31,68 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49532773",
-  "article_url": "https://workspace.google.com/products/pics/"
+  "article_url": "https://workspace.google.com/products/pics/",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_hacker_news_google_pics_is_generally_availabl",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "클라우드 및 미디어 처리",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Google Pics",
+      "이미지 서비스",
+      "정식 출시"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.2,
+    "multilingual": {
+      "ko": {
+        "title": "구글 픽스(Google Pics) 정식 서비스 개시",
+        "hook": "구글의 새로운 이미지 관련 서비스가 정식 출시되어 일반 사용자 접근이 가능해졌습니다.",
+        "key_takeaways": [
+          "Google Pics 정식 출시(GA) 발표",
+          "사용자 대상 서비스 접근성 확대",
+          "기존 이미지 관리 서비스와의 연동성"
+        ]
+      },
+      "en": {
+        "title": "Google Pics Generally Available Starting Today",
+        "hook": "Google's new image-focused service is now officially live and accessible to the public.",
+        "key_takeaways": [
+          "General Availability (GA) announcement for Google Pics",
+          "Expanded accessibility for general users",
+          "Integration with existing media and image management tools"
+        ]
+      },
+      "zh": {
+        "title": "Google Pics 自今天起正式全面可用",
+        "hook": "谷歌全新的图像相关服务正式上线，向广大用户全面开放。",
+        "key_takeaways": [
+          "Google Pics 宣布正式全面可用 (GA)",
+          "扩大了普通用户的服务可访问性",
+          "与现有图像管理工具的集成能力"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:18:09.705194+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Google Pics",
+    "이미지 서비스",
+    "정식 출시"
+  ],
+  "title_ko": "구글 픽스(Google Pics) 정식 서비스 개시",
+  "title_en": "Google Pics Generally Available Starting Today",
+  "title_zh": "Google Pics 自今天起正式全面可用",
+  "hook": "구글의 새로운 이미지 관련 서비스가 정식 출시되어 일반 사용자 접근이 가능해졌습니다.",
+  "hook_ko": "구글의 새로운 이미지 관련 서비스가 정식 출시되어 일반 사용자 접근이 가능해졌습니다.",
+  "hook_en": "Google's new image-focused service is now officially live and accessible to the public.",
+  "hook_zh": "谷歌全新的图像相关服务正式上线，向广大用户全面开放。",
+  "description_ko": "구글의 새로운 이미지 관련 서비스가 정식 출시되어 일반 사용자 접근이 가능해졌습니다.",
+  "description_en": "Google's new image-focused service is now officially live and accessible to the public.",
+  "description_zh": "谷歌全新的图像相关服务正式上线，向广大用户全面开放。"
 }

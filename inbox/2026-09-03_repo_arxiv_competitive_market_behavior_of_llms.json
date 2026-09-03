@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_competitive_market_behavior_of_llms",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 경제학 및 멀티에이전트",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "LLM Agents",
+      "Market Behavior",
+      "Economic Agents"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "LLM의 경쟁적 시장 행동 분석",
+        "hook": "대형 언어 모델 에이전트가 인간을 위해 설계된 시장 메커니즘에서 어떻게 행동하는지 경제학적 관점에서 분석합니다.",
+        "key_takeaways": [
+          "LLM을 경제적 에이전트로 배치할 때의 시장 적합성 검증",
+          "인간 중심의 시장 메커니즘에서의 LLM 행동 양상 관찰",
+          "AI 에이전트 기반 경제 시뮬레이션의 가능성과 한계 탐구"
+        ]
+      },
+      "en": {
+        "title": "Competitive Market Behavior of LLMs",
+        "hook": "Explore how well LLM-based economic agents perform and adapt within market mechanisms originally designed for humans.",
+        "key_takeaways": [
+          "Evaluates LLMs deployed as autonomous economic agents",
+          "Investigates whether LLM agents fit into human-designed market rules",
+          "Provides insights into multi-agent economic simulations"
+        ]
+      },
+      "zh": {
+        "title": "大语言模型的竞争性市场行为研究",
+        "hook": "从经济学角度探讨大语言模型作为经济体代理时，在人类市场机制中的适应性与行为表现。",
+        "key_takeaways": [
+          "评估将LLM部署为经济代理人的可行性",
+          "考察LLM代理在人类设计市场机制中的表现",
+          "为AI代理参与的经济博弈与仿真提供重要见解"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:44.806203+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "LLM Agents",
+    "Market Behavior",
+    "Economic Agents"
+  ],
+  "title_ko": "LLM의 경쟁적 시장 행동 분석",
+  "title_en": "Competitive Market Behavior of LLMs",
+  "title_zh": "大语言模型的竞争性市场行为研究",
+  "hook": "대형 언어 모델 에이전트가 인간을 위해 설계된 시장 메커니즘에서 어떻게 행동하는지 경제학적 관점에서 분석합니다.",
+  "hook_ko": "대형 언어 모델 에이전트가 인간을 위해 설계된 시장 메커니즘에서 어떻게 행동하는지 경제학적 관점에서 분석합니다.",
+  "hook_en": "Explore how well LLM-based economic agents perform and adapt within market mechanisms originally designed for humans.",
+  "hook_zh": "从经济学角度探讨大语言模型作为经济体代理时，在人类市场机制中的适应性与行为表现。",
+  "description_ko": "대형 언어 모델 에이전트가 인간을 위해 설계된 시장 메커니즘에서 어떻게 행동하는지 경제학적 관점에서 분석합니다.",
+  "description_en": "Explore how well LLM-based economic agents perform and adapt within market mechanisms originally designed for humans.",
+  "description_zh": "从经济学角度探讨大语言模型作为经济体代理时，在人类市场机制中的适应性与行为表现。"
 }

@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33176",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "AGENT",
   "description": "GeekNews Korean Tech Trend: Claude로 커머스 에이전트 구축하기",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -30,8 +30,69 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Claude로 커머스 에이전트 구축하기",
-  "description_ko": "Claude로 커머스 에이전트 구축하기",
+  "title_ko": "Claude를 활용한 실전 커머스 AI 에이전트 구축 가이드",
+  "description_ko": "이커머스 업무를 자동화하는 지능형 에이전트를 Claude 기반으로 구현하는 방법을 배웁니다.",
   "hn_url": "https://news.hada.io/topic?id=33176",
-  "article_url": "https://news.hada.io/topic?id=33176"
+  "article_url": "https://news.hada.io/topic?id=33176",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_geeknews_claude로_커머스_에이전트_구축하기",
+    "source_lang": "KO",
+    "type_classification": "AGENT",
+    "model_family": "Claude",
+    "category": "웹 에이전트",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Claude",
+      "커머스 에이전트",
+      "AI 자동화"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "Claude를 활용한 실전 커머스 AI 에이전트 구축 가이드",
+        "hook": "이커머스 업무를 자동화하는 지능형 에이전트를 Claude 기반으로 구현하는 방법을 배웁니다.",
+        "key_takeaways": [
+          "Claude API를 활용한 이커머스 도메인 특화 에이전트 설계",
+          "상품 추천 및 주문 처리 자동화 워크플로우 구현",
+          "실제 프로덕션 환경에서의 프롬프트 및 컨텍스트 관리 전략"
+        ]
+      },
+      "en": {
+        "title": "Building Commerce AI Agents Using Claude",
+        "hook": "Learn how to implement intelligent agents powered by Claude to automate e-commerce operations.",
+        "key_takeaways": [
+          "Designing e-commerce domain-specific agents using Claude API",
+          "Implementing automated workflows for product recommendation and order processing",
+          "Prompt and context management strategies in production environments"
+        ]
+      },
+      "zh": {
+        "title": "使用 Claude 构建电商 AI 代理实战指南",
+        "hook": "学习如何基于 Claude 实现自动化电商业务的智能代理。",
+        "key_takeaways": [
+          "利用 Claude API 设计电商垂直领域专属代理",
+          "实现商品推荐与订单处理自动化工作流",
+          "生产环境中的提示词与上下文管理策略"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:16:43.315797+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Claude",
+    "커머스 에이전트",
+    "AI 자동화"
+  ],
+  "title_en": "Building Commerce AI Agents Using Claude",
+  "title_zh": "使用 Claude 构建电商 AI 代理实战指南",
+  "hook": "이커머스 업무를 자동화하는 지능형 에이전트를 Claude 기반으로 구현하는 방법을 배웁니다.",
+  "hook_ko": "이커머스 업무를 자동화하는 지능형 에이전트를 Claude 기반으로 구현하는 방법을 배웁니다.",
+  "hook_en": "Learn how to implement intelligent agents powered by Claude to automate e-commerce operations.",
+  "hook_zh": "学习如何基于 Claude 实现自动化电商业务的智能代理。",
+  "description_en": "Learn how to implement intelligent agents powered by Claude to automate e-commerce operations.",
+  "description_zh": "学习如何基于 Claude 实现自动化电商业务的智能代理。"
 }

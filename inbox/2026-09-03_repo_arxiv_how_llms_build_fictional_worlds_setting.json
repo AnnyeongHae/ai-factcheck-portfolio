@@ -29,5 +29,70 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_how_llms_build_fictional_worlds_setting",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "창의적 스토리텔링 및 LLM 분석",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Worldbuilding",
+      "Narrative Space",
+      "Creative Storytelling",
+      "LLM Evaluation"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "LLM이 가상 세계를 구축하는 방법: AI 생성 창의적 스토리텔링의 배경과 내러티브 공간",
+        "hook": "LLM이 스토리텔링 과정에서 세계관(Worldbuilding)을 구축하는 전략과 측정 가능한 차원을 분석합니다.",
+        "key_takeaways": [
+          "AI 생성 스토리 내 배경(Setting) 구축 전략 분석",
+          "1,000개의 AI 생성 스토리 비교를 통한 패턴 도출",
+          "내러티브 공간의 측정 가능한 차원 연구"
+        ]
+      },
+      "en": {
+        "title": "How LLMs Build Fictional Worlds: Setting and Narrative Space in AI-Generated Creative Storytelling",
+        "hook": "Analyze the worldbuilding strategies and measurable dimensions employed by LLMs in creative storytelling.",
+        "key_takeaways": [
+          "Analyzes setting construction strategies in AI-generated stories",
+          "Compares 1,000 AI-generated narratives to extract patterns",
+          "Explores measurable dimensions of narrative spaces"
+        ]
+      },
+      "zh": {
+        "title": "大语言模型如何构建虚构世界：AI生成创意叙事中的背景与叙事空间",
+        "hook": "深入分析大语言模型在创意叙事中采用的世界构建策略及其可量化维度。",
+        "key_takeaways": [
+          "分析AI生成故事中的背景构建策略",
+          "通过对比1000个AI生成的故事提取模式",
+          "研究叙事空间的可量化维度"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T13:17:31.855090+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Worldbuilding",
+    "Narrative Space",
+    "Creative Storytelling",
+    "LLM Evaluation"
+  ],
+  "title_ko": "LLM이 가상 세계를 구축하는 방법: AI 생성 창의적 스토리텔링의 배경과 내러티브 공간",
+  "title_en": "How LLMs Build Fictional Worlds: Setting and Narrative Space in AI-Generated Creative Storytelling",
+  "title_zh": "大语言模型如何构建虚构世界：AI生成创意叙事中的背景与叙事空间",
+  "hook": "LLM이 스토리텔링 과정에서 세계관(Worldbuilding)을 구축하는 전략과 측정 가능한 차원을 분석합니다.",
+  "hook_ko": "LLM이 스토리텔링 과정에서 세계관(Worldbuilding)을 구축하는 전략과 측정 가능한 차원을 분석합니다.",
+  "hook_en": "Analyze the worldbuilding strategies and measurable dimensions employed by LLMs in creative storytelling.",
+  "hook_zh": "深入分析大语言模型在创意叙事中采用的世界构建策略及其可量化维度。",
+  "description_ko": "LLM이 스토리텔링 과정에서 세계관(Worldbuilding)을 구축하는 전략과 측정 가능한 차원을 분석합니다.",
+  "description_en": "Analyze the worldbuilding strategies and measurable dimensions employed by LLMs in creative storytelling.",
+  "description_zh": "深入分析大语言模型在创意叙事中采用的世界构建策略及其可量化维度。"
 }
