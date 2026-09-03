@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33129",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "MODEL",
   "description": "GeekNews Korean Tech Trend: Claude Fable 5.1 과 Mythos 5.1 공개",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -31,7 +31,69 @@
   ],
   "status": "PENDING_REVIEW",
   "title_ko": "Claude Fable 5.1 과 Mythos 5.1 공개",
-  "description_ko": "Claude Fable 5.1 과 Mythos 5.1 공개",
+  "description_ko": "차세대 언어 모델인 Claude Fable 5.1과 Mythos 5.1이 새롭게 공개되며 AI 성능의 새로운 기준을 제시합니다.",
   "hn_url": "https://news.hada.io/topic?id=33129",
-  "article_url": "https://news.hada.io/topic?id=33129"
+  "article_url": "https://news.hada.io/topic?id=33129",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_geeknews_claude_fable_51_과_mythos_51_공개",
+    "source_lang": "KO",
+    "type_classification": "MODEL",
+    "model_family": "Claude",
+    "category": "LLM 및 생성형 AI",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Claude Fable 5.1",
+      "Mythos 5.1",
+      "Anthropic"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "Claude Fable 5.1 과 Mythos 5.1 공개",
+        "hook": "차세대 언어 모델인 Claude Fable 5.1과 Mythos 5.1이 새롭게 공개되며 AI 성능의 새로운 기준을 제시합니다.",
+        "key_takeaways": [
+          "Claude Fable 5.1 및 Mythos 5.1의 주요 아키텍처 개선 사항",
+          "추론 능력, 창의적 글쓰기 및 코딩 성능 벤치마크 결과",
+          "엔지니어링 적용을 위한 API 활용 방안"
+        ]
+      },
+      "en": {
+        "title": "Claude Fable 5.1 and Mythos 5.1 Released",
+        "hook": "Anthropic's next-generation models Claude Fable 5.1 and Mythos 5.1 launch, setting new benchmarks in AI capability.",
+        "key_takeaways": [
+          "Key architectural upgrades in Claude Fable 5.1 and Mythos 5.1",
+          "Benchmark improvements in reasoning, creative writing, and coding",
+          "Practical API integration strategies for engineers"
+        ]
+      },
+      "zh": {
+        "title": "Claude Fable 5.1 与 Mythos 5.1 正式发布",
+        "hook": "新一代大语言模型Claude Fable 5.1和Mythos 5.1重磅登场，树立AI性能新标杆。",
+        "key_takeaways": [
+          "Claude Fable 5.1与Mythos 5.1的核心架构升级",
+          "推理能力、创意写作及代码生成基准测试结果",
+          "面向工程落地的API应用指南"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T04:23:55.388798+00:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Claude Fable 5.1",
+    "Mythos 5.1",
+    "Anthropic"
+  ],
+  "title_en": "Claude Fable 5.1 and Mythos 5.1 Released",
+  "title_zh": "Claude Fable 5.1 与 Mythos 5.1 正式发布",
+  "hook": "차세대 언어 모델인 Claude Fable 5.1과 Mythos 5.1이 새롭게 공개되며 AI 성능의 새로운 기준을 제시합니다.",
+  "hook_ko": "차세대 언어 모델인 Claude Fable 5.1과 Mythos 5.1이 새롭게 공개되며 AI 성능의 새로운 기준을 제시합니다.",
+  "hook_en": "Anthropic's next-generation models Claude Fable 5.1 and Mythos 5.1 launch, setting new benchmarks in AI capability.",
+  "hook_zh": "新一代大语言模型Claude Fable 5.1和Mythos 5.1重磅登场，树立AI性能新标杆。",
+  "description_en": "Anthropic's next-generation models Claude Fable 5.1 and Mythos 5.1 launch, setting new benchmarks in AI capability.",
+  "description_zh": "新一代大语言模型Claude Fable 5.1和Mythos 5.1重磅登场，树立AI性能新标杆。",
+  "model_family": "Claude"
 }

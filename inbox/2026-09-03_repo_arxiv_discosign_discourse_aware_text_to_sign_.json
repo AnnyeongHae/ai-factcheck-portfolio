@@ -29,5 +29,70 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_discosign_discourse_aware_text_to_sign_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "자연어 처리 및 수화 번역",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Sign Language",
+      "Discourse-Aware",
+      "Text-to-Gloss",
+      "NLP"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "DiscoSign: 담화 인지형 텍스트-수화 글글로스 번역",
+        "hook": "기존 문장 단위 수화 번역의 한계를 넘어 담화 수준의 맥락을 이해하는 새로운 수화 처리 시스템입니다.",
+        "key_takeaways": [
+          "문장 단위를 넘어선 담화(Discourse) 현상 반영",
+          "수화 이해도를 높이기 위한 컴퓨테이셔널 프레임워크 제안",
+          "텍스트에서 수화 글글로스(Gloss)로의 정확한 변환 개선"
+        ]
+      },
+      "en": {
+        "title": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
+        "hook": "A novel sign language processing system that goes beyond sentence-level translation to capture critical discourse phenomena.",
+        "key_takeaways": [
+          "Accounts for discourse phenomena beyond traditional sentence-level bounds",
+          "Introduces a computational framework to enhance sign language comprehension",
+          "Improves accurate conversion from text to sign language glosses"
+        ]
+      },
+      "zh": {
+        "title": "DiscoSign：语篇感知的手语文本到语标（Gloss）翻译",
+        "hook": "打破传统句子级手语翻译限制，实现捕捉关键语篇现象的全新手语处理系统。",
+        "key_takeaways": [
+          "超越传统句子级别，融入语篇（Discourse）现象",
+          "提出旨在提升手语理解力的计算框架",
+          "改善文本到手语语标的精准转换能力"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T04:23:44.171447+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Sign Language",
+    "Discourse-Aware",
+    "Text-to-Gloss",
+    "NLP"
+  ],
+  "title_ko": "DiscoSign: 담화 인지형 텍스트-수화 글글로스 번역",
+  "title_en": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
+  "title_zh": "DiscoSign：语篇感知的手语文本到语标（Gloss）翻译",
+  "hook": "기존 문장 단위 수화 번역의 한계를 넘어 담화 수준의 맥락을 이해하는 새로운 수화 처리 시스템입니다.",
+  "hook_ko": "기존 문장 단위 수화 번역의 한계를 넘어 담화 수준의 맥락을 이해하는 새로운 수화 처리 시스템입니다.",
+  "hook_en": "A novel sign language processing system that goes beyond sentence-level translation to capture critical discourse phenomena.",
+  "hook_zh": "打破传统句子级手语翻译限制，实现捕捉关键语篇现象的全新手语处理系统。",
+  "description_ko": "기존 문장 단위 수화 번역의 한계를 넘어 담화 수준의 맥락을 이해하는 새로운 수화 처리 시스템입니다.",
+  "description_en": "A novel sign language processing system that goes beyond sentence-level translation to capture critical discourse phenomena.",
+  "description_zh": "打破传统句子级手语翻译限制，实现捕捉关键语篇现象的全新手语处理系统。"
 }

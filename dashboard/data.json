@@ -1,9 +1,9 @@
 {
   "generated_at": "2026-09-02",
   "total_cases": 29,
-  "models_total_count": 72,
-  "news_total_count": 70,
-  "inbox_total_count": 236,
+  "models_total_count": 73,
+  "news_total_count": 66,
+  "inbox_total_count": 239,
   "all_inbox_count": 384,
   "admin_stats": {
     "endpoints": [
@@ -39,6 +39,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T04:23:05.996699",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.24
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.14
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.88
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 23,
+            "duration_sec": 15.72
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.14
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.09
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.63
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.25
+          }
+        },
+        "summary": {
+          "total_fetched": 163,
+          "updated_count": 0,
+          "new_saved": 0,
+          "duplicates_skipped": 163,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T04:14:08.548982",
         "date": "2026-09-03",
@@ -1522,100 +1575,58 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-01T16:31:43.216434",
-        "date": "2026-09-01",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.08
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.03
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.61
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 3.67
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.26
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.06
-          }
-        },
-        "summary": {
-          "total_fetched": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T04:14:08.548982",
+      "timestamp": "2026-09-03T04:23:05.996699",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.2
+          "duration_sec": 0.24
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.16
+          "duration_sec": 0.14
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.89
+          "duration_sec": 0.88
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 23,
-          "duration_sec": 14.4
+          "duration_sec": 15.72
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 10.83
+          "duration_sec": 0.14
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.1
+          "duration_sec": 0.09
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.83
+          "duration_sec": 0.63
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.33
+          "duration_sec": 0.25
         }
       },
       "summary": {
         "total_fetched": 163,
         "updated_count": 0,
-        "new_saved": 24,
-        "duplicates_skipped": 139,
+        "new_saved": 0,
+        "duplicates_skipped": 163,
         "errors": 0
       }
     }
@@ -2697,6 +2708,105 @@
       "description_ko": "Anthropic의 최신 차세대 모델 라인업이 제시하는 창의적, 추론적 성능 한계의 확장.",
       "description_en": "Explore Anthropic's latest next-generation model lineup pushing the boundaries of creativity and reasoning.",
       "description_zh": "探索Anthropic最新一代模型阵容，突破创意与复杂推理的新边界。",
+      "model_family": "Claude"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_geeknews_claude_fable_51_과_mythos_51_공개",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "GeekNews: Claude Fable 5.1 과 Mythos 5.1 공개",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33129",
+      "type": "sns",
+      "category_type": "MODEL",
+      "description": "GeekNews Korean Tech Trend: Claude Fable 5.1 과 Mythos 5.1 공개",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 0,
+        "delta_display": "0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Claude Fable 5.1 과 Mythos 5.1 공개",
+      "description_ko": "차세대 언어 모델인 Claude Fable 5.1과 Mythos 5.1이 새롭게 공개되며 AI 성능의 새로운 기준을 제시합니다.",
+      "hn_url": "https://news.hada.io/topic?id=33129",
+      "article_url": "https://news.hada.io/topic?id=33129",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_claude_fable_51_과_mythos_51_공개",
+        "source_lang": "KO",
+        "type_classification": "MODEL",
+        "model_family": "Claude",
+        "category": "LLM 및 생성형 AI",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Claude Fable 5.1",
+          "Mythos 5.1",
+          "Anthropic"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.8,
+        "multilingual": {
+          "ko": {
+            "title": "Claude Fable 5.1 과 Mythos 5.1 공개",
+            "hook": "차세대 언어 모델인 Claude Fable 5.1과 Mythos 5.1이 새롭게 공개되며 AI 성능의 새로운 기준을 제시합니다.",
+            "key_takeaways": [
+              "Claude Fable 5.1 및 Mythos 5.1의 주요 아키텍처 개선 사항",
+              "추론 능력, 창의적 글쓰기 및 코딩 성능 벤치마크 결과",
+              "엔지니어링 적용을 위한 API 활용 방안"
+            ]
+          },
+          "en": {
+            "title": "Claude Fable 5.1 and Mythos 5.1 Released",
+            "hook": "Anthropic's next-generation models Claude Fable 5.1 and Mythos 5.1 launch, setting new benchmarks in AI capability.",
+            "key_takeaways": [
+              "Key architectural upgrades in Claude Fable 5.1 and Mythos 5.1",
+              "Benchmark improvements in reasoning, creative writing, and coding",
+              "Practical API integration strategies for engineers"
+            ]
+          },
+          "zh": {
+            "title": "Claude Fable 5.1 与 Mythos 5.1 正式发布",
+            "hook": "新一代大语言模型Claude Fable 5.1和Mythos 5.1重磅登场，树立AI性能新标杆。",
+            "key_takeaways": [
+              "Claude Fable 5.1与Mythos 5.1的核心架构升级",
+              "推理能力、创意写作及代码生成基准测试结果",
+              "面向工程落地的API应用指南"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:55.388798+00:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Claude Fable 5.1",
+        "Mythos 5.1",
+        "Anthropic"
+      ],
+      "title_en": "Claude Fable 5.1 and Mythos 5.1 Released",
+      "title_zh": "Claude Fable 5.1 与 Mythos 5.1 正式发布",
+      "hook": "차세대 언어 모델인 Claude Fable 5.1과 Mythos 5.1이 새롭게 공개되며 AI 성능의 새로운 기준을 제시합니다.",
+      "hook_ko": "차세대 언어 모델인 Claude Fable 5.1과 Mythos 5.1이 새롭게 공개되며 AI 성능의 새로운 기준을 제시합니다.",
+      "hook_en": "Anthropic's next-generation models Claude Fable 5.1 and Mythos 5.1 launch, setting new benchmarks in AI capability.",
+      "hook_zh": "新一代大语言模型Claude Fable 5.1和Mythos 5.1重磅登场，树立AI性能新标杆。",
+      "description_en": "Anthropic's next-generation models Claude Fable 5.1 and Mythos 5.1 launch, setting new benchmarks in AI capability.",
+      "description_zh": "新一代大语言模型Claude Fable 5.1和Mythos 5.1重磅登场，树立AI性能新标杆。",
       "model_family": "Claude"
     },
     {
@@ -10030,46 +10140,72 @@
       ],
       "status": "PENDING_REVIEW",
       "title_ko": "iOS용 Firefox, 선택형 광고 차단 기능 도입",
-      "description_ko": "iOS용 Firefox, 선택형 광고 차단 기능 도입",
+      "description_ko": "모바일 웹 환경에서 사용자 프라이버시와 광고 차단 선택권을 강화하는 Firefox의 최신 업데이트 소식입니다.",
       "hn_url": "https://news.hada.io/topic?id=33136",
-      "article_url": "https://news.hada.io/topic?id=33136"
-    },
-    {
-      "inbox_id": "2026-09-02_sns_geeknews_gpu_world_모두가_gpu를_한_대씩_쓰는_미래_공모전",
-      "harvested_date": "2026-09-02",
-      "created_at": "2026-09-02",
-      "updated_at": "2026-09-02",
-      "title": "GeekNews: GPU World: 모두가 GPU를 한 대씩 쓰는 미래 공모전",
-      "source_platform": "GeekNews",
-      "source_url": "https://news.hada.io/topic?id=33110",
-      "type": "sns",
-      "category_type": "NEWS",
-      "description": "GeekNews Korean Tech Trend: GPU World: 모두가 GPU를 한 대씩 쓰는 미래 공모전",
-      "viral_metric": "🇰🇷 GeekNews 큐레이션",
-      "metric_tracking": {
-        "initial": {
-          "value": 0,
-          "display": "🇰🇷 GeekNews 큐레이션",
-          "recorded_at": "2026-09-02"
+      "article_url": "https://news.hada.io/topic?id=33136",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_ios용_firefox_선택형_광고_차단_기능_도입",
+        "source_lang": "KO",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "업계 동향 및 브라우저 기술",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Firefox iOS",
+          "Ad Blocker",
+          "Web Privacy",
+          "Tech Trend"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.2,
+        "multilingual": {
+          "ko": {
+            "title": "iOS용 Firefox, 선택형 광고 차단 기능 도입",
+            "hook": "모바일 웹 환경에서 사용자 프라이버시와 광고 차단 선택권을 강화하는 Firefox의 최신 업데이트 소식입니다.",
+            "key_takeaways": [
+              "iOS 플랫폼 내 Firefox 브라우저 기능 확장",
+              "사용자 맞춤형 선택형 광고 차단 기능 제공",
+              "모바일 웹 서핑 환경 및 프라이버시 개선"
+            ]
+          },
+          "en": {
+            "title": "Firefox for iOS Introduces Selective Ad-Blocking Feature",
+            "hook": "Explore the latest Firefox update enhancing user privacy and ad-blocking control on mobile web environments.",
+            "key_takeaways": [
+              "Expansion of features for the Firefox browser on iOS",
+              "Introduction of user-configurable selective ad-blocking",
+              "Improvements to mobile web browsing experience and privacy"
+            ]
+          },
+          "zh": {
+            "title": "iOS版Firefox引入选择性广告拦截功能",
+            "hook": "了解Firefox最新更新，它进一步提升了移动网页环境中的用户隐私与广告拦截自主权。",
+            "key_takeaways": [
+              "扩展iOS平台上的Firefox浏览器功能",
+              "提供用户定制的选择性广告拦截选项",
+              "改善移动网页浏览体验与隐私保护"
+            ]
+          }
         },
-        "latest": {
-          "value": 0,
-          "display": "🇰🇷 GeekNews 큐레이션",
-          "updated_at": "2026-09-02"
-        },
-        "delta": 0,
-        "delta_display": "0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:44.172277+00:00"
       },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Firefox iOS",
+        "Ad Blocker",
+        "Web Privacy",
+        "Tech Trend"
       ],
-      "status": "PENDING_REVIEW",
-      "title_ko": "GPU World: 모두가 GPU를 한 대씩 쓰는 미래 공모전",
-      "description_ko": "GPU World: 모두가 GPU를 한 대씩 쓰는 미래 공모전",
-      "hn_url": "https://news.hada.io/topic?id=33110",
-      "article_url": "https://news.hada.io/topic?id=33110"
+      "title_en": "Firefox for iOS Introduces Selective Ad-Blocking Feature",
+      "title_zh": "iOS版Firefox引入选择性广告拦截功能",
+      "hook": "모바일 웹 환경에서 사용자 프라이버시와 광고 차단 선택권을 강화하는 Firefox의 최신 업데이트 소식입니다.",
+      "hook_ko": "모바일 웹 환경에서 사용자 프라이버시와 광고 차단 선택권을 강화하는 Firefox의 최신 업데이트 소식입니다.",
+      "hook_en": "Explore the latest Firefox update enhancing user privacy and ad-blocking control on mobile web environments.",
+      "hook_zh": "了解Firefox最新更新，它进一步提升了移动网页环境中的用户隐私与广告拦截自主权。",
+      "description_en": "Explore the latest Firefox update enhancing user privacy and ad-blocking control on mobile web environments.",
+      "description_zh": "了解Firefox最新更新，它进一步提升了移动网页环境中的用户隐私与广告拦截自主权。"
     },
     {
       "inbox_id": "2026-09-02_sns_geeknews_firefox를_놓지_마라",
@@ -10203,120 +10339,70 @@
       ],
       "status": "PENDING_REVIEW",
       "title_ko": "Ed Zitron의 AI 회의론 예측은 얼마나 정확했나?",
-      "description_ko": "Ed Zitron의 AI 회의론 예측은 얼마나 정확했나?",
+      "description_ko": "급성장하는 AI 시장 속에서 Ed Zitron의 비판적 전망이 실제 업계에 미친 영향과 정확도를 분석합니다.",
       "hn_url": "https://news.hada.io/topic?id=33134",
-      "article_url": "https://news.hada.io/topic?id=33134"
-    },
-    {
-      "inbox_id": "2026-09-02_sns_geeknews_darling_linux에서_macos_소프트웨어_실행하기",
-      "harvested_date": "2026-09-02",
-      "created_at": "2026-09-02",
-      "updated_at": "2026-09-02",
-      "title": "GeekNews: Darling - Linux에서 macOS 소프트웨어 실행하기",
-      "source_platform": "GeekNews",
-      "source_url": "https://news.hada.io/topic?id=33124",
-      "type": "sns",
-      "category_type": "NEWS",
-      "description": "GeekNews Korean Tech Trend: Darling - Linux에서 macOS 소프트웨어 실행하기",
-      "viral_metric": "🇰🇷 GeekNews 큐레이션",
-      "metric_tracking": {
-        "initial": {
-          "value": 0,
-          "display": "🇰🇷 GeekNews 큐레이션",
-          "recorded_at": "2026-09-02"
+      "article_url": "https://news.hada.io/topic?id=33134",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_ed_zitron의_ai_회의론_예측은_얼마나_정확했나",
+        "source_lang": "KO",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI 업계 동향",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI 회의론",
+          "Ed Zitron",
+          "시장 전망"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "Ed Zitron의 AI 회의론 예측은 얼마나 정확했나?",
+            "hook": "급성장하는 AI 시장 속에서 Ed Zitron의 비판적 전망이 실제 업계에 미친 영향과 정확도를 분석합니다.",
+            "key_takeaways": [
+              "Ed Zitron의 주요 AI 회의론 내용 요약",
+              "현재 AI 시장의 거품 논란과 실질적 가치 비교",
+              "전문가들의 비판적 시각에 대한 고찰"
+            ]
+          },
+          "en": {
+            "title": "How Accurate Were Ed Zitron's AI Skepticism Predictions?",
+            "hook": "An analytical review of Ed Zitron's critical AI forecasts and their real-world accuracy in the fast-paced market.",
+            "key_takeaways": [
+              "Summary of Ed Zitron's key AI skepticism arguments",
+              "Comparing current AI market bubble debates with actual utility",
+              "Insights into critical perspectives within the tech industry"
+            ]
+          },
+          "zh": {
+            "title": "Ed Zitron的AI怀疑论预测究竟有多准确？",
+            "hook": "深度剖析Ed Zitron对AI市场的批判性预测及其在现实行业中的准确性。",
+            "key_takeaways": [
+              "梳理Ed Zitron的核心AI怀疑论观点",
+              "对比当前AI市场泡沫争议与实际价值",
+              "探讨科技行业内的批判性视角"
+            ]
+          }
         },
-        "latest": {
-          "value": 0,
-          "display": "🇰🇷 GeekNews 큐레이션",
-          "updated_at": "2026-09-02"
-        },
-        "delta": 0,
-        "delta_display": "0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:55.387925+00:00"
       },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI 회의론",
+        "Ed Zitron",
+        "시장 전망"
       ],
-      "status": "PENDING_REVIEW",
-      "title_ko": "Darling - Linux에서 macOS 소프트웨어 실행하기",
-      "description_ko": "Darling - Linux에서 macOS 소프트웨어 실행하기",
-      "hn_url": "https://news.hada.io/topic?id=33124",
-      "article_url": "https://news.hada.io/topic?id=33124"
-    },
-    {
-      "inbox_id": "2026-09-02_sns_geeknews_css_축소는_정말_필요한가_2023",
-      "harvested_date": "2026-09-02",
-      "created_at": "2026-09-02",
-      "updated_at": "2026-09-02",
-      "title": "GeekNews: CSS 축소는 정말 필요한가? (2023)",
-      "source_platform": "GeekNews",
-      "source_url": "https://news.hada.io/topic?id=33147",
-      "type": "sns",
-      "category_type": "NEWS",
-      "description": "GeekNews Korean Tech Trend: CSS 축소는 정말 필요한가? (2023)",
-      "viral_metric": "🇰🇷 GeekNews 큐레이션",
-      "metric_tracking": {
-        "initial": {
-          "value": 0,
-          "display": "🇰🇷 GeekNews 큐레이션",
-          "recorded_at": "2026-09-02"
-        },
-        "latest": {
-          "value": 0,
-          "display": "🇰🇷 GeekNews 큐레이션",
-          "updated_at": "2026-09-02"
-        },
-        "delta": 0,
-        "delta_display": "0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
-      },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
-      ],
-      "status": "PENDING_REVIEW",
-      "title_ko": "CSS 축소는 정말 필요한가? (2023)",
-      "description_ko": "CSS 축소는 정말 필요한가? (2023)",
-      "hn_url": "https://news.hada.io/topic?id=33147",
-      "article_url": "https://news.hada.io/topic?id=33147"
-    },
-    {
-      "inbox_id": "2026-09-02_sns_geeknews_claude_fable_51_과_mythos_51_공개",
-      "harvested_date": "2026-09-02",
-      "created_at": "2026-09-02",
-      "updated_at": "2026-09-02",
-      "title": "GeekNews: Claude Fable 5.1 과 Mythos 5.1 공개",
-      "source_platform": "GeekNews",
-      "source_url": "https://news.hada.io/topic?id=33129",
-      "type": "sns",
-      "category_type": "NEWS",
-      "description": "GeekNews Korean Tech Trend: Claude Fable 5.1 과 Mythos 5.1 공개",
-      "viral_metric": "🇰🇷 GeekNews 큐레이션",
-      "metric_tracking": {
-        "initial": {
-          "value": 0,
-          "display": "🇰🇷 GeekNews 큐레이션",
-          "recorded_at": "2026-09-02"
-        },
-        "latest": {
-          "value": 0,
-          "display": "🇰🇷 GeekNews 큐레이션",
-          "updated_at": "2026-09-02"
-        },
-        "delta": 0,
-        "delta_display": "0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
-      },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
-      ],
-      "status": "PENDING_REVIEW",
-      "title_ko": "Claude Fable 5.1 과 Mythos 5.1 공개",
-      "description_ko": "Claude Fable 5.1 과 Mythos 5.1 공개",
-      "hn_url": "https://news.hada.io/topic?id=33129",
-      "article_url": "https://news.hada.io/topic?id=33129"
+      "title_en": "How Accurate Were Ed Zitron's AI Skepticism Predictions?",
+      "title_zh": "Ed Zitron的AI怀疑论预测究竟有多准确？",
+      "hook": "급성장하는 AI 시장 속에서 Ed Zitron의 비판적 전망이 실제 업계에 미친 영향과 정확도를 분석합니다.",
+      "hook_ko": "급성장하는 AI 시장 속에서 Ed Zitron의 비판적 전망이 실제 업계에 미친 영향과 정확도를 분석합니다.",
+      "hook_en": "An analytical review of Ed Zitron's critical AI forecasts and their real-world accuracy in the fast-paced market.",
+      "hook_zh": "深度剖析Ed Zitron对AI市场的批判性预测及其在现实行业中的准确性。",
+      "description_en": "An analytical review of Ed Zitron's critical AI forecasts and their real-world accuracy in the fast-paced market.",
+      "description_zh": "深度剖析Ed Zitron对AI市场的批判性预测及其在现实行业中的准确性。"
     },
     {
       "inbox_id": "2026-09-02_sns_geeknews_chatgptcodex_앱_macos_런타임에_헤드리스_libre",
@@ -15627,7 +15713,70 @@
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_hipoly_a_hierarchical_polymer_native_ai",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "소재 과학 AI 및 생성적 디자인",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Polymer AI",
+          "Generative Design",
+          "Property Prediction"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "HiPoly: 고분자 물성 예측 및 생성적 디자인을 위한 계층형 폴리머 네이티브 AI 프레임워크",
+            "hook": "현대 소재 과학의 핵심인 고분자 연구를 혁신할 차세대 AI 프레임워크를 확인하세요.",
+            "key_takeaways": [
+              "계층적 구조를 반영한 폴리머 전용 AI 프레임워크 제안",
+              "고분자 물성 예측 정확도 대폭 향상",
+              "에너지, 헬스케어 등 다양한 산업 분야 적용 가능"
+            ]
+          },
+          "en": {
+            "title": "HiPoly: A Hierarchical Polymer-Native AI Framework for Property Prediction and Generative Design",
+            "hook": "Discover a revolutionary AI framework designed specifically for polymeric material property prediction and generative design.",
+            "key_takeaways": [
+              "Introduces a hierarchical polymer-native AI framework",
+              "Significantly improves accuracy in material property prediction",
+              "Applicable across energy, health, and transportation sectors"
+            ]
+          },
+          "zh": {
+            "title": "HiPoly：用于性质预测和生成式设计的层级聚合物原生AI框架",
+            "hook": "探索专为聚合物材料设计打造的下一代AI框架，赋能现代材料科学。",
+            "key_takeaways": [
+              "提出具有层级结构的聚合物原生AI框架",
+              "显著提升聚合物材料性质预测的准确性",
+              "广泛适用于能源、医疗和交通等多个工业领域"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:31.918999+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Polymer AI",
+        "Generative Design",
+        "Property Prediction"
+      ],
+      "title_ko": "HiPoly: 고분자 물성 예측 및 생성적 디자인을 위한 계층형 폴리머 네이티브 AI 프레임워크",
+      "title_en": "HiPoly: A Hierarchical Polymer-Native AI Framework for Property Prediction and Generative Design",
+      "title_zh": "HiPoly：用于性质预测和生成式设计的层级聚合物原生AI框架",
+      "hook": "현대 소재 과학의 핵심인 고분자 연구를 혁신할 차세대 AI 프레임워크를 확인하세요.",
+      "hook_ko": "현대 소재 과학의 핵심인 고분자 연구를 혁신할 차세대 AI 프레임워크를 확인하세요.",
+      "hook_en": "Discover a revolutionary AI framework designed specifically for polymeric material property prediction and generative design.",
+      "hook_zh": "探索专为聚合物材料设计打造的下一代AI框架，赋能现代材料科学。",
+      "description_ko": "현대 소재 과학의 핵심인 고분자 연구를 혁신할 차세대 AI 프레임워크를 확인하세요.",
+      "description_en": "Discover a revolutionary AI framework designed specifically for polymeric material property prediction and generative design.",
+      "description_zh": "探索专为聚合物材料设计打造的下一代AI框架，赋能现代材料科学。"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_from_reweighting_to_rewriting_unlocking",
@@ -15660,7 +15809,70 @@
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_from_reweighting_to_rewriting_unlocking",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "훈련 데이터 기여도 분석 및 모델 최적화",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Training Data Attribution",
+          "Data Rewriting",
+          "Model Behavior Intervention"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "가중치 재조정에서 데이터 재작성으로: 훈련 데이터 기여도 분석의 개입 효과 극대화",
+            "hook": "단순 가중치 조정을 넘어 데이터 수정으로 모델 행동을 정밀 제어하는 새로운 패러다임을 만나보세요.",
+            "key_takeaways": [
+              "훈련 데이터 기여도 분석(TDA)의 한계 극복 방안 제시",
+              "샘플 선택을 넘어선 데이터 수정(rewriting)의 중요성 강조",
+              "영향력 있는 데이터 샘플의 개입 효과 분석"
+            ]
+          },
+          "en": {
+            "title": "From Reweighting to Rewriting: Unlocking Intervention Effects in Training Data Attribution",
+            "hook": "Unlock precise model behavior control by moving beyond sample reweighting to direct data rewriting in TDA.",
+            "key_takeaways": [
+              "Addresses limitations in traditional Training Data Attribution (TDA)",
+              "Highlights the power of data rewriting over simple reweighting",
+              "Analyzes intervention effects of influential training samples"
+            ]
+          },
+          "zh": {
+            "title": "从重新加权到重写：解锁训练数据归因中影响力样本的干预效果",
+            "hook": "超越简单的样本权重调整，通过数据重写精确控制模型行为的全新范式。",
+            "key_takeaways": [
+              "克服传统训练数据归因（TDA）方法的局限性",
+              "强调数据重写（rewriting）相较于重新加权的重要价值",
+              "深入分析影响力训练样本的干预效果"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:31.919453+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Training Data Attribution",
+        "Data Rewriting",
+        "Model Behavior Intervention"
+      ],
+      "title_ko": "가중치 재조정에서 데이터 재작성으로: 훈련 데이터 기여도 분석의 개입 효과 극대화",
+      "title_en": "From Reweighting to Rewriting: Unlocking Intervention Effects in Training Data Attribution",
+      "title_zh": "从重新加权到重写：解锁训练数据归因中影响力样本的干预效果",
+      "hook": "단순 가중치 조정을 넘어 데이터 수정으로 모델 행동을 정밀 제어하는 새로운 패러다임을 만나보세요.",
+      "hook_ko": "단순 가중치 조정을 넘어 데이터 수정으로 모델 행동을 정밀 제어하는 새로운 패러다임을 만나보세요.",
+      "hook_en": "Unlock precise model behavior control by moving beyond sample reweighting to direct data rewriting in TDA.",
+      "hook_zh": "超越简单的样本权重调整，通过数据重写精确控制模型行为的全新范式。",
+      "description_ko": "단순 가중치 조정을 넘어 데이터 수정으로 모델 행동을 정밀 제어하는 새로운 패러다임을 만나보세요.",
+      "description_en": "Unlock precise model behavior control by moving beyond sample reweighting to direct data rewriting in TDA.",
+      "description_zh": "超越简单的样本权重调整，通过数据重写精确控制模型行为的全新范式。"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_frb100_40_after_two_decades_an_optimali",
@@ -15693,7 +15905,70 @@
       "matched_user_domains": [
         "정량 데이터 분석 & 벤치마크 감사"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_frb100_40_after_two_decades_an_optimali",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "알고리즘 벤치마크 및 최적화",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Model-RB Benchmark",
+          "Optimality Certificate",
+          "Constraint Satisfaction"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.8,
+        "multilingual": {
+          "ko": {
+            "title": "20년 만의 해결: Model-RB 벤치마크 frb100-40의 최적성 증명서와 사전등록 연구",
+            "hook": "20년 동안 미해결 난제로 남았던 벤치마크 문제의 최적해 증명 과정을 확인하세요.",
+            "key_takeaways": [
+              "20년 동안 미해결 상태였던 frb100-40 벤치마크 해결",
+              "직접 검증 가능한 100-vertex 독립집합 제시",
+              "알고리즘 및 최적화 연구에 중요한 학술적 진전 제공"
+            ]
+          },
+          "en": {
+            "title": "frb100-40 After Two Decades: An Optimality Certificate and Preregistered Search Study",
+            "hook": "Discover how a 20-year-old open benchmark challenge was finally solved with a checkable optimality certificate.",
+            "key_takeaways": [
+              "Solves the 20-year-old Model-RB benchmark frb100-40 challenge",
+              "Provides a directly checkable 100-vertex independent set",
+              "Marks a significant milestone in optimization and algorithm research"
+            ]
+          },
+          "zh": {
+            "title": "二十年后的突破：frb100-40的最优性证明与预注册搜索研究",
+            "hook": "见证困扰学界20年的Model-RB基准测试难题如何被直接可验证的最优性证书所破解。",
+            "key_takeaways": [
+              "破解了长达20年未解的frb100-40基准测试难题",
+              "提供了可直接检查的100顶点独立集",
+              "为算法和最优化研究带来了重要的里程碑突破"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:31.919724+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Model-RB Benchmark",
+        "Optimality Certificate",
+        "Constraint Satisfaction"
+      ],
+      "title_ko": "20년 만의 해결: Model-RB 벤치마크 frb100-40의 최적성 증명서와 사전등록 연구",
+      "title_en": "frb100-40 After Two Decades: An Optimality Certificate and Preregistered Search Study",
+      "title_zh": "二十年后的突破：frb100-40的最优性证明与预注册搜索研究",
+      "hook": "20년 동안 미해결 난제로 남았던 벤치마크 문제의 최적해 증명 과정을 확인하세요.",
+      "hook_ko": "20년 동안 미해결 난제로 남았던 벤치마크 문제의 최적해 증명 과정을 확인하세요.",
+      "hook_en": "Discover how a 20-year-old open benchmark challenge was finally solved with a checkable optimality certificate.",
+      "hook_zh": "见证困扰学界20年的Model-RB基准测试难题如何被直接可验证的最优性证书所破解。",
+      "description_ko": "20년 동안 미해결 난제로 남았던 벤치마크 문제의 최적해 증명 과정을 확인하세요.",
+      "description_en": "Discover how a 20-year-old open benchmark challenge was finally solved with a checkable optimality certificate.",
+      "description_zh": "见证困扰学界20年的Model-RB基准测试难题如何被直接可验证的最优性证书所破解。"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_fine_grained_anomaly_perception_in_wild",
@@ -15802,7 +16077,7 @@
       "source_platform": "ArXiv Preprint",
       "source_url": "http://arxiv.org/abs/2609.02783v1",
       "type": "repo",
-      "category_type": "TECH",
+      "category_type": "AGENT",
       "description": "Abstract: Evaluating LLM agents is essential for guiding their development, yet it has grown prohibitively expensive: a single pass of a frontier model over an agentic benchmark can cost hundreds to thousands o...",
       "viral_metric": "ArXiv Primary Paper",
       "metric_tracking": {
@@ -15825,7 +16100,70 @@
         "DX & Python 업무 프로세스 자동화",
         "정량 데이터 분석 & 벤치마크 감사"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_earlyeval_cheaper_agent_evaluation_via_",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "웹 에이전트 및 LLM 평가 최적화",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Agent Evaluation",
+          "Early Outcome Prediction",
+          "Cost Reduction"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.7,
+        "multilingual": {
+          "ko": {
+            "title": "EarlyEval: 조기 결과 예측을 통한 비용 절감형 에이전트 평가 방법",
+            "hook": "천문학적인 LLM 에이전트 평가 비용을 획기적으로 줄여줄 조기 예측 프레임워크를 도입하세요.",
+            "key_takeaways": [
+              "프론티어 모델 기반 에이전트 평가의 높은 비용 문제 해결",
+              "조기 결과 예측(Early Outcome Prediction)을 통한 평가 시간 및 비용 절감",
+              "에이전트 개발 주기를 가속화하는 효율적인 평가 방법론"
+            ]
+          },
+          "en": {
+            "title": "EarlyEval: Cheaper Agent Evaluation via Early Outcome Prediction",
+            "hook": "Dramatically cut the high costs of evaluating LLM agents using an innovative early outcome prediction framework.",
+            "key_takeaways": [
+              "Tackles the prohibitively high cost of frontier agent benchmarking",
+              "Reduces evaluation time and cost through early outcome prediction",
+              "Accelerates the LLM agent development lifecycle efficiently"
+            ]
+          },
+          "zh": {
+            "title": "EarlyEval：通过早期结果预测实现更低成本的智能体评估",
+            "hook": "利用创新的早期结果预测框架，大幅削减大模型智能体基准测试的高昂成本。",
+            "key_takeaways": [
+              "解决前沿模型智能体评估成本过高的问题",
+              "通过早期结果预测显著降低评估时间和成本",
+              "高效加速大模型智能体的开发迭代周期"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:31.920016+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Agent Evaluation",
+        "Early Outcome Prediction",
+        "Cost Reduction"
+      ],
+      "title_ko": "EarlyEval: 조기 결과 예측을 통한 비용 절감형 에이전트 평가 방법",
+      "title_en": "EarlyEval: Cheaper Agent Evaluation via Early Outcome Prediction",
+      "title_zh": "EarlyEval：通过早期结果预测实现更低成本的智能体评估",
+      "hook": "천문학적인 LLM 에이전트 평가 비용을 획기적으로 줄여줄 조기 예측 프레임워크를 도입하세요.",
+      "hook_ko": "천문학적인 LLM 에이전트 평가 비용을 획기적으로 줄여줄 조기 예측 프레임워크를 도입하세요.",
+      "hook_en": "Dramatically cut the high costs of evaluating LLM agents using an innovative early outcome prediction framework.",
+      "hook_zh": "利用创新的早期结果预测框架，大幅削减大模型智能体基准测试的高昂成本。",
+      "description_ko": "천문학적인 LLM 에이전트 평가 비용을 획기적으로 줄여줄 조기 예측 프레임워크를 도입하세요.",
+      "description_en": "Dramatically cut the high costs of evaluating LLM agents using an innovative early outcome prediction framework.",
+      "description_zh": "利用创新的早期结果预测框架，大幅削减大模型智能体基准测试的高昂成本。"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_dutch_books_for_language_models",
@@ -15858,7 +16196,70 @@
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_dutch_books_for_language_models",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "확률적 예측 및 언어 모델 의사결정",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Language Models",
+          "Probabilistic Forecasting",
+          "Decision Making"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.1,
+        "multilingual": {
+          "ko": {
+            "title": "언어 모델을 위한 더치 북: 확률적 예측과 삶의 의사결정 분석",
+            "hook": "인간의 중요한 삶의 결정을 돕는 LLM의 확률적 예측 능력과 한계점을 분석합니다.",
+            "key_takeaways": [
+              "삶의 주요 결정 및 확률적 예측에 사용되는 언어 모델 분석",
+              "자연재해, 경제적 결과 등 예측 시나리오 검토",
+              "LLM 기반 의사결정 지원 시스템의 신뢰성 제고"
+            ]
+          },
+          "en": {
+            "title": "Dutch Books for Language Models",
+            "hook": "Examine the probabilistic forecasting capabilities and reliability of language models in life-altering decisions.",
+            "key_takeaways": [
+              "Analyzes language models used for life decisions and forecasting",
+              "Covers probabilistic scenarios like natural disasters and economic outcomes",
+              "Enhances the reliability of LLM-based decision support systems"
+            ]
+          },
+          "zh": {
+            "title": "语言模型的荷兰书谬误：概率预测与生活决策分析",
+            "hook": "深入分析语言模型在辅助重大生活决策时的概率预测能力与潜在可靠性风险。",
+            "key_takeaways": [
+              "探讨用于生活决策和预测任务的语言模型表现",
+              "涵盖自然灾害、经济走势等概率预测场景",
+              "提升基于大模型的决策支持系统的可靠性"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:31.920271+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Language Models",
+        "Probabilistic Forecasting",
+        "Decision Making"
+      ],
+      "title_ko": "언어 모델을 위한 더치 북: 확률적 예측과 삶의 의사결정 분석",
+      "title_en": "Dutch Books for Language Models",
+      "title_zh": "语言模型的荷兰书谬误：概率预测与生活决策分析",
+      "hook": "인간의 중요한 삶의 결정을 돕는 LLM의 확률적 예측 능력과 한계점을 분석합니다.",
+      "hook_ko": "인간의 중요한 삶의 결정을 돕는 LLM의 확률적 예측 능력과 한계점을 분석합니다.",
+      "hook_en": "Examine the probabilistic forecasting capabilities and reliability of language models in life-altering decisions.",
+      "hook_zh": "深入分析语言模型在辅助重大生活决策时的概率预测能力与潜在可靠性风险。",
+      "description_ko": "인간의 중요한 삶의 결정을 돕는 LLM의 확률적 예측 능력과 한계점을 분석합니다.",
+      "description_en": "Examine the probabilistic forecasting capabilities and reliability of language models in life-altering decisions.",
+      "description_zh": "深入分析语言模型在辅助重大生活决策时的概率预测能力与潜在可靠性风险。"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_discriminative_world_models_for_web_age",
@@ -15869,7 +16270,7 @@
       "source_platform": "ArXiv Preprint",
       "source_url": "http://arxiv.org/abs/2609.02885v1",
       "type": "repo",
-      "category_type": "TECH",
+      "category_type": "AGENT",
       "description": "Abstract: Recent web agents use world models for test-time action selection by sampling candidate actions, predicting the resulting web states, and ranking them with a ranker model or a Process Reward Model (PR...",
       "viral_metric": "ArXiv Primary Paper",
       "metric_tracking": {
@@ -15891,7 +16292,72 @@
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_discriminative_world_models_for_web_age",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "웹 에이전트",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "World Models",
+          "Web Agents",
+          "Action Selection",
+          "Process Reward Model"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "웹 에이전트를 위한 판별적 월드 모델",
+            "hook": "웹 에이전트의 액션 선택 정확도를 극적으로 높여주는 새로운 월드 모델 아키텍처를 확인하세요.",
+            "key_takeaways": [
+              "테스트 타임 액션 샘플링 및 상태 예측 최적화",
+              "랭커 및 프로세스 리워드 모델(PRM)을 활용한 후보 검증",
+              "복잡한 웹 환경에서의 에이전트 성능 향상 입증"
+            ]
+          },
+          "en": {
+            "title": "Discriminative World Models for Web Agents",
+            "hook": "Discover a novel world model framework that dramatically enhances test-time action selection for web agents.",
+            "key_takeaways": [
+              "Optimizes test-time action sampling and web state prediction",
+              "Ranks candidates effectively using ranker models and Process Reward Models (PRM)",
+              "Demonstrates significant performance gains in complex web environments"
+            ]
+          },
+          "zh": {
+            "title": "面向网页智能体的判别式世界模型",
+            "hook": "探索一种显著提升网页智能体测试时动作选择准确性的全新世界模型架构。",
+            "key_takeaways": [
+              "优化测试时动作采样与网页状态预测",
+              "利用排序模型与过程奖励模型（PRM）对候选动作进行高效排序",
+              "在复杂网页环境中展现出显著的性能提升"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:44.170885+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "World Models",
+        "Web Agents",
+        "Action Selection",
+        "Process Reward Model"
+      ],
+      "title_ko": "웹 에이전트를 위한 판별적 월드 모델",
+      "title_en": "Discriminative World Models for Web Agents",
+      "title_zh": "面向网页智能体的判别式世界模型",
+      "hook": "웹 에이전트의 액션 선택 정확도를 극적으로 높여주는 새로운 월드 모델 아키텍처를 확인하세요.",
+      "hook_ko": "웹 에이전트의 액션 선택 정확도를 극적으로 높여주는 새로운 월드 모델 아키텍처를 확인하세요.",
+      "hook_en": "Discover a novel world model framework that dramatically enhances test-time action selection for web agents.",
+      "hook_zh": "探索一种显著提升网页智能体测试时动作选择准确性的全新世界模型架构。",
+      "description_ko": "웹 에이전트의 액션 선택 정확도를 극적으로 높여주는 새로운 월드 모델 아키텍처를 확인하세요.",
+      "description_en": "Discover a novel world model framework that dramatically enhances test-time action selection for web agents.",
+      "description_zh": "探索一种显著提升网页智能体测试时动作选择准确性的全新世界模型架构。"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_discosign_discourse_aware_text_to_sign_",
@@ -15924,7 +16390,72 @@
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_discosign_discourse_aware_text_to_sign_",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "자연어 처리 및 수화 번역",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Sign Language",
+          "Discourse-Aware",
+          "Text-to-Gloss",
+          "NLP"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.8,
+        "multilingual": {
+          "ko": {
+            "title": "DiscoSign: 담화 인지형 텍스트-수화 글글로스 번역",
+            "hook": "기존 문장 단위 수화 번역의 한계를 넘어 담화 수준의 맥락을 이해하는 새로운 수화 처리 시스템입니다.",
+            "key_takeaways": [
+              "문장 단위를 넘어선 담화(Discourse) 현상 반영",
+              "수화 이해도를 높이기 위한 컴퓨테이셔널 프레임워크 제안",
+              "텍스트에서 수화 글글로스(Gloss)로의 정확한 변환 개선"
+            ]
+          },
+          "en": {
+            "title": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
+            "hook": "A novel sign language processing system that goes beyond sentence-level translation to capture critical discourse phenomena.",
+            "key_takeaways": [
+              "Accounts for discourse phenomena beyond traditional sentence-level bounds",
+              "Introduces a computational framework to enhance sign language comprehension",
+              "Improves accurate conversion from text to sign language glosses"
+            ]
+          },
+          "zh": {
+            "title": "DiscoSign：语篇感知的手语文本到语标（Gloss）翻译",
+            "hook": "打破传统句子级手语翻译限制，实现捕捉关键语篇现象的全新手语处理系统。",
+            "key_takeaways": [
+              "超越传统句子级别，融入语篇（Discourse）现象",
+              "提出旨在提升手语理解力的计算框架",
+              "改善文本到手语语标的精准转换能力"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:44.171447+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Sign Language",
+        "Discourse-Aware",
+        "Text-to-Gloss",
+        "NLP"
+      ],
+      "title_ko": "DiscoSign: 담화 인지형 텍스트-수화 글글로스 번역",
+      "title_en": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
+      "title_zh": "DiscoSign：语篇感知的手语文本到语标（Gloss）翻译",
+      "hook": "기존 문장 단위 수화 번역의 한계를 넘어 담화 수준의 맥락을 이해하는 새로운 수화 처리 시스템입니다.",
+      "hook_ko": "기존 문장 단위 수화 번역의 한계를 넘어 담화 수준의 맥락을 이해하는 새로운 수화 처리 시스템입니다.",
+      "hook_en": "A novel sign language processing system that goes beyond sentence-level translation to capture critical discourse phenomena.",
+      "hook_zh": "打破传统句子级手语翻译限制，实现捕捉关键语篇现象的全新手语处理系统。",
+      "description_ko": "기존 문장 단위 수화 번역의 한계를 넘어 담화 수준의 맥락을 이해하는 새로운 수화 처리 시스템입니다.",
+      "description_en": "A novel sign language processing system that goes beyond sentence-level translation to capture critical discourse phenomena.",
+      "description_zh": "打破传统句子级手语翻译限制，实现捕捉关键语篇现象的全新手语处理系统。"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_deepaffinity_long_term_aspect_preferenc",
@@ -16418,7 +16949,7 @@
       "source_platform": "ArXiv Preprint",
       "source_url": "http://arxiv.org/abs/2609.02750v1",
       "type": "repo",
-      "category_type": "TECH",
+      "category_type": "AGENT",
       "description": "Abstract: Multi-agent LLM systems commonly use an orchestrator to decompose a task for a team of workers and then improve through textual reflection. Despite strong empirical results, these systems lack a unifi...",
       "viral_metric": "ArXiv Primary Paper",
       "metric_tracking": {
@@ -16440,7 +16971,72 @@
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_bilevel_coordinated_reflection_a_game_t",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "멀티 에이전트 시스템",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Multi-Agent LLM",
+          "Game-Theoretic",
+          "Bilevel Reflection",
+          "Orchestration"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.7,
+        "multilingual": {
+          "ko": {
+            "title": "이중 수준 조율 반성: 멀티 에이전트 LLM 시스템을 위한 게임 이론적 접근",
+            "hook": "경험적 성공에만 의존하던 멀티 에이전트 LLM 시스템에 게임 이론 기반의 통합된 수학적 프레임워크를 제공합니다.",
+            "key_takeaways": [
+              "오케스트레이터와 워커 간의 체계적인 작업 분할 모델링",
+              "텍스트 반성(Reflection) 과정을 게임 이론으로 정식화",
+              "멀티 에이전트 협업의 이론적 안정성과 성능 동시 확보"
+            ]
+          },
+          "en": {
+            "title": "Bilevel Coordinated Reflection: A Game-Theoretic Approach to Multi-Agent LLM Systems",
+            "hook": "Providing a unified game-theoretic framework for multi-agent LLM systems that traditionally lacked rigorous theoretical foundations.",
+            "key_takeaways": [
+              "Models task decomposition between orchestrators and workers systematically",
+              "Formalizes textual reflection processes using game theory",
+              "Ensures both theoretical stability and empirical performance in multi-agent collaboration"
+            ]
+          },
+          "zh": {
+            "title": "双层协同反思：面向多智能体LLM系统的博弈论方法",
+            "hook": "为长期依赖经验性成功的多智能体LLM系统引入统一的博弈论数学框架。",
+            "key_takeaways": [
+              "系统化建模调度器与工作节点之间的任务分解",
+              "利用博弈论对文本反思过程进行形式化定义",
+              "同时保障多智能体协作的理论稳定与实际性能"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:44.171700+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Multi-Agent LLM",
+        "Game-Theoretic",
+        "Bilevel Reflection",
+        "Orchestration"
+      ],
+      "title_ko": "이중 수준 조율 반성: 멀티 에이전트 LLM 시스템을 위한 게임 이론적 접근",
+      "title_en": "Bilevel Coordinated Reflection: A Game-Theoretic Approach to Multi-Agent LLM Systems",
+      "title_zh": "双层协同反思：面向多智能体LLM系统的博弈论方法",
+      "hook": "경험적 성공에만 의존하던 멀티 에이전트 LLM 시스템에 게임 이론 기반의 통합된 수학적 프레임워크를 제공합니다.",
+      "hook_ko": "경험적 성공에만 의존하던 멀티 에이전트 LLM 시스템에 게임 이론 기반의 통합된 수학적 프레임워크를 제공합니다.",
+      "hook_en": "Providing a unified game-theoretic framework for multi-agent LLM systems that traditionally lacked rigorous theoretical foundations.",
+      "hook_zh": "为长期依赖经验性成功的多智能体LLM系统引入统一的博弈论数学框架。",
+      "description_ko": "경험적 성공에만 의존하던 멀티 에이전트 LLM 시스템에 게임 이론 기반의 통합된 수학적 프레임워크를 제공합니다.",
+      "description_en": "Providing a unified game-theoretic framework for multi-agent LLM systems that traditionally lacked rigorous theoretical foundations.",
+      "description_zh": "为长期依赖经验性成功的多智能体LLM系统引入统一的博弈论数学框架。"
     },
     {
       "inbox_id": "2026-09-03_repo_arxiv_automated_vulnerability_injection_in_sm",
@@ -16569,7 +17165,72 @@
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-03_repo_arxiv_ai_contextual_measurement_for_recoverin",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "AI 기반 사회/조직 데이터 측정",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "AI Measurement",
+          "Contextual Analysis",
+          "Survey Validation",
+          "Occupational Data"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.9,
+        "multilingual": {
+          "ko": {
+            "title": "개인 및 집단 수준 효과 복원을 위한 AI 맥락적 측정 (AICOME)",
+            "hook": "전통적 설문조사에서 누락된 사회적·조직적 특성을 AI를 통해 신뢰성 있게 측정하는 새로운 방법을 제시합니다.",
+            "key_takeaways": [
+              "설문조사 측정값과의 철저한 교차 검증 수행",
+              "사회, 조직, 직업적 특성 측정을 위한 AI 모델(AICOME) 제안",
+              "개인 및 집단 수준의 인과 관계 효과 복원 지원"
+            ]
+          },
+          "en": {
+            "title": "AI Contextual Measurement for Recovering Individual and Group-Level Effects: AICOME",
+            "hook": "A novel AI-driven framework (AICOME) to reliably measure social and organizational characteristics absent in traditional surveys.",
+            "key_takeaways": [
+              "Performs rigorous validation against conventional survey measures",
+              "Introduces AICOME for capturing social, organizational, and occupational traits",
+              "Supports recovery of individual and group-level causal effects"
+            ]
+          },
+          "zh": {
+            "title": "用于恢复个体与群体层面效应的AI语境测量（AICOME）",
+            "hook": "提出一种全新的AI驱动框架，用以可靠地测量传统调查中缺失的社会与组织特征。",
+            "key_takeaways": [
+              "针对传统调查测量结果进行严格的交叉验证",
+              "推出AICOME模型以构建社会、组织及职业特征",
+              "支持恢复个体与群体层面的因果效应"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:44.172019+00:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "AI Measurement",
+        "Contextual Analysis",
+        "Survey Validation",
+        "Occupational Data"
+      ],
+      "title_ko": "개인 및 집단 수준 효과 복원을 위한 AI 맥락적 측정 (AICOME)",
+      "title_en": "AI Contextual Measurement for Recovering Individual and Group-Level Effects: AICOME",
+      "title_zh": "用于恢复个体与群体层面效应的AI语境测量（AICOME）",
+      "hook": "전통적 설문조사에서 누락된 사회적·조직적 특성을 AI를 통해 신뢰성 있게 측정하는 새로운 방법을 제시합니다.",
+      "hook_ko": "전통적 설문조사에서 누락된 사회적·조직적 특성을 AI를 통해 신뢰성 있게 측정하는 새로운 방법을 제시합니다.",
+      "hook_en": "A novel AI-driven framework (AICOME) to reliably measure social and organizational characteristics absent in traditional surveys.",
+      "hook_zh": "提出一种全新的AI驱动框架，用以可靠地测量传统调查中缺失的社会与组织特征。",
+      "description_ko": "전통적 설문조사에서 누락된 사회적·조직적 특성을 AI를 통해 신뢰성 있게 측정하는 새로운 방법을 제시합니다.",
+      "description_en": "A novel AI-driven framework (AICOME) to reliably measure social and organizational characteristics absent in traditional surveys.",
+      "description_zh": "提出一种全新的AI驱动框架，用以可靠地测量传统调查中缺失的社会与组织特征。"
     },
     {
       "inbox_id": "2026-09-02_sns_hugging_face_blog_quantization_aware_healing_",
@@ -19610,6 +20271,300 @@
       "hook_zh": "了解类Lisp轻量级嵌入式编程语言 Janet 的最新版本更新与核心改进内容。",
       "description_en": "Explore the latest updates and major improvements in Janet, a lightweight and embeddable Lisp-dialect programming language.",
       "description_zh": "了解类Lisp轻量级嵌入式编程语言 Janet 的最新版本更新与核心改进内容。"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_geeknews_gpu_world_모두가_gpu를_한_대씩_쓰는_미래_공모전",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "GeekNews: GPU World: 모두가 GPU를 한 대씩 쓰는 미래 공모전",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33110",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: GPU World: 모두가 GPU를 한 대씩 쓰는 미래 공모전",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 0,
+        "delta_display": "0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "GPU World: 모두가 GPU를 한 대씩 쓰는 미래 공모전",
+      "description_ko": "모든 개발자가 개인 GPU를 소유하는 미래상을 그리는 공모전 소식입니다.",
+      "hn_url": "https://news.hada.io/topic?id=33110",
+      "article_url": "https://news.hada.io/topic?id=33110",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_gpu_world_모두가_gpu를_한_대씩_쓰는_미래_공모전",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "하드웨어 및 인프라",
+        "programming_lang": "General",
+        "root_keywords": [
+          "GPU",
+          "AI 인프라",
+          "미래 공모전"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "GPU World: 모두가 GPU를 한 대씩 쓰는 미래 공모전",
+            "hook": "모든 개발자가 개인 GPU를 소유하는 미래상을 그리는 공모전 소식입니다.",
+            "key_takeaways": [
+              "개인용 GPU 보급화에 따른 미래 전망",
+              "AI 인프라 패러다임 변화 조명",
+              "개발자 참여형 공모전 개최 안내"
+            ]
+          },
+          "en": {
+            "title": "GPU World: A Future Competition Where Everyone Uses a GPU",
+            "hook": "Explore a visionary competition anticipating a future where every individual owns a dedicated GPU.",
+            "key_takeaways": [
+              "Visions of personal GPU democratization",
+              "Shifting paradigms in AI hardware infrastructure",
+              "Call for developer participation in the competition"
+            ]
+          },
+          "zh": {
+            "title": "GPU World：人人拥有一台GPU的未来创意大赛",
+            "hook": "探索每位开发者都拥有个人GPU的未来愿景大赛。",
+            "key_takeaways": [
+              "个人GPU普及化的未来展望",
+              "AI硬件基础设施范式的转变",
+              "面向开发者的创意大赛指南"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:55.387542+00:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "GPU",
+        "AI 인프라",
+        "미래 공모전"
+      ],
+      "title_en": "GPU World: A Future Competition Where Everyone Uses a GPU",
+      "title_zh": "GPU World：人人拥有一台GPU的未来创意大赛",
+      "hook": "모든 개발자가 개인 GPU를 소유하는 미래상을 그리는 공모전 소식입니다.",
+      "hook_ko": "모든 개발자가 개인 GPU를 소유하는 미래상을 그리는 공모전 소식입니다.",
+      "hook_en": "Explore a visionary competition anticipating a future where every individual owns a dedicated GPU.",
+      "hook_zh": "探索每位开发者都拥有个人GPU的未来愿景大赛。",
+      "description_en": "Explore a visionary competition anticipating a future where every individual owns a dedicated GPU.",
+      "description_zh": "探索每位开发者都拥有个人GPU的未来愿景大赛。"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_geeknews_darling_linux에서_macos_소프트웨어_실행하기",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "GeekNews: Darling - Linux에서 macOS 소프트웨어 실행하기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33124",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: Darling - Linux에서 macOS 소프트웨어 실행하기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 0,
+        "delta_display": "0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Darling: Linux에서 macOS 소프트웨어 실행하기",
+      "description_ko": "Linux 환경에서 네이티브로 macOS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트를 소개합니다.",
+      "hn_url": "https://news.hada.io/topic?id=33124",
+      "article_url": "https://news.hada.io/topic?id=33124",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_darling_linux에서_macos_소프트웨어_실행하기",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "OS 및 시스템 유틸리티",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "Darling",
+          "Linux",
+          "macOS 호환성"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "Darling: Linux에서 macOS 소프트웨어 실행하기",
+            "hook": "Linux 환경에서 네이티브로 macOS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트를 소개합니다.",
+            "key_takeaways": [
+              "Linux에서 macOS 바이너리 실행 원리 (Darling)",
+              "크로스 플랫폼 개발 환경 구축의 새로운 가능성",
+              "현재 지원되는 기능과 제한 사항 분석"
+            ]
+          },
+          "en": {
+            "title": "Darling: Running macOS Software on Linux",
+            "hook": "Discover Darling, an open-source translation layer enabling macOS applications to run natively on Linux.",
+            "key_takeaways": [
+              "How Darling executes macOS binaries on Linux",
+              "New possibilities for cross-platform development environments",
+              "Overview of current supported features and limitations"
+            ]
+          },
+          "zh": {
+            "title": "Darling：在Linux上运行macOS软件",
+            "hook": "介绍一款允许在Linux环境中原生运行macOS应用程序的开源翻译层项目。",
+            "key_takeaways": [
+              "Darling在Linux上执行macOS二进制文件的原理",
+              "跨平台开发环境构建的新可能性",
+              "当前支持的功能与限制分析"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:55.388222+00:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "Darling",
+        "Linux",
+        "macOS 호환성"
+      ],
+      "title_en": "Darling: Running macOS Software on Linux",
+      "title_zh": "Darling：在Linux上运行macOS软件",
+      "hook": "Linux 환경에서 네이티브로 macOS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트를 소개합니다.",
+      "hook_ko": "Linux 환경에서 네이티브로 macOS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트를 소개합니다.",
+      "hook_en": "Discover Darling, an open-source translation layer enabling macOS applications to run natively on Linux.",
+      "hook_zh": "介绍一款允许在Linux环境中原生运行macOS应用程序的开源翻译层项目。",
+      "description_en": "Discover Darling, an open-source translation layer enabling macOS applications to run natively on Linux.",
+      "description_zh": "介绍一款允许在Linux环境中原生运行macOS应用程序的开源翻译层项目。"
+    },
+    {
+      "inbox_id": "2026-09-02_sns_geeknews_css_축소는_정말_필요한가_2023",
+      "harvested_date": "2026-09-02",
+      "created_at": "2026-09-02",
+      "updated_at": "2026-09-02",
+      "title": "GeekNews: CSS 축소는 정말 필요한가? (2023)",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33147",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: CSS 축소는 정말 필요한가? (2023)",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-02"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-02"
+        },
+        "delta": 0,
+        "delta_display": "0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "CSS 축소는 정말 필요한가? (2023)",
+      "description_ko": "현대 웹 환경에서 CSS 파일 축소(Minification)가 성능에 미치는 실질적인 영향을 재조명합니다.",
+      "hn_url": "https://news.hada.io/topic?id=33147",
+      "article_url": "https://news.hada.io/topic?id=33147",
+      "ai_enrichment": {
+        "id": "2026-09-02_sns_geeknews_css_축소는_정말_필요한가_2023",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "웹 개발 및 최적화",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "CSS Minification",
+          "웹 성능",
+          "프론트엔드 최적화"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.2,
+        "multilingual": {
+          "ko": {
+            "title": "CSS 축소는 정말 필요한가? (2023)",
+            "hook": "현대 웹 환경에서 CSS 파일 축소(Minification)가 성능에 미치는 실질적인 영향을 재조명합니다.",
+            "key_takeaways": [
+              "네트워크 대역폭과 파싱 속도 관점에서의 CSS 축소 효과",
+              "모던 브라우저 및 압축 알고리즘(Gzip/Brotli)과의 관계",
+              "빌드 파이프라인 최적화에 대한 실용적 가이드"
+            ]
+          },
+          "en": {
+            "title": "Is CSS Minification Really Necessary? (2023)",
+            "hook": "A deep dive into whether CSS minification still provides meaningful performance gains in modern web environments.",
+            "key_takeaways": [
+              "Impact of CSS minification on network bandwidth and parsing speed",
+              "Interaction with modern browsers and compression algorithms (Gzip/Brotli)",
+              "Practical guidance for build pipeline optimization"
+            ]
+          },
+          "zh": {
+            "title": "CSS压缩真的有必要吗？(2023)",
+            "hook": "重新审视现代Web环境下CSS文件压缩（Minification）对性能的实际影响。",
+            "key_takeaways": [
+              "CSS压缩在网络带宽和解析速度层面的效果",
+              "与现代浏览器及压缩算法（Gzip/Brotli）的关系",
+              "构建管道优化的实用指南"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:23:55.388516+00:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "CSS Minification",
+        "웹 성능",
+        "프론트엔드 최적화"
+      ],
+      "title_en": "Is CSS Minification Really Necessary? (2023)",
+      "title_zh": "CSS压缩真的有必要吗？(2023)",
+      "hook": "현대 웹 환경에서 CSS 파일 축소(Minification)가 성능에 미치는 실질적인 영향을 재조명합니다.",
+      "hook_ko": "현대 웹 환경에서 CSS 파일 축소(Minification)가 성능에 미치는 실질적인 영향을 재조명합니다.",
+      "hook_en": "A deep dive into whether CSS minification still provides meaningful performance gains in modern web environments.",
+      "hook_zh": "重新审视现代Web环境下CSS文件压缩（Minification）对性能的实际影响。",
+      "description_en": "A deep dive into whether CSS minification still provides meaningful performance gains in modern web environments.",
+      "description_zh": "重新审视现代Web环境下CSS文件压缩（Minification）对性能的实际影响。"
     },
     {
       "inbox_id": "2026-09-02_repo_github_lb623no_negative_echo",
