@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33124",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: Darling - Linux에서 macOS 소프트웨어 실행하기",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -30,8 +30,69 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Darling - Linux에서 macOS 소프트웨어 실행하기",
-  "description_ko": "Darling - Linux에서 macOS 소프트웨어 실행하기",
+  "title_ko": "Darling: Linux에서 macOS 소프트웨어 실행하기",
+  "description_ko": "Linux 환경에서 네이티브로 macOS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트를 소개합니다.",
   "hn_url": "https://news.hada.io/topic?id=33124",
-  "article_url": "https://news.hada.io/topic?id=33124"
+  "article_url": "https://news.hada.io/topic?id=33124",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_geeknews_darling_linux에서_macos_소프트웨어_실행하기",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "OS 및 시스템 유틸리티",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "Darling",
+      "Linux",
+      "macOS 호환성"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "Darling: Linux에서 macOS 소프트웨어 실행하기",
+        "hook": "Linux 환경에서 네이티브로 macOS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트를 소개합니다.",
+        "key_takeaways": [
+          "Linux에서 macOS 바이너리 실행 원리 (Darling)",
+          "크로스 플랫폼 개발 환경 구축의 새로운 가능성",
+          "현재 지원되는 기능과 제한 사항 분석"
+        ]
+      },
+      "en": {
+        "title": "Darling: Running macOS Software on Linux",
+        "hook": "Discover Darling, an open-source translation layer enabling macOS applications to run natively on Linux.",
+        "key_takeaways": [
+          "How Darling executes macOS binaries on Linux",
+          "New possibilities for cross-platform development environments",
+          "Overview of current supported features and limitations"
+        ]
+      },
+      "zh": {
+        "title": "Darling：在Linux上运行macOS软件",
+        "hook": "介绍一款允许在Linux环境中原生运行macOS应用程序的开源翻译层项目。",
+        "key_takeaways": [
+          "Darling在Linux上执行macOS二进制文件的原理",
+          "跨平台开发环境构建的新可能性",
+          "当前支持的功能与限制分析"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T04:23:55.388222+00:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "Darling",
+    "Linux",
+    "macOS 호환성"
+  ],
+  "title_en": "Darling: Running macOS Software on Linux",
+  "title_zh": "Darling：在Linux上运行macOS软件",
+  "hook": "Linux 환경에서 네이티브로 macOS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트를 소개합니다.",
+  "hook_ko": "Linux 환경에서 네이티브로 macOS 애플리케이션을 구동할 수 있게 해주는 오픈소스 프로젝트를 소개합니다.",
+  "hook_en": "Discover Darling, an open-source translation layer enabling macOS applications to run natively on Linux.",
+  "hook_zh": "介绍一款允许在Linux环境中原生运行macOS应用程序的开源翻译层项目。",
+  "description_en": "Discover Darling, an open-source translation layer enabling macOS applications to run natively on Linux.",
+  "description_zh": "介绍一款允许在Linux环境中原生运行macOS应用程序的开源翻译层项目。"
 }

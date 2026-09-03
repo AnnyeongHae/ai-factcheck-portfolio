@@ -7,7 +7,7 @@
   "source_platform": "ArXiv Preprint",
   "source_url": "http://arxiv.org/abs/2609.02885v1",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "AGENT",
   "description": "Abstract: Recent web agents use world models for test-time action selection by sampling candidate actions, predicting the resulting web states, and ranking them with a ranker model or a Process Reward Model (PR...",
   "viral_metric": "ArXiv Primary Paper",
   "metric_tracking": {
@@ -29,5 +29,70 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_discriminative_world_models_for_web_age",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "웹 에이전트",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "World Models",
+      "Web Agents",
+      "Action Selection",
+      "Process Reward Model"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "웹 에이전트를 위한 판별적 월드 모델",
+        "hook": "웹 에이전트의 액션 선택 정확도를 극적으로 높여주는 새로운 월드 모델 아키텍처를 확인하세요.",
+        "key_takeaways": [
+          "테스트 타임 액션 샘플링 및 상태 예측 최적화",
+          "랭커 및 프로세스 리워드 모델(PRM)을 활용한 후보 검증",
+          "복잡한 웹 환경에서의 에이전트 성능 향상 입증"
+        ]
+      },
+      "en": {
+        "title": "Discriminative World Models for Web Agents",
+        "hook": "Discover a novel world model framework that dramatically enhances test-time action selection for web agents.",
+        "key_takeaways": [
+          "Optimizes test-time action sampling and web state prediction",
+          "Ranks candidates effectively using ranker models and Process Reward Models (PRM)",
+          "Demonstrates significant performance gains in complex web environments"
+        ]
+      },
+      "zh": {
+        "title": "面向网页智能体的判别式世界模型",
+        "hook": "探索一种显著提升网页智能体测试时动作选择准确性的全新世界模型架构。",
+        "key_takeaways": [
+          "优化测试时动作采样与网页状态预测",
+          "利用排序模型与过程奖励模型（PRM）对候选动作进行高效排序",
+          "在复杂网页环境中展现出显著的性能提升"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T04:23:44.170885+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "World Models",
+    "Web Agents",
+    "Action Selection",
+    "Process Reward Model"
+  ],
+  "title_ko": "웹 에이전트를 위한 판별적 월드 모델",
+  "title_en": "Discriminative World Models for Web Agents",
+  "title_zh": "面向网页智能体的判别式世界模型",
+  "hook": "웹 에이전트의 액션 선택 정확도를 극적으로 높여주는 새로운 월드 모델 아키텍처를 확인하세요.",
+  "hook_ko": "웹 에이전트의 액션 선택 정확도를 극적으로 높여주는 새로운 월드 모델 아키텍처를 확인하세요.",
+  "hook_en": "Discover a novel world model framework that dramatically enhances test-time action selection for web agents.",
+  "hook_zh": "探索一种显著提升网页智能体测试时动作选择准确性的全新世界模型架构。",
+  "description_ko": "웹 에이전트의 액션 선택 정확도를 극적으로 높여주는 새로운 월드 모델 아키텍처를 확인하세요.",
+  "description_en": "Discover a novel world model framework that dramatically enhances test-time action selection for web agents.",
+  "description_zh": "探索一种显著提升网页智能体测试时动作选择准确性的全新世界模型架构。"
 }

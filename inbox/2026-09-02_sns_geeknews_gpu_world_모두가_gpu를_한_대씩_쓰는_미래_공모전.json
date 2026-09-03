@@ -7,7 +7,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33110",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: GPU World: 모두가 GPU를 한 대씩 쓰는 미래 공모전",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -31,7 +31,68 @@
   ],
   "status": "PENDING_REVIEW",
   "title_ko": "GPU World: 모두가 GPU를 한 대씩 쓰는 미래 공모전",
-  "description_ko": "GPU World: 모두가 GPU를 한 대씩 쓰는 미래 공모전",
+  "description_ko": "모든 개발자가 개인 GPU를 소유하는 미래상을 그리는 공모전 소식입니다.",
   "hn_url": "https://news.hada.io/topic?id=33110",
-  "article_url": "https://news.hada.io/topic?id=33110"
+  "article_url": "https://news.hada.io/topic?id=33110",
+  "ai_enrichment": {
+    "id": "2026-09-02_sns_geeknews_gpu_world_모두가_gpu를_한_대씩_쓰는_미래_공모전",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "하드웨어 및 인프라",
+    "programming_lang": "General",
+    "root_keywords": [
+      "GPU",
+      "AI 인프라",
+      "미래 공모전"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.0,
+    "multilingual": {
+      "ko": {
+        "title": "GPU World: 모두가 GPU를 한 대씩 쓰는 미래 공모전",
+        "hook": "모든 개발자가 개인 GPU를 소유하는 미래상을 그리는 공모전 소식입니다.",
+        "key_takeaways": [
+          "개인용 GPU 보급화에 따른 미래 전망",
+          "AI 인프라 패러다임 변화 조명",
+          "개발자 참여형 공모전 개최 안내"
+        ]
+      },
+      "en": {
+        "title": "GPU World: A Future Competition Where Everyone Uses a GPU",
+        "hook": "Explore a visionary competition anticipating a future where every individual owns a dedicated GPU.",
+        "key_takeaways": [
+          "Visions of personal GPU democratization",
+          "Shifting paradigms in AI hardware infrastructure",
+          "Call for developer participation in the competition"
+        ]
+      },
+      "zh": {
+        "title": "GPU World：人人拥有一台GPU的未来创意大赛",
+        "hook": "探索每位开发者都拥有个人GPU的未来愿景大赛。",
+        "key_takeaways": [
+          "个人GPU普及化的未来展望",
+          "AI硬件基础设施范式的转变",
+          "面向开发者的创意大赛指南"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T04:23:55.387542+00:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "GPU",
+    "AI 인프라",
+    "미래 공모전"
+  ],
+  "title_en": "GPU World: A Future Competition Where Everyone Uses a GPU",
+  "title_zh": "GPU World：人人拥有一台GPU的未来创意大赛",
+  "hook": "모든 개발자가 개인 GPU를 소유하는 미래상을 그리는 공모전 소식입니다.",
+  "hook_ko": "모든 개발자가 개인 GPU를 소유하는 미래상을 그리는 공모전 소식입니다.",
+  "hook_en": "Explore a visionary competition anticipating a future where every individual owns a dedicated GPU.",
+  "hook_zh": "探索每位开发者都拥有个人GPU的未来愿景大赛。",
+  "description_en": "Explore a visionary competition anticipating a future where every individual owns a dedicated GPU.",
+  "description_zh": "探索每位开发者都拥有个人GPU的未来愿景大赛。"
 }

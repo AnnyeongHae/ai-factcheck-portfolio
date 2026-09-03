@@ -29,5 +29,70 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_ai_contextual_measurement_for_recoverin",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 기반 사회/조직 데이터 측정",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "AI Measurement",
+      "Contextual Analysis",
+      "Survey Validation",
+      "Occupational Data"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.9,
+    "multilingual": {
+      "ko": {
+        "title": "개인 및 집단 수준 효과 복원을 위한 AI 맥락적 측정 (AICOME)",
+        "hook": "전통적 설문조사에서 누락된 사회적·조직적 특성을 AI를 통해 신뢰성 있게 측정하는 새로운 방법을 제시합니다.",
+        "key_takeaways": [
+          "설문조사 측정값과의 철저한 교차 검증 수행",
+          "사회, 조직, 직업적 특성 측정을 위한 AI 모델(AICOME) 제안",
+          "개인 및 집단 수준의 인과 관계 효과 복원 지원"
+        ]
+      },
+      "en": {
+        "title": "AI Contextual Measurement for Recovering Individual and Group-Level Effects: AICOME",
+        "hook": "A novel AI-driven framework (AICOME) to reliably measure social and organizational characteristics absent in traditional surveys.",
+        "key_takeaways": [
+          "Performs rigorous validation against conventional survey measures",
+          "Introduces AICOME for capturing social, organizational, and occupational traits",
+          "Supports recovery of individual and group-level causal effects"
+        ]
+      },
+      "zh": {
+        "title": "用于恢复个体与群体层面效应的AI语境测量（AICOME）",
+        "hook": "提出一种全新的AI驱动框架，用以可靠地测量传统调查中缺失的社会与组织特征。",
+        "key_takeaways": [
+          "针对传统调查测量结果进行严格的交叉验证",
+          "推出AICOME模型以构建社会、组织及职业特征",
+          "支持恢复个体与群体层面的因果效应"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T04:23:44.172019+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "AI Measurement",
+    "Contextual Analysis",
+    "Survey Validation",
+    "Occupational Data"
+  ],
+  "title_ko": "개인 및 집단 수준 효과 복원을 위한 AI 맥락적 측정 (AICOME)",
+  "title_en": "AI Contextual Measurement for Recovering Individual and Group-Level Effects: AICOME",
+  "title_zh": "用于恢复个体与群体层面效应的AI语境测量（AICOME）",
+  "hook": "전통적 설문조사에서 누락된 사회적·조직적 특성을 AI를 통해 신뢰성 있게 측정하는 새로운 방법을 제시합니다.",
+  "hook_ko": "전통적 설문조사에서 누락된 사회적·조직적 특성을 AI를 통해 신뢰성 있게 측정하는 새로운 방법을 제시합니다.",
+  "hook_en": "A novel AI-driven framework (AICOME) to reliably measure social and organizational characteristics absent in traditional surveys.",
+  "hook_zh": "提出一种全新的AI驱动框架，用以可靠地测量传统调查中缺失的社会与组织特征。",
+  "description_ko": "전통적 설문조사에서 누락된 사회적·조직적 특성을 AI를 통해 신뢰성 있게 측정하는 새로운 방법을 제시합니다.",
+  "description_en": "A novel AI-driven framework (AICOME) to reliably measure social and organizational characteristics absent in traditional surveys.",
+  "description_zh": "提出一种全新的AI驱动框架，用以可靠地测量传统调查中缺失的社会与组织特征。"
 }

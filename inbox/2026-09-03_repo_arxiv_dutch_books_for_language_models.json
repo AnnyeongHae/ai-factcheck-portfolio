@@ -29,5 +29,68 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_arxiv_dutch_books_for_language_models",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "확률적 예측 및 언어 모델 의사결정",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Language Models",
+      "Probabilistic Forecasting",
+      "Decision Making"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.1,
+    "multilingual": {
+      "ko": {
+        "title": "언어 모델을 위한 더치 북: 확률적 예측과 삶의 의사결정 분석",
+        "hook": "인간의 중요한 삶의 결정을 돕는 LLM의 확률적 예측 능력과 한계점을 분석합니다.",
+        "key_takeaways": [
+          "삶의 주요 결정 및 확률적 예측에 사용되는 언어 모델 분석",
+          "자연재해, 경제적 결과 등 예측 시나리오 검토",
+          "LLM 기반 의사결정 지원 시스템의 신뢰성 제고"
+        ]
+      },
+      "en": {
+        "title": "Dutch Books for Language Models",
+        "hook": "Examine the probabilistic forecasting capabilities and reliability of language models in life-altering decisions.",
+        "key_takeaways": [
+          "Analyzes language models used for life decisions and forecasting",
+          "Covers probabilistic scenarios like natural disasters and economic outcomes",
+          "Enhances the reliability of LLM-based decision support systems"
+        ]
+      },
+      "zh": {
+        "title": "语言模型的荷兰书谬误：概率预测与生活决策分析",
+        "hook": "深入分析语言模型在辅助重大生活决策时的概率预测能力与潜在可靠性风险。",
+        "key_takeaways": [
+          "探讨用于生活决策和预测任务的语言模型表现",
+          "涵盖自然灾害、经济走势等概率预测场景",
+          "提升基于大模型的决策支持系统的可靠性"
+        ]
+      }
+    },
+    "enriched_by_model": "gemini-flash-lite-latest",
+    "enriched_at": "2026-09-03T04:23:31.920271+00:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Language Models",
+    "Probabilistic Forecasting",
+    "Decision Making"
+  ],
+  "title_ko": "언어 모델을 위한 더치 북: 확률적 예측과 삶의 의사결정 분석",
+  "title_en": "Dutch Books for Language Models",
+  "title_zh": "语言模型的荷兰书谬误：概率预测与生活决策分析",
+  "hook": "인간의 중요한 삶의 결정을 돕는 LLM의 확률적 예측 능력과 한계점을 분석합니다.",
+  "hook_ko": "인간의 중요한 삶의 결정을 돕는 LLM의 확률적 예측 능력과 한계점을 분석합니다.",
+  "hook_en": "Examine the probabilistic forecasting capabilities and reliability of language models in life-altering decisions.",
+  "hook_zh": "深入分析语言模型在辅助重大生活决策时的概率预测能力与潜在可靠性风险。",
+  "description_ko": "인간의 중요한 삶의 결정을 돕는 LLM의 확률적 예측 능력과 한계점을 분석합니다.",
+  "description_en": "Examine the probabilistic forecasting capabilities and reliability of language models in life-altering decisions.",
+  "description_zh": "深入分析语言模型在辅助重大生活决策时的概率预测能力与潜在可靠性风险。"
 }
