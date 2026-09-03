@@ -40,6 +40,59 @@
     ],
     "history": [
       {
+        "timestamp": "2026-09-03T11:03:02.376078",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.2
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 86,
+            "duration_sec": 0.35
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.83
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 24,
+            "duration_sec": 11.26
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.24
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.18
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 1.07
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.14
+          }
+        },
+        "summary": {
+          "total_fetched": 225,
+          "updated_count": 0,
+          "new_saved": 1,
+          "duplicates_skipped": 224,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-09-03T10:55:44.523027",
         "date": "2026-09-03",
         "sources": {
@@ -1575,111 +1628,58 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T05:24:16.275092",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.26
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.16
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.99
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 19,
-            "duration_sec": 11.82
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.32
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.19
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.85
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.46
-          }
-        },
-        "summary": {
-          "total_fetched": 169,
-          "updated_count": 169,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T10:55:44.523027",
+      "timestamp": "2026-09-03T11:03:02.376078",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.18
+          "duration_sec": 0.2
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 86,
-          "duration_sec": 0.24
+          "duration_sec": 0.35
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.71
+          "duration_sec": 0.83
         },
         "hacker_news": {
           "status": "SUCCESS",
-          "items_found": 23,
-          "duration_sec": 10.85
+          "items_found": 24,
+          "duration_sec": 11.26
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.62
+          "duration_sec": 0.24
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.13
+          "duration_sec": 0.18
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.02
+          "duration_sec": 1.07
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.12
+          "duration_sec": 0.14
         }
       },
       "summary": {
-        "total_fetched": 224,
+        "total_fetched": 225,
         "updated_count": 0,
-        "new_saved": 3,
-        "duplicates_skipped": 221,
+        "new_saved": 1,
+        "duplicates_skipped": 224,
         "errors": 0
       }
     }
@@ -13001,6 +13001,41 @@
       "description_ko": "공공 우편 투표 시스템의 보안 취약점과 시스템 결함에 대한 내부고발 이슈를 다룹니다.",
       "description_en": "Examine the whistleblower reports highlighting critical security vulnerabilities in postal mail ballot systems.",
       "description_zh": "了解有关邮政邮件选票系统关键安全漏洞和系统缺陷的内部举报内容。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_wasm_os_an_operating_system_exper",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "Hacker News: WASM_OS, an operating-system experiment that runs inside a browser tab",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49548285",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 6 pts | Comments: 0 | WASM_OS, an operating-system experiment that runs inside a browser tab",
+      "viral_metric": "🔥 6 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49548285",
+      "article_url": "https://wasmos-production.up.railway.app"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_us_gov_sides_with_openai_on_issue",
