@@ -40,6 +40,59 @@
     ],
     "history": [
       {
+        "timestamp": "2026-09-03T04:48:25.732876",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.19
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.14
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.85
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 23,
+            "duration_sec": 16.2
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.15
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.1
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.93
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.24
+          }
+        },
+        "summary": {
+          "total_fetched": 163,
+          "updated_count": 0,
+          "new_saved": 2,
+          "duplicates_skipped": 161,
+          "errors": 0
+        }
+      },
+      {
         "timestamp": "2026-09-03T04:23:05.996699",
         "date": "2026-09-03",
         "sources": {
@@ -1533,58 +1586,16 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T01:48:58.243792",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.32
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.23
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 2,
-            "duration_sec": 0.85
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 9,
-            "duration_sec": 24.71
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 0.88
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.28
-          }
-        },
-        "summary": {
-          "total_fetched": 11,
-          "new_saved": 11,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T04:23:05.996699",
+      "timestamp": "2026-09-03T04:48:25.732876",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.24
+          "duration_sec": 0.19
         },
         "hf_spaces": {
           "status": "SUCCESS",
@@ -1594,39 +1605,39 @@
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.88
+          "duration_sec": 0.85
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 23,
-          "duration_sec": 15.72
+          "duration_sec": 16.2
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.14
+          "duration_sec": 0.15
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.09
+          "duration_sec": 0.1
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.63
+          "duration_sec": 0.93
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.25
+          "duration_sec": 0.24
         }
       },
       "summary": {
         "total_fetched": 163,
         "updated_count": 0,
-        "new_saved": 0,
-        "duplicates_skipped": 163,
+        "new_saved": 2,
+        "duplicates_skipped": 161,
         "errors": 0
       }
     }
@@ -16042,6 +16053,104 @@
       "description_zh": "了解如何将企业内部零散的业务数据构建为AI可直接调用的上下文层。"
     },
     {
+      "inbox_id": "2026-09-03_sns_geeknews_zgzvec_grep_키워드를_넘어서는_로컬_검색_인프라",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: zg(zvec-grep) - 키워드를 넘어서는 로컬 검색 인프라",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33183",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: zg(zvec-grep) - 키워드를 넘어서는 로컬 검색 인프라",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "zg(zvec-grep): 키워드를 넘어서는 로컬 검색 인프라",
+      "description_ko": "단순 키워드 매칭을 뛰어넘어 로컬 환경에서 강력한 검색 성능을 제공하는 인프라 도구",
+      "hn_url": "https://news.hada.io/topic?id=33183",
+      "article_url": "https://news.hada.io/topic?id=33183",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_geeknews_zgzvec_grep_키워드를_넘어서는_로컬_검색_인프라",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "로컬 검색 인프라",
+        "programming_lang": "General",
+        "root_keywords": [
+          "zvec-grep",
+          "로컬 검색",
+          "텍스트 검색"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "zg(zvec-grep): 키워드를 넘어서는 로컬 검색 인프라",
+            "hook": "단순 키워드 매칭을 뛰어넘어 로컬 환경에서 강력한 검색 성능을 제공하는 인프라 도구",
+            "key_takeaways": [
+              "전통적인 grep을 보완하는 차세대 로컬 검색 도구",
+              "키워드 기반 검색의 한계를 극복한 임베딩/시맨틱 접근",
+              "개발자 로컬 환경에서 효율적으로 구동되는 검색 인프라"
+            ]
+          },
+          "en": {
+            "title": "zg (zvec-grep): Local Search Infrastructure Beyond Keywords",
+            "hook": "A powerful local search infrastructure tool that goes beyond simple keyword matching.",
+            "key_takeaways": [
+              "Next-generation local search tool complementing traditional grep",
+              "Semantic and embedding-based approach overcoming keyword search limits",
+              "Efficiently runs search infrastructure in developer local environments"
+            ]
+          },
+          "zh": {
+            "title": "zg(zvec-grep)：超越关键词的本地搜索基础设施",
+            "hook": "超越简单关键词匹配、在本地环境中提供强大搜索性能的基础设施工具。",
+            "key_takeaways": [
+              "补充传统 grep 的新一代本地搜索工具",
+              "克服关键词搜索限制的嵌入/语义方法",
+              "在开发者本地环境中高效运行的搜索基础设施"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:48:48.400217+00:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "zvec-grep",
+        "로컬 검색",
+        "텍스트 검색"
+      ],
+      "title_en": "zg (zvec-grep): Local Search Infrastructure Beyond Keywords",
+      "title_zh": "zg(zvec-grep)：超越关键词的本地搜索基础设施",
+      "hook": "단순 키워드 매칭을 뛰어넘어 로컬 환경에서 강력한 검색 성능을 제공하는 인프라 도구",
+      "hook_ko": "단순 키워드 매칭을 뛰어넘어 로컬 환경에서 강력한 검색 성능을 제공하는 인프라 도구",
+      "hook_en": "A powerful local search infrastructure tool that goes beyond simple keyword matching.",
+      "hook_zh": "超越简单关键词匹配、在本地环境中提供强大搜索性能的基础设施工具。",
+      "description_en": "A powerful local search infrastructure tool that goes beyond simple keyword matching.",
+      "description_zh": "超越简单关键词匹配、在本地环境中提供强大搜索性能的基础设施工具。"
+    },
+    {
       "inbox_id": "2026-09-03_sns_geeknews_vorssaint_여러_mac_유틸리티를_하나로_모은_메뉴_막대_",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -16538,6 +16647,104 @@
       "hook_zh": "通过交互式地图，轻松探索流行文化中虚构世界背后的现实拍摄地与灵感来源。",
       "description_en": "Discover the real-world filming locations and inspiring backgrounds behind your favorite movies, TV shows, games, and anime.",
       "description_zh": "通过交互式地图，轻松探索流行文化中虚构世界背后的现实拍摄地与灵感来源。"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_m4_pro_mac_mini로_구축한_로컬_llm_환경",
+      "harvested_date": "2026-09-03",
+      "created_at": "2026-09-03",
+      "updated_at": "2026-09-03",
+      "title": "GeekNews: M4 Pro Mac mini로 구축한 로컬 LLM 환경",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33182",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: M4 Pro Mac mini로 구축한 로컬 LLM 환경",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "M4 Pro Mac mini로 구축한 로컬 LLM 환경",
+      "description_ko": "애플 실리콘 하드웨어를 극대화하여 비용 효율적인 고성능 로컬 LLM 환경을 구축하는 노하우",
+      "hn_url": "https://news.hada.io/topic?id=33182",
+      "article_url": "https://news.hada.io/topic?id=33182",
+      "ai_enrichment": {
+        "id": "2026-09-03_sns_geeknews_m4_pro_mac_mini로_구축한_로컬_llm_환경",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "LLM 추론 최적화",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "M4 Pro",
+          "Mac mini",
+          "로컬 LLM"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "M4 Pro Mac mini로 구축한 로컬 LLM 환경",
+            "hook": "애플 실리콘 하드웨어를 극대화하여 비용 효율적인 고성능 로컬 LLM 환경을 구축하는 노하우",
+            "key_takeaways": [
+              "M4 Pro 칩의 유니파이드 메모리 아키텍처를 활용한 LLM 구동",
+              "클라우드 API 비용 절감 및 프라이버시가 보장되는 로컬 추론",
+              "실제 개발 및 테스트 환경에서 활용 가능한 실용적 구성 가이드"
+            ]
+          },
+          "en": {
+            "title": "Building a Local LLM Environment with M4 Pro Mac mini",
+            "hook": "Practical guide to setting up a cost-effective, high-performance local LLM environment using Apple Silicon.",
+            "key_takeaways": [
+              "Running LLMs leveraging the unified memory architecture of M4 Pro",
+              "Local inference ensuring privacy and reducing cloud API costs",
+              "Practical configuration guide for development and testing environments"
+            ]
+          },
+          "zh": {
+            "title": "使用 M4 Pro Mac mini 构建本地 LLM 环境",
+            "hook": "充分利用苹果芯片硬件，构建高性价比、高性能本地大模型环境的实用指南。",
+            "key_takeaways": [
+              "利用 M4 Pro 统一内存架构运行大语言模型",
+              "降低云端 API 成本并确保隐私的本地推理方案",
+              "可在实际开发和测试环境中应用的实用配置指南"
+            ]
+          }
+        },
+        "enriched_by_model": "gemini-flash-lite-latest",
+        "enriched_at": "2026-09-03T04:48:48.400672+00:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "M4 Pro",
+        "Mac mini",
+        "로컬 LLM"
+      ],
+      "title_en": "Building a Local LLM Environment with M4 Pro Mac mini",
+      "title_zh": "使用 M4 Pro Mac mini 构建本地 LLM 环境",
+      "hook": "애플 실리콘 하드웨어를 극대화하여 비용 효율적인 고성능 로컬 LLM 환경을 구축하는 노하우",
+      "hook_ko": "애플 실리콘 하드웨어를 극대화하여 비용 효율적인 고성능 로컬 LLM 환경을 구축하는 노하우",
+      "hook_en": "Practical guide to setting up a cost-effective, high-performance local LLM environment using Apple Silicon.",
+      "hook_zh": "充分利用苹果芯片硬件，构建高性价比、高性能本地大模型环境的实用指南。",
+      "description_en": "Practical guide to setting up a cost-effective, high-performance local LLM environment using Apple Silicon.",
+      "description_zh": "充分利用苹果芯片硬件，构建高性价比、高性能本地大模型环境的实用指南。"
     },
     {
       "inbox_id": "2026-09-03_sns_geeknews_claude로_커머스_에이전트_구축하기",

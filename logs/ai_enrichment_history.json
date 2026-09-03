@@ -1417,5 +1417,42 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260903_044845",
+    "timestamp": "2026-09-03T04:48:45.114041+00:00",
+    "total_candidates": 2,
+    "requested_limit": 0,
+    "processed_count": 2,
+    "success_count": 2,
+    "models_used_summary": {
+      "gemini-flash-lite-latest": 2
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 2,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 3.29,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_zgzvec_grep_키워드를_넘어서는_로컬_검색_인프라",
+            "title": "GeekNews: zg(zvec-grep) - 키워드를 넘어서는 로컬 검색 인프라",
+            "title_ko": "zg(zvec-grep): 키워드를 넘어서는 로컬 검색 인프라",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:48:48.400217+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_sns_geeknews_m4_pro_mac_mini로_구축한_로컬_llm_환경",
+            "title": "GeekNews: M4 Pro Mac mini로 구축한 로컬 LLM 환경",
+            "title_ko": "M4 Pro Mac mini로 구축한 로컬 LLM 환경",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T04:48:48.400672+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
