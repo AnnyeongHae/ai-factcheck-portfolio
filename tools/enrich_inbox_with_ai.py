@@ -459,14 +459,65 @@ def run_enrichment(limit: int = 0, batch_size: int = 5, random_pick: bool = Fals
     print(f"=======================================================\n")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Trilingual AI Auto-Enricher with Smart RPM Throttling")
+    parser = argparse.ArgumentParser(description="Trilingual AI Auto-Enricher with Smart RPM Throttling & Batch API")
     parser.add_argument("--limit", type=int, default=0, help="Number of items to enrich (default: 0 = ALL pending unenriched items)")
     parser.add_argument("--all", action="store_true", default=False, help="Process ALL pending unenriched items without limit")
     parser.add_argument("--batch-size", type=int, default=5, help="Batch size (default: 5)")
     parser.add_argument("--cooldown", type=float, default=4.5, help="Cooldown seconds between batches (default: 4.5s)")
     parser.add_argument("--random", action="store_true", default=False, help="Pick randomly from inbox")
     parser.add_argument("--only-new", action="store_true", default=False, help="Process ONLY newly harvested items from manifest")
+    
+    # 🌟 Google Gemini Batch API Options (50% Cost Cut & Zero RPM Throttling)
+    parser.add_argument("--submit-batch", action="store_true", default=False, help="Submit un-enriched items to Gemini Batch API")
+    parser.add_argument("--harvest-batch", action="store_true", default=False, help="Harvest completed Batch API responses & update inbox")
+    parser.add_argument("--status-batch", action="store_true", default=False, help="Print status of all Gemini Batch API jobs")
     args = parser.parse_args()
+
+    if args.status_batch or args.harvest_batch or args.submit_batch:
+        import sys
+        import os
+        tools_dir = os.path.dirname(os.path.abspath(__file__))
+        if tools_dir not in sys.path:
+            sys.path.insert(0, tools_dir)
+        import batch_manager
+        if args.status_batch:
+            reg = batch_manager.load_batch_registry()
+            print(f"[*] Total Batch Jobs in registry: {len(reg)}")
+            for b in reg:
+                print(f" - [{b.get('status')}] UUID: {b.get('batch_uuid')} | Job: {b.get('gemini_job_name')} | Items: {b.get('item_count')}")
+            sys.exit(0)
+        
+        if args.harvest_batch:
+            cnt = batch_manager.harvest_completed_batches()
+            print(f"[+] Done. Harvested {cnt} items from completed batches.")
+            sys.exit(0)
+
+        if args.submit_batch:
+            # Gather un-enriched items
+            inbox_files = sorted(glob.glob("inbox/*.json"))
+            unenriched = []
+            for fp in inbox_files:
+                if "_promoted" in fp or "_rejected" in fp:
+                    continue
+                try:
+                    with open(fp, "r", encoding="utf-8") as f:
+                        it = json.load(f)
+                    if not it.get("ai_enrichment") or not it.get("multilingual"):
+                        unenriched.append(it)
+                except Exception:
+                    continue
+            
+            target_limit = args.limit if args.limit > 0 else len(unenriched)
+            targets = unenriched[:target_limit]
+            print(f"[*] Found {len(unenriched)} un-enriched items. Submitting {len(targets)} to Gemini Batch API...")
+            if not targets:
+                print("[+] No un-enriched items to submit.")
+                sys.exit(0)
+            
+            uuid_res = batch_manager.submit_inbox_batch(targets)
+            if uuid_res:
+                print(f"[+] Successfully launched Batch Job with UUID: {uuid_res}")
+            sys.exit(0)
 
     effective_limit = 0 if args.all else args.limit
     run_enrichment(limit=effective_limit, batch_size=args.batch_size, random_pick=args.random, only_new=args.only_new, cooldown=args.cooldown)

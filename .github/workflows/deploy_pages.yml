@@ -43,6 +43,14 @@ jobs:
         run: |
           pip install psycopg2-binary requests pyyaml google-genai
 
+      - name: Harvest Completed Gemini Batch Jobs & Apply Results (50% Cost Cut)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NEON_KEY: ${{ secrets.NEON_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
+        run: |
+          python tools/enrich_inbox_with_ai.py --harvest-batch || echo "Harvest batch completed or skipped."
+
       - name: Run Multi-Source Trend Harvester
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -51,11 +59,13 @@ jobs:
         run: |
           python tools/harvest_trends.py || echo "Harvester completed with warning notes."
 
-      - name: Auto-Enrich New Inbox Items with Gemini AI (Trilingual + Classification + Model Family + Hook)
+      - name: Submit Newly Harvested Items to Gemini Batch API (50% Cost Cut)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NEON_KEY: ${{ secrets.NEON_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
-          python tools/enrich_inbox_with_ai.py --all --batch-size 5 --cooldown 5.0 || echo "AI enrich step completed or skipped."
+          python tools/enrich_inbox_with_ai.py --submit-batch --limit 20 || echo "Submit batch completed or skipped."
 
       - name: Auto-Factcheck Queued Investigation Items with Token Ledger
         env:

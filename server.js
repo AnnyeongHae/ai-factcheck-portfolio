@@ -24,10 +24,10 @@ if (!process.env.DATABASE_URL && process.env.NEON_KEY) {
   process.env.DATABASE_URL = process.env.NEON_KEY;
 }
 
-// 2. Import Serverless Handlers
 const portfoliosHandler = require('./api/portfolios');
 const queueHandler = require('./api/queue');
 const healthHandler = require('./api/health');
+const batchHandler = require('./api/batch');
 
 const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
@@ -98,6 +98,10 @@ const server = http.createServer(async (req, res) => {
 
   if (pathname === '/api/health') {
     return healthHandler(req, res);
+  }
+
+  if (pathname === '/api/batch') {
+    return batchHandler(req, res);
   }
 
   // Static File Serving (from public/)
