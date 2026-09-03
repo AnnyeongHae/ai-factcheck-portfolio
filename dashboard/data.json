@@ -7,10 +7,10 @@
   "half_true_count": 9,
   "gamed_count": 2,
   "avg_confidence": 96.2,
-  "models_total_count": 145,
-  "news_total_count": 121,
-  "inbox_total_count": 499,
-  "all_inbox_count": 509,
+  "models_total_count": 148,
+  "news_total_count": 131,
+  "inbox_total_count": 513,
+  "all_inbox_count": 523,
   "admin_stats": {
     "endpoints": [
       {
@@ -45,6 +45,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-03T16:48:53.856060",
+        "date": "2026-09-03",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.27
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 85,
+            "duration_sec": 0.32
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.8
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 10.99
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.23
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.17
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 1.03
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.14
+          }
+        },
+        "summary": {
+          "total_fetched": 259,
+          "updated_count": 0,
+          "new_saved": 14,
+          "duplicates_skipped": 245,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-03T16:28:43.199400",
         "date": "2026-09-03",
@@ -1581,94 +1634,41 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T07:02:20.138119",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.13
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.09
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.66
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 11.78
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.16
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.27
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.71
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.18
-          }
-        },
-        "summary": {
-          "total_fetched": 160,
-          "updated_count": 160,
-          "new_saved": 0,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-03T16:28:43.199400",
+      "timestamp": "2026-09-03T16:48:53.856060",
       "date": "2026-09-03",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.23
+          "duration_sec": 0.27
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 85,
-          "duration_sec": 0.36
+          "duration_sec": 0.32
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 1.02
+          "duration_sec": 0.8
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 15.01
+          "duration_sec": 10.99
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.33
+          "duration_sec": 0.23
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.13
+          "duration_sec": 0.17
         },
         "geeknews": {
           "status": "SUCCESS",
@@ -1678,14 +1678,14 @@
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.25
+          "duration_sec": 0.14
         }
       },
       "summary": {
         "total_fetched": 259,
         "updated_count": 0,
-        "new_saved": 0,
-        "duplicates_skipped": 259,
+        "new_saved": 14,
+        "duplicates_skipped": 245,
         "errors": 0
       }
     }
@@ -1700,7 +1700,7 @@
     {
       "day_ko": "화",
       "day_en": "Tue",
-      "inbox_count": 62,
+      "inbox_count": 64,
       "verified_count": 8
     },
     {
@@ -1712,7 +1712,7 @@
     {
       "day_ko": "목",
       "day_en": "Thu",
-      "inbox_count": 173,
+      "inbox_count": 184,
       "verified_count": 6
     },
     {
@@ -1730,7 +1730,7 @@
     {
       "day_ko": "일",
       "day_en": "Sun",
-      "inbox_count": 1,
+      "inbox_count": 2,
       "verified_count": 1
     }
   ],
@@ -1779,7 +1779,7 @@
       "month_key": "2026-08",
       "month_ko": "8월",
       "month_en": "Aug",
-      "inbox_count": 144,
+      "inbox_count": 145,
       "verified_count": 13,
       "cumulative_verified": 29
     },
@@ -1787,7 +1787,7 @@
       "month_key": "2026-09",
       "month_ko": "9월",
       "month_en": "Sep",
-      "inbox_count": 355,
+      "inbox_count": 368,
       "verified_count": 22,
       "cumulative_verified": 35
     }
@@ -2067,6 +2067,42 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_repo_huggingface_model_openvdnvdn_minimax_h3",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:08.217063",
+      "published_at": "2026-09-03T16:49:08.217063",
+      "created_at": "2026-09-03T16:49:08.217063",
+      "updated_at": "2026-09-03T16:49:08.217063",
+      "title": "HuggingFace Model: OpenVDN/vdn-minimax-h3",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/OpenVDN/vdn-minimax-h3",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 123, Downloads: 0, Likes: 123, Pipeline: text-to-video",
+      "viral_metric": "Trending 123 pts (❤️ 123)",
+      "metric_tracking": {
+        "initial": {
+          "value": 123,
+          "display": "Trending 123 pts (❤️ 123)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 123,
+          "display": "Trending 123 pts (❤️ 123)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-03_repo_huggingface_model_openai_communitygpt2",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -2263,6 +2299,41 @@
       "model_family": "BERT",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_huggingface_model_facebookmms_300m",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:08.227253",
+      "published_at": "2026-09-03T16:49:08.227253",
+      "created_at": "2026-09-03T16:49:08.227253",
+      "updated_at": "2026-09-03T16:49:08.227253",
+      "title": "HuggingFace Model: facebook/mms-300m",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/facebook/mms-300m",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 113, Downloads: 12386, Likes: 154, Pipeline: N/A",
+      "viral_metric": "Trending 113 pts (❤️ 154)",
+      "metric_tracking": {
+        "initial": {
+          "value": 113,
+          "display": "Trending 113 pts (❤️ 154)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 113,
+          "display": "Trending 113 pts (❤️ 154)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-03_repo_huggingface_model_distilbertdistilbert_base_u",
@@ -3320,6 +3391,41 @@
       "status": "PENDING_REVIEW",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_microsofttrellis2",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:08.549628",
+      "published_at": "2026-09-03T16:49:08.549628",
+      "created_at": "2026-09-03T16:49:08.549628",
+      "updated_at": "2026-09-03T16:49:08.549628",
+      "title": "HF Space: microsoft/TRELLIS.2",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/microsoft/TRELLIS.2",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2054 | Live URL: https://huggingface.co/spaces/microsoft/TRELLIS.2",
+      "viral_metric": "❤️ 2054 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2054,
+          "display": "❤️ 2054 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2054,
+          "display": "❤️ 2054 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-03_repo_hf_space_microsofttrellis",
@@ -15348,6 +15454,43 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_vc_isnt_vc_anymore_understanding_",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.103080",
+      "published_at": "2026-09-03T15:51:53",
+      "created_at": "2026-09-03T15:51:53",
+      "updated_at": "2026-09-03T16:49:09.103080",
+      "title": "Hacker News: VC isn't VC anymore – understanding the rise of Cancer Capital",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49552055",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 8 pts | Comments: 0 | VC isn't VC anymore – understanding the rise of Cancer Capital",
+      "viral_metric": "🔥 8 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49552055",
+      "article_url": "https://www.anildash.com/2026/09/02/cancer-capital/"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_us_gov_sides_with_openai_on_issue",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -15793,6 +15936,80 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_open_ai_x_post_on_astra",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.291102",
+      "published_at": "2026-09-03T15:03:40",
+      "created_at": "2026-09-03T15:03:40",
+      "updated_at": "2026-09-03T16:49:09.291102",
+      "title": "Hacker News: Open AI X post on Astra",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551018",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 9 pts | Comments: 1 | Open AI X post on Astra",
+      "viral_metric": "🔥 9 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551018",
+      "article_url": "https://twitter.com/OpenAI/status/2095527557924082061"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_my_bc_250_journey_with_40_cus_unl",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.040577",
+      "published_at": "2026-08-30T14:14:58",
+      "created_at": "2026-08-30T14:14:58",
+      "updated_at": "2026-09-03T16:49:09.040577",
+      "title": "Hacker News: My BC-250 Journey (With 40 CUs Unlocked)",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49498860",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 3 pts | Comments: 0 | My BC-250 Journey (With 40 CUs Unlocked)",
+      "viral_metric": "🔥 3 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49498860",
+      "article_url": "https://worldofmatthew.com/blog/bc250/"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_llms_and_self_referentiality",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -15893,6 +16110,117 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_launch_hn_mireye_yc_s26_infrastru",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.004528",
+      "published_at": "2026-09-03T16:24:13",
+      "created_at": "2026-09-03T16:24:13",
+      "updated_at": "2026-09-03T16:49:09.004528",
+      "title": "Hacker News: Launch HN: Mireye (YC S26) – Infrastructure for Physical World AI Agents",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49552616",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 2 pts | Comments: 0 | Launch HN: Mireye (YC S26) – Infrastructure for Physical World AI Agents",
+      "viral_metric": "🔥 2 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 2,
+          "display": "🔥 2 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2,
+          "display": "🔥 2 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49552616",
+      "article_url": "https://www.mireye.com"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_inside_googles_200bn_wall_street_",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.279314",
+      "published_at": "2026-09-03T15:26:27",
+      "created_at": "2026-09-03T15:26:27",
+      "updated_at": "2026-09-03T16:49:09.279314",
+      "title": "Hacker News: Inside Google’s $200bn Wall Street finance machine for Anthropic",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551601",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 9 pts | Comments: 1 | Inside Google’s $200bn Wall Street finance machine for Anthropic",
+      "viral_metric": "🔥 9 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551601",
+      "article_url": "https://www.ft.com/content/549f2e23-5aa2-49c7-9ea6-a9784ab7087c"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_higher_multipoles_of_the_cow",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.084775",
+      "published_at": "2026-09-01T09:27:19",
+      "created_at": "2026-09-01T09:27:19",
+      "updated_at": "2026-09-03T16:49:09.084775",
+      "title": "Hacker News: Higher Multipoles of the Cow",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49519792",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 105 pts | Comments: 30 | Higher Multipoles of the Cow",
+      "viral_metric": "🔥 105 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 105,
+          "display": "🔥 105 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 105,
+          "display": "🔥 105 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49519792",
+      "article_url": "https://arxiv.org/abs/2504.00506"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_fish_bad_sugar_good_and_other_med",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -15928,6 +16256,43 @@
       "article_url": "https://lithub.com/fish-bad-sugar-good-and-other-medieval-ideas-about-food/",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_engineering_of_the_fastest_webass",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.071237",
+      "published_at": "2026-09-01T12:25:13",
+      "created_at": "2026-09-01T12:25:13",
+      "updated_at": "2026-09-03T16:49:09.071237",
+      "title": "Hacker News: Engineering of the fastest WebAssembly interpreters",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49521031",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 131 pts | Comments: 17 | Engineering of the fastest WebAssembly interpreters",
+      "viral_metric": "🔥 131 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 131,
+          "display": "🔥 131 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 131,
+          "display": "🔥 131 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49521031",
+      "article_url": "https://wasmi-labs.github.io/blog/posts/wasmi-v2.0/"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_creating_backup_storage_sucks",
@@ -16128,6 +16493,43 @@
       "description_zh": "探讨用户在各大 AI 平台拒绝将其输入和输出数据用于模型训练的权利与方法论。",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_artificial_beaver_dams_saw_juveni",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.095292",
+      "published_at": "2026-09-03T16:21:33",
+      "created_at": "2026-09-03T16:21:33",
+      "updated_at": "2026-09-03T16:49:09.095292",
+      "title": "Hacker News: Artificial beaver dams saw juvenile coho salmon survival rates go from 8% to 60%",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49552572",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 4 pts | Comments: 0 | Artificial beaver dams saw juvenile coho salmon survival rates go from 8% to 60%",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49552572",
+      "article_url": "https://www.discoverwildlife.com/animal-facts/artificial-beaver-dams-california"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_ai_is_stopping_startups_from_comp",
@@ -16919,6 +17321,45 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_geeknews_polars_20_프리릴리스",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.406945",
+      "published_at": "2026-09-03T16:49:09.406945",
+      "created_at": "2026-09-03T16:49:09.406945",
+      "updated_at": "2026-09-03T16:49:09.406945",
+      "title": "GeekNews: Polars 2.0 프리릴리스",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33196",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Polars 2.0 프리릴리스",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Polars 2.0 프리릴리스",
+      "description_ko": "Polars 2.0 프리릴리스",
+      "hn_url": "https://news.hada.io/topic?id=33196",
+      "article_url": "https://news.hada.io/topic?id=33196"
+    },
+    {
       "inbox_id": "2026-09-03_sns_geeknews_perplexity_대량생산된_구매_가이드를_소프트웨어_추천의_근",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -17566,6 +18007,45 @@
       "description_zh": "一同回顾 IT 历史上最具标志性的计算机之一的发展足迹。",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_geeknews_chatgpt_페이지에서_404_오류_발생",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.593539",
+      "published_at": "2026-09-03T16:49:09.593539",
+      "created_at": "2026-09-03T16:49:09.593539",
+      "updated_at": "2026-09-03T16:49:09.593539",
+      "title": "GeekNews: ChatGPT 페이지에서 404 오류 발생",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33195",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: ChatGPT 페이지에서 404 오류 발생",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "ChatGPT 페이지에서 404 오류 발생",
+      "description_ko": "ChatGPT 페이지에서 404 오류 발생",
+      "hn_url": "https://news.hada.io/topic?id=33195",
+      "article_url": "https://news.hada.io/topic?id=33195"
     },
     {
       "inbox_id": "2026-09-03_sns_geeknews_ai_시대에_가장_안전한_직업은_글쓰기일_수_있다",
@@ -24171,6 +24651,43 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_vc_isnt_vc_anymore_understanding_",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.103080",
+      "published_at": "2026-09-03T15:51:53",
+      "created_at": "2026-09-03T15:51:53",
+      "updated_at": "2026-09-03T16:49:09.103080",
+      "title": "Hacker News: VC isn't VC anymore – understanding the rise of Cancer Capital",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49552055",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 8 pts | Comments: 0 | VC isn't VC anymore – understanding the rise of Cancer Capital",
+      "viral_metric": "🔥 8 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49552055",
+      "article_url": "https://www.anildash.com/2026/09/02/cancer-capital/"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_us_gov_sides_with_openai_on_issue",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -24820,6 +25337,80 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_open_ai_x_post_on_astra",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.291102",
+      "published_at": "2026-09-03T15:03:40",
+      "created_at": "2026-09-03T15:03:40",
+      "updated_at": "2026-09-03T16:49:09.291102",
+      "title": "Hacker News: Open AI X post on Astra",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551018",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 9 pts | Comments: 1 | Open AI X post on Astra",
+      "viral_metric": "🔥 9 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551018",
+      "article_url": "https://twitter.com/OpenAI/status/2095527557924082061"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_my_bc_250_journey_with_40_cus_unl",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.040577",
+      "published_at": "2026-08-30T14:14:58",
+      "created_at": "2026-08-30T14:14:58",
+      "updated_at": "2026-09-03T16:49:09.040577",
+      "title": "Hacker News: My BC-250 Journey (With 40 CUs Unlocked)",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49498860",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 3 pts | Comments: 0 | My BC-250 Journey (With 40 CUs Unlocked)",
+      "viral_metric": "🔥 3 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49498860",
+      "article_url": "https://worldofmatthew.com/blog/bc250/"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_metr_report_on_openai_hugging_fac",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -25022,6 +25613,117 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_hacker_news_launch_hn_mireye_yc_s26_infrastru",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.004528",
+      "published_at": "2026-09-03T16:24:13",
+      "created_at": "2026-09-03T16:24:13",
+      "updated_at": "2026-09-03T16:49:09.004528",
+      "title": "Hacker News: Launch HN: Mireye (YC S26) – Infrastructure for Physical World AI Agents",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49552616",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 2 pts | Comments: 0 | Launch HN: Mireye (YC S26) – Infrastructure for Physical World AI Agents",
+      "viral_metric": "🔥 2 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 2,
+          "display": "🔥 2 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2,
+          "display": "🔥 2 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49552616",
+      "article_url": "https://www.mireye.com"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_inside_googles_200bn_wall_street_",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.279314",
+      "published_at": "2026-09-03T15:26:27",
+      "created_at": "2026-09-03T15:26:27",
+      "updated_at": "2026-09-03T16:49:09.279314",
+      "title": "Hacker News: Inside Google’s $200bn Wall Street finance machine for Anthropic",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49551601",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 9 pts | Comments: 1 | Inside Google’s $200bn Wall Street finance machine for Anthropic",
+      "viral_metric": "🔥 9 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49551601",
+      "article_url": "https://www.ft.com/content/549f2e23-5aa2-49c7-9ea6-a9784ab7087c"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_higher_multipoles_of_the_cow",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.084775",
+      "published_at": "2026-09-01T09:27:19",
+      "created_at": "2026-09-01T09:27:19",
+      "updated_at": "2026-09-03T16:49:09.084775",
+      "title": "Hacker News: Higher Multipoles of the Cow",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49519792",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 105 pts | Comments: 30 | Higher Multipoles of the Cow",
+      "viral_metric": "🔥 105 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 105,
+          "display": "🔥 105 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 105,
+          "display": "🔥 105 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49519792",
+      "article_url": "https://arxiv.org/abs/2504.00506"
+    },
+    {
       "inbox_id": "2026-09-03_sns_hacker_news_fish_bad_sugar_good_and_other_med",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -25057,6 +25759,43 @@
       "article_url": "https://lithub.com/fish-bad-sugar-good-and-other-medieval-ideas-about-food/",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_engineering_of_the_fastest_webass",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.071237",
+      "published_at": "2026-09-01T12:25:13",
+      "created_at": "2026-09-01T12:25:13",
+      "updated_at": "2026-09-03T16:49:09.071237",
+      "title": "Hacker News: Engineering of the fastest WebAssembly interpreters",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49521031",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 131 pts | Comments: 17 | Engineering of the fastest WebAssembly interpreters",
+      "viral_metric": "🔥 131 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 131,
+          "display": "🔥 131 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 131,
+          "display": "🔥 131 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49521031",
+      "article_url": "https://wasmi-labs.github.io/blog/posts/wasmi-v2.0/"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_embedded_rust_rtos_vs_c_rtos",
@@ -25357,6 +26096,43 @@
       "description_zh": "探讨用户在各大 AI 平台拒绝将其输入和输出数据用于模型训练的权利与方法论。",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_sns_hacker_news_artificial_beaver_dams_saw_juveni",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.095292",
+      "published_at": "2026-09-03T16:21:33",
+      "created_at": "2026-09-03T16:21:33",
+      "updated_at": "2026-09-03T16:49:09.095292",
+      "title": "Hacker News: Artificial beaver dams saw juvenile coho salmon survival rates go from 8% to 60%",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49552572",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 4 pts | Comments: 0 | Artificial beaver dams saw juvenile coho salmon survival rates go from 8% to 60%",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49552572",
+      "article_url": "https://www.discoverwildlife.com/animal-facts/artificial-beaver-dams-california"
     },
     {
       "inbox_id": "2026-09-03_sns_hacker_news_altair_basic_interpreter_source_c",
@@ -26856,6 +27632,45 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_geeknews_polars_20_프리릴리스",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.406945",
+      "published_at": "2026-09-03T16:49:09.406945",
+      "created_at": "2026-09-03T16:49:09.406945",
+      "updated_at": "2026-09-03T16:49:09.406945",
+      "title": "GeekNews: Polars 2.0 프리릴리스",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33196",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Polars 2.0 프리릴리스",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Polars 2.0 프리릴리스",
+      "description_ko": "Polars 2.0 프리릴리스",
+      "hn_url": "https://news.hada.io/topic?id=33196",
+      "article_url": "https://news.hada.io/topic?id=33196"
+    },
+    {
       "inbox_id": "2026-09-03_sns_geeknews_perplexity_대량생산된_구매_가이드를_소프트웨어_추천의_근",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -28012,6 +28827,45 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_sns_geeknews_chatgpt_페이지에서_404_오류_발생",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:09.593539",
+      "published_at": "2026-09-03T16:49:09.593539",
+      "created_at": "2026-09-03T16:49:09.593539",
+      "updated_at": "2026-09-03T16:49:09.593539",
+      "title": "GeekNews: ChatGPT 페이지에서 404 오류 발생",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33195",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: ChatGPT 페이지에서 404 오류 발생",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "ChatGPT 페이지에서 404 오류 발생",
+      "description_ko": "ChatGPT 페이지에서 404 오류 발생",
+      "hn_url": "https://news.hada.io/topic?id=33195",
+      "article_url": "https://news.hada.io/topic?id=33195"
+    },
+    {
       "inbox_id": "2026-09-03_sns_geeknews_ai_시대에_가장_안전한_직업은_글쓰기일_수_있다",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -28211,6 +29065,42 @@
       "published_at": "2026-09-03T12:00:00+09:00"
     },
     {
+      "inbox_id": "2026-09-03_repo_huggingface_model_openvdnvdn_minimax_h3",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:08.217063",
+      "published_at": "2026-09-03T16:49:08.217063",
+      "created_at": "2026-09-03T16:49:08.217063",
+      "updated_at": "2026-09-03T16:49:08.217063",
+      "title": "HuggingFace Model: OpenVDN/vdn-minimax-h3",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/OpenVDN/vdn-minimax-h3",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 123, Downloads: 0, Likes: 123, Pipeline: text-to-video",
+      "viral_metric": "Trending 123 pts (❤️ 123)",
+      "metric_tracking": {
+        "initial": {
+          "value": 123,
+          "display": "Trending 123 pts (❤️ 123)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 123,
+          "display": "Trending 123 pts (❤️ 123)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-03_repo_huggingface_model_openai_communitygpt2",
       "harvested_date": "2026-09-03",
       "created_at": "2026-09-03",
@@ -28407,6 +29297,41 @@
       "model_family": "BERT",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_huggingface_model_facebookmms_300m",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:08.227253",
+      "published_at": "2026-09-03T16:49:08.227253",
+      "created_at": "2026-09-03T16:49:08.227253",
+      "updated_at": "2026-09-03T16:49:08.227253",
+      "title": "HuggingFace Model: facebook/mms-300m",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/facebook/mms-300m",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 113, Downloads: 12386, Likes: 154, Pipeline: N/A",
+      "viral_metric": "Trending 113 pts (❤️ 154)",
+      "metric_tracking": {
+        "initial": {
+          "value": 113,
+          "display": "Trending 113 pts (❤️ 154)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 113,
+          "display": "Trending 113 pts (❤️ 154)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-03_repo_huggingface_model_distilbertdistilbert_base_u",
@@ -29464,6 +30389,41 @@
       "status": "PENDING_REVIEW",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_hf_space_microsofttrellis2",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:08.549628",
+      "published_at": "2026-09-03T16:49:08.549628",
+      "created_at": "2026-09-03T16:49:08.549628",
+      "updated_at": "2026-09-03T16:49:08.549628",
+      "title": "HF Space: microsoft/TRELLIS.2",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/microsoft/TRELLIS.2",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 2054 | Live URL: https://huggingface.co/spaces/microsoft/TRELLIS.2",
+      "viral_metric": "❤️ 2054 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 2054,
+          "display": "❤️ 2054 Likes (Trending Demo)",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 2054,
+          "display": "❤️ 2054 Likes (Trending Demo)",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-03_repo_hf_space_microsofttrellis",
@@ -31248,6 +32208,41 @@
       "description_zh": "强大易用的工具，支持在各大游戏及模拟器中轻松安装、管理与恢复 DLSS 5。",
       "harvested_at": "2026-09-03T12:00:00+09:00",
       "published_at": "2026-09-03T12:00:00+09:00"
+    },
+    {
+      "inbox_id": "2026-09-03_repo_github_omacomtry_omarchy",
+      "harvested_date": "2026-09-03",
+      "harvested_at": "2026-09-03T16:49:08.908940",
+      "published_at": "2026-09-03T16:49:08.908940",
+      "created_at": "2026-09-03T16:49:08.908940",
+      "updated_at": "2026-09-03T16:49:08.908940",
+      "title": "GitHub: omacom/try-omarchy",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/omacom/try-omarchy",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Stars: 1443, Forks: 66 | Run Omarchy on MacOS without any setup.",
+      "viral_metric": "★ 1443 Stars",
+      "metric_tracking": {
+        "initial": {
+          "value": 1443,
+          "display": "★ 1443 Stars",
+          "recorded_at": "2026-09-03"
+        },
+        "latest": {
+          "value": 1443,
+          "display": "★ 1443 Stars",
+          "updated_at": "2026-09-03"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
     },
     {
       "inbox_id": "2026-09-03_repo_github_brayonpihexstellar",
