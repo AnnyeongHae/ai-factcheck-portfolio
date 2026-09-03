@@ -2072,5 +2072,42 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260903_061908",
+    "timestamp": "2026-09-03T06:19:08.660245+00:00",
+    "total_candidates": 2,
+    "requested_limit": 0,
+    "processed_count": 2,
+    "success_count": 2,
+    "models_used_summary": {
+      "gemini-flash-lite-latest": 2
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 2,
+        "model_used": "gemini-flash-lite-latest",
+        "latency_seconds": 4.16,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-03_sns_hacker_news_show_hn_the_cheapest_gpu_cloud_h1",
+            "title": "Hacker News: Show HN: The cheapest GPU cloud – H100s at $2.04/HR, H200s at $3/HR",
+            "title_ko": "H100 시간당 $2.04, H200 $3 초저가 GPU 클라우드 서비스 등장",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-03T06:19:12.822437+00:00"
+          },
+          {
+            "inbox_id": "2026-09-03_repo_github_anthropicscommerce_agents",
+            "title": "GitHub: anthropics/commerce-agents",
+            "title_ko": "Anthropic 공식 쇼핑 및 커머스 에이전트 구축 레퍼런스 청사진 공개",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-03T06:19:12.822881+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
