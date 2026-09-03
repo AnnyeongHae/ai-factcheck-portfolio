@@ -1409,7 +1409,18 @@ def generate_html(data):
         if (resPort.ok) {{
           const data = await resPort.json();
           if (data.success && data.portfolios && data.portfolios.length > 0) {{
-            liveCasesData = data.portfolios;
+            const staticCaseMap = new Map();
+            casesData.forEach(c => staticCaseMap.set(c.case_id, c));
+
+            liveCasesData = data.portfolios.map(dbCase => {{
+              const staticCase = staticCaseMap.get(dbCase.case_id);
+              return {{
+                ...(staticCase || {{}}),
+                ...dbCase,
+                source_published_date: (staticCase && staticCase.source_published_date) || dbCase.source_published_date || dbCase.investigation_date,
+                investigation_date: (staticCase && staticCase.investigation_date) || dbCase.investigation_date
+              }};
+            }});
             liveAnalysesData = data.technical_analyses || [];
             
             const badge = document.getElementById('dbLiveBadge');
@@ -1604,8 +1615,14 @@ def generate_html(data):
         const story = c.portfolio_story || {{}};
         const curation = c.curation || {{ discovery_mode: 'USER_CURATED' }};
         const isUserMode = curation.discovery_mode === 'USER_CURATED';
-        const srcDate = c.source_published_date || c.investigation_date || '2026-08-31';
-        const invDate = c.investigation_date || '2026-09-02';
+        
+        const parseDate = (d) => {{
+          if (!d) return '2026-09-02';
+          const m = String(d).match(/(\d\d\d\d)[-_](\d\d)[-_](\d\d)/);
+          return m ? `${{m[1]}}-${{m[2]}}-${{m[3]}}` : '2026-09-02';
+        }};
+        const srcDate = parseDate(c.source_published_date || c.investigation_date);
+        const invDate = parseDate(c.investigation_date || c.source_published_date);
         const confScore = c.confidence_score || 95.0;
         const isVerifiedTrue = c.verdict === 'VERIFIED_TRUE';
         const isHalfTrue = c.verdict.includes('HALF');

@@ -92,6 +92,22 @@ module.exports = async (req, res) => {
       claimsByCase[r.case_id].push(r);
     });
 
+    function extractValidDate(caseId, createdAtFallback) {
+      if (caseId) {
+        const match = String(caseId).match(/(\d{4})[-_](\d{2})[-_](\d{2})/);
+        if (match) {
+          return `${match[1]}-${match[2]}-${match[3]}`;
+        }
+      }
+      if (createdAtFallback) {
+        try {
+          const d = new Date(createdAtFallback);
+          if (!isNaN(d.getTime())) return d.toISOString().split('T')[0];
+        } catch (e) {}
+      }
+      return '2026-09-02';
+    }
+
     // Assemble complete Portfolios JSON
     const portfolios = factcheckRows.rows.map(r => {
       let sources = [];
@@ -101,11 +117,14 @@ module.exports = async (req, res) => {
         sources = [];
       }
 
+      const validDate = extractValidDate(r.case_id, r.created_at);
+
       return {
         case_id: r.case_id,
         title: r.title,
         category: r.category,
-        investigation_date: typeof r.investigation_date === 'string' ? r.investigation_date : (r.investigation_date ? r.investigation_date.toISOString().split('T')[0] : '2026-09-01'),
+        source_published_date: validDate,
+        investigation_date: validDate,
         verdict: r.verdict,
         confidence_score: parseFloat(r.confidence_score) || 95.0,
         curation: {
