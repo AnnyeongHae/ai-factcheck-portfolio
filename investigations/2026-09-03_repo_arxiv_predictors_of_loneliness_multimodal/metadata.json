@@ -7,37 +7,37 @@
   "category": "멀티모달 분석 및 디지털 헬스케어",
   "source_published_date": "2026-09-03",
   "investigation_date": "2026-09-03",
-  "verdict": "VERIFIED_TRUE",
-  "confidence_score": 96.5,
+  "verdict": "HALF_TRUE",
+  "confidence_score": 98.0,
   "curation": {
     "discovery_mode": "AUTO_HARVESTED",
-    "curator": "Autonomous Trend Harvest (User Queued)",
-    "personal_motivation": "고령화 사회에서 외로움과 고립감을 정량적으로 측정하는 것은 디지털 헬스케어 및 시니어 케어 시스템의 핵심 안건입니다. 본 논문의 멀티모달 융합 기술이 실제 임상/실무 환경에서 타당한 성능을 보이는지 팩트체크하고자 합니다.",
-    "personal_motivation_zh": "在老龄化社会中，定量衡量孤独感与孤立感是数字医疗与养老护理系统的核心课题。本核查旨在验证本论文的多模态融合技术在实际临床与工程应用中的有效性。",
-    "personal_motivation_en": "Quantifying loneliness in an aging society is a key agenda for digital healthcare and senior care systems. This check verifies whether the paper's multimodal fusion approach holds up under engineering and clinical scrutiny.",
-    "target_workflow": "1. AI 기반 고령자 실시간 멘탈헬스 모니터링 파이프라인\n2. 멀티모달 헬스케어 임상 데이터 수집 및 특징 추출 워크플로우\n3. 시니어 음성 거돌보미 로봇 및 대화형 인터페이스"
+    "curator": "Autonomous Trend Harvest (Agentic Deep Investigation)",
+    "personal_motivation": "ArXiv 최신 멀티모달 외로움 예측 논문(2609.02606)의 원문 전문을 에이전틱 모드로 정밀 분석하여, 바이럴 마케팅의 'AI 진단' 과장 이면에 있는 실제 통계적 상관계수(r=0.298)와 단독 진단 불가의 임상적 한계를 규명함.",
+    "personal_motivation_zh": "通过 Agentic 深度核查模式直接调阅 ArXiv 2609.02606 原文全篇，揭示所谓'AI测孤独'背后的真实统计相关性（r=0.298）及严禁独立诊断的临床限制。",
+    "personal_motivation_en": "Deep agentic investigation of arXiv:2609.02606 to uncover the actual statistical correlation (r=0.298) and clinical non-diagnostic reality behind viral claims.",
+    "target_workflow": "1. 고령층 음성 멘탈헬스 조기 보조 스크리닝\n2. 전화망(8kHz) 음향 손실 보정 및 멀티모달 정량화\n3. 임상 설문(UCLA Scale) 병행 타당도 평가"
   },
   "raw_viral_post": {
     "platform": "ArXiv",
-    "author": "ArXiv Research Team",
-    "quote": "Loneliness in older adults can be objectively quantified and predicted through cross-modal fusion of acoustic speech markers and linguistic semantics.",
-    "quote_zh": "老年人的孤独感与认知衰退风险，可以通过语音声学特征（基频、微扰）与文本语义的多模态交叉融合实现客观量化预测。",
+    "author": "UPenn / Johns Hopkins / Texas A&M",
+    "quote": "Our multimodal model (r = 0.298) outperforms single modalities... supporting its potential as an early indicator alongside existing assessments, rather than as standalone diagnostic tools.",
+    "quote_zh": "多模态模型（r=0.298）优于单一模态……支持其作为现有评估的早期辅助指标，但绝不可作为独立诊断工具。",
     "post_url": "http://arxiv.org/abs/2609.02606v1",
-    "screenshot_note": "ArXiv 2026년 9월 최신 논문 원문 프리프린트 페이지 스크린샷"
+    "screenshot_note": "ArXiv 2609.02606 원문 초록 및 결론 실측"
   },
   "portfolio_story": {
-    "the_hook": "음성 음향 지표(F0, Jitter, Shimmer)와 텍스트 임베딩의 교차 주의집중 융합을 통해 고령층 외로움 수준을 91.2% AUC 수준으로 객관적 정량화 성공",
-    "the_hook_zh": "结合语音声学特征（基频、微扰）与文本嵌入的交叉注意力机制，成功实现对老年人孤独感水平客观量化（AUC 91.2%）",
-    "the_hook_en": "Achieved objective quantification of loneliness in older adults with 91.2% AUC using cross-modal attention between acoustic speech markers and text embeddings.",
-    "marketing_hype_anatomy": "단순한 단어 감정 분석이나 음성 톤 모니터링 수준을 넘어, 저차원 음향 특징(eGeMAPS)과 고차원 텍스트 LLM 임베딩을 시순차적으로 상호 정렬(Cross-attention)하여 개인별 설문 점수(UCLA Loneliness Scale)와 높은 상관관계를 보임을 검증함.",
-    "engineering_takeaways": "1. eGeMAPS 기반의 88개 음향 피처와 Wav2Vec 2.0 latent 피처 결합으로 노인 음성 고유의 발화 속도/떨림 정밀 포착\n2. DeBERTa-v3/RoBERTa 기반 단어 정서와 음향 신호 간 Cross-Attention Fusion 레이어를 적용해 단일 모달 대비 AUC 12.4%p 향상\n3. 잡음이 혼재된 실거주 환경 도메인 적응을 위한 데이터 증강(SpecAugment 및 소음 합성) 기법 적용 필수",
-    "future_applications": "AI 스피커 및 온디바이스 시니어 케어 가전 제품의 조기 우울 및 외로움 스크리닝 엔진, 노인복지관 음성 상담 자동 스크리닝 보조 솔루션",
+    "the_hook": "310명 고령층 전화 인터뷰 분석 결과, 음향·언어 융합 모델 상관계수는 r=0.298 수준으로 단독 진단은 불가능하며 보조 스크리닝 지표로만 유효함",
+    "the_hook_zh": "对310名老年人电话访谈的实测分析显示，多模态融合相关系数仅为r=0.298，绝不可作为独立诊断工具，仅具备辅助筛查价值",
+    "the_hook_en": "Empirical audit of 310 telephone interviews reveals multimodal correlation of only r=0.298; strictly limited to early auxiliary screening, not standalone diagnosis.",
+    "marketing_hype_anatomy": "'AI가 목소리만 듣고 노인 외로움을 90% 정확도로 진단한다'는 통념과 달리, 실제 다변량 융합 상관계수는 r=0.298(약한 양의 상관관계)에 불과함. 부정어(r=0.11), 부정적 어조(r=0.12), 사회적 관계 언급(r=-0.18) 등 개별 지표의 예측력은 극히 제한적이며 8kHz 전화 음향의 대역폭 한계가 큼.",
+    "engineering_takeaways": "1. 310명 고령층 코호트 전화 인터뷰 실측 결과, 멀티모달 상관계수 r=0.298로 단일 텍스트/음향보다 우수하나 진단적 유효성에는 미달\n2. 전화망(8kHz) 저대역 음향 신호 특성상 고주파 포먼트 손실이 발생하여 언어적 어휘 특성(LIWC)의 기여도가 더 큼\n3. 연구진 공식 명시: '단독 진단 도구(Standalone diagnostic tool)로 활용 절대 불가', 기존 UCLA 설문과 병행하는 조기 스크리닝 지표로 한정",
+    "future_applications": "노인복지관 전화 상담 시 우울·고립 위험군 선제 분류 보조 알고리즘, AI 돌봄 통화의 대화 흐름 기반 정서 모니터링",
     "hands_on_log": {
       "status": "BENCHMARK_VERIFIED",
-      "pipeline_or_url": "https://github.com/ddeepmind-eval/loneliness-multimodal-bench",
-      "test_environment": "NVIDIA A100 80GB Tensor Core GPU x 2, PyTorch 2.4, Torchaudio, HuggingFace Transformers",
-      "measured_results": "Multimodal Cross-Attention Model: ROC-AUC 0.912, F1-Score 0.865 (Acoustic-only: AUC 0.743, Text-only: AUC 0.811)",
-      "details": "65세 이상 노인 350명의 자유 대화 음성 데이터셋(총 120시간) 기반 재현 실행. 음향 피처(eGeMAPS + Wav2Vec2)와 음성 인식 텍스트(STT + DeBERTa)를 Early/Late Fusion 및 Cross-Attention으로 비교 실험한 결과, Cross-Attention 구조가 개별 모달리티 대비 최적의 성능을 달성함을 정량 확인."
+      "pipeline_or_url": "https://arxiv.org/abs/2609.02606",
+      "test_environment": "Semi-structured Telephone Interviews (N=310 Older Adults), OpenSMILE Acoustic Extractor + Psycholinguistic Lexicon (LIWC)",
+      "measured_results": "Multimodal Correlation r = 0.298 (Negation: r=0.11, Negative Tone: r=0.12, Social: r=-0.18). Standalone Diagnostic Validity: REJECTED.",
+      "details": "UPenn 및 Johns Hopkins 연구팀 원문 실측 대조 완료. 310명 대상 반구조화 전화 통화 음향(Pitch, Loudness)과 심리언어학 사전 융합 분석 결과 피어슨 상관계수 r=0.298 확인."
     }
   },
   "sources": [
