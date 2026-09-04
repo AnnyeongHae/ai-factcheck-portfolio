@@ -10,8 +10,8 @@
   "avg_confidence": 96.2,
   "models_total_count": 192,
   "news_total_count": 311,
-  "inbox_total_count": 649,
-  "all_inbox_count": 660,
+  "inbox_total_count": 659,
+  "all_inbox_count": 670,
   "admin_stats": {
     "endpoints": [
       {
@@ -46,6 +46,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T12:58:01.620527",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.19
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 83,
+            "duration_sec": 0.32
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.75
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 14.35
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.54
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.07
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.66
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.29
+          }
+        },
+        "summary": {
+          "total_fetched": 257,
+          "updated_count": 1,
+          "new_saved": 10,
+          "duplicates_skipped": 246,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-04T09:43:05.792417",
         "date": "2026-09-04",
@@ -1582,111 +1635,58 @@
           "duplicates_skipped": 163,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T06:13:05.540711",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.15
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.14
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 0,
-            "duration_sec": 2.28
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 24,
-            "duration_sec": 10.36
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.36
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.17
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 1.44
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.19
-          }
-        },
-        "summary": {
-          "total_fetched": 134,
-          "updated_count": 0,
-          "new_saved": 1,
-          "duplicates_skipped": 133,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T09:43:05.792417",
+      "timestamp": "2026-09-04T12:58:01.620527",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.29
+          "duration_sec": 0.19
         },
         "hf_spaces": {
           "status": "SUCCESS",
-          "items_found": 84,
-          "duration_sec": 0.35
+          "items_found": 83,
+          "duration_sec": 0.32
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.91
+          "duration_sec": 0.75
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 11.9
+          "duration_sec": 14.35
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.6
+          "duration_sec": 0.54
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.17
+          "duration_sec": 0.07
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.11
+          "duration_sec": 0.66
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.26
+          "duration_sec": 0.29
         }
       },
       "summary": {
-        "total_fetched": 258,
+        "total_fetched": 257,
         "updated_count": 1,
-        "new_saved": 2,
-        "duplicates_skipped": 255,
+        "new_saved": 10,
+        "duplicates_skipped": 246,
         "errors": 0
       }
     }
@@ -1759,36 +1759,36 @@
       "inbox_count": 2,
       "model_count": 0,
       "news_count": 2,
-      "is_current": true,
+      "is_current": false,
       "is_future": false
     },
     {
       "slot": "21시",
       "hour": 21,
       "range": "21:00 - 23:59",
-      "inbox_count": 0,
+      "inbox_count": 10,
       "model_count": 0,
-      "news_count": 0,
-      "is_current": false,
-      "is_future": true
+      "news_count": 10,
+      "is_current": true,
+      "is_future": false
     }
   ],
   "trend_6h": {
     "window_label": "18:00 ~ 24:00 KST",
     "window_period": "저녁 엔지니어링 & 데일리 결산",
     "today_kst": "2026-09-04",
-    "updated_at": "18:46 KST",
+    "updated_at": "22:01 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
       "🔥 [Hugging Face Models] GLM-5.3-Flash: 초경량 고성능 비전-언어 멀티모달 모델 (Trending 1796 pts (❤️ 1923)) — 높은 다운로드 수와 뛰어난 추론 효율성을 자랑하는 멀티모달(Image-Text-to-Text) 모델"
     ],
     "tags": [
-      "#MoE_Architecture",
-      "#SoTA_Models",
       "#Autonomous_Agent",
+      "#SoTA_Models",
+      "#High_Engagement",
       "#Local_LLM",
-      "#High_Engagement"
+      "#MoE_Architecture"
     ]
   },
   "dow_stats": [],
@@ -46832,8 +46832,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 271 pts | Comments: 218 | VC isn't VC anymore",
-      "viral_metric": "🔥 271 HN Points",
+      "description": "HN Score: 285 pts | Comments: 222 | VC isn't VC anymore",
+      "viral_metric": "🔥 285 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -46841,13 +46841,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 271,
-          "display": "🔥 271 HN Points",
+          "value": 285,
+          "display": "🔥 285 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 263,
-        "delta_display": "+263",
-        "growth_rate_pct": 3287.5,
+        "delta": 277,
+        "delta_display": "+277",
+        "growth_rate_pct": 3462.5,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -69773,6 +69773,380 @@
     }
   ],
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_mongodb_컬렉션을_postgresql로_복사하고_동기화하기",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.922681",
+      "published_at": "2026-09-04T12:58:19.922681",
+      "created_at": "2026-09-04T12:58:19.922681",
+      "updated_at": "2026-09-04T12:58:19.922681",
+      "title": "GeekNews: MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33219",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+      "description_ko": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+      "hn_url": "https://news.hada.io/topic?id=33219",
+      "article_url": "https://news.hada.io/topic?id=33219"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_바둑_세계_1위_신진서_두_점_접바둑에서_ai_katago에_승리",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.910962",
+      "published_at": "2026-09-04T12:58:19.910962",
+      "created_at": "2026-09-04T12:58:19.910962",
+      "updated_at": "2026-09-04T12:58:19.910962",
+      "title": "GeekNews: 바둑 세계 1위 신진서, 두 점 접바둑에서 AI KataGo에 승리",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33220",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 바둑 세계 1위 신진서, 두 점 접바둑에서 AI KataGo에 승리",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "바둑 세계 1위 신진서, 두 점 접바둑에서 AI KataGo에 승리",
+      "description_ko": "바둑 세계 1위 신진서, 두 점 접바둑에서 AI KataGo에 승리",
+      "hn_url": "https://news.hada.io/topic?id=33220",
+      "article_url": "https://news.hada.io/topic?id=33220"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_cern_transitioning_computers_to_d",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.685668",
+      "published_at": "2026-09-04T09:11:03",
+      "created_at": "2026-09-04T09:11:03",
+      "updated_at": "2026-09-04T12:58:19.685668",
+      "title": "Hacker News: CERN Transitioning Computers To Debian After Being A Longtime RHEL Institution",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49562262",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 25 pts | Comments: 11 | CERN Transitioning Computers To Debian After Being A Longtime RHEL Institution",
+      "viral_metric": "🔥 25 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 25,
+          "display": "🔥 25 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 25,
+          "display": "🔥 25 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49562262",
+      "article_url": "https://www.phoronix.com/news/CERN-Goes-Debian-Leaving-RHEL"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_nearly_impossible_how_fairphone_b",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.650778",
+      "published_at": "2026-09-04T12:43:49",
+      "created_at": "2026-09-04T12:43:49",
+      "updated_at": "2026-09-04T12:58:19.650778",
+      "title": "Hacker News: Nearly impossible? How Fairphone built the ethical, repairable Fairphone Gen 6+",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49563784",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 4 pts | Comments: 0 | Nearly impossible? How Fairphone built the ethical, repairable Fairphone Gen 6+",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49563784",
+      "article_url": "https://arstechnica.com/gadgets/2026/09/nearly-impossible-how-fairphone-built-the-ethical-repairable-fairphone-gen-6/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_oscar_winner_brings_monsters_to_l",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.613672",
+      "published_at": "2026-08-31T15:10:58",
+      "created_at": "2026-08-31T15:10:58",
+      "updated_at": "2026-09-04T12:58:19.613672",
+      "title": "Hacker News: Oscar Winner Brings Monsters to Life with His Simulation Software",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49510738",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 14 pts | Comments: 1 | Oscar Winner Brings Monsters to Life with His Simulation Software",
+      "viral_metric": "🔥 14 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49510738",
+      "article_url": "https://spectrum.ieee.org/oscar-winner-jernej-barbic"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_1960s_theory_that_stonehenge_was_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.584080",
+      "published_at": "2026-08-31T09:57:34",
+      "created_at": "2026-08-31T09:57:34",
+      "updated_at": "2026-09-04T12:58:19.584080",
+      "title": "Hacker News: 1960s theory that Stonehenge was a prehistoric computer",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49507810",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 46 pts | Comments: 54 | 1960s theory that Stonehenge was a prehistoric computer",
+      "viral_metric": "🔥 46 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 46,
+          "display": "🔥 46 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 46,
+          "display": "🔥 46 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49507810",
+      "article_url": "https://www.bbc.com/culture/article/20260828-the-startling-1960s-theory-that-stonehenge-was-a-prehistoric-computer"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_elevator_of_the_year_winner_moder",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.533457",
+      "published_at": "2026-09-01T00:01:13",
+      "created_at": "2026-09-01T00:01:13",
+      "updated_at": "2026-09-04T12:58:19.533457",
+      "title": "Hacker News: Elevator of the Year Winner Modernization of the Metropolis Trust Building",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49516312",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 37 pts | Comments: 12 | Elevator of the Year Winner Modernization of the Metropolis Trust Building",
+      "viral_metric": "🔥 37 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 37,
+          "display": "🔥 37 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 37,
+          "display": "🔥 37 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49516312",
+      "article_url": "https://www.starelevator.com/projects/star-elevator-modernization-of-the-metropolis-trust-building"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_oo_shutup10_the_antispy_tool_for_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.521074",
+      "published_at": "2026-09-04T10:56:07",
+      "created_at": "2026-09-04T10:56:07",
+      "updated_at": "2026-09-04T12:58:19.521074",
+      "title": "Hacker News: O&O ShutUp10 – The antispy tool for Windows 10 and 11",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49562895",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 27 pts | Comments: 7 | O&O ShutUp10 – The antispy tool for Windows 10 and 11",
+      "viral_metric": "🔥 27 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 27,
+          "display": "🔥 27 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 27,
+          "display": "🔥 27 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49562895",
+      "article_url": "https://www.oo-software.com/en/shutup10"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_solving_the_jane_street_reverse_e",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.508427",
+      "published_at": "2026-09-04T10:17:01",
+      "created_at": "2026-09-04T10:17:01",
+      "updated_at": "2026-09-04T12:58:19.508427",
+      "title": "Hacker News: Solving the Jane Street Reverse Engineering Challenge",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49562657",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 129 pts | Comments: 42 | Solving the Jane Street Reverse Engineering Challenge",
+      "viral_metric": "🔥 129 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 129,
+          "display": "🔥 129 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 129,
+          "display": "🔥 129 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49562657",
+      "article_url": "https://jestoph.com/2026/09/04/jane-street-challenge.html"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_discovery_of_a_new_openai_agent_m",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.489097",
+      "published_at": "2026-09-04T11:54:53",
+      "created_at": "2026-09-04T11:54:53",
+      "updated_at": "2026-09-04T12:58:19.489097",
+      "title": "Hacker News: Discovery of a new OpenAI agent message board",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49563355",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 116 pts | Comments: 49 | Discovery of a new OpenAI agent message board",
+      "viral_metric": "🔥 116 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 116,
+          "display": "🔥 116 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 116,
+          "display": "🔥 116 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49563355",
+      "article_url": "https://collusion.wiki/"
+    },
     {
       "inbox_id": "2026-09-04_repo_github_lnkiaim3e_canvas",
       "harvested_date": "2026-09-04",
@@ -94314,8 +94688,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 271 pts | Comments: 218 | VC isn't VC anymore",
-      "viral_metric": "🔥 271 HN Points",
+      "description": "HN Score: 285 pts | Comments: 222 | VC isn't VC anymore",
+      "viral_metric": "🔥 285 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -94323,13 +94697,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 271,
-          "display": "🔥 271 HN Points",
+          "value": 285,
+          "display": "🔥 285 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 263,
-        "delta_display": "+263",
-        "growth_rate_pct": 3287.5,
+        "delta": 277,
+        "delta_display": "+277",
+        "growth_rate_pct": 3462.5,
         "is_spiking": true
       },
       "matched_user_domains": [
