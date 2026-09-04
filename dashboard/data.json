@@ -9,8 +9,8 @@
   "avg_confidence": 96.2,
   "models_total_count": 181,
   "news_total_count": 189,
-  "inbox_total_count": 627,
-  "all_inbox_count": 637,
+  "inbox_total_count": 634,
+  "all_inbox_count": 644,
   "admin_stats": {
     "endpoints": [
       {
@@ -45,6 +45,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T04:11:56.096782",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.17
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 85,
+            "duration_sec": 0.35
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.74
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 11.97
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.34
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.16
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 1.15
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.23
+          }
+        },
+        "summary": {
+          "total_fetched": 259,
+          "updated_count": 1,
+          "new_saved": 7,
+          "duplicates_skipped": 251,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-04T03:48:53.546943",
         "date": "2026-09-04",
@@ -1581,63 +1634,10 @@
           "duplicates_skipped": 0,
           "errors": 1
         }
-      },
-      {
-        "timestamp": "2026-09-02T10:01:25.669030",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.2
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.15
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.84
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 22,
-            "duration_sec": 14.55
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.44
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.24
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.96
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.23
-          }
-        },
-        "summary": {
-          "total_fetched": 162,
-          "updated_count": 161,
-          "new_saved": 1,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T03:48:53.546943",
+      "timestamp": "2026-09-04T04:11:56.096782",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
@@ -1648,45 +1648,45 @@
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 85,
-          "duration_sec": 0.34
+          "duration_sec": 0.35
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.88
+          "duration_sec": 0.74
         },
         "hacker_news": {
-          "status": "ERROR",
-          "error": "<urlopen error [Errno 104] Connection reset by peer>",
-          "duration_sec": 0.21
+          "status": "SUCCESS",
+          "items_found": 59,
+          "duration_sec": 11.97
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.54
+          "duration_sec": 0.34
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.23
+          "duration_sec": 0.16
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.03
+          "duration_sec": 1.15
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.29
+          "duration_sec": 0.23
         }
       },
       "summary": {
-        "total_fetched": 200,
-        "updated_count": 0,
-        "new_saved": 24,
-        "duplicates_skipped": 176,
-        "errors": 1
+        "total_fetched": 259,
+        "updated_count": 1,
+        "new_saved": 7,
+        "duplicates_skipped": 251,
+        "errors": 0
       }
     }
   },
@@ -1694,13 +1694,13 @@
     {
       "day_ko": "월",
       "day_en": "Mon",
-      "inbox_count": 144,
+      "inbox_count": 145,
       "verified_count": 10
     },
     {
       "day_ko": "화",
       "day_en": "Tue",
-      "inbox_count": 69,
+      "inbox_count": 71,
       "verified_count": 8
     },
     {
@@ -1718,7 +1718,7 @@
     {
       "day_ko": "금",
       "day_en": "Fri",
-      "inbox_count": 67,
+      "inbox_count": 71,
       "verified_count": 0
     },
     {
@@ -1779,7 +1779,7 @@
       "month_key": "2026-08",
       "month_ko": "8월",
       "month_en": "Aug",
-      "inbox_count": 147,
+      "inbox_count": 148,
       "verified_count": 13,
       "cumulative_verified": 29
     },
@@ -1787,7 +1787,7 @@
       "month_key": "2026-09",
       "month_ko": "9월",
       "month_en": "Sep",
-      "inbox_count": 480,
+      "inbox_count": 486,
       "verified_count": 22,
       "cumulative_verified": 35
     }
@@ -27465,8 +27465,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 234 pts | Comments: 196 | VC isn't VC anymore",
-      "viral_metric": "🔥 234 HN Points",
+      "description": "HN Score: 247 pts | Comments: 200 | VC isn't VC anymore",
+      "viral_metric": "🔥 247 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -27474,13 +27474,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 234,
-          "display": "🔥 234 HN Points",
+          "value": 247,
+          "display": "🔥 247 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 226,
-        "delta_display": "+226",
-        "growth_rate_pct": 2825.0,
+        "delta": 239,
+        "delta_display": "+239",
+        "growth_rate_pct": 2987.5,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -51596,6 +51596,43 @@
       "article_url": "https://www.nytimes.com/2026/08/31/us/wendell-berry-dead.html"
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_virtual_threads_for_a_scripting_l",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.865055",
+      "published_at": "2026-09-01T14:36:58",
+      "created_at": "2026-09-01T14:36:58",
+      "updated_at": "2026-09-04T04:12:11.865055",
+      "title": "Hacker News: Virtual Threads for a scripting language in Java 8 without Loom",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49522611",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 14 pts | Comments: 1 | Virtual Threads for a scripting language in Java 8 without Loom",
+      "viral_metric": "🔥 14 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49522611",
+      "article_url": "https://jactl.io/blog/2026/08/28/jactl-virtual-threads"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_true_rate_of_unemployment",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:25:53.413732",
@@ -51890,6 +51927,43 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49508608",
       "article_url": "https://werwolv.net/posts/file_format_reverse_engineering/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_project_xanadu_even_more_hindsigh",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.783010",
+      "published_at": "2026-09-04T01:45:23",
+      "created_at": "2026-09-04T01:45:23",
+      "updated_at": "2026-09-04T04:12:11.783010",
+      "title": "Hacker News: Project Xanadu: Even More Hindsight",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49559522",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 29 pts | Comments: 4 | Project Xanadu: Even More Hindsight",
+      "viral_metric": "🔥 29 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 29,
+          "display": "🔥 29 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 29,
+          "display": "🔥 29 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49559522",
+      "article_url": "https://gwern.net/xanadu"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_prediction_ai_will_collapse",
@@ -52262,6 +52336,43 @@
       "article_url": "https://moviescenemap.com/"
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_move_in_c_without_a_stdmove",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.913119",
+      "published_at": "2026-09-01T13:17:13",
+      "created_at": "2026-09-01T13:17:13",
+      "updated_at": "2026-09-04T04:12:11.913119",
+      "title": "Hacker News: Move in C++ without a std:move",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49521590",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 38 pts | Comments: 48 | Move in C++ without a std:move",
+      "viral_metric": "🔥 38 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 38,
+          "display": "🔥 38 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 38,
+          "display": "🔥 38 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49521590",
+      "article_url": "https://andreasfertig.com/blog/2026/09/move-in-cpp-without-a-stdmove/"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_launch_hn_ronanrx_yc_s26_personal",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:25:44.110328",
@@ -52447,6 +52558,43 @@
       "article_url": "https://signalundefied.bearblog.dev/i-wanna-live-an-npc-life/"
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_how_an_mit_research_project_becam",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.808375",
+      "published_at": "2026-08-31T08:26:09",
+      "created_at": "2026-08-31T08:26:09",
+      "updated_at": "2026-09-04T04:12:11.808375",
+      "title": "Hacker News: How an MIT research project became the Julia programming language",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49507072",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 35 pts | Comments: 6 | How an MIT research project became the Julia programming language",
+      "viral_metric": "🔥 35 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 35,
+          "display": "🔥 35 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 35,
+          "display": "🔥 35 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49507072",
+      "article_url": "https://news.mit.edu/2026/how-mit-research-project-became-global-programming-language-0831"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_holdens_lightning_flight",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:25:49.897062",
@@ -52558,6 +52706,43 @@
       "article_url": "https://status.x.ai/"
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_grep_beats_lsp_why_coding_agents_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.826452",
+      "published_at": "2026-09-04T03:40:26",
+      "created_at": "2026-09-04T03:40:26",
+      "updated_at": "2026-09-04T04:12:11.826452",
+      "title": "Hacker News: Grep beats LSP? Why coding agents ignore your fancier tools",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49560260",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 9 pts | Comments: 1 | Grep beats LSP? Why coding agents ignore your fancier tools",
+      "viral_metric": "🔥 9 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49560260",
+      "article_url": "https://www.agentconnect.md/blog/grep-beat-lsp-harness/"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_google_avoids_a_breakup_of_its_ad",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:25:49.875302",
@@ -52667,6 +52852,43 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49537553",
       "article_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_from_hookswitch_to_grave",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.817235",
+      "published_at": "2026-09-04T02:40:12",
+      "created_at": "2026-09-04T02:40:12",
+      "updated_at": "2026-09-04T04:12:11.817235",
+      "title": "Hacker News: From Hookswitch to Grave",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49559901",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 9 pts | Comments: 0 | From Hookswitch to Grave",
+      "viral_metric": "🔥 9 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49559901",
+      "article_url": "https://computer.rip/2026-06-14-hookswitch-to-grave.html"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_fine_ill_build_my_own_text_editor",
@@ -53259,6 +53481,43 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49535752",
       "article_url": "https://lwn.net/Articles/1090585/"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_a_mysterious_kidney_disease_has_a",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.794064",
+      "published_at": "2026-09-04T02:54:16",
+      "created_at": "2026-09-04T02:54:16",
+      "updated_at": "2026-09-04T04:12:11.794064",
+      "title": "Hacker News: A Mysterious Kidney Disease Has Arrived in Texas",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49559992",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 16 pts | Comments: 19 | A Mysterious Kidney Disease Has Arrived in Texas",
+      "viral_metric": "🔥 16 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 16,
+          "display": "🔥 16 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 16,
+          "display": "🔥 16 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49559992",
+      "article_url": "https://www.texasmonthly.com/news-politics/ckdu-kidney-disease-immigration/"
     },
     {
       "inbox_id": "2026-09-04_sns_geeknews_브라우저의_메인_스레드는_비싸다",
@@ -56863,8 +57122,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 234 pts | Comments: 196 | VC isn't VC anymore",
-      "viral_metric": "🔥 234 HN Points",
+      "description": "HN Score: 247 pts | Comments: 200 | VC isn't VC anymore",
+      "viral_metric": "🔥 247 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -56872,13 +57131,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 234,
-          "display": "🔥 234 HN Points",
+          "value": 247,
+          "display": "🔥 247 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 226,
-        "delta_display": "+226",
-        "growth_rate_pct": 2825.0,
+        "delta": 239,
+        "delta_display": "+239",
+        "growth_rate_pct": 2987.5,
         "is_spiking": true
       },
       "matched_user_domains": [
