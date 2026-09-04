@@ -9,8 +9,8 @@
   "avg_confidence": 96.2,
   "models_total_count": 111,
   "news_total_count": 97,
-  "inbox_total_count": 603,
-  "all_inbox_count": 613,
+  "inbox_total_count": 627,
+  "all_inbox_count": 637,
   "admin_stats": {
     "endpoints": [
       {
@@ -45,6 +45,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T03:48:53.546943",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.17
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 85,
+            "duration_sec": 0.34
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.88
+          },
+          "hacker_news": {
+            "status": "ERROR",
+            "error": "<urlopen error [Errno 104] Connection reset by peer>",
+            "duration_sec": 0.21
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.54
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.23
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 1.03
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.29
+          }
+        },
+        "summary": {
+          "total_fetched": 200,
+          "updated_count": 0,
+          "new_saved": 24,
+          "duplicates_skipped": 176,
+          "errors": 1
+        }
+      },
       {
         "timestamp": "2026-09-04T01:31:25.506173",
         "date": "2026-09-04",
@@ -1581,63 +1634,10 @@
           "duplicates_skipped": 0,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T08:19:48.996038",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.21
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.15
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.76
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 23,
-            "duration_sec": 14.23
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.27
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.13
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.72
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.19
-          }
-        },
-        "summary": {
-          "total_fetched": 163,
-          "updated_count": 162,
-          "new_saved": 1,
-          "duplicates_skipped": 0,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T01:31:25.506173",
+      "timestamp": "2026-09-04T03:48:53.546943",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
@@ -1648,45 +1648,45 @@
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 85,
-          "duration_sec": 0.33
+          "duration_sec": 0.34
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.73
+          "duration_sec": 0.88
         },
         "hacker_news": {
-          "status": "SUCCESS",
-          "items_found": 59,
-          "duration_sec": 10.78
+          "status": "ERROR",
+          "error": "<urlopen error [Errno 104] Connection reset by peer>",
+          "duration_sec": 0.21
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.57
+          "duration_sec": 0.54
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.16
+          "duration_sec": 0.23
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.89
+          "duration_sec": 1.03
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.14
+          "duration_sec": 0.29
         }
       },
       "summary": {
-        "total_fetched": 259,
-        "updated_count": 1,
-        "new_saved": 35,
-        "duplicates_skipped": 223,
-        "errors": 0
+        "total_fetched": 200,
+        "updated_count": 0,
+        "new_saved": 24,
+        "duplicates_skipped": 176,
+        "errors": 1
       }
     }
   },
@@ -1718,7 +1718,7 @@
     {
       "day_ko": "금",
       "day_en": "Fri",
-      "inbox_count": 43,
+      "inbox_count": 67,
       "verified_count": 0
     },
     {
@@ -1787,7 +1787,7 @@
       "month_key": "2026-09",
       "month_ko": "9월",
       "month_en": "Sep",
-      "inbox_count": 456,
+      "inbox_count": 480,
       "verified_count": 22,
       "cumulative_verified": 35
     }
@@ -32319,6 +32319,123 @@
       "article_url": "https://news.hada.io/topic?id=33205"
     },
     {
+      "inbox_id": "2026-09-04_sns_geeknews_모든_ceo가_알아야_할_ai_거버넌스",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:49:00.329061",
+      "published_at": "2026-09-04T03:49:00.329061",
+      "created_at": "2026-09-04T03:49:00.329061",
+      "updated_at": "2026-09-04T03:49:00.329061",
+      "title": "GeekNews: 모든 CEO가 알아야 할 AI 거버넌스",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33213",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 모든 CEO가 알아야 할 AI 거버넌스",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "모든 CEO가 알아야 할 AI 거버넌스",
+      "description_ko": "모든 CEO가 알아야 할 AI 거버넌스",
+      "hn_url": "https://news.hada.io/topic?id=33213",
+      "article_url": "https://news.hada.io/topic?id=33213"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_동굴을_나와라",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:49:00.322871",
+      "published_at": "2026-09-04T03:49:00.322871",
+      "created_at": "2026-09-04T03:49:00.322871",
+      "updated_at": "2026-09-04T03:49:00.322871",
+      "title": "GeekNews: 동굴을 나와라",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33216",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 동굴을 나와라",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "동굴을 나와라",
+      "description_ko": "동굴을 나와라",
+      "hn_url": "https://news.hada.io/topic?id=33216",
+      "article_url": "https://news.hada.io/topic?id=33216"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_당신의_지능을_소유하라_소버린_ai_실전_가이드",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:49:00.335277",
+      "published_at": "2026-09-04T03:49:00.335277",
+      "created_at": "2026-09-04T03:49:00.335277",
+      "updated_at": "2026-09-04T03:49:00.335277",
+      "title": "GeekNews: 당신의 지능을 소유하라: 소버린 AI 실전 가이드",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33211",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 당신의 지능을 소유하라: 소버린 AI 실전 가이드",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "당신의 지능을 소유하라: 소버린 AI 실전 가이드",
+      "description_ko": "당신의 지능을 소유하라: 소버린 AI 실전 가이드",
+      "hn_url": "https://news.hada.io/topic?id=33211",
+      "article_url": "https://news.hada.io/topic?id=33211"
+    },
+    {
       "inbox_id": "2026-09-04_sns_geeknews_vc는_더_이상_vc가_아니다",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:31:41.911749",
@@ -32780,6 +32897,41 @@
       "status": "PENDING_REVIEW"
     },
     {
+      "inbox_id": "2026-09-04_repo_hf_space_rchokswan555",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:57.425895",
+      "published_at": "2026-09-04T03:48:57.425895",
+      "created_at": "2026-09-04T03:48:57.425895",
+      "updated_at": "2026-09-04T03:48:57.425895",
+      "title": "HF Space: Rchoks/wan555",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Rchoks/wan555",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 156 | Live URL: https://huggingface.co/spaces/Rchoks/wan555",
+      "viral_metric": "❤️ 156 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 156,
+          "display": "❤️ 156 Likes (Trending Demo)",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 156,
+          "display": "❤️ 156 Likes (Trending Demo)",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-04_repo_hacker_news_ita_controlled_english_ce",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:31:40.808317",
@@ -33031,6 +33183,112 @@
       "status": "PENDING_REVIEW"
     },
     {
+      "inbox_id": "2026-09-04_repo_arxiv_the_natural_language_interaction_protoc",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:49:00.305360",
+      "published_at": "2026-09-04T03:49:00.305360",
+      "created_at": "2026-09-04T03:49:00.305360",
+      "updated_at": "2026-09-04T03:49:00.305360",
+      "title": "ArXiv: The Natural Language Interaction Protocol and Standard for AI Agents",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04135v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: AI agents are increasingly being developed and deployed across organizations using heterogeneous agent-development frameworks, AI models, tool interfaces, protocols, and execution environments. To rea...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_terminal_universe_turning_agent_traject",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:59.440037",
+      "published_at": "2026-09-04T03:48:59.440037",
+      "created_at": "2026-09-04T03:48:59.440037",
+      "updated_at": "2026-09-04T03:48:59.440037",
+      "title": "ArXiv: Terminal-Universe: Turning Agent Trajectories into Scalable Terminal Environments",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04148v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: As terminal-based code agents become prevalent, agent trajectories have accumulated at scale, while realistic, executable environments remain scarce. However, environments are what agent post-training...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_swe_gate_passing_functional_tests_is_no",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:58.505152",
+      "published_at": "2026-09-04T03:48:58.505152",
+      "created_at": "2026-09-04T03:48:58.505152",
+      "updated_at": "2026-09-04T03:48:58.505152",
+      "title": "ArXiv: SWE-Gate: Passing Functional Tests Is Not Enough for Software Engineering Agents",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04167v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Repository-level software engineering benchmarks have significantly advanced the evaluation of coding agents, but existing benchmarks primarily measure whether generated patches pass functional tests ...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-04_repo_arxiv_stair_structure_aware_information_retri",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:31:41.885575",
@@ -33102,6 +33360,76 @@
       "status": "PENDING_REVIEW"
     },
     {
+      "inbox_id": "2026-09-04_repo_arxiv_sentinel_rl_offloading_topological_reas",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:59.433903",
+      "published_at": "2026-09-04T03:48:59.433903",
+      "created_at": "2026-09-04T03:48:59.433903",
+      "updated_at": "2026-09-04T03:48:59.433903",
+      "title": "ArXiv: SENTINEL-RL: Offloading Topological Reasoning from LLM Agents in the Security Operations Center",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04159v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Large language model (LLM) agents are increasingly proposed as autonomous SOC analysts, but two limitations make them unreliable at enterprise scale: a finite context window cannot hold a multi-thousa...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_seeing_before_synthesizing_vlm_guided_t",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:58.472070",
+      "published_at": "2026-09-04T03:48:58.472070",
+      "created_at": "2026-09-04T03:48:58.472070",
+      "updated_at": "2026-09-04T03:48:58.472070",
+      "title": "ArXiv: Seeing Before Synthesizing: VLM-Guided Transition Event Discovery for Weakly-Supervised Dense Video Captioning",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04183v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Weakly-Supervised Dense Video Captioning aims to localize and describe multiple events in untrimmed videos given only an ordered set of event-level captions per video. Recent work synthesizes auxiliar...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-04_repo_arxiv_rulemem_active_rule_memory_for_long_ter",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:31:41.003365",
@@ -33133,6 +33461,41 @@
       },
       "matched_user_domains": [
         "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_rethinking_on_policy_distillation_of_la",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:58.494150",
+      "published_at": "2026-09-04T03:48:58.494150",
+      "created_at": "2026-09-04T03:48:58.494150",
+      "updated_at": "2026-09-04T03:48:58.494150",
+      "title": "ArXiv: Rethinking On-Policy Distillation of Large Language Models II: One Training Example",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04172v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: On-policy distillation (OPD) combines student-generated rollouts with dense token-level supervision from a teacher. Existing work has mainly studied its algorithmic behavior, leaving the role of train...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW"
     },
@@ -33169,6 +33532,41 @@
       "matched_user_domains": [
         "엔터프라이즈 RAG & 문서 파싱 인프라",
         "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_one_editor_many_edits_a_unified_trainin",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:58.466360",
+      "published_at": "2026-09-04T03:48:58.466360",
+      "created_at": "2026-09-04T03:48:58.466360",
+      "updated_at": "2026-09-04T03:48:58.466360",
+      "title": "ArXiv: One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04190v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Video editing spans diverse editing paradigms, yet achieving high-quality instruction-guided and subject-guided editing within a single unified framework remains challenging. We introduce EditVid, a t...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
       ],
       "status": "PENDING_REVIEW"
     },
@@ -33220,6 +33618,111 @@
       "type": "repo",
       "category_type": "TECH",
       "description": "Abstract: Hierarchical Task Network (HTN) planning is a powerful planning formalism based on task decomposition. Although most of the literature studied plan generation, comparatively less attention has been pa...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_legibility_is_not_interpretability_comp",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:58.460052",
+      "published_at": "2026-09-04T03:48:58.460052",
+      "created_at": "2026-09-04T03:48:58.460052",
+      "updated_at": "2026-09-04T03:48:58.460052",
+      "title": "ArXiv: Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought Reasoning",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04194v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Reasoning traces from chain-of-thought models appear to offer a legible window into how a model arrives at its answer. A growing body of work treats them as such, using LLM judges to diagnose errors, ...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_last_translation_benchmark",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:58.488621",
+      "published_at": "2026-09-04T03:48:58.488621",
+      "created_at": "2026-09-04T03:48:58.488621",
+      "updated_at": "2026-09-04T03:48:58.488621",
+      "title": "ArXiv: Last Translation Benchmark",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04173v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: For scientific progress, we need benchmarks that test the limits of state-of-the-art models, and evaluation methods that inform us about failure cases. As models get stronger, standard benchmarks for ...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_knowledge_acquisition_during_pre_traini",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:58.477836",
+      "published_at": "2026-09-04T03:48:58.477836",
+      "created_at": "2026-09-04T03:48:58.477836",
+      "updated_at": "2026-09-04T03:48:58.477836",
+      "title": "ArXiv: Knowledge Acquisition During Pre-training? Large Language Models Learn Better With Auxiliary Views",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04180v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Gaps remain in our understanding of how large language models (LLMs) acquire knowledge during pre-training. We posit that auxiliary views, reformulations of knowledge, are causally helpful for learnin...",
       "viral_metric": "ArXiv Primary Paper",
       "metric_tracking": {
         "initial": {
@@ -33419,6 +33922,41 @@
       "status": "PENDING_REVIEW"
     },
     {
+      "inbox_id": "2026-09-04_repo_arxiv_from_deceptive_outputs_to_deceptive_mec",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:58.510709",
+      "published_at": "2026-09-04T03:48:58.510709",
+      "created_at": "2026-09-04T03:48:58.510709",
+      "updated_at": "2026-09-04T03:48:58.510709",
+      "title": "ArXiv: From Deceptive Outputs to Deceptive Mechanisms: A Causal Framework for Language-Model Deception Research",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04166v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Research and news coverage of language-model deception increasingly attributes human-like mental-state concepts to language models. Such claims can blur the distinction between behavior that looks dec...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "엔터프라이즈 RAG & 문서 파싱 인프라"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-04_repo_arxiv_fixed_suffix_dependency_ratio_quantifyi",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:31:40.978421",
@@ -33450,6 +33988,146 @@
       },
       "matched_user_domains": [
         "정량 데이터 분석 & 벤치마크 감사"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_espo_error_structured_prompt_optimizati",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:57.565044",
+      "published_at": "2026-09-04T03:48:57.565044",
+      "created_at": "2026-09-04T03:48:57.565044",
+      "updated_at": "2026-09-04T03:48:57.565044",
+      "title": "ArXiv: ESPO: Error-Structured Prompt Optimization via Diagnose, Diversify, and Stabilize",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04197v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Evolutionary prompt optimizers such as GEPA suffer from prompt bloat: each iteration appends rules and caveats, producing prompts up to 3$\\times$ longer yet no more accurate. We trace this to three de...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_epistemic_warrant_for_llm_recommendatio",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:49:00.316996",
+      "published_at": "2026-09-04T03:49:00.316996",
+      "created_at": "2026-09-04T03:49:00.316996",
+      "updated_at": "2026-09-04T03:49:00.316996",
+      "title": "ArXiv: Epistemic Warrant for LLM Recommendations: Characterizing the Basis for Reliance When Ground Truth Is Unavailable",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04127v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Large language models are increasingly used to support organizational decisions, yet users often lack a principled basis for assessing whether to rely on a specific recommendation. Existing approaches...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_environment_evolution_for_terminal_agen",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:49:00.311308",
+      "published_at": "2026-09-04T03:49:00.311308",
+      "created_at": "2026-09-04T03:49:00.311308",
+      "updated_at": "2026-09-04T03:49:00.311308",
+      "title": "ArXiv: Environment Evolution for Terminal Agents",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04128v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Scaling interactive and verifiable environments is critical for training terminal agents. As frontier models become more capable, environments synthesized from scratch become less challenging and thus...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_efficient_test_time_adaptation_through_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:59.451509",
+      "published_at": "2026-09-04T03:48:59.451509",
+      "created_at": "2026-09-04T03:48:59.451509",
+      "updated_at": "2026-09-04T03:48:59.451509",
+      "title": "ArXiv: Efficient Test-Time Adaptation through Human-AI Interaction",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04141v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: AI agents are trained on population-scale data to encode broad capabilities spanning those of many practitioners. Yet the artifacts they produce rarely meet the personal bar professionals need to stak...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
       ],
       "status": "PENDING_REVIEW"
     },
@@ -33501,6 +34179,76 @@
       "type": "repo",
       "category_type": "TECH",
       "description": "Abstract: Large language models (LLMs) have become ubiquitous tools for code generation and editing. However, development teams often use multiple LLM assistants. Different developers may prefer different model...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_compile_by_training_turning_natural_lan",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:57.553890",
+      "published_at": "2026-09-04T03:48:57.553890",
+      "created_at": "2026-09-04T03:48:57.553890",
+      "updated_at": "2026-09-04T03:48:57.553890",
+      "title": "ArXiv: Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04199v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a prov...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_clean_engineering_unstable_measurement_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:57.559552",
+      "published_at": "2026-09-04T03:48:57.559552",
+      "created_at": "2026-09-04T03:48:57.559552",
+      "updated_at": "2026-09-04T03:48:57.559552",
+      "title": "ArXiv: Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04198v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Language-model judges now gate training data, score generations, and drive leaderboards. The judge is then a measurement instrument, resting on one rarely stated assumption: the same request, sent to ...",
       "viral_metric": "ArXiv Primary Paper",
       "metric_tracking": {
         "initial": {
@@ -33590,6 +34338,111 @@
       },
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_a_low_cost_open_platform_for_end_to_end",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:59.445865",
+      "published_at": "2026-09-04T03:48:59.445865",
+      "created_at": "2026-09-04T03:48:59.445865",
+      "updated_at": "2026-09-04T03:48:59.445865",
+      "title": "ArXiv: A Low-Cost, Open Platform for End-to-End Autonomous Driving on a Miniature Ackermann Vehicle",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04147v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: This paper presents a low-cost, open experimental platform for research in end-to-end autonomous driving with miniature Ackermann vehicles. The platform combines a physical vehicle, a printed urban tr...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_a_computationally_feasible_framework_fo",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:58.483330",
+      "published_at": "2026-09-04T03:48:58.483330",
+      "created_at": "2026-09-04T03:48:58.483330",
+      "updated_at": "2026-09-04T03:48:58.483330",
+      "title": "ArXiv: A Computationally Feasible Framework for Causal Probabilistic Explanation",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04177v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Explaining why a specific outcome occurred, and which inputs deserve the blame or credit, is central to philosophical, scientific, and policy analysis. Existing tools split into two camps. The theory ...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_arxiv_a_case_study_on_emergent_cheating_and_w",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:58.499652",
+      "published_at": "2026-09-04T03:48:58.499652",
+      "created_at": "2026-09-04T03:48:58.499652",
+      "updated_at": "2026-09-04T03:48:58.499652",
+      "title": "ArXiv: A Case Study on Emergent Cheating and Whistleblowing in Autonomous Research Swarms",
+      "source_platform": "ArXiv Preprint",
+      "source_url": "http://arxiv.org/abs/2609.04170v1",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Abstract: Multi-agent AI science ecosystems rely on agents possessing tools that allow them to communicate, coordinate, and build on each other's work. Yet this shared infrastructure can also introduce vulnerab...",
+      "viral_metric": "ArXiv Primary Paper",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "ArXiv Primary Paper",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
       ],
       "status": "PENDING_REVIEW"
     },
