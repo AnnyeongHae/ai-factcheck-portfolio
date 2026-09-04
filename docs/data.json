@@ -9,8 +9,8 @@
   "avg_confidence": 96.2,
   "models_total_count": 181,
   "news_total_count": 189,
-  "inbox_total_count": 634,
-  "all_inbox_count": 644,
+  "inbox_total_count": 635,
+  "all_inbox_count": 645,
   "admin_stats": {
     "endpoints": [
       {
@@ -45,6 +45,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T04:30:53.761597",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.26
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 85,
+            "duration_sec": 0.35
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.8
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 14.47
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.27
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.13
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.81
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.27
+          }
+        },
+        "summary": {
+          "total_fetched": 259,
+          "updated_count": 1,
+          "new_saved": 1,
+          "duplicates_skipped": 257,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-04T04:11:56.096782",
         "date": "2026-09-04",
@@ -1581,69 +1634,16 @@
           "duplicates_skipped": 103,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-02T12:29:12.803030",
-        "date": "2026-09-02",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.3
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.18
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.76
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 21,
-            "duration_sec": 14.34
-          },
-          "arxiv": {
-            "status": "ERROR",
-            "error": "The read operation timed out",
-            "duration_sec": 12.4
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.16
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.85
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.42
-          }
-        },
-        "summary": {
-          "total_fetched": 141,
-          "updated_count": 132,
-          "new_saved": 9,
-          "duplicates_skipped": 0,
-          "errors": 1
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T04:11:56.096782",
+      "timestamp": "2026-09-04T04:30:53.761597",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.17
+          "duration_sec": 0.26
         },
         "hf_spaces": {
           "status": "SUCCESS",
@@ -1653,39 +1653,39 @@
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.74
+          "duration_sec": 0.8
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 11.97
+          "duration_sec": 14.47
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.34
+          "duration_sec": 0.27
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.16
+          "duration_sec": 0.13
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.15
+          "duration_sec": 0.81
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.23
+          "duration_sec": 0.27
         }
       },
       "summary": {
         "total_fetched": 259,
         "updated_count": 1,
-        "new_saved": 7,
-        "duplicates_skipped": 251,
+        "new_saved": 1,
+        "duplicates_skipped": 257,
         "errors": 0
       }
     }
@@ -1712,7 +1712,7 @@
     {
       "day_ko": "목",
       "day_en": "Thu",
-      "inbox_count": 227,
+      "inbox_count": 228,
       "verified_count": 6
     },
     {
@@ -1787,7 +1787,7 @@
       "month_key": "2026-09",
       "month_ko": "9월",
       "month_en": "Sep",
-      "inbox_count": 486,
+      "inbox_count": 487,
       "verified_count": 22,
       "cumulative_verified": 35
     }
@@ -27465,8 +27465,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 247 pts | Comments: 200 | VC isn't VC anymore",
-      "viral_metric": "🔥 247 HN Points",
+      "description": "HN Score: 249 pts | Comments: 201 | VC isn't VC anymore",
+      "viral_metric": "🔥 249 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -27474,13 +27474,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 247,
-          "display": "🔥 247 HN Points",
+          "value": 249,
+          "display": "🔥 249 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 239,
-        "delta_display": "+239",
-        "growth_rate_pct": 2987.5,
+        "delta": 241,
+        "delta_display": "+241",
+        "growth_rate_pct": 3012.5,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -51855,6 +51855,43 @@
       "article_url": "https://aginggamer.net/game-industry/sony-makes-bold-claim-about-game-ownership/"
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_show_hn_reactor_atlas",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:31:11.838932",
+      "published_at": "2026-09-03T12:33:01",
+      "created_at": "2026-09-03T12:33:01",
+      "updated_at": "2026-09-04T04:31:11.838932",
+      "title": "Hacker News: Show HN: Reactor Atlas",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49549148",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 5 pts | Comments: 0 | Show HN: Reactor Atlas",
+      "viral_metric": "🔥 5 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49549148",
+      "article_url": "https://reactoratlas.com"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_show_hn_i_made_a_word_building_ga",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:31:40.821304",
@@ -57122,8 +57159,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 247 pts | Comments: 200 | VC isn't VC anymore",
-      "viral_metric": "🔥 247 HN Points",
+      "description": "HN Score: 249 pts | Comments: 201 | VC isn't VC anymore",
+      "viral_metric": "🔥 249 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -57131,13 +57168,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 247,
-          "display": "🔥 247 HN Points",
+          "value": 249,
+          "display": "🔥 249 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 239,
-        "delta_display": "+239",
-        "growth_rate_pct": 2987.5,
+        "delta": 241,
+        "delta_display": "+241",
+        "growth_rate_pct": 3012.5,
         "is_spiking": true
       },
       "matched_user_domains": [
