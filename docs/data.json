@@ -10,8 +10,8 @@
   "avg_confidence": 96.2,
   "models_total_count": 190,
   "news_total_count": 291,
-  "inbox_total_count": 638,
-  "all_inbox_count": 648,
+  "inbox_total_count": 642,
+  "all_inbox_count": 652,
   "admin_stats": {
     "endpoints": [
       {
@@ -46,6 +46,112 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T07:27:04.175172",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.16
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 83,
+            "duration_sec": 0.26
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.86
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 10.83
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.2
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.15
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.73
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.2
+          }
+        },
+        "summary": {
+          "total_fetched": 257,
+          "updated_count": 1,
+          "new_saved": 3,
+          "duplicates_skipped": 253,
+          "errors": 0
+        }
+      },
+      {
+        "timestamp": "2026-09-04T06:34:36.541564",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.23
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 83,
+            "duration_sec": 0.3
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.91
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 11.18
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.38
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.26
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 1.07
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.3
+          }
+        },
+        "summary": {
+          "total_fetched": 257,
+          "updated_count": 1,
+          "new_saved": 1,
+          "duplicates_skipped": 255,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-04T05:53:07.858115",
         "date": "2026-09-04",
@@ -1529,157 +1635,51 @@
           "duplicates_skipped": 161,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T04:23:05.996699",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.24
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.14
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.88
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 23,
-            "duration_sec": 15.72
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.14
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.09
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.63
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.25
-          }
-        },
-        "summary": {
-          "total_fetched": 163,
-          "updated_count": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 163,
-          "errors": 0
-        }
-      },
-      {
-        "timestamp": "2026-09-03T04:14:08.548982",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.2
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.16
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.89
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 23,
-            "duration_sec": 14.4
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 10.83
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.1
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.83
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.33
-          }
-        },
-        "summary": {
-          "total_fetched": 163,
-          "updated_count": 0,
-          "new_saved": 24,
-          "duplicates_skipped": 139,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T05:53:07.858115",
+      "timestamp": "2026-09-04T07:27:04.175172",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.27
+          "duration_sec": 0.16
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 83,
-          "duration_sec": 0.34
+          "duration_sec": 0.26
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 1.13
+          "duration_sec": 0.86
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 12.53
+          "duration_sec": 10.83
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.63
+          "duration_sec": 0.2
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.14
+          "duration_sec": 0.15
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.78
+          "duration_sec": 0.73
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.28
+          "duration_sec": 0.2
         }
       },
       "summary": {
@@ -37887,8 +37887,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 257 pts | Comments: 209 | VC isn't VC anymore",
-      "viral_metric": "🔥 257 HN Points",
+      "description": "HN Score: 263 pts | Comments: 215 | VC isn't VC anymore",
+      "viral_metric": "🔥 263 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -37896,13 +37896,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 257,
-          "display": "🔥 257 HN Points",
+          "value": 263,
+          "display": "🔥 263 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 249,
-        "delta_display": "+249",
-        "growth_rate_pct": 3112.5,
+        "delta": 255,
+        "delta_display": "+255",
+        "growth_rate_pct": 3187.5,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -69383,6 +69383,80 @@
       "description_ko": "해커뉴스에서 58점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_inside_colombias_cocaine_factorie",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T06:34:51.805009",
+      "published_at": "2026-09-01T10:41:05",
+      "created_at": "2026-09-01T10:41:05",
+      "updated_at": "2026-09-04T06:34:51.805009",
+      "title": "Hacker News: Inside Colombia's Cocaine Factories",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49520170",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 5 pts | Comments: 1 | Inside Colombia's Cocaine Factories",
+      "viral_metric": "🔥 5 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49520170",
+      "article_url": "https://www.economist.com/interactive/1843/2026/08/28/inside-colombias-cocaine-factories"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_in_defense_of_two_state_theme_tog",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T07:27:18.307432",
+      "published_at": "2026-09-01T12:20:50",
+      "created_at": "2026-09-01T12:20:50",
+      "updated_at": "2026-09-04T07:27:18.307432",
+      "title": "Hacker News: In defense of two-state theme toggles",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49520978",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 4 pts | Comments: 4 | In defense of two-state theme toggles",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49520978",
+      "article_url": "https://joshcollinsworth.com/blog/in-defense-of-two-state-theme-toggles"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_i_wanna_live_an_npc_life",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:25:53.448522",
@@ -69806,6 +69880,43 @@
       "enriched_by": "gemini-3.6-flash-batch-api",
       "enriched_at": "2026-09-04T14:48:40.844349",
       "description_ko": "해커뉴스에서 952점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_hackers_had_a_live_feed_of_every_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T07:27:18.255257",
+      "published_at": "2026-09-04T06:47:51",
+      "created_at": "2026-09-04T06:47:51",
+      "updated_at": "2026-09-04T07:27:18.255257",
+      "title": "Hacker News: Hackers Had a Live Feed of Every ID Verification Company Scanned for over a Year",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49561320",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 24 pts | Comments: 4 | Hackers Had a Live Feed of Every ID Verification Company Scanned for over a Year",
+      "viral_metric": "🔥 24 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 24,
+          "display": "🔥 24 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 24,
+          "display": "🔥 24 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49561320",
+      "article_url": "http://www.techdirt.com/2026/09/03/hackers-had-a-live-feed-of-every-id-this-verification-company-scanned-for-over-a-year/"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_grok_outage",
@@ -72513,6 +72624,45 @@
       "article_url": "https://www.texasmonthly.com/news-politics/ckdu-kidney-disease-immigration/",
       "title_ko": "A Mysterious Kidney Disease Has Arrived in Texas",
       "description_ko": "해커뉴스에서 16점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_오랫동안_rhel을_사용해_온_cern_산업용_컴퓨터를_debia",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T07:27:18.562991",
+      "published_at": "2026-09-04T07:27:18.562991",
+      "created_at": "2026-09-04T07:27:18.562991",
+      "updated_at": "2026-09-04T07:27:18.562991",
+      "title": "GeekNews: 오랫동안 RHEL을 사용해 온 CERN, 산업용 컴퓨터를 Debian으로 전환",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33217",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 오랫동안 RHEL을 사용해 온 CERN, 산업용 컴퓨터를 Debian으로 전환",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "오랫동안 RHEL을 사용해 온 CERN, 산업용 컴퓨터를 Debian으로 전환",
+      "description_ko": "오랫동안 RHEL을 사용해 온 CERN, 산업용 컴퓨터를 Debian으로 전환",
+      "hn_url": "https://news.hada.io/topic?id=33217",
+      "article_url": "https://news.hada.io/topic?id=33217"
     },
     {
       "inbox_id": "2026-09-04_sns_geeknews_브라우저의_메인_스레드는_비싸다",
@@ -80684,8 +80834,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 257 pts | Comments: 209 | VC isn't VC anymore",
-      "viral_metric": "🔥 257 HN Points",
+      "description": "HN Score: 263 pts | Comments: 215 | VC isn't VC anymore",
+      "viral_metric": "🔥 263 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -80693,13 +80843,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 257,
-          "display": "🔥 257 HN Points",
+          "value": 263,
+          "display": "🔥 263 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 249,
-        "delta_display": "+249",
-        "growth_rate_pct": 3112.5,
+        "delta": 255,
+        "delta_display": "+255",
+        "growth_rate_pct": 3187.5,
         "is_spiking": true
       },
       "matched_user_domains": [
