@@ -8,10 +8,10 @@
   "half_true_count": 10,
   "gamed_count": 2,
   "avg_confidence": 96.2,
-  "models_total_count": 197,
-  "news_total_count": 360,
-  "inbox_total_count": 701,
-  "all_inbox_count": 712,
+  "models_total_count": 199,
+  "news_total_count": 373,
+  "inbox_total_count": 716,
+  "all_inbox_count": 727,
   "admin_stats": {
     "endpoints": [
       {
@@ -46,6 +46,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T19:57:05.854791",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.18
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 85,
+            "duration_sec": 0.32
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.9
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 15.58
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.51
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.17
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.87
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.21
+          }
+        },
+        "summary": {
+          "total_fetched": 259,
+          "updated_count": 1,
+          "new_saved": 15,
+          "duplicates_skipped": 243,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-04T17:51:43.442261",
         "date": "2026-09-04",
@@ -1582,84 +1635,31 @@
           "duplicates_skipped": 165,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T06:50:40.503191",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.25
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.16
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.91
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 13.34
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.32
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.17
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.96
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.18
-          }
-        },
-        "summary": {
-          "total_fetched": 165,
-          "updated_count": 0,
-          "new_saved": 1,
-          "duplicates_skipped": 164,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T17:51:43.442261",
+      "timestamp": "2026-09-04T19:57:05.854791",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.24
+          "duration_sec": 0.18
         },
         "hf_spaces": {
           "status": "SUCCESS",
-          "items_found": 84,
+          "items_found": 85,
           "duration_sec": 0.32
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 1.25
+          "duration_sec": 0.9
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 12.18
+          "duration_sec": 15.58
         },
         "arxiv": {
           "status": "SUCCESS",
@@ -1669,24 +1669,24 @@
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.22
+          "duration_sec": 0.17
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.06
+          "duration_sec": 0.87
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.27
+          "duration_sec": 0.21
         }
       },
       "summary": {
-        "total_fetched": 258,
+        "total_fetched": 259,
         "updated_count": 1,
-        "new_saved": 28,
-        "duplicates_skipped": 229,
+        "new_saved": 15,
+        "duplicates_skipped": 243,
         "errors": 0
       }
     }
@@ -1706,9 +1706,9 @@
       "slot": "03시",
       "hour": 3,
       "range": "03:00 - 05:59",
-      "inbox_count": 0,
-      "model_count": 0,
-      "news_count": 0,
+      "inbox_count": 15,
+      "model_count": 2,
+      "news_count": 13,
       "is_current": true,
       "is_future": false
     },
@@ -1777,23 +1777,283 @@
     "window_label": "00:00 ~ 06:00 KST",
     "window_period": "심야 글로벌 AI 릴리스 펄스",
     "today_kst": "2026-09-05",
-    "updated_at": "03:21 KST",
+    "updated_at": "05:08 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
       "🔥 [Hugging Face Models] GLM-5.3-Flash: 초경량 고성능 비전-언어 멀티모달 모델 (Trending 1796 pts (❤️ 1923)) — 높은 다운로드 수와 뛰어난 추론 효율성을 자랑하는 멀티모달(Image-Text-to-Text) 모델"
     ],
     "tags": [
-      "#Autonomous_Agent",
-      "#MoE_Architecture",
       "#Local_LLM",
       "#SoTA_Models",
+      "#MoE_Architecture",
+      "#Autonomous_Agent",
       "#High_Engagement"
     ]
   },
   "dow_stats": [],
   "monthly_stats": [],
   "model_items": [
+    {
+      "inbox_id": "2026-09-04_repo_hf_space_malcolmreybrowser",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:25.769872",
+      "published_at": "2026-09-04T19:57:25.769872",
+      "created_at": "2026-09-04T19:57:25.769872",
+      "updated_at": "2026-09-04T19:57:25.769872",
+      "title": "HF Space: malcolmrey/browser",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/malcolmrey/browser",
+      "type": "repo",
+      "category_type": "AGENT",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 412 | Live URL: https://huggingface.co/spaces/malcolmrey/browser",
+      "viral_metric": "❤️ 412 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 412,
+          "display": "❤️ 412 Likes (Trending Demo)",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 412,
+          "display": "❤️ 412 Likes (Trending Demo)",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_hf_space_malcolmreybrowser",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "Browser Automation / Interactive AI Demo",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Hugging Face Spaces",
+          "browser automation",
+          "interactive demo"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "HF 스페이스 데모: malcolmrey/browser - 브라우저 자동화 AI 데모",
+            "hook": "정적 SDK로 구축된 대화형 브라우저 AI 데모로, 클릭 한 번으로 웹 작업을 자동화할 수 있습니다.",
+            "key_takeaways": [
+              "Hugging Face Spaces에서 실행되는 대화형 브라우저 AI 데모입니다.",
+              "정적 SDK를 사용하여 웹 탐색 및 상호작용을 자동화할 수 있습니다.",
+              "412명의 사용자로부터 좋아요를 받았으며, 실제 데모는 라이브 URL에서 확인할 수 있습니다."
+            ]
+          },
+          "en": {
+            "title": "HF Space Demo: malcolmrey/browser – Browser Automation AI Demo",
+            "hook": "An interactive browser AI demo built with a static SDK to automate web tasks at a click.",
+            "key_takeaways": [
+              "An interactive AI demo hosted on Hugging Face Spaces for browser automation.",
+              "Uses a static SDK to automate web navigation and interactions.",
+              "Liked by 412 users; live demo available via the provided URL."
+            ]
+          },
+          "zh": {
+            "title": "HF 空间演示：malcolmrey/browser——浏览器自动化 AI 演示",
+            "hook": "一个基于静态 SDK 的交互式浏览器 AI 演示，可一键自动化网页操作。",
+            "key_takeaways": [
+              "一个托管在 Hugging Face Spaces 上的交互式浏览器自动化 AI 演示。",
+              "使用静态 SDK 自动化网页导航和交互。",
+              "获得 412 位用户的点赞，实时演示可通过提供的 URL 访问。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T19:59:20.517396+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "HF 스페이스 데모: malcolmrey/browser - 브라우저 자동화 AI 데모",
+          "hook": "정적 SDK로 구축된 대화형 브라우저 AI 데모로, 클릭 한 번으로 웹 작업을 자동화할 수 있습니다.",
+          "key_takeaways": [
+            "Hugging Face Spaces에서 실행되는 대화형 브라우저 AI 데모입니다.",
+            "정적 SDK를 사용하여 웹 탐색 및 상호작용을 자동화할 수 있습니다.",
+            "412명의 사용자로부터 좋아요를 받았으며, 실제 데모는 라이브 URL에서 확인할 수 있습니다."
+          ]
+        },
+        "en": {
+          "title": "HF Space Demo: malcolmrey/browser – Browser Automation AI Demo",
+          "hook": "An interactive browser AI demo built with a static SDK to automate web tasks at a click.",
+          "key_takeaways": [
+            "An interactive AI demo hosted on Hugging Face Spaces for browser automation.",
+            "Uses a static SDK to automate web navigation and interactions.",
+            "Liked by 412 users; live demo available via the provided URL."
+          ]
+        },
+        "zh": {
+          "title": "HF 空间演示：malcolmrey/browser——浏览器自动化 AI 演示",
+          "hook": "一个基于静态 SDK 的交互式浏览器 AI 演示，可一键自动化网页操作。",
+          "key_takeaways": [
+            "一个托管在 Hugging Face Spaces 上的交互式浏览器自动化 AI 演示。",
+            "使用静态 SDK 自动化网页导航和交互。",
+            "获得 412 位用户的点赞，实时演示可通过提供的 URL 访问。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Hugging Face Spaces",
+        "browser automation",
+        "interactive demo"
+      ],
+      "title_ko": "HF 스페이스 데모: malcolmrey/browser - 브라우저 자동화 AI 데모",
+      "title_en": "HF Space Demo: malcolmrey/browser – Browser Automation AI Demo",
+      "title_zh": "HF 空间演示：malcolmrey/browser——浏览器自动化 AI 演示",
+      "hook": "정적 SDK로 구축된 대화형 브라우저 AI 데모로, 클릭 한 번으로 웹 작업을 자동화할 수 있습니다.",
+      "hook_ko": "정적 SDK로 구축된 대화형 브라우저 AI 데모로, 클릭 한 번으로 웹 작업을 자동화할 수 있습니다.",
+      "hook_en": "An interactive browser AI demo built with a static SDK to automate web tasks at a click.",
+      "hook_zh": "一个基于静态 SDK 的交互式浏览器 AI 演示，可一键自动化网页操作。",
+      "description_ko": "정적 SDK로 구축된 대화형 브라우저 AI 데모로, 클릭 한 번으로 웹 작업을 자동화할 수 있습니다.",
+      "description_en": "An interactive browser AI demo built with a static SDK to automate web tasks at a click.",
+      "description_zh": "一个基于静态 SDK 的交互式浏览器 AI 演示，可一键自动化网页操作。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_repo_hf_space_hugging_appsh3_world_action_demo",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:25.741063",
+      "published_at": "2026-09-04T19:57:25.741063",
+      "created_at": "2026-09-04T19:57:25.741063",
+      "updated_at": "2026-09-04T19:57:25.741063",
+      "title": "HF Space: hugging-apps/h3-world-action-demo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/hugging-apps/h3-world-action-demo",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 10 | Live URL: https://huggingface.co/spaces/hugging-apps/h3-world-action-demo",
+      "viral_metric": "❤️ 10 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_hf_space_hugging_appsh3_world_action_demo",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Interactive AI Demo / Gradio Application",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Hugging Face",
+          "Gradio",
+          "Interactive Demo",
+          "AI"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "HF 스페이스: hugging-apps/h3-world-action-demo – 대화형 AI 데모",
+            "hook": "그라마io 기반 대화형 AI를 브라우저에서 바로 체험해 보세요 – 코딩 없이도 AI의 세계 액션 기능을 확인할 수 있습니다.",
+            "key_takeaways": [
+              "그라마io로 구축된 대화형 AI 데모",
+              "브라우저에서 바로 사용 가능한 AI 월드 액션 시연",
+              "Hugging Face Spaces에서 호스팅되며, 클릭 한 번으로 접근 가능"
+            ]
+          },
+          "en": {
+            "title": "HF Space: hugging-apps/h3-world-action-demo – Interactive AI Demo",
+            "hook": "Experience interactive AI in your browser with this Gradio-powered demo – see world-action capabilities without any coding.",
+            "key_takeaways": [
+              "Gradio-powered interactive AI demo",
+              "Browser-based AI world-action showcase",
+              "Hosted on Hugging Face Spaces, one-click access"
+            ]
+          },
+          "zh": {
+            "title": "HF 空间：hugging-apps/h3-world-action-demo——交互式 AI 演示",
+            "hook": "这是一个基于 Gradio 的交互式 AI 演示，您可以在浏览器中直接体验 AI 的世界动作功能，无需编写代码。",
+            "key_takeaways": [
+              "基于 Gradio 的交互式 AI 演示",
+              "浏览器端的 AI 世界动作展示",
+              "托管在 Hugging Face Spaces 上，点击即可访问"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T19:59:56.121554+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "HF 스페이스: hugging-apps/h3-world-action-demo – 대화형 AI 데모",
+          "hook": "그라마io 기반 대화형 AI를 브라우저에서 바로 체험해 보세요 – 코딩 없이도 AI의 세계 액션 기능을 확인할 수 있습니다.",
+          "key_takeaways": [
+            "그라마io로 구축된 대화형 AI 데모",
+            "브라우저에서 바로 사용 가능한 AI 월드 액션 시연",
+            "Hugging Face Spaces에서 호스팅되며, 클릭 한 번으로 접근 가능"
+          ]
+        },
+        "en": {
+          "title": "HF Space: hugging-apps/h3-world-action-demo – Interactive AI Demo",
+          "hook": "Experience interactive AI in your browser with this Gradio-powered demo – see world-action capabilities without any coding.",
+          "key_takeaways": [
+            "Gradio-powered interactive AI demo",
+            "Browser-based AI world-action showcase",
+            "Hosted on Hugging Face Spaces, one-click access"
+          ]
+        },
+        "zh": {
+          "title": "HF 空间：hugging-apps/h3-world-action-demo——交互式 AI 演示",
+          "hook": "这是一个基于 Gradio 的交互式 AI 演示，您可以在浏览器中直接体验 AI 的世界动作功能，无需编写代码。",
+          "key_takeaways": [
+            "基于 Gradio 的交互式 AI 演示",
+            "浏览器端的 AI 世界动作展示",
+            "托管在 Hugging Face Spaces 上，点击即可访问"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Hugging Face",
+        "Gradio",
+        "Interactive Demo",
+        "AI"
+      ],
+      "title_ko": "HF 스페이스: hugging-apps/h3-world-action-demo – 대화형 AI 데모",
+      "title_en": "HF Space: hugging-apps/h3-world-action-demo – Interactive AI Demo",
+      "title_zh": "HF 空间：hugging-apps/h3-world-action-demo——交互式 AI 演示",
+      "hook": "그라마io 기반 대화형 AI를 브라우저에서 바로 체험해 보세요 – 코딩 없이도 AI의 세계 액션 기능을 확인할 수 있습니다.",
+      "hook_ko": "그라마io 기반 대화형 AI를 브라우저에서 바로 체험해 보세요 – 코딩 없이도 AI의 세계 액션 기능을 확인할 수 있습니다.",
+      "hook_en": "Experience interactive AI in your browser with this Gradio-powered demo – see world-action capabilities without any coding.",
+      "hook_zh": "这是一个基于 Gradio 的交互式 AI 演示，您可以在浏览器中直接体验 AI 的世界动作功能，无需编写代码。",
+      "description_ko": "그라마io 기반 대화형 AI를 브라우저에서 바로 체험해 보세요 – 코딩 없이도 AI의 세계 액션 기능을 확인할 수 있습니다.",
+      "description_en": "Experience interactive AI in your browser with this Gradio-powered demo – see world-action capabilities without any coding.",
+      "description_zh": "这是一个基于 Gradio 的交互式 AI 演示，您可以在浏览器中直接体验 AI 的世界动作功能，无需编写代码。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-04_repo_hf_space_hf_audioopen_asr_leaderboard",
       "harvested_date": "2026-09-04",
@@ -28823,6 +29083,1719 @@
   ],
   "news_items": [
     {
+      "inbox_id": "2026-09-04_sns_geeknews_show_gn_귀래당_앱_모음_설치도_로그인도_없이_브라우저에서_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.672214",
+      "published_at": "2026-09-04T19:57:26.672214",
+      "created_at": "2026-09-04T19:57:26.672214",
+      "updated_at": "2026-09-04T19:57:26.672214",
+      "title": "GeekNews: Show GN: 귀래당 앱 모음 - 설치도 로그인도 없이 브라우저에서 도는 작은 도구와 게임 84개",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33238",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: Show GN: 귀래당 앱 모음 - 설치도 로그인도 없이 브라우저에서 도는 작은 도구와 게임 84개",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "귀래당 앱 모음 – 설치 없이 브라우저에서 즐기는 84개의 작은 도구와 게임",
+      "description_ko": "설치 및 로그인 없이 브라우저에서 바로 실행되는 84개의 재미있는 도구와 게임 모음 – 지금 바로 확인하세요!",
+      "hn_url": "https://news.hada.io/topic?id=33238",
+      "article_url": "https://news.hada.io/topic?id=33238",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_show_gn_귀래당_앱_모음_설치도_로그인도_없이_브라우저에서_",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Browser-based tools and games",
+        "programming_lang": "JavaScript",
+        "root_keywords": [
+          "browser",
+          "no install",
+          "games",
+          "tools"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "귀래당 앱 모음 – 설치 없이 브라우저에서 즐기는 84개의 작은 도구와 게임",
+            "hook": "설치 및 로그인 없이 브라우저에서 바로 실행되는 84개의 재미있는 도구와 게임 모음 – 지금 바로 확인하세요!",
+            "key_takeaways": [
+              "84개의 소규모 웹 앱으로 구성된 간편한 모음",
+              "설치 및 로그인 없이 브라우저에서 바로 실행 가능",
+              "게임, 생산성 도구, 유틸리티 등 다양한 카테고리 포함",
+              "GeekNews에서 소개된 Korean tech trend로, 접근성이 뛰어남"
+            ]
+          },
+          "en": {
+            "title": "GeuraeDang App Collection – 84 Small Tools and Games Running in Browser Without Installation or Login",
+            "hook": "84 browser‑based tools and games that run instantly without installation or login – explore now!",
+            "key_takeaways": [
+              "A curated collection of 84 lightweight web apps",
+              "Runs instantly in the browser without installation or login",
+              "Covers games, productivity tools, and utilities",
+              "Featured in GeekNews Korean tech trend for its accessibility"
+            ]
+          },
+          "zh": {
+            "title": "귀래당应用合集——84款无需安装无需登录即可运行的浏览器小工具与游戏",
+            "hook": "84款无需安装无需登录即可运行的浏览器小工具与游戏合集——立即探索！",
+            "key_takeaways": [
+              "84款轻量级网络应用合集",
+              "无需安装无需登录即可运行",
+              "涵盖游戏、生产力工具和实用程序等类别",
+              "被GeekNews评为韩国科技趋势，因其易用性而备受关注"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T19:57:53.512716+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "귀래당 앱 모음 – 설치 없이 브라우저에서 즐기는 84개의 작은 도구와 게임",
+          "hook": "설치 및 로그인 없이 브라우저에서 바로 실행되는 84개의 재미있는 도구와 게임 모음 – 지금 바로 확인하세요!",
+          "key_takeaways": [
+            "84개의 소규모 웹 앱으로 구성된 간편한 모음",
+            "설치 및 로그인 없이 브라우저에서 바로 실행 가능",
+            "게임, 생산성 도구, 유틸리티 등 다양한 카테고리 포함",
+            "GeekNews에서 소개된 Korean tech trend로, 접근성이 뛰어남"
+          ]
+        },
+        "en": {
+          "title": "GeuraeDang App Collection – 84 Small Tools and Games Running in Browser Without Installation or Login",
+          "hook": "84 browser‑based tools and games that run instantly without installation or login – explore now!",
+          "key_takeaways": [
+            "A curated collection of 84 lightweight web apps",
+            "Runs instantly in the browser without installation or login",
+            "Covers games, productivity tools, and utilities",
+            "Featured in GeekNews Korean tech trend for its accessibility"
+          ]
+        },
+        "zh": {
+          "title": "귀래당应用合集——84款无需安装无需登录即可运行的浏览器小工具与游戏",
+          "hook": "84款无需安装无需登录即可运行的浏览器小工具与游戏合集——立即探索！",
+          "key_takeaways": [
+            "84款轻量级网络应用合集",
+            "无需安装无需登录即可运行",
+            "涵盖游戏、生产力工具和实用程序等类别",
+            "被GeekNews评为韩国科技趋势，因其易用性而备受关注"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "JavaScript",
+      "root_keywords": [
+        "browser",
+        "no install",
+        "games",
+        "tools"
+      ],
+      "title_en": "GeuraeDang App Collection – 84 Small Tools and Games Running in Browser Without Installation or Login",
+      "title_zh": "귀래당应用合集——84款无需安装无需登录即可运行的浏览器小工具与游戏",
+      "hook": "설치 및 로그인 없이 브라우저에서 바로 실행되는 84개의 재미있는 도구와 게임 모음 – 지금 바로 확인하세요!",
+      "hook_ko": "설치 및 로그인 없이 브라우저에서 바로 실행되는 84개의 재미있는 도구와 게임 모음 – 지금 바로 확인하세요!",
+      "hook_en": "84 browser‑based tools and games that run instantly without installation or login – explore now!",
+      "hook_zh": "84款无需安装无需登录即可运行的浏览器小工具与游戏合集——立即探索！",
+      "description_en": "84 browser‑based tools and games that run instantly without installation or login – explore now!",
+      "description_zh": "84款无需安装无需登录即可运行的浏览器小工具与游戏合集——立即探索！",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_jane_street_리버스_엔지니어링_챌린지_해결기",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.658422",
+      "published_at": "2026-09-04T19:57:26.658422",
+      "created_at": "2026-09-04T19:57:26.658422",
+      "updated_at": "2026-09-04T19:57:26.658422",
+      "title": "GeekNews: Jane Street 리버스 엔지니어링 챌린지 해결기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33239",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Jane Street 리버스 엔지니어링 챌린지 해결기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "지크뉴스: 제인 스트리트 리버스 엔지니어링 챌린지 해결기",
+      "description_ko": "엔지니어가 주목해야 할 제인 스트리트의 리버스 엔지니어링 챌린지 해결 사례",
+      "hn_url": "https://news.hada.io/topic?id=33239",
+      "article_url": "https://news.hada.io/topic?id=33239",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_jane_street_리버스_엔지니어링_챌린지_해결기",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Reverse Engineering / CTF",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Jane Street",
+          "Reverse Engineering",
+          "Challenge Solver"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "지크뉴스: 제인 스트리트 리버스 엔지니어링 챌린지 해결기",
+            "hook": "엔지니어가 주목해야 할 제인 스트리트의 리버스 엔지니어링 챌린지 해결 사례",
+            "key_takeaways": [
+              "제인 스트리트가 개최한 리버스 엔지니어링 챌린지에서 우승한 솔루션 소개",
+              "CTF 스타일의 문제 풀이를 통해 보안 분석 역량 강조",
+              "한국 기술 트렌드에서 주목할 만한 성과로 보도됨"
+            ]
+          },
+          "en": {
+            "title": "GeekNews: Jane Street Reverse Engineering Challenge Solver",
+            "hook": "A standout solution from Jane Street's reverse engineering challenge, worth engineer’s attention",
+            "key_takeaways": [
+              "Showcases a winning solution to Jane Street's reverse engineering challenge",
+              "Highlights CTF-style problem-solving and security analysis skills",
+              "Featured in Korean tech trend news"
+            ]
+          },
+          "zh": {
+            "title": "极客新闻：Jane Street 逆向工程挑战解决方案",
+            "hook": "一位工程师不容错过的 Jane Street 逆向工程挑战解决方案亮点",
+            "key_takeaways": [
+              "介绍了 Jane Street 举办的逆向工程挑战中的获奖方案",
+              "展示了 CTF 风格的问题解决能力和安全分析技能",
+              "被韩国科技趋势新闻报道"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T19:58:36.142914+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "지크뉴스: 제인 스트리트 리버스 엔지니어링 챌린지 해결기",
+          "hook": "엔지니어가 주목해야 할 제인 스트리트의 리버스 엔지니어링 챌린지 해결 사례",
+          "key_takeaways": [
+            "제인 스트리트가 개최한 리버스 엔지니어링 챌린지에서 우승한 솔루션 소개",
+            "CTF 스타일의 문제 풀이를 통해 보안 분석 역량 강조",
+            "한국 기술 트렌드에서 주목할 만한 성과로 보도됨"
+          ]
+        },
+        "en": {
+          "title": "GeekNews: Jane Street Reverse Engineering Challenge Solver",
+          "hook": "A standout solution from Jane Street's reverse engineering challenge, worth engineer’s attention",
+          "key_takeaways": [
+            "Showcases a winning solution to Jane Street's reverse engineering challenge",
+            "Highlights CTF-style problem-solving and security analysis skills",
+            "Featured in Korean tech trend news"
+          ]
+        },
+        "zh": {
+          "title": "极客新闻：Jane Street 逆向工程挑战解决方案",
+          "hook": "一位工程师不容错过的 Jane Street 逆向工程挑战解决方案亮点",
+          "key_takeaways": [
+            "介绍了 Jane Street 举办的逆向工程挑战中的获奖方案",
+            "展示了 CTF 风格的问题解决能力和安全分析技能",
+            "被韩国科技趋势新闻报道"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Jane Street",
+        "Reverse Engineering",
+        "Challenge Solver"
+      ],
+      "title_en": "GeekNews: Jane Street Reverse Engineering Challenge Solver",
+      "title_zh": "极客新闻：Jane Street 逆向工程挑战解决方案",
+      "hook": "엔지니어가 주목해야 할 제인 스트리트의 리버스 엔지니어링 챌린지 해결 사례",
+      "hook_ko": "엔지니어가 주목해야 할 제인 스트리트의 리버스 엔지니어링 챌린지 해결 사례",
+      "hook_en": "A standout solution from Jane Street's reverse engineering challenge, worth engineer’s attention",
+      "hook_zh": "一位工程师不容错过的 Jane Street 逆向工程挑战解决方案亮点",
+      "description_en": "A standout solution from Jane Street's reverse engineering challenge, worth engineer’s attention",
+      "description_zh": "一位工程师不容错过的 Jane Street 逆向工程挑战解决方案亮点",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_amazon_achieves_enshitification_i",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.263393",
+      "published_at": "2026-09-04T18:22:20",
+      "created_at": "2026-09-04T18:22:20",
+      "updated_at": "2026-09-04T19:57:26.263393",
+      "title": "Hacker News: Amazon Achieves Enshitification Inception",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49568253",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 15 pts | Comments: 2 | Amazon Achieves Enshitification Inception",
+      "viral_metric": "🔥 15 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 15,
+          "display": "🔥 15 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 15,
+          "display": "🔥 15 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49568253",
+      "article_url": "https://pluralistic.net/2026/09/04/cheating-at-fraud/#absentee-rentier",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_amazon_achieves_enshitification_i",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "E-commerce / Platform Degradation",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Amazon",
+          "enshitification",
+          "platform degradation"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "아마존, 서비스 품질 저하로 해커 뉴스에서 비판 받아",
+            "hook": "아마존의 편리함이 점점 더 불편해지고 있습니다. 엔지니어가 주목해야 할 이유",
+            "key_takeaways": [
+              "아마존의 인기 서비스가 점차 품질이 떨어지고 있습니다.",
+              "해커 뉴스 커뮤니티에서 사용자 불만이 증가하고 있습니다.",
+              "이러한 '엔시피피케이션'은 장기적으로 브랜드 신뢰를 약화시킬 수 있습니다."
+            ]
+          },
+          "en": {
+            "title": "Amazon Accused of 'Enshitification' on Hacker News",
+            "hook": "Amazon's once-reliable services are showing signs of degradation. Why engineers should care.",
+            "key_takeaways": [
+              "Amazon's popular services are gradually declining in quality.",
+              "User complaints are mounting on Hacker News.",
+              "This 'enshitification' could erode brand trust over time."
+            ]
+          },
+          "zh": {
+            "title": "亚马逊被指“恩希菲卡”化，引发黑客新闻热议",
+            "hook": "亚马逊曾经优质的服务如今开始走下坡路，工程师们需警惕。",
+            "key_takeaways": [
+              "亚马逊旗下热门服务质量逐渐下降。",
+              "黑客新闻社区用户抱怨声不断增加。",
+              "这种‘恩希菲卡’化趋势可能长期损害品牌信誉。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:03:36.491112+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "아마존, 서비스 품질 저하로 해커 뉴스에서 비판 받아",
+          "hook": "아마존의 편리함이 점점 더 불편해지고 있습니다. 엔지니어가 주목해야 할 이유",
+          "key_takeaways": [
+            "아마존의 인기 서비스가 점차 품질이 떨어지고 있습니다.",
+            "해커 뉴스 커뮤니티에서 사용자 불만이 증가하고 있습니다.",
+            "이러한 '엔시피피케이션'은 장기적으로 브랜드 신뢰를 약화시킬 수 있습니다."
+          ]
+        },
+        "en": {
+          "title": "Amazon Accused of 'Enshitification' on Hacker News",
+          "hook": "Amazon's once-reliable services are showing signs of degradation. Why engineers should care.",
+          "key_takeaways": [
+            "Amazon's popular services are gradually declining in quality.",
+            "User complaints are mounting on Hacker News.",
+            "This 'enshitification' could erode brand trust over time."
+          ]
+        },
+        "zh": {
+          "title": "亚马逊被指“恩希菲卡”化，引发黑客新闻热议",
+          "hook": "亚马逊曾经优质的服务如今开始走下坡路，工程师们需警惕。",
+          "key_takeaways": [
+            "亚马逊旗下热门服务质量逐渐下降。",
+            "黑客新闻社区用户抱怨声不断增加。",
+            "这种‘恩希菲卡’化趋势可能长期损害品牌信誉。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Amazon",
+        "enshitification",
+        "platform degradation"
+      ],
+      "title_ko": "아마존, 서비스 품질 저하로 해커 뉴스에서 비판 받아",
+      "title_en": "Amazon Accused of 'Enshitification' on Hacker News",
+      "title_zh": "亚马逊被指“恩希菲卡”化，引发黑客新闻热议",
+      "hook": "아마존의 편리함이 점점 더 불편해지고 있습니다. 엔지니어가 주목해야 할 이유",
+      "hook_ko": "아마존의 편리함이 점점 더 불편해지고 있습니다. 엔지니어가 주목해야 할 이유",
+      "hook_en": "Amazon's once-reliable services are showing signs of degradation. Why engineers should care.",
+      "hook_zh": "亚马逊曾经优质的服务如今开始走下坡路，工程师们需警惕。",
+      "description_ko": "아마존의 편리함이 점점 더 불편해지고 있습니다. 엔지니어가 주목해야 할 이유",
+      "description_en": "Amazon's once-reliable services are showing signs of degradation. Why engineers should care.",
+      "description_zh": "亚马逊曾经优质的服务如今开始走下坡路，工程师们需警惕。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_hayes_at_command_set",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.219163",
+      "published_at": "2026-09-04T17:56:14",
+      "created_at": "2026-09-04T17:56:14",
+      "updated_at": "2026-09-04T19:57:26.219163",
+      "title": "Hacker News: Hayes AT command set",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49567961",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 24 pts | Comments: 4 | Hayes AT command set",
+      "viral_metric": "🔥 24 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 24,
+          "display": "🔥 24 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 24,
+          "display": "🔥 24 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49567961",
+      "article_url": "https://en.wikipedia.org/wiki/Hayes_AT_command_set",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_hayes_at_command_set",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Modem communication protocols",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Hayes AT commands",
+          "modem",
+          "serial communication"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "해이스 AT 명령어 세트 - 모뎀 제어를 위한 필수 참조",
+            "hook": "모뎀 엔지니어가 알아야 할 고전적인 AT 명령어 세트와 그 현대적 활용법.",
+            "key_takeaways": [
+              "AT 명령어는 1980년대 모뎀 표준의 핵심이었다.",
+              "오늘날에도 시리얼 연결, 테스트, 자동화 스크립트에 여전히 사용된다.",
+              "이 세트에는 통신 상태 확인, 다이얼, 수신, 설정 변경 등을 위한 명령어가 포함된다."
+            ]
+          },
+          "en": {
+            "title": "Hayes AT Command Set – Essential Reference for Modem Control",
+            "hook": "The classic AT command set for modems and its modern relevance for engineers.",
+            "key_takeaways": [
+              "AT commands were the core of 1980s modem standards.",
+              "They are still used today in serial connections, testing, and automation scripts.",
+              "The set includes commands for checking status, dialing, answering, and configuring settings."
+            ]
+          },
+          "zh": {
+            "title": "海斯AT命令集——调制解调器控制的必备参考",
+            "hook": "经典的调制解调器AT命令集及其在现代工程中的应用。",
+            "key_takeaways": [
+              "AT命令是1980年代调制解调器标准的核心。",
+              "如今仍广泛应用于串行通信、测试和自动化脚本中。",
+              "该命令集包含状态查询、拨号、应答和设置调整等命令。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:04:28.329774+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해이스 AT 명령어 세트 - 모뎀 제어를 위한 필수 참조",
+          "hook": "모뎀 엔지니어가 알아야 할 고전적인 AT 명령어 세트와 그 현대적 활용법.",
+          "key_takeaways": [
+            "AT 명령어는 1980년대 모뎀 표준의 핵심이었다.",
+            "오늘날에도 시리얼 연결, 테스트, 자동화 스크립트에 여전히 사용된다.",
+            "이 세트에는 통신 상태 확인, 다이얼, 수신, 설정 변경 등을 위한 명령어가 포함된다."
+          ]
+        },
+        "en": {
+          "title": "Hayes AT Command Set – Essential Reference for Modem Control",
+          "hook": "The classic AT command set for modems and its modern relevance for engineers.",
+          "key_takeaways": [
+            "AT commands were the core of 1980s modem standards.",
+            "They are still used today in serial connections, testing, and automation scripts.",
+            "The set includes commands for checking status, dialing, answering, and configuring settings."
+          ]
+        },
+        "zh": {
+          "title": "海斯AT命令集——调制解调器控制的必备参考",
+          "hook": "经典的调制解调器AT命令集及其在现代工程中的应用。",
+          "key_takeaways": [
+            "AT命令是1980年代调制解调器标准的核心。",
+            "如今仍广泛应用于串行通信、测试和自动化脚本中。",
+            "该命令集包含状态查询、拨号、应答和设置调整等命令。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Hayes AT commands",
+        "modem",
+        "serial communication"
+      ],
+      "title_ko": "해이스 AT 명령어 세트 - 모뎀 제어를 위한 필수 참조",
+      "title_en": "Hayes AT Command Set – Essential Reference for Modem Control",
+      "title_zh": "海斯AT命令集——调制解调器控制的必备参考",
+      "hook": "모뎀 엔지니어가 알아야 할 고전적인 AT 명령어 세트와 그 현대적 활용법.",
+      "hook_ko": "모뎀 엔지니어가 알아야 할 고전적인 AT 명령어 세트와 그 현대적 활용법.",
+      "hook_en": "The classic AT command set for modems and its modern relevance for engineers.",
+      "hook_zh": "经典的调制解调器AT命令集及其在现代工程中的应用。",
+      "description_ko": "모뎀 엔지니어가 알아야 할 고전적인 AT 명령어 세트와 그 현대적 활용법.",
+      "description_en": "The classic AT command set for modems and its modern relevance for engineers.",
+      "description_zh": "经典的调制解调器AT命令集及其在现代工程中的应用。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_people_that_worked_on_the_same_id",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.171422",
+      "published_at": "2026-09-03T08:31:22",
+      "created_at": "2026-09-03T08:31:22",
+      "updated_at": "2026-09-04T19:57:26.171422",
+      "title": "Hacker News: People that worked on the same idea for decades",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49547415",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 24 pts | Comments: 11 | People that worked on the same idea for decades",
+      "viral_metric": "🔥 24 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 24,
+          "display": "🔥 24 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 24,
+          "display": "🔥 24 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49547415",
+      "article_url": "https://nityasnotes.com/writing/decades/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_people_that_worked_on_the_same_id",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Tech History / Long-term Projects",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Hacker News",
+          "long-term innovation",
+          "persistence"
+        ],
+        "recommended_tag": "📝 Tech Reference",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "수십 년간 같은 아이디어를 지켜낸 사람들",
+            "hook": "Hacker News에서 화제가 된, 수십 년간 한 우물을 판 사람들의 이야기",
+            "key_takeaways": [
+              "장기적인 비전과 인내의 힘",
+              "아이디어를 수십 년간 발전시킨 사례",
+              "지속적인 노력의 성과"
+            ]
+          },
+          "en": {
+            "title": "People Who Stuck to the Same Idea for Decades",
+            "hook": "HN highlights remarkable stories of individuals who pursued a single idea for decades",
+            "key_takeaways": [
+              "The power of long-term vision and perseverance",
+              "Real-world examples of decades‑long idea development",
+              "How sustained effort leads to impact"
+            ]
+          },
+          "zh": {
+            "title": "数十年来坚持同一个想法的群体",
+            "hook": "Hacker News 分享了数十年来坚持同一个想法的群体，引发热议",
+            "key_takeaways": [
+              "长期愿景与坚持的力量",
+              "数十年来持续发展的创意案例",
+              "持续努力如何带来成果"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:07:25.540161+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "수십 년간 같은 아이디어를 지켜낸 사람들",
+          "hook": "Hacker News에서 화제가 된, 수십 년간 한 우물을 판 사람들의 이야기",
+          "key_takeaways": [
+            "장기적인 비전과 인내의 힘",
+            "아이디어를 수십 년간 발전시킨 사례",
+            "지속적인 노력의 성과"
+          ]
+        },
+        "en": {
+          "title": "People Who Stuck to the Same Idea for Decades",
+          "hook": "HN highlights remarkable stories of individuals who pursued a single idea for decades",
+          "key_takeaways": [
+            "The power of long-term vision and perseverance",
+            "Real-world examples of decades‑long idea development",
+            "How sustained effort leads to impact"
+          ]
+        },
+        "zh": {
+          "title": "数十年来坚持同一个想法的群体",
+          "hook": "Hacker News 分享了数十年来坚持同一个想法的群体，引发热议",
+          "key_takeaways": [
+            "长期愿景与坚持的力量",
+            "数十年来持续发展的创意案例",
+            "持续努力如何带来成果"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Hacker News",
+        "long-term innovation",
+        "persistence"
+      ],
+      "title_ko": "수십 년간 같은 아이디어를 지켜낸 사람들",
+      "title_en": "People Who Stuck to the Same Idea for Decades",
+      "title_zh": "数十年来坚持同一个想法的群体",
+      "hook": "Hacker News에서 화제가 된, 수십 년간 한 우물을 판 사람들의 이야기",
+      "hook_ko": "Hacker News에서 화제가 된, 수십 년간 한 우물을 판 사람들의 이야기",
+      "hook_en": "HN highlights remarkable stories of individuals who pursued a single idea for decades",
+      "hook_zh": "Hacker News 分享了数十年来坚持同一个想法的群体，引发热议",
+      "description_ko": "Hacker News에서 화제가 된, 수십 년간 한 우물을 판 사람들의 이야기",
+      "description_en": "HN highlights remarkable stories of individuals who pursued a single idea for decades",
+      "description_zh": "Hacker News 分享了数十年来坚持同一个想法的群体，引发热议",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_arrested_for_a_late_manuscript_se",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.159276",
+      "published_at": "2026-09-03T19:10:59",
+      "created_at": "2026-09-03T19:10:59",
+      "updated_at": "2026-09-04T19:57:26.159276",
+      "title": "Hacker News: Arrested for a Late Manuscript: Seicho Matsumoto's 'Tokyo Express'",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49555131",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 11 pts | Comments: 3 | Arrested for a Late Manuscript: Seicho Matsumoto's 'Tokyo Express'",
+      "viral_metric": "🔥 11 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 11,
+          "display": "🔥 11 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 11,
+          "display": "🔥 11 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49555131",
+      "article_url": "https://www.millersbookreview.com/p/arrested-for-a-late-manuscript-seicho-matsumoto-tokyo-express",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_arrested_for_a_late_manuscript_se",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Publishing & Media",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Seicho Matsumoto",
+          "Tokyo Express",
+          "arrest"
+        ],
+        "recommended_tag": "🔥 Must-Read",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "마쓰모토 세이초의 '도쿄 익스프레스' 출판 지연으로 체포, 문학계 파장",
+            "hook": "전설적인 작가의逾期 작품이 감옥행을 초래할 때, 엔지니어는 진정한 혁신의 제약이 무엇인지 질문한다.",
+            "key_takeaways": [
+              "일본의 저명한 작가 마쓰모토 세이초가 출판 지연으로 체포되었다.",
+              "이 사건은 창작자와 출판사의 법적 의무에 대한 논의를 불러일으켰다.",
+              "창작 기간과 계약상의 기한 사이의 균형을 재고할 필요성을 제기했다."
+            ]
+          },
+          "en": {
+            "title": "Renowned Author Arrested Over Delayed Manuscript 'Tokyo Express'",
+            "hook": "When a legendary writer's overdue book lands him in jail, engineers ask: what deadlines truly drive innovation?",
+            "key_takeaways": [
+              "Prominent Japanese author Seicho Matsumoto was arrested for a publishing delay.",
+              "The case raises questions about legal obligations for creators and publishers.",
+              "It sparked debate on balancing creative timelines with contractual deadlines."
+            ]
+          },
+          "zh": {
+            "title": "著名作家因《东京快车》迟交稿被捕，文学界震惊",
+            "hook": "当传奇作家的逾期作品导致入狱，技术人反思：真正的创新约束是什么？",
+            "key_takeaways": [
+              "日本著名作家松本清张因《东京快车》迟交稿而被捕。",
+              "该案引发了关于创作者和出版商法律责任的讨论。",
+              "它引发了关于平衡创作时间与合同期限的辩论。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:06:41.775909+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "마쓰모토 세이초의 '도쿄 익스프레스' 출판 지연으로 체포, 문학계 파장",
+          "hook": "전설적인 작가의逾期 작품이 감옥행을 초래할 때, 엔지니어는 진정한 혁신의 제약이 무엇인지 질문한다.",
+          "key_takeaways": [
+            "일본의 저명한 작가 마쓰모토 세이초가 출판 지연으로 체포되었다.",
+            "이 사건은 창작자와 출판사의 법적 의무에 대한 논의를 불러일으켰다.",
+            "창작 기간과 계약상의 기한 사이의 균형을 재고할 필요성을 제기했다."
+          ]
+        },
+        "en": {
+          "title": "Renowned Author Arrested Over Delayed Manuscript 'Tokyo Express'",
+          "hook": "When a legendary writer's overdue book lands him in jail, engineers ask: what deadlines truly drive innovation?",
+          "key_takeaways": [
+            "Prominent Japanese author Seicho Matsumoto was arrested for a publishing delay.",
+            "The case raises questions about legal obligations for creators and publishers.",
+            "It sparked debate on balancing creative timelines with contractual deadlines."
+          ]
+        },
+        "zh": {
+          "title": "著名作家因《东京快车》迟交稿被捕，文学界震惊",
+          "hook": "当传奇作家的逾期作品导致入狱，技术人反思：真正的创新约束是什么？",
+          "key_takeaways": [
+            "日本著名作家松本清张因《东京快车》迟交稿而被捕。",
+            "该案引发了关于创作者和出版商法律责任的讨论。",
+            "它引发了关于平衡创作时间与合同期限的辩论。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Seicho Matsumoto",
+        "Tokyo Express",
+        "arrest"
+      ],
+      "title_ko": "마쓰모토 세이초의 '도쿄 익스프레스' 출판 지연으로 체포, 문학계 파장",
+      "title_en": "Renowned Author Arrested Over Delayed Manuscript 'Tokyo Express'",
+      "title_zh": "著名作家因《东京快车》迟交稿被捕，文学界震惊",
+      "hook": "전설적인 작가의逾期 작품이 감옥행을 초래할 때, 엔지니어는 진정한 혁신의 제약이 무엇인지 질문한다.",
+      "hook_ko": "전설적인 작가의逾期 작품이 감옥행을 초래할 때, 엔지니어는 진정한 혁신의 제약이 무엇인지 질문한다.",
+      "hook_en": "When a legendary writer's overdue book lands him in jail, engineers ask: what deadlines truly drive innovation?",
+      "hook_zh": "当传奇作家的逾期作品导致入狱，技术人反思：真正的创新约束是什么？",
+      "description_ko": "전설적인 작가의逾期 작품이 감옥행을 초래할 때, 엔지니어는 진정한 혁신의 제약이 무엇인지 질문한다.",
+      "description_en": "When a legendary writer's overdue book lands him in jail, engineers ask: what deadlines truly drive innovation?",
+      "description_zh": "当传奇作家的逾期作品导致入狱，技术人反思：真正的创新约束是什么？",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_nobody_is_saying_why_openai_and_a",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.133451",
+      "published_at": "2026-09-04T17:29:22",
+      "created_at": "2026-09-04T17:29:22",
+      "updated_at": "2026-09-04T19:57:26.133451",
+      "title": "Hacker News: Nobody Is Saying Why OpenAI and Anthropic Had Outages",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49567594",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 157 pts | Comments: 110 | Nobody Is Saying Why OpenAI and Anthropic Had Outages",
+      "viral_metric": "🔥 157 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 157,
+          "display": "🔥 157 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 157,
+          "display": "🔥 157 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49567594",
+      "article_url": "https://www.wired.com/story/nobody-is-saying-why-openai-and-anthropic-had-outages-today/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_nobody_is_saying_why_openai_and_a",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Industry News / Service Outage",
+        "programming_lang": "General",
+        "root_keywords": [
+          "OpenAI",
+          "Anthropic",
+          "outage"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "오픈AI·앤스로픽 서비스 장애 원인 불명… 해커 뉴스 주목",
+            "hook": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어): 오픈AI와 앤스로픽의 최근 장애 원인이 공개되지 않아 불확실성이 커지고 있습니다.",
+            "key_takeaways": [
+              "오픈AI와 앤스로픽의 서비스 장애가 발생했지만, 정확한 원인은 공개되지 않음",
+              "해커 뉴스에서 157점, 110개의 댓글이 달렸으나 원인 규명은 이루어지지 않음",
+              "사용자들은 불안감을 느끼고 있으며, 향후 투명성 제고 필요성이 제기됨"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Nobody Is Saying Why OpenAI and Anthropic Had Outages",
+            "hook": "Compelling 1-line hook for engineers (English): The recent outages of OpenAI and Anthropic remain unexplained, raising concerns about service reliability.",
+            "key_takeaways": [
+              "OpenAI and Anthropic experienced service outages without a disclosed cause",
+              "Hacker News reports 157 points and 110 comments, but no root cause analysis",
+              "Users are uneasy, highlighting the need for greater transparency from AI providers"
+            ]
+          },
+          "zh": {
+            "title": "黑客新闻：没人说出OpenAI和Anthropic停服的原因",
+            "hook": "直击工程师痛点的1句话亮点与阅读理由 (中文)：OpenAI和Anthropic的停服原因不明，引发对服务可靠性的担忧。",
+            "key_takeaways": [
+              "OpenAI和Anthropic的服务出现故障，但原因尚未公布",
+              "黑客新闻报道显示该帖获得157分和110条评论，但尚未有原因分析",
+              "用户感到不安，凸显了AI服务提供商提高透明度的必要性"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:05:44.964899+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "오픈AI·앤스로픽 서비스 장애 원인 불명… 해커 뉴스 주목",
+          "hook": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어): 오픈AI와 앤스로픽의 최근 장애 원인이 공개되지 않아 불확실성이 커지고 있습니다.",
+          "key_takeaways": [
+            "오픈AI와 앤스로픽의 서비스 장애가 발생했지만, 정확한 원인은 공개되지 않음",
+            "해커 뉴스에서 157점, 110개의 댓글이 달렸으나 원인 규명은 이루어지지 않음",
+            "사용자들은 불안감을 느끼고 있으며, 향후 투명성 제고 필요성이 제기됨"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Nobody Is Saying Why OpenAI and Anthropic Had Outages",
+          "hook": "Compelling 1-line hook for engineers (English): The recent outages of OpenAI and Anthropic remain unexplained, raising concerns about service reliability.",
+          "key_takeaways": [
+            "OpenAI and Anthropic experienced service outages without a disclosed cause",
+            "Hacker News reports 157 points and 110 comments, but no root cause analysis",
+            "Users are uneasy, highlighting the need for greater transparency from AI providers"
+          ]
+        },
+        "zh": {
+          "title": "黑客新闻：没人说出OpenAI和Anthropic停服的原因",
+          "hook": "直击工程师痛点的1句话亮点与阅读理由 (中文)：OpenAI和Anthropic的停服原因不明，引发对服务可靠性的担忧。",
+          "key_takeaways": [
+            "OpenAI和Anthropic的服务出现故障，但原因尚未公布",
+            "黑客新闻报道显示该帖获得157分和110条评论，但尚未有原因分析",
+            "用户感到不安，凸显了AI服务提供商提高透明度的必要性"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "OpenAI",
+        "Anthropic",
+        "outage"
+      ],
+      "title_ko": "오픈AI·앤스로픽 서비스 장애 원인 불명… 해커 뉴스 주목",
+      "title_en": "Hacker News: Nobody Is Saying Why OpenAI and Anthropic Had Outages",
+      "title_zh": "黑客新闻：没人说出OpenAI和Anthropic停服的原因",
+      "hook": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어): 오픈AI와 앤스로픽의 최근 장애 원인이 공개되지 않아 불확실성이 커지고 있습니다.",
+      "hook_ko": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어): 오픈AI와 앤스로픽의 최근 장애 원인이 공개되지 않아 불확실성이 커지고 있습니다.",
+      "hook_en": "Compelling 1-line hook for engineers (English): The recent outages of OpenAI and Anthropic remain unexplained, raising concerns about service reliability.",
+      "hook_zh": "直击工程师痛点的1句话亮点与阅读理由 (中文)：OpenAI和Anthropic的停服原因不明，引发对服务可靠性的担忧。",
+      "description_ko": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어): 오픈AI와 앤스로픽의 최근 장애 원인이 공개되지 않아 불확실성이 커지고 있습니다.",
+      "description_en": "Compelling 1-line hook for engineers (English): The recent outages of OpenAI and Anthropic remain unexplained, raising concerns about service reliability.",
+      "description_zh": "直击工程师痛点的1句话亮点与阅读理由 (中文)：OpenAI和Anthropic的停服原因不明，引发对服务可靠性的担忧。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_resources_to_get_good_at_solderin",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.097415",
+      "published_at": "2026-09-02T09:24:11",
+      "created_at": "2026-09-02T09:24:11",
+      "updated_at": "2026-09-04T19:57:26.097415",
+      "title": "Hacker News: Resources to Get Good at Soldering?",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49533840",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 38 pts | Comments: 18 | Resources to Get Good at Soldering?",
+      "viral_metric": "🔥 38 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 38,
+          "display": "🔥 38 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 38,
+          "display": "🔥 38 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49533840",
+      "article_url": "https://news.ycombinator.com/item?id=49533840",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_resources_to_get_good_at_solderin",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Hardware DIY / Electronics",
+        "programming_lang": "General",
+        "root_keywords": [
+          "soldering",
+          "hardware",
+          "learning resources"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "하커 뉴스: 납땜 실력 향상을 위한 최고의 자료는?",
+            "hook": "납땜 초보자도 30분 만에 기본기를 다질 수 있는 HN 추천 자료 모음.",
+            "key_takeaways": [
+              "HN 유저들이 공유한 단계별 초보자 가이드",
+              "납땜 품질 향상을 위한 도구 및 팁",
+              "실전 프로젝트 예제와 연습 문제 목록"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Best Resources to Get Good at Soldering",
+            "hook": "From beginner guides to advanced tips, these HN‑curated resources will have you soldering like a pro in no time.",
+            "key_takeaways": [
+              "Step‑by‑step beginner guides shared by HN users",
+              "Tools and tips for improving solder quality",
+              "Practical project examples and practice exercises"
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：提升焊接技巧的优质资源有哪些？",
+            "hook": "从零基础到进阶，HN 精选的焊接技巧学习资源，让你快速掌握实操技能。",
+            "key_takeaways": [
+              "HN 用户分享的分步新手教程",
+              "提升焊接质量的工具与技巧",
+              "实战项目示例与练习题"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:08:04.333494+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "하커 뉴스: 납땜 실력 향상을 위한 최고의 자료는?",
+          "hook": "납땜 초보자도 30분 만에 기본기를 다질 수 있는 HN 추천 자료 모음.",
+          "key_takeaways": [
+            "HN 유저들이 공유한 단계별 초보자 가이드",
+            "납땜 품질 향상을 위한 도구 및 팁",
+            "실전 프로젝트 예제와 연습 문제 목록"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Best Resources to Get Good at Soldering",
+          "hook": "From beginner guides to advanced tips, these HN‑curated resources will have you soldering like a pro in no time.",
+          "key_takeaways": [
+            "Step‑by‑step beginner guides shared by HN users",
+            "Tools and tips for improving solder quality",
+            "Practical project examples and practice exercises"
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：提升焊接技巧的优质资源有哪些？",
+          "hook": "从零基础到进阶，HN 精选的焊接技巧学习资源，让你快速掌握实操技能。",
+          "key_takeaways": [
+            "HN 用户分享的分步新手教程",
+            "提升焊接质量的工具与技巧",
+            "实战项目示例与练习题"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "soldering",
+        "hardware",
+        "learning resources"
+      ],
+      "title_ko": "하커 뉴스: 납땜 실력 향상을 위한 최고의 자료는?",
+      "title_en": "Hacker News: Best Resources to Get Good at Soldering",
+      "title_zh": "Hacker News：提升焊接技巧的优质资源有哪些？",
+      "hook": "납땜 초보자도 30분 만에 기본기를 다질 수 있는 HN 추천 자료 모음.",
+      "hook_ko": "납땜 초보자도 30분 만에 기본기를 다질 수 있는 HN 추천 자료 모음.",
+      "hook_en": "From beginner guides to advanced tips, these HN‑curated resources will have you soldering like a pro in no time.",
+      "hook_zh": "从零基础到进阶，HN 精选的焊接技巧学习资源，让你快速掌握实操技能。",
+      "description_ko": "납땜 초보자도 30분 만에 기본기를 다질 수 있는 HN 추천 자료 모음.",
+      "description_en": "From beginner guides to advanced tips, these HN‑curated resources will have you soldering like a pro in no time.",
+      "description_zh": "从零基础到进阶，HN 精选的焊接技巧学习资源，让你快速掌握实操技能。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_can_ai_design_circuit_boards_yet",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.086244",
+      "published_at": "2026-09-04T19:48:29",
+      "created_at": "2026-09-04T19:48:29",
+      "updated_at": "2026-09-04T19:57:26.086244",
+      "title": "Hacker News: Can AI design circuit boards yet?",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49569366",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 5 pts | Comments: 0 | Can AI design circuit boards yet?",
+      "viral_metric": "🔥 5 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49569366",
+      "article_url": "https://eebench.org/blog/can-ai-design-circuit-boards-yet/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_can_ai_design_circuit_boards_yet",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "AI Hardware Design",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI design",
+          "circuit board",
+          "hardware automation"
+        ],
+        "recommended_tag": "📝 Technical Reference",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "AI가 회로 설계까지 할 수 있을까? Hacker News에서 화제",
+            "hook": "엔지니어라면 꼭 알아야 할 AI의 하드웨어 설계 역량 현황과 한계",
+            "key_takeaways": [
+              "AI가 현재 회로 설계에 어느 정도까지 활용 가능한지",
+              "Hacker News에서 제기된 설계 자동화의 가능성",
+              "하드웨어 설계 분야의 AI 적용 시 고려해야 할 점"
+            ]
+          },
+          "en": {
+            "title": "Can AI Design Circuit Boards Yet? Hacker News Debate",
+            "hook": "Engineers need to know the current capabilities and limitations of AI in hardware design",
+            "key_takeaways": [
+              "How far AI has progressed in circuit board design",
+              "The discussion on Hacker News about design automation",
+              "Considerations for applying AI to hardware design"
+            ]
+          },
+          "zh": {
+            "title": "AI 还能设计电路板吗？Hacker News 热议",
+            "hook": "直击工程师痛点的AI硬件设计能力现状与未来",
+            "key_takeaways": [
+              "AI 在电路板设计中的当前应用程度",
+              "Hacker News 引发的硬件设计自动化讨论",
+              "应用 AI 进行硬件设计时需注意的事项"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:00:54.105956+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "AI가 회로 설계까지 할 수 있을까? Hacker News에서 화제",
+          "hook": "엔지니어라면 꼭 알아야 할 AI의 하드웨어 설계 역량 현황과 한계",
+          "key_takeaways": [
+            "AI가 현재 회로 설계에 어느 정도까지 활용 가능한지",
+            "Hacker News에서 제기된 설계 자동화의 가능성",
+            "하드웨어 설계 분야의 AI 적용 시 고려해야 할 점"
+          ]
+        },
+        "en": {
+          "title": "Can AI Design Circuit Boards Yet? Hacker News Debate",
+          "hook": "Engineers need to know the current capabilities and limitations of AI in hardware design",
+          "key_takeaways": [
+            "How far AI has progressed in circuit board design",
+            "The discussion on Hacker News about design automation",
+            "Considerations for applying AI to hardware design"
+          ]
+        },
+        "zh": {
+          "title": "AI 还能设计电路板吗？Hacker News 热议",
+          "hook": "直击工程师痛点的AI硬件设计能力现状与未来",
+          "key_takeaways": [
+            "AI 在电路板设计中的当前应用程度",
+            "Hacker News 引发的硬件设计自动化讨论",
+            "应用 AI 进行硬件设计时需注意的事项"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI design",
+        "circuit board",
+        "hardware automation"
+      ],
+      "title_ko": "AI가 회로 설계까지 할 수 있을까? Hacker News에서 화제",
+      "title_en": "Can AI Design Circuit Boards Yet? Hacker News Debate",
+      "title_zh": "AI 还能设计电路板吗？Hacker News 热议",
+      "hook": "엔지니어라면 꼭 알아야 할 AI의 하드웨어 설계 역량 현황과 한계",
+      "hook_ko": "엔지니어라면 꼭 알아야 할 AI의 하드웨어 설계 역량 현황과 한계",
+      "hook_en": "Engineers need to know the current capabilities and limitations of AI in hardware design",
+      "hook_zh": "直击工程师痛点的AI硬件设计能力现状与未来",
+      "description_ko": "엔지니어라면 꼭 알아야 할 AI의 하드웨어 설계 역량 현황과 한계",
+      "description_en": "Engineers need to know the current capabilities and limitations of AI in hardware design",
+      "description_zh": "直击工程师痛点的AI硬件设计能力现状与未来",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_the_rust_react_compiler_is_now_na",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.075114",
+      "published_at": "2026-09-04T17:49:09",
+      "created_at": "2026-09-04T17:49:09",
+      "updated_at": "2026-09-04T19:57:26.075114",
+      "title": "Hacker News: The Rust React Compiler is now native in Vite",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49567873",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 40 pts | Comments: 5 | The Rust React Compiler is now native in Vite",
+      "viral_metric": "🔥 40 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 40,
+          "display": "🔥 40 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 40,
+          "display": "🔥 40 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49567873",
+      "article_url": "https://blog.master.dev/react-now-rusted-all-the-way-out/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_the_rust_react_compiler_is_now_na",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Web Development Tools",
+        "programming_lang": "Rust",
+        "root_keywords": [
+          "Rust",
+          "React Compiler",
+          "Vite"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "Rust React 컴파일러, Vite에 네이티브로 통합",
+            "hook": "Vite가 Rust 기반 React 컴파일러를 네이티브로 지원해, 추가 설정 없이 React 앱 성능을 향상시킵니다.",
+            "key_takeaways": [
+              "Rust 기반 React 컴파일러가 Vite에 기본으로 포함됨.",
+              "별도의 컴파일러 설정 없이도 사용 가능.",
+              "더 빠른 React 빌드 및 향상된 개발자 경험 제공."
+            ]
+          },
+          "en": {
+            "title": "Rust React Compiler Now Ships Native in Vite",
+            "hook": "Vite now runs the Rust‑powered React compiler natively, boosting React app performance without extra config.",
+            "key_takeaways": [
+              "The Rust React compiler is built into Vite by default.",
+              "This integration eliminates the need for separate compiler setup.",
+              "Expect faster React builds and an improved developer experience."
+            ]
+          },
+          "zh": {
+            "title": "Rust React 编译器现已原生支持 Vite",
+            "hook": "Vite 现已原生支持 Rust 驱动的 React 编译器，无需额外配置即可提升 React 应用性能。",
+            "key_takeaways": [
+              "Rust 驱动的 React 编译器现已原生集成到 Vite 中。",
+              "无需额外配置即可使用，简化了开发流程。",
+              "预计将带来更快的 React 构建速度和更好的开发者体验。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:05:12.402752+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Rust React 컴파일러, Vite에 네이티브로 통합",
+          "hook": "Vite가 Rust 기반 React 컴파일러를 네이티브로 지원해, 추가 설정 없이 React 앱 성능을 향상시킵니다.",
+          "key_takeaways": [
+            "Rust 기반 React 컴파일러가 Vite에 기본으로 포함됨.",
+            "별도의 컴파일러 설정 없이도 사용 가능.",
+            "더 빠른 React 빌드 및 향상된 개발자 경험 제공."
+          ]
+        },
+        "en": {
+          "title": "Rust React Compiler Now Ships Native in Vite",
+          "hook": "Vite now runs the Rust‑powered React compiler natively, boosting React app performance without extra config.",
+          "key_takeaways": [
+            "The Rust React compiler is built into Vite by default.",
+            "This integration eliminates the need for separate compiler setup.",
+            "Expect faster React builds and an improved developer experience."
+          ]
+        },
+        "zh": {
+          "title": "Rust React 编译器现已原生支持 Vite",
+          "hook": "Vite 现已原生支持 Rust 驱动的 React 编译器，无需额外配置即可提升 React 应用性能。",
+          "key_takeaways": [
+            "Rust 驱动的 React 编译器现已原生集成到 Vite 中。",
+            "无需额外配置即可使用，简化了开发流程。",
+            "预计将带来更快的 React 构建速度和更好的开发者体验。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Rust",
+      "root_keywords": [
+        "Rust",
+        "React Compiler",
+        "Vite"
+      ],
+      "title_ko": "Rust React 컴파일러, Vite에 네이티브로 통합",
+      "title_en": "Rust React Compiler Now Ships Native in Vite",
+      "title_zh": "Rust React 编译器现已原生支持 Vite",
+      "hook": "Vite가 Rust 기반 React 컴파일러를 네이티브로 지원해, 추가 설정 없이 React 앱 성능을 향상시킵니다.",
+      "hook_ko": "Vite가 Rust 기반 React 컴파일러를 네이티브로 지원해, 추가 설정 없이 React 앱 성능을 향상시킵니다.",
+      "hook_en": "Vite now runs the Rust‑powered React compiler natively, boosting React app performance without extra config.",
+      "hook_zh": "Vite 现已原生支持 Rust 驱动的 React 编译器，无需额外配置即可提升 React 应用性能。",
+      "description_ko": "Vite가 Rust 기반 React 컴파일러를 네이티브로 지원해, 추가 설정 없이 React 앱 성능을 향상시킵니다.",
+      "description_en": "Vite now runs the Rust‑powered React compiler natively, boosting React app performance without extra config.",
+      "description_zh": "Vite 现已原生支持 Rust 驱动的 React 编译器，无需额外配置即可提升 React 应用性能。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_government_rails_site_hit_hours_a",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.063760",
+      "published_at": "2026-09-04T19:06:39",
+      "created_at": "2026-09-04T19:06:39",
+      "updated_at": "2026-09-04T19:57:26.063760",
+      "title": "Hacker News: Government Rails Site Hit Hours After CVE Patch",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49568828",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 19 pts | Comments: 6 | Government Rails Site Hit Hours After CVE Patch",
+      "viral_metric": "🔥 19 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 19,
+          "display": "🔥 19 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 19,
+          "display": "🔥 19 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49568828",
+      "article_url": "https://rietta.com/blog/ruby-on-rails-cve-exploited-hours-after-patch/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_government_rails_site_hit_hours_a",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Government Web Application Security",
+        "programming_lang": "Ruby",
+        "root_keywords": [
+          "CVE",
+          "Rails",
+          "Security",
+          "Government site"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "정부 Rails 사이트, CVE 패치 후 몇 시간 만에 해킹당해",
+            "hook": "CVE 취약점 패치가 적용되었음에도 정부 웹사이트가 여전히 공격받는 현실, 개발자들이 주목해야 할 이유",
+            "key_takeaways": [
+              "CVE 취약점 관련 패치가 적용되었음에도 정부 Rails 사이트가 해킹당함",
+              "공격이 패치 직후 발생해 신속한 대응의 중요성 강조",
+              "개발자들은 패치 적용 후에도 지속적인 보안 모니터링 필요"
+            ]
+          },
+          "en": {
+            "title": "Government Rails Site Hit Hours After CVE Patch",
+            "hook": "A government Rails site was compromised just hours after a CVE patch, highlighting the urgency of post‑patch security monitoring.",
+            "key_takeaways": [
+              "A government Rails site was compromised shortly after a CVE patch was applied.",
+              "The incident underscores the need for rapid security response and continuous monitoring.",
+              "Developers must verify patches and maintain vigilant security practices."
+            ]
+          },
+          "zh": {
+            "title": "政府Rails网站CVE补丁后几小时即遭攻击",
+            "hook": "CVE漏洞补丁发布后几小时内，政府Rails网站即遭攻击，提醒开发者需重视补丁后的安全监控",
+            "key_takeaways": [
+              "CVE漏洞补丁发布后，政府Rails网站仍遭攻击",
+              "攻击发生在补丁发布后几小时内，凸显了快速安全响应和持续监控的重要性",
+              "开发者需验证补丁并保持严格的安全实践"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:01:37.969711+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "정부 Rails 사이트, CVE 패치 후 몇 시간 만에 해킹당해",
+          "hook": "CVE 취약점 패치가 적용되었음에도 정부 웹사이트가 여전히 공격받는 현실, 개발자들이 주목해야 할 이유",
+          "key_takeaways": [
+            "CVE 취약점 관련 패치가 적용되었음에도 정부 Rails 사이트가 해킹당함",
+            "공격이 패치 직후 발생해 신속한 대응의 중요성 강조",
+            "개발자들은 패치 적용 후에도 지속적인 보안 모니터링 필요"
+          ]
+        },
+        "en": {
+          "title": "Government Rails Site Hit Hours After CVE Patch",
+          "hook": "A government Rails site was compromised just hours after a CVE patch, highlighting the urgency of post‑patch security monitoring.",
+          "key_takeaways": [
+            "A government Rails site was compromised shortly after a CVE patch was applied.",
+            "The incident underscores the need for rapid security response and continuous monitoring.",
+            "Developers must verify patches and maintain vigilant security practices."
+          ]
+        },
+        "zh": {
+          "title": "政府Rails网站CVE补丁后几小时即遭攻击",
+          "hook": "CVE漏洞补丁发布后几小时内，政府Rails网站即遭攻击，提醒开发者需重视补丁后的安全监控",
+          "key_takeaways": [
+            "CVE漏洞补丁发布后，政府Rails网站仍遭攻击",
+            "攻击发生在补丁发布后几小时内，凸显了快速安全响应和持续监控的重要性",
+            "开发者需验证补丁并保持严格的安全实践"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Ruby",
+      "root_keywords": [
+        "CVE",
+        "Rails",
+        "Security",
+        "Government site"
+      ],
+      "title_ko": "정부 Rails 사이트, CVE 패치 후 몇 시간 만에 해킹당해",
+      "title_en": "Government Rails Site Hit Hours After CVE Patch",
+      "title_zh": "政府Rails网站CVE补丁后几小时即遭攻击",
+      "hook": "CVE 취약점 패치가 적용되었음에도 정부 웹사이트가 여전히 공격받는 현실, 개발자들이 주목해야 할 이유",
+      "hook_ko": "CVE 취약점 패치가 적용되었음에도 정부 웹사이트가 여전히 공격받는 현실, 개발자들이 주목해야 할 이유",
+      "hook_en": "A government Rails site was compromised just hours after a CVE patch, highlighting the urgency of post‑patch security monitoring.",
+      "hook_zh": "CVE漏洞补丁发布后几小时内，政府Rails网站即遭攻击，提醒开发者需重视补丁后的安全监控",
+      "description_ko": "CVE 취약점 패치가 적용되었음에도 정부 웹사이트가 여전히 공격받는 현실, 개발자들이 주목해야 할 이유",
+      "description_en": "A government Rails site was compromised just hours after a CVE patch, highlighting the urgency of post‑patch security monitoring.",
+      "description_zh": "CVE漏洞补丁发布后几小时内，政府Rails网站即遭攻击，提醒开发者需重视补丁后的安全监控",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_shutting_down_our_public_encrypte",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.045558",
+      "published_at": "2026-09-04T18:50:28",
+      "created_at": "2026-09-04T18:50:28",
+      "updated_at": "2026-09-04T19:57:26.045558",
+      "title": "Hacker News: Shutting down our public encrypted DNS",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49568579",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 77 pts | Comments: 14 | Shutting down our public encrypted DNS",
+      "viral_metric": "🔥 77 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 77,
+          "display": "🔥 77 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 77,
+          "display": "🔥 77 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49568579",
+      "article_url": "https://mullvad.net/en/blog/shutting-down-our-public-encrypted-dns-servers-and-sponsoring-quad9-instead",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_shutting_down_our_public_encrypte",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Network Infrastructure",
+        "programming_lang": "General",
+        "root_keywords": [
+          "encrypted DNS",
+          "shutdown",
+          "privacy"
+        ],
+        "recommended_tag": "📝 Tech Reference",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 공개 암호화 DNS 서비스 종료",
+            "hook": "공개 암호화 DNS 서비스가 종료됩니다 – 개인 정보 보호에 미치는 영향은?",
+            "key_takeaways": [
+              "암호화된 DNS 쿼리 서비스가 2026년 9월 4일에 종료됩니다.",
+              "사용자들은 대체 개인 정보 보호 솔루션을 찾아야 할 수 있습니다.",
+              "이번 결정은 암호화 DNS의 대중화 및 운영 비용에 대한 논의를 불러일으킵니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Shutting down our public encrypted DNS",
+            "hook": "Our public encrypted DNS is shutting down – what does it mean for privacy?",
+            "key_takeaways": [
+              "The encrypted DNS query service will be discontinued on September 4, 2026.",
+              "Users may need to find alternative privacy‑preserving DNS solutions.",
+              "The shutdown sparks debate about the adoption and operational costs of encrypted DNS."
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：关闭我们的公共加密 DNS 服务",
+            "hook": "我们的公共加密 DNS 服务即将关闭——这对隐私意味着什么？",
+            "key_takeaways": [
+              "加密 DNS 查询服务将于 2026 年 9 月 4 日关闭。",
+              "用户可能需要寻找替代的隐私保护 DNS 解决方案。",
+              "此举引发了关于加密 DNS 的普及率和运营成本的讨论。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:02:12.925108+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 공개 암호화 DNS 서비스 종료",
+          "hook": "공개 암호화 DNS 서비스가 종료됩니다 – 개인 정보 보호에 미치는 영향은?",
+          "key_takeaways": [
+            "암호화된 DNS 쿼리 서비스가 2026년 9월 4일에 종료됩니다.",
+            "사용자들은 대체 개인 정보 보호 솔루션을 찾아야 할 수 있습니다.",
+            "이번 결정은 암호화 DNS의 대중화 및 운영 비용에 대한 논의를 불러일으킵니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Shutting down our public encrypted DNS",
+          "hook": "Our public encrypted DNS is shutting down – what does it mean for privacy?",
+          "key_takeaways": [
+            "The encrypted DNS query service will be discontinued on September 4, 2026.",
+            "Users may need to find alternative privacy‑preserving DNS solutions.",
+            "The shutdown sparks debate about the adoption and operational costs of encrypted DNS."
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：关闭我们的公共加密 DNS 服务",
+          "hook": "我们的公共加密 DNS 服务即将关闭——这对隐私意味着什么？",
+          "key_takeaways": [
+            "加密 DNS 查询服务将于 2026 年 9 月 4 日关闭。",
+            "用户可能需要寻找替代的隐私保护 DNS 解决方案。",
+            "此举引发了关于加密 DNS 的普及率和运营成本的讨论。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "encrypted DNS",
+        "shutdown",
+        "privacy"
+      ],
+      "title_ko": "해커 뉴스: 공개 암호화 DNS 서비스 종료",
+      "title_en": "Hacker News: Shutting down our public encrypted DNS",
+      "title_zh": "Hacker News：关闭我们的公共加密 DNS 服务",
+      "hook": "공개 암호화 DNS 서비스가 종료됩니다 – 개인 정보 보호에 미치는 영향은?",
+      "hook_ko": "공개 암호화 DNS 서비스가 종료됩니다 – 개인 정보 보호에 미치는 영향은?",
+      "hook_en": "Our public encrypted DNS is shutting down – what does it mean for privacy?",
+      "hook_zh": "我们的公共加密 DNS 服务即将关闭——这对隐私意味着什么？",
+      "description_ko": "공개 암호화 DNS 서비스가 종료됩니다 – 개인 정보 보호에 미치는 영향은?",
+      "description_en": "Our public encrypted DNS is shutting down – what does it mean for privacy?",
+      "description_zh": "我们的公共加密 DNS 服务即将关闭——这对隐私意味着什么？",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_formalizing_fermats_last_theorem",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.025808",
+      "published_at": "2026-09-04T18:42:56",
+      "created_at": "2026-09-04T18:42:56",
+      "updated_at": "2026-09-04T19:57:26.025808",
+      "title": "Hacker News: Formalizing Fermat's Last Theorem",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49568506",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 160 pts | Comments: 88 | Formalizing Fermat's Last Theorem",
+      "viral_metric": "🔥 160 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 160,
+          "display": "🔥 160 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 160,
+          "display": "🔥 160 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49568506",
+      "article_url": "https://www.anthropic.com/research/formalizing-fermats-last-theorem",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_formalizing_fermats_last_theorem",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Mathematical Formalization",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Fermat's Last Theorem",
+          "formal proof",
+          "mathematics"
+        ],
+        "recommended_tag": "📝 Technical Reference",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 페르마의 마지막 정리를 형식화하다",
+            "hook": "수학자들이 기다려온 페르마의 마지막 정리의 완전한 형식화 논문이 Hacker News에서 화제입니다.",
+            "key_takeaways": [
+              "HN에서 160점, 88개의 댓글을 기록하며 주목받았습니다.",
+              "페르마의 마지막 정리의 완전한 형식적 증명을 제시합니다.",
+              "수학적 형식화 및 검증 분야에 중요한 기여로 평가됩니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Formalizing Fermat's Last Theorem",
+            "hook": "A long‑awaited formal proof of Fermat's Last Theorem hits Hacker News with 160 points and 88 comments.",
+            "key_takeaways": [
+              "Earned 160 points and 88 comments on Hacker News.",
+              "Presents a complete formal proof of Fermat's Last Theorem.",
+              "Considered a milestone contribution to mathematical formalization and verification."
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：形式化证明费马最后定理",
+            "hook": "一项期待已久的费马最后定理形式化证明在Hacker News上引发热议，获得160分和88条评论。",
+            "key_takeaways": [
+              "在Hacker News上获得160分和88条评论。",
+              "提出费马最后定理的完整形式化证明。",
+              "被视为数学形式化与验证领域的重要里程碑。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:02:44.850157+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 페르마의 마지막 정리를 형식화하다",
+          "hook": "수학자들이 기다려온 페르마의 마지막 정리의 완전한 형식화 논문이 Hacker News에서 화제입니다.",
+          "key_takeaways": [
+            "HN에서 160점, 88개의 댓글을 기록하며 주목받았습니다.",
+            "페르마의 마지막 정리의 완전한 형식적 증명을 제시합니다.",
+            "수학적 형식화 및 검증 분야에 중요한 기여로 평가됩니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Formalizing Fermat's Last Theorem",
+          "hook": "A long‑awaited formal proof of Fermat's Last Theorem hits Hacker News with 160 points and 88 comments.",
+          "key_takeaways": [
+            "Earned 160 points and 88 comments on Hacker News.",
+            "Presents a complete formal proof of Fermat's Last Theorem.",
+            "Considered a milestone contribution to mathematical formalization and verification."
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：形式化证明费马最后定理",
+          "hook": "一项期待已久的费马最后定理形式化证明在Hacker News上引发热议，获得160分和88条评论。",
+          "key_takeaways": [
+            "在Hacker News上获得160分和88条评论。",
+            "提出费马最后定理的完整形式化证明。",
+            "被视为数学形式化与验证领域的重要里程碑。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Fermat's Last Theorem",
+        "formal proof",
+        "mathematics"
+      ],
+      "title_ko": "해커 뉴스: 페르마의 마지막 정리를 형식화하다",
+      "title_en": "Hacker News: Formalizing Fermat's Last Theorem",
+      "title_zh": "Hacker News：形式化证明费马最后定理",
+      "hook": "수학자들이 기다려온 페르마의 마지막 정리의 완전한 형식화 논문이 Hacker News에서 화제입니다.",
+      "hook_ko": "수학자들이 기다려온 페르마의 마지막 정리의 완전한 형식화 논문이 Hacker News에서 화제입니다.",
+      "hook_en": "A long‑awaited formal proof of Fermat's Last Theorem hits Hacker News with 160 points and 88 comments.",
+      "hook_zh": "一项期待已久的费马最后定理形式化证明在Hacker News上引发热议，获得160分和88条评论。",
+      "description_ko": "수학자들이 기다려온 페르마의 마지막 정리의 완전한 형식화 논문이 Hacker News에서 화제입니다.",
+      "description_en": "A long‑awaited formal proof of Fermat's Last Theorem hits Hacker News with 160 points and 88 comments.",
+      "description_zh": "一项期待已久的费马最后定理形式化证明在Hacker News上引发热议，获得160分和88条评论。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
       "inbox_id": "2026-09-04_sns_geeknews_openai_에이전트의_새_메시지_보드_발견",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T17:52:01.519466",
@@ -53957,8 +55930,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 295 pts | Comments: 237 | VC isn't VC anymore",
-      "viral_metric": "🔥 295 HN Points",
+      "description": "HN Score: 300 pts | Comments: 240 | VC isn't VC anymore",
+      "viral_metric": "🔥 300 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -53966,13 +55939,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 295,
-          "display": "🔥 295 HN Points",
+          "value": 300,
+          "display": "🔥 300 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 287,
-        "delta_display": "+287",
-        "growth_rate_pct": 3587.5,
+        "delta": 292,
+        "delta_display": "+292",
+        "growth_rate_pct": 3650.0,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -76898,6 +78871,1979 @@
     }
   ],
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_show_gn_귀래당_앱_모음_설치도_로그인도_없이_브라우저에서_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.672214",
+      "published_at": "2026-09-04T19:57:26.672214",
+      "created_at": "2026-09-04T19:57:26.672214",
+      "updated_at": "2026-09-04T19:57:26.672214",
+      "title": "GeekNews: Show GN: 귀래당 앱 모음 - 설치도 로그인도 없이 브라우저에서 도는 작은 도구와 게임 84개",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33238",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: Show GN: 귀래당 앱 모음 - 설치도 로그인도 없이 브라우저에서 도는 작은 도구와 게임 84개",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "귀래당 앱 모음 – 설치 없이 브라우저에서 즐기는 84개의 작은 도구와 게임",
+      "description_ko": "설치 및 로그인 없이 브라우저에서 바로 실행되는 84개의 재미있는 도구와 게임 모음 – 지금 바로 확인하세요!",
+      "hn_url": "https://news.hada.io/topic?id=33238",
+      "article_url": "https://news.hada.io/topic?id=33238",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_show_gn_귀래당_앱_모음_설치도_로그인도_없이_브라우저에서_",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Browser-based tools and games",
+        "programming_lang": "JavaScript",
+        "root_keywords": [
+          "browser",
+          "no install",
+          "games",
+          "tools"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "귀래당 앱 모음 – 설치 없이 브라우저에서 즐기는 84개의 작은 도구와 게임",
+            "hook": "설치 및 로그인 없이 브라우저에서 바로 실행되는 84개의 재미있는 도구와 게임 모음 – 지금 바로 확인하세요!",
+            "key_takeaways": [
+              "84개의 소규모 웹 앱으로 구성된 간편한 모음",
+              "설치 및 로그인 없이 브라우저에서 바로 실행 가능",
+              "게임, 생산성 도구, 유틸리티 등 다양한 카테고리 포함",
+              "GeekNews에서 소개된 Korean tech trend로, 접근성이 뛰어남"
+            ]
+          },
+          "en": {
+            "title": "GeuraeDang App Collection – 84 Small Tools and Games Running in Browser Without Installation or Login",
+            "hook": "84 browser‑based tools and games that run instantly without installation or login – explore now!",
+            "key_takeaways": [
+              "A curated collection of 84 lightweight web apps",
+              "Runs instantly in the browser without installation or login",
+              "Covers games, productivity tools, and utilities",
+              "Featured in GeekNews Korean tech trend for its accessibility"
+            ]
+          },
+          "zh": {
+            "title": "귀래당应用合集——84款无需安装无需登录即可运行的浏览器小工具与游戏",
+            "hook": "84款无需安装无需登录即可运行的浏览器小工具与游戏合集——立即探索！",
+            "key_takeaways": [
+              "84款轻量级网络应用合集",
+              "无需安装无需登录即可运行",
+              "涵盖游戏、生产力工具和实用程序等类别",
+              "被GeekNews评为韩国科技趋势，因其易用性而备受关注"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T19:57:53.512716+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "귀래당 앱 모음 – 설치 없이 브라우저에서 즐기는 84개의 작은 도구와 게임",
+          "hook": "설치 및 로그인 없이 브라우저에서 바로 실행되는 84개의 재미있는 도구와 게임 모음 – 지금 바로 확인하세요!",
+          "key_takeaways": [
+            "84개의 소규모 웹 앱으로 구성된 간편한 모음",
+            "설치 및 로그인 없이 브라우저에서 바로 실행 가능",
+            "게임, 생산성 도구, 유틸리티 등 다양한 카테고리 포함",
+            "GeekNews에서 소개된 Korean tech trend로, 접근성이 뛰어남"
+          ]
+        },
+        "en": {
+          "title": "GeuraeDang App Collection – 84 Small Tools and Games Running in Browser Without Installation or Login",
+          "hook": "84 browser‑based tools and games that run instantly without installation or login – explore now!",
+          "key_takeaways": [
+            "A curated collection of 84 lightweight web apps",
+            "Runs instantly in the browser without installation or login",
+            "Covers games, productivity tools, and utilities",
+            "Featured in GeekNews Korean tech trend for its accessibility"
+          ]
+        },
+        "zh": {
+          "title": "귀래당应用合集——84款无需安装无需登录即可运行的浏览器小工具与游戏",
+          "hook": "84款无需安装无需登录即可运行的浏览器小工具与游戏合集——立即探索！",
+          "key_takeaways": [
+            "84款轻量级网络应用合集",
+            "无需安装无需登录即可运行",
+            "涵盖游戏、生产力工具和实用程序等类别",
+            "被GeekNews评为韩国科技趋势，因其易用性而备受关注"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "JavaScript",
+      "root_keywords": [
+        "browser",
+        "no install",
+        "games",
+        "tools"
+      ],
+      "title_en": "GeuraeDang App Collection – 84 Small Tools and Games Running in Browser Without Installation or Login",
+      "title_zh": "귀래당应用合集——84款无需安装无需登录即可运行的浏览器小工具与游戏",
+      "hook": "설치 및 로그인 없이 브라우저에서 바로 실행되는 84개의 재미있는 도구와 게임 모음 – 지금 바로 확인하세요!",
+      "hook_ko": "설치 및 로그인 없이 브라우저에서 바로 실행되는 84개의 재미있는 도구와 게임 모음 – 지금 바로 확인하세요!",
+      "hook_en": "84 browser‑based tools and games that run instantly without installation or login – explore now!",
+      "hook_zh": "84款无需安装无需登录即可运行的浏览器小工具与游戏合集——立即探索！",
+      "description_en": "84 browser‑based tools and games that run instantly without installation or login – explore now!",
+      "description_zh": "84款无需安装无需登录即可运行的浏览器小工具与游戏合集——立即探索！",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_jane_street_리버스_엔지니어링_챌린지_해결기",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.658422",
+      "published_at": "2026-09-04T19:57:26.658422",
+      "created_at": "2026-09-04T19:57:26.658422",
+      "updated_at": "2026-09-04T19:57:26.658422",
+      "title": "GeekNews: Jane Street 리버스 엔지니어링 챌린지 해결기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33239",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Jane Street 리버스 엔지니어링 챌린지 해결기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "지크뉴스: 제인 스트리트 리버스 엔지니어링 챌린지 해결기",
+      "description_ko": "엔지니어가 주목해야 할 제인 스트리트의 리버스 엔지니어링 챌린지 해결 사례",
+      "hn_url": "https://news.hada.io/topic?id=33239",
+      "article_url": "https://news.hada.io/topic?id=33239",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_jane_street_리버스_엔지니어링_챌린지_해결기",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Reverse Engineering / CTF",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Jane Street",
+          "Reverse Engineering",
+          "Challenge Solver"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "지크뉴스: 제인 스트리트 리버스 엔지니어링 챌린지 해결기",
+            "hook": "엔지니어가 주목해야 할 제인 스트리트의 리버스 엔지니어링 챌린지 해결 사례",
+            "key_takeaways": [
+              "제인 스트리트가 개최한 리버스 엔지니어링 챌린지에서 우승한 솔루션 소개",
+              "CTF 스타일의 문제 풀이를 통해 보안 분석 역량 강조",
+              "한국 기술 트렌드에서 주목할 만한 성과로 보도됨"
+            ]
+          },
+          "en": {
+            "title": "GeekNews: Jane Street Reverse Engineering Challenge Solver",
+            "hook": "A standout solution from Jane Street's reverse engineering challenge, worth engineer’s attention",
+            "key_takeaways": [
+              "Showcases a winning solution to Jane Street's reverse engineering challenge",
+              "Highlights CTF-style problem-solving and security analysis skills",
+              "Featured in Korean tech trend news"
+            ]
+          },
+          "zh": {
+            "title": "极客新闻：Jane Street 逆向工程挑战解决方案",
+            "hook": "一位工程师不容错过的 Jane Street 逆向工程挑战解决方案亮点",
+            "key_takeaways": [
+              "介绍了 Jane Street 举办的逆向工程挑战中的获奖方案",
+              "展示了 CTF 风格的问题解决能力和安全分析技能",
+              "被韩国科技趋势新闻报道"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T19:58:36.142914+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "지크뉴스: 제인 스트리트 리버스 엔지니어링 챌린지 해결기",
+          "hook": "엔지니어가 주목해야 할 제인 스트리트의 리버스 엔지니어링 챌린지 해결 사례",
+          "key_takeaways": [
+            "제인 스트리트가 개최한 리버스 엔지니어링 챌린지에서 우승한 솔루션 소개",
+            "CTF 스타일의 문제 풀이를 통해 보안 분석 역량 강조",
+            "한국 기술 트렌드에서 주목할 만한 성과로 보도됨"
+          ]
+        },
+        "en": {
+          "title": "GeekNews: Jane Street Reverse Engineering Challenge Solver",
+          "hook": "A standout solution from Jane Street's reverse engineering challenge, worth engineer’s attention",
+          "key_takeaways": [
+            "Showcases a winning solution to Jane Street's reverse engineering challenge",
+            "Highlights CTF-style problem-solving and security analysis skills",
+            "Featured in Korean tech trend news"
+          ]
+        },
+        "zh": {
+          "title": "极客新闻：Jane Street 逆向工程挑战解决方案",
+          "hook": "一位工程师不容错过的 Jane Street 逆向工程挑战解决方案亮点",
+          "key_takeaways": [
+            "介绍了 Jane Street 举办的逆向工程挑战中的获奖方案",
+            "展示了 CTF 风格的问题解决能力和安全分析技能",
+            "被韩国科技趋势新闻报道"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Jane Street",
+        "Reverse Engineering",
+        "Challenge Solver"
+      ],
+      "title_en": "GeekNews: Jane Street Reverse Engineering Challenge Solver",
+      "title_zh": "极客新闻：Jane Street 逆向工程挑战解决方案",
+      "hook": "엔지니어가 주목해야 할 제인 스트리트의 리버스 엔지니어링 챌린지 해결 사례",
+      "hook_ko": "엔지니어가 주목해야 할 제인 스트리트의 리버스 엔지니어링 챌린지 해결 사례",
+      "hook_en": "A standout solution from Jane Street's reverse engineering challenge, worth engineer’s attention",
+      "hook_zh": "一位工程师不容错过的 Jane Street 逆向工程挑战解决方案亮点",
+      "description_en": "A standout solution from Jane Street's reverse engineering challenge, worth engineer’s attention",
+      "description_zh": "一位工程师不容错过的 Jane Street 逆向工程挑战解决方案亮点",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_amazon_achieves_enshitification_i",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.263393",
+      "published_at": "2026-09-04T18:22:20",
+      "created_at": "2026-09-04T18:22:20",
+      "updated_at": "2026-09-04T19:57:26.263393",
+      "title": "Hacker News: Amazon Achieves Enshitification Inception",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49568253",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 15 pts | Comments: 2 | Amazon Achieves Enshitification Inception",
+      "viral_metric": "🔥 15 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 15,
+          "display": "🔥 15 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 15,
+          "display": "🔥 15 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49568253",
+      "article_url": "https://pluralistic.net/2026/09/04/cheating-at-fraud/#absentee-rentier",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_amazon_achieves_enshitification_i",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "E-commerce / Platform Degradation",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Amazon",
+          "enshitification",
+          "platform degradation"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "아마존, 서비스 품질 저하로 해커 뉴스에서 비판 받아",
+            "hook": "아마존의 편리함이 점점 더 불편해지고 있습니다. 엔지니어가 주목해야 할 이유",
+            "key_takeaways": [
+              "아마존의 인기 서비스가 점차 품질이 떨어지고 있습니다.",
+              "해커 뉴스 커뮤니티에서 사용자 불만이 증가하고 있습니다.",
+              "이러한 '엔시피피케이션'은 장기적으로 브랜드 신뢰를 약화시킬 수 있습니다."
+            ]
+          },
+          "en": {
+            "title": "Amazon Accused of 'Enshitification' on Hacker News",
+            "hook": "Amazon's once-reliable services are showing signs of degradation. Why engineers should care.",
+            "key_takeaways": [
+              "Amazon's popular services are gradually declining in quality.",
+              "User complaints are mounting on Hacker News.",
+              "This 'enshitification' could erode brand trust over time."
+            ]
+          },
+          "zh": {
+            "title": "亚马逊被指“恩希菲卡”化，引发黑客新闻热议",
+            "hook": "亚马逊曾经优质的服务如今开始走下坡路，工程师们需警惕。",
+            "key_takeaways": [
+              "亚马逊旗下热门服务质量逐渐下降。",
+              "黑客新闻社区用户抱怨声不断增加。",
+              "这种‘恩希菲卡’化趋势可能长期损害品牌信誉。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:03:36.491112+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "아마존, 서비스 품질 저하로 해커 뉴스에서 비판 받아",
+          "hook": "아마존의 편리함이 점점 더 불편해지고 있습니다. 엔지니어가 주목해야 할 이유",
+          "key_takeaways": [
+            "아마존의 인기 서비스가 점차 품질이 떨어지고 있습니다.",
+            "해커 뉴스 커뮤니티에서 사용자 불만이 증가하고 있습니다.",
+            "이러한 '엔시피피케이션'은 장기적으로 브랜드 신뢰를 약화시킬 수 있습니다."
+          ]
+        },
+        "en": {
+          "title": "Amazon Accused of 'Enshitification' on Hacker News",
+          "hook": "Amazon's once-reliable services are showing signs of degradation. Why engineers should care.",
+          "key_takeaways": [
+            "Amazon's popular services are gradually declining in quality.",
+            "User complaints are mounting on Hacker News.",
+            "This 'enshitification' could erode brand trust over time."
+          ]
+        },
+        "zh": {
+          "title": "亚马逊被指“恩希菲卡”化，引发黑客新闻热议",
+          "hook": "亚马逊曾经优质的服务如今开始走下坡路，工程师们需警惕。",
+          "key_takeaways": [
+            "亚马逊旗下热门服务质量逐渐下降。",
+            "黑客新闻社区用户抱怨声不断增加。",
+            "这种‘恩希菲卡’化趋势可能长期损害品牌信誉。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Amazon",
+        "enshitification",
+        "platform degradation"
+      ],
+      "title_ko": "아마존, 서비스 품질 저하로 해커 뉴스에서 비판 받아",
+      "title_en": "Amazon Accused of 'Enshitification' on Hacker News",
+      "title_zh": "亚马逊被指“恩希菲卡”化，引发黑客新闻热议",
+      "hook": "아마존의 편리함이 점점 더 불편해지고 있습니다. 엔지니어가 주목해야 할 이유",
+      "hook_ko": "아마존의 편리함이 점점 더 불편해지고 있습니다. 엔지니어가 주목해야 할 이유",
+      "hook_en": "Amazon's once-reliable services are showing signs of degradation. Why engineers should care.",
+      "hook_zh": "亚马逊曾经优质的服务如今开始走下坡路，工程师们需警惕。",
+      "description_ko": "아마존의 편리함이 점점 더 불편해지고 있습니다. 엔지니어가 주목해야 할 이유",
+      "description_en": "Amazon's once-reliable services are showing signs of degradation. Why engineers should care.",
+      "description_zh": "亚马逊曾经优质的服务如今开始走下坡路，工程师们需警惕。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_hayes_at_command_set",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.219163",
+      "published_at": "2026-09-04T17:56:14",
+      "created_at": "2026-09-04T17:56:14",
+      "updated_at": "2026-09-04T19:57:26.219163",
+      "title": "Hacker News: Hayes AT command set",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49567961",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 24 pts | Comments: 4 | Hayes AT command set",
+      "viral_metric": "🔥 24 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 24,
+          "display": "🔥 24 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 24,
+          "display": "🔥 24 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49567961",
+      "article_url": "https://en.wikipedia.org/wiki/Hayes_AT_command_set",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_hayes_at_command_set",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Modem communication protocols",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Hayes AT commands",
+          "modem",
+          "serial communication"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "해이스 AT 명령어 세트 - 모뎀 제어를 위한 필수 참조",
+            "hook": "모뎀 엔지니어가 알아야 할 고전적인 AT 명령어 세트와 그 현대적 활용법.",
+            "key_takeaways": [
+              "AT 명령어는 1980년대 모뎀 표준의 핵심이었다.",
+              "오늘날에도 시리얼 연결, 테스트, 자동화 스크립트에 여전히 사용된다.",
+              "이 세트에는 통신 상태 확인, 다이얼, 수신, 설정 변경 등을 위한 명령어가 포함된다."
+            ]
+          },
+          "en": {
+            "title": "Hayes AT Command Set – Essential Reference for Modem Control",
+            "hook": "The classic AT command set for modems and its modern relevance for engineers.",
+            "key_takeaways": [
+              "AT commands were the core of 1980s modem standards.",
+              "They are still used today in serial connections, testing, and automation scripts.",
+              "The set includes commands for checking status, dialing, answering, and configuring settings."
+            ]
+          },
+          "zh": {
+            "title": "海斯AT命令集——调制解调器控制的必备参考",
+            "hook": "经典的调制解调器AT命令集及其在现代工程中的应用。",
+            "key_takeaways": [
+              "AT命令是1980年代调制解调器标准的核心。",
+              "如今仍广泛应用于串行通信、测试和自动化脚本中。",
+              "该命令集包含状态查询、拨号、应答和设置调整等命令。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:04:28.329774+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해이스 AT 명령어 세트 - 모뎀 제어를 위한 필수 참조",
+          "hook": "모뎀 엔지니어가 알아야 할 고전적인 AT 명령어 세트와 그 현대적 활용법.",
+          "key_takeaways": [
+            "AT 명령어는 1980년대 모뎀 표준의 핵심이었다.",
+            "오늘날에도 시리얼 연결, 테스트, 자동화 스크립트에 여전히 사용된다.",
+            "이 세트에는 통신 상태 확인, 다이얼, 수신, 설정 변경 등을 위한 명령어가 포함된다."
+          ]
+        },
+        "en": {
+          "title": "Hayes AT Command Set – Essential Reference for Modem Control",
+          "hook": "The classic AT command set for modems and its modern relevance for engineers.",
+          "key_takeaways": [
+            "AT commands were the core of 1980s modem standards.",
+            "They are still used today in serial connections, testing, and automation scripts.",
+            "The set includes commands for checking status, dialing, answering, and configuring settings."
+          ]
+        },
+        "zh": {
+          "title": "海斯AT命令集——调制解调器控制的必备参考",
+          "hook": "经典的调制解调器AT命令集及其在现代工程中的应用。",
+          "key_takeaways": [
+            "AT命令是1980年代调制解调器标准的核心。",
+            "如今仍广泛应用于串行通信、测试和自动化脚本中。",
+            "该命令集包含状态查询、拨号、应答和设置调整等命令。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Hayes AT commands",
+        "modem",
+        "serial communication"
+      ],
+      "title_ko": "해이스 AT 명령어 세트 - 모뎀 제어를 위한 필수 참조",
+      "title_en": "Hayes AT Command Set – Essential Reference for Modem Control",
+      "title_zh": "海斯AT命令集——调制解调器控制的必备参考",
+      "hook": "모뎀 엔지니어가 알아야 할 고전적인 AT 명령어 세트와 그 현대적 활용법.",
+      "hook_ko": "모뎀 엔지니어가 알아야 할 고전적인 AT 명령어 세트와 그 현대적 활용법.",
+      "hook_en": "The classic AT command set for modems and its modern relevance for engineers.",
+      "hook_zh": "经典的调制解调器AT命令集及其在现代工程中的应用。",
+      "description_ko": "모뎀 엔지니어가 알아야 할 고전적인 AT 명령어 세트와 그 현대적 활용법.",
+      "description_en": "The classic AT command set for modems and its modern relevance for engineers.",
+      "description_zh": "经典的调制解调器AT命令集及其在现代工程中的应用。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_people_that_worked_on_the_same_id",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.171422",
+      "published_at": "2026-09-03T08:31:22",
+      "created_at": "2026-09-03T08:31:22",
+      "updated_at": "2026-09-04T19:57:26.171422",
+      "title": "Hacker News: People that worked on the same idea for decades",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49547415",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 24 pts | Comments: 11 | People that worked on the same idea for decades",
+      "viral_metric": "🔥 24 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 24,
+          "display": "🔥 24 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 24,
+          "display": "🔥 24 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49547415",
+      "article_url": "https://nityasnotes.com/writing/decades/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_people_that_worked_on_the_same_id",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Tech History / Long-term Projects",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Hacker News",
+          "long-term innovation",
+          "persistence"
+        ],
+        "recommended_tag": "📝 Tech Reference",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "수십 년간 같은 아이디어를 지켜낸 사람들",
+            "hook": "Hacker News에서 화제가 된, 수십 년간 한 우물을 판 사람들의 이야기",
+            "key_takeaways": [
+              "장기적인 비전과 인내의 힘",
+              "아이디어를 수십 년간 발전시킨 사례",
+              "지속적인 노력의 성과"
+            ]
+          },
+          "en": {
+            "title": "People Who Stuck to the Same Idea for Decades",
+            "hook": "HN highlights remarkable stories of individuals who pursued a single idea for decades",
+            "key_takeaways": [
+              "The power of long-term vision and perseverance",
+              "Real-world examples of decades‑long idea development",
+              "How sustained effort leads to impact"
+            ]
+          },
+          "zh": {
+            "title": "数十年来坚持同一个想法的群体",
+            "hook": "Hacker News 分享了数十年来坚持同一个想法的群体，引发热议",
+            "key_takeaways": [
+              "长期愿景与坚持的力量",
+              "数十年来持续发展的创意案例",
+              "持续努力如何带来成果"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:07:25.540161+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "수십 년간 같은 아이디어를 지켜낸 사람들",
+          "hook": "Hacker News에서 화제가 된, 수십 년간 한 우물을 판 사람들의 이야기",
+          "key_takeaways": [
+            "장기적인 비전과 인내의 힘",
+            "아이디어를 수십 년간 발전시킨 사례",
+            "지속적인 노력의 성과"
+          ]
+        },
+        "en": {
+          "title": "People Who Stuck to the Same Idea for Decades",
+          "hook": "HN highlights remarkable stories of individuals who pursued a single idea for decades",
+          "key_takeaways": [
+            "The power of long-term vision and perseverance",
+            "Real-world examples of decades‑long idea development",
+            "How sustained effort leads to impact"
+          ]
+        },
+        "zh": {
+          "title": "数十年来坚持同一个想法的群体",
+          "hook": "Hacker News 分享了数十年来坚持同一个想法的群体，引发热议",
+          "key_takeaways": [
+            "长期愿景与坚持的力量",
+            "数十年来持续发展的创意案例",
+            "持续努力如何带来成果"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Hacker News",
+        "long-term innovation",
+        "persistence"
+      ],
+      "title_ko": "수십 년간 같은 아이디어를 지켜낸 사람들",
+      "title_en": "People Who Stuck to the Same Idea for Decades",
+      "title_zh": "数十年来坚持同一个想法的群体",
+      "hook": "Hacker News에서 화제가 된, 수십 년간 한 우물을 판 사람들의 이야기",
+      "hook_ko": "Hacker News에서 화제가 된, 수십 년간 한 우물을 판 사람들의 이야기",
+      "hook_en": "HN highlights remarkable stories of individuals who pursued a single idea for decades",
+      "hook_zh": "Hacker News 分享了数十年来坚持同一个想法的群体，引发热议",
+      "description_ko": "Hacker News에서 화제가 된, 수십 년간 한 우물을 판 사람들의 이야기",
+      "description_en": "HN highlights remarkable stories of individuals who pursued a single idea for decades",
+      "description_zh": "Hacker News 分享了数十年来坚持同一个想法的群体，引发热议",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_arrested_for_a_late_manuscript_se",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.159276",
+      "published_at": "2026-09-03T19:10:59",
+      "created_at": "2026-09-03T19:10:59",
+      "updated_at": "2026-09-04T19:57:26.159276",
+      "title": "Hacker News: Arrested for a Late Manuscript: Seicho Matsumoto's 'Tokyo Express'",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49555131",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 11 pts | Comments: 3 | Arrested for a Late Manuscript: Seicho Matsumoto's 'Tokyo Express'",
+      "viral_metric": "🔥 11 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 11,
+          "display": "🔥 11 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 11,
+          "display": "🔥 11 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49555131",
+      "article_url": "https://www.millersbookreview.com/p/arrested-for-a-late-manuscript-seicho-matsumoto-tokyo-express",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_arrested_for_a_late_manuscript_se",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Publishing & Media",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Seicho Matsumoto",
+          "Tokyo Express",
+          "arrest"
+        ],
+        "recommended_tag": "🔥 Must-Read",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "마쓰모토 세이초의 '도쿄 익스프레스' 출판 지연으로 체포, 문학계 파장",
+            "hook": "전설적인 작가의逾期 작품이 감옥행을 초래할 때, 엔지니어는 진정한 혁신의 제약이 무엇인지 질문한다.",
+            "key_takeaways": [
+              "일본의 저명한 작가 마쓰모토 세이초가 출판 지연으로 체포되었다.",
+              "이 사건은 창작자와 출판사의 법적 의무에 대한 논의를 불러일으켰다.",
+              "창작 기간과 계약상의 기한 사이의 균형을 재고할 필요성을 제기했다."
+            ]
+          },
+          "en": {
+            "title": "Renowned Author Arrested Over Delayed Manuscript 'Tokyo Express'",
+            "hook": "When a legendary writer's overdue book lands him in jail, engineers ask: what deadlines truly drive innovation?",
+            "key_takeaways": [
+              "Prominent Japanese author Seicho Matsumoto was arrested for a publishing delay.",
+              "The case raises questions about legal obligations for creators and publishers.",
+              "It sparked debate on balancing creative timelines with contractual deadlines."
+            ]
+          },
+          "zh": {
+            "title": "著名作家因《东京快车》迟交稿被捕，文学界震惊",
+            "hook": "当传奇作家的逾期作品导致入狱，技术人反思：真正的创新约束是什么？",
+            "key_takeaways": [
+              "日本著名作家松本清张因《东京快车》迟交稿而被捕。",
+              "该案引发了关于创作者和出版商法律责任的讨论。",
+              "它引发了关于平衡创作时间与合同期限的辩论。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:06:41.775909+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "마쓰모토 세이초의 '도쿄 익스프레스' 출판 지연으로 체포, 문학계 파장",
+          "hook": "전설적인 작가의逾期 작품이 감옥행을 초래할 때, 엔지니어는 진정한 혁신의 제약이 무엇인지 질문한다.",
+          "key_takeaways": [
+            "일본의 저명한 작가 마쓰모토 세이초가 출판 지연으로 체포되었다.",
+            "이 사건은 창작자와 출판사의 법적 의무에 대한 논의를 불러일으켰다.",
+            "창작 기간과 계약상의 기한 사이의 균형을 재고할 필요성을 제기했다."
+          ]
+        },
+        "en": {
+          "title": "Renowned Author Arrested Over Delayed Manuscript 'Tokyo Express'",
+          "hook": "When a legendary writer's overdue book lands him in jail, engineers ask: what deadlines truly drive innovation?",
+          "key_takeaways": [
+            "Prominent Japanese author Seicho Matsumoto was arrested for a publishing delay.",
+            "The case raises questions about legal obligations for creators and publishers.",
+            "It sparked debate on balancing creative timelines with contractual deadlines."
+          ]
+        },
+        "zh": {
+          "title": "著名作家因《东京快车》迟交稿被捕，文学界震惊",
+          "hook": "当传奇作家的逾期作品导致入狱，技术人反思：真正的创新约束是什么？",
+          "key_takeaways": [
+            "日本著名作家松本清张因《东京快车》迟交稿而被捕。",
+            "该案引发了关于创作者和出版商法律责任的讨论。",
+            "它引发了关于平衡创作时间与合同期限的辩论。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Seicho Matsumoto",
+        "Tokyo Express",
+        "arrest"
+      ],
+      "title_ko": "마쓰모토 세이초의 '도쿄 익스프레스' 출판 지연으로 체포, 문학계 파장",
+      "title_en": "Renowned Author Arrested Over Delayed Manuscript 'Tokyo Express'",
+      "title_zh": "著名作家因《东京快车》迟交稿被捕，文学界震惊",
+      "hook": "전설적인 작가의逾期 작품이 감옥행을 초래할 때, 엔지니어는 진정한 혁신의 제약이 무엇인지 질문한다.",
+      "hook_ko": "전설적인 작가의逾期 작품이 감옥행을 초래할 때, 엔지니어는 진정한 혁신의 제약이 무엇인지 질문한다.",
+      "hook_en": "When a legendary writer's overdue book lands him in jail, engineers ask: what deadlines truly drive innovation?",
+      "hook_zh": "当传奇作家的逾期作品导致入狱，技术人反思：真正的创新约束是什么？",
+      "description_ko": "전설적인 작가의逾期 작품이 감옥행을 초래할 때, 엔지니어는 진정한 혁신의 제약이 무엇인지 질문한다.",
+      "description_en": "When a legendary writer's overdue book lands him in jail, engineers ask: what deadlines truly drive innovation?",
+      "description_zh": "当传奇作家的逾期作品导致入狱，技术人反思：真正的创新约束是什么？",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_nobody_is_saying_why_openai_and_a",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.133451",
+      "published_at": "2026-09-04T17:29:22",
+      "created_at": "2026-09-04T17:29:22",
+      "updated_at": "2026-09-04T19:57:26.133451",
+      "title": "Hacker News: Nobody Is Saying Why OpenAI and Anthropic Had Outages",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49567594",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 157 pts | Comments: 110 | Nobody Is Saying Why OpenAI and Anthropic Had Outages",
+      "viral_metric": "🔥 157 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 157,
+          "display": "🔥 157 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 157,
+          "display": "🔥 157 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49567594",
+      "article_url": "https://www.wired.com/story/nobody-is-saying-why-openai-and-anthropic-had-outages-today/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_nobody_is_saying_why_openai_and_a",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Industry News / Service Outage",
+        "programming_lang": "General",
+        "root_keywords": [
+          "OpenAI",
+          "Anthropic",
+          "outage"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "오픈AI·앤스로픽 서비스 장애 원인 불명… 해커 뉴스 주목",
+            "hook": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어): 오픈AI와 앤스로픽의 최근 장애 원인이 공개되지 않아 불확실성이 커지고 있습니다.",
+            "key_takeaways": [
+              "오픈AI와 앤스로픽의 서비스 장애가 발생했지만, 정확한 원인은 공개되지 않음",
+              "해커 뉴스에서 157점, 110개의 댓글이 달렸으나 원인 규명은 이루어지지 않음",
+              "사용자들은 불안감을 느끼고 있으며, 향후 투명성 제고 필요성이 제기됨"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Nobody Is Saying Why OpenAI and Anthropic Had Outages",
+            "hook": "Compelling 1-line hook for engineers (English): The recent outages of OpenAI and Anthropic remain unexplained, raising concerns about service reliability.",
+            "key_takeaways": [
+              "OpenAI and Anthropic experienced service outages without a disclosed cause",
+              "Hacker News reports 157 points and 110 comments, but no root cause analysis",
+              "Users are uneasy, highlighting the need for greater transparency from AI providers"
+            ]
+          },
+          "zh": {
+            "title": "黑客新闻：没人说出OpenAI和Anthropic停服的原因",
+            "hook": "直击工程师痛点的1句话亮点与阅读理由 (中文)：OpenAI和Anthropic的停服原因不明，引发对服务可靠性的担忧。",
+            "key_takeaways": [
+              "OpenAI和Anthropic的服务出现故障，但原因尚未公布",
+              "黑客新闻报道显示该帖获得157分和110条评论，但尚未有原因分析",
+              "用户感到不安，凸显了AI服务提供商提高透明度的必要性"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:05:44.964899+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "오픈AI·앤스로픽 서비스 장애 원인 불명… 해커 뉴스 주목",
+          "hook": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어): 오픈AI와 앤스로픽의 최근 장애 원인이 공개되지 않아 불확실성이 커지고 있습니다.",
+          "key_takeaways": [
+            "오픈AI와 앤스로픽의 서비스 장애가 발생했지만, 정확한 원인은 공개되지 않음",
+            "해커 뉴스에서 157점, 110개의 댓글이 달렸으나 원인 규명은 이루어지지 않음",
+            "사용자들은 불안감을 느끼고 있으며, 향후 투명성 제고 필요성이 제기됨"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Nobody Is Saying Why OpenAI and Anthropic Had Outages",
+          "hook": "Compelling 1-line hook for engineers (English): The recent outages of OpenAI and Anthropic remain unexplained, raising concerns about service reliability.",
+          "key_takeaways": [
+            "OpenAI and Anthropic experienced service outages without a disclosed cause",
+            "Hacker News reports 157 points and 110 comments, but no root cause analysis",
+            "Users are uneasy, highlighting the need for greater transparency from AI providers"
+          ]
+        },
+        "zh": {
+          "title": "黑客新闻：没人说出OpenAI和Anthropic停服的原因",
+          "hook": "直击工程师痛点的1句话亮点与阅读理由 (中文)：OpenAI和Anthropic的停服原因不明，引发对服务可靠性的担忧。",
+          "key_takeaways": [
+            "OpenAI和Anthropic的服务出现故障，但原因尚未公布",
+            "黑客新闻报道显示该帖获得157分和110条评论，但尚未有原因分析",
+            "用户感到不安，凸显了AI服务提供商提高透明度的必要性"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "OpenAI",
+        "Anthropic",
+        "outage"
+      ],
+      "title_ko": "오픈AI·앤스로픽 서비스 장애 원인 불명… 해커 뉴스 주목",
+      "title_en": "Hacker News: Nobody Is Saying Why OpenAI and Anthropic Had Outages",
+      "title_zh": "黑客新闻：没人说出OpenAI和Anthropic停服的原因",
+      "hook": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어): 오픈AI와 앤스로픽의 최근 장애 원인이 공개되지 않아 불확실성이 커지고 있습니다.",
+      "hook_ko": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어): 오픈AI와 앤스로픽의 최근 장애 원인이 공개되지 않아 불확실성이 커지고 있습니다.",
+      "hook_en": "Compelling 1-line hook for engineers (English): The recent outages of OpenAI and Anthropic remain unexplained, raising concerns about service reliability.",
+      "hook_zh": "直击工程师痛点的1句话亮点与阅读理由 (中文)：OpenAI和Anthropic的停服原因不明，引发对服务可靠性的担忧。",
+      "description_ko": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어): 오픈AI와 앤스로픽의 최근 장애 원인이 공개되지 않아 불확실성이 커지고 있습니다.",
+      "description_en": "Compelling 1-line hook for engineers (English): The recent outages of OpenAI and Anthropic remain unexplained, raising concerns about service reliability.",
+      "description_zh": "直击工程师痛点的1句话亮点与阅读理由 (中文)：OpenAI和Anthropic的停服原因不明，引发对服务可靠性的担忧。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_resources_to_get_good_at_solderin",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.097415",
+      "published_at": "2026-09-02T09:24:11",
+      "created_at": "2026-09-02T09:24:11",
+      "updated_at": "2026-09-04T19:57:26.097415",
+      "title": "Hacker News: Resources to Get Good at Soldering?",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49533840",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 38 pts | Comments: 18 | Resources to Get Good at Soldering?",
+      "viral_metric": "🔥 38 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 38,
+          "display": "🔥 38 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 38,
+          "display": "🔥 38 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49533840",
+      "article_url": "https://news.ycombinator.com/item?id=49533840",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_resources_to_get_good_at_solderin",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Hardware DIY / Electronics",
+        "programming_lang": "General",
+        "root_keywords": [
+          "soldering",
+          "hardware",
+          "learning resources"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "하커 뉴스: 납땜 실력 향상을 위한 최고의 자료는?",
+            "hook": "납땜 초보자도 30분 만에 기본기를 다질 수 있는 HN 추천 자료 모음.",
+            "key_takeaways": [
+              "HN 유저들이 공유한 단계별 초보자 가이드",
+              "납땜 품질 향상을 위한 도구 및 팁",
+              "실전 프로젝트 예제와 연습 문제 목록"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Best Resources to Get Good at Soldering",
+            "hook": "From beginner guides to advanced tips, these HN‑curated resources will have you soldering like a pro in no time.",
+            "key_takeaways": [
+              "Step‑by‑step beginner guides shared by HN users",
+              "Tools and tips for improving solder quality",
+              "Practical project examples and practice exercises"
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：提升焊接技巧的优质资源有哪些？",
+            "hook": "从零基础到进阶，HN 精选的焊接技巧学习资源，让你快速掌握实操技能。",
+            "key_takeaways": [
+              "HN 用户分享的分步新手教程",
+              "提升焊接质量的工具与技巧",
+              "实战项目示例与练习题"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:08:04.333494+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "하커 뉴스: 납땜 실력 향상을 위한 최고의 자료는?",
+          "hook": "납땜 초보자도 30분 만에 기본기를 다질 수 있는 HN 추천 자료 모음.",
+          "key_takeaways": [
+            "HN 유저들이 공유한 단계별 초보자 가이드",
+            "납땜 품질 향상을 위한 도구 및 팁",
+            "실전 프로젝트 예제와 연습 문제 목록"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Best Resources to Get Good at Soldering",
+          "hook": "From beginner guides to advanced tips, these HN‑curated resources will have you soldering like a pro in no time.",
+          "key_takeaways": [
+            "Step‑by‑step beginner guides shared by HN users",
+            "Tools and tips for improving solder quality",
+            "Practical project examples and practice exercises"
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：提升焊接技巧的优质资源有哪些？",
+          "hook": "从零基础到进阶，HN 精选的焊接技巧学习资源，让你快速掌握实操技能。",
+          "key_takeaways": [
+            "HN 用户分享的分步新手教程",
+            "提升焊接质量的工具与技巧",
+            "实战项目示例与练习题"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "soldering",
+        "hardware",
+        "learning resources"
+      ],
+      "title_ko": "하커 뉴스: 납땜 실력 향상을 위한 최고의 자료는?",
+      "title_en": "Hacker News: Best Resources to Get Good at Soldering",
+      "title_zh": "Hacker News：提升焊接技巧的优质资源有哪些？",
+      "hook": "납땜 초보자도 30분 만에 기본기를 다질 수 있는 HN 추천 자료 모음.",
+      "hook_ko": "납땜 초보자도 30분 만에 기본기를 다질 수 있는 HN 추천 자료 모음.",
+      "hook_en": "From beginner guides to advanced tips, these HN‑curated resources will have you soldering like a pro in no time.",
+      "hook_zh": "从零基础到进阶，HN 精选的焊接技巧学习资源，让你快速掌握实操技能。",
+      "description_ko": "납땜 초보자도 30분 만에 기본기를 다질 수 있는 HN 추천 자료 모음.",
+      "description_en": "From beginner guides to advanced tips, these HN‑curated resources will have you soldering like a pro in no time.",
+      "description_zh": "从零基础到进阶，HN 精选的焊接技巧学习资源，让你快速掌握实操技能。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_can_ai_design_circuit_boards_yet",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.086244",
+      "published_at": "2026-09-04T19:48:29",
+      "created_at": "2026-09-04T19:48:29",
+      "updated_at": "2026-09-04T19:57:26.086244",
+      "title": "Hacker News: Can AI design circuit boards yet?",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49569366",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 5 pts | Comments: 0 | Can AI design circuit boards yet?",
+      "viral_metric": "🔥 5 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49569366",
+      "article_url": "https://eebench.org/blog/can-ai-design-circuit-boards-yet/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_can_ai_design_circuit_boards_yet",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "AI Hardware Design",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI design",
+          "circuit board",
+          "hardware automation"
+        ],
+        "recommended_tag": "📝 Technical Reference",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "AI가 회로 설계까지 할 수 있을까? Hacker News에서 화제",
+            "hook": "엔지니어라면 꼭 알아야 할 AI의 하드웨어 설계 역량 현황과 한계",
+            "key_takeaways": [
+              "AI가 현재 회로 설계에 어느 정도까지 활용 가능한지",
+              "Hacker News에서 제기된 설계 자동화의 가능성",
+              "하드웨어 설계 분야의 AI 적용 시 고려해야 할 점"
+            ]
+          },
+          "en": {
+            "title": "Can AI Design Circuit Boards Yet? Hacker News Debate",
+            "hook": "Engineers need to know the current capabilities and limitations of AI in hardware design",
+            "key_takeaways": [
+              "How far AI has progressed in circuit board design",
+              "The discussion on Hacker News about design automation",
+              "Considerations for applying AI to hardware design"
+            ]
+          },
+          "zh": {
+            "title": "AI 还能设计电路板吗？Hacker News 热议",
+            "hook": "直击工程师痛点的AI硬件设计能力现状与未来",
+            "key_takeaways": [
+              "AI 在电路板设计中的当前应用程度",
+              "Hacker News 引发的硬件设计自动化讨论",
+              "应用 AI 进行硬件设计时需注意的事项"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:00:54.105956+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "AI가 회로 설계까지 할 수 있을까? Hacker News에서 화제",
+          "hook": "엔지니어라면 꼭 알아야 할 AI의 하드웨어 설계 역량 현황과 한계",
+          "key_takeaways": [
+            "AI가 현재 회로 설계에 어느 정도까지 활용 가능한지",
+            "Hacker News에서 제기된 설계 자동화의 가능성",
+            "하드웨어 설계 분야의 AI 적용 시 고려해야 할 점"
+          ]
+        },
+        "en": {
+          "title": "Can AI Design Circuit Boards Yet? Hacker News Debate",
+          "hook": "Engineers need to know the current capabilities and limitations of AI in hardware design",
+          "key_takeaways": [
+            "How far AI has progressed in circuit board design",
+            "The discussion on Hacker News about design automation",
+            "Considerations for applying AI to hardware design"
+          ]
+        },
+        "zh": {
+          "title": "AI 还能设计电路板吗？Hacker News 热议",
+          "hook": "直击工程师痛点的AI硬件设计能力现状与未来",
+          "key_takeaways": [
+            "AI 在电路板设计中的当前应用程度",
+            "Hacker News 引发的硬件设计自动化讨论",
+            "应用 AI 进行硬件设计时需注意的事项"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI design",
+        "circuit board",
+        "hardware automation"
+      ],
+      "title_ko": "AI가 회로 설계까지 할 수 있을까? Hacker News에서 화제",
+      "title_en": "Can AI Design Circuit Boards Yet? Hacker News Debate",
+      "title_zh": "AI 还能设计电路板吗？Hacker News 热议",
+      "hook": "엔지니어라면 꼭 알아야 할 AI의 하드웨어 설계 역량 현황과 한계",
+      "hook_ko": "엔지니어라면 꼭 알아야 할 AI의 하드웨어 설계 역량 현황과 한계",
+      "hook_en": "Engineers need to know the current capabilities and limitations of AI in hardware design",
+      "hook_zh": "直击工程师痛点的AI硬件设计能力现状与未来",
+      "description_ko": "엔지니어라면 꼭 알아야 할 AI의 하드웨어 설계 역량 현황과 한계",
+      "description_en": "Engineers need to know the current capabilities and limitations of AI in hardware design",
+      "description_zh": "直击工程师痛点的AI硬件设计能力现状与未来",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_the_rust_react_compiler_is_now_na",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.075114",
+      "published_at": "2026-09-04T17:49:09",
+      "created_at": "2026-09-04T17:49:09",
+      "updated_at": "2026-09-04T19:57:26.075114",
+      "title": "Hacker News: The Rust React Compiler is now native in Vite",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49567873",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 40 pts | Comments: 5 | The Rust React Compiler is now native in Vite",
+      "viral_metric": "🔥 40 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 40,
+          "display": "🔥 40 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 40,
+          "display": "🔥 40 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49567873",
+      "article_url": "https://blog.master.dev/react-now-rusted-all-the-way-out/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_the_rust_react_compiler_is_now_na",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Web Development Tools",
+        "programming_lang": "Rust",
+        "root_keywords": [
+          "Rust",
+          "React Compiler",
+          "Vite"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "Rust React 컴파일러, Vite에 네이티브로 통합",
+            "hook": "Vite가 Rust 기반 React 컴파일러를 네이티브로 지원해, 추가 설정 없이 React 앱 성능을 향상시킵니다.",
+            "key_takeaways": [
+              "Rust 기반 React 컴파일러가 Vite에 기본으로 포함됨.",
+              "별도의 컴파일러 설정 없이도 사용 가능.",
+              "더 빠른 React 빌드 및 향상된 개발자 경험 제공."
+            ]
+          },
+          "en": {
+            "title": "Rust React Compiler Now Ships Native in Vite",
+            "hook": "Vite now runs the Rust‑powered React compiler natively, boosting React app performance without extra config.",
+            "key_takeaways": [
+              "The Rust React compiler is built into Vite by default.",
+              "This integration eliminates the need for separate compiler setup.",
+              "Expect faster React builds and an improved developer experience."
+            ]
+          },
+          "zh": {
+            "title": "Rust React 编译器现已原生支持 Vite",
+            "hook": "Vite 现已原生支持 Rust 驱动的 React 编译器，无需额外配置即可提升 React 应用性能。",
+            "key_takeaways": [
+              "Rust 驱动的 React 编译器现已原生集成到 Vite 中。",
+              "无需额外配置即可使用，简化了开发流程。",
+              "预计将带来更快的 React 构建速度和更好的开发者体验。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:05:12.402752+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Rust React 컴파일러, Vite에 네이티브로 통합",
+          "hook": "Vite가 Rust 기반 React 컴파일러를 네이티브로 지원해, 추가 설정 없이 React 앱 성능을 향상시킵니다.",
+          "key_takeaways": [
+            "Rust 기반 React 컴파일러가 Vite에 기본으로 포함됨.",
+            "별도의 컴파일러 설정 없이도 사용 가능.",
+            "더 빠른 React 빌드 및 향상된 개발자 경험 제공."
+          ]
+        },
+        "en": {
+          "title": "Rust React Compiler Now Ships Native in Vite",
+          "hook": "Vite now runs the Rust‑powered React compiler natively, boosting React app performance without extra config.",
+          "key_takeaways": [
+            "The Rust React compiler is built into Vite by default.",
+            "This integration eliminates the need for separate compiler setup.",
+            "Expect faster React builds and an improved developer experience."
+          ]
+        },
+        "zh": {
+          "title": "Rust React 编译器现已原生支持 Vite",
+          "hook": "Vite 现已原生支持 Rust 驱动的 React 编译器，无需额外配置即可提升 React 应用性能。",
+          "key_takeaways": [
+            "Rust 驱动的 React 编译器现已原生集成到 Vite 中。",
+            "无需额外配置即可使用，简化了开发流程。",
+            "预计将带来更快的 React 构建速度和更好的开发者体验。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Rust",
+      "root_keywords": [
+        "Rust",
+        "React Compiler",
+        "Vite"
+      ],
+      "title_ko": "Rust React 컴파일러, Vite에 네이티브로 통합",
+      "title_en": "Rust React Compiler Now Ships Native in Vite",
+      "title_zh": "Rust React 编译器现已原生支持 Vite",
+      "hook": "Vite가 Rust 기반 React 컴파일러를 네이티브로 지원해, 추가 설정 없이 React 앱 성능을 향상시킵니다.",
+      "hook_ko": "Vite가 Rust 기반 React 컴파일러를 네이티브로 지원해, 추가 설정 없이 React 앱 성능을 향상시킵니다.",
+      "hook_en": "Vite now runs the Rust‑powered React compiler natively, boosting React app performance without extra config.",
+      "hook_zh": "Vite 现已原生支持 Rust 驱动的 React 编译器，无需额外配置即可提升 React 应用性能。",
+      "description_ko": "Vite가 Rust 기반 React 컴파일러를 네이티브로 지원해, 추가 설정 없이 React 앱 성능을 향상시킵니다.",
+      "description_en": "Vite now runs the Rust‑powered React compiler natively, boosting React app performance without extra config.",
+      "description_zh": "Vite 现已原生支持 Rust 驱动的 React 编译器，无需额外配置即可提升 React 应用性能。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_government_rails_site_hit_hours_a",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.063760",
+      "published_at": "2026-09-04T19:06:39",
+      "created_at": "2026-09-04T19:06:39",
+      "updated_at": "2026-09-04T19:57:26.063760",
+      "title": "Hacker News: Government Rails Site Hit Hours After CVE Patch",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49568828",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 19 pts | Comments: 6 | Government Rails Site Hit Hours After CVE Patch",
+      "viral_metric": "🔥 19 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 19,
+          "display": "🔥 19 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 19,
+          "display": "🔥 19 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49568828",
+      "article_url": "https://rietta.com/blog/ruby-on-rails-cve-exploited-hours-after-patch/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_government_rails_site_hit_hours_a",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Government Web Application Security",
+        "programming_lang": "Ruby",
+        "root_keywords": [
+          "CVE",
+          "Rails",
+          "Security",
+          "Government site"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "정부 Rails 사이트, CVE 패치 후 몇 시간 만에 해킹당해",
+            "hook": "CVE 취약점 패치가 적용되었음에도 정부 웹사이트가 여전히 공격받는 현실, 개발자들이 주목해야 할 이유",
+            "key_takeaways": [
+              "CVE 취약점 관련 패치가 적용되었음에도 정부 Rails 사이트가 해킹당함",
+              "공격이 패치 직후 발생해 신속한 대응의 중요성 강조",
+              "개발자들은 패치 적용 후에도 지속적인 보안 모니터링 필요"
+            ]
+          },
+          "en": {
+            "title": "Government Rails Site Hit Hours After CVE Patch",
+            "hook": "A government Rails site was compromised just hours after a CVE patch, highlighting the urgency of post‑patch security monitoring.",
+            "key_takeaways": [
+              "A government Rails site was compromised shortly after a CVE patch was applied.",
+              "The incident underscores the need for rapid security response and continuous monitoring.",
+              "Developers must verify patches and maintain vigilant security practices."
+            ]
+          },
+          "zh": {
+            "title": "政府Rails网站CVE补丁后几小时即遭攻击",
+            "hook": "CVE漏洞补丁发布后几小时内，政府Rails网站即遭攻击，提醒开发者需重视补丁后的安全监控",
+            "key_takeaways": [
+              "CVE漏洞补丁发布后，政府Rails网站仍遭攻击",
+              "攻击发生在补丁发布后几小时内，凸显了快速安全响应和持续监控的重要性",
+              "开发者需验证补丁并保持严格的安全实践"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:01:37.969711+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "정부 Rails 사이트, CVE 패치 후 몇 시간 만에 해킹당해",
+          "hook": "CVE 취약점 패치가 적용되었음에도 정부 웹사이트가 여전히 공격받는 현실, 개발자들이 주목해야 할 이유",
+          "key_takeaways": [
+            "CVE 취약점 관련 패치가 적용되었음에도 정부 Rails 사이트가 해킹당함",
+            "공격이 패치 직후 발생해 신속한 대응의 중요성 강조",
+            "개발자들은 패치 적용 후에도 지속적인 보안 모니터링 필요"
+          ]
+        },
+        "en": {
+          "title": "Government Rails Site Hit Hours After CVE Patch",
+          "hook": "A government Rails site was compromised just hours after a CVE patch, highlighting the urgency of post‑patch security monitoring.",
+          "key_takeaways": [
+            "A government Rails site was compromised shortly after a CVE patch was applied.",
+            "The incident underscores the need for rapid security response and continuous monitoring.",
+            "Developers must verify patches and maintain vigilant security practices."
+          ]
+        },
+        "zh": {
+          "title": "政府Rails网站CVE补丁后几小时即遭攻击",
+          "hook": "CVE漏洞补丁发布后几小时内，政府Rails网站即遭攻击，提醒开发者需重视补丁后的安全监控",
+          "key_takeaways": [
+            "CVE漏洞补丁发布后，政府Rails网站仍遭攻击",
+            "攻击发生在补丁发布后几小时内，凸显了快速安全响应和持续监控的重要性",
+            "开发者需验证补丁并保持严格的安全实践"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Ruby",
+      "root_keywords": [
+        "CVE",
+        "Rails",
+        "Security",
+        "Government site"
+      ],
+      "title_ko": "정부 Rails 사이트, CVE 패치 후 몇 시간 만에 해킹당해",
+      "title_en": "Government Rails Site Hit Hours After CVE Patch",
+      "title_zh": "政府Rails网站CVE补丁后几小时即遭攻击",
+      "hook": "CVE 취약점 패치가 적용되었음에도 정부 웹사이트가 여전히 공격받는 현실, 개발자들이 주목해야 할 이유",
+      "hook_ko": "CVE 취약점 패치가 적용되었음에도 정부 웹사이트가 여전히 공격받는 현실, 개발자들이 주목해야 할 이유",
+      "hook_en": "A government Rails site was compromised just hours after a CVE patch, highlighting the urgency of post‑patch security monitoring.",
+      "hook_zh": "CVE漏洞补丁发布后几小时内，政府Rails网站即遭攻击，提醒开发者需重视补丁后的安全监控",
+      "description_ko": "CVE 취약점 패치가 적용되었음에도 정부 웹사이트가 여전히 공격받는 현실, 개발자들이 주목해야 할 이유",
+      "description_en": "A government Rails site was compromised just hours after a CVE patch, highlighting the urgency of post‑patch security monitoring.",
+      "description_zh": "CVE漏洞补丁发布后几小时内，政府Rails网站即遭攻击，提醒开发者需重视补丁后的安全监控",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_shutting_down_our_public_encrypte",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.045558",
+      "published_at": "2026-09-04T18:50:28",
+      "created_at": "2026-09-04T18:50:28",
+      "updated_at": "2026-09-04T19:57:26.045558",
+      "title": "Hacker News: Shutting down our public encrypted DNS",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49568579",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 77 pts | Comments: 14 | Shutting down our public encrypted DNS",
+      "viral_metric": "🔥 77 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 77,
+          "display": "🔥 77 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 77,
+          "display": "🔥 77 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49568579",
+      "article_url": "https://mullvad.net/en/blog/shutting-down-our-public-encrypted-dns-servers-and-sponsoring-quad9-instead",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_shutting_down_our_public_encrypte",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Network Infrastructure",
+        "programming_lang": "General",
+        "root_keywords": [
+          "encrypted DNS",
+          "shutdown",
+          "privacy"
+        ],
+        "recommended_tag": "📝 Tech Reference",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 공개 암호화 DNS 서비스 종료",
+            "hook": "공개 암호화 DNS 서비스가 종료됩니다 – 개인 정보 보호에 미치는 영향은?",
+            "key_takeaways": [
+              "암호화된 DNS 쿼리 서비스가 2026년 9월 4일에 종료됩니다.",
+              "사용자들은 대체 개인 정보 보호 솔루션을 찾아야 할 수 있습니다.",
+              "이번 결정은 암호화 DNS의 대중화 및 운영 비용에 대한 논의를 불러일으킵니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Shutting down our public encrypted DNS",
+            "hook": "Our public encrypted DNS is shutting down – what does it mean for privacy?",
+            "key_takeaways": [
+              "The encrypted DNS query service will be discontinued on September 4, 2026.",
+              "Users may need to find alternative privacy‑preserving DNS solutions.",
+              "The shutdown sparks debate about the adoption and operational costs of encrypted DNS."
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：关闭我们的公共加密 DNS 服务",
+            "hook": "我们的公共加密 DNS 服务即将关闭——这对隐私意味着什么？",
+            "key_takeaways": [
+              "加密 DNS 查询服务将于 2026 年 9 月 4 日关闭。",
+              "用户可能需要寻找替代的隐私保护 DNS 解决方案。",
+              "此举引发了关于加密 DNS 的普及率和运营成本的讨论。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:02:12.925108+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 공개 암호화 DNS 서비스 종료",
+          "hook": "공개 암호화 DNS 서비스가 종료됩니다 – 개인 정보 보호에 미치는 영향은?",
+          "key_takeaways": [
+            "암호화된 DNS 쿼리 서비스가 2026년 9월 4일에 종료됩니다.",
+            "사용자들은 대체 개인 정보 보호 솔루션을 찾아야 할 수 있습니다.",
+            "이번 결정은 암호화 DNS의 대중화 및 운영 비용에 대한 논의를 불러일으킵니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Shutting down our public encrypted DNS",
+          "hook": "Our public encrypted DNS is shutting down – what does it mean for privacy?",
+          "key_takeaways": [
+            "The encrypted DNS query service will be discontinued on September 4, 2026.",
+            "Users may need to find alternative privacy‑preserving DNS solutions.",
+            "The shutdown sparks debate about the adoption and operational costs of encrypted DNS."
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：关闭我们的公共加密 DNS 服务",
+          "hook": "我们的公共加密 DNS 服务即将关闭——这对隐私意味着什么？",
+          "key_takeaways": [
+            "加密 DNS 查询服务将于 2026 年 9 月 4 日关闭。",
+            "用户可能需要寻找替代的隐私保护 DNS 解决方案。",
+            "此举引发了关于加密 DNS 的普及率和运营成本的讨论。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "encrypted DNS",
+        "shutdown",
+        "privacy"
+      ],
+      "title_ko": "해커 뉴스: 공개 암호화 DNS 서비스 종료",
+      "title_en": "Hacker News: Shutting down our public encrypted DNS",
+      "title_zh": "Hacker News：关闭我们的公共加密 DNS 服务",
+      "hook": "공개 암호화 DNS 서비스가 종료됩니다 – 개인 정보 보호에 미치는 영향은?",
+      "hook_ko": "공개 암호화 DNS 서비스가 종료됩니다 – 개인 정보 보호에 미치는 영향은?",
+      "hook_en": "Our public encrypted DNS is shutting down – what does it mean for privacy?",
+      "hook_zh": "我们的公共加密 DNS 服务即将关闭——这对隐私意味着什么？",
+      "description_ko": "공개 암호화 DNS 서비스가 종료됩니다 – 개인 정보 보호에 미치는 영향은?",
+      "description_en": "Our public encrypted DNS is shutting down – what does it mean for privacy?",
+      "description_zh": "我们的公共加密 DNS 服务即将关闭——这对隐私意味着什么？",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_formalizing_fermats_last_theorem",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:26.025808",
+      "published_at": "2026-09-04T18:42:56",
+      "created_at": "2026-09-04T18:42:56",
+      "updated_at": "2026-09-04T19:57:26.025808",
+      "title": "Hacker News: Formalizing Fermat's Last Theorem",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49568506",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 160 pts | Comments: 88 | Formalizing Fermat's Last Theorem",
+      "viral_metric": "🔥 160 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 160,
+          "display": "🔥 160 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 160,
+          "display": "🔥 160 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49568506",
+      "article_url": "https://www.anthropic.com/research/formalizing-fermats-last-theorem",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_formalizing_fermats_last_theorem",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Mathematical Formalization",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Fermat's Last Theorem",
+          "formal proof",
+          "mathematics"
+        ],
+        "recommended_tag": "📝 Technical Reference",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 페르마의 마지막 정리를 형식화하다",
+            "hook": "수학자들이 기다려온 페르마의 마지막 정리의 완전한 형식화 논문이 Hacker News에서 화제입니다.",
+            "key_takeaways": [
+              "HN에서 160점, 88개의 댓글을 기록하며 주목받았습니다.",
+              "페르마의 마지막 정리의 완전한 형식적 증명을 제시합니다.",
+              "수학적 형식화 및 검증 분야에 중요한 기여로 평가됩니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Formalizing Fermat's Last Theorem",
+            "hook": "A long‑awaited formal proof of Fermat's Last Theorem hits Hacker News with 160 points and 88 comments.",
+            "key_takeaways": [
+              "Earned 160 points and 88 comments on Hacker News.",
+              "Presents a complete formal proof of Fermat's Last Theorem.",
+              "Considered a milestone contribution to mathematical formalization and verification."
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：形式化证明费马最后定理",
+            "hook": "一项期待已久的费马最后定理形式化证明在Hacker News上引发热议，获得160分和88条评论。",
+            "key_takeaways": [
+              "在Hacker News上获得160分和88条评论。",
+              "提出费马最后定理的完整形式化证明。",
+              "被视为数学形式化与验证领域的重要里程碑。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T20:02:44.850157+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 페르마의 마지막 정리를 형식화하다",
+          "hook": "수학자들이 기다려온 페르마의 마지막 정리의 완전한 형식화 논문이 Hacker News에서 화제입니다.",
+          "key_takeaways": [
+            "HN에서 160점, 88개의 댓글을 기록하며 주목받았습니다.",
+            "페르마의 마지막 정리의 완전한 형식적 증명을 제시합니다.",
+            "수학적 형식화 및 검증 분야에 중요한 기여로 평가됩니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Formalizing Fermat's Last Theorem",
+          "hook": "A long‑awaited formal proof of Fermat's Last Theorem hits Hacker News with 160 points and 88 comments.",
+          "key_takeaways": [
+            "Earned 160 points and 88 comments on Hacker News.",
+            "Presents a complete formal proof of Fermat's Last Theorem.",
+            "Considered a milestone contribution to mathematical formalization and verification."
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：形式化证明费马最后定理",
+          "hook": "一项期待已久的费马最后定理形式化证明在Hacker News上引发热议，获得160分和88条评论。",
+          "key_takeaways": [
+            "在Hacker News上获得160分和88条评论。",
+            "提出费马最后定理的完整形式化证明。",
+            "被视为数学形式化与验证领域的重要里程碑。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Fermat's Last Theorem",
+        "formal proof",
+        "mathematics"
+      ],
+      "title_ko": "해커 뉴스: 페르마의 마지막 정리를 형식화하다",
+      "title_en": "Hacker News: Formalizing Fermat's Last Theorem",
+      "title_zh": "Hacker News：形式化证明费马最后定理",
+      "hook": "수학자들이 기다려온 페르마의 마지막 정리의 완전한 형식화 논문이 Hacker News에서 화제입니다.",
+      "hook_ko": "수학자들이 기다려온 페르마의 마지막 정리의 완전한 형식화 논문이 Hacker News에서 화제입니다.",
+      "hook_en": "A long‑awaited formal proof of Fermat's Last Theorem hits Hacker News with 160 points and 88 comments.",
+      "hook_zh": "一项期待已久的费马最后定理形式化证明在Hacker News上引发热议，获得160分和88条评论。",
+      "description_ko": "수학자들이 기다려온 페르마의 마지막 정리의 완전한 형식화 논문이 Hacker News에서 화제입니다.",
+      "description_en": "A long‑awaited formal proof of Fermat's Last Theorem hits Hacker News with 160 points and 88 comments.",
+      "description_zh": "一项期待已久的费马最后定理形式化证明在Hacker News上引发热议，获得160分和88条评论。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_repo_hf_space_malcolmreybrowser",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:25.769872",
+      "published_at": "2026-09-04T19:57:25.769872",
+      "created_at": "2026-09-04T19:57:25.769872",
+      "updated_at": "2026-09-04T19:57:25.769872",
+      "title": "HF Space: malcolmrey/browser",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/malcolmrey/browser",
+      "type": "repo",
+      "category_type": "AGENT",
+      "description": "Interactive AI Demo (SDK: static) | Likes: 412 | Live URL: https://huggingface.co/spaces/malcolmrey/browser",
+      "viral_metric": "❤️ 412 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 412,
+          "display": "❤️ 412 Likes (Trending Demo)",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 412,
+          "display": "❤️ 412 Likes (Trending Demo)",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_hf_space_malcolmreybrowser",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "Browser Automation / Interactive AI Demo",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Hugging Face Spaces",
+          "browser automation",
+          "interactive demo"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "HF 스페이스 데모: malcolmrey/browser - 브라우저 자동화 AI 데모",
+            "hook": "정적 SDK로 구축된 대화형 브라우저 AI 데모로, 클릭 한 번으로 웹 작업을 자동화할 수 있습니다.",
+            "key_takeaways": [
+              "Hugging Face Spaces에서 실행되는 대화형 브라우저 AI 데모입니다.",
+              "정적 SDK를 사용하여 웹 탐색 및 상호작용을 자동화할 수 있습니다.",
+              "412명의 사용자로부터 좋아요를 받았으며, 실제 데모는 라이브 URL에서 확인할 수 있습니다."
+            ]
+          },
+          "en": {
+            "title": "HF Space Demo: malcolmrey/browser – Browser Automation AI Demo",
+            "hook": "An interactive browser AI demo built with a static SDK to automate web tasks at a click.",
+            "key_takeaways": [
+              "An interactive AI demo hosted on Hugging Face Spaces for browser automation.",
+              "Uses a static SDK to automate web navigation and interactions.",
+              "Liked by 412 users; live demo available via the provided URL."
+            ]
+          },
+          "zh": {
+            "title": "HF 空间演示：malcolmrey/browser——浏览器自动化 AI 演示",
+            "hook": "一个基于静态 SDK 的交互式浏览器 AI 演示，可一键自动化网页操作。",
+            "key_takeaways": [
+              "一个托管在 Hugging Face Spaces 上的交互式浏览器自动化 AI 演示。",
+              "使用静态 SDK 自动化网页导航和交互。",
+              "获得 412 位用户的点赞，实时演示可通过提供的 URL 访问。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T19:59:20.517396+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "HF 스페이스 데모: malcolmrey/browser - 브라우저 자동화 AI 데모",
+          "hook": "정적 SDK로 구축된 대화형 브라우저 AI 데모로, 클릭 한 번으로 웹 작업을 자동화할 수 있습니다.",
+          "key_takeaways": [
+            "Hugging Face Spaces에서 실행되는 대화형 브라우저 AI 데모입니다.",
+            "정적 SDK를 사용하여 웹 탐색 및 상호작용을 자동화할 수 있습니다.",
+            "412명의 사용자로부터 좋아요를 받았으며, 실제 데모는 라이브 URL에서 확인할 수 있습니다."
+          ]
+        },
+        "en": {
+          "title": "HF Space Demo: malcolmrey/browser – Browser Automation AI Demo",
+          "hook": "An interactive browser AI demo built with a static SDK to automate web tasks at a click.",
+          "key_takeaways": [
+            "An interactive AI demo hosted on Hugging Face Spaces for browser automation.",
+            "Uses a static SDK to automate web navigation and interactions.",
+            "Liked by 412 users; live demo available via the provided URL."
+          ]
+        },
+        "zh": {
+          "title": "HF 空间演示：malcolmrey/browser——浏览器自动化 AI 演示",
+          "hook": "一个基于静态 SDK 的交互式浏览器 AI 演示，可一键自动化网页操作。",
+          "key_takeaways": [
+            "一个托管在 Hugging Face Spaces 上的交互式浏览器自动化 AI 演示。",
+            "使用静态 SDK 自动化网页导航和交互。",
+            "获得 412 位用户的点赞，实时演示可通过提供的 URL 访问。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Hugging Face Spaces",
+        "browser automation",
+        "interactive demo"
+      ],
+      "title_ko": "HF 스페이스 데모: malcolmrey/browser - 브라우저 자동화 AI 데모",
+      "title_en": "HF Space Demo: malcolmrey/browser – Browser Automation AI Demo",
+      "title_zh": "HF 空间演示：malcolmrey/browser——浏览器自动化 AI 演示",
+      "hook": "정적 SDK로 구축된 대화형 브라우저 AI 데모로, 클릭 한 번으로 웹 작업을 자동화할 수 있습니다.",
+      "hook_ko": "정적 SDK로 구축된 대화형 브라우저 AI 데모로, 클릭 한 번으로 웹 작업을 자동화할 수 있습니다.",
+      "hook_en": "An interactive browser AI demo built with a static SDK to automate web tasks at a click.",
+      "hook_zh": "一个基于静态 SDK 的交互式浏览器 AI 演示，可一键自动化网页操作。",
+      "description_ko": "정적 SDK로 구축된 대화형 브라우저 AI 데모로, 클릭 한 번으로 웹 작업을 자동화할 수 있습니다.",
+      "description_en": "An interactive browser AI demo built with a static SDK to automate web tasks at a click.",
+      "description_zh": "一个基于静态 SDK 的交互式浏览器 AI 演示，可一键自动化网页操作。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_repo_hf_space_hugging_appsh3_world_action_demo",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T19:57:25.741063",
+      "published_at": "2026-09-04T19:57:25.741063",
+      "created_at": "2026-09-04T19:57:25.741063",
+      "updated_at": "2026-09-04T19:57:25.741063",
+      "title": "HF Space: hugging-apps/h3-world-action-demo",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/hugging-apps/h3-world-action-demo",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 10 | Live URL: https://huggingface.co/spaces/hugging-apps/h3-world-action-demo",
+      "viral_metric": "❤️ 10 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 10,
+          "display": "❤️ 10 Likes (Trending Demo)",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_hf_space_hugging_appsh3_world_action_demo",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Interactive AI Demo / Gradio Application",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Hugging Face",
+          "Gradio",
+          "Interactive Demo",
+          "AI"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "HF 스페이스: hugging-apps/h3-world-action-demo – 대화형 AI 데모",
+            "hook": "그라마io 기반 대화형 AI를 브라우저에서 바로 체험해 보세요 – 코딩 없이도 AI의 세계 액션 기능을 확인할 수 있습니다.",
+            "key_takeaways": [
+              "그라마io로 구축된 대화형 AI 데모",
+              "브라우저에서 바로 사용 가능한 AI 월드 액션 시연",
+              "Hugging Face Spaces에서 호스팅되며, 클릭 한 번으로 접근 가능"
+            ]
+          },
+          "en": {
+            "title": "HF Space: hugging-apps/h3-world-action-demo – Interactive AI Demo",
+            "hook": "Experience interactive AI in your browser with this Gradio-powered demo – see world-action capabilities without any coding.",
+            "key_takeaways": [
+              "Gradio-powered interactive AI demo",
+              "Browser-based AI world-action showcase",
+              "Hosted on Hugging Face Spaces, one-click access"
+            ]
+          },
+          "zh": {
+            "title": "HF 空间：hugging-apps/h3-world-action-demo——交互式 AI 演示",
+            "hook": "这是一个基于 Gradio 的交互式 AI 演示，您可以在浏览器中直接体验 AI 的世界动作功能，无需编写代码。",
+            "key_takeaways": [
+              "基于 Gradio 的交互式 AI 演示",
+              "浏览器端的 AI 世界动作展示",
+              "托管在 Hugging Face Spaces 上，点击即可访问"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T19:59:56.121554+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "HF 스페이스: hugging-apps/h3-world-action-demo – 대화형 AI 데모",
+          "hook": "그라마io 기반 대화형 AI를 브라우저에서 바로 체험해 보세요 – 코딩 없이도 AI의 세계 액션 기능을 확인할 수 있습니다.",
+          "key_takeaways": [
+            "그라마io로 구축된 대화형 AI 데모",
+            "브라우저에서 바로 사용 가능한 AI 월드 액션 시연",
+            "Hugging Face Spaces에서 호스팅되며, 클릭 한 번으로 접근 가능"
+          ]
+        },
+        "en": {
+          "title": "HF Space: hugging-apps/h3-world-action-demo – Interactive AI Demo",
+          "hook": "Experience interactive AI in your browser with this Gradio-powered demo – see world-action capabilities without any coding.",
+          "key_takeaways": [
+            "Gradio-powered interactive AI demo",
+            "Browser-based AI world-action showcase",
+            "Hosted on Hugging Face Spaces, one-click access"
+          ]
+        },
+        "zh": {
+          "title": "HF 空间：hugging-apps/h3-world-action-demo——交互式 AI 演示",
+          "hook": "这是一个基于 Gradio 的交互式 AI 演示，您可以在浏览器中直接体验 AI 的世界动作功能，无需编写代码。",
+          "key_takeaways": [
+            "基于 Gradio 的交互式 AI 演示",
+            "浏览器端的 AI 世界动作展示",
+            "托管在 Hugging Face Spaces 上，点击即可访问"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Hugging Face",
+        "Gradio",
+        "Interactive Demo",
+        "AI"
+      ],
+      "title_ko": "HF 스페이스: hugging-apps/h3-world-action-demo – 대화형 AI 데모",
+      "title_en": "HF Space: hugging-apps/h3-world-action-demo – Interactive AI Demo",
+      "title_zh": "HF 空间：hugging-apps/h3-world-action-demo——交互式 AI 演示",
+      "hook": "그라마io 기반 대화형 AI를 브라우저에서 바로 체험해 보세요 – 코딩 없이도 AI의 세계 액션 기능을 확인할 수 있습니다.",
+      "hook_ko": "그라마io 기반 대화형 AI를 브라우저에서 바로 체험해 보세요 – 코딩 없이도 AI의 세계 액션 기능을 확인할 수 있습니다.",
+      "hook_en": "Experience interactive AI in your browser with this Gradio-powered demo – see world-action capabilities without any coding.",
+      "hook_zh": "这是一个基于 Gradio 的交互式 AI 演示，您可以在浏览器中直接体验 AI 的世界动作功能，无需编写代码。",
+      "description_ko": "그라마io 기반 대화형 AI를 브라우저에서 바로 체험해 보세요 – 코딩 없이도 AI의 세계 액션 기능을 확인할 수 있습니다.",
+      "description_en": "Experience interactive AI in your browser with this Gradio-powered demo – see world-action capabilities without any coding.",
+      "description_zh": "这是一个基于 Gradio 的交互式 AI 演示，您可以在浏览器中直接体验 AI 的世界动作功能，无需编写代码。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-04_sns_geeknews_openai_에이전트의_새_메시지_보드_발견",
       "harvested_date": "2026-09-04",
@@ -108494,8 +112440,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 295 pts | Comments: 237 | VC isn't VC anymore",
-      "viral_metric": "🔥 295 HN Points",
+      "description": "HN Score: 300 pts | Comments: 240 | VC isn't VC anymore",
+      "viral_metric": "🔥 300 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -108503,13 +112449,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 295,
-          "display": "🔥 295 HN Points",
+          "value": 300,
+          "display": "🔥 300 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 287,
-        "delta_display": "+287",
-        "growth_rate_pct": 3587.5,
+        "delta": 292,
+        "delta_display": "+292",
+        "growth_rate_pct": 3650.0,
         "is_spiking": true
       },
       "matched_user_domains": [
