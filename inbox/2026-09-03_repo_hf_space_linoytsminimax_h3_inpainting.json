@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_linoytsminimax_h3_inpainting",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "MiniMax",
+    "category": "Computer Vision",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "MiniMax",
+      "Inpainting",
+      "Gradio",
+      "Computer Vision",
+      "Image Editing"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "MiniMax H3 인페인팅 Gradio 데모",
+        "hook": "MiniMax 모델을 활용하여 정밀한 이미지 영역 복원 및 편집을 테스트할 수 있는 대화형 데모",
+        "key_takeaways": [
+          "MiniMax 기반의 고품질 이미지 인페인팅 및 편집 기능 제공",
+          "Gradio SDK를 활용하여 직관적인 웹 인터페이스 구성",
+          "마스크 영역 기반의 정밀한 이미지 국소 합성 및 수정 실습 가능"
+        ]
+      },
+      "en": {
+        "title": "MiniMax H3 Inpainting Gradio Demo",
+        "hook": "An interactive web demo demonstrating precise image region inpainting powered by MiniMax models.",
+        "key_takeaways": [
+          "Provides high-quality image inpainting and editing capabilities leveraging MiniMax",
+          "Built with Gradio SDK for seamless and intuitive web-based interaction",
+          "Enables precise mask-based local image synthesis and restoration testing"
+        ]
+      },
+      "zh": {
+        "title": "MiniMax H3 图像局部重绘 Gradio 演示",
+        "hook": "基于 MiniMax 模型打造的交互式图像局部重绘与编辑 Demo",
+        "key_takeaways": [
+          "提供基于 MiniMax 架构的高质量图像局部重绘与编辑能力",
+          "采用 Gradio SDK 构建直观易用的 Web 交互界面",
+          "支持基于 Mask 遮罩的精细化图像合成与修复测试"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "MiniMax H3 인페인팅 Gradio 데모",
+      "hook": "MiniMax 모델을 활용하여 정밀한 이미지 영역 복원 및 편집을 테스트할 수 있는 대화형 데모",
+      "key_takeaways": [
+        "MiniMax 기반의 고품질 이미지 인페인팅 및 편집 기능 제공",
+        "Gradio SDK를 활용하여 직관적인 웹 인터페이스 구성",
+        "마스크 영역 기반의 정밀한 이미지 국소 합성 및 수정 실습 가능"
+      ]
+    },
+    "en": {
+      "title": "MiniMax H3 Inpainting Gradio Demo",
+      "hook": "An interactive web demo demonstrating precise image region inpainting powered by MiniMax models.",
+      "key_takeaways": [
+        "Provides high-quality image inpainting and editing capabilities leveraging MiniMax",
+        "Built with Gradio SDK for seamless and intuitive web-based interaction",
+        "Enables precise mask-based local image synthesis and restoration testing"
+      ]
+    },
+    "zh": {
+      "title": "MiniMax H3 图像局部重绘 Gradio 演示",
+      "hook": "基于 MiniMax 模型打造的交互式图像局部重绘与编辑 Demo",
+      "key_takeaways": [
+        "提供基于 MiniMax 架构的高质量图像局部重绘与编辑能力",
+        "采用 Gradio SDK 构建直观易用的 Web 交互界面",
+        "支持基于 Mask 遮罩的精细化图像合成与修复测试"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "MiniMax",
+    "Inpainting",
+    "Gradio",
+    "Computer Vision",
+    "Image Editing"
+  ],
+  "title_ko": "MiniMax H3 인페인팅 Gradio 데모",
+  "hook_ko": "MiniMax 모델을 활용하여 정밀한 이미지 영역 복원 및 편집을 테스트할 수 있는 대화형 데모",
+  "title_en": "MiniMax H3 Inpainting Gradio Demo",
+  "hook_en": "An interactive web demo demonstrating precise image region inpainting powered by MiniMax models.",
+  "title_zh": "MiniMax H3 图像局部重绘 Gradio 演示",
+  "hook_zh": "基于 MiniMax 模型打造的交互式图像局部重绘与编辑 Demo",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.276244"
 }

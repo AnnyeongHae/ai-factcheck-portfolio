@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_coherelabscohere_parse",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Document AI",
+    "category": "NLP / Data Processing",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Cohere",
+      "Document Parsing",
+      "PDF Processing",
+      "Gradio",
+      "Information Extraction"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "CohereLabs cohere-parse 대화형 데모",
+        "hook": "복잡한 문서에서 구조화된 데이터를 추출하는 Cohere의 문서 파싱 대화형 데모",
+        "key_takeaways": [
+          "Gradio SDK 기반으로 제작된 Cohere의 문서 파싱 인터페이스",
+          "PDF 및 복잡한 정형/비정형 문서에서의 핵심 텍스트 및 표 파싱 시연",
+          "RAG 데이터 전처리 및 데이터 파이프라인 구성 시 참고할 만한 기술 시연"
+        ]
+      },
+      "en": {
+        "title": "HF Space: CohereLabs/cohere-parse Demo",
+        "hook": "An interactive Gradio demo exploring Cohere's document parsing and structured text extraction capabilities.",
+        "key_takeaways": [
+          "Interactive Gradio interface highlighting Cohere's parsing workflow",
+          "Capable of extracting structured data and tables from complex documents and PDFs",
+          "Serves as a useful reference for data ingestion in RAG architectures"
+        ]
+      },
+      "zh": {
+        "title": "HF Space: CohereLabs/cohere-parse 交互演示",
+        "hook": "Cohere 发布的文档解析与结构化文本提取交互式 Gradio 演示",
+        "key_takeaways": [
+          "基于 Gradio 构建的 Cohere 文档解析模型交互界面",
+          "支持从复杂 PDF 和文档中提取结构化数据与表格",
+          "可作为 RAG 检索增强系统前置 ETL 流程的技术参考"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "CohereLabs cohere-parse 대화형 데모",
+      "hook": "복잡한 문서에서 구조화된 데이터를 추출하는 Cohere의 문서 파싱 대화형 데모",
+      "key_takeaways": [
+        "Gradio SDK 기반으로 제작된 Cohere의 문서 파싱 인터페이스",
+        "PDF 및 복잡한 정형/비정형 문서에서의 핵심 텍스트 및 표 파싱 시연",
+        "RAG 데이터 전처리 및 데이터 파이프라인 구성 시 참고할 만한 기술 시연"
+      ]
+    },
+    "en": {
+      "title": "HF Space: CohereLabs/cohere-parse Demo",
+      "hook": "An interactive Gradio demo exploring Cohere's document parsing and structured text extraction capabilities.",
+      "key_takeaways": [
+        "Interactive Gradio interface highlighting Cohere's parsing workflow",
+        "Capable of extracting structured data and tables from complex documents and PDFs",
+        "Serves as a useful reference for data ingestion in RAG architectures"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: CohereLabs/cohere-parse 交互演示",
+      "hook": "Cohere 发布的文档解析与结构化文本提取交互式 Gradio 演示",
+      "key_takeaways": [
+        "基于 Gradio 构建的 Cohere 文档解析模型交互界面",
+        "支持从复杂 PDF 和文档中提取结构化数据与表格",
+        "可作为 RAG 检索增强系统前置 ETL 流程的技术参考"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Cohere",
+    "Document Parsing",
+    "PDF Processing",
+    "Gradio",
+    "Information Extraction"
+  ],
+  "title_ko": "CohereLabs cohere-parse 대화형 데모",
+  "hook_ko": "복잡한 문서에서 구조화된 데이터를 추출하는 Cohere의 문서 파싱 대화형 데모",
+  "title_en": "HF Space: CohereLabs/cohere-parse Demo",
+  "hook_en": "An interactive Gradio demo exploring Cohere's document parsing and structured text extraction capabilities.",
+  "title_zh": "HF Space: CohereLabs/cohere-parse 交互演示",
+  "hook_zh": "Cohere 发布的文档解析与结构化文本提取交互式 Gradio 演示",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.240924"
 }

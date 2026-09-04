@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_oniseqwen_image_edit_2509_loras_fast",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Qwen / Diffusion / LoRA",
+    "category": "Computer Vision & Image Generation",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Qwen-Image-Edit",
+      "LoRA",
+      "Gradio",
+      "Image Editing",
+      "Fast Inference"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "Qwen 이미지 편집 2509 LoRA Fast2 데모",
+        "hook": "Qwen 기반의 가속화된 LoRA 모델을 활용한 고속 실시간 이미지 편집 및 변환 데모",
+        "key_takeaways": [
+          "Qwen-Image-Edit 모델과 다양한 LoRA 어댑터를 결합한 빠른 이미지 수정 기능",
+          "Gradio 대화형 인터페이스를 통한 실시간 프롬프트 기반 이미지 편집 체험",
+          "추론 속도가 최적화된 Fast2 버전으로 효율적인 멀티모달 생성 파이프라인 제공"
+        ]
+      },
+      "en": {
+        "title": "Qwen Image Edit 2509 LoRAs Fast2 Demo",
+        "hook": "A fast, interactive image editing demo powered by Qwen and accelerated LoRA adapters",
+        "key_takeaways": [
+          "Combines Qwen image editing capabilities with multiple fine-tuned LoRA adapters",
+          "Provides an interactive Gradio UI for fast prompt-based image modification",
+          "Optimized inference speed in the Fast2 release for efficient interactive workflows"
+        ]
+      },
+      "zh": {
+        "title": "Qwen 图像编辑 2509 LoRA Fast2 演示",
+        "hook": "基于 Qwen 与加速 LoRA 微调权重的快速交互式图像编辑与转换 Demo",
+        "key_takeaways": [
+          "结合 Qwen 图像编辑模型与多种 LoRA 适配器，实现高效图像修改",
+          "提供基于 Gradio 的交互式界面，支持基于 Prompt 的实时图像编辑",
+          "Fast2 版本对推理速度进行了针对性优化，提升图像生成与编辑效率"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Qwen 이미지 편집 2509 LoRA Fast2 데모",
+      "hook": "Qwen 기반의 가속화된 LoRA 모델을 활용한 고속 실시간 이미지 편집 및 변환 데모",
+      "key_takeaways": [
+        "Qwen-Image-Edit 모델과 다양한 LoRA 어댑터를 결합한 빠른 이미지 수정 기능",
+        "Gradio 대화형 인터페이스를 통한 실시간 프롬프트 기반 이미지 편집 체험",
+        "추론 속도가 최적화된 Fast2 버전으로 효율적인 멀티모달 생성 파이프라인 제공"
+      ]
+    },
+    "en": {
+      "title": "Qwen Image Edit 2509 LoRAs Fast2 Demo",
+      "hook": "A fast, interactive image editing demo powered by Qwen and accelerated LoRA adapters",
+      "key_takeaways": [
+        "Combines Qwen image editing capabilities with multiple fine-tuned LoRA adapters",
+        "Provides an interactive Gradio UI for fast prompt-based image modification",
+        "Optimized inference speed in the Fast2 release for efficient interactive workflows"
+      ]
+    },
+    "zh": {
+      "title": "Qwen 图像编辑 2509 LoRA Fast2 演示",
+      "hook": "基于 Qwen 与加速 LoRA 微调权重的快速交互式图像编辑与转换 Demo",
+      "key_takeaways": [
+        "结合 Qwen 图像编辑模型与多种 LoRA 适配器，实现高效图像修改",
+        "提供基于 Gradio 的交互式界面，支持基于 Prompt 的实时图像编辑",
+        "Fast2 版本对推理速度进行了针对性优化，提升图像生成与编辑效率"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Qwen-Image-Edit",
+    "LoRA",
+    "Gradio",
+    "Image Editing",
+    "Fast Inference"
+  ],
+  "title_ko": "Qwen 이미지 편집 2509 LoRA Fast2 데모",
+  "hook_ko": "Qwen 기반의 가속화된 LoRA 모델을 활용한 고속 실시간 이미지 편집 및 변환 데모",
+  "title_en": "Qwen Image Edit 2509 LoRAs Fast2 Demo",
+  "hook_en": "A fast, interactive image editing demo powered by Qwen and accelerated LoRA adapters",
+  "title_zh": "Qwen 图像编辑 2509 LoRA Fast2 演示",
+  "hook_zh": "基于 Qwen 与加速 LoRA 微调权重的快速交互式图像编辑与转换 Demo",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.289717"
 }

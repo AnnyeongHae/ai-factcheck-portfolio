@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_kwai_kolorskolors_virtual_try_on",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Diffusion Models",
+    "category": "Computer Vision",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Kolors",
+      "Virtual Try-On",
+      "Image Generation",
+      "Diffusion Model",
+      "Gradio"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "콰이-컬러스(Kwai-Kolors) 가상 피팅(Virtual Try-On) 데모",
+        "hook": "확산 모델 기반의 고품질 가상 의상 피팅 기술을 실시간 인터랙티브 데모로 체험",
+        "key_takeaways": [
+          "Kolors 확산 모델을 활용한 고해상도 가상 피팅 기술 구현",
+          "의상 상세 질감 및 인체 체형 맞춤 합성의 자연스러움 제공",
+          "Gradio SDK 기반의 손쉬운 사용자 인터페이스 및 테스트 환경 지원"
+        ]
+      },
+      "en": {
+        "title": "Kwai-Kolors Virtual Try-On Interactive Demo",
+        "hook": "Experience high-quality virtual garment fitting powered by the advanced Kolors diffusion model in an interactive web UI.",
+        "key_takeaways": [
+          "High-resolution virtual try-on technology powered by Kolors diffusion architecture",
+          "Accurate garment texture retention and realistic body shape alignment",
+          "Interactive demo built with Gradio SDK for quick testing and research evaluation"
+        ]
+      },
+      "zh": {
+        "title": "快手 Kolors 虚拟试衣 (Virtual Try-On) 交互 Demo",
+        "hook": "基于 Kolors 扩散模型的高质量虚拟试衣技术，提供实时交互式体验。",
+        "key_takeaways": [
+          "基于 Kolors 扩散架构的高分辨率虚拟试衣技术",
+          "精确保留服装细节材质，实现自然逼真的体型适配",
+          "基于 Gradio SDK 构建，便于快速测试与评估"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "콰이-컬러스(Kwai-Kolors) 가상 피팅(Virtual Try-On) 데모",
+      "hook": "확산 모델 기반의 고품질 가상 의상 피팅 기술을 실시간 인터랙티브 데모로 체험",
+      "key_takeaways": [
+        "Kolors 확산 모델을 활용한 고해상도 가상 피팅 기술 구현",
+        "의상 상세 질감 및 인체 체형 맞춤 합성의 자연스러움 제공",
+        "Gradio SDK 기반의 손쉬운 사용자 인터페이스 및 테스트 환경 지원"
+      ]
+    },
+    "en": {
+      "title": "Kwai-Kolors Virtual Try-On Interactive Demo",
+      "hook": "Experience high-quality virtual garment fitting powered by the advanced Kolors diffusion model in an interactive web UI.",
+      "key_takeaways": [
+        "High-resolution virtual try-on technology powered by Kolors diffusion architecture",
+        "Accurate garment texture retention and realistic body shape alignment",
+        "Interactive demo built with Gradio SDK for quick testing and research evaluation"
+      ]
+    },
+    "zh": {
+      "title": "快手 Kolors 虚拟试衣 (Virtual Try-On) 交互 Demo",
+      "hook": "基于 Kolors 扩散模型的高质量虚拟试衣技术，提供实时交互式体验。",
+      "key_takeaways": [
+        "基于 Kolors 扩散架构的高分辨率虚拟试衣技术",
+        "精确保留服装细节材质，实现自然逼真的体型适配",
+        "基于 Gradio SDK 构建，便于快速测试与评估"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Kolors",
+    "Virtual Try-On",
+    "Image Generation",
+    "Diffusion Model",
+    "Gradio"
+  ],
+  "title_ko": "콰이-컬러스(Kwai-Kolors) 가상 피팅(Virtual Try-On) 데모",
+  "hook_ko": "확산 모델 기반의 고품질 가상 의상 피팅 기술을 실시간 인터랙티브 데모로 체험",
+  "title_en": "Kwai-Kolors Virtual Try-On Interactive Demo",
+  "hook_en": "Experience high-quality virtual garment fitting powered by the advanced Kolors diffusion model in an interactive web UI.",
+  "title_zh": "快手 Kolors 虚拟试衣 (Virtual Try-On) 交互 Demo",
+  "hook_zh": "基于 Kolors 扩散模型的高质量虚拟试衣技术，提供实时交互式体验。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.270507"
 }

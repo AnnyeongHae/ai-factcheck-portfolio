@@ -37,64 +37,95 @@
   "ai_enrichment": {
     "id": "2026-09-03_sns_geeknews_원격근무가_아니라_서투른_비동기_소통이_문제다",
     "source_lang": "KO",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "개발자 문화 및 협업",
+    "type_classification": "TECH",
+    "model_family": "Engineering Culture / Collaboration",
+    "category": "Software Engineering",
     "programming_lang": "General",
     "root_keywords": [
-      "원격근무",
-      "비동기 소통",
-      "팀 협업"
+      "Async Communication",
+      "Remote Work",
+      "Engineering Culture",
+      "Developer Productivity"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.0,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
         "title": "원격근무가 아니라 서투른 비동기 소통이 문제다",
-        "hook": "원격근무의 성패를 가르는 핵심 요인이 원격 환경 자체가 아니라 미숙한 비동기 커뮤니케이션에 있음을 분석합니다.",
+        "hook": "원격근무 비효율의 본질은 장소가 아니라 비동기 소통 역량 부족에 있음을 다룬 칼럼",
         "key_takeaways": [
-          "원격근무 효율성 저하의 진짜 원인 분석",
-          "효과적인 비동기 소통 프로세스 구축의 필요성",
-          "분산 팀의 생산성을 높이기 위한 조직 문화 개선 방안"
+          "원격근무의 실패 요인은 위치가 아니라 실시간 소통 방식을 비동기 환경에 그대로 적용하는 서투른 소통 방식임",
+          "철저한 문서화와 명확한 텍스트 기반 비동기 협업 문화 구축이 원격근무 성패를 결정",
+          "불필요한 동기식 회의를 줄이고 맥락(Context)을 완결성 있게 전달하는 능력이 엔지니어링 조직의 필수 역량"
         ]
       },
       "en": {
-        "title": "It's Not Remote Work, It's Poor Async Communication",
-        "hook": "An insightful look into why poor asynchronous communication, rather than remote work itself, breaks team productivity.",
+        "title": "The Problem Isn't Remote Work, But Poor Asynchronous Communication",
+        "hook": "An insightful breakdown showing that remote work inefficiency stems from weak async communication habits, not working location.",
         "key_takeaways": [
-          "Identifying the root causes of friction in remote environments",
-          "The critical need for well-defined asynchronous communication workflows",
-          "Organizational strategies to boost distributed team productivity"
+          "Remote work failures are caused by applying real-time meeting habits directly to async environments rather than the physical location.",
+          "Thorough documentation and clear text-based async collaboration form the pillar of successful remote culture.",
+          "Reducing synchronous meetings and providing self-contained context in written updates is a key engineering team capability."
         ]
       },
       "zh": {
-        "title": "问题不在远程办公，而在拙劣的异步沟通",
-        "hook": "深入剖析远程办公效率低下的根源，指出精妙的异步沟通才是分布式团队成功的关键。",
+        "title": "问题不在于远程办公，而在于拙劣的异步沟通",
+        "hook": "深入分析远程办公效率低下的根源并非工作地点，而是缺乏高效的异步沟通能力。",
         "key_takeaways": [
-          "识别远程工作环境中效率摩擦的真正原因",
-          "建立规范化异步沟通流程的迫切性",
-          "提升分布式团队生产力的组织文化改进方案"
+          "远程办公的失败在于直接把实时的沟通习惯套用到异步环境中，而非地点本身的问题。",
+          "完善的文档化与清晰的文本异步协作文化是决定远程办公成败的核心。",
+          "减少不必要的同步会议并在书面沟通中提供完整的上下文是工程团队的必备能力。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:14:49.190086+00:00"
+    }
   },
   "source_lang": "KO",
   "programming_lang": "General",
   "root_keywords": [
-    "원격근무",
-    "비동기 소통",
-    "팀 협업"
+    "Async Communication",
+    "Remote Work",
+    "Engineering Culture",
+    "Developer Productivity"
   ],
-  "title_en": "It's Not Remote Work, It's Poor Async Communication",
-  "title_zh": "问题不在远程办公，而在拙劣的异步沟通",
+  "title_en": "The Problem Isn't Remote Work, But Poor Asynchronous Communication",
+  "title_zh": "问题不在于远程办公，而在于拙劣的异步沟通",
   "hook": "원격근무의 성패를 가르는 핵심 요인이 원격 환경 자체가 아니라 미숙한 비동기 커뮤니케이션에 있음을 분석합니다.",
-  "hook_ko": "원격근무의 성패를 가르는 핵심 요인이 원격 환경 자체가 아니라 미숙한 비동기 커뮤니케이션에 있음을 분석합니다.",
-  "hook_en": "An insightful look into why poor asynchronous communication, rather than remote work itself, breaks team productivity.",
-  "hook_zh": "深入剖析远程办公效率低下的根源，指出精妙的异步沟通才是分布式团队成功的关键。",
+  "hook_ko": "원격근무 비효율의 본질은 장소가 아니라 비동기 소통 역량 부족에 있음을 다룬 칼럼",
+  "hook_en": "An insightful breakdown showing that remote work inefficiency stems from weak async communication habits, not working location.",
+  "hook_zh": "深入分析远程办公效率低下的根源并非工作地点，而是缺乏高效的异步沟通能力。",
   "description_en": "An insightful look into why poor asynchronous communication, rather than remote work itself, breaks team productivity.",
   "description_zh": "深入剖析远程办公效率低下的根源，指出精妙的异步沟通才是分布式团队成功的关键。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "원격근무가 아니라 서투른 비동기 소통이 문제다",
+      "hook": "원격근무 비효율의 본질은 장소가 아니라 비동기 소통 역량 부족에 있음을 다룬 칼럼",
+      "key_takeaways": [
+        "원격근무의 실패 요인은 위치가 아니라 실시간 소통 방식을 비동기 환경에 그대로 적용하는 서투른 소통 방식임",
+        "철저한 문서화와 명확한 텍스트 기반 비동기 협업 문화 구축이 원격근무 성패를 결정",
+        "불필요한 동기식 회의를 줄이고 맥락(Context)을 완결성 있게 전달하는 능력이 엔지니어링 조직의 필수 역량"
+      ]
+    },
+    "en": {
+      "title": "The Problem Isn't Remote Work, But Poor Asynchronous Communication",
+      "hook": "An insightful breakdown showing that remote work inefficiency stems from weak async communication habits, not working location.",
+      "key_takeaways": [
+        "Remote work failures are caused by applying real-time meeting habits directly to async environments rather than the physical location.",
+        "Thorough documentation and clear text-based async collaboration form the pillar of successful remote culture.",
+        "Reducing synchronous meetings and providing self-contained context in written updates is a key engineering team capability."
+      ]
+    },
+    "zh": {
+      "title": "问题不在于远程办公，而在于拙劣的异步沟通",
+      "hook": "深入分析远程办公效率低下的根源并非工作地点，而是缺乏高效的异步沟通能力。",
+      "key_takeaways": [
+        "远程办公的失败在于直接把实时的沟通习惯套用到异步环境中，而非地点本身的问题。",
+        "完善的文档化与清晰的文本异步协作文化是决定远程办公成败的核心。",
+        "减少不必要的同步会议并在书面沟通中提供完整的上下文是工程团队的必备能力。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.365653"
 }

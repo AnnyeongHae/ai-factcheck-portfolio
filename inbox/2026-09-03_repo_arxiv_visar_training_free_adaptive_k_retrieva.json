@@ -34,67 +34,98 @@
     "id": "2026-09-03_repo_arxiv_visar_training_free_adaptive_k_retrieva",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "RAG 및 문서 VQA",
+    "model_family": "Retrieval-Augmented Generation",
+    "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "ViSAR",
       "DocVQA",
-      "Adaptive-k Retrieval",
-      "RAG Optimization"
+      "Adaptive Retrieval",
+      "RAG",
+      "Late-Interaction Encoders",
+      "Training-Free"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "ViSAR: 시각 문서 질의응답을 위한 학습 없는 적응형-$k$ 검색",
-        "hook": "추가 학습 없이 문서 VQA와 RAG의 검색 효율을 극적으로 극대화하는 최신 아키텍처를 확인하세요.",
+        "title": "ViSAR: 시각적 문서 질의응답을 위한 학습 미필요 적응형 Top-k 검색 기법",
+        "hook": "추가 모델 학습 없이 RAG 파이프라인에서 질의별 최적의 문서 페이지 수(k)를 적응형으로 선택하는 ViSAR 제안",
         "key_takeaways": [
-          "학습 과정(Training-Free) 없이 작동하는 적응형-$k$ 문서 검색 메커니즘",
-          "지연 상호작용 인코더를 활용한 시각 문서 질의응답(DocVQA) 성능 최적화",
-          "효율적인 페이지 관련성 식별을 통한 RAG 파이프라인 속도 및 정확도 개선"
+          "Late-interaction 엔코더 기반 시각적 문서 질의응답(DocVQA)의 검색 성능 최적화",
+          "별도 파라미터 학습 없이(Training-Free) 질의 복잡도에 따라 동적으로 Top-k 문서 페이지 추출",
+          "불필요한 컨텍스트 노이즈 감소 및 멀티모달 LLM 입력 토큰 비용 단축"
         ]
       },
       "en": {
-        "title": "ViSAR: Training-Free Adaptive-$k$ Retrieval for Visual DocVQA",
-        "hook": "Maximize RAG and DocVQA efficiency with a training-free adaptive-$k$ retrieval architecture.",
+        "title": "ViSAR: Training-Free Adaptive-k Retrieval for Visual Document Question Answering",
+        "hook": "Dynamically adjust retrieval top-k per query without extra training to optimize multimodal RAG pipelines for visual documents.",
         "key_takeaways": [
-          "Training-free adaptive-$k$ document retrieval mechanism for visual QA",
-          "Optimization of DocVQA performance using late-interaction encoders",
-          "Improved speed and accuracy in RAG pipelines via efficient page relevance identification"
+          "Improves document retrieval precision in DocVQA leveraging late-interaction encoders.",
+          "Adapts the number of retrieved context pages (k) on-the-fly in a training-free manner.",
+          "Mitigates context noise and reduces token consumption for multimodal LLM generators."
         ]
       },
       "zh": {
-        "title": "ViSAR：面向视觉文档问答的免训练自适应-$k$检索",
-        "hook": "无需额外训练即可大幅提升文档VQA与RAG检索效率的高性能架构。",
+        "title": "ViSAR：面向视觉文档问答的免训练自适应 k 检索技术",
+        "hook": "无需额外模型训练，通过自适应 Top-k 检索显著提升多模态 RAG 与视觉文档问答性能。",
         "key_takeaways": [
-          "无需训练（Training-Free）的自适应-$k$文档检索机制",
-          "利用后期交互编码器优化视觉文档问答（DocVQA）性能",
-          "通过高效的页面相关性识别改善RAG管道的速度与准确性"
+          "基于延迟交互编码器（Late-Interaction Encoders）大幅优化 DocVQA 的检索精准度",
+          "采用免训练（Training-Free）策略，可根据用户查询的复杂程度动态选择最优检索页面数 k",
+          "减少无关上下文噪音，有效控制多模态大语言模型的 Token 消耗与计算开销"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:17:07.459295+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "ViSAR",
     "DocVQA",
-    "Adaptive-k Retrieval",
-    "RAG Optimization"
+    "Adaptive Retrieval",
+    "RAG",
+    "Late-Interaction Encoders",
+    "Training-Free"
   ],
-  "title_ko": "ViSAR: 시각 문서 질의응답을 위한 학습 없는 적응형-$k$ 검색",
-  "title_en": "ViSAR: Training-Free Adaptive-$k$ Retrieval for Visual DocVQA",
-  "title_zh": "ViSAR：面向视觉文档问答的免训练自适应-$k$检索",
+  "title_ko": "ViSAR: 시각적 문서 질의응답을 위한 학습 미필요 적응형 Top-k 검색 기법",
+  "title_en": "ViSAR: Training-Free Adaptive-k Retrieval for Visual Document Question Answering",
+  "title_zh": "ViSAR：面向视觉文档问答的免训练自适应 k 检索技术",
   "hook": "추가 학습 없이 문서 VQA와 RAG의 검색 효율을 극적으로 극대화하는 최신 아키텍처를 확인하세요.",
-  "hook_ko": "추가 학습 없이 문서 VQA와 RAG의 검색 효율을 극적으로 극대화하는 최신 아키텍처를 확인하세요.",
-  "hook_en": "Maximize RAG and DocVQA efficiency with a training-free adaptive-$k$ retrieval architecture.",
-  "hook_zh": "无需额外训练即可大幅提升文档VQA与RAG检索效率的高性能架构。",
+  "hook_ko": "추가 모델 학습 없이 RAG 파이프라인에서 질의별 최적의 문서 페이지 수(k)를 적응형으로 선택하는 ViSAR 제안",
+  "hook_en": "Dynamically adjust retrieval top-k per query without extra training to optimize multimodal RAG pipelines for visual documents.",
+  "hook_zh": "无需额外模型训练，通过自适应 Top-k 检索显著提升多模态 RAG 与视觉文档问答性能。",
   "description_ko": "추가 학습 없이 문서 VQA와 RAG의 검색 효율을 극적으로 극대화하는 최신 아키텍처를 확인하세요.",
   "description_en": "Maximize RAG and DocVQA efficiency with a training-free adaptive-$k$ retrieval architecture.",
   "description_zh": "无需额外训练即可大幅提升文档VQA与RAG检索效率的高性能架构。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "ViSAR: 시각적 문서 질의응답을 위한 학습 미필요 적응형 Top-k 검색 기법",
+      "hook": "추가 모델 학습 없이 RAG 파이프라인에서 질의별 최적의 문서 페이지 수(k)를 적응형으로 선택하는 ViSAR 제안",
+      "key_takeaways": [
+        "Late-interaction 엔코더 기반 시각적 문서 질의응답(DocVQA)의 검색 성능 최적화",
+        "별도 파라미터 학습 없이(Training-Free) 질의 복잡도에 따라 동적으로 Top-k 문서 페이지 추출",
+        "불필요한 컨텍스트 노이즈 감소 및 멀티모달 LLM 입력 토큰 비용 단축"
+      ]
+    },
+    "en": {
+      "title": "ViSAR: Training-Free Adaptive-k Retrieval for Visual Document Question Answering",
+      "hook": "Dynamically adjust retrieval top-k per query without extra training to optimize multimodal RAG pipelines for visual documents.",
+      "key_takeaways": [
+        "Improves document retrieval precision in DocVQA leveraging late-interaction encoders.",
+        "Adapts the number of retrieved context pages (k) on-the-fly in a training-free manner.",
+        "Mitigates context noise and reduces token consumption for multimodal LLM generators."
+      ]
+    },
+    "zh": {
+      "title": "ViSAR：面向视觉文档问答的免训练自适应 k 检索技术",
+      "hook": "无需额外模型训练，通过自适应 Top-k 检索显著提升多模态 RAG 与视觉文档问答性能。",
+      "key_takeaways": [
+        "基于延迟交互编码器（Late-Interaction Encoders）大幅优化 DocVQA 的检索精准度",
+        "采用免训练（Training-Free）策略，可根据用户查询的复杂程度动态选择最优检索页面数 k",
+        "减少无关上下文噪音，有效控制多模态大语言模型的 Token 消耗与计算开销"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.211443"
 }

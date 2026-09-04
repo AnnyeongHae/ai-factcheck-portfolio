@@ -33,5 +33,95 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49498860",
-  "article_url": "https://worldofmatthew.com/blog/bc250/"
+  "article_url": "https://worldofmatthew.com/blog/bc250/",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_my_bc_250_journey_with_40_cus_unl",
+    "source_lang": "EN",
+    "type_classification": "HARDWARE",
+    "model_family": "AMD Oberon APU / Custom Silicon",
+    "category": "Hardware & Embedded Systems",
+    "programming_lang": "General",
+    "root_keywords": [
+      "BC-250",
+      "AMD APU",
+      "Compute Units",
+      "Hardware Hacking"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.3,
+    "multilingual": {
+      "ko": {
+        "title": "AMD BC-250 활용기 (40개 CU 잠금 해제)",
+        "hook": "PS5 기반 AMD BC-250 연산 카드의 40개 컴퓨트 유닛(CU)을 잠금 해제하여 활용한 하드웨어 개조 경험담",
+        "key_takeaways": [
+          "콘솔 칩셋 기반 AMD BC-250 APU의 하드웨어 특성 분석",
+          "비활성화되어 있던 40개 컴퓨트 유닛(CU)의 잠금 해제 방법 및 드라이버 설정",
+          "리눅스 환경에서 가성비 컴퓨팅 노드로 활용 시의 성능 및 실용성 평가"
+        ]
+      },
+      "en": {
+        "title": "My BC-250 Journey (Unlocking 40 CUs on AMD APU)",
+        "hook": "A technical breakdown of unlocking 40 Compute Units on the PS5-derived AMD BC-250 card for Linux compute workloads.",
+        "key_takeaways": [
+          "Hardware breakdown of the AMD BC-250 APU based on console silicon.",
+          "Methods and driver tweaks needed to unlock 40 disabled Compute Units (CUs).",
+          "Practical evaluation of performance and efficiency as a budget Linux compute node."
+        ]
+      },
+      "zh": {
+        "title": "我的 BC-250 改造之旅（成功解锁 40 个 CU）",
+        "hook": "探索解锁衍生自 PS5 芯片的 AMD BC-250 计算卡 40 个 CU 计算单元并进行 Linux 算力调优的硬核经历",
+        "key_takeaways": [
+          "基于主机芯片改造的 AMD BC-250 APU 硬件架构解析",
+          "解锁 40 个计算单元 (CU) 所需的固件与驱动调整细节",
+          "在 Linux 环境下作为高性价比计算节点使用的实际性能与可行性评估"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "AMD BC-250 활용기 (40개 CU 잠금 해제)",
+      "hook": "PS5 기반 AMD BC-250 연산 카드의 40개 컴퓨트 유닛(CU)을 잠금 해제하여 활용한 하드웨어 개조 경험담",
+      "key_takeaways": [
+        "콘솔 칩셋 기반 AMD BC-250 APU의 하드웨어 특성 분석",
+        "비활성화되어 있던 40개 컴퓨트 유닛(CU)의 잠금 해제 방법 및 드라이버 설정",
+        "리눅스 환경에서 가성비 컴퓨팅 노드로 활용 시의 성능 및 실용성 평가"
+      ]
+    },
+    "en": {
+      "title": "My BC-250 Journey (Unlocking 40 CUs on AMD APU)",
+      "hook": "A technical breakdown of unlocking 40 Compute Units on the PS5-derived AMD BC-250 card for Linux compute workloads.",
+      "key_takeaways": [
+        "Hardware breakdown of the AMD BC-250 APU based on console silicon.",
+        "Methods and driver tweaks needed to unlock 40 disabled Compute Units (CUs).",
+        "Practical evaluation of performance and efficiency as a budget Linux compute node."
+      ]
+    },
+    "zh": {
+      "title": "我的 BC-250 改造之旅（成功解锁 40 个 CU）",
+      "hook": "探索解锁衍生自 PS5 芯片的 AMD BC-250 计算卡 40 个 CU 计算单元并进行 Linux 算力调优的硬核经历",
+      "key_takeaways": [
+        "基于主机芯片改造的 AMD BC-250 APU 硬件架构解析",
+        "解锁 40 个计算单元 (CU) 所需的固件与驱动调整细节",
+        "在 Linux 环境下作为高性价比计算节点使用的实际性能与可行性评估"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "BC-250",
+    "AMD APU",
+    "Compute Units",
+    "Hardware Hacking"
+  ],
+  "title_ko": "AMD BC-250 활용기 (40개 CU 잠금 해제)",
+  "hook_ko": "PS5 기반 AMD BC-250 연산 카드의 40개 컴퓨트 유닛(CU)을 잠금 해제하여 활용한 하드웨어 개조 경험담",
+  "title_en": "My BC-250 Journey (Unlocking 40 CUs on AMD APU)",
+  "hook_en": "A technical breakdown of unlocking 40 Compute Units on the PS5-derived AMD BC-250 card for Linux compute workloads.",
+  "title_zh": "我的 BC-250 改造之旅（成功解锁 40 个 CU）",
+  "hook_zh": "探索解锁衍生自 PS5 芯片的 AMD BC-250 计算卡 40 个 CU 计算单元并进行 Linux 算力调优的硬核经历",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.396745"
 }

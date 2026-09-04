@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_techfreakwormltx23_studio",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "LTX-Video",
+    "category": "Computer Vision / Video Generation",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "LTX-Video",
+      "Video Generation",
+      "Gradio",
+      "Text-to-Video",
+      "Hugging Face Spaces"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "LTX 2.3 스튜디오: 고성능 AI 비디오 생성 인터랙티브 Gradio 데모",
+        "hook": "LTX-Video 모델 기반의 고품질 비디오 생성 및 제어를 지원하는 Gradio 웹 인터페이스",
+        "key_takeaways": [
+          "LTX-Video 모델을 활용한 오픈소스 기반 비디오 생성 인터페이스",
+          "Gradio SDK를 기반으로 한 직관적인 매개변수 제어 및 프롬프트 테스트 환경",
+          "Hugging Face Spaces 상에서 비디오 확산 모델을 서빙하는 실전 구현 사례"
+        ]
+      },
+      "en": {
+        "title": "LTX 2.3 Studio: Interactive Gradio Demo for High-Quality AI Video Generation",
+        "hook": "An interactive Gradio web studio leveraging LTX-Video for efficient video generation and prompt tuning.",
+        "key_takeaways": [
+          "Open-source video generation web interface based on the LTX-Video model",
+          "Intuitive parameter control and prompt testing environment built with Gradio SDK",
+          "Practical reference implementation for serving video diffusion models on Hugging Face Spaces"
+        ]
+      },
+      "zh": {
+        "title": "LTX 2.3 Studio：基于 Gradio 的高性能 AI 视频生成交互式 Demo",
+        "hook": "基于 LTX-Video 模型构建的 Gradio Web Studio，提供高效的视频生成与参数微调",
+        "key_takeaways": [
+          "基于 LTX-Video 模型开发的开源 AI 视频生成 Web 界面",
+          "借助 Gradio SDK 提供直观的提示词测试与生成参数调节环境",
+          "在 Hugging Face Spaces 上部署视频扩散模型的实用工程参考"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "LTX 2.3 스튜디오: 고성능 AI 비디오 생성 인터랙티브 Gradio 데모",
+      "hook": "LTX-Video 모델 기반의 고품질 비디오 생성 및 제어를 지원하는 Gradio 웹 인터페이스",
+      "key_takeaways": [
+        "LTX-Video 모델을 활용한 오픈소스 기반 비디오 생성 인터페이스",
+        "Gradio SDK를 기반으로 한 직관적인 매개변수 제어 및 프롬프트 테스트 환경",
+        "Hugging Face Spaces 상에서 비디오 확산 모델을 서빙하는 실전 구현 사례"
+      ]
+    },
+    "en": {
+      "title": "LTX 2.3 Studio: Interactive Gradio Demo for High-Quality AI Video Generation",
+      "hook": "An interactive Gradio web studio leveraging LTX-Video for efficient video generation and prompt tuning.",
+      "key_takeaways": [
+        "Open-source video generation web interface based on the LTX-Video model",
+        "Intuitive parameter control and prompt testing environment built with Gradio SDK",
+        "Practical reference implementation for serving video diffusion models on Hugging Face Spaces"
+      ]
+    },
+    "zh": {
+      "title": "LTX 2.3 Studio：基于 Gradio 的高性能 AI 视频生成交互式 Demo",
+      "hook": "基于 LTX-Video 模型构建的 Gradio Web Studio，提供高效的视频生成与参数微调",
+      "key_takeaways": [
+        "基于 LTX-Video 模型开发的开源 AI 视频生成 Web 界面",
+        "借助 Gradio SDK 提供直观的提示词测试与生成参数调节环境",
+        "在 Hugging Face Spaces 上部署视频扩散模型的实用工程参考"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "LTX-Video",
+    "Video Generation",
+    "Gradio",
+    "Text-to-Video",
+    "Hugging Face Spaces"
+  ],
+  "title_ko": "LTX 2.3 스튜디오: 고성능 AI 비디오 생성 인터랙티브 Gradio 데모",
+  "hook_ko": "LTX-Video 모델 기반의 고품질 비디오 생성 및 제어를 지원하는 Gradio 웹 인터페이스",
+  "title_en": "LTX 2.3 Studio: Interactive Gradio Demo for High-Quality AI Video Generation",
+  "hook_en": "An interactive Gradio web studio leveraging LTX-Video for efficient video generation and prompt tuning.",
+  "title_zh": "LTX 2.3 Studio：基于 Gradio 的高性能 AI 视频生成交互式 Demo",
+  "hook_zh": "基于 LTX-Video 模型构建的 Gradio Web Studio，提供高效的视频生成与参数微调",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.300961"
 }

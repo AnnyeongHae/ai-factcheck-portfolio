@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_ifmylove2011girlslike_lora_gallery",
+    "source_lang": "AUTO",
+    "type_classification": "TECH",
+    "model_family": "Stable Diffusion",
+    "category": "Computer Vision",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "LoRA",
+      "Gradio",
+      "Stable Diffusion",
+      "Image Generation",
+      "Gallery"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "HF Space: ifmylove2011/girlslike_lora_gallery",
+        "hook": "Gradio 기반으로 구현된 다양한 LoRA 모델 비교 및 시각화 갤러리 데모",
+        "key_takeaways": [
+          "LoRA(Low-Rank Adaptation) 가중치를 대화형 인터페이스로 체험할 수 있는 데모 공간",
+          "Gradio SDK를 활용한 이미지 생성 알고리즘 파이프라인 구성 예시",
+          "프롬프트 조절 및 파라미터 설정을 통한 결과물 비교 기능 제공"
+        ]
+      },
+      "en": {
+        "title": "HF Space: ifmylove2011/girlslike_lora_gallery",
+        "hook": "An interactive Gradio-based gallery demo for exploring and evaluating LoRA models in image generation.",
+        "key_takeaways": [
+          "Interactive interface for testing and visualizing LoRA (Low-Rank Adaptation) weights.",
+          "Practical reference for building AI image generation workflows using the Gradio SDK.",
+          "Allows real-time prompt tuning and parameter exploration for diffusion models."
+        ]
+      },
+      "zh": {
+        "title": "HF Space: ifmylove2011/girlslike_lora_gallery",
+        "hook": "基于 Gradio 构建的 LoRA 模型图像生成与可视化对比交互式画廊。",
+        "key_takeaways": [
+          "提供用于测试和可视化扩散模型 LoRA 权重的交互式界面",
+          "展示基于 Gradio SDK 构建 AI 图像生成工作流的应用实例",
+          "支持 Prompt 调整与参数优化的实时图像对比"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: ifmylove2011/girlslike_lora_gallery",
+      "hook": "Gradio 기반으로 구현된 다양한 LoRA 모델 비교 및 시각화 갤러리 데모",
+      "key_takeaways": [
+        "LoRA(Low-Rank Adaptation) 가중치를 대화형 인터페이스로 체험할 수 있는 데모 공간",
+        "Gradio SDK를 활용한 이미지 생성 알고리즘 파이프라인 구성 예시",
+        "프롬프트 조절 및 파라미터 설정을 통한 결과물 비교 기능 제공"
+      ]
+    },
+    "en": {
+      "title": "HF Space: ifmylove2011/girlslike_lora_gallery",
+      "hook": "An interactive Gradio-based gallery demo for exploring and evaluating LoRA models in image generation.",
+      "key_takeaways": [
+        "Interactive interface for testing and visualizing LoRA (Low-Rank Adaptation) weights.",
+        "Practical reference for building AI image generation workflows using the Gradio SDK.",
+        "Allows real-time prompt tuning and parameter exploration for diffusion models."
+      ]
+    },
+    "zh": {
+      "title": "HF Space: ifmylove2011/girlslike_lora_gallery",
+      "hook": "基于 Gradio 构建的 LoRA 模型图像生成与可视化对比交互式画廊。",
+      "key_takeaways": [
+        "提供用于测试和可视化扩散模型 LoRA 权重的交互式界面",
+        "展示基于 Gradio SDK 构建 AI 图像生成工作流的应用实例",
+        "支持 Prompt 调整与参数优化的实时图像对比"
+      ]
+    }
+  },
+  "source_lang": "AUTO",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "LoRA",
+    "Gradio",
+    "Stable Diffusion",
+    "Image Generation",
+    "Gallery"
+  ],
+  "title_ko": "HF Space: ifmylove2011/girlslike_lora_gallery",
+  "hook_ko": "Gradio 기반으로 구현된 다양한 LoRA 모델 비교 및 시각화 갤러리 데모",
+  "title_en": "HF Space: ifmylove2011/girlslike_lora_gallery",
+  "hook_en": "An interactive Gradio-based gallery demo for exploring and evaluating LoRA models in image generation.",
+  "title_zh": "HF Space: ifmylove2011/girlslike_lora_gallery",
+  "hook_zh": "基于 Gradio 构建的 LoRA 模型图像生成与可视化对比交互式画廊。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.262272"
 }

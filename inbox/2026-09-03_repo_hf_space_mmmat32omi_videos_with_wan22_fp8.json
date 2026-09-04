@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_mmmat32omi_videos_with_wan22_fp8",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Wan",
+    "category": "Multimodal AI",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Wan2.2",
+      "FP8 Quantization",
+      "Video Generation",
+      "Gradio",
+      "Text-to-Video"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "HF Space: Wan 2.2 FP8 양자화 기반 Omi 비디오 생성 데모",
+        "hook": "FP8 양자화가 적용된 Wan 2.2 모델을 활용하여 효율적으로 비디오를 생성하는 인터랙티브 Gradio 데모",
+        "key_takeaways": [
+          "Wan 2.2 비디오 생성 모델에 FP8 정밀도 양자화 적용",
+          "VRAM 메모리 오버헤드를 절감하면서 비디오 생성 수율 유지",
+          "Gradio 기반 웹 인터페이스로 직접 비디오 생성을 테스트할 수 있는 공간 제공"
+        ]
+      },
+      "en": {
+        "title": "HF Space: Omi Video Generation with Wan 2.2 FP8 Quantization",
+        "hook": "Interactive Gradio demo demonstrating efficient video generation using FP8 quantized Wan 2.2 model.",
+        "key_takeaways": [
+          "Utilizes FP8 precision quantization on the Wan 2.2 video generation architecture",
+          "Significantly reduces VRAM overhead while preserving video synthesis quality",
+          "Provides an interactive Gradio interface for quick video generation experiments"
+        ]
+      },
+      "zh": {
+        "title": "HF Space: 基于 Wan 2.2 FP8 量化的 Omi 视频生成 Demo",
+        "hook": "结合 FP8 量化 Wan 2.2 模型的交互式 Gradio 视频生成演示",
+        "key_takeaways": [
+          "在 Wan 2.2 视频生成模型中应用 FP8 精度量化",
+          "在保持视频生成质量的同时有效降低 VRAM 显存占用",
+          "提供便捷的 Gradio Web 界面，便于在线快速体验视频生成"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: Wan 2.2 FP8 양자화 기반 Omi 비디오 생성 데모",
+      "hook": "FP8 양자화가 적용된 Wan 2.2 모델을 활용하여 효율적으로 비디오를 생성하는 인터랙티브 Gradio 데모",
+      "key_takeaways": [
+        "Wan 2.2 비디오 생성 모델에 FP8 정밀도 양자화 적용",
+        "VRAM 메모리 오버헤드를 절감하면서 비디오 생성 수율 유지",
+        "Gradio 기반 웹 인터페이스로 직접 비디오 생성을 테스트할 수 있는 공간 제공"
+      ]
+    },
+    "en": {
+      "title": "HF Space: Omi Video Generation with Wan 2.2 FP8 Quantization",
+      "hook": "Interactive Gradio demo demonstrating efficient video generation using FP8 quantized Wan 2.2 model.",
+      "key_takeaways": [
+        "Utilizes FP8 precision quantization on the Wan 2.2 video generation architecture",
+        "Significantly reduces VRAM overhead while preserving video synthesis quality",
+        "Provides an interactive Gradio interface for quick video generation experiments"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: 基于 Wan 2.2 FP8 量化的 Omi 视频生成 Demo",
+      "hook": "结合 FP8 量化 Wan 2.2 模型的交互式 Gradio 视频生成演示",
+      "key_takeaways": [
+        "在 Wan 2.2 视频生成模型中应用 FP8 精度量化",
+        "在保持视频生成质量的同时有效降低 VRAM 显存占用",
+        "提供便捷的 Gradio Web 界面，便于在线快速体验视频生成"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Wan2.2",
+    "FP8 Quantization",
+    "Video Generation",
+    "Gradio",
+    "Text-to-Video"
+  ],
+  "title_ko": "HF Space: Wan 2.2 FP8 양자화 기반 Omi 비디오 생성 데모",
+  "hook_ko": "FP8 양자화가 적용된 Wan 2.2 모델을 활용하여 효율적으로 비디오를 생성하는 인터랙티브 Gradio 데모",
+  "title_en": "HF Space: Omi Video Generation with Wan 2.2 FP8 Quantization",
+  "hook_en": "Interactive Gradio demo demonstrating efficient video generation using FP8 quantized Wan 2.2 model.",
+  "title_zh": "HF Space: 基于 Wan 2.2 FP8 量化的 Omi 视频生成 Demo",
+  "hook_zh": "结合 FP8 量化 Wan 2.2 模型的交互式 Gradio 视频生成演示",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.282257"
 }

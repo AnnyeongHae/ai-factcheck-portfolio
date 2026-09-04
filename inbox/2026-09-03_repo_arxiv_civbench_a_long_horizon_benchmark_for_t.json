@@ -34,66 +34,101 @@
   "ai_enrichment": {
     "id": "2026-09-03_repo_arxiv_civbench_a_long_horizon_benchmark_for_t",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "웹/게임 에이전트 및 벤치마크",
+    "type_classification": "TECH",
+    "model_family": "LLM Agents & Benchmarks",
+    "category": "Artificial Intelligence",
     "programming_lang": "Python",
     "root_keywords": [
-      "Agent Benchmark",
+      "CivBench",
       "Model Context Protocol",
-      "Long-Horizon"
+      "MCP",
+      "LLM Agent",
+      "Long-Horizon Planning",
+      "Civilization VI"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.7,
+    "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "CivBench: 문명 6 환경의 툴 기반 장기 호라이즌 에이전트 벤치마크",
-        "hook": "300턴 이상의 복잡하고 긴 호라이즌을 가진 문명 6 환경에서 LLM 에이전트의 능력을 평가하는 최신 오픈소스 벤치마크를 확인하세요.",
+        "title": "CivBench: 문명 VI 기반 도구 중계 LLM 에이전트의 장기 의사결정 벤치마크",
+        "hook": "모델 컨텍스트 프로토콜(MCP)을 활용해 300턴 이상의 장기 복합 의사결정 능력을 평가하는 오픈소스 에이전트 벤치마크",
         "key_takeaways": [
-          "Model Context Protocol(MCP)을 활용한 툴 기반 장기 에이전트 평가 벤치마크 CivBench 공개",
-          "단일 에피소드가 300턴 이상 지속되는 복잡한 전략 게임 환경 시뮬레이션",
-          "복잡한 멀티스텝 의사결정 및 도구 활용 능력을 측정하는 핵심 지표 제공"
+          "문명 VI(Civilization VI) 환경을 활용해 300턴 이상의 초장기(Long-Horizon) 게임 플레이를 수행하는 LLM 에이전트 평가",
+          "표준화된 Model Context Protocol (MCP)을 적용하여 에이전트와 복잡한 게임 환경 간 도구 중계 인터페이스 구현",
+          "복합적 자원 관리, 장기적 전략 계획 수립, 도구 호출 정확도 등 멀티턴 에이전트의 핵심 역량을 종합적으로 측정"
         ]
       },
       "en": {
         "title": "CivBench: A Long-Horizon Benchmark for Tool-Mediated Agents in Civilization VI",
-        "hook": "Evaluate language model agents in complex, long-horizon environments spanning over 300 turns using Model Context Protocol.",
+        "hook": "An open-source benchmark leveraging the Model Context Protocol (MCP) to evaluate LLM agents in long-horizon strategic gameplay over 300+ turns.",
         "key_takeaways": [
-          "Introduces CivBench, an open-source benchmark for tool-mediated LLM agents",
-          "Utilizes Civilization VI with episodes lasting 300+ turns",
-          "Tests advanced multi-step reasoning, strategy, and MCP tool usage"
+          "Evaluates LLM agent capabilities in ultra-long-horizon multi-turn decision-making across 300+ turns in Civilization VI.",
+          "Integrates the Model Context Protocol (MCP) for standardized, tool-mediated interactions between LLM agents and the game state.",
+          "Measures long-term strategic planning, resource allocation, and tool invocation efficiency in complex environments."
         ]
       },
       "zh": {
-        "title": "CivBench：基于《文明6》的工具介导智能体长周期基准测试",
-        "hook": "借助模型上下文协议（MCP），在跨越300多轮的复杂《文明6》环境中评估大模型智能体的长周期规划能力。",
+        "title": "CivBench：基于《文明 VI》的工具介导 LLM Agent 长程基准测试",
+        "hook": "利用模型上下文协议 (MCP) 评估 LLM Agent 在《文明 VI》中跨越 300+ 回合的长程战略决策能力。",
         "key_takeaways": [
-          "推出开源基准测试CivBench，用于评估工具介导的LLM智能体",
-          "单局游戏跨越300多个回合，高度考验长周期策略与决策",
-          "利用Model Context Protocol（MCP）测量复杂的多步交互与工具调用能力"
+          "利用《文明 VI》复杂环境，对 LLM Agent 在 300+ 回合的长程决策与规划能力进行全面评估",
+          "采用标准化的模型上下文协议 (MCP)，构建 Agent 与复杂游戏状态之间的工具介导交互",
+          "测试 Agent 在复杂场景下的长期战略规划、资源调配与工具调用准确度"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:17:44.807637+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Agent Benchmark",
+    "CivBench",
     "Model Context Protocol",
-    "Long-Horizon"
+    "MCP",
+    "LLM Agent",
+    "Long-Horizon Planning",
+    "Civilization VI"
   ],
-  "title_ko": "CivBench: 문명 6 환경의 툴 기반 장기 호라이즌 에이전트 벤치마크",
+  "title_ko": "CivBench: 문명 VI 기반 도구 중계 LLM 에이전트의 장기 의사결정 벤치마크",
   "title_en": "CivBench: A Long-Horizon Benchmark for Tool-Mediated Agents in Civilization VI",
-  "title_zh": "CivBench：基于《文明6》的工具介导智能体长周期基准测试",
+  "title_zh": "CivBench：基于《文明 VI》的工具介导 LLM Agent 长程基准测试",
   "hook": "300턴 이상의 복잡하고 긴 호라이즌을 가진 문명 6 환경에서 LLM 에이전트의 능력을 평가하는 최신 오픈소스 벤치마크를 확인하세요.",
-  "hook_ko": "300턴 이상의 복잡하고 긴 호라이즌을 가진 문명 6 환경에서 LLM 에이전트의 능력을 평가하는 최신 오픈소스 벤치마크를 확인하세요.",
-  "hook_en": "Evaluate language model agents in complex, long-horizon environments spanning over 300 turns using Model Context Protocol.",
-  "hook_zh": "借助模型上下文协议（MCP），在跨越300多轮的复杂《文明6》环境中评估大模型智能体的长周期规划能力。",
+  "hook_ko": "모델 컨텍스트 프로토콜(MCP)을 활용해 300턴 이상의 장기 복합 의사결정 능력을 평가하는 오픈소스 에이전트 벤치마크",
+  "hook_en": "An open-source benchmark leveraging the Model Context Protocol (MCP) to evaluate LLM agents in long-horizon strategic gameplay over 300+ turns.",
+  "hook_zh": "利用模型上下文协议 (MCP) 评估 LLM Agent 在《文明 VI》中跨越 300+ 回合的长程战略决策能力。",
   "description_ko": "300턴 이상의 복잡하고 긴 호라이즌을 가진 문명 6 환경에서 LLM 에이전트의 능력을 평가하는 최신 오픈소스 벤치마크를 확인하세요.",
   "description_en": "Evaluate language model agents in complex, long-horizon environments spanning over 300 turns using Model Context Protocol.",
   "description_zh": "借助模型上下文协议（MCP），在跨越300多轮的复杂《文明6》环境中评估大模型智能体的长周期规划能力。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "CivBench: 문명 VI 기반 도구 중계 LLM 에이전트의 장기 의사결정 벤치마크",
+      "hook": "모델 컨텍스트 프로토콜(MCP)을 활용해 300턴 이상의 장기 복합 의사결정 능력을 평가하는 오픈소스 에이전트 벤치마크",
+      "key_takeaways": [
+        "문명 VI(Civilization VI) 환경을 활용해 300턴 이상의 초장기(Long-Horizon) 게임 플레이를 수행하는 LLM 에이전트 평가",
+        "표준화된 Model Context Protocol (MCP)을 적용하여 에이전트와 복잡한 게임 환경 간 도구 중계 인터페이스 구현",
+        "복합적 자원 관리, 장기적 전략 계획 수립, 도구 호출 정확도 등 멀티턴 에이전트의 핵심 역량을 종합적으로 측정"
+      ]
+    },
+    "en": {
+      "title": "CivBench: A Long-Horizon Benchmark for Tool-Mediated Agents in Civilization VI",
+      "hook": "An open-source benchmark leveraging the Model Context Protocol (MCP) to evaluate LLM agents in long-horizon strategic gameplay over 300+ turns.",
+      "key_takeaways": [
+        "Evaluates LLM agent capabilities in ultra-long-horizon multi-turn decision-making across 300+ turns in Civilization VI.",
+        "Integrates the Model Context Protocol (MCP) for standardized, tool-mediated interactions between LLM agents and the game state.",
+        "Measures long-term strategic planning, resource allocation, and tool invocation efficiency in complex environments."
+      ]
+    },
+    "zh": {
+      "title": "CivBench：基于《文明 VI》的工具介导 LLM Agent 长程基准测试",
+      "hook": "利用模型上下文协议 (MCP) 评估 LLM Agent 在《文明 VI》中跨越 300+ 回合的长程战略决策能力。",
+      "key_takeaways": [
+        "利用《文明 VI》复杂环境，对 LLM Agent 在 300+ 回合的长程决策与规划能力进行全面评估",
+        "采用标准化的模型上下文协议 (MCP)，构建 Agent 与复杂游戏状态之间的工具介导交互",
+        "测试 Agent 在复杂场景下的长期战略规划、资源调配与工具调用准确度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.162196"
 }

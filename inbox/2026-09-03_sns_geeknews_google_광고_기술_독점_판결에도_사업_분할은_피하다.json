@@ -37,66 +37,95 @@
   "ai_enrichment": {
     "id": "2026-09-03_sns_geeknews_google_광고_기술_독점_판결에도_사업_분할은_피하다",
     "source_lang": "KO",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "테크 비즈니스 및 규제",
+    "type_classification": "TECH",
+    "model_family": "Tech Industry & Policy",
+    "category": "Tech Policy",
     "programming_lang": "General",
     "root_keywords": [
       "Google",
-      "반독점 소송",
-      "애드테크",
-      "사업 분할 회피"
+      "AdTech",
+      "Antitrust",
+      "Monopoly"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.0,
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
         "title": "Google, 광고 기술 독점 판결에도 사업 분할은 피하다",
-        "hook": "구글이 반독점 소송에서 광고 기술 독점 판결을 받았으나 최악의 시나리오인 사업 강제 분할은 면했습니다.",
+        "hook": "구글이 반독점 소송에서 광고 기술 독점 판결을 받았음에도 강제 사업 분할 시정 조치는 면했습니다.",
         "key_takeaways": [
-          "구글 애드테크 반독점 소송에서 독점 행위 판결 확정",
-          "빅테크 규제 리스크 속에서 사업 강제 분할 명령은 피함",
-          "향후 디지털 광고 시장의 규제 향방에 큰 영향 예상"
+          "미국 법원의 반독점 판결에도 불구하고 구글의 AdTech 부문 강제 분할(Breakup)은 배제되었습니다.",
+          "해결책으로 구조적 분할 대신 행동적 시정 조치(Behavioral remedies)가 논의되고 있습니다.",
+          "빅테크 규제 방향성과 글로벌 디지털 광고 생태계에 중요한 선례가 될 것으로 평가됩니다."
         ]
       },
       "en": {
-        "title": "Google Avoids Business Breakup Despite Ad Tech Monopoly Ruling",
-        "hook": "Google has been found to have a monopoly in ad tech, but managed to dodge a forced corporate breakup.",
+        "title": "Google Avoids Business Breakup Despite Antitrust Ruling on Ad Tech Monopoly",
+        "hook": "Google escapes structural divestiture orders despite being found guilty of monopolizing ad-tech markets.",
         "key_takeaways": [
-          "Google ruled to hold an illegal monopoly in the ad tech market antitrust lawsuit",
-          "Successfully avoided the worst-case scenario of a forced business breakup amid big tech regulations",
-          "Expected to heavily influence the future regulatory landscape of digital advertising"
+          "Despite an antitrust monopoly ruling, U.S. courts did not order a structural breakup of Google's AdTech arm.",
+          "Remedies are expected to focus on behavioral commitments rather than forced asset sales.",
+          "Sets a significant precedent for Big Tech antitrust enforcement and digital advertising ecosystems."
         ]
       },
       "zh": {
-        "title": "谷歌虽被判广告技术垄断，但成功避免业务拆分",
-        "hook": "谷歌在反垄断诉讼中被裁定广告技术构成垄断，但避免了最严厉的强制拆分业务判决。",
+        "title": "谷歌虽被判广告技术垄断，但避免了拆分业务的命运",
+        "hook": "尽管在反垄断诉讼中被判定垄断广告技术，谷歌仍免于被强行拆分业务。",
         "key_takeaways": [
-          "谷歌在广告科技反垄断诉讼中被判构成垄断",
-          "在大厂监管风暴中侥幸避开了强制拆分核心业务的命令",
-          "预计将对未来数字广告市场的监管走向产生深远影响"
+          "虽然美国法院判定谷歌在广告技术领域构成垄断，但未采取强行拆分（Breakup）的处罚。",
+          "后续监管预计将侧重于行为约束与合规矫正措施。",
+          "这一判定将对全球科技巨头的反垄断监管及数字广告生态产生深远影响。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:16:31.085004+09:00"
+    }
   },
   "source_lang": "KO",
   "programming_lang": "General",
   "root_keywords": [
     "Google",
-    "반독점 소송",
-    "애드테크",
-    "사업 분할 회피"
+    "AdTech",
+    "Antitrust",
+    "Monopoly"
   ],
-  "title_en": "Google Avoids Business Breakup Despite Ad Tech Monopoly Ruling",
-  "title_zh": "谷歌虽被判广告技术垄断，但成功避免业务拆分",
+  "title_en": "Google Avoids Business Breakup Despite Antitrust Ruling on Ad Tech Monopoly",
+  "title_zh": "谷歌虽被判广告技术垄断，但避免了拆分业务的命运",
   "hook": "구글이 반독점 소송에서 광고 기술 독점 판결을 받았으나 최악의 시나리오인 사업 강제 분할은 면했습니다.",
-  "hook_ko": "구글이 반독점 소송에서 광고 기술 독점 판결을 받았으나 최악의 시나리오인 사업 강제 분할은 면했습니다.",
-  "hook_en": "Google has been found to have a monopoly in ad tech, but managed to dodge a forced corporate breakup.",
-  "hook_zh": "谷歌在反垄断诉讼中被裁定广告技术构成垄断，但避免了最严厉的强制拆分业务判决。",
+  "hook_ko": "구글이 반독점 소송에서 광고 기술 독점 판결을 받았음에도 강제 사업 분할 시정 조치는 면했습니다.",
+  "hook_en": "Google escapes structural divestiture orders despite being found guilty of monopolizing ad-tech markets.",
+  "hook_zh": "尽管在反垄断诉讼中被判定垄断广告技术，谷歌仍免于被强行拆分业务。",
   "description_en": "Google has been found to have a monopoly in ad tech, but managed to dodge a forced corporate breakup.",
   "description_zh": "谷歌在反垄断诉讼中被裁定广告技术构成垄断，但避免了最严厉的强制拆分业务判决。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Google, 광고 기술 독점 판결에도 사업 분할은 피하다",
+      "hook": "구글이 반독점 소송에서 광고 기술 독점 판결을 받았음에도 강제 사업 분할 시정 조치는 면했습니다.",
+      "key_takeaways": [
+        "미국 법원의 반독점 판결에도 불구하고 구글의 AdTech 부문 강제 분할(Breakup)은 배제되었습니다.",
+        "해결책으로 구조적 분할 대신 행동적 시정 조치(Behavioral remedies)가 논의되고 있습니다.",
+        "빅테크 규제 방향성과 글로벌 디지털 광고 생태계에 중요한 선례가 될 것으로 평가됩니다."
+      ]
+    },
+    "en": {
+      "title": "Google Avoids Business Breakup Despite Antitrust Ruling on Ad Tech Monopoly",
+      "hook": "Google escapes structural divestiture orders despite being found guilty of monopolizing ad-tech markets.",
+      "key_takeaways": [
+        "Despite an antitrust monopoly ruling, U.S. courts did not order a structural breakup of Google's AdTech arm.",
+        "Remedies are expected to focus on behavioral commitments rather than forced asset sales.",
+        "Sets a significant precedent for Big Tech antitrust enforcement and digital advertising ecosystems."
+      ]
+    },
+    "zh": {
+      "title": "谷歌虽被判广告技术垄断，但避免了拆分业务的命运",
+      "hook": "尽管在反垄断诉讼中被判定垄断广告技术，谷歌仍免于被强行拆分业务。",
+      "key_takeaways": [
+        "虽然美国法院判定谷歌在广告技术领域构成垄断，但未采取强行拆分（Breakup）的处罚。",
+        "后续监管预计将侧重于行为约束与合规矫正措施。",
+        "这一判定将对全球科技巨头的反垄断监管及数字广告生态产生深远影响。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.329411"
 }

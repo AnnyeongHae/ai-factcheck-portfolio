@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_dontplantoendugi_leaderboard",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Evaluation & Benchmarking",
+    "category": "AI Benchmarking",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "UGI Leaderboard",
+      "LLM Evaluation",
+      "Model Benchmarking",
+      "Hugging Face Spaces",
+      "AI Ranking"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.3,
+    "multilingual": {
+      "ko": {
+        "title": "UGI 리더보드 - AI 모델 성능 및 벤치마크 평가 허브",
+        "hook": "다양한 AI 및 LLM 모델의 성능 지표와 평가 결과를 한눈에 비교할 수 있는 대화형 리더보드",
+        "key_takeaways": [
+          "최신 오픈소스 및 상용 AI 모델의 성능 지표를 종합 비교하는 리더보드",
+          "Docker SDK 기반으로 구현된 대화형 시각화 및 인터랙티브 인터페이스",
+          "객관적인 벤치마크 데이터를 통해 최적의 모델 선택 가이드 제공"
+        ]
+      },
+      "en": {
+        "title": "UGI Leaderboard - AI Model Evaluation & Benchmarking Hub",
+        "hook": "An interactive leaderboard for comparing performance metrics and benchmark results across AI models.",
+        "key_takeaways": [
+          "Comprehensive leaderboard evaluating performance across various open and proprietary AI models",
+          "Interactive analytics interface powered by Docker SDK deployment",
+          "Provides objective benchmarking data to help select optimal models for specific tasks"
+        ]
+      },
+      "zh": {
+        "title": "UGI 排行榜 - AI 模型性能与基准测试评估中心",
+        "hook": "用于在一处交互式对比各类 AI 及 LLM 模型性能指标与基准测试结果的排行榜",
+        "key_takeaways": [
+          "全面评估并对比最新开源与商业 AI 模型性能的排行榜平台",
+          "基于 Docker SDK 构建的交互式可视化界面",
+          "提供客观的基准测试数据，助力针对特定任务的 AI 模型选型"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "UGI 리더보드 - AI 모델 성능 및 벤치마크 평가 허브",
+      "hook": "다양한 AI 및 LLM 모델의 성능 지표와 평가 결과를 한눈에 비교할 수 있는 대화형 리더보드",
+      "key_takeaways": [
+        "최신 오픈소스 및 상용 AI 모델의 성능 지표를 종합 비교하는 리더보드",
+        "Docker SDK 기반으로 구현된 대화형 시각화 및 인터랙티브 인터페이스",
+        "객관적인 벤치마크 데이터를 통해 최적의 모델 선택 가이드 제공"
+      ]
+    },
+    "en": {
+      "title": "UGI Leaderboard - AI Model Evaluation & Benchmarking Hub",
+      "hook": "An interactive leaderboard for comparing performance metrics and benchmark results across AI models.",
+      "key_takeaways": [
+        "Comprehensive leaderboard evaluating performance across various open and proprietary AI models",
+        "Interactive analytics interface powered by Docker SDK deployment",
+        "Provides objective benchmarking data to help select optimal models for specific tasks"
+      ]
+    },
+    "zh": {
+      "title": "UGI 排行榜 - AI 模型性能与基准测试评估中心",
+      "hook": "用于在一处交互式对比各类 AI 及 LLM 模型性能指标与基准测试结果的排行榜",
+      "key_takeaways": [
+        "全面评估并对比最新开源与商业 AI 模型性能的排行榜平台",
+        "基于 Docker SDK 构建的交互式可视化界面",
+        "提供客观的基准测试数据，助力针对特定任务的 AI 模型选型"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "UGI Leaderboard",
+    "LLM Evaluation",
+    "Model Benchmarking",
+    "Hugging Face Spaces",
+    "AI Ranking"
+  ],
+  "title_ko": "UGI 리더보드 - AI 모델 성능 및 벤치마크 평가 허브",
+  "hook_ko": "다양한 AI 및 LLM 모델의 성능 지표와 평가 결과를 한눈에 비교할 수 있는 대화형 리더보드",
+  "title_en": "UGI Leaderboard - AI Model Evaluation & Benchmarking Hub",
+  "hook_en": "An interactive leaderboard for comparing performance metrics and benchmark results across AI models.",
+  "title_zh": "UGI 排行榜 - AI 模型性能与基准测试评估中心",
+  "hook_zh": "用于在一处交互式对比各类 AI 及 LLM 模型性能指标与基准测试结果的排行榜",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.244140"
 }

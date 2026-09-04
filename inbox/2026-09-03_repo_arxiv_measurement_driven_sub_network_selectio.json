@@ -35,65 +35,98 @@
     "id": "2026-09-03_repo_arxiv_measurement_driven_sub_network_selectio",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "엣지 AI 및 모델 압축",
-    "programming_lang": "C++",
+    "model_family": "Model Compression & Adaptation",
+    "category": "Edge AI & Industrial Automation",
+    "programming_lang": "Python",
     "root_keywords": [
       "Sub-Network Selection",
-      "RAG",
-      "Edge AI"
+      "Retrieval-Augmented Generation",
+      "Model Compression",
+      "On-Premise AI",
+      "Edge Deployment"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "온프레미스 공장 에이전트를 위한 측정 기반 서브 네트워크 선택",
-        "hook": "하드웨어 제약이 심한 현장 환경에서 대형 RAG 모델을 구동하기 위한 구조적 압축 및 서브 네트워크 최적화 기법입니다.",
+        "title": "온프레미스 RAG 기반 공장 에이전트를 위한 측정 기반 서브네트워크 선택 기법",
+        "hook": "제조 현장의 제한된 하드웨어 환경에서도 고성능 RAG 모델을 구동할 수 있도록 돕는 구조적 압축 기법",
         "key_takeaways": [
-          "공장 현장(Shop-floor) 하드웨어 제약 극복 방안 제시",
-          "측정 기반의 효율적인 서브 네트워크 선택 알고리즘",
-          "기계 문서 접근을 위한 온프레미스 대화형 에이전트 최적화"
+          "현장 하드웨어 제약을 극복하기 위해 측정 데이터 기반으로 서브네트워크를 효율적으로 선택 및 압축",
+          "공장 기계 설명서 검색 및 대화형 질의응답 처리 성능을 최적화하여 온프레미스 배포 가속화",
+          "모델 크기 축소와 도메인 특화 검색 성능 유지 사이의 최적의 균형점 제공"
         ]
       },
       "en": {
-        "title": "Measurement-Driven Sub-Network Selection for On-Premise Factory Agents",
-        "hook": "Overcome hardware constraints on the shop-floor by leveraging structural compression and measurement-driven sub-network selection for factory RAG agents.",
+        "title": "Measurement-Driven Sub-Network Selection for On-Premise Retrieval-Augmented Factory Agents",
+        "hook": "Structural compression method enabling high-performance RAG deployment on resource-constrained shop-floor hardware.",
         "key_takeaways": [
-          "Addressing hardware limitations for on-premise industrial assistants",
-          "Measurement-driven approach to optimal sub-network selection",
-          "Enabling conversational machine documentation access on edge devices"
+          "Efficient sub-network selection driven by empirical measurements to bypass edge hardware constraints.",
+          "Optimized for conversational access to industrial machinery documentation in privacy-sensitive on-premise environments.",
+          "Balances model size reduction with high retrieval accuracy for specialized domain tasks."
         ]
       },
       "zh": {
-        "title": "面向本地工厂智能体的测量驱动子网络选择方法",
-        "hook": "在严苛的边缘硬件上实现工厂RAG助手的创新方案，通过结构化压缩解决大模型落地难题。",
+        "title": "面向本地检索增强型工厂智能体的测量驱动子网络选择",
+        "hook": "通过结构化剪枝与子网络选择，在受限的车间硬件上实现高效的本地化 RAG 智能体部署。",
         "key_takeaways": [
-          "突破工厂车间硬件资源有限的瓶颈",
-          "基于测量指标的高效子网络选择算法",
-          "实现机械文档的本地化智能对话交互"
+          "利用实际测量数据指导子网络选择，克服车间硬件资源的局限性",
+          "针对工厂设备文档的对话式检索进行专门优化，加速本地私有化部署",
+          "在显著降低模型参数量的同时，保持高精度的特定领域检索与问答能力"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:15:15.838018+00:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "C++",
+  "programming_lang": "Python",
   "root_keywords": [
     "Sub-Network Selection",
-    "RAG",
-    "Edge AI"
+    "Retrieval-Augmented Generation",
+    "Model Compression",
+    "On-Premise AI",
+    "Edge Deployment"
   ],
-  "title_ko": "온프레미스 공장 에이전트를 위한 측정 기반 서브 네트워크 선택",
-  "title_en": "Measurement-Driven Sub-Network Selection for On-Premise Factory Agents",
-  "title_zh": "面向本地工厂智能体的测量驱动子网络选择方法",
+  "title_ko": "온프레미스 RAG 기반 공장 에이전트를 위한 측정 기반 서브네트워크 선택 기법",
+  "title_en": "Measurement-Driven Sub-Network Selection for On-Premise Retrieval-Augmented Factory Agents",
+  "title_zh": "面向本地检索增强型工厂智能体的测量驱动子网络选择",
   "hook": "하드웨어 제약이 심한 현장 환경에서 대형 RAG 모델을 구동하기 위한 구조적 압축 및 서브 네트워크 최적화 기법입니다.",
-  "hook_ko": "하드웨어 제약이 심한 현장 환경에서 대형 RAG 모델을 구동하기 위한 구조적 압축 및 서브 네트워크 최적화 기법입니다.",
-  "hook_en": "Overcome hardware constraints on the shop-floor by leveraging structural compression and measurement-driven sub-network selection for factory RAG agents.",
-  "hook_zh": "在严苛的边缘硬件上实现工厂RAG助手的创新方案，通过结构化压缩解决大模型落地难题。",
+  "hook_ko": "제조 현장의 제한된 하드웨어 환경에서도 고성능 RAG 모델을 구동할 수 있도록 돕는 구조적 압축 기법",
+  "hook_en": "Structural compression method enabling high-performance RAG deployment on resource-constrained shop-floor hardware.",
+  "hook_zh": "通过结构化剪枝与子网络选择，在受限的车间硬件上实现高效的本地化 RAG 智能体部署。",
   "description_ko": "하드웨어 제약이 심한 현장 환경에서 대형 RAG 모델을 구동하기 위한 구조적 압축 및 서브 네트워크 최적화 기법입니다.",
   "description_en": "Overcome hardware constraints on the shop-floor by leveraging structural compression and measurement-driven sub-network selection for factory RAG agents.",
   "description_zh": "在严苛的边缘硬件上实现工厂RAG助手的创新方案，通过结构化压缩解决大模型落地难题。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "온프레미스 RAG 기반 공장 에이전트를 위한 측정 기반 서브네트워크 선택 기법",
+      "hook": "제조 현장의 제한된 하드웨어 환경에서도 고성능 RAG 모델을 구동할 수 있도록 돕는 구조적 압축 기법",
+      "key_takeaways": [
+        "현장 하드웨어 제약을 극복하기 위해 측정 데이터 기반으로 서브네트워크를 효율적으로 선택 및 압축",
+        "공장 기계 설명서 검색 및 대화형 질의응답 처리 성능을 최적화하여 온프레미스 배포 가속화",
+        "모델 크기 축소와 도메인 특화 검색 성능 유지 사이의 최적의 균형점 제공"
+      ]
+    },
+    "en": {
+      "title": "Measurement-Driven Sub-Network Selection for On-Premise Retrieval-Augmented Factory Agents",
+      "hook": "Structural compression method enabling high-performance RAG deployment on resource-constrained shop-floor hardware.",
+      "key_takeaways": [
+        "Efficient sub-network selection driven by empirical measurements to bypass edge hardware constraints.",
+        "Optimized for conversational access to industrial machinery documentation in privacy-sensitive on-premise environments.",
+        "Balances model size reduction with high retrieval accuracy for specialized domain tasks."
+      ]
+    },
+    "zh": {
+      "title": "面向本地检索增强型工厂智能体的测量驱动子网络选择",
+      "hook": "通过结构化剪枝与子网络选择，在受限的车间硬件上实现高效的本地化 RAG 智能体部署。",
+      "key_takeaways": [
+        "利用实际测量数据指导子网络选择，克服车间硬件资源的局限性",
+        "针对工厂设备文档的对话式检索进行专门优化，加速本地私有化部署",
+        "在显著降低模型参数量的同时，保持高精度的特定领域检索与问答能力"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.193944"
 }

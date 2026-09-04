@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_facebookmusicgen",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "MusicGen",
+    "category": "Audio AI / Generative AI",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "MusicGen",
+      "Text-to-Music",
+      "Audio Generation",
+      "Gradio",
+      "Meta AI"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "허깅페이스 스페이스: facebook/MusicGen (텍스트 기반 음악 생성 모델 데모)",
+        "hook": "Meta의 MusicGen 모델을 활용하여 텍스트 프롬프트만으로 고품질 음악을 생성하는 대화형 Gradio 데모",
+        "key_takeaways": [
+          "Meta AI가 개발한 단일 단계 자가회귀(Autoregressive) 텍스트-투-뮤직 생성 모델",
+          "Gradio SDK 기반 인터페이스로 텍스트 프롬프트 입력 및 멜로디 오디오 조건 지정 지원",
+          "5,000개 이상의 좋아요를 받은 인기 스페이스로 최신 오디오 생성 기술 실시간 체험 가능"
+        ]
+      },
+      "en": {
+        "title": "HF Space: facebook/MusicGen (Interactive Text-to-Music Demo)",
+        "hook": "An interactive Gradio demo leveraging Meta's MusicGen to generate high-quality audio directly from text prompts.",
+        "key_takeaways": [
+          "Single-stage autoregressive Transformer model for text-to-music generation by Meta AI",
+          "Gradio-based web UI supporting text prompts and optional audio melody conditioning",
+          "Highly popular Hugging Face Space with over 5,000 likes showcasing state-of-the-art audio synthesis"
+        ]
+      },
+      "zh": {
+        "title": "Hugging Face Space: facebook/MusicGen (文本生成音乐交互式 Demo)",
+        "hook": "基于 Meta 的 MusicGen 模型，通过文本提示词直接生成高质量音乐的 Gradio 交互式 Demo",
+        "key_takeaways": [
+          "Meta AI 开发的单阶段自回归文本到音乐生成模型",
+          "基于 Gradio SDK 构建，支持文本提示词与可选的音频旋律条件引导",
+          "获得超过 5000 个 Likes 的热门 Space，直观展示 SOTA 级别的音频合成能力"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "허깅페이스 스페이스: facebook/MusicGen (텍스트 기반 음악 생성 모델 데모)",
+      "hook": "Meta의 MusicGen 모델을 활용하여 텍스트 프롬프트만으로 고품질 음악을 생성하는 대화형 Gradio 데모",
+      "key_takeaways": [
+        "Meta AI가 개발한 단일 단계 자가회귀(Autoregressive) 텍스트-투-뮤직 생성 모델",
+        "Gradio SDK 기반 인터페이스로 텍스트 프롬프트 입력 및 멜로디 오디오 조건 지정 지원",
+        "5,000개 이상의 좋아요를 받은 인기 스페이스로 최신 오디오 생성 기술 실시간 체험 가능"
+      ]
+    },
+    "en": {
+      "title": "HF Space: facebook/MusicGen (Interactive Text-to-Music Demo)",
+      "hook": "An interactive Gradio demo leveraging Meta's MusicGen to generate high-quality audio directly from text prompts.",
+      "key_takeaways": [
+        "Single-stage autoregressive Transformer model for text-to-music generation by Meta AI",
+        "Gradio-based web UI supporting text prompts and optional audio melody conditioning",
+        "Highly popular Hugging Face Space with over 5,000 likes showcasing state-of-the-art audio synthesis"
+      ]
+    },
+    "zh": {
+      "title": "Hugging Face Space: facebook/MusicGen (文本生成音乐交互式 Demo)",
+      "hook": "基于 Meta 的 MusicGen 模型，通过文本提示词直接生成高质量音乐的 Gradio 交互式 Demo",
+      "key_takeaways": [
+        "Meta AI 开发的单阶段自回归文本到音乐生成模型",
+        "基于 Gradio SDK 构建，支持文本提示词与可选的音频旋律条件引导",
+        "获得超过 5000 个 Likes 的热门 Space，直观展示 SOTA 级别的音频合成能力"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "MusicGen",
+    "Text-to-Music",
+    "Audio Generation",
+    "Gradio",
+    "Meta AI"
+  ],
+  "title_ko": "허깅페이스 스페이스: facebook/MusicGen (텍스트 기반 음악 생성 모델 데모)",
+  "hook_ko": "Meta의 MusicGen 모델을 활용하여 텍스트 프롬프트만으로 고품질 음악을 생성하는 대화형 Gradio 데모",
+  "title_en": "HF Space: facebook/MusicGen (Interactive Text-to-Music Demo)",
+  "hook_en": "An interactive Gradio demo leveraging Meta's MusicGen to generate high-quality audio directly from text prompts.",
+  "title_zh": "Hugging Face Space: facebook/MusicGen (文本生成音乐交互式 Demo)",
+  "hook_zh": "基于 Meta 的 MusicGen 模型，通过文本提示词直接生成高质量音乐的 Gradio 交互式 Demo",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.248847"
 }

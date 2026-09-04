@@ -34,65 +34,98 @@
     "id": "2026-09-03_repo_arxiv_large_language_models_llms_for_telecom_",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 구조화된 추론 및 진단",
+    "model_family": "LLM Applications",
+    "category": "AIOps & Telecommunications",
     "programming_lang": "Python",
     "root_keywords": [
       "Telecom RCA",
+      "Large Language Models",
       "Structured Reasoning",
-      "5G/6G"
+      "Evidence-Grounded Diagnosis",
+      "5G/6G Networks"
     ],
     "recommended_tag": "📝 기술 참고",
     "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "통신 근본 원인 분석(RCA)을 위한 LLM: 증거 기반 진단 프레임워크",
-        "hook": "복잡한 5G 및 차세대 6G 네트워크의 성능 저하를 정확하게 진단하기 위한 구조화된 추론 프레임워크를 확인하세요.",
+        "title": "통신망 근본 원인 분석(RCA)을 위한 거대언어모델(LLM): 근거 기반 진단을 위한 구조화된 추론 프레임워크",
+        "hook": "복잡한 5G/6G 교차 레이어 네트워크 장애를 근거 기반 추론 프레임워크로 정밀 진단하는 LLM 활용법",
         "key_takeaways": [
-          "복잡한 크로스 레이어 텔레콤 환경에서의 근본 원인 분석(RCA)",
-          "증거 기반(Evidence-Grounded) 진단을 위한 LLM 활용법",
-          "차세대 5G 및 6G 네트워크 운영 효율화 방안"
+          "5G/6G 통신 네트워크의 복잡한 교차 레이어(Cross-layer) 성능 저하 문제를 진단하는 구조화된 추론 프레임워크 제안",
+          "단순 텍스트 생성을 넘어 증거 기반(Evidence-Grounded) 검증을 통해 환각을 줄이고 정밀한 근본 원인 분석(RCA) 수행",
+          "네트워크 운용 자동화(AIOps) 및 장애 복구 신뢰성 향상을 위한 LLM 응용 방법론 제시"
         ]
       },
       "en": {
-        "title": "Large Language Models for Telecom Root Cause Analysis (RCA)",
-        "hook": "Tackle performance degradations in complex 5G and 6G networks using a structured, evidence-grounded LLM diagnostic framework.",
+        "title": "Large Language Models (LLMs) for Telecom Root Cause Analysis (RCA): A Structured Reasoning Framework for Evidence-Grounded Diagnosis",
+        "hook": "Enhancing 5G/6G network fault diagnosis with a structured, evidence-grounded LLM reasoning framework.",
         "key_takeaways": [
-          "Root cause analysis for modern cross-layer telecom operations",
-          "Evidence-grounded reasoning framework for precise diagnosis",
-          "Enhancing operational reliability in 5G and emerging 6G systems"
+          "Proposes a structured reasoning framework for diagnosing complex cross-layer network degradations in 5G/6G.",
+          "Mitigates hallucinations by ensuring diagnoses are grounded in verifiable network telemetry evidence.",
+          "Advances AIOps in telecommunications by enabling automated, explainable root cause analysis."
         ]
       },
       "zh": {
-        "title": "面向电信根因分析(RCA)的大语言模型：基于证据的结构化推理框架",
-        "hook": "利用结构化大模型推理框架，精准诊断现代5G及新兴6G网络中的复杂跨层性能衰退问题。",
+        "title": "用于电信根本原因分析 (RCA) 的大语言模型：基于证据的结构化推理诊断框架",
+        "hook": "利用基于证据的结构化大模型推理框架，精准诊断 5G/6G 跨层网络故障",
         "key_takeaways": [
-          "解决现代跨层电信网络运营中的根因分析难题",
-          "构建基于证据支撑的AI诊断推理框架",
-          "提升5G与6G蜂窝网络运维的智能化水平"
+          "提出了一种结构化推理框架，用于诊断 5G/6G 网络中复杂的跨层性能下降问题",
+          "通过确保诊断建立在可验证的网络遥测证据之上，有效减少幻觉",
+          "推动电信领域 AIOps 发展，实现自动化且具备可解释性的根本原因分析"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:15:15.838315+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Telecom RCA",
+    "Large Language Models",
     "Structured Reasoning",
-    "5G/6G"
+    "Evidence-Grounded Diagnosis",
+    "5G/6G Networks"
   ],
-  "title_ko": "통신 근본 원인 분석(RCA)을 위한 LLM: 증거 기반 진단 프레임워크",
-  "title_en": "Large Language Models for Telecom Root Cause Analysis (RCA)",
-  "title_zh": "面向电信根因分析(RCA)的大语言模型：基于证据的结构化推理框架",
+  "title_ko": "통신망 근본 원인 분석(RCA)을 위한 거대언어모델(LLM): 근거 기반 진단을 위한 구조화된 추론 프레임워크",
+  "title_en": "Large Language Models (LLMs) for Telecom Root Cause Analysis (RCA): A Structured Reasoning Framework for Evidence-Grounded Diagnosis",
+  "title_zh": "用于电信根本原因分析 (RCA) 的大语言模型：基于证据的结构化推理诊断框架",
   "hook": "복잡한 5G 및 차세대 6G 네트워크의 성능 저하를 정확하게 진단하기 위한 구조화된 추론 프레임워크를 확인하세요.",
-  "hook_ko": "복잡한 5G 및 차세대 6G 네트워크의 성능 저하를 정확하게 진단하기 위한 구조화된 추론 프레임워크를 확인하세요.",
-  "hook_en": "Tackle performance degradations in complex 5G and 6G networks using a structured, evidence-grounded LLM diagnostic framework.",
-  "hook_zh": "利用结构化大模型推理框架，精准诊断现代5G及新兴6G网络中的复杂跨层性能衰退问题。",
+  "hook_ko": "복잡한 5G/6G 교차 레이어 네트워크 장애를 근거 기반 추론 프레임워크로 정밀 진단하는 LLM 활용법",
+  "hook_en": "Enhancing 5G/6G network fault diagnosis with a structured, evidence-grounded LLM reasoning framework.",
+  "hook_zh": "利用基于证据的结构化大模型推理框架，精准诊断 5G/6G 跨层网络故障",
   "description_ko": "복잡한 5G 및 차세대 6G 네트워크의 성능 저하를 정확하게 진단하기 위한 구조화된 추론 프레임워크를 확인하세요.",
   "description_en": "Tackle performance degradations in complex 5G and 6G networks using a structured, evidence-grounded LLM diagnostic framework.",
   "description_zh": "利用结构化大模型推理框架，精准诊断现代5G及新兴6G网络中的复杂跨层性能衰退问题。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "통신망 근본 원인 분석(RCA)을 위한 거대언어모델(LLM): 근거 기반 진단을 위한 구조화된 추론 프레임워크",
+      "hook": "복잡한 5G/6G 교차 레이어 네트워크 장애를 근거 기반 추론 프레임워크로 정밀 진단하는 LLM 활용법",
+      "key_takeaways": [
+        "5G/6G 통신 네트워크의 복잡한 교차 레이어(Cross-layer) 성능 저하 문제를 진단하는 구조화된 추론 프레임워크 제안",
+        "단순 텍스트 생성을 넘어 증거 기반(Evidence-Grounded) 검증을 통해 환각을 줄이고 정밀한 근본 원인 분석(RCA) 수행",
+        "네트워크 운용 자동화(AIOps) 및 장애 복구 신뢰성 향상을 위한 LLM 응용 방법론 제시"
+      ]
+    },
+    "en": {
+      "title": "Large Language Models (LLMs) for Telecom Root Cause Analysis (RCA): A Structured Reasoning Framework for Evidence-Grounded Diagnosis",
+      "hook": "Enhancing 5G/6G network fault diagnosis with a structured, evidence-grounded LLM reasoning framework.",
+      "key_takeaways": [
+        "Proposes a structured reasoning framework for diagnosing complex cross-layer network degradations in 5G/6G.",
+        "Mitigates hallucinations by ensuring diagnoses are grounded in verifiable network telemetry evidence.",
+        "Advances AIOps in telecommunications by enabling automated, explainable root cause analysis."
+      ]
+    },
+    "zh": {
+      "title": "用于电信根本原因分析 (RCA) 的大语言模型：基于证据的结构化推理诊断框架",
+      "hook": "利用基于证据的结构化大模型推理框架，精准诊断 5G/6G 跨层网络故障",
+      "key_takeaways": [
+        "提出了一种结构化推理框架，用于诊断 5G/6G 网络中复杂的跨层性能下降问题",
+        "通过确保诊断建立在可验证的网络遥测证据之上，有效减少幻觉",
+        "推动电信领域 AIOps 发展，实现自动化且具备可解释性的根本原因分析"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.188033"
 }

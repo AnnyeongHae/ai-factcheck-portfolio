@@ -35,63 +35,65 @@
     "id": "2026-09-02_sns_hugging_face_blog_training_and_finetuning_mul",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Sentence Transformers",
-    "category": "임베딩 및 벡터 검색",
+    "model_family": "Sentence Transformers / ColBERT",
+    "category": "Information Retrieval / NLP",
     "programming_lang": "Python",
     "root_keywords": [
-      "Multi-Vector Embedding",
+      "Multi-Vector Embeddings",
       "Sentence Transformers",
-      "Fine-Tuning"
+      "ColBERT",
+      "Finetuning",
+      "Information Retrieval"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.6,
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "Sentence Transformers로 멀티 벡터 임베딩 모델 학습 및 파인튜닝하기",
-        "hook": "검색 정확도를 혁신적으로 높이는 멀티 벡터 임베딩 모델의 학습 및 미세 조정 가이드를 확인하세요.",
+        "title": "Sentence Transformers를 활용한 다중 벡터(Multi-Vector) 임베딩 모델 학습 및 파인튜닝",
+        "hook": "단일 벡터의 한계를 넘어 높은 검색 정밀도를 제공하는 ColBERT 스타일 다중 벡터 임베딩 학습 완전 가이드",
         "key_takeaways": [
-          "Sentence Transformers를 이용한 멀티 벡터 모델 구축",
-          "도메인 특화 데이터로 임베딩 성능을 끌어올리는 파인튜닝 기법",
-          "고급 검색 및 RAG 시스템 성능 최적화 방법"
+          "Sentence Transformers에서 공식 지원하는 다중 벡터(ColBERT 스타일) 임베딩 모델 학습 파이프라인",
+          "토큰 레벨 상호작용(Late Interaction)을 기반으로 단일 고정 벡터 대비 대폭 향상된 검색 성능",
+          "커스텀 데이터셋 구축부터 손실 함수 선택, 실전 미세조정(Fine-tuning) 및 평가까지 종합 가이드 제공"
         ]
       },
       "en": {
         "title": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
-        "hook": "Master the training and fine-tuning of multi-vector embedding models to revolutionize search performance.",
+        "hook": "Master token-level multi-vector embedding training (ColBERT-style) for state-of-the-art information retrieval using Sentence Transformers.",
         "key_takeaways": [
-          "Building multi-vector models using Sentence Transformers",
-          "Fine-tuning techniques to boost embedding performance with domain data",
-          "Optimizing advanced search and RAG system performance"
+          "Native support for training and fine-tuning multi-vector (ColBERT-style) models directly within Sentence Transformers.",
+          "Leveraging late-interaction mechanisms to capture fine-grained token-level semantics that traditional single-vector models miss.",
+          "Step-by-step practical guide covering dataset formatting, loss functions, fine-tuning workflows, and model evaluation."
         ]
       },
       "zh": {
-        "title": "使用 Sentence Transformers 训练和微调多向量嵌入模型",
-        "hook": "掌握多向量嵌入模型的训练与微调方法，全面提升检索与 RAG 系统的性能。",
+        "title": "使用 Sentence Transformers 训练与微调多向量 (Multi-Vector) 嵌入模型",
+        "hook": "深入掌握基于 Late Interaction 机制的多向量 (ColBERT 风格) 嵌入模型训练与微调实战指南",
         "key_takeaways": [
-          "使用 Sentence Transformers 构建多向量模型",
-          "利用领域数据微调嵌入模型以提升性能的技巧",
-          "优化高级搜索和 RAG 系统的性能方法"
+          "Sentence Transformers 原生支持 ColBERT 风格的多向量嵌入模型训练与微调",
+          "解析 Late Interaction 机制，捕捉词元（Token）级别的细粒度语义以提升检索精度",
+          "涵盖自定义数据集准备、损失函数配置、模型微调与评估的全套工程实践"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:47:41.729378+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Multi-Vector Embedding",
+    "Multi-Vector Embeddings",
     "Sentence Transformers",
-    "Fine-Tuning"
+    "ColBERT",
+    "Finetuning",
+    "Information Retrieval"
   ],
   "hook": "검색 정확도를 혁신적으로 높이는 멀티 벡터 임베딩 모델의 학습 및 미세 조정 가이드를 확인하세요.",
-  "title_ko": "Sentence Transformers로 멀티 벡터 임베딩 모델 학습 및 파인튜닝하기",
+  "title_ko": "Sentence Transformers를 활용한 다중 벡터(Multi-Vector) 임베딩 모델 학습 및 파인튜닝",
   "description_ko": "검색 정확도를 혁신적으로 높이는 멀티 벡터 임베딩 모델의 학습 및 미세 조정 가이드를 확인하세요.",
   "title_en": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
-  "title_zh": "使用 Sentence Transformers 训练和微调多向量嵌入模型",
-  "hook_ko": "검색 정확도를 혁신적으로 높이는 멀티 벡터 임베딩 모델의 학습 및 미세 조정 가이드를 확인하세요.",
-  "hook_en": "Master the training and fine-tuning of multi-vector embedding models to revolutionize search performance.",
-  "hook_zh": "掌握多向量嵌入模型的训练与微调方法，全面提升检索与 RAG 系统的性能。",
+  "title_zh": "使用 Sentence Transformers 训练与微调多向量 (Multi-Vector) 嵌入模型",
+  "hook_ko": "단일 벡터의 한계를 넘어 높은 검색 정밀도를 제공하는 ColBERT 스타일 다중 벡터 임베딩 학습 완전 가이드",
+  "hook_en": "Master token-level multi-vector embedding training (ColBERT-style) for state-of-the-art information retrieval using Sentence Transformers.",
+  "hook_zh": "深入掌握基于 Late Interaction 机制的多向量 (ColBERT 风格) 嵌入模型训练与微调实战指南",
   "description_en": "Master the training and fine-tuning of multi-vector embedding models to revolutionize search performance.",
   "description_zh": "掌握多向量嵌入模型的训练与微调方法，全面提升检索与 RAG 系统的性能。",
   "related_dossier": {
@@ -100,5 +102,36 @@
     "verdict": "VERIFIED_TRUE"
   },
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Sentence Transformers를 활용한 다중 벡터(Multi-Vector) 임베딩 모델 학습 및 파인튜닝",
+      "hook": "단일 벡터의 한계를 넘어 높은 검색 정밀도를 제공하는 ColBERT 스타일 다중 벡터 임베딩 학습 완전 가이드",
+      "key_takeaways": [
+        "Sentence Transformers에서 공식 지원하는 다중 벡터(ColBERT 스타일) 임베딩 모델 학습 파이프라인",
+        "토큰 레벨 상호작용(Late Interaction)을 기반으로 단일 고정 벡터 대비 대폭 향상된 검색 성능",
+        "커스텀 데이터셋 구축부터 손실 함수 선택, 실전 미세조정(Fine-tuning) 및 평가까지 종합 가이드 제공"
+      ]
+    },
+    "en": {
+      "title": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
+      "hook": "Master token-level multi-vector embedding training (ColBERT-style) for state-of-the-art information retrieval using Sentence Transformers.",
+      "key_takeaways": [
+        "Native support for training and fine-tuning multi-vector (ColBERT-style) models directly within Sentence Transformers.",
+        "Leveraging late-interaction mechanisms to capture fine-grained token-level semantics that traditional single-vector models miss.",
+        "Step-by-step practical guide covering dataset formatting, loss functions, fine-tuning workflows, and model evaluation."
+      ]
+    },
+    "zh": {
+      "title": "使用 Sentence Transformers 训练与微调多向量 (Multi-Vector) 嵌入模型",
+      "hook": "深入掌握基于 Late Interaction 机制的多向量 (ColBERT 风格) 嵌入模型训练与微调实战指南",
+      "key_takeaways": [
+        "Sentence Transformers 原生支持 ColBERT 风格的多向量嵌入模型训练与微调",
+        "解析 Late Interaction 机制，捕捉词元（Token）级别的细粒度语义以提升检索精度",
+        "涵盖自定义数据集准备、损失函数配置、模型微调与评估的全套工程实践"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.144983"
 }

@@ -34,65 +34,98 @@
     "id": "2026-09-03_repo_arxiv_frb100_40_after_two_decades_an_optimali",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "알고리즘 및 벤치마크 최적화",
-    "programming_lang": "Python",
+    "model_family": "Combinatorial Optimization / Graph Theory",
+    "category": "Algorithms",
+    "programming_lang": "General",
     "root_keywords": [
       "Model-RB Benchmark",
-      "Optimality Certificate",
-      "Preregistered Search"
+      "frb100-40",
+      "Maximum Independent Set",
+      "Combinatorial Optimization",
+      "Optimality Certificate"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.5,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "20년 만의 해결: Model-RB 벤치마크 frb100-40의 최적성 증명과 사전 등록 검색 연구",
-        "hook": "20년간 미해결 상태였던 악명 높은 벤치마크 과제의 최적성 증명과 해결 과정을 만나보세요.",
+        "title": "20년 만에 해결된 frb100-40: 최적성 증명서와 사전 등록 탐색 연구",
+        "hook": "20년간 난제로 남아있던 Model-RB 벤치마크 frb100-40의 100-정점 독립 집합 최적성 증명 완료",
         "key_takeaways": [
-          "20년 이상 미해결 상태였던 Model-RB 벤치마크(frb100-40) 최초 정복",
-          "검증 가능한 100-vertex 독립 집합 해법 제시",
-          "복잡한 조합 최적화 문제 해결을 위한 새로운 탐색 연구 방법론"
+          "2000년대 초반부터 미해결 과제였던 Model-RB frb100-40 난제를 20여 년 만에 완결",
+          "직접 검증 가능한 100-정점 독립 집합(100-vertex independent set) 최적성 증명 제시",
+          "사전 등록 탐색 기법을 통한 조합 최적화 및 NP-난해 문제 해결의 새로운 접근법 제시"
         ]
       },
       "en": {
         "title": "frb100-40 After Two Decades: An Optimality Certificate and a Preregistered Search Study",
-        "hook": "Discover how a notorious 20-year-old benchmark challenge was finally solved with a directly checkable optimality certificate.",
+        "hook": "Solving a 20-year-old open challenge in Model-RB benchmarks with a checkable 100-vertex independent set optimality certificate.",
         "key_takeaways": [
-          "Solves the longstanding Model-RB benchmark frb100-40 open for over 20 years",
-          "Provides a directly checkable 100-vertex independent set solution",
-          "Advances combinatorial optimization search methodologies through rigorous preregistered studies"
+          "Completely solves the long-standing frb100-40 Model-RB benchmark open for over two decades.",
+          "Provides a directly checkable optimality certificate for a 100-vertex independent set.",
+          "Demonstrates a novel preregistered search methodology applied to hard combinatorial optimization problems."
         ]
       },
       "zh": {
-        "title": "二十年后的突破：frb100-40的最优性证明与预注册搜索研究",
-        "hook": "见证长达20年未解的Model-RB基准测试难题如何被带有最优性证明的新方法攻克。",
+        "title": "历经二十载的 frb100-40：最优性证明与预注册搜索研究",
+        "hook": "攻克悬而未决 20 年的 Model-RB 基准难题，提供可验证的 100 顶点独立集最优性证明。",
         "key_takeaways": [
-          "成功攻克困扰学界20年之久的Model-RB基准测试（frb100-40）",
-          "提供可直接验证的100顶点独立集最优解",
-          "为组合优化与复杂搜索问题提供严谨的方法论参考"
+          "彻底解决困扰学术界 20 余年的 Model-RB 基准测试难题 frb100-40",
+          "给出了可直接验证的 100 顶点独立集（100-vertex independent set）最优性证书",
+          "展示了预注册搜索研究在解决复杂组合优化与约束满足问题上的突破"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:25:36.374734+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
     "Model-RB Benchmark",
-    "Optimality Certificate",
-    "Preregistered Search"
+    "frb100-40",
+    "Maximum Independent Set",
+    "Combinatorial Optimization",
+    "Optimality Certificate"
   ],
-  "title_ko": "20년 만의 해결: Model-RB 벤치마크 frb100-40의 최적성 증명과 사전 등록 검색 연구",
+  "title_ko": "20년 만에 해결된 frb100-40: 최적성 증명서와 사전 등록 탐색 연구",
   "title_en": "frb100-40 After Two Decades: An Optimality Certificate and a Preregistered Search Study",
-  "title_zh": "二十年后的突破：frb100-40的最优性证明与预注册搜索研究",
+  "title_zh": "历经二十载的 frb100-40：最优性证明与预注册搜索研究",
   "hook": "20년간 미해결 상태였던 악명 높은 벤치마크 과제의 최적성 증명과 해결 과정을 만나보세요.",
-  "hook_ko": "20년간 미해결 상태였던 악명 높은 벤치마크 과제의 최적성 증명과 해결 과정을 만나보세요.",
-  "hook_en": "Discover how a notorious 20-year-old benchmark challenge was finally solved with a directly checkable optimality certificate.",
-  "hook_zh": "见证长达20年未解的Model-RB基准测试难题如何被带有最优性证明的新方法攻克。",
+  "hook_ko": "20년간 난제로 남아있던 Model-RB 벤치마크 frb100-40의 100-정점 독립 집합 최적성 증명 완료",
+  "hook_en": "Solving a 20-year-old open challenge in Model-RB benchmarks with a checkable 100-vertex independent set optimality certificate.",
+  "hook_zh": "攻克悬而未决 20 年的 Model-RB 基准难题，提供可验证的 100 顶点独立集最优性证明。",
   "description_ko": "20년간 미해결 상태였던 악명 높은 벤치마크 과제의 최적성 증명과 해결 과정을 만나보세요.",
   "description_en": "Discover how a notorious 20-year-old benchmark challenge was finally solved with a directly checkable optimality certificate.",
   "description_zh": "见证长达20年未解的Model-RB基准测试难题如何被带有最优性证明的新方法攻克。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "20년 만에 해결된 frb100-40: 최적성 증명서와 사전 등록 탐색 연구",
+      "hook": "20년간 난제로 남아있던 Model-RB 벤치마크 frb100-40의 100-정점 독립 집합 최적성 증명 완료",
+      "key_takeaways": [
+        "2000년대 초반부터 미해결 과제였던 Model-RB frb100-40 난제를 20여 년 만에 완결",
+        "직접 검증 가능한 100-정점 독립 집합(100-vertex independent set) 최적성 증명 제시",
+        "사전 등록 탐색 기법을 통한 조합 최적화 및 NP-난해 문제 해결의 새로운 접근법 제시"
+      ]
+    },
+    "en": {
+      "title": "frb100-40 After Two Decades: An Optimality Certificate and a Preregistered Search Study",
+      "hook": "Solving a 20-year-old open challenge in Model-RB benchmarks with a checkable 100-vertex independent set optimality certificate.",
+      "key_takeaways": [
+        "Completely solves the long-standing frb100-40 Model-RB benchmark open for over two decades.",
+        "Provides a directly checkable optimality certificate for a 100-vertex independent set.",
+        "Demonstrates a novel preregistered search methodology applied to hard combinatorial optimization problems."
+      ]
+    },
+    "zh": {
+      "title": "历经二十载的 frb100-40：最优性证明与预注册搜索研究",
+      "hook": "攻克悬而未决 20 年的 Model-RB 基准难题，提供可验证的 100 顶点独立集最优性证明。",
+      "key_takeaways": [
+        "彻底解决困扰学术界 20 余年的 Model-RB 基准测试难题 frb100-40",
+        "给出了可直接验证的 100 顶点独立集（100-vertex independent set）最优性证书",
+        "展示了预注册搜索研究在解决复杂组合优化与约束满足问题上的突破"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.178179"
 }

@@ -33,66 +33,99 @@
   "ai_enrichment": {
     "id": "2026-09-03_repo_arxiv_discriminative_world_models_for_web_age",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "웹 에이전트",
+    "type_classification": "TECH",
+    "model_family": "World Models",
+    "category": "Artificial Intelligence",
     "programming_lang": "Python",
     "root_keywords": [
-      "웹 에이전트",
-      "월드 모델",
-      "프로세스 리워드 모델"
+      "World Models",
+      "Web Agents",
+      "Discriminative World Model",
+      "Process Reward Model",
+      "Test-time Search"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "웹 에이전트를 위한 판별적 월드 모델",
-        "hook": "후보 액션을 샘플링하고 예측하여 웹 에이전트의 테스트 타임 성능을 극적으로 끌어올리는 새로운 월드 모델 방법론입니다.",
+        "title": "웹 에이전트를 위한 판별적 월드 모델 (Discriminative World Models)",
+        "hook": "테스트 시간 행동 선택을 위한 웹 에이전트용 판별적 월드 모델 및 순위 결정 기법 연구",
         "key_takeaways": [
-          "웹 상태 예측 및 PRM 기반의 액션 순위 산정 기법 도입",
-          "테스트 타임 액션 선택 과정에서의 정확도 향상",
-          "복잡한 웹 환경 탐색을 위한 에이전트 아키텍처 개선"
+          "후보 행동 평가 및 결과 웹 상태 예측을 위한 월드 모델 프레임워크 제시",
+          "생성 방식 대신 판별적 방식을 도입하여 평가 정확도 및 연산 효율성 향상",
+          "웹 에이전트의 복잡한 테스트 시간 행동 선택(Test-time Action Selection) 성능 대폭 개선"
         ]
       },
       "en": {
         "title": "Discriminative World Models for Web Agents",
-        "hook": "Discover a novel world model approach that dramatically boosts web agent action selection through predictive state ranking.",
+        "hook": "Enhancing web agent test-time action selection via discriminative state modeling and process reward ranking",
         "key_takeaways": [
-          "Uses candidate action sampling and web state prediction",
-          "Integrates process reward models for accurate ranking",
-          "Improves test-time decision making in web environments"
+          "Proposes a novel framework using discriminative world models for web state prediction",
+          "Improves ranking efficiency and accuracy compared to purely generative world models",
+          "Boosts web agent performance in complex multi-step test-time planning tasks"
         ]
       },
       "zh": {
-        "title": "面向网络智能体的判别式世界模型",
-        "hook": "通过采样候选动作并预测网页状态，利用排序模型显著提升网络智能体测试阶段决策能力的新方法。",
+        "title": "用于 Web Agent 的判别式世界模型",
+        "hook": "通过判别式状态建模与过程奖励排序提升 Web Agent 的测试时行动选择能力",
         "key_takeaways": [
-          "引入基于状态预测和过程奖励模型的动作排序机制",
-          "增强测试阶段动作选择的准确性",
-          "优化复杂网页环境下的智能体架构"
+          "提出用于预测 Web 状态并评估候选行动的判别式世界模型框架",
+          "相比传统生成式世界模型，显著提高了评估准确率与计算效率",
+          "有效增强了 Web Agent 在复杂多步骤测试时搜索与决策中的表现"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:25:48.612229+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "웹 에이전트",
-    "월드 모델",
-    "프로세스 리워드 모델"
+    "World Models",
+    "Web Agents",
+    "Discriminative World Model",
+    "Process Reward Model",
+    "Test-time Search"
   ],
-  "title_ko": "웹 에이전트를 위한 판별적 월드 모델",
+  "title_ko": "웹 에이전트를 위한 판별적 월드 모델 (Discriminative World Models)",
   "title_en": "Discriminative World Models for Web Agents",
-  "title_zh": "面向网络智能体的判别式世界模型",
+  "title_zh": "用于 Web Agent 的判别式世界模型",
   "hook": "후보 액션을 샘플링하고 예측하여 웹 에이전트의 테스트 타임 성능을 극적으로 끌어올리는 새로운 월드 모델 방법론입니다.",
-  "hook_ko": "후보 액션을 샘플링하고 예측하여 웹 에이전트의 테스트 타임 성능을 극적으로 끌어올리는 새로운 월드 모델 방법론입니다.",
-  "hook_en": "Discover a novel world model approach that dramatically boosts web agent action selection through predictive state ranking.",
-  "hook_zh": "通过采样候选动作并预测网页状态，利用排序模型显著提升网络智能体测试阶段决策能力的新方法。",
+  "hook_ko": "테스트 시간 행동 선택을 위한 웹 에이전트용 판별적 월드 모델 및 순위 결정 기법 연구",
+  "hook_en": "Enhancing web agent test-time action selection via discriminative state modeling and process reward ranking",
+  "hook_zh": "通过判别式状态建模与过程奖励排序提升 Web Agent 的测试时行动选择能力",
   "description_ko": "후보 액션을 샘플링하고 예측하여 웹 에이전트의 테스트 타임 성능을 극적으로 끌어올리는 새로운 월드 모델 방법론입니다.",
   "description_en": "Discover a novel world model approach that dramatically boosts web agent action selection through predictive state ranking.",
   "description_zh": "通过采样候选动作并预测网页状态，利用排序模型显著提升网络智能体测试阶段决策能力的新方法。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "웹 에이전트를 위한 판별적 월드 모델 (Discriminative World Models)",
+      "hook": "테스트 시간 행동 선택을 위한 웹 에이전트용 판별적 월드 모델 및 순위 결정 기법 연구",
+      "key_takeaways": [
+        "후보 행동 평가 및 결과 웹 상태 예측을 위한 월드 모델 프레임워크 제시",
+        "생성 방식 대신 판별적 방식을 도입하여 평가 정확도 및 연산 효율성 향상",
+        "웹 에이전트의 복잡한 테스트 시간 행동 선택(Test-time Action Selection) 성능 대폭 개선"
+      ]
+    },
+    "en": {
+      "title": "Discriminative World Models for Web Agents",
+      "hook": "Enhancing web agent test-time action selection via discriminative state modeling and process reward ranking",
+      "key_takeaways": [
+        "Proposes a novel framework using discriminative world models for web state prediction",
+        "Improves ranking efficiency and accuracy compared to purely generative world models",
+        "Boosts web agent performance in complex multi-step test-time planning tasks"
+      ]
+    },
+    "zh": {
+      "title": "用于 Web Agent 的判别式世界模型",
+      "hook": "通过判别式状态建模与过程奖励排序提升 Web Agent 的测试时行动选择能力",
+      "key_takeaways": [
+        "提出用于预测 Web 状态并评估候选行动的判别式世界模型框架",
+        "相比传统生成式世界模型，显著提高了评估准确率与计算效率",
+        "有效增强了 Web Agent 在复杂多步骤测试时搜索与决策中的表现"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.170736"
 }

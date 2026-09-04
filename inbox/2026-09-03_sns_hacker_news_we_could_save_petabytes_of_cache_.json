@@ -36,67 +36,98 @@
     "id": "2026-09-03_sns_hacker_news_we_could_save_petabytes_of_cache_",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "인프라 및 캐시 최적화",
-    "programming_lang": "C++",
+    "model_family": "Infrastructure & Networking",
+    "category": "Web Performance & Infrastructure",
+    "programming_lang": "Rust",
     "root_keywords": [
       "Zstandard",
       "Pingora",
-      "Cache Storage",
-      "Compression"
+      "Caching",
+      "Compression",
+      "Infrastructure Optimization"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "Zstandard와 Pingora를 활용한 페타바이트 규모의 캐시 스토리지 절감",
-        "hook": "효율적인 압축 알고리즘과 프록시 기술을 결합하여 대규모 인프라 비용을 극적으로 절감하는 아키텍처를 분석합니다.",
+        "title": "Zstandard 및 Pingora를 활용해 페타바이트 규모의 캐시 스토리지 절약하기",
+        "hook": "Rust 기반 Pingora 프록시와 Zstd 압축을 결합하여 대규모 캐시 인프라 비용을 비약적으로 줄이는 방법",
         "key_takeaways": [
-          "Zstandard(zstd) 압축을 통한 캐시 저장 공간 최적화",
-          "Cloudflare Pingora 기반의 고성능 프록시 아키텍처 활용",
-          "대규모 데이터 센터에서 페타바이트 단위 스토리지를 절감한 엔지니어링 인사이트"
+          "Pingora 프록시 프레임워크와 Zstandard 압축 알고리즘을 결합한 스토리지 최적화 방안 제시",
+          "Gzip 대비 빠른 압축/해제 속도와 높은 압축률로 레이턴시 손실 없이 페타바이트급 캐시 저장 공간 절감",
+          "에지 네트워크 및 분산 캐시 레이어에서의 컴퓨팅/스토리지 비용 효율화 사례"
         ]
       },
       "en": {
         "title": "Saving Petabytes of Cache Storage with Zstandard and Pingora",
-        "hook": "Discover how combining high-performance compression and proxy technologies can dramatically slash large-scale infrastructure costs.",
+        "hook": "Drastically reduce cache infrastructure footprint by combining Rust-based Pingora proxy with Zstandard compression.",
         "key_takeaways": [
-          "Optimizing cache storage footprint using Zstandard (zstd) compression",
-          "Leveraging Cloudflare Pingora-based high-performance proxy architecture",
-          "Engineering insights on saving petabytes of storage in data centers"
+          "Proposes storage optimization strategies integrating the Pingora proxy framework with Zstandard compression",
+          "Achieves petabyte-scale cache savings with higher compression ratios and faster decompression than Gzip without latency hits",
+          "Demonstrates cost efficiency improvements across edge networks and distributed cache layers"
         ]
       },
       "zh": {
-        "title": "使用 Zstandard 和 Pingora 节省数PB的缓存存储空间",
-        "hook": "探索如何结合高性能压缩与代理技术，大幅降低大规模基础设施的存储成本。",
+        "title": "利用 Zstandard 与 Pingora 节省数 PB 的缓存存储",
+        "hook": "结合基于 Rust 的 Pingora 代理框架与 Zstandard 压缩算法，大幅降低大规模缓存基础设施成本。",
         "key_takeaways": [
-          "利用 Zstandard (zstd) 压缩优化缓存存储占用空间",
-          "借助基于 Cloudflare Pingora 的高性能代理架构",
-          "在数据中心节省 PB 级存储空间的工程实践洞察"
+          "提出了整合 Pingora 代理框架与 Zstd 压缩算法的存储优化方案",
+          "相比 Gzip 拥有更高压缩率和更快的解压速度，在不影响延迟的情况下节省 PB 级缓存存储 공간",
+          "展示了边缘网络与分布式缓存层中的计算与存储成本优化实践"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T01:56:03.662045+00:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "C++",
+  "programming_lang": "Rust",
   "root_keywords": [
     "Zstandard",
     "Pingora",
-    "Cache Storage",
-    "Compression"
+    "Caching",
+    "Compression",
+    "Infrastructure Optimization"
   ],
-  "title_ko": "Zstandard와 Pingora를 활용한 페타바이트 규모의 캐시 스토리지 절감",
+  "title_ko": "Zstandard 및 Pingora를 활용해 페타바이트 규모의 캐시 스토리지 절약하기",
   "title_en": "Saving Petabytes of Cache Storage with Zstandard and Pingora",
-  "title_zh": "使用 Zstandard 和 Pingora 节省数PB的缓存存储空间",
+  "title_zh": "利用 Zstandard 与 Pingora 节省数 PB 的缓存存储",
   "hook": "효율적인 압축 알고리즘과 프록시 기술을 결합하여 대규모 인프라 비용을 극적으로 절감하는 아키텍처를 분석합니다.",
-  "hook_ko": "효율적인 압축 알고리즘과 프록시 기술을 결합하여 대규모 인프라 비용을 극적으로 절감하는 아키텍처를 분석합니다.",
-  "hook_en": "Discover how combining high-performance compression and proxy technologies can dramatically slash large-scale infrastructure costs.",
-  "hook_zh": "探索如何结合高性能压缩与代理技术，大幅降低大规模基础设施的存储成本。",
+  "hook_ko": "Rust 기반 Pingora 프록시와 Zstd 압축을 결합하여 대규모 캐시 인프라 비용을 비약적으로 줄이는 방법",
+  "hook_en": "Drastically reduce cache infrastructure footprint by combining Rust-based Pingora proxy with Zstandard compression.",
+  "hook_zh": "结合基于 Rust 的 Pingora 代理框架与 Zstandard 压缩算法，大幅降低大规模缓存基础设施成本。",
   "description_ko": "효율적인 압축 알고리즘과 프록시 기술을 결합하여 대규모 인프라 비용을 극적으로 절감하는 아키텍처를 분석합니다.",
   "description_en": "Discover how combining high-performance compression and proxy technologies can dramatically slash large-scale infrastructure costs.",
   "description_zh": "探索如何结合高性能压缩与代理技术，大幅降低大规模基础设施的存储成本。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Zstandard 및 Pingora를 활용해 페타바이트 규모의 캐시 스토리지 절약하기",
+      "hook": "Rust 기반 Pingora 프록시와 Zstd 압축을 결합하여 대규모 캐시 인프라 비용을 비약적으로 줄이는 방법",
+      "key_takeaways": [
+        "Pingora 프록시 프레임워크와 Zstandard 압축 알고리즘을 결합한 스토리지 최적화 방안 제시",
+        "Gzip 대비 빠른 압축/해제 속도와 높은 압축률로 레이턴시 손실 없이 페타바이트급 캐시 저장 공간 절감",
+        "에지 네트워크 및 분산 캐시 레이어에서의 컴퓨팅/스토리지 비용 효율화 사례"
+      ]
+    },
+    "en": {
+      "title": "Saving Petabytes of Cache Storage with Zstandard and Pingora",
+      "hook": "Drastically reduce cache infrastructure footprint by combining Rust-based Pingora proxy with Zstandard compression.",
+      "key_takeaways": [
+        "Proposes storage optimization strategies integrating the Pingora proxy framework with Zstandard compression",
+        "Achieves petabyte-scale cache savings with higher compression ratios and faster decompression than Gzip without latency hits",
+        "Demonstrates cost efficiency improvements across edge networks and distributed cache layers"
+      ]
+    },
+    "zh": {
+      "title": "利用 Zstandard 与 Pingora 节省数 PB 的缓存存储",
+      "hook": "结合基于 Rust 的 Pingora 代理框架与 Zstandard 压缩算法，大幅降低大规模缓存基础设施成本。",
+      "key_takeaways": [
+        "提出了整合 Pingora 代理框架与 Zstd 压缩算法的存储优化方案",
+        "相比 Gzip 拥有更高压缩率和更快的解压速度，在不影响延迟的情况下节省 PB 级缓存存储 공간",
+        "展示了边缘网络与分布式缓存层中的计算与存储成本优化实践"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.428863"
 }

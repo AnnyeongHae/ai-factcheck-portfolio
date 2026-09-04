@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_kylehessling1v100_homelab_field_guid",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Infrastructure & Hardware",
+    "category": "AI Infrastructure & Hardware",
+    "programming_lang": "General",
+    "root_keywords": [
+      "V100 GPU",
+      "Homelab Guide",
+      "AI Hardware",
+      "LLM Infrastructure",
+      "Self-hosting AI"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "NVIDIA V100 AI 홈랩 구축 현장 가이드",
+        "hook": "엔비디아 V100 GPU를 활용하여 가성비 높은 인공지능 홈랩 서버를 구축 및 운용하는 가이드",
+        "key_takeaways": [
+          "NVIDIA V100 GPU 기반 가성비 높은 AI 홈랩 인프라 구성 안내",
+          "LLM 및 AI 모델 자체 호스팅을 위한 하드웨어/소프트웨어 최적화 팁",
+          "홈랩 서버 환경에서의 전력, 발열 관리 및 세팅 실전 경험 공유"
+        ]
+      },
+      "en": {
+        "title": "NVIDIA V100 AI Homelab Field Guide",
+        "hook": "A practical field guide for setting up and operating a cost-effective AI homelab server using NVIDIA V100 GPUs.",
+        "key_takeaways": [
+          "Cost-effective AI homelab infrastructure setup using NVIDIA V100 GPUs",
+          "Hardware and software optimization tips for self-hosting LLMs and AI workloads",
+          "Practical guidance on power management, cooling, and OS setup for homelabs"
+        ]
+      },
+      "zh": {
+        "title": "NVIDIA V100 AI 家庭实验室实战指南",
+        "hook": "利用 NVIDIA V100 GPU 构建高性价比 AI 家庭实验室服务器的实操指南",
+        "key_takeaways": [
+          "基于 NVIDIA V100 GPU 的高性价比 AI 家庭实验室架构搭建",
+          "本地托管 LLM 和 AI 大模型的硬件与软件优化技巧",
+          "家庭实验室环境下的散热、功耗及系统配置实战经验"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "NVIDIA V100 AI 홈랩 구축 현장 가이드",
+      "hook": "엔비디아 V100 GPU를 활용하여 가성비 높은 인공지능 홈랩 서버를 구축 및 운용하는 가이드",
+      "key_takeaways": [
+        "NVIDIA V100 GPU 기반 가성비 높은 AI 홈랩 인프라 구성 안내",
+        "LLM 및 AI 모델 자체 호스팅을 위한 하드웨어/소프트웨어 최적화 팁",
+        "홈랩 서버 환경에서의 전력, 발열 관리 및 세팅 실전 경험 공유"
+      ]
+    },
+    "en": {
+      "title": "NVIDIA V100 AI Homelab Field Guide",
+      "hook": "A practical field guide for setting up and operating a cost-effective AI homelab server using NVIDIA V100 GPUs.",
+      "key_takeaways": [
+        "Cost-effective AI homelab infrastructure setup using NVIDIA V100 GPUs",
+        "Hardware and software optimization tips for self-hosting LLMs and AI workloads",
+        "Practical guidance on power management, cooling, and OS setup for homelabs"
+      ]
+    },
+    "zh": {
+      "title": "NVIDIA V100 AI 家庭实验室实战指南",
+      "hook": "利用 NVIDIA V100 GPU 构建高性价比 AI 家庭实验室服务器的实操指南",
+      "key_takeaways": [
+        "基于 NVIDIA V100 GPU 的高性价比 AI 家庭实验室架构搭建",
+        "本地托管 LLM 和 AI 大模型的硬件与软件优化技巧",
+        "家庭实验室环境下的散热、功耗及系统配置实战经验"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "V100 GPU",
+    "Homelab Guide",
+    "AI Hardware",
+    "LLM Infrastructure",
+    "Self-hosting AI"
+  ],
+  "title_ko": "NVIDIA V100 AI 홈랩 구축 현장 가이드",
+  "hook_ko": "엔비디아 V100 GPU를 활용하여 가성비 높은 인공지능 홈랩 서버를 구축 및 운용하는 가이드",
+  "title_en": "NVIDIA V100 AI Homelab Field Guide",
+  "hook_en": "A practical field guide for setting up and operating a cost-effective AI homelab server using NVIDIA V100 GPUs.",
+  "title_zh": "NVIDIA V100 AI 家庭实验室实战指南",
+  "hook_zh": "利用 NVIDIA V100 GPU 构建高性价比 AI 家庭实验室服务器的实操指南",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.271802"
 }

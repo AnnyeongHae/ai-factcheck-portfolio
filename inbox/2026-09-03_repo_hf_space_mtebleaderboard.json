@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_mtebleaderboard",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Embedding Models",
+    "category": "AI Benchmarking",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "MTEB",
+      "Text Embeddings",
+      "Benchmark",
+      "Leaderboard",
+      "Vector Search"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "MTEB (대규모 텍스트 임베딩 벤치마크) 리더보드",
+        "hook": "다양한 NLP 태스크에서 최고의 임베딩 모델 성능을 실시간으로 비교·분석하는 글로벌 표준 벤치마크",
+        "key_takeaways": [
+          "분류, 클러스터링, 검색 등 8개 이상의 다양한 NLP 태스크에서 텍스트 임베딩 성능 종합 평가",
+          "최신 오픈소스 및 상용 텍스트 임베딩 모델의 실시간 순위 및 다국어 지원 성능 측정 제공",
+          "RAG(검색 증강 생성) 및 벡터 검색 시스템 구축 시 최적의 백본 임베딩 모델 선택 가이드 제공"
+        ]
+      },
+      "en": {
+        "title": "MTEB (Massive Text Embedding Benchmark) Leaderboard",
+        "hook": "The industry-standard leaderboard comparing and evaluating top-performing text embedding models across diverse NLP tasks.",
+        "key_takeaways": [
+          "Comprehensive evaluation of embedding performance across 8+ diverse tasks including classification, clustering, and retrieval.",
+          "Real-time rankings for open-source and commercial text embedding models with multilingual capabilities.",
+          "Essential reference for choosing the optimal backbone embedding model for RAG and vector search pipelines."
+        ]
+      },
+      "zh": {
+        "title": "MTEB（大规模文本嵌入基准）排行榜",
+        "hook": "全球标准的文本嵌入模型评估排行榜，跨多样化 NLP 任务实时对比模型性能。",
+        "key_takeaways": [
+          "在分类、聚类、检索和摘要等 8+ 种不同 NLP 任务中全面评估文本嵌入性能。",
+          "提供最新的开源与商业文本嵌入模型的实时排名及多语言支持评估。",
+          "为构建 RAG（检索增强生成）与向量搜索系统提供选择最佳嵌入模型的关键指导。"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "MTEB (대규모 텍스트 임베딩 벤치마크) 리더보드",
+      "hook": "다양한 NLP 태스크에서 최고의 임베딩 모델 성능을 실시간으로 비교·분석하는 글로벌 표준 벤치마크",
+      "key_takeaways": [
+        "분류, 클러스터링, 검색 등 8개 이상의 다양한 NLP 태스크에서 텍스트 임베딩 성능 종합 평가",
+        "최신 오픈소스 및 상용 텍스트 임베딩 모델의 실시간 순위 및 다국어 지원 성능 측정 제공",
+        "RAG(검색 증강 생성) 및 벡터 검색 시스템 구축 시 최적의 백본 임베딩 모델 선택 가이드 제공"
+      ]
+    },
+    "en": {
+      "title": "MTEB (Massive Text Embedding Benchmark) Leaderboard",
+      "hook": "The industry-standard leaderboard comparing and evaluating top-performing text embedding models across diverse NLP tasks.",
+      "key_takeaways": [
+        "Comprehensive evaluation of embedding performance across 8+ diverse tasks including classification, clustering, and retrieval.",
+        "Real-time rankings for open-source and commercial text embedding models with multilingual capabilities.",
+        "Essential reference for choosing the optimal backbone embedding model for RAG and vector search pipelines."
+      ]
+    },
+    "zh": {
+      "title": "MTEB（大规模文本嵌入基准）排行榜",
+      "hook": "全球标准的文本嵌入模型评估排行榜，跨多样化 NLP 任务实时对比模型性能。",
+      "key_takeaways": [
+        "在分类、聚类、检索和摘要等 8+ 种不同 NLP 任务中全面评估文本嵌入性能。",
+        "提供最新的开源与商业文本嵌入模型的实时排名及多语言支持评估。",
+        "为构建 RAG（检索增强生成）与向量搜索系统提供选择最佳嵌入模型的关键指导。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "MTEB",
+    "Text Embeddings",
+    "Benchmark",
+    "Leaderboard",
+    "Vector Search"
+  ],
+  "title_ko": "MTEB (대규모 텍스트 임베딩 벤치마크) 리더보드",
+  "hook_ko": "다양한 NLP 태스크에서 최고의 임베딩 모델 성능을 실시간으로 비교·분석하는 글로벌 표준 벤치마크",
+  "title_en": "MTEB (Massive Text Embedding Benchmark) Leaderboard",
+  "hook_en": "The industry-standard leaderboard comparing and evaluating top-performing text embedding models across diverse NLP tasks.",
+  "title_zh": "MTEB（大规模文本嵌入基准）排行榜",
+  "hook_zh": "全球标准的文本嵌入模型评估排行榜，跨多样化 NLP 任务实时对比模型性能。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.286925"
 }

@@ -35,5 +35,96 @@
   "hn_url": "https://news.hada.io/topic?id=33187",
   "article_url": "https://news.hada.io/topic?id=33187",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_geeknews_diffusion으로_ocr_디코딩_가속하기",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Diffusion Models",
+    "category": "Computer Vision / OCR",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Diffusion Models",
+      "OCR Decoding",
+      "Inference Speedup",
+      "Computer Vision",
+      "Document AI"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "Diffusion으로 OCR 디코딩 가속하기",
+        "hook": "기존 Autoregressive 모델 대비 Diffusion 기법을 활용해 OCR 디코딩 속도를 한층 가속화하는 기술적 접근법",
+        "key_takeaways": [
+          "Autoregressive 순차 디코딩의 병목 현상을 Diffusion 기반 병렬 디코딩으로 완화",
+          "텍스트 인식 정확도를 유지하면서 추론 속도 및 처리량(Throughput) 개선",
+          "대규모 문서 데이터 처리 및 비전-언어 모델(VLM) 파이프라인의 효율 극대화"
+        ]
+      },
+      "en": {
+        "title": "Accelerating OCR Decoding with Diffusion Models",
+        "hook": "Accelerating OCR text decoding speeds using non-autoregressive diffusion processes.",
+        "key_takeaways": [
+          "Overcomes autoregressive bottlenecks via diffusion-based parallel sequence generation",
+          "Improves inference speed and throughput while preserving text recognition accuracy",
+          "Enhances processing efficiency for document AI and Vision-Language Model pipelines"
+        ]
+      },
+      "zh": {
+        "title": "使用 Diffusion 扩散模型加速 OCR 解码",
+        "hook": "利用扩散模型打破自回归瓶颈，显著提升 OCR 文本解码与推理速度。",
+        "key_takeaways": [
+          "通过基于扩散模型的并行生成解决传统自回归 Sequential 解码瓶颈",
+          "在保持高精度 OCR 识别的同时显著提升推理吞吐量",
+          "为大规模文档处理与视觉语言模型 (VLM) 解码流水线提供更高效率方案"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Diffusion으로 OCR 디코딩 가속하기",
+      "hook": "기존 Autoregressive 모델 대비 Diffusion 기법을 활용해 OCR 디코딩 속도를 한층 가속화하는 기술적 접근법",
+      "key_takeaways": [
+        "Autoregressive 순차 디코딩의 병목 현상을 Diffusion 기반 병렬 디코딩으로 완화",
+        "텍스트 인식 정확도를 유지하면서 추론 속도 및 처리량(Throughput) 개선",
+        "대규모 문서 데이터 처리 및 비전-언어 모델(VLM) 파이프라인의 효율 극대화"
+      ]
+    },
+    "en": {
+      "title": "Accelerating OCR Decoding with Diffusion Models",
+      "hook": "Accelerating OCR text decoding speeds using non-autoregressive diffusion processes.",
+      "key_takeaways": [
+        "Overcomes autoregressive bottlenecks via diffusion-based parallel sequence generation",
+        "Improves inference speed and throughput while preserving text recognition accuracy",
+        "Enhances processing efficiency for document AI and Vision-Language Model pipelines"
+      ]
+    },
+    "zh": {
+      "title": "使用 Diffusion 扩散模型加速 OCR 解码",
+      "hook": "利用扩散模型打破自回归瓶颈，显著提升 OCR 文本解码与推理速度。",
+      "key_takeaways": [
+        "通过基于扩散模型的并行生成解决传统自回归 Sequential 解码瓶颈",
+        "在保持高精度 OCR 识别的同时显著提升推理吞吐量",
+        "为大规模文档处理与视觉语言模型 (VLM) 解码流水线提供更高效率方案"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Diffusion Models",
+    "OCR Decoding",
+    "Inference Speedup",
+    "Computer Vision",
+    "Document AI"
+  ],
+  "hook_ko": "기존 Autoregressive 모델 대비 Diffusion 기법을 활용해 OCR 디코딩 속도를 한층 가속화하는 기술적 접근법",
+  "title_en": "Accelerating OCR Decoding with Diffusion Models",
+  "hook_en": "Accelerating OCR text decoding speeds using non-autoregressive diffusion processes.",
+  "title_zh": "使用 Diffusion 扩散模型加速 OCR 解码",
+  "hook_zh": "利用扩散模型打破自回归瓶颈，显著提升 OCR 文本解码与推理速度。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.326261"
 }

@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_jbilcke_hfai_comic_factory",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Multimodal / Diffusion + LLM",
+    "category": "Generative AI",
+    "programming_lang": "TypeScript",
+    "root_keywords": [
+      "AI Comic Factory",
+      "Comic Generation",
+      "LLM Storytelling",
+      "Diffusion Models",
+      "Hugging Face Spaces"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "AI 만화 공장 (AI Comic Factory) - 생성형 AI 기반 만화 자동 제작 도구",
+        "hook": "LLM의 스토리텔링과 이미지 생성 모델을 결합해 프롬프트 하나로 고품질 웹툰/만화를 자동 생성하는 대화형 AI 애플리케이션",
+        "key_takeaways": [
+          "LLM을 활용한 프롬프트 자동 확장 및 컷별 스토리보드(대사, 연출) 구상 파이프라인 구축",
+          "다양한 화풍(American Comic, Manga, 3D 등)과 컷 레이아웃을 자유롭게 선택할 수 있는 대화형 UI 제공",
+          "Hugging Face Spaces에서 11,000개 이상의 좋아요를 받으며 Docker SDK 기반 생성형 웹 앱의 모범 사례로 평가받음"
+        ]
+      },
+      "en": {
+        "title": "AI Comic Factory - Automated Comic & Graphic Novel Generator",
+        "hook": "An interactive web app leveraging LLMs and diffusion models to generate multi-panel comics from text prompts in seconds",
+        "key_takeaways": [
+          "Combines LLM story breakdown with image diffusion models for seamless multi-panel comic generation",
+          "Supports customizable layouts, artistic styles (Manga, Graphic Novel, etc.), and speech bubble rendering",
+          "One of the most popular Docker-based Hugging Face Spaces with over 11,000 likes"
+        ]
+      },
+      "zh": {
+        "title": "AI 漫画工厂 (AI Comic Factory) - 基于生成式 AI 的漫画自动生成工具",
+        "hook": "结合大语言模型与图像扩散模型，只需输入简单文本即可在几秒内生成专业级多格连环画/漫画",
+        "key_takeaways": [
+          "利用 LLM 进行脚本提示词扩展与分镜拆解，协同 Diffusion 模型完成一致性视觉渲染",
+          "提供丰富的艺术风格（日漫、美漫、3D等）、分镜布局及文字排版定制选项",
+          "基于 Docker 部署，在 Hugging Face Spaces 上积累超 11,000 个赞的爆款 AIGC 应用"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "AI 만화 공장 (AI Comic Factory) - 생성형 AI 기반 만화 자동 제작 도구",
+      "hook": "LLM의 스토리텔링과 이미지 생성 모델을 결합해 프롬프트 하나로 고품질 웹툰/만화를 자동 생성하는 대화형 AI 애플리케이션",
+      "key_takeaways": [
+        "LLM을 활용한 프롬프트 자동 확장 및 컷별 스토리보드(대사, 연출) 구상 파이프라인 구축",
+        "다양한 화풍(American Comic, Manga, 3D 등)과 컷 레이아웃을 자유롭게 선택할 수 있는 대화형 UI 제공",
+        "Hugging Face Spaces에서 11,000개 이상의 좋아요를 받으며 Docker SDK 기반 생성형 웹 앱의 모범 사례로 평가받음"
+      ]
+    },
+    "en": {
+      "title": "AI Comic Factory - Automated Comic & Graphic Novel Generator",
+      "hook": "An interactive web app leveraging LLMs and diffusion models to generate multi-panel comics from text prompts in seconds",
+      "key_takeaways": [
+        "Combines LLM story breakdown with image diffusion models for seamless multi-panel comic generation",
+        "Supports customizable layouts, artistic styles (Manga, Graphic Novel, etc.), and speech bubble rendering",
+        "One of the most popular Docker-based Hugging Face Spaces with over 11,000 likes"
+      ]
+    },
+    "zh": {
+      "title": "AI 漫画工厂 (AI Comic Factory) - 基于生成式 AI 的漫画自动生成工具",
+      "hook": "结合大语言模型与图像扩散模型，只需输入简单文本即可在几秒内生成专业级多格连环画/漫画",
+      "key_takeaways": [
+        "利用 LLM 进行脚本提示词扩展与分镜拆解，协同 Diffusion 模型完成一致性视觉渲染",
+        "提供丰富的艺术风格（日漫、美漫、3D等）、分镜布局及文字排版定制选项",
+        "基于 Docker 部署，在 Hugging Face Spaces 上积累超 11,000 个赞的爆款 AIGC 应用"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "TypeScript",
+  "root_keywords": [
+    "AI Comic Factory",
+    "Comic Generation",
+    "LLM Storytelling",
+    "Diffusion Models",
+    "Hugging Face Spaces"
+  ],
+  "title_ko": "AI 만화 공장 (AI Comic Factory) - 생성형 AI 기반 만화 자동 제작 도구",
+  "hook_ko": "LLM의 스토리텔링과 이미지 생성 모델을 결합해 프롬프트 하나로 고품질 웹툰/만화를 자동 생성하는 대화형 AI 애플리케이션",
+  "title_en": "AI Comic Factory - Automated Comic & Graphic Novel Generator",
+  "hook_en": "An interactive web app leveraging LLMs and diffusion models to generate multi-panel comics from text prompts in seconds",
+  "title_zh": "AI 漫画工厂 (AI Comic Factory) - 基于生成式 AI 的漫画自动生成工具",
+  "hook_zh": "结合大语言模型与图像扩散模型，只需输入简单文本即可在几秒内生成专业级多格连环画/漫画",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.266683"
 }

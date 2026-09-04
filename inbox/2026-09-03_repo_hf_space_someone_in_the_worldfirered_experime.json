@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_someone_in_the_worldfirered_experime",
+    "source_lang": "AUTO",
+    "type_classification": "TECH",
+    "model_family": "FireRed",
+    "category": "Audio & Speech Processing",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "FireRed",
+      "Text-to-Speech",
+      "TTS",
+      "Model Inference",
+      "Gradio"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "HF Space: FireRed-Experimental-Turbo 대화형 데모",
+        "hook": "실시간 초고속 음성 합성 및 오디오 생성을 위한 FireRed Turbo 모델의 웹 데모",
+        "key_takeaways": [
+          "Gradio 기반의 대화형 웹 인터페이스를 통한 손쉬운 실시간 인퍼런스 체험",
+          "FireRed 오디오 모델의 실험적 경량화 및 추론 고속화(Turbo) 버전 구현",
+          "웹 환경에서 직접 음성 합성 품질 및 생성 속도를 측정 및 검증 가능"
+        ]
+      },
+      "en": {
+        "title": "HF Space: FireRed-Experimental-Turbo Interactive Demo",
+        "hook": "Interactive demonstration of the FireRed-Experimental-Turbo model for high-speed speech synthesis.",
+        "key_takeaways": [
+          "Provides a Gradio-based interactive web interface for effortless real-time testing.",
+          "Showcases an experimental turbo-optimized variant of the FireRed audio architecture.",
+          "Enables direct browser-based evaluation of audio quality and generation speed."
+        ]
+      },
+      "zh": {
+        "title": "HF Space: FireRed-Experimental-Turbo 交互式 Demo",
+        "hook": "用于超高速语音合成与音频生成的 FireRed Turbo 实验性 Web 体验 Demo",
+        "key_takeaways": [
+          "基于 Gradio 构建的 Web 交互界面，支持便捷的实时推理体验",
+          "展示了 FireRed 音频模型系列的实验性加速/轻量化（Turbo）版本",
+          "可在浏览器中直接评估语音合成质量与推理生成速度"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: FireRed-Experimental-Turbo 대화형 데모",
+      "hook": "실시간 초고속 음성 합성 및 오디오 생성을 위한 FireRed Turbo 모델의 웹 데모",
+      "key_takeaways": [
+        "Gradio 기반의 대화형 웹 인터페이스를 통한 손쉬운 실시간 인퍼런스 체험",
+        "FireRed 오디오 모델의 실험적 경량화 및 추론 고속화(Turbo) 버전 구현",
+        "웹 환경에서 직접 음성 합성 품질 및 생성 속도를 측정 및 검증 가능"
+      ]
+    },
+    "en": {
+      "title": "HF Space: FireRed-Experimental-Turbo Interactive Demo",
+      "hook": "Interactive demonstration of the FireRed-Experimental-Turbo model for high-speed speech synthesis.",
+      "key_takeaways": [
+        "Provides a Gradio-based interactive web interface for effortless real-time testing.",
+        "Showcases an experimental turbo-optimized variant of the FireRed audio architecture.",
+        "Enables direct browser-based evaluation of audio quality and generation speed."
+      ]
+    },
+    "zh": {
+      "title": "HF Space: FireRed-Experimental-Turbo 交互式 Demo",
+      "hook": "用于超高速语音合成与音频生成的 FireRed Turbo 实验性 Web 体验 Demo",
+      "key_takeaways": [
+        "基于 Gradio 构建的 Web 交互界面，支持便捷的实时推理体验",
+        "展示了 FireRed 音频模型系列的实验性加速/轻量化（Turbo）版本",
+        "可在浏览器中直接评估语音合成质量与推理生成速度"
+      ]
+    }
+  },
+  "source_lang": "AUTO",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "FireRed",
+    "Text-to-Speech",
+    "TTS",
+    "Model Inference",
+    "Gradio"
+  ],
+  "title_ko": "HF Space: FireRed-Experimental-Turbo 대화형 데모",
+  "hook_ko": "실시간 초고속 음성 합성 및 오디오 생성을 위한 FireRed Turbo 모델의 웹 데모",
+  "title_en": "HF Space: FireRed-Experimental-Turbo Interactive Demo",
+  "hook_en": "Interactive demonstration of the FireRed-Experimental-Turbo model for high-speed speech synthesis.",
+  "title_zh": "HF Space: FireRed-Experimental-Turbo 交互式 Demo",
+  "hook_zh": "用于超高速语音合成与音频生成的 FireRed Turbo 实验性 Web 体验 Demo",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.299842"
 }

@@ -30,5 +30,97 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "article_url": "https://huggingface.co/blog/grpo-with-trl-ifstruct"
+  "article_url": "https://huggingface.co/blog/grpo-with-trl-ifstruct",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hugging_face_blog_fine_tuning_a_350m_model_fo",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Small Language Models",
+    "category": "LLM Fine-Tuning",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "GRPO",
+      "TRL",
+      "Structured Outputs",
+      "Fine-Tuning",
+      "Reinforcement Learning"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "Hugging Face 블로그: 100번의 GRPO 스텝으로 350M 모델의 구조화된 출력 성능 개선하기",
+        "hook": "TRL과 GRPO를 활용해 350M 소형 언어 모델도 단 100 스텝의 강화학습만으로 정교한 구조화 출력(Structured Outputs)을 구현하는 기술 가이드",
+        "key_takeaways": [
+          "Group Relative Policy Optimization(GRPO)을 활용해 별도의 Critic 모델 없이 컴퓨팅 자원을 대폭 절감하며 RL 파인튜닝 수행",
+          "Hugging Face TRL 라이브러리를 사용해 단 100 스텝의 리즈닝/포맷팅 강화를 통해 350M 소형 모델의 JSON 규격 준수율을 비약적으로 향상",
+          "경량화 온디바이스 모델 개발 시 최소한의 데이터와 리소스로 포맷 추종 능력을 극대화할 수 있는 실전 가이드 제공"
+        ]
+      },
+      "en": {
+        "title": "Hugging Face Blog: Fine-tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
+        "hook": "Dramatically boost structured output accuracy in a 350M lightweight model using TRL and just 100 steps of GRPO reinforcement learning.",
+        "key_takeaways": [
+          "Leverages Group Relative Policy Optimization (GRPO) to eliminate the need for a separate critic model, cutting memory overhead.",
+          "Demonstrates how Hugging Face's TRL enables small 350M models to adhere reliably to structured formats like JSON in only 100 steps.",
+          "Provides a resource-efficient RL fine-tuning paradigm ideal for lightweight and edge-deployed models."
+        ]
+      },
+      "zh": {
+        "title": "Hugging Face 博客：仅需 100 步 GRPO 即可微调 350M 模型实现更佳结构化输出",
+        "hook": "探索如何使用 TRL 与仅 100 步 GRPO 强化学习微调，让 350M 小型语言模型具备高精度的结构化输出能力",
+        "key_takeaways": [
+          "利用组相对策略优化（GRPO）省去 Critic 模型，显著降低 RL 微调的显存与计算资源门槛",
+          "借助 Hugging Face TRL 库，仅需 100 步训练即可大幅提升 350M 小模型在 JSON 等结构化格式上的生成准确率",
+          "为轻量级模型部署与边缘端 AI 提供了极其高效且实用的强化学习微调范例"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Hugging Face 블로그: 100번의 GRPO 스텝으로 350M 모델의 구조화된 출력 성능 개선하기",
+      "hook": "TRL과 GRPO를 활용해 350M 소형 언어 모델도 단 100 스텝의 강화학습만으로 정교한 구조화 출력(Structured Outputs)을 구현하는 기술 가이드",
+      "key_takeaways": [
+        "Group Relative Policy Optimization(GRPO)을 활용해 별도의 Critic 모델 없이 컴퓨팅 자원을 대폭 절감하며 RL 파인튜닝 수행",
+        "Hugging Face TRL 라이브러리를 사용해 단 100 스텝의 리즈닝/포맷팅 강화를 통해 350M 소형 모델의 JSON 규격 준수율을 비약적으로 향상",
+        "경량화 온디바이스 모델 개발 시 최소한의 데이터와 리소스로 포맷 추종 능력을 극대화할 수 있는 실전 가이드 제공"
+      ]
+    },
+    "en": {
+      "title": "Hugging Face Blog: Fine-tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
+      "hook": "Dramatically boost structured output accuracy in a 350M lightweight model using TRL and just 100 steps of GRPO reinforcement learning.",
+      "key_takeaways": [
+        "Leverages Group Relative Policy Optimization (GRPO) to eliminate the need for a separate critic model, cutting memory overhead.",
+        "Demonstrates how Hugging Face's TRL enables small 350M models to adhere reliably to structured formats like JSON in only 100 steps.",
+        "Provides a resource-efficient RL fine-tuning paradigm ideal for lightweight and edge-deployed models."
+      ]
+    },
+    "zh": {
+      "title": "Hugging Face 博客：仅需 100 步 GRPO 即可微调 350M 模型实现更佳结构化输出",
+      "hook": "探索如何使用 TRL 与仅 100 步 GRPO 强化学习微调，让 350M 小型语言模型具备高精度的结构化输出能力",
+      "key_takeaways": [
+        "利用组相对策略优化（GRPO）省去 Critic 模型，显著降低 RL 微调的显存与计算资源门槛",
+        "借助 Hugging Face TRL 库，仅需 100 步训练即可大幅提升 350M 小模型在 JSON 等结构化格式上的生成准确率",
+        "为轻量级模型部署与边缘端 AI 提供了极其高效且实用的强化学习微调范例"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "GRPO",
+    "TRL",
+    "Structured Outputs",
+    "Fine-Tuning",
+    "Reinforcement Learning"
+  ],
+  "title_ko": "Hugging Face 블로그: 100번의 GRPO 스텝으로 350M 모델의 구조화된 출력 성능 개선하기",
+  "hook_ko": "TRL과 GRPO를 활용해 350M 소형 언어 모델도 단 100 스텝의 강화학습만으로 정교한 구조화 출력(Structured Outputs)을 구현하는 기술 가이드",
+  "title_en": "Hugging Face Blog: Fine-tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
+  "hook_en": "Dramatically boost structured output accuracy in a 350M lightweight model using TRL and just 100 steps of GRPO reinforcement learning.",
+  "title_zh": "Hugging Face 博客：仅需 100 步 GRPO 即可微调 350M 模型实现更佳结构化输出",
+  "hook_zh": "探索如何使用 TRL 与仅 100 步 GRPO 强化学习微调，让 350M 小型语言模型具备高精度的结构化输出能力",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.434425"
 }

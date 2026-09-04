@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_kingnishopengpt_4o",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Multimodal LLM",
+    "category": "Multimodal AI",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "OpenGPT-4o",
+      "Gradio",
+      "Multimodal AI",
+      "Omni Model",
+      "Interactive Demo"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "HF Space: KingNish/OpenGPT-4o (오픈소스 GPT-4o 인터랙티브 데모)",
+        "hook": "GPT-4o 스타일의 멀티모달 상호작용 능력을 체험할 수 있는 Gradio 기반 인터랙티브 오픈소스 AI 데모",
+        "key_takeaways": [
+          "GPT-4o 스타일의 오디오, 비전, 텍스트 통합 상호작용 오픈소스 구현체",
+          "Gradio SDK 기반 사용자 친화적 웹 인터페이스 제공 (4,300+ Likes 달성)",
+          "오픈소스 파이프라인을 통한 오디오/비전 반응형 멀티모달 모델 프로토타이핑 및 검증"
+        ]
+      },
+      "en": {
+        "title": "HF Space: KingNish/OpenGPT-4o (Open Source GPT-4o Interactive Demo)",
+        "hook": "An interactive Gradio-based open-source AI demo providing GPT-4o-like omni and multimodal interactive capabilities.",
+        "key_takeaways": [
+          "Open-source implementation of GPT-4o style unified audio, vision, and text interaction",
+          "User-friendly web interface powered by Gradio SDK with over 4,300 likes",
+          "Serves as a reference pipeline for prototyping audio/vision-responsive multimodal models"
+        ]
+      },
+      "zh": {
+        "title": "HF Space: KingNish/OpenGPT-4o (开源 GPT-4o 交互式 Demo)",
+        "hook": "基于 Gradio 的开源 AI 交互 Demo，体验类似 GPT-4o 的全模态与多模态交互能力。",
+        "key_takeaways": [
+          "开源实现 GPT-4o 风格的语音、视觉与文本统一交互",
+          "基于 Gradio SDK 构建的高易用性 Web 界面，已获 4300+ Likes",
+          "为构建语音/视觉响应的多模态 AI 管线提供实用的参考原型"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: KingNish/OpenGPT-4o (오픈소스 GPT-4o 인터랙티브 데모)",
+      "hook": "GPT-4o 스타일의 멀티모달 상호작용 능력을 체험할 수 있는 Gradio 기반 인터랙티브 오픈소스 AI 데모",
+      "key_takeaways": [
+        "GPT-4o 스타일의 오디오, 비전, 텍스트 통합 상호작용 오픈소스 구현체",
+        "Gradio SDK 기반 사용자 친화적 웹 인터페이스 제공 (4,300+ Likes 달성)",
+        "오픈소스 파이프라인을 통한 오디오/비전 반응형 멀티모달 모델 프로토타이핑 및 검증"
+      ]
+    },
+    "en": {
+      "title": "HF Space: KingNish/OpenGPT-4o (Open Source GPT-4o Interactive Demo)",
+      "hook": "An interactive Gradio-based open-source AI demo providing GPT-4o-like omni and multimodal interactive capabilities.",
+      "key_takeaways": [
+        "Open-source implementation of GPT-4o style unified audio, vision, and text interaction",
+        "User-friendly web interface powered by Gradio SDK with over 4,300 likes",
+        "Serves as a reference pipeline for prototyping audio/vision-responsive multimodal models"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: KingNish/OpenGPT-4o (开源 GPT-4o 交互式 Demo)",
+      "hook": "基于 Gradio 的开源 AI 交互 Demo，体验类似 GPT-4o 的全模态与多模态交互能力。",
+      "key_takeaways": [
+        "开源实现 GPT-4o 风格的语音、视觉与文本统一交互",
+        "基于 Gradio SDK 构建的高易用性 Web 界面，已获 4300+ Likes",
+        "为构建语音/视觉响应的多模态 AI 管线提供实用的参考原型"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "OpenGPT-4o",
+    "Gradio",
+    "Multimodal AI",
+    "Omni Model",
+    "Interactive Demo"
+  ],
+  "title_ko": "HF Space: KingNish/OpenGPT-4o (오픈소스 GPT-4o 인터랙티브 데모)",
+  "hook_ko": "GPT-4o 스타일의 멀티모달 상호작용 능력을 체험할 수 있는 Gradio 기반 인터랙티브 오픈소스 AI 데모",
+  "title_en": "HF Space: KingNish/OpenGPT-4o (Open Source GPT-4o Interactive Demo)",
+  "hook_en": "An interactive Gradio-based open-source AI demo providing GPT-4o-like omni and multimodal interactive capabilities.",
+  "title_zh": "HF Space: KingNish/OpenGPT-4o (开源 GPT-4o 交互式 Demo)",
+  "hook_zh": "基于 Gradio 的开源 AI 交互 Demo，体验类似 GPT-4o 的全模态与多模态交互能力。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.267929"
 }

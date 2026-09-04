@@ -33,5 +33,97 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49553303",
-  "article_url": "https://smallrun.net/blog/loud/usbsid-pico-sids-on-usb"
+  "article_url": "https://smallrun.net/blog/loud/usbsid-pico-sids-on-usb",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_usbsid_pico_bridging_real_commodo",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Embedded Systems",
+    "category": "Hardware & Retro Computing",
+    "programming_lang": "C/C++",
+    "root_keywords": [
+      "Commodore 64",
+      "SID Chip",
+      "Raspberry Pi Pico",
+      "USB Audio",
+      "Retro Hardware"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.2,
+    "multilingual": {
+      "ko": {
+        "title": "Usbsid-Pico: 실제 코모도어 64 음원을 현대 USB로 연결하기",
+        "hook": "라즈베리 파이 피코를 활용하여 클래식 C64 SID 사운드 칩을 현대 PC의 USB 오디오 기기로 연결하는 하드웨어 프로젝트",
+        "key_takeaways": [
+          "실제 Commodore 64 SID(Sound Interface Device) 실리콘 칩을 USB 인터페이스로 전환",
+          "Raspberry Pi Pico를 컨트롤러로 사용하여 정밀한 타이밍 제어 및 USB 오디오 스트리밍 구현",
+          "소프트웨어 에뮬레이션이 아닌 실제 레트로 하드웨어 음원을 현대 음악 제작 환경에 통합 가능"
+        ]
+      },
+      "en": {
+        "title": "Usbsid-Pico: Bridging Real Commodore 64 Sound to Modern USB",
+        "hook": "A hardware project using Raspberry Pi Pico to connect real C64 SID sound chips to modern computers via USB audio.",
+        "key_takeaways": [
+          "Interfaces real Commodore 64 SID hardware chips with modern systems over USB.",
+          "Utilizes Raspberry Pi Pico for low-latency cycle-exact control and audio streaming.",
+          "Brings authentic retro chiptune audio directly into contemporary digital audio workstations."
+        ]
+      },
+      "zh": {
+        "title": "Usbsid-Pico：将真实 Commodore 64 音频芯片连接至现代 USB",
+        "hook": "利用 Raspberry Pi Pico 将经典 C64 SID 声音芯片转换为现代电脑 USB 音频设备",
+        "key_takeaways": [
+          "将真实的 Commodore 64 SID 硬件芯片通过 USB 接口与现代系统连接",
+          "使用 Raspberry Pi Pico 实现低延迟的时序精确控制和 USB 音频流传输",
+          "无需模拟器即可将原汁原味的复古 Chiptune 音频融入现代数字音乐制作环境"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Usbsid-Pico: 실제 코모도어 64 음원을 현대 USB로 연결하기",
+      "hook": "라즈베리 파이 피코를 활용하여 클래식 C64 SID 사운드 칩을 현대 PC의 USB 오디오 기기로 연결하는 하드웨어 프로젝트",
+      "key_takeaways": [
+        "실제 Commodore 64 SID(Sound Interface Device) 실리콘 칩을 USB 인터페이스로 전환",
+        "Raspberry Pi Pico를 컨트롤러로 사용하여 정밀한 타이밍 제어 및 USB 오디오 스트리밍 구현",
+        "소프트웨어 에뮬레이션이 아닌 실제 레트로 하드웨어 음원을 현대 음악 제작 환경에 통합 가능"
+      ]
+    },
+    "en": {
+      "title": "Usbsid-Pico: Bridging Real Commodore 64 Sound to Modern USB",
+      "hook": "A hardware project using Raspberry Pi Pico to connect real C64 SID sound chips to modern computers via USB audio.",
+      "key_takeaways": [
+        "Interfaces real Commodore 64 SID hardware chips with modern systems over USB.",
+        "Utilizes Raspberry Pi Pico for low-latency cycle-exact control and audio streaming.",
+        "Brings authentic retro chiptune audio directly into contemporary digital audio workstations."
+      ]
+    },
+    "zh": {
+      "title": "Usbsid-Pico：将真实 Commodore 64 音频芯片连接至现代 USB",
+      "hook": "利用 Raspberry Pi Pico 将经典 C64 SID 声音芯片转换为现代电脑 USB 音频设备",
+      "key_takeaways": [
+        "将真实的 Commodore 64 SID 硬件芯片通过 USB 接口与现代系统连接",
+        "使用 Raspberry Pi Pico 实现低延迟的时序精确控制和 USB 音频流传输",
+        "无需模拟器即可将原汁原味的复古 Chiptune 音频融入现代数字音乐制作环境"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "C/C++",
+  "root_keywords": [
+    "Commodore 64",
+    "SID Chip",
+    "Raspberry Pi Pico",
+    "USB Audio",
+    "Retro Hardware"
+  ],
+  "title_ko": "Usbsid-Pico: 실제 코모도어 64 음원을 현대 USB로 연결하기",
+  "hook_ko": "라즈베리 파이 피코를 활용하여 클래식 C64 SID 사운드 칩을 현대 PC의 USB 오디오 기기로 연결하는 하드웨어 프로젝트",
+  "title_en": "Usbsid-Pico: Bridging Real Commodore 64 Sound to Modern USB",
+  "hook_en": "A hardware project using Raspberry Pi Pico to connect real C64 SID sound chips to modern computers via USB audio.",
+  "title_zh": "Usbsid-Pico：将真实 Commodore 64 音频芯片连接至现代 USB",
+  "hook_zh": "利用 Raspberry Pi Pico 将经典 C64 SID 声音芯片转换为现代电脑 USB 音频设备",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.422571"
 }

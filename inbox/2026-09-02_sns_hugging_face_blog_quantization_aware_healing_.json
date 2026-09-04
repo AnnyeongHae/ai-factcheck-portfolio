@@ -35,65 +35,98 @@
     "id": "2026-09-02_sns_hugging_face_blog_quantization_aware_healing_",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "모델 경량화 및 양자화",
+    "model_family": "LLM Compression / Quantization",
+    "category": "Model Compression & Optimization",
     "programming_lang": "Python",
     "root_keywords": [
       "Quantization-Aware Healing",
       "4-bit Quantization",
-      "Model Compression"
+      "Model Compression",
+      "LLM Optimization",
+      "Performance Recovery"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.9,
+    "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "양자화 인식 힐링(QAH): 원본 고정밀 모델을 뛰어넘는 압축된 4비트 모델",
-        "hook": "손실 없는 양자화를 넘어 원본의 성능마저 뛰어넘는 혁신적인 모델 압축 기법을 만나보세요.",
+        "title": "양자화 인식 치유(Quantization-Aware Healing): 원본 전정밀도 모델을 능가하는 4비트 압축 모델",
+        "hook": "양자화 과정에서 발생하는 오차를 복구하여 4비트 압축 모델이 원본 전정밀도(FP16/FP32) 모델 성능을 상회하게 만드는 혁신 기법",
         "key_takeaways": [
-          "Quantization-Aware Healing(QAH)의 핵심 원리 및 작동 방식",
-          "4비트 압축 모델이 원본 풀프리시전 모델을 능가하는 이유",
-          "온디바이스 AI 구현을 위한 고효율 모델 최적화 전략"
+          "4비트 양자화 손실을 사후 복구하는 'Healing' 메커니즘을 적용하여 양자화 열화 극복",
+          "메모리 절감뿐만 아니라 주요 벤치마크에서 원본 모델보다 우수한 성능 기록",
+          "LLM 추론 비용과 VRAM 요구량을 획기적으로 낮추면서도 모델 정확도를 높이는 새로운 가능성 제시"
         ]
       },
       "en": {
         "title": "Quantization-Aware Healing: A Compressed 4-bit Model That Outperforms Its Full-Precision Original",
-        "hook": "Discover a groundbreaking model compression technique where a 4-bit model surpasses its original full-precision counterpart.",
+        "hook": "A breakthrough quantization method that heals compression errors, enabling a 4-bit LLM to surpass its full-precision baseline.",
         "key_takeaways": [
-          "Core principles and mechanisms of Quantization-Aware Healing (QAH)",
-          "Why a 4-bit compressed model can outperform the original full-precision model",
-          "High-efficiency model optimization strategies for on-device AI implementation"
+          "Introduces a post-quantization 'healing' technique that actively mitigates error degradation caused by 4-bit compression.",
+          "Outperforms the original full-precision model across benchmark tests despite drastic memory reduction.",
+          "Dramatically lowers VRAM usage and inference latency while simultaneously boosting accuracy."
         ]
       },
       "zh": {
-        "title": "量化感知修复 (QAH)：超越全精度原型的压缩 4 位模型",
-        "hook": "探索颠覆性的模型压缩技术，了解 4 位量化模型如何展现出超越全精度原型的性能。",
+        "title": "量化感知修复（Quantization-Aware Healing）：超越全精度原始模型的 4-bit 压缩模型",
+        "hook": "通过主动修复量化误差，使 4-bit 极低精度压缩模型的性能全面超越原始全精度模型。",
         "key_takeaways": [
-          "量化感知修复 (QAH) 的核心原理与工作机制",
-          "4 位压缩模型超越原始全精度模型的底层原因",
-          "面向端侧 AI 实现的高效模型优化策略"
+          "引入量化后‘修复’（Healing）机制，有效弥补 4-bit 压缩过程中的信息损失。",
+          "在大幅降低显存和内存占用的同时，在多个基准测试中取得了超越全精度基线的成绩。",
+          "为降低 LLM 推理成本与部署门槛提供了突破性的优化思路。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:47:41.731108+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Quantization-Aware Healing",
     "4-bit Quantization",
-    "Model Compression"
+    "Model Compression",
+    "LLM Optimization",
+    "Performance Recovery"
   ],
   "hook": "손실 없는 양자화를 넘어 원본의 성능마저 뛰어넘는 혁신적인 모델 압축 기법을 만나보세요.",
-  "title_ko": "양자화 인식 힐링(QAH): 원본 고정밀 모델을 뛰어넘는 압축된 4비트 모델",
+  "title_ko": "양자화 인식 치유(Quantization-Aware Healing): 원본 전정밀도 모델을 능가하는 4비트 압축 모델",
   "description_ko": "손실 없는 양자화를 넘어 원본의 성능마저 뛰어넘는 혁신적인 모델 압축 기법을 만나보세요.",
   "title_en": "Quantization-Aware Healing: A Compressed 4-bit Model That Outperforms Its Full-Precision Original",
-  "title_zh": "量化感知修复 (QAH)：超越全精度原型的压缩 4 位模型",
-  "hook_ko": "손실 없는 양자화를 넘어 원본의 성능마저 뛰어넘는 혁신적인 모델 압축 기법을 만나보세요.",
-  "hook_en": "Discover a groundbreaking model compression technique where a 4-bit model surpasses its original full-precision counterpart.",
-  "hook_zh": "探索颠覆性的模型压缩技术，了解 4 位量化模型如何展现出超越全精度原型的性能。",
+  "title_zh": "量化感知修复（Quantization-Aware Healing）：超越全精度原始模型的 4-bit 压缩模型",
+  "hook_ko": "양자화 과정에서 발생하는 오차를 복구하여 4비트 압축 모델이 원본 전정밀도(FP16/FP32) 모델 성능을 상회하게 만드는 혁신 기법",
+  "hook_en": "A breakthrough quantization method that heals compression errors, enabling a 4-bit LLM to surpass its full-precision baseline.",
+  "hook_zh": "通过主动修复量化误差，使 4-bit 极低精度压缩模型的性能全面超越原始全精度模型。",
   "description_en": "Discover a groundbreaking model compression technique where a 4-bit model surpasses its original full-precision counterpart.",
   "description_zh": "探索颠覆性的模型压缩技术，了解 4 位量化模型如何展现出超越全精度原型的性能。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "양자화 인식 치유(Quantization-Aware Healing): 원본 전정밀도 모델을 능가하는 4비트 압축 모델",
+      "hook": "양자화 과정에서 발생하는 오차를 복구하여 4비트 압축 모델이 원본 전정밀도(FP16/FP32) 모델 성능을 상회하게 만드는 혁신 기법",
+      "key_takeaways": [
+        "4비트 양자화 손실을 사후 복구하는 'Healing' 메커니즘을 적용하여 양자화 열화 극복",
+        "메모리 절감뿐만 아니라 주요 벤치마크에서 원본 모델보다 우수한 성능 기록",
+        "LLM 추론 비용과 VRAM 요구량을 획기적으로 낮추면서도 모델 정확도를 높이는 새로운 가능성 제시"
+      ]
+    },
+    "en": {
+      "title": "Quantization-Aware Healing: A Compressed 4-bit Model That Outperforms Its Full-Precision Original",
+      "hook": "A breakthrough quantization method that heals compression errors, enabling a 4-bit LLM to surpass its full-precision baseline.",
+      "key_takeaways": [
+        "Introduces a post-quantization 'healing' technique that actively mitigates error degradation caused by 4-bit compression.",
+        "Outperforms the original full-precision model across benchmark tests despite drastic memory reduction.",
+        "Dramatically lowers VRAM usage and inference latency while simultaneously boosting accuracy."
+      ]
+    },
+    "zh": {
+      "title": "量化感知修复（Quantization-Aware Healing）：超越全精度原始模型的 4-bit 压缩模型",
+      "hook": "通过主动修复量化误差，使 4-bit 极低精度压缩模型的性能全面超越原始全精度模型。",
+      "key_takeaways": [
+        "引入量化后‘修复’（Healing）机制，有效弥补 4-bit 压缩过程中的信息损失。",
+        "在大幅降低显存和内存占用的同时，在多个基准测试中取得了超越全精度基线的成绩。",
+        "为降低 LLM 推理成本与部署门槛提供了突破性的优化思路。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.140313"
 }

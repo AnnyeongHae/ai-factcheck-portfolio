@@ -32,8 +32,99 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "ChatGPT 페이지에서 404 오류 발생",
+  "title_ko": "ChatGPT 웹 페이지에서 404 오류 발생 현상",
   "description_ko": "ChatGPT 페이지에서 404 오류 발생",
   "hn_url": "https://news.hada.io/topic?id=33195",
-  "article_url": "https://news.hada.io/topic?id=33195"
+  "article_url": "https://news.hada.io/topic?id=33195",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_geeknews_chatgpt_페이지에서_404_오류_발생",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "ChatGPT",
+    "category": "Web & Mobile",
+    "programming_lang": "General",
+    "root_keywords": [
+      "ChatGPT",
+      "404 Error",
+      "OpenAI",
+      "Service Outage",
+      "Web Routing"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.5,
+    "multilingual": {
+      "ko": {
+        "title": "ChatGPT 웹 페이지에서 404 오류 발생 현상",
+        "hook": "OpenAI의 ChatGPT 서비스 특정 경로 접근 시 404 Not Found 에러 발생 이슈 공유",
+        "key_takeaways": [
+          "ChatGPT 웹 인터페이스의 특정 엔드포인트에서 404 오류가 발생하는 일시적 현상이 공유됨",
+          "라우팅 설정 오류 또는 프론트엔드 배포 과정 중의 불일치 가능성이 제기됨",
+          "대규모 웹 서비스 배포 시 가용성 및 모니터링의 중요성을 시사함"
+        ]
+      },
+      "en": {
+        "title": "404 Error Occurred on ChatGPT Page",
+        "hook": "Reports on 404 Not Found errors occurring when accessing specific ChatGPT routes",
+        "key_takeaways": [
+          "Reports surfaced regarding temporary 404 Not Found errors on specific ChatGPT web interface endpoints",
+          "Discussions point toward potential web routing misconfigurations or frontend deployment synchronization issues",
+          "Highlights the importance of frontend deployment monitoring for high-traffic AI services"
+        ]
+      },
+      "zh": {
+        "title": "ChatGPT 网页出现 404 错误",
+        "hook": "关于访问 ChatGPT 网页特定路由时出现 404 Not Found 错误的事件",
+        "key_takeaways": [
+          "社区反馈 ChatGPT 网页界面的特定端点出现了 404 Not Found 错误",
+          "推测可能与前端路由配置失误或部署同步过程中的不一致有关",
+          "反映了大流量 AI 服务在前端部署与监控方面的稳定性要求"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "ChatGPT 웹 페이지에서 404 오류 발생 현상",
+      "hook": "OpenAI의 ChatGPT 서비스 특정 경로 접근 시 404 Not Found 에러 발생 이슈 공유",
+      "key_takeaways": [
+        "ChatGPT 웹 인터페이스의 특정 엔드포인트에서 404 오류가 발생하는 일시적 현상이 공유됨",
+        "라우팅 설정 오류 또는 프론트엔드 배포 과정 중의 불일치 가능성이 제기됨",
+        "대규모 웹 서비스 배포 시 가용성 및 모니터링의 중요성을 시사함"
+      ]
+    },
+    "en": {
+      "title": "404 Error Occurred on ChatGPT Page",
+      "hook": "Reports on 404 Not Found errors occurring when accessing specific ChatGPT routes",
+      "key_takeaways": [
+        "Reports surfaced regarding temporary 404 Not Found errors on specific ChatGPT web interface endpoints",
+        "Discussions point toward potential web routing misconfigurations or frontend deployment synchronization issues",
+        "Highlights the importance of frontend deployment monitoring for high-traffic AI services"
+      ]
+    },
+    "zh": {
+      "title": "ChatGPT 网页出现 404 错误",
+      "hook": "关于访问 ChatGPT 网页特定路由时出现 404 Not Found 错误的事件",
+      "key_takeaways": [
+        "社区反馈 ChatGPT 网页界面的特定端点出现了 404 Not Found 错误",
+        "推测可能与前端路由配置失误或部署同步过程中的不一致有关",
+        "反映了大流量 AI 服务在前端部署与监控方面的稳定性要求"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "ChatGPT",
+    "404 Error",
+    "OpenAI",
+    "Service Outage",
+    "Web Routing"
+  ],
+  "hook_ko": "OpenAI의 ChatGPT 서비스 특정 경로 접근 시 404 Not Found 에러 발생 이슈 공유",
+  "title_en": "404 Error Occurred on ChatGPT Page",
+  "hook_en": "Reports on 404 Not Found errors occurring when accessing specific ChatGPT routes",
+  "title_zh": "ChatGPT 网页出现 404 错误",
+  "hook_zh": "关于访问 ChatGPT 网页特定路由时出现 404 Not Found 错误的事件",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.318838"
 }

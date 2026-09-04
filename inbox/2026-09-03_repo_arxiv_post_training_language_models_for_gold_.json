@@ -34,65 +34,98 @@
     "id": "2026-09-03_repo_arxiv_post_training_language_models_for_gold_",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "코드 생성 및 추론 최적화",
-    "programming_lang": "Python",
+    "model_family": "LLM Post-Training",
+    "category": "AI / Code Generation",
+    "programming_lang": "General",
     "root_keywords": [
       "Competitive Programming",
       "Post-Training",
-      "Reasoning"
+      "LLM Reasoning",
+      "IOI/ICPC",
+      "Reinforcement Learning"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.8,
     "multilingual": {
       "ko": {
-        "title": "코딩 경진대회 금메달을 위한 언어 모델 사후 학습 전략",
-        "hook": "IOI 및 ICPC 등 최고난도 코딩 경진대회에서 금메달급 성능을 달성하는 엔드투엔드 사후 학습 방법론을 공개합니다.",
+        "title": "경진 프로그래밍 금메달 달성을 위한 거대 언어 모델 사후 학습 기술",
+        "hook": "IOI 및 ICPC 최고 난이도 경진 프로그래밍 문제를 해결하기 위한 LLM 추론 극대화 사후 학습 파이프라인",
         "key_takeaways": [
-          "대규모 언어 모델의 추론 능력 극한 테스트",
-          "고난도 코딩 문제를 위한 엔드투엔드 사후 학습 파이프라인 제시",
-          "실제 경진대회 수준의 알고리즘 문제 해결 성능 검증"
+          "IOI 및 ICPC 수준의 고난도 알고리즘 문제를 해결하기 위한 엔드투엔드 사후 학습(Post-Training) 파이프라인 제시",
+          "강화학습(RL) 및 Supervised Fine-Tuning(SFT)을 결합해 복잡한 추론 및 알고리즘 생성 능력 최적화",
+          "경쟁 프로그래밍 벤치마크에서 인간 최상위 득점자에 필적하는 금메달급 성능 달성"
         ]
       },
       "en": {
         "title": "Post-Training Language Models for Gold-Medal Performance in Coding Competitions",
-        "hook": "Discover the end-to-end post-training methodology to achieve gold-medal-level reasoning in elite coding competitions like IOI and ICPC.",
+        "hook": "An end-to-end post-training framework optimizing LLM reasoning for gold-medal performance in IOI and ICPC competitions.",
         "key_takeaways": [
-          "Pushing the boundaries of LLM reasoning in competitive programming",
-          "Comprehensive end-to-end post-training framework for coding tasks",
-          "Substantial performance gains on world-class algorithmic benchmarks"
+          "Presents an end-to-end post-training pipeline tailored for high-level competitive programming.",
+          "Leverages advanced RL and SFT strategies to boost complex algorithmic reasoning and solution generation.",
+          "Demonstrates benchmark performance capable of achieving gold-medal standard results in IOI and ICPC."
         ]
       },
       "zh": {
-        "title": "面向编程竞赛夺金表现的语言模型后训练策略",
-        "hook": "揭秘如何在IOI和ICPC等顶级编程竞赛中，通过端到端后训练让大模型实现金牌级别的复杂推理能力。",
+        "title": "针对竞赛编程金牌表现的语言模型后训练技术",
+        "hook": "旨在通过端到端后训练优化 LLM 推理能力，以在 IOI 和 ICPC 等顶尖编程竞赛中达到金牌水平。",
         "key_takeaways": [
-          "探索大模型在竞技编程推理极限中的表现",
-          "提出针对代码任务的端到端后训练流水线",
-          "验证了模型在世界级算法基准测试中的突破性提升"
+          "提出了针对高难度算法竞赛（如 IOI 和 ICPC）的端到端后训练（Post-Training） pipeline。",
+          "结合强化学习与精细化 SFT，大幅提升复杂算法推导与代码生成能力。",
+          "在竞争性编程基准测试中展现出达到金牌级别的强悍推理性能。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:15:15.837672+00:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
     "Competitive Programming",
     "Post-Training",
-    "Reasoning"
+    "LLM Reasoning",
+    "IOI/ICPC",
+    "Reinforcement Learning"
   ],
-  "title_ko": "코딩 경진대회 금메달을 위한 언어 모델 사후 학습 전략",
+  "title_ko": "경진 프로그래밍 금메달 달성을 위한 거대 언어 모델 사후 학습 기술",
   "title_en": "Post-Training Language Models for Gold-Medal Performance in Coding Competitions",
-  "title_zh": "面向编程竞赛夺金表现的语言模型后训练策略",
+  "title_zh": "针对竞赛编程金牌表现的语言模型后训练技术",
   "hook": "IOI 및 ICPC 등 최고난도 코딩 경진대회에서 금메달급 성능을 달성하는 엔드투엔드 사후 학습 방법론을 공개합니다.",
-  "hook_ko": "IOI 및 ICPC 등 최고난도 코딩 경진대회에서 금메달급 성능을 달성하는 엔드투엔드 사후 학습 방법론을 공개합니다.",
-  "hook_en": "Discover the end-to-end post-training methodology to achieve gold-medal-level reasoning in elite coding competitions like IOI and ICPC.",
-  "hook_zh": "揭秘如何在IOI和ICPC等顶级编程竞赛中，通过端到端后训练让大模型实现金牌级别的复杂推理能力。",
+  "hook_ko": "IOI 및 ICPC 최고 난이도 경진 프로그래밍 문제를 해결하기 위한 LLM 추론 극대화 사후 학습 파이프라인",
+  "hook_en": "An end-to-end post-training framework optimizing LLM reasoning for gold-medal performance in IOI and ICPC competitions.",
+  "hook_zh": "旨在通过端到端后训练优化 LLM 推理能力，以在 IOI 和 ICPC 等顶尖编程竞赛中达到金牌水平。",
   "description_ko": "IOI 및 ICPC 등 최고난도 코딩 경진대회에서 금메달급 성능을 달성하는 엔드투엔드 사후 학습 방법론을 공개합니다.",
   "description_en": "Discover the end-to-end post-training methodology to achieve gold-medal-level reasoning in elite coding competitions like IOI and ICPC.",
   "description_zh": "揭秘如何在IOI和ICPC等顶级编程竞赛中，通过端到端后训练让大模型实现金牌级别的复杂推理能力。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "경진 프로그래밍 금메달 달성을 위한 거대 언어 모델 사후 학습 기술",
+      "hook": "IOI 및 ICPC 최고 난이도 경진 프로그래밍 문제를 해결하기 위한 LLM 추론 극대화 사후 학습 파이프라인",
+      "key_takeaways": [
+        "IOI 및 ICPC 수준의 고난도 알고리즘 문제를 해결하기 위한 엔드투엔드 사후 학습(Post-Training) 파이프라인 제시",
+        "강화학습(RL) 및 Supervised Fine-Tuning(SFT)을 결합해 복잡한 추론 및 알고리즘 생성 능력 최적화",
+        "경쟁 프로그래밍 벤치마크에서 인간 최상위 득점자에 필적하는 금메달급 성능 달성"
+      ]
+    },
+    "en": {
+      "title": "Post-Training Language Models for Gold-Medal Performance in Coding Competitions",
+      "hook": "An end-to-end post-training framework optimizing LLM reasoning for gold-medal performance in IOI and ICPC competitions.",
+      "key_takeaways": [
+        "Presents an end-to-end post-training pipeline tailored for high-level competitive programming.",
+        "Leverages advanced RL and SFT strategies to boost complex algorithmic reasoning and solution generation.",
+        "Demonstrates benchmark performance capable of achieving gold-medal standard results in IOI and ICPC."
+      ]
+    },
+    "zh": {
+      "title": "针对竞赛编程金牌表现的语言模型后训练技术",
+      "hook": "旨在通过端到端后训练优化 LLM 推理能力，以在 IOI 和 ICPC 等顶尖编程竞赛中达到金牌水平。",
+      "key_takeaways": [
+        "提出了针对高难度算法竞赛（如 IOI 和 ICPC）的端到端后训练（Post-Training） pipeline。",
+        "结合强化学习与精细化 SFT，大幅提升复杂算法推导与代码生成能力。",
+        "在竞争性编程基准测试中展现出达到金牌级别的强悍推理性能。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.195255"
 }

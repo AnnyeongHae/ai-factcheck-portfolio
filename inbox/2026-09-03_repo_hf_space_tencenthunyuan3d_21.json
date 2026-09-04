@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_tencenthunyuan3d_21",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Hunyuan3D",
+    "category": "3D Generation",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Hunyuan3D",
+      "3D Generation",
+      "Text-to-3D",
+      "Image-to-3D",
+      "Gradio"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "텐센트 Hunyuan3D-2.1 대화형 3D 생성 데모",
+        "hook": "고품질 3D 자산을 이미지 및 텍스트에서 신속하게 생성하는 텐센트의 Hunyuan3D 2.1 대화형 데모",
+        "key_takeaways": [
+          "텍스트 및 단일 이미지 입력 기반의 고품질 3D 메쉬 및 텍스처 생성 지원",
+          "Gradio SDK를 이용한 간편한 웹 대화형 인퍼런스 인터페이스 제공",
+          "이전 버전 대비 향상된 기하학적 정밀도 및 디테일한 렌더링 품질"
+        ]
+      },
+      "en": {
+        "title": "Tencent Hunyuan3D-2.1 Interactive 3D Generation Demo",
+        "hook": "Tencent's interactive Hunyuan3D 2.1 demo for fast, high-fidelity 3D asset generation from text and image prompts.",
+        "key_takeaways": [
+          "Generates high-quality 3D meshes and textures from text or single image inputs",
+          "Interactive web inference powered by the Gradio SDK",
+          "Improved geometric accuracy and rendering quality compared to previous versions"
+        ]
+      },
+      "zh": {
+        "title": "腾讯 Hunyuan3D-2.1 交互式 3D 生成 Demo",
+        "hook": "腾讯 Hunyuan3D 2.1 交互式演示，支持通过文本与图像快速生成高保真 3D 资产",
+        "key_takeaways": [
+          "支持基于文本和单张图像生成高质量 3D 网格与纹理",
+          "基于 Gradio SDK 构建的高效交互式推理界面",
+          "相比前代显著提升了几何精度与渲染质量"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "텐센트 Hunyuan3D-2.1 대화형 3D 생성 데모",
+      "hook": "고품질 3D 자산을 이미지 및 텍스트에서 신속하게 생성하는 텐센트의 Hunyuan3D 2.1 대화형 데모",
+      "key_takeaways": [
+        "텍스트 및 단일 이미지 입력 기반의 고품질 3D 메쉬 및 텍스처 생성 지원",
+        "Gradio SDK를 이용한 간편한 웹 대화형 인퍼런스 인터페이스 제공",
+        "이전 버전 대비 향상된 기하학적 정밀도 및 디테일한 렌더링 품질"
+      ]
+    },
+    "en": {
+      "title": "Tencent Hunyuan3D-2.1 Interactive 3D Generation Demo",
+      "hook": "Tencent's interactive Hunyuan3D 2.1 demo for fast, high-fidelity 3D asset generation from text and image prompts.",
+      "key_takeaways": [
+        "Generates high-quality 3D meshes and textures from text or single image inputs",
+        "Interactive web inference powered by the Gradio SDK",
+        "Improved geometric accuracy and rendering quality compared to previous versions"
+      ]
+    },
+    "zh": {
+      "title": "腾讯 Hunyuan3D-2.1 交互式 3D 生成 Demo",
+      "hook": "腾讯 Hunyuan3D 2.1 交互式演示，支持通过文本与图像快速生成高保真 3D 资产",
+      "key_takeaways": [
+        "支持基于文本和单张图像生成高质量 3D 网格与纹理",
+        "基于 Gradio SDK 构建的高效交互式推理界面",
+        "相比前代显著提升了几何精度与渲染质量"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Hunyuan3D",
+    "3D Generation",
+    "Text-to-3D",
+    "Image-to-3D",
+    "Gradio"
+  ],
+  "title_ko": "텐센트 Hunyuan3D-2.1 대화형 3D 생성 데모",
+  "hook_ko": "고품질 3D 자산을 이미지 및 텍스트에서 신속하게 생성하는 텐센트의 Hunyuan3D 2.1 대화형 데모",
+  "title_en": "Tencent Hunyuan3D-2.1 Interactive 3D Generation Demo",
+  "hook_en": "Tencent's interactive Hunyuan3D 2.1 demo for fast, high-fidelity 3D asset generation from text and image prompts.",
+  "title_zh": "腾讯 Hunyuan3D-2.1 交互式 3D 生成 Demo",
+  "hook_zh": "腾讯 Hunyuan3D 2.1 交互式演示，支持通过文本与图像快速生成高保真 3D 资产",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.303963"
 }

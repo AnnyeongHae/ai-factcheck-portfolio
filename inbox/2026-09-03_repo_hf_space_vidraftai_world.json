@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_vidraftai_world",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Multimodal Generative AI",
+    "category": "Generative AI",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "VIDraft",
+      "Interactive AI",
+      "World Generation",
+      "Hugging Face Spaces",
+      "Docker SDK"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "HF Space: VIDraft/ai-world - 상호작용형 AI 월드 데모",
+        "hook": "Docker SDK 기반으로 구동되는 상호작용형 AI 월드 생성 및 시뮬레이션 데모",
+        "key_takeaways": [
+          "Docker SDK를 활용한 자유도 높은 Hugging Face Space 커스텀 배포 환경 구축",
+          "인공지능 기반의 상호작용형 가상 월드 생성 및 미디어 시뮬레이션 제공",
+          "VIDraft 프레임워크 생태계 내에서의 실시간 인터랙션 데모 검증"
+        ]
+      },
+      "en": {
+        "title": "HF Space: VIDraft/ai-world - Interactive AI World Demo",
+        "hook": "An interactive AI world generation and simulation demo built using Docker SDK on Hugging Face Spaces",
+        "key_takeaways": [
+          "Custom deployment environment built using Docker SDK on Hugging Face Spaces",
+          "Interactive framework for exploring and simulating AI-generated virtual worlds",
+          "Hands-on demonstration of VIDraft's generative world framework"
+        ]
+      },
+      "zh": {
+        "title": "HF Space: VIDraft/ai-world - 交互式 AI 世界演示",
+        "hook": "基于 Docker SDK 构建在 Hugging Face Spaces 上的交互式 AI 世界生成与模拟演示",
+        "key_takeaways": [
+          "利用 Docker SDK 在 Hugging Face Spaces 上构建的高自由度自定义部署环境",
+          "用于探索和模拟 AI 生成虚拟世界的交互式界面",
+          "VIDraft 框架下生成式媒体与虚拟场景的实时演示"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: VIDraft/ai-world - 상호작용형 AI 월드 데모",
+      "hook": "Docker SDK 기반으로 구동되는 상호작용형 AI 월드 생성 및 시뮬레이션 데모",
+      "key_takeaways": [
+        "Docker SDK를 활용한 자유도 높은 Hugging Face Space 커스텀 배포 환경 구축",
+        "인공지능 기반의 상호작용형 가상 월드 생성 및 미디어 시뮬레이션 제공",
+        "VIDraft 프레임워크 생태계 내에서의 실시간 인터랙션 데모 검증"
+      ]
+    },
+    "en": {
+      "title": "HF Space: VIDraft/ai-world - Interactive AI World Demo",
+      "hook": "An interactive AI world generation and simulation demo built using Docker SDK on Hugging Face Spaces",
+      "key_takeaways": [
+        "Custom deployment environment built using Docker SDK on Hugging Face Spaces",
+        "Interactive framework for exploring and simulating AI-generated virtual worlds",
+        "Hands-on demonstration of VIDraft's generative world framework"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: VIDraft/ai-world - 交互式 AI 世界演示",
+      "hook": "基于 Docker SDK 构建在 Hugging Face Spaces 上的交互式 AI 世界生成与模拟演示",
+      "key_takeaways": [
+        "利用 Docker SDK 在 Hugging Face Spaces 上构建的高自由度自定义部署环境",
+        "用于探索和模拟 AI 生成虚拟世界的交互式界面",
+        "VIDraft 框架下生成式媒体与虚拟场景的实时演示"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "VIDraft",
+    "Interactive AI",
+    "World Generation",
+    "Hugging Face Spaces",
+    "Docker SDK"
+  ],
+  "title_ko": "HF Space: VIDraft/ai-world - 상호작용형 AI 월드 데모",
+  "hook_ko": "Docker SDK 기반으로 구동되는 상호작용형 AI 월드 생성 및 시뮬레이션 데모",
+  "title_en": "HF Space: VIDraft/ai-world - Interactive AI World Demo",
+  "hook_en": "An interactive AI world generation and simulation demo built using Docker SDK on Hugging Face Spaces",
+  "title_zh": "HF Space: VIDraft/ai-world - 交互式 AI 世界演示",
+  "hook_zh": "基于 Docker SDK 构建在 Hugging Face Spaces 上的交互式 AI 世界生成与模拟演示",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.305542"
 }

@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_akhaliqanycoder",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Code LLM",
+    "category": "Code Generation",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "AnyCoder",
+      "Code LLM",
+      "Hugging Face Spaces",
+      "Code Generation",
+      "Docker SDK"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "Hugging Face Space: AnyCoder (대화형 코드 생성 AI 데모)",
+        "hook": "자연어 프롬프트를 바탕으로 코드를 자동 생성 및 평가할 수 있는 대화형 코드 AI 데모",
+        "key_takeaways": [
+          "3,300개 이상의 Like를 받은 Hugging Face의 인기 코드 생성 AI 프로젝트",
+          "Docker SDK 기반 환경으로 구성되어 안전하고 격리된 코드 생성/실행 환경 데모 제공",
+          "다양한 프로그래밍 언어 및 개발 작업에 대한 자연어 기반 코드 생성 기능 제공"
+        ]
+      },
+      "en": {
+        "title": "HF Space: AnyCoder (Interactive Code Generation AI)",
+        "hook": "An interactive code-generation AI assistant demo executing code seamlessly via Docker.",
+        "key_takeaways": [
+          "Highly popular Hugging Face Space demo with over 3,300 likes",
+          "Leverages Docker SDK for isolated and secure code generation/execution environment",
+          "Generates multi-language code snippets and solutions from natural language prompts"
+        ]
+      },
+      "zh": {
+        "title": "Hugging Face Space: AnyCoder (交互式代码生成 AI 演示)",
+        "hook": "基于 Docker 容器的安全代码生成与实时交互式 AI 演示",
+        "key_takeaways": [
+          "获得超过 3300 个 Like 的热门 Hugging Face 代码生成 Space 演示",
+          "采用 Docker SDK 构筑隔离安全的代码生成与测试环境",
+          "支持通过自然语言指令实时生成并处理多语言编程代码"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Hugging Face Space: AnyCoder (대화형 코드 생성 AI 데모)",
+      "hook": "자연어 프롬프트를 바탕으로 코드를 자동 생성 및 평가할 수 있는 대화형 코드 AI 데모",
+      "key_takeaways": [
+        "3,300개 이상의 Like를 받은 Hugging Face의 인기 코드 생성 AI 프로젝트",
+        "Docker SDK 기반 환경으로 구성되어 안전하고 격리된 코드 생성/실행 환경 데모 제공",
+        "다양한 프로그래밍 언어 및 개발 작업에 대한 자연어 기반 코드 생성 기능 제공"
+      ]
+    },
+    "en": {
+      "title": "HF Space: AnyCoder (Interactive Code Generation AI)",
+      "hook": "An interactive code-generation AI assistant demo executing code seamlessly via Docker.",
+      "key_takeaways": [
+        "Highly popular Hugging Face Space demo with over 3,300 likes",
+        "Leverages Docker SDK for isolated and secure code generation/execution environment",
+        "Generates multi-language code snippets and solutions from natural language prompts"
+      ]
+    },
+    "zh": {
+      "title": "Hugging Face Space: AnyCoder (交互式代码生成 AI 演示)",
+      "hook": "基于 Docker 容器的安全代码生成与实时交互式 AI 演示",
+      "key_takeaways": [
+        "获得超过 3300 个 Like 的热门 Hugging Face 代码生成 Space 演示",
+        "采用 Docker SDK 构筑隔离安全的代码生成与测试环境",
+        "支持通过自然语言指令实时生成并处理多语言编程代码"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "AnyCoder",
+    "Code LLM",
+    "Hugging Face Spaces",
+    "Code Generation",
+    "Docker SDK"
+  ],
+  "title_ko": "Hugging Face Space: AnyCoder (대화형 코드 생성 AI 데모)",
+  "hook_ko": "자연어 프롬프트를 바탕으로 코드를 자동 생성 및 평가할 수 있는 대화형 코드 AI 데모",
+  "title_en": "HF Space: AnyCoder (Interactive Code Generation AI)",
+  "hook_en": "An interactive code-generation AI assistant demo executing code seamlessly via Docker.",
+  "title_zh": "Hugging Face Space: AnyCoder (交互式代码生成 AI 演示)",
+  "hook_zh": "基于 Docker 容器的安全代码生成与实时交互式 AI 演示",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.228008"
 }

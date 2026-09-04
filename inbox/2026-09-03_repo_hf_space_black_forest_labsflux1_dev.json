@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_black_forest_labsflux1_dev",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Diffusion Transformer",
+    "category": "Computer Vision / Image Generation",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "FLUX.1-dev",
+      "Text-to-Image",
+      "Diffusion Transformer",
+      "Gradio",
+      "Black Forest Labs"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.9,
+    "multilingual": {
+      "ko": {
+        "title": "Black Forest Labs FLUX.1-dev 데모 (Hugging Face Space)",
+        "hook": "최첨단 12B 파라미터 텍스트-투-이미지 디퓨전 트랜스포머 모델의 실시간 대화형 데모",
+        "key_takeaways": [
+          "Black Forest Labs의 고성능 FLUX.1 [dev] 모델을 Gradio 웹 UI로 직접 체험 가능",
+          "120억 개의 파라미터를 활용한 뛰어난 프롬프트 준수율 및 시각적 품질 제공",
+          "비상업적 연구 및 개발 목적으로 무료 테스트 환경 제공"
+        ]
+      },
+      "en": {
+        "title": "Black Forest Labs FLUX.1-dev Interactive Demo (HF Spaces)",
+        "hook": "Interactive demo for the state-of-the-art 12B parameter text-to-image Diffusion Transformer.",
+        "key_takeaways": [
+          "Directly test Black Forest Labs' high-performance FLUX.1 [dev] model via Gradio web UI.",
+          "Delivers exceptional prompt adherence and visual quality powered by 12B parameters.",
+          "Provides a free sandbox environment for non-commercial research and development."
+        ]
+      },
+      "zh": {
+        "title": "Black Forest Labs FLUX.1-dev 交互式 Demo (Hugging Face Space)",
+        "hook": "SOTA 级 120 亿参数文本生成图像扩散 Transformer 模型的实时在线体验",
+        "key_takeaways": [
+          "通过 Gradio Web UI 直接体验 Black Forest Labs 的高性能 FLUX.1 [dev] 模型",
+          "基于 120 亿参数架构，展现极高的 Prompt 遵循度与高画质图像生成能力",
+          "为非商业研究与开发提供免费在线测试环境"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Black Forest Labs FLUX.1-dev 데모 (Hugging Face Space)",
+      "hook": "최첨단 12B 파라미터 텍스트-투-이미지 디퓨전 트랜스포머 모델의 실시간 대화형 데모",
+      "key_takeaways": [
+        "Black Forest Labs의 고성능 FLUX.1 [dev] 모델을 Gradio 웹 UI로 직접 체험 가능",
+        "120억 개의 파라미터를 활용한 뛰어난 프롬프트 준수율 및 시각적 품질 제공",
+        "비상업적 연구 및 개발 목적으로 무료 테스트 환경 제공"
+      ]
+    },
+    "en": {
+      "title": "Black Forest Labs FLUX.1-dev Interactive Demo (HF Spaces)",
+      "hook": "Interactive demo for the state-of-the-art 12B parameter text-to-image Diffusion Transformer.",
+      "key_takeaways": [
+        "Directly test Black Forest Labs' high-performance FLUX.1 [dev] model via Gradio web UI.",
+        "Delivers exceptional prompt adherence and visual quality powered by 12B parameters.",
+        "Provides a free sandbox environment for non-commercial research and development."
+      ]
+    },
+    "zh": {
+      "title": "Black Forest Labs FLUX.1-dev 交互式 Demo (Hugging Face Space)",
+      "hook": "SOTA 级 120 亿参数文本生成图像扩散 Transformer 模型的实时在线体验",
+      "key_takeaways": [
+        "通过 Gradio Web UI 直接体验 Black Forest Labs 的高性能 FLUX.1 [dev] 模型",
+        "基于 120 亿参数架构，展现极高的 Prompt 遵循度与高画质图像生成能力",
+        "为非商业研究与开发提供免费在线测试环境"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "FLUX.1-dev",
+    "Text-to-Image",
+    "Diffusion Transformer",
+    "Gradio",
+    "Black Forest Labs"
+  ],
+  "title_ko": "Black Forest Labs FLUX.1-dev 데모 (Hugging Face Space)",
+  "hook_ko": "최첨단 12B 파라미터 텍스트-투-이미지 디퓨전 트랜스포머 모델의 실시간 대화형 데모",
+  "title_en": "Black Forest Labs FLUX.1-dev Interactive Demo (HF Spaces)",
+  "hook_en": "Interactive demo for the state-of-the-art 12B parameter text-to-image Diffusion Transformer.",
+  "title_zh": "Black Forest Labs FLUX.1-dev 交互式 Demo (Hugging Face Space)",
+  "hook_zh": "SOTA 级 120 亿参数文本生成图像扩散 Transformer 模型的实时在线体验",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.234305"
 }

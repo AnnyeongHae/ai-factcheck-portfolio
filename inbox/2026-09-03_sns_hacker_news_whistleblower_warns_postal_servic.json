@@ -35,68 +35,99 @@
   "ai_enrichment": {
     "id": "2026-09-03_sns_hacker_news_whistleblower_warns_postal_servic",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "보안 및 공공 시스템",
+    "type_classification": "TECH",
+    "model_family": "Infrastructure Security",
+    "category": "Cybersecurity & Public Infrastructure",
     "programming_lang": "General",
     "root_keywords": [
       "Postal Service",
-      "Mail Ballot",
-      "Security Risk",
-      "Whistleblower"
+      "Mail Ballot System",
+      "Whistleblower",
+      "Infrastructure Security",
+      "System Vulnerabilities"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 2.5,
+    "worth_score": 3.5,
     "multilingual": {
       "ko": {
-        "title": "우정사업본부 우편 투표 시스템의 심각한 결함을 고발한 내부자 경고",
-        "hook": "공공 우편 투표 시스템의 보안 취약점과 시스템 결함에 대한 내부고발 이슈를 다룹니다.",
+        "title": "우체국 우편 투표 시스템의 치명적 결함을 경고한 내부 고발자",
+        "hook": "미국 우정청(USPS) 우편 투표 추적 및 처리 시스템의 구조적 결함과 신뢰성 문제 경고",
         "key_takeaways": [
-          "우편 투표 시스템 내 잠재적 치명적 결함 제기",
-          "공공 IT 인프라 및 선거 보안의 중요성",
-          "내부고발을 통한 시스템 신뢰성 논란"
+          "우정청 우편 투표 처리 인프라 전반의 추적 및 관리 부실 문제 제기",
+          "투표용지 유실 및 배송 지연을 유발할 수 있는 시스템적 허점 지적",
+          "대규모 공공 물류 및 정보 시스템에서 데이터 정합성과 감사 가능성 확보의 중요성 강조"
         ]
       },
       "en": {
-        "title": "Whistleblower Warns Postal Service Mail Ballot System Has Catastrophic Problems",
-        "hook": "Examine the whistleblower reports highlighting critical security vulnerabilities in postal mail ballot systems.",
+        "title": "Whistleblower Warns of Catastrophic Problems in Postal Service Mail Ballot System",
+        "hook": "Critical reliability and operational vulnerabilities exposed in postal mail ballot processing infrastructure",
         "key_takeaways": [
-          "Allegations of catastrophic flaws in postal voting systems",
-          "Importance of public IT infrastructure and election security",
-          "System reliability concerns raised by whistleblowers"
+          "Whistleblower highlights systemic tracking and operational management failures in ballot logistics",
+          "Identifies infrastructure flaws that could result in delayed processing or misplaced ballots",
+          "Underscores the need for strict data integrity and auditability in mission-critical public systems"
         ]
       },
       "zh": {
-        "title": "内部举报人警告邮政服务邮件选票系统存在灾难性问题",
-        "hook": "了解有关邮政邮件选票系统关键安全漏洞和系统缺陷的内部举报内容。",
+        "title": "举报人警告邮政服务邮寄选票系统存在灾难性缺陷",
+        "hook": "揭示邮政局邮寄选票处理与追踪系统中的严重系统性缺陷与可靠性隐患",
         "key_takeaways": [
-          "邮政投票系统中存在潜在灾难性缺陷的指控",
-          "公共 IT 基础设施与选举安全的重要性",
-          "因内部举报引发的系统可靠性争议"
+          "举报人指出选票物流与追踪系统中存在的管理及技术漏洞",
+          "引发对可能导致选票延误或丢失的基础设施缺陷的深度关注",
+          "强调了关键公共系统及数据链路对完整性与可审计性的高标准要求"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T01:56:03.661687+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "Postal Service",
-    "Mail Ballot",
-    "Security Risk",
-    "Whistleblower"
+    "Mail Ballot System",
+    "Whistleblower",
+    "Infrastructure Security",
+    "System Vulnerabilities"
   ],
-  "title_ko": "우정사업본부 우편 투표 시스템의 심각한 결함을 고발한 내부자 경고",
-  "title_en": "Whistleblower Warns Postal Service Mail Ballot System Has Catastrophic Problems",
-  "title_zh": "内部举报人警告邮政服务邮件选票系统存在灾难性问题",
+  "title_ko": "우체국 우편 투표 시스템의 치명적 결함을 경고한 내부 고발자",
+  "title_en": "Whistleblower Warns of Catastrophic Problems in Postal Service Mail Ballot System",
+  "title_zh": "举报人警告邮政服务邮寄选票系统存在灾难性缺陷",
   "hook": "공공 우편 투표 시스템의 보안 취약점과 시스템 결함에 대한 내부고발 이슈를 다룹니다.",
-  "hook_ko": "공공 우편 투표 시스템의 보안 취약점과 시스템 결함에 대한 내부고발 이슈를 다룹니다.",
-  "hook_en": "Examine the whistleblower reports highlighting critical security vulnerabilities in postal mail ballot systems.",
-  "hook_zh": "了解有关邮政邮件选票系统关键安全漏洞和系统缺陷的内部举报内容。",
+  "hook_ko": "미국 우정청(USPS) 우편 투표 추적 및 처리 시스템의 구조적 결함과 신뢰성 문제 경고",
+  "hook_en": "Critical reliability and operational vulnerabilities exposed in postal mail ballot processing infrastructure",
+  "hook_zh": "揭示邮政局邮寄选票处理与追踪系统中的严重系统性缺陷与可靠性隐患",
   "description_ko": "공공 우편 투표 시스템의 보안 취약점과 시스템 결함에 대한 내부고발 이슈를 다룹니다.",
   "description_en": "Examine the whistleblower reports highlighting critical security vulnerabilities in postal mail ballot systems.",
   "description_zh": "了解有关邮政邮件选票系统关键安全漏洞和系统缺陷的内部举报内容。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "우체국 우편 투표 시스템의 치명적 결함을 경고한 내부 고발자",
+      "hook": "미국 우정청(USPS) 우편 투표 추적 및 처리 시스템의 구조적 결함과 신뢰성 문제 경고",
+      "key_takeaways": [
+        "우정청 우편 투표 처리 인프라 전반의 추적 및 관리 부실 문제 제기",
+        "투표용지 유실 및 배송 지연을 유발할 수 있는 시스템적 허점 지적",
+        "대규모 공공 물류 및 정보 시스템에서 데이터 정합성과 감사 가능성 확보의 중요성 강조"
+      ]
+    },
+    "en": {
+      "title": "Whistleblower Warns of Catastrophic Problems in Postal Service Mail Ballot System",
+      "hook": "Critical reliability and operational vulnerabilities exposed in postal mail ballot processing infrastructure",
+      "key_takeaways": [
+        "Whistleblower highlights systemic tracking and operational management failures in ballot logistics",
+        "Identifies infrastructure flaws that could result in delayed processing or misplaced ballots",
+        "Underscores the need for strict data integrity and auditability in mission-critical public systems"
+      ]
+    },
+    "zh": {
+      "title": "举报人警告邮政服务邮寄选票系统存在灾难性缺陷",
+      "hook": "揭示邮政局邮寄选票处理与追踪系统中的严重系统性缺陷与可靠性隐患",
+      "key_takeaways": [
+        "举报人指出选票物流与追踪系统中存在的管理及技术漏洞",
+        "引发对可能导致选票延误或丢失的基础设施缺陷的深度关注",
+        "强调了关键公共系统及数据链路对完整性与可审计性的高标准要求"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.431012"
 }

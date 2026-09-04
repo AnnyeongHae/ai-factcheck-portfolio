@@ -35,65 +35,98 @@
     "id": "2026-09-02_sns_hugging_face_blog_benchmirt_what_are_llm_benc",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 평가 및 벤치마크",
+    "model_family": "Evaluation Frameworks",
+    "category": "LLM Evaluation & Benchmarking",
     "programming_lang": "Python",
     "root_keywords": [
-      "LLM Benchmarks",
       "BenchMIRT",
-      "Model Evaluation"
+      "LLM Benchmarks",
+      "Item Response Theory",
+      "Model Evaluation",
+      "MIRT"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.4,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
     "multilingual": {
       "ko": {
         "title": "BenchMIRT: LLM 벤치마크는 실제로 무엇을 측정하고 있는가?",
-        "hook": "난무하는 LLM 벤치마크 점수의 한계를 분석하고 진정한 모델 성능 평가의 본질을 파헤칩니다.",
+        "hook": "다차원 문항반응이론(MIRT)을 적용해 LLM 벤치마크의 실제 측정 능력과 숨겨진 노이즈를 심층 분석한 연구",
         "key_takeaways": [
-          "기존 LLM 벤치마크의 허점과 맹점 분석",
-          "BenchMIRT를 통한 새로운 평가 관점 제시",
-          "실제 업무 적용을 위한 올바른 모델 평가법"
+          "MIRT(Multidimensional Item Response Theory)를 활용하여 LLM 벤치마크 문항의 난이도, 식별력, 포착 능력을 정밀 평가",
+          "기존 벤치마크 내 데이터 편향 및 중복 문항 필터링을 통해 벤치마크 효율성 및 신뢰도 향상",
+          "단순 정답률 측정을 넘어 모델의 다차원적 잠재 능력(Latent Traits)을 개별 평가할 수 있는 프레임워크 제시"
         ]
       },
       "en": {
         "title": "BenchMIRT: What are LLM benchmarks actually measuring?",
-        "hook": "A critical analysis of current LLM benchmark limitations and a deep dive into what we are truly measuring in AI evaluation.",
+        "hook": "Deep-dive analysis leveraging Multidimensional Item Response Theory to uncover what LLM benchmarks truly measure and filter noise.",
         "key_takeaways": [
-          "Critique of limitations and pitfalls in current LLM evaluations",
-          "New perspectives on AI testing introduced by BenchMIRT",
-          "Practical guidelines for meaningful model evaluation"
+          "Applies Multidimensional Item Response Theory (MIRT) to analyze question difficulty, discrimination, and capability coverage in LLM benchmarks.",
+          "Identifies redundant and noisy items within popular benchmarks to build more efficient and reliable evaluation suites.",
+          "Shifts model evaluation from simple accuracy metrics to measuring multidimensional latent technical capabilities."
         ]
       },
       "zh": {
-        "title": "BenchMIRT：LLM基准测试实际在衡量什么？",
-        "hook": "批判性分析当前大模型基准测试的局限性，深入探讨AI评估的真正本质。",
+        "title": "BenchMIRT：LLM 基准测试究竟在测量什么？",
+        "hook": "利用多维项目反应理论（MIRT）深入剖析 LLM 基准测试真正测量的能力与潜在噪音。",
         "key_takeaways": [
-          "分析现有大模型评测中的盲点与局限",
-          "通过BenchMIRT提出全新的模型评估视角",
-          "实现有意义的模型评估的实用指南"
+          "应用多维项目反应理论（MIRT）精密评估 LLM 基准测试题目的难度、区分度与能力覆盖率。",
+          "识别并过滤主流基准测试中的冗余与高噪音题目，构建更高效可靠的评估套件。",
+          "推动模型评估从单纯的准确率统计转向多维潜在能力的精准诊断。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:47:53.699758+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "LLM Benchmarks",
     "BenchMIRT",
-    "Model Evaluation"
+    "LLM Benchmarks",
+    "Item Response Theory",
+    "Model Evaluation",
+    "MIRT"
   ],
   "title_ko": "BenchMIRT: LLM 벤치마크는 실제로 무엇을 측정하고 있는가?",
   "title_en": "BenchMIRT: What are LLM benchmarks actually measuring?",
-  "title_zh": "BenchMIRT：LLM基准测试实际在衡量什么？",
+  "title_zh": "BenchMIRT：LLM 基准测试究竟在测量什么？",
   "hook": "난무하는 LLM 벤치마크 점수의 한계를 분석하고 진정한 모델 성능 평가의 본질을 파헤칩니다.",
-  "hook_ko": "난무하는 LLM 벤치마크 점수의 한계를 분석하고 진정한 모델 성능 평가의 본질을 파헤칩니다.",
-  "hook_en": "A critical analysis of current LLM benchmark limitations and a deep dive into what we are truly measuring in AI evaluation.",
-  "hook_zh": "批判性分析当前大模型基准测试的局限性，深入探讨AI评估的真正本质。",
+  "hook_ko": "다차원 문항반응이론(MIRT)을 적용해 LLM 벤치마크의 실제 측정 능력과 숨겨진 노이즈를 심층 분석한 연구",
+  "hook_en": "Deep-dive analysis leveraging Multidimensional Item Response Theory to uncover what LLM benchmarks truly measure and filter noise.",
+  "hook_zh": "利用多维项目反应理论（MIRT）深入剖析 LLM 基准测试真正测量的能力与潜在噪音。",
   "description_ko": "난무하는 LLM 벤치마크 점수의 한계를 분석하고 진정한 모델 성능 평가의 본질을 파헤칩니다.",
   "description_en": "A critical analysis of current LLM benchmark limitations and a deep dive into what we are truly measuring in AI evaluation.",
   "description_zh": "批判性分析当前大模型基准测试的局限性，深入探讨AI评估的真正本质。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "BenchMIRT: LLM 벤치마크는 실제로 무엇을 측정하고 있는가?",
+      "hook": "다차원 문항반응이론(MIRT)을 적용해 LLM 벤치마크의 실제 측정 능력과 숨겨진 노이즈를 심층 분석한 연구",
+      "key_takeaways": [
+        "MIRT(Multidimensional Item Response Theory)를 활용하여 LLM 벤치마크 문항의 난이도, 식별력, 포착 능력을 정밀 평가",
+        "기존 벤치마크 내 데이터 편향 및 중복 문항 필터링을 통해 벤치마크 효율성 및 신뢰도 향상",
+        "단순 정답률 측정을 넘어 모델의 다차원적 잠재 능력(Latent Traits)을 개별 평가할 수 있는 프레임워크 제시"
+      ]
+    },
+    "en": {
+      "title": "BenchMIRT: What are LLM benchmarks actually measuring?",
+      "hook": "Deep-dive analysis leveraging Multidimensional Item Response Theory to uncover what LLM benchmarks truly measure and filter noise.",
+      "key_takeaways": [
+        "Applies Multidimensional Item Response Theory (MIRT) to analyze question difficulty, discrimination, and capability coverage in LLM benchmarks.",
+        "Identifies redundant and noisy items within popular benchmarks to build more efficient and reliable evaluation suites.",
+        "Shifts model evaluation from simple accuracy metrics to measuring multidimensional latent technical capabilities."
+      ]
+    },
+    "zh": {
+      "title": "BenchMIRT：LLM 基准测试究竟在测量什么？",
+      "hook": "利用多维项目反应理论（MIRT）深入剖析 LLM 基准测试真正测量的能力与潜在噪音。",
+      "key_takeaways": [
+        "应用多维项目反应理论（MIRT）精密评估 LLM 基准测试题目的难度、区分度与能力覆盖率。",
+        "识别并过滤主流基准测试中的冗余与高噪音题目，构建更高效可靠的评估套件。",
+        "推动模型评估从单纯的准确率统计转向多维潜在能力的精准诊断。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.128597"
 }

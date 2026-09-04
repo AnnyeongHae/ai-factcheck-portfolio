@@ -34,65 +34,98 @@
     "id": "2026-09-03_repo_arxiv_towards_trustworthy_autonomous_robots_a",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "자율주행 및 로보틱스 XAI",
-    "programming_lang": "Python",
+    "model_family": "Explainable AI (XAI)",
+    "category": "Robotics & Autonomous Systems",
+    "programming_lang": "General",
     "root_keywords": [
-      "Autonomous Robots",
       "Explainable AI",
-      "Decision Framework"
+      "Autonomous Robots",
+      "Decision Framework",
+      "Auditability",
+      "Trustworthy AI"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.1,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "신뢰할 수 있는 자율 로봇을 향하여: 설명 가능한 AI 기반 결정 프레임워크",
-        "hook": "딥러닝 기반 자율 로봇의 블랙박스 문제를 해결하는 설명 가능한 AI(XAI) 감사 프레임워크를 확인하세요.",
+        "title": "신뢰할 수 있는 자율 로봇을 향하여: 설명 가능한 AI 기반 의사결정 프레임워크",
+        "hook": "딥러닝 기반 자율 로봇의 사고 발생 시 원인을 추적할 수 있는 XAI 의사결정 프레임워크",
         "key_takeaways": [
-          "딥러닝 기반 자율 로봇의 근본적인 감사 가능성(Auditability) 문제 해결",
-          "사고 발생 시 시스템의 의사결정 경로를 역추적하는 프레임워크 제안",
-          "로보틱스 및 자율 시스템의 안전성과 책임성 강화"
+          "딥러닝 자율 로봇의 블랙박스 문제와 감사 가능성(Auditability) 한계 해결",
+          "사고 발생 원인을 재구성하고 분석할 수 있는 설명 가능한 AI 의사결정 구조 제시",
+          "안전성이 핵심인 자율 시스템 분야에서 시스템 신뢰도 및 투명성 제고"
         ]
       },
       "en": {
         "title": "Towards Trustworthy Autonomous Robots: An Explainable AI-Based Decision Framework",
-        "hook": "Overcome the auditability challenge in deep learning robotics with an explainable decision framework.",
+        "hook": "An XAI-based decision framework designed to solve auditability challenges in deep learning-powered autonomous robots.",
         "key_takeaways": [
-          "Addresses fundamental auditability challenges in deep learning autonomous systems",
-          "Proposes an XAI framework to reconstruct accident decision paths",
-          "Enhances safety, accountability, and transparency in robotic deployments"
+          "Addresses the black-box auditability challenge of deep learning in autonomous robotics.",
+          "Presents a decision framework enabling incident reconstruction and explainable root-cause analysis.",
+          "Enhances system trust and transparency for safety-critical autonomous operations."
         ]
       },
       "zh": {
-        "title": "迈向值得信赖的自主机器人：基于可解释AI的决策框架",
-        "hook": "解决深度学习机器人的黑盒审计难题，通过可解释AI确保决策过程可追溯。",
+        "title": "迈向可信赖的自主机器人：基于可解释人工智能的决策框架",
+        "hook": "旨在解决深度学习自主机器人在突发事件中难以审计问题的可解释 AI 决策框架",
         "key_takeaways": [
-          "解决基于深度学习的自主机器人面临的根本性可审计性挑战",
-          "提出能够在事故发生时重建系统决策路径的XAI框架",
-          "显著提升具身智能与机器人系统的安全性及透明度"
+          "解决深度学习自主机器人在事故调查中的黑盒与可审计性难题",
+          "提出能够进行事故重建与可解释根因分析的决策框架",
+          "提升关键安全自主系统在实际应用中的信任度与透明度"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:15:02.666019+00:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
-    "Autonomous Robots",
     "Explainable AI",
-    "Decision Framework"
+    "Autonomous Robots",
+    "Decision Framework",
+    "Auditability",
+    "Trustworthy AI"
   ],
-  "title_ko": "신뢰할 수 있는 자율 로봇을 향하여: 설명 가능한 AI 기반 결정 프레임워크",
+  "title_ko": "신뢰할 수 있는 자율 로봇을 향하여: 설명 가능한 AI 기반 의사결정 프레임워크",
   "title_en": "Towards Trustworthy Autonomous Robots: An Explainable AI-Based Decision Framework",
-  "title_zh": "迈向值得信赖的自主机器人：基于可解释AI的决策框架",
+  "title_zh": "迈向可信赖的自主机器人：基于可解释人工智能的决策框架",
   "hook": "딥러닝 기반 자율 로봇의 블랙박스 문제를 해결하는 설명 가능한 AI(XAI) 감사 프레임워크를 확인하세요.",
-  "hook_ko": "딥러닝 기반 자율 로봇의 블랙박스 문제를 해결하는 설명 가능한 AI(XAI) 감사 프레임워크를 확인하세요.",
-  "hook_en": "Overcome the auditability challenge in deep learning robotics with an explainable decision framework.",
-  "hook_zh": "解决深度学习机器人的黑盒审计难题，通过可解释AI确保决策过程可追溯。",
+  "hook_ko": "딥러닝 기반 자율 로봇의 사고 발생 시 원인을 추적할 수 있는 XAI 의사결정 프레임워크",
+  "hook_en": "An XAI-based decision framework designed to solve auditability challenges in deep learning-powered autonomous robots.",
+  "hook_zh": "旨在解决深度学习自主机器人在突发事件中难以审计问题的可解释 AI 决策框架",
   "description_ko": "딥러닝 기반 자율 로봇의 블랙박스 문제를 해결하는 설명 가능한 AI(XAI) 감사 프레임워크를 확인하세요.",
   "description_en": "Overcome the auditability challenge in deep learning robotics with an explainable decision framework.",
   "description_zh": "解决深度学习机器人的黑盒审计难题，通过可解释AI确保决策过程可追溯。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "신뢰할 수 있는 자율 로봇을 향하여: 설명 가능한 AI 기반 의사결정 프레임워크",
+      "hook": "딥러닝 기반 자율 로봇의 사고 발생 시 원인을 추적할 수 있는 XAI 의사결정 프레임워크",
+      "key_takeaways": [
+        "딥러닝 자율 로봇의 블랙박스 문제와 감사 가능성(Auditability) 한계 해결",
+        "사고 발생 원인을 재구성하고 분석할 수 있는 설명 가능한 AI 의사결정 구조 제시",
+        "안전성이 핵심인 자율 시스템 분야에서 시스템 신뢰도 및 투명성 제고"
+      ]
+    },
+    "en": {
+      "title": "Towards Trustworthy Autonomous Robots: An Explainable AI-Based Decision Framework",
+      "hook": "An XAI-based decision framework designed to solve auditability challenges in deep learning-powered autonomous robots.",
+      "key_takeaways": [
+        "Addresses the black-box auditability challenge of deep learning in autonomous robotics.",
+        "Presents a decision framework enabling incident reconstruction and explainable root-cause analysis.",
+        "Enhances system trust and transparency for safety-critical autonomous operations."
+      ]
+    },
+    "zh": {
+      "title": "迈向可信赖的自主机器人：基于可解释人工智能的决策框架",
+      "hook": "旨在解决深度学习自主机器人在突发事件中难以审计问题的可解释 AI 决策框架",
+      "key_takeaways": [
+        "解决深度学习自主机器人在事故调查中的黑盒与可审计性难题",
+        "提出能够进行事故重建与可解释根因分析的决策框架",
+        "提升关键安全自主系统在实际应用中的信任度与透明度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.208119"
 }

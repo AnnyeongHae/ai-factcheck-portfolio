@@ -1,0 +1,73 @@
+name: Daily 23:30 KST End-of-Day Batch Enrichment & Final Audit
+
+on:
+  schedule:
+    # Runs everyday at 14:30 UTC = 23:30 KST (Korea Standard Time)
+    - cron: '30 14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "daily-eod-enrichment"
+  cancel-in-progress: false
+
+jobs:
+  daily-eod-batch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          pip install psycopg2-binary requests pyyaml google-genai
+
+      - name: Run Daily 23:30 EOD Batch Ingestion & Harvest (Zero Left Behind)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NEON_KEY: ${{ secrets.NEON_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
+        run: |
+          python tools/daily_eod_enrichment.py
+
+      - name: Sync Data to Neon Postgres Cloud DB
+        run: |
+          python tools/db_bridge.py --sync-all || echo "Neon DB sync skipped or completed with notes."
+
+      - name: Commit & Push Daily EOD Updates to Git
+        continue-on-error: true
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add inbox/ docs/ dashboard/ logs/
+          if ! git diff --staged --quiet; then
+            git commit -m "chore(eod-audit): Daily 23:30 KST End-of-Day batch translation & full audit sync"
+            git pull origin main --rebase --autostash || true
+            git push origin main || echo "Push rejected or already up-to-date, proceeding to deployment."
+          else
+            echo "No staged changes to commit."
+          fi
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Artifact (docs directory)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

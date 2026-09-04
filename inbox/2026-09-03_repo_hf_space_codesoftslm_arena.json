@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_codesoftslm_arena",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Small Language Models",
+    "category": "Model Evaluation & Benchmarks",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "SLM",
+      "Small Language Models",
+      "Model Evaluation",
+      "Arena",
+      "Gradio"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.6,
+    "multilingual": {
+      "ko": {
+        "title": "HF Space: CodeSoft/SLM-Arena (소형 언어 모델 비교 아레나)",
+        "hook": "소형 언어 모델(SLM)의 성능과 응답 품질을 직접 비교 및 평가할 수 있는 대화형 데모",
+        "key_takeaways": [
+          "경량화 언어 모델(SLM) 간 상호 비교 인터페이스 제공",
+          "Gradio 기반으로 구현된 손쉬운 대화형 테스트 환경",
+          "온디바이스 및 에지 AI 사용 사례를 위한 SLM 벤치마킹 활용"
+        ]
+      },
+      "en": {
+        "title": "HF Space: CodeSoft/SLM-Arena",
+        "hook": "An interactive Gradio demo to evaluate and compare Small Language Models (SLMs) side by side.",
+        "key_takeaways": [
+          "Provides a side-by-side comparison interface for Small Language Models",
+          "Built with Gradio for easy interactive evaluation",
+          "Useful for benchmarking SLMs targeted at edge and lightweight AI applications"
+        ]
+      },
+      "zh": {
+        "title": "HF Space: CodeSoft/SLM-Arena (小型语言模型竞技场)",
+        "hook": "用于直观比较和评估小型语言模型 (SLM) 性能的 Gradio 交互式 Demo",
+        "key_takeaways": [
+          "提供小型语言模型 (SLM) 的横向对比评估界面",
+          "基于 Gradio 开发，简单易用的交互测试环境",
+          "适用于针对边缘端和轻量级 AI 应用的 SLM 基准测试"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: CodeSoft/SLM-Arena (소형 언어 모델 비교 아레나)",
+      "hook": "소형 언어 모델(SLM)의 성능과 응답 품질을 직접 비교 및 평가할 수 있는 대화형 데모",
+      "key_takeaways": [
+        "경량화 언어 모델(SLM) 간 상호 비교 인터페이스 제공",
+        "Gradio 기반으로 구현된 손쉬운 대화형 테스트 환경",
+        "온디바이스 및 에지 AI 사용 사례를 위한 SLM 벤치마킹 활용"
+      ]
+    },
+    "en": {
+      "title": "HF Space: CodeSoft/SLM-Arena",
+      "hook": "An interactive Gradio demo to evaluate and compare Small Language Models (SLMs) side by side.",
+      "key_takeaways": [
+        "Provides a side-by-side comparison interface for Small Language Models",
+        "Built with Gradio for easy interactive evaluation",
+        "Useful for benchmarking SLMs targeted at edge and lightweight AI applications"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: CodeSoft/SLM-Arena (小型语言模型竞技场)",
+      "hook": "用于直观比较和评估小型语言模型 (SLM) 性能的 Gradio 交互式 Demo",
+      "key_takeaways": [
+        "提供小型语言模型 (SLM) 的横向对比评估界面",
+        "基于 Gradio 开发，简单易用的交互测试环境",
+        "适用于针对边缘端和轻量级 AI 应用的 SLM 基准测试"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "SLM",
+    "Small Language Models",
+    "Model Evaluation",
+    "Arena",
+    "Gradio"
+  ],
+  "title_ko": "HF Space: CodeSoft/SLM-Arena (소형 언어 모델 비교 아레나)",
+  "hook_ko": "소형 언어 모델(SLM)의 성능과 응답 품질을 직접 비교 및 평가할 수 있는 대화형 데모",
+  "title_en": "HF Space: CodeSoft/SLM-Arena",
+  "hook_en": "An interactive Gradio demo to evaluate and compare Small Language Models (SLMs) side by side.",
+  "title_zh": "HF Space: CodeSoft/SLM-Arena (小型语言模型竞技场)",
+  "hook_zh": "用于直观比较和评估小型语言模型 (SLM) 性能的 Gradio 交互式 Demo",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.239219"
 }

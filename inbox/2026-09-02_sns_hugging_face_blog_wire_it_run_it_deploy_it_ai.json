@@ -35,63 +35,65 @@
     "id": "2026-09-02_sns_hugging_face_blog_wire_it_run_it_deploy_it_ai",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "AI 워크플로우 및 UI",
+    "model_family": "Gradio / AI Workflows",
+    "category": "AI Infrastructure & Tools",
     "programming_lang": "Python",
     "root_keywords": [
       "Gradio",
       "AI Workflows",
-      "Deployment"
+      "Deployment",
+      "Pipeline",
+      "Hugging Face Spaces"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.2,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.3,
     "multilingual": {
       "ko": {
-        "title": "Gradio로 구현하는 AI 워크플로우: 연결부터 실행, 배포까지",
-        "hook": "Gradio를 활용해 복잡한 AI 워크플로우를 쉽고 빠르게 구축하고 배포하는 방법을 확인하세요.",
+        "title": "연결하고, 실행하고, 배포하기: Gradio에서 구축하는 AI 워크플로우",
+        "hook": "Gradio를 활용해 복잡한 멀티스텝 AI 파이프라인과 대화형 UI를 손쉽게 연결하고 배포하는 실전 가이드",
         "key_takeaways": [
-          "Gradio를 활용한 효율적인 AI 파이프라인 구성 방법",
-          "프로토타입에서 실제 프로덕션 배포까지의 흐름",
-          "개발 생산성을 높이는 최신 워크플로우 패턴"
+          "Gradio 컴포넌트를 활용한 복잡한 대화형 AI 파이프라인 시각화 및 구성",
+          "멀티모달 및 생성형 AI 모델의 단계별 오케스트레이션 및 파라미터 제어",
+          "Hugging Face Spaces를 이용한 원클릭 프로덕션 배포 및 대화형 웹 앱 공유 전략"
         ]
       },
       "en": {
         "title": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
-        "hook": "Learn how to build, run, and deploy seamless AI workflows efficiently using Gradio.",
+        "hook": "A practical guide to connecting, orchestrating, and deploying complex multi-step AI pipelines interactively using Gradio.",
         "key_takeaways": [
-          "Building efficient AI pipelines with Gradio",
-          "Streamlining the path from prototype to production",
-          "Modern workflow patterns for enhanced development productivity"
+          "Connecting interactive UI components into end-to-end multi-step AI pipelines using Gradio",
+          "Orchestrating multi-modal and generative AI models with precise event handling and parameter passing",
+          "Streamlined deployment and live sharing strategies via Hugging Face Spaces"
         ]
       },
       "zh": {
-        "title": "使用 Gradio 构建、运行和部署 AI 工作流",
-        "hook": "探索如何使用 Gradio 轻松构建并快速部署复杂的 AI 工作流。",
+        "title": "连接、运行与部署：Gradio 中的 AI 工作流指南",
+        "hook": "利用 Gradio 轻松构建、连接与部署复杂的多步骤 AI 工作流与交互式应用。",
         "key_takeaways": [
-          "利用 Gradio 构建高效的 AI 管道",
-          "简化从原型到生产部署的流程",
-          "提升开发效率的最新工作流模式"
+          "使用 Gradio 组件将多步骤 AI 管道无缝连接为交互式界面",
+          "编排复杂的生成式与多模态 AI 模型工作流与事件处理",
+          "通过 Hugging Face Spaces 实现高效的大模型应用一键部署与实时分享"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:47:41.727305+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Gradio",
     "AI Workflows",
-    "Deployment"
+    "Deployment",
+    "Pipeline",
+    "Hugging Face Spaces"
   ],
   "hook": "Gradio를 활용해 복잡한 AI 워크플로우를 쉽고 빠르게 구축하고 배포하는 방법을 확인하세요.",
-  "title_ko": "Gradio로 구현하는 AI 워크플로우: 연결부터 실행, 배포까지",
+  "title_ko": "연결하고, 실행하고, 배포하기: Gradio에서 구축하는 AI 워크플로우",
   "description_ko": "Gradio를 활용해 복잡한 AI 워크플로우를 쉽고 빠르게 구축하고 배포하는 방법을 확인하세요.",
   "title_en": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
-  "title_zh": "使用 Gradio 构建、运行和部署 AI 工作流",
-  "hook_ko": "Gradio를 활용해 복잡한 AI 워크플로우를 쉽고 빠르게 구축하고 배포하는 방법을 확인하세요.",
-  "hook_en": "Learn how to build, run, and deploy seamless AI workflows efficiently using Gradio.",
-  "hook_zh": "探索如何使用 Gradio 轻松构建并快速部署复杂的 AI 工作流。",
+  "title_zh": "连接、运行与部署：Gradio 中的 AI 工作流指南",
+  "hook_ko": "Gradio를 활용해 복잡한 멀티스텝 AI 파이프라인과 대화형 UI를 손쉽게 연결하고 배포하는 실전 가이드",
+  "hook_en": "A practical guide to connecting, orchestrating, and deploying complex multi-step AI pipelines interactively using Gradio.",
+  "hook_zh": "利用 Gradio 轻松构建、连接与部署复杂的多步骤 AI 工作流与交互式应用。",
   "description_en": "Learn how to build, run, and deploy seamless AI workflows efficiently using Gradio.",
   "description_zh": "探索如何使用 Gradio 轻松构建并快速部署复杂的 AI 工作流。",
   "related_dossier": {
@@ -100,5 +102,36 @@
     "verdict": "VERIFIED_TRUE"
   },
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "연결하고, 실행하고, 배포하기: Gradio에서 구축하는 AI 워크플로우",
+      "hook": "Gradio를 활용해 복잡한 멀티스텝 AI 파이프라인과 대화형 UI를 손쉽게 연결하고 배포하는 실전 가이드",
+      "key_takeaways": [
+        "Gradio 컴포넌트를 활용한 복잡한 대화형 AI 파이프라인 시각화 및 구성",
+        "멀티모달 및 생성형 AI 모델의 단계별 오케스트레이션 및 파라미터 제어",
+        "Hugging Face Spaces를 이용한 원클릭 프로덕션 배포 및 대화형 웹 앱 공유 전략"
+      ]
+    },
+    "en": {
+      "title": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
+      "hook": "A practical guide to connecting, orchestrating, and deploying complex multi-step AI pipelines interactively using Gradio.",
+      "key_takeaways": [
+        "Connecting interactive UI components into end-to-end multi-step AI pipelines using Gradio",
+        "Orchestrating multi-modal and generative AI models with precise event handling and parameter passing",
+        "Streamlined deployment and live sharing strategies via Hugging Face Spaces"
+      ]
+    },
+    "zh": {
+      "title": "连接、运行与部署：Gradio 中的 AI 工作流指南",
+      "hook": "利用 Gradio 轻松构建、连接与部署复杂的多步骤 AI 工作流与交互式应用。",
+      "key_takeaways": [
+        "使用 Gradio 组件将多步骤 AI 管道无缝连接为交互式界面",
+        "编排复杂的生成式与多模态 AI 模型工作流与事件处理",
+        "通过 Hugging Face Spaces 实现高效的大模型应用一键部署与实时分享"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.148982"
 }

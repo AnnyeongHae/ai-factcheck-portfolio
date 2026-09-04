@@ -34,66 +34,99 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_hugging_face_blog_the_open_asr_leaderboard_ad",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "음성 인식 (ASR)",
-    "programming_lang": "General",
+    "type_classification": "TECH",
+    "model_family": "ASR",
+    "category": "Speech Processing",
+    "programming_lang": "Python",
     "root_keywords": [
+      "ASR",
       "Open ASR Leaderboard",
-      "Global South Languages",
-      "Speech Recognition"
+      "Global South",
+      "Speech Recognition",
+      "Benchmarking"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.8,
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "오픈 ASR 리더보드, 최초의 글로벌 사우스 언어 추가",
-        "hook": "음성 인식(ASR) 분야의 다양성과 다국어 지원 확대를 위한 오픈 ASR 리더보드의 최신 업데이트를 확인하세요.",
+        "title": "Hugging Face 오픈 ASR 리더보드, 글로벌 사우스 언어 최초 추가",
+        "hook": "오픈 ASR 리더보드가 글로벌 사우스 지역 언어 평가를 최초 지원하여 음성 인식 모델의 다국어 평가 다양성을 확장합니다.",
         "key_takeaways": [
-          "오픈 ASR 리더보드에 최초로 추가된 글로벌 사우스 언어 소개",
-          "다양한 언어 환경에서의 음성 인식 성능 평가 기준 변화",
-          "글로벌 AI 포용성 확대를 위한 오픈소스 커뮤니티의 동향"
+          "Open ASR Leaderboard에 글로벌 사우스(Global South) 언어 최초 통합",
+          "소수 언어 및 저자원 언어에 대한 자동 음성 인식(ASR) 평가 체계 확장",
+          "다국어 음성 AI 모델의 범용성과 데이터 공정성 검증 강화"
         ]
       },
       "en": {
-        "title": "The Open ASR Leaderboard Adds Its First Global South Language",
-        "hook": "Explore the latest updates to the Open ASR Leaderboard as it expands inclusivity with its first Global South language.",
+        "title": "Hugging Face Open ASR Leaderboard Adds Its First Global South Language",
+        "hook": "The Open ASR Leaderboard expands evaluation support to include its first Global South language, advancing inclusivity in speech recognition benchmarks.",
         "key_takeaways": [
-          "Introduction of the first Global South language to the Open ASR Leaderboard",
-          "Evolution of speech recognition evaluation metrics across diverse linguistic settings",
-          "Open source community trends toward expanding global AI inclusivity"
+          "First Global South language added to the Open ASR Leaderboard",
+          "Expands automatic speech recognition (ASR) benchmarking for low-resource languages",
+          "Promotes broader language coverage and fair model comparison across speech AI models"
         ]
       },
       "zh": {
-        "title": "开源 ASR 排行榜添加首个全球南方语言",
-        "hook": "了解开源 ASR 排行榜的最新进展，它通过纳入首个全球南方语言进一步推动了语音识别的多样性。",
+        "title": "Hugging Face 开放 ASR 榜单首次引入全球南方语言",
+        "hook": "开放 ASR 榜单首次扩展至全球南方语言评估，推动语音识别模型向低资源与多语言通用性发展。",
         "key_takeaways": [
-          "开源 ASR 排行榜引入首个全球南方语言",
-          "多样化语言环境下的语音识别性能评估标准演进",
-          "开源社区扩大全球 AI 包容性的最新动态"
+          "Open ASR Leaderboard 首次加入全球南方（Global South）语言",
+          "扩展低资源语言的自动语音识别（ASR）评估体系",
+          "促进多语言语音 AI 模型的公平基准测试与多样性"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:47:41.730307+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "General",
+  "programming_lang": "Python",
   "root_keywords": [
+    "ASR",
     "Open ASR Leaderboard",
-    "Global South Languages",
-    "Speech Recognition"
+    "Global South",
+    "Speech Recognition",
+    "Benchmarking"
   ],
   "hook": "음성 인식(ASR) 분야의 다양성과 다국어 지원 확대를 위한 오픈 ASR 리더보드의 최신 업데이트를 확인하세요.",
-  "title_ko": "오픈 ASR 리더보드, 최초의 글로벌 사우스 언어 추가",
+  "title_ko": "Hugging Face 오픈 ASR 리더보드, 글로벌 사우스 언어 최초 추가",
   "description_ko": "음성 인식(ASR) 분야의 다양성과 다국어 지원 확대를 위한 오픈 ASR 리더보드의 최신 업데이트를 확인하세요.",
-  "title_en": "The Open ASR Leaderboard Adds Its First Global South Language",
-  "title_zh": "开源 ASR 排行榜添加首个全球南方语言",
-  "hook_ko": "음성 인식(ASR) 분야의 다양성과 다국어 지원 확대를 위한 오픈 ASR 리더보드의 최신 업데이트를 확인하세요.",
-  "hook_en": "Explore the latest updates to the Open ASR Leaderboard as it expands inclusivity with its first Global South language.",
-  "hook_zh": "了解开源 ASR 排行榜的最新进展，它通过纳入首个全球南方语言进一步推动了语音识别的多样性。",
+  "title_en": "Hugging Face Open ASR Leaderboard Adds Its First Global South Language",
+  "title_zh": "Hugging Face 开放 ASR 榜单首次引入全球南方语言",
+  "hook_ko": "오픈 ASR 리더보드가 글로벌 사우스 지역 언어 평가를 최초 지원하여 음성 인식 모델의 다국어 평가 다양성을 확장합니다.",
+  "hook_en": "The Open ASR Leaderboard expands evaluation support to include its first Global South language, advancing inclusivity in speech recognition benchmarks.",
+  "hook_zh": "开放 ASR 榜单首次扩展至全球南方语言评估，推动语音识别模型向低资源与多语言通用性发展。",
   "description_en": "Explore the latest updates to the Open ASR Leaderboard as it expands inclusivity with its first Global South language.",
   "description_zh": "了解开源 ASR 排行榜的最新进展，它通过纳入首个全球南方语言进一步推动了语音识别的多样性。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Hugging Face 오픈 ASR 리더보드, 글로벌 사우스 언어 최초 추가",
+      "hook": "오픈 ASR 리더보드가 글로벌 사우스 지역 언어 평가를 최초 지원하여 음성 인식 모델의 다국어 평가 다양성을 확장합니다.",
+      "key_takeaways": [
+        "Open ASR Leaderboard에 글로벌 사우스(Global South) 언어 최초 통합",
+        "소수 언어 및 저자원 언어에 대한 자동 음성 인식(ASR) 평가 체계 확장",
+        "다국어 음성 AI 모델의 범용성과 데이터 공정성 검증 강화"
+      ]
+    },
+    "en": {
+      "title": "Hugging Face Open ASR Leaderboard Adds Its First Global South Language",
+      "hook": "The Open ASR Leaderboard expands evaluation support to include its first Global South language, advancing inclusivity in speech recognition benchmarks.",
+      "key_takeaways": [
+        "First Global South language added to the Open ASR Leaderboard",
+        "Expands automatic speech recognition (ASR) benchmarking for low-resource languages",
+        "Promotes broader language coverage and fair model comparison across speech AI models"
+      ]
+    },
+    "zh": {
+      "title": "Hugging Face 开放 ASR 榜单首次引入全球南方语言",
+      "hook": "开放 ASR 榜单首次扩展至全球南方语言评估，推动语音识别模型向低资源与多语言通用性发展。",
+      "key_takeaways": [
+        "Open ASR Leaderboard 首次加入全球南方（Global South）语言",
+        "扩展低资源语言的自动语音识别（ASR）评估体系",
+        "促进多语言语音 AI 模型的公平基准测试与多样性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.142966"
 }

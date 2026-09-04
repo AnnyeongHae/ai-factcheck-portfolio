@@ -34,65 +34,96 @@
     "id": "2026-09-03_repo_arxiv_discosign_discourse_aware_text_to_sign_",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "자연어 처리 및 수화 번역",
+    "model_family": "Seq2Seq",
+    "category": "NLP / Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
-      "수화 번역",
-      "담화 인식",
-      "텍스트 투 사인"
+      "Sign Language Translation",
+      "Text to Sign Gloss",
+      "Discourse Analysis",
+      "Natural Language Processing"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.8,
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "DiscoSign: 담화 인식을 활용한 텍스트-수화 글스(Gloss) 번역",
-        "hook": "기존 문장 단위 번역의 한계를 넘어, 수화 이해에 필수적인 담화 현상을 반영한 최초의 텍스트-수화 번역 시스템입니다.",
+        "title": "DiscoSign: 담화 맥락을 고려한 텍스트-수어 글로스 번역",
+        "hook": "단순 문장 단위를 넘어 담화(Discourse) 수준의 맥락을 반영하는 텍스트-수어 글로스 번역 연구",
         "key_takeaways": [
-          "문장 단위를 넘어선 담화 수준의 수화 처리 시스템 구현",
-          "수화 이해에 필수적인 문맥 및 담화 현상 통합",
-          "텍스트에서 수화 글스로의 번역 품질 대폭 향상"
+          "기존 문장 단위 수어 번역의 한계를 극복하기 위해 담화 수준 현상을 다루는 DiscoSign 제안",
+          "수어 이해에 핵심적인 문맥 담화 메커니즘을 텍스트-글로스 번역 모델에 반영",
+          "담화 인지 접근법을 통해 수어 글로스 번역의 완성도 및 문맥 일관성 향상"
         ]
       },
       "en": {
         "title": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
-        "hook": "Overcoming sentence-level limits by introducing the first discourse-aware sign language translation framework.",
+        "hook": "Overcoming sentence-level limitations by integrating discourse-level contextual phenomena into text-to-sign translation.",
         "key_takeaways": [
-          "Moves beyond traditional sentence-level sign processing",
-          "Integrates critical discourse phenomena for better comprehension",
-          "Significantly improves text-to-sign gloss translation quality"
+          "Introduces DiscoSign to address long-standing discourse-level omissions in traditional sign language processing.",
+          "Incorporates essential contextual and discourse mechanisms required for comprehensive sign language understanding.",
+          "Enhances the coherence and accuracy of generated sign language glosses across multi-sentence passages."
         ]
       },
       "zh": {
-        "title": "DiscoSign：具备语篇意识的文本转手语Gloss翻译",
-        "hook": "突破传统句子级限制，首次引入考虑手语理解关键语篇现象的文本转手语翻译系统。",
+        "title": "DiscoSign：感知篇章语境的文本至手语记号翻译",
+        "hook": "突破单句翻译局限，引入篇章级语境机制的手语文本翻译新架构",
         "key_takeaways": [
-          "超越传统句子级，实现语篇级别的符号处理",
-          "整合手语理解不可或缺的语篇与上下文现象",
-          "大幅提升从文本到手语Gloss的翻译质量"
+          "提出 DiscoSign，弥补传统单句级手语处理对篇章级现象忽视的不足",
+          "整合对手语理解至关重要的篇章上下文与关联机制",
+          "显著提升多句连续文本翻译成手语记号的连贯性与准确度"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:25:48.612883+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "수화 번역",
-    "담화 인식",
-    "텍스트 투 사인"
+    "Sign Language Translation",
+    "Text to Sign Gloss",
+    "Discourse Analysis",
+    "Natural Language Processing"
   ],
-  "title_ko": "DiscoSign: 담화 인식을 활용한 텍스트-수화 글스(Gloss) 번역",
+  "title_ko": "DiscoSign: 담화 맥락을 고려한 텍스트-수어 글로스 번역",
   "title_en": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
-  "title_zh": "DiscoSign：具备语篇意识的文本转手语Gloss翻译",
+  "title_zh": "DiscoSign：感知篇章语境的文本至手语记号翻译",
   "hook": "기존 문장 단위 번역의 한계를 넘어, 수화 이해에 필수적인 담화 현상을 반영한 최초의 텍스트-수화 번역 시스템입니다.",
-  "hook_ko": "기존 문장 단위 번역의 한계를 넘어, 수화 이해에 필수적인 담화 현상을 반영한 최초의 텍스트-수화 번역 시스템입니다.",
-  "hook_en": "Overcoming sentence-level limits by introducing the first discourse-aware sign language translation framework.",
-  "hook_zh": "突破传统句子级限制，首次引入考虑手语理解关键语篇现象的文本转手语翻译系统。",
+  "hook_ko": "단순 문장 단위를 넘어 담화(Discourse) 수준의 맥락을 반영하는 텍스트-수어 글로스 번역 연구",
+  "hook_en": "Overcoming sentence-level limitations by integrating discourse-level contextual phenomena into text-to-sign translation.",
+  "hook_zh": "突破单句翻译局限，引入篇章级语境机制的手语文本翻译新架构",
   "description_ko": "기존 문장 단위 번역의 한계를 넘어, 수화 이해에 필수적인 담화 현상을 반영한 최초의 텍스트-수화 번역 시스템입니다.",
   "description_en": "Overcoming sentence-level limits by introducing the first discourse-aware sign language translation framework.",
   "description_zh": "突破传统句子级限制，首次引入考虑手语理解关键语篇现象的文本转手语翻译系统。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "DiscoSign: 담화 맥락을 고려한 텍스트-수어 글로스 번역",
+      "hook": "단순 문장 단위를 넘어 담화(Discourse) 수준의 맥락을 반영하는 텍스트-수어 글로스 번역 연구",
+      "key_takeaways": [
+        "기존 문장 단위 수어 번역의 한계를 극복하기 위해 담화 수준 현상을 다루는 DiscoSign 제안",
+        "수어 이해에 핵심적인 문맥 담화 메커니즘을 텍스트-글로스 번역 모델에 반영",
+        "담화 인지 접근법을 통해 수어 글로스 번역의 완성도 및 문맥 일관성 향상"
+      ]
+    },
+    "en": {
+      "title": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
+      "hook": "Overcoming sentence-level limitations by integrating discourse-level contextual phenomena into text-to-sign translation.",
+      "key_takeaways": [
+        "Introduces DiscoSign to address long-standing discourse-level omissions in traditional sign language processing.",
+        "Incorporates essential contextual and discourse mechanisms required for comprehensive sign language understanding.",
+        "Enhances the coherence and accuracy of generated sign language glosses across multi-sentence passages."
+      ]
+    },
+    "zh": {
+      "title": "DiscoSign：感知篇章语境的文本至手语记号翻译",
+      "hook": "突破单句翻译局限，引入篇章级语境机制的手语文本翻译新架构",
+      "key_takeaways": [
+        "提出 DiscoSign，弥补传统单句级手语处理对篇章级现象忽视的不足",
+        "整合对手语理解至关重要的篇章上下文与关联机制",
+        "显著提升多句连续文本翻译成手语记号的连贯性与准确度"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.169174"
 }

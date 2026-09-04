@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_huggingfacetbsmol_training_playbook",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "SmolLM",
+    "category": "LLM Training & Fine-tuning",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "SmolLM",
+      "LLM Training",
+      "Fine-Tuning",
+      "Data Curation",
+      "Hugging Face"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "HuggingFace SmolLM 학습 플레이북 (인터랙티브 가이드)",
+        "hook": "소형 언어 모델(SLM) 사전 학습부터 데이터 세트 구축, 미세 조정, 평가까지의 전 과정을 담은 엔지니어링 플레이북",
+        "key_takeaways": [
+          "SmolLM 시리즈 기반 소형 언어 모델 제작을 위한 단계별 가이드라인 제공",
+          "데이터셋 큐레이션, 토크나이저 훈련, 모델 정렬 및 평가 작업의 모범 사례 제시",
+          "자원 효율적인 LLM 파이프라인 구축을 위한 실전 인터랙티브 데모 및 엔지니어링 팁 수록"
+        ]
+      },
+      "en": {
+        "title": "HuggingFace SmolLM Training Playbook",
+        "hook": "An interactive end-to-end playbook covering dataset curation, pre-training, fine-tuning, and evaluation for Small Language Models (SLMs).",
+        "key_takeaways": [
+          "Step-by-step guidelines for building custom Small Language Models using the SmolLM methodology",
+          "Best practices for dataset curation, tokenizer training, instruction tuning, and alignment",
+          "Interactive tools and actionable engineering insights for resource-efficient LLM development"
+        ]
+      },
+      "zh": {
+        "title": "HuggingFace SmolLM 训练手册 (交互式指南)",
+        "hook": "涵盖数据集筛选、预训练、微调与评估的小型语言模型 (SLM) 端到端工程实践手册。",
+        "key_takeaways": [
+          "提供基于 SmolLM 方法论构建自定义轻量化大语言模型的全流程指南",
+          "包含数据集清洗、分词器训练、指令微调与对齐的最佳实践",
+          "面向高效资源利用的交互式演示与实用 LLM 工程构建技巧"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "HuggingFace SmolLM 학습 플레이북 (인터랙티브 가이드)",
+      "hook": "소형 언어 모델(SLM) 사전 학습부터 데이터 세트 구축, 미세 조정, 평가까지의 전 과정을 담은 엔지니어링 플레이북",
+      "key_takeaways": [
+        "SmolLM 시리즈 기반 소형 언어 모델 제작을 위한 단계별 가이드라인 제공",
+        "데이터셋 큐레이션, 토크나이저 훈련, 모델 정렬 및 평가 작업의 모범 사례 제시",
+        "자원 효율적인 LLM 파이프라인 구축을 위한 실전 인터랙티브 데모 및 엔지니어링 팁 수록"
+      ]
+    },
+    "en": {
+      "title": "HuggingFace SmolLM Training Playbook",
+      "hook": "An interactive end-to-end playbook covering dataset curation, pre-training, fine-tuning, and evaluation for Small Language Models (SLMs).",
+      "key_takeaways": [
+        "Step-by-step guidelines for building custom Small Language Models using the SmolLM methodology",
+        "Best practices for dataset curation, tokenizer training, instruction tuning, and alignment",
+        "Interactive tools and actionable engineering insights for resource-efficient LLM development"
+      ]
+    },
+    "zh": {
+      "title": "HuggingFace SmolLM 训练手册 (交互式指南)",
+      "hook": "涵盖数据集筛选、预训练、微调与评估的小型语言模型 (SLM) 端到端工程实践手册。",
+      "key_takeaways": [
+        "提供基于 SmolLM 方法论构建自定义轻量化大语言模型的全流程指南",
+        "包含数据集清洗、分词器训练、指令微调与对齐的最佳实践",
+        "面向高效资源利用的交互式演示与实用 LLM 工程构建技巧"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "SmolLM",
+    "LLM Training",
+    "Fine-Tuning",
+    "Data Curation",
+    "Hugging Face"
+  ],
+  "title_ko": "HuggingFace SmolLM 학습 플레이북 (인터랙티브 가이드)",
+  "hook_ko": "소형 언어 모델(SLM) 사전 학습부터 데이터 세트 구축, 미세 조정, 평가까지의 전 과정을 담은 엔지니어링 플레이북",
+  "title_en": "HuggingFace SmolLM Training Playbook",
+  "hook_en": "An interactive end-to-end playbook covering dataset curation, pre-training, fine-tuning, and evaluation for Small Language Models (SLMs).",
+  "title_zh": "HuggingFace SmolLM 训练手册 (交互式指南)",
+  "hook_zh": "涵盖数据集筛选、预训练、微调与评估的小型语言模型 (SLM) 端到端工程实践手册。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.259848"
 }

@@ -35,66 +35,97 @@
   "ai_enrichment": {
     "id": "2026-09-03_sns_hacker_news_aging_brains_blend_memories_toget",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "인지과학 및 신경예술",
+    "type_classification": "TECH",
+    "model_family": "Neuroscience & Cognition",
+    "category": "Science & Neuroscience",
     "programming_lang": "General",
     "root_keywords": [
-      "Aging Brain",
-      "Memory Merging",
-      "Cognitive Science"
+      "Neuroscience",
+      "Memory Blending",
+      "Cognitive Aging",
+      "Memory Retention"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "노화된 뇌는 단순히 기억을 잊는 것이 아니라 기억들을 서로 섞는다",
-        "hook": "인간의 뇌가 노화함에 따라 개별 기억이 소실되는 대신 서로 융합되는 신경학적 메커니즘을 조명합니다.",
+        "title": "노화된 뇌는 단순히 기억을 잊는 것이 아니라 융합한다",
+        "hook": "고령화에 따른 기억력 저하가 단편적인 정보 소멸이 아닌 기억 간의 혼합과 융합에 기인한다는 최신 뇌과학 연구",
         "key_takeaways": [
-          "노화에 따른 기억 인코딩 및 회상 방식의 변화",
-          "기억이 서로 병합(Blending)되는 신경과학적 원리",
-          "인공지능 메모리 및 데이터 압축 알고리즘 설계에 주는 시사점"
+          "노화된 뇌는 개별 기억을 독립적으로 유지하기보다 기존 메모리 구조에 융합하는 경향을 보임",
+          "기억 오류는 단순한 데이터 망각(Erasure)보다는 기억 간 전이 및 간섭(Interference) 때문에 발생",
+          "인공신경망의 지속 학습(Continual Learning) 및 지식 융합 모델 설계에 인지과학적 힌트 제공"
         ]
       },
       "en": {
-        "title": "Aging Brains Blend Memories Together Instead of Just Forgetting Them",
-        "hook": "Highlighting the neurological mechanism where aging brains merge individual memories rather than simply erasing them.",
+        "title": "Aging brains blend memories together instead of just forgetting them",
+        "hook": "Cognitive research shows that memory decline in aging is driven by memory integration and blending rather than simple erasure.",
         "key_takeaways": [
-          "Changes in memory encoding and retrieval processes associated with aging",
-          "Neurological principles behind memory blending",
-          "Implications for designing AI memory and data compression algorithms"
+          "Aging brains tend to overlay and integrate new experiences into existing neural representations rather than keeping them distinct.",
+          "Memory failure in older adults often stems from cognitive interference and memory overlap rather than direct forgetting.",
+          "Offers intriguing brain-inspired insights for solving catastrophic forgetting and managing memory retention in artificial neural networks."
         ]
       },
       "zh": {
-        "title": "衰老的大脑不会轻易遗忘，而是将记忆融为一体",
-        "hook": "探讨人类大脑在衰老过程中，记忆并非单纯消退，而是相互融合的神经学机制。",
+        "title": "老化的大脑不仅仅是遗忘记忆，而是将记忆融合在一起",
+        "hook": "认知科学研究表明，随年龄增长出现的记忆下降主要是由于记忆重叠与融合，而非单纯的数据丢失。",
         "key_takeaways": [
-          "与衰老相关的记忆编码和检索方式的变化",
-          "记忆相互融合（Blending）的神经科学原理",
-          "对设计 AI 记忆与数据压缩算法的启示"
+          "衰老的大脑倾向于将新体验叠加并融合到现有的神经表征中，而非独立存储。",
+          "老年人的记忆偏差更多源于记忆之间的交叉干扰与过度融合，而非直接遗忘。",
+          "为人工神经网络解决灾难性遗忘以及设计持续学习机制提供了认知科学方面的借鉴。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T01:56:28.607596+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
-    "Aging Brain",
-    "Memory Merging",
-    "Cognitive Science"
+    "Neuroscience",
+    "Memory Blending",
+    "Cognitive Aging",
+    "Memory Retention"
   ],
-  "title_ko": "노화된 뇌는 단순히 기억을 잊는 것이 아니라 기억들을 서로 섞는다",
-  "title_en": "Aging Brains Blend Memories Together Instead of Just Forgetting Them",
-  "title_zh": "衰老的大脑不会轻易遗忘，而是将记忆融为一体",
+  "title_ko": "노화된 뇌는 단순히 기억을 잊는 것이 아니라 융합한다",
+  "title_en": "Aging brains blend memories together instead of just forgetting them",
+  "title_zh": "老化的大脑不仅仅是遗忘记忆，而是将记忆融合在一起",
   "hook": "인간의 뇌가 노화함에 따라 개별 기억이 소실되는 대신 서로 융합되는 신경학적 메커니즘을 조명합니다.",
-  "hook_ko": "인간의 뇌가 노화함에 따라 개별 기억이 소실되는 대신 서로 융합되는 신경학적 메커니즘을 조명합니다.",
-  "hook_en": "Highlighting the neurological mechanism where aging brains merge individual memories rather than simply erasing them.",
-  "hook_zh": "探讨人类大脑在衰老过程中，记忆并非单纯消退，而是相互融合的神经学机制。",
+  "hook_ko": "고령화에 따른 기억력 저하가 단편적인 정보 소멸이 아닌 기억 간의 혼합과 융합에 기인한다는 최신 뇌과학 연구",
+  "hook_en": "Cognitive research shows that memory decline in aging is driven by memory integration and blending rather than simple erasure.",
+  "hook_zh": "认知科学研究表明，随年龄增长出现的记忆下降主要是由于记忆重叠与融合，而非单纯的数据丢失。",
   "description_ko": "인간의 뇌가 노화함에 따라 개별 기억이 소실되는 대신 서로 융합되는 신경학적 메커니즘을 조명합니다.",
   "description_en": "Highlighting the neurological mechanism where aging brains merge individual memories rather than simply erasing them.",
   "description_zh": "探讨人类大脑在衰老过程中，记忆并非单纯消退，而是相互融合的神经学机制。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "노화된 뇌는 단순히 기억을 잊는 것이 아니라 융합한다",
+      "hook": "고령화에 따른 기억력 저하가 단편적인 정보 소멸이 아닌 기억 간의 혼합과 융합에 기인한다는 최신 뇌과학 연구",
+      "key_takeaways": [
+        "노화된 뇌는 개별 기억을 독립적으로 유지하기보다 기존 메모리 구조에 융합하는 경향을 보임",
+        "기억 오류는 단순한 데이터 망각(Erasure)보다는 기억 간 전이 및 간섭(Interference) 때문에 발생",
+        "인공신경망의 지속 학습(Continual Learning) 및 지식 융합 모델 설계에 인지과학적 힌트 제공"
+      ]
+    },
+    "en": {
+      "title": "Aging brains blend memories together instead of just forgetting them",
+      "hook": "Cognitive research shows that memory decline in aging is driven by memory integration and blending rather than simple erasure.",
+      "key_takeaways": [
+        "Aging brains tend to overlay and integrate new experiences into existing neural representations rather than keeping them distinct.",
+        "Memory failure in older adults often stems from cognitive interference and memory overlap rather than direct forgetting.",
+        "Offers intriguing brain-inspired insights for solving catastrophic forgetting and managing memory retention in artificial neural networks."
+      ]
+    },
+    "zh": {
+      "title": "老化的大脑不仅仅是遗忘记忆，而是将记忆融合在一起",
+      "hook": "认知科学研究表明，随年龄增长出现的记忆下降主要是由于记忆重叠与融合，而非单纯的数据丢失。",
+      "key_takeaways": [
+        "衰老的大脑倾向于将新体验叠加并融合到现有的神经表征中，而非独立存储。",
+        "老年人的记忆偏差更多源于记忆之间的交叉干扰与过度融合，而非直接遗忘。",
+        "为人工神经网络解决灾难性遗忘以及设计持续学习机制提供了认知科学方面的借鉴。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.368401"
 }

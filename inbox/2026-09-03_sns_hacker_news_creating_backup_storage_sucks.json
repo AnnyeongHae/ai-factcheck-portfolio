@@ -35,66 +35,97 @@
   "ai_enrichment": {
     "id": "2026-09-03_sns_hacker_news_creating_backup_storage_sucks",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "스토리지 및 인프라",
+    "type_classification": "TECH",
+    "model_family": "Infrastructure",
+    "category": "Storage & Backup",
     "programming_lang": "General",
     "root_keywords": [
-      "백업 스토리지",
-      "데이터 관리",
-      "인프라 구축"
+      "Backup Storage",
+      "Storage Infrastructure",
+      "Data Retention",
+      "Disaster Recovery"
     ],
     "recommended_tag": "📝 기술 참고",
     "worth_score": 2.5,
     "multilingual": {
       "ko": {
-        "title": "백업 스토리지 구축은 왜 여전히 고통스러울까?",
-        "hook": "현업 개발자와 인프라 엔지니어가 공감하는 백업 스토리지 구축의 현실적인 어려움을 다룬 글입니다.",
+        "title": "백업 스토리지 구축의 어려움과 현실적인 문제점",
+        "hook": "백업 스토리지 인프라를 직접 설계하고 운영할 때 직면하는 엔지니어링적 복잡성과 한계 분석.",
         "key_takeaways": [
-          "백업 스토리지 구축 과정에서 겪는 구조적인 문제점",
-          "안정적인 데이터 보존을 위한 현실적인 고민과 인사이트",
-          "비즈니스 연속성을 위한 인프라 관리의 중요성"
+          "백업 스토리지를 직접 구축하고 유지보수하는 과정에서의 오버헤드와 복잡성",
+          "데이터 내구성, 복구 속도, 비용 효율성 간의 현실적인 트레이드오프",
+          "자체 구축(Self-hosted) 방식과 관리형 클라우드 백업 솔루션의 비효율성 비교"
         ]
       },
       "en": {
-        "title": "Why Creating Backup Storage Still Sucks",
-        "hook": "A relatable discussion on the pain points and engineering frustrations of setting up reliable backup storage.",
+        "title": "The Pain and Challenges of Creating Backup Storage",
+        "hook": "An engineering perspective on the frustrations and complexities involved in designing custom backup storage systems.",
         "key_takeaways": [
-          "Common structural challenges in backup storage provisioning",
-          "Real-world frustrations regarding data preservation and reliability",
-          "Insights into improving infrastructure management for business continuity"
+          "High overhead and operational complexity in building custom backup storage solutions",
+          "Trade-offs between data durability, recovery speed, and cost efficiency",
+          "Comparison of self-hosted storage management versus managed cloud backups"
         ]
       },
       "zh": {
-        "title": "为什么创建备份存储依然让人头疼",
-        "hook": "探讨软件工程师和运维人员在构建可靠备份存储时面临的现实痛点与挑战。",
+        "title": "构建备份存储系统的痛点与现实挑战",
+        "hook": "从工程角度探讨自建与维护备份存储基础设施时面临的复杂性与痛点。",
         "key_takeaways": [
-          "备份存储配置过程中的结构性难题",
-          "关于数据保留和系统稳定性的现实困境",
-          "提升基础设施管理以确保业务连续性的见解"
+          "自建与维护备份存储系统过程中的高额运维成本与复杂性",
+          "数据持久性、恢复速度与成本效益之间的权衡考量",
+          "托管式云备份方案与自托管存储架构的实用性对比"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:14:49.189695+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
-    "백업 스토리지",
-    "데이터 관리",
-    "인프라 구축"
+    "Backup Storage",
+    "Storage Infrastructure",
+    "Data Retention",
+    "Disaster Recovery"
   ],
-  "title_ko": "백업 스토리지 구축은 왜 여전히 고통스러울까?",
-  "title_en": "Why Creating Backup Storage Still Sucks",
-  "title_zh": "为什么创建备份存储依然让人头疼",
+  "title_ko": "백업 스토리지 구축의 어려움과 현실적인 문제점",
+  "title_en": "The Pain and Challenges of Creating Backup Storage",
+  "title_zh": "构建备份存储系统的痛点与现实挑战",
   "hook": "현업 개발자와 인프라 엔지니어가 공감하는 백업 스토리지 구축의 현실적인 어려움을 다룬 글입니다.",
-  "hook_ko": "현업 개발자와 인프라 엔지니어가 공감하는 백업 스토리지 구축의 현실적인 어려움을 다룬 글입니다.",
-  "hook_en": "A relatable discussion on the pain points and engineering frustrations of setting up reliable backup storage.",
-  "hook_zh": "探讨软件工程师和运维人员在构建可靠备份存储时面临的现实痛点与挑战。",
+  "hook_ko": "백업 스토리지 인프라를 직접 설계하고 운영할 때 직면하는 엔지니어링적 복잡성과 한계 분석.",
+  "hook_en": "An engineering perspective on the frustrations and complexities involved in designing custom backup storage systems.",
+  "hook_zh": "从工程角度探讨自建与维护备份存储基础设施时面临的复杂性与痛点。",
   "description_ko": "현업 개발자와 인프라 엔지니어가 공감하는 백업 스토리지 구축의 현실적인 어려움을 다룬 글입니다.",
   "description_en": "A relatable discussion on the pain points and engineering frustrations of setting up reliable backup storage.",
   "description_zh": "探讨软件工程师和运维人员在构建可靠备份存储时面临的现实痛点与挑战。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "백업 스토리지 구축의 어려움과 현실적인 문제점",
+      "hook": "백업 스토리지 인프라를 직접 설계하고 운영할 때 직면하는 엔지니어링적 복잡성과 한계 분석.",
+      "key_takeaways": [
+        "백업 스토리지를 직접 구축하고 유지보수하는 과정에서의 오버헤드와 복잡성",
+        "데이터 내구성, 복구 속도, 비용 효율성 간의 현실적인 트레이드오프",
+        "자체 구축(Self-hosted) 방식과 관리형 클라우드 백업 솔루션의 비효율성 비교"
+      ]
+    },
+    "en": {
+      "title": "The Pain and Challenges of Creating Backup Storage",
+      "hook": "An engineering perspective on the frustrations and complexities involved in designing custom backup storage systems.",
+      "key_takeaways": [
+        "High overhead and operational complexity in building custom backup storage solutions",
+        "Trade-offs between data durability, recovery speed, and cost efficiency",
+        "Comparison of self-hosted storage management versus managed cloud backups"
+      ]
+    },
+    "zh": {
+      "title": "构建备份存储系统的痛点与现实挑战",
+      "hook": "从工程角度探讨自建与维护备份存储基础设施时面临的复杂性与痛点。",
+      "key_takeaways": [
+        "自建与维护备份存储系统过程中的高额运维成本与复杂性",
+        "数据持久性、恢复速度与成本效益之间的权衡考量",
+        "托管式云备份方案与自托管存储架构的实用性对比"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.379131"
 }

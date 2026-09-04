@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_prithivmlmodsqwen38_27b_object_detec",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "Computer Vision",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Qwen",
+      "Object Detection",
+      "Hugging Face Space",
+      "Gradio",
+      "Vision-Language Model"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "Qwen 27B 기반 객체 탐지 Hugging Face Space 데모",
+        "hook": "대형 비전-언어 모델 Qwen 27B를 활용한 대화형 객체 탐지 데모",
+        "key_takeaways": [
+          "Qwen 27B 파라미터 모델 기반의 고성능 객체 탐지 기능 제공",
+          "Gradio SDK를 통한 사용하기 쉬운 인터랙티브 웹 UI 구현",
+          "시각적 입력 처리 및 영역 바운딩 박스 생성 성능 테스트 가능"
+        ]
+      },
+      "en": {
+        "title": "Qwen 27B Object Detection Hugging Face Space Demo",
+        "hook": "Interactive object detection demo powered by the large Qwen 27B vision model",
+        "key_takeaways": [
+          "Demonstrates object detection capability powered by a 27B parameter Qwen model",
+          "Built with Gradio SDK for an interactive, web-based demonstration",
+          "Allows testing visual prompt processing and bounding box outputs"
+        ]
+      },
+      "zh": {
+        "title": "基于 Qwen 27B 的目标检测 Hugging Face Space 演示",
+        "hook": "基于大型 Qwen 27B 视觉模型的交互式目标检测 Demo",
+        "key_takeaways": [
+          "展示基于 27B 参数 Qwen 模型的高性能目标检测能力",
+          "使用 Gradio SDK 构建，提供便捷的交互式 Web 界面",
+          "方便测试视觉提示处理与边界框生成效果"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Qwen 27B 기반 객체 탐지 Hugging Face Space 데모",
+      "hook": "대형 비전-언어 모델 Qwen 27B를 활용한 대화형 객체 탐지 데모",
+      "key_takeaways": [
+        "Qwen 27B 파라미터 모델 기반의 고성능 객체 탐지 기능 제공",
+        "Gradio SDK를 통한 사용하기 쉬운 인터랙티브 웹 UI 구현",
+        "시각적 입력 처리 및 영역 바운딩 박스 생성 성능 테스트 가능"
+      ]
+    },
+    "en": {
+      "title": "Qwen 27B Object Detection Hugging Face Space Demo",
+      "hook": "Interactive object detection demo powered by the large Qwen 27B vision model",
+      "key_takeaways": [
+        "Demonstrates object detection capability powered by a 27B parameter Qwen model",
+        "Built with Gradio SDK for an interactive, web-based demonstration",
+        "Allows testing visual prompt processing and bounding box outputs"
+      ]
+    },
+    "zh": {
+      "title": "基于 Qwen 27B 的目标检测 Hugging Face Space 演示",
+      "hook": "基于大型 Qwen 27B 视觉模型的交互式目标检测 Demo",
+      "key_takeaways": [
+        "展示基于 27B 参数 Qwen 模型的高性能目标检测能力",
+        "使用 Gradio SDK 构建，提供便捷的交互式 Web 界面",
+        "方便测试视觉提示处理与边界框生成效果"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Qwen",
+    "Object Detection",
+    "Hugging Face Space",
+    "Gradio",
+    "Vision-Language Model"
+  ],
+  "title_ko": "Qwen 27B 기반 객체 탐지 Hugging Face Space 데모",
+  "hook_ko": "대형 비전-언어 모델 Qwen 27B를 활용한 대화형 객체 탐지 데모",
+  "title_en": "Qwen 27B Object Detection Hugging Face Space Demo",
+  "hook_en": "Interactive object detection demo powered by the large Qwen 27B vision model",
+  "title_zh": "基于 Qwen 27B 的目标检测 Hugging Face Space 演示",
+  "hook_zh": "基于大型 Qwen 27B 视觉模型的交互式目标检测 Demo",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.295902"
 }

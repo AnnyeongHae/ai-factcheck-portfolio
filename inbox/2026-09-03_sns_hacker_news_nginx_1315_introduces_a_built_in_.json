@@ -33,5 +33,97 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49549308",
-  "article_url": "https://www.linuxcompatible.org/story/nginx-1315-introduces-a-builtin-json-parser-control-api-and-predicate-locations-in-september-mainline-release/"
+  "article_url": "https://www.linuxcompatible.org/story/nginx-1315-introduces-a-builtin-json-parser-control-api-and-predicate-locations-in-september-mainline-release/",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_nginx_1315_introduces_a_built_in_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Infrastructure",
+    "category": "Networking & Infrastructure",
+    "programming_lang": "C",
+    "root_keywords": [
+      "Nginx",
+      "JSON Parser",
+      "Control API",
+      "Predicate Locations",
+      "Web Server"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.6,
+    "multilingual": {
+      "ko": {
+        "title": "Nginx 1.31.5, 내장 JSON 파서, Control API 및 조건부 location 기능 도입",
+        "hook": "Nginx 신규 버전에 외부 모듈 없는 JSON 파서와 동적 제어를 위한 Control API가 추가되었습니다.",
+        "key_takeaways": [
+          "외부 3rd-party 모듈 없이 JSON 페이로드를 직접 처리할 수 있는 내장 JSON 파서 탑재",
+          "런타임 관리 및 동적 제어를 단순화하는 새로운 Control API 도입",
+          "유연한 조건부 라우팅 설정을 가능하게 하는 predicate location 지원"
+        ]
+      },
+      "en": {
+        "title": "Nginx 1.31.5 Introduces Built-in JSON Parser, Control API, and Predicate Locations",
+        "hook": "Nginx 1.31.5 enhances server capabilities with native JSON parsing and dynamic control features.",
+        "key_takeaways": [
+          "Includes a native JSON parser to process payloads directly without third-party modules.",
+          "Introduces a new Control API for improved runtime interaction and server management.",
+          "Adds predicate locations to enable highly flexible conditional request routing."
+        ]
+      },
+      "zh": {
+        "title": "Nginx 1.31.5 引入内置 JSON 解析器、Control API 和谓词 location",
+        "hook": "Nginx 1.31.5 版本集成了原生 JSON 解析与 Control API，大幅提升动态控制能力。",
+        "key_takeaways": [
+          "内置 JSON 解析器，无需依赖第三方模块即可直接解析 JSON 请求",
+          "新增 Control API，简化了运行时配置与服务器动态管理",
+          "支持谓词 location，允许构建更具弹性的条件路由规则"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Nginx 1.31.5, 내장 JSON 파서, Control API 및 조건부 location 기능 도입",
+      "hook": "Nginx 신규 버전에 외부 모듈 없는 JSON 파서와 동적 제어를 위한 Control API가 추가되었습니다.",
+      "key_takeaways": [
+        "외부 3rd-party 모듈 없이 JSON 페이로드를 직접 처리할 수 있는 내장 JSON 파서 탑재",
+        "런타임 관리 및 동적 제어를 단순화하는 새로운 Control API 도입",
+        "유연한 조건부 라우팅 설정을 가능하게 하는 predicate location 지원"
+      ]
+    },
+    "en": {
+      "title": "Nginx 1.31.5 Introduces Built-in JSON Parser, Control API, and Predicate Locations",
+      "hook": "Nginx 1.31.5 enhances server capabilities with native JSON parsing and dynamic control features.",
+      "key_takeaways": [
+        "Includes a native JSON parser to process payloads directly without third-party modules.",
+        "Introduces a new Control API for improved runtime interaction and server management.",
+        "Adds predicate locations to enable highly flexible conditional request routing."
+      ]
+    },
+    "zh": {
+      "title": "Nginx 1.31.5 引入内置 JSON 解析器、Control API 和谓词 location",
+      "hook": "Nginx 1.31.5 版本集成了原生 JSON 解析与 Control API，大幅提升动态控制能力。",
+      "key_takeaways": [
+        "内置 JSON 解析器，无需依赖第三方模块即可直接解析 JSON 请求",
+        "新增 Control API，简化了运行时配置与服务器动态管理",
+        "支持谓词 location，允许构建更具弹性的条件路由规则"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "C",
+  "root_keywords": [
+    "Nginx",
+    "JSON Parser",
+    "Control API",
+    "Predicate Locations",
+    "Web Server"
+  ],
+  "title_ko": "Nginx 1.31.5, 내장 JSON 파서, Control API 및 조건부 location 기능 도입",
+  "hook_ko": "Nginx 신규 버전에 외부 모듈 없는 JSON 파서와 동적 제어를 위한 Control API가 추가되었습니다.",
+  "title_en": "Nginx 1.31.5 Introduces Built-in JSON Parser, Control API, and Predicate Locations",
+  "hook_en": "Nginx 1.31.5 enhances server capabilities with native JSON parsing and dynamic control features.",
+  "title_zh": "Nginx 1.31.5 引入内置 JSON 解析器、Control API 和谓词 location",
+  "hook_zh": "Nginx 1.31.5 版本集成了原生 JSON 解析与 Control API，大幅提升动态控制能力。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.398996"
 }

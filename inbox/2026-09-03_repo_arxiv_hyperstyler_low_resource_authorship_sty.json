@@ -34,65 +34,98 @@
     "id": "2026-09-03_repo_arxiv_hyperstyler_low_resource_authorship_sty",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "자연어 처리 및 스타일 변환",
+    "model_family": "Hypernetworks",
+    "category": "Natural Language Processing",
     "programming_lang": "Python",
     "root_keywords": [
       "Authorship Style Transfer",
       "Hypernetworks",
-      "Context-aware"
+      "Low-resource NLP",
+      "Style Navigation",
+      "Few-shot Learning"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.1,
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "하이퍼스타일러: 컨텍스트 인식 스타일 내비게이션과 하이퍼네트워크 기반 저자원 작가 스타일 변환",
-        "hook": "소량의 레퍼런스 예제만으로 원문의 의미를 보존하면서 특정 작가의 문체로 텍스트를 재작성하는 새로운 기법입니다.",
+        "title": "HyperStyler: 문맥 인지 스타일 탐색 및 하이퍼네트워크 기반 저자원 저자 스타일 전이",
+        "hook": "소수의 예제만으로 문맥의 원의미를 보존하며 특정 저자의 문체를 모사하는 하이퍼네트워크 기반 기술",
         "key_takeaways": [
-          "저자원 환경에서의 작가 스타일 변환(LAST) 태스크 혁신",
-          "컨텍스트 인식 스타일 내비게이션 메커니즘 도입",
-          "하이퍼네트워크(Hypernetworks)를 활용한 원문 의미 보존 기술"
+          "하이퍼네트워크(Hypernetworks)를 활용하여 극소량의 데이터로도 유연한 스타일 적응 가능",
+          "문맥 인지 스타일 탐색 기법을 통해 원문의 의미 보존과 스타일 변환 간의 최적 균형 달성",
+          "기존 저자원 스타일 전이(LAST) 모델 한계를 극복하고 우수한 생성 품질 제공"
         ]
       },
       "en": {
-        "title": "HyperStyler: Low-resource Authorship Style Transfer via Hypernetworks",
-        "hook": "Rewrite text in any author's unique style using just a few reference examples while preserving semantic meaning.",
+        "title": "HyperStyler: Low-resource Authorship Style Transfer via Context-aware Style Navigation and Hypernetworks",
+        "hook": "Enables precise authorship style transfer with minimal reference examples while strictly preserving original meaning.",
         "key_takeaways": [
-          "Advancing low-resource authorship style transfer (LAST) techniques",
-          "Context-aware style navigation for precise author imitation",
-          "Preserving original semantics using advanced hypernetwork architectures"
+          "Leverages hypernetworks for rapid dynamic parameter adaptation in few-shot scenarios.",
+          "Employs context-aware style navigation to balance semantic preservation and accurate stylistic conversion.",
+          "Outperforms existing Low-resource Authorship Style Transfer (LAST) baselines in both fluency and style accuracy."
         ]
       },
       "zh": {
-        "title": "HyperStyler：基于上下文感知样式导航与超网络的低资源作者风格转换",
-        "hook": "仅需少量参考示例，即可在保持原意的前提下将文本改写为任意目标作家的文体风格。",
+        "title": "HyperStyler：基于上下文感知风格导航与超网络的低资源作者风格迁移",
+        "hook": "仅需少量参考样本即可在保持原始语义的同时实现精细的目标作者风格迁移",
         "key_takeaways": [
-          "突破低资源作者风格转换（LAST）的技术瓶颈",
-          "引入上下文感知的样式导航机制",
-          "利用超网络架构完美平衡文体模仿与语义保留"
+          "利用超网络（Hypernetworks）实现在少样本条件下的动态高效风格适应",
+          "采用上下文感知风格导航机制，完美平衡语义保留与风格变换",
+          "在低资源作者风格迁移（LAST）任务中表现优异，突破传统模型限制"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:15:15.838837+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Authorship Style Transfer",
     "Hypernetworks",
-    "Context-aware"
+    "Low-resource NLP",
+    "Style Navigation",
+    "Few-shot Learning"
   ],
-  "title_ko": "하이퍼스타일러: 컨텍스트 인식 스타일 내비게이션과 하이퍼네트워크 기반 저자원 작가 스타일 변환",
-  "title_en": "HyperStyler: Low-resource Authorship Style Transfer via Hypernetworks",
-  "title_zh": "HyperStyler：基于上下文感知样式导航与超网络的低资源作者风格转换",
+  "title_ko": "HyperStyler: 문맥 인지 스타일 탐색 및 하이퍼네트워크 기반 저자원 저자 스타일 전이",
+  "title_en": "HyperStyler: Low-resource Authorship Style Transfer via Context-aware Style Navigation and Hypernetworks",
+  "title_zh": "HyperStyler：基于上下文感知风格导航与超网络的低资源作者风格迁移",
   "hook": "소량의 레퍼런스 예제만으로 원문의 의미를 보존하면서 특정 작가의 문체로 텍스트를 재작성하는 새로운 기법입니다.",
-  "hook_ko": "소량의 레퍼런스 예제만으로 원문의 의미를 보존하면서 특정 작가의 문체로 텍스트를 재작성하는 새로운 기법입니다.",
-  "hook_en": "Rewrite text in any author's unique style using just a few reference examples while preserving semantic meaning.",
-  "hook_zh": "仅需少量参考示例，即可在保持原意的前提下将文本改写为任意目标作家的文体风格。",
+  "hook_ko": "소수의 예제만으로 문맥의 원의미를 보존하며 특정 저자의 문체를 모사하는 하이퍼네트워크 기반 기술",
+  "hook_en": "Enables precise authorship style transfer with minimal reference examples while strictly preserving original meaning.",
+  "hook_zh": "仅需少量参考样本即可在保持原始语义的同时实现精细的目标作者风格迁移",
   "description_ko": "소량의 레퍼런스 예제만으로 원문의 의미를 보존하면서 특정 작가의 문체로 텍스트를 재작성하는 새로운 기법입니다.",
   "description_en": "Rewrite text in any author's unique style using just a few reference examples while preserving semantic meaning.",
   "description_zh": "仅需少量参考示例，即可在保持原意的前提下将文本改写为任意目标作家的文体风格。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HyperStyler: 문맥 인지 스타일 탐색 및 하이퍼네트워크 기반 저자원 저자 스타일 전이",
+      "hook": "소수의 예제만으로 문맥의 원의미를 보존하며 특정 저자의 문체를 모사하는 하이퍼네트워크 기반 기술",
+      "key_takeaways": [
+        "하이퍼네트워크(Hypernetworks)를 활용하여 극소량의 데이터로도 유연한 스타일 적응 가능",
+        "문맥 인지 스타일 탐색 기법을 통해 원문의 의미 보존과 스타일 변환 간의 최적 균형 달성",
+        "기존 저자원 스타일 전이(LAST) 모델 한계를 극복하고 우수한 생성 품질 제공"
+      ]
+    },
+    "en": {
+      "title": "HyperStyler: Low-resource Authorship Style Transfer via Context-aware Style Navigation and Hypernetworks",
+      "hook": "Enables precise authorship style transfer with minimal reference examples while strictly preserving original meaning.",
+      "key_takeaways": [
+        "Leverages hypernetworks for rapid dynamic parameter adaptation in few-shot scenarios.",
+        "Employs context-aware style navigation to balance semantic preservation and accurate stylistic conversion.",
+        "Outperforms existing Low-resource Authorship Style Transfer (LAST) baselines in both fluency and style accuracy."
+      ]
+    },
+    "zh": {
+      "title": "HyperStyler：基于上下文感知风格导航与超网络的低资源作者风格迁移",
+      "hook": "仅需少量参考样本即可在保持原始语义的同时实现精细的目标作者风格迁移",
+      "key_takeaways": [
+        "利用超网络（Hypernetworks）实现在少样本条件下的动态高效风格适应",
+        "采用上下文感知风格导航机制，完美平衡语义保留与风格变换",
+        "在低资源作者风格迁移（LAST）任务中表现优异，突破传统模型限制"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.183649"
 }

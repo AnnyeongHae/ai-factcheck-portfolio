@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_lmarena_aiarena_leaderboard",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "LLM Evaluation / Benchmarking",
+    "category": "AI Benchmarks & Evaluation",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "LMSYS",
+      "Chatbot Arena",
+      "LLM Leaderboard",
+      "Elo Rating",
+      "Human Preference Benchmark"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.9,
+    "multilingual": {
+      "ko": {
+        "title": "LMSYS Chatbot Arena 챗봇 리더보드",
+        "hook": "크라우드소싱 블라인드 테스트 및 Elo 평점 기반의 최신 대형 언어 모델(LLM) 실시간 성능 평가 리더보드",
+        "key_takeaways": [
+          "실제 사용자 선호도를 바탕으로 한 수백만 건의 블라인드 대화 및 Elo 기반 평가 데이터 제공",
+          "주요 상용 모델(GPT-4o, Claude 3.5 Sonnet 등)과 최신 오픈소스 LLM 간의 객관적 성과 비교",
+          "코딩, 추론, 하드 프롬프트, 다국어 등 세부 도메인별 리더보드 제공"
+        ]
+      },
+      "en": {
+        "title": "LMSYS Chatbot Arena Leaderboard",
+        "hook": "Real-time LLM benchmarking leaderboard based on crowdsourced human preference and Elo ratings.",
+        "key_takeaways": [
+          "Powered by millions of human pairwise comparisons using the Elo rating system",
+          "Compares leading proprietary models (GPT-4o, Claude 3.5) against top open-source LLMs",
+          "Provides specialized sub-leaderboards for coding, reasoning, hard prompts, and multilingual tasks"
+        ]
+      },
+      "zh": {
+        "title": "LMSYS Chatbot Arena 竞技场排行榜",
+        "hook": "基于众包盲测与 Elo 排分系统的实时大语言模型（LLM）基准测试排行榜",
+        "key_takeaways": [
+          "基于数百万次人类盲测双向对比与 Elo 评级算法构建",
+          "全面对比 GPT-4o、Claude 3.5 等前沿商业模型与主流开源 LLM",
+          "支持编程、推理、高难度 Prompt 及多语言等细分领域排行榜"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "LMSYS Chatbot Arena 챗봇 리더보드",
+      "hook": "크라우드소싱 블라인드 테스트 및 Elo 평점 기반의 최신 대형 언어 모델(LLM) 실시간 성능 평가 리더보드",
+      "key_takeaways": [
+        "실제 사용자 선호도를 바탕으로 한 수백만 건의 블라인드 대화 및 Elo 기반 평가 데이터 제공",
+        "주요 상용 모델(GPT-4o, Claude 3.5 Sonnet 등)과 최신 오픈소스 LLM 간의 객관적 성과 비교",
+        "코딩, 추론, 하드 프롬프트, 다국어 등 세부 도메인별 리더보드 제공"
+      ]
+    },
+    "en": {
+      "title": "LMSYS Chatbot Arena Leaderboard",
+      "hook": "Real-time LLM benchmarking leaderboard based on crowdsourced human preference and Elo ratings.",
+      "key_takeaways": [
+        "Powered by millions of human pairwise comparisons using the Elo rating system",
+        "Compares leading proprietary models (GPT-4o, Claude 3.5) against top open-source LLMs",
+        "Provides specialized sub-leaderboards for coding, reasoning, hard prompts, and multilingual tasks"
+      ]
+    },
+    "zh": {
+      "title": "LMSYS Chatbot Arena 竞技场排行榜",
+      "hook": "基于众包盲测与 Elo 排分系统的实时大语言模型（LLM）基准测试排行榜",
+      "key_takeaways": [
+        "基于数百万次人类盲测双向对比与 Elo 评级算法构建",
+        "全面对比 GPT-4o、Claude 3.5 等前沿商业模型与主流开源 LLM",
+        "支持编程、推理、高难度 Prompt 及多语言等细分领域排行榜"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "LMSYS",
+    "Chatbot Arena",
+    "LLM Leaderboard",
+    "Elo Rating",
+    "Human Preference Benchmark"
+  ],
+  "title_ko": "LMSYS Chatbot Arena 챗봇 리더보드",
+  "hook_ko": "크라우드소싱 블라인드 테스트 및 Elo 평점 기반의 최신 대형 언어 모델(LLM) 실시간 성능 평가 리더보드",
+  "title_en": "LMSYS Chatbot Arena Leaderboard",
+  "hook_en": "Real-time LLM benchmarking leaderboard based on crowdsourced human preference and Elo ratings.",
+  "title_zh": "LMSYS Chatbot Arena 竞技场排行榜",
+  "hook_zh": "基于众包盲测与 Elo 排分系统的实时大语言模型（LLM）基准测试排行榜",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.278509"
 }

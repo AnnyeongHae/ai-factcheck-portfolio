@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_hugging_appsfireredaudio_tts_demo",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "FireRedAudio",
+    "category": "Speech Synthesis / Audio AI",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "TTS",
+      "FireRedAudio",
+      "Text-to-Speech",
+      "Gradio",
+      "Audio Generation"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "FireRedAudio TTS 데모 - 대화형 텍스트-음성 변환 모델",
+        "hook": "FireRedAudio 모델 기반의 대화형 TTS 성능을 직접 체험하고 평가할 수 있는 Gradio 웹 데모",
+        "key_takeaways": [
+          "Gradio 기반 인터페이스로 신속한 TTS 모델 테스트 및 체험 지원",
+          "FireRedAudio 파이프라인의 음성 합성 품질 및 자연스러움 즉시 평가 가능",
+          "음성 AI 서비스 제작을 위한 대화형 대시보드 참고 사례"
+        ]
+      },
+      "en": {
+        "title": "FireRedAudio TTS Demo - Interactive Text-to-Speech Web App",
+        "hook": "An interactive Gradio web application for evaluating FireRedAudio's text-to-speech generation capabilities.",
+        "key_takeaways": [
+          "Interactive Gradio-based web demo for quick TTS model testing",
+          "Direct evaluation of FireRedAudio speech synthesis quality and speed",
+          "Practical reference setup for deploying interactive audio AI applications"
+        ]
+      },
+      "zh": {
+        "title": "FireRedAudio TTS 交互式文本转语音 Demo",
+        "hook": "基于 Gradio 构建的 FireRedAudio 文本转语音模型在线交互评估平台",
+        "key_takeaways": [
+          "基于 Gradio SDK 提供便捷的 TTS 模型快速测试体验",
+          "可直观评估 FireRedAudio 的语音合成质量与推理速度",
+          "为音频生成及 AI 语音应用部署提供实用参考"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "FireRedAudio TTS 데모 - 대화형 텍스트-음성 변환 모델",
+      "hook": "FireRedAudio 모델 기반의 대화형 TTS 성능을 직접 체험하고 평가할 수 있는 Gradio 웹 데모",
+      "key_takeaways": [
+        "Gradio 기반 인터페이스로 신속한 TTS 모델 테스트 및 체험 지원",
+        "FireRedAudio 파이프라인의 음성 합성 품질 및 자연스러움 즉시 평가 가능",
+        "음성 AI 서비스 제작을 위한 대화형 대시보드 참고 사례"
+      ]
+    },
+    "en": {
+      "title": "FireRedAudio TTS Demo - Interactive Text-to-Speech Web App",
+      "hook": "An interactive Gradio web application for evaluating FireRedAudio's text-to-speech generation capabilities.",
+      "key_takeaways": [
+        "Interactive Gradio-based web demo for quick TTS model testing",
+        "Direct evaluation of FireRedAudio speech synthesis quality and speed",
+        "Practical reference setup for deploying interactive audio AI applications"
+      ]
+    },
+    "zh": {
+      "title": "FireRedAudio TTS 交互式文本转语音 Demo",
+      "hook": "基于 Gradio 构建的 FireRedAudio 文本转语音模型在线交互评估平台",
+      "key_takeaways": [
+        "基于 Gradio SDK 提供便捷的 TTS 模型快速测试体验",
+        "可直观评估 FireRedAudio 的语音合成质量与推理速度",
+        "为音频生成及 AI 语音应用部署提供实用参考"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "TTS",
+    "FireRedAudio",
+    "Text-to-Speech",
+    "Gradio",
+    "Audio Generation"
+  ],
+  "title_ko": "FireRedAudio TTS 데모 - 대화형 텍스트-음성 변환 모델",
+  "hook_ko": "FireRedAudio 모델 기반의 대화형 TTS 성능을 직접 체험하고 평가할 수 있는 Gradio 웹 데모",
+  "title_en": "FireRedAudio TTS Demo - Interactive Text-to-Speech Web App",
+  "hook_en": "An interactive Gradio web application for evaluating FireRedAudio's text-to-speech generation capabilities.",
+  "title_zh": "FireRedAudio TTS 交互式文本转语音 Demo",
+  "hook_zh": "基于 Gradio 构建的 FireRedAudio 文本转语音模型在线交互评估平台",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.255435"
 }

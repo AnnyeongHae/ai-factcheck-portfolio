@@ -33,66 +33,99 @@
   "ai_enrichment": {
     "id": "2026-09-03_repo_arxiv_addressing_trust_in_ai_systems_through_",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "AI 윤리 및 교육",
+    "type_classification": "TECH",
+    "model_family": "AI Education / Explainable AI",
+    "category": "AI Education & Ethics",
     "programming_lang": "General",
     "root_keywords": [
       "AI Trust",
-      "Machine Learning Education",
-      "Didactic Perspective"
+      "ML Education",
+      "Explainable AI",
+      "Didactic Framework",
+      "Black-Box ML"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.5,
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "교육을 통한 AI 시스템 신뢰 구축: 교수법적 관점",
-        "hook": "블랙박스 형태의 머신러닝 교육 방식을 탈피하고 AI 신뢰성을 높이기 위한 교육적 접근법을 다룹니다.",
+        "title": "교육을 통한 AI 시스템의 신뢰성 문제 해결: 교수학적 관점",
+        "hook": "ML 교육에서 블랙박스 한계를 극복하고 모델에 대한 신뢰를 구축하기 위한 교수학적 접근법 분석",
         "key_takeaways": [
-          "머신러닝 교육 내 블랙박스 문제와 피상적 이해 한계 분석",
-          "AI 시스템에 대한 사용자 신뢰를 높이기 위한 교수학적 전략 제시",
-          "투명하고 설명 가능한 AI 교육의 중요성 강조"
+          "기존 머신러닝 교육 도구의 블랙박스화 문제점 지적 및 피상적 이해 한계 분석",
+          "학습자의 AI 시스템 신뢰 형성을 위한 교수학적(Didactic) 프레임워크 제안",
+          "실제적인 ML 원리 이해를 돕는 교육적 가이드라인 제공"
         ]
       },
       "en": {
         "title": "Addressing Trust in AI Systems through Education: A Didactic Perspective",
-        "hook": "Explore pedagogical approaches to overcome the 'black box' problem and build trust in AI education.",
+        "hook": "A didactic analysis on overcoming black-box limitations in ML education to build fundamental trust in AI systems.",
         "key_takeaways": [
-          "Identifies persistent obstacles in machine learning education and black-box problems",
-          "Proposes didactic strategies to enhance learner comprehension and AI trust",
-          "Emphasizes the necessity of transparent and interpretable AI learning frameworks"
+          "Highlights the limitation of current ML tools that treat models as opaque black boxes.",
+          "Proposes a structured didactic framework to foster genuine trust and deep understanding.",
+          "Provides actionable educational guidelines for teaching fundamental ML concepts effectively."
         ]
       },
       "zh": {
-        "title": "通过教育解决AI系统的信任问题：教学法视角",
-        "hook": "探讨如何打破机器学习教育中的黑盒现象，从教学法角度建立对AI系统的信任。",
+        "title": "通过教育解决 AI 系统的信任问题：教学论视角",
+        "hook": "从教学论角度分析如何克服 ML 教育中的黑盒局限性，构建对 AI 系统的根本信任。",
         "key_takeaways": [
-          "分析机器学习教育中长期存在的黑盒现象与表面化理解障碍",
-          "提出增强学习者理解力与建立AI信任的教学策略",
-          "强调透明且可解释的AI教育框架的重要性"
+          "指出当前机器学习教育工具将模型当作不透明黑盒的局限性",
+          "提出旨在培养学习者对 AI 系统建立真正信任的教学论框架",
+          "提供有效的教学指导方针，帮助深入理解 ML 核心原理"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:17:57.668349+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "AI Trust",
-    "Machine Learning Education",
-    "Didactic Perspective"
+    "ML Education",
+    "Explainable AI",
+    "Didactic Framework",
+    "Black-Box ML"
   ],
-  "title_ko": "교육을 통한 AI 시스템 신뢰 구축: 교수법적 관점",
+  "title_ko": "교육을 통한 AI 시스템의 신뢰성 문제 해결: 교수학적 관점",
   "title_en": "Addressing Trust in AI Systems through Education: A Didactic Perspective",
-  "title_zh": "通过教育解决AI系统的信任问题：教学法视角",
+  "title_zh": "通过教育解决 AI 系统的信任问题：教学论视角",
   "hook": "블랙박스 형태의 머신러닝 교육 방식을 탈피하고 AI 신뢰성을 높이기 위한 교육적 접근법을 다룹니다.",
-  "hook_ko": "블랙박스 형태의 머신러닝 교육 방식을 탈피하고 AI 신뢰성을 높이기 위한 교육적 접근법을 다룹니다.",
-  "hook_en": "Explore pedagogical approaches to overcome the 'black box' problem and build trust in AI education.",
-  "hook_zh": "探讨如何打破机器学习教育中的黑盒现象，从教学法角度建立对AI系统的信任。",
+  "hook_ko": "ML 교육에서 블랙박스 한계를 극복하고 모델에 대한 신뢰를 구축하기 위한 교수학적 접근법 분석",
+  "hook_en": "A didactic analysis on overcoming black-box limitations in ML education to build fundamental trust in AI systems.",
+  "hook_zh": "从教学论角度分析如何克服 ML 教育中的黑盒局限性，构建对 AI 系统的根本信任。",
   "description_ko": "블랙박스 형태의 머신러닝 교육 방식을 탈피하고 AI 신뢰성을 높이기 위한 교육적 접근법을 다룹니다.",
   "description_en": "Explore pedagogical approaches to overcome the 'black box' problem and build trust in AI education.",
   "description_zh": "探讨如何打破机器学习教育中的黑盒现象，从教学法角度建立对AI系统的信任。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "교육을 통한 AI 시스템의 신뢰성 문제 해결: 교수학적 관점",
+      "hook": "ML 교육에서 블랙박스 한계를 극복하고 모델에 대한 신뢰를 구축하기 위한 교수학적 접근법 분석",
+      "key_takeaways": [
+        "기존 머신러닝 교육 도구의 블랙박스화 문제점 지적 및 피상적 이해 한계 분석",
+        "학습자의 AI 시스템 신뢰 형성을 위한 교수학적(Didactic) 프레임워크 제안",
+        "실제적인 ML 원리 이해를 돕는 교육적 가이드라인 제공"
+      ]
+    },
+    "en": {
+      "title": "Addressing Trust in AI Systems through Education: A Didactic Perspective",
+      "hook": "A didactic analysis on overcoming black-box limitations in ML education to build fundamental trust in AI systems.",
+      "key_takeaways": [
+        "Highlights the limitation of current ML tools that treat models as opaque black boxes.",
+        "Proposes a structured didactic framework to foster genuine trust and deep understanding.",
+        "Provides actionable educational guidelines for teaching fundamental ML concepts effectively."
+      ]
+    },
+    "zh": {
+      "title": "通过教育解决 AI 系统的信任问题：教学论视角",
+      "hook": "从教学论角度分析如何克服 ML 教育中的黑盒局限性，构建对 AI 系统的根本信任。",
+      "key_takeaways": [
+        "指出当前机器学习教育工具将模型当作不透明黑盒的局限性",
+        "提出旨在培养学习者对 AI 系统建立真正信任的教学论框架",
+        "提供有效的教学指导方针，帮助深入理解 ML 核心原理"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.151244"
 }

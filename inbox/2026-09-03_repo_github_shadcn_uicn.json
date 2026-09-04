@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_github_shadcn_uicn",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Frontend Infrastructure",
+    "category": "Web Development",
+    "programming_lang": "TypeScript",
+    "root_keywords": [
+      "Tailwind CSS",
+      "tailwind-merge",
+      "clsx",
+      "cn",
+      "Performance"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "shadcn-ui/cn: 기존 tailwind-merge 및 clsx를 대체하는 30배 빠른 클래스 병합 엔진",
+        "hook": "동일한 API 및 호환성을 유지하면서 기존 tailwind-merge 대비 30배 뛰어난 성능을 제공하는 새로운 Tailwind 클래스 병합 엔진",
+        "key_takeaways": [
+          "tailwind-merge와 clsx를 완벽히 대체하는 드롭인(Drop-in) 라이브러리",
+          "기존 API와 100% 기능적 호환성(Full parity) 제공",
+          "Tailwind 클래스 충돌 해결 및 병합 속도 30배 향상"
+        ]
+      },
+      "en": {
+        "title": "shadcn-ui/cn: A Next-Gen Tailwind Class Merging Engine 30× Faster Than tailwind-merge",
+        "hook": "A drop-in replacement for tailwind-merge and clsx with full API parity and 30× faster performance.",
+        "key_takeaways": [
+          "Replaces both tailwind-merge and clsx with a single engine",
+          "Maintains full API parity for seamless, zero-friction adoption",
+          "Delivers 30× faster class merging and conflict resolution"
+        ]
+      },
+      "zh": {
+        "title": "shadcn-ui/cn：比 tailwind-merge 与 clsx 快 30 倍的新型 Tailwind 类名合并引擎",
+        "hook": "完全兼容现有 API，性能比 tailwind-merge 和 clsx 提升 30 倍的 Tailwind 类名合并与冲突解决引擎",
+        "key_takeaways": [
+          "完全替代 tailwind-merge 与 clsx，支持无缝直接替换",
+          "保持 100% 的 API 兼容性与功能对齐",
+          "提供高达 30 倍的 Tailwind 类名合并与冲突解决速度"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "shadcn-ui/cn: 기존 tailwind-merge 및 clsx를 대체하는 30배 빠른 클래스 병합 엔진",
+      "hook": "동일한 API 및 호환성을 유지하면서 기존 tailwind-merge 대비 30배 뛰어난 성능을 제공하는 새로운 Tailwind 클래스 병합 엔진",
+      "key_takeaways": [
+        "tailwind-merge와 clsx를 완벽히 대체하는 드롭인(Drop-in) 라이브러리",
+        "기존 API와 100% 기능적 호환성(Full parity) 제공",
+        "Tailwind 클래스 충돌 해결 및 병합 속도 30배 향상"
+      ]
+    },
+    "en": {
+      "title": "shadcn-ui/cn: A Next-Gen Tailwind Class Merging Engine 30× Faster Than tailwind-merge",
+      "hook": "A drop-in replacement for tailwind-merge and clsx with full API parity and 30× faster performance.",
+      "key_takeaways": [
+        "Replaces both tailwind-merge and clsx with a single engine",
+        "Maintains full API parity for seamless, zero-friction adoption",
+        "Delivers 30× faster class merging and conflict resolution"
+      ]
+    },
+    "zh": {
+      "title": "shadcn-ui/cn：比 tailwind-merge 与 clsx 快 30 倍的新型 Tailwind 类名合并引擎",
+      "hook": "完全兼容现有 API，性能比 tailwind-merge 和 clsx 提升 30 倍的 Tailwind 类名合并与冲突解决引擎",
+      "key_takeaways": [
+        "完全替代 tailwind-merge 与 clsx，支持无缝直接替换",
+        "保持 100% 的 API 兼容性与功能对齐",
+        "提供高达 30 倍的 Tailwind 类名合并与冲突解决速度"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "TypeScript",
+  "root_keywords": [
+    "Tailwind CSS",
+    "tailwind-merge",
+    "clsx",
+    "cn",
+    "Performance"
+  ],
+  "title_ko": "shadcn-ui/cn: 기존 tailwind-merge 및 clsx를 대체하는 30배 빠른 클래스 병합 엔진",
+  "hook_ko": "동일한 API 및 호환성을 유지하면서 기존 tailwind-merge 대비 30배 뛰어난 성능을 제공하는 새로운 Tailwind 클래스 병합 엔진",
+  "title_en": "shadcn-ui/cn: A Next-Gen Tailwind Class Merging Engine 30× Faster Than tailwind-merge",
+  "hook_en": "A drop-in replacement for tailwind-merge and clsx with full API parity and 30× faster performance.",
+  "title_zh": "shadcn-ui/cn：比 tailwind-merge 与 clsx 快 30 倍的新型 Tailwind 类名合并引擎",
+  "hook_zh": "完全兼容现有 API，性能比 tailwind-merge 和 clsx 提升 30 倍的 Tailwind 类名合并与冲突解决引擎",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.220221"
 }

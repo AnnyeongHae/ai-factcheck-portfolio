@@ -35,65 +35,98 @@
     "id": "2026-09-02_sns_hugging_face_blog_how_hugging_face_inference_",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "MLOps 및 검색 인프라",
+    "model_family": "MLOps / Infrastructure",
+    "category": "AI Infrastructure",
     "programming_lang": "Python",
     "root_keywords": [
-      "Inference Endpoints",
+      "Hugging Face Inference Endpoints",
       "Papers with Code",
-      "Search Infrastructure"
+      "Semantic Search",
+      "HF Jobs",
+      "HF Buckets"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.3,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face 인프라를 활용한 Papers with Code 검색 시스템 구축 사례",
-        "hook": "대규모 학술 논문 검색 엔진을 MLOps 인프라로 어떻게 구현했는지 아키텍처를 엿볼 수 있는 실무 가이드입니다.",
+        "title": "Hugging Face Inference Endpoints, Jobs, Buckets를 활용한 Papers with Code 검색 시스템 구축기",
+        "hook": "허깅페이스의 인프라 생태계를 결합하여 Papers with Code의 고성능 시맨틱 검색 파이프라인을 구축한 실무적 아키텍처 사례",
         "key_takeaways": [
-          "Inference Endpoints, Jobs, Buckets의 유기적 결합",
-          "Papers with Code 검색 성능 최적화 노하우",
-          "프로덕션 급 MLOps 아키텍처 설계 인사이트"
+          "Hugging Face Inference Endpoints를 통한 실시간 임베딩 생성 및 저지연 검색 구현",
+          "HF Jobs와 Buckets를 활용한 배치 임베딩 임포트 및 벡터 저장소의 효율적 데이터 관리",
+          "Papers with Code의 대규모 논문 데이터 검색 성능 향상을 위한 엔드투엔드 파이프라인 통합"
         ]
       },
       "en": {
         "title": "How Hugging Face Inference Endpoints, Jobs, and Buckets Power Search on Papers with Code",
-        "hook": "An insightful architectural breakdown of how production-grade MLOps infrastructure powers massive academic paper search engines.",
+        "hook": "A practical architecture case study on powering high-performance semantic search for Papers with Code using Hugging Face's integrated cloud infrastructure.",
         "key_takeaways": [
-          "Integration of Inference Endpoints, Jobs, and Buckets",
-          "Search optimization strategies for Papers with Code",
-          "Best practices for large-scale production MLOps systems"
+          "Utilizing Hugging Face Inference Endpoints for low-latency real-time embedding generation.",
+          "Streamlining batch processing and vector data persistence with HF Jobs and HF Buckets.",
+          "End-to-end integration for scalable, semantic academic paper search on Papers with Code."
         ]
       },
       "zh": {
-        "title": "Hugging Face推理端点、任务与存储桶如何驱动Papers with Code搜索",
-        "hook": "深入了解生产级MLOps基础设施如何支撑大规模学术论文搜索引擎的架构设计指南。",
+        "title": "Hugging Face Inference Endpoints、Jobs 和 Buckets 如何驱动 Papers with Code 的搜索功能",
+        "hook": "结合 Hugging Face 云端基础设施生态，构建 Papers with Code 高性能语义搜索管道的工程实践案例",
         "key_takeaways": [
-          "推理端点、后台任务与存储桶的有机结合",
-          "Papers with Code搜索性能优化策略",
-          "大规模生产环境MLOps架构设计见解"
+          "利用 Hugging Face Inference Endpoints 实现低延迟的实时向量嵌入生成",
+          "借助 HF Jobs 与 Buckets 简化大规模批处理任务与向量数据存储管理",
+          "为 Papers with Code 论文搜索建立扩展性强、维护成本低的端到端架构"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:47:53.697794+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Inference Endpoints",
+    "Hugging Face Inference Endpoints",
     "Papers with Code",
-    "Search Infrastructure"
+    "Semantic Search",
+    "HF Jobs",
+    "HF Buckets"
   ],
-  "title_ko": "Hugging Face 인프라를 활용한 Papers with Code 검색 시스템 구축 사례",
+  "title_ko": "Hugging Face Inference Endpoints, Jobs, Buckets를 활용한 Papers with Code 검색 시스템 구축기",
   "title_en": "How Hugging Face Inference Endpoints, Jobs, and Buckets Power Search on Papers with Code",
-  "title_zh": "Hugging Face推理端点、任务与存储桶如何驱动Papers with Code搜索",
+  "title_zh": "Hugging Face Inference Endpoints、Jobs 和 Buckets 如何驱动 Papers with Code 的搜索功能",
   "hook": "대규모 학술 논문 검색 엔진을 MLOps 인프라로 어떻게 구현했는지 아키텍처를 엿볼 수 있는 실무 가이드입니다.",
-  "hook_ko": "대규모 학술 논문 검색 엔진을 MLOps 인프라로 어떻게 구현했는지 아키텍처를 엿볼 수 있는 실무 가이드입니다.",
-  "hook_en": "An insightful architectural breakdown of how production-grade MLOps infrastructure powers massive academic paper search engines.",
-  "hook_zh": "深入了解生产级MLOps基础设施如何支撑大规模学术论文搜索引擎的架构设计指南。",
+  "hook_ko": "허깅페이스의 인프라 생태계를 결합하여 Papers with Code의 고성능 시맨틱 검색 파이프라인을 구축한 실무적 아키텍처 사례",
+  "hook_en": "A practical architecture case study on powering high-performance semantic search for Papers with Code using Hugging Face's integrated cloud infrastructure.",
+  "hook_zh": "结合 Hugging Face 云端基础设施生态，构建 Papers with Code 高性能语义搜索管道的工程实践案例",
   "description_ko": "대규모 학술 논문 검색 엔진을 MLOps 인프라로 어떻게 구현했는지 아키텍처를 엿볼 수 있는 실무 가이드입니다.",
   "description_en": "An insightful architectural breakdown of how production-grade MLOps infrastructure powers massive academic paper search engines.",
   "description_zh": "深入了解生产级MLOps基础设施如何支撑大规模学术论文搜索引擎的架构设计指南。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Hugging Face Inference Endpoints, Jobs, Buckets를 활용한 Papers with Code 검색 시스템 구축기",
+      "hook": "허깅페이스의 인프라 생태계를 결합하여 Papers with Code의 고성능 시맨틱 검색 파이프라인을 구축한 실무적 아키텍처 사례",
+      "key_takeaways": [
+        "Hugging Face Inference Endpoints를 통한 실시간 임베딩 생성 및 저지연 검색 구현",
+        "HF Jobs와 Buckets를 활용한 배치 임베딩 임포트 및 벡터 저장소의 효율적 데이터 관리",
+        "Papers with Code의 대규모 논문 데이터 검색 성능 향상을 위한 엔드투엔드 파이프라인 통합"
+      ]
+    },
+    "en": {
+      "title": "How Hugging Face Inference Endpoints, Jobs, and Buckets Power Search on Papers with Code",
+      "hook": "A practical architecture case study on powering high-performance semantic search for Papers with Code using Hugging Face's integrated cloud infrastructure.",
+      "key_takeaways": [
+        "Utilizing Hugging Face Inference Endpoints for low-latency real-time embedding generation.",
+        "Streamlining batch processing and vector data persistence with HF Jobs and HF Buckets.",
+        "End-to-end integration for scalable, semantic academic paper search on Papers with Code."
+      ]
+    },
+    "zh": {
+      "title": "Hugging Face Inference Endpoints、Jobs 和 Buckets 如何驱动 Papers with Code 的搜索功能",
+      "hook": "结合 Hugging Face 云端基础设施生态，构建 Papers with Code 高性能语义搜索管道的工程实践案例",
+      "key_takeaways": [
+        "利用 Hugging Face Inference Endpoints 实现低延迟的实时向量嵌入生成",
+        "借助 HF Jobs 与 Buckets 简化大规模批处理任务与向量数据存储管理",
+        "为 Papers with Code 论文搜索建立扩展性强、维护成本低的端到端架构"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.131985"
 }

@@ -34,65 +34,98 @@
     "id": "2026-09-03_repo_arxiv_competitive_market_behavior_of_llms",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "AI 경제학 및 멀티에이전트",
-    "programming_lang": "Python",
+    "model_family": "LLM Agents",
+    "category": "AI Economics",
+    "programming_lang": "General",
     "root_keywords": [
       "LLM Agents",
       "Market Behavior",
-      "Economic Agents"
+      "Economic Agents",
+      "Game Theory",
+      "Agent Simulation"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 4.0,
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
         "title": "LLM의 경쟁적 시장 행동 분석",
-        "hook": "대형 언어 모델 에이전트가 인간을 위해 설계된 시장 메커니즘에서 어떻게 행동하는지 경제학적 관점에서 분석합니다.",
+        "hook": "인간 중심으로 설계된 경제적 시장 메커니즘에서 LLM 에이전트의 적합성 및 경쟁 행동을 분석한 연구",
         "key_takeaways": [
-          "LLM을 경제적 에이전트로 배치할 때의 시장 적합성 검증",
-          "인간 중심의 시장 메커니즘에서의 LLM 행동 양상 관찰",
-          "AI 에이전트 기반 경제 시뮬레이션의 가능성과 한계 탐구"
+          "LLM 에이전트가 독점, 완전경쟁 등 다양한 시장 구조에서 어떤 가격 결정 및 전략적 행동을 취하는지 평가",
+          "인간용 경제 메커니즘이 LLM 에이전트 환경에서도 문제없이 작동하는지 고찰",
+          "자율형 AI 에이전트 기반 경제 시스템 설계 시 고려해야 할 위험 요소와 매개변수 제시"
         ]
       },
       "en": {
         "title": "Competitive Market Behavior of LLMs",
-        "hook": "Explore how well LLM-based economic agents perform and adapt within market mechanisms originally designed for humans.",
+        "hook": "Evaluating the suitability and strategic behavior of LLM agents in human-designed market mechanisms.",
         "key_takeaways": [
-          "Evaluates LLMs deployed as autonomous economic agents",
-          "Investigates whether LLM agents fit into human-designed market rules",
-          "Provides insights into multi-agent economic simulations"
+          "Analyzes pricing, collusion, and strategy of LLM agents across various economic market structures.",
+          "Assesses whether human-centric market rules function properly when automated by LLM agents.",
+          "Provides guidance on risks and design constraints for deploying multi-agent AI economic systems."
         ]
       },
       "zh": {
-        "title": "大语言模型的竞争性市场行为研究",
-        "hook": "从经济学角度探讨大语言模型作为经济体代理时，在人类市场机制中的适应性与行为表现。",
+        "title": "大语言模型（LLM）的竞争性市场行为研究",
+        "hook": "评估 LLM 智能体在为人类设计的市场机制中的适应性与竞争策略行为。",
         "key_takeaways": [
-          "评估将LLM部署为经济代理人的可行性",
-          "考察LLM代理在人类设计市场机制中的表现",
-          "为AI代理参与的经济博弈与仿真提供重要见解"
+          "分析 LLM 智能体在垄断、完全竞争等不同市场结构中的定价与战略行为",
+          "评估人类市场规则由 LLM 智能体自动化执行时的有效性与潜在失效",
+          "为构建多 AI 智能体经济系统中的风险控制与机制设计提供指导"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:17:44.806203+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
     "LLM Agents",
     "Market Behavior",
-    "Economic Agents"
+    "Economic Agents",
+    "Game Theory",
+    "Agent Simulation"
   ],
   "title_ko": "LLM의 경쟁적 시장 행동 분석",
   "title_en": "Competitive Market Behavior of LLMs",
-  "title_zh": "大语言模型的竞争性市场行为研究",
+  "title_zh": "大语言模型（LLM）的竞争性市场行为研究",
   "hook": "대형 언어 모델 에이전트가 인간을 위해 설계된 시장 메커니즘에서 어떻게 행동하는지 경제학적 관점에서 분석합니다.",
-  "hook_ko": "대형 언어 모델 에이전트가 인간을 위해 설계된 시장 메커니즘에서 어떻게 행동하는지 경제학적 관점에서 분석합니다.",
-  "hook_en": "Explore how well LLM-based economic agents perform and adapt within market mechanisms originally designed for humans.",
-  "hook_zh": "从经济学角度探讨大语言模型作为经济体代理时，在人类市场机制中的适应性与行为表现。",
+  "hook_ko": "인간 중심으로 설계된 경제적 시장 메커니즘에서 LLM 에이전트의 적합성 및 경쟁 행동을 분석한 연구",
+  "hook_en": "Evaluating the suitability and strategic behavior of LLM agents in human-designed market mechanisms.",
+  "hook_zh": "评估 LLM 智能体在为人类设计的市场机制中的适应性与竞争策略行为。",
   "description_ko": "대형 언어 모델 에이전트가 인간을 위해 설계된 시장 메커니즘에서 어떻게 행동하는지 경제학적 관점에서 분석합니다.",
   "description_en": "Explore how well LLM-based economic agents perform and adapt within market mechanisms originally designed for humans.",
   "description_zh": "从经济学角度探讨大语言模型作为经济体代理时，在人类市场机制中的适应性与行为表现。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "LLM의 경쟁적 시장 행동 분석",
+      "hook": "인간 중심으로 설계된 경제적 시장 메커니즘에서 LLM 에이전트의 적합성 및 경쟁 행동을 분석한 연구",
+      "key_takeaways": [
+        "LLM 에이전트가 독점, 완전경쟁 등 다양한 시장 구조에서 어떤 가격 결정 및 전략적 행동을 취하는지 평가",
+        "인간용 경제 메커니즘이 LLM 에이전트 환경에서도 문제없이 작동하는지 고찰",
+        "자율형 AI 에이전트 기반 경제 시스템 설계 시 고려해야 할 위험 요소와 매개변수 제시"
+      ]
+    },
+    "en": {
+      "title": "Competitive Market Behavior of LLMs",
+      "hook": "Evaluating the suitability and strategic behavior of LLM agents in human-designed market mechanisms.",
+      "key_takeaways": [
+        "Analyzes pricing, collusion, and strategy of LLM agents across various economic market structures.",
+        "Assesses whether human-centric market rules function properly when automated by LLM agents.",
+        "Provides guidance on risks and design constraints for deploying multi-agent AI economic systems."
+      ]
+    },
+    "zh": {
+      "title": "大语言模型（LLM）的竞争性市场行为研究",
+      "hook": "评估 LLM 智能体在为人类设计的市场机制中的适应性与竞争策略行为。",
+      "key_takeaways": [
+        "分析 LLM 智能体在垄断、完全竞争等不同市场结构中的定价与战略行为",
+        "评估人类市场规则由 LLM 智能体自动化执行时的有效性与潜在失效",
+        "为构建多 AI 智能体经济系统中的风险控制与机制设计提供指导"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.165139"
 }

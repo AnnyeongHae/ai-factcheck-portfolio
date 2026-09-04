@@ -32,8 +32,99 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": ".name 3단계 도메인 종료",
+  "title_ko": ".name 3단계 도메인(third-level domain) 등록 서비스 종료",
   "description_ko": ".name 3단계 도메인 종료",
   "hn_url": "https://news.hada.io/topic?id=33197",
-  "article_url": "https://news.hada.io/topic?id=33197"
+  "article_url": "https://news.hada.io/topic?id=33197",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_geeknews_name_3단계_도메인_종료",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "DNS / Web Infrastructure",
+    "category": "Networking & Infrastructure",
+    "programming_lang": "General",
+    "root_keywords": [
+      "DNS",
+      ".name TLD",
+      "Domain Sunset",
+      "Verisign",
+      "Third-Level Domain"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.3,
+    "multilingual": {
+      "ko": {
+        "title": ".name 3단계 도메인(third-level domain) 등록 서비스 종료",
+        "hook": "역사적인 .name 3단계 도메인 등록 서비스가 종료 수순에 들어갑니다.",
+        "key_takeaways": [
+          "john.doe.name 형태의 레거시 3단계 도메인 신규 등록 및 연장이 중단됩니다.",
+          "레지스트리 관리 단순화 및 2단계 도메인(doe.name) 중심으로의 전환 조치입니다.",
+          "기존 3단계 도메인 보유자는 서비스 종료 전까지 서비스 이전 또는 대체 도메인 마련이 필요합니다."
+        ]
+      },
+      "en": {
+        "title": "Deprecation of .name Third-Level Domain Registrations",
+        "hook": "Legacy .name 3rd-level domain registration services are officially being sunsetted.",
+        "key_takeaways": [
+          "New registrations and renewals for 3rd-level domains (e.g., john.doe.name) are being discontinued.",
+          "Simplifies registry management by consolidating focus onto standard 2nd-level domains (e.g., doe.name).",
+          "Existing owners need to transition or acquire alternative domains prior to the shutdown deadline."
+        ]
+      },
+      "zh": {
+        "title": ".name 三级域名注册服务正式停止",
+        "hook": "传统的 .name 三级域名注册与续费服务即将正式停止。",
+        "key_takeaways": [
+          "停止 john.doe.name 等三级域名的全新注册与续费支持。",
+          "旨在简化注册局管理，转向标准的二级域名（如 doe.name）结构。",
+          "现有三级域名持有者需在截止日期前规划迁移或更换域名。"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": ".name 3단계 도메인(third-level domain) 등록 서비스 종료",
+      "hook": "역사적인 .name 3단계 도메인 등록 서비스가 종료 수순에 들어갑니다.",
+      "key_takeaways": [
+        "john.doe.name 형태의 레거시 3단계 도메인 신규 등록 및 연장이 중단됩니다.",
+        "레지스트리 관리 단순화 및 2단계 도메인(doe.name) 중심으로의 전환 조치입니다.",
+        "기존 3단계 도메인 보유자는 서비스 종료 전까지 서비스 이전 또는 대체 도메인 마련이 필요합니다."
+      ]
+    },
+    "en": {
+      "title": "Deprecation of .name Third-Level Domain Registrations",
+      "hook": "Legacy .name 3rd-level domain registration services are officially being sunsetted.",
+      "key_takeaways": [
+        "New registrations and renewals for 3rd-level domains (e.g., john.doe.name) are being discontinued.",
+        "Simplifies registry management by consolidating focus onto standard 2nd-level domains (e.g., doe.name).",
+        "Existing owners need to transition or acquire alternative domains prior to the shutdown deadline."
+      ]
+    },
+    "zh": {
+      "title": ".name 三级域名注册服务正式停止",
+      "hook": "传统的 .name 三级域名注册与续费服务即将正式停止。",
+      "key_takeaways": [
+        "停止 john.doe.name 等三级域名的全新注册与续费支持。",
+        "旨在简化注册局管理，转向标准的二级域名（如 doe.name）结构。",
+        "现有三级域名持有者需在截止日期前规划迁移或更换域名。"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "DNS",
+    ".name TLD",
+    "Domain Sunset",
+    "Verisign",
+    "Third-Level Domain"
+  ],
+  "hook_ko": "역사적인 .name 3단계 도메인 등록 서비스가 종료 수순에 들어갑니다.",
+  "title_en": "Deprecation of .name Third-Level Domain Registrations",
+  "hook_en": "Legacy .name 3rd-level domain registration services are officially being sunsetted.",
+  "title_zh": ".name 三级域名注册服务正式停止",
+  "hook_zh": "传统的 .name 三级域名注册与续费服务即将正式停止。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.342250"
 }

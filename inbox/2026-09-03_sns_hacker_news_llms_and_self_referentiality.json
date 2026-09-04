@@ -35,66 +35,97 @@
   "ai_enrichment": {
     "id": "2026-09-03_sns_hacker_news_llms_and_self_referentiality",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "인공지능 철학 및 생태계 동향",
+    "type_classification": "TECH",
+    "model_family": "LLM",
+    "category": "Artificial Intelligence",
     "programming_lang": "General",
     "root_keywords": [
       "LLM",
       "Self-Referentiality",
-      "Hacker News"
+      "Metacognition",
+      "AI Logic"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 2.5,
+    "worth_score": 3.2,
     "multilingual": {
       "ko": {
-        "title": "Hacker News: LLM과 자기참조성(Self-Referentiality)",
-        "hook": "LLM이 자기 자신을 참조하고 생성된 데이터를 학습할 때 발생하는 현상과 AI 생태계에 미치는 시사점을 다룹니다.",
+        "title": "LLM과 자기 참조성 (Self-Referentiality)",
+        "hook": "대형 언어 모델(LLM)이 자기 자신의 상태와 출력을 참조할 때 나타나는 논리 구조와 한계 탐구",
         "key_takeaways": [
-          "LLM의 자기참조적 데이터 소비 패턴 분석",
-          "AI 모델 붕괴(Model Collapse) 현상과의 연관성 조명",
-          "Hacker News 커뮤니티의 기술 철학적 논점 요약"
+          "LLM이 자기 참조적 문장과 메타인지를 다루는 이론적 메커니즘 분석",
+          "자연어 수준에서의 자기 참조가 모델 추론 안정성에 미치는 영향",
+          "자기 개선(Self-Improvement) 및 재귀적 추론 시스템 설계를 위한 기초적 논의"
         ]
       },
       "en": {
-        "title": "Hacker News: LLMs and Self-Referentiality",
-        "hook": "Exploring the implications of large language models consuming and referencing their own generated outputs within the AI ecosystem.",
+        "title": "LLMs and Self-Referentiality",
+        "hook": "Exploring how Large Language Models handle and reason about self-referential concepts and internal representations",
         "key_takeaways": [
-          "Analysis of self-referential data consumption patterns in LLMs",
-          "Connection to model collapse and data degradation phenomena",
-          "Summary of philosophical and technical debates from the Hacker News community"
+          "Theoretical analysis of how autoregressive models process self-referential logic and paradoxes",
+          "Impact of self-referential prompts on metacognitive capabilities and reasoning stability",
+          "Implications for designing recursive reasoning architectures and self-improving AI systems"
         ]
       },
       "zh": {
-        "title": "Hacker News：大语言模型与自指性（Self-Referentiality）",
-        "hook": "探讨大语言模型在消费和引用自身生成内容时对AI生态系统带来的深远影响。",
+        "title": "大语言模型与自指性 (Self-Referentiality)",
+        "hook": "探讨大语言模型在处理自我引用概念与内部状态时的逻辑机制与技术局限",
         "key_takeaways": [
-          "分析大语言模型中的自指性数据消费模式",
-          "探讨其与模型崩塌（Model Collapse）现象的关联",
-          "总结 Hacker News 社区关于该话题的技术哲学讨论"
+          "自回归模型在解析自指悖论与元认知逻辑时的内部表现分析",
+          "自我引用提示对大模型推理稳定性与自我认知的影响",
+          "对构建递归推理架构与自我改进型 AI 系统带来的启示"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T06:50:59.439293+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
     "LLM",
     "Self-Referentiality",
-    "Hacker News"
+    "Metacognition",
+    "AI Logic"
   ],
-  "title_ko": "Hacker News: LLM과 자기참조성(Self-Referentiality)",
-  "title_en": "Hacker News: LLMs and Self-Referentiality",
-  "title_zh": "Hacker News：大语言模型与自指性（Self-Referentiality）",
+  "title_ko": "LLM과 자기 참조성 (Self-Referentiality)",
+  "title_en": "LLMs and Self-Referentiality",
+  "title_zh": "大语言模型与自指性 (Self-Referentiality)",
   "hook": "LLM이 자기 자신을 참조하고 생성된 데이터를 학습할 때 발생하는 현상과 AI 생태계에 미치는 시사점을 다룹니다.",
-  "hook_ko": "LLM이 자기 자신을 참조하고 생성된 데이터를 학습할 때 발생하는 현상과 AI 생태계에 미치는 시사점을 다룹니다.",
-  "hook_en": "Exploring the implications of large language models consuming and referencing their own generated outputs within the AI ecosystem.",
-  "hook_zh": "探讨大语言模型在消费和引用自身生成内容时对AI生态系统带来的深远影响。",
+  "hook_ko": "대형 언어 모델(LLM)이 자기 자신의 상태와 출력을 참조할 때 나타나는 논리 구조와 한계 탐구",
+  "hook_en": "Exploring how Large Language Models handle and reason about self-referential concepts and internal representations",
+  "hook_zh": "探讨大语言模型在处理自我引用概念与内部状态时的逻辑机制与技术局限",
   "description_ko": "LLM이 자기 자신을 참조하고 생성된 데이터를 학습할 때 발생하는 현상과 AI 생태계에 미치는 시사점을 다룹니다.",
   "description_en": "Exploring the implications of large language models consuming and referencing their own generated outputs within the AI ecosystem.",
   "description_zh": "探讨大语言模型在消费和引用自身生成内容时对AI生态系统带来的深远影响。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "LLM과 자기 참조성 (Self-Referentiality)",
+      "hook": "대형 언어 모델(LLM)이 자기 자신의 상태와 출력을 참조할 때 나타나는 논리 구조와 한계 탐구",
+      "key_takeaways": [
+        "LLM이 자기 참조적 문장과 메타인지를 다루는 이론적 메커니즘 분석",
+        "자연어 수준에서의 자기 참조가 모델 추론 안정성에 미치는 영향",
+        "자기 개선(Self-Improvement) 및 재귀적 추론 시스템 설계를 위한 기초적 논의"
+      ]
+    },
+    "en": {
+      "title": "LLMs and Self-Referentiality",
+      "hook": "Exploring how Large Language Models handle and reason about self-referential concepts and internal representations",
+      "key_takeaways": [
+        "Theoretical analysis of how autoregressive models process self-referential logic and paradoxes",
+        "Impact of self-referential prompts on metacognitive capabilities and reasoning stability",
+        "Implications for designing recursive reasoning architectures and self-improving AI systems"
+      ]
+    },
+    "zh": {
+      "title": "大语言模型与自指性 (Self-Referentiality)",
+      "hook": "探讨大语言模型在处理自我引用概念与内部状态时的逻辑机制与技术局限",
+      "key_takeaways": [
+        "自回归模型在解析自指悖论与元认知逻辑时的内部表现分析",
+        "自我引用提示对大模型推理稳定性与自我认知的影响",
+        "对构建递归推理架构与自我改进型 AI 系统带来的启示"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.390648"
 }

@@ -36,65 +36,98 @@
     "id": "2026-09-03_repo_arxiv_blending_concepts_benchmarking_visual_m",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "텍스트-이미지 생성 및 벤치마크",
+    "model_family": "Diffusion Models",
+    "category": "Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
       "Text-to-Image",
       "Visual Metaphor",
-      "Benchmarking"
+      "Benchmarking",
+      "Concept Blending",
+      "Generative AI"
     ],
-    "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.8,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "텍스트-이미지 모델의 시각적 은유 생성 능력 벤치마킹",
-        "hook": "추상적 개념을 시각화하는 T2I 모델의 한계를 측정하는 새로운 벤치마크 연구를 확인하세요.",
+        "title": "개념의 결합: 텍스트-이미지 생성 모델의 시각적 은유 생성 성능 벤치마킹",
+        "hook": "T2I 모델이 단순 객체 묘사를 넘어 추상적 아이디어를 표현하는 '시각적 은유' 생성 능력을 평가하는 신규 벤치마크",
         "key_takeaways": [
-          "텍스트-이미지 모델의 은유적 표현력 평가 방법론 제시",
-          "추상적 아이디어를 시각화하는 모델의 성능 한계 분석",
-          "향후 생성 모델의 창의적 정합성 향상을 위한 방향성 제안"
+          "기존 T2I 모델의 단순 객체/속성 렌더링 한계를 넘어 추상적 개념 결합 능력 평가",
+          "시각적 은유(Visual Metaphor) 생성을 체계적으로 측정하기 위한 신규 평가 데이터셋 및 지표 제안",
+          "최신 텍스트-이미지 모델들의 복합적 개념 이해 및 창의적/인지적 표현 한계 정밀 분석"
         ]
       },
       "en": {
-        "title": "Blending Concepts: Benchmarking Visual Metaphor Generation in T2I Models",
-        "hook": "Discover a new benchmark evaluating how text-to-image models handle abstract visual metaphors.",
+        "title": "Blending Concepts: Benchmarking Visual Metaphor Generation in Text-to-Image Models",
+        "hook": "Evaluating the ability of T2I models to generate complex visual metaphors beyond simple literal object rendering",
         "key_takeaways": [
-          "Introduces a benchmark for measuring visual metaphor generation in T2I models",
-          "Analyzes current limitations in rendering abstract ideas visually",
-          "Provides insights for improving creative alignment in generative models"
+          "Introduces a new benchmark specifically designed to assess conceptual blending and visual metaphor generation.",
+          "Reveals significant performance gaps in current SOTA diffusion models when rendering abstract ideas versus literal text.",
+          "Provides foundational insights for improving cognitive and creative reasoning capabilities in generative image models."
         ]
       },
       "zh": {
-        "title": "融合概念：文本到图像模型中视觉隐喻生成的基准测试",
-        "hook": "探索评估文生图模型处理抽象视觉隐喻能力的全新基准测试研究。",
+        "title": "概念融合：评估文本到图像模型中的视觉隐喻生成能力",
+        "hook": "评估 T2I 模型超越简单字面物体渲染、生成传达抽象概念的“视觉隐喻”能力",
         "key_takeaways": [
-          "提出用于衡量文生图模型隐喻表达能力的基准测试方法",
-          "分析当前模型在视觉化呈现抽象概念时的局限性",
-          "为提升生成模型在创意对齐方面的表现提供方向"
+          "提出了一个旨在评估 T2I 模型概念融合与视觉隐喻生成能力的新基准",
+          "揭示了现有的 SOTA 扩散模型在处理抽象隐喻与字面文本时的性能差距",
+          "为增强生成式 AI 模型的高阶认知理解与视觉创意表达提供了关键参考"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:17:57.659155+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Text-to-Image",
     "Visual Metaphor",
-    "Benchmarking"
+    "Benchmarking",
+    "Concept Blending",
+    "Generative AI"
   ],
-  "title_ko": "텍스트-이미지 모델의 시각적 은유 생성 능력 벤치마킹",
-  "title_en": "Blending Concepts: Benchmarking Visual Metaphor Generation in T2I Models",
-  "title_zh": "融合概念：文本到图像模型中视觉隐喻生成的基准测试",
+  "title_ko": "개념의 결합: 텍스트-이미지 생성 모델의 시각적 은유 생성 성능 벤치마킹",
+  "title_en": "Blending Concepts: Benchmarking Visual Metaphor Generation in Text-to-Image Models",
+  "title_zh": "概念融合：评估文本到图像模型中的视觉隐喻生成能力",
   "hook": "추상적 개념을 시각화하는 T2I 모델의 한계를 측정하는 새로운 벤치마크 연구를 확인하세요.",
-  "hook_ko": "추상적 개념을 시각화하는 T2I 모델의 한계를 측정하는 새로운 벤치마크 연구를 확인하세요.",
-  "hook_en": "Discover a new benchmark evaluating how text-to-image models handle abstract visual metaphors.",
-  "hook_zh": "探索评估文生图模型处理抽象视觉隐喻能力的全新基准测试研究。",
+  "hook_ko": "T2I 모델이 단순 객체 묘사를 넘어 추상적 아이디어를 표현하는 '시각적 은유' 생성 능력을 평가하는 신규 벤치마크",
+  "hook_en": "Evaluating the ability of T2I models to generate complex visual metaphors beyond simple literal object rendering",
+  "hook_zh": "评估 T2I 模型超越简单字面物体渲染、生成传达抽象概念的“视觉隐喻”能力",
   "description_ko": "추상적 개념을 시각화하는 T2I 모델의 한계를 측정하는 새로운 벤치마크 연구를 확인하세요.",
   "description_en": "Discover a new benchmark evaluating how text-to-image models handle abstract visual metaphors.",
   "description_zh": "探索评估文生图模型处理抽象视觉隐喻能力的全新基准测试研究。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "개념의 결합: 텍스트-이미지 생성 모델의 시각적 은유 생성 성능 벤치마킹",
+      "hook": "T2I 모델이 단순 객체 묘사를 넘어 추상적 아이디어를 표현하는 '시각적 은유' 생성 능력을 평가하는 신규 벤치마크",
+      "key_takeaways": [
+        "기존 T2I 모델의 단순 객체/속성 렌더링 한계를 넘어 추상적 개념 결합 능력 평가",
+        "시각적 은유(Visual Metaphor) 생성을 체계적으로 측정하기 위한 신규 평가 데이터셋 및 지표 제안",
+        "최신 텍스트-이미지 모델들의 복합적 개념 이해 및 창의적/인지적 표현 한계 정밀 분석"
+      ]
+    },
+    "en": {
+      "title": "Blending Concepts: Benchmarking Visual Metaphor Generation in Text-to-Image Models",
+      "hook": "Evaluating the ability of T2I models to generate complex visual metaphors beyond simple literal object rendering",
+      "key_takeaways": [
+        "Introduces a new benchmark specifically designed to assess conceptual blending and visual metaphor generation.",
+        "Reveals significant performance gaps in current SOTA diffusion models when rendering abstract ideas versus literal text.",
+        "Provides foundational insights for improving cognitive and creative reasoning capabilities in generative image models."
+      ]
+    },
+    "zh": {
+      "title": "概念融合：评估文本到图像模型中的视觉隐喻生成能力",
+      "hook": "评估 T2I 模型超越简单字面物体渲染、生成传达抽象概念的“视觉隐喻”能力",
+      "key_takeaways": [
+        "提出了一个旨在评估 T2I 模型概念融合与视觉隐喻生成能力的新基准",
+        "揭示了现有的 SOTA 扩散模型在处理抽象隐喻与字面文本时的性能差距",
+        "为增强生成式 AI 模型的高阶认知理解与视觉创意表达提供了关键参考"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.159390"
 }

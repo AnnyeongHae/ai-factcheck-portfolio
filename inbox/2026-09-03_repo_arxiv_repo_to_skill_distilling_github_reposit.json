@@ -33,66 +33,99 @@
   "ai_enrichment": {
     "id": "2026-09-03_repo_arxiv_repo_to_skill_distilling_github_reposit",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "AI4AI 자율 머신러닝 연구 및 스킬 증류",
+    "type_classification": "TECH",
+    "model_family": "Autonomous AI Agents",
+    "category": "AI Research & Agents",
     "programming_lang": "Python",
     "root_keywords": [
-      "Repo-To-Skill",
+      "AI Agents",
+      "Skill Distillation",
+      "GitHub Repositories",
       "AI4AI",
-      "GitHub Distillation"
+      "Automated ML Research"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.7,
     "multilingual": {
       "ko": {
-        "title": "Repo-To-Skill: GitHub 저장소를 AI4AI 스킬로 증류하기",
-        "hook": "오픈소스 GitHub 저장소의 노하우를 자율 에이전트가 즉시 활용 가능한 '스킬'로 자동 변환하세요.",
+        "title": "Repo-To-Skill: GitHub 저장소를 AI4AI 스킬로 증류하는 방법",
+        "hook": "복잡한 GitHub 코드베이스를 자율 ML 연구 에이전트가 즉시 활용할 수 있는 스킬 형태로 증류하는 기술",
         "key_takeaways": [
-          "머신러닝(ML) 연구를 엔드투엔드로 수행하는 자율 에이전트 역량 강화",
-          "GitHub 오픈소스 저장소의 복잡한 구조를 재사용 가능한 AI 스킬로 압축 증류",
-          "계획, 실행, 검증 하네스와 결합하여 에이전트의 연구 개발 자동화 성능 극대화"
+          "GitHub 리포지토리를 자율 에이전트용 재사용 가능한 AI4AI 스킬 단위로 자동 변환",
+          "머신러닝(ML) 연구 자동화를 위한 계획, 실행, 검증 기반의 에이전트 성능 극대화",
+          "코드베이스 해석 및 역량 확장을 자동화하여 자율 연구 에이전트의 효율성 대폭 향상"
         ]
       },
       "en": {
         "title": "Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills",
-        "hook": "Convert complex GitHub repositories into actionable AI skills to supercharge autonomous research agents.",
+        "hook": "Automating the extraction and distillation of reusable skills from complex GitHub repositories for AI research agents.",
         "key_takeaways": [
-          "Enables autonomous agents to conduct end-to-end machine learning research",
-          "Distills open-source codebases into modular, reusable AI4AI skills",
-          "Boosts planning, execution, and verification capabilities of agent harnesses"
+          "Converts entire GitHub repositories into modular AI4AI skills for autonomous agents",
+          "Enhances end-to-end ML research automation through structured planning, execution, and verification",
+          "Provides a novel distillation framework to rapidly boost agent capabilities across large codebases"
         ]
       },
       "zh": {
-        "title": "Repo-To-Skill：将GitHub仓库蒸馏为AI4AI技能",
-        "hook": "把开源代码库无缝转化为自主科研智能体可直接调用的“专家技能”，大幅提升AI研发能力。",
+        "title": "Repo-To-Skill：将 GitHub 代码库提炼为 AI4AI 技能",
+        "hook": "自动将复杂的 GitHub 代码库提炼为自主 AI 研究 Agent 可直接调用的模块化技能",
         "key_takeaways": [
-          "赋能自主智能体开展端到端的机器学习科研任务",
-          "将复杂的GitHub代码库提炼并蒸馏为可复用的AI4AI技能模块",
-          "与规划、执行和验证框架深度结合，提升智能体自动化研发水平"
+          "将完整的 GitHub 存储库转化为可复用的 AI4AI 模块化技能",
+          "提升 AI Agent 在端到端机器学习研究中的计划、执行与验证能力",
+          "提出全新的代码蒸馏框架，跨大型代码库高效扩展智能体的任务解决能力"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:15:02.666792+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Repo-To-Skill",
+    "AI Agents",
+    "Skill Distillation",
+    "GitHub Repositories",
     "AI4AI",
-    "GitHub Distillation"
+    "Automated ML Research"
   ],
-  "title_ko": "Repo-To-Skill: GitHub 저장소를 AI4AI 스킬로 증류하기",
+  "title_ko": "Repo-To-Skill: GitHub 저장소를 AI4AI 스킬로 증류하는 방법",
   "title_en": "Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills",
-  "title_zh": "Repo-To-Skill：将GitHub仓库蒸馏为AI4AI技能",
+  "title_zh": "Repo-To-Skill：将 GitHub 代码库提炼为 AI4AI 技能",
   "hook": "오픈소스 GitHub 저장소의 노하우를 자율 에이전트가 즉시 활용 가능한 '스킬'로 자동 변환하세요.",
-  "hook_ko": "오픈소스 GitHub 저장소의 노하우를 자율 에이전트가 즉시 활용 가능한 '스킬'로 자동 변환하세요.",
-  "hook_en": "Convert complex GitHub repositories into actionable AI skills to supercharge autonomous research agents.",
-  "hook_zh": "把开源代码库无缝转化为自主科研智能体可直接调用的“专家技能”，大幅提升AI研发能力。",
+  "hook_ko": "복잡한 GitHub 코드베이스를 자율 ML 연구 에이전트가 즉시 활용할 수 있는 스킬 형태로 증류하는 기술",
+  "hook_en": "Automating the extraction and distillation of reusable skills from complex GitHub repositories for AI research agents.",
+  "hook_zh": "自动将复杂的 GitHub 代码库提炼为自主 AI 研究 Agent 可直接调用的模块化技能",
   "description_ko": "오픈소스 GitHub 저장소의 노하우를 자율 에이전트가 즉시 활용 가능한 '스킬'로 자동 변환하세요.",
   "description_en": "Convert complex GitHub repositories into actionable AI skills to supercharge autonomous research agents.",
   "description_zh": "把开源代码库无缝转化为自主科研智能体可直接调用的“专家技能”，大幅提升AI研发能力。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Repo-To-Skill: GitHub 저장소를 AI4AI 스킬로 증류하는 방법",
+      "hook": "복잡한 GitHub 코드베이스를 자율 ML 연구 에이전트가 즉시 활용할 수 있는 스킬 형태로 증류하는 기술",
+      "key_takeaways": [
+        "GitHub 리포지토리를 자율 에이전트용 재사용 가능한 AI4AI 스킬 단위로 자동 변환",
+        "머신러닝(ML) 연구 자동화를 위한 계획, 실행, 검증 기반의 에이전트 성능 극대화",
+        "코드베이스 해석 및 역량 확장을 자동화하여 자율 연구 에이전트의 효율성 대폭 향상"
+      ]
+    },
+    "en": {
+      "title": "Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills",
+      "hook": "Automating the extraction and distillation of reusable skills from complex GitHub repositories for AI research agents.",
+      "key_takeaways": [
+        "Converts entire GitHub repositories into modular AI4AI skills for autonomous agents",
+        "Enhances end-to-end ML research automation through structured planning, execution, and verification",
+        "Provides a novel distillation framework to rapidly boost agent capabilities across large codebases"
+      ]
+    },
+    "zh": {
+      "title": "Repo-To-Skill：将 GitHub 代码库提炼为 AI4AI 技能",
+      "hook": "自动将复杂的 GitHub 代码库提炼为自主 AI 研究 Agent 可直接调用的模块化技能",
+      "key_takeaways": [
+        "将完整的 GitHub 存储库转化为可复用的 AI4AI 模块化技能",
+        "提升 AI Agent 在端到端机器学习研究中的计划、执行与验证能力",
+        "提出全新的代码蒸馏框架，跨大型代码库高效扩展智能体的任务解决能力"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.200155"
 }

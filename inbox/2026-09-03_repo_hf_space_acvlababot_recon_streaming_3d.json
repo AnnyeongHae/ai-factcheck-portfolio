@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_acvlababot_recon_streaming_3d",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "3D Reconstruction",
+    "category": "Computer Vision",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "3D Reconstruction",
+      "Streaming 3D",
+      "Gradio",
+      "Robotics Vision",
+      "Spatial Computing"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "HF Space: acvlab/abot-recon-streaming-3d (실시간 3D 재구성 스트리밍)",
+        "hook": "Gradio 기반으로 구현된 실시간 3D 공간 재구성 및 데이터 스트리밍 시각화 데모",
+        "key_takeaways": [
+          "스트리밍 입력 데이터를 실시간 3D 공간/포인트 클라우드로 재구성",
+          "로보틱스 및 센서 파이프라인 연동을 고려한 저지연 3D 시각화",
+          "Gradio SDK를 활용한 직관적인 웹 인터페이스 기반 데모 환경 제공"
+        ]
+      },
+      "en": {
+        "title": "HF Space: acvlab/abot-recon-streaming-3d",
+        "hook": "Interactive real-time 3D spatial reconstruction and streaming visualization powered by Gradio",
+        "key_takeaways": [
+          "Reconstructs streaming input data into real-time 3D spatial environments",
+          "Low-latency 3D visualization designed for sensor and robotics pipelines",
+          "Provides an intuitive web interface built on the Gradio SDK"
+        ]
+      },
+      "zh": {
+        "title": "HF Space: acvlab/abot-recon-streaming-3d (实时3D流式重建)",
+        "hook": "基于 Gradio 的实时 3D 空间重建与数据流可视化交互 Demo",
+        "key_takeaways": [
+          "支持将输入数据流实时重建为 3D 空间与点云模型",
+          "面向机器人与传感器数据管道的低延迟 3D 可视化",
+          "基于 Gradio SDK 构建，提供直观易用的 Web 交互界面"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: acvlab/abot-recon-streaming-3d (실시간 3D 재구성 스트리밍)",
+      "hook": "Gradio 기반으로 구현된 실시간 3D 공간 재구성 및 데이터 스트리밍 시각화 데모",
+      "key_takeaways": [
+        "스트리밍 입력 데이터를 실시간 3D 공간/포인트 클라우드로 재구성",
+        "로보틱스 및 센서 파이프라인 연동을 고려한 저지연 3D 시각화",
+        "Gradio SDK를 활용한 직관적인 웹 인터페이스 기반 데모 환경 제공"
+      ]
+    },
+    "en": {
+      "title": "HF Space: acvlab/abot-recon-streaming-3d",
+      "hook": "Interactive real-time 3D spatial reconstruction and streaming visualization powered by Gradio",
+      "key_takeaways": [
+        "Reconstructs streaming input data into real-time 3D spatial environments",
+        "Low-latency 3D visualization designed for sensor and robotics pipelines",
+        "Provides an intuitive web interface built on the Gradio SDK"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: acvlab/abot-recon-streaming-3d (实时3D流式重建)",
+      "hook": "基于 Gradio 的实时 3D 空间重建与数据流可视化交互 Demo",
+      "key_takeaways": [
+        "支持将输入数据流实时重建为 3D 空间与点云模型",
+        "面向机器人与传感器数据管道的低延迟 3D 可视化",
+        "基于 Gradio SDK 构建，提供直观易用的 Web 交互界面"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "3D Reconstruction",
+    "Streaming 3D",
+    "Gradio",
+    "Robotics Vision",
+    "Spatial Computing"
+  ],
+  "title_ko": "HF Space: acvlab/abot-recon-streaming-3d (실시간 3D 재구성 스트리밍)",
+  "hook_ko": "Gradio 기반으로 구현된 실시간 3D 공간 재구성 및 데이터 스트리밍 시각화 데모",
+  "title_en": "HF Space: acvlab/abot-recon-streaming-3d",
+  "hook_en": "Interactive real-time 3D spatial reconstruction and streaming visualization powered by Gradio",
+  "title_zh": "HF Space: acvlab/abot-recon-streaming-3d (实时3D流式重建)",
+  "hook_zh": "基于 Gradio 的实时 3D 空间重建与数据流可视化交互 Demo",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.225659"
 }

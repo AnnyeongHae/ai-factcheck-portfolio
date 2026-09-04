@@ -33,5 +33,97 @@
   "hn_url": "https://news.ycombinator.com/item?id=49548285",
   "article_url": "https://wasmos-production.up.railway.app",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_wasm_os_an_operating_system_exper",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "WebAssembly Runtime",
+    "category": "Operating Systems & Web Technologies",
+    "programming_lang": "General",
+    "root_keywords": [
+      "WebAssembly",
+      "WASM",
+      "Operating System",
+      "Browser OS",
+      "Sandbox"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.1,
+    "multilingual": {
+      "ko": {
+        "title": "WASM_OS: 브라우저 탭 내부에서 실행되는 웹어셈블리 기반 운영체제 실험",
+        "hook": "브라우저 탭 내에서 직접 동작하는 WebAssembly 기반의 경량 실험적 운영체제 프로젝트",
+        "key_takeaways": [
+          "WebAssembly(WASM)를 사용하여 브라우저 환경에서 OS 핵심 기능 및 가상화 실험",
+          "별도 설치 없이 웹 브라우저 단일 탭 내에서 격리된 샌드박스 런타임 제공",
+          "웹 브라우저의 애플리케이션 플랫폼화 및 WASM의 시스템 수준 실행 가능성 탐구"
+        ]
+      },
+      "en": {
+        "title": "WASM_OS: An Operating-System Experiment Running Inside a Browser Tab",
+        "hook": "An experimental lightweight operating system running directly inside a web browser tab using WebAssembly.",
+        "key_takeaways": [
+          "Explores OS primitives and sandboxed runtime execution entirely within a WebAssembly-powered browser tab.",
+          "Requires no external installation, leveraging modern browser capabilities for virtualized execution.",
+          "Demonstrates the evolving potential of WebAssembly as a portable system-level execution layer."
+        ]
+      },
+      "zh": {
+        "title": "WASM_OS：在浏览器标签页中运行的 WebAssembly 操作系统实验",
+        "hook": "利用 WebAssembly 在浏览器标签页中直接运行的轻量级实验性操作系统",
+        "key_takeaways": [
+          "基于 WebAssembly (WASM) 探索在浏览器环境中实现操作系统核心功能与运行时隔离",
+          "无需安装任何插件，在单个浏览器标签页内提供沙箱化执行环境",
+          "展示了 WebAssembly 作为跨平台系统级执行层的广泛应用前景"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "WASM_OS: 브라우저 탭 내부에서 실행되는 웹어셈블리 기반 운영체제 실험",
+      "hook": "브라우저 탭 내에서 직접 동작하는 WebAssembly 기반의 경량 실험적 운영체제 프로젝트",
+      "key_takeaways": [
+        "WebAssembly(WASM)를 사용하여 브라우저 환경에서 OS 핵심 기능 및 가상화 실험",
+        "별도 설치 없이 웹 브라우저 단일 탭 내에서 격리된 샌드박스 런타임 제공",
+        "웹 브라우저의 애플리케이션 플랫폼화 및 WASM의 시스템 수준 실행 가능성 탐구"
+      ]
+    },
+    "en": {
+      "title": "WASM_OS: An Operating-System Experiment Running Inside a Browser Tab",
+      "hook": "An experimental lightweight operating system running directly inside a web browser tab using WebAssembly.",
+      "key_takeaways": [
+        "Explores OS primitives and sandboxed runtime execution entirely within a WebAssembly-powered browser tab.",
+        "Requires no external installation, leveraging modern browser capabilities for virtualized execution.",
+        "Demonstrates the evolving potential of WebAssembly as a portable system-level execution layer."
+      ]
+    },
+    "zh": {
+      "title": "WASM_OS：在浏览器标签页中运行的 WebAssembly 操作系统实验",
+      "hook": "利用 WebAssembly 在浏览器标签页中直接运行的轻量级实验性操作系统",
+      "key_takeaways": [
+        "基于 WebAssembly (WASM) 探索在浏览器环境中实现操作系统核心功能与运行时隔离",
+        "无需安装任何插件，在单个浏览器标签页内提供沙箱化执行环境",
+        "展示了 WebAssembly 作为跨平台系统级执行层的广泛应用前景"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "WebAssembly",
+    "WASM",
+    "Operating System",
+    "Browser OS",
+    "Sandbox"
+  ],
+  "title_ko": "WASM_OS: 브라우저 탭 내부에서 실행되는 웹어셈블리 기반 운영체제 실험",
+  "hook_ko": "브라우저 탭 내에서 직접 동작하는 WebAssembly 기반의 경량 실험적 운영체제 프로젝트",
+  "title_en": "WASM_OS: An Operating-System Experiment Running Inside a Browser Tab",
+  "hook_en": "An experimental lightweight operating system running directly inside a web browser tab using WebAssembly.",
+  "title_zh": "WASM_OS：在浏览器标签页中运行的 WebAssembly 操作系统实验",
+  "hook_zh": "利用 WebAssembly 在浏览器标签页中直接运行的轻量级实验性操作系统",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.426823"
 }

@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_ast_1320pro_realism_edit_studio_v17",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Diffusion Models",
+    "category": "Computer Vision",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Pro-Realism",
+      "Image Editing",
+      "Gradio",
+      "Generative AI",
+      "Hugging Face Spaces"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.2,
+    "multilingual": {
+      "ko": {
+        "title": "HF Space: AST-1320/Pro-Realism-Edit-Studio-v.17",
+        "hook": "Gradio 기반의 고화질 및 사실적인 이미지 편집을 지원하는 대화형 AI 데모 스튜디오",
+        "key_takeaways": [
+          "Gradio SDK를 활용하여 구현된 하이퍼 리얼리즘 이미지 편집 인터페이스",
+          "실시간 이미지 변환 및 리얼리즘 스타일 적용 기능 제공",
+          "Hugging Face Spaces를 통한 간편한 웹 기반 인퍼런스 테스트 환경"
+        ]
+      },
+      "en": {
+        "title": "HF Space: AST-1320/Pro-Realism-Edit-Studio-v.17",
+        "hook": "An interactive Gradio-based AI studio for photorealistic image editing and styling.",
+        "key_takeaways": [
+          "Provides a hyper-realistic image editing interface using the Gradio SDK",
+          "Supports real-time image transformation and custom realism enhancements",
+          "Offers an accessible web-based inference testing platform on Hugging Face Spaces"
+        ]
+      },
+      "zh": {
+        "title": "HF Space: AST-1320/Pro-Realism-Edit-Studio-v.17",
+        "hook": "基于 Gradio 的交互式 AI 图像编辑与逼真化处理 Demo 工作室",
+        "key_takeaways": [
+          "利用 Gradio SDK 构建的高逼真度图像编辑交互界面",
+          "支持实时图像转换与极真实感风格增强",
+          "托管于 Hugging Face Spaces，提供便捷的 Web 端推理测试"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: AST-1320/Pro-Realism-Edit-Studio-v.17",
+      "hook": "Gradio 기반의 고화질 및 사실적인 이미지 편집을 지원하는 대화형 AI 데모 스튜디오",
+      "key_takeaways": [
+        "Gradio SDK를 활용하여 구현된 하이퍼 리얼리즘 이미지 편집 인터페이스",
+        "실시간 이미지 변환 및 리얼리즘 스타일 적용 기능 제공",
+        "Hugging Face Spaces를 통한 간편한 웹 기반 인퍼런스 테스트 환경"
+      ]
+    },
+    "en": {
+      "title": "HF Space: AST-1320/Pro-Realism-Edit-Studio-v.17",
+      "hook": "An interactive Gradio-based AI studio for photorealistic image editing and styling.",
+      "key_takeaways": [
+        "Provides a hyper-realistic image editing interface using the Gradio SDK",
+        "Supports real-time image transformation and custom realism enhancements",
+        "Offers an accessible web-based inference testing platform on Hugging Face Spaces"
+      ]
+    },
+    "zh": {
+      "title": "HF Space: AST-1320/Pro-Realism-Edit-Studio-v.17",
+      "hook": "基于 Gradio 的交互式 AI 图像编辑与逼真化处理 Demo 工作室",
+      "key_takeaways": [
+        "利用 Gradio SDK 构建的高逼真度图像编辑交互界面",
+        "支持实时图像转换与极真实感风格增强",
+        "托管于 Hugging Face Spaces，提供便捷的 Web 端推理测试"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Pro-Realism",
+    "Image Editing",
+    "Gradio",
+    "Generative AI",
+    "Hugging Face Spaces"
+  ],
+  "title_ko": "HF Space: AST-1320/Pro-Realism-Edit-Studio-v.17",
+  "hook_ko": "Gradio 기반의 고화질 및 사실적인 이미지 편집을 지원하는 대화형 AI 데모 스튜디오",
+  "title_en": "HF Space: AST-1320/Pro-Realism-Edit-Studio-v.17",
+  "hook_en": "An interactive Gradio-based AI studio for photorealistic image editing and styling.",
+  "title_zh": "HF Space: AST-1320/Pro-Realism-Edit-Studio-v.17",
+  "hook_zh": "基于 Gradio 的交互式 AI 图像编辑与逼真化处理 Demo 工作室",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.232039"
 }

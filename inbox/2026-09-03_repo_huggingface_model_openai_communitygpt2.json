@@ -33,67 +33,100 @@
   "ai_enrichment": {
     "id": "2026-09-03_repo_huggingface_model_openai_communitygpt2",
     "source_lang": "EN",
-    "type_classification": "MODEL",
-    "model_family": "GPT-2",
-    "category": "텍스트 생성",
+    "type_classification": "TECH",
+    "model_family": "GPT",
+    "category": "Natural Language Processing",
     "programming_lang": "Python",
     "root_keywords": [
       "GPT-2",
+      "Text Generation",
+      "Language Model",
       "OpenAI",
-      "Text Generation"
+      "Transformer"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.0,
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face 모델: openai-community/gpt2",
-        "hook": "오픈소스 언어 모델의 역사적인 기준점이자 텍스트 생성 파이프라인의 기초 모델입니다.",
+        "title": "허깅페이스 모델: openai-community/gpt2",
+        "hook": "생성형 언어 모델의 기틀을 다진 1억 2,400만 파라미터 기반의 대표적 디코더 전용 트랜스포머 모델",
         "key_takeaways": [
-          "누적 다운로드 1,400만 회 이상 기록",
-          "텍스트 생성(text-generation) 파이프라인 기본 지원",
-          "경량화 및 파인튜닝 실험을 위한 전통적인 벤치마크 모델"
+          "OpenAI가 공개하고 커뮤니티가 유지 관리하는 기초 GPT-2(Small) 텍스트 생성 모델",
+          "월간 1,400만 회 이상의 높은 다운로드 수를 기록하며 NLP 프로토타이핑 및 베이스라인으로 활발히 활용",
+          "경량화 연구, 학습용 튜토리얼, 로컬 테스트에 최적화된 표준 생성 모델"
         ]
       },
       "en": {
-        "title": "Hugging Face Model: openai-community/gpt2",
-        "hook": "The historical baseline and foundational text-generation model for open-source LLMs.",
+        "title": "HuggingFace Model: openai-community/gpt2",
+        "hook": "The foundational 124M parameter decoder-only Transformer model that established modern autoregressive text generation.",
         "key_takeaways": [
-          "Over 14 million total downloads on Hugging Face",
-          "Native support for text-generation pipelines",
-          "Traditional benchmark model for lightweight and fine-tuning experiments"
+          "Base GPT-2 (Small) language model originally developed by OpenAI and maintained by the Hugging Face community.",
+          "Generates over 14 million downloads monthly, serving as a classic standard baseline across NLP research.",
+          "Ideal lightweight model for text generation tasks, local experimentation, fine-tuning tutorials, and benchmarking."
         ]
       },
       "zh": {
-        "title": "Hugging Face 模型：openai-community/gpt2",
-        "hook": "开源大语言模型的历史基准与文本生成基础模型。",
+        "title": "HuggingFace 模型: openai-community/gpt2",
+        "hook": "奠定现代自回归文本生成基础的 1.24 亿参数经典 Decoder-Only Transformer 模型",
         "key_takeaways": [
-          "累计下载量突破 1,400 万次",
-          "原生支持文本生成（text-generation）流水线",
-          "轻量化和微调实验的经典基准模型"
+          "由 OpenAI 原创并由开源社区维护的基础 GPT-2 (Small) 文本生成模型",
+          "拥有超过 1400 万次的月度下载量，至今仍是 NLP 领域最广为人知的基准模型之一",
+          "极具轻量化优势，非常适合作为轻量级基线、微调教学示例及本地推理测试"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:16:55.222071+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "GPT-2",
+    "Text Generation",
+    "Language Model",
     "OpenAI",
-    "Text Generation"
+    "Transformer"
   ],
-  "title_ko": "Hugging Face 모델: openai-community/gpt2",
-  "title_en": "Hugging Face Model: openai-community/gpt2",
-  "title_zh": "Hugging Face 模型：openai-community/gpt2",
+  "title_ko": "허깅페이스 모델: openai-community/gpt2",
+  "title_en": "HuggingFace Model: openai-community/gpt2",
+  "title_zh": "HuggingFace 模型: openai-community/gpt2",
   "hook": "오픈소스 언어 모델의 역사적인 기준점이자 텍스트 생성 파이프라인의 기초 모델입니다.",
-  "hook_ko": "오픈소스 언어 모델의 역사적인 기준점이자 텍스트 생성 파이프라인의 기초 모델입니다.",
-  "hook_en": "The historical baseline and foundational text-generation model for open-source LLMs.",
-  "hook_zh": "开源大语言模型的历史基准与文本生成基础模型。",
+  "hook_ko": "생성형 언어 모델의 기틀을 다진 1억 2,400만 파라미터 기반의 대표적 디코더 전용 트랜스포머 모델",
+  "hook_en": "The foundational 124M parameter decoder-only Transformer model that established modern autoregressive text generation.",
+  "hook_zh": "奠定现代自回归文本生成基础的 1.24 亿参数经典 Decoder-Only Transformer 模型",
   "description_ko": "오픈소스 언어 모델의 역사적인 기준점이자 텍스트 생성 파이프라인의 기초 모델입니다.",
   "description_en": "The historical baseline and foundational text-generation model for open-source LLMs.",
   "description_zh": "开源大语言模型的历史基准与文本生成基础模型。",
   "model_family": "GPT-2",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "허깅페이스 모델: openai-community/gpt2",
+      "hook": "생성형 언어 모델의 기틀을 다진 1억 2,400만 파라미터 기반의 대표적 디코더 전용 트랜스포머 모델",
+      "key_takeaways": [
+        "OpenAI가 공개하고 커뮤니티가 유지 관리하는 기초 GPT-2(Small) 텍스트 생성 모델",
+        "월간 1,400만 회 이상의 높은 다운로드 수를 기록하며 NLP 프로토타이핑 및 베이스라인으로 활발히 활용",
+        "경량화 연구, 학습용 튜토리얼, 로컬 테스트에 최적화된 표준 생성 모델"
+      ]
+    },
+    "en": {
+      "title": "HuggingFace Model: openai-community/gpt2",
+      "hook": "The foundational 124M parameter decoder-only Transformer model that established modern autoregressive text generation.",
+      "key_takeaways": [
+        "Base GPT-2 (Small) language model originally developed by OpenAI and maintained by the Hugging Face community.",
+        "Generates over 14 million downloads monthly, serving as a classic standard baseline across NLP research.",
+        "Ideal lightweight model for text generation tasks, local experimentation, fine-tuning tutorials, and benchmarking."
+      ]
+    },
+    "zh": {
+      "title": "HuggingFace 模型: openai-community/gpt2",
+      "hook": "奠定现代自回归文本生成基础的 1.24 亿参数经典 Decoder-Only Transformer 模型",
+      "key_takeaways": [
+        "由 OpenAI 原创并由开源社区维护的基础 GPT-2 (Small) 文本生成模型",
+        "拥有超过 1400 万次的月度下载量，至今仍是 NLP 领域最广为人知的基准模型之一",
+        "极具轻量化优势，非常适合作为轻量级基线、微调教学示例及本地推理测试"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.311960"
 }

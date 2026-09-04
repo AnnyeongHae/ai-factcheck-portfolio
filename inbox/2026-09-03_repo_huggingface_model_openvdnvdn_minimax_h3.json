@@ -32,5 +32,97 @@
     "DX & Python 업무 프로세스 자동화",
     "생성형 마케팅 & GEO/SEO 최적화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_huggingface_model_openvdnvdn_minimax_h3",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "MiniMax",
+    "category": "Computer Vision",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "text-to-video",
+      "MiniMax",
+      "OpenVDN",
+      "video-generation",
+      "ai-video"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "OpenVDN/vdn-minimax-h3: MiniMax 기반 텍스트-비디오 생성 모델",
+        "hook": "텍스트 프롬프트를 기반으로 고품질 비디오를 생성하는 OpenVDN의 MiniMax 아키텍처 기반 모델",
+        "key_takeaways": [
+          "MiniMax 아키텍처를 활용한 텍스트-비디오(Text-to-Video) 비디오 생성 모델",
+          "Hugging Face text-to-video 파이프라인과의 하위 호환성 제공",
+          "오픈 비디오 생성 생태계(OpenVDN) 프로젝트 기반의 연구 결과물"
+        ]
+      },
+      "en": {
+        "title": "OpenVDN/vdn-minimax-h3: MiniMax-Based Text-to-Video Model",
+        "hook": "A MiniMax architecture-based text-to-video generation model developed by OpenVDN for high-quality video synthesis.",
+        "key_takeaways": [
+          "Text-to-video generation model leveraging the MiniMax architecture",
+          "Fully integrated with standard Hugging Face text-to-video pipelines",
+          "Part of the open-source video generation ecosystem by OpenVDN"
+        ]
+      },
+      "zh": {
+        "title": "OpenVDN/vdn-minimax-h3：基于 MiniMax 架构的文生视频模型",
+        "hook": "OpenVDN 推出的基于 MiniMax 架构的高质量文本到视频生成模型",
+        "key_takeaways": [
+          "基于 MiniMax 架构的高效文生视频（Text-to-Video）模型",
+          "无缝集成 Hugging Face 视频生成 Pipeline 接口",
+          "OpenVDN 开源视频生成生态系统的最新成果"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "OpenVDN/vdn-minimax-h3: MiniMax 기반 텍스트-비디오 생성 모델",
+      "hook": "텍스트 프롬프트를 기반으로 고품질 비디오를 생성하는 OpenVDN의 MiniMax 아키텍처 기반 모델",
+      "key_takeaways": [
+        "MiniMax 아키텍처를 활용한 텍스트-비디오(Text-to-Video) 비디오 생성 모델",
+        "Hugging Face text-to-video 파이프라인과의 하위 호환성 제공",
+        "오픈 비디오 생성 생태계(OpenVDN) 프로젝트 기반의 연구 결과물"
+      ]
+    },
+    "en": {
+      "title": "OpenVDN/vdn-minimax-h3: MiniMax-Based Text-to-Video Model",
+      "hook": "A MiniMax architecture-based text-to-video generation model developed by OpenVDN for high-quality video synthesis.",
+      "key_takeaways": [
+        "Text-to-video generation model leveraging the MiniMax architecture",
+        "Fully integrated with standard Hugging Face text-to-video pipelines",
+        "Part of the open-source video generation ecosystem by OpenVDN"
+      ]
+    },
+    "zh": {
+      "title": "OpenVDN/vdn-minimax-h3：基于 MiniMax 架构的文生视频模型",
+      "hook": "OpenVDN 推出的基于 MiniMax 架构的高质量文本到视频生成模型",
+      "key_takeaways": [
+        "基于 MiniMax 架构的高效文生视频（Text-to-Video）模型",
+        "无缝集成 Hugging Face 视频生成 Pipeline 接口",
+        "OpenVDN 开源视频生成生态系统的最新成果"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "text-to-video",
+    "MiniMax",
+    "OpenVDN",
+    "video-generation",
+    "ai-video"
+  ],
+  "title_ko": "OpenVDN/vdn-minimax-h3: MiniMax 기반 텍스트-비디오 생성 모델",
+  "hook_ko": "텍스트 프롬프트를 기반으로 고품질 비디오를 생성하는 OpenVDN의 MiniMax 아키텍처 기반 모델",
+  "title_en": "OpenVDN/vdn-minimax-h3: MiniMax-Based Text-to-Video Model",
+  "hook_en": "A MiniMax architecture-based text-to-video generation model developed by OpenVDN for high-quality video synthesis.",
+  "title_zh": "OpenVDN/vdn-minimax-h3：基于 MiniMax 架构的文生视频模型",
+  "hook_zh": "OpenVDN 推出的基于 MiniMax 架构的高质量文本到视频生成模型",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.313377"
 }

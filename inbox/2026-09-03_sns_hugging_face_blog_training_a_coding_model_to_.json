@@ -32,5 +32,97 @@
   "status": "PENDING_REVIEW",
   "article_url": "https://huggingface.co/blog/train-to-paint-with-code",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hugging_face_blog_training_a_coding_model_to_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Code LLMs",
+    "category": "Reinforcement Learning & LLM Fine-Tuning",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "TRL",
+      "OpenEnv",
+      "Code LLM",
+      "Reinforcement Learning",
+      "Creative Coding"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "TRL 및 OpenEnv를 사용하여 수채화를 그리도록 코딩 모델 학습시키기",
+        "hook": "강화학습 라이브러리 TRL과 OpenEnv 환경을 결합해 수채화 그래픽을 작성하는 코드 LLM 훈련 과정 및 피드백 루프 구축법",
+        "key_takeaways": [
+          "TRL(Transformer Reinforcement Learning)과 OpenEnv 기반 인터랙티브 환경을 통한 코드 모델 강화학습 구현",
+          "코드 실행 결과 및 시각적 피드백을 보상 신호로 전환하여 창의적 예술 코드 생성 기능 유도",
+          "특정 도메인 및 실행 환경과 상호작용하는 LLM 에이전트의 보상 설계 및 최적화 노하우 공유"
+        ]
+      },
+      "en": {
+        "title": "Training a Coding Model to Paint Watercolours with TRL and OpenEnv",
+        "hook": "Learn how to combine TRL and OpenEnv feedback loops to train code LLMs that write code for rendering watercolor art.",
+        "key_takeaways": [
+          "Leveraging TRL (Transformer Reinforcement Learning) and OpenEnv to build an interactive training environment for code LLMs.",
+          "Using code execution feedback and visual outputs as reward signals to guide creative graphics generation.",
+          "Demonstrating end-to-end RL fine-tuning techniques for domain-specific interactive code execution agents."
+        ]
+      },
+      "zh": {
+        "title": "结合 TRL 与 OpenEnv 训练代码模型绘制水彩画",
+        "hook": "探索如何结合 TRL 强化学习库与 OpenEnv 交互环境，训练代码 LLM 生成绘制水彩艺术效果的代码",
+        "key_takeaways": [
+          "利用 TRL (Transformer Reinforcement Learning) 与 OpenEnv 搭建代码 LLM 的强化学习训练管线",
+          "将代码运行结果与图像反馈作为奖励信号，引导模型生成复杂的图形绘制代码",
+          "展示了特定领域代码生成模型在交互式环境下的微调与优化实践"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "TRL 및 OpenEnv를 사용하여 수채화를 그리도록 코딩 모델 학습시키기",
+      "hook": "강화학습 라이브러리 TRL과 OpenEnv 환경을 결합해 수채화 그래픽을 작성하는 코드 LLM 훈련 과정 및 피드백 루프 구축법",
+      "key_takeaways": [
+        "TRL(Transformer Reinforcement Learning)과 OpenEnv 기반 인터랙티브 환경을 통한 코드 모델 강화학습 구현",
+        "코드 실행 결과 및 시각적 피드백을 보상 신호로 전환하여 창의적 예술 코드 생성 기능 유도",
+        "특정 도메인 및 실행 환경과 상호작용하는 LLM 에이전트의 보상 설계 및 최적화 노하우 공유"
+      ]
+    },
+    "en": {
+      "title": "Training a Coding Model to Paint Watercolours with TRL and OpenEnv",
+      "hook": "Learn how to combine TRL and OpenEnv feedback loops to train code LLMs that write code for rendering watercolor art.",
+      "key_takeaways": [
+        "Leveraging TRL (Transformer Reinforcement Learning) and OpenEnv to build an interactive training environment for code LLMs.",
+        "Using code execution feedback and visual outputs as reward signals to guide creative graphics generation.",
+        "Demonstrating end-to-end RL fine-tuning techniques for domain-specific interactive code execution agents."
+      ]
+    },
+    "zh": {
+      "title": "结合 TRL 与 OpenEnv 训练代码模型绘制水彩画",
+      "hook": "探索如何结合 TRL 强化学习库与 OpenEnv 交互环境，训练代码 LLM 生成绘制水彩艺术效果的代码",
+      "key_takeaways": [
+        "利用 TRL (Transformer Reinforcement Learning) 与 OpenEnv 搭建代码 LLM 的强化学习训练管线",
+        "将代码运行结果与图像反馈作为奖励信号，引导模型生成复杂的图形绘制代码",
+        "展示了特定领域代码生成模型在交互式环境下的微调与优化实践"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "TRL",
+    "OpenEnv",
+    "Code LLM",
+    "Reinforcement Learning",
+    "Creative Coding"
+  ],
+  "title_ko": "TRL 및 OpenEnv를 사용하여 수채화를 그리도록 코딩 모델 학습시키기",
+  "hook_ko": "강화학습 라이브러리 TRL과 OpenEnv 환경을 결합해 수채화 그래픽을 작성하는 코드 LLM 훈련 과정 및 피드백 루프 구축법",
+  "title_en": "Training a Coding Model to Paint Watercolours with TRL and OpenEnv",
+  "hook_en": "Learn how to combine TRL and OpenEnv feedback loops to train code LLMs that write code for rendering watercolor art.",
+  "title_zh": "结合 TRL 与 OpenEnv 训练代码模型绘制水彩画",
+  "hook_zh": "探索如何结合 TRL 强化学习库与 OpenEnv 交互环境，训练代码 LLM 生成绘制水彩艺术效果的代码",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.439501"
 }

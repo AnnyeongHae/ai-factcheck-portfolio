@@ -34,65 +34,98 @@
     "id": "2026-09-03_repo_arxiv_deepaffinity_long_term_aspect_preferenc",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "전자상거래 AI 및 소형 언어 모델",
+    "model_family": "SLM (Small Language Models)",
+    "category": "Recommender Systems",
     "programming_lang": "Python",
     "root_keywords": [
+      "Aspect Affinity",
       "Small Language Models",
       "eCommerce",
-      "Aspect Preference"
+      "User Preference Prediction",
+      "Personalization"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.8,
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "DeepAffinity: 소형 언어 모델을 활용한 이커머스 장기 속성 선호도 예측",
-        "hook": "소형 언어 모델(SLM)을 활용하여 이커머스 고객의 장기적인 브랜드 및 상품 선호도를 효율적으로 예측하는 방법을 확인하세요.",
+        "title": "DeepAffinity: 소형 언어 모델(SLM)을 활용한 이커머스 장기 속성 선호도 예측",
+        "hook": "소형 언어 모델(SLM)을 통해 브랜드, 사이즈, 색상 등 장기적 고객 속성 선호도를 효과적으로 예측하는 방법론",
         "key_takeaways": [
-          "브랜드, 사이즈, 색상 등 상품 속성 선호도(Aspect Affinity) 예측 모델 제안",
-          "대형 모델 대신 소형 언어 모델을 활용하여 효율성 극대화",
-          "고객 행동 이해도 향상 및 개인화 추천 시스템 적용 가능"
+          "이커머스 고객의 브랜드, 사이즈, 색상 선호도를 예측하는 'Aspect Affinity' 개념 정의",
+          "대형 모델 대신 효율적인 소형 언어 모델(SLM)을 활용한 장기 선호도 예측 기법 제안",
+          "고객 이해도 향상 및 개인화된 이커머스 추천 시스템 성능 개선"
         ]
       },
       "en": {
-        "title": "DeepAffinity: Long-Term Aspect Preference Prediction in eCommerce Using Small Language Models",
-        "hook": "Discover how small language models can accurately predict long-term user preferences for product attributes in eCommerce.",
+        "title": "DeepAffinity: Long-Term Aspect Preference Prediction in eCommerce using Small Language Models",
+        "hook": "Predicting long-term user preferences for product aspects (brand, size, color) using efficient Small Language Models (SLMs).",
         "key_takeaways": [
-          "Introduces 'Aspect Affinity' for predicting brand, size, and color preferences",
-          "Leverages Small Language Models (SLMs) for efficient deployment",
-          "Enhances customer understanding and personalization systems"
+          "Defines 'Aspect Affinity' for predicting user preferences on product aspects like brand, size, and color",
+          "Leverages Small Language Models (SLMs) for efficient long-term preference modeling",
+          "Enhances customer understanding and personalized recommendations in e-commerce"
         ]
       },
       "zh": {
-        "title": "DeepAffinity：使用小型语言模型预测电子商务中的长期属性偏好",
-        "hook": "了解如何利用小型语言模型高效预测电商用户的长期品牌、尺寸和颜色偏好。",
+        "title": "DeepAffinity：使用小型语言模型（SLM）预测电子商务中的长期属性偏好",
+        "hook": "利用高效的小型语言模型（SLM）预测用户对品牌、尺寸、颜色等商品属性的长期偏好。",
         "key_takeaways": [
-          "提出“属性偏好(Aspect Affinity)”预测任务",
-          "采用小型语言模型(SLM)以实现高效计算",
-          "显著提升对客户行为的理解与个性化推荐能力"
+          "定义了“属性亲和度”（Aspect Affinity）概念，用于预测用户对品牌、尺寸和颜色等属性的偏好",
+          "利用小型语言模型（SLM）实现高效的长期偏好建模",
+          "提升电子商务领域的客户理解与个性化推荐效果"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:17:44.798389+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
+    "Aspect Affinity",
     "Small Language Models",
     "eCommerce",
-    "Aspect Preference"
+    "User Preference Prediction",
+    "Personalization"
   ],
-  "title_ko": "DeepAffinity: 소형 언어 모델을 활용한 이커머스 장기 속성 선호도 예측",
-  "title_en": "DeepAffinity: Long-Term Aspect Preference Prediction in eCommerce Using Small Language Models",
-  "title_zh": "DeepAffinity：使用小型语言模型预测电子商务中的长期属性偏好",
+  "title_ko": "DeepAffinity: 소형 언어 모델(SLM)을 활용한 이커머스 장기 속성 선호도 예측",
+  "title_en": "DeepAffinity: Long-Term Aspect Preference Prediction in eCommerce using Small Language Models",
+  "title_zh": "DeepAffinity：使用小型语言模型（SLM）预测电子商务中的长期属性偏好",
   "hook": "소형 언어 모델(SLM)을 활용하여 이커머스 고객의 장기적인 브랜드 및 상품 선호도를 효율적으로 예측하는 방법을 확인하세요.",
-  "hook_ko": "소형 언어 모델(SLM)을 활용하여 이커머스 고객의 장기적인 브랜드 및 상품 선호도를 효율적으로 예측하는 방법을 확인하세요.",
-  "hook_en": "Discover how small language models can accurately predict long-term user preferences for product attributes in eCommerce.",
-  "hook_zh": "了解如何利用小型语言模型高效预测电商用户的长期品牌、尺寸和颜色偏好。",
+  "hook_ko": "소형 언어 모델(SLM)을 통해 브랜드, 사이즈, 색상 등 장기적 고객 속성 선호도를 효과적으로 예측하는 방법론",
+  "hook_en": "Predicting long-term user preferences for product aspects (brand, size, color) using efficient Small Language Models (SLMs).",
+  "hook_zh": "利用高效的小型语言模型（SLM）预测用户对品牌、尺寸、颜色等商品属性的长期偏好。",
   "description_ko": "소형 언어 모델(SLM)을 활용하여 이커머스 고객의 장기적인 브랜드 및 상품 선호도를 효율적으로 예측하는 방법을 확인하세요.",
   "description_en": "Discover how small language models can accurately predict long-term user preferences for product attributes in eCommerce.",
   "description_zh": "了解如何利用小型语言模型高效预测电商用户的长期品牌、尺寸和颜色偏好。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "DeepAffinity: 소형 언어 모델(SLM)을 활용한 이커머스 장기 속성 선호도 예측",
+      "hook": "소형 언어 모델(SLM)을 통해 브랜드, 사이즈, 색상 등 장기적 고객 속성 선호도를 효과적으로 예측하는 방법론",
+      "key_takeaways": [
+        "이커머스 고객의 브랜드, 사이즈, 색상 선호도를 예측하는 'Aspect Affinity' 개념 정의",
+        "대형 모델 대신 효율적인 소형 언어 모델(SLM)을 활용한 장기 선호도 예측 기법 제안",
+        "고객 이해도 향상 및 개인화된 이커머스 추천 시스템 성능 개선"
+      ]
+    },
+    "en": {
+      "title": "DeepAffinity: Long-Term Aspect Preference Prediction in eCommerce using Small Language Models",
+      "hook": "Predicting long-term user preferences for product aspects (brand, size, color) using efficient Small Language Models (SLMs).",
+      "key_takeaways": [
+        "Defines 'Aspect Affinity' for predicting user preferences on product aspects like brand, size, and color",
+        "Leverages Small Language Models (SLMs) for efficient long-term preference modeling",
+        "Enhances customer understanding and personalized recommendations in e-commerce"
+      ]
+    },
+    "zh": {
+      "title": "DeepAffinity：使用小型语言模型（SLM）预测电子商务中的长期属性偏好",
+      "hook": "利用高效的小型语言模型（SLM）预测用户对品牌、尺寸、颜色等商品属性的长期偏好。",
+      "key_takeaways": [
+        "定义了“属性亲和度”（Aspect Affinity）概念，用于预测用户对品牌、尺寸和颜色等属性的偏好",
+        "利用小型语言模型（SLM）实现高效的长期偏好建模",
+        "提升电子商务领域的客户理解与个性化推荐效果"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.167717"
 }

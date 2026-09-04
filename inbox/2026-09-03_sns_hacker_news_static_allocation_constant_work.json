@@ -33,5 +33,97 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49539556",
-  "article_url": "https://matklad.github.io/2026/09/02/static-allocation-constant-work.html"
+  "article_url": "https://matklad.github.io/2026/09/02/static-allocation-constant-work.html",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_static_allocation_constant_work",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Systems Architecture",
+    "category": "Software Engineering",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Static Allocation",
+      "Constant Work",
+      "Memory Management",
+      "Real-Time Systems",
+      "Determinism"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "정적 할당과 고정 작업: 예측 가능한 시스템 설계를 위한 원칙",
+        "hook": "동적 메모리 할당을 배제하고 작업 시간을 고정하여 극단적인 예측 가능성과 안정성을 확보하는 시스템 설계 패러다임",
+        "key_takeaways": [
+          "힙 메모리 동적 할당을 회피하여 메모리 파편화 및 런타임 OOM(Out of Memory) 예방",
+          "루프와 연산 단위를 고정 상수 시간(O(1))으로 제한하여 결정론적 반응성 보장",
+          "임베디드, 실시간(Real-Time), 미션 크리티컬 시스템 시스템 프로그래밍의 핵심 패턴"
+        ]
+      },
+      "en": {
+        "title": "Static Allocation, Constant Work: Principles for Predictable Systems",
+        "hook": "Engineering design principles for extreme software predictability and safety by eliminating dynamic memory allocation and constraining work time.",
+        "key_takeaways": [
+          "Prevents memory fragmentation and runtime OOM by eliminating dynamic heap allocations",
+          "Ensures deterministic response times by constraining processing loops to constant time (O(1))",
+          "Essential architectural paradigm for embedded, real-time, and safety-critical software"
+        ]
+      },
+      "zh": {
+        "title": "静态分配与恒定工作量：构建高可预测性系统的设计原则",
+        "hook": "通过消除动态内存分配与严格限制任务耗时，实现极高确定性与系统安全性的工程设计模式",
+        "key_takeaways": [
+          "杜绝动态堆分配，消除内存碎片化与运行时 OOM 崩溃隐患",
+          "限制每个循环和任务在恒定时间 (O(1)) 内完成，提供严格的延迟与确定性保证",
+          "嵌入式、实时系统 (Real-Time) 及安全关键型 (Safety-Critical) 软件的核心架构原则"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "정적 할당과 고정 작업: 예측 가능한 시스템 설계를 위한 원칙",
+      "hook": "동적 메모리 할당을 배제하고 작업 시간을 고정하여 극단적인 예측 가능성과 안정성을 확보하는 시스템 설계 패러다임",
+      "key_takeaways": [
+        "힙 메모리 동적 할당을 회피하여 메모리 파편화 및 런타임 OOM(Out of Memory) 예방",
+        "루프와 연산 단위를 고정 상수 시간(O(1))으로 제한하여 결정론적 반응성 보장",
+        "임베디드, 실시간(Real-Time), 미션 크리티컬 시스템 시스템 프로그래밍의 핵심 패턴"
+      ]
+    },
+    "en": {
+      "title": "Static Allocation, Constant Work: Principles for Predictable Systems",
+      "hook": "Engineering design principles for extreme software predictability and safety by eliminating dynamic memory allocation and constraining work time.",
+      "key_takeaways": [
+        "Prevents memory fragmentation and runtime OOM by eliminating dynamic heap allocations",
+        "Ensures deterministic response times by constraining processing loops to constant time (O(1))",
+        "Essential architectural paradigm for embedded, real-time, and safety-critical software"
+      ]
+    },
+    "zh": {
+      "title": "静态分配与恒定工作量：构建高可预测性系统的设计原则",
+      "hook": "通过消除动态内存分配与严格限制任务耗时，实现极高确定性与系统安全性的工程设计模式",
+      "key_takeaways": [
+        "杜绝动态堆分配，消除内存碎片化与运行时 OOM 崩溃隐患",
+        "限制每个循环和任务在恒定时间 (O(1)) 内完成，提供严格的延迟与确定性保证",
+        "嵌入式、实时系统 (Real-Time) 及安全关键型 (Safety-Critical) 软件的核心架构原则"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Static Allocation",
+    "Constant Work",
+    "Memory Management",
+    "Real-Time Systems",
+    "Determinism"
+  ],
+  "title_ko": "정적 할당과 고정 작업: 예측 가능한 시스템 설계를 위한 원칙",
+  "hook_ko": "동적 메모리 할당을 배제하고 작업 시간을 고정하여 극단적인 예측 가능성과 안정성을 확보하는 시스템 설계 패러다임",
+  "title_en": "Static Allocation, Constant Work: Principles for Predictable Systems",
+  "hook_en": "Engineering design principles for extreme software predictability and safety by eliminating dynamic memory allocation and constraining work time.",
+  "title_zh": "静态分配与恒定工作量：构建高可预测性系统的设计原则",
+  "hook_zh": "通过消除动态内存分配与严格限制任务耗时，实现极高确定性与系统安全性的工程设计模式",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.412151"
 }

@@ -34,65 +34,96 @@
     "id": "2026-09-03_repo_arxiv_untangling_the_mechanisms_of_misleading",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "의료 LLM 환각 및 신뢰성 분석",
-    "programming_lang": "Python",
+    "model_family": "LLM",
+    "category": "Medical AI",
+    "programming_lang": "General",
     "root_keywords": [
       "Medical QA",
       "Misleading Context",
-      "LLM Reliability"
+      "LLM Robustness",
+      "Mechanistic Interpretability"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.8,
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "의료 QA에서 오해를 유발하는 컨텍스트의 메커니즘 분석",
-        "hook": "의료 LLM의 판단을 오염시키는 잘못된 컨텍스트의 작동 원리를 파악하여 신뢰성을 높이세요.",
+        "title": "의료 질의응답에서 오해를 불러일으키는 컨텍스트의 메커니즘 규명",
+        "hook": "LLM이 오해의 소지가 있는 컨텍스트에 영향을 받아 잘못된 의료 판단을 내리는 내적 메커니즘 분석",
         "key_takeaways": [
-          "의료 분야 LLM의 답변 정확도에 영향을 미치는 오탐지 메커니즘 분석",
-          "오해를 유발하는 컨텍스트가 모델의 의학적 판단에 미치는 영향 평가",
-          "의료 AI 시스템의 강건성과 환각 현상 완화를 위한 인사이트 제공"
+          "전문가 수준의 의료 QA 능력을 갖춘 LLM도 오해의 소지가 있는 컨텍스트에 의해 판단이 심각하게 왜곡될 수 있음을 밝힘",
+          "잘못된 컨텍스트가 모델 내부 추론 메커니즘에 어떤 영향을 미치는지 상세 분석",
+          "실제 임상 환경 배치 시 필수의료 AI의 강건성(Robustness) 및 안전성 확보를 위한 가이드라인 제시"
         ]
       },
       "en": {
         "title": "Untangling the Mechanisms of Misleading Context in Medical Question Answering",
-        "hook": "Understand how misleading context corrupts LLM medical judgment to build safer healthcare AI.",
+        "hook": "Analyzing internal LLM mechanisms when misleading contexts corrupt medical reasoning",
         "key_takeaways": [
-          "Investigates failure mechanisms caused by misleading contexts in medical QA",
-          "Evaluates how corrupted context alters professional-level medical reasoning",
-          "Provides insights for improving robustness and reliability in clinical AI"
+          "Highlights how expert-level medical LLMs remain vulnerable to corrupted or misleading context",
+          "Investigates the internal mechanisms through which misleading prompts distort clinical decision-making",
+          "Provides insights for building robust and trustworthy LLMs for real-world medical deployment"
         ]
       },
       "zh": {
-        "title": "剖析医疗问答中误导性上下文的作用机制",
-        "hook": "深入理解错误上下文如何影响大模型的医疗决策，提升医疗AI系统的可靠性。",
+        "title": "解构医学问答中误导性上下文的作用机制",
+        "hook": "深入分析误导性上下文如何破坏大语言模型医学推理的内部机制",
         "key_takeaways": [
-          "探讨医疗问答中误导性上下文导致的模型判断偏差机制",
-          "评估不准确信息对大模型专业医学推理过程的腐蚀影响",
-          "为医疗人工智能系统的鲁棒性与安全性优化提供理论支持"
+          "揭示即便是专家级医学问答 LLM，在面对误导性上下文时依然容易发生判断偏差",
+          "探究误导性提示影响模型临床决策过程的底层机制",
+          "为构建高鲁棒性与高可靠性的实际医疗 AI 应用提供重要依据"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:15:02.665658+00:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
     "Medical QA",
     "Misleading Context",
-    "LLM Reliability"
+    "LLM Robustness",
+    "Mechanistic Interpretability"
   ],
-  "title_ko": "의료 QA에서 오해를 유발하는 컨텍스트의 메커니즘 분석",
+  "title_ko": "의료 질의응답에서 오해를 불러일으키는 컨텍스트의 메커니즘 규명",
   "title_en": "Untangling the Mechanisms of Misleading Context in Medical Question Answering",
-  "title_zh": "剖析医疗问答中误导性上下文的作用机制",
+  "title_zh": "解构医学问答中误导性上下文的作用机制",
   "hook": "의료 LLM의 판단을 오염시키는 잘못된 컨텍스트의 작동 원리를 파악하여 신뢰성을 높이세요.",
-  "hook_ko": "의료 LLM의 판단을 오염시키는 잘못된 컨텍스트의 작동 원리를 파악하여 신뢰성을 높이세요.",
-  "hook_en": "Understand how misleading context corrupts LLM medical judgment to build safer healthcare AI.",
-  "hook_zh": "深入理解错误上下文如何影响大模型的医疗决策，提升医疗AI系统的可靠性。",
+  "hook_ko": "LLM이 오해의 소지가 있는 컨텍스트에 영향을 받아 잘못된 의료 판단을 내리는 내적 메커니즘 분석",
+  "hook_en": "Analyzing internal LLM mechanisms when misleading contexts corrupt medical reasoning",
+  "hook_zh": "深入分析误导性上下文如何破坏大语言模型医学推理的内部机制",
   "description_ko": "의료 LLM의 판단을 오염시키는 잘못된 컨텍스트의 작동 원리를 파악하여 신뢰성을 높이세요.",
   "description_en": "Understand how misleading context corrupts LLM medical judgment to build safer healthcare AI.",
   "description_zh": "深入理解错误上下文如何影响大模型的医疗决策，提升医疗AI系统的可靠性。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "의료 질의응답에서 오해를 불러일으키는 컨텍스트의 메커니즘 규명",
+      "hook": "LLM이 오해의 소지가 있는 컨텍스트에 영향을 받아 잘못된 의료 판단을 내리는 내적 메커니즘 분석",
+      "key_takeaways": [
+        "전문가 수준의 의료 QA 능력을 갖춘 LLM도 오해의 소지가 있는 컨텍스트에 의해 판단이 심각하게 왜곡될 수 있음을 밝힘",
+        "잘못된 컨텍스트가 모델 내부 추론 메커니즘에 어떤 영향을 미치는지 상세 분석",
+        "실제 임상 환경 배치 시 필수의료 AI의 강건성(Robustness) 및 안전성 확보를 위한 가이드라인 제시"
+      ]
+    },
+    "en": {
+      "title": "Untangling the Mechanisms of Misleading Context in Medical Question Answering",
+      "hook": "Analyzing internal LLM mechanisms when misleading contexts corrupt medical reasoning",
+      "key_takeaways": [
+        "Highlights how expert-level medical LLMs remain vulnerable to corrupted or misleading context",
+        "Investigates the internal mechanisms through which misleading prompts distort clinical decision-making",
+        "Provides insights for building robust and trustworthy LLMs for real-world medical deployment"
+      ]
+    },
+    "zh": {
+      "title": "解构医学问答中误导性上下文的作用机制",
+      "hook": "深入分析误导性上下文如何破坏大语言模型医学推理的内部机制",
+      "key_takeaways": [
+        "揭示即便是专家级医学问答 LLM，在面对误导性上下文时依然容易发生判断偏差",
+        "探究误导性提示影响模型临床决策过程的底层机制",
+        "为构建高鲁棒性与高可靠性的实际医疗 AI 应用提供重要依据"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.209154"
 }

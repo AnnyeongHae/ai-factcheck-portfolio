@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_instantxinstantid",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Diffusion Models",
+    "category": "Computer Vision",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "InstantID",
+      "Identity Preservation",
+      "Diffusion Models",
+      "Zero-shot Generation",
+      "Gradio"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "InstantX/InstantID: 제로샷 인물 정체성 보존 이미지 생성 데모",
+        "hook": "단 한 장의 인물 사진으로 정체성을 유지하면서 다양한 스타일의 고품질 초상화를 생성하는 Zero-shot AI 솔루션",
+        "key_takeaways": [
+          "별도의 파인튜닝 과정 없이 단 한 장의 얼굴 사진만으로 즉각적인 ID 보존 생성 지원",
+          "얼굴 특징 추출기(InsightFace)와 ControlNet 기반 어댑터를 결합해 높은 텍스트 추종성과 정체성 유지력 제공",
+          "Gradio 기반 대화형 인터페이스를 통해 다양한 스타일 템플릿 및 프롬프트 제어 실습 가능"
+        ]
+      },
+      "en": {
+        "title": "InstantX/InstantID: Zero-Shot Identity-Preserving Image Generation Demo",
+        "hook": "A zero-shot identity-preserving generation solution that synthesizes high-fidelity portraits maintaining facial features from a single reference image.",
+        "key_takeaways": [
+          "Enables instant ID-preserving portrait generation from a single image without requiring fine-tuning.",
+          "Combines facial feature extractors (InsightFace) with ControlNet-based lightweight adapters for strong prompt adherence.",
+          "Provides an interactive Gradio interface featuring diverse style templates and flexible text prompt controls."
+        ]
+      },
+      "zh": {
+        "title": "InstantX/InstantID：零样本保持面部特征的图像生成 Demo",
+        "hook": "仅需一张参考照片即可在保留面部身份特征的同时生成多风格高保真肖像的零样本生成技术。",
+        "key_takeaways": [
+          "无需微调（Zero-shot）即可基于单张图像实现快速且高精度的 ID 保持肖像生成",
+          "结合 InsightFace 面部特征提取与基于 ControlNet 的轻量化适配器，实现极高的文本与特征对齐",
+          "提供基于 Gradio 的交互式界面，支持丰富的风格预设与自定义 Prompt 控制"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "InstantX/InstantID: 제로샷 인물 정체성 보존 이미지 생성 데모",
+      "hook": "단 한 장의 인물 사진으로 정체성을 유지하면서 다양한 스타일의 고품질 초상화를 생성하는 Zero-shot AI 솔루션",
+      "key_takeaways": [
+        "별도의 파인튜닝 과정 없이 단 한 장의 얼굴 사진만으로 즉각적인 ID 보존 생성 지원",
+        "얼굴 특징 추출기(InsightFace)와 ControlNet 기반 어댑터를 결합해 높은 텍스트 추종성과 정체성 유지력 제공",
+        "Gradio 기반 대화형 인터페이스를 통해 다양한 스타일 템플릿 및 프롬프트 제어 실습 가능"
+      ]
+    },
+    "en": {
+      "title": "InstantX/InstantID: Zero-Shot Identity-Preserving Image Generation Demo",
+      "hook": "A zero-shot identity-preserving generation solution that synthesizes high-fidelity portraits maintaining facial features from a single reference image.",
+      "key_takeaways": [
+        "Enables instant ID-preserving portrait generation from a single image without requiring fine-tuning.",
+        "Combines facial feature extractors (InsightFace) with ControlNet-based lightweight adapters for strong prompt adherence.",
+        "Provides an interactive Gradio interface featuring diverse style templates and flexible text prompt controls."
+      ]
+    },
+    "zh": {
+      "title": "InstantX/InstantID：零样本保持面部特征的图像生成 Demo",
+      "hook": "仅需一张参考照片即可在保留面部身份特征的同时生成多风格高保真肖像的零样本生成技术。",
+      "key_takeaways": [
+        "无需微调（Zero-shot）即可基于单张图像实现快速且高精度的 ID 保持肖像生成",
+        "结合 InsightFace 面部特征提取与基于 ControlNet 的轻量化适配器，实现极高的文本与特征对齐",
+        "提供基于 Gradio 的交互式界面，支持丰富的风格预设与自定义 Prompt 控制"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "InstantID",
+    "Identity Preservation",
+    "Diffusion Models",
+    "Zero-shot Generation",
+    "Gradio"
+  ],
+  "title_ko": "InstantX/InstantID: 제로샷 인물 정체성 보존 이미지 생성 데모",
+  "hook_ko": "단 한 장의 인물 사진으로 정체성을 유지하면서 다양한 스타일의 고품질 초상화를 생성하는 Zero-shot AI 솔루션",
+  "title_en": "InstantX/InstantID: Zero-Shot Identity-Preserving Image Generation Demo",
+  "hook_en": "A zero-shot identity-preserving generation solution that synthesizes high-fidelity portraits maintaining facial features from a single reference image.",
+  "title_zh": "InstantX/InstantID：零样本保持面部特征的图像生成 Demo",
+  "hook_zh": "仅需一张参考照片即可在保留面部身份特征的同时生成多风格高保真肖像的零样本生成技术。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.264126"
 }

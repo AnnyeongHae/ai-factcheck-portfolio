@@ -35,68 +35,97 @@
   "ai_enrichment": {
     "id": "2026-09-03_sns_hacker_news_the_shrinking_landscape_of_lingui",
     "source_lang": "EN",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "언어 다양성 및 AI 영향 분석",
+    "type_classification": "TECH",
+    "model_family": "Multilingual LLMs",
+    "category": "Artificial Intelligence",
     "programming_lang": "General",
     "root_keywords": [
-      "LLM",
       "Linguistic Diversity",
-      "Culture",
-      "AI Impact"
+      "Low-Resource Languages",
+      "LLM Bias",
+      "Multilingual NLP"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.2,
+    "worth_score": 3.6,
     "multilingual": {
       "ko": {
-        "title": "LLM 시대에 줄어드는 언어 다양성의 풍경",
-        "hook": "대규모 언어 모델의 확산이 전 세계 소수 언어와 문화 다양성에 미치는 영향을 분석합니다.",
+        "title": "LLM 시대에 줄어드는 언어적 다양성",
+        "hook": "대형 언어 모델 중심의 AI 기술 발전이 소수 언어의 위축과 글로벌 언어적 다양성 감소에 미치는 영향을 다룹니다.",
         "key_takeaways": [
-          "LLM 중심의 기술 생태계가 언어 다양성에 미치는 위협 고찰",
-          "주요 언어 편중 현상으로 인한 문화적 손실 가능성 분석",
-          "AI 시대의 다국어 공존을 위한 기술적·사회적 과제 논의"
+          "영어 등 고자원 언어 중심의 학습 데이터 편향으로 저자원 언어의 디지털 소외 심화",
+          "LLM 생성 데이터의 급증으로 인한 온라인 언어 표현의 균일화 및 가치 편중 현상",
+          "다양한 문화와 소수 언어를 보존하기 위한 포용적 데이터 세트 구축 및 기술적 대안 필요성"
         ]
       },
       "en": {
         "title": "The Shrinking Landscape of Linguistic Diversity in the Age of LLMs",
-        "hook": "An insightful discussion on how the dominance of LLMs impacts minority languages and global cultural diversity.",
+        "hook": "Examines how the dominance of high-resource language data in LLMs accelerates the homogenization and decline of global linguistic diversity.",
         "key_takeaways": [
-          "Examines the threat of LLM ecosystems to linguistic diversity",
-          "Analyzes cultural loss resulting from major language bias",
-          "Discusses technological and social challenges for multilingual coexistence"
+          "Data bias favoring high-resource languages threatens low-resource languages in digital space.",
+          "Surge in LLM-generated text leads to linguistic standardization and loss of nuanced regional expressions.",
+          "Urgent technical need for inclusive dataset curation and multilingual mitigation techniques."
         ]
       },
       "zh": {
-        "title": "大模型时代的语言多样性萎缩景观",
-        "hook": "深入探讨大语言模型的普及对全球少数语言及文化多样性带来的潜在影响。",
+        "title": "大模型时代下日益萎缩的语言多样性",
+        "hook": "探讨以大语言模型为主导的 AI 发展如何导致低资源语言的边缘化以及全球语言多样性的同质化。",
         "key_takeaways": [
-          "审视LLM主导的技术生态对语言多样性的威胁",
-          "分析主要语言偏见导致的文化流失可能性",
-          "讨论AI时代多语言共存的技术与社会挑战"
+          "训练数据集中高资源语言的优势加剧了低资源语言在数字领域的生存危机",
+          "LLM 生成内容的激增引发网络语言表达的单一化与趋同现象",
+          "亟需构建更具包容性的数据集与多语言微调技术以保护语言多样性"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T01:56:16.632247+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "General",
   "root_keywords": [
-    "LLM",
     "Linguistic Diversity",
-    "Culture",
-    "AI Impact"
+    "Low-Resource Languages",
+    "LLM Bias",
+    "Multilingual NLP"
   ],
-  "title_ko": "LLM 시대에 줄어드는 언어 다양성의 풍경",
+  "title_ko": "LLM 시대에 줄어드는 언어적 다양성",
   "title_en": "The Shrinking Landscape of Linguistic Diversity in the Age of LLMs",
-  "title_zh": "大模型时代的语言多样性萎缩景观",
+  "title_zh": "大模型时代下日益萎缩的语言多样性",
   "hook": "대규모 언어 모델의 확산이 전 세계 소수 언어와 문화 다양성에 미치는 영향을 분석합니다.",
-  "hook_ko": "대규모 언어 모델의 확산이 전 세계 소수 언어와 문화 다양성에 미치는 영향을 분석합니다.",
-  "hook_en": "An insightful discussion on how the dominance of LLMs impacts minority languages and global cultural diversity.",
-  "hook_zh": "深入探讨大语言模型的普及对全球少数语言及文化多样性带来的潜在影响。",
+  "hook_ko": "대형 언어 모델 중심의 AI 기술 발전이 소수 언어의 위축과 글로벌 언어적 다양성 감소에 미치는 영향을 다룹니다.",
+  "hook_en": "Examines how the dominance of high-resource language data in LLMs accelerates the homogenization and decline of global linguistic diversity.",
+  "hook_zh": "探讨以大语言模型为主导的 AI 发展如何导致低资源语言的边缘化以及全球语言多样性的同质化。",
   "description_ko": "대규모 언어 모델의 확산이 전 세계 소수 언어와 문화 다양성에 미치는 영향을 분석합니다.",
   "description_en": "An insightful discussion on how the dominance of LLMs impacts minority languages and global cultural diversity.",
   "description_zh": "深入探讨大语言模型的普及对全球少数语言及文化多样性带来的潜在影响。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "LLM 시대에 줄어드는 언어적 다양성",
+      "hook": "대형 언어 모델 중심의 AI 기술 발전이 소수 언어의 위축과 글로벌 언어적 다양성 감소에 미치는 영향을 다룹니다.",
+      "key_takeaways": [
+        "영어 등 고자원 언어 중심의 학습 데이터 편향으로 저자원 언어의 디지털 소외 심화",
+        "LLM 생성 데이터의 급증으로 인한 온라인 언어 표현의 균일화 및 가치 편중 현상",
+        "다양한 문화와 소수 언어를 보존하기 위한 포용적 데이터 세트 구축 및 기술적 대안 필요성"
+      ]
+    },
+    "en": {
+      "title": "The Shrinking Landscape of Linguistic Diversity in the Age of LLMs",
+      "hook": "Examines how the dominance of high-resource language data in LLMs accelerates the homogenization and decline of global linguistic diversity.",
+      "key_takeaways": [
+        "Data bias favoring high-resource languages threatens low-resource languages in digital space.",
+        "Surge in LLM-generated text leads to linguistic standardization and loss of nuanced regional expressions.",
+        "Urgent technical need for inclusive dataset curation and multilingual mitigation techniques."
+      ]
+    },
+    "zh": {
+      "title": "大模型时代下日益萎缩的语言多样性",
+      "hook": "探讨以大语言模型为主导的 AI 发展如何导致低资源语言的边缘化以及全球语言多样性的同质化。",
+      "key_takeaways": [
+        "训练数据集中高资源语言的优势加剧了低资源语言在数字领域的生存危机",
+        "LLM 生成内容的激增引发网络语言表达的单一化与趋同现象",
+        "亟需构建更具包容性的数据集与多语言微调技术以保护语言多样性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.416272"
 }

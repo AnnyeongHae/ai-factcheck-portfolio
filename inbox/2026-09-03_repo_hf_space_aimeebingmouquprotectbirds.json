@@ -34,65 +34,98 @@
     "id": "2026-09-03_repo_hf_space_aimeebingmouquprotectbirds",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "인공지능 및 컴퓨터 비전 응용",
+    "model_family": "Computer Vision",
+    "category": "AI Application",
     "programming_lang": "Python",
     "root_keywords": [
-      "AI Demo",
-      "ProtectBirds",
-      "Computer Vision"
+      "Bird Protection",
+      "Computer Vision",
+      "AI for Good",
+      "Hugging Face Spaces",
+      "Wildlife Conservation"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.2,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "Hugging Face 스페이스: AI 기반 조류 보호 인터랙티브 데모",
-        "hook": "컴퓨터 Vision 기반의 조류 보호 및 생태계 모니터링 AI 데모를 직접 체험해 보세요.",
+        "title": "HF Space: 조류 보호를 위한 인공지능 데모 (ProtectBirds)",
+        "hook": "컴퓨터 비전 기술을 활용하여 조류를 모니터링하고 탐지하는 인공지능 기반 인터랙티브 데모",
         "key_takeaways": [
-          "Docker SDK 기반의 인터랙티브 AI 데모 애플리케이션",
-          "높은 사용자 호응도(925개 좋아요)를 기록한 실용적 오픈소스 프로젝트",
-          "웹 브라우저에서 실시간으로 테스트 가능한 라이브 환경 제공"
+          "Docker SDK 기반의 Hugging Face Space 인터랙티브 데모 환경 제공",
+          "조류 인식을 위한 딥러닝 기반 이미지 및 패턴 분석 적용",
+          "생태계 보전 및 야생동물 보호를 위한 AI for Good 실용 구축 사례"
         ]
       },
       "en": {
-        "title": "Hugging Face Space: AI-Powered Bird Protection Interactive Demo",
-        "hook": "Explore an interactive computer vision demo designed for bird protection and ecological monitoring.",
+        "title": "HF Space: ProtectBirds - AI Demo for Bird Protection",
+        "hook": "An interactive AI demonstration leveraging computer vision to identify and protect bird species.",
         "key_takeaways": [
-          "Interactive AI demo application powered by Docker SDK",
-          "Popular open-source project with 925 likes from the AI community",
-          "Provides a live, ready-to-test web interface directly in the browser"
+          "Containerized demo deployment on Hugging Face Spaces using Docker SDK",
+          "Applies deep learning models for bird identification and monitoring",
+          "Practical example of AI for Good aimed at wildlife and ecosystem conservation"
         ]
       },
       "zh": {
-        "title": "Hugging Face 空间：AI 驱动的鸟类保护交互式演示",
-        "hook": "探索基于计算机视觉的鸟类保护与生态监测交互式AI演示。",
+        "title": "HF Space：ProtectBirds 鸟类保护 AI 交互演示",
+        "hook": "利用计算机视觉技术进行鸟类识别与监测的生态保护 AI 交互演示",
         "key_takeaways": [
-          "基于 Docker SDK 构建的交互式 AI 演示应用",
-          "在开源社区中广受好评（获得 925 个赞）",
-          "提供可直接在浏览器中测试的实时在线运行环境"
+          "基于 Docker SDK 在 Hugging Face Space 上部署的容器化交互演示",
+          "应用深度学习模型实现鸟类检测与生态监测",
+          "践行科技向善（AI for Good）与野生动物保护的落地应用范例"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T06:13:23.148381+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "AI Demo",
-    "ProtectBirds",
-    "Computer Vision"
+    "Bird Protection",
+    "Computer Vision",
+    "AI for Good",
+    "Hugging Face Spaces",
+    "Wildlife Conservation"
   ],
-  "title_ko": "Hugging Face 스페이스: AI 기반 조류 보호 인터랙티브 데모",
-  "title_en": "Hugging Face Space: AI-Powered Bird Protection Interactive Demo",
-  "title_zh": "Hugging Face 空间：AI 驱动的鸟类保护交互式演示",
+  "title_ko": "HF Space: 조류 보호를 위한 인공지능 데모 (ProtectBirds)",
+  "title_en": "HF Space: ProtectBirds - AI Demo for Bird Protection",
+  "title_zh": "HF Space：ProtectBirds 鸟类保护 AI 交互演示",
   "hook": "컴퓨터 Vision 기반의 조류 보호 및 생태계 모니터링 AI 데모를 직접 체험해 보세요.",
-  "hook_ko": "컴퓨터 Vision 기반의 조류 보호 및 생태계 모니터링 AI 데모를 직접 체험해 보세요.",
-  "hook_en": "Explore an interactive computer vision demo designed for bird protection and ecological monitoring.",
-  "hook_zh": "探索基于计算机视觉的鸟类保护与生态监测交互式AI演示。",
+  "hook_ko": "컴퓨터 비전 기술을 활용하여 조류를 모니터링하고 탐지하는 인공지능 기반 인터랙티브 데모",
+  "hook_en": "An interactive AI demonstration leveraging computer vision to identify and protect bird species.",
+  "hook_zh": "利用计算机视觉技术进行鸟类识别与监测的生态保护 AI 交互演示",
   "description_ko": "컴퓨터 Vision 기반의 조류 보호 및 생태계 모니터링 AI 데모를 직접 체험해 보세요.",
   "description_en": "Explore an interactive computer vision demo designed for bird protection and ecological monitoring.",
   "description_zh": "探索基于计算机视觉的鸟类保护与生态监测交互式AI演示。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "HF Space: 조류 보호를 위한 인공지능 데모 (ProtectBirds)",
+      "hook": "컴퓨터 비전 기술을 활용하여 조류를 모니터링하고 탐지하는 인공지능 기반 인터랙티브 데모",
+      "key_takeaways": [
+        "Docker SDK 기반의 Hugging Face Space 인터랙티브 데모 환경 제공",
+        "조류 인식을 위한 딥러닝 기반 이미지 및 패턴 분석 적용",
+        "생태계 보전 및 야생동물 보호를 위한 AI for Good 실용 구축 사례"
+      ]
+    },
+    "en": {
+      "title": "HF Space: ProtectBirds - AI Demo for Bird Protection",
+      "hook": "An interactive AI demonstration leveraging computer vision to identify and protect bird species.",
+      "key_takeaways": [
+        "Containerized demo deployment on Hugging Face Spaces using Docker SDK",
+        "Applies deep learning models for bird identification and monitoring",
+        "Practical example of AI for Good aimed at wildlife and ecosystem conservation"
+      ]
+    },
+    "zh": {
+      "title": "HF Space：ProtectBirds 鸟类保护 AI 交互演示",
+      "hook": "利用计算机视觉技术进行鸟类识别与监测的生态保护 AI 交互演示",
+      "key_takeaways": [
+        "基于 Docker SDK 在 Hugging Face Space 上部署的容器化交互演示",
+        "应用深度学习模型实现鸟类检测与生态监测",
+        "践行科技向善（AI for Good）与野生动物保护的落地应用范例"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.226990"
 }

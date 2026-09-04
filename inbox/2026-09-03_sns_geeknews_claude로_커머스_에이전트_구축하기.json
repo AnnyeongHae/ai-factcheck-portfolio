@@ -30,71 +30,104 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Claude를 활용한 실전 커머스 AI 에이전트 구축 가이드",
+  "title_ko": "Claude를 활용한 커머스 AI 에이전트 구축 가이드",
   "description_ko": "이커머스 업무를 자동화하는 지능형 에이전트를 Claude 기반으로 구현하는 방법을 배웁니다.",
   "hn_url": "https://news.hada.io/topic?id=33176",
   "article_url": "https://news.hada.io/topic?id=33176",
   "ai_enrichment": {
     "id": "2026-09-03_sns_geeknews_claude로_커머스_에이전트_구축하기",
     "source_lang": "KO",
-    "type_classification": "AGENT",
+    "type_classification": "TECH",
     "model_family": "Claude",
-    "category": "웹 에이전트",
+    "category": "AI Agents",
     "programming_lang": "Python",
     "root_keywords": [
       "Claude",
-      "커머스 에이전트",
-      "AI 자동화"
+      "Commerce Agent",
+      "AI Agent",
+      "Tool Use",
+      "E-commerce"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "Claude를 활용한 실전 커머스 AI 에이전트 구축 가이드",
-        "hook": "이커머스 업무를 자동화하는 지능형 에이전트를 Claude 기반으로 구현하는 방법을 배웁니다.",
+        "title": "Claude를 활용한 커머스 AI 에이전트 구축 가이드",
+        "hook": "Anthropic Claude의 툴 호출 기능을 활용하여 검색부터 결제까지 자동화하는 커머스 에이전트 설계 및 실전 구축 기법",
         "key_takeaways": [
-          "Claude API를 활용한 이커머스 도메인 특화 에이전트 설계",
-          "상품 추천 및 주문 처리 자동화 워크플로우 구현",
-          "실제 프로덕션 환경에서의 프롬프트 및 컨텍스트 관리 전략"
+          "Claude의 Tool Use(Function Calling) API를 활용한 전자상거래 시스템 연동 방법",
+          "상품 탐색, 장바구니 관리 및 구매 처리 흐름을 연결하는 에이전틱 워크플로우 설계",
+          "커머스 도메인 특화 컨텍스트 전달 및 제약 조건 설정을 통한 환각 최소화 전략"
         ]
       },
       "en": {
-        "title": "Building Commerce AI Agents Using Claude",
-        "hook": "Learn how to implement intelligent agents powered by Claude to automate e-commerce operations.",
+        "title": "Building an E-Commerce Agent with Claude",
+        "hook": "A practical guide to designing autonomous e-commerce agents using Anthropic's Claude tool-use capabilities to automate product search, cart management, and checkout.",
         "key_takeaways": [
-          "Designing e-commerce domain-specific agents using Claude API",
-          "Implementing automated workflows for product recommendation and order processing",
-          "Prompt and context management strategies in production environments"
+          "Integrating e-commerce platforms using Claude's Tool Use (Function Calling) APIs.",
+          "Architecting agentic workflows for seamless product discovery, cart operations, and transaction handling.",
+          "Prompt engineering and context injection strategies to minimize hallucinations in commercial tasks."
         ]
       },
       "zh": {
-        "title": "使用 Claude 构建电商 AI 代理实战指南",
-        "hook": "学习如何基于 Claude 实现自动化电商业务的智能代理。",
+        "title": "基于 Claude 构建电商 AI 智能体",
+        "hook": "探索利用 Anthropic Claude 的工具调用能力，实现从商品搜索到下单全流程自动化的电商 AI Agent 设计实战",
         "key_takeaways": [
-          "利用 Claude API 设计电商垂直领域专属代理",
-          "实现商品推荐与订单处理自动化工作流",
-          "生产环境中的提示词与上下文管理策略"
+          "利用 Claude 的 Tool Use API 与电商系统 API 进行高效对接",
+          "构建涵盖商品检索、购物车管理和交易处理的 Agentic 工作流",
+          "针对零售场景的 Prompt 优化与减少大模型幻觉的策略"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:16:43.315797+09:00"
+    }
   },
   "source_lang": "KO",
   "programming_lang": "Python",
   "root_keywords": [
     "Claude",
-    "커머스 에이전트",
-    "AI 자동화"
+    "Commerce Agent",
+    "AI Agent",
+    "Tool Use",
+    "E-commerce"
   ],
-  "title_en": "Building Commerce AI Agents Using Claude",
-  "title_zh": "使用 Claude 构建电商 AI 代理实战指南",
+  "title_en": "Building an E-Commerce Agent with Claude",
+  "title_zh": "基于 Claude 构建电商 AI 智能体",
   "hook": "이커머스 업무를 자동화하는 지능형 에이전트를 Claude 기반으로 구현하는 방법을 배웁니다.",
-  "hook_ko": "이커머스 업무를 자동화하는 지능형 에이전트를 Claude 기반으로 구현하는 방법을 배웁니다.",
-  "hook_en": "Learn how to implement intelligent agents powered by Claude to automate e-commerce operations.",
-  "hook_zh": "学习如何基于 Claude 实现自动化电商业务的智能代理。",
+  "hook_ko": "Anthropic Claude의 툴 호출 기능을 활용하여 검색부터 결제까지 자동화하는 커머스 에이전트 설계 및 실전 구축 기법",
+  "hook_en": "A practical guide to designing autonomous e-commerce agents using Anthropic's Claude tool-use capabilities to automate product search, cart management, and checkout.",
+  "hook_zh": "探索利用 Anthropic Claude 的工具调用能力，实现从商品搜索到下单全流程自动化的电商 AI Agent 设计实战",
   "description_en": "Learn how to implement intelligent agents powered by Claude to automate e-commerce operations.",
   "description_zh": "学习如何基于 Claude 实现自动化电商业务的智能代理。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Claude를 활용한 커머스 AI 에이전트 구축 가이드",
+      "hook": "Anthropic Claude의 툴 호출 기능을 활용하여 검색부터 결제까지 자동화하는 커머스 에이전트 설계 및 실전 구축 기법",
+      "key_takeaways": [
+        "Claude의 Tool Use(Function Calling) API를 활용한 전자상거래 시스템 연동 방법",
+        "상품 탐색, 장바구니 관리 및 구매 처리 흐름을 연결하는 에이전틱 워크플로우 설계",
+        "커머스 도메인 특화 컨텍스트 전달 및 제약 조건 설정을 통한 환각 최소화 전략"
+      ]
+    },
+    "en": {
+      "title": "Building an E-Commerce Agent with Claude",
+      "hook": "A practical guide to designing autonomous e-commerce agents using Anthropic's Claude tool-use capabilities to automate product search, cart management, and checkout.",
+      "key_takeaways": [
+        "Integrating e-commerce platforms using Claude's Tool Use (Function Calling) APIs.",
+        "Architecting agentic workflows for seamless product discovery, cart operations, and transaction handling.",
+        "Prompt engineering and context injection strategies to minimize hallucinations in commercial tasks."
+      ]
+    },
+    "zh": {
+      "title": "基于 Claude 构建电商 AI 智能体",
+      "hook": "探索利用 Anthropic Claude 的工具调用能力，实现从商品搜索到下单全流程自动化的电商 AI Agent 设计实战",
+      "key_takeaways": [
+        "利用 Claude 的 Tool Use API 与电商系统 API 进行高效对接",
+        "构建涵盖商品检索、购物车管理和交易处理的 Agentic 工作流",
+        "针对零售场景的 Prompt 优化与减少大模型幻觉的策略"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.322654"
 }

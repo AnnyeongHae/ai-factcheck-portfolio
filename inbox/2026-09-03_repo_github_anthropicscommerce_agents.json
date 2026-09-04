@@ -33,68 +33,99 @@
   "ai_enrichment": {
     "id": "2026-09-03_repo_github_anthropicscommerce_agents",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "웹 에이전트",
+    "type_classification": "TECH",
+    "model_family": "Claude",
+    "category": "AI Agents",
     "programming_lang": "Python",
     "root_keywords": [
+      "Commerce Agents",
       "Claude",
-      "Shopping Agents",
-      "Merchant Agents",
-      "Reference Blueprint"
+      "Anthropic",
+      "AI Shopping",
+      "Agent Blueprint"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.8,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Anthropic 공식 쇼핑 및 커머스 에이전트 구축 레퍼런스 청사진 공개",
-        "hook": "Claude를 활용해 실제 쇼핑 및 유통, 통신 분야의 상업용 AI 에이전트를 구축하는 가장 모범적인 레퍼런스 코드를 확인하세요.",
+        "title": "Anthropic Commerce Agents: Claude 기반 커머스 및 AI 에이전트 구축 레퍼런스 청사진",
+        "hook": "Claude를 활용하여 유통, 통신, 엔터테인먼트 분야의 쇼핑 및 판매자 에이전트를 구축하는 Anthropic 공식 레퍼런스 블루프린트",
         "key_takeaways": [
-          "Anthropic이 직접 공개한 쇼핑 및 상거래 에이전트 설계 레퍼런스",
-          "소매, 유통, 통신, 엔터테인먼트 등 다양한 산업군의 구체적 예제 포함",
-          "Claude 기반의 고도화된 자율형 커머스 에이전트 구현 패턴 학습 가능"
+          "Anthropic이 직접 공개한 Claude 기반 커머스 AI 에이전트 구축 표준 레퍼런스",
+          "리테일, 이커머스, 통신, 엔터테인먼트 등 다양한 산업 영역별 예제 구현체 포함",
+          "구매자용 쇼핑 에이전트 및 판매자용 메인터넌스 에이전트 구축 아키텍처 제시"
         ]
       },
       "en": {
-        "title": "Anthropic Commerce-Agents: Reference Blueprint for Building Shopping Agents with Claude",
-        "hook": "Explore the official reference implementation by Anthropic to build robust shopping and merchant AI agents using Claude.",
+        "title": "Anthropic Commerce Agents: Reference Blueprints for Claude-Powered Shopping & Merchant Agents",
+        "hook": "Official reference blueprints from Anthropic demonstrating how to build autonomous shopping and merchant agents using Claude across multiple industries.",
         "key_takeaways": [
-          "Official reference blueprint for developing shopping and commerce agents using Claude",
-          "Includes practical examples across retail, commerce, telecom, and entertainment sectors",
-          "Ideal for learning advanced architectural patterns for autonomous commerce agents"
+          "Official reference blueprints by Anthropic for building commercial AI agents powered by Claude.",
+          "Includes practical examples across diverse sectors such as retail, telecom, and entertainment.",
+          "Demonstrates end-to-end architectures for consumer-facing shopping and merchant-side operational agents."
         ]
       },
       "zh": {
-        "title": "Anthropic 推出 commerce-agents：基于 Claude 构建购物与商业智能体的官方参考蓝图",
-        "hook": "深入了解 Anthropic 官方开源的参考架构，学习如何利用 Claude 构建覆盖零售、电信等行业的商业智能体。",
+        "title": "Anthropic Commerce Agents：基于 Claude 构建电商与商家 Agent 的官方参考蓝图",
+        "hook": "Anthropic 官方推出的参考架构，展示如何利用 Claude 构建面向零售、电信与娱乐等领域的智能购物及商家 Agent。",
         "key_takeaways": [
-          "Anthropic 官方打造的购物与商业智能体开发基准参考",
-          "内含零售、电商、电信和娱乐等多个领域的真实实现示例",
-          "掌握基于 Claude 构建复杂自主商业代理的核心架构设计模式"
+          "Anthropic 官方发布的基于 Claude 开发商业 AI Agent 的标准参考蓝图",
+          "包含涵盖零售、电子商务、电信和娱乐等多个领域的实际工程示例",
+          "提供面向消费者端购物 Agent 和商家端自动化 Agent 的完整架构指南"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T06:19:12.822881+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
+    "Commerce Agents",
     "Claude",
-    "Shopping Agents",
-    "Merchant Agents",
-    "Reference Blueprint"
+    "Anthropic",
+    "AI Shopping",
+    "Agent Blueprint"
   ],
-  "title_ko": "Anthropic 공식 쇼핑 및 커머스 에이전트 구축 레퍼런스 청사진 공개",
-  "title_en": "Anthropic Commerce-Agents: Reference Blueprint for Building Shopping Agents with Claude",
-  "title_zh": "Anthropic 推出 commerce-agents：基于 Claude 构建购物与商业智能体的官方参考蓝图",
+  "title_ko": "Anthropic Commerce Agents: Claude 기반 커머스 및 AI 에이전트 구축 레퍼런스 청사진",
+  "title_en": "Anthropic Commerce Agents: Reference Blueprints for Claude-Powered Shopping & Merchant Agents",
+  "title_zh": "Anthropic Commerce Agents：基于 Claude 构建电商与商家 Agent 的官方参考蓝图",
   "hook": "Claude를 활용해 실제 쇼핑 및 유통, 통신 분야의 상업용 AI 에이전트를 구축하는 가장 모범적인 레퍼런스 코드를 확인하세요.",
-  "hook_ko": "Claude를 활용해 실제 쇼핑 및 유통, 통신 분야의 상업용 AI 에이전트를 구축하는 가장 모범적인 레퍼런스 코드를 확인하세요.",
-  "hook_en": "Explore the official reference implementation by Anthropic to build robust shopping and merchant AI agents using Claude.",
-  "hook_zh": "深入了解 Anthropic 官方开源的参考架构，学习如何利用 Claude 构建覆盖零售、电信等行业的商业智能体。",
+  "hook_ko": "Claude를 활용하여 유통, 통신, 엔터테인먼트 분야의 쇼핑 및 판매자 에이전트를 구축하는 Anthropic 공식 레퍼런스 블루프린트",
+  "hook_en": "Official reference blueprints from Anthropic demonstrating how to build autonomous shopping and merchant agents using Claude across multiple industries.",
+  "hook_zh": "Anthropic 官方推出的参考架构，展示如何利用 Claude 构建面向零售、电信与娱乐等领域的智能购物及商家 Agent。",
   "description_ko": "Claude를 활용해 실제 쇼핑 및 유통, 통신 분야의 상업용 AI 에이전트를 구축하는 가장 모범적인 레퍼런스 코드를 확인하세요.",
   "description_en": "Explore the official reference implementation by Anthropic to build robust shopping and merchant AI agents using Claude.",
   "description_zh": "深入了解 Anthropic 官方开源的参考架构，学习如何利用 Claude 构建覆盖零售、电信等行业的商业智能体。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Anthropic Commerce Agents: Claude 기반 커머스 및 AI 에이전트 구축 레퍼런스 청사진",
+      "hook": "Claude를 활용하여 유통, 통신, 엔터테인먼트 분야의 쇼핑 및 판매자 에이전트를 구축하는 Anthropic 공식 레퍼런스 블루프린트",
+      "key_takeaways": [
+        "Anthropic이 직접 공개한 Claude 기반 커머스 AI 에이전트 구축 표준 레퍼런스",
+        "리테일, 이커머스, 통신, 엔터테인먼트 등 다양한 산업 영역별 예제 구현체 포함",
+        "구매자용 쇼핑 에이전트 및 판매자용 메인터넌스 에이전트 구축 아키텍처 제시"
+      ]
+    },
+    "en": {
+      "title": "Anthropic Commerce Agents: Reference Blueprints for Claude-Powered Shopping & Merchant Agents",
+      "hook": "Official reference blueprints from Anthropic demonstrating how to build autonomous shopping and merchant agents using Claude across multiple industries.",
+      "key_takeaways": [
+        "Official reference blueprints by Anthropic for building commercial AI agents powered by Claude.",
+        "Includes practical examples across diverse sectors such as retail, telecom, and entertainment.",
+        "Demonstrates end-to-end architectures for consumer-facing shopping and merchant-side operational agents."
+      ]
+    },
+    "zh": {
+      "title": "Anthropic Commerce Agents：基于 Claude 构建电商与商家 Agent 的官方参考蓝图",
+      "hook": "Anthropic 官方推出的参考架构，展示如何利用 Claude 构建面向零售、电信与娱乐等领域的智能购物及商家 Agent。",
+      "key_takeaways": [
+        "Anthropic 官方发布的基于 Claude 开发商业 AI Agent 的标准参考蓝图",
+        "包含涵盖零售、电子商务、电信和娱乐等多个领域的实际工程示例",
+        "提供面向消费者端购物 Agent 和商家端自动化 Agent 的完整架构指南"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.214669"
 }

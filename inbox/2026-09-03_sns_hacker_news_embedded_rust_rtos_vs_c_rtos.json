@@ -36,65 +36,98 @@
     "id": "2026-09-03_sns_hacker_news_embedded_rust_rtos_vs_c_rtos",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "임베디드 시스템 및 OS",
+    "model_family": "Operating Systems",
+    "category": "Embedded Systems",
     "programming_lang": "Rust",
     "root_keywords": [
-      "Embedded Systems",
-      "Rust RTOS",
-      "C RTOS"
+      "Embedded Rust",
+      "RTOS",
+      "C",
+      "Memory Safety",
+      "Systems Programming"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.5,
+    "worth_score": 4.1,
     "multilingual": {
       "ko": {
-        "title": "임베디드 시스템 개발의 패러다임: Rust RTOS 대 C RTOS 비교 분석",
-        "hook": "안전성과 성능 면에서 전통적인 C 기반 실시간 운영체제(RTOS)를 대체하려는 Rust RTOS의 실효성을 분석합니다.",
+        "title": "임베디드 Rust RTOS vs. C RTOS 비교 분석",
+        "hook": "임베디드 시스템 개발에서 기존 C 기반 RTOS 대비 Rust RTOS가 제공하는 컴파일 타임 안정성과 동시성 이점 분석",
         "key_takeaways": [
-          "메모리 안전성과 동시성 제어 측면에서의 Rust RTOS 장점",
-          "임베디드 레거시 시스템 및 C RTOS와의 실무적 호환성 문제",
-          "하드웨어 자원이 제한된 환경에서의 성능 오버헤드 비교"
+          "기존 C 기반 RTOS(FreeRTOS 등) 대비 Rust RTOS가 제공하는 컴파일 타임 메모리 안전성 및 소유권 모델의 장점",
+          "인터럽트 처리, 인터럽트 안전성 및 하드웨어 추상화 계층(HAL) 설계상의 구조적 차이점",
+          "기존 C 라이브러리와의 FFI 상호 운용성 및 레거시 시스템 마이그레이션 시의 현실적 고려 사항"
         ]
       },
       "en": {
-        "title": "Embedded Systems Paradigm: Rust RTOS vs. C RTOS Comparison",
-        "hook": "Evaluating the practical viability of Rust RTOS as a replacement for traditional C-based real-time operating systems.",
+        "title": "Embedded Rust RTOS vs. C RTOS Comparison",
+        "hook": "An architectural comparison highlighting memory safety and concurrency benefits of Rust RTOS over traditional C RTOS in embedded environments.",
         "key_takeaways": [
-          "Advantages of Rust RTOS in memory safety and concurrency control",
-          "Practical compatibility challenges with legacy embedded systems and C RTOS",
-          "Performance overhead comparison in resource-constrained hardware environments"
+          "Compile-time memory safety and thread safety guarantees in Rust RTOS compared to legacy C-based RTOS solutions like FreeRTOS.",
+          "Architectural differences in interrupt handling, task scheduling, and Hardware Abstraction Layer (HAL) abstractions.",
+          "Interoperability via FFI with existing C codebases and current ecosystem trade-offs for embedded production."
         ]
       },
       "zh": {
-        "title": "嵌入式系统范式：Rust RTOS 与 C RTOS 对比分析",
-        "hook": "评估 Rust RTOS 作为传统基于 C 的实时操作系统 (RTOS) 替代方案的实际可行性。",
+        "title": "嵌入式 Rust RTOS 与 C RTOS 对比分析",
+        "hook": "深入对比嵌入式开发中 Rust RTOS 相比传统 C RTOS 在编译期内存安全与并发控制上的技术优势",
         "key_takeaways": [
-          "Rust RTOS 在内存安全和并发控制方面的优势",
-          "与嵌入式遗留系统和 C RTOS 的实际兼容性挑战",
-          "资源受限硬件环境下的性能开销对比"
+          "与传统 C 语言 RTOS（如 FreeRTOS）相比，Rust RTOS 提供的编译期内存安全与线程安全保证",
+          "中断处理、任务调度与硬件抽象层（HAL）设计上的架构差异",
+          "与现有 C 代码库的 FFI 互操作性以及在生产环境中落地的生态权衡"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T01:56:28.606424+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Rust",
   "root_keywords": [
-    "Embedded Systems",
-    "Rust RTOS",
-    "C RTOS"
+    "Embedded Rust",
+    "RTOS",
+    "C",
+    "Memory Safety",
+    "Systems Programming"
   ],
-  "title_ko": "임베디드 시스템 개발의 패러다임: Rust RTOS 대 C RTOS 비교 분석",
-  "title_en": "Embedded Systems Paradigm: Rust RTOS vs. C RTOS Comparison",
-  "title_zh": "嵌入式系统范式：Rust RTOS 与 C RTOS 对比分析",
+  "title_ko": "임베디드 Rust RTOS vs. C RTOS 비교 분석",
+  "title_en": "Embedded Rust RTOS vs. C RTOS Comparison",
+  "title_zh": "嵌入式 Rust RTOS 与 C RTOS 对比分析",
   "hook": "안전성과 성능 면에서 전통적인 C 기반 실시간 운영체제(RTOS)를 대체하려는 Rust RTOS의 실효성을 분석합니다.",
-  "hook_ko": "안전성과 성능 면에서 전통적인 C 기반 실시간 운영체제(RTOS)를 대체하려는 Rust RTOS의 실효성을 분석합니다.",
-  "hook_en": "Evaluating the practical viability of Rust RTOS as a replacement for traditional C-based real-time operating systems.",
-  "hook_zh": "评估 Rust RTOS 作为传统基于 C 的实时操作系统 (RTOS) 替代方案的实际可行性。",
+  "hook_ko": "임베디드 시스템 개발에서 기존 C 기반 RTOS 대비 Rust RTOS가 제공하는 컴파일 타임 안정성과 동시성 이점 분석",
+  "hook_en": "An architectural comparison highlighting memory safety and concurrency benefits of Rust RTOS over traditional C RTOS in embedded environments.",
+  "hook_zh": "深入对比嵌入式开发中 Rust RTOS 相比传统 C RTOS 在编译期内存安全与并发控制上的技术优势",
   "description_ko": "안전성과 성능 면에서 전통적인 C 기반 실시간 운영체제(RTOS)를 대체하려는 Rust RTOS의 실효성을 분석합니다.",
   "description_en": "Evaluating the practical viability of Rust RTOS as a replacement for traditional C-based real-time operating systems.",
   "description_zh": "评估 Rust RTOS 作为传统基于 C 的实时操作系统 (RTOS) 替代方案的实际可行性。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "임베디드 Rust RTOS vs. C RTOS 비교 분석",
+      "hook": "임베디드 시스템 개발에서 기존 C 기반 RTOS 대비 Rust RTOS가 제공하는 컴파일 타임 안정성과 동시성 이점 분석",
+      "key_takeaways": [
+        "기존 C 기반 RTOS(FreeRTOS 등) 대비 Rust RTOS가 제공하는 컴파일 타임 메모리 안전성 및 소유권 모델의 장점",
+        "인터럽트 처리, 인터럽트 안전성 및 하드웨어 추상화 계층(HAL) 설계상의 구조적 차이점",
+        "기존 C 라이브러리와의 FFI 상호 운용성 및 레거시 시스템 마이그레이션 시의 현실적 고려 사항"
+      ]
+    },
+    "en": {
+      "title": "Embedded Rust RTOS vs. C RTOS Comparison",
+      "hook": "An architectural comparison highlighting memory safety and concurrency benefits of Rust RTOS over traditional C RTOS in embedded environments.",
+      "key_takeaways": [
+        "Compile-time memory safety and thread safety guarantees in Rust RTOS compared to legacy C-based RTOS solutions like FreeRTOS.",
+        "Architectural differences in interrupt handling, task scheduling, and Hardware Abstraction Layer (HAL) abstractions.",
+        "Interoperability via FFI with existing C codebases and current ecosystem trade-offs for embedded production."
+      ]
+    },
+    "zh": {
+      "title": "嵌入式 Rust RTOS 与 C RTOS 对比分析",
+      "hook": "深入对比嵌入式开发中 Rust RTOS 相比传统 C RTOS 在编译期内存安全与并发控制上的技术优势",
+      "key_takeaways": [
+        "与传统 C 语言 RTOS（如 FreeRTOS）相比，Rust RTOS 提供的编译期内存安全与线程安全保证",
+        "中断处理、任务调度与硬件抽象层（HAL）设计上的架构差异",
+        "与现有 C 代码库的 FFI 互操作性以及在生产环境中落地的生态权衡"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.380341"
 }

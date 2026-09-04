@@ -33,5 +33,95 @@
   "hn_url": "https://news.ycombinator.com/item?id=49522137",
   "article_url": "https://kciter.so/posts/the-expensive-main-thread/en/",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_the_browsers_main_thread_is_expen",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Frontend Performance",
+    "category": "Web Engineering",
+    "programming_lang": "JavaScript",
+    "root_keywords": [
+      "Browser Main Thread",
+      "Web Performance",
+      "Web Workers",
+      "UI Responsiveness"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "브라우저 메인 스레드의 비싼 비용과 최적화 전략",
+        "hook": "브라우저 메인 스레드 점유로 인한 UI 차단을 방지하고 연산을 오프로딩하여 최적의 성능을 확보하는 방법",
+        "key_takeaways": [
+          "브라우저 메인 스레드는 JS 실행, DOM 조작, 레이아웃 계산을 모두 담당하므로 쉽게 병목이 발생함",
+          "무거운 연산을 Web Worker 등으로 분산하여 UI 프리징(Jank) 현상을 방지하는 것이 중요함",
+          "메인 스레드 차단을 줄이기 위한 작업 분할(Task Slicing) 및 비동기 처리 패턴 공유"
+        ]
+      },
+      "en": {
+        "title": "The Browser's Main Thread Is Expensive",
+        "hook": "An exploration of why the browser main thread gets congested and strategies to offload heavy tasks for smoother UI performance.",
+        "key_takeaways": [
+          "The browser main thread simultaneously manages JS execution, DOM updates, and layout rendering, leading to potential bottlenecks.",
+          "Offloading computational tasks to Web Workers helps maintain smooth 60fps UI responsiveness.",
+          "Adopting task slicing and off-main-thread execution models improves overall Web Vitals and user experience."
+        ]
+      },
+      "zh": {
+        "title": "浏览器主线程的高昂开销与性能优化策略",
+        "hook": "探讨浏览器主线程拥堵的原因，以及如何通过任务卸载提高 Web 界面的流畅度与响应速度。",
+        "key_takeaways": [
+          "浏览器主线程需同时兼顾 JavaScript 执行、DOM 更新与布局计算，极易产生性能瓶颈",
+          "将繁重计算迁移至 Web Worker 能有效避免界面卡顿（Jank）与 UI 冻结",
+          "采用任务分片与非主线程计算架构是提升 Web 性能体验的核心手段"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "브라우저 메인 스레드의 비싼 비용과 최적화 전략",
+      "hook": "브라우저 메인 스레드 점유로 인한 UI 차단을 방지하고 연산을 오프로딩하여 최적의 성능을 확보하는 방법",
+      "key_takeaways": [
+        "브라우저 메인 스레드는 JS 실행, DOM 조작, 레이아웃 계산을 모두 담당하므로 쉽게 병목이 발생함",
+        "무거운 연산을 Web Worker 등으로 분산하여 UI 프리징(Jank) 현상을 방지하는 것이 중요함",
+        "메인 스레드 차단을 줄이기 위한 작업 분할(Task Slicing) 및 비동기 처리 패턴 공유"
+      ]
+    },
+    "en": {
+      "title": "The Browser's Main Thread Is Expensive",
+      "hook": "An exploration of why the browser main thread gets congested and strategies to offload heavy tasks for smoother UI performance.",
+      "key_takeaways": [
+        "The browser main thread simultaneously manages JS execution, DOM updates, and layout rendering, leading to potential bottlenecks.",
+        "Offloading computational tasks to Web Workers helps maintain smooth 60fps UI responsiveness.",
+        "Adopting task slicing and off-main-thread execution models improves overall Web Vitals and user experience."
+      ]
+    },
+    "zh": {
+      "title": "浏览器主线程的高昂开销与性能优化策略",
+      "hook": "探讨浏览器主线程拥堵的原因，以及如何通过任务卸载提高 Web 界面的流畅度与响应速度。",
+      "key_takeaways": [
+        "浏览器主线程需同时兼顾 JavaScript 执行、DOM 更新与布局计算，极易产生性能瓶颈",
+        "将繁重计算迁移至 Web Worker 能有效避免界面卡顿（Jank）与 UI 冻结",
+        "采用任务分片与非主线程计算架构是提升 Web 性能体验的核心手段"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "JavaScript",
+  "root_keywords": [
+    "Browser Main Thread",
+    "Web Performance",
+    "Web Workers",
+    "UI Responsiveness"
+  ],
+  "title_ko": "브라우저 메인 스레드의 비싼 비용과 최적화 전략",
+  "hook_ko": "브라우저 메인 스레드 점유로 인한 UI 차단을 방지하고 연산을 오프로딩하여 최적의 성능을 확보하는 방법",
+  "title_en": "The Browser's Main Thread Is Expensive",
+  "hook_en": "An exploration of why the browser main thread gets congested and strategies to offload heavy tasks for smoother UI performance.",
+  "title_zh": "浏览器主线程的高昂开销与性能优化策略",
+  "hook_zh": "探讨浏览器主线程拥堵的原因，以及如何通过任务卸载提高 Web 界面的流畅度与响应速度。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.414193"
 }

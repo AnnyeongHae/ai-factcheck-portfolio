@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_ap123illusiondiffusion",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Stable Diffusion",
+    "category": "Generative AI",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "illusion diffusion",
+      "controlnet",
+      "stable diffusion",
+      "gradio",
+      "ai art"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "Hugging Face 데모: AP123/IllusionDiffusion (착시 효과 이미지 생성 AI)",
+        "hook": "ControlNet과 Stable Diffusion을 활용하여 입력된 패턴이나 로고를 시각적 착시 예술로 변환하는 대화형 AI 데모",
+        "key_takeaways": [
+          "ControlNet 컨디셔닝 기법을 통한 패턴 및 이미지 자연스러운 합성",
+          "Gradio SDK 기반의 직관적인 파라미터 조절 및 실시간 인터렉티브 데모",
+          "5,400개 이상의 라이크를 기록한 대표적인 생성형 AI 기반 디자이너 응용 사례"
+        ]
+      },
+      "en": {
+        "title": "HF Space: AP123/IllusionDiffusion (Optical Illusion Generator)",
+        "hook": "Interactive demo combining ControlNet and Stable Diffusion to generate stunning optical illusion art from input patterns or logos.",
+        "key_takeaways": [
+          "Leverages ControlNet conditioning for seamless pattern blending in image generation",
+          "Built on Gradio for intuitive parameter tuning and fast interactive generation",
+          "Highly popular Space with over 5,400 likes demonstrating creative visual AI applications"
+        ]
+      },
+      "zh": {
+        "title": "Hugging Face Demo: AP123/IllusionDiffusion (视错觉图像生成 AI)",
+        "hook": "结合 ControlNet 与 Stable Diffusion，根据输入的图案或 Logo 生成令人惊叹的视错觉艺术图像。",
+        "key_takeaways": [
+          "利用 ControlNet 条件控制将特定图案与扩散模型生成无缝融合",
+          "基于 Gradio 开发，提供直观的参数调节与实时交互界面",
+          "获得超过 5,400 个赞的高人气 AI 视觉创意生成 App"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Hugging Face 데모: AP123/IllusionDiffusion (착시 효과 이미지 생성 AI)",
+      "hook": "ControlNet과 Stable Diffusion을 활용하여 입력된 패턴이나 로고를 시각적 착시 예술로 변환하는 대화형 AI 데모",
+      "key_takeaways": [
+        "ControlNet 컨디셔닝 기법을 통한 패턴 및 이미지 자연스러운 합성",
+        "Gradio SDK 기반의 직관적인 파라미터 조절 및 실시간 인터렉티브 데모",
+        "5,400개 이상의 라이크를 기록한 대표적인 생성형 AI 기반 디자이너 응용 사례"
+      ]
+    },
+    "en": {
+      "title": "HF Space: AP123/IllusionDiffusion (Optical Illusion Generator)",
+      "hook": "Interactive demo combining ControlNet and Stable Diffusion to generate stunning optical illusion art from input patterns or logos.",
+      "key_takeaways": [
+        "Leverages ControlNet conditioning for seamless pattern blending in image generation",
+        "Built on Gradio for intuitive parameter tuning and fast interactive generation",
+        "Highly popular Space with over 5,400 likes demonstrating creative visual AI applications"
+      ]
+    },
+    "zh": {
+      "title": "Hugging Face Demo: AP123/IllusionDiffusion (视错觉图像生成 AI)",
+      "hook": "结合 ControlNet 与 Stable Diffusion，根据输入的图案或 Logo 生成令人惊叹的视错觉艺术图像。",
+      "key_takeaways": [
+        "利用 ControlNet 条件控制将特定图案与扩散模型生成无缝融合",
+        "基于 Gradio 开发，提供直观的参数调节与实时交互界面",
+        "获得超过 5,400 个赞的高人气 AI 视觉创意生成 App"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "illusion diffusion",
+    "controlnet",
+    "stable diffusion",
+    "gradio",
+    "ai art"
+  ],
+  "title_ko": "Hugging Face 데모: AP123/IllusionDiffusion (착시 효과 이미지 생성 AI)",
+  "hook_ko": "ControlNet과 Stable Diffusion을 활용하여 입력된 패턴이나 로고를 시각적 착시 예술로 변환하는 대화형 AI 데모",
+  "title_en": "HF Space: AP123/IllusionDiffusion (Optical Illusion Generator)",
+  "hook_en": "Interactive demo combining ControlNet and Stable Diffusion to generate stunning optical illusion art from input patterns or logos.",
+  "title_zh": "Hugging Face Demo: AP123/IllusionDiffusion (视错觉图像生成 AI)",
+  "hook_zh": "结合 ControlNet 与 Stable Diffusion，根据输入的图案或 Logo 生成令人惊叹的视错觉艺术图像。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.230001"
 }

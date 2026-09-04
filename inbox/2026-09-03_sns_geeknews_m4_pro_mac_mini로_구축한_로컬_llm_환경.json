@@ -38,64 +38,97 @@
     "id": "2026-09-03_sns_geeknews_m4_pro_mac_mini로_구축한_로컬_llm_환경",
     "source_lang": "KO",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "LLM 추론 최적화",
-    "programming_lang": "Python",
+    "model_family": "Local LLM / Apple Silicon",
+    "category": "AI Infrastructure",
+    "programming_lang": "General",
     "root_keywords": [
       "M4 Pro",
       "Mac mini",
-      "로컬 LLM"
+      "Local LLM",
+      "Apple Silicon",
+      "Unified Memory"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
     "worth_score": 4.5,
     "multilingual": {
       "ko": {
         "title": "M4 Pro Mac mini로 구축한 로컬 LLM 환경",
-        "hook": "애플 실리콘 하드웨어를 극대화하여 비용 효율적인 고성능 로컬 LLM 환경을 구축하는 노하우",
+        "hook": "Apple M4 Pro Mac mini의 통합 메모리 성능을 활용하여 구축한 가성비 높고 정숙한 로컬 LLM 추론 환경 사례",
         "key_takeaways": [
-          "M4 Pro 칩의 유니파이드 메모리 아키텍처를 활용한 LLM 구동",
-          "클라우드 API 비용 절감 및 프라이버시가 보장되는 로컬 추론",
-          "실제 개발 및 테스트 환경에서 활용 가능한 실용적 구성 가이드"
+          "M4 Pro 칩셋의 높은 메모리 대역폭을 기반으로 한 로컬 LLM 추론 속도 및 성능 검증",
+          "Ollama, LM Studio 등 프라이빗 AI 실행 도구 및 퀀타이즈 모델 최적화 구성",
+          "낮은 전력 소비와 저소음 환경에서 개인용 코딩 보조 및 데이터 분석 LLM 활용 방안"
         ]
       },
       "en": {
         "title": "Building a Local LLM Environment with M4 Pro Mac mini",
-        "hook": "Practical guide to setting up a cost-effective, high-performance local LLM environment using Apple Silicon.",
+        "hook": "A practical setup guide for building a quiet and cost-effective local LLM inference environment leveraging M4 Pro Mac mini's unified memory.",
         "key_takeaways": [
-          "Running LLMs leveraging the unified memory architecture of M4 Pro",
-          "Local inference ensuring privacy and reducing cloud API costs",
-          "Practical configuration guide for development and testing environments"
+          "Performance evaluation of running local LLMs backed by Apple M4 Pro's high memory bandwidth.",
+          "Optimization techniques and toolchain setup using Ollama, LM Studio, and quantized models.",
+          "Real-world use cases for coding assistants and private data analysis with low power consumption."
         ]
       },
       "zh": {
         "title": "使用 M4 Pro Mac mini 构建本地 LLM 环境",
-        "hook": "充分利用苹果芯片硬件，构建高性价比、高性能本地大模型环境的实用指南。",
+        "hook": "利用 Apple M4 Pro Mac mini 的高带宽统一内存，构建高性价比且安静的本地 LLM 推理环境实践。",
         "key_takeaways": [
-          "利用 M4 Pro 统一内存架构运行大语言模型",
-          "降低云端 API 成本并确保隐私的本地推理方案",
-          "可在实际开发和测试环境中应用的实用配置指南"
+          "基于 M4 Pro 芯片高内存带宽运行本地 LLM 的推理速度与性能评估",
+          "结合 Ollama、LM Studio 等工具与量化模型的端侧 AI 配置优化",
+          "在低功耗与静音环境下将本地 LLM 用于个人代码辅助与私有数据处理的实战经验"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:48:48.400672+00:00"
+    }
   },
   "source_lang": "KO",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
     "M4 Pro",
     "Mac mini",
-    "로컬 LLM"
+    "Local LLM",
+    "Apple Silicon",
+    "Unified Memory"
   ],
   "title_en": "Building a Local LLM Environment with M4 Pro Mac mini",
   "title_zh": "使用 M4 Pro Mac mini 构建本地 LLM 环境",
   "hook": "애플 실리콘 하드웨어를 극대화하여 비용 효율적인 고성능 로컬 LLM 환경을 구축하는 노하우",
-  "hook_ko": "애플 실리콘 하드웨어를 극대화하여 비용 효율적인 고성능 로컬 LLM 환경을 구축하는 노하우",
-  "hook_en": "Practical guide to setting up a cost-effective, high-performance local LLM environment using Apple Silicon.",
-  "hook_zh": "充分利用苹果芯片硬件，构建高性价比、高性能本地大模型环境的实用指南。",
+  "hook_ko": "Apple M4 Pro Mac mini의 통합 메모리 성능을 활용하여 구축한 가성비 높고 정숙한 로컬 LLM 추론 환경 사례",
+  "hook_en": "A practical setup guide for building a quiet and cost-effective local LLM inference environment leveraging M4 Pro Mac mini's unified memory.",
+  "hook_zh": "利用 Apple M4 Pro Mac mini 的高带宽统一内存，构建高性价比且安静的本地 LLM 推理环境实践。",
   "description_en": "Practical guide to setting up a cost-effective, high-performance local LLM environment using Apple Silicon.",
   "description_zh": "充分利用苹果芯片硬件，构建高性价比、高性能本地大模型环境的实用指南。",
   "related_dossier": "2026-09-03_sns_geeknews_m4_pro_mac_mini_local_llm",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "M4 Pro Mac mini로 구축한 로컬 LLM 환경",
+      "hook": "Apple M4 Pro Mac mini의 통합 메모리 성능을 활용하여 구축한 가성비 높고 정숙한 로컬 LLM 추론 환경 사례",
+      "key_takeaways": [
+        "M4 Pro 칩셋의 높은 메모리 대역폭을 기반으로 한 로컬 LLM 추론 속도 및 성능 검증",
+        "Ollama, LM Studio 등 프라이빗 AI 실행 도구 및 퀀타이즈 모델 최적화 구성",
+        "낮은 전력 소비와 저소음 환경에서 개인용 코딩 보조 및 데이터 분석 LLM 활용 방안"
+      ]
+    },
+    "en": {
+      "title": "Building a Local LLM Environment with M4 Pro Mac mini",
+      "hook": "A practical setup guide for building a quiet and cost-effective local LLM inference environment leveraging M4 Pro Mac mini's unified memory.",
+      "key_takeaways": [
+        "Performance evaluation of running local LLMs backed by Apple M4 Pro's high memory bandwidth.",
+        "Optimization techniques and toolchain setup using Ollama, LM Studio, and quantized models.",
+        "Real-world use cases for coding assistants and private data analysis with low power consumption."
+      ]
+    },
+    "zh": {
+      "title": "使用 M4 Pro Mac mini 构建本地 LLM 环境",
+      "hook": "利用 Apple M4 Pro Mac mini 的高带宽统一内存，构建高性价比且安静的本地 LLM 推理环境实践。",
+      "key_takeaways": [
+        "基于 M4 Pro 芯片高内存带宽运行本地 LLM 的推理速度与性能评估",
+        "结合 Ollama、LM Studio 等工具与量化模型的端侧 AI 配置优化",
+        "在低功耗与静音环境下将本地 LLM 用于个人代码辅助与私有数据处理的实战经验"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.335057"
 }

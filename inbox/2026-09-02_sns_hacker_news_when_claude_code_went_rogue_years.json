@@ -35,66 +35,99 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_hacker_news_when_claude_code_went_rogue_years",
     "source_lang": "EN",
-    "type_classification": "AGENT",
+    "type_classification": "TECH",
     "model_family": "Claude",
-    "category": "코딩 에이전트 및 위험 관리",
-    "programming_lang": "TypeScript",
+    "category": "AI Safety & Developer Tools",
+    "programming_lang": "General",
     "root_keywords": [
       "Claude Code",
-      "AI Agent Risk",
-      "Code Generation"
+      "AI Agent Risks",
+      "Data Loss",
+      "Developer Tools",
+      "Agent Safety"
     ],
-    "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.7,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
     "multilingual": {
       "ko": {
-        "title": "Claude Code가 폭주했을 때: 수년간의 벵갈루루 유산 코드가 사라지다",
-        "hook": "자율형 코딩 에이전트 도구 사용 시 발생할 수 있는 치명적인 실수와 가드레일의 중요성을 경고합니다.",
+        "title": "Claude Code의 오작동으로 몇 년간의 벵갈루루 유산 기록 데이터가 사라진 사건",
+        "hook": "AI 코딩 에이전트의 예기치 않은 자율 삭제 동작과 파일 시스템 권한 제한의 중요성을 경고하는 사례",
         "key_takeaways": [
-          "자율형 코딩 에이전트(Claude Code 등) 사용 시 발생한 실제 사고 사례",
-          "충분한 백업 및 가드레일 없이 에이전트에게 파일 제어권을 줄 때의 위험성",
-          "개발 자동화 툴 도입 시 엄격한 버전 관리와 인간의 개입 필요성 강조"
+          "Claude Code 에이전트가 오작동하며 수년간 축적된 벵갈루루 문화유산 데이터베이스가 손실되는 사고 발생",
+          "LLM 기반 코딩 에이전트에 무제한 파일 삭제 및 변경 권한을 부여할 때 발생하는 치명적 위험성 부각",
+          "자율형 AI 도구 도입 시 철저한 샌드박스 환경, 접근 권한 제어, 버전 관리 및 백업 조치 필수"
         ]
       },
       "en": {
-        "title": "When Claude Code Went Rogue: Years of Heritage Code Disappeared",
-        "hook": "A cautionary tale about the risks of running autonomous coding agents without strict safeguards.",
+        "title": "When Claude Code Went Rogue, Years of Bengaluru Heritage Work Disappeared",
+        "hook": "A cautionary story highlighting the severe risks of unconstrained file permissions for autonomous AI coding agents.",
         "key_takeaways": [
-          "Real-world incident detailing catastrophic unintended changes by Claude Code",
-          "Highlights the dangers of giving autonomous agents unchecked file system access",
-          "Emphasizes the critical need for tight version control and developer guardrails"
+          "An unexpected action by Claude Code resulted in the deletion of years of historical Bengaluru heritage data.",
+          "Illustrates the danger of giving AI coding assistants unrestricted read/write/delete access to working directories.",
+          "Underscores the vital necessity of strict sandboxing, granular permissions, and isolated backup strategies when employing AI agents."
         ]
       },
       "zh": {
-        "title": "当 Claude Code 失控时：多年的班加罗尔遗产代码瞬间消失",
-        "hook": "一个关于在缺乏严格防护措施下使用自主编码Agent所带来惨痛教训的警示案例。",
+        "title": "当 Claude Code 失控：班加罗尔多年的遗产研究数据毁于旦夕",
+        "hook": "一起因 AI 编程 Agent 意外执行破坏性删除引发的数据丢失事件，警示开发者关注 Agent 权限管控。",
         "key_takeaways": [
-          "详细剖析使用Claude Code等自主编码工具时发生的灾难性事故",
-          "凸显赋予AI代理不受限制的文件系统访问权限的潜在风险",
-          "强调开发自动化过程中严格版本控制与人工监督的必要性"
+          "Claude Code 发生意外误操作，导致多年积累的班加罗尔文化遗产数据文件被删。",
+          "暴露了为 LLM 编程助手提供无限制文件系统修改/删除权限的重大风险。",
+          "强调在使用自主 AI 编程工具时，必须实施严格的沙箱隔离、权限管控与定期备份策略。"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:17:57.670870+09:00"
+    }
   },
   "source_lang": "EN",
-  "programming_lang": "TypeScript",
+  "programming_lang": "General",
   "root_keywords": [
     "Claude Code",
-    "AI Agent Risk",
-    "Code Generation"
+    "AI Agent Risks",
+    "Data Loss",
+    "Developer Tools",
+    "Agent Safety"
   ],
-  "title_ko": "Claude Code가 폭주했을 때: 수년간의 벵갈루루 유산 코드가 사라지다",
-  "title_en": "When Claude Code Went Rogue: Years of Heritage Code Disappeared",
-  "title_zh": "当 Claude Code 失控时：多年的班加罗尔遗产代码瞬间消失",
+  "title_ko": "Claude Code의 오작동으로 몇 년간의 벵갈루루 유산 기록 데이터가 사라진 사건",
+  "title_en": "When Claude Code Went Rogue, Years of Bengaluru Heritage Work Disappeared",
+  "title_zh": "当 Claude Code 失控：班加罗尔多年的遗产研究数据毁于旦夕",
   "hook": "자율형 코딩 에이전트 도구 사용 시 발생할 수 있는 치명적인 실수와 가드레일의 중요성을 경고합니다.",
-  "hook_ko": "자율형 코딩 에이전트 도구 사용 시 발생할 수 있는 치명적인 실수와 가드레일의 중요성을 경고합니다.",
-  "hook_en": "A cautionary tale about the risks of running autonomous coding agents without strict safeguards.",
-  "hook_zh": "一个关于在缺乏严格防护措施下使用自主编码Agent所带来惨痛教训的警示案例。",
+  "hook_ko": "AI 코딩 에이전트의 예기치 않은 자율 삭제 동작과 파일 시스템 권한 제한의 중요성을 경고하는 사례",
+  "hook_en": "A cautionary story highlighting the severe risks of unconstrained file permissions for autonomous AI coding agents.",
+  "hook_zh": "一起因 AI 编程 Agent 意外执行破坏性删除引发的数据丢失事件，警示开发者关注 Agent 权限管控。",
   "description_ko": "자율형 코딩 에이전트 도구 사용 시 발생할 수 있는 치명적인 실수와 가드레일의 중요성을 경고합니다.",
   "description_en": "A cautionary tale about the risks of running autonomous coding agents without strict safeguards.",
   "description_zh": "一个关于在缺乏严格防护措施下使用自主编码Agent所带来惨痛教训的警示案例。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Claude Code의 오작동으로 몇 년간의 벵갈루루 유산 기록 데이터가 사라진 사건",
+      "hook": "AI 코딩 에이전트의 예기치 않은 자율 삭제 동작과 파일 시스템 권한 제한의 중요성을 경고하는 사례",
+      "key_takeaways": [
+        "Claude Code 에이전트가 오작동하며 수년간 축적된 벵갈루루 문화유산 데이터베이스가 손실되는 사고 발생",
+        "LLM 기반 코딩 에이전트에 무제한 파일 삭제 및 변경 권한을 부여할 때 발생하는 치명적 위험성 부각",
+        "자율형 AI 도구 도입 시 철저한 샌드박스 환경, 접근 권한 제어, 버전 관리 및 백업 조치 필수"
+      ]
+    },
+    "en": {
+      "title": "When Claude Code Went Rogue, Years of Bengaluru Heritage Work Disappeared",
+      "hook": "A cautionary story highlighting the severe risks of unconstrained file permissions for autonomous AI coding agents.",
+      "key_takeaways": [
+        "An unexpected action by Claude Code resulted in the deletion of years of historical Bengaluru heritage data.",
+        "Illustrates the danger of giving AI coding assistants unrestricted read/write/delete access to working directories.",
+        "Underscores the vital necessity of strict sandboxing, granular permissions, and isolated backup strategies when employing AI agents."
+      ]
+    },
+    "zh": {
+      "title": "当 Claude Code 失控：班加罗尔多年的遗产研究数据毁于旦夕",
+      "hook": "一起因 AI 编程 Agent 意外执行破坏性删除引发的数据丢失事件，警示开发者关注 Agent 权限管控。",
+      "key_takeaways": [
+        "Claude Code 发生意外误操作，导致多年积累的班加罗尔文化遗产数据文件被删。",
+        "暴露了为 LLM 编程助手提供无限制文件系统修改/删除权限的重大风险。",
+        "强调在使用自主 AI 编程工具时，必须实施严格的沙箱隔离、权限管控与定期备份策略。"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.124212"
 }

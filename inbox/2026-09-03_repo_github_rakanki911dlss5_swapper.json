@@ -34,65 +34,98 @@
     "id": "2026-09-03_repo_github_rakanki911dlss5_swapper",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "그래픽 및 업스케일링 최적화",
+    "model_family": "Graphics & Rendering Utility",
+    "category": "Gaming Tools",
     "programming_lang": "C++",
     "root_keywords": [
-      "DLSS 5",
-      "Upscaling",
-      "Game Optimization"
+      "DLSS",
+      "DLSS Swapper",
+      "Graphics Upscaling",
+      "Vulkan",
+      "DirectX"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.5,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "DLSS 5-Swapper: 게임 및 에뮬레이터용 DLSS 5 통합 관리 및 설치 도구",
-        "hook": "다양한 게임과 에뮬레이터에서 DLSS 5를 손쉽게 설치하고 관리할 수 있는 강력한 유틸리티입니다.",
+        "title": "DLSS 5 Swapper: 게임 및 에뮬레이터용 DLSS 5 관리 및 주입 도구",
+        "hook": "다양한 그래픽 API 기반 게임과 에뮬레이터에서 DLSS 5 버전을 손쉽게 설치, 교체 및 복원하는 유틸리티",
         "key_takeaways": [
-          "게임 자동 감지 및 드라이브 전체 스캔 기능 제공",
-          "네이티브 DLSS가 없는 게임을 위한 DLSS5-Feeder 지원",
-          "DirectX 9부터 12, Vulkan, OpenGL 등 광범위한 그래픽 API 호환"
+          "자동 게임 감지 및 드라이브 스캔을 통한 간편한 DLSS 버전 교체",
+          "네이티브 DLSS 미지원 타이틀을 위한 DLSS5-Feeder 기능 제공",
+          "DirectX 9/10/11/12, Vulkan, OpenGL 등 광범위한 그래픽 API 및 에뮬레이터 지원"
         ]
       },
       "en": {
-        "title": "DLSS 5-Swapper: A Powerful Utility to Manage and Install DLSS 5",
-        "hook": "Simplify DLSS 5 installation, management, and restoration across various games and emulators with automatic detection.",
+        "title": "DLSS 5 Swapper: DLSS 5 Management and Injection Tool for Games and Emulators",
+        "hook": "A versatile utility to install, manage, and swap DLSS 5 across various graphics APIs and emulators.",
         "key_takeaways": [
-          "Features automatic game detection and optional drive scanning",
-          "Includes DLSS5-Feeder for titles lacking native DLSS support",
-          "Compatible with DirectX 9/10/11/12, Vulkan, and OpenGL"
+          "Automatic game detection and drive scanning for streamlined version management",
+          "DLSS5-Feeder module providing compatibility for games lacking native DLSS support",
+          "Broad support across DirectX 9/10/11/12, Vulkan, OpenGL, and gaming emulators"
         ]
       },
       "zh": {
-        "title": "DLSS 5-Swapper：游戏与模拟器 DLSS 5 综合管理与安装工具",
-        "hook": "强大易用的工具，支持在各大游戏及模拟器中轻松安装、管理与恢复 DLSS 5。",
+        "title": "DLSS 5 Swapper：面向游戏与模拟器的 DLSS 5 管理与注入工具",
+        "hook": "一款可在多种图形 API 和模拟器中快速安装、管理与替换 DLSS 5 的实用工具",
         "key_takeaways": [
-          "支持自动游戏检测与可选驱动器扫描",
-          "内置 DLSS5-Feeder，适配无原生 DLSS 的游戏",
-          "全面兼容 DirectX 9/10/11/12、Vulkan 及 OpenGL"
+          "支持自动游戏检测与可选的磁盘扫描功能",
+          "内置 DLSS5-Feeder，可为无原生 DLSS 支持的游戏注入 DLSS 5",
+          "广泛兼容 DirectX 9/10/11/12、Vulkan、OpenGL 以及主流模拟器"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T06:32:44.678463+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "C++",
   "root_keywords": [
-    "DLSS 5",
-    "Upscaling",
-    "Game Optimization"
+    "DLSS",
+    "DLSS Swapper",
+    "Graphics Upscaling",
+    "Vulkan",
+    "DirectX"
   ],
-  "title_ko": "DLSS 5-Swapper: 게임 및 에뮬레이터용 DLSS 5 통합 관리 및 설치 도구",
-  "title_en": "DLSS 5-Swapper: A Powerful Utility to Manage and Install DLSS 5",
-  "title_zh": "DLSS 5-Swapper：游戏与模拟器 DLSS 5 综合管理与安装工具",
+  "title_ko": "DLSS 5 Swapper: 게임 및 에뮬레이터용 DLSS 5 관리 및 주입 도구",
+  "title_en": "DLSS 5 Swapper: DLSS 5 Management and Injection Tool for Games and Emulators",
+  "title_zh": "DLSS 5 Swapper：面向游戏与模拟器的 DLSS 5 管理与注入工具",
   "hook": "다양한 게임과 에뮬레이터에서 DLSS 5를 손쉽게 설치하고 관리할 수 있는 강력한 유틸리티입니다.",
-  "hook_ko": "다양한 게임과 에뮬레이터에서 DLSS 5를 손쉽게 설치하고 관리할 수 있는 강력한 유틸리티입니다.",
-  "hook_en": "Simplify DLSS 5 installation, management, and restoration across various games and emulators with automatic detection.",
-  "hook_zh": "强大易用的工具，支持在各大游戏及模拟器中轻松安装、管理与恢复 DLSS 5。",
+  "hook_ko": "다양한 그래픽 API 기반 게임과 에뮬레이터에서 DLSS 5 버전을 손쉽게 설치, 교체 및 복원하는 유틸리티",
+  "hook_en": "A versatile utility to install, manage, and swap DLSS 5 across various graphics APIs and emulators.",
+  "hook_zh": "一款可在多种图形 API 和模拟器中快速安装、管理与替换 DLSS 5 的实用工具",
   "description_ko": "다양한 게임과 에뮬레이터에서 DLSS 5를 손쉽게 설치하고 관리할 수 있는 강력한 유틸리티입니다.",
   "description_en": "Simplify DLSS 5 installation, management, and restoration across various games and emulators with automatic detection.",
   "description_zh": "强大易用的工具，支持在各大游戏及模拟器中轻松安装、管理与恢复 DLSS 5。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "DLSS 5 Swapper: 게임 및 에뮬레이터용 DLSS 5 관리 및 주입 도구",
+      "hook": "다양한 그래픽 API 기반 게임과 에뮬레이터에서 DLSS 5 버전을 손쉽게 설치, 교체 및 복원하는 유틸리티",
+      "key_takeaways": [
+        "자동 게임 감지 및 드라이브 스캔을 통한 간편한 DLSS 버전 교체",
+        "네이티브 DLSS 미지원 타이틀을 위한 DLSS5-Feeder 기능 제공",
+        "DirectX 9/10/11/12, Vulkan, OpenGL 등 광범위한 그래픽 API 및 에뮬레이터 지원"
+      ]
+    },
+    "en": {
+      "title": "DLSS 5 Swapper: DLSS 5 Management and Injection Tool for Games and Emulators",
+      "hook": "A versatile utility to install, manage, and swap DLSS 5 across various graphics APIs and emulators.",
+      "key_takeaways": [
+        "Automatic game detection and drive scanning for streamlined version management",
+        "DLSS5-Feeder module providing compatibility for games lacking native DLSS support",
+        "Broad support across DirectX 9/10/11/12, Vulkan, OpenGL, and gaming emulators"
+      ]
+    },
+    "zh": {
+      "title": "DLSS 5 Swapper：面向游戏与模拟器的 DLSS 5 管理与注入工具",
+      "hook": "一款可在多种图形 API 和模拟器中快速安装、管理与替换 DLSS 5 的实用工具",
+      "key_takeaways": [
+        "支持自动游戏检测与可选的磁盘扫描功能",
+        "内置 DLSS5-Feeder，可为无原生 DLSS 支持的游戏注入 DLSS 5",
+        "广泛兼容 DirectX 9/10/11/12、Vulkan、OpenGL 以及主流模拟器"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.219090"
 }

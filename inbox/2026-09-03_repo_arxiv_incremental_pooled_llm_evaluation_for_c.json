@@ -35,65 +35,98 @@
     "id": "2026-09-03_repo_arxiv_incremental_pooled_llm_evaluation_for_c",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "RAG 및 검색 모델 평가",
+    "model_family": "RAG Evaluation / Retrieval",
+    "category": "AI / Machine Learning",
     "programming_lang": "Python",
     "root_keywords": [
-      "Retrieval Model Selection",
-      "Incremental Pooled Evaluation",
-      "Cost-Effective"
+      "RAG",
+      "Retrieval Evaluation",
+      "LLM-as-a-Judge",
+      "Pooled Evaluation",
+      "Cost Optimization"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.4,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "비용 효율적인 검색 모델 선택을 위한 증분 풀링형 LLM 평가",
-        "hook": "프로덕션 RAG 시스템 구축 시 막대한 비용이 드는 관련성 판단 문제를 해결하는 증분 평가 기법을 소개합니다.",
+        "title": "ArXiv: 비용 효율적인 검색 모델 선정을 위한 점진적 풀링 LLM 평가",
+        "hook": "상용 RAG 시스템 구축 시 신규 검색 모델 평가 비용을 혁신적으로 절감하는 점진적 풀링 LLM 평가 기법",
         "key_takeaways": [
-          "프로덕션 RAG 시스템을 위한 신뢰할 수 있는 검색 모델 비교 평가",
-          "대규모 관련성 판단(Relevance Judgment) 비용 절감",
-          "새로운 후보 시스템 추가 시 반복 평가의 한계 극복"
+          "신규 검색 모델 비교 시 이전 적합성 평가 결과를 재사용하여 LLM API 평가 비용 대폭 절감",
+          "정보 검색 분야의 풀링(Pooling) 기법과 LLM-as-a-judge를 결합하여 대규모 레이블링 난제 해결",
+          "지속적인 RAG 검색 성능 벤치마킹을 가능하게 하는 효율적이고 확장 가능한 실무 평가 프레임워크 제안"
         ]
       },
       "en": {
-        "title": "Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
-        "hook": "Cut down the high costs of relevance judgments and streamline comparative retrieval model selection for production RAG systems.",
+        "title": "ArXiv: Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
+        "hook": "A cost-effective evaluation framework utilizing incremental pooling and LLM-as-a-judge for retrieval model selection in production RAG systems.",
         "key_takeaways": [
-          "Reliable comparative evaluation for production RAG retrieval models",
-          "Cost-effective alternative to large-scale manual relevance labeling",
-          "Handling frequent candidate updates without prohibitive evaluation costs"
+          "Drastically lowers LLM API judging costs by incrementally reusing pooled relevance judgments across model evaluations.",
+          "Combines classical IR pooling concepts with automated LLM evaluation to address scalable dataset creation challenges.",
+          "Provides a continuous, scalable, and economical benchmarking pipeline for production RAG retrieval systems."
         ]
       },
       "zh": {
-        "title": "面向高性价比检索模型选择的增量池化LLM评估法",
-        "hook": "降低生产级RAG系统中相关性标注的高昂成本，实现高效且可扩展的检索模型对比评估。",
+        "title": "ArXiv: 用于低成本检索模型选择的增量池化 LLM 评估方法",
+        "hook": "通过增量池化与 LLM 评估结合，显著降低生产级 RAG 系统中检索模型选型与评测的成本",
         "key_takeaways": [
-          "保障生产环境RAG系统检索模型选择的准确性",
-          "大幅降低大规模相关性判断的人力与计算开销",
-          "轻松应对新候选系统不断迭代带来的评估难题"
+          "在引入新检索模型时，利用增量池化策略复用相关性标注，大幅削减大模型 API 评估开销",
+          "结合传统信息检索的池化（Pooling）思想与 LLM-as-a-Judge，解决大规模评测数据标注难题",
+          "为生产环境下的 RAG 检索管线提供可持续、可扩展且高性价比的基准测试方案"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T04:15:15.838580+00:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Retrieval Model Selection",
-    "Incremental Pooled Evaluation",
-    "Cost-Effective"
+    "RAG",
+    "Retrieval Evaluation",
+    "LLM-as-a-Judge",
+    "Pooled Evaluation",
+    "Cost Optimization"
   ],
-  "title_ko": "비용 효율적인 검색 모델 선택을 위한 증분 풀링형 LLM 평가",
-  "title_en": "Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
-  "title_zh": "面向高性价比检索模型选择的增量池化LLM评估法",
+  "title_ko": "ArXiv: 비용 효율적인 검색 모델 선정을 위한 점진적 풀링 LLM 평가",
+  "title_en": "ArXiv: Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
+  "title_zh": "ArXiv: 用于低成本检索模型选择的增量池化 LLM 评估方法",
   "hook": "프로덕션 RAG 시스템 구축 시 막대한 비용이 드는 관련성 판단 문제를 해결하는 증분 평가 기법을 소개합니다.",
-  "hook_ko": "프로덕션 RAG 시스템 구축 시 막대한 비용이 드는 관련성 판단 문제를 해결하는 증분 평가 기법을 소개합니다.",
-  "hook_en": "Cut down the high costs of relevance judgments and streamline comparative retrieval model selection for production RAG systems.",
-  "hook_zh": "降低生产级RAG系统中相关性标注的高昂成本，实现高效且可扩展的检索模型对比评估。",
+  "hook_ko": "상용 RAG 시스템 구축 시 신규 검색 모델 평가 비용을 혁신적으로 절감하는 점진적 풀링 LLM 평가 기법",
+  "hook_en": "A cost-effective evaluation framework utilizing incremental pooling and LLM-as-a-judge for retrieval model selection in production RAG systems.",
+  "hook_zh": "通过增量池化与 LLM 评估结合，显著降低生产级 RAG 系统中检索模型选型与评测的成本",
   "description_ko": "프로덕션 RAG 시스템 구축 시 막대한 비용이 드는 관련성 판단 문제를 해결하는 증분 평가 기법을 소개합니다.",
   "description_en": "Cut down the high costs of relevance judgments and streamline comparative retrieval model selection for production RAG systems.",
   "description_zh": "降低生产级RAG系统中相关性标注的高昂成本，实现高效且可扩展的检索模型对比评估。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "ArXiv: 비용 효율적인 검색 모델 선정을 위한 점진적 풀링 LLM 평가",
+      "hook": "상용 RAG 시스템 구축 시 신규 검색 모델 평가 비용을 혁신적으로 절감하는 점진적 풀링 LLM 평가 기법",
+      "key_takeaways": [
+        "신규 검색 모델 비교 시 이전 적합성 평가 결과를 재사용하여 LLM API 평가 비용 대폭 절감",
+        "정보 검색 분야의 풀링(Pooling) 기법과 LLM-as-a-judge를 결합하여 대규모 레이블링 난제 해결",
+        "지속적인 RAG 검색 성능 벤치마킹을 가능하게 하는 효율적이고 확장 가능한 실무 평가 프레임워크 제안"
+      ]
+    },
+    "en": {
+      "title": "ArXiv: Incremental Pooled LLM Evaluation for Cost-Effective Retrieval Model Selection",
+      "hook": "A cost-effective evaluation framework utilizing incremental pooling and LLM-as-a-judge for retrieval model selection in production RAG systems.",
+      "key_takeaways": [
+        "Drastically lowers LLM API judging costs by incrementally reusing pooled relevance judgments across model evaluations.",
+        "Combines classical IR pooling concepts with automated LLM evaluation to address scalable dataset creation challenges.",
+        "Provides a continuous, scalable, and economical benchmarking pipeline for production RAG retrieval systems."
+      ]
+    },
+    "zh": {
+      "title": "ArXiv: 用于低成本检索模型选择的增量池化 LLM 评估方法",
+      "hook": "通过增量池化与 LLM 评估结合，显著降低生产级 RAG 系统中检索模型选型与评测的成本",
+      "key_takeaways": [
+        "在引入新检索模型时，利用增量池化策略复用相关性标注，大幅削减大模型 API 评估开销",
+        "结合传统信息检索的池化（Pooling）思想与 LLM-as-a-Judge，解决大规模评测数据标注难题",
+        "为生产环境下的 RAG 检索管线提供可持续、可扩展且高性价比的基准测试方案"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.185574"
 }

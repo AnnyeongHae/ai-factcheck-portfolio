@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_dalle_minidalle_mini",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Text-to-Image / Transformer",
+    "category": "Generative AI",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "DALL-E Mini",
+      "Craiyon",
+      "Text-to-Image",
+      "Generative AI",
+      "Hugging Face Spaces"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "허깅페이스 스페이스: dalle-mini/dalle-mini",
+        "hook": "텍스트 프롬프트로부터 이미지를 생성하는 클래식 오픈소스 DALL-E Mini 모델 데모",
+        "key_takeaways": [
+          "텍스트-이미지 생성(Text-to-Image) 분야의 대표적인 오픈소스 프로젝트",
+          "DALL-E 아키텍처의 경량화 구현체 및 인터랙티브 웹 데모 제공",
+          "허깅페이스 스페이스를 활용한 대규모 유저 상호작용 데모 구축 사례"
+        ]
+      },
+      "en": {
+        "title": "HF Space: dalle-mini/dalle-mini",
+        "hook": "Classic open-source text-to-image generation demo based on the DALL-E Mini architecture.",
+        "key_takeaways": [
+          "Landmark open-source project in the text-to-image generation space",
+          "Lightweight implementation of the DALL-E model with interactive inference",
+          "Demonstrates web demo deployment at scale using Hugging Face Spaces"
+        ]
+      },
+      "zh": {
+        "title": "Hugging Face Space: dalle-mini/dalle-mini",
+        "hook": "基于 DALL-E Mini 架构的经典开源文本生成图像交互式演示",
+        "key_takeaways": [
+          "文本生成图像（Text-to-Image）领域的里程碑式开源项目",
+          "DALL-E 模型的轻量化实现与在线交互推理",
+          "利用 Hugging Face Spaces 构建大规模用户演示的经典案例"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "허깅페이스 스페이스: dalle-mini/dalle-mini",
+      "hook": "텍스트 프롬프트로부터 이미지를 생성하는 클래식 오픈소스 DALL-E Mini 모델 데모",
+      "key_takeaways": [
+        "텍스트-이미지 생성(Text-to-Image) 분야의 대표적인 오픈소스 프로젝트",
+        "DALL-E 아키텍처의 경량화 구현체 및 인터랙티브 웹 데모 제공",
+        "허깅페이스 스페이스를 활용한 대규모 유저 상호작용 데모 구축 사례"
+      ]
+    },
+    "en": {
+      "title": "HF Space: dalle-mini/dalle-mini",
+      "hook": "Classic open-source text-to-image generation demo based on the DALL-E Mini architecture.",
+      "key_takeaways": [
+        "Landmark open-source project in the text-to-image generation space",
+        "Lightweight implementation of the DALL-E model with interactive inference",
+        "Demonstrates web demo deployment at scale using Hugging Face Spaces"
+      ]
+    },
+    "zh": {
+      "title": "Hugging Face Space: dalle-mini/dalle-mini",
+      "hook": "基于 DALL-E Mini 架构的经典开源文本生成图像交互式演示",
+      "key_takeaways": [
+        "文本生成图像（Text-to-Image）领域的里程碑式开源项目",
+        "DALL-E 模型的轻量化实现与在线交互推理",
+        "利用 Hugging Face Spaces 构建大规模用户演示的经典案例"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "DALL-E Mini",
+    "Craiyon",
+    "Text-to-Image",
+    "Generative AI",
+    "Hugging Face Spaces"
+  ],
+  "title_ko": "허깅페이스 스페이스: dalle-mini/dalle-mini",
+  "hook_ko": "텍스트 프롬프트로부터 이미지를 생성하는 클래식 오픈소스 DALL-E Mini 모델 데모",
+  "title_en": "HF Space: dalle-mini/dalle-mini",
+  "hook_en": "Classic open-source text-to-image generation demo based on the DALL-E Mini architecture.",
+  "title_zh": "Hugging Face Space: dalle-mini/dalle-mini",
+  "hook_zh": "基于 DALL-E Mini 架构的经典开源文本生成图像交互式演示",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.242672"
 }

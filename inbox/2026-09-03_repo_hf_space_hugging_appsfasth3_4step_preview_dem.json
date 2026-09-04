@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_hugging_appsfasth3_4step_preview_dem",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Fast Distillation Models",
+    "category": "Generative AI",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "FastH3",
+      "4-step preview",
+      "Gradio",
+      "Real-time Generation",
+      "Hugging Face Spaces"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "FastH3 4단계 실시간 프리뷰 데모",
+        "hook": "단 4단계 추론만으로 고품질 결과를 생성하는 FastH3 실시간 인터랙티브 데모",
+        "key_takeaways": [
+          "Gradio SDK 기반의 실시간 대화형 AI 데모 인터페이스 제공",
+          "4단계(4-step) 디스틸레이션 기법을 통한 초저지연 시각화 프리뷰",
+          "Hugging Face Spaces 플랫폼을 활용한 모델 실시간 성능 검증"
+        ]
+      },
+      "en": {
+        "title": "FastH3 4-Step Preview Interactive Demo",
+        "hook": "An interactive Gradio demo delivering real-time high-quality previews in just 4 inference steps.",
+        "key_takeaways": [
+          "Provides a Gradio SDK-based interactive demo interface",
+          "Enables ultra-low latency preview generation using 4-step sampling techniques",
+          "Demonstrates real-time model evaluation hosted on Hugging Face Spaces"
+        ]
+      },
+      "zh": {
+        "title": "FastH3 4步实时预览交互演示",
+        "hook": "仅需4步推理即可实现高质量实时预览的 FastH3 交互式演示",
+        "key_takeaways": [
+          "提供基于 Gradio SDK 的实时交互式 AI 演示界面",
+          "利用 4 步采样技术实现极低延迟的生成效果预览",
+          "在 Hugging Face Spaces 上展示实时模型性能"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "FastH3 4단계 실시간 프리뷰 데모",
+      "hook": "단 4단계 추론만으로 고품질 결과를 생성하는 FastH3 실시간 인터랙티브 데모",
+      "key_takeaways": [
+        "Gradio SDK 기반의 실시간 대화형 AI 데모 인터페이스 제공",
+        "4단계(4-step) 디스틸레이션 기법을 통한 초저지연 시각화 프리뷰",
+        "Hugging Face Spaces 플랫폼을 활용한 모델 실시간 성능 검증"
+      ]
+    },
+    "en": {
+      "title": "FastH3 4-Step Preview Interactive Demo",
+      "hook": "An interactive Gradio demo delivering real-time high-quality previews in just 4 inference steps.",
+      "key_takeaways": [
+        "Provides a Gradio SDK-based interactive demo interface",
+        "Enables ultra-low latency preview generation using 4-step sampling techniques",
+        "Demonstrates real-time model evaluation hosted on Hugging Face Spaces"
+      ]
+    },
+    "zh": {
+      "title": "FastH3 4步实时预览交互演示",
+      "hook": "仅需4步推理即可实现高质量实时预览的 FastH3 交互式演示",
+      "key_takeaways": [
+        "提供基于 Gradio SDK 的实时交互式 AI 演示界面",
+        "利用 4 步采样技术实现极低延迟的生成效果预览",
+        "在 Hugging Face Spaces 上展示实时模型性能"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "FastH3",
+    "4-step preview",
+    "Gradio",
+    "Real-time Generation",
+    "Hugging Face Spaces"
+  ],
+  "title_ko": "FastH3 4단계 실시간 프리뷰 데모",
+  "hook_ko": "단 4단계 추론만으로 고품질 결과를 생성하는 FastH3 실시간 인터랙티브 데모",
+  "title_en": "FastH3 4-Step Preview Interactive Demo",
+  "hook_en": "An interactive Gradio demo delivering real-time high-quality previews in just 4 inference steps.",
+  "title_zh": "FastH3 4步实时预览交互演示",
+  "hook_zh": "仅需4步推理即可实现高质量实时预览的 FastH3 交互式演示",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.252868"
 }

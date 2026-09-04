@@ -31,5 +31,97 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_github_omacomtry_omarchy",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Virtualization",
+    "category": "Developer Tools",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Omarchy",
+      "MacOS",
+      "Virtualization",
+      "Zero Setup",
+      "Developer Environment"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "별도의 설정 없이 macOS에서 Omarchy 실행하기",
+        "hook": "복잡한 환경 구축 과정 없이 macOS에서 즉시 Omarchy를 실행할 수 있는 손쉬운 개발 환경 도구",
+        "key_takeaways": [
+          "macOS 사용자를 위한 제로 무설치 Omarchy 실행 환경 지원",
+          "복잡한 가상화 및 종속성 설정 절차 단순화",
+          "빠른 기능 테스트 및 개발 환경 검증 가능"
+        ]
+      },
+      "en": {
+        "title": "Run Omarchy on macOS Without Any Setup",
+        "hook": "A hassle-free utility designed to run Omarchy instantly on macOS without complex environment configurations.",
+        "key_takeaways": [
+          "Zero-setup tool for running Omarchy directly on macOS",
+          "Eliminates complex virtualization and dependency setup steps",
+          "Facilitates rapid testing and experimentation for developers"
+        ]
+      },
+      "zh": {
+        "title": "无需繁琐配置即可在 macOS 上运行 Omarchy",
+        "hook": "无需复杂环境搭建即可在 macOS 上快速运行与测试 Omarchy 的便捷工具",
+        "key_takeaways": [
+          "专为 macOS 用户设计的零配置 Omarchy 运行工具",
+          "大幅简化了环境搭建与相关依赖的配置过程",
+          "方便开发者快速进行功能测试与开发体验"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "별도의 설정 없이 macOS에서 Omarchy 실행하기",
+      "hook": "복잡한 환경 구축 과정 없이 macOS에서 즉시 Omarchy를 실행할 수 있는 손쉬운 개발 환경 도구",
+      "key_takeaways": [
+        "macOS 사용자를 위한 제로 무설치 Omarchy 실행 환경 지원",
+        "복잡한 가상화 및 종속성 설정 절차 단순화",
+        "빠른 기능 테스트 및 개발 환경 검증 가능"
+      ]
+    },
+    "en": {
+      "title": "Run Omarchy on macOS Without Any Setup",
+      "hook": "A hassle-free utility designed to run Omarchy instantly on macOS without complex environment configurations.",
+      "key_takeaways": [
+        "Zero-setup tool for running Omarchy directly on macOS",
+        "Eliminates complex virtualization and dependency setup steps",
+        "Facilitates rapid testing and experimentation for developers"
+      ]
+    },
+    "zh": {
+      "title": "无需繁琐配置即可在 macOS 上运行 Omarchy",
+      "hook": "无需复杂环境搭建即可在 macOS 上快速运行与测试 Omarchy 的便捷工具",
+      "key_takeaways": [
+        "专为 macOS 用户设计的零配置 Omarchy 运行工具",
+        "大幅简化了环境搭建与相关依赖的配置过程",
+        "方便开发者快速进行功能测试与开发体验"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Omarchy",
+    "MacOS",
+    "Virtualization",
+    "Zero Setup",
+    "Developer Environment"
+  ],
+  "title_ko": "별도의 설정 없이 macOS에서 Omarchy 실행하기",
+  "hook_ko": "복잡한 환경 구축 과정 없이 macOS에서 즉시 Omarchy를 실행할 수 있는 손쉬운 개발 환경 도구",
+  "title_en": "Run Omarchy on macOS Without Any Setup",
+  "hook_en": "A hassle-free utility designed to run Omarchy instantly on macOS without complex environment configurations.",
+  "title_zh": "无需繁琐配置即可在 macOS 上运行 Omarchy",
+  "hook_zh": "无需复杂环境搭建即可在 macOS 上快速运行与测试 Omarchy 的便捷工具",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.217480"
 }

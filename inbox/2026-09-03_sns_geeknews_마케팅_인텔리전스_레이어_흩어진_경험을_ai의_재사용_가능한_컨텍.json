@@ -30,7 +30,7 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "마케팅 인텔리전스 레이어: 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
+  "title_ko": "마케팅 인텔리전스 레이어: 파편화된 경험 데이터를 AI의 재사용 가능한 컨텍스트로 전환",
   "description_ko": "기업 내 흩어진 비즈니스 데이터를 AI가 즉시 활용할 수 있는 컨텍스트 레이어로 구축하는 방법을 확인하세요.",
   "hn_url": "https://news.hada.io/topic?id=33177",
   "article_url": "https://news.hada.io/topic?id=33177",
@@ -38,65 +38,96 @@
     "id": "2026-09-03_sns_geeknews_마케팅_인텔리전스_레이어_흩어진_경험을_ai의_재사용_가능한_컨텍",
     "source_lang": "KO",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "AI 컨텍스트 및 데이터 인프라",
-    "programming_lang": "Python",
+    "model_family": "Context Engineering",
+    "category": "AI Application",
+    "programming_lang": "General",
     "root_keywords": [
-      "마케팅 인텔리전스",
-      "AI 컨텍스트",
-      "데이터 레이어",
-      "RAG"
+      "Marketing Intelligence",
+      "AI Context",
+      "Context Layer",
+      "LLM Memory",
+      "Knowledge Management"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.0,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "마케팅 인텔리전스 레이어: 흩어진 경험을 AI의 재사용 가능한 컨텍스트로 만들기",
-        "hook": "기업 내 흩어진 비즈니스 데이터를 AI가 즉시 활용할 수 있는 컨텍스트 레이어로 구축하는 방법을 확인하세요.",
+        "title": "마케팅 인텔리전스 레이어: 파편화된 경험 데이터를 AI의 재사용 가능한 컨텍스트로 전환",
+        "hook": "파편화된 마케팅 데이터와 도메인 지식을 AI가 즉시 활용 가능한 구조화된 컨텍스트 레이어로 전환하는 데이터 구조화 아키텍처.",
         "key_takeaways": [
-          "마케팅 데이터 파편화 문제 해결을 위한 아키텍처",
-          "AI 에이전트와 LLM을 위한 재사용 가능한 컨텍스트 설계",
-          "데이터 인프라 통합을 통한 비즈니스 자동화"
+          "파편화된 경험 및 마케팅 실행 데이터의 구조화 및 AI 컨텍스트 파이프라인 구축",
+          "재사용 가능한 인텔리전스 레이어를 통한 LLM 및 AI 에이전트의 오케스트레이션 성능 향상",
+          "지속적으로 축적 및 갱신되는 비즈니스 도메인 지식 베이스 아키텍처 구현"
         ]
       },
       "en": {
-        "title": "Marketing Intelligence Layer: Turning Scattered Experience into Reusable AI Context",
-        "hook": "Learn how to transform fragmented business data into an AI-ready, reusable context layer.",
+        "title": "Marketing Intelligence Layer: Transforming Fragmented Experience into Reusable AI Context",
+        "hook": "An architectural approach to structuring fragmented domain knowledge and operational data into a reusable context layer for AI models.",
         "key_takeaways": [
-          "Architecture for solving marketing data fragmentation",
-          "Designing reusable contexts for AI agents and LLMs",
-          "Business automation through data infrastructure integration"
+          "Structuring scattered marketing execution data into standardized AI context pipelines",
+          "Enhancing LLM and AI Agent execution efficiency through a centralized intelligence layer",
+          "Building a sustainable and self-updating domain knowledge architecture for business workflows"
         ]
       },
       "zh": {
-        "title": "营销智能层：将分散的经验转化为AI可复用的上下文",
-        "hook": "了解如何将企业内部零散的业务数据构建为AI可直接调用的上下文层。",
+        "title": "营销情报层：将分散的经验转化为 AI 可复用的上下文",
+        "hook": "一种将分散的领域知识与运营数据转化为大模型可高效复用的结构化上下文层架构方案。",
         "key_takeaways": [
-          "解决营销数据碎片化问题的架构设计",
-          "为AI智能体与大语言模型设计可复用的上下文",
-          "通过数据基础设施整合实现业务自动化"
+          "将分散的营销经验与执行数据转化为标准化的 AI 上下文管道",
+          "通过可复用的情报层提升大语言模型 (LLM) 与 AI Agent 的推理与协同效率",
+          "构建与业务工作流深度集成的可持续演进领域知识库架构"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:16:05.445247+09:00"
+    }
   },
   "source_lang": "KO",
-  "programming_lang": "Python",
+  "programming_lang": "General",
   "root_keywords": [
-    "마케팅 인텔리전스",
-    "AI 컨텍스트",
-    "데이터 레이어",
-    "RAG"
+    "Marketing Intelligence",
+    "AI Context",
+    "Context Layer",
+    "LLM Memory",
+    "Knowledge Management"
   ],
-  "title_en": "Marketing Intelligence Layer: Turning Scattered Experience into Reusable AI Context",
-  "title_zh": "营销智能层：将分散的经验转化为AI可复用的上下文",
+  "title_en": "Marketing Intelligence Layer: Transforming Fragmented Experience into Reusable AI Context",
+  "title_zh": "营销情报层：将分散的经验转化为 AI 可复用的上下文",
   "hook": "기업 내 흩어진 비즈니스 데이터를 AI가 즉시 활용할 수 있는 컨텍스트 레이어로 구축하는 방법을 확인하세요.",
-  "hook_ko": "기업 내 흩어진 비즈니스 데이터를 AI가 즉시 활용할 수 있는 컨텍스트 레이어로 구축하는 방법을 확인하세요.",
-  "hook_en": "Learn how to transform fragmented business data into an AI-ready, reusable context layer.",
-  "hook_zh": "了解如何将企业内部零散的业务数据构建为AI可直接调用的上下文层。",
+  "hook_ko": "파편화된 마케팅 데이터와 도메인 지식을 AI가 즉시 활용 가능한 구조화된 컨텍스트 레이어로 전환하는 데이터 구조화 아키텍처.",
+  "hook_en": "An architectural approach to structuring fragmented domain knowledge and operational data into a reusable context layer for AI models.",
+  "hook_zh": "一种将分散的领域知识与运营数据转化为大模型可高效复用的结构化上下文层架构方案。",
   "description_en": "Learn how to transform fragmented business data into an AI-ready, reusable context layer.",
   "description_zh": "了解如何将企业内部零散的业务数据构建为AI可直接调用的上下文层。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "마케팅 인텔리전스 레이어: 파편화된 경험 데이터를 AI의 재사용 가능한 컨텍스트로 전환",
+      "hook": "파편화된 마케팅 데이터와 도메인 지식을 AI가 즉시 활용 가능한 구조화된 컨텍스트 레이어로 전환하는 데이터 구조화 아키텍처.",
+      "key_takeaways": [
+        "파편화된 경험 및 마케팅 실행 데이터의 구조화 및 AI 컨텍스트 파이프라인 구축",
+        "재사용 가능한 인텔리전스 레이어를 통한 LLM 및 AI 에이전트의 오케스트레이션 성능 향상",
+        "지속적으로 축적 및 갱신되는 비즈니스 도메인 지식 베이스 아키텍처 구현"
+      ]
+    },
+    "en": {
+      "title": "Marketing Intelligence Layer: Transforming Fragmented Experience into Reusable AI Context",
+      "hook": "An architectural approach to structuring fragmented domain knowledge and operational data into a reusable context layer for AI models.",
+      "key_takeaways": [
+        "Structuring scattered marketing execution data into standardized AI context pipelines",
+        "Enhancing LLM and AI Agent execution efficiency through a centralized intelligence layer",
+        "Building a sustainable and self-updating domain knowledge architecture for business workflows"
+      ]
+    },
+    "zh": {
+      "title": "营销情报层：将分散的经验转化为 AI 可复用的上下文",
+      "hook": "一种将分散的领域知识与运营数据转化为大模型可高效复用的结构化上下文层架构方案。",
+      "key_takeaways": [
+        "将分散的营销经验与执行数据转化为标准化的 AI 上下文管道",
+        "通过可复用的情报层提升大语言模型 (LLM) 与 AI Agent 的推理与协同效率",
+        "构建与业务工作流深度集成的可持续演进领域知识库架构"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.357340"
 }

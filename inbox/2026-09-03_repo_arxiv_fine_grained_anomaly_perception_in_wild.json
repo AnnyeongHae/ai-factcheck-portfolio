@@ -34,67 +34,98 @@
     "id": "2026-09-03_repo_arxiv_fine_grained_anomaly_perception_in_wild",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "컴퓨터 비전 및 이미지 향상",
+    "model_family": "Difference-Fusion Networks",
+    "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
-      "Anomaly Perception",
-      "UGC Images",
-      "Image Enhancement",
-      "Difference-Fusion Framework"
+      "UGC Image Processing",
+      "Fine-Grained Anomaly Detection",
+      "Image Enhancement Artifacts",
+      "Difference-Fusion Framework",
+      "Computer Vision Dataset"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 3.9,
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "야생 UGC 강화 이미지의 미세 이상 감지: 종합 데이터셋 및 차이 융합 프레임워크",
-        "hook": "숏폼 및 소셜 미디어의 이미지 향상 과정에서 발생하는 시각적 이상 현상을 감지하는 새로운 프레임워크를 만나보세요.",
+        "title": "사용자 생성 콘텐츠(UGC) 향상 이미지의 세밀한 이상 감지: 종합 데이터셋 및 차이-융합 프레임워크",
+        "hook": "소셜 미디어 이미지 보정 중 발생하는 미세 아티팩트를 정밀하게 포착하는 차이-융합 프레임워크 및 데이터셋",
         "key_takeaways": [
-          "UGC 시각 경험 향상 후 발생하는 시각적 이상(Anomaly) 포착",
-          "종합적인 이상 감지 데이터셋 구축",
-          "차이 융합(Difference-Fusion) 기반의 프레임워크 제안"
+          "UGC 이미지 보정 및 복원 과정에서 발생하는 미세한 아티팩트/이상 현상 감지",
+          "야생(Wild) 환경의 다양한 보정 이상을 다루는 종합 벤치마크 데이터셋 구축",
+          "원본 및 향상 이미지 간 차이를 효과적으로 포착하는 차이-융합(Difference-Fusion) 프레임워크 제안"
         ]
       },
       "en": {
         "title": "Fine-Grained Anomaly Perception in Wild UGC-Enhanced Images: A Comprehensive Dataset and Difference-Fusion Framework",
-        "hook": "Discover a new framework for detecting fine-grained visual anomalies introduced during UGC image enhancement.",
+        "hook": "A difference-fusion framework and comprehensive benchmark dataset to detect subtle visual artifacts caused by UGC image enhancement.",
         "key_takeaways": [
-          "Captures visual anomalies introduced by back-end image enhancement",
-          "Introduces a comprehensive dataset for anomaly perception",
-          "Proposes a novel difference-fusion framework"
+          "Addresses visual artifacts and anomalies introduced during UGC image restoration on social media platforms",
+          "Introduces a comprehensive benchmark dataset with fine-grained annotations for wild UGC-enhanced images",
+          "Proposes a difference-fusion neural network designed to capture subtle enhancement defects"
         ]
       },
       "zh": {
-        "title": "野外UGC增强图像的细粒度异常感知：综合数据集与差分融合框架",
-        "hook": "探索用于检测UGC图像增强过程中产生的细粒度视觉异常的新型框架。",
+        "title": "野外UGC增强图像中的细粒度异常感知：综合数据集与差异融合框架",
+        "hook": "针对短视频与社交平台图像增强带来的视觉伪影，提出细粒度异常检测数据集与差异融合感知框架",
         "key_takeaways": [
-          "捕捉后端图像增强引入的视觉异常",
-          "构建用于异常感知的综合数据集",
-          "提出创新的差分融合框架"
+          "聚焦于用户生成内容（UGC）在增强与修复后产生的微小视觉瑕疵与伪影问题",
+          "构建并开放面向真实野外场景（In-the-wild）的细粒度图像异常感知综合数据集",
+          "提出基于差异融合（Difference-Fusion）的神经网络架构，有效捕获增强带来的微小异常"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:17:31.855726+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Anomaly Perception",
-    "UGC Images",
-    "Image Enhancement",
-    "Difference-Fusion Framework"
+    "UGC Image Processing",
+    "Fine-Grained Anomaly Detection",
+    "Image Enhancement Artifacts",
+    "Difference-Fusion Framework",
+    "Computer Vision Dataset"
   ],
-  "title_ko": "야생 UGC 강화 이미지의 미세 이상 감지: 종합 데이터셋 및 차이 융합 프레임워크",
+  "title_ko": "사용자 생성 콘텐츠(UGC) 향상 이미지의 세밀한 이상 감지: 종합 데이터셋 및 차이-융합 프레임워크",
   "title_en": "Fine-Grained Anomaly Perception in Wild UGC-Enhanced Images: A Comprehensive Dataset and Difference-Fusion Framework",
-  "title_zh": "野外UGC增强图像的细粒度异常感知：综合数据集与差分融合框架",
+  "title_zh": "野外UGC增强图像中的细粒度异常感知：综合数据集与差异融合框架",
   "hook": "숏폼 및 소셜 미디어의 이미지 향상 과정에서 발생하는 시각적 이상 현상을 감지하는 새로운 프레임워크를 만나보세요.",
-  "hook_ko": "숏폼 및 소셜 미디어의 이미지 향상 과정에서 발생하는 시각적 이상 현상을 감지하는 새로운 프레임워크를 만나보세요.",
-  "hook_en": "Discover a new framework for detecting fine-grained visual anomalies introduced during UGC image enhancement.",
-  "hook_zh": "探索用于检测UGC图像增强过程中产生的细粒度视觉异常的新型框架。",
+  "hook_ko": "소셜 미디어 이미지 보정 중 발생하는 미세 아티팩트를 정밀하게 포착하는 차이-융합 프레임워크 및 데이터셋",
+  "hook_en": "A difference-fusion framework and comprehensive benchmark dataset to detect subtle visual artifacts caused by UGC image enhancement.",
+  "hook_zh": "针对短视频与社交平台图像增强带来的视觉伪影，提出细粒度异常检测数据集与差异融合感知框架",
   "description_ko": "숏폼 및 소셜 미디어의 이미지 향상 과정에서 발생하는 시각적 이상 현상을 감지하는 새로운 프레임워크를 만나보세요.",
   "description_en": "Discover a new framework for detecting fine-grained visual anomalies introduced during UGC image enhancement.",
   "description_zh": "探索用于检测UGC图像增强过程中产生的细粒度视觉异常的新型框架。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "사용자 생성 콘텐츠(UGC) 향상 이미지의 세밀한 이상 감지: 종합 데이터셋 및 차이-융합 프레임워크",
+      "hook": "소셜 미디어 이미지 보정 중 발생하는 미세 아티팩트를 정밀하게 포착하는 차이-융합 프레임워크 및 데이터셋",
+      "key_takeaways": [
+        "UGC 이미지 보정 및 복원 과정에서 발생하는 미세한 아티팩트/이상 현상 감지",
+        "야생(Wild) 환경의 다양한 보정 이상을 다루는 종합 벤치마크 데이터셋 구축",
+        "원본 및 향상 이미지 간 차이를 효과적으로 포착하는 차이-융합(Difference-Fusion) 프레임워크 제안"
+      ]
+    },
+    "en": {
+      "title": "Fine-Grained Anomaly Perception in Wild UGC-Enhanced Images: A Comprehensive Dataset and Difference-Fusion Framework",
+      "hook": "A difference-fusion framework and comprehensive benchmark dataset to detect subtle visual artifacts caused by UGC image enhancement.",
+      "key_takeaways": [
+        "Addresses visual artifacts and anomalies introduced during UGC image restoration on social media platforms",
+        "Introduces a comprehensive benchmark dataset with fine-grained annotations for wild UGC-enhanced images",
+        "Proposes a difference-fusion neural network designed to capture subtle enhancement defects"
+      ]
+    },
+    "zh": {
+      "title": "野外UGC增强图像中的细粒度异常感知：综合数据集与差异融合框架",
+      "hook": "针对短视频与社交平台图像增强带来的视觉伪影，提出细粒度异常检测数据集与差异融合感知框架",
+      "key_takeaways": [
+        "聚焦于用户生成内容（UGC）在增强与修复后产生的微小视觉瑕疵与伪影问题",
+        "构建并开放面向真实野外场景（In-the-wild）的细粒度图像异常感知综合数据集",
+        "提出基于差异融合（Difference-Fusion）的神经网络架构，有效捕获增强带来的微小异常"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.175674"
 }

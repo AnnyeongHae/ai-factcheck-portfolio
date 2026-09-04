@@ -33,5 +33,95 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49521031",
-  "article_url": "https://wasmi-labs.github.io/blog/posts/wasmi-v2.0/"
+  "article_url": "https://wasmi-labs.github.io/blog/posts/wasmi-v2.0/",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_engineering_of_the_fastest_webass",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Wasm Runtimes",
+    "category": "Systems Engineering",
+    "programming_lang": "General",
+    "root_keywords": [
+      "WebAssembly",
+      "Interpreter Optimization",
+      "Virtual Machine",
+      "Bytecode Execution"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.3,
+    "multilingual": {
+      "ko": {
+        "title": "가장 빠른 WebAssembly 인터프리터 설계 및 엔지니어링",
+        "hook": "JIT 없이 초고속 WebAssembly 실행을 구현하기 위한 심층 아키텍처 및 디스패치 최적화 기법",
+        "key_takeaways": [
+          "JIT 컴파일 오버헤드 없이 빠른 시작 시간을 보장하는 인터프리터 디스패치 최적화",
+          "Wasm 바이트코드를 캐시 친화적인 내부 표현(IR) 및 스택/레지스터 모델로 효율적으로 변환",
+          "분기 예측 및 메모리 접근 패턴 개선을 통한 가상 머신 루프 성능 극대화"
+        ]
+      },
+      "en": {
+        "title": "Engineering of the Fastest WebAssembly Interpreters",
+        "hook": "A deep dive into architectural patterns and dispatch optimizations for high-speed Wasm interpreters without JIT overhead.",
+        "key_takeaways": [
+          "Optimizing interpreter dispatch loops to achieve fast startup times and minimal runtime overhead",
+          "Transforming Wasm bytecode into cache-friendly internal IR with stack and register VM techniques",
+          "Branch prediction tuning and memory layout optimizations for maximum instruction throughput"
+        ]
+      },
+      "zh": {
+        "title": "极速 WebAssembly 解释器的工程实现",
+        "hook": "深入解析在无需 JIT 编译的前提下，实现高性能 Wasm 解释器的底层架构与调度优化策略。",
+        "key_takeaways": [
+          "优化解释器调度循环，实现极短启动时间与极低运行开销",
+          "将 Wasm 字节码高效转换为面向缓存优化的内部 IR（栈与寄存器模型）",
+          "通过分支预测调优与内存布局设计，最大化指令执行吞吐量"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "가장 빠른 WebAssembly 인터프리터 설계 및 엔지니어링",
+      "hook": "JIT 없이 초고속 WebAssembly 실행을 구현하기 위한 심층 아키텍처 및 디스패치 최적화 기법",
+      "key_takeaways": [
+        "JIT 컴파일 오버헤드 없이 빠른 시작 시간을 보장하는 인터프리터 디스패치 최적화",
+        "Wasm 바이트코드를 캐시 친화적인 내부 표현(IR) 및 스택/레지스터 모델로 효율적으로 변환",
+        "분기 예측 및 메모리 접근 패턴 개선을 통한 가상 머신 루프 성능 극대화"
+      ]
+    },
+    "en": {
+      "title": "Engineering of the Fastest WebAssembly Interpreters",
+      "hook": "A deep dive into architectural patterns and dispatch optimizations for high-speed Wasm interpreters without JIT overhead.",
+      "key_takeaways": [
+        "Optimizing interpreter dispatch loops to achieve fast startup times and minimal runtime overhead",
+        "Transforming Wasm bytecode into cache-friendly internal IR with stack and register VM techniques",
+        "Branch prediction tuning and memory layout optimizations for maximum instruction throughput"
+      ]
+    },
+    "zh": {
+      "title": "极速 WebAssembly 解释器的工程实现",
+      "hook": "深入解析在无需 JIT 编译的前提下，实现高性能 Wasm 解释器的底层架构与调度优化策略。",
+      "key_takeaways": [
+        "优化解释器调度循环，实现极短启动时间与极低运行开销",
+        "将 Wasm 字节码高效转换为面向缓存优化的内部 IR（栈与寄存器模型）",
+        "通过分支预测调优与内存布局设计，最大化指令执行吞吐量"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "WebAssembly",
+    "Interpreter Optimization",
+    "Virtual Machine",
+    "Bytecode Execution"
+  ],
+  "title_ko": "가장 빠른 WebAssembly 인터프리터 설계 및 엔지니어링",
+  "hook_ko": "JIT 없이 초고속 WebAssembly 실행을 구현하기 위한 심층 아키텍처 및 디스패치 최적화 기법",
+  "title_en": "Engineering of the Fastest WebAssembly Interpreters",
+  "hook_en": "A deep dive into architectural patterns and dispatch optimizations for high-speed Wasm interpreters without JIT overhead.",
+  "title_zh": "极速 WebAssembly 解释器的工程实现",
+  "hook_zh": "深入解析在无需 JIT 编译的前提下，实现高性能 Wasm 解释器的底层架构与调度优化策略。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.381507"
 }

@@ -860,6 +860,7 @@ def generate_html(data):
 
       <!-- EXECUTIVE SCANNABLE DOSSIER GRID -->
       <div id="cardsGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
+      <div id="portfolioPagination" class="mt-4"></div>
     </div>
 
     <!-- ==================== VIEW: AI MODELS REGISTRY ==================== -->
@@ -922,6 +923,7 @@ def generate_html(data):
 
       <!-- Models Grid -->
       <div id="modelsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <div id="modelsPagination" class="mt-4"></div>
     </div>
 
     <!-- ==================== VIEW 2: AI NEWS & TRENDS ==================== -->
@@ -964,6 +966,7 @@ def generate_html(data):
       </div>
 
       <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <div id="newsPagination" class="mt-4"></div>
     </div>
 
     <!-- ==================== VIEW 3: CITATION GRAPH ==================== -->
@@ -1143,6 +1146,7 @@ def generate_html(data):
       </div>
 
       <div id="inboxGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <div id="inboxPagination" class="mt-4"></div>
     </div>
 
   </main>
@@ -1304,6 +1308,82 @@ def generate_html(data):
     let isFamilyGroupingActive = true;
     let currentGraphType = 'ALL';
     let simulationRef = null;
+
+    // 📄 Global Pagination State (20 items per page: << < 1, 2, 3, 4, 5 > >>)
+    const PAGE_SIZE = 20;
+    let currentPortfolioPage = 1;
+    let currentModelsPage = 1;
+    let currentNewsPage = 1;
+    let currentInboxPage = 1;
+
+    function renderPagination(containerId, currentPage, totalPages, onPageChange) {{
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      if (totalPages <= 1) {{
+        container.innerHTML = '';
+        return;
+      }}
+
+      let html = '<div class="flex items-center justify-center gap-1.5 pt-6 pb-4 text-xs font-mono select-none flex-wrap">';
+
+      // First Page <<
+      const firstDisabled = currentPage === 1;
+      html += `<button onclick="${{firstDisabled ? '' : onPageChange + '(1)'}}" class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${{firstDisabled ? 'opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border' : 'bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer'}}" title="처음으로">&laquo;&laquo;</button>`;
+
+      // Prev Page <
+      const prevDisabled = currentPage === 1;
+      html += `<button onclick="${{prevDisabled ? '' : onPageChange + '(' + (currentPage - 1) + ')'}}" class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${{prevDisabled ? 'opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border' : 'bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer'}}" title="이전">&lsaquo;</button>`;
+
+      // Page numbers (Sliding window of up to 5 numbers)
+      let startPage = Math.max(1, currentPage - 2);
+      let endPage = Math.min(totalPages, startPage + 4);
+      if (endPage - startPage < 4) {{
+        startPage = Math.max(1, endPage - 4);
+      }}
+
+      for (let p = startPage; p <= endPage; p++) {{
+        const isCur = p === currentPage;
+        const btnStyle = isCur
+          ? 'bg-indigo-600 text-white font-extrabold border-indigo-600 shadow-sm'
+          : 'bg-white hover:bg-surface-subtle text-ink-secondary hover:text-ink-primary border-surface-border font-semibold cursor-pointer';
+        html += `<button onclick="${{onPageChange}}(${{p}})" class="w-8 h-8 rounded-lg border flex items-center justify-center transition ${{btnStyle}}">${{p}}</button>`;
+      }}
+
+      // Next Page >
+      const nextDisabled = currentPage === totalPages;
+      html += `<button onclick="${{nextDisabled ? '' : onPageChange + '(' + (currentPage + 1) + ')'}}" class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${{nextDisabled ? 'opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border' : 'bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer'}}" title="다음">&rsaquo;</button>`;
+
+      // Last Page >>
+      const lastDisabled = currentPage === totalPages;
+      html += `<button onclick="${{lastDisabled ? '' : onPageChange + '(' + totalPages + ')'}}" class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${{lastDisabled ? 'opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border' : 'bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer'}}" title="끝으로">&raquo;&raquo;</button>`;
+
+      html += '</div>';
+      container.innerHTML = html;
+    }}
+
+    function changePortfolioPage(page) {{
+      currentPortfolioPage = page;
+      renderCards();
+      document.getElementById('portfolioView')?.scrollIntoView({{ behavior: 'smooth' }});
+    }}
+
+    function changeModelsPage(page) {{
+      currentModelsPage = page;
+      renderModels();
+      document.getElementById('modelsView')?.scrollIntoView({{ behavior: 'smooth' }});
+    }}
+
+    function changeNewsPage(page) {{
+      currentNewsPage = page;
+      renderNews();
+      document.getElementById('newsView')?.scrollIntoView({{ behavior: 'smooth' }});
+    }}
+
+    function changeInboxPage(page) {{
+      currentInboxPage = page;
+      renderInbox();
+      document.getElementById('inboxView')?.scrollIntoView({{ behavior: 'smooth' }});
+    }}
     let linkSelection = null;
     let nodeSelection = null;
 
@@ -1894,6 +1974,7 @@ def generate_html(data):
 
     // ================= FILTER & SORT HANDLERS =================
     function setModeFilter(mode) {{
+      currentPortfolioPage = 1;
       currentMode = mode;
       document.querySelectorAll('.segment-btn').forEach(btn => btn.classList.remove('active'));
       if (mode === 'ALL') document.getElementById('modeBtnAll').classList.add('active');
@@ -1903,6 +1984,7 @@ def generate_html(data):
     }}
 
     function setDomainFilter(dom) {{
+      currentPortfolioPage = 1;
       currentDomain = dom;
       document.querySelectorAll('.tag-pill').forEach(btn => {{
         if (btn.dataset.domain === dom) btn.classList.add('active');
@@ -1912,11 +1994,13 @@ def generate_html(data):
     }}
 
     function changeSort(val) {{
+      currentPortfolioPage = 1;
       currentSort = val;
       renderCards();
     }}
 
     function clearSearch() {{
+      currentPortfolioPage = 1;
       const input = document.getElementById('searchInput');
       input.value = '';
       searchQuery = '';
@@ -2100,13 +2184,20 @@ def generate_html(data):
 
       document.getElementById('resultsCountLabel').innerText = currentLang === 'KO' ? `총 ${{filtered.length}}건 표시 (전체 ${{liveCasesData.length}}건 중)` : (currentLang === 'ZH' ? `显示 ${{filtered.length}} 项 (共 ${{liveCasesData.length}} 项)` : `Showing ${{filtered.length}} of ${{liveCasesData.length}} dossiers`);
 
+      const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
+      if (currentPortfolioPage > totalPages) currentPortfolioPage = totalPages;
+      if (currentPortfolioPage < 1) currentPortfolioPage = 1;
+
+      renderPagination('portfolioPagination', currentPortfolioPage, totalPages, 'changePortfolioPage');
+
       if (filtered.length === 0) {{
         grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '일치하는 기술 검증 보고서가 없습니다.' : (currentLang === 'ZH' ? '未找到符合条件的技术核查报告。' : 'No matching fact-check dossiers found.')}}</div>`;
         return;
       }}
 
-      // Render Executive Scannable Cards (All 18 Completed Portfolios)
-      filtered.forEach((c, idx) => {{
+      // Render Executive Scannable Cards (Paged: 20 per page)
+      const pagedItems = filtered.slice((currentPortfolioPage - 1) * PAGE_SIZE, currentPortfolioPage * PAGE_SIZE);
+      pagedItems.forEach((c, idx) => {{
         const story = c.portfolio_story || {{}};
         const curation = c.curation || {{ discovery_mode: 'USER_CURATED' }};
         const isUserMode = curation.discovery_mode === 'USER_CURATED';
@@ -2560,11 +2651,13 @@ def generate_html(data):
     let currentNewsSort = 'date-source-desc';
 
     function setNewsSort(sort) {{
+      currentNewsPage = 1;
       currentNewsSort = sort;
       renderNews();
     }}
 
     function setNewsSourceFilter(src) {{
+      currentNewsPage = 1;
       currentNewsSource = src;
       document.querySelectorAll('.news-src-btn').forEach(btn => {{
         if (btn.getAttribute('data-src') === src) {{
@@ -2607,12 +2700,19 @@ def generate_html(data):
         return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
       }});
 
+      const totalPages = Math.ceil(newsItems.length / PAGE_SIZE) || 1;
+      if (currentNewsPage > totalPages) currentNewsPage = totalPages;
+      if (currentNewsPage < 1) currentNewsPage = 1;
+
+      renderPagination('newsPagination', currentNewsPage, totalPages, 'changeNewsPage');
+
       if (newsItems.length === 0) {{
         grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '해당 플랫폼의 수집 AI 뉴스가 없습니다.' : (currentLang === 'ZH' ? '暂无该平台的 AI 资讯。' : 'No AI news articles available for this source.')}}</div>`;
         return;
       }}
 
-      newsItems.forEach(it => {{
+      const pagedNews = newsItems.slice((currentNewsPage - 1) * PAGE_SIZE, currentNewsPage * PAGE_SIZE);
+      pagedNews.forEach(it => {{
         const card = document.createElement('div');
         card.className = 'executive-card p-5 flex flex-col justify-between space-y-4';
 
@@ -2786,11 +2886,13 @@ def generate_html(data):
     let modelsSearchQuery = '';
 
     function setModelsSort(sort) {{
+      currentModelsPage = 1;
       currentModelsSort = sort;
       renderModels();
     }}
 
     function setModelsFamilyFilter(fam) {{
+      currentModelsPage = 1;
       currentModelsFamily = fam;
       document.querySelectorAll('.model-fam-pill').forEach(btn => {{
         if (btn.dataset.fam === fam) {{
@@ -2803,6 +2905,7 @@ def generate_html(data):
     }}
 
     document.getElementById('modelsSearchInput')?.addEventListener('input', (e) => {{
+      currentModelsPage = 1;
       modelsSearchQuery = e.target.value;
       renderModels();
     }});
@@ -2852,12 +2955,19 @@ def generate_html(data):
       const countEl = document.getElementById('modelsFilteredCount');
       if (countEl) countEl.innerText = currentLang === 'KO' ? `${{filtered.length}}개 모델 표출` : (currentLang === 'ZH' ? `显示 ${{filtered.length}} 个模型` : `Showing ${{filtered.length}} models`);
 
+      const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
+      if (currentModelsPage > totalPages) currentModelsPage = totalPages;
+      if (currentModelsPage < 1) currentModelsPage = 1;
+
+      renderPagination('modelsPagination', currentModelsPage, totalPages, 'changeModelsPage');
+
       if (filtered.length === 0) {{
         grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '일치하는 AI 모델이 없습니다.' : (currentLang === 'ZH' ? '暂无匹配的 AI 模型。' : 'No matching AI models.')}}</div>`;
         return;
       }}
 
-      filtered.forEach(it => {{
+      const pagedModels = filtered.slice((currentModelsPage - 1) * PAGE_SIZE, currentModelsPage * PAGE_SIZE);
+      pagedModels.forEach(it => {{
         const ai = it.ai_enrichment;
         const multi = ai?.multilingual;
         const lKey = currentLang.toLowerCase();
@@ -2984,6 +3094,7 @@ def generate_html(data):
     let currentInboxSort = 'date-source-desc';
 
     function setInboxSort(val) {{
+      currentInboxPage = 1;
       currentInboxSort = val;
       renderInbox();
     }}
@@ -2993,6 +3104,7 @@ def generate_html(data):
     let currentInboxTech = 'ALL';
 
     function setInboxLangFilter(lang) {{
+      currentInboxPage = 1;
       currentInboxLang = lang;
       document.querySelectorAll('.inbox-filter-pill').forEach(btn => {{
         if (btn.dataset.langVal === lang) {{
@@ -3005,6 +3117,7 @@ def generate_html(data):
     }}
 
     function setInboxTypeFilter(typeVal) {{
+      currentInboxPage = 1;
       currentInboxType = typeVal;
       document.querySelectorAll('.inbox-type-pill').forEach(btn => {{
         if (btn.dataset.typeVal === typeVal) {{
@@ -3017,6 +3130,7 @@ def generate_html(data):
     }}
 
     function setInboxTechFilter(tech) {{
+      currentInboxPage = 1;
       currentInboxTech = tech;
       document.querySelectorAll('.inbox-tech-pill').forEach(btn => {{
         if (btn.dataset.techVal === tech) {{
@@ -3029,6 +3143,7 @@ def generate_html(data):
     }}
 
     function setInboxSourceFilter(src) {{
+      currentInboxPage = 1;
       currentInboxSource = src;
       const sel = document.getElementById('inboxSourceSelect');
       if (sel && sel.value !== src) sel.value = src;
@@ -3044,6 +3159,7 @@ def generate_html(data):
     }}
 
     document.getElementById('inboxSearchInput').addEventListener('input', (e) => {{
+      currentInboxPage = 1;
       inboxSearchQuery = e.target.value;
       renderInbox();
     }});
@@ -3101,12 +3217,19 @@ def generate_html(data):
         return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
       }});
 
+      const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
+      if (currentInboxPage > totalPages) currentInboxPage = totalPages;
+      if (currentInboxPage < 1) currentInboxPage = 1;
+
+      renderPagination('inboxPagination', currentInboxPage, totalPages, 'changeInboxPage');
+
       if (filtered.length === 0) {{
         grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${{currentLang === 'KO' ? '수집된 인박스 후보가 없습니다.' : (currentLang === 'ZH' ? '收件箱暂无候选数据。' : 'No candidates in the inbox.')}}</div>`;
         return;
       }}
 
-      filtered.forEach(it => {{
+      const pagedInbox = filtered.slice((currentInboxPage - 1) * PAGE_SIZE, currentInboxPage * PAGE_SIZE);
+      pagedInbox.forEach(it => {{
         const isQueued = queuedItemIds.has(it.inbox_id);
         const ai = it.ai_enrichment;
         const multi = ai ? ai.multilingual : null;

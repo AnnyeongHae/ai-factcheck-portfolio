@@ -34,65 +34,98 @@
     "id": "2026-09-03_repo_arxiv_from_reweighting_to_rewriting_unlocking",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "모델 학습 데이터 분석 및 최적화",
+    "model_family": "Data Attribution & Influence Functions",
+    "category": "Machine Learning",
     "programming_lang": "Python",
     "root_keywords": [
       "Training Data Attribution",
       "Data Rewriting",
-      "Model Intervention"
+      "Influence Functions",
+      "Model Intervention",
+      "Data Quality"
     ],
-    "recommended_tag": "💡 유용한 도구",
-    "worth_score": 4.1,
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "가중치 재조정에서 데이터 재작성으로: 학습 데이터 기여도 분석에서의 개입 효과 극대화",
-        "hook": "단순한 데이터 가중치 조정을 넘어, 데이터 재작성을 통해 모델 행동을 정밀하게 제어하는 새로운 접근법입니다.",
+        "title": "가중치 재설정에서 데이터 재작성으로: 학습 데이터 기여도 분석에서 영향력 있는 샘플의 개입 효과 극대화",
+        "hook": "학습 데이터 기여도(TDA) 기법을 단편적 데이터 삭제가 아닌 데이터 수정(Rewriting) 영역으로 확장해 모델 제어 성능을 획기적으로 향상",
         "key_takeaways": [
-          "학습 데이터 기여도(TDA) 분석의 한계를 극복하기 위한 데이터 재작성 방법론 제시",
-          "샘플 선택을 넘어선 데이터 수정이 모델 개입 효과에 미치는 영향 분석",
-          "LLM 및 머신러닝 모델의 정밀한 데이터 중심 디버깅 가능"
+          "기존 TDA의 샘플 제거 및 재가중치(Reweighting) 접근 방식이 가진 개입 한계를 극복",
+          "영향력 있는 학습 데이터를 능동적으로 재작성(Rewriting)하여 모델의 동작 변경 효과를 극대화",
+          "모델 동작 교정 및 정렬(Alignment)을 위한 강력한 인과적 개입 프레임워크 제시"
         ]
       },
       "en": {
         "title": "From Reweighting to Rewriting: Unlocking the Intervention Effects of Influential Samples in Training Data Attribution",
-        "hook": "Move beyond simple sample reweighting—learn how rewriting training data unlocks precise control over model behavior.",
+        "hook": "Extends Training Data Attribution (TDA) beyond sample removal toward data rewriting for maximum model control and steering.",
         "key_takeaways": [
-          "Proposes data rewriting to overcome limitations in training data attribution (TDA)",
-          "Investigates how modifying influential examples impacts model intervention value",
-          "Provides robust data-centric debugging strategies for deep learning models"
+          "Addresses limitations of standard deletion/reweighting-based TDA interventions.",
+          "Introduces data rewriting techniques targeting influential samples to steer model outcomes efficiently.",
+          "Demonstrates superior causal intervention performance in adjusting model behavior and improving data quality."
         ]
       },
       "zh": {
-        "title": "从重新加权到重写：释放训练数据归因中影响力样本的干预效果",
-        "hook": "超越单纯的样本权重调整，通过重写训练数据来实现对模型行为的精准干预与控制。",
+        "title": "从重加权到重写：释放训练数据归因中高影响样本的干预效果",
+        "hook": "将训练数据归因（TDA）从简单的样本删除扩展至数据重写，从而大幅提升对模型行为的控制力。",
         "key_takeaways": [
-          "提出超越传统数据加权的“数据重写”新范式以改进训练数据归因(TDA)",
-          "探讨修改具影响力样本的具体方式如何影响模型干预效果",
-          "为面向数据的深度学习模型调试与优化提供全新理论支撑"
+          "突破了传统基于删除或重加权的 TDA 方法在干预能力上的局限",
+          "通过对高影响样本进行主动数据改写（Rewriting）来实现精细化模型引导",
+          "展示了在模型行为校正与数据质量优化方面更出色的因果干预表现"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:25:36.373736+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Training Data Attribution",
     "Data Rewriting",
-    "Model Intervention"
+    "Influence Functions",
+    "Model Intervention",
+    "Data Quality"
   ],
-  "title_ko": "가중치 재조정에서 데이터 재작성으로: 학습 데이터 기여도 분석에서의 개입 효과 극대화",
+  "title_ko": "가중치 재설정에서 데이터 재작성으로: 학습 데이터 기여도 분석에서 영향력 있는 샘플의 개입 효과 극대화",
   "title_en": "From Reweighting to Rewriting: Unlocking the Intervention Effects of Influential Samples in Training Data Attribution",
-  "title_zh": "从重新加权到重写：释放训练数据归因中影响力样本的干预效果",
+  "title_zh": "从重加权到重写：释放训练数据归因中高影响样本的干预效果",
   "hook": "단순한 데이터 가중치 조정을 넘어, 데이터 재작성을 통해 모델 행동을 정밀하게 제어하는 새로운 접근법입니다.",
-  "hook_ko": "단순한 데이터 가중치 조정을 넘어, 데이터 재작성을 통해 모델 행동을 정밀하게 제어하는 새로운 접근법입니다.",
-  "hook_en": "Move beyond simple sample reweighting—learn how rewriting training data unlocks precise control over model behavior.",
-  "hook_zh": "超越单纯的样本权重调整，通过重写训练数据来实现对模型行为的精准干预与控制。",
+  "hook_ko": "학습 데이터 기여도(TDA) 기법을 단편적 데이터 삭제가 아닌 데이터 수정(Rewriting) 영역으로 확장해 모델 제어 성능을 획기적으로 향상",
+  "hook_en": "Extends Training Data Attribution (TDA) beyond sample removal toward data rewriting for maximum model control and steering.",
+  "hook_zh": "将训练数据归因（TDA）从简单的样本删除扩展至数据重写，从而大幅提升对模型行为的控制力。",
   "description_ko": "단순한 데이터 가중치 조정을 넘어, 데이터 재작성을 통해 모델 행동을 정밀하게 제어하는 새로운 접근법입니다.",
   "description_en": "Move beyond simple sample reweighting—learn how rewriting training data unlocks precise control over model behavior.",
   "description_zh": "超越单纯的样本权重调整，通过重写训练数据来实现对模型行为的精准干预与控制。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "가중치 재설정에서 데이터 재작성으로: 학습 데이터 기여도 분석에서 영향력 있는 샘플의 개입 효과 극대화",
+      "hook": "학습 데이터 기여도(TDA) 기법을 단편적 데이터 삭제가 아닌 데이터 수정(Rewriting) 영역으로 확장해 모델 제어 성능을 획기적으로 향상",
+      "key_takeaways": [
+        "기존 TDA의 샘플 제거 및 재가중치(Reweighting) 접근 방식이 가진 개입 한계를 극복",
+        "영향력 있는 학습 데이터를 능동적으로 재작성(Rewriting)하여 모델의 동작 변경 효과를 극대화",
+        "모델 동작 교정 및 정렬(Alignment)을 위한 강력한 인과적 개입 프레임워크 제시"
+      ]
+    },
+    "en": {
+      "title": "From Reweighting to Rewriting: Unlocking the Intervention Effects of Influential Samples in Training Data Attribution",
+      "hook": "Extends Training Data Attribution (TDA) beyond sample removal toward data rewriting for maximum model control and steering.",
+      "key_takeaways": [
+        "Addresses limitations of standard deletion/reweighting-based TDA interventions.",
+        "Introduces data rewriting techniques targeting influential samples to steer model outcomes efficiently.",
+        "Demonstrates superior causal intervention performance in adjusting model behavior and improving data quality."
+      ]
+    },
+    "zh": {
+      "title": "从重加权到重写：释放训练数据归因中高影响样本的干预效果",
+      "hook": "将训练数据归因（TDA）从简单的样本删除扩展至数据重写，从而大幅提升对模型行为的控制力。",
+      "key_takeaways": [
+        "突破了传统基于删除或重加权的 TDA 方法在干预能力上的局限",
+        "通过对高影响样本进行主动数据改写（Rewriting）来实现精细化模型引导",
+        "展示了在模型行为校正与数据质量优化方面更出色的因果干预表现"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.179578"
 }

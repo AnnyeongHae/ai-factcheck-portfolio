@@ -30,73 +30,104 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Perplexity, 대량생산된 구매 가이드를 소프트웨어 추천 근거로 채택",
+  "title_ko": "Perplexity, 대량생산된 저품질 구매 가이드를 소프트웨어 추천 근거로 사용",
   "description_ko": "AI 검색 엔진이 SEO 스팸과 대량 생산된 구매 가이드를 신뢰할 때 발생하는 추천 품질 문제를 분석합니다.",
   "hn_url": "https://news.hada.io/topic?id=33169",
   "article_url": "https://news.hada.io/topic?id=33169",
   "ai_enrichment": {
     "id": "2026-09-03_sns_geeknews_perplexity_대량생산된_구매_가이드를_소프트웨어_추천의_근",
     "source_lang": "KO",
-    "type_classification": "NEWS",
-    "model_family": "Standalone",
-    "category": "AI 윤리 및 검색 품질",
+    "type_classification": "TECH",
+    "model_family": "Search AI",
+    "category": "AI / Search Engine",
     "programming_lang": "General",
     "root_keywords": [
       "Perplexity",
-      "검색 품질",
-      "SEO 스팸",
-      "소프트웨어 추천"
+      "AI Search",
+      "Citation Quality",
+      "SEO Spam",
+      "RAG Reliability"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.8,
+    "worth_score": 4.0,
     "multilingual": {
       "ko": {
-        "title": "Perplexity, 대량생산된 구매 가이드를 소프트웨어 추천 근거로 채택",
-        "hook": "AI 검색 엔진이 SEO 스팸과 대량 생산된 구매 가이드를 신뢰할 때 발생하는 추천 품질 문제를 분석합니다.",
+        "title": "Perplexity, 대량생산된 저품질 구매 가이드를 소프트웨어 추천 근거로 사용",
+        "hook": "AI 검색 엔진 Perplexity가 SEO 스팸 및 대량 생성된 저품질 구매 가이드를 인용하여 소프트웨어를 추천하는 문제점 분석",
         "key_takeaways": [
-          "AI 검색 엔진의 레퍼런스 선정 과정에서 발생하는 한계점 지적",
-          "자동 생성된 구매 가이드와 SEO 스팸이 추천 결과에 미치는 영향",
-          "LLM 기반 검색의 신뢰성 및 근거 검증의 중요성 대두"
+          "Perplexity가 소프트웨어 추천 시 신뢰하기 어려운 SEO 목적의 대량생산 구매 가이드를 출처로 인용",
+          "AI 검색 엔진의 웹 스크래핑 및 출처 필터링 메커니즘의 한계와 저품질 콘텐츠 오염 문제 부각",
+          "검색 기반 AI 모델(RAG) 개발 시 출처 신뢰도 평가(Source Credibility Scoring)의 중요성 시사"
         ]
       },
       "en": {
-        "title": "Perplexity Relies on Mass-Produced Buying Guides for Software Recommendations",
-        "hook": "Analyzing the recommendation quality issues when AI search engines trust SEO spam and mass-produced guides.",
+        "title": "Perplexity Cites Mass-Produced Buying Guides for Software Recommendations",
+        "hook": "An analysis of issues where AI search engine Perplexity uses SEO spam and low-quality buying guides as citations for software recommendations.",
         "key_takeaways": [
-          "Highlights limitations in AI search engine reference selection",
-          "Examines the impact of auto-generated buying guides on recommendations",
-          "Emphasizes the importance of source verification in LLM-based search"
+          "Perplexity relies on mass-produced, SEO-driven buying guides as sources for software recommendations.",
+          "Highlights limitations in web scraping and source filtering mechanisms in AI search engines.",
+          "Emphasizes the critical need for source credibility scoring in RAG and search-augmented AI systems."
         ]
       },
       "zh": {
-        "title": "Perplexity 将批量生产的购买指南作为软件推荐依据",
-        "hook": "剖析当 AI 搜索引擎将 SEO 垃圾内容与批量购买指南作为信源时，对推荐质量带来的隐患。",
+        "title": "Perplexity 引用大量生成的低质购买指南作为软件推荐依据",
+        "hook": "分析 AI 搜索引擎 Perplexity 使用 SEO 垃圾信息及批量生成的低质购买指南作为软件推荐引用的问题。",
         "key_takeaways": [
-          "指出 AI 搜索引擎在信源选择机制上的局限性",
-          "探讨自动生成的购买指南对推荐结果的实际影响",
-          "凸显基于大模型搜索中来源验证与信赖度的重要性"
+          "Perplexity 在推荐软件时引用了不可靠的、以 SEO 为目的批量生产的购买指南",
+          "突显了 AI 搜索引擎在网页抓取与数据源过滤机制上的局限性",
+          "表明在开发基于搜索的 AI 系统（RAG）时，数据源可信度评估的重要性"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:16:18.097146+09:00"
+    }
   },
   "source_lang": "KO",
   "programming_lang": "General",
   "root_keywords": [
     "Perplexity",
-    "검색 품질",
-    "SEO 스팸",
-    "소프트웨어 추천"
+    "AI Search",
+    "Citation Quality",
+    "SEO Spam",
+    "RAG Reliability"
   ],
-  "title_en": "Perplexity Relies on Mass-Produced Buying Guides for Software Recommendations",
-  "title_zh": "Perplexity 将批量生产的购买指南作为软件推荐依据",
+  "title_en": "Perplexity Cites Mass-Produced Buying Guides for Software Recommendations",
+  "title_zh": "Perplexity 引用大量生成的低质购买指南作为软件推荐依据",
   "hook": "AI 검색 엔진이 SEO 스팸과 대량 생산된 구매 가이드를 신뢰할 때 발생하는 추천 품질 문제를 분석합니다.",
-  "hook_ko": "AI 검색 엔진이 SEO 스팸과 대량 생산된 구매 가이드를 신뢰할 때 발생하는 추천 품질 문제를 분석합니다.",
-  "hook_en": "Analyzing the recommendation quality issues when AI search engines trust SEO spam and mass-produced guides.",
-  "hook_zh": "剖析当 AI 搜索引擎将 SEO 垃圾内容与批量购买指南作为信源时，对推荐质量带来的隐患。",
+  "hook_ko": "AI 검색 엔진 Perplexity가 SEO 스팸 및 대량 생성된 저품질 구매 가이드를 인용하여 소프트웨어를 추천하는 문제점 분석",
+  "hook_en": "An analysis of issues where AI search engine Perplexity uses SEO spam and low-quality buying guides as citations for software recommendations.",
+  "hook_zh": "分析 AI 搜索引擎 Perplexity 使用 SEO 垃圾信息及批量生成的低质购买指南作为软件推荐引用的问题。",
   "description_en": "Analyzing the recommendation quality issues when AI search engines trust SEO spam and mass-produced guides.",
   "description_zh": "剖析当 AI 搜索引擎将 SEO 垃圾内容与批量购买指南作为信源时，对推荐质量带来的隐患。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Perplexity, 대량생산된 저품질 구매 가이드를 소프트웨어 추천 근거로 사용",
+      "hook": "AI 검색 엔진 Perplexity가 SEO 스팸 및 대량 생성된 저품질 구매 가이드를 인용하여 소프트웨어를 추천하는 문제점 분석",
+      "key_takeaways": [
+        "Perplexity가 소프트웨어 추천 시 신뢰하기 어려운 SEO 목적의 대량생산 구매 가이드를 출처로 인용",
+        "AI 검색 엔진의 웹 스크래핑 및 출처 필터링 메커니즘의 한계와 저품질 콘텐츠 오염 문제 부각",
+        "검색 기반 AI 모델(RAG) 개발 시 출처 신뢰도 평가(Source Credibility Scoring)의 중요성 시사"
+      ]
+    },
+    "en": {
+      "title": "Perplexity Cites Mass-Produced Buying Guides for Software Recommendations",
+      "hook": "An analysis of issues where AI search engine Perplexity uses SEO spam and low-quality buying guides as citations for software recommendations.",
+      "key_takeaways": [
+        "Perplexity relies on mass-produced, SEO-driven buying guides as sources for software recommendations.",
+        "Highlights limitations in web scraping and source filtering mechanisms in AI search engines.",
+        "Emphasizes the critical need for source credibility scoring in RAG and search-augmented AI systems."
+      ]
+    },
+    "zh": {
+      "title": "Perplexity 引用大量生成的低质购买指南作为软件推荐依据",
+      "hook": "分析 AI 搜索引擎 Perplexity 使用 SEO 垃圾信息及批量生成的低质购买指南作为软件推荐引用的问题。",
+      "key_takeaways": [
+        "Perplexity 在推荐软件时引用了不可靠的、以 SEO 为目的批量生产的购买指南",
+        "突显了 AI 搜索引擎在网页抓取与数据源过滤机制上的局限性",
+        "表明在开发基于搜索的 AI 系统（RAG）时，数据源可信度评估的重要性"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.343723"
 }

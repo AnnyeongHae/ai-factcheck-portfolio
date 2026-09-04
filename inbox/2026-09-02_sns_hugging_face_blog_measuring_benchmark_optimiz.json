@@ -35,41 +35,44 @@
     "id": "2026-09-02_sns_hugging_face_blog_measuring_benchmark_optimiz",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "category": "음성 인식 최적화",
+    "model_family": "ASR (Automatic Speech Recognition)",
+    "category": "Audio & Speech Processing",
     "programming_lang": "Python",
     "root_keywords": [
+      "ASR",
       "Speech Recognition",
       "Benchmark Optimization",
-      "Hugging Face"
+      "Evaluation Metrics",
+      "Model Overfitting"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.8,
+    "worth_score": 4.2,
     "multilingual": {
       "ko": {
-        "title": "음성 인식 벤치마크 최적화 측정 방법론",
-        "hook": "음성 AI 모델의 성능을 정확하게 측정하고 최적화하는 실무적인 가이드를 제공합니다.",
+        "title": "음성 인식(ASR) 벤치마크 최적화 측정 및 데이터 평가",
+        "hook": "ASR 모델 평가에서 발생하는 벤치마크과적합과 실제 성능 간 격차를 정량적으로 분석한 모니터링 가이드",
         "key_takeaways": [
-          "음성 인식 모델 벤치마크 측정 방법 소개",
-          "최적화 과정에서 발생하는 성능 병목 분석",
-          "Hugging Face 생태계를 활용한 실무 적용 방안"
+          "ASR 모델의 표준 벤치마크 과적합 현상 및 실전 성능 격차 정량 분석",
+          "단순 단어 오류율(WER) 최적화의 한계점 및 부작용 검증",
+          "신뢰성 있는 음성 인식 평가를 위한 다각도 벤치마크 검증 프로토콜 제안"
         ]
       },
       "en": {
         "title": "Measuring Benchmark Optimization in Speech Recognition",
-        "hook": "A practical guide to accurately evaluating and optimizing speech AI model performance.",
+        "hook": "A technical analysis quantifying benchmark optimization and potential overfitting in modern ASR model evaluations.",
         "key_takeaways": [
-          "Overview of speech recognition benchmarking methods",
-          "Analysis of performance bottlenecks during optimization",
-          "Practical implementation using the Hugging Face ecosystem"
+          "Quantitative measurement of benchmark overfitting risks in state-of-the-art ASR models",
+          "Analysis on the limitations of relying solely on standard Word Error Rate (WER)",
+          "Guidelines for establishing reliable and robust speech recognition evaluation protocols"
         ]
       },
       "zh": {
-        "title": "语音识别基准优化测量方法",
-        "hook": "为您提供准确评估和优化语音AI模型性能的实用指南。",
+        "title": "衡量语音识别(ASR)中的基准测试优化",
+        "hook": "定量分析 ASR 模型评估中的基准测试过拟合现象及其对实际应用性能影响的技术报告",
         "key_takeaways": [
-          "介绍语音识别基准测试方法",
-          "分析优化过程中的性能瓶颈",
-          "利用Hugging Face生态系统的实际应用方案"
+          "定量评估主流 ASR 模型在标准基准测试中的过拟合风险",
+          "揭示仅依赖词错误率(WER)指标的局限性与潜在偏差",
+          "提出构建更具鲁棒性与可信度的语音识别评估规范"
         ]
       }
     }
@@ -77,20 +80,53 @@
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
+    "ASR",
     "Speech Recognition",
     "Benchmark Optimization",
-    "Hugging Face"
+    "Evaluation Metrics",
+    "Model Overfitting"
   ],
-  "title_ko": "음성 인식 벤치마크 최적화 측정 방법론",
+  "title_ko": "음성 인식(ASR) 벤치마크 최적화 측정 및 데이터 평가",
   "title_en": "Measuring Benchmark Optimization in Speech Recognition",
-  "title_zh": "语音识别基准优化测量方法",
+  "title_zh": "衡量语音识别(ASR)中的基准测试优化",
   "hook": "음성 AI 모델의 성능을 정확하게 측정하고 최적화하는 실무적인 가이드를 제공합니다.",
-  "hook_ko": "음성 AI 모델의 성능을 정확하게 측정하고 최적화하는 실무적인 가이드를 제공합니다.",
-  "hook_en": "A practical guide to accurately evaluating and optimizing speech AI model performance.",
-  "hook_zh": "为您提供准确评估和优化语音AI模型性能的实用指南。",
+  "hook_ko": "ASR 모델 평가에서 발생하는 벤치마크과적합과 실제 성능 간 격차를 정량적으로 분석한 모니터링 가이드",
+  "hook_en": "A technical analysis quantifying benchmark optimization and potential overfitting in modern ASR model evaluations.",
+  "hook_zh": "定量分析 ASR 模型评估中的基准测试过拟合现象及其对实际应用性能影响的技术报告",
   "description_ko": "음성 AI 모델의 성능을 정확하게 측정하고 최적화하는 실무적인 가이드를 제공합니다.",
   "description_en": "A practical guide to accurately evaluating and optimizing speech AI model performance.",
   "description_zh": "为您提供准确评估和优化语音AI模型性能的实用指南。",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "음성 인식(ASR) 벤치마크 최적화 측정 및 데이터 평가",
+      "hook": "ASR 모델 평가에서 발생하는 벤치마크과적합과 실제 성능 간 격차를 정량적으로 분석한 모니터링 가이드",
+      "key_takeaways": [
+        "ASR 모델의 표준 벤치마크 과적합 현상 및 실전 성능 격차 정량 분석",
+        "단순 단어 오류율(WER) 최적화의 한계점 및 부작용 검증",
+        "신뢰성 있는 음성 인식 평가를 위한 다각도 벤치마크 검증 프로토콜 제안"
+      ]
+    },
+    "en": {
+      "title": "Measuring Benchmark Optimization in Speech Recognition",
+      "hook": "A technical analysis quantifying benchmark optimization and potential overfitting in modern ASR model evaluations.",
+      "key_takeaways": [
+        "Quantitative measurement of benchmark overfitting risks in state-of-the-art ASR models",
+        "Analysis on the limitations of relying solely on standard Word Error Rate (WER)",
+        "Guidelines for establishing reliable and robust speech recognition evaluation protocols"
+      ]
+    },
+    "zh": {
+      "title": "衡量语音识别(ASR)中的基准测试优化",
+      "hook": "定量分析 ASR 模型评估中的基准测试过拟合现象及其对实际应用性能影响的技术报告",
+      "key_takeaways": [
+        "定量评估主流 ASR 模型在标准基准测试中的过拟合风险",
+        "揭示仅依赖词错误率(WER)指标的局限性与潜在偏差",
+        "提出构建更具鲁棒性与可信度的语音识别评估规范"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.137606"
 }

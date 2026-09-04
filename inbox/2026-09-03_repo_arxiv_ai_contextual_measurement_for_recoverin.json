@@ -34,65 +34,96 @@
     "id": "2026-09-03_repo_arxiv_ai_contextual_measurement_for_recoverin",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "AI 사회과학 측정",
+    "model_family": "AI Measurement / Social Data Science",
+    "category": "Applied AI / Econometrics",
     "programming_lang": "Python",
     "root_keywords": [
-      "AI 맥락 측정",
-      "조직 특성",
-      "설문 조사 검증"
+      "AICOME",
+      "Contextual Measurement",
+      "Survey Validation",
+      "Applied AI"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.5,
+    "worth_score": 3.8,
     "multilingual": {
       "ko": {
-        "title": "개인 및 그룹 수준 효과 복원을 위한 AI 맥락 측정: 설문 검증 및 직업적용",
-        "hook": "기존 설문조사에서 누락된 사회·조직·직업적 특성을 인공지능으로 정확하게 측정하는 AICOME 방법론을 제안합니다.",
+        "title": "AI 맥락적 측정을 통한 개인 및 집단 수준 효과 복원: 설문 조사 측정값과의 검증 및 직업 연구에의 적용",
+        "hook": "인공지능을 활용해 기존 설문조사에서 누락된 사회적·조직적 특성을 측정하는 새로운 프레임워크 AICOME 제안.",
         "key_takeaways": [
-          "기존 설문에서 측정하기 어려운 사회적·조직적 특성을 AI로 보완",
-          "설문 조사를 통한 철저한 검증 및 직업 분야 적용 사례 제시",
-          "개인 및 그룹 수준의 인과 효과 복원 능력 입증"
+          "기존 설문조사 데이터의 한계를 극복하기 위해 AI 기반 맥락 측정 방법론(AICOME) 제안",
+          "개인 및 집단 수준의 특성을 정밀하게 복원하고 검증된 설문 측정값과 대조하여 유효성 입증",
+          "직업 분석 및 사회과학 연구에서 AI 기반 데이터 구축의 실질적인 유용성 제시"
         ]
       },
       "en": {
-        "title": "AI Contextual Measurement for Recovering Individual and Group-Level Effects",
-        "hook": "Introducing AICOME, a validated AI-driven approach to measure missing social and organizational characteristics.",
+        "title": "AI Contextual Measurement for Recovering Individual and Group-Level Effects: Validation Against Survey Measures and an Occupational Application",
+        "hook": "Introducing AICOME, a novel AI-driven framework for measuring social and organizational characteristics missing from conventional surveys.",
         "key_takeaways": [
-          "Constructs measures of social and organizational traits absent in surveys",
-          "Validated rigorously against traditional survey measures",
-          "Recovers individual and group-level effects effectively"
+          "Proposes AICOME to reconstruct unobserved social, organizational, and occupational features using AI.",
+          "Validates AI-generated contextual metrics against established empirical survey measures.",
+          "Demonstrates practical applications in occupational research and group-level effect estimation."
         ]
       },
       "zh": {
-        "title": "用于恢复个体与群体层面效应的AI上下文测量",
-        "hook": "提出AICOME方法，利用人工智能构建传统调查中缺少的社会、组织和职业特征测量体系。",
+        "title": "用于恢复个人和群体效应的 AI 上下文测量：基于调查测量的验证及职业应用",
+        "hook": "提出 AICOME 框架，利用 AI 测量传统调查中缺失的社会与组织特征。",
         "key_takeaways": [
-          "利用AI构建传统问卷中未涵盖的社会和组织特征指标",
-          "通过传统调查数据进行严格验证与职业应用",
-          "有效恢复个体和群体层面的效应"
+          "提出 AICOME 方法，利用 AI 填补传统社会与组织调查的数据空白",
+          "在个人与群体层面严格验证 AI 生成指标与传统调查测量的一致性",
+          "展示了 AI 上下文测量在职业分析及社会科学研究中的实际应用潜力"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:25:48.613953+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "AI 맥락 측정",
-    "조직 특성",
-    "설문 조사 검증"
+    "AICOME",
+    "Contextual Measurement",
+    "Survey Validation",
+    "Applied AI"
   ],
-  "title_ko": "개인 및 그룹 수준 효과 복원을 위한 AI 맥락 측정: 설문 검증 및 직업적용",
-  "title_en": "AI Contextual Measurement for Recovering Individual and Group-Level Effects",
-  "title_zh": "用于恢复个体与群体层面效应的AI上下文测量",
+  "title_ko": "AI 맥락적 측정을 통한 개인 및 집단 수준 효과 복원: 설문 조사 측정값과의 검증 및 직업 연구에의 적용",
+  "title_en": "AI Contextual Measurement for Recovering Individual and Group-Level Effects: Validation Against Survey Measures and an Occupational Application",
+  "title_zh": "用于恢复个人和群体效应的 AI 上下文测量：基于调查测量的验证及职业应用",
   "hook": "기존 설문조사에서 누락된 사회·조직·직업적 특성을 인공지능으로 정확하게 측정하는 AICOME 방법론을 제안합니다.",
-  "hook_ko": "기존 설문조사에서 누락된 사회·조직·직업적 특성을 인공지능으로 정확하게 측정하는 AICOME 방법론을 제안합니다.",
-  "hook_en": "Introducing AICOME, a validated AI-driven approach to measure missing social and organizational characteristics.",
-  "hook_zh": "提出AICOME方法，利用人工智能构建传统调查中缺少的社会、组织和职业特征测量体系。",
+  "hook_ko": "인공지능을 활용해 기존 설문조사에서 누락된 사회적·조직적 특성을 측정하는 새로운 프레임워크 AICOME 제안.",
+  "hook_en": "Introducing AICOME, a novel AI-driven framework for measuring social and organizational characteristics missing from conventional surveys.",
+  "hook_zh": "提出 AICOME 框架，利用 AI 测量传统调查中缺失的社会与组织特征。",
   "description_ko": "기존 설문조사에서 누락된 사회·조직·직업적 특성을 인공지능으로 정확하게 측정하는 AICOME 방법론을 제안합니다.",
   "description_en": "Introducing AICOME, a validated AI-driven approach to measure missing social and organizational characteristics.",
   "description_zh": "提出AICOME方法，利用人工智能构建传统调查中缺少的社会、组织和职业特征测量体系。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "AI 맥락적 측정을 통한 개인 및 집단 수준 효과 복원: 설문 조사 측정값과의 검증 및 직업 연구에의 적용",
+      "hook": "인공지능을 활용해 기존 설문조사에서 누락된 사회적·조직적 특성을 측정하는 새로운 프레임워크 AICOME 제안.",
+      "key_takeaways": [
+        "기존 설문조사 데이터의 한계를 극복하기 위해 AI 기반 맥락 측정 방법론(AICOME) 제안",
+        "개인 및 집단 수준의 특성을 정밀하게 복원하고 검증된 설문 측정값과 대조하여 유효성 입증",
+        "직업 분석 및 사회과학 연구에서 AI 기반 데이터 구축의 실질적인 유용성 제시"
+      ]
+    },
+    "en": {
+      "title": "AI Contextual Measurement for Recovering Individual and Group-Level Effects: Validation Against Survey Measures and an Occupational Application",
+      "hook": "Introducing AICOME, a novel AI-driven framework for measuring social and organizational characteristics missing from conventional surveys.",
+      "key_takeaways": [
+        "Proposes AICOME to reconstruct unobserved social, organizational, and occupational features using AI.",
+        "Validates AI-generated contextual metrics against established empirical survey measures.",
+        "Demonstrates practical applications in occupational research and group-level effect estimation."
+      ]
+    },
+    "zh": {
+      "title": "用于恢复个人和群体效应的 AI 上下文测量：基于调查测量的验证及职业应用",
+      "hook": "提出 AICOME 框架，利用 AI 测量传统调查中缺失的社会与组织特征。",
+      "key_takeaways": [
+        "提出 AICOME 方法，利用 AI 填补传统社会与组织调查的数据空白",
+        "在个人与群体层面严格验证 AI 生成指标与传统调查测量的一致性",
+        "展示了 AI 上下文测量在职业分析及社会科学研究中的实际应用潜力"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.153134"
 }

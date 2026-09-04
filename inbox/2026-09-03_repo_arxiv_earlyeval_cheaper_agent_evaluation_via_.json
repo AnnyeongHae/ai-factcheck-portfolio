@@ -34,66 +34,99 @@
   "ai_enrichment": {
     "id": "2026-09-03_repo_arxiv_earlyeval_cheaper_agent_evaluation_via_",
     "source_lang": "EN",
-    "type_classification": "AGENT",
-    "model_family": "Standalone",
-    "category": "LLM 에이전트 평가 및 최적화",
+    "type_classification": "TECH",
+    "model_family": "LLM Evaluation / Agent Systems",
+    "category": "AI / LLM Agents",
     "programming_lang": "Python",
     "root_keywords": [
+      "LLM Agents",
       "Agent Evaluation",
       "Early Outcome Prediction",
-      "Cost Optimization"
+      "Cost Reduction",
+      "Benchmarking"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.7,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "EarlyEval: 조기 결과 예측을 통한 저렴한 LLM 에이전트 평가 방법",
-        "hook": "수천 달러에 달하는 LLM 에이전트 벤치마크 평가 비용을 획기적으로 절감할 수 있는 조기 예측 기법입니다.",
+        "title": "EarlyEval: 조기 결과 예측을 통한 저비용 LLM 에이전트 평가",
+        "hook": "LLM 에이전트 벤치마크 평가 비용을 획기적으로 줄이는 조기 결과 예측 기법",
         "key_takeaways": [
-          "프론티어 모델 기반 에이전트 벤치마크 평가 비용의 높은 진입 장벽 완화",
-          "에이전트 실행의 조기 결과 예측(Early Outcome Prediction)을 통한 비용 절감",
-          "에이전트 개발 주기를 단축하고 효율적인 반복 실험 지원"
+          "에이전트 실행 중간 단계에서 최종 성공/실패 여부를 예측하여 불필요한 추론 비용 절감",
+          "고비용 프론티어 모델의 평가 예산을 크게 단축하면서도 높은 평가 정확도 유지",
+          "복잡한 자율 에이전트 벤치마크 평가의 신속한 반복 실험 가능"
         ]
       },
       "en": {
         "title": "EarlyEval: Cheaper Agent Evaluation via Early Outcome Prediction",
-        "hook": "Slash the prohibitive costs of running frontier LLM agent benchmarks through smart early outcome prediction.",
+        "hook": "Dramatically reduces LLM agent benchmarking costs by predicting final task outcomes at early intermediate steps.",
         "key_takeaways": [
-          "Addresses the skyrocketing costs associated with evaluating LLM agentic benchmarks",
-          "Leverages early outcome prediction to bypass full-run computational overheads",
-          "Accelerates agent development cycles with efficient and budget-friendly testing"
+          "Predicts task success or failure early in the agent execution trajectory to truncate unnecessary inference steps.",
+          "Significantly cuts evaluation budgets for frontier LLMs while preserving benchmark accuracy.",
+          "Facilitates faster, more practical iterations when developing complex autonomous agents."
         ]
       },
       "zh": {
-        "title": "EarlyEval：通过早期结果预测实现低成本的智能体评估",
-        "hook": "利用早期结果预测大幅降低运行前沿大模型智能体基准测试的高昂成本。",
+        "title": "EarlyEval：通过早期结果预测降低 LLM Agent 评估成本",
+        "hook": "通过在中间步骤预测任务最终结果，大幅降低 LLM Agent 基准测试评估成本",
         "key_takeaways": [
-          "有效解决大模型智能体基准评估成本高昂（动辄数百上千美元）的痛点",
-          "通过早期结果预测（Early Outcome Prediction）大幅减少计算开销",
-          "赋能开发者以经济高效的方式加速智能体的迭代与评估"
+          "在 Agent 执行轨迹的前期预测成功/失败，省去不必要的后续推理开销",
+          "在保持评估准确性的同时，显著缩减前沿大模型的评估成本与时间",
+          "使复杂自主 Agent 基准测试的快速迭代与频繁评估成为可能"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:25:36.375999+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
+    "LLM Agents",
     "Agent Evaluation",
     "Early Outcome Prediction",
-    "Cost Optimization"
+    "Cost Reduction",
+    "Benchmarking"
   ],
-  "title_ko": "EarlyEval: 조기 결과 예측을 통한 저렴한 LLM 에이전트 평가 방법",
+  "title_ko": "EarlyEval: 조기 결과 예측을 통한 저비용 LLM 에이전트 평가",
   "title_en": "EarlyEval: Cheaper Agent Evaluation via Early Outcome Prediction",
-  "title_zh": "EarlyEval：通过早期结果预测实现低成本的智能体评估",
+  "title_zh": "EarlyEval：通过早期结果预测降低 LLM Agent 评估成本",
   "hook": "수천 달러에 달하는 LLM 에이전트 벤치마크 평가 비용을 획기적으로 절감할 수 있는 조기 예측 기법입니다.",
-  "hook_ko": "수천 달러에 달하는 LLM 에이전트 벤치마크 평가 비용을 획기적으로 절감할 수 있는 조기 예측 기법입니다.",
-  "hook_en": "Slash the prohibitive costs of running frontier LLM agent benchmarks through smart early outcome prediction.",
-  "hook_zh": "利用早期结果预测大幅降低运行前沿大模型智能体基准测试的高昂成本。",
+  "hook_ko": "LLM 에이전트 벤치마크 평가 비용을 획기적으로 줄이는 조기 결과 예측 기법",
+  "hook_en": "Dramatically reduces LLM agent benchmarking costs by predicting final task outcomes at early intermediate steps.",
+  "hook_zh": "通过在中间步骤预测任务最终结果，大幅降低 LLM Agent 基准测试评估成本",
   "description_ko": "수천 달러에 달하는 LLM 에이전트 벤치마크 평가 비용을 획기적으로 절감할 수 있는 조기 예측 기법입니다.",
   "description_en": "Slash the prohibitive costs of running frontier LLM agent benchmarks through smart early outcome prediction.",
   "description_zh": "利用早期结果预测大幅降低运行前沿大模型智能体基准测试的高昂成本。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "EarlyEval: 조기 결과 예측을 통한 저비용 LLM 에이전트 평가",
+      "hook": "LLM 에이전트 벤치마크 평가 비용을 획기적으로 줄이는 조기 결과 예측 기법",
+      "key_takeaways": [
+        "에이전트 실행 중간 단계에서 최종 성공/실패 여부를 예측하여 불필요한 추론 비용 절감",
+        "고비용 프론티어 모델의 평가 예산을 크게 단축하면서도 높은 평가 정확도 유지",
+        "복잡한 자율 에이전트 벤치마크 평가의 신속한 반복 실험 가능"
+      ]
+    },
+    "en": {
+      "title": "EarlyEval: Cheaper Agent Evaluation via Early Outcome Prediction",
+      "hook": "Dramatically reduces LLM agent benchmarking costs by predicting final task outcomes at early intermediate steps.",
+      "key_takeaways": [
+        "Predicts task success or failure early in the agent execution trajectory to truncate unnecessary inference steps.",
+        "Significantly cuts evaluation budgets for frontier LLMs while preserving benchmark accuracy.",
+        "Facilitates faster, more practical iterations when developing complex autonomous agents."
+      ]
+    },
+    "zh": {
+      "title": "EarlyEval：通过早期结果预测降低 LLM Agent 评估成本",
+      "hook": "通过在中间步骤预测任务最终结果，大幅降低 LLM Agent 基准测试评估成本",
+      "key_takeaways": [
+        "在 Agent 执行轨迹的前期预测成功/失败，省去不必要的后续推理开销",
+        "在保持评估准确性的同时，显著缩减前沿大模型的评估成本与时间",
+        "使复杂自主 Agent 基准测试的快速迭代与频繁评估成为可能"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.173873"
 }

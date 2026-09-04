@@ -34,67 +34,98 @@
   "ai_enrichment": {
     "id": "2026-09-02_sns_hugging_face_blog_granite_42_llms_how_theyre_",
     "source_lang": "EN",
-    "type_classification": "MODEL",
+    "type_classification": "TECH",
     "model_family": "Granite",
-    "category": "LLM 아키텍처 및 학습 방법론",
+    "category": "AI/ML",
     "programming_lang": "Python",
     "root_keywords": [
       "Granite 4.2",
+      "IBM",
       "LLM Architecture",
       "Model Training"
     ],
     "recommended_tag": "🔥 강력 추천 (필독)",
-    "worth_score": 4.6,
+    "worth_score": 4.5,
     "multilingual": {
       "ko": {
-        "title": "Granite 4.2 LLM 모델 아키텍처 및 구축 과정 전격 해부",
-        "hook": "최신 Granite 4.2 대형언어모델이 어떤 데이터와 철학으로 설계되었는지 그 내부를 들여다봅니다.",
+        "title": "Granite 4.2 LLM 구축 과정 및 아키텍처 상세 분석",
+        "hook": "IBM Granite 4.2 오픈 소스 LLM의 데이터 전처리, 아키텍처 설계 및 훈련 파이프라인의 핵심 기술 공개",
         "key_takeaways": [
-          "Granite 4.2 모델의 핵심 설계 아키텍처",
-          "효율적인 엔터프라이즈 LLM 구축 방법론",
-          "학습 데이터 및 최적화 기법 소개"
+          "IBM Granite 4.2 아키텍처 고도화 및 학습 파이프라인 상세 기술",
+          "엔터프라이즈 환경에 최적화된 데이터 필터링 및 전처리 전략",
+          "성능 향상을 위한 미세조정(Fine-Tuning) 및 정렬(Alignment) 기법 분석"
         ]
       },
       "en": {
-        "title": "Granite 4.2 LLMs: How They're Built",
-        "hook": "An inside look at the architecture, data strategy, and engineering methodologies behind the Granite 4.2 LLM series.",
+        "title": "Inside Granite 4.2 LLMs: Architectural and Training Breakthroughs",
+        "hook": "Deep dive into the architecture, data curation, and training pipeline of IBM's open-source Granite 4.2 model family.",
         "key_takeaways": [
-          "Core architectural design of Granite 4.2 LLMs",
-          "Methodologies for building efficient enterprise-grade models",
-          "Insights into training data curation and optimization"
+          "Detailed architectural modifications and training pipeline optimizations in Granite 4.2",
+          "Data filtering and curation strategies tailored for enterprise use cases",
+          "Fine-tuning and alignment techniques driving performance improvements"
         ]
       },
       "zh": {
-        "title": "Granite 4.2大语言模型：它们是如何构建的",
-        "hook": "深入剖析Granite 4.2大模型系列背后的架构设计、数据策略与工程方法论。",
+        "title": "Granite 4.2 大语言模型构建全解析：架构与训练细节",
+        "hook": "深度解析 IBM 开源 Granite 4.2 大模型的数据清洗、架构设计与训练全流程。",
         "key_takeaways": [
-          "Granite 4.2的核心架构设计",
-          "构建高效企业级大模型的方法论",
-          "训练数据策划与优化洞察"
+          "Granite 4.2 模型架构改进与训练管道优化细节",
+          "面向企业级应用的高效数据过滤与预处理策略",
+          "提升模型性能的微调与对齐技术"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-02T16:47:53.698834+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
     "Granite 4.2",
+    "IBM",
     "LLM Architecture",
     "Model Training"
   ],
-  "title_ko": "Granite 4.2 LLM 모델 아키텍처 및 구축 과정 전격 해부",
-  "title_en": "Granite 4.2 LLMs: How They're Built",
-  "title_zh": "Granite 4.2大语言模型：它们是如何构建的",
+  "title_ko": "Granite 4.2 LLM 구축 과정 및 아키텍처 상세 분석",
+  "title_en": "Inside Granite 4.2 LLMs: Architectural and Training Breakthroughs",
+  "title_zh": "Granite 4.2 大语言模型构建全解析：架构与训练细节",
   "hook": "최신 Granite 4.2 대형언어모델이 어떤 데이터와 철학으로 설계되었는지 그 내부를 들여다봅니다.",
-  "hook_ko": "최신 Granite 4.2 대형언어모델이 어떤 데이터와 철학으로 설계되었는지 그 내부를 들여다봅니다.",
-  "hook_en": "An inside look at the architecture, data strategy, and engineering methodologies behind the Granite 4.2 LLM series.",
-  "hook_zh": "深入剖析Granite 4.2大模型系列背后的架构设计、数据策略与工程方法论。",
+  "hook_ko": "IBM Granite 4.2 오픈 소스 LLM의 데이터 전처리, 아키텍처 설계 및 훈련 파이프라인의 핵심 기술 공개",
+  "hook_en": "Deep dive into the architecture, data curation, and training pipeline of IBM's open-source Granite 4.2 model family.",
+  "hook_zh": "深度解析 IBM 开源 Granite 4.2 大模型的数据清洗、架构设计与训练全流程。",
   "description_ko": "최신 Granite 4.2 대형언어모델이 어떤 데이터와 철학으로 설계되었는지 그 내부를 들여다봅니다.",
   "description_en": "An inside look at the architecture, data strategy, and engineering methodologies behind the Granite 4.2 LLM series.",
   "description_zh": "深入剖析Granite 4.2大模型系列背后的架构设计、数据策略与工程方法论。",
   "model_family": "Granite",
   "harvested_at": "2026-09-02T12:00:00+09:00",
-  "published_at": "2026-09-02T12:00:00+09:00"
+  "published_at": "2026-09-02T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "Granite 4.2 LLM 구축 과정 및 아키텍처 상세 분석",
+      "hook": "IBM Granite 4.2 오픈 소스 LLM의 데이터 전처리, 아키텍처 설계 및 훈련 파이프라인의 핵심 기술 공개",
+      "key_takeaways": [
+        "IBM Granite 4.2 아키텍처 고도화 및 학습 파이프라인 상세 기술",
+        "엔터프라이즈 환경에 최적화된 데이터 필터링 및 전처리 전략",
+        "성능 향상을 위한 미세조정(Fine-Tuning) 및 정렬(Alignment) 기법 분석"
+      ]
+    },
+    "en": {
+      "title": "Inside Granite 4.2 LLMs: Architectural and Training Breakthroughs",
+      "hook": "Deep dive into the architecture, data curation, and training pipeline of IBM's open-source Granite 4.2 model family.",
+      "key_takeaways": [
+        "Detailed architectural modifications and training pipeline optimizations in Granite 4.2",
+        "Data filtering and curation strategies tailored for enterprise use cases",
+        "Fine-tuning and alignment techniques driving performance improvements"
+      ]
+    },
+    "zh": {
+      "title": "Granite 4.2 大语言模型构建全解析：架构与训练细节",
+      "hook": "深度解析 IBM 开源 Granite 4.2 大模型的数据清洗、架构设计与训练全流程。",
+      "key_takeaways": [
+        "Granite 4.2 模型架构改进与训练管道优化细节",
+        "面向企业级应用的高效数据过滤与预处理策略",
+        "提升模型性能的微调与对齐技术"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.130302"
 }

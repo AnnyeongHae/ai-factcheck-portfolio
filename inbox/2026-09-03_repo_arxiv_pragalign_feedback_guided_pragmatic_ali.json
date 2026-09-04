@@ -34,67 +34,98 @@
     "id": "2026-09-03_repo_arxiv_pragalign_feedback_guided_pragmatic_ali",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
-    "category": "합성 데이터 생성 및 대화 정렬",
+    "model_family": "LLM Alignment / Dialogue Generation",
+    "category": "NLP / Dialogue Systems",
     "programming_lang": "Python",
     "root_keywords": [
-      "Synthetic Dialogue",
       "Pragmatic Alignment",
-      "Feedback-Guided",
-      "Conversational AI"
+      "Synthetic Dialogue",
+      "Controlled Generation",
+      "Feedback Guidance",
+      "Dialogue Systems"
     ],
     "recommended_tag": "📝 기술 참고",
-    "worth_score": 3.8,
+    "worth_score": 3.9,
     "multilingual": {
       "ko": {
-        "title": "PragAlign: 피드백 기반 실용적 정렬을 활용한 제어된 합성 대화 생성",
-        "hook": "프라이버시 제한 환경을 위한 자연스럽고 의도가 보존된 합성 대화 생성 기법을 확인하세요.",
+        "title": "PragAlign: 제어된 합성 대화 생성을 위한 피드백 기반 화용론적 정렬",
+        "hook": "개인정보 보호 제약이 있는 서비스 환경을 위해 의도와 정서, 흐름을 보존하는 합성 대화 생성 프레임워크",
         "key_takeaways": [
-          "커뮤니케이션 의도 및 감정적 의미 보존",
-          "피드백 기반 정렬을 통한 대화 흐름 최적화",
-          "프라이버시 제한 서비스 환경에서의 합성 데이터 활용"
+          "피드백 기반 가이드를 통해 대화의 화용론적 특성(Pragmatic Alignment)을 정밀하게 보존",
+          "의사소통 의도, 정서적 의미, 자연스러운 대화 흐름을 복원하여 데이터 품질 향상",
+          "개인정보 보호 제약이 엄격한 도메인에서의 연구 및 데이터 세트 증강에 기여"
         ]
       },
       "en": {
         "title": "PragAlign: Feedback-Guided Pragmatic Alignment for Controlled Synthetic Dialogue Generation",
-        "hook": "Explore a novel technique for generating natural, intent-preserving synthetic dialogues in privacy-restricted settings.",
+        "hook": "A feedback-guided approach ensuring communicative intent and pragmatic fidelity in synthetic dialogue generation.",
         "key_takeaways": [
-          "Preserves communicative intent and affective meaning",
-          "Optimizes dialogue flow via feedback-guided alignment",
-          "Enhances synthetic data utility for privacy-sensitive services"
+          "Proposes PragAlign to achieve pragmatic alignment in synthetic conversations",
+          "Preserves communicative intent, emotional nuance, and natural dialogue flow",
+          "Enables high-quality synthetic data generation for privacy-restricted domains"
         ]
       },
       "zh": {
-        "title": "PragAlign：利用反馈引导的语用对齐实现受控的合成对话生成",
-        "hook": "了解如何在隐私受限的环境中生成自然且保留意图的合成对话。",
+        "title": "PragAlign：用于受控合成对话生成的反馈引导语用对齐",
+        "hook": "基于反馈引导机制，在隐私受限场景下生成保留沟通意图与语用特征的高质量合成对话。",
         "key_takeaways": [
-          "保持交际意图和情感意义",
-          "通过反馈引导的对齐优化对话流程",
-          "在隐私敏感的服务场景中应用合成数据"
+          "提出 PragAlign 框架，以实现合成对话的语用特征精准对齐",
+          "有效保留沟通意图、情感表达与自然的对话流动",
+          "为受隐私限制的场景提供可靠的高质量合成对话数据增强方案"
         ]
       }
-    },
-    "enriched_by_model": "gemini-flash-lite-latest",
-    "enriched_at": "2026-09-03T13:17:31.850727+09:00"
+    }
   },
   "source_lang": "EN",
   "programming_lang": "Python",
   "root_keywords": [
-    "Synthetic Dialogue",
     "Pragmatic Alignment",
-    "Feedback-Guided",
-    "Conversational AI"
+    "Synthetic Dialogue",
+    "Controlled Generation",
+    "Feedback Guidance",
+    "Dialogue Systems"
   ],
-  "title_ko": "PragAlign: 피드백 기반 실용적 정렬을 활용한 제어된 합성 대화 생성",
+  "title_ko": "PragAlign: 제어된 합성 대화 생성을 위한 피드백 기반 화용론적 정렬",
   "title_en": "PragAlign: Feedback-Guided Pragmatic Alignment for Controlled Synthetic Dialogue Generation",
-  "title_zh": "PragAlign：利用反馈引导的语用对齐实现受控的合成对话生成",
+  "title_zh": "PragAlign：用于受控合成对话生成的反馈引导语用对齐",
   "hook": "프라이버시 제한 환경을 위한 자연스럽고 의도가 보존된 합성 대화 생성 기법을 확인하세요.",
-  "hook_ko": "프라이버시 제한 환경을 위한 자연스럽고 의도가 보존된 합성 대화 생성 기법을 확인하세요.",
-  "hook_en": "Explore a novel technique for generating natural, intent-preserving synthetic dialogues in privacy-restricted settings.",
-  "hook_zh": "了解如何在隐私受限的环境中生成自然且保留意图的合成对话。",
+  "hook_ko": "개인정보 보호 제약이 있는 서비스 환경을 위해 의도와 정서, 흐름을 보존하는 합성 대화 생성 프레임워크",
+  "hook_en": "A feedback-guided approach ensuring communicative intent and pragmatic fidelity in synthetic dialogue generation.",
+  "hook_zh": "基于反馈引导机制，在隐私受限场景下生成保留沟通意图与语用特征的高质量合成对话。",
   "description_ko": "프라이버시 제한 환경을 위한 자연스럽고 의도가 보존된 합성 대화 생성 기법을 확인하세요.",
   "description_en": "Explore a novel technique for generating natural, intent-preserving synthetic dialogues in privacy-restricted settings.",
   "description_zh": "了解如何在隐私受限的环境中生成自然且保留意图的合成对话。",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "multilingual": {
+    "ko": {
+      "title": "PragAlign: 제어된 합성 대화 생성을 위한 피드백 기반 화용론적 정렬",
+      "hook": "개인정보 보호 제약이 있는 서비스 환경을 위해 의도와 정서, 흐름을 보존하는 합성 대화 생성 프레임워크",
+      "key_takeaways": [
+        "피드백 기반 가이드를 통해 대화의 화용론적 특성(Pragmatic Alignment)을 정밀하게 보존",
+        "의사소통 의도, 정서적 의미, 자연스러운 대화 흐름을 복원하여 데이터 품질 향상",
+        "개인정보 보호 제약이 엄격한 도메인에서의 연구 및 데이터 세트 증강에 기여"
+      ]
+    },
+    "en": {
+      "title": "PragAlign: Feedback-Guided Pragmatic Alignment for Controlled Synthetic Dialogue Generation",
+      "hook": "A feedback-guided approach ensuring communicative intent and pragmatic fidelity in synthetic dialogue generation.",
+      "key_takeaways": [
+        "Proposes PragAlign to achieve pragmatic alignment in synthetic conversations",
+        "Preserves communicative intent, emotional nuance, and natural dialogue flow",
+        "Enables high-quality synthetic data generation for privacy-restricted domains"
+      ]
+    },
+    "zh": {
+      "title": "PragAlign：用于受控合成对话生成的反馈引导语用对齐",
+      "hook": "基于反馈引导机制，在隐私受限场景下生成保留沟通意图与语用特征的高质量合成对话。",
+      "key_takeaways": [
+        "提出 PragAlign 框架，以实现合成对话的语用特征精准对齐",
+        "有效保留沟通意图、情感表达与自然的对话流动",
+        "为受隐私限制的场景提供可靠的高质量合成对话数据增强方案"
+      ]
+    }
+  },
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.196660"
 }

@@ -31,5 +31,97 @@
   ],
   "status": "PENDING_REVIEW",
   "harvested_at": "2026-09-03T12:00:00+09:00",
-  "published_at": "2026-09-03T12:00:00+09:00"
+  "published_at": "2026-09-03T12:00:00+09:00",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_linoytsflux2_klein_face_swap",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "FLUX",
+    "category": "Computer Vision",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "FLUX",
+      "Face Swap",
+      "Gradio",
+      "Diffusion Models",
+      "Image-to-Image"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "FLUX.2 기반 Klein 얼굴 교체(Face Swap) Hugging Face Space",
+        "hook": "FLUX 모델 기반으로 고품질 얼굴 교체 기능을 구현한 대화형 Gradio 데모",
+        "key_takeaways": [
+          "FLUX/Klein 아키텍처를 활용한 실시간 고화질 Face Swap 구현",
+          "Gradio SDK 기반의 직관적인 대화형 웹 인터페이스 제공",
+          "500개 이상의 좋아요를 받은 검증된 오픈소스 이미지 생성 데모"
+        ]
+      },
+      "en": {
+        "title": "Flux2 Klein Face Swap - Hugging Face Space",
+        "hook": "Interactive Gradio demo leveraging FLUX architecture for high-fidelity face swapping",
+        "key_takeaways": [
+          "Implements high-quality face swapping powered by FLUX/Klein models",
+          "Provides an intuitive interactive web interface built with Gradio SDK",
+          "Popular community demo with over 500 likes on Hugging Face"
+        ]
+      },
+      "zh": {
+        "title": "基于 FLUX.2/Klein 的换脸 Gradio 交互式演示",
+        "hook": "利用 FLUX 模型架构实现的高保真度人脸替换 Gradio 交互 Demo",
+        "key_takeaways": [
+          "基于 FLUX/Klein 架构的高质量 AI 换脸效果",
+          "使用 Gradio SDK 构建的易用交互式 Web 界面",
+          "获得 500+ Likes 的热门 Hugging Face 开源 AI 演示"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "FLUX.2 기반 Klein 얼굴 교체(Face Swap) Hugging Face Space",
+      "hook": "FLUX 모델 기반으로 고품질 얼굴 교체 기능을 구현한 대화형 Gradio 데모",
+      "key_takeaways": [
+        "FLUX/Klein 아키텍처를 활용한 실시간 고화질 Face Swap 구현",
+        "Gradio SDK 기반의 직관적인 대화형 웹 인터페이스 제공",
+        "500개 이상의 좋아요를 받은 검증된 오픈소스 이미지 생성 데모"
+      ]
+    },
+    "en": {
+      "title": "Flux2 Klein Face Swap - Hugging Face Space",
+      "hook": "Interactive Gradio demo leveraging FLUX architecture for high-fidelity face swapping",
+      "key_takeaways": [
+        "Implements high-quality face swapping powered by FLUX/Klein models",
+        "Provides an intuitive interactive web interface built with Gradio SDK",
+        "Popular community demo with over 500 likes on Hugging Face"
+      ]
+    },
+    "zh": {
+      "title": "基于 FLUX.2/Klein 的换脸 Gradio 交互式演示",
+      "hook": "利用 FLUX 模型架构实现的高保真度人脸替换 Gradio 交互 Demo",
+      "key_takeaways": [
+        "基于 FLUX/Klein 架构的高质量 AI 换脸效果",
+        "使用 Gradio SDK 构建的易用交互式 Web 界面",
+        "获得 500+ Likes 的热门 Hugging Face 开源 AI 演示"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "FLUX",
+    "Face Swap",
+    "Gradio",
+    "Diffusion Models",
+    "Image-to-Image"
+  ],
+  "title_ko": "FLUX.2 기반 Klein 얼굴 교체(Face Swap) Hugging Face Space",
+  "hook_ko": "FLUX 모델 기반으로 고품질 얼굴 교체 기능을 구현한 대화형 Gradio 데모",
+  "title_en": "Flux2 Klein Face Swap - Hugging Face Space",
+  "hook_en": "Interactive Gradio demo leveraging FLUX architecture for high-fidelity face swapping",
+  "title_zh": "基于 FLUX.2/Klein 的换脸 Gradio 交互式演示",
+  "hook_zh": "利用 FLUX 模型架构实现的高保真度人脸替换 Gradio 交互 Demo",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T13:06:57.274727"
 }
