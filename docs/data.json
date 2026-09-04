@@ -10,8 +10,8 @@
   "avg_confidence": 96.2,
   "models_total_count": 192,
   "news_total_count": 311,
-  "inbox_total_count": 647,
-  "all_inbox_count": 658,
+  "inbox_total_count": 649,
+  "all_inbox_count": 660,
   "admin_stats": {
     "endpoints": [
       {
@@ -46,6 +46,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T09:43:05.792417",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.29
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 84,
+            "duration_sec": 0.35
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.91
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 11.9
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.6
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.17
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 1.11
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.26
+          }
+        },
+        "summary": {
+          "total_fetched": 258,
+          "updated_count": 1,
+          "new_saved": 2,
+          "duplicates_skipped": 255,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-04T08:58:56.023496",
         "date": "2026-09-04",
@@ -1582,111 +1635,58 @@
           "duplicates_skipped": 133,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T06:00:11.191558",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.22
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.23
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 1.06
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 24,
-            "duration_sec": 13.86
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.27
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.16
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.8
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.23
-          }
-        },
-        "summary": {
-          "total_fetched": 164,
-          "updated_count": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 164,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T08:58:56.023496",
+      "timestamp": "2026-09-04T09:43:05.792417",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.21
+          "duration_sec": 0.29
         },
         "hf_spaces": {
           "status": "SUCCESS",
-          "items_found": 83,
-          "duration_sec": 0.28
+          "items_found": 84,
+          "duration_sec": 0.35
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.92
+          "duration_sec": 0.91
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 11.1
+          "duration_sec": 11.9
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.27
+          "duration_sec": 0.6
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.16
+          "duration_sec": 0.17
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.13
+          "duration_sec": 1.11
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.1
+          "duration_sec": 0.26
         }
       },
       "summary": {
-        "total_fetched": 257,
+        "total_fetched": 258,
         "updated_count": 1,
-        "new_saved": 3,
-        "duplicates_skipped": 253,
+        "new_saved": 2,
+        "duplicates_skipped": 255,
         "errors": 0
       }
     }
@@ -1756,9 +1756,9 @@
       "slot": "18시",
       "hour": 18,
       "range": "18:00 - 20:59",
-      "inbox_count": 0,
+      "inbox_count": 2,
       "model_count": 0,
-      "news_count": 0,
+      "news_count": 2,
       "is_current": true,
       "is_future": false
     },
@@ -1777,7 +1777,7 @@
     "window_label": "18:00 ~ 24:00 KST",
     "window_period": "저녁 엔지니어링 & 데일리 결산",
     "today_kst": "2026-09-04",
-    "updated_at": "18:41 KST",
+    "updated_at": "18:46 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
@@ -1785,10 +1785,10 @@
     ],
     "tags": [
       "#MoE_Architecture",
-      "#Autonomous_Agent",
       "#SoTA_Models",
-      "#High_Engagement",
-      "#Local_LLM"
+      "#Autonomous_Agent",
+      "#Local_LLM",
+      "#High_Engagement"
     ]
   },
   "dow_stats": [],
@@ -46832,8 +46832,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 269 pts | Comments: 217 | VC isn't VC anymore",
-      "viral_metric": "🔥 269 HN Points",
+      "description": "HN Score: 271 pts | Comments: 218 | VC isn't VC anymore",
+      "viral_metric": "🔥 271 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -46841,13 +46841,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 269,
-          "display": "🔥 269 HN Points",
+          "value": 271,
+          "display": "🔥 271 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 261,
-        "delta_display": "+261",
-        "growth_rate_pct": 3262.5,
+        "delta": 263,
+        "delta_display": "+263",
+        "growth_rate_pct": 3287.5,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -69773,6 +69773,76 @@
     }
   ],
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-04_repo_github_lnkiaim3e_canvas",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T09:43:22.041216",
+      "published_at": "2026-09-04T09:43:22.041216",
+      "created_at": "2026-09-04T09:43:22.041216",
+      "updated_at": "2026-09-04T09:43:22.041216",
+      "title": "GitHub: lnkiai/m3e-canvas",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/lnkiai/m3e-canvas",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Stars: 871, Forks: 53 | Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.",
+      "viral_metric": "★ 871 Stars",
+      "metric_tracking": {
+        "initial": {
+          "value": 871,
+          "display": "★ 871 Stars",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 871,
+          "display": "★ 871 Stars",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_hf_space_neuralfalconremove_silence_from_audi",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T09:43:21.830041",
+      "published_at": "2026-09-04T09:43:21.830041",
+      "created_at": "2026-09-04T09:43:21.830041",
+      "updated_at": "2026-09-04T09:43:21.830041",
+      "title": "HF Space: NeuralFalcon/Remove-Silence-From-Audio",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/NeuralFalcon/Remove-Silence-From-Audio",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 410 | Live URL: https://huggingface.co/spaces/NeuralFalcon/Remove-Silence-From-Audio",
+      "viral_metric": "❤️ 410 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 410,
+          "display": "❤️ 410 Likes (Trending Demo)",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 410,
+          "display": "❤️ 410 Likes (Trending Demo)",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW"
+    },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_welcome_to_the_porcelain_insulato",
       "harvested_date": "2026-09-04",
@@ -94244,8 +94314,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 269 pts | Comments: 217 | VC isn't VC anymore",
-      "viral_metric": "🔥 269 HN Points",
+      "description": "HN Score: 271 pts | Comments: 218 | VC isn't VC anymore",
+      "viral_metric": "🔥 271 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -94253,13 +94323,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 269,
-          "display": "🔥 269 HN Points",
+          "value": 271,
+          "display": "🔥 271 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 261,
-        "delta_display": "+261",
-        "growth_rate_pct": 3262.5,
+        "delta": 263,
+        "delta_display": "+263",
+        "growth_rate_pct": 3287.5,
         "is_spiking": true
       },
       "matched_user_domains": [
