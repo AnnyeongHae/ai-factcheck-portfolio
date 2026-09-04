@@ -9,8 +9,8 @@
   "avg_confidence": 96.2,
   "models_total_count": 190,
   "news_total_count": 291,
-  "inbox_total_count": 635,
-  "all_inbox_count": 645,
+  "inbox_total_count": 638,
+  "all_inbox_count": 648,
   "admin_stats": {
     "endpoints": [
       {
@@ -45,6 +45,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T05:53:07.858115",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.27
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 83,
+            "duration_sec": 0.34
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 1.13
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 12.53
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.63
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.14
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.78
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.28
+          }
+        },
+        "summary": {
+          "total_fetched": 257,
+          "updated_count": 1,
+          "new_saved": 3,
+          "duplicates_skipped": 253,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-04T04:38:50.014823",
         "date": "2026-09-04",
@@ -1581,111 +1634,58 @@
           "duplicates_skipped": 139,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T01:55:40.942486",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.25
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.16
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.91
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 26,
-            "duration_sec": 11.51
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.44
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.13
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.85
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.2
-          }
-        },
-        "summary": {
-          "total_fetched": 166,
-          "updated_count": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 166,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T04:38:50.014823",
+      "timestamp": "2026-09-04T05:53:07.858115",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.21
+          "duration_sec": 0.27
         },
         "hf_spaces": {
           "status": "SUCCESS",
-          "items_found": 85,
-          "duration_sec": 0.28
+          "items_found": 83,
+          "duration_sec": 0.34
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.76
+          "duration_sec": 1.13
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 11.25
+          "duration_sec": 12.53
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.41
+          "duration_sec": 0.63
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.09
+          "duration_sec": 0.14
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.97
+          "duration_sec": 0.78
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.14
+          "duration_sec": 0.28
         }
       },
       "summary": {
-        "total_fetched": 259,
+        "total_fetched": 257,
         "updated_count": 1,
-        "new_saved": 0,
-        "duplicates_skipped": 258,
+        "new_saved": 3,
+        "duplicates_skipped": 253,
         "errors": 0
       }
     }
@@ -1694,7 +1694,7 @@
     {
       "day_ko": "월",
       "day_en": "Mon",
-      "inbox_count": 145,
+      "inbox_count": 146,
       "verified_count": 10
     },
     {
@@ -1712,13 +1712,13 @@
     {
       "day_ko": "목",
       "day_en": "Thu",
-      "inbox_count": 228,
+      "inbox_count": 229,
       "verified_count": 7
     },
     {
       "day_ko": "금",
       "day_en": "Fri",
-      "inbox_count": 71,
+      "inbox_count": 72,
       "verified_count": 0
     },
     {
@@ -1779,7 +1779,7 @@
       "month_key": "2026-08",
       "month_ko": "8월",
       "month_en": "Aug",
-      "inbox_count": 148,
+      "inbox_count": 149,
       "verified_count": 13,
       "cumulative_verified": 29
     },
@@ -1787,7 +1787,7 @@
       "month_key": "2026-09",
       "month_ko": "9월",
       "month_en": "Sep",
-      "inbox_count": 487,
+      "inbox_count": 489,
       "verified_count": 23,
       "cumulative_verified": 36
     }
@@ -37886,8 +37886,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 250 pts | Comments: 201 | VC isn't VC anymore",
-      "viral_metric": "🔥 250 HN Points",
+      "description": "HN Score: 257 pts | Comments: 209 | VC isn't VC anymore",
+      "viral_metric": "🔥 257 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -37895,13 +37895,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 250,
-          "display": "🔥 250 HN Points",
+          "value": 257,
+          "display": "🔥 257 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 242,
-        "delta_display": "+242",
-        "growth_rate_pct": 3025.0,
+        "delta": 249,
+        "delta_display": "+249",
+        "growth_rate_pct": 3112.5,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -67123,6 +67123,43 @@
       "description_ko": "해커뉴스에서 69점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_sing_song_a_speakable_encoding_fo",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T05:53:24.438111",
+      "published_at": "2026-08-31T23:14:11",
+      "created_at": "2026-08-31T23:14:11",
+      "updated_at": "2026-09-04T05:53:24.438111",
+      "title": "Hacker News: Sing-song: a speakable encoding for long numbers and keys",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49515966",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 7 pts | Comments: 0 | Sing-song: a speakable encoding for long numbers and keys",
+      "viral_metric": "🔥 7 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 7,
+          "display": "🔥 7 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 7,
+          "display": "🔥 7 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49515966",
+      "article_url": "https://blog.vrypan.net/2026/08/19/260819-sing-song/"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_show_hn_reactor_atlas",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T04:31:11.838932",
@@ -68790,6 +68827,43 @@
       "article_url": "https://andreasfertig.com/blog/2026/09/move-in-cpp-without-a-stdmove/",
       "title_ko": "Move in C++ without a std:move",
       "description_ko": "해커뉴스에서 38점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_mom_gets_6_month_suspended_senten",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T05:53:24.796113",
+      "published_at": "2026-09-03T14:12:19",
+      "created_at": "2026-09-03T14:12:19",
+      "updated_at": "2026-09-04T05:53:24.796113",
+      "title": "Hacker News: Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49550174",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 243 pts | Comments: 255 | Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+      "viral_metric": "🔥 243 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 243,
+          "display": "🔥 243 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 243,
+          "display": "🔥 243 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49550174",
+      "article_url": "https://reason.com/2026/09/02/virginia-mom-gets-6-month-suspended-jail-sentence-for-letting-5-year-old-walk-to-the-pond/"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_launch_hn_ronanrx_yc_s26_personal",
@@ -74783,6 +74857,41 @@
       "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다."
     },
     {
+      "inbox_id": "2026-09-04_repo_github_2akouwureverify",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T05:53:24.369351",
+      "published_at": "2026-09-04T05:53:24.369351",
+      "created_at": "2026-09-04T05:53:24.369351",
+      "updated_at": "2026-09-04T05:53:24.369351",
+      "title": "GitHub: 2akouwu/reverify",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/2akouwu/reverify",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Stars: 821, Forks: 175 | Anti-hallucination for AI agents that read binaries. The model proposes, deterministic tools decide: every claim is VERIFIED or REFUTED against the real bytes, with evidence, and grounded facts survive context resets. MCP server + CLI.",
+      "viral_metric": "★ 821 Stars",
+      "metric_tracking": {
+        "initial": {
+          "value": 821,
+          "display": "★ 821 Stars",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 821,
+          "display": "★ 821 Stars",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-04_repo_arxiv_xiaomi_tabldm_a_tabular_foundation_mode",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:31:41.868510",
@@ -80039,8 +80148,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 250 pts | Comments: 201 | VC isn't VC anymore",
-      "viral_metric": "🔥 250 HN Points",
+      "description": "HN Score: 257 pts | Comments: 209 | VC isn't VC anymore",
+      "viral_metric": "🔥 257 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -80048,13 +80157,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 250,
-          "display": "🔥 250 HN Points",
+          "value": 257,
+          "display": "🔥 257 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 242,
-        "delta_display": "+242",
-        "growth_rate_pct": 3025.0,
+        "delta": 249,
+        "delta_display": "+249",
+        "growth_rate_pct": 3112.5,
         "is_spiking": true
       },
       "matched_user_domains": [
