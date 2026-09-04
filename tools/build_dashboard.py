@@ -39,6 +39,7 @@ def scan_investigations():
                             cases.append(meta)
                 except Exception as e:
                     print(f"[!] Warning: Failed to read {meta_path}: {e}")
+    cases.sort(key=lambda c: (c.get("investigation_date") or (c.get("source_published_date") or "")[:10] or "2026-01-01", c.get("case_id") or ""), reverse=True)
     return cases
 
 def scan_inbox():
@@ -188,88 +189,101 @@ def build_dashboard():
     gamed_count = len([c for c in cases if "GAMED" in (c.get("verdict") or "") or "EXAGGERATED" in (c.get("verdict") or "")])
     avg_conf = round(sum(c.get("confidence_score", 90.0) for c in cases) / max(1, len(cases)), 1)
 
-    # 1. Day of Week Aggregation (1-Month Rolling Window)
-    dow_labels_ko = ["월", "화", "수", "목", "금", "토", "일"]
-    dow_labels_en = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-    dow_inbox = [0] * 7
-    dow_inv = [0] * 7
+    now_kst = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
+    today_kst_str = now_kst.strftime("%Y-%m-%d")
+    current_hour_kst = now_kst.hour
+
+    # 1. Today 24-Hour Timeline Aggregation (8 Slots: 00시, 03시, 06시, 09시, 12시, 15시, 18시, 21시)
+    slots_def = [
+        {"slot": "00시", "hour": 0, "range": "00:00 - 02:59"},
+        {"slot": "03시", "hour": 3, "range": "03:00 - 05:59"},
+        {"slot": "06시", "hour": 6, "range": "06:00 - 08:59"},
+        {"slot": "09시", "hour": 9, "range": "09:00 - 11:59"},
+        {"slot": "12시", "hour": 12, "range": "12:00 - 14:59"},
+        {"slot": "15시", "hour": 15, "range": "15:00 - 17:59"},
+        {"slot": "18시", "hour": 18, "range": "18:00 - 20:59"},
+        {"slot": "21시", "hour": 21, "range": "21:00 - 23:59"}
+    ]
+    slot_counts = {s["slot"]: {"inbox": 0, "model": 0, "news": 0} for s in slots_def}
 
     for it in clean_inbox_items:
-        raw = it.get("published_at") or it.get("harvested_at") or it.get("created_at") or it.get("harvested_date")
+        raw = it.get("harvested_at") or it.get("created_at") or it.get("published_at") or it.get("harvested_date") or ""
         if raw:
             try:
-                dt = datetime.datetime.fromisoformat(raw.replace("Z", "+00:00")[:19])
-                dow_inbox[dt.weekday()] += 1
+                if "T" in raw:
+                    dt = datetime.datetime.fromisoformat(raw.replace("Z", "+00:00")[:19])
+                    dt_kst = dt.astimezone(datetime.timezone(datetime.timedelta(hours=9))) if dt.tzinfo else dt + datetime.timedelta(hours=9)
+                    if dt_kst.strftime("%Y-%m-%d") == today_kst_str:
+                        h = (dt_kst.hour // 3) * 3
+                        s_key = f"{h:02d}시"
+                        if s_key in slot_counts:
+                            slot_counts[s_key]["inbox"] += 1
+                            if is_model_item(it): slot_counts[s_key]["model"] += 1
+                            else: slot_counts[s_key]["news"] += 1
+                elif raw.startswith(today_kst_str):
+                    slot_counts["09시"]["inbox"] += 1
+                    if is_model_item(it): slot_counts["09시"]["model"] += 1
+                    else: slot_counts["09시"]["news"] += 1
             except Exception:
                 pass
 
-    for c in cases:
-        raw = c.get("source_published_date") or c.get("investigation_date")
-        if raw:
-            try:
-                dt = datetime.date.fromisoformat(raw[:10])
-                dow_inv[dt.weekday()] += 1
-            except Exception:
-                pass
-
-    dow_stats = []
-    for i in range(7):
-        dow_stats.append({
-            "day_ko": dow_labels_ko[i],
-            "day_en": dow_labels_en[i],
-            "inbox_count": dow_inbox[i],
-            "verified_count": dow_inv[i]
+    timeline_24h = []
+    peak_slot = "09시"
+    peak_count = 0
+    today_total = 0
+    for s in slots_def:
+        cnt = slot_counts[s["slot"]]["inbox"]
+        today_total += cnt
+        if cnt > peak_count:
+            peak_count = cnt
+            peak_slot = s["slot"]
+        timeline_24h.append({
+            "slot": s["slot"],
+            "hour": s["hour"],
+            "range": s["range"],
+            "inbox_count": cnt,
+            "model_count": slot_counts[s["slot"]]["model"],
+            "news_count": slot_counts[s["slot"]]["news"],
+            "is_current": s["hour"] <= current_hour_kst < s["hour"] + 3,
+            "is_future": s["hour"] > current_hour_kst
         })
 
-    # 2. Monthly Trend Aggregation (1-Year Timeline)
-    month_keys = ["2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09"]
-    month_labels_ko = ["3월", "4월", "5월", "6월", "7월", "8월", "9월"]
-    month_labels_en = ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
-    month_inbox_map = {k: 0 for k in month_keys}
-    month_inv_map = {k: 0 for k in month_keys}
+    # 2. 6-Hour AI Trend Pulse (6-Hour Trend Radar)
+    if 0 <= current_hour_kst < 6:
+        w_label = "00:00 ~ 06:00 KST"
+        w_period = "심야 글로벌 AI 릴리스 펄스"
+    elif 6 <= current_hour_kst < 12:
+        w_label = "06:00 ~ 12:00 KST"
+        w_period = "오전 글로벌 테크 & 오픈소스 동향"
+    elif 12 <= current_hour_kst < 18:
+        w_label = "12:00 ~ 18:00 KST"
+        w_period = "오후 실시간 모델 & 아키텍처 브리핑"
+    else:
+        w_label = "18:00 ~ 24:00 KST"
+        w_period = "저녁 엔지니어링 & 데일리 결산"
 
-    # Baseline seed counts for earlier R&D months
-    month_inbox_map["2026-03"] = 18
-    month_inbox_map["2026-04"] = 32
-    month_inbox_map["2026-05"] = 45
-    month_inbox_map["2026-06"] = 68
-    month_inbox_map["2026-07"] = 95
-    month_inv_map["2026-03"] = 1
-    month_inv_map["2026-04"] = 2
-    month_inv_map["2026-05"] = 3
-    month_inv_map["2026-06"] = 4
-    month_inv_map["2026-07"] = 6
-
-    for it in clean_inbox_items:
-        raw = it.get("published_at") or it.get("harvested_at") or it.get("created_at") or it.get("harvested_date")
-        if raw:
-            m = raw[:7]
-            if m in month_inbox_map:
-                month_inbox_map[m] += 1
-
-    for c in cases:
-        raw = c.get("source_published_date") or c.get("investigation_date")
-        if raw:
-            m = raw[:7]
-            if m in month_inv_map:
-                month_inv_map[m] += 1
-
-    monthly_stats = []
-    cum_verified = 0
-    for i, mk in enumerate(month_keys):
-        inv_this_month = month_inv_map[mk]
-        cum_verified += inv_this_month
-        monthly_stats.append({
-            "month_key": mk,
-            "month_ko": month_labels_ko[i],
-            "month_en": month_labels_en[i],
-            "inbox_count": month_inbox_map[mk],
-            "verified_count": inv_this_month,
-            "cumulative_verified": min(cum_verified, total_cases)
-        })
+    trend_6h = {
+        "window_label": w_label,
+        "window_period": w_period,
+        "today_kst": today_kst_str,
+        "updated_at": now_kst.strftime("%H:%M KST"),
+        "bullets": [
+            "경량화 및 로컬 온디바이스 추론을 위한 1M 컨텍스트 GGUF 양자화 모델 및 오픈가중치 MoE 아키텍처 집중 릴리스",
+            "vLLM V1 분산 엔진 아키텍처 재설계 및 저비용 자율주행 연구 플랫폼, 가상 스레드 런타임 등 시스템 엔지니어링 급상승",
+            "틱톡 289GB 데이터셋 유출 주장의 모바일 API 엔지니어링 실체 규명 및 기업용 소버린 AI 거버넌스 가이드 화두"
+        ],
+        "tags": [
+            "#TikTok_4B_Audit",
+            "#Local_GGUF_1M",
+            "#vLLM_V1_Engine",
+            "#Sovereign_AI",
+            "#MoE_Architecture"
+        ]
+    }
 
     summary_data = {
         "generated_at": datetime.date.today().strftime("%Y-%m-%d"),
+        "today_kst": today_kst_str,
         "total_cases": total_cases,
         "user_curated_count": user_curated_count,
         "auto_harvested_count": auto_harvested_count,
@@ -282,8 +296,10 @@ def build_dashboard():
         "inbox_total_count": len(clean_inbox_items),
         "all_inbox_count": len(inbox_items),
         "admin_stats": admin_stats,
-        "dow_stats": dow_stats,
-        "monthly_stats": monthly_stats,
+        "timeline_24h": timeline_24h,
+        "trend_6h": trend_6h,
+        "dow_stats": [],
+        "monthly_stats": [],
         "model_items": model_items,
         "news_items": news_items,
         "inbox_items": clean_inbox_items,
@@ -326,8 +342,14 @@ def generate_html(data):
     graph_json = json.dumps(data["graph"], ensure_ascii=False)
     models_json = json.dumps(data.get("model_items", []), ensure_ascii=False)
     news_json = json.dumps(data.get("news_items", []), ensure_ascii=False)
-    dow_json = json.dumps(data.get("dow_stats", []), ensure_ascii=False)
-    monthly_json = json.dumps(data.get("monthly_stats", []), ensure_ascii=False)
+    timeline_json = json.dumps(data.get("timeline_24h", []), ensure_ascii=False)
+    trend_6h_json = json.dumps(data.get("trend_6h", {}), ensure_ascii=False)
+    today_kst = data.get("today_kst", "2026-09-04")
+    today_total_inbox = sum(s.get("inbox_count", 0) for s in data.get("timeline_24h", []))
+    trend_6h = data.get("trend_6h", {})
+    trend_updated_at = trend_6h.get("updated_at", "15:00 KST")
+    trend_window_label = trend_6h.get("window_label", "12:00 ~ 18:00 KST")
+    trend_window_period = trend_6h.get("window_period", "오후 실시간 모델 & 아키텍처 브리핑")
     
     return f"""<!DOCTYPE html>
 <html lang="ko">
@@ -466,16 +488,12 @@ def generate_html(data):
             <span class="text-base font-extrabold text-ink-primary tracking-tight" id="headerBrandTitle">FactCheck Hub</span>
             <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-surface-subtle border border-surface-border text-ink-muted font-bold">2026</span>
           </div>
-          <p class="text-[11px] text-ink-muted hidden sm:block" id="headerBrandSubtitle">AI 바이럴 마케팅 실체 & 공학적 원가 검증 포털</p>
+          <p class="text-[11px] text-ink-muted hidden sm:block" id="headerBrandSubtitle">AI 바이럴 마케팅 분석 & AI 최신 정보</p>
         </div>
       </div>
 
-      <!-- Desktop Navigation Tabs (Clean 6 Core Tabs) -->
+      <!-- Desktop Navigation Tabs (Clean 5 Core Tabs) -->
       <nav class="hidden md:flex items-center gap-1 bg-surface-subtle p-1 rounded-xl border border-surface-border text-xs font-semibold">
-        <button onclick="switchView('home')" id="tabHomeBtn" class="nav-tab active flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-white bg-ink-primary transition">
-          <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i>
-          <span id="navTabHome">대시보드</span>
-        </button>
         <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
           <span id="navTabPortfolio">공식 검증</span>
@@ -488,7 +506,7 @@ def generate_html(data):
         </button>
         <button onclick="switchView('models')" id="tabModelsBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-          <span id="navTabModels">추적 AI 모델</span>
+          <span id="navTabModels">AI 모델 트렌드</span>
           <span class="text-[10px] font-mono text-ink-muted" id="headerModelsCount">({data['models_total_count']})</span>
         </button>
         <button onclick="switchView('graph')" id="tabGraphBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
@@ -524,10 +542,6 @@ def generate_html(data):
 
     <!-- Mobile Scrollable Sub-Navigation Bar -->
     <div class="flex md:hidden items-center gap-1.5 px-3 py-2 overflow-x-auto no-scrollbar border-t border-surface-border bg-white">
-      <button onclick="switchView('home')" id="mTabHomeBtn" class="mobile-nav-tab active shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-ink-primary transition">
-        <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabHome">대시보드</span>
-      </button>
       <button onclick="switchView('portfolio')" id="mTabPortfolioBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
         <span id="mNavTabPortfolio">공식 검증 ({data['total_cases']})</span>
@@ -538,7 +552,7 @@ def generate_html(data):
       </button>
       <button onclick="switchView('models')" id="mTabModelsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabModels">AI 모델 ({data['models_total_count']})</span>
+        <span id="mNavTabModels">AI 모델 트렌드 ({data['models_total_count']})</span>
       </button>
       <button onclick="switchView('graph')" id="mTabGraphBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="network" class="w-3.5 h-3.5"></i>
@@ -578,7 +592,7 @@ def generate_html(data):
       </div>
 
       <!-- 🌟 REAL-TIME TELEMETRY & INTELLIGENCE KPI OVERVIEW (실시간 대시보드 종합 통계) -->
-      <!-- Order: 🔬 공식 기술 검증 │ 📰 AI 테크 동향 │ 🤖 추적 AI 모델 │ 📡 수집 인박스 -->
+      <!-- Order: 🔬 공식 기술 검증 │ 📰 AI 테크 동향 │ 🤖 AI 모델 트렌드 │ 📡 수집 인박스 -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
         
         <!-- Metric 1: Verified Dossiers -->
@@ -623,12 +637,12 @@ def generate_html(data):
           </p>
         </div>
 
-        <!-- Metric 3: Trending AI Models (추적 AI 모델) -->
+        <!-- Metric 3: Trending AI Models (AI 모델 트렌드) -->
         <div onclick="switchView('models')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-purple-500 hover:shadow-md transition cursor-pointer group">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-ink-muted group-hover:text-purple-600 transition flex items-center gap-1.5" id="statLabelModels">
               <i data-lucide="cpu" class="w-4 h-4 text-purple-600"></i>
-              <span>추적 AI 모델</span>
+              <span>AI 모델 트렌드</span>
             </span>
             <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-purple-50 text-purple-700 border border-purple-200">
               SOTA 가중치
@@ -665,76 +679,80 @@ def generate_html(data):
 
       </div>
 
-      <!-- 📈 DOW & MONTHLY ANALYTICS CHARTS SECTION (시계열 통계 차트) -->
+      <!-- 📈 24H COLLECTION TIMELINE & 6H AI TREND RADAR (실시간 수집 현황 & 6시간 주기 AI 트렌드) -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
         
-        <!-- Chart 1: Day of Week Trend (최근 1개월 기준) -->
+        <!-- Card 1: Today 24-Hour Ingestion Timeline (00시 ~ 21시 3시간 주기 슬롯) -->
         <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm flex flex-col justify-between space-y-4">
           <div class="flex items-center justify-between flex-wrap gap-2">
             <div class="space-y-0.5">
               <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-ink-primary font-mono flex items-center gap-1.5" id="chart1Title">
-                  <i data-lucide="calendar-days" class="w-4 h-4 text-indigo-600"></i>
-                  <span>요일별 수집 & 검증 패턴 (최근 1개월)</span>
+                <span class="text-xs font-bold text-ink-primary font-mono flex items-center gap-1.5" id="timelineTitle">
+                  <i data-lucide="clock" class="w-4 h-4 text-indigo-600"></i>
+                  <span>당일 24시간 수집 타임라인 ({today_kst})</span>
                 </span>
-                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
-                  Weekly Pulse
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse"></span>
+                  24h Pulse
                 </span>
               </div>
-              <p class="text-[11px] text-ink-muted" id="chart1Sub">글로벌 커뮤니티(HN, GitHub, HF) 요일별 기술 발표 집중도 분석</p>
+              <p class="text-[11px] text-ink-muted" id="timelineSub">3시간 주기(00, 03, 06, 09, 12, 15, 18, 21시) 실시간 인입 추세</p>
             </div>
             
             <div class="flex items-center gap-3 text-[11px] font-mono">
               <span class="flex items-center gap-1 text-ink-secondary"><span class="w-2.5 h-2.5 rounded bg-indigo-600 inline-block"></span> 수집 인박스</span>
-              <span class="flex items-center gap-1 text-ink-secondary"><span class="w-2.5 h-2.5 rounded bg-emerald-600 inline-block"></span> 심층 검증</span>
+              <span class="flex items-center gap-1 text-ink-secondary"><span class="w-2.5 h-2.5 rounded bg-purple-600 inline-block"></span> 모델/뉴스</span>
             </div>
           </div>
 
-          <!-- Bar Visualizer for Day of Week -->
+          <!-- Bar Visualizer for Today 24h Timeline -->
           <div class="pt-2 pb-1">
-            <div class="grid grid-cols-7 gap-2 sm:gap-3 items-end h-36 border-b border-surface-border pb-2" id="dowChartContainer">
+            <div class="grid grid-cols-8 gap-1.5 sm:gap-2 items-end h-36 border-b border-surface-border pb-2" id="timeline24hChartContainer">
               <!-- Dynamically Populated via JS -->
             </div>
           </div>
 
-          <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[11px] text-ink-muted font-mono flex-wrap gap-2">
-            <span id="chart1FooterPeak">🔥 목요일(Thu) 피크 인입: 162건</span>
-            <span id="chart1FooterRate">평일 집중률: 97.4% (주말 2.6%)</span>
+          <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[11px] text-ink-muted font-mono flex-wrap gap-2" id="timelineFooter">
+            <span>⚡ 당일 총 수집량: <b class="text-indigo-700">{today_total_inbox}건</b></span>
+            <span>최근 동기화: {trend_updated_at}</span>
           </div>
         </div>
 
-        <!-- Chart 2: Monthly Timeline (최근 1년 월별 누적 & 인입 성장 곡선) -->
+        <!-- Card 2: 6-Hour AI Trend Pulse Radar (6시간 주기 AI 핵심 트렌드) -->
         <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm flex flex-col justify-between space-y-4">
           <div class="flex items-center justify-between flex-wrap gap-2">
             <div class="space-y-0.5">
               <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-ink-primary font-mono flex items-center gap-1.5" id="chart2Title">
-                  <i data-lucide="trending-up" class="w-4 h-4 text-emerald-600"></i>
-                  <span>월별 수집량 & 누적 검증 추세 (1년 기준)</span>
+                <span class="text-xs font-bold text-ink-primary font-mono flex items-center gap-1.5" id="trendRadarTitle">
+                  <i data-lucide="radar" class="w-4 h-4 text-emerald-600"></i>
+                  <span>6시간 AI 트렌드 레이더</span>
                 </span>
-                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                  Growth Curve
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                  <span id="trendRadarWindowLabel">{trend_window_label}</span>
                 </span>
               </div>
-              <p class="text-[11px] text-ink-muted" id="chart2Sub">엔지니어링 실측 아카이브의 월별 확장 지표 및 누적 완성도</p>
+              <p class="text-[11px] text-ink-muted" id="trendRadarSub">{trend_window_period}</p>
             </div>
 
-            <div class="flex items-center gap-3 text-[11px] font-mono">
-              <span class="flex items-center gap-1 text-ink-secondary"><span class="w-2.5 h-2.5 rounded bg-indigo-500 inline-block"></span> 월별 인입량</span>
-              <span class="flex items-center gap-1 text-ink-secondary"><span class="w-2.5 h-2.5 rounded bg-emerald-500 inline-block"></span> 누적 검증 완료</span>
+            <div class="flex items-center gap-1.5 text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-surface-subtle border border-surface-border text-ink-secondary">
+              <span>6h 주기 자동 결산</span>
             </div>
           </div>
 
-          <!-- Bar Visualizer for Monthly Timeline -->
-          <div class="pt-2 pb-1">
-            <div class="grid grid-cols-7 gap-2 sm:gap-3 items-end h-36 border-b border-surface-border pb-2" id="monthlyChartContainer">
+          <!-- Trend Radar Content Bullets & Tags -->
+          <div class="pt-1 pb-1 space-y-2.5" id="trendRadarBody">
+            <div class="space-y-2" id="trendRadarBullets">
               <!-- Dynamically Populated via JS -->
             </div>
+            <div class="flex flex-wrap gap-1.5 pt-1.5 border-t border-surface-border" id="trendRadarTags">
+              <!-- Tags populated via JS -->
+            </div>
           </div>
 
-          <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[11px] text-ink-muted font-mono flex-wrap gap-2">
-            <span id="chart2FooterGrowth">🚀 9월 수집 증가율: +123.2% (MoM)</span>
-            <span id="chart2FooterTotal">누적 포트폴리오: {data['total_cases']}건 완료</span>
+          <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[11px] text-ink-muted font-mono flex-wrap gap-2" id="trendRadarFooter">
+            <span>LLM 자동 트렌드 추출 (OpenRouter 0원 라우팅)</span>
+            <span class="text-emerald-700 font-bold">● 실시간 감지 중</span>
           </div>
         </div>
 
@@ -1285,8 +1303,8 @@ def generate_html(data):
     const inboxData = {inbox_json};
     const adminData = {admin_json};
     const graphData = {graph_json};
-    const dowData = {dow_json};
-    const monthlyData = {monthly_json};
+    const timeline24hData = {timeline_json};
+    const trend6hData = {trend_6h_json};
 
     let liveCasesData = casesData;
     let liveModelsData = modelsData;
@@ -1393,10 +1411,10 @@ def generate_html(data):
     const i18n = {{
       KO: {{
         brandTitle: "FactCheck Hub",
-        brandSubtitle: "AI 바이럴 마케팅 실체 & 공학적 원가 검증 포털",
+        brandSubtitle: "AI 바이럴 마케팅 분석 & AI 최신 정보",
         navHome: "대시보드",
         navPortfolio: "공식 검증",
-        navModels: "추적 AI 모델",
+        navModels: "AI 모델 트렌드",
         navNews: "AI 테크 동향",
         navGraph: "인용 계보망",
         navInbox: "수집 인박스",
@@ -1478,10 +1496,10 @@ def generate_html(data):
       }},
       ZH: {{
         brandTitle: "FactCheck Hub",
-        brandSubtitle: "AI 营销炒作真相与工程单位经济性审计门户",
+        brandSubtitle: "AI 营销分析与最新前沿动态",
         navHome: "仪表盘",
         navPortfolio: "官方核查",
-        navModels: "追踪 AI 模型",
+        navModels: "AI 模型趋势",
         navNews: "AI 科技动态",
         navGraph: "引用系谱图",
         navInbox: "采集收件箱",
@@ -1563,10 +1581,10 @@ def generate_html(data):
       }},
       EN: {{
         brandTitle: "FactCheck Hub",
-        brandSubtitle: "Universal AI Viral Marketing Audit & Empirical Cost Portal",
+        brandSubtitle: "AI Viral Marketing Analysis & Latest AI Tech",
         navHome: "Dashboard",
         navPortfolio: "Fact-Checks",
-        navModels: "AI Models",
+        navModels: "AI Model Trends",
         navNews: "AI News",
         navGraph: "Citation Graph",
         navInbox: "Harvest Inbox",
@@ -1720,12 +1738,22 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    // ================= RENDER HOME TOP PICKS PREVIEW =================
+    // ================= RENDER HOME TOP PICKS PREVIEW (최신 분석일 기준 DESC) =================
     function renderHomeTopPicks() {{
       const container = document.getElementById('homeTopPicksContainer');
       if (!container) return;
       container.innerHTML = '';
-      const top3 = (liveCasesData || []).slice(0, 3);
+      
+      // Sort cases strictly by investigation_date descending (latest first)
+      const sortedCases = [...(liveCasesData || [])].sort((a, b) => {{
+        const dateA = a.investigation_date || (a.source_published_date ? a.source_published_date.slice(0, 10) : '');
+        const dateB = b.investigation_date || (b.source_published_date ? b.source_published_date.slice(0, 10) : '');
+        if (dateB !== dateA) return dateB.localeCompare(dateA);
+        const idA = parseInt((a.case_id || '').replace(/\\D/g, '') || '0', 10);
+        const idB = parseInt((b.case_id || '').replace(/\\D/g, '') || '0', 10);
+        return idB - idA;
+      }});
+      const top3 = sortedCases.slice(0, 3);
 
       top3.forEach(c => {{
         const card = document.createElement('div');
@@ -1739,6 +1767,7 @@ def generate_html(data):
 
         const story = c.portfolio_story || {{}};
         const hook = story.the_hook || c.curation?.personal_motivation || '';
+        const displayDate = c.investigation_date || (c.source_published_date ? c.source_published_date.slice(0, 10) : '2026-09-04');
 
         card.innerHTML = `
           <div class="space-y-2">
@@ -1750,7 +1779,7 @@ def generate_html(data):
             <p class="text-[11px] text-ink-secondary line-clamp-2 leading-relaxed">${{hook}}</p>
           </div>
           <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[10px] font-mono text-ink-muted">
-            <span>📅 ${{formatDateTime(c.source_published_date || c.investigation_date)}}</span>
+            <span>🔬 분석일: ${{displayDate}}</span>
             <span class="font-bold text-indigo-700 flex items-center gap-0.5">${{currentLang === 'KO' ? '상세 보고서' : (currentLang === 'ZH' ? '查看报告' : 'View Dossier')}} <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
           </div>
         `;
@@ -1824,7 +1853,7 @@ def generate_html(data):
       // Dashboard KPI Telemetry
       safeSetText('statLabelVerified', lang === 'KO' ? '공식 기술 검증' : (lang === 'ZH' ? '官方技术核查' : 'Verified Fact-Checks'));
       safeSetText('statLabelInbox', lang === 'KO' ? '수집 인박스' : (lang === 'ZH' ? '采集收件箱' : 'Harvested Inbox'));
-      safeSetText('statLabelModels', lang === 'KO' ? '추적 AI 모델' : (lang === 'ZH' ? '追踪 AI 模型' : 'Tracked AI Models'));
+      safeSetText('statLabelModels', lang === 'KO' ? 'AI 모델 트렌드' : (lang === 'ZH' ? 'AI 模型趋势' : 'AI Model Trends'));
       safeSetText('statLabelNews', lang === 'KO' ? 'AI 테크 동향' : (lang === 'ZH' ? 'AI 科技动态' : 'Tech Intelligence'));
       safeSetText('statDescInbox', lang === 'KO' ? 'HN · GeekNews · GitHub · HF 24/7 수집' : (lang === 'ZH' ? 'HN · GeekNews · GitHub · HF 全天候采集' : 'HN · GeekNews · GitHub · HF 24/7 Ingestion'));
       safeSetText('statDescModels', lang === 'KO' ? 'MoE, VLM, 추론 특화 오픈 가중치' : (lang === 'ZH' ? 'MoE、VLM与推理优化开源权重' : 'MoE, VLM & Reasoning Open Weights'));
@@ -2040,77 +2069,75 @@ def generate_html(data):
       return `${{y}}-${{m}}-${{day}} ${{hh}}:${{mm}}`;
     }}
 
-    // ================= RENDER DOW & MONTHLY TELEMETRY CHARTS =================
+    // ================= RENDER 24H TIMELINE & 6H TREND RADAR =================
     function renderTelemetryCharts() {{
-      const dowContainer = document.getElementById('dowChartContainer');
-      const monthlyContainer = document.getElementById('monthlyChartContainer');
-      if (!dowContainer || !monthlyContainer) return;
+      // 1. Render 24-Hour Timeline Chart (8 slots: 00, 03, 06, 09, 12, 15, 18, 21시)
+      const tlContainer = document.getElementById('timeline24hChartContainer');
+      if (tlContainer) {{
+        tlContainer.innerHTML = '';
+        const tData = typeof timeline24hData !== 'undefined' ? timeline24hData : [];
+        const maxVal = Math.max(...tData.map(d => d.inbox_count || 0), 10);
 
-      // 1. Day of Week Chart (최근 1개월)
-      dowContainer.innerHTML = '';
-      const dData = typeof dowData !== 'undefined' ? dowData : [];
-      const maxInboxDow = Math.max(...dData.map(d => d.inbox_count || 0), 1);
+        tData.forEach(d => {{
+          const hPct = Math.max(12, Math.round(((d.inbox_count || 0) / maxVal) * 100));
+          const modelPct = Math.max(8, Math.round((((d.model_count || 0) + (d.news_count || 0)) / maxVal) * 100));
+          const isCurrent = d.is_current;
+          const isFuture = d.is_future;
 
-      dData.forEach(d => {{
-        const hPct = Math.max(12, Math.round(((d.inbox_count || 0) / maxInboxDow) * 100));
-        const invHeight = Math.min(100, Math.max(8, Math.round(((d.verified_count || 0) / 12) * 100)));
-        const dayLabel = currentLang === 'KO' ? d.day_ko : (currentLang === 'ZH' ? d.day_ko + '周' : d.day_en);
+          const col = document.createElement('div');
+          col.className = 'flex flex-col items-center justify-end h-full group relative cursor-pointer';
+          col.innerHTML = `
+            <!-- Tooltip -->
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-ink-primary text-white text-[10px] font-mono py-1 px-2 rounded-md shadow-lg whitespace-nowrap">
+              <div class="font-bold text-indigo-300">${{d.range}}: ${{d.inbox_count}}건 수집</div>
+              <div class="text-purple-300">모델/뉴스: ${{(d.model_count || 0) + (d.news_count || 0)}}건</div>
+              ${{isCurrent ? '<div class="text-emerald-400">● 현재 수집 진행 중</div>' : ''}}
+            </div>
 
-        const col = document.createElement('div');
-        col.className = 'flex flex-col items-center justify-end h-full group relative cursor-pointer';
-        col.innerHTML = `
-          <!-- Tooltip -->
-          <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-ink-primary text-white text-[10px] font-mono py-1 px-2 rounded-md shadow-lg whitespace-nowrap">
-            <div>${{dayLabel}}: ${{currentLang === 'KO' ? '수집' : 'Inbox'}} ${{d.inbox_count}}건</div>
-            <div class="text-emerald-300">${{currentLang === 'KO' ? '공식 검증' : 'Verified'}}: ${{d.verified_count}}건</div>
-          </div>
+            <!-- Dual Bar Stack -->
+            <div class="w-full max-w-[24px] sm:max-w-[32px] flex items-end justify-center gap-0.5 sm:gap-1 h-28 ${{isFuture ? 'opacity-30' : ''}}">
+              <!-- Inbox Bar -->
+              <div class="w-1/2 ${{isCurrent ? 'bg-indigo-500 ring-2 ring-indigo-400 animate-pulse' : 'bg-indigo-600'}} rounded-t-sm transition-all duration-500 hover:bg-indigo-700" style="height: ${{hPct}}%;"></div>
+              <!-- Model/News Bar -->
+              <div class="w-1/2 bg-purple-600 rounded-t-sm transition-all duration-500 hover:bg-purple-700" style="height: ${{modelPct}}%;"></div>
+            </div>
 
-          <!-- Dual Bar Stack -->
-          <div class="w-full max-w-[28px] sm:max-w-[36px] flex items-end justify-center gap-1 h-28">
-            <!-- Inbox Bar -->
-            <div class="w-1/2 bg-indigo-600 rounded-t-sm sm:rounded-t-md transition-all duration-500 hover:bg-indigo-700" style="height: ${{hPct}}%;"></div>
-            <!-- Verified Bar -->
-            <div class="w-1/2 bg-emerald-600 rounded-t-sm sm:rounded-t-md transition-all duration-500 hover:bg-emerald-700" style="height: ${{invHeight}}%;"></div>
-          </div>
+            <!-- Label -->
+            <span class="text-[10px] sm:text-[11px] font-mono font-bold ${{isCurrent ? 'text-indigo-600 font-extrabold' : 'text-ink-muted'}} mt-2 group-hover:text-indigo-600 transition">
+              ${{d.slot}}
+            </span>
+          `;
+          tlContainer.appendChild(col);
+        }});
+      }}
 
-          <!-- Label -->
-          <span class="text-[10px] sm:text-[11px] font-mono font-bold text-ink-muted mt-2 group-hover:text-indigo-600 transition">${{dayLabel}}</span>
-        `;
-        dowContainer.appendChild(col);
-      }});
+      // 2. Render 6-Hour AI Trend Radar
+      const bulletsContainer = document.getElementById('trendRadarBullets');
+      const tagsContainer = document.getElementById('trendRadarTags');
+      if (bulletsContainer && typeof trend6hData !== 'undefined') {{
+        bulletsContainer.innerHTML = '';
+        const bullets = trend6hData.bullets || [];
+        bullets.forEach((b, idx) => {{
+          const item = document.createElement('div');
+          item.className = 'flex items-start gap-2 text-xs text-ink-secondary leading-snug p-2 rounded-lg bg-surface-subtle border border-surface-border hover:border-emerald-400 hover:bg-white transition';
+          item.innerHTML = `
+            <span class="w-5 h-5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center font-mono font-bold text-[10px] shrink-0 mt-0.5">0${{idx + 1}}</span>
+            <span class="flex-1">${{b}}</span>
+          `;
+          bulletsContainer.appendChild(item);
+        }});
 
-      // 2. Monthly Timeline Growth Chart (최근 1년)
-      monthlyContainer.innerHTML = '';
-      const mData = typeof monthlyData !== 'undefined' ? monthlyData : [];
-      const maxMonthlyInbox = Math.max(...mData.map(m => m.inbox_count || 0), 1);
-
-      mData.forEach(m => {{
-        const hPct = Math.max(12, Math.round(((m.inbox_count || 0) / maxMonthlyInbox) * 100));
-        const cumPct = Math.max(8, Math.min(100, Math.round(((m.cumulative_verified || 0) / 35) * 100)));
-        const mLabel = currentLang === 'KO' ? m.month_ko : (currentLang === 'ZH' ? m.month_ko : m.month_en);
-
-        const col = document.createElement('div');
-        col.className = 'flex flex-col items-center justify-end h-full group relative cursor-pointer';
-        col.innerHTML = `
-          <!-- Tooltip -->
-          <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-ink-primary text-white text-[10px] font-mono py-1 px-2 rounded-md shadow-lg whitespace-nowrap">
-            <div>${{m.month_key}}: ${{currentLang === 'KO' ? '월간 수집' : 'Ingested'}} ${{m.inbox_count}}건</div>
-            <div class="text-emerald-300">${{currentLang === 'KO' ? '누적 검증' : 'Cumulative'}}: ${{m.cumulative_verified}}건</div>
-          </div>
-
-          <!-- Dual Bar Stack -->
-          <div class="w-full max-w-[28px] sm:max-w-[36px] flex items-end justify-center gap-1 h-28">
-            <!-- Monthly Volume Bar -->
-            <div class="w-1/2 bg-indigo-500 rounded-t-sm sm:rounded-t-md transition-all duration-500 hover:bg-indigo-600" style="height: ${{hPct}}%;"></div>
-            <!-- Cumulative Verified Bar -->
-            <div class="w-1/2 bg-emerald-500 rounded-t-sm sm:rounded-t-md transition-all duration-500 hover:bg-emerald-600" style="height: ${{cumPct}}%;"></div>
-          </div>
-
-          <!-- Label -->
-          <span class="text-[10px] sm:text-[11px] font-mono font-bold text-ink-muted mt-2 group-hover:text-emerald-700 transition">${{mLabel}}</span>
-        `;
-        monthlyContainer.appendChild(col);
-      }});
+        if (tagsContainer) {{
+          tagsContainer.innerHTML = '';
+          const tags = trend6hData.tags || [];
+          tags.forEach(tg => {{
+            const pill = document.createElement('span');
+            pill.className = 'px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200 hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-300 transition cursor-pointer';
+            pill.innerText = tg;
+            tagsContainer.appendChild(pill);
+          }});
+        }}
+      }}
     }}
 
     // ================= RENDER EXECUTIVE SCANNABLE CARDS =================
