@@ -2922,5 +2922,916 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260904_175201",
+    "timestamp": "2026-09-04T17:52:01.859945+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 56,
+    "requested_limit": 0,
+    "processed_count": 56,
+    "success_count": 56,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 56
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 58.33,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_openai_에이전트의_새_메시지_보드_발견",
+            "title": "GeekNews: OpenAI 에이전트의 새 메시지 보드 발견",
+            "title_ko": "GeekNews: OpenAI 에이전트의 새 메시지 보드 발견",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:53:00.198778+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 23.85,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_openai_에이전트의_새_메시지_보드_발견",
+            "title": "GeekNews: OpenAI 에이전트의 새 메시지 보드 발견",
+            "title_ko": "GeekNews: OpenAI 에이전트의 새 메시지 보드 발견",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:53:25.050471+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 22.88,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_신원_확인_업체가_스캔한_모든_id를_해커들이_1년_넘게_실시간_",
+            "title": "GeekNews: 신원 확인 업체가 스캔한 모든 ID를 해커들이 1년 넘게 실시간 탈취",
+            "title_ko": "신원 확인 업체, 1년 넘게 해커에 ID 실시간 유출",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:53:48.934051+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.38,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_신원_확인_업체가_스캔한_모든_id를_해커들이_1년_넘게_실시간_",
+            "title": "GeekNews: 신원 확인 업체가 스캔한 모든 ID를 해커들이 1년 넘게 실시간 탈취",
+            "title_ko": "신원 확인 업체가 스캔한 모든 ID를 해커들이 1년 넘게 실시간 탈취",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:54:08.317321+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 36.56,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_revo_프로그래밍_언어",
+            "title": "GeekNews: Revo 프로그래밍 언어",
+            "title_ko": "GeekNews가 전한 Revo 프로그래밍 언어의 비밀",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:54:45.878985+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 26.69,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_revo_프로그래밍_언어",
+            "title": "GeekNews: Revo 프로그래밍 언어",
+            "title_ko": "Revo 프로그래밍 언어",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:55:13.576084+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 29.41,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_인공_비버_댐_설치_후_어린_은연어_생존율이_8에서_60로_상승",
+            "title": "GeekNews: 인공 비버 댐 설치 후 어린 은연어 생존율이 8%에서 60%로 상승",
+            "title_ko": "인공 비버 댐 설치로 은연어 생존율 8%에서 60%로 급상승",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:55:43.994765+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 24.09,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_인공_비버_댐_설치_후_어린_은연어_생존율이_8에서_60로_상승",
+            "title": "GeekNews: 인공 비버 댐 설치 후 어린 은연어 생존율이 8%에서 60%로 상승",
+            "title_ko": "인공 비버 댐 설치 후 어린 은연어 생존율이 8%에서 60%로 상승",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:56:09.091607+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 9.83,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_npc로_살고_싶다",
+            "title": "GeekNews: NPC로 살고 싶다",
+            "title_ko": "NPC로 살고 싶다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:56:19.923222+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 11.67,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_npc로_살고_싶다",
+            "title": "GeekNews: NPC로 살고 싶다",
+            "title_ko": "NPC로 살고 싶다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:56:32.599821+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 13.51,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_show_gn_flowsuite_노코드_화면_자동화_ai_파일_정",
+            "title": "GeekNews: Show GN: FlowSuite - 노코드 화면 자동화, AI 파일 정리 등 윈도우 생산성 도구 모음",
+            "title_ko": "FlowSuite: 노코드 화면 자동화와 AI 파일 정리 기능을 갖춘 윈도우 생산성 도구 모음",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:56:47.110193+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 12,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 21.62,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_show_gn_flowsuite_노코드_화면_자동화_ai_파일_정",
+            "title": "GeekNews: Show GN: FlowSuite - 노코드 화면 자동화, AI 파일 정리 등 윈도우 생산성 도구 모음",
+            "title_ko": "FlowSuite - 노코드 화면 자동화 및 AI 파일 정리 기능을 갖춘 윈도우 생산성 도구 모음",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:57:09.730250+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 13,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.57,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_단순한_프로그램이_꼭_작은_것은_아니다",
+            "title": "GeekNews: 단순한 프로그램이 꼭 작은 것은 아니다",
+            "title_ko": "단순한 프로그램이 꼭 작은 것은 아니다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:57:23.307137+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 14,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 28.97,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_단순한_프로그램이_꼭_작은_것은_아니다",
+            "title": "GeekNews: 단순한 프로그램이 꼭 작은 것은 아니다",
+            "title_ko": "단순한 프로그램이 꼭 작을 필요는 없다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:57:53.278064+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 15,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 30.42,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_google_ai_mode는_같은_제품을_기존_검색보다_216_더",
+            "title": "GeekNews: Google AI Mode는 같은 제품을 기존 검색보다 21.6% 더 비싸게 보여줌",
+            "title_ko": "구글 AI 모드, 일반 검색보다 제품 가격을 21.6% 더 높게 표시",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:58:24.701566+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 16,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.94,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_google_ai_mode는_같은_제품을_기존_검색보다_216_더",
+            "title": "GeekNews: Google AI Mode는 같은 제품을 기존 검색보다 21.6% 더 비싸게 보여줌",
+            "title_ko": "구글 AI 모드, 일반 검색보다 같은 제품 21.6% 비싸게 표시",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:58:44.644494+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 17,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 8.13,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_hf_space_hf_audioopen_asr_leaderboard",
+            "title": "HF Space: hf-audio/open_asr_leaderboard",
+            "title_ko": "HF 오디오 오픈 ASR 리더보드 공간 – 대화형 음성 인식 모델 비교하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:58:53.782056+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 18,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 22.39,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_hf_space_hf_audioopen_asr_leaderboard",
+            "title": "HF Space: hf-audio/open_asr_leaderboard",
+            "title_ko": "HF 오디오 오픈 ASR 리더보드 스페이스 – 대화형 ASR 성능 비교 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T17:59:17.172000+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 19,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 31.06,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_hf_space_cockdaddyfuckwan_22_i2v_14b_custom_l",
+            "title": "HF Space: Cockdaddyfuck/Wan_2.2_I2V_14B_Custom_Lora_Wow",
+            "title_ko": "Wan 2.2 I2V 14B 커스텀 LoRA를 활용한 HF 스페이스 데모",
+            "classification": "MODEL",
+            "model_family": "Wan",
+            "enriched_at": "2026-09-04T17:59:49.232472+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 20,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 26.27,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_hf_space_cockdaddyfuckwan_22_i2v_14b_custom_l",
+            "title": "HF Space: Cockdaddyfuck/Wan_2.2_I2V_14B_Custom_Lora_Wow",
+            "title_ko": "HF 스페이스: Cockdaddyfuck/Wan_2.2_I2V_14B_Custom_Lora_Wow – 이미지-투-비디오 14B 모델 데모",
+            "classification": "MODEL",
+            "model_family": "Wan",
+            "enriched_at": "2026-09-04T18:00:16.510490+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 21,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 30.06,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_huggingface_model_ifmk2_horizon_mova_36b_a4b",
+            "title": "HuggingFace Model: IFM/K2-Horizon-MoVA-36B-A4B",
+            "title_ko": "IFM/K2-호라이즌-모바-36B-A4B: 36B 파라미터 텍스트 생성 모델이 휴깅페이스에서 인기 급상승",
+            "classification": "MODEL",
+            "model_family": "Standalone / Novel",
+            "enriched_at": "2026-09-04T18:00:47.576622+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 22,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 47.66,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_huggingface_model_ifmk2_horizon_mova_36b_a4b",
+            "title": "HuggingFace Model: IFM/K2-Horizon-MoVA-36B-A4B",
+            "title_ko": "IFM/K2-호라이즌-모바-36B-A4B: 36B 파라미터 텍스트 생성 모델, 허깅페이스에서 이용 가능",
+            "classification": "MODEL",
+            "model_family": "IFM/K2-Horizon-MoVA",
+            "enriched_at": "2026-09-04T18:01:36.236840+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 23,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 62.86,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_show_hn_open_source_eink_bike_com",
+            "title": "Hacker News: Show HN: Open-Source eInk Bike Computer",
+            "title_ko": "오픈소스 eInk 자전거 컴퓨터",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:02:40.105399+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 24,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 36.15,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_show_hn_open_source_eink_bike_com",
+            "title": "Hacker News: Show HN: Open-Source eInk Bike Computer",
+            "title_ko": "오픈소스 eInk 자전거 컴퓨터, Hacker News에 소개되다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:03:17.264520+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 25,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 41.49,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_georgi_gerganov_on_llamacppggml_f",
+            "title": "Hacker News: Georgi Gerganov on llama.cpp/ggml future after Nvidia acquisition of HuggingFace",
+            "title_ko": "엔비디아-휴징페이스 인수 후 llama.cpp/ggml의 미래에 대한 게르기 게르가노프의 전망",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:03:59.758227+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 26,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 45.12,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_georgi_gerganov_on_llamacppggml_f",
+            "title": "Hacker News: Georgi Gerganov on llama.cpp/ggml future after Nvidia acquisition of HuggingFace",
+            "title_ko": "엔비디아의 휴그페이스 인수가 llama.cpp/ggml에 미치는 영향에 대한 게르기 게르가노프의 전망",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:04:45.889498+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 27,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 43.86,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_adult_film_producer_unmasks_proli",
+            "title": "Hacker News: Adult Film Producer Unmasks Prolific 'John DOE' Torrent Pirate as Meta Executive",
+            "title_ko": "Hacker News: 메타 임원 신원 공개한 성인물 제작자, 토렌트 해적 '존 도' 지목",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:05:30.756346+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 28,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 27.02,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_adult_film_producer_unmasks_proli",
+            "title": "Hacker News: Adult Film Producer Unmasks Prolific 'John DOE' Torrent Pirate as Meta Executive",
+            "title_ko": "Hacker News: 성인 영화 제작자, 메타 임원 출신 토렌트 해커 '존 도' 공개",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:05:58.785712+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 29,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 45.73,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_project_hydrafusion_frontier_qual",
+            "title": "Hacker News: Project HydraFusion: Frontier quality via multi-model orchestration",
+            "title_ko": "프로젝트 HydraFusion: 다중 모델 오케스트레이션을 통한 프론티어급 AI 품질 달성",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:06:45.516967+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 30,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.01,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_project_hydrafusion_frontier_qual",
+            "title": "Hacker News: Project HydraFusion: Frontier quality via multi-model orchestration",
+            "title_ko": "프로젝트 HydraFusion: 멀티모델 오케스트레이션을 통한 프론티어급 품질",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:07:06.529583+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 31,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 17.72,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_desec_free_secure_dns",
+            "title": "Hacker News: deSEC – Free Secure DNS",
+            "title_ko": "Hacker News에서 주목받은 무료 보안 DNS, deSEC",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:07:25.250432+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 32,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 32.02,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_desec_free_secure_dns",
+            "title": "Hacker News: deSEC – Free Secure DNS",
+            "title_ko": "무료 보안 DNS 서비스 deSEC, Hacker News에서 조명받아",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:07:58.274974+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 33,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 43.93,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_corporate_america_is_getting_hook",
+            "title": "Hacker News: Corporate America is getting hooked on open-source AI",
+            "title_ko": "기업, 오픈소스 AI에 열광하다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:08:43.207844+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 34,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 26.98,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_corporate_america_is_getting_hook",
+            "title": "Hacker News: Corporate America is getting hooked on open-source AI",
+            "title_ko": "Hacker News: 기업 미국, 오픈소스 AI에 빠져들다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:09:11.190822+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 35,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.56,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_gmail_to_end_support_for_send_as_",
+            "title": "Hacker News: Gmail to end support for \"Send as\" for third-party addresses, such as @yahoo.com",
+            "title_ko": "구글, 야후 등 제3자 주소에 대한 '보낸 사람' 기능 지원 종료",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:09:28.753324+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 36,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 29.2,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_gmail_to_end_support_for_send_as_",
+            "title": "Hacker News: Gmail to end support for \"Send as\" for third-party addresses, such as @yahoo.com",
+            "title_ko": "야후 메일 등 제3자 주소에 대한 Gmail '보내기' 기능 지원 종료",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:09:58.958648+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 37,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 25.15,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_leading_theory_for_how_life_on_ea",
+            "title": "Hacker News: Leading Theory for How Life on Earth Began Is 'Highly Unlikely'",
+            "title_ko": "지구 생명 기원 이론, '매우 가능성이 낮다' - Hacker News",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:10:25.111787+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 38,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 49.71,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_leading_theory_for_how_life_on_ea",
+            "title": "Hacker News: Leading Theory for How Life on Earth Began Is 'Highly Unlikely'",
+            "title_ko": "지구 생명 기원 이론, '매우 가능성이 낮다' - 해커 뉴스",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:11:15.821884+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 39,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 34.98,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_higher_social_class_predicts_incr",
+            "title": "Hacker News: Higher social class predicts increased unethical behavior",
+            "title_ko": "고소득층일수록 비윤리적 행동 증가한다는 연구 결과",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:11:51.807647+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 40,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 13.46,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_higher_social_class_predicts_incr",
+            "title": "Hacker News: Higher social class predicts increased unethical behavior",
+            "title_ko": "높은 사회 계급은 비윤리적 행동을 증가시킨다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:12:06.275797+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 41,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 29.61,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_top_pentagon_official_contracted_",
+            "title": "Hacker News: Top Pentagon Official Contracted Personal Lawyer to Handle Minerals Deal",
+            "title_ko": "펜타곤 고위 관리가 광물 거래를 처리하기 위해 개인 변호사를 고용한 이유",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:12:36.888455+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 42,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 32.88,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_top_pentagon_official_contracted_",
+            "title": "Hacker News: Top Pentagon Official Contracted Personal Lawyer to Handle Minerals Deal",
+            "title_ko": "펜타곤 고위 관리, 광물 거래 위해 개인 변호사 고용 논란",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:13:10.776858+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 43,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.38,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_us_military_disables_ad_trackers_",
+            "title": "Hacker News: US Military disables ad trackers on troops' phones",
+            "title_ko": "미군, 군인 휴대폰에서 광고 추적기 비활성화",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:13:30.163652+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 44,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.45,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_us_military_disables_ad_trackers_",
+            "title": "Hacker News: US Military disables ad trackers on troops' phones",
+            "title_ko": "미군, 군인 휴대폰에서 광고 추적기 비활성화",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:13:51.615116+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 45,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 29.36,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_hacker_news_show_hn_termy_a_fast_terminal_ass",
+            "title": "Hacker News: Show HN: TERMy – A fast terminal assistant that does not use LLMs",
+            "title_ko": "TERMy: LLM 없이 초고속 터미널 어시스턴트 공개",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:14:21.978485+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 46,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.2,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_hacker_news_show_hn_termy_a_fast_terminal_ass",
+            "title": "Hacker News: Show HN: TERMy – A fast terminal assistant that does not use LLMs",
+            "title_ko": "TERMy – LLM 없이 빠른 터미널 작업을 돕는 어시스턴트",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:14:39.182798+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 47,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.44,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_mamdani_bans_ai_in_nyc_schools",
+            "title": "Hacker News: Mamdani bans AI in NYC schools",
+            "title_ko": "맘다니, 뉴욕 공립학교에서 AI 금지 조치",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:15:00.630844+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 48,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 70.26,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_mamdani_bans_ai_in_nyc_schools",
+            "title": "Hacker News: Mamdani bans AI in NYC schools",
+            "title_ko": "뉴욕시, 마므다니의 AI 사용 금지 조치로 학교 내 AI 금지",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:16:11.897447+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 49,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 35.83,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_paintnet_52_alpha_now_runs_on_lin",
+            "title": "Hacker News: Paint.net 5.2 alpha now runs on Linux",
+            "title_ko": "해커 뉴스: 페인트닷넷 5.2 알파 버전, 리눅스에서 실행 가능",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:16:48.733611+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 50,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 36.61,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_paintnet_52_alpha_now_runs_on_lin",
+            "title": "Hacker News: Paint.net 5.2 alpha now runs on Linux",
+            "title_ko": "페인트닷넷 5.2 알파 버전, 리눅스에서 실행 가능",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:17:26.345073+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 51,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 49.79,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_the_two_abstractions_of_system_de",
+            "title": "Hacker News: The Two Abstractions of System Design: Hide or Reduce",
+            "title_ko": "시스템 설계의 두 가지 추상화: 숨기기 또는 줄이기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:18:17.142280+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 52,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.27,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_the_two_abstractions_of_system_de",
+            "title": "Hacker News: The Two Abstractions of System Design: Hide or Reduce",
+            "title_ko": "시스템 설계의 두 가지 추상화: 숨기기 또는 줄이기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:18:38.416900+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 53,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 21.82,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_a_switch_level_simulation_model_f",
+            "title": "Hacker News: A Switch-Level Simulation Model for Integrated Logic Circuits (1981) [pdf]",
+            "title_ko": "1981년 디지털 회로 시뮬레이션을 위한 스위치 레벨 모델 논문, Hacker News에 게시",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:19:01.241474+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 54,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 17.12,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_a_switch_level_simulation_model_f",
+            "title": "Hacker News: A Switch-Level Simulation Model for Integrated Logic Circuits (1981) [pdf]",
+            "title_ko": "1981년 논리 회로 스위치 레벨 시뮬레이션 모델 PDF 공개",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:19:19.363981+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 55,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.7,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_getting_started_with_at_protocol",
+            "title": "Hacker News: Getting Started with AT Protocol",
+            "title_ko": "AT 프로토콜 시작하기 - 해커 뉴스에서도 주목받는 이유",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:19:35.067172+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 56,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 27.37,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_getting_started_with_at_protocol",
+            "title": "Hacker News: Getting Started with AT Protocol",
+            "title_ko": "해커 뉴스: AT 프로토콜 입문",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T18:20:03.442968+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
