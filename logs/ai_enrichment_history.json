@@ -4328,5 +4328,564 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260904_223558",
+    "timestamp": "2026-09-04T22:35:58.503787+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 34,
+    "requested_limit": 0,
+    "processed_count": 34,
+    "success_count": 34,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 34
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.33,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_페르마의_마지막_정리_형식화",
+            "title": "GeekNews: 페르마의 마지막 정리 형식화",
+            "title_ko": "페르마의 마지막 정리 형식화, Coq로 증명되다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:36:18.836231+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.06,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_페르마의_마지막_정리_형식화",
+            "title": "GeekNews: 페르마의 마지막 정리 형식화",
+            "title_ko": "GeekNews: 페르마의 마지막 정리, 형식적으로 증명되다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:36:33.897302+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.49,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_record_high_89_in_us_say_governme",
+            "title": "Hacker News: Record-High 89% in U.S. Say Government Corruption Widespread",
+            "title_ko": "미국인 89%, 정부 부패 만연하다고 기록적 응답",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:36:50.394721+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 49.81,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_record_high_89_in_us_say_governme",
+            "title": "Hacker News: Record-High 89% in U.S. Say Government Corruption Widespread",
+            "title_ko": "미국, 정부 부패 만연에 대한 인식 사상 최고치 89% 기록",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:37:41.205893+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 13.24,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_actively_exploited_sandbox_rce_in",
+            "title": "Hacker News: Actively exploited sandbox RCE in all Chromium versions",
+            "title_ko": "모든 크롬 버전서 활성화된 샌드박스 RCE 취약점 발견",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:37:55.453157+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.47,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_actively_exploited_sandbox_rce_in",
+            "title": "Hacker News: Actively exploited sandbox RCE in all Chromium versions",
+            "title_ko": "모든 크롬 버전서 활성화된 샌드박스 RCE 취약점 발견",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:38:08.923164+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 8.6,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_icons_as_a_service",
+            "title": "Hacker News: Icons as a Service",
+            "title_ko": "아이콘 애즈 어 서비스, 해커 뉴스에서 화제",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:38:18.531514+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 7.42,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_icons_as_a_service",
+            "title": "Hacker News: Icons as a Service",
+            "title_ko": "아이콘을 서비스로 제공하는 '아이콘애즈어애즈' 등장",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:38:26.954254+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 7.81,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_gpt_6_astra_on_openrouter",
+            "title": "Hacker News: GPT-6 Astra on OpenRouter",
+            "title_ko": "오픈라우터에서 GPT-6 아스트라 출시",
+            "classification": "MODEL",
+            "model_family": "GPT-6",
+            "enriched_at": "2026-09-04T22:38:35.772038+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 8.41,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_gpt_6_astra_on_openrouter",
+            "title": "Hacker News: GPT-6 Astra on OpenRouter",
+            "title_ko": "오픈라우터에서 GPT-6 아스트라 출시, 해커 뉴스 화제",
+            "classification": "MODEL",
+            "model_family": "GPT-6 Astra",
+            "enriched_at": "2026-09-04T22:38:45.186270+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.12,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_updates_on_heir_the_homomorphic_e",
+            "title": "Hacker News: Updates on HEIR, the Homomorphic Encryption Compiler Project",
+            "title_ko": "해커 뉴스: 호모모픽 암호화 컴파일러 HEIR의 최신 소식",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:39:00.309826+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 12,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.11,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_updates_on_heir_the_homomorphic_e",
+            "title": "Hacker News: Updates on HEIR, the Homomorphic Encryption Compiler Project",
+            "title_ko": "HEIR, 동형 암호 컴파일러 프로젝트의 해커 뉴스 업데이트",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:39:19.421364+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 13,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.43,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_some_more_thoughts_on_random_page",
+            "title": "Hacker News: Some more thoughts on random_page_cost",
+            "title_ko": "해커 뉴스: random_page_cost에 대한 추가 고찰",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:39:32.859346+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 14,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 30.17,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_some_more_thoughts_on_random_page",
+            "title": "Hacker News: Some more thoughts on random_page_cost",
+            "title_ko": "Hacker News: random_page_cost에 대한 추가 고찰",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:40:04.027815+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 15,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.37,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_statichosteu_european_static_site",
+            "title": "Hacker News: Statichost.eu – European static site hosting",
+            "title_ko": "Statichost.eu – 유럽 정적 사이트 호스팅 서비스",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:40:17.396539+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 16,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.45,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_statichosteu_european_static_site",
+            "title": "Hacker News: Statichost.eu – European static site hosting",
+            "title_ko": "유럽 정적 사이트 호스팅 서비스, Statichost.eu",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:40:34.852731+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 17,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 19.94,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_how_to_create_a_tor_exit_node",
+            "title": "Hacker News: How to Create a Tor Exit Node",
+            "title_ko": "해커 뉴스: 토르 출구 노드 만드는 방법",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:40:55.796027+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 18,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.18,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_how_to_create_a_tor_exit_node",
+            "title": "Hacker News: How to Create a Tor Exit Node",
+            "title_ko": "토르 출구 노드 만드는 방법",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:41:08.978381+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 19,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 11.37,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_an_open_dns_recursive_service_for",
+            "title": "Hacker News: An open DNS recursive service for free security and high privacy",
+            "title_ko": "무료 보안과 높은 개인정보 보호를 위한 오픈 DNS 재귀 서비스",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:41:21.354115+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 20,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 11.94,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_an_open_dns_recursive_service_for",
+            "title": "Hacker News: An open DNS recursive service for free security and high privacy",
+            "title_ko": "무료 보안과 높은 개인정보 보호를 위한 오픈 DNS 재귀 서비스",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:41:34.298251+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 21,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 27.78,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_hacker_news_fermats_last_theorem_in_lean_4",
+            "title": "Hacker News: Fermat's Last Theorem in Lean 4",
+            "title_ko": "Lean 4로 증명된 페르마의 마지막 정리",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:42:03.079849+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 22,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 8.49,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_hacker_news_fermats_last_theorem_in_lean_4",
+            "title": "Hacker News: Fermat's Last Theorem in Lean 4",
+            "title_ko": "해커 뉴스: 르모랑 정리를 린 4로 증명",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:42:12.568242+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 23,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.57,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_next_token_predictor_is_the_wrong",
+            "title": "Hacker News: \"Next-token predictor\" is the wrong mental model for LLMs",
+            "title_ko": "Hacker News: \"다음 토큰 예측기\"는 LLM에 대한 잘못된 정신적 모델이다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:42:29.139695+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 24,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 24.96,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_next_token_predictor_is_the_wrong",
+            "title": "Hacker News: \"Next-token predictor\" is the wrong mental model for LLMs",
+            "title_ko": "Hacker News: \"다음 토큰 예측기\"는 LLM에 대한 잘못된 정신적 모델이다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:42:55.098658+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 25,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 19.29,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_rsa_260_factorized",
+            "title": "Hacker News: RSA-260 Factorized",
+            "title_ko": "RSA-260 소인수분해 성공, 암호학에 중대한 돌파구",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:43:15.393587+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 26,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 19.62,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_rsa_260_factorized",
+            "title": "Hacker News: RSA-260 Factorized",
+            "title_ko": "RSA-260 소인수분해 성공, 암호학계 큰 충격",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:43:36.019718+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 27,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.71,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_digital_sovereignty_is_written_in",
+            "title": "Hacker News: Digital Sovereignty Is Written in PHP",
+            "title_ko": "디지털 주권은 PHP로 쓰여진다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:43:51.730428+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 28,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.44,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_digital_sovereignty_is_written_in",
+            "title": "Hacker News: Digital Sovereignty Is Written in PHP",
+            "title_ko": "디지털 주권은 PHP로 구현된다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:44:11.172341+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 29,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 26.04,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_fomu_an_fpga_board_that_fits_insi",
+            "title": "Hacker News: Fomu An FPGA board that fits inside your USB port",
+            "title_ko": "USB 포트에 쏙 들어가는 FPGA 보드, 포무(Fomu)가 돌아왔다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:44:38.214794+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 30,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.34,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_fomu_an_fpga_board_that_fits_insi",
+            "title": "Hacker News: Fomu An FPGA board that fits inside your USB port",
+            "title_ko": "USB 포트에 들어가는 FPGA 보드, 포무",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:44:53.555243+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 31,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 9.36,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_deadpan_photography_enjoying_the_",
+            "title": "Hacker News: Deadpan Photography: Enjoying the Pretence",
+            "title_ko": "데드팬 사진술: 허세를 즐기다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:45:03.923337+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 32,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 22.82,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_deadpan_photography_enjoying_the_",
+            "title": "Hacker News: Deadpan Photography: Enjoying the Pretence",
+            "title_ko": "데드팬 사진: 허세를 즐기다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:45:27.749046+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 33,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 26.22,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_the_wormhole_hall_of_shame",
+            "title": "Hacker News: The Wormhole Hall of Shame",
+            "title_ko": "해커 뉴스: 웜홀의 수치스러운 기록",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:45:54.977168+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 34,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 13.99,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_the_wormhole_hall_of_shame",
+            "title": "Hacker News: The Wormhole Hall of Shame",
+            "title_ko": "Hacker News: 웜홀 홀 오브 셰임",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:46:09.970062+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
