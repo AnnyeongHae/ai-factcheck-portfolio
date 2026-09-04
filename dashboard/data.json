@@ -9,9 +9,9 @@
   "gamed_count": 2,
   "avg_confidence": 96.2,
   "models_total_count": 194,
-  "news_total_count": 321,
-  "inbox_total_count": 659,
-  "all_inbox_count": 670,
+  "news_total_count": 335,
+  "inbox_total_count": 673,
+  "all_inbox_count": 684,
   "admin_stats": {
     "endpoints": [
       {
@@ -46,6 +46,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T13:52:30.676815",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.24
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 83,
+            "duration_sec": 0.34
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 1.04
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 13.81
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.5
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.13
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.68
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.22
+          }
+        },
+        "summary": {
+          "total_fetched": 257,
+          "updated_count": 1,
+          "new_saved": 14,
+          "duplicates_skipped": 242,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-04T12:58:01.620527",
         "date": "2026-09-04",
@@ -1582,111 +1635,58 @@
           "duplicates_skipped": 164,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T06:18:54.466559",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.18
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.16
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.78
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 11.08
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.16
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.19
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.91
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.17
-          }
-        },
-        "summary": {
-          "total_fetched": 165,
-          "updated_count": 0,
-          "new_saved": 2,
-          "duplicates_skipped": 163,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T12:58:01.620527",
+      "timestamp": "2026-09-04T13:52:30.676815",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.19
+          "duration_sec": 0.24
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 83,
-          "duration_sec": 0.32
+          "duration_sec": 0.34
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.75
+          "duration_sec": 1.04
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 14.35
+          "duration_sec": 13.81
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.54
+          "duration_sec": 0.5
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.07
+          "duration_sec": 0.13
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.66
+          "duration_sec": 0.68
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.29
+          "duration_sec": 0.22
         }
       },
       "summary": {
         "total_fetched": 257,
         "updated_count": 1,
-        "new_saved": 10,
-        "duplicates_skipped": 246,
+        "new_saved": 14,
+        "duplicates_skipped": 242,
         "errors": 0
       }
     }
@@ -1766,9 +1766,9 @@
       "slot": "21시",
       "hour": 21,
       "range": "21:00 - 23:59",
-      "inbox_count": 10,
+      "inbox_count": 24,
       "model_count": 0,
-      "news_count": 10,
+      "news_count": 24,
       "is_current": true,
       "is_future": false
     }
@@ -1777,16 +1777,16 @@
     "window_label": "18:00 ~ 24:00 KST",
     "window_period": "저녁 엔지니어링 & 데일리 결산",
     "today_kst": "2026-09-04",
-    "updated_at": "22:49 KST",
+    "updated_at": "23:10 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
       "🔥 [Hugging Face Models] GLM-5.3-Flash: 초경량 고성능 비전-언어 멀티모달 모델 (Trending 1796 pts (❤️ 1923)) — 높은 다운로드 수와 뛰어난 추론 효율성을 자랑하는 멀티모달(Image-Text-to-Text) 모델"
     ],
     "tags": [
-      "#Autonomous_Agent",
       "#SoTA_Models",
       "#High_Engagement",
+      "#Autonomous_Agent",
       "#MoE_Architecture",
       "#Local_LLM"
     ]
@@ -28432,6 +28432,1859 @@
   ],
   "news_items": [
     {
+      "inbox_id": "2026-09-04_sns_geeknews_quasar_438b_유럽_최고_성능_ai_모델",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:49.369336",
+      "published_at": "2026-09-04T13:52:49.369336",
+      "created_at": "2026-09-04T13:52:49.369336",
+      "updated_at": "2026-09-04T13:52:49.369336",
+      "title": "GeekNews: Quasar 438B: 유럽 최고 성능 AI 모델",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33222",
+      "type": "sns",
+      "category_type": "MODEL",
+      "description": "GeekNews Korean Tech Trend: Quasar 438B: 유럽 최고 성능 AI 모델",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "GeekNews: Quasar 438B: 유럽 최고 성능 AI 모델",
+      "description_ko": "유럽에서 가장 강력한 AI 모델 Quasar 438B가 등장 – 성능과 규모 면에서 어떤 혁신을 가져올까?",
+      "hn_url": "https://news.hada.io/topic?id=33222",
+      "article_url": "https://news.hada.io/topic?id=33222",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_quasar_438b_유럽_최고_성능_ai_모델",
+        "source_lang": "KO",
+        "type_classification": "MODEL",
+        "model_family": "Quasar 438B",
+        "category": "LLM 모델 발표",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Quasar 438B",
+          "유럽 최고 성능 AI 모델",
+          "GeekNews"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "GeekNews: Quasar 438B: 유럽 최고 성능 AI 모델",
+            "hook": "유럽에서 가장 강력한 AI 모델 Quasar 438B가 등장 – 성능과 규모 면에서 어떤 혁신을 가져올까?",
+            "key_takeaways": [
+              "Quasar 438B는 유럽에서 가장 큰 규모와 최고의 성능을 자랑하는 AI 모델입니다.",
+              "대규모 파라미터와 고급 훈련 데이터로 복잡한 작업에서도 뛰어난 성능을 보입니다.",
+              "GeekNews는 이 혁신적인 모델 출시를 통해 유럽 AI 연구의 새로운 지평을 열었습니다."
+            ]
+          },
+          "en": {
+            "title": "GeekNews: Quasar 438B: Europe's highest-performance AI model",
+            "hook": "Europe’s most powerful AI model, Quasar 438B, arrives – what does this mean for performance and scale?",
+            "key_takeaways": [
+              "Quasar 438B is Europe's largest and highest-performing AI model.",
+              "With massive parameters and advanced training, it excels in complex tasks.",
+              "GeekNews highlights this breakthrough, marking a new era for European AI research."
+            ]
+          },
+          "zh": {
+            "title": "GeekNews：Quasar 438B：欧洲最高性能AI模型",
+            "hook": "欧洲最强AI模型Quasar 438B发布——这将如何改变性能和规模？",
+            "key_takeaways": [
+              "Quasar 438B是欧洲规模最大、性能最强的AI模型。",
+              "它拥有海量参数和高级训练数据，在复杂任务中表现出色。",
+              "GeekNews报道这一突破，标志着欧洲AI研究的新篇章。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T13:53:52.813498+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "GeekNews: Quasar 438B: 유럽 최고 성능 AI 모델",
+          "hook": "유럽에서 가장 강력한 AI 모델 Quasar 438B가 등장 – 성능과 규모 면에서 어떤 혁신을 가져올까?",
+          "key_takeaways": [
+            "Quasar 438B는 유럽에서 가장 큰 규모와 최고의 성능을 자랑하는 AI 모델입니다.",
+            "대규모 파라미터와 고급 훈련 데이터로 복잡한 작업에서도 뛰어난 성능을 보입니다.",
+            "GeekNews는 이 혁신적인 모델 출시를 통해 유럽 AI 연구의 새로운 지평을 열었습니다."
+          ]
+        },
+        "en": {
+          "title": "GeekNews: Quasar 438B: Europe's highest-performance AI model",
+          "hook": "Europe’s most powerful AI model, Quasar 438B, arrives – what does this mean for performance and scale?",
+          "key_takeaways": [
+            "Quasar 438B is Europe's largest and highest-performing AI model.",
+            "With massive parameters and advanced training, it excels in complex tasks.",
+            "GeekNews highlights this breakthrough, marking a new era for European AI research."
+          ]
+        },
+        "zh": {
+          "title": "GeekNews：Quasar 438B：欧洲最高性能AI模型",
+          "hook": "欧洲最强AI模型Quasar 438B发布——这将如何改变性能和规模？",
+          "key_takeaways": [
+            "Quasar 438B是欧洲规模最大、性能最强的AI模型。",
+            "它拥有海量参数和高级训练数据，在复杂任务中表现出色。",
+            "GeekNews报道这一突破，标志着欧洲AI研究的新篇章。"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Quasar 438B",
+        "유럽 최고 성능 AI 모델",
+        "GeekNews"
+      ],
+      "title_en": "GeekNews: Quasar 438B: Europe's highest-performance AI model",
+      "title_zh": "GeekNews：Quasar 438B：欧洲最高性能AI模型",
+      "hook": "유럽에서 가장 강력한 AI 모델 Quasar 438B가 등장 – 성능과 규모 면에서 어떤 혁신을 가져올까?",
+      "hook_ko": "유럽에서 가장 강력한 AI 모델 Quasar 438B가 등장 – 성능과 규모 면에서 어떤 혁신을 가져올까?",
+      "hook_en": "Europe’s most powerful AI model, Quasar 438B, arrives – what does this mean for performance and scale?",
+      "hook_zh": "欧洲最强AI模型Quasar 438B发布——这将如何改变性能和规模？",
+      "description_en": "Europe’s most powerful AI model, Quasar 438B, arrives – what does this mean for performance and scale?",
+      "description_zh": "欧洲最强AI模型Quasar 438B发布——这将如何改变性能和规模？",
+      "model_family": "Quasar 438B",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_ai라는_소행성이_강타한_프론트엔드_웹_개발",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:49.356508",
+      "published_at": "2026-09-04T13:52:49.356508",
+      "created_at": "2026-09-04T13:52:49.356508",
+      "updated_at": "2026-09-04T13:52:49.356508",
+      "title": "GeekNews: AI라는 소행성이 강타한 프론트엔드 웹 개발",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33223",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: AI라는 소행성이 강타한 프론트엔드 웹 개발",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "프론트엔드 웹 개발, AI라는 소행성의 충격",
+      "description_ko": "AI의 급속한 발전이 프론트엔드 웹 개발의 판도를 어떻게 바꾸고 있는지 지금 당장 확인해야 할 이유",
+      "hn_url": "https://news.hada.io/topic?id=33223",
+      "article_url": "https://news.hada.io/topic?id=33223",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_ai라는_소행성이_강타한_프론트엔드_웹_개발",
+        "source_lang": "KO",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Frontend Development Trends",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI",
+          "프론트엔드",
+          "웹 개발",
+          "트렌드"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "프론트엔드 웹 개발, AI라는 소행성의 충격",
+            "hook": "AI의 급속한 발전이 프론트엔드 웹 개발의 판도를 어떻게 바꾸고 있는지 지금 당장 확인해야 할 이유",
+            "key_takeaways": [
+              "AI 기반 코드 생성기가 개발 속도를 크게 높여, 개발자가 반복적인 코드 작성에서 해방되고 있습니다.",
+              "디자인 자동화 도구는 UI/UX 디자인을 가속화하고, 개인화된 인터페이스를 실시간으로 생성합니다.",
+              "실시간 디버깅 및 테스트 지원 AI는 버그를 예측하고 수정 사항을 즉시 제안하여 개발 주기를 단축시킵니다.",
+              "프론트엔드 프레임워크는 AI 통합을 통해 더욱 지능적으로 발전 중이며, 개발자는 AI 친화적인 도구 체인을 활용해야 합니다."
+            ]
+          },
+          "en": {
+            "title": "AI Asteroid Hits Frontend Web Development",
+            "hook": "Why AI’s rapid evolution is reshaping frontend development—engineers must act now",
+            "key_takeaways": [
+              "AI‑powered code generators accelerate development, freeing engineers from repetitive coding tasks.",
+              "Design automation tools speed up UI/UX creation and enable real‑time, personalized interfaces.",
+              "Real‑time debugging and testing AI predicts bugs and suggests fixes instantly, shortening cycles.",
+              "Frontend frameworks are becoming AI‑integrated, urging developers to adopt AI‑friendly toolchains."
+            ]
+          },
+          "zh": {
+            "title": "AI小行星撞击前端网页开发",
+            "hook": "AI的快速发展如何重塑前端网页开发——工程师们必须立即了解",
+            "key_takeaways": [
+              "AI 辅助代码生成器极大地提高了开发速度，使开发者摆脱重复的代码编写工作。",
+              "设计自动化工具加速了 UI/UX 设计，并实时生成个性化界面。",
+              "实时调试和测试 AI 可以预测错误并立即提出修正建议，从而缩短开发周期。",
+              "前端框架正朝着集成 AI 的方向发展，促使开发者采用 AI 友好的工具链。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T13:54:37.302434+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "프론트엔드 웹 개발, AI라는 소행성의 충격",
+          "hook": "AI의 급속한 발전이 프론트엔드 웹 개발의 판도를 어떻게 바꾸고 있는지 지금 당장 확인해야 할 이유",
+          "key_takeaways": [
+            "AI 기반 코드 생성기가 개발 속도를 크게 높여, 개발자가 반복적인 코드 작성에서 해방되고 있습니다.",
+            "디자인 자동화 도구는 UI/UX 디자인을 가속화하고, 개인화된 인터페이스를 실시간으로 생성합니다.",
+            "실시간 디버깅 및 테스트 지원 AI는 버그를 예측하고 수정 사항을 즉시 제안하여 개발 주기를 단축시킵니다.",
+            "프론트엔드 프레임워크는 AI 통합을 통해 더욱 지능적으로 발전 중이며, 개발자는 AI 친화적인 도구 체인을 활용해야 합니다."
+          ]
+        },
+        "en": {
+          "title": "AI Asteroid Hits Frontend Web Development",
+          "hook": "Why AI’s rapid evolution is reshaping frontend development—engineers must act now",
+          "key_takeaways": [
+            "AI‑powered code generators accelerate development, freeing engineers from repetitive coding tasks.",
+            "Design automation tools speed up UI/UX creation and enable real‑time, personalized interfaces.",
+            "Real‑time debugging and testing AI predicts bugs and suggests fixes instantly, shortening cycles.",
+            "Frontend frameworks are becoming AI‑integrated, urging developers to adopt AI‑friendly toolchains."
+          ]
+        },
+        "zh": {
+          "title": "AI小行星撞击前端网页开发",
+          "hook": "AI的快速发展如何重塑前端网页开发——工程师们必须立即了解",
+          "key_takeaways": [
+            "AI 辅助代码生成器极大地提高了开发速度，使开发者摆脱重复的代码编写工作。",
+            "设计自动化工具加速了 UI/UX 设计，并实时生成个性化界面。",
+            "实时调试和测试 AI 可以预测错误并立即提出修正建议，从而缩短开发周期。",
+            "前端框架正朝着集成 AI 的方向发展，促使开发者采用 AI 友好的工具链。"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI",
+        "프론트엔드",
+        "웹 개발",
+        "트렌드"
+      ],
+      "title_en": "AI Asteroid Hits Frontend Web Development",
+      "title_zh": "AI小行星撞击前端网页开发",
+      "hook": "AI의 급속한 발전이 프론트엔드 웹 개발의 판도를 어떻게 바꾸고 있는지 지금 당장 확인해야 할 이유",
+      "hook_ko": "AI의 급속한 발전이 프론트엔드 웹 개발의 판도를 어떻게 바꾸고 있는지 지금 당장 확인해야 할 이유",
+      "hook_en": "Why AI’s rapid evolution is reshaping frontend development—engineers must act now",
+      "hook_zh": "AI的快速发展如何重塑前端网页开发——工程师们必须立即了解",
+      "description_en": "Why AI’s rapid evolution is reshaping frontend development—engineers must act now",
+      "description_zh": "AI的快速发展如何重塑前端网页开发——工程师们必须立即了解",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_ask_hn_mcp를_프로덕션에서_쓰시는_분_있나요",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:49.036723",
+      "published_at": "2026-09-04T13:52:49.036723",
+      "created_at": "2026-09-04T13:52:49.036723",
+      "updated_at": "2026-09-04T13:52:49.036723",
+      "title": "GeekNews: Ask HN: MCP를 프로덕션에서 쓰시는 분 있나요?",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33224",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: Ask HN: MCP를 프로덕션에서 쓰시는 분 있나요?",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "GeekNews: Ask HN: 프로덕션에서 MCP를 사용해 보신 분 계신가요?",
+      "description_ko": "MCP를 프로덕션 환경에서 사용한 실제 사례와 도전 과제를 알아보세요.",
+      "hn_url": "https://news.hada.io/topic?id=33224",
+      "article_url": "https://news.hada.io/topic?id=33224",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_ask_hn_mcp를_프로덕션에서_쓰시는_분_있나요",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "MCP (Model Context Protocol) Adoption",
+        "programming_lang": "General",
+        "root_keywords": [
+          "MCP",
+          "Model Context Protocol",
+          "Production"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "GeekNews: Ask HN: 프로덕션에서 MCP를 사용해 보신 분 계신가요?",
+            "hook": "MCP를 프로덕션 환경에서 사용한 실제 사례와 도전 과제를 알아보세요.",
+            "key_takeaways": [
+              "MCP를 프로덕션 환경에서 사용한 경험 공유",
+              "실제 적용 시 고려해야 할 점",
+              "향후 MCP 도입 계획 및 의견"
+            ]
+          },
+          "en": {
+            "title": "Ask HN: Has anyone used MCP in production?",
+            "hook": "Real-world experiences and challenges of using MCP in production – read now.",
+            "key_takeaways": [
+              "Real-world usage of MCP in production",
+              "Key considerations for production deployment",
+              "Community feedback and future outlook"
+            ]
+          },
+          "zh": {
+            "title": "Ask HN：有人在生产环境中使用过MCP吗？",
+            "hook": "了解MCP在生产环境中的实际应用与挑战，获取第一手经验。",
+            "key_takeaways": [
+              "MCP在生产环境中的实际应用案例",
+              "生产部署时的注意事项",
+              "社区反馈与未来发展方向"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T13:56:01.123606+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "GeekNews: Ask HN: 프로덕션에서 MCP를 사용해 보신 분 계신가요?",
+          "hook": "MCP를 프로덕션 환경에서 사용한 실제 사례와 도전 과제를 알아보세요.",
+          "key_takeaways": [
+            "MCP를 프로덕션 환경에서 사용한 경험 공유",
+            "실제 적용 시 고려해야 할 점",
+            "향후 MCP 도입 계획 및 의견"
+          ]
+        },
+        "en": {
+          "title": "Ask HN: Has anyone used MCP in production?",
+          "hook": "Real-world experiences and challenges of using MCP in production – read now.",
+          "key_takeaways": [
+            "Real-world usage of MCP in production",
+            "Key considerations for production deployment",
+            "Community feedback and future outlook"
+          ]
+        },
+        "zh": {
+          "title": "Ask HN：有人在生产环境中使用过MCP吗？",
+          "hook": "了解MCP在生产环境中的实际应用与挑战，获取第一手经验。",
+          "key_takeaways": [
+            "MCP在生产环境中的实际应用案例",
+            "生产部署时的注意事项",
+            "社区反馈与未来发展方向"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "MCP",
+        "Model Context Protocol",
+        "Production"
+      ],
+      "title_en": "Ask HN: Has anyone used MCP in production?",
+      "title_zh": "Ask HN：有人在生产环境中使用过MCP吗？",
+      "hook": "MCP를 프로덕션 환경에서 사용한 실제 사례와 도전 과제를 알아보세요.",
+      "hook_ko": "MCP를 프로덕션 환경에서 사용한 실제 사례와 도전 과제를 알아보세요.",
+      "hook_en": "Real-world experiences and challenges of using MCP in production – read now.",
+      "hook_zh": "了解MCP在生产环境中的实际应用与挑战，获取第一手经验。",
+      "description_en": "Real-world experiences and challenges of using MCP in production – read now.",
+      "description_zh": "了解MCP在生产环境中的实际应用与挑战，获取第一手经验。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_모든_글에_ai를_쓰면서도_ai_슬롭을_피하는_방법",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:49.024532",
+      "published_at": "2026-09-04T13:52:49.024532",
+      "created_at": "2026-09-04T13:52:49.024532",
+      "updated_at": "2026-09-04T13:52:49.024532",
+      "title": "GeekNews: 모든 글에 AI를 쓰면서도 ‘AI 슬롭’을 피하는 방법",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33225",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 모든 글에 AI를 쓰면서도 ‘AI 슬롭’을 피하는 방법",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "모든 글에 AI를 쓰면서도 'AI 슬롭'을 피하는 방법",
+      "description_ko": "AI로 모든 글을 쓰면서도 품질 저하 없이 효율성을 높이는 5가지 방법",
+      "hn_url": "https://news.hada.io/topic?id=33225",
+      "article_url": "https://news.hada.io/topic?id=33225",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_모든_글에_ai를_쓰면서도_ai_슬롭을_피하는_방법",
+        "source_lang": "KO",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI Content Generation",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI writing",
+          "AI slop",
+          "content generation",
+          "best practices"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "모든 글에 AI를 쓰면서도 'AI 슬롭'을 피하는 방법",
+            "hook": "AI로 모든 글을 쓰면서도 품질 저하 없이 효율성을 높이는 5가지 방법",
+            "key_takeaways": [
+              "AI 도구를 활용해 초안을 작성하되, 인간 편집자의 검토를 통해 품질 유지",
+              "일관된 스타일 가이드와 피드백 루프를 구축해 AI 슬롭 방지",
+              "자동화와 수동 편집의 균형을 맞춰 효율성과 정확성 모두 확보"
+            ]
+          },
+          "en": {
+            "title": "How to Use AI for All Your Writing While Avoiding AI Slop",
+            "hook": "Five practical tips to boost writing efficiency with AI without sacrificing quality",
+            "key_takeaways": [
+              "Leverage AI tools for drafting but maintain human oversight to ensure quality",
+              "Establish style guidelines and feedback loops to prevent AI slop",
+              "Balance automation with manual editing to achieve both efficiency and accuracy"
+            ]
+          },
+          "zh": {
+            "title": "如何在所有文章中使用AI，同时避免AI垃圾内容",
+            "hook": "五个实用的技巧，帮助您提高写作效率，同时保持内容质量",
+            "key_takeaways": [
+              "合理使用AI工具进行初稿写作，同时保持人工审校以确保质量",
+              "建立统一的风格指南和反馈机制，防止产生低质量内容",
+              "平衡自动化和手动编辑，既提高效率又保证准确性"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T13:57:15.049900+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "모든 글에 AI를 쓰면서도 'AI 슬롭'을 피하는 방법",
+          "hook": "AI로 모든 글을 쓰면서도 품질 저하 없이 효율성을 높이는 5가지 방법",
+          "key_takeaways": [
+            "AI 도구를 활용해 초안을 작성하되, 인간 편집자의 검토를 통해 품질 유지",
+            "일관된 스타일 가이드와 피드백 루프를 구축해 AI 슬롭 방지",
+            "자동화와 수동 편집의 균형을 맞춰 효율성과 정확성 모두 확보"
+          ]
+        },
+        "en": {
+          "title": "How to Use AI for All Your Writing While Avoiding AI Slop",
+          "hook": "Five practical tips to boost writing efficiency with AI without sacrificing quality",
+          "key_takeaways": [
+            "Leverage AI tools for drafting but maintain human oversight to ensure quality",
+            "Establish style guidelines and feedback loops to prevent AI slop",
+            "Balance automation with manual editing to achieve both efficiency and accuracy"
+          ]
+        },
+        "zh": {
+          "title": "如何在所有文章中使用AI，同时避免AI垃圾内容",
+          "hook": "五个实用的技巧，帮助您提高写作效率，同时保持内容质量",
+          "key_takeaways": [
+            "合理使用AI工具进行初稿写作，同时保持人工审校以确保质量",
+            "建立统一的风格指南和反馈机制，防止产生低质量内容",
+            "平衡自动化和手动编辑，既提高效率又保证准确性"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI writing",
+        "AI slop",
+        "content generation",
+        "best practices"
+      ],
+      "title_en": "How to Use AI for All Your Writing While Avoiding AI Slop",
+      "title_zh": "如何在所有文章中使用AI，同时避免AI垃圾内容",
+      "hook": "AI로 모든 글을 쓰면서도 품질 저하 없이 효율성을 높이는 5가지 방법",
+      "hook_ko": "AI로 모든 글을 쓰면서도 품질 저하 없이 효율성을 높이는 5가지 방법",
+      "hook_en": "Five practical tips to boost writing efficiency with AI without sacrificing quality",
+      "hook_zh": "五个实用的技巧，帮助您提高写作效率，同时保持内容质量",
+      "description_en": "Five practical tips to boost writing efficiency with AI without sacrificing quality",
+      "description_zh": "五个实用的技巧，帮助您提高写作效率，同时保持内容质量",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_imhex로_미지의_파일_형식_리버스_엔지니어링하기",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:49.012197",
+      "published_at": "2026-09-04T13:52:49.012197",
+      "created_at": "2026-09-04T13:52:49.012197",
+      "updated_at": "2026-09-04T13:52:49.012197",
+      "title": "GeekNews: ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33226",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+      "description_ko": "ImHex를 사용해 알 수 없는 바이너리 파일을 쉽게 분석하고 파일 형식을 리버스 엔지니어링하는 방법을 지금 바로 알아보세요.",
+      "hn_url": "https://news.hada.io/topic?id=33226",
+      "article_url": "https://news.hada.io/topic?id=33226",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_imhex로_미지의_파일_형식_리버스_엔지니어링하기",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Binary Reverse Engineering",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "ImHex",
+          "Reverse Engineering",
+          "File Format"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+            "hook": "ImHex를 사용해 알 수 없는 바이너리 파일을 쉽게 분석하고 파일 형식을 리버스 엔지니어링하는 방법을 지금 바로 알아보세요.",
+            "key_takeaways": [
+              "ImHex 설치 및 기본 UI 소개",
+              "Hex 편집을 통한 구조 식별 및 패턴 매칭",
+              "ImHex의 스크립팅 기능을 활용한 자동화된 리버스 엔지니어링"
+            ]
+          },
+          "en": {
+            "title": "GeekNews: Reverse Engineering Unknown File Formats with ImHex",
+            "hook": "Learn how to quickly dissect and understand mysterious binary files using ImHex, a powerful hex editor for engineers.",
+            "key_takeaways": [
+              "Install and configure ImHex for binary analysis",
+              "Identify file structures via hex viewing and pattern matching",
+              "Automate reverse engineering tasks with ImHex's scripting capabilities"
+            ]
+          },
+          "zh": {
+            "title": "GeekNews：使用ImHex逆向工程未知文件格式",
+            "hook": "了解如何使用ImHex这个强大的十六进制编辑器，快速解析和理解神秘的二进制文件，对于工程师来说是必备技能。",
+            "key_takeaways": [
+              "安装和配置ImHex进行二进制分析",
+              "通过十六进制查看和模式匹配识别文件结构",
+              "利用ImHex的脚本功能自动化逆向工程任务"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T13:58:09.293370+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+          "hook": "ImHex를 사용해 알 수 없는 바이너리 파일을 쉽게 분석하고 파일 형식을 리버스 엔지니어링하는 방법을 지금 바로 알아보세요.",
+          "key_takeaways": [
+            "ImHex 설치 및 기본 UI 소개",
+            "Hex 편집을 통한 구조 식별 및 패턴 매칭",
+            "ImHex의 스크립팅 기능을 활용한 자동화된 리버스 엔지니어링"
+          ]
+        },
+        "en": {
+          "title": "GeekNews: Reverse Engineering Unknown File Formats with ImHex",
+          "hook": "Learn how to quickly dissect and understand mysterious binary files using ImHex, a powerful hex editor for engineers.",
+          "key_takeaways": [
+            "Install and configure ImHex for binary analysis",
+            "Identify file structures via hex viewing and pattern matching",
+            "Automate reverse engineering tasks with ImHex's scripting capabilities"
+          ]
+        },
+        "zh": {
+          "title": "GeekNews：使用ImHex逆向工程未知文件格式",
+          "hook": "了解如何使用ImHex这个强大的十六进制编辑器，快速解析和理解神秘的二进制文件，对于工程师来说是必备技能。",
+          "key_takeaways": [
+            "安装和配置ImHex进行二进制分析",
+            "通过十六进制查看和模式匹配识别文件结构",
+            "利用ImHex的脚本功能自动化逆向工程任务"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "ImHex",
+        "Reverse Engineering",
+        "File Format"
+      ],
+      "title_en": "GeekNews: Reverse Engineering Unknown File Formats with ImHex",
+      "title_zh": "GeekNews：使用ImHex逆向工程未知文件格式",
+      "hook": "ImHex를 사용해 알 수 없는 바이너리 파일을 쉽게 분석하고 파일 형식을 리버스 엔지니어링하는 방법을 지금 바로 알아보세요.",
+      "hook_ko": "ImHex를 사용해 알 수 없는 바이너리 파일을 쉽게 분석하고 파일 형식을 리버스 엔지니어링하는 방법을 지금 바로 알아보세요.",
+      "hook_en": "Learn how to quickly dissect and understand mysterious binary files using ImHex, a powerful hex editor for engineers.",
+      "hook_zh": "了解如何使用ImHex这个强大的十六进制编辑器，快速解析和理解神秘的二进制文件，对于工程师来说是必备技能。",
+      "description_en": "Learn how to quickly dissect and understand mysterious binary files using ImHex, a powerful hex editor for engineers.",
+      "description_zh": "了解如何使用ImHex这个强大的十六进制编辑器，快速解析和理解神秘的二进制文件，对于工程师来说是必备技能。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_llm으로_1993년_amiga_게임의_68000_어셈블리를_읽어",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:49.000172",
+      "published_at": "2026-09-04T13:52:49.000172",
+      "created_at": "2026-09-04T13:52:49.000172",
+      "updated_at": "2026-09-04T13:52:49.000172",
+      "title": "GeekNews: LLM으로 1993년 Amiga 게임의 68000 어셈블리를 읽어 Godot에 포팅하기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33228",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: LLM으로 1993년 Amiga 게임의 68000 어셈블리를 읽어 Godot에 포팅하기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "LLM을 활용해 1993년 Amiga 게임의 68000 어셈블리 코드를 Godot로 포팅하기",
+      "description_ko": "레거시 어셈블리 코드를 현대 게임 엔진으로 변환하는 LLM의 능력을 지금 바로 확인하세요.",
+      "hn_url": "https://news.hada.io/topic?id=33228",
+      "article_url": "https://news.hada.io/topic?id=33228",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_llm으로_1993년_amiga_게임의_68000_어셈블리를_읽어",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "LLM-assisted Code Translation",
+        "programming_lang": "General",
+        "root_keywords": [
+          "LLM",
+          "assembly",
+          "Amiga",
+          "Godot",
+          "porting"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "LLM을 활용해 1993년 Amiga 게임의 68000 어셈블리 코드를 Godot로 포팅하기",
+            "hook": "레거시 어셈블리 코드를 현대 게임 엔진으로 변환하는 LLM의 능력을 지금 바로 확인하세요.",
+            "key_takeaways": [
+              "LLM을 활용해 68000 어셈블리 소스를 분석하고 이해하는 방법",
+              "Godot 타겟 플랫폼으로의 자동화된 코드 변환 파이프라인 구축",
+              "레거시 게임의 현대적 재사용을 위한 잠재적 문제점과 성능 고려사항"
+            ]
+          },
+          "en": {
+            "title": "Leveraging LLMs to Translate 1993 Amiga Game’s 68000 Assembly into Godot",
+            "hook": "Discover how LLMs can automatically convert vintage assembly code into modern game engine assets—engineers won’t want to miss this.",
+            "key_takeaways": [
+              "How LLMs can parse and understand 68000 assembly from vintage Amiga games",
+              "Building an automated pipeline to transform assembly into Godot‑compatible code",
+              "Challenges and performance considerations when porting legacy games with AI"
+            ]
+          },
+          "zh": {
+            "title": "利用大型语言模型将1993年Amiga游戏的68000汇编代码自动转换为Godot引擎代码",
+            "hook": "为什么工程师应该立即阅读：了解LLM如何将古老的汇编代码转化为现代游戏引擎的资产。",
+            "key_takeaways": [
+              "如何利用LLM解析和理解Amiga平台上的68000汇编代码",
+              "构建自动化的代码转换流程，将汇编代码转换为Godot可用的格式",
+              "在利用AI移植遗留游戏时遇到的挑战和性能考量"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T13:59:27.992939+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "LLM을 활용해 1993년 Amiga 게임의 68000 어셈블리 코드를 Godot로 포팅하기",
+          "hook": "레거시 어셈블리 코드를 현대 게임 엔진으로 변환하는 LLM의 능력을 지금 바로 확인하세요.",
+          "key_takeaways": [
+            "LLM을 활용해 68000 어셈블리 소스를 분석하고 이해하는 방법",
+            "Godot 타겟 플랫폼으로의 자동화된 코드 변환 파이프라인 구축",
+            "레거시 게임의 현대적 재사용을 위한 잠재적 문제점과 성능 고려사항"
+          ]
+        },
+        "en": {
+          "title": "Leveraging LLMs to Translate 1993 Amiga Game’s 68000 Assembly into Godot",
+          "hook": "Discover how LLMs can automatically convert vintage assembly code into modern game engine assets—engineers won’t want to miss this.",
+          "key_takeaways": [
+            "How LLMs can parse and understand 68000 assembly from vintage Amiga games",
+            "Building an automated pipeline to transform assembly into Godot‑compatible code",
+            "Challenges and performance considerations when porting legacy games with AI"
+          ]
+        },
+        "zh": {
+          "title": "利用大型语言模型将1993年Amiga游戏的68000汇编代码自动转换为Godot引擎代码",
+          "hook": "为什么工程师应该立即阅读：了解LLM如何将古老的汇编代码转化为现代游戏引擎的资产。",
+          "key_takeaways": [
+            "如何利用LLM解析和理解Amiga平台上的68000汇编代码",
+            "构建自动化的代码转换流程，将汇编代码转换为Godot可用的格式",
+            "在利用AI移植遗留游戏时遇到的挑战和性能考量"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "LLM",
+        "assembly",
+        "Amiga",
+        "Godot",
+        "porting"
+      ],
+      "title_en": "Leveraging LLMs to Translate 1993 Amiga Game’s 68000 Assembly into Godot",
+      "title_zh": "利用大型语言模型将1993年Amiga游戏的68000汇编代码自动转换为Godot引擎代码",
+      "hook": "레거시 어셈블리 코드를 현대 게임 엔진으로 변환하는 LLM의 능력을 지금 바로 확인하세요.",
+      "hook_ko": "레거시 어셈블리 코드를 현대 게임 엔진으로 변환하는 LLM의 능력을 지금 바로 확인하세요.",
+      "hook_en": "Discover how LLMs can automatically convert vintage assembly code into modern game engine assets—engineers won’t want to miss this.",
+      "hook_zh": "为什么工程师应该立即阅读：了解LLM如何将古老的汇编代码转化为现代游戏引擎的资产。",
+      "description_en": "Discover how LLMs can automatically convert vintage assembly code into modern game engine assets—engineers won’t want to miss this.",
+      "description_zh": "为什么工程师应该立即阅读：了解LLM如何将古老的汇编代码转化为现代游戏引擎的资产。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_norways_oil_fund_proposes_selling",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.781270",
+      "published_at": "2026-09-04T13:15:24",
+      "created_at": "2026-09-04T13:15:24",
+      "updated_at": "2026-09-04T13:52:48.781270",
+      "title": "Hacker News: Norway's Oil Fund Proposes Selling Roughly $80B in U.S. Treasurys",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49564189",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 19 pts | Comments: 2 | Norway's Oil Fund Proposes Selling Roughly $80B in U.S. Treasurys",
+      "viral_metric": "🔥 19 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 19,
+          "display": "🔥 19 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 19,
+          "display": "🔥 19 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49564189",
+      "article_url": "https://www.wsj.com/finance/investing/norways-oil-fund-proposes-cut-to-government-bond-holdings-d930893f",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_norways_oil_fund_proposes_selling",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Financial Market / Sovereign Wealth Fund",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Norway Oil Fund",
+          "U.S. Treasuries",
+          "Sovereign wealth fund"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "노르웨이 국부펀드, 미국 국채 약 80조원 매각 제안",
+            "hook": "노르웨이 국부펀드의 80조원 미국 국채 매각 제안이 암호화폐 및 채권 시장에 어떤 파장을 일으킬지 지금 확인하세요.",
+            "key_takeaways": [
+              "노르웨이 국부펀드, 미국 국채 약 80조원 매각 계획 발표",
+              "이번 결정은 글로벌 채권 시장에 변동성을 초래할 수 있음",
+              "암호화폐 및 기타 자산에 대한 투자자들의 관심이 증가할 수 있음"
+            ]
+          },
+          "en": {
+            "title": "Norway’s Oil Fund Proposes Selling Roughly $80B in U.S. Treasurys",
+            "hook": "Why this $80B U.S. Treasury sell‑off matters to crypto and bond markets—engineers need to watch liquidity shifts.",
+            "key_takeaways": [
+              "Norway’s Oil Fund plans to sell roughly $80 billion of U.S. Treasurys",
+              "The move may increase market volatility and affect bond yields",
+              "Potential ripple effects on crypto and other alternative assets"
+            ]
+          },
+          "zh": {
+            "title": "挪威石油基金提议出售约800亿美元美国国债",
+            "hook": "挪威主权基金大规模抛售美国国债，对加密货币和债券市场造成何种影响？工程师需关注流动性变化。",
+            "key_takeaways": [
+              "挪威石油基金拟出售约800亿美元美国国债",
+              "此举可能加剧市场波动，影响债券收益率",
+              "对加密货币及其他替代资产投资产生连锁反应"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:02:03.111361+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "노르웨이 국부펀드, 미국 국채 약 80조원 매각 제안",
+          "hook": "노르웨이 국부펀드의 80조원 미국 국채 매각 제안이 암호화폐 및 채권 시장에 어떤 파장을 일으킬지 지금 확인하세요.",
+          "key_takeaways": [
+            "노르웨이 국부펀드, 미국 국채 약 80조원 매각 계획 발표",
+            "이번 결정은 글로벌 채권 시장에 변동성을 초래할 수 있음",
+            "암호화폐 및 기타 자산에 대한 투자자들의 관심이 증가할 수 있음"
+          ]
+        },
+        "en": {
+          "title": "Norway’s Oil Fund Proposes Selling Roughly $80B in U.S. Treasurys",
+          "hook": "Why this $80B U.S. Treasury sell‑off matters to crypto and bond markets—engineers need to watch liquidity shifts.",
+          "key_takeaways": [
+            "Norway’s Oil Fund plans to sell roughly $80 billion of U.S. Treasurys",
+            "The move may increase market volatility and affect bond yields",
+            "Potential ripple effects on crypto and other alternative assets"
+          ]
+        },
+        "zh": {
+          "title": "挪威石油基金提议出售约800亿美元美国国债",
+          "hook": "挪威主权基金大规模抛售美国国债，对加密货币和债券市场造成何种影响？工程师需关注流动性变化。",
+          "key_takeaways": [
+            "挪威石油基金拟出售约800亿美元美国国债",
+            "此举可能加剧市场波动，影响债券收益率",
+            "对加密货币及其他替代资产投资产生连锁反应"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Norway Oil Fund",
+        "U.S. Treasuries",
+        "Sovereign wealth fund"
+      ],
+      "title_ko": "노르웨이 국부펀드, 미국 국채 약 80조원 매각 제안",
+      "title_en": "Norway’s Oil Fund Proposes Selling Roughly $80B in U.S. Treasurys",
+      "title_zh": "挪威石油基金提议出售约800亿美元美国国债",
+      "hook": "노르웨이 국부펀드의 80조원 미국 국채 매각 제안이 암호화폐 및 채권 시장에 어떤 파장을 일으킬지 지금 확인하세요.",
+      "hook_ko": "노르웨이 국부펀드의 80조원 미국 국채 매각 제안이 암호화폐 및 채권 시장에 어떤 파장을 일으킬지 지금 확인하세요.",
+      "hook_en": "Why this $80B U.S. Treasury sell‑off matters to crypto and bond markets—engineers need to watch liquidity shifts.",
+      "hook_zh": "挪威主权基金大规模抛售美国国债，对加密货币和债券市场造成何种影响？工程师需关注流动性变化。",
+      "description_ko": "노르웨이 국부펀드의 80조원 미국 국채 매각 제안이 암호화폐 및 채권 시장에 어떤 파장을 일으킬지 지금 확인하세요.",
+      "description_en": "Why this $80B U.S. Treasury sell‑off matters to crypto and bond markets—engineers need to watch liquidity shifts.",
+      "description_zh": "挪威主权基金大规模抛售美国国债，对加密货币和债券市场造成何种影响？工程师需关注流动性变化。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_scientists_find_worms_in_almost_e",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.736297",
+      "published_at": "2026-09-04T13:08:18",
+      "created_at": "2026-09-04T13:08:18",
+      "updated_at": "2026-09-04T13:52:48.736297",
+      "title": "Hacker News: Scientists Find Worms in Almost Every Fish in a Tuna Haul – 96% Were Infected",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49564112",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 11 pts | Comments: 1 | Scientists Find Worms in Almost Every Fish in a Tuna Haul – 96% Were Infected",
+      "viral_metric": "🔥 11 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 11,
+          "display": "🔥 11 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 11,
+          "display": "🔥 11 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49564112",
+      "article_url": "https://www.sciencealert.com/scientists-find-parasites-in-almost-every-fish-from-a-recent-tuna-haul-96-were-infected",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_scientists_find_worms_in_almost_e",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Food safety / Seafood contamination",
+        "programming_lang": "General",
+        "root_keywords": [
+          "parasitic worms",
+          "tuna",
+          "food safety"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "참치 운반선에서 잡힌 거의 모든 생선에서 벌레 발견 – 96% 감염",
+            "hook": "참치 운반선에서 잡힌 생선의 96%가 기생충에 감염된 것으로 나타나 수산물 안전에 대한 우려가 커지고 있습니다.",
+            "key_takeaways": [
+              "참치 운반선에서 선별한 생선 중 96%에서 기생충이 발견되었습니다.",
+              "이번 연구는 수산물 공급망 내 위생 관리의 중요성을 강조합니다.",
+              "소비자들은 구매 전 수산물 검사에 대한 더 엄격한 기준을 요구할 수 있습니다."
+            ]
+          },
+          "en": {
+            "title": "Scientists Find Worms in Almost Every Fish in a Tuna Haul – 96% Were Infected",
+            "hook": "A recent study reveals that 96% of fish in a single tuna shipment were infected with parasitic worms, raising concerns about seafood safety.",
+            "key_takeaways": [
+              "In a single tuna haul, 96% of the fish examined contained parasitic worms.",
+              "The findings highlight the need for stricter hygiene controls in seafood supply chains.",
+              "Consumers may push for more rigorous inspection standards for purchased fish."
+            ]
+          },
+          "zh": {
+            "title": "科学家在金枪鱼运输中发现几乎所有鱼类都感染蠕虫，感染率达96%",
+            "hook": "一项最新研究显示，在一次金枪鱼运输中，96%的鱼被寄生虫感染，引发对海鲜安全的担忧。",
+            "key_takeaways": [
+              "在一次金枪鱼运输中，检查的鱼有96%发现了寄生虫。",
+              "研究强调了海鲜供应链中卫生控制的重要性。",
+              "消费者可能要求对购买的鱼实施更严格的检查标准。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:03:40.303991+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "참치 운반선에서 잡힌 거의 모든 생선에서 벌레 발견 – 96% 감염",
+          "hook": "참치 운반선에서 잡힌 생선의 96%가 기생충에 감염된 것으로 나타나 수산물 안전에 대한 우려가 커지고 있습니다.",
+          "key_takeaways": [
+            "참치 운반선에서 선별한 생선 중 96%에서 기생충이 발견되었습니다.",
+            "이번 연구는 수산물 공급망 내 위생 관리의 중요성을 강조합니다.",
+            "소비자들은 구매 전 수산물 검사에 대한 더 엄격한 기준을 요구할 수 있습니다."
+          ]
+        },
+        "en": {
+          "title": "Scientists Find Worms in Almost Every Fish in a Tuna Haul – 96% Were Infected",
+          "hook": "A recent study reveals that 96% of fish in a single tuna shipment were infected with parasitic worms, raising concerns about seafood safety.",
+          "key_takeaways": [
+            "In a single tuna haul, 96% of the fish examined contained parasitic worms.",
+            "The findings highlight the need for stricter hygiene controls in seafood supply chains.",
+            "Consumers may push for more rigorous inspection standards for purchased fish."
+          ]
+        },
+        "zh": {
+          "title": "科学家在金枪鱼运输中发现几乎所有鱼类都感染蠕虫，感染率达96%",
+          "hook": "一项最新研究显示，在一次金枪鱼运输中，96%的鱼被寄生虫感染，引发对海鲜安全的担忧。",
+          "key_takeaways": [
+            "在一次金枪鱼运输中，检查的鱼有96%发现了寄生虫。",
+            "研究强调了海鲜供应链中卫生控制的重要性。",
+            "消费者可能要求对购买的鱼实施更严格的检查标准。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "parasitic worms",
+        "tuna",
+        "food safety"
+      ],
+      "title_ko": "참치 운반선에서 잡힌 거의 모든 생선에서 벌레 발견 – 96% 감염",
+      "title_en": "Scientists Find Worms in Almost Every Fish in a Tuna Haul – 96% Were Infected",
+      "title_zh": "科学家在金枪鱼运输中发现几乎所有鱼类都感染蠕虫，感染率达96%",
+      "hook": "참치 운반선에서 잡힌 생선의 96%가 기생충에 감염된 것으로 나타나 수산물 안전에 대한 우려가 커지고 있습니다.",
+      "hook_ko": "참치 운반선에서 잡힌 생선의 96%가 기생충에 감염된 것으로 나타나 수산물 안전에 대한 우려가 커지고 있습니다.",
+      "hook_en": "A recent study reveals that 96% of fish in a single tuna shipment were infected with parasitic worms, raising concerns about seafood safety.",
+      "hook_zh": "一项最新研究显示，在一次金枪鱼运输中，96%的鱼被寄生虫感染，引发对海鲜安全的担忧。",
+      "description_ko": "참치 운반선에서 잡힌 생선의 96%가 기생충에 감염된 것으로 나타나 수산물 안전에 대한 우려가 커지고 있습니다.",
+      "description_en": "A recent study reveals that 96% of fish in a single tuna shipment were infected with parasitic worms, raising concerns about seafood safety.",
+      "description_zh": "一项最新研究显示，在一次金枪鱼运输中，96%的鱼被寄生虫感染，引发对海鲜安全的担忧。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_people_are_going_to_get_screwed_p",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.701328",
+      "published_at": "2026-09-04T13:33:01",
+      "created_at": "2026-09-04T13:33:01",
+      "updated_at": "2026-09-04T13:52:48.701328",
+      "title": "Hacker News: 'People are going to get screwed' Pennsylvania voters unite against data centres",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49564397",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 10 pts | Comments: 1 | 'People are going to get screwed' Pennsylvania voters unite against data centres",
+      "viral_metric": "🔥 10 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "🔥 10 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 10,
+          "display": "🔥 10 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49564397",
+      "article_url": "http://www.ft.com/content/8252d574-ae2a-4403-9cf9-031295ba67f5",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_people_are_going_to_get_screwed_p",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Regional Tech Policy",
+        "programming_lang": "General",
+        "root_keywords": [
+          "데이터 센터",
+          "펜실베이니아",
+          "에너지 정책",
+          "개인정보 보호"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: '사람들이 피해를 볼 것이다' 펜실베이니아 주민들, 데이터 센터에 맞서 연합",
+            "hook": "데이터 센터 확장이 펜실베이니아 주민들의 전기료와 개인정보에 미칠 영향에 대한 경고",
+            "key_takeaways": [
+              "데이터 센터 건설로 인한 전기료 상승 부담",
+              "주민들의 개인정보 보호 우려",
+              "지역 사회가 데이터 기업에 맞서 연합 움직임"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: 'People are going to get screwed' Pennsylvania voters unite against data centres",
+            "hook": "Pennsylvania voters warn that data center expansion will raise electricity costs and compromise privacy for locals",
+            "key_takeaways": [
+              "Rising electricity costs for locals due to data center construction",
+              "Concerns over personal data privacy",
+              "Community mobilization against data companies"
+            ]
+          },
+          "zh": {
+            "title": "黑客新闻：‘人们将被耍’ 宾夕法尼亚选民联合起来反对数据中心",
+            "hook": "宾夕法尼亚选民警告数据中心扩张将推高当地电价并危及隐私",
+            "key_takeaways": [
+              "数据中心建设导致当地电价上涨",
+              "居民隐私担忧加剧",
+              "社区联合抵制数据企业"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:00:34.842471+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: '사람들이 피해를 볼 것이다' 펜실베이니아 주민들, 데이터 센터에 맞서 연합",
+          "hook": "데이터 센터 확장이 펜실베이니아 주민들의 전기료와 개인정보에 미칠 영향에 대한 경고",
+          "key_takeaways": [
+            "데이터 센터 건설로 인한 전기료 상승 부담",
+            "주민들의 개인정보 보호 우려",
+            "지역 사회가 데이터 기업에 맞서 연합 움직임"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: 'People are going to get screwed' Pennsylvania voters unite against data centres",
+          "hook": "Pennsylvania voters warn that data center expansion will raise electricity costs and compromise privacy for locals",
+          "key_takeaways": [
+            "Rising electricity costs for locals due to data center construction",
+            "Concerns over personal data privacy",
+            "Community mobilization against data companies"
+          ]
+        },
+        "zh": {
+          "title": "黑客新闻：‘人们将被耍’ 宾夕法尼亚选民联合起来反对数据中心",
+          "hook": "宾夕法尼亚选民警告数据中心扩张将推高当地电价并危及隐私",
+          "key_takeaways": [
+            "数据中心建设导致当地电价上涨",
+            "居民隐私担忧加剧",
+            "社区联合抵制数据企业"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "데이터 센터",
+        "펜실베이니아",
+        "에너지 정책",
+        "개인정보 보호"
+      ],
+      "title_ko": "해커 뉴스: '사람들이 피해를 볼 것이다' 펜실베이니아 주민들, 데이터 센터에 맞서 연합",
+      "title_en": "Hacker News: 'People are going to get screwed' Pennsylvania voters unite against data centres",
+      "title_zh": "黑客新闻：‘人们将被耍’ 宾夕法尼亚选民联合起来反对数据中心",
+      "hook": "데이터 센터 확장이 펜실베이니아 주민들의 전기료와 개인정보에 미칠 영향에 대한 경고",
+      "hook_ko": "데이터 센터 확장이 펜실베이니아 주민들의 전기료와 개인정보에 미칠 영향에 대한 경고",
+      "hook_en": "Pennsylvania voters warn that data center expansion will raise electricity costs and compromise privacy for locals",
+      "hook_zh": "宾夕法尼亚选民警告数据中心扩张将推高当地电价并危及隐私",
+      "description_ko": "데이터 센터 확장이 펜실베이니아 주민들의 전기료와 개인정보에 미칠 영향에 대한 경고",
+      "description_en": "Pennsylvania voters warn that data center expansion will raise electricity costs and compromise privacy for locals",
+      "description_zh": "宾夕法尼亚选民警告数据中心扩张将推高当地电价并危及隐私",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_why_is_arraysfill_265_times_slowe",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.673338",
+      "published_at": "2026-09-01T04:29:03",
+      "created_at": "2026-09-01T04:29:03",
+      "updated_at": "2026-09-04T13:52:48.673338",
+      "title": "Hacker News: Why is Arrays.fill 265 times slower on G1GC?",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49517958",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 10 pts | Comments: 1 | Why is Arrays.fill 265 times slower on G1GC?",
+      "viral_metric": "🔥 10 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "🔥 10 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 10,
+          "display": "🔥 10 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49517958",
+      "article_url": "https://krzysztofslusarski.github.io/2026/08/19/g1barrier.html",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_why_is_arraysfill_265_times_slowe",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Java Arrays.fill Optimization",
+        "programming_lang": "Java",
+        "root_keywords": [
+          "Arrays.fill",
+          "G1GC",
+          "Java performance"
+        ],
+        "recommended_tag": "📝 tech reference",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "G1GC에서 Arrays.fill이 265배 느려지는 이유",
+            "hook": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+            "key_takeaways": [
+              "G1GC의 메모리 할당 방식이 배열 채우기 작업에 미치는 영향",
+              "GC 일시 정지 및 메모리 할당 오버헤드가 성능 저하의 주요 원인",
+              "성능 개선을 위한 G1GC 튜닝 및 대체 방법 제안"
+            ]
+          },
+          "en": {
+            "title": "Why is Arrays.fill 265 times slower on G1GC?",
+            "hook": "Discover why Java's Arrays.fill runs 265x slower on G1GC and how to fix it.",
+            "key_takeaways": [
+              "G1GC's allocation behavior impacts array filling performance",
+              "GC pauses and allocation overhead cause the slowdown",
+              "Tuning G1GC and alternative approaches for better performance"
+            ]
+          },
+          "zh": {
+            "title": "G1GC 下 Arrays.fill 为什么慢 265 倍？",
+            "hook": "揭秘 G1GC 环境下 Java Arrays.fill 性能急剧下降的原因及优化方案。",
+            "key_takeaways": [
+              "G1GC 的内存分配机制如何影响数组填充性能",
+              "GC 暂停和内存分配开销是主要原因",
+              "G1GC 调优及替代方案助力性能提升"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:09:13.990822+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "G1GC에서 Arrays.fill이 265배 느려지는 이유",
+          "hook": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+          "key_takeaways": [
+            "G1GC의 메모리 할당 방식이 배열 채우기 작업에 미치는 영향",
+            "GC 일시 정지 및 메모리 할당 오버헤드가 성능 저하의 주요 원인",
+            "성능 개선을 위한 G1GC 튜닝 및 대체 방법 제안"
+          ]
+        },
+        "en": {
+          "title": "Why is Arrays.fill 265 times slower on G1GC?",
+          "hook": "Discover why Java's Arrays.fill runs 265x slower on G1GC and how to fix it.",
+          "key_takeaways": [
+            "G1GC's allocation behavior impacts array filling performance",
+            "GC pauses and allocation overhead cause the slowdown",
+            "Tuning G1GC and alternative approaches for better performance"
+          ]
+        },
+        "zh": {
+          "title": "G1GC 下 Arrays.fill 为什么慢 265 倍？",
+          "hook": "揭秘 G1GC 环境下 Java Arrays.fill 性能急剧下降的原因及优化方案。",
+          "key_takeaways": [
+            "G1GC 的内存分配机制如何影响数组填充性能",
+            "GC 暂停和内存分配开销是主要原因",
+            "G1GC 调优及替代方案助力性能提升"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Java",
+      "root_keywords": [
+        "Arrays.fill",
+        "G1GC",
+        "Java performance"
+      ],
+      "title_ko": "G1GC에서 Arrays.fill이 265배 느려지는 이유",
+      "title_en": "Why is Arrays.fill 265 times slower on G1GC?",
+      "title_zh": "G1GC 下 Arrays.fill 为什么慢 265 倍？",
+      "hook": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+      "hook_ko": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+      "hook_en": "Discover why Java's Arrays.fill runs 265x slower on G1GC and how to fix it.",
+      "hook_zh": "揭秘 G1GC 环境下 Java Arrays.fill 性能急剧下降的原因及优化方案。",
+      "description_ko": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+      "description_en": "Discover why Java's Arrays.fill runs 265x slower on G1GC and how to fix it.",
+      "description_zh": "揭秘 G1GC 环境下 Java Arrays.fill 性能急剧下降的原因及优化方案。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_repo_hacker_news_restoring_5_ghz_wi_fi_on_an_lg_c5",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.651369",
+      "published_at": "2026-09-04T12:49:44",
+      "created_at": "2026-09-04T12:49:44",
+      "updated_at": "2026-09-04T13:52:48.651369",
+      "title": "Hacker News: Restoring 5 GHz Wi-Fi on an LG C5 by changing its webOS region",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49563839",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "HN Score: 17 pts | Comments: 9 | Restoring 5 GHz Wi-Fi on an LG C5 by changing its webOS region",
+      "viral_metric": "🔥 17 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 17,
+          "display": "🔥 17 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 17,
+          "display": "🔥 17 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49563839",
+      "article_url": "https://github.com/hawshemi/lg-c5-webos25-region-change",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_hacker_news_restoring_5_ghz_wi_fi_on_an_lg_c5",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Device firmware hack",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Wi-Fi",
+          "webOS",
+          "LG C5"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "LG C5 웹OS 지역 설정으로 5 GHz Wi-Fi 복원하기",
+            "hook": "웹OS TV에서 5 GHz Wi-Fi가 사라졌다면, 지역 코드 변경으로 문제를 해결하는 간단한 방법을 소개합니다.",
+            "key_takeaways": [
+              "webOS 지역 설정 변경으로 5 GHz Wi-Fi 활성화 방법",
+              "LG C5 TV에서 개발자 옵션 활성화 방법",
+              "지역 코드 변경의 위험성과 주의사항"
+            ]
+          },
+          "en": {
+            "title": "Restoring 5 GHz Wi-Fi on an LG C5 by Changing its webOS Region",
+            "hook": "If your LG webOS TV lost 5 GHz Wi‑Fi, a simple region tweak can bring it back – here’s how.",
+            "key_takeaways": [
+              "How to enable 5 GHz Wi‑Fi via webOS region change",
+              "Steps to unlock developer options on LG C5",
+              "Risks and precautions when altering region settings"
+            ]
+          },
+          "zh": {
+            "title": "通过更改webOS区域恢复LG C5的5GHz Wi-Fi",
+            "hook": "如果您的LG C5电视无法连接5GHz Wi-Fi，通过调整webOS区域设置即可轻松解决。",
+            "key_takeaways": [
+              "通过更改webOS区域设置恢复5GHz Wi-Fi的方法",
+              "如何在LG C5上启用开发者选项",
+              "更改区域设置时的注意事项"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:05:31.981312+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "LG C5 웹OS 지역 설정으로 5 GHz Wi-Fi 복원하기",
+          "hook": "웹OS TV에서 5 GHz Wi-Fi가 사라졌다면, 지역 코드 변경으로 문제를 해결하는 간단한 방법을 소개합니다.",
+          "key_takeaways": [
+            "webOS 지역 설정 변경으로 5 GHz Wi-Fi 활성화 방법",
+            "LG C5 TV에서 개발자 옵션 활성화 방법",
+            "지역 코드 변경의 위험성과 주의사항"
+          ]
+        },
+        "en": {
+          "title": "Restoring 5 GHz Wi-Fi on an LG C5 by Changing its webOS Region",
+          "hook": "If your LG webOS TV lost 5 GHz Wi‑Fi, a simple region tweak can bring it back – here’s how.",
+          "key_takeaways": [
+            "How to enable 5 GHz Wi‑Fi via webOS region change",
+            "Steps to unlock developer options on LG C5",
+            "Risks and precautions when altering region settings"
+          ]
+        },
+        "zh": {
+          "title": "通过更改webOS区域恢复LG C5的5GHz Wi-Fi",
+          "hook": "如果您的LG C5电视无法连接5GHz Wi-Fi，通过调整webOS区域设置即可轻松解决。",
+          "key_takeaways": [
+            "通过更改webOS区域设置恢复5GHz Wi-Fi的方法",
+            "如何在LG C5上启用开发者选项",
+            "更改区域设置时的注意事项"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Wi-Fi",
+        "webOS",
+        "LG C5"
+      ],
+      "title_ko": "LG C5 웹OS 지역 설정으로 5 GHz Wi-Fi 복원하기",
+      "title_en": "Restoring 5 GHz Wi-Fi on an LG C5 by Changing its webOS Region",
+      "title_zh": "通过更改webOS区域恢复LG C5的5GHz Wi-Fi",
+      "hook": "웹OS TV에서 5 GHz Wi-Fi가 사라졌다면, 지역 코드 변경으로 문제를 해결하는 간단한 방법을 소개합니다.",
+      "hook_ko": "웹OS TV에서 5 GHz Wi-Fi가 사라졌다면, 지역 코드 변경으로 문제를 해결하는 간단한 방법을 소개합니다.",
+      "hook_en": "If your LG webOS TV lost 5 GHz Wi‑Fi, a simple region tweak can bring it back – here’s how.",
+      "hook_zh": "如果您的LG C5电视无法连接5GHz Wi-Fi，通过调整webOS区域设置即可轻松解决。",
+      "description_ko": "웹OS TV에서 5 GHz Wi-Fi가 사라졌다면, 지역 코드 변경으로 문제를 해결하는 간단한 방법을 소개합니다.",
+      "description_en": "If your LG webOS TV lost 5 GHz Wi‑Fi, a simple region tweak can bring it back – here’s how.",
+      "description_zh": "如果您的LG C5电视无法连接5GHz Wi-Fi，通过调整webOS区域设置即可轻松解决。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_google_ai_mode_shows_same_product",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.639827",
+      "published_at": "2026-09-04T11:59:15",
+      "created_at": "2026-09-04T11:59:15",
+      "updated_at": "2026-09-04T13:52:48.639827",
+      "title": "Hacker News: Google AI Mode shows same products 21.6% more expensive than traditional search",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49563386",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 14 pts | Comments: 0 | Google AI Mode shows same products 21.6% more expensive than traditional search",
+      "viral_metric": "🔥 14 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49563386",
+      "article_url": "https://productrise.app/blog/google-ai-mode-prefers-more-expensive-products",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_google_ai_mode_shows_same_product",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "AI Search Bias",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Google AI Mode",
+          "search pricing",
+          "bias",
+          "e-commerce"
+        ],
+        "recommended_tag": "🔥 Must-Read",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "구글 AI 모드, 일반 검색보다 제품 가격을 21.6% 더 높게 표시",
+            "hook": "엔지니어들이 주목해야 할 AI 검색 편향 사례 – 동일한 제품이 AI 모드에서 더 비싸게 노출됨",
+            "key_takeaways": [
+              "AI 모드에서 표시되는 제품 가격이 일반 검색 결과보다 평균 21.6% 높음",
+              "이러한 가격 편향은 알고리즘 추천 및 광고 수익화에서 비롯될 수 있음",
+              "개발자와 정책 입안자들은 AI 검색 결과의 투명성과 공정성 확보를 위한 검증 필요"
+            ]
+          },
+          "en": {
+            "title": "Google AI Mode Shows Same Products 21.6% More Expensive Than Traditional Search",
+            "hook": "AI search bias revealed: Google AI Mode inflates product prices by 21.6% compared to standard search results",
+            "key_takeaways": [
+              "Products listed in Google AI Mode are, on average, 21.6% pricier than those in conventional search",
+              "The price uplift may stem from algorithmic ranking or monetization strategies",
+              "Engineers and regulators should audit AI search transparency and fairness"
+            ]
+          },
+          "zh": {
+            "title": "谷歌AI模式显示产品价格比传统搜索高出21.6%",
+            "hook": "直击工程师痛点的1句话亮点与阅读理由：谷歌AI模式显示产品价格比传统搜索高出21.6%，凸显AI搜索中的价格偏见问题",
+            "key_takeaways": [
+              "谷歌AI模式显示的产品价格平均比传统搜索高出21.6%",
+              "这一价格差异可能源于算法推荐和广告收入驱动",
+              "开发人员和监管机构应加强对AI搜索结果的透明度和公平性审查"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:07:57.518221+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "구글 AI 모드, 일반 검색보다 제품 가격을 21.6% 더 높게 표시",
+          "hook": "엔지니어들이 주목해야 할 AI 검색 편향 사례 – 동일한 제품이 AI 모드에서 더 비싸게 노출됨",
+          "key_takeaways": [
+            "AI 모드에서 표시되는 제품 가격이 일반 검색 결과보다 평균 21.6% 높음",
+            "이러한 가격 편향은 알고리즘 추천 및 광고 수익화에서 비롯될 수 있음",
+            "개발자와 정책 입안자들은 AI 검색 결과의 투명성과 공정성 확보를 위한 검증 필요"
+          ]
+        },
+        "en": {
+          "title": "Google AI Mode Shows Same Products 21.6% More Expensive Than Traditional Search",
+          "hook": "AI search bias revealed: Google AI Mode inflates product prices by 21.6% compared to standard search results",
+          "key_takeaways": [
+            "Products listed in Google AI Mode are, on average, 21.6% pricier than those in conventional search",
+            "The price uplift may stem from algorithmic ranking or monetization strategies",
+            "Engineers and regulators should audit AI search transparency and fairness"
+          ]
+        },
+        "zh": {
+          "title": "谷歌AI模式显示产品价格比传统搜索高出21.6%",
+          "hook": "直击工程师痛点的1句话亮点与阅读理由：谷歌AI模式显示产品价格比传统搜索高出21.6%，凸显AI搜索中的价格偏见问题",
+          "key_takeaways": [
+            "谷歌AI模式显示的产品价格平均比传统搜索高出21.6%",
+            "这一价格差异可能源于算法推荐和广告收入驱动",
+            "开发人员和监管机构应加强对AI搜索结果的透明度和公平性审查"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Google AI Mode",
+        "search pricing",
+        "bias",
+        "e-commerce"
+      ],
+      "title_ko": "구글 AI 모드, 일반 검색보다 제품 가격을 21.6% 더 높게 표시",
+      "title_en": "Google AI Mode Shows Same Products 21.6% More Expensive Than Traditional Search",
+      "title_zh": "谷歌AI模式显示产品价格比传统搜索高出21.6%",
+      "hook": "엔지니어들이 주목해야 할 AI 검색 편향 사례 – 동일한 제품이 AI 모드에서 더 비싸게 노출됨",
+      "hook_ko": "엔지니어들이 주목해야 할 AI 검색 편향 사례 – 동일한 제품이 AI 모드에서 더 비싸게 노출됨",
+      "hook_en": "AI search bias revealed: Google AI Mode inflates product prices by 21.6% compared to standard search results",
+      "hook_zh": "直击工程师痛点的1句话亮点与阅读理由：谷歌AI模式显示产品价格比传统搜索高出21.6%，凸显AI搜索中的价格偏见问题",
+      "description_ko": "엔지니어들이 주목해야 할 AI 검색 편향 사례 – 동일한 제품이 AI 모드에서 더 비싸게 노출됨",
+      "description_en": "AI search bias revealed: Google AI Mode inflates product prices by 21.6% compared to standard search results",
+      "description_zh": "直击工程师痛点的1句话亮点与阅读理由：谷歌AI模式显示产品价格比传统搜索高出21.6%，凸显AI搜索中的价格偏见问题",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_ok_but_does_it_scale",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.336994",
+      "published_at": "2026-09-04T12:42:08",
+      "created_at": "2026-09-04T12:42:08",
+      "updated_at": "2026-09-04T13:52:48.336994",
+      "title": "Hacker News: Ok, but Does It Scale?",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49563772",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 30 pts | Comments: 0 | Ok, but Does It Scale?",
+      "viral_metric": "🔥 30 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 30,
+          "display": "🔥 30 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 30,
+          "display": "🔥 30 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49563772",
+      "article_url": "https://spacetimedb.com/blog/how-does-spacetime-scale",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_ok_but_does_it_scale",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Tech News",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Scaling",
+          "Hacker News",
+          "Tech"
+        ],
+        "recommended_tag": "📝 Tech Note",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "스케일링에 대한 HN의 한 마디: 과연 확장 가능할까?",
+            "hook": "엔지니어가 주목해야 할 확장성 관련 HN의 간결한 비판 (한국어)",
+            "key_takeaways": [
+              "HN에서 제기된 확장성 문제에 대한 간략한 언급",
+              "현재 30점, 댓글 0개로 낮은 참여도",
+              "확장성 검증의 필요성 강조"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Ok, but Does It Scale?",
+            "hook": "A brief Hacker News post questioning scalability (English)",
+            "key_takeaways": [
+              "Short HN post with 30 points and 0 comments",
+              "Highlights the need to verify scalability",
+              "Raises a common engineering concern about scaling"
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：好，但它能扩展吗？",
+            "hook": "一个关于扩展性的简短HN讨论，引发工程师的思考 (中文)",
+            "key_takeaways": [
+              "HN上关于扩展性的简短讨论，30分，0评论",
+              "强调了验证扩展性的重要性",
+              "引发了关于技术扩展性的广泛关注"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:07:01.417639+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "스케일링에 대한 HN의 한 마디: 과연 확장 가능할까?",
+          "hook": "엔지니어가 주목해야 할 확장성 관련 HN의 간결한 비판 (한국어)",
+          "key_takeaways": [
+            "HN에서 제기된 확장성 문제에 대한 간략한 언급",
+            "현재 30점, 댓글 0개로 낮은 참여도",
+            "확장성 검증의 필요성 강조"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Ok, but Does It Scale?",
+          "hook": "A brief Hacker News post questioning scalability (English)",
+          "key_takeaways": [
+            "Short HN post with 30 points and 0 comments",
+            "Highlights the need to verify scalability",
+            "Raises a common engineering concern about scaling"
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：好，但它能扩展吗？",
+          "hook": "一个关于扩展性的简短HN讨论，引发工程师的思考 (中文)",
+          "key_takeaways": [
+            "HN上关于扩展性的简短讨论，30分，0评论",
+            "强调了验证扩展性的重要性",
+            "引发了关于技术扩展性的广泛关注"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Scaling",
+        "Hacker News",
+        "Tech"
+      ],
+      "title_ko": "스케일링에 대한 HN의 한 마디: 과연 확장 가능할까?",
+      "title_en": "Hacker News: Ok, but Does It Scale?",
+      "title_zh": "Hacker News：好，但它能扩展吗？",
+      "hook": "엔지니어가 주목해야 할 확장성 관련 HN의 간결한 비판 (한국어)",
+      "hook_ko": "엔지니어가 주목해야 할 확장성 관련 HN의 간결한 비판 (한국어)",
+      "hook_en": "A brief Hacker News post questioning scalability (English)",
+      "hook_zh": "一个关于扩展性的简短HN讨论，引发工程师的思考 (中文)",
+      "description_ko": "엔지니어가 주목해야 할 확장성 관련 HN의 간결한 비판 (한국어)",
+      "description_en": "A brief Hacker News post questioning scalability (English)",
+      "description_zh": "一个关于扩展性的简短HN讨论，引发工程师的思考 (中文)",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_ibm_bob",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.313677",
+      "published_at": "2026-09-04T12:50:29",
+      "created_at": "2026-09-04T12:50:29",
+      "updated_at": "2026-09-04T13:52:48.313677",
+      "title": "Hacker News: IBM Bob",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49563851",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 43 pts | Comments: 31 | IBM Bob",
+      "viral_metric": "🔥 43 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 43,
+          "display": "🔥 43 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 43,
+          "display": "🔥 43 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49563851",
+      "article_url": "https://bob.ibm.com/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_ibm_bob",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI Model Release",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "IBM",
+          "Bob",
+          "AI"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: IBM 밥",
+            "hook": "IBM이 오픈소스 AI 모델 '밥'을 공개했으며, 해커 뉴스에서 43점, 31개의 댓글로 주목받고 있습니다.",
+            "key_takeaways": [
+              "IBM이 새로운 AI 모델 '밥'을 출시했습니다.",
+              "해당 게시물은 해커 뉴스에서 43점의 점수를 기록했습니다.",
+              "커뮤니티의 관심을 반영하듯 31개의 댓글이 달렸습니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: IBM Bob",
+            "hook": "IBM releases Bob, a new open-source AI model, gaining traction on Hacker News with 43 points and 31 comments.",
+            "key_takeaways": [
+              "IBM launched a new AI model named Bob.",
+              "The post scored 43 points on Hacker News.",
+              "31 comments indicate strong community interest."
+            ]
+          },
+          "zh": {
+            "title": "Hacker 新闻：IBM 鲍",
+            "hook": "IBM 发布了名为 Bob 的新开源 AI 模型，在 Hacker News 上获得 43 分和 31 条评论，备受关注。",
+            "key_takeaways": [
+              "IBM 发布了名为 Bob 的新 AI 模型。",
+              "该帖在 Hacker News 上获得 43 分。",
+              "31 条评论表明社区兴趣浓厚。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:04:20.182180+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: IBM 밥",
+          "hook": "IBM이 오픈소스 AI 모델 '밥'을 공개했으며, 해커 뉴스에서 43점, 31개의 댓글로 주목받고 있습니다.",
+          "key_takeaways": [
+            "IBM이 새로운 AI 모델 '밥'을 출시했습니다.",
+            "해당 게시물은 해커 뉴스에서 43점의 점수를 기록했습니다.",
+            "커뮤니티의 관심을 반영하듯 31개의 댓글이 달렸습니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: IBM Bob",
+          "hook": "IBM releases Bob, a new open-source AI model, gaining traction on Hacker News with 43 points and 31 comments.",
+          "key_takeaways": [
+            "IBM launched a new AI model named Bob.",
+            "The post scored 43 points on Hacker News.",
+            "31 comments indicate strong community interest."
+          ]
+        },
+        "zh": {
+          "title": "Hacker 新闻：IBM 鲍",
+          "hook": "IBM 发布了名为 Bob 的新开源 AI 模型，在 Hacker News 上获得 43 分和 31 条评论，备受关注。",
+          "key_takeaways": [
+            "IBM 发布了名为 Bob 的新 AI 模型。",
+            "该帖在 Hacker News 上获得 43 分。",
+            "31 条评论表明社区兴趣浓厚。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "IBM",
+        "Bob",
+        "AI"
+      ],
+      "title_ko": "해커 뉴스: IBM 밥",
+      "title_en": "Hacker News: IBM Bob",
+      "title_zh": "Hacker 新闻：IBM 鲍",
+      "hook": "IBM이 오픈소스 AI 모델 '밥'을 공개했으며, 해커 뉴스에서 43점, 31개의 댓글로 주목받고 있습니다.",
+      "hook_ko": "IBM이 오픈소스 AI 모델 '밥'을 공개했으며, 해커 뉴스에서 43점, 31개의 댓글로 주목받고 있습니다.",
+      "hook_en": "IBM releases Bob, a new open-source AI model, gaining traction on Hacker News with 43 points and 31 comments.",
+      "hook_zh": "IBM 发布了名为 Bob 的新开源 AI 模型，在 Hacker News 上获得 43 分和 31 条评论，备受关注。",
+      "description_ko": "IBM이 오픈소스 AI 모델 '밥'을 공개했으며, 해커 뉴스에서 43점, 31개의 댓글로 주목받고 있습니다.",
+      "description_en": "IBM releases Bob, a new open-source AI model, gaining traction on Hacker News with 43 points and 31 comments.",
+      "description_zh": "IBM 发布了名为 Bob 的新开源 AI 模型，在 Hacker News 上获得 43 分和 31 条评论，备受关注。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
       "inbox_id": "2026-09-04_sns_geeknews_mongodb_컬렉션을_postgresql로_복사하고_동기화하기",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T12:58:19.922681",
@@ -48420,8 +50273,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 285 pts | Comments: 222 | VC isn't VC anymore",
-      "viral_metric": "🔥 285 HN Points",
+      "description": "HN Score: 288 pts | Comments: 229 | VC isn't VC anymore",
+      "viral_metric": "🔥 288 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -48429,13 +50282,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 285,
-          "display": "🔥 285 HN Points",
+          "value": 288,
+          "display": "🔥 288 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 277,
-        "delta_display": "+277",
-        "growth_rate_pct": 3462.5,
+        "delta": 280,
+        "delta_display": "+280",
+        "growth_rate_pct": 3500.0,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -71361,6 +73214,1859 @@
     }
   ],
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_quasar_438b_유럽_최고_성능_ai_모델",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:49.369336",
+      "published_at": "2026-09-04T13:52:49.369336",
+      "created_at": "2026-09-04T13:52:49.369336",
+      "updated_at": "2026-09-04T13:52:49.369336",
+      "title": "GeekNews: Quasar 438B: 유럽 최고 성능 AI 모델",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33222",
+      "type": "sns",
+      "category_type": "MODEL",
+      "description": "GeekNews Korean Tech Trend: Quasar 438B: 유럽 최고 성능 AI 모델",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "GeekNews: Quasar 438B: 유럽 최고 성능 AI 모델",
+      "description_ko": "유럽에서 가장 강력한 AI 모델 Quasar 438B가 등장 – 성능과 규모 면에서 어떤 혁신을 가져올까?",
+      "hn_url": "https://news.hada.io/topic?id=33222",
+      "article_url": "https://news.hada.io/topic?id=33222",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_quasar_438b_유럽_최고_성능_ai_모델",
+        "source_lang": "KO",
+        "type_classification": "MODEL",
+        "model_family": "Quasar 438B",
+        "category": "LLM 모델 발표",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Quasar 438B",
+          "유럽 최고 성능 AI 모델",
+          "GeekNews"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "GeekNews: Quasar 438B: 유럽 최고 성능 AI 모델",
+            "hook": "유럽에서 가장 강력한 AI 모델 Quasar 438B가 등장 – 성능과 규모 면에서 어떤 혁신을 가져올까?",
+            "key_takeaways": [
+              "Quasar 438B는 유럽에서 가장 큰 규모와 최고의 성능을 자랑하는 AI 모델입니다.",
+              "대규모 파라미터와 고급 훈련 데이터로 복잡한 작업에서도 뛰어난 성능을 보입니다.",
+              "GeekNews는 이 혁신적인 모델 출시를 통해 유럽 AI 연구의 새로운 지평을 열었습니다."
+            ]
+          },
+          "en": {
+            "title": "GeekNews: Quasar 438B: Europe's highest-performance AI model",
+            "hook": "Europe’s most powerful AI model, Quasar 438B, arrives – what does this mean for performance and scale?",
+            "key_takeaways": [
+              "Quasar 438B is Europe's largest and highest-performing AI model.",
+              "With massive parameters and advanced training, it excels in complex tasks.",
+              "GeekNews highlights this breakthrough, marking a new era for European AI research."
+            ]
+          },
+          "zh": {
+            "title": "GeekNews：Quasar 438B：欧洲最高性能AI模型",
+            "hook": "欧洲最强AI模型Quasar 438B发布——这将如何改变性能和规模？",
+            "key_takeaways": [
+              "Quasar 438B是欧洲规模最大、性能最强的AI模型。",
+              "它拥有海量参数和高级训练数据，在复杂任务中表现出色。",
+              "GeekNews报道这一突破，标志着欧洲AI研究的新篇章。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T13:53:52.813498+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "GeekNews: Quasar 438B: 유럽 최고 성능 AI 모델",
+          "hook": "유럽에서 가장 강력한 AI 모델 Quasar 438B가 등장 – 성능과 규모 면에서 어떤 혁신을 가져올까?",
+          "key_takeaways": [
+            "Quasar 438B는 유럽에서 가장 큰 규모와 최고의 성능을 자랑하는 AI 모델입니다.",
+            "대규모 파라미터와 고급 훈련 데이터로 복잡한 작업에서도 뛰어난 성능을 보입니다.",
+            "GeekNews는 이 혁신적인 모델 출시를 통해 유럽 AI 연구의 새로운 지평을 열었습니다."
+          ]
+        },
+        "en": {
+          "title": "GeekNews: Quasar 438B: Europe's highest-performance AI model",
+          "hook": "Europe’s most powerful AI model, Quasar 438B, arrives – what does this mean for performance and scale?",
+          "key_takeaways": [
+            "Quasar 438B is Europe's largest and highest-performing AI model.",
+            "With massive parameters and advanced training, it excels in complex tasks.",
+            "GeekNews highlights this breakthrough, marking a new era for European AI research."
+          ]
+        },
+        "zh": {
+          "title": "GeekNews：Quasar 438B：欧洲最高性能AI模型",
+          "hook": "欧洲最强AI模型Quasar 438B发布——这将如何改变性能和规模？",
+          "key_takeaways": [
+            "Quasar 438B是欧洲规模最大、性能最强的AI模型。",
+            "它拥有海量参数和高级训练数据，在复杂任务中表现出色。",
+            "GeekNews报道这一突破，标志着欧洲AI研究的新篇章。"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Quasar 438B",
+        "유럽 최고 성능 AI 모델",
+        "GeekNews"
+      ],
+      "title_en": "GeekNews: Quasar 438B: Europe's highest-performance AI model",
+      "title_zh": "GeekNews：Quasar 438B：欧洲最高性能AI模型",
+      "hook": "유럽에서 가장 강력한 AI 모델 Quasar 438B가 등장 – 성능과 규모 면에서 어떤 혁신을 가져올까?",
+      "hook_ko": "유럽에서 가장 강력한 AI 모델 Quasar 438B가 등장 – 성능과 규모 면에서 어떤 혁신을 가져올까?",
+      "hook_en": "Europe’s most powerful AI model, Quasar 438B, arrives – what does this mean for performance and scale?",
+      "hook_zh": "欧洲最强AI模型Quasar 438B发布——这将如何改变性能和规模？",
+      "description_en": "Europe’s most powerful AI model, Quasar 438B, arrives – what does this mean for performance and scale?",
+      "description_zh": "欧洲最强AI模型Quasar 438B发布——这将如何改变性能和规模？",
+      "model_family": "Quasar 438B",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_ai라는_소행성이_강타한_프론트엔드_웹_개발",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:49.356508",
+      "published_at": "2026-09-04T13:52:49.356508",
+      "created_at": "2026-09-04T13:52:49.356508",
+      "updated_at": "2026-09-04T13:52:49.356508",
+      "title": "GeekNews: AI라는 소행성이 강타한 프론트엔드 웹 개발",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33223",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: AI라는 소행성이 강타한 프론트엔드 웹 개발",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "프론트엔드 웹 개발, AI라는 소행성의 충격",
+      "description_ko": "AI의 급속한 발전이 프론트엔드 웹 개발의 판도를 어떻게 바꾸고 있는지 지금 당장 확인해야 할 이유",
+      "hn_url": "https://news.hada.io/topic?id=33223",
+      "article_url": "https://news.hada.io/topic?id=33223",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_ai라는_소행성이_강타한_프론트엔드_웹_개발",
+        "source_lang": "KO",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Frontend Development Trends",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI",
+          "프론트엔드",
+          "웹 개발",
+          "트렌드"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "프론트엔드 웹 개발, AI라는 소행성의 충격",
+            "hook": "AI의 급속한 발전이 프론트엔드 웹 개발의 판도를 어떻게 바꾸고 있는지 지금 당장 확인해야 할 이유",
+            "key_takeaways": [
+              "AI 기반 코드 생성기가 개발 속도를 크게 높여, 개발자가 반복적인 코드 작성에서 해방되고 있습니다.",
+              "디자인 자동화 도구는 UI/UX 디자인을 가속화하고, 개인화된 인터페이스를 실시간으로 생성합니다.",
+              "실시간 디버깅 및 테스트 지원 AI는 버그를 예측하고 수정 사항을 즉시 제안하여 개발 주기를 단축시킵니다.",
+              "프론트엔드 프레임워크는 AI 통합을 통해 더욱 지능적으로 발전 중이며, 개발자는 AI 친화적인 도구 체인을 활용해야 합니다."
+            ]
+          },
+          "en": {
+            "title": "AI Asteroid Hits Frontend Web Development",
+            "hook": "Why AI’s rapid evolution is reshaping frontend development—engineers must act now",
+            "key_takeaways": [
+              "AI‑powered code generators accelerate development, freeing engineers from repetitive coding tasks.",
+              "Design automation tools speed up UI/UX creation and enable real‑time, personalized interfaces.",
+              "Real‑time debugging and testing AI predicts bugs and suggests fixes instantly, shortening cycles.",
+              "Frontend frameworks are becoming AI‑integrated, urging developers to adopt AI‑friendly toolchains."
+            ]
+          },
+          "zh": {
+            "title": "AI小行星撞击前端网页开发",
+            "hook": "AI的快速发展如何重塑前端网页开发——工程师们必须立即了解",
+            "key_takeaways": [
+              "AI 辅助代码生成器极大地提高了开发速度，使开发者摆脱重复的代码编写工作。",
+              "设计自动化工具加速了 UI/UX 设计，并实时生成个性化界面。",
+              "实时调试和测试 AI 可以预测错误并立即提出修正建议，从而缩短开发周期。",
+              "前端框架正朝着集成 AI 的方向发展，促使开发者采用 AI 友好的工具链。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T13:54:37.302434+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "프론트엔드 웹 개발, AI라는 소행성의 충격",
+          "hook": "AI의 급속한 발전이 프론트엔드 웹 개발의 판도를 어떻게 바꾸고 있는지 지금 당장 확인해야 할 이유",
+          "key_takeaways": [
+            "AI 기반 코드 생성기가 개발 속도를 크게 높여, 개발자가 반복적인 코드 작성에서 해방되고 있습니다.",
+            "디자인 자동화 도구는 UI/UX 디자인을 가속화하고, 개인화된 인터페이스를 실시간으로 생성합니다.",
+            "실시간 디버깅 및 테스트 지원 AI는 버그를 예측하고 수정 사항을 즉시 제안하여 개발 주기를 단축시킵니다.",
+            "프론트엔드 프레임워크는 AI 통합을 통해 더욱 지능적으로 발전 중이며, 개발자는 AI 친화적인 도구 체인을 활용해야 합니다."
+          ]
+        },
+        "en": {
+          "title": "AI Asteroid Hits Frontend Web Development",
+          "hook": "Why AI’s rapid evolution is reshaping frontend development—engineers must act now",
+          "key_takeaways": [
+            "AI‑powered code generators accelerate development, freeing engineers from repetitive coding tasks.",
+            "Design automation tools speed up UI/UX creation and enable real‑time, personalized interfaces.",
+            "Real‑time debugging and testing AI predicts bugs and suggests fixes instantly, shortening cycles.",
+            "Frontend frameworks are becoming AI‑integrated, urging developers to adopt AI‑friendly toolchains."
+          ]
+        },
+        "zh": {
+          "title": "AI小行星撞击前端网页开发",
+          "hook": "AI的快速发展如何重塑前端网页开发——工程师们必须立即了解",
+          "key_takeaways": [
+            "AI 辅助代码生成器极大地提高了开发速度，使开发者摆脱重复的代码编写工作。",
+            "设计自动化工具加速了 UI/UX 设计，并实时生成个性化界面。",
+            "实时调试和测试 AI 可以预测错误并立即提出修正建议，从而缩短开发周期。",
+            "前端框架正朝着集成 AI 的方向发展，促使开发者采用 AI 友好的工具链。"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI",
+        "프론트엔드",
+        "웹 개발",
+        "트렌드"
+      ],
+      "title_en": "AI Asteroid Hits Frontend Web Development",
+      "title_zh": "AI小行星撞击前端网页开发",
+      "hook": "AI의 급속한 발전이 프론트엔드 웹 개발의 판도를 어떻게 바꾸고 있는지 지금 당장 확인해야 할 이유",
+      "hook_ko": "AI의 급속한 발전이 프론트엔드 웹 개발의 판도를 어떻게 바꾸고 있는지 지금 당장 확인해야 할 이유",
+      "hook_en": "Why AI’s rapid evolution is reshaping frontend development—engineers must act now",
+      "hook_zh": "AI的快速发展如何重塑前端网页开发——工程师们必须立即了解",
+      "description_en": "Why AI’s rapid evolution is reshaping frontend development—engineers must act now",
+      "description_zh": "AI的快速发展如何重塑前端网页开发——工程师们必须立即了解",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_ask_hn_mcp를_프로덕션에서_쓰시는_분_있나요",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:49.036723",
+      "published_at": "2026-09-04T13:52:49.036723",
+      "created_at": "2026-09-04T13:52:49.036723",
+      "updated_at": "2026-09-04T13:52:49.036723",
+      "title": "GeekNews: Ask HN: MCP를 프로덕션에서 쓰시는 분 있나요?",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33224",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: Ask HN: MCP를 프로덕션에서 쓰시는 분 있나요?",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "GeekNews: Ask HN: 프로덕션에서 MCP를 사용해 보신 분 계신가요?",
+      "description_ko": "MCP를 프로덕션 환경에서 사용한 실제 사례와 도전 과제를 알아보세요.",
+      "hn_url": "https://news.hada.io/topic?id=33224",
+      "article_url": "https://news.hada.io/topic?id=33224",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_ask_hn_mcp를_프로덕션에서_쓰시는_분_있나요",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "MCP (Model Context Protocol) Adoption",
+        "programming_lang": "General",
+        "root_keywords": [
+          "MCP",
+          "Model Context Protocol",
+          "Production"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "GeekNews: Ask HN: 프로덕션에서 MCP를 사용해 보신 분 계신가요?",
+            "hook": "MCP를 프로덕션 환경에서 사용한 실제 사례와 도전 과제를 알아보세요.",
+            "key_takeaways": [
+              "MCP를 프로덕션 환경에서 사용한 경험 공유",
+              "실제 적용 시 고려해야 할 점",
+              "향후 MCP 도입 계획 및 의견"
+            ]
+          },
+          "en": {
+            "title": "Ask HN: Has anyone used MCP in production?",
+            "hook": "Real-world experiences and challenges of using MCP in production – read now.",
+            "key_takeaways": [
+              "Real-world usage of MCP in production",
+              "Key considerations for production deployment",
+              "Community feedback and future outlook"
+            ]
+          },
+          "zh": {
+            "title": "Ask HN：有人在生产环境中使用过MCP吗？",
+            "hook": "了解MCP在生产环境中的实际应用与挑战，获取第一手经验。",
+            "key_takeaways": [
+              "MCP在生产环境中的实际应用案例",
+              "生产部署时的注意事项",
+              "社区反馈与未来发展方向"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T13:56:01.123606+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "GeekNews: Ask HN: 프로덕션에서 MCP를 사용해 보신 분 계신가요?",
+          "hook": "MCP를 프로덕션 환경에서 사용한 실제 사례와 도전 과제를 알아보세요.",
+          "key_takeaways": [
+            "MCP를 프로덕션 환경에서 사용한 경험 공유",
+            "실제 적용 시 고려해야 할 점",
+            "향후 MCP 도입 계획 및 의견"
+          ]
+        },
+        "en": {
+          "title": "Ask HN: Has anyone used MCP in production?",
+          "hook": "Real-world experiences and challenges of using MCP in production – read now.",
+          "key_takeaways": [
+            "Real-world usage of MCP in production",
+            "Key considerations for production deployment",
+            "Community feedback and future outlook"
+          ]
+        },
+        "zh": {
+          "title": "Ask HN：有人在生产环境中使用过MCP吗？",
+          "hook": "了解MCP在生产环境中的实际应用与挑战，获取第一手经验。",
+          "key_takeaways": [
+            "MCP在生产环境中的实际应用案例",
+            "生产部署时的注意事项",
+            "社区反馈与未来发展方向"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "MCP",
+        "Model Context Protocol",
+        "Production"
+      ],
+      "title_en": "Ask HN: Has anyone used MCP in production?",
+      "title_zh": "Ask HN：有人在生产环境中使用过MCP吗？",
+      "hook": "MCP를 프로덕션 환경에서 사용한 실제 사례와 도전 과제를 알아보세요.",
+      "hook_ko": "MCP를 프로덕션 환경에서 사용한 실제 사례와 도전 과제를 알아보세요.",
+      "hook_en": "Real-world experiences and challenges of using MCP in production – read now.",
+      "hook_zh": "了解MCP在生产环境中的实际应用与挑战，获取第一手经验。",
+      "description_en": "Real-world experiences and challenges of using MCP in production – read now.",
+      "description_zh": "了解MCP在生产环境中的实际应用与挑战，获取第一手经验。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_모든_글에_ai를_쓰면서도_ai_슬롭을_피하는_방법",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:49.024532",
+      "published_at": "2026-09-04T13:52:49.024532",
+      "created_at": "2026-09-04T13:52:49.024532",
+      "updated_at": "2026-09-04T13:52:49.024532",
+      "title": "GeekNews: 모든 글에 AI를 쓰면서도 ‘AI 슬롭’을 피하는 방법",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33225",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 모든 글에 AI를 쓰면서도 ‘AI 슬롭’을 피하는 방법",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "모든 글에 AI를 쓰면서도 'AI 슬롭'을 피하는 방법",
+      "description_ko": "AI로 모든 글을 쓰면서도 품질 저하 없이 효율성을 높이는 5가지 방법",
+      "hn_url": "https://news.hada.io/topic?id=33225",
+      "article_url": "https://news.hada.io/topic?id=33225",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_모든_글에_ai를_쓰면서도_ai_슬롭을_피하는_방법",
+        "source_lang": "KO",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI Content Generation",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI writing",
+          "AI slop",
+          "content generation",
+          "best practices"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "모든 글에 AI를 쓰면서도 'AI 슬롭'을 피하는 방법",
+            "hook": "AI로 모든 글을 쓰면서도 품질 저하 없이 효율성을 높이는 5가지 방법",
+            "key_takeaways": [
+              "AI 도구를 활용해 초안을 작성하되, 인간 편집자의 검토를 통해 품질 유지",
+              "일관된 스타일 가이드와 피드백 루프를 구축해 AI 슬롭 방지",
+              "자동화와 수동 편집의 균형을 맞춰 효율성과 정확성 모두 확보"
+            ]
+          },
+          "en": {
+            "title": "How to Use AI for All Your Writing While Avoiding AI Slop",
+            "hook": "Five practical tips to boost writing efficiency with AI without sacrificing quality",
+            "key_takeaways": [
+              "Leverage AI tools for drafting but maintain human oversight to ensure quality",
+              "Establish style guidelines and feedback loops to prevent AI slop",
+              "Balance automation with manual editing to achieve both efficiency and accuracy"
+            ]
+          },
+          "zh": {
+            "title": "如何在所有文章中使用AI，同时避免AI垃圾内容",
+            "hook": "五个实用的技巧，帮助您提高写作效率，同时保持内容质量",
+            "key_takeaways": [
+              "合理使用AI工具进行初稿写作，同时保持人工审校以确保质量",
+              "建立统一的风格指南和反馈机制，防止产生低质量内容",
+              "平衡自动化和手动编辑，既提高效率又保证准确性"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T13:57:15.049900+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "모든 글에 AI를 쓰면서도 'AI 슬롭'을 피하는 방법",
+          "hook": "AI로 모든 글을 쓰면서도 품질 저하 없이 효율성을 높이는 5가지 방법",
+          "key_takeaways": [
+            "AI 도구를 활용해 초안을 작성하되, 인간 편집자의 검토를 통해 품질 유지",
+            "일관된 스타일 가이드와 피드백 루프를 구축해 AI 슬롭 방지",
+            "자동화와 수동 편집의 균형을 맞춰 효율성과 정확성 모두 확보"
+          ]
+        },
+        "en": {
+          "title": "How to Use AI for All Your Writing While Avoiding AI Slop",
+          "hook": "Five practical tips to boost writing efficiency with AI without sacrificing quality",
+          "key_takeaways": [
+            "Leverage AI tools for drafting but maintain human oversight to ensure quality",
+            "Establish style guidelines and feedback loops to prevent AI slop",
+            "Balance automation with manual editing to achieve both efficiency and accuracy"
+          ]
+        },
+        "zh": {
+          "title": "如何在所有文章中使用AI，同时避免AI垃圾内容",
+          "hook": "五个实用的技巧，帮助您提高写作效率，同时保持内容质量",
+          "key_takeaways": [
+            "合理使用AI工具进行初稿写作，同时保持人工审校以确保质量",
+            "建立统一的风格指南和反馈机制，防止产生低质量内容",
+            "平衡自动化和手动编辑，既提高效率又保证准确性"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI writing",
+        "AI slop",
+        "content generation",
+        "best practices"
+      ],
+      "title_en": "How to Use AI for All Your Writing While Avoiding AI Slop",
+      "title_zh": "如何在所有文章中使用AI，同时避免AI垃圾内容",
+      "hook": "AI로 모든 글을 쓰면서도 품질 저하 없이 효율성을 높이는 5가지 방법",
+      "hook_ko": "AI로 모든 글을 쓰면서도 품질 저하 없이 효율성을 높이는 5가지 방법",
+      "hook_en": "Five practical tips to boost writing efficiency with AI without sacrificing quality",
+      "hook_zh": "五个实用的技巧，帮助您提高写作效率，同时保持内容质量",
+      "description_en": "Five practical tips to boost writing efficiency with AI without sacrificing quality",
+      "description_zh": "五个实用的技巧，帮助您提高写作效率，同时保持内容质量",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_imhex로_미지의_파일_형식_리버스_엔지니어링하기",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:49.012197",
+      "published_at": "2026-09-04T13:52:49.012197",
+      "created_at": "2026-09-04T13:52:49.012197",
+      "updated_at": "2026-09-04T13:52:49.012197",
+      "title": "GeekNews: ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33226",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+      "description_ko": "ImHex를 사용해 알 수 없는 바이너리 파일을 쉽게 분석하고 파일 형식을 리버스 엔지니어링하는 방법을 지금 바로 알아보세요.",
+      "hn_url": "https://news.hada.io/topic?id=33226",
+      "article_url": "https://news.hada.io/topic?id=33226",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_imhex로_미지의_파일_형식_리버스_엔지니어링하기",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Binary Reverse Engineering",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "ImHex",
+          "Reverse Engineering",
+          "File Format"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+            "hook": "ImHex를 사용해 알 수 없는 바이너리 파일을 쉽게 분석하고 파일 형식을 리버스 엔지니어링하는 방법을 지금 바로 알아보세요.",
+            "key_takeaways": [
+              "ImHex 설치 및 기본 UI 소개",
+              "Hex 편집을 통한 구조 식별 및 패턴 매칭",
+              "ImHex의 스크립팅 기능을 활용한 자동화된 리버스 엔지니어링"
+            ]
+          },
+          "en": {
+            "title": "GeekNews: Reverse Engineering Unknown File Formats with ImHex",
+            "hook": "Learn how to quickly dissect and understand mysterious binary files using ImHex, a powerful hex editor for engineers.",
+            "key_takeaways": [
+              "Install and configure ImHex for binary analysis",
+              "Identify file structures via hex viewing and pattern matching",
+              "Automate reverse engineering tasks with ImHex's scripting capabilities"
+            ]
+          },
+          "zh": {
+            "title": "GeekNews：使用ImHex逆向工程未知文件格式",
+            "hook": "了解如何使用ImHex这个强大的十六进制编辑器，快速解析和理解神秘的二进制文件，对于工程师来说是必备技能。",
+            "key_takeaways": [
+              "安装和配置ImHex进行二进制分析",
+              "通过十六进制查看和模式匹配识别文件结构",
+              "利用ImHex的脚本功能自动化逆向工程任务"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T13:58:09.293370+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+          "hook": "ImHex를 사용해 알 수 없는 바이너리 파일을 쉽게 분석하고 파일 형식을 리버스 엔지니어링하는 방법을 지금 바로 알아보세요.",
+          "key_takeaways": [
+            "ImHex 설치 및 기본 UI 소개",
+            "Hex 편집을 통한 구조 식별 및 패턴 매칭",
+            "ImHex의 스크립팅 기능을 활용한 자동화된 리버스 엔지니어링"
+          ]
+        },
+        "en": {
+          "title": "GeekNews: Reverse Engineering Unknown File Formats with ImHex",
+          "hook": "Learn how to quickly dissect and understand mysterious binary files using ImHex, a powerful hex editor for engineers.",
+          "key_takeaways": [
+            "Install and configure ImHex for binary analysis",
+            "Identify file structures via hex viewing and pattern matching",
+            "Automate reverse engineering tasks with ImHex's scripting capabilities"
+          ]
+        },
+        "zh": {
+          "title": "GeekNews：使用ImHex逆向工程未知文件格式",
+          "hook": "了解如何使用ImHex这个强大的十六进制编辑器，快速解析和理解神秘的二进制文件，对于工程师来说是必备技能。",
+          "key_takeaways": [
+            "安装和配置ImHex进行二进制分析",
+            "通过十六进制查看和模式匹配识别文件结构",
+            "利用ImHex的脚本功能自动化逆向工程任务"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "ImHex",
+        "Reverse Engineering",
+        "File Format"
+      ],
+      "title_en": "GeekNews: Reverse Engineering Unknown File Formats with ImHex",
+      "title_zh": "GeekNews：使用ImHex逆向工程未知文件格式",
+      "hook": "ImHex를 사용해 알 수 없는 바이너리 파일을 쉽게 분석하고 파일 형식을 리버스 엔지니어링하는 방법을 지금 바로 알아보세요.",
+      "hook_ko": "ImHex를 사용해 알 수 없는 바이너리 파일을 쉽게 분석하고 파일 형식을 리버스 엔지니어링하는 방법을 지금 바로 알아보세요.",
+      "hook_en": "Learn how to quickly dissect and understand mysterious binary files using ImHex, a powerful hex editor for engineers.",
+      "hook_zh": "了解如何使用ImHex这个强大的十六进制编辑器，快速解析和理解神秘的二进制文件，对于工程师来说是必备技能。",
+      "description_en": "Learn how to quickly dissect and understand mysterious binary files using ImHex, a powerful hex editor for engineers.",
+      "description_zh": "了解如何使用ImHex这个强大的十六进制编辑器，快速解析和理解神秘的二进制文件，对于工程师来说是必备技能。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_llm으로_1993년_amiga_게임의_68000_어셈블리를_읽어",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:49.000172",
+      "published_at": "2026-09-04T13:52:49.000172",
+      "created_at": "2026-09-04T13:52:49.000172",
+      "updated_at": "2026-09-04T13:52:49.000172",
+      "title": "GeekNews: LLM으로 1993년 Amiga 게임의 68000 어셈블리를 읽어 Godot에 포팅하기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33228",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: LLM으로 1993년 Amiga 게임의 68000 어셈블리를 읽어 Godot에 포팅하기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "LLM을 활용해 1993년 Amiga 게임의 68000 어셈블리 코드를 Godot로 포팅하기",
+      "description_ko": "레거시 어셈블리 코드를 현대 게임 엔진으로 변환하는 LLM의 능력을 지금 바로 확인하세요.",
+      "hn_url": "https://news.hada.io/topic?id=33228",
+      "article_url": "https://news.hada.io/topic?id=33228",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_llm으로_1993년_amiga_게임의_68000_어셈블리를_읽어",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "LLM-assisted Code Translation",
+        "programming_lang": "General",
+        "root_keywords": [
+          "LLM",
+          "assembly",
+          "Amiga",
+          "Godot",
+          "porting"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "LLM을 활용해 1993년 Amiga 게임의 68000 어셈블리 코드를 Godot로 포팅하기",
+            "hook": "레거시 어셈블리 코드를 현대 게임 엔진으로 변환하는 LLM의 능력을 지금 바로 확인하세요.",
+            "key_takeaways": [
+              "LLM을 활용해 68000 어셈블리 소스를 분석하고 이해하는 방법",
+              "Godot 타겟 플랫폼으로의 자동화된 코드 변환 파이프라인 구축",
+              "레거시 게임의 현대적 재사용을 위한 잠재적 문제점과 성능 고려사항"
+            ]
+          },
+          "en": {
+            "title": "Leveraging LLMs to Translate 1993 Amiga Game’s 68000 Assembly into Godot",
+            "hook": "Discover how LLMs can automatically convert vintage assembly code into modern game engine assets—engineers won’t want to miss this.",
+            "key_takeaways": [
+              "How LLMs can parse and understand 68000 assembly from vintage Amiga games",
+              "Building an automated pipeline to transform assembly into Godot‑compatible code",
+              "Challenges and performance considerations when porting legacy games with AI"
+            ]
+          },
+          "zh": {
+            "title": "利用大型语言模型将1993年Amiga游戏的68000汇编代码自动转换为Godot引擎代码",
+            "hook": "为什么工程师应该立即阅读：了解LLM如何将古老的汇编代码转化为现代游戏引擎的资产。",
+            "key_takeaways": [
+              "如何利用LLM解析和理解Amiga平台上的68000汇编代码",
+              "构建自动化的代码转换流程，将汇编代码转换为Godot可用的格式",
+              "在利用AI移植遗留游戏时遇到的挑战和性能考量"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T13:59:27.992939+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "LLM을 활용해 1993년 Amiga 게임의 68000 어셈블리 코드를 Godot로 포팅하기",
+          "hook": "레거시 어셈블리 코드를 현대 게임 엔진으로 변환하는 LLM의 능력을 지금 바로 확인하세요.",
+          "key_takeaways": [
+            "LLM을 활용해 68000 어셈블리 소스를 분석하고 이해하는 방법",
+            "Godot 타겟 플랫폼으로의 자동화된 코드 변환 파이프라인 구축",
+            "레거시 게임의 현대적 재사용을 위한 잠재적 문제점과 성능 고려사항"
+          ]
+        },
+        "en": {
+          "title": "Leveraging LLMs to Translate 1993 Amiga Game’s 68000 Assembly into Godot",
+          "hook": "Discover how LLMs can automatically convert vintage assembly code into modern game engine assets—engineers won’t want to miss this.",
+          "key_takeaways": [
+            "How LLMs can parse and understand 68000 assembly from vintage Amiga games",
+            "Building an automated pipeline to transform assembly into Godot‑compatible code",
+            "Challenges and performance considerations when porting legacy games with AI"
+          ]
+        },
+        "zh": {
+          "title": "利用大型语言模型将1993年Amiga游戏的68000汇编代码自动转换为Godot引擎代码",
+          "hook": "为什么工程师应该立即阅读：了解LLM如何将古老的汇编代码转化为现代游戏引擎的资产。",
+          "key_takeaways": [
+            "如何利用LLM解析和理解Amiga平台上的68000汇编代码",
+            "构建自动化的代码转换流程，将汇编代码转换为Godot可用的格式",
+            "在利用AI移植遗留游戏时遇到的挑战和性能考量"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "LLM",
+        "assembly",
+        "Amiga",
+        "Godot",
+        "porting"
+      ],
+      "title_en": "Leveraging LLMs to Translate 1993 Amiga Game’s 68000 Assembly into Godot",
+      "title_zh": "利用大型语言模型将1993年Amiga游戏的68000汇编代码自动转换为Godot引擎代码",
+      "hook": "레거시 어셈블리 코드를 현대 게임 엔진으로 변환하는 LLM의 능력을 지금 바로 확인하세요.",
+      "hook_ko": "레거시 어셈블리 코드를 현대 게임 엔진으로 변환하는 LLM의 능력을 지금 바로 확인하세요.",
+      "hook_en": "Discover how LLMs can automatically convert vintage assembly code into modern game engine assets—engineers won’t want to miss this.",
+      "hook_zh": "为什么工程师应该立即阅读：了解LLM如何将古老的汇编代码转化为现代游戏引擎的资产。",
+      "description_en": "Discover how LLMs can automatically convert vintage assembly code into modern game engine assets—engineers won’t want to miss this.",
+      "description_zh": "为什么工程师应该立即阅读：了解LLM如何将古老的汇编代码转化为现代游戏引擎的资产。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_norways_oil_fund_proposes_selling",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.781270",
+      "published_at": "2026-09-04T13:15:24",
+      "created_at": "2026-09-04T13:15:24",
+      "updated_at": "2026-09-04T13:52:48.781270",
+      "title": "Hacker News: Norway's Oil Fund Proposes Selling Roughly $80B in U.S. Treasurys",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49564189",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 19 pts | Comments: 2 | Norway's Oil Fund Proposes Selling Roughly $80B in U.S. Treasurys",
+      "viral_metric": "🔥 19 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 19,
+          "display": "🔥 19 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 19,
+          "display": "🔥 19 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49564189",
+      "article_url": "https://www.wsj.com/finance/investing/norways-oil-fund-proposes-cut-to-government-bond-holdings-d930893f",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_norways_oil_fund_proposes_selling",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Financial Market / Sovereign Wealth Fund",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Norway Oil Fund",
+          "U.S. Treasuries",
+          "Sovereign wealth fund"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "노르웨이 국부펀드, 미국 국채 약 80조원 매각 제안",
+            "hook": "노르웨이 국부펀드의 80조원 미국 국채 매각 제안이 암호화폐 및 채권 시장에 어떤 파장을 일으킬지 지금 확인하세요.",
+            "key_takeaways": [
+              "노르웨이 국부펀드, 미국 국채 약 80조원 매각 계획 발표",
+              "이번 결정은 글로벌 채권 시장에 변동성을 초래할 수 있음",
+              "암호화폐 및 기타 자산에 대한 투자자들의 관심이 증가할 수 있음"
+            ]
+          },
+          "en": {
+            "title": "Norway’s Oil Fund Proposes Selling Roughly $80B in U.S. Treasurys",
+            "hook": "Why this $80B U.S. Treasury sell‑off matters to crypto and bond markets—engineers need to watch liquidity shifts.",
+            "key_takeaways": [
+              "Norway’s Oil Fund plans to sell roughly $80 billion of U.S. Treasurys",
+              "The move may increase market volatility and affect bond yields",
+              "Potential ripple effects on crypto and other alternative assets"
+            ]
+          },
+          "zh": {
+            "title": "挪威石油基金提议出售约800亿美元美国国债",
+            "hook": "挪威主权基金大规模抛售美国国债，对加密货币和债券市场造成何种影响？工程师需关注流动性变化。",
+            "key_takeaways": [
+              "挪威石油基金拟出售约800亿美元美国国债",
+              "此举可能加剧市场波动，影响债券收益率",
+              "对加密货币及其他替代资产投资产生连锁反应"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:02:03.111361+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "노르웨이 국부펀드, 미국 국채 약 80조원 매각 제안",
+          "hook": "노르웨이 국부펀드의 80조원 미국 국채 매각 제안이 암호화폐 및 채권 시장에 어떤 파장을 일으킬지 지금 확인하세요.",
+          "key_takeaways": [
+            "노르웨이 국부펀드, 미국 국채 약 80조원 매각 계획 발표",
+            "이번 결정은 글로벌 채권 시장에 변동성을 초래할 수 있음",
+            "암호화폐 및 기타 자산에 대한 투자자들의 관심이 증가할 수 있음"
+          ]
+        },
+        "en": {
+          "title": "Norway’s Oil Fund Proposes Selling Roughly $80B in U.S. Treasurys",
+          "hook": "Why this $80B U.S. Treasury sell‑off matters to crypto and bond markets—engineers need to watch liquidity shifts.",
+          "key_takeaways": [
+            "Norway’s Oil Fund plans to sell roughly $80 billion of U.S. Treasurys",
+            "The move may increase market volatility and affect bond yields",
+            "Potential ripple effects on crypto and other alternative assets"
+          ]
+        },
+        "zh": {
+          "title": "挪威石油基金提议出售约800亿美元美国国债",
+          "hook": "挪威主权基金大规模抛售美国国债，对加密货币和债券市场造成何种影响？工程师需关注流动性变化。",
+          "key_takeaways": [
+            "挪威石油基金拟出售约800亿美元美国国债",
+            "此举可能加剧市场波动，影响债券收益率",
+            "对加密货币及其他替代资产投资产生连锁反应"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Norway Oil Fund",
+        "U.S. Treasuries",
+        "Sovereign wealth fund"
+      ],
+      "title_ko": "노르웨이 국부펀드, 미국 국채 약 80조원 매각 제안",
+      "title_en": "Norway’s Oil Fund Proposes Selling Roughly $80B in U.S. Treasurys",
+      "title_zh": "挪威石油基金提议出售约800亿美元美国国债",
+      "hook": "노르웨이 국부펀드의 80조원 미국 국채 매각 제안이 암호화폐 및 채권 시장에 어떤 파장을 일으킬지 지금 확인하세요.",
+      "hook_ko": "노르웨이 국부펀드의 80조원 미국 국채 매각 제안이 암호화폐 및 채권 시장에 어떤 파장을 일으킬지 지금 확인하세요.",
+      "hook_en": "Why this $80B U.S. Treasury sell‑off matters to crypto and bond markets—engineers need to watch liquidity shifts.",
+      "hook_zh": "挪威主权基金大规模抛售美国国债，对加密货币和债券市场造成何种影响？工程师需关注流动性变化。",
+      "description_ko": "노르웨이 국부펀드의 80조원 미국 국채 매각 제안이 암호화폐 및 채권 시장에 어떤 파장을 일으킬지 지금 확인하세요.",
+      "description_en": "Why this $80B U.S. Treasury sell‑off matters to crypto and bond markets—engineers need to watch liquidity shifts.",
+      "description_zh": "挪威主权基金大规模抛售美国国债，对加密货币和债券市场造成何种影响？工程师需关注流动性变化。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_scientists_find_worms_in_almost_e",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.736297",
+      "published_at": "2026-09-04T13:08:18",
+      "created_at": "2026-09-04T13:08:18",
+      "updated_at": "2026-09-04T13:52:48.736297",
+      "title": "Hacker News: Scientists Find Worms in Almost Every Fish in a Tuna Haul – 96% Were Infected",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49564112",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 11 pts | Comments: 1 | Scientists Find Worms in Almost Every Fish in a Tuna Haul – 96% Were Infected",
+      "viral_metric": "🔥 11 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 11,
+          "display": "🔥 11 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 11,
+          "display": "🔥 11 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49564112",
+      "article_url": "https://www.sciencealert.com/scientists-find-parasites-in-almost-every-fish-from-a-recent-tuna-haul-96-were-infected",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_scientists_find_worms_in_almost_e",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Food safety / Seafood contamination",
+        "programming_lang": "General",
+        "root_keywords": [
+          "parasitic worms",
+          "tuna",
+          "food safety"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "참치 운반선에서 잡힌 거의 모든 생선에서 벌레 발견 – 96% 감염",
+            "hook": "참치 운반선에서 잡힌 생선의 96%가 기생충에 감염된 것으로 나타나 수산물 안전에 대한 우려가 커지고 있습니다.",
+            "key_takeaways": [
+              "참치 운반선에서 선별한 생선 중 96%에서 기생충이 발견되었습니다.",
+              "이번 연구는 수산물 공급망 내 위생 관리의 중요성을 강조합니다.",
+              "소비자들은 구매 전 수산물 검사에 대한 더 엄격한 기준을 요구할 수 있습니다."
+            ]
+          },
+          "en": {
+            "title": "Scientists Find Worms in Almost Every Fish in a Tuna Haul – 96% Were Infected",
+            "hook": "A recent study reveals that 96% of fish in a single tuna shipment were infected with parasitic worms, raising concerns about seafood safety.",
+            "key_takeaways": [
+              "In a single tuna haul, 96% of the fish examined contained parasitic worms.",
+              "The findings highlight the need for stricter hygiene controls in seafood supply chains.",
+              "Consumers may push for more rigorous inspection standards for purchased fish."
+            ]
+          },
+          "zh": {
+            "title": "科学家在金枪鱼运输中发现几乎所有鱼类都感染蠕虫，感染率达96%",
+            "hook": "一项最新研究显示，在一次金枪鱼运输中，96%的鱼被寄生虫感染，引发对海鲜安全的担忧。",
+            "key_takeaways": [
+              "在一次金枪鱼运输中，检查的鱼有96%发现了寄生虫。",
+              "研究强调了海鲜供应链中卫生控制的重要性。",
+              "消费者可能要求对购买的鱼实施更严格的检查标准。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:03:40.303991+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "참치 운반선에서 잡힌 거의 모든 생선에서 벌레 발견 – 96% 감염",
+          "hook": "참치 운반선에서 잡힌 생선의 96%가 기생충에 감염된 것으로 나타나 수산물 안전에 대한 우려가 커지고 있습니다.",
+          "key_takeaways": [
+            "참치 운반선에서 선별한 생선 중 96%에서 기생충이 발견되었습니다.",
+            "이번 연구는 수산물 공급망 내 위생 관리의 중요성을 강조합니다.",
+            "소비자들은 구매 전 수산물 검사에 대한 더 엄격한 기준을 요구할 수 있습니다."
+          ]
+        },
+        "en": {
+          "title": "Scientists Find Worms in Almost Every Fish in a Tuna Haul – 96% Were Infected",
+          "hook": "A recent study reveals that 96% of fish in a single tuna shipment were infected with parasitic worms, raising concerns about seafood safety.",
+          "key_takeaways": [
+            "In a single tuna haul, 96% of the fish examined contained parasitic worms.",
+            "The findings highlight the need for stricter hygiene controls in seafood supply chains.",
+            "Consumers may push for more rigorous inspection standards for purchased fish."
+          ]
+        },
+        "zh": {
+          "title": "科学家在金枪鱼运输中发现几乎所有鱼类都感染蠕虫，感染率达96%",
+          "hook": "一项最新研究显示，在一次金枪鱼运输中，96%的鱼被寄生虫感染，引发对海鲜安全的担忧。",
+          "key_takeaways": [
+            "在一次金枪鱼运输中，检查的鱼有96%发现了寄生虫。",
+            "研究强调了海鲜供应链中卫生控制的重要性。",
+            "消费者可能要求对购买的鱼实施更严格的检查标准。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "parasitic worms",
+        "tuna",
+        "food safety"
+      ],
+      "title_ko": "참치 운반선에서 잡힌 거의 모든 생선에서 벌레 발견 – 96% 감염",
+      "title_en": "Scientists Find Worms in Almost Every Fish in a Tuna Haul – 96% Were Infected",
+      "title_zh": "科学家在金枪鱼运输中发现几乎所有鱼类都感染蠕虫，感染率达96%",
+      "hook": "참치 운반선에서 잡힌 생선의 96%가 기생충에 감염된 것으로 나타나 수산물 안전에 대한 우려가 커지고 있습니다.",
+      "hook_ko": "참치 운반선에서 잡힌 생선의 96%가 기생충에 감염된 것으로 나타나 수산물 안전에 대한 우려가 커지고 있습니다.",
+      "hook_en": "A recent study reveals that 96% of fish in a single tuna shipment were infected with parasitic worms, raising concerns about seafood safety.",
+      "hook_zh": "一项最新研究显示，在一次金枪鱼运输中，96%的鱼被寄生虫感染，引发对海鲜安全的担忧。",
+      "description_ko": "참치 운반선에서 잡힌 생선의 96%가 기생충에 감염된 것으로 나타나 수산물 안전에 대한 우려가 커지고 있습니다.",
+      "description_en": "A recent study reveals that 96% of fish in a single tuna shipment were infected with parasitic worms, raising concerns about seafood safety.",
+      "description_zh": "一项最新研究显示，在一次金枪鱼运输中，96%的鱼被寄生虫感染，引发对海鲜安全的担忧。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_people_are_going_to_get_screwed_p",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.701328",
+      "published_at": "2026-09-04T13:33:01",
+      "created_at": "2026-09-04T13:33:01",
+      "updated_at": "2026-09-04T13:52:48.701328",
+      "title": "Hacker News: 'People are going to get screwed' Pennsylvania voters unite against data centres",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49564397",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 10 pts | Comments: 1 | 'People are going to get screwed' Pennsylvania voters unite against data centres",
+      "viral_metric": "🔥 10 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "🔥 10 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 10,
+          "display": "🔥 10 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49564397",
+      "article_url": "http://www.ft.com/content/8252d574-ae2a-4403-9cf9-031295ba67f5",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_people_are_going_to_get_screwed_p",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Regional Tech Policy",
+        "programming_lang": "General",
+        "root_keywords": [
+          "데이터 센터",
+          "펜실베이니아",
+          "에너지 정책",
+          "개인정보 보호"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: '사람들이 피해를 볼 것이다' 펜실베이니아 주민들, 데이터 센터에 맞서 연합",
+            "hook": "데이터 센터 확장이 펜실베이니아 주민들의 전기료와 개인정보에 미칠 영향에 대한 경고",
+            "key_takeaways": [
+              "데이터 센터 건설로 인한 전기료 상승 부담",
+              "주민들의 개인정보 보호 우려",
+              "지역 사회가 데이터 기업에 맞서 연합 움직임"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: 'People are going to get screwed' Pennsylvania voters unite against data centres",
+            "hook": "Pennsylvania voters warn that data center expansion will raise electricity costs and compromise privacy for locals",
+            "key_takeaways": [
+              "Rising electricity costs for locals due to data center construction",
+              "Concerns over personal data privacy",
+              "Community mobilization against data companies"
+            ]
+          },
+          "zh": {
+            "title": "黑客新闻：‘人们将被耍’ 宾夕法尼亚选民联合起来反对数据中心",
+            "hook": "宾夕法尼亚选民警告数据中心扩张将推高当地电价并危及隐私",
+            "key_takeaways": [
+              "数据中心建设导致当地电价上涨",
+              "居民隐私担忧加剧",
+              "社区联合抵制数据企业"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:00:34.842471+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: '사람들이 피해를 볼 것이다' 펜실베이니아 주민들, 데이터 센터에 맞서 연합",
+          "hook": "데이터 센터 확장이 펜실베이니아 주민들의 전기료와 개인정보에 미칠 영향에 대한 경고",
+          "key_takeaways": [
+            "데이터 센터 건설로 인한 전기료 상승 부담",
+            "주민들의 개인정보 보호 우려",
+            "지역 사회가 데이터 기업에 맞서 연합 움직임"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: 'People are going to get screwed' Pennsylvania voters unite against data centres",
+          "hook": "Pennsylvania voters warn that data center expansion will raise electricity costs and compromise privacy for locals",
+          "key_takeaways": [
+            "Rising electricity costs for locals due to data center construction",
+            "Concerns over personal data privacy",
+            "Community mobilization against data companies"
+          ]
+        },
+        "zh": {
+          "title": "黑客新闻：‘人们将被耍’ 宾夕法尼亚选民联合起来反对数据中心",
+          "hook": "宾夕法尼亚选民警告数据中心扩张将推高当地电价并危及隐私",
+          "key_takeaways": [
+            "数据中心建设导致当地电价上涨",
+            "居民隐私担忧加剧",
+            "社区联合抵制数据企业"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "데이터 센터",
+        "펜실베이니아",
+        "에너지 정책",
+        "개인정보 보호"
+      ],
+      "title_ko": "해커 뉴스: '사람들이 피해를 볼 것이다' 펜실베이니아 주민들, 데이터 센터에 맞서 연합",
+      "title_en": "Hacker News: 'People are going to get screwed' Pennsylvania voters unite against data centres",
+      "title_zh": "黑客新闻：‘人们将被耍’ 宾夕法尼亚选民联合起来反对数据中心",
+      "hook": "데이터 센터 확장이 펜실베이니아 주민들의 전기료와 개인정보에 미칠 영향에 대한 경고",
+      "hook_ko": "데이터 센터 확장이 펜실베이니아 주민들의 전기료와 개인정보에 미칠 영향에 대한 경고",
+      "hook_en": "Pennsylvania voters warn that data center expansion will raise electricity costs and compromise privacy for locals",
+      "hook_zh": "宾夕法尼亚选民警告数据中心扩张将推高当地电价并危及隐私",
+      "description_ko": "데이터 센터 확장이 펜실베이니아 주민들의 전기료와 개인정보에 미칠 영향에 대한 경고",
+      "description_en": "Pennsylvania voters warn that data center expansion will raise electricity costs and compromise privacy for locals",
+      "description_zh": "宾夕法尼亚选民警告数据中心扩张将推高当地电价并危及隐私",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_why_is_arraysfill_265_times_slowe",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.673338",
+      "published_at": "2026-09-01T04:29:03",
+      "created_at": "2026-09-01T04:29:03",
+      "updated_at": "2026-09-04T13:52:48.673338",
+      "title": "Hacker News: Why is Arrays.fill 265 times slower on G1GC?",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49517958",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 10 pts | Comments: 1 | Why is Arrays.fill 265 times slower on G1GC?",
+      "viral_metric": "🔥 10 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 10,
+          "display": "🔥 10 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 10,
+          "display": "🔥 10 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49517958",
+      "article_url": "https://krzysztofslusarski.github.io/2026/08/19/g1barrier.html",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_why_is_arraysfill_265_times_slowe",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Java Arrays.fill Optimization",
+        "programming_lang": "Java",
+        "root_keywords": [
+          "Arrays.fill",
+          "G1GC",
+          "Java performance"
+        ],
+        "recommended_tag": "📝 tech reference",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "G1GC에서 Arrays.fill이 265배 느려지는 이유",
+            "hook": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+            "key_takeaways": [
+              "G1GC의 메모리 할당 방식이 배열 채우기 작업에 미치는 영향",
+              "GC 일시 정지 및 메모리 할당 오버헤드가 성능 저하의 주요 원인",
+              "성능 개선을 위한 G1GC 튜닝 및 대체 방법 제안"
+            ]
+          },
+          "en": {
+            "title": "Why is Arrays.fill 265 times slower on G1GC?",
+            "hook": "Discover why Java's Arrays.fill runs 265x slower on G1GC and how to fix it.",
+            "key_takeaways": [
+              "G1GC's allocation behavior impacts array filling performance",
+              "GC pauses and allocation overhead cause the slowdown",
+              "Tuning G1GC and alternative approaches for better performance"
+            ]
+          },
+          "zh": {
+            "title": "G1GC 下 Arrays.fill 为什么慢 265 倍？",
+            "hook": "揭秘 G1GC 环境下 Java Arrays.fill 性能急剧下降的原因及优化方案。",
+            "key_takeaways": [
+              "G1GC 的内存分配机制如何影响数组填充性能",
+              "GC 暂停和内存分配开销是主要原因",
+              "G1GC 调优及替代方案助力性能提升"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:09:13.990822+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "G1GC에서 Arrays.fill이 265배 느려지는 이유",
+          "hook": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+          "key_takeaways": [
+            "G1GC의 메모리 할당 방식이 배열 채우기 작업에 미치는 영향",
+            "GC 일시 정지 및 메모리 할당 오버헤드가 성능 저하의 주요 원인",
+            "성능 개선을 위한 G1GC 튜닝 및 대체 방법 제안"
+          ]
+        },
+        "en": {
+          "title": "Why is Arrays.fill 265 times slower on G1GC?",
+          "hook": "Discover why Java's Arrays.fill runs 265x slower on G1GC and how to fix it.",
+          "key_takeaways": [
+            "G1GC's allocation behavior impacts array filling performance",
+            "GC pauses and allocation overhead cause the slowdown",
+            "Tuning G1GC and alternative approaches for better performance"
+          ]
+        },
+        "zh": {
+          "title": "G1GC 下 Arrays.fill 为什么慢 265 倍？",
+          "hook": "揭秘 G1GC 环境下 Java Arrays.fill 性能急剧下降的原因及优化方案。",
+          "key_takeaways": [
+            "G1GC 的内存分配机制如何影响数组填充性能",
+            "GC 暂停和内存分配开销是主要原因",
+            "G1GC 调优及替代方案助力性能提升"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Java",
+      "root_keywords": [
+        "Arrays.fill",
+        "G1GC",
+        "Java performance"
+      ],
+      "title_ko": "G1GC에서 Arrays.fill이 265배 느려지는 이유",
+      "title_en": "Why is Arrays.fill 265 times slower on G1GC?",
+      "title_zh": "G1GC 下 Arrays.fill 为什么慢 265 倍？",
+      "hook": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+      "hook_ko": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+      "hook_en": "Discover why Java's Arrays.fill runs 265x slower on G1GC and how to fix it.",
+      "hook_zh": "揭秘 G1GC 环境下 Java Arrays.fill 性能急剧下降的原因及优化方案。",
+      "description_ko": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+      "description_en": "Discover why Java's Arrays.fill runs 265x slower on G1GC and how to fix it.",
+      "description_zh": "揭秘 G1GC 环境下 Java Arrays.fill 性能急剧下降的原因及优化方案。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_repo_hacker_news_restoring_5_ghz_wi_fi_on_an_lg_c5",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.651369",
+      "published_at": "2026-09-04T12:49:44",
+      "created_at": "2026-09-04T12:49:44",
+      "updated_at": "2026-09-04T13:52:48.651369",
+      "title": "Hacker News: Restoring 5 GHz Wi-Fi on an LG C5 by changing its webOS region",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49563839",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "HN Score: 17 pts | Comments: 9 | Restoring 5 GHz Wi-Fi on an LG C5 by changing its webOS region",
+      "viral_metric": "🔥 17 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 17,
+          "display": "🔥 17 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 17,
+          "display": "🔥 17 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49563839",
+      "article_url": "https://github.com/hawshemi/lg-c5-webos25-region-change",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_hacker_news_restoring_5_ghz_wi_fi_on_an_lg_c5",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Device firmware hack",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Wi-Fi",
+          "webOS",
+          "LG C5"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "LG C5 웹OS 지역 설정으로 5 GHz Wi-Fi 복원하기",
+            "hook": "웹OS TV에서 5 GHz Wi-Fi가 사라졌다면, 지역 코드 변경으로 문제를 해결하는 간단한 방법을 소개합니다.",
+            "key_takeaways": [
+              "webOS 지역 설정 변경으로 5 GHz Wi-Fi 활성화 방법",
+              "LG C5 TV에서 개발자 옵션 활성화 방법",
+              "지역 코드 변경의 위험성과 주의사항"
+            ]
+          },
+          "en": {
+            "title": "Restoring 5 GHz Wi-Fi on an LG C5 by Changing its webOS Region",
+            "hook": "If your LG webOS TV lost 5 GHz Wi‑Fi, a simple region tweak can bring it back – here’s how.",
+            "key_takeaways": [
+              "How to enable 5 GHz Wi‑Fi via webOS region change",
+              "Steps to unlock developer options on LG C5",
+              "Risks and precautions when altering region settings"
+            ]
+          },
+          "zh": {
+            "title": "通过更改webOS区域恢复LG C5的5GHz Wi-Fi",
+            "hook": "如果您的LG C5电视无法连接5GHz Wi-Fi，通过调整webOS区域设置即可轻松解决。",
+            "key_takeaways": [
+              "通过更改webOS区域设置恢复5GHz Wi-Fi的方法",
+              "如何在LG C5上启用开发者选项",
+              "更改区域设置时的注意事项"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:05:31.981312+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "LG C5 웹OS 지역 설정으로 5 GHz Wi-Fi 복원하기",
+          "hook": "웹OS TV에서 5 GHz Wi-Fi가 사라졌다면, 지역 코드 변경으로 문제를 해결하는 간단한 방법을 소개합니다.",
+          "key_takeaways": [
+            "webOS 지역 설정 변경으로 5 GHz Wi-Fi 활성화 방법",
+            "LG C5 TV에서 개발자 옵션 활성화 방법",
+            "지역 코드 변경의 위험성과 주의사항"
+          ]
+        },
+        "en": {
+          "title": "Restoring 5 GHz Wi-Fi on an LG C5 by Changing its webOS Region",
+          "hook": "If your LG webOS TV lost 5 GHz Wi‑Fi, a simple region tweak can bring it back – here’s how.",
+          "key_takeaways": [
+            "How to enable 5 GHz Wi‑Fi via webOS region change",
+            "Steps to unlock developer options on LG C5",
+            "Risks and precautions when altering region settings"
+          ]
+        },
+        "zh": {
+          "title": "通过更改webOS区域恢复LG C5的5GHz Wi-Fi",
+          "hook": "如果您的LG C5电视无法连接5GHz Wi-Fi，通过调整webOS区域设置即可轻松解决。",
+          "key_takeaways": [
+            "通过更改webOS区域设置恢复5GHz Wi-Fi的方法",
+            "如何在LG C5上启用开发者选项",
+            "更改区域设置时的注意事项"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Wi-Fi",
+        "webOS",
+        "LG C5"
+      ],
+      "title_ko": "LG C5 웹OS 지역 설정으로 5 GHz Wi-Fi 복원하기",
+      "title_en": "Restoring 5 GHz Wi-Fi on an LG C5 by Changing its webOS Region",
+      "title_zh": "通过更改webOS区域恢复LG C5的5GHz Wi-Fi",
+      "hook": "웹OS TV에서 5 GHz Wi-Fi가 사라졌다면, 지역 코드 변경으로 문제를 해결하는 간단한 방법을 소개합니다.",
+      "hook_ko": "웹OS TV에서 5 GHz Wi-Fi가 사라졌다면, 지역 코드 변경으로 문제를 해결하는 간단한 방법을 소개합니다.",
+      "hook_en": "If your LG webOS TV lost 5 GHz Wi‑Fi, a simple region tweak can bring it back – here’s how.",
+      "hook_zh": "如果您的LG C5电视无法连接5GHz Wi-Fi，通过调整webOS区域设置即可轻松解决。",
+      "description_ko": "웹OS TV에서 5 GHz Wi-Fi가 사라졌다면, 지역 코드 변경으로 문제를 해결하는 간단한 방법을 소개합니다.",
+      "description_en": "If your LG webOS TV lost 5 GHz Wi‑Fi, a simple region tweak can bring it back – here’s how.",
+      "description_zh": "如果您的LG C5电视无法连接5GHz Wi-Fi，通过调整webOS区域设置即可轻松解决。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_google_ai_mode_shows_same_product",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.639827",
+      "published_at": "2026-09-04T11:59:15",
+      "created_at": "2026-09-04T11:59:15",
+      "updated_at": "2026-09-04T13:52:48.639827",
+      "title": "Hacker News: Google AI Mode shows same products 21.6% more expensive than traditional search",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49563386",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 14 pts | Comments: 0 | Google AI Mode shows same products 21.6% more expensive than traditional search",
+      "viral_metric": "🔥 14 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49563386",
+      "article_url": "https://productrise.app/blog/google-ai-mode-prefers-more-expensive-products",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_google_ai_mode_shows_same_product",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "AI Search Bias",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Google AI Mode",
+          "search pricing",
+          "bias",
+          "e-commerce"
+        ],
+        "recommended_tag": "🔥 Must-Read",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "구글 AI 모드, 일반 검색보다 제품 가격을 21.6% 더 높게 표시",
+            "hook": "엔지니어들이 주목해야 할 AI 검색 편향 사례 – 동일한 제품이 AI 모드에서 더 비싸게 노출됨",
+            "key_takeaways": [
+              "AI 모드에서 표시되는 제품 가격이 일반 검색 결과보다 평균 21.6% 높음",
+              "이러한 가격 편향은 알고리즘 추천 및 광고 수익화에서 비롯될 수 있음",
+              "개발자와 정책 입안자들은 AI 검색 결과의 투명성과 공정성 확보를 위한 검증 필요"
+            ]
+          },
+          "en": {
+            "title": "Google AI Mode Shows Same Products 21.6% More Expensive Than Traditional Search",
+            "hook": "AI search bias revealed: Google AI Mode inflates product prices by 21.6% compared to standard search results",
+            "key_takeaways": [
+              "Products listed in Google AI Mode are, on average, 21.6% pricier than those in conventional search",
+              "The price uplift may stem from algorithmic ranking or monetization strategies",
+              "Engineers and regulators should audit AI search transparency and fairness"
+            ]
+          },
+          "zh": {
+            "title": "谷歌AI模式显示产品价格比传统搜索高出21.6%",
+            "hook": "直击工程师痛点的1句话亮点与阅读理由：谷歌AI模式显示产品价格比传统搜索高出21.6%，凸显AI搜索中的价格偏见问题",
+            "key_takeaways": [
+              "谷歌AI模式显示的产品价格平均比传统搜索高出21.6%",
+              "这一价格差异可能源于算法推荐和广告收入驱动",
+              "开发人员和监管机构应加强对AI搜索结果的透明度和公平性审查"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:07:57.518221+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "구글 AI 모드, 일반 검색보다 제품 가격을 21.6% 더 높게 표시",
+          "hook": "엔지니어들이 주목해야 할 AI 검색 편향 사례 – 동일한 제품이 AI 모드에서 더 비싸게 노출됨",
+          "key_takeaways": [
+            "AI 모드에서 표시되는 제품 가격이 일반 검색 결과보다 평균 21.6% 높음",
+            "이러한 가격 편향은 알고리즘 추천 및 광고 수익화에서 비롯될 수 있음",
+            "개발자와 정책 입안자들은 AI 검색 결과의 투명성과 공정성 확보를 위한 검증 필요"
+          ]
+        },
+        "en": {
+          "title": "Google AI Mode Shows Same Products 21.6% More Expensive Than Traditional Search",
+          "hook": "AI search bias revealed: Google AI Mode inflates product prices by 21.6% compared to standard search results",
+          "key_takeaways": [
+            "Products listed in Google AI Mode are, on average, 21.6% pricier than those in conventional search",
+            "The price uplift may stem from algorithmic ranking or monetization strategies",
+            "Engineers and regulators should audit AI search transparency and fairness"
+          ]
+        },
+        "zh": {
+          "title": "谷歌AI模式显示产品价格比传统搜索高出21.6%",
+          "hook": "直击工程师痛点的1句话亮点与阅读理由：谷歌AI模式显示产品价格比传统搜索高出21.6%，凸显AI搜索中的价格偏见问题",
+          "key_takeaways": [
+            "谷歌AI模式显示的产品价格平均比传统搜索高出21.6%",
+            "这一价格差异可能源于算法推荐和广告收入驱动",
+            "开发人员和监管机构应加强对AI搜索结果的透明度和公平性审查"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Google AI Mode",
+        "search pricing",
+        "bias",
+        "e-commerce"
+      ],
+      "title_ko": "구글 AI 모드, 일반 검색보다 제품 가격을 21.6% 더 높게 표시",
+      "title_en": "Google AI Mode Shows Same Products 21.6% More Expensive Than Traditional Search",
+      "title_zh": "谷歌AI模式显示产品价格比传统搜索高出21.6%",
+      "hook": "엔지니어들이 주목해야 할 AI 검색 편향 사례 – 동일한 제품이 AI 모드에서 더 비싸게 노출됨",
+      "hook_ko": "엔지니어들이 주목해야 할 AI 검색 편향 사례 – 동일한 제품이 AI 모드에서 더 비싸게 노출됨",
+      "hook_en": "AI search bias revealed: Google AI Mode inflates product prices by 21.6% compared to standard search results",
+      "hook_zh": "直击工程师痛点的1句话亮点与阅读理由：谷歌AI模式显示产品价格比传统搜索高出21.6%，凸显AI搜索中的价格偏见问题",
+      "description_ko": "엔지니어들이 주목해야 할 AI 검색 편향 사례 – 동일한 제품이 AI 모드에서 더 비싸게 노출됨",
+      "description_en": "AI search bias revealed: Google AI Mode inflates product prices by 21.6% compared to standard search results",
+      "description_zh": "直击工程师痛点的1句话亮点与阅读理由：谷歌AI模式显示产品价格比传统搜索高出21.6%，凸显AI搜索中的价格偏见问题",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_ok_but_does_it_scale",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.336994",
+      "published_at": "2026-09-04T12:42:08",
+      "created_at": "2026-09-04T12:42:08",
+      "updated_at": "2026-09-04T13:52:48.336994",
+      "title": "Hacker News: Ok, but Does It Scale?",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49563772",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 30 pts | Comments: 0 | Ok, but Does It Scale?",
+      "viral_metric": "🔥 30 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 30,
+          "display": "🔥 30 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 30,
+          "display": "🔥 30 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49563772",
+      "article_url": "https://spacetimedb.com/blog/how-does-spacetime-scale",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_ok_but_does_it_scale",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Tech News",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Scaling",
+          "Hacker News",
+          "Tech"
+        ],
+        "recommended_tag": "📝 Tech Note",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "스케일링에 대한 HN의 한 마디: 과연 확장 가능할까?",
+            "hook": "엔지니어가 주목해야 할 확장성 관련 HN의 간결한 비판 (한국어)",
+            "key_takeaways": [
+              "HN에서 제기된 확장성 문제에 대한 간략한 언급",
+              "현재 30점, 댓글 0개로 낮은 참여도",
+              "확장성 검증의 필요성 강조"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Ok, but Does It Scale?",
+            "hook": "A brief Hacker News post questioning scalability (English)",
+            "key_takeaways": [
+              "Short HN post with 30 points and 0 comments",
+              "Highlights the need to verify scalability",
+              "Raises a common engineering concern about scaling"
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：好，但它能扩展吗？",
+            "hook": "一个关于扩展性的简短HN讨论，引发工程师的思考 (中文)",
+            "key_takeaways": [
+              "HN上关于扩展性的简短讨论，30分，0评论",
+              "强调了验证扩展性的重要性",
+              "引发了关于技术扩展性的广泛关注"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:07:01.417639+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "스케일링에 대한 HN의 한 마디: 과연 확장 가능할까?",
+          "hook": "엔지니어가 주목해야 할 확장성 관련 HN의 간결한 비판 (한국어)",
+          "key_takeaways": [
+            "HN에서 제기된 확장성 문제에 대한 간략한 언급",
+            "현재 30점, 댓글 0개로 낮은 참여도",
+            "확장성 검증의 필요성 강조"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Ok, but Does It Scale?",
+          "hook": "A brief Hacker News post questioning scalability (English)",
+          "key_takeaways": [
+            "Short HN post with 30 points and 0 comments",
+            "Highlights the need to verify scalability",
+            "Raises a common engineering concern about scaling"
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：好，但它能扩展吗？",
+          "hook": "一个关于扩展性的简短HN讨论，引发工程师的思考 (中文)",
+          "key_takeaways": [
+            "HN上关于扩展性的简短讨论，30分，0评论",
+            "强调了验证扩展性的重要性",
+            "引发了关于技术扩展性的广泛关注"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Scaling",
+        "Hacker News",
+        "Tech"
+      ],
+      "title_ko": "스케일링에 대한 HN의 한 마디: 과연 확장 가능할까?",
+      "title_en": "Hacker News: Ok, but Does It Scale?",
+      "title_zh": "Hacker News：好，但它能扩展吗？",
+      "hook": "엔지니어가 주목해야 할 확장성 관련 HN의 간결한 비판 (한국어)",
+      "hook_ko": "엔지니어가 주목해야 할 확장성 관련 HN의 간결한 비판 (한국어)",
+      "hook_en": "A brief Hacker News post questioning scalability (English)",
+      "hook_zh": "一个关于扩展性的简短HN讨论，引发工程师的思考 (中文)",
+      "description_ko": "엔지니어가 주목해야 할 확장성 관련 HN의 간결한 비판 (한국어)",
+      "description_en": "A brief Hacker News post questioning scalability (English)",
+      "description_zh": "一个关于扩展性的简短HN讨论，引发工程师的思考 (中文)",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_ibm_bob",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T13:52:48.313677",
+      "published_at": "2026-09-04T12:50:29",
+      "created_at": "2026-09-04T12:50:29",
+      "updated_at": "2026-09-04T13:52:48.313677",
+      "title": "Hacker News: IBM Bob",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49563851",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 43 pts | Comments: 31 | IBM Bob",
+      "viral_metric": "🔥 43 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 43,
+          "display": "🔥 43 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 43,
+          "display": "🔥 43 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49563851",
+      "article_url": "https://bob.ibm.com/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_ibm_bob",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI Model Release",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "IBM",
+          "Bob",
+          "AI"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: IBM 밥",
+            "hook": "IBM이 오픈소스 AI 모델 '밥'을 공개했으며, 해커 뉴스에서 43점, 31개의 댓글로 주목받고 있습니다.",
+            "key_takeaways": [
+              "IBM이 새로운 AI 모델 '밥'을 출시했습니다.",
+              "해당 게시물은 해커 뉴스에서 43점의 점수를 기록했습니다.",
+              "커뮤니티의 관심을 반영하듯 31개의 댓글이 달렸습니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: IBM Bob",
+            "hook": "IBM releases Bob, a new open-source AI model, gaining traction on Hacker News with 43 points and 31 comments.",
+            "key_takeaways": [
+              "IBM launched a new AI model named Bob.",
+              "The post scored 43 points on Hacker News.",
+              "31 comments indicate strong community interest."
+            ]
+          },
+          "zh": {
+            "title": "Hacker 新闻：IBM 鲍",
+            "hook": "IBM 发布了名为 Bob 的新开源 AI 模型，在 Hacker News 上获得 43 分和 31 条评论，备受关注。",
+            "key_takeaways": [
+              "IBM 发布了名为 Bob 的新 AI 模型。",
+              "该帖在 Hacker News 上获得 43 分。",
+              "31 条评论表明社区兴趣浓厚。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T14:04:20.182180+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: IBM 밥",
+          "hook": "IBM이 오픈소스 AI 모델 '밥'을 공개했으며, 해커 뉴스에서 43점, 31개의 댓글로 주목받고 있습니다.",
+          "key_takeaways": [
+            "IBM이 새로운 AI 모델 '밥'을 출시했습니다.",
+            "해당 게시물은 해커 뉴스에서 43점의 점수를 기록했습니다.",
+            "커뮤니티의 관심을 반영하듯 31개의 댓글이 달렸습니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: IBM Bob",
+          "hook": "IBM releases Bob, a new open-source AI model, gaining traction on Hacker News with 43 points and 31 comments.",
+          "key_takeaways": [
+            "IBM launched a new AI model named Bob.",
+            "The post scored 43 points on Hacker News.",
+            "31 comments indicate strong community interest."
+          ]
+        },
+        "zh": {
+          "title": "Hacker 新闻：IBM 鲍",
+          "hook": "IBM 发布了名为 Bob 的新开源 AI 模型，在 Hacker News 上获得 43 分和 31 条评论，备受关注。",
+          "key_takeaways": [
+            "IBM 发布了名为 Bob 的新 AI 模型。",
+            "该帖在 Hacker News 上获得 43 分。",
+            "31 条评论表明社区兴趣浓厚。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "IBM",
+        "Bob",
+        "AI"
+      ],
+      "title_ko": "해커 뉴스: IBM 밥",
+      "title_en": "Hacker News: IBM Bob",
+      "title_zh": "Hacker 新闻：IBM 鲍",
+      "hook": "IBM이 오픈소스 AI 모델 '밥'을 공개했으며, 해커 뉴스에서 43점, 31개의 댓글로 주목받고 있습니다.",
+      "hook_ko": "IBM이 오픈소스 AI 모델 '밥'을 공개했으며, 해커 뉴스에서 43점, 31개의 댓글로 주목받고 있습니다.",
+      "hook_en": "IBM releases Bob, a new open-source AI model, gaining traction on Hacker News with 43 points and 31 comments.",
+      "hook_zh": "IBM 发布了名为 Bob 的新开源 AI 模型，在 Hacker News 上获得 43 分和 31 条评论，备受关注。",
+      "description_ko": "IBM이 오픈소스 AI 모델 '밥'을 공개했으며, 해커 뉴스에서 43점, 31개의 댓글로 주목받고 있습니다.",
+      "description_en": "IBM releases Bob, a new open-source AI model, gaining traction on Hacker News with 43 points and 31 comments.",
+      "description_zh": "IBM 发布了名为 Bob 的新开源 AI 模型，在 Hacker News 上获得 43 分和 31 条评论，备受关注。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-04_sns_geeknews_mongodb_컬렉션을_postgresql로_복사하고_동기화하기",
       "harvested_date": "2026-09-04",
@@ -97420,8 +101126,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 285 pts | Comments: 222 | VC isn't VC anymore",
-      "viral_metric": "🔥 285 HN Points",
+      "description": "HN Score: 288 pts | Comments: 229 | VC isn't VC anymore",
+      "viral_metric": "🔥 288 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -97429,13 +101135,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 285,
-          "display": "🔥 285 HN Points",
+          "value": 288,
+          "display": "🔥 288 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 277,
-        "delta_display": "+277",
-        "growth_rate_pct": 3462.5,
+        "delta": 280,
+        "delta_display": "+280",
+        "growth_rate_pct": 3500.0,
         "is_spiking": true
       },
       "matched_user_domains": [

@@ -2459,5 +2459,468 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260904_135249",
+    "timestamp": "2026-09-04T13:52:49.732728+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 28,
+    "requested_limit": 0,
+    "processed_count": 28,
+    "success_count": 28,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 28
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 45.68,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_quasar_438b_유럽_최고_성능_ai_모델",
+            "title": "GeekNews: Quasar 438B: 유럽 최고 성능 AI 모델",
+            "title_ko": "퀘이사 438B: 유럽 최고 성능 AI 모델",
+            "classification": "MODEL",
+            "model_family": "Quasar 438B",
+            "enriched_at": "2026-09-04T13:53:35.419162+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.39,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_quasar_438b_유럽_최고_성능_ai_모델",
+            "title": "GeekNews: Quasar 438B: 유럽 최고 성능 AI 모델",
+            "title_ko": "GeekNews: Quasar 438B: 유럽 최고 성능 AI 모델",
+            "classification": "MODEL",
+            "model_family": "Quasar 438B",
+            "enriched_at": "2026-09-04T13:53:52.813498+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 27.85,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_ai라는_소행성이_강타한_프론트엔드_웹_개발",
+            "title": "GeekNews: AI라는 소행성이 강타한 프론트엔드 웹 개발",
+            "title_ko": "AI라는 소행성이 프론트엔드 웹 개발을 강타하다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T13:54:21.670615+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.63,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_ai라는_소행성이_강타한_프론트엔드_웹_개발",
+            "title": "GeekNews: AI라는 소행성이 강타한 프론트엔드 웹 개발",
+            "title_ko": "프론트엔드 웹 개발, AI라는 소행성의 충격",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T13:54:37.302434+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.1,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_ask_hn_mcp를_프로덕션에서_쓰시는_분_있나요",
+            "title": "GeekNews: Ask HN: MCP를 프로덕션에서 쓰시는 분 있나요?",
+            "title_ko": "GeekNews: Ask HN: MCP를 프로덕션에서 쓰시는 분 있나요?",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T13:54:56.408161+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 63.71,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_ask_hn_mcp를_프로덕션에서_쓰시는_분_있나요",
+            "title": "GeekNews: Ask HN: MCP를 프로덕션에서 쓰시는 분 있나요?",
+            "title_ko": "GeekNews: Ask HN: 프로덕션에서 MCP를 사용해 보신 분 계신가요?",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T13:56:01.123606+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.25,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_모든_글에_ai를_쓰면서도_ai_슬롭을_피하는_방법",
+            "title": "GeekNews: 모든 글에 AI를 쓰면서도 ‘AI 슬롭’을 피하는 방법",
+            "title_ko": "모든 글에 AI를 쓰면서도 ‘AI 슬롭’을 피하는 방법",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T13:56:16.376385+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 57.67,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_모든_글에_ai를_쓰면서도_ai_슬롭을_피하는_방법",
+            "title": "GeekNews: 모든 글에 AI를 쓰면서도 ‘AI 슬롭’을 피하는 방법",
+            "title_ko": "모든 글에 AI를 쓰면서도 'AI 슬롭'을 피하는 방법",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T13:57:15.049900+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 23.67,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_imhex로_미지의_파일_형식_리버스_엔지니어링하기",
+            "title": "GeekNews: ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+            "title_ko": "ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T13:57:39.722983+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 28.57,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_imhex로_미지의_파일_형식_리버스_엔지니어링하기",
+            "title": "GeekNews: ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+            "title_ko": "ImHex로 미지의 파일 형식 리버스 엔지니어링하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T13:58:09.293370+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 31.85,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_llm으로_1993년_amiga_게임의_68000_어셈블리를_읽어",
+            "title": "GeekNews: LLM으로 1993년 Amiga 게임의 68000 어셈블리를 읽어 Godot에 포팅하기",
+            "title_ko": "LLM으로 1993년 Amiga 게임의 68000 어셈블리를 읽어 Godot에 포팅하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T13:58:42.152414+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 12,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 44.84,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_llm으로_1993년_amiga_게임의_68000_어셈블리를_읽어",
+            "title": "GeekNews: LLM으로 1993년 Amiga 게임의 68000 어셈블리를 읽어 Godot에 포팅하기",
+            "title_ko": "LLM을 활용해 1993년 Amiga 게임의 68000 어셈블리 코드를 Godot로 포팅하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T13:59:27.992939+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 13,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 22.58,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_people_are_going_to_get_screwed_p",
+            "title": "Hacker News: 'People are going to get screwed' Pennsylvania voters unite against data centres",
+            "title_ko": "펜실베이니아 유권자, 데이터 센터에 맞서다: '사람들이 피해를 볼 것'",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T13:59:51.579574+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 14,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 42.26,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_people_are_going_to_get_screwed_p",
+            "title": "Hacker News: 'People are going to get screwed' Pennsylvania voters unite against data centres",
+            "title_ko": "해커 뉴스: '사람들이 피해를 볼 것이다' 펜실베이니아 주민들, 데이터 센터에 맞서 연합",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:00:34.842471+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 15,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 43.62,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_norways_oil_fund_proposes_selling",
+            "title": "Hacker News: Norway's Oil Fund Proposes Selling Roughly $80B in U.S. Treasurys",
+            "title_ko": "노르웨이 국부펀드, 미국 국채 약 80조원 매각 제안",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:01:19.465222+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 16,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 42.64,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_norways_oil_fund_proposes_selling",
+            "title": "Hacker News: Norway's Oil Fund Proposes Selling Roughly $80B in U.S. Treasurys",
+            "title_ko": "노르웨이 국부펀드, 미국 국채 약 80조원 매각 제안",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:02:03.111361+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 17,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 48.45,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_scientists_find_worms_in_almost_e",
+            "title": "Hacker News: Scientists Find Worms in Almost Every Fish in a Tuna Haul – 96% Were Infected",
+            "title_ko": "참치 운반선에서 잡힌 생선의 96%에서 기생충 발견",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:02:52.561536+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 18,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 46.74,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_scientists_find_worms_in_almost_e",
+            "title": "Hacker News: Scientists Find Worms in Almost Every Fish in a Tuna Haul – 96% Were Infected",
+            "title_ko": "참치 운반선에서 잡힌 거의 모든 생선에서 벌레 발견 – 96% 감염",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:03:40.303991+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 19,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.04,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_ibm_bob",
+            "title": "Hacker News: IBM Bob",
+            "title_ko": "해커 뉴스: IBM 밥",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:03:55.349920+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 20,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 23.83,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_ibm_bob",
+            "title": "Hacker News: IBM Bob",
+            "title_ko": "해커 뉴스: IBM 밥",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:04:20.182180+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 21,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 35.4,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_hacker_news_restoring_5_ghz_wi_fi_on_an_lg_c5",
+            "title": "Hacker News: Restoring 5 GHz Wi-Fi on an LG C5 by changing its webOS region",
+            "title_ko": "LG C5에서 웹OS 지역 변경으로 5 GHz Wi-Fi 복원하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:04:56.586959+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 22,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 34.39,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_hacker_news_restoring_5_ghz_wi_fi_on_an_lg_c5",
+            "title": "Hacker News: Restoring 5 GHz Wi-Fi on an LG C5 by changing its webOS region",
+            "title_ko": "LG C5 웹OS 지역 설정으로 5 GHz Wi-Fi 복원하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:05:31.981312+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 23,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 66.21,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_ok_but_does_it_scale",
+            "title": "Hacker News: Ok, but Does It Scale?",
+            "title_ko": "해커 뉴스: 괜찮은데, 확장성은?",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:06:39.196341+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 24,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 21.22,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_ok_but_does_it_scale",
+            "title": "Hacker News: Ok, but Does It Scale?",
+            "title_ko": "스케일링에 대한 HN의 한 마디: 과연 확장 가능할까?",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:07:01.417639+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 25,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 37.27,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_google_ai_mode_shows_same_product",
+            "title": "Hacker News: Google AI Mode shows same products 21.6% more expensive than traditional search",
+            "title_ko": "구글 AI 모드, 일반 검색보다 제품 가격을 21.6% 더 높게 표시",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:07:39.689799+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 26,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.82,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_google_ai_mode_shows_same_product",
+            "title": "Hacker News: Google AI Mode shows same products 21.6% more expensive than traditional search",
+            "title_ko": "구글 AI 모드, 일반 검색보다 제품 가격을 21.6% 더 높게 표시",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:07:57.518221+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 27,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 50.54,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_why_is_arraysfill_265_times_slowe",
+            "title": "Hacker News: Why is Arrays.fill 265 times slower on G1GC?",
+            "title_ko": "G1GC에서 Arrays.fill이 265배 느려진 이유",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:08:49.062364+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 28,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 23.92,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_why_is_arraysfill_265_times_slowe",
+            "title": "Hacker News: Why is Arrays.fill 265 times slower on G1GC?",
+            "title_ko": "G1GC에서 Arrays.fill이 265배 느려지는 이유",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T14:09:13.990822+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -1,0 +1,131 @@
+{
+  "inbox_id": "2026-09-04_sns_hacker_news_why_is_arraysfill_265_times_slowe",
+  "harvested_date": "2026-09-04",
+  "harvested_at": "2026-09-04T13:52:48.673338",
+  "published_at": "2026-09-01T04:29:03",
+  "created_at": "2026-09-01T04:29:03",
+  "updated_at": "2026-09-04T13:52:48.673338",
+  "title": "Hacker News: Why is Arrays.fill 265 times slower on G1GC?",
+  "source_platform": "Hacker News",
+  "source_url": "https://news.ycombinator.com/item?id=49517958",
+  "type": "sns",
+  "category_type": "TECH",
+  "description": "HN Score: 10 pts | Comments: 1 | Why is Arrays.fill 265 times slower on G1GC?",
+  "viral_metric": "🔥 10 HN Points",
+  "metric_tracking": {
+    "initial": {
+      "value": 10,
+      "display": "🔥 10 HN Points",
+      "recorded_at": "2026-09-04"
+    },
+    "latest": {
+      "value": 10,
+      "display": "🔥 10 HN Points",
+      "updated_at": "2026-09-04"
+    },
+    "delta": 0,
+    "delta_display": "+0",
+    "growth_rate_pct": 0.0,
+    "is_spiking": false
+  },
+  "matched_user_domains": [
+    "일반 최신 기술 (Tech General)"
+  ],
+  "status": "PENDING_REVIEW",
+  "hn_url": "https://news.ycombinator.com/item?id=49517958",
+  "article_url": "https://krzysztofslusarski.github.io/2026/08/19/g1barrier.html",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_why_is_arraysfill_265_times_slowe",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "Java Arrays.fill Optimization",
+    "programming_lang": "Java",
+    "root_keywords": [
+      "Arrays.fill",
+      "G1GC",
+      "Java performance"
+    ],
+    "recommended_tag": "📝 tech reference",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "G1GC에서 Arrays.fill이 265배 느려지는 이유",
+        "hook": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+        "key_takeaways": [
+          "G1GC의 메모리 할당 방식이 배열 채우기 작업에 미치는 영향",
+          "GC 일시 정지 및 메모리 할당 오버헤드가 성능 저하의 주요 원인",
+          "성능 개선을 위한 G1GC 튜닝 및 대체 방법 제안"
+        ]
+      },
+      "en": {
+        "title": "Why is Arrays.fill 265 times slower on G1GC?",
+        "hook": "Discover why Java's Arrays.fill runs 265x slower on G1GC and how to fix it.",
+        "key_takeaways": [
+          "G1GC's allocation behavior impacts array filling performance",
+          "GC pauses and allocation overhead cause the slowdown",
+          "Tuning G1GC and alternative approaches for better performance"
+        ]
+      },
+      "zh": {
+        "title": "G1GC 下 Arrays.fill 为什么慢 265 倍？",
+        "hook": "揭秘 G1GC 环境下 Java Arrays.fill 性能急剧下降的原因及优化方案。",
+        "key_takeaways": [
+          "G1GC 的内存分配机制如何影响数组填充性能",
+          "GC 暂停和内存分配开销是主要原因",
+          "G1GC 调优及替代方案助力性能提升"
+        ]
+      }
+    },
+    "enriched_by_model": "cohere/north-mini-code:free",
+    "enriched_at": "2026-09-04T14:09:13.990822+00:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "G1GC에서 Arrays.fill이 265배 느려지는 이유",
+      "hook": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+      "key_takeaways": [
+        "G1GC의 메모리 할당 방식이 배열 채우기 작업에 미치는 영향",
+        "GC 일시 정지 및 메모리 할당 오버헤드가 성능 저하의 주요 원인",
+        "성능 개선을 위한 G1GC 튜닝 및 대체 방법 제안"
+      ]
+    },
+    "en": {
+      "title": "Why is Arrays.fill 265 times slower on G1GC?",
+      "hook": "Discover why Java's Arrays.fill runs 265x slower on G1GC and how to fix it.",
+      "key_takeaways": [
+        "G1GC's allocation behavior impacts array filling performance",
+        "GC pauses and allocation overhead cause the slowdown",
+        "Tuning G1GC and alternative approaches for better performance"
+      ]
+    },
+    "zh": {
+      "title": "G1GC 下 Arrays.fill 为什么慢 265 倍？",
+      "hook": "揭秘 G1GC 环境下 Java Arrays.fill 性能急剧下降的原因及优化方案。",
+      "key_takeaways": [
+        "G1GC 的内存分配机制如何影响数组填充性能",
+        "GC 暂停和内存分配开销是主要原因",
+        "G1GC 调优及替代方案助力性能提升"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Java",
+  "root_keywords": [
+    "Arrays.fill",
+    "G1GC",
+    "Java performance"
+  ],
+  "title_ko": "G1GC에서 Arrays.fill이 265배 느려지는 이유",
+  "title_en": "Why is Arrays.fill 265 times slower on G1GC?",
+  "title_zh": "G1GC 下 Arrays.fill 为什么慢 265 倍？",
+  "hook": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+  "hook_ko": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+  "hook_en": "Discover why Java's Arrays.fill runs 265x slower on G1GC and how to fix it.",
+  "hook_zh": "揭秘 G1GC 环境下 Java Arrays.fill 性能急剧下降的原因及优化方案。",
+  "description_ko": "G1GC 환경에서 Java의 Arrays.fill 성능 저하 원인과 해결 방법을 알아보세요.",
+  "description_en": "Discover why Java's Arrays.fill runs 265x slower on G1GC and how to fix it.",
+  "description_zh": "揭秘 G1GC 环境下 Java Arrays.fill 性能急剧下降的原因及优化方案。",
+  "is_classified": true,
+  "is_deep_analyzed": false
+}
