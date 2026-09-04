@@ -101,7 +101,9 @@ module.exports = async (req, res) => {
             COALESCE(raw_payload->'related_dossier', null) as related_dossier,
             'NEWS' as category_type
           FROM raw_trends_inbox
-          WHERE item_type = 'news' OR source_platform IN ('Hacker News', 'Reddit', 'AI News Feed')
+          WHERE (item_type = 'news' OR source_platform IN ('Hacker News', 'Reddit', 'AI News Feed'))
+            AND (raw_payload->'ai_enrichment') IS NOT NULL 
+            AND (raw_payload->'multilingual') IS NOT NULL
           ORDER BY harvested_date DESC, created_at DESC;
         `);
         return res.status(200).json({

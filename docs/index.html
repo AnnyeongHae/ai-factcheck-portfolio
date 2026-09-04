@@ -1535,20 +1535,22 @@
               newsItems.forEach(item => staticNewsMap.set(item.inbox_id, item));
             }
 
-            liveNewsData = newsData.news.map(dbItem => {
-              const staticItem = staticNewsMap.get(dbItem.inbox_id);
-              if (staticItem) {
-                return {
-                  ...staticItem,
-                  ...dbItem,
-                  ai_enrichment: dbItem.ai_enrichment || staticItem.ai_enrichment,
-                  multilingual: dbItem.multilingual || staticItem.multilingual,
-                  hook: dbItem.hook || staticItem.hook,
-                  related_dossier: dbItem.related_dossier || staticItem.related_dossier
-                };
-              }
-              return dbItem;
-            });
+            liveNewsData = newsData.news
+              .map(dbItem => {
+                const staticItem = staticNewsMap.get(dbItem.inbox_id);
+                if (staticItem) {
+                  return {
+                    ...staticItem,
+                    ...dbItem,
+                    ai_enrichment: dbItem.ai_enrichment || staticItem.ai_enrichment,
+                    multilingual: dbItem.multilingual || staticItem.multilingual,
+                    hook: dbItem.hook || staticItem.hook,
+                    related_dossier: dbItem.related_dossier || staticItem.related_dossier
+                  };
+                }
+                return dbItem;
+              })
+              .filter(it => !!(it.ai_enrichment && (it.multilingual || (it.ai_enrichment && it.ai_enrichment.multilingual))));
             renderNews();
           }
         }
@@ -2250,6 +2252,9 @@
 
       const rawNewsItems = liveNewsData || [];
       const newsItems = rawNewsItems.filter(it => {
+        // 🚨 STRICT POLICY: 번역/요약/정리가 100% 완료된 아이템만 분류 노출 (미번역 아이템은 절대 분류 금지)
+        const hasAi = !!(it.ai_enrichment && (it.multilingual || (it.ai_enrichment && it.ai_enrichment.multilingual)));
+        if (!hasAi) return false;
         return currentNewsSource === 'ALL' || (it.source_platform && it.source_platform.includes(currentNewsSource));
       });
 
@@ -2477,6 +2482,10 @@
       grid.innerHTML = '';
 
       const filtered = liveModelsData.filter(item => {
+        // 🚨 STRICT POLICY: 번역/요약/정리가 100% 완료된 아이템만 분류 노출 (미번역 아이템은 절대 분류 금지)
+        const hasAi = !!(item.ai_enrichment && (item.multilingual || (item.ai_enrichment && item.ai_enrichment.multilingual)));
+        if (!hasAi) return false;
+
         const fam = item.model_family || '';
         let matchesFam = true;
         if (currentModelsFamily === 'Qwen') matchesFam = fam.toLowerCase().includes('qwen');

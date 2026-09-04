@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 tools/batch_manager.py
@@ -44,13 +44,41 @@ def get_db_connection():
         return None
 
 def load_batch_registry():
+    registry = []
     if os.path.exists(BATCH_LOG_PATH):
         try:
             with open(BATCH_LOG_PATH, 'r', encoding='utf-8') as f:
-                return json.load(f)
+                registry = json.load(f)
         except Exception:
-            return []
-    return []
+            registry = []
+
+    # Sync with Neon DB ai_batch_jobs if available to prevent lost jobs across runners
+    conn = get_db_connection()
+    if conn:
+        try:
+            cur = conn.cursor()
+            cur.execute("SELECT batch_uuid, gemini_job_name, item_count, status, submitted_at, inbox_ids FROM ai_batch_jobs WHERE status NOT IN ('HARVESTED', 'FAILED');")
+            rows = cur.fetchall()
+            existing_uuids = {r.get("batch_uuid") for r in registry}
+            for row in rows:
+                b_uuid, j_name, it_count, status, sub_at, inbox_ids = row
+                if b_uuid not in existing_uuids:
+                    item_map = [{"inbox_id": iid} for iid in (inbox_ids if isinstance(inbox_ids, list) else json.loads(inbox_ids or '[]'))]
+                    registry.append({
+                        "batch_uuid": b_uuid,
+                        "gemini_job_name": j_name,
+                        "model": "models/gemini-3.6-flash",
+                        "item_count": it_count,
+                        "status": status,
+                        "submitted_at": str(sub_at),
+                        "completed_at": None,
+                        "items": item_map
+                    })
+            cur.close()
+            conn.close()
+        except Exception as e:
+            pass
+    return registry
 
 def save_batch_registry(registry):
     os.makedirs(os.path.dirname(BATCH_LOG_PATH), exist_ok=True)
