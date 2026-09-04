@@ -9,9 +9,9 @@
   "gamed_count": 2,
   "avg_confidence": 96.2,
   "models_total_count": 192,
-  "news_total_count": 308,
-  "inbox_total_count": 644,
-  "all_inbox_count": 655,
+  "news_total_count": 311,
+  "inbox_total_count": 647,
+  "all_inbox_count": 658,
   "admin_stats": {
     "endpoints": [
       {
@@ -46,6 +46,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T08:58:56.023496",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.21
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 83,
+            "duration_sec": 0.28
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.92
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 11.1
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.27
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.16
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 1.13
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.1
+          }
+        },
+        "summary": {
+          "total_fetched": 257,
+          "updated_count": 1,
+          "new_saved": 3,
+          "duplicates_skipped": 253,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-04T08:06:21.422647",
         "date": "2026-09-04",
@@ -1582,104 +1635,51 @@
           "duplicates_skipped": 164,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T05:26:24.081937",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.22
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.18
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 1.03
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 12.27
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.77
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.19
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 1.01
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.28
-          }
-        },
-        "summary": {
-          "total_fetched": 165,
-          "updated_count": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 165,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T08:06:21.422647",
+      "timestamp": "2026-09-04T08:58:56.023496",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.19
+          "duration_sec": 0.21
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 83,
-          "duration_sec": 0.35
+          "duration_sec": 0.28
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.91
+          "duration_sec": 0.92
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 12.52
+          "duration_sec": 11.1
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.51
+          "duration_sec": 0.27
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.2
+          "duration_sec": 0.16
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.84
+          "duration_sec": 1.13
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.27
+          "duration_sec": 0.1
         }
       },
       "summary": {
@@ -1746,9 +1746,9 @@
       "slot": "15시",
       "hour": 15,
       "range": "15:00 - 17:59",
-      "inbox_count": 7,
+      "inbox_count": 10,
       "model_count": 0,
-      "news_count": 7,
+      "news_count": 10,
       "is_current": false,
       "is_future": false
     },
@@ -1777,18 +1777,18 @@
     "window_label": "18:00 ~ 24:00 KST",
     "window_period": "저녁 엔지니어링 & 데일리 결산",
     "today_kst": "2026-09-04",
-    "updated_at": "18:39 KST",
+    "updated_at": "18:41 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
       "🔥 [Hugging Face Models] GLM-5.3-Flash: 초경량 고성능 비전-언어 멀티모달 모델 (Trending 1796 pts (❤️ 1923)) — 높은 다운로드 수와 뛰어난 추론 효율성을 자랑하는 멀티모달(Image-Text-to-Text) 모델"
     ],
     "tags": [
-      "#High_Engagement",
-      "#Autonomous_Agent",
-      "#Local_LLM",
       "#MoE_Architecture",
-      "#SoTA_Models"
+      "#Autonomous_Agent",
+      "#SoTA_Models",
+      "#High_Engagement",
+      "#Local_LLM"
     ]
   },
   "dow_stats": [],
@@ -28172,6 +28172,393 @@
   ],
   "news_items": [
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_welcome_to_the_porcelain_insulato",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:59:10.985917",
+      "published_at": "2026-09-01T11:06:33",
+      "created_at": "2026-09-01T11:06:33",
+      "updated_at": "2026-09-04T08:59:10.985917",
+      "title": "Hacker News: Welcome to the Porcelain Insulator Collector's World of Mud",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49520356",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 4 pts | Comments: 2 | Welcome to the Porcelain Insulator Collector's World of Mud",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49520356",
+      "article_url": "https://www.insulators.info/porcelain/",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_welcome_to_the_porcelain_insulato",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Niche Hobby / Collector Culture",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Porcelain Insulator",
+          "Collector",
+          "Mud"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "도자기 절연체 수집가의 진흙 세계에 오신 것을 환영합니다",
+            "hook": "엔지니어도 흥미로워할 수 있는 독특한 취미, 도자기 절연체 수집",
+            "key_takeaways": [
+              "도자기 절연체는 수집가들 사이에서 독특한 취미로 자리 잡았습니다.",
+              "이 게시물은 진흙을 활용한 예술적 접근 방식을 소개합니다.",
+              "Hacker News에서 4점이라는 낮은 점수를 받았지만, 이 독특한 세계에 대한 통찰력을 제공합니다."
+            ]
+          },
+          "en": {
+            "title": "Welcome to the Porcelain Insulator Collector's World of Mud",
+            "hook": "A quirky hobby where engineers might find unexpected inspiration in collecting porcelain insulators.",
+            "key_takeaways": [
+              "Porcelain insulators have become a niche collector's item.",
+              "The post explores the creative use of mud in this hobby.",
+              "Despite low HN score, it offers a glimpse into this unique community."
+            ]
+          },
+          "zh": {
+            "title": "欢迎来到瓷绝缘体收藏家的泥土世界",
+            "hook": "一个让你惊叹的奇特收藏世界，或许能激发工程师的创造力",
+            "key_takeaways": [
+              "瓷绝缘体已成为收藏家们追逐的对象。",
+              "文章介绍了用泥土创作的独特艺术形式。",
+              "尽管 Hacker News 得分仅为 4 分，但它仍展现了这个独特社区的魅力。"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "도자기 절연체 수집가의 진흙 세계에 오신 것을 환영합니다",
+          "hook": "엔지니어도 흥미로워할 수 있는 독특한 취미, 도자기 절연체 수집",
+          "key_takeaways": [
+            "도자기 절연체는 수집가들 사이에서 독특한 취미로 자리 잡았습니다.",
+            "이 게시물은 진흙을 활용한 예술적 접근 방식을 소개합니다.",
+            "Hacker News에서 4점이라는 낮은 점수를 받았지만, 이 독특한 세계에 대한 통찰력을 제공합니다."
+          ]
+        },
+        "en": {
+          "title": "Welcome to the Porcelain Insulator Collector's World of Mud",
+          "hook": "A quirky hobby where engineers might find unexpected inspiration in collecting porcelain insulators.",
+          "key_takeaways": [
+            "Porcelain insulators have become a niche collector's item.",
+            "The post explores the creative use of mud in this hobby.",
+            "Despite low HN score, it offers a glimpse into this unique community."
+          ]
+        },
+        "zh": {
+          "title": "欢迎来到瓷绝缘体收藏家的泥土世界",
+          "hook": "一个让你惊叹的奇特收藏世界，或许能激发工程师的创造力",
+          "key_takeaways": [
+            "瓷绝缘体已成为收藏家们追逐的对象。",
+            "文章介绍了用泥土创作的独特艺术形式。",
+            "尽管 Hacker News 得分仅为 4 分，但它仍展现了这个独特社区的魅力。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Porcelain Insulator",
+        "Collector",
+        "Mud"
+      ],
+      "title_ko": "도자기 절연체 수집가의 진흙 세계에 오신 것을 환영합니다",
+      "title_en": "Welcome to the Porcelain Insulator Collector's World of Mud",
+      "title_zh": "欢迎来到瓷绝缘体收藏家的泥土世界",
+      "hook": "엔지니어도 흥미로워할 수 있는 독특한 취미, 도자기 절연체 수집",
+      "hook_ko": "엔지니어도 흥미로워할 수 있는 독특한 취미, 도자기 절연체 수집",
+      "hook_en": "A quirky hobby where engineers might find unexpected inspiration in collecting porcelain insulators.",
+      "hook_zh": "一个让你惊叹的奇特收藏世界，或许能激发工程师的创造力",
+      "description_ko": "엔지니어도 흥미로워할 수 있는 독특한 취미, 도자기 절연체 수집",
+      "description_en": "A quirky hobby where engineers might find unexpected inspiration in collecting porcelain insulators.",
+      "description_zh": "一个让你惊叹的奇特收藏世界，或许能激发工程师的创造力"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_the_raspberry_pi_interactive_time",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:59:10.920970",
+      "published_at": "2026-09-04T08:35:15",
+      "created_at": "2026-09-04T08:35:15",
+      "updated_at": "2026-09-04T08:59:10.920970",
+      "title": "Hacker News: The Raspberry Pi Interactive Timeline · 2006–2026",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49562062",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 3 pts | Comments: 0 | The Raspberry Pi Interactive Timeline · 2006–2026",
+      "viral_metric": "🔥 3 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49562062",
+      "article_url": "https://raspberry.tips/en/raspberrypi-infos/raspberry-pi-history-timeline",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_the_raspberry_pi_interactive_time",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Historical Timeline Visualization",
+        "programming_lang": "JavaScript",
+        "root_keywords": [
+          "Raspberry Pi",
+          "Interactive Timeline",
+          "Historical Data"
+        ],
+        "recommended_tag": "📝 Tech Reference",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 라즈베리 파이 인터랙티브 타임라인 · 2006–2026",
+            "hook": "엔지니어가 주목할 라즈베리 파이 20년 역사를 한눈에 보는 인터랙티브 타임라인 (2006–2026)",
+            "key_takeaways": [
+              "하드웨어 변경 사항과 가격 변천사를 한눈에 볼 수 있음.",
+              "레트로 컴퓨팅 애호가 및 교육자를 위한 시각적 타임라인 제공.",
+              "DIY 및 교육 분야에서의 라즈베리 파이 영향력 강조."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: The Raspberry Pi Interactive Timeline · 2006–2026",
+            "hook": "Explore the Raspberry Pi's 20‑year evolution through an interactive timeline spanning 2006–2026.",
+            "key_takeaways": [
+              "Visualizes hardware revisions and price changes over two decades.",
+              "Provides a historical timeline for retro‑computing enthusiasts and educators.",
+              "Highlights the Pi's impact on DIY projects and education."
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：树莓派互动时间线 · 2006–2026",
+            "hook": "直击工程师痛点的树莓派20年演进历程互动时间线（2006-2026）",
+            "key_takeaways": [
+              "可视化展示硬件迭代与价格变化。",
+              "为 retro 爱好者和教育工作者提供历史参考。",
+              "凸显树莓派在 DIY 教育领域的深远影响。"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 라즈베리 파이 인터랙티브 타임라인 · 2006–2026",
+          "hook": "엔지니어가 주목할 라즈베리 파이 20년 역사를 한눈에 보는 인터랙티브 타임라인 (2006–2026)",
+          "key_takeaways": [
+            "하드웨어 변경 사항과 가격 변천사를 한눈에 볼 수 있음.",
+            "레트로 컴퓨팅 애호가 및 교육자를 위한 시각적 타임라인 제공.",
+            "DIY 및 교육 분야에서의 라즈베리 파이 영향력 강조."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: The Raspberry Pi Interactive Timeline · 2006–2026",
+          "hook": "Explore the Raspberry Pi's 20‑year evolution through an interactive timeline spanning 2006–2026.",
+          "key_takeaways": [
+            "Visualizes hardware revisions and price changes over two decades.",
+            "Provides a historical timeline for retro‑computing enthusiasts and educators.",
+            "Highlights the Pi's impact on DIY projects and education."
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：树莓派互动时间线 · 2006–2026",
+          "hook": "直击工程师痛点的树莓派20年演进历程互动时间线（2006-2026）",
+          "key_takeaways": [
+            "可视化展示硬件迭代与价格变化。",
+            "为 retro 爱好者和教育工作者提供历史参考。",
+            "凸显树莓派在 DIY 教育领域的深远影响。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "JavaScript",
+      "root_keywords": [
+        "Raspberry Pi",
+        "Interactive Timeline",
+        "Historical Data"
+      ],
+      "title_ko": "해커 뉴스: 라즈베리 파이 인터랙티브 타임라인 · 2006–2026",
+      "title_en": "Hacker News: The Raspberry Pi Interactive Timeline · 2006–2026",
+      "title_zh": "Hacker News：树莓派互动时间线 · 2006–2026",
+      "hook": "엔지니어가 주목할 라즈베리 파이 20년 역사를 한눈에 보는 인터랙티브 타임라인 (2006–2026)",
+      "hook_ko": "엔지니어가 주목할 라즈베리 파이 20년 역사를 한눈에 보는 인터랙티브 타임라인 (2006–2026)",
+      "hook_en": "Explore the Raspberry Pi's 20‑year evolution through an interactive timeline spanning 2006–2026.",
+      "hook_zh": "直击工程师痛点的树莓派20年演进历程互动时间线（2006-2026）",
+      "description_ko": "엔지니어가 주목할 라즈베리 파이 20년 역사를 한눈에 보는 인터랙티브 타임라인 (2006–2026)",
+      "description_en": "Explore the Raspberry Pi's 20‑year evolution through an interactive timeline spanning 2006–2026.",
+      "description_zh": "直击工程师痛点的树莓派20年演进历程互动时间线（2006-2026）"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_carbon_aware_electricity_pricing_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:59:10.905492",
+      "published_at": "2026-09-04T08:19:57",
+      "created_at": "2026-09-04T08:19:57",
+      "updated_at": "2026-09-04T08:59:10.905492",
+      "title": "Hacker News: Carbon-aware electricity pricing, measured daily on 38 grids",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49561975",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 8 pts | Comments: 1 | Carbon-aware electricity pricing, measured daily on 38 grids",
+      "viral_metric": "🔥 8 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49561975",
+      "article_url": "https://carbonawarepricing.com/",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_carbon_aware_electricity_pricing_",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Energy & Sustainability",
+        "programming_lang": "General",
+        "root_keywords": [
+          "carbon-aware",
+          "electricity pricing",
+          "energy grids"
+        ],
+        "recommended_tag": "📝 Technical Reference",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "38개 전력망의 탄소 인식형 전기 요금, 매일 측정",
+            "hook": "에너지 소비자가 실시간으로 탄소 배출량을 고려해 전기 요금을 지불하는 새로운 방식, 38개 전력망에서 매일 측정 가능",
+            "key_takeaways": [
+              "38개 전력망에서 탄소 배출량에 따라 전기 요금이 매일 조정됨",
+              "탄소 인식형 요금제는 재생 에너지 사용을 촉진할 수 있음",
+              "이 데이터는 에너지 소비 최적화에 활용될 수 있음"
+            ]
+          },
+          "en": {
+            "title": "Carbon-aware electricity pricing, measured daily on 38 grids",
+            "hook": "A new system lets consumers pay electricity rates that reflect real‑time carbon emissions, now measured across 38 power grids on a daily basis",
+            "key_takeaways": [
+              "Electricity prices are adjusted daily based on carbon emissions across 38 grids",
+              "Carbon‑aware pricing can incentivize renewable energy use",
+              "The data can be used to optimize energy consumption"
+            ]
+          },
+          "zh": {
+            "title": "38个电网的碳感知电价每日更新",
+            "hook": "一种新的系统让消费者可以根据实时碳排放量支付电费，该系统目前已覆盖38个电网，并每日更新",
+            "key_takeaways": [
+              "38个电网的电价会根据碳排放量每日调整",
+              "碳感知电价可以促进可再生能源的使用",
+              "这些数据可用于优化能源消耗"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "38개 전력망의 탄소 인식형 전기 요금, 매일 측정",
+          "hook": "에너지 소비자가 실시간으로 탄소 배출량을 고려해 전기 요금을 지불하는 새로운 방식, 38개 전력망에서 매일 측정 가능",
+          "key_takeaways": [
+            "38개 전력망에서 탄소 배출량에 따라 전기 요금이 매일 조정됨",
+            "탄소 인식형 요금제는 재생 에너지 사용을 촉진할 수 있음",
+            "이 데이터는 에너지 소비 최적화에 활용될 수 있음"
+          ]
+        },
+        "en": {
+          "title": "Carbon-aware electricity pricing, measured daily on 38 grids",
+          "hook": "A new system lets consumers pay electricity rates that reflect real‑time carbon emissions, now measured across 38 power grids on a daily basis",
+          "key_takeaways": [
+            "Electricity prices are adjusted daily based on carbon emissions across 38 grids",
+            "Carbon‑aware pricing can incentivize renewable energy use",
+            "The data can be used to optimize energy consumption"
+          ]
+        },
+        "zh": {
+          "title": "38个电网的碳感知电价每日更新",
+          "hook": "一种新的系统让消费者可以根据实时碳排放量支付电费，该系统目前已覆盖38个电网，并每日更新",
+          "key_takeaways": [
+            "38个电网的电价会根据碳排放量每日调整",
+            "碳感知电价可以促进可再生能源的使用",
+            "这些数据可用于优化能源消耗"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "carbon-aware",
+        "electricity pricing",
+        "energy grids"
+      ],
+      "title_ko": "38개 전력망의 탄소 인식형 전기 요금, 매일 측정",
+      "title_en": "Carbon-aware electricity pricing, measured daily on 38 grids",
+      "title_zh": "38个电网的碳感知电价每日更新",
+      "hook": "에너지 소비자가 실시간으로 탄소 배출량을 고려해 전기 요금을 지불하는 새로운 방식, 38개 전력망에서 매일 측정 가능",
+      "hook_ko": "에너지 소비자가 실시간으로 탄소 배출량을 고려해 전기 요금을 지불하는 새로운 방식, 38개 전력망에서 매일 측정 가능",
+      "hook_en": "A new system lets consumers pay electricity rates that reflect real‑time carbon emissions, now measured across 38 power grids on a daily basis",
+      "hook_zh": "一种新的系统让消费者可以根据实时碳排放量支付电费，该系统目前已覆盖38个电网，并每日更新",
+      "description_ko": "에너지 소비자가 실시간으로 탄소 배출량을 고려해 전기 요금을 지불하는 새로운 방식, 38개 전력망에서 매일 측정 가능",
+      "description_en": "A new system lets consumers pay electricity rates that reflect real‑time carbon emissions, now measured across 38 power grids on a daily basis",
+      "description_zh": "一种新的系统让消费者可以根据实时碳排放量支付电费，该系统目前已覆盖38个电网，并每日更新"
+    },
+    {
       "inbox_id": "2026-09-04_sns_geeknews_show_gn_gnucms_웹호스팅에_올리면_바로_실행되는_php",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T08:06:37.757985",
@@ -46445,8 +46832,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 267 pts | Comments: 217 | VC isn't VC anymore",
-      "viral_metric": "🔥 267 HN Points",
+      "description": "HN Score: 269 pts | Comments: 217 | VC isn't VC anymore",
+      "viral_metric": "🔥 269 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -46454,13 +46841,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 267,
-          "display": "🔥 267 HN Points",
+          "value": 269,
+          "display": "🔥 269 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 259,
-        "delta_display": "+259",
-        "growth_rate_pct": 3237.5,
+        "delta": 261,
+        "delta_display": "+261",
+        "growth_rate_pct": 3262.5,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -69386,6 +69773,393 @@
     }
   ],
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_welcome_to_the_porcelain_insulato",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:59:10.985917",
+      "published_at": "2026-09-01T11:06:33",
+      "created_at": "2026-09-01T11:06:33",
+      "updated_at": "2026-09-04T08:59:10.985917",
+      "title": "Hacker News: Welcome to the Porcelain Insulator Collector's World of Mud",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49520356",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 4 pts | Comments: 2 | Welcome to the Porcelain Insulator Collector's World of Mud",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49520356",
+      "article_url": "https://www.insulators.info/porcelain/",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_welcome_to_the_porcelain_insulato",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Niche Hobby / Collector Culture",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Porcelain Insulator",
+          "Collector",
+          "Mud"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "도자기 절연체 수집가의 진흙 세계에 오신 것을 환영합니다",
+            "hook": "엔지니어도 흥미로워할 수 있는 독특한 취미, 도자기 절연체 수집",
+            "key_takeaways": [
+              "도자기 절연체는 수집가들 사이에서 독특한 취미로 자리 잡았습니다.",
+              "이 게시물은 진흙을 활용한 예술적 접근 방식을 소개합니다.",
+              "Hacker News에서 4점이라는 낮은 점수를 받았지만, 이 독특한 세계에 대한 통찰력을 제공합니다."
+            ]
+          },
+          "en": {
+            "title": "Welcome to the Porcelain Insulator Collector's World of Mud",
+            "hook": "A quirky hobby where engineers might find unexpected inspiration in collecting porcelain insulators.",
+            "key_takeaways": [
+              "Porcelain insulators have become a niche collector's item.",
+              "The post explores the creative use of mud in this hobby.",
+              "Despite low HN score, it offers a glimpse into this unique community."
+            ]
+          },
+          "zh": {
+            "title": "欢迎来到瓷绝缘体收藏家的泥土世界",
+            "hook": "一个让你惊叹的奇特收藏世界，或许能激发工程师的创造力",
+            "key_takeaways": [
+              "瓷绝缘体已成为收藏家们追逐的对象。",
+              "文章介绍了用泥土创作的独特艺术形式。",
+              "尽管 Hacker News 得分仅为 4 分，但它仍展现了这个独特社区的魅力。"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "도자기 절연체 수집가의 진흙 세계에 오신 것을 환영합니다",
+          "hook": "엔지니어도 흥미로워할 수 있는 독특한 취미, 도자기 절연체 수집",
+          "key_takeaways": [
+            "도자기 절연체는 수집가들 사이에서 독특한 취미로 자리 잡았습니다.",
+            "이 게시물은 진흙을 활용한 예술적 접근 방식을 소개합니다.",
+            "Hacker News에서 4점이라는 낮은 점수를 받았지만, 이 독특한 세계에 대한 통찰력을 제공합니다."
+          ]
+        },
+        "en": {
+          "title": "Welcome to the Porcelain Insulator Collector's World of Mud",
+          "hook": "A quirky hobby where engineers might find unexpected inspiration in collecting porcelain insulators.",
+          "key_takeaways": [
+            "Porcelain insulators have become a niche collector's item.",
+            "The post explores the creative use of mud in this hobby.",
+            "Despite low HN score, it offers a glimpse into this unique community."
+          ]
+        },
+        "zh": {
+          "title": "欢迎来到瓷绝缘体收藏家的泥土世界",
+          "hook": "一个让你惊叹的奇特收藏世界，或许能激发工程师的创造力",
+          "key_takeaways": [
+            "瓷绝缘体已成为收藏家们追逐的对象。",
+            "文章介绍了用泥土创作的独特艺术形式。",
+            "尽管 Hacker News 得分仅为 4 分，但它仍展现了这个独特社区的魅力。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Porcelain Insulator",
+        "Collector",
+        "Mud"
+      ],
+      "title_ko": "도자기 절연체 수집가의 진흙 세계에 오신 것을 환영합니다",
+      "title_en": "Welcome to the Porcelain Insulator Collector's World of Mud",
+      "title_zh": "欢迎来到瓷绝缘体收藏家的泥土世界",
+      "hook": "엔지니어도 흥미로워할 수 있는 독특한 취미, 도자기 절연체 수집",
+      "hook_ko": "엔지니어도 흥미로워할 수 있는 독특한 취미, 도자기 절연체 수집",
+      "hook_en": "A quirky hobby where engineers might find unexpected inspiration in collecting porcelain insulators.",
+      "hook_zh": "一个让你惊叹的奇特收藏世界，或许能激发工程师的创造力",
+      "description_ko": "엔지니어도 흥미로워할 수 있는 독특한 취미, 도자기 절연체 수집",
+      "description_en": "A quirky hobby where engineers might find unexpected inspiration in collecting porcelain insulators.",
+      "description_zh": "一个让你惊叹的奇特收藏世界，或许能激发工程师的创造力"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_the_raspberry_pi_interactive_time",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:59:10.920970",
+      "published_at": "2026-09-04T08:35:15",
+      "created_at": "2026-09-04T08:35:15",
+      "updated_at": "2026-09-04T08:59:10.920970",
+      "title": "Hacker News: The Raspberry Pi Interactive Timeline · 2006–2026",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49562062",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 3 pts | Comments: 0 | The Raspberry Pi Interactive Timeline · 2006–2026",
+      "viral_metric": "🔥 3 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49562062",
+      "article_url": "https://raspberry.tips/en/raspberrypi-infos/raspberry-pi-history-timeline",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_the_raspberry_pi_interactive_time",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Historical Timeline Visualization",
+        "programming_lang": "JavaScript",
+        "root_keywords": [
+          "Raspberry Pi",
+          "Interactive Timeline",
+          "Historical Data"
+        ],
+        "recommended_tag": "📝 Tech Reference",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 라즈베리 파이 인터랙티브 타임라인 · 2006–2026",
+            "hook": "엔지니어가 주목할 라즈베리 파이 20년 역사를 한눈에 보는 인터랙티브 타임라인 (2006–2026)",
+            "key_takeaways": [
+              "하드웨어 변경 사항과 가격 변천사를 한눈에 볼 수 있음.",
+              "레트로 컴퓨팅 애호가 및 교육자를 위한 시각적 타임라인 제공.",
+              "DIY 및 교육 분야에서의 라즈베리 파이 영향력 강조."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: The Raspberry Pi Interactive Timeline · 2006–2026",
+            "hook": "Explore the Raspberry Pi's 20‑year evolution through an interactive timeline spanning 2006–2026.",
+            "key_takeaways": [
+              "Visualizes hardware revisions and price changes over two decades.",
+              "Provides a historical timeline for retro‑computing enthusiasts and educators.",
+              "Highlights the Pi's impact on DIY projects and education."
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：树莓派互动时间线 · 2006–2026",
+            "hook": "直击工程师痛点的树莓派20年演进历程互动时间线（2006-2026）",
+            "key_takeaways": [
+              "可视化展示硬件迭代与价格变化。",
+              "为 retro 爱好者和教育工作者提供历史参考。",
+              "凸显树莓派在 DIY 教育领域的深远影响。"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 라즈베리 파이 인터랙티브 타임라인 · 2006–2026",
+          "hook": "엔지니어가 주목할 라즈베리 파이 20년 역사를 한눈에 보는 인터랙티브 타임라인 (2006–2026)",
+          "key_takeaways": [
+            "하드웨어 변경 사항과 가격 변천사를 한눈에 볼 수 있음.",
+            "레트로 컴퓨팅 애호가 및 교육자를 위한 시각적 타임라인 제공.",
+            "DIY 및 교육 분야에서의 라즈베리 파이 영향력 강조."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: The Raspberry Pi Interactive Timeline · 2006–2026",
+          "hook": "Explore the Raspberry Pi's 20‑year evolution through an interactive timeline spanning 2006–2026.",
+          "key_takeaways": [
+            "Visualizes hardware revisions and price changes over two decades.",
+            "Provides a historical timeline for retro‑computing enthusiasts and educators.",
+            "Highlights the Pi's impact on DIY projects and education."
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：树莓派互动时间线 · 2006–2026",
+          "hook": "直击工程师痛点的树莓派20年演进历程互动时间线（2006-2026）",
+          "key_takeaways": [
+            "可视化展示硬件迭代与价格变化。",
+            "为 retro 爱好者和教育工作者提供历史参考。",
+            "凸显树莓派在 DIY 教育领域的深远影响。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "JavaScript",
+      "root_keywords": [
+        "Raspberry Pi",
+        "Interactive Timeline",
+        "Historical Data"
+      ],
+      "title_ko": "해커 뉴스: 라즈베리 파이 인터랙티브 타임라인 · 2006–2026",
+      "title_en": "Hacker News: The Raspberry Pi Interactive Timeline · 2006–2026",
+      "title_zh": "Hacker News：树莓派互动时间线 · 2006–2026",
+      "hook": "엔지니어가 주목할 라즈베리 파이 20년 역사를 한눈에 보는 인터랙티브 타임라인 (2006–2026)",
+      "hook_ko": "엔지니어가 주목할 라즈베리 파이 20년 역사를 한눈에 보는 인터랙티브 타임라인 (2006–2026)",
+      "hook_en": "Explore the Raspberry Pi's 20‑year evolution through an interactive timeline spanning 2006–2026.",
+      "hook_zh": "直击工程师痛点的树莓派20年演进历程互动时间线（2006-2026）",
+      "description_ko": "엔지니어가 주목할 라즈베리 파이 20년 역사를 한눈에 보는 인터랙티브 타임라인 (2006–2026)",
+      "description_en": "Explore the Raspberry Pi's 20‑year evolution through an interactive timeline spanning 2006–2026.",
+      "description_zh": "直击工程师痛点的树莓派20年演进历程互动时间线（2006-2026）"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_carbon_aware_electricity_pricing_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:59:10.905492",
+      "published_at": "2026-09-04T08:19:57",
+      "created_at": "2026-09-04T08:19:57",
+      "updated_at": "2026-09-04T08:59:10.905492",
+      "title": "Hacker News: Carbon-aware electricity pricing, measured daily on 38 grids",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49561975",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 8 pts | Comments: 1 | Carbon-aware electricity pricing, measured daily on 38 grids",
+      "viral_metric": "🔥 8 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49561975",
+      "article_url": "https://carbonawarepricing.com/",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_carbon_aware_electricity_pricing_",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Energy & Sustainability",
+        "programming_lang": "General",
+        "root_keywords": [
+          "carbon-aware",
+          "electricity pricing",
+          "energy grids"
+        ],
+        "recommended_tag": "📝 Technical Reference",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "38개 전력망의 탄소 인식형 전기 요금, 매일 측정",
+            "hook": "에너지 소비자가 실시간으로 탄소 배출량을 고려해 전기 요금을 지불하는 새로운 방식, 38개 전력망에서 매일 측정 가능",
+            "key_takeaways": [
+              "38개 전력망에서 탄소 배출량에 따라 전기 요금이 매일 조정됨",
+              "탄소 인식형 요금제는 재생 에너지 사용을 촉진할 수 있음",
+              "이 데이터는 에너지 소비 최적화에 활용될 수 있음"
+            ]
+          },
+          "en": {
+            "title": "Carbon-aware electricity pricing, measured daily on 38 grids",
+            "hook": "A new system lets consumers pay electricity rates that reflect real‑time carbon emissions, now measured across 38 power grids on a daily basis",
+            "key_takeaways": [
+              "Electricity prices are adjusted daily based on carbon emissions across 38 grids",
+              "Carbon‑aware pricing can incentivize renewable energy use",
+              "The data can be used to optimize energy consumption"
+            ]
+          },
+          "zh": {
+            "title": "38个电网的碳感知电价每日更新",
+            "hook": "一种新的系统让消费者可以根据实时碳排放量支付电费，该系统目前已覆盖38个电网，并每日更新",
+            "key_takeaways": [
+              "38个电网的电价会根据碳排放量每日调整",
+              "碳感知电价可以促进可再生能源的使用",
+              "这些数据可用于优化能源消耗"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "38개 전력망의 탄소 인식형 전기 요금, 매일 측정",
+          "hook": "에너지 소비자가 실시간으로 탄소 배출량을 고려해 전기 요금을 지불하는 새로운 방식, 38개 전력망에서 매일 측정 가능",
+          "key_takeaways": [
+            "38개 전력망에서 탄소 배출량에 따라 전기 요금이 매일 조정됨",
+            "탄소 인식형 요금제는 재생 에너지 사용을 촉진할 수 있음",
+            "이 데이터는 에너지 소비 최적화에 활용될 수 있음"
+          ]
+        },
+        "en": {
+          "title": "Carbon-aware electricity pricing, measured daily on 38 grids",
+          "hook": "A new system lets consumers pay electricity rates that reflect real‑time carbon emissions, now measured across 38 power grids on a daily basis",
+          "key_takeaways": [
+            "Electricity prices are adjusted daily based on carbon emissions across 38 grids",
+            "Carbon‑aware pricing can incentivize renewable energy use",
+            "The data can be used to optimize energy consumption"
+          ]
+        },
+        "zh": {
+          "title": "38个电网的碳感知电价每日更新",
+          "hook": "一种新的系统让消费者可以根据实时碳排放量支付电费，该系统目前已覆盖38个电网，并每日更新",
+          "key_takeaways": [
+            "38个电网的电价会根据碳排放量每日调整",
+            "碳感知电价可以促进可再生能源的使用",
+            "这些数据可用于优化能源消耗"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "carbon-aware",
+        "electricity pricing",
+        "energy grids"
+      ],
+      "title_ko": "38개 전력망의 탄소 인식형 전기 요금, 매일 측정",
+      "title_en": "Carbon-aware electricity pricing, measured daily on 38 grids",
+      "title_zh": "38个电网的碳感知电价每日更新",
+      "hook": "에너지 소비자가 실시간으로 탄소 배출량을 고려해 전기 요금을 지불하는 새로운 방식, 38개 전력망에서 매일 측정 가능",
+      "hook_ko": "에너지 소비자가 실시간으로 탄소 배출량을 고려해 전기 요금을 지불하는 새로운 방식, 38개 전력망에서 매일 측정 가능",
+      "hook_en": "A new system lets consumers pay electricity rates that reflect real‑time carbon emissions, now measured across 38 power grids on a daily basis",
+      "hook_zh": "一种新的系统让消费者可以根据实时碳排放量支付电费，该系统目前已覆盖38个电网，并每日更新",
+      "description_ko": "에너지 소비자가 실시간으로 탄소 배출량을 고려해 전기 요금을 지불하는 새로운 방식, 38개 전력망에서 매일 측정 가능",
+      "description_en": "A new system lets consumers pay electricity rates that reflect real‑time carbon emissions, now measured across 38 power grids on a daily basis",
+      "description_zh": "一种新的系统让消费者可以根据实时碳排放量支付电费，该系统目前已覆盖38个电网，并每日更新"
+    },
     {
       "inbox_id": "2026-09-04_sns_geeknews_show_gn_gnucms_웹호스팅에_올리면_바로_실행되는_php",
       "harvested_date": "2026-09-04",
@@ -93470,8 +94244,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 267 pts | Comments: 217 | VC isn't VC anymore",
-      "viral_metric": "🔥 267 HN Points",
+      "description": "HN Score: 269 pts | Comments: 217 | VC isn't VC anymore",
+      "viral_metric": "🔥 269 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -93479,13 +94253,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 267,
-          "display": "🔥 267 HN Points",
+          "value": 269,
+          "display": "🔥 269 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 259,
-        "delta_display": "+259",
-        "growth_rate_pct": 3237.5,
+        "delta": 261,
+        "delta_display": "+261",
+        "growth_rate_pct": 3262.5,
         "is_spiking": true
       },
       "matched_user_domains": [
