@@ -32,8 +32,98 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
-  "description_ko": "Abstract: Language-model judges now gate training data, score generations, and drive leaderboards. The judge is then a measurement instrument, resting on one rarely stated assumption: the same request, sent to ...",
-  "is_classified": false,
-  "is_deep_analyzed": false
+  "title_ko": "클린 엔지니어링, 불안정한 측정: 블랙박스 LLM 관찰자의 사전 등록된 신뢰도 실패",
+  "description_ko": "LLM 판정자의 측정 신뢰도가 흔들리면 모든 벤치마크와 리더보드가 의심받는다.",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_clean_engineering_unstable_measurement_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "",
+    "category": "LLM evaluation reliability and measurement uncertainty",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "LLM judge",
+      "measurement reliability",
+      "black-box evaluation"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "클린 엔지니어링, 불안정한 측정: 블랙박스 LLM 관찰자의 사전 등록된 신뢰도 실패",
+        "hook": "LLM 판정자의 측정 신뢰도가 흔들리면 모든 벤치마크와 리더보드가 의심받는다.",
+        "key_takeaways": [
+          "블랙박스 LLM 판정자는 동일한 요청이라도 결과가 불안정할 수 있다.",
+          "사전 등록된 실험에서 판정자의 신뢰도 실패가 입증되었다.",
+          "측정 도구로서의 LLM 판정자를 사용할 때는 보정과 불확실성 정량이 필수다."
+        ]
+      },
+      "en": {
+        "title": "Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
+        "hook": "If LLM judges wobble as measurement tools, every leaderboard and benchmark becomes questionable.",
+        "key_takeaways": [
+          "Black-box LLM judges can produce unstable scores even on identical inputs.",
+          "A preregistered study demonstrates reliability failures of these judges.",
+          "Using LLM judges as measurement instruments requires calibration and uncertainty quantification."
+        ]
+      },
+      "zh": {
+        "title": "清晰工程，不稳定测量：黑箱LLM观察者在共享端点上的预注册可靠性失败",
+        "hook": "如果LLM判断者作为测量工具不稳定，所有排行榜和基准都将受到质疑。",
+        "key_takeaways": [
+          "黑箱LLM判断者在相同输入上也可能产生不稳定的分数。",
+          "预注册实验证实了这些判断者的可靠性失败。",
+          "将LLM判断者用作测量工具时，必须进行校准和不确定性量化。"
+        ]
+      }
+    },
+    "enriched_by_model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "enriched_at": "2026-09-04T17:57:23.465670+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "클린 엔지니어링, 불안정한 측정: 블랙박스 LLM 관찰자의 사전 등록된 신뢰도 실패",
+      "hook": "LLM 판정자의 측정 신뢰도가 흔들리면 모든 벤치마크와 리더보드가 의심받는다.",
+      "key_takeaways": [
+        "블랙박스 LLM 판정자는 동일한 요청이라도 결과가 불안정할 수 있다.",
+        "사전 등록된 실험에서 판정자의 신뢰도 실패가 입증되었다.",
+        "측정 도구로서의 LLM 판정자를 사용할 때는 보정과 불확실성 정량이 필수다."
+      ]
+    },
+    "en": {
+      "title": "Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
+      "hook": "If LLM judges wobble as measurement tools, every leaderboard and benchmark becomes questionable.",
+      "key_takeaways": [
+        "Black-box LLM judges can produce unstable scores even on identical inputs.",
+        "A preregistered study demonstrates reliability failures of these judges.",
+        "Using LLM judges as measurement instruments requires calibration and uncertainty quantification."
+      ]
+    },
+    "zh": {
+      "title": "清晰工程，不稳定测量：黑箱LLM观察者在共享端点上的预注册可靠性失败",
+      "hook": "如果LLM判断者作为测量工具不稳定，所有排行榜和基准都将受到质疑。",
+      "key_takeaways": [
+        "黑箱LLM判断者在相同输入上也可能产生不稳定的分数。",
+        "预注册实验证实了这些判断者的可靠性失败。",
+        "将LLM判断者用作测量工具时，必须进行校准和不确定性量化。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "LLM judge",
+    "measurement reliability",
+    "black-box evaluation"
+  ],
+  "title_en": "Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
+  "title_zh": "清晰工程，不稳定测量：黑箱LLM观察者在共享端点上的预注册可靠性失败",
+  "hook": "LLM 판정자의 측정 신뢰도가 흔들리면 모든 벤치마크와 리더보드가 의심받는다.",
+  "hook_ko": "LLM 판정자의 측정 신뢰도가 흔들리면 모든 벤치마크와 리더보드가 의심받는다.",
+  "hook_en": "If LLM judges wobble as measurement tools, every leaderboard and benchmark becomes questionable.",
+  "hook_zh": "如果LLM判断者作为测量工具不稳定，所有排行榜和基准都将受到质疑。",
+  "description_en": "If LLM judges wobble as measurement tools, every leaderboard and benchmark becomes questionable.",
+  "description_zh": "如果LLM判断者作为测量工具不稳定，所有排行榜和基准都将受到质疑。"
 }

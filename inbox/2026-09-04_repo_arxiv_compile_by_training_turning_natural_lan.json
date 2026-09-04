@@ -32,8 +32,102 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
-  "description_ko": "Abstract: Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a prov...",
-  "is_classified": false,
-  "is_deep_analyzed": false
+  "title_ko": "컴파일 바이 트레이닝: 자연어 명세를 로컬 신경 함수로 변환하기",
+  "description_ko": "원격 LLM 호출의 반복 비용과 지연 없이, 자연어로 함수 동작을 기술하면 로컬 신경망이 자동으로 컴파일되어 반복 텍스트 작업을 처리합니다.",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_compile_by_training_turning_natural_lan",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 추론 최적화 / 자연어 명세 컴파일",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "natural language specification",
+      "local neural functions",
+      "compile by training",
+      "text transformation",
+      "LLM cost reduction"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "컴파일 바이 트레이닝: 자연어 명세를 로컬 신경 함수로 변환하기",
+        "hook": "원격 LLM 호출의 반복 비용과 지연 없이, 자연어로 함수 동작을 기술하면 로컬 신경망이 자동으로 컴파일되어 반복 텍스트 작업을 처리합니다.",
+        "key_takeaways": [
+          "자연어 명세만으로 로컬 신경 함수를 학습하여 원격 LLM 의존도를 완전히 제거",
+          "반복적인 텍스트 변환 작업의 비용과 지연을 대폭 감소시킴",
+          "규칙 기반 구현이 어려운 복잡한 텍스트 함수도 자연어로 쉽게 지정 가능"
+        ]
+      },
+      "en": {
+        "title": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
+        "hook": "Eliminate repeated LLM API costs and latency by training local neural functions directly from natural-language specifications.",
+        "key_takeaways": [
+          "Train local neural functions from natural-language specs, removing dependency on remote LLM APIs",
+          "Drastically reduce cost and latency for recurring text transformation tasks",
+          "Complex text functions that are difficult to implement with rules can be easily specified in natural language"
+        ]
+      },
+      "zh": {
+        "title": "通过训练编译：将自然语言规范转化为本地神经函数",
+        "hook": "通过自然语言规范直接训练本地神经函数，彻底消除远程LLM的重复调用成本与延迟。",
+        "key_takeaways": [
+          "从自然语言规范训练本地神经函数，消除对远程LLM API的完全依赖",
+          "大幅降低重复文本转换任务的成本与延迟",
+          "难以用规则实现的复杂文本函数可通过自然语言轻松指定"
+        ]
+      }
+    },
+    "enriched_by_model": "inclusionai/ling-3.0-flash-fin:free",
+    "enriched_at": "2026-09-04T17:57:29.000339+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "컴파일 바이 트레이닝: 자연어 명세를 로컬 신경 함수로 변환하기",
+      "hook": "원격 LLM 호출의 반복 비용과 지연 없이, 자연어로 함수 동작을 기술하면 로컬 신경망이 자동으로 컴파일되어 반복 텍스트 작업을 처리합니다.",
+      "key_takeaways": [
+        "자연어 명세만으로 로컬 신경 함수를 학습하여 원격 LLM 의존도를 완전히 제거",
+        "반복적인 텍스트 변환 작업의 비용과 지연을 대폭 감소시킴",
+        "규칙 기반 구현이 어려운 복잡한 텍스트 함수도 자연어로 쉽게 지정 가능"
+      ]
+    },
+    "en": {
+      "title": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
+      "hook": "Eliminate repeated LLM API costs and latency by training local neural functions directly from natural-language specifications.",
+      "key_takeaways": [
+        "Train local neural functions from natural-language specs, removing dependency on remote LLM APIs",
+        "Drastically reduce cost and latency for recurring text transformation tasks",
+        "Complex text functions that are difficult to implement with rules can be easily specified in natural language"
+      ]
+    },
+    "zh": {
+      "title": "通过训练编译：将自然语言规范转化为本地神经函数",
+      "hook": "通过自然语言规范直接训练本地神经函数，彻底消除远程LLM的重复调用成本与延迟。",
+      "key_takeaways": [
+        "从自然语言规范训练本地神经函数，消除对远程LLM API的完全依赖",
+        "大幅降低重复文本转换任务的成本与延迟",
+        "难以用规则实现的复杂文本函数可通过自然语言轻松指定"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "natural language specification",
+    "local neural functions",
+    "compile by training",
+    "text transformation",
+    "LLM cost reduction"
+  ],
+  "title_en": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
+  "title_zh": "通过训练编译：将自然语言规范转化为本地神经函数",
+  "hook": "원격 LLM 호출의 반복 비용과 지연 없이, 자연어로 함수 동작을 기술하면 로컬 신경망이 자동으로 컴파일되어 반복 텍스트 작업을 처리합니다.",
+  "hook_ko": "원격 LLM 호출의 반복 비용과 지연 없이, 자연어로 함수 동작을 기술하면 로컬 신경망이 자동으로 컴파일되어 반복 텍스트 작업을 처리합니다.",
+  "hook_en": "Eliminate repeated LLM API costs and latency by training local neural functions directly from natural-language specifications.",
+  "hook_zh": "通过自然语言规范直接训练本地神经函数，彻底消除远程LLM的重复调用成本与延迟。",
+  "description_en": "Eliminate repeated LLM API costs and latency by training local neural functions directly from natural-language specifications.",
+  "description_zh": "通过自然语言规范直接训练本地神经函数，彻底消除远程LLM的重复调用成本与延迟。"
 }

@@ -34,8 +34,98 @@
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49559992",
   "article_url": "https://www.texasmonthly.com/news-politics/ckdu-kidney-disease-immigration/",
-  "title_ko": "A Mysterious Kidney Disease Has Arrived in Texas",
-  "description_ko": "해커뉴스에서 16점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-  "is_classified": false,
-  "is_deep_analyzed": false
+  "title_ko": "해커 뉴스: 텍사스에 신비로운 신장 질환이 발생했다",
+  "description_ko": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_a_mysterious_kidney_disease_has_a",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "Health News",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Kidney disease",
+      "Texas",
+      "Health outbreak"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.5,
+    "multilingual": {
+      "ko": {
+        "title": "해커 뉴스: 텍사스에 신비로운 신장 질환이 발생했다",
+        "hook": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+        "key_takeaways": [
+          "미스터리 신장 질환이 텍사스에서 발생해 보건 당국의 주의를 끌고 있다.",
+          "해커 뉴스에 따르면 이 게시물은 16점 득표와 19개의 댓글을 기록했다.",
+          "원인과 전파 경로는 아직 밝혀지지 않았으며, 추가 조사가 필요하다."
+        ]
+      },
+      "en": {
+        "title": "Mysterious Kidney Disease Hits Texas, Sparking Health Alert",
+        "hook": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
+        "key_takeaways": [
+          "A mysterious kidney disease has been reported in Texas, raising health concerns.",
+          "The story on Hacker News has a score of 16 points and 19 comments.",
+          "The cause and transmission method remain unknown, prompting further investigation."
+        ]
+      },
+      "zh": {
+        "title": "神秘肾病现德克萨斯州，引发卫生警报",
+        "hook": "从德克萨斯肾病案例看健康数据监控的重要性",
+        "key_takeaways": [
+          "神秘肾病现德克萨斯州，引发卫生警报。",
+          "该帖在 Hacker News 上获得 16 分，19 条评论。",
+          "病因和传播途径尚不清楚，需进一步调查。"
+        ]
+      }
+    },
+    "enriched_by_model": "cohere/north-mini-code:free",
+    "enriched_at": "2026-09-04T17:58:10.399163+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "해커 뉴스: 텍사스에 신비로운 신장 질환이 발생했다",
+      "hook": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+      "key_takeaways": [
+        "미스터리 신장 질환이 텍사스에서 발생해 보건 당국의 주의를 끌고 있다.",
+        "해커 뉴스에 따르면 이 게시물은 16점 득표와 19개의 댓글을 기록했다.",
+        "원인과 전파 경로는 아직 밝혀지지 않았으며, 추가 조사가 필요하다."
+      ]
+    },
+    "en": {
+      "title": "Mysterious Kidney Disease Hits Texas, Sparking Health Alert",
+      "hook": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
+      "key_takeaways": [
+        "A mysterious kidney disease has been reported in Texas, raising health concerns.",
+        "The story on Hacker News has a score of 16 points and 19 comments.",
+        "The cause and transmission method remain unknown, prompting further investigation."
+      ]
+    },
+    "zh": {
+      "title": "神秘肾病现德克萨斯州，引发卫生警报",
+      "hook": "从德克萨斯肾病案例看健康数据监控的重要性",
+      "key_takeaways": [
+        "神秘肾病现德克萨斯州，引发卫生警报。",
+        "该帖在 Hacker News 上获得 16 分，19 条评论。",
+        "病因和传播途径尚不清楚，需进一步调查。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Kidney disease",
+    "Texas",
+    "Health outbreak"
+  ],
+  "title_en": "Mysterious Kidney Disease Hits Texas, Sparking Health Alert",
+  "title_zh": "神秘肾病现德克萨斯州，引发卫生警报",
+  "hook": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+  "hook_ko": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+  "hook_en": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
+  "hook_zh": "从德克萨斯肾病案例看健康数据监控的重要性",
+  "description_en": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
+  "description_zh": "从德克萨斯肾病案例看健康数据监控的重要性"
 }

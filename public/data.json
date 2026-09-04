@@ -8,10 +8,10 @@
   "half_true_count": 10,
   "gamed_count": 2,
   "avg_confidence": 96.2,
-  "models_total_count": 191,
-  "news_total_count": 293,
-  "inbox_total_count": 641,
-  "all_inbox_count": 652,
+  "models_total_count": 192,
+  "news_total_count": 295,
+  "inbox_total_count": 644,
+  "all_inbox_count": 655,
   "admin_stats": {
     "endpoints": [
       {
@@ -46,6 +46,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T08:06:21.422647",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.19
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 83,
+            "duration_sec": 0.35
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.91
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 12.52
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.51
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.2
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.84
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.27
+          }
+        },
+        "summary": {
+          "total_fetched": 257,
+          "updated_count": 1,
+          "new_saved": 3,
+          "duplicates_skipped": 253,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-04T07:27:04.175172",
         "date": "2026-09-04",
@@ -1582,104 +1635,51 @@
           "duplicates_skipped": 165,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T04:48:25.732876",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.19
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.14
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.85
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 23,
-            "duration_sec": 16.2
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.15
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.1
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.93
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.24
-          }
-        },
-        "summary": {
-          "total_fetched": 163,
-          "updated_count": 0,
-          "new_saved": 2,
-          "duplicates_skipped": 161,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T07:27:04.175172",
+      "timestamp": "2026-09-04T08:06:21.422647",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.16
+          "duration_sec": 0.19
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 83,
-          "duration_sec": 0.26
+          "duration_sec": 0.35
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.86
+          "duration_sec": 0.91
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 10.83
+          "duration_sec": 12.52
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.2
+          "duration_sec": 0.51
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.15
+          "duration_sec": 0.2
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.73
+          "duration_sec": 0.84
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.2
+          "duration_sec": 0.27
         }
       },
       "summary": {
@@ -1737,8 +1737,8 @@
       "hour": 12,
       "range": "12:00 - 14:59",
       "inbox_count": 35,
-      "model_count": 1,
-      "news_count": 34,
+      "model_count": 2,
+      "news_count": 33,
       "is_current": false,
       "is_future": false
     },
@@ -1746,9 +1746,9 @@
       "slot": "15시",
       "hour": 15,
       "range": "15:00 - 17:59",
-      "inbox_count": 4,
+      "inbox_count": 7,
       "model_count": 0,
-      "news_count": 4,
+      "news_count": 7,
       "is_current": true,
       "is_future": false
     },
@@ -1777,18 +1777,18 @@
     "window_label": "12:00 ~ 18:00 KST",
     "window_period": "오후 실시간 모델 & 아키텍처 브리핑",
     "today_kst": "2026-09-04",
-    "updated_at": "17:55 KST",
+    "updated_at": "17:58 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
       "🔥 [Hugging Face Models] GLM-5.3-Flash: 초경량 고성능 비전-언어 멀티모달 모델 (Trending 1796 pts (❤️ 1923)) — 높은 다운로드 수와 뛰어난 추론 효율성을 자랑하는 멀티모달(Image-Text-to-Text) 모델"
     ],
     "tags": [
-      "#Autonomous_Agent",
       "#High_Engagement",
-      "#Local_LLM",
+      "#Autonomous_Agent",
       "#MoE_Architecture",
-      "#SoTA_Models"
+      "#SoTA_Models",
+      "#Local_LLM"
     ]
   },
   "dow_stats": [],
@@ -1924,6 +1924,137 @@
       "description_ko": "AI 에이전트가 바이너리를 읽을 때 발생하는 허위 정보를 100% 검증하는 새로운 기술",
       "description_en": "Every claim verified or refuted against actual binary data with evidence",
       "description_zh": "AI 代理读取二进制时自动纠正错误信息，基于真实字节验证"
+    },
+    {
+      "inbox_id": "2026-09-04_repo_hf_space_rchokswan555",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T03:48:57.425895",
+      "published_at": "2026-09-04T03:48:57.425895",
+      "created_at": "2026-09-04T03:48:57.425895",
+      "updated_at": "2026-09-04T03:48:57.425895",
+      "title": "HF Space: Rchoks/wan555",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Rchoks/wan555",
+      "type": "repo",
+      "category_type": "AGENT",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 156 | Live URL: https://huggingface.co/spaces/Rchoks/wan555",
+      "viral_metric": "❤️ 156 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 156,
+          "display": "❤️ 156 Likes (Trending Demo)",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 156,
+          "display": "❤️ 156 Likes (Trending Demo)",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Rchoks/wan555: Gradio 기반 인터랙티브 AI 데모 공간",
+      "description_ko": "Gradio로 손쉽게 구축된 인터랙티브 AI 데모를 Hugging Face Spaces에서 직접 체험해 보세요.",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_hf_space_rchokswan555",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "AI 데모/인터랙티브 인터페이스",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Hugging Face Spaces",
+          "Gradio",
+          "AI Demo",
+          "Interactive Interface"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "Rchoks/wan555: Gradio 기반 인터랙티브 AI 데모 공간",
+            "hook": "Gradio로 손쉽게 구축된 인터랙티브 AI 데모를 Hugging Face Spaces에서 직접 체험해 보세요.",
+            "key_takeaways": [
+              "Hugging Face Spaces에서 호스팅되는 Gradio 기반의 라이브 AI 데모입니다.",
+              "다양한 입력값에 대해 즉각적인 피드백을 제공하는 인터랙티브 환경을 제공합니다.",
+              "156개의 좋아요를 받으며 커뮤니티의 관심을 증명한 프로젝트입니다."
+            ]
+          },
+          "en": {
+            "title": "Rchoks/wan555: An Interactive Gradio-powered AI Demo on HF Spaces",
+            "hook": "Try out this interactive Gradio AI demo hosted live on Hugging Face Spaces.",
+            "key_takeaways": [
+              "A live AI demo hosted on Hugging Face Spaces, built using the Gradio SDK.",
+              "Provides an interactive environment offering immediate feedback for various inputs.",
+              "Demonstrates community validation with 156 likes."
+            ]
+          },
+          "zh": {
+            "title": "Rchoks/wan555：基于 Gradio 的交互式 AI 演示空间",
+            "hook": "立即在 Hugging Face Spaces 上体验由 Gradio 强力驱动的交互式 AI 演示应用。",
+            "key_takeaways": [
+              "托管在 Hugging Face Spaces 上，基于 Gradio SDK 构建的实时 AI 演示。",
+              "提供交互式环境，对各种输入进行即时反馈。",
+              "已获得 156 个点赞，充分证明了其在社区中的受欢迎程度。"
+            ]
+          }
+        },
+        "enriched_by_model": "minimax/minimax-m3:free",
+        "enriched_at": "2026-09-04T17:57:37.345341+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Rchoks/wan555: Gradio 기반 인터랙티브 AI 데모 공간",
+          "hook": "Gradio로 손쉽게 구축된 인터랙티브 AI 데모를 Hugging Face Spaces에서 직접 체험해 보세요.",
+          "key_takeaways": [
+            "Hugging Face Spaces에서 호스팅되는 Gradio 기반의 라이브 AI 데모입니다.",
+            "다양한 입력값에 대해 즉각적인 피드백을 제공하는 인터랙티브 환경을 제공합니다.",
+            "156개의 좋아요를 받으며 커뮤니티의 관심을 증명한 프로젝트입니다."
+          ]
+        },
+        "en": {
+          "title": "Rchoks/wan555: An Interactive Gradio-powered AI Demo on HF Spaces",
+          "hook": "Try out this interactive Gradio AI demo hosted live on Hugging Face Spaces.",
+          "key_takeaways": [
+            "A live AI demo hosted on Hugging Face Spaces, built using the Gradio SDK.",
+            "Provides an interactive environment offering immediate feedback for various inputs.",
+            "Demonstrates community validation with 156 likes."
+          ]
+        },
+        "zh": {
+          "title": "Rchoks/wan555：基于 Gradio 的交互式 AI 演示空间",
+          "hook": "立即在 Hugging Face Spaces 上体验由 Gradio 强力驱动的交互式 AI 演示应用。",
+          "key_takeaways": [
+            "托管在 Hugging Face Spaces 上，基于 Gradio SDK 构建的实时 AI 演示。",
+            "提供交互式环境，对各种输入进行即时反馈。",
+            "已获得 156 个点赞，充分证明了其在社区中的受欢迎程度。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Hugging Face Spaces",
+        "Gradio",
+        "AI Demo",
+        "Interactive Interface"
+      ],
+      "title_en": "Rchoks/wan555: An Interactive Gradio-powered AI Demo on HF Spaces",
+      "title_zh": "Rchoks/wan555：基于 Gradio 的交互式 AI 演示空间",
+      "hook": "Gradio로 손쉽게 구축된 인터랙티브 AI 데모를 Hugging Face Spaces에서 직접 체험해 보세요.",
+      "hook_ko": "Gradio로 손쉽게 구축된 인터랙티브 AI 데모를 Hugging Face Spaces에서 직접 체험해 보세요.",
+      "hook_en": "Try out this interactive Gradio AI demo hosted live on Hugging Face Spaces.",
+      "hook_zh": "立即在 Hugging Face Spaces 上体验由 Gradio 强力驱动的交互式 AI 演示应用。",
+      "description_en": "Try out this interactive Gradio AI demo hosted live on Hugging Face Spaces.",
+      "description_zh": "立即在 Hugging Face Spaces 上体验由 Gradio 强力驱动的交互式 AI 演示应用。"
     },
     {
       "inbox_id": "2026-09-04_repo_github_player_ynpawwork_zhuazhua",
@@ -28311,6 +28442,268 @@
       "description_zh": "对于负责身份验证系统的工程师和技术决策者来说，这是一起必须深入研究的重大数据泄露安全事件。"
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_grep_beats_lsp_why_coding_agents_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.826452",
+      "published_at": "2026-09-04T03:40:26",
+      "created_at": "2026-09-04T03:40:26",
+      "updated_at": "2026-09-04T04:12:11.826452",
+      "title": "Hacker News: Grep beats LSP? Why coding agents ignore your fancier tools",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49560260",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 9 pts | Comments: 1 | Grep beats LSP? Why coding agents ignore your fancier tools",
+      "viral_metric": "🔥 9 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49560260",
+      "article_url": "https://www.agentconnect.md/blog/grep-beat-lsp-harness/",
+      "title_ko": "코딩 에이전트가 더 나은 도구를 무시하는 이유? Grep vs LSP",
+      "description_ko": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_grep_beats_lsp_why_coding_agents_",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Coding Agents & Tool Selection",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "coding agents",
+          "LSP vs grep",
+          "tool optimization"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "코딩 에이전트가 더 나은 도구를 무시하는 이유? Grep vs LSP",
+            "hook": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+            "key_takeaways": [
+              "LSP보다 grep가 더 효율적이라는 실증적 증거",
+              "코딩 에이전트들이 최신 도구를 무시하는 행동 패턴",
+              "도구 선택 전략 수립의 중요성"
+            ]
+          },
+          "en": {
+            "title": "Grepping Beats LSP? Why Coding Agents Ignore Fancy Tools",
+            "hook": "Engineers must read this: coding agents overlook superior tools",
+            "key_takeaways": [
+              "LSP vs grep performance comparison findings",
+              "Analysis of coding agent decision-making processes",
+              "Practical implications for developer tooling choices"
+            ]
+          },
+          "zh": {
+            "title": "代码代理忽略更强工具？Grep 对比 LSP 的真相",
+            "hook": "工程师必须立即关注：编码代理忽视了更好的工具",
+            "key_takeaways": [
+              "Grep 在实际场景中优于语言服务器协议 (LSP)",
+              "编码代理在工具选择上的盲点分析",
+              "优化开发者工作流的实用建议"
+            ]
+          }
+        },
+        "enriched_by_model": "liquid/lfm-2.5-2.6b:free",
+        "enriched_at": "2026-09-04T17:57:47.318968+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "코딩 에이전트가 더 나은 도구를 무시하는 이유? Grep vs LSP",
+          "hook": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+          "key_takeaways": [
+            "LSP보다 grep가 더 효율적이라는 실증적 증거",
+            "코딩 에이전트들이 최신 도구를 무시하는 행동 패턴",
+            "도구 선택 전략 수립의 중요성"
+          ]
+        },
+        "en": {
+          "title": "Grepping Beats LSP? Why Coding Agents Ignore Fancy Tools",
+          "hook": "Engineers must read this: coding agents overlook superior tools",
+          "key_takeaways": [
+            "LSP vs grep performance comparison findings",
+            "Analysis of coding agent decision-making processes",
+            "Practical implications for developer tooling choices"
+          ]
+        },
+        "zh": {
+          "title": "代码代理忽略更强工具？Grep 对比 LSP 的真相",
+          "hook": "工程师必须立即关注：编码代理忽视了更好的工具",
+          "key_takeaways": [
+            "Grep 在实际场景中优于语言服务器协议 (LSP)",
+            "编码代理在工具选择上的盲点分析",
+            "优化开发者工作流的实用建议"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "coding agents",
+        "LSP vs grep",
+        "tool optimization"
+      ],
+      "title_en": "Grepping Beats LSP? Why Coding Agents Ignore Fancy Tools",
+      "title_zh": "代码代理忽略更强工具？Grep 对比 LSP 的真相",
+      "hook": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+      "hook_ko": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+      "hook_en": "Engineers must read this: coding agents overlook superior tools",
+      "hook_zh": "工程师必须立即关注：编码代理忽视了更好的工具",
+      "description_en": "Engineers must read this: coding agents overlook superior tools",
+      "description_zh": "工程师必须立即关注：编码代理忽视了更好的工具"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_a_mysterious_kidney_disease_has_a",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.794064",
+      "published_at": "2026-09-04T02:54:16",
+      "created_at": "2026-09-04T02:54:16",
+      "updated_at": "2026-09-04T04:12:11.794064",
+      "title": "Hacker News: A Mysterious Kidney Disease Has Arrived in Texas",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49559992",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 16 pts | Comments: 19 | A Mysterious Kidney Disease Has Arrived in Texas",
+      "viral_metric": "🔥 16 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 16,
+          "display": "🔥 16 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 16,
+          "display": "🔥 16 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49559992",
+      "article_url": "https://www.texasmonthly.com/news-politics/ckdu-kidney-disease-immigration/",
+      "title_ko": "해커 뉴스: 텍사스에 신비로운 신장 질환이 발생했다",
+      "description_ko": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_a_mysterious_kidney_disease_has_a",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Health News",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Kidney disease",
+          "Texas",
+          "Health outbreak"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 텍사스에 신비로운 신장 질환이 발생했다",
+            "hook": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+            "key_takeaways": [
+              "미스터리 신장 질환이 텍사스에서 발생해 보건 당국의 주의를 끌고 있다.",
+              "해커 뉴스에 따르면 이 게시물은 16점 득표와 19개의 댓글을 기록했다.",
+              "원인과 전파 경로는 아직 밝혀지지 않았으며, 추가 조사가 필요하다."
+            ]
+          },
+          "en": {
+            "title": "Mysterious Kidney Disease Hits Texas, Sparking Health Alert",
+            "hook": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
+            "key_takeaways": [
+              "A mysterious kidney disease has been reported in Texas, raising health concerns.",
+              "The story on Hacker News has a score of 16 points and 19 comments.",
+              "The cause and transmission method remain unknown, prompting further investigation."
+            ]
+          },
+          "zh": {
+            "title": "神秘肾病现德克萨斯州，引发卫生警报",
+            "hook": "从德克萨斯肾病案例看健康数据监控的重要性",
+            "key_takeaways": [
+              "神秘肾病现德克萨斯州，引发卫生警报。",
+              "该帖在 Hacker News 上获得 16 分，19 条评论。",
+              "病因和传播途径尚不清楚，需进一步调查。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T17:58:10.399163+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 텍사스에 신비로운 신장 질환이 발생했다",
+          "hook": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+          "key_takeaways": [
+            "미스터리 신장 질환이 텍사스에서 발생해 보건 당국의 주의를 끌고 있다.",
+            "해커 뉴스에 따르면 이 게시물은 16점 득표와 19개의 댓글을 기록했다.",
+            "원인과 전파 경로는 아직 밝혀지지 않았으며, 추가 조사가 필요하다."
+          ]
+        },
+        "en": {
+          "title": "Mysterious Kidney Disease Hits Texas, Sparking Health Alert",
+          "hook": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
+          "key_takeaways": [
+            "A mysterious kidney disease has been reported in Texas, raising health concerns.",
+            "The story on Hacker News has a score of 16 points and 19 comments.",
+            "The cause and transmission method remain unknown, prompting further investigation."
+          ]
+        },
+        "zh": {
+          "title": "神秘肾病现德克萨斯州，引发卫生警报",
+          "hook": "从德克萨斯肾病案例看健康数据监控的重要性",
+          "key_takeaways": [
+            "神秘肾病现德克萨斯州，引发卫生警报。",
+            "该帖在 Hacker News 上获得 16 分，19 条评论。",
+            "病因和传播途径尚不清楚，需进一步调查。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Kidney disease",
+        "Texas",
+        "Health outbreak"
+      ],
+      "title_en": "Mysterious Kidney Disease Hits Texas, Sparking Health Alert",
+      "title_zh": "神秘肾病现德克萨斯州，引发卫生警报",
+      "hook": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+      "hook_ko": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+      "hook_en": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
+      "hook_zh": "从德克萨斯肾病案例看健康数据监控的重要性",
+      "description_en": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
+      "description_zh": "从德克萨斯肾病案例看健康数据监控的重要性"
+    },
+    {
       "inbox_id": "2026-09-04_sns_geeknews_chatgpt_claude_grok_동시다발_장애_발생_확인된_원",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:31:47.446031",
@@ -44347,8 +44740,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 263 pts | Comments: 215 | VC isn't VC anymore",
-      "viral_metric": "🔥 263 HN Points",
+      "description": "HN Score: 267 pts | Comments: 217 | VC isn't VC anymore",
+      "viral_metric": "🔥 267 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -44356,13 +44749,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 263,
-          "display": "🔥 263 HN Points",
+          "value": 267,
+          "display": "🔥 267 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 255,
-        "delta_display": "+255",
-        "growth_rate_pct": 3187.5,
+        "delta": 259,
+        "delta_display": "+259",
+        "growth_rate_pct": 3237.5,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -67289,6 +67682,125 @@
   ],
   "inbox_items": [
     {
+      "inbox_id": "2026-09-04_sns_geeknews_show_gn_gnucms_웹호스팅에_올리면_바로_실행되는_php",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:06:37.757985",
+      "published_at": "2026-09-04T08:06:37.757985",
+      "created_at": "2026-09-04T08:06:37.757985",
+      "updated_at": "2026-09-04T08:06:37.757985",
+      "title": "GeekNews: Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33218",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "description_ko": "Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "hn_url": "https://news.hada.io/topic?id=33218",
+      "article_url": "https://news.hada.io/topic?id=33218",
+      "is_classified": false,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_authorization_terminology_is_a_me",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:06:37.616052",
+      "published_at": "2026-09-01T14:18:54",
+      "created_at": "2026-09-01T14:18:54",
+      "updated_at": "2026-09-04T08:06:37.616052",
+      "title": "Hacker News: Authorization Terminology Is a Mess: Let's Fix It",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49522367",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 3 pts | Comments: 0 | Authorization Terminology Is a Mess: Let's Fix It",
+      "viral_metric": "🔥 3 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49522367",
+      "article_url": "https://idpro.org/authorization-terminology-is-a-mess-lets-fix-it/",
+      "is_classified": false,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_the_phrase_that_ruins_every_ecomm",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:06:37.603023",
+      "published_at": "2026-09-04T07:36:31",
+      "created_at": "2026-09-04T07:36:31",
+      "updated_at": "2026-09-04T08:06:37.603023",
+      "title": "Hacker News: The phrase that ruins every eCommerce project: \"Just connect it to our ERP.\"",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49561670",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 8 pts | Comments: 2 | The phrase that ruins every eCommerce project: \"Just connect it to our ERP.\"",
+      "viral_metric": "🔥 8 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49561670",
+      "article_url": "https://shiftmag.dev/the-phrase-that-ruins-every-ecommerce-project-just-connect-it-to-our-erp-11689/",
+      "is_classified": false,
+      "is_deep_analyzed": false
+    },
+    {
       "inbox_id": "2026-09-04_sns_geeknews_오랫동안_rhel을_사용해_온_cern_산업용_컴퓨터를_debia",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T07:27:18.562991",
@@ -67979,7 +68491,7 @@
       "source_platform": "Hacker News",
       "source_url": "https://news.ycombinator.com/item?id=49560260",
       "type": "sns",
-      "category_type": "NEWS",
+      "category_type": "TECH",
       "description": "HN Score: 9 pts | Comments: 1 | Grep beats LSP? Why coding agents ignore your fancier tools",
       "viral_metric": "🔥 9 HN Points",
       "metric_tracking": {
@@ -68004,10 +68516,100 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49560260",
       "article_url": "https://www.agentconnect.md/blog/grep-beat-lsp-harness/",
-      "title_ko": "Grep beats LSP? Why coding agents ignore your fancier tools",
-      "description_ko": "해커뉴스에서 9점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "코딩 에이전트가 더 나은 도구를 무시하는 이유? Grep vs LSP",
+      "description_ko": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_grep_beats_lsp_why_coding_agents_",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Coding Agents & Tool Selection",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "coding agents",
+          "LSP vs grep",
+          "tool optimization"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "코딩 에이전트가 더 나은 도구를 무시하는 이유? Grep vs LSP",
+            "hook": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+            "key_takeaways": [
+              "LSP보다 grep가 더 효율적이라는 실증적 증거",
+              "코딩 에이전트들이 최신 도구를 무시하는 행동 패턴",
+              "도구 선택 전략 수립의 중요성"
+            ]
+          },
+          "en": {
+            "title": "Grepping Beats LSP? Why Coding Agents Ignore Fancy Tools",
+            "hook": "Engineers must read this: coding agents overlook superior tools",
+            "key_takeaways": [
+              "LSP vs grep performance comparison findings",
+              "Analysis of coding agent decision-making processes",
+              "Practical implications for developer tooling choices"
+            ]
+          },
+          "zh": {
+            "title": "代码代理忽略更强工具？Grep 对比 LSP 的真相",
+            "hook": "工程师必须立即关注：编码代理忽视了更好的工具",
+            "key_takeaways": [
+              "Grep 在实际场景中优于语言服务器协议 (LSP)",
+              "编码代理在工具选择上的盲点分析",
+              "优化开发者工作流的实用建议"
+            ]
+          }
+        },
+        "enriched_by_model": "liquid/lfm-2.5-2.6b:free",
+        "enriched_at": "2026-09-04T17:57:47.318968+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "코딩 에이전트가 더 나은 도구를 무시하는 이유? Grep vs LSP",
+          "hook": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+          "key_takeaways": [
+            "LSP보다 grep가 더 효율적이라는 실증적 증거",
+            "코딩 에이전트들이 최신 도구를 무시하는 행동 패턴",
+            "도구 선택 전략 수립의 중요성"
+          ]
+        },
+        "en": {
+          "title": "Grepping Beats LSP? Why Coding Agents Ignore Fancy Tools",
+          "hook": "Engineers must read this: coding agents overlook superior tools",
+          "key_takeaways": [
+            "LSP vs grep performance comparison findings",
+            "Analysis of coding agent decision-making processes",
+            "Practical implications for developer tooling choices"
+          ]
+        },
+        "zh": {
+          "title": "代码代理忽略更强工具？Grep 对比 LSP 的真相",
+          "hook": "工程师必须立即关注：编码代理忽视了更好的工具",
+          "key_takeaways": [
+            "Grep 在实际场景中优于语言服务器协议 (LSP)",
+            "编码代理在工具选择上的盲点分析",
+            "优化开发者工作流的实用建议"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "coding agents",
+        "LSP vs grep",
+        "tool optimization"
+      ],
+      "title_en": "Grepping Beats LSP? Why Coding Agents Ignore Fancy Tools",
+      "title_zh": "代码代理忽略更强工具？Grep 对比 LSP 的真相",
+      "hook": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+      "hook_ko": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+      "hook_en": "Engineers must read this: coding agents overlook superior tools",
+      "hook_zh": "工程师必须立即关注：编码代理忽视了更好的工具",
+      "description_en": "Engineers must read this: coding agents overlook superior tools",
+      "description_zh": "工程师必须立即关注：编码代理忽视了更好的工具"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_from_hookswitch_to_grave",
@@ -68127,10 +68729,100 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49559992",
       "article_url": "https://www.texasmonthly.com/news-politics/ckdu-kidney-disease-immigration/",
-      "title_ko": "A Mysterious Kidney Disease Has Arrived in Texas",
-      "description_ko": "해커뉴스에서 16점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "해커 뉴스: 텍사스에 신비로운 신장 질환이 발생했다",
+      "description_ko": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_a_mysterious_kidney_disease_has_a",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Health News",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Kidney disease",
+          "Texas",
+          "Health outbreak"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 텍사스에 신비로운 신장 질환이 발생했다",
+            "hook": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+            "key_takeaways": [
+              "미스터리 신장 질환이 텍사스에서 발생해 보건 당국의 주의를 끌고 있다.",
+              "해커 뉴스에 따르면 이 게시물은 16점 득표와 19개의 댓글을 기록했다.",
+              "원인과 전파 경로는 아직 밝혀지지 않았으며, 추가 조사가 필요하다."
+            ]
+          },
+          "en": {
+            "title": "Mysterious Kidney Disease Hits Texas, Sparking Health Alert",
+            "hook": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
+            "key_takeaways": [
+              "A mysterious kidney disease has been reported in Texas, raising health concerns.",
+              "The story on Hacker News has a score of 16 points and 19 comments.",
+              "The cause and transmission method remain unknown, prompting further investigation."
+            ]
+          },
+          "zh": {
+            "title": "神秘肾病现德克萨斯州，引发卫生警报",
+            "hook": "从德克萨斯肾病案例看健康数据监控的重要性",
+            "key_takeaways": [
+              "神秘肾病现德克萨斯州，引发卫生警报。",
+              "该帖在 Hacker News 上获得 16 分，19 条评论。",
+              "病因和传播途径尚不清楚，需进一步调查。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T17:58:10.399163+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 텍사스에 신비로운 신장 질환이 발생했다",
+          "hook": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+          "key_takeaways": [
+            "미스터리 신장 질환이 텍사스에서 발생해 보건 당국의 주의를 끌고 있다.",
+            "해커 뉴스에 따르면 이 게시물은 16점 득표와 19개의 댓글을 기록했다.",
+            "원인과 전파 경로는 아직 밝혀지지 않았으며, 추가 조사가 필요하다."
+          ]
+        },
+        "en": {
+          "title": "Mysterious Kidney Disease Hits Texas, Sparking Health Alert",
+          "hook": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
+          "key_takeaways": [
+            "A mysterious kidney disease has been reported in Texas, raising health concerns.",
+            "The story on Hacker News has a score of 16 points and 19 comments.",
+            "The cause and transmission method remain unknown, prompting further investigation."
+          ]
+        },
+        "zh": {
+          "title": "神秘肾病现德克萨斯州，引发卫生警报",
+          "hook": "从德克萨斯肾病案例看健康数据监控的重要性",
+          "key_takeaways": [
+            "神秘肾病现德克萨斯州，引发卫生警报。",
+            "该帖在 Hacker News 上获得 16 分，19 条评论。",
+            "病因和传播途径尚不清楚，需进一步调查。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Kidney disease",
+        "Texas",
+        "Health outbreak"
+      ],
+      "title_en": "Mysterious Kidney Disease Hits Texas, Sparking Health Alert",
+      "title_zh": "神秘肾病现德克萨斯州，引发卫生警报",
+      "hook": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+      "hook_ko": "데이터 기반 건강 이상 징후, 텍사스 신장 질환 사례에서 교훈을 얻자",
+      "hook_en": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
+      "hook_zh": "从德克萨斯肾病案例看健康数据监控的重要性",
+      "description_en": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
+      "description_zh": "从德克萨斯肾病案例看健康数据监控的重要性"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_project_xanadu_even_more_hindsigh",
@@ -70383,10 +71075,104 @@
         "생성형 마케팅 & GEO/SEO 최적화"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing",
-      "description_ko": "Abstract: Video editing spans diverse editing paradigms, yet achieving high-quality instruction-guided and subject-guided editing within a single unified framework remains challenging. We introduce EditVid, a t...",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "단일 에디터로 다양한 영상 편집을: 통합된 학습 비필요 비디오 편집 프레임워크 EditVid",
+      "description_ko": "별도의 학습 없이 하나의 프레임워크로 명령어 기반과 대상 기반 영상 편집을 모두 해결하는 통합 솔루션이 등장했습니다.",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_arxiv_one_editor_many_edits_a_unified_trainin",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Diffusion 기반 비디오 편집 프레임워크",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Video Editing",
+          "Training-Free",
+          "Diffusion Models",
+          "Unified Framework",
+          "EditVid"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "단일 에디터로 다양한 영상 편집을: 통합된 학습 비필요 비디오 편집 프레임워크 EditVid",
+            "hook": "별도의 학습 없이 하나의 프레임워크로 명령어 기반과 대상 기반 영상 편집을 모두 해결하는 통합 솔루션이 등장했습니다.",
+            "key_takeaways": [
+              "다양한 영상 편집 패러다임을 통합한 학습 비필요(Training-Free) 프레임워크 EditVid를 제안합니다.",
+              "단일 모델로 명령어 안내(Instruction-guided) 편집과 대상 안내(Subject-guided) 편집 모두 고품질로 수행합니다.",
+              "비디오 확산 모델(Video Diffusion Model) 편집 파이프라인의 통합 및 효율성 향상에 기여합니다."
+            ]
+          },
+          "en": {
+            "title": "One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing",
+            "hook": "A single, training-free framework now tackles both instruction-guided and subject-guided video editing, eliminating the need for multiple specialized models.",
+            "key_takeaways": [
+              "Introduces EditVid, a unified training-free framework addressing diverse video editing paradigms.",
+              "Achieves high-quality results for both instruction-guided and subject-guided video editing within a single architecture.",
+              "Reduces computational overhead and complexity by removing the requirement for model fine-tuning."
+            ]
+          },
+          "zh": {
+            "title": "一个编辑器，多种编辑：用于多样化视频编辑的统一免训练框架",
+            "hook": "无需额外训练，一个统一的框架即可同时搞定指令引导和主体引导的高质量视频编辑，彻底告别多模型堆叠。",
+            "key_takeaways": [
+              "提出了 EditVid，一个用于解决多样化视频编辑任务的统一免训练（Training-Free）框架。",
+              "在单一架构内实现了指令引导（Instruction-guided）与主体引导（Subject-guided）的高质量视频编辑。",
+              "无需对模型进行微调，显著降低了视频编辑的计算开销和工程复杂度。"
+            ]
+          }
+        },
+        "enriched_by_model": "minimax/minimax-m3:free",
+        "enriched_at": "2026-09-04T17:55:56.740688+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "단일 에디터로 다양한 영상 편집을: 통합된 학습 비필요 비디오 편집 프레임워크 EditVid",
+          "hook": "별도의 학습 없이 하나의 프레임워크로 명령어 기반과 대상 기반 영상 편집을 모두 해결하는 통합 솔루션이 등장했습니다.",
+          "key_takeaways": [
+            "다양한 영상 편집 패러다임을 통합한 학습 비필요(Training-Free) 프레임워크 EditVid를 제안합니다.",
+            "단일 모델로 명령어 안내(Instruction-guided) 편집과 대상 안내(Subject-guided) 편집 모두 고품질로 수행합니다.",
+            "비디오 확산 모델(Video Diffusion Model) 편집 파이프라인의 통합 및 효율성 향상에 기여합니다."
+          ]
+        },
+        "en": {
+          "title": "One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing",
+          "hook": "A single, training-free framework now tackles both instruction-guided and subject-guided video editing, eliminating the need for multiple specialized models.",
+          "key_takeaways": [
+            "Introduces EditVid, a unified training-free framework addressing diverse video editing paradigms.",
+            "Achieves high-quality results for both instruction-guided and subject-guided video editing within a single architecture.",
+            "Reduces computational overhead and complexity by removing the requirement for model fine-tuning."
+          ]
+        },
+        "zh": {
+          "title": "一个编辑器，多种编辑：用于多样化视频编辑的统一免训练框架",
+          "hook": "无需额外训练，一个统一的框架即可同时搞定指令引导和主体引导的高质量视频编辑，彻底告别多模型堆叠。",
+          "key_takeaways": [
+            "提出了 EditVid，一个用于解决多样化视频编辑任务的统一免训练（Training-Free）框架。",
+            "在单一架构内实现了指令引导（Instruction-guided）与主体引导（Subject-guided）的高质量视频编辑。",
+            "无需对模型进行微调，显著降低了视频编辑的计算开销和工程复杂度。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Video Editing",
+        "Training-Free",
+        "Diffusion Models",
+        "Unified Framework",
+        "EditVid"
+      ],
+      "title_en": "One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing",
+      "title_zh": "一个编辑器，多种编辑：用于多样化视频编辑的统一免训练框架",
+      "hook": "별도의 학습 없이 하나의 프레임워크로 명령어 기반과 대상 기반 영상 편집을 모두 해결하는 통합 솔루션이 등장했습니다.",
+      "hook_ko": "별도의 학습 없이 하나의 프레임워크로 명령어 기반과 대상 기반 영상 편집을 모두 해결하는 통합 솔루션이 등장했습니다.",
+      "hook_en": "A single, training-free framework now tackles both instruction-guided and subject-guided video editing, eliminating the need for multiple specialized models.",
+      "hook_zh": "无需额外训练，一个统一的框架即可同时搞定指令引导和主体引导的高质量视频编辑，彻底告别多模型堆叠。",
+      "description_en": "A single, training-free framework now tackles both instruction-guided and subject-guided video editing, eliminating the need for multiple specialized models.",
+      "description_zh": "无需额外训练，一个统一的框架即可同时搞定指令引导和主体引导的高质量视频编辑，彻底告别多模型堆叠。"
     },
     {
       "inbox_id": "2026-09-04_repo_arxiv_legibility_is_not_interpretability_comp",
@@ -70422,10 +71208,100 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought 추론 모델",
-      "description_ko": "Abstract: Reasoning traces from chain-of-thought models appear to offer a legible window into how a model arrives at its answer. A growing body of work treats them as such, using LLM judges to diagnose errors, ...",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "ArXiv: 가독성은 해석 가능성이 아니다: 체인오브싱킹 추론에서의 판단된 중요도와 실제 중요도 비교",
+      "description_ko": "체인오브싱크 추론에서 LLM이 내린 판단이 실제 오류 진단과 얼마나 다른지 밝혀냈습니다 – 이 연구는 추론 과정에 대한 환상적인 오해를 경고합니다.",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_arxiv_legibility_is_not_interpretability_comp",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "LLM Reasoning & Interpretability",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Chain-of-Thought",
+          "Interpretability",
+          "LLM Evaluation"
+        ],
+        "recommended_tag": "🔥 Must-Read",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "ArXiv: 가독성은 해석 가능성이 아니다: 체인오브싱킹 추론에서의 판단된 중요도와 실제 중요도 비교",
+            "hook": "체인오브싱크 추론에서 LLM이 내린 판단이 실제 오류 진단과 얼마나 다른지 밝혀냈습니다 – 이 연구는 추론 과정에 대한 환상적인 오해를 경고합니다.",
+            "key_takeaways": [
+              "체인오브싱크 추론에서 LLM이 내린 중요도 판단은 실제 오류 패턴과 체계적으로 일치하지 않습니다.",
+              "이러한 불일치는 모델의 의사결정 과정에 대한 과도한 확신을 초래할 수 있으며, 진단 도구로서의 한계를 드러냅니다.",
+              "연구자들은 더 정확한 해석 가능성을 위해 실제 모델 동작과의 엄격한 검증을 강조합니다."
+            ]
+          },
+          "en": {
+            "title": "ArXiv: Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-of-Thought Reasoning",
+            "hook": "Chain-of-thought reasoning traces look interpretable, but LLM judges often misalign with actual model errors—highlighting a critical gap in current interpretability claims.",
+            "key_takeaways": [
+              "LLM judges' assessments of importance in chain-of-thought reasoning do not systematically align with actual error patterns.",
+              "This misalignment can lead to overconfidence in model decision-making and reveals limitations as diagnostic tools.",
+              "Researchers call for rigorous validation against actual model behavior to achieve true interpretability."
+            ]
+          },
+          "zh": {
+            "title": "ArXiv：可读性并非可解释性——关于链式思维推理中判断重要性与实际重要性的比较研究",
+            "hook": "链式思维推理的表征似乎提供了洞察模型决策过程的窗口，但研究发现LLM法官的判断与模型实际错误存在显著偏差，这揭示了当前可解释性研究的局限性。",
+            "key_takeaways": [
+              "研究发现，LLM 对链式思维推理中重要性的判断与模型实际错误模式并不存在系统性的一致性。",
+              "这种不一致可能导致对模型决策过程的过度自信，暴露出其作为诊断工具的局限性。",
+              "研究者呼吁需与模型实际行为进行严格验证，以实现真正的可解释性。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T17:56:14.962784+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "ArXiv: 가독성은 해석 가능성이 아니다: 체인오브싱킹 추론에서의 판단된 중요도와 실제 중요도 비교",
+          "hook": "체인오브싱크 추론에서 LLM이 내린 판단이 실제 오류 진단과 얼마나 다른지 밝혀냈습니다 – 이 연구는 추론 과정에 대한 환상적인 오해를 경고합니다.",
+          "key_takeaways": [
+            "체인오브싱크 추론에서 LLM이 내린 중요도 판단은 실제 오류 패턴과 체계적으로 일치하지 않습니다.",
+            "이러한 불일치는 모델의 의사결정 과정에 대한 과도한 확신을 초래할 수 있으며, 진단 도구로서의 한계를 드러냅니다.",
+            "연구자들은 더 정확한 해석 가능성을 위해 실제 모델 동작과의 엄격한 검증을 강조합니다."
+          ]
+        },
+        "en": {
+          "title": "ArXiv: Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-of-Thought Reasoning",
+          "hook": "Chain-of-thought reasoning traces look interpretable, but LLM judges often misalign with actual model errors—highlighting a critical gap in current interpretability claims.",
+          "key_takeaways": [
+            "LLM judges' assessments of importance in chain-of-thought reasoning do not systematically align with actual error patterns.",
+            "This misalignment can lead to overconfidence in model decision-making and reveals limitations as diagnostic tools.",
+            "Researchers call for rigorous validation against actual model behavior to achieve true interpretability."
+          ]
+        },
+        "zh": {
+          "title": "ArXiv：可读性并非可解释性——关于链式思维推理中判断重要性与实际重要性的比较研究",
+          "hook": "链式思维推理的表征似乎提供了洞察模型决策过程的窗口，但研究发现LLM法官的判断与模型实际错误存在显著偏差，这揭示了当前可解释性研究的局限性。",
+          "key_takeaways": [
+            "研究发现，LLM 对链式思维推理中重要性的判断与模型实际错误模式并不存在系统性的一致性。",
+            "这种不一致可能导致对模型决策过程的过度自信，暴露出其作为诊断工具的局限性。",
+            "研究者呼吁需与模型实际行为进行严格验证，以实现真正的可解释性。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Chain-of-Thought",
+        "Interpretability",
+        "LLM Evaluation"
+      ],
+      "title_en": "ArXiv: Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-of-Thought Reasoning",
+      "title_zh": "ArXiv：可读性并非可解释性——关于链式思维推理中判断重要性与实际重要性的比较研究",
+      "hook": "체인오브싱크 추론에서 LLM이 내린 판단이 실제 오류 진단과 얼마나 다른지 밝혀냈습니다 – 이 연구는 추론 과정에 대한 환상적인 오해를 경고합니다.",
+      "hook_ko": "체인오브싱크 추론에서 LLM이 내린 판단이 실제 오류 진단과 얼마나 다른지 밝혀냈습니다 – 이 연구는 추론 과정에 대한 환상적인 오해를 경고합니다.",
+      "hook_en": "Chain-of-thought reasoning traces look interpretable, but LLM judges often misalign with actual model errors—highlighting a critical gap in current interpretability claims.",
+      "hook_zh": "链式思维推理的表征似乎提供了洞察模型决策过程的窗口，但研究发现LLM法官的判断与模型实际错误存在显著偏差，这揭示了当前可解释性研究的局限性。",
+      "description_en": "Chain-of-thought reasoning traces look interpretable, but LLM judges often misalign with actual model errors—highlighting a critical gap in current interpretability claims.",
+      "description_zh": "链式思维推理的表征似乎提供了洞察模型决策过程的窗口，但研究发现LLM法官的判断与模型实际错误存在显著偏差，这揭示了当前可解释性研究的局限性。"
     },
     {
       "inbox_id": "2026-09-04_repo_arxiv_espo_error_structured_prompt_optimizati",
@@ -70461,10 +71337,102 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "ESPO: Error-Structured Prompt Optimization via Diagnose, Diversify, and Stabilize",
-      "description_ko": "Abstract: Evolutionary prompt optimizers such as GEPA suffer from prompt bloat: each iteration appends rules and caveats, producing prompts up to 3$\\times$ longer yet no more accurate. We trace this to three de...",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "ESPO: 오류 구조화 프롬프트 최적화 (Diagnose, Diversify, Stabilize)",
+      "description_ko": "GEPA 등 진화형 프롬프트 최적화기의 '프롬프트 비대(Prompt Bloat)' 문제를 해결하는 ESPO 기법",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_arxiv_espo_error_structured_prompt_optimizati",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Prompt Optimization / LLM Engineering",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Prompt Optimization",
+          "GEPA",
+          "Prompt Bloat",
+          "ESPO"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.3,
+        "multilingual": {
+          "ko": {
+            "title": "ESPO: 오류 구조화 프롬프트 최적화 (Diagnose, Diversify, Stabilize)",
+            "hook": "GEPA 등 진화형 프롬프트 최적화기의 '프롬프트 비대(Prompt Bloat)' 문제를 해결하는 ESPO 기법",
+            "key_takeaways": [
+              "기존 진화형 프롬프트 최적화(예: GEPA)가 매 반복마다 규칙과 주의사항을 appending 하여 프롬프트가 3배로 길어지지만 정확도는 증가하지 않는 '프롬프트 비대(Prompt Bloat)' 문제를 지적한다.",
+              "오류 구조화(Error-Structured) 기반의 새로운 최적화 패러다임인 ESPO를 제안한다.",
+              "진단(Diagnose), 다IVERSIFY(Diversify), 안정화(Stabilize)의 3단계 프로세스를 통해 더 간결하고 효율적인 프롬프트를 자동 생성한다."
+            ]
+          },
+          "en": {
+            "title": "ESPO: Error-Structured Prompt Optimization via Diagnose, Diversify, and Stabilize",
+            "hook": "Resolving the 'prompt bloat' bottleneck in evolutionary prompt optimizers like GEPA with ESPO",
+            "key_takeaways": [
+              "Identifies the phenomenon of 'prompt bloat' in evolutionary prompt optimizers (e.g., GEPA), where prompts grow up to 3x longer without any accuracy improvements.",
+              "Proposes Error-Structured Prompt Optimization (ESPO), a novel framework that systematically manages prompt complexity.",
+              "Utilizes a three-stage pipeline—Diagnose, Diversify, and Stabilize—to ensure efficient, high-performing, and robust prompt generation."
+            ]
+          },
+          "zh": {
+            "title": "ESPO：通过诊断、多样化和稳定化实现错误结构化提示优化",
+            "hook": "解决 GEPA 等进化型提示优化中的“提示膨胀”问题，ESPO 带来结构化错误优化新范式",
+            "key_takeaways": [
+              "揭示了进化型提示优化器（如 GEPA）中规则不断追加导致提示长度增加 3 倍但准确率无提升的“提示膨胀（Prompt Bloat）”现象。",
+              "提出了错误结构化提示优化（ESPO）方法，通过结构化视角解析和优化提示词中的错误模式。",
+              "通过诊断（Diagnose）、多样化（Diversify）和稳定化（Stabilize）三步流水线，实现了更精简、高效且稳定的自动提示词优化。"
+            ]
+          }
+        },
+        "enriched_by_model": "dots-studio/dots-3-note-preview:free",
+        "enriched_at": "2026-09-04T17:56:59.613662+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "ESPO: 오류 구조화 프롬프트 최적화 (Diagnose, Diversify, Stabilize)",
+          "hook": "GEPA 등 진화형 프롬프트 최적화기의 '프롬프트 비대(Prompt Bloat)' 문제를 해결하는 ESPO 기법",
+          "key_takeaways": [
+            "기존 진화형 프롬프트 최적화(예: GEPA)가 매 반복마다 규칙과 주의사항을 appending 하여 프롬프트가 3배로 길어지지만 정확도는 증가하지 않는 '프롬프트 비대(Prompt Bloat)' 문제를 지적한다.",
+            "오류 구조화(Error-Structured) 기반의 새로운 최적화 패러다임인 ESPO를 제안한다.",
+            "진단(Diagnose), 다IVERSIFY(Diversify), 안정화(Stabilize)의 3단계 프로세스를 통해 더 간결하고 효율적인 프롬프트를 자동 생성한다."
+          ]
+        },
+        "en": {
+          "title": "ESPO: Error-Structured Prompt Optimization via Diagnose, Diversify, and Stabilize",
+          "hook": "Resolving the 'prompt bloat' bottleneck in evolutionary prompt optimizers like GEPA with ESPO",
+          "key_takeaways": [
+            "Identifies the phenomenon of 'prompt bloat' in evolutionary prompt optimizers (e.g., GEPA), where prompts grow up to 3x longer without any accuracy improvements.",
+            "Proposes Error-Structured Prompt Optimization (ESPO), a novel framework that systematically manages prompt complexity.",
+            "Utilizes a three-stage pipeline—Diagnose, Diversify, and Stabilize—to ensure efficient, high-performing, and robust prompt generation."
+          ]
+        },
+        "zh": {
+          "title": "ESPO：通过诊断、多样化和稳定化实现错误结构化提示优化",
+          "hook": "解决 GEPA 等进化型提示优化中的“提示膨胀”问题，ESPO 带来结构化错误优化新范式",
+          "key_takeaways": [
+            "揭示了进化型提示优化器（如 GEPA）中规则不断追加导致提示长度增加 3 倍但准确率无提升的“提示膨胀（Prompt Bloat）”现象。",
+            "提出了错误结构化提示优化（ESPO）方法，通过结构化视角解析和优化提示词中的错误模式。",
+            "通过诊断（Diagnose）、多样化（Diversify）和稳定化（Stabilize）三步流水线，实现了更精简、高效且稳定的自动提示词优化。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Prompt Optimization",
+        "GEPA",
+        "Prompt Bloat",
+        "ESPO"
+      ],
+      "title_en": "ESPO: Error-Structured Prompt Optimization via Diagnose, Diversify, and Stabilize",
+      "title_zh": "ESPO：通过诊断、多样化和稳定化实现错误结构化提示优化",
+      "hook": "GEPA 등 진화형 프롬프트 최적화기의 '프롬프트 비대(Prompt Bloat)' 문제를 해결하는 ESPO 기법",
+      "hook_ko": "GEPA 등 진화형 프롬프트 최적화기의 '프롬프트 비대(Prompt Bloat)' 문제를 해결하는 ESPO 기법",
+      "hook_en": "Resolving the 'prompt bloat' bottleneck in evolutionary prompt optimizers like GEPA with ESPO",
+      "hook_zh": "解决 GEPA 等进化型提示优化中的“提示膨胀”问题，ESPO 带来结构化错误优化新范式",
+      "description_en": "Resolving the 'prompt bloat' bottleneck in evolutionary prompt optimizers like GEPA with ESPO",
+      "description_zh": "解决 GEPA 等进化型提示优化中的“提示膨胀”问题，ESPO 带来结构化错误优化新范式"
     },
     {
       "inbox_id": "2026-09-04_repo_arxiv_clean_engineering_unstable_measurement_",
@@ -70500,10 +71468,100 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
-      "description_ko": "Abstract: Language-model judges now gate training data, score generations, and drive leaderboards. The judge is then a measurement instrument, resting on one rarely stated assumption: the same request, sent to ...",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "클린 엔지니어링, 불안정한 측정: 블랙박스 LLM 관찰자의 사전 등록된 신뢰도 실패",
+      "description_ko": "LLM 판정자의 측정 신뢰도가 흔들리면 모든 벤치마크와 리더보드가 의심받는다.",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_arxiv_clean_engineering_unstable_measurement_",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "",
+        "category": "LLM evaluation reliability and measurement uncertainty",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "LLM judge",
+          "measurement reliability",
+          "black-box evaluation"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "클린 엔지니어링, 불안정한 측정: 블랙박스 LLM 관찰자의 사전 등록된 신뢰도 실패",
+            "hook": "LLM 판정자의 측정 신뢰도가 흔들리면 모든 벤치마크와 리더보드가 의심받는다.",
+            "key_takeaways": [
+              "블랙박스 LLM 판정자는 동일한 요청이라도 결과가 불안정할 수 있다.",
+              "사전 등록된 실험에서 판정자의 신뢰도 실패가 입증되었다.",
+              "측정 도구로서의 LLM 판정자를 사용할 때는 보정과 불확실성 정량이 필수다."
+            ]
+          },
+          "en": {
+            "title": "Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
+            "hook": "If LLM judges wobble as measurement tools, every leaderboard and benchmark becomes questionable.",
+            "key_takeaways": [
+              "Black-box LLM judges can produce unstable scores even on identical inputs.",
+              "A preregistered study demonstrates reliability failures of these judges.",
+              "Using LLM judges as measurement instruments requires calibration and uncertainty quantification."
+            ]
+          },
+          "zh": {
+            "title": "清晰工程，不稳定测量：黑箱LLM观察者在共享端点上的预注册可靠性失败",
+            "hook": "如果LLM判断者作为测量工具不稳定，所有排行榜和基准都将受到质疑。",
+            "key_takeaways": [
+              "黑箱LLM判断者在相同输入上也可能产生不稳定的分数。",
+              "预注册实验证实了这些判断者的可靠性失败。",
+              "将LLM判断者用作测量工具时，必须进行校准和不确定性量化。"
+            ]
+          }
+        },
+        "enriched_by_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "enriched_at": "2026-09-04T17:57:23.465670+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "클린 엔지니어링, 불안정한 측정: 블랙박스 LLM 관찰자의 사전 등록된 신뢰도 실패",
+          "hook": "LLM 판정자의 측정 신뢰도가 흔들리면 모든 벤치마크와 리더보드가 의심받는다.",
+          "key_takeaways": [
+            "블랙박스 LLM 판정자는 동일한 요청이라도 결과가 불안정할 수 있다.",
+            "사전 등록된 실험에서 판정자의 신뢰도 실패가 입증되었다.",
+            "측정 도구로서의 LLM 판정자를 사용할 때는 보정과 불확실성 정량이 필수다."
+          ]
+        },
+        "en": {
+          "title": "Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
+          "hook": "If LLM judges wobble as measurement tools, every leaderboard and benchmark becomes questionable.",
+          "key_takeaways": [
+            "Black-box LLM judges can produce unstable scores even on identical inputs.",
+            "A preregistered study demonstrates reliability failures of these judges.",
+            "Using LLM judges as measurement instruments requires calibration and uncertainty quantification."
+          ]
+        },
+        "zh": {
+          "title": "清晰工程，不稳定测量：黑箱LLM观察者在共享端点上的预注册可靠性失败",
+          "hook": "如果LLM判断者作为测量工具不稳定，所有排行榜和基准都将受到质疑。",
+          "key_takeaways": [
+            "黑箱LLM判断者在相同输入上也可能产生不稳定的分数。",
+            "预注册实验证实了这些判断者的可靠性失败。",
+            "将LLM判断者用作测量工具时，必须进行校准和不确定性量化。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "LLM judge",
+        "measurement reliability",
+        "black-box evaluation"
+      ],
+      "title_en": "Clean Engineering, Unstable Measurement: A Preregistered Reliability Failure of Black-Box LLM Observers on Shared Endpoints",
+      "title_zh": "清晰工程，不稳定测量：黑箱LLM观察者在共享端点上的预注册可靠性失败",
+      "hook": "LLM 판정자의 측정 신뢰도가 흔들리면 모든 벤치마크와 리더보드가 의심받는다.",
+      "hook_ko": "LLM 판정자의 측정 신뢰도가 흔들리면 모든 벤치마크와 리더보드가 의심받는다.",
+      "hook_en": "If LLM judges wobble as measurement tools, every leaderboard and benchmark becomes questionable.",
+      "hook_zh": "如果LLM判断者作为测量工具不稳定，所有排行榜和基准都将受到质疑。",
+      "description_en": "If LLM judges wobble as measurement tools, every leaderboard and benchmark becomes questionable.",
+      "description_zh": "如果LLM判断者作为测量工具不稳定，所有排行榜和基准都将受到质疑。"
     },
     {
       "inbox_id": "2026-09-04_repo_arxiv_compile_by_training_turning_natural_lan",
@@ -70539,10 +71597,104 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
-      "description_ko": "Abstract: Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a prov...",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "컴파일 바이 트레이닝: 자연어 명세를 로컬 신경 함수로 변환하기",
+      "description_ko": "원격 LLM 호출의 반복 비용과 지연 없이, 자연어로 함수 동작을 기술하면 로컬 신경망이 자동으로 컴파일되어 반복 텍스트 작업을 처리합니다.",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_arxiv_compile_by_training_turning_natural_lan",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "LLM 추론 최적화 / 자연어 명세 컴파일",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "natural language specification",
+          "local neural functions",
+          "compile by training",
+          "text transformation",
+          "LLM cost reduction"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.8,
+        "multilingual": {
+          "ko": {
+            "title": "컴파일 바이 트레이닝: 자연어 명세를 로컬 신경 함수로 변환하기",
+            "hook": "원격 LLM 호출의 반복 비용과 지연 없이, 자연어로 함수 동작을 기술하면 로컬 신경망이 자동으로 컴파일되어 반복 텍스트 작업을 처리합니다.",
+            "key_takeaways": [
+              "자연어 명세만으로 로컬 신경 함수를 학습하여 원격 LLM 의존도를 완전히 제거",
+              "반복적인 텍스트 변환 작업의 비용과 지연을 대폭 감소시킴",
+              "규칙 기반 구현이 어려운 복잡한 텍스트 함수도 자연어로 쉽게 지정 가능"
+            ]
+          },
+          "en": {
+            "title": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
+            "hook": "Eliminate repeated LLM API costs and latency by training local neural functions directly from natural-language specifications.",
+            "key_takeaways": [
+              "Train local neural functions from natural-language specs, removing dependency on remote LLM APIs",
+              "Drastically reduce cost and latency for recurring text transformation tasks",
+              "Complex text functions that are difficult to implement with rules can be easily specified in natural language"
+            ]
+          },
+          "zh": {
+            "title": "通过训练编译：将自然语言规范转化为本地神经函数",
+            "hook": "通过自然语言规范直接训练本地神经函数，彻底消除远程LLM的重复调用成本与延迟。",
+            "key_takeaways": [
+              "从自然语言规范训练本地神经函数，消除对远程LLM API的完全依赖",
+              "大幅降低重复文本转换任务的成本与延迟",
+              "难以用规则实现的复杂文本函数可通过自然语言轻松指定"
+            ]
+          }
+        },
+        "enriched_by_model": "inclusionai/ling-3.0-flash-fin:free",
+        "enriched_at": "2026-09-04T17:57:29.000339+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "컴파일 바이 트레이닝: 자연어 명세를 로컬 신경 함수로 변환하기",
+          "hook": "원격 LLM 호출의 반복 비용과 지연 없이, 자연어로 함수 동작을 기술하면 로컬 신경망이 자동으로 컴파일되어 반복 텍스트 작업을 처리합니다.",
+          "key_takeaways": [
+            "자연어 명세만으로 로컬 신경 함수를 학습하여 원격 LLM 의존도를 완전히 제거",
+            "반복적인 텍스트 변환 작업의 비용과 지연을 대폭 감소시킴",
+            "규칙 기반 구현이 어려운 복잡한 텍스트 함수도 자연어로 쉽게 지정 가능"
+          ]
+        },
+        "en": {
+          "title": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
+          "hook": "Eliminate repeated LLM API costs and latency by training local neural functions directly from natural-language specifications.",
+          "key_takeaways": [
+            "Train local neural functions from natural-language specs, removing dependency on remote LLM APIs",
+            "Drastically reduce cost and latency for recurring text transformation tasks",
+            "Complex text functions that are difficult to implement with rules can be easily specified in natural language"
+          ]
+        },
+        "zh": {
+          "title": "通过训练编译：将自然语言规范转化为本地神经函数",
+          "hook": "通过自然语言规范直接训练本地神经函数，彻底消除远程LLM的重复调用成本与延迟。",
+          "key_takeaways": [
+            "从自然语言规范训练本地神经函数，消除对远程LLM API的完全依赖",
+            "大幅降低重复文本转换任务的成本与延迟",
+            "难以用规则实现的复杂文本函数可通过自然语言轻松指定"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "natural language specification",
+        "local neural functions",
+        "compile by training",
+        "text transformation",
+        "LLM cost reduction"
+      ],
+      "title_en": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
+      "title_zh": "通过训练编译：将自然语言规范转化为本地神经函数",
+      "hook": "원격 LLM 호출의 반복 비용과 지연 없이, 자연어로 함수 동작을 기술하면 로컬 신경망이 자동으로 컴파일되어 반복 텍스트 작업을 처리합니다.",
+      "hook_ko": "원격 LLM 호출의 반복 비용과 지연 없이, 자연어로 함수 동작을 기술하면 로컬 신경망이 자동으로 컴파일되어 반복 텍스트 작업을 처리합니다.",
+      "hook_en": "Eliminate repeated LLM API costs and latency by training local neural functions directly from natural-language specifications.",
+      "hook_zh": "通过自然语言规范直接训练本地神经函数，彻底消除远程LLM的重复调用成本与延迟。",
+      "description_en": "Eliminate repeated LLM API costs and latency by training local neural functions directly from natural-language specifications.",
+      "description_zh": "通过自然语言规范直接训练本地神经函数，彻底消除远程LLM的重复调用成本与延迟。"
     },
     {
       "inbox_id": "2026-09-04_repo_hf_space_rchokswan555",
@@ -70555,7 +71707,7 @@
       "source_platform": "Hugging Face Spaces (Demo)",
       "source_url": "https://huggingface.co/spaces/Rchoks/wan555",
       "type": "repo",
-      "category_type": "TECH",
+      "category_type": "AGENT",
       "description": "Interactive AI Demo (SDK: gradio) | Likes: 156 | Live URL: https://huggingface.co/spaces/Rchoks/wan555",
       "viral_metric": "❤️ 156 Likes (Trending Demo)",
       "metric_tracking": {
@@ -70578,10 +71730,102 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "HF Space: Rchoks/wan555",
-      "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 156 | Live URL: https://huggingface.co/spaces/Rchoks/wan555",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "Rchoks/wan555: Gradio 기반 인터랙티브 AI 데모 공간",
+      "description_ko": "Gradio로 손쉽게 구축된 인터랙티브 AI 데모를 Hugging Face Spaces에서 직접 체험해 보세요.",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_hf_space_rchokswan555",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "AI 데모/인터랙티브 인터페이스",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Hugging Face Spaces",
+          "Gradio",
+          "AI Demo",
+          "Interactive Interface"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "Rchoks/wan555: Gradio 기반 인터랙티브 AI 데모 공간",
+            "hook": "Gradio로 손쉽게 구축된 인터랙티브 AI 데모를 Hugging Face Spaces에서 직접 체험해 보세요.",
+            "key_takeaways": [
+              "Hugging Face Spaces에서 호스팅되는 Gradio 기반의 라이브 AI 데모입니다.",
+              "다양한 입력값에 대해 즉각적인 피드백을 제공하는 인터랙티브 환경을 제공합니다.",
+              "156개의 좋아요를 받으며 커뮤니티의 관심을 증명한 프로젝트입니다."
+            ]
+          },
+          "en": {
+            "title": "Rchoks/wan555: An Interactive Gradio-powered AI Demo on HF Spaces",
+            "hook": "Try out this interactive Gradio AI demo hosted live on Hugging Face Spaces.",
+            "key_takeaways": [
+              "A live AI demo hosted on Hugging Face Spaces, built using the Gradio SDK.",
+              "Provides an interactive environment offering immediate feedback for various inputs.",
+              "Demonstrates community validation with 156 likes."
+            ]
+          },
+          "zh": {
+            "title": "Rchoks/wan555：基于 Gradio 的交互式 AI 演示空间",
+            "hook": "立即在 Hugging Face Spaces 上体验由 Gradio 强力驱动的交互式 AI 演示应用。",
+            "key_takeaways": [
+              "托管在 Hugging Face Spaces 上，基于 Gradio SDK 构建的实时 AI 演示。",
+              "提供交互式环境，对各种输入进行即时反馈。",
+              "已获得 156 个点赞，充分证明了其在社区中的受欢迎程度。"
+            ]
+          }
+        },
+        "enriched_by_model": "minimax/minimax-m3:free",
+        "enriched_at": "2026-09-04T17:57:37.345341+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Rchoks/wan555: Gradio 기반 인터랙티브 AI 데모 공간",
+          "hook": "Gradio로 손쉽게 구축된 인터랙티브 AI 데모를 Hugging Face Spaces에서 직접 체험해 보세요.",
+          "key_takeaways": [
+            "Hugging Face Spaces에서 호스팅되는 Gradio 기반의 라이브 AI 데모입니다.",
+            "다양한 입력값에 대해 즉각적인 피드백을 제공하는 인터랙티브 환경을 제공합니다.",
+            "156개의 좋아요를 받으며 커뮤니티의 관심을 증명한 프로젝트입니다."
+          ]
+        },
+        "en": {
+          "title": "Rchoks/wan555: An Interactive Gradio-powered AI Demo on HF Spaces",
+          "hook": "Try out this interactive Gradio AI demo hosted live on Hugging Face Spaces.",
+          "key_takeaways": [
+            "A live AI demo hosted on Hugging Face Spaces, built using the Gradio SDK.",
+            "Provides an interactive environment offering immediate feedback for various inputs.",
+            "Demonstrates community validation with 156 likes."
+          ]
+        },
+        "zh": {
+          "title": "Rchoks/wan555：基于 Gradio 的交互式 AI 演示空间",
+          "hook": "立即在 Hugging Face Spaces 上体验由 Gradio 强力驱动的交互式 AI 演示应用。",
+          "key_takeaways": [
+            "托管在 Hugging Face Spaces 上，基于 Gradio SDK 构建的实时 AI 演示。",
+            "提供交互式环境，对各种输入进行即时反馈。",
+            "已获得 156 个点赞，充分证明了其在社区中的受欢迎程度。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Hugging Face Spaces",
+        "Gradio",
+        "AI Demo",
+        "Interactive Interface"
+      ],
+      "title_en": "Rchoks/wan555: An Interactive Gradio-powered AI Demo on HF Spaces",
+      "title_zh": "Rchoks/wan555：基于 Gradio 的交互式 AI 演示空间",
+      "hook": "Gradio로 손쉽게 구축된 인터랙티브 AI 데모를 Hugging Face Spaces에서 직접 체험해 보세요.",
+      "hook_ko": "Gradio로 손쉽게 구축된 인터랙티브 AI 데모를 Hugging Face Spaces에서 직접 체험해 보세요.",
+      "hook_en": "Try out this interactive Gradio AI demo hosted live on Hugging Face Spaces.",
+      "hook_zh": "立即在 Hugging Face Spaces 上体验由 Gradio 强力驱动的交互式 AI 演示应用。",
+      "description_en": "Try out this interactive Gradio AI demo hosted live on Hugging Face Spaces.",
+      "description_zh": "立即在 Hugging Face Spaces 上体验由 Gradio 强力驱动的交互式 AI 演示应用。"
     },
     {
       "inbox_id": "2026-09-04_sns_geeknews_chatgpt_claude_grok_동시다발_장애_발생_확인된_원",
@@ -89337,8 +90581,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 263 pts | Comments: 215 | VC isn't VC anymore",
-      "viral_metric": "🔥 263 HN Points",
+      "description": "HN Score: 267 pts | Comments: 217 | VC isn't VC anymore",
+      "viral_metric": "🔥 267 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -89346,13 +90590,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 263,
-          "display": "🔥 263 HN Points",
+          "value": 267,
+          "display": "🔥 267 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 255,
-        "delta_display": "+255",
-        "growth_rate_pct": 3187.5,
+        "delta": 259,
+        "delta_display": "+259",
+        "growth_rate_pct": 3237.5,
         "is_spiking": true
       },
       "matched_user_domains": [

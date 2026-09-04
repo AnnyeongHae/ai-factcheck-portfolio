@@ -9,7 +9,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49560260",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 9 pts | Comments: 1 | Grep beats LSP? Why coding agents ignore your fancier tools",
   "viral_metric": "🔥 9 HN Points",
   "metric_tracking": {
@@ -34,8 +34,98 @@
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49560260",
   "article_url": "https://www.agentconnect.md/blog/grep-beat-lsp-harness/",
-  "title_ko": "Grep beats LSP? Why coding agents ignore your fancier tools",
-  "description_ko": "해커뉴스에서 9점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-  "is_classified": false,
-  "is_deep_analyzed": false
+  "title_ko": "코딩 에이전트가 더 나은 도구를 무시하는 이유? Grep vs LSP",
+  "description_ko": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_grep_beats_lsp_why_coding_agents_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "Coding Agents & Tool Selection",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "coding agents",
+      "LSP vs grep",
+      "tool optimization"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "코딩 에이전트가 더 나은 도구를 무시하는 이유? Grep vs LSP",
+        "hook": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+        "key_takeaways": [
+          "LSP보다 grep가 더 효율적이라는 실증적 증거",
+          "코딩 에이전트들이 최신 도구를 무시하는 행동 패턴",
+          "도구 선택 전략 수립의 중요성"
+        ]
+      },
+      "en": {
+        "title": "Grepping Beats LSP? Why Coding Agents Ignore Fancy Tools",
+        "hook": "Engineers must read this: coding agents overlook superior tools",
+        "key_takeaways": [
+          "LSP vs grep performance comparison findings",
+          "Analysis of coding agent decision-making processes",
+          "Practical implications for developer tooling choices"
+        ]
+      },
+      "zh": {
+        "title": "代码代理忽略更强工具？Grep 对比 LSP 的真相",
+        "hook": "工程师必须立即关注：编码代理忽视了更好的工具",
+        "key_takeaways": [
+          "Grep 在实际场景中优于语言服务器协议 (LSP)",
+          "编码代理在工具选择上的盲点分析",
+          "优化开发者工作流的实用建议"
+        ]
+      }
+    },
+    "enriched_by_model": "liquid/lfm-2.5-2.6b:free",
+    "enriched_at": "2026-09-04T17:57:47.318968+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "코딩 에이전트가 더 나은 도구를 무시하는 이유? Grep vs LSP",
+      "hook": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+      "key_takeaways": [
+        "LSP보다 grep가 더 효율적이라는 실증적 증거",
+        "코딩 에이전트들이 최신 도구를 무시하는 행동 패턴",
+        "도구 선택 전략 수립의 중요성"
+      ]
+    },
+    "en": {
+      "title": "Grepping Beats LSP? Why Coding Agents Ignore Fancy Tools",
+      "hook": "Engineers must read this: coding agents overlook superior tools",
+      "key_takeaways": [
+        "LSP vs grep performance comparison findings",
+        "Analysis of coding agent decision-making processes",
+        "Practical implications for developer tooling choices"
+      ]
+    },
+    "zh": {
+      "title": "代码代理忽略更强工具？Grep 对比 LSP 的真相",
+      "hook": "工程师必须立即关注：编码代理忽视了更好的工具",
+      "key_takeaways": [
+        "Grep 在实际场景中优于语言服务器协议 (LSP)",
+        "编码代理在工具选择上的盲点分析",
+        "优化开发者工作流的实用建议"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "coding agents",
+    "LSP vs grep",
+    "tool optimization"
+  ],
+  "title_en": "Grepping Beats LSP? Why Coding Agents Ignore Fancy Tools",
+  "title_zh": "代码代理忽略更强工具？Grep 对比 LSP 的真相",
+  "hook": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+  "hook_ko": "엔지니어가 바로 확인해야 할 코딩 에이전트의 진실",
+  "hook_en": "Engineers must read this: coding agents overlook superior tools",
+  "hook_zh": "工程师必须立即关注：编码代理忽视了更好的工具",
+  "description_en": "Engineers must read this: coding agents overlook superior tools",
+  "description_zh": "工程师必须立即关注：编码代理忽视了更好的工具"
 }
