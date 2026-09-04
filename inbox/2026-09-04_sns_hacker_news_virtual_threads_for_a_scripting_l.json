@@ -9,7 +9,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49522611",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 14 pts | Comments: 1 | Virtual Threads for a scripting language in Java 8 without Loom",
   "viral_metric": "🔥 14 HN Points",
   "metric_tracking": {
@@ -34,8 +34,98 @@
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49522611",
   "article_url": "https://jactl.io/blog/2026/08/28/jactl-virtual-threads",
-  "title_ko": "Virtual Threads for a scripting language in Java 8 without Loom",
-  "description_ko": "해커뉴스에서 14점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-  "is_classified": false,
-  "is_deep_analyzed": false
+  "title_ko": "자바 8에서 Loom 없이 가상 스레드를 구현한 스크립트 언어 기법",
+  "description_ko": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_virtual_threads_for_a_scripting_l",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "",
+    "category": "가상 스레드 (Virtual Threads) 구현, Java 8 경량 동시성",
+    "programming_lang": "Java",
+    "root_keywords": [
+      "Virtual Threads",
+      "Java 8",
+      "Loom 대체"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "자바 8에서 Loom 없이 가상 스레드를 구현한 스크립트 언어 기법",
+        "hook": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+        "key_takeaways": [
+          "자바 8 기준에서 가상 스레드 같은 경량 스레드 구현 방법",
+          "Loom 의존 없이 기존 JDK만으로 동시성 성능 향상 가능",
+          "스크립트 언어 인터프리터에 적용해 응답성 개선 사례 제시"
+        ]
+      },
+      "en": {
+        "title": "Virtual Threads for a Scripting Language in Java 8 Without Loom",
+        "hook": "Experience lightweight concurrency on Java 8 without waiting for Project Loom – a must‑read for JVM engineers.",
+        "key_takeaways": [
+          "How to implement lightweight virtual‑thread‑like concurrency on JDK 8",
+          "Achieve Loom‑style scalability without adding new dependencies",
+          "Example integration in a scripting language interpreter improving responsiveness"
+        ]
+      },
+      "zh": {
+        "title": "在 Java 8 中无需 Loom 实现脚本语言的虚拟线程",
+        "hook": "无需等待 Loom，在 Java 8 上也能享受轻量级并发——JVM 开发者必读。",
+        "key_takeaways": [
+          "在 JDK 8 上实现类似虚拟线程的轻量并发方案",
+          "无需引入 Loom 依赖，仅用现有 JDK 提升并发性能",
+          "在脚本语言解释器中的集成示例，展示响应性提升"
+        ]
+      }
+    },
+    "enriched_by_model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "enriched_at": "2026-09-04T17:59:53.621457+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "자바 8에서 Loom 없이 가상 스레드를 구현한 스크립트 언어 기법",
+      "hook": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+      "key_takeaways": [
+        "자바 8 기준에서 가상 스레드 같은 경량 스레드 구현 방법",
+        "Loom 의존 없이 기존 JDK만으로 동시성 성능 향상 가능",
+        "스크립트 언어 인터프리터에 적용해 응답성 개선 사례 제시"
+      ]
+    },
+    "en": {
+      "title": "Virtual Threads for a Scripting Language in Java 8 Without Loom",
+      "hook": "Experience lightweight concurrency on Java 8 without waiting for Project Loom – a must‑read for JVM engineers.",
+      "key_takeaways": [
+        "How to implement lightweight virtual‑thread‑like concurrency on JDK 8",
+        "Achieve Loom‑style scalability without adding new dependencies",
+        "Example integration in a scripting language interpreter improving responsiveness"
+      ]
+    },
+    "zh": {
+      "title": "在 Java 8 中无需 Loom 实现脚本语言的虚拟线程",
+      "hook": "无需等待 Loom，在 Java 8 上也能享受轻量级并发——JVM 开发者必读。",
+      "key_takeaways": [
+        "在 JDK 8 上实现类似虚拟线程的轻量并发方案",
+        "无需引入 Loom 依赖，仅用现有 JDK 提升并发性能",
+        "在脚本语言解释器中的集成示例，展示响应性提升"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Java",
+  "root_keywords": [
+    "Virtual Threads",
+    "Java 8",
+    "Loom 대체"
+  ],
+  "title_en": "Virtual Threads for a Scripting Language in Java 8 Without Loom",
+  "title_zh": "在 Java 8 中无需 Loom 实现脚本语言的虚拟线程",
+  "hook": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+  "hook_ko": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+  "hook_en": "Experience lightweight concurrency on Java 8 without waiting for Project Loom – a must‑read for JVM engineers.",
+  "hook_zh": "无需等待 Loom，在 Java 8 上也能享受轻量级并发——JVM 开发者必读。",
+  "description_en": "Experience lightweight concurrency on Java 8 without waiting for Project Loom – a must‑read for JVM engineers.",
+  "description_zh": "无需等待 Loom，在 Java 8 上也能享受轻量级并发——JVM 开发者必读。"
 }

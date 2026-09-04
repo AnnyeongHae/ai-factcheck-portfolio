@@ -34,6 +34,98 @@
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49550174",
   "article_url": "https://reason.com/2026/09/02/virginia-mom-gets-6-month-suspended-jail-sentence-for-letting-5-year-old-walk-to-the-pond/",
-  "is_classified": false,
-  "is_deep_analyzed": false
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_mom_gets_6_month_suspended_senten",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "Legal/Social",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Legal",
+      "Parenting",
+      "Hacker News"
+    ],
+    "recommended_tag": "📝 Tech Reference",
+    "worth_score": 2.5,
+    "multilingual": {
+      "ko": {
+        "title": "해커 뉴스: 5살 아이 혼자 연못까지 산책시킨 엄마, 6개월 집행유예 선고",
+        "hook": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+        "key_takeaways": [
+          "엄마가 5살 아이 혼자 연못까지 산책시킨 혐의로 6개월 집행유예 선고받음",
+          "해커 뉴스 커뮤니티에서 243점, 255개의 댓글을 기록하며 화제가 됨",
+          "이번 판결은 과잉 처벌과 부모의 책임에 대한 논쟁을 불러일킴"
+        ]
+      },
+      "en": {
+        "title": "Hacker News: Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+        "hook": "A controversial ruling: a mother receives a suspended sentence for allowing her 5-year-old to walk to a pond alone, sparking debate on parenting standards",
+        "key_takeaways": [
+          "Mother sentenced to six months probation for letting her 5-year-old walk to a pond unattended",
+          "The story scored 243 points with 255 comments on Hacker News",
+          "The case raises questions about over‑policing of parenting and legal boundaries"
+        ]
+      },
+      "zh": {
+        "title": "黑客新闻：母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+        "hook": "一起引发热议的案件：一位母亲因让5岁孩子独自去池塘而被判缓刑，引发关于 parenting 标准的讨论",
+        "key_takeaways": [
+          "一位母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+          "该新闻在黑客新闻上获得243分，255条评论",
+          "案件引发关于过度监管 parenting 和法律界限的讨论"
+        ]
+      }
+    },
+    "enriched_by_model": "cohere/north-mini-code:free",
+    "enriched_at": "2026-09-04T17:59:05.063991+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "해커 뉴스: 5살 아이 혼자 연못까지 산책시킨 엄마, 6개월 집행유예 선고",
+      "hook": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+      "key_takeaways": [
+        "엄마가 5살 아이 혼자 연못까지 산책시킨 혐의로 6개월 집행유예 선고받음",
+        "해커 뉴스 커뮤니티에서 243점, 255개의 댓글을 기록하며 화제가 됨",
+        "이번 판결은 과잉 처벌과 부모의 책임에 대한 논쟁을 불러일킴"
+      ]
+    },
+    "en": {
+      "title": "Hacker News: Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+      "hook": "A controversial ruling: a mother receives a suspended sentence for allowing her 5-year-old to walk to a pond alone, sparking debate on parenting standards",
+      "key_takeaways": [
+        "Mother sentenced to six months probation for letting her 5-year-old walk to a pond unattended",
+        "The story scored 243 points with 255 comments on Hacker News",
+        "The case raises questions about over‑policing of parenting and legal boundaries"
+      ]
+    },
+    "zh": {
+      "title": "黑客新闻：母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+      "hook": "一起引发热议的案件：一位母亲因让5岁孩子独自去池塘而被判缓刑，引发关于 parenting 标准的讨论",
+      "key_takeaways": [
+        "一位母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+        "该新闻在黑客新闻上获得243分，255条评论",
+        "案件引发关于过度监管 parenting 和法律界限的讨论"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Legal",
+    "Parenting",
+    "Hacker News"
+  ],
+  "title_ko": "해커 뉴스: 5살 아이 혼자 연못까지 산책시킨 엄마, 6개월 집행유예 선고",
+  "title_en": "Hacker News: Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+  "title_zh": "黑客新闻：母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+  "hook": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+  "hook_ko": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+  "hook_en": "A controversial ruling: a mother receives a suspended sentence for allowing her 5-year-old to walk to a pond alone, sparking debate on parenting standards",
+  "hook_zh": "一起引发热议的案件：一位母亲因让5岁孩子独自去池塘而被判缓刑，引发关于 parenting 标准的讨论",
+  "description_ko": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+  "description_en": "A controversial ruling: a mother receives a suspended sentence for allowing her 5-year-old to walk to a pond alone, sparking debate on parenting standards",
+  "description_zh": "一起引发热议的案件：一位母亲因让5岁孩子独自去池塘而被判缓刑，引发关于 parenting 标准的讨论"
 }

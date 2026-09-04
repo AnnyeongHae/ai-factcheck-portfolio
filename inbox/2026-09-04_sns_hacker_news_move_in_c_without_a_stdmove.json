@@ -9,7 +9,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49521590",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 38 pts | Comments: 48 | Move in C++ without a std:move",
   "viral_metric": "🔥 38 HN Points",
   "metric_tracking": {
@@ -34,8 +34,98 @@
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49521590",
   "article_url": "https://andreasfertig.com/blog/2026/09/move-in-cpp-without-a-stdmove/",
-  "title_ko": "Move in C++ without a std:move",
-  "description_ko": "해커뉴스에서 38점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-  "is_classified": false,
-  "is_deep_analyzed": false
+  "title_ko": "C++에서 std::move 없이 이동하기",
+  "description_ko": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_move_in_c_without_a_stdmove",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "C++ move semantics",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "C++",
+      "move semantics",
+      "std::move"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "C++에서 std::move 없이 이동하기",
+        "hook": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+        "key_takeaways": [
+          "수동 이동 구현으로 std::move 의존성 감소",
+          "플래스먼트 new와 소멸자를 활용한 이동 동작 구현",
+          "성능 최적화를 위한 move semantics 이해"
+        ]
+      },
+      "en": {
+        "title": "Moving Objects in C++ Without Using std::move",
+        "hook": "Discover how to implement object movement in C++ manually for performance gains",
+        "key_takeaways": [
+          "Reduce reliance on std::move by implementing move manually",
+          "Use placement new and destructors to achieve move-like behavior",
+          "Understanding move semantics improves overall C++ efficiency"
+        ]
+      },
+      "zh": {
+        "title": "在C++中不使用std::move进行移动",
+        "hook": "了解如何在C++中手动实现对象移动以提升性能",
+        "key_takeaways": [
+          "通过手动实现移动降低对 std::move 的依赖",
+          "使用 placement new 和析构函数实现移动语义",
+          "掌握 move semantics 提升 C++ 整体性能"
+        ]
+      }
+    },
+    "enriched_by_model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+    "enriched_at": "2026-09-04T18:00:42.944005+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "C++에서 std::move 없이 이동하기",
+      "hook": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+      "key_takeaways": [
+        "수동 이동 구현으로 std::move 의존성 감소",
+        "플래스먼트 new와 소멸자를 활용한 이동 동작 구현",
+        "성능 최적화를 위한 move semantics 이해"
+      ]
+    },
+    "en": {
+      "title": "Moving Objects in C++ Without Using std::move",
+      "hook": "Discover how to implement object movement in C++ manually for performance gains",
+      "key_takeaways": [
+        "Reduce reliance on std::move by implementing move manually",
+        "Use placement new and destructors to achieve move-like behavior",
+        "Understanding move semantics improves overall C++ efficiency"
+      ]
+    },
+    "zh": {
+      "title": "在C++中不使用std::move进行移动",
+      "hook": "了解如何在C++中手动实现对象移动以提升性能",
+      "key_takeaways": [
+        "通过手动实现移动降低对 std::move 的依赖",
+        "使用 placement new 和析构函数实现移动语义",
+        "掌握 move semantics 提升 C++ 整体性能"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "C++",
+    "move semantics",
+    "std::move"
+  ],
+  "title_en": "Moving Objects in C++ Without Using std::move",
+  "title_zh": "在C++中不使用std::move进行移动",
+  "hook": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+  "hook_ko": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+  "hook_en": "Discover how to implement object movement in C++ manually for performance gains",
+  "hook_zh": "了解如何在C++中手动实现对象移动以提升性能",
+  "description_en": "Discover how to implement object movement in C++ manually for performance gains",
+  "description_zh": "了解如何在C++中手动实现对象移动以提升性能"
 }

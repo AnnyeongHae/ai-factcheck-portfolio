@@ -34,8 +34,98 @@
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49559901",
   "article_url": "https://computer.rip/2026-06-14-hookswitch-to-grave.html",
-  "title_ko": "From Hookswitch to Grave",
-  "description_ko": "해커뉴스에서 9점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-  "is_classified": false,
-  "is_deep_analyzed": false
+  "title_ko": "해커 뉴스: 후크스위치에서 그레이브까지",
+  "description_ko": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_from_hookswitch_to_grave",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "Industry News",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Hacker News",
+      "Hookswitch",
+      "Grave"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.5,
+    "multilingual": {
+      "ko": {
+        "title": "해커 뉴스: 후크스위치에서 그레이브까지",
+        "hook": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+        "key_takeaways": [
+          "후크스위치에서 그레이브까지라는 제목의 짧은 해커 뉴스 게시물이 9점이라는 낮은 점수와 댓글 0개를 기록했습니다.",
+          "이 게시물은 해커 뉴스에서 주목받지 못한 주제를 보여줍니다.",
+          "낮은 참여도는 해당 주제에 대한 현재 관심을 반영합니다."
+        ]
+      },
+      "en": {
+        "title": "Hacker News: From Hookswitch to Grave",
+        "hook": "A brief Hacker News post titled 'From Hookswitch to Grave' scores just 9 points with no comments.",
+        "key_takeaways": [
+          "The Hacker News post titled 'From Hookswitch to Grave' received a low score of 9 points and zero comments.",
+          "It highlights a niche or outdated topic that didn't resonate with the community.",
+          "Low engagement suggests limited current interest in the subject."
+        ]
+      },
+      "zh": {
+        "title": "黑客新闻：从Hookswitch到Grave",
+        "hook": "一篇标题为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+        "key_takeaways": [
+          "一篇名为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+          "这反映了一个未引起社区共鸣的细分或过时话题。",
+          "低参与度表明该主题当前关注度有限。"
+        ]
+      }
+    },
+    "enriched_by_model": "cohere/north-mini-code:free",
+    "enriched_at": "2026-09-04T17:58:29.505887+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "해커 뉴스: 후크스위치에서 그레이브까지",
+      "hook": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+      "key_takeaways": [
+        "후크스위치에서 그레이브까지라는 제목의 짧은 해커 뉴스 게시물이 9점이라는 낮은 점수와 댓글 0개를 기록했습니다.",
+        "이 게시물은 해커 뉴스에서 주목받지 못한 주제를 보여줍니다.",
+        "낮은 참여도는 해당 주제에 대한 현재 관심을 반영합니다."
+      ]
+    },
+    "en": {
+      "title": "Hacker News: From Hookswitch to Grave",
+      "hook": "A brief Hacker News post titled 'From Hookswitch to Grave' scores just 9 points with no comments.",
+      "key_takeaways": [
+        "The Hacker News post titled 'From Hookswitch to Grave' received a low score of 9 points and zero comments.",
+        "It highlights a niche or outdated topic that didn't resonate with the community.",
+        "Low engagement suggests limited current interest in the subject."
+      ]
+    },
+    "zh": {
+      "title": "黑客新闻：从Hookswitch到Grave",
+      "hook": "一篇标题为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+      "key_takeaways": [
+        "一篇名为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+        "这反映了一个未引起社区共鸣的细分或过时话题。",
+        "低参与度表明该主题当前关注度有限。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Hacker News",
+    "Hookswitch",
+    "Grave"
+  ],
+  "title_en": "Hacker News: From Hookswitch to Grave",
+  "title_zh": "黑客新闻：从Hookswitch到Grave",
+  "hook": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+  "hook_ko": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+  "hook_en": "A brief Hacker News post titled 'From Hookswitch to Grave' scores just 9 points with no comments.",
+  "hook_zh": "一篇标题为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+  "description_en": "A brief Hacker News post titled 'From Hookswitch to Grave' scores just 9 points with no comments.",
+  "description_zh": "一篇标题为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。"
 }

@@ -640,24 +640,21 @@ def generate_html(data):
     <!-- ==================== VIEW 0: HOME DASHBOARD (순수 종합 대시보드 뷰) ==================== -->
     <div id="homeView" class="space-y-6">
 
-      <!-- Executive Intro Hero Banner -->
-      <div class="bg-white p-6 sm:p-7 rounded-2xl border border-surface-border flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
-        <div class="max-w-3xl space-y-1.5">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-secondary text-xs font-mono font-bold border border-surface-border" id="heroBadge">
-            ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT
-          </div>
-          <h2 class="text-xl sm:text-2xl font-extrabold text-ink-primary tracking-tight" id="heroMainTitle">
+      <!-- Compact Zero-Scroll Status Strip -->
+      <div class="flex items-center justify-between flex-wrap gap-2 px-4 py-2 rounded-xl bg-white border border-surface-border shadow-xs text-xs font-mono">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold text-[11px]" id="heroBadge">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+            ZERO-HALLUCINATION AUDIT
+          </span>
+          <span class="font-bold text-ink-primary text-xs hidden sm:inline" id="heroMainTitle">
             소문난 AI 기술의 실체와 공학적 단위 경제성 정밀 검증
-          </h2>
-          <p class="text-xs sm:text-sm text-ink-secondary leading-relaxed" id="heroMainDesc">
-            SNS 바이럴 마케팅의 환각을 걷어내고, <strong>1차 공식 출처 감사</strong>와 <strong>기저 표준 vs 서드파티 실측 벤치마크</strong>를 통해 도출한 100% 실증 보고서입니다.
-          </p>
+          </span>
         </div>
 
-        <div class="text-right shrink-0 hidden md:block border-l border-surface-border pl-6">
-          <div class="text-xs text-ink-muted font-mono font-medium" id="heroUpdateLabel">LAST AUDITED</div>
-          <div class="text-base font-bold text-ink-primary font-mono">{data['generated_at']}</div>
-          <div class="text-[11px] text-emerald-700 font-semibold mt-0.5" id="heroAuditCount">{data['total_cases']}개 기술 검증 완료</div>
+        <div class="flex items-center gap-3 text-[11px] text-ink-muted">
+          <span><span id="heroUpdateLabel">LAST AUDITED</span>: <b class="text-ink-primary">{data['generated_at']}</b></span>
+          <span class="text-emerald-700 font-bold" id="heroAuditCount">● {data['total_cases']}개 기술 검증 완료</span>
         </div>
       </div>
 
@@ -1009,8 +1006,8 @@ def generate_html(data):
         </div>
       </div>
 
-      <!-- Models Grid (4x5 Balanced Grid) -->
-      <div id="modelsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4.5"></div>
+      <!-- Models Grid (3x5 Readable Grid) -->
+      <div id="modelsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
       <div id="modelsPagination" class="mt-4"></div>
     </div>
 
@@ -1053,8 +1050,8 @@ def generate_html(data):
         </div>
       </div>
 
-      <!-- News Grid (4x5 Balanced Grid) -->
-      <div id="newsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4.5"></div>
+      <!-- News Grid (3x5 Readable Grid) -->
+      <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
       <div id="newsPagination" class="mt-4"></div>
     </div>
 
@@ -1234,8 +1231,8 @@ def generate_html(data):
         </div>
       </div>
 
-      <!-- Inbox Grid (4x5 Balanced Grid) -->
-      <div id="inboxGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4.5"></div>
+      <!-- Inbox Grid (3x5 Readable Grid) -->
+      <div id="inboxGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
       <div id="inboxPagination" class="mt-4"></div>
     </div>
 
@@ -1399,8 +1396,8 @@ def generate_html(data):
     let currentGraphType = 'ALL';
     let simulationRef = null;
 
-    // 📄 Global Pagination State (20 items per page: << < 1, 2, 3, 4, 5 > >>)
-    const PAGE_SIZE = 20;
+    // 📄 Global Pagination State (15 items per page for 3x5 Grid: << < 1, 2, 3, 4, 5 > >>)
+    const PAGE_SIZE = 15;
     let currentPortfolioPage = 1;
     let currentModelsPage = 1;
     let currentNewsPage = 1;

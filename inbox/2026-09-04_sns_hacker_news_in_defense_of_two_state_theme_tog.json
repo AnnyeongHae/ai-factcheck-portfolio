@@ -9,7 +9,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49520978",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 4 pts | Comments: 4 | In defense of two-state theme toggles",
   "viral_metric": "🔥 4 HN Points",
   "metric_tracking": {
@@ -34,6 +34,102 @@
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49520978",
   "article_url": "https://joshcollinsworth.com/blog/in-defense-of-two-state-theme-toggles",
-  "is_classified": false,
-  "is_deep_analyzed": false
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_in_defense_of_two_state_theme_tog",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "UI/UX Design & Frontend Development",
+    "programming_lang": "HTML, CSS, JavaScript",
+    "root_keywords": [
+      "Theme toggle",
+      "Dark mode",
+      "UI/UX design",
+      "OS integration",
+      "User experience"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "이중 상태 테마 토글에 대한 지지 논문 (Hacker News)",
+        "hook": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+        "key_takeaways": [
+          "사용자에게 단순한 이중 상태(라이트/다크) 선택지를 제공하는 것이 OS 레벨 통합보다 더 나은 사용자 경험을 제공한다.",
+          "세부 상태 제어(예: 특정 색상 조합)보다는 표준화된 두 상태 토글이 더 나은 유지보수성과 일관성을 가진다.",
+          "Hacker News 커뮤니티에서 UI/UX 디자인에 대한 깊이 있는 토론을 통해 디자인 패턴의 중요성을 확인할 수 있다."
+        ]
+      },
+      "en": {
+        "title": "In Defense of Two-State Theme Toggles (Hacker News Discussion)",
+        "hook": "Why simplicity wins: A deep dive into the classic debate over two-state vs. multi-state theme toggles for frontend engineers.",
+        "key_takeaways": [
+          "Providing a simple two-state toggle (light/dark) directly to users often yields better UX than relying entirely on OS-level synchronization.",
+          "Standardizing to two states simplifies frontend logic, improves maintainability, and ensures consistency across browsers and devices.",
+          "A valuable read for UI/UX designers and developers looking to understand the trade-offs in theme implementation."
+        ]
+      },
+      "zh": {
+        "title": "关于双状态主题切换按钮的辩护（Hacker News 讨论）",
+        "hook": "为什么简单优于复杂：深入探讨前端工程师在双状态与多状态主题切换之间的经典设计抉择。",
+        "key_takeaways": [
+          "直接向用户提供简单的双状态（亮色/暗色）选择，通常比完全依赖系统级同步带来更好的用户体验。",
+          "标准化为双状态切换可以简化前端逻辑，提高可维护性，并确保跨浏览器和设备的一致性。",
+          "对于UI/UX设计师和开发者来说，这是了解主题实现权衡的有价值阅读材料。"
+        ]
+      }
+    },
+    "enriched_by_model": "dots-studio/dots-3-note-preview:free",
+    "enriched_at": "2026-09-04T18:08:42.648854+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "이중 상태 테마 토글에 대한 지지 논문 (Hacker News)",
+      "hook": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+      "key_takeaways": [
+        "사용자에게 단순한 이중 상태(라이트/다크) 선택지를 제공하는 것이 OS 레벨 통합보다 더 나은 사용자 경험을 제공한다.",
+        "세부 상태 제어(예: 특정 색상 조합)보다는 표준화된 두 상태 토글이 더 나은 유지보수성과 일관성을 가진다.",
+        "Hacker News 커뮤니티에서 UI/UX 디자인에 대한 깊이 있는 토론을 통해 디자인 패턴의 중요성을 확인할 수 있다."
+      ]
+    },
+    "en": {
+      "title": "In Defense of Two-State Theme Toggles (Hacker News Discussion)",
+      "hook": "Why simplicity wins: A deep dive into the classic debate over two-state vs. multi-state theme toggles for frontend engineers.",
+      "key_takeaways": [
+        "Providing a simple two-state toggle (light/dark) directly to users often yields better UX than relying entirely on OS-level synchronization.",
+        "Standardizing to two states simplifies frontend logic, improves maintainability, and ensures consistency across browsers and devices.",
+        "A valuable read for UI/UX designers and developers looking to understand the trade-offs in theme implementation."
+      ]
+    },
+    "zh": {
+      "title": "关于双状态主题切换按钮的辩护（Hacker News 讨论）",
+      "hook": "为什么简单优于复杂：深入探讨前端工程师在双状态与多状态主题切换之间的经典设计抉择。",
+      "key_takeaways": [
+        "直接向用户提供简单的双状态（亮色/暗色）选择，通常比完全依赖系统级同步带来更好的用户体验。",
+        "标准化为双状态切换可以简化前端逻辑，提高可维护性，并确保跨浏览器和设备的一致性。",
+        "对于UI/UX设计师和开发者来说，这是了解主题实现权衡的有价值阅读材料。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "HTML, CSS, JavaScript",
+  "root_keywords": [
+    "Theme toggle",
+    "Dark mode",
+    "UI/UX design",
+    "OS integration",
+    "User experience"
+  ],
+  "title_ko": "이중 상태 테마 토글에 대한 지지 논문 (Hacker News)",
+  "title_en": "In Defense of Two-State Theme Toggles (Hacker News Discussion)",
+  "title_zh": "关于双状态主题切换按钮的辩护（Hacker News 讨论）",
+  "hook": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+  "hook_ko": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+  "hook_en": "Why simplicity wins: A deep dive into the classic debate over two-state vs. multi-state theme toggles for frontend engineers.",
+  "hook_zh": "为什么简单优于复杂：深入探讨前端工程师在双状态与多状态主题切换之间的经典设计抉择。",
+  "description_ko": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+  "description_en": "Why simplicity wins: A deep dive into the classic debate over two-state vs. multi-state theme toggles for frontend engineers.",
+  "description_zh": "为什么简单优于复杂：深入探讨前端工程师在双状态与多状态主题切换之间的经典设计抉择。"
 }

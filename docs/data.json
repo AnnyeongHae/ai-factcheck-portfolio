@@ -9,7 +9,7 @@
   "gamed_count": 2,
   "avg_confidence": 96.2,
   "models_total_count": 192,
-  "news_total_count": 295,
+  "news_total_count": 308,
   "inbox_total_count": 644,
   "all_inbox_count": 655,
   "admin_stats": {
@@ -1749,7 +1749,7 @@
       "inbox_count": 7,
       "model_count": 0,
       "news_count": 7,
-      "is_current": true,
+      "is_current": false,
       "is_future": false
     },
     {
@@ -1759,8 +1759,8 @@
       "inbox_count": 0,
       "model_count": 0,
       "news_count": 0,
-      "is_current": false,
-      "is_future": true
+      "is_current": true,
+      "is_future": false
     },
     {
       "slot": "21시",
@@ -1774,10 +1774,10 @@
     }
   ],
   "trend_6h": {
-    "window_label": "12:00 ~ 18:00 KST",
-    "window_period": "오후 실시간 모델 & 아키텍처 브리핑",
+    "window_label": "18:00 ~ 24:00 KST",
+    "window_period": "저녁 엔지니어링 & 데일리 결산",
     "today_kst": "2026-09-04",
-    "updated_at": "17:58 KST",
+    "updated_at": "18:39 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
@@ -1786,9 +1786,9 @@
     "tags": [
       "#High_Engagement",
       "#Autonomous_Agent",
+      "#Local_LLM",
       "#MoE_Architecture",
-      "#SoTA_Models",
-      "#Local_LLM"
+      "#SoTA_Models"
     ]
   },
   "dow_stats": [],
@@ -28172,6 +28172,401 @@
   ],
   "news_items": [
     {
+      "inbox_id": "2026-09-04_sns_geeknews_show_gn_gnucms_웹호스팅에_올리면_바로_실행되는_php",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:06:37.757985",
+      "published_at": "2026-09-04T08:06:37.757985",
+      "created_at": "2026-09-04T08:06:37.757985",
+      "updated_at": "2026-09-04T08:06:37.757985",
+      "title": "GeekNews: Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33218",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "GeekNews: Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "description_ko": "웹호스팅에 올리기만 하면 바로 실행되는 PHP 게시판·CMS GNUCMS를 소개합니다.",
+      "hn_url": "https://news.hada.io/topic?id=33218",
+      "article_url": "https://news.hada.io/topic?id=33218",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_show_gn_gnucms_웹호스팅에_올리면_바로_실행되는_php",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "PHP Web CMS/Board",
+        "programming_lang": "PHP",
+        "root_keywords": [
+          "GNUCMS",
+          "PHP CMS",
+          "웹호스팅"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "GeekNews: Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+            "hook": "웹호스팅에 올리기만 하면 바로 실행되는 PHP 게시판·CMS GNUCMS를 소개합니다.",
+            "key_takeaways": [
+              "웹호스팅에 올리기만 하면 바로 실행 가능",
+              "PHP 기반의 게시판 및 CMS 기능 제공",
+              "빠른 배포 및 간단한 설치가 특징"
+            ]
+          },
+          "en": {
+            "title": "GeekNews: Show GN: GNUCMS – PHP Bulletin Board and CMS That Runs Instantly on Web Hosting",
+            "hook": "Discover GNUCMS, a PHP bulletin board and CMS that launches instantly on any web host—perfect for developers needing rapid deployment.",
+            "key_takeaways": [
+              "Instant deployment on any web host",
+              "PHP-based bulletin board and CMS functionality",
+              "Fast setup and simple installation"
+            ]
+          },
+          "zh": {
+            "title": "GeekNews: Show GN: GNUCMS – 一个PHP论坛·CMS，部署到网络主机即可运行",
+            "hook": "介绍一款PHP论坛·CMS，部署到网络主机即可运行的GNUCMS，非常适合需要快速部署的开发者。",
+            "key_takeaways": [
+              "只需部署到网络主机即可运行",
+              "PHP 编程语言开发的论坛与CMS",
+              "快速部署，安装简单"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "GeekNews: Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+          "hook": "웹호스팅에 올리기만 하면 바로 실행되는 PHP 게시판·CMS GNUCMS를 소개합니다.",
+          "key_takeaways": [
+            "웹호스팅에 올리기만 하면 바로 실행 가능",
+            "PHP 기반의 게시판 및 CMS 기능 제공",
+            "빠른 배포 및 간단한 설치가 특징"
+          ]
+        },
+        "en": {
+          "title": "GeekNews: Show GN: GNUCMS – PHP Bulletin Board and CMS That Runs Instantly on Web Hosting",
+          "hook": "Discover GNUCMS, a PHP bulletin board and CMS that launches instantly on any web host—perfect for developers needing rapid deployment.",
+          "key_takeaways": [
+            "Instant deployment on any web host",
+            "PHP-based bulletin board and CMS functionality",
+            "Fast setup and simple installation"
+          ]
+        },
+        "zh": {
+          "title": "GeekNews: Show GN: GNUCMS – 一个PHP论坛·CMS，部署到网络主机即可运行",
+          "hook": "介绍一款PHP论坛·CMS，部署到网络主机即可运行的GNUCMS，非常适合需要快速部署的开发者。",
+          "key_takeaways": [
+            "只需部署到网络主机即可运行",
+            "PHP 编程语言开发的论坛与CMS",
+            "快速部署，安装简单"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "PHP",
+      "root_keywords": [
+        "GNUCMS",
+        "PHP CMS",
+        "웹호스팅"
+      ],
+      "title_en": "GeekNews: Show GN: GNUCMS – PHP Bulletin Board and CMS That Runs Instantly on Web Hosting",
+      "title_zh": "GeekNews: Show GN: GNUCMS – 一个PHP论坛·CMS，部署到网络主机即可运行",
+      "hook": "웹호스팅에 올리기만 하면 바로 실행되는 PHP 게시판·CMS GNUCMS를 소개합니다.",
+      "hook_ko": "웹호스팅에 올리기만 하면 바로 실행되는 PHP 게시판·CMS GNUCMS를 소개합니다.",
+      "hook_en": "Discover GNUCMS, a PHP bulletin board and CMS that launches instantly on any web host—perfect for developers needing rapid deployment.",
+      "hook_zh": "介绍一款PHP论坛·CMS，部署到网络主机即可运行的GNUCMS，非常适合需要快速部署的开发者。",
+      "description_en": "Discover GNUCMS, a PHP bulletin board and CMS that launches instantly on any web host—perfect for developers needing rapid deployment.",
+      "description_zh": "介绍一款PHP论坛·CMS，部署到网络主机即可运行的GNUCMS，非常适合需要快速部署的开发者。"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_authorization_terminology_is_a_me",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:06:37.616052",
+      "published_at": "2026-09-01T14:18:54",
+      "created_at": "2026-09-01T14:18:54",
+      "updated_at": "2026-09-04T08:06:37.616052",
+      "title": "Hacker News: Authorization Terminology Is a Mess: Let's Fix It",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49522367",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 3 pts | Comments: 0 | Authorization Terminology Is a Mess: Let's Fix It",
+      "viral_metric": "🔥 3 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49522367",
+      "article_url": "https://idpro.org/authorization-terminology-is-a-mess-lets-fix-it/",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_authorization_terminology_is_a_me",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Community Terminology & Security Best Practices",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Authorization",
+          "Terminology",
+          "Hacker News",
+          "HN",
+          "Security"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "Hacker News 권한 용어 혼란 해결",
+            "hook": "엔지니어가 즉시 읽어야 할 HN 권한 용어 정리",
+            "key_takeaways": [
+              "HN에서 사용되는 권한 용어들이 혼란스러움",
+              "표준화된 용어를 도입하는 필요성",
+              "보안 정책 개선을 위한 용어 통일 필요"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Authorization Terminology Is a Mess - Let's Fix It",
+            "hook": "Engineers must fix HN's chaotic authorization terminology now",
+            "key_takeaways": [
+              "HN에서 사용되는 권한 용어들이 혼란스러움",
+              "표준화된 용어를 도입하는 필요성",
+              "보안 정책 개선을 위한 용어 통일 필요"
+            ]
+          },
+          "zh": {
+            "title": "Hacker News: 권한 용어 혼란 해결",
+            "hook": "엔지니어가 바로 읽어야 할 HN 권한 용어 정리",
+            "key_takeaways": [
+              "HN에서 사용되는 권한 용어들이 혼란스러움",
+              "표준화된 용어를 도입하는 필요성",
+              "보안 정책 개선을 위한 용어 통일 필요"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Hacker News 권한 용어 혼란 해결",
+          "hook": "엔지니어가 즉시 읽어야 할 HN 권한 용어 정리",
+          "key_takeaways": [
+            "HN에서 사용되는 권한 용어들이 혼란스러움",
+            "표준화된 용어를 도입하는 필요성",
+            "보안 정책 개선을 위한 용어 통일 필요"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Authorization Terminology Is a Mess - Let's Fix It",
+          "hook": "Engineers must fix HN's chaotic authorization terminology now",
+          "key_takeaways": [
+            "HN에서 사용되는 권한 용어들이 혼란스러움",
+            "표준화된 용어를 도입하는 필요성",
+            "보안 정책 개선을 위한 용어 통일 필요"
+          ]
+        },
+        "zh": {
+          "title": "Hacker News: 권한 용어 혼란 해결",
+          "hook": "엔지니어가 바로 읽어야 할 HN 권한 용어 정리",
+          "key_takeaways": [
+            "HN에서 사용되는 권한 용어들이 혼란스러움",
+            "표준화된 용어를 도입하는 필요성",
+            "보안 정책 개선을 위한 용어 통일 필요"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Authorization",
+        "Terminology",
+        "Hacker News",
+        "HN",
+        "Security"
+      ],
+      "title_ko": "Hacker News 권한 용어 혼란 해결",
+      "title_en": "Hacker News: Authorization Terminology Is a Mess - Let's Fix It",
+      "title_zh": "Hacker News: 권한 용어 혼란 해결",
+      "hook": "엔지니어가 즉시 읽어야 할 HN 권한 용어 정리",
+      "hook_ko": "엔지니어가 즉시 읽어야 할 HN 권한 용어 정리",
+      "hook_en": "Engineers must fix HN's chaotic authorization terminology now",
+      "hook_zh": "엔지니어가 바로 읽어야 할 HN 권한 용어 정리",
+      "description_ko": "엔지니어가 즉시 읽어야 할 HN 권한 용어 정리",
+      "description_en": "Engineers must fix HN's chaotic authorization terminology now",
+      "description_zh": "엔지니어가 바로 읽어야 할 HN 권한 용어 정리"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_the_phrase_that_ruins_every_ecomm",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:06:37.603023",
+      "published_at": "2026-09-04T07:36:31",
+      "created_at": "2026-09-04T07:36:31",
+      "updated_at": "2026-09-04T08:06:37.603023",
+      "title": "Hacker News: The phrase that ruins every eCommerce project: \"Just connect it to our ERP.\"",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49561670",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 8 pts | Comments: 2 | The phrase that ruins every eCommerce project: \"Just connect it to our ERP.\"",
+      "viral_metric": "🔥 8 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49561670",
+      "article_url": "https://shiftmag.dev/the-phrase-that-ruins-every-ecommerce-project-just-connect-it-to-our-erp-11689/",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_the_phrase_that_ruins_every_ecomm",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "이커머스 프로젝트 관리 및 ERP 통합 문제",
+        "programming_lang": "General",
+        "root_keywords": [
+          "이커머스",
+          "ERP",
+          "프로젝트 실패",
+          "통합",
+          "개발 관리"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.2,
+        "multilingual": {
+          "ko": {
+            "title": "이커머스 프로젝트를 망치는 말 한 마디: \"ERP에 연결해 주세요\"",
+            "hook": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+            "key_takeaways": [
+              "ERP 연동은 단순한 기능 추가가 아니라 시스템 전반에 걸친 복잡한 통합 과제이다",
+              "초기 요구사항에서 ERP 언급은 프로젝트 일정과 범위를 불안정하게 만든다",
+              "ERP 제약은 이커머스의 유연성과 고객 경험을 크게 저해한다"
+            ]
+          },
+          "en": {
+            "title": "The Phrase That Sinks Every eCommerce Project: 'Just Connect It to Our ERP'",
+            "hook": "Why mentioning ERP integration early in an eCommerce project is a red flag for developers",
+            "key_takeaways": [
+              "ERP integration is not a simple feature addition but a complex system-wide challenge",
+              "Bringing up ERP early destabilizes project timelines and scope",
+              "ERP constraints severely limit flexibility and customer experience in eCommerce"
+            ]
+          },
+          "zh": {
+            "title": "毁掉所有电商项目的句子：“直接连接到我们的ERP”",
+            "hook": "为什么在电商项目初期提及ERP集成会让开发团队望而生畏",
+            "key_takeaways": [
+              "ERP集成并非简单功能添加，而是涉及整个系统的复杂集成任务",
+              "早期提及ERP会破坏项目的时间表和范围控制",
+              "ERP的限制会严重影响电商的灵活性和用户体验"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "이커머스 프로젝트를 망치는 말 한 마디: \"ERP에 연결해 주세요\"",
+          "hook": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+          "key_takeaways": [
+            "ERP 연동은 단순한 기능 추가가 아니라 시스템 전반에 걸친 복잡한 통합 과제이다",
+            "초기 요구사항에서 ERP 언급은 프로젝트 일정과 범위를 불안정하게 만든다",
+            "ERP 제약은 이커머스의 유연성과 고객 경험을 크게 저해한다"
+          ]
+        },
+        "en": {
+          "title": "The Phrase That Sinks Every eCommerce Project: 'Just Connect It to Our ERP'",
+          "hook": "Why mentioning ERP integration early in an eCommerce project is a red flag for developers",
+          "key_takeaways": [
+            "ERP integration is not a simple feature addition but a complex system-wide challenge",
+            "Bringing up ERP early destabilizes project timelines and scope",
+            "ERP constraints severely limit flexibility and customer experience in eCommerce"
+          ]
+        },
+        "zh": {
+          "title": "毁掉所有电商项目的句子：“直接连接到我们的ERP”",
+          "hook": "为什么在电商项目初期提及ERP集成会让开发团队望而生畏",
+          "key_takeaways": [
+            "ERP集成并非简单功能添加，而是涉及整个系统的复杂集成任务",
+            "早期提及ERP会破坏项目的时间表和范围控制",
+            "ERP的限制会严重影响电商的灵活性和用户体验"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "이커머스",
+        "ERP",
+        "프로젝트 실패",
+        "통합",
+        "개발 관리"
+      ],
+      "title_ko": "이커머스 프로젝트를 망치는 말 한 마디: \"ERP에 연결해 주세요\"",
+      "title_en": "The Phrase That Sinks Every eCommerce Project: 'Just Connect It to Our ERP'",
+      "title_zh": "毁掉所有电商项目的句子：“直接连接到我们的ERP”",
+      "hook": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+      "hook_ko": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+      "hook_en": "Why mentioning ERP integration early in an eCommerce project is a red flag for developers",
+      "hook_zh": "为什么在电商项目初期提及ERP集成会让开发团队望而生畏",
+      "description_ko": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+      "description_en": "Why mentioning ERP integration early in an eCommerce project is a red flag for developers",
+      "description_zh": "为什么在电商项目初期提及ERP集成会让开发团队望而生畏"
+    },
+    {
       "inbox_id": "2026-09-04_sns_geeknews_오랫동안_rhel을_사용해_온_cern_산업용_컴퓨터를_debia",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T07:27:18.562991",
@@ -28309,6 +28704,141 @@
       "description_zh": "全球最大粒子物理研究机构CERN在数十年使用RHEL后，将其工业计算机基础设施转向Debian，这一决定对整个企业级Linux生态具有标志性意义。"
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_in_defense_of_two_state_theme_tog",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T07:27:18.307432",
+      "published_at": "2026-09-01T12:20:50",
+      "created_at": "2026-09-01T12:20:50",
+      "updated_at": "2026-09-04T07:27:18.307432",
+      "title": "Hacker News: In defense of two-state theme toggles",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49520978",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 4 pts | Comments: 4 | In defense of two-state theme toggles",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49520978",
+      "article_url": "https://joshcollinsworth.com/blog/in-defense-of-two-state-theme-toggles",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_in_defense_of_two_state_theme_tog",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "UI/UX Design & Frontend Development",
+        "programming_lang": "HTML, CSS, JavaScript",
+        "root_keywords": [
+          "Theme toggle",
+          "Dark mode",
+          "UI/UX design",
+          "OS integration",
+          "User experience"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "이중 상태 테마 토글에 대한 지지 논문 (Hacker News)",
+            "hook": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+            "key_takeaways": [
+              "사용자에게 단순한 이중 상태(라이트/다크) 선택지를 제공하는 것이 OS 레벨 통합보다 더 나은 사용자 경험을 제공한다.",
+              "세부 상태 제어(예: 특정 색상 조합)보다는 표준화된 두 상태 토글이 더 나은 유지보수성과 일관성을 가진다.",
+              "Hacker News 커뮤니티에서 UI/UX 디자인에 대한 깊이 있는 토론을 통해 디자인 패턴의 중요성을 확인할 수 있다."
+            ]
+          },
+          "en": {
+            "title": "In Defense of Two-State Theme Toggles (Hacker News Discussion)",
+            "hook": "Why simplicity wins: A deep dive into the classic debate over two-state vs. multi-state theme toggles for frontend engineers.",
+            "key_takeaways": [
+              "Providing a simple two-state toggle (light/dark) directly to users often yields better UX than relying entirely on OS-level synchronization.",
+              "Standardizing to two states simplifies frontend logic, improves maintainability, and ensures consistency across browsers and devices.",
+              "A valuable read for UI/UX designers and developers looking to understand the trade-offs in theme implementation."
+            ]
+          },
+          "zh": {
+            "title": "关于双状态主题切换按钮的辩护（Hacker News 讨论）",
+            "hook": "为什么简单优于复杂：深入探讨前端工程师在双状态与多状态主题切换之间的经典设计抉择。",
+            "key_takeaways": [
+              "直接向用户提供简单的双状态（亮色/暗色）选择，通常比完全依赖系统级同步带来更好的用户体验。",
+              "标准化为双状态切换可以简化前端逻辑，提高可维护性，并确保跨浏览器和设备的一致性。",
+              "对于UI/UX设计师和开发者来说，这是了解主题实现权衡的有价值阅读材料。"
+            ]
+          }
+        },
+        "enriched_by_model": "dots-studio/dots-3-note-preview:free",
+        "enriched_at": "2026-09-04T18:08:42.648854+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "이중 상태 테마 토글에 대한 지지 논문 (Hacker News)",
+          "hook": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+          "key_takeaways": [
+            "사용자에게 단순한 이중 상태(라이트/다크) 선택지를 제공하는 것이 OS 레벨 통합보다 더 나은 사용자 경험을 제공한다.",
+            "세부 상태 제어(예: 특정 색상 조합)보다는 표준화된 두 상태 토글이 더 나은 유지보수성과 일관성을 가진다.",
+            "Hacker News 커뮤니티에서 UI/UX 디자인에 대한 깊이 있는 토론을 통해 디자인 패턴의 중요성을 확인할 수 있다."
+          ]
+        },
+        "en": {
+          "title": "In Defense of Two-State Theme Toggles (Hacker News Discussion)",
+          "hook": "Why simplicity wins: A deep dive into the classic debate over two-state vs. multi-state theme toggles for frontend engineers.",
+          "key_takeaways": [
+            "Providing a simple two-state toggle (light/dark) directly to users often yields better UX than relying entirely on OS-level synchronization.",
+            "Standardizing to two states simplifies frontend logic, improves maintainability, and ensures consistency across browsers and devices.",
+            "A valuable read for UI/UX designers and developers looking to understand the trade-offs in theme implementation."
+          ]
+        },
+        "zh": {
+          "title": "关于双状态主题切换按钮的辩护（Hacker News 讨论）",
+          "hook": "为什么简单优于复杂：深入探讨前端工程师在双状态与多状态主题切换之间的经典设计抉择。",
+          "key_takeaways": [
+            "直接向用户提供简单的双状态（亮色/暗色）选择，通常比完全依赖系统级同步带来更好的用户体验。",
+            "标准化为双状态切换可以简化前端逻辑，提高可维护性，并确保跨浏览器和设备的一致性。",
+            "对于UI/UX设计师和开发者来说，这是了解主题实现权衡的有价值阅读材料。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "HTML, CSS, JavaScript",
+      "root_keywords": [
+        "Theme toggle",
+        "Dark mode",
+        "UI/UX design",
+        "OS integration",
+        "User experience"
+      ],
+      "title_ko": "이중 상태 테마 토글에 대한 지지 논문 (Hacker News)",
+      "title_en": "In Defense of Two-State Theme Toggles (Hacker News Discussion)",
+      "title_zh": "关于双状态主题切换按钮的辩护（Hacker News 讨论）",
+      "hook": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+      "hook_ko": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+      "hook_en": "Why simplicity wins: A deep dive into the classic debate over two-state vs. multi-state theme toggles for frontend engineers.",
+      "hook_zh": "为什么简单优于复杂：深入探讨前端工程师在双状态与多状态主题切换之间的经典设计抉择。",
+      "description_ko": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+      "description_en": "Why simplicity wins: A deep dive into the classic debate over two-state vs. multi-state theme toggles for frontend engineers.",
+      "description_zh": "为什么简单优于复杂：深入探讨前端工程师在双状态与多状态主题切换之间的经典设计抉择。"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_hackers_had_a_live_feed_of_every_",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T07:27:18.255257",
@@ -28442,6 +28972,790 @@
       "description_zh": "对于负责身份验证系统的工程师和技术决策者来说，这是一起必须深入研究的重大数据泄露安全事件。"
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_inside_colombias_cocaine_factorie",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T06:34:51.805009",
+      "published_at": "2026-09-01T10:41:05",
+      "created_at": "2026-09-01T10:41:05",
+      "updated_at": "2026-09-04T06:34:51.805009",
+      "title": "Hacker News: Inside Colombia's Cocaine Factories",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49520170",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 5 pts | Comments: 1 | Inside Colombia's Cocaine Factories",
+      "viral_metric": "🔥 5 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49520170",
+      "article_url": "https://www.economist.com/interactive/1843/2026/08/28/inside-colombias-cocaine-factories",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_inside_colombias_cocaine_factorie",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": null,
+        "category": "Drug Trade & Illicit Economy Analysis",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Colombia",
+          "cocaine",
+          "factories",
+          "drug trade"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.7,
+        "multilingual": {
+          "ko": {
+            "title": "콜롬비아 코카인 공장 내부 탐구",
+            "hook": "해커 뉴스에서 발견한 콜롬비아의 비극적 생산 현황",
+            "key_takeaways": [
+              "콜롬비아의 코카인 생산 규모",
+              "공장 운영의 위험성",
+              "사회적 영향의 심각성"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Inside Colombia's Cocaine Factories",
+            "hook": "Deep dive into the illicit drug trade inside Colombia",
+            "key_takeaways": [
+              "Scale of cocaine production",
+              "Dangers of factory operations",
+              "Broader societal implications"
+            ]
+          },
+          "zh": {
+            "title": "哥伦比亚可卡因工厂内部探秘",
+            "hook": "从Hacker News发现的哥伦比亚毒品生产现场揭秘",
+            "key_takeaways": [
+              "哥伦比亚毒品生产规模",
+              "工厂运营风险",
+              "社会影响深远"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "콜롬비아 코카인 공장 내부 탐구",
+          "hook": "해커 뉴스에서 발견한 콜롬비아의 비극적 생산 현황",
+          "key_takeaways": [
+            "콜롬비아의 코카인 생산 규모",
+            "공장 운영의 위험성",
+            "사회적 영향의 심각성"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Inside Colombia's Cocaine Factories",
+          "hook": "Deep dive into the illicit drug trade inside Colombia",
+          "key_takeaways": [
+            "Scale of cocaine production",
+            "Dangers of factory operations",
+            "Broader societal implications"
+          ]
+        },
+        "zh": {
+          "title": "哥伦比亚可卡因工厂内部探秘",
+          "hook": "从Hacker News发现的哥伦比亚毒品生产现场揭秘",
+          "key_takeaways": [
+            "哥伦比亚毒品生产规模",
+            "工厂运营风险",
+            "社会影响深远"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Colombia",
+        "cocaine",
+        "factories",
+        "drug trade"
+      ],
+      "title_ko": "콜롬비아 코카인 공장 내부 탐구",
+      "title_en": "Hacker News: Inside Colombia's Cocaine Factories",
+      "title_zh": "哥伦比亚可卡因工厂内部探秘",
+      "hook": "해커 뉴스에서 발견한 콜롬비아의 비극적 생산 현황",
+      "hook_ko": "해커 뉴스에서 발견한 콜롬비아의 비극적 생산 현황",
+      "hook_en": "Deep dive into the illicit drug trade inside Colombia",
+      "hook_zh": "从Hacker News发现的哥伦比亚毒品生产现场揭秘",
+      "description_ko": "해커 뉴스에서 발견한 콜롬비아의 비극적 생산 현황",
+      "description_en": "Deep dive into the illicit drug trade inside Colombia",
+      "description_zh": "从Hacker News发现的哥伦比亚毒品生产现场揭秘"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_mom_gets_6_month_suspended_senten",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T05:53:24.796113",
+      "published_at": "2026-09-03T14:12:19",
+      "created_at": "2026-09-03T14:12:19",
+      "updated_at": "2026-09-04T05:53:24.796113",
+      "title": "Hacker News: Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49550174",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 243 pts | Comments: 255 | Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+      "viral_metric": "🔥 243 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 243,
+          "display": "🔥 243 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 243,
+          "display": "🔥 243 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49550174",
+      "article_url": "https://reason.com/2026/09/02/virginia-mom-gets-6-month-suspended-jail-sentence-for-letting-5-year-old-walk-to-the-pond/",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_mom_gets_6_month_suspended_senten",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Legal/Social",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Legal",
+          "Parenting",
+          "Hacker News"
+        ],
+        "recommended_tag": "📝 Tech Reference",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 5살 아이 혼자 연못까지 산책시킨 엄마, 6개월 집행유예 선고",
+            "hook": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+            "key_takeaways": [
+              "엄마가 5살 아이 혼자 연못까지 산책시킨 혐의로 6개월 집행유예 선고받음",
+              "해커 뉴스 커뮤니티에서 243점, 255개의 댓글을 기록하며 화제가 됨",
+              "이번 판결은 과잉 처벌과 부모의 책임에 대한 논쟁을 불러일킴"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+            "hook": "A controversial ruling: a mother receives a suspended sentence for allowing her 5-year-old to walk to a pond alone, sparking debate on parenting standards",
+            "key_takeaways": [
+              "Mother sentenced to six months probation for letting her 5-year-old walk to a pond unattended",
+              "The story scored 243 points with 255 comments on Hacker News",
+              "The case raises questions about over‑policing of parenting and legal boundaries"
+            ]
+          },
+          "zh": {
+            "title": "黑客新闻：母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+            "hook": "一起引发热议的案件：一位母亲因让5岁孩子独自去池塘而被判缓刑，引发关于 parenting 标准的讨论",
+            "key_takeaways": [
+              "一位母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+              "该新闻在黑客新闻上获得243分，255条评论",
+              "案件引发关于过度监管 parenting 和法律界限的讨论"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T17:59:05.063991+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 5살 아이 혼자 연못까지 산책시킨 엄마, 6개월 집행유예 선고",
+          "hook": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+          "key_takeaways": [
+            "엄마가 5살 아이 혼자 연못까지 산책시킨 혐의로 6개월 집행유예 선고받음",
+            "해커 뉴스 커뮤니티에서 243점, 255개의 댓글을 기록하며 화제가 됨",
+            "이번 판결은 과잉 처벌과 부모의 책임에 대한 논쟁을 불러일킴"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+          "hook": "A controversial ruling: a mother receives a suspended sentence for allowing her 5-year-old to walk to a pond alone, sparking debate on parenting standards",
+          "key_takeaways": [
+            "Mother sentenced to six months probation for letting her 5-year-old walk to a pond unattended",
+            "The story scored 243 points with 255 comments on Hacker News",
+            "The case raises questions about over‑policing of parenting and legal boundaries"
+          ]
+        },
+        "zh": {
+          "title": "黑客新闻：母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+          "hook": "一起引发热议的案件：一位母亲因让5岁孩子独自去池塘而被判缓刑，引发关于 parenting 标准的讨论",
+          "key_takeaways": [
+            "一位母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+            "该新闻在黑客新闻上获得243分，255条评论",
+            "案件引发关于过度监管 parenting 和法律界限的讨论"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Legal",
+        "Parenting",
+        "Hacker News"
+      ],
+      "title_ko": "해커 뉴스: 5살 아이 혼자 연못까지 산책시킨 엄마, 6개월 집행유예 선고",
+      "title_en": "Hacker News: Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+      "title_zh": "黑客新闻：母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+      "hook": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+      "hook_ko": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+      "hook_en": "A controversial ruling: a mother receives a suspended sentence for allowing her 5-year-old to walk to a pond alone, sparking debate on parenting standards",
+      "hook_zh": "一起引发热议的案件：一位母亲因让5岁孩子独自去池塘而被判缓刑，引发关于 parenting 标准的讨论",
+      "description_ko": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+      "description_en": "A controversial ruling: a mother receives a suspended sentence for allowing her 5-year-old to walk to a pond alone, sparking debate on parenting standards",
+      "description_zh": "一起引发热议的案件：一位母亲因让5岁孩子独自去池塘而被判缓刑，引发关于 parenting 标准的讨论"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_sing_song_a_speakable_encoding_fo",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T05:53:24.438111",
+      "published_at": "2026-08-31T23:14:11",
+      "created_at": "2026-08-31T23:14:11",
+      "updated_at": "2026-09-04T05:53:24.438111",
+      "title": "Hacker News: Sing-song: a speakable encoding for long numbers and keys",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49515966",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 7 pts | Comments: 0 | Sing-song: a speakable encoding for long numbers and keys",
+      "viral_metric": "🔥 7 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 7,
+          "display": "🔥 7 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 7,
+          "display": "🔥 7 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49515966",
+      "article_url": "https://blog.vrypan.net/2026/08/19/260819-sing-song/",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_sing_song_a_speakable_encoding_fo",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Data encoding / representation",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Sing-song",
+          "speakable encoding",
+          "long numbers"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "싱-송: 장시간 숫자와 키를 말할 수 있게 하는 인코딩 방식",
+            "hook": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+            "key_takeaways": [
+              "Sing-song은 숫자와 키를 음성으로 표현해 가독성을 높인다.",
+              "긴 숫자도 쉽게 말해서 기억하고 전달한다.",
+              "인코딩 구조가 간결해 구현이 용이하다."
+            ]
+          },
+          "en": {
+            "title": "Sing-song: a speakable encoding for long numbers and keys",
+            "hook": "A breakthrough encoding that lets you verbally represent long numbers and keys",
+            "key_takeaways": [
+              "Sing-song encodes numbers and keys into speakable forms, improving readability.",
+              "It enables easy verbalization of long numeric sequences.",
+              "The design is simple, facilitating straightforward implementation."
+            ]
+          },
+          "zh": {
+            "title": "Sing-song: 长数字和键的可说编码",
+            "hook": "长数字和键的可说编码，使数据传输和存储效率大幅提升",
+            "key_takeaways": [
+              "Sing-song将长数字和键转换为可说形式，提高可读性。",
+              "通过口头表达，记忆和传递长数字更加便捷。",
+              "结构简洁，实现起来容易。"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "싱-송: 장시간 숫자와 키를 말할 수 있게 하는 인코딩 방식",
+          "hook": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+          "key_takeaways": [
+            "Sing-song은 숫자와 키를 음성으로 표현해 가독성을 높인다.",
+            "긴 숫자도 쉽게 말해서 기억하고 전달한다.",
+            "인코딩 구조가 간결해 구현이 용이하다."
+          ]
+        },
+        "en": {
+          "title": "Sing-song: a speakable encoding for long numbers and keys",
+          "hook": "A breakthrough encoding that lets you verbally represent long numbers and keys",
+          "key_takeaways": [
+            "Sing-song encodes numbers and keys into speakable forms, improving readability.",
+            "It enables easy verbalization of long numeric sequences.",
+            "The design is simple, facilitating straightforward implementation."
+          ]
+        },
+        "zh": {
+          "title": "Sing-song: 长数字和键的可说编码",
+          "hook": "长数字和键的可说编码，使数据传输和存储效率大幅提升",
+          "key_takeaways": [
+            "Sing-song将长数字和键转换为可说形式，提高可读性。",
+            "通过口头表达，记忆和传递长数字更加便捷。",
+            "结构简洁，实现起来容易。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Sing-song",
+        "speakable encoding",
+        "long numbers"
+      ],
+      "title_ko": "싱-송: 장시간 숫자와 키를 말할 수 있게 하는 인코딩 방식",
+      "title_en": "Sing-song: a speakable encoding for long numbers and keys",
+      "title_zh": "Sing-song: 长数字和键的可说编码",
+      "hook": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+      "hook_ko": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+      "hook_en": "A breakthrough encoding that lets you verbally represent long numbers and keys",
+      "hook_zh": "长数字和键的可说编码，使数据传输和存储效率大幅提升",
+      "description_ko": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+      "description_en": "A breakthrough encoding that lets you verbally represent long numbers and keys",
+      "description_zh": "长数字和键的可说编码，使数据传输和存储效率大幅提升"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_show_hn_reactor_atlas",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:31:11.838932",
+      "published_at": "2026-09-03T12:33:01",
+      "created_at": "2026-09-03T12:33:01",
+      "updated_at": "2026-09-04T04:31:11.838932",
+      "title": "Hacker News: Show HN: Reactor Atlas",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49549148",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 5 pts | Comments: 0 | Show HN: Reactor Atlas",
+      "viral_metric": "🔥 5 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 5,
+          "display": "🔥 5 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49549148",
+      "article_url": "https://reactoratlas.com",
+      "title_ko": "Show HN: Reactor Atlas – 시각화 도구 소개",
+      "description_ko": "핵심 시각화 기술을 빠르게 파악하고 프로젝트에 적용할 아이디어를 얻으세요",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_show_hn_reactor_atlas",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "",
+        "category": "Visualization Tool",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Reactor Atlas",
+          "Show HN",
+          "Visualization"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.0,
+        "multilingual": {
+          "ko": {
+            "title": "Show HN: Reactor Atlas – 시각화 도구 소개",
+            "hook": "핵심 시각화 기술을 빠르게 파악하고 프로젝트에 적용할 아이디어를 얻으세요",
+            "key_takeaways": [
+              "Reactor Atlas는 인터랙티브한 데이터 시각화 플랫폼입니다",
+              "Show HN을 통해 오픈소스 코드와 데모를 확인할 수 있습니다",
+              "엔지니어링 프로젝트에 바로 적용할 수 있는 시각화 기법을 제공합니다"
+            ]
+          },
+          "en": {
+            "title": "Show HN: Reactor Atlas – A Visualization Tool",
+            "hook": "Get a quick insight into innovative visualization techniques for engineering projects",
+            "key_takeaways": [
+              "Reactor Atlas is an interactive data visualization platform",
+              "The Show HN post includes open-source code and a live demo",
+              "It offers ready-to-use visualization methods for engineering workflows"
+            ]
+          },
+          "zh": {
+            "title": "Show HN: Reactor Atlas – 可视化工具介绍",
+            "hook": "快速了解前沿可视化技术，为工程项目获取灵感",
+            "key_takeaways": [
+              "Reactor Atlas 是一个交互式数据可视化平台",
+              "Show HN 帖子提供了开源代码和在线演示",
+              "它为工程项目提供了可直接使用的可视化方法"
+            ]
+          }
+        },
+        "enriched_by_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "enriched_at": "2026-09-04T17:59:26.856755+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Show HN: Reactor Atlas – 시각화 도구 소개",
+          "hook": "핵심 시각화 기술을 빠르게 파악하고 프로젝트에 적용할 아이디어를 얻으세요",
+          "key_takeaways": [
+            "Reactor Atlas는 인터랙티브한 데이터 시각화 플랫폼입니다",
+            "Show HN을 통해 오픈소스 코드와 데모를 확인할 수 있습니다",
+            "엔지니어링 프로젝트에 바로 적용할 수 있는 시각화 기법을 제공합니다"
+          ]
+        },
+        "en": {
+          "title": "Show HN: Reactor Atlas – A Visualization Tool",
+          "hook": "Get a quick insight into innovative visualization techniques for engineering projects",
+          "key_takeaways": [
+            "Reactor Atlas is an interactive data visualization platform",
+            "The Show HN post includes open-source code and a live demo",
+            "It offers ready-to-use visualization methods for engineering workflows"
+          ]
+        },
+        "zh": {
+          "title": "Show HN: Reactor Atlas – 可视化工具介绍",
+          "hook": "快速了解前沿可视化技术，为工程项目获取灵感",
+          "key_takeaways": [
+            "Reactor Atlas 是一个交互式数据可视化平台",
+            "Show HN 帖子提供了开源代码和在线演示",
+            "它为工程项目提供了可直接使用的可视化方法"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Reactor Atlas",
+        "Show HN",
+        "Visualization"
+      ],
+      "title_en": "Show HN: Reactor Atlas – A Visualization Tool",
+      "title_zh": "Show HN: Reactor Atlas – 可视化工具介绍",
+      "hook": "핵심 시각화 기술을 빠르게 파악하고 프로젝트에 적용할 아이디어를 얻으세요",
+      "hook_ko": "핵심 시각화 기술을 빠르게 파악하고 프로젝트에 적용할 아이디어를 얻으세요",
+      "hook_en": "Get a quick insight into innovative visualization techniques for engineering projects",
+      "hook_zh": "快速了解前沿可视化技术，为工程项目获取灵感",
+      "description_en": "Get a quick insight into innovative visualization techniques for engineering projects",
+      "description_zh": "快速了解前沿可视化技术，为工程项目获取灵感"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_move_in_c_without_a_stdmove",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.913119",
+      "published_at": "2026-09-01T13:17:13",
+      "created_at": "2026-09-01T13:17:13",
+      "updated_at": "2026-09-04T04:12:11.913119",
+      "title": "Hacker News: Move in C++ without a std:move",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49521590",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 38 pts | Comments: 48 | Move in C++ without a std:move",
+      "viral_metric": "🔥 38 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 38,
+          "display": "🔥 38 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 38,
+          "display": "🔥 38 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49521590",
+      "article_url": "https://andreasfertig.com/blog/2026/09/move-in-cpp-without-a-stdmove/",
+      "title_ko": "C++에서 std::move 없이 이동하기",
+      "description_ko": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_move_in_c_without_a_stdmove",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "C++ move semantics",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "C++",
+          "move semantics",
+          "std::move"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "C++에서 std::move 없이 이동하기",
+            "hook": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+            "key_takeaways": [
+              "수동 이동 구현으로 std::move 의존성 감소",
+              "플래스먼트 new와 소멸자를 활용한 이동 동작 구현",
+              "성능 최적화를 위한 move semantics 이해"
+            ]
+          },
+          "en": {
+            "title": "Moving Objects in C++ Without Using std::move",
+            "hook": "Discover how to implement object movement in C++ manually for performance gains",
+            "key_takeaways": [
+              "Reduce reliance on std::move by implementing move manually",
+              "Use placement new and destructors to achieve move-like behavior",
+              "Understanding move semantics improves overall C++ efficiency"
+            ]
+          },
+          "zh": {
+            "title": "在C++中不使用std::move进行移动",
+            "hook": "了解如何在C++中手动实现对象移动以提升性能",
+            "key_takeaways": [
+              "通过手动实现移动降低对 std::move 的依赖",
+              "使用 placement new 和析构函数实现移动语义",
+              "掌握 move semantics 提升 C++ 整体性能"
+            ]
+          }
+        },
+        "enriched_by_model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+        "enriched_at": "2026-09-04T18:00:42.944005+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "C++에서 std::move 없이 이동하기",
+          "hook": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+          "key_takeaways": [
+            "수동 이동 구현으로 std::move 의존성 감소",
+            "플래스먼트 new와 소멸자를 활용한 이동 동작 구현",
+            "성능 최적화를 위한 move semantics 이해"
+          ]
+        },
+        "en": {
+          "title": "Moving Objects in C++ Without Using std::move",
+          "hook": "Discover how to implement object movement in C++ manually for performance gains",
+          "key_takeaways": [
+            "Reduce reliance on std::move by implementing move manually",
+            "Use placement new and destructors to achieve move-like behavior",
+            "Understanding move semantics improves overall C++ efficiency"
+          ]
+        },
+        "zh": {
+          "title": "在C++中不使用std::move进行移动",
+          "hook": "了解如何在C++中手动实现对象移动以提升性能",
+          "key_takeaways": [
+            "通过手动实现移动降低对 std::move 的依赖",
+            "使用 placement new 和析构函数实现移动语义",
+            "掌握 move semantics 提升 C++ 整体性能"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "C++",
+        "move semantics",
+        "std::move"
+      ],
+      "title_en": "Moving Objects in C++ Without Using std::move",
+      "title_zh": "在C++中不使用std::move进行移动",
+      "hook": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+      "hook_ko": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+      "hook_en": "Discover how to implement object movement in C++ manually for performance gains",
+      "hook_zh": "了解如何在C++中手动实现对象移动以提升性能",
+      "description_en": "Discover how to implement object movement in C++ manually for performance gains",
+      "description_zh": "了解如何在C++中手动实现对象移动以提升性能"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_virtual_threads_for_a_scripting_l",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.865055",
+      "published_at": "2026-09-01T14:36:58",
+      "created_at": "2026-09-01T14:36:58",
+      "updated_at": "2026-09-04T04:12:11.865055",
+      "title": "Hacker News: Virtual Threads for a scripting language in Java 8 without Loom",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49522611",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 14 pts | Comments: 1 | Virtual Threads for a scripting language in Java 8 without Loom",
+      "viral_metric": "🔥 14 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49522611",
+      "article_url": "https://jactl.io/blog/2026/08/28/jactl-virtual-threads",
+      "title_ko": "자바 8에서 Loom 없이 가상 스레드를 구현한 스크립트 언어 기법",
+      "description_ko": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_virtual_threads_for_a_scripting_l",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "",
+        "category": "가상 스레드 (Virtual Threads) 구현, Java 8 경량 동시성",
+        "programming_lang": "Java",
+        "root_keywords": [
+          "Virtual Threads",
+          "Java 8",
+          "Loom 대체"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.8,
+        "multilingual": {
+          "ko": {
+            "title": "자바 8에서 Loom 없이 가상 스레드를 구현한 스크립트 언어 기법",
+            "hook": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+            "key_takeaways": [
+              "자바 8 기준에서 가상 스레드 같은 경량 스레드 구현 방법",
+              "Loom 의존 없이 기존 JDK만으로 동시성 성능 향상 가능",
+              "스크립트 언어 인터프리터에 적용해 응답성 개선 사례 제시"
+            ]
+          },
+          "en": {
+            "title": "Virtual Threads for a Scripting Language in Java 8 Without Loom",
+            "hook": "Experience lightweight concurrency on Java 8 without waiting for Project Loom – a must‑read for JVM engineers.",
+            "key_takeaways": [
+              "How to implement lightweight virtual‑thread‑like concurrency on JDK 8",
+              "Achieve Loom‑style scalability without adding new dependencies",
+              "Example integration in a scripting language interpreter improving responsiveness"
+            ]
+          },
+          "zh": {
+            "title": "在 Java 8 中无需 Loom 实现脚本语言的虚拟线程",
+            "hook": "无需等待 Loom，在 Java 8 上也能享受轻量级并发——JVM 开发者必读。",
+            "key_takeaways": [
+              "在 JDK 8 上实现类似虚拟线程的轻量并发方案",
+              "无需引入 Loom 依赖，仅用现有 JDK 提升并发性能",
+              "在脚本语言解释器中的集成示例，展示响应性提升"
+            ]
+          }
+        },
+        "enriched_by_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "enriched_at": "2026-09-04T17:59:53.621457+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "자바 8에서 Loom 없이 가상 스레드를 구현한 스크립트 언어 기법",
+          "hook": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+          "key_takeaways": [
+            "자바 8 기준에서 가상 스레드 같은 경량 스레드 구현 방법",
+            "Loom 의존 없이 기존 JDK만으로 동시성 성능 향상 가능",
+            "스크립트 언어 인터프리터에 적용해 응답성 개선 사례 제시"
+          ]
+        },
+        "en": {
+          "title": "Virtual Threads for a Scripting Language in Java 8 Without Loom",
+          "hook": "Experience lightweight concurrency on Java 8 without waiting for Project Loom – a must‑read for JVM engineers.",
+          "key_takeaways": [
+            "How to implement lightweight virtual‑thread‑like concurrency on JDK 8",
+            "Achieve Loom‑style scalability without adding new dependencies",
+            "Example integration in a scripting language interpreter improving responsiveness"
+          ]
+        },
+        "zh": {
+          "title": "在 Java 8 中无需 Loom 实现脚本语言的虚拟线程",
+          "hook": "无需等待 Loom，在 Java 8 上也能享受轻量级并发——JVM 开发者必读。",
+          "key_takeaways": [
+            "在 JDK 8 上实现类似虚拟线程的轻量并发方案",
+            "无需引入 Loom 依赖，仅用现有 JDK 提升并发性能",
+            "在脚本语言解释器中的集成示例，展示响应性提升"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Java",
+      "root_keywords": [
+        "Virtual Threads",
+        "Java 8",
+        "Loom 대체"
+      ],
+      "title_en": "Virtual Threads for a Scripting Language in Java 8 Without Loom",
+      "title_zh": "在 Java 8 中无需 Loom 实现脚本语言的虚拟线程",
+      "hook": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+      "hook_ko": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+      "hook_en": "Experience lightweight concurrency on Java 8 without waiting for Project Loom – a must‑read for JVM engineers.",
+      "hook_zh": "无需等待 Loom，在 Java 8 上也能享受轻量级并发——JVM 开发者必读。",
+      "description_en": "Experience lightweight concurrency on Java 8 without waiting for Project Loom – a must‑read for JVM engineers.",
+      "description_zh": "无需等待 Loom，在 Java 8 上也能享受轻量级并发——JVM 开发者必读。"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_grep_beats_lsp_why_coding_agents_",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T04:12:11.826452",
@@ -28573,6 +29887,266 @@
       "description_zh": "工程师必须立即关注：编码代理忽视了更好的工具"
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_from_hookswitch_to_grave",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.817235",
+      "published_at": "2026-09-04T02:40:12",
+      "created_at": "2026-09-04T02:40:12",
+      "updated_at": "2026-09-04T04:12:11.817235",
+      "title": "Hacker News: From Hookswitch to Grave",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49559901",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 9 pts | Comments: 0 | From Hookswitch to Grave",
+      "viral_metric": "🔥 9 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49559901",
+      "article_url": "https://computer.rip/2026-06-14-hookswitch-to-grave.html",
+      "title_ko": "해커 뉴스: 후크스위치에서 그레이브까지",
+      "description_ko": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_from_hookswitch_to_grave",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Industry News",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Hacker News",
+          "Hookswitch",
+          "Grave"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 후크스위치에서 그레이브까지",
+            "hook": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+            "key_takeaways": [
+              "후크스위치에서 그레이브까지라는 제목의 짧은 해커 뉴스 게시물이 9점이라는 낮은 점수와 댓글 0개를 기록했습니다.",
+              "이 게시물은 해커 뉴스에서 주목받지 못한 주제를 보여줍니다.",
+              "낮은 참여도는 해당 주제에 대한 현재 관심을 반영합니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: From Hookswitch to Grave",
+            "hook": "A brief Hacker News post titled 'From Hookswitch to Grave' scores just 9 points with no comments.",
+            "key_takeaways": [
+              "The Hacker News post titled 'From Hookswitch to Grave' received a low score of 9 points and zero comments.",
+              "It highlights a niche or outdated topic that didn't resonate with the community.",
+              "Low engagement suggests limited current interest in the subject."
+            ]
+          },
+          "zh": {
+            "title": "黑客新闻：从Hookswitch到Grave",
+            "hook": "一篇标题为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+            "key_takeaways": [
+              "一篇名为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+              "这反映了一个未引起社区共鸣的细分或过时话题。",
+              "低参与度表明该主题当前关注度有限。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T17:58:29.505887+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 후크스위치에서 그레이브까지",
+          "hook": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+          "key_takeaways": [
+            "후크스위치에서 그레이브까지라는 제목의 짧은 해커 뉴스 게시물이 9점이라는 낮은 점수와 댓글 0개를 기록했습니다.",
+            "이 게시물은 해커 뉴스에서 주목받지 못한 주제를 보여줍니다.",
+            "낮은 참여도는 해당 주제에 대한 현재 관심을 반영합니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: From Hookswitch to Grave",
+          "hook": "A brief Hacker News post titled 'From Hookswitch to Grave' scores just 9 points with no comments.",
+          "key_takeaways": [
+            "The Hacker News post titled 'From Hookswitch to Grave' received a low score of 9 points and zero comments.",
+            "It highlights a niche or outdated topic that didn't resonate with the community.",
+            "Low engagement suggests limited current interest in the subject."
+          ]
+        },
+        "zh": {
+          "title": "黑客新闻：从Hookswitch到Grave",
+          "hook": "一篇标题为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+          "key_takeaways": [
+            "一篇名为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+            "这反映了一个未引起社区共鸣的细分或过时话题。",
+            "低参与度表明该主题当前关注度有限。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Hacker News",
+        "Hookswitch",
+        "Grave"
+      ],
+      "title_en": "Hacker News: From Hookswitch to Grave",
+      "title_zh": "黑客新闻：从Hookswitch到Grave",
+      "hook": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+      "hook_ko": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+      "hook_en": "A brief Hacker News post titled 'From Hookswitch to Grave' scores just 9 points with no comments.",
+      "hook_zh": "一篇标题为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+      "description_en": "A brief Hacker News post titled 'From Hookswitch to Grave' scores just 9 points with no comments.",
+      "description_zh": "一篇标题为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_how_an_mit_research_project_becam",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.808375",
+      "published_at": "2026-08-31T08:26:09",
+      "created_at": "2026-08-31T08:26:09",
+      "updated_at": "2026-09-04T04:12:11.808375",
+      "title": "Hacker News: How an MIT research project became the Julia programming language",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49507072",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 35 pts | Comments: 6 | How an MIT research project became the Julia programming language",
+      "viral_metric": "🔥 35 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 35,
+          "display": "🔥 35 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 35,
+          "display": "🔥 35 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49507072",
+      "article_url": "https://news.mit.edu/2026/how-mit-research-project-became-global-programming-language-0831",
+      "title_ko": "MIT 연구 프로젝트가 Julia 언어를 만들었다",
+      "description_ko": "엔지니어가 즉시 읽어야 할 결정적 내용: MIT의 혁신적인 연구가 Julia라는 새로운 프로그래밍 언어를 탄생시켰습니다.",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_how_an_mit_research_project_becam",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Programming Language Development",
+        "programming_lang": "Julia",
+        "root_keywords": [
+          "MIT research",
+          "Julia programming language",
+          "Open source"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.7,
+        "multilingual": {
+          "ko": {
+            "title": "MIT 연구 프로젝트가 Julia 언어를 만들었다",
+            "hook": "엔지니어가 즉시 읽어야 할 결정적 내용: MIT의 혁신적인 연구가 Julia라는 새로운 프로그래밍 언어를 탄생시켰습니다.",
+            "key_takeaways": [
+              "MIT 연구팀이 Julia 언어 개발에 성공",
+              "오픈 소스 커뮤니티의 참여로 빠르게 확산",
+              "데이터 과학 분야에서 높은 인기를 끌고 있음"
+            ]
+          },
+          "en": {
+            "title": "How an MIT Research Project Became the Julia Programming Language",
+            "hook": "Engineers must read immediately: An MIT research project that became the Julia programming language.",
+            "key_takeaways": [
+              "MIT research team successfully created Julia language",
+              "Rapid adoption through open-source community involvement",
+              "Gaining significant traction in data science domain"
+            ]
+          },
+          "zh": {
+            "title": "MIT研究项目如何诞生了Julia编程语言",
+            "hook": "工程师必须立即阅读：一项MIT研究项目成为Julia编程语言。",
+            "key_takeaways": [
+              "MIT研究团队成功开发了Julia语言",
+              "开源社区的积极参与推动了快速传播",
+              "在数据科学领域获得了广泛关注"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "MIT 연구 프로젝트가 Julia 언어를 만들었다",
+          "hook": "엔지니어가 즉시 읽어야 할 결정적 내용: MIT의 혁신적인 연구가 Julia라는 새로운 프로그래밍 언어를 탄생시켰습니다.",
+          "key_takeaways": [
+            "MIT 연구팀이 Julia 언어 개발에 성공",
+            "오픈 소스 커뮤니티의 참여로 빠르게 확산",
+            "데이터 과학 분야에서 높은 인기를 끌고 있음"
+          ]
+        },
+        "en": {
+          "title": "How an MIT Research Project Became the Julia Programming Language",
+          "hook": "Engineers must read immediately: An MIT research project that became the Julia programming language.",
+          "key_takeaways": [
+            "MIT research team successfully created Julia language",
+            "Rapid adoption through open-source community involvement",
+            "Gaining significant traction in data science domain"
+          ]
+        },
+        "zh": {
+          "title": "MIT研究项目如何诞生了Julia编程语言",
+          "hook": "工程师必须立即阅读：一项MIT研究项目成为Julia编程语言。",
+          "key_takeaways": [
+            "MIT研究团队成功开发了Julia语言",
+            "开源社区的积极参与推动了快速传播",
+            "在数据科学领域获得了广泛关注"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Julia",
+      "root_keywords": [
+        "MIT research",
+        "Julia programming language",
+        "Open source"
+      ],
+      "title_en": "How an MIT Research Project Became the Julia Programming Language",
+      "title_zh": "MIT研究项目如何诞生了Julia编程语言",
+      "hook": "엔지니어가 즉시 읽어야 할 결정적 내용: MIT의 혁신적인 연구가 Julia라는 새로운 프로그래밍 언어를 탄생시켰습니다.",
+      "hook_ko": "엔지니어가 즉시 읽어야 할 결정적 내용: MIT의 혁신적인 연구가 Julia라는 새로운 프로그래밍 언어를 탄생시켰습니다.",
+      "hook_en": "Engineers must read immediately: An MIT research project that became the Julia programming language.",
+      "hook_zh": "工程师必须立即阅读：一项MIT研究项目成为Julia编程语言。",
+      "description_en": "Engineers must read immediately: An MIT research project that became the Julia programming language.",
+      "description_zh": "工程师必须立即阅读：一项MIT研究项目成为Julia编程语言。"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_a_mysterious_kidney_disease_has_a",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T04:12:11.794064",
@@ -28702,6 +30276,137 @@
       "hook_zh": "从德克萨斯肾病案例看健康数据监控的重要性",
       "description_en": "Why a mysterious kidney disease outbreak in Texas should matter to data scientists and engineers",
       "description_zh": "从德克萨斯肾病案例看健康数据监控的重要性"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_project_xanadu_even_more_hindsigh",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T04:12:11.783010",
+      "published_at": "2026-09-04T01:45:23",
+      "created_at": "2026-09-04T01:45:23",
+      "updated_at": "2026-09-04T04:12:11.783010",
+      "title": "Hacker News: Project Xanadu: Even More Hindsight",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49559522",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 29 pts | Comments: 4 | Project Xanadu: Even More Hindsight",
+      "viral_metric": "🔥 29 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 29,
+          "display": "🔥 29 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 29,
+          "display": "🔥 29 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49559522",
+      "article_url": "https://gwern.net/xanadu",
+      "title_ko": "프로젝트 제나두: 더욱 깊어진 회고",
+      "description_ko": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_project_xanadu_even_more_hindsigh",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "",
+        "category": "하이퍼텍스트 역사 / 디지털 아카이브",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Project Xanadu",
+          "하이퍼텍스트",
+          "Ted Nelson"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.8,
+        "multilingual": {
+          "ko": {
+            "title": "프로젝트 제나두: 더욱 깊어진 회고",
+            "hook": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+            "key_takeaways": [
+              "제나두는 최초의 하이퍼텍스트 시스템 시도로, 비선형 문서 링킹 개념을 도입했다.",
+              "테드 넬슨의 비전은 현대 웹의 링크 구조와 유사하지만 구현은 실패했다.",
+              "이 글은 제나두의 성공과 실패에서 오늘날의 링크 데이터와 버전 관리 시스템에 적용할 교훈을 제시한다."
+            ]
+          },
+          "en": {
+            "title": "Project Xanadu: Even More Hindsight",
+            "hook": "A retrospective look at Xanadu reveals timeless lessons for today's hyperlink and version‑control systems.",
+            "key_takeaways": [
+              "Xanadu was the earliest attempt at a hypertext system, introducing non‑linear document linking.",
+              "Ted Nelson’s vision inspired the web’s link structure, though the project never shipped.",
+              "The article distills Xanadu’s successes and failures into actionable insights for modern linked data and version control."
+            ]
+          },
+          "zh": {
+            "title": "计划Xanadu：更深的回顾",
+            "hook": "回顾Xanadu，揭示超链接和版本控制系统的永恒教训。",
+            "key_takeaways": [
+              "Xanadu 是最早的超文本系统尝试，提出了非线性文档链接概念。",
+              "特德·尼尔森的愿景与现代网络的链接结构相似，但项目未能实现。",
+              "文章总结了Xanadu的成功与失败，为当今的链接数据和版本控制提供了可借鉴的经验。"
+            ]
+          }
+        },
+        "enriched_by_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "enriched_at": "2026-09-04T17:58:45.415709+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "프로젝트 제나두: 더욱 깊어진 회고",
+          "hook": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+          "key_takeaways": [
+            "제나두는 최초의 하이퍼텍스트 시스템 시도로, 비선형 문서 링킹 개념을 도입했다.",
+            "테드 넬슨의 비전은 현대 웹의 링크 구조와 유사하지만 구현은 실패했다.",
+            "이 글은 제나두의 성공과 실패에서 오늘날의 링크 데이터와 버전 관리 시스템에 적용할 교훈을 제시한다."
+          ]
+        },
+        "en": {
+          "title": "Project Xanadu: Even More Hindsight",
+          "hook": "A retrospective look at Xanadu reveals timeless lessons for today's hyperlink and version‑control systems.",
+          "key_takeaways": [
+            "Xanadu was the earliest attempt at a hypertext system, introducing non‑linear document linking.",
+            "Ted Nelson’s vision inspired the web’s link structure, though the project never shipped.",
+            "The article distills Xanadu’s successes and failures into actionable insights for modern linked data and version control."
+          ]
+        },
+        "zh": {
+          "title": "计划Xanadu：更深的回顾",
+          "hook": "回顾Xanadu，揭示超链接和版本控制系统的永恒教训。",
+          "key_takeaways": [
+            "Xanadu 是最早的超文本系统尝试，提出了非线性文档链接概念。",
+            "特德·尼尔森的愿景与现代网络的链接结构相似，但项目未能实现。",
+            "文章总结了Xanadu的成功与失败，为当今的链接数据和版本控制提供了可借鉴的经验。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Project Xanadu",
+        "하이퍼텍스트",
+        "Ted Nelson"
+      ],
+      "title_en": "Project Xanadu: Even More Hindsight",
+      "title_zh": "计划Xanadu：更深的回顾",
+      "hook": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+      "hook_ko": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+      "hook_en": "A retrospective look at Xanadu reveals timeless lessons for today's hyperlink and version‑control systems.",
+      "hook_zh": "回顾Xanadu，揭示超链接和版本控制系统的永恒教训。",
+      "description_en": "A retrospective look at Xanadu reveals timeless lessons for today's hyperlink and version‑control systems.",
+      "description_zh": "回顾Xanadu，揭示超链接和版本控制系统的永恒教训。"
     },
     {
       "inbox_id": "2026-09-04_sns_geeknews_chatgpt_claude_grok_동시다발_장애_발생_확인된_원",
@@ -67715,12 +69420,100 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
-      "description_ko": "Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "title_ko": "GeekNews: Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "description_ko": "웹호스팅에 올리기만 하면 바로 실행되는 PHP 게시판·CMS GNUCMS를 소개합니다.",
       "hn_url": "https://news.hada.io/topic?id=33218",
       "article_url": "https://news.hada.io/topic?id=33218",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_show_gn_gnucms_웹호스팅에_올리면_바로_실행되는_php",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "PHP Web CMS/Board",
+        "programming_lang": "PHP",
+        "root_keywords": [
+          "GNUCMS",
+          "PHP CMS",
+          "웹호스팅"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "GeekNews: Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+            "hook": "웹호스팅에 올리기만 하면 바로 실행되는 PHP 게시판·CMS GNUCMS를 소개합니다.",
+            "key_takeaways": [
+              "웹호스팅에 올리기만 하면 바로 실행 가능",
+              "PHP 기반의 게시판 및 CMS 기능 제공",
+              "빠른 배포 및 간단한 설치가 특징"
+            ]
+          },
+          "en": {
+            "title": "GeekNews: Show GN: GNUCMS – PHP Bulletin Board and CMS That Runs Instantly on Web Hosting",
+            "hook": "Discover GNUCMS, a PHP bulletin board and CMS that launches instantly on any web host—perfect for developers needing rapid deployment.",
+            "key_takeaways": [
+              "Instant deployment on any web host",
+              "PHP-based bulletin board and CMS functionality",
+              "Fast setup and simple installation"
+            ]
+          },
+          "zh": {
+            "title": "GeekNews: Show GN: GNUCMS – 一个PHP论坛·CMS，部署到网络主机即可运行",
+            "hook": "介绍一款PHP论坛·CMS，部署到网络主机即可运行的GNUCMS，非常适合需要快速部署的开发者。",
+            "key_takeaways": [
+              "只需部署到网络主机即可运行",
+              "PHP 编程语言开发的论坛与CMS",
+              "快速部署，安装简单"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "GeekNews: Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+          "hook": "웹호스팅에 올리기만 하면 바로 실행되는 PHP 게시판·CMS GNUCMS를 소개합니다.",
+          "key_takeaways": [
+            "웹호스팅에 올리기만 하면 바로 실행 가능",
+            "PHP 기반의 게시판 및 CMS 기능 제공",
+            "빠른 배포 및 간단한 설치가 특징"
+          ]
+        },
+        "en": {
+          "title": "GeekNews: Show GN: GNUCMS – PHP Bulletin Board and CMS That Runs Instantly on Web Hosting",
+          "hook": "Discover GNUCMS, a PHP bulletin board and CMS that launches instantly on any web host—perfect for developers needing rapid deployment.",
+          "key_takeaways": [
+            "Instant deployment on any web host",
+            "PHP-based bulletin board and CMS functionality",
+            "Fast setup and simple installation"
+          ]
+        },
+        "zh": {
+          "title": "GeekNews: Show GN: GNUCMS – 一个PHP论坛·CMS，部署到网络主机即可运行",
+          "hook": "介绍一款PHP论坛·CMS，部署到网络主机即可运行的GNUCMS，非常适合需要快速部署的开发者。",
+          "key_takeaways": [
+            "只需部署到网络主机即可运行",
+            "PHP 编程语言开发的论坛与CMS",
+            "快速部署，安装简单"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "PHP",
+      "root_keywords": [
+        "GNUCMS",
+        "PHP CMS",
+        "웹호스팅"
+      ],
+      "title_en": "GeekNews: Show GN: GNUCMS – PHP Bulletin Board and CMS That Runs Instantly on Web Hosting",
+      "title_zh": "GeekNews: Show GN: GNUCMS – 一个PHP论坛·CMS，部署到网络主机即可运行",
+      "hook": "웹호스팅에 올리기만 하면 바로 실행되는 PHP 게시판·CMS GNUCMS를 소개합니다.",
+      "hook_ko": "웹호스팅에 올리기만 하면 바로 실행되는 PHP 게시판·CMS GNUCMS를 소개합니다.",
+      "hook_en": "Discover GNUCMS, a PHP bulletin board and CMS that launches instantly on any web host—perfect for developers needing rapid deployment.",
+      "hook_zh": "介绍一款PHP论坛·CMS，部署到网络主机即可运行的GNUCMS，非常适合需要快速部署的开发者。",
+      "description_en": "Discover GNUCMS, a PHP bulletin board and CMS that launches instantly on any web host—perfect for developers needing rapid deployment.",
+      "description_zh": "介绍一款PHP论坛·CMS，部署到网络主机即可运行的GNUCMS，非常适合需要快速部署的开发者。"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_authorization_terminology_is_a_me",
@@ -67758,8 +69551,102 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49522367",
       "article_url": "https://idpro.org/authorization-terminology-is-a-mess-lets-fix-it/",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_authorization_terminology_is_a_me",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Community Terminology & Security Best Practices",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Authorization",
+          "Terminology",
+          "Hacker News",
+          "HN",
+          "Security"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "Hacker News 권한 용어 혼란 해결",
+            "hook": "엔지니어가 즉시 읽어야 할 HN 권한 용어 정리",
+            "key_takeaways": [
+              "HN에서 사용되는 권한 용어들이 혼란스러움",
+              "표준화된 용어를 도입하는 필요성",
+              "보안 정책 개선을 위한 용어 통일 필요"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Authorization Terminology Is a Mess - Let's Fix It",
+            "hook": "Engineers must fix HN's chaotic authorization terminology now",
+            "key_takeaways": [
+              "HN에서 사용되는 권한 용어들이 혼란스러움",
+              "표준화된 용어를 도입하는 필요성",
+              "보안 정책 개선을 위한 용어 통일 필요"
+            ]
+          },
+          "zh": {
+            "title": "Hacker News: 권한 용어 혼란 해결",
+            "hook": "엔지니어가 바로 읽어야 할 HN 권한 용어 정리",
+            "key_takeaways": [
+              "HN에서 사용되는 권한 용어들이 혼란스러움",
+              "표준화된 용어를 도입하는 필요성",
+              "보안 정책 개선을 위한 용어 통일 필요"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Hacker News 권한 용어 혼란 해결",
+          "hook": "엔지니어가 즉시 읽어야 할 HN 권한 용어 정리",
+          "key_takeaways": [
+            "HN에서 사용되는 권한 용어들이 혼란스러움",
+            "표준화된 용어를 도입하는 필요성",
+            "보안 정책 개선을 위한 용어 통일 필요"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Authorization Terminology Is a Mess - Let's Fix It",
+          "hook": "Engineers must fix HN's chaotic authorization terminology now",
+          "key_takeaways": [
+            "HN에서 사용되는 권한 용어들이 혼란스러움",
+            "표준화된 용어를 도입하는 필요성",
+            "보안 정책 개선을 위한 용어 통일 필요"
+          ]
+        },
+        "zh": {
+          "title": "Hacker News: 권한 용어 혼란 해결",
+          "hook": "엔지니어가 바로 읽어야 할 HN 권한 용어 정리",
+          "key_takeaways": [
+            "HN에서 사용되는 권한 용어들이 혼란스러움",
+            "표준화된 용어를 도입하는 필요성",
+            "보안 정책 개선을 위한 용어 통일 필요"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Authorization",
+        "Terminology",
+        "Hacker News",
+        "HN",
+        "Security"
+      ],
+      "title_ko": "Hacker News 권한 용어 혼란 해결",
+      "title_en": "Hacker News: Authorization Terminology Is a Mess - Let's Fix It",
+      "title_zh": "Hacker News: 권한 용어 혼란 해결",
+      "hook": "엔지니어가 즉시 읽어야 할 HN 권한 용어 정리",
+      "hook_ko": "엔지니어가 즉시 읽어야 할 HN 권한 용어 정리",
+      "hook_en": "Engineers must fix HN's chaotic authorization terminology now",
+      "hook_zh": "엔지니어가 바로 읽어야 할 HN 권한 용어 정리",
+      "description_ko": "엔지니어가 즉시 읽어야 할 HN 권한 용어 정리",
+      "description_en": "Engineers must fix HN's chaotic authorization terminology now",
+      "description_zh": "엔지니어가 바로 읽어야 할 HN 권한 용어 정리"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_the_phrase_that_ruins_every_ecomm",
@@ -67797,8 +69684,102 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49561670",
       "article_url": "https://shiftmag.dev/the-phrase-that-ruins-every-ecommerce-project-just-connect-it-to-our-erp-11689/",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_the_phrase_that_ruins_every_ecomm",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "이커머스 프로젝트 관리 및 ERP 통합 문제",
+        "programming_lang": "General",
+        "root_keywords": [
+          "이커머스",
+          "ERP",
+          "프로젝트 실패",
+          "통합",
+          "개발 관리"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.2,
+        "multilingual": {
+          "ko": {
+            "title": "이커머스 프로젝트를 망치는 말 한 마디: \"ERP에 연결해 주세요\"",
+            "hook": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+            "key_takeaways": [
+              "ERP 연동은 단순한 기능 추가가 아니라 시스템 전반에 걸친 복잡한 통합 과제이다",
+              "초기 요구사항에서 ERP 언급은 프로젝트 일정과 범위를 불안정하게 만든다",
+              "ERP 제약은 이커머스의 유연성과 고객 경험을 크게 저해한다"
+            ]
+          },
+          "en": {
+            "title": "The Phrase That Sinks Every eCommerce Project: 'Just Connect It to Our ERP'",
+            "hook": "Why mentioning ERP integration early in an eCommerce project is a red flag for developers",
+            "key_takeaways": [
+              "ERP integration is not a simple feature addition but a complex system-wide challenge",
+              "Bringing up ERP early destabilizes project timelines and scope",
+              "ERP constraints severely limit flexibility and customer experience in eCommerce"
+            ]
+          },
+          "zh": {
+            "title": "毁掉所有电商项目的句子：“直接连接到我们的ERP”",
+            "hook": "为什么在电商项目初期提及ERP集成会让开发团队望而生畏",
+            "key_takeaways": [
+              "ERP集成并非简单功能添加，而是涉及整个系统的复杂集成任务",
+              "早期提及ERP会破坏项目的时间表和范围控制",
+              "ERP的限制会严重影响电商的灵活性和用户体验"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "이커머스 프로젝트를 망치는 말 한 마디: \"ERP에 연결해 주세요\"",
+          "hook": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+          "key_takeaways": [
+            "ERP 연동은 단순한 기능 추가가 아니라 시스템 전반에 걸친 복잡한 통합 과제이다",
+            "초기 요구사항에서 ERP 언급은 프로젝트 일정과 범위를 불안정하게 만든다",
+            "ERP 제약은 이커머스의 유연성과 고객 경험을 크게 저해한다"
+          ]
+        },
+        "en": {
+          "title": "The Phrase That Sinks Every eCommerce Project: 'Just Connect It to Our ERP'",
+          "hook": "Why mentioning ERP integration early in an eCommerce project is a red flag for developers",
+          "key_takeaways": [
+            "ERP integration is not a simple feature addition but a complex system-wide challenge",
+            "Bringing up ERP early destabilizes project timelines and scope",
+            "ERP constraints severely limit flexibility and customer experience in eCommerce"
+          ]
+        },
+        "zh": {
+          "title": "毁掉所有电商项目的句子：“直接连接到我们的ERP”",
+          "hook": "为什么在电商项目初期提及ERP集成会让开发团队望而生畏",
+          "key_takeaways": [
+            "ERP集成并非简单功能添加，而是涉及整个系统的复杂集成任务",
+            "早期提及ERP会破坏项目的时间表和范围控制",
+            "ERP的限制会严重影响电商的灵活性和用户体验"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "이커머스",
+        "ERP",
+        "프로젝트 실패",
+        "통합",
+        "개발 관리"
+      ],
+      "title_ko": "이커머스 프로젝트를 망치는 말 한 마디: \"ERP에 연결해 주세요\"",
+      "title_en": "The Phrase That Sinks Every eCommerce Project: 'Just Connect It to Our ERP'",
+      "title_zh": "毁掉所有电商项目的句子：“直接连接到我们的ERP”",
+      "hook": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+      "hook_ko": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+      "hook_en": "Why mentioning ERP integration early in an eCommerce project is a red flag for developers",
+      "hook_zh": "为什么在电商项目初期提及ERP集成会让开发团队望而生畏",
+      "description_ko": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+      "description_en": "Why mentioning ERP integration early in an eCommerce project is a red flag for developers",
+      "description_zh": "为什么在电商项目初期提及ERP集成会让开发团队望而生畏"
     },
     {
       "inbox_id": "2026-09-04_sns_geeknews_오랫동안_rhel을_사용해_온_cern_산업용_컴퓨터를_debia",
@@ -67948,7 +69929,7 @@
       "source_platform": "Hacker News",
       "source_url": "https://news.ycombinator.com/item?id=49520978",
       "type": "sns",
-      "category_type": "NEWS",
+      "category_type": "TECH",
       "description": "HN Score: 4 pts | Comments: 4 | In defense of two-state theme toggles",
       "viral_metric": "🔥 4 HN Points",
       "metric_tracking": {
@@ -67973,8 +69954,104 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49520978",
       "article_url": "https://joshcollinsworth.com/blog/in-defense-of-two-state-theme-toggles",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_in_defense_of_two_state_theme_tog",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "UI/UX Design & Frontend Development",
+        "programming_lang": "HTML, CSS, JavaScript",
+        "root_keywords": [
+          "Theme toggle",
+          "Dark mode",
+          "UI/UX design",
+          "OS integration",
+          "User experience"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "이중 상태 테마 토글에 대한 지지 논문 (Hacker News)",
+            "hook": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+            "key_takeaways": [
+              "사용자에게 단순한 이중 상태(라이트/다크) 선택지를 제공하는 것이 OS 레벨 통합보다 더 나은 사용자 경험을 제공한다.",
+              "세부 상태 제어(예: 특정 색상 조합)보다는 표준화된 두 상태 토글이 더 나은 유지보수성과 일관성을 가진다.",
+              "Hacker News 커뮤니티에서 UI/UX 디자인에 대한 깊이 있는 토론을 통해 디자인 패턴의 중요성을 확인할 수 있다."
+            ]
+          },
+          "en": {
+            "title": "In Defense of Two-State Theme Toggles (Hacker News Discussion)",
+            "hook": "Why simplicity wins: A deep dive into the classic debate over two-state vs. multi-state theme toggles for frontend engineers.",
+            "key_takeaways": [
+              "Providing a simple two-state toggle (light/dark) directly to users often yields better UX than relying entirely on OS-level synchronization.",
+              "Standardizing to two states simplifies frontend logic, improves maintainability, and ensures consistency across browsers and devices.",
+              "A valuable read for UI/UX designers and developers looking to understand the trade-offs in theme implementation."
+            ]
+          },
+          "zh": {
+            "title": "关于双状态主题切换按钮的辩护（Hacker News 讨论）",
+            "hook": "为什么简单优于复杂：深入探讨前端工程师在双状态与多状态主题切换之间的经典设计抉择。",
+            "key_takeaways": [
+              "直接向用户提供简单的双状态（亮色/暗色）选择，通常比完全依赖系统级同步带来更好的用户体验。",
+              "标准化为双状态切换可以简化前端逻辑，提高可维护性，并确保跨浏览器和设备的一致性。",
+              "对于UI/UX设计师和开发者来说，这是了解主题实现权衡的有价值阅读材料。"
+            ]
+          }
+        },
+        "enriched_by_model": "dots-studio/dots-3-note-preview:free",
+        "enriched_at": "2026-09-04T18:08:42.648854+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "이중 상태 테마 토글에 대한 지지 논문 (Hacker News)",
+          "hook": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+          "key_takeaways": [
+            "사용자에게 단순한 이중 상태(라이트/다크) 선택지를 제공하는 것이 OS 레벨 통합보다 더 나은 사용자 경험을 제공한다.",
+            "세부 상태 제어(예: 특정 색상 조합)보다는 표준화된 두 상태 토글이 더 나은 유지보수성과 일관성을 가진다.",
+            "Hacker News 커뮤니티에서 UI/UX 디자인에 대한 깊이 있는 토론을 통해 디자인 패턴의 중요성을 확인할 수 있다."
+          ]
+        },
+        "en": {
+          "title": "In Defense of Two-State Theme Toggles (Hacker News Discussion)",
+          "hook": "Why simplicity wins: A deep dive into the classic debate over two-state vs. multi-state theme toggles for frontend engineers.",
+          "key_takeaways": [
+            "Providing a simple two-state toggle (light/dark) directly to users often yields better UX than relying entirely on OS-level synchronization.",
+            "Standardizing to two states simplifies frontend logic, improves maintainability, and ensures consistency across browsers and devices.",
+            "A valuable read for UI/UX designers and developers looking to understand the trade-offs in theme implementation."
+          ]
+        },
+        "zh": {
+          "title": "关于双状态主题切换按钮的辩护（Hacker News 讨论）",
+          "hook": "为什么简单优于复杂：深入探讨前端工程师在双状态与多状态主题切换之间的经典设计抉择。",
+          "key_takeaways": [
+            "直接向用户提供简单的双状态（亮色/暗色）选择，通常比完全依赖系统级同步带来更好的用户体验。",
+            "标准化为双状态切换可以简化前端逻辑，提高可维护性，并确保跨浏览器和设备的一致性。",
+            "对于UI/UX设计师和开发者来说，这是了解主题实现权衡的有价值阅读材料。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "HTML, CSS, JavaScript",
+      "root_keywords": [
+        "Theme toggle",
+        "Dark mode",
+        "UI/UX design",
+        "OS integration",
+        "User experience"
+      ],
+      "title_ko": "이중 상태 테마 토글에 대한 지지 논문 (Hacker News)",
+      "title_en": "In Defense of Two-State Theme Toggles (Hacker News Discussion)",
+      "title_zh": "关于双状态主题切换按钮的辩护（Hacker News 讨论）",
+      "hook": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+      "hook_ko": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+      "hook_en": "Why simplicity wins: A deep dive into the classic debate over two-state vs. multi-state theme toggles for frontend engineers.",
+      "hook_zh": "为什么简单优于复杂：深入探讨前端工程师在双状态与多状态主题切换之间的经典设计抉择。",
+      "description_ko": "사용자 경험과 단순성을 위해 반드시 이중 상태 토글을 사용해야 하는 이유를 알아보는 엔지니어를 위한 필독 글",
+      "description_en": "Why simplicity wins: A deep dive into the classic debate over two-state vs. multi-state theme toggles for frontend engineers.",
+      "description_zh": "为什么简单优于复杂：深入探讨前端工程师在双状态与多状态主题切换之间的经典设计抉择。"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_hackers_had_a_live_feed_of_every_",
@@ -68145,8 +70222,100 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49520170",
       "article_url": "https://www.economist.com/interactive/1843/2026/08/28/inside-colombias-cocaine-factories",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_inside_colombias_cocaine_factorie",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": null,
+        "category": "Drug Trade & Illicit Economy Analysis",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Colombia",
+          "cocaine",
+          "factories",
+          "drug trade"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.7,
+        "multilingual": {
+          "ko": {
+            "title": "콜롬비아 코카인 공장 내부 탐구",
+            "hook": "해커 뉴스에서 발견한 콜롬비아의 비극적 생산 현황",
+            "key_takeaways": [
+              "콜롬비아의 코카인 생산 규모",
+              "공장 운영의 위험성",
+              "사회적 영향의 심각성"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Inside Colombia's Cocaine Factories",
+            "hook": "Deep dive into the illicit drug trade inside Colombia",
+            "key_takeaways": [
+              "Scale of cocaine production",
+              "Dangers of factory operations",
+              "Broader societal implications"
+            ]
+          },
+          "zh": {
+            "title": "哥伦比亚可卡因工厂内部探秘",
+            "hook": "从Hacker News发现的哥伦比亚毒品生产现场揭秘",
+            "key_takeaways": [
+              "哥伦比亚毒品生产规模",
+              "工厂运营风险",
+              "社会影响深远"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "콜롬비아 코카인 공장 내부 탐구",
+          "hook": "해커 뉴스에서 발견한 콜롬비아의 비극적 생산 현황",
+          "key_takeaways": [
+            "콜롬비아의 코카인 생산 규모",
+            "공장 운영의 위험성",
+            "사회적 영향의 심각성"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Inside Colombia's Cocaine Factories",
+          "hook": "Deep dive into the illicit drug trade inside Colombia",
+          "key_takeaways": [
+            "Scale of cocaine production",
+            "Dangers of factory operations",
+            "Broader societal implications"
+          ]
+        },
+        "zh": {
+          "title": "哥伦比亚可卡因工厂内部探秘",
+          "hook": "从Hacker News发现的哥伦比亚毒品生产现场揭秘",
+          "key_takeaways": [
+            "哥伦比亚毒品生产规模",
+            "工厂运营风险",
+            "社会影响深远"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Colombia",
+        "cocaine",
+        "factories",
+        "drug trade"
+      ],
+      "title_ko": "콜롬비아 코카인 공장 내부 탐구",
+      "title_en": "Hacker News: Inside Colombia's Cocaine Factories",
+      "title_zh": "哥伦比亚可卡因工厂内部探秘",
+      "hook": "해커 뉴스에서 발견한 콜롬비아의 비극적 생산 현황",
+      "hook_ko": "해커 뉴스에서 발견한 콜롬비아의 비극적 생산 현황",
+      "hook_en": "Deep dive into the illicit drug trade inside Colombia",
+      "hook_zh": "从Hacker News发现的哥伦比亚毒品生产现场揭秘",
+      "description_ko": "해커 뉴스에서 발견한 콜롬비아의 비극적 생산 현황",
+      "description_en": "Deep dive into the illicit drug trade inside Colombia",
+      "description_zh": "从Hacker News发现的哥伦比亚毒品生产现场揭秘"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_mom_gets_6_month_suspended_senten",
@@ -68184,8 +70353,100 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49550174",
       "article_url": "https://reason.com/2026/09/02/virginia-mom-gets-6-month-suspended-jail-sentence-for-letting-5-year-old-walk-to-the-pond/",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_mom_gets_6_month_suspended_senten",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Legal/Social",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Legal",
+          "Parenting",
+          "Hacker News"
+        ],
+        "recommended_tag": "📝 Tech Reference",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 5살 아이 혼자 연못까지 산책시킨 엄마, 6개월 집행유예 선고",
+            "hook": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+            "key_takeaways": [
+              "엄마가 5살 아이 혼자 연못까지 산책시킨 혐의로 6개월 집행유예 선고받음",
+              "해커 뉴스 커뮤니티에서 243점, 255개의 댓글을 기록하며 화제가 됨",
+              "이번 판결은 과잉 처벌과 부모의 책임에 대한 논쟁을 불러일킴"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+            "hook": "A controversial ruling: a mother receives a suspended sentence for allowing her 5-year-old to walk to a pond alone, sparking debate on parenting standards",
+            "key_takeaways": [
+              "Mother sentenced to six months probation for letting her 5-year-old walk to a pond unattended",
+              "The story scored 243 points with 255 comments on Hacker News",
+              "The case raises questions about over‑policing of parenting and legal boundaries"
+            ]
+          },
+          "zh": {
+            "title": "黑客新闻：母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+            "hook": "一起引发热议的案件：一位母亲因让5岁孩子独自去池塘而被判缓刑，引发关于 parenting 标准的讨论",
+            "key_takeaways": [
+              "一位母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+              "该新闻在黑客新闻上获得243分，255条评论",
+              "案件引发关于过度监管 parenting 和法律界限的讨论"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T17:59:05.063991+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 5살 아이 혼자 연못까지 산책시킨 엄마, 6개월 집행유예 선고",
+          "hook": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+          "key_takeaways": [
+            "엄마가 5살 아이 혼자 연못까지 산책시킨 혐의로 6개월 집행유예 선고받음",
+            "해커 뉴스 커뮤니티에서 243점, 255개의 댓글을 기록하며 화제가 됨",
+            "이번 판결은 과잉 처벌과 부모의 책임에 대한 논쟁을 불러일킴"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+          "hook": "A controversial ruling: a mother receives a suspended sentence for allowing her 5-year-old to walk to a pond alone, sparking debate on parenting standards",
+          "key_takeaways": [
+            "Mother sentenced to six months probation for letting her 5-year-old walk to a pond unattended",
+            "The story scored 243 points with 255 comments on Hacker News",
+            "The case raises questions about over‑policing of parenting and legal boundaries"
+          ]
+        },
+        "zh": {
+          "title": "黑客新闻：母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+          "hook": "一起引发热议的案件：一位母亲因让5岁孩子独自去池塘而被判缓刑，引发关于 parenting 标准的讨论",
+          "key_takeaways": [
+            "一位母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+            "该新闻在黑客新闻上获得243分，255条评论",
+            "案件引发关于过度监管 parenting 和法律界限的讨论"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Legal",
+        "Parenting",
+        "Hacker News"
+      ],
+      "title_ko": "해커 뉴스: 5살 아이 혼자 연못까지 산책시킨 엄마, 6개월 집행유예 선고",
+      "title_en": "Hacker News: Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+      "title_zh": "黑客新闻：母亲因让5岁孩子独自去池塘而被判6个月缓刑",
+      "hook": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+      "hook_ko": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+      "hook_en": "A controversial ruling: a mother receives a suspended sentence for allowing her 5-year-old to walk to a pond alone, sparking debate on parenting standards",
+      "hook_zh": "一起引发热议的案件：一位母亲因让5岁孩子独自去池塘而被判缓刑，引发关于 parenting 标准的讨论",
+      "description_ko": "엔지니어도 공감할 만한 황당한 육아 판결, 5살 아이 혼자 외출시킨 엄마에 대한 법원의 결정",
+      "description_en": "A controversial ruling: a mother receives a suspended sentence for allowing her 5-year-old to walk to a pond alone, sparking debate on parenting standards",
+      "description_zh": "一起引发热议的案件：一位母亲因让5岁孩子独自去池塘而被判缓刑，引发关于 parenting 标准的讨论"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_sing_song_a_speakable_encoding_fo",
@@ -68223,8 +70484,98 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49515966",
       "article_url": "https://blog.vrypan.net/2026/08/19/260819-sing-song/",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_sing_song_a_speakable_encoding_fo",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Data encoding / representation",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Sing-song",
+          "speakable encoding",
+          "long numbers"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "싱-송: 장시간 숫자와 키를 말할 수 있게 하는 인코딩 방식",
+            "hook": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+            "key_takeaways": [
+              "Sing-song은 숫자와 키를 음성으로 표현해 가독성을 높인다.",
+              "긴 숫자도 쉽게 말해서 기억하고 전달한다.",
+              "인코딩 구조가 간결해 구현이 용이하다."
+            ]
+          },
+          "en": {
+            "title": "Sing-song: a speakable encoding for long numbers and keys",
+            "hook": "A breakthrough encoding that lets you verbally represent long numbers and keys",
+            "key_takeaways": [
+              "Sing-song encodes numbers and keys into speakable forms, improving readability.",
+              "It enables easy verbalization of long numeric sequences.",
+              "The design is simple, facilitating straightforward implementation."
+            ]
+          },
+          "zh": {
+            "title": "Sing-song: 长数字和键的可说编码",
+            "hook": "长数字和键的可说编码，使数据传输和存储效率大幅提升",
+            "key_takeaways": [
+              "Sing-song将长数字和键转换为可说形式，提高可读性。",
+              "通过口头表达，记忆和传递长数字更加便捷。",
+              "结构简洁，实现起来容易。"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "싱-송: 장시간 숫자와 키를 말할 수 있게 하는 인코딩 방식",
+          "hook": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+          "key_takeaways": [
+            "Sing-song은 숫자와 키를 음성으로 표현해 가독성을 높인다.",
+            "긴 숫자도 쉽게 말해서 기억하고 전달한다.",
+            "인코딩 구조가 간결해 구현이 용이하다."
+          ]
+        },
+        "en": {
+          "title": "Sing-song: a speakable encoding for long numbers and keys",
+          "hook": "A breakthrough encoding that lets you verbally represent long numbers and keys",
+          "key_takeaways": [
+            "Sing-song encodes numbers and keys into speakable forms, improving readability.",
+            "It enables easy verbalization of long numeric sequences.",
+            "The design is simple, facilitating straightforward implementation."
+          ]
+        },
+        "zh": {
+          "title": "Sing-song: 长数字和键的可说编码",
+          "hook": "长数字和键的可说编码，使数据传输和存储效率大幅提升",
+          "key_takeaways": [
+            "Sing-song将长数字和键转换为可说形式，提高可读性。",
+            "通过口头表达，记忆和传递长数字更加便捷。",
+            "结构简洁，实现起来容易。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Sing-song",
+        "speakable encoding",
+        "long numbers"
+      ],
+      "title_ko": "싱-송: 장시간 숫자와 키를 말할 수 있게 하는 인코딩 방식",
+      "title_en": "Sing-song: a speakable encoding for long numbers and keys",
+      "title_zh": "Sing-song: 长数字和键的可说编码",
+      "hook": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+      "hook_ko": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+      "hook_en": "A breakthrough encoding that lets you verbally represent long numbers and keys",
+      "hook_zh": "长数字和键的可说编码，使数据传输和存储效率大幅提升",
+      "description_ko": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+      "description_en": "A breakthrough encoding that lets you verbally represent long numbers and keys",
+      "description_zh": "长数字和键的可说编码，使数据传输和存储效率大幅提升"
     },
     {
       "inbox_id": "2026-09-04_repo_github_2akouwureverify",
@@ -68393,10 +70744,100 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49549148",
       "article_url": "https://reactoratlas.com",
-      "title_ko": "해커뉴스 신규 공개: Reactor Atlas",
-      "description_ko": "해커뉴스에서 5점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "Show HN: Reactor Atlas – 시각화 도구 소개",
+      "description_ko": "핵심 시각화 기술을 빠르게 파악하고 프로젝트에 적용할 아이디어를 얻으세요",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_show_hn_reactor_atlas",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "",
+        "category": "Visualization Tool",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Reactor Atlas",
+          "Show HN",
+          "Visualization"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.0,
+        "multilingual": {
+          "ko": {
+            "title": "Show HN: Reactor Atlas – 시각화 도구 소개",
+            "hook": "핵심 시각화 기술을 빠르게 파악하고 프로젝트에 적용할 아이디어를 얻으세요",
+            "key_takeaways": [
+              "Reactor Atlas는 인터랙티브한 데이터 시각화 플랫폼입니다",
+              "Show HN을 통해 오픈소스 코드와 데모를 확인할 수 있습니다",
+              "엔지니어링 프로젝트에 바로 적용할 수 있는 시각화 기법을 제공합니다"
+            ]
+          },
+          "en": {
+            "title": "Show HN: Reactor Atlas – A Visualization Tool",
+            "hook": "Get a quick insight into innovative visualization techniques for engineering projects",
+            "key_takeaways": [
+              "Reactor Atlas is an interactive data visualization platform",
+              "The Show HN post includes open-source code and a live demo",
+              "It offers ready-to-use visualization methods for engineering workflows"
+            ]
+          },
+          "zh": {
+            "title": "Show HN: Reactor Atlas – 可视化工具介绍",
+            "hook": "快速了解前沿可视化技术，为工程项目获取灵感",
+            "key_takeaways": [
+              "Reactor Atlas 是一个交互式数据可视化平台",
+              "Show HN 帖子提供了开源代码和在线演示",
+              "它为工程项目提供了可直接使用的可视化方法"
+            ]
+          }
+        },
+        "enriched_by_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "enriched_at": "2026-09-04T17:59:26.856755+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Show HN: Reactor Atlas – 시각화 도구 소개",
+          "hook": "핵심 시각화 기술을 빠르게 파악하고 프로젝트에 적용할 아이디어를 얻으세요",
+          "key_takeaways": [
+            "Reactor Atlas는 인터랙티브한 데이터 시각화 플랫폼입니다",
+            "Show HN을 통해 오픈소스 코드와 데모를 확인할 수 있습니다",
+            "엔지니어링 프로젝트에 바로 적용할 수 있는 시각화 기법을 제공합니다"
+          ]
+        },
+        "en": {
+          "title": "Show HN: Reactor Atlas – A Visualization Tool",
+          "hook": "Get a quick insight into innovative visualization techniques for engineering projects",
+          "key_takeaways": [
+            "Reactor Atlas is an interactive data visualization platform",
+            "The Show HN post includes open-source code and a live demo",
+            "It offers ready-to-use visualization methods for engineering workflows"
+          ]
+        },
+        "zh": {
+          "title": "Show HN: Reactor Atlas – 可视化工具介绍",
+          "hook": "快速了解前沿可视化技术，为工程项目获取灵感",
+          "key_takeaways": [
+            "Reactor Atlas 是一个交互式数据可视化平台",
+            "Show HN 帖子提供了开源代码和在线演示",
+            "它为工程项目提供了可直接使用的可视化方法"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Reactor Atlas",
+        "Show HN",
+        "Visualization"
+      ],
+      "title_en": "Show HN: Reactor Atlas – A Visualization Tool",
+      "title_zh": "Show HN: Reactor Atlas – 可视化工具介绍",
+      "hook": "핵심 시각화 기술을 빠르게 파악하고 프로젝트에 적용할 아이디어를 얻으세요",
+      "hook_ko": "핵심 시각화 기술을 빠르게 파악하고 프로젝트에 적용할 아이디어를 얻으세요",
+      "hook_en": "Get a quick insight into innovative visualization techniques for engineering projects",
+      "hook_zh": "快速了解前沿可视化技术，为工程项目获取灵感",
+      "description_en": "Get a quick insight into innovative visualization techniques for engineering projects",
+      "description_zh": "快速了解前沿可视化技术，为工程项目获取灵感"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_move_in_c_without_a_stdmove",
@@ -68409,7 +70850,7 @@
       "source_platform": "Hacker News",
       "source_url": "https://news.ycombinator.com/item?id=49521590",
       "type": "sns",
-      "category_type": "NEWS",
+      "category_type": "TECH",
       "description": "HN Score: 38 pts | Comments: 48 | Move in C++ without a std:move",
       "viral_metric": "🔥 38 HN Points",
       "metric_tracking": {
@@ -68434,10 +70875,100 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49521590",
       "article_url": "https://andreasfertig.com/blog/2026/09/move-in-cpp-without-a-stdmove/",
-      "title_ko": "Move in C++ without a std:move",
-      "description_ko": "해커뉴스에서 38점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "C++에서 std::move 없이 이동하기",
+      "description_ko": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_move_in_c_without_a_stdmove",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "C++ move semantics",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "C++",
+          "move semantics",
+          "std::move"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "C++에서 std::move 없이 이동하기",
+            "hook": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+            "key_takeaways": [
+              "수동 이동 구현으로 std::move 의존성 감소",
+              "플래스먼트 new와 소멸자를 활용한 이동 동작 구현",
+              "성능 최적화를 위한 move semantics 이해"
+            ]
+          },
+          "en": {
+            "title": "Moving Objects in C++ Without Using std::move",
+            "hook": "Discover how to implement object movement in C++ manually for performance gains",
+            "key_takeaways": [
+              "Reduce reliance on std::move by implementing move manually",
+              "Use placement new and destructors to achieve move-like behavior",
+              "Understanding move semantics improves overall C++ efficiency"
+            ]
+          },
+          "zh": {
+            "title": "在C++中不使用std::move进行移动",
+            "hook": "了解如何在C++中手动实现对象移动以提升性能",
+            "key_takeaways": [
+              "通过手动实现移动降低对 std::move 的依赖",
+              "使用 placement new 和析构函数实现移动语义",
+              "掌握 move semantics 提升 C++ 整体性能"
+            ]
+          }
+        },
+        "enriched_by_model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+        "enriched_at": "2026-09-04T18:00:42.944005+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "C++에서 std::move 없이 이동하기",
+          "hook": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+          "key_takeaways": [
+            "수동 이동 구현으로 std::move 의존성 감소",
+            "플래스먼트 new와 소멸자를 활용한 이동 동작 구현",
+            "성능 최적화를 위한 move semantics 이해"
+          ]
+        },
+        "en": {
+          "title": "Moving Objects in C++ Without Using std::move",
+          "hook": "Discover how to implement object movement in C++ manually for performance gains",
+          "key_takeaways": [
+            "Reduce reliance on std::move by implementing move manually",
+            "Use placement new and destructors to achieve move-like behavior",
+            "Understanding move semantics improves overall C++ efficiency"
+          ]
+        },
+        "zh": {
+          "title": "在C++中不使用std::move进行移动",
+          "hook": "了解如何在C++中手动实现对象移动以提升性能",
+          "key_takeaways": [
+            "通过手动实现移动降低对 std::move 的依赖",
+            "使用 placement new 和析构函数实现移动语义",
+            "掌握 move semantics 提升 C++ 整体性能"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "C++",
+        "move semantics",
+        "std::move"
+      ],
+      "title_en": "Moving Objects in C++ Without Using std::move",
+      "title_zh": "在C++中不使用std::move进行移动",
+      "hook": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+      "hook_ko": "C++ 개발자가 메모리 이동을 직접 구현해 성능을 최적화하는 방법을 알아보세요",
+      "hook_en": "Discover how to implement object movement in C++ manually for performance gains",
+      "hook_zh": "了解如何在C++中手动实现对象移动以提升性能",
+      "description_en": "Discover how to implement object movement in C++ manually for performance gains",
+      "description_zh": "了解如何在C++中手动实现对象移动以提升性能"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_virtual_threads_for_a_scripting_l",
@@ -68450,7 +70981,7 @@
       "source_platform": "Hacker News",
       "source_url": "https://news.ycombinator.com/item?id=49522611",
       "type": "sns",
-      "category_type": "NEWS",
+      "category_type": "TECH",
       "description": "HN Score: 14 pts | Comments: 1 | Virtual Threads for a scripting language in Java 8 without Loom",
       "viral_metric": "🔥 14 HN Points",
       "metric_tracking": {
@@ -68475,10 +71006,100 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49522611",
       "article_url": "https://jactl.io/blog/2026/08/28/jactl-virtual-threads",
-      "title_ko": "Virtual Threads for a scripting language in Java 8 without Loom",
-      "description_ko": "해커뉴스에서 14점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "자바 8에서 Loom 없이 가상 스레드를 구현한 스크립트 언어 기법",
+      "description_ko": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_virtual_threads_for_a_scripting_l",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "",
+        "category": "가상 스레드 (Virtual Threads) 구현, Java 8 경량 동시성",
+        "programming_lang": "Java",
+        "root_keywords": [
+          "Virtual Threads",
+          "Java 8",
+          "Loom 대체"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.8,
+        "multilingual": {
+          "ko": {
+            "title": "자바 8에서 Loom 없이 가상 스레드를 구현한 스크립트 언어 기법",
+            "hook": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+            "key_takeaways": [
+              "자바 8 기준에서 가상 스레드 같은 경량 스레드 구현 방법",
+              "Loom 의존 없이 기존 JDK만으로 동시성 성능 향상 가능",
+              "스크립트 언어 인터프리터에 적용해 응답성 개선 사례 제시"
+            ]
+          },
+          "en": {
+            "title": "Virtual Threads for a Scripting Language in Java 8 Without Loom",
+            "hook": "Experience lightweight concurrency on Java 8 without waiting for Project Loom – a must‑read for JVM engineers.",
+            "key_takeaways": [
+              "How to implement lightweight virtual‑thread‑like concurrency on JDK 8",
+              "Achieve Loom‑style scalability without adding new dependencies",
+              "Example integration in a scripting language interpreter improving responsiveness"
+            ]
+          },
+          "zh": {
+            "title": "在 Java 8 中无需 Loom 实现脚本语言的虚拟线程",
+            "hook": "无需等待 Loom，在 Java 8 上也能享受轻量级并发——JVM 开发者必读。",
+            "key_takeaways": [
+              "在 JDK 8 上实现类似虚拟线程的轻量并发方案",
+              "无需引入 Loom 依赖，仅用现有 JDK 提升并发性能",
+              "在脚本语言解释器中的集成示例，展示响应性提升"
+            ]
+          }
+        },
+        "enriched_by_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "enriched_at": "2026-09-04T17:59:53.621457+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "자바 8에서 Loom 없이 가상 스레드를 구현한 스크립트 언어 기법",
+          "hook": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+          "key_takeaways": [
+            "자바 8 기준에서 가상 스레드 같은 경량 스레드 구현 방법",
+            "Loom 의존 없이 기존 JDK만으로 동시성 성능 향상 가능",
+            "스크립트 언어 인터프리터에 적용해 응답성 개선 사례 제시"
+          ]
+        },
+        "en": {
+          "title": "Virtual Threads for a Scripting Language in Java 8 Without Loom",
+          "hook": "Experience lightweight concurrency on Java 8 without waiting for Project Loom – a must‑read for JVM engineers.",
+          "key_takeaways": [
+            "How to implement lightweight virtual‑thread‑like concurrency on JDK 8",
+            "Achieve Loom‑style scalability without adding new dependencies",
+            "Example integration in a scripting language interpreter improving responsiveness"
+          ]
+        },
+        "zh": {
+          "title": "在 Java 8 中无需 Loom 实现脚本语言的虚拟线程",
+          "hook": "无需等待 Loom，在 Java 8 上也能享受轻量级并发——JVM 开发者必读。",
+          "key_takeaways": [
+            "在 JDK 8 上实现类似虚拟线程的轻量并发方案",
+            "无需引入 Loom 依赖，仅用现有 JDK 提升并发性能",
+            "在脚本语言解释器中的集成示例，展示响应性提升"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Java",
+      "root_keywords": [
+        "Virtual Threads",
+        "Java 8",
+        "Loom 대체"
+      ],
+      "title_en": "Virtual Threads for a Scripting Language in Java 8 Without Loom",
+      "title_zh": "在 Java 8 中无需 Loom 实现脚本语言的虚拟线程",
+      "hook": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+      "hook_ko": "자바 8에서도 경량 동시성을 누릴 수 있는 놀라운 기법 – 지금 바로 확인해 보세요.",
+      "hook_en": "Experience lightweight concurrency on Java 8 without waiting for Project Loom – a must‑read for JVM engineers.",
+      "hook_zh": "无需等待 Loom，在 Java 8 上也能享受轻量级并发——JVM 开发者必读。",
+      "description_en": "Experience lightweight concurrency on Java 8 without waiting for Project Loom – a must‑read for JVM engineers.",
+      "description_zh": "无需等待 Loom，在 Java 8 上也能享受轻量级并发——JVM 开发者必读。"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_grep_beats_lsp_why_coding_agents_",
@@ -68647,10 +71268,100 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49559901",
       "article_url": "https://computer.rip/2026-06-14-hookswitch-to-grave.html",
-      "title_ko": "From Hookswitch to Grave",
-      "description_ko": "해커뉴스에서 9점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "해커 뉴스: 후크스위치에서 그레이브까지",
+      "description_ko": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_from_hookswitch_to_grave",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Industry News",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Hacker News",
+          "Hookswitch",
+          "Grave"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 후크스위치에서 그레이브까지",
+            "hook": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+            "key_takeaways": [
+              "후크스위치에서 그레이브까지라는 제목의 짧은 해커 뉴스 게시물이 9점이라는 낮은 점수와 댓글 0개를 기록했습니다.",
+              "이 게시물은 해커 뉴스에서 주목받지 못한 주제를 보여줍니다.",
+              "낮은 참여도는 해당 주제에 대한 현재 관심을 반영합니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: From Hookswitch to Grave",
+            "hook": "A brief Hacker News post titled 'From Hookswitch to Grave' scores just 9 points with no comments.",
+            "key_takeaways": [
+              "The Hacker News post titled 'From Hookswitch to Grave' received a low score of 9 points and zero comments.",
+              "It highlights a niche or outdated topic that didn't resonate with the community.",
+              "Low engagement suggests limited current interest in the subject."
+            ]
+          },
+          "zh": {
+            "title": "黑客新闻：从Hookswitch到Grave",
+            "hook": "一篇标题为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+            "key_takeaways": [
+              "一篇名为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+              "这反映了一个未引起社区共鸣的细分或过时话题。",
+              "低参与度表明该主题当前关注度有限。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T17:58:29.505887+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 후크스위치에서 그레이브까지",
+          "hook": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+          "key_takeaways": [
+            "후크스위치에서 그레이브까지라는 제목의 짧은 해커 뉴스 게시물이 9점이라는 낮은 점수와 댓글 0개를 기록했습니다.",
+            "이 게시물은 해커 뉴스에서 주목받지 못한 주제를 보여줍니다.",
+            "낮은 참여도는 해당 주제에 대한 현재 관심을 반영합니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: From Hookswitch to Grave",
+          "hook": "A brief Hacker News post titled 'From Hookswitch to Grave' scores just 9 points with no comments.",
+          "key_takeaways": [
+            "The Hacker News post titled 'From Hookswitch to Grave' received a low score of 9 points and zero comments.",
+            "It highlights a niche or outdated topic that didn't resonate with the community.",
+            "Low engagement suggests limited current interest in the subject."
+          ]
+        },
+        "zh": {
+          "title": "黑客新闻：从Hookswitch到Grave",
+          "hook": "一篇标题为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+          "key_takeaways": [
+            "一篇名为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+            "这反映了一个未引起社区共鸣的细分或过时话题。",
+            "低参与度表明该主题当前关注度有限。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Hacker News",
+        "Hookswitch",
+        "Grave"
+      ],
+      "title_en": "Hacker News: From Hookswitch to Grave",
+      "title_zh": "黑客新闻：从Hookswitch到Grave",
+      "hook": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+      "hook_ko": "후크스위치에서 그레이브까지, 해커 뉴스의 흥미로운 여정 (9점, 댓글 0개)",
+      "hook_en": "A brief Hacker News post titled 'From Hookswitch to Grave' scores just 9 points with no comments.",
+      "hook_zh": "一篇标题为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。",
+      "description_en": "A brief Hacker News post titled 'From Hookswitch to Grave' scores just 9 points with no comments.",
+      "description_zh": "一篇标题为《从Hookswitch到Grave》的黑客新闻帖子仅获得9分，零评论。"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_how_an_mit_research_project_becam",
@@ -68688,10 +71399,98 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49507072",
       "article_url": "https://news.mit.edu/2026/how-mit-research-project-became-global-programming-language-0831",
-      "title_ko": "How an MIT research project became the Julia programming language",
-      "description_ko": "해커뉴스에서 35점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "MIT 연구 프로젝트가 Julia 언어를 만들었다",
+      "description_ko": "엔지니어가 즉시 읽어야 할 결정적 내용: MIT의 혁신적인 연구가 Julia라는 새로운 프로그래밍 언어를 탄생시켰습니다.",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_how_an_mit_research_project_becam",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Programming Language Development",
+        "programming_lang": "Julia",
+        "root_keywords": [
+          "MIT research",
+          "Julia programming language",
+          "Open source"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.7,
+        "multilingual": {
+          "ko": {
+            "title": "MIT 연구 프로젝트가 Julia 언어를 만들었다",
+            "hook": "엔지니어가 즉시 읽어야 할 결정적 내용: MIT의 혁신적인 연구가 Julia라는 새로운 프로그래밍 언어를 탄생시켰습니다.",
+            "key_takeaways": [
+              "MIT 연구팀이 Julia 언어 개발에 성공",
+              "오픈 소스 커뮤니티의 참여로 빠르게 확산",
+              "데이터 과학 분야에서 높은 인기를 끌고 있음"
+            ]
+          },
+          "en": {
+            "title": "How an MIT Research Project Became the Julia Programming Language",
+            "hook": "Engineers must read immediately: An MIT research project that became the Julia programming language.",
+            "key_takeaways": [
+              "MIT research team successfully created Julia language",
+              "Rapid adoption through open-source community involvement",
+              "Gaining significant traction in data science domain"
+            ]
+          },
+          "zh": {
+            "title": "MIT研究项目如何诞生了Julia编程语言",
+            "hook": "工程师必须立即阅读：一项MIT研究项目成为Julia编程语言。",
+            "key_takeaways": [
+              "MIT研究团队成功开发了Julia语言",
+              "开源社区的积极参与推动了快速传播",
+              "在数据科学领域获得了广泛关注"
+            ]
+          }
+        }
+      },
+      "multilingual": {
+        "ko": {
+          "title": "MIT 연구 프로젝트가 Julia 언어를 만들었다",
+          "hook": "엔지니어가 즉시 읽어야 할 결정적 내용: MIT의 혁신적인 연구가 Julia라는 새로운 프로그래밍 언어를 탄생시켰습니다.",
+          "key_takeaways": [
+            "MIT 연구팀이 Julia 언어 개발에 성공",
+            "오픈 소스 커뮤니티의 참여로 빠르게 확산",
+            "데이터 과학 분야에서 높은 인기를 끌고 있음"
+          ]
+        },
+        "en": {
+          "title": "How an MIT Research Project Became the Julia Programming Language",
+          "hook": "Engineers must read immediately: An MIT research project that became the Julia programming language.",
+          "key_takeaways": [
+            "MIT research team successfully created Julia language",
+            "Rapid adoption through open-source community involvement",
+            "Gaining significant traction in data science domain"
+          ]
+        },
+        "zh": {
+          "title": "MIT研究项目如何诞生了Julia编程语言",
+          "hook": "工程师必须立即阅读：一项MIT研究项目成为Julia编程语言。",
+          "key_takeaways": [
+            "MIT研究团队成功开发了Julia语言",
+            "开源社区的积极参与推动了快速传播",
+            "在数据科学领域获得了广泛关注"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Julia",
+      "root_keywords": [
+        "MIT research",
+        "Julia programming language",
+        "Open source"
+      ],
+      "title_en": "How an MIT Research Project Became the Julia Programming Language",
+      "title_zh": "MIT研究项目如何诞生了Julia编程语言",
+      "hook": "엔지니어가 즉시 읽어야 할 결정적 내용: MIT의 혁신적인 연구가 Julia라는 새로운 프로그래밍 언어를 탄생시켰습니다.",
+      "hook_ko": "엔지니어가 즉시 읽어야 할 결정적 내용: MIT의 혁신적인 연구가 Julia라는 새로운 프로그래밍 언어를 탄생시켰습니다.",
+      "hook_en": "Engineers must read immediately: An MIT research project that became the Julia programming language.",
+      "hook_zh": "工程师必须立即阅读：一项MIT研究项目成为Julia编程语言。",
+      "description_en": "Engineers must read immediately: An MIT research project that became the Julia programming language.",
+      "description_zh": "工程师必须立即阅读：一项MIT研究项目成为Julia编程语言。"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_a_mysterious_kidney_disease_has_a",
@@ -68860,10 +71659,100 @@
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49559522",
       "article_url": "https://gwern.net/xanadu",
-      "title_ko": "Project Xanadu: Even More Hindsight",
-      "description_ko": "해커뉴스에서 29점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-      "is_classified": false,
-      "is_deep_analyzed": false
+      "title_ko": "프로젝트 제나두: 더욱 깊어진 회고",
+      "description_ko": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+      "is_classified": true,
+      "is_deep_analyzed": false,
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_project_xanadu_even_more_hindsigh",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "",
+        "category": "하이퍼텍스트 역사 / 디지털 아카이브",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Project Xanadu",
+          "하이퍼텍스트",
+          "Ted Nelson"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.8,
+        "multilingual": {
+          "ko": {
+            "title": "프로젝트 제나두: 더욱 깊어진 회고",
+            "hook": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+            "key_takeaways": [
+              "제나두는 최초의 하이퍼텍스트 시스템 시도로, 비선형 문서 링킹 개념을 도입했다.",
+              "테드 넬슨의 비전은 현대 웹의 링크 구조와 유사하지만 구현은 실패했다.",
+              "이 글은 제나두의 성공과 실패에서 오늘날의 링크 데이터와 버전 관리 시스템에 적용할 교훈을 제시한다."
+            ]
+          },
+          "en": {
+            "title": "Project Xanadu: Even More Hindsight",
+            "hook": "A retrospective look at Xanadu reveals timeless lessons for today's hyperlink and version‑control systems.",
+            "key_takeaways": [
+              "Xanadu was the earliest attempt at a hypertext system, introducing non‑linear document linking.",
+              "Ted Nelson’s vision inspired the web’s link structure, though the project never shipped.",
+              "The article distills Xanadu’s successes and failures into actionable insights for modern linked data and version control."
+            ]
+          },
+          "zh": {
+            "title": "计划Xanadu：更深的回顾",
+            "hook": "回顾Xanadu，揭示超链接和版本控制系统的永恒教训。",
+            "key_takeaways": [
+              "Xanadu 是最早的超文本系统尝试，提出了非线性文档链接概念。",
+              "特德·尼尔森的愿景与现代网络的链接结构相似，但项目未能实现。",
+              "文章总结了Xanadu的成功与失败，为当今的链接数据和版本控制提供了可借鉴的经验。"
+            ]
+          }
+        },
+        "enriched_by_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "enriched_at": "2026-09-04T17:58:45.415709+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "프로젝트 제나두: 더욱 깊어진 회고",
+          "hook": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+          "key_takeaways": [
+            "제나두는 최초의 하이퍼텍스트 시스템 시도로, 비선형 문서 링킹 개념을 도입했다.",
+            "테드 넬슨의 비전은 현대 웹의 링크 구조와 유사하지만 구현은 실패했다.",
+            "이 글은 제나두의 성공과 실패에서 오늘날의 링크 데이터와 버전 관리 시스템에 적용할 교훈을 제시한다."
+          ]
+        },
+        "en": {
+          "title": "Project Xanadu: Even More Hindsight",
+          "hook": "A retrospective look at Xanadu reveals timeless lessons for today's hyperlink and version‑control systems.",
+          "key_takeaways": [
+            "Xanadu was the earliest attempt at a hypertext system, introducing non‑linear document linking.",
+            "Ted Nelson’s vision inspired the web’s link structure, though the project never shipped.",
+            "The article distills Xanadu’s successes and failures into actionable insights for modern linked data and version control."
+          ]
+        },
+        "zh": {
+          "title": "计划Xanadu：更深的回顾",
+          "hook": "回顾Xanadu，揭示超链接和版本控制系统的永恒教训。",
+          "key_takeaways": [
+            "Xanadu 是最早的超文本系统尝试，提出了非线性文档链接概念。",
+            "特德·尼尔森的愿景与现代网络的链接结构相似，但项目未能实现。",
+            "文章总结了Xanadu的成功与失败，为当今的链接数据和版本控制提供了可借鉴的经验。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Project Xanadu",
+        "하이퍼텍스트",
+        "Ted Nelson"
+      ],
+      "title_en": "Project Xanadu: Even More Hindsight",
+      "title_zh": "计划Xanadu：更深的回顾",
+      "hook": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+      "hook_ko": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+      "hook_en": "A retrospective look at Xanadu reveals timeless lessons for today's hyperlink and version‑control systems.",
+      "hook_zh": "回顾Xanadu，揭示超链接和版本控制系统的永恒教训。",
+      "description_en": "A retrospective look at Xanadu reveals timeless lessons for today's hyperlink and version‑control systems.",
+      "description_zh": "回顾Xanadu，揭示超链接和版本控制系统的永恒教训。"
     },
     {
       "inbox_id": "2026-09-04_sns_geeknews_당신의_지능을_소유하라_소버린_ai_실전_가이드",

@@ -34,6 +34,96 @@
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49515966",
   "article_url": "https://blog.vrypan.net/2026/08/19/260819-sing-song/",
-  "is_classified": false,
-  "is_deep_analyzed": false
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_sing_song_a_speakable_encoding_fo",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "Data encoding / representation",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Sing-song",
+      "speakable encoding",
+      "long numbers"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "싱-송: 장시간 숫자와 키를 말할 수 있게 하는 인코딩 방식",
+        "hook": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+        "key_takeaways": [
+          "Sing-song은 숫자와 키를 음성으로 표현해 가독성을 높인다.",
+          "긴 숫자도 쉽게 말해서 기억하고 전달한다.",
+          "인코딩 구조가 간결해 구현이 용이하다."
+        ]
+      },
+      "en": {
+        "title": "Sing-song: a speakable encoding for long numbers and keys",
+        "hook": "A breakthrough encoding that lets you verbally represent long numbers and keys",
+        "key_takeaways": [
+          "Sing-song encodes numbers and keys into speakable forms, improving readability.",
+          "It enables easy verbalization of long numeric sequences.",
+          "The design is simple, facilitating straightforward implementation."
+        ]
+      },
+      "zh": {
+        "title": "Sing-song: 长数字和键的可说编码",
+        "hook": "长数字和键的可说编码，使数据传输和存储效率大幅提升",
+        "key_takeaways": [
+          "Sing-song将长数字和键转换为可说形式，提高可读性。",
+          "通过口头表达，记忆和传递长数字更加便捷。",
+          "结构简洁，实现起来容易。"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "싱-송: 장시간 숫자와 키를 말할 수 있게 하는 인코딩 방식",
+      "hook": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+      "key_takeaways": [
+        "Sing-song은 숫자와 키를 음성으로 표현해 가독성을 높인다.",
+        "긴 숫자도 쉽게 말해서 기억하고 전달한다.",
+        "인코딩 구조가 간결해 구현이 용이하다."
+      ]
+    },
+    "en": {
+      "title": "Sing-song: a speakable encoding for long numbers and keys",
+      "hook": "A breakthrough encoding that lets you verbally represent long numbers and keys",
+      "key_takeaways": [
+        "Sing-song encodes numbers and keys into speakable forms, improving readability.",
+        "It enables easy verbalization of long numeric sequences.",
+        "The design is simple, facilitating straightforward implementation."
+      ]
+    },
+    "zh": {
+      "title": "Sing-song: 长数字和键的可说编码",
+      "hook": "长数字和键的可说编码，使数据传输和存储效率大幅提升",
+      "key_takeaways": [
+        "Sing-song将长数字和键转换为可说形式，提高可读性。",
+        "通过口头表达，记忆和传递长数字更加便捷。",
+        "结构简洁，实现起来容易。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Sing-song",
+    "speakable encoding",
+    "long numbers"
+  ],
+  "title_ko": "싱-송: 장시간 숫자와 키를 말할 수 있게 하는 인코딩 방식",
+  "title_en": "Sing-song: a speakable encoding for long numbers and keys",
+  "title_zh": "Sing-song: 长数字和键的可说编码",
+  "hook": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+  "hook_ko": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+  "hook_en": "A breakthrough encoding that lets you verbally represent long numbers and keys",
+  "hook_zh": "长数字和键的可说编码，使数据传输和存储效率大幅提升",
+  "description_ko": "데이터 전송과 저장을 효율적으로 만들어 줄 혁신적인 인코딩 기술",
+  "description_en": "A breakthrough encoding that lets you verbally represent long numbers and keys",
+  "description_zh": "长数字和键的可说编码，使数据传输和存储效率大幅提升"
 }

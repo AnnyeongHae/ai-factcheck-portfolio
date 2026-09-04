@@ -34,8 +34,98 @@
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49559522",
   "article_url": "https://gwern.net/xanadu",
-  "title_ko": "Project Xanadu: Even More Hindsight",
-  "description_ko": "해커뉴스에서 29점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
-  "is_classified": false,
-  "is_deep_analyzed": false
+  "title_ko": "프로젝트 제나두: 더욱 깊어진 회고",
+  "description_ko": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_project_xanadu_even_more_hindsigh",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "",
+    "category": "하이퍼텍스트 역사 / 디지털 아카이브",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Project Xanadu",
+      "하이퍼텍스트",
+      "Ted Nelson"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.8,
+    "multilingual": {
+      "ko": {
+        "title": "프로젝트 제나두: 더욱 깊어진 회고",
+        "hook": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+        "key_takeaways": [
+          "제나두는 최초의 하이퍼텍스트 시스템 시도로, 비선형 문서 링킹 개념을 도입했다.",
+          "테드 넬슨의 비전은 현대 웹의 링크 구조와 유사하지만 구현은 실패했다.",
+          "이 글은 제나두의 성공과 실패에서 오늘날의 링크 데이터와 버전 관리 시스템에 적용할 교훈을 제시한다."
+        ]
+      },
+      "en": {
+        "title": "Project Xanadu: Even More Hindsight",
+        "hook": "A retrospective look at Xanadu reveals timeless lessons for today's hyperlink and version‑control systems.",
+        "key_takeaways": [
+          "Xanadu was the earliest attempt at a hypertext system, introducing non‑linear document linking.",
+          "Ted Nelson’s vision inspired the web’s link structure, though the project never shipped.",
+          "The article distills Xanadu’s successes and failures into actionable insights for modern linked data and version control."
+        ]
+      },
+      "zh": {
+        "title": "计划Xanadu：更深的回顾",
+        "hook": "回顾Xanadu，揭示超链接和版本控制系统的永恒教训。",
+        "key_takeaways": [
+          "Xanadu 是最早的超文本系统尝试，提出了非线性文档链接概念。",
+          "特德·尼尔森的愿景与现代网络的链接结构相似，但项目未能实现。",
+          "文章总结了Xanadu的成功与失败，为当今的链接数据和版本控制提供了可借鉴的经验。"
+        ]
+      }
+    },
+    "enriched_by_model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "enriched_at": "2026-09-04T17:58:45.415709+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "프로젝트 제나두: 더욱 깊어진 회고",
+      "hook": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+      "key_takeaways": [
+        "제나두는 최초의 하이퍼텍스트 시스템 시도로, 비선형 문서 링킹 개념을 도입했다.",
+        "테드 넬슨의 비전은 현대 웹의 링크 구조와 유사하지만 구현은 실패했다.",
+        "이 글은 제나두의 성공과 실패에서 오늘날의 링크 데이터와 버전 관리 시스템에 적용할 교훈을 제시한다."
+      ]
+    },
+    "en": {
+      "title": "Project Xanadu: Even More Hindsight",
+      "hook": "A retrospective look at Xanadu reveals timeless lessons for today's hyperlink and version‑control systems.",
+      "key_takeaways": [
+        "Xanadu was the earliest attempt at a hypertext system, introducing non‑linear document linking.",
+        "Ted Nelson’s vision inspired the web’s link structure, though the project never shipped.",
+        "The article distills Xanadu’s successes and failures into actionable insights for modern linked data and version control."
+      ]
+    },
+    "zh": {
+      "title": "计划Xanadu：更深的回顾",
+      "hook": "回顾Xanadu，揭示超链接和版本控制系统的永恒教训。",
+      "key_takeaways": [
+        "Xanadu 是最早的超文本系统尝试，提出了非线性文档链接概念。",
+        "特德·尼尔森的愿景与现代网络的链接结构相似，但项目未能实现。",
+        "文章总结了Xanadu的成功与失败，为当今的链接数据和版本控制提供了可借鉴的经验。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Project Xanadu",
+    "하이퍼텍스트",
+    "Ted Nelson"
+  ],
+  "title_en": "Project Xanadu: Even More Hindsight",
+  "title_zh": "计划Xanadu：更深的回顾",
+  "hook": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+  "hook_ko": "프로젝트 제나두의 역사적 교훈을 통해 오늘날의 하이퍼텍스트와 웹 발전을 이해하는 핵심 통찰",
+  "hook_en": "A retrospective look at Xanadu reveals timeless lessons for today's hyperlink and version‑control systems.",
+  "hook_zh": "回顾Xanadu，揭示超链接和版本控制系统的永恒教训。",
+  "description_en": "A retrospective look at Xanadu reveals timeless lessons for today's hyperlink and version‑control systems.",
+  "description_zh": "回顾Xanadu，揭示超链接和版本控制系统的永恒教训。"
 }

@@ -25,8 +25,11 @@ import time
 import random
 import re
 import urllib.request
-import urllib.error
+import socket
 from dotenv import load_dotenv
+
+# Set strict global socket timeout for all network requests to prevent hanging
+socket.setdefaulttimeout(15.0)
 
 if sys.stdout.encoding != 'utf-8':
     try:
@@ -39,17 +42,17 @@ load_dotenv(os.path.join(ROOT_DIR, '.env'))
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-# Priority order for zero-cost models
+# Priority order for zero-cost models (Fastest & highest availability first)
 FREE_MODEL_FALLBACKS = [
-    "openrouter/free",
-    "dots-studio/dots-3-note-preview:free",
-    "poolside/laguna-xs-2.1:free",
-    "inclusionai/ling-3.0-flash-fin:free",
-    "google/gemma-4-31b-it:free",
-    "nvidia/nemotron-3-super-120b-a12b:free",
-    "minimax/minimax-m3:free",
     "cohere/north-mini-code:free",
-    "liquid/lfm-2.5-2.6b:free"
+    "liquid/lfm-2.5-2.6b:free",
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "dots-studio/dots-3-note-preview:free",
+    "inclusionai/ling-3.0-flash-fin:free",
+    "minimax/minimax-m3:free",
+    "openrouter/free",
+    "google/gemma-4-31b-it:free",
+    "poolside/laguna-xs-2.1:free"
 ]
 
 def get_openrouter_api_key():

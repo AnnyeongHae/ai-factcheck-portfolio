@@ -34,6 +34,100 @@
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49561670",
   "article_url": "https://shiftmag.dev/the-phrase-that-ruins-every-ecommerce-project-just-connect-it-to-our-erp-11689/",
-  "is_classified": false,
-  "is_deep_analyzed": false
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_the_phrase_that_ruins_every_ecomm",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "이커머스 프로젝트 관리 및 ERP 통합 문제",
+    "programming_lang": "General",
+    "root_keywords": [
+      "이커머스",
+      "ERP",
+      "프로젝트 실패",
+      "통합",
+      "개발 관리"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.2,
+    "multilingual": {
+      "ko": {
+        "title": "이커머스 프로젝트를 망치는 말 한 마디: \"ERP에 연결해 주세요\"",
+        "hook": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+        "key_takeaways": [
+          "ERP 연동은 단순한 기능 추가가 아니라 시스템 전반에 걸친 복잡한 통합 과제이다",
+          "초기 요구사항에서 ERP 언급은 프로젝트 일정과 범위를 불안정하게 만든다",
+          "ERP 제약은 이커머스의 유연성과 고객 경험을 크게 저해한다"
+        ]
+      },
+      "en": {
+        "title": "The Phrase That Sinks Every eCommerce Project: 'Just Connect It to Our ERP'",
+        "hook": "Why mentioning ERP integration early in an eCommerce project is a red flag for developers",
+        "key_takeaways": [
+          "ERP integration is not a simple feature addition but a complex system-wide challenge",
+          "Bringing up ERP early destabilizes project timelines and scope",
+          "ERP constraints severely limit flexibility and customer experience in eCommerce"
+        ]
+      },
+      "zh": {
+        "title": "毁掉所有电商项目的句子：“直接连接到我们的ERP”",
+        "hook": "为什么在电商项目初期提及ERP集成会让开发团队望而生畏",
+        "key_takeaways": [
+          "ERP集成并非简单功能添加，而是涉及整个系统的复杂集成任务",
+          "早期提及ERP会破坏项目的时间表和范围控制",
+          "ERP的限制会严重影响电商的灵活性和用户体验"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "이커머스 프로젝트를 망치는 말 한 마디: \"ERP에 연결해 주세요\"",
+      "hook": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+      "key_takeaways": [
+        "ERP 연동은 단순한 기능 추가가 아니라 시스템 전반에 걸친 복잡한 통합 과제이다",
+        "초기 요구사항에서 ERP 언급은 프로젝트 일정과 범위를 불안정하게 만든다",
+        "ERP 제약은 이커머스의 유연성과 고객 경험을 크게 저해한다"
+      ]
+    },
+    "en": {
+      "title": "The Phrase That Sinks Every eCommerce Project: 'Just Connect It to Our ERP'",
+      "hook": "Why mentioning ERP integration early in an eCommerce project is a red flag for developers",
+      "key_takeaways": [
+        "ERP integration is not a simple feature addition but a complex system-wide challenge",
+        "Bringing up ERP early destabilizes project timelines and scope",
+        "ERP constraints severely limit flexibility and customer experience in eCommerce"
+      ]
+    },
+    "zh": {
+      "title": "毁掉所有电商项目的句子：“直接连接到我们的ERP”",
+      "hook": "为什么在电商项目初期提及ERP集成会让开发团队望而生畏",
+      "key_takeaways": [
+        "ERP集成并非简单功能添加，而是涉及整个系统的复杂集成任务",
+        "早期提及ERP会破坏项目的时间表和范围控制",
+        "ERP的限制会严重影响电商的灵活性和用户体验"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "이커머스",
+    "ERP",
+    "프로젝트 실패",
+    "통합",
+    "개발 관리"
+  ],
+  "title_ko": "이커머스 프로젝트를 망치는 말 한 마디: \"ERP에 연결해 주세요\"",
+  "title_en": "The Phrase That Sinks Every eCommerce Project: 'Just Connect It to Our ERP'",
+  "title_zh": "毁掉所有电商项目的句子：“直接连接到我们的ERP”",
+  "hook": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+  "hook_ko": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+  "hook_en": "Why mentioning ERP integration early in an eCommerce project is a red flag for developers",
+  "hook_zh": "为什么在电商项目初期提及ERP集成会让开发团队望而生畏",
+  "description_ko": "ERP 통합이 이커머스 프로젝트의 숨을 죽이는 순간, 개발팀은 왜 절망하는가",
+  "description_en": "Why mentioning ERP integration early in an eCommerce project is a red flag for developers",
+  "description_zh": "为什么在电商项目初期提及ERP集成会让开发团队望而生畏"
 }
