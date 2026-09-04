@@ -34,6 +34,8 @@ CREATE TABLE IF NOT EXISTS raw_trends_inbox (
     matched_user_domains JSONB DEFAULT '[]'::jsonb, -- User persona alignment categories
     raw_payload JSONB DEFAULT '{}'::jsonb,          -- Original untouched JSON payload
     triage_status VARCHAR(50) DEFAULT 'PENDING_REVIEW', -- 'PENDING_REVIEW', 'PROMOTED', 'REJECTED', 'ARCHIVED'
+    is_classified BOOLEAN DEFAULT FALSE,            -- AI 분류 및 다국어 번역 완료 여부 (Boolean)
+    is_deep_analyzed BOOLEAN DEFAULT FALSE,         -- 심층 팩트체크 검증 완료 여부 (Boolean)
     harvested_date DATE NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP

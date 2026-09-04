@@ -442,6 +442,9 @@ def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = Fals
                     item["related_dossier"] = related
                     print(f"  [🔗 LINKED] {related['target_tech']} -> {related['case_id']}")
 
+                item["is_classified"] = True
+                item["is_deep_analyzed"] = bool(item.get("status") == "FACT_CHECKED" or item.get("related_dossier"))
+
                 with open(fpath, "w", encoding="utf-8") as fp:
                     json.dump(item, fp, indent=2, ensure_ascii=False)
 

@@ -31,7 +31,11 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW",
+  "status": "FACT_CHECKED",
+  "related_dossier": {
+    "case_id": "2026-09-04_sns_chatgpt_404_cascading_outage",
+    "target_tech": "ChatGPT 404 Cascading Outage"
+  },
   "title_ko": "GeekNews: ChatGPT 페이지에서 404 오류 발생",
   "description_ko": "GeekNews Korean Tech Trend: ChatGPT 페이지에서 404 오류 발생",
   "hn_url": "https://news.hada.io/topic?id=33195",
@@ -126,5 +130,7 @@
   "title_zh": "ChatGPT 网页出现 404 错误",
   "hook_zh": "关于访问 ChatGPT 网页特定路由时出现 404 Not Found 错误的事件",
   "enriched_by": "gemini-3.6-flash-batch-api",
-  "enriched_at": "2026-09-04T13:06:57.318838"
+  "enriched_at": "2026-09-04T13:06:57.318838",
+  "is_classified": true,
+  "is_deep_analyzed": true
 }

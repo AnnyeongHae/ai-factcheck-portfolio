@@ -32,6 +32,98 @@
     "정량 데이터 분석 & 벤치마크 감사"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Last Translation Benchmark",
-  "description_ko": "Abstract: For scientific progress, we need benchmarks that test the limits of state-of-the-art models, and evaluation methods that inform us about failure cases. As models get stronger, standard benchmarks for ..."
+  "title_ko": "최신 과학 번역 모델 한계를 테스트하는 벤치마크 제안 (ArXiv)",
+  "description_ko": "모델 성능이 향상하면서도 정확히 검증할 수 있는 최신 번역 평가 기준과 실패 케이스 진단 방법을 아는 시간입니다.",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_last_translation_benchmark",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "번역 벤치마크 및 평가 기법",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "번역 벤치마크",
+      "모델 성능 평가",
+      "실패 케이스 진단"
+    ],
+    "recommended_tag": "💡 유용한 도구",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "최신 과학 번역 모델 한계를 테스트하는 벤치마크 제안 (ArXiv)",
+        "hook": "모델 성능이 향상하면서도 정확히 검증할 수 있는 최신 번역 평가 기준과 실패 케이스 진단 방법을 아는 시간입니다.",
+        "key_takeaways": [
+          "현재 SOTA 모델들의 과학 번역 한계를 정량적으로 테스트할 수 있는 새로운 평가 벤치마크를 제시함",
+          "모델이 발전할수록 기존 벤치마크의 한계를 극복하고 실패 케이스를 정밀하게 찾을 수 있는 차세대 평가 프레임워크 제시",
+          "신호를 통한 과학 텍스트 번역의 정확성과 한계를 파악하는 데 필수적인 기술적 기준 제공"
+        ]
+      },
+      "en": {
+        "title": "ArXiv: Last Translation Benchmark for SOTA Model Limits",
+        "hook": "Discover the latest evaluation benchmark designed to test the absolute limits of state-of-the-art translation models and systematically diagnose failure cases.",
+        "key_takeaways": [
+          "Presents a novel, rigorous benchmark tailored for evaluating scientific and high-quality translation limits.",
+          "Introduces advanced evaluation metrics that help diagnose critical failure cases as models continue to scale and improve.",
+          "Provides a vital technical reference for NLP engineers aiming to build more robust and accurate translation systems."
+        ]
+      },
+      "zh": {
+        "title": "面向前沿模型极限的最新翻译基准测试 (ArXiv 预印本)",
+        "hook": "探索专为测试前沿模型翻译极限并系统诊断失效案例而设计的最新评估基准与方法论。",
+        "key_takeaways": [
+          "提出了一套全新的严格基准测试，用于评估科学翻译等高难度场景下的模型极限。",
+          "引入了先进的评估指标，帮助在模型规模不断扩大时精准定位关键失效案例。",
+          "为 NLP 工程师构建更稳健、准确的翻译系统提供了不可或缺的技术参考与评估标准。"
+        ]
+      }
+    },
+    "enriched_by_model": "dots-studio/dots-3-note-preview:free",
+    "enriched_at": "2026-09-04T17:53:59.685494+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "최신 과학 번역 모델 한계를 테스트하는 벤치마크 제안 (ArXiv)",
+      "hook": "모델 성능이 향상하면서도 정확히 검증할 수 있는 최신 번역 평가 기준과 실패 케이스 진단 방법을 아는 시간입니다.",
+      "key_takeaways": [
+        "현재 SOTA 모델들의 과학 번역 한계를 정량적으로 테스트할 수 있는 새로운 평가 벤치마크를 제시함",
+        "모델이 발전할수록 기존 벤치마크의 한계를 극복하고 실패 케이스를 정밀하게 찾을 수 있는 차세대 평가 프레임워크 제시",
+        "신호를 통한 과학 텍스트 번역의 정확성과 한계를 파악하는 데 필수적인 기술적 기준 제공"
+      ]
+    },
+    "en": {
+      "title": "ArXiv: Last Translation Benchmark for SOTA Model Limits",
+      "hook": "Discover the latest evaluation benchmark designed to test the absolute limits of state-of-the-art translation models and systematically diagnose failure cases.",
+      "key_takeaways": [
+        "Presents a novel, rigorous benchmark tailored for evaluating scientific and high-quality translation limits.",
+        "Introduces advanced evaluation metrics that help diagnose critical failure cases as models continue to scale and improve.",
+        "Provides a vital technical reference for NLP engineers aiming to build more robust and accurate translation systems."
+      ]
+    },
+    "zh": {
+      "title": "面向前沿模型极限的最新翻译基准测试 (ArXiv 预印本)",
+      "hook": "探索专为测试前沿模型翻译极限并系统诊断失效案例而设计的最新评估基准与方法论。",
+      "key_takeaways": [
+        "提出了一套全新的严格基准测试，用于评估科学翻译等高难度场景下的模型极限。",
+        "引入了先进的评估指标，帮助在模型规模不断扩大时精准定位关键失效案例。",
+        "为 NLP 工程师构建更稳健、准确的翻译系统提供了不可或缺的技术参考与评估标准。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "번역 벤치마크",
+    "모델 성능 평가",
+    "실패 케이스 진단"
+  ],
+  "title_en": "ArXiv: Last Translation Benchmark for SOTA Model Limits",
+  "title_zh": "面向前沿模型极限的最新翻译基准测试 (ArXiv 预印本)",
+  "hook": "모델 성능이 향상하면서도 정확히 검증할 수 있는 최신 번역 평가 기준과 실패 케이스 진단 방법을 아는 시간입니다.",
+  "hook_ko": "모델 성능이 향상하면서도 정확히 검증할 수 있는 최신 번역 평가 기준과 실패 케이스 진단 방법을 아는 시간입니다.",
+  "hook_en": "Discover the latest evaluation benchmark designed to test the absolute limits of state-of-the-art translation models and systematically diagnose failure cases.",
+  "hook_zh": "探索专为测试前沿模型翻译极限并系统诊断失效案例而设计的最新评估基准与方法论。",
+  "description_en": "Discover the latest evaluation benchmark designed to test the absolute limits of state-of-the-art translation models and systematically diagnose failure cases.",
+  "description_zh": "探索专为测试前沿模型翻译极限并系统诊断失效案例而设计的最新评估基准与方法论。"
 }

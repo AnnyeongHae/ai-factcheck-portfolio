@@ -31,5 +31,101 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_github_2akouwureverify",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI Agent Anti-Hallucination & Binary Verification",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "anti-hallucination",
+      "binary verification",
+      "AI agents",
+      "MCP server"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "GitHub 2akouwu 재검증 - AI 에이전트의 반올림 오류 제거",
+        "hook": "AI 에이전트가 바이너리를 읽을 때 발생하는 허위 정보를 100% 검증하는 새로운 기술",
+        "key_takeaways": [
+          "항상 정확한 사실 기반 답변",
+          "맥락 리셋에도 근거 사실 유지",
+          "MCP 서버와 CLI 통합"
+        ]
+      },
+      "en": {
+        "title": "GitHub 2akouwu ReVerify - Anti-Hallucination for AI Agents Reading Binaries",
+        "hook": "Every claim verified or refuted against actual binary data with evidence",
+        "key_takeaways": [
+          "Deterministic verification against real bytes",
+          "Grounded facts persist through context resets",
+          "MCP server + CLI support"
+        ]
+      },
+      "zh": {
+        "title": "GitHub 2akouwu 重验证 - AI 代理的反幻觉消除",
+        "hook": "AI 代理读取二进制时自动纠正错误信息，基于真实字节验证",
+        "key_takeaways": [
+          "100% 准确的事实驱动回答",
+          "上下文重置后仍保持事实基础",
+          "MCP 服务器和 CLI 集成"
+        ]
+      }
+    },
+    "enriched_by_model": "liquid/lfm-2.5-2.6b:free",
+    "enriched_at": "2026-09-04T17:51:50.644421+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "GitHub 2akouwu 재검증 - AI 에이전트의 반올림 오류 제거",
+      "hook": "AI 에이전트가 바이너리를 읽을 때 발생하는 허위 정보를 100% 검증하는 새로운 기술",
+      "key_takeaways": [
+        "항상 정확한 사실 기반 답변",
+        "맥락 리셋에도 근거 사실 유지",
+        "MCP 서버와 CLI 통합"
+      ]
+    },
+    "en": {
+      "title": "GitHub 2akouwu ReVerify - Anti-Hallucination for AI Agents Reading Binaries",
+      "hook": "Every claim verified or refuted against actual binary data with evidence",
+      "key_takeaways": [
+        "Deterministic verification against real bytes",
+        "Grounded facts persist through context resets",
+        "MCP server + CLI support"
+      ]
+    },
+    "zh": {
+      "title": "GitHub 2akouwu 重验证 - AI 代理的反幻觉消除",
+      "hook": "AI 代理读取二进制时自动纠正错误信息，基于真实字节验证",
+      "key_takeaways": [
+        "100% 准确的事实驱动回答",
+        "上下文重置后仍保持事实基础",
+        "MCP 服务器和 CLI 集成"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "anti-hallucination",
+    "binary verification",
+    "AI agents",
+    "MCP server"
+  ],
+  "title_ko": "GitHub 2akouwu 재검증 - AI 에이전트의 반올림 오류 제거",
+  "title_en": "GitHub 2akouwu ReVerify - Anti-Hallucination for AI Agents Reading Binaries",
+  "title_zh": "GitHub 2akouwu 重验证 - AI 代理的反幻觉消除",
+  "hook": "AI 에이전트가 바이너리를 읽을 때 발생하는 허위 정보를 100% 검증하는 새로운 기술",
+  "hook_ko": "AI 에이전트가 바이너리를 읽을 때 발생하는 허위 정보를 100% 검증하는 새로운 기술",
+  "hook_en": "Every claim verified or refuted against actual binary data with evidence",
+  "hook_zh": "AI 代理读取二进制时自动纠正错误信息，基于真实字节验证",
+  "description_ko": "AI 에이전트가 바이너리를 읽을 때 발생하는 허위 정보를 100% 검증하는 새로운 기술",
+  "description_en": "Every claim verified or refuted against actual binary data with evidence",
+  "description_zh": "AI 代理读取二进制时自动纠正错误信息，基于真实字节验证"
 }

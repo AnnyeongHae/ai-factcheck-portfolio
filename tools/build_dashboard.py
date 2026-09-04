@@ -13,6 +13,7 @@ import os
 import sys
 import time
 import datetime
+import re
 
 # Ensure UTF-8
 if sys.stdout.encoding != 'utf-8':
@@ -49,7 +50,7 @@ def scan_inbox():
     if not os.path.exists(inbox_dir): return inbox_items
 
     for f in sorted(os.listdir(inbox_dir), reverse=True):
-        if f.endswith(".json"):
+        if f.endswith(".json") and not f.startswith("_"):
             path = os.path.join(inbox_dir, f)
             try:
                 with open(path, "r", encoding="utf-8") as fp:
@@ -58,6 +59,16 @@ def scan_inbox():
                         inbox_items.append(item)
             except Exception:
                 pass
+
+    # Sort strictly by freshest active timestamp (harvested_at, published_at, created_at)
+    def get_freshest_ts(it):
+        return max(
+            str(it.get("harvested_at") or ""),
+            str(it.get("published_at") or ""),
+            str(it.get("created_at") or ""),
+            str(it.get("harvested_date") or "")
+        )
+    inbox_items.sort(key=get_freshest_ts, reverse=True)
     return inbox_items
 
 def load_graph_data():
@@ -248,7 +259,7 @@ def build_dashboard():
             "is_future": s["hour"] > current_hour_kst
         })
 
-    # 2. 6-Hour AI Trend Pulse (6-Hour Trend Radar)
+    # 2. 6-Hour AI Trend Pulse (6-Hour Trend Radar - Hot & High-Engagement Items)
     if 0 <= current_hour_kst < 6:
         w_label = "00:00 ~ 06:00 KST"
         w_period = "심야 글로벌 AI 릴리스 펄스"
@@ -262,23 +273,82 @@ def build_dashboard():
         w_label = "18:00 ~ 24:00 KST"
         w_period = "저녁 엔지니어링 & 데일리 결산"
 
+    def compute_viral_weight(it):
+        val = 0.0
+        mt = it.get("metric_tracking", {})
+        if isinstance(mt, dict) and "latest" in mt and isinstance(mt["latest"], dict):
+            try: val = max(val, float(mt["latest"].get("value", 0) or 0))
+            except Exception: pass
+        vm = str(it.get("viral_metric", ""))
+        nums = re.findall(r'(\d+[\d,.]*)\s*(?:likes|points|stars|pts|개)', vm, re.I)
+        for n in nums:
+            try: val = max(val, float(n.replace(",", "")))
+            except Exception: pass
+        if mt.get("is_spiking"): val *= 1.3
+        raw_date = str(it.get("harvested_at") or it.get("published_at") or it.get("created_at") or "")
+        if today_kst_str in raw_date:
+            val *= 2.0
+        return val
+
+    candidate_pool = [it for it in (model_items + news_items + clean_inbox_items) if it.get("title")]
+    candidate_pool.sort(key=compute_viral_weight, reverse=True)
+
+    # Pick top hot items with platform diversity
+    radar_items = []
+    for it in candidate_pool:
+        plat = it.get("source_platform") or "General"
+        if sum(1 for x in radar_items if (x.get("source_platform") or "General") == plat) >= 1:
+            continue
+        radar_items.append(it)
+        if len(radar_items) >= 3:
+            break
+    for it in candidate_pool:
+        if it not in radar_items:
+            radar_items.append(it)
+        if len(radar_items) >= 3:
+            break
+
+    radar_bullets = []
+    radar_tags = set()
+    for it in radar_items:
+        t_ko = it.get("multilingual", {}).get("ko", {}).get("title") or it.get("title_ko") or it.get("title") or ""
+        t_clean = re.sub(r'^(?:GitHub:\s*|HuggingFace:\s*|HF Space:\s*|Hacker News:\s*)', '', t_ko).strip()
+        plat = it.get("source_platform") or "AI Hub"
+        vm = it.get("viral_metric") or ""
+        summ = (it.get("ai_enrichment") or {}).get("summary_ko") or it.get("summary_ko") or it.get("hook_ko") or it.get("description") or ""
+        summ_clean = summ.replace('\n', ' ').strip()
+        if len(summ_clean) > 85:
+            summ_clean = summ_clean[:82] + "..."
+        if vm:
+            radar_bullets.append(f"🔥 [{plat}] {t_clean[:45]} ({vm}) — {summ_clean}")
+        else:
+            radar_bullets.append(f"🚀 [{plat}] {t_clean[:45]} — {summ_clean}")
+
+        for tag in it.get("tags", []):
+            if tag and len(radar_tags) < 5:
+                tag_name = tag if tag.startswith("#") else f"#{tag}"
+                radar_tags.add(tag_name.replace(" ", "_"))
+
+    if not radar_bullets:
+        radar_bullets = [
+            "경량화 및 로컬 온디바이스 추론을 위한 1M 컨텍스트 GGUF 양자화 모델 및 오픈가중치 MoE 아키텍처 집중 릴리스",
+            "vLLM V1 분산 엔진 아키텍처 재설계 및 저비용 자율주행 연구 플랫폼, 가상 스레드 런타임 등 시스템 엔지니어링 급상승",
+            "글로벌 빅테크 인수합병 및 온디바이스 SLM 추론 최적화 실시간 벤치마크 화두"
+        ]
+    if len(radar_tags) < 4:
+        default_tags = ["#High_Engagement", "#Autonomous_Agent", "#Local_LLM", "#SoTA_Models", "#MoE_Architecture"]
+        for dt in default_tags:
+            radar_tags.add(dt)
+            if len(radar_tags) >= 5:
+                break
+
     trend_6h = {
         "window_label": w_label,
         "window_period": w_period,
         "today_kst": today_kst_str,
         "updated_at": now_kst.strftime("%H:%M KST"),
-        "bullets": [
-            "경량화 및 로컬 온디바이스 추론을 위한 1M 컨텍스트 GGUF 양자화 모델 및 오픈가중치 MoE 아키텍처 집중 릴리스",
-            "vLLM V1 분산 엔진 아키텍처 재설계 및 저비용 자율주행 연구 플랫폼, 가상 스레드 런타임 등 시스템 엔지니어링 급상승",
-            "틱톡 289GB 데이터셋 유출 주장의 모바일 API 엔지니어링 실체 규명 및 기업용 소버린 AI 거버넌스 가이드 화두"
-        ],
-        "tags": [
-            "#TikTok_4B_Audit",
-            "#Local_GGUF_1M",
-            "#vLLM_V1_Engine",
-            "#Sovereign_AI",
-            "#MoE_Architecture"
-        ]
+        "bullets": radar_bullets,
+        "tags": list(radar_tags)[:5]
     }
 
     summary_data = {
@@ -699,9 +769,9 @@ def generate_html(data):
               <p class="text-[11px] text-ink-muted" id="timelineSub">3시간 주기(00, 03, 06, 09, 12, 15, 18, 21시) 실시간 인입 추세</p>
             </div>
             
-            <div class="flex items-center gap-3 text-[11px] font-mono">
-              <span class="flex items-center gap-1 text-ink-secondary"><span class="w-2.5 h-2.5 rounded bg-indigo-600 inline-block"></span> 수집 인박스</span>
-              <span class="flex items-center gap-1 text-ink-secondary"><span class="w-2.5 h-2.5 rounded bg-purple-600 inline-block"></span> 모델/뉴스</span>
+            <div class="flex items-center gap-2 text-[11px] font-mono text-ink-secondary">
+              <span class="w-2.5 h-2.5 rounded bg-indigo-600 inline-block"></span>
+              <span>시간대별 수집 건수</span>
             </div>
           </div>
 
@@ -939,8 +1009,8 @@ def generate_html(data):
         </div>
       </div>
 
-      <!-- Models Grid -->
-      <div id="modelsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <!-- Models Grid (4x5 Balanced Grid) -->
+      <div id="modelsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4.5"></div>
       <div id="modelsPagination" class="mt-4"></div>
     </div>
 
@@ -983,7 +1053,8 @@ def generate_html(data):
         </div>
       </div>
 
-      <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <!-- News Grid (4x5 Balanced Grid) -->
+      <div id="newsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4.5"></div>
       <div id="newsPagination" class="mt-4"></div>
     </div>
 
@@ -1163,7 +1234,8 @@ def generate_html(data):
         </div>
       </div>
 
-      <div id="inboxGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <!-- Inbox Grid (4x5 Balanced Grid) -->
+      <div id="inboxGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4.5"></div>
       <div id="inboxPagination" class="mt-4"></div>
     </div>
 
@@ -2049,12 +2121,23 @@ def generate_html(data):
       let raw = '';
       if (preferField === 'audit') {{
         raw = item.ai_enrichment?.enriched_at || item.audited_at || item.investigation_date || item.harvested_at || item.updated_at || item.created_at || item.harvested_date;
+        if (!raw) return 0;
+        const ms = new Date(raw).getTime();
+        return isNaN(ms) ? 0 : ms;
       }} else {{
-        raw = item.published_at || item.source_published_date || item.created_at || item.harvested_at || item.harvested_date;
+        // For freshest items in inbox/news/models, prioritize the latest active timestamp
+        const tHarvest = item.harvested_at ? new Date(item.harvested_at).getTime() : 0;
+        const tPublish = item.published_at ? new Date(item.published_at).getTime() : 0;
+        const tCreated = item.created_at ? new Date(item.created_at).getTime() : 0;
+        const tSourcePub = item.source_published_date ? new Date(item.source_published_date).getTime() : 0;
+        const best = Math.max(
+          isNaN(tHarvest) ? 0 : tHarvest,
+          isNaN(tPublish) ? 0 : tPublish,
+          isNaN(tCreated) ? 0 : tCreated,
+          isNaN(tSourcePub) ? 0 : tSourcePub
+        );
+        return best;
       }}
-      if (!raw) return 0;
-      const ms = new Date(raw).getTime();
-      return isNaN(ms) ? 0 : ms;
     }}
 
     function formatDateTime(raw) {{
@@ -2071,7 +2154,7 @@ def generate_html(data):
 
     // ================= RENDER 24H TIMELINE & 6H TREND RADAR =================
     function renderTelemetryCharts() {{
-      // 1. Render 24-Hour Timeline Chart (8 slots: 00, 03, 06, 09, 12, 15, 18, 21시)
+      // 1. Render 24-Hour Timeline Chart (8 slots: 00, 03, 06, 09, 12, 15, 18, 21시 - 단일 수집 건수 바)
       const tlContainer = document.getElementById('timeline24hChartContainer');
       if (tlContainer) {{
         tlContainer.innerHTML = '';
@@ -2080,7 +2163,6 @@ def generate_html(data):
 
         tData.forEach(d => {{
           const hPct = Math.max(12, Math.round(((d.inbox_count || 0) / maxVal) * 100));
-          const modelPct = Math.max(8, Math.round((((d.model_count || 0) + (d.news_count || 0)) / maxVal) * 100));
           const isCurrent = d.is_current;
           const isFuture = d.is_future;
 
@@ -2088,18 +2170,14 @@ def generate_html(data):
           col.className = 'flex flex-col items-center justify-end h-full group relative cursor-pointer';
           col.innerHTML = `
             <!-- Tooltip -->
-            <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-ink-primary text-white text-[10px] font-mono py-1 px-2 rounded-md shadow-lg whitespace-nowrap">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-10 z-20 pointer-events-none bg-ink-primary text-white text-[10px] font-mono py-1 px-2.5 rounded-md shadow-lg whitespace-nowrap">
               <div class="font-bold text-indigo-300">${{d.range}}: ${{d.inbox_count}}건 수집</div>
-              <div class="text-purple-300">모델/뉴스: ${{(d.model_count || 0) + (d.news_count || 0)}}건</div>
               ${{isCurrent ? '<div class="text-emerald-400">● 현재 수집 진행 중</div>' : ''}}
             </div>
 
-            <!-- Dual Bar Stack -->
-            <div class="w-full max-w-[24px] sm:max-w-[32px] flex items-end justify-center gap-0.5 sm:gap-1 h-28 ${{isFuture ? 'opacity-30' : ''}}">
-              <!-- Inbox Bar -->
-              <div class="w-1/2 ${{isCurrent ? 'bg-indigo-500 ring-2 ring-indigo-400 animate-pulse' : 'bg-indigo-600'}} rounded-t-sm transition-all duration-500 hover:bg-indigo-700" style="height: ${{hPct}}%;"></div>
-              <!-- Model/News Bar -->
-              <div class="w-1/2 bg-purple-600 rounded-t-sm transition-all duration-500 hover:bg-purple-700" style="height: ${{modelPct}}%;"></div>
+            <!-- Single Bar Stack -->
+            <div class="w-full max-w-[28px] sm:max-w-[36px] flex items-end justify-center h-28 ${{isFuture ? 'opacity-30' : ''}}">
+              <div class="w-full ${{isCurrent ? 'bg-indigo-500 ring-2 ring-indigo-400 animate-pulse' : 'bg-indigo-600'}} rounded-t-md transition-all duration-500 hover:bg-indigo-700" style="height: ${{hPct}}%;"></div>
             </div>
 
             <!-- Label -->

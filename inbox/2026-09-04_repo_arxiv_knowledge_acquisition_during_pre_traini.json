@@ -32,6 +32,100 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Knowledge Acquisition During Pre-training? Large Language Models Learn Better With Auxiliary Views",
-  "description_ko": "Abstract: Gaps remain in our understanding of how large language models (LLMs) acquire knowledge during pre-training. We posit that auxiliary views, reformulations of knowledge, are causally helpful for learnin..."
+  "title_ko": "사전 학습 중 지식 습득? 보조 뷰를 활용하면 대규모 언어 모델이 더 잘 학습한다",
+  "description_ko": "LLM의 사전 학습 단계에서 지식 습득 방식을 과학적으로 증명한 논문으로, 학습 효율성 향상을 위한 보조 뷰(재구성) 전략에 대한 핵심 통찰을 제공합니다.",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_knowledge_acquisition_during_pre_traini",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 사전 학습 및 지식 습득 최적화 (Pre-training & Knowledge Acquisition)",
+    "programming_lang": "Python / PyTorch",
+    "root_keywords": [
+      "Pre-training",
+      "Knowledge Acquisition",
+      "Auxiliary Views",
+      "Learning Dynamics"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "사전 학습 중 지식 습득? 보조 뷰를 활용하면 대규모 언어 모델이 더 잘 학습한다",
+        "hook": "LLM의 사전 학습 단계에서 지식 습득 방식을 과학적으로 증명한 논문으로, 학습 효율성 향상을 위한 보조 뷰(재구성) 전략에 대한 핵심 통찰을 제공합니다.",
+        "key_takeaways": [
+          "LLM 사전 학습 중 지식 습득 과정에 대한 이론적 간격을 보조 뷰 관점에서 재해석함",
+          "지식의 재구성(보조 뷰)이 모델 학습에 인과적으로 긍정적 영향을 미침을 실증함",
+          "향후 대규모 모델의 데이터 큐레이션 및 사전 학습 파이프라인 최적화에 실용적 기준 제시"
+        ]
+      },
+      "en": {
+        "title": "Knowledge Acquisition During Pre-training? LLMs Learn Better With Auxiliary Views",
+        "hook": "This paper scientifically proves how LLMs acquire knowledge during pre-training, offering core insights into auxiliary view (reformulation) strategies for boosting learning efficiency.",
+        "key_takeaways": [
+          "Reinterprets the knowledge acquisition process during LLM pre-training through the lens of auxiliary views",
+          "Empirically proves that knowledge reformulations (auxiliary views) causally benefit model learning",
+          "Provides practical benchmarks for optimizing data curation and pre-training pipelines for future large models"
+        ]
+      },
+      "zh": {
+        "title": "预训练期间的知识获取？利用辅助视图，大语言模型学习效果更好",
+        "hook": "本论文科学地证明了LLM在预训练中如何获取知识，为通过辅助视图（重构）策略提升学习效率提供了核心洞察。",
+        "key_takeaways": [
+          "从辅助视图的角度重新解读了LLM预训练中的知识获取过程",
+          "实证证明了知识重构（辅助视图）对模型学习具有因果性的促进作用",
+          "为未来大规模模型的数据策展及预训练管道优化提供了实用基准"
+        ]
+      }
+    },
+    "enriched_by_model": "dots-studio/dots-3-note-preview:free",
+    "enriched_at": "2026-09-04T17:54:54.169651+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "사전 학습 중 지식 습득? 보조 뷰를 활용하면 대규모 언어 모델이 더 잘 학습한다",
+      "hook": "LLM의 사전 학습 단계에서 지식 습득 방식을 과학적으로 증명한 논문으로, 학습 효율성 향상을 위한 보조 뷰(재구성) 전략에 대한 핵심 통찰을 제공합니다.",
+      "key_takeaways": [
+        "LLM 사전 학습 중 지식 습득 과정에 대한 이론적 간격을 보조 뷰 관점에서 재해석함",
+        "지식의 재구성(보조 뷰)이 모델 학습에 인과적으로 긍정적 영향을 미침을 실증함",
+        "향후 대규모 모델의 데이터 큐레이션 및 사전 학습 파이프라인 최적화에 실용적 기준 제시"
+      ]
+    },
+    "en": {
+      "title": "Knowledge Acquisition During Pre-training? LLMs Learn Better With Auxiliary Views",
+      "hook": "This paper scientifically proves how LLMs acquire knowledge during pre-training, offering core insights into auxiliary view (reformulation) strategies for boosting learning efficiency.",
+      "key_takeaways": [
+        "Reinterprets the knowledge acquisition process during LLM pre-training through the lens of auxiliary views",
+        "Empirically proves that knowledge reformulations (auxiliary views) causally benefit model learning",
+        "Provides practical benchmarks for optimizing data curation and pre-training pipelines for future large models"
+      ]
+    },
+    "zh": {
+      "title": "预训练期间的知识获取？利用辅助视图，大语言模型学习效果更好",
+      "hook": "本论文科学地证明了LLM在预训练中如何获取知识，为通过辅助视图（重构）策略提升学习效率提供了核心洞察。",
+      "key_takeaways": [
+        "从辅助视图的角度重新解读了LLM预训练中的知识获取过程",
+        "实证证明了知识重构（辅助视图）对模型学习具有因果性的促进作用",
+        "为未来大规模模型的数据策展及预训练管道优化提供了实用基准"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python / PyTorch",
+  "root_keywords": [
+    "Pre-training",
+    "Knowledge Acquisition",
+    "Auxiliary Views",
+    "Learning Dynamics"
+  ],
+  "title_en": "Knowledge Acquisition During Pre-training? LLMs Learn Better With Auxiliary Views",
+  "title_zh": "预训练期间的知识获取？利用辅助视图，大语言模型学习效果更好",
+  "hook": "LLM의 사전 학습 단계에서 지식 습득 방식을 과학적으로 증명한 논문으로, 학습 효율성 향상을 위한 보조 뷰(재구성) 전략에 대한 핵심 통찰을 제공합니다.",
+  "hook_ko": "LLM의 사전 학습 단계에서 지식 습득 방식을 과학적으로 증명한 논문으로, 학습 효율성 향상을 위한 보조 뷰(재구성) 전략에 대한 핵심 통찰을 제공합니다.",
+  "hook_en": "This paper scientifically proves how LLMs acquire knowledge during pre-training, offering core insights into auxiliary view (reformulation) strategies for boosting learning efficiency.",
+  "hook_zh": "本论文科学地证明了LLM在预训练中如何获取知识，为通过辅助视图（重构）策略提升学习效率提供了核心洞察。",
+  "description_en": "This paper scientifically proves how LLMs acquire knowledge during pre-training, offering core insights into auxiliary view (reformulation) strategies for boosting learning efficiency.",
+  "description_zh": "本论文科学地证明了LLM在预训练中如何获取知识，为通过辅助视图（重构）策略提升学习效率提供了核心洞察。"
 }

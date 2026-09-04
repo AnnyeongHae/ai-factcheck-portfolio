@@ -115,15 +115,13 @@ def push_inbox_to_neon(full_sync=False):
     twenty_four_hours = 86400
 
     with conn.cursor() as cur:
-        for f in sorted(os.listdir(inbox_dir)):
-            if f.endswith(".json"):
-                path = os.path.join(inbox_dir, f)
-                # Incremental Optimization: sync only if modified within 24 hours unless full_sync
-                if not full_sync:
-                    mtime = os.path.getmtime(path)
-                    if (now_ts - mtime) > twenty_four_hours:
-                        continue
+        cur.execute("ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS is_classified BOOLEAN DEFAULT FALSE;")
+        cur.execute("ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS is_deep_analyzed BOOLEAN DEFAULT FALSE;")
+        conn.commit()
 
+        for f in os.listdir(inbox_dir):
+            if f.endswith(".json") and not f.startswith("_"):
+                path = os.path.join(inbox_dir, f)
                 try:
                     with open(path, "r", encoding="utf-8") as fp:
                         it = json.load(fp)
@@ -132,15 +130,21 @@ def push_inbox_to_neon(full_sync=False):
                     source_url = it.get("source_url", "")
                     fp_hash = compute_fingerprint(source_url, it.get("title", ""))
                     
+                    is_classified = bool(it.get("is_classified", False))
+                    is_deep_analyzed = bool(it.get("is_deep_analyzed", False))
+
                     sql = """
                     INSERT INTO raw_trends_inbox (
                         inbox_id, source_fingerprint, source_platform, source_url, title, item_type,
-                        description, viral_metric, matched_user_domains, raw_payload, triage_status, harvested_date
+                        description, viral_metric, matched_user_domains, raw_payload, triage_status, harvested_date,
+                        is_classified, is_deep_analyzed
                     )
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                     ON CONFLICT (source_fingerprint) DO UPDATE SET
                         viral_metric = EXCLUDED.viral_metric,
                         description = EXCLUDED.description,
+                        is_classified = EXCLUDED.is_classified,
+                        is_deep_analyzed = EXCLUDED.is_deep_analyzed,
                         updated_at = NOW();
                     """
                     cur.execute(sql, (
@@ -155,7 +159,9 @@ def push_inbox_to_neon(full_sync=False):
                         json.dumps(it.get("matched_user_domains", [])),
                         json.dumps(it),
                         it.get("status", "PENDING_REVIEW"),
-                        it.get("harvested_date", datetime.date.today().isoformat())
+                        it.get("harvested_date", datetime.date.today().isoformat()),
+                        is_classified,
+                        is_deep_analyzed
                     ))
                     count += 1
                 except Exception as e:

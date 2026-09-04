@@ -124,5 +124,7 @@
   "hook_zh": "深入分析 AI Agent Harness 生命周期 Hook 的安全漏洞，揭示攻击者如何利用宿主权限执行恶意命令。",
   "enriched_by": "gemini-3.6-flash-batch-api",
   "enriched_at": "2026-09-04T14:48:40.729750",
-  "description_ko": "Abstract: Modern AI agent harnesses expose lifecycle hooks that bind shell commands to runtime events such as session start, tool calls, and file edits. These commands run with host privileges yet ship as lifec..."
+  "description_ko": "Abstract: Modern AI agent harnesses expose lifecycle hooks that bind shell commands to runtime events such as session start, tool calls, and file edits. These commands run with host privileges yet ship as lifec...",
+  "is_classified": true,
+  "is_deep_analyzed": false
 }

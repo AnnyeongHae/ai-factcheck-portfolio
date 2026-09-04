@@ -33,5 +33,101 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49561320",
-  "article_url": "http://www.techdirt.com/2026/09/03/hackers-had-a-live-feed-of-every-id-this-verification-company-scanned-for-over-a-year/"
+  "article_url": "http://www.techdirt.com/2026/09/03/hackers-had-a-live-feed-of-every-id-this-verification-company-scanned-for-over-a-year/",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_hackers_had_a_live_feed_of_every_",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "N/A",
+    "category": "Cybersecurity / Identity Verification Data Leak",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Identity Verification",
+      "Data Breach",
+      "Privacy Leak",
+      "Cybersecurity"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "해커들이 1년 이상 모든 ID 확인 회사에 대한 실시간 피드를 도용한 사고",
+        "hook": "개인 정보와 신분 확인 시스템을 담당하는 엔지니어라면 이 대규모 유출 사고의 교훈을 반드시 분석해야 합니다.",
+        "key_takeaways": [
+          "해커들이 1년 이상 모든 주요 ID 확인 회사의 실시간 데이터 스캔 피드에 접속했음",
+          "제3자 ID 확인 파이프라인의 중앙화된 데이터 저장이 가진 치명적인 보안 취약점",
+          "신분 증명서 및 개인 정보 처리 시 엄격한 암호화와 zero-trust 아키텍처 적용의 필요성"
+        ]
+      },
+      "en": {
+        "title": "Hackers Had a Live Feed of Every ID Verification Company Scanned for over a Year",
+        "hook": "A massive security breach exposing how identity verification data was leaked in real-time for over a year.",
+        "key_takeaways": [
+          "Hackers gained continuous, real-time access to scans from all major ID verification companies for over a year.",
+          "Centralized identity verification pipelines represent a massive single point of failure for personal privacy.",
+          "Engineers must prioritize zero-trust frameworks and end-to-end encryption for sensitive identity documents."
+        ]
+      },
+      "zh": {
+        "title": "黑客拥有所有身份验证公司长达一年多的实时扫描数据源",
+        "hook": "对于负责身份验证系统的工程师和技术决策者来说，这是一起必须深入研究的重大数据泄露安全事件。",
+        "key_takeaways": [
+          "黑客获取了几乎所有主流身份验证公司长达一年多的实时扫描数据流。",
+          "集中式的第三方身份验证数据存储存在极大的系统性安全风险。",
+          "开发人员在处理身份证明文件时，必须采用零信任架构和端到端强加密。"
+        ]
+      }
+    },
+    "enriched_by_model": "dots-studio/dots-3-note-preview:free",
+    "enriched_at": "2026-09-04T17:51:30.773203+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "해커들이 1년 이상 모든 ID 확인 회사에 대한 실시간 피드를 도용한 사고",
+      "hook": "개인 정보와 신분 확인 시스템을 담당하는 엔지니어라면 이 대규모 유출 사고의 교훈을 반드시 분석해야 합니다.",
+      "key_takeaways": [
+        "해커들이 1년 이상 모든 주요 ID 확인 회사의 실시간 데이터 스캔 피드에 접속했음",
+        "제3자 ID 확인 파이프라인의 중앙화된 데이터 저장이 가진 치명적인 보안 취약점",
+        "신분 증명서 및 개인 정보 처리 시 엄격한 암호화와 zero-trust 아키텍처 적용의 필요성"
+      ]
+    },
+    "en": {
+      "title": "Hackers Had a Live Feed of Every ID Verification Company Scanned for over a Year",
+      "hook": "A massive security breach exposing how identity verification data was leaked in real-time for over a year.",
+      "key_takeaways": [
+        "Hackers gained continuous, real-time access to scans from all major ID verification companies for over a year.",
+        "Centralized identity verification pipelines represent a massive single point of failure for personal privacy.",
+        "Engineers must prioritize zero-trust frameworks and end-to-end encryption for sensitive identity documents."
+      ]
+    },
+    "zh": {
+      "title": "黑客拥有所有身份验证公司长达一年多的实时扫描数据源",
+      "hook": "对于负责身份验证系统的工程师和技术决策者来说，这是一起必须深入研究的重大数据泄露安全事件。",
+      "key_takeaways": [
+        "黑客获取了几乎所有主流身份验证公司长达一年多的实时扫描数据流。",
+        "集中式的第三方身份验证数据存储存在极大的系统性安全风险。",
+        "开发人员在处理身份证明文件时，必须采用零信任架构和端到端强加密。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Identity Verification",
+    "Data Breach",
+    "Privacy Leak",
+    "Cybersecurity"
+  ],
+  "title_ko": "해커들이 1년 이상 모든 ID 확인 회사에 대한 실시간 피드를 도용한 사고",
+  "title_en": "Hackers Had a Live Feed of Every ID Verification Company Scanned for over a Year",
+  "title_zh": "黑客拥有所有身份验证公司长达一年多的实时扫描数据源",
+  "hook": "개인 정보와 신분 확인 시스템을 담당하는 엔지니어라면 이 대규모 유출 사고의 교훈을 반드시 분석해야 합니다.",
+  "hook_ko": "개인 정보와 신분 확인 시스템을 담당하는 엔지니어라면 이 대규모 유출 사고의 교훈을 반드시 분석해야 합니다.",
+  "hook_en": "A massive security breach exposing how identity verification data was leaked in real-time for over a year.",
+  "hook_zh": "对于负责身份验证系统的工程师和技术决策者来说，这是一起必须深入研究的重大数据泄露安全事件。",
+  "description_ko": "개인 정보와 신분 확인 시스템을 담당하는 엔지니어라면 이 대규모 유출 사고의 교훈을 반드시 분석해야 합니다.",
+  "description_en": "A massive security breach exposing how identity verification data was leaked in real-time for over a year.",
+  "description_zh": "对于负责身份验证系统的工程师和技术决策者来说，这是一起必须深入研究的重大数据泄露安全事件。"
 }

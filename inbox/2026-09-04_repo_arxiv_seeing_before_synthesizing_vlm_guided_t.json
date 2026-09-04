@@ -32,6 +32,100 @@
     "생성형 마케팅 & GEO/SEO 최적화"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Seeing Before Synthesizing: VLM-Guided Transition Event Discovery for Weakly-Supervised Dense Video Captioning",
-  "description_ko": "Abstract: Weakly-Supervised Dense Video Captioning aims to localize and describe multiple events in untrimmed videos given only an ordered set of event-level captions per video. Recent work synthesizes auxiliar..."
+  "title_ko": "합성하기 전에 먼저 보는 것: 약한 감독 비디어 밀도 캡셔닝을 위한 VLM 유도 전환 이벤트 발견",
+  "description_ko": "순서 없는 비디어에서 이벤트 경계를 정확히 잡기 위해, VLM을 활용해 합성 전에 전환 이벤트를 선별하는 최신 아키텍처!",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_seeing_before_synthesizing_vlm_guided_t",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "Video Captioning & VLM Guidance",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "VLM",
+      "Weakly-Supervised Learning",
+      "Dense Video Captioning",
+      "Transition Event Discovery"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "합성하기 전에 먼저 보는 것: 약한 감독 비디어 밀도 캡셔닝을 위한 VLM 유도 전환 이벤트 발견",
+        "hook": "순서 없는 비디어에서 이벤트 경계를 정확히 잡기 위해, VLM을 활용해 합성 전에 전환 이벤트를 선별하는 최신 아키텍처!",
+        "key_takeaways": [
+          "이벤트 레벨 캡션만 주어진 약한 감독 환경에서 비디어 내 여러 이벤트의 경계를 정확히 localization하는 기법.",
+          "비디어 캡션 합성 과정 전에 VLM이 '보는(Seeing)' 역할을 수행해 전환 이벤트를 사전 인식하여 정확도를 극대화.",
+          "기존 합성 중심적 접근 방식의 한계를 극복하고, VLM 가이드를 통한 새로운 비디어 이해 패러다임 제시."
+        ]
+      },
+      "en": {
+        "title": "Seeing Before Synthesizing: VLM-Guided Transition Event Discovery for Weakly-Supervised Dense Video Captioning",
+        "hook": "How does VLM-guided transition event discovery before synthesis improve dense video captioning in weakly-supervised settings? Find out!",
+        "key_takeaways": [
+          "Proposes a 'seeing before synthesizing' paradigm utilizing VLM to discover transition events prior to caption generation.",
+          "Addresses the hard problem of localizing multiple events in untrimmed videos with only ordered event-level captions.",
+          "Boosts overall captioning quality and temporal boundary accuracy through proactive event discovery."
+        ]
+      },
+      "zh": {
+        "title": "先看后合成：用于弱监督密集视频字幕的VLM引导过渡事件发现",
+        "hook": "如何在弱监督环境下，利用VLM在合成前引导发现过渡事件，从而提升密集视频字幕的准确性？本文给出了最新方案。",
+        "key_takeaways": [
+          "提出了“先看后合成”的新范式，利用VLM在生成字幕前引导发现视频中的关键过渡事件。",
+          "解决了在仅有有序事件级字幕的弱监督条件下，对未修剪视频中多事件进行精准定位的痛点。",
+          "通过前置的事件发现机制，大幅增强了视频字幕生成的时序边界准确性和整体描述质量。"
+        ]
+      }
+    },
+    "enriched_by_model": "dots-studio/dots-3-note-preview:free",
+    "enriched_at": "2026-09-04T17:55:29.333215+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "합성하기 전에 먼저 보는 것: 약한 감독 비디어 밀도 캡셔닝을 위한 VLM 유도 전환 이벤트 발견",
+      "hook": "순서 없는 비디어에서 이벤트 경계를 정확히 잡기 위해, VLM을 활용해 합성 전에 전환 이벤트를 선별하는 최신 아키텍처!",
+      "key_takeaways": [
+        "이벤트 레벨 캡션만 주어진 약한 감독 환경에서 비디어 내 여러 이벤트의 경계를 정확히 localization하는 기법.",
+        "비디어 캡션 합성 과정 전에 VLM이 '보는(Seeing)' 역할을 수행해 전환 이벤트를 사전 인식하여 정확도를 극대화.",
+        "기존 합성 중심적 접근 방식의 한계를 극복하고, VLM 가이드를 통한 새로운 비디어 이해 패러다임 제시."
+      ]
+    },
+    "en": {
+      "title": "Seeing Before Synthesizing: VLM-Guided Transition Event Discovery for Weakly-Supervised Dense Video Captioning",
+      "hook": "How does VLM-guided transition event discovery before synthesis improve dense video captioning in weakly-supervised settings? Find out!",
+      "key_takeaways": [
+        "Proposes a 'seeing before synthesizing' paradigm utilizing VLM to discover transition events prior to caption generation.",
+        "Addresses the hard problem of localizing multiple events in untrimmed videos with only ordered event-level captions.",
+        "Boosts overall captioning quality and temporal boundary accuracy through proactive event discovery."
+      ]
+    },
+    "zh": {
+      "title": "先看后合成：用于弱监督密集视频字幕的VLM引导过渡事件发现",
+      "hook": "如何在弱监督环境下，利用VLM在合成前引导发现过渡事件，从而提升密集视频字幕的准确性？本文给出了最新方案。",
+      "key_takeaways": [
+        "提出了“先看后合成”的新范式，利用VLM在生成字幕前引导发现视频中的关键过渡事件。",
+        "解决了在仅有有序事件级字幕的弱监督条件下，对未修剪视频中多事件进行精准定位的痛点。",
+        "通过前置的事件发现机制，大幅增强了视频字幕生成的时序边界准确性和整体描述质量。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "VLM",
+    "Weakly-Supervised Learning",
+    "Dense Video Captioning",
+    "Transition Event Discovery"
+  ],
+  "title_en": "Seeing Before Synthesizing: VLM-Guided Transition Event Discovery for Weakly-Supervised Dense Video Captioning",
+  "title_zh": "先看后合成：用于弱监督密集视频字幕的VLM引导过渡事件发现",
+  "hook": "순서 없는 비디어에서 이벤트 경계를 정확히 잡기 위해, VLM을 활용해 합성 전에 전환 이벤트를 선별하는 최신 아키텍처!",
+  "hook_ko": "순서 없는 비디어에서 이벤트 경계를 정확히 잡기 위해, VLM을 활용해 합성 전에 전환 이벤트를 선별하는 최신 아키텍처!",
+  "hook_en": "How does VLM-guided transition event discovery before synthesis improve dense video captioning in weakly-supervised settings? Find out!",
+  "hook_zh": "如何在弱监督环境下，利用VLM在合成前引导发现过渡事件，从而提升密集视频字幕的准确性？本文给出了最新方案。",
+  "description_en": "How does VLM-guided transition event discovery before synthesis improve dense video captioning in weakly-supervised settings? Find out!",
+  "description_zh": "如何在弱监督环境下，利用VLM在合成前引导发现过渡事件，从而提升密集视频字幕的准确性？本文给出了最新方案。"
 }

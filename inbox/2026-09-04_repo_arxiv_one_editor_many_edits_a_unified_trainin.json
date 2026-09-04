@@ -32,6 +32,102 @@
     "생성형 마케팅 & GEO/SEO 최적화"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing",
-  "description_ko": "Abstract: Video editing spans diverse editing paradigms, yet achieving high-quality instruction-guided and subject-guided editing within a single unified framework remains challenging. We introduce EditVid, a t..."
+  "title_ko": "단일 에디터로 다양한 영상 편집을: 통합된 학습 비필요 비디오 편집 프레임워크 EditVid",
+  "description_ko": "별도의 학습 없이 하나의 프레임워크로 명령어 기반과 대상 기반 영상 편집을 모두 해결하는 통합 솔루션이 등장했습니다.",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_one_editor_many_edits_a_unified_trainin",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "Diffusion 기반 비디오 편집 프레임워크",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Video Editing",
+      "Training-Free",
+      "Diffusion Models",
+      "Unified Framework",
+      "EditVid"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "단일 에디터로 다양한 영상 편집을: 통합된 학습 비필요 비디오 편집 프레임워크 EditVid",
+        "hook": "별도의 학습 없이 하나의 프레임워크로 명령어 기반과 대상 기반 영상 편집을 모두 해결하는 통합 솔루션이 등장했습니다.",
+        "key_takeaways": [
+          "다양한 영상 편집 패러다임을 통합한 학습 비필요(Training-Free) 프레임워크 EditVid를 제안합니다.",
+          "단일 모델로 명령어 안내(Instruction-guided) 편집과 대상 안내(Subject-guided) 편집 모두 고품질로 수행합니다.",
+          "비디오 확산 모델(Video Diffusion Model) 편집 파이프라인의 통합 및 효율성 향상에 기여합니다."
+        ]
+      },
+      "en": {
+        "title": "One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing",
+        "hook": "A single, training-free framework now tackles both instruction-guided and subject-guided video editing, eliminating the need for multiple specialized models.",
+        "key_takeaways": [
+          "Introduces EditVid, a unified training-free framework addressing diverse video editing paradigms.",
+          "Achieves high-quality results for both instruction-guided and subject-guided video editing within a single architecture.",
+          "Reduces computational overhead and complexity by removing the requirement for model fine-tuning."
+        ]
+      },
+      "zh": {
+        "title": "一个编辑器，多种编辑：用于多样化视频编辑的统一免训练框架",
+        "hook": "无需额外训练，一个统一的框架即可同时搞定指令引导和主体引导的高质量视频编辑，彻底告别多模型堆叠。",
+        "key_takeaways": [
+          "提出了 EditVid，一个用于解决多样化视频编辑任务的统一免训练（Training-Free）框架。",
+          "在单一架构内实现了指令引导（Instruction-guided）与主体引导（Subject-guided）的高质量视频编辑。",
+          "无需对模型进行微调，显著降低了视频编辑的计算开销和工程复杂度。"
+        ]
+      }
+    },
+    "enriched_by_model": "minimax/minimax-m3:free",
+    "enriched_at": "2026-09-04T17:55:56.740688+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "단일 에디터로 다양한 영상 편집을: 통합된 학습 비필요 비디오 편집 프레임워크 EditVid",
+      "hook": "별도의 학습 없이 하나의 프레임워크로 명령어 기반과 대상 기반 영상 편집을 모두 해결하는 통합 솔루션이 등장했습니다.",
+      "key_takeaways": [
+        "다양한 영상 편집 패러다임을 통합한 학습 비필요(Training-Free) 프레임워크 EditVid를 제안합니다.",
+        "단일 모델로 명령어 안내(Instruction-guided) 편집과 대상 안내(Subject-guided) 편집 모두 고품질로 수행합니다.",
+        "비디오 확산 모델(Video Diffusion Model) 편집 파이프라인의 통합 및 효율성 향상에 기여합니다."
+      ]
+    },
+    "en": {
+      "title": "One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing",
+      "hook": "A single, training-free framework now tackles both instruction-guided and subject-guided video editing, eliminating the need for multiple specialized models.",
+      "key_takeaways": [
+        "Introduces EditVid, a unified training-free framework addressing diverse video editing paradigms.",
+        "Achieves high-quality results for both instruction-guided and subject-guided video editing within a single architecture.",
+        "Reduces computational overhead and complexity by removing the requirement for model fine-tuning."
+      ]
+    },
+    "zh": {
+      "title": "一个编辑器，多种编辑：用于多样化视频编辑的统一免训练框架",
+      "hook": "无需额外训练，一个统一的框架即可同时搞定指令引导和主体引导的高质量视频编辑，彻底告别多模型堆叠。",
+      "key_takeaways": [
+        "提出了 EditVid，一个用于解决多样化视频编辑任务的统一免训练（Training-Free）框架。",
+        "在单一架构内实现了指令引导（Instruction-guided）与主体引导（Subject-guided）的高质量视频编辑。",
+        "无需对模型进行微调，显著降低了视频编辑的计算开销和工程复杂度。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Video Editing",
+    "Training-Free",
+    "Diffusion Models",
+    "Unified Framework",
+    "EditVid"
+  ],
+  "title_en": "One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing",
+  "title_zh": "一个编辑器，多种编辑：用于多样化视频编辑的统一免训练框架",
+  "hook": "별도의 학습 없이 하나의 프레임워크로 명령어 기반과 대상 기반 영상 편집을 모두 해결하는 통합 솔루션이 등장했습니다.",
+  "hook_ko": "별도의 학습 없이 하나의 프레임워크로 명령어 기반과 대상 기반 영상 편집을 모두 해결하는 통합 솔루션이 등장했습니다.",
+  "hook_en": "A single, training-free framework now tackles both instruction-guided and subject-guided video editing, eliminating the need for multiple specialized models.",
+  "hook_zh": "无需额外训练，一个统一的框架即可同时搞定指令引导和主体引导的高质量视频编辑，彻底告别多模型堆叠。",
+  "description_en": "A single, training-free framework now tackles both instruction-guided and subject-guided video editing, eliminating the need for multiple specialized models.",
+  "description_zh": "无需额外训练，一个统一的框架即可同时搞定指令引导和主体引导的高质量视频编辑，彻底告别多模型堆叠。"
 }

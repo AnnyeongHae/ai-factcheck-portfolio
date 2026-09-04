@@ -33,6 +33,106 @@
     "정량 데이터 분석 & 벤치마크 감사"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "SWE-Gate: Passing Functional Tests Is Not Enough for Software Engineering Agents",
-  "description_ko": "Abstract: Repository-level software engineering benchmarks have significantly advanced the evaluation of coding agents, but existing benchmarks primarily measure whether generated patches pass functional tests ..."
+  "title_ko": "SWE-Gate: 기능 테스트 통과만으로는 소프트웨어 엔지니어링 에이전트를 평가할 수 없다",
+  "description_ko": "현재의 코딩 에이전트 벤치마크가 기능 테스트 통과에만 치중해 있어, 실제 소프트웨어 엔지니어링에서 요구되는 코드 품질·유지보수성·아키텍처 적합성을 완전히 놓치고 있다는 충격적인 연구 결과.",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_swe_gate_passing_functional_tests_is_no",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 에이전트 평가 프레임워크 / 소프트웨어 엔지니어링 벤치마크",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "SWE-Gate",
+      "소프트웨어 엔지니어링 에이전트",
+      "기능 테스트",
+      "코드 품질 평가",
+      "벤치마크 비판",
+      "AI 코딩 에이전트",
+      "리포지토리 수준 평가"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "SWE-Gate: 기능 테스트 통과만으로는 소프트웨어 엔지니어링 에이전트를 평가할 수 없다",
+        "hook": "현재의 코딩 에이전트 벤치마크가 기능 테스트 통과에만 치중해 있어, 실제 소프트웨어 엔지니어링에서 요구되는 코드 품질·유지보수성·아키텍처 적합성을 완전히 놓치고 있다는 충격적인 연구 결과.",
+        "key_takeaways": [
+          "기존 리포지토리 수준 벤치마크는 생성된 패치가 기능 테스트를 통과하는지만 측정하여, 실제 엔지니어링 품질을 평가하는 데 근본적 한계가 있다.",
+          "SWE-Gate 프레임워크는 기능 테스트 외에 코드 유지보성, 아키텍처 일관성, 에지 케이스 처리 등 다차원적 품질 지표를 도입하여 에이전트를 평가한다.",
+          "기능 테스트 통과율이 높더라도 실제 배포 환경에서 문제가 되는 코드가 생성될 수 있으므로, 더 엄격한 평가 기준의 필요성이 강조된다."
+        ]
+      },
+      "en": {
+        "title": "SWE-Gate: Passing Functional Tests Is Not Enough for Software Engineering Agents",
+        "hook": "This paper exposes a fundamental flaw in current coding agent benchmarks—they measure only functional test pass rates while ignoring critical dimensions of real-world software engineering quality like maintainability and architectural correctness.",
+        "key_takeaways": [
+          "Existing repository-level benchmarks are fundamentally limited by measuring only whether generated patches pass functional tests, missing critical software engineering quality dimensions.",
+          "The SWE-Gate framework introduces multi-dimensional quality metrics—including code maintainability, architectural consistency, and edge-case handling—to provide a more rigorous evaluation of coding agents.",
+          "High functional test pass rates can still produce code that fails in real deployment scenarios, underscoring the urgent need for more comprehensive evaluation criteria."
+        ]
+      },
+      "zh": {
+        "title": "SWE-Gate: 通过功能测试不足以评估软件工程智能体",
+        "hook": "该研究揭示当前编码智能体基准测试仅关注功能测试通过率，忽视了真实软件工程中至关重要的代码质量、可维护性与架构一致性等核心维度。",
+        "key_takeaways": [
+          "现有仓库级基准测试仅衡量生成的补丁是否通过功能测试，存在根本性局限，无法反映真实的软件工程质量。",
+          "SWE-Gate框架引入了多维度质量评估指标，包括代码可维护性、架构一致性和边界情况处理能力，从而对编码智能体进行更严格的评估。",
+          "即使功能测试通过率高，生成的代码在实际部署场景中仍可能失败，凸显了建立更全面评估标准的迫切需求。"
+        ]
+      }
+    },
+    "enriched_by_model": "inclusionai/ling-3.0-flash-fin:free",
+    "enriched_at": "2026-09-04T17:52:46.269165+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "SWE-Gate: 기능 테스트 통과만으로는 소프트웨어 엔지니어링 에이전트를 평가할 수 없다",
+      "hook": "현재의 코딩 에이전트 벤치마크가 기능 테스트 통과에만 치중해 있어, 실제 소프트웨어 엔지니어링에서 요구되는 코드 품질·유지보수성·아키텍처 적합성을 완전히 놓치고 있다는 충격적인 연구 결과.",
+      "key_takeaways": [
+        "기존 리포지토리 수준 벤치마크는 생성된 패치가 기능 테스트를 통과하는지만 측정하여, 실제 엔지니어링 품질을 평가하는 데 근본적 한계가 있다.",
+        "SWE-Gate 프레임워크는 기능 테스트 외에 코드 유지보성, 아키텍처 일관성, 에지 케이스 처리 등 다차원적 품질 지표를 도입하여 에이전트를 평가한다.",
+        "기능 테스트 통과율이 높더라도 실제 배포 환경에서 문제가 되는 코드가 생성될 수 있으므로, 더 엄격한 평가 기준의 필요성이 강조된다."
+      ]
+    },
+    "en": {
+      "title": "SWE-Gate: Passing Functional Tests Is Not Enough for Software Engineering Agents",
+      "hook": "This paper exposes a fundamental flaw in current coding agent benchmarks—they measure only functional test pass rates while ignoring critical dimensions of real-world software engineering quality like maintainability and architectural correctness.",
+      "key_takeaways": [
+        "Existing repository-level benchmarks are fundamentally limited by measuring only whether generated patches pass functional tests, missing critical software engineering quality dimensions.",
+        "The SWE-Gate framework introduces multi-dimensional quality metrics—including code maintainability, architectural consistency, and edge-case handling—to provide a more rigorous evaluation of coding agents.",
+        "High functional test pass rates can still produce code that fails in real deployment scenarios, underscoring the urgent need for more comprehensive evaluation criteria."
+      ]
+    },
+    "zh": {
+      "title": "SWE-Gate: 通过功能测试不足以评估软件工程智能体",
+      "hook": "该研究揭示当前编码智能体基准测试仅关注功能测试通过率，忽视了真实软件工程中至关重要的代码质量、可维护性与架构一致性等核心维度。",
+      "key_takeaways": [
+        "现有仓库级基准测试仅衡量生成的补丁是否通过功能测试，存在根本性局限，无法反映真实的软件工程质量。",
+        "SWE-Gate框架引入了多维度质量评估指标，包括代码可维护性、架构一致性和边界情况处理能力，从而对编码智能体进行更严格的评估。",
+        "即使功能测试通过率高，生成的代码在实际部署场景中仍可能失败，凸显了建立更全面评估标准的迫切需求。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "SWE-Gate",
+    "소프트웨어 엔지니어링 에이전트",
+    "기능 테스트",
+    "코드 품질 평가",
+    "벤치마크 비판",
+    "AI 코딩 에이전트",
+    "리포지토리 수준 평가"
+  ],
+  "title_en": "SWE-Gate: Passing Functional Tests Is Not Enough for Software Engineering Agents",
+  "title_zh": "SWE-Gate: 通过功能测试不足以评估软件工程智能体",
+  "hook": "현재의 코딩 에이전트 벤치마크가 기능 테스트 통과에만 치중해 있어, 실제 소프트웨어 엔지니어링에서 요구되는 코드 품질·유지보수성·아키텍처 적합성을 완전히 놓치고 있다는 충격적인 연구 결과.",
+  "hook_ko": "현재의 코딩 에이전트 벤치마크가 기능 테스트 통과에만 치중해 있어, 실제 소프트웨어 엔지니어링에서 요구되는 코드 품질·유지보수성·아키텍처 적합성을 완전히 놓치고 있다는 충격적인 연구 결과.",
+  "hook_en": "This paper exposes a fundamental flaw in current coding agent benchmarks—they measure only functional test pass rates while ignoring critical dimensions of real-world software engineering quality like maintainability and architectural correctness.",
+  "hook_zh": "该研究揭示当前编码智能体基准测试仅关注功能测试通过率，忽视了真实软件工程中至关重要的代码质量、可维护性与架构一致性等核心维度。",
+  "description_en": "This paper exposes a fundamental flaw in current coding agent benchmarks—they measure only functional test pass rates while ignoring critical dimensions of real-world software engineering quality like maintainability and architectural correctness.",
+  "description_zh": "该研究揭示当前编码智能体基准测试仅关注功能测试通过率，忽视了真实软件工程中至关重要的代码质量、可维护性与架构一致性等核心维度。"
 }

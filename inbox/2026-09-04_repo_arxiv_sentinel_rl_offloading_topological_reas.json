@@ -32,6 +32,102 @@
     "DX & Python 업무 프로세스 자동화"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "SENTINEL-RL: Offloading Topological 추론 모델 from LLM Agents in the Security Operations Center",
-  "description_ko": "Abstract: Large language model (LLM) agents are increasingly proposed as autonomous SOC analysts, but two limitations make them unreliable at enterprise scale: a finite context window cannot hold a multi-thousa..."
+  "title_ko": "SENTINEL-RL: 보안 운영 센터(SEO)에서 LLM 에이전트의 위상 추론 작업 분산 처리",
+  "description_ko": "대규모 기업 SOC에서 LLM 에이전트의 컨텍스트 윈도우 한계를 RL 기반 추론 분산(Offloading) 아키텍처로 해결한 기술!",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_sentinel_rl_offloading_topological_reas",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM Agent Optimization, Security Operations Center (SOC) Automation",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "LLM Agent",
+      "Security Operations Center (SOC)",
+      "Reinforcement Learning (RL)",
+      "Topological Reasoning",
+      "Context Window Optimization"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "SENTINEL-RL: 보안 운영 센터(SEO)에서 LLM 에이전트의 위상 추론 작업 분산 처리",
+        "hook": "대규모 기업 SOC에서 LLM 에이전트의 컨텍스트 윈도우 한계를 RL 기반 추론 분산(Offloading) 아키텍처로 해결한 기술!",
+        "key_takeaways": [
+          "LLM 에이전트의 고정된 컨텍스트 윈도우 크기 한계로 인해 대규모 기업 SOC 도입이 어려운 문제를 해결합니다.",
+          "강화학습(RL)을 활용해 무거운 위상 추론(Topological Reasoning) 작업을 에이전트 외부 시스템으로 동적 분산 처리를 구현합니다.",
+          "제한된 컨텍스트 내에서 핵심 보안 정보에 집중할 수 있어 대규모 보안 이벤트 분석의 확장성을 확보합니다."
+        ]
+      },
+      "en": {
+        "title": "SENTINEL-RL: Offloading Topological Reasoning from LLM Agents in Security Operations Centers",
+        "hook": "Overcome LLM context window limits in enterprise SOCs by offloading topological reasoning to RL-optimized external execution paths.",
+        "key_takeaways": [
+          "Addresses the scalability bottleneck of LLM agents in large-scale enterprise SOCs by bypassing finite context limits.",
+          "Uses Reinforcement Learning (RL) to dynamically offload heavy topological reasoning tasks from the agent loop.",
+          "Enables reliable, context-independent security analysis at massive event scale."
+        ]
+      },
+      "zh": {
+        "title": "SENTINEL-RL：在安全运营中心（SOC）中将拓扑推理任务从 LLM 智能体中卸载",
+        "hook": "利用强化学习（RL）将拓扑推理卸载到外部，突破 LLM 智能体在大型企业 SOC 中的上下文窗口限制。",
+        "key_takeaways": [
+          "解决了 LLM 智能体在大规模企业 SOC 中因上下文窗口限制导致的可靠性与扩展性问题。",
+          "利用强化学习（RL）动态卸载繁重的拓扑推理任务，实现智能体轻量化运行。",
+          "构建了高扩展性、无需受限于固定上下文长度的安全事件自动分析架构。"
+        ]
+      }
+    },
+    "enriched_by_model": "dots-studio/dots-3-note-preview:free",
+    "enriched_at": "2026-09-04T17:52:24.009541+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "SENTINEL-RL: 보안 운영 센터(SEO)에서 LLM 에이전트의 위상 추론 작업 분산 처리",
+      "hook": "대규모 기업 SOC에서 LLM 에이전트의 컨텍스트 윈도우 한계를 RL 기반 추론 분산(Offloading) 아키텍처로 해결한 기술!",
+      "key_takeaways": [
+        "LLM 에이전트의 고정된 컨텍스트 윈도우 크기 한계로 인해 대규모 기업 SOC 도입이 어려운 문제를 해결합니다.",
+        "강화학습(RL)을 활용해 무거운 위상 추론(Topological Reasoning) 작업을 에이전트 외부 시스템으로 동적 분산 처리를 구현합니다.",
+        "제한된 컨텍스트 내에서 핵심 보안 정보에 집중할 수 있어 대규모 보안 이벤트 분석의 확장성을 확보합니다."
+      ]
+    },
+    "en": {
+      "title": "SENTINEL-RL: Offloading Topological Reasoning from LLM Agents in Security Operations Centers",
+      "hook": "Overcome LLM context window limits in enterprise SOCs by offloading topological reasoning to RL-optimized external execution paths.",
+      "key_takeaways": [
+        "Addresses the scalability bottleneck of LLM agents in large-scale enterprise SOCs by bypassing finite context limits.",
+        "Uses Reinforcement Learning (RL) to dynamically offload heavy topological reasoning tasks from the agent loop.",
+        "Enables reliable, context-independent security analysis at massive event scale."
+      ]
+    },
+    "zh": {
+      "title": "SENTINEL-RL：在安全运营中心（SOC）中将拓扑推理任务从 LLM 智能体中卸载",
+      "hook": "利用强化学习（RL）将拓扑推理卸载到外部，突破 LLM 智能体在大型企业 SOC 中的上下文窗口限制。",
+      "key_takeaways": [
+        "解决了 LLM 智能体在大规模企业 SOC 中因上下文窗口限制导致的可靠性与扩展性问题。",
+        "利用强化学习（RL）动态卸载繁重的拓扑推理任务，实现智能体轻量化运行。",
+        "构建了高扩展性、无需受限于固定上下文长度的安全事件自动分析架构。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "LLM Agent",
+    "Security Operations Center (SOC)",
+    "Reinforcement Learning (RL)",
+    "Topological Reasoning",
+    "Context Window Optimization"
+  ],
+  "title_en": "SENTINEL-RL: Offloading Topological Reasoning from LLM Agents in Security Operations Centers",
+  "title_zh": "SENTINEL-RL：在安全运营中心（SOC）中将拓扑推理任务从 LLM 智能体中卸载",
+  "hook": "대규모 기업 SOC에서 LLM 에이전트의 컨텍스트 윈도우 한계를 RL 기반 추론 분산(Offloading) 아키텍처로 해결한 기술!",
+  "hook_ko": "대규모 기업 SOC에서 LLM 에이전트의 컨텍스트 윈도우 한계를 RL 기반 추론 분산(Offloading) 아키텍처로 해결한 기술!",
+  "hook_en": "Overcome LLM context window limits in enterprise SOCs by offloading topological reasoning to RL-optimized external execution paths.",
+  "hook_zh": "利用强化学习（RL）将拓扑推理卸载到外部，突破 LLM 智能体在大型企业 SOC 中的上下文窗口限制。",
+  "description_en": "Overcome LLM context window limits in enterprise SOCs by offloading topological reasoning to RL-optimized external execution paths.",
+  "description_zh": "利用强化学习（RL）将拓扑推理卸载到外部，突破 LLM 智能体在大型企业 SOC 中的上下文窗口限制。"
 }

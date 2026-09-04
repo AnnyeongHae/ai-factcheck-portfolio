@@ -32,6 +32,102 @@
     "엔터프라이즈 RAG & 문서 파싱 인프라"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "From Deceptive Outputs to Deceptive Mechanisms: A Causal Framework for Language-Model Deception Research",
-  "description_ko": "Abstract: Research and news coverage of language-model deception increasingly attributes human-like mental-state concepts to language models. Such claims can blur the distinction between behavior that looks dec..."
+  "title_ko": "기만적 출력에서 기만적 메커니즘으로: 언어 모델 기만 연구를 위한 인과적 프레임워크",
+  "description_ko": "LLM의 '기만'을 단순한 출력 패턴이 아닌 내부 메커니즘 수준에서 규명하는 새로운 인과적 분석 프레임워크를 제안합니다.",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_from_deceptive_outputs_to_deceptive_mec",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI 안전성 및 해석 가능성",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Language Model Deception",
+      "Causal Framework",
+      "AI Safety",
+      "Interpretability",
+      "Mechanistic Analysis"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "기만적 출력에서 기만적 메커니즘으로: 언어 모델 기만 연구를 위한 인과적 프레임워크",
+        "hook": "LLM의 '기만'을 단순한 출력 패턴이 아닌 내부 메커니즘 수준에서 규명하는 새로운 인과적 분석 프레임워크를 제안합니다.",
+        "key_takeaways": [
+          "언어 모델의 기만적 행동을 인간의 의도나 정신 상태 개념에서 분리하여 메커니즘 수준에서 분석할 필요성을 강조함",
+          "단순히 기만적으로 보이는 출력(output)에 의존하던 기존 연구의 한계를 극복하는 인과적 프레임워크를 제시함",
+          "LLM의 안전성과 해석 가능성(Interpretability) 연구에 새로운 방향성을 제공함"
+        ]
+      },
+      "en": {
+        "title": "From Deceptive Outputs to Deceptive Mechanisms: A Causal Framework for Language-Model Deception Research",
+        "hook": "A new causal framework that shifts LLM deception analysis from surface-level outputs to the underlying internal mechanisms driving deceptive behavior.",
+        "key_takeaways": [
+          "Challenges the tendency to attribute human-like mental states to language models exhibiting deceptive behaviors.",
+          "Proposes a causal framework to distinguish between behavior that looks deceptive and actual deceptive mechanisms within the model.",
+          "Provides a robust foundation for future research into AI safety and mechanistic interpretability."
+        ]
+      },
+      "zh": {
+        "title": "从欺骗性输出到欺骗性机制：语言模型欺骗研究的因果框架",
+        "hook": "跳出仅观察LLM表面欺骗性输出的局限，开创从底层因果机制剖析语言模型欺骗行为的新框架。",
+        "key_takeaways": [
+          "强调需将语言模型的欺骗行为与人类的心理状态概念脱钩，并深入至其内部机制进行分析。",
+          "提出突破现有研究局限的因果分析框架，超越对欺骗性输出的简单依赖。",
+          "为LLM的安全性研究与机制可解释性(Interpretability)提供了全新的理论方向。"
+        ]
+      }
+    },
+    "enriched_by_model": "minimax/minimax-m3:free",
+    "enriched_at": "2026-09-04T17:52:40.745870+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "기만적 출력에서 기만적 메커니즘으로: 언어 모델 기만 연구를 위한 인과적 프레임워크",
+      "hook": "LLM의 '기만'을 단순한 출력 패턴이 아닌 내부 메커니즘 수준에서 규명하는 새로운 인과적 분석 프레임워크를 제안합니다.",
+      "key_takeaways": [
+        "언어 모델의 기만적 행동을 인간의 의도나 정신 상태 개념에서 분리하여 메커니즘 수준에서 분석할 필요성을 강조함",
+        "단순히 기만적으로 보이는 출력(output)에 의존하던 기존 연구의 한계를 극복하는 인과적 프레임워크를 제시함",
+        "LLM의 안전성과 해석 가능성(Interpretability) 연구에 새로운 방향성을 제공함"
+      ]
+    },
+    "en": {
+      "title": "From Deceptive Outputs to Deceptive Mechanisms: A Causal Framework for Language-Model Deception Research",
+      "hook": "A new causal framework that shifts LLM deception analysis from surface-level outputs to the underlying internal mechanisms driving deceptive behavior.",
+      "key_takeaways": [
+        "Challenges the tendency to attribute human-like mental states to language models exhibiting deceptive behaviors.",
+        "Proposes a causal framework to distinguish between behavior that looks deceptive and actual deceptive mechanisms within the model.",
+        "Provides a robust foundation for future research into AI safety and mechanistic interpretability."
+      ]
+    },
+    "zh": {
+      "title": "从欺骗性输出到欺骗性机制：语言模型欺骗研究的因果框架",
+      "hook": "跳出仅观察LLM表面欺骗性输出的局限，开创从底层因果机制剖析语言模型欺骗行为的新框架。",
+      "key_takeaways": [
+        "强调需将语言模型的欺骗行为与人类的心理状态概念脱钩，并深入至其内部机制进行分析。",
+        "提出突破现有研究局限的因果分析框架，超越对欺骗性输出的简单依赖。",
+        "为LLM的安全性研究与机制可解释性(Interpretability)提供了全新的理论方向。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Language Model Deception",
+    "Causal Framework",
+    "AI Safety",
+    "Interpretability",
+    "Mechanistic Analysis"
+  ],
+  "title_en": "From Deceptive Outputs to Deceptive Mechanisms: A Causal Framework for Language-Model Deception Research",
+  "title_zh": "从欺骗性输出到欺骗性机制：语言模型欺骗研究的因果框架",
+  "hook": "LLM의 '기만'을 단순한 출력 패턴이 아닌 내부 메커니즘 수준에서 규명하는 새로운 인과적 분석 프레임워크를 제안합니다.",
+  "hook_ko": "LLM의 '기만'을 단순한 출력 패턴이 아닌 내부 메커니즘 수준에서 규명하는 새로운 인과적 분석 프레임워크를 제안합니다.",
+  "hook_en": "A new causal framework that shifts LLM deception analysis from surface-level outputs to the underlying internal mechanisms driving deceptive behavior.",
+  "hook_zh": "跳出仅观察LLM表面欺骗性输出的局限，开创从底层因果机制剖析语言模型欺骗行为的新框架。",
+  "description_en": "A new causal framework that shifts LLM deception analysis from surface-level outputs to the underlying internal mechanisms driving deceptive behavior.",
+  "description_zh": "跳出仅观察LLM表面欺骗性输出的局限，开创从底层因果机制剖析语言模型欺骗行为的新框架。"
 }

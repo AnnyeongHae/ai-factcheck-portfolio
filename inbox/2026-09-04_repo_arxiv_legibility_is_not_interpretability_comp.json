@@ -32,6 +32,98 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought 추론 모델",
-  "description_ko": "Abstract: Reasoning traces from chain-of-thought models appear to offer a legible window into how a model arrives at its answer. A growing body of work treats them as such, using LLM judges to diagnose errors, ..."
+  "title_ko": "ArXiv: 가독성은 해석 가능성이 아니다: 체인오브싱킹 추론에서의 판단된 중요도와 실제 중요도 비교",
+  "description_ko": "체인오브싱크 추론에서 LLM이 내린 판단이 실제 오류 진단과 얼마나 다른지 밝혀냈습니다 – 이 연구는 추론 과정에 대한 환상적인 오해를 경고합니다.",
+  "is_classified": true,
+  "is_deep_analyzed": false,
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_legibility_is_not_interpretability_comp",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM Reasoning & Interpretability",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Chain-of-Thought",
+      "Interpretability",
+      "LLM Evaluation"
+    ],
+    "recommended_tag": "🔥 Must-Read",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "ArXiv: 가독성은 해석 가능성이 아니다: 체인오브싱킹 추론에서의 판단된 중요도와 실제 중요도 비교",
+        "hook": "체인오브싱크 추론에서 LLM이 내린 판단이 실제 오류 진단과 얼마나 다른지 밝혀냈습니다 – 이 연구는 추론 과정에 대한 환상적인 오해를 경고합니다.",
+        "key_takeaways": [
+          "체인오브싱크 추론에서 LLM이 내린 중요도 판단은 실제 오류 패턴과 체계적으로 일치하지 않습니다.",
+          "이러한 불일치는 모델의 의사결정 과정에 대한 과도한 확신을 초래할 수 있으며, 진단 도구로서의 한계를 드러냅니다.",
+          "연구자들은 더 정확한 해석 가능성을 위해 실제 모델 동작과의 엄격한 검증을 강조합니다."
+        ]
+      },
+      "en": {
+        "title": "ArXiv: Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-of-Thought Reasoning",
+        "hook": "Chain-of-thought reasoning traces look interpretable, but LLM judges often misalign with actual model errors—highlighting a critical gap in current interpretability claims.",
+        "key_takeaways": [
+          "LLM judges' assessments of importance in chain-of-thought reasoning do not systematically align with actual error patterns.",
+          "This misalignment can lead to overconfidence in model decision-making and reveals limitations as diagnostic tools.",
+          "Researchers call for rigorous validation against actual model behavior to achieve true interpretability."
+        ]
+      },
+      "zh": {
+        "title": "ArXiv：可读性并非可解释性——关于链式思维推理中判断重要性与实际重要性的比较研究",
+        "hook": "链式思维推理的表征似乎提供了洞察模型决策过程的窗口，但研究发现LLM法官的判断与模型实际错误存在显著偏差，这揭示了当前可解释性研究的局限性。",
+        "key_takeaways": [
+          "研究发现，LLM 对链式思维推理中重要性的判断与模型实际错误模式并不存在系统性的一致性。",
+          "这种不一致可能导致对模型决策过程的过度自信，暴露出其作为诊断工具的局限性。",
+          "研究者呼吁需与模型实际行为进行严格验证，以实现真正的可解释性。"
+        ]
+      }
+    },
+    "enriched_by_model": "cohere/north-mini-code:free",
+    "enriched_at": "2026-09-04T17:56:14.962784+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "ArXiv: 가독성은 해석 가능성이 아니다: 체인오브싱킹 추론에서의 판단된 중요도와 실제 중요도 비교",
+      "hook": "체인오브싱크 추론에서 LLM이 내린 판단이 실제 오류 진단과 얼마나 다른지 밝혀냈습니다 – 이 연구는 추론 과정에 대한 환상적인 오해를 경고합니다.",
+      "key_takeaways": [
+        "체인오브싱크 추론에서 LLM이 내린 중요도 판단은 실제 오류 패턴과 체계적으로 일치하지 않습니다.",
+        "이러한 불일치는 모델의 의사결정 과정에 대한 과도한 확신을 초래할 수 있으며, 진단 도구로서의 한계를 드러냅니다.",
+        "연구자들은 더 정확한 해석 가능성을 위해 실제 모델 동작과의 엄격한 검증을 강조합니다."
+      ]
+    },
+    "en": {
+      "title": "ArXiv: Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-of-Thought Reasoning",
+      "hook": "Chain-of-thought reasoning traces look interpretable, but LLM judges often misalign with actual model errors—highlighting a critical gap in current interpretability claims.",
+      "key_takeaways": [
+        "LLM judges' assessments of importance in chain-of-thought reasoning do not systematically align with actual error patterns.",
+        "This misalignment can lead to overconfidence in model decision-making and reveals limitations as diagnostic tools.",
+        "Researchers call for rigorous validation against actual model behavior to achieve true interpretability."
+      ]
+    },
+    "zh": {
+      "title": "ArXiv：可读性并非可解释性——关于链式思维推理中判断重要性与实际重要性的比较研究",
+      "hook": "链式思维推理的表征似乎提供了洞察模型决策过程的窗口，但研究发现LLM法官的判断与模型实际错误存在显著偏差，这揭示了当前可解释性研究的局限性。",
+      "key_takeaways": [
+        "研究发现，LLM 对链式思维推理中重要性的判断与模型实际错误模式并不存在系统性的一致性。",
+        "这种不一致可能导致对模型决策过程的过度自信，暴露出其作为诊断工具的局限性。",
+        "研究者呼吁需与模型实际行为进行严格验证，以实现真正的可解释性。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Chain-of-Thought",
+    "Interpretability",
+    "LLM Evaluation"
+  ],
+  "title_en": "ArXiv: Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-of-Thought Reasoning",
+  "title_zh": "ArXiv：可读性并非可解释性——关于链式思维推理中判断重要性与实际重要性的比较研究",
+  "hook": "체인오브싱크 추론에서 LLM이 내린 판단이 실제 오류 진단과 얼마나 다른지 밝혀냈습니다 – 이 연구는 추론 과정에 대한 환상적인 오해를 경고합니다.",
+  "hook_ko": "체인오브싱크 추론에서 LLM이 내린 판단이 실제 오류 진단과 얼마나 다른지 밝혀냈습니다 – 이 연구는 추론 과정에 대한 환상적인 오해를 경고합니다.",
+  "hook_en": "Chain-of-thought reasoning traces look interpretable, but LLM judges often misalign with actual model errors—highlighting a critical gap in current interpretability claims.",
+  "hook_zh": "链式思维推理的表征似乎提供了洞察模型决策过程的窗口，但研究发现LLM法官的判断与模型实际错误存在显著偏差，这揭示了当前可解释性研究的局限性。",
+  "description_en": "Chain-of-thought reasoning traces look interpretable, but LLM judges often misalign with actual model errors—highlighting a critical gap in current interpretability claims.",
+  "description_zh": "链式思维推理的表征似乎提供了洞察模型决策过程的窗口，但研究发现LLM法官的判断与模型实际错误存在显著偏差，这揭示了当前可解释性研究的局限性。"
 }
