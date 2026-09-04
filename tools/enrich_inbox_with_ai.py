@@ -252,28 +252,35 @@ def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = Fals
         try:
             with open(last_manifest, "r", encoding="utf-8") as fp:
                 m_data = json.load(fp)
-                for fpath in m_data.get("files", []):
-                    if os.path.exists(fpath):
-                        with open(fpath, "r", encoding="utf-8") as ifp:
+                for raw_fpath in m_data.get("files", []):
+                    # Handle both relative and absolute paths
+                    local_path = os.path.join("inbox", os.path.basename(raw_fpath))
+                    actual_path = raw_fpath if os.path.exists(raw_fpath) else (local_path if os.path.exists(local_path) else None)
+                    if actual_path:
+                        with open(actual_path, "r", encoding="utf-8") as ifp:
                             d = json.load(ifp)
-                            if not d.get("ai_enrichment", {}).get("multilingual", {}).get("zh"):
-                                candidates.append((fpath, d))
+                            is_done = d.get("is_classified", False) and bool(d.get("ai_enrichment", {}).get("multilingual", {}).get("zh"))
+                            if not is_done:
+                                candidates.append((actual_path, d))
             if candidates:
                 print(f"[*] [O(1) INCREMENTAL] Picked {len(candidates)} brand-new harvested items from manifest!")
         except Exception as e:
             print(f"[!] Note on manifest reading: {e}")
 
-    # STEP 2: Fallback to scanning inbox if not strictly restricted to only_new
-    if not candidates and not only_new:
+    # STEP 2: Fallback to scanning inbox if not strictly restricted to only_new or if manifest was empty
+    if not candidates or not only_new:
+        seen_paths = {c[0] for c in candidates}
         inbox_files = sorted(glob.glob("inbox/*.json"), key=lambda x: os.path.basename(x), reverse=True)
-        print(f"[*] Fallback: Scanning {len(inbox_files)} total files in inbox (Newest First)...")
         for f in inbox_files:
+            if f in seen_paths or "_promoted" in f or "_rejected" in f:
+                continue
             try:
                 with open(f, "r", encoding="utf-8") as fp:
                     d = json.load(fp)
-                    has_tri = d.get("ai_enrichment", {}).get("multilingual", {}).get("zh")
-                    if not has_tri:
+                    is_done = d.get("is_classified", False) and bool(d.get("ai_enrichment", {}).get("multilingual", {}).get("zh"))
+                    if not is_done:
                         candidates.append((f, d))
+                        seen_paths.add(f)
             except Exception:
                 continue
 

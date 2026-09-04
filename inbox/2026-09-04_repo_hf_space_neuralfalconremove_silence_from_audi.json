@@ -9,7 +9,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/NeuralFalcon/Remove-Silence-From-Audio",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "AGENT",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 410 | Live URL: https://huggingface.co/spaces/NeuralFalcon/Remove-Silence-From-Audio",
   "viral_metric": "❤️ 410 Likes (Trending Demo)",
   "metric_tracking": {
@@ -31,5 +31,99 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_hf_space_neuralfalconremove_silence_from_audi",
+    "source_lang": "EN",
+    "type_classification": "AGENT",
+    "model_family": "Standalone",
+    "category": "Audio Silence Removal",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "silence removal",
+      "audio processing",
+      "Hugging Face Spaces"
+    ],
+    "recommended_tag": "💡 Useful Tool",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "오디오에서 침묵 제거 HF 스페이스 데모",
+        "hook": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+        "key_takeaways": [
+          "오디오에서 무음 구간을 자동으로 감지하고 제거합니다.",
+          "그라디오 기반의 대화형 인터페이스로 간편한 사용.",
+          "Hugging Face Spaces에서 실행되며, 별도의 설치 없이 웹에서 바로 사용 가능."
+        ]
+      },
+      "en": {
+        "title": "Remove Silence from Audio – Interactive HF Space Demo",
+        "hook": "Automatically strip out silent gaps in your audio with this interactive Gradio-based demo – try it live now!",
+        "key_takeaways": [
+          "Detects and removes silent segments in audio automatically.",
+          "Interactive Gradio UI for easy one‑click processing.",
+          "Web‑based, no installation required – runs directly in your browser on Hugging Face Spaces."
+        ]
+      },
+      "zh": {
+        "title": "音频去静音HF空间交互式演示",
+        "hook": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
+        "key_takeaways": [
+          "自动检测并去除音频中的静音片段。",
+          "基于Gradio的交互式UI，操作简单方便。",
+          "无需安装，直接在浏览器中通过Hugging Face Spaces运行。"
+        ]
+      }
+    },
+    "enriched_by_model": "cohere/north-mini-code:free",
+    "enriched_at": "2026-09-04T22:47:16.026747+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "오디오에서 침묵 제거 HF 스페이스 데모",
+      "hook": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+      "key_takeaways": [
+        "오디오에서 무음 구간을 자동으로 감지하고 제거합니다.",
+        "그라디오 기반의 대화형 인터페이스로 간편한 사용.",
+        "Hugging Face Spaces에서 실행되며, 별도의 설치 없이 웹에서 바로 사용 가능."
+      ]
+    },
+    "en": {
+      "title": "Remove Silence from Audio – Interactive HF Space Demo",
+      "hook": "Automatically strip out silent gaps in your audio with this interactive Gradio-based demo – try it live now!",
+      "key_takeaways": [
+        "Detects and removes silent segments in audio automatically.",
+        "Interactive Gradio UI for easy one‑click processing.",
+        "Web‑based, no installation required – runs directly in your browser on Hugging Face Spaces."
+      ]
+    },
+    "zh": {
+      "title": "音频去静音HF空间交互式演示",
+      "hook": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
+      "key_takeaways": [
+        "自动检测并去除音频中的静音片段。",
+        "基于Gradio的交互式UI，操作简单方便。",
+        "无需安装，直接在浏览器中通过Hugging Face Spaces运行。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "silence removal",
+    "audio processing",
+    "Hugging Face Spaces"
+  ],
+  "title_ko": "오디오에서 침묵 제거 HF 스페이스 데모",
+  "title_en": "Remove Silence from Audio – Interactive HF Space Demo",
+  "title_zh": "音频去静音HF空间交互式演示",
+  "hook": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+  "hook_ko": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+  "hook_en": "Automatically strip out silent gaps in your audio with this interactive Gradio-based demo – try it live now!",
+  "hook_zh": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
+  "description_ko": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+  "description_en": "Automatically strip out silent gaps in your audio with this interactive Gradio-based demo – try it live now!",
+  "description_zh": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
+  "is_classified": true,
+  "is_deep_analyzed": false
 }

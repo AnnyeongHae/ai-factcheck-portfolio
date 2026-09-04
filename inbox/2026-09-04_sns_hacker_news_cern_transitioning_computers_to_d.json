@@ -33,5 +33,103 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49562262",
-  "article_url": "https://www.phoronix.com/news/CERN-Goes-Debian-Leaving-RHEL"
+  "article_url": "https://www.phoronix.com/news/CERN-Goes-Debian-Leaving-RHEL",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_cern_transitioning_computers_to_d",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "Operating System Migration",
+    "programming_lang": "General",
+    "root_keywords": [
+      "CERN",
+      "Debian",
+      "RHEL",
+      "Linux",
+      "Operating System"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "CERN, 오랜 RHEL 사용 끝내고 데비안으로 컴퓨터 전환",
+        "hook": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+        "key_takeaways": [
+          "CERN이 RHEL에서 데비안으로 OS 전환 발표",
+          "오픈소스 데비안의 유연성과 커뮤니티 지원 강조",
+          "대규모 기관의 소프트웨어 전략에 미치는 영향"
+        ]
+      },
+      "en": {
+        "title": "CERN Moves to Debian, Ending Longtime RHEL Dependence",
+        "hook": "Why CERN chose Debian over RHEL and what it means for large-scale computing",
+        "key_takeaways": [
+          "CERN announces migration from RHEL to Debian",
+          "Emphasis on open-source flexibility and community support",
+          "Implications for enterprise software strategies"
+        ]
+      },
+      "zh": {
+        "title": "CERN 转向 Debian，结束长期依赖 RHEL",
+        "hook": "CERN 选择 Debian 的原因及其对大型机构的影响",
+        "key_takeaways": [
+          "CERN 宣布从 RHEL 迁移到 Debian",
+          "强调开源灵活性和社区支持",
+          "对企业软件策略的潜在影响"
+        ]
+      }
+    },
+    "enriched_by_model": "cohere/north-mini-code:free",
+    "enriched_at": "2026-09-04T22:47:35.796750+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "CERN, 오랜 RHEL 사용 끝내고 데비안으로 컴퓨터 전환",
+      "hook": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+      "key_takeaways": [
+        "CERN이 RHEL에서 데비안으로 OS 전환 발표",
+        "오픈소스 데비안의 유연성과 커뮤니티 지원 강조",
+        "대규모 기관의 소프트웨어 전략에 미치는 영향"
+      ]
+    },
+    "en": {
+      "title": "CERN Moves to Debian, Ending Longtime RHEL Dependence",
+      "hook": "Why CERN chose Debian over RHEL and what it means for large-scale computing",
+      "key_takeaways": [
+        "CERN announces migration from RHEL to Debian",
+        "Emphasis on open-source flexibility and community support",
+        "Implications for enterprise software strategies"
+      ]
+    },
+    "zh": {
+      "title": "CERN 转向 Debian，结束长期依赖 RHEL",
+      "hook": "CERN 选择 Debian 的原因及其对大型机构的影响",
+      "key_takeaways": [
+        "CERN 宣布从 RHEL 迁移到 Debian",
+        "强调开源灵活性和社区支持",
+        "对企业软件策略的潜在影响"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "CERN",
+    "Debian",
+    "RHEL",
+    "Linux",
+    "Operating System"
+  ],
+  "title_ko": "CERN, 오랜 RHEL 사용 끝내고 데비안으로 컴퓨터 전환",
+  "title_en": "CERN Moves to Debian, Ending Longtime RHEL Dependence",
+  "title_zh": "CERN 转向 Debian，结束长期依赖 RHEL",
+  "hook": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+  "hook_ko": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+  "hook_en": "Why CERN chose Debian over RHEL and what it means for large-scale computing",
+  "hook_zh": "CERN 选择 Debian 的原因及其对大型机构的影响",
+  "description_ko": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+  "description_en": "Why CERN chose Debian over RHEL and what it means for large-scale computing",
+  "description_zh": "CERN 选择 Debian 的原因及其对大型机构的影响",
+  "is_classified": true,
+  "is_deep_analyzed": false
 }

@@ -26,7 +26,10 @@ import random
 import re
 import urllib.request
 import socket
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    load_dotenv = None
 
 # Set strict global socket timeout for all network requests to prevent hanging
 socket.setdefaulttimeout(15.0)
@@ -38,7 +41,8 @@ if sys.stdout.encoding != 'utf-8':
         pass
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-load_dotenv(os.path.join(ROOT_DIR, '.env'))
+if load_dotenv:
+    load_dotenv(os.path.join(ROOT_DIR, '.env'))
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 

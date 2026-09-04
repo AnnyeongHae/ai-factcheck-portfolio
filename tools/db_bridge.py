@@ -119,54 +119,64 @@ def push_inbox_to_neon(full_sync=False):
         cur.execute("ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS is_deep_analyzed BOOLEAN DEFAULT FALSE;")
         conn.commit()
 
-        for f in os.listdir(inbox_dir):
-            if f.endswith(".json") and not f.startswith("_"):
-                path = os.path.join(inbox_dir, f)
-                try:
-                    with open(path, "r", encoding="utf-8") as fp:
-                        it = json.load(fp)
-                    
-                    inbox_id = it.get("inbox_id", f.replace(".json", ""))
-                    source_url = it.get("source_url", "")
-                    fp_hash = compute_fingerprint(source_url, it.get("title", ""))
-                    
-                    is_classified = bool(it.get("is_classified", False))
-                    is_deep_analyzed = bool(it.get("is_deep_analyzed", False))
+    params_list = []
+    for f in os.listdir(inbox_dir):
+        if f.endswith(".json") and not f.startswith("_"):
+            path = os.path.join(inbox_dir, f)
+            try:
+                with open(path, "r", encoding="utf-8") as fp:
+                    it = json.load(fp)
+                
+                inbox_id = it.get("inbox_id", f.replace(".json", ""))
+                source_url = it.get("source_url", "")
+                fp_hash = compute_fingerprint(source_url, it.get("title", ""))
+                
+                is_classified = bool(it.get("is_classified", False))
+                is_deep_analyzed = bool(it.get("is_deep_analyzed", False))
 
-                    sql = """
-                    INSERT INTO raw_trends_inbox (
-                        inbox_id, source_fingerprint, source_platform, source_url, title, item_type,
-                        description, viral_metric, matched_user_domains, raw_payload, triage_status, harvested_date,
-                        is_classified, is_deep_analyzed
-                    )
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    ON CONFLICT (source_fingerprint) DO UPDATE SET
-                        viral_metric = EXCLUDED.viral_metric,
-                        description = EXCLUDED.description,
-                        is_classified = EXCLUDED.is_classified,
-                        is_deep_analyzed = EXCLUDED.is_deep_analyzed,
-                        updated_at = NOW();
-                    """
-                    cur.execute(sql, (
-                        inbox_id,
-                        fp_hash,
-                        it.get("source_platform", "Web"),
-                        source_url,
-                        it.get("title", ""),
-                        it.get("type", "repo"),
-                        it.get("description", ""),
-                        it.get("viral_metric", ""),
-                        json.dumps(it.get("matched_user_domains", [])),
-                        json.dumps(it),
-                        it.get("status", "PENDING_REVIEW"),
-                        it.get("harvested_date", datetime.date.today().isoformat()),
-                        is_classified,
-                        is_deep_analyzed
-                    ))
-                    count += 1
-                except Exception as e:
-                    conn.rollback()
-                    print(f"[!] Error inserting {f}: {e}")
+                params_list.append((
+                    inbox_id,
+                    fp_hash,
+                    it.get("source_platform", "Web"),
+                    source_url,
+                    it.get("title", ""),
+                    it.get("type", "repo"),
+                    it.get("description", ""),
+                    it.get("viral_metric", ""),
+                    json.dumps(it.get("matched_user_domains", [])),
+                    json.dumps(it),
+                    it.get("status", "PENDING_REVIEW"),
+                    it.get("harvested_date", datetime.date.today().isoformat()),
+                    is_classified,
+                    is_deep_analyzed
+                ))
+            except Exception as e:
+                print(f"[!] Error reading {f}: {e}")
+
+    sql = """
+    INSERT INTO raw_trends_inbox (
+        inbox_id, source_fingerprint, source_platform, source_url, title, item_type,
+        description, viral_metric, matched_user_domains, raw_payload, triage_status, harvested_date,
+        is_classified, is_deep_analyzed
+    )
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    ON CONFLICT (source_fingerprint) DO UPDATE SET
+        viral_metric = EXCLUDED.viral_metric,
+        description = EXCLUDED.description,
+        is_classified = EXCLUDED.is_classified,
+        is_deep_analyzed = EXCLUDED.is_deep_analyzed,
+        updated_at = NOW();
+    """
+
+    with conn.cursor() as cur:
+        cur.execute("ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS is_classified BOOLEAN DEFAULT FALSE;")
+        cur.execute("ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS is_deep_analyzed BOOLEAN DEFAULT FALSE;")
+        conn.commit()
+
+        import psycopg2.extras
+        psycopg2.extras.execute_batch(cur, sql, params_list, page_size=100)
+        count = len(params_list)
+
     conn.commit()
     conn.close()
     print(f"[+] Successfully pushed {count} inbox candidates to Neon Postgres DB (Tier 1 Staging)!")

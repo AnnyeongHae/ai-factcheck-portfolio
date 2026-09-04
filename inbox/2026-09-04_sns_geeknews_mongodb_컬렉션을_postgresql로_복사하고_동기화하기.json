@@ -9,7 +9,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33219",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -33,7 +33,101 @@
   ],
   "status": "PENDING_REVIEW",
   "title_ko": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
-  "description_ko": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+  "description_ko": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
   "hn_url": "https://news.hada.io/topic?id=33219",
-  "article_url": "https://news.hada.io/topic?id=33219"
+  "article_url": "https://news.hada.io/topic?id=33219",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_geeknews_mongodb_컬렉션을_postgresql로_복사하고_동기화하기",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "Database Migration & Sync",
+    "programming_lang": "General",
+    "root_keywords": [
+      "MongoDB",
+      "PostgreSQL",
+      "sync",
+      "migration"
+    ],
+    "recommended_tag": "💡",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+        "hook": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+        "key_takeaways": [
+          "MongoDB 컬렉션을 PostgreSQL로 내보내는 방법",
+          "실시간 동기화를 위한 설정 방법",
+          "데이터 일관성을 유지하기 위한 모범 사례"
+        ]
+      },
+      "en": {
+        "title": "Copy and Sync MongoDB Collections to PostgreSQL",
+        "hook": "Step‑by‑step guide to migrate MongoDB data to PostgreSQL with real‑time synchronization.",
+        "key_takeaways": [
+          "How to export MongoDB collections to PostgreSQL",
+          "Setting up real‑time sync between MongoDB and PostgreSQL",
+          "Best practices for maintaining data consistency"
+        ]
+      },
+      "zh": {
+        "title": "将MongoDB集合复制到PostgreSQL并实现同步",
+        "hook": "一份实用的教程，教你如何将MongoDB数据无缝迁移到PostgreSQL并保持实时同步。",
+        "key_takeaways": [
+          "MongoDB到PostgreSQL的数据导出方法",
+          "PostgreSQL同步配置技巧",
+          "确保数据一致性的最佳实践"
+        ]
+      }
+    },
+    "enriched_by_model": "cohere/north-mini-code:free",
+    "enriched_at": "2026-09-04T22:43:31.411072+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+      "hook": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+      "key_takeaways": [
+        "MongoDB 컬렉션을 PostgreSQL로 내보내는 방법",
+        "실시간 동기화를 위한 설정 방법",
+        "데이터 일관성을 유지하기 위한 모범 사례"
+      ]
+    },
+    "en": {
+      "title": "Copy and Sync MongoDB Collections to PostgreSQL",
+      "hook": "Step‑by‑step guide to migrate MongoDB data to PostgreSQL with real‑time synchronization.",
+      "key_takeaways": [
+        "How to export MongoDB collections to PostgreSQL",
+        "Setting up real‑time sync between MongoDB and PostgreSQL",
+        "Best practices for maintaining data consistency"
+      ]
+    },
+    "zh": {
+      "title": "将MongoDB集合复制到PostgreSQL并实现同步",
+      "hook": "一份实用的教程，教你如何将MongoDB数据无缝迁移到PostgreSQL并保持实时同步。",
+      "key_takeaways": [
+        "MongoDB到PostgreSQL的数据导出方法",
+        "PostgreSQL同步配置技巧",
+        "确保数据一致性的最佳实践"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "MongoDB",
+    "PostgreSQL",
+    "sync",
+    "migration"
+  ],
+  "title_en": "Copy and Sync MongoDB Collections to PostgreSQL",
+  "title_zh": "将MongoDB集合复制到PostgreSQL并实现同步",
+  "hook": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+  "hook_ko": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+  "hook_en": "Step‑by‑step guide to migrate MongoDB data to PostgreSQL with real‑time synchronization.",
+  "hook_zh": "一份实用的教程，教你如何将MongoDB数据无缝迁移到PostgreSQL并保持实时同步。",
+  "description_en": "Step‑by‑step guide to migrate MongoDB data to PostgreSQL with real‑time synchronization.",
+  "description_zh": "一份实用的教程，教你如何将MongoDB数据无缝迁移到PostgreSQL并保持实时同步。",
+  "is_classified": true,
+  "is_deep_analyzed": false
 }

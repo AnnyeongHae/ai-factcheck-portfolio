@@ -43,16 +43,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install psycopg2-binary requests pyyaml google-genai
-
-      - name: Harvest Completed Gemini Batch Jobs & Apply Results (50% Cost Cut)
-        env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          NEON_KEY: ${{ secrets.NEON_KEY }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
-        run: |
-          python tools/enrich_inbox_with_ai.py --harvest-batch || echo "Harvest batch completed or skipped."
+          pip install psycopg2-binary requests pyyaml google-genai python-dotenv
 
       - name: Run Multi-Source Trend Harvester
         env:
@@ -63,14 +54,14 @@ jobs:
         run: |
           python tools/harvest_trends.py
 
-      - name: Enrich Newly Harvested Items (Zero-Cost OpenRouter Free Router / Gemini Fallback)
+      - name: Real-Time 1-by-1 AI Enrichment (Zero-Cost OpenRouter Free Models)
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
-          python tools/enrich_inbox_with_ai.py --only-new --limit 20 --provider auto || python tools/enrich_inbox_with_ai.py --submit-batch --limit 50 || echo "Enrichment step completed."
+          python tools/enrich_inbox_with_ai.py --all --batch-size 1 --provider auto
 
 
       - name: Sync Data to Neon Postgres Cloud DB

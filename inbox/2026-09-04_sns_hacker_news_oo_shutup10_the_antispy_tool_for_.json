@@ -9,7 +9,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49562895",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 27 pts | Comments: 7 | O&O ShutUp10 – The antispy tool for Windows 10 and 11",
   "viral_metric": "🔥 27 HN Points",
   "metric_tracking": {
@@ -33,5 +33,99 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49562895",
-  "article_url": "https://www.oo-software.com/en/shutup10"
+  "article_url": "https://www.oo-software.com/en/shutup10",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_oo_shutup10_the_antispy_tool_for_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "Privacy & Security Tools",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "Windows privacy",
+      "antispy",
+      "O&O ShutUp10"
+    ],
+    "recommended_tag": "💡 Useful Tool",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "해커 뉴스: O&O ShutUp10 – 윈도우 10 및 11용 안티스파이 도구",
+        "hook": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+        "key_takeaways": [
+          "윈도우 10/11의 텔레메트리 및 추적 기능을 간편하게 비활성화",
+          "원클릭 설정으로 개인정보 보호를 위한 앱 및 서비스 접근 차단",
+          "무료 개인용 도구로, 추가 비용 없이 사용 가능"
+        ]
+      },
+      "en": {
+        "title": "O&O ShutUp10 – The Anti‑Spy Tool for Windows 10 & 11",
+        "hook": "Protect your Windows system from telemetry with O&O ShutUp10 – a lightweight privacy tool that lets you easily disable spying features.",
+        "key_takeaways": [
+          "Disables Windows telemetry and tracking features with a simple interface",
+          "One‑click configuration to block privacy‑invasive apps and services",
+          "Free for personal use, no subscription required"
+        ]
+      },
+      "zh": {
+        "title": "Hacker News：O&O ShutUp10 – Windows 10 和 11 的反间谍工具",
+        "hook": "使用 O&O ShutUp10 轻松禁用 Windows 10/11 的间谍功能，保护系统隐私。",
+        "key_takeaways": [
+          "简单界面禁用 Windows 10/11 的遥测和追踪功能",
+          "一键配置，阻止侵犯隐私的应用程序和服务",
+          "免费个人使用，无需订阅"
+        ]
+      }
+    },
+    "enriched_by_model": "cohere/north-mini-code:free",
+    "enriched_at": "2026-09-04T22:45:21.943008+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "해커 뉴스: O&O ShutUp10 – 윈도우 10 및 11용 안티스파이 도구",
+      "hook": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+      "key_takeaways": [
+        "윈도우 10/11의 텔레메트리 및 추적 기능을 간편하게 비활성화",
+        "원클릭 설정으로 개인정보 보호를 위한 앱 및 서비스 접근 차단",
+        "무료 개인용 도구로, 추가 비용 없이 사용 가능"
+      ]
+    },
+    "en": {
+      "title": "O&O ShutUp10 – The Anti‑Spy Tool for Windows 10 & 11",
+      "hook": "Protect your Windows system from telemetry with O&O ShutUp10 – a lightweight privacy tool that lets you easily disable spying features.",
+      "key_takeaways": [
+        "Disables Windows telemetry and tracking features with a simple interface",
+        "One‑click configuration to block privacy‑invasive apps and services",
+        "Free for personal use, no subscription required"
+      ]
+    },
+    "zh": {
+      "title": "Hacker News：O&O ShutUp10 – Windows 10 和 11 的反间谍工具",
+      "hook": "使用 O&O ShutUp10 轻松禁用 Windows 10/11 的间谍功能，保护系统隐私。",
+      "key_takeaways": [
+        "简单界面禁用 Windows 10/11 的遥测和追踪功能",
+        "一键配置，阻止侵犯隐私的应用程序和服务",
+        "免费个人使用，无需订阅"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "Windows privacy",
+    "antispy",
+    "O&O ShutUp10"
+  ],
+  "title_ko": "해커 뉴스: O&O ShutUp10 – 윈도우 10 및 11용 안티스파이 도구",
+  "title_en": "O&O ShutUp10 – The Anti‑Spy Tool for Windows 10 & 11",
+  "title_zh": "Hacker News：O&O ShutUp10 – Windows 10 和 11 的反间谍工具",
+  "hook": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+  "hook_ko": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+  "hook_en": "Protect your Windows system from telemetry with O&O ShutUp10 – a lightweight privacy tool that lets you easily disable spying features.",
+  "hook_zh": "使用 O&O ShutUp10 轻松禁用 Windows 10/11 的间谍功能，保护系统隐私。",
+  "description_ko": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+  "description_en": "Protect your Windows system from telemetry with O&O ShutUp10 – a lightweight privacy tool that lets you easily disable spying features.",
+  "description_zh": "使用 O&O ShutUp10 轻松禁用 Windows 10/11 的间谍功能，保护系统隐私。",
+  "is_classified": true,
+  "is_deep_analyzed": false
 }

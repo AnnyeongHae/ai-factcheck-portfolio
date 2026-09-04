@@ -2237,5 +2237,227 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260904_224302",
+    "timestamp": "2026-09-04T22:43:02.152858+09:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 12,
+    "requested_limit": 1,
+    "processed_count": 1,
+    "success_count": 1,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 1
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 29.26,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_mongodb_컬렉션을_postgresql로_복사하고_동기화하기",
+            "title": "GeekNews: MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+            "title_ko": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:43:31.411072+09:00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "session_id": "session_20260904_224335",
+    "timestamp": "2026-09-04T22:43:35.609362+09:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 11,
+    "requested_limit": 0,
+    "processed_count": 11,
+    "success_count": 11,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 11
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 26.66,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_바둑_세계_1위_신진서_두_점_접바둑에서_ai_katago에_승리",
+            "title": "GeekNews: 바둑 세계 1위 신진서, 두 점 접바둑에서 AI KataGo에 승리",
+            "title_ko": "바둑 세계 1위 신진서, 두 점 접바둑에서 AI 카타고에 승리",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:44:02.267063+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 25.87,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_nearly_impossible_how_fairphone_b",
+            "title": "Hacker News: Nearly impossible? How Fairphone built the ethical, repairable Fairphone Gen 6+",
+            "title_ko": "해커 뉴스: 거의 불가능? 공정폰이 만든 윤리적이고 수리 가능한 Fairphone Gen 6+",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:44:29.148480+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.68,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_discovery_of_a_new_openai_agent_m",
+            "title": "Hacker News: Discovery of a new OpenAI agent message board",
+            "title_ko": "오픈AI 에이전트 메시지 보드 발견, 개발자 커뮤니티에 새 소통 창구 열리다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:44:45.836408+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 35.1,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_oo_shutup10_the_antispy_tool_for_",
+            "title": "Hacker News: O&O ShutUp10 – The antispy tool for Windows 10 and 11",
+            "title_ko": "해커 뉴스: O&O ShutUp10 – 윈도우 10 및 11용 안티스파이 도구",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:45:21.943008+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 40.6,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_solving_the_jane_street_reverse_e",
+            "title": "Hacker News: Solving the Jane Street Reverse Engineering Challenge",
+            "title_ko": "해커 뉴스: 제인 스트리트 역공학 챌린지 해결하기",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:46:03.552922+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 50.98,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_github_lnkiaim3e_canvas",
+            "title": "GitHub: lnkiai/m3e-canvas",
+            "title_ko": "GitHub: lnkiai/m3e-canvas - 브라우저에서 Material 3 화면을 스케치하고 코드 프롬프트로 변환",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:46:55.543878+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 19.47,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_hf_space_neuralfalconremove_silence_from_audi",
+            "title": "HF Space: NeuralFalcon/Remove-Silence-From-Audio",
+            "title_ko": "오디오에서 침묵 제거 HF 스페이스 데모",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:47:16.026747+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.76,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_cern_transitioning_computers_to_d",
+            "title": "Hacker News: CERN Transitioning Computers To Debian After Being A Longtime RHEL Institution",
+            "title_ko": "CERN, 오랜 RHEL 사용 끝내고 데비안으로 컴퓨터 전환",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:47:35.796750+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 60.69,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_elevator_of_the_year_winner_moder",
+            "title": "Hacker News: Elevator of the Year Winner Modernization of the Metropolis Trust Building",
+            "title_ko": "메트로폴리스 트러스트 빌딩 엘리베이터 현대화, 올해의 엘리베이터상 수상",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:48:37.496964+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 24.74,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_oscar_winner_brings_monsters_to_l",
+            "title": "Hacker News: Oscar Winner Brings Monsters to Life with His Simulation Software",
+            "title_ko": "오스카 수상자, 시뮬레이션 소프트웨어로 괴물들을 생생하게 되살리다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:49:03.246817+09:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 32.21,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_1960s_theory_that_stonehenge_was_",
+            "title": "Hacker News: 1960s theory that Stonehenge was a prehistoric computer",
+            "title_ko": "스톤헨지가 고대 슈퍼컴퓨터였다고? 1960년대 이론이 다시 주목받고 있습니다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T22:49:36.462070+09:00"
+          }
+        ]
+      }
+    ]
   }
 ]

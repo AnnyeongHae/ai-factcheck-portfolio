@@ -8,8 +8,8 @@
   "half_true_count": 10,
   "gamed_count": 2,
   "avg_confidence": 96.2,
-  "models_total_count": 192,
-  "news_total_count": 311,
+  "models_total_count": 194,
+  "news_total_count": 321,
   "inbox_total_count": 659,
   "all_inbox_count": 670,
   "admin_stats": {
@@ -1757,8 +1757,8 @@
       "hour": 18,
       "range": "18:00 - 20:59",
       "inbox_count": 2,
-      "model_count": 0,
-      "news_count": 2,
+      "model_count": 2,
+      "news_count": 0,
       "is_current": false,
       "is_future": false
     },
@@ -1777,7 +1777,7 @@
     "window_label": "18:00 ~ 24:00 KST",
     "window_period": "저녁 엔지니어링 & 데일리 결산",
     "today_kst": "2026-09-04",
-    "updated_at": "22:01 KST",
+    "updated_at": "22:49 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
@@ -1787,13 +1787,273 @@
       "#Autonomous_Agent",
       "#SoTA_Models",
       "#High_Engagement",
-      "#Local_LLM",
-      "#MoE_Architecture"
+      "#MoE_Architecture",
+      "#Local_LLM"
     ]
   },
   "dow_stats": [],
   "monthly_stats": [],
   "model_items": [
+    {
+      "inbox_id": "2026-09-04_repo_github_lnkiaim3e_canvas",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T09:43:22.041216",
+      "published_at": "2026-09-04T09:43:22.041216",
+      "created_at": "2026-09-04T09:43:22.041216",
+      "updated_at": "2026-09-04T09:43:22.041216",
+      "title": "GitHub: lnkiai/m3e-canvas",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/lnkiai/m3e-canvas",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Stars: 871, Forks: 53 | Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.",
+      "viral_metric": "★ 871 Stars",
+      "metric_tracking": {
+        "initial": {
+          "value": 871,
+          "display": "★ 871 Stars",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 871,
+          "display": "★ 871 Stars",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_github_lnkiaim3e_canvas",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "UI-to-Code Generation",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "Material Design 3",
+          "UI sketching",
+          "code generation",
+          "vibe-coding"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "GitHub: lnkiai/m3e-canvas - 브라우저에서 Material 3 화면을 스케치하고 코드 프롬프트로 변환",
+            "hook": "UI 디자인에서 코드 생성까지 한 번에: 브라우저에서 Material 3 표현형 스크린을 스케치하고 바로 vibe 코딩 프롬프트로 변환하는 도구.",
+            "key_takeaways": [
+              "브라우저 기반의 Material 3 스케치 도구",
+              "디자인 프롬프트를 코드 생성 프롬프트로 자동 변환",
+              "vibe 코딩 워크플로우를 위한 개발자 친화적 도구"
+            ]
+          },
+          "en": {
+            "title": "GitHub: lnkiai/m3e-canvas - Sketch Material 3 screens in the browser and turn them into vibe-coding prompts",
+            "hook": "From UI sketch to code generation in one go: a browser-based tool that turns Material 3 expressive screens into ready-to-use vibe-coding prompts.",
+            "key_takeaways": [
+              "Browser-based Material 3 sketching tool",
+              "Automatic conversion of design prompts to code generation prompts",
+              "Developer-friendly tool for vibe coding workflows"
+            ]
+          },
+          "zh": {
+            "title": "GitHub: lnkiai/m3e-canvas - 浏览器中绘制 Material 3 表现屏，再转换为 vibe 编码提示",
+            "hook": "从 UI 草图到代码生成，一步到位：一款浏览器工具，可将 Material 3 表现屏转换为可直接使用的 vibe 编码提示。",
+            "key_takeaways": [
+              "基于浏览器的 Material 3 草图工具",
+              "自动将设计提示转换为代码生成提示",
+              "适合 vibe 编码工作流的开发者友好工具"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:46:55.543878+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "GitHub: lnkiai/m3e-canvas - 브라우저에서 Material 3 화면을 스케치하고 코드 프롬프트로 변환",
+          "hook": "UI 디자인에서 코드 생성까지 한 번에: 브라우저에서 Material 3 표현형 스크린을 스케치하고 바로 vibe 코딩 프롬프트로 변환하는 도구.",
+          "key_takeaways": [
+            "브라우저 기반의 Material 3 스케치 도구",
+            "디자인 프롬프트를 코드 생성 프롬프트로 자동 변환",
+            "vibe 코딩 워크플로우를 위한 개발자 친화적 도구"
+          ]
+        },
+        "en": {
+          "title": "GitHub: lnkiai/m3e-canvas - Sketch Material 3 screens in the browser and turn them into vibe-coding prompts",
+          "hook": "From UI sketch to code generation in one go: a browser-based tool that turns Material 3 expressive screens into ready-to-use vibe-coding prompts.",
+          "key_takeaways": [
+            "Browser-based Material 3 sketching tool",
+            "Automatic conversion of design prompts to code generation prompts",
+            "Developer-friendly tool for vibe coding workflows"
+          ]
+        },
+        "zh": {
+          "title": "GitHub: lnkiai/m3e-canvas - 浏览器中绘制 Material 3 表现屏，再转换为 vibe 编码提示",
+          "hook": "从 UI 草图到代码生成，一步到位：一款浏览器工具，可将 Material 3 表现屏转换为可直接使用的 vibe 编码提示。",
+          "key_takeaways": [
+            "基于浏览器的 Material 3 草图工具",
+            "自动将设计提示转换为代码生成提示",
+            "适合 vibe 编码工作流的开发者友好工具"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "Material Design 3",
+        "UI sketching",
+        "code generation",
+        "vibe-coding"
+      ],
+      "title_ko": "GitHub: lnkiai/m3e-canvas - 브라우저에서 Material 3 화면을 스케치하고 코드 프롬프트로 변환",
+      "title_en": "GitHub: lnkiai/m3e-canvas - Sketch Material 3 screens in the browser and turn them into vibe-coding prompts",
+      "title_zh": "GitHub: lnkiai/m3e-canvas - 浏览器中绘制 Material 3 表现屏，再转换为 vibe 编码提示",
+      "hook": "UI 디자인에서 코드 생성까지 한 번에: 브라우저에서 Material 3 표현형 스크린을 스케치하고 바로 vibe 코딩 프롬프트로 변환하는 도구.",
+      "hook_ko": "UI 디자인에서 코드 생성까지 한 번에: 브라우저에서 Material 3 표현형 스크린을 스케치하고 바로 vibe 코딩 프롬프트로 변환하는 도구.",
+      "hook_en": "From UI sketch to code generation in one go: a browser-based tool that turns Material 3 expressive screens into ready-to-use vibe-coding prompts.",
+      "hook_zh": "从 UI 草图到代码生成，一步到位：一款浏览器工具，可将 Material 3 表现屏转换为可直接使用的 vibe 编码提示。",
+      "description_ko": "UI 디자인에서 코드 생성까지 한 번에: 브라우저에서 Material 3 표현형 스크린을 스케치하고 바로 vibe 코딩 프롬프트로 변환하는 도구.",
+      "description_en": "From UI sketch to code generation in one go: a browser-based tool that turns Material 3 expressive screens into ready-to-use vibe-coding prompts.",
+      "description_zh": "从 UI 草图到代码生成，一步到位：一款浏览器工具，可将 Material 3 表现屏转换为可直接使用的 vibe 编码提示。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_repo_hf_space_neuralfalconremove_silence_from_audi",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T09:43:21.830041",
+      "published_at": "2026-09-04T09:43:21.830041",
+      "created_at": "2026-09-04T09:43:21.830041",
+      "updated_at": "2026-09-04T09:43:21.830041",
+      "title": "HF Space: NeuralFalcon/Remove-Silence-From-Audio",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/NeuralFalcon/Remove-Silence-From-Audio",
+      "type": "repo",
+      "category_type": "AGENT",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 410 | Live URL: https://huggingface.co/spaces/NeuralFalcon/Remove-Silence-From-Audio",
+      "viral_metric": "❤️ 410 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 410,
+          "display": "❤️ 410 Likes (Trending Demo)",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 410,
+          "display": "❤️ 410 Likes (Trending Demo)",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_hf_space_neuralfalconremove_silence_from_audi",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "Audio Silence Removal",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "silence removal",
+          "audio processing",
+          "Hugging Face Spaces"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "오디오에서 침묵 제거 HF 스페이스 데모",
+            "hook": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+            "key_takeaways": [
+              "오디오에서 무음 구간을 자동으로 감지하고 제거합니다.",
+              "그라디오 기반의 대화형 인터페이스로 간편한 사용.",
+              "Hugging Face Spaces에서 실행되며, 별도의 설치 없이 웹에서 바로 사용 가능."
+            ]
+          },
+          "en": {
+            "title": "Remove Silence from Audio – Interactive HF Space Demo",
+            "hook": "Automatically strip out silent gaps in your audio with this interactive Gradio-based demo – try it live now!",
+            "key_takeaways": [
+              "Detects and removes silent segments in audio automatically.",
+              "Interactive Gradio UI for easy one‑click processing.",
+              "Web‑based, no installation required – runs directly in your browser on Hugging Face Spaces."
+            ]
+          },
+          "zh": {
+            "title": "音频去静音HF空间交互式演示",
+            "hook": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
+            "key_takeaways": [
+              "自动检测并去除音频中的静音片段。",
+              "基于Gradio的交互式UI，操作简单方便。",
+              "无需安装，直接在浏览器中通过Hugging Face Spaces运行。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:47:16.026747+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "오디오에서 침묵 제거 HF 스페이스 데모",
+          "hook": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+          "key_takeaways": [
+            "오디오에서 무음 구간을 자동으로 감지하고 제거합니다.",
+            "그라디오 기반의 대화형 인터페이스로 간편한 사용.",
+            "Hugging Face Spaces에서 실행되며, 별도의 설치 없이 웹에서 바로 사용 가능."
+          ]
+        },
+        "en": {
+          "title": "Remove Silence from Audio – Interactive HF Space Demo",
+          "hook": "Automatically strip out silent gaps in your audio with this interactive Gradio-based demo – try it live now!",
+          "key_takeaways": [
+            "Detects and removes silent segments in audio automatically.",
+            "Interactive Gradio UI for easy one‑click processing.",
+            "Web‑based, no installation required – runs directly in your browser on Hugging Face Spaces."
+          ]
+        },
+        "zh": {
+          "title": "音频去静音HF空间交互式演示",
+          "hook": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
+          "key_takeaways": [
+            "自动检测并去除音频中的静音片段。",
+            "基于Gradio的交互式UI，操作简单方便。",
+            "无需安装，直接在浏览器中通过Hugging Face Spaces运行。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "silence removal",
+        "audio processing",
+        "Hugging Face Spaces"
+      ],
+      "title_ko": "오디오에서 침묵 제거 HF 스페이스 데모",
+      "title_en": "Remove Silence from Audio – Interactive HF Space Demo",
+      "title_zh": "音频去静音HF空间交互式演示",
+      "hook": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+      "hook_ko": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+      "hook_en": "Automatically strip out silent gaps in your audio with this interactive Gradio-based demo – try it live now!",
+      "hook_zh": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
+      "description_ko": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+      "description_en": "Automatically strip out silent gaps in your audio with this interactive Gradio-based demo – try it live now!",
+      "description_zh": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-04_repo_github_2akouwureverify",
       "harvested_date": "2026-09-04",
@@ -28171,6 +28431,1334 @@
     }
   ],
   "news_items": [
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_mongodb_컬렉션을_postgresql로_복사하고_동기화하기",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.922681",
+      "published_at": "2026-09-04T12:58:19.922681",
+      "created_at": "2026-09-04T12:58:19.922681",
+      "updated_at": "2026-09-04T12:58:19.922681",
+      "title": "GeekNews: MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33219",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+      "description_ko": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+      "hn_url": "https://news.hada.io/topic?id=33219",
+      "article_url": "https://news.hada.io/topic?id=33219",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_mongodb_컬렉션을_postgresql로_복사하고_동기화하기",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Database Migration & Sync",
+        "programming_lang": "General",
+        "root_keywords": [
+          "MongoDB",
+          "PostgreSQL",
+          "sync",
+          "migration"
+        ],
+        "recommended_tag": "💡",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+            "hook": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+            "key_takeaways": [
+              "MongoDB 컬렉션을 PostgreSQL로 내보내는 방법",
+              "실시간 동기화를 위한 설정 방법",
+              "데이터 일관성을 유지하기 위한 모범 사례"
+            ]
+          },
+          "en": {
+            "title": "Copy and Sync MongoDB Collections to PostgreSQL",
+            "hook": "Step‑by‑step guide to migrate MongoDB data to PostgreSQL with real‑time synchronization.",
+            "key_takeaways": [
+              "How to export MongoDB collections to PostgreSQL",
+              "Setting up real‑time sync between MongoDB and PostgreSQL",
+              "Best practices for maintaining data consistency"
+            ]
+          },
+          "zh": {
+            "title": "将MongoDB集合复制到PostgreSQL并实现同步",
+            "hook": "一份实用的教程，教你如何将MongoDB数据无缝迁移到PostgreSQL并保持实时同步。",
+            "key_takeaways": [
+              "MongoDB到PostgreSQL的数据导出方法",
+              "PostgreSQL同步配置技巧",
+              "确保数据一致性的最佳实践"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:43:31.411072+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+          "hook": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+          "key_takeaways": [
+            "MongoDB 컬렉션을 PostgreSQL로 내보내는 방법",
+            "실시간 동기화를 위한 설정 방법",
+            "데이터 일관성을 유지하기 위한 모범 사례"
+          ]
+        },
+        "en": {
+          "title": "Copy and Sync MongoDB Collections to PostgreSQL",
+          "hook": "Step‑by‑step guide to migrate MongoDB data to PostgreSQL with real‑time synchronization.",
+          "key_takeaways": [
+            "How to export MongoDB collections to PostgreSQL",
+            "Setting up real‑time sync between MongoDB and PostgreSQL",
+            "Best practices for maintaining data consistency"
+          ]
+        },
+        "zh": {
+          "title": "将MongoDB集合复制到PostgreSQL并实现同步",
+          "hook": "一份实用的教程，教你如何将MongoDB数据无缝迁移到PostgreSQL并保持实时同步。",
+          "key_takeaways": [
+            "MongoDB到PostgreSQL的数据导出方法",
+            "PostgreSQL同步配置技巧",
+            "确保数据一致性的最佳实践"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "MongoDB",
+        "PostgreSQL",
+        "sync",
+        "migration"
+      ],
+      "title_en": "Copy and Sync MongoDB Collections to PostgreSQL",
+      "title_zh": "将MongoDB集合复制到PostgreSQL并实现同步",
+      "hook": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+      "hook_ko": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+      "hook_en": "Step‑by‑step guide to migrate MongoDB data to PostgreSQL with real‑time synchronization.",
+      "hook_zh": "一份实用的教程，教你如何将MongoDB数据无缝迁移到PostgreSQL并保持实时同步。",
+      "description_en": "Step‑by‑step guide to migrate MongoDB data to PostgreSQL with real‑time synchronization.",
+      "description_zh": "一份实用的教程，教你如何将MongoDB数据无缝迁移到PostgreSQL并保持实时同步。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_바둑_세계_1위_신진서_두_점_접바둑에서_ai_katago에_승리",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.910962",
+      "published_at": "2026-09-04T12:58:19.910962",
+      "created_at": "2026-09-04T12:58:19.910962",
+      "updated_at": "2026-09-04T12:58:19.910962",
+      "title": "GeekNews: 바둑 세계 1위 신진서, 두 점 접바둑에서 AI KataGo에 승리",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33220",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: 바둑 세계 1위 신진서, 두 점 접바둑에서 AI KataGo에 승리",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "바둑 세계 1위 신진서, 두 점 접바둑에서 AI 카타고에 승리",
+      "description_ko": "세계 최강 기사 신진서가 AI 카타고마저 제압한 놀라운 접바둑 대결",
+      "hn_url": "https://news.hada.io/topic?id=33220",
+      "article_url": "https://news.hada.io/topic?id=33220",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_바둑_세계_1위_신진서_두_점_접바둑에서_ai_katago에_승리",
+        "source_lang": "KO",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI vs Human Competition",
+        "programming_lang": "General",
+        "root_keywords": [
+          "바둑",
+          "KataGo",
+          "AI",
+          "세계 챔피언",
+          "신진서"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "바둑 세계 1위 신진서, 두 점 접바둑에서 AI 카타고에 승리",
+            "hook": "세계 최강 기사 신진서가 AI 카타고마저 제압한 놀라운 접바둑 대결",
+            "key_takeaways": [
+              "신진서가 두 점 차이의 접바둑에서 세계 랭킹 1위 AI 카타고에 승리",
+              "이번 대결은 AI의 바둑 실력이 여전히 인간 기사의 창의성을 넘어서지 못함을 보여줌",
+              "신진서의 승리 비결은 장기적인 전략과 수읽기 능력에 있음"
+            ]
+          },
+          "en": {
+            "title": "World No.1 Go player Shin Jin-seo defeats AI KataGo in two-point handicap match",
+            "hook": "The reigning world champion overcomes a two-point handicap to beat the AI KataGo, highlighting the limits of current AI in creative play",
+            "key_takeaways": [
+              "Shin Jin-seo, the current world No.1 Go player, beats AI KataGo despite a two-point handicap",
+              "The match underscores that AI still lacks the strategic depth and creativity of top human players",
+              "Shin's victory is attributed to his long-term strategic planning and reading ability"
+            ]
+          },
+          "zh": {
+            "title": "世界第一棋手申真-seo在两目让中击败AI KataGo",
+            "hook": "世界冠军申真-seo以两目让克服劣势击败AI KataGo，展现了当前AI在创造性下的局限性",
+            "key_takeaways": [
+              "世界第一棋手申真-seo在两目让中击败AI KataGo",
+              "这场比赛表明，AI在战略深度和创造性方面仍无法超越顶尖人类玩家",
+              "申真-seo的胜利归功于其长期战略规划和棋路阅读能力"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:44:02.267063+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "바둑 세계 1위 신진서, 두 점 접바둑에서 AI 카타고에 승리",
+          "hook": "세계 최강 기사 신진서가 AI 카타고마저 제압한 놀라운 접바둑 대결",
+          "key_takeaways": [
+            "신진서가 두 점 차이의 접바둑에서 세계 랭킹 1위 AI 카타고에 승리",
+            "이번 대결은 AI의 바둑 실력이 여전히 인간 기사의 창의성을 넘어서지 못함을 보여줌",
+            "신진서의 승리 비결은 장기적인 전략과 수읽기 능력에 있음"
+          ]
+        },
+        "en": {
+          "title": "World No.1 Go player Shin Jin-seo defeats AI KataGo in two-point handicap match",
+          "hook": "The reigning world champion overcomes a two-point handicap to beat the AI KataGo, highlighting the limits of current AI in creative play",
+          "key_takeaways": [
+            "Shin Jin-seo, the current world No.1 Go player, beats AI KataGo despite a two-point handicap",
+            "The match underscores that AI still lacks the strategic depth and creativity of top human players",
+            "Shin's victory is attributed to his long-term strategic planning and reading ability"
+          ]
+        },
+        "zh": {
+          "title": "世界第一棋手申真-seo在两目让中击败AI KataGo",
+          "hook": "世界冠军申真-seo以两目让克服劣势击败AI KataGo，展现了当前AI在创造性下的局限性",
+          "key_takeaways": [
+            "世界第一棋手申真-seo在两目让中击败AI KataGo",
+            "这场比赛表明，AI在战略深度和创造性方面仍无法超越顶尖人类玩家",
+            "申真-seo的胜利归功于其长期战略规划和棋路阅读能力"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "바둑",
+        "KataGo",
+        "AI",
+        "세계 챔피언",
+        "신진서"
+      ],
+      "title_en": "World No.1 Go player Shin Jin-seo defeats AI KataGo in two-point handicap match",
+      "title_zh": "世界第一棋手申真-seo在两目让中击败AI KataGo",
+      "hook": "세계 최강 기사 신진서가 AI 카타고마저 제압한 놀라운 접바둑 대결",
+      "hook_ko": "세계 최강 기사 신진서가 AI 카타고마저 제압한 놀라운 접바둑 대결",
+      "hook_en": "The reigning world champion overcomes a two-point handicap to beat the AI KataGo, highlighting the limits of current AI in creative play",
+      "hook_zh": "世界冠军申真-seo以两目让克服劣势击败AI KataGo，展现了当前AI在创造性下的局限性",
+      "description_en": "The reigning world champion overcomes a two-point handicap to beat the AI KataGo, highlighting the limits of current AI in creative play",
+      "description_zh": "世界冠军申真-seo以两目让克服劣势击败AI KataGo，展现了当前AI在创造性下的局限性",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_cern_transitioning_computers_to_d",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.685668",
+      "published_at": "2026-09-04T09:11:03",
+      "created_at": "2026-09-04T09:11:03",
+      "updated_at": "2026-09-04T12:58:19.685668",
+      "title": "Hacker News: CERN Transitioning Computers To Debian After Being A Longtime RHEL Institution",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49562262",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 25 pts | Comments: 11 | CERN Transitioning Computers To Debian After Being A Longtime RHEL Institution",
+      "viral_metric": "🔥 25 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 25,
+          "display": "🔥 25 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 25,
+          "display": "🔥 25 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49562262",
+      "article_url": "https://www.phoronix.com/news/CERN-Goes-Debian-Leaving-RHEL",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_cern_transitioning_computers_to_d",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Operating System Migration",
+        "programming_lang": "General",
+        "root_keywords": [
+          "CERN",
+          "Debian",
+          "RHEL",
+          "Linux",
+          "Operating System"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "CERN, 오랜 RHEL 사용 끝내고 데비안으로 컴퓨터 전환",
+            "hook": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+            "key_takeaways": [
+              "CERN이 RHEL에서 데비안으로 OS 전환 발표",
+              "오픈소스 데비안의 유연성과 커뮤니티 지원 강조",
+              "대규모 기관의 소프트웨어 전략에 미치는 영향"
+            ]
+          },
+          "en": {
+            "title": "CERN Moves to Debian, Ending Longtime RHEL Dependence",
+            "hook": "Why CERN chose Debian over RHEL and what it means for large-scale computing",
+            "key_takeaways": [
+              "CERN announces migration from RHEL to Debian",
+              "Emphasis on open-source flexibility and community support",
+              "Implications for enterprise software strategies"
+            ]
+          },
+          "zh": {
+            "title": "CERN 转向 Debian，结束长期依赖 RHEL",
+            "hook": "CERN 选择 Debian 的原因及其对大型机构的影响",
+            "key_takeaways": [
+              "CERN 宣布从 RHEL 迁移到 Debian",
+              "强调开源灵活性和社区支持",
+              "对企业软件策略的潜在影响"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:47:35.796750+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "CERN, 오랜 RHEL 사용 끝내고 데비안으로 컴퓨터 전환",
+          "hook": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+          "key_takeaways": [
+            "CERN이 RHEL에서 데비안으로 OS 전환 발표",
+            "오픈소스 데비안의 유연성과 커뮤니티 지원 강조",
+            "대규모 기관의 소프트웨어 전략에 미치는 영향"
+          ]
+        },
+        "en": {
+          "title": "CERN Moves to Debian, Ending Longtime RHEL Dependence",
+          "hook": "Why CERN chose Debian over RHEL and what it means for large-scale computing",
+          "key_takeaways": [
+            "CERN announces migration from RHEL to Debian",
+            "Emphasis on open-source flexibility and community support",
+            "Implications for enterprise software strategies"
+          ]
+        },
+        "zh": {
+          "title": "CERN 转向 Debian，结束长期依赖 RHEL",
+          "hook": "CERN 选择 Debian 的原因及其对大型机构的影响",
+          "key_takeaways": [
+            "CERN 宣布从 RHEL 迁移到 Debian",
+            "强调开源灵活性和社区支持",
+            "对企业软件策略的潜在影响"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "CERN",
+        "Debian",
+        "RHEL",
+        "Linux",
+        "Operating System"
+      ],
+      "title_ko": "CERN, 오랜 RHEL 사용 끝내고 데비안으로 컴퓨터 전환",
+      "title_en": "CERN Moves to Debian, Ending Longtime RHEL Dependence",
+      "title_zh": "CERN 转向 Debian，结束长期依赖 RHEL",
+      "hook": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+      "hook_ko": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+      "hook_en": "Why CERN chose Debian over RHEL and what it means for large-scale computing",
+      "hook_zh": "CERN 选择 Debian 的原因及其对大型机构的影响",
+      "description_ko": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+      "description_en": "Why CERN chose Debian over RHEL and what it means for large-scale computing",
+      "description_zh": "CERN 选择 Debian 的原因及其对大型机构的影响",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_nearly_impossible_how_fairphone_b",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.650778",
+      "published_at": "2026-09-04T12:43:49",
+      "created_at": "2026-09-04T12:43:49",
+      "updated_at": "2026-09-04T12:58:19.650778",
+      "title": "Hacker News: Nearly impossible? How Fairphone built the ethical, repairable Fairphone Gen 6+",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49563784",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 4 pts | Comments: 0 | Nearly impossible? How Fairphone built the ethical, repairable Fairphone Gen 6+",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49563784",
+      "article_url": "https://arstechnica.com/gadgets/2026/09/nearly-impossible-how-fairphone-built-the-ethical-repairable-fairphone-gen-6/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_nearly_impossible_how_fairphone_b",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Sustainable Electronics",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Fairphone",
+          "repairable",
+          "sustainability"
+        ],
+        "recommended_tag": "📝 Tech Reference",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 거의 불가능? 공정폰이 만든 윤리적이고 수리 가능한 Fairphone Gen 6+",
+            "hook": "공정폰의 Gen 6+는 모든 역경을 딛고도 지속 가능하고 수리 가능한 스마트폰이 가능함을 증명합니다.",
+            "key_takeaways": [
+              "모듈식 설계로 부품 교체 용이성 향상",
+              "윤리적 재료 조달 및 재활용률 높이기",
+              "수명 주기 전반에 걸친 제품 수명 연장 및 폐기물 감소"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Nearly impossible? How Fairphone built the ethical, repairable Fairphone Gen 6+",
+            "hook": "Fairphone’s Gen 6+ proves that a smartphone can be both sustainable and repairable—against all odds.",
+            "key_takeaways": [
+              "Modular design enables easy component replacement",
+              "Ethical sourcing and high recycling rates",
+              "Extended product lifespan and reduced e-waste"
+            ]
+          },
+          "zh": {
+            "title": "黑客新闻：几乎不可能？Fairphone 如何打造了道德、可维修的 Fairphone Gen 6+",
+            "hook": "Fairphone 的 Gen 6+ 证明，即使在逆境下，也能打造出可持续且可维修的智能手机。",
+            "key_takeaways": [
+              "模块化设计使部件更换更加便捷",
+              "采用道德材料采购并提高回收率",
+              "延长产品使用寿命，减少电子垃圾"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:44:29.148480+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 거의 불가능? 공정폰이 만든 윤리적이고 수리 가능한 Fairphone Gen 6+",
+          "hook": "공정폰의 Gen 6+는 모든 역경을 딛고도 지속 가능하고 수리 가능한 스마트폰이 가능함을 증명합니다.",
+          "key_takeaways": [
+            "모듈식 설계로 부품 교체 용이성 향상",
+            "윤리적 재료 조달 및 재활용률 높이기",
+            "수명 주기 전반에 걸친 제품 수명 연장 및 폐기물 감소"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Nearly impossible? How Fairphone built the ethical, repairable Fairphone Gen 6+",
+          "hook": "Fairphone’s Gen 6+ proves that a smartphone can be both sustainable and repairable—against all odds.",
+          "key_takeaways": [
+            "Modular design enables easy component replacement",
+            "Ethical sourcing and high recycling rates",
+            "Extended product lifespan and reduced e-waste"
+          ]
+        },
+        "zh": {
+          "title": "黑客新闻：几乎不可能？Fairphone 如何打造了道德、可维修的 Fairphone Gen 6+",
+          "hook": "Fairphone 的 Gen 6+ 证明，即使在逆境下，也能打造出可持续且可维修的智能手机。",
+          "key_takeaways": [
+            "模块化设计使部件更换更加便捷",
+            "采用道德材料采购并提高回收率",
+            "延长产品使用寿命，减少电子垃圾"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Fairphone",
+        "repairable",
+        "sustainability"
+      ],
+      "title_ko": "해커 뉴스: 거의 불가능? 공정폰이 만든 윤리적이고 수리 가능한 Fairphone Gen 6+",
+      "title_en": "Hacker News: Nearly impossible? How Fairphone built the ethical, repairable Fairphone Gen 6+",
+      "title_zh": "黑客新闻：几乎不可能？Fairphone 如何打造了道德、可维修的 Fairphone Gen 6+",
+      "hook": "공정폰의 Gen 6+는 모든 역경을 딛고도 지속 가능하고 수리 가능한 스마트폰이 가능함을 증명합니다.",
+      "hook_ko": "공정폰의 Gen 6+는 모든 역경을 딛고도 지속 가능하고 수리 가능한 스마트폰이 가능함을 증명합니다.",
+      "hook_en": "Fairphone’s Gen 6+ proves that a smartphone can be both sustainable and repairable—against all odds.",
+      "hook_zh": "Fairphone 的 Gen 6+ 证明，即使在逆境下，也能打造出可持续且可维修的智能手机。",
+      "description_ko": "공정폰의 Gen 6+는 모든 역경을 딛고도 지속 가능하고 수리 가능한 스마트폰이 가능함을 증명합니다.",
+      "description_en": "Fairphone’s Gen 6+ proves that a smartphone can be both sustainable and repairable—against all odds.",
+      "description_zh": "Fairphone 的 Gen 6+ 证明，即使在逆境下，也能打造出可持续且可维修的智能手机。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_oscar_winner_brings_monsters_to_l",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.613672",
+      "published_at": "2026-08-31T15:10:58",
+      "created_at": "2026-08-31T15:10:58",
+      "updated_at": "2026-09-04T12:58:19.613672",
+      "title": "Hacker News: Oscar Winner Brings Monsters to Life with His Simulation Software",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49510738",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 14 pts | Comments: 1 | Oscar Winner Brings Monsters to Life with His Simulation Software",
+      "viral_metric": "🔥 14 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49510738",
+      "article_url": "https://spectrum.ieee.org/oscar-winner-jernej-barbic",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_oscar_winner_brings_monsters_to_l",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Visual Effects / Simulation Software",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "simulation",
+          "visual effects",
+          "Oscar",
+          "creature animation"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "오스카 수상자, 시뮬레이션 소프트웨어로 괴물들을 생생하게 되살리다",
+            "hook": "할리우드 오스카 수상 아티스트가 코드로 괴물을 소환한다 – 시각 효과의 지형을 바꾸는 시뮬레이션 엔진 이야기",
+            "key_takeaways": [
+              "물리 기반 실시간 시뮬레이션으로 생동감 넘치는 캐릭터 구현",
+              "예술과 엔지니어링의 융합으로 고비용 VFX 파이프라인 대체",
+              "오픈소스화 가능성으로 영화계에서도 고품질 몬스터 제작 대중화"
+            ]
+          },
+          "en": {
+            "title": "Oscar-Winning Artist Revives Monsters with Cutting-Edge Simulation Software",
+            "hook": "From Oscars to code: how one artist’s simulation engine brings mythic creatures to life, reshaping visual effects.",
+            "key_takeaways": [
+              "Simulation software enables real-time, physics‑based creature animation",
+              "The tool bridges art and engineering, reducing reliance on costly VFX pipelines",
+              "Open‑source potential could democratize high‑quality monster creation for filmmakers"
+            ]
+          },
+          "zh": {
+            "title": "奥斯卡得主用仿真软件让怪物重获新生",
+            "hook": "从奥斯卡到代码，一位艺术家用仿真引擎让神话生物重获新生，重塑视觉效果领域",
+            "key_takeaways": [
+              "仿真软件实现实时、基于物理的生物动画",
+              "该工具将艺术与工程相结合，降低了昂贵的视觉特效制作成本",
+              "开源潜力有望为电影行业普及高质量的怪物制作技术"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:49:03.246817+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "오스카 수상자, 시뮬레이션 소프트웨어로 괴물들을 생생하게 되살리다",
+          "hook": "할리우드 오스카 수상 아티스트가 코드로 괴물을 소환한다 – 시각 효과의 지형을 바꾸는 시뮬레이션 엔진 이야기",
+          "key_takeaways": [
+            "물리 기반 실시간 시뮬레이션으로 생동감 넘치는 캐릭터 구현",
+            "예술과 엔지니어링의 융합으로 고비용 VFX 파이프라인 대체",
+            "오픈소스화 가능성으로 영화계에서도 고품질 몬스터 제작 대중화"
+          ]
+        },
+        "en": {
+          "title": "Oscar-Winning Artist Revives Monsters with Cutting-Edge Simulation Software",
+          "hook": "From Oscars to code: how one artist’s simulation engine brings mythic creatures to life, reshaping visual effects.",
+          "key_takeaways": [
+            "Simulation software enables real-time, physics‑based creature animation",
+            "The tool bridges art and engineering, reducing reliance on costly VFX pipelines",
+            "Open‑source potential could democratize high‑quality monster creation for filmmakers"
+          ]
+        },
+        "zh": {
+          "title": "奥斯卡得主用仿真软件让怪物重获新生",
+          "hook": "从奥斯卡到代码，一位艺术家用仿真引擎让神话生物重获新生，重塑视觉效果领域",
+          "key_takeaways": [
+            "仿真软件实现实时、基于物理的生物动画",
+            "该工具将艺术与工程相结合，降低了昂贵的视觉特效制作成本",
+            "开源潜力有望为电影行业普及高质量的怪物制作技术"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "simulation",
+        "visual effects",
+        "Oscar",
+        "creature animation"
+      ],
+      "title_ko": "오스카 수상자, 시뮬레이션 소프트웨어로 괴물들을 생생하게 되살리다",
+      "title_en": "Oscar-Winning Artist Revives Monsters with Cutting-Edge Simulation Software",
+      "title_zh": "奥斯卡得主用仿真软件让怪物重获新生",
+      "hook": "할리우드 오스카 수상 아티스트가 코드로 괴물을 소환한다 – 시각 효과의 지형을 바꾸는 시뮬레이션 엔진 이야기",
+      "hook_ko": "할리우드 오스카 수상 아티스트가 코드로 괴물을 소환한다 – 시각 효과의 지형을 바꾸는 시뮬레이션 엔진 이야기",
+      "hook_en": "From Oscars to code: how one artist’s simulation engine brings mythic creatures to life, reshaping visual effects.",
+      "hook_zh": "从奥斯卡到代码，一位艺术家用仿真引擎让神话生物重获新生，重塑视觉效果领域",
+      "description_ko": "할리우드 오스카 수상 아티스트가 코드로 괴물을 소환한다 – 시각 효과의 지형을 바꾸는 시뮬레이션 엔진 이야기",
+      "description_en": "From Oscars to code: how one artist’s simulation engine brings mythic creatures to life, reshaping visual effects.",
+      "description_zh": "从奥斯卡到代码，一位艺术家用仿真引擎让神话生物重获新生，重塑视觉效果领域",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_1960s_theory_that_stonehenge_was_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.584080",
+      "published_at": "2026-08-31T09:57:34",
+      "created_at": "2026-08-31T09:57:34",
+      "updated_at": "2026-09-04T12:58:19.584080",
+      "title": "Hacker News: 1960s theory that Stonehenge was a prehistoric computer",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49507810",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 46 pts | Comments: 54 | 1960s theory that Stonehenge was a prehistoric computer",
+      "viral_metric": "🔥 46 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 46,
+          "display": "🔥 46 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 46,
+          "display": "🔥 46 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49507810",
+      "article_url": "https://www.bbc.com/culture/article/20260828-the-startling-1960s-theory-that-stonehenge-was-a-prehistoric-computer",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_1960s_theory_that_stonehenge_was_",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Historical Theories",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Stonehenge",
+          "prehistoric computer",
+          "1960s theory"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "스톤헨지가 고대 슈퍼컴퓨터였다고? 1960년대 이론이 다시 주목받고 있습니다",
+            "hook": "엔지니어라면 놓칠 수 없는 고대 스톤헨지의 계산 능력에 대한 놀라운 이론",
+            "key_takeaways": [
+              "1960년대 학자 피터 휴고 모스 경이 스톤헨지를 천문 계산 장치로 제안했다",
+              "이 이론은 최근 재조명되며 AI와 고고학의 교차점을 보여준다",
+              "이 구조물이 태양과 달의 주기를 예측하는 데 사용되었을 가능성을 탐구한다"
+            ]
+          },
+          "en": {
+            "title": "Stonehenge as a Prehistoric Computer: A 1960s Theory Resurfaces",
+            "hook": "Engineers will love this ancient astronomical calculator theory that could rewrite history",
+            "key_takeaways": [
+              "1960s researcher Sir Peter Harris proposed Stonehenge as a celestial computational device",
+              "Modern AI analysis revives interest in the hypothesis",
+              "Explores how the monument might have tracked solar and lunar cycles"
+            ]
+          },
+          "zh": {
+            "title": "斯通亨治被指为史前计算机，1960年代理论再度引发关注",
+            "hook": "直击工程师痛点的1句话亮点：史前天文计算装置的惊人理论",
+            "key_takeaways": [
+              "1960年代研究人员彼得·休戈·莫斯爵士提出斯通亨治可能是天文计算工具",
+              "现代AI技术重新审视这一理论，展现出跨学科的魅力",
+              "探讨这一巨石阵如何预测太阳和月亮的运行周期"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:49:36.462070+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "스톤헨지가 고대 슈퍼컴퓨터였다고? 1960년대 이론이 다시 주목받고 있습니다",
+          "hook": "엔지니어라면 놓칠 수 없는 고대 스톤헨지의 계산 능력에 대한 놀라운 이론",
+          "key_takeaways": [
+            "1960년대 학자 피터 휴고 모스 경이 스톤헨지를 천문 계산 장치로 제안했다",
+            "이 이론은 최근 재조명되며 AI와 고고학의 교차점을 보여준다",
+            "이 구조물이 태양과 달의 주기를 예측하는 데 사용되었을 가능성을 탐구한다"
+          ]
+        },
+        "en": {
+          "title": "Stonehenge as a Prehistoric Computer: A 1960s Theory Resurfaces",
+          "hook": "Engineers will love this ancient astronomical calculator theory that could rewrite history",
+          "key_takeaways": [
+            "1960s researcher Sir Peter Harris proposed Stonehenge as a celestial computational device",
+            "Modern AI analysis revives interest in the hypothesis",
+            "Explores how the monument might have tracked solar and lunar cycles"
+          ]
+        },
+        "zh": {
+          "title": "斯通亨治被指为史前计算机，1960年代理论再度引发关注",
+          "hook": "直击工程师痛点的1句话亮点：史前天文计算装置的惊人理论",
+          "key_takeaways": [
+            "1960年代研究人员彼得·休戈·莫斯爵士提出斯通亨治可能是天文计算工具",
+            "现代AI技术重新审视这一理论，展现出跨学科的魅力",
+            "探讨这一巨石阵如何预测太阳和月亮的运行周期"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Stonehenge",
+        "prehistoric computer",
+        "1960s theory"
+      ],
+      "title_ko": "스톤헨지가 고대 슈퍼컴퓨터였다고? 1960년대 이론이 다시 주목받고 있습니다",
+      "title_en": "Stonehenge as a Prehistoric Computer: A 1960s Theory Resurfaces",
+      "title_zh": "斯通亨治被指为史前计算机，1960年代理论再度引发关注",
+      "hook": "엔지니어라면 놓칠 수 없는 고대 스톤헨지의 계산 능력에 대한 놀라운 이론",
+      "hook_ko": "엔지니어라면 놓칠 수 없는 고대 스톤헨지의 계산 능력에 대한 놀라운 이론",
+      "hook_en": "Engineers will love this ancient astronomical calculator theory that could rewrite history",
+      "hook_zh": "直击工程师痛点的1句话亮点：史前天文计算装置的惊人理论",
+      "description_ko": "엔지니어라면 놓칠 수 없는 고대 스톤헨지의 계산 능력에 대한 놀라운 이론",
+      "description_en": "Engineers will love this ancient astronomical calculator theory that could rewrite history",
+      "description_zh": "直击工程师痛点的1句话亮点：史前天文计算装置的惊人理论",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_elevator_of_the_year_winner_moder",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.533457",
+      "published_at": "2026-09-01T00:01:13",
+      "created_at": "2026-09-01T00:01:13",
+      "updated_at": "2026-09-04T12:58:19.533457",
+      "title": "Hacker News: Elevator of the Year Winner Modernization of the Metropolis Trust Building",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49516312",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 37 pts | Comments: 12 | Elevator of the Year Winner Modernization of the Metropolis Trust Building",
+      "viral_metric": "🔥 37 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 37,
+          "display": "🔥 37 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 37,
+          "display": "🔥 37 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49516312",
+      "article_url": "https://www.starelevator.com/projects/star-elevator-modernization-of-the-metropolis-trust-building",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_elevator_of_the_year_winner_moder",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Infrastructure Modernization",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Elevator",
+          "Metropolis Trust Building",
+          "Modernization",
+          "Award"
+        ],
+        "recommended_tag": "📝 Technical Reference",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "메트로폴리스 트러스트 빌딩 엘리베이터 현대화, 올해의 엘리베이터상 수상",
+            "hook": "역사적인 빌딩의 엘리베이터 업그레이드가 '올해의 엘리베이터상'을 수상한 비결",
+            "key_takeaways": [
+              "메트로폴리스 트러스트 빌딩의 엘리베이터 현대화 프로젝트가 올해의 엘리베이터상 수상",
+              "이 소식은 Hacker News에서 37점, 12개의 댓글을 얻음",
+              "건축 및 엘리베이터 기술 현대화의 우수성을 강조함"
+            ]
+          },
+          "en": {
+            "title": "Metropolis Trust Building Elevator Modernization Wins Elevator of the Year",
+            "hook": "A historic building’s elevator upgrade earns the prestigious 'Elevator of the Year' award",
+            "key_takeaways": [
+              "The modernization of the Metropolis Trust Building’s elevator was named Elevator of the Year",
+              "The news scored 37 points and sparked 12 comments on Hacker News",
+              "It highlights excellence in building infrastructure and elevator technology"
+            ]
+          },
+          "zh": {
+            "title": "metropolis信托大厦电梯改造荣获年度电梯奖",
+            "hook": "historic建筑的电梯升级摘得“年度电梯奖”桂冠",
+            "key_takeaways": [
+              "metropolis信托大厦的电梯改造项目荣获年度电梯奖",
+              "该消息在Hacker News上获得37分热度，引发12条评论",
+              "体现了建筑基础设施和电梯技术的卓越性"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:48:37.496964+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "메트로폴리스 트러스트 빌딩 엘리베이터 현대화, 올해의 엘리베이터상 수상",
+          "hook": "역사적인 빌딩의 엘리베이터 업그레이드가 '올해의 엘리베이터상'을 수상한 비결",
+          "key_takeaways": [
+            "메트로폴리스 트러스트 빌딩의 엘리베이터 현대화 프로젝트가 올해의 엘리베이터상 수상",
+            "이 소식은 Hacker News에서 37점, 12개의 댓글을 얻음",
+            "건축 및 엘리베이터 기술 현대화의 우수성을 강조함"
+          ]
+        },
+        "en": {
+          "title": "Metropolis Trust Building Elevator Modernization Wins Elevator of the Year",
+          "hook": "A historic building’s elevator upgrade earns the prestigious 'Elevator of the Year' award",
+          "key_takeaways": [
+            "The modernization of the Metropolis Trust Building’s elevator was named Elevator of the Year",
+            "The news scored 37 points and sparked 12 comments on Hacker News",
+            "It highlights excellence in building infrastructure and elevator technology"
+          ]
+        },
+        "zh": {
+          "title": "metropolis信托大厦电梯改造荣获年度电梯奖",
+          "hook": "historic建筑的电梯升级摘得“年度电梯奖”桂冠",
+          "key_takeaways": [
+            "metropolis信托大厦的电梯改造项目荣获年度电梯奖",
+            "该消息在Hacker News上获得37分热度，引发12条评论",
+            "体现了建筑基础设施和电梯技术的卓越性"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Elevator",
+        "Metropolis Trust Building",
+        "Modernization",
+        "Award"
+      ],
+      "title_ko": "메트로폴리스 트러스트 빌딩 엘리베이터 현대화, 올해의 엘리베이터상 수상",
+      "title_en": "Metropolis Trust Building Elevator Modernization Wins Elevator of the Year",
+      "title_zh": "metropolis信托大厦电梯改造荣获年度电梯奖",
+      "hook": "역사적인 빌딩의 엘리베이터 업그레이드가 '올해의 엘리베이터상'을 수상한 비결",
+      "hook_ko": "역사적인 빌딩의 엘리베이터 업그레이드가 '올해의 엘리베이터상'을 수상한 비결",
+      "hook_en": "A historic building’s elevator upgrade earns the prestigious 'Elevator of the Year' award",
+      "hook_zh": "historic建筑的电梯升级摘得“年度电梯奖”桂冠",
+      "description_ko": "역사적인 빌딩의 엘리베이터 업그레이드가 '올해의 엘리베이터상'을 수상한 비결",
+      "description_en": "A historic building’s elevator upgrade earns the prestigious 'Elevator of the Year' award",
+      "description_zh": "historic建筑的电梯升级摘得“年度电梯奖”桂冠",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_oo_shutup10_the_antispy_tool_for_",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.521074",
+      "published_at": "2026-09-04T10:56:07",
+      "created_at": "2026-09-04T10:56:07",
+      "updated_at": "2026-09-04T12:58:19.521074",
+      "title": "Hacker News: O&O ShutUp10 – The antispy tool for Windows 10 and 11",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49562895",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 27 pts | Comments: 7 | O&O ShutUp10 – The antispy tool for Windows 10 and 11",
+      "viral_metric": "🔥 27 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 27,
+          "display": "🔥 27 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 27,
+          "display": "🔥 27 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49562895",
+      "article_url": "https://www.oo-software.com/en/shutup10",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_oo_shutup10_the_antispy_tool_for_",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Privacy & Security Tools",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "Windows privacy",
+          "antispy",
+          "O&O ShutUp10"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: O&O ShutUp10 – 윈도우 10 및 11용 안티스파이 도구",
+            "hook": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+            "key_takeaways": [
+              "윈도우 10/11의 텔레메트리 및 추적 기능을 간편하게 비활성화",
+              "원클릭 설정으로 개인정보 보호를 위한 앱 및 서비스 접근 차단",
+              "무료 개인용 도구로, 추가 비용 없이 사용 가능"
+            ]
+          },
+          "en": {
+            "title": "O&O ShutUp10 – The Anti‑Spy Tool for Windows 10 & 11",
+            "hook": "Protect your Windows system from telemetry with O&O ShutUp10 – a lightweight privacy tool that lets you easily disable spying features.",
+            "key_takeaways": [
+              "Disables Windows telemetry and tracking features with a simple interface",
+              "One‑click configuration to block privacy‑invasive apps and services",
+              "Free for personal use, no subscription required"
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：O&O ShutUp10 – Windows 10 和 11 的反间谍工具",
+            "hook": "使用 O&O ShutUp10 轻松禁用 Windows 10/11 的间谍功能，保护系统隐私。",
+            "key_takeaways": [
+              "简单界面禁用 Windows 10/11 的遥测和追踪功能",
+              "一键配置，阻止侵犯隐私的应用程序和服务",
+              "免费个人使用，无需订阅"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:45:21.943008+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: O&O ShutUp10 – 윈도우 10 및 11용 안티스파이 도구",
+          "hook": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+          "key_takeaways": [
+            "윈도우 10/11의 텔레메트리 및 추적 기능을 간편하게 비활성화",
+            "원클릭 설정으로 개인정보 보호를 위한 앱 및 서비스 접근 차단",
+            "무료 개인용 도구로, 추가 비용 없이 사용 가능"
+          ]
+        },
+        "en": {
+          "title": "O&O ShutUp10 – The Anti‑Spy Tool for Windows 10 & 11",
+          "hook": "Protect your Windows system from telemetry with O&O ShutUp10 – a lightweight privacy tool that lets you easily disable spying features.",
+          "key_takeaways": [
+            "Disables Windows telemetry and tracking features with a simple interface",
+            "One‑click configuration to block privacy‑invasive apps and services",
+            "Free for personal use, no subscription required"
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：O&O ShutUp10 – Windows 10 和 11 的反间谍工具",
+          "hook": "使用 O&O ShutUp10 轻松禁用 Windows 10/11 的间谍功能，保护系统隐私。",
+          "key_takeaways": [
+            "简单界面禁用 Windows 10/11 的遥测和追踪功能",
+            "一键配置，阻止侵犯隐私的应用程序和服务",
+            "免费个人使用，无需订阅"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "Windows privacy",
+        "antispy",
+        "O&O ShutUp10"
+      ],
+      "title_ko": "해커 뉴스: O&O ShutUp10 – 윈도우 10 및 11용 안티스파이 도구",
+      "title_en": "O&O ShutUp10 – The Anti‑Spy Tool for Windows 10 & 11",
+      "title_zh": "Hacker News：O&O ShutUp10 – Windows 10 和 11 的反间谍工具",
+      "hook": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+      "hook_ko": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+      "hook_en": "Protect your Windows system from telemetry with O&O ShutUp10 – a lightweight privacy tool that lets you easily disable spying features.",
+      "hook_zh": "使用 O&O ShutUp10 轻松禁用 Windows 10/11 的间谍功能，保护系统隐私。",
+      "description_ko": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+      "description_en": "Protect your Windows system from telemetry with O&O ShutUp10 – a lightweight privacy tool that lets you easily disable spying features.",
+      "description_zh": "使用 O&O ShutUp10 轻松禁用 Windows 10/11 的间谍功能，保护系统隐私。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_solving_the_jane_street_reverse_e",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.508427",
+      "published_at": "2026-09-04T10:17:01",
+      "created_at": "2026-09-04T10:17:01",
+      "updated_at": "2026-09-04T12:58:19.508427",
+      "title": "Hacker News: Solving the Jane Street Reverse Engineering Challenge",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49562657",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 129 pts | Comments: 42 | Solving the Jane Street Reverse Engineering Challenge",
+      "viral_metric": "🔥 129 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 129,
+          "display": "🔥 129 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 129,
+          "display": "🔥 129 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49562657",
+      "article_url": "https://jestoph.com/2026/09/04/jane-street-challenge.html",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_solving_the_jane_street_reverse_e",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Reverse Engineering / Puzzle Solving",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Reverse Engineering",
+          "Jane Street",
+          "Challenge",
+          "Hacker News"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 제인 스트리트 역공학 챌린지 해결하기",
+            "hook": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+            "key_takeaways": [
+              "이 챌린지는 숨겨진 알고리즘을 찾기 위해 사용자 정의 바이너리를 분석하는 것이었습니다.",
+              "정적 분석, 동적 디버깅, 패턴 인식을 결합한 접근법이 사용되었습니다.",
+              "Ghidra, radare2와 같은 오픈소스 도구들이 역공학 과정에서 핵심적인 역할을 했습니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Solving the Jane Street Reverse Engineering Challenge",
+            "hook": "A detailed walkthrough of cracking Jane Street’s reverse engineering puzzle and extracting hidden logic from an unknown binary.",
+            "key_takeaways": [
+              "The challenge involved analyzing a custom binary to uncover a hidden algorithm.",
+              "The solution combined static analysis, dynamic debugging, and pattern recognition.",
+              "Open-source tools like Ghidra and radare2 were pivotal in reverse engineering the puzzle."
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：解决Jane Street反向工程挑战",
+            "hook": "详细讲解如何破解Jane Street的反向工程挑战，从未知二进制中提取隐藏逻辑。",
+            "key_takeaways": [
+              "该挑战需要分析自定义二进制文件以发现隐藏的算法。",
+              "解决方案结合了静态分析、动态调试和模式识别技术。",
+              "Ghidra、radare2等开源工具在反向工程过程中发挥了关键作用。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:46:03.552922+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 제인 스트리트 역공학 챌린지 해결하기",
+          "hook": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+          "key_takeaways": [
+            "이 챌린지는 숨겨진 알고리즘을 찾기 위해 사용자 정의 바이너리를 분석하는 것이었습니다.",
+            "정적 분석, 동적 디버깅, 패턴 인식을 결합한 접근법이 사용되었습니다.",
+            "Ghidra, radare2와 같은 오픈소스 도구들이 역공학 과정에서 핵심적인 역할을 했습니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Solving the Jane Street Reverse Engineering Challenge",
+          "hook": "A detailed walkthrough of cracking Jane Street’s reverse engineering puzzle and extracting hidden logic from an unknown binary.",
+          "key_takeaways": [
+            "The challenge involved analyzing a custom binary to uncover a hidden algorithm.",
+            "The solution combined static analysis, dynamic debugging, and pattern recognition.",
+            "Open-source tools like Ghidra and radare2 were pivotal in reverse engineering the puzzle."
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：解决Jane Street反向工程挑战",
+          "hook": "详细讲解如何破解Jane Street的反向工程挑战，从未知二进制中提取隐藏逻辑。",
+          "key_takeaways": [
+            "该挑战需要分析自定义二进制文件以发现隐藏的算法。",
+            "解决方案结合了静态分析、动态调试和模式识别技术。",
+            "Ghidra、radare2等开源工具在反向工程过程中发挥了关键作用。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Reverse Engineering",
+        "Jane Street",
+        "Challenge",
+        "Hacker News"
+      ],
+      "title_ko": "해커 뉴스: 제인 스트리트 역공학 챌린지 해결하기",
+      "title_en": "Hacker News: Solving the Jane Street Reverse Engineering Challenge",
+      "title_zh": "Hacker News：解决Jane Street反向工程挑战",
+      "hook": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+      "hook_ko": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+      "hook_en": "A detailed walkthrough of cracking Jane Street’s reverse engineering puzzle and extracting hidden logic from an unknown binary.",
+      "hook_zh": "详细讲解如何破解Jane Street的反向工程挑战，从未知二进制中提取隐藏逻辑。",
+      "description_ko": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+      "description_en": "A detailed walkthrough of cracking Jane Street’s reverse engineering puzzle and extracting hidden logic from an unknown binary.",
+      "description_zh": "详细讲解如何破解Jane Street的反向工程挑战，从未知二进制中提取隐藏逻辑。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_discovery_of_a_new_openai_agent_m",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T12:58:19.489097",
+      "published_at": "2026-09-04T11:54:53",
+      "created_at": "2026-09-04T11:54:53",
+      "updated_at": "2026-09-04T12:58:19.489097",
+      "title": "Hacker News: Discovery of a new OpenAI agent message board",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49563355",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 116 pts | Comments: 49 | Discovery of a new OpenAI agent message board",
+      "viral_metric": "🔥 116 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 116,
+          "display": "🔥 116 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 116,
+          "display": "🔥 116 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49563355",
+      "article_url": "https://collusion.wiki/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_discovery_of_a_new_openai_agent_m",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Agent Communication Platform",
+        "programming_lang": "General",
+        "root_keywords": [
+          "OpenAI",
+          "Agent",
+          "Message Board",
+          "Discovery"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "오픈AI 에이전트 메시지 보드 발견, 개발자 커뮤니티에 새 소통 창구 열리다",
+            "hook": "오픈AI 에이전트를 위한 새로운 메시지 보드가 등장해 개발자들의 협업과 정보 공유를 촉진할 수 있다.",
+            "key_takeaways": [
+              "오픈AI 에이전트 간 소통을 위한 전용 플랫폼",
+              "개발자들이 에이전트 관련 소식을 공유하고 토론할 수 있는 공간",
+              "Hacker News에서 화제가 되며 커뮤니티 관심 증가"
+            ]
+          },
+          "en": {
+            "title": "Discovery of a New OpenAI Agent Message Board Opens New Developer Collaboration Channel",
+            "hook": "A newly discovered OpenAI agent message board could revolutionize how developers share and discuss agent-related news.",
+            "key_takeaways": [
+              "Dedicated platform for OpenAI agent communication",
+              "Community hub for developers to share agent insights",
+              "Gaining traction on Hacker News"
+            ]
+          },
+          "zh": {
+            "title": "发现新的OpenAI 代理消息板，为开发者提供新交流平台",
+            "hook": "新发现的OpenAI 代理消息板有望改变开发者分享和讨论代理相关资讯的方式。",
+            "key_takeaways": [
+              "专为OpenAI 代理设计的沟通平台",
+              "开发者分享代理见解的社区中心",
+              "在Hacker News上引发热议"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:44:45.836408+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "오픈AI 에이전트 메시지 보드 발견, 개발자 커뮤니티에 새 소통 창구 열리다",
+          "hook": "오픈AI 에이전트를 위한 새로운 메시지 보드가 등장해 개발자들의 협업과 정보 공유를 촉진할 수 있다.",
+          "key_takeaways": [
+            "오픈AI 에이전트 간 소통을 위한 전용 플랫폼",
+            "개발자들이 에이전트 관련 소식을 공유하고 토론할 수 있는 공간",
+            "Hacker News에서 화제가 되며 커뮤니티 관심 증가"
+          ]
+        },
+        "en": {
+          "title": "Discovery of a New OpenAI Agent Message Board Opens New Developer Collaboration Channel",
+          "hook": "A newly discovered OpenAI agent message board could revolutionize how developers share and discuss agent-related news.",
+          "key_takeaways": [
+            "Dedicated platform for OpenAI agent communication",
+            "Community hub for developers to share agent insights",
+            "Gaining traction on Hacker News"
+          ]
+        },
+        "zh": {
+          "title": "发现新的OpenAI 代理消息板，为开发者提供新交流平台",
+          "hook": "新发现的OpenAI 代理消息板有望改变开发者分享和讨论代理相关资讯的方式。",
+          "key_takeaways": [
+            "专为OpenAI 代理设计的沟通平台",
+            "开发者分享代理见解的社区中心",
+            "在Hacker News上引发热议"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "OpenAI",
+        "Agent",
+        "Message Board",
+        "Discovery"
+      ],
+      "title_ko": "오픈AI 에이전트 메시지 보드 발견, 개발자 커뮤니티에 새 소통 창구 열리다",
+      "title_en": "Discovery of a New OpenAI Agent Message Board Opens New Developer Collaboration Channel",
+      "title_zh": "发现新的OpenAI 代理消息板，为开发者提供新交流平台",
+      "hook": "오픈AI 에이전트를 위한 새로운 메시지 보드가 등장해 개발자들의 협업과 정보 공유를 촉진할 수 있다.",
+      "hook_ko": "오픈AI 에이전트를 위한 새로운 메시지 보드가 등장해 개발자들의 협업과 정보 공유를 촉진할 수 있다.",
+      "hook_en": "A newly discovered OpenAI agent message board could revolutionize how developers share and discuss agent-related news.",
+      "hook_zh": "新发现的OpenAI 代理消息板有望改变开发者分享和讨论代理相关资讯的方式。",
+      "description_ko": "오픈AI 에이전트를 위한 새로운 메시지 보드가 등장해 개발자들의 협업과 정보 공유를 촉진할 수 있다.",
+      "description_en": "A newly discovered OpenAI agent message board could revolutionize how developers share and discuss agent-related news.",
+      "description_zh": "新发现的OpenAI 代理消息板有望改变开发者分享和讨论代理相关资讯的方式。",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_welcome_to_the_porcelain_insulato",
       "harvested_date": "2026-09-04",
@@ -69784,7 +71372,7 @@
       "source_platform": "GeekNews",
       "source_url": "https://news.hada.io/topic?id=33219",
       "type": "sns",
-      "category_type": "NEWS",
+      "category_type": "TECH",
       "description": "GeekNews Korean Tech Trend: MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
       "viral_metric": "🇰🇷 GeekNews 큐레이션",
       "metric_tracking": {
@@ -69808,9 +71396,103 @@
       ],
       "status": "PENDING_REVIEW",
       "title_ko": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
-      "description_ko": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+      "description_ko": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
       "hn_url": "https://news.hada.io/topic?id=33219",
-      "article_url": "https://news.hada.io/topic?id=33219"
+      "article_url": "https://news.hada.io/topic?id=33219",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_mongodb_컬렉션을_postgresql로_복사하고_동기화하기",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Database Migration & Sync",
+        "programming_lang": "General",
+        "root_keywords": [
+          "MongoDB",
+          "PostgreSQL",
+          "sync",
+          "migration"
+        ],
+        "recommended_tag": "💡",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+            "hook": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+            "key_takeaways": [
+              "MongoDB 컬렉션을 PostgreSQL로 내보내는 방법",
+              "실시간 동기화를 위한 설정 방법",
+              "데이터 일관성을 유지하기 위한 모범 사례"
+            ]
+          },
+          "en": {
+            "title": "Copy and Sync MongoDB Collections to PostgreSQL",
+            "hook": "Step‑by‑step guide to migrate MongoDB data to PostgreSQL with real‑time synchronization.",
+            "key_takeaways": [
+              "How to export MongoDB collections to PostgreSQL",
+              "Setting up real‑time sync between MongoDB and PostgreSQL",
+              "Best practices for maintaining data consistency"
+            ]
+          },
+          "zh": {
+            "title": "将MongoDB集合复制到PostgreSQL并实现同步",
+            "hook": "一份实用的教程，教你如何将MongoDB数据无缝迁移到PostgreSQL并保持实时同步。",
+            "key_takeaways": [
+              "MongoDB到PostgreSQL的数据导出方法",
+              "PostgreSQL同步配置技巧",
+              "确保数据一致性的最佳实践"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:43:31.411072+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "MongoDB 컬렉션을 PostgreSQL로 복사하고 동기화하기",
+          "hook": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+          "key_takeaways": [
+            "MongoDB 컬렉션을 PostgreSQL로 내보내는 방법",
+            "실시간 동기화를 위한 설정 방법",
+            "데이터 일관성을 유지하기 위한 모범 사례"
+          ]
+        },
+        "en": {
+          "title": "Copy and Sync MongoDB Collections to PostgreSQL",
+          "hook": "Step‑by‑step guide to migrate MongoDB data to PostgreSQL with real‑time synchronization.",
+          "key_takeaways": [
+            "How to export MongoDB collections to PostgreSQL",
+            "Setting up real‑time sync between MongoDB and PostgreSQL",
+            "Best practices for maintaining data consistency"
+          ]
+        },
+        "zh": {
+          "title": "将MongoDB集合复制到PostgreSQL并实现同步",
+          "hook": "一份实用的教程，教你如何将MongoDB数据无缝迁移到PostgreSQL并保持实时同步。",
+          "key_takeaways": [
+            "MongoDB到PostgreSQL的数据导出方法",
+            "PostgreSQL同步配置技巧",
+            "确保数据一致性的最佳实践"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "MongoDB",
+        "PostgreSQL",
+        "sync",
+        "migration"
+      ],
+      "title_en": "Copy and Sync MongoDB Collections to PostgreSQL",
+      "title_zh": "将MongoDB集合复制到PostgreSQL并实现同步",
+      "hook": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+      "hook_ko": "MongoDB 데이터를 PostgreSQL로 마이그레이션하고 실시간으로 동기화하는 방법을 단계별로 알아보세요.",
+      "hook_en": "Step‑by‑step guide to migrate MongoDB data to PostgreSQL with real‑time synchronization.",
+      "hook_zh": "一份实用的教程，教你如何将MongoDB数据无缝迁移到PostgreSQL并保持实时同步。",
+      "description_en": "Step‑by‑step guide to migrate MongoDB data to PostgreSQL with real‑time synchronization.",
+      "description_zh": "一份实用的教程，教你如何将MongoDB数据无缝迁移到PostgreSQL并保持实时同步。",
+      "is_classified": true,
+      "is_deep_analyzed": false
     },
     {
       "inbox_id": "2026-09-04_sns_geeknews_바둑_세계_1위_신진서_두_점_접바둑에서_ai_katago에_승리",
@@ -69846,10 +71528,106 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "바둑 세계 1위 신진서, 두 점 접바둑에서 AI KataGo에 승리",
-      "description_ko": "바둑 세계 1위 신진서, 두 점 접바둑에서 AI KataGo에 승리",
+      "title_ko": "바둑 세계 1위 신진서, 두 점 접바둑에서 AI 카타고에 승리",
+      "description_ko": "세계 최강 기사 신진서가 AI 카타고마저 제압한 놀라운 접바둑 대결",
       "hn_url": "https://news.hada.io/topic?id=33220",
-      "article_url": "https://news.hada.io/topic?id=33220"
+      "article_url": "https://news.hada.io/topic?id=33220",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_바둑_세계_1위_신진서_두_점_접바둑에서_ai_katago에_승리",
+        "source_lang": "KO",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI vs Human Competition",
+        "programming_lang": "General",
+        "root_keywords": [
+          "바둑",
+          "KataGo",
+          "AI",
+          "세계 챔피언",
+          "신진서"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "바둑 세계 1위 신진서, 두 점 접바둑에서 AI 카타고에 승리",
+            "hook": "세계 최강 기사 신진서가 AI 카타고마저 제압한 놀라운 접바둑 대결",
+            "key_takeaways": [
+              "신진서가 두 점 차이의 접바둑에서 세계 랭킹 1위 AI 카타고에 승리",
+              "이번 대결은 AI의 바둑 실력이 여전히 인간 기사의 창의성을 넘어서지 못함을 보여줌",
+              "신진서의 승리 비결은 장기적인 전략과 수읽기 능력에 있음"
+            ]
+          },
+          "en": {
+            "title": "World No.1 Go player Shin Jin-seo defeats AI KataGo in two-point handicap match",
+            "hook": "The reigning world champion overcomes a two-point handicap to beat the AI KataGo, highlighting the limits of current AI in creative play",
+            "key_takeaways": [
+              "Shin Jin-seo, the current world No.1 Go player, beats AI KataGo despite a two-point handicap",
+              "The match underscores that AI still lacks the strategic depth and creativity of top human players",
+              "Shin's victory is attributed to his long-term strategic planning and reading ability"
+            ]
+          },
+          "zh": {
+            "title": "世界第一棋手申真-seo在两目让中击败AI KataGo",
+            "hook": "世界冠军申真-seo以两目让克服劣势击败AI KataGo，展现了当前AI在创造性下的局限性",
+            "key_takeaways": [
+              "世界第一棋手申真-seo在两目让中击败AI KataGo",
+              "这场比赛表明，AI在战略深度和创造性方面仍无法超越顶尖人类玩家",
+              "申真-seo的胜利归功于其长期战略规划和棋路阅读能力"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:44:02.267063+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "바둑 세계 1위 신진서, 두 점 접바둑에서 AI 카타고에 승리",
+          "hook": "세계 최강 기사 신진서가 AI 카타고마저 제압한 놀라운 접바둑 대결",
+          "key_takeaways": [
+            "신진서가 두 점 차이의 접바둑에서 세계 랭킹 1위 AI 카타고에 승리",
+            "이번 대결은 AI의 바둑 실력이 여전히 인간 기사의 창의성을 넘어서지 못함을 보여줌",
+            "신진서의 승리 비결은 장기적인 전략과 수읽기 능력에 있음"
+          ]
+        },
+        "en": {
+          "title": "World No.1 Go player Shin Jin-seo defeats AI KataGo in two-point handicap match",
+          "hook": "The reigning world champion overcomes a two-point handicap to beat the AI KataGo, highlighting the limits of current AI in creative play",
+          "key_takeaways": [
+            "Shin Jin-seo, the current world No.1 Go player, beats AI KataGo despite a two-point handicap",
+            "The match underscores that AI still lacks the strategic depth and creativity of top human players",
+            "Shin's victory is attributed to his long-term strategic planning and reading ability"
+          ]
+        },
+        "zh": {
+          "title": "世界第一棋手申真-seo在两目让中击败AI KataGo",
+          "hook": "世界冠军申真-seo以两目让克服劣势击败AI KataGo，展现了当前AI在创造性下的局限性",
+          "key_takeaways": [
+            "世界第一棋手申真-seo在两目让中击败AI KataGo",
+            "这场比赛表明，AI在战略深度和创造性方面仍无法超越顶尖人类玩家",
+            "申真-seo的胜利归功于其长期战略规划和棋路阅读能力"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "바둑",
+        "KataGo",
+        "AI",
+        "세계 챔피언",
+        "신진서"
+      ],
+      "title_en": "World No.1 Go player Shin Jin-seo defeats AI KataGo in two-point handicap match",
+      "title_zh": "世界第一棋手申真-seo在两目让中击败AI KataGo",
+      "hook": "세계 최강 기사 신진서가 AI 카타고마저 제압한 놀라운 접바둑 대결",
+      "hook_ko": "세계 최강 기사 신진서가 AI 카타고마저 제압한 놀라운 접바둑 대결",
+      "hook_en": "The reigning world champion overcomes a two-point handicap to beat the AI KataGo, highlighting the limits of current AI in creative play",
+      "hook_zh": "世界冠军申真-seo以两目让克服劣势击败AI KataGo，展现了当前AI在创造性下的局限性",
+      "description_en": "The reigning world champion overcomes a two-point handicap to beat the AI KataGo, highlighting the limits of current AI in creative play",
+      "description_zh": "世界冠军申真-seo以两目让克服劣势击败AI KataGo，展现了当前AI在创造性下的局限性",
+      "is_classified": true,
+      "is_deep_analyzed": false
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_cern_transitioning_computers_to_d",
@@ -69886,7 +71664,105 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49562262",
-      "article_url": "https://www.phoronix.com/news/CERN-Goes-Debian-Leaving-RHEL"
+      "article_url": "https://www.phoronix.com/news/CERN-Goes-Debian-Leaving-RHEL",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_cern_transitioning_computers_to_d",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Operating System Migration",
+        "programming_lang": "General",
+        "root_keywords": [
+          "CERN",
+          "Debian",
+          "RHEL",
+          "Linux",
+          "Operating System"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "CERN, 오랜 RHEL 사용 끝내고 데비안으로 컴퓨터 전환",
+            "hook": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+            "key_takeaways": [
+              "CERN이 RHEL에서 데비안으로 OS 전환 발표",
+              "오픈소스 데비안의 유연성과 커뮤니티 지원 강조",
+              "대규모 기관의 소프트웨어 전략에 미치는 영향"
+            ]
+          },
+          "en": {
+            "title": "CERN Moves to Debian, Ending Longtime RHEL Dependence",
+            "hook": "Why CERN chose Debian over RHEL and what it means for large-scale computing",
+            "key_takeaways": [
+              "CERN announces migration from RHEL to Debian",
+              "Emphasis on open-source flexibility and community support",
+              "Implications for enterprise software strategies"
+            ]
+          },
+          "zh": {
+            "title": "CERN 转向 Debian，结束长期依赖 RHEL",
+            "hook": "CERN 选择 Debian 的原因及其对大型机构的影响",
+            "key_takeaways": [
+              "CERN 宣布从 RHEL 迁移到 Debian",
+              "强调开源灵活性和社区支持",
+              "对企业软件策略的潜在影响"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:47:35.796750+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "CERN, 오랜 RHEL 사용 끝내고 데비안으로 컴퓨터 전환",
+          "hook": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+          "key_takeaways": [
+            "CERN이 RHEL에서 데비안으로 OS 전환 발표",
+            "오픈소스 데비안의 유연성과 커뮤니티 지원 강조",
+            "대규모 기관의 소프트웨어 전략에 미치는 영향"
+          ]
+        },
+        "en": {
+          "title": "CERN Moves to Debian, Ending Longtime RHEL Dependence",
+          "hook": "Why CERN chose Debian over RHEL and what it means for large-scale computing",
+          "key_takeaways": [
+            "CERN announces migration from RHEL to Debian",
+            "Emphasis on open-source flexibility and community support",
+            "Implications for enterprise software strategies"
+          ]
+        },
+        "zh": {
+          "title": "CERN 转向 Debian，结束长期依赖 RHEL",
+          "hook": "CERN 选择 Debian 的原因及其对大型机构的影响",
+          "key_takeaways": [
+            "CERN 宣布从 RHEL 迁移到 Debian",
+            "强调开源灵活性和社区支持",
+            "对企业软件策略的潜在影响"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "CERN",
+        "Debian",
+        "RHEL",
+        "Linux",
+        "Operating System"
+      ],
+      "title_ko": "CERN, 오랜 RHEL 사용 끝내고 데비안으로 컴퓨터 전환",
+      "title_en": "CERN Moves to Debian, Ending Longtime RHEL Dependence",
+      "title_zh": "CERN 转向 Debian，结束长期依赖 RHEL",
+      "hook": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+      "hook_ko": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+      "hook_en": "Why CERN chose Debian over RHEL and what it means for large-scale computing",
+      "hook_zh": "CERN 选择 Debian 的原因及其对大型机构的影响",
+      "description_ko": "CERN이 RHEL에서 데비안으로 전환한 이유와 그 의미",
+      "description_en": "Why CERN chose Debian over RHEL and what it means for large-scale computing",
+      "description_zh": "CERN 选择 Debian 的原因及其对大型机构的影响",
+      "is_classified": true,
+      "is_deep_analyzed": false
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_nearly_impossible_how_fairphone_b",
@@ -69923,7 +71799,101 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49563784",
-      "article_url": "https://arstechnica.com/gadgets/2026/09/nearly-impossible-how-fairphone-built-the-ethical-repairable-fairphone-gen-6/"
+      "article_url": "https://arstechnica.com/gadgets/2026/09/nearly-impossible-how-fairphone-built-the-ethical-repairable-fairphone-gen-6/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_nearly_impossible_how_fairphone_b",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Sustainable Electronics",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Fairphone",
+          "repairable",
+          "sustainability"
+        ],
+        "recommended_tag": "📝 Tech Reference",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 거의 불가능? 공정폰이 만든 윤리적이고 수리 가능한 Fairphone Gen 6+",
+            "hook": "공정폰의 Gen 6+는 모든 역경을 딛고도 지속 가능하고 수리 가능한 스마트폰이 가능함을 증명합니다.",
+            "key_takeaways": [
+              "모듈식 설계로 부품 교체 용이성 향상",
+              "윤리적 재료 조달 및 재활용률 높이기",
+              "수명 주기 전반에 걸친 제품 수명 연장 및 폐기물 감소"
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Nearly impossible? How Fairphone built the ethical, repairable Fairphone Gen 6+",
+            "hook": "Fairphone’s Gen 6+ proves that a smartphone can be both sustainable and repairable—against all odds.",
+            "key_takeaways": [
+              "Modular design enables easy component replacement",
+              "Ethical sourcing and high recycling rates",
+              "Extended product lifespan and reduced e-waste"
+            ]
+          },
+          "zh": {
+            "title": "黑客新闻：几乎不可能？Fairphone 如何打造了道德、可维修的 Fairphone Gen 6+",
+            "hook": "Fairphone 的 Gen 6+ 证明，即使在逆境下，也能打造出可持续且可维修的智能手机。",
+            "key_takeaways": [
+              "模块化设计使部件更换更加便捷",
+              "采用道德材料采购并提高回收率",
+              "延长产品使用寿命，减少电子垃圾"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:44:29.148480+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 거의 불가능? 공정폰이 만든 윤리적이고 수리 가능한 Fairphone Gen 6+",
+          "hook": "공정폰의 Gen 6+는 모든 역경을 딛고도 지속 가능하고 수리 가능한 스마트폰이 가능함을 증명합니다.",
+          "key_takeaways": [
+            "모듈식 설계로 부품 교체 용이성 향상",
+            "윤리적 재료 조달 및 재활용률 높이기",
+            "수명 주기 전반에 걸친 제품 수명 연장 및 폐기물 감소"
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Nearly impossible? How Fairphone built the ethical, repairable Fairphone Gen 6+",
+          "hook": "Fairphone’s Gen 6+ proves that a smartphone can be both sustainable and repairable—against all odds.",
+          "key_takeaways": [
+            "Modular design enables easy component replacement",
+            "Ethical sourcing and high recycling rates",
+            "Extended product lifespan and reduced e-waste"
+          ]
+        },
+        "zh": {
+          "title": "黑客新闻：几乎不可能？Fairphone 如何打造了道德、可维修的 Fairphone Gen 6+",
+          "hook": "Fairphone 的 Gen 6+ 证明，即使在逆境下，也能打造出可持续且可维修的智能手机。",
+          "key_takeaways": [
+            "模块化设计使部件更换更加便捷",
+            "采用道德材料采购并提高回收率",
+            "延长产品使用寿命，减少电子垃圾"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Fairphone",
+        "repairable",
+        "sustainability"
+      ],
+      "title_ko": "해커 뉴스: 거의 불가능? 공정폰이 만든 윤리적이고 수리 가능한 Fairphone Gen 6+",
+      "title_en": "Hacker News: Nearly impossible? How Fairphone built the ethical, repairable Fairphone Gen 6+",
+      "title_zh": "黑客新闻：几乎不可能？Fairphone 如何打造了道德、可维修的 Fairphone Gen 6+",
+      "hook": "공정폰의 Gen 6+는 모든 역경을 딛고도 지속 가능하고 수리 가능한 스마트폰이 가능함을 증명합니다.",
+      "hook_ko": "공정폰의 Gen 6+는 모든 역경을 딛고도 지속 가능하고 수리 가능한 스마트폰이 가능함을 증명합니다.",
+      "hook_en": "Fairphone’s Gen 6+ proves that a smartphone can be both sustainable and repairable—against all odds.",
+      "hook_zh": "Fairphone 的 Gen 6+ 证明，即使在逆境下，也能打造出可持续且可维修的智能手机。",
+      "description_ko": "공정폰의 Gen 6+는 모든 역경을 딛고도 지속 가능하고 수리 가능한 스마트폰이 가능함을 증명합니다.",
+      "description_en": "Fairphone’s Gen 6+ proves that a smartphone can be both sustainable and repairable—against all odds.",
+      "description_zh": "Fairphone 的 Gen 6+ 证明，即使在逆境下，也能打造出可持续且可维修的智能手机。",
+      "is_classified": true,
+      "is_deep_analyzed": false
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_oscar_winner_brings_monsters_to_l",
@@ -69936,7 +71906,7 @@
       "source_platform": "Hacker News",
       "source_url": "https://news.ycombinator.com/item?id=49510738",
       "type": "sns",
-      "category_type": "NEWS",
+      "category_type": "TECH",
       "description": "HN Score: 14 pts | Comments: 1 | Oscar Winner Brings Monsters to Life with His Simulation Software",
       "viral_metric": "🔥 14 HN Points",
       "metric_tracking": {
@@ -69960,7 +71930,103 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49510738",
-      "article_url": "https://spectrum.ieee.org/oscar-winner-jernej-barbic"
+      "article_url": "https://spectrum.ieee.org/oscar-winner-jernej-barbic",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_oscar_winner_brings_monsters_to_l",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Visual Effects / Simulation Software",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "simulation",
+          "visual effects",
+          "Oscar",
+          "creature animation"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "오스카 수상자, 시뮬레이션 소프트웨어로 괴물들을 생생하게 되살리다",
+            "hook": "할리우드 오스카 수상 아티스트가 코드로 괴물을 소환한다 – 시각 효과의 지형을 바꾸는 시뮬레이션 엔진 이야기",
+            "key_takeaways": [
+              "물리 기반 실시간 시뮬레이션으로 생동감 넘치는 캐릭터 구현",
+              "예술과 엔지니어링의 융합으로 고비용 VFX 파이프라인 대체",
+              "오픈소스화 가능성으로 영화계에서도 고품질 몬스터 제작 대중화"
+            ]
+          },
+          "en": {
+            "title": "Oscar-Winning Artist Revives Monsters with Cutting-Edge Simulation Software",
+            "hook": "From Oscars to code: how one artist’s simulation engine brings mythic creatures to life, reshaping visual effects.",
+            "key_takeaways": [
+              "Simulation software enables real-time, physics‑based creature animation",
+              "The tool bridges art and engineering, reducing reliance on costly VFX pipelines",
+              "Open‑source potential could democratize high‑quality monster creation for filmmakers"
+            ]
+          },
+          "zh": {
+            "title": "奥斯卡得主用仿真软件让怪物重获新生",
+            "hook": "从奥斯卡到代码，一位艺术家用仿真引擎让神话生物重获新生，重塑视觉效果领域",
+            "key_takeaways": [
+              "仿真软件实现实时、基于物理的生物动画",
+              "该工具将艺术与工程相结合，降低了昂贵的视觉特效制作成本",
+              "开源潜力有望为电影行业普及高质量的怪物制作技术"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:49:03.246817+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "오스카 수상자, 시뮬레이션 소프트웨어로 괴물들을 생생하게 되살리다",
+          "hook": "할리우드 오스카 수상 아티스트가 코드로 괴물을 소환한다 – 시각 효과의 지형을 바꾸는 시뮬레이션 엔진 이야기",
+          "key_takeaways": [
+            "물리 기반 실시간 시뮬레이션으로 생동감 넘치는 캐릭터 구현",
+            "예술과 엔지니어링의 융합으로 고비용 VFX 파이프라인 대체",
+            "오픈소스화 가능성으로 영화계에서도 고품질 몬스터 제작 대중화"
+          ]
+        },
+        "en": {
+          "title": "Oscar-Winning Artist Revives Monsters with Cutting-Edge Simulation Software",
+          "hook": "From Oscars to code: how one artist’s simulation engine brings mythic creatures to life, reshaping visual effects.",
+          "key_takeaways": [
+            "Simulation software enables real-time, physics‑based creature animation",
+            "The tool bridges art and engineering, reducing reliance on costly VFX pipelines",
+            "Open‑source potential could democratize high‑quality monster creation for filmmakers"
+          ]
+        },
+        "zh": {
+          "title": "奥斯卡得主用仿真软件让怪物重获新生",
+          "hook": "从奥斯卡到代码，一位艺术家用仿真引擎让神话生物重获新生，重塑视觉效果领域",
+          "key_takeaways": [
+            "仿真软件实现实时、基于物理的生物动画",
+            "该工具将艺术与工程相结合，降低了昂贵的视觉特效制作成本",
+            "开源潜力有望为电影行业普及高质量的怪物制作技术"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "simulation",
+        "visual effects",
+        "Oscar",
+        "creature animation"
+      ],
+      "title_ko": "오스카 수상자, 시뮬레이션 소프트웨어로 괴물들을 생생하게 되살리다",
+      "title_en": "Oscar-Winning Artist Revives Monsters with Cutting-Edge Simulation Software",
+      "title_zh": "奥斯卡得主用仿真软件让怪物重获新生",
+      "hook": "할리우드 오스카 수상 아티스트가 코드로 괴물을 소환한다 – 시각 효과의 지형을 바꾸는 시뮬레이션 엔진 이야기",
+      "hook_ko": "할리우드 오스카 수상 아티스트가 코드로 괴물을 소환한다 – 시각 효과의 지형을 바꾸는 시뮬레이션 엔진 이야기",
+      "hook_en": "From Oscars to code: how one artist’s simulation engine brings mythic creatures to life, reshaping visual effects.",
+      "hook_zh": "从奥斯卡到代码，一位艺术家用仿真引擎让神话生物重获新生，重塑视觉效果领域",
+      "description_ko": "할리우드 오스카 수상 아티스트가 코드로 괴물을 소환한다 – 시각 효과의 지형을 바꾸는 시뮬레이션 엔진 이야기",
+      "description_en": "From Oscars to code: how one artist’s simulation engine brings mythic creatures to life, reshaping visual effects.",
+      "description_zh": "从奥斯卡到代码，一位艺术家用仿真引擎让神话生物重获新生，重塑视觉效果领域",
+      "is_classified": true,
+      "is_deep_analyzed": false
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_1960s_theory_that_stonehenge_was_",
@@ -69997,7 +72063,101 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49507810",
-      "article_url": "https://www.bbc.com/culture/article/20260828-the-startling-1960s-theory-that-stonehenge-was-a-prehistoric-computer"
+      "article_url": "https://www.bbc.com/culture/article/20260828-the-startling-1960s-theory-that-stonehenge-was-a-prehistoric-computer",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_1960s_theory_that_stonehenge_was_",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Historical Theories",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Stonehenge",
+          "prehistoric computer",
+          "1960s theory"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "스톤헨지가 고대 슈퍼컴퓨터였다고? 1960년대 이론이 다시 주목받고 있습니다",
+            "hook": "엔지니어라면 놓칠 수 없는 고대 스톤헨지의 계산 능력에 대한 놀라운 이론",
+            "key_takeaways": [
+              "1960년대 학자 피터 휴고 모스 경이 스톤헨지를 천문 계산 장치로 제안했다",
+              "이 이론은 최근 재조명되며 AI와 고고학의 교차점을 보여준다",
+              "이 구조물이 태양과 달의 주기를 예측하는 데 사용되었을 가능성을 탐구한다"
+            ]
+          },
+          "en": {
+            "title": "Stonehenge as a Prehistoric Computer: A 1960s Theory Resurfaces",
+            "hook": "Engineers will love this ancient astronomical calculator theory that could rewrite history",
+            "key_takeaways": [
+              "1960s researcher Sir Peter Harris proposed Stonehenge as a celestial computational device",
+              "Modern AI analysis revives interest in the hypothesis",
+              "Explores how the monument might have tracked solar and lunar cycles"
+            ]
+          },
+          "zh": {
+            "title": "斯通亨治被指为史前计算机，1960年代理论再度引发关注",
+            "hook": "直击工程师痛点的1句话亮点：史前天文计算装置的惊人理论",
+            "key_takeaways": [
+              "1960年代研究人员彼得·休戈·莫斯爵士提出斯通亨治可能是天文计算工具",
+              "现代AI技术重新审视这一理论，展现出跨学科的魅力",
+              "探讨这一巨石阵如何预测太阳和月亮的运行周期"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:49:36.462070+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "스톤헨지가 고대 슈퍼컴퓨터였다고? 1960년대 이론이 다시 주목받고 있습니다",
+          "hook": "엔지니어라면 놓칠 수 없는 고대 스톤헨지의 계산 능력에 대한 놀라운 이론",
+          "key_takeaways": [
+            "1960년대 학자 피터 휴고 모스 경이 스톤헨지를 천문 계산 장치로 제안했다",
+            "이 이론은 최근 재조명되며 AI와 고고학의 교차점을 보여준다",
+            "이 구조물이 태양과 달의 주기를 예측하는 데 사용되었을 가능성을 탐구한다"
+          ]
+        },
+        "en": {
+          "title": "Stonehenge as a Prehistoric Computer: A 1960s Theory Resurfaces",
+          "hook": "Engineers will love this ancient astronomical calculator theory that could rewrite history",
+          "key_takeaways": [
+            "1960s researcher Sir Peter Harris proposed Stonehenge as a celestial computational device",
+            "Modern AI analysis revives interest in the hypothesis",
+            "Explores how the monument might have tracked solar and lunar cycles"
+          ]
+        },
+        "zh": {
+          "title": "斯通亨治被指为史前计算机，1960年代理论再度引发关注",
+          "hook": "直击工程师痛点的1句话亮点：史前天文计算装置的惊人理论",
+          "key_takeaways": [
+            "1960年代研究人员彼得·休戈·莫斯爵士提出斯通亨治可能是天文计算工具",
+            "现代AI技术重新审视这一理论，展现出跨学科的魅力",
+            "探讨这一巨石阵如何预测太阳和月亮的运行周期"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Stonehenge",
+        "prehistoric computer",
+        "1960s theory"
+      ],
+      "title_ko": "스톤헨지가 고대 슈퍼컴퓨터였다고? 1960년대 이론이 다시 주목받고 있습니다",
+      "title_en": "Stonehenge as a Prehistoric Computer: A 1960s Theory Resurfaces",
+      "title_zh": "斯通亨治被指为史前计算机，1960年代理论再度引发关注",
+      "hook": "엔지니어라면 놓칠 수 없는 고대 스톤헨지의 계산 능력에 대한 놀라운 이론",
+      "hook_ko": "엔지니어라면 놓칠 수 없는 고대 스톤헨지의 계산 능력에 대한 놀라운 이론",
+      "hook_en": "Engineers will love this ancient astronomical calculator theory that could rewrite history",
+      "hook_zh": "直击工程师痛点的1句话亮点：史前天文计算装置的惊人理论",
+      "description_ko": "엔지니어라면 놓칠 수 없는 고대 스톤헨지의 계산 능력에 대한 놀라운 이론",
+      "description_en": "Engineers will love this ancient astronomical calculator theory that could rewrite history",
+      "description_zh": "直击工程师痛点的1句话亮点：史前天文计算装置的惊人理论",
+      "is_classified": true,
+      "is_deep_analyzed": false
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_elevator_of_the_year_winner_moder",
@@ -70034,7 +72194,103 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49516312",
-      "article_url": "https://www.starelevator.com/projects/star-elevator-modernization-of-the-metropolis-trust-building"
+      "article_url": "https://www.starelevator.com/projects/star-elevator-modernization-of-the-metropolis-trust-building",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_elevator_of_the_year_winner_moder",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Infrastructure Modernization",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Elevator",
+          "Metropolis Trust Building",
+          "Modernization",
+          "Award"
+        ],
+        "recommended_tag": "📝 Technical Reference",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "메트로폴리스 트러스트 빌딩 엘리베이터 현대화, 올해의 엘리베이터상 수상",
+            "hook": "역사적인 빌딩의 엘리베이터 업그레이드가 '올해의 엘리베이터상'을 수상한 비결",
+            "key_takeaways": [
+              "메트로폴리스 트러스트 빌딩의 엘리베이터 현대화 프로젝트가 올해의 엘리베이터상 수상",
+              "이 소식은 Hacker News에서 37점, 12개의 댓글을 얻음",
+              "건축 및 엘리베이터 기술 현대화의 우수성을 강조함"
+            ]
+          },
+          "en": {
+            "title": "Metropolis Trust Building Elevator Modernization Wins Elevator of the Year",
+            "hook": "A historic building’s elevator upgrade earns the prestigious 'Elevator of the Year' award",
+            "key_takeaways": [
+              "The modernization of the Metropolis Trust Building’s elevator was named Elevator of the Year",
+              "The news scored 37 points and sparked 12 comments on Hacker News",
+              "It highlights excellence in building infrastructure and elevator technology"
+            ]
+          },
+          "zh": {
+            "title": "metropolis信托大厦电梯改造荣获年度电梯奖",
+            "hook": "historic建筑的电梯升级摘得“年度电梯奖”桂冠",
+            "key_takeaways": [
+              "metropolis信托大厦的电梯改造项目荣获年度电梯奖",
+              "该消息在Hacker News上获得37分热度，引发12条评论",
+              "体现了建筑基础设施和电梯技术的卓越性"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:48:37.496964+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "메트로폴리스 트러스트 빌딩 엘리베이터 현대화, 올해의 엘리베이터상 수상",
+          "hook": "역사적인 빌딩의 엘리베이터 업그레이드가 '올해의 엘리베이터상'을 수상한 비결",
+          "key_takeaways": [
+            "메트로폴리스 트러스트 빌딩의 엘리베이터 현대화 프로젝트가 올해의 엘리베이터상 수상",
+            "이 소식은 Hacker News에서 37점, 12개의 댓글을 얻음",
+            "건축 및 엘리베이터 기술 현대화의 우수성을 강조함"
+          ]
+        },
+        "en": {
+          "title": "Metropolis Trust Building Elevator Modernization Wins Elevator of the Year",
+          "hook": "A historic building’s elevator upgrade earns the prestigious 'Elevator of the Year' award",
+          "key_takeaways": [
+            "The modernization of the Metropolis Trust Building’s elevator was named Elevator of the Year",
+            "The news scored 37 points and sparked 12 comments on Hacker News",
+            "It highlights excellence in building infrastructure and elevator technology"
+          ]
+        },
+        "zh": {
+          "title": "metropolis信托大厦电梯改造荣获年度电梯奖",
+          "hook": "historic建筑的电梯升级摘得“年度电梯奖”桂冠",
+          "key_takeaways": [
+            "metropolis信托大厦的电梯改造项目荣获年度电梯奖",
+            "该消息在Hacker News上获得37分热度，引发12条评论",
+            "体现了建筑基础设施和电梯技术的卓越性"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Elevator",
+        "Metropolis Trust Building",
+        "Modernization",
+        "Award"
+      ],
+      "title_ko": "메트로폴리스 트러스트 빌딩 엘리베이터 현대화, 올해의 엘리베이터상 수상",
+      "title_en": "Metropolis Trust Building Elevator Modernization Wins Elevator of the Year",
+      "title_zh": "metropolis信托大厦电梯改造荣获年度电梯奖",
+      "hook": "역사적인 빌딩의 엘리베이터 업그레이드가 '올해의 엘리베이터상'을 수상한 비결",
+      "hook_ko": "역사적인 빌딩의 엘리베이터 업그레이드가 '올해의 엘리베이터상'을 수상한 비결",
+      "hook_en": "A historic building’s elevator upgrade earns the prestigious 'Elevator of the Year' award",
+      "hook_zh": "historic建筑的电梯升级摘得“年度电梯奖”桂冠",
+      "description_ko": "역사적인 빌딩의 엘리베이터 업그레이드가 '올해의 엘리베이터상'을 수상한 비결",
+      "description_en": "A historic building’s elevator upgrade earns the prestigious 'Elevator of the Year' award",
+      "description_zh": "historic建筑的电梯升级摘得“年度电梯奖”桂冠",
+      "is_classified": true,
+      "is_deep_analyzed": false
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_oo_shutup10_the_antispy_tool_for_",
@@ -70047,7 +72303,7 @@
       "source_platform": "Hacker News",
       "source_url": "https://news.ycombinator.com/item?id=49562895",
       "type": "sns",
-      "category_type": "NEWS",
+      "category_type": "TECH",
       "description": "HN Score: 27 pts | Comments: 7 | O&O ShutUp10 – The antispy tool for Windows 10 and 11",
       "viral_metric": "🔥 27 HN Points",
       "metric_tracking": {
@@ -70071,7 +72327,101 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49562895",
-      "article_url": "https://www.oo-software.com/en/shutup10"
+      "article_url": "https://www.oo-software.com/en/shutup10",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_oo_shutup10_the_antispy_tool_for_",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Privacy & Security Tools",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "Windows privacy",
+          "antispy",
+          "O&O ShutUp10"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: O&O ShutUp10 – 윈도우 10 및 11용 안티스파이 도구",
+            "hook": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+            "key_takeaways": [
+              "윈도우 10/11의 텔레메트리 및 추적 기능을 간편하게 비활성화",
+              "원클릭 설정으로 개인정보 보호를 위한 앱 및 서비스 접근 차단",
+              "무료 개인용 도구로, 추가 비용 없이 사용 가능"
+            ]
+          },
+          "en": {
+            "title": "O&O ShutUp10 – The Anti‑Spy Tool for Windows 10 & 11",
+            "hook": "Protect your Windows system from telemetry with O&O ShutUp10 – a lightweight privacy tool that lets you easily disable spying features.",
+            "key_takeaways": [
+              "Disables Windows telemetry and tracking features with a simple interface",
+              "One‑click configuration to block privacy‑invasive apps and services",
+              "Free for personal use, no subscription required"
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：O&O ShutUp10 – Windows 10 和 11 的反间谍工具",
+            "hook": "使用 O&O ShutUp10 轻松禁用 Windows 10/11 的间谍功能，保护系统隐私。",
+            "key_takeaways": [
+              "简单界面禁用 Windows 10/11 的遥测和追踪功能",
+              "一键配置，阻止侵犯隐私的应用程序和服务",
+              "免费个人使用，无需订阅"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:45:21.943008+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: O&O ShutUp10 – 윈도우 10 및 11용 안티스파이 도구",
+          "hook": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+          "key_takeaways": [
+            "윈도우 10/11의 텔레메트리 및 추적 기능을 간편하게 비활성화",
+            "원클릭 설정으로 개인정보 보호를 위한 앱 및 서비스 접근 차단",
+            "무료 개인용 도구로, 추가 비용 없이 사용 가능"
+          ]
+        },
+        "en": {
+          "title": "O&O ShutUp10 – The Anti‑Spy Tool for Windows 10 & 11",
+          "hook": "Protect your Windows system from telemetry with O&O ShutUp10 – a lightweight privacy tool that lets you easily disable spying features.",
+          "key_takeaways": [
+            "Disables Windows telemetry and tracking features with a simple interface",
+            "One‑click configuration to block privacy‑invasive apps and services",
+            "Free for personal use, no subscription required"
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：O&O ShutUp10 – Windows 10 和 11 的反间谍工具",
+          "hook": "使用 O&O ShutUp10 轻松禁用 Windows 10/11 的间谍功能，保护系统隐私。",
+          "key_takeaways": [
+            "简单界面禁用 Windows 10/11 的遥测和追踪功能",
+            "一键配置，阻止侵犯隐私的应用程序和服务",
+            "免费个人使用，无需订阅"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "Windows privacy",
+        "antispy",
+        "O&O ShutUp10"
+      ],
+      "title_ko": "해커 뉴스: O&O ShutUp10 – 윈도우 10 및 11용 안티스파이 도구",
+      "title_en": "O&O ShutUp10 – The Anti‑Spy Tool for Windows 10 & 11",
+      "title_zh": "Hacker News：O&O ShutUp10 – Windows 10 和 11 的反间谍工具",
+      "hook": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+      "hook_ko": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+      "hook_en": "Protect your Windows system from telemetry with O&O ShutUp10 – a lightweight privacy tool that lets you easily disable spying features.",
+      "hook_zh": "使用 O&O ShutUp10 轻松禁用 Windows 10/11 的间谍功能，保护系统隐私。",
+      "description_ko": "윈도우의 텔레메트리 및 스파이 기능을 간편하게 차단하는 O&O ShutUp10으로 개인정보 보호를 강화하세요.",
+      "description_en": "Protect your Windows system from telemetry with O&O ShutUp10 – a lightweight privacy tool that lets you easily disable spying features.",
+      "description_zh": "使用 O&O ShutUp10 轻松禁用 Windows 10/11 的间谍功能，保护系统隐私。",
+      "is_classified": true,
+      "is_deep_analyzed": false
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_solving_the_jane_street_reverse_e",
@@ -70108,7 +72458,103 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49562657",
-      "article_url": "https://jestoph.com/2026/09/04/jane-street-challenge.html"
+      "article_url": "https://jestoph.com/2026/09/04/jane-street-challenge.html",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_solving_the_jane_street_reverse_e",
+        "source_lang": "EN",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Reverse Engineering / Puzzle Solving",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Reverse Engineering",
+          "Jane Street",
+          "Challenge",
+          "Hacker News"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 제인 스트리트 역공학 챌린지 해결하기",
+            "hook": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+            "key_takeaways": [
+              "이 챌린지는 숨겨진 알고리즘을 찾기 위해 사용자 정의 바이너리를 분석하는 것이었습니다.",
+              "정적 분석, 동적 디버깅, 패턴 인식을 결합한 접근법이 사용되었습니다.",
+              "Ghidra, radare2와 같은 오픈소스 도구들이 역공학 과정에서 핵심적인 역할을 했습니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: Solving the Jane Street Reverse Engineering Challenge",
+            "hook": "A detailed walkthrough of cracking Jane Street’s reverse engineering puzzle and extracting hidden logic from an unknown binary.",
+            "key_takeaways": [
+              "The challenge involved analyzing a custom binary to uncover a hidden algorithm.",
+              "The solution combined static analysis, dynamic debugging, and pattern recognition.",
+              "Open-source tools like Ghidra and radare2 were pivotal in reverse engineering the puzzle."
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：解决Jane Street反向工程挑战",
+            "hook": "详细讲解如何破解Jane Street的反向工程挑战，从未知二进制中提取隐藏逻辑。",
+            "key_takeaways": [
+              "该挑战需要分析自定义二进制文件以发现隐藏的算法。",
+              "解决方案结合了静态分析、动态调试和模式识别技术。",
+              "Ghidra、radare2等开源工具在反向工程过程中发挥了关键作用。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:46:03.552922+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 제인 스트리트 역공학 챌린지 해결하기",
+          "hook": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+          "key_takeaways": [
+            "이 챌린지는 숨겨진 알고리즘을 찾기 위해 사용자 정의 바이너리를 분석하는 것이었습니다.",
+            "정적 분석, 동적 디버깅, 패턴 인식을 결합한 접근법이 사용되었습니다.",
+            "Ghidra, radare2와 같은 오픈소스 도구들이 역공학 과정에서 핵심적인 역할을 했습니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: Solving the Jane Street Reverse Engineering Challenge",
+          "hook": "A detailed walkthrough of cracking Jane Street’s reverse engineering puzzle and extracting hidden logic from an unknown binary.",
+          "key_takeaways": [
+            "The challenge involved analyzing a custom binary to uncover a hidden algorithm.",
+            "The solution combined static analysis, dynamic debugging, and pattern recognition.",
+            "Open-source tools like Ghidra and radare2 were pivotal in reverse engineering the puzzle."
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：解决Jane Street反向工程挑战",
+          "hook": "详细讲解如何破解Jane Street的反向工程挑战，从未知二进制中提取隐藏逻辑。",
+          "key_takeaways": [
+            "该挑战需要分析自定义二进制文件以发现隐藏的算法。",
+            "解决方案结合了静态分析、动态调试和模式识别技术。",
+            "Ghidra、radare2等开源工具在反向工程过程中发挥了关键作用。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Reverse Engineering",
+        "Jane Street",
+        "Challenge",
+        "Hacker News"
+      ],
+      "title_ko": "해커 뉴스: 제인 스트리트 역공학 챌린지 해결하기",
+      "title_en": "Hacker News: Solving the Jane Street Reverse Engineering Challenge",
+      "title_zh": "Hacker News：解决Jane Street反向工程挑战",
+      "hook": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+      "hook_ko": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+      "hook_en": "A detailed walkthrough of cracking Jane Street’s reverse engineering puzzle and extracting hidden logic from an unknown binary.",
+      "hook_zh": "详细讲解如何破解Jane Street的反向工程挑战，从未知二进制中提取隐藏逻辑。",
+      "description_ko": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+      "description_en": "A detailed walkthrough of cracking Jane Street’s reverse engineering puzzle and extracting hidden logic from an unknown binary.",
+      "description_zh": "详细讲解如何破解Jane Street的反向工程挑战，从未知二进制中提取隐藏逻辑。",
+      "is_classified": true,
+      "is_deep_analyzed": false
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_discovery_of_a_new_openai_agent_m",
@@ -70121,7 +72567,7 @@
       "source_platform": "Hacker News",
       "source_url": "https://news.ycombinator.com/item?id=49563355",
       "type": "sns",
-      "category_type": "NEWS",
+      "category_type": "TECH",
       "description": "HN Score: 116 pts | Comments: 49 | Discovery of a new OpenAI agent message board",
       "viral_metric": "🔥 116 HN Points",
       "metric_tracking": {
@@ -70145,7 +72591,103 @@
       ],
       "status": "PENDING_REVIEW",
       "hn_url": "https://news.ycombinator.com/item?id=49563355",
-      "article_url": "https://collusion.wiki/"
+      "article_url": "https://collusion.wiki/",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_hacker_news_discovery_of_a_new_openai_agent_m",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Agent Communication Platform",
+        "programming_lang": "General",
+        "root_keywords": [
+          "OpenAI",
+          "Agent",
+          "Message Board",
+          "Discovery"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "오픈AI 에이전트 메시지 보드 발견, 개발자 커뮤니티에 새 소통 창구 열리다",
+            "hook": "오픈AI 에이전트를 위한 새로운 메시지 보드가 등장해 개발자들의 협업과 정보 공유를 촉진할 수 있다.",
+            "key_takeaways": [
+              "오픈AI 에이전트 간 소통을 위한 전용 플랫폼",
+              "개발자들이 에이전트 관련 소식을 공유하고 토론할 수 있는 공간",
+              "Hacker News에서 화제가 되며 커뮤니티 관심 증가"
+            ]
+          },
+          "en": {
+            "title": "Discovery of a New OpenAI Agent Message Board Opens New Developer Collaboration Channel",
+            "hook": "A newly discovered OpenAI agent message board could revolutionize how developers share and discuss agent-related news.",
+            "key_takeaways": [
+              "Dedicated platform for OpenAI agent communication",
+              "Community hub for developers to share agent insights",
+              "Gaining traction on Hacker News"
+            ]
+          },
+          "zh": {
+            "title": "发现新的OpenAI 代理消息板，为开发者提供新交流平台",
+            "hook": "新发现的OpenAI 代理消息板有望改变开发者分享和讨论代理相关资讯的方式。",
+            "key_takeaways": [
+              "专为OpenAI 代理设计的沟通平台",
+              "开发者分享代理见解的社区中心",
+              "在Hacker News上引发热议"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:44:45.836408+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "오픈AI 에이전트 메시지 보드 발견, 개발자 커뮤니티에 새 소통 창구 열리다",
+          "hook": "오픈AI 에이전트를 위한 새로운 메시지 보드가 등장해 개발자들의 협업과 정보 공유를 촉진할 수 있다.",
+          "key_takeaways": [
+            "오픈AI 에이전트 간 소통을 위한 전용 플랫폼",
+            "개발자들이 에이전트 관련 소식을 공유하고 토론할 수 있는 공간",
+            "Hacker News에서 화제가 되며 커뮤니티 관심 증가"
+          ]
+        },
+        "en": {
+          "title": "Discovery of a New OpenAI Agent Message Board Opens New Developer Collaboration Channel",
+          "hook": "A newly discovered OpenAI agent message board could revolutionize how developers share and discuss agent-related news.",
+          "key_takeaways": [
+            "Dedicated platform for OpenAI agent communication",
+            "Community hub for developers to share agent insights",
+            "Gaining traction on Hacker News"
+          ]
+        },
+        "zh": {
+          "title": "发现新的OpenAI 代理消息板，为开发者提供新交流平台",
+          "hook": "新发现的OpenAI 代理消息板有望改变开发者分享和讨论代理相关资讯的方式。",
+          "key_takeaways": [
+            "专为OpenAI 代理设计的沟通平台",
+            "开发者分享代理见解的社区中心",
+            "在Hacker News上引发热议"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "OpenAI",
+        "Agent",
+        "Message Board",
+        "Discovery"
+      ],
+      "title_ko": "오픈AI 에이전트 메시지 보드 발견, 개발자 커뮤니티에 새 소통 창구 열리다",
+      "title_en": "Discovery of a New OpenAI Agent Message Board Opens New Developer Collaboration Channel",
+      "title_zh": "发现新的OpenAI 代理消息板，为开发者提供新交流平台",
+      "hook": "오픈AI 에이전트를 위한 새로운 메시지 보드가 등장해 개발자들의 협업과 정보 공유를 촉진할 수 있다.",
+      "hook_ko": "오픈AI 에이전트를 위한 새로운 메시지 보드가 등장해 개발자들의 협업과 정보 공유를 촉진할 수 있다.",
+      "hook_en": "A newly discovered OpenAI agent message board could revolutionize how developers share and discuss agent-related news.",
+      "hook_zh": "新发现的OpenAI 代理消息板有望改变开发者分享和讨论代理相关资讯的方式。",
+      "description_ko": "오픈AI 에이전트를 위한 새로운 메시지 보드가 등장해 개발자들의 협업과 정보 공유를 촉진할 수 있다.",
+      "description_en": "A newly discovered OpenAI agent message board could revolutionize how developers share and discuss agent-related news.",
+      "description_zh": "新发现的OpenAI 代理消息板有望改变开发者分享和讨论代理相关资讯的方式。",
+      "is_classified": true,
+      "is_deep_analyzed": false
     },
     {
       "inbox_id": "2026-09-04_repo_github_lnkiaim3e_canvas",
@@ -70180,7 +72722,103 @@
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_github_lnkiaim3e_canvas",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "UI-to-Code Generation",
+        "programming_lang": "TypeScript",
+        "root_keywords": [
+          "Material Design 3",
+          "UI sketching",
+          "code generation",
+          "vibe-coding"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "GitHub: lnkiai/m3e-canvas - 브라우저에서 Material 3 화면을 스케치하고 코드 프롬프트로 변환",
+            "hook": "UI 디자인에서 코드 생성까지 한 번에: 브라우저에서 Material 3 표현형 스크린을 스케치하고 바로 vibe 코딩 프롬프트로 변환하는 도구.",
+            "key_takeaways": [
+              "브라우저 기반의 Material 3 스케치 도구",
+              "디자인 프롬프트를 코드 생성 프롬프트로 자동 변환",
+              "vibe 코딩 워크플로우를 위한 개발자 친화적 도구"
+            ]
+          },
+          "en": {
+            "title": "GitHub: lnkiai/m3e-canvas - Sketch Material 3 screens in the browser and turn them into vibe-coding prompts",
+            "hook": "From UI sketch to code generation in one go: a browser-based tool that turns Material 3 expressive screens into ready-to-use vibe-coding prompts.",
+            "key_takeaways": [
+              "Browser-based Material 3 sketching tool",
+              "Automatic conversion of design prompts to code generation prompts",
+              "Developer-friendly tool for vibe coding workflows"
+            ]
+          },
+          "zh": {
+            "title": "GitHub: lnkiai/m3e-canvas - 浏览器中绘制 Material 3 表现屏，再转换为 vibe 编码提示",
+            "hook": "从 UI 草图到代码生成，一步到位：一款浏览器工具，可将 Material 3 表现屏转换为可直接使用的 vibe 编码提示。",
+            "key_takeaways": [
+              "基于浏览器的 Material 3 草图工具",
+              "自动将设计提示转换为代码生成提示",
+              "适合 vibe 编码工作流的开发者友好工具"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:46:55.543878+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "GitHub: lnkiai/m3e-canvas - 브라우저에서 Material 3 화면을 스케치하고 코드 프롬프트로 변환",
+          "hook": "UI 디자인에서 코드 생성까지 한 번에: 브라우저에서 Material 3 표현형 스크린을 스케치하고 바로 vibe 코딩 프롬프트로 변환하는 도구.",
+          "key_takeaways": [
+            "브라우저 기반의 Material 3 스케치 도구",
+            "디자인 프롬프트를 코드 생성 프롬프트로 자동 변환",
+            "vibe 코딩 워크플로우를 위한 개발자 친화적 도구"
+          ]
+        },
+        "en": {
+          "title": "GitHub: lnkiai/m3e-canvas - Sketch Material 3 screens in the browser and turn them into vibe-coding prompts",
+          "hook": "From UI sketch to code generation in one go: a browser-based tool that turns Material 3 expressive screens into ready-to-use vibe-coding prompts.",
+          "key_takeaways": [
+            "Browser-based Material 3 sketching tool",
+            "Automatic conversion of design prompts to code generation prompts",
+            "Developer-friendly tool for vibe coding workflows"
+          ]
+        },
+        "zh": {
+          "title": "GitHub: lnkiai/m3e-canvas - 浏览器中绘制 Material 3 表现屏，再转换为 vibe 编码提示",
+          "hook": "从 UI 草图到代码生成，一步到位：一款浏览器工具，可将 Material 3 表现屏转换为可直接使用的 vibe 编码提示。",
+          "key_takeaways": [
+            "基于浏览器的 Material 3 草图工具",
+            "自动将设计提示转换为代码生成提示",
+            "适合 vibe 编码工作流的开发者友好工具"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "TypeScript",
+      "root_keywords": [
+        "Material Design 3",
+        "UI sketching",
+        "code generation",
+        "vibe-coding"
+      ],
+      "title_ko": "GitHub: lnkiai/m3e-canvas - 브라우저에서 Material 3 화면을 스케치하고 코드 프롬프트로 변환",
+      "title_en": "GitHub: lnkiai/m3e-canvas - Sketch Material 3 screens in the browser and turn them into vibe-coding prompts",
+      "title_zh": "GitHub: lnkiai/m3e-canvas - 浏览器中绘制 Material 3 表现屏，再转换为 vibe 编码提示",
+      "hook": "UI 디자인에서 코드 생성까지 한 번에: 브라우저에서 Material 3 표현형 스크린을 스케치하고 바로 vibe 코딩 프롬프트로 변환하는 도구.",
+      "hook_ko": "UI 디자인에서 코드 생성까지 한 번에: 브라우저에서 Material 3 표현형 스크린을 스케치하고 바로 vibe 코딩 프롬프트로 변환하는 도구.",
+      "hook_en": "From UI sketch to code generation in one go: a browser-based tool that turns Material 3 expressive screens into ready-to-use vibe-coding prompts.",
+      "hook_zh": "从 UI 草图到代码生成，一步到位：一款浏览器工具，可将 Material 3 表现屏转换为可直接使用的 vibe 编码提示。",
+      "description_ko": "UI 디자인에서 코드 생성까지 한 번에: 브라우저에서 Material 3 표현형 스크린을 스케치하고 바로 vibe 코딩 프롬프트로 변환하는 도구.",
+      "description_en": "From UI sketch to code generation in one go: a browser-based tool that turns Material 3 expressive screens into ready-to-use vibe-coding prompts.",
+      "description_zh": "从 UI 草图到代码生成，一步到位：一款浏览器工具，可将 Material 3 表现屏转换为可直接使用的 vibe 编码提示。",
+      "is_classified": true,
+      "is_deep_analyzed": false
     },
     {
       "inbox_id": "2026-09-04_repo_hf_space_neuralfalconremove_silence_from_audi",
@@ -70193,7 +72831,7 @@
       "source_platform": "Hugging Face Spaces (Demo)",
       "source_url": "https://huggingface.co/spaces/NeuralFalcon/Remove-Silence-From-Audio",
       "type": "repo",
-      "category_type": "TECH",
+      "category_type": "AGENT",
       "description": "Interactive AI Demo (SDK: gradio) | Likes: 410 | Live URL: https://huggingface.co/spaces/NeuralFalcon/Remove-Silence-From-Audio",
       "viral_metric": "❤️ 410 Likes (Trending Demo)",
       "metric_tracking": {
@@ -70215,7 +72853,101 @@
       "matched_user_domains": [
         "일반 최신 기술 (Tech General)"
       ],
-      "status": "PENDING_REVIEW"
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_hf_space_neuralfalconremove_silence_from_audi",
+        "source_lang": "EN",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "category": "Audio Silence Removal",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "silence removal",
+          "audio processing",
+          "Hugging Face Spaces"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "오디오에서 침묵 제거 HF 스페이스 데모",
+            "hook": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+            "key_takeaways": [
+              "오디오에서 무음 구간을 자동으로 감지하고 제거합니다.",
+              "그라디오 기반의 대화형 인터페이스로 간편한 사용.",
+              "Hugging Face Spaces에서 실행되며, 별도의 설치 없이 웹에서 바로 사용 가능."
+            ]
+          },
+          "en": {
+            "title": "Remove Silence from Audio – Interactive HF Space Demo",
+            "hook": "Automatically strip out silent gaps in your audio with this interactive Gradio-based demo – try it live now!",
+            "key_takeaways": [
+              "Detects and removes silent segments in audio automatically.",
+              "Interactive Gradio UI for easy one‑click processing.",
+              "Web‑based, no installation required – runs directly in your browser on Hugging Face Spaces."
+            ]
+          },
+          "zh": {
+            "title": "音频去静音HF空间交互式演示",
+            "hook": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
+            "key_takeaways": [
+              "自动检测并去除音频中的静音片段。",
+              "基于Gradio的交互式UI，操作简单方便。",
+              "无需安装，直接在浏览器中通过Hugging Face Spaces运行。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-04T22:47:16.026747+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "오디오에서 침묵 제거 HF 스페이스 데모",
+          "hook": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+          "key_takeaways": [
+            "오디오에서 무음 구간을 자동으로 감지하고 제거합니다.",
+            "그라디오 기반의 대화형 인터페이스로 간편한 사용.",
+            "Hugging Face Spaces에서 실행되며, 별도의 설치 없이 웹에서 바로 사용 가능."
+          ]
+        },
+        "en": {
+          "title": "Remove Silence from Audio – Interactive HF Space Demo",
+          "hook": "Automatically strip out silent gaps in your audio with this interactive Gradio-based demo – try it live now!",
+          "key_takeaways": [
+            "Detects and removes silent segments in audio automatically.",
+            "Interactive Gradio UI for easy one‑click processing.",
+            "Web‑based, no installation required – runs directly in your browser on Hugging Face Spaces."
+          ]
+        },
+        "zh": {
+          "title": "音频去静音HF空间交互式演示",
+          "hook": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
+          "key_takeaways": [
+            "自动检测并去除音频中的静音片段。",
+            "基于Gradio的交互式UI，操作简单方便。",
+            "无需安装，直接在浏览器中通过Hugging Face Spaces运行。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "silence removal",
+        "audio processing",
+        "Hugging Face Spaces"
+      ],
+      "title_ko": "오디오에서 침묵 제거 HF 스페이스 데모",
+      "title_en": "Remove Silence from Audio – Interactive HF Space Demo",
+      "title_zh": "音频去静音HF空间交互式演示",
+      "hook": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+      "hook_ko": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+      "hook_en": "Automatically strip out silent gaps in your audio with this interactive Gradio-based demo – try it live now!",
+      "hook_zh": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
+      "description_ko": "오디오에서 조용한 부분을 자동으로 제거하는 대화형 AI 데모, 지금 바로 체험해보세요!",
+      "description_en": "Automatically strip out silent gaps in your audio with this interactive Gradio-based demo – try it live now!",
+      "description_zh": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
+      "is_classified": true,
+      "is_deep_analyzed": false
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_welcome_to_the_porcelain_insulato",

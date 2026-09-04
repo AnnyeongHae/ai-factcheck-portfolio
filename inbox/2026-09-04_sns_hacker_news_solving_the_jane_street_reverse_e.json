@@ -33,5 +33,101 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49562657",
-  "article_url": "https://jestoph.com/2026/09/04/jane-street-challenge.html"
+  "article_url": "https://jestoph.com/2026/09/04/jane-street-challenge.html",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_solving_the_jane_street_reverse_e",
+    "source_lang": "EN",
+    "type_classification": "NEWS",
+    "model_family": "Standalone",
+    "category": "Reverse Engineering / Puzzle Solving",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Reverse Engineering",
+      "Jane Street",
+      "Challenge",
+      "Hacker News"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "해커 뉴스: 제인 스트리트 역공학 챌린지 해결하기",
+        "hook": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+        "key_takeaways": [
+          "이 챌린지는 숨겨진 알고리즘을 찾기 위해 사용자 정의 바이너리를 분석하는 것이었습니다.",
+          "정적 분석, 동적 디버깅, 패턴 인식을 결합한 접근법이 사용되었습니다.",
+          "Ghidra, radare2와 같은 오픈소스 도구들이 역공학 과정에서 핵심적인 역할을 했습니다."
+        ]
+      },
+      "en": {
+        "title": "Hacker News: Solving the Jane Street Reverse Engineering Challenge",
+        "hook": "A detailed walkthrough of cracking Jane Street’s reverse engineering puzzle and extracting hidden logic from an unknown binary.",
+        "key_takeaways": [
+          "The challenge involved analyzing a custom binary to uncover a hidden algorithm.",
+          "The solution combined static analysis, dynamic debugging, and pattern recognition.",
+          "Open-source tools like Ghidra and radare2 were pivotal in reverse engineering the puzzle."
+        ]
+      },
+      "zh": {
+        "title": "Hacker News：解决Jane Street反向工程挑战",
+        "hook": "详细讲解如何破解Jane Street的反向工程挑战，从未知二进制中提取隐藏逻辑。",
+        "key_takeaways": [
+          "该挑战需要分析自定义二进制文件以发现隐藏的算法。",
+          "解决方案结合了静态分析、动态调试和模式识别技术。",
+          "Ghidra、radare2等开源工具在反向工程过程中发挥了关键作用。"
+        ]
+      }
+    },
+    "enriched_by_model": "cohere/north-mini-code:free",
+    "enriched_at": "2026-09-04T22:46:03.552922+09:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "해커 뉴스: 제인 스트리트 역공학 챌린지 해결하기",
+      "hook": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+      "key_takeaways": [
+        "이 챌린지는 숨겨진 알고리즘을 찾기 위해 사용자 정의 바이너리를 분석하는 것이었습니다.",
+        "정적 분석, 동적 디버깅, 패턴 인식을 결합한 접근법이 사용되었습니다.",
+        "Ghidra, radare2와 같은 오픈소스 도구들이 역공학 과정에서 핵심적인 역할을 했습니다."
+      ]
+    },
+    "en": {
+      "title": "Hacker News: Solving the Jane Street Reverse Engineering Challenge",
+      "hook": "A detailed walkthrough of cracking Jane Street’s reverse engineering puzzle and extracting hidden logic from an unknown binary.",
+      "key_takeaways": [
+        "The challenge involved analyzing a custom binary to uncover a hidden algorithm.",
+        "The solution combined static analysis, dynamic debugging, and pattern recognition.",
+        "Open-source tools like Ghidra and radare2 were pivotal in reverse engineering the puzzle."
+      ]
+    },
+    "zh": {
+      "title": "Hacker News：解决Jane Street反向工程挑战",
+      "hook": "详细讲解如何破解Jane Street的反向工程挑战，从未知二进制中提取隐藏逻辑。",
+      "key_takeaways": [
+        "该挑战需要分析自定义二进制文件以发现隐藏的算法。",
+        "解决方案结合了静态分析、动态调试和模式识别技术。",
+        "Ghidra、radare2等开源工具在反向工程过程中发挥了关键作用。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Reverse Engineering",
+    "Jane Street",
+    "Challenge",
+    "Hacker News"
+  ],
+  "title_ko": "해커 뉴스: 제인 스트리트 역공학 챌린지 해결하기",
+  "title_en": "Hacker News: Solving the Jane Street Reverse Engineering Challenge",
+  "title_zh": "Hacker News：解决Jane Street反向工程挑战",
+  "hook": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+  "hook_ko": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+  "hook_en": "A detailed walkthrough of cracking Jane Street’s reverse engineering puzzle and extracting hidden logic from an unknown binary.",
+  "hook_zh": "详细讲解如何破解Jane Street的反向工程挑战，从未知二进制中提取隐藏逻辑。",
+  "description_ko": "알려지지 않은 바이너리에서 제인 스트리트의 역공학 퍼즐을 풀어 숨겨진 로직을 추출한 상세한 해결 과정.",
+  "description_en": "A detailed walkthrough of cracking Jane Street’s reverse engineering puzzle and extracting hidden logic from an unknown binary.",
+  "description_zh": "详细讲解如何破解Jane Street的反向工程挑战，从未知二进制中提取隐藏逻辑。",
+  "is_classified": true,
+  "is_deep_analyzed": false
 }
