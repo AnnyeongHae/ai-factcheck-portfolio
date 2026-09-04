@@ -2167,5 +2167,75 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260904_152619",
+    "timestamp": "2026-09-04T15:26:19.392024+09:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 32,
+    "requested_limit": 2,
+    "processed_count": 2,
+    "success_count": 2,
+    "models_used_summary": {
+      "poolside/laguna-xs-2.1:free": 2
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 2,
+        "model_used": "poolside/laguna-xs-2.1:free",
+        "latency_seconds": 10.45,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_당신의_지능을_소유하라_소버린_ai_실전_가이드",
+            "title": "GeekNews: 당신의 지능을 소유하라: 소버린 AI 실전 가이드",
+            "title_ko": "당신의 지능을 소유하라: 소버린 AI 실전 가이드",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T15:26:29.842601+09:00"
+          },
+          {
+            "inbox_id": "2026-09-04_sns_geeknews_모든_ceo가_알아야_할_ai_거버넌스",
+            "title": "GeekNews: 모든 CEO가 알아야 할 AI 거버넌스",
+            "title_ko": "모든 CEO가 알아야 할 AI 거버넌스",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-04T15:26:29.843529+09:00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "session_id": "session_20260904_153239",
+    "timestamp": "2026-09-04T15:32:39.263782+09:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 25,
+    "requested_limit": 1,
+    "processed_count": 1,
+    "success_count": 1,
+    "models_used_summary": {
+      "nvidia/nemotron-3-super-120b-a12b:free": 1
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "nvidia/nemotron-3-super-120b-a12b:free",
+        "latency_seconds": 14.8,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-04_repo_arxiv_a_low_cost_open_platform_for_end_to_end",
+            "title": "ArXiv: A Low-Cost, Open Platform for End-to-End Autonomous Driving on a Miniature Ackermann Vehicle",
+            "title_ko": "저비용 오픈 소스 미니어처 Ackermann 차량 기반 엔드투엔드 자율주행 플랫폼",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-04T15:32:54.065711+09:00"
+          }
+        ]
+      }
+    ]
   }
 ]

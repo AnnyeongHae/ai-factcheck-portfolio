@@ -32,6 +32,71 @@
     "DX & Python 업무 프로세스 자동화"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "The Natural Language Interaction Protocol and Standard for AI Agents",
-  "description_ko": "Abstract: AI agents are increasingly being developed and deployed across organizations using heterogeneous agent-development frameworks, AI models, tool interfaces, protocols, and execution environments. To rea..."
+  "title_ko": "AI 에이전트를 위한 자연어 상호작용 프로토콜 및 표준",
+  "description_ko": "이종 프레임워크·모델·실행 환경 간 에이전트 호환성 문제를 자연어 기반 표준 프로토콜로 해결하려는 선구적 제안",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_the_natural_language_interaction_protoc",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "AI Agent Interoperability / Protocol Standardization",
+    "programming_lang": "General",
+    "root_keywords": [
+      "AI Agent Protocol",
+      "Interoperability",
+      "Natural Language Interface",
+      "Standardization",
+      "Multi-Agent Systems"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "AI 에이전트를 위한 자연어 상호작용 프로토콜 및 표준",
+        "hook": "이종 프레임워크·모델·실행 환경 간 에이전트 호환성 문제를 자연어 기반 표준 프로토콜로 해결하려는 선구적 제안",
+        "key_takeaways": [
+          "이질적인 에이전트 개발 프레임워크, 모델, 도구 인터페이스 간의 상호운용성 부재 문제 정의",
+          "자연어를 범용 통신 계층(Universal Communication Layer)으로 사용하는 NLIP(Natural Language Interaction Protocol) 아키텍처 제안",
+          "에이전트 발견, 협상, 작업 위임, 상태 동기화 등 표준화된 상호작용 라이프사이클 명세"
+        ]
+      },
+      "en": {
+        "title": "The Natural Language Interaction Protocol and Standard for AI Agents",
+        "hook": "A pioneering proposal for a natural language-based standard protocol to solve interoperability across heterogeneous agent frameworks, models, and execution environments.",
+        "key_takeaways": [
+          "Defines the critical lack of interoperability between disparate agent frameworks, models, and tool interfaces",
+          "Proposes NLIP (Natural Language Interaction Protocol) architecture using natural language as a universal communication layer",
+          "Specifies standardized interaction lifecycle: agent discovery, negotiation, task delegation, and state synchronization"
+        ]
+      },
+      "zh": {
+        "title": "面向 AI Agent 的自然语言交互协议与标准",
+        "hook": "提出基于自然语言的标准协议 NLIP，旨在解决异构框架、模型与执行环境间 AI Agent 的互操作难题。",
+        "key_takeaways": [
+          "明确定义了异构 Agent 开发框架、模型、工具接口间缺乏互操作性的核心痛点",
+          "提出 NLIP（自然语言交互协议）架构，将自然语言作为通用通信层",
+          "规范了 Agent 发现、协商、任务委派、状态同步等标准化交互生命周期"
+        ]
+      }
+    },
+    "enriched_by_model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "enriched_at": "2026-09-04T15:31:33.949492+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "AI Agent Protocol",
+    "Interoperability",
+    "Natural Language Interface",
+    "Standardization",
+    "Multi-Agent Systems"
+  ],
+  "title_en": "The Natural Language Interaction Protocol and Standard for AI Agents",
+  "title_zh": "面向 AI Agent 的自然语言交互协议与标准",
+  "hook": "이종 프레임워크·모델·실행 환경 간 에이전트 호환성 문제를 자연어 기반 표준 프로토콜로 해결하려는 선구적 제안",
+  "hook_ko": "이종 프레임워크·모델·실행 환경 간 에이전트 호환성 문제를 자연어 기반 표준 프로토콜로 해결하려는 선구적 제안",
+  "hook_en": "A pioneering proposal for a natural language-based standard protocol to solve interoperability across heterogeneous agent frameworks, models, and execution environments.",
+  "hook_zh": "提出基于自然语言的标准协议 NLIP，旨在解决异构框架、模型与执行环境间 AI Agent 的互操作难题。",
+  "description_en": "A pioneering proposal for a natural language-based standard protocol to solve interoperability across heterogeneous agent frameworks, models, and execution environments.",
+  "description_zh": "提出基于自然语言的标准协议 NLIP，旨在解决异构框架、模型与执行环境间 AI Agent 的互操作难题。"
 }

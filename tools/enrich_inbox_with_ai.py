@@ -29,6 +29,12 @@ if sys.stdout.encoding != 'utf-8':
     except Exception:
         pass
 
+tools_dir = os.path.dirname(os.path.abspath(__file__))
+if tools_dir not in sys.path:
+    sys.path.insert(0, tools_dir)
+
+import openrouter_free_router
+
 MODEL_POOL = [
     "gemini-flash-lite-latest",
     "gemini-flash-latest",
@@ -216,11 +222,24 @@ def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> tuple:
     print("[!] All fallback models in pool exhausted for this batch!")
     return [], None
 
-def run_enrichment(limit: int = 0, batch_size: int = 5, random_pick: bool = False, only_new: bool = False, cooldown: float = 4.5):
-    key = get_gemini_api_key()
-    if not key:
-        print("[!] ERROR: GEMINI_API_KEY is not set!")
+def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = False, only_new: bool = False, cooldown: float = 1.0, provider: str = "auto"):
+    openrouter_key = openrouter_free_router.get_openrouter_api_key()
+    gemini_key = get_gemini_api_key()
+
+    if provider == "auto":
+        active_provider = "openrouter" if openrouter_key else ("gemini" if gemini_key else None)
+    elif provider == "openrouter":
+        active_provider = "openrouter"
+    elif provider == "gemini":
+        active_provider = "gemini"
+    else:
+        active_provider = None
+
+    if not active_provider:
+        print("[!] ERROR: No AI API key found! Please set OPENROUTER_API_KEY (for $0.00 free routing) or GEMINI_API_KEY.")
         sys.exit(1)
+
+    print(f"[*] Active AI Engine: {active_provider.upper()} ({'100% Free Zero-Cost Router ($0.00)' if active_provider == 'openrouter' else 'Paid API Tier'})")
 
     dossiers = load_existing_dossiers()
     print(f"[*] Loaded {len(dossiers)} verified dossiers.")
@@ -285,6 +304,8 @@ def run_enrichment(limit: int = 0, batch_size: int = 5, random_pick: bool = Fals
     audit_session = {
         "session_id": f"session_{session_start_time.strftime('%Y%m%d_%H%M%S')}",
         "timestamp": session_start_time.isoformat(),
+        "provider": active_provider,
+        "estimated_cost": "$0.00" if active_provider == "openrouter" else "API Tier",
         "total_candidates": len(candidates),
         "requested_limit": limit,
         "processed_count": total_to_process,
@@ -298,14 +319,31 @@ def run_enrichment(limit: int = 0, batch_size: int = 5, random_pick: bool = Fals
         batch_raw = [item for _, item in batch]
 
         print(f"\n=======================================================")
-        print(f"[*] Batch {b_idx+1}/{num_batches} ({len(batch)} items):")
+        print(f"[*] Batch {b_idx+1}/{num_batches} ({len(batch)} items) via [{active_provider.upper()}]:")
         for _, it in batch:
             print(f"  - [{it.get('source_platform')}] {it.get('title')[:45]}...")
 
         b_start_time = time.time()
-        results, model_used = call_gemini_trilingual_batch(key, batch_raw)
-        b_latency = round(time.time() - b_start_time, 2)
-        res_map = {r["id"]: r for r in results if "id" in r}
+        results = []
+        model_used = None
+
+        if active_provider == "openrouter":
+            system_prompt, _ = load_prompt_config()
+            try:
+                results, model_used, b_latency = openrouter_free_router.call_openrouter_free_batch(system_prompt, batch_raw)
+            except Exception as e:
+                print(f"  [-] OpenRouter Free Router batch failed: {e}")
+                if gemini_key:
+                    print("  [*] Attempting fallback to Gemini API...")
+                    results, model_used = call_gemini_trilingual_batch(gemini_key, batch_raw)
+                    b_latency = round(time.time() - b_start_time, 2)
+                else:
+                    results, model_used, b_latency = [], None, round(time.time() - b_start_time, 2)
+        else:
+            results, model_used = call_gemini_trilingual_batch(gemini_key, batch_raw)
+            b_latency = round(time.time() - b_start_time, 2)
+
+        res_map = {r["id"]: r for r in results if isinstance(r, dict) and "id" in r}
 
         batch_log = {
             "batch_index": b_idx + 1,
@@ -337,6 +375,7 @@ def run_enrichment(limit: int = 0, batch_size: int = 5, random_pick: bool = Fals
                 zh_data = multi.get("zh", {})
 
                 item["ai_enrichment"] = enrich_data
+                item["multilingual"] = multi
                 item["source_lang"] = enrich_data.get("source_lang", "EN")
                 item["programming_lang"] = enrich_data.get("programming_lang", "General")
                 item["root_keywords"] = enrich_data.get("root_keywords", [])
@@ -459,13 +498,14 @@ def run_enrichment(limit: int = 0, batch_size: int = 5, random_pick: bool = Fals
     print(f"=======================================================\n")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Trilingual AI Auto-Enricher with Smart RPM Throttling & Batch API")
+    parser = argparse.ArgumentParser(description="Trilingual AI Auto-Enricher with Smart Zero-Cost OpenRouter Free Routing & Gemini Fallback")
     parser.add_argument("--limit", type=int, default=0, help="Number of items to enrich (default: 0 = ALL pending unenriched items)")
     parser.add_argument("--all", action="store_true", default=False, help="Process ALL pending unenriched items without limit")
-    parser.add_argument("--batch-size", type=int, default=5, help="Batch size (default: 5)")
-    parser.add_argument("--cooldown", type=float, default=4.5, help="Cooldown seconds between batches (default: 4.5s)")
+    parser.add_argument("--batch-size", type=int, default=1, help="Item batch size (default: 1 = Single-item real-time streaming mode for 100% precision & speed)")
+    parser.add_argument("--cooldown", type=float, default=1.0, help="Cooldown seconds between items (default: 1.0s)")
     parser.add_argument("--random", action="store_true", default=False, help="Pick randomly from inbox")
     parser.add_argument("--only-new", action="store_true", default=False, help="Process ONLY newly harvested items from manifest")
+    parser.add_argument("--provider", choices=["auto", "openrouter", "gemini"], default="auto", help="AI Provider: openrouter (100% Free Router, $0.00) or gemini")
     
     # 🌟 Google Gemini Batch API Options (50% Cost Cut & Zero RPM Throttling)
     parser.add_argument("--submit-batch", action="store_true", default=False, help="Submit un-enriched items to Gemini Batch API")
@@ -520,4 +560,4 @@ if __name__ == "__main__":
             sys.exit(0)
 
     effective_limit = 0 if args.all else args.limit
-    run_enrichment(limit=effective_limit, batch_size=args.batch_size, random_pick=args.random, only_new=args.only_new, cooldown=args.cooldown)
+    run_enrichment(limit=effective_limit, batch_size=args.batch_size, random_pick=args.random, only_new=args.only_new, cooldown=args.cooldown, provider=args.provider)

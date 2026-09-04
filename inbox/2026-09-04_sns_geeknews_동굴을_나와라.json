@@ -9,7 +9,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33216",
   "type": "sns",
-  "category_type": "TECH",
+  "category_type": "NEWS",
   "description": "GeekNews Korean Tech Trend: 동굴을 나와라",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -32,8 +32,71 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "GeekNews: 동굴을 나와라",
-  "description_ko": "GeekNews Korean Tech Trend: 동굴을 나와라",
+  "title_ko": "GeekNews: 동굴을 나와라 — 한국 기술 트렌드 칼럼",
+  "description_ko": "GeekNews의 최신 칼럼이 기존의 관행과 사고방식에서 벗어날 것을 촉구하고 있으며, 한국 기술 커뮤니티의 현재 흐름을 파악하는 데 참고할 수 있습니다.",
   "hn_url": "https://news.hada.io/topic?id=33216",
-  "article_url": "https://news.hada.io/topic?id=33216"
+  "article_url": "https://news.hada.io/topic?id=33216",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_geeknews_동굴을_나와라",
+    "source_lang": "KO",
+    "type_classification": "NEWS",
+    "model_family": "N/A",
+    "category": "기술 칼럼/업계 동향",
+    "programming_lang": "General",
+    "root_keywords": [
+      "GeekNews",
+      "기술 칼럼",
+      "업계 동향",
+      "한국 기술 블로그"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.0,
+    "multilingual": {
+      "ko": {
+        "title": "GeekNews: 동굴을 나와라 — 한국 기술 트렌드 칼럼",
+        "hook": "GeekNews의 최신 칼럼이 기존의 관행과 사고방식에서 벗어날 것을 촉구하고 있으며, 한국 기술 커뮤니티의 현재 흐름을 파악하는 데 참고할 수 있습니다.",
+        "key_takeaways": [
+          "GeekNews 한국어 기술 뉴스 플랫폼의 최신 칼럼 콘텐츠",
+          "기술 업계의 기존 패러다임에서 탈피해야 한다는 메시지 전달",
+          "한국 기술 커뮤니티의 트렌드와 관심사를 파악하는 참고 자료"
+        ]
+      },
+      "en": {
+        "title": "GeekNews: Come Out of the Cave — Korean Tech Trend Column",
+        "hook": "GeekNews's latest column urges breaking away from established practices, serving as a reference for understanding current Korean tech community trends.",
+        "key_takeaways": [
+          "Latest column content from GeekNews, a Korean tech news aggregation platform",
+          "Delivers a message about breaking free from established industry paradigms",
+          "Reference material for understanding Korean tech community trends and interests"
+        ]
+      },
+      "zh": {
+        "title": "GeekNews：走出洞穴——韩国科技趋势专栏",
+        "hook": "GeekNews最新专栏呼吁打破既有思维定式，可作为了解韩国科技社区当前趋势的参考。",
+        "key_takeaways": [
+          "韩国科技新闻聚合平台GeekNews的最新专栏内容",
+          "传递了摆脱行业既有范式束缚的信息",
+          "了解韩国技术社区趋势和关注点的参考资料"
+        ]
+      }
+    },
+    "enriched_by_model": "inclusionai/ling-3.0-flash-fin:free",
+    "enriched_at": "2026-09-04T15:27:09.302550+09:00"
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "GeekNews",
+    "기술 칼럼",
+    "업계 동향",
+    "한국 기술 블로그"
+  ],
+  "title_en": "GeekNews: Come Out of the Cave — Korean Tech Trend Column",
+  "title_zh": "GeekNews：走出洞穴——韩国科技趋势专栏",
+  "hook": "GeekNews의 최신 칼럼이 기존의 관행과 사고방식에서 벗어날 것을 촉구하고 있으며, 한국 기술 커뮤니티의 현재 흐름을 파악하는 데 참고할 수 있습니다.",
+  "hook_ko": "GeekNews의 최신 칼럼이 기존의 관행과 사고방식에서 벗어날 것을 촉구하고 있으며, 한국 기술 커뮤니티의 현재 흐름을 파악하는 데 참고할 수 있습니다.",
+  "hook_en": "GeekNews's latest column urges breaking away from established practices, serving as a reference for understanding current Korean tech community trends.",
+  "hook_zh": "GeekNews最新专栏呼吁打破既有思维定式，可作为了解韩国科技社区当前趋势的参考。",
+  "description_en": "GeekNews's latest column urges breaking away from established practices, serving as a reference for understanding current Korean tech community trends.",
+  "description_zh": "GeekNews最新专栏呼吁打破既有思维定式，可作为了解韩国科技社区当前趋势的参考。"
 }

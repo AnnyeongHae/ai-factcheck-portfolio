@@ -9,8 +9,8 @@
   "avg_confidence": 96.2,
   "models_total_count": 190,
   "news_total_count": 291,
-  "inbox_total_count": 635,
-  "all_inbox_count": 645,
+  "inbox_total_count": 638,
+  "all_inbox_count": 648,
   "admin_stats": {
     "endpoints": [
       {
@@ -45,6 +45,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T05:53:07.858115",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.27
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 83,
+            "duration_sec": 0.34
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 1.13
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 12.53
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.63
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.14
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.78
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.28
+          }
+        },
+        "summary": {
+          "total_fetched": 257,
+          "updated_count": 1,
+          "new_saved": 3,
+          "duplicates_skipped": 253,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-04T04:38:50.014823",
         "date": "2026-09-04",
@@ -1581,111 +1634,58 @@
           "duplicates_skipped": 139,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T01:55:40.942486",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.25
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.16
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.91
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 26,
-            "duration_sec": 11.51
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.44
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.13
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.85
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.2
-          }
-        },
-        "summary": {
-          "total_fetched": 166,
-          "updated_count": 0,
-          "new_saved": 0,
-          "duplicates_skipped": 166,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T04:38:50.014823",
+      "timestamp": "2026-09-04T05:53:07.858115",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.21
+          "duration_sec": 0.27
         },
         "hf_spaces": {
           "status": "SUCCESS",
-          "items_found": 85,
-          "duration_sec": 0.28
+          "items_found": 83,
+          "duration_sec": 0.34
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.76
+          "duration_sec": 1.13
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 11.25
+          "duration_sec": 12.53
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.41
+          "duration_sec": 0.63
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.09
+          "duration_sec": 0.14
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.97
+          "duration_sec": 0.78
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.14
+          "duration_sec": 0.28
         }
       },
       "summary": {
-        "total_fetched": 259,
+        "total_fetched": 257,
         "updated_count": 1,
-        "new_saved": 0,
-        "duplicates_skipped": 258,
+        "new_saved": 3,
+        "duplicates_skipped": 253,
         "errors": 0
       }
     }
@@ -1694,7 +1694,7 @@
     {
       "day_ko": "월",
       "day_en": "Mon",
-      "inbox_count": 145,
+      "inbox_count": 146,
       "verified_count": 10
     },
     {
@@ -1712,13 +1712,13 @@
     {
       "day_ko": "목",
       "day_en": "Thu",
-      "inbox_count": 228,
+      "inbox_count": 229,
       "verified_count": 7
     },
     {
       "day_ko": "금",
       "day_en": "Fri",
-      "inbox_count": 71,
+      "inbox_count": 72,
       "verified_count": 0
     },
     {
@@ -1779,7 +1779,7 @@
       "month_key": "2026-08",
       "month_ko": "8월",
       "month_en": "Aug",
-      "inbox_count": 148,
+      "inbox_count": 149,
       "verified_count": 13,
       "cumulative_verified": 29
     },
@@ -1787,7 +1787,7 @@
       "month_key": "2026-09",
       "month_ko": "9월",
       "month_en": "Sep",
-      "inbox_count": 487,
+      "inbox_count": 489,
       "verified_count": 23,
       "cumulative_verified": 36
     }
@@ -37886,8 +37886,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 250 pts | Comments: 201 | VC isn't VC anymore",
-      "viral_metric": "🔥 250 HN Points",
+      "description": "HN Score: 257 pts | Comments: 209 | VC isn't VC anymore",
+      "viral_metric": "🔥 257 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -37895,13 +37895,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 250,
-          "display": "🔥 250 HN Points",
+          "value": 257,
+          "display": "🔥 257 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 242,
-        "delta_display": "+242",
-        "growth_rate_pct": 3025.0,
+        "delta": 249,
+        "delta_display": "+249",
+        "growth_rate_pct": 3112.5,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -67123,6 +67123,43 @@
       "description_ko": "해커뉴스에서 69점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_sing_song_a_speakable_encoding_fo",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T05:53:24.438111",
+      "published_at": "2026-08-31T23:14:11",
+      "created_at": "2026-08-31T23:14:11",
+      "updated_at": "2026-09-04T05:53:24.438111",
+      "title": "Hacker News: Sing-song: a speakable encoding for long numbers and keys",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49515966",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 7 pts | Comments: 0 | Sing-song: a speakable encoding for long numbers and keys",
+      "viral_metric": "🔥 7 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 7,
+          "display": "🔥 7 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 7,
+          "display": "🔥 7 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49515966",
+      "article_url": "https://blog.vrypan.net/2026/08/19/260819-sing-song/"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_show_hn_reactor_atlas",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T04:31:11.838932",
@@ -68790,6 +68827,43 @@
       "article_url": "https://andreasfertig.com/blog/2026/09/move-in-cpp-without-a-stdmove/",
       "title_ko": "Move in C++ without a std:move",
       "description_ko": "해커뉴스에서 38점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
+    },
+    {
+      "inbox_id": "2026-09-04_sns_hacker_news_mom_gets_6_month_suspended_senten",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T05:53:24.796113",
+      "published_at": "2026-09-03T14:12:19",
+      "created_at": "2026-09-03T14:12:19",
+      "updated_at": "2026-09-04T05:53:24.796113",
+      "title": "Hacker News: Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49550174",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 243 pts | Comments: 255 | Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond",
+      "viral_metric": "🔥 243 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 243,
+          "display": "🔥 243 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 243,
+          "display": "🔥 243 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49550174",
+      "article_url": "https://reason.com/2026/09/02/virginia-mom-gets-6-month-suspended-jail-sentence-for-letting-5-year-old-walk-to-the-pond/"
     },
     {
       "inbox_id": "2026-09-04_sns_hacker_news_launch_hn_ronanrx_yc_s26_personal",
@@ -72578,7 +72652,7 @@
       "source_platform": "GeekNews",
       "source_url": "https://news.hada.io/topic?id=33213",
       "type": "sns",
-      "category_type": "TECH",
+      "category_type": "NEWS",
       "description": "GeekNews Korean Tech Trend: 모든 CEO가 알아야 할 AI 거버넌스",
       "viral_metric": "🇰🇷 GeekNews 큐레이션",
       "metric_tracking": {
@@ -72601,10 +72675,71 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "GeekNews: 모든 CEO가 알아야 할 AI 거버넌스",
-      "description_ko": "GeekNews Korean Tech Trend: 모든 CEO가 알아야 할 AI 거버넌스",
+      "title_ko": "모든 CEO가 알아야 할 AI 거버넌스",
+      "description_ko": "AI 시대의 경영 핵심, CEO들이 반드시 숙지해야 할 거버넌스 전략을 소개합니다.",
       "hn_url": "https://news.hada.io/topic?id=33213",
-      "article_url": "https://news.hada.io/topic?id=33213"
+      "article_url": "https://news.hada.io/topic?id=33213",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_모든_ceo가_알아야_할_ai_거버넌스",
+        "source_lang": "KO",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI 거버넌스, 경영 전략",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI 거버넌스",
+          "CEO",
+          "기업 전략"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.8,
+        "multilingual": {
+          "ko": {
+            "title": "모든 CEO가 알아야 할 AI 거버넌스",
+            "hook": "AI 시대의 경영 핵심, CEO들이 반드시 숙지해야 할 거버넌스 전략을 소개합니다.",
+            "key_takeaways": [
+              "CEO 차원의 AI 거버넌스 중요성 강조",
+              "기업의 AI 도입과 관리 전략에 대한 실무적 가이드라인 제시",
+              "AI 리스크 관리와 윤리적 과제에 대한 전략적 접근 제안"
+            ]
+          },
+          "en": {
+            "title": "AI Governance That Every CEO Must Know",
+            "hook": "Essential governance strategies that CEOs must master to lead successfully in the AI era.",
+            "key_takeaways": [
+              "Emphasizes the importance of AI governance at the executive level",
+              "Provides practical guidelines for AI adoption and management strategies",
+              "Proposes strategic approaches to AI risk management and ethical challenges"
+            ]
+          },
+          "zh": {
+            "title": "每位CEO必须了解的AI治理",
+            "hook": "掌握AI时代的关键治理策略，成为成功的领导者。",
+            "key_takeaways": [
+              "强调CEO层面AI治理的重要性",
+              "为AI采用和管理策略提供实用指南",
+              "提出AI风险管理和伦理挑战的战略方法"
+            ]
+          }
+        },
+        "enriched_by_model": "poolside/laguna-xs-2.1:free",
+        "enriched_at": "2026-09-04T15:26:29.843529+09:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI 거버넌스",
+        "CEO",
+        "기업 전략"
+      ],
+      "title_en": "AI Governance That Every CEO Must Know",
+      "title_zh": "每位CEO必须了解的AI治理",
+      "hook": "AI 시대의 경영 핵심, CEO들이 반드시 숙지해야 할 거버넌스 전략을 소개합니다.",
+      "hook_ko": "AI 시대의 경영 핵심, CEO들이 반드시 숙지해야 할 거버넌스 전략을 소개합니다.",
+      "hook_en": "Essential governance strategies that CEOs must master to lead successfully in the AI era.",
+      "hook_zh": "掌握AI时代的关键治理策略，成为成功的领导者。",
+      "description_en": "Essential governance strategies that CEOs must master to lead successfully in the AI era.",
+      "description_zh": "掌握AI时代的关键治理策略，成为成功的领导者。"
     },
     {
       "inbox_id": "2026-09-04_sns_geeknews_동굴을_나와라",
@@ -72617,7 +72752,7 @@
       "source_platform": "GeekNews",
       "source_url": "https://news.hada.io/topic?id=33216",
       "type": "sns",
-      "category_type": "TECH",
+      "category_type": "NEWS",
       "description": "GeekNews Korean Tech Trend: 동굴을 나와라",
       "viral_metric": "🇰🇷 GeekNews 큐레이션",
       "metric_tracking": {
@@ -72640,10 +72775,73 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "GeekNews: 동굴을 나와라",
-      "description_ko": "GeekNews Korean Tech Trend: 동굴을 나와라",
+      "title_ko": "GeekNews: 동굴을 나와라 — 한국 기술 트렌드 칼럼",
+      "description_ko": "GeekNews의 최신 칼럼이 기존의 관행과 사고방식에서 벗어날 것을 촉구하고 있으며, 한국 기술 커뮤니티의 현재 흐름을 파악하는 데 참고할 수 있습니다.",
       "hn_url": "https://news.hada.io/topic?id=33216",
-      "article_url": "https://news.hada.io/topic?id=33216"
+      "article_url": "https://news.hada.io/topic?id=33216",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_동굴을_나와라",
+        "source_lang": "KO",
+        "type_classification": "NEWS",
+        "model_family": "N/A",
+        "category": "기술 칼럼/업계 동향",
+        "programming_lang": "General",
+        "root_keywords": [
+          "GeekNews",
+          "기술 칼럼",
+          "업계 동향",
+          "한국 기술 블로그"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 2.0,
+        "multilingual": {
+          "ko": {
+            "title": "GeekNews: 동굴을 나와라 — 한국 기술 트렌드 칼럼",
+            "hook": "GeekNews의 최신 칼럼이 기존의 관행과 사고방식에서 벗어날 것을 촉구하고 있으며, 한국 기술 커뮤니티의 현재 흐름을 파악하는 데 참고할 수 있습니다.",
+            "key_takeaways": [
+              "GeekNews 한국어 기술 뉴스 플랫폼의 최신 칼럼 콘텐츠",
+              "기술 업계의 기존 패러다임에서 탈피해야 한다는 메시지 전달",
+              "한국 기술 커뮤니티의 트렌드와 관심사를 파악하는 참고 자료"
+            ]
+          },
+          "en": {
+            "title": "GeekNews: Come Out of the Cave — Korean Tech Trend Column",
+            "hook": "GeekNews's latest column urges breaking away from established practices, serving as a reference for understanding current Korean tech community trends.",
+            "key_takeaways": [
+              "Latest column content from GeekNews, a Korean tech news aggregation platform",
+              "Delivers a message about breaking free from established industry paradigms",
+              "Reference material for understanding Korean tech community trends and interests"
+            ]
+          },
+          "zh": {
+            "title": "GeekNews：走出洞穴——韩国科技趋势专栏",
+            "hook": "GeekNews最新专栏呼吁打破既有思维定式，可作为了解韩国科技社区当前趋势的参考。",
+            "key_takeaways": [
+              "韩国科技新闻聚合平台GeekNews的最新专栏内容",
+              "传递了摆脱行业既有范式束缚的信息",
+              "了解韩国技术社区趋势和关注点的参考资料"
+            ]
+          }
+        },
+        "enriched_by_model": "inclusionai/ling-3.0-flash-fin:free",
+        "enriched_at": "2026-09-04T15:27:09.302550+09:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "GeekNews",
+        "기술 칼럼",
+        "업계 동향",
+        "한국 기술 블로그"
+      ],
+      "title_en": "GeekNews: Come Out of the Cave — Korean Tech Trend Column",
+      "title_zh": "GeekNews：走出洞穴——韩国科技趋势专栏",
+      "hook": "GeekNews의 최신 칼럼이 기존의 관행과 사고방식에서 벗어날 것을 촉구하고 있으며, 한국 기술 커뮤니티의 현재 흐름을 파악하는 데 참고할 수 있습니다.",
+      "hook_ko": "GeekNews의 최신 칼럼이 기존의 관행과 사고방식에서 벗어날 것을 촉구하고 있으며, 한국 기술 커뮤니티의 현재 흐름을 파악하는 데 참고할 수 있습니다.",
+      "hook_en": "GeekNews's latest column urges breaking away from established practices, serving as a reference for understanding current Korean tech community trends.",
+      "hook_zh": "GeekNews最新专栏呼吁打破既有思维定式，可作为了解韩国科技社区当前趋势的参考。",
+      "description_en": "GeekNews's latest column urges breaking away from established practices, serving as a reference for understanding current Korean tech community trends.",
+      "description_zh": "GeekNews最新专栏呼吁打破既有思维定式，可作为了解韩国科技社区当前趋势的参考。"
     },
     {
       "inbox_id": "2026-09-04_sns_geeknews_당신의_지능을_소유하라_소버린_ai_실전_가이드",
@@ -72679,10 +72877,71 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "GeekNews: 당신의 지능을 소유하라: 소버린 AI 실전 가이드",
-      "description_ko": "GeekNews Korean Tech Trend: 당신의 지능을 소유하라: 소버린 AI 실전 가이드",
+      "title_ko": "당신의 지능을 소유하라: 소버린 AI 실전 가이드",
+      "description_ko": "AI 시대의 미래를 주도할 수 있는 소버린 AI 전략을 지금 바로 읽어보세요.",
       "hn_url": "https://news.hada.io/topic?id=33211",
-      "article_url": "https://news.hada.io/topic?id=33211"
+      "article_url": "https://news.hada.io/topic?id=33211",
+      "ai_enrichment": {
+        "id": "2026-09-04_sns_geeknews_당신의_지능을_소유하라_소버린_ai_실전_가이드",
+        "source_lang": "KO",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "AI 거버넌스, 소버린 AI 전략",
+        "programming_lang": "General",
+        "root_keywords": [
+          "소버린 AI",
+          "AI 거버넌스",
+          "지능 소유권"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "당신의 지능을 소유하라: 소버린 AI 실전 가이드",
+            "hook": "AI 시대의 미래를 주도할 수 있는 소버린 AI 전략을 지금 바로 읽어보세요.",
+            "key_takeaways": [
+              "소버린 AI란 무엇인지 이해하고 실천 가능한 전략을 배울 수 있음",
+              "기업과 개인의 지능 소유권 확보 방법을 제시",
+              "AI 거버넌스의 실전적인 실행 방안 제시"
+            ]
+          },
+          "en": {
+            "title": "Own Your Intelligence: A Practical Guide to Sovereign AI",
+            "hook": "Discover the practical strategies to achieve AI sovereignty and own your intelligence in the AI-driven future.",
+            "key_takeaways": [
+              "Understand what Sovereign AI is and learn actionable strategies",
+              "Learn how to secure intellectual property ownership for businesses and individuals",
+              "Provides practical implementation strategies for AI governance"
+            ]
+          },
+          "zh": {
+            "title": "拥有你的智慧：主权AI实用指南",
+            "hook": "立即阅读掌握主权AI策略，在AI时代拥有属于你的智慧。",
+            "key_takeaways": [
+              "理解主权AI的概念并学习可行的策略",
+              "掌握企业和个人智慧财产所有权的保护方法",
+              "提供AI治理的实用实施方案"
+            ]
+          }
+        },
+        "enriched_by_model": "poolside/laguna-xs-2.1:free",
+        "enriched_at": "2026-09-04T15:26:29.842601+09:00"
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "소버린 AI",
+        "AI 거버넌스",
+        "지능 소유권"
+      ],
+      "title_en": "Own Your Intelligence: A Practical Guide to Sovereign AI",
+      "title_zh": "拥有你的智慧：主权AI实用指南",
+      "hook": "AI 시대의 미래를 주도할 수 있는 소버린 AI 전략을 지금 바로 읽어보세요.",
+      "hook_ko": "AI 시대의 미래를 주도할 수 있는 소버린 AI 전략을 지금 바로 읽어보세요.",
+      "hook_en": "Discover the practical strategies to achieve AI sovereignty and own your intelligence in the AI-driven future.",
+      "hook_zh": "立即阅读掌握主权AI策略，在AI时代拥有属于你的智慧。",
+      "description_en": "Discover the practical strategies to achieve AI sovereignty and own your intelligence in the AI-driven future.",
+      "description_zh": "立即阅读掌握主权AI策略，在AI时代拥有属于你的智慧。"
     },
     {
       "inbox_id": "2026-09-04_sns_geeknews_vc는_더_이상_vc가_아니다",
@@ -74783,6 +75042,41 @@
       "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다."
     },
     {
+      "inbox_id": "2026-09-04_repo_github_2akouwureverify",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T05:53:24.369351",
+      "published_at": "2026-09-04T05:53:24.369351",
+      "created_at": "2026-09-04T05:53:24.369351",
+      "updated_at": "2026-09-04T05:53:24.369351",
+      "title": "GitHub: 2akouwu/reverify",
+      "source_platform": "GitHub Official",
+      "source_url": "https://github.com/2akouwu/reverify",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Stars: 821, Forks: 175 | Anti-hallucination for AI agents that read binaries. The model proposes, deterministic tools decide: every claim is VERIFIED or REFUTED against the real bytes, with evidence, and grounded facts survive context resets. MCP server + CLI.",
+      "viral_metric": "★ 821 Stars",
+      "metric_tracking": {
+        "initial": {
+          "value": 821,
+          "display": "★ 821 Stars",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 821,
+          "display": "★ 821 Stars",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화"
+      ],
+      "status": "PENDING_REVIEW"
+    },
+    {
       "inbox_id": "2026-09-04_repo_arxiv_xiaomi_tabldm_a_tabular_foundation_mode",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:31:41.868510",
@@ -75196,8 +75490,73 @@
         "DX & Python 업무 프로세스 자동화"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "The Natural Language Interaction Protocol and Standard for AI Agents",
-      "description_ko": "Abstract: AI agents are increasingly being developed and deployed across organizations using heterogeneous agent-development frameworks, AI models, tool interfaces, protocols, and execution environments. To rea..."
+      "title_ko": "AI 에이전트를 위한 자연어 상호작용 프로토콜 및 표준",
+      "description_ko": "이종 프레임워크·모델·실행 환경 간 에이전트 호환성 문제를 자연어 기반 표준 프로토콜로 해결하려는 선구적 제안",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_arxiv_the_natural_language_interaction_protoc",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "AI Agent Interoperability / Protocol Standardization",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI Agent Protocol",
+          "Interoperability",
+          "Natural Language Interface",
+          "Standardization",
+          "Multi-Agent Systems"
+        ],
+        "recommended_tag": "📝 기술 참고",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "AI 에이전트를 위한 자연어 상호작용 프로토콜 및 표준",
+            "hook": "이종 프레임워크·모델·실행 환경 간 에이전트 호환성 문제를 자연어 기반 표준 프로토콜로 해결하려는 선구적 제안",
+            "key_takeaways": [
+              "이질적인 에이전트 개발 프레임워크, 모델, 도구 인터페이스 간의 상호운용성 부재 문제 정의",
+              "자연어를 범용 통신 계층(Universal Communication Layer)으로 사용하는 NLIP(Natural Language Interaction Protocol) 아키텍처 제안",
+              "에이전트 발견, 협상, 작업 위임, 상태 동기화 등 표준화된 상호작용 라이프사이클 명세"
+            ]
+          },
+          "en": {
+            "title": "The Natural Language Interaction Protocol and Standard for AI Agents",
+            "hook": "A pioneering proposal for a natural language-based standard protocol to solve interoperability across heterogeneous agent frameworks, models, and execution environments.",
+            "key_takeaways": [
+              "Defines the critical lack of interoperability between disparate agent frameworks, models, and tool interfaces",
+              "Proposes NLIP (Natural Language Interaction Protocol) architecture using natural language as a universal communication layer",
+              "Specifies standardized interaction lifecycle: agent discovery, negotiation, task delegation, and state synchronization"
+            ]
+          },
+          "zh": {
+            "title": "面向 AI Agent 的自然语言交互协议与标准",
+            "hook": "提出基于自然语言的标准协议 NLIP，旨在解决异构框架、模型与执行环境间 AI Agent 的互操作难题。",
+            "key_takeaways": [
+              "明确定义了异构 Agent 开发框架、模型、工具接口间缺乏互操作性的核心痛点",
+              "提出 NLIP（自然语言交互协议）架构，将自然语言作为通用通信层",
+              "规范了 Agent 发现、协商、任务委派、状态同步等标准化交互生命周期"
+            ]
+          }
+        },
+        "enriched_by_model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "enriched_at": "2026-09-04T15:31:33.949492+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI Agent Protocol",
+        "Interoperability",
+        "Natural Language Interface",
+        "Standardization",
+        "Multi-Agent Systems"
+      ],
+      "title_en": "The Natural Language Interaction Protocol and Standard for AI Agents",
+      "title_zh": "面向 AI Agent 的自然语言交互协议与标准",
+      "hook": "이종 프레임워크·모델·실행 환경 간 에이전트 호환성 문제를 자연어 기반 표준 프로토콜로 해결하려는 선구적 제안",
+      "hook_ko": "이종 프레임워크·모델·실행 환경 간 에이전트 호환성 문제를 자연어 기반 표준 프로토콜로 해결하려는 선구적 제안",
+      "hook_en": "A pioneering proposal for a natural language-based standard protocol to solve interoperability across heterogeneous agent frameworks, models, and execution environments.",
+      "hook_zh": "提出基于自然语言的标准协议 NLIP，旨在解决异构框架、模型与执行环境间 AI Agent 的互操作难题。",
+      "description_en": "A pioneering proposal for a natural language-based standard protocol to solve interoperability across heterogeneous agent frameworks, models, and execution environments.",
+      "description_zh": "提出基于自然语言的标准协议 NLIP，旨在解决异构框架、模型与执行环境间 AI Agent 的互操作难题。"
     },
     {
       "inbox_id": "2026-09-04_repo_arxiv_terminal_universe_turning_agent_traject",
@@ -77178,8 +77537,75 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "Epistemic Warrant for LLM Recommendations: Characterizing the Basis for Reliance When Ground Truth Is Unavailable",
-      "description_ko": "Abstract: Large language models are increasingly used to support organizational decisions, yet users often lack a principled basis for assessing whether to rely on a specific recommendation. Existing approaches..."
+      "title_ko": "LLM 추천에 대한 인식적 정당성: 기준 진실이 불가능할 때 신뢰의 근거를 특성화하다",
+      "description_ko": "조직 의사결정에 LLM이 점점 더 많이 활용되고 있으나, 사용자가 특정 추천에 의존해야 할 근본적 근거를 평가할 체계적 방법이 부족하다는 핵심 문제를 다루는 획기적인 연구입니다.",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_arxiv_epistemic_warrant_for_llm_recommendatio",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "LLM 신뢰성 평가 / 추론 최적화",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "LLM",
+          "epistemic warrant",
+          "recommendation reliability",
+          "ground truth",
+          "trustworthiness",
+          "reliance assessment"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "LLM 추천에 대한 인식적 정당성: 기준 진실이 불가능할 때 신뢰의 근거를 특성화하다",
+            "hook": "조직 의사결정에 LLM이 점점 더 많이 활용되고 있으나, 사용자가 특정 추천에 의존해야 할 근본적 근거를 평가할 체계적 방법이 부족하다는 핵심 문제를 다루는 획기적인 연구입니다.",
+            "key_takeaways": [
+              "기준 진실(ground truth)이 없는 상황에서 LLM 추천에 대한 신뢰 근거를 체계적으로 특성화하는 프레임워크를 제시",
+              "조직 내 LLM 의존도 평가를 위한 원칙적 방법론을 제안하여 AI 신뢰성 문제를 해결",
+              "기존 접근법의 한계를 극복하고, 실질적 의사결정 지원을 위한 새로운 평가 패러다임 제공"
+            ]
+          },
+          "en": {
+            "title": "Epistemic Warrant for LLM Recommendations: Characterizing the Basis for Reliance When Ground Truth Is Unavailable",
+            "hook": "A groundbreaking study addressing the fundamental gap in how users can principledly assess whether to trust LLM recommendations in organizational decision-making when ground truth is absent.",
+            "key_takeaways": [
+              "Presents a systematic framework for characterizing epistemic grounds for relying on LLM recommendations without ground truth",
+              "Proposes a principled methodology for evaluating LLM reliance in organizational contexts, tackling the AI trustworthiness challenge",
+              "Overcomes limitations of existing approaches and provides a new evaluation paradigm for practical decision-support scenarios"
+            ]
+          },
+          "zh": {
+            "title": "LLM推荐的认识论正当性：当基准真相不可用时刻画信赖依据",
+            "hook": "一项突破性研究，解决了在缺乏基准真相的情况下，用户如何系统性地评估是否应信赖LLM推荐这一组织决策中的根本问题。",
+            "key_takeaways": [
+              "提出了在没有基准真相的情况下，系统化刻画信赖LLM推荐之认识论依据的框架",
+              "为组织环境中的LLM信赖评估提供了原则性方法论，直击AI可信度难题",
+              "克服了现有方法的局限，为实际决策支持场景提供了全新的评估范式"
+            ]
+          }
+        },
+        "enriched_by_model": "inclusionai/ling-3.0-flash-fin:free",
+        "enriched_at": "2026-09-04T15:27:09.303733+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "LLM",
+        "epistemic warrant",
+        "recommendation reliability",
+        "ground truth",
+        "trustworthiness",
+        "reliance assessment"
+      ],
+      "title_en": "Epistemic Warrant for LLM Recommendations: Characterizing the Basis for Reliance When Ground Truth Is Unavailable",
+      "title_zh": "LLM推荐的认识论正当性：当基准真相不可用时刻画信赖依据",
+      "hook": "조직 의사결정에 LLM이 점점 더 많이 활용되고 있으나, 사용자가 특정 추천에 의존해야 할 근본적 근거를 평가할 체계적 방법이 부족하다는 핵심 문제를 다루는 획기적인 연구입니다.",
+      "hook_ko": "조직 의사결정에 LLM이 점점 더 많이 활용되고 있으나, 사용자가 특정 추천에 의존해야 할 근본적 근거를 평가할 체계적 방법이 부족하다는 핵심 문제를 다루는 획기적인 연구입니다.",
+      "hook_en": "A groundbreaking study addressing the fundamental gap in how users can principledly assess whether to trust LLM recommendations in organizational decision-making when ground truth is absent.",
+      "hook_zh": "一项突破性研究，解决了在缺乏基准真相的情况下，用户如何系统性地评估是否应信赖LLM推荐这一组织决策中的根本问题。",
+      "description_en": "A groundbreaking study addressing the fundamental gap in how users can principledly assess whether to trust LLM recommendations in organizational decision-making when ground truth is absent.",
+      "description_zh": "一项突破性研究，解决了在缺乏基准真相的情况下，用户如何系统性地评估是否应信赖LLM推荐这一组织决策中的根本问题。"
     },
     {
       "inbox_id": "2026-09-04_repo_arxiv_environment_evolution_for_terminal_agen",
@@ -77215,8 +77641,75 @@
         "DX & Python 업무 프로세스 자동화"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "Environment Evolution for Terminal Agents",
-      "description_ko": "Abstract: Scaling interactive and verifiable environments is critical for training terminal agents. As frontier models become more capable, environments synthesized from scratch become less challenging and thus..."
+      "title_ko": "터미널 에이전트를 위한 환경 진화: 확장 가능한 상호작용 및 검증 가능 환경 구축",
+      "description_ko": "최첨단 모델이 점점 더 강력해짐에 따라 처음부터 합성된 환경이 더 이상 도전적이지 않게 되는 문제를 해결하기 위해, 환경의 진화적 확장을 다루는 핵심 연구입니다.",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_arxiv_environment_evolution_for_terminal_agen",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "터미널 에이전트 환경 / 에이전트 훈련 인프라",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "terminal agents",
+          "environment evolution",
+          "interactive environments",
+          "verifiable environments",
+          "agent training",
+          "scaling environments"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "터미널 에이전트를 위한 환경 진화: 확장 가능한 상호작용 및 검증 가능 환경 구축",
+            "hook": "최첨단 모델이 점점 더 강력해짐에 따라 처음부터 합성된 환경이 더 이상 도전적이지 않게 되는 문제를 해결하기 위해, 환경의 진화적 확장을 다루는 핵심 연구입니다.",
+            "key_takeaways": [
+              "터미널 에이전트 훈련을 위한 상호작용 가능하고 검증 가능한 환경의 확장적 진화 방법론을 제시",
+              "최첨단 모델의 능력 향상에 따라 환경의 난이도도 동적으로 진화해야 한다는 핵심 통찰 제공",
+              "처음부터 합성된 환경의 한계를 극복하고, 지속적으로 도전적인 훈련 환경을 생성하는 프레임워크 제안"
+            ]
+          },
+          "en": {
+            "title": "Environment Evolution for Terminal Agents: Scaling Interactive and Verifiable Environments",
+            "hook": "A critical study addressing how environments synthesized from scratch become less challenging as frontier models grow more capable, proposing evolutionary scaling of interactive and verifiable training environments.",
+            "key_takeaways": [
+              "Presents a methodology for evolutionary scaling of interactive and verifiable environments for training terminal agents",
+              "Provides key insight that environment difficulty must dynamically evolve alongside frontier model capabilities",
+              "Overcomes limitations of scratch-synthesized environments and proposes a framework for continuously challenging training environments"
+            ]
+          },
+          "zh": {
+            "title": "面向终端代理的环境进化：扩展交互式与可验证环境",
+            "hook": "一项关键研究，解决了随着前沿模型能力增强而从头合成环境变得缺乏挑战性的问题，提出了交互式与可验证训练环境的进化式扩展方法。",
+            "key_takeaways": [
+              "提出了面向终端代理训练的交互式与可验证环境的进化式扩展方法论",
+              "提供了环境难度必须随前沿模型能力动态演进的核心洞察",
+              "克服了从头合成环境的局限性，提出了持续生成具挑战性训练环境的框架"
+            ]
+          }
+        },
+        "enriched_by_model": "inclusionai/ling-3.0-flash-fin:free",
+        "enriched_at": "2026-09-04T15:27:09.304706+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "terminal agents",
+        "environment evolution",
+        "interactive environments",
+        "verifiable environments",
+        "agent training",
+        "scaling environments"
+      ],
+      "title_en": "Environment Evolution for Terminal Agents: Scaling Interactive and Verifiable Environments",
+      "title_zh": "面向终端代理的环境进化：扩展交互式与可验证环境",
+      "hook": "최첨단 모델이 점점 더 강력해짐에 따라 처음부터 합성된 환경이 더 이상 도전적이지 않게 되는 문제를 해결하기 위해, 환경의 진화적 확장을 다루는 핵심 연구입니다.",
+      "hook_ko": "최첨단 모델이 점점 더 강력해짐에 따라 처음부터 합성된 환경이 더 이상 도전적이지 않게 되는 문제를 해결하기 위해, 환경의 진화적 확장을 다루는 핵심 연구입니다.",
+      "hook_en": "A critical study addressing how environments synthesized from scratch become less challenging as frontier models grow more capable, proposing evolutionary scaling of interactive and verifiable training environments.",
+      "hook_zh": "一项关键研究，解决了随着前沿模型能力增强而从头合成环境变得缺乏挑战性的问题，提出了交互式与可验证训练环境的进化式扩展方法。",
+      "description_en": "A critical study addressing how environments synthesized from scratch become less challenging as frontier models grow more capable, proposing evolutionary scaling of interactive and verifiable training environments.",
+      "description_zh": "一项关键研究，解决了随着前沿模型能力增强而从头合成环境变得缺乏挑战性的问题，提出了交互式与可验证训练环境的进化式扩展方法。"
     },
     {
       "inbox_id": "2026-09-04_repo_arxiv_efficient_test_time_adaptation_through_",
@@ -77252,8 +77745,69 @@
         "DX & Python 업무 프로세스 자동화"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "Efficient Test-Time Adaptation through Human-AI Interaction",
-      "description_ko": "Abstract: AI agents are trained on population-scale data to encode broad capabilities spanning those of many practitioners. Yet the artifacts they produce rarely meet the personal bar professionals need to stak..."
+      "title_ko": "인간-AI 상호작용을 통한 효율적 테스트 시간 적응",
+      "description_ko": "AI 에이전트가 실제 사용자의 요구에 맞게 테스트 시간에 맞게 적응하는 방법을 제시한 혁신적 연구입니다.",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_arxiv_efficient_test_time_adaptation_through_",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "AI Agent Optimization",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Test-Time Adaptation",
+          "Human-AI Interaction",
+          "AI Agents"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "인간-AI 상호작용을 통한 효율적 테스트 시간 적응",
+            "hook": "AI 에이전트가 실제 사용자의 요구에 맞게 테스트 시간에 맞게 적응하는 방법을 제시한 혁신적 연구입니다.",
+            "key_takeaways": [
+              "AI 에이전트는 대규모 데이터로 사전 학습되지만 실제 환경에는 최적화되지 않음",
+              "인간-AI 상호작용을 통한 테스트 시간 적응 기법 제안",
+              "프로페셔널 수준의 결과물 생성 가능"
+            ]
+          },
+          "en": {
+            "title": "Efficient Test-Time Adaptation through Human-AI Interaction",
+            "hook": "This paper presents a novel approach to adapt AI agents during test-time via human-AI interaction, addressing the gap between pre-trained capabilities and real-world requirements.",
+            "key_takeaways": [
+              "AI agents trained on population-scale data lack real-world optimization",
+              "Proposes test-time adaptation through human-AI interaction",
+              "Enables generation of professional-grade artifacts"
+            ]
+          },
+          "zh": {
+            "title": "通过人机互动实现高效测试时间适应",
+            "hook": "本文提出一种通过人机互动实现AI代理测试时间适应的新方法，解决了预训练能力与实际需求之间的差距。",
+            "key_takeaways": [
+              "AI代理在大规模数据上训练，缺乏实际环境优化",
+              "提出通过人机互动实现测试时间适应",
+              "实现专业级别产物生成"
+            ]
+          }
+        },
+        "enriched_by_model": "poolside/laguna-xs-2.1:free",
+        "enriched_at": "2026-09-04T15:31:38.331343+09:00"
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Test-Time Adaptation",
+        "Human-AI Interaction",
+        "AI Agents"
+      ],
+      "title_en": "Efficient Test-Time Adaptation through Human-AI Interaction",
+      "title_zh": "通过人机互动实现高效测试时间适应",
+      "hook": "AI 에이전트가 실제 사용자의 요구에 맞게 테스트 시간에 맞게 적응하는 방법을 제시한 혁신적 연구입니다.",
+      "hook_ko": "AI 에이전트가 실제 사용자의 요구에 맞게 테스트 시간에 맞게 적응하는 방법을 제시한 혁신적 연구입니다.",
+      "hook_en": "This paper presents a novel approach to adapt AI agents during test-time via human-AI interaction, addressing the gap between pre-trained capabilities and real-world requirements.",
+      "hook_zh": "本文提出一种通过人机互动实现AI代理测试时间适应的新方法，解决了预训练能力与实际需求之间的差距。",
+      "description_en": "This paper presents a novel approach to adapt AI agents during test-time via human-AI interaction, addressing the gap between pre-trained capabilities and real-world requirements.",
+      "description_zh": "本文提出一种通过人机互动实现AI代理测试时间适应的新方法，解决了预训练能力与实际需求之间的差距。"
     },
     {
       "inbox_id": "2026-09-04_repo_arxiv_differentiable_interval_bottlenecks_for",
@@ -77875,8 +78429,98 @@
         "일반 최신 기술 (Tech General)"
       ],
       "status": "PENDING_REVIEW",
-      "title_ko": "A Low-Cost, Open Platform for End-to-End Autonomous Driving on a Miniature Ackermann Vehicle",
-      "description_ko": "Abstract: This paper presents a low-cost, open experimental platform for research in end-to-end autonomous driving with miniature Ackermann vehicles. The platform combines a physical vehicle, a printed urban tr..."
+      "title_ko": "저비용 오픈 소스 미니어처 Ackermann 차량 기반 엔드투엔드 자율주행 플랫폼",
+      "description_ko": "엔지니어가 저렴한 하드웨어로 자율주행 연구를 시작할 수 있는 실용적인 블루프린트",
+      "ai_enrichment": {
+        "id": "2026-09-04_repo_arxiv_a_low_cost_open_platform_for_end_to_end",
+        "source_lang": "EN",
+        "type_classification": "TECH",
+        "model_family": "",
+        "category": "End-to-end autonomous driving platform",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "자율주행",
+          "미니어처 Ackermann 차량",
+          "오픈 소스 플랫폼"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "저비용 오픈 소스 미니어처 Ackermann 차량 기반 엔드투엔드 자율주행 플랫폼",
+            "hook": "엔지니어가 저렴한 하드웨어로 자율주행 연구를 시작할 수 있는 실용적인 블루프린트",
+            "key_takeaways": [
+              "저렴한 부품과 3D 프린트 구조로 구성된 완전한 자율주행 스택 제공",
+              "오픈 소스 소프트웨어와 하드웨어 설계 공개로 재현 및 확장 용이",
+              "실제 차량에서의 엔드투엔드 학습 및 추론 성능 검증"
+            ]
+          },
+          "en": {
+            "title": "Low-Cost Open Platform for End-to-End Autonomous Driving on Miniature Ackermann Vehicles",
+            "hook": "A practical, affordable blueprint that lets engineers jump-start autonomous driving research with off-the-shelf parts",
+            "key_takeaways": [
+              "Provides a full autonomy stack using inexpensive components and 3D‑printed chassis",
+              "All hardware designs and software are released open‑source for easy replication",
+              "Demonstrates end‑to‑end learning and inference performance on a real miniature vehicle"
+            ]
+          },
+          "zh": {
+            "title": "低成本开源微型阿克曼车辆端到端自动驾驶平台",
+            "hook": "让工程师能够用低价硬件快速启动自动驾驶研究的实用方案",
+            "key_takeaways": [
+              "采用廉价零件和3D打印底盘提供完整的自动驾驶技术栈",
+              "硬件设计和软件全部开源，便于复制和扩展",
+              "在真实微型车辆上验证了端到端学习和推理的性能"
+            ]
+          }
+        },
+        "enriched_by_model": "nvidia/nemotron-3-super-120b-a12b:free",
+        "enriched_at": "2026-09-04T15:32:54.065711+09:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "저비용 오픈 소스 미니어처 Ackermann 차량 기반 엔드투엔드 자율주행 플랫폼",
+          "hook": "엔지니어가 저렴한 하드웨어로 자율주행 연구를 시작할 수 있는 실용적인 블루프린트",
+          "key_takeaways": [
+            "저렴한 부품과 3D 프린트 구조로 구성된 완전한 자율주행 스택 제공",
+            "오픈 소스 소프트웨어와 하드웨어 설계 공개로 재현 및 확장 용이",
+            "실제 차량에서의 엔드투엔드 학습 및 추론 성능 검증"
+          ]
+        },
+        "en": {
+          "title": "Low-Cost Open Platform for End-to-End Autonomous Driving on Miniature Ackermann Vehicles",
+          "hook": "A practical, affordable blueprint that lets engineers jump-start autonomous driving research with off-the-shelf parts",
+          "key_takeaways": [
+            "Provides a full autonomy stack using inexpensive components and 3D‑printed chassis",
+            "All hardware designs and software are released open‑source for easy replication",
+            "Demonstrates end‑to‑end learning and inference performance on a real miniature vehicle"
+          ]
+        },
+        "zh": {
+          "title": "低成本开源微型阿克曼车辆端到端自动驾驶平台",
+          "hook": "让工程师能够用低价硬件快速启动自动驾驶研究的实用方案",
+          "key_takeaways": [
+            "采用廉价零件和3D打印底盘提供完整的自动驾驶技术栈",
+            "硬件设计和软件全部开源，便于复制和扩展",
+            "在真实微型车辆上验证了端到端学习和推理的性能"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "자율주행",
+        "미니어처 Ackermann 차량",
+        "오픈 소스 플랫폼"
+      ],
+      "title_en": "Low-Cost Open Platform for End-to-End Autonomous Driving on Miniature Ackermann Vehicles",
+      "title_zh": "低成本开源微型阿克曼车辆端到端自动驾驶平台",
+      "hook": "엔지니어가 저렴한 하드웨어로 자율주행 연구를 시작할 수 있는 실용적인 블루프린트",
+      "hook_ko": "엔지니어가 저렴한 하드웨어로 자율주행 연구를 시작할 수 있는 실용적인 블루프린트",
+      "hook_en": "A practical, affordable blueprint that lets engineers jump-start autonomous driving research with off-the-shelf parts",
+      "hook_zh": "让工程师能够用低价硬件快速启动自动驾驶研究的实用方案",
+      "description_en": "A practical, affordable blueprint that lets engineers jump-start autonomous driving research with off-the-shelf parts",
+      "description_zh": "让工程师能够用低价硬件快速启动自动驾驶研究的实用方案"
     },
     {
       "inbox_id": "2026-09-04_repo_arxiv_a_computationally_feasible_framework_fo",
@@ -80039,8 +80683,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 250 pts | Comments: 201 | VC isn't VC anymore",
-      "viral_metric": "🔥 250 HN Points",
+      "description": "HN Score: 257 pts | Comments: 209 | VC isn't VC anymore",
+      "viral_metric": "🔥 257 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -80048,13 +80692,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 250,
-          "display": "🔥 250 HN Points",
+          "value": 257,
+          "display": "🔥 257 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 242,
-        "delta_display": "+242",
-        "growth_rate_pct": 3025.0,
+        "delta": 249,
+        "delta_display": "+249",
+        "growth_rate_pct": 3112.5,
         "is_spiking": true
       },
       "matched_user_domains": [

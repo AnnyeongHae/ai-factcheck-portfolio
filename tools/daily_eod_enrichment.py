@@ -77,33 +77,19 @@ def run_daily_eod():
     print(f"  - Un-enriched (Pending Translation): {len(unenriched_items)}")
 
     submitted_batches = []
-    # 3. Submit ALL remaining un-enriched items to Gemini Batch API
+    # 3. Enrich ALL remaining un-enriched items in 1-by-1 Real-time Stream Mode
     if unenriched_items:
-        print(f"\n[*] Step 3: Submitting ALL {len(unenriched_items)} un-enriched items to Gemini Batch API (models/gemini-3.6-flash)...")
-        # Split into chunks of 200 to adhere to API limits comfortably
-        chunk_size = 200
-        for i in range(0, len(unenriched_items), chunk_size):
-            chunk = unenriched_items[i:i+chunk_size]
-            print(f"  -> Submitting chunk {i//chunk_size + 1} ({len(chunk)} items)...")
-            uuid_res = batch_manager.submit_inbox_batch(chunk, model='models/gemini-3.6-flash')
-            if uuid_res:
-                submitted_batches.append(uuid_res)
-                print(f"  [+] Chunk successfully queued: {uuid_res}")
-            time.sleep(2)
-    else:
-        print("\n[+] Step 3: 100% of inbox items are already enriched! No submission needed.")
-
-    # 4. Optional quick-poll for fast batches
-    if submitted_batches:
-        print("\n[*] Step 4: Waiting 30s to check if any quick batch completed...")
-        time.sleep(30)
+        print(f"\n[*] Step 3: Enriching ALL {len(unenriched_items)} un-enriched items in 1-by-1 Zero-Cost Stream Mode...")
         try:
-            add_harvested = batch_manager.harvest_completed_batches()
-            print(f"[+] Quick harvest: {add_harvested} additional items processed.")
+            import enrich_inbox_with_ai
+            enrich_inbox_with_ai.run_enrichment(limit=0, batch_size=1, provider="openrouter", cooldown=1.0)
+            print("[+] OpenRouter Free Router 1-by-1 stream enrichment completed successfully.")
         except Exception as e:
-            print(f"[-] Quick harvest note: {e}")
+            print(f"[-] OpenRouter enrichment encountered error: {e}")
+    else:
+        print("\n[+] Step 3: 100% of inbox items are already enriched! No enrichment needed.")
 
-    # 5. Rebuild Portfolio Dashboard & Public Edge
+    # 4. Rebuild Portfolio Dashboard & Public Edge
     print("\n[*] Step 5: Compiling Dashboard & Edge Cache...")
     try:
         build_dashboard()

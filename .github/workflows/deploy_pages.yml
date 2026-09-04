@@ -47,6 +47,7 @@ jobs:
 
       - name: Harvest Completed Gemini Batch Jobs & Apply Results (50% Cost Cut)
         env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
@@ -55,19 +56,21 @@ jobs:
 
       - name: Run Multi-Source Trend Harvester
         env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
           python tools/harvest_trends.py
 
-      - name: Submit Newly Harvested Items to Gemini Batch API (50% Cost Cut)
+      - name: Enrich Newly Harvested Items (Zero-Cost OpenRouter Free Router / Gemini Fallback)
         env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
-          python tools/enrich_inbox_with_ai.py --submit-batch --limit 100 || echo "Submit batch completed or skipped."
+          python tools/enrich_inbox_with_ai.py --only-new --limit 20 --provider auto || python tools/enrich_inbox_with_ai.py --submit-batch --limit 50 || echo "Enrichment step completed."
 
 
       - name: Sync Data to Neon Postgres Cloud DB

@@ -32,6 +32,73 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Epistemic Warrant for LLM Recommendations: Characterizing the Basis for Reliance When Ground Truth Is Unavailable",
-  "description_ko": "Abstract: Large language models are increasingly used to support organizational decisions, yet users often lack a principled basis for assessing whether to rely on a specific recommendation. Existing approaches..."
+  "title_ko": "LLM 추천에 대한 인식적 정당성: 기준 진실이 불가능할 때 신뢰의 근거를 특성화하다",
+  "description_ko": "조직 의사결정에 LLM이 점점 더 많이 활용되고 있으나, 사용자가 특정 추천에 의존해야 할 근본적 근거를 평가할 체계적 방법이 부족하다는 핵심 문제를 다루는 획기적인 연구입니다.",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_epistemic_warrant_for_llm_recommendatio",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Standalone",
+    "category": "LLM 신뢰성 평가 / 추론 최적화",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "LLM",
+      "epistemic warrant",
+      "recommendation reliability",
+      "ground truth",
+      "trustworthiness",
+      "reliance assessment"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "LLM 추천에 대한 인식적 정당성: 기준 진실이 불가능할 때 신뢰의 근거를 특성화하다",
+        "hook": "조직 의사결정에 LLM이 점점 더 많이 활용되고 있으나, 사용자가 특정 추천에 의존해야 할 근본적 근거를 평가할 체계적 방법이 부족하다는 핵심 문제를 다루는 획기적인 연구입니다.",
+        "key_takeaways": [
+          "기준 진실(ground truth)이 없는 상황에서 LLM 추천에 대한 신뢰 근거를 체계적으로 특성화하는 프레임워크를 제시",
+          "조직 내 LLM 의존도 평가를 위한 원칙적 방법론을 제안하여 AI 신뢰성 문제를 해결",
+          "기존 접근법의 한계를 극복하고, 실질적 의사결정 지원을 위한 새로운 평가 패러다임 제공"
+        ]
+      },
+      "en": {
+        "title": "Epistemic Warrant for LLM Recommendations: Characterizing the Basis for Reliance When Ground Truth Is Unavailable",
+        "hook": "A groundbreaking study addressing the fundamental gap in how users can principledly assess whether to trust LLM recommendations in organizational decision-making when ground truth is absent.",
+        "key_takeaways": [
+          "Presents a systematic framework for characterizing epistemic grounds for relying on LLM recommendations without ground truth",
+          "Proposes a principled methodology for evaluating LLM reliance in organizational contexts, tackling the AI trustworthiness challenge",
+          "Overcomes limitations of existing approaches and provides a new evaluation paradigm for practical decision-support scenarios"
+        ]
+      },
+      "zh": {
+        "title": "LLM推荐的认识论正当性：当基准真相不可用时刻画信赖依据",
+        "hook": "一项突破性研究，解决了在缺乏基准真相的情况下，用户如何系统性地评估是否应信赖LLM推荐这一组织决策中的根本问题。",
+        "key_takeaways": [
+          "提出了在没有基准真相的情况下，系统化刻画信赖LLM推荐之认识论依据的框架",
+          "为组织环境中的LLM信赖评估提供了原则性方法论，直击AI可信度难题",
+          "克服了现有方法的局限，为实际决策支持场景提供了全新的评估范式"
+        ]
+      }
+    },
+    "enriched_by_model": "inclusionai/ling-3.0-flash-fin:free",
+    "enriched_at": "2026-09-04T15:27:09.303733+09:00"
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "LLM",
+    "epistemic warrant",
+    "recommendation reliability",
+    "ground truth",
+    "trustworthiness",
+    "reliance assessment"
+  ],
+  "title_en": "Epistemic Warrant for LLM Recommendations: Characterizing the Basis for Reliance When Ground Truth Is Unavailable",
+  "title_zh": "LLM推荐的认识论正当性：当基准真相不可用时刻画信赖依据",
+  "hook": "조직 의사결정에 LLM이 점점 더 많이 활용되고 있으나, 사용자가 특정 추천에 의존해야 할 근본적 근거를 평가할 체계적 방법이 부족하다는 핵심 문제를 다루는 획기적인 연구입니다.",
+  "hook_ko": "조직 의사결정에 LLM이 점점 더 많이 활용되고 있으나, 사용자가 특정 추천에 의존해야 할 근본적 근거를 평가할 체계적 방법이 부족하다는 핵심 문제를 다루는 획기적인 연구입니다.",
+  "hook_en": "A groundbreaking study addressing the fundamental gap in how users can principledly assess whether to trust LLM recommendations in organizational decision-making when ground truth is absent.",
+  "hook_zh": "一项突破性研究，解决了在缺乏基准真相的情况下，用户如何系统性地评估是否应信赖LLM推荐这一组织决策中的根本问题。",
+  "description_en": "A groundbreaking study addressing the fundamental gap in how users can principledly assess whether to trust LLM recommendations in organizational decision-making when ground truth is absent.",
+  "description_zh": "一项突破性研究，解决了在缺乏基准真相的情况下，用户如何系统性地评估是否应信赖LLM推荐这一组织决策中的根本问题。"
 }
