@@ -33,5 +33,98 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49548600",
-  "article_url": "https://news.ycombinator.com/item?id=49548600"
+  "article_url": "https://news.ycombinator.com/item?id=49548600",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_ask_hn_who_is_using_mcp_in_produc",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Agent Protocol",
+    "category": "AI Engineering",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Model Context Protocol",
+      "MCP",
+      "LLM Integration",
+      "Production Deployment",
+      "AI Agent Architecture"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "Ask HN: 프로덕션 환경에서 MCP(Model Context Protocol)를 실제로 사용하는 곳이 있나요?",
+        "hook": "AI 모델과 데이터 원천을 연결하는 MCP의 실제 운용 사례와 프로덕션 도입 시의 한계점 탐색",
+        "key_takeaways": [
+          "Anthropic이 제안한 MCP(Model Context Protocol)의 실제 프로덕션 적용 현황에 대한 개발자 커뮤니티 토론",
+          "실무 환경 도입 시 발생하는 보안, 레이턴시, 인프라 모니터링 이슈 검토",
+          "단순 프로토타이핑을 넘어 기업용 스케일에서 MCP 적용 성공 사례 및 한계 파악"
+        ]
+      },
+      "en": {
+        "title": "Ask HN: Who is using MCP in production?",
+        "hook": "Exploring real-world adoption, engineering challenges, and production experiences with Model Context Protocol (MCP)",
+        "key_takeaways": [
+          "Developer discussion on practical enterprise adoption of Anthropic's Model Context Protocol (MCP)",
+          "Insights into real-world challenges including latency, security boundaries, and operational overhead",
+          "Assessment of whether MCP ecosystem and tooling are ready for mission-critical applications"
+        ]
+      },
+      "zh": {
+        "title": "Ask HN：谁在生产环境中实际使用了 MCP（模型上下文协议）？",
+        "hook": "探索模型上下文协议（MCP）在实际生产环境中的落地现状与工程挑战",
+        "key_takeaways": [
+          "开发者社区对 Anthropic 提出的 MCP 协议在实际线上业务中落地情况的讨论",
+          "探讨在生产环境中引入 MCP 时面临的延迟、安全隔离和运维复杂性问题",
+          "评估 MCP 生态系统及其工具链是否已具备企业级大规模运用的成熟度"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Ask HN: 프로덕션 환경에서 MCP(Model Context Protocol)를 실제로 사용하는 곳이 있나요?",
+      "hook": "AI 모델과 데이터 원천을 연결하는 MCP의 실제 운용 사례와 프로덕션 도입 시의 한계점 탐색",
+      "key_takeaways": [
+        "Anthropic이 제안한 MCP(Model Context Protocol)의 실제 프로덕션 적용 현황에 대한 개발자 커뮤니티 토론",
+        "실무 환경 도입 시 발생하는 보안, 레이턴시, 인프라 모니터링 이슈 검토",
+        "단순 프로토타이핑을 넘어 기업용 스케일에서 MCP 적용 성공 사례 및 한계 파악"
+      ]
+    },
+    "en": {
+      "title": "Ask HN: Who is using MCP in production?",
+      "hook": "Exploring real-world adoption, engineering challenges, and production experiences with Model Context Protocol (MCP)",
+      "key_takeaways": [
+        "Developer discussion on practical enterprise adoption of Anthropic's Model Context Protocol (MCP)",
+        "Insights into real-world challenges including latency, security boundaries, and operational overhead",
+        "Assessment of whether MCP ecosystem and tooling are ready for mission-critical applications"
+      ]
+    },
+    "zh": {
+      "title": "Ask HN：谁在生产环境中实际使用了 MCP（模型上下文协议）？",
+      "hook": "探索模型上下文协议（MCP）在实际生产环境中的落地现状与工程挑战",
+      "key_takeaways": [
+        "开发者社区对 Anthropic 提出的 MCP 协议在实际线上业务中落地情况的讨论",
+        "探讨在生产环境中引入 MCP 时面临的延迟、安全隔离和运维复杂性问题",
+        "评估 MCP 生态系统及其工具链是否已具备企业级大规模运用的成熟度"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Model Context Protocol",
+    "MCP",
+    "LLM Integration",
+    "Production Deployment",
+    "AI Agent Architecture"
+  ],
+  "title_ko": "Ask HN: Who is using MCP in production?",
+  "hook_ko": "AI 모델과 데이터 원천을 연결하는 MCP의 실제 운용 사례와 프로덕션 도입 시의 한계점 탐색",
+  "title_en": "Ask HN: Who is using MCP in production?",
+  "hook_en": "Exploring real-world adoption, engineering challenges, and production experiences with Model Context Protocol (MCP)",
+  "title_zh": "Ask HN：谁在生产环境中实际使用了 MCP（模型上下文协议）？",
+  "hook_zh": "探索模型上下文协议（MCP）在实际生产环境中的落地现状与工程挑战",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.821371",
+  "description_ko": "해커뉴스에서 10점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

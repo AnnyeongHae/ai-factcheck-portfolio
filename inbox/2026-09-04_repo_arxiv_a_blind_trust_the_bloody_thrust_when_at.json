@@ -31,5 +31,98 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_a_blind_trust_the_bloody_thrust_when_at",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "AI Agent Security",
+    "category": "AI Security",
+    "programming_lang": "General",
+    "root_keywords": [
+      "AI Agent Harness",
+      "Lifecycle Hooks",
+      "Agent Vulnerability",
+      "Privilege Escalation",
+      "Supply Chain Attack"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "맹목적인 신뢰와 보안 위협: 공격자에 의해 조작된 훅 업데이트가 AI 에이전트 하네스를 악성 행위로 유도하는 과정",
+        "hook": "AI 에이전트 프레임워크의 라이프사이클 훅 권한을 악용해 호스트 시스템 권한 탈취 및 악성 명령어를 실행하는 보안 취약점 분석",
+        "key_takeaways": [
+          "AI 에이전트 하네스가 세션 시작, 툴 호출 등의 이벤트에 바인딩하는 라이프사이클 훅의 주요 보안 취약점 규명",
+          "공격자가 훅 업데이트를 제어하여 호스트 최고 권한으로 임의의 셸 명령어를 실행할 수 있는 공격 경로 제시",
+          "에이전트 생태계의 안전한 라이프사이클 관리 및 권한 격리/검증 메커니즘 구축의 필요성 강조"
+        ]
+      },
+      "en": {
+        "title": "A Blind Trust, the Bloody Thrust: When Attacker-Controlled Hook Updates Steer AI Agent Harnesses towards Malicious Behaviors",
+        "hook": "Analysis of security vulnerabilities in AI agent harness lifecycle hooks that allow attackers to execute privileged shell commands.",
+        "key_takeaways": [
+          "Exposes critical vulnerabilities in lifecycle hooks bound to runtime events like session starts and tool calls in AI agent harnesses.",
+          "Demonstrates how attacker-controlled hook updates can hijack host privileges and execute arbitrary shell commands.",
+          "Emphasizes the urgent need for secure lifecycle management and permission isolation in agentic workflows."
+        ]
+      },
+      "zh": {
+        "title": "盲目信任与致命一击：当受控的 Hook 更新引导 AI Agent Harness 走向恶性行为",
+        "hook": "深入分析 AI Agent Harness 生命周期 Hook 的安全漏洞，揭示攻击者如何利用宿主权限执行恶意命令。",
+        "key_takeaways": [
+          "揭示了 AI Agent 框架在会话启动、工具调用等生命周期 Hook 中存在的严重安全隐患",
+          "展示了攻击者如何通过劫持 Hook 更新获取宿主主机权限并执行任意 Shell 命令",
+          "强调了为 Agent 系统建立严格的生命周期权限隔离与安全审查机制的紧迫性"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "맹목적인 신뢰와 보안 위협: 공격자에 의해 조작된 훅 업데이트가 AI 에이전트 하네스를 악성 행위로 유도하는 과정",
+      "hook": "AI 에이전트 프레임워크의 라이프사이클 훅 권한을 악용해 호스트 시스템 권한 탈취 및 악성 명령어를 실행하는 보안 취약점 분석",
+      "key_takeaways": [
+        "AI 에이전트 하네스가 세션 시작, 툴 호출 등의 이벤트에 바인딩하는 라이프사이클 훅의 주요 보안 취약점 규명",
+        "공격자가 훅 업데이트를 제어하여 호스트 최고 권한으로 임의의 셸 명령어를 실행할 수 있는 공격 경로 제시",
+        "에이전트 생태계의 안전한 라이프사이클 관리 및 권한 격리/검증 메커니즘 구축의 필요성 강조"
+      ]
+    },
+    "en": {
+      "title": "A Blind Trust, the Bloody Thrust: When Attacker-Controlled Hook Updates Steer AI Agent Harnesses towards Malicious Behaviors",
+      "hook": "Analysis of security vulnerabilities in AI agent harness lifecycle hooks that allow attackers to execute privileged shell commands.",
+      "key_takeaways": [
+        "Exposes critical vulnerabilities in lifecycle hooks bound to runtime events like session starts and tool calls in AI agent harnesses.",
+        "Demonstrates how attacker-controlled hook updates can hijack host privileges and execute arbitrary shell commands.",
+        "Emphasizes the urgent need for secure lifecycle management and permission isolation in agentic workflows."
+      ]
+    },
+    "zh": {
+      "title": "盲目信任与致命一击：当受控的 Hook 更新引导 AI Agent Harness 走向恶性行为",
+      "hook": "深入分析 AI Agent Harness 生命周期 Hook 的安全漏洞，揭示攻击者如何利用宿主权限执行恶意命令。",
+      "key_takeaways": [
+        "揭示了 AI Agent 框架在会话启动、工具调用等生命周期 Hook 中存在的严重安全隐患",
+        "展示了攻击者如何通过劫持 Hook 更新获取宿主主机权限并执行任意 Shell 命令",
+        "强调了为 Agent 系统建立严格的生命周期权限隔离与安全审查机制的紧迫性"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "AI Agent Harness",
+    "Lifecycle Hooks",
+    "Agent Vulnerability",
+    "Privilege Escalation",
+    "Supply Chain Attack"
+  ],
+  "title_ko": "A Blind Trust, the Bloody Thrust: When Attacker-Controlled Hook Updates Steer AI Agent Harnesses towards Malicious Behaviors",
+  "hook_ko": "AI 에이전트 프레임워크의 라이프사이클 훅 권한을 악용해 호스트 시스템 권한 탈취 및 악성 명령어를 실행하는 보안 취약점 분석",
+  "title_en": "A Blind Trust, the Bloody Thrust: When Attacker-Controlled Hook Updates Steer AI Agent Harnesses towards Malicious Behaviors",
+  "hook_en": "Analysis of security vulnerabilities in AI agent harness lifecycle hooks that allow attackers to execute privileged shell commands.",
+  "title_zh": "盲目信任与致命一击：当受控的 Hook 更新引导 AI Agent Harness 走向恶性行为",
+  "hook_zh": "深入分析 AI Agent Harness 生命周期 Hook 的安全漏洞，揭示攻击者如何利用宿主权限执行恶意命令。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.729750",
+  "description_ko": "Abstract: Modern AI agent harnesses expose lifecycle hooks that bind shell commands to runtime events such as session start, tool calls, and file edits. These commands run with host privileges yet ship as lifec..."
 }

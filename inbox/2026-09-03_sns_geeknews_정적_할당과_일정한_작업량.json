@@ -9,7 +9,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33198",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: 정적 할당과 일정한 작업량",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -32,8 +32,99 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "정적 할당과 일정한 작업량",
-  "description_ko": "정적 할당과 일정한 작업량",
+  "title_ko": "GeekNews: 정적 할당과 일정한 작업량",
+  "description_ko": "GeekNews Korean Tech Trend: 정적 할당과 일정한 작업량",
   "hn_url": "https://news.hada.io/topic?id=33198",
-  "article_url": "https://news.hada.io/topic?id=33198"
+  "article_url": "https://news.hada.io/topic?id=33198",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_geeknews_정적_할당과_일정한_작업량",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Systems & Architecture",
+    "category": "Software Engineering",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Static Allocation",
+      "Constant Workload",
+      "Deterministic Latency",
+      "Performance Optimization",
+      "Systems Architecture"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "정적 할당과 일정한 작업량: 시스템 예측 가능성 확보",
+        "hook": "동적 할당의 오버헤드를 줄이고 예측 가능한 지연 시간(Latency)을 보장하기 위한 정적 할당 및 일정 작업량 패턴 분석",
+        "key_takeaways": [
+          "동적 메모리 할당 및 가비지 컬렉션(GC)으로 인한 런타임 지터(Jitter) 최소화",
+          "최악 실행 시간(WCET)을 제한하여 저지연(Low-Latency) 및 고신뢰성 시스템 구현",
+          "임베디드, 실시간 시스템(RTOS), 고성능 서버 개발 시 필수적인 설계 원칙"
+        ]
+      },
+      "en": {
+        "title": "Static Allocation and Constant Workload: Ensuring System Predictability",
+        "hook": "Analyzing static allocation and constant workload design patterns to minimize dynamic overhead and guarantee deterministic latency",
+        "key_takeaways": [
+          "Minimizes runtime jitter caused by dynamic memory allocation and garbage collection (GC)",
+          "Improves system reliability by controlling worst-case execution time (WCET)",
+          "Essential architectural pattern for low-latency servers, RTOS, and high-performance engineering"
+        ]
+      },
+      "zh": {
+        "title": "静态分配与恒定工作量：确保系统的可预测性",
+        "hook": "分析静态分配与恒定工作量设计模式，以减少动态开销并保证确定性延迟",
+        "key_takeaways": [
+          "最小化由于动态内存分配和垃圾回收（GC）引起的运行时抖动（Jitter）",
+          "通过控制最坏情况执行时间（WCET）提高系统的可靠性",
+          "低延迟服务器、嵌入式系统（RTOS）及高频交易等领域的核心设计原则"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "정적 할당과 일정한 작업량: 시스템 예측 가능성 확보",
+      "hook": "동적 할당의 오버헤드를 줄이고 예측 가능한 지연 시간(Latency)을 보장하기 위한 정적 할당 및 일정 작업량 패턴 분석",
+      "key_takeaways": [
+        "동적 메모리 할당 및 가비지 컬렉션(GC)으로 인한 런타임 지터(Jitter) 최소화",
+        "최악 실행 시간(WCET)을 제한하여 저지연(Low-Latency) 및 고신뢰성 시스템 구현",
+        "임베디드, 실시간 시스템(RTOS), 고성능 서버 개발 시 필수적인 설계 원칙"
+      ]
+    },
+    "en": {
+      "title": "Static Allocation and Constant Workload: Ensuring System Predictability",
+      "hook": "Analyzing static allocation and constant workload design patterns to minimize dynamic overhead and guarantee deterministic latency",
+      "key_takeaways": [
+        "Minimizes runtime jitter caused by dynamic memory allocation and garbage collection (GC)",
+        "Improves system reliability by controlling worst-case execution time (WCET)",
+        "Essential architectural pattern for low-latency servers, RTOS, and high-performance engineering"
+      ]
+    },
+    "zh": {
+      "title": "静态分配与恒定工作量：确保系统的可预测性",
+      "hook": "分析静态分配与恒定工作量设计模式，以减少动态开销并保证确定性延迟",
+      "key_takeaways": [
+        "最小化由于动态内存分配和垃圾回收（GC）引起的运行时抖动（Jitter）",
+        "通过控制最坏情况执行时间（WCET）提高系统的可靠性",
+        "低延迟服务器、嵌入式系统（RTOS）及高频交易等领域的核心设计原则"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Static Allocation",
+    "Constant Workload",
+    "Deterministic Latency",
+    "Performance Optimization",
+    "Systems Architecture"
+  ],
+  "hook_ko": "동적 할당의 오버헤드를 줄이고 예측 가능한 지연 시간(Latency)을 보장하기 위한 정적 할당 및 일정 작업량 패턴 분석",
+  "title_en": "Static Allocation and Constant Workload: Ensuring System Predictability",
+  "hook_en": "Analyzing static allocation and constant workload design patterns to minimize dynamic overhead and guarantee deterministic latency",
+  "title_zh": "静态分配与恒定工作量：确保系统的可预测性",
+  "hook_zh": "分析静态分配与恒定工作量设计模式，以减少动态开销并保证确定性延迟",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.660054"
 }

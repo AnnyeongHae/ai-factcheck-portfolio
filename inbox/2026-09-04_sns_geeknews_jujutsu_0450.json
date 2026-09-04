@@ -9,7 +9,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33204",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: Jujutsu 0.45.0",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -32,8 +32,99 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Jujutsu 0.45.0",
-  "description_ko": "Jujutsu 0.45.0",
+  "title_ko": "GeekNews: Jujutsu 0.45.0",
+  "description_ko": "GeekNews Korean Tech Trend: Jujutsu 0.45.0",
   "hn_url": "https://news.hada.io/topic?id=33204",
-  "article_url": "https://news.hada.io/topic?id=33204"
+  "article_url": "https://news.hada.io/topic?id=33204",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_geeknews_jujutsu_0450",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Version Control Systems",
+    "category": "Developer Tools",
+    "programming_lang": "Rust",
+    "root_keywords": [
+      "Jujutsu",
+      "Git",
+      "Version Control",
+      "Rust",
+      "DevTools"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.0,
+    "multilingual": {
+      "ko": {
+        "title": "Jujutsu 0.45.0 출시: Git 호환 차세대 버전 관리 도구 업데이트",
+        "hook": "Git의 복잡한 커밋 작업을 단순화하고 강력한 Undo/Redo를 지원하는 Rust 기반 버전 관리 도구 Jujutsu의 최신 릴리스",
+        "key_takeaways": [
+          "기존 Git 저장소와 완전하게 호환되며 분리형 작업 공간(Working Copy) 지원",
+          "첫 번째 클래스 기능으로 제공되는 강력한 작업 실행 취소(Undo) 및 그래프 정렬 개선",
+          "CLI 사용성 개선 및 최신 0.45.0 버전의 성능/안정성 향상"
+        ]
+      },
+      "en": {
+        "title": "Jujutsu 0.45.0 Released: Next-Gen Git-Compatible Version Control",
+        "hook": "The latest 0.45.0 release of Jujutsu, a Rust-powered VCS offering a simplified commit model with native Git compatibility.",
+        "key_takeaways": [
+          "Full interoperability with standard Git repositories and working trees",
+          "First-class undo capability and refined changelog graph operations",
+          "CLI usability enhancements and underlying performance optimizations in v0.45.0"
+        ]
+      },
+      "zh": {
+        "title": "Jujutsu 0.45.0 发布：兼容 Git 的下一代版本控制工具",
+        "hook": "基于 Rust 开发的 Git 兼容版本控制工具 Jujutsu 发布 0.45.0 版本，进一步简化提交与撤销工作流",
+        "key_takeaways": [
+          "保持与现有 Git 仓库的无缝兼容",
+          "提供原生且强大的操作撤销（Undo）与变更树管理",
+          "优化 CLI 交互体验并提升底层运行性能"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Jujutsu 0.45.0 출시: Git 호환 차세대 버전 관리 도구 업데이트",
+      "hook": "Git의 복잡한 커밋 작업을 단순화하고 강력한 Undo/Redo를 지원하는 Rust 기반 버전 관리 도구 Jujutsu의 최신 릴리스",
+      "key_takeaways": [
+        "기존 Git 저장소와 완전하게 호환되며 분리형 작업 공간(Working Copy) 지원",
+        "첫 번째 클래스 기능으로 제공되는 강력한 작업 실행 취소(Undo) 및 그래프 정렬 개선",
+        "CLI 사용성 개선 및 최신 0.45.0 버전의 성능/안정성 향상"
+      ]
+    },
+    "en": {
+      "title": "Jujutsu 0.45.0 Released: Next-Gen Git-Compatible Version Control",
+      "hook": "The latest 0.45.0 release of Jujutsu, a Rust-powered VCS offering a simplified commit model with native Git compatibility.",
+      "key_takeaways": [
+        "Full interoperability with standard Git repositories and working trees",
+        "First-class undo capability and refined changelog graph operations",
+        "CLI usability enhancements and underlying performance optimizations in v0.45.0"
+      ]
+    },
+    "zh": {
+      "title": "Jujutsu 0.45.0 发布：兼容 Git 的下一代版本控制工具",
+      "hook": "基于 Rust 开发的 Git 兼容版本控制工具 Jujutsu 发布 0.45.0 版本，进一步简化提交与撤销工作流",
+      "key_takeaways": [
+        "保持与现有 Git 仓库的无缝兼容",
+        "提供原生且强大的操作撤销（Undo）与变更树管理",
+        "优化 CLI 交互体验并提升底层运行性能"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "Rust",
+  "root_keywords": [
+    "Jujutsu",
+    "Git",
+    "Version Control",
+    "Rust",
+    "DevTools"
+  ],
+  "hook_ko": "Git의 복잡한 커밋 작업을 단순화하고 강력한 Undo/Redo를 지원하는 Rust 기반 버전 관리 도구 Jujutsu의 최신 릴리스",
+  "title_en": "Jujutsu 0.45.0 Released: Next-Gen Git-Compatible Version Control",
+  "hook_en": "The latest 0.45.0 release of Jujutsu, a Rust-powered VCS offering a simplified commit model with native Git compatibility.",
+  "title_zh": "Jujutsu 0.45.0 发布：兼容 Git 的下一代版本控制工具",
+  "hook_zh": "基于 Rust 开发的 Git 兼容版本控制工具 Jujutsu 发布 0.45.0 版本，进一步简化提交与撤销工作流",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.778119"
 }

@@ -33,5 +33,98 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49505257",
-  "article_url": "https://www.data-structures-in-practice.com/intrusive-linked-lists/"
+  "article_url": "https://www.data-structures-in-practice.com/intrusive-linked-lists/",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_intrusive_linked_lists",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Data Structures",
+    "category": "System Programming",
+    "programming_lang": "C/C++",
+    "root_keywords": [
+      "intrusive linked list",
+      "data structures",
+      "memory management",
+      "pointers",
+      "cache locality"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "침투형 연결 리스트 (Intrusive Linked Lists)",
+        "hook": "데이터 구조체 내부에 포인터를 직접 포함시켜 동적 메모리 할당 오버헤드를 없애는 고성능 저수준 최적화 기법",
+        "key_takeaways": [
+          "침투형 연결 리스트는 사용자 구조체 내부에 포인터를 직접 매립하여 별도의 노드 메모리 할당이 필요 없음",
+          "비침투형 리스트 대비 캐시 지역성(Cache Locality) 향상 및 메모리 단편화 최소화 효과",
+          "Linux 커널 및 게임 엔진 등 성능과 메모리 관리가 극도로 중요한 C/C++ 시스템 프로그래밍에 널리 활용"
+        ]
+      },
+      "en": {
+        "title": "Intrusive Linked Lists",
+        "hook": "A low-level data structure technique where node pointers are embedded directly inside payload structs to eliminate dynamic memory allocations.",
+        "key_takeaways": [
+          "Intrusive linked lists embed list pointers directly within user data structures, avoiding extra node dynamic memory allocations.",
+          "Significantly improves cache locality and reduces memory fragmentation compared to traditional non-intrusive containers.",
+          "Extensively used in performance-critical systems programming, game engines, and OS kernels like Linux."
+        ]
+      },
+      "zh": {
+        "title": "侵入式链表 (Intrusive Linked Lists)",
+        "hook": "通过在数据结构内部直接嵌入节点指针，消除动态内存分配并提升性能的底层优化技术",
+        "key_takeaways": [
+          "侵入式链表将链表指针直接放入用户结构体中，无需为链表节点额进行外内存分配",
+          "相比传统非侵入式容器，能够大幅提高缓存局部性并减少内存碎片",
+          "广泛应用于对性能要求极其苛刻的系统编程、游戏引擎和 Linux 内核中"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "침투형 연결 리스트 (Intrusive Linked Lists)",
+      "hook": "데이터 구조체 내부에 포인터를 직접 포함시켜 동적 메모리 할당 오버헤드를 없애는 고성능 저수준 최적화 기법",
+      "key_takeaways": [
+        "침투형 연결 리스트는 사용자 구조체 내부에 포인터를 직접 매립하여 별도의 노드 메모리 할당이 필요 없음",
+        "비침투형 리스트 대비 캐시 지역성(Cache Locality) 향상 및 메모리 단편화 최소화 효과",
+        "Linux 커널 및 게임 엔진 등 성능과 메모리 관리가 극도로 중요한 C/C++ 시스템 프로그래밍에 널리 활용"
+      ]
+    },
+    "en": {
+      "title": "Intrusive Linked Lists",
+      "hook": "A low-level data structure technique where node pointers are embedded directly inside payload structs to eliminate dynamic memory allocations.",
+      "key_takeaways": [
+        "Intrusive linked lists embed list pointers directly within user data structures, avoiding extra node dynamic memory allocations.",
+        "Significantly improves cache locality and reduces memory fragmentation compared to traditional non-intrusive containers.",
+        "Extensively used in performance-critical systems programming, game engines, and OS kernels like Linux."
+      ]
+    },
+    "zh": {
+      "title": "侵入式链表 (Intrusive Linked Lists)",
+      "hook": "通过在数据结构内部直接嵌入节点指针，消除动态内存分配并提升性能的底层优化技术",
+      "key_takeaways": [
+        "侵入式链表将链表指针直接放入用户结构体中，无需为链表节点额进行外内存分配",
+        "相比传统非侵入式容器，能够大幅提高缓存局部性并减少内存碎片",
+        "广泛应用于对性能要求极其苛刻的系统编程、游戏引擎和 Linux 内核中"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "C/C++",
+  "root_keywords": [
+    "intrusive linked list",
+    "data structures",
+    "memory management",
+    "pointers",
+    "cache locality"
+  ],
+  "title_ko": "Intrusive Linked Lists",
+  "hook_ko": "데이터 구조체 내부에 포인터를 직접 포함시켜 동적 메모리 할당 오버헤드를 없애는 고성능 저수준 최적화 기법",
+  "title_en": "Intrusive Linked Lists",
+  "hook_en": "A low-level data structure technique where node pointers are embedded directly inside payload structs to eliminate dynamic memory allocations.",
+  "title_zh": "侵入式链表 (Intrusive Linked Lists)",
+  "hook_zh": "通过在数据结构内部直接嵌入节点指针，消除动态内存分配并提升性能的底层优化技术",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.848539",
+  "description_ko": "해커뉴스에서 58점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

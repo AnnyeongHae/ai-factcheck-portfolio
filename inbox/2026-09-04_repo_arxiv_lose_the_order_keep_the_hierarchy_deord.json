@@ -31,5 +31,98 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_lose_the_order_keep_the_hierarchy_deord",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Hierarchical Task Networks",
+    "category": "Automated Planning",
+    "programming_lang": "General",
+    "root_keywords": [
+      "HTN Planning",
+      "Hierarchical Task Network",
+      "Plan Deordering",
+      "Task Decomposition",
+      "Automated Planning"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "순서는 낮추고 계층은 유지하라: HTN 플랜의 디오더링(Deordering)",
+        "hook": "계층적 과업 네트워크(HTN) 계획에서 작업 간 불필요한 순서 제약을 완화하고 계층 구조를 유지하여 계획의 실행 유연성을 극대화하는 방법론",
+        "key_takeaways": [
+          "HTN 계획 결과물에서 불필요한 순서 제약을 해제하여 실행 시 유연성 확보",
+          "태스크 분해 계층 구조(Hierarchy)를 훼손하지 않으면서 부분 순서(Partially Ordered) 플랜 변환",
+          "복잡한 계획 수립 후 처리(Post-processing) 알고리즘의 효율성 향상"
+        ]
+      },
+      "en": {
+        "title": "Lose the Order, Keep the Hierarchy: Deordering HTN Plans",
+        "hook": "A technique to relax strict ordering constraints in HTN planning while preserving decomposition hierarchy for flexible execution.",
+        "key_takeaways": [
+          "Relaxes strict ordering constraints in HTN plans to enhance execution flexibility.",
+          "Preserves task decomposition hierarchies during the plan deordering process.",
+          "Improves post-processing efficiency and execution adaptability in automated planning systems."
+        ]
+      },
+      "zh": {
+        "title": "去除顺序，保留层级：HTN 计划的解序化",
+        "hook": "在保留任务分解层级的同时解除 HTN 计划中的严格顺序约束，以提升执行灵活性。",
+        "key_takeaways": [
+          "解除 HTN 计划中的不必要顺序约束，显著提高计划执行的适应性。",
+          "在解序化过程中完整保留底层任务分解的层级结构。",
+          "提升自动规划系统中后处理阶段的效率与柔性。"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "순서는 낮추고 계층은 유지하라: HTN 플랜의 디오더링(Deordering)",
+      "hook": "계층적 과업 네트워크(HTN) 계획에서 작업 간 불필요한 순서 제약을 완화하고 계층 구조를 유지하여 계획의 실행 유연성을 극대화하는 방법론",
+      "key_takeaways": [
+        "HTN 계획 결과물에서 불필요한 순서 제약을 해제하여 실행 시 유연성 확보",
+        "태스크 분해 계층 구조(Hierarchy)를 훼손하지 않으면서 부분 순서(Partially Ordered) 플랜 변환",
+        "복잡한 계획 수립 후 처리(Post-processing) 알고리즘의 효율성 향상"
+      ]
+    },
+    "en": {
+      "title": "Lose the Order, Keep the Hierarchy: Deordering HTN Plans",
+      "hook": "A technique to relax strict ordering constraints in HTN planning while preserving decomposition hierarchy for flexible execution.",
+      "key_takeaways": [
+        "Relaxes strict ordering constraints in HTN plans to enhance execution flexibility.",
+        "Preserves task decomposition hierarchies during the plan deordering process.",
+        "Improves post-processing efficiency and execution adaptability in automated planning systems."
+      ]
+    },
+    "zh": {
+      "title": "去除顺序，保留层级：HTN 计划的解序化",
+      "hook": "在保留任务分解层级的同时解除 HTN 计划中的严格顺序约束，以提升执行灵活性。",
+      "key_takeaways": [
+        "解除 HTN 计划中的不必要顺序约束，显著提高计划执行的适应性。",
+        "在解序化过程中完整保留底层任务分解的层级结构。",
+        "提升自动规划系统中后处理阶段的效率与柔性。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "HTN Planning",
+    "Hierarchical Task Network",
+    "Plan Deordering",
+    "Task Decomposition",
+    "Automated Planning"
+  ],
+  "title_ko": "Lose the Order, Keep the Hierarchy: Deordering HTN Plans",
+  "hook_ko": "계층적 과업 네트워크(HTN) 계획에서 작업 간 불필요한 순서 제약을 완화하고 계층 구조를 유지하여 계획의 실행 유연성을 극대화하는 방법론",
+  "title_en": "Lose the Order, Keep the Hierarchy: Deordering HTN Plans",
+  "hook_en": "A technique to relax strict ordering constraints in HTN planning while preserving decomposition hierarchy for flexible execution.",
+  "title_zh": "去除顺序，保留层级：HTN 计划的解序化",
+  "hook_zh": "在保留任务分解层级的同时解除 HTN 计划中的严格顺序约束，以提升执行灵活性。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.749845",
+  "description_ko": "Abstract: Hierarchical Task Network (HTN) planning is a powerful planning formalism based on task decomposition. Although most of the literature studied plan generation, comparatively less attention has been pa..."
 }

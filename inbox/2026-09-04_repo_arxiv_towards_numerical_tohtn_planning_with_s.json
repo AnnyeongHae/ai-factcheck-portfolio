@@ -31,5 +31,96 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_towards_numerical_tohtn_planning_with_s",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Automated Planning & Symbolic AI",
+    "category": "Artificial Intelligence",
+    "programming_lang": "General",
+    "root_keywords": [
+      "HTN Planning",
+      "SMT Encoding",
+      "Numerical Reasoning",
+      "TOHTN"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "SMT 기반 HTN-SAT 인코딩을 활용한 수치적 TOHTN 계획 수립 연구",
+        "hook": "수치적 추론 한계를 극복하기 위해 SMT 기반 인코딩을 적용한 전순서 HTN(TOHTN) 계획 수립 프레임워크",
+        "key_takeaways": [
+          "계층적 태스크 네트워크(HTN) 계획 문제에서 제한적이었던 수치적 추론 기능의 한계 개선",
+          "SMT(Satisfiability Modulo Theories) 기반 HTN-SAT 인코딩 기법을 수치적 TOHTN 문제로 확장",
+          "실세계의 복잡한 수치적 제약 조건이 포함된 자동화 계획 문제 해결 가능성 제시"
+        ]
+      },
+      "en": {
+        "title": "Towards Numerical TOHTN Planning with SMT-based HTN-SAT Encoding",
+        "hook": "Extending Totally-Ordered HTN planning with SMT-based encodings to support numerical reasoning effectively",
+        "key_takeaways": [
+          "Addresses the long-standing limitation of numerical reasoning support in HTN planning",
+          "Proposes an SMT-based HTN-SAT encoding framework tailored for Numerical TOHTN planning",
+          "Enables solving complex automated planning tasks involving real-world numerical constraints"
+        ]
+      },
+      "zh": {
+        "title": "基于SMT的HTN-SAT编码实现数值TOHTN规划的研究",
+        "hook": "引入基于SMT的编码技术，突破分层任务网络(HTN)规划中对数值推理支持不足的局限",
+        "key_takeaways": [
+          "解决分层任务网络(HTN)规划中数值推理能力有限的问题",
+          "提出适用于数值全序HTN(TOHTN)规划的SMT-based HTN-SAT编码方案",
+          "为处理包含复杂数值约束的真实场景规划任务提供可行路径"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "SMT 기반 HTN-SAT 인코딩을 활용한 수치적 TOHTN 계획 수립 연구",
+      "hook": "수치적 추론 한계를 극복하기 위해 SMT 기반 인코딩을 적용한 전순서 HTN(TOHTN) 계획 수립 프레임워크",
+      "key_takeaways": [
+        "계층적 태스크 네트워크(HTN) 계획 문제에서 제한적이었던 수치적 추론 기능의 한계 개선",
+        "SMT(Satisfiability Modulo Theories) 기반 HTN-SAT 인코딩 기법을 수치적 TOHTN 문제로 확장",
+        "실세계의 복잡한 수치적 제약 조건이 포함된 자동화 계획 문제 해결 가능성 제시"
+      ]
+    },
+    "en": {
+      "title": "Towards Numerical TOHTN Planning with SMT-based HTN-SAT Encoding",
+      "hook": "Extending Totally-Ordered HTN planning with SMT-based encodings to support numerical reasoning effectively",
+      "key_takeaways": [
+        "Addresses the long-standing limitation of numerical reasoning support in HTN planning",
+        "Proposes an SMT-based HTN-SAT encoding framework tailored for Numerical TOHTN planning",
+        "Enables solving complex automated planning tasks involving real-world numerical constraints"
+      ]
+    },
+    "zh": {
+      "title": "基于SMT的HTN-SAT编码实现数值TOHTN规划的研究",
+      "hook": "引入基于SMT的编码技术，突破分层任务网络(HTN)规划中对数值推理支持不足的局限",
+      "key_takeaways": [
+        "解决分层任务网络(HTN)规划中数值推理能力有限的问题",
+        "提出适用于数值全序HTN(TOHTN)规划的SMT-based HTN-SAT编码方案",
+        "为处理包含复杂数值约束的真实场景规划任务提供可行路径"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "HTN Planning",
+    "SMT Encoding",
+    "Numerical Reasoning",
+    "TOHTN"
+  ],
+  "title_ko": "Towards Numerical TOHTN Planning with SMT-based HTN-SAT Encoding",
+  "hook_ko": "수치적 추론 한계를 극복하기 위해 SMT 기반 인코딩을 적용한 전순서 HTN(TOHTN) 계획 수립 프레임워크",
+  "title_en": "Towards Numerical TOHTN Planning with SMT-based HTN-SAT Encoding",
+  "hook_en": "Extending Totally-Ordered HTN planning with SMT-based encodings to support numerical reasoning effectively",
+  "title_zh": "基于SMT的HTN-SAT编码实现数值TOHTN规划的研究",
+  "hook_zh": "引入基于SMT的编码技术，突破分层任务网络(HTN)规划中对数值推理支持不足的局限",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.761561",
+  "description_ko": "Abstract: While HTN planning has received significant attention in recent years, support for numerical reasoning remains very limited. In this paper, we investigate numerical Totally-Ordered HTN (TOHTN) plannin..."
 }

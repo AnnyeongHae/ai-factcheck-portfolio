@@ -9,7 +9,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33192",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: Audacity 4.0 출시",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -32,8 +32,99 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Audacity 4.0 출시",
-  "description_ko": "Audacity 4.0 출시",
+  "title_ko": "GeekNews: Audacity 4.0 출시",
+  "description_ko": "GeekNews Korean Tech Trend: Audacity 4.0 출시",
   "hn_url": "https://news.hada.io/topic?id=33192",
-  "article_url": "https://news.hada.io/topic?id=33192"
+  "article_url": "https://news.hada.io/topic?id=33192",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_geeknews_audacity_40_출시",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Audio Processing",
+    "category": "Audio Processing & Software",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "Audacity",
+      "Audacity 4.0",
+      "Audio Editor",
+      "Open Source",
+      "DAW"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "Audacity 4.0 공식 출시",
+        "hook": "오픈소스 오디오 편집기의 대표 주자 Audacity의 4.0 메이저 업데이트 발표",
+        "key_takeaways": [
+          "새롭게 개선된 UI/UX 및 사용자 작업 편의성 증대",
+          "비파괴적(Non-destructive) 오디오 편집 및 실시간 이펙트 처리 강화",
+          "최신 디지털 오디오 워크스테이션(DAW) 호환성 및 오디오 엔진 성능 최적화"
+        ]
+      },
+      "en": {
+        "title": "Audacity 4.0 Released",
+        "hook": "Major 4.0 update for the popular open-source audio editor Audacity brings enhanced workflows",
+        "key_takeaways": [
+          "Major UI/UX revamps and modernized user experience",
+          "Enhanced non-destructive audio editing and real-time effects capabilities",
+          "Audio engine performance optimizations and improved modern DAW workflows"
+        ]
+      },
+      "zh": {
+        "title": "Audacity 4.0 正式发布",
+        "hook": "知名开源音频编辑器 Audacity 迎来了 4.0 核心大版本更新",
+        "key_takeaways": [
+          "全新优化的 UI/UX 界面与用户交互体验",
+          "增强的非破坏性音频编辑与实时效果器处理支持",
+          "音频引擎性能优化与更现代化的 DAW 工作流集成"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Audacity 4.0 공식 출시",
+      "hook": "오픈소스 오디오 편집기의 대표 주자 Audacity의 4.0 메이저 업데이트 발표",
+      "key_takeaways": [
+        "새롭게 개선된 UI/UX 및 사용자 작업 편의성 증대",
+        "비파괴적(Non-destructive) 오디오 편집 및 실시간 이펙트 처리 강화",
+        "최신 디지털 오디오 워크스테이션(DAW) 호환성 및 오디오 엔진 성능 최적화"
+      ]
+    },
+    "en": {
+      "title": "Audacity 4.0 Released",
+      "hook": "Major 4.0 update for the popular open-source audio editor Audacity brings enhanced workflows",
+      "key_takeaways": [
+        "Major UI/UX revamps and modernized user experience",
+        "Enhanced non-destructive audio editing and real-time effects capabilities",
+        "Audio engine performance optimizations and improved modern DAW workflows"
+      ]
+    },
+    "zh": {
+      "title": "Audacity 4.0 正式发布",
+      "hook": "知名开源音频编辑器 Audacity 迎来了 4.0 核心大版本更新",
+      "key_takeaways": [
+        "全新优化的 UI/UX 界面与用户交互体验",
+        "增强的非破坏性音频编辑与实时效果器处理支持",
+        "音频引擎性能优化与更现代化的 DAW 工作流集成"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "Audacity",
+    "Audacity 4.0",
+    "Audio Editor",
+    "Open Source",
+    "DAW"
+  ],
+  "hook_ko": "오픈소스 오디오 편집기의 대표 주자 Audacity의 4.0 메이저 업데이트 발표",
+  "title_en": "Audacity 4.0 Released",
+  "hook_en": "Major 4.0 update for the popular open-source audio editor Audacity brings enhanced workflows",
+  "title_zh": "Audacity 4.0 正式发布",
+  "hook_zh": "知名开源音频编辑器 Audacity 迎来了 4.0 核心大版本更新",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.773513"
 }

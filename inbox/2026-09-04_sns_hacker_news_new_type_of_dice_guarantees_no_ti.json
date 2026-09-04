@@ -33,5 +33,98 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49530807",
-  "article_url": "https://www.cbc.ca/lite/story/9.7328614"
+  "article_url": "https://www.cbc.ca/lite/story/9.7328614",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_new_type_of_dice_guarantees_no_ti",
+    "source_lang": "EN",
+    "type_classification": "Applied Mathematics",
+    "model_family": "Combinatorics & Probability",
+    "category": "Mathematics & Game Theory",
+    "programming_lang": "General",
+    "root_keywords": [
+      "dice",
+      "probability",
+      "combinatorics",
+      "game theory",
+      "non-transitive dice"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.2,
+    "multilingual": {
+      "ko": {
+        "title": "선공 결정 시 무승부를 방지하는 새로운 형태의 주사위",
+        "hook": "순번 결정 시 무승부 발생을 구조적으로 차단하는 새로운 확률/조합론적 주사위 설계 방식",
+        "key_takeaways": [
+          "무승부가 절대 발생하지 않도록 각 면의 수치가 특수하게 구성된 주사위 세트 개념",
+          "게임 이론 및 확률론 관점에서 무승부로 인한 재굴림 시간을 단축하는 흥미로운 접근",
+          "조합론적 설계를 활용한 수학적 퍼즐 및 보드게임 디자인 적용 가능성"
+        ]
+      },
+      "en": {
+        "title": "New Type of Dice Guarantees No Ties When Deciding Who Goes First",
+        "hook": "A mathematical and combinatorial approach to designing dice sets that systematically eliminate ties when determining turn order.",
+        "key_takeaways": [
+          "Innovative die face numbering design that guarantees a distinct winner on every roll.",
+          "Reduces re-rolls in tabletop games using applied probability and combinatorics.",
+          "Demonstrates practical game design improvements through novel mathematical structures."
+        ]
+      },
+      "zh": {
+        "title": "确保决定先手时绝无平局的新型骰子",
+        "hook": "一种运用概率论与组合数学设计的全新骰子结构，可彻底消除决定先手时的平局现象。",
+        "key_takeaways": [
+          "通过特殊的点数配置设计，确保每次投掷都能产生唯一胜者",
+          "利用组合数学减少桌面游戏中因平局导致的重复投掷",
+          "展现了数学设计在游戏机制改进中的实际应用"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "선공 결정 시 무승부를 방지하는 새로운 형태의 주사위",
+      "hook": "순번 결정 시 무승부 발생을 구조적으로 차단하는 새로운 확률/조합론적 주사위 설계 방식",
+      "key_takeaways": [
+        "무승부가 절대 발생하지 않도록 각 면의 수치가 특수하게 구성된 주사위 세트 개념",
+        "게임 이론 및 확률론 관점에서 무승부로 인한 재굴림 시간을 단축하는 흥미로운 접근",
+        "조합론적 설계를 활용한 수학적 퍼즐 및 보드게임 디자인 적용 가능성"
+      ]
+    },
+    "en": {
+      "title": "New Type of Dice Guarantees No Ties When Deciding Who Goes First",
+      "hook": "A mathematical and combinatorial approach to designing dice sets that systematically eliminate ties when determining turn order.",
+      "key_takeaways": [
+        "Innovative die face numbering design that guarantees a distinct winner on every roll.",
+        "Reduces re-rolls in tabletop games using applied probability and combinatorics.",
+        "Demonstrates practical game design improvements through novel mathematical structures."
+      ]
+    },
+    "zh": {
+      "title": "确保决定先手时绝无平局的新型骰子",
+      "hook": "一种运用概率论与组合数学设计的全新骰子结构，可彻底消除决定先手时的平局现象。",
+      "key_takeaways": [
+        "通过特殊的点数配置设计，确保每次投掷都能产生唯一胜者",
+        "利用组合数学减少桌面游戏中因平局导致的重复投掷",
+        "展现了数学设计在游戏机制改进中的实际应用"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "dice",
+    "probability",
+    "combinatorics",
+    "game theory",
+    "non-transitive dice"
+  ],
+  "title_ko": "New type of dice guarantees no tie when deciding who goes first",
+  "hook_ko": "순번 결정 시 무승부 발생을 구조적으로 차단하는 새로운 확률/조합론적 주사위 설계 방식",
+  "title_en": "New Type of Dice Guarantees No Ties When Deciding Who Goes First",
+  "hook_en": "A mathematical and combinatorial approach to designing dice sets that systematically eliminate ties when determining turn order.",
+  "title_zh": "确保决定先手时绝无平局的新型骰子",
+  "hook_zh": "一种运用概率论与组合数学设计的全新骰子结构，可彻底消除决定先手时的平局现象。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.856700",
+  "description_ko": "해커뉴스에서 16점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

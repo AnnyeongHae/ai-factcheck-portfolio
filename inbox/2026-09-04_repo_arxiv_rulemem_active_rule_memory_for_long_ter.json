@@ -31,5 +31,98 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_rulemem_active_rule_memory_for_long_ter",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "LLM Agents",
+    "category": "AI Agents",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Long-term Memory",
+      "Conversational Agents",
+      "RuleMem",
+      "Active Rule Memory",
+      "LLM Reasoning"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "RuleMem: 장기 대화형 에이전트를 위한 능동적 규칙 메모리",
+        "hook": "단순 정보 검색을 넘어 대화맥락에서 규칙을 추출·관리하는 능동적 메모리 프레임워크",
+        "key_takeaways": [
+          "기존 RAG 방식의 수동적·파편화된 정보 검색 한계를 극복하는 능동적 규칙 메모리 제안",
+          "장기 대화 맥락 속 사용자의 개인화 규칙 및 행동 지침을 지속적으로 유지 및 업데이트",
+          "시간적으로 분산된 방대한 대화 기록 내에서도 에이전트의 일관된 추론 능력 확보"
+        ]
+      },
+      "en": {
+        "title": "RuleMem: Active Rule Memory for Long-Term Conversational Agents",
+        "hook": "An active rule-based memory framework allowing conversational agents to infer and maintain operational rules over long dialogue histories.",
+        "key_takeaways": [
+          "Transcends passive factual retrieval by actively synthesizing and maintaining rule-based memories.",
+          "Ensures long-term persona, preference, and constraint consistency across highly dispersed conversations.",
+          "Offers a scalable approach to mitigate context limits and information loss in multi-turn AI agents."
+        ]
+      },
+      "zh": {
+        "title": "RuleMem：面向长期对话智能体的主动规则记忆机制",
+        "hook": "超越被动事实检索，支持智能体从长期对话中主动归纳并更新行为规则的全新记忆框架",
+        "key_takeaways": [
+          "突破传统RAG对零散事实检索的局限，构建主动式规则推理与记忆体系",
+          "有效保障智能体在跨越长周期、多轮次对话中的偏好与行为一致性",
+          "为解决大语言模型长上下文遗忘与推理退化问题提供了高效的架构方案"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "RuleMem: 장기 대화형 에이전트를 위한 능동적 규칙 메모리",
+      "hook": "단순 정보 검색을 넘어 대화맥락에서 규칙을 추출·관리하는 능동적 메모리 프레임워크",
+      "key_takeaways": [
+        "기존 RAG 방식의 수동적·파편화된 정보 검색 한계를 극복하는 능동적 규칙 메모리 제안",
+        "장기 대화 맥락 속 사용자의 개인화 규칙 및 행동 지침을 지속적으로 유지 및 업데이트",
+        "시간적으로 분산된 방대한 대화 기록 내에서도 에이전트의 일관된 추론 능력 확보"
+      ]
+    },
+    "en": {
+      "title": "RuleMem: Active Rule Memory for Long-Term Conversational Agents",
+      "hook": "An active rule-based memory framework allowing conversational agents to infer and maintain operational rules over long dialogue histories.",
+      "key_takeaways": [
+        "Transcends passive factual retrieval by actively synthesizing and maintaining rule-based memories.",
+        "Ensures long-term persona, preference, and constraint consistency across highly dispersed conversations.",
+        "Offers a scalable approach to mitigate context limits and information loss in multi-turn AI agents."
+      ]
+    },
+    "zh": {
+      "title": "RuleMem：面向长期对话智能体的主动规则记忆机制",
+      "hook": "超越被动事实检索，支持智能体从长期对话中主动归纳并更新行为规则的全新记忆框架",
+      "key_takeaways": [
+        "突破传统RAG对零散事实检索的局限，构建主动式规则推理与记忆体系",
+        "有效保障智能体在跨越长周期、多轮次对话中的偏好与行为一致性",
+        "为解决大语言模型长上下文遗忘与推理退化问题提供了高效的架构方案"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Long-term Memory",
+    "Conversational Agents",
+    "RuleMem",
+    "Active Rule Memory",
+    "LLM Reasoning"
+  ],
+  "title_ko": "RuleMem: Active Rule Memory for Long-Term Conversational Agents",
+  "hook_ko": "단순 정보 검색을 넘어 대화맥락에서 규칙을 추출·관리하는 능동적 메모리 프레임워크",
+  "title_en": "RuleMem: Active Rule Memory for Long-Term Conversational Agents",
+  "hook_en": "An active rule-based memory framework allowing conversational agents to infer and maintain operational rules over long dialogue histories.",
+  "title_zh": "RuleMem：面向长期对话智能体的主动规则记忆机制",
+  "hook_zh": "超越被动事实检索，支持智能体从长期对话中主动归纳并更新行为规则的全新记忆框架",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.754986",
+  "description_ko": "Abstract: Question answering agents in long-term conversations must reason over massive, temporally dispersed dialogue histories. However, existing memory mechanisms primarily treat past information as \\textit{..."
 }

@@ -33,5 +33,98 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49555712",
-  "article_url": "https://three-llm.ben3d.ca"
+  "article_url": "https://three-llm.ben3d.ca",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_three_llm_threejs_based_webgpu_ll",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Inference Engine",
+    "category": "Browser ML",
+    "programming_lang": "JavaScript",
+    "root_keywords": [
+      "Three.js",
+      "WebGPU",
+      "LLM Inference",
+      "Browser AI",
+      "GPGPU"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "Three-LLM: Three.js 기반의 WebGPU LLM 추론 엔진",
+        "hook": "Three.js와 WebGPU를 결합하여 브라우저 환경에서 LLM 추론을 가능하게 하는 웹 기반 인퍼런스 엔진",
+        "key_takeaways": [
+          "Three.js 파이프라인 및 GPGPU 역량을 활용한 브라우저 내 LLM 실행",
+          "WebGPU 표준을 통한 크로스 플랫폼 GPU 가속 추론 성능 제공",
+          "서버 부담 없이 클라이언트 환경에서 독립적으로 동작하는 온디바이스 AI 구현"
+        ]
+      },
+      "en": {
+        "title": "Three-LLM: Three.js-based WebGPU LLM Inference Engine",
+        "hook": "A web-based LLM inference engine utilizing Three.js and WebGPU for browser-native AI execution.",
+        "key_takeaways": [
+          "Leverages Three.js GPGPU capabilities to run LLMs directly inside web browsers.",
+          "Utilizes the WebGPU standard for hardware-accelerated cross-platform client-side performance.",
+          "Enables serverless, private on-device LLM applications directly in the browser."
+        ]
+      },
+      "zh": {
+        "title": "Three-LLM：基于 Three.js 的 WebGPU 大语言模型推理引擎",
+        "hook": "结合 Three.js 与 WebGPU，在浏览器端实现高效 LLM 推理的 Web AI 引擎",
+        "key_takeaways": [
+          "利用 Three.js GPGPU 能力直接在 Web 浏览器内运行大语言模型",
+          "采用 WebGPU 标准实现跨平台的硬件加速客户端性能",
+          "支持无服务器、完全在客户端保护隐私的端侧 LLM 应用"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Three-LLM: Three.js 기반의 WebGPU LLM 추론 엔진",
+      "hook": "Three.js와 WebGPU를 결합하여 브라우저 환경에서 LLM 추론을 가능하게 하는 웹 기반 인퍼런스 엔진",
+      "key_takeaways": [
+        "Three.js 파이프라인 및 GPGPU 역량을 활용한 브라우저 내 LLM 실행",
+        "WebGPU 표준을 통한 크로스 플랫폼 GPU 가속 추론 성능 제공",
+        "서버 부담 없이 클라이언트 환경에서 독립적으로 동작하는 온디바이스 AI 구현"
+      ]
+    },
+    "en": {
+      "title": "Three-LLM: Three.js-based WebGPU LLM Inference Engine",
+      "hook": "A web-based LLM inference engine utilizing Three.js and WebGPU for browser-native AI execution.",
+      "key_takeaways": [
+        "Leverages Three.js GPGPU capabilities to run LLMs directly inside web browsers.",
+        "Utilizes the WebGPU standard for hardware-accelerated cross-platform client-side performance.",
+        "Enables serverless, private on-device LLM applications directly in the browser."
+      ]
+    },
+    "zh": {
+      "title": "Three-LLM：基于 Three.js 的 WebGPU 大语言模型推理引擎",
+      "hook": "结合 Three.js 与 WebGPU，在浏览器端实现高效 LLM 推理的 Web AI 引擎",
+      "key_takeaways": [
+        "利用 Three.js GPGPU 能力直接在 Web 浏览器内运行大语言模型",
+        "采用 WebGPU 标准实现跨平台的硬件加速客户端性能",
+        "支持无服务器、完全在客户端保护隐私的端侧 LLM 应用"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "JavaScript",
+  "root_keywords": [
+    "Three.js",
+    "WebGPU",
+    "LLM Inference",
+    "Browser AI",
+    "GPGPU"
+  ],
+  "title_ko": "Three-LLM: Three.js-based WebGPU LLM 추론 engine",
+  "hook_ko": "Three.js와 WebGPU를 결합하여 브라우저 환경에서 LLM 추론을 가능하게 하는 웹 기반 인퍼런스 엔진",
+  "title_en": "Three-LLM: Three.js-based WebGPU LLM Inference Engine",
+  "hook_en": "A web-based LLM inference engine utilizing Three.js and WebGPU for browser-native AI execution.",
+  "title_zh": "Three-LLM：基于 Three.js 的 WebGPU 大语言模型推理引擎",
+  "hook_zh": "结合 Three.js 与 WebGPU，在浏览器端实现高效 LLM 推理的 Web AI 引擎",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.709806",
+  "description_ko": "해커뉴스에서 3점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

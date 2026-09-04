@@ -31,5 +31,98 @@
   "matched_user_domains": [
     "DX & Python 업무 프로세스 자동화"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_headroom_drift_replay_a_primitive_for_p",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Reinforcement Learning",
+    "category": "AI & Machine Learning",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "GRPO",
+      "Reinforcement Learning",
+      "Post-Training",
+      "Replay Buffer",
+      "LLM Reasoning"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.6,
+    "multilingual": {
+      "ko": {
+        "title": "GRPO를 위한 원칙적 리플레이 제어 프리미티브: Headroom-Drift Replay",
+        "hook": "에이전트 RL 사후 학습의 생성 비용 병목을 해결하는 원칙적 리플레이 제어 기술",
+        "key_takeaways": [
+          "에이전트 RL 사후 학습 시 반복되는 신규 롤아웃 생성으로 인한 막대한 시간 및 계산 비용 병목 문제 해결",
+          "정책 표류(Policy Drift)와 개선 여지(Headroom)를 계산하여 기존 롤아웃을 안전하게 재사용하는 프리미티브 메커니즘 제안",
+          "GRPO(Group Relative Policy Optimization) 환경에서 샘플 효율성을 높이고 학습 시간(Wall-clock time) 대폭 단축"
+        ]
+      },
+      "en": {
+        "title": "Headroom-Drift Replay: A Primitive for Principled Replay Control in GRPO",
+        "hook": "A principled replay control primitive to alleviate rollout generation bottlenecks in agentic RL post-training.",
+        "key_takeaways": [
+          "Addresses high wall-clock cost bottlenecks caused by repeated fresh rollout generation in agentic RL post-training.",
+          "Introduces a new primitive that safely reuses existing rollouts based on policy drift and headroom metrics.",
+          "Dramatically improves sample efficiency and reduces training time in GRPO pipelines."
+        ]
+      },
+      "zh": {
+        "title": "GRPO 中的原则性经验重放控制原语：Headroom-Drift Replay",
+        "hook": "解决智能体 RL 后训练中 Rollout 生成成本瓶颈的原则性经验重放控制技术",
+        "key_takeaways": [
+          "解决智能体 RL 后训练中因重复生成全新 Rollout 导致的巨大耗时与算力瓶颈",
+          "提出基于策略漂移（Policy Drift）和改进空间（Headroom）的 Rollout 安全复用机制",
+          "大幅提升 GRPO 训练中的样本效率并显著缩短整体训练时间"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "GRPO를 위한 원칙적 리플레이 제어 프리미티브: Headroom-Drift Replay",
+      "hook": "에이전트 RL 사후 학습의 생성 비용 병목을 해결하는 원칙적 리플레이 제어 기술",
+      "key_takeaways": [
+        "에이전트 RL 사후 학습 시 반복되는 신규 롤아웃 생성으로 인한 막대한 시간 및 계산 비용 병목 문제 해결",
+        "정책 표류(Policy Drift)와 개선 여지(Headroom)를 계산하여 기존 롤아웃을 안전하게 재사용하는 프리미티브 메커니즘 제안",
+        "GRPO(Group Relative Policy Optimization) 환경에서 샘플 효율성을 높이고 학습 시간(Wall-clock time) 대폭 단축"
+      ]
+    },
+    "en": {
+      "title": "Headroom-Drift Replay: A Primitive for Principled Replay Control in GRPO",
+      "hook": "A principled replay control primitive to alleviate rollout generation bottlenecks in agentic RL post-training.",
+      "key_takeaways": [
+        "Addresses high wall-clock cost bottlenecks caused by repeated fresh rollout generation in agentic RL post-training.",
+        "Introduces a new primitive that safely reuses existing rollouts based on policy drift and headroom metrics.",
+        "Dramatically improves sample efficiency and reduces training time in GRPO pipelines."
+      ]
+    },
+    "zh": {
+      "title": "GRPO 中的原则性经验重放控制原语：Headroom-Drift Replay",
+      "hook": "解决智能体 RL 后训练中 Rollout 生成成本瓶颈的原则性经验重放控制技术",
+      "key_takeaways": [
+        "解决智能体 RL 后训练中因重复生成全新 Rollout 导致的巨大耗时与算力瓶颈",
+        "提出基于策略漂移（Policy Drift）和改进空间（Headroom）的 Rollout 安全复用机制",
+        "大幅提升 GRPO 训练中的样本效率并显著缩短整体训练时间"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "GRPO",
+    "Reinforcement Learning",
+    "Post-Training",
+    "Replay Buffer",
+    "LLM Reasoning"
+  ],
+  "title_ko": "Headroom-Drift Replay: A Primitive for Principled Replay Control in GRPO",
+  "hook_ko": "에이전트 RL 사후 학습의 생성 비용 병목을 해결하는 원칙적 리플레이 제어 기술",
+  "title_en": "Headroom-Drift Replay: A Primitive for Principled Replay Control in GRPO",
+  "hook_en": "A principled replay control primitive to alleviate rollout generation bottlenecks in agentic RL post-training.",
+  "title_zh": "GRPO 中的原则性经验重放控制原语：Headroom-Drift Replay",
+  "hook_zh": "解决智能体 RL 后训练中 Rollout 生成成本瓶颈的原则性经验重放控制技术",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.746558",
+  "description_ko": "Abstract: RL-based post-training for reasoning models is increasingly bottlenecked by repeated fresh rollout generation, particularly in agentic settings where environment interaction dominates wall-clock cost...."
 }

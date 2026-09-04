@@ -33,5 +33,98 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49555592",
-  "article_url": "https://news.ycombinator.com/item?id=49555592"
+  "article_url": "https://news.ycombinator.com/item?id=49555592",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_ask_hn_are_others_seeing_googles_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Web Security / Bot Detection",
+    "category": "Web Engineering",
+    "programming_lang": "General",
+    "root_keywords": [
+      "reCAPTCHA",
+      "Firefox",
+      "Google",
+      "Bot Detection",
+      "Browser Anti-Competitive"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "Google reCAPTCHA가 파이어폭스(Firefox) 사용자를 거부하는 현상이 관측되나요?",
+        "hook": "Google의 reCAPTCHA가 Firefox 브라우저 이용자를 차단하거나 반복 실패시키는 현상에 대한 개발자 커뮤니티의 관측과 논의",
+        "key_takeaways": [
+          "Firefox 환경에서 reCAPTCHA 루프에 빠지거나 차단되는 비율이 높아졌다는 제보 속출",
+          "개인정보 보호 기능(추적 방지, 핑거프린팅 차단) 및 확장 프로그램이 CAPTCHA 위험 점수에 미치는 영향 논의",
+          "User-Agent 스푸핑이나 브라우저 설정 변경을 통한 임시 해결책 공유"
+        ]
+      },
+      "en": {
+        "title": "Ask HN: Are others seeing Google's reCAPTCHA rejecting Firefox users?",
+        "hook": "Community discussion on whether Google's reCAPTCHA is systematically rejecting or looping Firefox users.",
+        "key_takeaways": [
+          "Reports of increased reCAPTCHA challenges and failures specifically when using Mozilla Firefox",
+          "Discussions on how privacy features, fingerprinting protections, and ad blockers lower trust scores",
+          "Community workarounds including User-Agent spoofing and adjusting Enhanced Tracking Protection settings"
+        ]
+      },
+      "zh": {
+        "title": "Ask HN：其他人有遇到 Google reCAPTCHA 拒绝 Firefox 用户的情况吗？",
+        "hook": "开发者社区关于 Google reCAPTCHA 是否正在针对或拒绝 Firefox 用户的讨论",
+        "key_takeaways": [
+          "多名用户反映在 Firefox 浏览器下访问集成 reCAPTCHA 的网站时频繁验证失败或进入死循环",
+          "探讨隐私保护功能（如反指纹追踪、广告拦截）如何影响 CAPTCHA 的风险评估分数",
+          "社区分享了修改 User-Agent 或调整增强型跟踪保护等临时替代方案"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Google reCAPTCHA가 파이어폭스(Firefox) 사용자를 거부하는 현상이 관측되나요?",
+      "hook": "Google의 reCAPTCHA가 Firefox 브라우저 이용자를 차단하거나 반복 실패시키는 현상에 대한 개발자 커뮤니티의 관측과 논의",
+      "key_takeaways": [
+        "Firefox 환경에서 reCAPTCHA 루프에 빠지거나 차단되는 비율이 높아졌다는 제보 속출",
+        "개인정보 보호 기능(추적 방지, 핑거프린팅 차단) 및 확장 프로그램이 CAPTCHA 위험 점수에 미치는 영향 논의",
+        "User-Agent 스푸핑이나 브라우저 설정 변경을 통한 임시 해결책 공유"
+      ]
+    },
+    "en": {
+      "title": "Ask HN: Are others seeing Google's reCAPTCHA rejecting Firefox users?",
+      "hook": "Community discussion on whether Google's reCAPTCHA is systematically rejecting or looping Firefox users.",
+      "key_takeaways": [
+        "Reports of increased reCAPTCHA challenges and failures specifically when using Mozilla Firefox",
+        "Discussions on how privacy features, fingerprinting protections, and ad blockers lower trust scores",
+        "Community workarounds including User-Agent spoofing and adjusting Enhanced Tracking Protection settings"
+      ]
+    },
+    "zh": {
+      "title": "Ask HN：其他人有遇到 Google reCAPTCHA 拒绝 Firefox 用户的情况吗？",
+      "hook": "开发者社区关于 Google reCAPTCHA 是否正在针对或拒绝 Firefox 用户的讨论",
+      "key_takeaways": [
+        "多名用户反映在 Firefox 浏览器下访问集成 reCAPTCHA 的网站时频繁验证失败或进入死循环",
+        "探讨隐私保护功能（如反指纹追踪、广告拦截）如何影响 CAPTCHA 的风险评估分数",
+        "社区分享了修改 User-Agent 或调整增强型跟踪保护等临时替代方案"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "reCAPTCHA",
+    "Firefox",
+    "Google",
+    "Bot Detection",
+    "Browser Anti-Competitive"
+  ],
+  "title_ko": "Ask HN: Are others seeing Google's reCAPTCHA rejecting Firefox users?",
+  "hook_ko": "Google의 reCAPTCHA가 Firefox 브라우저 이용자를 차단하거나 반복 실패시키는 현상에 대한 개발자 커뮤니티의 관측과 논의",
+  "title_en": "Ask HN: Are others seeing Google's reCAPTCHA rejecting Firefox users?",
+  "hook_en": "Community discussion on whether Google's reCAPTCHA is systematically rejecting or looping Firefox users.",
+  "title_zh": "Ask HN：其他人有遇到 Google reCAPTCHA 拒绝 Firefox 用户的情况吗？",
+  "hook_zh": "开发者社区关于 Google reCAPTCHA 是否正在针对或拒绝 Firefox 用户的讨论",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.818851",
+  "description_ko": "해커뉴스에서 26점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

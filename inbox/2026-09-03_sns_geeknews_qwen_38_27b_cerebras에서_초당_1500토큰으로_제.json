@@ -9,7 +9,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33201",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: Qwen 3.8 27B, Cerebras에서 초당 1,500토큰으로 제공",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -32,8 +32,99 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Qwen 3.8 27B, Cerebras에서 초당 1,500토큰으로 제공",
-  "description_ko": "Qwen 3.8 27B, Cerebras에서 초당 1,500토큰으로 제공",
+  "title_ko": "GeekNews: Qwen 3.8 27B, Cerebras에서 초당 1,500토큰으로 제공",
+  "description_ko": "GeekNews Korean Tech Trend: Qwen 3.8 27B, Cerebras에서 초당 1,500토큰으로 제공",
   "hn_url": "https://news.hada.io/topic?id=33201",
-  "article_url": "https://news.hada.io/topic?id=33201"
+  "article_url": "https://news.hada.io/topic?id=33201",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_geeknews_qwen_38_27b_cerebras에서_초당_1500토큰으로_제",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Qwen",
+    "category": "AI Infrastructure",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Qwen",
+      "Cerebras",
+      "LLM Inference",
+      "Token Speed",
+      "Wafer Scale Engine"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.8,
+    "multilingual": {
+      "ko": {
+        "title": "Qwen 3.8 27B, Cerebras에서 초당 1,500토큰으로 제공",
+        "hook": "Cerebras 초고속 AI 인프라를 통해 Qwen 27B 모델을 초당 1,500토큰의 압도적 속도로 추론 제공",
+        "key_takeaways": [
+          "Cerebras의 Wafer-Scale Engine 하드웨어를 활용해 27B 규모 LLM의 실시간 초고속 추론 실현",
+          "초당 1,500토큰이라는 압도적 생성 속도로 AI 에이전트 및 대화형 서비스의 지연 시간 혁신적 감소",
+          "오픈소스 모델과 전용 AI 하드웨어 가속기 결합을 통한 최적의 인프라 성능 입증"
+        ]
+      },
+      "en": {
+        "title": "Qwen 3.8 27B Serving at 1,500 Tokens/Sec on Cerebras",
+        "hook": "Achieving ultra-fast 1,500 tokens/sec LLM inference speed for Qwen 27B model on Cerebras infrastructure",
+        "key_takeaways": [
+          "Leverages Cerebras' specialized Wafer-Scale Engine to bypass standard GPU memory bandwidth bottlenecks for 27B models",
+          "Delivers ultra-fast real-time generation at 1,500 tokens/sec, dramatically reducing latency for AI agent workflows",
+          "Demonstrates high-efficiency LLM serving performance by combining open-weights models with specialized hardware"
+        ]
+      },
+      "zh": {
+        "title": "Qwen 3.8 27B 在 Cerebras 上实现每秒 1,500 Token 超高速推理",
+        "hook": "借助 Cerebras 晶圆级引擎，Qwen 27B 大模型实现每秒 1,500 token 的突破性推理速度",
+        "key_takeaways": [
+          "利用 Cerebras 晶圆级芯片 (WSE) 突破传统 GPU 内存带宽瓶颈，实现 27B 参数模型极速输出",
+          "每秒 1,500 token 的生成速度为实时 AI Agent 和复杂工作流提供前所未有的低延迟体验",
+          "展示了高性能开源大模型与专用 AI 硬件加速器结合的强大算力优势"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Qwen 3.8 27B, Cerebras에서 초당 1,500토큰으로 제공",
+      "hook": "Cerebras 초고속 AI 인프라를 통해 Qwen 27B 모델을 초당 1,500토큰의 압도적 속도로 추론 제공",
+      "key_takeaways": [
+        "Cerebras의 Wafer-Scale Engine 하드웨어를 활용해 27B 규모 LLM의 실시간 초고속 추론 실현",
+        "초당 1,500토큰이라는 압도적 생성 속도로 AI 에이전트 및 대화형 서비스의 지연 시간 혁신적 감소",
+        "오픈소스 모델과 전용 AI 하드웨어 가속기 결합을 통한 최적의 인프라 성능 입증"
+      ]
+    },
+    "en": {
+      "title": "Qwen 3.8 27B Serving at 1,500 Tokens/Sec on Cerebras",
+      "hook": "Achieving ultra-fast 1,500 tokens/sec LLM inference speed for Qwen 27B model on Cerebras infrastructure",
+      "key_takeaways": [
+        "Leverages Cerebras' specialized Wafer-Scale Engine to bypass standard GPU memory bandwidth bottlenecks for 27B models",
+        "Delivers ultra-fast real-time generation at 1,500 tokens/sec, dramatically reducing latency for AI agent workflows",
+        "Demonstrates high-efficiency LLM serving performance by combining open-weights models with specialized hardware"
+      ]
+    },
+    "zh": {
+      "title": "Qwen 3.8 27B 在 Cerebras 上实现每秒 1,500 Token 超高速推理",
+      "hook": "借助 Cerebras 晶圆级引擎，Qwen 27B 大模型实现每秒 1,500 token 的突破性推理速度",
+      "key_takeaways": [
+        "利用 Cerebras 晶圆级芯片 (WSE) 突破传统 GPU 内存带宽瓶颈，实现 27B 参数模型极速输出",
+        "每秒 1,500 token 的生成速度为实时 AI Agent 和复杂工作流提供前所未有的低延迟体验",
+        "展示了高性能开源大模型与专用 AI 硬件加速器结合的强大算力优势"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Qwen",
+    "Cerebras",
+    "LLM Inference",
+    "Token Speed",
+    "Wafer Scale Engine"
+  ],
+  "hook_ko": "Cerebras 초고속 AI 인프라를 통해 Qwen 27B 모델을 초당 1,500토큰의 압도적 속도로 추론 제공",
+  "title_en": "Qwen 3.8 27B Serving at 1,500 Tokens/Sec on Cerebras",
+  "hook_en": "Achieving ultra-fast 1,500 tokens/sec LLM inference speed for Qwen 27B model on Cerebras infrastructure",
+  "title_zh": "Qwen 3.8 27B 在 Cerebras 上实现每秒 1,500 Token 超高速推理",
+  "hook_zh": "借助 Cerebras 晶圆级引擎，Qwen 27B 大模型实现每秒 1,500 token 的突破性推理速度",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.658516"
 }

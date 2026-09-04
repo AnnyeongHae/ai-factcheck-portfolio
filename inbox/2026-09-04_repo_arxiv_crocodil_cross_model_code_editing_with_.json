@@ -31,5 +31,98 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_crocodil_cross_model_code_editing_with_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Code Generation & Editing",
+    "category": "AI / Software Engineering",
+    "programming_lang": "General",
+    "root_keywords": [
+      "CROCODIL",
+      "Code Editing",
+      "Cross-Model Collaboration",
+      "LLM",
+      "Software Development"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "CROCODIL: LLM 기반의 이종 모델 간 코드 편집 프레임워크",
+        "hook": "개발 팀 내 다양한 LLM 어시스턴트 간의 상호 운용성을 극복하고 정교한 교차 모델 코드 편집을 지원하는 연구",
+        "key_takeaways": [
+          "서로 다른 LLM 모델 간 코드 수정 의도 및 컨텍스트 손실 문제 해결",
+          "개발 팀 내 멀티 모델 환경을 고려한 교차 모델 코드 편집 파이프라인 제안",
+          "이종 모델 간 코드 협업 효율 및 편집 정확도 향상 검증"
+        ]
+      },
+      "en": {
+        "title": "CROCODIL: Cross-Model Code Editing with LLMs",
+        "hook": "A framework addressing interoperability challenges across heterogeneous LLM code assistants in software development teams.",
+        "key_takeaways": [
+          "Resolves context and intent loss when editing code generated across different LLM models.",
+          "Proposes a cross-model code editing pipeline optimized for multi-LLM development environments.",
+          "Demonstrates improved accuracy and consistency in multi-model developer workflows."
+        ]
+      },
+      "zh": {
+        "title": "CROCODIL：基于 LLM 的跨模型代码编辑",
+        "hook": "解决开发团队中使用不同 LLM 时的兼容性难题，实现高效的跨模型代码编辑与协作",
+        "key_takeaways": [
+          "解决跨不同 LLM 模型编辑代码时上下文和意图丢失的问题",
+          "提出针对多 LLM 开发环境优化的跨模型代码编辑流水线",
+          "验证了在多模型协作工作流中提升代码修改精度与一致性的效果"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "CROCODIL: LLM 기반의 이종 모델 간 코드 편집 프레임워크",
+      "hook": "개발 팀 내 다양한 LLM 어시스턴트 간의 상호 운용성을 극복하고 정교한 교차 모델 코드 편집을 지원하는 연구",
+      "key_takeaways": [
+        "서로 다른 LLM 모델 간 코드 수정 의도 및 컨텍스트 손실 문제 해결",
+        "개발 팀 내 멀티 모델 환경을 고려한 교차 모델 코드 편집 파이프라인 제안",
+        "이종 모델 간 코드 협업 효율 및 편집 정확도 향상 검증"
+      ]
+    },
+    "en": {
+      "title": "CROCODIL: Cross-Model Code Editing with LLMs",
+      "hook": "A framework addressing interoperability challenges across heterogeneous LLM code assistants in software development teams.",
+      "key_takeaways": [
+        "Resolves context and intent loss when editing code generated across different LLM models.",
+        "Proposes a cross-model code editing pipeline optimized for multi-LLM development environments.",
+        "Demonstrates improved accuracy and consistency in multi-model developer workflows."
+      ]
+    },
+    "zh": {
+      "title": "CROCODIL：基于 LLM 的跨模型代码编辑",
+      "hook": "解决开发团队中使用不同 LLM 时的兼容性难题，实现高效的跨模型代码编辑与协作",
+      "key_takeaways": [
+        "解决跨不同 LLM 模型编辑代码时上下文和意图丢失的问题",
+        "提出针对多 LLM 开发环境优化的跨模型代码编辑流水线",
+        "验证了在多模型协作工作流中提升代码修改精度与一致性的效果"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "CROCODIL",
+    "Code Editing",
+    "Cross-Model Collaboration",
+    "LLM",
+    "Software Development"
+  ],
+  "title_ko": "CROCODIL: Cross-Model Code Editing with LLMs",
+  "hook_ko": "개발 팀 내 다양한 LLM 어시스턴트 간의 상호 운용성을 극복하고 정교한 교차 모델 코드 편집을 지원하는 연구",
+  "title_en": "CROCODIL: Cross-Model Code Editing with LLMs",
+  "hook_en": "A framework addressing interoperability challenges across heterogeneous LLM code assistants in software development teams.",
+  "title_zh": "CROCODIL：基于 LLM 的跨模型代码编辑",
+  "hook_zh": "解决开发团队中使用不同 LLM 时的兼容性难题，实现高效的跨模型代码编辑与协作",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.736072",
+  "description_ko": "Abstract: Large language models (LLMs) have become ubiquitous tools for code generation and editing. However, development teams often use multiple LLM assistants. Different developers may prefer different model..."
 }

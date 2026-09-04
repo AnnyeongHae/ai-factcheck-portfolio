@@ -9,7 +9,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49546753",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "HN Score: 320 pts | Comments: 106 | Pre-Release of Polars 2.0",
   "viral_metric": "🔥 320 HN Points",
   "metric_tracking": {
@@ -33,5 +33,98 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49546753",
-  "article_url": "https://pola.rs/posts/announcing-polars-2/"
+  "article_url": "https://pola.rs/posts/announcing-polars-2/",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_pre_release_of_polars_20",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Data Processing",
+    "category": "Data Engineering",
+    "programming_lang": "Python/Rust",
+    "root_keywords": [
+      "Polars",
+      "Polars 2.0",
+      "DataFrame",
+      "Data Processing",
+      "Rust"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.7,
+    "multilingual": {
+      "ko": {
+        "title": "Polars 2.0 프리리리즈(Pre-Release) 공개",
+        "hook": "Rust 기반의 초고속 데이터프레임 라이브러리 Polars 2.0 버전의 프리리리즈 및 주요 변경사항 공개",
+        "key_takeaways": [
+          "Polars 2.0 대규모 업데이트에 포함된 신규 API 및 주요 하위 호환성 변경사항(Breaking Changes) 소개",
+          "Rust 기반 쿼리 엔진 및 메모리 레이아웃 최적화를 통한 추가 성능 향상",
+          "Pandas 대비 차별화된 멀티스레드 병렬 처리 및 대용량 데이터 처리 능력 강화"
+        ]
+      },
+      "en": {
+        "title": "Pre-Release of Polars 2.0",
+        "hook": "Announcement of Polars 2.0 pre-release bringing major performance optimizations and API refinements for the Rust-powered DataFrame library.",
+        "key_takeaways": [
+          "Introduction of Polars 2.0 featuring major breaking changes, API polish, and new functionalities.",
+          "Deeper execution engine and memory layout optimizations leveraging Rust's performance capabilities.",
+          "Strengthened ecosystem integration as a fast, memory-efficient alternative to Pandas."
+        ]
+      },
+      "zh": {
+        "title": "Polars 2.0 预发布版本发布",
+        "hook": "基于 Rust 的高性能数据帧库 Polars 2.0 预发布，带来全新 API 与深度性能优化",
+        "key_takeaways": [
+          "Polars 2.0 包含了重大破坏性变更（Breaking Changes）、API 改进与新特性",
+          "利用 Rust 底层引擎进行更深入的查询优化与内存管理，提升大规模数据处理效率",
+          "作为 Pandas 的高效替代方案，进一步增强多线程并行计算与数据工程生态支持"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Polars 2.0 프리리리즈(Pre-Release) 공개",
+      "hook": "Rust 기반의 초고속 데이터프레임 라이브러리 Polars 2.0 버전의 프리리리즈 및 주요 변경사항 공개",
+      "key_takeaways": [
+        "Polars 2.0 대규모 업데이트에 포함된 신규 API 및 주요 하위 호환성 변경사항(Breaking Changes) 소개",
+        "Rust 기반 쿼리 엔진 및 메모리 레이아웃 최적화를 통한 추가 성능 향상",
+        "Pandas 대비 차별화된 멀티스레드 병렬 처리 및 대용량 데이터 처리 능력 강화"
+      ]
+    },
+    "en": {
+      "title": "Pre-Release of Polars 2.0",
+      "hook": "Announcement of Polars 2.0 pre-release bringing major performance optimizations and API refinements for the Rust-powered DataFrame library.",
+      "key_takeaways": [
+        "Introduction of Polars 2.0 featuring major breaking changes, API polish, and new functionalities.",
+        "Deeper execution engine and memory layout optimizations leveraging Rust's performance capabilities.",
+        "Strengthened ecosystem integration as a fast, memory-efficient alternative to Pandas."
+      ]
+    },
+    "zh": {
+      "title": "Polars 2.0 预发布版本发布",
+      "hook": "基于 Rust 的高性能数据帧库 Polars 2.0 预发布，带来全新 API 与深度性能优化",
+      "key_takeaways": [
+        "Polars 2.0 包含了重大破坏性变更（Breaking Changes）、API 改进与新特性",
+        "利用 Rust 底层引擎进行更深入的查询优化与内存管理，提升大规模数据处理效率",
+        "作为 Pandas 的高效替代方案，进一步增强多线程并行计算与数据工程生态支持"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python/Rust",
+  "root_keywords": [
+    "Polars",
+    "Polars 2.0",
+    "DataFrame",
+    "Data Processing",
+    "Rust"
+  ],
+  "title_ko": "Pre-Release of Polars 2.0",
+  "hook_ko": "Rust 기반의 초고속 데이터프레임 라이브러리 Polars 2.0 버전의 프리리리즈 및 주요 변경사항 공개",
+  "title_en": "Pre-Release of Polars 2.0",
+  "hook_en": "Announcement of Polars 2.0 pre-release bringing major performance optimizations and API refinements for the Rust-powered DataFrame library.",
+  "title_zh": "Polars 2.0 预发布版本发布",
+  "hook_zh": "基于 Rust 的高性能数据帧库 Polars 2.0 预发布，带来全新 API 与深度性能优化",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.860488",
+  "description_ko": "해커뉴스에서 320점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

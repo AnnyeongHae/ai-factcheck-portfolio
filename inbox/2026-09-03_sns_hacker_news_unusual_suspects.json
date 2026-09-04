@@ -33,5 +33,96 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49538069",
-  "article_url": "https://neal.fun/unusual-suspects/"
+  "article_url": "https://neal.fun/unusual-suspects/",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_unusual_suspects",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Software Engineering",
+    "category": "Software Development",
+    "programming_lang": "General",
+    "root_keywords": [
+      "debugging",
+      "troubleshooting",
+      "system architecture",
+      "edge cases"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.5,
+    "multilingual": {
+      "ko": {
+        "title": "해커 뉴스: 흔치 않은 원인들 (Unusual Suspects)",
+        "hook": "시스템 디버깅 및 문제 해결 시 간과하기 쉬운 비전형적 요인들과 분석 인사이트",
+        "key_takeaways": [
+          "일반적인 원인 규명 방식에서 벗어난 비전형적 시스템 병목 및 버그 분석",
+          "복잡한 분산 환경에서 숨겨진 엣지 케이스 추적 전략",
+          "문제 해결을 위한 다각도 디버깅 접근법"
+        ]
+      },
+      "en": {
+        "title": "Hacker News: Unusual Suspects",
+        "hook": "Exploring non-obvious culprits and unconventional causes during complex software debugging",
+        "key_takeaways": [
+          "Analysis of non-standard system bottlenecks and root causes",
+          "Strategies for tracing hidden edge cases in complex environments",
+          "Alternative debugging approaches beyond typical troubleshooting"
+        ]
+      },
+      "zh": {
+        "title": "Hacker News：不寻常的嫌疑对象（Unusual Suspects）",
+        "hook": "探索在复杂软件排错过程中容易被忽视的非典型问题根源",
+        "key_takeaways": [
+          "分析非常规系统瓶颈与隐藏 Bug 根源",
+          "追踪复杂环境中罕见边缘情况的策略",
+          "超越传统排错思路的多维度诊断方法"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "해커 뉴스: 흔치 않은 원인들 (Unusual Suspects)",
+      "hook": "시스템 디버깅 및 문제 해결 시 간과하기 쉬운 비전형적 요인들과 분석 인사이트",
+      "key_takeaways": [
+        "일반적인 원인 규명 방식에서 벗어난 비전형적 시스템 병목 및 버그 분석",
+        "복잡한 분산 환경에서 숨겨진 엣지 케이스 추적 전략",
+        "문제 해결을 위한 다각도 디버깅 접근법"
+      ]
+    },
+    "en": {
+      "title": "Hacker News: Unusual Suspects",
+      "hook": "Exploring non-obvious culprits and unconventional causes during complex software debugging",
+      "key_takeaways": [
+        "Analysis of non-standard system bottlenecks and root causes",
+        "Strategies for tracing hidden edge cases in complex environments",
+        "Alternative debugging approaches beyond typical troubleshooting"
+      ]
+    },
+    "zh": {
+      "title": "Hacker News：不寻常的嫌疑对象（Unusual Suspects）",
+      "hook": "探索在复杂软件排错过程中容易被忽视的非典型问题根源",
+      "key_takeaways": [
+        "分析非常规系统瓶颈与隐藏 Bug 根源",
+        "追踪复杂环境中罕见边缘情况的策略",
+        "超越传统排错思路的多维度诊断方法"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "debugging",
+    "troubleshooting",
+    "system architecture",
+    "edge cases"
+  ],
+  "title_ko": "Unusual Suspects",
+  "hook_ko": "시스템 디버깅 및 문제 해결 시 간과하기 쉬운 비전형적 요인들과 분석 인사이트",
+  "title_en": "Hacker News: Unusual Suspects",
+  "hook_en": "Exploring non-obvious culprits and unconventional causes during complex software debugging",
+  "title_zh": "Hacker News：不寻常的嫌疑对象（Unusual Suspects）",
+  "hook_zh": "探索在复杂软件排错过程中容易被忽视的非典型问题根源",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.711435",
+  "description_ko": "해커뉴스에서 31점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

@@ -32,5 +32,98 @@
     "엔터프라이즈 RAG & 문서 파싱 인프라",
     "정량 데이터 분석 & 벤치마크 감사"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_ratl_learning_from_retrieved_residuals_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Retrieval-Augmented Models",
+    "category": "Time-Series Forecasting & Analysis",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "RATL",
+      "Retrieval-Augmented Generation",
+      "Multivariate Time-Series",
+      "Residual Learning",
+      "Time-Series Forecasting"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "RATL: 강건한 다변량 시계열 예측을 위한 검색된 잔차 학습",
+        "hook": "RAG 개념을 시계열 예측에 도입하여 직접적인 타겟 재사용 대신 검색된 잔차를 학습해 예측 정확도를 크게 향상시킨 연구",
+        "key_takeaways": [
+          "RAG(검색 증강 생성) 메커니즘을 연속형 회귀 문제 및 다변량 시계열 예측 분야로 확장",
+          "유사 패턴의 타겟값을 직접 재사용하는 한계를 극복하기 위해 검색된 잔차(Residual)를 활용한 보정 학습 제안",
+          "데이터 분포 변화(Distribution Shift) 및 비정상성 시계열 환경에서 높은 예측 안정성 및 강건성 확보"
+        ]
+      },
+      "en": {
+        "title": "RATL: Learning from Retrieved Residuals for Robust Multivariate Time-Series Forecasting",
+        "hook": "Adapts Retrieval-Augmented Generation to continuous time-series forecasting by learning from retrieved target residuals.",
+        "key_takeaways": [
+          "Extends Retrieval-Augmented Generation (RAG) concepts to continuous regression tasks in multivariate time-series.",
+          "Overcomes raw target reuse issues by leveraging retrieved residuals to refine parametric model predictions.",
+          "Provides significantly higher robustness against non-stationarity and temporal distribution shifts."
+        ]
+      },
+      "zh": {
+        "title": "RATL：基于检索残差学习的稳健多变量时间序列预测",
+        "hook": "将RAG机制引入连续时间序列预测，利用检索到的目标残差提升预测模型的鲁棒性与精度",
+        "key_takeaways": [
+          "将检索增强生成（RAG）理念从文本生成扩展至连续输出的多元时间序列预测",
+          "通过学习检索到的目标残差而非直接复用历史目标值，有效地对预测偏差进行精细修正",
+          "显著提升模型在面对非平稳数据和分布偏移（Distribution Shift）时的稳定性"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "RATL: 강건한 다변량 시계열 예측을 위한 검색된 잔차 학습",
+      "hook": "RAG 개념을 시계열 예측에 도입하여 직접적인 타겟 재사용 대신 검색된 잔차를 학습해 예측 정확도를 크게 향상시킨 연구",
+      "key_takeaways": [
+        "RAG(검색 증강 생성) 메커니즘을 연속형 회귀 문제 및 다변량 시계열 예측 분야로 확장",
+        "유사 패턴의 타겟값을 직접 재사용하는 한계를 극복하기 위해 검색된 잔차(Residual)를 활용한 보정 학습 제안",
+        "데이터 분포 변화(Distribution Shift) 및 비정상성 시계열 환경에서 높은 예측 안정성 및 강건성 확보"
+      ]
+    },
+    "en": {
+      "title": "RATL: Learning from Retrieved Residuals for Robust Multivariate Time-Series Forecasting",
+      "hook": "Adapts Retrieval-Augmented Generation to continuous time-series forecasting by learning from retrieved target residuals.",
+      "key_takeaways": [
+        "Extends Retrieval-Augmented Generation (RAG) concepts to continuous regression tasks in multivariate time-series.",
+        "Overcomes raw target reuse issues by leveraging retrieved residuals to refine parametric model predictions.",
+        "Provides significantly higher robustness against non-stationarity and temporal distribution shifts."
+      ]
+    },
+    "zh": {
+      "title": "RATL：基于检索残差学习的稳健多变量时间序列预测",
+      "hook": "将RAG机制引入连续时间序列预测，利用检索到的目标残差提升预测模型的鲁棒性与精度",
+      "key_takeaways": [
+        "将检索增强生成（RAG）理念从文本生成扩展至连续输出的多元时间序列预测",
+        "通过学习检索到的目标残差而非直接复用历史目标值，有效地对预测偏差进行精细修正",
+        "显著提升模型在面对非平稳数据和分布偏移（Distribution Shift）时的稳定性"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "RATL",
+    "Retrieval-Augmented Generation",
+    "Multivariate Time-Series",
+    "Residual Learning",
+    "Time-Series Forecasting"
+  ],
+  "title_ko": "RATL: Learning from Retrieved Residuals for Robust Multivariate Time-Series Forecasting",
+  "hook_ko": "RAG 개념을 시계열 예측에 도입하여 직접적인 타겟 재사용 대신 검색된 잔차를 학습해 예측 정확도를 크게 향상시킨 연구",
+  "title_en": "RATL: Learning from Retrieved Residuals for Robust Multivariate Time-Series Forecasting",
+  "hook_en": "Adapts Retrieval-Augmented Generation to continuous time-series forecasting by learning from retrieved target residuals.",
+  "title_zh": "RATL：基于检索残差学习的稳健多变量时间序列预测",
+  "hook_zh": "将RAG机制引入连续时间序列预测，利用检索到的目标残差提升预测模型的鲁棒性与精度",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.753152",
+  "description_ko": "Abstract: Retrieval-augmented generation (RAG) complements parametric models with retrieved external evidence. The same idea is attractive for continuous-output regression, but directly reusing retrieved target..."
 }

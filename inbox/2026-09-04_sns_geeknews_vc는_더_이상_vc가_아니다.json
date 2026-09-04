@@ -9,7 +9,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33210",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: VC는 더 이상 VC가 아니다",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -32,8 +32,97 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "VC는 더 이상 VC가 아니다",
-  "description_ko": "VC는 더 이상 VC가 아니다",
+  "title_ko": "GeekNews: VC는 더 이상 VC가 아니다",
+  "description_ko": "GeekNews Korean Tech Trend: VC는 더 이상 VC가 아니다",
   "hn_url": "https://news.hada.io/topic?id=33210",
-  "article_url": "https://news.hada.io/topic?id=33210"
+  "article_url": "https://news.hada.io/topic?id=33210",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_geeknews_vc는_더_이상_vc가_아니다",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Tech Investment & Ecosystem",
+    "category": "Venture Capital & Startups",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Venture Capital",
+      "Startup Investment",
+      "AI Era Strategy",
+      "Tech Ecosystem"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "VC는 더 이상 VC가 아니다",
+        "hook": "벤처 캐피털(VC) 시장의 대변혁과 Tech 스타트업 생태계 내 새로운 투자 패러다임 분석",
+        "key_takeaways": [
+          "전통적인 자금 공급자 역할에서 벗어나 직접 컴퍼니 빌딩 및 운영에 관여하는 VC의 증가",
+          "AI 기술 트렌드 고도화에 따른 초대형 자본 쏠림과 투자 생태계의 양극화 현상",
+          "달라진 투자 시장 환경에서 기술 스타트업 창업자가 취해야 할 전략적 대응 방향"
+        ]
+      },
+      "en": {
+        "title": "VCs Are No Longer Traditional VCs",
+        "hook": "An analysis of the shifting venture capital landscape and evolving investment paradigms in the tech startup ecosystem.",
+        "key_takeaways": [
+          "Shift from traditional capital providers to active company builders and operational partners",
+          "Bifurcation of capital driven by massive funds and rapid advances in AI technology",
+          "Strategic considerations for tech startup founders navigating the new investment environment"
+        ]
+      },
+      "zh": {
+        "title": "风投（VC）不再是传统的风投",
+        "hook": "分析科技初创企业生态系统中风投（VC）市场的巨变与全新投资范式。",
+        "key_takeaways": [
+          "从单纯的资金提供者转型为深度参与公司构建与运营的合作伙伴",
+          "AI 浪潮推动巨型基金资本集聚，投资生态呈现两极分化",
+          "科技初创企业创始人应对全新融资环境的战略建言"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "VC는 더 이상 VC가 아니다",
+      "hook": "벤처 캐피털(VC) 시장의 대변혁과 Tech 스타트업 생태계 내 새로운 투자 패러다임 분석",
+      "key_takeaways": [
+        "전통적인 자금 공급자 역할에서 벗어나 직접 컴퍼니 빌딩 및 운영에 관여하는 VC의 증가",
+        "AI 기술 트렌드 고도화에 따른 초대형 자본 쏠림과 투자 생태계의 양극화 현상",
+        "달라진 투자 시장 환경에서 기술 스타트업 창업자가 취해야 할 전략적 대응 방향"
+      ]
+    },
+    "en": {
+      "title": "VCs Are No Longer Traditional VCs",
+      "hook": "An analysis of the shifting venture capital landscape and evolving investment paradigms in the tech startup ecosystem.",
+      "key_takeaways": [
+        "Shift from traditional capital providers to active company builders and operational partners",
+        "Bifurcation of capital driven by massive funds and rapid advances in AI technology",
+        "Strategic considerations for tech startup founders navigating the new investment environment"
+      ]
+    },
+    "zh": {
+      "title": "风投（VC）不再是传统的风投",
+      "hook": "分析科技初创企业生态系统中风投（VC）市场的巨变与全新投资范式。",
+      "key_takeaways": [
+        "从单纯的资金提供者转型为深度参与公司构建与运营的合作伙伴",
+        "AI 浪潮推动巨型基金资本集聚，投资生态呈现两极分化",
+        "科技初创企业创始人应对全新融资环境的战略建言"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Venture Capital",
+    "Startup Investment",
+    "AI Era Strategy",
+    "Tech Ecosystem"
+  ],
+  "hook_ko": "벤처 캐피털(VC) 시장의 대변혁과 Tech 스타트업 생태계 내 새로운 투자 패러다임 분석",
+  "title_en": "VCs Are No Longer Traditional VCs",
+  "hook_en": "An analysis of the shifting venture capital landscape and evolving investment paradigms in the tech startup ecosystem.",
+  "title_zh": "风投（VC）不再是传统的风投",
+  "hook_zh": "分析科技初创企业生态系统中风投（VC）市场的巨变与全新投资范式。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.783426"
 }

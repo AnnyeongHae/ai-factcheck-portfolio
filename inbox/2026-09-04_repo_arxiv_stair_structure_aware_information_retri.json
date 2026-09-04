@@ -31,5 +31,98 @@
   "matched_user_domains": [
     "엔터프라이즈 RAG & 문서 파싱 인프라"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_stair_structure_aware_information_retri",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Retrieval-Augmented Generation",
+    "category": "Natural Language Processing",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "RAG",
+      "Information Retrieval",
+      "Document Structure",
+      "STAIR",
+      "LLM"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "STAIR: 문서 구조 인식을 통한 RAG 성능 향상 검색기 및 신규 데이터셋",
+        "hook": "문서의 계층적 구조 정보를 보존하여 RAG 시스템의 검색 정확도와 답변 품질을 극대화하는 신규 프레임워크",
+        "key_takeaways": [
+          "문서의 계층적 구조(헤더, 표, 단락 관계)를 증강하여 검색하는 STAIR 모델 및 데이터셋 제안",
+          "단순 평문 청킹(Chunking)으로 인한 문맥 유실 및 정보 왜곡 문제 해결",
+          "긴 문서 및 복잡한 양식의 정보 검색 시 환각(Hallucination) 현상 대폭 감소"
+        ]
+      },
+      "en": {
+        "title": "STAIR: A Novel Dataset and LLM-Based Retriever for Document Structure Augmentation",
+        "hook": "Enhancing RAG retrieval accuracy by preserving document hierarchy and layout structure.",
+        "key_takeaways": [
+          "Introduces STAIR, a novel structure-aware dataset and retriever designed for structural document understanding.",
+          "Overcomes plain text chunking limitations by maintaining hierarchical relationships and layout context.",
+          "Significantly reduces hallucinations in long-document question answering RAG pipelines."
+        ]
+      },
+      "zh": {
+        "title": "STAIR：用于文档结构增强的新型数据集与基于 LLM 的结构感知检索器",
+        "hook": "通过保留文档层级与结构信息，大幅提升 RAG 系统的检索精准度与生成质量",
+        "key_takeaways": [
+          "提出 STAIR 结构感知检索器及全新数据集，专为解析复杂文档结构而设计",
+          "突破传统纯文本分块（Chunking）的局限，有效保留标题、表格和上下文层级关系",
+          "降低长文本问答场景中的幻觉现象，增强真实业务场景下的 RAG 检索性能"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "STAIR: 문서 구조 인식을 통한 RAG 성능 향상 검색기 및 신규 데이터셋",
+      "hook": "문서의 계층적 구조 정보를 보존하여 RAG 시스템의 검색 정확도와 답변 품질을 극대화하는 신규 프레임워크",
+      "key_takeaways": [
+        "문서의 계층적 구조(헤더, 표, 단락 관계)를 증강하여 검색하는 STAIR 모델 및 데이터셋 제안",
+        "단순 평문 청킹(Chunking)으로 인한 문맥 유실 및 정보 왜곡 문제 해결",
+        "긴 문서 및 복잡한 양식의 정보 검색 시 환각(Hallucination) 현상 대폭 감소"
+      ]
+    },
+    "en": {
+      "title": "STAIR: A Novel Dataset and LLM-Based Retriever for Document Structure Augmentation",
+      "hook": "Enhancing RAG retrieval accuracy by preserving document hierarchy and layout structure.",
+      "key_takeaways": [
+        "Introduces STAIR, a novel structure-aware dataset and retriever designed for structural document understanding.",
+        "Overcomes plain text chunking limitations by maintaining hierarchical relationships and layout context.",
+        "Significantly reduces hallucinations in long-document question answering RAG pipelines."
+      ]
+    },
+    "zh": {
+      "title": "STAIR：用于文档结构增强的新型数据集与基于 LLM 的结构感知检索器",
+      "hook": "通过保留文档层级与结构信息，大幅提升 RAG 系统的检索精准度与生成质量",
+      "key_takeaways": [
+        "提出 STAIR 结构感知检索器及全新数据集，专为解析复杂文档结构而设计",
+        "突破传统纯文本分块（Chunking）的局限，有效保留标题、表格和上下文层级关系",
+        "降低长文本问答场景中的幻觉现象，增强真实业务场景下的 RAG 检索性能"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "RAG",
+    "Information Retrieval",
+    "Document Structure",
+    "STAIR",
+    "LLM"
+  ],
+  "title_ko": "STAIR (STructure Aware Information Retriever): A novel dataset and LLM based retriever for document structure augmentation",
+  "hook_ko": "문서의 계층적 구조 정보를 보존하여 RAG 시스템의 검색 정확도와 답변 품질을 극대화하는 신규 프레임워크",
+  "title_en": "STAIR: A Novel Dataset and LLM-Based Retriever for Document Structure Augmentation",
+  "hook_en": "Enhancing RAG retrieval accuracy by preserving document hierarchy and layout structure.",
+  "title_zh": "STAIR：用于文档结构增强的新型数据集与基于 LLM 的结构感知检索器",
+  "hook_zh": "通过保留文档层级与结构信息，大幅提升 RAG 系统的检索精准度与生成质量",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.758936",
+  "description_ko": "Abstract: Retrieval Augmented Generation (RAG) is a key component for generating accurate and hallucination free answers using Large Language Models (LLMs). LLMs are improving at handling long context, but stil..."
 }

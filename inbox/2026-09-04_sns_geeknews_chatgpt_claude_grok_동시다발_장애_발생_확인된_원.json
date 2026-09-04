@@ -9,7 +9,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33203",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: ChatGPT, Claude, Grok 동시다발 장애 발생, 확인된 원인과 복구 상태",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -32,8 +32,99 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "ChatGPT, Claude, Grok 동시다발 장애 발생, 확인된 원인과 복구 상태",
-  "description_ko": "ChatGPT, Claude, Grok 동시다발 장애 발생, 확인된 원인과 복구 상태",
+  "title_ko": "GeekNews: ChatGPT, Claude, Grok 동시다발 장애 발생, 확인된 원인과 복구 상태",
+  "description_ko": "GeekNews Korean Tech Trend: ChatGPT, Claude, Grok 동시다발 장애 발생, 확인된 원인과 복구 상태",
   "hn_url": "https://news.hada.io/topic?id=33203",
-  "article_url": "https://news.hada.io/topic?id=33203"
+  "article_url": "https://news.hada.io/topic?id=33203",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_geeknews_chatgpt_claude_grok_동시다발_장애_발생_확인된_원",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "LLM Infrastructure",
+    "category": "AI Reliability & Infrastructure",
+    "programming_lang": "General",
+    "root_keywords": [
+      "ChatGPT",
+      "Claude",
+      "Grok",
+      "Outage",
+      "Cloud Infrastructure"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "ChatGPT, Claude, Grok 동시다발 장애 발생: 원인 분석 및 복구 현황",
+        "hook": "주요 AI 서비스들의 동시 다발적 장애 원인과 인프라 의존성 위험성 분석",
+        "key_takeaways": [
+          "ChatGPT, Claude, Grok 등 주요 LLM 서비스가 동일 시점에 대규모 접속 장애를 일으킴",
+          "공통 기반 CDN/네트워크 인프라 문제 또는 상위 업스트림 서비스 장애 가능성 조명",
+          "AI 서비스의 백엔드 인프라 단일 실패점(SPOF) 극복과 가용성 확보 필요성 부각"
+        ]
+      },
+      "en": {
+        "title": "Simultaneous Outages in ChatGPT, Claude, and Grok: Root Causes and Recovery Status",
+        "hook": "Analyzing concurrent downtime across major AI services and infrastructure dependency risks",
+        "key_takeaways": [
+          "Major LLM services including ChatGPT, Claude, and Grok experienced simultaneous large-scale outages.",
+          "Investigation focuses on shared network/CDN infrastructure dependencies or upstream service failures.",
+          "Highlights the urgent need for addressing Single Points of Failure (SPOF) in modern AI stacks."
+        ]
+      },
+      "zh": {
+        "title": "ChatGPT、Claude、Grok 几乎同时发生宕机：已知原因与恢复状态",
+        "hook": "分析主要 AI 服务同时中断的原因以及底层基础设施依赖风险",
+        "key_takeaways": [
+          "ChatGPT、Claude 和 Grok 等主流 LLM 服务在同一时间段内遭遇大规模服务中断。",
+          "原因调查指向共享的网络/CDN 基础设施故障或上游服务中断。",
+          "凸显了现代 AI 技术栈中消除单点故障 (SPOF) 并提升高可用性的重要性。"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "ChatGPT, Claude, Grok 동시다발 장애 발생: 원인 분석 및 복구 현황",
+      "hook": "주요 AI 서비스들의 동시 다발적 장애 원인과 인프라 의존성 위험성 분석",
+      "key_takeaways": [
+        "ChatGPT, Claude, Grok 등 주요 LLM 서비스가 동일 시점에 대규모 접속 장애를 일으킴",
+        "공통 기반 CDN/네트워크 인프라 문제 또는 상위 업스트림 서비스 장애 가능성 조명",
+        "AI 서비스의 백엔드 인프라 단일 실패점(SPOF) 극복과 가용성 확보 필요성 부각"
+      ]
+    },
+    "en": {
+      "title": "Simultaneous Outages in ChatGPT, Claude, and Grok: Root Causes and Recovery Status",
+      "hook": "Analyzing concurrent downtime across major AI services and infrastructure dependency risks",
+      "key_takeaways": [
+        "Major LLM services including ChatGPT, Claude, and Grok experienced simultaneous large-scale outages.",
+        "Investigation focuses on shared network/CDN infrastructure dependencies or upstream service failures.",
+        "Highlights the urgent need for addressing Single Points of Failure (SPOF) in modern AI stacks."
+      ]
+    },
+    "zh": {
+      "title": "ChatGPT、Claude、Grok 几乎同时发生宕机：已知原因与恢复状态",
+      "hook": "分析主要 AI 服务同时中断的原因以及底层基础设施依赖风险",
+      "key_takeaways": [
+        "ChatGPT、Claude 和 Grok 等主流 LLM 服务在同一时间段内遭遇大规模服务中断。",
+        "原因调查指向共享的网络/CDN 基础设施故障或上游服务中断。",
+        "凸显了现代 AI 技术栈中消除单点故障 (SPOF) 并提升高可用性的重要性。"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "ChatGPT",
+    "Claude",
+    "Grok",
+    "Outage",
+    "Cloud Infrastructure"
+  ],
+  "hook_ko": "주요 AI 서비스들의 동시 다발적 장애 원인과 인프라 의존성 위험성 분석",
+  "title_en": "Simultaneous Outages in ChatGPT, Claude, and Grok: Root Causes and Recovery Status",
+  "hook_en": "Analyzing concurrent downtime across major AI services and infrastructure dependency risks",
+  "title_zh": "ChatGPT、Claude、Grok 几乎同时发生宕机：已知原因与恢复状态",
+  "hook_zh": "分析主要 AI 服务同时中断的原因以及底层基础设施依赖风险",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.774281"
 }

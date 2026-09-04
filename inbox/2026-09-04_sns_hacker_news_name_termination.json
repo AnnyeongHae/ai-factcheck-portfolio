@@ -33,5 +33,98 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49550772",
-  "article_url": "https://neil.fraser.name/news/2026/09/03/"
+  "article_url": "https://neil.fraser.name/news/2026/09/03/",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_name_termination",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Networking/DNS",
+    "category": "Networking & Infrastructure",
+    "programming_lang": "General",
+    "root_keywords": [
+      ".name TLD",
+      "Domain Termination",
+      "Verisign",
+      "DNS Infrastructure",
+      "TLD Sunset"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "Hacker News: .name 최상위 도메인(TLD) 서비스 종료",
+        "hook": "Verisign의 .name 최상위 도메인 운영 종료 결정 및 기존 보유자의 이전 영향 분석",
+        "key_takeaways": [
+          ".name 최상위 도메인(TLD) 신규 등록 및 연장이 중단되고 완전히 폐지될 예정",
+          "기존 .name 도메인 사용자 및 커스텀 이메일 운용자의 다른 TLD 마이그레이션 필수",
+          "희귀하게 발생하는 레거시 TLD 운영 중단이 웹 인프라 및 식별자 생태계에 미치는 시사점"
+        ]
+      },
+      "en": {
+        "title": "Hacker News: .name Top-Level Domain (TLD) Termination",
+        "hook": "Analysis of Verisign's decision to sunset the .name TLD and its impact on domain owners",
+        "key_takeaways": [
+          "Verisign is terminating the .name top-level domain, halting registrations and renewals",
+          "Existing .name domain owners and custom email users must migrate to alternative TLDs",
+          "Highlights the operational and infrastructure impacts of rare legacy TLD retirements"
+        ]
+      },
+      "zh": {
+        "title": "Hacker News: .name 顶级域名 (TLD) 服务终止",
+        "hook": "分析 Verisign 决定停用 .name 顶级域名及其对现有持有人的影响",
+        "key_takeaways": [
+          ".name 顶级域名将停止新注册和续费，并逐步彻底关停",
+          "现有的 .name 域名持有者及自定义邮箱使用者必须迁移至其他 TLD",
+          "展示了罕见的顶级域名废除对网络基础设施和标识符生态系统的冲击"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Hacker News: .name 최상위 도메인(TLD) 서비스 종료",
+      "hook": "Verisign의 .name 최상위 도메인 운영 종료 결정 및 기존 보유자의 이전 영향 분석",
+      "key_takeaways": [
+        ".name 최상위 도메인(TLD) 신규 등록 및 연장이 중단되고 완전히 폐지될 예정",
+        "기존 .name 도메인 사용자 및 커스텀 이메일 운용자의 다른 TLD 마이그레이션 필수",
+        "희귀하게 발생하는 레거시 TLD 운영 중단이 웹 인프라 및 식별자 생태계에 미치는 시사점"
+      ]
+    },
+    "en": {
+      "title": "Hacker News: .name Top-Level Domain (TLD) Termination",
+      "hook": "Analysis of Verisign's decision to sunset the .name TLD and its impact on domain owners",
+      "key_takeaways": [
+        "Verisign is terminating the .name top-level domain, halting registrations and renewals",
+        "Existing .name domain owners and custom email users must migrate to alternative TLDs",
+        "Highlights the operational and infrastructure impacts of rare legacy TLD retirements"
+      ]
+    },
+    "zh": {
+      "title": "Hacker News: .name 顶级域名 (TLD) 服务终止",
+      "hook": "分析 Verisign 决定停用 .name 顶级域名及其对现有持有人的影响",
+      "key_takeaways": [
+        ".name 顶级域名将停止新注册和续费，并逐步彻底关停",
+        "现有的 .name 域名持有者及自定义邮箱使用者必须迁移至其他 TLD",
+        "展示了罕见的顶级域名废除对网络基础设施和标识符生态系统的冲击"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    ".name TLD",
+    "Domain Termination",
+    "Verisign",
+    "DNS Infrastructure",
+    "TLD Sunset"
+  ],
+  "title_ko": ".name Termination",
+  "hook_ko": "Verisign의 .name 최상위 도메인 운영 종료 결정 및 기존 보유자의 이전 영향 분석",
+  "title_en": "Hacker News: .name Top-Level Domain (TLD) Termination",
+  "hook_en": "Analysis of Verisign's decision to sunset the .name TLD and its impact on domain owners",
+  "title_zh": "Hacker News: .name 顶级域名 (TLD) 服务终止",
+  "hook_zh": "分析 Verisign 决定停用 .name 顶级域名及其对现有持有人的影响",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.855638",
+  "description_ko": "해커뉴스에서 98점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

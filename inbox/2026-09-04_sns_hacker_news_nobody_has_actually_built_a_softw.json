@@ -33,5 +33,98 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49510843",
-  "article_url": "https://medium.com/@NMitchem/nobody-has-actually-built-a-software-factory-77ffdc0c3efc"
+  "article_url": "https://medium.com/@NMitchem/nobody-has-actually-built-a-software-factory-77ffdc0c3efc",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_nobody_has_actually_built_a_softw",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Software Engineering",
+    "category": "Software Engineering",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Software Factory",
+      "Software Engineering",
+      "DevOps",
+      "Automation",
+      "CI/CD"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.3,
+    "multilingual": {
+      "ko": {
+        "title": "아무도 실제로 '소프트웨어 공장'을 만들지 못했다",
+        "hook": "소프트웨어 개발의 자동화 시도에도 불구하고 진정한 의미의 '소프트웨어 공장'이 존재하지 않는 이유 분석",
+        "key_takeaways": [
+          "물리적 제조업의 공장과 달리 소프트웨어 개발은 복잡한 맥락과 요구사항 변화에 극도로 의존함",
+          "현재의 CI/CD 및 자동화 파이프라인은 배포 과정을 도울 뿐 소프트웨어 생성 자체를 자동화하진 못함",
+          "소프트웨어 공학을 전통적인 조립 라인 비유로 단순화하는 접근법의 한계 지적"
+        ]
+      },
+      "en": {
+        "title": "Nobody Has Actually Built a Software Factory",
+        "hook": "An examination of why true software factories remain an unfulfilled promise despite modern DevOps and automation",
+        "key_takeaways": [
+          "Unlike physical manufacturing assembly lines, software engineering is inherently context-heavy and variable",
+          "Modern CI/CD pipelines streamline delivery but do not automate the synthesis of software itself",
+          "A critique on oversimplifying software development using legacy industrial factory metaphors"
+        ]
+      },
+      "zh": {
+        "title": "实际上没有人真正建立过“软件工厂”",
+        "hook": "探讨为何尽管拥有现代 DevOps 和自动化工具，真正意义上的“软件工厂”依然未能实现",
+        "key_takeaways": [
+          "与物理制造业不同，软件工程具有极高的情境依赖性和不可预测性",
+          "现有的 CI/CD 流水线仅优化了交付与构建，而非软件本身的自动化创作",
+          "反思将软件开发过度简化为传统工业工厂生产线的概念误区"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "아무도 실제로 '소프트웨어 공장'을 만들지 못했다",
+      "hook": "소프트웨어 개발의 자동화 시도에도 불구하고 진정한 의미의 '소프트웨어 공장'이 존재하지 않는 이유 분석",
+      "key_takeaways": [
+        "물리적 제조업의 공장과 달리 소프트웨어 개발은 복잡한 맥락과 요구사항 변화에 극도로 의존함",
+        "현재의 CI/CD 및 자동화 파이프라인은 배포 과정을 도울 뿐 소프트웨어 생성 자체를 자동화하진 못함",
+        "소프트웨어 공학을 전통적인 조립 라인 비유로 단순화하는 접근법의 한계 지적"
+      ]
+    },
+    "en": {
+      "title": "Nobody Has Actually Built a Software Factory",
+      "hook": "An examination of why true software factories remain an unfulfilled promise despite modern DevOps and automation",
+      "key_takeaways": [
+        "Unlike physical manufacturing assembly lines, software engineering is inherently context-heavy and variable",
+        "Modern CI/CD pipelines streamline delivery but do not automate the synthesis of software itself",
+        "A critique on oversimplifying software development using legacy industrial factory metaphors"
+      ]
+    },
+    "zh": {
+      "title": "实际上没有人真正建立过“软件工厂”",
+      "hook": "探讨为何尽管拥有现代 DevOps 和自动化工具，真正意义上的“软件工厂”依然未能实现",
+      "key_takeaways": [
+        "与物理制造业不同，软件工程具有极高的情境依赖性和不可预测性",
+        "现有的 CI/CD 流水线仅优化了交付与构建，而非软件本身的自动化创作",
+        "反思将软件开发过度简化为传统工业工厂生产线的概念误区"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Software Factory",
+    "Software Engineering",
+    "DevOps",
+    "Automation",
+    "CI/CD"
+  ],
+  "title_ko": "Nobody Has Actually Built a Software Factory",
+  "hook_ko": "소프트웨어 개발의 자동화 시도에도 불구하고 진정한 의미의 '소프트웨어 공장'이 존재하지 않는 이유 분석",
+  "title_en": "Nobody Has Actually Built a Software Factory",
+  "hook_en": "An examination of why true software factories remain an unfulfilled promise despite modern DevOps and automation",
+  "title_zh": "实际上没有人真正建立过“软件工厂”",
+  "hook_zh": "探讨为何尽管拥有现代 DevOps 和自动化工具，真正意义上的“软件工厂”依然未能实现",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.858313",
+  "description_ko": "해커뉴스에서 29점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

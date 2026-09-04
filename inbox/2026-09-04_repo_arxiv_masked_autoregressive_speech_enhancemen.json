@@ -31,5 +31,96 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_masked_autoregressive_speech_enhancemen",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Masked Generative Models",
+    "category": "Speech Processing",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Speech Enhancement",
+      "Neural Audio Codec",
+      "Continuous Representations",
+      "Masked Autoregressive"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "연속형 뉴럴 오디오 코덱 표상을 활용한 마스크드 오토레그레시브 음성 향상 기법",
+        "hook": "이산 토큰 대신 연속형 코덱 표현을 활용해 양자화 오류 없이 생성적 음성 향상 성능을 극대화하는 신기술",
+        "key_takeaways": [
+          "이산(Discrete) 오디오 토큰 양자화 과정에서 발생하는 표현력 저하 및 오디오 손실 문제 해결",
+          "연속형 뉴럴 오디오 코덱(NAC) 벡터 공간에서 직접 작동하는 마스크드 오토레그레시브 생성 프레임워크 제안",
+          "기존 이산 토큰 기반 음성 생성 모델 대비 우수한 감지 음질과 왜곡 없는 음성 복원 성능 달성"
+        ]
+      },
+      "en": {
+        "title": "Masked Autoregressive Speech Enhancement with Continuous Neural Audio Codec Representations",
+        "hook": "Leveraging continuous neural audio codec representations over discrete tokens to eliminate quantization artifacts in generative speech enhancement.",
+        "key_takeaways": [
+          "Mitigates representation loss and quantization errors typical of discrete audio token modeling.",
+          "Proposes a masked autoregressive framework that operates directly on continuous NAC embedding spaces.",
+          "Achieves superior audio fidelity and signal reconstruction compared to discrete token-based generative baselines."
+        ]
+      },
+      "zh": {
+        "title": "基于连续神经音频编解码器表示的掩码自回归语音增强",
+        "hook": "利用连续神经音频编解码表示替代离散 Token，消除量化失真并提升生成式语音增强性能",
+        "key_takeaways": [
+          "解决了传统离散音频 Token 量化过程中导致的表达力下降与音频细节丢失问题",
+          "提出了直接在连续神经音频编解码（NAC）嵌入空间上运行的掩码自回归生成框架",
+          "与基于离散 Token 的生成模型相比，实现了显著更高的音质保真度与语音修复效果"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "연속형 뉴럴 오디오 코덱 표상을 활용한 마스크드 오토레그레시브 음성 향상 기법",
+      "hook": "이산 토큰 대신 연속형 코덱 표현을 활용해 양자화 오류 없이 생성적 음성 향상 성능을 극대화하는 신기술",
+      "key_takeaways": [
+        "이산(Discrete) 오디오 토큰 양자화 과정에서 발생하는 표현력 저하 및 오디오 손실 문제 해결",
+        "연속형 뉴럴 오디오 코덱(NAC) 벡터 공간에서 직접 작동하는 마스크드 오토레그레시브 생성 프레임워크 제안",
+        "기존 이산 토큰 기반 음성 생성 모델 대비 우수한 감지 음질과 왜곡 없는 음성 복원 성능 달성"
+      ]
+    },
+    "en": {
+      "title": "Masked Autoregressive Speech Enhancement with Continuous Neural Audio Codec Representations",
+      "hook": "Leveraging continuous neural audio codec representations over discrete tokens to eliminate quantization artifacts in generative speech enhancement.",
+      "key_takeaways": [
+        "Mitigates representation loss and quantization errors typical of discrete audio token modeling.",
+        "Proposes a masked autoregressive framework that operates directly on continuous NAC embedding spaces.",
+        "Achieves superior audio fidelity and signal reconstruction compared to discrete token-based generative baselines."
+      ]
+    },
+    "zh": {
+      "title": "基于连续神经音频编解码器表示的掩码自回归语音增强",
+      "hook": "利用连续神经音频编解码表示替代离散 Token，消除量化失真并提升生成式语音增强性能",
+      "key_takeaways": [
+        "解决了传统离散音频 Token 量化过程中导致的表达力下降与音频细节丢失问题",
+        "提出了直接在连续神经音频编解码（NAC）嵌入空间上运行的掩码自回归生成框架",
+        "与基于离散 Token 的生成模型相比，实现了显著更高的音质保真度与语音修复效果"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Speech Enhancement",
+    "Neural Audio Codec",
+    "Continuous Representations",
+    "Masked Autoregressive"
+  ],
+  "title_ko": "Masked Autoregressive Speech Enhancement with Continuous Neural Audio Codec Representations",
+  "hook_ko": "이산 토큰 대신 연속형 코덱 표현을 활용해 양자화 오류 없이 생성적 음성 향상 성능을 극대화하는 신기술",
+  "title_en": "Masked Autoregressive Speech Enhancement with Continuous Neural Audio Codec Representations",
+  "hook_en": "Leveraging continuous neural audio codec representations over discrete tokens to eliminate quantization artifacts in generative speech enhancement.",
+  "title_zh": "基于连续神经音频编解码器表示的掩码自回归语音增强",
+  "hook_zh": "利用连续神经音频编解码表示替代离散 Token，消除量化失真并提升生成式语音增强性能",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.751379",
+  "description_ko": "Abstract: Most previous work on speech enhancement (SE) based on masked generative modeling relied on discrete token representations of audio signals, obtained using neural audio codecs (NACs). However, a recen..."
 }

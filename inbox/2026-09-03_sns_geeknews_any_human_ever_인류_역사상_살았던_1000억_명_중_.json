@@ -9,7 +9,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33200",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: Any Human Ever - 인류 역사상 살았던 1,000억 명 중 한 사람을 무작위로 만나기",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -32,8 +32,97 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Any Human Ever - 인류 역사상 살았던 1,000억 명 중 한 사람을 무작위로 만나기",
-  "description_ko": "Any Human Ever - 인류 역사상 살았던 1,000억 명 중 한 사람을 무작위로 만나기",
+  "title_ko": "GeekNews: Any Human Ever - 인류 역사상 살았던 1,000억 명 중 한 사람을 무작위로 만나기",
+  "description_ko": "GeekNews Korean Tech Trend: Any Human Ever - 인류 역사상 살았던 1,000억 명 중 한 사람을 무작위로 만나기",
   "hn_url": "https://news.hada.io/topic?id=33200",
-  "article_url": "https://news.hada.io/topic?id=33200"
+  "article_url": "https://news.hada.io/topic?id=33200",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_geeknews_any_human_ever_인류_역사상_살았던_1000억_명_중_",
+    "source_lang": "KO",
+    "type_classification": "General Tech",
+    "model_family": "Web Application",
+    "category": "Data Visualization",
+    "programming_lang": "JavaScript/General",
+    "root_keywords": [
+      "Demographics",
+      "Data Simulation",
+      "Interactive Web",
+      "History"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "Any Human Ever - 인류 역사상 살았던 1,000억 명 중 한 사람을 무작위로 만나는 웹 프로젝트",
+        "hook": "역사적 인구 통계 데이터를 기반으로 지금까지 지구상에 존재했던 1,000억 명의 인류 중 한 명을 무작위 추출하여 시뮬레이션하는 인터랙티브 프로젝트",
+        "key_takeaways": [
+          "인구통계학적 데이터와 확률 모델을 활용한 1,000억 인류 무작위 샘플링 시뮬레이션",
+          "각 역사적 시대, 지역별 인구 비중 및 평균 수명 분포를 반영한 데이터 모델링",
+          "흥미로운 웹 기반 인터랙티브 데이터 탐색 경험 제공"
+        ]
+      },
+      "en": {
+        "title": "Any Human Ever - Randomly Meet One of the 100 Billion Humans Who Ever Lived",
+        "hook": "An interactive web project that randomly samples and simulates one of the 100 billion humans throughout history based on demographic data.",
+        "key_takeaways": [
+          "Random sampling simulation of 100 billion humans utilizing demographic and statistical models.",
+          "Reflects historical eras, regional population distributions, and life expectancy metrics.",
+          "Delivers an engaging interactive data exploration experience on the web."
+        ]
+      },
+      "zh": {
+        "title": "Any Human Ever - 随机遇见人类历史上存在过的 1000 亿人中的一位",
+        "hook": "基于历史人口统计数据，从人类历史上存在过的 1000 亿人中随机抽样并模拟的交互式 Web 项目。",
+        "key_takeaways": [
+          "结合人口统计数据与概率模型，对 1000 亿历史人口进行随机采样模拟",
+          "反映不同历史时期、地区人口比例及平均寿命分布的数据建模",
+          "提供充满趣味的 Web 交互式数据探索体验"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Any Human Ever - 인류 역사상 살았던 1,000억 명 중 한 사람을 무작위로 만나는 웹 프로젝트",
+      "hook": "역사적 인구 통계 데이터를 기반으로 지금까지 지구상에 존재했던 1,000억 명의 인류 중 한 명을 무작위 추출하여 시뮬레이션하는 인터랙티브 프로젝트",
+      "key_takeaways": [
+        "인구통계학적 데이터와 확률 모델을 활용한 1,000억 인류 무작위 샘플링 시뮬레이션",
+        "각 역사적 시대, 지역별 인구 비중 및 평균 수명 분포를 반영한 데이터 모델링",
+        "흥미로운 웹 기반 인터랙티브 데이터 탐색 경험 제공"
+      ]
+    },
+    "en": {
+      "title": "Any Human Ever - Randomly Meet One of the 100 Billion Humans Who Ever Lived",
+      "hook": "An interactive web project that randomly samples and simulates one of the 100 billion humans throughout history based on demographic data.",
+      "key_takeaways": [
+        "Random sampling simulation of 100 billion humans utilizing demographic and statistical models.",
+        "Reflects historical eras, regional population distributions, and life expectancy metrics.",
+        "Delivers an engaging interactive data exploration experience on the web."
+      ]
+    },
+    "zh": {
+      "title": "Any Human Ever - 随机遇见人类历史上存在过的 1000 亿人中的一位",
+      "hook": "基于历史人口统计数据，从人类历史上存在过的 1000 亿人中随机抽样并模拟的交互式 Web 项目。",
+      "key_takeaways": [
+        "结合人口统计数据与概率模型，对 1000 亿历史人口进行随机采样模拟",
+        "反映不同历史时期、地区人口比例及平均寿命分布的数据建模",
+        "提供充满趣味的 Web 交互式数据探索体验"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "JavaScript/General",
+  "root_keywords": [
+    "Demographics",
+    "Data Simulation",
+    "Interactive Web",
+    "History"
+  ],
+  "hook_ko": "역사적 인구 통계 데이터를 기반으로 지금까지 지구상에 존재했던 1,000억 명의 인류 중 한 명을 무작위 추출하여 시뮬레이션하는 인터랙티브 프로젝트",
+  "title_en": "Any Human Ever - Randomly Meet One of the 100 Billion Humans Who Ever Lived",
+  "hook_en": "An interactive web project that randomly samples and simulates one of the 100 billion humans throughout history based on demographic data.",
+  "title_zh": "Any Human Ever - 随机遇见人类历史上存在过的 1000 亿人中的一位",
+  "hook_zh": "基于历史人口统计数据，从人类历史上存在过的 1000 亿人中随机抽样并模拟的交互式 Web 项目。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.652955"
 }

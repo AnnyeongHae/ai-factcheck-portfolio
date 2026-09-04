@@ -31,5 +31,98 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-03_repo_hf_space_saddamdarwishnanobananapro_bypassed",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "AI Safety / Red Teaming",
+    "category": "AI Security",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Hugging Face Spaces",
+      "NanoBananaPro",
+      "Bypass",
+      "Jailbreak",
+      "AI Safety"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.8,
+    "multilingual": {
+      "ko": {
+        "title": "Hugging Face Space: NanoBananaPro Bypass 데모",
+        "hook": "NanoBananaPro 모델의 우회(Bypass) 및 안전 제약 테스트를 위한 정적 웹 데모",
+        "key_takeaways": [
+          "정적(Static) SDK를 활용한 가벼운 웹 인터랙티브 데모",
+          "NanoBananaPro 모델의 안전 대책 우회 행동 연구 및 데이터 제공",
+          "AI 레드티밍(Red Teaming) 및 프롬프트 우회 패턴 평가용 참고 자료"
+        ]
+      },
+      "en": {
+        "title": "Hugging Face Space: NanoBananaPro Bypassed Demo",
+        "hook": "A static Hugging Face interactive demo for evaluating bypass behavior in NanoBananaPro.",
+        "key_takeaways": [
+          "Lightweight interactive demo constructed with the Static web SDK",
+          "Provides a showcase for bypass/jailbreak scenarios in NanoBananaPro",
+          "Useful benchmark reference for AI safety research and red teaming"
+        ]
+      },
+      "zh": {
+        "title": "Hugging Face Space：NanoBananaPro 绕过机制演示",
+        "hook": "用于评估和测试 NanoBananaPro 安全绕过行为的静态 Web 交互演示",
+        "key_takeaways": [
+          "基于 Static SDK 构建的轻量级 Web 交互界面",
+          "展示 NanoBananaPro 模型的安全对齐与绕过测试案例",
+          "供 AI 安全研究与红队测试（Red Teaming）参考"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Hugging Face Space: NanoBananaPro Bypass 데모",
+      "hook": "NanoBananaPro 모델의 우회(Bypass) 및 안전 제약 테스트를 위한 정적 웹 데모",
+      "key_takeaways": [
+        "정적(Static) SDK를 활용한 가벼운 웹 인터랙티브 데모",
+        "NanoBananaPro 모델의 안전 대책 우회 행동 연구 및 데이터 제공",
+        "AI 레드티밍(Red Teaming) 및 프롬프트 우회 패턴 평가용 참고 자료"
+      ]
+    },
+    "en": {
+      "title": "Hugging Face Space: NanoBananaPro Bypassed Demo",
+      "hook": "A static Hugging Face interactive demo for evaluating bypass behavior in NanoBananaPro.",
+      "key_takeaways": [
+        "Lightweight interactive demo constructed with the Static web SDK",
+        "Provides a showcase for bypass/jailbreak scenarios in NanoBananaPro",
+        "Useful benchmark reference for AI safety research and red teaming"
+      ]
+    },
+    "zh": {
+      "title": "Hugging Face Space：NanoBananaPro 绕过机制演示",
+      "hook": "用于评估和测试 NanoBananaPro 安全绕过行为的静态 Web 交互演示",
+      "key_takeaways": [
+        "基于 Static SDK 构建的轻量级 Web 交互界面",
+        "展示 NanoBananaPro 模型的安全对齐与绕过测试案例",
+        "供 AI 安全研究与红队测试（Red Teaming）参考"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Hugging Face Spaces",
+    "NanoBananaPro",
+    "Bypass",
+    "Jailbreak",
+    "AI Safety"
+  ],
+  "title_ko": "HF Space: saddamdarwish/nanobananapro_bypassed",
+  "hook_ko": "NanoBananaPro 모델의 우회(Bypass) 및 안전 제약 테스트를 위한 정적 웹 데모",
+  "title_en": "Hugging Face Space: NanoBananaPro Bypassed Demo",
+  "hook_en": "A static Hugging Face interactive demo for evaluating bypass behavior in NanoBananaPro.",
+  "title_zh": "Hugging Face Space：NanoBananaPro 绕过机制演示",
+  "hook_zh": "用于评估和测试 NanoBananaPro 安全绕过行为的静态 Web 交互演示",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.649007",
+  "description_ko": "Interactive AI Demo (SDK: static) | Likes: 32 | Live URL: https://huggingface.co/spaces/saddamdarwish/nanobananapro_bypassed"
 }

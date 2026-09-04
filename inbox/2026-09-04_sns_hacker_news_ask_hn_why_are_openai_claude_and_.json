@@ -33,5 +33,100 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49551096",
-  "article_url": "https://news.ycombinator.com/item?id=49551096"
+  "article_url": "https://news.ycombinator.com/item?id=49551096",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_ask_hn_why_are_openai_claude_and_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Cloud Infrastructure",
+    "category": "AI / Infrastructure",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Outage",
+      "OpenAI",
+      "Claude",
+      "Grok",
+      "Cloudflare",
+      "Infrastructure"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "Ask HN: OpenAI, Claude, Grok이 동시에 중단된 이유는 무엇일까요? 우연일까요?",
+        "hook": "주요 LLM 서비스들의 동시 장애 원인과 공통 클라우드 인프라 의존성에 대한 기술 커뮤니티의 분석 및 토론",
+        "key_takeaways": [
+          "OpenAI, Anthropic(Claude), xAI(Grok) 등 주요 AI 서비스가 동시에 중단되는 현상 발생",
+          "Cloudflare, AWS 등 공통 CDN/DDoS 방어 인프라 장애 또는 업스트림 ISP 문제가 원인으로 추정됨",
+          "서로 다른 AI 기업이라도 백엔드 인프라 파이프라인의 단일 장애점(SPOF)을 공유할 수 있음을 시사"
+        ]
+      },
+      "en": {
+        "title": "Ask HN: Why are OpenAI, Claude, and Grok simultaneously down? Coincidence?",
+        "hook": "Technical discussion analyzing simultaneous LLM service outages and shared infrastructure dependencies",
+        "key_takeaways": [
+          "Major AI services (OpenAI, Claude, Grok) experienced concurrent downtime.",
+          "Discussions point toward shared cloud infrastructure issues like Cloudflare, AWS, or upstream ISP disruptions.",
+          "Highlights how independent AI vendors share single points of failure at the network/CDN layer."
+        ]
+      },
+      "zh": {
+        "title": "Ask HN：为什么 OpenAI、Claude 和 Grok 同时服务中断？是巧合吗？",
+        "hook": "技术社区针对大型 LLM 服务同时宕机原因及底层公共云基础设施依赖性的分析与讨论",
+        "key_takeaways": [
+          "OpenAI、Anthropic (Claude) 和 xAI (Grok) 等主要 AI 服务出现了同时段中断",
+          "推测原因可能是 Cloudflare、AWS 等公共 CDN/DDoS 防护设施或上游网络运营商故障",
+          "揭示了不同 AI 厂商在网络与云基础架构层面存在单点故障 (SPOF) 依赖"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Ask HN: OpenAI, Claude, Grok이 동시에 중단된 이유는 무엇일까요? 우연일까요?",
+      "hook": "주요 LLM 서비스들의 동시 장애 원인과 공통 클라우드 인프라 의존성에 대한 기술 커뮤니티의 분석 및 토론",
+      "key_takeaways": [
+        "OpenAI, Anthropic(Claude), xAI(Grok) 등 주요 AI 서비스가 동시에 중단되는 현상 발생",
+        "Cloudflare, AWS 등 공통 CDN/DDoS 방어 인프라 장애 또는 업스트림 ISP 문제가 원인으로 추정됨",
+        "서로 다른 AI 기업이라도 백엔드 인프라 파이프라인의 단일 장애점(SPOF)을 공유할 수 있음을 시사"
+      ]
+    },
+    "en": {
+      "title": "Ask HN: Why are OpenAI, Claude, and Grok simultaneously down? Coincidence?",
+      "hook": "Technical discussion analyzing simultaneous LLM service outages and shared infrastructure dependencies",
+      "key_takeaways": [
+        "Major AI services (OpenAI, Claude, Grok) experienced concurrent downtime.",
+        "Discussions point toward shared cloud infrastructure issues like Cloudflare, AWS, or upstream ISP disruptions.",
+        "Highlights how independent AI vendors share single points of failure at the network/CDN layer."
+      ]
+    },
+    "zh": {
+      "title": "Ask HN：为什么 OpenAI、Claude 和 Grok 同时服务中断？是巧合吗？",
+      "hook": "技术社区针对大型 LLM 服务同时宕机原因及底层公共云基础设施依赖性的分析与讨论",
+      "key_takeaways": [
+        "OpenAI、Anthropic (Claude) 和 xAI (Grok) 等主要 AI 服务出现了同时段中断",
+        "推测原因可能是 Cloudflare、AWS 等公共 CDN/DDoS 防护设施或上游网络运营商故障",
+        "揭示了不同 AI 厂商在网络与云基础架构层面存在单点故障 (SPOF) 依赖"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Outage",
+    "OpenAI",
+    "Claude",
+    "Grok",
+    "Cloudflare",
+    "Infrastructure"
+  ],
+  "title_ko": "Ask HN: Why are OpenAI, Claude, and Grok simultaneously down? Coincidence?",
+  "hook_ko": "주요 LLM 서비스들의 동시 장애 원인과 공통 클라우드 인프라 의존성에 대한 기술 커뮤니티의 분석 및 토론",
+  "title_en": "Ask HN: Why are OpenAI, Claude, and Grok simultaneously down? Coincidence?",
+  "hook_en": "Technical discussion analyzing simultaneous LLM service outages and shared infrastructure dependencies",
+  "title_zh": "Ask HN：为什么 OpenAI、Claude 和 Grok 同时服务中断？是巧合吗？",
+  "hook_zh": "技术社区针对大型 LLM 服务同时宕机原因及底层公共云基础设施依赖性的分析与讨论",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.823257",
+  "description_ko": "해커뉴스에서 79점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

@@ -9,7 +9,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33206",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: CLIProxyAPI - AI 구독 계정을 호환 API로 노출하는 프록시",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -32,8 +32,97 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "CLIProxyAPI - AI 구독 계정을 호환 API로 노출하는 프록시",
-  "description_ko": "CLIProxyAPI - AI 구독 계정을 호환 API로 노출하는 프록시",
+  "title_ko": "GeekNews: CLIProxyAPI - AI 구독 계정을 호환 API로 노출하는 프록시",
+  "description_ko": "GeekNews Korean Tech Trend: CLIProxyAPI - AI 구독 계정을 호환 API로 노출하는 프록시",
   "hn_url": "https://news.hada.io/topic?id=33206",
-  "article_url": "https://news.hada.io/topic?id=33206"
+  "article_url": "https://news.hada.io/topic?id=33206",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_geeknews_cliproxyapi_ai_구독_계정을_호환_api로_노출하는_프",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "API Gateway / Proxy",
+    "category": "Developer Tools",
+    "programming_lang": "General",
+    "root_keywords": [
+      "CLIProxyAPI",
+      "AI Proxy",
+      "OpenAI API Compatibility",
+      "AI Subscriptions"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "CLIProxyAPI - AI 구독 계정을 표준 호환 API로 노출하는 프록시",
+        "hook": "개인용 AI 웹 구독 계정을 OpenAI 호환 REST API로 변환하여 외부 앱에서 활용 가능하게 해주는 프록시 도구.",
+        "key_takeaways": [
+          "개인 AI 구독 서비스(ChatGPT, Claude 등)의 세션을 활용하여 API 형태로 변환",
+          "OpenAI API 규격과 호환되어 기존 AI 클라이언트 및 개발 환경에 쉽게 연동",
+          "API 호출 비용 절감 및 테스트 환경 구축에 유용한 개발자 도구"
+        ]
+      },
+      "en": {
+        "title": "CLIProxyAPI - Proxy Exposing AI Subscriptions as Compatible APIs",
+        "hook": "A proxy tool that exposes personal AI subscription accounts as OpenAI-compatible REST APIs for external app integration.",
+        "key_takeaways": [
+          "Converts personal AI subscriptions (ChatGPT, Claude, etc.) into accessible API endpoints using web sessions",
+          "Compatible with OpenAI API specs for seamless integration with existing tools and clients",
+          "Useful developer tool for reducing API costs and quick prototyping"
+        ]
+      },
+      "zh": {
+        "title": "CLIProxyAPI - 将 AI 订阅账户暴露为兼容 API 的代理工具",
+        "hook": "将个人 AI 订阅服务账户转换为 OpenAI 兼容的 REST API 接口，方便第三方应用调用的代理工具。",
+        "key_takeaways": [
+          "利用个人 AI 订阅服务 Web 会话并将其暴露为标准 REST API",
+          "兼容 OpenAI API 规范，可直接无缝对接现有的 AI 客户端与工具",
+          "有助于降低 API 使用成本并简化本地测试与开发"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "CLIProxyAPI - AI 구독 계정을 표준 호환 API로 노출하는 프록시",
+      "hook": "개인용 AI 웹 구독 계정을 OpenAI 호환 REST API로 변환하여 외부 앱에서 활용 가능하게 해주는 프록시 도구.",
+      "key_takeaways": [
+        "개인 AI 구독 서비스(ChatGPT, Claude 등)의 세션을 활용하여 API 형태로 변환",
+        "OpenAI API 규격과 호환되어 기존 AI 클라이언트 및 개발 환경에 쉽게 연동",
+        "API 호출 비용 절감 및 테스트 환경 구축에 유용한 개발자 도구"
+      ]
+    },
+    "en": {
+      "title": "CLIProxyAPI - Proxy Exposing AI Subscriptions as Compatible APIs",
+      "hook": "A proxy tool that exposes personal AI subscription accounts as OpenAI-compatible REST APIs for external app integration.",
+      "key_takeaways": [
+        "Converts personal AI subscriptions (ChatGPT, Claude, etc.) into accessible API endpoints using web sessions",
+        "Compatible with OpenAI API specs for seamless integration with existing tools and clients",
+        "Useful developer tool for reducing API costs and quick prototyping"
+      ]
+    },
+    "zh": {
+      "title": "CLIProxyAPI - 将 AI 订阅账户暴露为兼容 API 的代理工具",
+      "hook": "将个人 AI 订阅服务账户转换为 OpenAI 兼容的 REST API 接口，方便第三方应用调用的代理工具。",
+      "key_takeaways": [
+        "利用个人 AI 订阅服务 Web 会话并将其暴露为标准 REST API",
+        "兼容 OpenAI API 规范，可直接无缝对接现有的 AI 客户端与工具",
+        "有助于降低 API 使用成本并简化本地测试与开发"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "CLIProxyAPI",
+    "AI Proxy",
+    "OpenAI API Compatibility",
+    "AI Subscriptions"
+  ],
+  "hook_ko": "개인용 AI 웹 구독 계정을 OpenAI 호환 REST API로 변환하여 외부 앱에서 활용 가능하게 해주는 프록시 도구.",
+  "title_en": "CLIProxyAPI - Proxy Exposing AI Subscriptions as Compatible APIs",
+  "hook_en": "A proxy tool that exposes personal AI subscription accounts as OpenAI-compatible REST APIs for external app integration.",
+  "title_zh": "CLIProxyAPI - 将 AI 订阅账户暴露为兼容 API 的代理工具",
+  "hook_zh": "将个人 AI 订阅服务账户转换为 OpenAI 兼容的 REST API 接口，方便第三方应用调用的代理工具。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.775021"
 }

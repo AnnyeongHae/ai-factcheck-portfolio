@@ -9,7 +9,7 @@
   "source_platform": "GeekNews",
   "source_url": "https://news.hada.io/topic?id=33193",
   "type": "sns",
-  "category_type": "NEWS",
+  "category_type": "TECH",
   "description": "GeekNews Korean Tech Trend: Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
   "viral_metric": "🇰🇷 GeekNews 큐레이션",
   "metric_tracking": {
@@ -32,8 +32,97 @@
     "일반 최신 기술 (Tech General)"
   ],
   "status": "PENDING_REVIEW",
-  "title_ko": "Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
-  "description_ko": "Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
+  "title_ko": "GeekNews: Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
+  "description_ko": "GeekNews Korean Tech Trend: Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
   "hn_url": "https://news.hada.io/topic?id=33193",
-  "article_url": "https://news.hada.io/topic?id=33193"
+  "article_url": "https://news.hada.io/topic?id=33193",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_geeknews_show_gn_first_mind_정보보안에_있어서_진입장벽을_없",
+    "source_lang": "KO",
+    "type_classification": "TECH",
+    "model_family": "Information Security Tools",
+    "category": "Cybersecurity",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Information Security",
+      "Cybersecurity",
+      "Accessibility",
+      "Security Education"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
+        "hook": "정보보안 입문자와 개발자들을 위해 보안 기술의 학습 및 적용 진입장벽을 낮추려는 프로젝트",
+        "key_takeaways": [
+          "복잡한 정보보안 개념과 실무 접근성의 격차 해소 시도",
+          "보안 초보자를 위한 단계별 가이드라인 및 도구 모음 제공",
+          "개발자 친화적인 보안 문화 조성 및 커뮤니티 공유"
+        ]
+      },
+      "en": {
+        "title": "Show GN: First Mind - Lowering the Entry Barrier to Information Security",
+        "hook": "An initiative aimed at lowering learning and implementation barriers in information security for developers and beginners.",
+        "key_takeaways": [
+          "Bridging the gap between complex security concepts and practical execution",
+          "Providing step-by-step guidelines and toolsets for security newcomers",
+          "Fostering a developer-friendly security culture and community sharing"
+        ]
+      },
+      "zh": {
+        "title": "Show GN: First Mind - 降低信息安全的入门门槛",
+        "hook": "旨在为开发者和初学者降低信息安全学习与实践门槛的开放项目",
+        "key_takeaways": [
+          "弥合复杂信息安全概念与实际落地之间的差距",
+          "为网络安全新手提供循序渐进的指南和工具集",
+          "营造对开发者友好的安全文化并促进社区分享"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Show GN: First Mind - 정보보안에 있어서 진입장벽을 없애보자",
+      "hook": "정보보안 입문자와 개발자들을 위해 보안 기술의 학습 및 적용 진입장벽을 낮추려는 프로젝트",
+      "key_takeaways": [
+        "복잡한 정보보안 개념과 실무 접근성의 격차 해소 시도",
+        "보안 초보자를 위한 단계별 가이드라인 및 도구 모음 제공",
+        "개발자 친화적인 보안 문화 조성 및 커뮤니티 공유"
+      ]
+    },
+    "en": {
+      "title": "Show GN: First Mind - Lowering the Entry Barrier to Information Security",
+      "hook": "An initiative aimed at lowering learning and implementation barriers in information security for developers and beginners.",
+      "key_takeaways": [
+        "Bridging the gap between complex security concepts and practical execution",
+        "Providing step-by-step guidelines and toolsets for security newcomers",
+        "Fostering a developer-friendly security culture and community sharing"
+      ]
+    },
+    "zh": {
+      "title": "Show GN: First Mind - 降低信息安全的入门门槛",
+      "hook": "旨在为开发者和初学者降低信息安全学习与实践门槛的开放项目",
+      "key_takeaways": [
+        "弥合复杂信息安全概念与实际落地之间的差距",
+        "为网络安全新手提供循序渐进的指南和工具集",
+        "营造对开发者友好的安全文化并促进社区分享"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Information Security",
+    "Cybersecurity",
+    "Accessibility",
+    "Security Education"
+  ],
+  "hook_ko": "정보보안 입문자와 개발자들을 위해 보안 기술의 학습 및 적용 진입장벽을 낮추려는 프로젝트",
+  "title_en": "Show GN: First Mind - Lowering the Entry Barrier to Information Security",
+  "hook_en": "An initiative aimed at lowering learning and implementation barriers in information security for developers and beginners.",
+  "title_zh": "Show GN: First Mind - 降低信息安全的入门门槛",
+  "hook_zh": "旨在为开发者和初学者降低信息安全学习与实践门槛的开放项目",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.781893"
 }

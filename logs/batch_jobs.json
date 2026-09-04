@@ -3256,9 +3256,9 @@
     "gemini_job_name": "batches/ovxj3nor3sc57o14zg867h740cxw0kb3vwt5",
     "model": "models/gemini-3.6-flash",
     "item_count": 128,
-    "status": "JOB_STATE_RUNNING",
+    "status": "HARVESTED",
     "submitted_at": "2026-09-04T13:10:26.250045",
-    "completed_at": null,
+    "completed_at": "2026-09-04T14:48:40.877828",
     "items": [
       {
         "inbox_id": "2026-09-03_repo_hacker_news_prime_gaps_at_most_186",
@@ -3772,6 +3772,11 @@
         "inbox_id": "2026-09-04_sns_hugging_face_blog_neomme_an_efficient_multimo",
         "title": "Hugging Face Blog: NeoMME: an efficient Multimodal-native and Multilingual Encoder"
       }
-    ]
+    ],
+    "total_prompt_tokens": 64850,
+    "total_candidate_tokens": 76194,
+    "total_tokens": 141044,
+    "cost_usd": 0.02772195,
+    "cost_krw": 38.256291
   }
 ]

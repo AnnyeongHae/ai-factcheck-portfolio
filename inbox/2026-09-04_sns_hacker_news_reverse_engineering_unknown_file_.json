@@ -33,5 +33,98 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49508608",
-  "article_url": "https://werwolv.net/posts/file_format_reverse_engineering/"
+  "article_url": "https://werwolv.net/posts/file_format_reverse_engineering/",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_reverse_engineering_unknown_file_",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Reverse Engineering Tools",
+    "category": "Security & Software Engineering",
+    "programming_lang": "C++",
+    "root_keywords": [
+      "ImHex",
+      "Reverse Engineering",
+      "Hex Editor",
+      "Binary Analysis",
+      "File Formats"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.3,
+    "multilingual": {
+      "ko": {
+        "title": "ImHex를 활용한 알 수 없는 파일 형식 역공학(리버스 엔지니어링)",
+        "hook": "고급 헥스 에디터 ImHex를 사용하여 미지의 바이너리 파일 구조를 파싱하고 실전 역공학하는 기법",
+        "key_takeaways": [
+          "ImHex 커스텀 패턴 언어(Pattern Language)를 이용한 바이너리 구조 시각화 및 자동 파싱",
+          "알 수 없는 파일 포맷의 헤더, 데이터 영역, 체크섬 등을 도출하는 단계별 접근법",
+          "다양한 엔디언 및 비트 필드 대응을 포함한 실전 바이너리 분석 워크플로우"
+        ]
+      },
+      "en": {
+        "title": "Reverse Engineering Unknown File Formats with ImHex",
+        "hook": "A practical guide to analyzing and parsing unknown binary file structures using the ImHex editor",
+        "key_takeaways": [
+          "Visualizing and parsing binary structures with ImHex's powerful custom Pattern Language",
+          "Step-by-step methodology for identifying headers, data fields, and checksums in mystery formats",
+          "Streamlined binary analysis workflow accommodating diverse endianness and bitfield layouts"
+        ]
+      },
+      "zh": {
+        "title": "使用 ImHex 逆向工程未知文件格式",
+        "hook": "利用 ImHex 十六进制编辑器分析和解析未知二进制文件结构的实战指南",
+        "key_takeaways": [
+          "利用 ImHex 强大的自定义模式语言（Pattern Language）可视化解析二进制数据",
+          "推断未知文件格式中的标头、数据区域和校验和的步骤方法",
+          "针对不同端序和位域布局的高效二进制分析工作流"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "ImHex를 활용한 알 수 없는 파일 형식 역공학(리버스 엔지니어링)",
+      "hook": "고급 헥스 에디터 ImHex를 사용하여 미지의 바이너리 파일 구조를 파싱하고 실전 역공학하는 기법",
+      "key_takeaways": [
+        "ImHex 커스텀 패턴 언어(Pattern Language)를 이용한 바이너리 구조 시각화 및 자동 파싱",
+        "알 수 없는 파일 포맷의 헤더, 데이터 영역, 체크섬 등을 도출하는 단계별 접근법",
+        "다양한 엔디언 및 비트 필드 대응을 포함한 실전 바이너리 분석 워크플로우"
+      ]
+    },
+    "en": {
+      "title": "Reverse Engineering Unknown File Formats with ImHex",
+      "hook": "A practical guide to analyzing and parsing unknown binary file structures using the ImHex editor",
+      "key_takeaways": [
+        "Visualizing and parsing binary structures with ImHex's powerful custom Pattern Language",
+        "Step-by-step methodology for identifying headers, data fields, and checksums in mystery formats",
+        "Streamlined binary analysis workflow accommodating diverse endianness and bitfield layouts"
+      ]
+    },
+    "zh": {
+      "title": "使用 ImHex 逆向工程未知文件格式",
+      "hook": "利用 ImHex 十六进制编辑器分析和解析未知二进制文件结构的实战指南",
+      "key_takeaways": [
+        "利用 ImHex 强大的自定义模式语言（Pattern Language）可视化解析二进制数据",
+        "推断未知文件格式中的标头、数据区域和校验和的步骤方法",
+        "针对不同端序和位域布局的高效二进制分析工作流"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "C++",
+  "root_keywords": [
+    "ImHex",
+    "Reverse Engineering",
+    "Hex Editor",
+    "Binary Analysis",
+    "File Formats"
+  ],
+  "title_ko": "Reverse Engineering Unknown File Formats with ImHex",
+  "hook_ko": "고급 헥스 에디터 ImHex를 사용하여 미지의 바이너리 파일 구조를 파싱하고 실전 역공학하는 기법",
+  "title_en": "Reverse Engineering Unknown File Formats with ImHex",
+  "hook_en": "A practical guide to analyzing and parsing unknown binary file structures using the ImHex editor",
+  "title_zh": "使用 ImHex 逆向工程未知文件格式",
+  "hook_zh": "利用 ImHex 十六进制编辑器分析和解析未知二进制文件结构的实战指南",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.862285",
+  "description_ko": "해커뉴스에서 243점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

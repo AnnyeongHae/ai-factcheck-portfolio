@@ -31,5 +31,98 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_differentiable_interval_bottlenecks_for",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Autoencoders / Explainable AI",
+    "category": "Anomaly Detection",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Interval Bottleneck",
+      "Interpretable Machine Learning",
+      "Anomaly Detection",
+      "Autoencoders",
+      "DIFFINT"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "수치형 데이터의 설명 가능한 이상 탐지를 위한 미분 가능한 구간 병목 (DIFFINT)",
+        "hook": "미분 가능한 구간 병목을 통해 오토인코더 기반 이상 탐지의 설명 가능성과 투명성을 제공",
+        "key_takeaways": [
+          "기존 재구성 기반 이상 탐지 모델의 블랙박스 문제를 해결하는 DIFFINT 구조 제안",
+          "어떤 수치형 특성 범위가 이상을 유발했는지 미분 가능한 구간 병목을 통해 직접 설명 가능",
+          "재구성 정확도를 높게 유지하면서 실무자 친화적인 원인 특성 해석력 제공"
+        ]
+      },
+      "en": {
+        "title": "Differentiable Interval Bottlenecks for Interpretable Anomaly Detection in Numerical Data",
+        "hook": "Enhances deep autoencoder anomaly detection with differentiable interval bottlenecks for precise feature-level interpretability.",
+        "key_takeaways": [
+          "Proposes DIFFINT to solve the black-box issue of deep reconstruction-based anomaly detectors.",
+          "Identifies exact anomalous feature ranges through differentiable interval bottlenecks.",
+          "Maintains strong detection performance while offering actionable explanations to practitioners."
+        ]
+      },
+      "zh": {
+        "title": "用于数值数据可解释异常检测的可微区间瓶颈（DIFFINT）",
+        "hook": "引入可微区间瓶颈机制，为自编码器异常检测提供明确的特征范围解释",
+        "key_takeaways": [
+          "提出 DIFFINT 架构，解决传统重构型异常检测器无法解释具体异常特征区间的缺点",
+          "利用可微区间瓶颈直接标定导致模型报警的具体数值范围",
+          "在保留深度自编码器高精度特性的同时提升模型的可解释性与实用价值"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "수치형 데이터의 설명 가능한 이상 탐지를 위한 미분 가능한 구간 병목 (DIFFINT)",
+      "hook": "미분 가능한 구간 병목을 통해 오토인코더 기반 이상 탐지의 설명 가능성과 투명성을 제공",
+      "key_takeaways": [
+        "기존 재구성 기반 이상 탐지 모델의 블랙박스 문제를 해결하는 DIFFINT 구조 제안",
+        "어떤 수치형 특성 범위가 이상을 유발했는지 미분 가능한 구간 병목을 통해 직접 설명 가능",
+        "재구성 정확도를 높게 유지하면서 실무자 친화적인 원인 특성 해석력 제공"
+      ]
+    },
+    "en": {
+      "title": "Differentiable Interval Bottlenecks for Interpretable Anomaly Detection in Numerical Data",
+      "hook": "Enhances deep autoencoder anomaly detection with differentiable interval bottlenecks for precise feature-level interpretability.",
+      "key_takeaways": [
+        "Proposes DIFFINT to solve the black-box issue of deep reconstruction-based anomaly detectors.",
+        "Identifies exact anomalous feature ranges through differentiable interval bottlenecks.",
+        "Maintains strong detection performance while offering actionable explanations to practitioners."
+      ]
+    },
+    "zh": {
+      "title": "用于数值数据可解释异常检测的可微区间瓶颈（DIFFINT）",
+      "hook": "引入可微区间瓶颈机制，为自编码器异常检测提供明确的特征范围解释",
+      "key_takeaways": [
+        "提出 DIFFINT 架构，解决传统重构型异常检测器无法解释具体异常特征区间的缺点",
+        "利用可微区间瓶颈直接标定导致模型报警的具体数值范围",
+        "在保留深度自编码器高精度特性的同时提升模型的可解释性与实用价值"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Interval Bottleneck",
+    "Interpretable Machine Learning",
+    "Anomaly Detection",
+    "Autoencoders",
+    "DIFFINT"
+  ],
+  "title_ko": "Differentiable Interval Bottlenecks for Interpretable Anomaly Detection in Numerical Data",
+  "hook_ko": "미분 가능한 구간 병목을 통해 오토인코더 기반 이상 탐지의 설명 가능성과 투명성을 제공",
+  "title_en": "Differentiable Interval Bottlenecks for Interpretable Anomaly Detection in Numerical Data",
+  "hook_en": "Enhances deep autoencoder anomaly detection with differentiable interval bottlenecks for precise feature-level interpretability.",
+  "title_zh": "用于数值数据可解释异常检测的可微区间瓶颈（DIFFINT）",
+  "hook_zh": "引入可微区间瓶颈机制，为自编码器异常检测提供明确的特征范围解释",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.737668",
+  "description_ko": "Abstract: Reconstruction-based anomaly detectors are accurate but opaque: a deep autoencoder flags a sample without telling a practitioner which feature ranges made it anomalous. We propose DIFFINT, an autoenco..."
 }

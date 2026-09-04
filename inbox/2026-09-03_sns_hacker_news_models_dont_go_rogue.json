@@ -33,5 +33,96 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49557988",
-  "article_url": "https://mail.cyberneticforests.com/models-dont-go-rogue/"
+  "article_url": "https://mail.cyberneticforests.com/models-dont-go-rogue/",
+  "ai_enrichment": {
+    "id": "2026-09-03_sns_hacker_news_models_dont_go_rogue",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "AI Safety",
+    "category": "AI Safety & Governance",
+    "programming_lang": "General",
+    "root_keywords": [
+      "AI Safety",
+      "Model Alignment",
+      "Rogue AI",
+      "LLM Behavior"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.5,
+    "multilingual": {
+      "ko": {
+        "title": "모델은 스스로 폭주하지 않는다 (Models Don't Go Rogue)",
+        "hook": "AI 모델의 자율적 통제 상실 가능성과 실제 제어 구조에 대한 분석적 논의",
+        "key_takeaways": [
+          "AI 모델이 자율적 의지를 갖고 통제를 벗어난다는 오해에 대한 반론",
+          "모델 동작은 학습 데이터, 프롬프트, 외부 시스템 접근 권한에 의해 결정됨",
+          "AI 위험 관리는 모델 자체보다 배포 환경과 거버넌스 프레임워크에 집중되어야 함"
+        ]
+      },
+      "en": {
+        "title": "Models Don't Go Rogue",
+        "hook": "An analytical discussion on the reality of AI safety and model control mechanisms.",
+        "key_takeaways": [
+          "Debunking misconceptions about AI models developing autonomous agency to go rogue",
+          "Model actions remain bounded by training, prompt context, and system integrations",
+          "Focus should remain on system guardrails and deployment governance rather than anthropomorphizing risk"
+        ]
+      },
+      "zh": {
+        "title": "模型不会失控走偏 (Models Don't Go Rogue)",
+        "hook": "探讨 AI 模型控制机制与自主失控现实性的技术分析",
+        "key_takeaways": [
+          "澄清关于 AI 模型具有自主意识并试图摆脱控制的误区",
+          "模型的实际行为受限于训练数据、提示词以及外部系统的接入权限",
+          "AI 风险管理的重点在于系统护栏和部署治理，而非对模型进行拟人化设想"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "모델은 스스로 폭주하지 않는다 (Models Don't Go Rogue)",
+      "hook": "AI 모델의 자율적 통제 상실 가능성과 실제 제어 구조에 대한 분석적 논의",
+      "key_takeaways": [
+        "AI 모델이 자율적 의지를 갖고 통제를 벗어난다는 오해에 대한 반론",
+        "모델 동작은 학습 데이터, 프롬프트, 외부 시스템 접근 권한에 의해 결정됨",
+        "AI 위험 관리는 모델 자체보다 배포 환경과 거버넌스 프레임워크에 집중되어야 함"
+      ]
+    },
+    "en": {
+      "title": "Models Don't Go Rogue",
+      "hook": "An analytical discussion on the reality of AI safety and model control mechanisms.",
+      "key_takeaways": [
+        "Debunking misconceptions about AI models developing autonomous agency to go rogue",
+        "Model actions remain bounded by training, prompt context, and system integrations",
+        "Focus should remain on system guardrails and deployment governance rather than anthropomorphizing risk"
+      ]
+    },
+    "zh": {
+      "title": "模型不会失控走偏 (Models Don't Go Rogue)",
+      "hook": "探讨 AI 模型控制机制与自主失控现实性的技术分析",
+      "key_takeaways": [
+        "澄清关于 AI 模型具有自主意识并试图摆脱控制的误区",
+        "模型的实际行为受限于训练数据、提示词以及外部系统的接入权限",
+        "AI 风险管理的重点在于系统护栏和部署治理，而非对模型进行拟人化设想"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "AI Safety",
+    "Model Alignment",
+    "Rogue AI",
+    "LLM Behavior"
+  ],
+  "title_ko": "Models Don't Go Rogue",
+  "hook_ko": "AI 모델의 자율적 통제 상실 가능성과 실제 제어 구조에 대한 분석적 논의",
+  "title_en": "Models Don't Go Rogue",
+  "hook_en": "An analytical discussion on the reality of AI safety and model control mechanisms.",
+  "title_zh": "模型不会失控走偏 (Models Don't Go Rogue)",
+  "hook_zh": "探讨 AI 模型控制机制与自主失控现实性的技术分析",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.689103",
+  "description_ko": "해커뉴스에서 3점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

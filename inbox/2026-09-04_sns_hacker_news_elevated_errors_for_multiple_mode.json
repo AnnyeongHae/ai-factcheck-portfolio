@@ -33,5 +33,96 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49549676",
-  "article_url": "https://status.claude.com/incidents/461yvfrzpwtt"
+  "article_url": "https://status.claude.com/incidents/461yvfrzpwtt",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_elevated_errors_for_multiple_mode",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "LLM Infrastructure",
+    "category": "AI Infrastructure & Operations",
+    "programming_lang": "General",
+    "root_keywords": [
+      "LLM Outage",
+      "API Error Rate",
+      "Model Availability",
+      "System Reliability"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "Hacker News: 다중 모델 서비스 오류율 증가 보고",
+        "hook": "주요 AI 모델 API 장애 및 에러율 급증 현상에 대한 개발자 커뮤니티의 분석",
+        "key_takeaways": [
+          "여러 대형 언어 모델(LLM) 서비스에서 동시 다발적인 API 오류율 증가 관찰",
+          "인프라 과부하 및 백엔드 라우팅 장애 관련 논의 활성화",
+          "생산 환경에서의 다중 프로바이더 폴백(Fallback) 및 장애 복구 전략의 중요성 재조명"
+        ]
+      },
+      "en": {
+        "title": "Hacker News: Elevated Errors for Multiple Models",
+        "hook": "Community discussion on elevated error rates and service disruptions across multiple AI models",
+        "key_takeaways": [
+          "Reports of widespread elevated error rates across multiple major LLM APIs.",
+          "Developer discussions analyzing potential backend infrastructure bottlenecks and dependency issues.",
+          "Emphasizes the need for multi-provider failover strategies in production AI applications."
+        ]
+      },
+      "zh": {
+        "title": "Hacker News: 多个模型 API 错误率上升",
+        "hook": "关于多个 AI 模型 API 出现高错误率与服务中断的开发者社区讨论",
+        "key_takeaways": [
+          "多个主流大语言模型 API 出现广泛的错误率飙升情况。",
+          "开发者针对后端基础架构瓶颈与依赖项故障进行深入讨论。",
+          "凸显了在生产环境中构建多提供商容灾与降级策略的重要性。"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Hacker News: 다중 모델 서비스 오류율 증가 보고",
+      "hook": "주요 AI 모델 API 장애 및 에러율 급증 현상에 대한 개발자 커뮤니티의 분석",
+      "key_takeaways": [
+        "여러 대형 언어 모델(LLM) 서비스에서 동시 다발적인 API 오류율 증가 관찰",
+        "인프라 과부하 및 백엔드 라우팅 장애 관련 논의 활성화",
+        "생산 환경에서의 다중 프로바이더 폴백(Fallback) 및 장애 복구 전략의 중요성 재조명"
+      ]
+    },
+    "en": {
+      "title": "Hacker News: Elevated Errors for Multiple Models",
+      "hook": "Community discussion on elevated error rates and service disruptions across multiple AI models",
+      "key_takeaways": [
+        "Reports of widespread elevated error rates across multiple major LLM APIs.",
+        "Developer discussions analyzing potential backend infrastructure bottlenecks and dependency issues.",
+        "Emphasizes the need for multi-provider failover strategies in production AI applications."
+      ]
+    },
+    "zh": {
+      "title": "Hacker News: 多个模型 API 错误率上升",
+      "hook": "关于多个 AI 模型 API 出现高错误率与服务中断的开发者社区讨论",
+      "key_takeaways": [
+        "多个主流大语言模型 API 出现广泛的错误率飙升情况。",
+        "开发者针对后端基础架构瓶颈与依赖项故障进行深入讨论。",
+        "凸显了在生产环境中构建多提供商容灾与降级策略的重要性。"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "LLM Outage",
+    "API Error Rate",
+    "Model Availability",
+    "System Reliability"
+  ],
+  "title_ko": "Elevated Errors for Multiple Models",
+  "hook_ko": "주요 AI 모델 API 장애 및 에러율 급증 현상에 대한 개발자 커뮤니티의 분석",
+  "title_en": "Hacker News: Elevated Errors for Multiple Models",
+  "hook_en": "Community discussion on elevated error rates and service disruptions across multiple AI models",
+  "title_zh": "Hacker News: 多个模型 API 错误率上升",
+  "hook_zh": "关于多个 AI 模型 API 出现高错误率与服务中断的开发者社区讨论",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.833483",
+  "description_ko": "해커뉴스에서 193점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

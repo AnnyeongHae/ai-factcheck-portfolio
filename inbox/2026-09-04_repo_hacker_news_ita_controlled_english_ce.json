@@ -9,7 +9,7 @@
   "source_platform": "Hacker News",
   "source_url": "https://news.ycombinator.com/item?id=49532544",
   "type": "repo",
-  "category_type": "REPO",
+  "category_type": "NEWS",
   "description": "HN Score: 6 pts | Comments: 1 | ITA Controlled English (CE)",
   "viral_metric": "🔥 6 HN Points",
   "metric_tracking": {
@@ -33,5 +33,98 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49532544",
-  "article_url": "https://github.com/ce-store/ce-store"
+  "article_url": "https://github.com/ce-store/ce-store",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_hacker_news_ita_controlled_english_ce",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Knowledge Representation",
+    "category": "Natural Language Processing",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Controlled English",
+      "Knowledge Representation",
+      "Ontology Modeling",
+      "Formal Logic",
+      "IBM CE"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 2.5,
+    "multilingual": {
+      "ko": {
+        "title": "ITA 통제 언어 (Controlled English, CE)",
+        "hook": "사람이 읽기 쉬운 명확한 문법 규칙으로 지식을 표현하고 기계 추론을 가능하게 하는 통제 언어 체계",
+        "key_takeaways": [
+          "자연어의 모호성을 제거하여 기계 독해 및 논리적 추론 정밀도 향상",
+          "온톨로지 모델링과 지식 베이스 구축을 위한 구조화된 문법 규격 제공",
+          "도메인 전문가와 개발자 간의 명세 전달 및 인간-기계 협업 효율 증대"
+        ]
+      },
+      "en": {
+        "title": "ITA Controlled English (CE)",
+        "hook": "A controlled language specification designed to represent domain knowledge and support machine reasoning through human-readable syntax.",
+        "key_takeaways": [
+          "Eliminates natural language ambiguity for precise automated parsing and logical inference",
+          "Provides a structured syntax framework for ontology modeling and knowledge base construction",
+          "Enhances human-machine collaboration by bridging domain experts and technical implementation"
+        ]
+      },
+      "zh": {
+        "title": "ITA 受控英语 (Controlled English, CE)",
+        "hook": "一种通过人类易读的语法表达领域知识并支持机器逻辑推理的受控语言规范",
+        "key_takeaways": [
+          "消除自然语言的歧义性，提升自动解析与逻辑推理的精确度",
+          "为本体建模与知识库构建提供结构化的语法规则框架",
+          "弥合领域专家与技术实现之间的鸿沟，提升人机协作效率"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "ITA 통제 언어 (Controlled English, CE)",
+      "hook": "사람이 읽기 쉬운 명확한 문법 규칙으로 지식을 표현하고 기계 추론을 가능하게 하는 통제 언어 체계",
+      "key_takeaways": [
+        "자연어의 모호성을 제거하여 기계 독해 및 논리적 추론 정밀도 향상",
+        "온톨로지 모델링과 지식 베이스 구축을 위한 구조화된 문법 규격 제공",
+        "도메인 전문가와 개발자 간의 명세 전달 및 인간-기계 협업 효율 증대"
+      ]
+    },
+    "en": {
+      "title": "ITA Controlled English (CE)",
+      "hook": "A controlled language specification designed to represent domain knowledge and support machine reasoning through human-readable syntax.",
+      "key_takeaways": [
+        "Eliminates natural language ambiguity for precise automated parsing and logical inference",
+        "Provides a structured syntax framework for ontology modeling and knowledge base construction",
+        "Enhances human-machine collaboration by bridging domain experts and technical implementation"
+      ]
+    },
+    "zh": {
+      "title": "ITA 受控英语 (Controlled English, CE)",
+      "hook": "一种通过人类易读的语法表达领域知识并支持机器逻辑推理的受控语言规范",
+      "key_takeaways": [
+        "消除自然语言的歧义性，提升自动解析与逻辑推理的精确度",
+        "为本体建模与知识库构建提供结构化的语法规则框架",
+        "弥合领域专家与技术实现之间的鸿沟，提升人机协作效率"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Controlled English",
+    "Knowledge Representation",
+    "Ontology Modeling",
+    "Formal Logic",
+    "IBM CE"
+  ],
+  "title_ko": "ITA Controlled English (CE)",
+  "hook_ko": "사람이 읽기 쉬운 명확한 문법 규칙으로 지식을 표현하고 기계 추론을 가능하게 하는 통제 언어 체계",
+  "title_en": "ITA Controlled English (CE)",
+  "hook_en": "A controlled language specification designed to represent domain knowledge and support machine reasoning through human-readable syntax.",
+  "title_zh": "ITA 受控英语 (Controlled English, CE)",
+  "hook_zh": "一种通过人类易读的语法表达领域知识并支持机器逻辑推理的受控语言规范",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.768995",
+  "description_ko": "해커뉴스에서 6점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

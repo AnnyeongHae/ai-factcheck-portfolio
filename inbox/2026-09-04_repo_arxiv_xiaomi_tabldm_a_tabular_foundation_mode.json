@@ -31,5 +31,96 @@
   "matched_user_domains": [
     "일반 최신 기술 (Tech General)"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_xiaomi_tabldm_a_tabular_foundation_mode",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Tabular Foundation Model",
+    "category": "Machine Learning",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Tabular Foundation Model",
+      "In-Context Learning",
+      "Classification & Regression",
+      "Zero-shot Inference"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "샤오미 TabLDM: 테이블형 데이터 기반 파운데이션 모델 기술 보고서",
+        "hook": "별도의 파인튜닝 없이 인텍스트 러닝만으로 높은 정확도를 달성하는 샤오미의 테이블 파운데이션 모델",
+        "key_takeaways": [
+          "별도의 태스크 전용 미세조정(Fine-tuning) 없이 인텍스트 러닝(In-context learning)만으로 예측 가능",
+          "테이블형 데이터의 분류(Classification) 및 회귀(Regression) 문제에서 우수한 예측 정확도 도출",
+          "다양한 도메인의 테이블 데이터를 통합 처리할 수 있는 범용 AI 파운데이션 모델 제시"
+        ]
+      },
+      "en": {
+        "title": "Xiaomi-TabLDM: A Tabular Foundation Model Technical Report",
+        "hook": "A tabular foundation model delivering superior prediction accuracy via in-context learning without task-specific fine-tuning.",
+        "key_takeaways": [
+          "Enables classification and regression capabilities via in-context learning.",
+          "Eliminates the necessity for task-specific fine-tuning while maintaining high performance.",
+          "Presents a scalable tabular foundation model architecture capable of generalizing across varied domains."
+        ]
+      },
+      "zh": {
+        "title": "Xiaomi-TabLDM：表格基础模型技术报告",
+        "hook": "无需特定任务微调，仅凭上下文学习即可实现卓越预测精度的表格基础模型",
+        "key_takeaways": [
+          "通过上下文学习（In-context learning）实现高精度的分类与回归预测",
+          "无需针对具体任务进行复杂微调，大幅降低部署成本",
+          "为跨领域表格数据处理提供了可扩展的大型基础模型解决方案"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "샤오미 TabLDM: 테이블형 데이터 기반 파운데이션 모델 기술 보고서",
+      "hook": "별도의 파인튜닝 없이 인텍스트 러닝만으로 높은 정확도를 달성하는 샤오미의 테이블 파운데이션 모델",
+      "key_takeaways": [
+        "별도의 태스크 전용 미세조정(Fine-tuning) 없이 인텍스트 러닝(In-context learning)만으로 예측 가능",
+        "테이블형 데이터의 분류(Classification) 및 회귀(Regression) 문제에서 우수한 예측 정확도 도출",
+        "다양한 도메인의 테이블 데이터를 통합 처리할 수 있는 범용 AI 파운데이션 모델 제시"
+      ]
+    },
+    "en": {
+      "title": "Xiaomi-TabLDM: A Tabular Foundation Model Technical Report",
+      "hook": "A tabular foundation model delivering superior prediction accuracy via in-context learning without task-specific fine-tuning.",
+      "key_takeaways": [
+        "Enables classification and regression capabilities via in-context learning.",
+        "Eliminates the necessity for task-specific fine-tuning while maintaining high performance.",
+        "Presents a scalable tabular foundation model architecture capable of generalizing across varied domains."
+      ]
+    },
+    "zh": {
+      "title": "Xiaomi-TabLDM：表格基础模型技术报告",
+      "hook": "无需特定任务微调，仅凭上下文学习即可实现卓越预测精度的表格基础模型",
+      "key_takeaways": [
+        "通过上下文学习（In-context learning）实现高精度的分类与回归预测",
+        "无需针对具体任务进行复杂微调，大幅降低部署成本",
+        "为跨领域表格数据处理提供了可扩展的大型基础模型解决方案"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Tabular Foundation Model",
+    "In-Context Learning",
+    "Classification & Regression",
+    "Zero-shot Inference"
+  ],
+  "title_ko": "Xiaomi-TabLDM: A Tabular Foundation Model Technical Report",
+  "hook_ko": "별도의 파인튜닝 없이 인텍스트 러닝만으로 높은 정확도를 달성하는 샤오미의 테이블 파운데이션 모델",
+  "title_en": "Xiaomi-TabLDM: A Tabular Foundation Model Technical Report",
+  "hook_en": "A tabular foundation model delivering superior prediction accuracy via in-context learning without task-specific fine-tuning.",
+  "title_zh": "Xiaomi-TabLDM：表格基础模型技术报告",
+  "hook_zh": "无需特定任务微调，仅凭上下文学习即可实现卓越预测精度的表格基础模型",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.765661",
+  "description_ko": "Abstract: We introduce Xiaomi-TabLDM, a tabular large data foundation model for classification and regression via in-context learning, which delivers superior prediction accuracy without requiring task-specific..."
 }

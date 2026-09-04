@@ -33,5 +33,96 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49524863",
-  "article_url": "https://dbushell.com/2026/09/01/text-editor/"
+  "article_url": "https://dbushell.com/2026/09/01/text-editor/",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_fine_ill_build_my_own_text_editor",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "Developer Tools",
+    "category": "Software Engineering",
+    "programming_lang": "General",
+    "root_keywords": [
+      "text editor",
+      "developer tools",
+      "custom software",
+      "DIY engineering"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.3,
+    "multilingual": {
+      "ko": {
+        "title": "좋아, 직접 텍스트 에디터를 만들겠어",
+        "hook": "기존 에디터의 한계를 극복하기 위해 바닥부터 자신만의 텍스트 에디터를 구축한 엔지니어링 여정과 기술적 고민",
+        "key_takeaways": [
+          "기존 에디터의 비대함과 성능 저하에 대한 반발로 시작된 커스텀 에디터 개발 시도",
+          "텍스트 버퍼 데이터 구조(Rope, Piece Table 등)와 렌더링 성능 최적화 문제 탐구",
+          "최소한의 기능으로 최적의 개인 생산성 환경을 구현하는 시스템 엔지니어링 인사이트"
+        ]
+      },
+      "en": {
+        "title": "Fine, I'll Build My Own Text Editor",
+        "hook": "A developer's deep dive into building a custom text editor from scratch to escape bloated existing tools.",
+        "key_takeaways": [
+          "Driven by frustration with existing heavyweight editors to build a lightweight, tailored text editor.",
+          "Exploration of foundational algorithms, text buffer data structures (e.g., Rope, Piece Table), and input handling.",
+          "Insights into minimalist software design and building personal developer tools for peak productivity."
+        ]
+      },
+      "zh": {
+        "title": "好吧，我决定自己写个文本编辑器",
+        "hook": "因不满现有工具的臃肿，开发者决定从零构建符合自己需求的文本编辑器及其技术思考",
+        "key_takeaways": [
+          "对现有主流编辑器性能与复杂度的不满促使开发者动手自研轻量级工具",
+          "深入研究文本缓冲区数据结构（如 Rope、Piece Table）与渲染性能优化",
+          "通过极简主义软件设计与自定义工具打造个人最高效生产力环境的实践经验"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "좋아, 직접 텍스트 에디터를 만들겠어",
+      "hook": "기존 에디터의 한계를 극복하기 위해 바닥부터 자신만의 텍스트 에디터를 구축한 엔지니어링 여정과 기술적 고민",
+      "key_takeaways": [
+        "기존 에디터의 비대함과 성능 저하에 대한 반발로 시작된 커스텀 에디터 개발 시도",
+        "텍스트 버퍼 데이터 구조(Rope, Piece Table 등)와 렌더링 성능 최적화 문제 탐구",
+        "최소한의 기능으로 최적의 개인 생산성 환경을 구현하는 시스템 엔지니어링 인사이트"
+      ]
+    },
+    "en": {
+      "title": "Fine, I'll Build My Own Text Editor",
+      "hook": "A developer's deep dive into building a custom text editor from scratch to escape bloated existing tools.",
+      "key_takeaways": [
+        "Driven by frustration with existing heavyweight editors to build a lightweight, tailored text editor.",
+        "Exploration of foundational algorithms, text buffer data structures (e.g., Rope, Piece Table), and input handling.",
+        "Insights into minimalist software design and building personal developer tools for peak productivity."
+      ]
+    },
+    "zh": {
+      "title": "好吧，我决定自己写个文本编辑器",
+      "hook": "因不满现有工具的臃肿，开发者决定从零构建符合自己需求的文本编辑器及其技术思考",
+      "key_takeaways": [
+        "对现有主流编辑器性能与复杂度的不满促使开发者动手自研轻量级工具",
+        "深入研究文本缓冲区数据结构（如 Rope、Piece Table）与渲染性能优化",
+        "通过极简主义软件设计与自定义工具打造个人最高效生产力环境的实践经验"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "text editor",
+    "developer tools",
+    "custom software",
+    "DIY engineering"
+  ],
+  "title_ko": "Fine, I'll build my own text editor",
+  "hook_ko": "기존 에디터의 한계를 극복하기 위해 바닥부터 자신만의 텍스트 에디터를 구축한 엔지니어링 여정과 기술적 고민",
+  "title_en": "Fine, I'll Build My Own Text Editor",
+  "hook_en": "A developer's deep dive into building a custom text editor from scratch to escape bloated existing tools.",
+  "title_zh": "好吧，我决定自己写个文本编辑器",
+  "hook_zh": "因不满现有工具的臃肿，开发者决定从零构建符合自己需求的文本编辑器及其技术思考",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.838508",
+  "description_ko": "해커뉴스에서 253점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

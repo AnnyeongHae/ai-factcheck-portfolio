@@ -31,5 +31,98 @@
   "matched_user_domains": [
     "정량 데이터 분석 & 벤치마크 감사"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_fixed_suffix_dependency_ratio_quantifyi",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "NLP / Computational Linguistics",
+    "category": "Natural Language Processing",
+    "programming_lang": "General",
+    "root_keywords": [
+      "Computational Linguistics",
+      "Loanword Adaptation",
+      "Grammatical Gender",
+      "Morphology",
+      "Latvian Language"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.2,
+    "multilingual": {
+      "ko": {
+        "title": "라트비아어 외래어의 성별 부여 이중 트랙 메커니즘을 정량화하는 고정 접미사 의존비(FSDR) 연구",
+        "hook": "외래어 수용 시 발생하는 성별 부여 패턴을 정량화된 지표로 분석하는 계산언어학 연구",
+        "key_takeaways": [
+          "영어 외래어가 특정 문법적 성별로 쏠리는 현상을 설명하기 위한 고정 접미사 의존비(FSDR) 지표 제안",
+          "라트비아어 외래어 적응 과정에서의 형태론적 이중 트랙 메커니즘 정량화",
+          "다국어 자연어 처리 및 형태소 분석기 개발 시 외래어 규칙 정립을 위한 계량언어학적 기초 제공"
+        ]
+      },
+      "en": {
+        "title": "Fixed Suffix Dependency Ratio: Quantifying Gender Assignment in Latvian Loanwords",
+        "hook": "A quantitative linguistic metric analyzing the dual-track mechanism behind grammatical gender assignment in loanwords.",
+        "key_takeaways": [
+          "Proposes the Fixed Suffix Dependency Ratio (FSDR) to quantify grammatical gender assignment rules in loanword adaptation.",
+          "Reveals a dual-track morphological mechanism explaining how English loanwords integrate into Latvian.",
+          "Provides computational linguistics insights applicable to rule-based morphological processing and cross-lingual NLP models."
+        ]
+      },
+      "zh": {
+        "title": "固定后缀依赖比：量化拉脱维亚语外来词性别分配的双轨机制",
+        "hook": "通过量化指标分析外来词语法性别分配机制的计算语言学研究",
+        "key_takeaways": [
+          "提出了“固定后缀依赖比”（FSDR）量化指标，用于评估外来词的语法性别分配规则",
+          "揭示了英语外来词融入拉脱维亚语时的形态学双轨机制",
+          "为自然语言处理中的跨语言形态分析与外来词处理提供了计算语言学依据"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "라트비아어 외래어의 성별 부여 이중 트랙 메커니즘을 정량화하는 고정 접미사 의존비(FSDR) 연구",
+      "hook": "외래어 수용 시 발생하는 성별 부여 패턴을 정량화된 지표로 분석하는 계산언어학 연구",
+      "key_takeaways": [
+        "영어 외래어가 특정 문법적 성별로 쏠리는 현상을 설명하기 위한 고정 접미사 의존비(FSDR) 지표 제안",
+        "라트비아어 외래어 적응 과정에서의 형태론적 이중 트랙 메커니즘 정량화",
+        "다국어 자연어 처리 및 형태소 분석기 개발 시 외래어 규칙 정립을 위한 계량언어학적 기초 제공"
+      ]
+    },
+    "en": {
+      "title": "Fixed Suffix Dependency Ratio: Quantifying Gender Assignment in Latvian Loanwords",
+      "hook": "A quantitative linguistic metric analyzing the dual-track mechanism behind grammatical gender assignment in loanwords.",
+      "key_takeaways": [
+        "Proposes the Fixed Suffix Dependency Ratio (FSDR) to quantify grammatical gender assignment rules in loanword adaptation.",
+        "Reveals a dual-track morphological mechanism explaining how English loanwords integrate into Latvian.",
+        "Provides computational linguistics insights applicable to rule-based morphological processing and cross-lingual NLP models."
+      ]
+    },
+    "zh": {
+      "title": "固定后缀依赖比：量化拉脱维亚语外来词性别分配的双轨机制",
+      "hook": "通过量化指标分析外来词语法性别分配机制的计算语言学研究",
+      "key_takeaways": [
+        "提出了“固定后缀依赖比”（FSDR）量化指标，用于评估外来词的语法性别分配规则",
+        "揭示了英语外来词融入拉脱维亚语时的形态学双轨机制",
+        "为自然语言处理中的跨语言形态分析与外来词处理提供了计算语言学依据"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "Computational Linguistics",
+    "Loanword Adaptation",
+    "Grammatical Gender",
+    "Morphology",
+    "Latvian Language"
+  ],
+  "title_ko": "Fixed Suffix Dependency Ratio: Quantifying the Dual-Track Mechanism of Gender Assignment in Latvian Loanwords",
+  "hook_ko": "외래어 수용 시 발생하는 성별 부여 패턴을 정량화된 지표로 분석하는 계산언어학 연구",
+  "title_en": "Fixed Suffix Dependency Ratio: Quantifying Gender Assignment in Latvian Loanwords",
+  "hook_en": "A quantitative linguistic metric analyzing the dual-track mechanism behind grammatical gender assignment in loanwords.",
+  "title_zh": "固定后缀依赖比：量化拉脱维亚语外来词性别分配的双轨机制",
+  "hook_zh": "通过量化指标分析外来词语法性别分配机制的计算语言学研究",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.739238",
+  "description_ko": "Abstract: Existing research has repeatedly observed the tendency for English loanwords to cluster in the masculine gender across different recipient languages, yet the origin of this pattern remains difficult t..."
 }

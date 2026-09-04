@@ -33,5 +33,98 @@
   ],
   "status": "PENDING_REVIEW",
   "hn_url": "https://news.ycombinator.com/item?id=49550698",
-  "article_url": "https://anyhumanever.com/"
+  "article_url": "https://anyhumanever.com/",
+  "ai_enrichment": {
+    "id": "2026-09-04_sns_hacker_news_any_human_ever_one_life_drawn_at_",
+    "source_lang": "EN",
+    "type_classification": "DATA",
+    "model_family": "Data Visualization",
+    "category": "Data Science & History",
+    "programming_lang": "General",
+    "root_keywords": [
+      "demographics",
+      "data-visualization",
+      "history",
+      "probability",
+      "humanity"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 3.8,
+    "multilingual": {
+      "ko": {
+        "title": "인류 역사상 무작위로 선택된 단 한 사람의 삶 - Any Human Ever",
+        "hook": "역사적 통계 모델을 바탕으로 지금까지 살았던 약 1,000억 명의 인간 중 한 명을 무작위 시뮬레이션해 조명하는 웹 시각화 프로젝트",
+        "key_takeaways": [
+          "역사적 데모그래픽 데이터를 기반으로 무작위로 한 인간의 삶을 확률적으로 추첨",
+          "거대한 통계 데이터 속에서 개별 인간의 생애와 역사적 맥락을 연결하는 디지털 스토리텔링",
+          "데이터 시각화 기법을 활용해 역사 및 확률 통계 개념을 직관적으로 전달"
+        ]
+      },
+      "en": {
+        "title": "Any Human Ever – One life, drawn at random from all who have ever lived",
+        "hook": "An interactive data visualization project drawing a random individual's life out of the ~100+ billion humans to have ever lived using historical demographic models.",
+        "key_takeaways": [
+          "Uses demographic historical models to probabilistically sample a single human life across centuries.",
+          "Blends data science, historical research, and creative web storytelling to humanize statistical data.",
+          "Provides a unique statistical perspective on human history and demographic probability distribution."
+        ]
+      },
+      "zh": {
+        "title": "漫漫人类史中的随机抽样：Any Human Ever",
+        "hook": "基于历史人口统计数据，从有史以来生活过的上千亿人类中概率性地随机抽取并呈现个体生平的数据可视化项目。",
+        "key_takeaways": [
+          "利用历史人口模型，跨越数个世纪进行概率性的人类个体生平抽样",
+          "融合了数据科学、历史研究与创意的网页数据可视化与叙事",
+          "以独特的统计学视角呈现人类人口分布与历史上个体的存在意义"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "인류 역사상 무작위로 선택된 단 한 사람의 삶 - Any Human Ever",
+      "hook": "역사적 통계 모델을 바탕으로 지금까지 살았던 약 1,000억 명의 인간 중 한 명을 무작위 시뮬레이션해 조명하는 웹 시각화 프로젝트",
+      "key_takeaways": [
+        "역사적 데모그래픽 데이터를 기반으로 무작위로 한 인간의 삶을 확률적으로 추첨",
+        "거대한 통계 데이터 속에서 개별 인간의 생애와 역사적 맥락을 연결하는 디지털 스토리텔링",
+        "데이터 시각화 기법을 활용해 역사 및 확률 통계 개념을 직관적으로 전달"
+      ]
+    },
+    "en": {
+      "title": "Any Human Ever – One life, drawn at random from all who have ever lived",
+      "hook": "An interactive data visualization project drawing a random individual's life out of the ~100+ billion humans to have ever lived using historical demographic models.",
+      "key_takeaways": [
+        "Uses demographic historical models to probabilistically sample a single human life across centuries.",
+        "Blends data science, historical research, and creative web storytelling to humanize statistical data.",
+        "Provides a unique statistical perspective on human history and demographic probability distribution."
+      ]
+    },
+    "zh": {
+      "title": "漫漫人类史中的随机抽样：Any Human Ever",
+      "hook": "基于历史人口统计数据，从有史以来生活过的上千亿人类中概率性地随机抽取并呈现个体生平的数据可视化项目。",
+      "key_takeaways": [
+        "利用历史人口模型，跨越数个世纪进行概率性的人类个体生平抽样",
+        "融合了数据科学、历史研究与创意的网页数据可视化与叙事",
+        "以独特的统计学视角呈现人类人口分布与历史上个体的存在意义"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "demographics",
+    "data-visualization",
+    "history",
+    "probability",
+    "humanity"
+  ],
+  "title_ko": "Any Human Ever – One life, drawn at random from all who have ever lived",
+  "hook_ko": "역사적 통계 모델을 바탕으로 지금까지 살았던 약 1,000억 명의 인간 중 한 명을 무작위 시뮬레이션해 조명하는 웹 시각화 프로젝트",
+  "title_en": "Any Human Ever – One life, drawn at random from all who have ever lived",
+  "hook_en": "An interactive data visualization project drawing a random individual's life out of the ~100+ billion humans to have ever lived using historical demographic models.",
+  "title_zh": "漫漫人类史中的随机抽样：Any Human Ever",
+  "hook_zh": "基于历史人口统计数据，从有史以来生活过的上千亿人类中概率性地随机抽取并呈现个体生平的数据可视化项目。",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.817271",
+  "description_ko": "해커뉴스에서 82점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
 }

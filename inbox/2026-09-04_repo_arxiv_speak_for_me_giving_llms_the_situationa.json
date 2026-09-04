@@ -32,5 +32,98 @@
     "DX & Python 업무 프로세스 자동화",
     "엔터프라이즈 RAG & 문서 파싱 인프라"
   ],
-  "status": "PENDING_REVIEW"
+  "status": "PENDING_REVIEW",
+  "ai_enrichment": {
+    "id": "2026-09-04_repo_arxiv_speak_for_me_giving_llms_the_situationa",
+    "source_lang": "EN",
+    "type_classification": "TECH",
+    "model_family": "LLM Agents",
+    "category": "AI / Agentic Systems",
+    "programming_lang": "General",
+    "root_keywords": [
+      "LLM Agents",
+      "Situational Awareness",
+      "Meeting Delegation",
+      "Floor Control",
+      "Dialogue Systems"
+    ],
+    "recommended_tag": "📝 기술 참고",
+    "worth_score": 4.2,
+    "multilingual": {
+      "ko": {
+        "title": "Speak for Me: 온라인 회의 참가를 위한 LLM의 상황 인지 능력 부여",
+        "hook": "대화 스탠스, 논의 범위, 발언권을 구조적으로 추적하여 LLM 에이전트의 회의 개입 시점을 정밀하게 제어하는 프레임워크",
+        "key_takeaways": [
+          "기존 프롬프트 기반 LLM 에이전트가 회의 위임 상황에서 발언 시점을 놓치는 문제 해결",
+          "회의 내 스탠스, 커버리지, 발언권(Floor)을 구조적으로 트래킹하는 시스템 제안",
+          "자연스러운 회의 참여 및 적절한 대화 개입 성능 향상 검증"
+        ]
+      },
+      "en": {
+        "title": "Speak for Me: Giving LLMs the Situational Awareness to Participate in a Meeting",
+        "hook": "A framework enabling LLM agents to accurately decide when to speak in meetings by tracking stances, coverage, and floor control.",
+        "key_takeaways": [
+          "Addresses the issue where prompt-only LLM agents fail to recognize appropriate speaking moments during meeting delegation.",
+          "Introduces structured tracking of stances, topic coverage, and conversation floor state.",
+          "Demonstrates improved turn-taking and context-aware participation in multi-party online meetings."
+        ]
+      },
+      "zh": {
+        "title": "Speak for Me: 赋予大语言模型参会情境感知能力",
+        "hook": "通过结构化追踪立场、话题覆盖率与发言权，解决LLM Agent在会议代理中无法精准把握发言时机的问题",
+        "key_takeaways": [
+          "解决仅依赖Prompt的LLM Agent在会议委托场景中难以捕捉发言时机的问题",
+          "提出针对会议立场、讨论覆盖率及发言权（Floor）的结构化追踪机制",
+          "有效提升Agent在多方在线会议中的交替发言与情境交互能力"
+        ]
+      }
+    }
+  },
+  "multilingual": {
+    "ko": {
+      "title": "Speak for Me: 온라인 회의 참가를 위한 LLM의 상황 인지 능력 부여",
+      "hook": "대화 스탠스, 논의 범위, 발언권을 구조적으로 추적하여 LLM 에이전트의 회의 개입 시점을 정밀하게 제어하는 프레임워크",
+      "key_takeaways": [
+        "기존 프롬프트 기반 LLM 에이전트가 회의 위임 상황에서 발언 시점을 놓치는 문제 해결",
+        "회의 내 스탠스, 커버리지, 발언권(Floor)을 구조적으로 트래킹하는 시스템 제안",
+        "자연스러운 회의 참여 및 적절한 대화 개입 성능 향상 검증"
+      ]
+    },
+    "en": {
+      "title": "Speak for Me: Giving LLMs the Situational Awareness to Participate in a Meeting",
+      "hook": "A framework enabling LLM agents to accurately decide when to speak in meetings by tracking stances, coverage, and floor control.",
+      "key_takeaways": [
+        "Addresses the issue where prompt-only LLM agents fail to recognize appropriate speaking moments during meeting delegation.",
+        "Introduces structured tracking of stances, topic coverage, and conversation floor state.",
+        "Demonstrates improved turn-taking and context-aware participation in multi-party online meetings."
+      ]
+    },
+    "zh": {
+      "title": "Speak for Me: 赋予大语言模型参会情境感知能力",
+      "hook": "通过结构化追踪立场、话题覆盖率与发言权，解决LLM Agent在会议代理中无法精准把握发言时机的问题",
+      "key_takeaways": [
+        "解决仅依赖Prompt的LLM Agent在会议委托场景中难以捕捉发言时机的问题",
+        "提出针对会议立场、讨论覆盖率及发言权（Floor）的结构化追踪机制",
+        "有效提升Agent在多方在线会议中的交替发言与情境交互能力"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "General",
+  "root_keywords": [
+    "LLM Agents",
+    "Situational Awareness",
+    "Meeting Delegation",
+    "Floor Control",
+    "Dialogue Systems"
+  ],
+  "title_ko": "Speak for Me: Giving LLMs the Situational Awareness to Participate in a Meeting",
+  "hook_ko": "대화 스탠스, 논의 범위, 발언권을 구조적으로 추적하여 LLM 에이전트의 회의 개입 시점을 정밀하게 제어하는 프레임워크",
+  "title_en": "Speak for Me: Giving LLMs the Situational Awareness to Participate in a Meeting",
+  "hook_en": "A framework enabling LLM agents to accurately decide when to speak in meetings by tracking stances, coverage, and floor control.",
+  "title_zh": "Speak for Me: 赋予大语言模型参会情境感知能力",
+  "hook_zh": "通过结构化追踪立场、话题覆盖率与发言权，解决LLM Agent在会议代理中无法精准把握发言时机的问题",
+  "enriched_by": "gemini-3.6-flash-batch-api",
+  "enriched_at": "2026-09-04T14:48:40.756446",
+  "description_ko": "Abstract: In online meeting delegation, LLM agents fail to recognize when to speak. With no structured way to track stances, coverage, and floor, they miss the moments where they should contribute. Prompt-only ..."
 }
