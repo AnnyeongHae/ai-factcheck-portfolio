@@ -10,8 +10,8 @@
   "avg_confidence": 96.2,
   "models_total_count": 190,
   "news_total_count": 291,
-  "inbox_total_count": 642,
-  "all_inbox_count": 652,
+  "inbox_total_count": 645,
+  "all_inbox_count": 655,
   "admin_stats": {
     "endpoints": [
       {
@@ -46,6 +46,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-04T08:06:21.422647",
+        "date": "2026-09-04",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.19
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 83,
+            "duration_sec": 0.35
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.91
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 12.52
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.51
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.2
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.84
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.27
+          }
+        },
+        "summary": {
+          "total_fetched": 257,
+          "updated_count": 1,
+          "new_saved": 3,
+          "duplicates_skipped": 253,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-04T07:27:04.175172",
         "date": "2026-09-04",
@@ -1582,104 +1635,51 @@
           "duplicates_skipped": 165,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T04:48:25.732876",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.19
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.14
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.85
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 23,
-            "duration_sec": 16.2
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.15
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.1
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.93
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.24
-          }
-        },
-        "summary": {
-          "total_fetched": 163,
-          "updated_count": 0,
-          "new_saved": 2,
-          "duplicates_skipped": 161,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-04T07:27:04.175172",
+      "timestamp": "2026-09-04T08:06:21.422647",
       "date": "2026-09-04",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.16
+          "duration_sec": 0.19
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 83,
-          "duration_sec": 0.26
+          "duration_sec": 0.35
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.86
+          "duration_sec": 0.91
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 10.83
+          "duration_sec": 12.52
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.2
+          "duration_sec": 0.51
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.15
+          "duration_sec": 0.2
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.73
+          "duration_sec": 0.84
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.2
+          "duration_sec": 0.27
         }
       },
       "summary": {
@@ -1746,9 +1746,9 @@
       "slot": "15시",
       "hour": 15,
       "range": "15:00 - 17:59",
-      "inbox_count": 4,
+      "inbox_count": 7,
       "model_count": 0,
-      "news_count": 4,
+      "news_count": 7,
       "is_current": true,
       "is_future": false
     },
@@ -1777,7 +1777,7 @@
     "window_label": "12:00 ~ 18:00 KST",
     "window_period": "오후 실시간 모델 & 아키텍처 브리핑",
     "today_kst": "2026-09-04",
-    "updated_at": "17:05 KST",
+    "updated_at": "17:09 KST",
     "bullets": [
       "경량화 및 로컬 온디바이스 추론을 위한 1M 컨텍스트 GGUF 양자화 모델 및 오픈가중치 MoE 아키텍처 집중 릴리스",
       "vLLM V1 분산 엔진 아키텍처 재설계 및 저비용 자율주행 연구 플랫폼, 가상 스레드 런타임 등 시스템 엔지니어링 급상승",
@@ -37887,8 +37887,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 263 pts | Comments: 215 | VC isn't VC anymore",
-      "viral_metric": "🔥 263 HN Points",
+      "description": "HN Score: 267 pts | Comments: 217 | VC isn't VC anymore",
+      "viral_metric": "🔥 267 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -37896,13 +37896,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 263,
-          "display": "🔥 263 HN Points",
+          "value": 267,
+          "display": "🔥 267 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 255,
-        "delta_display": "+255",
-        "growth_rate_pct": 3187.5,
+        "delta": 259,
+        "delta_display": "+259",
+        "growth_rate_pct": 3237.5,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -66606,6 +66606,43 @@
       "description_ko": "해커뉴스에서 127점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_the_phrase_that_ruins_every_ecomm",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:06:37.603023",
+      "published_at": "2026-09-04T07:36:31",
+      "created_at": "2026-09-04T07:36:31",
+      "updated_at": "2026-09-04T08:06:37.603023",
+      "title": "Hacker News: The phrase that ruins every eCommerce project: \"Just connect it to our ERP.\"",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49561670",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 8 pts | Comments: 2 | The phrase that ruins every eCommerce project: \"Just connect it to our ERP.\"",
+      "viral_metric": "🔥 8 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 8,
+          "display": "🔥 8 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "이커머스 & 커머스 데이터 수집 인프라"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49561670",
+      "article_url": "https://shiftmag.dev/the-phrase-that-ruins-every-ecommerce-project-just-connect-it-to-our-erp-11689/"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_the_creator_of_jujutsu_has_joined",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:25:53.457705",
@@ -71417,6 +71454,43 @@
       "description_ko": "해커뉴스에서 331점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다."
     },
     {
+      "inbox_id": "2026-09-04_sns_hacker_news_authorization_terminology_is_a_me",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:06:37.616052",
+      "published_at": "2026-09-01T14:18:54",
+      "created_at": "2026-09-01T14:18:54",
+      "updated_at": "2026-09-04T08:06:37.616052",
+      "title": "Hacker News: Authorization Terminology Is a Mess: Let's Fix It",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49522367",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 3 pts | Comments: 0 | Authorization Terminology Is a Mess: Let's Fix It",
+      "viral_metric": "🔥 3 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 3,
+          "display": "🔥 3 HN Points",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49522367",
+      "article_url": "https://idpro.org/authorization-terminology-is-a-mess-lets-fix-it/"
+    },
+    {
       "inbox_id": "2026-09-04_sns_hacker_news_astronomers_detect_a_10_sided_str",
       "harvested_date": "2026-09-04",
       "harvested_at": "2026-09-04T01:25:49.939531",
@@ -73221,6 +73295,45 @@
       "hook_zh": "分析科技初创企业生态系统中风投（VC）市场的巨变与全新投资范式。",
       "enriched_by": "gemini-3.6-flash-batch-api",
       "enriched_at": "2026-09-04T14:48:40.783426"
+    },
+    {
+      "inbox_id": "2026-09-04_sns_geeknews_show_gn_gnucms_웹호스팅에_올리면_바로_실행되는_php",
+      "harvested_date": "2026-09-04",
+      "harvested_at": "2026-09-04T08:06:37.757985",
+      "published_at": "2026-09-04T08:06:37.757985",
+      "created_at": "2026-09-04T08:06:37.757985",
+      "updated_at": "2026-09-04T08:06:37.757985",
+      "title": "GeekNews: Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33218",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-04"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-04"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "description_ko": "Show GN: GNUCMS - 웹호스팅에 올리면 바로 실행되는 PHP 게시판·CMS",
+      "hn_url": "https://news.hada.io/topic?id=33218",
+      "article_url": "https://news.hada.io/topic?id=33218"
     },
     {
       "inbox_id": "2026-09-04_sns_geeknews_show_gn_first_mind_정보보안에_있어서_진입장벽을_없",
@@ -80834,8 +80947,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49552055",
       "type": "sns",
       "category_type": "NEWS",
-      "description": "HN Score: 263 pts | Comments: 215 | VC isn't VC anymore",
-      "viral_metric": "🔥 263 HN Points",
+      "description": "HN Score: 267 pts | Comments: 217 | VC isn't VC anymore",
+      "viral_metric": "🔥 267 HN Points",
       "metric_tracking": {
         "initial": {
           "value": 8,
@@ -80843,13 +80956,13 @@
           "recorded_at": "2026-09-03"
         },
         "latest": {
-          "value": 263,
-          "display": "🔥 263 HN Points",
+          "value": 267,
+          "display": "🔥 267 HN Points",
           "updated_at": "2026-09-04"
         },
-        "delta": 255,
-        "delta_display": "+255",
-        "growth_rate_pct": 3187.5,
+        "delta": 259,
+        "delta_display": "+259",
+        "growth_rate_pct": 3237.5,
         "is_spiking": true
       },
       "matched_user_domains": [
