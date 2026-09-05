@@ -42,18 +42,14 @@ MODEL_POOL = [
 ]
 
 def load_deep_prompt_config():
-    """Loads prompt from configs/prompts/deep_factcheck_prompt.yaml."""
-    yaml_path = os.path.join(BASE_DIR, "configs", "prompts", "deep_factcheck_prompt.yaml")
-    if os.path.exists(yaml_path):
-        try:
-            with open(yaml_path, "r", encoding="utf-8") as f:
-                cfg = yaml.safe_load(f)
-                persona = cfg.get("persona_and_role", "").strip()
-                schema = cfg.get("output_json_schema", "").strip()
-                temp = cfg.get("model_parameters", {}).get("temperature", 0.15)
-                return f"{persona}\n\n출력 JSON 규격:\n{schema}", temp
-        except Exception as e:
-            print(f"[!] Warning: Failed to load YAML: {e}")
+    """Loads prompt via prompt_manager."""
+    try:
+        from prompt_manager import get_prompt
+        p = get_prompt("deep_factcheck")
+        if p:
+            return p.get_system_prompt(), p.temperature
+    except Exception as e:
+        print(f"[!] Warning: Failed to load via prompt_manager: {e}")
 
     default_prompt = "당신은 시니어 AI 시스템 엔지니어이자 기술 팩트체커입니다. JSON으로 응답하세요."
     return default_prompt, 0.15

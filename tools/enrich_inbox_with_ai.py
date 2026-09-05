@@ -151,21 +151,14 @@ def infer_primary_category(item: dict, enrich_data: dict, c_type: str = "TECH") 
     return 'INDUSTRY_TRENDS'
 
 def load_prompt_config():
-    """Loads external centralized prompt from configs/prompts/inbox_enrichment_prompt.yaml."""
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    yaml_path = os.path.join(base_dir, "configs", "prompts", "inbox_enrichment_prompt.yaml")
-    
-    if os.path.exists(yaml_path):
-        try:
-            with open(yaml_path, "r", encoding="utf-8") as f:
-                cfg = yaml.safe_load(f)
-                persona = cfg.get("persona_and_role", "").strip()
-                schema = cfg.get("output_json_schema", "").strip()
-                temp = cfg.get("model_parameters", {}).get("temperature", 0.2)
-                sys_prompt = f"{persona}\n\n{schema}"
-                return sys_prompt, temp
-        except Exception as e:
-            print(f"[!] Warning: Failed to load YAML prompt: {e}")
+    """Loads external centralized prompt via prompt_manager."""
+    try:
+        from prompt_manager import get_prompt
+        p = get_prompt("inbox_enrichment")
+        if p:
+            return p.get_system_prompt(), p.temperature
+    except Exception as e:
+        print(f"[!] Warning: Failed to load via prompt_manager: {e}")
             
     # Fallback
     default_prompt = (

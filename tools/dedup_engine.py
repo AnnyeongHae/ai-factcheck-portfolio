@@ -80,19 +80,23 @@ def check_ai_semantic_dedup(api_key: str, candidate_title: str, existing_title: 
     if not genai or not api_key:
         return {"is_duplicate": False, "reason": "genai or api_key missing"}
 
-    prompt_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "configs", "prompts", "dedup_prompt.yaml")
-    prompt_cfg = {}
-    if os.path.exists(prompt_path) and yaml:
-        with open(prompt_path, "r", encoding="utf-8") as f:
-            prompt_cfg = yaml.safe_load(f)
+    sys_instruction = "기술 중복 판정 AI 아키텍트"
+    schema_text = ""
+    try:
+        from prompt_manager import get_prompt
+        p = get_prompt("dedup")
+        if p:
+            sys_instruction = p.persona_and_role or sys_instruction
+            schema_text = p.output_json_schema
+    except Exception:
+        pass
 
-    sys_instruction = prompt_cfg.get("persona_and_role", "기술 중복 판정 AI 아키텍트")
     user_prompt = f"""
 후보 A (신규 수집): "{candidate_title}"
 후보 B (기존 등재): "{existing_title}"
 
 두 항목이 동일한 기술/라이브러리/모델의 동일 발표이거나 번역/해설본인지 판별하여 JSON으로 응답하세요:
-{prompt_cfg.get("output_json_schema", "")}
+{schema_text}
 """
 
     try:

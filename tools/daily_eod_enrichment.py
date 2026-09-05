@@ -19,16 +19,13 @@ import json
 import glob
 import time
 from datetime import datetime, timezone, timedelta
-from dotenv import load_dotenv
-
-if sys.stdout.encoding != 'utf-8':
-    try:
-        sys.stdout.reconfigure(encoding='utf-8')
-    except Exception:
-        pass
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-load_dotenv(os.path.join(ROOT_DIR, '.env'))
+try:
+    from dotenv import load_dotenv
+    load_dotenv(os.path.join(ROOT_DIR, '.env'))
+except ImportError:
+    pass
 
 sys.path.insert(0, os.path.join(ROOT_DIR, 'tools'))
 import batch_manager
