@@ -184,8 +184,14 @@ def build_dashboard():
             return True
         return False
 
-    news_items = [it for it in inbox_items if it.get("is_classified") or (it.get("ai_enrichment") and it.get("multilingual"))]
     model_items = [it for it in inbox_items if is_model_item(it)]
+    model_ids = {it.get("inbox_id") for it in model_items}
+    # Strict disjoint sets: items belonging to AI Model Trends are excluded from AI Tech News
+    news_items = [
+        it for it in inbox_items 
+        if (it.get("is_classified") or (it.get("ai_enrichment") and it.get("multilingual")))
+        and it.get("inbox_id") not in model_ids
+    ]
 
     news_cat_counts = {
         "INFERENCE_OPT": 0,
@@ -579,7 +585,7 @@ def generate_html(data):
         </div>
       </div>
 
-      <!-- Desktop Navigation Tabs (Clean 5 Core Tabs) -->
+      <!-- Desktop Navigation Tabs (Clean 4 Core Tabs) -->
       <nav class="hidden md:flex items-center gap-1 bg-surface-subtle p-1 rounded-xl border border-surface-border text-xs font-semibold">
         <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
@@ -600,15 +606,17 @@ def generate_html(data):
           <i data-lucide="network" class="w-3.5 h-3.5"></i>
           <span id="navTabGraph">인용 계보망</span>
         </button>
-        <button onclick="switchView('inbox')" id="tabInboxBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
-          <i data-lucide="inbox" class="w-3.5 h-3.5"></i>
-          <span id="navTabInbox">수집 인박스</span>
-          <span class="text-[10px] font-mono text-ink-muted" id="headerInboxCount">({data['inbox_total_count']})</span>
-        </button>
       </nav>
 
-      <!-- Right Actions: Live DB Badge & Tri-Lingual (KO / ZH / EN) Toggle -->
+      <!-- Right Actions: Admin Archive, Live DB Badge & Tri-Lingual (KO / ZH / EN) Toggle -->
       <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        <!-- Admin Raw Archive Access Button -->
+        <button onclick="switchView('inbox')" id="adminArchiveBtn" class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-ink-muted hover:text-ink-primary hover:bg-surface-subtle transition border border-transparent hover:border-surface-border" title="관리자 전용 원천 데이터 아카이브">
+          <i data-lucide="archive" class="w-3.5 h-3.5 text-slate-500"></i>
+          <span class="hidden lg:inline" id="adminArchiveLabel">아카이브 (Admin)</span>
+          <span class="text-[10px] font-mono opacity-80" id="headerInboxCount">({data['inbox_total_count']})</span>
+        </button>
+
         <!-- Live Neon DB Badge -->
         <div id="dbLiveBadge">
           <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
@@ -645,9 +653,9 @@ def generate_html(data):
         <i data-lucide="network" class="w-3.5 h-3.5"></i>
         <span id="mNavTabGraph">인용 계보망</span>
       </button>
-      <button onclick="switchView('inbox')" id="mTabInboxBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
-        <i data-lucide="inbox" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabInbox">수집 인박스 ({data['inbox_total_count']})</span>
+      <button onclick="switchView('inbox')" id="mTabInboxBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-500 hover:text-ink-primary bg-surface-subtle border border-dashed border-surface-border transition" title="관리자 원천 아카이브">
+        <i data-lucide="archive" class="w-3.5 h-3.5"></i>
+        <span id="mNavTabInbox">아카이브 ({data['inbox_total_count']})</span>
       </button>
     </div>
   </header>
@@ -741,23 +749,23 @@ def generate_html(data):
           </p>
         </div>
 
-        <!-- Metric 4: Live Harvested Inbox (수집 인박스) -->
-        <div onclick="switchView('inbox')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-indigo-500 hover:shadow-md transition cursor-pointer group">
+        <!-- Metric 4: Raw Ingestion Lake & Admin Archive (원천 아카이브) -->
+        <div onclick="switchView('inbox')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-slate-500 hover:shadow-md transition cursor-pointer group">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-ink-muted group-hover:text-indigo-600 transition flex items-center gap-1.5" id="statLabelInbox">
-              <i data-lucide="inbox" class="w-4 h-4 text-indigo-600"></i>
-              <span>수집 인박스</span>
+            <span class="text-xs font-bold text-ink-muted group-hover:text-slate-800 transition flex items-center gap-1.5" id="statLabelInbox">
+              <i data-lucide="archive" class="w-4 h-4 text-slate-600"></i>
+              <span>원천 아카이브 (Admin)</span>
             </span>
-            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
-              ⚡ 3h 주기 KST
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200">
+              ⚡ 24H 전수 보존
             </span>
           </div>
           <div class="mt-3 flex items-baseline gap-2">
             <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValInbox">{data['inbox_total_count']}</span>
-            <span class="text-xs text-ink-muted font-medium">Candidates</span>
+            <span class="text-xs text-ink-muted font-medium">Archives</span>
           </div>
           <p class="mt-2 text-[11px] text-ink-secondary truncate" id="statDescInbox">
-            HN · GeekNews · GitHub · HF 24/7 수집
+            크롤링 원천 데이터 레이크 · 심층 분석 대기열
           </p>
         </div>
 
@@ -1137,14 +1145,14 @@ def generate_html(data):
       <div class="bg-white p-6 rounded-2xl border border-surface-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
         <div class="space-y-1">
           <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-primary text-xs font-mono font-bold border border-surface-border" id="inboxHeaderBadge">
-              AUTONOMOUS HARVEST INBOX
+            <span class="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-800 text-xs font-mono font-bold border border-slate-200" id="inboxHeaderBadge">
+              🔐 RAW ARCHIVE & ADMIN INBOX
             </span>
             <span class="text-xs text-ink-muted font-mono" id="inboxHeaderCount">총 {data['inbox_total_count']}건</span>
           </div>
-          <h2 class="text-lg font-bold text-ink-primary" id="inboxHeaderTitle">24시간 자율 크론으로 수집된 오픈소스 및 모델 후보군</h2>
+          <h2 class="text-lg font-bold text-ink-primary" id="inboxHeaderTitle">원천 데이터 아카이브 & 관리자 파이프라인</h2>
           <p class="text-xs text-ink-secondary" id="inboxHeaderDesc">
-            원클릭으로 분석 큐에 등록하여 Neon DB와 실시간 동기화하고 심층 팩트체크를 진행할 수 있습니다.
+            크롤러가 24시간 실시간 수집한 원천 로우 데이터를 영구 보존하며, 관리자가 심층 팩트체크(공식 검증)로 승격할 후보를 검토하는 내부 저장소입니다.
           </p>
         </div>
       </div>
@@ -1819,6 +1827,16 @@ def generate_html(data):
         }}
       }});
 
+      // Update Admin Archive Button State
+      const adminBtn = document.getElementById('adminArchiveBtn');
+      if (adminBtn) {{
+        if (view === 'inbox') {{
+          adminBtn.className = 'flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold text-white bg-slate-800 transition border border-slate-700 shadow-sm';
+        }} else {{
+          adminBtn.className = 'flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-ink-muted hover:text-ink-primary hover:bg-surface-subtle transition border border-transparent hover:border-surface-border';
+        }}
+      }}
+
       // Synchronize Clean URL and Push to Browser History
       if (pushHistory) {{
         const targetHash = ROUTES[view] || '#/' + view;
@@ -2079,34 +2097,8 @@ def generate_html(data):
           }}
         }}
 
-        const resNews = await fetch(API_BASE + '/api/queue?type=NEWS');
-        if (resNews.ok) {{
-          const newsData = await resNews.json();
-          if (newsData.success && newsData.news && newsData.news.length > 0) {{
-            const staticNewsMap = new Map();
-            if (typeof newsItems !== 'undefined') {{
-              newsItems.forEach(item => staticNewsMap.set(item.inbox_id, item));
-            }}
-
-            liveNewsData = newsData.news
-              .map(dbItem => {{
-                const staticItem = staticNewsMap.get(dbItem.inbox_id);
-                if (staticItem) {{
-                  return {{
-                    ...staticItem,
-                    ...dbItem,
-                    ai_enrichment: dbItem.ai_enrichment || staticItem.ai_enrichment,
-                    multilingual: dbItem.multilingual || staticItem.multilingual,
-                    hook: dbItem.hook || staticItem.hook,
-                    related_dossier: dbItem.related_dossier || staticItem.related_dossier
-                  }};
-                }}
-                return dbItem;
-              }})
-              .filter(it => !!(it.ai_enrichment && (it.multilingual || (it.ai_enrichment && it.ai_enrichment.multilingual))));
-            renderNews();
-          }}
-        }}
+        // News items are fully pre-classified & multilingual in static bundle
+        // Avoid overwriting liveNewsData with raw queue items to preserve category filters
 
         // Promotion Watch Banner removed as per user design decision
       }} catch (err) {{}}
@@ -2309,23 +2301,26 @@ def generate_html(data):
         return matchesMode && matchesDomain && matchesSearch;
       }});
 
-      // 🌟 Precision DateTime Sorting (Default: Source Date/Time DESC)
+      // 🌟 Precision DateTime Sorting (Default: Investigation Date DESC + Case ID Tie-breaker)
       filtered.sort((a, b) => {{
         if (currentSort === 'date-source-desc' || currentSort === 'date-desc') {{
-          return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
+          const dateA = a.investigation_date || (a.source_published_date ? a.source_published_date.slice(0, 10) : '');
+          const dateB = b.investigation_date || (b.source_published_date ? b.source_published_date.slice(0, 10) : '');
+          if (dateB !== dateA) return dateB.localeCompare(dateA);
+          return (b.case_id || '').localeCompare(a.case_id || '');
         }}
-        if (currentSort === 'date-source-asc') {{
-          return parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
-        }}
-        if (currentSort === 'date-audit-desc') {{
-          return parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
-        }}
-        if (currentSort === 'date-audit-asc') {{
-          return parseItemTimestamp(a, 'audit') - parseItemTimestamp(b, 'audit');
+        if (currentSort === 'date-source-asc' || currentSort === 'date-asc') {{
+          const dateA = a.investigation_date || (a.source_published_date ? a.source_published_date.slice(0, 10) : '');
+          const dateB = b.investigation_date || (b.source_published_date ? b.source_published_date.slice(0, 10) : '');
+          if (dateA !== dateB) return dateA.localeCompare(dateB);
+          return (a.case_id || '').localeCompare(b.case_id || '');
         }}
         if (currentSort === 'score-desc') return (b.confidence_score || 0) - (a.confidence_score || 0);
         if (currentSort === 'title-asc') return (a.title || '').localeCompare(b.title || '');
-        return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
+        const dateA = a.investigation_date || (a.source_published_date ? a.source_published_date.slice(0, 10) : '');
+        const dateB = b.investigation_date || (b.source_published_date ? b.source_published_date.slice(0, 10) : '');
+        if (dateB !== dateA) return dateB.localeCompare(dateA);
+        return (b.case_id || '').localeCompare(a.case_id || '');
       }});
 
       document.getElementById('resultsCountLabel').innerText = currentLang === 'KO' ? `총 ${{filtered.length}}건 표시 (전체 ${{liveCasesData.length}}건 중)` : (currentLang === 'ZH' ? `显示 ${{filtered.length}} 项 (共 ${{liveCasesData.length}} 项)` : `Showing ${{filtered.length}} of ${{liveCasesData.length}} dossiers`);
