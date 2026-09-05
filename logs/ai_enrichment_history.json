@@ -5621,5 +5621,148 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260905_035908",
+    "timestamp": "2026-09-05T03:59:08.514859+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 8,
+    "requested_limit": 0,
+    "processed_count": 8,
+    "success_count": 8,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 8
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.93,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_ai가_내_두뇌를_망치고_있을까",
+            "title": "GeekNews: AI가 내 두뇌를 망치고 있을까?",
+            "title_ko": "AI가 내 두뇌를 망치고 있을까?",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T03:59:29.447415+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 42.82,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_ai가_내_두뇌를_망치고_있을까",
+            "title": "GeekNews: AI가 내 두뇌를 망치고 있을까?",
+            "title_ko": "내 두뇌가 AI에 의해 망가지고 있을까?",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T04:00:13.272458+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 23.9,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_모든_chromium_버전에_영향을_주는_실제_악용_중인_샌드박스",
+            "title": "GeekNews: 모든 Chromium 버전에 영향을 주는 실제 악용 중인 샌드박스 원격 코드 실행 취약점",
+            "title_ko": "모든 크롬 기반 브라우저를 위협하는 실제 악용 중인 샌드박스 RCE 취약점",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T04:00:38.180001+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 30.38,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_모든_chromium_버전에_영향을_주는_실제_악용_중인_샌드박스",
+            "title": "GeekNews: 모든 Chromium 버전에 영향을 주는 실제 악용 중인 샌드박스 원격 코드 실행 취약점",
+            "title_ko": "모든 크롬 기반 브라우저를 위협하는 실제 악용 중인 샌드박스 RCE 취약점",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T04:01:09.566584+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 33.92,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_nitter_has_more_working_instances",
+            "title": "Hacker News: Nitter has more working instances than before the takedowns",
+            "title_ko": "니터 인스턴스, 삭제 조치 전보다 더 많이 작동 중",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T04:01:44.487275+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 31.84,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_nitter_has_more_working_instances",
+            "title": "Hacker News: Nitter has more working instances than before the takedowns",
+            "title_ko": "니터, 단속 후 더 많은 인스턴스 가동으로 트위터 대체 서비스 강화",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T04:02:17.331394+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 32.22,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_bugs_happen_the_easy_way_to_compa",
+            "title": "Hacker News: Bugs happen: The easy way to compare solo PQ to ECC+PQ",
+            "title_ko": "버그 발생: 솔로 PQ와 ECC+PQ를 쉽게 비교하는 방법",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T04:02:50.551993+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 26.66,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_bugs_happen_the_easy_way_to_compa",
+            "title": "Hacker News: Bugs happen: The easy way to compare solo PQ to ECC+PQ",
+            "title_ko": "버그 발생: 솔로 PQ와 ECC+PQ 비교의 쉬운 방법",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T04:03:18.219839+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
