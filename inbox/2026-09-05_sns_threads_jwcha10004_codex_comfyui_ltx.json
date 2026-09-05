@@ -2,8 +2,8 @@
   "inbox_id": "2026-09-05_sns_threads_jwcha10004_codex_comfyui_ltx",
   "category": "AI 영상 자동화 및 로컬 파이프라인",
   "title": "Codex + ComfyUI + LTX 2.5: VRAM 8GB 자연어 노코드 영상 양산 파이프라인의 실체와 한계 검증",
-  "title_zh": "Codex + ComfyUI + LTX 2.5：8G显存自然语言无节点批量出片工作流实测——全自动神话与真实算力边界核查",
-  "title_en": "Codex + ComfyUI + LTX 2.5 Fact-Check: 8GB VRAM Natural Language Automated Video Pipeline Reality & Limitations",
+  "title_zh": "Codex+ComfyUI+LTX 2.5：验证8GB显存无代码视频生产流水线的实效与局限",
+  "title_en": "Codex + ComfyUI + LTX 2.5: Verifying the Reality and Limits of an 8GB VRAM No-Code Video Production Pipeline",
   "summary": "Threads(@jwcha10004)에서 'AI 영상 한 편마다 유료 비용을 낼 필요 없이, Codex 에이전트와 ComfyUI, LTX 2.5 오픈소스를 결합해 자연어 한 줄로 씬별 영상 생성부터 최종 MP4 병합까지 VRAM 8GB에서 완전 자동화할 수 있다'는 가이드가 큰 반향을 일으켰습니다. 이에 기술 블로그 원문 및 실제 ComfyUI Portable + LTX 2.5 2B Distilled 모델을 로컬 GPU 환경에서 벤치마크하여, 8GB 구동 실현 가능성, 렌더링 소요 시간, 캐릭터/음성 일관성의 실질적 한계를 팩트체크했습니다.",
   "summary_zh": "针对Threads(@jwcha10004)与技术博客上关于'通过Codex AI Agent控制ComfyUI节点后台运行LTX 2.5轻量视频模型，实现8GB显存本地自然语言自动批量生成4段分镜短视频并自动拼接MP4'的热门教程，实机搭建测试环境，严格核实8GB显存防爆机制、单视频渲染耗时以及人物与声音一致性的真实技术边界。",
   "summary_en": "Audited viral claims on Threads (@jwcha10004) that a local pipeline of Codex + ComfyUI + LTX 2.5 can completely automate text-to-video multi-scene production on 8GB VRAM without API costs. Benchmarked the portable ComfyUI setup and distilled model weights to evaluate memory limits, generation latency, and consistency bottlenecks.",
@@ -22,5 +22,109 @@
     "AI 영상 자동화 및 로컬 파이프라인",
     "FactCheck",
     "AutonomousDossier"
-  ]
+  ],
+  "ai_enrichment": {
+    "id": "2026-09-05_sns_threads_jwcha10004_codex_comfyui_ltx",
+    "source_lang": "KO",
+    "category_primary": "MULTIMODAL_AI",
+    "type_classification": "TECH",
+    "model_family": "LTX",
+    "task_modality": "text-to-video",
+    "parameter_size": "N/A",
+    "detected_formats": [],
+    "category": "No-Code Video Generation Pipeline",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Codex",
+      "ComfyUI",
+      "LTX",
+      "Video Generation",
+      "VRAM",
+      "No-Code"
+    ],
+    "recommended_tag": "🔥 강력 추천 (필독)",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "코덱스+컴피UI+LTX 2.5로 8GB VRAM에서 노코드 영상 양산 파이프라인의 실체와 한계 검증",
+        "hook": "VRAM 8GB로 텍스트만 입력하면 노코드 파이프라인이 고품질 영상을 생성? 코덱스, 컴피UI, LTX 2.5의 실제 성능과 한계를 검증했습니다.",
+        "key_takeaways": [
+          "8GB VRAM에서도 텍스트-영상 변환이 가능해 진입 장벽이 낮아짐.",
+          "컴피UI의 노코드 인터페이스와 코덱스의 코드 생성, LTX 2.5의 영상 생성 모델이 결합됨.",
+          "메모리 사용량, 프레임 레이트, 품질 면에서 한계 확인 (예: 긴 프롬프트 처리 어려움, 낮은 프레임레이트)."
+        ]
+      },
+      "en": {
+        "title": "Codex + ComfyUI + LTX 2.5: Verifying the Reality and Limits of an 8GB VRAM No-Code Video Production Pipeline",
+        "hook": "Can you generate high-quality videos from text using only 8GB VRAM? We tested the combined power of Codex, ComfyUI, and LTX 2.5 and uncovered its real capabilities and bottlenecks.",
+        "key_takeaways": [
+          "Achieved text-to-video generation on modest 8GB VRAM hardware using a no-code pipeline.",
+          "Integration of Codex for code generation, ComfyUI for visual workflow, and LTX 2.5 for video synthesis lowers entry barriers.",
+          "Identified limitations: memory constraints, lower frame rates, difficulty with complex prompts, and long generation times."
+        ]
+      },
+      "zh": {
+        "title": "Codex+ComfyUI+LTX 2.5：验证8GB显存无代码视频生产流水线的实效与局限",
+        "hook": "仅需8GB显存，通过文本即可生成高质量视频？我们验证了Codex、ComfyUI和LTX 2.5的结合应用，揭示了其实际性能与瓶颈。",
+        "key_takeaways": [
+          "利用无代码流水线实现了8GB显存下的文本到视频生成，降低了使用门槛。",
+          "Codex负责代码生成，ComfyUI提供可视化工作流，LTX 2.5负责视频合成，三者协同工作。",
+          "发现限制：显存不足、帧率较低、复杂提示词处理困难、生成时间较长等。"
+        ]
+      }
+    },
+    "enriched_by_model": "cohere/north-mini-code:free",
+    "enriched_at": "2026-09-05T12:27:01.244421+00:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "코덱스+컴피UI+LTX 2.5로 8GB VRAM에서 노코드 영상 양산 파이프라인의 실체와 한계 검증",
+      "hook": "VRAM 8GB로 텍스트만 입력하면 노코드 파이프라인이 고품질 영상을 생성? 코덱스, 컴피UI, LTX 2.5의 실제 성능과 한계를 검증했습니다.",
+      "key_takeaways": [
+        "8GB VRAM에서도 텍스트-영상 변환이 가능해 진입 장벽이 낮아짐.",
+        "컴피UI의 노코드 인터페이스와 코덱스의 코드 생성, LTX 2.5의 영상 생성 모델이 결합됨.",
+        "메모리 사용량, 프레임 레이트, 품질 면에서 한계 확인 (예: 긴 프롬프트 처리 어려움, 낮은 프레임레이트)."
+      ]
+    },
+    "en": {
+      "title": "Codex + ComfyUI + LTX 2.5: Verifying the Reality and Limits of an 8GB VRAM No-Code Video Production Pipeline",
+      "hook": "Can you generate high-quality videos from text using only 8GB VRAM? We tested the combined power of Codex, ComfyUI, and LTX 2.5 and uncovered its real capabilities and bottlenecks.",
+      "key_takeaways": [
+        "Achieved text-to-video generation on modest 8GB VRAM hardware using a no-code pipeline.",
+        "Integration of Codex for code generation, ComfyUI for visual workflow, and LTX 2.5 for video synthesis lowers entry barriers.",
+        "Identified limitations: memory constraints, lower frame rates, difficulty with complex prompts, and long generation times."
+      ]
+    },
+    "zh": {
+      "title": "Codex+ComfyUI+LTX 2.5：验证8GB显存无代码视频生产流水线的实效与局限",
+      "hook": "仅需8GB显存，通过文本即可生成高质量视频？我们验证了Codex、ComfyUI和LTX 2.5的结合应用，揭示了其实际性能与瓶颈。",
+      "key_takeaways": [
+        "利用无代码流水线实现了8GB显存下的文本到视频生成，降低了使用门槛。",
+        "Codex负责代码生成，ComfyUI提供可视化工作流，LTX 2.5负责视频合成，三者协同工作。",
+        "发现限制：显存不足、帧率较低、复杂提示词处理困难、生成时间较长等。"
+      ]
+    }
+  },
+  "source_lang": "KO",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Codex",
+    "ComfyUI",
+    "LTX",
+    "Video Generation",
+    "VRAM",
+    "No-Code"
+  ],
+  "title_ko": "코덱스+컴피UI+LTX 2.5로 8GB VRAM에서 노코드 영상 양산 파이프라인의 실체와 한계 검증",
+  "hook": "VRAM 8GB로 텍스트만 입력하면 노코드 파이프라인이 고품질 영상을 생성? 코덱스, 컴피UI, LTX 2.5의 실제 성능과 한계를 검증했습니다.",
+  "hook_ko": "VRAM 8GB로 텍스트만 입력하면 노코드 파이프라인이 고품질 영상을 생성? 코덱스, 컴피UI, LTX 2.5의 실제 성능과 한계를 검증했습니다.",
+  "hook_en": "Can you generate high-quality videos from text using only 8GB VRAM? We tested the combined power of Codex, ComfyUI, and LTX 2.5 and uncovered its real capabilities and bottlenecks.",
+  "hook_zh": "仅需8GB显存，通过文本即可生成高质量视频？我们验证了Codex、ComfyUI和LTX 2.5的结合应用，揭示了其实际性能与瓶颈。",
+  "description_ko": "VRAM 8GB로 텍스트만 입력하면 노코드 파이프라인이 고품질 영상을 생성? 코덱스, 컴피UI, LTX 2.5의 실제 성능과 한계를 검증했습니다.",
+  "description_en": "Can you generate high-quality videos from text using only 8GB VRAM? We tested the combined power of Codex, ComfyUI, and LTX 2.5 and uncovered its real capabilities and bottlenecks.",
+  "description_zh": "仅需8GB显存，通过文本即可生成高质量视频？我们验证了Codex、ComfyUI和LTX 2.5的结合应用，揭示了其实际性能与瓶颈。",
+  "category_type": "TECH",
+  "category_primary": "MULTIMODAL_AI",
+  "is_classified": true,
+  "is_deep_analyzed": false
 }

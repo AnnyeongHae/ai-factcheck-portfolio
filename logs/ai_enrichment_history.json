@@ -5875,5 +5875,580 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260905_121226",
+    "timestamp": "2026-09-05T12:12:26.679615+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 35,
+    "requested_limit": 0,
+    "processed_count": 35,
+    "success_count": 35,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 35
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 29.54,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_nx_비트는_보안만을_위한_것이_아니다",
+            "title": "GeekNews: NX 비트는 보안만을 위한 것이 아니다",
+            "title_ko": "GeekNews: NX 비트는 보안만을 위한 것이 아니다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:12:56.235392+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 25.44,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_nx_비트는_보안만을_위한_것이_아니다",
+            "title": "GeekNews: NX 비트는 보안만을 위한 것이 아니다",
+            "title_ko": "NX 비트는 보안만을 위한 것이 아니다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:13:22.671596+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 45.59,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_미국인의_정부_부패_인식_89_20년_만에_최고치",
+            "title": "GeekNews: 미국인의 정부 부패 인식 89%, 20년 만에 최고치",
+            "title_ko": "미국인 정부 부패 인식 89%, 20년 만에 최고치",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:14:09.260367+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 32.61,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_미국인의_정부_부패_인식_89_20년_만에_최고치",
+            "title": "GeekNews: 미국인의 정부 부패 인식 89%, 20년 만에 최고치",
+            "title_ko": "미국인의 정부 부패 인식 89%, 20년 만에 최고치",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:14:42.869627+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 21.39,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_mullvad_공개_암호화_dns_종료하고_quad9_지원으로_전",
+            "title": "GeekNews: Mullvad, 공개 암호화 DNS 종료하고 Quad9 지원으로 전환",
+            "title_ko": "뮬바드, 공개 암호화 DNS 종료하고 Quad9 지원으로 전환",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:15:05.260573+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 31.18,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_mullvad_공개_암호화_dns_종료하고_quad9_지원으로_전",
+            "title": "GeekNews: Mullvad, 공개 암호화 DNS 종료하고 Quad9 지원으로 전환",
+            "title_ko": "뮬바드, 공개 암호화 DNS 종료하고 Quad9 지원으로 전환",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:15:37.438221+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.31,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_show_gn_anthills_음악_아카이빙_amp_소셜_플랫폼",
+            "title": "GeekNews: Show GN: Anthills - 음악 아카이빙 &amp; 소셜 플랫폼",
+            "title_ko": "Anthills: 음악 아카이빙과 소셜을 결합한 플랫폼",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:15:53.752487+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.08,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_show_gn_anthills_음악_아카이빙_amp_소셜_플랫폼",
+            "title": "GeekNews: Show GN: Anthills - 음악 아카이빙 &amp; 소셜 플랫폼",
+            "title_ko": "음악 아카이빙 & 소셜 플랫폼 'Anthills', GeekNews에서 소개되다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:16:12.837834+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 29.33,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_show_gn_계산랩_법령_출처와_기준일을_같이_보여주는_계산기_",
+            "title": "GeekNews: Show GN: 계산랩 - 법령 출처와 기준일을 같이 보여주는 계산기 모음",
+            "title_ko": "법령 출처와 기준일을 함께 보여주는 계산기 모음",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:16:43.165382+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.22,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_show_gn_계산랩_법령_출처와_기준일을_같이_보여주는_계산기_",
+            "title": "GeekNews: Show GN: 계산랩 - 법령 출처와 기준일을 같이 보여주는 계산기 모음",
+            "title_ko": "GeekNews: Show GN: 계산랩 - 법령 출처와 기준일을 같이 보여주는 계산기 모음",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:17:04.388435+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 36.15,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_github_yczzoc_english",
+            "title": "GitHub: yczz/oc-english",
+            "title_ko": "GitHub 저장소: yczz/oc-english",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:17:41.535544+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 12,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 27.24,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_github_yczzoc_english",
+            "title": "GitHub: yczz/oc-english",
+            "title_ko": "OC-영어: 육성형 게임으로 영어 배우기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:18:09.774405+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 13,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 29.53,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_akuyakufreeomni_videos_custom_auto_p",
+            "title": "HF Space: Akuyakufree/Omni-videos-custom-auto_prompt_high-quality",
+            "title_ko": "HF 스페이스: 아쿠야쿠프리의 고품질 맞춤 자동 프롬프트 비디오 생성",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:18:40.302624+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 14,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 34.27,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_akuyakufreeomni_videos_custom_auto_p",
+            "title": "HF Space: Akuyakufree/Omni-videos-custom-auto_prompt_high-quality",
+            "title_ko": "HF 스페이스: 고품질 옴니 비디오 커스텀 자동 프롬프트 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:19:15.569074+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 15,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.35,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_raubatzfk9b_headswap",
+            "title": "HF Space: raubatz/fk9b-headswap",
+            "title_ko": "HF 스페이스: raubatz/fk9b-headswap – 실시간 헤드 스왑 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:19:30.923809+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 16,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 17.31,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_raubatzfk9b_headswap",
+            "title": "HF Space: raubatz/fk9b-headswap",
+            "title_ko": "HF 스페이스: raubatz/fk9b-헤드스왑 – 얼굴 교체 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:19:49.238472+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 17,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 24.3,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_lg_tvs_arent_the_only_ones_spying",
+            "title": "Hacker News: LG TVs aren't the only ones spying on you [video]",
+            "title_ko": "LG TV만이 아닙니다. 다른 TV들도 당신을 감시하고 있습니다 [영상]",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:20:14.542112+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 18,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 13.37,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_lg_tvs_arent_the_only_ones_spying",
+            "title": "Hacker News: LG TVs aren't the only ones spying on you [video]",
+            "title_ko": "LG TV만이 아닙니다: 다른 TV들도 당신을 감시합니다 [동영상]",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:20:28.917829+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 19,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.55,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_netherlands_pulls_gold_out_of_the",
+            "title": "Hacker News: Netherlands pulls gold out of the US for fears of 'geopolitical unrest'",
+            "title_ko": "네덜란드, '지정학적 불안' 우려로 미국 내 금 인출",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:20:50.473496+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 20,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.29,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_netherlands_pulls_gold_out_of_the",
+            "title": "Hacker News: Netherlands pulls gold out of the US for fears of 'geopolitical unrest'",
+            "title_ko": "네덜란드, 지정학적 불안 우려로 미국 내 금 인출",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:21:09.767706+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 21,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.94,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_ai_handles_incidents_engineers_lo",
+            "title": "Hacker News: AI handles incidents, engineers lose touch with their systems",
+            "title_ko": "Hacker News: AI가 인시던트를 처리하며 엔지니어들은 시스템과의 접점을 잃다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:21:23.710741+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 22,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 22.88,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_ai_handles_incidents_engineers_lo",
+            "title": "Hacker News: AI handles incidents, engineers lose touch with their systems",
+            "title_ko": "Hacker News: AI가 사고를 처리하며 엔지니어들은 시스템과의 연결을 잃다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:21:47.596022+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 23,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 24.33,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_git_hosting_that_never_leaves_eur",
+            "title": "Hacker News: Git hosting that never leaves Europe",
+            "title_ko": "유럽을 떠나는 일이 없는 Git 호스팅 서비스",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:22:12.929989+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 24,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 17.26,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_git_hosting_that_never_leaves_eur",
+            "title": "Hacker News: Git hosting that never leaves Europe",
+            "title_ko": "유럽을 떠나지 않는 Git 호스팅 – Hacker News 화제",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:22:31.195353+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 25,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 27.15,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_fakers_by_rory_cormac_review",
+            "title": "Hacker News: 'Fakers' by Rory Cormac Review",
+            "title_ko": "해커 뉴스 리뷰: 로리 코맥의 'Fakers' – 현대 테크 문화에 대한 비판적 고찰",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:22:59.344547+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 26,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 22.67,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_fakers_by_rory_cormac_review",
+            "title": "Hacker News: 'Fakers' by Rory Cormac Review",
+            "title_ko": "해커 뉴스: 'Fakers' 리뷰 - Rory Cormac의 책",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:23:23.015536+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 27,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 28.3,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_sky_map_2000_star_atlas_and_plane",
+            "title": "Hacker News: Sky Map 2000 – Star Atlas and Planetarium",
+            "title_ko": "스카이 맵 2000 – 스타 아틀라스 및 플라네타륨",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:23:52.317174+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 28,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 28.84,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_sky_map_2000_star_atlas_and_plane",
+            "title": "Hacker News: Sky Map 2000 – Star Atlas and Planetarium",
+            "title_ko": "스카이 맵 2000: 별자리 지도 및 플라네타륨 앱, 해커 뉴스에 등장",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:24:22.159613+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 29,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 26.5,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_pointing_at_the_error_compiler_st",
+            "title": "Hacker News: Pointing at the error: compiler-style diagnostics in uutils coreutils",
+            "title_ko": "uutils coreutils의 컴파일러 스타일 진단 기능",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:24:49.658198+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 30,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.32,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_pointing_at_the_error_compiler_st",
+            "title": "Hacker News: Pointing at the error: compiler-style diagnostics in uutils coreutils",
+            "title_ko": "해커 뉴스: 오류 지적: uutils coreutils의 컴파일러 스타일 진단",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:25:04.982014+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 31,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 17.59,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_kale_a_transformation_safe_spread",
+            "title": "Hacker News: Kale: A Transformation-Safe Spreadsheet System",
+            "title_ko": "칼레: 변환 안전 스프레드시트 시스템",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:25:23.568517+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 32,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 25.34,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_kale_a_transformation_safe_spread",
+            "title": "Hacker News: Kale: A Transformation-Safe Spreadsheet System",
+            "title_ko": "Kale: 변환 안전한 스프레드시트 시스템",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:25:49.913457+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 33,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 37.16,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_x_thesupermanmx_bytedance_cuda_agent_factcheck",
+            "title": "바이트댄스 'CUDA Agent': 인간 전문가 능가하는 GPU 커널 AI 오픈소스 공개 및 엔비디아 종말론의 실체",
+            "title_ko": "바이트댄스 'CUDA Agent': GPU 커널 최적화 AI, 인간 전문가 능가하는 오픈소스 공개 및 엔비디아 종말론의 실체",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:26:28.072090+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 34,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 32.17,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_threads_jwcha10004_codex_comfyui_ltx",
+            "title": "Codex + ComfyUI + LTX 2.5: VRAM 8GB 자연어 노코드 영상 양산 파이프라인의 실체와 한계 검증",
+            "title_ko": "코덱스+컴피UI+LTX 2.5로 8GB VRAM에서 노코드 영상 양산 파이프라인의 실체와 한계 검증",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:27:01.244421+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 35,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 26.19,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_instagram_gpt_haterz_emilkowalski_skills",
+            "title": "에밀 코발스키 'apple-design' 스킬: AI 에이전트의 애플식 물리 인터페이스 구현과 디자인 격차 해소 검증",
+            "title_ko": "에밀 코발스키의 애플 디자인 스킬: AI 에이전트의 애플식 물리 인터페이스 구현과 디자인 격차 검증",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T12:27:28.439810+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
