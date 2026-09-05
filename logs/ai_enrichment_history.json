@@ -5764,5 +5764,116 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260905_050245",
+    "timestamp": "2026-09-05T05:02:45.163818+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 6,
+    "requested_limit": 0,
+    "processed_count": 6,
+    "success_count": 6,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 6
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 36.07,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_qdpieqdpie_qwen_image_editor",
+            "title": "HF Space: Qdpie/Qdpie-Qwen-Image-Editor",
+            "title_ko": "Qwen 이미지 편집기 HF 스페이스 데모",
+            "classification": "DEMO",
+            "model_family": null,
+            "enriched_at": "2026-09-05T05:03:21.239954+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 11.86,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_qdpieqdpie_qwen_image_editor",
+            "title": "HF Space: Qdpie/Qdpie-Qwen-Image-Editor",
+            "title_ko": "Qwen 기반 이미지 편집 HF 스페이스 데모",
+            "classification": "DEMO",
+            "model_family": null,
+            "enriched_at": "2026-09-05T05:03:34.106895+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 38.1,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_gpt_6_astra_in_code_review_gains_",
+            "title": "Hacker News: GPT-6 Astra in code review: Gains, privacy, and cost",
+            "title_ko": "Hacker News: 코드 리뷰에서의 GPT-6 아스트라: 이점, 프라이버시, 비용",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T05:04:13.215925+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 33.88,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_gpt_6_astra_in_code_review_gains_",
+            "title": "Hacker News: GPT-6 Astra in code review: Gains, privacy, and cost",
+            "title_ko": "해커 뉴스: 코드 리뷰에서의 GPT-6 아스트라: 이점, 개인정보 보호, 그리고 비용",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T05:04:48.098467+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 31.96,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_the_highest_point_in_the_netherla",
+            "title": "Hacker News: The Highest Point in the Netherlands",
+            "title_ko": "네덜란드에서 가장 높은 지점",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T05:05:21.064900+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 22.74,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_the_highest_point_in_the_netherla",
+            "title": "Hacker News: The Highest Point in the Netherlands",
+            "title_ko": "해커 뉴스: 네덜란드의 최고 지점",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T05:05:44.806126+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]

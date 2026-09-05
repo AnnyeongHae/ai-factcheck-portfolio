@@ -8,18 +8,18 @@
   "half_true_count": 11,
   "gamed_count": 2,
   "avg_confidence": 96.2,
-  "models_total_count": 226,
-  "news_total_count": 544,
+  "models_total_count": 227,
+  "news_total_count": 546,
   "news_cat_counts": {
     "INFERENCE_OPT": 37,
     "AGENTS_DEVTOOLS": 88,
     "MULTIMODAL_AI": 29,
-    "FOUNDATION_MODELS": 4,
+    "FOUNDATION_MODELS": 5,
     "INFRA_RAG_SECURITY": 56,
-    "INDUSTRY_TRENDS": 330
+    "INDUSTRY_TRENDS": 331
   },
-  "inbox_total_count": 759,
-  "all_inbox_count": 770,
+  "inbox_total_count": 762,
+  "all_inbox_count": 773,
   "admin_stats": {
     "endpoints": [
       {
@@ -54,6 +54,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-05T05:02:12.130222",
+        "date": "2026-09-05",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.17
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 86,
+            "duration_sec": 0.2
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 1.56
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 28.13
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.22
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.13
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 1.02
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.18
+          }
+        },
+        "summary": {
+          "total_fetched": 260,
+          "updated_count": 0,
+          "new_saved": 3,
+          "duplicates_skipped": 257,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-05T03:58:52.976615",
         "date": "2026-09-05",
@@ -1590,111 +1643,58 @@
           "duplicates_skipped": 224,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T10:55:44.523027",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.18
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 86,
-            "duration_sec": 0.24
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.71
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 23,
-            "duration_sec": 10.85
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.62
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.13
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 1.02
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.12
-          }
-        },
-        "summary": {
-          "total_fetched": 224,
-          "updated_count": 0,
-          "new_saved": 3,
-          "duplicates_skipped": 221,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-05T03:58:52.976615",
+      "timestamp": "2026-09-05T05:02:12.130222",
       "date": "2026-09-05",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.2
+          "duration_sec": 0.17
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 86,
-          "duration_sec": 0.31
+          "duration_sec": 0.2
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.73
+          "duration_sec": 1.56
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 11.04
+          "duration_sec": 28.13
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.28
+          "duration_sec": 0.22
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.17
+          "duration_sec": 0.13
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.91
+          "duration_sec": 1.02
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.15
+          "duration_sec": 0.18
         }
       },
       "summary": {
         "total_fetched": 260,
         "updated_count": 0,
-        "new_saved": 4,
-        "duplicates_skipped": 256,
+        "new_saved": 3,
+        "duplicates_skipped": 257,
         "errors": 0
       }
     }
@@ -1744,9 +1744,9 @@
       "slot": "12시",
       "hour": 12,
       "range": "12:00 - 14:59",
-      "inbox_count": 4,
-      "model_count": 0,
-      "news_count": 4,
+      "inbox_count": 7,
+      "model_count": 1,
+      "news_count": 6,
       "is_current": true,
       "is_future": false
     },
@@ -1785,7 +1785,7 @@
     "window_label": "12:00 ~ 18:00 KST",
     "window_period": "오후 실시간 모델 & 아키텍처 브리핑",
     "today_kst": "2026-09-05",
-    "updated_at": "14:07 KST",
+    "updated_at": "14:08 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
@@ -1794,14 +1794,148 @@
     "tags": [
       "#High_Engagement",
       "#Local_LLM",
-      "#Autonomous_Agent",
       "#SoTA_Models",
+      "#Autonomous_Agent",
       "#MoE_Architecture"
     ]
   },
   "dow_stats": [],
   "monthly_stats": [],
   "model_items": [
+    {
+      "inbox_id": "2026-09-05_repo_hf_space_qdpieqdpie_qwen_image_editor",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T05:02:44.211678",
+      "published_at": "2026-09-05T05:02:44.211678",
+      "created_at": "2026-09-05T05:02:44.211678",
+      "updated_at": "2026-09-05T05:02:44.211678",
+      "title": "HF Space: Qdpie/Qdpie-Qwen-Image-Editor",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Qdpie/Qdpie-Qwen-Image-Editor",
+      "type": "repo",
+      "category_type": "DEMO",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 11 | Live URL: https://huggingface.co/spaces/Qdpie/Qdpie-Qwen-Image-Editor",
+      "viral_metric": "❤️ 11 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 11,
+          "display": "❤️ 11 Likes (Trending Demo)",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 11,
+          "display": "❤️ 11 Likes (Trending Demo)",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-05_repo_hf_space_qdpieqdpie_qwen_image_editor",
+        "source_lang": "EN",
+        "category_primary": "MULTIMODAL_AI",
+        "type_classification": "DEMO",
+        "model_family": "Qwen",
+        "task_modality": "image-to-image",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "Image Editing using Qwen",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Qwen",
+          "Image Editing",
+          "Gradio"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "Qwen 기반 이미지 편집 HF 스페이스 데모",
+            "hook": "그라마를 통해 이미지를 간편하게 편집하는 Qwen 기반 AI 데모",
+            "key_takeaways": [
+              "Qwen 모델을 활용한 이미지 편집",
+              "그라마 기반의 대화형 UI",
+              "HF 스페이스에서 실시간으로 사용 가능"
+            ]
+          },
+          "en": {
+            "title": "Qwen-Powered Image Editor on HF Space",
+            "hook": "Edit images interactively with Qwen in a Gradio-powered demo on Hugging Face",
+            "key_takeaways": [
+              "Interactive image editing using Qwen",
+              "Gradio-based UI for easy editing",
+              "Live demo accessible via HF Space"
+            ]
+          },
+          "zh": {
+            "title": "基于Qwen的图像编辑HF空间演示",
+            "hook": "通过Gradio实现的Qwen图像编辑交互式体验，一键体验AI图像处理",
+            "key_takeaways": [
+              "基于Qwen的智能图像编辑",
+              "Gradio交互界面操作简便",
+              "HF空间直接试用，无需安装"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T05:03:34.106895+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Qwen 기반 이미지 편집 HF 스페이스 데모",
+          "hook": "그라마를 통해 이미지를 간편하게 편집하는 Qwen 기반 AI 데모",
+          "key_takeaways": [
+            "Qwen 모델을 활용한 이미지 편집",
+            "그라마 기반의 대화형 UI",
+            "HF 스페이스에서 실시간으로 사용 가능"
+          ]
+        },
+        "en": {
+          "title": "Qwen-Powered Image Editor on HF Space",
+          "hook": "Edit images interactively with Qwen in a Gradio-powered demo on Hugging Face",
+          "key_takeaways": [
+            "Interactive image editing using Qwen",
+            "Gradio-based UI for easy editing",
+            "Live demo accessible via HF Space"
+          ]
+        },
+        "zh": {
+          "title": "基于Qwen的图像编辑HF空间演示",
+          "hook": "通过Gradio实现的Qwen图像编辑交互式体验，一键体验AI图像处理",
+          "key_takeaways": [
+            "基于Qwen的智能图像编辑",
+            "Gradio交互界面操作简便",
+            "HF空间直接试用，无需安装"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Qwen",
+        "Image Editing",
+        "Gradio"
+      ],
+      "title_ko": "Qwen 기반 이미지 편집 HF 스페이스 데모",
+      "title_en": "Qwen-Powered Image Editor on HF Space",
+      "title_zh": "基于Qwen的图像编辑HF空间演示",
+      "hook": "그라마를 통해 이미지를 간편하게 편집하는 Qwen 기반 AI 데모",
+      "hook_ko": "그라마를 통해 이미지를 간편하게 편집하는 Qwen 기반 AI 데모",
+      "hook_en": "Edit images interactively with Qwen in a Gradio-powered demo on Hugging Face",
+      "hook_zh": "通过Gradio实现的Qwen图像编辑交互式体验，一键体验AI图像处理",
+      "description_ko": "그라마를 통해 이미지를 간편하게 편집하는 Qwen 기반 AI 데모",
+      "description_en": "Edit images interactively with Qwen in a Gradio-powered demo on Hugging Face",
+      "description_zh": "通过Gradio实现的Qwen图像编辑交互式体验，一键体验AI图像处理",
+      "category_primary": "MULTIMODAL_AI",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-05_repo_hf_space_akhaliqminimax_h3_turbo_lora",
       "harvested_date": "2026-09-05",
@@ -34548,6 +34682,282 @@
     }
   ],
   "news_items": [
+    {
+      "inbox_id": "2026-09-05_sns_hacker_news_the_highest_point_in_the_netherla",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T05:02:44.503400",
+      "published_at": "2026-09-02T14:58:44",
+      "created_at": "2026-09-02T14:58:44",
+      "updated_at": "2026-09-05T05:02:44.503400",
+      "title": "Hacker News: The Highest Point in the Netherlands",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49537340",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 9 pts | Comments: 2 | The Highest Point in the Netherlands",
+      "viral_metric": "🔥 9 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49537340",
+      "article_url": "https://ipv6.hanazo.no/posts/anniversary-personal/",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_hacker_news_the_highest_point_in_the_netherla",
+        "source_lang": "EN",
+        "category_primary": "INDUSTRY_TRENDS",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "task_modality": "other",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "General News",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Netherlands",
+          "geography",
+          "Hacker News"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 네덜란드의 최고 지점",
+            "hook": "엔지니어들이 주목한 네덜란드 최고 지점에 대한 흥미로운 사실",
+            "key_takeaways": [
+              "네덜란드와 벨기에 국경에 위치한 바알세베르크 산은 해발 약 322m로 네덜란드 최고 지점입니다.",
+              "이 지점은 국경 지역으로, 주변에 관광 명소와 역사 유적지가 있습니다.",
+              "Hacker News에서 이 지점이 화제가 된 이유는 지리에 대한 흥미로운 사실과 국경 지역 탐험 때문입니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News Highlights: The Highest Point in the Netherlands",
+            "hook": "Discover the surprising summit that marks the highest point in the Netherlands, as highlighted on Hacker News.",
+            "key_takeaways": [
+              "The Vaalserberg is the highest point in the Netherlands, at about 322 meters above sea level, located on the border with Belgium.",
+              "It features a small monument and attracts hikers and geography enthusiasts.",
+              "Hacker News highlighted this spot for its surprising geography and cross‑border intrigue."
+            ]
+          },
+          "zh": {
+            "title": "Hacker News 聚焦：荷兰的最高点",
+            "hook": "直击工程师痛点的1句话亮点与阅读理由",
+            "key_takeaways": [
+              "瓦尔塞贝格山是荷兰的最高点，海拔约322米，位于荷兰与比利时的边境。",
+              "该地点有一个小型纪念碑，吸引了徒步旅行者和地理爱好者。",
+              "Hacker News 关注这个地方，因为它令人惊讶的地形和跨境魅力。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T05:05:44.806126+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 네덜란드의 최고 지점",
+          "hook": "엔지니어들이 주목한 네덜란드 최고 지점에 대한 흥미로운 사실",
+          "key_takeaways": [
+            "네덜란드와 벨기에 국경에 위치한 바알세베르크 산은 해발 약 322m로 네덜란드 최고 지점입니다.",
+            "이 지점은 국경 지역으로, 주변에 관광 명소와 역사 유적지가 있습니다.",
+            "Hacker News에서 이 지점이 화제가 된 이유는 지리에 대한 흥미로운 사실과 국경 지역 탐험 때문입니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News Highlights: The Highest Point in the Netherlands",
+          "hook": "Discover the surprising summit that marks the highest point in the Netherlands, as highlighted on Hacker News.",
+          "key_takeaways": [
+            "The Vaalserberg is the highest point in the Netherlands, at about 322 meters above sea level, located on the border with Belgium.",
+            "It features a small monument and attracts hikers and geography enthusiasts.",
+            "Hacker News highlighted this spot for its surprising geography and cross‑border intrigue."
+          ]
+        },
+        "zh": {
+          "title": "Hacker News 聚焦：荷兰的最高点",
+          "hook": "直击工程师痛点的1句话亮点与阅读理由",
+          "key_takeaways": [
+            "瓦尔塞贝格山是荷兰的最高点，海拔约322米，位于荷兰与比利时的边境。",
+            "该地点有一个小型纪念碑，吸引了徒步旅行者和地理爱好者。",
+            "Hacker News 关注这个地方，因为它令人惊讶的地形和跨境魅力。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Netherlands",
+        "geography",
+        "Hacker News"
+      ],
+      "title_ko": "해커 뉴스: 네덜란드의 최고 지점",
+      "title_en": "Hacker News Highlights: The Highest Point in the Netherlands",
+      "title_zh": "Hacker News 聚焦：荷兰的最高点",
+      "hook": "엔지니어들이 주목한 네덜란드 최고 지점에 대한 흥미로운 사실",
+      "hook_ko": "엔지니어들이 주목한 네덜란드 최고 지점에 대한 흥미로운 사실",
+      "hook_en": "Discover the surprising summit that marks the highest point in the Netherlands, as highlighted on Hacker News.",
+      "hook_zh": "直击工程师痛点的1句话亮点与阅读理由",
+      "description_ko": "엔지니어들이 주목한 네덜란드 최고 지점에 대한 흥미로운 사실",
+      "description_en": "Discover the surprising summit that marks the highest point in the Netherlands, as highlighted on Hacker News.",
+      "description_zh": "直击工程师痛点的1句话亮点与阅读理由",
+      "category_primary": "INDUSTRY_TRENDS",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_sns_hacker_news_gpt_6_astra_in_code_review_gains_",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T05:02:44.486635",
+      "published_at": "2026-09-05T03:38:56",
+      "created_at": "2026-09-05T03:38:56",
+      "updated_at": "2026-09-05T05:02:44.486635",
+      "title": "Hacker News: GPT-6 Astra in code review: Gains, privacy, and cost",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49572875",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 4 pts | Comments: 1 | GPT-6 Astra in code review: Gains, privacy, and cost",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49572875",
+      "article_url": "https://www.coderabbit.ai/blog/gpt-6-astra-code-review-evaluation",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_hacker_news_gpt_6_astra_in_code_review_gains_",
+        "source_lang": "EN",
+        "category_primary": "FOUNDATION_MODELS",
+        "type_classification": "TECH",
+        "model_family": "GPT",
+        "task_modality": "text-to-text",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "Code Review AI",
+        "programming_lang": "General",
+        "root_keywords": [
+          "GPT-6",
+          "Astra",
+          "code review",
+          "privacy",
+          "cost"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 코드 리뷰에서의 GPT-6 아스트라: 이점, 개인정보 보호, 그리고 비용",
+            "hook": "코드 리뷰에 GPT-6 Astra를 도입하면 생산성이 향상되지만, 개인정보 보호와 비용이 문제입니다.",
+            "key_takeaways": [
+              "GPT-6 Astra는 코드 리뷰 속도와 정확성을 향상시킵니다.",
+              "개인정보 보호와 데이터 보안에 대한 우려가 제기되었습니다.",
+              "비용 효율성과 대규모 도입 가능성은 여전히 불확실합니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: GPT-6 Astra in code review: Benefits, privacy, and cost",
+            "hook": "GPT-6 Astra boosts code review productivity but raises privacy concerns and costs.",
+            "key_takeaways": [
+              "GPT-6 Astra improves code review speed and accuracy.",
+              "Privacy and data security concerns have been raised.",
+              "Cost efficiency and scalability remain uncertain."
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：GPT-6 Astra在代码审查中的应用：优势、隐私与成本",
+            "hook": "GPT-6 Astra在代码审查中展现出色，提高效率，但隐私和成本问题不容忽视.",
+            "key_takeaways": [
+              "GPT-6 Astra提升了代码审查的速度和准确性。",
+              "隐私和数据安全问题引发关注。",
+              "成本效益和可扩展性仍有待观察。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T05:04:48.098467+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 코드 리뷰에서의 GPT-6 아스트라: 이점, 개인정보 보호, 그리고 비용",
+          "hook": "코드 리뷰에 GPT-6 Astra를 도입하면 생산성이 향상되지만, 개인정보 보호와 비용이 문제입니다.",
+          "key_takeaways": [
+            "GPT-6 Astra는 코드 리뷰 속도와 정확성을 향상시킵니다.",
+            "개인정보 보호와 데이터 보안에 대한 우려가 제기되었습니다.",
+            "비용 효율성과 대규모 도입 가능성은 여전히 불확실합니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: GPT-6 Astra in code review: Benefits, privacy, and cost",
+          "hook": "GPT-6 Astra boosts code review productivity but raises privacy concerns and costs.",
+          "key_takeaways": [
+            "GPT-6 Astra improves code review speed and accuracy.",
+            "Privacy and data security concerns have been raised.",
+            "Cost efficiency and scalability remain uncertain."
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：GPT-6 Astra在代码审查中的应用：优势、隐私与成本",
+          "hook": "GPT-6 Astra在代码审查中展现出色，提高效率，但隐私和成本问题不容忽视.",
+          "key_takeaways": [
+            "GPT-6 Astra提升了代码审查的速度和准确性。",
+            "隐私和数据安全问题引发关注。",
+            "成本效益和可扩展性仍有待观察。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "GPT-6",
+        "Astra",
+        "code review",
+        "privacy",
+        "cost"
+      ],
+      "title_ko": "해커 뉴스: 코드 리뷰에서의 GPT-6 아스트라: 이점, 개인정보 보호, 그리고 비용",
+      "title_en": "Hacker News: GPT-6 Astra in code review: Benefits, privacy, and cost",
+      "title_zh": "Hacker News：GPT-6 Astra在代码审查中的应用：优势、隐私与成本",
+      "hook": "코드 리뷰에 GPT-6 Astra를 도입하면 생산성이 향상되지만, 개인정보 보호와 비용이 문제입니다.",
+      "hook_ko": "코드 리뷰에 GPT-6 Astra를 도입하면 생산성이 향상되지만, 개인정보 보호와 비용이 문제입니다.",
+      "hook_en": "GPT-6 Astra boosts code review productivity but raises privacy concerns and costs.",
+      "hook_zh": "GPT-6 Astra在代码审查中展现出色，提高效率，但隐私和成本问题不容忽视.",
+      "description_ko": "코드 리뷰에 GPT-6 Astra를 도입하면 생산성이 향상되지만, 개인정보 보호와 비용이 문제입니다.",
+      "description_en": "GPT-6 Astra boosts code review productivity but raises privacy concerns and costs.",
+      "description_zh": "GPT-6 Astra在代码审查中展现出色，提高效率，但隐私和成本问题不容忽视.",
+      "category_primary": "FOUNDATION_MODELS",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-05_sns_geeknews_ai가_내_두뇌를_망치고_있을까",
       "harvested_date": "2026-09-05",
@@ -107311,6 +107721,416 @@
     }
   ],
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-05_sns_hacker_news_the_highest_point_in_the_netherla",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T05:02:44.503400",
+      "published_at": "2026-09-02T14:58:44",
+      "created_at": "2026-09-02T14:58:44",
+      "updated_at": "2026-09-05T05:02:44.503400",
+      "title": "Hacker News: The Highest Point in the Netherlands",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49537340",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 9 pts | Comments: 2 | The Highest Point in the Netherlands",
+      "viral_metric": "🔥 9 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 9,
+          "display": "🔥 9 HN Points",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49537340",
+      "article_url": "https://ipv6.hanazo.no/posts/anniversary-personal/",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_hacker_news_the_highest_point_in_the_netherla",
+        "source_lang": "EN",
+        "category_primary": "INDUSTRY_TRENDS",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "task_modality": "other",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "General News",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Netherlands",
+          "geography",
+          "Hacker News"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 네덜란드의 최고 지점",
+            "hook": "엔지니어들이 주목한 네덜란드 최고 지점에 대한 흥미로운 사실",
+            "key_takeaways": [
+              "네덜란드와 벨기에 국경에 위치한 바알세베르크 산은 해발 약 322m로 네덜란드 최고 지점입니다.",
+              "이 지점은 국경 지역으로, 주변에 관광 명소와 역사 유적지가 있습니다.",
+              "Hacker News에서 이 지점이 화제가 된 이유는 지리에 대한 흥미로운 사실과 국경 지역 탐험 때문입니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News Highlights: The Highest Point in the Netherlands",
+            "hook": "Discover the surprising summit that marks the highest point in the Netherlands, as highlighted on Hacker News.",
+            "key_takeaways": [
+              "The Vaalserberg is the highest point in the Netherlands, at about 322 meters above sea level, located on the border with Belgium.",
+              "It features a small monument and attracts hikers and geography enthusiasts.",
+              "Hacker News highlighted this spot for its surprising geography and cross‑border intrigue."
+            ]
+          },
+          "zh": {
+            "title": "Hacker News 聚焦：荷兰的最高点",
+            "hook": "直击工程师痛点的1句话亮点与阅读理由",
+            "key_takeaways": [
+              "瓦尔塞贝格山是荷兰的最高点，海拔约322米，位于荷兰与比利时的边境。",
+              "该地点有一个小型纪念碑，吸引了徒步旅行者和地理爱好者。",
+              "Hacker News 关注这个地方，因为它令人惊讶的地形和跨境魅力。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T05:05:44.806126+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 네덜란드의 최고 지점",
+          "hook": "엔지니어들이 주목한 네덜란드 최고 지점에 대한 흥미로운 사실",
+          "key_takeaways": [
+            "네덜란드와 벨기에 국경에 위치한 바알세베르크 산은 해발 약 322m로 네덜란드 최고 지점입니다.",
+            "이 지점은 국경 지역으로, 주변에 관광 명소와 역사 유적지가 있습니다.",
+            "Hacker News에서 이 지점이 화제가 된 이유는 지리에 대한 흥미로운 사실과 국경 지역 탐험 때문입니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News Highlights: The Highest Point in the Netherlands",
+          "hook": "Discover the surprising summit that marks the highest point in the Netherlands, as highlighted on Hacker News.",
+          "key_takeaways": [
+            "The Vaalserberg is the highest point in the Netherlands, at about 322 meters above sea level, located on the border with Belgium.",
+            "It features a small monument and attracts hikers and geography enthusiasts.",
+            "Hacker News highlighted this spot for its surprising geography and cross‑border intrigue."
+          ]
+        },
+        "zh": {
+          "title": "Hacker News 聚焦：荷兰的最高点",
+          "hook": "直击工程师痛点的1句话亮点与阅读理由",
+          "key_takeaways": [
+            "瓦尔塞贝格山是荷兰的最高点，海拔约322米，位于荷兰与比利时的边境。",
+            "该地点有一个小型纪念碑，吸引了徒步旅行者和地理爱好者。",
+            "Hacker News 关注这个地方，因为它令人惊讶的地形和跨境魅力。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Netherlands",
+        "geography",
+        "Hacker News"
+      ],
+      "title_ko": "해커 뉴스: 네덜란드의 최고 지점",
+      "title_en": "Hacker News Highlights: The Highest Point in the Netherlands",
+      "title_zh": "Hacker News 聚焦：荷兰的最高点",
+      "hook": "엔지니어들이 주목한 네덜란드 최고 지점에 대한 흥미로운 사실",
+      "hook_ko": "엔지니어들이 주목한 네덜란드 최고 지점에 대한 흥미로운 사실",
+      "hook_en": "Discover the surprising summit that marks the highest point in the Netherlands, as highlighted on Hacker News.",
+      "hook_zh": "直击工程师痛点的1句话亮点与阅读理由",
+      "description_ko": "엔지니어들이 주목한 네덜란드 최고 지점에 대한 흥미로운 사실",
+      "description_en": "Discover the surprising summit that marks the highest point in the Netherlands, as highlighted on Hacker News.",
+      "description_zh": "直击工程师痛点的1句话亮点与阅读理由",
+      "category_primary": "INDUSTRY_TRENDS",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_sns_hacker_news_gpt_6_astra_in_code_review_gains_",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T05:02:44.486635",
+      "published_at": "2026-09-05T03:38:56",
+      "created_at": "2026-09-05T03:38:56",
+      "updated_at": "2026-09-05T05:02:44.486635",
+      "title": "Hacker News: GPT-6 Astra in code review: Gains, privacy, and cost",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49572875",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 4 pts | Comments: 1 | GPT-6 Astra in code review: Gains, privacy, and cost",
+      "viral_metric": "🔥 4 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 4,
+          "display": "🔥 4 HN Points",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49572875",
+      "article_url": "https://www.coderabbit.ai/blog/gpt-6-astra-code-review-evaluation",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_hacker_news_gpt_6_astra_in_code_review_gains_",
+        "source_lang": "EN",
+        "category_primary": "FOUNDATION_MODELS",
+        "type_classification": "TECH",
+        "model_family": "GPT",
+        "task_modality": "text-to-text",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "Code Review AI",
+        "programming_lang": "General",
+        "root_keywords": [
+          "GPT-6",
+          "Astra",
+          "code review",
+          "privacy",
+          "cost"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 코드 리뷰에서의 GPT-6 아스트라: 이점, 개인정보 보호, 그리고 비용",
+            "hook": "코드 리뷰에 GPT-6 Astra를 도입하면 생산성이 향상되지만, 개인정보 보호와 비용이 문제입니다.",
+            "key_takeaways": [
+              "GPT-6 Astra는 코드 리뷰 속도와 정확성을 향상시킵니다.",
+              "개인정보 보호와 데이터 보안에 대한 우려가 제기되었습니다.",
+              "비용 효율성과 대규모 도입 가능성은 여전히 불확실합니다."
+            ]
+          },
+          "en": {
+            "title": "Hacker News: GPT-6 Astra in code review: Benefits, privacy, and cost",
+            "hook": "GPT-6 Astra boosts code review productivity but raises privacy concerns and costs.",
+            "key_takeaways": [
+              "GPT-6 Astra improves code review speed and accuracy.",
+              "Privacy and data security concerns have been raised.",
+              "Cost efficiency and scalability remain uncertain."
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：GPT-6 Astra在代码审查中的应用：优势、隐私与成本",
+            "hook": "GPT-6 Astra在代码审查中展现出色，提高效率，但隐私和成本问题不容忽视.",
+            "key_takeaways": [
+              "GPT-6 Astra提升了代码审查的速度和准确性。",
+              "隐私和数据安全问题引发关注。",
+              "成本效益和可扩展性仍有待观察。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T05:04:48.098467+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 코드 리뷰에서의 GPT-6 아스트라: 이점, 개인정보 보호, 그리고 비용",
+          "hook": "코드 리뷰에 GPT-6 Astra를 도입하면 생산성이 향상되지만, 개인정보 보호와 비용이 문제입니다.",
+          "key_takeaways": [
+            "GPT-6 Astra는 코드 리뷰 속도와 정확성을 향상시킵니다.",
+            "개인정보 보호와 데이터 보안에 대한 우려가 제기되었습니다.",
+            "비용 효율성과 대규모 도입 가능성은 여전히 불확실합니다."
+          ]
+        },
+        "en": {
+          "title": "Hacker News: GPT-6 Astra in code review: Benefits, privacy, and cost",
+          "hook": "GPT-6 Astra boosts code review productivity but raises privacy concerns and costs.",
+          "key_takeaways": [
+            "GPT-6 Astra improves code review speed and accuracy.",
+            "Privacy and data security concerns have been raised.",
+            "Cost efficiency and scalability remain uncertain."
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：GPT-6 Astra在代码审查中的应用：优势、隐私与成本",
+          "hook": "GPT-6 Astra在代码审查中展现出色，提高效率，但隐私和成本问题不容忽视.",
+          "key_takeaways": [
+            "GPT-6 Astra提升了代码审查的速度和准确性。",
+            "隐私和数据安全问题引发关注。",
+            "成本效益和可扩展性仍有待观察。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "GPT-6",
+        "Astra",
+        "code review",
+        "privacy",
+        "cost"
+      ],
+      "title_ko": "해커 뉴스: 코드 리뷰에서의 GPT-6 아스트라: 이점, 개인정보 보호, 그리고 비용",
+      "title_en": "Hacker News: GPT-6 Astra in code review: Benefits, privacy, and cost",
+      "title_zh": "Hacker News：GPT-6 Astra在代码审查中的应用：优势、隐私与成本",
+      "hook": "코드 리뷰에 GPT-6 Astra를 도입하면 생산성이 향상되지만, 개인정보 보호와 비용이 문제입니다.",
+      "hook_ko": "코드 리뷰에 GPT-6 Astra를 도입하면 생산성이 향상되지만, 개인정보 보호와 비용이 문제입니다.",
+      "hook_en": "GPT-6 Astra boosts code review productivity but raises privacy concerns and costs.",
+      "hook_zh": "GPT-6 Astra在代码审查中展现出色，提高效率，但隐私和成本问题不容忽视.",
+      "description_ko": "코드 리뷰에 GPT-6 Astra를 도입하면 생산성이 향상되지만, 개인정보 보호와 비용이 문제입니다.",
+      "description_en": "GPT-6 Astra boosts code review productivity but raises privacy concerns and costs.",
+      "description_zh": "GPT-6 Astra在代码审查中展现出色，提高效率，但隐私和成本问题不容忽视.",
+      "category_primary": "FOUNDATION_MODELS",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_repo_hf_space_qdpieqdpie_qwen_image_editor",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T05:02:44.211678",
+      "published_at": "2026-09-05T05:02:44.211678",
+      "created_at": "2026-09-05T05:02:44.211678",
+      "updated_at": "2026-09-05T05:02:44.211678",
+      "title": "HF Space: Qdpie/Qdpie-Qwen-Image-Editor",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/Qdpie/Qdpie-Qwen-Image-Editor",
+      "type": "repo",
+      "category_type": "DEMO",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 11 | Live URL: https://huggingface.co/spaces/Qdpie/Qdpie-Qwen-Image-Editor",
+      "viral_metric": "❤️ 11 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 11,
+          "display": "❤️ 11 Likes (Trending Demo)",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 11,
+          "display": "❤️ 11 Likes (Trending Demo)",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-05_repo_hf_space_qdpieqdpie_qwen_image_editor",
+        "source_lang": "EN",
+        "category_primary": "MULTIMODAL_AI",
+        "type_classification": "DEMO",
+        "model_family": "Qwen",
+        "task_modality": "image-to-image",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "Image Editing using Qwen",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Qwen",
+          "Image Editing",
+          "Gradio"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "Qwen 기반 이미지 편집 HF 스페이스 데모",
+            "hook": "그라마를 통해 이미지를 간편하게 편집하는 Qwen 기반 AI 데모",
+            "key_takeaways": [
+              "Qwen 모델을 활용한 이미지 편집",
+              "그라마 기반의 대화형 UI",
+              "HF 스페이스에서 실시간으로 사용 가능"
+            ]
+          },
+          "en": {
+            "title": "Qwen-Powered Image Editor on HF Space",
+            "hook": "Edit images interactively with Qwen in a Gradio-powered demo on Hugging Face",
+            "key_takeaways": [
+              "Interactive image editing using Qwen",
+              "Gradio-based UI for easy editing",
+              "Live demo accessible via HF Space"
+            ]
+          },
+          "zh": {
+            "title": "基于Qwen的图像编辑HF空间演示",
+            "hook": "通过Gradio实现的Qwen图像编辑交互式体验，一键体验AI图像处理",
+            "key_takeaways": [
+              "基于Qwen的智能图像编辑",
+              "Gradio交互界面操作简便",
+              "HF空间直接试用，无需安装"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T05:03:34.106895+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Qwen 기반 이미지 편집 HF 스페이스 데모",
+          "hook": "그라마를 통해 이미지를 간편하게 편집하는 Qwen 기반 AI 데모",
+          "key_takeaways": [
+            "Qwen 모델을 활용한 이미지 편집",
+            "그라마 기반의 대화형 UI",
+            "HF 스페이스에서 실시간으로 사용 가능"
+          ]
+        },
+        "en": {
+          "title": "Qwen-Powered Image Editor on HF Space",
+          "hook": "Edit images interactively with Qwen in a Gradio-powered demo on Hugging Face",
+          "key_takeaways": [
+            "Interactive image editing using Qwen",
+            "Gradio-based UI for easy editing",
+            "Live demo accessible via HF Space"
+          ]
+        },
+        "zh": {
+          "title": "基于Qwen的图像编辑HF空间演示",
+          "hook": "通过Gradio实现的Qwen图像编辑交互式体验，一键体验AI图像处理",
+          "key_takeaways": [
+            "基于Qwen的智能图像编辑",
+            "Gradio交互界面操作简便",
+            "HF空间直接试用，无需安装"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Qwen",
+        "Image Editing",
+        "Gradio"
+      ],
+      "title_ko": "Qwen 기반 이미지 편집 HF 스페이스 데모",
+      "title_en": "Qwen-Powered Image Editor on HF Space",
+      "title_zh": "基于Qwen的图像编辑HF空间演示",
+      "hook": "그라마를 통해 이미지를 간편하게 편집하는 Qwen 기반 AI 데모",
+      "hook_ko": "그라마를 통해 이미지를 간편하게 편집하는 Qwen 기반 AI 데모",
+      "hook_en": "Edit images interactively with Qwen in a Gradio-powered demo on Hugging Face",
+      "hook_zh": "通过Gradio实现的Qwen图像编辑交互式体验，一键体验AI图像处理",
+      "description_ko": "그라마를 통해 이미지를 간편하게 편집하는 Qwen 기반 AI 데모",
+      "description_en": "Edit images interactively with Qwen in a Gradio-powered demo on Hugging Face",
+      "description_zh": "通过Gradio实现的Qwen图像编辑交互式体验，一键体验AI图像处理",
+      "category_primary": "MULTIMODAL_AI",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-05_sns_geeknews_ai가_내_두뇌를_망치고_있을까",
       "harvested_date": "2026-09-05",
