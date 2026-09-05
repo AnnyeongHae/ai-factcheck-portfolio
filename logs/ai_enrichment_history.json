@@ -5478,5 +5478,148 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260905_025355",
+    "timestamp": "2026-09-05T02:53:55.632175+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 8,
+    "requested_limit": 0,
+    "processed_count": 8,
+    "success_count": 8,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 8
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 24.72,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_claude_codecodexcursor는_어떤_도구를_선택할까_",
+            "title": "GeekNews: Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+            "title_ko": "Claude Code·Codex·Cursor, 1만7천 회 실행으로 본 도구 선택 분석",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T02:54:20.353314+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 17.01,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_claude_codecodexcursor는_어떤_도구를_선택할까_",
+            "title": "GeekNews: Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+            "title_ko": "Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T02:54:38.363375+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 28.03,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_akhaliqminimax_h3_turbo_lora",
+            "title": "HF Space: akhaliq/MiniMax-H3-Turbo-Lora",
+            "title_ko": "미니맥스 H3 터보 로라: 허깅페이스에서 만나는 초고속 LLM 데모",
+            "classification": "MODEL",
+            "model_family": "MiniMax-H3-Turbo-Lora",
+            "enriched_at": "2026-09-05T02:55:07.395165+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 13.73,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_akhaliqminimax_h3_turbo_lora",
+            "title": "HF Space: akhaliq/MiniMax-H3-Turbo-Lora",
+            "title_ko": "Hugging Face 스페이스: akhaliq/MiniMax-H3-Turbo-Lora 데모",
+            "classification": "MODEL",
+            "model_family": "MiniMax-H3-Turbo-Lora",
+            "enriched_at": "2026-09-05T02:55:22.132198+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.56,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hacker_news_claude_code_skills_for_advanced_c",
+            "title": "Hacker News: Claude Code skills for advanced context engineering techniques and patterns",
+            "title_ko": "해커 뉴스: 고급 컨텍스트 엔지니어링 기법과 패턴을 위한 클로드 코드 스킬",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T02:55:41.693443+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 21.71,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hacker_news_claude_code_skills_for_advanced_c",
+            "title": "Hacker News: Claude Code skills for advanced context engineering techniques and patterns",
+            "title_ko": "해커 뉴스: 고급 컨텍스트 엔지니어링을 위한 클로드 코드 스킬과 패턴",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T02:56:04.407136+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 10.46,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_git_submodules_as_a_package_manag",
+            "title": "Hacker News: Git Submodules as a Package Manager",
+            "title_ko": "Git 서브모듈을 패키지 관리자로 활용하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T02:56:15.868246+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.83,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_git_submodules_as_a_package_manag",
+            "title": "Hacker News: Git Submodules as a Package Manager",
+            "title_ko": "Git 서브모듈을 패키지 관리자로 활용하기 – 해커 뉴스 토론",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T02:56:29.701187+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
