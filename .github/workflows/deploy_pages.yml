@@ -12,12 +12,13 @@ on:
       - '*.md'
   workflow_dispatch:
   schedule:
-    # 🌟 최적화된 3회/일 전략 수집 (런타임 최소화 & 비용 80% 절감)
-    # 08:00 KST (Morning Sweep: UTC 23:00)
-    # 14:00 KST (Afternoon Radar: UTC 05:00)
-    # 20:00 KST (Evening Roundup: UTC 11:00)
-    # 23:30 KST는 daily_eod_enrichment.yml이 최종 감사 진행
-    - cron: '0 5,11,23 * * *'
+    # 🌟 1일 4회(6시간 주기) 전략 수집 + 23:30 EOD 최종 감사
+    # 1회차 00:00 KST (UTC 15:00) - 심야 글로벌 릴리스
+    # 2회차 06:00 KST (UTC 21:00) - 모닝 브리핑
+    # 3회차 12:00 KST (UTC 03:00) - 정오 레이더
+    # 4회차 18:00 KST (UTC 09:00) - 저녁 라운드업
+    # + 23:30 KST: daily_eod_enrichment.yml (EOD 전수 배치 감사)
+    - cron: '0 3,9,15,21 * * *'
 
 permissions:
   contents: write

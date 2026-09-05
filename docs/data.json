@@ -1701,49 +1701,35 @@
   },
   "timeline_24h": [
     {
-      "slot": "00시",
+      "slot": "1회차 (00시)",
+      "short_slot": "00:00",
+      "name": "심야 릴리스",
       "hour": 0,
-      "range": "00:00 - 02:59",
-      "inbox_count": 28,
-      "model_count": 3,
-      "news_count": 25,
+      "range": "00:00 - 05:59",
+      "inbox_count": 43,
+      "model_count": 5,
+      "news_count": 38,
       "is_current": false,
       "is_future": false
     },
     {
-      "slot": "03시",
-      "hour": 3,
-      "range": "03:00 - 05:59",
-      "inbox_count": 15,
-      "model_count": 2,
-      "news_count": 13,
-      "is_current": false,
-      "is_future": false
-    },
-    {
-      "slot": "06시",
+      "slot": "2회차 (06시)",
+      "short_slot": "06:00",
+      "name": "모닝 브리핑",
       "hour": 6,
-      "range": "06:00 - 08:59",
-      "inbox_count": 17,
-      "model_count": 0,
-      "news_count": 17,
-      "is_current": false,
-      "is_future": false
-    },
-    {
-      "slot": "09시",
-      "hour": 9,
-      "range": "09:00 - 11:59",
-      "inbox_count": 22,
+      "range": "06:00 - 11:59",
+      "inbox_count": 39,
       "model_count": 2,
-      "news_count": 20,
+      "news_count": 37,
       "is_current": false,
       "is_future": false
     },
     {
-      "slot": "12시",
+      "slot": "3회차 (12시)",
+      "short_slot": "12:00",
+      "name": "정오 레이더",
       "hour": 12,
-      "range": "12:00 - 14:59",
+      "range": "12:00 - 17:59",
       "inbox_count": 7,
       "model_count": 1,
       "news_count": 6,
@@ -1751,29 +1737,11 @@
       "is_future": false
     },
     {
-      "slot": "15시",
-      "hour": 15,
-      "range": "15:00 - 17:59",
-      "inbox_count": 0,
-      "model_count": 0,
-      "news_count": 0,
-      "is_current": false,
-      "is_future": true
-    },
-    {
-      "slot": "18시",
+      "slot": "4회차 (18시)",
+      "short_slot": "18:00",
+      "name": "저녁 라운드업",
       "hour": 18,
-      "range": "18:00 - 20:59",
-      "inbox_count": 0,
-      "model_count": 0,
-      "news_count": 0,
-      "is_current": false,
-      "is_future": true
-    },
-    {
-      "slot": "21시",
-      "hour": 21,
-      "range": "21:00 - 23:59",
+      "range": "18:00 - 23:59",
       "inbox_count": 0,
       "model_count": 0,
       "news_count": 0,
@@ -1782,21 +1750,55 @@
     }
   ],
   "trend_6h": {
+    "session_num": 3,
+    "session_name": "3회차 (오후)",
     "window_label": "12:00 ~ 18:00 KST",
     "window_period": "오후 실시간 모델 & 아키텍처 브리핑",
     "today_kst": "2026-09-05",
-    "updated_at": "14:10 KST",
+    "updated_at": "14:20 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
       "🔥 [Hugging Face Models] GLM-5.3-Flash: 초경량 고성능 비전-언어 멀티모달 모델 (Trending 1796 pts (❤️ 1923)) — 높은 다운로드 수와 뛰어난 추론 효율성을 자랑하는 멀티모달(Image-Text-to-Text) 모델"
     ],
+    "items": [
+      {
+        "inbox_id": "2026-09-03_repo_hf_space_enzostvsdeepsite",
+        "title": "enzostvs/deepsite (AI 웹사이트 생성기)",
+        "platform": "Hugging Face Spaces (Demo)",
+        "viral_metric": "❤️ 16610 Likes (Trending Demo)",
+        "summary": "자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
+        "source_url": "https://huggingface.co/spaces/enzostvs/deepsite",
+        "is_model": true,
+        "case_id": null
+      },
+      {
+        "inbox_id": "2026-08-31_repo_github_sapientincpraxist",
+        "title": "sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스템",
+        "platform": "GitHub Official",
+        "viral_metric": "★ 6780 Stars",
+        "summary": "컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
+        "source_url": "https://github.com/sapientinc/PRAXIST",
+        "is_model": true,
+        "case_id": null
+      },
+      {
+        "inbox_id": "2026-08-31_repo_huggingface_model_zai_orgglm_53_flash",
+        "title": "GLM-5.3-Flash: 초경량 고성능 비전-언어 멀티모달 모델",
+        "platform": "Hugging Face Models",
+        "viral_metric": "Trending 1796 pts (❤️ 1923)",
+        "summary": "높은 다운로드 수와 뛰어난 추론 효율성을 자랑하는 멀티모달(Image-Text-to-Text) 모델",
+        "source_url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+        "is_model": true,
+        "case_id": null
+      }
+    ],
     "tags": [
+      "#High_Engagement",
       "#SoTA_Models",
-      "#Autonomous_Agent",
-      "#Local_LLM",
       "#MoE_Architecture",
-      "#High_Engagement"
+      "#Autonomous_Agent",
+      "#Local_LLM"
     ]
   },
   "dow_stats": [],

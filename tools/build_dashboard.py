@@ -228,16 +228,12 @@ def build_dashboard():
 
     # 1. Today 24-Hour Timeline Aggregation (8 Slots: 00시, 03시, 06시, 09시, 12시, 15시, 18시, 21시)
     slots_def = [
-        {"slot": "00시", "hour": 0, "range": "00:00 - 02:59"},
-        {"slot": "03시", "hour": 3, "range": "03:00 - 05:59"},
-        {"slot": "06시", "hour": 6, "range": "06:00 - 08:59"},
-        {"slot": "09시", "hour": 9, "range": "09:00 - 11:59"},
-        {"slot": "12시", "hour": 12, "range": "12:00 - 14:59"},
-        {"slot": "15시", "hour": 15, "range": "15:00 - 17:59"},
-        {"slot": "18시", "hour": 18, "range": "18:00 - 20:59"},
-        {"slot": "21시", "hour": 21, "range": "21:00 - 23:59"}
+        {"slot": "1회차 (00시)", "short_slot": "00:00", "hour": 0, "range": "00:00 - 05:59", "name": "심야 릴리스"},
+        {"slot": "2회차 (06시)", "short_slot": "06:00", "hour": 6, "range": "06:00 - 11:59", "name": "모닝 브리핑"},
+        {"slot": "3회차 (12시)", "short_slot": "12:00", "hour": 12, "range": "12:00 - 17:59", "name": "정오 레이더"},
+        {"slot": "4회차 (18시)", "short_slot": "18:00", "hour": 18, "range": "18:00 - 23:59", "name": "저녁 라운드업"}
     ]
-    slot_counts = {s["slot"]: {"inbox": 0, "model": 0, "news": 0} for s in slots_def}
+    slot_counts = {s["short_slot"]: {"inbox": 0, "model": 0, "news": 0} for s in slots_def}
 
     for it in clean_inbox_items:
         raw = it.get("harvested_at") or it.get("created_at") or it.get("published_at") or it.get("harvested_date") or ""
@@ -247,53 +243,63 @@ def build_dashboard():
                     dt = datetime.datetime.fromisoformat(raw.replace("Z", "+00:00")[:19])
                     dt_kst = dt.astimezone(datetime.timezone(datetime.timedelta(hours=9))) if dt.tzinfo else dt + datetime.timedelta(hours=9)
                     if dt_kst.strftime("%Y-%m-%d") == today_kst_str:
-                        h = (dt_kst.hour // 3) * 3
-                        s_key = f"{h:02d}시"
+                        h = (dt_kst.hour // 6) * 6
+                        s_key = f"{h:02d}:00"
                         if s_key in slot_counts:
                             slot_counts[s_key]["inbox"] += 1
                             if is_model_item(it): slot_counts[s_key]["model"] += 1
                             else: slot_counts[s_key]["news"] += 1
                 elif raw.startswith(today_kst_str):
-                    slot_counts["09시"]["inbox"] += 1
-                    if is_model_item(it): slot_counts["09시"]["model"] += 1
-                    else: slot_counts["09시"]["news"] += 1
+                    slot_counts["12:00"]["inbox"] += 1
+                    if is_model_item(it): slot_counts["12:00"]["model"] += 1
+                    else: slot_counts["12:00"]["news"] += 1
             except Exception:
                 pass
 
     timeline_24h = []
-    peak_slot = "09시"
+    peak_slot = "12:00"
     peak_count = 0
     today_total = 0
     for s in slots_def:
-        cnt = slot_counts[s["slot"]]["inbox"]
+        cnt = slot_counts[s["short_slot"]]["inbox"]
         today_total += cnt
         if cnt > peak_count:
             peak_count = cnt
-            peak_slot = s["slot"]
+            peak_slot = s["short_slot"]
         timeline_24h.append({
             "slot": s["slot"],
+            "short_slot": s["short_slot"],
+            "name": s["name"],
             "hour": s["hour"],
             "range": s["range"],
             "inbox_count": cnt,
-            "model_count": slot_counts[s["slot"]]["model"],
-            "news_count": slot_counts[s["slot"]]["news"],
-            "is_current": s["hour"] <= current_hour_kst < s["hour"] + 3,
+            "model_count": slot_counts[s["short_slot"]]["model"],
+            "news_count": slot_counts[s["short_slot"]]["news"],
+            "is_current": s["hour"] <= current_hour_kst < s["hour"] + 6,
             "is_future": s["hour"] > current_hour_kst
         })
 
-    # 2. 6-Hour AI Trend Pulse (6-Hour Trend Radar - Hot & High-Engagement Items)
+    # 2. 1일 4회 AI Trend Radar (6시간 주기 실시간 감지)
     if 0 <= current_hour_kst < 6:
         w_label = "00:00 ~ 06:00 KST"
         w_period = "심야 글로벌 AI 릴리스 펄스"
+        session_num = 1
+        session_name = "1회차 (심야)"
     elif 6 <= current_hour_kst < 12:
         w_label = "06:00 ~ 12:00 KST"
         w_period = "오전 글로벌 테크 & 오픈소스 동향"
+        session_num = 2
+        session_name = "2회차 (오전)"
     elif 12 <= current_hour_kst < 18:
         w_label = "12:00 ~ 18:00 KST"
         w_period = "오후 실시간 모델 & 아키텍처 브리핑"
+        session_num = 3
+        session_name = "3회차 (오후)"
     else:
         w_label = "18:00 ~ 24:00 KST"
         w_period = "저녁 엔지니어링 & 데일리 결산"
+        session_num = 4
+        session_name = "4회차 (저녁)"
 
     def compute_viral_weight(it):
         val = 0.0
@@ -331,6 +337,7 @@ def build_dashboard():
             break
 
     radar_bullets = []
+    radar_items_data = []
     radar_tags = set()
     for it in radar_items:
         t_ko = it.get("multilingual", {}).get("ko", {}).get("title") or it.get("title_ko") or it.get("title") or ""
@@ -345,6 +352,18 @@ def build_dashboard():
             radar_bullets.append(f"🔥 [{plat}] {t_clean[:45]} ({vm}) — {summ_clean}")
         else:
             radar_bullets.append(f"🚀 [{plat}] {t_clean[:45]} — {summ_clean}")
+
+        is_model = is_model_item(it)
+        radar_items_data.append({
+            "inbox_id": it.get("inbox_id"),
+            "title": t_clean,
+            "platform": plat,
+            "viral_metric": vm,
+            "summary": summ_clean,
+            "source_url": it.get("source_url") or "#",
+            "is_model": is_model,
+            "case_id": (it.get("related_dossier") or {}).get("case_id") if it.get("related_dossier") else None
+        })
 
         for tag in it.get("tags", []):
             if tag and len(radar_tags) < 5:
@@ -365,11 +384,14 @@ def build_dashboard():
                 break
 
     trend_6h = {
+        "session_num": session_num,
+        "session_name": session_name,
         "window_label": w_label,
         "window_period": w_period,
         "today_kst": today_kst_str,
         "updated_at": now_kst.strftime("%H:%M KST"),
         "bullets": radar_bullets,
+        "items": radar_items_data,
         "tags": list(radar_tags)[:5]
     }
 
@@ -443,6 +465,12 @@ def generate_html(data):
     trend_updated_at = trend_6h.get("updated_at", "15:00 KST")
     trend_window_label = trend_6h.get("window_label", "12:00 ~ 18:00 KST")
     trend_window_period = trend_6h.get("window_period", "오후 실시간 모델 & 아키텍처 브리핑")
+    trend_session_name = trend_6h.get("session_name", "3회차 (정오)")
+    session_num = trend_6h.get("session_num", 3)
+    s1_cls = "bg-emerald-600 text-white font-bold shadow-xs" if session_num == 1 else "bg-surface-subtle text-ink-muted"
+    s2_cls = "bg-emerald-600 text-white font-bold shadow-xs" if session_num == 2 else "bg-surface-subtle text-ink-muted"
+    s3_cls = "bg-emerald-600 text-white font-bold shadow-xs" if session_num == 3 else "bg-surface-subtle text-ink-muted"
+    s4_cls = "bg-emerald-600 text-white font-bold shadow-xs" if session_num == 4 else "bg-surface-subtle text-ink-muted"
     
     return f"""<!DOCTYPE html>
 <html lang="ko">
@@ -774,7 +802,7 @@ def generate_html(data):
       <!-- 📈 24H COLLECTION TIMELINE & 6H AI TREND RADAR (실시간 수집 현황 & 6시간 주기 AI 트렌드) -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
         
-        <!-- Card 1: Today 24-Hour Ingestion Timeline (00시 ~ 21시 3시간 주기 슬롯) -->
+        <!-- Card 1: Today 24-Hour Ingestion Timeline (1일 4회 6시간 주기 전략 수집) -->
         <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm flex flex-col justify-between space-y-4">
           <div class="flex items-center justify-between flex-wrap gap-2">
             <div class="space-y-0.5">
@@ -785,57 +813,61 @@ def generate_html(data):
                 </span>
                 <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center gap-1">
                   <span class="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse"></span>
-                  24h Pulse
+                  1일 4회 6h 펄스
                 </span>
               </div>
-              <p class="text-[11px] text-ink-muted" id="timelineSub">3시간 주기(00, 03, 06, 09, 12, 15, 18, 21시) 실시간 인입 추세</p>
+              <p class="text-[11px] text-ink-muted" id="timelineSub">1일 4회(00, 06, 12, 18시 KST) 6시간 주기 전략 수집 + 23:30 EOD 전수 감사</p>
             </div>
             
             <div class="flex items-center gap-2 text-[11px] font-mono text-ink-secondary">
               <span class="w-2.5 h-2.5 rounded bg-indigo-600 inline-block"></span>
-              <span>시간대별 수집 건수</span>
+              <span>세션별 수집 건수</span>
             </div>
           </div>
 
-          <!-- Bar Visualizer for Today 24h Timeline -->
+          <!-- Bar Visualizer for Today 24h Timeline (4 Quarterly Sessions) -->
           <div class="pt-2 pb-1">
-            <div class="grid grid-cols-8 gap-1.5 sm:gap-2 items-end h-36 border-b border-surface-border pb-2" id="timeline24hChartContainer">
+            <div class="grid grid-cols-4 gap-2 sm:gap-3 items-end h-36 border-b border-surface-border pb-2" id="timeline24hChartContainer">
               <!-- Dynamically Populated via JS -->
             </div>
           </div>
 
           <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[11px] text-ink-muted font-mono flex-wrap gap-2" id="timelineFooter">
             <span>⚡ 당일 총 수집량: <b class="text-indigo-700">{today_total_inbox}건</b></span>
+            <span class="text-[10px] text-slate-400">월 150회 최적화 크론 (37.5% 절감)</span>
             <span>최근 동기화: {trend_updated_at}</span>
           </div>
         </div>
 
-        <!-- Card 2: 6-Hour AI Trend Pulse Radar (6시간 주기 AI 핵심 트렌드) -->
+        <!-- Card 2: 1-Day 4-Sessions AI Trend Pulse Radar (1일 4회 AI 핵심 트렌드 레이더) -->
         <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm flex flex-col justify-between space-y-4">
           <div class="flex items-center justify-between flex-wrap gap-2">
             <div class="space-y-0.5">
               <div class="flex items-center gap-2">
                 <span class="text-xs font-bold text-ink-primary font-mono flex items-center gap-1.5" id="trendRadarTitle">
                   <i data-lucide="radar" class="w-4 h-4 text-emerald-600"></i>
-                  <span>6시간 AI 트렌드 레이더</span>
+                  <span>1일 4회 AI 트렌드 레이더</span>
                 </span>
                 <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
                   <span id="trendRadarWindowLabel">{trend_window_label}</span>
                 </span>
               </div>
-              <p class="text-[11px] text-ink-muted" id="trendRadarSub">{trend_window_period}</p>
+              <p class="text-[11px] text-ink-muted" id="trendRadarSub">{trend_window_period} · {trend_session_name}</p>
             </div>
 
-            <div class="flex items-center gap-1.5 text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-surface-subtle border border-surface-border text-ink-secondary">
-              <span>6h 주기 자동 결산</span>
+            <div class="flex items-center gap-1 text-[10px] font-mono">
+              <span class="px-2 py-0.5 rounded border border-surface-border {s1_cls}">1회 00시</span>
+              <span class="px-2 py-0.5 rounded border border-surface-border {s2_cls}">2회 06시</span>
+              <span class="px-2 py-0.5 rounded border border-surface-border {s3_cls}">3회 12시</span>
+              <span class="px-2 py-0.5 rounded border border-surface-border {s4_cls}">4회 18시</span>
             </div>
           </div>
 
           <!-- Trend Radar Content Bullets & Tags -->
           <div class="pt-1 pb-1 space-y-2.5" id="trendRadarBody">
             <div class="space-y-2" id="trendRadarBullets">
-              <!-- Dynamically Populated via JS -->
+              <!-- Dynamically Populated via JS with direct links -->
             </div>
             <div class="flex flex-wrap gap-1.5 pt-1.5 border-t border-surface-border" id="trendRadarTags">
               <!-- Tags populated via JS -->
@@ -844,7 +876,16 @@ def generate_html(data):
 
           <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[11px] text-ink-muted font-mono flex-wrap gap-2" id="trendRadarFooter">
             <span>LLM 자동 트렌드 추출 (OpenRouter 0원 라우팅)</span>
-            <span class="text-emerald-700 font-bold">● 실시간 감지 중</span>
+            <div class="flex items-center gap-2">
+              <button onclick="switchView('models')" class="hover:underline text-purple-700 font-bold text-xs flex items-center gap-1">
+                <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                모델 트렌드 &rarr;
+              </button>
+              <button onclick="switchView('news')" class="hover:underline text-amber-700 font-bold text-xs flex items-center gap-1">
+                <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
+                테크 동향 &rarr;
+              </button>
+            </div>
           </div>
         </div>
 
@@ -2185,9 +2226,28 @@ def generate_html(data):
       return `${{y}}-${{m}}-${{day}} ${{hh}}:${{mm}}`;
     }}
 
-    // ================= RENDER 24H TIMELINE & 6H TREND RADAR =================
+    // ================= RENDER 24H TIMELINE & 1-DAY 4-SESSIONS TREND RADAR =================
+    function navigateFromRadar(view, query) {{
+      const q = (query || '').replace(/^[🔥🚀💡📌]\\s*\\[[^\\]]+\\]\\s*/, '').trim();
+      switchView(view);
+      if (view === 'models') {{
+        currentModelsPage = 1;
+        modelsSearchQuery = q;
+        const inp = document.getElementById('modelsSearchInput');
+        if (inp) inp.value = q;
+        renderModels();
+      }} else if (view === 'news') {{
+        currentNewsPage = 1;
+        currentNewsSearch = q.toLowerCase();
+        const inp = document.getElementById('newsSearchInput');
+        if (inp) inp.value = q;
+        renderNews();
+      }}
+      window.scrollTo({{ top: 0, behavior: 'smooth' }});
+    }}
+
     function renderTelemetryCharts() {{
-      // 1. Render 24-Hour Timeline Chart (8 slots: 00, 03, 06, 09, 12, 15, 18, 21시 - 단일 수집 건수 바)
+      // 1. Render 24-Hour Timeline Chart (4 Strategic Quarterly Sessions: 00, 06, 12, 18시)
       const tlContainer = document.getElementById('timeline24hChartContainer');
       if (tlContainer) {{
         tlContainer.innerHTML = '';
@@ -2195,7 +2255,7 @@ def generate_html(data):
         const maxVal = Math.max(...tData.map(d => d.inbox_count || 0), 10);
 
         tData.forEach(d => {{
-          const hPct = Math.max(12, Math.round(((d.inbox_count || 0) / maxVal) * 100));
+          const hPct = Math.max(14, Math.round(((d.inbox_count || 0) / maxVal) * 100));
           const isCurrent = d.is_current;
           const isFuture = d.is_future;
 
@@ -2203,18 +2263,23 @@ def generate_html(data):
           col.className = 'flex flex-col items-center justify-end h-full group relative cursor-pointer';
           col.innerHTML = `
             <!-- Tooltip -->
-            <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-10 z-20 pointer-events-none bg-ink-primary text-white text-[10px] font-mono py-1 px-2.5 rounded-md shadow-lg whitespace-nowrap">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-12 z-20 pointer-events-none bg-ink-primary text-white text-[10px] font-mono py-1 px-2.5 rounded-md shadow-lg whitespace-nowrap">
               <div class="font-bold text-indigo-300">${{d.range}}: ${{d.inbox_count}}건 수집</div>
-              ${{isCurrent ? '<div class="text-emerald-400">● 현재 수집 진행 중</div>' : ''}}
+              ${{isCurrent ? '<div class="text-emerald-400 font-bold">● 현재 세션 인입 중</div>' : (isFuture ? '<div class="text-slate-400">예정 세션</div>' : '<div class="text-slate-300">수집 완료</div>')}}
             </div>
 
+            <!-- Ingestion Count Number -->
+            <span class="text-[10px] font-mono font-bold ${{isCurrent ? 'text-indigo-600 font-extrabold' : 'text-ink-muted'}} mb-1">
+              ${{d.inbox_count || 0}}건
+            </span>
+
             <!-- Single Bar Stack -->
-            <div class="w-full max-w-[28px] sm:max-w-[36px] flex items-end justify-center h-28 ${{isFuture ? 'opacity-30' : ''}}">
-              <div class="w-full ${{isCurrent ? 'bg-indigo-500 ring-2 ring-indigo-400 animate-pulse' : 'bg-indigo-600'}} rounded-t-md transition-all duration-500 hover:bg-indigo-700" style="height: ${{hPct}}%;"></div>
+            <div class="w-full max-w-[54px] sm:max-w-[76px] flex items-end justify-center h-24 ${{isFuture ? 'opacity-30' : ''}}">
+              <div class="w-full ${{isCurrent ? 'bg-indigo-500 ring-2 ring-indigo-400 animate-pulse' : 'bg-indigo-600'}} rounded-t-lg transition-all duration-500 hover:bg-indigo-700" style="height: ${{hPct}}%;"></div>
             </div>
 
             <!-- Label -->
-            <span class="text-[10px] sm:text-[11px] font-mono font-bold ${{isCurrent ? 'text-indigo-600 font-extrabold' : 'text-ink-muted'}} mt-2 group-hover:text-indigo-600 transition">
+            <span class="text-[10px] sm:text-[11px] font-mono font-bold ${{isCurrent ? 'text-indigo-600 font-extrabold' : 'text-ink-muted'}} mt-2 group-hover:text-indigo-600 transition text-center">
               ${{d.slot}}
             </span>
           `;
@@ -2222,21 +2287,72 @@ def generate_html(data):
         }});
       }}
 
-      // 2. Render 6-Hour AI Trend Radar
+      // 2. Render 1-Day 4-Sessions AI Trend Radar
       const bulletsContainer = document.getElementById('trendRadarBullets');
       const tagsContainer = document.getElementById('trendRadarTags');
       if (bulletsContainer && typeof trend6hData !== 'undefined') {{
         bulletsContainer.innerHTML = '';
-        const bullets = trend6hData.bullets || [];
-        bullets.forEach((b, idx) => {{
-          const item = document.createElement('div');
-          item.className = 'flex items-start gap-2 text-xs text-ink-secondary leading-snug p-2 rounded-lg bg-surface-subtle border border-surface-border hover:border-emerald-400 hover:bg-white transition';
-          item.innerHTML = `
-            <span class="w-5 h-5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center font-mono font-bold text-[10px] shrink-0 mt-0.5">0${{idx + 1}}</span>
-            <span class="flex-1">${{b}}</span>
-          `;
-          bulletsContainer.appendChild(item);
-        }});
+        const items = trend6hData.items || [];
+
+        if (items.length > 0) {{
+          items.forEach((it, idx) => {{
+            const targetTab = it.is_model ? 'models' : 'news';
+            const tabName = it.is_model ? 'AI 모델 탭' : '테크 동향 탭';
+            const tabBadgeClass = it.is_model ? 'bg-purple-50 text-purple-700 border-purple-200' : 'bg-amber-50 text-amber-800 border-amber-200';
+            const escapedTitle = (it.title || '').replace(/'/g, "\\'");
+
+            const item = document.createElement('div');
+            item.className = 'group p-2.5 rounded-xl bg-surface-subtle border border-surface-border hover:border-emerald-400 hover:bg-white transition flex flex-col gap-1.5';
+            item.innerHTML = `
+              <div class="flex items-start justify-between gap-2">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="w-5 h-5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center font-mono font-bold text-[10px] shrink-0">0${{idx + 1}}</span>
+                  <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold ${{tabBadgeClass}} border">${{it.platform || 'AI Hub'}}</span>
+                  ${{it.viral_metric ? `<span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1">🔥 ${{it.viral_metric}}</span>` : ''}}
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  ${{it.case_id ? `
+                    <button onclick="openCaseModal('${{it.case_id}}')" class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-300 hover:bg-emerald-200 flex items-center gap-1 transition">
+                      <i data-lucide="shield-check" class="w-3 h-3"></i>
+                      팩트체크
+                    </button>
+                  ` : ''}}
+                  <a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="p-1 text-ink-muted hover:text-emerald-600 transition" title="원천 소스 링크 열기">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="text-xs font-bold text-ink-primary group-hover:text-emerald-700 transition cursor-pointer flex items-center justify-between gap-2" onclick="navigateFromRadar('${{targetTab}}', '${{escapedTitle}}')">
+                <span class="line-clamp-1">${{it.title}}</span>
+                <i data-lucide="arrow-right" class="w-3 h-3 opacity-0 group-hover:opacity-100 transition shrink-0 text-emerald-600"></i>
+              </div>
+
+              ${{it.summary ? `<p class="text-[11px] text-ink-muted line-clamp-2 leading-relaxed">${{it.summary}}</p>` : ''}}
+
+              <div class="flex items-center justify-between text-[10px] pt-1 text-ink-muted border-t border-slate-100">
+                <span class="cursor-pointer hover:underline text-indigo-600 font-semibold" onclick="navigateFromRadar('${{targetTab}}', '${{escapedTitle}}')">
+                  ${{tabName}}에서 검색 &rarr;
+                </span>
+                <span class="font-mono text-slate-400">#세션${{trend6hData.session_num || 3}}</span>
+              </div>
+            `;
+            bulletsContainer.appendChild(item);
+          }});
+        }} else {{
+          // Fallback to text bullets
+          const bullets = trend6hData.bullets || [];
+          bullets.forEach((b, idx) => {{
+            const item = document.createElement('div');
+            item.className = 'flex items-start gap-2 text-xs text-ink-secondary leading-snug p-2 rounded-lg bg-surface-subtle border border-surface-border hover:border-emerald-400 hover:bg-white transition cursor-pointer';
+            item.onclick = () => navigateFromRadar('models', b);
+            item.innerHTML = `
+              <span class="w-5 h-5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center font-mono font-bold text-[10px] shrink-0 mt-0.5">0${{idx + 1}}</span>
+              <span class="flex-1">${{b}}</span>
+            `;
+            bulletsContainer.appendChild(item);
+          }});
+        }}
 
         if (tagsContainer) {{
           tagsContainer.innerHTML = '';
@@ -2245,9 +2361,14 @@ def generate_html(data):
             const pill = document.createElement('span');
             pill.className = 'px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200 hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-300 transition cursor-pointer';
             pill.innerText = tg;
+            pill.onclick = () => {{
+              const clean = tg.replace(/^#/, '');
+              navigateFromRadar('news', clean);
+            }};
             tagsContainer.appendChild(pill);
           }});
         }}
+        if (window.lucide) window.lucide.createIcons();
       }}
     }}
 
