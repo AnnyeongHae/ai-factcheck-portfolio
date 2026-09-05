@@ -8,8 +8,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: "daily-eod-enrichment"
@@ -17,9 +15,6 @@ concurrency:
 
 jobs:
   daily-eod-batch:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -52,6 +47,10 @@ jobs:
         run: |
           python tools/db_bridge.py --sync-all || echo "Neon DB sync skipped or completed with notes."
 
+      - name: Build Fact-Check Portfolio Dashboard & Docs
+        run: |
+          python tools/build_dashboard.py
+
       - name: Commit & Push Daily EOD Updates to Git
         continue-on-error: true
         run: |
@@ -65,15 +64,3 @@ jobs:
           else
             echo "No staged changes to commit."
           fi
-
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Artifact (docs directory)
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'docs'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4

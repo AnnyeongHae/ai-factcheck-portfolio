@@ -2726,10 +2726,11 @@ def generate_html(data):
     // ================= MODAL HANDLER & DEEP LINKING ROUTER =================
     function openModal(c, skipHistory = false) {{
       if (!c) return;
-      if (!skipHistory && c.case_id) {{
-        const targetHash = '#case/' + encodeURIComponent(c.case_id);
+      const cid = c.case_id || c.investigation_id;
+      if (!skipHistory && cid) {{
+        const targetHash = '#/factchecks?case=' + encodeURIComponent(cid);
         if (window.location.hash !== targetHash) {{
-          try {{ history.pushState({{ caseId: c.case_id }}, '', targetHash); }} catch (e) {{}}
+          try {{ history.pushState({{ caseId: cid, view: currentView }}, '', targetHash); }} catch (e) {{}}
         }}
       }}
 
@@ -2783,6 +2784,9 @@ def generate_html(data):
         if (rawPost.post_url) {{
           directLink.href = rawPost.post_url;
           directLink.classList.remove('hidden');
+        }} else if (rawPost.url) {{
+          directLink.href = rawPost.url;
+          directLink.classList.remove('hidden');
         }} else if (c.sources && c.sources.length > 0) {{
           directLink.href = c.sources[0].url;
           directLink.classList.remove('hidden');
@@ -2796,22 +2800,23 @@ def generate_html(data):
       document.getElementById('modalHook').innerText = (currentLang === 'ZH' && story.the_hook_zh) ? story.the_hook_zh : (story.the_hook || '');
       document.getElementById('modalHype').innerText = story.marketing_hype_anatomy ? ((currentLang === 'KO' ? '과장 마케팅 해부: ' : (currentLang === 'ZH' ? '营销炒作解构: ' : 'Marketing Hype Anatomy: ')) + story.marketing_hype_anatomy) : '';
       
-      document.getElementById('modalHandsOnEnv').innerText = handsOn.test_environment ? ((currentLang === 'KO' ? '환경: ' : (currentLang === 'ZH' ? '实测环境: ' : 'Env: ')) + handsOn.test_environment) : '';
-      document.getElementById('modalHandsOnMetrics').innerText = handsOn.measured_results ? ((currentLang === 'KO' ? '실측치: ' : (currentLang === 'ZH' ? '实测指标: ' : 'Metrics: ')) + handsOn.measured_results) : '';
-      document.getElementById('modalHandsOnDetails').innerText = handsOn.details || 'Empirical benchmark verified.';
+      document.getElementById('modalHandsOnEnv').innerText = handsOn.test_environment || handsOn.environment ? ((currentLang === 'KO' ? '환경: ' : (currentLang === 'ZH' ? '实测环境: ' : 'Env: ')) + (handsOn.test_environment || handsOn.environment)) : '';
+      document.getElementById('modalHandsOnMetrics').innerText = handsOn.measured_results ? ((currentLang === 'KO' ? '실측치: ' : (currentLang === 'ZH' ? '实测指标: ' : 'Metrics: ')) + handsOn.measured_results) : (handsOn.measured_metrics ? Object.entries(handsOn.measured_metrics).map(([k, v]) => `${{k}}: ${{v}}`).join(' | ') : '');
+      document.getElementById('modalHandsOnDetails').innerText = handsOn.details || handsOn.failure_modes || story.empirical_findings || 'Empirical benchmark verified.';
 
       // Claims vs Reality
       const claimsBox = document.getElementById('modalClaimsBox');
       const claimsList = document.getElementById('modalClaimsList');
-      if (c.claims_assessment && c.claims_assessment.length > 0) {{
+      const claims = (c.claims_assessment && c.claims_assessment.length > 0) ? c.claims_assessment : (c.marketing_claims || []);
+      if (claims && claims.length > 0) {{
         claimsBox.classList.remove('hidden');
-        claimsList.innerHTML = c.claims_assessment.map(cl => `
+        claimsList.innerHTML = claims.map(cl => `
           <div class="p-3 rounded-lg bg-white border border-amber-200 text-xs space-y-1">
             <div class="flex items-center justify-between font-mono text-[11px]">
-              <span class="text-ink-primary font-bold">Claim: "${{cl.statement || cl.claim_title || ''}}"</span>
+              <span class="text-ink-primary font-bold">Claim: "${{cl.statement || cl.claim_title || cl.marketing_hook || cl.claim_text || ''}}"</span>
               <span class="px-2 py-0.2 rounded font-bold ${{cl.status === 'VERIFIED_TRUE' ? 'text-emerald-700' : 'text-amber-800'}}">${{cl.status || cl.claim_verdict || 'VERIFIED'}}</span>
             </div>
-            <div class="text-ink-secondary font-medium">${{currentLang === 'KO' ? '검증 팩트:' : (currentLang === 'ZH' ? '事实核验:' : 'Verified Fact:')}} ${{cl.fact_checked_truth || cl.verification_evidence || ''}}</div>
+            <div class="text-ink-secondary font-medium">${{currentLang === 'KO' ? '검증 팩트:' : (currentLang === 'ZH' ? '事实核验:' : 'Verified Fact:')}} ${{cl.fact_checked_truth || cl.verification_evidence || cl.empirical_reality || cl.reality_check || ''}}</div>
           </div>
         `).join('');
       }} else {{
@@ -2820,12 +2825,12 @@ def generate_html(data):
 
       // Alternatives Table
       const altBody = document.getElementById('modalAlternativesBody');
-      const alts = clustering.alternatives || [];
-      if (alts.length > 0) {{
+      const alts = clustering.alternatives || c.alternatives || [];
+      if (alts && alts.length > 0) {{
         altBody.innerHTML = alts.map(a => `
           <tr>
             <td class="p-3 font-bold text-ink-primary">${{a.name || a.tool_name || ''}}</td>
-            <td class="p-3 font-mono text-ink-secondary text-[11px]">${{a.tech_stack || '-'}}</td>
+            <td class="p-3 font-mono text-ink-secondary text-[11px]">${{a.tech_stack || a.stack || '-'}}</td>
             <td class="p-3 text-emerald-700">${{a.pros || '-'}}</td>
             <td class="p-3 text-rose-700">${{a.cons || '-'}}</td>
             <td class="p-3 text-ink-secondary font-medium">${{a.best_for || '-'}}</td>
@@ -2849,127 +2854,16 @@ def generate_html(data):
       `).join('');
 
       modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
       lucide.createIcons();
     }}
 
-    function openModal(c, pushHistory = true) {{
-      if (!c) return;
-      const caseId = c.case_id || c.investigation_id;
-
-      if (pushHistory && caseId) {{
-        const targetHash = '#/factchecks?case=' + encodeURIComponent(caseId);
-        if (window.location.hash !== targetHash) {{
-          try {{
-            history.pushState({{ modalCaseId: caseId, view: currentView }}, '', targetHash);
-          }} catch (e) {{
-            window.location.hash = targetHash;
-          }}
-        }}
+    function openCaseModal(caseId) {{
+      if (!caseId) return;
+      const c = (liveCasesData || []).find(x => x.case_id === caseId || x.investigation_id === caseId) || (casesData || []).find(x => x.case_id === caseId);
+      if (c) {{
+        openModal(c);
       }}
-
-      const modal = document.getElementById('detailModal');
-      const story = c.portfolio_story || {{}};
-      const handsOn = story.hands_on_log || {{}};
-      const curation = c.curation || {{}};
-      const clustering = c.clustering || {{}};
-      const rawPost = c.raw_viral_post || {{}};
-      const t = i18n[currentLang];
-
-      let displayTitle = c.title;
-      let displayMotivation = curation.personal_motivation || story.the_hook || '';
-      let displayQuote = rawPost.quote || '';
-
-      if (currentLang === 'ZH') {{
-        displayTitle = c.title_zh || c.title;
-        displayMotivation = curation.personal_motivation_zh || displayMotivation;
-        displayQuote = rawPost.quote_zh || displayQuote;
-      }} else if (currentLang === 'EN') {{
-        displayTitle = c.title_en || c.title;
-        displayMotivation = curation.personal_motivation_en || displayMotivation;
-      }}
-
-      document.getElementById('modalTitle').innerText = displayTitle;
-      document.getElementById('modalModeBadge').innerText = currentLang === 'KO' ? '공식 기술 검증 도시에' : (currentLang === 'ZH' ? '官方技术核查档案' : 'AUDITED DOSSIER');
-      document.getElementById('modalModeBadge').className = 'text-xs px-2.5 py-0.5 rounded-md font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200';
-      
-      document.getElementById('modalClusterBadge').innerText = clustering.cluster_name || c.category || 'Tech';
-      document.getElementById('modalVerdictBadge').innerText = c.verdict;
-      document.getElementById('modalVerdictBadge').className = c.verdict === 'VERIFIED_TRUE' ? 'text-xs px-2.5 py-0.5 rounded-md font-semibold verdict-true' : 'text-xs px-2.5 py-0.5 rounded-md font-semibold verdict-half';
-      document.getElementById('modalStageBadge').innerText = handsOn.status === 'ACTIVE_DEVELOPED' ? (currentLang === 'KO' ? '실제 개발 적용' : (currentLang === 'ZH' ? '生产级落地' : 'Production Active')) : (currentLang === 'KO' ? '기술 조사 완료' : (currentLang === 'ZH' ? '已审计完毕' : 'Audited'));
-
-      document.getElementById('modalMotivation').innerText = displayMotivation;
-      document.getElementById('modalWorkflow').innerText = curation.target_workflow || 'Universal AI Pipeline';
-
-      // 🌟 VIRAL CLAIMS DOSSIER (Hides cleanly when quote is missing)
-      const viralBox = document.getElementById('modalViralPostBox');
-      const hasQuote = displayQuote && displayQuote.trim().length > 0;
-
-      if (hasQuote) {{
-        viralBox.classList.remove('hidden');
-        document.getElementById('modalViralPlatformBadge').innerText = rawPost.platform || 'Viral Media';
-        document.getElementById('modalViralAuthor').innerText = rawPost.author ? `@${{rawPost.author}}` : 'Viral Source';
-        document.getElementById('modalViralQuote').innerText = `"${{displayQuote}}"`;
-        document.getElementById('modalViralNote').innerText = rawPost.archive_note || 'Tier-1 Raw Marketing Post Captured';
-        
-        const directLink = document.getElementById('modalViralDirectLink');
-        if (rawPost.url) {{
-          directLink.href = rawPost.url;
-          directLink.classList.remove('hidden');
-        }} else {{
-          directLink.classList.add('hidden');
-        }}
-      }} else {{
-        viralBox.classList.add('hidden');
-      }}
-
-      // Claims
-      const claimsContainer = document.getElementById('modalClaimsContainer');
-      const claims = c.marketing_claims || [];
-      claimsContainer.innerHTML = claims.map(cl => `
-        <div class="p-3.5 rounded-xl border border-surface-border bg-white space-y-2">
-          <div class="flex items-center justify-between text-xs">
-            <span class="font-bold text-ink-primary font-mono">${{cl.claim_id || 'CLAIM'}}</span>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${{cl.status === 'DEBUNKED' ? 'bg-rose-50 text-rose-800' : 'bg-emerald-50 text-emerald-800'}}">${{cl.status}}</span>
-          </div>
-          <div class="text-xs text-rose-800 font-medium">❌ Hype: ${{cl.marketing_hook || cl.claim_text}}</div>
-          <div class="text-xs text-emerald-800 font-semibold">✅ Reality: ${{cl.empirical_reality || cl.reality_check}}</div>
-        </div>
-      `).join('');
-
-      // Hands-on Log
-      document.getElementById('modalHandsOnEnv').innerText = handsOn.environment || 'Local Benchmark Suite';
-      document.getElementById('modalHandsOnMetrics').innerText = handsOn.measured_metrics ? Object.entries(handsOn.measured_metrics).map(([k, v]) => `${{k}}: ${{v}}`).join(' | ') : '100% Zero-Hallucination Audited';
-      document.getElementById('modalHandsOnDetails').innerText = handsOn.failure_modes || story.empirical_findings || 'Empirical measurements completed without anomalies.';
-
-      // Alternatives Table
-      const altsBody = document.getElementById('modalAlternativesBody');
-      const alts = c.alternatives || [];
-      altsBody.innerHTML = alts.map(a => `
-        <tr class="hover:bg-surface-subtle transition">
-          <td class="p-3 font-semibold text-ink-primary">${{a.name || a.tool_name}}</td>
-          <td class="p-3 font-mono text-[11px] text-ink-secondary">${{a.stack || '-'}}</td>
-          <td class="p-3 text-emerald-700">${{a.pros || '-'}}</td>
-          <td class="p-3 text-rose-700">${{a.cons || '-'}}</td>
-          <td class="p-3 font-medium text-ink-primary">${{a.best_for || '-'}}</td>
-        </tr>
-      `).join('');
-
-      // Sources
-      const sourcesList = document.getElementById('modalSourcesList');
-      const sources = c.sources || [];
-      sourcesList.innerHTML = sources.map(s => `
-        <a href="${{s.url}}" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-surface-subtle border border-surface-border hover:border-ink-primary flex items-center justify-between text-xs text-ink-secondary hover:text-ink-primary transition">
-          <div class="space-y-0.5">
-            <span class="text-[10px] font-mono text-ink-primary uppercase font-bold">${{s.tier || 'Tier 1'}} • ${{s.type || 'Repository'}}</span>
-            <div class="font-medium truncate max-w-[240px] text-ink-primary">${{s.name || s.title || 'Source Link'}}</div>
-          </div>
-          <i data-lucide="external-link" class="w-3.5 h-3.5 text-ink-muted shrink-0"></i>
-        </a>
-      `).join('');
-
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-      lucide.createIcons();
     }}
 
     function closeModal(pushHistory = true) {{
