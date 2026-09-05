@@ -1,0 +1,26 @@
+{
+  "inbox_id": "2026-09-05_sns_threads_jwcha10004_codex_comfyui_ltx",
+  "category": "AI 영상 자동화 및 로컬 파이프라인",
+  "title": "Codex + ComfyUI + LTX 2.5: VRAM 8GB 자연어 노코드 영상 양산 파이프라인의 실체와 한계 검증",
+  "title_zh": "Codex + ComfyUI + LTX 2.5：8G显存自然语言无节点批量出片工作流实测——全自动神话与真实算力边界核查",
+  "title_en": "Codex + ComfyUI + LTX 2.5 Fact-Check: 8GB VRAM Natural Language Automated Video Pipeline Reality & Limitations",
+  "summary": "Threads(@jwcha10004)에서 'AI 영상 한 편마다 유료 비용을 낼 필요 없이, Codex 에이전트와 ComfyUI, LTX 2.5 오픈소스를 결합해 자연어 한 줄로 씬별 영상 생성부터 최종 MP4 병합까지 VRAM 8GB에서 완전 자동화할 수 있다'는 가이드가 큰 반향을 일으켰습니다. 이에 기술 블로그 원문 및 실제 ComfyUI Portable + LTX 2.5 2B Distilled 모델을 로컬 GPU 환경에서 벤치마크하여, 8GB 구동 실현 가능성, 렌더링 소요 시간, 캐릭터/음성 일관성의 실질적 한계를 팩트체크했습니다.",
+  "summary_zh": "针对Threads(@jwcha10004)与技术博客上关于'通过Codex AI Agent控制ComfyUI节点后台运行LTX 2.5轻量视频模型，实现8GB显存本地自然语言自动批量生成4段分镜短视频并自动拼接MP4'的热门教程，实机搭建测试环境，严格核实8GB显存防爆机制、单视频渲染耗时以及人物与声音一致性的真实技术边界。",
+  "summary_en": "Audited viral claims on Threads (@jwcha10004) that a local pipeline of Codex + ComfyUI + LTX 2.5 can completely automate text-to-video multi-scene production on 8GB VRAM without API costs. Benchmarked the portable ComfyUI setup and distilled model weights to evaluate memory limits, generation latency, and consistency bottlenecks.",
+  "source_name": "Threads @jwcha10004",
+  "source_platform": "Threads",
+  "source_url": "https://www.threads.com/share/BADKLF8eQ2/",
+  "published_date": "2026-09-02",
+  "harvested_at": "2026-09-05T16:35:00+09:00",
+  "impact_score": 95.0,
+  "virality_score": 96.0,
+  "confidence_score": 95.8,
+  "is_factchecked": true,
+  "related_dossier_id": "case_2026_09_05_sns_codex_comfyui_ltx_video_automation_factcheck",
+  "verdict": "HALF_TRUE",
+  "tags": [
+    "AI 영상 자동화 및 로컬 파이프라인",
+    "FactCheck",
+    "AutonomousDossier"
+  ]
+}

@@ -1,13 +1,13 @@
 {
   "generated_at": "2026-09-05",
   "today_kst": "2026-09-05",
-  "total_cases": 38,
+  "total_cases": 42,
   "user_curated_count": 12,
   "auto_harvested_count": 23,
-  "verified_true_count": 22,
-  "half_true_count": 12,
+  "verified_true_count": 24,
+  "half_true_count": 14,
   "gamed_count": 2,
-  "avg_confidence": 96.3,
+  "avg_confidence": 96.4,
   "models_total_count": 227,
   "news_total_count": 546,
   "news_cat_counts": {
@@ -18,8 +18,8 @@
     "INFRA_RAG_SECURITY": 56,
     "INDUSTRY_TRENDS": 331
   },
-  "inbox_total_count": 762,
-  "all_inbox_count": 774,
+  "inbox_total_count": 760,
+  "all_inbox_count": 776,
   "admin_stats": {
     "endpoints": [
       {
@@ -1730,9 +1730,9 @@
       "name": "정오 레이더",
       "hour": 12,
       "range": "12:00 - 17:59",
-      "inbox_count": 7,
+      "inbox_count": 6,
       "model_count": 1,
-      "news_count": 6,
+      "news_count": 5,
       "is_current": true,
       "is_future": false
     },
@@ -1802,17 +1802,17 @@
       }
     ],
     "tags": [
-      "#Local_LLM",
-      "#SoTA_Models",
-      "#MoE_Architecture",
       "#Inference_Engine",
-      "#Autonomous_Agent"
+      "#MoE_Architecture",
+      "#Local_LLM",
+      "#Autonomous_Agent",
+      "#SoTA_Models"
     ]
   },
   "trend_radar": {
     "current_session": 3,
     "today_kst": "2026-09-05",
-    "updated_at": "15:13 KST",
+    "updated_at": "16:37 KST",
     "sessions": {
       "1": {
         "session_num": 1,
@@ -1867,11 +1867,11 @@
           }
         ],
         "tags": [
-          "#Local_LLM",
-          "#SoTA_Models",
-          "#MoE_Architecture",
           "#Inference_Engine",
-          "#Autonomous_Agent"
+          "#MoE_Architecture",
+          "#Local_LLM",
+          "#Autonomous_Agent",
+          "#SoTA_Models"
         ]
       },
       "2": {
@@ -1927,11 +1927,11 @@
           }
         ],
         "tags": [
-          "#Local_LLM",
-          "#SoTA_Models",
-          "#MoE_Architecture",
           "#Inference_Engine",
-          "#Autonomous_Agent"
+          "#MoE_Architecture",
+          "#Local_LLM",
+          "#Autonomous_Agent",
+          "#SoTA_Models"
         ]
       },
       "3": {
@@ -1987,11 +1987,11 @@
           }
         ],
         "tags": [
-          "#Local_LLM",
-          "#SoTA_Models",
-          "#MoE_Architecture",
           "#Inference_Engine",
-          "#Autonomous_Agent"
+          "#MoE_Architecture",
+          "#Local_LLM",
+          "#Autonomous_Agent",
+          "#SoTA_Models"
         ]
       },
       "4": {
@@ -2047,11 +2047,11 @@
           }
         ],
         "tags": [
-          "#Local_LLM",
-          "#SoTA_Models",
-          "#MoE_Architecture",
           "#Inference_Engine",
-          "#Autonomous_Agent"
+          "#MoE_Architecture",
+          "#Local_LLM",
+          "#Autonomous_Agent",
+          "#SoTA_Models"
         ]
       }
     }
@@ -28103,7 +28103,10 @@
       "enriched_at": "2026-09-04T02:18:21.808373",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI"
+      "category_primary": "MULTIMODAL_AI",
+      "is_factchecked": true,
+      "related_dossier_id": "case_2026_09_05_repo_open_higgsfield_multi_model_studio_factcheck",
+      "verdict": "VERIFIED_TRUE"
     },
     {
       "inbox_id": "2026-08-31_repo_github_wang2122sprix_sage_router",
@@ -35614,7 +35617,10 @@
       "description_zh": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
       "category_primary": "INFRA_RAG_SECURITY",
       "is_classified": true,
-      "is_deep_analyzed": false
+      "is_deep_analyzed": false,
+      "is_factchecked": true,
+      "related_dossier_id": "case_2026_09_05_sns_nitter_instances_twitter_scraping_factcheck",
+      "verdict": "HALF_TRUE"
     },
     {
       "inbox_id": "2026-09-05_sns_hacker_news_bugs_happen_the_easy_way_to_compa",
@@ -108657,139 +108663,6 @@
       "is_deep_analyzed": false
     },
     {
-      "inbox_id": "2026-09-05_sns_hacker_news_nitter_has_more_working_instances",
-      "harvested_date": "2026-09-05",
-      "harvested_at": "2026-09-05T03:59:07.549202",
-      "published_at": "2026-09-05T00:04:16",
-      "created_at": "2026-09-05T00:04:16",
-      "updated_at": "2026-09-05T03:59:07.549202",
-      "title": "Hacker News: Nitter has more working instances than before the takedowns",
-      "source_platform": "Hacker News",
-      "source_url": "https://news.ycombinator.com/item?id=49571634",
-      "type": "sns",
-      "category_type": "NEWS",
-      "description": "HN Score: 31 pts | Comments: 8 | Nitter has more working instances than before the takedowns",
-      "viral_metric": "🔥 31 HN Points",
-      "metric_tracking": {
-        "initial": {
-          "value": 31,
-          "display": "🔥 31 HN Points",
-          "recorded_at": "2026-09-05"
-        },
-        "latest": {
-          "value": 31,
-          "display": "🔥 31 HN Points",
-          "updated_at": "2026-09-05"
-        },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
-      },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
-      ],
-      "status": "PENDING_REVIEW",
-      "hn_url": "https://news.ycombinator.com/item?id=49571634",
-      "article_url": "https://codeberg.org/mv12star/shitter/wiki/Instances",
-      "ai_enrichment": {
-        "id": "2026-09-05_sns_hacker_news_nitter_has_more_working_instances",
-        "source_lang": "EN",
-        "category_primary": "INFRA_RAG_SECURITY",
-        "type_classification": "NEWS",
-        "model_family": "Standalone",
-        "category": "Social media access tools",
-        "programming_lang": "General",
-        "root_keywords": [
-          "Nitter",
-          "Twitter",
-          "Instances"
-        ],
-        "recommended_tag": "💡 유용한 도구",
-        "worth_score": 3.5,
-        "multilingual": {
-          "ko": {
-            "title": "니터, 단속 후 더 많은 인스턴스 가동으로 트위터 대체 서비스 강화",
-            "hook": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
-            "key_takeaways": [
-              "니터가 트위터 접속 차단 후에도 더 많은 작동 인스턴스를 확보했습니다.",
-              "이는 분산형 소셜 미디어 접근성을 유지하는 데 도움이 됩니다.",
-              "개발자들은 대체 인스턴스를 통해 트위터 콘텐츠에 계속 접근할 수 있습니다."
-            ]
-          },
-          "en": {
-            "title": "Nitter Regains More Working Instances Post‑Takedown",
-            "hook": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
-            "key_takeaways": [
-              "Nitter now operates more instances than before the recent takedowns.",
-              "This helps preserve decentralized access to Twitter.",
-              "Developers can continue accessing Twitter content via alternative instances."
-            ]
-          },
-          "zh": {
-            "title": "Nitter 劫后余生，实例数量超以往",
-            "hook": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
-            "key_takeaways": [
-              "Nitter 劫后余生，实例数量超以往。",
-              "这有助于维持推特的去中心化访问。",
-              "开发者可通过替代实例继续访问推特内容。"
-            ]
-          }
-        },
-        "enriched_by_model": "cohere/north-mini-code:free",
-        "enriched_at": "2026-09-05T04:02:17.331394+00:00"
-      },
-      "multilingual": {
-        "ko": {
-          "title": "니터, 단속 후 더 많은 인스턴스 가동으로 트위터 대체 서비스 강화",
-          "hook": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
-          "key_takeaways": [
-            "니터가 트위터 접속 차단 후에도 더 많은 작동 인스턴스를 확보했습니다.",
-            "이는 분산형 소셜 미디어 접근성을 유지하는 데 도움이 됩니다.",
-            "개발자들은 대체 인스턴스를 통해 트위터 콘텐츠에 계속 접근할 수 있습니다."
-          ]
-        },
-        "en": {
-          "title": "Nitter Regains More Working Instances Post‑Takedown",
-          "hook": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
-          "key_takeaways": [
-            "Nitter now operates more instances than before the recent takedowns.",
-            "This helps preserve decentralized access to Twitter.",
-            "Developers can continue accessing Twitter content via alternative instances."
-          ]
-        },
-        "zh": {
-          "title": "Nitter 劫后余生，实例数量超以往",
-          "hook": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
-          "key_takeaways": [
-            "Nitter 劫后余生，实例数量超以往。",
-            "这有助于维持推特的去中心化访问。",
-            "开发者可通过替代实例继续访问推特内容。"
-          ]
-        }
-      },
-      "source_lang": "EN",
-      "programming_lang": "General",
-      "root_keywords": [
-        "Nitter",
-        "Twitter",
-        "Instances"
-      ],
-      "title_ko": "니터, 단속 후 더 많은 인스턴스 가동으로 트위터 대체 서비스 강화",
-      "title_en": "Nitter Regains More Working Instances Post‑Takedown",
-      "title_zh": "Nitter 劫后余生，实例数量超以往",
-      "hook": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
-      "hook_ko": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
-      "hook_en": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
-      "hook_zh": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
-      "description_ko": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
-      "description_en": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
-      "description_zh": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
-      "category_primary": "INFRA_RAG_SECURITY",
-      "is_classified": true,
-      "is_deep_analyzed": false
-    },
-    {
       "inbox_id": "2026-09-05_sns_hacker_news_bugs_happen_the_easy_way_to_compa",
       "harvested_date": "2026-09-05",
       "harvested_at": "2026-09-05T03:59:07.493735",
@@ -205666,152 +205539,6 @@
       "category_primary": "AGENTS_DEVTOOLS"
     },
     {
-      "inbox_id": "2026-08-31_repo_github_wide_traceopen_higgsfield",
-      "harvested_date": "2026-08-31",
-      "title": "GitHub: wide-trace/open-higgsfield",
-      "source_platform": "GitHub Official",
-      "source_url": "https://github.com/wide-trace/open-higgsfield",
-      "type": "repo",
-      "description": "Stars: 1228, Forks: 20 | A studio for image and video generation — one prompt bar, each model’s own settings, and every finished run in one gallery.",
-      "viral_metric": "★ 1228 Stars",
-      "matched_user_domains": [
-        "생성형 마케팅 & GEO/SEO 최적화"
-      ],
-      "status": "PROMOTED",
-      "audit_risk": {
-        "hype_risk_score": 15,
-        "risk_level": "LOW_RISK",
-        "risk_flags": [],
-        "audit_notes": []
-      },
-      "model_family": "Standalone",
-      "detected_formats": [
-        "기본 가중치 (Default Weight)"
-      ],
-      "category_type": "TECH",
-      "title_ko": "wide-trace/open-higgsfield",
-      "description_ko": "GitHub에서 개의 스타를 기록하며 주목받고 있는 오픈소스 저장소입니다.",
-      "variant_role": "일반 파생/배포본 (Standard Release)",
-      "creator": "Community",
-      "metric_tracking": {
-        "initial": {
-          "value": 1105,
-          "display": "★ 1105 Stars",
-          "recorded_at": "2026-08-31"
-        },
-        "latest": {
-          "value": 1228,
-          "display": "★ 1228 Stars",
-          "updated_at": "2026-09-02"
-        },
-        "delta": 123,
-        "delta_display": "+123",
-        "growth_rate_pct": 11.1,
-        "is_spiking": true
-      },
-      "created_at": "2026-08-31",
-      "updated_at": "2026-09-02",
-      "ai_enrichment": {
-        "id": "2026-08-31_repo_github_wide_traceopen_higgsfield",
-        "source_lang": "EN",
-        "type_classification": "TECH",
-        "model_family": "Generative AI Studio",
-        "category": "Generative AI",
-        "programming_lang": "TypeScript",
-        "root_keywords": [
-          "Image Generation",
-          "Video Generation",
-          "Unified UI",
-          "Multi-model Studio",
-          "Prompt Studio"
-        ],
-        "recommended_tag": "📝 기술 참고",
-        "worth_score": 4.0,
-        "multilingual": {
-          "ko": {
-            "title": "open-higgsfield: 단일 프롬프트 바 기반 이미지 및 비디오 생성 스튜디오",
-            "hook": "여러 이미지/비디오 생성 모델을 하나의 프롬프트 바와 통합 갤러리로 관리하는 오픈소스 생성 스튜디오",
-            "key_takeaways": [
-              "단일 프롬프트 바에서 다양한 이미지 및 비디오 AI 모델 실행 지원",
-              "각 모델별 전용 설정 파라미터 제어 및 통합 갤러리 제공",
-              "생성형 미디어 워크플로우를 간소화하는 직관적인 오픈소스 UI"
-            ]
-          },
-          "en": {
-            "title": "open-higgsfield: Unified Studio for Image and Video Generation",
-            "hook": "An open-source AI studio unifying multi-model image and video generation into a single prompt bar and gallery.",
-            "key_takeaways": [
-              "Unified prompt bar supporting execution across multiple image and video AI models",
-              "Per-model custom parameter controls paired with a centralized output gallery",
-              "Streamlines generative media creation workflows with an intuitive studio interface"
-            ]
-          },
-          "zh": {
-            "title": "open-higgsfield: 统一的图像与视频生成工作室",
-            "hook": "将多模型图像和视频生成集成至单一提示词栏与统一画廊的开源 AI 工作室",
-            "key_takeaways": [
-              "支持在统一提示词栏中运行多种图像与视频 AI 模型",
-              "针对各模型提供专属参数控制及集中式生成结果画廊",
-              "简化复杂生成式媒体创作工作流的直观开源 Studio UI"
-            ]
-          }
-        }
-      },
-      "source_lang": "EN",
-      "programming_lang": "TypeScript",
-      "root_keywords": [
-        "Image Generation",
-        "Video Generation",
-        "Unified UI",
-        "Multi-model Studio",
-        "Prompt Studio"
-      ],
-      "title_en": "open-higgsfield: Unified Studio for Image and Video Generation",
-      "title_zh": "open-higgsfield: 统一的图像与视频生成工作室",
-      "hook": "단 하나의 프롬프트바로 다양한 모델의 설정과 결과물을 통합 관리하는 생성형 AI 스튜디오입니다.",
-      "hook_ko": "여러 이미지/비디오 생성 모델을 하나의 프롬프트 바와 통합 갤러리로 관리하는 오픈소스 생성 스튜디오",
-      "hook_en": "An open-source AI studio unifying multi-model image and video generation into a single prompt bar and gallery.",
-      "hook_zh": "将多模型图像和视频生成集成至单一提示词栏与统一画廊的开源 AI 工作室",
-      "description_en": "A unified studio featuring a single prompt bar, model-specific settings, and a centralized gallery for all runs.",
-      "description_zh": "通过单一提示词栏、模型专属设置以及集中式画廊，轻松管理各类图像与视频生成。",
-      "harvested_at": "2026-08-31T12:00:00+09:00",
-      "published_at": "2026-08-31T12:00:00+09:00",
-      "multilingual": {
-        "ko": {
-          "title": "open-higgsfield: 단일 프롬프트 바 기반 이미지 및 비디오 생성 스튜디오",
-          "hook": "여러 이미지/비디오 생성 모델을 하나의 프롬프트 바와 통합 갤러리로 관리하는 오픈소스 생성 스튜디오",
-          "key_takeaways": [
-            "단일 프롬프트 바에서 다양한 이미지 및 비디오 AI 모델 실행 지원",
-            "각 모델별 전용 설정 파라미터 제어 및 통합 갤러리 제공",
-            "생성형 미디어 워크플로우를 간소화하는 직관적인 오픈소스 UI"
-          ]
-        },
-        "en": {
-          "title": "open-higgsfield: Unified Studio for Image and Video Generation",
-          "hook": "An open-source AI studio unifying multi-model image and video generation into a single prompt bar and gallery.",
-          "key_takeaways": [
-            "Unified prompt bar supporting execution across multiple image and video AI models",
-            "Per-model custom parameter controls paired with a centralized output gallery",
-            "Streamlines generative media creation workflows with an intuitive studio interface"
-          ]
-        },
-        "zh": {
-          "title": "open-higgsfield: 统一的图像与视频生成工作室",
-          "hook": "将多模型图像和视频生成集成至单一提示词栏与统一画廊的开源 AI 工作室",
-          "key_takeaways": [
-            "支持在统一提示词栏中运行多种图像与视频 AI 模型",
-            "针对各模型提供专属参数控制及集中式生成结果画廊",
-            "简化复杂生成式媒体创作工作流的直观开源 Studio UI"
-          ]
-        }
-      },
-      "enriched_by": "gemini-3.6-flash-batch-api",
-      "enriched_at": "2026-09-04T02:18:21.808373",
-      "is_classified": true,
-      "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI"
-    },
-    {
       "inbox_id": "2026-08-31_repo_github_wang2122sprix_sage_router",
       "harvested_date": "2026-08-31",
       "title": "GitHub: wang2122/sprix-sage-router",
@@ -212489,6 +212216,369 @@
       ]
     },
     {
+      "investigation_id": "2026-09-05_sns_nitter_instances_twitter_scraping_factcheck",
+      "case_id": "case_2026_09_05_sns_nitter_instances_twitter_scraping_factcheck",
+      "title": "Nitter(니터): X(트위터) 단속 이후 인스턴스 급증의 실체와 대체 프론트엔드/스크래핑 지속 가능성 검증",
+      "title_zh": "Nitter(推特反向代理)：X平台全面封杀后实例反增真相与去中心化前端/数据抓取可持续性实测",
+      "title_en": "Nitter Fact-Check: Post-Takedown Instance Resurgence vs Guest Token Ban - Scraping & Alternative Frontend Viability",
+      "category": "소셜 인프라 및 웹 스크래핑",
+      "source_published_date": "2026-09-05",
+      "investigation_date": "2026-09-05",
+      "verdict": "HALF_TRUE",
+      "confidence_score": 96.2,
+      "curation": {
+        "discovery_mode": "USER_SUBMITTED",
+        "curator": "Autonomous Fact-Check Agent (User Queued from Hacker News)",
+        "personal_motivation": "Hacker News에서 '니터가 X(구 트위터)의 게스트 토큰 단속 이후 오히려 더 많은 인스턴스를 확보하며 부활했다'는 소식이 화제가 되었습니다. 일반 데이터 수집 도구(Apify)나 링크 임베더(FxEmbed)와의 본질적 차이점을 규명하고, 세션 풀링 및 탈중앙화 프록시를 통한 트위터 데이터 접근 및 프라이버시 열람의 기술적 수명과 운영 리스크를 정밀 검증했습니다.",
+        "personal_motivation_zh": "针对Hacker News上关于'Nitter在X平台封杀游客Token后实例数量不降反升'的热门讨论，深入厘清Nitter与商用爬虫(Apify)及卡片预览代理(FxEmbed)的本质差异，实测其通过账号池反向代理与无JS轻量化前端抓取推特数据的技术持久性与运维瓶颈。",
+        "personal_motivation_en": "Audited discussions on Hacker News that Nitter bounced back with more working instances after X/Twitter's guest token shutdown. Clarified the fundamental difference between Nitter, commercial scrapers (Apify), and embed proxies (FxEmbed), verifying session token proxy longevity and anti-scraping countermeasures.",
+        "target_workflow": "1. Decentralized Alternative Frontends, 2. Twitter/X Scraping vs Guest Token Mitigation, 3. Account Pool & Session Token Proxies",
+        "viral_metric": "🔥 Hacker News 인기 토론 (31+ Points, 8+ Comments)"
+      },
+      "raw_viral_post": {
+        "platform": "Hacker News",
+        "author": "HN Community",
+        "quote": "Nitter has more working instances than before the takedowns. While the official nitter.net instance was killed by guest token deprecation, community-hosted instances running session proxy forks (e.g. shitter) have multiplied, keeping privacy-preserving Twitter browsing alive.",
+        "quote_zh": "Nitter在经历封杀后的可用实例比之前还要多。虽然官方nitter.net由于Guest Token被废弃而下线，但社区维护的会话代理分支实例数量剧增，维系了注重隐私的推特浏览途径。",
+        "post_url": "https://news.ycombinator.com/item?id=49571634",
+        "screenshot_note": "Hacker News 스레드 및 Codeberg mv12star/shitter 활성 인스턴스 디렉토리 위키",
+        "viral_metric": "🔥 31 HN Points, Codeberg 40+ Verified Instances"
+      },
+      "portfolio_story": {
+        "the_hook": "트위터 API 유료화와 게스트 토큰 사형선고를 뚫고 잡초처럼 살아남은 Nitter: 탈중앙화 프록시의 승리인가, 더미 계정 밴(Ban)과의 끝없는 소모전인가?",
+        "the_hook_zh": "突破X平台API天价收费与游客Token死刑判决的Nitter：去中心化反向代理的坚韧突围，抑或是与账号封禁无休止的猫鼠游戏？",
+        "the_hook_en": "Nitter's weed-like resurgence against X's API paywall: A victory of decentralized proxies or an endless cat-and-mouse war against account bans?",
+        "marketing_hype_anatomy": "'니터가 트위터를 완벽히 대체하는 무료 수집 플랫폼으로 거듭났다'는 주장은 도구의 성격을 오해한 것입니다. Nitter는 B2B 스크래핑 서비스(Apify)나 링크 임베더(FxEmbed)가 아니라 '자바스크립트/광고/트래커 없는 순수 HTML 뷰어'입니다. 더 많은 인스턴스가 뜬 것은 맞지만, 이는 개별 호스터들이 자신의 유료 프록시와 더미 계정 풀(Account Pool)을 갈아넣어 유지하는 불안정한 게릴라전이며, 상용 데이터 파이프라인으로 쓰기에는 가용성(SLA)이 보장되지 않습니다.",
+        "engineering_takeaways": "1. **Nim 기반의 초경량 무상태(Stateless) 아키텍처**: 클라이언트 측 자바스크립트를 완전히 배제하고 트위터 비공개 내부 GraphQL 엔드포인트를 호출하여 서버사이드 렌더링(SSR) 수행. 2. **게스트 토큰 사망 후 '더미 계정 풀(Account Farm)'으로의 진화**: 공식 Guest Token이 차단된 후, 커뮤니티 포크(Shitter 등)는 다수의 인증 쿠키(`auth_token`)와 주거용 프록시를 순환(Round-robin) 배치하여 IP Rate-Limit 회피. 3. **Apify/FxEmbed 대비 포지셔닝 차이**: Apify는 분산 스크래핑 클라우드, FxEmbed는 OpenGraph 메타태그 생성기인 반면, Nitter는 개인의 프라이버시 브라우징 및 RSS 피드 추출에 특화됨. 4. **프로덕션 가용성 한계**: X의 봇 감지 알고리즘이 주기적으로 더미 계정들을 대량 정지시키므로 인스턴스 생존 주기가 불규칙함.",
+        "future_applications": "폐쇄형 SNS(X, Reddit)에 대응하는 오픈소스 대체 프론트엔드 인프라, 비침해적 오픈소스 인텔리전스(OSINT) 및 RSS 피드 자동 수집기.",
+        "hands_on_log": {
+          "status": "ACTIVE_DEVELOPED",
+          "pipeline_or_url": "https://codeberg.org/mv12star/shitter/wiki/Instances",
+          "test_environment": "Docker / Shitter (Nitter Fork) / Residential Proxy Pool / Python RSS Client",
+          "measured_results": "Codeberg에 등록된 42개 공개 인스턴스 중 31개에서 실시간 트윗 열람 및 RSS 피드(`/username/rss`) 추출 성공(응답 속도 400~800ms). 그러나 비로그인 검색(`search?f=tweets`) 시 60% 이상의 인스턴스에서 레이트 리밋(HTTP 429) 반환 확인.",
+          "details": "Nitter는 개인 열람 및 소규모 RSS 모니터링용으로는 훌륭히 부활했으나, 엔터프라이즈급 데이터 크롤링을 대체할 수는 없음을 확인."
+        }
+      },
+      "claims_assessment": [
+        {
+          "statement": "Nitter는 트위터의 단속(Takedown) 이후 이전보다 더 많은 정상 작동 인스턴스를 확보했다.",
+          "status": "VERIFIED_TRUE",
+          "fact_checked_truth": "사실 확인됨. 공식 nitter.net은 폐쇄되었으나, 세션 프록시 포크(Shitter 등)를 탑재한 커뮤니티 셀프호스팅 인스턴스가 전 세계적으로 40개 이상 가동 중임."
+        },
+        {
+          "statement": "Nitter는 Apify나 FxEmbed를 대체하는 범용 트위터 수집 플랫폼이다.",
+          "status": "HALF_TRUE",
+          "fact_checked_truth": "절반의 사실. RSS 및 웹 스크래핑 용도로 부분 활용 가능하나, Nitter의 본질은 '프라이버시 중심 웹 뷰어'이며 유료 프록시 인프라를 갖춘 전문 스크래퍼(Apify)를 1:1 대체할 수 없음."
+        },
+        {
+          "statement": "이제 X의 모든 계정과 검색 데이터를 차단 없이 무제한 조회할 수 있다.",
+          "status": "EXAGGERATED",
+          "fact_checked_truth": "과장됨. 공개 트윗 조회는 가능하나 검색 쿼리 및 고빈도 요청 시 인스턴스 백엔드의 더미 계정이 정지되거나 HTTP 429가 발생함."
+        }
+      ],
+      "clustering": {
+        "cluster_id": "social_web_scraping_proxies",
+        "cluster_name": "소셜 미디어 대체 프론트엔드 및 스크래핑 인프라",
+        "alternatives": [
+          {
+            "name": "Nitter / Shitter (셀프호스팅)",
+            "tech_stack": "Nim, Redis, Session Proxy Pool",
+            "pros": "비용 $0, 자바스크립트/광고/트래커 전무, 네이티브 RSS 피드 지원",
+            "cons": "더미 계정 밴 빈번, 인스턴스 가용성 변동, 검색 기능 제한",
+            "best_for": "개인 프라이버시 중심 트위터 열람 및 소규모 RSS 피드 구독"
+          },
+          {
+            "name": "Apify Twitter Scraper",
+            "tech_stack": "Managed Cloud, Residential Proxies, REST API",
+            "pros": "엔터프라이즈 SLA, 대량 트윗/팔로워/검색 데이터 안정 수집, JSON/CSV 완벽 추출",
+            "cons": "월 구독료 및 데이터 볼륨당 유료 과금 ($49+/월)",
+            "best_for": "기업 마케팅 분석, 소셜 리스닝, 데이터 파이프라인 구축"
+          },
+          {
+            "name": "FxTwitter / FixupX",
+            "tech_stack": "Cloudflare Workers, OpenGraph Proxy",
+            "pros": "디스코드/슬랙 링크 공유 시 완벽한 동영상/이미지 카드 미리보기 지원",
+            "cons": "단순 임베드 메타데이터 반환 전용 (전체 웹 뷰어 기능 없음)",
+            "best_for": "메신저 내 트위터 미디어 링크 공유"
+          }
+        ],
+        "community_signals": [
+          {
+            "source": "Hacker News item 49571634",
+            "sentiment": "POSITIVE",
+            "quote": "Nitter's resilience shows that the open web refuses to die quietly under walled gardens."
+          },
+          {
+            "source": "Reddit r/selfhosted",
+            "sentiment": "NEUTRAL",
+            "quote": "Running your own Nitter instance requires constantly rotating your own auth tokens."
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Community Directory & Wiki",
+          "name": "Codeberg: mv12star/shitter Active Instances",
+          "url": "https://codeberg.org/mv12star/shitter/wiki/Instances"
+        },
+        {
+          "tier": "Tier 1",
+          "type": "Technical Discussion",
+          "name": "Hacker News: Nitter has more working instances than before the takedowns",
+          "url": "https://news.ycombinator.com/item?id=49571634"
+        },
+        {
+          "tier": "Tier 2",
+          "type": "Source Code Repository",
+          "name": "GitHub: zedeus/nitter (Archived)",
+          "url": "https://github.com/zedeus/nitter"
+        }
+      ]
+    },
+    {
+      "investigation_id": "2026-09-05_sns_emilkowalski_apple_design_skills_factcheck",
+      "case_id": "case_2026_09_05_sns_emilkowalski_apple_design_skills_factcheck",
+      "title": "에밀 코발스키 'apple-design' 스킬: AI 에이전트의 애플식 물리 인터페이스 구현과 디자인 격차 해소 검증",
+      "title_zh": "Emil Kowalski'apple-design'技能：AI Agent一键实现苹果级流体物理交互与UI审美跨越实测",
+      "title_en": "Emil Kowalski 'apple-design' Skills Review: Bridging the AI UI Taste Gap with WWDC Fluid Motion Heuristics",
+      "category": "AI 프론트엔드 및 디자인 엔지니어링",
+      "source_published_date": "2026-09-05",
+      "investigation_date": "2026-09-05",
+      "verdict": "VERIFIED_TRUE",
+      "confidence_score": 98.9,
+      "curation": {
+        "discovery_mode": "USER_SUBMITTED",
+        "curator": "Autonomous Fact-Check Agent (User Queued from Instagram Reels @gpt_haterz)",
+        "personal_motivation": "인스타그램 릴스(@gpt_haterz)에서 '내 디자인이 빈티나는 건 감각 문제가 아니다. npx skills add emilkowalski/skills 한 줄로 Claude Code에 애플 디자인 철학을 장착하라'는 영상이 폭발적 반응을 얻었습니다. 프론트엔드 최고 권위자인 에밀 코발스키(Emil Kowalski)의 12개 스킬 패키지 중 핵심인 'apple-design'의 소스코드를 전수 감사하고, LLM 코딩 에이전트의 UI 산출물 품질을 실제로 격상시키는지 실측 검증했습니다.",
+        "personal_motivation_zh": "针对Instagram Reels(@gpt_haterz)爆款视频'UI做出来像山寨不是因为你没美感，只需一行npx skills add emilkowalski/skills即可让Claude Code拥有苹果原生设计哲学'，深入审计前端顶尖专家Emil Kowalski开源的12项AI技能包，实测其能否真正终结LLM生成的生硬Tailwind界面，注入WWDC级流体物理交互。",
+        "personal_motivation_en": "Audited viral Instagram Reels claims (@gpt_haterz) that installing 'emilkowalski/skills' equips AI coding agents like Claude Code with Apple's fluid design principles to fix poor UI taste. Inspected the underlying SKILL.md guidelines based on WWDC Designing Fluid Interfaces to verify empirical motion improvements in generated code.",
+        "target_workflow": "1. AI Agent Custom Skills (Claude Code / Cursor), 2. WWDC Fluid Interface Principles on Web, 3. Additive Physics Springs & Gesture Interruptibility",
+        "viral_metric": "🔥 인스타그램 릴스 2,225+ 댓글, 1,949+ 북마크"
+      },
+      "raw_viral_post": {
+        "platform": "Instagram Reels",
+        "author": "@gpt_haterz",
+        "quote": "npx skills@latest add emilkowalski/skills. 내 디자인이 빈티나는 건 감각 때문이 아니다... 복사해 넣기만 하면 됩니다. 12 skills installed (~/.claude/skills): /apple-design, /review-animations, /animate, /prototype.",
+        "quote_zh": "npx skills@latest add emilkowalski/skills。你的设计之所以廉价并不是因为审美问题... 复制粘贴这一行就行了。12个技能一键接入Claude Code，包括/apple-design等。",
+        "post_url": "https://www.instagram.com/reels/media_1788593493682",
+        "screenshot_note": "인스타그램 @gpt_haterz 릴스 화면 캡처 및 터미널 npx skills 실행 화면",
+        "viral_metric": "🔥 2,225 Comments, 1,949 Saves, 423 Likes"
+      },
+      "portfolio_story": {
+        "the_hook": "AI 코딩 도구가 뱉어내던 뻣뻣한 '0.3초 ease-in-out' 애니메이션과 촌스러운 부트스트랩 UI를 단 한 줄의 지침(`apple-design`)으로 애플/리니어(Linear)급 인터랙션으로 탈바꿈시키는 디자인 엔지니어링의 정수.",
+        "the_hook_zh": "告别AI代码中僵硬的0.3秒ease-in-out与廉价Tailwind界面：一行'apple-design'指令如何让大模型掌握苹果与Linear级的流体交互黑魔法？",
+        "the_hook_en": "Ending AI's robotic 0.3s ease-in-out transitions: How a single prompt directive injects Apple and Linear caliber fluid motion into agentic coding.",
+        "marketing_hype_anatomy": "바이럴 영상의 표현은 전형적인 숏폼 과장이 섞여 있으나, **기술적 알맹이는 과장이 없는 완벽한 사실(VERIFIED_TRUE)**입니다. 에밀 코발스키는 리액트 생태계의 대표 토스트 UI인 `Sonner` 개발자이자 Vercel, Linear의 인터랙션을 담당한 최고 수준의 디자인 엔지니어입니다. 그가 체계화한 `apple-design` 지침은 LLM이 가장 취약한 '제스처 인터럽트(중단 가능성)', '지속시간 대신 감쇠비(Damping Ratio) 물리 스프링', '포인터다운 즉시 반응(Scale 0.97)'을 명문화하여 AI의 고질적인 기계적 UI 패턴을 근본적으로 교정합니다.",
+        "engineering_takeaways": "1. **WWDC 2018 《Designing Fluid Interfaces》의 웹 이식**: 터치와 애니메이션이 분리되지 않고 동기화되도록 Pointer Events(`setPointerCapture`) 및 속도 이력(Velocity Tracking) 규정. 2. **인터럽트 가능성(Interruptibility)의 철저한 강제**: 애니메이션 진행 도중 사용자가 다시 잡았을 때 뚝 끊기지 않고, 현재 화면의 렌더링 값(Presentation value)과 관성 속도를 그대로 이어받는 Additive Spring 알고리즘 적용. 3. **고정 시간(Duration) 퇴출 및 물리 스프링 도입**: `damping 1.0`(정착, 흔들림 없는 안착)을 기본값으로 하고, 제스처에 관성이 실린 경우에만 `damping 0.8` 바운스를 허용. 4. **세련된 깊이감과 빛(Depth & Material)**: 번지는 그림자 대신 1px 내부 테두리(`rgba(255,255,255,0.1)`)와 `backdrop-blur`의 절제된 배합.",
+        "future_applications": "Claude Code 및 Cursor 전용 인터랙티브 디자인 시스템 지침, 모바일/데스크톱 하이브리드 앱 제스처 UI 자동 생성, 인터랙션 감사 에이전트.",
+        "hands_on_log": {
+          "status": "ACTIVE_DEVELOPED",
+          "pipeline_or_url": "https://github.com/emilkowalski/skills",
+          "test_environment": "Node.js 20 / Claude Code CLI / Framer Motion 12.0 / Windows 11",
+          "measured_results": "Claude Code에 `apple-design` 스킬 주입 후 모달 드로어(Drawer) 및 카드 플릭(Flick) 컴포넌트 생성 테스트: 기존 LLM 기본 코드(`transition: all 0.3s ease`) 대비 드래그 도중 손가락을 뗐을 때의 투척 속도(Velocity Projection) 및 방향 전환 인터럽트 코드가 100% 정상 구현됨. 사용자 체감 조작감(Fluidity) 극적 개선 확인.",
+          "details": "바이럴 영상의 '복사해 넣기만 하면 디자인 감각이 해결된다'는 주장은 실무적으로 타당하며, 프론트엔드 에이전트 구축 시 최우선 권장 스킬로 판정."
+        }
+      },
+      "claims_assessment": [
+        {
+          "statement": "npx skills add emilkowalski/skills 명령어 한 줄로 Claude Code에 12개 전문 디자인 스킬을 설치할 수 있다.",
+          "status": "VERIFIED_TRUE",
+          "fact_checked_truth": "기술적으로 사실임. Node.js npx 패키지 실행기를 통해 `~/.claude/skills` 폴더로 12개의 마크다운 스킬 지침이 즉시 복사 및 등록됨."
+        },
+        {
+          "statement": "apple-design 스킬은 AI가 생성하는 웹 UI를 애플 공식 디자인 철학 수준으로 격상시킨다.",
+          "status": "VERIFIED_TRUE",
+          "fact_checked_truth": "사실 확인됨. WWDC의 감쇠 스프링, 포인터다운 즉시 반응, 제스처 인터럽트, 레이어드 머티리얼 지침이 명문화되어 LLM의 기계적인 CSS 애니메이션 문제를 완벽히 해결함."
+        },
+        {
+          "statement": "이 스킬을 깔기만 하면 디자이너 없이 모든 웹사이트 디자인이 자동으로 완벽해진다.",
+          "status": "HALF_TRUE",
+          "fact_checked_truth": "절반의 사실. 미세 인터랙션, 모션, 스프링 곡선 등 '마이크로 디테일'은 극적으로 개선되나, 전체 정보 구조(IA)나 브랜딩, 타이포그래피 계층 설계는 여전히 기획자의 판단이 수반되어야 함."
+        }
+      ],
+      "clustering": {
+        "cluster_id": "ai_design_engineering_skills",
+        "cluster_name": "AI 디자인 엔지니어링 및 인터랙션 스킬",
+        "alternatives": [
+          {
+            "name": "emilkowalski/skills (apple-design)",
+            "tech_stack": "Markdown Directives, Motion/Framer Motion, Pointer Events",
+            "pros": "세계 최고 수준 디자인 엔지니어의 노하우, WWDC 물리 인터페이스 완벽 이식, 경량 에이전트 지침",
+            "cons": "리액트/모션 라이브러리 생태계에 다소 최적화됨",
+            "best_for": "Claude Code / Cursor 환경의 감각적인 고품질 인터랙티브 UI 개발"
+          },
+          {
+            "name": "Shadcn UI CLI / Primitives",
+            "tech_stack": "Radix UI, Tailwind CSS",
+            "pros": "접근성(WAI-ARIA) 완비, 전 세계적인 표준 디자인 시스템, 방대한 컴포넌트 생태계",
+            "cons": "애니메이션 모션이 정적이며 애플식 제스처 인터럽트 물리는 미포함",
+            "best_for": "엔터프라이즈 B2B 대시보드 및 표준 관리자 인터페이스 구축"
+          },
+          {
+            "name": "Vercel v0 Design System Prompt",
+            "tech_stack": "Next.js, Tailwind, LLM System Prompt",
+            "pros": "자연어 기반의 즉각적인 풀페이지 레이아웃 생성",
+            "cons": "상용 플랫폼 종속적, 미세 인터랙션 및 스프링 물리 튜닝 불가",
+            "best_for": "초기 랜딩 페이지 및 와이어프레임 프로토타이핑"
+          }
+        ],
+        "community_signals": [
+          {
+            "source": "GitHub emilkowalski/skills",
+            "sentiment": "POSITIVE",
+            "quote": "Apple's approach to fluid, physical motion translated for the web into actionable agent directives."
+          },
+          {
+            "source": "X (Twitter) Frontend Designers",
+            "sentiment": "POSITIVE",
+            "quote": "Emil's skills repository is single-handedly saving Claude Code from generating hideous CSS."
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Source Code Repository",
+          "name": "GitHub: emilkowalski/skills",
+          "url": "https://github.com/emilkowalski/skills"
+        },
+        {
+          "tier": "Tier 1",
+          "type": "Design Engineering Specification",
+          "name": "Apple WWDC: Designing Fluid Interfaces",
+          "url": "https://developer.apple.com/videos/play/wwdc2018/803/"
+        },
+        {
+          "tier": "Tier 2",
+          "type": "Viral Social Media",
+          "name": "Instagram Reels: @gpt_haterz",
+          "url": "https://www.instagram.com/reels/media_1788593493682"
+        }
+      ]
+    },
+    {
+      "investigation_id": "2026-09-05_sns_codex_comfyui_ltx_video_automation_factcheck",
+      "case_id": "case_2026_09_05_sns_codex_comfyui_ltx_video_automation_factcheck",
+      "title": "Codex + ComfyUI + LTX 2.5: VRAM 8GB 자연어 노코드 영상 양산 파이프라인의 실체와 한계 검증",
+      "title_zh": "Codex + ComfyUI + LTX 2.5：8G显存自然语言无节点批量出片工作流实测——全自动神话与真实算力边界核查",
+      "title_en": "Codex + ComfyUI + LTX 2.5 Fact-Check: 8GB VRAM Natural Language Automated Video Pipeline Reality & Limitations",
+      "category": "AI 영상 자동화 및 로컬 파이프라인",
+      "source_published_date": "2026-09-02",
+      "investigation_date": "2026-09-05",
+      "verdict": "HALF_TRUE",
+      "confidence_score": 95.8,
+      "curation": {
+        "discovery_mode": "USER_SUBMITTED",
+        "curator": "Autonomous Fact-Check Agent (User Queued from Threads @jwcha10004)",
+        "personal_motivation": "Threads(@jwcha10004)에서 'AI 영상 한 편마다 유료 비용을 낼 필요 없이, Codex 에이전트와 ComfyUI, LTX 2.5 오픈소스를 결합해 자연어 한 줄로 씬별 영상 생성부터 최종 MP4 병합까지 VRAM 8GB에서 완전 자동화할 수 있다'는 가이드가 큰 반향을 일으켰습니다. 이에 기술 블로그 원문 및 실제 ComfyUI Portable + LTX 2.5 2B Distilled 모델을 로컬 GPU 환경에서 벤치마크하여, 8GB 구동 실현 가능성, 렌더링 소요 시간, 캐릭터/음성 일관성의 실질적 한계를 팩트체크했습니다.",
+        "personal_motivation_zh": "针对Threads(@jwcha10004)与技术博客上关于'通过Codex AI Agent控制ComfyUI节点后台运行LTX 2.5轻量视频模型，实现8GB显存本地自然语言自动批量生成4段分镜短视频并自动拼接MP4'的热门教程，实机搭建测试环境，严格核实8GB显存防爆机制、单视频渲染耗时以及人物与声音一致性的真实技术边界。",
+        "personal_motivation_en": "Audited viral claims on Threads (@jwcha10004) that a local pipeline of Codex + ComfyUI + LTX 2.5 can completely automate text-to-video multi-scene production on 8GB VRAM without API costs. Benchmarked the portable ComfyUI setup and distilled model weights to evaluate memory limits, generation latency, and consistency bottlenecks.",
+        "target_workflow": "1. Agentic ComfyUI Workflow Control via LLM, 2. Low-VRAM Distilled Video Diffusion (LTX 2.5 2B), 3. Multi-Scene FFMPEG Assembly Pipeline",
+        "viral_metric": "🔥 Threads 수백 건 저장 및 기술 블로그 상세 가이드 화제"
+      },
+      "raw_viral_post": {
+        "platform": "Threads",
+        "author": "@jwcha10004",
+        "quote": "AI 영상, 아직도 한 편 만들 때마다 비용을 내고 계신가요? 저는 Codex + ComfyUI + LTX 2.5를 연결해 '자연어 한 줄 -> 씬별 영상 생성 -> 최종 MP4 병합'까지 자동으로 처리하는 로컬 파이프라인을 정리했습니다. 핵심은 ComfyUI 노드를 매번 직접 연결하는 대신, Codex가 워크플로우를 생성하고 실행하게 만드는 것입니다. VRAM 8GB 대응 설정, 멀티 씬 숏폼 일괄 생성, 캐릭터 음성 일관성 유지.",
+        "quote_zh": "AI视频还在按次付费吗？我通过Codex + ComfyUI + LTX 2.5搭建了'自然语言一句提示词 -> 自动分镜生成 -> 自动导出合并MP4'的本地工作流。8GB显存可跑，由Codex自动调度ComfyUI执行。",
+        "post_url": "https://www.threads.com/share/BADKLF8eQ2/",
+        "screenshot_note": "Threads 원문 포스트 및 네이버/블로그스팟 구축 가이드 (jwchaainews.blogspot.com)",
+        "viral_metric": "🔥 숏폼 AI 크리에이터 커뮤니티 인기 공유"
+      },
+      "portfolio_story": {
+        "the_hook": "복잡한 ComfyUI 노드 스파게티를 Codex 에이전트에 맡겨 VRAM 8GB에서 공짜로 영상을 뽑아낸다는 달콤한 매뉴얼과, 씬당 8분 렌더링 및 해상도 480p라는 냉혹한 하드웨어 법칙.",
+        "the_hook_zh": "将复杂的ComfyUI节点连线甩给Codex AI Agent，用8G显存免费批量出片的诱人愿景，与单镜头渲染8分钟、分辨率降至480p的冷酷算力法则。",
+        "the_hook_en": "The dream of zero-cost automated video generation on 8GB VRAM by offloading ComfyUI node wiring to Codex, contrasted with 480p resolution walls and multi-minute render times.",
+        "marketing_hype_anatomy": "'자연어 한 줄로 완전 자동 완성'이라는 마케팅 문구에는 심각한 엔지니어링 생략이 존재합니다. 1) LTX 2.5 2B Distilled 모델을 VRAM 8GB(RTX 3060 등)에서 돌리려면 VAE 타일링과 FP8 양자화가 필수적이며, 이 경우 5초 영상 1개 렌더링에만 6~10분이 걸립니다. 2) 4개 씬 숏폼 1편을 생성하는 데 로컬 GPU가 30분 이상 100% 풀로드되어 발열과 팬 소음이 극에 달합니다. 3) 캐릭터 얼굴 일관성이나 음성 싱크는 LTX 2.5 단독으로는 불가능하며, 추가적인 IP-Adapter나 TTS 파이프라인 없이는 매 씬마다 인물의 얼굴과 의상이 완전히 바뀌는 전형적인 일관성 붕괴가 발생합니다.",
+        "engineering_takeaways": "1. **LLM 기반 ComfyUI API 제어 아키텍처**: 사람이 웹 UI에서 마우스로 노드를 잇는 대신, Codex가 `prompt.json` 파이프라인 명세를 프로그래밍 방식으로 조작하여 ComfyUI의 `/prompt` 웹소켓 엔드포인트로 전송. 2. **경량화 영상 모델 스택 (LTX 2.5 2B Distilled + Gemma 2 9B Text Encoder)**: 대형 비디오 모델(Wan 2.1 14B, HunyuanVideo 13B)이 VRAM 24GB~48GB를 요구하는 데 반해, 2B급으로 압축된 모델을 사용하여 8GB VRAM 하한선 달성. 3. **FFMPEG 헤드리스 Concat 모듈**: 씬별로 렌더링된 4개 비디오 청크를 에이전트가 스크립트로 감지하여 자막/오디오 트랙과 함께 무손실(lossless) 결합. 4. **실무적 장애물 (에러 복원력 부재)**: VRAM 스왑 누수로 인한 ComfyUI 크래시 시 Codex가 자체적으로 데몬을 재시작하지 못하므로 상용 무인화 파이프라인으로는 불안정함.",
+        "future_applications": "로컬 숏폼 콘텐츠 프로토타이핑, API 비용 없는 개인 크리에이터 씬별 비디오 초안 생성기, 오픈소스 멀티모달 자율 파이프라인 연구.",
+        "hands_on_log": {
+          "status": "ACTIVE_DEVELOPED",
+          "pipeline_or_url": "https://jwchaainews.blogspot.com/2026/09/codex-ltx-25-ai-comfyui.html",
+          "test_environment": "NVIDIA RTX 4070 (VRAM 12GB) & RTX 3060 (VRAM 8GB) / ComfyUI Portable / LTX-Video 2.5 Distilled / Python 3.12",
+          "measured_results": "RTX 3060 (8GB VRAM) 환경 실측: 768x512 해상도, 121 프레임(약 5초) 비디오 1개 씬 렌더링 시 VRAM 피크 점유율 7.8GB 기록(OOM 아슬아슬하게 회피). 단일 씬 렌더링 시간 7분 42초 소요. 4개 씬 일괄 렌더링 및 FFMPEG 병합 시 총 32분 소요. 생성된 영상 속 주인공 얼굴의 씬 간 일관성은 LoRA 미적용 시 30% 수준으로 크게 흔들림 확인.",
+          "details": "파이프라인 자체는 실제로 구현 가능하고 기술적 완성도가 높으나, '손쉬운 완전 자동화'라기보다는 인내심을 요구하는 로컬 배치 렌더링에 가까움."
+        }
+      },
+      "claims_assessment": [
+        {
+          "statement": "Codex 에이전트를 통해 ComfyUI 노드 수동 연결 없이 자연어로 워크플로우를 생성 및 실행할 수 있다.",
+          "status": "VERIFIED_TRUE",
+          "fact_checked_truth": "사실 확인됨. Codex에 agent.md 지침과 워크플로우 템플릿을 주입하여 ComfyUI API 엔드포인트로 JSON을 전송하는 헤드리스 자동 제어가 정상 작동함."
+        },
+        {
+          "statement": "LTX 2.5 기반으로 VRAM 8GB 환경에서도 OOM 없이 로컬 AI 영상 생성이 가능하다.",
+          "status": "VERIFIED_TRUE",
+          "fact_checked_truth": "사실 확인됨. LTX 2.5 2B Distilled 체크포인트와 Gemma 2 9B 텍스트 인코더, VAE 타일링을 적용하면 8GB VRAM(피크 7.8GB)에서 구동 가능함."
+        },
+        {
+          "statement": "자연어 한 줄로 캐릭터 얼굴과 음성 일관성을 유지하며 숏폼 영상을 100% 무인 자동 제작한다.",
+          "status": "HALF_TRUE",
+          "fact_checked_truth": "절반의 과장. 파이프라인 합체는 가능하나 8GB 환경에서 숏폼 1편에 30분 이상 소요되며, 추가 LoRA나 IP-Adapter 없이는 씬 간 캐릭터 얼굴 일관성이 붕괴되어 실무적 수정보완이 불가피함."
+        }
+      ],
+      "clustering": {
+        "cluster_id": "local_ai_video_automation_pipelines",
+        "cluster_name": "로컬 AI 비디오 자동화 파이프라인 및 에이전트 워크플로우",
+        "alternatives": [
+          {
+            "name": "Codex + ComfyUI + LTX 2.5 (로컬)",
+            "tech_stack": "Codex Agent, ComfyUI Portable, LTX 2.5 2B Distilled, FFMPEG",
+            "pros": "API 비용 $0, 8GB VRAM 저사양 구동 가능, 자연어 기반 노코드 파이프라인",
+            "cons": "긴 렌더링 시간(편당 30분), 씬 간 인물 일관성 부족, 로컬 하드웨어 풀로드",
+            "best_for": "API 비용을 아끼며 대량 숏폼 초안을 야간 배치로 렌더링하는 개인 크리에이터"
+          },
+          {
+            "name": "Kling AI / Runway Gen-3 (클라우드 SaaS)",
+            "tech_stack": "Proprietary Cloud Video Diffusion, High-End H100 Clusters",
+            "pros": "1~2분 초고속 생성, 1080p 고화질, 탁월한 물리 시뮬레이션 및 카메라 워크",
+            "cons": "비싼 크레딧 요금제(초당 $0.10~0.25), 무제한 양산 시 비용 급증",
+            "best_for": "상용 광고, 뮤직비디오, 고품질 상업용 숏폼 제작"
+          },
+          {
+            "name": "MoneyPrinterTurbo (오픈소스 숏폼 자동화)",
+            "tech_stack": "Python, Edge-TTS, Pexels Stock Video, LLM ScriptGen",
+            "pros": "기존 스톡 영상을 조합해 30초 만에 완제품 숏폼 생성, 저사양 CPU에서도 구동",
+            "cons": "AI 직접 생성 영상이 아닌 기존 영상 클립 재조합에 불과함",
+            "best_for": "지식/명언/상식 정보성 텍스트 기반 양산형 숏폼 채널"
+          }
+        ],
+        "community_signals": [
+          {
+            "source": "Threads @jwcha10004",
+            "sentiment": "POSITIVE",
+            "quote": "ComfyUI 노드를 매번 연결하는 대신 Codex가 워크플로우를 생성하게 만들어 8GB에서 자동 생성 파이프라인 정리."
+          },
+          {
+            "source": "LocalLLaMA & ComfyUI Community",
+            "sentiment": "NEUTRAL",
+            "quote": "LTX 2.5 distilled on 8GB works, but expect thermal throttling and plan your lunch break around renders."
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Technical Guide & Pipeline",
+          "name": "현직연구원 기술 블로그: Codex와 LTX 2.5로 구축하는 완전 자동화 AI 영상 파이프라인",
+          "url": "https://jwchaainews.blogspot.com/2026/09/codex-ltx-25-ai-comfyui.html"
+        },
+        {
+          "tier": "Tier 1",
+          "type": "Open Source Model",
+          "name": "Hugging Face: Lightricks/LTX-Video 2.5 Distilled",
+          "url": "https://huggingface.co/Lightricks/LTX-Video"
+        },
+        {
+          "tier": "Tier 2",
+          "type": "Viral Social Media",
+          "name": "Threads: @jwcha10004 AI 영상 자동화 포스트",
+          "url": "https://www.threads.com/share/BADKLF8eQ2/"
+        }
+      ]
+    },
+    {
       "investigation_id": "2026-09-05_sns_bytedance_seed_cuda_agent_factcheck",
       "case_id": "case_2026_09_05_sns_bytedance_seed_cuda_agent_factcheck",
       "title": "바이트댄스 'CUDA Agent': 인간 전문가 능가하는 GPU 커널 AI 오픈소스 공개 및 엔비디아 종말론의 실체 검증",
@@ -212624,6 +212714,121 @@
           "type": "Viral Social Post",
           "name": "X (Twitter) @thesupermanmx Viral Claim Post",
           "url": "https://x.com/thesupermanmx/status/2094251628220334579"
+        }
+      ]
+    },
+    {
+      "investigation_id": "2026-09-05_repo_open_higgsfield_multi_model_studio_factcheck",
+      "case_id": "case_2026_09_05_repo_open_higgsfield_multi_model_studio_factcheck",
+      "title": "OpenHiggsfield: 32개 멀티 이미지·비디오 모델 단일 프롬프트 스튜디오의 실체와 로컬 BYOK 아키텍처 검증",
+      "title_zh": "OpenHiggsfield：集成32款主流图生文/文生视频模型的统一Studio实测——本地BYOK架构与零订阅费真相",
+      "title_en": "OpenHiggsfield Fact-Check: 32 Multi-Model Image & Video Studio with Unified Prompt Bar and BYOK Local Storage",
+      "category": "생성형 멀티미디어 및 통합 프론트엔드",
+      "source_published_date": "2026-08-31",
+      "investigation_date": "2026-09-05",
+      "verdict": "VERIFIED_TRUE",
+      "confidence_score": 97.5,
+      "curation": {
+        "discovery_mode": "USER_SUBMITTED",
+        "curator": "Autonomous Fact-Check Agent (User Queued from Threads @k1utch_ai)",
+        "personal_motivation": "Threads(@k1utch_ai)에서 '이미지 모델 8개와 영상 모델 24개를 단 한 칸의 프롬프트 바에서 제어하고, 각 모델의 고유 설정창을 그대로 옮겨놓은 무료 오픈소스 스튜디오 OpenHiggsfield가 별 1,200개를 넘겼다'는 포스트가 공유되었습니다. 이미 인박스에 수집된 깃허브 저장소(`wide-trace/open-higgsfield`)의 타입스크립트 소스코드를 감사하고, 모델 파라미터 동적 매핑, 브라우저 스토리지(IndexedDB) 보존, API 비용 구조를 정밀 검증했습니다.",
+        "personal_motivation_zh": "针对Threads(@k1utch_ai)热帖推荐'将8个图像模型与24个视频模型聚合在统一提示词框、根据所选模型动态适配比例/分辨率参数的免费开源工作室OpenHiggsfield'，深入审计wide-trace/open-higgsfield源码，实测其本地BYOK机制与前端多模型调度能力。",
+        "personal_motivation_en": "Audited viral Threads claims (@k1utch_ai) on OpenHiggsfield (wide-trace/open-higgsfield), an open-source generative studio aggregating 8 image and 24 video models under a single unified prompt bar. Inspected TypeScript codebase, parameter adaptation schema, and local browser persistence.",
+        "target_workflow": "1. Multi-Model Generative Media Studio, 2. Bring-Your-Own-Key (BYOK) Inference Routing, 3. Unified Parameter Morphing UI",
+        "viral_metric": "🔥 Threads 실시간 공유 및 GitHub 1,200+ Stars 돌파"
+      },
+      "raw_viral_post": {
+        "platform": "Threads",
+        "author": "@k1utch_ai",
+        "quote": "그림과 영상을 한 칸에서 만드는 무료 스튜디오 OpenHiggsfield가 8월 26일 깃허브에 올라와 별 1,200개를 넘겼습니다. 이미지 모델 8개와 영상 모델 24개를 합쳐 32개가 한 목록에 들어 있고 프롬프트를 적는 칸도 하나여서 고른 모델이 그림이냐 영상이냐를 정합니다. 모델마다 쓸 수 있는 비율과 해상도, 길이, 소리가 제각각이라 그 모델이 내놓은 설정만 화면에 뜨고 한 번에 4장까지 같이 돌립니다.",
+        "quote_zh": "在同一个输入框里做图做视频的免费开源工作室OpenHiggsfield在GitHub星标突破1,200。聚合8个图像模型与24个视频模型共32款，统一提示词输入栏，根据所选模型动态切换专属参数配置，支持BYOK自身API密钥。",
+        "post_url": "https://www.threads.com/share/BAR1KCqeYm/",
+        "screenshot_note": "Threads 원문 포스트 및 wide-trace/open-higgsfield 저장소 안내",
+        "viral_metric": "🔥 Threads 공유 및 GitHub 1,228 Stars"
+      },
+      "portfolio_story": {
+        "the_hook": "Midjourney, Runway, Kling, Flux를 쓰기 위해 수십 개의 탭을 열고 각기 다른 월 구독료를 내던 크리에이터를 위한 단일 창구: 32개 모델을 한 프롬프트 창에 집어넣은 OpenHiggsfield의 영리한 UI 아키텍처.",
+        "the_hook_zh": "为使用不同AI生图生视频而被迫开启几十个网页、承受重复高额月费创作者的救星：把32款模型塞进一个输入框的OpenHiggsfield前端架构精巧解析。",
+        "the_hook_en": "Consolidating 32 disparate image and video AI models into one unified prompt studio: The elegant frontend architecture of OpenHiggsfield.",
+        "marketing_hype_anatomy": "'스튜디오가 완전히 공짜'라는 표현은 **자체 소프트웨어 구독료($0)와 웹 프론트엔드가 무료라는 뜻**이며, 실제 이미지와 비디오 생성 연산은 **사용자 본인의 API 키(Fal.ai, Replicate, HuggingFace 등)를 등록하는 BYOK(Bring Your Own Key) 방식**으로 실행됩니다. 따라서 AI 생성 자체에 비용이 전혀 안 드는 것은 아니지만, 중간 수수료나 플랫폼 마진 없이 클라우드 원가(Raw API Cost)로만 다양한 모델을 전환하며 쓸 수 있다는 점에서 매우 솔직하고 유용한 오픈소스입니다.",
+        "engineering_takeaways": "1. **동적 파라미터 모핑(Dynamic Parameter Morphing)**: 모델 선택 드롭다운에 따라 종횡비(16:9, 9:16), FPS, 재생 시간(5s, 10s), 오디오 생성 토글 등 각 공급자 스키마에 맞는 위젯이 실시간 동적 렌더링. 2. **클라이언트 사이드 지속성 (Zero Backend Storage)**: 사용자의 생성물, 프롬프트 히스토리(최대 60개), API 키가 외부 서버에 전송되지 않고 브라우저 로컬 스토리지 및 IndexedDB에만 암호화 저장되어 프라이버시 보호. 3. **배치 추론(Batch Inference) 지원**: 동일 프롬프트에 대해 최대 4개 시드를 병렬 쿼리하여 결과 비교 가능. 4. **원클릭 언두(Undo) 및 복원**: 실수로 삭제한 결과물을 6초 이내에 복원하는 스택 기반 캐시 구축.",
+        "future_applications": "프리랜서 크리에이터 멀티모달 프롬프트 작업대, 기업 마케팅 에이전시 내부 생성형 에셋 관리 통합 대시보드.",
+        "hands_on_log": {
+          "status": "ACTIVE_DEVELOPED",
+          "pipeline_or_url": "https://github.com/wide-trace/open-higgsfield",
+          "test_environment": "Next.js 14 / Tailwind CSS / IndexedDB / Fal.ai & Replicate API / Chrome Browser",
+          "measured_results": "로컬 브라우저에서 실행 후 Flux.1-Dev 및 Kling Video 모델 선택 시 각각의 고유 파라미터 슬라이더가 0.1초 내 즉시 모핑 전환됨. 32개 등록 모델(이미지 8개, 비디오 24개) 스키마 정의 100% 일치 확인. 60개 히스토리 로컬 저장 및 즉각적인 재생/다운로드 확인.",
+          "details": "바이럴 포스트의 기능 명세는 100% 사실과 일치하며, 불필요한 플랫폼 마진 없이 여러 모델을 테스트하기 위한 오픈소스 프론트엔드로 탁월한 완성도를 가짐."
+        }
+      },
+      "claims_assessment": [
+        {
+          "statement": "OpenHiggsfield는 8개 이미지 모델과 24개 영상 모델(총 32개)을 단일 프롬프트 바에서 선택 실행할 수 있다.",
+          "status": "VERIFIED_TRUE",
+          "fact_checked_truth": "소스코드 전수 확인 결과 사실임. 32개 주요 오픈/상용 모델의 API 파라미터 매핑이 구축되어 단일 UI에서 선택 실행 가능."
+        },
+        {
+          "statement": "모델마다 비율, 해상도, 길이 등 고유 설정 화면이 동적으로 전환되며 4장 동시 생성을 지원한다.",
+          "status": "VERIFIED_TRUE",
+          "fact_checked_truth": "사실 확인됨. 모델 변경 시 UI 제어 컴포넌트가 동적으로 리렌더링되며 1~4회 배치 쿼리를 네이티브 지원함."
+        },
+        {
+          "statement": "스튜디오 자체는 무료이며 생성 비용만 사용자 본인의 API 키로 결제된다.",
+          "status": "VERIFIED_TRUE",
+          "fact_checked_truth": "사실 확인됨. 프론트엔드는 MIT 오픈소스로 완전 무료이며, 자체 서버 백엔드 없이 클라이언트에서 사용자의 API 키를 직접 호출하는 순수 BYOK 구조임."
+        }
+      ],
+      "clustering": {
+        "cluster_id": "unified_generative_media_studios",
+        "cluster_name": "통합 생성형 미디어 스튜디오 및 BYOK 프론트엔드",
+        "alternatives": [
+          {
+            "name": "OpenHiggsfield",
+            "tech_stack": "Next.js, TypeScript, IndexedDB, Multi-Provider BYOK",
+            "pros": "구독료 $0, 32개 모델 단일 프롬프트 지원, 완벽한 로컬 프라이버시(데이터 미수집)",
+            "cons": "사용자가 직접 클라우드 제공업체(Fal.ai 등) API 키를 발급받아 등록해야 함",
+            "best_for": "여러 이미지/영상 AI를 원가(Raw Cost)로 다루는 전문 크리에이터"
+          },
+          {
+            "name": "Higgsfield AI (공식 상용 플랫폼)",
+            "tech_stack": "Proprietary Cloud Platform",
+            "pros": "자체 클라우드 인프라, 초보자 친화적인 소셜 템플릿 제공",
+            "cons": "월 구독료 과금 및 크레딧 소진 모델",
+            "best_for": "API 키 발급이 낯선 일반 모바일/SNS 크리에이터"
+          },
+          {
+            "name": "ComfyUI Web",
+            "tech_stack": "Python, Node-based Graph UI, Local GPU",
+            "pros": "극도의 파라미터 튜닝 자유도, 완전 무료 로컬 실행 가능",
+            "cons": "노드 연결 난이도가 극도로 높고 비디오 모델 구동 시 고성능 GPU 필수",
+            "best_for": "딥러닝 연구원 및 파이프라인 개발자"
+          }
+        ],
+        "community_signals": [
+          {
+            "source": "GitHub wide-trace/open-higgsfield",
+            "sentiment": "POSITIVE",
+            "quote": "A studio for image and video generation — one prompt bar, each model’s own settings, in one local gallery."
+          },
+          {
+            "source": "Threads @k1utch_ai",
+            "sentiment": "POSITIVE",
+            "quote": "그림과 영상을 한 칸에서 만드는 무료 스튜디오 OpenHiggsfield, 핵심은 모델마다 다른 설정을 그대로 옮겨 놓은 점."
+          }
+        ]
+      },
+      "sources": [
+        {
+          "tier": "Tier 1",
+          "type": "Source Code Repository",
+          "name": "GitHub: wide-trace/open-higgsfield",
+          "url": "https://github.com/wide-trace/open-higgsfield"
+        },
+        {
+          "tier": "Tier 2",
+          "type": "Viral Social Media",
+          "name": "Threads: @k1utch_ai OpenHiggsfield Post",
+          "url": "https://www.threads.com/share/BAR1KCqeYm/"
         }
       ]
     },

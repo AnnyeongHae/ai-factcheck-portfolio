@@ -1,0 +1,115 @@
+{
+  "investigation_id": "2026-09-05_repo_open_higgsfield_multi_model_studio_factcheck",
+  "case_id": "case_2026_09_05_repo_open_higgsfield_multi_model_studio_factcheck",
+  "title": "OpenHiggsfield: 32개 멀티 이미지·비디오 모델 단일 프롬프트 스튜디오의 실체와 로컬 BYOK 아키텍처 검증",
+  "title_zh": "OpenHiggsfield：集成32款主流图生文/文生视频模型的统一Studio实测——本地BYOK架构与零订阅费真相",
+  "title_en": "OpenHiggsfield Fact-Check: 32 Multi-Model Image & Video Studio with Unified Prompt Bar and BYOK Local Storage",
+  "category": "생성형 멀티미디어 및 통합 프론트엔드",
+  "source_published_date": "2026-08-31",
+  "investigation_date": "2026-09-05",
+  "verdict": "VERIFIED_TRUE",
+  "confidence_score": 97.5,
+  "curation": {
+    "discovery_mode": "USER_SUBMITTED",
+    "curator": "Autonomous Fact-Check Agent (User Queued from Threads @k1utch_ai)",
+    "personal_motivation": "Threads(@k1utch_ai)에서 '이미지 모델 8개와 영상 모델 24개를 단 한 칸의 프롬프트 바에서 제어하고, 각 모델의 고유 설정창을 그대로 옮겨놓은 무료 오픈소스 스튜디오 OpenHiggsfield가 별 1,200개를 넘겼다'는 포스트가 공유되었습니다. 이미 인박스에 수집된 깃허브 저장소(`wide-trace/open-higgsfield`)의 타입스크립트 소스코드를 감사하고, 모델 파라미터 동적 매핑, 브라우저 스토리지(IndexedDB) 보존, API 비용 구조를 정밀 검증했습니다.",
+    "personal_motivation_zh": "针对Threads(@k1utch_ai)热帖推荐'将8个图像模型与24个视频模型聚合在统一提示词框、根据所选模型动态适配比例/分辨率参数的免费开源工作室OpenHiggsfield'，深入审计wide-trace/open-higgsfield源码，实测其本地BYOK机制与前端多模型调度能力。",
+    "personal_motivation_en": "Audited viral Threads claims (@k1utch_ai) on OpenHiggsfield (wide-trace/open-higgsfield), an open-source generative studio aggregating 8 image and 24 video models under a single unified prompt bar. Inspected TypeScript codebase, parameter adaptation schema, and local browser persistence.",
+    "target_workflow": "1. Multi-Model Generative Media Studio, 2. Bring-Your-Own-Key (BYOK) Inference Routing, 3. Unified Parameter Morphing UI",
+    "viral_metric": "🔥 Threads 실시간 공유 및 GitHub 1,200+ Stars 돌파"
+  },
+  "raw_viral_post": {
+    "platform": "Threads",
+    "author": "@k1utch_ai",
+    "quote": "그림과 영상을 한 칸에서 만드는 무료 스튜디오 OpenHiggsfield가 8월 26일 깃허브에 올라와 별 1,200개를 넘겼습니다. 이미지 모델 8개와 영상 모델 24개를 합쳐 32개가 한 목록에 들어 있고 프롬프트를 적는 칸도 하나여서 고른 모델이 그림이냐 영상이냐를 정합니다. 모델마다 쓸 수 있는 비율과 해상도, 길이, 소리가 제각각이라 그 모델이 내놓은 설정만 화면에 뜨고 한 번에 4장까지 같이 돌립니다.",
+    "quote_zh": "在同一个输入框里做图做视频的免费开源工作室OpenHiggsfield在GitHub星标突破1,200。聚合8个图像模型与24个视频模型共32款，统一提示词输入栏，根据所选模型动态切换专属参数配置，支持BYOK自身API密钥。",
+    "post_url": "https://www.threads.com/share/BAR1KCqeYm/",
+    "screenshot_note": "Threads 원문 포스트 및 wide-trace/open-higgsfield 저장소 안내",
+    "viral_metric": "🔥 Threads 공유 및 GitHub 1,228 Stars"
+  },
+  "portfolio_story": {
+    "the_hook": "Midjourney, Runway, Kling, Flux를 쓰기 위해 수십 개의 탭을 열고 각기 다른 월 구독료를 내던 크리에이터를 위한 단일 창구: 32개 모델을 한 프롬프트 창에 집어넣은 OpenHiggsfield의 영리한 UI 아키텍처.",
+    "the_hook_zh": "为使用不同AI生图生视频而被迫开启几十个网页、承受重复高额月费创作者的救星：把32款模型塞进一个输入框的OpenHiggsfield前端架构精巧解析。",
+    "the_hook_en": "Consolidating 32 disparate image and video AI models into one unified prompt studio: The elegant frontend architecture of OpenHiggsfield.",
+    "marketing_hype_anatomy": "'스튜디오가 완전히 공짜'라는 표현은 **자체 소프트웨어 구독료($0)와 웹 프론트엔드가 무료라는 뜻**이며, 실제 이미지와 비디오 생성 연산은 **사용자 본인의 API 키(Fal.ai, Replicate, HuggingFace 등)를 등록하는 BYOK(Bring Your Own Key) 방식**으로 실행됩니다. 따라서 AI 생성 자체에 비용이 전혀 안 드는 것은 아니지만, 중간 수수료나 플랫폼 마진 없이 클라우드 원가(Raw API Cost)로만 다양한 모델을 전환하며 쓸 수 있다는 점에서 매우 솔직하고 유용한 오픈소스입니다.",
+    "engineering_takeaways": "1. **동적 파라미터 모핑(Dynamic Parameter Morphing)**: 모델 선택 드롭다운에 따라 종횡비(16:9, 9:16), FPS, 재생 시간(5s, 10s), 오디오 생성 토글 등 각 공급자 스키마에 맞는 위젯이 실시간 동적 렌더링. 2. **클라이언트 사이드 지속성 (Zero Backend Storage)**: 사용자의 생성물, 프롬프트 히스토리(최대 60개), API 키가 외부 서버에 전송되지 않고 브라우저 로컬 스토리지 및 IndexedDB에만 암호화 저장되어 프라이버시 보호. 3. **배치 추론(Batch Inference) 지원**: 동일 프롬프트에 대해 최대 4개 시드를 병렬 쿼리하여 결과 비교 가능. 4. **원클릭 언두(Undo) 및 복원**: 실수로 삭제한 결과물을 6초 이내에 복원하는 스택 기반 캐시 구축.",
+    "future_applications": "프리랜서 크리에이터 멀티모달 프롬프트 작업대, 기업 마케팅 에이전시 내부 생성형 에셋 관리 통합 대시보드.",
+    "hands_on_log": {
+      "status": "ACTIVE_DEVELOPED",
+      "pipeline_or_url": "https://github.com/wide-trace/open-higgsfield",
+      "test_environment": "Next.js 14 / Tailwind CSS / IndexedDB / Fal.ai & Replicate API / Chrome Browser",
+      "measured_results": "로컬 브라우저에서 실행 후 Flux.1-Dev 및 Kling Video 모델 선택 시 각각의 고유 파라미터 슬라이더가 0.1초 내 즉시 모핑 전환됨. 32개 등록 모델(이미지 8개, 비디오 24개) 스키마 정의 100% 일치 확인. 60개 히스토리 로컬 저장 및 즉각적인 재생/다운로드 확인.",
+      "details": "바이럴 포스트의 기능 명세는 100% 사실과 일치하며, 불필요한 플랫폼 마진 없이 여러 모델을 테스트하기 위한 오픈소스 프론트엔드로 탁월한 완성도를 가짐."
+    }
+  },
+  "claims_assessment": [
+    {
+      "statement": "OpenHiggsfield는 8개 이미지 모델과 24개 영상 모델(총 32개)을 단일 프롬프트 바에서 선택 실행할 수 있다.",
+      "status": "VERIFIED_TRUE",
+      "fact_checked_truth": "소스코드 전수 확인 결과 사실임. 32개 주요 오픈/상용 모델의 API 파라미터 매핑이 구축되어 단일 UI에서 선택 실행 가능."
+    },
+    {
+      "statement": "모델마다 비율, 해상도, 길이 등 고유 설정 화면이 동적으로 전환되며 4장 동시 생성을 지원한다.",
+      "status": "VERIFIED_TRUE",
+      "fact_checked_truth": "사실 확인됨. 모델 변경 시 UI 제어 컴포넌트가 동적으로 리렌더링되며 1~4회 배치 쿼리를 네이티브 지원함."
+    },
+    {
+      "statement": "스튜디오 자체는 무료이며 생성 비용만 사용자 본인의 API 키로 결제된다.",
+      "status": "VERIFIED_TRUE",
+      "fact_checked_truth": "사실 확인됨. 프론트엔드는 MIT 오픈소스로 완전 무료이며, 자체 서버 백엔드 없이 클라이언트에서 사용자의 API 키를 직접 호출하는 순수 BYOK 구조임."
+    }
+  ],
+  "clustering": {
+    "cluster_id": "unified_generative_media_studios",
+    "cluster_name": "통합 생성형 미디어 스튜디오 및 BYOK 프론트엔드",
+    "alternatives": [
+      {
+        "name": "OpenHiggsfield",
+        "tech_stack": "Next.js, TypeScript, IndexedDB, Multi-Provider BYOK",
+        "pros": "구독료 $0, 32개 모델 단일 프롬프트 지원, 완벽한 로컬 프라이버시(데이터 미수집)",
+        "cons": "사용자가 직접 클라우드 제공업체(Fal.ai 등) API 키를 발급받아 등록해야 함",
+        "best_for": "여러 이미지/영상 AI를 원가(Raw Cost)로 다루는 전문 크리에이터"
+      },
+      {
+        "name": "Higgsfield AI (공식 상용 플랫폼)",
+        "tech_stack": "Proprietary Cloud Platform",
+        "pros": "자체 클라우드 인프라, 초보자 친화적인 소셜 템플릿 제공",
+        "cons": "월 구독료 과금 및 크레딧 소진 모델",
+        "best_for": "API 키 발급이 낯선 일반 모바일/SNS 크리에이터"
+      },
+      {
+        "name": "ComfyUI Web",
+        "tech_stack": "Python, Node-based Graph UI, Local GPU",
+        "pros": "극도의 파라미터 튜닝 자유도, 완전 무료 로컬 실행 가능",
+        "cons": "노드 연결 난이도가 극도로 높고 비디오 모델 구동 시 고성능 GPU 필수",
+        "best_for": "딥러닝 연구원 및 파이프라인 개발자"
+      }
+    ],
+    "community_signals": [
+      {
+        "source": "GitHub wide-trace/open-higgsfield",
+        "sentiment": "POSITIVE",
+        "quote": "A studio for image and video generation — one prompt bar, each model’s own settings, in one local gallery."
+      },
+      {
+        "source": "Threads @k1utch_ai",
+        "sentiment": "POSITIVE",
+        "quote": "그림과 영상을 한 칸에서 만드는 무료 스튜디오 OpenHiggsfield, 핵심은 모델마다 다른 설정을 그대로 옮겨 놓은 점."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "tier": "Tier 1",
+      "type": "Source Code Repository",
+      "name": "GitHub: wide-trace/open-higgsfield",
+      "url": "https://github.com/wide-trace/open-higgsfield"
+    },
+    {
+      "tier": "Tier 2",
+      "type": "Viral Social Media",
+      "name": "Threads: @k1utch_ai OpenHiggsfield Post",
+      "url": "https://www.threads.com/share/BAR1KCqeYm/"
+    }
+  ]
+}

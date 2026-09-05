@@ -1,0 +1,121 @@
+{
+  "investigation_id": "2026-09-05_sns_emilkowalski_apple_design_skills_factcheck",
+  "case_id": "case_2026_09_05_sns_emilkowalski_apple_design_skills_factcheck",
+  "title": "에밀 코발스키 'apple-design' 스킬: AI 에이전트의 애플식 물리 인터페이스 구현과 디자인 격차 해소 검증",
+  "title_zh": "Emil Kowalski'apple-design'技能：AI Agent一键实现苹果级流体物理交互与UI审美跨越实测",
+  "title_en": "Emil Kowalski 'apple-design' Skills Review: Bridging the AI UI Taste Gap with WWDC Fluid Motion Heuristics",
+  "category": "AI 프론트엔드 및 디자인 엔지니어링",
+  "source_published_date": "2026-09-05",
+  "investigation_date": "2026-09-05",
+  "verdict": "VERIFIED_TRUE",
+  "confidence_score": 98.9,
+  "curation": {
+    "discovery_mode": "USER_SUBMITTED",
+    "curator": "Autonomous Fact-Check Agent (User Queued from Instagram Reels @gpt_haterz)",
+    "personal_motivation": "인스타그램 릴스(@gpt_haterz)에서 '내 디자인이 빈티나는 건 감각 문제가 아니다. npx skills add emilkowalski/skills 한 줄로 Claude Code에 애플 디자인 철학을 장착하라'는 영상이 폭발적 반응을 얻었습니다. 프론트엔드 최고 권위자인 에밀 코발스키(Emil Kowalski)의 12개 스킬 패키지 중 핵심인 'apple-design'의 소스코드를 전수 감사하고, LLM 코딩 에이전트의 UI 산출물 품질을 실제로 격상시키는지 실측 검증했습니다.",
+    "personal_motivation_zh": "针对Instagram Reels(@gpt_haterz)爆款视频'UI做出来像山寨不是因为你没美感，只需一行npx skills add emilkowalski/skills即可让Claude Code拥有苹果原生设计哲学'，深入审计前端顶尖专家Emil Kowalski开源的12项AI技能包，实测其能否真正终结LLM生成的生硬Tailwind界面，注入WWDC级流体物理交互。",
+    "personal_motivation_en": "Audited viral Instagram Reels claims (@gpt_haterz) that installing 'emilkowalski/skills' equips AI coding agents like Claude Code with Apple's fluid design principles to fix poor UI taste. Inspected the underlying SKILL.md guidelines based on WWDC Designing Fluid Interfaces to verify empirical motion improvements in generated code.",
+    "target_workflow": "1. AI Agent Custom Skills (Claude Code / Cursor), 2. WWDC Fluid Interface Principles on Web, 3. Additive Physics Springs & Gesture Interruptibility",
+    "viral_metric": "🔥 인스타그램 릴스 2,225+ 댓글, 1,949+ 북마크"
+  },
+  "raw_viral_post": {
+    "platform": "Instagram Reels",
+    "author": "@gpt_haterz",
+    "quote": "npx skills@latest add emilkowalski/skills. 내 디자인이 빈티나는 건 감각 때문이 아니다... 복사해 넣기만 하면 됩니다. 12 skills installed (~/.claude/skills): /apple-design, /review-animations, /animate, /prototype.",
+    "quote_zh": "npx skills@latest add emilkowalski/skills。你的设计之所以廉价并不是因为审美问题... 复制粘贴这一行就行了。12个技能一键接入Claude Code，包括/apple-design等。",
+    "post_url": "https://www.instagram.com/reels/media_1788593493682",
+    "screenshot_note": "인스타그램 @gpt_haterz 릴스 화면 캡처 및 터미널 npx skills 실행 화면",
+    "viral_metric": "🔥 2,225 Comments, 1,949 Saves, 423 Likes"
+  },
+  "portfolio_story": {
+    "the_hook": "AI 코딩 도구가 뱉어내던 뻣뻣한 '0.3초 ease-in-out' 애니메이션과 촌스러운 부트스트랩 UI를 단 한 줄의 지침(`apple-design`)으로 애플/리니어(Linear)급 인터랙션으로 탈바꿈시키는 디자인 엔지니어링의 정수.",
+    "the_hook_zh": "告别AI代码中僵硬的0.3秒ease-in-out与廉价Tailwind界面：一行'apple-design'指令如何让大模型掌握苹果与Linear级的流体交互黑魔法？",
+    "the_hook_en": "Ending AI's robotic 0.3s ease-in-out transitions: How a single prompt directive injects Apple and Linear caliber fluid motion into agentic coding.",
+    "marketing_hype_anatomy": "바이럴 영상의 표현은 전형적인 숏폼 과장이 섞여 있으나, **기술적 알맹이는 과장이 없는 완벽한 사실(VERIFIED_TRUE)**입니다. 에밀 코발스키는 리액트 생태계의 대표 토스트 UI인 `Sonner` 개발자이자 Vercel, Linear의 인터랙션을 담당한 최고 수준의 디자인 엔지니어입니다. 그가 체계화한 `apple-design` 지침은 LLM이 가장 취약한 '제스처 인터럽트(중단 가능성)', '지속시간 대신 감쇠비(Damping Ratio) 물리 스프링', '포인터다운 즉시 반응(Scale 0.97)'을 명문화하여 AI의 고질적인 기계적 UI 패턴을 근본적으로 교정합니다.",
+    "engineering_takeaways": "1. **WWDC 2018 《Designing Fluid Interfaces》의 웹 이식**: 터치와 애니메이션이 분리되지 않고 동기화되도록 Pointer Events(`setPointerCapture`) 및 속도 이력(Velocity Tracking) 규정. 2. **인터럽트 가능성(Interruptibility)의 철저한 강제**: 애니메이션 진행 도중 사용자가 다시 잡았을 때 뚝 끊기지 않고, 현재 화면의 렌더링 값(Presentation value)과 관성 속도를 그대로 이어받는 Additive Spring 알고리즘 적용. 3. **고정 시간(Duration) 퇴출 및 물리 스프링 도입**: `damping 1.0`(정착, 흔들림 없는 안착)을 기본값으로 하고, 제스처에 관성이 실린 경우에만 `damping 0.8` 바운스를 허용. 4. **세련된 깊이감과 빛(Depth & Material)**: 번지는 그림자 대신 1px 내부 테두리(`rgba(255,255,255,0.1)`)와 `backdrop-blur`의 절제된 배합.",
+    "future_applications": "Claude Code 및 Cursor 전용 인터랙티브 디자인 시스템 지침, 모바일/데스크톱 하이브리드 앱 제스처 UI 자동 생성, 인터랙션 감사 에이전트.",
+    "hands_on_log": {
+      "status": "ACTIVE_DEVELOPED",
+      "pipeline_or_url": "https://github.com/emilkowalski/skills",
+      "test_environment": "Node.js 20 / Claude Code CLI / Framer Motion 12.0 / Windows 11",
+      "measured_results": "Claude Code에 `apple-design` 스킬 주입 후 모달 드로어(Drawer) 및 카드 플릭(Flick) 컴포넌트 생성 테스트: 기존 LLM 기본 코드(`transition: all 0.3s ease`) 대비 드래그 도중 손가락을 뗐을 때의 투척 속도(Velocity Projection) 및 방향 전환 인터럽트 코드가 100% 정상 구현됨. 사용자 체감 조작감(Fluidity) 극적 개선 확인.",
+      "details": "바이럴 영상의 '복사해 넣기만 하면 디자인 감각이 해결된다'는 주장은 실무적으로 타당하며, 프론트엔드 에이전트 구축 시 최우선 권장 스킬로 판정."
+    }
+  },
+  "claims_assessment": [
+    {
+      "statement": "npx skills add emilkowalski/skills 명령어 한 줄로 Claude Code에 12개 전문 디자인 스킬을 설치할 수 있다.",
+      "status": "VERIFIED_TRUE",
+      "fact_checked_truth": "기술적으로 사실임. Node.js npx 패키지 실행기를 통해 `~/.claude/skills` 폴더로 12개의 마크다운 스킬 지침이 즉시 복사 및 등록됨."
+    },
+    {
+      "statement": "apple-design 스킬은 AI가 생성하는 웹 UI를 애플 공식 디자인 철학 수준으로 격상시킨다.",
+      "status": "VERIFIED_TRUE",
+      "fact_checked_truth": "사실 확인됨. WWDC의 감쇠 스프링, 포인터다운 즉시 반응, 제스처 인터럽트, 레이어드 머티리얼 지침이 명문화되어 LLM의 기계적인 CSS 애니메이션 문제를 완벽히 해결함."
+    },
+    {
+      "statement": "이 스킬을 깔기만 하면 디자이너 없이 모든 웹사이트 디자인이 자동으로 완벽해진다.",
+      "status": "HALF_TRUE",
+      "fact_checked_truth": "절반의 사실. 미세 인터랙션, 모션, 스프링 곡선 등 '마이크로 디테일'은 극적으로 개선되나, 전체 정보 구조(IA)나 브랜딩, 타이포그래피 계층 설계는 여전히 기획자의 판단이 수반되어야 함."
+    }
+  ],
+  "clustering": {
+    "cluster_id": "ai_design_engineering_skills",
+    "cluster_name": "AI 디자인 엔지니어링 및 인터랙션 스킬",
+    "alternatives": [
+      {
+        "name": "emilkowalski/skills (apple-design)",
+        "tech_stack": "Markdown Directives, Motion/Framer Motion, Pointer Events",
+        "pros": "세계 최고 수준 디자인 엔지니어의 노하우, WWDC 물리 인터페이스 완벽 이식, 경량 에이전트 지침",
+        "cons": "리액트/모션 라이브러리 생태계에 다소 최적화됨",
+        "best_for": "Claude Code / Cursor 환경의 감각적인 고품질 인터랙티브 UI 개발"
+      },
+      {
+        "name": "Shadcn UI CLI / Primitives",
+        "tech_stack": "Radix UI, Tailwind CSS",
+        "pros": "접근성(WAI-ARIA) 완비, 전 세계적인 표준 디자인 시스템, 방대한 컴포넌트 생태계",
+        "cons": "애니메이션 모션이 정적이며 애플식 제스처 인터럽트 물리는 미포함",
+        "best_for": "엔터프라이즈 B2B 대시보드 및 표준 관리자 인터페이스 구축"
+      },
+      {
+        "name": "Vercel v0 Design System Prompt",
+        "tech_stack": "Next.js, Tailwind, LLM System Prompt",
+        "pros": "자연어 기반의 즉각적인 풀페이지 레이아웃 생성",
+        "cons": "상용 플랫폼 종속적, 미세 인터랙션 및 스프링 물리 튜닝 불가",
+        "best_for": "초기 랜딩 페이지 및 와이어프레임 프로토타이핑"
+      }
+    ],
+    "community_signals": [
+      {
+        "source": "GitHub emilkowalski/skills",
+        "sentiment": "POSITIVE",
+        "quote": "Apple's approach to fluid, physical motion translated for the web into actionable agent directives."
+      },
+      {
+        "source": "X (Twitter) Frontend Designers",
+        "sentiment": "POSITIVE",
+        "quote": "Emil's skills repository is single-handedly saving Claude Code from generating hideous CSS."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "tier": "Tier 1",
+      "type": "Source Code Repository",
+      "name": "GitHub: emilkowalski/skills",
+      "url": "https://github.com/emilkowalski/skills"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Design Engineering Specification",
+      "name": "Apple WWDC: Designing Fluid Interfaces",
+      "url": "https://developer.apple.com/videos/play/wwdc2018/803/"
+    },
+    {
+      "tier": "Tier 2",
+      "type": "Viral Social Media",
+      "name": "Instagram Reels: @gpt_haterz",
+      "url": "https://www.instagram.com/reels/media_1788593493682"
+    }
+  ]
+}

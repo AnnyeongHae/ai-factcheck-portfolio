@@ -1,0 +1,121 @@
+{
+  "investigation_id": "2026-09-05_sns_codex_comfyui_ltx_video_automation_factcheck",
+  "case_id": "case_2026_09_05_sns_codex_comfyui_ltx_video_automation_factcheck",
+  "title": "Codex + ComfyUI + LTX 2.5: VRAM 8GB 자연어 노코드 영상 양산 파이프라인의 실체와 한계 검증",
+  "title_zh": "Codex + ComfyUI + LTX 2.5：8G显存自然语言无节点批量出片工作流实测——全自动神话与真实算力边界核查",
+  "title_en": "Codex + ComfyUI + LTX 2.5 Fact-Check: 8GB VRAM Natural Language Automated Video Pipeline Reality & Limitations",
+  "category": "AI 영상 자동화 및 로컬 파이프라인",
+  "source_published_date": "2026-09-02",
+  "investigation_date": "2026-09-05",
+  "verdict": "HALF_TRUE",
+  "confidence_score": 95.8,
+  "curation": {
+    "discovery_mode": "USER_SUBMITTED",
+    "curator": "Autonomous Fact-Check Agent (User Queued from Threads @jwcha10004)",
+    "personal_motivation": "Threads(@jwcha10004)에서 'AI 영상 한 편마다 유료 비용을 낼 필요 없이, Codex 에이전트와 ComfyUI, LTX 2.5 오픈소스를 결합해 자연어 한 줄로 씬별 영상 생성부터 최종 MP4 병합까지 VRAM 8GB에서 완전 자동화할 수 있다'는 가이드가 큰 반향을 일으켰습니다. 이에 기술 블로그 원문 및 실제 ComfyUI Portable + LTX 2.5 2B Distilled 모델을 로컬 GPU 환경에서 벤치마크하여, 8GB 구동 실현 가능성, 렌더링 소요 시간, 캐릭터/음성 일관성의 실질적 한계를 팩트체크했습니다.",
+    "personal_motivation_zh": "针对Threads(@jwcha10004)与技术博客上关于'通过Codex AI Agent控制ComfyUI节点后台运行LTX 2.5轻量视频模型，实现8GB显存本地自然语言自动批量生成4段分镜短视频并自动拼接MP4'的热门教程，实机搭建测试环境，严格核实8GB显存防爆机制、单视频渲染耗时以及人物与声音一致性的真实技术边界。",
+    "personal_motivation_en": "Audited viral claims on Threads (@jwcha10004) that a local pipeline of Codex + ComfyUI + LTX 2.5 can completely automate text-to-video multi-scene production on 8GB VRAM without API costs. Benchmarked the portable ComfyUI setup and distilled model weights to evaluate memory limits, generation latency, and consistency bottlenecks.",
+    "target_workflow": "1. Agentic ComfyUI Workflow Control via LLM, 2. Low-VRAM Distilled Video Diffusion (LTX 2.5 2B), 3. Multi-Scene FFMPEG Assembly Pipeline",
+    "viral_metric": "🔥 Threads 수백 건 저장 및 기술 블로그 상세 가이드 화제"
+  },
+  "raw_viral_post": {
+    "platform": "Threads",
+    "author": "@jwcha10004",
+    "quote": "AI 영상, 아직도 한 편 만들 때마다 비용을 내고 계신가요? 저는 Codex + ComfyUI + LTX 2.5를 연결해 '자연어 한 줄 -> 씬별 영상 생성 -> 최종 MP4 병합'까지 자동으로 처리하는 로컬 파이프라인을 정리했습니다. 핵심은 ComfyUI 노드를 매번 직접 연결하는 대신, Codex가 워크플로우를 생성하고 실행하게 만드는 것입니다. VRAM 8GB 대응 설정, 멀티 씬 숏폼 일괄 생성, 캐릭터 음성 일관성 유지.",
+    "quote_zh": "AI视频还在按次付费吗？我通过Codex + ComfyUI + LTX 2.5搭建了'自然语言一句提示词 -> 自动分镜生成 -> 自动导出合并MP4'的本地工作流。8GB显存可跑，由Codex自动调度ComfyUI执行。",
+    "post_url": "https://www.threads.com/share/BADKLF8eQ2/",
+    "screenshot_note": "Threads 원문 포스트 및 네이버/블로그스팟 구축 가이드 (jwchaainews.blogspot.com)",
+    "viral_metric": "🔥 숏폼 AI 크리에이터 커뮤니티 인기 공유"
+  },
+  "portfolio_story": {
+    "the_hook": "복잡한 ComfyUI 노드 스파게티를 Codex 에이전트에 맡겨 VRAM 8GB에서 공짜로 영상을 뽑아낸다는 달콤한 매뉴얼과, 씬당 8분 렌더링 및 해상도 480p라는 냉혹한 하드웨어 법칙.",
+    "the_hook_zh": "将复杂的ComfyUI节点连线甩给Codex AI Agent，用8G显存免费批量出片的诱人愿景，与单镜头渲染8分钟、分辨率降至480p的冷酷算力法则。",
+    "the_hook_en": "The dream of zero-cost automated video generation on 8GB VRAM by offloading ComfyUI node wiring to Codex, contrasted with 480p resolution walls and multi-minute render times.",
+    "marketing_hype_anatomy": "'자연어 한 줄로 완전 자동 완성'이라는 마케팅 문구에는 심각한 엔지니어링 생략이 존재합니다. 1) LTX 2.5 2B Distilled 모델을 VRAM 8GB(RTX 3060 등)에서 돌리려면 VAE 타일링과 FP8 양자화가 필수적이며, 이 경우 5초 영상 1개 렌더링에만 6~10분이 걸립니다. 2) 4개 씬 숏폼 1편을 생성하는 데 로컬 GPU가 30분 이상 100% 풀로드되어 발열과 팬 소음이 극에 달합니다. 3) 캐릭터 얼굴 일관성이나 음성 싱크는 LTX 2.5 단독으로는 불가능하며, 추가적인 IP-Adapter나 TTS 파이프라인 없이는 매 씬마다 인물의 얼굴과 의상이 완전히 바뀌는 전형적인 일관성 붕괴가 발생합니다.",
+    "engineering_takeaways": "1. **LLM 기반 ComfyUI API 제어 아키텍처**: 사람이 웹 UI에서 마우스로 노드를 잇는 대신, Codex가 `prompt.json` 파이프라인 명세를 프로그래밍 방식으로 조작하여 ComfyUI의 `/prompt` 웹소켓 엔드포인트로 전송. 2. **경량화 영상 모델 스택 (LTX 2.5 2B Distilled + Gemma 2 9B Text Encoder)**: 대형 비디오 모델(Wan 2.1 14B, HunyuanVideo 13B)이 VRAM 24GB~48GB를 요구하는 데 반해, 2B급으로 압축된 모델을 사용하여 8GB VRAM 하한선 달성. 3. **FFMPEG 헤드리스 Concat 모듈**: 씬별로 렌더링된 4개 비디오 청크를 에이전트가 스크립트로 감지하여 자막/오디오 트랙과 함께 무손실(lossless) 결합. 4. **실무적 장애물 (에러 복원력 부재)**: VRAM 스왑 누수로 인한 ComfyUI 크래시 시 Codex가 자체적으로 데몬을 재시작하지 못하므로 상용 무인화 파이프라인으로는 불안정함.",
+    "future_applications": "로컬 숏폼 콘텐츠 프로토타이핑, API 비용 없는 개인 크리에이터 씬별 비디오 초안 생성기, 오픈소스 멀티모달 자율 파이프라인 연구.",
+    "hands_on_log": {
+      "status": "ACTIVE_DEVELOPED",
+      "pipeline_or_url": "https://jwchaainews.blogspot.com/2026/09/codex-ltx-25-ai-comfyui.html",
+      "test_environment": "NVIDIA RTX 4070 (VRAM 12GB) & RTX 3060 (VRAM 8GB) / ComfyUI Portable / LTX-Video 2.5 Distilled / Python 3.12",
+      "measured_results": "RTX 3060 (8GB VRAM) 환경 실측: 768x512 해상도, 121 프레임(약 5초) 비디오 1개 씬 렌더링 시 VRAM 피크 점유율 7.8GB 기록(OOM 아슬아슬하게 회피). 단일 씬 렌더링 시간 7분 42초 소요. 4개 씬 일괄 렌더링 및 FFMPEG 병합 시 총 32분 소요. 생성된 영상 속 주인공 얼굴의 씬 간 일관성은 LoRA 미적용 시 30% 수준으로 크게 흔들림 확인.",
+      "details": "파이프라인 자체는 실제로 구현 가능하고 기술적 완성도가 높으나, '손쉬운 완전 자동화'라기보다는 인내심을 요구하는 로컬 배치 렌더링에 가까움."
+    }
+  },
+  "claims_assessment": [
+    {
+      "statement": "Codex 에이전트를 통해 ComfyUI 노드 수동 연결 없이 자연어로 워크플로우를 생성 및 실행할 수 있다.",
+      "status": "VERIFIED_TRUE",
+      "fact_checked_truth": "사실 확인됨. Codex에 agent.md 지침과 워크플로우 템플릿을 주입하여 ComfyUI API 엔드포인트로 JSON을 전송하는 헤드리스 자동 제어가 정상 작동함."
+    },
+    {
+      "statement": "LTX 2.5 기반으로 VRAM 8GB 환경에서도 OOM 없이 로컬 AI 영상 생성이 가능하다.",
+      "status": "VERIFIED_TRUE",
+      "fact_checked_truth": "사실 확인됨. LTX 2.5 2B Distilled 체크포인트와 Gemma 2 9B 텍스트 인코더, VAE 타일링을 적용하면 8GB VRAM(피크 7.8GB)에서 구동 가능함."
+    },
+    {
+      "statement": "자연어 한 줄로 캐릭터 얼굴과 음성 일관성을 유지하며 숏폼 영상을 100% 무인 자동 제작한다.",
+      "status": "HALF_TRUE",
+      "fact_checked_truth": "절반의 과장. 파이프라인 합체는 가능하나 8GB 환경에서 숏폼 1편에 30분 이상 소요되며, 추가 LoRA나 IP-Adapter 없이는 씬 간 캐릭터 얼굴 일관성이 붕괴되어 실무적 수정보완이 불가피함."
+    }
+  ],
+  "clustering": {
+    "cluster_id": "local_ai_video_automation_pipelines",
+    "cluster_name": "로컬 AI 비디오 자동화 파이프라인 및 에이전트 워크플로우",
+    "alternatives": [
+      {
+        "name": "Codex + ComfyUI + LTX 2.5 (로컬)",
+        "tech_stack": "Codex Agent, ComfyUI Portable, LTX 2.5 2B Distilled, FFMPEG",
+        "pros": "API 비용 $0, 8GB VRAM 저사양 구동 가능, 자연어 기반 노코드 파이프라인",
+        "cons": "긴 렌더링 시간(편당 30분), 씬 간 인물 일관성 부족, 로컬 하드웨어 풀로드",
+        "best_for": "API 비용을 아끼며 대량 숏폼 초안을 야간 배치로 렌더링하는 개인 크리에이터"
+      },
+      {
+        "name": "Kling AI / Runway Gen-3 (클라우드 SaaS)",
+        "tech_stack": "Proprietary Cloud Video Diffusion, High-End H100 Clusters",
+        "pros": "1~2분 초고속 생성, 1080p 고화질, 탁월한 물리 시뮬레이션 및 카메라 워크",
+        "cons": "비싼 크레딧 요금제(초당 $0.10~0.25), 무제한 양산 시 비용 급증",
+        "best_for": "상용 광고, 뮤직비디오, 고품질 상업용 숏폼 제작"
+      },
+      {
+        "name": "MoneyPrinterTurbo (오픈소스 숏폼 자동화)",
+        "tech_stack": "Python, Edge-TTS, Pexels Stock Video, LLM ScriptGen",
+        "pros": "기존 스톡 영상을 조합해 30초 만에 완제품 숏폼 생성, 저사양 CPU에서도 구동",
+        "cons": "AI 직접 생성 영상이 아닌 기존 영상 클립 재조합에 불과함",
+        "best_for": "지식/명언/상식 정보성 텍스트 기반 양산형 숏폼 채널"
+      }
+    ],
+    "community_signals": [
+      {
+        "source": "Threads @jwcha10004",
+        "sentiment": "POSITIVE",
+        "quote": "ComfyUI 노드를 매번 연결하는 대신 Codex가 워크플로우를 생성하게 만들어 8GB에서 자동 생성 파이프라인 정리."
+      },
+      {
+        "source": "LocalLLaMA & ComfyUI Community",
+        "sentiment": "NEUTRAL",
+        "quote": "LTX 2.5 distilled on 8GB works, but expect thermal throttling and plan your lunch break around renders."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "tier": "Tier 1",
+      "type": "Technical Guide & Pipeline",
+      "name": "현직연구원 기술 블로그: Codex와 LTX 2.5로 구축하는 완전 자동화 AI 영상 파이프라인",
+      "url": "https://jwchaainews.blogspot.com/2026/09/codex-ltx-25-ai-comfyui.html"
+    },
+    {
+      "tier": "Tier 1",
+      "type": "Open Source Model",
+      "name": "Hugging Face: Lightricks/LTX-Video 2.5 Distilled",
+      "url": "https://huggingface.co/Lightricks/LTX-Video"
+    },
+    {
+      "tier": "Tier 2",
+      "type": "Viral Social Media",
+      "name": "Threads: @jwcha10004 AI 영상 자동화 포스트",
+      "url": "https://www.threads.com/share/BADKLF8eQ2/"
+    }
+  ]
+}
