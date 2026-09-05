@@ -4887,5 +4887,596 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260905_013309",
+    "timestamp": "2026-09-05T01:33:09.990608+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 36,
+    "requested_limit": 0,
+    "processed_count": 36,
+    "success_count": 36,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 36
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 17.28,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_성인_영화_제작사_토렌트로_파일_2만_개_받은_이용자를_meta_",
+            "title": "GeekNews: 성인 영화 제작사, 토렌트로 파일 2만 개 받은 이용자를 Meta 임원으로 지목",
+            "title_ko": "성인 영화 제작사, 메타 임원을 토렌트 파일 2만 개 다운로드 혐의로 지목",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:33:27.275438+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.06,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_성인_영화_제작사_토렌트로_파일_2만_개_받은_이용자를_meta_",
+            "title": "GeekNews: 성인 영화 제작사, 토렌트로 파일 2만 개 받은 이용자를 Meta 임원으로 지목",
+            "title_ko": "메타 임원, 성인 영화 제작사 2만 개 토렌트 파일 유출 혐의로 지목",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:33:44.336472+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.02,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_ibm_bob_ibm의_ai_코딩_에이전트",
+            "title": "GeekNews: IBM Bob - IBM의 AI 코딩 에이전트",
+            "title_ko": "IBM Bob - IBM의 AI 코딩 에이전트",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:33:59.356415+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.98,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_ibm_bob_ibm의_ai_코딩_에이전트",
+            "title": "GeekNews: IBM Bob - IBM의 AI 코딩 에이전트",
+            "title_ko": "IBM Bob - IBM의 AI 코딩 에이전트",
+            "classification": "MODEL",
+            "model_family": "IBM Bob",
+            "enriched_at": "2026-09-05T01:34:13.341085+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 10.33,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_stave_aws_설정_사이에_숨어_있는_공격_경로를_찾는_보안_",
+            "title": "GeekNews: Stave - AWS 설정 사이에 숨어 있는 공격 경로를 찾는 보안 검증 도구",
+            "title_ko": "Stave: AWS 설정 간 숨겨진 공격 경로 탐색 보안 검증 도구",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:34:24.679357+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 7.56,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_stave_aws_설정_사이에_숨어_있는_공격_경로를_찾는_보안_",
+            "title": "GeekNews: Stave - AWS 설정 사이에 숨어 있는 공격 경로를 찾는 보안 검증 도구",
+            "title_ko": "Stave - AWS 설정 사이의 숨겨진 공격 경로를 찾는 보안 검증 도구",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:34:33.243450+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.94,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_ai_시대에_코드_리뷰에서_살아남는_방법은",
+            "title": "GeekNews: AI 시대에 코드 리뷰에서 살아남는 방법은?",
+            "title_ko": "AI 시대, 코드 리뷰에서 살아남는 법",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:34:51.188893+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.77,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_ai_시대에_코드_리뷰에서_살아남는_방법은",
+            "title": "GeekNews: AI 시대에 코드 리뷰에서 살아남는 방법은?",
+            "title_ko": "AI 시대에 코드 리뷰에서 살아남는 방법",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:35:04.967253+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.72,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_dhh가_바라본_프로그래밍의_미래_직접_코딩에서_ai_에이전트_팀",
+            "title": "GeekNews: DHH가 바라본 프로그래밍의 미래: 직접 코딩에서 AI 에이전트 팀 운영으로 [유튜브]",
+            "title_ko": "DHH가 전망한 프로그래밍의 미래: 직접 코딩에서 AI 에이전트 팀 운영으로",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:35:20.688893+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 9.14,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_dhh가_바라본_프로그래밍의_미래_직접_코딩에서_ai_에이전트_팀",
+            "title": "GeekNews: DHH가 바라본 프로그래밍의 미래: 직접 코딩에서 AI 에이전트 팀 운영으로 [유튜브]",
+            "title_ko": "DHH가 바라본 프로그래밍의 미래: 직접 코딩에서 AI 에이전트 팀 운영으로",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:35:30.835689+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 8.17,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_wigolo_ai_에이전트를_위한_로컬_우선_웹_검색수집_도구",
+            "title": "GeekNews: wigolo - AI 에이전트를 위한 로컬 우선 웹 검색/수집 도구",
+            "title_ko": "위골로 - AI 에이전트를 위한 로컬 우선 웹 검색/수집 도구",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:35:40.014032+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 12,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.13,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_wigolo_ai_에이전트를_위한_로컬_우선_웹_검색수집_도구",
+            "title": "GeekNews: wigolo - AI 에이전트를 위한 로컬 우선 웹 검색/수집 도구",
+            "title_ko": "GeekNews: wigolo - AI 에이전트를 위한 로컬 우선 웹 검색/수집 도구",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:35:53.153439+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 13,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.03,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_vidraftglobal_llm_leaderboard",
+            "title": "HF Space: VIDraft/global-llm-leaderboard",
+            "title_ko": "글로벌 LLM 리더보드 – 허깅페이스에서 만나는 대화형 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:36:06.186223+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 14,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 5.97,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_vidraftglobal_llm_leaderboard",
+            "title": "HF Space: VIDraft/global-llm-leaderboard",
+            "title_ko": "HF 스페이스: VIDraft 글로벌 LLM 리더보드 – 대화형 LLM 비교 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:36:13.161892+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 15,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 9.18,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_artificial_analysis_intelligence_",
+            "title": "Hacker News: Artificial Analysis Intelligence Index v4.2",
+            "title_ko": "인공지능 분석 지수 v4.2, 해커 뉴스에 등장",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:36:23.343696+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 16,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 6.17,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_artificial_analysis_intelligence_",
+            "title": "Hacker News: Artificial Analysis Intelligence Index v4.2",
+            "title_ko": "인공지능 분석 지수 v4.2 출시, Hacker News에서 화제",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:36:30.522101+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 17,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 23.49,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_reversing_mikrotiks_silent_patch_",
+            "title": "Hacker News: Reversing MikroTik's Silent Patch: The RouterOS 7.23.4 Fix They Wouldn't Explain",
+            "title_ko": "미크로틱 RouterOS 7.23.4의 숨겨진 패치, 그 숨겨진 의미는?",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:36:55.018610+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 18,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 9.44,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_reversing_mikrotiks_silent_patch_",
+            "title": "Hacker News: Reversing MikroTik's Silent Patch: The RouterOS 7.23.4 Fix They Wouldn't Explain",
+            "title_ko": "미크로틱의 침묵 패치 역분석: RouterOS 7.23.4 수정, 그들이 설명하지 않은 이유",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:37:05.467536+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 19,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 13.6,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_show_hn_moadimio_a_scheduler_for_",
+            "title": "Hacker News: Show HN: Moadim.io – A scheduler for agents",
+            "title_ko": "모아딤.io – 에이전트 스케줄러 공개 (Hacker News Show HN)",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:37:20.068839+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 20,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.42,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_show_hn_moadimio_a_scheduler_for_",
+            "title": "Hacker News: Show HN: Moadim.io – A scheduler for agents",
+            "title_ko": "에이전트 스케줄링을 위한 Moadim.io – 웹 기반 UI와 모니터링 포함",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:37:37.489536+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 21,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 8.16,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_portal_by_spotify_cut_my_claude_c",
+            "title": "Hacker News: Portal by Spotify cut my Claude Code token usage by 90%",
+            "title_ko": "스포티파이 포털, 클로드 코드 토큰 사용량 90% 절감",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:37:46.654202+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 22,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.89,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_portal_by_spotify_cut_my_claude_c",
+            "title": "Hacker News: Portal by Spotify cut my Claude Code token usage by 90%",
+            "title_ko": "스포티파이 Portal, 클로드 코드 토큰 사용량 90% 절감",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:38:02.551401+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 23,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 10.26,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_connecting_every_app_to_every_oth",
+            "title": "Hacker News: Connecting every app to every other app",
+            "title_ko": "해커 뉴스: 모든 앱을 서로 연결하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:38:13.815594+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 24,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.7,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_connecting_every_app_to_every_oth",
+            "title": "Hacker News: Connecting every app to every other app",
+            "title_ko": "모든 앱을 서로 연결하는 Hacker News",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:38:27.517442+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 25,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 11.21,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_gimlets_series_b",
+            "title": "Hacker News: Gimlet's Series B",
+            "title_ko": "해커 뉴스: 짐렛의 시리즈 B",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:38:39.729933+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 26,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.34,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_gimlets_series_b",
+            "title": "Hacker News: Gimlet's Series B",
+            "title_ko": "Hacker News: Gimlet, 시리즈 B 투자 유치",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:38:56.077500+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 27,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.19,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_can_guitar_frets_perform_multipli",
+            "title": "Hacker News: Can guitar frets perform multiplication?",
+            "title_ko": "기타 프렛, 곱셈을 할 수 있을까?",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:39:09.276378+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 28,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 10.18,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_can_guitar_frets_perform_multipli",
+            "title": "Hacker News: Can guitar frets perform multiplication?",
+            "title_ko": "기타 프렛으로 곱셈을 할 수 있을까?",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:39:20.463114+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 29,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 8.49,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_without_new_landers_or_rovers_its",
+            "title": "Hacker News: Without new landers or rovers, it's helicopters or bust for NASA's Mars program",
+            "title_ko": "새로운 랜더나 로버 없이, 나사의 화성 프로그램은 헬리콥터에 달렸다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:39:29.961087+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 30,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.02,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_without_new_landers_or_rovers_its",
+            "title": "Hacker News: Without new landers or rovers, it's helicopters or bust for NASA's Mars program",
+            "title_ko": "새로운 랜더나 로버 없이, 나사의 화성 프로그램은 헬리콥터에 달렸다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:39:44.984299+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 31,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 6.77,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_decompiler_explorer",
+            "title": "Hacker News: Decompiler Explorer",
+            "title_ko": "디컴파일러 익스플로러: 브라우저에서 즐기는 바이너리 탐색",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:39:52.754488+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 32,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 9.48,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_decompiler_explorer",
+            "title": "Hacker News: Decompiler Explorer",
+            "title_ko": "Hacker News에서 화제인 디컴파일러 익스플로러: 브라우저에서 작동하는 코드 역공학 도구",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:40:03.238847+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 33,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 11.63,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hacker_news_exacttex_a_gradually_typed_supers",
+            "title": "Hacker News: ExactTex. A gradually-typed superset of LaTeX",
+            "title_ko": "엑택스: 점진적 타입 시스템을 갖춘 LaTeX의 확장판",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:40:15.871988+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 34,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 8.49,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hacker_news_exacttex_a_gradually_typed_supers",
+            "title": "Hacker News: ExactTex. A gradually-typed superset of LaTeX",
+            "title_ko": "정확한 타입을 갖춘 LaTeX의 점진적 타입 시스템 확장자, ExactTex",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:40:25.368400+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 35,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 9.66,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_when_declaring_an_incident_become",
+            "title": "Hacker News: When declaring an incident becomes everyone's favorite workaround",
+            "title_ko": "사고 선언이 모두의 필수 절차로 전락한 이유",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:40:36.032214+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 36,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 8.83,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_when_declaring_an_incident_become",
+            "title": "Hacker News: When declaring an incident becomes everyone's favorite workaround",
+            "title_ko": "사고 선언이 모두의 편리한 변명이 되는 이유",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T01:40:45.870240+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
