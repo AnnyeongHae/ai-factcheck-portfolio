@@ -6450,5 +6450,788 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260905_165950",
+    "timestamp": "2026-09-05T16:59:50.118611+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 48,
+    "requested_limit": 0,
+    "processed_count": 48,
+    "success_count": 48,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 48
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 24.15,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_statichosteu_100_유럽_기반_정적_사이트_호스팅",
+            "title": "GeekNews: Statichost.eu - 100% 유럽 기반 정적 사이트 호스팅",
+            "title_ko": "GeekNews: Statichost.eu - 100% 유럽 기반 정적 사이트 호스팅",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:00:14.284356+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.89,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_statichosteu_100_유럽_기반_정적_사이트_호스팅",
+            "title": "GeekNews: Statichost.eu - 100% 유럽 기반 정적 사이트 호스팅",
+            "title_ko": "GeekNews: Statichost.eu - 100% 유럽 기반 정적 사이트 호스팅",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:00:34.175875+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 11.43,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_nitter_폐쇄_조치_이전보다_작동하는_인스턴스가_늘어남",
+            "title": "GeekNews: Nitter, 폐쇄 조치 이전보다 작동하는 인스턴스가 늘어남",
+            "title_ko": "Nitter, 차단 조치 이전보다 더 많은 인스턴스가 정상 작동 중",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:00:46.606432+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.11,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_nitter_폐쇄_조치_이전보다_작동하는_인스턴스가_늘어남",
+            "title": "GeekNews: Nitter, 폐쇄 조치 이전보다 작동하는 인스턴스가 늘어남",
+            "title_ko": "니터, 폐쇄 조치 후 더 많은 인스턴스가 정상 작동 중",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:01:02.718741+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.91,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_show_gn_wifibox_앱_설치와_계정_가입_없는_기기_간_",
+            "title": "GeekNews: Show GN: wifibox - 앱 설치와 계정 가입 없는 기기 간 실시간 파일·링크 공유",
+            "title_ko": "와이파이 박스(wifibox) - 앱 설치 없이도 실시간 파일·링크 공유",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:01:19.629918+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 37.72,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_show_gn_wifibox_앱_설치와_계정_가입_없는_기기_간_",
+            "title": "GeekNews: Show GN: wifibox - 앱 설치와 계정 가입 없는 기기 간 실시간 파일·링크 공유",
+            "title_ko": "와이파이박스(GN): 앱 설치 없이 기기 간 실시간 파일·링크 공유",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:01:58.353753+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 17.55,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_opentrailpaper_오픈소스_전자잉크_자전거_컴퓨터",
+            "title": "GeekNews: OpenTrailPaper - 오픈소스 전자잉크 자전거 컴퓨터",
+            "title_ko": "오픈소스 전자잉크 자전거 컴퓨터 OpenTrailPaper",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:02:16.899785+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 25.33,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_opentrailpaper_오픈소스_전자잉크_자전거_컴퓨터",
+            "title": "GeekNews: OpenTrailPaper - 오픈소스 전자잉크 자전거 컴퓨터",
+            "title_ko": "오픈소스 전자잉크 자전거 컴퓨터 OpenTrailPaper",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:02:43.232419+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.42,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_오픈소스_ai에_빠져드는_미국_기업들",
+            "title": "GeekNews: 오픈소스 AI에 빠져드는 미국 기업들",
+            "title_ko": "미국 기업들의 오픈소스 AI 도입 열풍",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:02:59.656649+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 25.74,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_오픈소스_ai에_빠져드는_미국_기업들",
+            "title": "GeekNews: 오픈소스 AI에 빠져드는 미국 기업들",
+            "title_ko": "오픈소스 AI에 빠져드는 미국 기업들",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:03:26.396144+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.41,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_ai는_아직_회로_기판을_어디까지_설계할_수_있는가",
+            "title": "GeekNews: AI는 아직 회로 기판을 어디까지 설계할 수 있는가?",
+            "title_ko": "AI가 회로 기판을 설계할 수 있는 한계는 어디까지인가?",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:03:47.802990+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 12,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 10.46,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_ai는_아직_회로_기판을_어디까지_설계할_수_있는가",
+            "title": "GeekNews: AI는 아직 회로 기판을 어디까지 설계할 수 있는가?",
+            "title_ko": "AI가 회로 기판을 설계할 수 있을까? 현재 한계와 가능성",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:03:59.263284+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 13,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.38,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_mishigmicroduck_anatomy",
+            "title": "HF Space: mishig/microduck-anatomy",
+            "title_ko": "마이크로덕 해부학 HF 스페이스 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:04:18.640054+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 14,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 44.82,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_mishigmicroduck_anatomy",
+            "title": "HF Space: mishig/microduck-anatomy",
+            "title_ko": "HF 스페이스: mishig/microduck-anatomy – 대화형 해부학 AI 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:05:04.463082+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 15,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.7,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_chrisssuttestground",
+            "title": "HF Space: chrisssut/Testground",
+            "title_ko": "HF 스페이스: chrisssut/Testground",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:05:26.159246+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 16,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.63,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_repo_hf_space_chrisssuttestground",
+            "title": "HF Space: chrisssut/Testground",
+            "title_ko": "HF 스페이스: chrisssut/Testground – 그리디오 기반 대화형 AI 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:05:47.787734+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 17,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 28.08,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_bob_and_van",
+            "title": "Hacker News: Bob and Van",
+            "title_ko": "해커 뉴스: 밥과 밴",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:06:16.863887+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 18,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.24,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_bob_and_van",
+            "title": "Hacker News: Bob and Van",
+            "title_ko": "해커 뉴스에서 화제된 '밥과 밴'",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:06:36.104649+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 19,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.51,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_how_the_tobacco_industry_drove_th",
+            "title": "Hacker News: How the Tobacco Industry Drove the Rise of Ultra-Processed Foods (2025)",
+            "title_ko": "해커 뉴스: 담배 산업이 초가공 식품의 확산을 어떻게 주도했는가 (2025)",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:06:53.620007+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 20,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 21.55,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_how_the_tobacco_industry_drove_th",
+            "title": "Hacker News: How the Tobacco Industry Drove the Rise of Ultra-Processed Foods (2025)",
+            "title_ko": "해커 뉴스: 담배 산업이 초가공식품의 등장을 어떻게 이끌었나 (2025)",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:07:16.173002+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 21,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 28.55,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_wikimedia_foundation_workers_over",
+            "title": "Hacker News: Wikimedia Foundation Workers Overwhelmingly Vote to Form Union with CWA",
+            "title_ko": "위키미디어 재단 직원, CWA와 노조 결성 압도적 찬성 투표",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:07:45.719309+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 22,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.8,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_wikimedia_foundation_workers_over",
+            "title": "Hacker News: Wikimedia Foundation Workers Overwhelmingly Vote to Form Union with CWA",
+            "title_ko": "위키미디어 직원, CWA와 노조 결성 압도적 찬성 투표",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:08:02.521408+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 23,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 32.76,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_how_the_disaster_of_forever_chemi",
+            "title": "Hacker News: How the Disaster of \"Forever Chemicals\" Was Kept Secret",
+            "title_ko": "영구적 유해화학물질 참사가 어떻게 비밀리에 은폐되었는가",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:08:36.282330+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 24,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 30.99,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_how_the_disaster_of_forever_chemi",
+            "title": "Hacker News: How the Disaster of \"Forever Chemicals\" Was Kept Secret",
+            "title_ko": "Hacker News: '영구 화학물질' 재난이 어떻게 비밀에 부쳐졌는가",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:09:08.273703+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 25,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.67,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_meet_the_ig_nobel_prize_winners",
+            "title": "Hacker News: Meet the Ig Nobel Prize Winners",
+            "title_ko": "해커 뉴스: 이그 노벨상 수상자들을 만나다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:09:29.947700+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 26,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.31,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_meet_the_ig_nobel_prize_winners",
+            "title": "Hacker News: Meet the Ig Nobel Prize Winners",
+            "title_ko": "해커 뉴스: 이그 노벨상 수상자들을 만나다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:09:51.262870+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 27,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.52,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_the_60_gaming_pc_amd_bc_250_2025",
+            "title": "Hacker News: The \"$60 Gaming PC\" – AMD BC-250 (2025)",
+            "title_ko": "Hacker News: 60달러 게이밍 PC – AMD BC-250 (2025)",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:10:07.783990+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 28,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 23.59,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_the_60_gaming_pc_amd_bc_250_2025",
+            "title": "Hacker News: The \"$60 Gaming PC\" – AMD BC-250 (2025)",
+            "title_ko": "AMD BC-250 (2025년) 칩으로 만든 60달러 게이밍 PC",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:10:32.373061+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 29,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 13.36,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_gitignore_everything_by_default",
+            "title": "Hacker News: .gitignore Everything by Default",
+            "title_ko": "GitHub .gitignore: 기본적으로 모든 파일이 무시됩니다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:10:46.729689+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 30,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 17.98,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_gitignore_everything_by_default",
+            "title": "Hacker News: .gitignore Everything by Default",
+            "title_ko": "기본 .gitignore: 새 프로젝트에서 모든 파일을 자동으로 무시하기",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:11:05.712406+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 31,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.61,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_amd_unveils_threadripper_halo_sta",
+            "title": "Hacker News: AMD unveils Threadripper Halo Station, an AI workstation packing 96 cores",
+            "title_ko": "AMD, 96코어 AI 워크스테이션 '스레드리퍼 할로 스테이션' 공개",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:11:21.326239+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 32,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.64,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_amd_unveils_threadripper_halo_sta",
+            "title": "Hacker News: AMD unveils Threadripper Halo Station, an AI workstation packing 96 cores",
+            "title_ko": "AMD, 96코어 AI 워크스테이션 '스레드리퍼 할로 스테이션' 공개",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:11:40.971800+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 33,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.38,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_global_warming_will_exceed_15_deg",
+            "title": "Hacker News: Global warming will exceed 1.5-degree limit, UN says",
+            "title_ko": "Hacker News: 지구 온난화, UN 발표 1.5도 제한 초과",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:12:02.349352+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 34,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.85,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_global_warming_will_exceed_15_deg",
+            "title": "Hacker News: Global warming will exceed 1.5-degree limit, UN says",
+            "title_ko": "UN, 지구 온난화 1.5도 한계 초과 경고",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:12:19.200579+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 35,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 19.34,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_a_bizarre_commodore_64_peripheral",
+            "title": "Hacker News: A bizarre Commodore 64 peripheral, a mime, and some pretty bad ads",
+            "title_ko": "해커 뉴스: 기이한 코모도어 64 주변기기, 마임 배우, 그리고 형편없는 광고들",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:12:39.542799+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 36,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.69,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_a_bizarre_commodore_64_peripheral",
+            "title": "Hacker News: A bizarre Commodore 64 peripheral, a mime, and some pretty bad ads",
+            "title_ko": "기묘한 코모도어 64 주변기기, 마임 배우, 그리고 형편없는 광고들",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:12:56.233112+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 37,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 19.02,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_terpstra_keyboard",
+            "title": "Hacker News: Terpstra Keyboard",
+            "title_ko": "테르프스트라 키보드, 해커 뉴스에서 화제",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:13:16.255238+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 38,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 21.49,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_terpstra_keyboard",
+            "title": "Hacker News: Terpstra Keyboard",
+            "title_ko": "테르프스트라 키보드, Hacker News에 소개되다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:13:38.744494+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 39,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 33.35,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_why_are_european_countries_moving",
+            "title": "Hacker News: Why are European countries moving their gold out of North America?",
+            "title_ko": "유럽 국가들이 북미에서 금을 옮기는 이유",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:14:13.100066+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 40,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 11.37,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_why_are_european_countries_moving",
+            "title": "Hacker News: Why are European countries moving their gold out of North America?",
+            "title_ko": "유럽 국가들, 북미에서 금을 빼내는 이유",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:14:25.469703+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 41,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 21.42,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_120_days_until_google_restricts_s",
+            "title": "Hacker News: 120 days until Google restricts side-loading, declaring war on Android freedom",
+            "title_ko": "구글, 안드로이드 사이드로딩 120일 후 제한... 플랫폼 자유 논란",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:14:47.891242+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 42,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 22.36,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_120_days_until_google_restricts_s",
+            "title": "Hacker News: 120 days until Google restricts side-loading, declaring war on Android freedom",
+            "title_ko": "구글, 안드로이드 사이드로딩 120일 후 제한... 플랫폼 자유 논란",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:15:11.247115+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 43,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 27.72,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_write_software_in_latin_2025_vide",
+            "title": "Hacker News: Write Software in Latin (2025) [video]",
+            "title_ko": "라틴어로 소프트웨어 작성 (2025) [동영상]",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:15:39.964344+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 44,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 24.07,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_write_software_in_latin_2025_vide",
+            "title": "Hacker News: Write Software in Latin (2025) [video]",
+            "title_ko": "라틴어로 소프트웨어 작성 (2025) [동영상]",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:16:05.035385+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 45,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.52,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_a_million_falcons_went_missing_he",
+            "title": "Hacker News: A Million Falcons Went Missing. Here’s How They Were Found",
+            "title_ko": "해커 뉴스: 백만 마리의 매가 사라졌다. 어떻게 찾아냈을까",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:16:20.552224+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 46,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 29.03,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_a_million_falcons_went_missing_he",
+            "title": "Hacker News: A Million Falcons Went Missing. Here’s How They Were Found",
+            "title_ko": "백만 마리의 매가 사라졌다. 어떻게 찾아냈나",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:16:50.580051+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 47,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.6,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_singapore_subway_mrt_information_",
+            "title": "Hacker News: Singapore subway (mrt) information display types",
+            "title_ko": "Hacker News: 싱가포르 지하철(MRT) 정보 표시 방식",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:17:06.182672+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 48,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 26.91,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-05_sns_hacker_news_singapore_subway_mrt_information_",
+            "title": "Hacker News: Singapore subway (mrt) information display types",
+            "title_ko": "싱가포르 MRT 정보 디스플레이 유형 소개",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-05T17:17:34.093036+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
