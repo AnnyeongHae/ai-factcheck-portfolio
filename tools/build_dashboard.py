@@ -279,27 +279,11 @@ def build_dashboard():
             "is_future": s["hour"] > current_hour_kst
         })
 
-    # 2. 1일 4회 AI Trend Radar (6시간 주기 실시간 감지)
-    if 0 <= current_hour_kst < 6:
-        w_label = "00:00 ~ 06:00 KST"
-        w_period = "심야 글로벌 AI 릴리스 펄스"
-        session_num = 1
-        session_name = "1회차 (심야)"
-    elif 6 <= current_hour_kst < 12:
-        w_label = "06:00 ~ 12:00 KST"
-        w_period = "오전 글로벌 테크 & 오픈소스 동향"
-        session_num = 2
-        session_name = "2회차 (오전)"
-    elif 12 <= current_hour_kst < 18:
-        w_label = "12:00 ~ 18:00 KST"
-        w_period = "오후 실시간 모델 & 아키텍처 브리핑"
-        session_num = 3
-        session_name = "3회차 (오후)"
-    else:
-        w_label = "18:00 ~ 24:00 KST"
-        w_period = "저녁 엔지니어링 & 데일리 결산"
-        session_num = 4
-        session_name = "4회차 (저녁)"
+    # 2. 1일 4회 AI Trend Radar (전체 4개 회차별 세션 분할 및 플랫폼 다양성 쿼터 적용)
+    if 0 <= current_hour_kst < 6: current_session_num = 1
+    elif 6 <= current_hour_kst < 12: current_session_num = 2
+    elif 12 <= current_hour_kst < 18: current_session_num = 3
+    else: current_session_num = 4
 
     def compute_viral_weight(it):
         val = 0.0
@@ -314,86 +298,172 @@ def build_dashboard():
             except Exception: pass
         if mt.get("is_spiking"): val *= 1.3
         raw_date = str(it.get("harvested_at") or it.get("published_at") or it.get("created_at") or "")
-        if today_kst_str in raw_date:
-            val *= 2.0
+        if today_kst_str in raw_date: val *= 2.0
+        if it.get("ai_enrichment"): val *= 1.2
         return val
 
-    candidate_pool = [it for it in (model_items + news_items + clean_inbox_items) if it.get("title")]
-    candidate_pool.sort(key=compute_viral_weight, reverse=True)
+    def get_platform_family(it):
+        p = (it.get("source_platform") or "").lower()
+        if "github" in p: return "GitHub"
+        if "hugging" in p: return "HuggingFace"
+        if "arxiv" in p or "paper" in p: return "ArXiv"
+        if "hacker" in p: return "HackerNews"
+        if "geek" in p: return "GeekNews"
+        return "TechMedia"
 
-    # Pick top hot items with platform diversity
-    radar_items = []
-    for it in candidate_pool:
-        plat = it.get("source_platform") or "General"
-        if sum(1 for x in radar_items if (x.get("source_platform") or "General") == plat) >= 1:
-            continue
-        radar_items.append(it)
-        if len(radar_items) >= 3:
-            break
-    for it in candidate_pool:
-        if it not in radar_items:
-            radar_items.append(it)
-        if len(radar_items) >= 3:
-            break
+    def extract_search_key(it):
+        # 1. Prefer raw crawler title (clean repo or entity name)
+        orig = it.get("title") or ""
+        clean_orig = re.sub(r'^(?:GitHub:\s*|HuggingFace:\s*|HF Space:\s*|Hacker News:\s*|ArXiv:\s*|GeekNews:\s*|Paper:\s*)', '', orig, flags=re.I).strip()
+        parts = re.split(r'\s+-\s+|\s*[:：]\s*|\s*[\(（【]', clean_orig)
+        if parts and len(parts[0].strip()) >= 3:
+            cand = parts[0].strip()
+            if "/" in cand: # e.g. sapientinc/PRAXIST or Kwai-Kolors/Kolors-Virtual-Try-On
+                return cand
+            if len(cand) <= 40:
+                return cand
 
-    radar_bullets = []
-    radar_items_data = []
-    radar_tags = set()
-    for it in radar_items:
-        t_ko = it.get("multilingual", {}).get("ko", {}).get("title") or it.get("title_ko") or it.get("title") or ""
-        t_clean = re.sub(r'^(?:GitHub:\s*|HuggingFace:\s*|HF Space:\s*|Hacker News:\s*)', '', t_ko).strip()
-        plat = it.get("source_platform") or "AI Hub"
-        vm = it.get("viral_metric") or ""
-        summ = (it.get("ai_enrichment") or {}).get("summary_ko") or it.get("summary_ko") or it.get("hook_ko") or it.get("description") or ""
-        summ_clean = summ.replace('\n', ' ').strip()
-        if len(summ_clean) > 85:
-            summ_clean = summ_clean[:82] + "..."
-        if vm:
-            radar_bullets.append(f"🔥 [{plat}] {t_clean[:45]} ({vm}) — {summ_clean}")
-        else:
-            radar_bullets.append(f"🚀 [{plat}] {t_clean[:45]} — {summ_clean}")
+        # 2. Fallback to multilingual title
+        t_ko = it.get("multilingual", {}).get("ko", {}).get("title") or it.get("title_ko") or orig
+        clean_ko = re.sub(r'^(?:GitHub:\s*|HuggingFace:\s*|HF Space:\s*|Hacker News:\s*|ArXiv:\s*|GeekNews:\s*|Paper:\s*)', '', t_ko, flags=re.I).strip()
+        parts_ko = re.split(r'\s+-\s+|\s*[:：]\s*|\s*[\(（【]', clean_ko)
+        if parts_ko and len(parts_ko[0].strip()) >= 3:
+            return parts_ko[0].strip()
+        return clean_orig[:35].strip()
 
-        is_model = is_model_item(it)
-        radar_items_data.append({
-            "inbox_id": it.get("inbox_id"),
-            "title": t_clean,
-            "platform": plat,
-            "viral_metric": vm,
-            "summary": summ_clean,
-            "source_url": it.get("source_url") or "#",
-            "is_model": is_model,
-            "case_id": (it.get("related_dossier") or {}).get("case_id") if it.get("related_dossier") else None
-        })
+    all_candidate_pool = [it for it in (model_items + news_items + clean_inbox_items) if it.get("title")]
+    all_candidate_pool.sort(key=compute_viral_weight, reverse=True)
 
-        for tag in it.get("tags", []):
-            if tag and len(radar_tags) < 5:
-                tag_name = tag if tag.startswith("#") else f"#{tag}"
-                radar_tags.add(tag_name.replace(" ", "_"))
+    sessions_def = [
+        {
+            "num": 1,
+            "name": "1회차 (심야)",
+            "short_name": "1회 00시",
+            "hour": 0,
+            "window_label": "00:00 ~ 06:00 KST",
+            "window_period": "심야 글로벌 실리콘밸리 릴리스 & 오픈소스 코어",
+            "targets": ["GitHub", "HackerNews", "HuggingFace"]
+        },
+        {
+            "num": 2,
+            "name": "2회차 (오전)",
+            "short_name": "2회 06시",
+            "hour": 6,
+            "window_label": "06:00 ~ 12:00 KST",
+            "window_period": "모닝 브리핑 & 유럽 연구 논문 레이더",
+            "targets": ["ArXiv", "GitHub", "HuggingFace"]
+        },
+        {
+            "num": 3,
+            "name": "3회차 (오후)",
+            "short_name": "3회 12시",
+            "hour": 12,
+            "window_label": "12:00 ~ 18:00 KST",
+            "window_period": "정오 레이더 & 고바이럴 SOTA 모델 / 프레임워크",
+            "targets": ["HuggingFace", "GitHub", "GeekNews"]
+        },
+        {
+            "num": 4,
+            "name": "4회차 (저녁)",
+            "short_name": "4회 18시",
+            "hour": 18,
+            "window_label": "18:00 ~ 24:00 KST",
+            "window_period": "저녁 라운드업 & 인프라 시스템 결산",
+            "targets": ["HackerNews", "GitHub", "HuggingFace"]
+        }
+    ]
 
-    if not radar_bullets:
-        radar_bullets = [
-            "경량화 및 로컬 온디바이스 추론을 위한 1M 컨텍스트 GGUF 양자화 모델 및 오픈가중치 MoE 아키텍처 집중 릴리스",
-            "vLLM V1 분산 엔진 아키텍처 재설계 및 저비용 자율주행 연구 플랫폼, 가상 스레드 런타임 등 시스템 엔지니어링 급상승",
-            "글로벌 빅테크 인수합병 및 온디바이스 SLM 추론 최적화 실시간 벤치마크 화두"
-        ]
-    if len(radar_tags) < 4:
-        default_tags = ["#High_Engagement", "#Autonomous_Agent", "#Local_LLM", "#SoTA_Models", "#MoE_Architecture"]
-        for dt in default_tags:
-            radar_tags.add(dt)
-            if len(radar_tags) >= 5:
-                break
+    sessions_data = {}
+    used_inbox_ids = set()
 
-    trend_6h = {
-        "session_num": session_num,
-        "session_name": session_name,
-        "window_label": w_label,
-        "window_period": w_period,
+    for s_def in sessions_def:
+        s_num = s_def["num"]
+        is_cur = (s_num == current_session_num)
+        is_fut = (s_def["hour"] > current_hour_kst)
+        status = "active" if is_cur else ("upcoming" if is_fut else "completed")
+
+        picked_items = []
+        for tp in s_def["targets"]:
+            for it in all_candidate_pool:
+                iid = it.get("inbox_id") or it.get("title")
+                if iid in used_inbox_ids: continue
+                if get_platform_family(it) == tp:
+                    picked_items.append(it)
+                    used_inbox_ids.add(iid)
+                    break
+        for it in all_candidate_pool:
+            if len(picked_items) >= 3: break
+            iid = it.get("inbox_id") or it.get("title")
+            if iid in used_inbox_ids: continue
+            picked_items.append(it)
+            used_inbox_ids.add(iid)
+
+        session_bullets = []
+        session_items_data = []
+        session_tags = set()
+
+        for it in picked_items:
+            t_ko = it.get("multilingual", {}).get("ko", {}).get("title") or it.get("title_ko") or it.get("title") or ""
+            t_clean = re.sub(r'^(?:GitHub:\s*|HuggingFace:\s*|HF Space:\s*|Hacker News:\s*|ArXiv:\s*|GeekNews:\s*|Paper:\s*)', '', t_ko).strip()
+            plat_family = get_platform_family(it)
+            plat = it.get("source_platform") or plat_family
+            vm = it.get("viral_metric") or ""
+            summ = (it.get("ai_enrichment") or {}).get("summary_ko") or it.get("summary_ko") or it.get("hook_ko") or it.get("description") or ""
+            summ_clean = summ.replace('\n', ' ').strip()
+            if len(summ_clean) > 85:
+                summ_clean = summ_clean[:82] + "..."
+
+            search_k = extract_search_key(it)
+            is_model = is_model_item(it)
+            case_id = (it.get("related_dossier") or {}).get("case_id") if it.get("related_dossier") else None
+
+            session_items_data.append({
+                "inbox_id": it.get("inbox_id") or "",
+                "title": t_clean,
+                "search_key": search_k,
+                "platform": plat,
+                "platform_family": plat_family,
+                "viral_metric": vm,
+                "summary": summ_clean,
+                "source_url": it.get("source_url") or "#",
+                "is_model": is_model,
+                "case_id": case_id
+            })
+
+            if vm: session_bullets.append(f"🔥 [{plat}] {t_clean[:45]} ({vm}) — {summ_clean}")
+            else: session_bullets.append(f"🚀 [{plat}] {t_clean[:45]} — {summ_clean}")
+
+            for tag in it.get("tags", []):
+                if tag and len(session_tags) < 5:
+                    tag_name = tag if tag.startswith("#") else f"#{tag}"
+                    session_tags.add(tag_name.replace(" ", "_"))
+
+        if len(session_tags) < 3:
+            for dt in ["#Autonomous_Agent", "#Local_LLM", "#SoTA_Models", "#MoE_Architecture", "#Inference_Engine"]:
+                session_tags.add(dt)
+                if len(session_tags) >= 5: break
+
+        sessions_data[str(s_num)] = {
+            "session_num": s_num,
+            "session_name": s_def["name"],
+            "short_name": s_def["short_name"],
+            "window_label": s_def["window_label"],
+            "window_period": s_def["window_period"],
+            "is_current": is_cur,
+            "is_future": is_fut,
+            "status": status,
+            "bullets": session_bullets,
+            "items": session_items_data,
+            "tags": list(session_tags)[:5]
+        }
+
+    trend_radar_data = {
+        "current_session": current_session_num,
         "today_kst": today_kst_str,
         "updated_at": now_kst.strftime("%H:%M KST"),
-        "bullets": radar_bullets,
-        "items": radar_items_data,
-        "tags": list(radar_tags)[:5]
+        "sessions": sessions_data
     }
+    trend_6h = sessions_data[str(current_session_num)]
 
     summary_data = {
         "generated_at": datetime.date.today().strftime("%Y-%m-%d"),
@@ -413,6 +483,7 @@ def build_dashboard():
         "admin_stats": admin_stats,
         "timeline_24h": timeline_24h,
         "trend_6h": trend_6h,
+        "trend_radar": trend_radar_data,
         "dow_stats": [],
         "monthly_stats": [],
         "model_items": model_items,
@@ -459,6 +530,7 @@ def generate_html(data):
     news_json = json.dumps(data.get("news_items", []), ensure_ascii=False)
     timeline_json = json.dumps(data.get("timeline_24h", []), ensure_ascii=False)
     trend_6h_json = json.dumps(data.get("trend_6h", {}), ensure_ascii=False)
+    trend_radar_json = json.dumps(data.get("trend_radar", {}), ensure_ascii=False)
     today_kst = data.get("today_kst", "2026-09-04")
     today_total_inbox = sum(s.get("inbox_count", 0) for s in data.get("timeline_24h", []))
     trend_6h = data.get("trend_6h", {})
@@ -849,18 +921,19 @@ def generate_html(data):
                   <span>1일 4회 AI 트렌드 레이더</span>
                 </span>
                 <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" id="trendRadarPulseDot"></span>
                   <span id="trendRadarWindowLabel">{trend_window_label}</span>
                 </span>
               </div>
               <p class="text-[11px] text-ink-muted" id="trendRadarSub">{trend_window_period} · {trend_session_name}</p>
             </div>
 
-            <div class="flex items-center gap-1 text-[10px] font-mono">
-              <span class="px-2 py-0.5 rounded border border-surface-border {s1_cls}">1회 00시</span>
-              <span class="px-2 py-0.5 rounded border border-surface-border {s2_cls}">2회 06시</span>
-              <span class="px-2 py-0.5 rounded border border-surface-border {s3_cls}">3회 12시</span>
-              <span class="px-2 py-0.5 rounded border border-surface-border {s4_cls}">4회 18시</span>
+            <!-- 4 Interactive Session Selector Buttons -->
+            <div class="flex items-center gap-1 text-[10px] font-mono" id="radarSessionButtons">
+              <button type="button" onclick="switchRadarSession(1)" id="radarBtn1" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold {s1_cls}">1회 00시</button>
+              <button type="button" onclick="switchRadarSession(2)" id="radarBtn2" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold {s2_cls}">2회 06시</button>
+              <button type="button" onclick="switchRadarSession(3)" id="radarBtn3" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold {s3_cls}">3회 12시</button>
+              <button type="button" onclick="switchRadarSession(4)" id="radarBtn4" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold {s4_cls}">4회 18시</button>
             </div>
           </div>
 
@@ -1467,6 +1540,7 @@ def generate_html(data):
     const graphData = {graph_json};
     const timeline24hData = {timeline_json};
     const trend6hData = {trend_6h_json};
+    const trendRadarData = {trend_radar_json};
 
     let liveCasesData = casesData;
     let liveModelsData = modelsData;
@@ -2227,23 +2301,160 @@ def generate_html(data):
     }}
 
     // ================= RENDER 24H TIMELINE & 1-DAY 4-SESSIONS TREND RADAR =================
-    function navigateFromRadar(view, query) {{
-      const q = (query || '').replace(/^[🔥🚀💡📌]\\s*\\[[^\\]]+\\]\\s*/, '').trim();
+    let targetSelectedInboxId = '';
+    let activeRadarSession = (typeof trendRadarData !== 'undefined' && trendRadarData.current_session) ? trendRadarData.current_session : 3;
+
+    function switchRadarSession(sessionNum) {{
+      activeRadarSession = sessionNum;
+      renderRadarSession();
+    }}
+
+    function navigateFromRadar(view, searchKey, inboxId) {{
+      targetSelectedInboxId = inboxId || '';
       switchView(view);
+      const cleanQ = (searchKey || '').trim();
       if (view === 'models') {{
         currentModelsPage = 1;
-        modelsSearchQuery = q;
+        modelsSearchQuery = cleanQ;
         const inp = document.getElementById('modelsSearchInput');
-        if (inp) inp.value = q;
+        if (inp) inp.value = cleanQ;
         renderModels();
       }} else if (view === 'news') {{
         currentNewsPage = 1;
-        currentNewsSearch = q.toLowerCase();
+        currentNewsSearch = cleanQ.toLowerCase();
         const inp = document.getElementById('newsSearchInput');
-        if (inp) inp.value = q;
+        if (inp) inp.value = cleanQ;
         renderNews();
       }}
       window.scrollTo({{ top: 0, behavior: 'smooth' }});
+    }}
+
+    function renderRadarSession() {{
+      // 1. Update session tabs button active states
+      for (let i = 1; i <= 4; i++) {{
+        const btn = document.getElementById('radarBtn' + i);
+        if (btn) {{
+          if (i === activeRadarSession) {{
+            btn.className = 'px-2 py-0.5 rounded border border-emerald-600 bg-emerald-600 text-white font-bold shadow-xs transition cursor-pointer';
+          }} else {{
+            btn.className = 'px-2 py-0.5 rounded border border-surface-border bg-surface-subtle text-ink-muted hover:text-ink-primary hover:bg-slate-100 transition cursor-pointer font-medium';
+          }}
+        }}
+      }}
+
+      if (typeof trendRadarData === 'undefined' || !trendRadarData.sessions) return;
+      const sessionData = trendRadarData.sessions[String(activeRadarSession)];
+      if (!sessionData) return;
+
+      // 2. Update header labels
+      const windowLabelEl = document.getElementById('trendRadarWindowLabel');
+      const pulseDotEl = document.getElementById('trendRadarPulseDot');
+      const subEl = document.getElementById('trendRadarSub');
+
+      if (windowLabelEl) {{
+        windowLabelEl.innerText = sessionData.window_label + (sessionData.is_future ? ' (수집 예정)' : '');
+      }}
+      if (pulseDotEl) {{
+        if (sessionData.is_current) {{
+          pulseDotEl.className = 'w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse';
+        }} else if (sessionData.is_future) {{
+          pulseDotEl.className = 'w-1.5 h-1.5 rounded-full bg-amber-500';
+        }} else {{
+          pulseDotEl.className = 'w-1.5 h-1.5 rounded-full bg-slate-400';
+        }}
+      }}
+      if (subEl) {{
+        subEl.innerText = `${{sessionData.window_period}} · ${{sessionData.session_name}}`;
+      }}
+
+      // 3. Render session items (1 clickable element per item, no duplicate bottom button)
+      const bulletsContainer = document.getElementById('trendRadarBullets');
+      if (bulletsContainer) {{
+        bulletsContainer.innerHTML = '';
+        const items = sessionData.items || [];
+
+        if (items.length > 0) {{
+          items.forEach((it, idx) => {{
+            const targetTab = it.is_model ? 'models' : 'news';
+            const tabName = it.is_model ? 'AI 모델 탭' : '테크 동향 탭';
+
+            // Distinct colored badge for each platform family
+            let platformBadgeClass = 'bg-surface-subtle text-ink-primary border-surface-border';
+            const pf = (it.platform_family || '').toLowerCase();
+            if (pf.includes('github')) {{
+              platformBadgeClass = 'bg-slate-100 text-slate-800 border-slate-300';
+            }} else if (pf.includes('hugging')) {{
+              platformBadgeClass = 'bg-purple-50 text-purple-700 border-purple-200';
+            }} else if (pf.includes('arxiv')) {{
+              platformBadgeClass = 'bg-rose-50 text-rose-700 border-rose-200';
+            }} else if (pf.includes('hacker')) {{
+              platformBadgeClass = 'bg-amber-50 text-amber-800 border-amber-200';
+            }} else if (pf.includes('geek')) {{
+              platformBadgeClass = 'bg-blue-50 text-blue-700 border-blue-200';
+            }}
+
+            const escapedSearchKey = (it.search_key || it.title || '').replace(/'/g, "\\'");
+            const escapedInboxId = (it.inbox_id || '').replace(/'/g, "\\'");
+
+            const itemCard = document.createElement('div');
+            itemCard.className = 'group p-2.5 rounded-xl bg-surface-subtle border border-surface-border hover:border-emerald-400 hover:bg-white transition flex flex-col gap-1.5';
+            itemCard.innerHTML = `
+              <!-- Header Strip: Platform Badge, Viral Badge, FactCheck Badge, External Link -->
+              <div class="flex items-start justify-between gap-2">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="w-5 h-5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center font-mono font-bold text-[10px] shrink-0">0${{idx + 1}}</span>
+                  <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold ${{platformBadgeClass}} border">${{it.platform || 'AI Hub'}}</span>
+                  ${{it.viral_metric ? `<span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1">🔥 ${{it.viral_metric}}</span>` : ''}}
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  ${{it.case_id ? `
+                    <button onclick="openCaseModal('${{it.case_id}}')" class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-300 hover:bg-emerald-200 flex items-center gap-1 transition">
+                      <i data-lucide="shield-check" class="w-3 h-3"></i>
+                      팩트체크
+                    </button>
+                  ` : ''}}
+                  <a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="p-1 text-ink-muted hover:text-emerald-600 transition" title="원천 소스 링크 열기">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Unified Single Clickable Target: Title + Tab Destination Indicator -->
+              <div class="cursor-pointer group/title" onclick="navigateFromRadar('${{targetTab}}', '${{escapedSearchKey}}', '${{escapedInboxId}}')">
+                <div class="text-xs font-bold text-ink-primary group-hover/title:text-emerald-700 transition flex items-start justify-between gap-2 leading-snug">
+                  <span class="line-clamp-1">${{it.title}}</span>
+                  <span class="text-[10px] font-mono font-semibold text-indigo-600 shrink-0 flex items-center gap-0.5 opacity-80 group-hover/title:opacity-100 mt-0.5">
+                    <span>${{tabName}}</span>
+                    <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                  </span>
+                </div>
+                ${{it.summary ? `<p class="text-[11px] text-ink-muted line-clamp-2 leading-relaxed mt-1">${{it.summary}}</p>` : ''}}
+              </div>
+            `;
+            bulletsContainer.appendChild(itemCard);
+          }});
+        }} else {{
+          bulletsContainer.innerHTML = '<div class="py-6 text-center text-xs text-ink-muted font-mono">이 회차에 등록된 트렌드 데이터가 없습니다.</div>';
+        }}
+      }}
+
+      // 4. Render tags
+      const tagsContainer = document.getElementById('trendRadarTags');
+      if (tagsContainer) {{
+        tagsContainer.innerHTML = '';
+        const tags = sessionData.tags || [];
+        tags.forEach(tg => {{
+          const pill = document.createElement('span');
+          pill.className = 'px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200 hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-300 transition cursor-pointer';
+          pill.innerText = tg;
+          pill.onclick = () => {{
+            const clean = tg.replace(/^#/, '');
+            navigateFromRadar('news', clean, '');
+          }};
+          tagsContainer.appendChild(pill);
+        }});
+      }}
+      if (window.lucide) window.lucide.createIcons();
     }}
 
     function renderTelemetryCharts() {{
@@ -2287,89 +2498,8 @@ def generate_html(data):
         }});
       }}
 
-      // 2. Render 1-Day 4-Sessions AI Trend Radar
-      const bulletsContainer = document.getElementById('trendRadarBullets');
-      const tagsContainer = document.getElementById('trendRadarTags');
-      if (bulletsContainer && typeof trend6hData !== 'undefined') {{
-        bulletsContainer.innerHTML = '';
-        const items = trend6hData.items || [];
-
-        if (items.length > 0) {{
-          items.forEach((it, idx) => {{
-            const targetTab = it.is_model ? 'models' : 'news';
-            const tabName = it.is_model ? 'AI 모델 탭' : '테크 동향 탭';
-            const tabBadgeClass = it.is_model ? 'bg-purple-50 text-purple-700 border-purple-200' : 'bg-amber-50 text-amber-800 border-amber-200';
-            const escapedTitle = (it.title || '').replace(/'/g, "\\'");
-
-            const item = document.createElement('div');
-            item.className = 'group p-2.5 rounded-xl bg-surface-subtle border border-surface-border hover:border-emerald-400 hover:bg-white transition flex flex-col gap-1.5';
-            item.innerHTML = `
-              <div class="flex items-start justify-between gap-2">
-                <div class="flex items-center gap-1.5 flex-wrap">
-                  <span class="w-5 h-5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center font-mono font-bold text-[10px] shrink-0">0${{idx + 1}}</span>
-                  <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold ${{tabBadgeClass}} border">${{it.platform || 'AI Hub'}}</span>
-                  ${{it.viral_metric ? `<span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1">🔥 ${{it.viral_metric}}</span>` : ''}}
-                </div>
-                <div class="flex items-center gap-1.5 shrink-0">
-                  ${{it.case_id ? `
-                    <button onclick="openCaseModal('${{it.case_id}}')" class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-300 hover:bg-emerald-200 flex items-center gap-1 transition">
-                      <i data-lucide="shield-check" class="w-3 h-3"></i>
-                      팩트체크
-                    </button>
-                  ` : ''}}
-                  <a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="p-1 text-ink-muted hover:text-emerald-600 transition" title="원천 소스 링크 열기">
-                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div class="text-xs font-bold text-ink-primary group-hover:text-emerald-700 transition cursor-pointer flex items-center justify-between gap-2" onclick="navigateFromRadar('${{targetTab}}', '${{escapedTitle}}')">
-                <span class="line-clamp-1">${{it.title}}</span>
-                <i data-lucide="arrow-right" class="w-3 h-3 opacity-0 group-hover:opacity-100 transition shrink-0 text-emerald-600"></i>
-              </div>
-
-              ${{it.summary ? `<p class="text-[11px] text-ink-muted line-clamp-2 leading-relaxed">${{it.summary}}</p>` : ''}}
-
-              <div class="flex items-center justify-between text-[10px] pt-1 text-ink-muted border-t border-slate-100">
-                <span class="cursor-pointer hover:underline text-indigo-600 font-semibold" onclick="navigateFromRadar('${{targetTab}}', '${{escapedTitle}}')">
-                  ${{tabName}}에서 검색 &rarr;
-                </span>
-                <span class="font-mono text-slate-400">#세션${{trend6hData.session_num || 3}}</span>
-              </div>
-            `;
-            bulletsContainer.appendChild(item);
-          }});
-        }} else {{
-          // Fallback to text bullets
-          const bullets = trend6hData.bullets || [];
-          bullets.forEach((b, idx) => {{
-            const item = document.createElement('div');
-            item.className = 'flex items-start gap-2 text-xs text-ink-secondary leading-snug p-2 rounded-lg bg-surface-subtle border border-surface-border hover:border-emerald-400 hover:bg-white transition cursor-pointer';
-            item.onclick = () => navigateFromRadar('models', b);
-            item.innerHTML = `
-              <span class="w-5 h-5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center font-mono font-bold text-[10px] shrink-0 mt-0.5">0${{idx + 1}}</span>
-              <span class="flex-1">${{b}}</span>
-            `;
-            bulletsContainer.appendChild(item);
-          }});
-        }}
-
-        if (tagsContainer) {{
-          tagsContainer.innerHTML = '';
-          const tags = trend6hData.tags || [];
-          tags.forEach(tg => {{
-            const pill = document.createElement('span');
-            pill.className = 'px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200 hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-300 transition cursor-pointer';
-            pill.innerText = tg;
-            pill.onclick = () => {{
-              const clean = tg.replace(/^#/, '');
-              navigateFromRadar('news', clean);
-            }};
-            tagsContainer.appendChild(pill);
-          }});
-        }}
-        if (window.lucide) window.lucide.createIcons();
-      }}
+      // 2. Render 1-Day 4-Sessions AI Trend Radar (Active Session)
+      renderRadarSession();
     }}
 
     // ================= RENDER EXECUTIVE SCANNABLE CARDS =================
@@ -2928,6 +3058,7 @@ def generate_html(data):
     }}
 
     function handleNewsSearch(val) {{
+      targetSelectedInboxId = '';
       currentNewsPage = 1;
       currentNewsSearch = (val || '').trim().toLowerCase();
       renderNews();
@@ -2959,6 +3090,11 @@ def generate_html(data):
 
       const rawNewsItems = liveNewsData || [];
       const newsItems = rawNewsItems.filter(it => {{
+        // 🌟 Direct Primary Key Match from Radar
+        if (targetSelectedInboxId && it.inbox_id === targetSelectedInboxId) {{
+          return true;
+        }}
+
         // 1. Category Filter
         if (currentNewsCategory !== 'ALL') {{
           const itemCat = it.category_primary || 'INDUSTRY_TRENDS';
@@ -2974,16 +3110,22 @@ def generate_html(data):
 
         // 3. Search Filter
         if (currentNewsSearch) {{
+          const q = currentNewsSearch.toLowerCase().trim();
           const haystack = (
+            (it.inbox_id || '') + ' ' +
             (it.title || '') + ' ' +
             (it.title_ko || '') + ' ' +
             (it.title_en || '') + ' ' +
             (it.hook || '') + ' ' +
             (it.hook_ko || '') + ' ' +
-            (it.category_primary || '') + ' ' +
-            (it.source_platform || '')
+            (it.description || '') + ' ' +
+            (it.source_platform || '') + ' ' +
+            (it.ai_enrichment?.summary_ko || '')
           ).toLowerCase();
-          if (!haystack.includes(currentNewsSearch)) return false;
+
+          const tokens = q.split(/\\s+/).filter(t => t.length > 0);
+          const matches = haystack.includes(q) || (tokens.length > 0 && tokens.every(t => haystack.includes(t)));
+          if (!matches) return false;
         }}
 
         return true;
@@ -3241,6 +3383,7 @@ def generate_html(data):
     }}
 
     document.getElementById('modelsSearchInput')?.addEventListener('input', (e) => {{
+      targetSelectedInboxId = '';
       currentModelsPage = 1;
       modelsSearchQuery = e.target.value;
       renderModels();
@@ -3255,6 +3398,11 @@ def generate_html(data):
         // 🚨 STRICT POLICY: 번역/요약/정리가 100% 완료된 아이템만 분류 노출 (미번역 아이템은 절대 분류 금지)
         const hasAi = !!(item.ai_enrichment && (item.multilingual || (item.ai_enrichment && item.ai_enrichment.multilingual)));
         if (!hasAi) return false;
+
+        // 🌟 Direct Primary Key Match from Radar
+        if (targetSelectedInboxId && item.inbox_id === targetSelectedInboxId) {{
+          return true;
+        }}
 
         let matchesMod = true;
         if (currentModelsModality !== 'ALL') {{
@@ -3274,8 +3422,27 @@ def generate_html(data):
           matchesFam = fam.includes(currentModelsFamily.toLowerCase());
         }}
 
-        const text = (item.title + ' ' + (item.title_ko || '') + ' ' + (item.title_en || '') + ' ' + (item.title_zh || '') + ' ' + (item.description || '') + ' ' + fam + ' ' + (item.task_modality || '') + ' ' + (item.parameter_size || '')).toLowerCase();
-        const matchesSearch = text.includes(modelsSearchQuery.toLowerCase());
+        if (!modelsSearchQuery) {{
+          return matchesMod && matchesFam;
+        }}
+
+        const q = modelsSearchQuery.toLowerCase().trim();
+        const searchable = (
+          (item.inbox_id || '') + ' ' +
+          (item.title || '') + ' ' +
+          (item.title_ko || '') + ' ' +
+          (item.title_en || '') + ' ' +
+          (item.title_zh || '') + ' ' +
+          (item.description || '') + ' ' +
+          fam + ' ' +
+          (item.task_modality || '') + ' ' +
+          (item.parameter_size || '') + ' ' +
+          (item.ai_enrichment?.summary_ko || '') + ' ' +
+          (item.ai_enrichment?.hook_ko || '')
+        ).toLowerCase();
+
+        const tokens = q.split(/\\s+/).filter(t => t.length > 0);
+        const matchesSearch = searchable.includes(q) || (tokens.length > 0 && tokens.every(t => searchable.includes(t)));
         return matchesMod && matchesFam && matchesSearch;
       }});
 

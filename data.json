@@ -1752,54 +1752,309 @@
   "trend_6h": {
     "session_num": 3,
     "session_name": "3회차 (오후)",
+    "short_name": "3회 12시",
     "window_label": "12:00 ~ 18:00 KST",
-    "window_period": "오후 실시간 모델 & 아키텍처 브리핑",
-    "today_kst": "2026-09-05",
-    "updated_at": "14:20 KST",
+    "window_period": "정오 레이더 & 고바이럴 SOTA 모델 / 프레임워크",
+    "is_current": true,
+    "is_future": false,
+    "status": "active",
     "bullets": [
-      "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
-      "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
-      "🔥 [Hugging Face Models] GLM-5.3-Flash: 초경량 고성능 비전-언어 멀티모달 모델 (Trending 1796 pts (❤️ 1923)) — 높은 다운로드 수와 뛰어난 추론 효율성을 자랑하는 멀티모달(Image-Text-to-Text) 모델"
+      "🔥 [Hugging Face Spaces (Demo)] AI 만화 공장 (AI Comic Factory) - 생성형 AI 기반 만화 자동 (❤️ 11236 Likes (Trending Demo)) — LLM의 스토리텔링과 이미지 생성 모델을 결합해 프롬프트 하나로 고품질 웹툰/만화를 자동 생성하는 대화형 AI 애플리케이션",
+      "🔥 [GitHub Official] s1dashu/ip-as-logo-skill: 아기자기한 마스코트 로고 생성을 위 (★ 4640 Stars) — 단순화되고 동글동글한 네오 스큐어모피즘 스타일 IP 마스코트 로고를 생성하는 경량 AI 에이전트 스킬",
+      "🔥 [GeekNews] 내 두뇌가 AI에 의해 망가지고 있을까? (🇰🇷 GeekNews 큐레이션) — AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유."
     ],
     "items": [
       {
-        "inbox_id": "2026-09-03_repo_hf_space_enzostvsdeepsite",
-        "title": "enzostvs/deepsite (AI 웹사이트 생성기)",
+        "inbox_id": "2026-09-03_repo_hf_space_jbilcke_hfai_comic_factory",
+        "title": "AI 만화 공장 (AI Comic Factory) - 생성형 AI 기반 만화 자동 제작 도구",
+        "search_key": "jbilcke-hf/ai-comic-factory",
         "platform": "Hugging Face Spaces (Demo)",
-        "viral_metric": "❤️ 16610 Likes (Trending Demo)",
-        "summary": "자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
-        "source_url": "https://huggingface.co/spaces/enzostvs/deepsite",
+        "platform_family": "HuggingFace",
+        "viral_metric": "❤️ 11236 Likes (Trending Demo)",
+        "summary": "LLM의 스토리텔링과 이미지 생성 모델을 결합해 프롬프트 하나로 고품질 웹툰/만화를 자동 생성하는 대화형 AI 애플리케이션",
+        "source_url": "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
         "is_model": true,
         "case_id": null
       },
       {
-        "inbox_id": "2026-08-31_repo_github_sapientincpraxist",
-        "title": "sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스템",
+        "inbox_id": "2026-08-31_repo_github_s1dashuip_as_logo_skill",
+        "title": "s1dashu/ip-as-logo-skill: 아기자기한 마스코트 로고 생성을 위한 에이전트 스킬",
+        "search_key": "s1dashu/ip-as-logo-skill",
         "platform": "GitHub Official",
-        "viral_metric": "★ 6780 Stars",
-        "summary": "컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
-        "source_url": "https://github.com/sapientinc/PRAXIST",
+        "platform_family": "GitHub",
+        "viral_metric": "★ 4640 Stars",
+        "summary": "단순화되고 동글동글한 네오 스큐어모피즘 스타일 IP 마스코트 로고를 생성하는 경량 AI 에이전트 스킬",
+        "source_url": "https://github.com/s1dashu/ip-as-logo-skill",
         "is_model": true,
         "case_id": null
       },
       {
-        "inbox_id": "2026-08-31_repo_huggingface_model_zai_orgglm_53_flash",
-        "title": "GLM-5.3-Flash: 초경량 고성능 비전-언어 멀티모달 모델",
-        "platform": "Hugging Face Models",
-        "viral_metric": "Trending 1796 pts (❤️ 1923)",
-        "summary": "높은 다운로드 수와 뛰어난 추론 효율성을 자랑하는 멀티모달(Image-Text-to-Text) 모델",
-        "source_url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
-        "is_model": true,
+        "inbox_id": "2026-09-05_sns_geeknews_ai가_내_두뇌를_망치고_있을까",
+        "title": "내 두뇌가 AI에 의해 망가지고 있을까?",
+        "search_key": "AI가 내 두뇌를 망치고 있을까?",
+        "platform": "GeekNews",
+        "platform_family": "GeekNews",
+        "viral_metric": "🇰🇷 GeekNews 큐레이션",
+        "summary": "AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유.",
+        "source_url": "https://news.hada.io/topic?id=33248",
+        "is_model": false,
         "case_id": null
       }
     ],
     "tags": [
-      "#High_Engagement",
+      "#Autonomous_Agent",
+      "#Local_LLM",
       "#SoTA_Models",
       "#MoE_Architecture",
-      "#Autonomous_Agent",
-      "#Local_LLM"
+      "#Inference_Engine"
     ]
+  },
+  "trend_radar": {
+    "current_session": 3,
+    "today_kst": "2026-09-05",
+    "updated_at": "14:42 KST",
+    "sessions": {
+      "1": {
+        "session_num": 1,
+        "session_name": "1회차 (심야)",
+        "short_name": "1회 00시",
+        "window_label": "00:00 ~ 06:00 KST",
+        "window_period": "심야 글로벌 실리콘밸리 릴리스 & 오픈소스 코어",
+        "is_current": false,
+        "is_future": false,
+        "status": "completed",
+        "bullets": [
+          "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
+          "🔥 [Hacker News] 클로드 파블 5.1 및 클로드 미소스 5.1 관련 Hacker News 논의 (🔥 1304 HN Points) — Anthropic의 Claude Fable 5.1 및 Mythos 5.1 모델 공개에 대한 Hacker News의 뜨거운 분석과 기술적 토론",
+          "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모"
+        ],
+        "items": [
+          {
+            "inbox_id": "2026-08-31_repo_github_sapientincpraxist",
+            "title": "sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스템",
+            "search_key": "sapientinc/PRAXIST",
+            "platform": "GitHub Official",
+            "platform_family": "GitHub",
+            "viral_metric": "★ 6780 Stars",
+            "summary": "컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
+            "source_url": "https://github.com/sapientinc/PRAXIST",
+            "is_model": true,
+            "case_id": null
+          },
+          {
+            "inbox_id": "2026-09-02_sns_hacker_news_claude_fable_51_and_claude_mythos",
+            "title": "클로드 파블 5.1 및 클로드 미소스 5.1 관련 Hacker News 논의",
+            "search_key": "Claude Fable 5.1 and Claude Mythos 5.1",
+            "platform": "Hacker News",
+            "platform_family": "HackerNews",
+            "viral_metric": "🔥 1304 HN Points",
+            "summary": "Anthropic의 Claude Fable 5.1 및 Mythos 5.1 모델 공개에 대한 Hacker News의 뜨거운 분석과 기술적 토론",
+            "source_url": "https://news.ycombinator.com/item?id=49525378",
+            "is_model": false,
+            "case_id": null
+          },
+          {
+            "inbox_id": "2026-09-03_repo_hf_space_enzostvsdeepsite",
+            "title": "enzostvs/deepsite (AI 웹사이트 생성기)",
+            "search_key": "enzostvs/deepsite",
+            "platform": "Hugging Face Spaces (Demo)",
+            "platform_family": "HuggingFace",
+            "viral_metric": "❤️ 16610 Likes (Trending Demo)",
+            "summary": "자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
+            "source_url": "https://huggingface.co/spaces/enzostvs/deepsite",
+            "is_model": true,
+            "case_id": null
+          }
+        ],
+        "tags": [
+          "#Autonomous_Agent",
+          "#Local_LLM",
+          "#SoTA_Models",
+          "#MoE_Architecture",
+          "#Inference_Engine"
+        ]
+      },
+      "2": {
+        "session_num": 2,
+        "session_name": "2회차 (오전)",
+        "short_name": "2회 06시",
+        "window_label": "06:00 ~ 12:00 KST",
+        "window_period": "모닝 브리핑 & 유럽 연구 논문 레이더",
+        "is_current": false,
+        "is_future": false,
+        "status": "completed",
+        "bullets": [
+          "🔥 [ArXiv Preprint] 합성하기 전에 먼저 보는 것: 약한 감독 비디어 밀도 캡셔닝을 위한 VLM 유도  (ArXiv Primary Paper) — 순서 없는 비디어에서 이벤트 경계를 정확히 잡기 위해, VLM을 활용해 합성 전에 전환 이벤트를 선별하는 최신 아키텍처!",
+          "🔥 [GitHub Official] MengTo/threeui - 인터랙티브 3D 컴포넌트 카탈로그 (★ 4961 Stars) — Three.js 기반의 인터랙티브 3D UI 컴포넌트와 오픈소스 카탈로그 프로젝트",
+          "🔥 [Hugging Face Spaces (Demo)] Hugging Face 오픈 LLM 리더보드 (❤️ 14087 Likes (Trending Demo)) — 오픈소스 대형 언어 모델(LLM)의 성능 평가 및 벤치마킹을 위한 공식 대화형 리더보드"
+        ],
+        "items": [
+          {
+            "inbox_id": "2026-09-04_repo_arxiv_seeing_before_synthesizing_vlm_guided_t",
+            "title": "합성하기 전에 먼저 보는 것: 약한 감독 비디어 밀도 캡셔닝을 위한 VLM 유도 전환 이벤트 발견",
+            "search_key": "Seeing Before Synthesizing",
+            "platform": "ArXiv Preprint",
+            "platform_family": "ArXiv",
+            "viral_metric": "ArXiv Primary Paper",
+            "summary": "순서 없는 비디어에서 이벤트 경계를 정확히 잡기 위해, VLM을 활용해 합성 전에 전환 이벤트를 선별하는 최신 아키텍처!",
+            "source_url": "http://arxiv.org/abs/2609.04183v1",
+            "is_model": true,
+            "case_id": null
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_mengtothreeui",
+            "title": "MengTo/threeui - 인터랙티브 3D 컴포넌트 카탈로그",
+            "search_key": "MengTo/threeui",
+            "platform": "GitHub Official",
+            "platform_family": "GitHub",
+            "viral_metric": "★ 4961 Stars",
+            "summary": "Three.js 기반의 인터랙티브 3D UI 컴포넌트와 오픈소스 카탈로그 프로젝트",
+            "source_url": "https://github.com/MengTo/threeui",
+            "is_model": true,
+            "case_id": null
+          },
+          {
+            "inbox_id": "2026-09-03_repo_hf_space_open_llm_leaderboardopen_llm_leaderb",
+            "title": "Hugging Face 오픈 LLM 리더보드",
+            "search_key": "open-llm-leaderboard/open_llm_leaderboard",
+            "platform": "Hugging Face Spaces (Demo)",
+            "platform_family": "HuggingFace",
+            "viral_metric": "❤️ 14087 Likes (Trending Demo)",
+            "summary": "오픈소스 대형 언어 모델(LLM)의 성능 평가 및 벤치마킹을 위한 공식 대화형 리더보드",
+            "source_url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+            "is_model": true,
+            "case_id": null
+          }
+        ],
+        "tags": [
+          "#Autonomous_Agent",
+          "#Local_LLM",
+          "#SoTA_Models",
+          "#MoE_Architecture",
+          "#Inference_Engine"
+        ]
+      },
+      "3": {
+        "session_num": 3,
+        "session_name": "3회차 (오후)",
+        "short_name": "3회 12시",
+        "window_label": "12:00 ~ 18:00 KST",
+        "window_period": "정오 레이더 & 고바이럴 SOTA 모델 / 프레임워크",
+        "is_current": true,
+        "is_future": false,
+        "status": "active",
+        "bullets": [
+          "🔥 [Hugging Face Spaces (Demo)] AI 만화 공장 (AI Comic Factory) - 생성형 AI 기반 만화 자동 (❤️ 11236 Likes (Trending Demo)) — LLM의 스토리텔링과 이미지 생성 모델을 결합해 프롬프트 하나로 고품질 웹툰/만화를 자동 생성하는 대화형 AI 애플리케이션",
+          "🔥 [GitHub Official] s1dashu/ip-as-logo-skill: 아기자기한 마스코트 로고 생성을 위 (★ 4640 Stars) — 단순화되고 동글동글한 네오 스큐어모피즘 스타일 IP 마스코트 로고를 생성하는 경량 AI 에이전트 스킬",
+          "🔥 [GeekNews] 내 두뇌가 AI에 의해 망가지고 있을까? (🇰🇷 GeekNews 큐레이션) — AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유."
+        ],
+        "items": [
+          {
+            "inbox_id": "2026-09-03_repo_hf_space_jbilcke_hfai_comic_factory",
+            "title": "AI 만화 공장 (AI Comic Factory) - 생성형 AI 기반 만화 자동 제작 도구",
+            "search_key": "jbilcke-hf/ai-comic-factory",
+            "platform": "Hugging Face Spaces (Demo)",
+            "platform_family": "HuggingFace",
+            "viral_metric": "❤️ 11236 Likes (Trending Demo)",
+            "summary": "LLM의 스토리텔링과 이미지 생성 모델을 결합해 프롬프트 하나로 고품질 웹툰/만화를 자동 생성하는 대화형 AI 애플리케이션",
+            "source_url": "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
+            "is_model": true,
+            "case_id": null
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_s1dashuip_as_logo_skill",
+            "title": "s1dashu/ip-as-logo-skill: 아기자기한 마스코트 로고 생성을 위한 에이전트 스킬",
+            "search_key": "s1dashu/ip-as-logo-skill",
+            "platform": "GitHub Official",
+            "platform_family": "GitHub",
+            "viral_metric": "★ 4640 Stars",
+            "summary": "단순화되고 동글동글한 네오 스큐어모피즘 스타일 IP 마스코트 로고를 생성하는 경량 AI 에이전트 스킬",
+            "source_url": "https://github.com/s1dashu/ip-as-logo-skill",
+            "is_model": true,
+            "case_id": null
+          },
+          {
+            "inbox_id": "2026-09-05_sns_geeknews_ai가_내_두뇌를_망치고_있을까",
+            "title": "내 두뇌가 AI에 의해 망가지고 있을까?",
+            "search_key": "AI가 내 두뇌를 망치고 있을까?",
+            "platform": "GeekNews",
+            "platform_family": "GeekNews",
+            "viral_metric": "🇰🇷 GeekNews 큐레이션",
+            "summary": "AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유.",
+            "source_url": "https://news.hada.io/topic?id=33248",
+            "is_model": false,
+            "case_id": null
+          }
+        ],
+        "tags": [
+          "#Autonomous_Agent",
+          "#Local_LLM",
+          "#SoTA_Models",
+          "#MoE_Architecture",
+          "#Inference_Engine"
+        ]
+      },
+      "4": {
+        "session_num": 4,
+        "session_name": "4회차 (저녁)",
+        "short_name": "4회 18시",
+        "window_label": "18:00 ~ 24:00 KST",
+        "window_period": "저녁 라운드업 & 인프라 시스템 결산",
+        "is_current": false,
+        "is_future": true,
+        "status": "upcoming",
+        "bullets": [
+          "🔥 [Hacker News] Gemini 3.8 Flash 및 3.8 Flash Cyber 공개 (🔥 1125 HN Points) — 속도와 비용 효율성을 극대화한 Gemini 3.8 Flash와 사이버 보안 특화 모델 Flash Cyber의 등장",
+          "🔥 [GitHub Official] HEJustinSun/my-girlfriend-jingtian-latex - 인기 (★ 4168 Stars) — 우수한 레이아웃과 가독성을 갖춘 스타 4,000+ 개 규모의 LaTeX 이력서 및 문서 작성 템플릿",
+          "🔥 [Hugging Face Spaces (Demo)] 콰이-컬러스(Kwai-Kolors) 가상 피팅(Virtual Try-On) 데모 (❤️ 10170 Likes (Trending Demo)) — 확산 모델 기반의 고품질 가상 의상 피팅 기술을 실시간 인터랙티브 데모로 체험"
+        ],
+        "items": [
+          {
+            "inbox_id": "2026-09-04_sns_hacker_news_gemini_38_flash_and_38_flash_cybe",
+            "title": "Gemini 3.8 Flash 및 3.8 Flash Cyber 공개",
+            "search_key": "Gemini 3.8 Flash and 3.8 Flash Cyber",
+            "platform": "Hacker News",
+            "platform_family": "HackerNews",
+            "viral_metric": "🔥 1125 HN Points",
+            "summary": "속도와 비용 효율성을 극대화한 Gemini 3.8 Flash와 사이버 보안 특화 모델 Flash Cyber의 등장",
+            "source_url": "https://news.ycombinator.com/item?id=49537553",
+            "is_model": false,
+            "case_id": null
+          },
+          {
+            "inbox_id": "2026-08-31_repo_github_hejustinsunmy_girlfriend_jingtian_late",
+            "title": "HEJustinSun/my-girlfriend-jingtian-latex - 인기 오픈소스 LaTeX 템플릿",
+            "search_key": "HEJustinSun/my-girlfriend-jingtian-latex",
+            "platform": "GitHub Official",
+            "platform_family": "GitHub",
+            "viral_metric": "★ 4168 Stars",
+            "summary": "우수한 레이아웃과 가독성을 갖춘 스타 4,000+ 개 규모의 LaTeX 이력서 및 문서 작성 템플릿",
+            "source_url": "https://github.com/HEJustinSun/my-girlfriend-jingtian-latex",
+            "is_model": true,
+            "case_id": null
+          },
+          {
+            "inbox_id": "2026-09-03_repo_hf_space_kwai_kolorskolors_virtual_try_on",
+            "title": "콰이-컬러스(Kwai-Kolors) 가상 피팅(Virtual Try-On) 데모",
+            "search_key": "Kwai-Kolors/Kolors-Virtual-Try-On",
+            "platform": "Hugging Face Spaces (Demo)",
+            "platform_family": "HuggingFace",
+            "viral_metric": "❤️ 10170 Likes (Trending Demo)",
+            "summary": "확산 모델 기반의 고품질 가상 의상 피팅 기술을 실시간 인터랙티브 데모로 체험",
+            "source_url": "https://huggingface.co/spaces/Kwai-Kolors/Kolors-Virtual-Try-On",
+            "is_model": true,
+            "case_id": null
+          }
+        ],
+        "tags": [
+          "#Autonomous_Agent",
+          "#Local_LLM",
+          "#SoTA_Models",
+          "#MoE_Architecture",
+          "#Inference_Engine"
+        ]
+      }
+    }
   },
   "dow_stats": [],
   "monthly_stats": [],
