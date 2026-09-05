@@ -20,18 +20,19 @@ persona_and_role: |
   반드시 JSON 배열만 출력해야 하며 마크다운이나 기타 텍스트는 일절 금지합니다.
 
 classification_criteria:
-  MODEL:
-    definition: "새로운 모델 가중치, 체크포인트, GGUF, AWQ, FP8, LoRA 발표"
-    rule: "Hugging Face Models 출처이거나 제목/설명에 모델명/체크포인트/GGUF가 포함된 경우 반드시 MODEL로 분류"
-  AGENT:
-    definition: "AI 에이전트 도구, 하네스, 스킬, 브라우저 조작 자동화, 코딩 에이전트 플러그인"
-    rule: "에이전트 워크플로우를 자동화하거나 에이전트 프레임워크인 경우 AGENT로 분류"
-  TECH:
-    definition: "신기술, 모델 경량화/가속, 아키텍처 이론, 벤치마크, 최적화 기법, 시스템 엔지니어링"
-    rule: "단순 모델 파일 배포가 아닌 기술적 방법론, 프레임워크, 논문 분석인 경우 TECH로 분류"
-  NEWS:
-    definition: "단순 업계 동향, 뉴스, 통계, 칼럼, 가십, 인용"
-    rule: "기술적 구현체나 모델 가중치 없이 소식 전달에 그치는 경우 NEWS로 분류"
+  primary_engineering_categories:
+    INFERENCE_OPT: "⚡ 추론 & 서빙 최적화 (vLLM, SGLang, Ollama, 양자화 AWQ/GGUF/FP8, 가속 기법, CUDA, 메모리 절감)"
+    AGENTS_DEVTOOLS: "🛠️ AI 에이전트 & 개발도구 (Browser Use, 코딩 어시스턴트, 프레임워크, 자동화, 스크래핑, CLI 도구)"
+    MULTIMODAL_AI: "🎨 멀티모달 & 비전/영상/음성 (비디오 생성 Wan/MiniMax, 이미지 FLUX, TTS/음성 분리, Computer Vision)"
+    FOUNDATION_MODELS: "🤖 파운데이션 & 오픈 가중치 (Qwen, DeepSeek, Llama 계열 새 가중치 발표, 체크포인트, MoE, LoRA)"
+    INFRA_RAG_SECURITY: "🛡️ 인프라, RAG & 보안/평가 (벡터DB, RAG, 탈옥/보안 취약점, 벤치마크 평가, MLOps 클러스터)"
+    INDUSTRY_TRENDS: "🌐 테크 동향 & 산업/정책 (빅테크 라이선스 논쟁, 클라우드 장애/사고 리포트, 기술 칼럼, 기업 동향)"
+
+  legacy_type_classification:
+    MODEL: "새로운 모델 가중치/체크포인트 발표"
+    AGENT: "AI 에이전트 도구/하네스/프레임워크"
+    TECH: "신기술/아키텍처/최적화 방법론"
+    NEWS: "단순 업계 동향/통계/칼럼"
 
 multilingual_guidelines:
   title:
@@ -51,8 +52,9 @@ output_json_schema: |
     {
       "id": "입력받은 id",
       "source_lang": "KO 또는 EN 또는 ZH (원문의 원래 언어)",
-      "type_classification": "MODEL (새 모델/가중치/GGUF/LoRA 발표 - Hugging Face Models는 반드시 MODEL) 또는 AGENT (에이전트 도구/하네스) 또는 TECH (신기술/아키텍처/최적화) 또는 NEWS (단순 업계동향/통계/칼럼)",
-      "model_family": "만약 type_classification이 MODEL인 경우 모델 패밀리명 (예: Qwen-3.8, DeepSeek, MiniMax, Llama, Gemma, Mistral, FLUX 등, 없으면 Standalone)",
+      "category_primary": "반드시 다음 6개 중 하나 선택: INFERENCE_OPT (추론/경량화/서빙) 또는 AGENTS_DEVTOOLS (에이전트/개발도구) 또는 MULTIMODAL_AI (비전/영상/음성) 또는 FOUNDATION_MODELS (파운데이션/오픈가중치) 또는 INFRA_RAG_SECURITY (RAG/보안/평가) 또는 INDUSTRY_TRENDS (산업동향/칼럼)",
+      "type_classification": "MODEL 또는 AGENT 또는 TECH 또는 NEWS",
+      "model_family": "만약 모델인 경우 모델 패밀리명 (예: Qwen-3.8, DeepSeek, MiniMax, Llama, Gemma, Mistral, FLUX 등, 없으면 Standalone)",
       "category": "세부 기술 카테고리 (예: LLM 추론 최적화, 웹 에이전트, 영상 제작 등)",
       "programming_lang": "주요 프로그래밍 언어 (예: Rust, Python, TypeScript, CUDA, C++ 등, 없으면 General)",
       "root_keywords": ["상위 키워드 1", "상위 키워드 2", "상위 키워드 3"],

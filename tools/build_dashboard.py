@@ -184,8 +184,24 @@ def build_dashboard():
             return True
         return False
 
-    news_items = [it for it in inbox_items if is_news_item(it)]
-    model_items = [it for it in inbox_items if is_model_item(it) and not is_news_item(it)]
+    news_items = [it for it in inbox_items if it.get("is_classified") or (it.get("ai_enrichment") and it.get("multilingual"))]
+    model_items = [it for it in inbox_items if is_model_item(it)]
+
+    news_cat_counts = {
+        "INFERENCE_OPT": 0,
+        "AGENTS_DEVTOOLS": 0,
+        "MULTIMODAL_AI": 0,
+        "FOUNDATION_MODELS": 0,
+        "INFRA_RAG_SECURITY": 0,
+        "INDUSTRY_TRENDS": 0
+    }
+    for it in news_items:
+        c = it.get("category_primary", "INDUSTRY_TRENDS")
+        if c in news_cat_counts:
+            news_cat_counts[c] += 1
+        else:
+            news_cat_counts["INDUSTRY_TRENDS"] += 1
+
     # All active unverified inbox candidates (only excludes already verified & promoted dossiers)
     clean_inbox_items = [
         it for it in inbox_items 
@@ -363,6 +379,7 @@ def build_dashboard():
         "avg_confidence": avg_conf,
         "models_total_count": len(model_items),
         "news_total_count": len(news_items),
+        "news_cat_counts": news_cat_counts,
         "inbox_total_count": len(clean_inbox_items),
         "all_inbox_count": len(inbox_items),
         "admin_stats": admin_stats,
@@ -1011,7 +1028,7 @@ def generate_html(data):
       <div id="modelsPagination" class="mt-4"></div>
     </div>
 
-    <!-- ==================== VIEW 2: AI NEWS & TRENDS ==================== -->
+    <!-- ==================== VIEW 2: AI NEWS & TRENDS (정밀 카테고리화 허브) ==================== -->
     <div id="newsView" class="hidden space-y-6">
       <div class="bg-white p-6 rounded-2xl border border-surface-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
         <div class="space-y-1">
@@ -1021,32 +1038,59 @@ def generate_html(data):
             </span>
             <span class="text-xs text-ink-muted font-mono" id="newsHeaderCount">총 {data['news_total_count']}건</span>
           </div>
-          <h2 class="text-lg font-bold text-ink-primary" id="newsHeaderTitle">커뮤니티, 해커뉴스, 사설에서 수집된 주요 AI 담론</h2>
+          <h2 class="text-lg font-bold text-ink-primary" id="newsHeaderTitle">수집 인박스 기반 6대 기술 도메인 정밀 분류</h2>
           <p class="text-xs text-ink-secondary" id="newsHeaderDesc">
-            소프트웨어 저장소뿐만 아니라 엔지니어링 동향, 보안 리포트, 아키텍처 튜토리얼 기사를 선별합니다.
+            글로벌 커뮤니티, 연구 논문, 오픈소스 저장소에서 수집된 AI 동향을 6대 엔지니어링 카테고리로 체계화하여 제공합니다.
           </p>
         </div>
       </div>
 
-      <!-- News Source & Sort Controls -->
-      <div class="bg-white p-3.5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-3 border border-surface-border shadow-sm">
-        <div class="flex items-center gap-2 w-full md:w-auto flex-wrap">
-          <button onclick="setNewsSourceFilter('ALL')" class="news-src-btn active px-3 py-1.5 rounded-xl text-xs font-bold bg-ink-primary text-white transition" data-src="ALL">전체 ({data['news_total_count']}건)</button>
-          <button onclick="setNewsSourceFilter('GeekNews')" class="news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="GeekNews">🇰🇷 긱뉴스 (GeekNews)</button>
-          <button onclick="setNewsSourceFilter('Hacker News')" class="news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="Hacker News">🔥 Hacker News</button>
-          <button onclick="setNewsSourceFilter('Blog')" class="news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="Blog">🌍 Tech Blogs</button>
+      <!-- News Category Filter Bar (6대 정규 엔지니어링 카테고리) -->
+      <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
+        <div class="flex items-center gap-2 flex-wrap text-xs">
+          <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
+            🏷️ 기술 분류:
+          </span>
+          <div class="flex items-center gap-1.5 flex-wrap" id="newsCategoryFilterRow">
+            <button onclick="setNewsCategoryFilter('ALL')" data-cat="ALL" class="news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm">전체 ({data['news_total_count']})</button>
+            <button onclick="setNewsCategoryFilter('INFERENCE_OPT')" data-cat="INFERENCE_OPT" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">⚡ 추론 & 최적화 ({data['news_cat_counts'].get('INFERENCE_OPT', 0)})</button>
+            <button onclick="setNewsCategoryFilter('AGENTS_DEVTOOLS')" data-cat="AGENTS_DEVTOOLS" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🛠️ 에이전트 & 도구 ({data['news_cat_counts'].get('AGENTS_DEVTOOLS', 0)})</button>
+            <button onclick="setNewsCategoryFilter('MULTIMODAL_AI')" data-cat="MULTIMODAL_AI" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🎨 멀티모달 & 생성AI ({data['news_cat_counts'].get('MULTIMODAL_AI', 0)})</button>
+            <button onclick="setNewsCategoryFilter('FOUNDATION_MODELS')" data-cat="FOUNDATION_MODELS" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🤖 파운데이션 모델 ({data['news_cat_counts'].get('FOUNDATION_MODELS', 0)})</button>
+            <button onclick="setNewsCategoryFilter('INFRA_RAG_SECURITY')" data-cat="INFRA_RAG_SECURITY" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🛡️ 인프라·RAG·보안 ({data['news_cat_counts'].get('INFRA_RAG_SECURITY', 0)})</button>
+            <button onclick="setNewsCategoryFilter('INDUSTRY_TRENDS')" data-cat="INDUSTRY_TRENDS" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌐 테크 동향 & 산업 ({data['news_cat_counts'].get('INDUSTRY_TRENDS', 0)})</button>
+          </div>
         </div>
 
-        <div class="flex items-center gap-1.5 bg-surface-subtle px-3 py-1.5 rounded-xl border border-surface-border text-xs shrink-0">
-          <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-indigo-600"></i>
-          <span class="text-ink-muted text-[11px] font-mono">정렬:</span>
-          <select id="newsSortSelect" onchange="setNewsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
-            <option value="date-source-desc">📅 수집/발행 최신순 (기본)</option>
-            <option value="date-source-asc">📅 수집/발행 오래된순</option>
-            <option value="date-audit-desc">🔬 AI 분석일 최신순</option>
-            <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
-            <option value="title-asc">제목 가나다순</option>
-          </select>
+        <!-- Secondary Source & Search & Sort Row -->
+        <div class="pt-2 border-t border-surface-border flex flex-col md:flex-row items-center justify-between gap-3">
+          <div class="flex items-center gap-1.5 flex-wrap w-full md:w-auto text-xs">
+            <span class="text-ink-muted text-[11px] font-mono shrink-0">출처:</span>
+            <button onclick="setNewsSourceFilter('ALL')" class="news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition" data-src="ALL">전체 출처</button>
+            <button onclick="setNewsSourceFilter('GeekNews')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="GeekNews">🇰🇷 긱뉴스</button>
+            <button onclick="setNewsSourceFilter('Hacker News')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="Hacker News">🔥 HN</button>
+            <button onclick="setNewsSourceFilter('GitHub')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="GitHub">🐙 GitHub</button>
+            <button onclick="setNewsSourceFilter('ArXiv')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="ArXiv">📄 ArXiv</button>
+            <button onclick="setNewsSourceFilter('Hugging Face')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="Hugging Face">🤗 HF</button>
+          </div>
+
+          <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+            <div class="relative w-48 md:w-56">
+              <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-ink-muted"></i>
+              <input type="text" id="newsSearchInput" oninput="handleNewsSearch(this.value)" placeholder="기술명, 키워드 검색..." 
+                     class="w-full bg-surface-subtle border border-surface-border rounded-xl pl-8 pr-3 py-1.5 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
+            </div>
+
+            <div class="flex items-center gap-1.5 bg-surface-subtle px-2.5 py-1 rounded-xl border border-surface-border text-xs shrink-0">
+              <i data-lucide="arrow-up-down" class="w-3 h-3 text-indigo-600"></i>
+              <select id="newsSortSelect" onchange="setNewsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
+                <option value="date-source-desc">📅 최신순 (기본)</option>
+                <option value="date-source-asc">📅 오래된순</option>
+                <option value="date-audit-desc">🔬 AI 분석일 최신순</option>
+                <option value="title-asc">제목 가나다순</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -2748,9 +2792,30 @@ def generate_html(data):
       setTimeout(handleHashRoute, 150);
     }});
 
-    // ================= NEWS VIEW =================
+    // ================= NEWS VIEW (6대 카테고리화 엔진) =================
+    let currentNewsCategory = 'ALL';
     let currentNewsSource = 'ALL';
     let currentNewsSort = 'date-source-desc';
+    let currentNewsSearch = '';
+
+    function setNewsCategoryFilter(cat) {{
+      currentNewsPage = 1;
+      currentNewsCategory = cat;
+      document.querySelectorAll('.news-cat-pill').forEach(btn => {{
+        if (btn.getAttribute('data-cat') === cat) {{
+          btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+        }} else {{
+          btn.className = 'news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+      renderNews();
+    }}
+
+    function handleNewsSearch(val) {{
+      currentNewsPage = 1;
+      currentNewsSearch = (val || '').trim().toLowerCase();
+      renderNews();
+    }}
 
     function setNewsSort(sort) {{
       currentNewsPage = 1;
@@ -2763,9 +2828,9 @@ def generate_html(data):
       currentNewsSource = src;
       document.querySelectorAll('.news-src-btn').forEach(btn => {{
         if (btn.getAttribute('data-src') === src) {{
-          btn.className = 'news-src-btn active px-3 py-1.5 rounded-xl text-xs font-bold bg-ink-primary text-white transition';
+          btn.className = 'news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition';
         }} else {{
-          btn.className = 'news-src-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border';
+          btn.className = 'news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border';
         }}
       }});
       renderNews();
@@ -2778,10 +2843,34 @@ def generate_html(data):
 
       const rawNewsItems = liveNewsData || [];
       const newsItems = rawNewsItems.filter(it => {{
-        // 🚨 STRICT POLICY: 번역/요약/정리가 100% 완료된 아이템만 분류 노출 (미번역 아이템은 절대 분류 금지)
-        const hasAi = !!(it.ai_enrichment && (it.multilingual || (it.ai_enrichment && it.ai_enrichment.multilingual)));
-        if (!hasAi) return false;
-        return currentNewsSource === 'ALL' || (it.source_platform && it.source_platform.includes(currentNewsSource));
+        // 1. Category Filter
+        if (currentNewsCategory !== 'ALL') {{
+          const itemCat = it.category_primary || 'INDUSTRY_TRENDS';
+          if (itemCat !== currentNewsCategory) return false;
+        }}
+
+        // 2. Platform Source Filter
+        if (currentNewsSource !== 'ALL') {{
+          const src = (it.source_platform || '').toLowerCase();
+          const target = currentNewsSource.toLowerCase();
+          if (!src.includes(target)) return false;
+        }}
+
+        // 3. Search Filter
+        if (currentNewsSearch) {{
+          const haystack = (
+            (it.title || '') + ' ' +
+            (it.title_ko || '') + ' ' +
+            (it.title_en || '') + ' ' +
+            (it.hook || '') + ' ' +
+            (it.hook_ko || '') + ' ' +
+            (it.category_primary || '') + ' ' +
+            (it.source_platform || '')
+          ).toLowerCase();
+          if (!haystack.includes(currentNewsSearch)) return false;
+        }}
+
+        return true;
       }});
 
       // 🌟 Precision DateTime Sorting (Default: Source Date/Time DESC)
@@ -2882,6 +2971,16 @@ def generate_html(data):
         let hookHtml = '';
         let relatedHtml = '';
 
+        const catMap = {{
+          'INFERENCE_OPT': {{ label: currentLang === 'KO' ? '⚡ 추론·서빙 최적화' : (currentLang === 'ZH' ? '⚡ 推理服务优化' : '⚡ Inference & Opt'), cls: 'bg-amber-50 text-amber-900 border-amber-200' }},
+          'AGENTS_DEVTOOLS': {{ label: currentLang === 'KO' ? '🛠️ 에이전트·개발도구' : (currentLang === 'ZH' ? '🛠️ 智能体与工具' : '🛠️ Agents & DevTools'), cls: 'bg-blue-50 text-blue-900 border-blue-200' }},
+          'MULTIMODAL_AI': {{ label: currentLang === 'KO' ? '🎨 멀티모달·영상/음성' : (currentLang === 'ZH' ? '🎨 多模态与视听' : '🎨 Multimodal & GenAI'), cls: 'bg-purple-50 text-purple-900 border-purple-200' }},
+          'FOUNDATION_MODELS': {{ label: currentLang === 'KO' ? '🤖 파운데이션·가중치' : (currentLang === 'ZH' ? '🤖 基础模型与权重' : '🤖 Foundation Models'), cls: 'bg-emerald-50 text-emerald-900 border-emerald-200' }},
+          'INFRA_RAG_SECURITY': {{ label: currentLang === 'KO' ? '🛡️ 인프라·RAG·보안' : (currentLang === 'ZH' ? '🛡️ 基础设施与安全' : '🛡️ Infra, RAG & Safety'), cls: 'bg-rose-50 text-rose-900 border-rose-200' }},
+          'INDUSTRY_TRENDS': {{ label: currentLang === 'KO' ? '🌐 테크 동향·산업' : (currentLang === 'ZH' ? '🌐 行业资讯与生态' : '🌐 Tech & Industry'), cls: 'bg-slate-100 text-slate-800 border-slate-200' }}
+        }};
+        const catInfo = catMap[it.category_primary] || catMap['INDUSTRY_TRENDS'];
+
         if (ai) {{
           const tagBg = ai.worth_investigating === 'HIGH' ? 'bg-orange-50 text-orange-950 border-orange-200' : 'bg-indigo-50 text-indigo-950 border-indigo-200';
           const typeLabels = {{
@@ -2946,10 +3045,15 @@ def generate_html(data):
         card.innerHTML = `
           <div class="space-y-2.5">
             <div class="flex items-center justify-between text-xs font-mono">
-              <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[11px]">
-                ${{it.source_platform || 'Tech News'}}
-              </span>
-              <span class="text-ink-muted text-[11px]">${{it.viral_metric || ''}}</span>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{catInfo.cls}}">
+                  ${{catInfo.label}}
+                </span>
+                <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px]">
+                  ${{it.source_platform || 'Tech News'}}
+                </span>
+              </div>
+              <span class="text-ink-muted text-[11px] font-mono">${{it.viral_metric || ''}}</span>
             </div>
 
             ${{aiBadgeHtml}}

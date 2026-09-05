@@ -103,7 +103,52 @@ def match_dossier(dossiers, title, category, programming_lang, root_keywords):
                 "title": d["title"],
                 "target_tech": d["target_tech"]
             }
-    return best_match
+VALID_PRIMARY_CATEGORIES = {
+    "INFERENCE_OPT", "AGENTS_DEVTOOLS", "MULTIMODAL_AI",
+    "FOUNDATION_MODELS", "INFRA_RAG_SECURITY", "INDUSTRY_TRENDS"
+}
+
+def infer_primary_category(item: dict, enrich_data: dict, c_type: str = "TECH") -> str:
+    cand = enrich_data.get("category_primary")
+    if cand and cand in VALID_PRIMARY_CATEGORIES:
+        return cand
+
+    title = (item.get("title") or "").lower() + " " + (item.get("title_ko") or "").lower()
+    desc = (item.get("description") or "").lower() + " " + (item.get("hook") or "").lower()
+    cat_raw = (enrich_data.get("category") or item.get("category") or "").lower()
+    tags = [t.lower() for t in enrich_data.get("root_keywords", [])]
+    tag_str = " ".join(tags)
+    src = (item.get("source_platform") or "").lower()
+    text = f"{title} {desc} {cat_raw} {tag_str}"
+
+    def has_any(patterns):
+        for p in patterns:
+            if re.search(r'\b' + re.escape(p) + r'\b', text, re.IGNORECASE):
+                return True
+        return False
+
+    # 1. INFERENCE_OPT
+    if has_any(['gguf', 'vllm', 'sglang', 'ollama', 'awq', 'fp8', 'int4', 'int8', 'kv cache', 'speculative decoding', 'inference', 'serving', 'quantization', 'latency', '추론', '서빙', '양자화', '경량화', '가속']):
+        return 'INFERENCE_OPT'
+
+    # 2. MULTIMODAL_AI
+    if has_any(['video', 'vision', 'vlm', 'diffusion', 'tts', 'stt', 'whisper', 'speech', 'audio', 'voice', 'sound', 'image', 'flux', 'wan', 'minimax', '멀티모달', '음성', '비디오', '영상', '화상', '이미지']):
+        return 'MULTIMODAL_AI'
+
+    # 3. AGENTS_DEVTOOLS
+    if has_any(['agent', 'agents', 'browser use', 'scraping', 'crawler', 'devtools', 'copilot', 'automation', 'cli', 'framework', 'sdk', '에이전트', '자동화', '개발도구', '코딩', '프레임워크']):
+        return 'AGENTS_DEVTOOLS'
+
+    # 4. INFRA_RAG_SECURITY
+    if has_any(['rag', 'vectordb', 'vector database', 'embedding', 'embeddings', 'jailbreak', 'security', 'cve', 'vulnerability', 'benchmark', 'evaluation', 'eval', 'mlops', 'cluster', '보안', '탈옥', '취약점', '임베딩', '평가']):
+        return 'INFRA_RAG_SECURITY'
+
+    # 5. FOUNDATION_MODELS
+    if 'models' in src or 'hub' in src or c_type == 'MODEL' or has_any(['weights', 'safetensors', 'checkpoint', 'lora', 'foundation model', 'pretrained', '파운데이션', '가중치', '체크포인트', 'qwen', 'deepseek', 'llama', 'mistral', 'gemma']):
+        return 'FOUNDATION_MODELS'
+
+    # 6. INDUSTRY_TRENDS (Default / Tech News / Industry / Policies)
+    return 'INDUSTRY_TRENDS'
 
 def load_prompt_config():
     """Loads external centralized prompt from configs/prompts/inbox_enrichment_prompt.yaml."""
@@ -436,6 +481,9 @@ def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = Fals
                     item["category_type"] = "NEWS"
                 else:
                     item["category_type"] = c_type
+
+                # Set Standard 6-Core Engineering Category (Controlled Taxonomy)
+                item["category_primary"] = infer_primary_category(item, enrich_data, c_type)
 
                 # Match with existing 18 dossiers
                 related = match_dossier(
