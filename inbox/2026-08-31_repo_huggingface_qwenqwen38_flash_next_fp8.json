@@ -18,11 +18,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8",
+  "model_family": "Qwen",
   "detected_formats": [
-    "FP8/AWQ"
+    "FP8"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace: Qwen/Qwen3.8-Flash-Next-FP8",
   "description_ko": "Trending Score: 175, Downloads: 130451, Likes: 183, Pipeline: image-text-to-text",
   "variant_role": "⚡ GPU 전용 고속 양자화 (FP8/AWQ)",
@@ -89,7 +89,12 @@
           "支持图像和文本混合输入的高效 Flash 系列架构"
         ]
       }
-    }
+    },
+    "task_modality": "image-text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "FP8"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -143,5 +148,7 @@
   "enriched_at": "2026-09-04T02:18:21.880684",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "task_modality": "image-text-to-text",
+  "parameter_size": "N/A"
 }

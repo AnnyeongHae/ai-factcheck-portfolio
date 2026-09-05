@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/ifmylove2011/girlslike_lora_gallery",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 102 | Live URL: https://huggingface.co/spaces/ifmylove2011/girlslike_lora_gallery",
   "viral_metric": "❤️ 102 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_ifmylove2011girlslike_lora_gallery",
     "source_lang": "AUTO",
     "type_classification": "TECH",
-    "model_family": "Stable Diffusion",
+    "model_family": "Standalone",
     "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "支持 Prompt 调整与参数优化的实时图像对比"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "LoRA"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 102 | Live URL: https://huggingface.co/spaces/ifmylove2011/girlslike_lora_gallery",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Standalone",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "LoRA"
+  ]
 }

@@ -33,7 +33,7 @@
     "id": "2026-09-01_repo_hf_space_zerogpu_aotiwan2_2_fp8da_aoti_faster",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Wan Diffusion / Video Generation",
+    "model_family": "Wan",
     "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -73,7 +73,12 @@
           "针对 Hugging Face ZeroGPU 算力环境进行了高度优化的交互式 Demo"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "FP8"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -94,7 +99,7 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 3439 | Live URL: https://huggingface.co/spaces/zerogpu-aoti/wan2-2-fp8da-aoti-faster",
   "description_en": "Test the blazing-fast Wan2.2 video generation model optimized with FP8 and AOTI.",
   "description_zh": "体验通过 FP8 与 AOTI 极致优化的 Wan2.2 视频生成模型的高速度。",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "harvested_at": "2026-09-01T12:00:00+09:00",
   "published_at": "2026-09-01T12:00:00+09:00",
   "multilingual": {
@@ -130,5 +135,11 @@
   "enriched_at": "2026-09-04T02:18:21.959564",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "model_family": "Wan",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "FP8"
+  ]
 }

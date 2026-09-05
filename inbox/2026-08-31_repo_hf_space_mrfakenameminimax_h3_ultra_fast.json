@@ -19,9 +19,9 @@
   },
   "model_family": "MiniMax",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: mrfakename/minimax-h3-ultra-초고속",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 198 | Live URL: https://huggingface.co/spaces/mrfakename/minimax-h3-ultra-fast",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -88,7 +88,12 @@
           "为构建实时语音对话与流式语音合成应用提供实用参考"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.833165",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

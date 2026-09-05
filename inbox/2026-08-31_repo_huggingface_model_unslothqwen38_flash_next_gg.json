@@ -12,14 +12,14 @@
     "생성형 마케팅 & GEO/SEO 최적화"
   ],
   "status": "PENDING_REVIEW",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace Model: unsloth/Qwen3.8-Flash-Next-GGUF",
   "description_ko": "Trending Score: 682, Downloads: 431339, Likes: 704, Pipeline: image-text-to-text",
-  "model_family": "Qwen-3.8",
+  "model_family": "Qwen",
   "variant_role": "⚡ Unsloth 선택적 동적 양자화 (Dynamic GGUF)",
   "creator": "Unsloth AI",
   "detected_formats": [
-    "Dynamic GGUF v3.0"
+    "GGUF"
   ],
   "metric_tracking": {
     "initial": {
@@ -83,7 +83,12 @@
           "支持图像与文本双模态输入的 image-text-to-text 高效推理"
         ]
       }
-    }
+    },
+    "task_modality": "image-text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "GGUF"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -137,5 +142,7 @@
   "enriched_at": "2026-09-04T02:18:21.863798",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "task_modality": "image-text-to-text",
+  "parameter_size": "N/A"
 }

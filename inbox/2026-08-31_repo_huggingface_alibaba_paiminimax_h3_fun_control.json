@@ -20,9 +20,9 @@
   },
   "model_family": "MiniMax",
   "detected_formats": [
-    "기본 가중치 (Default Weight)"
+    "Safetensors"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace: alibaba-pai/MiniMax-H3-Fun-Controlnet-Union",
   "description_ko": "Trending Score: 161, Downloads: 5538, Pipeline: text-to-video",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -49,7 +49,7 @@
     "id": "2026-08-31_repo_huggingface_alibaba_paiminimax_h3_fun_control",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "ControlNet",
+    "model_family": "MiniMax",
     "category": "Video Generation",
     "programming_lang": "Python",
     "root_keywords": [
@@ -89,7 +89,12 @@
           "保障视频生成过程中的时序一致性与复杂动作引导"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-video",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -143,5 +148,7 @@
   "enriched_at": "2026-09-04T02:18:21.848806",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "text-to-video",
+  "parameter_size": "N/A"
 }

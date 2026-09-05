@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/VIDraft/ai-world",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: docker) | Likes: 28 | Live URL: https://huggingface.co/spaces/VIDraft/ai-world",
   "viral_metric": "❤️ 28 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_vidraftai_world",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Multimodal Generative AI",
+    "model_family": "Standalone",
     "category": "Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "VIDraft 框架下生成式媒体与虚拟场景的实时演示"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: docker) | Likes: 28 | Live URL: https://huggingface.co/spaces/VIDraft/ai-world",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "model_family": "Standalone",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/multimodalart/h3-acceleration-arena",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: docker) | Likes: 51 | Live URL: https://huggingface.co/spaces/multimodalart/h3-acceleration-arena",
   "viral_metric": "❤️ 51 Likes (Trending Demo)",
   "metric_tracking": {
@@ -34,7 +34,7 @@
     "id": "2026-09-02_repo_hf_space_multimodalarth3_acceleration_arena",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Inference Benchmarking",
+    "model_family": "Standalone",
     "category": "AI Infrastructure & Acceleration",
     "programming_lang": "Python",
     "root_keywords": [
@@ -73,7 +73,12 @@
           "用于测试推理优化、吞吐量与延迟表现的交互式沙盒"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -128,5 +133,11 @@
   "enriched_at": "2026-09-04T02:18:21.998185",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "model_family": "Standalone",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

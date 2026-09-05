@@ -19,11 +19,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Standalone / Novel",
+  "model_family": "Standalone",
   "detected_formats": [
     "GGUF"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace: peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF",
   "description_ko": "Trending Score: 119, Downloads: 130086, Likes: 191, Pipeline: image-text-to-text",
   "variant_role": "💾 표준 GGUF 양자화본 (llama.cpp/vLLM)",
@@ -50,7 +50,7 @@
     "id": "2026-08-31_repo_huggingface_peculiar_ragdolltiel_coder_35b_a3",
     "source_lang": "AUTO",
     "type_classification": "TECH",
-    "model_family": "Multimodal Code LLM",
+    "model_family": "Standalone",
     "category": "Code Generation & Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -90,7 +90,12 @@
           "拥有超过 13 万次下载，展示出极高的实用价值与开发者关注度"
         ]
       }
-    }
+    },
+    "task_modality": "image-text-to-text",
+    "parameter_size": "35B",
+    "detected_formats": [
+      "GGUF"
+    ]
   },
   "source_lang": "AUTO",
   "programming_lang": "Python",
@@ -144,5 +149,7 @@
   "enriched_at": "2026-09-04T02:18:21.877698",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "task_modality": "image-text-to-text",
+  "parameter_size": "35B"
 }

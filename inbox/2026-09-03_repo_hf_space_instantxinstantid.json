@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/InstantX/InstantID",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 3641 | Live URL: https://huggingface.co/spaces/InstantX/InstantID",
   "viral_metric": "❤️ 3641 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_instantxinstantid",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Diffusion Models",
+    "model_family": "Standalone",
     "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "提供基于 Gradio 的交互式界面，支持丰富的风格预设与自定义 Prompt 控制"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 3641 | Live URL: https://huggingface.co/spaces/InstantX/InstantID",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Standalone",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

@@ -18,11 +18,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "FastVideo",
+  "model_family": "Standalone",
   "detected_formats": [
-    "기본 가중치 (Default Weight)"
+    "Safetensors"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace: FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree",
   "description_ko": "Trending Score: 228, Downloads: 0, Likes: 243, Pipeline: text-to-video",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -49,7 +49,7 @@
     "id": "2026-08-31_repo_huggingface_fastvideofastvideo_fasth3_4_step_",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "FastVideo / Diffusion Transformer",
+    "model_family": "Standalone",
     "category": "Computer Vision / Text-to-Video",
     "programming_lang": "Python",
     "root_keywords": [
@@ -89,7 +89,12 @@
           "大幅降低视频扩散模型的计算开销与推理延迟"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-video",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -143,5 +148,7 @@
   "enriched_at": "2026-09-04T02:18:21.851165",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "text-to-video",
+  "parameter_size": "N/A"
 }

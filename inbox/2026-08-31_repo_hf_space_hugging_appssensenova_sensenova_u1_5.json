@@ -17,11 +17,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "SenseNova",
+  "model_family": "Standalone",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: hugging-apps/sensenova-sensenova-u1-5-8b-mot",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 107 | Live URL: https://huggingface.co/spaces/hugging-apps/sensenova-sensenova-u1-5-8b-mot",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -48,7 +48,7 @@
     "id": "2026-08-31_repo_hf_space_hugging_appssensenova_sensenova_u1_5",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "SenseNova",
+    "model_family": "Standalone",
     "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -88,7 +88,12 @@
           "方便开发者直观评估 8B 轻量化大模型在实际应用中的表现"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "8B",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.820634",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "task_modality": "other",
+  "parameter_size": "8B"
 }

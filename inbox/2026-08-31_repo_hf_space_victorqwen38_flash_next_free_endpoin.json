@@ -13,9 +13,9 @@
   "status": "PENDING_REVIEW",
   "model_family": "Qwen",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: victor/Qwen3.8-Flash-Next-free-endpoint",
   "description_ko": "Interactive AI Demo (SDK: static) | Likes: 24 | Live URL: https://huggingface.co/spaces/victor/Qwen3.8-Flash-Next-free-endpoint",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -81,7 +81,12 @@
           "适合开发者进行大语言模型应用的原型设计与效果验证"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "General",
@@ -134,5 +139,7 @@
   "enriched_at": "2026-09-04T02:18:21.843988",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

@@ -9,7 +9,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/VIDraft/global-llm-leaderboard",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: static) | Likes: 38 | Live URL: https://huggingface.co/spaces/VIDraft/global-llm-leaderboard",
   "viral_metric": "❤️ 38 Likes (Trending Demo)",
   "metric_tracking": {
@@ -77,7 +77,12 @@
       }
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-05T01:36:13.161892+00:00"
+    "enriched_at": "2026-09-05T01:36:13.161892+00:00",
+    "task_modality": "text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -128,5 +133,11 @@
   "description_zh": "这是一个交互式演示，让你可以浏览全球 LLM 模型，查看实时排名，并直接体验不同模型之间的性能差异。",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "model_family": "Standalone",
+  "task_modality": "text-to-text",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

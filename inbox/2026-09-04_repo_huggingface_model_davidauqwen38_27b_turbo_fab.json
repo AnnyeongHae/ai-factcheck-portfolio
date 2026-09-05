@@ -9,7 +9,7 @@
   "source_platform": "Hugging Face Models",
   "source_url": "https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Trending Score: 115, Downloads: 39646, Likes: 119, Pipeline: image-text-to-text",
   "viral_metric": "Trending 115 pts (❤️ 119)",
   "metric_tracking": {
@@ -77,7 +77,12 @@
           "针对高级代码编写、故事创作与无限制指令遵循进行了深度微调"
         ]
       }
-    }
+    },
+    "task_modality": "image-text-to-text",
+    "parameter_size": "27B",
+    "detected_formats": [
+      "GGUF"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -128,5 +133,11 @@
   "description_ko": "Trending Score: 115, Downloads: 39646, Likes: 119, Pipeline: image-text-to-text",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "model_family": "Qwen",
+  "task_modality": "image-text-to-text",
+  "parameter_size": "27B",
+  "detected_formats": [
+    "GGUF"
+  ]
 }

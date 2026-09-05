@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: docker) | Likes: 11236 | Live URL: https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
   "viral_metric": "❤️ 11236 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_jbilcke_hfai_comic_factory",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Multimodal / Diffusion + LLM",
+    "model_family": "Standalone",
     "category": "Generative AI",
     "programming_lang": "TypeScript",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "基于 Docker 部署，在 Hugging Face Spaces 上积累超 11,000 个赞的爆款 AIGC 应用"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: docker) | Likes: 11236 | Live URL: https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Standalone",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

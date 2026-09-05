@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/AP123/IllusionDiffusion",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 5435 | Live URL: https://huggingface.co/spaces/AP123/IllusionDiffusion",
   "viral_metric": "❤️ 5435 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_ap123illusiondiffusion",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Stable Diffusion",
+    "model_family": "Standalone",
     "category": "Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "获得超过 5,400 个赞的高人气 AI 视觉创意生成 App"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-image",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 5435 | Live URL: https://huggingface.co/spaces/AP123/IllusionDiffusion",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Standalone",
+  "task_modality": "text-to-image",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

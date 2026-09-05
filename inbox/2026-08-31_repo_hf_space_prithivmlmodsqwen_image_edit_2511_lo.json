@@ -19,9 +19,9 @@
   },
   "model_family": "Qwen",
   "detected_formats": [
-    "Interactive Web Demo"
+    "LoRA"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: prithivMLmods/Qwen-Image-Edit-2511-LoRAs-초고속",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 2708 | Live URL: https://huggingface.co/spaces/prithivMLmods/Qwen-Image-Edit-2511-LoRAs-Fast",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -48,7 +48,7 @@
     "id": "2026-08-31_repo_hf_space_prithivmlmodsqwen_image_edit_2511_lo",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Qwen / Diffusion Models",
+    "model_family": "Qwen",
     "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
@@ -88,7 +88,12 @@
           "获得超过 2700 个赞的高人气 Hugging Face 社区应用"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "LoRA"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.836784",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

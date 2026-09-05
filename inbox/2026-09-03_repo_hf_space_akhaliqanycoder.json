@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/akhaliq/anycoder",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: docker) | Likes: 3304 | Live URL: https://huggingface.co/spaces/akhaliq/anycoder",
   "viral_metric": "❤️ 3304 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_akhaliqanycoder",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Code LLM",
+    "model_family": "Standalone",
     "category": "Code Generation",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "支持通过自然语言指令实时生成并处理多语言编程代码"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: docker) | Likes: 3304 | Live URL: https://huggingface.co/spaces/akhaliq/anycoder",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "model_family": "Standalone",
+  "task_modality": "text-to-text",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

@@ -18,11 +18,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Standalone / Novel",
+  "model_family": "Standalone",
   "detected_formats": [
-    "기본 가중치 (Default Weight)"
+    "Safetensors"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "tencent/Hy4-preview",
   "description_ko": "Trending Score: 385, Downloads: 3516, Likes: 393, Pipeline: text-generation",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -49,7 +49,7 @@
     "id": "2026-08-31_repo_huggingface_trending_tencenthy4_preview",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Hunyuan / Text Generation",
+    "model_family": "Standalone",
     "category": "LLM / Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -89,7 +89,12 @@
           "社区关注度极高，下载量与 Likes 迅速攀升"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -143,5 +148,7 @@
   "enriched_at": "2026-09-04T02:18:21.888324",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "FOUNDATION_MODELS"
+  "category_primary": "FOUNDATION_MODELS",
+  "task_modality": "text-to-text",
+  "parameter_size": "N/A"
 }

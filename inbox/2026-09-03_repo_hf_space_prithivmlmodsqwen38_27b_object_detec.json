@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/prithivMLmods/Qwen3.8-27B-Object-Detection",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 30 | Live URL: https://huggingface.co/spaces/prithivMLmods/Qwen3.8-27B-Object-Detection",
   "viral_metric": "❤️ 30 Likes (Trending Demo)",
   "metric_tracking": {
@@ -76,7 +76,12 @@
           "方便测试视觉提示处理与边界框生成效果"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "27B",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 30 | Live URL: https://huggingface.co/spaces/prithivMLmods/Qwen3.8-27B-Object-Detection",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Qwen",
+  "task_modality": "other",
+  "parameter_size": "27B",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

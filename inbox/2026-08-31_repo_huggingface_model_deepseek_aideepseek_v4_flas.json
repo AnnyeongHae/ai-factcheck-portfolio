@@ -20,9 +20,9 @@
   },
   "model_family": "DeepSeek",
   "detected_formats": [
-    "기본 가중치 (Default Weight)"
+    "Safetensors"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace Model: deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
   "description_ko": "Trending Score: 463, Downloads: 17893, Likes: 477, Pipeline: image-text-to-text",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -49,7 +49,7 @@
     "id": "2026-08-31_repo_huggingface_model_deepseek_aideepseek_v4_flas",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Vision Language Model",
+    "model_family": "DeepSeek",
     "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -89,7 +89,12 @@
           "适用于实时多模态交互、复杂的视觉推理与上下文图像理解场景"
         ]
       }
-    }
+    },
+    "task_modality": "image-text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -143,5 +148,7 @@
   "enriched_at": "2026-09-04T02:18:21.858488",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "image-text-to-text",
+  "parameter_size": "N/A"
 }

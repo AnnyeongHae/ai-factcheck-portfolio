@@ -17,11 +17,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Krea",
+  "model_family": "Standalone",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: Ziadhero/pornmaster-krea2",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 51 | Live URL: https://huggingface.co/spaces/Ziadhero/pornmaster-krea2",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -48,7 +48,7 @@
     "id": "2026-08-31_repo_hf_space_ziadheropornmaster_krea2",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Diffusion Models",
+    "model_family": "Standalone",
     "category": "Computer Vision",
     "programming_lang": "Python",
     "root_keywords": [
@@ -88,7 +88,12 @@
           "展示在 Hugging Face Spaces 上部署 AI 应用的实例"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.847149",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

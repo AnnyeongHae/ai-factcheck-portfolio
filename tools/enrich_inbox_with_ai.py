@@ -463,20 +463,96 @@ def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = Fals
                     c_type = "MODEL"
 
                 if c_type == "MODEL":
-                    fam = enrich_data.get("model_family")
-                    if not fam or fam.lower() in ["none", "null", "", "standalone"]:
-                        t_lower = (item.get("title", "") + " " + (item.get("title_en", "") or "")).lower()
-                        if "qwen" in t_lower: fam = "Qwen-3.8 Family"
-                        elif "deepseek" in t_lower: fam = "DeepSeek Family"
-                        elif "minimax" in t_lower: fam = "MiniMax / Video"
-                        elif "llama" in t_lower: fam = "Llama Family"
-                        elif "gemma" in t_lower: fam = "Gemma Family"
-                        elif "mistral" in t_lower: fam = "Mistral Family"
-                        elif "flux" in t_lower: fam = "FLUX Family"
-                        elif "audio" in t_lower or "tts" in t_lower or "voice" in t_lower: fam = "Audio / TTS"
-                        else: fam = "Standalone / Novel"
+                    # 1. Model Family normalization
+                    fam = enrich_data.get("model_family") or item.get("model_family")
+                    t_lower = (item.get("title", "") + " " + (item.get("title_en", "") or "") + " " + item.get("description", "")).lower()
+                    if not fam or fam.lower() in ["none", "null", "", "standalone", "standalone / novel"] or "standalone" in fam.lower():
+                        if "qwen" in t_lower: fam = "Qwen"
+                        elif "deepseek" in t_lower: fam = "DeepSeek"
+                        elif "minimax" in t_lower: fam = "MiniMax"
+                        elif "wan" in t_lower or "wan2" in t_lower: fam = "Wan"
+                        elif "flux" in t_lower: fam = "FLUX"
+                        elif "llama" in t_lower: fam = "Llama"
+                        elif "glm" in t_lower: fam = "GLM"
+                        elif "hunyuan" in t_lower: fam = "Hunyuan"
+                        elif any(k in t_lower for k in ["whisper", "tts", "speech", "audio", "voice", "firered", "breeze"]): fam = "Audio / Speech"
+                        elif "mistral" in t_lower or "codestral" in t_lower: fam = "Mistral"
+                        elif "gemma" in t_lower: fam = "Gemma"
+                        else: fam = "Standalone"
+                    else:
+                        # Clean up family names into canonical categories
+                        fam_low = fam.lower()
+                        if "qwen" in fam_low: fam = "Qwen"
+                        elif "deepseek" in fam_low: fam = "DeepSeek"
+                        elif "minimax" in fam_low: fam = "MiniMax"
+                        elif "wan" in fam_low: fam = "Wan"
+                        elif "flux" in fam_low: fam = "FLUX"
+                        elif "llama" in fam_low: fam = "Llama"
+                        elif "glm" in fam_low: fam = "GLM"
+                        elif "hunyuan" in fam_low: fam = "Hunyuan"
+                        elif any(k in fam_low for k in ["whisper", "tts", "speech", "audio", "voice"]): fam = "Audio / Speech"
+                        elif "mistral" in fam_low: fam = "Mistral"
+                        elif "gemma" in fam_low: fam = "Gemma"
                     item["model_family"] = fam
                     item["category_type"] = "MODEL"
+
+                    # 2. Task Modality normalization (Hugging Face standard)
+                    modality = enrich_data.get("task_modality") or item.get("task_modality")
+                    if not modality or modality.lower() in ["none", "null", "", "other"]:
+                        p_match = re.search(r'Pipeline:\s*([a-zA-Z0-9_-]+)', item.get("description", ""))
+                        if p_match:
+                            modality = p_match.group(1).lower()
+                        elif any(k in t_lower for k in ['video', 'wan', 'minimax-h3', 'ltx-video', 'hunyuanvideo']):
+                            modality = 'text-to-video'
+                        elif any(k in t_lower for k in ['tts', 'speech', 'audio', 'voice', 'whisper', 'firered', 'voxcpm']):
+                            modality = 'text-to-speech' if 'whisper' not in t_lower else 'speech-to-text'
+                        elif any(k in t_lower for k in ['flux', 'diffusion', 'sdxl', 'text-to-image']):
+                            modality = 'text-to-image'
+                        elif any(k in t_lower for k in ['vlm', 'vision', 'image-to-text', 'multimodal understanding']):
+                            modality = 'image-text-to-text'
+                        else:
+                            modality = 'text-to-text'
+
+                    # Normalize modality string
+                    mod_low = modality.lower()
+                    if 'text-generation' in mod_low or 'text2text' in mod_low or 'text-to-text' in mod_low:
+                        item["task_modality"] = 'text-to-text'
+                    elif 'image-text-to-text' in mod_low or 'visual-question-answering' in mod_low:
+                        item["task_modality"] = 'image-text-to-text'
+                    elif 'text-to-image' in mod_low:
+                        item["task_modality"] = 'text-to-image'
+                    elif 'image-to-image' in mod_low:
+                        item["task_modality"] = 'image-to-image'
+                    elif 'text-to-video' in mod_low:
+                        item["task_modality"] = 'text-to-video'
+                    elif 'text-to-speech' in mod_low or 'tts' in mod_low:
+                        item["task_modality"] = 'text-to-speech'
+                    elif 'speech-to-text' in mod_low or 'transcription' in mod_low:
+                        item["task_modality"] = 'speech-to-text'
+                    else:
+                        item["task_modality"] = modality
+
+                    # 3. Parameter Size
+                    param = enrich_data.get("parameter_size") or item.get("parameter_size")
+                    if not param or param.lower() in ["none", "null", "", "n/a"]:
+                        pm = re.search(r'\b(\d+(\.\d+)?[BMb])\b', item.get("title", "") + " " + item.get("description", ""))
+                        item["parameter_size"] = pm.group(1).upper() if pm else "N/A"
+                    else:
+                        item["parameter_size"] = param
+
+                    # 4. Formats
+                    formats = enrich_data.get("detected_formats") or item.get("detected_formats") or []
+                    if not formats or not isinstance(formats, list) or len(formats) == 0:
+                        det = []
+                        if 'gguf' in t_lower: det.append('GGUF')
+                        if 'fp8' in t_lower or '8-bit' in t_lower: det.append('FP8')
+                        if 'lora' in t_lower: det.append('LoRA')
+                        if 'safetensors' in t_lower: det.append('Safetensors')
+                        if 'diffusers' in t_lower: det.append('Diffusers')
+                        if 'mlx' in t_lower: det.append('MLX')
+                        item["detected_formats"] = det if det else ["Safetensors"]
+                    else:
+                        item["detected_formats"] = formats
                 elif c_type == "NEWS":
                     item["category_type"] = "NEWS"
                 else:

@@ -17,11 +17,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "Audio / Speech",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: k2-fsa/OmniVoice",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 1259 | Live URL: https://huggingface.co/spaces/k2-fsa/OmniVoice",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -48,7 +48,7 @@
     "id": "2026-08-31_repo_hf_space_k2_fsaomnivoice",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Speech Generation / Zero-Shot TTS",
+    "model_family": "Audio / Speech",
     "category": "Audio & Speech AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -88,7 +88,12 @@
           "支持多语种文本转语音及灵活的说话人音色克隆"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.822791",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

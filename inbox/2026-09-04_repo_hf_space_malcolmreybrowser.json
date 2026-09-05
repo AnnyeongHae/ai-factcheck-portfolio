@@ -9,7 +9,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/malcolmrey/browser",
   "type": "repo",
-  "category_type": "AGENT",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: static) | Likes: 412 | Live URL: https://huggingface.co/spaces/malcolmrey/browser",
   "viral_metric": "❤️ 412 Likes (Trending Demo)",
   "metric_tracking": {
@@ -76,7 +76,12 @@
       }
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-04T19:59:20.517396+00:00"
+    "enriched_at": "2026-09-04T19:59:20.517396+00:00",
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -126,5 +131,11 @@
   "description_zh": "一个基于静态 SDK 的交互式浏览器 AI 演示，可一键自动化网页操作。",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "model_family": "Standalone",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

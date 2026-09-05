@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Models",
   "source_url": "https://huggingface.co/XHToken/Spark-X2.5-4B",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Trending Score: 121, Downloads: 429, Likes: 123, Pipeline: text-generation",
   "viral_metric": "Trending 121 pts (❤️ 123)",
   "metric_tracking": {
@@ -34,7 +34,7 @@
     "id": "2026-09-03_repo_huggingface_model_xhtokenspark_x25_4b",
     "source_lang": "AUTO",
     "type_classification": "TECH",
-    "model_family": "Spark",
+    "model_family": "Standalone",
     "category": "Natural Language Processing",
     "programming_lang": "Python",
     "root_keywords": [
@@ -73,7 +73,12 @@
           "上升势头良好的开源大语言模型"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-text",
+    "parameter_size": "4B",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "AUTO",
   "programming_lang": "Python",
@@ -93,7 +98,7 @@
   "description_ko": "Trending Score: 121, Downloads: 429, Likes: 123, Pipeline: text-generation",
   "description_en": "A compact 4B parameter LLM rapidly gaining traction with high trending scores on Hugging Face.",
   "description_zh": "在 Hugging Face 上获得极高趋势评分的 4B 参数轻量级大语言模型。",
-  "model_family": "Spark",
+  "model_family": "Standalone",
   "harvested_at": "2026-09-03T12:00:00+09:00",
   "published_at": "2026-09-03T12:00:00+09:00",
   "multilingual": {
@@ -129,5 +134,10 @@
   "enriched_at": "2026-09-04T13:06:57.315130",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "FOUNDATION_MODELS"
+  "category_primary": "FOUNDATION_MODELS",
+  "task_modality": "text-to-text",
+  "parameter_size": "4B",
+  "detected_formats": [
+    "Safetensors"
+  ]
 }

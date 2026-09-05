@@ -356,6 +356,39 @@ def harvest_all():
                 score = round(item.get('trendingScore', 0), 1)
                 downloads = item.get('downloads', 0)
                 likes = item.get('likes', 0)
+                pipeline_tag = item.get('pipeline_tag') or "text-generation"
+                tags = item.get('tags', []) or []
+                lib_name = item.get('library_name') or ""
+
+                # Extract parameter size (e.g. 27B, 7B, 14B)
+                param_match = re.search(r'\b(\d+(\.\d+)?[BMb])\b', mid)
+                parameter_size = param_match.group(1).upper() if param_match else "N/A"
+
+                # Extract model family
+                mid_lower = mid.lower()
+                if 'qwen' in mid_lower: model_family = 'Qwen'
+                elif 'deepseek' in mid_lower: model_family = 'DeepSeek'
+                elif 'minimax' in mid_lower: model_family = 'MiniMax'
+                elif 'wan' in mid_lower: model_family = 'Wan'
+                elif 'flux' in mid_lower: model_family = 'FLUX'
+                elif 'llama' in mid_lower: model_family = 'Llama'
+                elif 'glm' in mid_lower: model_family = 'GLM'
+                elif 'hunyuan' in mid_lower: model_family = 'Hunyuan'
+                elif any(k in mid_lower for k in ['whisper', 'tts', 'speech', 'audio', 'voice', 'firered']): model_family = 'Audio / Speech'
+                elif 'mistral' in mid_lower or 'codestral' in mid_lower: model_family = 'Mistral'
+                elif 'gemma' in mid_lower: model_family = 'Gemma'
+                else: model_family = 'Standalone'
+
+                # Formats
+                detected_formats = []
+                for t in tags:
+                    t_low = t.lower()
+                    if t_low in ['safetensors', 'gguf', 'fp8', '8-bit', 'mlx', 'diffusers', 'transformers']:
+                        detected_formats.append(t.upper() if t_low in ['gguf', 'fp8', 'mlx'] else t.capitalize())
+                if 'gguf' in mid_lower and 'GGUF' not in detected_formats: detected_formats.append('GGUF')
+                if 'fp8' in mid_lower and 'FP8' not in detected_formats: detected_formats.append('FP8')
+                if 'lora' in mid_lower and 'LoRA' not in detected_formats: detected_formats.append('LoRA')
+
                 if mid:
                     added = add_candidate({
                         "title": f"HuggingFace Model: {mid}",
@@ -363,8 +396,13 @@ def harvest_all():
                         "source_url": url,
                         "type": "repo",
                         "category_type": "MODEL",
-                        "description": f"Trending Score: {score}, Downloads: {downloads}, Likes: {likes}, Pipeline: {item.get('pipeline_tag', 'N/A')}",
-                        "viral_metric": f"Trending {score} pts (❤️ {likes})"
+                        "description": f"Trending Score: {score}, Downloads: {downloads}, Likes: {likes}, Pipeline: {pipeline_tag}",
+                        "viral_metric": f"Trending {score} pts (❤️ {likes})",
+                        "task_modality": pipeline_tag,
+                        "model_family": model_family,
+                        "parameter_size": parameter_size,
+                        "detected_formats": detected_formats if detected_formats else ["Safetensors"],
+                        "library_name": lib_name
                     })
                     if added: count += 1
         harvest_report["sources"]["hf_models"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - hf_start, 2)}
@@ -829,6 +867,11 @@ def harvest_all():
         if "description_ko" in cand: inbox_item["description_ko"] = cand["description_ko"]
         if "hn_url" in cand: inbox_item["hn_url"] = cand["hn_url"]
         if "article_url" in cand: inbox_item["article_url"] = cand["article_url"]
+        if "task_modality" in cand: inbox_item["task_modality"] = cand["task_modality"]
+        if "model_family" in cand: inbox_item["model_family"] = cand["model_family"]
+        if "parameter_size" in cand: inbox_item["parameter_size"] = cand["parameter_size"]
+        if "detected_formats" in cand: inbox_item["detected_formats"] = cand["detected_formats"]
+        if "library_name" in cand: inbox_item["library_name"] = cand["library_name"]
 
         with open(save_path, "w", encoding="utf-8") as f:
             json.dump(inbox_item, f, indent=2, ensure_ascii=False)

@@ -17,11 +17,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "Standalone",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: Lynote/free-ai-detector",
   "description_ko": "Interactive AI Demo (SDK: static) | Likes: 350 | Live URL: https://huggingface.co/spaces/Lynote/free-ai-detector",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -48,7 +48,7 @@
     "id": "2026-08-31_repo_hf_space_lynotefree_ai_detector",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Text Classification",
+    "model_family": "Standalone",
     "category": "AI Safety & Content Detection",
     "programming_lang": "General",
     "root_keywords": [
@@ -88,7 +88,12 @@
           "基于 Hugging Face Spaces 静态 SDK 构建与托管"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "General",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.828867",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

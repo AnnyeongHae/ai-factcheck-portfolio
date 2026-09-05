@@ -17,11 +17,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "FireRed",
+  "model_family": "Audio / Speech",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: hugging-apps/firered-tts3",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 62 | Live URL: https://huggingface.co/spaces/hugging-apps/firered-tts3",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -48,7 +48,7 @@
     "id": "2026-08-31_repo_hf_space_hugging_appsfirered_tts3",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "TTS (Text-to-Speech)",
+    "model_family": "Audio / Speech",
     "category": "Audio AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -88,7 +88,12 @@
           "可直接通过 Hugging Face Spaces 在浏览器中体验，无需本地安装"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-speech",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.819559",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "text-to-speech",
+  "parameter_size": "N/A"
 }

@@ -18,11 +18,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8",
+  "model_family": "Qwen",
   "detected_formats": [
-    "기본 가중치 (Default Weight)"
+    "Safetensors"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "Qwen/Qwen3.8-27B",
   "description_ko": "Trending Score: 603, Downloads: 4960483, Likes: 13639, Pipeline: image-text-to-text",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -88,7 +88,12 @@
           "完美适配 Hugging Face 图文生成文本（image-text-to-text）Pipeline"
         ]
       }
-    }
+    },
+    "task_modality": "image-text-to-text",
+    "parameter_size": "27B",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -141,5 +146,7 @@
   "enriched_at": "2026-09-04T02:18:21.887297",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "image-text-to-text",
+  "parameter_size": "27B"
 }

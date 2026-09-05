@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 3043 | Live URL: https://huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview",
   "viral_metric": "❤️ 3043 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_r3gmwan2_2_fp8da_aoti_preview",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Wan 2.1",
+    "model_family": "Wan",
     "category": "Video Generation",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "基于 Gradio 的简易交互 UI，方便便捷地测试 Wan 2.1 视频生成能力"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "FP8"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 3043 | Live URL: https://huggingface.co/spaces/r3gm/wan2-2-fp8da-aoti-preview",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "model_family": "Wan",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "FP8"
+  ]
 }

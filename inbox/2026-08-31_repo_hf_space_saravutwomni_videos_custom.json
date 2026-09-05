@@ -17,11 +17,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Standalone / Novel",
+  "model_family": "Standalone",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: Saravutw/Omni-videos-custom",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 293 | Live URL: https://huggingface.co/spaces/Saravutw/Omni-videos-custom",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -48,7 +48,7 @@
     "id": "2026-08-31_repo_hf_space_saravutwomni_videos_custom",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Omni / Video Generation",
+    "model_family": "Standalone",
     "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -88,7 +88,12 @@
           "获得 Hugging Face 社区广泛关注 (290+ Likes)"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.838433",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

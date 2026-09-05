@@ -73,7 +73,12 @@
           "针对高质量文本生成与多种复杂 NLP 任务进行了深度优化"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -95,7 +100,7 @@
   "description_en": "Develop high-performance AI applications using the full GLM-5.3 model for sophisticated text generation.",
   "description_zh": "利用具备卓越文本生成能力的完整版 GLM-5.3 模型，开发高性能 AI 应用。",
   "model_family": "GLM",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "harvested_at": "2026-08-31T12:00:00+09:00",
   "published_at": "2026-08-31T12:00:00+09:00",
   "multilingual": {
@@ -131,5 +136,10 @@
   "enriched_at": "2026-09-04T02:18:21.864614",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "FOUNDATION_MODELS"
+  "category_primary": "FOUNDATION_MODELS",
+  "task_modality": "text-to-text",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Safetensors"
+  ]
 }

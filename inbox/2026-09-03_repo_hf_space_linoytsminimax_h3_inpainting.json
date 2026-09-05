@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/linoyts/minimax-h3-inpainting",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 30 | Live URL: https://huggingface.co/spaces/linoyts/minimax-h3-inpainting",
   "viral_metric": "❤️ 30 Likes (Trending Demo)",
   "metric_tracking": {
@@ -76,7 +76,12 @@
           "支持基于 Mask 遮罩的精细化图像合成与修复测试"
         ]
       }
-    }
+    },
+    "task_modality": "image-to-image",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 30 | Live URL: https://huggingface.co/spaces/linoyts/minimax-h3-inpainting",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "MiniMax",
+  "task_modality": "image-to-image",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

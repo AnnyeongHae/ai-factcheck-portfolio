@@ -9,7 +9,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/hugging-apps/h3-world-action-demo",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 10 | Live URL: https://huggingface.co/spaces/hugging-apps/h3-world-action-demo",
   "viral_metric": "❤️ 10 Likes (Trending Demo)",
   "metric_tracking": {
@@ -77,7 +77,12 @@
       }
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-04T19:59:56.121554+00:00"
+    "enriched_at": "2026-09-04T19:59:56.121554+00:00",
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -128,5 +133,11 @@
   "description_zh": "这是一个基于 Gradio 的交互式 AI 演示，您可以在浏览器中直接体验 AI 的世界动作功能，无需编写代码。",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "model_family": "Standalone",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

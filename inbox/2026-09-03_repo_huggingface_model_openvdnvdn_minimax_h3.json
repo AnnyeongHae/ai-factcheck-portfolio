@@ -9,7 +9,7 @@
   "source_platform": "Hugging Face Models",
   "source_url": "https://huggingface.co/OpenVDN/vdn-minimax-h3",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Trending Score: 123, Downloads: 0, Likes: 123, Pipeline: text-to-video",
   "viral_metric": "Trending 123 pts (❤️ 123)",
   "metric_tracking": {
@@ -77,7 +77,12 @@
           "OpenVDN 开源视频生成生态系统的最新成果"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-video",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -128,5 +133,11 @@
   "description_ko": "Trending Score: 123, Downloads: 0, Likes: 123, Pipeline: text-to-video",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "MiniMax",
+  "task_modality": "text-to-video",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Safetensors"
+  ]
 }

@@ -3083,12 +3083,26 @@ def generate_html(data):
 
     // ================= AI MODELS REGISTRY VIEW =================
     let currentModelsFamily = 'ALL';
+    let currentModelsModality = 'ALL';
     let currentModelsSort = 'date-source-desc';
     let modelsSearchQuery = '';
 
     function setModelsSort(sort) {{
       currentModelsPage = 1;
       currentModelsSort = sort;
+      renderModels();
+    }}
+
+    function setModelsModalityFilter(mod) {{
+      currentModelsPage = 1;
+      currentModelsModality = mod;
+      document.querySelectorAll('.model-mod-pill').forEach(btn => {{
+        if (btn.dataset.mod === mod) {{
+          btn.className = 'model-mod-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+        }} else {{
+          btn.className = 'model-mod-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
       renderModels();
     }}
 
@@ -3121,18 +3135,27 @@ def generate_html(data):
         const hasAi = !!(item.ai_enrichment && (item.multilingual || (item.ai_enrichment && item.ai_enrichment.multilingual)));
         if (!hasAi) return false;
 
-        const fam = item.model_family || '';
-        let matchesFam = true;
-        if (currentModelsFamily === 'Qwen') matchesFam = fam.toLowerCase().includes('qwen');
-        else if (currentModelsFamily === 'DeepSeek') matchesFam = fam.toLowerCase().includes('deepseek');
-        else if (currentModelsFamily === 'MiniMax') matchesFam = fam.toLowerCase().includes('minimax') || fam.toLowerCase().includes('video') || fam.toLowerCase().includes('flux');
-        else if (currentModelsFamily === 'Audio') matchesFam = fam.toLowerCase().includes('audio') || fam.toLowerCase().includes('tts');
-        else if (currentModelsFamily === 'Standalone') matchesFam = fam.toLowerCase().includes('standalone') || fam.toLowerCase().includes('독립');
-        else matchesFam = true;
+        let matchesMod = true;
+        if (currentModelsModality !== 'ALL') {{
+          const itemMod = (item.task_modality || '').toLowerCase();
+          matchesMod = itemMod === currentModelsModality.toLowerCase();
+        }}
 
-        const text = (item.title + ' ' + (item.title_ko || '') + ' ' + (item.title_en || '') + ' ' + (item.title_zh || '') + ' ' + (item.description || '') + ' ' + fam).toLowerCase();
+        const fam = (item.model_family || '').toLowerCase();
+        let matchesFam = true;
+        if (currentModelsFamily === 'ALL') {{
+          matchesFam = true;
+        }} else if (currentModelsFamily === 'Standalone') {{
+          matchesFam = fam.includes('standalone') || fam.includes('독립') || !fam;
+        }} else if (currentModelsFamily === 'Audio / Speech') {{
+          matchesFam = fam.includes('audio') || fam.includes('speech') || fam.includes('tts') || fam.includes('whisper');
+        }} else {{
+          matchesFam = fam.includes(currentModelsFamily.toLowerCase());
+        }}
+
+        const text = (item.title + ' ' + (item.title_ko || '') + ' ' + (item.title_en || '') + ' ' + (item.title_zh || '') + ' ' + (item.description || '') + ' ' + fam + ' ' + (item.task_modality || '') + ' ' + (item.parameter_size || '')).toLowerCase();
         const matchesSearch = text.includes(modelsSearchQuery.toLowerCase());
-        return matchesFam && matchesSearch;
+        return matchesMod && matchesFam && matchesSearch;
       }});
 
       // 🌟 Precision DateTime Sorting (Default: Source Date/Time DESC)
@@ -3191,6 +3214,31 @@ def generate_html(data):
           </span>
         ` : '';
 
+        let modBadge = '';
+        if (it.task_modality) {{
+          const m = it.task_modality.toLowerCase();
+          let icon = '🎯';
+          let label = it.task_modality;
+          if (m.includes('video')) {{ icon = '🎬'; label = 'Video'; }}
+          else if (m.includes('image-text') || m.includes('vision') || m.includes('vlm')) {{ icon = '👁️'; label = 'VLM'; }}
+          else if (m.includes('image')) {{ icon = '🎨'; label = 'Image'; }}
+          else if (m.includes('speech') || m.includes('audio')) {{ icon = '🎙️'; label = 'Audio/TTS'; }}
+          else if (m.includes('text')) {{ icon = '📝'; label = 'Text'; }}
+          modBadge = `<span class="px-2 py-0.5 rounded-md bg-purple-50 text-purple-700 font-bold border border-purple-200 text-[10px] font-mono">${{icon}} ${{label}}</span>`;
+        }}
+
+        let paramBadge = '';
+        if (it.parameter_size) {{
+          paramBadge = `<span class="px-1.5 py-0.5 rounded-md bg-amber-50 text-amber-800 font-bold border border-amber-200 text-[10px] font-mono shrink-0">⚡ ${{it.parameter_size}}</span>`;
+        }}
+
+        let formatBadges = '';
+        if (Array.isArray(it.detected_formats) && it.detected_formats.length > 0) {{
+          formatBadges = it.detected_formats.slice(0, 3).map(fmt => 
+            `<span class="px-1.5 py-0.2 rounded bg-surface-subtle text-ink-muted text-[9px] font-mono border border-surface-border uppercase">${{fmt}}</span>`
+          ).join(' ');
+        }}
+
         let hookHtml = '';
         if (displayHook) {{
           hookHtml = `
@@ -3219,8 +3267,12 @@ def generate_html(data):
         card.innerHTML = `
           <div class="space-y-3">
             <div class="flex items-center justify-between text-xs font-mono">
-              ${{famBadge}}
-              <span class="text-ink-muted text-[11px]">${{it.source_platform || 'Hugging Face'}}</span>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                ${{famBadge}}
+                ${{modBadge}}
+                ${{paramBadge}}
+              </div>
+              <span class="text-ink-muted text-[11px] shrink-0">${{it.source_platform || 'Hugging Face'}}</span>
             </div>
 
             <h3 class="font-bold text-sm text-ink-primary hover:text-indigo-600 transition leading-snug">
@@ -3233,6 +3285,8 @@ def generate_html(data):
               ${{displayDesc}}
             </p>
 
+            ${{formatBadges ? `<div class="flex items-center gap-1 flex-wrap pt-1">${{formatBadges}}</div>` : ''}}
+
             ${{relatedHtml}}
           </div>
 
@@ -3242,7 +3296,7 @@ def generate_html(data):
               ${{ai?.enriched_at ? `<span>•</span><span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold">🔬 ${{formatDateTime(ai.enriched_at)}}</span>` : ''}}
               ${{ai?.enriched_by_model ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-indigo-700 border border-surface-border">🤖 ${{ai.enriched_by_model.replace('gemini-', '')}}</span>` : ''}}
             </div>
-            <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1">
+            <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1 shrink-0">
               <span>${{currentLang === 'KO' ? '원문 / 다운로드' : (currentLang === 'ZH' ? '原文 / 模型主页' : 'Source / Model')}}</span> <i data-lucide="external-link" class="w-3 h-3"></i>
             </a>
           </div>

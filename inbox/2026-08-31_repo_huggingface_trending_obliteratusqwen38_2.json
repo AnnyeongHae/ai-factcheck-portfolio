@@ -18,11 +18,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8",
+  "model_family": "Qwen",
   "detected_formats": [
-    "Fine-tune / Uncensored"
+    "Safetensors"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "OBLITERATUS/Qwen3.8-27B-OBLITERATED",
   "description_ko": "Trending Score: 190, Downloads: 805791, Likes: 1018, Pipeline: text-generation",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
@@ -89,7 +89,12 @@
           "完全适配 Hugging Face 标准文本生成（Text Generation）管道"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-text",
+    "parameter_size": "27B",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -143,5 +148,7 @@
   "enriched_at": "2026-09-04T02:18:21.884713",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "FOUNDATION_MODELS"
+  "category_primary": "FOUNDATION_MODELS",
+  "task_modality": "text-to-text",
+  "parameter_size": "27B"
 }

@@ -36,7 +36,7 @@
     "id": "2026-09-04_repo_huggingface_model_ifmk2_horizon_mova_36b_a4b",
     "source_lang": "EN",
     "type_classification": "MODEL",
-    "model_family": "IFM/K2-Horizon-MoVA",
+    "model_family": "Standalone",
     "category": "LLM - Text Generation",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
       }
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-04T18:01:36.236840+00:00"
+    "enriched_at": "2026-09-04T18:01:36.236840+00:00",
+    "task_modality": "text-to-text",
+    "parameter_size": "36B",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -124,8 +129,13 @@
   "description_ko": "36B 파라미터 텍스트 생성 모델인 IFM/K2-호라이즌-모바-36B-A4B가 허깅페이스에서 130의 트렌딩 점수, 433다운로드, 132좋아요를 기록하며 주목받고 있습니다.",
   "description_en": "Explore this 36B‑parameter text‑gen model gaining traction on HF – 130 trending score, 433 downloads, and growing community likes.",
   "description_zh": "这款36B参数的文本生成模型IFM/K2-horizon-MoVA-36B-A4B在Hugging Face上表现强势，趋势评分130，下载量433，点赞132，值得关注。",
-  "model_family": "IFM/K2-Horizon-MoVA",
+  "model_family": "Standalone",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "FOUNDATION_MODELS"
+  "category_primary": "FOUNDATION_MODELS",
+  "task_modality": "text-to-text",
+  "parameter_size": "36B",
+  "detected_formats": [
+    "Safetensors"
+  ]
 }

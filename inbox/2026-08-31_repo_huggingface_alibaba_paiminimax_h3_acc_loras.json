@@ -20,9 +20,9 @@
   },
   "model_family": "MiniMax",
   "detected_formats": [
-    "기본 가중치 (Default Weight)"
+    "LoRA"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace: alibaba-pai/MiniMax-H3-Acc-LoRAs",
   "description_ko": "Trending Score: 174, Downloads: 32893, Likes: 182, Pipeline: text-to-video",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -89,7 +89,12 @@
           "由阿里云 PAI 团队开源，关注度与下载量持续攀升"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-video",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "LoRA"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -143,5 +148,7 @@
   "enriched_at": "2026-09-04T02:18:21.847910",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "text-to-video",
+  "parameter_size": "N/A"
 }

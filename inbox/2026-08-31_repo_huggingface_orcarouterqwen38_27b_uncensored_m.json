@@ -18,11 +18,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8",
+  "model_family": "Qwen",
   "detected_formats": [
-    "Fine-tune / Uncensored"
+    "MLX"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace: orcarouter/Qwen3.8-27B-Uncensored-MLX",
   "description_ko": "Trending Score: 115, Downloads: 121028, Likes: 1267, Pipeline: image-text-to-text",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
@@ -89,7 +89,12 @@
           "支持图文输入到文本输出 (image-text-to-text) 的多模态 Pipeline"
         ]
       }
-    }
+    },
+    "task_modality": "image-text-to-text",
+    "parameter_size": "27B",
+    "detected_formats": [
+      "MLX"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -143,5 +148,7 @@
   "enriched_at": "2026-09-04T02:18:21.872812",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "image-text-to-text",
+  "parameter_size": "27B"
 }

@@ -73,7 +73,12 @@
           "解除默认安全对齐限制（Uncensored），扩展使用自由度"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "FP8"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -95,7 +100,7 @@
   "description_en": "Utilize a high-performance language model optimized for speed and efficiency using FP8 quantization.",
   "description_zh": "利用应用FP8量化、速度与效率极大化的高性能语言模型。",
   "model_family": "GLM",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "harvested_at": "2026-08-31T12:00:00+09:00",
   "published_at": "2026-08-31T12:00:00+09:00",
   "multilingual": {
@@ -131,5 +136,10 @@
   "enriched_at": "2026-09-04T02:18:21.860607",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "task_modality": "text-to-text",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "FP8"
+  ]
 }

@@ -7,8 +7,8 @@
   "source_platform": "Hugging Face Models",
   "source_url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
   "type": "repo",
-  "category_type": "TECH",
-  "model_family": "Qwen-3.8",
+  "category_type": "MODEL",
+  "model_family": "Qwen",
   "description": "Trending Score: 131, Downloads: 56208, Likes: 139, Pipeline: image-text-to-text",
   "viral_metric": "Trending 131 pts (❤️ 139)",
   "metric_tracking": {
@@ -75,7 +75,12 @@
           "支持通过 llama.cpp 等轻量级推理框架在本地边缘设备部署图文交互"
         ]
       }
-    }
+    },
+    "task_modality": "image-text-to-text",
+    "parameter_size": "27B",
+    "detected_formats": [
+      "GGUF"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -131,5 +136,10 @@
   "enriched_at": "2026-09-04T02:18:21.999765",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "task_modality": "image-text-to-text",
+  "parameter_size": "27B",
+  "detected_formats": [
+    "GGUF"
+  ]
 }

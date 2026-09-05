@@ -7,7 +7,7 @@
   "source_platform": "ArXiv Preprint",
   "source_url": "http://arxiv.org/abs/2609.02502v1",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Abstract: Text-to-image (T2I) models have achieved remarkable success at faithfully rendering specified objects and attributes, yet their ability to produce visual metaphors, images that convey abstract ideas b...",
   "viral_metric": "ArXiv Primary Paper",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_arxiv_blending_concepts_benchmarking_visual_m",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Diffusion Models",
+    "model_family": "Standalone",
     "category": "Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "为增强生成式 AI 模型的高阶认知理解与视觉创意表达提供了关键参考"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-image",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -132,5 +137,11 @@
   "enriched_at": "2026-09-04T13:06:57.159390",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Standalone",
+  "task_modality": "text-to-image",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Safetensors"
+  ]
 }

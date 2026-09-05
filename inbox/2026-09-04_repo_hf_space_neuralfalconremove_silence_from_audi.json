@@ -9,7 +9,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/NeuralFalcon/Remove-Silence-From-Audio",
   "type": "repo",
-  "category_type": "AGENT",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 410 | Live URL: https://huggingface.co/spaces/NeuralFalcon/Remove-Silence-From-Audio",
   "viral_metric": "❤️ 410 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-04_repo_hf_space_neuralfalconremove_silence_from_audi",
     "source_lang": "EN",
     "type_classification": "AGENT",
-    "model_family": "Standalone",
+    "model_family": "Audio / Speech",
     "category": "Audio Silence Removal",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
       }
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-04T22:47:16.026747+09:00"
+    "enriched_at": "2026-09-04T22:47:16.026747+09:00",
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -126,5 +131,11 @@
   "description_zh": "这款基于Gradio的交互式AI演示，能自动去除音频中的静音部分，快来体验吧！",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Audio / Speech",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

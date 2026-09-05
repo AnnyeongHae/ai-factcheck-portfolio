@@ -18,11 +18,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Moonshot",
+  "model_family": "Standalone",
   "detected_formats": [
-    "기본 가중치 (Default Weight)"
+    "Safetensors"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace: moonshotai/Kimi-K3",
   "description_ko": "Trending Score: 104, Downloads: 2783061, Likes: 11138, Pipeline: image-text-to-text",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -49,7 +49,7 @@
     "id": "2026-08-31_repo_huggingface_moonshotaikimi_k3",
     "source_lang": "ZH",
     "type_classification": "TECH",
-    "model_family": "Multimodal Vision-Language Model",
+    "model_family": "Standalone",
     "category": "Vision-Language Models",
     "programming_lang": "Python",
     "root_keywords": [
@@ -89,7 +89,12 @@
           "针对复杂视觉推理与长上下文理解进行了深度优化的先进架构"
         ]
       }
-    }
+    },
+    "task_modality": "image-text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "ZH",
   "programming_lang": "Python",
@@ -143,5 +148,7 @@
   "enriched_at": "2026-09-04T02:18:21.866611",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "image-text-to-text",
+  "parameter_size": "N/A"
 }

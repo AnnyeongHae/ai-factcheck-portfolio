@@ -17,11 +17,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "기타 독립 모델 (Standalone / Novel)",
+  "model_family": "Standalone",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: SageBio/rare-disease-real-kid-mva-hackathon-2026",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 93 | Live URL: https://huggingface.co/spaces/SageBio/rare-disease-real-kid-mva-hackathon-2026",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -48,7 +48,7 @@
     "id": "2026-08-31_repo_hf_space_sagebiorare_disease_real_kid_mva_hac",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Healthcare AI",
+    "model_family": "Standalone",
     "category": "Bioinformatics & Healthcare",
     "programming_lang": "Python",
     "root_keywords": [
@@ -88,7 +88,12 @@
           "展示 Bio-AI 在临床辅助诊断中的具体工程落地"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.837632",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

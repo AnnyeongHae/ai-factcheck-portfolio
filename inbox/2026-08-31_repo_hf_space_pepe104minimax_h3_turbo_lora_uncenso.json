@@ -19,9 +19,9 @@
   },
   "model_family": "MiniMax",
   "detected_formats": [
-    "Interactive Web Demo"
+    "LoRA"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 68 | Live URL: https://huggingface.co/spaces/Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -88,7 +88,12 @@
           "适用于评估去除安全对齐限制后的模型生成特性与微调效果"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "LoRA"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.834037",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

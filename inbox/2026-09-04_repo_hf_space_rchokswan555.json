@@ -9,7 +9,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/Rchoks/wan555",
   "type": "repo",
-  "category_type": "AGENT",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 156 | Live URL: https://huggingface.co/spaces/Rchoks/wan555",
   "viral_metric": "❤️ 156 Likes (Trending Demo)",
   "metric_tracking": {
@@ -40,7 +40,7 @@
     "id": "2026-09-04_repo_hf_space_rchokswan555",
     "source_lang": "EN",
     "type_classification": "AGENT",
-    "model_family": "Standalone",
+    "model_family": "Wan",
     "category": "AI 데모/인터랙티브 인터페이스",
     "programming_lang": "Python",
     "root_keywords": [
@@ -81,7 +81,12 @@
       }
     },
     "enriched_by_model": "minimax/minimax-m3:free",
-    "enriched_at": "2026-09-04T17:57:37.345341+09:00"
+    "enriched_at": "2026-09-04T17:57:37.345341+09:00",
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -128,5 +133,11 @@
   "hook_zh": "立即在 Hugging Face Spaces 上体验由 Gradio 强力驱动的交互式 AI 演示应用。",
   "description_en": "Try out this interactive Gradio AI demo hosted live on Hugging Face Spaces.",
   "description_zh": "立即在 Hugging Face Spaces 上体验由 Gradio 强力驱动的交互式 AI 演示应用。",
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "model_family": "Wan",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

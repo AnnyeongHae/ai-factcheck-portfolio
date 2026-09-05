@@ -19,9 +19,9 @@
   },
   "model_family": "MiniMax",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: MiniMaxAI/MiniMax-Music3",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 318 | Live URL: https://huggingface.co/spaces/MiniMaxAI/MiniMax-Music3",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -48,7 +48,7 @@
     "id": "2026-08-31_repo_hf_space_minimaxaiminimax_music3",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Audio Foundation Model",
+    "model_family": "MiniMax",
     "category": "Audio & Speech AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -88,7 +88,12 @@
           "展示了音频生成大模型在音乐创作领域的最新工程实践"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.832338",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

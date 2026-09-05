@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/someone-in-the-world/FireRed-Experimental-Turbo",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 148 | Live URL: https://huggingface.co/spaces/someone-in-the-world/FireRed-Experimental-Turbo",
   "viral_metric": "❤️ 148 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_someone_in_the_worldfirered_experime",
     "source_lang": "AUTO",
     "type_classification": "TECH",
-    "model_family": "FireRed",
+    "model_family": "Audio / Speech",
     "category": "Audio & Speech Processing",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "可在浏览器中直接评估语音合成质量与推理生成速度"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-speech",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 148 | Live URL: https://huggingface.co/spaces/someone-in-the-world/FireRed-Experimental-Turbo",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "model_family": "Audio / Speech",
+  "task_modality": "text-to-speech",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

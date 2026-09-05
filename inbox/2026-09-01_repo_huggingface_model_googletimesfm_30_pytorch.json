@@ -33,7 +33,7 @@
     "id": "2026-09-01_repo_huggingface_model_googletimesfm_30_pytorch",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "TimesFM",
+    "model_family": "Standalone",
     "category": "Time Series Forecasting",
     "programming_lang": "Python",
     "root_keywords": [
@@ -73,7 +73,12 @@
           "为跨领域的时间序列数据提供卓越的零样本与少样本预测能力"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -94,8 +99,8 @@
   "description_ko": "Trending Score: 237, Downloads: 0, Likes: 258, Pipeline: time-series-forecasting",
   "description_en": "Integrate Google's state-of-the-art time-series foundation model into your forecasting pipeline.",
   "description_zh": "立即将谷歌最新的时间序列预测基础模型应用到您的生产环境中。",
-  "model_family": "Google TimesFM",
-  "category_type": "TECH",
+  "model_family": "Standalone",
+  "category_type": "MODEL",
   "harvested_at": "2026-09-01T12:00:00+09:00",
   "published_at": "2026-09-01T12:00:00+09:00",
   "multilingual": {
@@ -131,5 +136,10 @@
   "enriched_at": "2026-09-04T02:18:21.960329",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "FOUNDATION_MODELS"
+  "category_primary": "FOUNDATION_MODELS",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Safetensors"
+  ]
 }

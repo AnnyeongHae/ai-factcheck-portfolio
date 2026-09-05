@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/KingNish/OpenGPT-4o",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 4306 | Live URL: https://huggingface.co/spaces/KingNish/OpenGPT-4o",
   "viral_metric": "❤️ 4306 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_kingnishopengpt_4o",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Multimodal LLM",
+    "model_family": "GPT",
     "category": "Multimodal AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "为构建语音/视觉响应的多模态 AI 管线提供实用的参考原型"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 4306 | Live URL: https://huggingface.co/spaces/KingNish/OpenGPT-4o",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "model_family": "GPT",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

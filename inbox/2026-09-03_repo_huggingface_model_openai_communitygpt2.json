@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Models",
   "source_url": "https://huggingface.co/openai-community/gpt2",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Trending Score: 109, Downloads: 14290101, Likes: 3534, Pipeline: text-generation",
   "viral_metric": "Trending 109 pts (❤️ 3534)",
   "metric_tracking": {
@@ -74,7 +74,12 @@
           "极具轻量化优势，非常适合作为轻量级基线、微调教学示例及本地推理测试"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -95,7 +100,7 @@
   "description_ko": "Trending Score: 109, Downloads: 14290101, Likes: 3534, Pipeline: text-generation",
   "description_en": "The historical baseline and foundational text-generation model for open-source LLMs.",
   "description_zh": "开源大语言模型的历史基准与文本生成基础模型。",
-  "model_family": "GPT-2",
+  "model_family": "GPT",
   "harvested_at": "2026-09-03T12:00:00+09:00",
   "published_at": "2026-09-03T12:00:00+09:00",
   "multilingual": {
@@ -131,5 +136,10 @@
   "enriched_at": "2026-09-04T13:06:57.311960",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "FOUNDATION_MODELS"
+  "category_primary": "FOUNDATION_MODELS",
+  "task_modality": "text-to-text",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Safetensors"
+  ]
 }

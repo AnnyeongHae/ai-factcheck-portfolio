@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/facebook/MusicGen",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 5089 | Live URL: https://huggingface.co/spaces/facebook/MusicGen",
   "viral_metric": "❤️ 5089 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_facebookmusicgen",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "MusicGen",
+    "model_family": "Standalone",
     "category": "Audio AI / Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "获得超过 5000 个 Likes 的热门 Space，直观展示 SOTA 级别的音频合成能力"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-speech",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 5089 | Live URL: https://huggingface.co/spaces/facebook/MusicGen",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Standalone",
+  "task_modality": "text-to-speech",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

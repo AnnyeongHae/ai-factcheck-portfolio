@@ -17,11 +17,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Standalone / Novel",
+  "model_family": "Wan",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: Saravutw/WAN2.2_I2V_LIGHTNING_4-8step_custom",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 258 | Live URL: https://huggingface.co/spaces/Saravutw/WAN2.2_I2V_LIGHTNING_4-8step_custom",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -88,7 +88,12 @@
           "部署于 Hugging Face Spaces，提供简单易用的 Gradio 交互界面"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.839205",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

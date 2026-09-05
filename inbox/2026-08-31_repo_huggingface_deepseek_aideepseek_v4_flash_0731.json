@@ -19,9 +19,9 @@
   },
   "model_family": "DeepSeek",
   "detected_formats": [
-    "기본 가중치 (Default Weight)"
+    "Safetensors"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace: deepseek-ai/DeepSeek-V4-Flash-0731",
   "description_ko": "Trending Score: 124, Downloads: 4575518, Pipeline: text-generation",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -88,7 +88,12 @@
           "专为生产环境中的高并发文本生成场景打造"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.850396",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "FOUNDATION_MODELS"
+  "category_primary": "FOUNDATION_MODELS",
+  "task_modality": "text-to-text",
+  "parameter_size": "N/A"
 }

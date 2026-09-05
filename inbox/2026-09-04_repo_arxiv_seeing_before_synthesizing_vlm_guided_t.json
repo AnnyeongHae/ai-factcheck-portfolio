@@ -9,7 +9,7 @@
   "source_platform": "ArXiv Preprint",
   "source_url": "http://arxiv.org/abs/2609.04183v1",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Abstract: Weakly-Supervised Dense Video Captioning aims to localize and describe multiple events in untrimmed videos given only an ordered set of event-level captions per video. Recent work synthesizes auxiliar...",
   "viral_metric": "ArXiv Primary Paper",
   "metric_tracking": {
@@ -81,7 +81,12 @@
       }
     },
     "enriched_by_model": "dots-studio/dots-3-note-preview:free",
-    "enriched_at": "2026-09-04T17:55:29.333215+09:00"
+    "enriched_at": "2026-09-04T17:55:29.333215+09:00",
+    "task_modality": "image-text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -128,5 +133,11 @@
   "hook_zh": "如何在弱监督环境下，利用VLM在合成前引导发现过渡事件，从而提升密集视频字幕的准确性？本文给出了最新方案。",
   "description_en": "How does VLM-guided transition event discovery before synthesis improve dense video captioning in weakly-supervised settings? Find out!",
   "description_zh": "如何在弱监督环境下，利用VLM在合成前引导发现过渡事件，从而提升密集视频字幕的准确性？本文给出了最新方案。",
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Standalone",
+  "task_modality": "image-text-to-text",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Safetensors"
+  ]
 }

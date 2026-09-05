@@ -19,9 +19,9 @@
   },
   "model_family": "FLUX",
   "detected_formats": [
-    "Interactive Web Demo"
+    "LoRA"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: M3st3rJ4k3l/FLUX.2-Klein-Multi-LoRA",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 500 | Live URL: https://huggingface.co/spaces/M3st3rJ4k3l/FLUX.2-Klein-Multi-LoRA",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -48,7 +48,7 @@
     "id": "2026-08-31_repo_hf_space_m3st3rj4k3lflux2_klein_multi_lora",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "FLUX / Diffusion Models",
+    "model_family": "FLUX",
     "category": "Generative AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -88,7 +88,12 @@
           "支持跨多个 LoRA 适配器测试复杂的画风与概念组合效果"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-image",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "LoRA"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.830655",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "text-to-image",
+  "parameter_size": "N/A"
 }

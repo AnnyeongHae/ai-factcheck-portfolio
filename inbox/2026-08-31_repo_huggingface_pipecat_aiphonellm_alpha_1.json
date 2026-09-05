@@ -17,11 +17,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Standalone / Novel",
+  "model_family": "Standalone",
   "detected_formats": [
-    "기본 가중치 (Default Weight)"
+    "Safetensors"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace: pipecat-ai/phonellm-alpha-1",
   "description_ko": "Trending Score: 189, Downloads: 6813, Likes: 191, Pipeline: text-generation",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -48,7 +48,7 @@
     "id": "2026-08-31_repo_huggingface_pipecat_aiphonellm_alpha_1",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "PhoneLLM",
+    "model_family": "Standalone",
     "category": "Voice AI / Conversational AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -88,7 +88,12 @@
           "无缝兼容 Hugging Face 文本生成管线，为实时 Voice Agent 提供强大底层支持"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.879301",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "text-to-text",
+  "parameter_size": "N/A"
 }

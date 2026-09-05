@@ -19,9 +19,9 @@
   },
   "model_family": "MiniMax",
   "detected_formats": [
-    "기본 가중치 (Default Weight)"
+    "Safetensors"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace: Kijai/MiniMax-H3-experimental",
   "description_ko": "Trending Score: 122, Downloads: 0, Likes: 394, Pipeline: N/A",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -88,7 +88,12 @@
           "面向开源 AI 社区开发者的前沿测试资源"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.854509",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

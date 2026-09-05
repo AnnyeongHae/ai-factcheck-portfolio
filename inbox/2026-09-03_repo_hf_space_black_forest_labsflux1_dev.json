@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/black-forest-labs/FLUX.1-dev",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 9526 | Live URL: https://huggingface.co/spaces/black-forest-labs/FLUX.1-dev",
   "viral_metric": "❤️ 9526 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_black_forest_labsflux1_dev",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Diffusion Transformer",
+    "model_family": "FLUX",
     "category": "Computer Vision / Image Generation",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "为非商业研究与开发提供免费在线测试环境"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-image",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 9526 | Live URL: https://huggingface.co/spaces/black-forest-labs/FLUX.1-dev",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "FLUX",
+  "task_modality": "text-to-image",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

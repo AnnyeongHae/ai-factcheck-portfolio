@@ -18,11 +18,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8",
+  "model_family": "Qwen",
   "detected_formats": [
-    "기본 가중치 (Default Weight)"
+    "Safetensors"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace Model: Qwen/Qwen3.8-Flash-Next",
   "description_ko": "Trending Score: 1669, Downloads: 207941, Likes: 4696, Pipeline: image-text-to-text",
   "variant_role": "일반 파생/배포본 (Standard Release)",
@@ -89,7 +89,12 @@
           "非常适合低延迟要求的实时视觉 Agent、图像问答及多模态交互应用"
         ]
       }
-    }
+    },
+    "task_modality": "image-text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -143,5 +148,7 @@
   "enriched_at": "2026-09-04T02:18:21.861512",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "image-text-to-text",
+  "parameter_size": "N/A"
 }

@@ -40,7 +40,7 @@
     "id": "2026-09-04_sns_geeknews_quasar_438b_유럽_최고_성능_ai_모델",
     "source_lang": "KO",
     "type_classification": "MODEL",
-    "model_family": "Quasar 438B",
+    "model_family": "Standalone",
     "category": "LLM 모델 발표",
     "programming_lang": "General",
     "root_keywords": [
@@ -80,7 +80,12 @@
       }
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-04T13:53:52.813498+00:00"
+    "enriched_at": "2026-09-04T13:53:52.813498+00:00",
+    "task_modality": "other",
+    "parameter_size": "438B",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -126,8 +131,13 @@
   "hook_zh": "欧洲最强AI模型Quasar 438B发布——这将如何改变性能和规模？",
   "description_en": "Europe’s most powerful AI model, Quasar 438B, arrives – what does this mean for performance and scale?",
   "description_zh": "欧洲最强AI模型Quasar 438B发布——这将如何改变性能和规模？",
-  "model_family": "Quasar 438B",
+  "model_family": "Standalone",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "FOUNDATION_MODELS"
+  "category_primary": "FOUNDATION_MODELS",
+  "task_modality": "other",
+  "parameter_size": "438B",
+  "detected_formats": [
+    "Safetensors"
+  ]
 }

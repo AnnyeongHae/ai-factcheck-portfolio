@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/hugging-apps/fireredaudio-tts-demo",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 18 | Live URL: https://huggingface.co/spaces/hugging-apps/fireredaudio-tts-demo",
   "viral_metric": "❤️ 18 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_hugging_appsfireredaudio_tts_demo",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "FireRedAudio",
+    "model_family": "Audio / Speech",
     "category": "Speech Synthesis / Audio AI",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "为音频生成及 AI 语音应用部署提供实用参考"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-speech",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 18 | Live URL: https://huggingface.co/spaces/hugging-apps/fireredaudio-tts-demo",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Audio / Speech",
+  "task_modality": "text-to-speech",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

@@ -18,11 +18,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8",
+  "model_family": "Qwen",
   "detected_formats": [
-    "Fine-tune / Uncensored"
+    "GGUF"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HuggingFace: HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
   "description_ko": "Trending Score: 183, Downloads: 1276092, Likes: 855, Pipeline: image-text-to-text",
   "variant_role": "🔓 검열해제 / 어블리터레이션 (Abliterated Fine-tune)",
@@ -89,7 +89,12 @@
           "支持图文到文本（Image-Text-to-Text）的多模态交互与任务生成"
         ]
       }
-    }
+    },
+    "task_modality": "image-text-to-text",
+    "parameter_size": "27B",
+    "detected_formats": [
+      "GGUF"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "C++",
@@ -143,5 +148,7 @@
   "enriched_at": "2026-09-04T02:18:21.851947",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "task_modality": "image-text-to-text",
+  "parameter_size": "27B"
 }

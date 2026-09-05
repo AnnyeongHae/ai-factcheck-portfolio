@@ -17,11 +17,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8",
+  "model_family": "Qwen",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: JonathanColetti/Qwen3.8-27B-Uncensored-Demo",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 64 | Live URL: https://huggingface.co/spaces/JonathanColetti/Qwen3.8-27B-Uncensored-Demo",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -87,7 +87,12 @@
           "可用于评估解除安全对齐限制后的 LLM 生成特性"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "27B",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -140,5 +145,7 @@
   "enriched_at": "2026-09-04T02:18:21.821726",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "task_modality": "other",
+  "parameter_size": "27B"
 }

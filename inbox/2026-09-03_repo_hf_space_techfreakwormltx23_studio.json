@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/techfreakworm/LTX2.3-Studio",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 338 | Live URL: https://huggingface.co/spaces/techfreakworm/LTX2.3-Studio",
   "viral_metric": "❤️ 338 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_techfreakwormltx23_studio",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "LTX-Video",
+    "model_family": "Standalone",
     "category": "Computer Vision / Video Generation",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "在 Hugging Face Spaces 上部署视频扩散模型的实用工程参考"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 338 | Live URL: https://huggingface.co/spaces/techfreakworm/LTX2.3-Studio",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Standalone",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

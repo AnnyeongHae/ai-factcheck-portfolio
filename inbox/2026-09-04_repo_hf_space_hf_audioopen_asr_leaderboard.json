@@ -9,7 +9,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/hf-audio/open_asr_leaderboard",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 1448 | Live URL: https://huggingface.co/spaces/hf-audio/open_asr_leaderboard",
   "viral_metric": "❤️ 1448 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-04_repo_hf_space_hf_audioopen_asr_leaderboard",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Standalone",
+    "model_family": "Audio / Speech",
     "category": "Speech Recognition / ASR Evaluation",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
       }
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-04T17:59:17.172000+00:00"
+    "enriched_at": "2026-09-04T17:59:17.172000+00:00",
+    "task_modality": "speech-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -126,5 +131,11 @@
   "description_zh": "实时对比多种 ASR 模型的性能，立即查看结果 – 工程师必备的工具。",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Audio / Speech",
+  "task_modality": "speech-to-text",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

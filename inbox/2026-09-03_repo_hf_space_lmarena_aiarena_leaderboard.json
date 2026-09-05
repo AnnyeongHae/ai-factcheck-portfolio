@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: static) | Likes: 4981 | Live URL: https://huggingface.co/spaces/lmarena-ai/arena-leaderboard",
   "viral_metric": "❤️ 4981 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_lmarena_aiarena_leaderboard",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "LLM Evaluation / Benchmarking",
+    "model_family": "Standalone",
     "category": "AI Benchmarks & Evaluation",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "支持编程、推理、高难度 Prompt 及多语言等细分领域排行榜"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: static) | Likes: 4981 | Live URL: https://huggingface.co/spaces/lmarena-ai/arena-leaderboard",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "AGENTS_DEVTOOLS"
+  "category_primary": "AGENTS_DEVTOOLS",
+  "model_family": "Standalone",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

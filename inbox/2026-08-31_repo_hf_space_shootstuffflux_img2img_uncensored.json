@@ -19,9 +19,9 @@
   },
   "model_family": "FLUX",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: shootstuff/flux-img2img-uncensored",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 217 | Live URL: https://huggingface.co/spaces/shootstuff/flux-img2img-uncensored",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -88,7 +88,12 @@
           "结合 Gradio SDK 提供便捷的 Web UI 交互与快速原型验证"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-image",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.842089",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "text-to-image",
+  "parameter_size": "N/A"
 }

@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/huggingface/InferenceSupport",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: static) | Likes: 657 | Live URL: https://huggingface.co/spaces/huggingface/InferenceSupport",
   "viral_metric": "❤️ 657 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_huggingfaceinferencesupport",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "Inference Infrastructure",
+    "model_family": "Standalone",
     "category": "AI Infrastructure",
     "programming_lang": "General",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "云端模型部署与 API 排错的集中式技术参考指南"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: static) | Likes: 657 | Live URL: https://huggingface.co/spaces/huggingface/InferenceSupport",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "model_family": "Standalone",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

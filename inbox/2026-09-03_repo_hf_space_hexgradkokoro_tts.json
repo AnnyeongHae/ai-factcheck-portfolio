@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/hexgrad/Kokoro-TTS",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 3451 | Live URL: https://huggingface.co/spaces/hexgrad/Kokoro-TTS",
   "viral_metric": "❤️ 3451 Likes (Trending Demo)",
   "metric_tracking": {
@@ -36,7 +36,7 @@
     "id": "2026-09-03_repo_hf_space_hexgradkokoro_tts",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "TTS (Text-to-Speech)",
+    "model_family": "Audio / Speech",
     "category": "Audio AI & Speech Synthesis",
     "programming_lang": "Python",
     "root_keywords": [
@@ -76,7 +76,12 @@
           "支持多种音色预设与多语言，是当前备受关注的开源 TTS 解决方案"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-speech",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 3451 | Live URL: https://huggingface.co/spaces/hexgrad/Kokoro-TTS",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "model_family": "Audio / Speech",
+  "task_modality": "text-to-speech",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Interactive Demo"
+  ]
 }

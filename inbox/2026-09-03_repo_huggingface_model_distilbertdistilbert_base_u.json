@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Models",
   "source_url": "https://huggingface.co/distilbert/distilbert-base-uncased",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Trending Score: 114, Downloads: 6870903, Likes: 1051, Pipeline: fill-mask",
   "viral_metric": "Trending 114 pts (❤️ 1051)",
   "metric_tracking": {
@@ -34,7 +34,7 @@
     "id": "2026-09-03_repo_huggingface_model_distilbertdistilbert_base_u",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "DistilBERT",
+    "model_family": "Standalone",
     "category": "Natural Language Processing",
     "programming_lang": "Python",
     "root_keywords": [
@@ -74,7 +74,12 @@
           "支持 fill-mask 及多种 NLP 下游任务的高效微调"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -95,7 +100,7 @@
   "description_ko": "Trending Score: 114, Downloads: 6870903, Likes: 1051, Pipeline: fill-mask",
   "description_en": "A widely adopted lightweight transformer model offering 40% reduction in size and 60% faster inference than BERT.",
   "description_zh": "在保持 BERT 绝大部分性能的同时，大幅减小模型体积并提升推理速度的工业界首选轻量模型。",
-  "model_family": "DistilBERT",
+  "model_family": "Standalone",
   "harvested_at": "2026-09-03T12:00:00+09:00",
   "published_at": "2026-09-03T12:00:00+09:00",
   "multilingual": {
@@ -131,5 +136,10 @@
   "enriched_at": "2026-09-04T13:06:57.306918",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "FOUNDATION_MODELS"
+  "category_primary": "FOUNDATION_MODELS",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Safetensors"
+  ]
 }

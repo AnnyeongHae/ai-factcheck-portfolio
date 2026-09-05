@@ -37,7 +37,7 @@
     "source_lang": "EN",
     "category_primary": "INFERENCE_OPT",
     "type_classification": "MODEL",
-    "model_family": "MiniMax-H3-Turbo-Lora",
+    "model_family": "MiniMax",
     "category": "LLM inference optimization",
     "programming_lang": "Python",
     "root_keywords": [
@@ -79,7 +79,12 @@
       }
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-05T02:55:22.132198+00:00"
+    "enriched_at": "2026-09-05T02:55:22.132198+00:00",
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "LoRA"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -129,8 +134,13 @@
   "description_ko": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
   "description_en": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
   "description_zh": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
-  "model_family": "MiniMax-H3-Turbo-Lora",
+  "model_family": "MiniMax",
   "category_primary": "INFERENCE_OPT",
   "is_classified": true,
-  "is_deep_analyzed": false
+  "is_deep_analyzed": false,
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "LoRA"
+  ]
 }

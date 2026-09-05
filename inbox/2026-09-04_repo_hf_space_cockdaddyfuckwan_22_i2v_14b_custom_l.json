@@ -77,7 +77,12 @@
       }
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-04T18:00:16.510490+00:00"
+    "enriched_at": "2026-09-04T18:00:16.510490+00:00",
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "LoRA"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -129,5 +134,10 @@
   "model_family": "Wan",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "LoRA"
+  ]
 }

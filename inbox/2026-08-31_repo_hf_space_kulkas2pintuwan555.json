@@ -19,9 +19,9 @@
   },
   "model_family": "Wan",
   "detected_formats": [
-    "Interactive Web Demo"
+    "Interactive Demo"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "HF Space: kulkas2pintu/wan555",
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 1699 | Live URL: https://huggingface.co/spaces/kulkas2pintu/wan555",
   "variant_role": "🚀 인터랙티브 웹 데모 (Web Space Demo)",
@@ -88,7 +88,12 @@
           "支持快速测试文本生成视频（T2V）与图生视频（I2V）等核心功能"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Interactive Demo"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -142,5 +147,7 @@
   "enriched_at": "2026-09-04T02:18:21.827237",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "MULTIMODAL_AI"
+  "category_primary": "MULTIMODAL_AI",
+  "task_modality": "other",
+  "parameter_size": "N/A"
 }

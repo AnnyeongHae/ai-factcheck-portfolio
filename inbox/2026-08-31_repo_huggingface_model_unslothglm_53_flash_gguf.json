@@ -73,7 +73,12 @@
           "已突破 6.3 万次下载，是近期备受关注的高效开源文本生成模型"
         ]
       }
-    }
+    },
+    "task_modality": "text-to-text",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "GGUF"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -95,7 +100,7 @@
   "description_en": "Maximize local inference performance with the optimized GLM-5.3-Flash GGUF model.",
   "description_zh": "利用针对高速推理优化的 GLM-5.3-Flash GGUF 模型，极致提升本地运行性能。",
   "model_family": "GLM",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "harvested_at": "2026-08-31T12:00:00+09:00",
   "published_at": "2026-08-31T12:00:00+09:00",
   "multilingual": {
@@ -131,5 +136,10 @@
   "enriched_at": "2026-09-04T02:18:21.862662",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "task_modality": "text-to-text",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "GGUF"
+  ]
 }

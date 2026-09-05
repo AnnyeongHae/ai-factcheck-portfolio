@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Spaces (Demo)",
   "source_url": "https://huggingface.co/spaces/mmmat32/Omi-videos-with_wan2.2-fp8",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Interactive AI Demo (SDK: gradio) | Likes: 43 | Live URL: https://huggingface.co/spaces/mmmat32/Omi-videos-with_wan2.2-fp8",
   "viral_metric": "❤️ 43 Likes (Trending Demo)",
   "metric_tracking": {
@@ -76,7 +76,12 @@
           "提供便捷的 Gradio Web 界面，便于在线快速体验视频生成"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "FP8"
+    ]
   },
   "multilingual": {
     "ko": {
@@ -127,5 +132,11 @@
   "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 43 | Live URL: https://huggingface.co/spaces/mmmat32/Omi-videos-with_wan2.2-fp8",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "model_family": "Wan",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "FP8"
+  ]
 }

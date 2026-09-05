@@ -18,11 +18,11 @@
     "risk_flags": [],
     "audit_notes": []
   },
-  "model_family": "Qwen-3.8",
+  "model_family": "Qwen",
   "detected_formats": [
-    "Dynamic GGUF v3.0"
+    "GGUF"
   ],
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "title_ko": "unsloth/Qwen3.8-27B-GGUF",
   "description_ko": "Trending Score: 341, Downloads: 9354057, Likes: 3366, Pipeline: N/A",
   "variant_role": "⚡ Unsloth 선택적 동적 양자화 (Dynamic GGUF)",
@@ -89,7 +89,12 @@
           "在 Hugging Face 上拥有超过 900 万次下载，是极为热门的本地推理模型选择"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "27B",
+    "detected_formats": [
+      "GGUF"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -143,5 +148,7 @@
   "enriched_at": "2026-09-04T02:18:21.889161",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFERENCE_OPT"
+  "category_primary": "INFERENCE_OPT",
+  "task_modality": "other",
+  "parameter_size": "27B"
 }

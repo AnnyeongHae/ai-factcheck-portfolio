@@ -7,7 +7,7 @@
   "source_platform": "Hugging Face Models",
   "source_url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
   "type": "repo",
-  "category_type": "TECH",
+  "category_type": "MODEL",
   "description": "Trending Score: 98, Downloads: 250280836, Likes: 5366, Pipeline: sentence-similarity",
   "viral_metric": "Trending 98 pts (❤️ 5366)",
   "metric_tracking": {
@@ -34,7 +34,7 @@
     "id": "2026-09-02_repo_huggingface_model_sentence_transformersall_mi",
     "source_lang": "EN",
     "type_classification": "TECH",
-    "model_family": "MiniLM / Sentence-Transformers",
+    "model_family": "Standalone",
     "category": "Natural Language Processing / Embeddings",
     "programming_lang": "Python",
     "root_keywords": [
@@ -74,7 +74,12 @@
           "作为工业界构建语义检索与聚类 pipeline 的通用基准模型"
         ]
       }
-    }
+    },
+    "task_modality": "other",
+    "parameter_size": "N/A",
+    "detected_formats": [
+      "Safetensors"
+    ]
   },
   "source_lang": "EN",
   "programming_lang": "Python",
@@ -95,7 +100,7 @@
   "description_ko": "Trending Score: 98, Downloads: 250280836, Likes: 5366, Pipeline: sentence-similarity",
   "description_en": "Explore the download trends and ecosystem impact of this highly reliable lightweight text embedding model.",
   "description_zh": "了解这款备受推崇的轻量级文本嵌入模型的下载趋势与应用生态。",
-  "model_family": "MiniLM",
+  "model_family": "Standalone",
   "harvested_at": "2026-09-02T12:00:00+09:00",
   "published_at": "2026-09-02T12:00:00+09:00",
   "multilingual": {
@@ -131,5 +136,10 @@
   "enriched_at": "2026-09-04T02:18:22.000588",
   "is_classified": true,
   "is_deep_analyzed": false,
-  "category_primary": "INFRA_RAG_SECURITY"
+  "category_primary": "INFRA_RAG_SECURITY",
+  "task_modality": "other",
+  "parameter_size": "N/A",
+  "detected_formats": [
+    "Safetensors"
+  ]
 }
