@@ -9,17 +9,17 @@
   "gamed_count": 2,
   "avg_confidence": 96.2,
   "models_total_count": 226,
-  "news_total_count": 540,
+  "news_total_count": 544,
   "news_cat_counts": {
     "INFERENCE_OPT": 37,
     "AGENTS_DEVTOOLS": 88,
     "MULTIMODAL_AI": 29,
     "FOUNDATION_MODELS": 4,
-    "INFRA_RAG_SECURITY": 53,
-    "INDUSTRY_TRENDS": 329
+    "INFRA_RAG_SECURITY": 56,
+    "INDUSTRY_TRENDS": 330
   },
-  "inbox_total_count": 755,
-  "all_inbox_count": 766,
+  "inbox_total_count": 759,
+  "all_inbox_count": 770,
   "admin_stats": {
     "endpoints": [
       {
@@ -54,6 +54,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-05T03:58:52.976615",
+        "date": "2026-09-05",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.2
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 86,
+            "duration_sec": 0.31
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.73
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 11.04
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.28
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.17
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.91
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.15
+          }
+        },
+        "summary": {
+          "total_fetched": 260,
+          "updated_count": 0,
+          "new_saved": 4,
+          "duplicates_skipped": 256,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-05T02:53:27.546285",
         "date": "2026-09-05",
@@ -1590,74 +1643,21 @@
           "duplicates_skipped": 221,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T10:12:35.755034",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.24
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 86,
-            "duration_sec": 0.32
-          },
-          "github": {
-            "status": "ERROR",
-            "error": "HTTP Error 500: internal server error",
-            "duration_sec": 0.67
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 24,
-            "duration_sec": 15.38
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.27
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.14
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.69
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.28
-          }
-        },
-        "summary": {
-          "total_fetched": 195,
-          "updated_count": 0,
-          "new_saved": 1,
-          "duplicates_skipped": 194,
-          "errors": 1
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-05T02:53:27.546285",
+      "timestamp": "2026-09-05T03:58:52.976615",
       "date": "2026-09-05",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.23
+          "duration_sec": 0.2
         },
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 86,
-          "duration_sec": 0.24
+          "duration_sec": 0.31
         },
         "github": {
           "status": "SUCCESS",
@@ -1667,22 +1667,22 @@
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 11.83
+          "duration_sec": 11.04
         },
         "arxiv": {
-          "status": "ERROR",
-          "error": "The read operation timed out",
-          "duration_sec": 12.2
+          "status": "SUCCESS",
+          "items_found": 20,
+          "duration_sec": 0.28
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.13
+          "duration_sec": 0.17
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.6
+          "duration_sec": 0.91
         },
         "curated_rss": {
           "status": "SUCCESS",
@@ -1691,11 +1691,11 @@
         }
       },
       "summary": {
-        "total_fetched": 240,
+        "total_fetched": 260,
         "updated_count": 0,
         "new_saved": 4,
-        "duplicates_skipped": 236,
-        "errors": 1
+        "duplicates_skipped": 256,
+        "errors": 0
       }
     }
   },
@@ -1744,9 +1744,9 @@
       "slot": "12시",
       "hour": 12,
       "range": "12:00 - 14:59",
-      "inbox_count": 0,
+      "inbox_count": 4,
       "model_count": 0,
-      "news_count": 0,
+      "news_count": 4,
       "is_current": true,
       "is_future": false
     },
@@ -1785,18 +1785,18 @@
     "window_label": "12:00 ~ 18:00 KST",
     "window_period": "오후 실시간 모델 & 아키텍처 브리핑",
     "today_kst": "2026-09-05",
-    "updated_at": "14:00 KST",
+    "updated_at": "14:01 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
       "🔥 [Hugging Face Models] GLM-5.3-Flash: 초경량 고성능 비전-언어 멀티모달 모델 (Trending 1796 pts (❤️ 1923)) — 높은 다운로드 수와 뛰어난 추론 효율성을 자랑하는 멀티모달(Image-Text-to-Text) 모델"
     ],
     "tags": [
-      "#Autonomous_Agent",
-      "#MoE_Architecture",
+      "#Local_LLM",
       "#High_Engagement",
       "#SoTA_Models",
-      "#Local_LLM"
+      "#Autonomous_Agent",
+      "#MoE_Architecture"
     ]
   },
   "dow_stats": [],
@@ -34548,6 +34548,540 @@
     }
   ],
   "news_items": [
+    {
+      "inbox_id": "2026-09-05_sns_geeknews_ai가_내_두뇌를_망치고_있을까",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T03:59:08.110835",
+      "published_at": "2026-09-05T03:59:08.110835",
+      "created_at": "2026-09-05T03:59:08.110835",
+      "updated_at": "2026-09-05T03:59:08.110835",
+      "title": "GeekNews: AI가 내 두뇌를 망치고 있을까?",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33248",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: AI가 내 두뇌를 망치고 있을까?",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "내 두뇌가 AI에 의해 망가지고 있을까?",
+      "description_ko": "AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유.",
+      "hn_url": "https://news.hada.io/topic?id=33248",
+      "article_url": "https://news.hada.io/topic?id=33248",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_geeknews_ai가_내_두뇌를_망치고_있을까",
+        "source_lang": "KO",
+        "category_primary": "INDUSTRY_TRENDS",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI Ethics & Cognitive Effects",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI",
+          "Cognitive Impact",
+          "Tech Trend"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "내 두뇌가 AI에 의해 망가지고 있을까?",
+            "hook": "AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유.",
+            "key_takeaways": [
+              "AI 과몰입이 인지 능력 저하를 유발할 수 있음을 연구 결과 보여줌",
+              "사용자는 자기 인식과 균형 잡힌 사용을 통해 대응해야 함",
+              "기술 설계자들은 윤리적 가이드라인을 고려해야 함"
+            ]
+          },
+          "en": {
+            "title": "Is AI damaging my brain?",
+            "hook": "New studies suggest excessive AI reliance may erode our cognitive abilities—engineers, it's time to rethink how we integrate AI into daily workflows.",
+            "key_takeaways": [
+              "Research indicates that over-reliance on AI can reduce critical thinking and memory retention",
+              "Users should adopt mindful usage habits and maintain mental fitness",
+              "Developers need to prioritize ethical design and cognitive impact assessments"
+            ]
+          },
+          "zh": {
+            "title": "AI 是否正在损害我的大脑？",
+            "hook": "多项研究表明，过度依赖 AI 可能导致认知能力下降——工程师们，是时候重新思考 AI 在工作中的应用方式了。",
+            "key_takeaways": [
+              "研究显示，过度依赖 AI 会降低批判性思维和记忆力",
+              "用户应培养 mindful 使用习惯，保持认知健康",
+              "开发者需关注伦理设计，评估 AI 对认知的影响"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T04:00:13.272458+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "내 두뇌가 AI에 의해 망가지고 있을까?",
+          "hook": "AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유.",
+          "key_takeaways": [
+            "AI 과몰입이 인지 능력 저하를 유발할 수 있음을 연구 결과 보여줌",
+            "사용자는 자기 인식과 균형 잡힌 사용을 통해 대응해야 함",
+            "기술 설계자들은 윤리적 가이드라인을 고려해야 함"
+          ]
+        },
+        "en": {
+          "title": "Is AI damaging my brain?",
+          "hook": "New studies suggest excessive AI reliance may erode our cognitive abilities—engineers, it's time to rethink how we integrate AI into daily workflows.",
+          "key_takeaways": [
+            "Research indicates that over-reliance on AI can reduce critical thinking and memory retention",
+            "Users should adopt mindful usage habits and maintain mental fitness",
+            "Developers need to prioritize ethical design and cognitive impact assessments"
+          ]
+        },
+        "zh": {
+          "title": "AI 是否正在损害我的大脑？",
+          "hook": "多项研究表明，过度依赖 AI 可能导致认知能力下降——工程师们，是时候重新思考 AI 在工作中的应用方式了。",
+          "key_takeaways": [
+            "研究显示，过度依赖 AI 会降低批判性思维和记忆力",
+            "用户应培养 mindful 使用习惯，保持认知健康",
+            "开发者需关注伦理设计，评估 AI 对认知的影响"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI",
+        "Cognitive Impact",
+        "Tech Trend"
+      ],
+      "title_en": "Is AI damaging my brain?",
+      "title_zh": "AI 是否正在损害我的大脑？",
+      "hook": "AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유.",
+      "hook_ko": "AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유.",
+      "hook_en": "New studies suggest excessive AI reliance may erode our cognitive abilities—engineers, it's time to rethink how we integrate AI into daily workflows.",
+      "hook_zh": "多项研究表明，过度依赖 AI 可能导致认知能力下降——工程师们，是时候重新思考 AI 在工作中的应用方式了。",
+      "description_en": "New studies suggest excessive AI reliance may erode our cognitive abilities—engineers, it's time to rethink how we integrate AI into daily workflows.",
+      "description_zh": "多项研究表明，过度依赖 AI 可能导致认知能力下降——工程师们，是时候重新思考 AI 在工作中的应用方式了。",
+      "category_primary": "INDUSTRY_TRENDS",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_sns_geeknews_모든_chromium_버전에_영향을_주는_실제_악용_중인_샌드박스",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T03:59:08.098491",
+      "published_at": "2026-09-05T03:59:08.098491",
+      "created_at": "2026-09-05T03:59:08.098491",
+      "updated_at": "2026-09-05T03:59:08.098491",
+      "title": "GeekNews: 모든 Chromium 버전에 영향을 주는 실제 악용 중인 샌드박스 원격 코드 실행 취약점",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33249",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: 모든 Chromium 버전에 영향을 주는 실제 악용 중인 샌드박스 원격 코드 실행 취약점",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "모든 크롬 기반 브라우저를 위협하는 실제 악용 중인 샌드박스 RCE 취약점",
+      "description_ko": "이 취약점은 실제 악용 중이며, 모든 크롬 버전 사용자를 원격 코드 실행 위험에 빠뜨립니다.",
+      "hn_url": "https://news.hada.io/topic?id=33249",
+      "article_url": "https://news.hada.io/topic?id=33249",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_geeknews_모든_chromium_버전에_영향을_주는_실제_악용_중인_샌드박스",
+        "source_lang": "KO",
+        "category_primary": "INFRA_RAG_SECURITY",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "샌드박스 원격 코드 실행 취약점",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "Chromium",
+          "샌드박스",
+          "RCE",
+          "취약점"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "모든 크롬 기반 브라우저를 위협하는 실제 악용 중인 샌드박스 RCE 취약점",
+            "hook": "이 취약점은 실제 악용 중이며, 모든 크롬 버전 사용자를 원격 코드 실행 위험에 빠뜨립니다.",
+            "key_takeaways": [
+              "모든 크롬/브라우저 버전에 영향을 미칩니다.",
+              "실제 악용 중인 샌드박스 탈출 RCE 취약점입니다.",
+              "즉시 패치를 적용해야 합니다."
+            ]
+          },
+          "en": {
+            "title": "Actual Exploited Sandbox RCE Vulnerability Affecting All Chromium Versions",
+            "hook": "A real‑world sandbox escape RCE vulnerability is actively exploited across all Chromium‑based browsers, putting users at risk.",
+            "key_takeaways": [
+              "Affects all Chromium‑based browsers.",
+              "Actively exploited sandbox escape RCE vulnerability.",
+              "Immediate patching required."
+            ]
+          },
+          "zh": {
+            "title": "影响所有 Chromium 版本的真实利用中沙盒 RCE 漏洞",
+            "hook": "一个真实利用中的沙盒逃逸 RCE 漏洞正在影响所有 Chromium 浏览器，用户面临远程代码执行风险。",
+            "key_takeaways": [
+              "影响所有 Chromium 版本的浏览器。",
+              "真实利用中的沙盒逃逸 RCE 漏洞。",
+              "需立即打补丁。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T04:01:09.566584+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "모든 크롬 기반 브라우저를 위협하는 실제 악용 중인 샌드박스 RCE 취약점",
+          "hook": "이 취약점은 실제 악용 중이며, 모든 크롬 버전 사용자를 원격 코드 실행 위험에 빠뜨립니다.",
+          "key_takeaways": [
+            "모든 크롬/브라우저 버전에 영향을 미칩니다.",
+            "실제 악용 중인 샌드박스 탈출 RCE 취약점입니다.",
+            "즉시 패치를 적용해야 합니다."
+          ]
+        },
+        "en": {
+          "title": "Actual Exploited Sandbox RCE Vulnerability Affecting All Chromium Versions",
+          "hook": "A real‑world sandbox escape RCE vulnerability is actively exploited across all Chromium‑based browsers, putting users at risk.",
+          "key_takeaways": [
+            "Affects all Chromium‑based browsers.",
+            "Actively exploited sandbox escape RCE vulnerability.",
+            "Immediate patching required."
+          ]
+        },
+        "zh": {
+          "title": "影响所有 Chromium 版本的真实利用中沙盒 RCE 漏洞",
+          "hook": "一个真实利用中的沙盒逃逸 RCE 漏洞正在影响所有 Chromium 浏览器，用户面临远程代码执行风险。",
+          "key_takeaways": [
+            "影响所有 Chromium 版本的浏览器。",
+            "真实利用中的沙盒逃逸 RCE 漏洞。",
+            "需立即打补丁。"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "Chromium",
+        "샌드박스",
+        "RCE",
+        "취약점"
+      ],
+      "title_en": "Actual Exploited Sandbox RCE Vulnerability Affecting All Chromium Versions",
+      "title_zh": "影响所有 Chromium 版本的真实利用中沙盒 RCE 漏洞",
+      "hook": "이 취약점은 실제 악용 중이며, 모든 크롬 버전 사용자를 원격 코드 실행 위험에 빠뜨립니다.",
+      "hook_ko": "이 취약점은 실제 악용 중이며, 모든 크롬 버전 사용자를 원격 코드 실행 위험에 빠뜨립니다.",
+      "hook_en": "A real‑world sandbox escape RCE vulnerability is actively exploited across all Chromium‑based browsers, putting users at risk.",
+      "hook_zh": "一个真实利用中的沙盒逃逸 RCE 漏洞正在影响所有 Chromium 浏览器，用户面临远程代码执行风险。",
+      "description_en": "A real‑world sandbox escape RCE vulnerability is actively exploited across all Chromium‑based browsers, putting users at risk.",
+      "description_zh": "一个真实利用中的沙盒逃逸 RCE 漏洞正在影响所有 Chromium 浏览器，用户面临远程代码执行风险。",
+      "category_primary": "INFRA_RAG_SECURITY",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_sns_hacker_news_nitter_has_more_working_instances",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T03:59:07.549202",
+      "published_at": "2026-09-05T00:04:16",
+      "created_at": "2026-09-05T00:04:16",
+      "updated_at": "2026-09-05T03:59:07.549202",
+      "title": "Hacker News: Nitter has more working instances than before the takedowns",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49571634",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 31 pts | Comments: 8 | Nitter has more working instances than before the takedowns",
+      "viral_metric": "🔥 31 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 31,
+          "display": "🔥 31 HN Points",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 31,
+          "display": "🔥 31 HN Points",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49571634",
+      "article_url": "https://codeberg.org/mv12star/shitter/wiki/Instances",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_hacker_news_nitter_has_more_working_instances",
+        "source_lang": "EN",
+        "category_primary": "INFRA_RAG_SECURITY",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Social media access tools",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Nitter",
+          "Twitter",
+          "Instances"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "니터, 단속 후 더 많은 인스턴스 가동으로 트위터 대체 서비스 강화",
+            "hook": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
+            "key_takeaways": [
+              "니터가 트위터 접속 차단 후에도 더 많은 작동 인스턴스를 확보했습니다.",
+              "이는 분산형 소셜 미디어 접근성을 유지하는 데 도움이 됩니다.",
+              "개발자들은 대체 인스턴스를 통해 트위터 콘텐츠에 계속 접근할 수 있습니다."
+            ]
+          },
+          "en": {
+            "title": "Nitter Regains More Working Instances Post‑Takedown",
+            "hook": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
+            "key_takeaways": [
+              "Nitter now operates more instances than before the recent takedowns.",
+              "This helps preserve decentralized access to Twitter.",
+              "Developers can continue accessing Twitter content via alternative instances."
+            ]
+          },
+          "zh": {
+            "title": "Nitter 劫后余生，实例数量超以往",
+            "hook": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
+            "key_takeaways": [
+              "Nitter 劫后余生，实例数量超以往。",
+              "这有助于维持推特的去中心化访问。",
+              "开发者可通过替代实例继续访问推特内容。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T04:02:17.331394+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "니터, 단속 후 더 많은 인스턴스 가동으로 트위터 대체 서비스 강화",
+          "hook": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
+          "key_takeaways": [
+            "니터가 트위터 접속 차단 후에도 더 많은 작동 인스턴스를 확보했습니다.",
+            "이는 분산형 소셜 미디어 접근성을 유지하는 데 도움이 됩니다.",
+            "개발자들은 대체 인스턴스를 통해 트위터 콘텐츠에 계속 접근할 수 있습니다."
+          ]
+        },
+        "en": {
+          "title": "Nitter Regains More Working Instances Post‑Takedown",
+          "hook": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
+          "key_takeaways": [
+            "Nitter now operates more instances than before the recent takedowns.",
+            "This helps preserve decentralized access to Twitter.",
+            "Developers can continue accessing Twitter content via alternative instances."
+          ]
+        },
+        "zh": {
+          "title": "Nitter 劫后余生，实例数量超以往",
+          "hook": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
+          "key_takeaways": [
+            "Nitter 劫后余生，实例数量超以往。",
+            "这有助于维持推特的去中心化访问。",
+            "开发者可通过替代实例继续访问推特内容。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Nitter",
+        "Twitter",
+        "Instances"
+      ],
+      "title_ko": "니터, 단속 후 더 많은 인스턴스 가동으로 트위터 대체 서비스 강화",
+      "title_en": "Nitter Regains More Working Instances Post‑Takedown",
+      "title_zh": "Nitter 劫后余生，实例数量超以往",
+      "hook": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
+      "hook_ko": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
+      "hook_en": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
+      "hook_zh": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
+      "description_ko": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
+      "description_en": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
+      "description_zh": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
+      "category_primary": "INFRA_RAG_SECURITY",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_sns_hacker_news_bugs_happen_the_easy_way_to_compa",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T03:59:07.493735",
+      "published_at": "2026-09-01T21:27:37",
+      "created_at": "2026-09-01T21:27:37",
+      "updated_at": "2026-09-05T03:59:07.493735",
+      "title": "Hacker News: Bugs happen: The easy way to compare solo PQ to ECC+PQ",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49528484",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 14 pts | Comments: 5 | Bugs happen: The easy way to compare solo PQ to ECC+PQ",
+      "viral_metric": "🔥 14 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49528484",
+      "article_url": "https://blog.cr.yp.to/20260704-bugs.html",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_hacker_news_bugs_happen_the_easy_way_to_compa",
+        "source_lang": "EN",
+        "category_primary": "INFRA_RAG_SECURITY",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Post-Quantum Cryptography Comparison",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Post-Quantum Cryptography",
+          "ECC",
+          "Security Comparison"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "버그 발생: 솔로 PQ와 ECC+PQ 비교의 쉬운 방법",
+            "hook": "기존 시스템과의 호환성을 고려한 솔로 PQ와 ECC+PQ 하이브리드 솔루션의 성능 및 보안 트레이드오프를 빠르게 평가하는 방법",
+            "key_takeaways": [
+              "솔로 PQ는 구현이 간편하지만 호환성이 제한적임",
+              "ECC+PQ 하이브리드는 기존 ECC와의 호환성을 제공함",
+              "성능과 보안은 사용 사례에 따라 선택해야 함"
+            ]
+          },
+          "en": {
+            "title": "Bugs Happen: The Easy Way to Compare Solo PQ to ECC+PQ",
+            "hook": "A quick guide to evaluating solo post‑quantum cryptography against hybrid ECC+PQ solutions for performance, security, and compatibility",
+            "key_takeaways": [
+              "Solo PQ offers simpler implementation but limited compatibility",
+              "ECC+PQ hybrid provides backward compatibility with existing ECC systems",
+              "Performance and security trade‑offs depend on the specific use‑case requirements"
+            ]
+          },
+          "zh": {
+            "title": "漏洞发生：轻松比较 solo PQ 与 ECC+PQ 的方法",
+            "hook": "快速评估 solo PQ 与 ECC+PQ 混合方案在性能和安全性上的权衡，以及对现有系统的兼容性",
+            "key_takeaways": [
+              "solo PQ 实现简单但兼容性较差",
+              "ECC+PQ 混合方案能保持与现有 ECC 系统的兼容性",
+              "性能与安全性需根据具体应用场景选择"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T04:03:18.219839+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "버그 발생: 솔로 PQ와 ECC+PQ 비교의 쉬운 방법",
+          "hook": "기존 시스템과의 호환성을 고려한 솔로 PQ와 ECC+PQ 하이브리드 솔루션의 성능 및 보안 트레이드오프를 빠르게 평가하는 방법",
+          "key_takeaways": [
+            "솔로 PQ는 구현이 간편하지만 호환성이 제한적임",
+            "ECC+PQ 하이브리드는 기존 ECC와의 호환성을 제공함",
+            "성능과 보안은 사용 사례에 따라 선택해야 함"
+          ]
+        },
+        "en": {
+          "title": "Bugs Happen: The Easy Way to Compare Solo PQ to ECC+PQ",
+          "hook": "A quick guide to evaluating solo post‑quantum cryptography against hybrid ECC+PQ solutions for performance, security, and compatibility",
+          "key_takeaways": [
+            "Solo PQ offers simpler implementation but limited compatibility",
+            "ECC+PQ hybrid provides backward compatibility with existing ECC systems",
+            "Performance and security trade‑offs depend on the specific use‑case requirements"
+          ]
+        },
+        "zh": {
+          "title": "漏洞发生：轻松比较 solo PQ 与 ECC+PQ 的方法",
+          "hook": "快速评估 solo PQ 与 ECC+PQ 混合方案在性能和安全性上的权衡，以及对现有系统的兼容性",
+          "key_takeaways": [
+            "solo PQ 实现简单但兼容性较差",
+            "ECC+PQ 混合方案能保持与现有 ECC 系统的兼容性",
+            "性能与安全性需根据具体应用场景选择"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Post-Quantum Cryptography",
+        "ECC",
+        "Security Comparison"
+      ],
+      "title_ko": "버그 발생: 솔로 PQ와 ECC+PQ 비교의 쉬운 방법",
+      "title_en": "Bugs Happen: The Easy Way to Compare Solo PQ to ECC+PQ",
+      "title_zh": "漏洞发生：轻松比较 solo PQ 与 ECC+PQ 的方法",
+      "hook": "기존 시스템과의 호환성을 고려한 솔로 PQ와 ECC+PQ 하이브리드 솔루션의 성능 및 보안 트레이드오프를 빠르게 평가하는 방법",
+      "hook_ko": "기존 시스템과의 호환성을 고려한 솔로 PQ와 ECC+PQ 하이브리드 솔루션의 성능 및 보안 트레이드오프를 빠르게 평가하는 방법",
+      "hook_en": "A quick guide to evaluating solo post‑quantum cryptography against hybrid ECC+PQ solutions for performance, security, and compatibility",
+      "hook_zh": "快速评估 solo PQ 与 ECC+PQ 混合方案在性能和安全性上的权衡，以及对现有系统的兼容性",
+      "description_ko": "기존 시스템과의 호환성을 고려한 솔로 PQ와 ECC+PQ 하이브리드 솔루션의 성능 및 보안 트레이드오프를 빠르게 평가하는 방법",
+      "description_en": "A quick guide to evaluating solo post‑quantum cryptography against hybrid ECC+PQ solutions for performance, security, and compatibility",
+      "description_zh": "快速评估 solo PQ 与 ECC+PQ 混合方案在性能和安全性上的权衡，以及对现有系统的兼容性",
+      "category_primary": "INFRA_RAG_SECURITY",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-05_sns_geeknews_claude_codecodexcursor는_어떤_도구를_선택할까_",
       "harvested_date": "2026-09-05",
@@ -106777,6 +107311,540 @@
     }
   ],
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-05_sns_geeknews_ai가_내_두뇌를_망치고_있을까",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T03:59:08.110835",
+      "published_at": "2026-09-05T03:59:08.110835",
+      "created_at": "2026-09-05T03:59:08.110835",
+      "updated_at": "2026-09-05T03:59:08.110835",
+      "title": "GeekNews: AI가 내 두뇌를 망치고 있을까?",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33248",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "GeekNews Korean Tech Trend: AI가 내 두뇌를 망치고 있을까?",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "내 두뇌가 AI에 의해 망가지고 있을까?",
+      "description_ko": "AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유.",
+      "hn_url": "https://news.hada.io/topic?id=33248",
+      "article_url": "https://news.hada.io/topic?id=33248",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_geeknews_ai가_내_두뇌를_망치고_있을까",
+        "source_lang": "KO",
+        "category_primary": "INDUSTRY_TRENDS",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "AI Ethics & Cognitive Effects",
+        "programming_lang": "General",
+        "root_keywords": [
+          "AI",
+          "Cognitive Impact",
+          "Tech Trend"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "내 두뇌가 AI에 의해 망가지고 있을까?",
+            "hook": "AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유.",
+            "key_takeaways": [
+              "AI 과몰입이 인지 능력 저하를 유발할 수 있음을 연구 결과 보여줌",
+              "사용자는 자기 인식과 균형 잡힌 사용을 통해 대응해야 함",
+              "기술 설계자들은 윤리적 가이드라인을 고려해야 함"
+            ]
+          },
+          "en": {
+            "title": "Is AI damaging my brain?",
+            "hook": "New studies suggest excessive AI reliance may erode our cognitive abilities—engineers, it's time to rethink how we integrate AI into daily workflows.",
+            "key_takeaways": [
+              "Research indicates that over-reliance on AI can reduce critical thinking and memory retention",
+              "Users should adopt mindful usage habits and maintain mental fitness",
+              "Developers need to prioritize ethical design and cognitive impact assessments"
+            ]
+          },
+          "zh": {
+            "title": "AI 是否正在损害我的大脑？",
+            "hook": "多项研究表明，过度依赖 AI 可能导致认知能力下降——工程师们，是时候重新思考 AI 在工作中的应用方式了。",
+            "key_takeaways": [
+              "研究显示，过度依赖 AI 会降低批判性思维和记忆力",
+              "用户应培养 mindful 使用习惯，保持认知健康",
+              "开发者需关注伦理设计，评估 AI 对认知的影响"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T04:00:13.272458+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "내 두뇌가 AI에 의해 망가지고 있을까?",
+          "hook": "AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유.",
+          "key_takeaways": [
+            "AI 과몰입이 인지 능력 저하를 유발할 수 있음을 연구 결과 보여줌",
+            "사용자는 자기 인식과 균형 잡힌 사용을 통해 대응해야 함",
+            "기술 설계자들은 윤리적 가이드라인을 고려해야 함"
+          ]
+        },
+        "en": {
+          "title": "Is AI damaging my brain?",
+          "hook": "New studies suggest excessive AI reliance may erode our cognitive abilities—engineers, it's time to rethink how we integrate AI into daily workflows.",
+          "key_takeaways": [
+            "Research indicates that over-reliance on AI can reduce critical thinking and memory retention",
+            "Users should adopt mindful usage habits and maintain mental fitness",
+            "Developers need to prioritize ethical design and cognitive impact assessments"
+          ]
+        },
+        "zh": {
+          "title": "AI 是否正在损害我的大脑？",
+          "hook": "多项研究表明，过度依赖 AI 可能导致认知能力下降——工程师们，是时候重新思考 AI 在工作中的应用方式了。",
+          "key_takeaways": [
+            "研究显示，过度依赖 AI 会降低批判性思维和记忆力",
+            "用户应培养 mindful 使用习惯，保持认知健康",
+            "开发者需关注伦理设计，评估 AI 对认知的影响"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "AI",
+        "Cognitive Impact",
+        "Tech Trend"
+      ],
+      "title_en": "Is AI damaging my brain?",
+      "title_zh": "AI 是否正在损害我的大脑？",
+      "hook": "AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유.",
+      "hook_ko": "AI의 과도한 의존이 우리의 사고 능력을 저하시킬 수 있다는 경고, 지금 당장 확인해야 할 이유.",
+      "hook_en": "New studies suggest excessive AI reliance may erode our cognitive abilities—engineers, it's time to rethink how we integrate AI into daily workflows.",
+      "hook_zh": "多项研究表明，过度依赖 AI 可能导致认知能力下降——工程师们，是时候重新思考 AI 在工作中的应用方式了。",
+      "description_en": "New studies suggest excessive AI reliance may erode our cognitive abilities—engineers, it's time to rethink how we integrate AI into daily workflows.",
+      "description_zh": "多项研究表明，过度依赖 AI 可能导致认知能力下降——工程师们，是时候重新思考 AI 在工作中的应用方式了。",
+      "category_primary": "INDUSTRY_TRENDS",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_sns_geeknews_모든_chromium_버전에_영향을_주는_실제_악용_중인_샌드박스",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T03:59:08.098491",
+      "published_at": "2026-09-05T03:59:08.098491",
+      "created_at": "2026-09-05T03:59:08.098491",
+      "updated_at": "2026-09-05T03:59:08.098491",
+      "title": "GeekNews: 모든 Chromium 버전에 영향을 주는 실제 악용 중인 샌드박스 원격 코드 실행 취약점",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33249",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: 모든 Chromium 버전에 영향을 주는 실제 악용 중인 샌드박스 원격 코드 실행 취약점",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "모든 크롬 기반 브라우저를 위협하는 실제 악용 중인 샌드박스 RCE 취약점",
+      "description_ko": "이 취약점은 실제 악용 중이며, 모든 크롬 버전 사용자를 원격 코드 실행 위험에 빠뜨립니다.",
+      "hn_url": "https://news.hada.io/topic?id=33249",
+      "article_url": "https://news.hada.io/topic?id=33249",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_geeknews_모든_chromium_버전에_영향을_주는_실제_악용_중인_샌드박스",
+        "source_lang": "KO",
+        "category_primary": "INFRA_RAG_SECURITY",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "샌드박스 원격 코드 실행 취약점",
+        "programming_lang": "C++",
+        "root_keywords": [
+          "Chromium",
+          "샌드박스",
+          "RCE",
+          "취약점"
+        ],
+        "recommended_tag": "🔥 강력 추천 (필독)",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "모든 크롬 기반 브라우저를 위협하는 실제 악용 중인 샌드박스 RCE 취약점",
+            "hook": "이 취약점은 실제 악용 중이며, 모든 크롬 버전 사용자를 원격 코드 실행 위험에 빠뜨립니다.",
+            "key_takeaways": [
+              "모든 크롬/브라우저 버전에 영향을 미칩니다.",
+              "실제 악용 중인 샌드박스 탈출 RCE 취약점입니다.",
+              "즉시 패치를 적용해야 합니다."
+            ]
+          },
+          "en": {
+            "title": "Actual Exploited Sandbox RCE Vulnerability Affecting All Chromium Versions",
+            "hook": "A real‑world sandbox escape RCE vulnerability is actively exploited across all Chromium‑based browsers, putting users at risk.",
+            "key_takeaways": [
+              "Affects all Chromium‑based browsers.",
+              "Actively exploited sandbox escape RCE vulnerability.",
+              "Immediate patching required."
+            ]
+          },
+          "zh": {
+            "title": "影响所有 Chromium 版本的真实利用中沙盒 RCE 漏洞",
+            "hook": "一个真实利用中的沙盒逃逸 RCE 漏洞正在影响所有 Chromium 浏览器，用户面临远程代码执行风险。",
+            "key_takeaways": [
+              "影响所有 Chromium 版本的浏览器。",
+              "真实利用中的沙盒逃逸 RCE 漏洞。",
+              "需立即打补丁。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T04:01:09.566584+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "모든 크롬 기반 브라우저를 위협하는 실제 악용 중인 샌드박스 RCE 취약점",
+          "hook": "이 취약점은 실제 악용 중이며, 모든 크롬 버전 사용자를 원격 코드 실행 위험에 빠뜨립니다.",
+          "key_takeaways": [
+            "모든 크롬/브라우저 버전에 영향을 미칩니다.",
+            "실제 악용 중인 샌드박스 탈출 RCE 취약점입니다.",
+            "즉시 패치를 적용해야 합니다."
+          ]
+        },
+        "en": {
+          "title": "Actual Exploited Sandbox RCE Vulnerability Affecting All Chromium Versions",
+          "hook": "A real‑world sandbox escape RCE vulnerability is actively exploited across all Chromium‑based browsers, putting users at risk.",
+          "key_takeaways": [
+            "Affects all Chromium‑based browsers.",
+            "Actively exploited sandbox escape RCE vulnerability.",
+            "Immediate patching required."
+          ]
+        },
+        "zh": {
+          "title": "影响所有 Chromium 版本的真实利用中沙盒 RCE 漏洞",
+          "hook": "一个真实利用中的沙盒逃逸 RCE 漏洞正在影响所有 Chromium 浏览器，用户面临远程代码执行风险。",
+          "key_takeaways": [
+            "影响所有 Chromium 版本的浏览器。",
+            "真实利用中的沙盒逃逸 RCE 漏洞。",
+            "需立即打补丁。"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "C++",
+      "root_keywords": [
+        "Chromium",
+        "샌드박스",
+        "RCE",
+        "취약점"
+      ],
+      "title_en": "Actual Exploited Sandbox RCE Vulnerability Affecting All Chromium Versions",
+      "title_zh": "影响所有 Chromium 版本的真实利用中沙盒 RCE 漏洞",
+      "hook": "이 취약점은 실제 악용 중이며, 모든 크롬 버전 사용자를 원격 코드 실행 위험에 빠뜨립니다.",
+      "hook_ko": "이 취약점은 실제 악용 중이며, 모든 크롬 버전 사용자를 원격 코드 실행 위험에 빠뜨립니다.",
+      "hook_en": "A real‑world sandbox escape RCE vulnerability is actively exploited across all Chromium‑based browsers, putting users at risk.",
+      "hook_zh": "一个真实利用中的沙盒逃逸 RCE 漏洞正在影响所有 Chromium 浏览器，用户面临远程代码执行风险。",
+      "description_en": "A real‑world sandbox escape RCE vulnerability is actively exploited across all Chromium‑based browsers, putting users at risk.",
+      "description_zh": "一个真实利用中的沙盒逃逸 RCE 漏洞正在影响所有 Chromium 浏览器，用户面临远程代码执行风险。",
+      "category_primary": "INFRA_RAG_SECURITY",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_sns_hacker_news_nitter_has_more_working_instances",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T03:59:07.549202",
+      "published_at": "2026-09-05T00:04:16",
+      "created_at": "2026-09-05T00:04:16",
+      "updated_at": "2026-09-05T03:59:07.549202",
+      "title": "Hacker News: Nitter has more working instances than before the takedowns",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49571634",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 31 pts | Comments: 8 | Nitter has more working instances than before the takedowns",
+      "viral_metric": "🔥 31 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 31,
+          "display": "🔥 31 HN Points",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 31,
+          "display": "🔥 31 HN Points",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49571634",
+      "article_url": "https://codeberg.org/mv12star/shitter/wiki/Instances",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_hacker_news_nitter_has_more_working_instances",
+        "source_lang": "EN",
+        "category_primary": "INFRA_RAG_SECURITY",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Social media access tools",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Nitter",
+          "Twitter",
+          "Instances"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "니터, 단속 후 더 많은 인스턴스 가동으로 트위터 대체 서비스 강화",
+            "hook": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
+            "key_takeaways": [
+              "니터가 트위터 접속 차단 후에도 더 많은 작동 인스턴스를 확보했습니다.",
+              "이는 분산형 소셜 미디어 접근성을 유지하는 데 도움이 됩니다.",
+              "개발자들은 대체 인스턴스를 통해 트위터 콘텐츠에 계속 접근할 수 있습니다."
+            ]
+          },
+          "en": {
+            "title": "Nitter Regains More Working Instances Post‑Takedown",
+            "hook": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
+            "key_takeaways": [
+              "Nitter now operates more instances than before the recent takedowns.",
+              "This helps preserve decentralized access to Twitter.",
+              "Developers can continue accessing Twitter content via alternative instances."
+            ]
+          },
+          "zh": {
+            "title": "Nitter 劫后余生，实例数量超以往",
+            "hook": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
+            "key_takeaways": [
+              "Nitter 劫后余生，实例数量超以往。",
+              "这有助于维持推特的去中心化访问。",
+              "开发者可通过替代实例继续访问推特内容。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T04:02:17.331394+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "니터, 단속 후 더 많은 인스턴스 가동으로 트위터 대체 서비스 강화",
+          "hook": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
+          "key_takeaways": [
+            "니터가 트위터 접속 차단 후에도 더 많은 작동 인스턴스를 확보했습니다.",
+            "이는 분산형 소셜 미디어 접근성을 유지하는 데 도움이 됩니다.",
+            "개발자들은 대체 인스턴스를 통해 트위터 콘텐츠에 계속 접근할 수 있습니다."
+          ]
+        },
+        "en": {
+          "title": "Nitter Regains More Working Instances Post‑Takedown",
+          "hook": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
+          "key_takeaways": [
+            "Nitter now operates more instances than before the recent takedowns.",
+            "This helps preserve decentralized access to Twitter.",
+            "Developers can continue accessing Twitter content via alternative instances."
+          ]
+        },
+        "zh": {
+          "title": "Nitter 劫后余生，实例数量超以往",
+          "hook": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
+          "key_takeaways": [
+            "Nitter 劫后余生，实例数量超以往。",
+            "这有助于维持推特的去中心化访问。",
+            "开发者可通过替代实例继续访问推特内容。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Nitter",
+        "Twitter",
+        "Instances"
+      ],
+      "title_ko": "니터, 단속 후 더 많은 인스턴스 가동으로 트위터 대체 서비스 강화",
+      "title_en": "Nitter Regains More Working Instances Post‑Takedown",
+      "title_zh": "Nitter 劫后余生，实例数量超以往",
+      "hook": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
+      "hook_ko": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
+      "hook_en": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
+      "hook_zh": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
+      "description_ko": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
+      "description_en": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
+      "description_zh": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
+      "category_primary": "INFRA_RAG_SECURITY",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_sns_hacker_news_bugs_happen_the_easy_way_to_compa",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T03:59:07.493735",
+      "published_at": "2026-09-01T21:27:37",
+      "created_at": "2026-09-01T21:27:37",
+      "updated_at": "2026-09-05T03:59:07.493735",
+      "title": "Hacker News: Bugs happen: The easy way to compare solo PQ to ECC+PQ",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49528484",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 14 pts | Comments: 5 | Bugs happen: The easy way to compare solo PQ to ECC+PQ",
+      "viral_metric": "🔥 14 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 14,
+          "display": "🔥 14 HN Points",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49528484",
+      "article_url": "https://blog.cr.yp.to/20260704-bugs.html",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_hacker_news_bugs_happen_the_easy_way_to_compa",
+        "source_lang": "EN",
+        "category_primary": "INFRA_RAG_SECURITY",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "category": "Post-Quantum Cryptography Comparison",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Post-Quantum Cryptography",
+          "ECC",
+          "Security Comparison"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "버그 발생: 솔로 PQ와 ECC+PQ 비교의 쉬운 방법",
+            "hook": "기존 시스템과의 호환성을 고려한 솔로 PQ와 ECC+PQ 하이브리드 솔루션의 성능 및 보안 트레이드오프를 빠르게 평가하는 방법",
+            "key_takeaways": [
+              "솔로 PQ는 구현이 간편하지만 호환성이 제한적임",
+              "ECC+PQ 하이브리드는 기존 ECC와의 호환성을 제공함",
+              "성능과 보안은 사용 사례에 따라 선택해야 함"
+            ]
+          },
+          "en": {
+            "title": "Bugs Happen: The Easy Way to Compare Solo PQ to ECC+PQ",
+            "hook": "A quick guide to evaluating solo post‑quantum cryptography against hybrid ECC+PQ solutions for performance, security, and compatibility",
+            "key_takeaways": [
+              "Solo PQ offers simpler implementation but limited compatibility",
+              "ECC+PQ hybrid provides backward compatibility with existing ECC systems",
+              "Performance and security trade‑offs depend on the specific use‑case requirements"
+            ]
+          },
+          "zh": {
+            "title": "漏洞发生：轻松比较 solo PQ 与 ECC+PQ 的方法",
+            "hook": "快速评估 solo PQ 与 ECC+PQ 混合方案在性能和安全性上的权衡，以及对现有系统的兼容性",
+            "key_takeaways": [
+              "solo PQ 实现简单但兼容性较差",
+              "ECC+PQ 混合方案能保持与现有 ECC 系统的兼容性",
+              "性能与安全性需根据具体应用场景选择"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T04:03:18.219839+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "버그 발생: 솔로 PQ와 ECC+PQ 비교의 쉬운 방법",
+          "hook": "기존 시스템과의 호환성을 고려한 솔로 PQ와 ECC+PQ 하이브리드 솔루션의 성능 및 보안 트레이드오프를 빠르게 평가하는 방법",
+          "key_takeaways": [
+            "솔로 PQ는 구현이 간편하지만 호환성이 제한적임",
+            "ECC+PQ 하이브리드는 기존 ECC와의 호환성을 제공함",
+            "성능과 보안은 사용 사례에 따라 선택해야 함"
+          ]
+        },
+        "en": {
+          "title": "Bugs Happen: The Easy Way to Compare Solo PQ to ECC+PQ",
+          "hook": "A quick guide to evaluating solo post‑quantum cryptography against hybrid ECC+PQ solutions for performance, security, and compatibility",
+          "key_takeaways": [
+            "Solo PQ offers simpler implementation but limited compatibility",
+            "ECC+PQ hybrid provides backward compatibility with existing ECC systems",
+            "Performance and security trade‑offs depend on the specific use‑case requirements"
+          ]
+        },
+        "zh": {
+          "title": "漏洞发生：轻松比较 solo PQ 与 ECC+PQ 的方法",
+          "hook": "快速评估 solo PQ 与 ECC+PQ 混合方案在性能和安全性上的权衡，以及对现有系统的兼容性",
+          "key_takeaways": [
+            "solo PQ 实现简单但兼容性较差",
+            "ECC+PQ 混合方案能保持与现有 ECC 系统的兼容性",
+            "性能与安全性需根据具体应用场景选择"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Post-Quantum Cryptography",
+        "ECC",
+        "Security Comparison"
+      ],
+      "title_ko": "버그 발생: 솔로 PQ와 ECC+PQ 비교의 쉬운 방법",
+      "title_en": "Bugs Happen: The Easy Way to Compare Solo PQ to ECC+PQ",
+      "title_zh": "漏洞发生：轻松比较 solo PQ 与 ECC+PQ 的方法",
+      "hook": "기존 시스템과의 호환성을 고려한 솔로 PQ와 ECC+PQ 하이브리드 솔루션의 성능 및 보안 트레이드오프를 빠르게 평가하는 방법",
+      "hook_ko": "기존 시스템과의 호환성을 고려한 솔로 PQ와 ECC+PQ 하이브리드 솔루션의 성능 및 보안 트레이드오프를 빠르게 평가하는 방법",
+      "hook_en": "A quick guide to evaluating solo post‑quantum cryptography against hybrid ECC+PQ solutions for performance, security, and compatibility",
+      "hook_zh": "快速评估 solo PQ 与 ECC+PQ 混合方案在性能和安全性上的权衡，以及对现有系统的兼容性",
+      "description_ko": "기존 시스템과의 호환성을 고려한 솔로 PQ와 ECC+PQ 하이브리드 솔루션의 성능 및 보안 트레이드오프를 빠르게 평가하는 방법",
+      "description_en": "A quick guide to evaluating solo post‑quantum cryptography against hybrid ECC+PQ solutions for performance, security, and compatibility",
+      "description_zh": "快速评估 solo PQ 与 ECC+PQ 混合方案在性能和安全性上的权衡，以及对现有系统的兼容性",
+      "category_primary": "INFRA_RAG_SECURITY",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-05_sns_geeknews_claude_codecodexcursor는_어떤_도구를_선택할까_",
       "harvested_date": "2026-09-05",
