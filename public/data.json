@@ -8,18 +8,18 @@
   "half_true_count": 11,
   "gamed_count": 2,
   "avg_confidence": 96.2,
-  "models_total_count": 200,
-  "news_total_count": 562,
+  "models_total_count": 201,
+  "news_total_count": 565,
   "news_cat_counts": {
     "INFERENCE_OPT": 39,
-    "AGENTS_DEVTOOLS": 88,
+    "AGENTS_DEVTOOLS": 91,
     "MULTIMODAL_AI": 40,
     "FOUNDATION_MODELS": 4,
     "INFRA_RAG_SECURITY": 55,
     "INDUSTRY_TRENDS": 336
   },
-  "inbox_total_count": 751,
-  "all_inbox_count": 762,
+  "inbox_total_count": 755,
+  "all_inbox_count": 766,
   "admin_stats": {
     "endpoints": [
       {
@@ -54,6 +54,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-05T02:53:27.546285",
+        "date": "2026-09-05",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.23
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 86,
+            "duration_sec": 0.24
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.73
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 59,
+            "duration_sec": 11.83
+          },
+          "arxiv": {
+            "status": "ERROR",
+            "error": "The read operation timed out",
+            "duration_sec": 12.2
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.13
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.6
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.15
+          }
+        },
+        "summary": {
+          "total_fetched": 240,
+          "updated_count": 0,
+          "new_saved": 4,
+          "duplicates_skipped": 236,
+          "errors": 1
+        }
+      },
       {
         "timestamp": "2026-09-05T01:32:52.500073",
         "date": "2026-09-05",
@@ -1590,112 +1643,59 @@
           "duplicates_skipped": 194,
           "errors": 1
         }
-      },
-      {
-        "timestamp": "2026-09-03T09:51:49.331995",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.22
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 86,
-            "duration_sec": 0.42
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.95
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 12.25
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.42
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.17
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 0.82
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.32
-          }
-        },
-        "summary": {
-          "total_fetched": 226,
-          "updated_count": 0,
-          "new_saved": 57,
-          "duplicates_skipped": 169,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-05T01:32:52.500073",
+      "timestamp": "2026-09-05T02:53:27.546285",
       "date": "2026-09-05",
       "sources": {
         "hf_models": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.26
+          "duration_sec": 0.23
         },
         "hf_spaces": {
           "status": "SUCCESS",
-          "items_found": 85,
-          "duration_sec": 0.32
+          "items_found": 86,
+          "duration_sec": 0.24
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.78
+          "duration_sec": 0.73
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 59,
-          "duration_sec": 12.09
+          "duration_sec": 11.83
         },
         "arxiv": {
-          "status": "SUCCESS",
-          "items_found": 20,
-          "duration_sec": 0.66
+          "status": "ERROR",
+          "error": "The read operation timed out",
+          "duration_sec": 12.2
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.14
+          "duration_sec": 0.13
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 0.9
+          "duration_sec": 0.6
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.25
+          "duration_sec": 0.15
         }
       },
       "summary": {
-        "total_fetched": 259,
+        "total_fetched": 240,
         "updated_count": 0,
-        "new_saved": 18,
-        "duplicates_skipped": 241,
-        "errors": 0
+        "new_saved": 4,
+        "duplicates_skipped": 236,
+        "errors": 1
       }
     }
   },
@@ -1734,9 +1734,9 @@
       "slot": "09시",
       "hour": 9,
       "range": "09:00 - 11:59",
-      "inbox_count": 18,
-      "model_count": 1,
-      "news_count": 17,
+      "inbox_count": 22,
+      "model_count": 2,
+      "news_count": 20,
       "is_current": false,
       "is_future": false
     },
@@ -1785,23 +1785,159 @@
     "window_label": "12:00 ~ 18:00 KST",
     "window_period": "오후 실시간 모델 & 아키텍처 브리핑",
     "today_kst": "2026-09-05",
-    "updated_at": "12:56 KST",
+    "updated_at": "12:58 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
       "🔥 [Hugging Face Models] GLM-5.3-Flash: 초경량 고성능 비전-언어 멀티모달 모델 (Trending 1796 pts (❤️ 1923)) — 높은 다운로드 수와 뛰어난 추론 효율성을 자랑하는 멀티모달(Image-Text-to-Text) 모델"
     ],
     "tags": [
-      "#SoTA_Models",
-      "#High_Engagement",
+      "#Autonomous_Agent",
       "#Local_LLM",
-      "#MoE_Architecture",
-      "#Autonomous_Agent"
+      "#High_Engagement",
+      "#SoTA_Models",
+      "#MoE_Architecture"
     ]
   },
   "dow_stats": [],
   "monthly_stats": [],
   "model_items": [
+    {
+      "inbox_id": "2026-09-05_repo_hf_space_akhaliqminimax_h3_turbo_lora",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T02:53:54.364384",
+      "published_at": "2026-09-05T02:53:54.364384",
+      "created_at": "2026-09-05T02:53:54.364384",
+      "updated_at": "2026-09-05T02:53:54.364384",
+      "title": "HF Space: akhaliq/MiniMax-H3-Turbo-Lora",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/akhaliq/MiniMax-H3-Turbo-Lora",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 86 | Live URL: https://huggingface.co/spaces/akhaliq/MiniMax-H3-Turbo-Lora",
+      "viral_metric": "❤️ 86 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 86,
+          "display": "❤️ 86 Likes (Trending Demo)",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 86,
+          "display": "❤️ 86 Likes (Trending Demo)",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-05_repo_hf_space_akhaliqminimax_h3_turbo_lora",
+        "source_lang": "EN",
+        "category_primary": "INFERENCE_OPT",
+        "type_classification": "MODEL",
+        "model_family": "MiniMax-H3-Turbo-Lora",
+        "category": "LLM inference optimization",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "MiniMax",
+          "H3",
+          "Turbo",
+          "LoRA",
+          "Hugging Face Spaces"
+        ],
+        "recommended_tag": "🔥 Must-Read",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "Hugging Face 스페이스: akhaliq/MiniMax-H3-Turbo-Lora 데모",
+            "hook": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
+            "key_takeaways": [
+              "LoRA로 미세 조정된 MiniMax-H3-Turbo 모델",
+              "Hugging Face Spaces에서 실시간으로 실행되는 경량 추론 데모",
+              "86명의 사용자로부터 좋아요를 받은 대화형 AI 인터페이스"
+            ]
+          },
+          "en": {
+            "title": "Hugging Face Space: akhaliq/MiniMax-H3-Turbo-Lora Demo",
+            "hook": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
+            "key_takeaways": [
+              "LoRA‑fine‑tuned MiniMax‑H3‑Turbo model for fast inference",
+              "Interactive Gradio demo running live on Hugging Face Spaces",
+              "Liked by 86 users, showcasing a ready‑to‑use conversational AI interface"
+            ]
+          },
+          "zh": {
+            "title": "Hugging Face 空间：akhaliq/MiniMax-H3-Turbo-Lora 演示",
+            "hook": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
+            "key_takeaways": [
+              "一款经过 LoRA 微调的 MiniMax-H3-Turbo 模型，实现高效推理",
+              "在 Hugging Face Spaces 上运行的交互式 Gradio 演示",
+              "获得 86 位用户点赞，展示出色的对话式 AI 界面"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T02:55:22.132198+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Hugging Face 스페이스: akhaliq/MiniMax-H3-Turbo-Lora 데모",
+          "hook": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
+          "key_takeaways": [
+            "LoRA로 미세 조정된 MiniMax-H3-Turbo 모델",
+            "Hugging Face Spaces에서 실시간으로 실행되는 경량 추론 데모",
+            "86명의 사용자로부터 좋아요를 받은 대화형 AI 인터페이스"
+          ]
+        },
+        "en": {
+          "title": "Hugging Face Space: akhaliq/MiniMax-H3-Turbo-Lora Demo",
+          "hook": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
+          "key_takeaways": [
+            "LoRA‑fine‑tuned MiniMax‑H3‑Turbo model for fast inference",
+            "Interactive Gradio demo running live on Hugging Face Spaces",
+            "Liked by 86 users, showcasing a ready‑to‑use conversational AI interface"
+          ]
+        },
+        "zh": {
+          "title": "Hugging Face 空间：akhaliq/MiniMax-H3-Turbo-Lora 演示",
+          "hook": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
+          "key_takeaways": [
+            "一款经过 LoRA 微调的 MiniMax-H3-Turbo 模型，实现高效推理",
+            "在 Hugging Face Spaces 上运行的交互式 Gradio 演示",
+            "获得 86 位用户点赞，展示出色的对话式 AI 界面"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "MiniMax",
+        "H3",
+        "Turbo",
+        "LoRA",
+        "Hugging Face Spaces"
+      ],
+      "title_ko": "Hugging Face 스페이스: akhaliq/MiniMax-H3-Turbo-Lora 데모",
+      "title_en": "Hugging Face Space: akhaliq/MiniMax-H3-Turbo-Lora Demo",
+      "title_zh": "Hugging Face 空间：akhaliq/MiniMax-H3-Turbo-Lora 演示",
+      "hook": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
+      "hook_ko": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
+      "hook_en": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
+      "hook_zh": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
+      "description_ko": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
+      "description_en": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
+      "description_zh": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
+      "model_family": "MiniMax-H3-Turbo-Lora",
+      "category_primary": "INFERENCE_OPT",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-05_repo_hf_space_vidraftglobal_llm_leaderboard",
       "harvested_date": "2026-09-05",
@@ -29421,6 +29557,409 @@
     }
   ],
   "news_items": [
+    {
+      "inbox_id": "2026-09-05_sns_geeknews_claude_codecodexcursor는_어떤_도구를_선택할까_",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T02:53:55.229183",
+      "published_at": "2026-09-05T02:53:55.229183",
+      "created_at": "2026-09-05T02:53:55.229183",
+      "updated_at": "2026-09-05T02:53:55.229183",
+      "title": "GeekNews: Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33247",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+      "description_ko": "Claude Code, Codex, Cursor의 실제 사용 데이터를 통해 개발자가 가장 선호하는 도구를 알아보세요 – 17,000회 실행 분석 결과.",
+      "hn_url": "https://news.hada.io/topic?id=33247",
+      "article_url": "https://news.hada.io/topic?id=33247",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_geeknews_claude_codecodexcursor는_어떤_도구를_선택할까_",
+        "source_lang": "KO",
+        "category_primary": "AGENTS_DEVTOOLS",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Code generation and IDE assistance tools",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Claude Code",
+          "Codex",
+          "Cursor",
+          "developer tools",
+          "code execution"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+            "hook": "Claude Code, Codex, Cursor의 실제 사용 데이터를 통해 개발자가 가장 선호하는 도구를 알아보세요 – 17,000회 실행 분석 결과.",
+            "key_takeaways": [
+              "Claude Code, Codex, Cursor의 실행 빈도 비교",
+              "개발자 설문조사 결과 및 도구별 장단점",
+              "실제 코드 작성 작업에서의 성능 및 통합 분석"
+            ]
+          },
+          "en": {
+            "title": "Claude Code, Codex, Cursor: Which Tool Wins? 17,000 Execution Analysis",
+            "hook": "Discover which code assistant—Claude Code, OpenAI Codex, or Cursor—developers actually use based on 17,000 real‑world executions.",
+            "key_takeaways": [
+              "Execution frequency comparison across the three tools",
+              "Developer survey insights and tool strengths/weaknesses",
+              "Performance and integration in real‑world coding tasks"
+            ]
+          },
+          "zh": {
+            "title": "Claude Code·Codex·Cursor 哪个工具更受欢迎？1.7万次执行分析",
+            "hook": "通过1.7万次的实际执行数据，揭示Claude Code、Codex和Cursor哪款工具更受开发者青睐。",
+            "key_takeaways": [
+              "三款工具的执行频率对比",
+              "开发者调查结果及工具优缺点分析",
+              "实际编码场景中的性能与集成表现"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T02:54:38.363375+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+          "hook": "Claude Code, Codex, Cursor의 실제 사용 데이터를 통해 개발자가 가장 선호하는 도구를 알아보세요 – 17,000회 실행 분석 결과.",
+          "key_takeaways": [
+            "Claude Code, Codex, Cursor의 실행 빈도 비교",
+            "개발자 설문조사 결과 및 도구별 장단점",
+            "실제 코드 작성 작업에서의 성능 및 통합 분석"
+          ]
+        },
+        "en": {
+          "title": "Claude Code, Codex, Cursor: Which Tool Wins? 17,000 Execution Analysis",
+          "hook": "Discover which code assistant—Claude Code, OpenAI Codex, or Cursor—developers actually use based on 17,000 real‑world executions.",
+          "key_takeaways": [
+            "Execution frequency comparison across the three tools",
+            "Developer survey insights and tool strengths/weaknesses",
+            "Performance and integration in real‑world coding tasks"
+          ]
+        },
+        "zh": {
+          "title": "Claude Code·Codex·Cursor 哪个工具更受欢迎？1.7万次执行分析",
+          "hook": "通过1.7万次的实际执行数据，揭示Claude Code、Codex和Cursor哪款工具更受开发者青睐。",
+          "key_takeaways": [
+            "三款工具的执行频率对比",
+            "开发者调查结果及工具优缺点分析",
+            "实际编码场景中的性能与集成表现"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "developer tools",
+        "code execution"
+      ],
+      "title_en": "Claude Code, Codex, Cursor: Which Tool Wins? 17,000 Execution Analysis",
+      "title_zh": "Claude Code·Codex·Cursor 哪个工具更受欢迎？1.7万次执行分析",
+      "hook": "Claude Code, Codex, Cursor의 실제 사용 데이터를 통해 개발자가 가장 선호하는 도구를 알아보세요 – 17,000회 실행 분석 결과.",
+      "hook_ko": "Claude Code, Codex, Cursor의 실제 사용 데이터를 통해 개발자가 가장 선호하는 도구를 알아보세요 – 17,000회 실행 분석 결과.",
+      "hook_en": "Discover which code assistant—Claude Code, OpenAI Codex, or Cursor—developers actually use based on 17,000 real‑world executions.",
+      "hook_zh": "通过1.7万次的实际执行数据，揭示Claude Code、Codex和Cursor哪款工具更受开发者青睐。",
+      "description_en": "Discover which code assistant—Claude Code, OpenAI Codex, or Cursor—developers actually use based on 17,000 real‑world executions.",
+      "description_zh": "通过1.7万次的实际执行数据，揭示Claude Code、Codex和Cursor哪款工具更受开发者青睐。",
+      "category_primary": "AGENTS_DEVTOOLS",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_repo_hacker_news_claude_code_skills_for_advanced_c",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T02:53:54.977584",
+      "published_at": "2026-09-04T22:52:14",
+      "created_at": "2026-09-04T22:52:14",
+      "updated_at": "2026-09-05T02:53:54.977584",
+      "title": "Hacker News: Claude Code skills for advanced context engineering techniques and patterns",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49571131",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "HN Score: 12 pts | Comments: 0 | Claude Code skills for advanced context engineering techniques and patterns",
+      "viral_metric": "🔥 12 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 12,
+          "display": "🔥 12 HN Points",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 12,
+          "display": "🔥 12 HN Points",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49571131",
+      "article_url": "https://github.com/NeoLabHQ/context-engineering-kit",
+      "ai_enrichment": {
+        "id": "2026-09-05_repo_hacker_news_claude_code_skills_for_advanced_c",
+        "source_lang": "EN",
+        "category_primary": "AGENTS_DEVTOOLS",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Context Engineering Techniques",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Claude Code",
+          "Context Engineering",
+          "AI Development Tools"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 고급 컨텍스트 엔지니어링을 위한 클로드 코드 스킬과 패턴",
+            "hook": "개발자를 위한 클로드 코드의 고급 컨텍스트 엔지니어링 기술을 익혀 AI 기반 코딩을 한 단계 업그레이드하세요.",
+            "key_takeaways": [
+              "컨텍스트 유지율을 극대화하기 위한 클로드 코드 프롬프트 구조화 방법",
+              "다단계 코드 생성 및 디버깅을 위한 검증된 패턴 소개",
+              "기존 개발 워크플로우에 클로드 코드를 통합하기 위한 모범 사례"
+            ]
+          },
+          "en": {
+            "title": "Advanced Context Engineering with Claude Code: Skills, Techniques, and Patterns",
+            "hook": "Master advanced context engineering in Claude Code with proven patterns and skills to boost AI-assisted development.",
+            "key_takeaways": [
+              "Learn how to structure prompts for Claude Code to maximize context retention",
+              "Discover proven patterns for multi-step code generation and debugging",
+              "Explore best practices for integrating Claude Code into existing development workflows"
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：Claude Code 高级上下文工程技巧与模式",
+            "hook": "掌握Claude Code的高级上下文工程技术，提升AI辅助开发效率",
+            "key_takeaways": [
+              "学习如何优化Claude Code的提示工程以提升上下文保留率",
+              "探索多步骤代码生成与调试的实用模式",
+              "将Claude Code无缝集成到现有开发流程中的最佳实践"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T02:56:04.407136+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 고급 컨텍스트 엔지니어링을 위한 클로드 코드 스킬과 패턴",
+          "hook": "개발자를 위한 클로드 코드의 고급 컨텍스트 엔지니어링 기술을 익혀 AI 기반 코딩을 한 단계 업그레이드하세요.",
+          "key_takeaways": [
+            "컨텍스트 유지율을 극대화하기 위한 클로드 코드 프롬프트 구조화 방법",
+            "다단계 코드 생성 및 디버깅을 위한 검증된 패턴 소개",
+            "기존 개발 워크플로우에 클로드 코드를 통합하기 위한 모범 사례"
+          ]
+        },
+        "en": {
+          "title": "Advanced Context Engineering with Claude Code: Skills, Techniques, and Patterns",
+          "hook": "Master advanced context engineering in Claude Code with proven patterns and skills to boost AI-assisted development.",
+          "key_takeaways": [
+            "Learn how to structure prompts for Claude Code to maximize context retention",
+            "Discover proven patterns for multi-step code generation and debugging",
+            "Explore best practices for integrating Claude Code into existing development workflows"
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：Claude Code 高级上下文工程技巧与模式",
+          "hook": "掌握Claude Code的高级上下文工程技术，提升AI辅助开发效率",
+          "key_takeaways": [
+            "学习如何优化Claude Code的提示工程以提升上下文保留率",
+            "探索多步骤代码生成与调试的实用模式",
+            "将Claude Code无缝集成到现有开发流程中的最佳实践"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Claude Code",
+        "Context Engineering",
+        "AI Development Tools"
+      ],
+      "title_ko": "해커 뉴스: 고급 컨텍스트 엔지니어링을 위한 클로드 코드 스킬과 패턴",
+      "title_en": "Advanced Context Engineering with Claude Code: Skills, Techniques, and Patterns",
+      "title_zh": "Hacker News：Claude Code 高级上下文工程技巧与模式",
+      "hook": "개발자를 위한 클로드 코드의 고급 컨텍스트 엔지니어링 기술을 익혀 AI 기반 코딩을 한 단계 업그레이드하세요.",
+      "hook_ko": "개발자를 위한 클로드 코드의 고급 컨텍스트 엔지니어링 기술을 익혀 AI 기반 코딩을 한 단계 업그레이드하세요.",
+      "hook_en": "Master advanced context engineering in Claude Code with proven patterns and skills to boost AI-assisted development.",
+      "hook_zh": "掌握Claude Code的高级上下文工程技术，提升AI辅助开发效率",
+      "description_ko": "개발자를 위한 클로드 코드의 고급 컨텍스트 엔지니어링 기술을 익혀 AI 기반 코딩을 한 단계 업그레이드하세요.",
+      "description_en": "Master advanced context engineering in Claude Code with proven patterns and skills to boost AI-assisted development.",
+      "description_zh": "掌握Claude Code的高级上下文工程技术，提升AI辅助开发效率",
+      "category_primary": "AGENTS_DEVTOOLS",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_sns_hacker_news_git_submodules_as_a_package_manag",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T02:53:54.709301",
+      "published_at": "2026-09-01T09:36:10",
+      "created_at": "2026-09-01T09:36:10",
+      "updated_at": "2026-09-05T02:53:54.709301",
+      "title": "Hacker News: Git Submodules as a Package Manager",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49519850",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 6 pts | Comments: 0 | Git Submodules as a Package Manager",
+      "viral_metric": "🔥 6 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49519850",
+      "article_url": "https://nesbitt.io/2026/09/01/git-submodules-as-a-package-manager.html",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_hacker_news_git_submodules_as_a_package_manag",
+        "source_lang": "EN",
+        "category_primary": "AGENTS_DEVTOOLS",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Git submodule package management",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Git",
+          "submodule",
+          "package manager"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "Git 서브모듈을 패키지 관리자로 활용하기 – 해커 뉴스 토론",
+            "hook": "Git 서브모듈을 활용해 외부 코드를 경량화된 패키지 관리자로 관리하는 방법을 알아보세요.",
+            "key_takeaways": [
+              "추가 도구 없이 Git 서브모듈로 외부 코드 의존성을 관리하는 방법.",
+              "서드파티 라이브러리의 버전 관리와 격리를 간소화합니다.",
+              "서브모듈을 패키지 관리자로 사용하는 커뮤니티의 의견을 확인하세요."
+            ]
+          },
+          "en": {
+            "title": "Git Submodules as a Package Manager – Hacker News Discussion",
+            "hook": "Discover how Git submodules can serve as a lightweight package manager for organizing dependencies across projects.",
+            "key_takeaways": [
+              "Leverage Git submodules to manage external code dependencies without extra tooling.",
+              "Simplify version control and isolation of third‑party libraries.",
+              "Explore community insights on using submodules as a package manager."
+            ]
+          },
+          "zh": {
+            "title": "Git 子模块作为包管理器的讨论 – 来自 Hacker News",
+            "hook": "了解如何利用 Git 子模块作为轻量级包管理器来管理跨项目的依赖关系。",
+            "key_takeaways": [
+              "利用 Git 子模块管理外部代码依赖，无需额外工具。",
+              "简化第三方库的版本控制和隔离。",
+              "探索社区关于使用子模块作为包管理器的见解。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T02:56:29.701187+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Git 서브모듈을 패키지 관리자로 활용하기 – 해커 뉴스 토론",
+          "hook": "Git 서브모듈을 활용해 외부 코드를 경량화된 패키지 관리자로 관리하는 방법을 알아보세요.",
+          "key_takeaways": [
+            "추가 도구 없이 Git 서브모듈로 외부 코드 의존성을 관리하는 방법.",
+            "서드파티 라이브러리의 버전 관리와 격리를 간소화합니다.",
+            "서브모듈을 패키지 관리자로 사용하는 커뮤니티의 의견을 확인하세요."
+          ]
+        },
+        "en": {
+          "title": "Git Submodules as a Package Manager – Hacker News Discussion",
+          "hook": "Discover how Git submodules can serve as a lightweight package manager for organizing dependencies across projects.",
+          "key_takeaways": [
+            "Leverage Git submodules to manage external code dependencies without extra tooling.",
+            "Simplify version control and isolation of third‑party libraries.",
+            "Explore community insights on using submodules as a package manager."
+          ]
+        },
+        "zh": {
+          "title": "Git 子模块作为包管理器的讨论 – 来自 Hacker News",
+          "hook": "了解如何利用 Git 子模块作为轻量级包管理器来管理跨项目的依赖关系。",
+          "key_takeaways": [
+            "利用 Git 子模块管理外部代码依赖，无需额外工具。",
+            "简化第三方库的版本控制和隔离。",
+            "探索社区关于使用子模块作为包管理器的见解。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Git",
+        "submodule",
+        "package manager"
+      ],
+      "title_ko": "Git 서브모듈을 패키지 관리자로 활용하기 – 해커 뉴스 토론",
+      "title_en": "Git Submodules as a Package Manager – Hacker News Discussion",
+      "title_zh": "Git 子模块作为包管理器的讨论 – 来自 Hacker News",
+      "hook": "Git 서브모듈을 활용해 외부 코드를 경량화된 패키지 관리자로 관리하는 방법을 알아보세요.",
+      "hook_ko": "Git 서브모듈을 활용해 외부 코드를 경량화된 패키지 관리자로 관리하는 방법을 알아보세요.",
+      "hook_en": "Discover how Git submodules can serve as a lightweight package manager for organizing dependencies across projects.",
+      "hook_zh": "了解如何利用 Git 子模块作为轻量级包管理器来管理跨项目的依赖关系。",
+      "description_ko": "Git 서브모듈을 활용해 외부 코드를 경량화된 패키지 관리자로 관리하는 방법을 알아보세요.",
+      "description_en": "Discover how Git submodules can serve as a lightweight package manager for organizing dependencies across projects.",
+      "description_zh": "了解如何利用 Git 子模块作为轻量级包管理器来管理跨项目的依赖关系。",
+      "category_primary": "AGENTS_DEVTOOLS",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-05_sns_geeknews_성인_영화_제작사_토렌트로_파일_2만_개_받은_이용자를_meta_",
       "harvested_date": "2026-09-05",
@@ -104780,6 +105319,545 @@
     }
   ],
   "inbox_items": [
+    {
+      "inbox_id": "2026-09-05_sns_geeknews_claude_codecodexcursor는_어떤_도구를_선택할까_",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T02:53:55.229183",
+      "published_at": "2026-09-05T02:53:55.229183",
+      "created_at": "2026-09-05T02:53:55.229183",
+      "updated_at": "2026-09-05T02:53:55.229183",
+      "title": "GeekNews: Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33247",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "GeekNews Korean Tech Trend: Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+      "description_ko": "Claude Code, Codex, Cursor의 실제 사용 데이터를 통해 개발자가 가장 선호하는 도구를 알아보세요 – 17,000회 실행 분석 결과.",
+      "hn_url": "https://news.hada.io/topic?id=33247",
+      "article_url": "https://news.hada.io/topic?id=33247",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_geeknews_claude_codecodexcursor는_어떤_도구를_선택할까_",
+        "source_lang": "KO",
+        "category_primary": "AGENTS_DEVTOOLS",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Code generation and IDE assistance tools",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Claude Code",
+          "Codex",
+          "Cursor",
+          "developer tools",
+          "code execution"
+        ],
+        "recommended_tag": "💡 Useful Tools",
+        "worth_score": 4.2,
+        "multilingual": {
+          "ko": {
+            "title": "Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+            "hook": "Claude Code, Codex, Cursor의 실제 사용 데이터를 통해 개발자가 가장 선호하는 도구를 알아보세요 – 17,000회 실행 분석 결과.",
+            "key_takeaways": [
+              "Claude Code, Codex, Cursor의 실행 빈도 비교",
+              "개발자 설문조사 결과 및 도구별 장단점",
+              "실제 코드 작성 작업에서의 성능 및 통합 분석"
+            ]
+          },
+          "en": {
+            "title": "Claude Code, Codex, Cursor: Which Tool Wins? 17,000 Execution Analysis",
+            "hook": "Discover which code assistant—Claude Code, OpenAI Codex, or Cursor—developers actually use based on 17,000 real‑world executions.",
+            "key_takeaways": [
+              "Execution frequency comparison across the three tools",
+              "Developer survey insights and tool strengths/weaknesses",
+              "Performance and integration in real‑world coding tasks"
+            ]
+          },
+          "zh": {
+            "title": "Claude Code·Codex·Cursor 哪个工具更受欢迎？1.7万次执行分析",
+            "hook": "通过1.7万次的实际执行数据，揭示Claude Code、Codex和Cursor哪款工具更受开发者青睐。",
+            "key_takeaways": [
+              "三款工具的执行频率对比",
+              "开发者调查结果及工具优缺点分析",
+              "实际编码场景中的性能与集成表现"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T02:54:38.363375+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Claude Code·Codex·Cursor는 어떤 도구를 선택할까? 1만7천 회 실행 분석",
+          "hook": "Claude Code, Codex, Cursor의 실제 사용 데이터를 통해 개발자가 가장 선호하는 도구를 알아보세요 – 17,000회 실행 분석 결과.",
+          "key_takeaways": [
+            "Claude Code, Codex, Cursor의 실행 빈도 비교",
+            "개발자 설문조사 결과 및 도구별 장단점",
+            "실제 코드 작성 작업에서의 성능 및 통합 분석"
+          ]
+        },
+        "en": {
+          "title": "Claude Code, Codex, Cursor: Which Tool Wins? 17,000 Execution Analysis",
+          "hook": "Discover which code assistant—Claude Code, OpenAI Codex, or Cursor—developers actually use based on 17,000 real‑world executions.",
+          "key_takeaways": [
+            "Execution frequency comparison across the three tools",
+            "Developer survey insights and tool strengths/weaknesses",
+            "Performance and integration in real‑world coding tasks"
+          ]
+        },
+        "zh": {
+          "title": "Claude Code·Codex·Cursor 哪个工具更受欢迎？1.7万次执行分析",
+          "hook": "通过1.7万次的实际执行数据，揭示Claude Code、Codex和Cursor哪款工具更受开发者青睐。",
+          "key_takeaways": [
+            "三款工具的执行频率对比",
+            "开发者调查结果及工具优缺点分析",
+            "实际编码场景中的性能与集成表现"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "developer tools",
+        "code execution"
+      ],
+      "title_en": "Claude Code, Codex, Cursor: Which Tool Wins? 17,000 Execution Analysis",
+      "title_zh": "Claude Code·Codex·Cursor 哪个工具更受欢迎？1.7万次执行分析",
+      "hook": "Claude Code, Codex, Cursor의 실제 사용 데이터를 통해 개발자가 가장 선호하는 도구를 알아보세요 – 17,000회 실행 분석 결과.",
+      "hook_ko": "Claude Code, Codex, Cursor의 실제 사용 데이터를 통해 개발자가 가장 선호하는 도구를 알아보세요 – 17,000회 실행 분석 결과.",
+      "hook_en": "Discover which code assistant—Claude Code, OpenAI Codex, or Cursor—developers actually use based on 17,000 real‑world executions.",
+      "hook_zh": "通过1.7万次的实际执行数据，揭示Claude Code、Codex和Cursor哪款工具更受开发者青睐。",
+      "description_en": "Discover which code assistant—Claude Code, OpenAI Codex, or Cursor—developers actually use based on 17,000 real‑world executions.",
+      "description_zh": "通过1.7万次的实际执行数据，揭示Claude Code、Codex和Cursor哪款工具更受开发者青睐。",
+      "category_primary": "AGENTS_DEVTOOLS",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_repo_hacker_news_claude_code_skills_for_advanced_c",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T02:53:54.977584",
+      "published_at": "2026-09-04T22:52:14",
+      "created_at": "2026-09-04T22:52:14",
+      "updated_at": "2026-09-05T02:53:54.977584",
+      "title": "Hacker News: Claude Code skills for advanced context engineering techniques and patterns",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49571131",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "HN Score: 12 pts | Comments: 0 | Claude Code skills for advanced context engineering techniques and patterns",
+      "viral_metric": "🔥 12 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 12,
+          "display": "🔥 12 HN Points",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 12,
+          "display": "🔥 12 HN Points",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49571131",
+      "article_url": "https://github.com/NeoLabHQ/context-engineering-kit",
+      "ai_enrichment": {
+        "id": "2026-09-05_repo_hacker_news_claude_code_skills_for_advanced_c",
+        "source_lang": "EN",
+        "category_primary": "AGENTS_DEVTOOLS",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Context Engineering Techniques",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Claude Code",
+          "Context Engineering",
+          "AI Development Tools"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "해커 뉴스: 고급 컨텍스트 엔지니어링을 위한 클로드 코드 스킬과 패턴",
+            "hook": "개발자를 위한 클로드 코드의 고급 컨텍스트 엔지니어링 기술을 익혀 AI 기반 코딩을 한 단계 업그레이드하세요.",
+            "key_takeaways": [
+              "컨텍스트 유지율을 극대화하기 위한 클로드 코드 프롬프트 구조화 방법",
+              "다단계 코드 생성 및 디버깅을 위한 검증된 패턴 소개",
+              "기존 개발 워크플로우에 클로드 코드를 통합하기 위한 모범 사례"
+            ]
+          },
+          "en": {
+            "title": "Advanced Context Engineering with Claude Code: Skills, Techniques, and Patterns",
+            "hook": "Master advanced context engineering in Claude Code with proven patterns and skills to boost AI-assisted development.",
+            "key_takeaways": [
+              "Learn how to structure prompts for Claude Code to maximize context retention",
+              "Discover proven patterns for multi-step code generation and debugging",
+              "Explore best practices for integrating Claude Code into existing development workflows"
+            ]
+          },
+          "zh": {
+            "title": "Hacker News：Claude Code 高级上下文工程技巧与模式",
+            "hook": "掌握Claude Code的高级上下文工程技术，提升AI辅助开发效率",
+            "key_takeaways": [
+              "学习如何优化Claude Code的提示工程以提升上下文保留率",
+              "探索多步骤代码生成与调试的实用模式",
+              "将Claude Code无缝集成到现有开发流程中的最佳实践"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T02:56:04.407136+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "해커 뉴스: 고급 컨텍스트 엔지니어링을 위한 클로드 코드 스킬과 패턴",
+          "hook": "개발자를 위한 클로드 코드의 고급 컨텍스트 엔지니어링 기술을 익혀 AI 기반 코딩을 한 단계 업그레이드하세요.",
+          "key_takeaways": [
+            "컨텍스트 유지율을 극대화하기 위한 클로드 코드 프롬프트 구조화 방법",
+            "다단계 코드 생성 및 디버깅을 위한 검증된 패턴 소개",
+            "기존 개발 워크플로우에 클로드 코드를 통합하기 위한 모범 사례"
+          ]
+        },
+        "en": {
+          "title": "Advanced Context Engineering with Claude Code: Skills, Techniques, and Patterns",
+          "hook": "Master advanced context engineering in Claude Code with proven patterns and skills to boost AI-assisted development.",
+          "key_takeaways": [
+            "Learn how to structure prompts for Claude Code to maximize context retention",
+            "Discover proven patterns for multi-step code generation and debugging",
+            "Explore best practices for integrating Claude Code into existing development workflows"
+          ]
+        },
+        "zh": {
+          "title": "Hacker News：Claude Code 高级上下文工程技巧与模式",
+          "hook": "掌握Claude Code的高级上下文工程技术，提升AI辅助开发效率",
+          "key_takeaways": [
+            "学习如何优化Claude Code的提示工程以提升上下文保留率",
+            "探索多步骤代码生成与调试的实用模式",
+            "将Claude Code无缝集成到现有开发流程中的最佳实践"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Claude Code",
+        "Context Engineering",
+        "AI Development Tools"
+      ],
+      "title_ko": "해커 뉴스: 고급 컨텍스트 엔지니어링을 위한 클로드 코드 스킬과 패턴",
+      "title_en": "Advanced Context Engineering with Claude Code: Skills, Techniques, and Patterns",
+      "title_zh": "Hacker News：Claude Code 高级上下文工程技巧与模式",
+      "hook": "개발자를 위한 클로드 코드의 고급 컨텍스트 엔지니어링 기술을 익혀 AI 기반 코딩을 한 단계 업그레이드하세요.",
+      "hook_ko": "개발자를 위한 클로드 코드의 고급 컨텍스트 엔지니어링 기술을 익혀 AI 기반 코딩을 한 단계 업그레이드하세요.",
+      "hook_en": "Master advanced context engineering in Claude Code with proven patterns and skills to boost AI-assisted development.",
+      "hook_zh": "掌握Claude Code的高级上下文工程技术，提升AI辅助开发效率",
+      "description_ko": "개발자를 위한 클로드 코드의 고급 컨텍스트 엔지니어링 기술을 익혀 AI 기반 코딩을 한 단계 업그레이드하세요.",
+      "description_en": "Master advanced context engineering in Claude Code with proven patterns and skills to boost AI-assisted development.",
+      "description_zh": "掌握Claude Code的高级上下文工程技术，提升AI辅助开发效率",
+      "category_primary": "AGENTS_DEVTOOLS",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_sns_hacker_news_git_submodules_as_a_package_manag",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T02:53:54.709301",
+      "published_at": "2026-09-01T09:36:10",
+      "created_at": "2026-09-01T09:36:10",
+      "updated_at": "2026-09-05T02:53:54.709301",
+      "title": "Hacker News: Git Submodules as a Package Manager",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49519850",
+      "type": "sns",
+      "category_type": "TECH",
+      "description": "HN Score: 6 pts | Comments: 0 | Git Submodules as a Package Manager",
+      "viral_metric": "🔥 6 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 6,
+          "display": "🔥 6 HN Points",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49519850",
+      "article_url": "https://nesbitt.io/2026/09/01/git-submodules-as-a-package-manager.html",
+      "ai_enrichment": {
+        "id": "2026-09-05_sns_hacker_news_git_submodules_as_a_package_manag",
+        "source_lang": "EN",
+        "category_primary": "AGENTS_DEVTOOLS",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "category": "Git submodule package management",
+        "programming_lang": "General",
+        "root_keywords": [
+          "Git",
+          "submodule",
+          "package manager"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "Git 서브모듈을 패키지 관리자로 활용하기 – 해커 뉴스 토론",
+            "hook": "Git 서브모듈을 활용해 외부 코드를 경량화된 패키지 관리자로 관리하는 방법을 알아보세요.",
+            "key_takeaways": [
+              "추가 도구 없이 Git 서브모듈로 외부 코드 의존성을 관리하는 방법.",
+              "서드파티 라이브러리의 버전 관리와 격리를 간소화합니다.",
+              "서브모듈을 패키지 관리자로 사용하는 커뮤니티의 의견을 확인하세요."
+            ]
+          },
+          "en": {
+            "title": "Git Submodules as a Package Manager – Hacker News Discussion",
+            "hook": "Discover how Git submodules can serve as a lightweight package manager for organizing dependencies across projects.",
+            "key_takeaways": [
+              "Leverage Git submodules to manage external code dependencies without extra tooling.",
+              "Simplify version control and isolation of third‑party libraries.",
+              "Explore community insights on using submodules as a package manager."
+            ]
+          },
+          "zh": {
+            "title": "Git 子模块作为包管理器的讨论 – 来自 Hacker News",
+            "hook": "了解如何利用 Git 子模块作为轻量级包管理器来管理跨项目的依赖关系。",
+            "key_takeaways": [
+              "利用 Git 子模块管理外部代码依赖，无需额外工具。",
+              "简化第三方库的版本控制和隔离。",
+              "探索社区关于使用子模块作为包管理器的见解。"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T02:56:29.701187+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Git 서브모듈을 패키지 관리자로 활용하기 – 해커 뉴스 토론",
+          "hook": "Git 서브모듈을 활용해 외부 코드를 경량화된 패키지 관리자로 관리하는 방법을 알아보세요.",
+          "key_takeaways": [
+            "추가 도구 없이 Git 서브모듈로 외부 코드 의존성을 관리하는 방법.",
+            "서드파티 라이브러리의 버전 관리와 격리를 간소화합니다.",
+            "서브모듈을 패키지 관리자로 사용하는 커뮤니티의 의견을 확인하세요."
+          ]
+        },
+        "en": {
+          "title": "Git Submodules as a Package Manager – Hacker News Discussion",
+          "hook": "Discover how Git submodules can serve as a lightweight package manager for organizing dependencies across projects.",
+          "key_takeaways": [
+            "Leverage Git submodules to manage external code dependencies without extra tooling.",
+            "Simplify version control and isolation of third‑party libraries.",
+            "Explore community insights on using submodules as a package manager."
+          ]
+        },
+        "zh": {
+          "title": "Git 子模块作为包管理器的讨论 – 来自 Hacker News",
+          "hook": "了解如何利用 Git 子模块作为轻量级包管理器来管理跨项目的依赖关系。",
+          "key_takeaways": [
+            "利用 Git 子模块管理外部代码依赖，无需额外工具。",
+            "简化第三方库的版本控制和隔离。",
+            "探索社区关于使用子模块作为包管理器的见解。"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "Git",
+        "submodule",
+        "package manager"
+      ],
+      "title_ko": "Git 서브모듈을 패키지 관리자로 활용하기 – 해커 뉴스 토론",
+      "title_en": "Git Submodules as a Package Manager – Hacker News Discussion",
+      "title_zh": "Git 子模块作为包管理器的讨论 – 来自 Hacker News",
+      "hook": "Git 서브모듈을 활용해 외부 코드를 경량화된 패키지 관리자로 관리하는 방법을 알아보세요.",
+      "hook_ko": "Git 서브모듈을 활용해 외부 코드를 경량화된 패키지 관리자로 관리하는 방법을 알아보세요.",
+      "hook_en": "Discover how Git submodules can serve as a lightweight package manager for organizing dependencies across projects.",
+      "hook_zh": "了解如何利用 Git 子模块作为轻量级包管理器来管理跨项目的依赖关系。",
+      "description_ko": "Git 서브모듈을 활용해 외부 코드를 경량화된 패키지 관리자로 관리하는 방법을 알아보세요.",
+      "description_en": "Discover how Git submodules can serve as a lightweight package manager for organizing dependencies across projects.",
+      "description_zh": "了解如何利用 Git 子模块作为轻量级包管理器来管理跨项目的依赖关系。",
+      "category_primary": "AGENTS_DEVTOOLS",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-05_repo_hf_space_akhaliqminimax_h3_turbo_lora",
+      "harvested_date": "2026-09-05",
+      "harvested_at": "2026-09-05T02:53:54.364384",
+      "published_at": "2026-09-05T02:53:54.364384",
+      "created_at": "2026-09-05T02:53:54.364384",
+      "updated_at": "2026-09-05T02:53:54.364384",
+      "title": "HF Space: akhaliq/MiniMax-H3-Turbo-Lora",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/akhaliq/MiniMax-H3-Turbo-Lora",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 86 | Live URL: https://huggingface.co/spaces/akhaliq/MiniMax-H3-Turbo-Lora",
+      "viral_metric": "❤️ 86 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 86,
+          "display": "❤️ 86 Likes (Trending Demo)",
+          "recorded_at": "2026-09-05"
+        },
+        "latest": {
+          "value": 86,
+          "display": "❤️ 86 Likes (Trending Demo)",
+          "updated_at": "2026-09-05"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-05_repo_hf_space_akhaliqminimax_h3_turbo_lora",
+        "source_lang": "EN",
+        "category_primary": "INFERENCE_OPT",
+        "type_classification": "MODEL",
+        "model_family": "MiniMax-H3-Turbo-Lora",
+        "category": "LLM inference optimization",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "MiniMax",
+          "H3",
+          "Turbo",
+          "LoRA",
+          "Hugging Face Spaces"
+        ],
+        "recommended_tag": "🔥 Must-Read",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "Hugging Face 스페이스: akhaliq/MiniMax-H3-Turbo-Lora 데모",
+            "hook": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
+            "key_takeaways": [
+              "LoRA로 미세 조정된 MiniMax-H3-Turbo 모델",
+              "Hugging Face Spaces에서 실시간으로 실행되는 경량 추론 데모",
+              "86명의 사용자로부터 좋아요를 받은 대화형 AI 인터페이스"
+            ]
+          },
+          "en": {
+            "title": "Hugging Face Space: akhaliq/MiniMax-H3-Turbo-Lora Demo",
+            "hook": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
+            "key_takeaways": [
+              "LoRA‑fine‑tuned MiniMax‑H3‑Turbo model for fast inference",
+              "Interactive Gradio demo running live on Hugging Face Spaces",
+              "Liked by 86 users, showcasing a ready‑to‑use conversational AI interface"
+            ]
+          },
+          "zh": {
+            "title": "Hugging Face 空间：akhaliq/MiniMax-H3-Turbo-Lora 演示",
+            "hook": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
+            "key_takeaways": [
+              "一款经过 LoRA 微调的 MiniMax-H3-Turbo 模型，实现高效推理",
+              "在 Hugging Face Spaces 上运行的交互式 Gradio 演示",
+              "获得 86 位用户点赞，展示出色的对话式 AI 界面"
+            ]
+          }
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-05T02:55:22.132198+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "Hugging Face 스페이스: akhaliq/MiniMax-H3-Turbo-Lora 데모",
+          "hook": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
+          "key_takeaways": [
+            "LoRA로 미세 조정된 MiniMax-H3-Turbo 모델",
+            "Hugging Face Spaces에서 실시간으로 실행되는 경량 추론 데모",
+            "86명의 사용자로부터 좋아요를 받은 대화형 AI 인터페이스"
+          ]
+        },
+        "en": {
+          "title": "Hugging Face Space: akhaliq/MiniMax-H3-Turbo-Lora Demo",
+          "hook": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
+          "key_takeaways": [
+            "LoRA‑fine‑tuned MiniMax‑H3‑Turbo model for fast inference",
+            "Interactive Gradio demo running live on Hugging Face Spaces",
+            "Liked by 86 users, showcasing a ready‑to‑use conversational AI interface"
+          ]
+        },
+        "zh": {
+          "title": "Hugging Face 空间：akhaliq/MiniMax-H3-Turbo-Lora 演示",
+          "hook": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
+          "key_takeaways": [
+            "一款经过 LoRA 微调的 MiniMax-H3-Turbo 模型，实现高效推理",
+            "在 Hugging Face Spaces 上运行的交互式 Gradio 演示",
+            "获得 86 位用户点赞，展示出色的对话式 AI 界面"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "MiniMax",
+        "H3",
+        "Turbo",
+        "LoRA",
+        "Hugging Face Spaces"
+      ],
+      "title_ko": "Hugging Face 스페이스: akhaliq/MiniMax-H3-Turbo-Lora 데모",
+      "title_en": "Hugging Face Space: akhaliq/MiniMax-H3-Turbo-Lora Demo",
+      "title_zh": "Hugging Face 空间：akhaliq/MiniMax-H3-Turbo-Lora 演示",
+      "hook": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
+      "hook_ko": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
+      "hook_en": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
+      "hook_zh": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
+      "description_ko": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
+      "description_en": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
+      "description_zh": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
+      "model_family": "MiniMax-H3-Turbo-Lora",
+      "category_primary": "INFERENCE_OPT",
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-05_sns_geeknews_성인_영화_제작사_토렌트로_파일_2만_개_받은_이용자를_meta_",
       "harvested_date": "2026-09-05",

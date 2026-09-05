@@ -9,13 +9,13 @@
   "gamed_count": 2,
   "avg_confidence": 96.2,
   "models_total_count": 201,
-  "news_total_count": 766,
+  "news_total_count": 565,
   "news_cat_counts": {
-    "INFERENCE_OPT": 65,
-    "AGENTS_DEVTOOLS": 138,
-    "MULTIMODAL_AI": 135,
-    "FOUNDATION_MODELS": 33,
-    "INFRA_RAG_SECURITY": 59,
+    "INFERENCE_OPT": 39,
+    "AGENTS_DEVTOOLS": 91,
+    "MULTIMODAL_AI": 40,
+    "FOUNDATION_MODELS": 4,
+    "INFRA_RAG_SECURITY": 55,
     "INDUSTRY_TRENDS": 336
   },
   "inbox_total_count": 755,
@@ -1737,7 +1737,7 @@
       "inbox_count": 22,
       "model_count": 2,
       "news_count": 20,
-      "is_current": true,
+      "is_current": false,
       "is_future": false
     },
     {
@@ -1785,18 +1785,18 @@
     "window_label": "12:00 ~ 18:00 KST",
     "window_period": "오후 실시간 모델 & 아키텍처 브리핑",
     "today_kst": "2026-09-05",
-    "updated_at": "11:57 KST",
+    "updated_at": "12:58 KST",
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] enzostvs/deepsite (AI 웹사이트 생성기) (❤️ 16610 Likes (Trending Demo)) — 자연어 프롬프트만으로 반응형 웹 인터페이스와 코드를 실시간 생성하는 인기 AI 데모",
       "🔥 [GitHub Official] sapientinc/PRAXIST - 측정 및 컴퓨터 실행 가능한 자율 연구 시스 (★ 6780 Stars) — 컴퓨터로 직접 실행하고 검증 가능한 연구 과정을 자동화하는 자율 연구(Autonomous Research) 에이전트 프레임워크",
       "🔥 [Hugging Face Models] GLM-5.3-Flash: 초경량 고성능 비전-언어 멀티모달 모델 (Trending 1796 pts (❤️ 1923)) — 높은 다운로드 수와 뛰어난 추론 효율성을 자랑하는 멀티모달(Image-Text-to-Text) 모델"
     ],
     "tags": [
-      "#High_Engagement",
       "#Autonomous_Agent",
-      "#MoE_Architecture",
+      "#Local_LLM",
+      "#High_Engagement",
       "#SoTA_Models",
-      "#Local_LLM"
+      "#MoE_Architecture"
     ]
   },
   "dow_stats": [],
@@ -29957,142 +29957,6 @@
       "description_en": "Discover how Git submodules can serve as a lightweight package manager for organizing dependencies across projects.",
       "description_zh": "了解如何利用 Git 子模块作为轻量级包管理器来管理跨项目的依赖关系。",
       "category_primary": "AGENTS_DEVTOOLS",
-      "is_classified": true,
-      "is_deep_analyzed": false
-    },
-    {
-      "inbox_id": "2026-09-05_repo_hf_space_akhaliqminimax_h3_turbo_lora",
-      "harvested_date": "2026-09-05",
-      "harvested_at": "2026-09-05T02:53:54.364384",
-      "published_at": "2026-09-05T02:53:54.364384",
-      "created_at": "2026-09-05T02:53:54.364384",
-      "updated_at": "2026-09-05T02:53:54.364384",
-      "title": "HF Space: akhaliq/MiniMax-H3-Turbo-Lora",
-      "source_platform": "Hugging Face Spaces (Demo)",
-      "source_url": "https://huggingface.co/spaces/akhaliq/MiniMax-H3-Turbo-Lora",
-      "type": "repo",
-      "category_type": "MODEL",
-      "description": "Interactive AI Demo (SDK: gradio) | Likes: 86 | Live URL: https://huggingface.co/spaces/akhaliq/MiniMax-H3-Turbo-Lora",
-      "viral_metric": "❤️ 86 Likes (Trending Demo)",
-      "metric_tracking": {
-        "initial": {
-          "value": 86,
-          "display": "❤️ 86 Likes (Trending Demo)",
-          "recorded_at": "2026-09-05"
-        },
-        "latest": {
-          "value": 86,
-          "display": "❤️ 86 Likes (Trending Demo)",
-          "updated_at": "2026-09-05"
-        },
-        "delta": 0,
-        "delta_display": "+0",
-        "growth_rate_pct": 0.0,
-        "is_spiking": false
-      },
-      "matched_user_domains": [
-        "일반 최신 기술 (Tech General)"
-      ],
-      "status": "PENDING_REVIEW",
-      "ai_enrichment": {
-        "id": "2026-09-05_repo_hf_space_akhaliqminimax_h3_turbo_lora",
-        "source_lang": "EN",
-        "category_primary": "INFERENCE_OPT",
-        "type_classification": "MODEL",
-        "model_family": "MiniMax-H3-Turbo-Lora",
-        "category": "LLM inference optimization",
-        "programming_lang": "Python",
-        "root_keywords": [
-          "MiniMax",
-          "H3",
-          "Turbo",
-          "LoRA",
-          "Hugging Face Spaces"
-        ],
-        "recommended_tag": "🔥 Must-Read",
-        "worth_score": 4.0,
-        "multilingual": {
-          "ko": {
-            "title": "Hugging Face 스페이스: akhaliq/MiniMax-H3-Turbo-Lora 데모",
-            "hook": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
-            "key_takeaways": [
-              "LoRA로 미세 조정된 MiniMax-H3-Turbo 모델",
-              "Hugging Face Spaces에서 실시간으로 실행되는 경량 추론 데모",
-              "86명의 사용자로부터 좋아요를 받은 대화형 AI 인터페이스"
-            ]
-          },
-          "en": {
-            "title": "Hugging Face Space: akhaliq/MiniMax-H3-Turbo-Lora Demo",
-            "hook": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
-            "key_takeaways": [
-              "LoRA‑fine‑tuned MiniMax‑H3‑Turbo model for fast inference",
-              "Interactive Gradio demo running live on Hugging Face Spaces",
-              "Liked by 86 users, showcasing a ready‑to‑use conversational AI interface"
-            ]
-          },
-          "zh": {
-            "title": "Hugging Face 空间：akhaliq/MiniMax-H3-Turbo-Lora 演示",
-            "hook": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
-            "key_takeaways": [
-              "一款经过 LoRA 微调的 MiniMax-H3-Turbo 模型，实现高效推理",
-              "在 Hugging Face Spaces 上运行的交互式 Gradio 演示",
-              "获得 86 位用户点赞，展示出色的对话式 AI 界面"
-            ]
-          }
-        },
-        "enriched_by_model": "cohere/north-mini-code:free",
-        "enriched_at": "2026-09-05T02:55:22.132198+00:00"
-      },
-      "multilingual": {
-        "ko": {
-          "title": "Hugging Face 스페이스: akhaliq/MiniMax-H3-Turbo-Lora 데모",
-          "hook": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
-          "key_takeaways": [
-            "LoRA로 미세 조정된 MiniMax-H3-Turbo 모델",
-            "Hugging Face Spaces에서 실시간으로 실행되는 경량 추론 데모",
-            "86명의 사용자로부터 좋아요를 받은 대화형 AI 인터페이스"
-          ]
-        },
-        "en": {
-          "title": "Hugging Face Space: akhaliq/MiniMax-H3-Turbo-Lora Demo",
-          "hook": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
-          "key_takeaways": [
-            "LoRA‑fine‑tuned MiniMax‑H3‑Turbo model for fast inference",
-            "Interactive Gradio demo running live on Hugging Face Spaces",
-            "Liked by 86 users, showcasing a ready‑to‑use conversational AI interface"
-          ]
-        },
-        "zh": {
-          "title": "Hugging Face 空间：akhaliq/MiniMax-H3-Turbo-Lora 演示",
-          "hook": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
-          "key_takeaways": [
-            "一款经过 LoRA 微调的 MiniMax-H3-Turbo 模型，实现高效推理",
-            "在 Hugging Face Spaces 上运行的交互式 Gradio 演示",
-            "获得 86 位用户点赞，展示出色的对话式 AI 界面"
-          ]
-        }
-      },
-      "source_lang": "EN",
-      "programming_lang": "Python",
-      "root_keywords": [
-        "MiniMax",
-        "H3",
-        "Turbo",
-        "LoRA",
-        "Hugging Face Spaces"
-      ],
-      "title_ko": "Hugging Face 스페이스: akhaliq/MiniMax-H3-Turbo-Lora 데모",
-      "title_en": "Hugging Face Space: akhaliq/MiniMax-H3-Turbo-Lora Demo",
-      "title_zh": "Hugging Face 空间：akhaliq/MiniMax-H3-Turbo-Lora 演示",
-      "hook": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
-      "hook_ko": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
-      "hook_en": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
-      "hook_zh": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
-      "description_ko": "경량화된 MiniMax-H3-Turbo-Lora를 통해 초고속 추론 체험 – Gradio 기반 대화형 데모로 직접 확인하세요.",
-      "description_en": "Experience the speed of MiniMax-H3-Turbo-Lora, a LoRA‑fine‑tuned model, via an interactive Gradio demo on Hugging Face Spaces.",
-      "description_zh": "通过 Gradio 构建的交互式界面，在 Hugging Face Spaces 上实时体验 MiniMax-H3-Turbo-Lora 的高效推理能力——一款经过 LoRA 微调的模型。",
-      "model_family": "MiniMax-H3-Turbo-Lora",
-      "category_primary": "INFERENCE_OPT",
       "is_classified": true,
       "is_deep_analyzed": false
     },
