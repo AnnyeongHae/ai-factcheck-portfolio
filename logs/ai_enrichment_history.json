@@ -9660,5 +9660,556 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260906_223139",
+    "timestamp": "2026-09-06T22:31:39.764197+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 50,
+    "requested_limit": 0,
+    "processed_count": 50,
+    "success_count": 50,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 40
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.89,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_qbittorrent_범죄를_저지르려고_샌드박스를_탈출하다",
+            "title": "GeekNews: QBittorrent, 범죄를 저지르려고 샌드박스를 탈출하다",
+            "title_ko": "QBittorrent, 범죄를 저지르려고 샌드박스를 탈출하다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:31:56.663868+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_qbittorrent_범죄를_저지르려고_샌드박스를_탈출하다",
+            "title": "GeekNews: QBittorrent, 범죄를 저지르려고 샌드박스를 탈출하다",
+            "title_ko": "QBittorrent, 범죄를 저지르려고 샌드박스를 탈출하다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:31:56.664442+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_인지_바이러스로서의_llm",
+            "title": "GeekNews: 인지 바이러스로서의 LLM",
+            "title_ko": "인지 바이러스로서의 LLM",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:31:56.665017+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 17.07,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_인지_바이러스로서의_llm",
+            "title": "GeekNews: 인지 바이러스로서의 LLM",
+            "title_ko": "LLM, 인지 바이러스처럼 확산되다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:32:14.233373+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_ai_운영_종료_인간다움을_지키자",
+            "title": "GeekNews: A/I 운영 종료 — 인간다움을 지키자",
+            "title_ko": "AI 운영 종료, 인간다움을 지키다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:32:14.233884+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_ai_운영_종료_인간다움을_지키자",
+            "title": "GeekNews: A/I 운영 종료 — 인간다움을 지키자",
+            "title_ko": "AI 운영 종료, 인간다움을 지키다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:32:14.234327+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.89,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_nas백업에_어떤_파일시스템을_사용하고_있으며_그_이유는_무엇인가",
+            "title": "GeekNews: NAS/백업에 어떤 파일시스템을 사용하고 있으며, 그 이유는 무엇인가요?",
+            "title_ko": "NAS/백업에 어떤 파일시스템을 사용하고 있으며, 그 이유는 무엇인가요?",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:32:30.623412+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_nas백업에_어떤_파일시스템을_사용하고_있으며_그_이유는_무엇인가",
+            "title": "GeekNews: NAS/백업에 어떤 파일시스템을 사용하고 있으며, 그 이유는 무엇인가요?",
+            "title_ko": "NAS/백업에 어떤 파일시스템을 사용하고 있으며, 그 이유는 무엇인가요?",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:32:30.623921+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_당신의_지적_바지_지퍼가_열려_있습니다_2025",
+            "title": "GeekNews: 당신의 지적 바지 지퍼가 열려 있습니다 (2025)",
+            "title_ko": "당신의 지적 바지 지퍼가 열려 있습니다 (2025)",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:32:30.624841+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.85,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_당신의_지적_바지_지퍼가_열려_있습니다_2025",
+            "title": "GeekNews: 당신의 지적 바지 지퍼가 열려 있습니다 (2025)",
+            "title_ko": "GeekNews: 당신의 지적 바지 지퍼가 열려 있습니다 (2025)",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:32:47.973497+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_un_지구_온난화_15c_한계_초과_전망",
+            "title": "GeekNews: UN, 지구 온난화 1.5°C 한계 초과 전망",
+            "title_ko": "GeekNews: UN, 지구 온난화 1.5°C 한계 초과 전망",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:32:47.974028+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_un_지구_온난화_15c_한계_초과_전망",
+            "title": "GeekNews: UN, 지구 온난화 1.5°C 한계 초과 전망",
+            "title_ko": "GeekNews: UN, 지구 온난화 1.5°C 한계 초과 전망",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:32:47.974397+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.52,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_artificial_analysis_aaii_v42_발표_실제_업",
+            "title": "GeekNews: Artificial Analysis, AAII v4.2 발표 - 실제 업무 평가 강화, 비공개 테스트 확대",
+            "title_ko": "Artificial Analysis, AAII v4.2 출시 - 실제 업무 평가 강화 및 비공개 테스트 확대",
+            "classification": "MODEL",
+            "model_family": "AAII",
+            "enriched_at": "2026-09-06T22:33:06.993869+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_artificial_analysis_aaii_v42_발표_실제_업",
+            "title": "GeekNews: Artificial Analysis, AAII v4.2 발표 - 실제 업무 평가 강화, 비공개 테스트 확대",
+            "title_ko": "Artificial Analysis, AAII v4.2 출시 - 실제 업무 평가 강화 및 비공개 테스트 확대",
+            "classification": "MODEL",
+            "model_family": "AAII",
+            "enriched_at": "2026-09-06T22:33:06.994637+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_로봇_팔을_제어하는_gpt_6_astra",
+            "title": "GeekNews: 로봇 팔을 제어하는 GPT-6 Astra",
+            "title_ko": "로봇 팔을 제어하는 GPT-6 Astra",
+            "classification": "MODEL",
+            "model_family": "GPT-6",
+            "enriched_at": "2026-09-06T22:33:06.995251+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.93,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_로봇_팔을_제어하는_gpt_6_astra",
+            "title": "GeekNews: 로봇 팔을 제어하는 GPT-6 Astra",
+            "title_ko": "로봇 팔을 제어하는 GPT-6 Astra",
+            "classification": "MODEL",
+            "model_family": "GPT-6",
+            "enriched_at": "2026-09-06T22:33:20.422176+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_ai로_도구를_만드는_것과_기업을_바꾸는_것은_다른_일이다",
+            "title": "GeekNews: AI로 도구를 만드는 것과 기업을 바꾸는 것은 다른 일이다",
+            "title_ko": "AI로 도구를 만드는 것과 기업을 바꾸는 것은 다른 일이다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:33:20.422727+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_ai로_도구를_만드는_것과_기업을_바꾸는_것은_다른_일이다",
+            "title": "GeekNews: AI로 도구를 만드는 것과 기업을 바꾸는 것은 다른 일이다",
+            "title_ko": "AI로 도구를 만드는 것과 기업을 바꾸는 것은 다른 일이다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:33:20.423126+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.23,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_repo_github_rion_wu_techwechat_intelligence_hub",
+            "title": "GitHub: Rion-Wu-tech/wechat-intelligence-hub",
+            "title_ko": "로컬 우선 위챗 인텔리전스 허브, CLI 및 코덱스 기능 포함",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:33:33.156265+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_github_rion_wu_techwechat_intelligence_hub",
+            "title": "GitHub: Rion-Wu-tech/wechat-intelligence-hub",
+            "title_ko": "로컬 우선 위챗 인텔리전스 허브, CLI 및 코덱스 기능 포함",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:33:33.156767+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_huggingface_model_dealignaiglm_53_cybersecuri",
+            "title": "HuggingFace Model: dealignai/GLM-5.3-CYBERSECURITY-FP8",
+            "title_ko": "GLM-5.3 사이버 보안 모델 (FP8 양자화)",
+            "classification": "MODEL",
+            "model_family": "GLM",
+            "enriched_at": "2026-09-06T22:33:33.157399+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 29.88,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_repo_huggingface_model_dealignaiglm_53_cybersecuri",
+            "title": "HuggingFace Model: dealignai/GLM-5.3-CYBERSECURITY-FP8",
+            "title_ko": "허깅페이스 모델: dealignai/GLM-5.3-CYBERSECURITY-FP8",
+            "classification": "MODEL",
+            "model_family": "GLM",
+            "enriched_at": "2026-09-06T22:34:03.536237+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_armed_man_attacks_ohio_governor_c",
+            "title": "Hacker News: Armed man attacks Ohio governor candidate Amy Acton, several injured",
+            "title_ko": "무장 남성이 오하이오 주지사 후보 에이미 액튼을 공격해 여러 명 부상",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:34:03.536745+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_armed_man_attacks_ohio_governor_c",
+            "title": "Hacker News: Armed man attacks Ohio governor candidate Amy Acton, several injured",
+            "title_ko": "무장 남성이 오하이오 주지사 후보 에이미 액튼을 공격해 여러 명 부상",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:34:03.537099+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 25.59,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_windows_11s_special_developer_edi",
+            "title": "Hacker News: Windows 11's \"special\" developer edition looks like another marketing misfire",
+            "title_ko": "윈도우 11 개발자 에디션, 또 하나의 마케팅 실패인가?",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:34:29.627276+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_windows_11s_special_developer_edi",
+            "title": "Hacker News: Windows 11's \"special\" developer edition looks like another marketing misfire",
+            "title_ko": "윈도우 11 개발자 에디션, 또 하나의 마케팅 실패인가?",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:34:29.627723+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_hacker_news_show_hn_mador_make_any_dom_reacti",
+            "title": "Hacker News: Show HN: Mador – Make any DOM reactive with a tiny 80-line Proxy state tuple",
+            "title_ko": "모든 DOM을 반응형으로 만드는 초소형 80줄 프록시 상태 라이브러리 '마도르'",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:34:29.628331+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 25.56,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_repo_hacker_news_show_hn_mador_make_any_dom_reacti",
+            "title": "Hacker News: Show HN: Mador – Make any DOM reactive with a tiny 80-line Proxy state tuple",
+            "title_ko": "마도르 – 단 80줄의 프록시 상태 튜플로 모든 DOM을 반응형으로 만들다",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:34:55.691520+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_it_took_a_year_to_ship_webassembl",
+            "title": "Hacker News: It took a year to ship WebAssembly in Anubis",
+            "title_ko": "아니버스, 웹어셈블리 출시까지 1년 걸려",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:34:55.692064+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_it_took_a_year_to_ship_webassembl",
+            "title": "Hacker News: It took a year to ship WebAssembly in Anubis",
+            "title_ko": "아니버스, 웹어셈블리 출시까지 1년 걸려",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:34:55.692451+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.96,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_harnessing_the_universal_geometry",
+            "title": "Hacker News: Harnessing the Universal Geometry of Embeddings",
+            "title_ko": "임베딩의 보편적 기하학 활용하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:35:15.150701+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_harnessing_the_universal_geometry",
+            "title": "Hacker News: Harnessing the Universal Geometry of Embeddings",
+            "title_ko": "임베딩의 보편적 기하학 활용하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:35:15.151216+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_grapheneos_overhauled_default_app",
+            "title": "Hacker News: GrapheneOS Overhauled Default Apps and Secure Clipboard",
+            "title_ko": "GrapheneOS, 기본 앱 및 보안 클립보드 전면 개편",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:35:15.151696+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 12,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 19.88,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_grapheneos_overhauled_default_app",
+            "title": "Hacker News: GrapheneOS Overhauled Default Apps and Secure Clipboard",
+            "title_ko": "그라핀OS, 기본 앱 및 보안 클립보드 개선",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:35:35.530218+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_show_hn_vodforge_a_free_local_des",
+            "title": "Hacker News: Show HN: VODForge – a free local desktop UI for YouTube video/playlist downloads",
+            "title_ko": "VODForge – 무료 데스크톱 UI로 유튜브 비디오/플레이리스트 다운로드",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:35:35.530846+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_show_hn_vodforge_a_free_local_des",
+            "title": "Hacker News: Show HN: VODForge – a free local desktop UI for YouTube video/playlist downloads",
+            "title_ko": "VODForge – 무료 데스크톱 UI로 유튜브 비디오/플레이리스트 다운로드",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:35:35.531222+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 13,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 13.08,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_the_car_industry_ab_tested_sellin",
+            "title": "Hacker News: The car industry A/B tested selling a car with and without CarPlay",
+            "title_ko": "자동차 업계, 카플레이 유무에 따른 판매 A/B 테스트 진행",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:35:49.114501+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_the_car_industry_ab_tested_sellin",
+            "title": "Hacker News: The car industry A/B tested selling a car with and without CarPlay",
+            "title_ko": "자동차 업계, 카플레이 유무에 따른 판매 A/B 테스트 진행",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:35:49.115075+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_d2_is_non_profit",
+            "title": "Hacker News: D2 Is Non-Profit",
+            "title_ko": "D2, 비영리 단체로 전환",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:35:49.115569+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 14,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 23.06,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_d2_is_non_profit",
+            "title": "Hacker News: D2 Is Non-Profit",
+            "title_ko": "D2, 비영리 재단으로 전환",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:36:12.671621+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_hacker_news_nitter_and_xcancel_resume_service",
+            "title": "Hacker News: Nitter and XCancel resume service after legal advice",
+            "title_ko": "니터와 엑스캔슬, 법적 자문 후 서비스 재개",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:36:12.672136+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_hacker_news_nitter_and_xcancel_resume_service",
+            "title": "Hacker News: Nitter and XCancel resume service after legal advice",
+            "title_ko": "니터와 엑스캔슬, 법적 자문 후 서비스 재개",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:36:12.672482+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 15,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.99,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_reverse_engineering_the_storage_f",
+            "title": "Hacker News: Reverse engineering the storage format for an undocumented database",
+            "title_ko": "비문서화된 데이터베이스의 저장 형식 역설계하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:36:30.163054+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_reverse_engineering_the_storage_f",
+            "title": "Hacker News: Reverse engineering the storage format for an undocumented database",
+            "title_ko": "비문서화된 데이터베이스의 저장 형식 역설계하기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:36:30.163489+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_babylonian_lamb_stew_with_beets_1",
+            "title": "Hacker News: Babylonian Lamb Stew with Beets (1750–1730 BCE)",
+            "title_ko": "3,750년 된 고대 바빌론 양고기 스튜와 비트 요리법",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:36:30.163931+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 16,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.58,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_babylonian_lamb_stew_with_beets_1",
+            "title": "Hacker News: Babylonian Lamb Stew with Beets (1750–1730 BCE)",
+            "title_ko": "바빌론 식용 양고기 비트로 만든 스튜 (기원전 1750–1730)",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:36:51.244539+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_vidact_a_compiler_that_turns_reac",
+            "title": "Hacker News: Vidact – a compiler that turns React into direct DOM operations",
+            "title_ko": "비닷 – 리액트를 직접 DOM 조작으로 변환하는 컴파일러",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:36:51.245073+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_vidact_a_compiler_that_turns_reac",
+            "title": "Hacker News: Vidact – a compiler that turns React into direct DOM operations",
+            "title_ko": "비닷 – 리액트를 직접 DOM 조작으로 변환하는 컴파일러",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:36:51.245457+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 17,
+        "items_count": 2,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 10.49,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_black_hole_of_los_alamos_seller_o",
+            "title": "Hacker News: Black Hole of Los Alamos Seller of surplus nuclear research materials (2011)",
+            "title_ko": "로스 앨러모스, 핵 연구용 잉여 물질 판매자 '블랙 홀' (2011년)",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:37:02.234388+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_black_hole_of_los_alamos_seller_o",
+            "title": "Hacker News: Black Hole of Los Alamos Seller of surplus nuclear research materials (2011)",
+            "title_ko": "로스 앨러모스, 핵 연구용 잉여 물질 판매자 '블랙 홀' (2011년)",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T22:37:02.234904+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
