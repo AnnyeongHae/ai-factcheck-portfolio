@@ -8606,5 +8606,532 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260906_122630",
+    "timestamp": "2026-09-06T12:26:30.125429+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 48,
+    "requested_limit": 0,
+    "processed_count": 48,
+    "success_count": 48,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 37
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 17.71,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_cloud_in_a_bottle_누구나_쉽게_쓸_수_있는_셀프_호",
+            "title": "GeekNews: Cloud in a Bottle: 누구나 쉽게 쓸 수 있는 셀프 호스팅을 향해",
+            "title_ko": "클라우드 인 어 보틀: 누구나 쉽게 쓸 수 있는 셀프 호스팅을 향해",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:26:47.848179+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_cloud_in_a_bottle_누구나_쉽게_쓸_수_있는_셀프_호",
+            "title": "GeekNews: Cloud in a Bottle: 누구나 쉽게 쓸 수 있는 셀프 호스팅을 향해",
+            "title_ko": "클라우드 인 어 보틀: 누구나 쉽게 쓸 수 있는 셀프 호스팅을 향해",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:26:47.848797+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_chrome_사용자_사이트_데이터_설정에서_google을_또다시_",
+            "title": "GeekNews: Chrome, 사용자 사이트 데이터 설정에서 Google을 또다시 예외 처리",
+            "title_ko": "크롬, 사용자 사이트 데이터 설정에서 구글을 또다시 예외 처리",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:26:47.849525+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.69,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_chrome_사용자_사이트_데이터_설정에서_google을_또다시_",
+            "title": "GeekNews: Chrome, 사용자 사이트 데이터 설정에서 Google을 또다시 예외 처리",
+            "title_ko": "Chrome, 사용자 사이트 데이터 설정에서 Google을 또다시 예외 처리",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:27:07.038732+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_strip_유틸리티를_통한_linux_배포판_전체의_trustin",
+            "title": "GeekNews: strip 유틸리티를 통한 Linux 배포판 전체의 Trusting-Trust 공격",
+            "title_ko": "strip 유틸리티를 통한 Linux 배포판 전체의 Trusting-Trust 공격",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:27:07.039345+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_strip_유틸리티를_통한_linux_배포판_전체의_trustin",
+            "title": "GeekNews: strip 유틸리티를 통한 Linux 배포판 전체의 Trusting-Trust 공격",
+            "title_ko": "strip 유틸리티를 통한 Linux 배포판 전체의 Trusting-Trust 공격",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:27:07.039641+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 19.07,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_독자의_반란",
+            "title": "GeekNews: 독자의 반란",
+            "title_ko": "독자의 반란",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:27:26.610005+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_독자의_반란",
+            "title": "GeekNews: 독자의 반란",
+            "title_ko": "독자의 반란",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:27:26.611945+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_zopt_zig를_위한_간결한_명령줄_인자_파서",
+            "title": "GeekNews: zopt - Zig를 위한 간결한 명령줄 인자 파서",
+            "title_ko": "zopt - Zig를 위한 간결한 명령줄 인자 파서",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:27:26.612482+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 68.57,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_zopt_zig를_위한_간결한_명령줄_인자_파서",
+            "title": "GeekNews: zopt - Zig를 위한 간결한 명령줄 인자 파서",
+            "title_ko": "zopt - Zig를 위한 간결한 명령줄 인자 파서",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:28:35.682298+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_60달러_게이밍_pc_amd_bc_250_2025",
+            "title": "GeekNews: ‘60달러 게이밍 PC’ — AMD BC-250 (2025)",
+            "title_ko": "‘60달러 게이밍 PC’ — AMD BC-250 (2025)",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:28:35.682846+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_60달러_게이밍_pc_amd_bc_250_2025",
+            "title": "GeekNews: ‘60달러 게이밍 PC’ — AMD BC-250 (2025)",
+            "title_ko": "‘60달러 게이밍 PC’ — AMD BC-250 (2025)",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:28:35.683143+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 36.15,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_repo_github_ashemaghuman_atlas",
+            "title": "GitHub: ashemag/human-atlas",
+            "title_ko": "휴먼 아틀라스: 3D 인체 해부학 탐색기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:29:12.336572+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_github_ashemaghuman_atlas",
+            "title": "GitHub: ashemag/human-atlas",
+            "title_ko": "휴먼 아틀라스: 3D 인체 해부학 탐색기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:29:12.337152+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_hf_space_lubi153pro_realism_edit_studio_v17",
+            "title": "HF Space: Lubi153/Pro-Realism-Edit-Studio-v.17",
+            "title_ko": "HF 스페이스: 루비153/프로 리얼리즘 편집 스튜디오 v.17",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:29:12.337846+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 23.22,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_repo_hf_space_lubi153pro_realism_edit_studio_v17",
+            "title": "HF Space: Lubi153/Pro-Realism-Edit-Studio-v.17",
+            "title_ko": "HF 스페이스: 루비153/프로 리얼리즘 편집 스튜디오 v.17",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:29:36.062830+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_the_pencil_case_model_of_creativi",
+            "title": "Hacker News: The pencil case model of creativity",
+            "title_ko": "해커 뉴스: 창의성의 연필통 모델",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:29:36.063464+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_the_pencil_case_model_of_creativi",
+            "title": "Hacker News: The pencil case model of creativity",
+            "title_ko": "해커 뉴스: 창의성의 연필통 모델",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:29:36.063841+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 19.34,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_intellectual_fly_is_open",
+            "title": "Hacker News: Intellectual Fly Is Open",
+            "title_ko": "인텔렉추얼 플라이 오픈",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:29:55.900986+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_intellectual_fly_is_open",
+            "title": "Hacker News: Intellectual Fly Is Open",
+            "title_ko": "인텔렉추얼 플라이 오픈",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:29:55.901604+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_doomscrolling_ourselves_to_death",
+            "title": "Hacker News: Doomscrolling Ourselves to Death",
+            "title_ko": "우리 자신을 향한 Doomscrolling",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:29:55.902367+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 33.95,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_doomscrolling_ourselves_to_death",
+            "title": "Hacker News: Doomscrolling Ourselves to Death",
+            "title_ko": "우리 자신을 죽음으로 내모는 무한 스크롤링",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:30:30.352882+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_dont_use_a_gmailcom_address",
+            "title": "Hacker News: Don't Use a gmail.com Address",
+            "title_ko": "gmail.com 주소 사용을 피하세요",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:30:30.353502+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_dont_use_a_gmailcom_address",
+            "title": "Hacker News: Don't Use a gmail.com Address",
+            "title_ko": "gmail.com 주소 사용을 피하세요",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:30:30.353857+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 26.46,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_old_person_smell",
+            "title": "Hacker News: 'Old Person Smell'",
+            "title_ko": "해커 뉴스: '노인 냄새'",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:30:57.317288+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_old_person_smell",
+            "title": "Hacker News: 'Old Person Smell'",
+            "title_ko": "해커 뉴스: '노인 냄새'",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:30:57.317873+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_i_asked_astra_to_make_playable_4d",
+            "title": "Hacker News: I asked astra to make playable 4D chess",
+            "title_ko": "해커 뉴스: 나는 astra에게 플레이 가능한 4D 체스를 만들어달라고 요청했다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:30:57.318522+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 29.83,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_i_asked_astra_to_make_playable_4d",
+            "title": "Hacker News: I asked astra to make playable 4D chess",
+            "title_ko": "해커 뉴스: 나는 아스트라에게 플레이 가능한 4D 체스를 만들어달라고 요청했다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:31:27.649879+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_i_changed_my_license",
+            "title": "Hacker News: I Changed My License",
+            "title_ko": "해커 뉴스: 내가 라이선스를 변경했다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:31:27.650497+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_i_changed_my_license",
+            "title": "Hacker News: I Changed My License",
+            "title_ko": "해커 뉴스: 내가 라이선스를 변경했다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:31:27.650778+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 19.78,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_show_hn_keen_bean_mac_meeting_not",
+            "title": "Hacker News: Show HN: Keen Bean – Mac meeting notes that draft the spec while you talk",
+            "title_ko": "맥 회의 노트 앱 '킨 빈', 대화 중 자동으로 스펙 초안 작성",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:31:47.927003+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_show_hn_keen_bean_mac_meeting_not",
+            "title": "Hacker News: Show HN: Keen Bean – Mac meeting notes that draft the spec while you talk",
+            "title_ko": "맥 회의 노트 앱 '킨 빈', 대화 중 자동으로 스펙 초안 작성",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:31:47.927658+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_we_have_to_assume_that_the_intern",
+            "title": "Hacker News: \"We Have to Assume That the Internet Will Go Offline in the Next Few Years\"",
+            "title_ko": "인터넷이 몇 년 내 오프라인이 될 수 있음을 가정해야 한다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:31:47.928616+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 12,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 40.12,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_we_have_to_assume_that_the_intern",
+            "title": "Hacker News: \"We Have to Assume That the Internet Will Go Offline in the Next Few Years\"",
+            "title_ko": "인터넷이 몇 년 내 오프라인될 수 있다는 HN의 경고",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:32:28.548958+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_isar_aerospace_reaches_orbit_and_",
+            "title": "Hacker News: Isar Aerospace reaches orbit and deploys payloads on second flight",
+            "title_ko": "이스르 에어로스페이스, 두 번째 비행에서 궤도 진입 및 페이로드 배포 성공",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:32:28.549612+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_isar_aerospace_reaches_orbit_and_",
+            "title": "Hacker News: Isar Aerospace reaches orbit and deploys payloads on second flight",
+            "title_ko": "이스르 에어로스페이스, 두 번째 비행에서 궤도 진입 및 페이로드 배포 성공",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:32:28.550169+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 13,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.74,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_catching_crumbs_from_the_table",
+            "title": "Hacker News: \"Catching Crumbs from the Table\"",
+            "title_ko": "해커 뉴스: \"테이블에서 빵부스러기 줍기\"",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:32:47.795391+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_catching_crumbs_from_the_table",
+            "title": "Hacker News: \"Catching Crumbs from the Table\"",
+            "title_ko": "해커 뉴스: \"테이블에서 빵부스러기 줍기\"",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:32:47.795973+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_decapitating_a_macbook",
+            "title": "Hacker News: Decapitating a MacBook",
+            "title_ko": "해커 뉴스: \"맥북 해체하기\"",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:32:47.796530+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 14,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.79,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_decapitating_a_macbook",
+            "title": "Hacker News: Decapitating a MacBook",
+            "title_ko": "맥북 해부하기",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:33:04.090872+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_ibm_quantum_nighthawk_r2",
+            "title": "Hacker News: IBM Quantum Nighthawk R2",
+            "title_ko": "IBM 퀀텀 나이트호크 R2 출시",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:33:04.091490+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_ibm_quantum_nighthawk_r2",
+            "title": "Hacker News: IBM Quantum Nighthawk R2",
+            "title_ko": "IBM 퀀텀 나이트호크 R2 출시",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:33:04.091858+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 15,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.43,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_the_empire_of_information",
+            "title": "Hacker News: The Empire of Information",
+            "title_ko": "해커 뉴스: 정보 제국",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:33:23.024386+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_the_empire_of_information",
+            "title": "Hacker News: The Empire of Information",
+            "title_ko": "해커 뉴스: 정보 제국",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:33:23.025008+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_m_disc_dvdblu_ray_compatible_disc",
+            "title": "Hacker News: M-DISC – DVD/Blu-ray compatible discs that may last up to 1000 years",
+            "title_ko": "해커 뉴스: M-DISC – 최대 1000년 보관 가능한 DVD/Blu-ray 호환 디스크",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:33:23.025526+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 16,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 32.25,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_m_disc_dvdblu_ray_compatible_disc",
+            "title": "Hacker News: M-DISC – DVD/Blu-ray compatible discs that may last up to 1000 years",
+            "title_ko": "M-DISC – DVD/블루레이 호환 장수(長壽) 디스크, 최대 1000년 지속",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:33:55.779755+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_a_computer_history_time_capsule",
+            "title": "Hacker News: A Computer History Time Capsule",
+            "title_ko": "컴퓨터 역사 타임 캡슐",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:33:55.780394+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_a_computer_history_time_capsule",
+            "title": "Hacker News: A Computer History Time Capsule",
+            "title_ko": "컴퓨터 역사 타임 캡슐",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T12:33:55.780781+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
