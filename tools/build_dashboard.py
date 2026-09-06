@@ -210,6 +210,8 @@ def build_dashboard():
         "MULTIMODAL_AI": 0,
         "FOUNDATION_MODELS": 0,
         "INFRA_RAG_SECURITY": 0,
+        "DEEP_SCIENCE_SPACE": 0,
+        "MACRO_GLOBAL_BIZ": 0,
         "INDUSTRY_TRENDS": 0
     }
     for it in news_items:
@@ -692,7 +694,7 @@ def generate_html(data):
             <span class="text-base font-extrabold text-ink-primary tracking-tight" id="headerBrandTitle">FactCheck Hub</span>
             <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-surface-subtle border border-surface-border text-ink-muted font-bold">2026</span>
           </div>
-          <p class="text-[11px] text-ink-muted hidden sm:block" id="headerBrandSubtitle">AI 바이럴 마케팅 분석 & AI 최신 정보</p>
+          <p class="text-[11px] text-ink-muted hidden sm:block" id="headerBrandSubtitle">AI 팩트체크 & 글로벌 테크 최신 동향</p>
         </div>
       </div>
 
@@ -705,7 +707,7 @@ def generate_html(data):
         </button>
         <button onclick="switchView('news')" id="tabNewsBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
-          <span id="navTabNews">AI 테크 동향</span>
+          <span id="navTabNews">테크 & AI 동향</span>
           <span class="text-[10px] font-mono text-ink-muted" id="headerNewsCount">({data['news_total_count']})</span>
         </button>
         <button onclick="switchView('models')" id="tabModelsBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
@@ -754,7 +756,7 @@ def generate_html(data):
       </button>
       <button onclick="switchView('news')" id="mTabNewsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabNews">AI 뉴스 ({data['news_total_count']})</span>
+        <span id="mNavTabNews">테크&AI ({data['news_total_count']})</span>
       </button>
       <button onclick="switchView('models')" id="mTabModelsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
@@ -825,7 +827,7 @@ def generate_html(data):
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-ink-muted group-hover:text-amber-700 transition flex items-center gap-1.5" id="statLabelNews">
               <i data-lucide="newspaper" class="w-4 h-4 text-amber-600"></i>
-              <span>AI 테크 동향</span>
+              <span>테크 & AI 동향</span>
             </span>
             <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-50 text-amber-800 border border-amber-200">
               글로벌 토픽
@@ -1190,8 +1192,10 @@ def generate_html(data):
             <button onclick="setNewsCategoryFilter('AGENTS_DEVTOOLS')" data-cat="AGENTS_DEVTOOLS" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🛠️ 에이전트 & 도구 ({data['news_cat_counts'].get('AGENTS_DEVTOOLS', 0)})</button>
             <button onclick="setNewsCategoryFilter('MULTIMODAL_AI')" data-cat="MULTIMODAL_AI" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🎨 멀티모달 & 생성AI ({data['news_cat_counts'].get('MULTIMODAL_AI', 0)})</button>
             <button onclick="setNewsCategoryFilter('FOUNDATION_MODELS')" data-cat="FOUNDATION_MODELS" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🤖 파운데이션 모델 ({data['news_cat_counts'].get('FOUNDATION_MODELS', 0)})</button>
-            <button onclick="setNewsCategoryFilter('INFRA_RAG_SECURITY')" data-cat="INFRA_RAG_SECURITY" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🛡️ 인프라·RAG·보안 ({data['news_cat_counts'].get('INFRA_RAG_SECURITY', 0)})</button>
-            <button onclick="setNewsCategoryFilter('INDUSTRY_TRENDS')" data-cat="INDUSTRY_TRENDS" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌐 테크 동향 & 산업 ({data['news_cat_counts'].get('INDUSTRY_TRENDS', 0)})</button>
+            <button onclick="setNewsCategoryFilter('INFRA_RAG_SECURITY')" data-cat="INFRA_RAG_SECURITY" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🛡️ 인프라·보안 ({data['news_cat_counts'].get('INFRA_RAG_SECURITY', 0)})</button>
+            <button onclick="setNewsCategoryFilter('DEEP_SCIENCE_SPACE')" data-cat="DEEP_SCIENCE_SPACE" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🚀 우주·신소재·과학 ({data['news_cat_counts'].get('DEEP_SCIENCE_SPACE', 0)})</button>
+            <button onclick="setNewsCategoryFilter('MACRO_GLOBAL_BIZ')" data-cat="MACRO_GLOBAL_BIZ" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🏦 산업·거시경제 ({data['news_cat_counts'].get('MACRO_GLOBAL_BIZ', 0)})</button>
+            <button onclick="setNewsCategoryFilter('INDUSTRY_TRENDS')" data-cat="INDUSTRY_TRENDS" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌐 일반 테크·SW ({data['news_cat_counts'].get('INDUSTRY_TRENDS', 0)})</button>
           </div>
         </div>
 
@@ -1658,11 +1662,11 @@ def generate_html(data):
     const i18n = {{
       KO: {{
         brandTitle: "FactCheck Hub",
-        brandSubtitle: "AI 바이럴 마케팅 분석 & AI 최신 정보",
+        brandSubtitle: "AI 팩트체크 & 글로벌 테크 최신 동향",
         navHome: "대시보드",
         navPortfolio: "공식 검증",
         navModels: "AI 모델 트렌드",
-        navNews: "AI 테크 동향",
+        navNews: "테크 & AI 동향",
         navGraph: "인용 계보망",
         navInbox: "수집 인박스",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
@@ -1699,9 +1703,9 @@ def generate_html(data):
         cardConfidenceLabel: "신뢰도",
         cardSourcesLabel: "개 1차 출처",
         cardViewBtn: "심층 보고서 열람",
-        newsHeaderBadge: "GLOBAL AI INTELLIGENCE FEED",
-        newsHeaderTitle: "커뮤니티, 해커뉴스, 사설에서 수집된 주요 AI 담론",
-        newsHeaderDesc: "소프트웨어 저장소뿐만 아니라 엔지니어링 동향, 보안 리포트, 아키텍처 튜토리얼 기사를 선별합니다.",
+        newsHeaderBadge: "GLOBAL TECH & AI INTELLIGENCE FEED",
+        newsHeaderTitle: "커뮤니티, 해커뉴스, 사설에서 수집된 테크 & AI 최신 담론",
+        newsHeaderDesc: "소프트웨어·AI 저장소뿐만 아니라 신소재·우주, 거시경제, 인프라 보안 등 글로벌 기술 동향을 선별합니다.",
         newsOriginalLink: "기사 원문",
         graphHeaderBadge: "MULTI-ENTITY CITATION NETWORK",
         graphHeaderTitle: "인물과 논문 인용 계보를 통한 기술 탄생의 뿌리 지도",
@@ -1743,11 +1747,11 @@ def generate_html(data):
       }},
       ZH: {{
         brandTitle: "FactCheck Hub",
-        brandSubtitle: "AI 营销分析与最新前沿动态",
+        brandSubtitle: "AI 事实核查与全球科技前沿动态",
         navHome: "仪表盘",
         navPortfolio: "官方核查",
         navModels: "AI 模型趋势",
-        navNews: "AI 科技动态",
+        navNews: "科技与AI动态",
         navGraph: "引用系谱图",
         navInbox: "采集收件箱",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
@@ -1784,9 +1788,9 @@ def generate_html(data):
         cardConfidenceLabel: "可信度",
         cardSourcesLabel: "个一手来源",
         cardViewBtn: "查阅完整报告",
-        newsHeaderBadge: "GLOBAL AI INTELLIGENCE FEED",
-        newsHeaderTitle: "源自社区、HackerNews 与专栏的前沿 AI 讨论",
-        newsHeaderDesc: "不仅追踪开源代码仓库，还精选工程趋势、安全漏洞分析与架构实践教程。",
+        newsHeaderBadge: "GLOBAL TECH & AI INTELLIGENCE FEED",
+        newsHeaderTitle: "源自社区、HackerNews 与专栏的全球科技与 AI 讨论",
+        newsHeaderDesc: "不仅追踪开源代码与模型，还精选深科技、航空航天、宏观经济与基础设施安全动态。",
         newsOriginalLink: "阅读原文",
         graphHeaderBadge: "MULTI-ENTITY CITATION NETWORK",
         graphHeaderTitle: "人物与论文引用系谱技术溯源全景图",
@@ -1828,11 +1832,11 @@ def generate_html(data):
       }},
       EN: {{
         brandTitle: "FactCheck Hub",
-        brandSubtitle: "AI Viral Marketing Analysis & Latest AI Tech",
+        brandSubtitle: "AI Fact-Checking & Global Tech Intelligence",
         navHome: "Dashboard",
         navPortfolio: "Fact-Checks",
         navModels: "AI Model Trends",
-        navNews: "AI News",
+        navNews: "Tech & AI Trends",
         navGraph: "Citation Graph",
         navInbox: "Harvest Inbox",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
@@ -3157,7 +3161,9 @@ def generate_html(data):
           'MULTIMODAL_AI': {{ label: currentLang === 'KO' ? '🎨 멀티모달·영상/음성' : (currentLang === 'ZH' ? '🎨 多模态与视听' : '🎨 Multimodal & GenAI'), cls: 'bg-purple-50 text-purple-900 border-purple-200' }},
           'FOUNDATION_MODELS': {{ label: currentLang === 'KO' ? '🤖 파운데이션·가중치' : (currentLang === 'ZH' ? '🤖 基础模型与权重' : '🤖 Foundation Models'), cls: 'bg-emerald-50 text-emerald-900 border-emerald-200' }},
           'INFRA_RAG_SECURITY': {{ label: currentLang === 'KO' ? '🛡️ 인프라·RAG·보안' : (currentLang === 'ZH' ? '🛡️ 基础设施与安全' : '🛡️ Infra, RAG & Safety'), cls: 'bg-rose-50 text-rose-900 border-rose-200' }},
-          'INDUSTRY_TRENDS': {{ label: currentLang === 'KO' ? '🌐 테크 동향·산업' : (currentLang === 'ZH' ? '🌐 行业资讯与生态' : '🌐 Tech & Industry'), cls: 'bg-slate-100 text-slate-800 border-slate-200' }}
+          'DEEP_SCIENCE_SPACE': {{ label: currentLang === 'KO' ? '🚀 우주·신소재·과학' : (currentLang === 'ZH' ? '🚀 深科技与空天科学' : '🚀 Deep Science & Space'), cls: 'bg-teal-50 text-teal-900 border-teal-200' }},
+          'MACRO_GLOBAL_BIZ': {{ label: currentLang === 'KO' ? '🏦 산업·거시경제' : (currentLang === 'ZH' ? '🏦 产业与宏观经济' : '🏦 Macro & Global Biz'), cls: 'bg-amber-50 text-amber-950 border-amber-300' }},
+          'INDUSTRY_TRENDS': {{ label: currentLang === 'KO' ? '🌐 일반 테크·SW' : (currentLang === 'ZH' ? '🌐 通用科技与软件' : '🌐 General Tech & SW'), cls: 'bg-slate-100 text-slate-800 border-slate-200' }}
         }};
         const catInfo = catMap[it.category_primary] || catMap['INDUSTRY_TRENDS'];
 

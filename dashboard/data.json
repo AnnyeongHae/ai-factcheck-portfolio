@@ -12,11 +12,13 @@
   "news_total_count": 587,
   "news_cat_counts": {
     "INFERENCE_OPT": 38,
-    "AGENTS_DEVTOOLS": 92,
-    "MULTIMODAL_AI": 29,
-    "FOUNDATION_MODELS": 6,
-    "INFRA_RAG_SECURITY": 63,
-    "INDUSTRY_TRENDS": 359
+    "AGENTS_DEVTOOLS": 87,
+    "MULTIMODAL_AI": 24,
+    "FOUNDATION_MODELS": 4,
+    "INFRA_RAG_SECURITY": 55,
+    "DEEP_SCIENCE_SPACE": 10,
+    "MACRO_GLOBAL_BIZ": 7,
+    "INDUSTRY_TRENDS": 362
   },
   "inbox_total_count": 762,
   "all_inbox_count": 778,
@@ -1721,7 +1723,7 @@
       "inbox_count": 23,
       "model_count": 1,
       "news_count": 22,
-      "is_current": true,
+      "is_current": false,
       "is_future": false
     },
     {
@@ -1733,8 +1735,8 @@
       "inbox_count": 0,
       "model_count": 0,
       "news_count": 0,
-      "is_current": false,
-      "is_future": true
+      "is_current": true,
+      "is_future": false
     },
     {
       "slot": "4회차 (18시)",
@@ -1750,69 +1752,69 @@
     }
   ],
   "trend_6h": {
-    "session_num": 2,
-    "session_name": "2회차 (오전)",
-    "short_name": "2회 06시",
-    "window_label": "06:00 ~ 12:00 KST",
-    "window_period": "모닝 브리핑 & 유럽 연구 논문 레이더",
+    "session_num": 3,
+    "session_name": "3회차 (오후)",
+    "short_name": "3회 12시",
+    "window_label": "12:00 ~ 18:00 KST",
+    "window_period": "정오 레이더 & 고바이럴 SOTA 모델 / 프레임워크",
     "is_current": true,
     "is_future": false,
     "status": "active",
     "bullets": [
-      "🔥 [ArXiv Preprint] 합성하기 전에 먼저 보는 것: 약한 감독 비디어 밀도 캡셔닝을 위한 VLM 유도  (ArXiv Primary Paper) — 순서 없는 비디어에서 이벤트 경계를 정확히 잡기 위해, VLM을 활용해 합성 전에 전환 이벤트를 선별하는 최신 아키텍처!",
-      "🔥 [GitHub Official] MengTo/threeui - 인터랙티브 3D 컴포넌트 카탈로그 (★ 4961 Stars) — Three.js 기반의 인터랙티브 3D UI 컴포넌트와 오픈소스 카탈로그 프로젝트",
-      "🔥 [Hugging Face Spaces (Demo)] Hugging Face 오픈 LLM 리더보드 (❤️ 14087 Likes (Trending Demo)) — 오픈소스 대형 언어 모델(LLM)의 성능 평가 및 벤치마킹을 위한 공식 대화형 리더보드"
+      "🔥 [Hugging Face Spaces (Demo)] AI 만화 공장 (AI Comic Factory) - 생성형 AI 기반 만화 자동 (❤️ 11236 Likes (Trending Demo)) — LLM의 스토리텔링과 이미지 생성 모델을 결합해 프롬프트 하나로 고품질 웹툰/만화를 자동 생성하는 대화형 AI 애플리케이션",
+      "🔥 [GitHub Official] s1dashu/ip-as-logo-skill: 아기자기한 마스코트 로고 생성을 위 (★ 4640 Stars) — 단순화되고 동글동글한 네오 스큐어모피즘 스타일 IP 마스코트 로고를 생성하는 경량 AI 에이전트 스킬",
+      "🔥 [GeekNews] 네덜란드, 미국·캐나다 보관 금 86톤 회수 (🇰🇷 GeekNews 큐레이션) — 네덜란드, 해외에 보관된 86톤의 금을 되찾으며 국가 재정 건전성 강화"
     ],
     "items": [
       {
-        "inbox_id": "2026-09-04_repo_arxiv_seeing_before_synthesizing_vlm_guided_t",
-        "title": "합성하기 전에 먼저 보는 것: 약한 감독 비디어 밀도 캡셔닝을 위한 VLM 유도 전환 이벤트 발견",
-        "search_key": "Seeing Before Synthesizing",
-        "platform": "ArXiv Preprint",
-        "platform_family": "ArXiv",
-        "viral_metric": "ArXiv Primary Paper",
-        "summary": "순서 없는 비디어에서 이벤트 경계를 정확히 잡기 위해, VLM을 활용해 합성 전에 전환 이벤트를 선별하는 최신 아키텍처!",
-        "source_url": "http://arxiv.org/abs/2609.04183v1",
-        "is_model": true,
-        "case_id": null
-      },
-      {
-        "inbox_id": "2026-08-31_repo_github_mengtothreeui",
-        "title": "MengTo/threeui - 인터랙티브 3D 컴포넌트 카탈로그",
-        "search_key": "MengTo/threeui",
-        "platform": "GitHub Official",
-        "platform_family": "GitHub",
-        "viral_metric": "★ 4961 Stars",
-        "summary": "Three.js 기반의 인터랙티브 3D UI 컴포넌트와 오픈소스 카탈로그 프로젝트",
-        "source_url": "https://github.com/MengTo/threeui",
-        "is_model": true,
-        "case_id": null
-      },
-      {
-        "inbox_id": "2026-09-03_repo_hf_space_open_llm_leaderboardopen_llm_leaderb",
-        "title": "Hugging Face 오픈 LLM 리더보드",
-        "search_key": "open-llm-leaderboard/open_llm_leaderboard",
+        "inbox_id": "2026-09-03_repo_hf_space_jbilcke_hfai_comic_factory",
+        "title": "AI 만화 공장 (AI Comic Factory) - 생성형 AI 기반 만화 자동 제작 도구",
+        "search_key": "jbilcke-hf/ai-comic-factory",
         "platform": "Hugging Face Spaces (Demo)",
         "platform_family": "HuggingFace",
-        "viral_metric": "❤️ 14087 Likes (Trending Demo)",
-        "summary": "오픈소스 대형 언어 모델(LLM)의 성능 평가 및 벤치마킹을 위한 공식 대화형 리더보드",
-        "source_url": "https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
+        "viral_metric": "❤️ 11236 Likes (Trending Demo)",
+        "summary": "LLM의 스토리텔링과 이미지 생성 모델을 결합해 프롬프트 하나로 고품질 웹툰/만화를 자동 생성하는 대화형 AI 애플리케이션",
+        "source_url": "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
         "is_model": true,
+        "case_id": null
+      },
+      {
+        "inbox_id": "2026-08-31_repo_github_s1dashuip_as_logo_skill",
+        "title": "s1dashu/ip-as-logo-skill: 아기자기한 마스코트 로고 생성을 위한 에이전트 스킬",
+        "search_key": "s1dashu/ip-as-logo-skill",
+        "platform": "GitHub Official",
+        "platform_family": "GitHub",
+        "viral_metric": "★ 4640 Stars",
+        "summary": "단순화되고 동글동글한 네오 스큐어모피즘 스타일 IP 마스코트 로고를 생성하는 경량 AI 에이전트 스킬",
+        "source_url": "https://github.com/s1dashu/ip-as-logo-skill",
+        "is_model": true,
+        "case_id": null
+      },
+      {
+        "inbox_id": "2026-09-05_sns_geeknews_네덜란드_미국캐나다_보관_금_86톤_회수",
+        "title": "네덜란드, 미국·캐나다 보관 금 86톤 회수",
+        "search_key": "네덜란드, 미국·캐나다 보관 금 86톤 회수",
+        "platform": "GeekNews",
+        "platform_family": "GeekNews",
+        "viral_metric": "🇰🇷 GeekNews 큐레이션",
+        "summary": "네덜란드, 해외에 보관된 86톤의 금을 되찾으며 국가 재정 건전성 강화",
+        "source_url": "https://news.hada.io/topic?id=33262",
+        "is_model": false,
         "case_id": null
       }
     ],
     "tags": [
+      "#Inference_Engine",
       "#MoE_Architecture",
       "#SoTA_Models",
       "#Local_LLM",
-      "#Autonomous_Agent",
-      "#Inference_Engine"
+      "#Autonomous_Agent"
     ]
   },
   "trend_radar": {
-    "current_session": 2,
+    "current_session": 3,
     "today_kst": "2026-09-06",
-    "updated_at": "11:47 KST",
+    "updated_at": "12:32 KST",
     "sessions": {
       "1": {
         "session_num": 1,
@@ -1867,11 +1869,11 @@
           }
         ],
         "tags": [
+          "#Inference_Engine",
           "#MoE_Architecture",
           "#SoTA_Models",
           "#Local_LLM",
-          "#Autonomous_Agent",
-          "#Inference_Engine"
+          "#Autonomous_Agent"
         ]
       },
       "2": {
@@ -1880,9 +1882,9 @@
         "short_name": "2회 06시",
         "window_label": "06:00 ~ 12:00 KST",
         "window_period": "모닝 브리핑 & 유럽 연구 논문 레이더",
-        "is_current": true,
+        "is_current": false,
         "is_future": false,
-        "status": "active",
+        "status": "completed",
         "bullets": [
           "🔥 [ArXiv Preprint] 합성하기 전에 먼저 보는 것: 약한 감독 비디어 밀도 캡셔닝을 위한 VLM 유도  (ArXiv Primary Paper) — 순서 없는 비디어에서 이벤트 경계를 정확히 잡기 위해, VLM을 활용해 합성 전에 전환 이벤트를 선별하는 최신 아키텍처!",
           "🔥 [GitHub Official] MengTo/threeui - 인터랙티브 3D 컴포넌트 카탈로그 (★ 4961 Stars) — Three.js 기반의 인터랙티브 3D UI 컴포넌트와 오픈소스 카탈로그 프로젝트",
@@ -1927,11 +1929,11 @@
           }
         ],
         "tags": [
+          "#Inference_Engine",
           "#MoE_Architecture",
           "#SoTA_Models",
           "#Local_LLM",
-          "#Autonomous_Agent",
-          "#Inference_Engine"
+          "#Autonomous_Agent"
         ]
       },
       "3": {
@@ -1940,9 +1942,9 @@
         "short_name": "3회 12시",
         "window_label": "12:00 ~ 18:00 KST",
         "window_period": "정오 레이더 & 고바이럴 SOTA 모델 / 프레임워크",
-        "is_current": false,
-        "is_future": true,
-        "status": "upcoming",
+        "is_current": true,
+        "is_future": false,
+        "status": "active",
         "bullets": [
           "🔥 [Hugging Face Spaces (Demo)] AI 만화 공장 (AI Comic Factory) - 생성형 AI 기반 만화 자동 (❤️ 11236 Likes (Trending Demo)) — LLM의 스토리텔링과 이미지 생성 모델을 결합해 프롬프트 하나로 고품질 웹툰/만화를 자동 생성하는 대화형 AI 애플리케이션",
           "🔥 [GitHub Official] s1dashu/ip-as-logo-skill: 아기자기한 마스코트 로고 생성을 위 (★ 4640 Stars) — 단순화되고 동글동글한 네오 스큐어모피즘 스타일 IP 마스코트 로고를 생성하는 경량 AI 에이전트 스킬",
@@ -1987,11 +1989,11 @@
           }
         ],
         "tags": [
+          "#Inference_Engine",
           "#MoE_Architecture",
           "#SoTA_Models",
           "#Local_LLM",
-          "#Autonomous_Agent",
-          "#Inference_Engine"
+          "#Autonomous_Agent"
         ]
       },
       "4": {
@@ -2047,11 +2049,11 @@
           }
         ],
         "tags": [
+          "#Inference_Engine",
           "#MoE_Architecture",
           "#SoTA_Models",
           "#Local_LLM",
-          "#Autonomous_Agent",
-          "#Inference_Engine"
+          "#Autonomous_Agent"
         ]
       }
     }
@@ -2251,7 +2253,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_repo_hf_space_mishigmicroduck_anatomy",
         "source_lang": "EN",
-        "category_primary": "MULTIMODAL_AI",
+        "category_primary": "AGENTS_DEVTOOLS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "image-to-image",
@@ -2346,7 +2348,7 @@
       "description_ko": "실시간으로 인체 해부를 탐색하고 AI가 생성한 3D 모델을 조작해 보세요 – Hugging Face Spaces에서 제공하는 간편한 데모입니다.",
       "description_en": "Explore detailed anatomical models in real-time and interact with AI-generated 3D visualizations—all in a browser-ready Hugging Face Space demo.",
       "description_zh": "实时探索解剖模型，交互式 AI 生成的 3D 可视化——一个方便的 Hugging Face 空间演示。",
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "AGENTS_DEVTOOLS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -2438,7 +2440,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_repo_github_yczzoc_english",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "FOUNDATION_MODELS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -2531,7 +2533,7 @@
       "description_ko": "GitHub에서 750개의 별점을 받은 육성형 게임으로 영어 실력을 키우세요",
       "description_en": "Boost your English skills with a nurturing game that’s already earned 750 stars on GitHub",
       "description_zh": "一款基于GitHub的养成类英语学习游戏，收获750星，助你轻松掌握英语",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "FOUNDATION_MODELS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -2728,7 +2730,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_repo_hf_space_raubatzfk9b_headswap",
         "source_lang": "EN",
-        "category_primary": "MULTIMODAL_AI",
+        "category_primary": "AGENTS_DEVTOOLS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "image-to-image",
@@ -2821,7 +2823,7 @@
       "description_ko": "그라마io 기반의 실시간 얼굴 스왑을 체험해 보세요 – 엔지니어에게 유용한 AI 데모",
       "description_en": "Try this Gradio‑powered web demo that swaps faces in real time – a handy AI tool for engineers.",
       "description_zh": "这款基于 Gradio 的网络演示支持实时换脸 – 工程师实用的 AI 工具。",
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "AGENTS_DEVTOOLS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -3222,7 +3224,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -3383,7 +3386,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -3536,7 +3540,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "LoRA"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -3984,7 +3989,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -4438,7 +4444,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -4888,7 +4895,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -5050,7 +5058,8 @@
         "parameter_size": "27B",
         "detected_formats": [
           "GGUF"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "multilingual": {
         "ko": {
@@ -5355,7 +5364,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -5649,7 +5659,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -6598,7 +6609,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -6775,7 +6787,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -6944,7 +6957,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "multilingual": {
         "ko": {
@@ -7097,7 +7111,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -7258,7 +7273,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "FP8"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "multilingual": {
         "ko": {
@@ -7419,7 +7435,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -7596,7 +7613,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -7749,7 +7767,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -7902,7 +7921,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -8055,7 +8075,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "LoRA"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "multilingual": {
         "ko": {
@@ -8208,7 +8229,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -8359,7 +8381,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -8509,7 +8532,8 @@
               "为构建 RAG（检索增强生成）与向量搜索系统提供选择最佳嵌入模型的关键指导。"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -8656,7 +8680,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -8817,7 +8842,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -8970,7 +8996,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "FP8"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "multilingual": {
         "ko": {
@@ -9123,7 +9150,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -9276,7 +9304,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -9429,7 +9458,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -9582,7 +9612,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -9735,7 +9766,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -9896,7 +9928,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -9947,7 +9980,7 @@
       "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 4306 | Live URL: https://huggingface.co/spaces/KingNish/OpenGPT-4o",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "MULTIMODAL_AI",
       "model_family": "GPT",
       "task_modality": "other",
       "parameter_size": "N/A",
@@ -10049,7 +10082,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -10202,7 +10236,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -10355,7 +10390,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "LoRA"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -10508,7 +10544,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -10661,7 +10698,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "multilingual": {
         "ko": {
@@ -10814,7 +10852,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -10967,7 +11006,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -11120,7 +11160,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -11273,7 +11314,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -11426,7 +11468,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -11587,7 +11630,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -11735,7 +11779,8 @@
               "提供客观的基准测试数据，助力针对特定任务的 AI 模型选型"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -11882,7 +11927,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -12035,7 +12081,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -12188,7 +12235,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -12341,7 +12389,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -12510,7 +12559,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -12663,7 +12713,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -12816,7 +12867,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -12967,7 +13019,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -13125,7 +13178,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -13702,7 +13756,8 @@
               "提供易用的 Python CLI/API 工具包及免费沙盒环境，支持快速上手"
             ]
           }
-        }
+        },
+        "category_primary": "INFERENCE_OPT"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -14155,7 +14210,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -14633,7 +14689,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -14788,7 +14845,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "LoRA"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -16143,7 +16201,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "FP8"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -16299,7 +16358,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -16450,7 +16510,8 @@
               "提供模块化配置，便于搭建和优化定制化的个人边缘代理网络"
             ]
           }
-        }
+        },
+        "category_primary": "INFRA_RAG_SECURITY"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -16507,7 +16568,7 @@
       "enriched_at": "2026-09-04T02:18:21.955990",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INFRA_RAG_SECURITY",
       "sources": [
         {
           "source_name": "GitHub Official",
@@ -17316,7 +17377,8 @@
               "相较于 Web 壳客户端拥有更低的资源占用与更快的响应速度"
             ]
           }
-        }
+        },
+        "category_primary": "FOUNDATION_MODELS"
       },
       "source_lang": "EN",
       "programming_lang": "Rust",
@@ -17373,7 +17435,7 @@
       "enriched_at": "2026-09-04T02:18:21.951251",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "FOUNDATION_MODELS",
       "sources": [
         {
           "source_name": "GitHub Official",
@@ -21153,7 +21215,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -21316,7 +21379,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "AUTO",
       "programming_lang": "Python",
@@ -21479,7 +21543,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -21651,7 +21716,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -21823,7 +21889,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -21987,7 +22054,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -22151,7 +22219,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -22315,7 +22384,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -22479,7 +22549,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -22643,7 +22714,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -22807,7 +22879,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "LoRA"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -22979,7 +23052,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -23143,7 +23217,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "LoRA"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -23307,7 +23382,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -23479,7 +23555,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -23643,7 +23720,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -23806,7 +23884,8 @@
         "parameter_size": "27B",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -23969,7 +24048,8 @@
         "parameter_size": "8B",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -24023,7 +24103,7 @@
       "enriched_at": "2026-09-04T02:18:21.820634",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "MULTIMODAL_AI",
       "task_modality": "other",
       "parameter_size": "8B",
       "sources": [
@@ -24127,7 +24207,8 @@
               "为构建自主智能体系统的开发者提供记忆模块选型指南"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -24283,7 +24364,8 @@
               "为注重设计的 AI 图像生成提供精细的视觉与排版美学指南"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -25069,7 +25151,8 @@
               "适用于科学基础自学与教学参考的数字档案"
             ]
           }
-        }
+        },
+        "category_primary": "FOUNDATION_MODELS"
       },
       "source_lang": "ZH",
       "programming_lang": "General",
@@ -27257,7 +27340,8 @@
               "为创作者提供开放、透明且由社区驱动的剪辑解决方案"
             ]
           }
-        }
+        },
+        "category_primary": "FOUNDATION_MODELS"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -27311,7 +27395,7 @@
       "published_at": "2026-08-31T12:00:00+09:00",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "FOUNDATION_MODELS",
       "sources": [
         {
           "source_name": "GitHub Official",
@@ -29604,7 +29688,8 @@
               "在工业检测、医学图像分析及遥感分类等领域展现出极高应用价值"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -29761,7 +29846,8 @@
               "支持高效的大规模及多语言语音对齐系统 Benchmark 评估"
             ]
           }
-        }
+        },
+        "category_primary": "INFRA_RAG_SECURITY"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -29815,7 +29901,7 @@
       "published_at": "2026-08-31T12:00:00+09:00",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INFRA_RAG_SECURITY",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -31168,7 +31254,8 @@
               "分类总结用于提升大模型训练效率的现代化优化器设计空间"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -32059,7 +32146,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_네덜란드_미국캐나다_보관_금_86톤_회수",
         "source_lang": "KO",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "MACRO_GLOBAL_BIZ",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -32150,7 +32237,7 @@
       "hook_zh": "荷兰收回86吨海外黄金储备，提升国家金融主权",
       "description_en": "Netherlands brings back 86 tons of gold held abroad, boosting national financial sovereignty",
       "description_zh": "荷兰收回86吨海外黄金储备，提升国家金融主权",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -32353,7 +32440,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_교통_단속을_촬영한_해군_퇴역군인_flock으로_100회_넘게_추",
         "source_lang": "KO",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "MULTIMODAL_AI",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -32444,7 +32531,7 @@
       "hook_zh": "AI 监控系统 Flock 将一名退伍军人的交通执法视频拍摄变成了一场超过100次的追踪噩梦。",
       "description_en": "How AI surveillance Flock turned a routine traffic video into a 100‑time tracking nightmare for a veteran.",
       "description_zh": "AI 监控系统 Flock 将一名退伍军人的交通执法视频拍摄变成了一场超过100次的追踪噩梦。",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "MULTIMODAL_AI",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -32508,7 +32595,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_openrouter의_gpt_6_astra_가격과_성능",
         "source_lang": "KO",
-        "category_primary": "FOUNDATION_MODELS",
+        "category_primary": "INFERENCE_OPT",
         "type_classification": "MODEL",
         "model_family": "GPT",
         "task_modality": "text-to-text",
@@ -32607,7 +32694,7 @@
       "detected_formats": [
         "Safetensors"
       ],
-      "category_primary": "FOUNDATION_MODELS",
+      "category_primary": "INFERENCE_OPT",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -33257,7 +33344,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_south_african_diamond_mines_are_c",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "DEEP_SCIENCE_SPACE",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -33350,7 +33437,7 @@
       "description_ko": "실험실 생산 다이아몬드의 부상으로 남아프리카 전통 광산업이 위기에 빠졌다 – 엔지니어들이 주목해야 할 산업 구조조정의 신호",
       "description_en": "Lab-grown diamonds are disrupting traditional mining – a shift every engineer in the sector should understand",
       "description_zh": "实验室培育钻石的崛起导致南非钻石矿关闭——矿业工程师需关注的行业变革",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -33700,7 +33787,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_isar_aerospace_launch_into_orbit_",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "DEEP_SCIENCE_SPACE",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -33793,7 +33880,7 @@
       "description_ko": "이스르 에어로스페이스의 소형 발사체가 궤도 진입에 성공하며 상업 우주 산업의 새로운 가능성을 열었습니다.",
       "description_en": "Isar Aerospace successfully reaches orbit with a compact launch vehicle, marking a notable milestone in the commercial space sector.",
       "description_zh": "伊萨航空航天成功发射入轨，小型运载火箭展现出色表现，商业航天领域再获突破。",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -34437,7 +34524,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_lazygit",
         "source_lang": "EN",
-        "category_primary": "AGENTS_DEVTOOLS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -34530,7 +34617,7 @@
       "description_ko": "Git 명령어를 더 쉽게 관리하는 터미널 기반 UI 도구 Lazygit을 소개합니다 – 개발자라면 꼭 알아두세요.",
       "description_en": "Discover Lazygit, a powerful terminal UI that simplifies Git operations – a must-know tool for developers.",
       "description_zh": "Lazygit 是一款强大的终端 Git 界面工具，让 Git 操作变得轻而易举，是开发者不容错过的利器。",
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -34584,7 +34671,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_learn_programming_with_ocaml",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "AGENTS_DEVTOOLS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -34677,7 +34764,7 @@
       "description_ko": "해커 뉴스가 추천하는 OCaml로 함수형 프로그래밍을 쉽게 배우고 코딩 실력을 향상시키세요.",
       "description_en": "Discover how OCaml simplifies functional programming and accelerates your coding skills, as highlighted on Hacker News.",
       "description_zh": "黑客新闻推荐的OCaml，让你轻松掌握函数式编程，提升编码技能。",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "AGENTS_DEVTOOLS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -34731,7 +34818,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_private_german_rocket_makes_histo",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "DEEP_SCIENCE_SPACE",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -34824,7 +34911,7 @@
       "description_ko": "유럽 최초의 민간 로켓이 궤도에 안착하며 우주 개발 역사에 새 역사를 기록했다",
       "description_en": "A privately funded German rocket has achieved orbit from European soil, marking a milestone for commercial spaceflight",
       "description_zh": "德国民营火箭从欧洲土壤成功入轨，标志着商业航天领域的重大突破",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -35321,7 +35408,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_statichosteu_100_유럽_기반_정적_사이트_호스팅",
         "source_lang": "KO",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -35412,7 +35499,7 @@
       "hook_zh": "工程师们，欧洲静态网站托管服务 Statichost.eu 提供 100% 欧洲数据存储，满足 GDPR 合规与低延迟需求",
       "description_en": "Engineers seeking GDPR‑compliant, low‑latency static hosting find a 100% EU‑based solution at Statichost.eu",
       "description_zh": "工程师们，欧洲静态网站托管服务 Statichost.eu 提供 100% 欧洲数据存储，满足 GDPR 合规与低延迟需求",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -35476,7 +35563,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_nitter_폐쇄_조치_이전보다_작동하는_인스턴스가_늘어남",
         "source_lang": "KO",
-        "category_primary": "AGENTS_DEVTOOLS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -35567,7 +35654,7 @@
       "hook_zh": "Nitter 作为 Twitter 替代服务实现复苏，关停后运行实例数量增加，为用户提供更多稳定选项",
       "description_en": "Nitter is rebounding as a Twitter alternative, with more instances staying operational after the shutdown",
       "description_zh": "Nitter 作为 Twitter 替代服务实现复苏，关停后运行实例数量增加，为用户提供更多稳定选项",
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -36505,7 +36592,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_amd_unveils_threadripper_halo_sta",
         "source_lang": "EN",
-        "category_primary": "INFERENCE_OPT",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -36598,7 +36685,7 @@
       "description_ko": "엔지니어들이 주목해야 할 AMD의 새로운 AI 워크스테이션, 96코어로 구동되는 스레드리퍼 할로 스테이션의 성능과 특징",
       "description_en": "AMD's new Threadripper Halo Station packs 96 cores for AI workloads, offering a powerful solution for inference and training",
       "description_zh": "96 核处理器驱动的 AI 工作站，AMD Threadripper Halo Station 为 AI 推理解析与训练提供强劲算力",
-      "category_primary": "INFERENCE_OPT",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -36652,7 +36739,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_write_software_in_latin_2025_vide",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "AGENTS_DEVTOOLS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -36745,7 +36832,7 @@
       "description_ko": "Hacker News에서 화제된 라틴어 기반 코딩 실험, 지금 바로 확인하세요!",
       "description_en": "A quirky experiment in programming with Latin, trending on Hacker News for its unique approach to coding.",
       "description_zh": "用拉丁语编程的新奇实验，在 Hacker News 上引发热议，展现编程的创意与趣味。",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "AGENTS_DEVTOOLS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -36799,7 +36886,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_gitignore_everything_by_default",
         "source_lang": "EN",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -36892,7 +36979,7 @@
       "description_ko": "수동으로 .gitignore 수정할 필요 없이, 모든 파일을 자동으로 무시하는 기본 설정으로 생산성을 높이세요.",
       "description_en": "Stop manually editing .gitignore—learn how a new default setting can auto‑ignore everything and boost productivity.",
       "description_zh": "无需手动编辑 .gitignore——了解新的默认设置如何自动忽略所有文件，提升开发效率。",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -38987,7 +39074,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_nx_비트는_보안만을_위한_것이_아니다",
         "source_lang": "KO",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "INFRA_RAG_SECURITY",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -39078,7 +39165,7 @@
       "hook_zh": "NX 位元最初用于安全防护，如今已扩展到性能优化和开发等更多领域",
       "description_en": "The CPU's NX bit, originally designed for security, now powers performance and development beyond protection",
       "description_zh": "NX 位元最初用于安全防护，如今已扩展到性能优化和开发等更多领域",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "INFRA_RAG_SECURITY",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -39134,7 +39221,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_미국인의_정부_부패_인식_89_20년_만에_최고치",
         "source_lang": "KO",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "MACRO_GLOBAL_BIZ",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -39225,7 +39312,7 @@
       "hook_zh": "美国政府腐败认知飙升至89%，创20年新高，凸显公众信任危机加剧",
       "description_en": "US government corruption perception spikes to 89%, the highest in two decades, reflecting a growing crisis of public trust.",
       "description_zh": "美国政府腐败认知飙升至89%，创20年新高，凸显公众信任危机加剧",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -39722,7 +39809,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_git_hosting_that_never_leaves_eur",
         "source_lang": "EN",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -39815,7 +39902,7 @@
       "description_ko": "유럽 기반 Git 서비스가 국경 간 호스팅 우려를 해결하며 데이터 주권을 보장합니다.",
       "description_en": "A European‑based Git service guarantees data residency for developers concerned about cross‑border hosting.",
       "description_zh": "欧洲本地 Git 服务确保数据驻留，解决开发者跨境托管担忧。",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -39869,7 +39956,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_lg_tvs_arent_the_only_ones_spying",
         "source_lang": "EN",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -39962,7 +40049,7 @@
       "description_ko": "엔지니어를 위한 1줄 요약: TV 제조사들이 사용자 데이터를 수집한다는 사실, 알고 계셨나요?",
       "description_en": "Engineers, this one‑liner reveals that many smart TVs collect user data without clear consent.",
       "description_zh": "直击工程师痛点：许多智能电视都在悄悄收集用户数据。",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -40016,7 +40103,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_pointing_at_the_error_compiler_st",
         "source_lang": "EN",
-        "category_primary": "AGENTS_DEVTOOLS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -40109,7 +40196,7 @@
       "description_ko": "uutils coreutils가 컴파일러 스타일 진단으로 오류를 명확히 지적하는 방법, 지금 확인하세요.",
       "description_en": "Discover how uutils coreutils uses compiler-style diagnostics to make error messages clearer and debugging easier.",
       "description_zh": "通过编译器风格诊断，uutils coreutils 让错误信息更清晰，调试更简单。",
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -40163,7 +40250,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_netherlands_pulls_gold_out_of_the",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "MACRO_GLOBAL_BIZ",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -40258,7 +40345,7 @@
       "description_ko": "네덜란드가 지정학적 불안정을 이유로 미국에 보관 중이던 금을 본국으로 돌려보내면서 글로벌 금융 안보에 대한 의문이 제기되고 있습니다.",
       "description_en": "The Netherlands is repatriating its gold reserves from the US, citing fears of geopolitical instability, raising questions about global financial security.",
       "description_zh": "荷兰因担忧地缘政治动荡，从美国撤出黄金储备，此举引发了对全球金融安全的质疑。",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -40459,7 +40546,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_kale_a_transformation_safe_spread",
         "source_lang": "EN",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -40552,7 +40639,7 @@
       "description_ko": "Kale는 스프레드시트 내 데이터 변환이 안전하고 되돌릴 수 있도록 하여 실수로 인한 데이터 손실을 방지합니다.",
       "description_en": "Kale guarantees safe, reversible data transformations in spreadsheets, preventing accidental data loss.",
       "description_zh": "Kale 确保电子表格中的数据转换安全可逆，有效防止数据丢失。",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -40753,7 +40840,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_ai_handles_incidents_engineers_lo",
         "source_lang": "EN",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -40846,7 +40933,7 @@
       "description_ko": "AI가 자동으로 사고를 해결하면서 엔지니어들은 시스템과의 연결을 잃고 있습니다",
       "description_en": "AI now auto‑resolves incidents, leaving engineers disconnected from the systems they once controlled",
       "description_zh": "AI 自动处理事故，工程师失去系统控制",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -41047,7 +41134,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_gpt_6_astra_in_code_review_gains_",
         "source_lang": "EN",
-        "category_primary": "FOUNDATION_MODELS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "GPT",
         "task_modality": "text-to-text",
@@ -41144,7 +41231,7 @@
       "description_ko": "코드 리뷰에 GPT-6 Astra를 도입하면 생산성이 향상되지만, 개인정보 보호와 비용이 문제입니다.",
       "description_en": "GPT-6 Astra boosts code review productivity but raises privacy concerns and costs.",
       "description_zh": "GPT-6 Astra在代码审查中展现出色，提高效率，但隐私和成本问题不容忽视.",
-      "category_primary": "FOUNDATION_MODELS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -41496,7 +41583,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_nitter_has_more_working_instances",
         "source_lang": "EN",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "category": "Social media access tools",
@@ -41586,7 +41673,7 @@
       "description_ko": "니터가 트위터 접속 차단 후에도 더 많은 대체 인스턴스를 제공하며, 분산형 소셜 미디어 접근성을 유지합니다.",
       "description_en": "Even after the crackdown, Nitter now runs more instances than before, keeping decentralized Twitter access alive for developers.",
       "description_zh": "Nitter 劫后余生，实例数量超以往，确保了开发者仍可访问推特的去中心化服务。",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "is_factchecked": true,
@@ -41789,7 +41876,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_claude_codecodexcursor는_어떤_도구를_선택할까_",
         "source_lang": "KO",
-        "category_primary": "AGENTS_DEVTOOLS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "category": "Code generation and IDE assistance tools",
@@ -41881,7 +41968,7 @@
       "hook_zh": "通过1.7万次的实际执行数据，揭示Claude Code、Codex和Cursor哪款工具更受开发者青睐。",
       "description_en": "Discover which code assistant—Claude Code, OpenAI Codex, or Cursor—developers actually use based on 17,000 real‑world executions.",
       "description_zh": "通过1.7万次的实际执行数据，揭示Claude Code、Codex和Cursor哪款工具更受开发者青睐。",
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -41935,7 +42022,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_repo_hacker_news_claude_code_skills_for_advanced_c",
         "source_lang": "EN",
-        "category_primary": "AGENTS_DEVTOOLS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "category": "Context Engineering Techniques",
@@ -42025,7 +42112,7 @@
       "description_ko": "개발자를 위한 클로드 코드의 고급 컨텍스트 엔지니어링 기술을 익혀 AI 기반 코딩을 한 단계 업그레이드하세요.",
       "description_en": "Master advanced context engineering in Claude Code with proven patterns and skills to boost AI-assisted development.",
       "description_zh": "掌握Claude Code的高级上下文工程技术，提升AI辅助开发效率",
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -42087,7 +42174,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_git_submodules_as_a_package_manag",
         "source_lang": "EN",
-        "category_primary": "AGENTS_DEVTOOLS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "category": "Git submodule package management",
@@ -42177,7 +42264,7 @@
       "description_ko": "Git 서브모듈을 활용해 외부 코드를 경량화된 패키지 관리자로 관리하는 방법을 알아보세요.",
       "description_en": "Discover how Git submodules can serve as a lightweight package manager for organizing dependencies across projects.",
       "description_zh": "了解如何利用 Git 子模块作为轻量级包管理器来管理跨项目的依赖关系。",
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -43150,7 +43237,8 @@
           }
         },
         "enriched_by_model": "cohere/north-mini-code:free",
-        "enriched_at": "2026-09-05T01:39:44.984299+00:00"
+        "enriched_at": "2026-09-05T01:39:44.984299+00:00",
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "multilingual": {
         "ko": {
@@ -43201,7 +43289,7 @@
       "description_zh": "没有新着陆器或探测车，NASA火星探索只能押注直升机——工程师需关注的原因",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -44445,7 +44533,8 @@
           }
         },
         "enriched_by_model": "cohere/north-mini-code:free",
-        "enriched_at": "2026-09-05T01:39:20.463114+00:00"
+        "enriched_at": "2026-09-05T01:39:20.463114+00:00",
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -44876,7 +44965,8 @@
           }
         },
         "enriched_by_model": "cohere/north-mini-code:free",
-        "enriched_at": "2026-09-04T22:37:41.205893+00:00"
+        "enriched_at": "2026-09-04T22:37:41.205893+00:00",
+        "category_primary": "MACRO_GLOBAL_BIZ"
       },
       "multilingual": {
         "ko": {
@@ -44927,7 +45017,7 @@
       "description_zh": "美国民调显示89%认为政府腐败蔓延，创历史新高——这对科技政策和数字信任有何影响？",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -56865,7 +56955,8 @@
               "社会影响深远"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -60259,7 +60350,8 @@
           }
         },
         "enriched_by_model": "dots-studio/dots-3-note-preview:free",
-        "enriched_at": "2026-09-04T17:53:59.685494+09:00"
+        "enriched_at": "2026-09-04T17:53:59.685494+09:00",
+        "category_primary": "INFRA_RAG_SECURITY"
       },
       "multilingual": {
         "ko": {
@@ -62553,7 +62645,8 @@
               "显著提升空间计算与AR/VR设备中基于视线交互的准确性与稳定性。"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -62604,7 +62697,7 @@
       "description_ko": "Abstract: Target-centered gaze interaction requires more than suppressing frame-to-frame fluctuations: target acquisition produces task-aligned changes in gaze-head dynamics, while a gaze trace may retain a per...",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -66113,7 +66206,8 @@
               "具备高精度的跨模态和跨语言对齐与检索能力"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -66164,7 +66258,7 @@
       "description_ko": "Hugging Face Blog Tech Publication: NeoMME: an efficient Multimodal-native and Multilingual Encoder",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MULTIMODAL_AI",
       "sources": [
         {
           "source_name": "Hugging Face Blog",
@@ -66259,7 +66353,8 @@
               "音频引擎性能优化与更现代化的 DAW 工作流集成"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -66308,7 +66403,7 @@
       "enriched_at": "2026-09-04T14:48:40.773513",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "GeekNews",
@@ -68293,7 +68388,8 @@
               "防止单一巨头垄断开放 Web 标准与浏览器技术的演进方向"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -68728,7 +68824,8 @@
               "凸显了极低背景超高灵敏度探测技术及罕见事件数据分析的重要性"
             ]
           }
-        }
+        },
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "multilingual": {
         "ko": {
@@ -68778,7 +68875,7 @@
       "description_ko": "해커뉴스에서 331점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -69301,7 +69398,8 @@
               "体现了高分辨率天文观测与行星建模的重要突破"
             ]
           }
-        }
+        },
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "multilingual": {
         "ko": {
@@ -69352,7 +69450,7 @@
       "description_ko": "해커뉴스에서 42점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -69731,7 +69829,8 @@
               "对全球数字广告生态及科技产业竞争格局产生深远影响"
             ]
           }
-        }
+        },
+        "category_primary": "MACRO_GLOBAL_BIZ"
       },
       "multilingual": {
         "ko": {
@@ -69782,7 +69881,7 @@
       "description_ko": "해커뉴스에서 452점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -70163,7 +70262,8 @@
               "Y Combinator S26 孵化团队推出的新型数字医疗服务"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -72741,7 +72841,8 @@
               "针对多轨音频项目的性能优化与社区改进"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -72792,7 +72893,7 @@
       "description_ko": "해커뉴스에서 738점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -73469,7 +73570,8 @@
               "反映了在全球地缘政治不确定性上升背景下，各国央行重新评估资产存放地与风险管理的趋势"
             ]
           }
-        }
+        },
+        "category_primary": "MACRO_GLOBAL_BIZ"
       },
       "multilingual": {
         "ko": {
@@ -73520,7 +73622,7 @@
       "description_ko": "해커뉴스에서 237점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -73897,7 +73999,8 @@
               "强调了其在神经药理学和新药研发中的潜在应用价值"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -76630,7 +76733,8 @@
               "验证了大容量电动推进系统与电池技术的实际可行性"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -76680,7 +76784,7 @@
       "description_ko": "해커뉴스에서 12점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -76773,7 +76877,8 @@
               "强调了减少对单一 GNSS 依赖以及建立多源导航冗余机制的重要性。"
             ]
           }
-        }
+        },
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "multilingual": {
         "ko": {
@@ -76824,7 +76929,7 @@
       "description_ko": "해커뉴스에서 38점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -78925,7 +79030,8 @@
               "无需模拟器即可将原汁原味的复古 Chiptune 音频融入现代数字音乐制作环境"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -78976,7 +79082,7 @@
       "description_ko": "해커뉴스에서 5점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -80080,7 +80186,8 @@
               "Hacker News 社区对该动态的初步分析与回应"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -80130,7 +80237,7 @@
       "description_ko": "해커뉴스에서 9점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "MULTIMODAL_AI",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -80652,7 +80759,8 @@
               "为场论近似与复杂形状数值建模提供了一个幽默且极具教育意义的实践范例。"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -84604,7 +84712,8 @@
               "在利用技术便利性与保护个人注意力资产之间寻找可持续平衡"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "KO",
       "programming_lang": "General",
@@ -84752,7 +84861,8 @@
               "研究团队正持续收集数据，以确认该信号是否指向暗物质或全新的物理现象。"
             ]
           }
-        }
+        },
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "multilingual": {
         "ko": {
@@ -84801,7 +84911,7 @@
       "enriched_at": "2026-09-04T13:06:57.360855",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "GeekNews",
@@ -86795,7 +86905,8 @@
               "在保留 Flash 系列低延迟与高成本效益优势的同时，显著增强了专业领域的工程性能。"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "KO",
       "programming_lang": "General",
@@ -86850,7 +86961,7 @@
       "enriched_at": "2026-09-04T13:06:57.331339",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "MULTIMODAL_AI",
       "sources": [
         {
           "source_name": "GeekNews",
@@ -86942,7 +87053,8 @@
               "这一判定将对全球科技巨头的反垄断监管及数字广告生态产生深远影响。"
             ]
           }
-        }
+        },
+        "category_primary": "MACRO_GLOBAL_BIZ"
       },
       "source_lang": "KO",
       "programming_lang": "General",
@@ -86995,7 +87107,7 @@
       "enriched_at": "2026-09-04T13:06:57.329411",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "sources": [
         {
           "source_name": "GeekNews",
@@ -88251,7 +88363,8 @@
               "减少无关上下文噪音，有效控制多模态大语言模型的 Token 消耗与计算开销"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -88307,7 +88420,7 @@
       "enriched_at": "2026-09-04T13:06:57.211443",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "MULTIMODAL_AI",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -90131,7 +90244,8 @@
               "在竞争性编程基准测试中展现出达到金牌级别的强悍推理性能。"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -90422,7 +90536,8 @@
               "相比单一模型，大幅提升了临床诊断的可靠性与结果可解释性"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -91147,7 +91262,8 @@
               "为游戏 NPC/任务生成及 AI 创意写作中的叙事设计提供了理论与实践参考"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -91726,7 +91842,8 @@
               "提出基于差异融合（Difference-Fusion）的神经网络架构，有效捕获增强带来的微小异常"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -91782,7 +91899,7 @@
       "enriched_at": "2026-09-04T13:06:57.175674",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "AGENTS_DEVTOOLS",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -92306,7 +92423,8 @@
               "显著提升多句连续文本翻译成手语记号的连贯性与准确度"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -92361,7 +92479,7 @@
       "enriched_at": "2026-09-04T13:06:57.169174",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MULTIMODAL_AI",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -94040,7 +94158,8 @@
               "为针对老龄化记忆损伤的认知康复与治疗方案提供了全新的研究方向。"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -94773,7 +94892,8 @@
               "促进多语言语音 AI 模型的公平基准测试与多样性"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -94829,7 +94949,7 @@
       "enriched_at": "2026-09-04T13:06:57.142966",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "Hugging Face Blog",
@@ -96975,7 +97095,8 @@
               "Web 物理引擎与 Canvas 交互开发的优秀参考案例"
             ]
           }
-        }
+        },
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "source_lang": "EN",
       "programming_lang": "JavaScript/General",
@@ -97031,7 +97152,7 @@
       "enriched_at": "2026-09-04T02:18:22.105520",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -98300,7 +98421,8 @@
               "现已支持在企业与开发者生产环境中直接部署使用"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -98355,7 +98477,7 @@
       "enriched_at": "2026-09-04T02:18:22.082217",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -102566,7 +102688,8 @@
               "通过开放的 Web 竞争保护用户隐私并推动技术持续创新"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "KO",
       "programming_lang": "General",
@@ -105774,7 +105897,8 @@
               "显著提升复杂医疗图像场景与 autoPET/CT 挑战赛任务中的病灶分割准确度"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -105830,7 +105954,7 @@
       "enriched_at": "2026-09-04T02:18:21.975367",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -106644,7 +106768,8 @@
               "重点关注有人-无人协同（MUM-T）与先进航空航天技术的整合"
             ]
           }
-        }
+        },
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -106701,7 +106826,7 @@
       "enriched_at": "2026-09-04T02:18:21.965975",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -107086,7 +107211,8 @@
               "展现了对航空安全与工匠精神的终身奉献"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -108681,7 +108807,8 @@
               "轻量化双阶段 Pipeline，适合在边缘设备上进行实时视频流分析"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -108738,7 +108865,7 @@
       "enriched_at": "2026-09-04T02:18:21.942107",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "AGENTS_DEVTOOLS",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -109116,7 +109243,8 @@
               "在复杂知识图谱与数据集成场景中展现出极高实用价值"
             ]
           }
-        }
+        },
+        "category_primary": "INFRA_RAG_SECURITY"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -109982,7 +110110,8 @@
               "增强了自主科研智能体在复杂端到端任务中的自我完善能力"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -111282,7 +111411,8 @@
               "在保持极高转写吞吐量的同时，大幅提升专业术语和标点符号识别的准确度"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -111339,7 +111469,7 @@
       "enriched_at": "2026-09-04T02:18:21.924079",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -111569,7 +111699,8 @@
               "融合视觉分析与艺术史专业知识，提升画作归属鉴定的精准度"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -111625,7 +111756,7 @@
       "enriched_at": "2026-09-04T02:18:21.922583",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "MULTIMODAL_AI",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -113184,7 +113315,8 @@
               "高风险金融业务中结合自动化AI与人工复核机制"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -115027,7 +115159,8 @@
               "改进多线程架构与异常捕获机制，大幅提升软件运行稳定性"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -115081,7 +115214,7 @@
       "enriched_at": "2026-09-04T02:18:21.902215",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -117326,7 +117459,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_네덜란드_미국캐나다_보관_금_86톤_회수",
         "source_lang": "KO",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "MACRO_GLOBAL_BIZ",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -117417,7 +117550,7 @@
       "hook_zh": "荷兰收回86吨海外黄金储备，提升国家金融主权",
       "description_en": "Netherlands brings back 86 tons of gold held abroad, boosting national financial sovereignty",
       "description_zh": "荷兰收回86吨海外黄金储备，提升国家金融主权",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -117620,7 +117753,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_교통_단속을_촬영한_해군_퇴역군인_flock으로_100회_넘게_추",
         "source_lang": "KO",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "MULTIMODAL_AI",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -117711,7 +117844,7 @@
       "hook_zh": "AI 监控系统 Flock 将一名退伍军人的交通执法视频拍摄变成了一场超过100次的追踪噩梦。",
       "description_en": "How AI surveillance Flock turned a routine traffic video into a 100‑time tracking nightmare for a veteran.",
       "description_zh": "AI 监控系统 Flock 将一名退伍军人的交通执法视频拍摄变成了一场超过100次的追踪噩梦。",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "MULTIMODAL_AI",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -117775,7 +117908,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_openrouter의_gpt_6_astra_가격과_성능",
         "source_lang": "KO",
-        "category_primary": "FOUNDATION_MODELS",
+        "category_primary": "INFERENCE_OPT",
         "type_classification": "MODEL",
         "model_family": "GPT",
         "task_modality": "text-to-text",
@@ -117874,7 +118007,7 @@
       "detected_formats": [
         "Safetensors"
       ],
-      "category_primary": "FOUNDATION_MODELS",
+      "category_primary": "INFERENCE_OPT",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -118524,7 +118657,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_south_african_diamond_mines_are_c",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "DEEP_SCIENCE_SPACE",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -118617,7 +118750,7 @@
       "description_ko": "실험실 생산 다이아몬드의 부상으로 남아프리카 전통 광산업이 위기에 빠졌다 – 엔지니어들이 주목해야 할 산업 구조조정의 신호",
       "description_en": "Lab-grown diamonds are disrupting traditional mining – a shift every engineer in the sector should understand",
       "description_zh": "实验室培育钻石的崛起导致南非钻石矿关闭——矿业工程师需关注的行业变革",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -118967,7 +119100,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_isar_aerospace_launch_into_orbit_",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "DEEP_SCIENCE_SPACE",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -119060,7 +119193,7 @@
       "description_ko": "이스르 에어로스페이스의 소형 발사체가 궤도 진입에 성공하며 상업 우주 산업의 새로운 가능성을 열었습니다.",
       "description_en": "Isar Aerospace successfully reaches orbit with a compact launch vehicle, marking a notable milestone in the commercial space sector.",
       "description_zh": "伊萨航空航天成功发射入轨，小型运载火箭展现出色表现，商业航天领域再获突破。",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -119704,7 +119837,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_lazygit",
         "source_lang": "EN",
-        "category_primary": "AGENTS_DEVTOOLS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -119797,7 +119930,7 @@
       "description_ko": "Git 명령어를 더 쉽게 관리하는 터미널 기반 UI 도구 Lazygit을 소개합니다 – 개발자라면 꼭 알아두세요.",
       "description_en": "Discover Lazygit, a powerful terminal UI that simplifies Git operations – a must-know tool for developers.",
       "description_zh": "Lazygit 是一款强大的终端 Git 界面工具，让 Git 操作变得轻而易举，是开发者不容错过的利器。",
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -119851,7 +119984,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_learn_programming_with_ocaml",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "AGENTS_DEVTOOLS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -119944,7 +120077,7 @@
       "description_ko": "해커 뉴스가 추천하는 OCaml로 함수형 프로그래밍을 쉽게 배우고 코딩 실력을 향상시키세요.",
       "description_en": "Discover how OCaml simplifies functional programming and accelerates your coding skills, as highlighted on Hacker News.",
       "description_zh": "黑客新闻推荐的OCaml，让你轻松掌握函数式编程，提升编码技能。",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "AGENTS_DEVTOOLS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -119998,7 +120131,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_private_german_rocket_makes_histo",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "DEEP_SCIENCE_SPACE",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -120091,7 +120224,7 @@
       "description_ko": "유럽 최초의 민간 로켓이 궤도에 안착하며 우주 개발 역사에 새 역사를 기록했다",
       "description_en": "A privately funded German rocket has achieved orbit from European soil, marking a milestone for commercial spaceflight",
       "description_zh": "德国民营火箭从欧洲土壤成功入轨，标志着商业航天领域的重大突破",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -120743,7 +120876,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_statichosteu_100_유럽_기반_정적_사이트_호스팅",
         "source_lang": "KO",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -120834,7 +120967,7 @@
       "hook_zh": "工程师们，欧洲静态网站托管服务 Statichost.eu 提供 100% 欧洲数据存储，满足 GDPR 合规与低延迟需求",
       "description_en": "Engineers seeking GDPR‑compliant, low‑latency static hosting find a 100% EU‑based solution at Statichost.eu",
       "description_zh": "工程师们，欧洲静态网站托管服务 Statichost.eu 提供 100% 欧洲数据存储，满足 GDPR 合规与低延迟需求",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -120898,7 +121031,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_nitter_폐쇄_조치_이전보다_작동하는_인스턴스가_늘어남",
         "source_lang": "KO",
-        "category_primary": "AGENTS_DEVTOOLS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -120989,7 +121122,7 @@
       "hook_zh": "Nitter 作为 Twitter 替代服务实现复苏，关停后运行实例数量增加，为用户提供更多稳定选项",
       "description_en": "Nitter is rebounding as a Twitter alternative, with more instances staying operational after the shutdown",
       "description_zh": "Nitter 作为 Twitter 替代服务实现复苏，关停后运行实例数量增加，为用户提供更多稳定选项",
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -121927,7 +122060,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_amd_unveils_threadripper_halo_sta",
         "source_lang": "EN",
-        "category_primary": "INFERENCE_OPT",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -122020,7 +122153,7 @@
       "description_ko": "엔지니어들이 주목해야 할 AMD의 새로운 AI 워크스테이션, 96코어로 구동되는 스레드리퍼 할로 스테이션의 성능과 특징",
       "description_en": "AMD's new Threadripper Halo Station packs 96 cores for AI workloads, offering a powerful solution for inference and training",
       "description_zh": "96 核处理器驱动的 AI 工作站，AMD Threadripper Halo Station 为 AI 推理解析与训练提供强劲算力",
-      "category_primary": "INFERENCE_OPT",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -122074,7 +122207,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_write_software_in_latin_2025_vide",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "AGENTS_DEVTOOLS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -122167,7 +122300,7 @@
       "description_ko": "Hacker News에서 화제된 라틴어 기반 코딩 실험, 지금 바로 확인하세요!",
       "description_en": "A quirky experiment in programming with Latin, trending on Hacker News for its unique approach to coding.",
       "description_zh": "用拉丁语编程的新奇实验，在 Hacker News 上引发热议，展现编程的创意与趣味。",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "AGENTS_DEVTOOLS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -122221,7 +122354,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_gitignore_everything_by_default",
         "source_lang": "EN",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -122314,7 +122447,7 @@
       "description_ko": "수동으로 .gitignore 수정할 필요 없이, 모든 파일을 자동으로 무시하는 기본 설정으로 생산성을 높이세요.",
       "description_en": "Stop manually editing .gitignore—learn how a new default setting can auto‑ignore everything and boost productivity.",
       "description_zh": "无需手动编辑 .gitignore——了解新的默认设置如何自动忽略所有文件，提升开发效率。",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -123983,7 +124116,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_repo_hf_space_mishigmicroduck_anatomy",
         "source_lang": "EN",
-        "category_primary": "MULTIMODAL_AI",
+        "category_primary": "AGENTS_DEVTOOLS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "image-to-image",
@@ -124078,7 +124211,7 @@
       "description_ko": "실시간으로 인체 해부를 탐색하고 AI가 생성한 3D 모델을 조작해 보세요 – Hugging Face Spaces에서 제공하는 간편한 데모입니다.",
       "description_en": "Explore detailed anatomical models in real-time and interact with AI-generated 3D visualizations—all in a browser-ready Hugging Face Space demo.",
       "description_zh": "实时探索解剖模型，交互式 AI 生成的 3D 可视化——一个方便的 Hugging Face 空间演示。",
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "AGENTS_DEVTOOLS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -124174,7 +124307,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_nx_비트는_보안만을_위한_것이_아니다",
         "source_lang": "KO",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "INFRA_RAG_SECURITY",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -124265,7 +124398,7 @@
       "hook_zh": "NX 位元最初用于安全防护，如今已扩展到性能优化和开发等更多领域",
       "description_en": "The CPU's NX bit, originally designed for security, now powers performance and development beyond protection",
       "description_zh": "NX 位元最初用于安全防护，如今已扩展到性能优化和开发等更多领域",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "INFRA_RAG_SECURITY",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -124321,7 +124454,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_미국인의_정부_부패_인식_89_20년_만에_최고치",
         "source_lang": "KO",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "MACRO_GLOBAL_BIZ",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -124412,7 +124545,7 @@
       "hook_zh": "美国政府腐败认知飙升至89%，创20年新高，凸显公众信任危机加剧",
       "description_en": "US government corruption perception spikes to 89%, the highest in two decades, reflecting a growing crisis of public trust.",
       "description_zh": "美国政府腐败认知飙升至89%，创20年新高，凸显公众信任危机加剧",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -124909,7 +125042,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_git_hosting_that_never_leaves_eur",
         "source_lang": "EN",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -125002,7 +125135,7 @@
       "description_ko": "유럽 기반 Git 서비스가 국경 간 호스팅 우려를 해결하며 데이터 주권을 보장합니다.",
       "description_en": "A European‑based Git service guarantees data residency for developers concerned about cross‑border hosting.",
       "description_zh": "欧洲本地 Git 服务确保数据驻留，解决开发者跨境托管担忧。",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -125056,7 +125189,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_lg_tvs_arent_the_only_ones_spying",
         "source_lang": "EN",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -125149,7 +125282,7 @@
       "description_ko": "엔지니어를 위한 1줄 요약: TV 제조사들이 사용자 데이터를 수집한다는 사실, 알고 계셨나요?",
       "description_en": "Engineers, this one‑liner reveals that many smart TVs collect user data without clear consent.",
       "description_zh": "直击工程师痛点：许多智能电视都在悄悄收集用户数据。",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -125203,7 +125336,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_pointing_at_the_error_compiler_st",
         "source_lang": "EN",
-        "category_primary": "AGENTS_DEVTOOLS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -125296,7 +125429,7 @@
       "description_ko": "uutils coreutils가 컴파일러 스타일 진단으로 오류를 명확히 지적하는 방법, 지금 확인하세요.",
       "description_en": "Discover how uutils coreutils uses compiler-style diagnostics to make error messages clearer and debugging easier.",
       "description_zh": "通过编译器风格诊断，uutils coreutils 让错误信息更清晰，调试更简单。",
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -125350,7 +125483,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_netherlands_pulls_gold_out_of_the",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "MACRO_GLOBAL_BIZ",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -125445,7 +125578,7 @@
       "description_ko": "네덜란드가 지정학적 불안정을 이유로 미국에 보관 중이던 금을 본국으로 돌려보내면서 글로벌 금융 안보에 대한 의문이 제기되고 있습니다.",
       "description_en": "The Netherlands is repatriating its gold reserves from the US, citing fears of geopolitical instability, raising questions about global financial security.",
       "description_zh": "荷兰因担忧地缘政治动荡，从美国撤出黄金储备，此举引发了对全球金融安全的质疑。",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -125646,7 +125779,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_kale_a_transformation_safe_spread",
         "source_lang": "EN",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -125739,7 +125872,7 @@
       "description_ko": "Kale는 스프레드시트 내 데이터 변환이 안전하고 되돌릴 수 있도록 하여 실수로 인한 데이터 손실을 방지합니다.",
       "description_en": "Kale guarantees safe, reversible data transformations in spreadsheets, preventing accidental data loss.",
       "description_zh": "Kale 确保电子表格中的数据转换安全可逆，有效防止数据丢失。",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -125940,7 +126073,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_ai_handles_incidents_engineers_lo",
         "source_lang": "EN",
-        "category_primary": "INFRA_RAG_SECURITY",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "NEWS",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -126033,7 +126166,7 @@
       "description_ko": "AI가 자동으로 사고를 해결하면서 엔지니어들은 시스템과의 연결을 잃고 있습니다",
       "description_en": "AI now auto‑resolves incidents, leaving engineers disconnected from the systems they once controlled",
       "description_zh": "AI 自动处理事故，工程师失去系统控制",
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -126085,7 +126218,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_repo_github_yczzoc_english",
         "source_lang": "EN",
-        "category_primary": "INDUSTRY_TRENDS",
+        "category_primary": "FOUNDATION_MODELS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "other",
@@ -126178,7 +126311,7 @@
       "description_ko": "GitHub에서 750개의 별점을 받은 육성형 게임으로 영어 실력을 키우세요",
       "description_en": "Boost your English skills with a nurturing game that’s already earned 750 stars on GitHub",
       "description_zh": "一款基于GitHub的养成类英语学习游戏，收获750星，助你轻松掌握英语",
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "FOUNDATION_MODELS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -126375,7 +126508,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_repo_hf_space_raubatzfk9b_headswap",
         "source_lang": "EN",
-        "category_primary": "MULTIMODAL_AI",
+        "category_primary": "AGENTS_DEVTOOLS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "task_modality": "image-to-image",
@@ -126468,7 +126601,7 @@
       "description_ko": "그라마io 기반의 실시간 얼굴 스왑을 체험해 보세요 – 엔지니어에게 유용한 AI 데모",
       "description_en": "Try this Gradio‑powered web demo that swaps faces in real time – a handy AI tool for engineers.",
       "description_zh": "这款基于 Gradio 的网络演示支持实时换脸 – 工程师实用的 AI 工具。",
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "AGENTS_DEVTOOLS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -126669,7 +126802,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_gpt_6_astra_in_code_review_gains_",
         "source_lang": "EN",
-        "category_primary": "FOUNDATION_MODELS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "GPT",
         "task_modality": "text-to-text",
@@ -126766,7 +126899,7 @@
       "description_ko": "코드 리뷰에 GPT-6 Astra를 도입하면 생산성이 향상되지만, 개인정보 보호와 비용이 문제입니다.",
       "description_en": "GPT-6 Astra boosts code review productivity but raises privacy concerns and costs.",
       "description_zh": "GPT-6 Astra在代码审查中展现出色，提高效率，但隐私和成本问题不容忽视.",
-      "category_primary": "FOUNDATION_MODELS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -127409,7 +127542,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_geeknews_claude_codecodexcursor는_어떤_도구를_선택할까_",
         "source_lang": "KO",
-        "category_primary": "AGENTS_DEVTOOLS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "category": "Code generation and IDE assistance tools",
@@ -127501,7 +127634,7 @@
       "hook_zh": "通过1.7万次的实际执行数据，揭示Claude Code、Codex和Cursor哪款工具更受开发者青睐。",
       "description_en": "Discover which code assistant—Claude Code, OpenAI Codex, or Cursor—developers actually use based on 17,000 real‑world executions.",
       "description_zh": "通过1.7万次的实际执行数据，揭示Claude Code、Codex和Cursor哪款工具更受开发者青睐。",
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -127555,7 +127688,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_repo_hacker_news_claude_code_skills_for_advanced_c",
         "source_lang": "EN",
-        "category_primary": "AGENTS_DEVTOOLS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "category": "Context Engineering Techniques",
@@ -127645,7 +127778,7 @@
       "description_ko": "개발자를 위한 클로드 코드의 고급 컨텍스트 엔지니어링 기술을 익혀 AI 기반 코딩을 한 단계 업그레이드하세요.",
       "description_en": "Master advanced context engineering in Claude Code with proven patterns and skills to boost AI-assisted development.",
       "description_zh": "掌握Claude Code的高级上下文工程技术，提升AI辅助开发效率",
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -127707,7 +127840,7 @@
       "ai_enrichment": {
         "id": "2026-09-05_sns_hacker_news_git_submodules_as_a_package_manag",
         "source_lang": "EN",
-        "category_primary": "AGENTS_DEVTOOLS",
+        "category_primary": "INDUSTRY_TRENDS",
         "type_classification": "TECH",
         "model_family": "Standalone",
         "category": "Git submodule package management",
@@ -127797,7 +127930,7 @@
       "description_ko": "Git 서브모듈을 활용해 외부 코드를 경량화된 패키지 관리자로 관리하는 방법을 알아보세요.",
       "description_en": "Discover how Git submodules can serve as a lightweight package manager for organizing dependencies across projects.",
       "description_zh": "了解如何利用 Git 子模块作为轻量级包管理器来管理跨项目的依赖关系。",
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "INDUSTRY_TRENDS",
       "is_classified": true,
       "is_deep_analyzed": false,
       "sources": [
@@ -128927,7 +129060,8 @@
           }
         },
         "enriched_by_model": "cohere/north-mini-code:free",
-        "enriched_at": "2026-09-05T01:39:44.984299+00:00"
+        "enriched_at": "2026-09-05T01:39:44.984299+00:00",
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "multilingual": {
         "ko": {
@@ -128978,7 +129112,7 @@
       "description_zh": "没有新着陆器或探测车，NASA火星探索只能押注直升机——工程师需关注的原因",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -130222,7 +130356,8 @@
           }
         },
         "enriched_by_model": "cohere/north-mini-code:free",
-        "enriched_at": "2026-09-05T01:39:20.463114+00:00"
+        "enriched_at": "2026-09-05T01:39:20.463114+00:00",
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -130513,7 +130648,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -130815,7 +130951,8 @@
           }
         },
         "enriched_by_model": "cohere/north-mini-code:free",
-        "enriched_at": "2026-09-04T22:37:41.205893+00:00"
+        "enriched_at": "2026-09-04T22:37:41.205893+00:00",
+        "category_primary": "MACRO_GLOBAL_BIZ"
       },
       "multilingual": {
         "ko": {
@@ -130866,7 +131003,7 @@
       "description_zh": "美国民调显示89%认为政府腐败蔓延，创历史新高——这对科技政策和数字信任有何影响？",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -134719,7 +134856,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -138473,7 +138611,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "LoRA"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -142112,7 +142251,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -143557,7 +143697,8 @@
               "社会影响深远"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -147094,7 +147235,8 @@
           }
         },
         "enriched_by_model": "dots-studio/dots-3-note-preview:free",
-        "enriched_at": "2026-09-04T17:53:59.685494+09:00"
+        "enriched_at": "2026-09-04T17:53:59.685494+09:00",
+        "category_primary": "INFRA_RAG_SECURITY"
       },
       "multilingual": {
         "ko": {
@@ -148394,7 +148536,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -149704,7 +149847,8 @@
               "显著提升空间计算与AR/VR设备中基于视线交互的准确性与稳定性。"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -149755,7 +149899,7 @@
       "description_ko": "Abstract: Target-centered gaze interaction requires more than suppressing frame-to-frame fluctuations: target acquisition produces task-aligned changes in gaze-head dynamics, while a gaze trace may retain a per...",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -153557,7 +153701,8 @@
               "具备高精度的跨模态和跨语言对齐与检索能力"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -153608,7 +153753,7 @@
       "description_ko": "Hugging Face Blog Tech Publication: NeoMME: an efficient Multimodal-native and Multilingual Encoder",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MULTIMODAL_AI",
       "sources": [
         {
           "source_name": "Hugging Face Blog",
@@ -153703,7 +153848,8 @@
               "音频引擎性能优化与更现代化的 DAW 工作流集成"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -153752,7 +153898,7 @@
       "enriched_at": "2026-09-04T14:48:40.773513",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "GeekNews",
@@ -155737,7 +155883,8 @@
               "防止单一巨头垄断开放 Web 标准与浏览器技术的演进方向"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -156172,7 +156319,8 @@
               "凸显了极低背景超高灵敏度探测技术及罕见事件数据分析的重要性"
             ]
           }
-        }
+        },
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "multilingual": {
         "ko": {
@@ -156222,7 +156370,7 @@
       "description_ko": "해커뉴스에서 331점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -156745,7 +156893,8 @@
               "体现了高分辨率天文观测与行星建模的重要突破"
             ]
           }
-        }
+        },
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "multilingual": {
         "ko": {
@@ -156796,7 +156945,7 @@
       "description_ko": "해커뉴스에서 42점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -157175,7 +157324,8 @@
               "对全球数字广告生态及科技产业竞争格局产生深远影响"
             ]
           }
-        }
+        },
+        "category_primary": "MACRO_GLOBAL_BIZ"
       },
       "multilingual": {
         "ko": {
@@ -157226,7 +157376,7 @@
       "description_ko": "해커뉴스에서 452점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -157607,7 +157757,8 @@
               "Y Combinator S26 孵化团队推出的新型数字医疗服务"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -160185,7 +160336,8 @@
               "针对多轨音频项目的性能优化与社区改进"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -160236,7 +160388,7 @@
       "description_ko": "해커뉴스에서 738점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -160332,7 +160484,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -160494,7 +160647,8 @@
         "parameter_size": "27B",
         "detected_formats": [
           "GGUF"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "multilingual": {
         "ko": {
@@ -161082,7 +161236,8 @@
               "反映了在全球地缘政治不确定性上升背景下，各国央行重新评估资产存放地与风险管理的趋势"
             ]
           }
-        }
+        },
+        "category_primary": "MACRO_GLOBAL_BIZ"
       },
       "multilingual": {
         "ko": {
@@ -161133,7 +161288,7 @@
       "description_ko": "해커뉴스에서 237점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -161510,7 +161665,8 @@
               "强调了其在神经药理学和新药研发中的潜在应用价值"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -164395,7 +164551,8 @@
               "验证了大容量电动推进系统与电池技术的实际可行性"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -164445,7 +164602,7 @@
       "description_ko": "해커뉴스에서 12점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -164538,7 +164695,8 @@
               "强调了减少对单一 GNSS 依赖以及建立多源导航冗余机制的重要性。"
             ]
           }
-        }
+        },
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "multilingual": {
         "ko": {
@@ -164589,7 +164747,7 @@
       "description_ko": "해커뉴스에서 38점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -165973,7 +166131,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -166843,7 +167002,8 @@
               "无需模拟器即可将原汁原味的复古 Chiptune 音频融入现代数字音乐制作环境"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -166894,7 +167054,7 @@
       "description_ko": "해커뉴스에서 5점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -167850,7 +168010,8 @@
               "Hacker News 社区对该动态的初步分析与回应"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -167900,7 +168061,7 @@
       "description_ko": "해커뉴스에서 9점의 추천을 받으며 활발한 엔지니어링 토론이 진행 중인 트렌드 토픽입니다.",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "MULTIMODAL_AI",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -168422,7 +168583,8 @@
               "为场论近似与复杂形状数值建模提供了一个幽默且极具教育意义的实践范例。"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -169137,7 +169299,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -172990,7 +173153,8 @@
               "在利用技术便利性与保护个人注意力资产之间寻找可持续平衡"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "KO",
       "programming_lang": "General",
@@ -173138,7 +173302,8 @@
               "研究团队正持续收集数据，以确认该信号是否指向暗物质或全新的物理现象。"
             ]
           }
-        }
+        },
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "multilingual": {
         "ko": {
@@ -173187,7 +173352,7 @@
       "enriched_at": "2026-09-04T13:06:57.360855",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "GeekNews",
@@ -175033,7 +175198,8 @@
               "在保留 Flash 系列低延迟与高成本效益优势的同时，显著增强了专业领域的工程性能。"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "KO",
       "programming_lang": "General",
@@ -175088,7 +175254,7 @@
       "enriched_at": "2026-09-04T13:06:57.331339",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "MULTIMODAL_AI",
       "sources": [
         {
           "source_name": "GeekNews",
@@ -175180,7 +175346,8 @@
               "这一判定将对全球科技巨头的反垄断监管及数字广告生态产生深远影响。"
             ]
           }
-        }
+        },
+        "category_primary": "MACRO_GLOBAL_BIZ"
       },
       "source_lang": "KO",
       "programming_lang": "General",
@@ -175233,7 +175400,7 @@
       "enriched_at": "2026-09-04T13:06:57.329411",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MACRO_GLOBAL_BIZ",
       "sources": [
         {
           "source_name": "GeekNews",
@@ -176535,7 +176702,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -176712,7 +176880,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -176881,7 +177050,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "multilingual": {
         "ko": {
@@ -177034,7 +177204,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -177195,7 +177366,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "FP8"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "multilingual": {
         "ko": {
@@ -177356,7 +177528,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -177533,7 +177706,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -177686,7 +177860,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -177839,7 +178014,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -177992,7 +178168,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "LoRA"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "multilingual": {
         "ko": {
@@ -178145,7 +178322,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -178296,7 +178474,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -178446,7 +178625,8 @@
               "为构建 RAG（检索增强生成）与向量搜索系统提供选择最佳嵌入模型的关键指导。"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -178593,7 +178773,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -178754,7 +178935,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -178907,7 +179089,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "FP8"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "multilingual": {
         "ko": {
@@ -179060,7 +179243,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -179213,7 +179397,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -179366,7 +179551,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -179519,7 +179705,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -179672,7 +179859,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -179833,7 +180021,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -179884,7 +180073,7 @@
       "description_ko": "Interactive AI Demo (SDK: gradio) | Likes: 4306 | Live URL: https://huggingface.co/spaces/KingNish/OpenGPT-4o",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "MULTIMODAL_AI",
       "model_family": "GPT",
       "task_modality": "other",
       "parameter_size": "N/A",
@@ -179986,7 +180175,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -180139,7 +180329,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -180292,7 +180483,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "LoRA"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -180445,7 +180637,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -180598,7 +180791,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "multilingual": {
         "ko": {
@@ -180751,7 +180945,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -180904,7 +181099,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -181057,7 +181253,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -181210,7 +181407,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -181363,7 +181561,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -181524,7 +181723,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -181672,7 +181872,8 @@
               "提供客观的基准测试数据，助力针对特定任务的 AI 模型选型"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -181819,7 +182020,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -181972,7 +182174,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -182125,7 +182328,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -182278,7 +182482,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -182447,7 +182652,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -182600,7 +182806,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -182753,7 +182960,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "multilingual": {
         "ko": {
@@ -182904,7 +183112,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -183062,7 +183271,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -183931,7 +184141,8 @@
               "提供易用的 Python CLI/API 工具包及免费沙盒环境，支持快速上手"
             ]
           }
-        }
+        },
+        "category_primary": "INFERENCE_OPT"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -184364,7 +184575,8 @@
               "减少无关上下文噪音，有效控制多模态大语言模型的 Token 消耗与计算开销"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -184420,7 +184632,7 @@
       "enriched_at": "2026-09-04T13:06:57.211443",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INFRA_RAG_SECURITY",
+      "category_primary": "MULTIMODAL_AI",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -186098,7 +186310,8 @@
               "在竞争性编程基准测试中展现出达到金牌级别的强悍推理性能。"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -186389,7 +186602,8 @@
               "相比单一模型，大幅提升了临床诊断的可靠性与结果可解释性"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -187114,7 +187328,8 @@
               "为游戏 NPC/任务生成及 AI 创意写作中的叙事设计提供了理论与实践参考"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -187693,7 +187908,8 @@
               "提出基于差异融合（Difference-Fusion）的神经网络架构，有效捕获增强带来的微小异常"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -187749,7 +187965,7 @@
       "enriched_at": "2026-09-04T13:06:57.175674",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "AGENTS_DEVTOOLS",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -188273,7 +188489,8 @@
               "显著提升多句连续文本翻译成手语记号的连贯性与准确度"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -188328,7 +188545,7 @@
       "enriched_at": "2026-09-04T13:06:57.169174",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "MULTIMODAL_AI",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -190165,7 +190382,8 @@
               "为针对老龄化记忆损伤的认知康复与治疗方案提供了全新的研究方向。"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "multilingual": {
         "ko": {
@@ -190449,7 +190667,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "multilingual": {
         "ko": {
@@ -190596,7 +190815,8 @@
               "促进多语言语音 AI 模型的公平基准测试与多样性"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -190652,7 +190872,7 @@
       "enriched_at": "2026-09-04T13:06:57.142966",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "Hugging Face Blog",
@@ -192798,7 +193018,8 @@
               "Web 物理引擎与 Canvas 交互开发的优秀参考案例"
             ]
           }
-        }
+        },
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "source_lang": "EN",
       "programming_lang": "JavaScript/General",
@@ -192854,7 +193075,7 @@
       "enriched_at": "2026-09-04T02:18:22.105520",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -194123,7 +194344,8 @@
               "现已支持在企业与开发者生产环境中直接部署使用"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -194178,7 +194400,7 @@
       "enriched_at": "2026-09-04T02:18:22.082217",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -200041,7 +200263,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -200196,7 +200419,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "LoRA"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -203128,7 +203352,8 @@
               "显著提升复杂医疗图像场景与 autoPET/CT 挑战赛任务中的病灶分割准确度"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -203184,7 +203409,7 @@
       "enriched_at": "2026-09-04T02:18:21.975367",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -203998,7 +204223,8 @@
               "重点关注有人-无人协同（MUM-T）与先进航空航天技术的整合"
             ]
           }
-        }
+        },
+        "category_primary": "DEEP_SCIENCE_SPACE"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -204055,7 +204281,7 @@
       "enriched_at": "2026-09-04T02:18:21.965975",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "INDUSTRY_TRENDS",
+      "category_primary": "DEEP_SCIENCE_SPACE",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -204440,7 +204666,8 @@
               "展现了对航空安全与工匠精神的终身奉献"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -204745,7 +204972,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "FP8"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -204901,7 +205129,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -205200,7 +205429,8 @@
               "提供模块化配置，便于搭建和优化定制化的个人边缘代理网络"
             ]
           }
-        }
+        },
+        "category_primary": "INFRA_RAG_SECURITY"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -205257,7 +205487,7 @@
       "enriched_at": "2026-09-04T02:18:21.955990",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INFRA_RAG_SECURITY",
       "sources": [
         {
           "source_name": "GitHub Official",
@@ -206066,7 +206296,8 @@
               "相较于 Web 壳客户端拥有更低的资源占用与更快的响应速度"
             ]
           }
-        }
+        },
+        "category_primary": "FOUNDATION_MODELS"
       },
       "source_lang": "EN",
       "programming_lang": "Rust",
@@ -206123,7 +206354,7 @@
       "enriched_at": "2026-09-04T02:18:21.951251",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "FOUNDATION_MODELS",
       "sources": [
         {
           "source_name": "GitHub Official",
@@ -207514,7 +207745,8 @@
               "轻量化双阶段 Pipeline，适合在边缘设备上进行实时视频流分析"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -207571,7 +207803,7 @@
       "enriched_at": "2026-09-04T02:18:21.942107",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "AGENTS_DEVTOOLS",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -207949,7 +208181,8 @@
               "在复杂知识图谱与数据集成场景中展现出极高实用价值"
             ]
           }
-        }
+        },
+        "category_primary": "INFRA_RAG_SECURITY"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -208972,7 +209205,8 @@
               "增强了自主科研智能体在复杂端到端任务中的自我完善能力"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -210272,7 +210506,8 @@
               "在保持极高转写吞吐量的同时，大幅提升专业术语和标点符号识别的准确度"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -210329,7 +210564,7 @@
       "enriched_at": "2026-09-04T02:18:21.924079",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -210559,7 +210794,8 @@
               "融合视觉分析与艺术史专业知识，提升画作归属鉴定的精准度"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -210615,7 +210851,7 @@
       "enriched_at": "2026-09-04T02:18:21.922583",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "MULTIMODAL_AI",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -212174,7 +212410,8 @@
               "高风险金融业务中结合自动化AI与人工复核机制"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -214017,7 +214254,8 @@
               "改进多线程架构与异常捕获机制，大幅提升软件运行稳定性"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -214071,7 +214309,7 @@
       "enriched_at": "2026-09-04T02:18:21.902215",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INDUSTRY_TRENDS",
       "sources": [
         {
           "source_name": "Hacker News",
@@ -219581,7 +219819,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -219744,7 +219983,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "AUTO",
       "programming_lang": "Python",
@@ -219907,7 +220147,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -220079,7 +220320,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -220251,7 +220493,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -220415,7 +220658,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -220579,7 +220823,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -220743,7 +220988,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -220907,7 +221153,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -221071,7 +221318,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -221235,7 +221483,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "LoRA"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -221407,7 +221656,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "INFERENCE_OPT"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -221571,7 +221821,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "LoRA"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -221735,7 +221986,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -221907,7 +222159,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -222071,7 +222324,8 @@
         "parameter_size": "N/A",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -222234,7 +222488,8 @@
         "parameter_size": "27B",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -222397,7 +222652,8 @@
         "parameter_size": "8B",
         "detected_formats": [
           "Interactive Demo"
-        ]
+        ],
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -222451,7 +222707,7 @@
       "enriched_at": "2026-09-04T02:18:21.820634",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "AGENTS_DEVTOOLS",
+      "category_primary": "MULTIMODAL_AI",
       "task_modality": "other",
       "parameter_size": "8B",
       "sources": [
@@ -222555,7 +222811,8 @@
               "为构建自主智能体系统的开发者提供记忆模块选型指南"
             ]
           }
-        }
+        },
+        "category_primary": "AGENTS_DEVTOOLS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -222856,7 +223113,8 @@
               "为注重设计的 AI 图像生成提供精细的视觉与排版美学指南"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "General",
@@ -223482,7 +223740,8 @@
               "适用于科学基础自学与教学参考的数字档案"
             ]
           }
-        }
+        },
+        "category_primary": "FOUNDATION_MODELS"
       },
       "source_lang": "ZH",
       "programming_lang": "General",
@@ -227548,7 +227807,8 @@
               "在工业检测、医学图像分析及遥感分类等领域展现出极高应用价值"
             ]
           }
-        }
+        },
+        "category_primary": "MULTIMODAL_AI"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -227705,7 +227965,8 @@
               "支持高效的大规模及多语言语音对齐系统 Benchmark 评估"
             ]
           }
-        }
+        },
+        "category_primary": "INFRA_RAG_SECURITY"
       },
       "source_lang": "EN",
       "programming_lang": "Python",
@@ -227759,7 +228020,7 @@
       "published_at": "2026-08-31T12:00:00+09:00",
       "is_classified": true,
       "is_deep_analyzed": false,
-      "category_primary": "MULTIMODAL_AI",
+      "category_primary": "INFRA_RAG_SECURITY",
       "sources": [
         {
           "source_name": "ArXiv Preprint",
@@ -229269,7 +229530,8 @@
               "分类总结用于提升大模型训练效率的现代化优化器设计空间"
             ]
           }
-        }
+        },
+        "category_primary": "INDUSTRY_TRENDS"
       },
       "source_lang": "EN",
       "programming_lang": "Python",

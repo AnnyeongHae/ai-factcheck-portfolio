@@ -25,8 +25,10 @@ classification_criteria:
     AGENTS_DEVTOOLS: "🛠️ AI 에이전트 & 개발도구 (Browser Use, 코딩 어시스턴트, 프레임워크, 자동화, 스크래핑, CLI 도구)"
     MULTIMODAL_AI: "🎨 멀티모달 & 비전/영상/음성 (비디오 생성 Wan/MiniMax, 이미지 FLUX, TTS/음성 분리, Computer Vision)"
     FOUNDATION_MODELS: "🤖 파운데이션 & 오픈 가중치 (Qwen, DeepSeek, Llama 계열 새 가중치 발표, 체크포인트, MoE, LoRA)"
-    INFRA_RAG_SECURITY: "🛡️ 인프라, RAG & 보안/평가 (벡터DB, RAG, 탈옥/보안 취약점, 벤치마크 평가, MLOps 클러스터)"
-    INDUSTRY_TRENDS: "🌐 테크 동향 & 산업/정책 (빅테크 라이선스 논쟁, 클라우드 장애/사고 리포트, 기술 칼럼, 기업 동향)"
+    INFRA_RAG_SECURITY: "🛡️ 인프라, RAG & 보안/시스템 (벡터DB, RAG, 탈옥/보안 취약점, Linux 커널, 컴파일러, 시스템 SW)"
+    DEEP_SCIENCE_SPACE: "🚀 우주·항공·신소재·과학 (우주로켓, 궤도발사, 인공위성, 랩그로운 다이아몬드, 양자물리, 과학 연구)"
+    MACRO_GLOBAL_BIZ: "🏦 글로벌 거시경제·산업·정책 (금/통화 회수, 중앙은행, 자산시장, 반독점 규제, 빅테크 정책, 공급망)"
+    INDUSTRY_TRENDS: "🌐 테크 동향 & IT 트렌드 (일반 SW, 스타트업 소식, 기술 칼럼, 기업 동향, 레트로 컴퓨팅)"
 
   legacy_type_classification:
     MODEL: "새로운 모델 가중치/체크포인트 발표"
@@ -52,7 +54,7 @@ output_json_schema: |
     {
       "id": "입력받은 id",
       "source_lang": "KO 또는 EN 또는 ZH (원문의 원래 언어)",
-      "category_primary": "반드시 다음 6개 중 하나 선택: INFERENCE_OPT (추론/경량화/서빙) 또는 AGENTS_DEVTOOLS (에이전트/개발도구) 또는 MULTIMODAL_AI (비전/영상/음성) 또는 FOUNDATION_MODELS (파운데이션/오픈가중치) 또는 INFRA_RAG_SECURITY (RAG/보안/평가) 또는 INDUSTRY_TRENDS (산업동향/칼럼)",
+      "category_primary": "반드시 다음 중 하나 선택: INFERENCE_OPT (추론/경량화/서빙), AGENTS_DEVTOOLS (에이전트/도구), MULTIMODAL_AI (비전/영상/음성), FOUNDATION_MODELS (파운데이션/가중치), INFRA_RAG_SECURITY (RAG/보안/시스템), DEEP_SCIENCE_SPACE (우주/로켓/신소재/과학), MACRO_GLOBAL_BIZ (거시경제/금/정책/규제), INDUSTRY_TRENDS (일반테크/칼럼)",
       "type_classification": "MODEL 또는 AGENT 또는 TECH 또는 NEWS",
       "model_family": "만약 모델인 경우 상위 기저 모델 패밀리명 (예: Qwen, DeepSeek, MiniMax, Llama, Gemma, Mistral, FLUX, Wan, Hunyuan, Whisper, GLM 등, 없으면 Standalone)",
       "task_modality": "모델/데모인 경우 HuggingFace 정규 Task: text-to-text, image-text-to-text, text-to-image, image-to-image, text-to-video, text-to-speech, speech-to-text, any-to-any 중 하나 선택 (모델이 아니면 other)",

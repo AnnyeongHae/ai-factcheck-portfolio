@@ -105,7 +105,8 @@ def match_dossier(dossiers, title, category, programming_lang, root_keywords):
             }
 VALID_PRIMARY_CATEGORIES = {
     "INFERENCE_OPT", "AGENTS_DEVTOOLS", "MULTIMODAL_AI",
-    "FOUNDATION_MODELS", "INFRA_RAG_SECURITY", "INDUSTRY_TRENDS"
+    "FOUNDATION_MODELS", "INFRA_RAG_SECURITY", "DEEP_SCIENCE_SPACE",
+    "MACRO_GLOBAL_BIZ", "INDUSTRY_TRENDS"
 }
 
 def infer_primary_category(item: dict, enrich_data: dict, c_type: str = "TECH") -> str:
@@ -127,27 +128,46 @@ def infer_primary_category(item: dict, enrich_data: dict, c_type: str = "TECH") 
                 return True
         return False
 
-    # 1. INFERENCE_OPT
+    # 1. DEEP_SCIENCE_SPACE (Space, Aerospace, Materials, Physics, Astronomy, Deep Science)
+    if has_any([
+        'aerospace', 'rocket', 'orbit', 'orbital', 'satellite', 'spacecraft',
+        'nasa', 'esa', 'astronomy', 'astronomer', 'telescope', 'dark matter',
+        'diamond mine', 'lab-grown diamond', 'superconductor', 'nuclear fusion',
+        '우주', '항공우주', '발사체', '로켓', '궤도 진입', '궤도 발사', '인공위성', '천문', '암흑물질',
+        '다이아몬드 광산', '핵융합', '초전도체', '신소재'
+    ]) or (has_any(['space', 'launch', 'mission']) and has_any(['orbit', 'rocket', 'payload', 'cosmos', 'satellite', '궤도', '발사체'])):
+        return 'DEEP_SCIENCE_SPACE'
+
+    # 2. MACRO_GLOBAL_BIZ (Macroeconomics, Finance, Gold, Geopolitics, Big Tech Policy)
+    if has_any([
+        'gold reserve', 'central bank', 'monetary policy', 'inflation', 'interest rate',
+        'macroeconomics', 'gdp growth', 'treasury', 'tariff', 'antitrust', 'ftc',
+        '금 86톤', '금 회수', '중앙은행', '통화 정책', '인플레이션', '기준금리', '거시경제',
+        '재정 건전성', '관세', '반독점', '독점 판결', '정부 부패'
+    ]) or (has_any(['gold', '금']) and has_any(['reserve', 'bullion', 'central bank', '회수', '보관', '중앙은행', '온스', 'ton'])):
+        return 'MACRO_GLOBAL_BIZ'
+
+    # 3. INFERENCE_OPT
     if has_any(['gguf', 'vllm', 'sglang', 'ollama', 'awq', 'fp8', 'int4', 'int8', 'kv cache', 'speculative decoding', 'inference', 'serving', 'quantization', 'latency', '추론', '서빙', '양자화', '경량화', '가속']):
         return 'INFERENCE_OPT'
 
-    # 2. MULTIMODAL_AI
-    if has_any(['video', 'vision', 'vlm', 'diffusion', 'tts', 'stt', 'whisper', 'speech', 'audio', 'voice', 'sound', 'image', 'flux', 'wan', 'minimax', '멀티모달', '음성', '비디오', '영상', '화상', '이미지']):
+    # 4. MULTIMODAL_AI
+    if has_any(['vlm', 'diffusion', 'tts', 'stt', 'whisper', 'flux', 'wan', 'minimax', 'sora', 'kling', 'runway', 'stable diffusion', 'text-to-image', 'text-to-video', 'multimodal', '멀티모달', '음성합성', '영상 생성', '화상 생성']) or (has_any(['video', 'vision', 'speech', 'audio', 'voice', 'sound', 'image', '음성', '비디오', '영상', '이미지']) and has_any(['ai', 'model', 'neural', 'deep learning', '인공지능', '모델', '생성'])):
         return 'MULTIMODAL_AI'
 
-    # 3. AGENTS_DEVTOOLS
+    # 5. AGENTS_DEVTOOLS
     if has_any(['agent', 'agents', 'browser use', 'scraping', 'crawler', 'devtools', 'copilot', 'automation', 'cli', 'framework', 'sdk', '에이전트', '자동화', '개발도구', '코딩', '프레임워크']):
         return 'AGENTS_DEVTOOLS'
 
-    # 4. INFRA_RAG_SECURITY
+    # 6. INFRA_RAG_SECURITY
     if has_any(['rag', 'vectordb', 'vector database', 'embedding', 'embeddings', 'jailbreak', 'security', 'cve', 'vulnerability', 'benchmark', 'evaluation', 'eval', 'mlops', 'cluster', '보안', '탈옥', '취약점', '임베딩', '평가']):
         return 'INFRA_RAG_SECURITY'
 
-    # 5. FOUNDATION_MODELS
+    # 7. FOUNDATION_MODELS
     if 'models' in src or 'hub' in src or c_type == 'MODEL' or has_any(['weights', 'safetensors', 'checkpoint', 'lora', 'foundation model', 'pretrained', '파운데이션', '가중치', '체크포인트', 'qwen', 'deepseek', 'llama', 'mistral', 'gemma']):
         return 'FOUNDATION_MODELS'
 
-    # 6. INDUSTRY_TRENDS (Default / Tech News / Industry / Policies)
+    # 8. INDUSTRY_TRENDS (Default / General Tech News / Software & Hardware)
     return 'INDUSTRY_TRENDS'
 
 def load_prompt_config():
