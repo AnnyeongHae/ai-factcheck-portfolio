@@ -1,15 +1,6 @@
 name: Deploy AI Fact-Check Portfolio & Neon DB Sync
 
 on:
-  push:
-    branches:
-      - main
-      - master
-    paths-ignore:
-      - '.gemini/**'
-      - 'logs/**'
-      - 'scratch/**'
-      - '*.md'
   workflow_dispatch:
   schedule:
     # 🌟 1일 4회(6시간 주기) 전략 수집 + 23:30 EOD 최종 감사

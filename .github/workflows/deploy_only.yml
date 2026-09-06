@@ -1,0 +1,61 @@
+﻿name: Build & Deploy Pages (Code Push Only)
+
+# Triggered ONLY on manual code changes (investigations/, tools/, etc.)
+# Does NOT run data collection or AI enrichment.
+# Keeps GitHub Pages up-to-date when dossiers or code are updated manually.
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.gemini/**'
+      - 'logs/**'
+      - '*.md'
+      - 'inbox/**'
+      - 'public/**'
+      - 'docs/**'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-deploy-only"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build Fact-Check Portfolio Dashboard
+        run: python tools/build_dashboard.py
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Artifact (docs directory)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs/'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

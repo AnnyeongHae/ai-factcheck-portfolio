@@ -48,3 +48,13 @@ Thumbs.db
 *.swo
 .vscode/
 .idea/
+
+# =========================================================
+# BUILD ARTIFACTS — Duplicate generated files
+# Only docs/ (GitHub Pages) and public/ (Vercel) are kept.
+# dashboard/ is a deprecated duplicate and excluded from Git.
+# Root index.html / data.json are also deprecated duplicates.
+# =========================================================
+dashboard/
+/index.html
+/data.json

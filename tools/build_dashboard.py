@@ -506,8 +506,8 @@ def build_dashboard():
         "graph": graph_data
     }
 
-    # Write data.json
-    for target_dir in [dash_dir, docs_dir, base_dir, public_dir]:
+    # Write data.json — only docs/ (GitHub Pages) and public/ (Vercel static)
+    for target_dir in [docs_dir, public_dir]:
         json_path = os.path.join(target_dir, "data.json")
         for _ in range(3):
             try:
@@ -519,7 +519,7 @@ def build_dashboard():
 
     # Generate HTML
     html_content = generate_html(summary_data)
-    for target_dir in [dash_dir, docs_dir, base_dir, public_dir]:
+    for target_dir in [docs_dir, public_dir]:
         html_path = os.path.join(target_dir, "index.html")
         for _ in range(3):
             try:
@@ -529,10 +529,10 @@ def build_dashboard():
             except Exception:
                 time.sleep(0.5)
 
-    print(f"[+] Successfully built Full 18 Dossiers Dashboard v20.0 at:")
+    print(f"[+] Successfully built Full {total_cases} Dossiers Dashboard v20.0 at:")
     print(f"    - public/index.html & data.json (Vercel CDN Edge)")
-    print(f"    - dashboard/index.html (Verified: {total_cases}, Models: {len(model_items)}, News: {len(news_items)}, Inbox: {len(clean_inbox_items)})")
-    print(f"    - docs/index.html (GitHub Pages hosting)")
+    print(f"    - docs/index.html  (GitHub Pages hosting | Verified: {total_cases}, Models: {len(model_items)}, News: {len(news_items)}, Inbox: {len(clean_inbox_items)})")
+    print(f"    [Removed] dashboard/ & root duplicates → Git repo size reduced")
 
 def generate_html(data):
     cases_json = json.dumps(data["cases"], ensure_ascii=False)
