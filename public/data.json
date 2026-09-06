@@ -8,20 +8,20 @@
   "half_true_count": 14,
   "gamed_count": 2,
   "avg_confidence": 96.4,
-  "models_total_count": 192,
-  "news_total_count": 605,
+  "models_total_count": 194,
+  "news_total_count": 609,
   "news_cat_counts": {
     "INFERENCE_OPT": 39,
-    "AGENTS_DEVTOOLS": 89,
+    "AGENTS_DEVTOOLS": 90,
     "MULTIMODAL_AI": 24,
     "FOUNDATION_MODELS": 5,
-    "INFRA_RAG_SECURITY": 57,
-    "DEEP_SCIENCE_SPACE": 12,
+    "INFRA_RAG_SECURITY": 58,
+    "DEEP_SCIENCE_SPACE": 13,
     "MACRO_GLOBAL_BIZ": 9,
-    "INDUSTRY_TRENDS": 370
+    "INDUSTRY_TRENDS": 371
   },
-  "inbox_total_count": 781,
-  "all_inbox_count": 797,
+  "inbox_total_count": 787,
+  "all_inbox_count": 803,
   "admin_stats": {
     "endpoints": [
       {
@@ -56,6 +56,59 @@
       }
     ],
     "history": [
+      {
+        "timestamp": "2026-09-06T07:22:45.534280",
+        "date": "2026-09-06",
+        "sources": {
+          "hf_models": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.17
+          },
+          "hf_spaces": {
+            "status": "SUCCESS",
+            "items_found": 86,
+            "duration_sec": 0.29
+          },
+          "github": {
+            "status": "SUCCESS",
+            "items_found": 30,
+            "duration_sec": 0.85
+          },
+          "hacker_news": {
+            "status": "SUCCESS",
+            "items_found": 60,
+            "duration_sec": 13.96
+          },
+          "arxiv": {
+            "status": "SUCCESS",
+            "items_found": 20,
+            "duration_sec": 0.69
+          },
+          "reddit": {
+            "status": "ERROR",
+            "error": "HTTP Error 403: Blocked",
+            "duration_sec": 0.13
+          },
+          "geeknews": {
+            "status": "SUCCESS",
+            "items_found": 25,
+            "duration_sec": 0.8
+          },
+          "curated_rss": {
+            "status": "SUCCESS",
+            "items_found": 10,
+            "duration_sec": 0.13
+          }
+        },
+        "summary": {
+          "total_fetched": 261,
+          "updated_count": 1,
+          "new_saved": 6,
+          "duplicates_skipped": 254,
+          "errors": 0
+        }
+      },
       {
         "timestamp": "2026-09-06T04:58:13.181209",
         "date": "2026-09-06",
@@ -1592,63 +1645,10 @@
           "duplicates_skipped": 253,
           "errors": 0
         }
-      },
-      {
-        "timestamp": "2026-09-03T16:48:53.856060",
-        "date": "2026-09-03",
-        "sources": {
-          "hf_models": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.27
-          },
-          "hf_spaces": {
-            "status": "SUCCESS",
-            "items_found": 85,
-            "duration_sec": 0.32
-          },
-          "github": {
-            "status": "SUCCESS",
-            "items_found": 30,
-            "duration_sec": 0.8
-          },
-          "hacker_news": {
-            "status": "SUCCESS",
-            "items_found": 59,
-            "duration_sec": 10.99
-          },
-          "arxiv": {
-            "status": "SUCCESS",
-            "items_found": 20,
-            "duration_sec": 0.23
-          },
-          "reddit": {
-            "status": "ERROR",
-            "error": "HTTP Error 403: Blocked",
-            "duration_sec": 0.17
-          },
-          "geeknews": {
-            "status": "SUCCESS",
-            "items_found": 25,
-            "duration_sec": 1.03
-          },
-          "curated_rss": {
-            "status": "SUCCESS",
-            "items_found": 10,
-            "duration_sec": 0.14
-          }
-        },
-        "summary": {
-          "total_fetched": 259,
-          "updated_count": 0,
-          "new_saved": 14,
-          "duplicates_skipped": 245,
-          "errors": 0
-        }
       }
     ],
     "latest_run": {
-      "timestamp": "2026-09-06T04:58:13.181209",
+      "timestamp": "2026-09-06T07:22:45.534280",
       "date": "2026-09-06",
       "sources": {
         "hf_models": {
@@ -1659,44 +1659,44 @@
         "hf_spaces": {
           "status": "SUCCESS",
           "items_found": 86,
-          "duration_sec": 0.24
+          "duration_sec": 0.29
         },
         "github": {
           "status": "SUCCESS",
           "items_found": 30,
-          "duration_sec": 0.64
+          "duration_sec": 0.85
         },
         "hacker_news": {
           "status": "SUCCESS",
           "items_found": 60,
-          "duration_sec": 11.97
+          "duration_sec": 13.96
         },
         "arxiv": {
           "status": "SUCCESS",
           "items_found": 20,
-          "duration_sec": 0.53
+          "duration_sec": 0.69
         },
         "reddit": {
           "status": "ERROR",
           "error": "HTTP Error 403: Blocked",
-          "duration_sec": 0.17
+          "duration_sec": 0.13
         },
         "geeknews": {
           "status": "SUCCESS",
           "items_found": 25,
-          "duration_sec": 1.02
+          "duration_sec": 0.8
         },
         "curated_rss": {
           "status": "SUCCESS",
           "items_found": 10,
-          "duration_sec": 0.16
+          "duration_sec": 0.13
         }
       },
       "summary": {
         "total_fetched": 261,
         "updated_count": 1,
-        "new_saved": 20,
-        "duplicates_skipped": 240,
+        "new_saved": 6,
+        "duplicates_skipped": 254,
         "errors": 0
       }
     }
@@ -1732,9 +1732,9 @@
       "name": "정오 레이더",
       "hour": 12,
       "range": "12:00 - 17:59",
-      "inbox_count": 20,
-      "model_count": 1,
-      "news_count": 19,
+      "inbox_count": 26,
+      "model_count": 3,
+      "news_count": 23,
       "is_current": true,
       "is_future": false
     },
@@ -1763,7 +1763,7 @@
     "bullets": [
       "🔥 [Hugging Face Spaces (Demo)] AI 만화 공장 (AI Comic Factory) - 생성형 AI 기반 만화 자동 (❤️ 11236 Likes (Trending Demo)) — LLM의 스토리텔링과 이미지 생성 모델을 결합해 프롬프트 하나로 고품질 웹툰/만화를 자동 생성하는 대화형 AI 애플리케이션",
       "🔥 [GitHub Official] s1dashu/ip-as-logo-skill: 아기자기한 마스코트 로고 생성을 위 (★ 4640 Stars) — 단순화되고 동글동글한 네오 스큐어모피즘 스타일 IP 마스코트 로고를 생성하는 경량 AI 에이전트 스킬",
-      "🔥 [GeekNews] 유럽 외부로 이전되지 않는 Git 호스팅 (🇰🇷 GeekNews 큐레이션) — 데이터 주권과 규제를 위해 유럽에 머무는 Git 호스팅의 중요성을 엔지니어에게 설명합니다."
+      "🔥 [GeekNews] grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유 (🇰🇷 GeekNews 큐레이션) — 간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰"
     ],
     "items": [
       {
@@ -1791,14 +1791,14 @@
         "case_id": null
       },
       {
-        "inbox_id": "2026-09-06_sns_geeknews_유럽을_벗어나지_않는_git_호스팅",
-        "title": "유럽 외부로 이전되지 않는 Git 호스팅",
-        "search_key": "유럽을 벗어나지 않는 Git 호스팅",
+        "inbox_id": "2026-09-06_sns_geeknews_grep이_lsp를_이긴다고_코딩_에이전트가_더_정교한_도구를_무",
+        "title": "grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+        "search_key": "grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
         "platform": "GeekNews",
         "platform_family": "GeekNews",
         "viral_metric": "🇰🇷 GeekNews 큐레이션",
-        "summary": "데이터 주권과 규제를 위해 유럽에 머무는 Git 호스팅의 중요성을 엔지니어에게 설명합니다.",
-        "source_url": "https://news.hada.io/topic?id=33267",
+        "summary": "간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰",
+        "source_url": "https://news.hada.io/topic?id=33273",
         "is_model": false,
         "case_id": null
       }
@@ -1806,15 +1806,15 @@
     "tags": [
       "#Local_LLM",
       "#Autonomous_Agent",
-      "#SoTA_Models",
       "#MoE_Architecture",
+      "#SoTA_Models",
       "#Inference_Engine"
     ]
   },
   "trend_radar": {
     "current_session": 3,
     "today_kst": "2026-09-06",
-    "updated_at": "14:04 KST",
+    "updated_at": "16:25 KST",
     "sessions": {
       "1": {
         "session_num": 1,
@@ -1871,8 +1871,8 @@
         "tags": [
           "#Local_LLM",
           "#Autonomous_Agent",
-          "#SoTA_Models",
           "#MoE_Architecture",
+          "#SoTA_Models",
           "#Inference_Engine"
         ]
       },
@@ -1931,8 +1931,8 @@
         "tags": [
           "#Local_LLM",
           "#Autonomous_Agent",
-          "#SoTA_Models",
           "#MoE_Architecture",
+          "#SoTA_Models",
           "#Inference_Engine"
         ]
       },
@@ -1948,7 +1948,7 @@
         "bullets": [
           "🔥 [Hugging Face Spaces (Demo)] AI 만화 공장 (AI Comic Factory) - 생성형 AI 기반 만화 자동 (❤️ 11236 Likes (Trending Demo)) — LLM의 스토리텔링과 이미지 생성 모델을 결합해 프롬프트 하나로 고품질 웹툰/만화를 자동 생성하는 대화형 AI 애플리케이션",
           "🔥 [GitHub Official] s1dashu/ip-as-logo-skill: 아기자기한 마스코트 로고 생성을 위 (★ 4640 Stars) — 단순화되고 동글동글한 네오 스큐어모피즘 스타일 IP 마스코트 로고를 생성하는 경량 AI 에이전트 스킬",
-          "🔥 [GeekNews] 유럽 외부로 이전되지 않는 Git 호스팅 (🇰🇷 GeekNews 큐레이션) — 데이터 주권과 규제를 위해 유럽에 머무는 Git 호스팅의 중요성을 엔지니어에게 설명합니다."
+          "🔥 [GeekNews] grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유 (🇰🇷 GeekNews 큐레이션) — 간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰"
         ],
         "items": [
           {
@@ -1976,14 +1976,14 @@
             "case_id": null
           },
           {
-            "inbox_id": "2026-09-06_sns_geeknews_유럽을_벗어나지_않는_git_호스팅",
-            "title": "유럽 외부로 이전되지 않는 Git 호스팅",
-            "search_key": "유럽을 벗어나지 않는 Git 호스팅",
+            "inbox_id": "2026-09-06_sns_geeknews_grep이_lsp를_이긴다고_코딩_에이전트가_더_정교한_도구를_무",
+            "title": "grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+            "search_key": "grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
             "platform": "GeekNews",
             "platform_family": "GeekNews",
             "viral_metric": "🇰🇷 GeekNews 큐레이션",
-            "summary": "데이터 주권과 규제를 위해 유럽에 머무는 Git 호스팅의 중요성을 엔지니어에게 설명합니다.",
-            "source_url": "https://news.hada.io/topic?id=33267",
+            "summary": "간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰",
+            "source_url": "https://news.hada.io/topic?id=33273",
             "is_model": false,
             "case_id": null
           }
@@ -1991,8 +1991,8 @@
         "tags": [
           "#Local_LLM",
           "#Autonomous_Agent",
-          "#SoTA_Models",
           "#MoE_Architecture",
+          "#SoTA_Models",
           "#Inference_Engine"
         ]
       },
@@ -2051,8 +2051,8 @@
         "tags": [
           "#Local_LLM",
           "#Autonomous_Agent",
-          "#SoTA_Models",
           "#MoE_Architecture",
+          "#SoTA_Models",
           "#Inference_Engine"
         ]
       }
@@ -2061,6 +2061,356 @@
   "dow_stats": [],
   "monthly_stats": [],
   "model_items": [
+    {
+      "inbox_id": "2026-09-06_repo_hf_space_geceff1firered_image_edit_10_fast",
+      "harvested_date": "2026-09-06",
+      "harvested_at": "2026-09-06T07:23:03.721126",
+      "published_at": "2026-09-06T07:23:03.721126",
+      "created_at": "2026-09-06T07:23:03.721126",
+      "updated_at": "2026-09-06T07:23:03.721126",
+      "title": "HF Space: geceff1/FireRed-Image-Edit-1.0-Fast",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/geceff1/FireRed-Image-Edit-1.0-Fast",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 12 | Live URL: https://huggingface.co/spaces/geceff1/FireRed-Image-Edit-1.0-Fast",
+      "viral_metric": "❤️ 12 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 12,
+          "display": "❤️ 12 Likes (Trending Demo)",
+          "recorded_at": "2026-09-06"
+        },
+        "latest": {
+          "value": 12,
+          "display": "❤️ 12 Likes (Trending Demo)",
+          "updated_at": "2026-09-06"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-06_repo_hf_space_geceff1firered_image_edit_10_fast",
+        "source_lang": "EN",
+        "category_primary": "MULTIMODAL_AI",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "task_modality": "image-to-image",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "Interactive Image Editing Demo",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "image editing",
+          "AI demo",
+          "Gradio"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "FireRed 이미지 편집 1.0 패스트 – 실시간 인터랙티브 이미지 편집 데모",
+            "hook": "코드 없이 드래그 앤 드롭만으로 사진을 걸작으로 바꿔주는 초고속 Gradio 기반 AI 이미지 편집기 – 지금 바로 체험하세요.",
+            "key_takeaways": [
+              "코딩 없이 실시간 웹 기반 이미지 편집 가능",
+              "Gradio SDK를 활용한 즉시 UI 상호작용",
+              "FireRed의 빠른 추론 파이프라인을 보여주는 오픈소스 데모"
+            ]
+          },
+          "en": {
+            "title": "FireRed Image Edit 1.0 Fast – Real‑Time Interactive Image Editing Demo",
+            "hook": "Turn your photos into masterpieces with this lightning‑fast, Gradio‑powered image editor – no code, just drag, drop, and AI magic.",
+            "key_takeaways": [
+              "Real‑time, web‑based image editing without coding",
+              "Built on Gradio SDK for instant UI interaction",
+              "Open‑source demo showcasing FireRed’s fast inference pipeline"
+            ]
+          },
+          "zh": {
+            "title": "FireRed 图像编辑 1.0 快速版 – 实时交互式图像编辑演示",
+            "hook": "这款基于 Gradio 的 AI 图像编辑器让您无需编码即可通过拖放操作将照片变成 masterpieces，速度超快，立即体验 AI 魔法。",
+            "key_takeaways": [
+              "无需编码即可进行实时网络图像编辑",
+              "利用 Gradio SDK 实现即时 UI 交互",
+              "展示 FireRed 快速推理管道的开源演示"
+            ]
+          }
+        },
+        "dedup_fingerprint": {
+          "canonical_story_key": "fire-red-image-edit-1-0-fast-demo",
+          "core_entities": [
+            "geceff1",
+            "FireRed",
+            "Gradio"
+          ],
+          "is_breaking_news": false
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-06T07:23:40.923247+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "FireRed 이미지 편집 1.0 패스트 – 실시간 인터랙티브 이미지 편집 데모",
+          "hook": "코드 없이 드래그 앤 드롭만으로 사진을 걸작으로 바꿔주는 초고속 Gradio 기반 AI 이미지 편집기 – 지금 바로 체험하세요.",
+          "key_takeaways": [
+            "코딩 없이 실시간 웹 기반 이미지 편집 가능",
+            "Gradio SDK를 활용한 즉시 UI 상호작용",
+            "FireRed의 빠른 추론 파이프라인을 보여주는 오픈소스 데모"
+          ]
+        },
+        "en": {
+          "title": "FireRed Image Edit 1.0 Fast – Real‑Time Interactive Image Editing Demo",
+          "hook": "Turn your photos into masterpieces with this lightning‑fast, Gradio‑powered image editor – no code, just drag, drop, and AI magic.",
+          "key_takeaways": [
+            "Real‑time, web‑based image editing without coding",
+            "Built on Gradio SDK for instant UI interaction",
+            "Open‑source demo showcasing FireRed’s fast inference pipeline"
+          ]
+        },
+        "zh": {
+          "title": "FireRed 图像编辑 1.0 快速版 – 实时交互式图像编辑演示",
+          "hook": "这款基于 Gradio 的 AI 图像编辑器让您无需编码即可通过拖放操作将照片变成 masterpieces，速度超快，立即体验 AI 魔法。",
+          "key_takeaways": [
+            "无需编码即可进行实时网络图像编辑",
+            "利用 Gradio SDK 实现即时 UI 交互",
+            "展示 FireRed 快速推理管道的开源演示"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "image editing",
+        "AI demo",
+        "Gradio"
+      ],
+      "title_ko": "FireRed 이미지 편집 1.0 패스트 – 실시간 인터랙티브 이미지 편집 데모",
+      "title_en": "FireRed Image Edit 1.0 Fast – Real‑Time Interactive Image Editing Demo",
+      "title_zh": "FireRed 图像编辑 1.0 快速版 – 实时交互式图像编辑演示",
+      "hook": "코드 없이 드래그 앤 드롭만으로 사진을 걸작으로 바꿔주는 초고속 Gradio 기반 AI 이미지 편집기 – 지금 바로 체험하세요.",
+      "hook_ko": "코드 없이 드래그 앤 드롭만으로 사진을 걸작으로 바꿔주는 초고속 Gradio 기반 AI 이미지 편집기 – 지금 바로 체험하세요.",
+      "hook_en": "Turn your photos into masterpieces with this lightning‑fast, Gradio‑powered image editor – no code, just drag, drop, and AI magic.",
+      "hook_zh": "这款基于 Gradio 的 AI 图像编辑器让您无需编码即可通过拖放操作将照片变成 masterpieces，速度超快，立即体验 AI 魔法。",
+      "description_ko": "코드 없이 드래그 앤 드롭만으로 사진을 걸작으로 바꿔주는 초고속 Gradio 기반 AI 이미지 편집기 – 지금 바로 체험하세요.",
+      "description_en": "Turn your photos into masterpieces with this lightning‑fast, Gradio‑powered image editor – no code, just drag, drop, and AI magic.",
+      "description_zh": "这款基于 Gradio 的 AI 图像编辑器让您无需编码即可通过拖放操作将照片变成 masterpieces，速度超快，立即体验 AI 魔法。",
+      "category_primary": "MULTIMODAL_AI",
+      "dedup_fingerprint": {
+        "canonical_story_key": "fire-red-image-edit-1-0-fast-demo",
+        "core_entities": [
+          "geceff1",
+          "FireRed",
+          "Gradio"
+        ],
+        "is_breaking_news": false
+      },
+      "canonical_story_key": "fire-red-image-edit-1-0-fast-demo",
+      "core_entities": [
+        "geceff1",
+        "FireRed",
+        "Gradio"
+      ],
+      "sources": [
+        {
+          "source_name": "Hugging Face Spaces (Demo)",
+          "platform": "Hugging Face Spaces (Demo)",
+          "title": "HF Space: geceff1/FireRed-Image-Edit-1.0-Fast",
+          "url": "https://huggingface.co/spaces/geceff1/FireRed-Image-Edit-1.0-Fast",
+          "type": "media",
+          "published_at": "2026-09-06T07:23:03.721126"
+        }
+      ],
+      "source_count": 1,
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-06_repo_huggingface_model_nvidiaqwen38_flash_next_nvf",
+      "harvested_date": "2026-09-06",
+      "harvested_at": "2026-09-06T07:23:03.405949",
+      "published_at": "2026-09-06T07:23:03.405949",
+      "created_at": "2026-09-06T07:23:03.405949",
+      "updated_at": "2026-09-06T07:23:03.405949",
+      "title": "HuggingFace Model: nvidia/Qwen3.8-Flash-Next-NVFP4",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-NVFP4",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 103, Downloads: 1129, Likes: 104, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 103 pts (❤️ 104)",
+      "metric_tracking": {
+        "initial": {
+          "value": 103,
+          "display": "Trending 103 pts (❤️ 104)",
+          "recorded_at": "2026-09-06"
+        },
+        "latest": {
+          "value": 103,
+          "display": "Trending 103 pts (❤️ 104)",
+          "updated_at": "2026-09-06"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW",
+      "task_modality": "text-to-text",
+      "model_family": "Qwen",
+      "parameter_size": "3.8B",
+      "detected_formats": [
+        "GGUF",
+        "Safetensors"
+      ],
+      "library_name": "Model Optimizer",
+      "ai_enrichment": {
+        "id": "2026-09-06_repo_huggingface_model_nvidiaqwen38_flash_next_nvf",
+        "source_lang": "EN",
+        "category_primary": "INFERENCE_OPT",
+        "type_classification": "MODEL",
+        "model_family": "Qwen",
+        "task_modality": "text-to-text",
+        "parameter_size": "3.8B",
+        "detected_formats": [
+          "GGUF",
+          "Safetensors"
+        ],
+        "category": "Optimized LLM with NVFP4 quantization",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Qwen",
+          "NVFP4",
+          "inference optimization"
+        ],
+        "recommended_tag": "🔥 Must‑Read",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "NVFP4 양자화를 적용한 NVIDIA Qwen3.8-Flash-Next – 초고속 LLM 추론 모델",
+            "hook": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+            "key_takeaways": [
+              "3.8B 파라미터 모델, NVFP4 초저정밀도 가중치로 추론 속도 향상",
+              "Flash-Next 커널로 NVIDIA GPU에서 토큰 생성 가속화",
+              "GGUF 및 Safetensors 형식으로 제공, 엣지 및 클라우드 서빙에 최적화"
+            ]
+          },
+          "en": {
+            "title": "NVIDIA Qwen3.8‑Flash‑Next with NVFP4 – Ultra‑Fast Quantized LLM",
+            "hook": "Achieve 3.8B‑parameter LLM inference at record speed with NVIDIA’s NVFP4 quantization and Flash‑Next kernel – ideal for production deployments.",
+            "key_takeaways": [
+              "3.8B‑parameter model with NVFP4 ultra‑low‑precision weights for faster inference",
+              "Flash‑Next kernel accelerates token generation on NVIDIA GPUs",
+              "Available in GGUF & Safetensors, optimized for edge and cloud serving"
+            ]
+          },
+          "zh": {
+            "title": "NVIDIA Qwen3.8-Flash-Next 搭配 NVFP4 量子化 – 超高速 LLM 推理模型",
+            "hook": "利用 NVIDIA 的 NVFP4 量子化和 Flash-Next 内核，实现 3.8B 参数 LLM 的创纪录推理速度 – 非常适合生产环境部署。",
+            "key_takeaways": [
+              "3.8B 参数模型，采用 NVFP4 超低精度权重以提升推理速度",
+              "Flash-Next 内核加速 NVIDIA GPU 上的 token 生成",
+              "提供 GGUF 和 Safetensors 格式，优化边缘和云端服务"
+            ]
+          }
+        },
+        "dedup_fingerprint": {
+          "canonical_story_key": "nvidia-qwen3-8-flash-next-nvfp4-release",
+          "core_entities": [
+            "NVIDIA",
+            "Qwen",
+            "NVFP4"
+          ],
+          "is_breaking_news": false
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-06T07:23:40.924108+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "NVFP4 양자화를 적용한 NVIDIA Qwen3.8-Flash-Next – 초고속 LLM 추론 모델",
+          "hook": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+          "key_takeaways": [
+            "3.8B 파라미터 모델, NVFP4 초저정밀도 가중치로 추론 속도 향상",
+            "Flash-Next 커널로 NVIDIA GPU에서 토큰 생성 가속화",
+            "GGUF 및 Safetensors 형식으로 제공, 엣지 및 클라우드 서빙에 최적화"
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Qwen3.8‑Flash‑Next with NVFP4 – Ultra‑Fast Quantized LLM",
+          "hook": "Achieve 3.8B‑parameter LLM inference at record speed with NVIDIA’s NVFP4 quantization and Flash‑Next kernel – ideal for production deployments.",
+          "key_takeaways": [
+            "3.8B‑parameter model with NVFP4 ultra‑low‑precision weights for faster inference",
+            "Flash‑Next kernel accelerates token generation on NVIDIA GPUs",
+            "Available in GGUF & Safetensors, optimized for edge and cloud serving"
+          ]
+        },
+        "zh": {
+          "title": "NVIDIA Qwen3.8-Flash-Next 搭配 NVFP4 量子化 – 超高速 LLM 推理模型",
+          "hook": "利用 NVIDIA 的 NVFP4 量子化和 Flash-Next 内核，实现 3.8B 参数 LLM 的创纪录推理速度 – 非常适合生产环境部署。",
+          "key_takeaways": [
+            "3.8B 参数模型，采用 NVFP4 超低精度权重以提升推理速度",
+            "Flash-Next 内核加速 NVIDIA GPU 上的 token 生成",
+            "提供 GGUF 和 Safetensors 格式，优化边缘和云端服务"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Qwen",
+        "NVFP4",
+        "inference optimization"
+      ],
+      "title_ko": "NVFP4 양자화를 적용한 NVIDIA Qwen3.8-Flash-Next – 초고속 LLM 추론 모델",
+      "title_en": "NVIDIA Qwen3.8‑Flash‑Next with NVFP4 – Ultra‑Fast Quantized LLM",
+      "title_zh": "NVIDIA Qwen3.8-Flash-Next 搭配 NVFP4 量子化 – 超高速 LLM 推理模型",
+      "hook": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+      "hook_ko": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+      "hook_en": "Achieve 3.8B‑parameter LLM inference at record speed with NVIDIA’s NVFP4 quantization and Flash‑Next kernel – ideal for production deployments.",
+      "hook_zh": "利用 NVIDIA 的 NVFP4 量子化和 Flash-Next 内核，实现 3.8B 参数 LLM 的创纪录推理速度 – 非常适合生产环境部署。",
+      "description_ko": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+      "description_en": "Achieve 3.8B‑parameter LLM inference at record speed with NVIDIA’s NVFP4 quantization and Flash‑Next kernel – ideal for production deployments.",
+      "description_zh": "利用 NVIDIA 的 NVFP4 量子化和 Flash-Next 内核，实现 3.8B 参数 LLM 的创纪录推理速度 – 非常适合生产环境部署。",
+      "category_primary": "INFERENCE_OPT",
+      "dedup_fingerprint": {
+        "canonical_story_key": "nvidia-qwen3-8-flash-next-nvfp4-release",
+        "core_entities": [
+          "NVIDIA",
+          "Qwen",
+          "NVFP4"
+        ],
+        "is_breaking_news": false
+      },
+      "canonical_story_key": "nvidia-qwen3-8-flash-next-nvfp4-release",
+      "core_entities": [
+        "NVIDIA",
+        "Qwen",
+        "NVFP4"
+      ],
+      "sources": [
+        {
+          "source_name": "Hugging Face Models",
+          "platform": "Hugging Face Models",
+          "title": "HuggingFace Model: nvidia/Qwen3.8-Flash-Next-NVFP4",
+          "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-NVFP4",
+          "type": "media",
+          "published_at": "2026-09-06T07:23:03.405949"
+        }
+      ],
+      "source_count": 1,
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
     {
       "inbox_id": "2026-09-06_repo_github_jlrouzies_frdlss5_feeder",
       "harvested_date": "2026-09-06",
@@ -32275,6 +32625,690 @@
   ],
   "news_items": [
     {
+      "inbox_id": "2026-09-06_sns_geeknews_grep이_lsp를_이긴다고_코딩_에이전트가_더_정교한_도구를_무",
+      "harvested_date": "2026-09-06",
+      "harvested_at": "2026-09-06T07:23:04.524377",
+      "published_at": "2026-09-06T07:23:04.524377",
+      "created_at": "2026-09-06T07:23:04.524377",
+      "updated_at": "2026-09-06T07:23:04.524377",
+      "title": "GeekNews: grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33273",
+      "type": "sns",
+      "category_type": "AGENT",
+      "description": "GeekNews Korean Tech Trend: grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-06"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-06"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+      "description_ko": "간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰",
+      "hn_url": "https://news.hada.io/topic?id=33273",
+      "article_url": "https://news.hada.io/topic?id=33273",
+      "ai_enrichment": {
+        "id": "2026-09-06_sns_geeknews_grep이_lsp를_이긴다고_코딩_에이전트가_더_정교한_도구를_무",
+        "source_lang": "KO",
+        "category_primary": "AGENTS_DEVTOOLS",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "task_modality": "other",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "AI 코딩 에이전트 및 도구",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "grep",
+          "LSP",
+          "코딩 에이전트"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+            "hook": "간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰",
+            "key_takeaways": [
+              "grep의 빠른 패턴 매칭이 심층적인 정적 분석보다 우세함을 보여줌",
+              "코딩 에이전트는 속도 우선 전략을 채택하여 정교한 LSP 기능을 의도적으로 무시함",
+              "개발자들은 도구 선택 시 성능과 복잡성 간의 균형을 재고해야 함"
+            ]
+          },
+          "en": {
+            "title": "Does grep beat LSP? Why coding agents ignore more sophisticated tools",
+            "hook": "A surprising insight: a simple grep command can outperform sophisticated LSP features in code comprehension",
+            "key_takeaways": [
+              "grep's raw pattern‑matching speed proves more effective than deep semantic analysis",
+              "Coding agents prioritize speed, deliberately sidelining advanced LSP capabilities",
+              "Developers should reconsider tool selection to balance performance and complexity"
+            ]
+          },
+          "zh": {
+            "title": "grep 胜过 LSP？编码代理为何忽视更精细的工具",
+            "hook": "一个惊人的发现：简单的 grep 命令在代码理解上可能超越复杂的 IDE 语言服务器协议 (LSP) 功能",
+            "key_takeaways": [
+              "grep 的快速模式匹配能力胜过深度静态分析",
+              "编码代理优先考虑速度，故意忽略复杂的 LSP 功能",
+              "开发者应重新评估工具选择，以平衡性能和复杂性"
+            ]
+          }
+        },
+        "dedup_fingerprint": {
+          "canonical_story_key": "grep-beats-lsp-coding-agents-ignore-tools",
+          "core_entities": [
+            "grep",
+            "LSP",
+            "코딩 에이전트"
+          ],
+          "is_breaking_news": false
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-06T07:23:20.378087+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+          "hook": "간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰",
+          "key_takeaways": [
+            "grep의 빠른 패턴 매칭이 심층적인 정적 분석보다 우세함을 보여줌",
+            "코딩 에이전트는 속도 우선 전략을 채택하여 정교한 LSP 기능을 의도적으로 무시함",
+            "개발자들은 도구 선택 시 성능과 복잡성 간의 균형을 재고해야 함"
+          ]
+        },
+        "en": {
+          "title": "Does grep beat LSP? Why coding agents ignore more sophisticated tools",
+          "hook": "A surprising insight: a simple grep command can outperform sophisticated LSP features in code comprehension",
+          "key_takeaways": [
+            "grep's raw pattern‑matching speed proves more effective than deep semantic analysis",
+            "Coding agents prioritize speed, deliberately sidelining advanced LSP capabilities",
+            "Developers should reconsider tool selection to balance performance and complexity"
+          ]
+        },
+        "zh": {
+          "title": "grep 胜过 LSP？编码代理为何忽视更精细的工具",
+          "hook": "一个惊人的发现：简单的 grep 命令在代码理解上可能超越复杂的 IDE 语言服务器协议 (LSP) 功能",
+          "key_takeaways": [
+            "grep 的快速模式匹配能力胜过深度静态分析",
+            "编码代理优先考虑速度，故意忽略复杂的 LSP 功能",
+            "开发者应重新评估工具选择，以平衡性能和复杂性"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "grep",
+        "LSP",
+        "코딩 에이전트"
+      ],
+      "title_en": "Does grep beat LSP? Why coding agents ignore more sophisticated tools",
+      "title_zh": "grep 胜过 LSP？编码代理为何忽视更精细的工具",
+      "hook": "간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰",
+      "hook_ko": "간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰",
+      "hook_en": "A surprising insight: a simple grep command can outperform sophisticated LSP features in code comprehension",
+      "hook_zh": "一个惊人的发现：简单的 grep 命令在代码理解上可能超越复杂的 IDE 语言服务器协议 (LSP) 功能",
+      "description_en": "A surprising insight: a simple grep command can outperform sophisticated LSP features in code comprehension",
+      "description_zh": "一个惊人的发现：简单的 grep 命令在代码理解上可能超越复杂的 IDE 语言服务器协议 (LSP) 功能",
+      "category_primary": "AGENTS_DEVTOOLS",
+      "dedup_fingerprint": {
+        "canonical_story_key": "grep-beats-lsp-coding-agents-ignore-tools",
+        "core_entities": [
+          "grep",
+          "LSP",
+          "코딩 에이전트"
+        ],
+        "is_breaking_news": false
+      },
+      "canonical_story_key": "grep-beats-lsp-coding-agents-ignore-tools",
+      "core_entities": [
+        "grep",
+        "LSP",
+        "코딩 에이전트"
+      ],
+      "sources": [
+        {
+          "source_name": "GeekNews",
+          "platform": "GeekNews",
+          "title": "GeekNews: grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+          "url": "https://news.hada.io/topic?id=33273",
+          "type": "discussion",
+          "published_at": "2026-09-06T07:23:04.524377"
+        }
+      ],
+      "source_count": 1,
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-06_sns_hacker_news_amd_based_freebsd_desktop_reloade",
+      "harvested_date": "2026-09-06",
+      "harvested_at": "2026-09-06T07:23:04.087167",
+      "published_at": "2026-09-06T02:24:57",
+      "created_at": "2026-09-06T02:24:57",
+      "updated_at": "2026-09-06T07:23:04.087167",
+      "title": "Hacker News: AMD Based FreeBSD Desktop Reloaded",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49582719",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 26 pts | Comments: 0 | AMD Based FreeBSD Desktop Reloaded",
+      "viral_metric": "🔥 26 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 26,
+          "display": "🔥 26 HN Points",
+          "recorded_at": "2026-09-06"
+        },
+        "latest": {
+          "value": 26,
+          "display": "🔥 26 HN Points",
+          "updated_at": "2026-09-06"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49582719",
+      "article_url": "https://vermaden.wordpress.com/2026/09/06/amd-based-freebsd-desktop-reloaded/",
+      "ai_enrichment": {
+        "id": "2026-09-06_sns_hacker_news_amd_based_freebsd_desktop_reloade",
+        "source_lang": "EN",
+        "category_primary": "INFRA_RAG_SECURITY",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "task_modality": "other",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "OS/Driver",
+        "programming_lang": "C",
+        "root_keywords": [
+          "AMD",
+          "FreeBSD",
+          "Desktop"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "AMD 기반 FreeBSD 데스크톱 재등장",
+            "hook": "엔지니어들을 위한 오픈소스 UNIX, FreeBSD가 AMD 하드웨어에서 현대적인 데스크톱 경험을 제공합니다.",
+            "key_takeaways": [
+              "AMD CPU/GPU 지원 추가",
+              "드라이버 스택 및 하드웨어 호환성 개선",
+              "소비자 하드웨어에서의 성능 및 안정성 향상"
+            ]
+          },
+          "en": {
+            "title": "AMD Based FreeBSD Desktop Reloaded",
+            "hook": "FreeBSD gets a modern AMD‑powered desktop revival, bringing open‑source UNIX to new hardware.",
+            "key_takeaways": [
+              "AMD CPU/GPU support added",
+              "Improved driver stack and hardware compatibility",
+              "Performance and stability gains on consumer hardware"
+            ]
+          },
+          "zh": {
+            "title": "AMD 架构 FreeBSD 桌面重新加载",
+            "hook": "开源 UNIX 系统 FreeBSD 在 AMD 硬件上实现现代桌面复兴，为工程师提供新选择.",
+            "key_takeaways": [
+              "AMD CPU/GPU 支持新增",
+              "驱动程序栈和硬件兼容性优化",
+              "提升消费级硬件的性能和稳定性"
+            ]
+          }
+        },
+        "dedup_fingerprint": {
+          "canonical_story_key": "amd-based-freebsd-desktop-reloaded",
+          "core_entities": [
+            "AMD",
+            "FreeBSD",
+            "Desktop"
+          ],
+          "is_breaking_news": false
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-06T07:23:59.674903+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "AMD 기반 FreeBSD 데스크톱 재등장",
+          "hook": "엔지니어들을 위한 오픈소스 UNIX, FreeBSD가 AMD 하드웨어에서 현대적인 데스크톱 경험을 제공합니다.",
+          "key_takeaways": [
+            "AMD CPU/GPU 지원 추가",
+            "드라이버 스택 및 하드웨어 호환성 개선",
+            "소비자 하드웨어에서의 성능 및 안정성 향상"
+          ]
+        },
+        "en": {
+          "title": "AMD Based FreeBSD Desktop Reloaded",
+          "hook": "FreeBSD gets a modern AMD‑powered desktop revival, bringing open‑source UNIX to new hardware.",
+          "key_takeaways": [
+            "AMD CPU/GPU support added",
+            "Improved driver stack and hardware compatibility",
+            "Performance and stability gains on consumer hardware"
+          ]
+        },
+        "zh": {
+          "title": "AMD 架构 FreeBSD 桌面重新加载",
+          "hook": "开源 UNIX 系统 FreeBSD 在 AMD 硬件上实现现代桌面复兴，为工程师提供新选择.",
+          "key_takeaways": [
+            "AMD CPU/GPU 支持新增",
+            "驱动程序栈和硬件兼容性优化",
+            "提升消费级硬件的性能和稳定性"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "C",
+      "root_keywords": [
+        "AMD",
+        "FreeBSD",
+        "Desktop"
+      ],
+      "title_ko": "AMD 기반 FreeBSD 데스크톱 재등장",
+      "title_en": "AMD Based FreeBSD Desktop Reloaded",
+      "title_zh": "AMD 架构 FreeBSD 桌面重新加载",
+      "hook": "엔지니어들을 위한 오픈소스 UNIX, FreeBSD가 AMD 하드웨어에서 현대적인 데스크톱 경험을 제공합니다.",
+      "hook_ko": "엔지니어들을 위한 오픈소스 UNIX, FreeBSD가 AMD 하드웨어에서 현대적인 데스크톱 경험을 제공합니다.",
+      "hook_en": "FreeBSD gets a modern AMD‑powered desktop revival, bringing open‑source UNIX to new hardware.",
+      "hook_zh": "开源 UNIX 系统 FreeBSD 在 AMD 硬件上实现现代桌面复兴，为工程师提供新选择.",
+      "description_ko": "엔지니어들을 위한 오픈소스 UNIX, FreeBSD가 AMD 하드웨어에서 현대적인 데스크톱 경험을 제공합니다.",
+      "description_en": "FreeBSD gets a modern AMD‑powered desktop revival, bringing open‑source UNIX to new hardware.",
+      "description_zh": "开源 UNIX 系统 FreeBSD 在 AMD 硬件上实现现代桌面复兴，为工程师提供新选择.",
+      "category_primary": "INFRA_RAG_SECURITY",
+      "dedup_fingerprint": {
+        "canonical_story_key": "amd-based-freebsd-desktop-reloaded",
+        "core_entities": [
+          "AMD",
+          "FreeBSD",
+          "Desktop"
+        ],
+        "is_breaking_news": false
+      },
+      "canonical_story_key": "amd-based-freebsd-desktop-reloaded",
+      "core_entities": [
+        "AMD",
+        "FreeBSD",
+        "Desktop"
+      ],
+      "sources": [
+        {
+          "source_name": "Hacker News",
+          "platform": "Hacker News",
+          "title": "Hacker News: AMD Based FreeBSD Desktop Reloaded",
+          "url": "https://news.ycombinator.com/item?id=49582719",
+          "type": "discussion",
+          "published_at": "2026-09-06T07:23:04.087167"
+        }
+      ],
+      "source_count": 1,
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-06_sns_hacker_news_watch_the_eclipse_of_the_century_",
+      "harvested_date": "2026-09-06",
+      "harvested_at": "2026-09-06T07:23:04.074010",
+      "published_at": "2026-09-02T13:08:03",
+      "created_at": "2026-09-02T13:08:03",
+      "updated_at": "2026-09-06T07:23:04.074010",
+      "title": "Hacker News: Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49535634",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 11 pts | Comments: 4 | Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+      "viral_metric": "🔥 11 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 11,
+          "display": "🔥 11 HN Points",
+          "recorded_at": "2026-09-06"
+        },
+        "latest": {
+          "value": 11,
+          "display": "🔥 11 HN Points",
+          "updated_at": "2026-09-06"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49535634",
+      "article_url": "https://www.nytimes.com/2026/08/13/travel/solar-eclipse-2027-morocco-egypt.html",
+      "ai_enrichment": {
+        "id": "2026-09-06_sns_hacker_news_watch_the_eclipse_of_the_century_",
+        "source_lang": "EN",
+        "category_primary": "DEEP_SCIENCE_SPACE",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "task_modality": "other",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "Astronomical Events",
+        "programming_lang": "General",
+        "root_keywords": [
+          "eclipse",
+          "astronomy",
+          "2026"
+        ],
+        "recommended_tag": "🔥 Must-Read",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "올해의 개기일식, 스페인·이집트 등 어두워진다",
+            "hook": "2026년 8월, 스페인·이집트 상공을 가르는 개기일식을 놓치지 마세요",
+            "key_takeaways": [
+              "2026년 8월 12일 개기일식 발생",
+              "경로에 포함된 국가: 스페인, 이집트, 그리스 등",
+              "안전한 관측 방법 및 장비 안내"
+            ]
+          },
+          "en": {
+            "title": "Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+            "hook": "Don't miss the 2026 total solar eclipse sweeping across Spain, Egypt, and beyond",
+            "key_takeaways": [
+              "Total solar eclipse on August 12, 2026",
+              "Path includes Spain, Egypt, Greece, and other countries",
+              "Safety tips for viewing the eclipse"
+            ]
+          },
+          "zh": {
+            "title": "今年的世纪日食，西班牙、埃及等地将变黑",
+            "hook": "2026年8月，西班牙、埃及等地的上空将发生壮观的日全食",
+            "key_takeaways": [
+              "2026年8月12日发生日全食",
+              "路径包括西班牙、埃及、希腊等国家",
+              "观看日全食的安全提示"
+            ]
+          }
+        },
+        "dedup_fingerprint": {
+          "canonical_story_key": "eclipse-of-the-century-2026",
+          "core_entities": [
+            "Total Solar Eclipse",
+            "NASA",
+            "Astronomers"
+          ],
+          "is_breaking_news": false
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-06T07:24:31.104307+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "올해의 개기일식, 스페인·이집트 등 어두워진다",
+          "hook": "2026년 8월, 스페인·이집트 상공을 가르는 개기일식을 놓치지 마세요",
+          "key_takeaways": [
+            "2026년 8월 12일 개기일식 발생",
+            "경로에 포함된 국가: 스페인, 이집트, 그리스 등",
+            "안전한 관측 방법 및 장비 안내"
+          ]
+        },
+        "en": {
+          "title": "Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+          "hook": "Don't miss the 2026 total solar eclipse sweeping across Spain, Egypt, and beyond",
+          "key_takeaways": [
+            "Total solar eclipse on August 12, 2026",
+            "Path includes Spain, Egypt, Greece, and other countries",
+            "Safety tips for viewing the eclipse"
+          ]
+        },
+        "zh": {
+          "title": "今年的世纪日食，西班牙、埃及等地将变黑",
+          "hook": "2026年8月，西班牙、埃及等地的上空将发生壮观的日全食",
+          "key_takeaways": [
+            "2026年8月12日发生日全食",
+            "路径包括西班牙、埃及、希腊等国家",
+            "观看日全食的安全提示"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "eclipse",
+        "astronomy",
+        "2026"
+      ],
+      "title_ko": "올해의 개기일식, 스페인·이집트 등 어두워진다",
+      "title_en": "Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+      "title_zh": "今年的世纪日食，西班牙、埃及等地将变黑",
+      "hook": "2026년 8월, 스페인·이집트 상공을 가르는 개기일식을 놓치지 마세요",
+      "hook_ko": "2026년 8월, 스페인·이집트 상공을 가르는 개기일식을 놓치지 마세요",
+      "hook_en": "Don't miss the 2026 total solar eclipse sweeping across Spain, Egypt, and beyond",
+      "hook_zh": "2026年8月，西班牙、埃及等地的上空将发生壮观的日全食",
+      "description_ko": "2026년 8월, 스페인·이집트 상공을 가르는 개기일식을 놓치지 마세요",
+      "description_en": "Don't miss the 2026 total solar eclipse sweeping across Spain, Egypt, and beyond",
+      "description_zh": "2026年8月，西班牙、埃及等地的上空将发生壮观的日全食",
+      "category_primary": "DEEP_SCIENCE_SPACE",
+      "dedup_fingerprint": {
+        "canonical_story_key": "eclipse-of-the-century-2026",
+        "core_entities": [
+          "Total Solar Eclipse",
+          "NASA",
+          "Astronomers"
+        ],
+        "is_breaking_news": false
+      },
+      "canonical_story_key": "eclipse-of-the-century-2026",
+      "core_entities": [
+        "Total Solar Eclipse",
+        "NASA",
+        "Astronomers"
+      ],
+      "sources": [
+        {
+          "source_name": "Hacker News",
+          "platform": "Hacker News",
+          "title": "Hacker News: Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+          "url": "https://news.ycombinator.com/item?id=49535634",
+          "type": "discussion",
+          "published_at": "2026-09-06T07:23:04.074010"
+        }
+      ],
+      "source_count": 1,
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-06_sns_hacker_news_music_theory_for_programmers",
+      "harvested_date": "2026-09-06",
+      "harvested_at": "2026-09-06T07:23:04.045478",
+      "published_at": "2026-09-02T20:19:13",
+      "created_at": "2026-09-02T20:19:13",
+      "updated_at": "2026-09-06T07:23:04.045478",
+      "title": "Hacker News: Music Theory for Programmers",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49541888",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 61 pts | Comments: 17 | Music Theory for Programmers",
+      "viral_metric": "🔥 61 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 61,
+          "display": "🔥 61 HN Points",
+          "recorded_at": "2026-09-06"
+        },
+        "latest": {
+          "value": 61,
+          "display": "🔥 61 HN Points",
+          "updated_at": "2026-09-06"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49541888",
+      "article_url": "https://runjs.app/blog/music-theory-for-programmers",
+      "ai_enrichment": {
+        "id": "2026-09-06_sns_hacker_news_music_theory_for_programmers",
+        "source_lang": "EN",
+        "category_primary": "INDUSTRY_TRENDS",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "task_modality": "other",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "Music Theory for Programmers",
+        "programming_lang": "General",
+        "root_keywords": [
+          "music theory",
+          "programming",
+          "education"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "프로그래머를 위한 음악 이론",
+            "hook": "코드처럼 악보를 읽는 방법, 프로그래머를 위한 음악 이론의 비밀",
+            "key_takeaways": [
+              "음악 이론이 프로그래밍과 어떻게 유사한지 이해",
+              "코드 구조와 음정 간의 대응 관계",
+              "프로그래머를 위한 실용적인 연습 방법"
+            ]
+          },
+          "en": {
+            "title": "Music Theory for Programmers",
+            "hook": "Unlock the secret of music theory that helps programmers think in patterns, just like coding",
+            "key_takeaways": [
+              "How music theory mirrors programming concepts",
+              "Mapping chord progressions to algorithms",
+              "Practical exercises for developers"
+            ]
+          },
+          "zh": {
+            "title": "程序员的音乐理论",
+            "hook": "揭开音乐理论的秘密，帮助程序员以代码般的思维模式来理解音乐",
+            "key_takeaways": [
+              "音乐理论与编程的相似之处",
+              "和弦 progressions 与算法的对应关系",
+              "为开发者提供的实用练习方法"
+            ]
+          }
+        },
+        "dedup_fingerprint": {
+          "canonical_story_key": "music-theory-for-programmers",
+          "core_entities": [
+            "Music Theory Blog",
+            "Programmers",
+            "Education"
+          ],
+          "is_breaking_news": false
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-06T07:24:31.103478+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "프로그래머를 위한 음악 이론",
+          "hook": "코드처럼 악보를 읽는 방법, 프로그래머를 위한 음악 이론의 비밀",
+          "key_takeaways": [
+            "음악 이론이 프로그래밍과 어떻게 유사한지 이해",
+            "코드 구조와 음정 간의 대응 관계",
+            "프로그래머를 위한 실용적인 연습 방법"
+          ]
+        },
+        "en": {
+          "title": "Music Theory for Programmers",
+          "hook": "Unlock the secret of music theory that helps programmers think in patterns, just like coding",
+          "key_takeaways": [
+            "How music theory mirrors programming concepts",
+            "Mapping chord progressions to algorithms",
+            "Practical exercises for developers"
+          ]
+        },
+        "zh": {
+          "title": "程序员的音乐理论",
+          "hook": "揭开音乐理论的秘密，帮助程序员以代码般的思维模式来理解音乐",
+          "key_takeaways": [
+            "音乐理论与编程的相似之处",
+            "和弦 progressions 与算法的对应关系",
+            "为开发者提供的实用练习方法"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "music theory",
+        "programming",
+        "education"
+      ],
+      "title_ko": "프로그래머를 위한 음악 이론",
+      "title_en": "Music Theory for Programmers",
+      "title_zh": "程序员的音乐理论",
+      "hook": "코드처럼 악보를 읽는 방법, 프로그래머를 위한 음악 이론의 비밀",
+      "hook_ko": "코드처럼 악보를 읽는 방법, 프로그래머를 위한 음악 이론의 비밀",
+      "hook_en": "Unlock the secret of music theory that helps programmers think in patterns, just like coding",
+      "hook_zh": "揭开音乐理论的秘密，帮助程序员以代码般的思维模式来理解音乐",
+      "description_ko": "코드처럼 악보를 읽는 방법, 프로그래머를 위한 음악 이론의 비밀",
+      "description_en": "Unlock the secret of music theory that helps programmers think in patterns, just like coding",
+      "description_zh": "揭开音乐理论的秘密，帮助程序员以代码般的思维模式来理解音乐",
+      "category_primary": "INDUSTRY_TRENDS",
+      "dedup_fingerprint": {
+        "canonical_story_key": "music-theory-for-programmers",
+        "core_entities": [
+          "Music Theory Blog",
+          "Programmers",
+          "Education"
+        ],
+        "is_breaking_news": false
+      },
+      "canonical_story_key": "music-theory-for-programmers",
+      "core_entities": [
+        "Music Theory Blog",
+        "Programmers",
+        "Education"
+      ],
+      "sources": [
+        {
+          "source_name": "Hacker News",
+          "platform": "Hacker News",
+          "title": "Hacker News: Music Theory for Programmers",
+          "url": "https://news.ycombinator.com/item?id=49541888",
+          "type": "discussion",
+          "published_at": "2026-09-06T07:23:04.045478"
+        }
+      ],
+      "source_count": 1,
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
       "inbox_id": "2026-09-06_sns_geeknews_유럽을_벗어나지_않는_git_호스팅",
       "harvested_date": "2026-09-06",
       "harvested_at": "2026-09-06T04:58:30.005278",
@@ -49778,8 +50812,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49568697",
       "type": "repo",
       "category_type": "TECH",
-      "description": "Stars: 717, Forks: 53 | No description",
-      "viral_metric": "★ 717 Stars",
+      "description": "Stars: 735, Forks: 56 | No description",
+      "viral_metric": "★ 735 Stars",
       "metric_tracking": {
         "initial": {
           "value": 38,
@@ -49787,13 +50821,13 @@
           "recorded_at": "2026-09-04"
         },
         "latest": {
-          "value": 717,
-          "display": "★ 717 Stars",
+          "value": 735,
+          "display": "★ 735 Stars",
           "updated_at": "2026-09-06"
         },
-        "delta": 679,
-        "delta_display": "+679",
-        "growth_rate_pct": 1786.8,
+        "delta": 697,
+        "delta_display": "+697",
+        "growth_rate_pct": 1834.2,
         "is_spiking": true
       },
       "matched_user_domains": [
@@ -120721,6 +121755,1040 @@
   ],
   "inbox_items": [
     {
+      "inbox_id": "2026-09-06_sns_geeknews_grep이_lsp를_이긴다고_코딩_에이전트가_더_정교한_도구를_무",
+      "harvested_date": "2026-09-06",
+      "harvested_at": "2026-09-06T07:23:04.524377",
+      "published_at": "2026-09-06T07:23:04.524377",
+      "created_at": "2026-09-06T07:23:04.524377",
+      "updated_at": "2026-09-06T07:23:04.524377",
+      "title": "GeekNews: grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+      "source_platform": "GeekNews",
+      "source_url": "https://news.hada.io/topic?id=33273",
+      "type": "sns",
+      "category_type": "AGENT",
+      "description": "GeekNews Korean Tech Trend: grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+      "viral_metric": "🇰🇷 GeekNews 큐레이션",
+      "metric_tracking": {
+        "initial": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "recorded_at": "2026-09-06"
+        },
+        "latest": {
+          "value": 0,
+          "display": "🇰🇷 GeekNews 큐레이션",
+          "updated_at": "2026-09-06"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "title_ko": "grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+      "description_ko": "간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰",
+      "hn_url": "https://news.hada.io/topic?id=33273",
+      "article_url": "https://news.hada.io/topic?id=33273",
+      "ai_enrichment": {
+        "id": "2026-09-06_sns_geeknews_grep이_lsp를_이긴다고_코딩_에이전트가_더_정교한_도구를_무",
+        "source_lang": "KO",
+        "category_primary": "AGENTS_DEVTOOLS",
+        "type_classification": "AGENT",
+        "model_family": "Standalone",
+        "task_modality": "other",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "AI 코딩 에이전트 및 도구",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "grep",
+          "LSP",
+          "코딩 에이전트"
+        ],
+        "recommended_tag": "💡 유용한 도구",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+            "hook": "간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰",
+            "key_takeaways": [
+              "grep의 빠른 패턴 매칭이 심층적인 정적 분석보다 우세함을 보여줌",
+              "코딩 에이전트는 속도 우선 전략을 채택하여 정교한 LSP 기능을 의도적으로 무시함",
+              "개발자들은 도구 선택 시 성능과 복잡성 간의 균형을 재고해야 함"
+            ]
+          },
+          "en": {
+            "title": "Does grep beat LSP? Why coding agents ignore more sophisticated tools",
+            "hook": "A surprising insight: a simple grep command can outperform sophisticated LSP features in code comprehension",
+            "key_takeaways": [
+              "grep's raw pattern‑matching speed proves more effective than deep semantic analysis",
+              "Coding agents prioritize speed, deliberately sidelining advanced LSP capabilities",
+              "Developers should reconsider tool selection to balance performance and complexity"
+            ]
+          },
+          "zh": {
+            "title": "grep 胜过 LSP？编码代理为何忽视更精细的工具",
+            "hook": "一个惊人的发现：简单的 grep 命令在代码理解上可能超越复杂的 IDE 语言服务器协议 (LSP) 功能",
+            "key_takeaways": [
+              "grep 的快速模式匹配能力胜过深度静态分析",
+              "编码代理优先考虑速度，故意忽略复杂的 LSP 功能",
+              "开发者应重新评估工具选择，以平衡性能和复杂性"
+            ]
+          }
+        },
+        "dedup_fingerprint": {
+          "canonical_story_key": "grep-beats-lsp-coding-agents-ignore-tools",
+          "core_entities": [
+            "grep",
+            "LSP",
+            "코딩 에이전트"
+          ],
+          "is_breaking_news": false
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-06T07:23:20.378087+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+          "hook": "간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰",
+          "key_takeaways": [
+            "grep의 빠른 패턴 매칭이 심층적인 정적 분석보다 우세함을 보여줌",
+            "코딩 에이전트는 속도 우선 전략을 채택하여 정교한 LSP 기능을 의도적으로 무시함",
+            "개발자들은 도구 선택 시 성능과 복잡성 간의 균형을 재고해야 함"
+          ]
+        },
+        "en": {
+          "title": "Does grep beat LSP? Why coding agents ignore more sophisticated tools",
+          "hook": "A surprising insight: a simple grep command can outperform sophisticated LSP features in code comprehension",
+          "key_takeaways": [
+            "grep's raw pattern‑matching speed proves more effective than deep semantic analysis",
+            "Coding agents prioritize speed, deliberately sidelining advanced LSP capabilities",
+            "Developers should reconsider tool selection to balance performance and complexity"
+          ]
+        },
+        "zh": {
+          "title": "grep 胜过 LSP？编码代理为何忽视更精细的工具",
+          "hook": "一个惊人的发现：简单的 grep 命令在代码理解上可能超越复杂的 IDE 语言服务器协议 (LSP) 功能",
+          "key_takeaways": [
+            "grep 的快速模式匹配能力胜过深度静态分析",
+            "编码代理优先考虑速度，故意忽略复杂的 LSP 功能",
+            "开发者应重新评估工具选择，以平衡性能和复杂性"
+          ]
+        }
+      },
+      "source_lang": "KO",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "grep",
+        "LSP",
+        "코딩 에이전트"
+      ],
+      "title_en": "Does grep beat LSP? Why coding agents ignore more sophisticated tools",
+      "title_zh": "grep 胜过 LSP？编码代理为何忽视更精细的工具",
+      "hook": "간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰",
+      "hook_ko": "간단한 grep 명령어가 IDE의 정교한 언어 서버 프로토콜(LSP) 기능보다 코드 이해에 더 효과적이라는 놀라운 통찰",
+      "hook_en": "A surprising insight: a simple grep command can outperform sophisticated LSP features in code comprehension",
+      "hook_zh": "一个惊人的发现：简单的 grep 命令在代码理解上可能超越复杂的 IDE 语言服务器协议 (LSP) 功能",
+      "description_en": "A surprising insight: a simple grep command can outperform sophisticated LSP features in code comprehension",
+      "description_zh": "一个惊人的发现：简单的 grep 命令在代码理解上可能超越复杂的 IDE 语言服务器协议 (LSP) 功能",
+      "category_primary": "AGENTS_DEVTOOLS",
+      "dedup_fingerprint": {
+        "canonical_story_key": "grep-beats-lsp-coding-agents-ignore-tools",
+        "core_entities": [
+          "grep",
+          "LSP",
+          "코딩 에이전트"
+        ],
+        "is_breaking_news": false
+      },
+      "canonical_story_key": "grep-beats-lsp-coding-agents-ignore-tools",
+      "core_entities": [
+        "grep",
+        "LSP",
+        "코딩 에이전트"
+      ],
+      "sources": [
+        {
+          "source_name": "GeekNews",
+          "platform": "GeekNews",
+          "title": "GeekNews: grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+          "url": "https://news.hada.io/topic?id=33273",
+          "type": "discussion",
+          "published_at": "2026-09-06T07:23:04.524377"
+        }
+      ],
+      "source_count": 1,
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-06_sns_hacker_news_amd_based_freebsd_desktop_reloade",
+      "harvested_date": "2026-09-06",
+      "harvested_at": "2026-09-06T07:23:04.087167",
+      "published_at": "2026-09-06T02:24:57",
+      "created_at": "2026-09-06T02:24:57",
+      "updated_at": "2026-09-06T07:23:04.087167",
+      "title": "Hacker News: AMD Based FreeBSD Desktop Reloaded",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49582719",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 26 pts | Comments: 0 | AMD Based FreeBSD Desktop Reloaded",
+      "viral_metric": "🔥 26 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 26,
+          "display": "🔥 26 HN Points",
+          "recorded_at": "2026-09-06"
+        },
+        "latest": {
+          "value": 26,
+          "display": "🔥 26 HN Points",
+          "updated_at": "2026-09-06"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49582719",
+      "article_url": "https://vermaden.wordpress.com/2026/09/06/amd-based-freebsd-desktop-reloaded/",
+      "ai_enrichment": {
+        "id": "2026-09-06_sns_hacker_news_amd_based_freebsd_desktop_reloade",
+        "source_lang": "EN",
+        "category_primary": "INFRA_RAG_SECURITY",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "task_modality": "other",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "OS/Driver",
+        "programming_lang": "C",
+        "root_keywords": [
+          "AMD",
+          "FreeBSD",
+          "Desktop"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 2.5,
+        "multilingual": {
+          "ko": {
+            "title": "AMD 기반 FreeBSD 데스크톱 재등장",
+            "hook": "엔지니어들을 위한 오픈소스 UNIX, FreeBSD가 AMD 하드웨어에서 현대적인 데스크톱 경험을 제공합니다.",
+            "key_takeaways": [
+              "AMD CPU/GPU 지원 추가",
+              "드라이버 스택 및 하드웨어 호환성 개선",
+              "소비자 하드웨어에서의 성능 및 안정성 향상"
+            ]
+          },
+          "en": {
+            "title": "AMD Based FreeBSD Desktop Reloaded",
+            "hook": "FreeBSD gets a modern AMD‑powered desktop revival, bringing open‑source UNIX to new hardware.",
+            "key_takeaways": [
+              "AMD CPU/GPU support added",
+              "Improved driver stack and hardware compatibility",
+              "Performance and stability gains on consumer hardware"
+            ]
+          },
+          "zh": {
+            "title": "AMD 架构 FreeBSD 桌面重新加载",
+            "hook": "开源 UNIX 系统 FreeBSD 在 AMD 硬件上实现现代桌面复兴，为工程师提供新选择.",
+            "key_takeaways": [
+              "AMD CPU/GPU 支持新增",
+              "驱动程序栈和硬件兼容性优化",
+              "提升消费级硬件的性能和稳定性"
+            ]
+          }
+        },
+        "dedup_fingerprint": {
+          "canonical_story_key": "amd-based-freebsd-desktop-reloaded",
+          "core_entities": [
+            "AMD",
+            "FreeBSD",
+            "Desktop"
+          ],
+          "is_breaking_news": false
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-06T07:23:59.674903+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "AMD 기반 FreeBSD 데스크톱 재등장",
+          "hook": "엔지니어들을 위한 오픈소스 UNIX, FreeBSD가 AMD 하드웨어에서 현대적인 데스크톱 경험을 제공합니다.",
+          "key_takeaways": [
+            "AMD CPU/GPU 지원 추가",
+            "드라이버 스택 및 하드웨어 호환성 개선",
+            "소비자 하드웨어에서의 성능 및 안정성 향상"
+          ]
+        },
+        "en": {
+          "title": "AMD Based FreeBSD Desktop Reloaded",
+          "hook": "FreeBSD gets a modern AMD‑powered desktop revival, bringing open‑source UNIX to new hardware.",
+          "key_takeaways": [
+            "AMD CPU/GPU support added",
+            "Improved driver stack and hardware compatibility",
+            "Performance and stability gains on consumer hardware"
+          ]
+        },
+        "zh": {
+          "title": "AMD 架构 FreeBSD 桌面重新加载",
+          "hook": "开源 UNIX 系统 FreeBSD 在 AMD 硬件上实现现代桌面复兴，为工程师提供新选择.",
+          "key_takeaways": [
+            "AMD CPU/GPU 支持新增",
+            "驱动程序栈和硬件兼容性优化",
+            "提升消费级硬件的性能和稳定性"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "C",
+      "root_keywords": [
+        "AMD",
+        "FreeBSD",
+        "Desktop"
+      ],
+      "title_ko": "AMD 기반 FreeBSD 데스크톱 재등장",
+      "title_en": "AMD Based FreeBSD Desktop Reloaded",
+      "title_zh": "AMD 架构 FreeBSD 桌面重新加载",
+      "hook": "엔지니어들을 위한 오픈소스 UNIX, FreeBSD가 AMD 하드웨어에서 현대적인 데스크톱 경험을 제공합니다.",
+      "hook_ko": "엔지니어들을 위한 오픈소스 UNIX, FreeBSD가 AMD 하드웨어에서 현대적인 데스크톱 경험을 제공합니다.",
+      "hook_en": "FreeBSD gets a modern AMD‑powered desktop revival, bringing open‑source UNIX to new hardware.",
+      "hook_zh": "开源 UNIX 系统 FreeBSD 在 AMD 硬件上实现现代桌面复兴，为工程师提供新选择.",
+      "description_ko": "엔지니어들을 위한 오픈소스 UNIX, FreeBSD가 AMD 하드웨어에서 현대적인 데스크톱 경험을 제공합니다.",
+      "description_en": "FreeBSD gets a modern AMD‑powered desktop revival, bringing open‑source UNIX to new hardware.",
+      "description_zh": "开源 UNIX 系统 FreeBSD 在 AMD 硬件上实现现代桌面复兴，为工程师提供新选择.",
+      "category_primary": "INFRA_RAG_SECURITY",
+      "dedup_fingerprint": {
+        "canonical_story_key": "amd-based-freebsd-desktop-reloaded",
+        "core_entities": [
+          "AMD",
+          "FreeBSD",
+          "Desktop"
+        ],
+        "is_breaking_news": false
+      },
+      "canonical_story_key": "amd-based-freebsd-desktop-reloaded",
+      "core_entities": [
+        "AMD",
+        "FreeBSD",
+        "Desktop"
+      ],
+      "sources": [
+        {
+          "source_name": "Hacker News",
+          "platform": "Hacker News",
+          "title": "Hacker News: AMD Based FreeBSD Desktop Reloaded",
+          "url": "https://news.ycombinator.com/item?id=49582719",
+          "type": "discussion",
+          "published_at": "2026-09-06T07:23:04.087167"
+        }
+      ],
+      "source_count": 1,
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-06_sns_hacker_news_watch_the_eclipse_of_the_century_",
+      "harvested_date": "2026-09-06",
+      "harvested_at": "2026-09-06T07:23:04.074010",
+      "published_at": "2026-09-02T13:08:03",
+      "created_at": "2026-09-02T13:08:03",
+      "updated_at": "2026-09-06T07:23:04.074010",
+      "title": "Hacker News: Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49535634",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 11 pts | Comments: 4 | Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+      "viral_metric": "🔥 11 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 11,
+          "display": "🔥 11 HN Points",
+          "recorded_at": "2026-09-06"
+        },
+        "latest": {
+          "value": 11,
+          "display": "🔥 11 HN Points",
+          "updated_at": "2026-09-06"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49535634",
+      "article_url": "https://www.nytimes.com/2026/08/13/travel/solar-eclipse-2027-morocco-egypt.html",
+      "ai_enrichment": {
+        "id": "2026-09-06_sns_hacker_news_watch_the_eclipse_of_the_century_",
+        "source_lang": "EN",
+        "category_primary": "DEEP_SCIENCE_SPACE",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "task_modality": "other",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "Astronomical Events",
+        "programming_lang": "General",
+        "root_keywords": [
+          "eclipse",
+          "astronomy",
+          "2026"
+        ],
+        "recommended_tag": "🔥 Must-Read",
+        "worth_score": 4.0,
+        "multilingual": {
+          "ko": {
+            "title": "올해의 개기일식, 스페인·이집트 등 어두워진다",
+            "hook": "2026년 8월, 스페인·이집트 상공을 가르는 개기일식을 놓치지 마세요",
+            "key_takeaways": [
+              "2026년 8월 12일 개기일식 발생",
+              "경로에 포함된 국가: 스페인, 이집트, 그리스 등",
+              "안전한 관측 방법 및 장비 안내"
+            ]
+          },
+          "en": {
+            "title": "Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+            "hook": "Don't miss the 2026 total solar eclipse sweeping across Spain, Egypt, and beyond",
+            "key_takeaways": [
+              "Total solar eclipse on August 12, 2026",
+              "Path includes Spain, Egypt, Greece, and other countries",
+              "Safety tips for viewing the eclipse"
+            ]
+          },
+          "zh": {
+            "title": "今年的世纪日食，西班牙、埃及等地将变黑",
+            "hook": "2026年8月，西班牙、埃及等地的上空将发生壮观的日全食",
+            "key_takeaways": [
+              "2026年8月12日发生日全食",
+              "路径包括西班牙、埃及、希腊等国家",
+              "观看日全食的安全提示"
+            ]
+          }
+        },
+        "dedup_fingerprint": {
+          "canonical_story_key": "eclipse-of-the-century-2026",
+          "core_entities": [
+            "Total Solar Eclipse",
+            "NASA",
+            "Astronomers"
+          ],
+          "is_breaking_news": false
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-06T07:24:31.104307+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "올해의 개기일식, 스페인·이집트 등 어두워진다",
+          "hook": "2026년 8월, 스페인·이집트 상공을 가르는 개기일식을 놓치지 마세요",
+          "key_takeaways": [
+            "2026년 8월 12일 개기일식 발생",
+            "경로에 포함된 국가: 스페인, 이집트, 그리스 등",
+            "안전한 관측 방법 및 장비 안내"
+          ]
+        },
+        "en": {
+          "title": "Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+          "hook": "Don't miss the 2026 total solar eclipse sweeping across Spain, Egypt, and beyond",
+          "key_takeaways": [
+            "Total solar eclipse on August 12, 2026",
+            "Path includes Spain, Egypt, Greece, and other countries",
+            "Safety tips for viewing the eclipse"
+          ]
+        },
+        "zh": {
+          "title": "今年的世纪日食，西班牙、埃及等地将变黑",
+          "hook": "2026年8月，西班牙、埃及等地的上空将发生壮观的日全食",
+          "key_takeaways": [
+            "2026年8月12日发生日全食",
+            "路径包括西班牙、埃及、希腊等国家",
+            "观看日全食的安全提示"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "eclipse",
+        "astronomy",
+        "2026"
+      ],
+      "title_ko": "올해의 개기일식, 스페인·이집트 등 어두워진다",
+      "title_en": "Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+      "title_zh": "今年的世纪日食，西班牙、埃及等地将变黑",
+      "hook": "2026년 8월, 스페인·이집트 상공을 가르는 개기일식을 놓치지 마세요",
+      "hook_ko": "2026년 8월, 스페인·이집트 상공을 가르는 개기일식을 놓치지 마세요",
+      "hook_en": "Don't miss the 2026 total solar eclipse sweeping across Spain, Egypt, and beyond",
+      "hook_zh": "2026年8月，西班牙、埃及等地的上空将发生壮观的日全食",
+      "description_ko": "2026년 8월, 스페인·이집트 상공을 가르는 개기일식을 놓치지 마세요",
+      "description_en": "Don't miss the 2026 total solar eclipse sweeping across Spain, Egypt, and beyond",
+      "description_zh": "2026年8月，西班牙、埃及等地的上空将发生壮观的日全食",
+      "category_primary": "DEEP_SCIENCE_SPACE",
+      "dedup_fingerprint": {
+        "canonical_story_key": "eclipse-of-the-century-2026",
+        "core_entities": [
+          "Total Solar Eclipse",
+          "NASA",
+          "Astronomers"
+        ],
+        "is_breaking_news": false
+      },
+      "canonical_story_key": "eclipse-of-the-century-2026",
+      "core_entities": [
+        "Total Solar Eclipse",
+        "NASA",
+        "Astronomers"
+      ],
+      "sources": [
+        {
+          "source_name": "Hacker News",
+          "platform": "Hacker News",
+          "title": "Hacker News: Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+          "url": "https://news.ycombinator.com/item?id=49535634",
+          "type": "discussion",
+          "published_at": "2026-09-06T07:23:04.074010"
+        }
+      ],
+      "source_count": 1,
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-06_sns_hacker_news_music_theory_for_programmers",
+      "harvested_date": "2026-09-06",
+      "harvested_at": "2026-09-06T07:23:04.045478",
+      "published_at": "2026-09-02T20:19:13",
+      "created_at": "2026-09-02T20:19:13",
+      "updated_at": "2026-09-06T07:23:04.045478",
+      "title": "Hacker News: Music Theory for Programmers",
+      "source_platform": "Hacker News",
+      "source_url": "https://news.ycombinator.com/item?id=49541888",
+      "type": "sns",
+      "category_type": "NEWS",
+      "description": "HN Score: 61 pts | Comments: 17 | Music Theory for Programmers",
+      "viral_metric": "🔥 61 HN Points",
+      "metric_tracking": {
+        "initial": {
+          "value": 61,
+          "display": "🔥 61 HN Points",
+          "recorded_at": "2026-09-06"
+        },
+        "latest": {
+          "value": 61,
+          "display": "🔥 61 HN Points",
+          "updated_at": "2026-09-06"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "일반 최신 기술 (Tech General)"
+      ],
+      "status": "PENDING_REVIEW",
+      "hn_url": "https://news.ycombinator.com/item?id=49541888",
+      "article_url": "https://runjs.app/blog/music-theory-for-programmers",
+      "ai_enrichment": {
+        "id": "2026-09-06_sns_hacker_news_music_theory_for_programmers",
+        "source_lang": "EN",
+        "category_primary": "INDUSTRY_TRENDS",
+        "type_classification": "NEWS",
+        "model_family": "Standalone",
+        "task_modality": "other",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "Music Theory for Programmers",
+        "programming_lang": "General",
+        "root_keywords": [
+          "music theory",
+          "programming",
+          "education"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.0,
+        "multilingual": {
+          "ko": {
+            "title": "프로그래머를 위한 음악 이론",
+            "hook": "코드처럼 악보를 읽는 방법, 프로그래머를 위한 음악 이론의 비밀",
+            "key_takeaways": [
+              "음악 이론이 프로그래밍과 어떻게 유사한지 이해",
+              "코드 구조와 음정 간의 대응 관계",
+              "프로그래머를 위한 실용적인 연습 방법"
+            ]
+          },
+          "en": {
+            "title": "Music Theory for Programmers",
+            "hook": "Unlock the secret of music theory that helps programmers think in patterns, just like coding",
+            "key_takeaways": [
+              "How music theory mirrors programming concepts",
+              "Mapping chord progressions to algorithms",
+              "Practical exercises for developers"
+            ]
+          },
+          "zh": {
+            "title": "程序员的音乐理论",
+            "hook": "揭开音乐理论的秘密，帮助程序员以代码般的思维模式来理解音乐",
+            "key_takeaways": [
+              "音乐理论与编程的相似之处",
+              "和弦 progressions 与算法的对应关系",
+              "为开发者提供的实用练习方法"
+            ]
+          }
+        },
+        "dedup_fingerprint": {
+          "canonical_story_key": "music-theory-for-programmers",
+          "core_entities": [
+            "Music Theory Blog",
+            "Programmers",
+            "Education"
+          ],
+          "is_breaking_news": false
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-06T07:24:31.103478+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "프로그래머를 위한 음악 이론",
+          "hook": "코드처럼 악보를 읽는 방법, 프로그래머를 위한 음악 이론의 비밀",
+          "key_takeaways": [
+            "음악 이론이 프로그래밍과 어떻게 유사한지 이해",
+            "코드 구조와 음정 간의 대응 관계",
+            "프로그래머를 위한 실용적인 연습 방법"
+          ]
+        },
+        "en": {
+          "title": "Music Theory for Programmers",
+          "hook": "Unlock the secret of music theory that helps programmers think in patterns, just like coding",
+          "key_takeaways": [
+            "How music theory mirrors programming concepts",
+            "Mapping chord progressions to algorithms",
+            "Practical exercises for developers"
+          ]
+        },
+        "zh": {
+          "title": "程序员的音乐理论",
+          "hook": "揭开音乐理论的秘密，帮助程序员以代码般的思维模式来理解音乐",
+          "key_takeaways": [
+            "音乐理论与编程的相似之处",
+            "和弦 progressions 与算法的对应关系",
+            "为开发者提供的实用练习方法"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "General",
+      "root_keywords": [
+        "music theory",
+        "programming",
+        "education"
+      ],
+      "title_ko": "프로그래머를 위한 음악 이론",
+      "title_en": "Music Theory for Programmers",
+      "title_zh": "程序员的音乐理论",
+      "hook": "코드처럼 악보를 읽는 방법, 프로그래머를 위한 음악 이론의 비밀",
+      "hook_ko": "코드처럼 악보를 읽는 방법, 프로그래머를 위한 음악 이론의 비밀",
+      "hook_en": "Unlock the secret of music theory that helps programmers think in patterns, just like coding",
+      "hook_zh": "揭开音乐理论的秘密，帮助程序员以代码般的思维模式来理解音乐",
+      "description_ko": "코드처럼 악보를 읽는 방법, 프로그래머를 위한 음악 이론의 비밀",
+      "description_en": "Unlock the secret of music theory that helps programmers think in patterns, just like coding",
+      "description_zh": "揭开音乐理论的秘密，帮助程序员以代码般的思维模式来理解音乐",
+      "category_primary": "INDUSTRY_TRENDS",
+      "dedup_fingerprint": {
+        "canonical_story_key": "music-theory-for-programmers",
+        "core_entities": [
+          "Music Theory Blog",
+          "Programmers",
+          "Education"
+        ],
+        "is_breaking_news": false
+      },
+      "canonical_story_key": "music-theory-for-programmers",
+      "core_entities": [
+        "Music Theory Blog",
+        "Programmers",
+        "Education"
+      ],
+      "sources": [
+        {
+          "source_name": "Hacker News",
+          "platform": "Hacker News",
+          "title": "Hacker News: Music Theory for Programmers",
+          "url": "https://news.ycombinator.com/item?id=49541888",
+          "type": "discussion",
+          "published_at": "2026-09-06T07:23:04.045478"
+        }
+      ],
+      "source_count": 1,
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-06_repo_hf_space_geceff1firered_image_edit_10_fast",
+      "harvested_date": "2026-09-06",
+      "harvested_at": "2026-09-06T07:23:03.721126",
+      "published_at": "2026-09-06T07:23:03.721126",
+      "created_at": "2026-09-06T07:23:03.721126",
+      "updated_at": "2026-09-06T07:23:03.721126",
+      "title": "HF Space: geceff1/FireRed-Image-Edit-1.0-Fast",
+      "source_platform": "Hugging Face Spaces (Demo)",
+      "source_url": "https://huggingface.co/spaces/geceff1/FireRed-Image-Edit-1.0-Fast",
+      "type": "repo",
+      "category_type": "TECH",
+      "description": "Interactive AI Demo (SDK: gradio) | Likes: 12 | Live URL: https://huggingface.co/spaces/geceff1/FireRed-Image-Edit-1.0-Fast",
+      "viral_metric": "❤️ 12 Likes (Trending Demo)",
+      "metric_tracking": {
+        "initial": {
+          "value": 12,
+          "display": "❤️ 12 Likes (Trending Demo)",
+          "recorded_at": "2026-09-06"
+        },
+        "latest": {
+          "value": 12,
+          "display": "❤️ 12 Likes (Trending Demo)",
+          "updated_at": "2026-09-06"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW",
+      "ai_enrichment": {
+        "id": "2026-09-06_repo_hf_space_geceff1firered_image_edit_10_fast",
+        "source_lang": "EN",
+        "category_primary": "MULTIMODAL_AI",
+        "type_classification": "TECH",
+        "model_family": "Standalone",
+        "task_modality": "image-to-image",
+        "parameter_size": "N/A",
+        "detected_formats": [],
+        "category": "Interactive Image Editing Demo",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "image editing",
+          "AI demo",
+          "Gradio"
+        ],
+        "recommended_tag": "💡 Useful Tool",
+        "worth_score": 3.5,
+        "multilingual": {
+          "ko": {
+            "title": "FireRed 이미지 편집 1.0 패스트 – 실시간 인터랙티브 이미지 편집 데모",
+            "hook": "코드 없이 드래그 앤 드롭만으로 사진을 걸작으로 바꿔주는 초고속 Gradio 기반 AI 이미지 편집기 – 지금 바로 체험하세요.",
+            "key_takeaways": [
+              "코딩 없이 실시간 웹 기반 이미지 편집 가능",
+              "Gradio SDK를 활용한 즉시 UI 상호작용",
+              "FireRed의 빠른 추론 파이프라인을 보여주는 오픈소스 데모"
+            ]
+          },
+          "en": {
+            "title": "FireRed Image Edit 1.0 Fast – Real‑Time Interactive Image Editing Demo",
+            "hook": "Turn your photos into masterpieces with this lightning‑fast, Gradio‑powered image editor – no code, just drag, drop, and AI magic.",
+            "key_takeaways": [
+              "Real‑time, web‑based image editing without coding",
+              "Built on Gradio SDK for instant UI interaction",
+              "Open‑source demo showcasing FireRed’s fast inference pipeline"
+            ]
+          },
+          "zh": {
+            "title": "FireRed 图像编辑 1.0 快速版 – 实时交互式图像编辑演示",
+            "hook": "这款基于 Gradio 的 AI 图像编辑器让您无需编码即可通过拖放操作将照片变成 masterpieces，速度超快，立即体验 AI 魔法。",
+            "key_takeaways": [
+              "无需编码即可进行实时网络图像编辑",
+              "利用 Gradio SDK 实现即时 UI 交互",
+              "展示 FireRed 快速推理管道的开源演示"
+            ]
+          }
+        },
+        "dedup_fingerprint": {
+          "canonical_story_key": "fire-red-image-edit-1-0-fast-demo",
+          "core_entities": [
+            "geceff1",
+            "FireRed",
+            "Gradio"
+          ],
+          "is_breaking_news": false
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-06T07:23:40.923247+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "FireRed 이미지 편집 1.0 패스트 – 실시간 인터랙티브 이미지 편집 데모",
+          "hook": "코드 없이 드래그 앤 드롭만으로 사진을 걸작으로 바꿔주는 초고속 Gradio 기반 AI 이미지 편집기 – 지금 바로 체험하세요.",
+          "key_takeaways": [
+            "코딩 없이 실시간 웹 기반 이미지 편집 가능",
+            "Gradio SDK를 활용한 즉시 UI 상호작용",
+            "FireRed의 빠른 추론 파이프라인을 보여주는 오픈소스 데모"
+          ]
+        },
+        "en": {
+          "title": "FireRed Image Edit 1.0 Fast – Real‑Time Interactive Image Editing Demo",
+          "hook": "Turn your photos into masterpieces with this lightning‑fast, Gradio‑powered image editor – no code, just drag, drop, and AI magic.",
+          "key_takeaways": [
+            "Real‑time, web‑based image editing without coding",
+            "Built on Gradio SDK for instant UI interaction",
+            "Open‑source demo showcasing FireRed’s fast inference pipeline"
+          ]
+        },
+        "zh": {
+          "title": "FireRed 图像编辑 1.0 快速版 – 实时交互式图像编辑演示",
+          "hook": "这款基于 Gradio 的 AI 图像编辑器让您无需编码即可通过拖放操作将照片变成 masterpieces，速度超快，立即体验 AI 魔法。",
+          "key_takeaways": [
+            "无需编码即可进行实时网络图像编辑",
+            "利用 Gradio SDK 实现即时 UI 交互",
+            "展示 FireRed 快速推理管道的开源演示"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "image editing",
+        "AI demo",
+        "Gradio"
+      ],
+      "title_ko": "FireRed 이미지 편집 1.0 패스트 – 실시간 인터랙티브 이미지 편집 데모",
+      "title_en": "FireRed Image Edit 1.0 Fast – Real‑Time Interactive Image Editing Demo",
+      "title_zh": "FireRed 图像编辑 1.0 快速版 – 实时交互式图像编辑演示",
+      "hook": "코드 없이 드래그 앤 드롭만으로 사진을 걸작으로 바꿔주는 초고속 Gradio 기반 AI 이미지 편집기 – 지금 바로 체험하세요.",
+      "hook_ko": "코드 없이 드래그 앤 드롭만으로 사진을 걸작으로 바꿔주는 초고속 Gradio 기반 AI 이미지 편집기 – 지금 바로 체험하세요.",
+      "hook_en": "Turn your photos into masterpieces with this lightning‑fast, Gradio‑powered image editor – no code, just drag, drop, and AI magic.",
+      "hook_zh": "这款基于 Gradio 的 AI 图像编辑器让您无需编码即可通过拖放操作将照片变成 masterpieces，速度超快，立即体验 AI 魔法。",
+      "description_ko": "코드 없이 드래그 앤 드롭만으로 사진을 걸작으로 바꿔주는 초고속 Gradio 기반 AI 이미지 편집기 – 지금 바로 체험하세요.",
+      "description_en": "Turn your photos into masterpieces with this lightning‑fast, Gradio‑powered image editor – no code, just drag, drop, and AI magic.",
+      "description_zh": "这款基于 Gradio 的 AI 图像编辑器让您无需编码即可通过拖放操作将照片变成 masterpieces，速度超快，立即体验 AI 魔法。",
+      "category_primary": "MULTIMODAL_AI",
+      "dedup_fingerprint": {
+        "canonical_story_key": "fire-red-image-edit-1-0-fast-demo",
+        "core_entities": [
+          "geceff1",
+          "FireRed",
+          "Gradio"
+        ],
+        "is_breaking_news": false
+      },
+      "canonical_story_key": "fire-red-image-edit-1-0-fast-demo",
+      "core_entities": [
+        "geceff1",
+        "FireRed",
+        "Gradio"
+      ],
+      "sources": [
+        {
+          "source_name": "Hugging Face Spaces (Demo)",
+          "platform": "Hugging Face Spaces (Demo)",
+          "title": "HF Space: geceff1/FireRed-Image-Edit-1.0-Fast",
+          "url": "https://huggingface.co/spaces/geceff1/FireRed-Image-Edit-1.0-Fast",
+          "type": "media",
+          "published_at": "2026-09-06T07:23:03.721126"
+        }
+      ],
+      "source_count": 1,
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
+      "inbox_id": "2026-09-06_repo_huggingface_model_nvidiaqwen38_flash_next_nvf",
+      "harvested_date": "2026-09-06",
+      "harvested_at": "2026-09-06T07:23:03.405949",
+      "published_at": "2026-09-06T07:23:03.405949",
+      "created_at": "2026-09-06T07:23:03.405949",
+      "updated_at": "2026-09-06T07:23:03.405949",
+      "title": "HuggingFace Model: nvidia/Qwen3.8-Flash-Next-NVFP4",
+      "source_platform": "Hugging Face Models",
+      "source_url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-NVFP4",
+      "type": "repo",
+      "category_type": "MODEL",
+      "description": "Trending Score: 103, Downloads: 1129, Likes: 104, Pipeline: image-text-to-text",
+      "viral_metric": "Trending 103 pts (❤️ 104)",
+      "metric_tracking": {
+        "initial": {
+          "value": 103,
+          "display": "Trending 103 pts (❤️ 104)",
+          "recorded_at": "2026-09-06"
+        },
+        "latest": {
+          "value": 103,
+          "display": "Trending 103 pts (❤️ 104)",
+          "updated_at": "2026-09-06"
+        },
+        "delta": 0,
+        "delta_display": "+0",
+        "growth_rate_pct": 0.0,
+        "is_spiking": false
+      },
+      "matched_user_domains": [
+        "DX & Python 업무 프로세스 자동화",
+        "생성형 마케팅 & GEO/SEO 최적화"
+      ],
+      "status": "PENDING_REVIEW",
+      "task_modality": "text-to-text",
+      "model_family": "Qwen",
+      "parameter_size": "3.8B",
+      "detected_formats": [
+        "GGUF",
+        "Safetensors"
+      ],
+      "library_name": "Model Optimizer",
+      "ai_enrichment": {
+        "id": "2026-09-06_repo_huggingface_model_nvidiaqwen38_flash_next_nvf",
+        "source_lang": "EN",
+        "category_primary": "INFERENCE_OPT",
+        "type_classification": "MODEL",
+        "model_family": "Qwen",
+        "task_modality": "text-to-text",
+        "parameter_size": "3.8B",
+        "detected_formats": [
+          "GGUF",
+          "Safetensors"
+        ],
+        "category": "Optimized LLM with NVFP4 quantization",
+        "programming_lang": "Python",
+        "root_keywords": [
+          "Qwen",
+          "NVFP4",
+          "inference optimization"
+        ],
+        "recommended_tag": "🔥 Must‑Read",
+        "worth_score": 4.5,
+        "multilingual": {
+          "ko": {
+            "title": "NVFP4 양자화를 적용한 NVIDIA Qwen3.8-Flash-Next – 초고속 LLM 추론 모델",
+            "hook": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+            "key_takeaways": [
+              "3.8B 파라미터 모델, NVFP4 초저정밀도 가중치로 추론 속도 향상",
+              "Flash-Next 커널로 NVIDIA GPU에서 토큰 생성 가속화",
+              "GGUF 및 Safetensors 형식으로 제공, 엣지 및 클라우드 서빙에 최적화"
+            ]
+          },
+          "en": {
+            "title": "NVIDIA Qwen3.8‑Flash‑Next with NVFP4 – Ultra‑Fast Quantized LLM",
+            "hook": "Achieve 3.8B‑parameter LLM inference at record speed with NVIDIA’s NVFP4 quantization and Flash‑Next kernel – ideal for production deployments.",
+            "key_takeaways": [
+              "3.8B‑parameter model with NVFP4 ultra‑low‑precision weights for faster inference",
+              "Flash‑Next kernel accelerates token generation on NVIDIA GPUs",
+              "Available in GGUF & Safetensors, optimized for edge and cloud serving"
+            ]
+          },
+          "zh": {
+            "title": "NVIDIA Qwen3.8-Flash-Next 搭配 NVFP4 量子化 – 超高速 LLM 推理模型",
+            "hook": "利用 NVIDIA 的 NVFP4 量子化和 Flash-Next 内核，实现 3.8B 参数 LLM 的创纪录推理速度 – 非常适合生产环境部署。",
+            "key_takeaways": [
+              "3.8B 参数模型，采用 NVFP4 超低精度权重以提升推理速度",
+              "Flash-Next 内核加速 NVIDIA GPU 上的 token 生成",
+              "提供 GGUF 和 Safetensors 格式，优化边缘和云端服务"
+            ]
+          }
+        },
+        "dedup_fingerprint": {
+          "canonical_story_key": "nvidia-qwen3-8-flash-next-nvfp4-release",
+          "core_entities": [
+            "NVIDIA",
+            "Qwen",
+            "NVFP4"
+          ],
+          "is_breaking_news": false
+        },
+        "enriched_by_model": "cohere/north-mini-code:free",
+        "enriched_at": "2026-09-06T07:23:40.924108+00:00"
+      },
+      "multilingual": {
+        "ko": {
+          "title": "NVFP4 양자화를 적용한 NVIDIA Qwen3.8-Flash-Next – 초고속 LLM 추론 모델",
+          "hook": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+          "key_takeaways": [
+            "3.8B 파라미터 모델, NVFP4 초저정밀도 가중치로 추론 속도 향상",
+            "Flash-Next 커널로 NVIDIA GPU에서 토큰 생성 가속화",
+            "GGUF 및 Safetensors 형식으로 제공, 엣지 및 클라우드 서빙에 최적화"
+          ]
+        },
+        "en": {
+          "title": "NVIDIA Qwen3.8‑Flash‑Next with NVFP4 – Ultra‑Fast Quantized LLM",
+          "hook": "Achieve 3.8B‑parameter LLM inference at record speed with NVIDIA’s NVFP4 quantization and Flash‑Next kernel – ideal for production deployments.",
+          "key_takeaways": [
+            "3.8B‑parameter model with NVFP4 ultra‑low‑precision weights for faster inference",
+            "Flash‑Next kernel accelerates token generation on NVIDIA GPUs",
+            "Available in GGUF & Safetensors, optimized for edge and cloud serving"
+          ]
+        },
+        "zh": {
+          "title": "NVIDIA Qwen3.8-Flash-Next 搭配 NVFP4 量子化 – 超高速 LLM 推理模型",
+          "hook": "利用 NVIDIA 的 NVFP4 量子化和 Flash-Next 内核，实现 3.8B 参数 LLM 的创纪录推理速度 – 非常适合生产环境部署。",
+          "key_takeaways": [
+            "3.8B 参数模型，采用 NVFP4 超低精度权重以提升推理速度",
+            "Flash-Next 内核加速 NVIDIA GPU 上的 token 生成",
+            "提供 GGUF 和 Safetensors 格式，优化边缘和云端服务"
+          ]
+        }
+      },
+      "source_lang": "EN",
+      "programming_lang": "Python",
+      "root_keywords": [
+        "Qwen",
+        "NVFP4",
+        "inference optimization"
+      ],
+      "title_ko": "NVFP4 양자화를 적용한 NVIDIA Qwen3.8-Flash-Next – 초고속 LLM 추론 모델",
+      "title_en": "NVIDIA Qwen3.8‑Flash‑Next with NVFP4 – Ultra‑Fast Quantized LLM",
+      "title_zh": "NVIDIA Qwen3.8-Flash-Next 搭配 NVFP4 量子化 – 超高速 LLM 推理模型",
+      "hook": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+      "hook_ko": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+      "hook_en": "Achieve 3.8B‑parameter LLM inference at record speed with NVIDIA’s NVFP4 quantization and Flash‑Next kernel – ideal for production deployments.",
+      "hook_zh": "利用 NVIDIA 的 NVFP4 量子化和 Flash-Next 内核，实现 3.8B 参数 LLM 的创纪录推理速度 – 非常适合生产环境部署。",
+      "description_ko": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+      "description_en": "Achieve 3.8B‑parameter LLM inference at record speed with NVIDIA’s NVFP4 quantization and Flash‑Next kernel – ideal for production deployments.",
+      "description_zh": "利用 NVIDIA 的 NVFP4 量子化和 Flash-Next 内核，实现 3.8B 参数 LLM 的创纪录推理速度 – 非常适合生产环境部署。",
+      "category_primary": "INFERENCE_OPT",
+      "dedup_fingerprint": {
+        "canonical_story_key": "nvidia-qwen3-8-flash-next-nvfp4-release",
+        "core_entities": [
+          "NVIDIA",
+          "Qwen",
+          "NVFP4"
+        ],
+        "is_breaking_news": false
+      },
+      "canonical_story_key": "nvidia-qwen3-8-flash-next-nvfp4-release",
+      "core_entities": [
+        "NVIDIA",
+        "Qwen",
+        "NVFP4"
+      ],
+      "sources": [
+        {
+          "source_name": "Hugging Face Models",
+          "platform": "Hugging Face Models",
+          "title": "HuggingFace Model: nvidia/Qwen3.8-Flash-Next-NVFP4",
+          "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-NVFP4",
+          "type": "media",
+          "published_at": "2026-09-06T07:23:03.405949"
+        }
+      ],
+      "source_count": 1,
+      "is_classified": true,
+      "is_deep_analyzed": false
+    },
+    {
       "inbox_id": "2026-09-06_sns_geeknews_유럽을_벗어나지_않는_git_호스팅",
       "harvested_date": "2026-09-06",
       "harvested_at": "2026-09-06T04:58:30.005278",
@@ -139066,8 +141134,8 @@
       "source_url": "https://news.ycombinator.com/item?id=49568697",
       "type": "repo",
       "category_type": "TECH",
-      "description": "Stars: 717, Forks: 53 | No description",
-      "viral_metric": "★ 717 Stars",
+      "description": "Stars: 735, Forks: 56 | No description",
+      "viral_metric": "★ 735 Stars",
       "metric_tracking": {
         "initial": {
           "value": 38,
@@ -139075,13 +141143,13 @@
           "recorded_at": "2026-09-04"
         },
         "latest": {
-          "value": 717,
-          "display": "★ 717 Stars",
+          "value": 735,
+          "display": "★ 735 Stars",
           "updated_at": "2026-09-06"
         },
-        "delta": 679,
-        "delta_display": "+679",
-        "growth_rate_pct": 1786.8,
+        "delta": 697,
+        "delta_display": "+697",
+        "growth_rate_pct": 1834.2,
         "is_spiking": true
       },
       "matched_user_domains": [

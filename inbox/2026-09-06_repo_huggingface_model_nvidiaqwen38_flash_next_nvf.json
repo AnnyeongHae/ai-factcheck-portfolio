@@ -1,0 +1,181 @@
+{
+  "inbox_id": "2026-09-06_repo_huggingface_model_nvidiaqwen38_flash_next_nvf",
+  "harvested_date": "2026-09-06",
+  "harvested_at": "2026-09-06T07:23:03.405949",
+  "published_at": "2026-09-06T07:23:03.405949",
+  "created_at": "2026-09-06T07:23:03.405949",
+  "updated_at": "2026-09-06T07:23:03.405949",
+  "title": "HuggingFace Model: nvidia/Qwen3.8-Flash-Next-NVFP4",
+  "source_platform": "Hugging Face Models",
+  "source_url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-NVFP4",
+  "type": "repo",
+  "category_type": "MODEL",
+  "description": "Trending Score: 103, Downloads: 1129, Likes: 104, Pipeline: image-text-to-text",
+  "viral_metric": "Trending 103 pts (❤️ 104)",
+  "metric_tracking": {
+    "initial": {
+      "value": 103,
+      "display": "Trending 103 pts (❤️ 104)",
+      "recorded_at": "2026-09-06"
+    },
+    "latest": {
+      "value": 103,
+      "display": "Trending 103 pts (❤️ 104)",
+      "updated_at": "2026-09-06"
+    },
+    "delta": 0,
+    "delta_display": "+0",
+    "growth_rate_pct": 0.0,
+    "is_spiking": false
+  },
+  "matched_user_domains": [
+    "DX & Python 업무 프로세스 자동화",
+    "생성형 마케팅 & GEO/SEO 최적화"
+  ],
+  "status": "PENDING_REVIEW",
+  "task_modality": "text-to-text",
+  "model_family": "Qwen",
+  "parameter_size": "3.8B",
+  "detected_formats": [
+    "GGUF",
+    "Safetensors"
+  ],
+  "library_name": "Model Optimizer",
+  "ai_enrichment": {
+    "id": "2026-09-06_repo_huggingface_model_nvidiaqwen38_flash_next_nvf",
+    "source_lang": "EN",
+    "category_primary": "INFERENCE_OPT",
+    "type_classification": "MODEL",
+    "model_family": "Qwen",
+    "task_modality": "text-to-text",
+    "parameter_size": "3.8B",
+    "detected_formats": [
+      "GGUF",
+      "Safetensors"
+    ],
+    "category": "Optimized LLM with NVFP4 quantization",
+    "programming_lang": "Python",
+    "root_keywords": [
+      "Qwen",
+      "NVFP4",
+      "inference optimization"
+    ],
+    "recommended_tag": "🔥 Must‑Read",
+    "worth_score": 4.5,
+    "multilingual": {
+      "ko": {
+        "title": "NVFP4 양자화를 적용한 NVIDIA Qwen3.8-Flash-Next – 초고속 LLM 추론 모델",
+        "hook": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+        "key_takeaways": [
+          "3.8B 파라미터 모델, NVFP4 초저정밀도 가중치로 추론 속도 향상",
+          "Flash-Next 커널로 NVIDIA GPU에서 토큰 생성 가속화",
+          "GGUF 및 Safetensors 형식으로 제공, 엣지 및 클라우드 서빙에 최적화"
+        ]
+      },
+      "en": {
+        "title": "NVIDIA Qwen3.8‑Flash‑Next with NVFP4 – Ultra‑Fast Quantized LLM",
+        "hook": "Achieve 3.8B‑parameter LLM inference at record speed with NVIDIA’s NVFP4 quantization and Flash‑Next kernel – ideal for production deployments.",
+        "key_takeaways": [
+          "3.8B‑parameter model with NVFP4 ultra‑low‑precision weights for faster inference",
+          "Flash‑Next kernel accelerates token generation on NVIDIA GPUs",
+          "Available in GGUF & Safetensors, optimized for edge and cloud serving"
+        ]
+      },
+      "zh": {
+        "title": "NVIDIA Qwen3.8-Flash-Next 搭配 NVFP4 量子化 – 超高速 LLM 推理模型",
+        "hook": "利用 NVIDIA 的 NVFP4 量子化和 Flash-Next 内核，实现 3.8B 参数 LLM 的创纪录推理速度 – 非常适合生产环境部署。",
+        "key_takeaways": [
+          "3.8B 参数模型，采用 NVFP4 超低精度权重以提升推理速度",
+          "Flash-Next 内核加速 NVIDIA GPU 上的 token 生成",
+          "提供 GGUF 和 Safetensors 格式，优化边缘和云端服务"
+        ]
+      }
+    },
+    "dedup_fingerprint": {
+      "canonical_story_key": "nvidia-qwen3-8-flash-next-nvfp4-release",
+      "core_entities": [
+        "NVIDIA",
+        "Qwen",
+        "NVFP4"
+      ],
+      "is_breaking_news": false
+    },
+    "enriched_by_model": "cohere/north-mini-code:free",
+    "enriched_at": "2026-09-06T07:23:40.924108+00:00"
+  },
+  "multilingual": {
+    "ko": {
+      "title": "NVFP4 양자화를 적용한 NVIDIA Qwen3.8-Flash-Next – 초고속 LLM 추론 모델",
+      "hook": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+      "key_takeaways": [
+        "3.8B 파라미터 모델, NVFP4 초저정밀도 가중치로 추론 속도 향상",
+        "Flash-Next 커널로 NVIDIA GPU에서 토큰 생성 가속화",
+        "GGUF 및 Safetensors 형식으로 제공, 엣지 및 클라우드 서빙에 최적화"
+      ]
+    },
+    "en": {
+      "title": "NVIDIA Qwen3.8‑Flash‑Next with NVFP4 – Ultra‑Fast Quantized LLM",
+      "hook": "Achieve 3.8B‑parameter LLM inference at record speed with NVIDIA’s NVFP4 quantization and Flash‑Next kernel – ideal for production deployments.",
+      "key_takeaways": [
+        "3.8B‑parameter model with NVFP4 ultra‑low‑precision weights for faster inference",
+        "Flash‑Next kernel accelerates token generation on NVIDIA GPUs",
+        "Available in GGUF & Safetensors, optimized for edge and cloud serving"
+      ]
+    },
+    "zh": {
+      "title": "NVIDIA Qwen3.8-Flash-Next 搭配 NVFP4 量子化 – 超高速 LLM 推理模型",
+      "hook": "利用 NVIDIA 的 NVFP4 量子化和 Flash-Next 内核，实现 3.8B 参数 LLM 的创纪录推理速度 – 非常适合生产环境部署。",
+      "key_takeaways": [
+        "3.8B 参数模型，采用 NVFP4 超低精度权重以提升推理速度",
+        "Flash-Next 内核加速 NVIDIA GPU 上的 token 生成",
+        "提供 GGUF 和 Safetensors 格式，优化边缘和云端服务"
+      ]
+    }
+  },
+  "source_lang": "EN",
+  "programming_lang": "Python",
+  "root_keywords": [
+    "Qwen",
+    "NVFP4",
+    "inference optimization"
+  ],
+  "title_ko": "NVFP4 양자화를 적용한 NVIDIA Qwen3.8-Flash-Next – 초고속 LLM 추론 모델",
+  "title_en": "NVIDIA Qwen3.8‑Flash‑Next with NVFP4 – Ultra‑Fast Quantized LLM",
+  "title_zh": "NVIDIA Qwen3.8-Flash-Next 搭配 NVFP4 量子化 – 超高速 LLM 推理模型",
+  "hook": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+  "hook_ko": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+  "hook_en": "Achieve 3.8B‑parameter LLM inference at record speed with NVIDIA’s NVFP4 quantization and Flash‑Next kernel – ideal for production deployments.",
+  "hook_zh": "利用 NVIDIA 的 NVFP4 量子化和 Flash-Next 内核，实现 3.8B 参数 LLM 的创纪录推理速度 – 非常适合生产环境部署。",
+  "description_ko": "NVIDIA의 NVFP4 양자화와 Flash-Next 커널로 3.8B 파라미터 LLM 추론을 기록적인 속도로 구현 – 프로덕션 환경에 최적화.",
+  "description_en": "Achieve 3.8B‑parameter LLM inference at record speed with NVIDIA’s NVFP4 quantization and Flash‑Next kernel – ideal for production deployments.",
+  "description_zh": "利用 NVIDIA 的 NVFP4 量子化和 Flash-Next 内核，实现 3.8B 参数 LLM 的创纪录推理速度 – 非常适合生产环境部署。",
+  "category_primary": "INFERENCE_OPT",
+  "dedup_fingerprint": {
+    "canonical_story_key": "nvidia-qwen3-8-flash-next-nvfp4-release",
+    "core_entities": [
+      "NVIDIA",
+      "Qwen",
+      "NVFP4"
+    ],
+    "is_breaking_news": false
+  },
+  "canonical_story_key": "nvidia-qwen3-8-flash-next-nvfp4-release",
+  "core_entities": [
+    "NVIDIA",
+    "Qwen",
+    "NVFP4"
+  ],
+  "sources": [
+    {
+      "source_name": "Hugging Face Models",
+      "platform": "Hugging Face Models",
+      "title": "HuggingFace Model: nvidia/Qwen3.8-Flash-Next-NVFP4",
+      "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-NVFP4",
+      "type": "media",
+      "published_at": "2026-09-06T07:23:03.405949"
+    }
+  ],
+  "source_count": 1,
+  "is_classified": true,
+  "is_deep_analyzed": false
+}

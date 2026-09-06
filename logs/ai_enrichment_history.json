@@ -8463,5 +8463,148 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260906_072305",
+    "timestamp": "2026-09-06T07:23:05.017808+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 12,
+    "requested_limit": 0,
+    "processed_count": 12,
+    "success_count": 12,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 10
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.35,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_grep이_lsp를_이긴다고_코딩_에이전트가_더_정교한_도구를_무",
+            "title": "GeekNews: grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+            "title_ko": "grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-06T07:23:20.377555+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_grep이_lsp를_이긴다고_코딩_에이전트가_더_정교한_도구를_무",
+            "title": "GeekNews: grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+            "title_ko": "grep이 LSP를 이긴다고? 코딩 에이전트가 더 정교한 도구를 무시하는 이유",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-06T07:23:20.378087+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_hf_space_geceff1firered_image_edit_10_fast",
+            "title": "HF Space: geceff1/FireRed-Image-Edit-1.0-Fast",
+            "title_ko": "HF Space: FireRed-Image-Edit-1.0-Fast 이미지 편집 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T07:23:20.378518+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.04,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_repo_hf_space_geceff1firered_image_edit_10_fast",
+            "title": "HF Space: geceff1/FireRed-Image-Edit-1.0-Fast",
+            "title_ko": "FireRed 이미지 편집 1.0 패스트 – 실시간 인터랙티브 이미지 편집 데모",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T07:23:40.923247+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_huggingface_model_nvidiaqwen38_flash_next_nvf",
+            "title": "HuggingFace Model: nvidia/Qwen3.8-Flash-Next-NVFP4",
+            "title_ko": "NVFP4 양자화를 적용한 NVIDIA Qwen3.8-Flash-Next – 초고속 LLM 추론 모델",
+            "classification": "MODEL",
+            "model_family": "Qwen",
+            "enriched_at": "2026-09-06T07:23:40.923754+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_huggingface_model_nvidiaqwen38_flash_next_nvf",
+            "title": "HuggingFace Model: nvidia/Qwen3.8-Flash-Next-NVFP4",
+            "title_ko": "NVFP4 양자화를 적용한 NVIDIA Qwen3.8-Flash-Next – 초고속 LLM 추론 모델",
+            "classification": "MODEL",
+            "model_family": "Qwen",
+            "enriched_at": "2026-09-06T07:23:40.924108+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 18.25,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_amd_based_freebsd_desktop_reloade",
+            "title": "Hacker News: AMD Based FreeBSD Desktop Reloaded",
+            "title_ko": "AMD 기반 FreeBSD 데스크톱 재등장",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T07:23:59.674387+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_amd_based_freebsd_desktop_reloade",
+            "title": "Hacker News: AMD Based FreeBSD Desktop Reloaded",
+            "title_ko": "AMD 기반 FreeBSD 데스크톱 재등장",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T07:23:59.674903+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_music_theory_for_programmers",
+            "title": "Hacker News: Music Theory for Programmers",
+            "title_ko": "프로그래머를 위한 음악 이론",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T07:23:59.675313+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 30.93,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_music_theory_for_programmers",
+            "title": "Hacker News: Music Theory for Programmers",
+            "title_ko": "프로그래머를 위한 음악 이론",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T07:24:31.103478+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_watch_the_eclipse_of_the_century_",
+            "title": "Hacker News: Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+            "title_ko": "올해의 개기일식, 스페인·이집트 등 어두워진다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T07:24:31.103967+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_watch_the_eclipse_of_the_century_",
+            "title": "Hacker News: Watch the 'Eclipse of the Century' Next Year When Spain, Egypt and More Go Dark",
+            "title_ko": "올해의 개기일식, 스페인·이집트 등 어두워진다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T07:24:31.104307+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
