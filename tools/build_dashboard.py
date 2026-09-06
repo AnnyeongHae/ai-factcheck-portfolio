@@ -138,11 +138,9 @@ def get_harvest_admin_stats():
 
 def build_dashboard():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    dash_dir = os.path.join(base_dir, "dashboard")
     docs_dir = os.path.join(base_dir, "docs")
     public_dir = os.path.join(base_dir, "public")
     
-    os.makedirs(dash_dir, exist_ok=True)
     os.makedirs(docs_dir, exist_ok=True)
     os.makedirs(public_dir, exist_ok=True)
 

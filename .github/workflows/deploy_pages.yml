@@ -56,7 +56,7 @@ jobs:
         run: |
           python tools/harvest_trends.py
 
-      - name: Real-Time 1-by-1 AI Enrichment (Scheduled/Manual Only)
+      - name: Real-Time AI Enrichment (Scheduled/Manual Only)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -64,7 +64,7 @@ jobs:
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
-          python tools/enrich_inbox_with_ai.py --all --batch-size 1 --provider auto
+          python tools/enrich_inbox_with_ai.py --all --batch-size 3 --cooldown 0.5 --provider auto
 
       - name: Sync Data to Neon Postgres Cloud DB (Scheduled/Manual Only)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -81,7 +81,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add inbox/ docs/ dashboard/ logs/
+          git add inbox/ docs/ public/ logs/
           if ! git diff --staged --quiet; then
             git commit -m "chore(auto-harvest): Daily multi-source trend collection & Neon DB sync"
             git pull origin main --rebase --autostash || true

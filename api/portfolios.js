@@ -31,9 +31,9 @@ function getStaticFallback() {
     const path = require('path');
     const candidatePaths = [
       path.join(process.cwd(), 'public', 'data.json'),
-      path.join(process.cwd(), 'dashboard', 'data.json'),
+      path.join(process.cwd(), 'docs', 'data.json'),
       path.join(__dirname, '..', 'public', 'data.json'),
-      path.join(__dirname, '..', 'dashboard', 'data.json')
+      path.join(__dirname, '..', 'docs', 'data.json')
     ];
     for (const p of candidatePaths) {
       if (fs.existsSync(p)) {

@@ -1,10 +1,11 @@
-﻿name: Build & Deploy Pages (Code Push Only)
+name: Build & Deploy Pages (Code Push Only)
 
 # Triggered ONLY on manual code changes (investigations/, tools/, etc.)
 # Does NOT run data collection or AI enrichment.
 # Keeps GitHub Pages up-to-date when dossiers or code are updated manually.
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -22,7 +23,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages-deploy-only"
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
