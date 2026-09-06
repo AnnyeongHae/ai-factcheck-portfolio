@@ -554,6 +554,29 @@ def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = Fals
                 # Set Standard 6-Core Engineering Category (Controlled Taxonomy)
                 item["category_primary"] = infer_primary_category(item, enrich_data, c_type)
 
+                # 5. Deduplication Fingerprint & Multi-Source Tracking
+                dedup_fg = enrich_data.get("dedup_fingerprint") or {}
+                if dedup_fg:
+                    item["dedup_fingerprint"] = dedup_fg
+                    if dedup_fg.get("canonical_story_key"):
+                        item["canonical_story_key"] = dedup_fg.get("canonical_story_key")
+                    if dedup_fg.get("core_entities"):
+                        item["core_entities"] = dedup_fg.get("core_entities")
+
+                # Initialize sources container if not present
+                if "sources" not in item or not isinstance(item.get("sources"), list) or len(item["sources"]) == 0:
+                    item["sources"] = [
+                        {
+                            "source_name": item.get("source_platform") or "Primary",
+                            "platform": item.get("source_platform") or "Primary",
+                            "title": item.get("title") or item.get("title_ko") or "",
+                            "url": item.get("source_url") or item.get("url") or "",
+                            "type": "discussion" if any(x in (item.get("source_platform") or "").lower() for x in ["hacker news", "geeknews", "reddit"]) else "media",
+                            "published_at": item.get("published_date") or item.get("source_published_date") or item.get("harvested_at") or ""
+                        }
+                    ]
+                item["source_count"] = len(item["sources"])
+
                 # Match with existing 18 dossiers
                 related = match_dossier(
                     dossiers,

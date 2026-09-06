@@ -69,6 +69,17 @@ def scan_inbox():
             str(it.get("harvested_date") or "")
         )
     inbox_items.sort(key=get_freshest_ts, reverse=True)
+
+    # 🌟 Multi-Source Deduplication & Story Clustering
+    try:
+        tools_dir = os.path.dirname(os.path.abspath(__file__))
+        if tools_dir not in sys.path:
+            sys.path.insert(0, tools_dir)
+        from dedup_merger import deduplicate_inbox_items
+        inbox_items = deduplicate_inbox_items(inbox_items, max_window_hours=72.0)
+    except Exception as e:
+        print(f"[!] Warning: Story clustering failed: {e}")
+
     return inbox_items
 
 def load_graph_data():
@@ -3096,7 +3107,24 @@ def generate_html(data):
         const articleUrl = it.article_url || (it.source_url !== (hnUrl || gnUrl) ? it.source_url : null);
 
         let linksHtml = '';
-        if (isHn) {{
+        if (it.sources && it.sources.length > 1) {{
+          linksHtml = `<div class="flex items-center gap-1.5 flex-wrap">`;
+          linksHtml += `<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-200">🔗 ${{currentLang === 'KO' ? `출처 ${{it.sources.length}}개 묶음` : (currentLang === 'ZH' ? `聚合${{it.sources.length}}个来源` : `${{it.sources.length}} Sources`)}}</span>`;
+          it.sources.forEach(s => {{
+            const p = (s.platform || s.source_name || '').toLowerCase();
+            const u = s.url || '#';
+            if (p.includes('hacker news') || u.includes('ycombinator')) {{
+              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-orange-50 text-orange-800 hover:text-orange-950 border border-orange-200 text-[11px] font-bold flex items-center gap-1">🔥 ${{currentLang === 'KO' ? 'HN 토론' : 'HN'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+            }} else if (p.includes('geeknews') || u.includes('hada.io')) {{
+              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-indigo-50 text-indigo-800 hover:text-indigo-950 border border-indigo-200 text-[11px] font-bold flex items-center gap-1">💬 ${{currentLang === 'KO' ? '긱뉴스 토론' : 'GeekNews'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+            }} else if (p.includes('reddit')) {{
+              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-red-50 text-red-800 hover:text-red-950 border border-red-200 text-[11px] font-bold flex items-center gap-1">🤖 ${{currentLang === 'KO' ? '레딧 반응' : 'Reddit'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+            }} else {{
+              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1">📄 ${{s.source_name || '원문'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+            }}
+          }});
+          linksHtml += `</div>`;
+        }} else if (isHn) {{
           linksHtml = `<div class="flex items-center gap-1.5">`;
           if (articleUrl && articleUrl !== hnUrl) {{
             linksHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1">📄 ${{currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
@@ -3734,6 +3762,27 @@ def generate_html(data):
           `;
         }}
 
+        let inboxSourceLinks = '';
+        if (it.sources && it.sources.length > 1) {{
+          inboxSourceLinks = `<div class="flex items-center gap-1.5 flex-wrap">`;
+          inboxSourceLinks += `<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-200">🔗 ${{currentLang === 'KO' ? `출처 ${{it.sources.length}}개 묶음` : `${{it.sources.length}} Sources`}}</span>`;
+          it.sources.forEach(s => {{
+            const p = (s.platform || s.source_name || '').toLowerCase();
+            const u = s.url || '#';
+            let badgeText = s.source_name || '원문';
+            if (p.includes('hacker news') || u.includes('ycombinator')) badgeText = 'HN 토론';
+            else if (p.includes('geeknews') || u.includes('hada.io')) badgeText = '긱뉴스';
+            else if (p.includes('reddit')) badgeText = '레딧';
+            inboxSourceLinks += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1">🔗 ${{badgeText}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+          }});
+          inboxSourceLinks += `</div>`;
+        }} else {{
+          inboxSourceLinks = `
+          <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1">
+            <span>${{currentLang === 'KO' ? '원문 보기' : (currentLang === 'ZH' ? '查看原文' : 'View Source')}}</span> <i data-lucide="external-link" class="w-3 h-3"></i>
+          </a>`;
+        }}
+
         card.innerHTML = `
           <div class="space-y-2.5">
             <div class="flex items-center justify-between text-xs font-mono">
@@ -3792,9 +3841,7 @@ def generate_html(data):
           </div>
 
           <div class="pt-3 border-t border-surface-border flex items-center justify-between gap-2">
-            <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1">
-              <span>${{currentLang === 'KO' ? '원문 보기' : (currentLang === 'ZH' ? '查看原文' : 'View Source')}}</span> <i data-lucide="external-link" class="w-3 h-3"></i>
-            </a>
+            ${{inboxSourceLinks}}
 
             <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
                     class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${{isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border'}}">

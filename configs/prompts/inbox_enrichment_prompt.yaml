@@ -79,6 +79,11 @@ output_json_schema: |
           "hook": "直击工程师痛点的1句话亮点与阅读理由 (中文)",
           "key_takeaways": ["核心要点 1", "核心要点 2", "核心要点 3"]
         }
+      },
+      "dedup_fingerprint": {
+        "canonical_story_key": "사건/기술을 대표하는 영어 소문자 하이픈 슬러그 (예: flock-surveillance-veteran-tracking, deepseek-v3-release)",
+        "core_entities": ["핵심 주체/기업/인물", "핵심 기술/도구/사건", "핵심 키워드"],
+        "is_breaking_news": true 또는 false
       }
     }
   ]
