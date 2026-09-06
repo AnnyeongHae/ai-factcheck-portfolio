@@ -8016,5 +8016,452 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260906_045830",
+    "timestamp": "2026-09-06T04:58:30.446596+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 40,
+    "requested_limit": 0,
+    "processed_count": 40,
+    "success_count": 40,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 31
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 14.78,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_유럽을_벗어나지_않는_git_호스팅",
+            "title": "GeekNews: 유럽을 벗어나지 않는 Git 호스팅",
+            "title_ko": "유럽 외부로 이전되지 않는 Git 호스팅",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:58:45.232908+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_유럽을_벗어나지_않는_git_호스팅",
+            "title": "GeekNews: 유럽을 벗어나지 않는 Git 호스팅",
+            "title_ko": "유럽 외부로 이전되지 않는 Git 호스팅",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:58:45.234005+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_독일_민간_로켓_서유럽_영토_최초로_궤도_진입",
+            "title": "GeekNews: 독일 민간 로켓, 서유럽 영토 최초로 궤도 진입",
+            "title_ko": "독일 민간 로켓, 서유럽 영토 최초로 궤도 진입",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:58:45.234455+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 21.0,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_독일_민간_로켓_서유럽_영토_최초로_궤도_진입",
+            "title": "GeekNews: 독일 민간 로켓, 서유럽 영토 최초로 궤도 진입",
+            "title_ko": "독일 민간 로켓, 서유럽 최초로 궤도 진입 성공",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:59:06.738393+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_unbash_bash_명령의_구조를_실행_없이_분석하는_types",
+            "title": "GeekNews: unbash - Bash 명령의 구조를 실행 없이 분석하는 TypeScript 파서",
+            "title_ko": "unbash - Bash 명령 구조를 실행 없이 분석하는 TypeScript 파서",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:59:06.738924+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_unbash_bash_명령의_구조를_실행_없이_분석하는_types",
+            "title": "GeekNews: unbash - Bash 명령의 구조를 실행 없이 분석하는 TypeScript 파서",
+            "title_ko": "unbash - Bash 명령 구조를 실행 없이 분석하는 TypeScript 파서",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:59:06.739280+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 21.97,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_bespoke_부탁합니다라고_말하는_사람들을_위한_프로그래밍_언어",
+            "title": "GeekNews: Bespoke: ‘부탁합니다’라고 말하는 사람들을 위한 프로그래밍 언어",
+            "title_ko": "‘부탁합니다’에서 영감을 받은 프로그래밍 언어",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:59:29.209712+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_bespoke_부탁합니다라고_말하는_사람들을_위한_프로그래밍_언어",
+            "title": "GeekNews: Bespoke: ‘부탁합니다’라고 말하는 사람들을 위한 프로그래밍 언어",
+            "title_ko": "‘부탁합니다’에서 영감을 받은 프로그래밍 언어",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:59:29.210140+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_show_gn_pdf_simple_editor_winui_3로_만",
+            "title": "GeekNews: Show GN: PDF Simple Editor - WinUI 3로 만든 가벼운 PDF 편집기",
+            "title_ko": "PDF Simple Editor - WinUI 3로 만든 가벼운 PDF 편집기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:59:29.211796+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 12.66,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_show_gn_pdf_simple_editor_winui_3로_만",
+            "title": "GeekNews: Show GN: PDF Simple Editor - WinUI 3로 만든 가벼운 PDF 편집기",
+            "title_ko": "GeekNews: Show GN: PDF Simple Editor - WinUI 3로 만든 가벼운 PDF 편집기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:59:42.368227+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_github_jlrouzies_frdlss5_feeder",
+            "title": "GitHub: jlrouzies-fr/DLSS5-Feeder",
+            "title_ko": "GitHub: jlrouzies-fr/DLSS5-Feeder",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:59:42.368740+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_github_jlrouzies_frdlss5_feeder",
+            "title": "GitHub: jlrouzies-fr/DLSS5-Feeder",
+            "title_ko": "GitHub: jlrouzies-fr/DLSS5-Feeder",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:59:42.369054+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 16.03,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_vancouver_strip_clubs_instagram_t",
+            "title": "Hacker News: Vancouver strip club's Instagram taken down over sign featuring lake joke",
+            "title_ko": "해커 뉴스: 밴쿠버 스트립 클럽, 호수 농담이 담긴 간판으로 인스타그램 계정 삭제",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:59:58.899416+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_vancouver_strip_clubs_instagram_t",
+            "title": "Hacker News: Vancouver strip club's Instagram taken down over sign featuring lake joke",
+            "title_ko": "해커 뉴스: 밴쿠버 스트립 클럽, 호수 농담이 담긴 간판으로 인스타그램 계정 삭제",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:59:58.899970+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_trump_signs_order_to_remove_endan",
+            "title": "Hacker News: Trump signs order to remove endangered species protection for grey wolves",
+            "title_ko": "해커 뉴스: 트럼프, 회색 늑대에 대한 멸종위기종 보호 폐지 행정명령 서명",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T04:59:58.900436+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.19,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_trump_signs_order_to_remove_endan",
+            "title": "Hacker News: Trump signs order to remove endangered species protection for grey wolves",
+            "title_ko": "트럼프, 회색 늑대 멸종위기종 보호 해제 명령 서명",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:00:14.589017+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_ai_tools_and_transformation",
+            "title": "Hacker News: AI, Tools and Transformation",
+            "title_ko": "AI, 도구와 변화에 대한 해커 뉴스 토론",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:00:14.589499+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_ai_tools_and_transformation",
+            "title": "Hacker News: AI, Tools and Transformation",
+            "title_ko": "AI, 도구와 변화에 대한 해커 뉴스 토론",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:00:14.589852+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.75,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_gpt_6_astra_on_robot_arms",
+            "title": "Hacker News: GPT-6 Astra on robot arms",
+            "title_ko": "GPT-6 아스트라, 로봇 팔에 고급 AI 제어 기능 탑재",
+            "classification": "MODEL",
+            "model_family": "Standalone",
+            "enriched_at": "2026-09-06T05:00:35.842572+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_gpt_6_astra_on_robot_arms",
+            "title": "Hacker News: GPT-6 Astra on robot arms",
+            "title_ko": "GPT-6 아스트라, 로봇 팔에 고급 AI 제어 기능 탑재",
+            "classification": "MODEL",
+            "model_family": "Standalone",
+            "enriched_at": "2026-09-06T05:00:35.843202+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_cloud_in_a_bottle_making_self_hos",
+            "title": "Hacker News: Cloud in a Bottle: making self-hosting accessible to everyone",
+            "title_ko": "클라우드 인 어 보틀, 누구나 쉽게 셀프 호스팅을 할 수 있도록",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:00:35.843713+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.63,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_cloud_in_a_bottle_making_self_hos",
+            "title": "Hacker News: Cloud in a Bottle: making self-hosting accessible to everyone",
+            "title_ko": "클라우드 인 어 보틀: 모두가 쉽게 셀프 호스팅을 할 수 있도록",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:00:51.976686+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_chrome_again_exempts_google_from_",
+            "title": "Hacker News: Chrome again exempts Google from user site data settings",
+            "title_ko": "크롬, 다시 구글에 사용자 사이트 데이터 설정 적용 제외",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:00:51.977156+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_chrome_again_exempts_google_from_",
+            "title": "Hacker News: Chrome again exempts Google from user site data settings",
+            "title_ko": "크롬, 다시 구글에 사용자 사이트 데이터 설정 적용 제외",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:00:51.977524+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 15.96,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_repo_hacker_news_okf_agent_memory_git_native_persi",
+            "title": "Hacker News: OKF Agent Memory – Git-native persistent memory for AI coding agents",
+            "title_ko": "OKF Agent Memory – AI 코딩 에이전트를 위한 Git 기반 영구 메모리",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:01:08.437976+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_hacker_news_okf_agent_memory_git_native_persi",
+            "title": "Hacker News: OKF Agent Memory – Git-native persistent memory for AI coding agents",
+            "title_ko": "OKF Agent Memory – AI 코딩 에이전트를 위한 Git 기반 영구 메모리",
+            "classification": "AGENT",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:01:08.438504+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_the_revolt_of_the_reader",
+            "title": "Hacker News: The revolt of the reader",
+            "title_ko": "독자의 반란",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:01:08.438979+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 19.34,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_the_revolt_of_the_reader",
+            "title": "Hacker News: The revolt of the reader",
+            "title_ko": "해커 뉴스, 독자의 반란",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:01:28.277059+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_isar_aerospace_5_sept_mission_onw",
+            "title": "Hacker News: ISAR Aerospace 5 Sept Mission Onward and Upward",
+            "title_ko": "ISAR Aerospace, 9월 5일 미션 성공적 진행 중",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:01:28.277575+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_isar_aerospace_5_sept_mission_onw",
+            "title": "Hacker News: ISAR Aerospace 5 Sept Mission Onward and Upward",
+            "title_ko": "ISAR Aerospace, 9월 5일 미션 성공적 진행 중",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:01:28.277900+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 17.5,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_chc5_open_camera_system_image_sen",
+            "title": "Hacker News: CHC5: Open Camera System – Image Sensor Specification Comparison",
+            "title_ko": "CHC5 오픈 카메라 시스템 – 이미지 센서 사양 비교",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:01:46.278427+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_chc5_open_camera_system_image_sen",
+            "title": "Hacker News: CHC5: Open Camera System – Image Sensor Specification Comparison",
+            "title_ko": "CHC5 오픈 카메라 시스템 – 이미지 센서 사양 비교",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:01:46.279024+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_openbsd_stories_strange_medieval_",
+            "title": "Hacker News: OpenBSD Stories: Strange Medieval Devices",
+            "title_ko": "오픈BSD 이야기: 이상한 중세 장치들",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:01:46.279590+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 12,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 30.59,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_openbsd_stories_strange_medieval_",
+            "title": "Hacker News: OpenBSD Stories: Strange Medieval Devices",
+            "title_ko": "해커 뉴스: OpenBSD 이야기: 이상한 중세 장치들",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:02:17.374598+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_the_colorchecker_photographys_mos",
+            "title": "Hacker News: The ColorChecker, photography's most important 24 squares, turns 50",
+            "title_ko": "해커 뉴스: 사진 촬영의 가장 중요한 24개 정사각형, ColorChecker가 50주년을 맞다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:02:17.375178+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_the_colorchecker_photographys_mos",
+            "title": "Hacker News: The ColorChecker, photography's most important 24 squares, turns 50",
+            "title_ko": "해커 뉴스: 사진 촬영의 가장 중요한 24개 정사각형, ColorChecker가 50주년을 맞다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:02:17.375548+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 13,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 10.25,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_topologists_map_of_the_world",
+            "title": "Hacker News: Topologist's Map of the World",
+            "title_ko": "위상학자의 세계 지도",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:02:28.126880+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_topologists_map_of_the_world",
+            "title": "Hacker News: Topologist's Map of the World",
+            "title_ko": "위상학자의 세계 지도",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:02:28.127344+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_recursecenterreturn",
+            "title": "Hacker News: RecurseCenter.return()",
+            "title_ko": "리커스센터의 리턴()",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:02:28.127818+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 14,
+        "items_count": 1,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 10.79,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_recursecenterreturn",
+            "title": "Hacker News: RecurseCenter.return()",
+            "title_ko": "해커 뉴스: 리커스센터.return()",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T05:02:39.423153+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
