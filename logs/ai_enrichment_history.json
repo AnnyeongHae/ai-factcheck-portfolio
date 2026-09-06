@@ -9133,5 +9133,532 @@
         ]
       }
     ]
+  },
+  {
+    "session_id": "session_20260906_172358",
+    "timestamp": "2026-09-06T17:23:58.451393+00:00",
+    "provider": "openrouter",
+    "estimated_cost": "$0.00",
+    "total_candidates": 48,
+    "requested_limit": 0,
+    "processed_count": 48,
+    "success_count": 48,
+    "models_used_summary": {
+      "cohere/north-mini-code:free": 41
+    },
+    "batches": [
+      {
+        "batch_index": 1,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 51.53,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_isar_aerospace_두_번째_비행에서_궤도_진입과_탑재체_",
+            "title": "GeekNews: Isar Aerospace, 두 번째 비행에서 궤도 진입과 탑재체 배치 성공",
+            "title_ko": "이스르 에어로스페이스, 두 번째 비행에서 궤도 진입 및 탑재체 배치 성공",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:24:49.994148+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_geeknews_isar_aerospace_두_번째_비행에서_궤도_진입과_탑재체_",
+            "title": "GeekNews: Isar Aerospace, 두 번째 비행에서 궤도 진입과 탑재체 배치 성공",
+            "title_ko": "이스르 에어로스페이스, 두 번째 비행에서 궤도 진입 및 탑재체 배치 성공",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:24:49.994624+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_github_sebbbinographicsapi",
+            "title": "GitHub: sebbbi/NoGraphicsAPI",
+            "title_ko": "GitHub: sebbbi/NoGraphicsAPI - 최소화된 그래픽스 API",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:24:49.995215+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 2,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 43.08,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_repo_github_sebbbinographicsapi",
+            "title": "GitHub: sebbbi/NoGraphicsAPI",
+            "title_ko": "NoGraphicsAPI: 최소한의 Vulkan 기반 그래픽스 API",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:25:33.572834+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_hf_space_ibm_granitegranite_speech_streaming_",
+            "title": "HF Space: ibm-granite/granite-speech-streaming-webgpu",
+            "title_ko": "IBM 그라나이트 음성 스트리밍 WebGPU 데모",
+            "classification": "MODEL",
+            "model_family": "Granite",
+            "enriched_at": "2026-09-06T17:25:33.573319+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_hf_space_ibm_granitegranite_speech_streaming_",
+            "title": "HF Space: ibm-granite/granite-speech-streaming-webgpu",
+            "title_ko": "IBM 그라나이트 음성 스트리밍 WebGPU 데모",
+            "classification": "MODEL",
+            "model_family": "Granite",
+            "enriched_at": "2026-09-06T17:25:33.573813+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 3,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 30.23,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_repo_hf_space_stcmwan2_2_fp8da_aoti_preview_2c_fin",
+            "title": "HF Space: STCM/wan2-2-fp8da-aoti-preview-2c-finishing",
+            "title_ko": "HF 스페이스: 완2.2 FP8DA AoTI 프리뷰 2C 피니싱",
+            "classification": "MODEL",
+            "model_family": "Wan",
+            "enriched_at": "2026-09-06T17:26:04.301570+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_hf_space_stcmwan2_2_fp8da_aoti_preview_2c_fin",
+            "title": "HF Space: STCM/wan2-2-fp8da-aoti-preview-2c-finishing",
+            "title_ko": "HF 스페이스: 완2.2 FP8DA AoTI 프리뷰 2C 피니싱",
+            "classification": "MODEL",
+            "model_family": "Wan",
+            "enriched_at": "2026-09-06T17:26:04.303217+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_any_nix_package_live_in_the_brows",
+            "title": "Hacker News: Any Nix package, live in the browser",
+            "title_ko": "해커 뉴스: 모든 닉스 패키지를 브라우저에서 실행",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:26:04.303757+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 4,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 21.16,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_any_nix_package_live_in_the_brows",
+            "title": "Hacker News: Any Nix package, live in the browser",
+            "title_ko": "브라우저에서 실행되는 모든 닉스 패키지",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:26:25.966158+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_openai_we_monitor_internal_coding",
+            "title": "Hacker News: OpenAI: We monitor internal coding agents for misalignment",
+            "title_ko": "오픈AI, 내부 코딩 에이전트 정렬 상태 모니터링 중",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:26:25.966615+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_openai_we_monitor_internal_coding",
+            "title": "Hacker News: OpenAI: We monitor internal coding agents for misalignment",
+            "title_ko": "오픈AI, 내부 코딩 에이전트 정렬 상태 모니터링 중",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:26:25.966912+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 5,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 28.83,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_an_alien_mind",
+            "title": "Hacker News: An Alien Mind",
+            "title_ko": "해커 뉴스: 외계인의 마음",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:26:55.309687+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_an_alien_mind",
+            "title": "Hacker News: An Alien Mind",
+            "title_ko": "해커 뉴스: 외계인의 마음",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:26:55.310228+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_research_carried_out_using_netbsd",
+            "title": "Hacker News: Research carried out using NetBSD",
+            "title_ko": "해커 뉴스: NetBSD를 활용한 연구",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:26:55.310701+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 6,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.06,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_research_carried_out_using_netbsd",
+            "title": "Hacker News: Research carried out using NetBSD",
+            "title_ko": "해커 뉴스: 넷BSD를 활용한 연구",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:27:15.868809+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_cultivating_trust",
+            "title": "Hacker News: Cultivating Trust",
+            "title_ko": "해커 뉴스: 신뢰 구축",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:27:15.869306+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_cultivating_trust",
+            "title": "Hacker News: Cultivating Trust",
+            "title_ko": "해커 뉴스: 신뢰 구축",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:27:15.869609+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 7,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 20.5,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_netbsd_95_released_and_eol_for_ne",
+            "title": "Hacker News: NetBSD 9.5 released and EOL for NetBSD-9",
+            "title_ko": "해커 뉴스: NetBSD 9.5 출시 및 NetBSD-9 지원 종료",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:27:36.874246+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_netbsd_95_released_and_eol_for_ne",
+            "title": "Hacker News: NetBSD 9.5 released and EOL for NetBSD-9",
+            "title_ko": "해커 뉴스: NetBSD 9.5 출시 및 NetBSD-9 지원 종료",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:27:36.874782+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_research_acceleration_the_view_in",
+            "title": "Hacker News: Research acceleration: The view inside OpenAI",
+            "title_ko": "해커 뉴스: OpenAI 내부의 연구 가속화 현황",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:27:36.875279+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 8,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 31.3,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_research_acceleration_the_view_in",
+            "title": "Hacker News: Research acceleration: The view inside OpenAI",
+            "title_ko": "오픈AI 내부의 연구 가속화",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:28:08.680107+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_recreating_minecraft_is_not_a_ben",
+            "title": "Hacker News: Recreating Minecraft Is Not a Benchmark",
+            "title_ko": "마인크래프트 재현은 벤치마크가 아니다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:28:08.680639+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_recreating_minecraft_is_not_a_ben",
+            "title": "Hacker News: Recreating Minecraft Is Not a Benchmark",
+            "title_ko": "마인크래프트 재현은 벤치마크가 아니다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:28:08.680970+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 9,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 32.84,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_repo_hacker_news_show_hn_kadō_open_source_habit_tr",
+            "title": "Hacker News: Show HN: Kadō – open-source habit tracker, with non-binary habit score, for iOS",
+            "title_ko": "카도 – 비이진 습관 점수를 제공하는 오픈소스 iOS 습관 추적기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:28:42.018693+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_repo_hacker_news_show_hn_kadō_open_source_habit_tr",
+            "title": "Hacker News: Show HN: Kadō – open-source habit tracker, with non-binary habit score, for iOS",
+            "title_ko": "카도 – 비이진 습관 점수를 제공하는 오픈소스 iOS 습관 추적기",
+            "classification": "TECH",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:28:42.019205+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_ai_shuts_down_stay_human",
+            "title": "Hacker News: A/I shuts down – Stay human",
+            "title_ko": "AI 서비스 종료 – 인간성을 지키며",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:28:42.019797+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 10,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 23.92,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_ai_shuts_down_stay_human",
+            "title": "Hacker News: A/I shuts down – Stay human",
+            "title_ko": "AI 서비스가 문을 닫는다 – 인간성을 지키자",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:29:06.436002+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_asahi_linux_now_officially_suppor",
+            "title": "Hacker News: Asahi Linux Now Officially Supports Apple M3 Macs – With Caveats",
+            "title_ko": "아사히 리눅스, 애플 M3 맥 공식 지원 시작 – 단점도 있어",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:29:06.436484+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_asahi_linux_now_officially_suppor",
+            "title": "Hacker News: Asahi Linux Now Officially Supports Apple M3 Macs – With Caveats",
+            "title_ko": "아사히 리눅스, 애플 M3 맥 공식 지원 시작 – 단점도 있어",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:29:06.436850+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 11,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 47.22,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_the_many_mysteries_and_lessons_of",
+            "title": "Hacker News: The many mysteries and lessons of the Bayeux tapestry",
+            "title_ko": "해커 뉴스: 베유 태피스트리의 수많은 미스터리와 교훈",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:29:54.159640+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_the_many_mysteries_and_lessons_of",
+            "title": "Hacker News: The many mysteries and lessons of the Bayeux tapestry",
+            "title_ko": "해커 뉴스: 베유 태피스트리의 수많은 미스터리와 교훈",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:29:54.160247+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_icy_moons_are_ocean_worlds",
+            "title": "Hacker News: Icy Moons Are Ocean Worlds",
+            "title_ko": "해커 뉴스: 얼음 위성들은 바다 세계",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:29:54.160918+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 12,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 44.61,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_icy_moons_are_ocean_worlds",
+            "title": "Hacker News: Icy Moons Are Ocean Worlds",
+            "title_ko": "얼음 위성들은 바다 세계이다",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:30:39.271490+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_qbittorrent_breaks_out_of_sandbox",
+            "title": "Hacker News: QBittorrent breaks out of sandbox to commit crimes",
+            "title_ko": "QBittorrent, 샌드박스를 빠져나와 범죄 행위 벌여",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:30:39.271999+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_qbittorrent_breaks_out_of_sandbox",
+            "title": "Hacker News: QBittorrent breaks out of sandbox to commit crimes",
+            "title_ko": "QBittorrent, 샌드박스를 빠져나와 범죄 행위 벌여",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:30:39.272326+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 13,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 49.87,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_im_teaching_an_introductory_12_we",
+            "title": "Hacker News: I'm teaching an introductory 12 week course on Quantum Oracle Engineering",
+            "title_ko": "양자 오라클 엔지니어링 입문 12주 과정 소개",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:31:29.639800+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_im_teaching_an_introductory_12_we",
+            "title": "Hacker News: I'm teaching an introductory 12 week course on Quantum Oracle Engineering",
+            "title_ko": "양자 오라클 엔지니어링 입문 12주 과정 소개",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:31:29.640317+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_ganons_mysterious_origins_revisit",
+            "title": "Hacker News: Ganon's Mysterious Origins (Revisited)",
+            "title_ko": "젤다의 주인공 가논의 기원에 대한 재조명",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:31:29.640785+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 14,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 33.53,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_ganons_mysterious_origins_revisit",
+            "title": "Hacker News: Ganon's Mysterious Origins (Revisited)",
+            "title_ko": "가논의 신비로운 기원 (재조명)",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:32:03.675227+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_household_laser_cuts",
+            "title": "Hacker News: Household Laser Cuts",
+            "title_ko": "가정용 레이저 절단",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:32:03.675707+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_household_laser_cuts",
+            "title": "Hacker News: Household Laser Cuts",
+            "title_ko": "가정용 레이저 절단",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:32:03.676061+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 15,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 50.07,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_what_is_nueralese_and_why_is_it_b",
+            "title": "Hacker News: What is Nueralese and Why is it Bad",
+            "title_ko": "뉴럴리스가 뭐고 왜 나쁘냐?",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:32:54.249903+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_what_is_nueralese_and_why_is_it_b",
+            "title": "Hacker News: What is Nueralese and Why is it Bad",
+            "title_ko": "뉴럴리스가 뭐고 왜 나쁘냐?",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:32:54.250407+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_is_there_io_after_death_what_happ",
+            "title": "Hacker News: Is There I/O After Death? What Happens to Io_uring When a Process Dies",
+            "title_ko": "프로세스 종료 후에도 I/O가 계속될까? io_uring의 동작 원리",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:32:54.250859+00:00"
+          }
+        ]
+      },
+      {
+        "batch_index": 16,
+        "items_count": 3,
+        "model_used": "cohere/north-mini-code:free",
+        "latency_seconds": 21.73,
+        "items_processed": [
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_is_there_io_after_death_what_happ",
+            "title": "Hacker News: Is There I/O After Death? What Happens to Io_uring When a Process Dies",
+            "title_ko": "사후에도 I/O가 존재하는가? 프로세스 종료 시 io_uring의 동작 원리",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:33:16.479327+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_electronic_skin_for_prosthetics_t",
+            "title": "Hacker News: Electronic skin for prosthetics to sense temperature and pressure",
+            "title_ko": "인공피부, 온도 및 압력 감지해 의수에게 촉각 제공",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:33:16.479807+00:00"
+          },
+          {
+            "inbox_id": "2026-09-06_sns_hacker_news_electronic_skin_for_prosthetics_t",
+            "title": "Hacker News: Electronic skin for prosthetics to sense temperature and pressure",
+            "title_ko": "인공피부, 온도 및 압력 감지해 의수에게 촉각 제공",
+            "classification": "NEWS",
+            "model_family": null,
+            "enriched_at": "2026-09-06T17:33:16.480209+00:00"
+          }
+        ]
+      }
+    ]
   }
 ]
