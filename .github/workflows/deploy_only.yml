@@ -32,6 +32,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      NEON_KEY: ${{ secrets.NEON_KEY }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4

@@ -342,26 +342,34 @@ def build_dashboard():
     ]
     slot_counts = {s["short_slot"]: {"inbox": 0, "model": 0, "news": 0} for s in slots_def}
 
+    def parse_to_kst_dt(raw_val):
+        if not raw_val: return None
+        try:
+            raw_str = str(raw_val).strip()
+            if "T" in raw_str:
+                clean = raw_str.replace("Z", "+00:00")
+                dt = datetime.datetime.fromisoformat(clean)
+                if dt.tzinfo:
+                    return dt.astimezone(datetime.timezone(datetime.timedelta(hours=9)))
+                else:
+                    return dt.replace(tzinfo=datetime.timezone(datetime.timedelta(hours=9)))
+            elif re.match(r'^\d{4}-\d{2}-\d{2}$', raw_str):
+                dt = datetime.datetime.strptime(raw_str, "%Y-%m-%d")
+                return dt.replace(hour=12, tzinfo=datetime.timezone(datetime.timedelta(hours=9)))
+        except Exception:
+            pass
+        return None
+
     for it in clean_inbox_items:
         raw = it.get("harvested_at") or it.get("created_at") or it.get("published_at") or it.get("harvested_date") or ""
-        if raw:
-            try:
-                if "T" in raw:
-                    dt = datetime.datetime.fromisoformat(raw.replace("Z", "+00:00")[:19])
-                    dt_kst = dt.astimezone(datetime.timezone(datetime.timedelta(hours=9))) if dt.tzinfo else dt + datetime.timedelta(hours=9)
-                    if dt_kst.strftime("%Y-%m-%d") == today_kst_str:
-                        h = (dt_kst.hour // 6) * 6
-                        s_key = f"{h:02d}:00"
-                        if s_key in slot_counts:
-                            slot_counts[s_key]["inbox"] += 1
-                            if is_model_item(it): slot_counts[s_key]["model"] += 1
-                            else: slot_counts[s_key]["news"] += 1
-                elif raw.startswith(today_kst_str):
-                    slot_counts["12:00"]["inbox"] += 1
-                    if is_model_item(it): slot_counts["12:00"]["model"] += 1
-                    else: slot_counts["12:00"]["news"] += 1
-            except Exception:
-                pass
+        dt_kst = parse_to_kst_dt(raw)
+        if dt_kst and dt_kst.strftime("%Y-%m-%d") == today_kst_str:
+            h = (dt_kst.hour // 6) * 6
+            s_key = f"{h:02d}:00"
+            if s_key in slot_counts:
+                slot_counts[s_key]["inbox"] += 1
+                if is_model_item(it): slot_counts[s_key]["model"] += 1
+                else: slot_counts[s_key]["news"] += 1
 
     timeline_24h = []
     peak_slot = "12:00"
@@ -535,13 +543,10 @@ def build_dashboard():
         # Build candidate pool prioritized for this session's time window
         session_candidates = []
         for it in all_candidate_pool:
-            d_it = get_item_date_str(it)
-            raw = str(it.get("harvested_at") or it.get("published_at") or it.get("created_at") or "")
-            it_hour = 12
-            m = re.search(r'[T\s](\d{2}):', raw)
-            if m:
-                try: it_hour = int(m.group(1))
-                except Exception: pass
+            raw = str(it.get("harvested_at") or it.get("published_at") or it.get("created_at") or it.get("harvested_date") or "")
+            dt_kst_it = parse_to_kst_dt(raw)
+            it_hour = dt_kst_it.hour if dt_kst_it else 12
+            d_it = dt_kst_it.strftime("%Y-%m-%d") if dt_kst_it else get_item_date_str(it)
 
             if d_it == target_date_str and s_hour <= it_hour < s_hour + 6:
                 priority = 1
@@ -2482,8 +2487,25 @@ def generate_html(data):
     }}
 
     // ================= RENDER 24H TIMELINE & 1-DAY 4-SESSIONS TREND RADAR =================
+    function getDynamicKstHour() {{
+      try {{
+        return parseInt(new Intl.DateTimeFormat('en-US', {{ timeZone: 'Asia/Seoul', hour: 'numeric', hour12: false }}).format(new Date()), 10);
+      }} catch (e) {{
+        const now = new Date();
+        return (now.getUTCHours() + 9) % 24;
+      }}
+    }}
+
+    function getDynamicKstSession() {{
+      const h = getDynamicKstHour();
+      if (h < 6) return 1;
+      if (h < 12) return 2;
+      if (h < 18) return 3;
+      return 4;
+    }}
+
     let targetSelectedInboxId = '';
-    let activeRadarSession = (typeof trendRadarData !== 'undefined' && trendRadarData.current_session) ? trendRadarData.current_session : 3;
+    let activeRadarSession = getDynamicKstSession();
 
     function switchRadarSession(sessionNum) {{
       activeRadarSession = sessionNum;
@@ -2628,10 +2650,11 @@ def generate_html(data):
         const tData = typeof timeline24hData !== 'undefined' ? timeline24hData : [];
         const maxVal = Math.max(...tData.map(d => d.inbox_count || 0), 10);
 
+        const curKstHour = getDynamicKstHour();
         tData.forEach(d => {{
           const hPct = Math.max(14, Math.round(((d.inbox_count || 0) / maxVal) * 100));
-          const isCurrent = d.is_current;
-          const isFuture = d.is_future;
+          const isCurrent = (d.hour <= curKstHour && curKstHour < d.hour + 6);
+          const isFuture = (d.hour > curKstHour);
 
           const col = document.createElement('div');
           col.className = 'flex flex-col items-center justify-end h-full group relative cursor-pointer';
