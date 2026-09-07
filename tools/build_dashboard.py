@@ -44,21 +44,59 @@ def scan_investigations():
     return cases
 
 def scan_inbox():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    inbox_dir = os.path.join(base_dir, "inbox")
     inbox_items = []
-    if not os.path.exists(inbox_dir): return inbox_items
 
-    for f in sorted(os.listdir(inbox_dir), reverse=True):
-        if f.endswith(".json") and not f.startswith("_"):
-            path = os.path.join(inbox_dir, f)
-            try:
-                with open(path, "r", encoding="utf-8") as fp:
-                    item = json.load(fp)
-                    if "inbox_id" in item:
-                        inbox_items.append(item)
-            except Exception:
-                pass
+    # 1. 🌟 Primary Source: Query directly from Neon PostgreSQL Cloud DB
+    try:
+        tools_dir = os.path.dirname(os.path.abspath(__file__))
+        if tools_dir not in sys.path:
+            sys.path.insert(0, tools_dir)
+        from db_bridge import load_env_db_url
+        db_url = load_env_db_url()
+        if db_url:
+            import psycopg2
+            conn = psycopg2.connect(db_url)
+            with conn.cursor() as cur:
+                cur.execute("""
+                    SELECT raw_payload FROM raw_trends_inbox 
+                    WHERE raw_payload IS NOT NULL 
+                    ORDER BY id DESC 
+                    LIMIT 1000;
+                """)
+                rows = cur.fetchall()
+                for r in rows:
+                    payload = r[0]
+                    if isinstance(payload, str):
+                        try:
+                            payload = json.loads(payload)
+                        except Exception:
+                            continue
+                    if isinstance(payload, dict) and "inbox_id" in payload:
+                        inbox_items.append(payload)
+            conn.close()
+            if inbox_items:
+                print(f"[+] [Neon DB Direct] Successfully loaded {len(inbox_items)} items directly from Neon PostgreSQL DB (Primary Live Source)!")
+    except Exception as e:
+        print(f"[!] Warning: Neon DB direct query failed ({e}), checking local disk fallback...")
+        inbox_items = []
+
+    # 2. 🌟 Fallback: If DB query returned no items (e.g. offline / disconnected), scan local disk
+    if not inbox_items:
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        inbox_dir = os.path.join(base_dir, "inbox")
+        if os.path.exists(inbox_dir):
+            for f in sorted(os.listdir(inbox_dir), reverse=True):
+                if f.endswith(".json") and not f.startswith("_"):
+                    path = os.path.join(inbox_dir, f)
+                    try:
+                        with open(path, "r", encoding="utf-8") as fp:
+                            item = json.load(fp)
+                            if "inbox_id" in item:
+                                inbox_items.append(item)
+                    except Exception:
+                        pass
+            if inbox_items:
+                print(f"[+] [Local Disk Fallback] Loaded {len(inbox_items)} items from local disk.")
 
     # Sort strictly by freshest active timestamp (harvested_at, published_at, created_at)
     def get_freshest_ts(it):

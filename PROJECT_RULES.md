@@ -12,7 +12,15 @@
    - 비용 정책: 50% 할인 적용, 500개 안건당 약 160원 수준 유지.
    - 특징: 비동기 배치로 토큰 비용을 최소화하며, 퀄리티와 지능을 보장함.
 
-## 💾 데이터베이스 영구 동기화 의무 (Mandatory DB Sync)
-1. **기술 분석 및 팩트체크 완료 즉시 DB 반영**:
-   - 모든 기술 생태계 분석(Technical Analysis) 및 심층 팩트체크가 완료되면 반드시 로컬 지식 파일(`docs/`) 저장과 함께 **Neon PostgreSQL DB (`ecosystem_technical_analyses` / `verified_factchecks`)에 즉시 UPSERT** 동기화를 수행해야 합니다.
-   - 데이터베이스 동기화가 누락된 단순 채팅 텍스트 출력은 작업 미완료로 간주합니다.
+## 💾 3계층 데이터 아키텍처 및 저장소 분리 원칙 (3-Tier Storage Hierarchy)
+1. **Local Disk (원천 저장고 / Primary Origin)**:
+   - 개발자 및 에이전트의 작업 원본(`investigations/`, `inbox/`, `docs/` 지식 문서, 소스코드).
+   - 로컬 파일은 임의로 삭제하지 않고 온전히 보존합니다.
+2. **Neon PostgreSQL Cloud DB (1차 저장소 & 백업 & 프런트엔드 데이터 소스)**:
+   - 실시간 수집 인박스(`raw_trends_inbox`), 정밀 팩트체크(`verified_factchecks`), 기술 생태계 분석(`ecosystem_technical_analyses`)의 실시간 단일 진실 원천(Single Source of Truth).
+   - 대시보드 빌드 스크립트(`build_dashboard.py`)는 로컬 파일이 아닌 Neon DB에서 직접 쿼리하여 프런트엔드 데이터를 렌더링합니다.
+   - 분석 및 수집 완료 시 즉시 Neon DB에 UPSERT 반영해야 합니다.
+3. **Remote Git (GitHub origin/main - 순수 소스코드 관리)**:
+   - 오직 순수 소스코드(.py, .js, .html 템플릿, .css), 워크플로(.yml), 규칙 및 설정(.md, .json 스키마)만 관리합니다.
+   - 대용량 데이터 파일(JSON 덤프, 크롤링 피드 939+개 등)을 Git에 커밋하거나 푸시하는 것은 엄격히 금지됩니다 (`.gitignore`로 격리).
+   - GitHub Actions CI 러너는 데이터를 Git에 다시 push하지 않으며, 산출물은 `upload-pages-artifact`로 GitHub Pages에 직접 배포합니다.

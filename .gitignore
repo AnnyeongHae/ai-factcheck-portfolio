@@ -50,11 +50,14 @@ Thumbs.db
 .idea/
 
 # =========================================================
-# BUILD ARTIFACTS — Duplicate generated files
-# Only docs/ (GitHub Pages) and public/ (Vercel) are kept.
-# dashboard/ is a deprecated duplicate and excluded from Git.
-# Root index.html / data.json are also deprecated duplicates.
+# DATA PERSISTENCE & BUILD ARTIFACTS
+# Local is origin; Neon DB is 1st tier storage / backup / frontend source.
+# Large data files and raw crawl feeds are excluded from Git.
 # =========================================================
+inbox/
+logs/
 dashboard/
 /index.html
 /data.json
+docs/data.json
+public/data.json
