@@ -18,7 +18,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
@@ -70,7 +70,7 @@ jobs:
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
-          python tools/enrich_inbox_with_ai.py --only-new --limit 15 --batch-size 3 --cooldown 0.5 --provider auto || echo "AI enrichment skipped or completed."
+          python tools/enrich_inbox_with_ai.py --only-new --limit 15 --batch-size 3 --workers 5 --cooldown 0.5 --provider auto || echo "AI enrichment skipped or completed."
 
       - name: Sync Data to Neon Postgres Cloud DB (Scheduled/Manual Only)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'

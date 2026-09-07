@@ -10,6 +10,7 @@ Enterprise Trilingual AI Inbox Auto-Enricher (v8.0)
 """
 
 import argparse
+import concurrent.futures
 import glob
 import json
 import os
@@ -345,7 +346,265 @@ def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> tuple:
     print("[!] All fallback models in pool exhausted for this batch!")
     return [], None
 
-def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = False, only_new: bool = False, cooldown: float = 1.0, provider: str = "auto"):
+def process_single_batch(b_idx, num_batches, batch, active_provider, gemini_key, dossiers):
+    batch_raw = [item for _, item in batch]
+
+    print(f"\n=======================================================")
+    print(f"[*] [Thread-{b_idx+1}] Batch {b_idx+1}/{num_batches} ({len(batch)} items) via [{active_provider.upper()}]:")
+    for _, it in batch:
+        print(f"  - [{it.get('source_platform')}] {it.get('title')[:45]}...")
+
+    b_start_time = time.time()
+    results = []
+    model_used = None
+
+    if active_provider == "openrouter":
+        system_prompt, _ = load_prompt_config()
+        try:
+            results, model_used, b_latency = openrouter_free_router.call_openrouter_free_batch(system_prompt, batch_raw)
+        except Exception as e:
+            print(f"  [-] [Thread-{b_idx+1}] OpenRouter Free Router failed: {e}")
+            if gemini_key:
+                print(f"  [*] [Thread-{b_idx+1}] Fallback to Gemini API...")
+                results, model_used = call_gemini_trilingual_batch(gemini_key, batch_raw)
+                b_latency = round(time.time() - b_start_time, 2)
+            else:
+                results, model_used, b_latency = [], None, round(time.time() - b_start_time, 2)
+    else:
+        results, model_used = call_gemini_trilingual_batch(gemini_key, batch_raw)
+        b_latency = round(time.time() - b_start_time, 2)
+
+    res_map = {r["id"]: r for r in results if isinstance(r, dict) and "id" in r}
+
+    batch_log = {
+        "batch_index": b_idx + 1,
+        "items_count": len(batch),
+        "model_used": model_used or "FAILED",
+        "latency_seconds": b_latency,
+        "items_processed": []
+    }
+
+    batch_success_count = 0
+
+    for fpath, item in batch:
+        iid = item.get("inbox_id")
+        enrich_data = res_map.get(iid)
+        if not enrich_data:
+            idx = [it.get("inbox_id") for _, it in batch].index(iid)
+            if idx < len(results):
+                enrich_data = results[idx]
+
+        if enrich_data:
+            enrich_time = datetime.now().astimezone().isoformat()
+            enrich_data["enriched_by_model"] = model_used
+            enrich_data["enriched_at"] = enrich_time
+
+            multi = enrich_data.get("multilingual", {})
+            ko_data = multi.get("ko", {})
+            en_data = multi.get("en", {})
+            zh_data = multi.get("zh", {})
+
+            item["ai_enrichment"] = enrich_data
+            item["multilingual"] = multi
+            item["source_lang"] = enrich_data.get("source_lang", "EN")
+            item["programming_lang"] = enrich_data.get("programming_lang", "General")
+            item["root_keywords"] = enrich_data.get("root_keywords", [])
+            
+            # Trilingual titles
+            item["title_ko"] = ko_data.get("title") or enrich_data.get("korean_title") or item.get("title_ko")
+            item["title_en"] = en_data.get("title") or item.get("title_en") or item.get("title")
+            item["title_zh"] = zh_data.get("title") or item.get("title_zh")
+
+            # Trilingual hooks
+            item["hook"] = ko_data.get("hook") or enrich_data.get("hook")
+            item["hook_ko"] = ko_data.get("hook")
+            item["hook_en"] = en_data.get("hook")
+            item["hook_zh"] = zh_data.get("hook")
+
+            # Trilingual descriptions
+            item["description_ko"] = item["hook_ko"] or item.get("description_ko")
+            item["description_en"] = item["hook_en"] or item.get("description_en") or item.get("description")
+            item["description_zh"] = item["hook_zh"] or item.get("description_zh")
+
+            # Routing & Automatic Model Family Tagging
+            c_type = enrich_data.get("type_classification", "TECH")
+
+            # Guardrail: Force MODEL classification if source is HF Models or title indicates model release
+            is_explicit_model = (
+                item.get("source_platform") == "Hugging Face Models" or
+                "model:" in item.get("title", "").lower() or
+                "-gguf" in item.get("title", "").lower() or
+                "gguf" in item.get("title", "").lower() or
+                "lora" in item.get("title", "").lower()
+            )
+            if is_explicit_model and c_type != "NEWS":
+                c_type = "MODEL"
+
+            if c_type == "MODEL":
+                # 1. Model Family normalization
+                fam = enrich_data.get("model_family") or item.get("model_family")
+                t_lower = (item.get("title", "") + " " + (item.get("title_en", "") or "") + " " + item.get("description", "")).lower()
+                if not fam or fam.lower() in ["none", "null", "", "standalone", "standalone / novel"] or "standalone" in fam.lower():
+                    if "qwen" in t_lower: fam = "Qwen"
+                    elif "deepseek" in t_lower: fam = "DeepSeek"
+                    elif "minimax" in t_lower: fam = "MiniMax"
+                    elif "wan" in t_lower or "wan2" in t_lower: fam = "Wan"
+                    elif "flux" in t_lower: fam = "FLUX"
+                    elif "llama" in t_lower: fam = "Llama"
+                    elif "glm" in t_lower: fam = "GLM"
+                    elif "hunyuan" in t_lower: fam = "Hunyuan"
+                    elif any(k in t_lower for k in ["whisper", "tts", "speech", "audio", "voice", "firered", "breeze"]): fam = "Audio / Speech"
+                    elif "mistral" in t_lower or "codestral" in t_lower: fam = "Mistral"
+                    elif "gemma" in t_lower: fam = "Gemma"
+                    else: fam = "Standalone"
+                else:
+                    fam_low = fam.lower()
+                    if "qwen" in fam_low: fam = "Qwen"
+                    elif "deepseek" in fam_low: fam = "DeepSeek"
+                    elif "minimax" in fam_low: fam = "MiniMax"
+                    elif "wan" in fam_low: fam = "Wan"
+                    elif "flux" in fam_low: fam = "FLUX"
+                    elif "llama" in fam_low: fam = "Llama"
+                    elif "glm" in fam_low: fam = "GLM"
+                    elif "hunyuan" in fam_low: fam = "Hunyuan"
+                    elif any(k in fam_low for k in ["whisper", "tts", "speech", "audio", "voice"]): fam = "Audio / Speech"
+                    elif "mistral" in fam_low: fam = "Mistral"
+                    elif "gemma" in fam_low: fam = "Gemma"
+                item["model_family"] = fam
+                item["category_type"] = "MODEL"
+
+                # 2. Task Modality normalization
+                modality = enrich_data.get("task_modality") or item.get("task_modality")
+                if not modality or modality.lower() in ["none", "null", "", "other"]:
+                    p_match = re.search(r'Pipeline:\s*([a-zA-Z0-9_-]+)', item.get("description", ""))
+                    if p_match:
+                        modality = p_match.group(1).lower()
+                    elif any(k in t_lower for k in ['video', 'wan', 'minimax-h3', 'ltx-video', 'hunyuanvideo']):
+                        modality = 'text-to-video'
+                    elif any(k in t_lower for k in ['tts', 'speech', 'audio', 'voice', 'whisper', 'firered', 'voxcpm']):
+                        modality = 'text-to-speech' if 'whisper' not in t_lower else 'speech-to-text'
+                    elif any(k in t_lower for k in ['flux', 'diffusion', 'sdxl', 'text-to-image']):
+                        modality = 'text-to-image'
+                    elif any(k in t_lower for k in ['vlm', 'vision', 'image-to-text', 'multimodal understanding']):
+                        modality = 'image-text-to-text'
+                    else:
+                        modality = 'text-to-text'
+
+                mod_low = modality.lower()
+                if 'text-generation' in mod_low or 'text2text' in mod_low or 'text-to-text' in mod_low:
+                    item["task_modality"] = 'text-to-text'
+                elif 'image-text-to-text' in mod_low or 'visual-question-answering' in mod_low:
+                    item["task_modality"] = 'image-text-to-text'
+                elif 'text-to-image' in mod_low:
+                    item["task_modality"] = 'text-to-image'
+                elif 'image-to-image' in mod_low:
+                    item["task_modality"] = 'image-to-image'
+                elif 'text-to-video' in mod_low:
+                    item["task_modality"] = 'text-to-video'
+                elif 'text-to-speech' in mod_low or 'tts' in mod_low:
+                    item["task_modality"] = 'text-to-speech'
+                elif 'speech-to-text' in mod_low or 'transcription' in mod_low:
+                    item["task_modality"] = 'speech-to-text'
+                else:
+                    item["task_modality"] = modality
+
+                # 3. Parameter Size
+                param = enrich_data.get("parameter_size") or item.get("parameter_size")
+                if not param or param.lower() in ["none", "null", "", "n/a"]:
+                    pm = re.search(r'\b(\d+(\.\d+)?[BMb])\b', item.get("title", "") + " " + item.get("description", ""))
+                    item["parameter_size"] = pm.group(1).upper() if pm else "N/A"
+                else:
+                    item["parameter_size"] = param
+
+                # 4. Formats
+                formats = enrich_data.get("detected_formats") or item.get("detected_formats") or []
+                if not formats or not isinstance(formats, list) or len(formats) == 0:
+                    det = []
+                    if 'gguf' in t_lower: det.append('GGUF')
+                    if 'fp8' in t_lower or '8-bit' in t_lower: det.append('FP8')
+                    if 'lora' in t_lower: det.append('LoRA')
+                    if 'safetensors' in t_lower: det.append('Safetensors')
+                    if 'diffusers' in t_lower: det.append('Diffusers')
+                    if 'mlx' in t_lower: det.append('MLX')
+                    item["detected_formats"] = det if det else ["Safetensors"]
+                else:
+                    item["detected_formats"] = formats
+            elif c_type == "NEWS":
+                item["category_type"] = "NEWS"
+            else:
+                item["category_type"] = c_type
+
+            # Set Standard 2-Tier Taxonomy & Artifact Type (IPTC Standard)
+            cat_p = infer_primary_category(item, enrich_data, c_type)
+            t1_cat = infer_tier1_category(item, enrich_data, cat_p)
+            art_type = infer_artifact_type(item, enrich_data)
+
+            item["category_primary"] = cat_p
+            item["tier1_category"] = t1_cat
+            item["tier2_category"] = cat_p
+            item["artifact_type"] = art_type
+
+            enrich_data["category_primary"] = cat_p
+            enrich_data["tier1_category"] = t1_cat
+            enrich_data["tier2_category"] = cat_p
+            enrich_data["artifact_type"] = art_type
+
+            # 5. Deduplication Fingerprint & Multi-Source Tracking
+            dedup_fg = enrich_data.get("dedup_fingerprint") or {}
+            if dedup_fg:
+                item["dedup_fingerprint"] = dedup_fg
+                if dedup_fg.get("canonical_story_key"):
+                    item["canonical_story_key"] = dedup_fg.get("canonical_story_key")
+                if dedup_fg.get("core_entities"):
+                    item["core_entities"] = dedup_fg.get("core_entities")
+
+            # Initialize sources container if not present
+            if "sources" not in item or not isinstance(item.get("sources"), list) or len(item["sources"]) == 0:
+                item["sources"] = [
+                    {
+                        "source_name": item.get("source_platform") or "Primary",
+                        "platform": item.get("source_platform") or "Primary",
+                        "title": item.get("title") or item.get("title_ko") or "",
+                        "url": item.get("source_url") or item.get("url") or "",
+                        "type": "discussion" if any(x in (item.get("source_platform") or "").lower() for x in ["hacker news", "geeknews", "reddit"]) else "media",
+                        "published_at": item.get("published_date") or item.get("source_published_date") or item.get("harvested_at") or ""
+                    }
+                ]
+            item["source_count"] = len(item["sources"])
+
+            # Match with existing dossiers
+            related = match_dossier(
+                dossiers,
+                item.get("title", ""),
+                enrich_data.get("category", ""),
+                enrich_data.get("programming_lang", ""),
+                enrich_data.get("root_keywords", [])
+            )
+            if related:
+                item["related_dossier"] = related
+                print(f"  [🔗 LINKED] {related['target_tech']} -> {related['case_id']}")
+
+            item["is_classified"] = True
+            item["is_deep_analyzed"] = bool(item.get("status") == "FACT_CHECKED" or item.get("related_dossier"))
+
+            with open(fpath, "w", encoding="utf-8") as fp:
+                json.dump(item, fp, indent=2, ensure_ascii=False)
+
+            print(f"  [+] [Thread-{b_idx+1}] [{c_type} | {item['source_lang']}] {item['title_ko'][:30]}")
+            batch_success_count += 1
+
+            batch_log["items_processed"].append({
+                "inbox_id": iid,
+                "title": item.get("title"),
+                "title_ko": item.get("title_ko"),
+                "classification": c_type,
+                "model_family": item.get("model_family"),
+                "enriched_at": enrich_time
+            })
+
+    return (b_idx, batch_log, batch_success_count, model_used, len(results))
+
+def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = False, only_new: bool = False, cooldown: float = 1.0, provider: str = "auto", workers: int = 5):
     openrouter_key = openrouter_free_router.get_openrouter_api_key()
     gemini_key = get_gemini_api_key()
 
@@ -444,276 +703,34 @@ def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = Fals
         "batches": []
     }
 
+    batches_data = []
     for b_idx in range(num_batches):
         batch = selected[b_idx * batch_size : (b_idx + 1) * batch_size]
-        batch_raw = [item for _, item in batch]
+        batches_data.append((b_idx, num_batches, batch))
 
-        print(f"\n=======================================================")
-        print(f"[*] Batch {b_idx+1}/{num_batches} ({len(batch)} items) via [{active_provider.upper()}]:")
-        for _, it in batch:
-            print(f"  - [{it.get('source_platform')}] {it.get('title')[:45]}...")
+    actual_workers = max(1, min(workers, num_batches))
+    print(f"[*] Dispatching {num_batches} batches across {actual_workers} concurrent worker threads...")
 
-        b_start_time = time.time()
-        results = []
-        model_used = None
-
-        if active_provider == "openrouter":
-            system_prompt, _ = load_prompt_config()
-            try:
-                results, model_used, b_latency = openrouter_free_router.call_openrouter_free_batch(system_prompt, batch_raw)
-            except Exception as e:
-                print(f"  [-] OpenRouter Free Router batch failed: {e}")
-                if gemini_key:
-                    print("  [*] Attempting fallback to Gemini API...")
-                    results, model_used = call_gemini_trilingual_batch(gemini_key, batch_raw)
-                    b_latency = round(time.time() - b_start_time, 2)
-                else:
-                    results, model_used, b_latency = [], None, round(time.time() - b_start_time, 2)
-        else:
-            results, model_used = call_gemini_trilingual_batch(gemini_key, batch_raw)
-            b_latency = round(time.time() - b_start_time, 2)
-
-        res_map = {r["id"]: r for r in results if isinstance(r, dict) and "id" in r}
-
-        batch_log = {
-            "batch_index": b_idx + 1,
-            "items_count": len(batch),
-            "model_used": model_used or "FAILED",
-            "latency_seconds": b_latency,
-            "items_processed": []
+    completed_batches = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=actual_workers) as executor:
+        future_to_bidx = {
+            executor.submit(process_single_batch, b_idx, num_batches, batch, active_provider, gemini_key, dossiers): b_idx
+            for b_idx, num_batches, batch in batches_data
         }
+        for future in concurrent.futures.as_completed(future_to_bidx):
+            b_idx = future_to_bidx[future]
+            try:
+                ret_b_idx, batch_log, batch_success_count, model_used, res_count = future.result()
+                completed_batches.append(batch_log)
+                success_count += batch_success_count
+                if model_used:
+                    audit_session["models_used_summary"][model_used] = audit_session["models_used_summary"].get(model_used, 0) + res_count
+            except Exception as exc:
+                print(f"[!] Batch {b_idx + 1} generated an unhandled exception: {exc}")
 
-        if model_used:
-            audit_session["models_used_summary"][model_used] = audit_session["models_used_summary"].get(model_used, 0) + len(results)
-
-        for fpath, item in batch:
-            iid = item.get("inbox_id")
-            enrich_data = res_map.get(iid)
-            if not enrich_data:
-                idx = [it.get("inbox_id") for _, it in batch].index(iid)
-                if idx < len(results):
-                    enrich_data = results[idx]
-
-            if enrich_data:
-                enrich_time = datetime.now().astimezone().isoformat()
-                enrich_data["enriched_by_model"] = model_used
-                enrich_data["enriched_at"] = enrich_time
-
-                multi = enrich_data.get("multilingual", {})
-                ko_data = multi.get("ko", {})
-                en_data = multi.get("en", {})
-                zh_data = multi.get("zh", {})
-
-                item["ai_enrichment"] = enrich_data
-                item["multilingual"] = multi
-                item["source_lang"] = enrich_data.get("source_lang", "EN")
-                item["programming_lang"] = enrich_data.get("programming_lang", "General")
-                item["root_keywords"] = enrich_data.get("root_keywords", [])
-                
-                # Trilingual titles
-                item["title_ko"] = ko_data.get("title") or enrich_data.get("korean_title") or item.get("title_ko")
-                item["title_en"] = en_data.get("title") or item.get("title_en") or item.get("title")
-                item["title_zh"] = zh_data.get("title") or item.get("title_zh")
-
-                # Trilingual hooks
-                item["hook"] = ko_data.get("hook") or enrich_data.get("hook")
-                item["hook_ko"] = ko_data.get("hook")
-                item["hook_en"] = en_data.get("hook")
-                item["hook_zh"] = zh_data.get("hook")
-
-                # Trilingual descriptions
-                item["description_ko"] = item["hook_ko"] or item.get("description_ko")
-                item["description_en"] = item["hook_en"] or item.get("description_en") or item.get("description")
-                item["description_zh"] = item["hook_zh"] or item.get("description_zh")
-
-                # Routing & Automatic Model Family Tagging
-                c_type = enrich_data.get("type_classification", "TECH")
-
-                # Guardrail: Force MODEL classification if source is HF Models or title indicates model release
-                is_explicit_model = (
-                    item.get("source_platform") == "Hugging Face Models" or
-                    "model:" in item.get("title", "").lower() or
-                    "-gguf" in item.get("title", "").lower() or
-                    "gguf" in item.get("title", "").lower() or
-                    "lora" in item.get("title", "").lower()
-                )
-                if is_explicit_model and c_type != "NEWS":
-                    c_type = "MODEL"
-
-                if c_type == "MODEL":
-                    # 1. Model Family normalization
-                    fam = enrich_data.get("model_family") or item.get("model_family")
-                    t_lower = (item.get("title", "") + " " + (item.get("title_en", "") or "") + " " + item.get("description", "")).lower()
-                    if not fam or fam.lower() in ["none", "null", "", "standalone", "standalone / novel"] or "standalone" in fam.lower():
-                        if "qwen" in t_lower: fam = "Qwen"
-                        elif "deepseek" in t_lower: fam = "DeepSeek"
-                        elif "minimax" in t_lower: fam = "MiniMax"
-                        elif "wan" in t_lower or "wan2" in t_lower: fam = "Wan"
-                        elif "flux" in t_lower: fam = "FLUX"
-                        elif "llama" in t_lower: fam = "Llama"
-                        elif "glm" in t_lower: fam = "GLM"
-                        elif "hunyuan" in t_lower: fam = "Hunyuan"
-                        elif any(k in t_lower for k in ["whisper", "tts", "speech", "audio", "voice", "firered", "breeze"]): fam = "Audio / Speech"
-                        elif "mistral" in t_lower or "codestral" in t_lower: fam = "Mistral"
-                        elif "gemma" in t_lower: fam = "Gemma"
-                        else: fam = "Standalone"
-                    else:
-                        # Clean up family names into canonical categories
-                        fam_low = fam.lower()
-                        if "qwen" in fam_low: fam = "Qwen"
-                        elif "deepseek" in fam_low: fam = "DeepSeek"
-                        elif "minimax" in fam_low: fam = "MiniMax"
-                        elif "wan" in fam_low: fam = "Wan"
-                        elif "flux" in fam_low: fam = "FLUX"
-                        elif "llama" in fam_low: fam = "Llama"
-                        elif "glm" in fam_low: fam = "GLM"
-                        elif "hunyuan" in fam_low: fam = "Hunyuan"
-                        elif any(k in fam_low for k in ["whisper", "tts", "speech", "audio", "voice"]): fam = "Audio / Speech"
-                        elif "mistral" in fam_low: fam = "Mistral"
-                        elif "gemma" in fam_low: fam = "Gemma"
-                    item["model_family"] = fam
-                    item["category_type"] = "MODEL"
-
-                    # 2. Task Modality normalization (Hugging Face standard)
-                    modality = enrich_data.get("task_modality") or item.get("task_modality")
-                    if not modality or modality.lower() in ["none", "null", "", "other"]:
-                        p_match = re.search(r'Pipeline:\s*([a-zA-Z0-9_-]+)', item.get("description", ""))
-                        if p_match:
-                            modality = p_match.group(1).lower()
-                        elif any(k in t_lower for k in ['video', 'wan', 'minimax-h3', 'ltx-video', 'hunyuanvideo']):
-                            modality = 'text-to-video'
-                        elif any(k in t_lower for k in ['tts', 'speech', 'audio', 'voice', 'whisper', 'firered', 'voxcpm']):
-                            modality = 'text-to-speech' if 'whisper' not in t_lower else 'speech-to-text'
-                        elif any(k in t_lower for k in ['flux', 'diffusion', 'sdxl', 'text-to-image']):
-                            modality = 'text-to-image'
-                        elif any(k in t_lower for k in ['vlm', 'vision', 'image-to-text', 'multimodal understanding']):
-                            modality = 'image-text-to-text'
-                        else:
-                            modality = 'text-to-text'
-
-                    # Normalize modality string
-                    mod_low = modality.lower()
-                    if 'text-generation' in mod_low or 'text2text' in mod_low or 'text-to-text' in mod_low:
-                        item["task_modality"] = 'text-to-text'
-                    elif 'image-text-to-text' in mod_low or 'visual-question-answering' in mod_low:
-                        item["task_modality"] = 'image-text-to-text'
-                    elif 'text-to-image' in mod_low:
-                        item["task_modality"] = 'text-to-image'
-                    elif 'image-to-image' in mod_low:
-                        item["task_modality"] = 'image-to-image'
-                    elif 'text-to-video' in mod_low:
-                        item["task_modality"] = 'text-to-video'
-                    elif 'text-to-speech' in mod_low or 'tts' in mod_low:
-                        item["task_modality"] = 'text-to-speech'
-                    elif 'speech-to-text' in mod_low or 'transcription' in mod_low:
-                        item["task_modality"] = 'speech-to-text'
-                    else:
-                        item["task_modality"] = modality
-
-                    # 3. Parameter Size
-                    param = enrich_data.get("parameter_size") or item.get("parameter_size")
-                    if not param or param.lower() in ["none", "null", "", "n/a"]:
-                        pm = re.search(r'\b(\d+(\.\d+)?[BMb])\b', item.get("title", "") + " " + item.get("description", ""))
-                        item["parameter_size"] = pm.group(1).upper() if pm else "N/A"
-                    else:
-                        item["parameter_size"] = param
-
-                    # 4. Formats
-                    formats = enrich_data.get("detected_formats") or item.get("detected_formats") or []
-                    if not formats or not isinstance(formats, list) or len(formats) == 0:
-                        det = []
-                        if 'gguf' in t_lower: det.append('GGUF')
-                        if 'fp8' in t_lower or '8-bit' in t_lower: det.append('FP8')
-                        if 'lora' in t_lower: det.append('LoRA')
-                        if 'safetensors' in t_lower: det.append('Safetensors')
-                        if 'diffusers' in t_lower: det.append('Diffusers')
-                        if 'mlx' in t_lower: det.append('MLX')
-                        item["detected_formats"] = det if det else ["Safetensors"]
-                    else:
-                        item["detected_formats"] = formats
-                elif c_type == "NEWS":
-                    item["category_type"] = "NEWS"
-                else:
-                    item["category_type"] = c_type
-
-                # Set Standard 2-Tier Taxonomy & Artifact Type (IPTC Standard)
-                cat_p = infer_primary_category(item, enrich_data, c_type)
-                t1_cat = infer_tier1_category(item, enrich_data, cat_p)
-                art_type = infer_artifact_type(item, enrich_data)
-
-                item["category_primary"] = cat_p
-                item["tier1_category"] = t1_cat
-                item["tier2_category"] = cat_p
-                item["artifact_type"] = art_type
-
-                enrich_data["category_primary"] = cat_p
-                enrich_data["tier1_category"] = t1_cat
-                enrich_data["tier2_category"] = cat_p
-                enrich_data["artifact_type"] = art_type
-
-                # 5. Deduplication Fingerprint & Multi-Source Tracking
-                dedup_fg = enrich_data.get("dedup_fingerprint") or {}
-                if dedup_fg:
-                    item["dedup_fingerprint"] = dedup_fg
-                    if dedup_fg.get("canonical_story_key"):
-                        item["canonical_story_key"] = dedup_fg.get("canonical_story_key")
-                    if dedup_fg.get("core_entities"):
-                        item["core_entities"] = dedup_fg.get("core_entities")
-
-                # Initialize sources container if not present
-                if "sources" not in item or not isinstance(item.get("sources"), list) or len(item["sources"]) == 0:
-                    item["sources"] = [
-                        {
-                            "source_name": item.get("source_platform") or "Primary",
-                            "platform": item.get("source_platform") or "Primary",
-                            "title": item.get("title") or item.get("title_ko") or "",
-                            "url": item.get("source_url") or item.get("url") or "",
-                            "type": "discussion" if any(x in (item.get("source_platform") or "").lower() for x in ["hacker news", "geeknews", "reddit"]) else "media",
-                            "published_at": item.get("published_date") or item.get("source_published_date") or item.get("harvested_at") or ""
-                        }
-                    ]
-                item["source_count"] = len(item["sources"])
-
-                # Match with existing 18 dossiers
-                related = match_dossier(
-                    dossiers,
-                    item.get("title", ""),
-                    enrich_data.get("category", ""),
-                    enrich_data.get("programming_lang", ""),
-                    enrich_data.get("root_keywords", [])
-                )
-                if related:
-                    item["related_dossier"] = related
-                    print(f"  [🔗 LINKED] {related['target_tech']} -> {related['case_id']}")
-
-                item["is_classified"] = True
-                item["is_deep_analyzed"] = bool(item.get("status") == "FACT_CHECKED" or item.get("related_dossier"))
-
-                with open(fpath, "w", encoding="utf-8") as fp:
-                    json.dump(item, fp, indent=2, ensure_ascii=False)
-
-                print(f"  [+] [{c_type} | {item['source_lang']}] {item['title_ko'][:30]}")
-                print(f"      Model: {model_used} | Time: {enrich_time[11:19]}")
-                print(f"      KO: {item['hook_ko'][:45]}...")
-                print(f"      EN: {item['hook_en'][:45]}...")
-                print(f"      ZH: {item['hook_zh'][:45]}...")
-                success_count += 1
-
-                batch_log["items_processed"].append({
-                    "inbox_id": iid,
-                    "title": item.get("title"),
-                    "title_ko": item.get("title_ko"),
-                    "classification": c_type,
-                    "model_family": item.get("model_family"),
-                    "enriched_at": enrich_time
-                })
-
-        audit_session["batches"].append(batch_log)
-
-        if b_idx < num_batches - 1:
-            print(f"[*] Batch {b_idx + 1}/{num_batches} complete. Sleeping {cooldown:.1f}s for RPM safety...")
-            time.sleep(cooldown)
-
+    # Keep batch logs ordered by batch_index
+    completed_batches.sort(key=lambda b: b.get("batch_index", 0))
+    audit_session["batches"] = completed_batches
     audit_session["success_count"] = success_count
 
     # Persist session to logs/ai_enrichment_history.json
@@ -748,13 +765,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Trilingual AI Auto-Enricher with Smart Zero-Cost OpenRouter Free Routing & Gemini Fallback")
     parser.add_argument("--limit", type=int, default=0, help="Number of items to enrich (default: 0 = ALL pending unenriched items)")
     parser.add_argument("--all", action="store_true", default=False, help="Process ALL pending unenriched items without limit")
-    parser.add_argument("--batch-size", type=int, default=1, help="Item batch size (default: 1 = Single-item real-time streaming mode for 100% precision & speed)")
+    parser.add_argument("--batch-size", type=int, default=1, help="Item batch size (default: 1 = Single-item real-time streaming mode for 100%% precision & speed)")
     parser.add_argument("--cooldown", type=float, default=1.0, help="Cooldown seconds between items (default: 1.0s)")
     parser.add_argument("--random", action="store_true", default=False, help="Pick randomly from inbox")
     parser.add_argument("--only-new", action="store_true", default=False, help="Process ONLY newly harvested items from manifest")
-    parser.add_argument("--provider", choices=["auto", "openrouter", "gemini"], default="auto", help="AI Provider: openrouter (100% Free Router, $0.00) or gemini")
+    parser.add_argument("--provider", choices=["auto", "openrouter", "gemini"], default="auto", help="AI Provider: openrouter (100%% Free Router, $0.00) or gemini")
+    parser.add_argument("--workers", type=int, default=5, help="Concurrent worker threads for parallel batch execution (default: 5)")
     
-    # 🌟 Google Gemini Batch API Options (50% Cost Cut & Zero RPM Throttling)
+    # 🌟 Google Gemini Batch API Options (50%% Cost Cut & Zero RPM Throttling)
     parser.add_argument("--submit-batch", action="store_true", default=False, help="Submit un-enriched items to Gemini Batch API")
     parser.add_argument("--harvest-batch", action="store_true", default=False, help="Harvest completed Batch API responses & update inbox")
     parser.add_argument("--status-batch", action="store_true", default=False, help="Print status of all Gemini Batch API jobs")
@@ -807,4 +825,4 @@ if __name__ == "__main__":
             sys.exit(0)
 
     effective_limit = 0 if args.all else args.limit
-    run_enrichment(limit=effective_limit, batch_size=args.batch_size, random_pick=args.random, only_new=args.only_new, cooldown=args.cooldown, provider=args.provider)
+    run_enrichment(limit=effective_limit, batch_size=args.batch_size, random_pick=args.random, only_new=args.only_new, cooldown=args.cooldown, provider=args.provider, workers=args.workers)

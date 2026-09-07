@@ -112,7 +112,34 @@ def push_inbox_to_neon(full_sync=False):
     
     count = 0
     now_ts = time.time()
-    twenty_four_hours = 86400
+    today_str = datetime.date.today().isoformat()
+
+    target_inbox_ids = set()
+    if not full_sync:
+        manifest_path = os.path.join(base_dir, "logs", "last_harvest_new_items.json")
+        if os.path.exists(manifest_path):
+            try:
+                with open(manifest_path, "r", encoding="utf-8") as mfp:
+                    mdata = json.load(mfp)
+                    for fpath in mdata.get("files", []):
+                        fname = os.path.basename(fpath).replace(".json", "")
+                        target_inbox_ids.add(fname)
+            except Exception:
+                pass
+
+        history_path = os.path.join(base_dir, "logs", "ai_enrichment_history.json")
+        if os.path.exists(history_path):
+            try:
+                with open(history_path, "r", encoding="utf-8") as hfp:
+                    hdata = json.load(hfp)
+                    if hdata and isinstance(hdata, list):
+                        last_sess = hdata[-1]
+                        for b in last_sess.get("batches", []):
+                            for itm in b.get("items_processed", []):
+                                if itm.get("inbox_id"):
+                                    target_inbox_ids.add(itm["inbox_id"])
+            except Exception:
+                pass
 
     with conn.cursor() as cur:
         cur.execute("ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS is_classified BOOLEAN DEFAULT FALSE;")
@@ -123,11 +150,23 @@ def push_inbox_to_neon(full_sync=False):
     for f in os.listdir(inbox_dir):
         if f.endswith(".json") and not f.startswith("_"):
             path = os.path.join(inbox_dir, f)
+            inbox_id = f.replace(".json", "")
+            if not full_sync:
+                if target_inbox_ids:
+                    if inbox_id not in target_inbox_ids:
+                        continue
+                else:
+                    try:
+                        mtime = os.path.getmtime(path)
+                        if (now_ts - mtime) > 7200 and not f.startswith(today_str):
+                            continue
+                    except Exception:
+                        pass
             try:
                 with open(path, "r", encoding="utf-8") as fp:
                     it = json.load(fp)
                 
-                inbox_id = it.get("inbox_id", f.replace(".json", ""))
+                inbox_id = it.get("inbox_id", inbox_id)
                 source_url = it.get("source_url", "")
                 fp_hash = compute_fingerprint(source_url, it.get("title", ""))
                 
@@ -219,6 +258,12 @@ def push_inbox_to_neon(full_sync=False):
         created_at = COALESCE(raw_trends_inbox.created_at, EXCLUDED.created_at),
         updated_at = EXCLUDED.updated_at;
     """
+
+    print(f"[*] Prepared {len(params_list)} items for Neon DB push (Incremental: {not full_sync})...")
+    if not params_list:
+        print("[+] No recently modified inbox items to push. Finished in 0.0s!")
+        conn.close()
+        return
 
     with conn.cursor() as cur:
         cur.execute("ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS is_classified BOOLEAN DEFAULT FALSE;")
@@ -395,6 +440,7 @@ def main():
     parser.add_argument("--pull-inbox", action="store_true", help="Pull latest inbox items from Neon DB to local disk")
     parser.add_argument("--sync-factchecks", action="store_true", help="Push verified portfolios to Neon DB (Tier 2)")
     parser.add_argument("--sync-all", action="store_true", help="Initialize schema and sync everything to Neon DB")
+    parser.add_argument("--full", action="store_true", help="Perform full sync instead of fast incremental (last 24h) sync")
 
     args = parser.parse_args()
 
@@ -403,12 +449,12 @@ def main():
     elif args.pull_inbox:
         pull_inbox_from_neon()
     elif args.sync_inbox:
-        push_inbox_to_neon()
+        push_inbox_to_neon(full_sync=args.full)
     elif args.sync_factchecks:
         push_factchecks_to_neon()
     elif args.sync_all:
         init_schema()
-        push_inbox_to_neon()
+        push_inbox_to_neon(full_sync=args.full)
         push_factchecks_to_neon()
     else:
         print("Usage: python tools/db_bridge.py [--init | --pull-inbox | --sync-inbox | --sync-factchecks | --sync-all]")

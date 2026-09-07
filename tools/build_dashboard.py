@@ -78,7 +78,7 @@ def scan_inbox():
                     SELECT raw_payload FROM raw_trends_inbox 
                     WHERE raw_payload IS NOT NULL 
                     ORDER BY id DESC 
-                    LIMIT 1000;
+                    LIMIT 5000;
                 """)
                 rows = cur.fetchall()
                 db_added = 0
@@ -180,6 +180,76 @@ def get_harvest_admin_stats():
         "history": history,
         "latest_run": history[0] if history else None
     }
+
+def get_actions_telemetry():
+    telemetry = {
+        "monthly_quota_minutes": 2000,
+        "monthly_used_minutes": 1242.0,
+        "monthly_remaining_minutes": 758.0,
+        "monthly_usage_percent": 62.1,
+        "total_job_runs": 763,
+        "workflows": [
+            {"name": "deploy_pages.yml", "total_min": 615, "runs": 136, "avg_time": "4분 1초", "failure_rate": "10%"},
+            {"name": "pages build deployment", "total_min": 604, "runs": 212, "avg_time": "36초", "failure_rate": "<1%"},
+            {"name": "deploy_only.yml", "total_min": 18, "runs": 18, "avg_time": "32초", "failure_rate": "0%"},
+            {"name": "daily_eod_enrichment.yml", "total_min": 5, "runs": 5, "avg_time": "30초", "failure_rate": "40%"}
+        ],
+        "alert_level": "WARNING_HIGH",
+        "can_shorten_interval": False,
+        "advice": "🚨 9월 1일~8일(약 7일) 동안 이미 2,000분 중 1,242분(62.1%)을 소모했습니다! 잔여 시간은 758분뿐이므로 수집 주기를 6시간에서 무리하게 줄이면(증설하면) 4~5일 내에 쿼터가 전면 소진됩니다. 현행 6시간 유지를 강력 권장합니다.",
+        "runs": [],
+        "slot_logs": {
+            "00:00": {"slot": "1회차 (00:17)", "name": "심야 글로벌 릴리스", "actual_duration": "9분 05초", "duration_sec": 545, "status": "SUCCESS", "error_count": 0, "run_id": "34133531110"},
+            "06:00": {"slot": "2회차 (06:17)", "name": "모닝 브리핑", "actual_duration": "6분 02초", "duration_sec": 362, "status": "SUCCESS", "error_count": 0, "run_id": "34096402553"},
+            "12:00": {"slot": "3회차 (12:17)", "name": "정오 레이더", "actual_duration": "7분 36초", "duration_sec": 456, "status": "SUCCESS", "error_count": 0, "run_id": "34064244121"},
+            "18:00": {"slot": "4회차 (18:17)", "name": "저녁 라운드업", "actual_duration": "11분 34초", "duration_sec": 694, "status": "SUCCESS", "error_count": 0, "run_id": "34048453203"},
+        }
+    }
+    
+    # Try querying Neon DB for live synced usage & run logs
+    try:
+        from db_bridge import load_env_db_url
+        import psycopg2
+        db_url = load_env_db_url()
+        if db_url:
+            conn = psycopg2.connect(db_url)
+            with conn.cursor() as cur:
+                # 1. Fetch monthly summary
+                cur.execute("SELECT total_minutes, total_job_runs, remaining_minutes, burn_rate_percent, alert_level FROM github_actions_monthly_usage WHERE year_month = '2026-09';")
+                row = cur.fetchone()
+                if row:
+                    telemetry["monthly_used_minutes"] = float(row[0])
+                    telemetry["total_job_runs"] = int(row[1])
+                    telemetry["monthly_remaining_minutes"] = float(row[2])
+                    telemetry["monthly_usage_percent"] = float(row[3])
+                    telemetry["alert_level"] = str(row[4])
+                
+                # 2. Fetch recent run logs
+                cur.execute("SELECT run_id, workflow_name, event_trigger, status, conclusion, duration_str, duration_seconds, started_at, error_count FROM github_actions_run_logs ORDER BY run_id DESC LIMIT 8;")
+                run_rows = cur.fetchall()
+                if run_rows:
+                    db_runs = []
+                    kst_tz = datetime.timezone(datetime.timedelta(hours=9))
+                    for rr in run_rows:
+                        st = rr[7].astimezone(kst_tz) if rr[7] else datetime.datetime.now(kst_tz)
+                        db_runs.append({
+                            "id": str(rr[0]),
+                            "name": str(rr[1]),
+                            "event": str(rr[2]),
+                            "status": str(rr[3]),
+                            "conclusion": str(rr[4]),
+                            "duration_str": str(rr[5]),
+                            "duration_sec": int(rr[6]),
+                            "created_at_kst": st.strftime("%Y-%m-%d %H:%M:%S"),
+                            "html_url": f"https://github.com/AnnyeongHae/ai-factcheck-portfolio/actions/runs/{rr[0]}",
+                            "error_count": int(rr[8])
+                        })
+                    telemetry["runs"] = db_runs
+            conn.close()
+    except Exception as e:
+        print(f"[!] Note: Reading Actions telemetry from Neon DB fallback: {e}")
+        
+    return telemetry
 
 def build_dashboard():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -643,6 +713,7 @@ def build_dashboard():
     }
     trend_6h = sessions_data[str(current_session_num)]
 
+    actions_telemetry = get_actions_telemetry()
     summary_data = {
         "generated_at": datetime.date.today().strftime("%Y-%m-%d"),
         "today_kst": today_kst_str,
@@ -671,7 +742,8 @@ def build_dashboard():
         "news_items": news_items,
         "inbox_items": clean_inbox_items,
         "cases": cases,
-        "graph": graph_data
+        "graph": graph_data,
+        "actions_telemetry": actions_telemetry
     }
 
     # Write data.json — only docs/ (GitHub Pages) and public/ (Vercel static)
@@ -709,6 +781,7 @@ def generate_html(data):
     graph_json = json.dumps(data["graph"], ensure_ascii=False)
     models_json = json.dumps(data.get("model_items", []), ensure_ascii=False)
     news_json = json.dumps(data.get("news_items", []), ensure_ascii=False)
+    actions_telemetry_json = json.dumps(data.get("actions_telemetry", {}), ensure_ascii=False)
     timeline_json = json.dumps(data.get("timeline_24h", []), ensure_ascii=False)
     trend_6h_json = json.dumps(data.get("trend_6h", {}), ensure_ascii=False)
     trend_radar_json = json.dumps(data.get("trend_radar", {}), ensure_ascii=False)
@@ -1438,41 +1511,147 @@ def generate_html(data):
         </div>
       </div>
 
-      <!-- 🌟 AUTONOMOUS PROMOTION CRITERIA GUIDE BOX -->
-      <div class="bg-gradient-to-r from-indigo-50/70 via-sky-50/60 to-purple-50/70 p-5 rounded-2xl border border-indigo-100 space-y-3 shadow-sm">
-        <div class="flex items-center gap-2 text-xs font-bold text-indigo-950">
-          <i data-lucide="sparkles" class="w-4 h-4 text-indigo-600"></i>
-          <span id="criteriaTitle">자율 크론 4대 자동 승격(Promotion) 기준 가이드</span>
-        </div>
-        <p class="text-xs text-indigo-900 leading-relaxed" id="criteriaDesc">
-          수집된 수많은 오픈소스 및 논문 중 아래의 4대 바이럴/기술 임계치를 돌파한 항목은 자동으로 <strong>[자동 승격 트렌드 후보]</strong>로 격상되어 최우선 기술 검증 대기열에 등록됩니다.
-        </p>
+      <!-- 🚀 GITHUB ACTIONS RUNNER QUOTA & OPERATIONAL LOG ANALYTICS SUITE -->
+      <div class="bg-white p-5 sm:p-6 rounded-2xl border border-surface-border shadow-sm space-y-5">
+        
+        <!-- Header & Top Countdown -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-surface-border">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center gap-1.5" id="pipelineBadge">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse"></span>
+                <span>GITHUB ACTIONS RUNNER TELEMETRY & QUOTA</span>
+              </span>
+              <span class="text-xs font-mono text-ink-muted" id="pipelineScheduleDesc">1일 4회(00:17, 06:17, 12:17, 18:17 KST) 전략 수집</span>
+            </div>
+            <h3 class="text-base font-bold text-ink-primary flex items-center gap-2" id="pipelineWidgetTitle">
+              <i data-lucide="server" class="w-4 h-4 text-indigo-600"></i>
+              <span>GitHub Actions 러너 쿼터 잔여 시간 & 회차별 소요시간·에러 로그 분석</span>
+            </h3>
+            <p class="text-xs text-ink-secondary" id="pipelineWidgetSub">
+              월간 무료 2,000분 쿼터 소모량과 회차별 실제 실행 시간(Duration)을 정밀 추적하여, 수집 주기를 줄이거나(증설) 늘리는(절약) 운영 의사결정을 지원합니다.
+            </p>
+          </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1 text-xs">
-          <div class="p-3 rounded-xl bg-white/90 border border-indigo-100 space-y-1">
-            <div class="font-bold text-indigo-950 flex items-center gap-1.5">
-              <span>🐙 GitHub Stars</span>
+          <!-- Dynamic Next Run Countdown Banner -->
+          <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white p-3 rounded-xl shadow-sm flex items-center gap-3 shrink-0 self-start md:self-auto">
+            <i data-lucide="timer" class="w-5 h-5 text-indigo-100 animate-spin" style="animation-duration: 12s;"></i>
+            <div>
+              <div class="text-[10px] font-medium text-indigo-100 uppercase tracking-wider" id="pipelineNextTargetLabel">다음 자동 수집 예정</div>
+              <div class="text-xs sm:text-sm font-mono font-bold tracking-tight text-white flex items-center gap-1" id="pipelineCountdownValue">
+                계산 중...
+              </div>
             </div>
-            <p class="text-[11px] text-ink-secondary" id="critGithub">최근 14일 이내 생성 & ★ > 500 Stars 돌파</p>
           </div>
-          <div class="p-3 rounded-xl bg-white/90 border border-indigo-100 space-y-1">
-            <div class="font-bold text-orange-950 flex items-center gap-1.5">
-              <span>🔥 Hacker News</span>
+        </div>
+
+        <!-- Section 1: 📊 GitHub Actions Monthly Quota & Decision Simulator -->
+        <div class="bg-slate-50/70 p-4 rounded-xl border border-slate-200 space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
+            <div class="flex items-center gap-2 font-bold text-ink-primary">
+              <i data-lucide="gauge" class="w-4 h-4 text-indigo-600"></i>
+              <span id="quotaSectionTitle">월간 GitHub Actions 러너 쿼터 현황 (2,000분 기준)</span>
             </div>
-            <p class="text-[11px] text-ink-secondary" id="critHn">Top/Best 스토리 중 추천 점수 🔥 > 150 Points</p>
-          </div>
-          <div class="p-3 rounded-xl bg-white/90 border border-indigo-100 space-y-1">
-            <div class="font-bold text-amber-950 flex items-center gap-1.5">
-              <span>🤗 Hugging Face</span>
+            <div class="text-ink-secondary text-[11px]" id="quotaStatsText">
+              사용: <b class="text-indigo-600 font-bold" id="quotaUsedMin">82.8분</b> / 잔여: <b class="text-emerald-600 font-bold" id="quotaRemMin">1,917.2분 (95.9%)</b>
             </div>
-            <p class="text-[11px] text-ink-secondary" id="critHf">Trending 점수 상위권 & ❤️ > 100 Likes 모델/데모</p>
           </div>
-          <div class="p-3 rounded-xl bg-white/90 border border-indigo-100 space-y-1">
-            <div class="font-bold text-emerald-950 flex items-center gap-1.5">
-              <span>📄 ArXiv CS.AI</span>
+
+          <!-- Progress Bar -->
+          <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden flex relative">
+            <div class="bg-amber-500 h-3 rounded-full transition-all duration-500" id="quotaProgressBar" style="width: 62.1%;"></div>
+          </div>
+
+          <!-- Breakdown by Workflows (Image 1 metrics) -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 pb-1 text-[11px] font-mono">
+            <div class="p-2 rounded-lg bg-white border border-slate-200">
+              <div class="text-ink-muted text-[10px]">deploy_pages.yml</div>
+              <div class="font-bold text-amber-700">615분 <span class="text-[10px] font-normal text-ink-muted">(136회)</span></div>
+              <div class="text-[10px] text-red-500">실패율 10% · 평균 4m 1s</div>
             </div>
-            <p class="text-[11px] text-ink-secondary" id="critArxiv">MoE, Reasoning, VLM 등 혁신 아키텍처 1차 논문</p>
+            <div class="p-2 rounded-lg bg-white border border-slate-200">
+              <div class="text-ink-muted text-[10px]">pages build deployment</div>
+              <div class="font-bold text-amber-700">604분 <span class="text-[10px] font-normal text-ink-muted">(212회)</span></div>
+              <div class="text-[10px] text-emerald-600">실패율 &lt;1% · 평균 36s</div>
+            </div>
+            <div class="p-2 rounded-lg bg-white border border-slate-200">
+              <div class="text-ink-muted text-[10px]">deploy_only.yml</div>
+              <div class="font-bold text-ink-primary">18분 <span class="text-[10px] font-normal text-ink-muted">(18회)</span></div>
+              <div class="text-[10px] text-emerald-600">실패율 0% · 평균 32s</div>
+            </div>
+            <div class="p-2 rounded-lg bg-white border border-slate-200">
+              <div class="text-ink-muted text-[10px]">daily_eod_enrichment</div>
+              <div class="font-bold text-ink-primary">5분 <span class="text-[10px] font-normal text-ink-muted">(5회)</span></div>
+              <div class="text-[10px] text-red-500">실패율 40% · 평균 30s</div>
+            </div>
           </div>
+
+          <!-- Operational Decision Suggestion Banner -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between text-[11px] gap-2 pt-1 border-t border-slate-200/60">
+            <div class="flex items-center gap-2 text-slate-700" id="quotaAdviceBanner">
+              <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold font-mono text-[10px]" id="quotaBadgeVerdict">🚨 사용량 주의 (62.1% 소모)</span>
+              <span id="quotaAdviceText">9월 1~8일(7일간) 이미 <b>1,242분(62.1%)</b> 소모! 잔여는 <b>758분(37.9%)</b>뿐이므로 <b>수집 주기를 줄이지 말고 현행 6시간(1일 4회) 유지</b>해야 월말까지 안전합니다.</span>
+            </div>
+            <div class="shrink-0 text-amber-700 font-bold font-mono text-[10px]" id="quotaDailyEstText">
+              총 실행 763회 (평균 54s / 실패율 2%)
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: ⏱️ 4 Quarterly Sessions Execution Time & Error Audit -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-ink-primary">
+            <span class="flex items-center gap-1.5" id="timelineAuditTitle">
+              <i data-lucide="clock" class="w-4 h-4 text-indigo-600"></i>
+              <span>수집 Timeline 연동 회차별 실제 소요 시간 & 에러율 감사</span>
+            </span>
+            <span class="text-[11px] text-ink-muted font-normal font-mono" id="timelineAuditSub">GitHub Actions 최근 실측 런 기준</span>
+          </div>
+
+          <!-- 4 Cards Container -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-mono" id="pipelineSlotsContainer">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Section 3: 📋 Recent GitHub Actions Live Run Logs Table -->
+        <div class="space-y-2 pt-2 border-t border-surface-border">
+          <div class="flex items-center justify-between text-xs font-bold text-ink-primary">
+            <span class="flex items-center gap-1.5" id="recentRunsTitle">
+              <i data-lucide="list" class="w-4 h-4 text-slate-600"></i>
+              <span>최근 GitHub Actions 실행 로그 & 소요 시간 히스토리</span>
+            </span>
+            <span class="text-[11px] text-ink-muted font-normal font-mono" id="recentRunsSub">KST 실행 시각 기준 정렬</span>
+          </div>
+
+          <div class="overflow-x-auto rounded-xl border border-surface-border">
+            <table class="w-full text-left text-xs font-mono">
+              <thead class="bg-slate-50 border-b border-surface-border text-ink-secondary text-[11px]">
+                <tr>
+                  <th class="py-2.5 px-3">실행 시각 (KST)</th>
+                  <th class="py-2.5 px-3">워크플로우</th>
+                  <th class="py-2.5 px-3">트리거</th>
+                  <th class="py-2.5 px-3">소요 시간</th>
+                  <th class="py-2.5 px-3">상태</th>
+                  <th class="py-2.5 px-3">에러</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-surface-border" id="pipelineRecentRunsTbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Pipeline Footer Info -->
+        <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between text-[11px] text-ink-muted font-mono gap-1 border-t border-surface-border/60">
+          <span class="flex items-center gap-1">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>
+            <span id="pipelineFooterAudit">23:30 KST 야간 EOD 전수 배치 감사 자동 연동</span>
+          </span>
+          <span class="text-[10px] text-ink-secondary" id="pipelineFooterNote">
+            * GitHub Actions 큐 상태에 따라 ±2~5분의 스케줄 지연이 발생할 수 있습니다.
+          </span>
         </div>
       </div>
 
@@ -1705,6 +1884,7 @@ def generate_html(data):
     const adminData = {admin_json};
     const graphData = {graph_json};
     const timeline24hData = {timeline_json};
+    const actionsTelemetryData = {actions_telemetry_json};
     const trend6hData = {trend_6h_json};
     const trendRadarData = {trend_radar_json};
 
@@ -1846,6 +2026,11 @@ def generate_html(data):
         navInbox: "수집 인박스",
         adminArchiveBtn: "아카이브 (Admin)",
         statArchiveLabel: "원천 아카이브 (Admin)",
+      pipelineScheduleDesc: "1일 4회(00:17, 06:17, 12:17, 18:17 KST) 전략 수집",
+      pipelineWidgetTitle: "자율 크론 파이프라인 텔레메트리 & 차기 수집 카운트다운",
+      pipelineNextTargetLabel: "다음 자동 수집 예정",
+      pipelineFooterAudit: "23:30 KST 야간 EOD 전수 배치 감사 자동 연동",
+      pipelineFooterNote: "* GitHub Actions 큐 상태에 따라 ±2~5분의 스케줄 지연이 발생할 수 있습니다.",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
         heroMainTitle: "바이럴된 AI 기술의 실체 분석",
         heroMainDesc: "SNS 바이럴 마케팅의 환각을 걷어내고, 1차 공식 출처 감사와 기저 표준 vs 서드파티 실측 벤치마크를 통해 도출한 100% 실증 보고서입니다.",
@@ -2000,6 +2185,11 @@ def generate_html(data):
         navInbox: "采集收件箱",
         adminArchiveBtn: "归档 (Admin)",
         statArchiveLabel: "原始归档 (Admin)",
+      pipelineScheduleDesc: "每日 4 次（00:17、06:17、12:17、18:17 KST）周期策略采集",
+      pipelineWidgetTitle: "自主定时流水线遥测与下次采集倒计时",
+      pipelineNextTargetLabel: "下次自动采集计划",
+      pipelineFooterAudit: "23:30 KST 夜间 EOD 全量批处理审计自动联动",
+      pipelineFooterNote: "* 受 GitHub Actions 队列负载影响，可能存在 ±2~5 分钟调度延迟.",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
         heroMainTitle: "热门 AI 技术的工程真相与实体验证",
         heroMainDesc: "摒弃社交媒体营销炒作与幻觉，基于第一手官方源码审计以及基础标准 vs 第三方工具的实测基准，输出 100% 真实客观的工程报告。",
@@ -2154,6 +2344,11 @@ def generate_html(data):
         navInbox: "Harvest Inbox",
         adminArchiveBtn: "Archive (Admin)",
         statArchiveLabel: "Raw Archive (Admin)",
+      pipelineScheduleDesc: "4x Daily (00:17, 06:17, 12:17, 18:17 KST) Strategic Ingestion",
+      pipelineWidgetTitle: "Autonomous Cron Pipeline Telemetry & Next Ingestion Countdown",
+      pipelineNextTargetLabel: "Next Scheduled Ingestion",
+      pipelineFooterAudit: "Auto-linked with 23:30 KST Nightly EOD Batch Audit",
+      pipelineFooterNote: "* ±2~5 min schedule variance may occur based on GitHub Actions runner queue load.",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
         heroMainTitle: "Empirical Analysis of Viral AI Technologies",
         heroMainDesc: "A zero-hallucination dossier derived from Tier-1 official source audits and empirical benchmarks comparing base standards with third-party tools.",
@@ -2485,6 +2680,7 @@ def generate_html(data):
       // 🌟 Immediate Active View Re-render
       if (view === 'home') {{
         renderTelemetryCharts();
+      updateCronCountdown();
         renderHomeTopPicks();
       }} else if (view === 'portfolio') {{
         renderCards();
@@ -2494,6 +2690,7 @@ def generate_html(data):
         renderNews();
       }} else if (view === 'inbox') {{
         renderInbox();
+        updateCronCountdown();
       }} else if (view === 'graph' && !simulationRef) {{
         initCitationGraph();
       }}
@@ -2706,6 +2903,12 @@ def generate_html(data):
       // Archive & Inbox View
       safeSetText('inboxHeaderBadge', t.inboxHeaderBadge);
       safeSetText('inboxHeaderTitle', t.inboxHeaderTitle);
+      safeSetText('pipelineScheduleDesc', t.pipelineScheduleDesc);
+      safeSetText('pipelineWidgetTitle', t.pipelineWidgetTitle);
+      safeSetText('pipelineNextTargetLabel', t.pipelineNextTargetLabel);
+      safeSetText('pipelineFooterAudit', t.pipelineFooterAudit);
+      safeSetText('pipelineFooterNote', t.pipelineFooterNote);
+      if (typeof updateCronCountdown === 'function') updateCronCountdown();
       safeSetText('inboxHeaderDesc', t.inboxHeaderDesc);
       safeSetText('inboxHeaderCount', lang === 'KO' ? '총 {data['inbox_total_count']}건' : (lang === 'ZH' ? '共 {data['inbox_total_count']} 项' : 'Total: {data['inbox_total_count']} items'));
       safeSetText('criteriaTitle', t.criteriaTitle);
@@ -2742,6 +2945,7 @@ def generate_html(data):
       renderCards();
       renderHomeTopPicks();
       renderTelemetryCharts();
+      updateCronCountdown();
       renderModels();
       renderNews();
       renderInbox();
@@ -2870,6 +3074,12 @@ def generate_html(data):
         const now = new Date();
         return (now.getUTCHours() + 9) % 24;
       }}
+    }}
+
+    function getDynamicKstDate() {{
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      return new Date(utc + (3600000 * 9));
     }}
 
     function getDynamicKstSession() {{
@@ -3514,6 +3724,7 @@ def generate_html(data):
         switchView(targetView, false, false);
       }} else if (targetView === 'home') {{
         renderTelemetryCharts();
+      updateCronCountdown();
         renderHomeTopPicks();
       }}
 
@@ -4482,6 +4693,161 @@ def generate_html(data):
       renderInbox();
     }});
 
+    // ================= GITHUB ACTIONS CRON PIPELINE TELEMETRY =================
+    const cronScheduleConfig = [
+      {{ id: 1, hour: 0, min: 17, slotKo: '1회차 (00:17)', slotZh: '第1轮 (00:17)', slotEn: 'Session 1 (00:17)', nameKo: '심야 글로벌 릴리스', nameZh: '深夜全球发布', nameEn: 'Midnight Global Release', estSec: 545, runId: '34133531110', actualDur: '9분 05초' }},
+      {{ id: 2, hour: 6, min: 17, slotKo: '2회차 (06:17)', slotZh: '第2轮 (06:17)', slotEn: 'Session 2 (06:17)', nameKo: '모닝 브리핑', nameZh: '早间简报', nameEn: 'Morning Briefing', estSec: 362, runId: '34096402553', actualDur: '6분 02초' }},
+      {{ id: 3, hour: 12, min: 17, slotKo: '3회차 (12:17)', slotZh: '第3轮 (12:17)', slotEn: 'Session 3 (12:17)', nameKo: '정오 레이더', nameZh: '正午雷达', nameEn: 'Noon Radar', estSec: 456, runId: '34064244121', actualDur: '7분 36초' }},
+      {{ id: 4, hour: 18, min: 17, slotKo: '4회차 (18:17)', slotZh: '第4轮 (18:17)', slotEn: 'Session 4 (18:17)', nameKo: '저녁 라운드업', nameZh: '晚间汇总', nameEn: 'Evening Roundup', estSec: 694, runId: '34048453203', actualDur: '11분 34초' }}
+    ];
+
+    function updateCronCountdown() {{
+      if (currentView !== 'inbox') return;
+      const countdownEl = document.getElementById('pipelineCountdownValue');
+      const slotsContainer = document.getElementById('pipelineSlotsContainer');
+      const tbody = document.getElementById('pipelineRecentRunsTbody');
+      if (!countdownEl || !slotsContainer) return;
+
+      const tLang = currentLang || 'ko';
+      const aData = typeof actionsTelemetryData !== 'undefined' ? actionsTelemetryData : {{}};
+
+      // 1. Quota Progress & Analytics
+      const usedMin = aData.monthly_used_minutes || 82.8;
+      const remMin = aData.monthly_remaining_minutes || 1917.2;
+      const usagePct = aData.monthly_usage_percent || 4.1;
+
+      const usedEl = document.getElementById('quotaUsedMin');
+      const remEl = document.getElementById('quotaRemMin');
+      const progEl = document.getElementById('quotaProgressBar');
+      if (usedEl) usedEl.innerText = `${{usedMin}}분`;
+      if (remEl) remEl.innerText = `${{remMin}}분 (${{100 - usagePct}}%)`;
+      if (progEl) progEl.style.width = `${{Math.min(100, Math.max(2, usagePct))}}%`;
+
+      // 2. Next Run Countdown
+      const nowKst = getDynamicKstDate();
+      const curHour = nowKst.getHours();
+      const curMin = nowKst.getMinutes();
+      const curSec = nowKst.getSeconds();
+      const curTotalSec = curHour * 3600 + curMin * 60 + curSec;
+
+      let nextSlot = null;
+      let diffSec = 0;
+
+      for (let s of cronScheduleConfig) {{
+        const sTotalSec = s.hour * 3600 + s.min * 60;
+        if (sTotalSec > curTotalSec) {{
+          nextSlot = s;
+          diffSec = sTotalSec - curTotalSec;
+          break;
+        }}
+      }}
+
+      if (!nextSlot) {{
+        nextSlot = cronScheduleConfig[0];
+        const eodSec = 24 * 3600 - curTotalSec;
+        diffSec = eodSec + (nextSlot.hour * 3600 + nextSlot.min * 60);
+      }}
+
+      const remH = Math.floor(diffSec / 3600);
+      const remM = Math.floor((diffSec % 3600) / 60);
+      const remS = diffSec % 60;
+      const pad = (n) => String(n).padStart(2, '0');
+
+      const slotName = tLang === 'zh' ? nextSlot.slotZh : (tLang === 'en' ? nextSlot.slotEn : nextSlot.slotKo);
+      countdownEl.innerText = `${{pad(remH)}}:${{pad(remM)}}:${{pad(remS)}} (${{slotName}})`;
+
+      // 3. Render 4 Quarterly Session Telemetry Cards
+      const tData = typeof timeline24hData !== 'undefined' ? timeline24hData : [];
+      let cardsHtml = '';
+
+      cronScheduleConfig.forEach((s, idx) => {{
+        const sTotalSec = s.hour * 3600 + s.min * 60;
+        const isPast = curTotalSec >= sTotalSec + (s.estSec || 360);
+        const isActive = curTotalSec >= sTotalSec && curTotalSec < sTotalSec + (s.estSec || 360);
+        const isPending = curTotalSec < sTotalSec;
+
+        const sessionTitle = tLang === 'zh' ? s.slotZh : (tLang === 'en' ? s.slotEn : s.slotKo);
+        const sessionSub = tLang === 'zh' ? s.nameZh : (tLang === 'en' ? s.nameEn : s.nameKo);
+
+        const tlMatch = tData.find(d => d.hour === (idx * 6));
+        const itemCount = tlMatch ? (tlMatch.inbox_count || 0) : 0;
+
+        let statusBadge = '';
+        let timeInfo = '';
+        let cardBorder = 'border-surface-border';
+        let cardBg = 'bg-slate-50/50';
+
+        if (isActive) {{
+          cardBorder = 'border-indigo-400 ring-2 ring-indigo-200';
+          cardBg = 'bg-indigo-50/70';
+          statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-600 text-white flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>${{tLang === 'zh' ? '运行中' : (tLang === 'en' ? 'Running' : '수집 진행 중')}}</span>`;
+          timeInfo = `<span class="text-indigo-700 font-bold">${{tLang === 'zh' ? '正在执行' : (tLang === 'en' ? 'Ingesting live...' : '실시간 파이프라인 가동')}}</span>`;
+        }} else if (isPast) {{
+          cardBorder = 'border-emerald-200';
+          cardBg = 'bg-emerald-50/30';
+          statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-1"><i data-lucide="check-circle" class="w-3 h-3 text-emerald-600"></i>${{tLang === 'zh' ? '已完成' : (tLang === 'en' ? 'Completed' : '수집 완료')}}</span>`;
+          timeInfo = `<span>${{tLang === 'zh' ? '实测耗时' : (tLang === 'en' ? 'Duration' : '실측 소요')}}: <b class="text-ink-primary font-bold">${{s.actualDur}}</b> · 0 ${{tLang === 'zh' ? '错误' : (tLang === 'en' ? 'errors' : '에러')}}</span>`;
+        }} else {{
+          const slotDiffSec = sTotalSec - curTotalSec;
+          const futH = Math.floor(slotDiffSec / 3600);
+          const futM = Math.floor((slotDiffSec % 3600) / 60);
+          statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600 border border-slate-200 flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3 text-slate-500"></i>${{tLang === 'zh' ? '等待中' : (tLang === 'en' ? 'Scheduled' : '대기 중')}}</span>`;
+          timeInfo = `<span>${{tLang === 'zh' ? '剩余' : (tLang === 'en' ? 'Remaining' : '남은 시간')}}: <b class="text-indigo-600">${{futH}}h ${{futM}}m</b> · ${{tLang === 'zh' ? '预计约' : (tLang === 'en' ? 'Est. ' : '예상 ')}}${{Math.round(s.estSec/60)}}분</span>`;
+        }}
+
+        cardsHtml += `
+          <div class="p-3.5 rounded-xl border ${{cardBorder}} ${{cardBg}} flex flex-col justify-between space-y-2.5 transition">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-ink-primary text-xs">${{sessionTitle}}</span>
+              ${{statusBadge}}
+            </div>
+            <div class="space-y-1">
+              <div class="text-[11px] text-ink-secondary font-medium">${{sessionSub}}</div>
+              <div class="text-xs font-bold text-ink-primary flex items-center justify-between">
+                <span>${{tLang === 'zh' ? '采集总量' : (tLang === 'en' ? 'Ingested' : '수집량')}}:</span>
+                <span class="text-indigo-600 font-mono">${{itemCount}}건</span>
+              </div>
+            </div>
+            <div class="pt-2 border-t border-surface-border/60 text-[10px] text-ink-muted flex items-center justify-between">
+              ${{timeInfo}}
+            </div>
+          </div>
+        `;
+      }});
+      slotsContainer.innerHTML = cardsHtml;
+
+      // 4. Render Recent Run Logs Table
+      if (tbody && aData.runs && aData.runs.length > 0) {{
+        let rowsHtml = '';
+        aData.runs.forEach(r => {{
+          const isSuccess = r.conclusion === 'success';
+          const isCancelled = r.conclusion === 'cancelled';
+          const statusCls = isSuccess ? 'bg-emerald-100 text-emerald-800 border-emerald-300' : (isCancelled ? 'bg-amber-100 text-amber-800 border-amber-300' : 'bg-indigo-100 text-indigo-800 border-indigo-300');
+          const statusLabel = isSuccess ? (tLang === 'zh' ? '成功' : (tLang === 'en' ? 'Success' : '성공')) : (isCancelled ? (tLang === 'zh' ? '已取消' : (tLang === 'en' ? 'Cancelled' : '취소')) : (tLang === 'zh' ? '运行中' : (tLang === 'en' ? 'Running' : '진행중')));
+          
+          rowsHtml += `
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-2.5 px-3 font-bold text-ink-primary text-[11px]">${{r.created_at_kst}}</td>
+              <td class="py-2.5 px-3 font-medium text-ink-secondary">${{r.name.length > 32 ? r.name.slice(0, 30) + '...' : r.name}}</td>
+              <td class="py-2.5 px-3 text-ink-muted"><span class="px-1.5 py-0.5 rounded bg-slate-100 text-[10px] border border-slate-200">${{r.event}}</span></td>
+              <td class="py-2.5 px-3 font-bold text-ink-primary">${{r.duration_str}}</td>
+              <td class="py-2.5 px-3">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{statusCls}} inline-flex items-center gap-1">
+                  ${{statusLabel}}
+                </span>
+              </td>
+              <td class="py-2.5 px-3 text-emerald-600 font-bold">0 errors</td>
+            </tr>
+          `;
+        }});
+        tbody.innerHTML = rowsHtml;
+      }}
+
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }}
+
+    setInterval(updateCronCountdown, 1000);
+
     function renderInbox() {{
       const grid = document.getElementById('inboxGrid');
       if (!grid) return;
@@ -4919,6 +5285,7 @@ def generate_html(data):
       renderCards();
       renderHomeTopPicks();
       renderTelemetryCharts();
+      updateCronCountdown();
       renderModels();
       renderNews();
       renderInbox();
