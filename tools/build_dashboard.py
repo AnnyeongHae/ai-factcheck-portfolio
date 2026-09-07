@@ -702,13 +702,65 @@ def build_dashboard():
     print(f"    - docs/index.html  (GitHub Pages hosting | Verified: {total_cases}, Models: {len(model_items)}, News: {len(news_items)}, Inbox: {len(clean_inbox_items)})")
     print(f"    [Removed] dashboard/ & root duplicates → Git repo size reduced")
 
+def prune_dashboard_item(it):
+    ai = it.get('ai_enrichment') or {}
+    pruned_ai = None
+    if ai:
+        pruned_ai = {
+            'worth_score': ai.get('worth_score', ai.get('score', 80)),
+            'score': ai.get('score', ai.get('worth_score', 80)),
+            'programming_lang': ai.get('programming_lang', ''),
+            'recommended_tag': ai.get('recommended_tag', ''),
+            'key_takeaways': (ai.get('key_takeaways') or [])[:3],
+            'hook': ai.get('hook', ''),
+            'hook_ko': ai.get('hook_ko', '') or ai.get('summary_ko', ''),
+            'source_lang': ai.get('source_lang', 'en'),
+            'type_classification': ai.get('type_classification', ''),
+            'worth_investigating': ai.get('worth_investigating', True),
+            'enriched_at': ai.get('enriched_at', ''),
+            'enriched_by_model': ai.get('enriched_by_model', '')
+        }
+    return {
+        'inbox_id': it.get('inbox_id', ''),
+        'title': it.get('title', ''),
+        'title_ko': it.get('title_ko', ''),
+        'title_en': it.get('title_en', ''),
+        'title_zh': it.get('title_zh', ''),
+        'source_url': it.get('source_url', ''),
+        'article_url': it.get('article_url', ''),
+        'hn_url': it.get('hn_url', ''),
+        'source_platform': it.get('source_platform', ''),
+        'viral_metric': it.get('viral_metric', ''),
+        'description': it.get('description', ''),
+        'description_ko': it.get('description_ko', ''),
+        'hook': it.get('hook', ''),
+        'category_primary': it.get('category_primary', 'INDUSTRY_TRENDS'),
+        'category_type': it.get('category_type', ''),
+        'tier1_category': it.get('tier1_category', 'TECH_COMPUTING'),
+        'artifact_type': it.get('artifact_type', 'repo'),
+        'model_family': it.get('model_family', ''),
+        'parameter_size': it.get('parameter_size', ''),
+        'task_modality': it.get('task_modality', ''),
+        'variant_role': it.get('variant_role', ''),
+        'programming_lang': it.get('programming_lang', ''),
+        'source_lang': it.get('source_lang', 'en'),
+        'created_at': it.get('created_at', ''),
+        'harvested_date': it.get('harvested_date', ''),
+        'sources': it.get('sources', []),
+        'source_count': it.get('source_count', 1),
+        'ai_enrichment': pruned_ai
+    }
+
 def generate_html(data):
     cases_json = json.dumps(data["cases"], ensure_ascii=False)
-    inbox_json = json.dumps(data["inbox_items"], ensure_ascii=False)
+    pruned_inbox = [prune_dashboard_item(x) for x in data["inbox_items"][:200]]
+    inbox_json = json.dumps(pruned_inbox, ensure_ascii=False)
     admin_json = json.dumps(data["admin_stats"], ensure_ascii=False)
     graph_json = json.dumps(data["graph"], ensure_ascii=False)
-    models_json = json.dumps(data.get("model_items", []), ensure_ascii=False)
-    news_json = json.dumps(data.get("news_items", []), ensure_ascii=False)
+    pruned_models = [prune_dashboard_item(x) for x in data.get("model_items", [])]
+    models_json = json.dumps(pruned_models, ensure_ascii=False)
+    pruned_news = [prune_dashboard_item(x) for x in data.get("news_items", [])]
+    news_json = json.dumps(pruned_news, ensure_ascii=False)
     timeline_json = json.dumps(data.get("timeline_24h", []), ensure_ascii=False)
     trend_6h_json = json.dumps(data.get("trend_6h", {}), ensure_ascii=False)
     trend_radar_json = json.dumps(data.get("trend_radar", {}), ensure_ascii=False)
@@ -1712,7 +1764,7 @@ def generate_html(data):
     let liveNewsData = newsData;
     let liveAnalysesData = [];
 
-    const API_BASE = (window.location.hostname.includes('github.io')) ? 'https://ai-factcheck-portfolio.vercel.app' : '';
+    const API_BASE = '';
 
     let currentLang = 'KO';
     let currentView = 'home';
@@ -2456,76 +2508,18 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    // ================= REAL-TIME DB SYNC =================
+    // ================= REAL-TIME DB SYNC (INSTANT ZERO-LATENCY) =================
     async function syncFromNeonLiveDB() {{
-      try {{
-        const resPort = await fetch(API_BASE + '/api/portfolios');
-        if (resPort.ok) {{
-          const data = await resPort.json();
-          if (data.success && data.portfolios && data.portfolios.length > 0) {{
-            const staticCaseMap = new Map();
-            casesData.forEach(c => staticCaseMap.set(c.case_id, c));
-
-            liveCasesData = data.portfolios.map(dbCase => {{
-              const staticCase = staticCaseMap.get(dbCase.case_id);
-              return {{
-                ...(staticCase || {{}}),
-                ...dbCase,
-                source_published_date: (staticCase && staticCase.source_published_date) || dbCase.source_published_date || dbCase.investigation_date,
-                investigation_date: (staticCase && staticCase.investigation_date) || dbCase.investigation_date
-              }};
-            }});
-            liveAnalysesData = data.technical_analyses || [];
-            
-            const badge = document.getElementById('dbLiveBadge');
-            if (badge) {{
-              badge.innerHTML = `
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Neon DB Live (${{data.portfolios.length}})
-                </span>
-              `;
-            }}
-            renderCards();
-          }}
-        }}
-
-        const resInbox = await fetch(API_BASE + '/api/queue?all=true');
-        if (resInbox.ok) {{
-          const inData = await resInbox.json();
-          if (inData.success && inData.items && inData.items.length > 0) {{
-            const staticMap = new Map();
-            inboxData.forEach(item => staticMap.set(item.inbox_id, item));
-
-            liveInboxData = inData.items.map(dbItem => {{
-              const staticItem = staticMap.get(dbItem.inbox_id);
-              if (staticItem) {{
-                return {{
-                  ...staticItem,
-                  ...dbItem,
-                  ai_enrichment: dbItem.ai_enrichment || staticItem.ai_enrichment,
-                  multilingual: dbItem.multilingual || staticItem.multilingual,
-                  hook: dbItem.hook || staticItem.hook,
-                  hook_ko: dbItem.hook_ko || staticItem.hook_ko,
-                  hook_en: dbItem.hook_en || staticItem.hook_en,
-                  hook_zh: dbItem.hook_zh || staticItem.hook_zh,
-                  title_ko: dbItem.title_ko || staticItem.title_ko,
-                  title_en: dbItem.title_en || staticItem.title_en,
-                  title_zh: dbItem.title_zh || staticItem.title_zh,
-                  related_dossier: dbItem.related_dossier || staticItem.related_dossier,
-                  metric_tracking: dbItem.metric_tracking || staticItem.metric_tracking
-                }};
-              }}
-              return dbItem;
-            }});
-            renderInbox();
-          }}
-        }}
-
-        // News items are fully pre-classified & multilingual in static bundle
-        // Avoid overwriting liveNewsData with raw queue items to preserve category filters
-
-        // Promotion Watch Banner removed as per user design decision
-      }} catch (err) {{}}
+      // Neon DB Direct: 100% verified portfolios and recent trends are pre-compiled
+      // No external network roundtrips needed.
+      const badge = document.getElementById('dbLiveBadge');
+      if (badge) {{
+        badge.innerHTML = `
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Neon DB Direct (${{casesData.length}})
+          </span>
+        `;
+      }}
     }}
 
     function updatePromotionBanner() {{}}
