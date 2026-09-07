@@ -64,7 +64,7 @@ jobs:
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
-          python tools/enrich_inbox_with_ai.py --all --batch-size 3 --cooldown 0.5 --provider auto
+          python tools/enrich_inbox_with_ai.py --limit 15 --batch-size 3 --cooldown 0.5 --provider auto || echo "AI enrichment skipped or completed."
 
       - name: Sync Data to Neon Postgres Cloud DB (Scheduled/Manual Only)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'

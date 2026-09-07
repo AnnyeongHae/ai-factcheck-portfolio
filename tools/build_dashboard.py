@@ -44,9 +44,26 @@ def scan_investigations():
     return cases
 
 def scan_inbox():
-    inbox_items = []
+    items_by_id = {}
 
-    # 1. 🌟 Primary Source: Query directly from Neon PostgreSQL Cloud DB
+    # 1. 🌟 Workstation Local Disk (Always check local storage first)
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    inbox_dir = os.path.join(base_dir, "inbox")
+    if os.path.exists(inbox_dir):
+        for f in sorted(os.listdir(inbox_dir), reverse=True):
+            if f.endswith(".json") and not f.startswith("_"):
+                path = os.path.join(inbox_dir, f)
+                try:
+                    with open(path, "r", encoding="utf-8") as fp:
+                        item = json.load(fp)
+                        if "inbox_id" in item:
+                            items_by_id[item["inbox_id"]] = item
+                except Exception:
+                    pass
+        if items_by_id:
+            print(f"[+] [Local Disk] Loaded {len(items_by_id)} items from local disk.")
+
+    # 2. 🌟 Primary Live Cloud Source: Neon PostgreSQL DB
     try:
         tools_dir = os.path.dirname(os.path.abspath(__file__))
         if tools_dir not in sys.path:
@@ -64,6 +81,7 @@ def scan_inbox():
                     LIMIT 1000;
                 """)
                 rows = cur.fetchall()
+                db_added = 0
                 for r in rows:
                     payload = r[0]
                     if isinstance(payload, str):
@@ -72,31 +90,20 @@ def scan_inbox():
                         except Exception:
                             continue
                     if isinstance(payload, dict) and "inbox_id" in payload:
-                        inbox_items.append(payload)
+                        iid = payload["inbox_id"]
+                        if iid in items_by_id:
+                            # If payload has ai_enrichment and existing doesn't, upgrade
+                            if payload.get("ai_enrichment") and not items_by_id[iid].get("ai_enrichment"):
+                                items_by_id[iid] = payload
+                        else:
+                            items_by_id[iid] = payload
+                            db_added += 1
             conn.close()
-            if inbox_items:
-                print(f"[+] [Neon DB Direct] Successfully loaded {len(inbox_items)} items directly from Neon PostgreSQL DB (Primary Live Source)!")
+            print(f"[+] [Neon DB Direct] Synced with Neon PostgreSQL DB. Total consolidated items: {len(items_by_id)}")
     except Exception as e:
-        print(f"[!] Warning: Neon DB direct query failed ({e}), checking local disk fallback...")
-        inbox_items = []
+        print(f"[!] Warning: Neon DB direct query failed ({e}), using local disk data...")
 
-    # 2. 🌟 Fallback: If DB query returned no items (e.g. offline / disconnected), scan local disk
-    if not inbox_items:
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        inbox_dir = os.path.join(base_dir, "inbox")
-        if os.path.exists(inbox_dir):
-            for f in sorted(os.listdir(inbox_dir), reverse=True):
-                if f.endswith(".json") and not f.startswith("_"):
-                    path = os.path.join(inbox_dir, f)
-                    try:
-                        with open(path, "r", encoding="utf-8") as fp:
-                            item = json.load(fp)
-                            if "inbox_id" in item:
-                                inbox_items.append(item)
-                    except Exception:
-                        pass
-            if inbox_items:
-                print(f"[+] [Local Disk Fallback] Loaded {len(inbox_items)} items from local disk.")
+    inbox_items = list(items_by_id.values())
 
     # Sort strictly by freshest active timestamp (harvested_at, published_at, created_at)
     def get_freshest_ts(it):
@@ -361,10 +368,19 @@ def build_dashboard():
         return None
 
     for it in clean_inbox_items:
-        raw = it.get("harvested_at") or it.get("created_at") or it.get("published_at") or it.get("harvested_date") or ""
-        dt_kst = parse_to_kst_dt(raw)
-        if dt_kst and dt_kst.strftime("%Y-%m-%d") == today_kst_str:
-            h = (dt_kst.hour // 6) * 6
+        # Determine best representative KST timestamp for today's timeline
+        pub_dt = parse_to_kst_dt(it.get("published_at") or it.get("created_at"))
+        harv_dt = parse_to_kst_dt(it.get("harvested_at") or it.get("harvested_date"))
+        
+        # If published today, use published time; otherwise if harvested today, use harvested time
+        target_dt = None
+        if pub_dt and pub_dt.strftime("%Y-%m-%d") == today_kst_str:
+            target_dt = pub_dt
+        elif harv_dt and harv_dt.strftime("%Y-%m-%d") == today_kst_str:
+            target_dt = harv_dt
+        
+        if target_dt:
+            h = (target_dt.hour // 6) * 6
             s_key = f"{h:02d}:00"
             if s_key in slot_counts:
                 slot_counts[s_key]["inbox"] += 1

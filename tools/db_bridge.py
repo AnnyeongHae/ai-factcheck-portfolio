@@ -163,11 +163,15 @@ def push_inbox_to_neon(full_sync=False):
     )
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     ON CONFLICT (source_fingerprint) DO UPDATE SET
+        raw_payload = EXCLUDED.raw_payload,
+        inbox_id = EXCLUDED.inbox_id,
+        title = EXCLUDED.title,
         viral_metric = EXCLUDED.viral_metric,
         description = EXCLUDED.description,
         is_classified = EXCLUDED.is_classified,
         is_deep_analyzed = EXCLUDED.is_deep_analyzed,
         category_primary = EXCLUDED.category_primary,
+        harvested_date = EXCLUDED.harvested_date,
         updated_at = NOW();
     """
 
