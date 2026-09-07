@@ -225,21 +225,27 @@ python tools/build_dashboard.py
 ├── 🏛️ 정치·정책 (POLITICS_POLICY) ─────└── 🏛️ POLICY_GOVERNANCE (규제·선거·공공 정책)
 └── 🌿 문화·인문 (CULTURE_HUMANITIES) ───└── ☕ CULTURE_SOCIETY_LIFE (사회인문·일상·에세이)
 ```
-> **UI 노출 원칙**: 대시보드 3번 탭(글로벌 테크 동향) 상단 필터바에는 사용자의 인지 부하를 최소화하기 위해 **Tier 1 보편 도메인 6종만 깔끔하게 노출**되며, 개별 카드에서 정밀한 Tier 2 배지를 확인할 수 있습니다.
+> **UI 노출 원칙**: 대시보드 3번 탭(글로벌 테크 동향) 상단에는 **Tier 1 보편 도메인 6종 필터바**와 함께, IT/컴퓨팅 선택 시 즉시 연동되는 **Tier 2 세부 공학 분야(추론, 에이전트, 멀티모달, 파운데이션, 인프라, 일반SW) 계층형 서브필터**가 제공되어 대규모 기사를 정밀하게 드릴다운할 수 있습니다.
 
 ---
 
-### 2) AI 모델 생태계 4대 아티팩트 세분화 (`artifact_type`)
-Hugging Face 허브의 다양한 릴리스를 사용 목적에 맞게 4대 유형으로 분리하여 큐레이션합니다:
-1. **🤖 `WEIGHTS` (모델 가중치/체크포인트)**: GGUF, Safetensors, Base/Instruct 순수 모델 가중치.
-2. **🛠️ `SKILL_AGENT` (AI 에이전트 & 도구)**: Cursor/Claude 프롬프트 스킬, CLI 자동화 도구, Harness 레포.
-3. **🌐 `WEB_SERVICE` (웹서비스 & Spaces 데모)**: Hugging Face Spaces, Gradio 인터랙티브 웹 앱, 프로토타입 SaaS.
-4. **🎯 `FINETUNE` (특화 파인튜닝/어댑터)**: 도메인 특화 LoRA, 경량 어댑터 모델.
+### 2) Hugging Face & OpenRouter 권위 표준 모델 및 허브 생태계 분류
+Hugging Face Hub 및 OpenRouter의 공식 카테고리를 준용하여, 단순 코드 레포지토리(GitHub)와 순수 모델 자산을 명확히 분리하고 체계화했습니다:
+1. **허브 리소스 유형 (`artifact_type`)**:
+   - **🤖 `WEIGHTS` (모델 가중치/체크포인트)**: Safetensors, GGUF, PyTorch 순수 모델 가중치 (35건)
+   - **🌐 `WEB_SERVICE` (인터랙티브 데모/Spaces)**: Hugging Face Spaces, Gradio 인터랙티브 웹 데모 (84건)
+   - **🎯 `FINETUNE` (특화 파인튜닝/어댑터)**: 도메인 특화 LoRA 및 경량 어댑터 (1건)
+2. **벤더 및 아키텍처 패밀리 (`model_family`)**:
+   - `Qwen` (Alibaba Cloud), `Wan` (Alibaba Video), `MiniMax` (Hailuo), `FLUX` (Black Forest Labs), `GLM` (Zhipu AI), `DeepSeek`, `Hunyuan` (Tencent), `Audio/TTS 특화`, `독립/신규 모델`.
+3. **태스크 파이프라인 (`task_modality`)**:
+   - `text-to-text` (LLM/추론), `image-text-to-text` (VLM/비전), `text-to-image` (Diffusion), `text-to-video` (비디오 생성), `text-to-speech` (TTS).
 
 ---
 
 ### 3) 24시간 민감형 AI 트렌드 레이더 (Freshness-Aware Radar)
-과거 누적 10,000+ 스타의 고전 라이브러리가 레이더를 독점하던 문제를 해결하기 위해, 최근 24~48시간 이내에 새롭게 발표되었거나 급상승한 안건(`today`, `yesterday`, `is_spiking`)에 가중치를 부여(최대 10배 신선도 부스트)하여 **당일 실리콘밸리 릴리스를 1일 4회 민감하게 포착**하도록 재설계되었습니다.
+과거 누적 10,000+ 스타의 고전 라이브러리나 8/31 과거 데이터가 레이더를 독점하던 문제를 완전히 해결했습니다:
+- 최근 24~48시간 이내에 새롭게 발표된 안건(`today`, `yesterday`)에 대해 엄격한 날짜 게이트(Date Gate) 및 지수형 신선도 부스트(최대 20배)를 적용.
+- 과거 데이터는 `is_spiking` 여부와 무관하게 일일 레이더 진입을 차단하여, **당일 실리콘밸리 및 글로벌 오픈소스 핫 토픽이 1일 4회(심야·오전·오후·저녁) 주기마다 실시간으로 교체 반영**됩니다.
 
 ---
 
@@ -247,8 +253,8 @@ Hugging Face 허브의 다양한 릴리스를 사용 목적에 맞게 4대 유�
 
 - **누적 공식 검증 도시에 (Verified Portfolios)**: **42건** (자율 팩트체크 검증 완료)
 - **AI 인텔리전스 인박스**: **853건** (전량 AI 3개국어 번역 및 분석 완료)
-- **AI 모델 레지스트리**: **201건** (4대 아티팩트 유형 및 멀티모달 포맷 자동 분류)
-- **글로벌 테크 뉴스 피드**: **668건** (IPTC 6대 도메인 및 12개 전문 분야 태깅 완료)
+- **글로벌 테크 뉴스 & 오픈소스 피드**: **749건** (GitHub 오픈소스 56건 정상 라우팅, IPTC 6대 도메인 및 12개 전문 분야 태깅 완료)
+- **AI 모델 & Spaces 레지스트리**: **120건** (Hugging Face 표준 생태계 및 멀티모달 포맷 자동 분류)
 - **도시에 1건당 평균 소모 토큰**: 약 **6,000 ~ 8,000 토큰** (Thinking CoT 포함)
 - **도시에 1건당 실측 생성 비용**: **$0.0014 ~ $0.0028 (약 1.9원 ~ 3.8원)** ☕
 - **서버리스 응답 속도 (TTFB)**: 싱글톤 커넥션 풀 적용으로 **300ms ➔ 45ms (85% 단축)**

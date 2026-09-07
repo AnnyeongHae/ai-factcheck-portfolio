@@ -155,7 +155,8 @@ def build_dashboard():
         has_ai = bool(ai and it.get("multilingual"))
         cat = it.get("category_type", "")
         src = it.get("source_platform", "")
-        is_news_src = any(k in src for k in ["News", "Hacker", "Blog"])
+        # Explicit news sources or GitHub repositories (which belong in Tech News/Trending Repos)
+        is_news_src = any(k in src for k in ["News", "Hacker", "Blog", "GitHub"])
         return has_ai and (ai.get("type_classification") == "NEWS" or cat == "NEWS" or is_news_src)
 
     def is_model_item(it):
@@ -164,12 +165,13 @@ def build_dashboard():
         cat = it.get("category_type", "")
         src = it.get("source_platform", "")
         fam = it.get("model_family", "")
-        is_model_src = any(k in src for k in ["Models", "Spaces", "Hub"])
+        # Only true model hub items (Hugging Face Models/Spaces/Hub), strictly never GitHub
+        is_model_src = any(k in src for k in ["Models", "Spaces"]) or ("Hugging" in src and "Hub" in src)
         return has_ai and not is_news_item(it) and (
             ai.get("type_classification") == "MODEL" or 
             cat == "model" or 
             is_model_src or 
-            (fam and "General" not in fam and "독립" not in fam and "Harness" not in fam)
+            (fam and "General" not in fam and "독립" not in fam and "Harness" not in fam and "Standalone" not in fam and "GitHub" not in src)
         )
 
     # Set of verified case IDs and URLs to exclude from pending inbox
@@ -235,16 +237,45 @@ def build_dashboard():
 
     model_art_counts = {
         "WEIGHTS": 0,
-        "SKILL_AGENT": 0,
         "WEB_SERVICE": 0,
         "FINETUNE": 0
     }
+    model_fam_counts = {
+        "Qwen": 0,
+        "Wan": 0,
+        "MiniMax": 0,
+        "FLUX": 0,
+        "GLM": 0,
+        "DeepSeek": 0,
+        "Hunyuan": 0,
+        "Audio": 0,
+        "Standalone": 0
+    }
     for it in model_items:
-        art = it.get("artifact_type") or "WEIGHTS"
+        src = it.get("source_platform", "")
+        # Official Hugging Face Ecosystem mapping
+        if "Spaces" in src:
+            art = "WEB_SERVICE"
+        elif "lora" in (str(it.get("title", "")) + " " + str(it.get("detected_formats", [""])[0])).lower():
+            art = "FINETUNE"
+        else:
+            art = "WEIGHTS"
+        it["artifact_type"] = art
         if art in model_art_counts:
             model_art_counts[art] += 1
         else:
             model_art_counts["WEIGHTS"] += 1
+
+        fam = (it.get("model_family") or "").lower()
+        if "qwen" in fam: model_fam_counts["Qwen"] += 1
+        elif "wan" in fam: model_fam_counts["Wan"] += 1
+        elif "minimax" in fam: model_fam_counts["MiniMax"] += 1
+        elif "flux" in fam: model_fam_counts["FLUX"] += 1
+        elif "glm" in fam: model_fam_counts["GLM"] += 1
+        elif "deepseek" in fam: model_fam_counts["DeepSeek"] += 1
+        elif "hunyuan" in fam: model_fam_counts["Hunyuan"] += 1
+        elif "audio" in fam or "speech" in fam or "tts" in fam or "whisper" in fam: model_fam_counts["Audio"] += 1
+        else: model_fam_counts["Standalone"] += 1
 
     # All active unverified inbox candidates (only excludes already verified & promoted dossiers)
     clean_inbox_items = [
@@ -324,6 +355,12 @@ def build_dashboard():
     else: current_session_num = 4
 
     yesterday_kst_str = (now_kst - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+    two_days_ago_kst_str = (now_kst - datetime.timedelta(days=2)).strftime("%Y-%m-%d")
+
+    def get_item_date_str(it):
+        raw = str(it.get("harvested_at") or it.get("published_at") or it.get("created_at") or it.get("harvested_date") or "")
+        m = re.search(r'\d{4}-\d{2}-\d{2}', raw)
+        return m.group(0) if m else ""
 
     def compute_viral_weight(it):
         val = 1.0
@@ -337,14 +374,18 @@ def build_dashboard():
             try: val = max(val, float(n.replace(",", "")))
             except Exception: pass
         
-        # Freshness Multipliers (Critical for Daily Radar Refresh)
-        raw_date = str(it.get("harvested_at") or it.get("published_at") or it.get("created_at") or it.get("harvested_date") or "")
-        if today_kst_str in raw_date:
+        # Freshness Multipliers (Strict Exponential Decay)
+        d = get_item_date_str(it)
+        if d == today_kst_str:
+            val *= 20.0
+        elif d == yesterday_kst_str:
             val *= 10.0
-        elif yesterday_kst_str in raw_date:
-            val *= 5.0
+        elif d == two_days_ago_kst_str:
+            val *= 2.0
+        else:
+            val *= 0.01  # Extreme penalty for older items (never rank in daily radar)
 
-        if isinstance(mt, dict):
+        if d in [today_kst_str, yesterday_kst_str, two_days_ago_kst_str] and isinstance(mt, dict):
             if mt.get("is_spiking"): val *= 3.0
             growth = mt.get("growth_rate_pct", 0)
             if growth and growth > 0: val *= (1.0 + min(2.0, growth / 50.0))
@@ -381,27 +422,22 @@ def build_dashboard():
             return parts_ko[0].strip()
         return clean_orig[:35].strip()
 
-    # 🌟 DAILY RADAR SENSITIVITY: Prioritize Recent 24h-48h Fresh Items & Spiking Items
+    # 🌟 DAILY RADAR SENSITIVITY: Strictly 24h-48h Fresh Items Only (Never historic August data)
     def is_fresh_trend(it):
         # Exclude non-tech (crimes, incidents, culture) from AI Radar
         t1 = it.get("tier1_category") or "TECH_COMPUTING"
         if t1 not in ["TECH_COMPUTING", "SCIENCE_RESEARCH"]:
             return False
-        raw = str(it.get("harvested_at") or it.get("published_at") or it.get("created_at") or it.get("harvested_date") or "")
-        mt = it.get("metric_tracking", {})
-        is_spiking = mt.get("is_spiking") if isinstance(mt, dict) else False
-        is_recent = (today_kst_str in raw) or (yesterday_kst_str in raw)
-        return is_recent or is_spiking
+        d = get_item_date_str(it)
+        return d in [today_kst_str, yesterday_kst_str]
 
     fresh_pool = [it for it in (model_items + news_items + clean_inbox_items) if it.get("title") and is_fresh_trend(it)]
-    fresh_pool.sort(key=compute_viral_weight, reverse=True)
+    if len(fresh_pool) < 15:
+        fallback_pool = [it for it in (model_items + news_items + clean_inbox_items) if it.get("title") and (it.get("tier1_category") in ["TECH_COMPUTING", "SCIENCE_RESEARCH"]) and get_item_date_str(it) == two_days_ago_kst_str]
+        fresh_pool.extend(fallback_pool)
 
-    if len(fresh_pool) >= 15:
-        all_candidate_pool = fresh_pool
-    else:
-        broader_pool = [it for it in (model_items + news_items + clean_inbox_items) if it.get("title") and (it.get("tier1_category") in ["TECH_COMPUTING", "SCIENCE_RESEARCH"])]
-        broader_pool.sort(key=compute_viral_weight, reverse=True)
-        all_candidate_pool = fresh_pool + [it for it in broader_pool if it not in fresh_pool]
+    fresh_pool.sort(key=compute_viral_weight, reverse=True)
+    all_candidate_pool = fresh_pool
 
     sessions_def = [
         {
@@ -549,6 +585,7 @@ def build_dashboard():
         "news_cat_counts": news_cat_counts,
         "tier1_counts": tier1_counts,
         "model_art_counts": model_art_counts,
+        "model_fam_counts": model_fam_counts,
         "inbox_total_count": len(clean_inbox_items),
         "all_inbox_count": len(inbox_items),
         "admin_stats": admin_stats,
@@ -1176,32 +1213,35 @@ def generate_html(data):
         </div>
       </div>
 
-      <!-- Models Controls & Family Filter Bar -->
+      <!-- Models Controls & Family Filter Bar (Hugging Face & OpenRouter 표준 분류 체계) -->
       <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
         <div class="flex items-center gap-2 flex-wrap text-xs">
           <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
             🤖 모델 패밀리:
           </span>
           <div class="flex items-center gap-1.5 flex-wrap" id="modelsFamilyFilterRow">
-            <button onclick="setModelsFamilyFilter('ALL')" data-fam="ALL" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">전체 패밀리</button>
-            <button onclick="setModelsFamilyFilter('Qwen')" data-fam="Qwen" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">Qwen-3.8 Family</button>
-            <button onclick="setModelsFamilyFilter('DeepSeek')" data-fam="DeepSeek" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">DeepSeek Family</button>
-            <button onclick="setModelsFamilyFilter('MiniMax')" data-fam="MiniMax" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">MiniMax / Video</button>
-            <button onclick="setModelsFamilyFilter('Audio')" data-fam="Audio" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">Audio / TTS</button>
-            <button onclick="setModelsFamilyFilter('Standalone')" data-fam="Standalone" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">독립/신규 모델</button>
+            <button onclick="setModelsFamilyFilter('ALL')" data-fam="ALL" class="model-fam-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">전체 패밀리</button>
+            <button onclick="setModelsFamilyFilter('Qwen')" data-fam="Qwen" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">Qwen ({data['model_fam_counts'].get('Qwen', 0)})</button>
+            <button onclick="setModelsFamilyFilter('Wan')" data-fam="Wan" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">Wan 비디오 ({data['model_fam_counts'].get('Wan', 0)})</button>
+            <button onclick="setModelsFamilyFilter('MiniMax')" data-fam="MiniMax" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">MiniMax ({data['model_fam_counts'].get('MiniMax', 0)})</button>
+            <button onclick="setModelsFamilyFilter('FLUX')" data-fam="FLUX" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">FLUX 이미지 ({data['model_fam_counts'].get('FLUX', 0)})</button>
+            <button onclick="setModelsFamilyFilter('GLM')" data-fam="GLM" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">GLM ({data['model_fam_counts'].get('GLM', 0)})</button>
+            <button onclick="setModelsFamilyFilter('DeepSeek')" data-fam="DeepSeek" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">DeepSeek ({data['model_fam_counts'].get('DeepSeek', 0)})</button>
+            <button onclick="setModelsFamilyFilter('Hunyuan')" data-fam="Hunyuan" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">Hunyuan ({data['model_fam_counts'].get('Hunyuan', 0)})</button>
+            <button onclick="setModelsFamilyFilter('Audio')" data-fam="Audio" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">음성/TTS ({data['model_fam_counts'].get('Audio', 0)})</button>
+            <button onclick="setModelsFamilyFilter('Standalone')" data-fam="Standalone" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">독립/신규 모델 ({data['model_fam_counts'].get('Standalone', 0)})</button>
           </div>
         </div>
 
-        <!-- Ecosystem / Artifact Type Filter Pills (Models vs Agents vs Spaces vs Finetunes) -->
+        <!-- Ecosystem / Hub Resource Type Filter Pills (Hugging Face 공식 표준: 모델 가중치 vs Spaces 데모) -->
         <div class="flex items-center gap-2 flex-wrap text-xs pt-1 border-t border-surface-border">
           <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
-            🧩 생태계 분류:
+            🧩 허브 유형:
           </span>
           <div class="flex items-center gap-1.5 flex-wrap" id="modelsArtifactFilterRow">
             <button onclick="setModelsArtifactFilter('ALL')" data-art="ALL" class="model-art-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm">전체 ({data['models_total_count']})</button>
             <button onclick="setModelsArtifactFilter('WEIGHTS')" data-art="WEIGHTS" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🤖 가중치·체크포인트 ({data['model_art_counts'].get('WEIGHTS', 0)})</button>
-            <button onclick="setModelsArtifactFilter('SKILL_AGENT')" data-art="SKILL_AGENT" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🛠️ 에이전트·스킬 ({data['model_art_counts'].get('SKILL_AGENT', 0)})</button>
-            <button onclick="setModelsArtifactFilter('WEB_SERVICE')" data-art="WEB_SERVICE" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌐 웹서비스·Spaces ({data['model_art_counts'].get('WEB_SERVICE', 0)})</button>
+            <button onclick="setModelsArtifactFilter('WEB_SERVICE')" data-art="WEB_SERVICE" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌐 인터랙티브 데모·Spaces ({data['model_art_counts'].get('WEB_SERVICE', 0)})</button>
             <button onclick="setModelsArtifactFilter('FINETUNE')" data-art="FINETUNE" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🎯 특화 파인튜닝 ({data['model_art_counts'].get('FINETUNE', 0)})</button>
           </div>
         </div>
@@ -1266,6 +1306,22 @@ def generate_html(data):
             <button onclick="setNewsCategoryFilter('LAW_CRIME_JUSTICE')" data-cat="LAW_CRIME_JUSTICE" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">⚖️ 사회·법률 ({data['tier1_counts'].get('LAW_CRIME_JUSTICE', 0)})</button>
             <button onclick="setNewsCategoryFilter('POLITICS_POLICY')" data-cat="POLITICS_POLICY" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🏛️ 정치·정책 ({data['tier1_counts'].get('POLITICS_POLICY', 0)})</button>
             <button onclick="setNewsCategoryFilter('CULTURE_HUMANITIES')" data-cat="CULTURE_HUMANITIES" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌿 문화·인문 ({data['tier1_counts'].get('CULTURE_HUMANITIES', 0)})</button>
+          </div>
+        </div>
+
+        <!-- Tier 2 Engineering Specialization Row (IT·컴퓨팅 6대 세부 공학 분야) -->
+        <div class="flex items-center gap-2 flex-wrap text-xs pt-2 border-t border-surface-border transition-opacity duration-200" id="newsTier2Container">
+          <span class="font-bold text-ink-secondary text-[11px] w-28 shrink-0 flex items-center gap-1">
+            ↳ 💻 IT 세부 분야:
+          </span>
+          <div class="flex items-center gap-1.5 flex-wrap" id="newsTier2FilterRow">
+            <button onclick="setNewsTier2Filter('ALL')" data-t2="ALL" class="news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm">전체 IT 분야</button>
+            <button onclick="setNewsTier2Filter('INFERENCE_OPT')" data-t2="INFERENCE_OPT" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">⚡ 추론·서빙 ({data['news_cat_counts'].get('INFERENCE_OPT', 0)})</button>
+            <button onclick="setNewsTier2Filter('AGENTS_DEVTOOLS')" data-t2="AGENTS_DEVTOOLS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🛠️ 에이전트·도구 ({data['news_cat_counts'].get('AGENTS_DEVTOOLS', 0)})</button>
+            <button onclick="setNewsTier2Filter('MULTIMODAL_AI')" data-t2="MULTIMODAL_AI" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🎨 멀티모달 ({data['news_cat_counts'].get('MULTIMODAL_AI', 0)})</button>
+            <button onclick="setNewsTier2Filter('FOUNDATION_MODELS')" data-t2="FOUNDATION_MODELS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🤖 파운데이션 ({data['news_cat_counts'].get('FOUNDATION_MODELS', 0)})</button>
+            <button onclick="setNewsTier2Filter('INFRA_RAG_SECURITY')" data-t2="INFRA_RAG_SECURITY" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🛡️ 인프라·보안 ({data['news_cat_counts'].get('INFRA_RAG_SECURITY', 0)})</button>
+            <button onclick="setNewsTier2Filter('INDUSTRY_TRENDS')" data-t2="INDUSTRY_TRENDS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌐 일반 SW·웹 ({data['news_cat_counts'].get('INDUSTRY_TRENDS', 0)})</button>
           </div>
         </div>
 
@@ -3017,20 +3073,55 @@ def generate_html(data):
       setTimeout(handleHashRoute, 150);
     }});
 
-    // ================= NEWS VIEW (6대 카테고리화 엔진) =================
-    let currentNewsCategory = 'ALL';
+    // ================= NEWS VIEW (2계층 카테고리화 엔진) =================
+    let currentNewsTier1 = 'ALL';
+    let currentNewsTier2 = 'ALL';
     let currentNewsSource = 'ALL';
     let currentNewsSort = 'date-source-desc';
     let currentNewsSearch = '';
 
-    function setNewsCategoryFilter(cat) {{
+    function setNewsCategoryFilter(t1) {{
       currentNewsPage = 1;
-      currentNewsCategory = cat;
+      currentNewsTier1 = t1;
+      currentNewsTier2 = 'ALL';
       document.querySelectorAll('.news-cat-pill').forEach(btn => {{
-        if (btn.getAttribute('data-cat') === cat) {{
+        if (btn.getAttribute('data-cat') === t1) {{
           btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
         }} else {{
           btn.className = 'news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+
+      // Reset Tier 2 pills
+      document.querySelectorAll('.news-t2-pill').forEach(btn => {{
+        if (btn.getAttribute('data-t2') === 'ALL') {{
+          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+        }} else {{
+          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+
+      // If a non-computing domain is selected (e.g. Science, Law), dim/hide Tier 2 row
+      const t2Container = document.getElementById('newsTier2Container');
+      if (t2Container) {{
+        if (t1 !== 'ALL' && t1 !== 'TECH_COMPUTING') {{
+          t2Container.classList.add('opacity-40', 'pointer-events-none');
+        }} else {{
+          t2Container.classList.remove('opacity-40', 'pointer-events-none');
+        }}
+      }}
+
+      renderNews();
+    }}
+
+    function setNewsTier2Filter(t2) {{
+      currentNewsPage = 1;
+      currentNewsTier2 = t2;
+      document.querySelectorAll('.news-t2-pill').forEach(btn => {{
+        if (btn.getAttribute('data-t2') === t2) {{
+          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+        }} else {{
+          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
         }}
       }});
       renderNews();
@@ -3074,11 +3165,16 @@ def generate_html(data):
           return true;
         }}
 
-        // 1. Category Filter (IPTC Tier 1 Universal Domain or Tier 2 Specialization)
-        if (currentNewsCategory !== 'ALL') {{
+        // 1. Tier 1 Domain Filter
+        if (currentNewsTier1 !== 'ALL') {{
           const itemTier1 = it.tier1_category || 'TECH_COMPUTING';
-          const itemCat = it.category_primary || 'INDUSTRY_TRENDS';
-          if (itemTier1 !== currentNewsCategory && itemCat !== currentNewsCategory) return false;
+          if (itemTier1 !== currentNewsTier1) return false;
+        }}
+
+        // 2. Tier 2 Specialization Filter (Under TECH_COMPUTING)
+        if (currentNewsTier2 !== 'ALL') {{
+          const itemTier2 = it.tier2_category || it.category_primary || 'INDUSTRY_TRENDS';
+          if (itemTier2 !== currentNewsTier2) return false;
         }}
 
         // 2. Platform Source Filter
@@ -3393,8 +3489,8 @@ def generate_html(data):
       currentModelsPage = 1;
       currentModelsFamily = fam;
       document.querySelectorAll('.model-fam-pill').forEach(btn => {{
-        if (btn.dataset.fam === fam) {{
-          btn.className = 'model-fam-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+        if (btn.getAttribute('data-fam') === fam) {{
+          btn.className = 'model-fam-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
         }} else {{
           btn.className = 'model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
         }}
@@ -3523,11 +3619,10 @@ def generate_html(data):
         const card = document.createElement('div');
         card.className = 'bg-white rounded-2xl p-5 border border-surface-border hover:border-indigo-400 hover:shadow-md transition flex flex-col justify-between space-y-4';
 
-        const artType = it.artifact_type || 'WEIGHTS';
+        const artType = it.artifact_type || (it.source_platform?.includes('Spaces') ? 'WEB_SERVICE' : 'WEIGHTS');
         const artBadgeMap = {{
-          'WEIGHTS': {{ label: '🤖 모델 가중치', cls: 'bg-indigo-50 text-indigo-800 border-indigo-200', btn: '📥 가중치 / 다운로드' }},
-          'SKILL_AGENT': {{ label: '🛠️ 에이전트·스킬', cls: 'bg-blue-50 text-blue-800 border-blue-200', btn: '🛠️ 에이전트 / 도구' }},
-          'WEB_SERVICE': {{ label: '🌐 웹서비스·Spaces', cls: 'bg-emerald-50 text-emerald-800 border-emerald-200', btn: '🚀 데모 / Spaces 체험' }},
+          'WEIGHTS': {{ label: '🤖 모델 가중치', cls: 'bg-indigo-50 text-indigo-800 border-indigo-200', btn: '📥 허브 다운로드' }},
+          'WEB_SERVICE': {{ label: '🌐 Spaces 데모', cls: 'bg-emerald-50 text-emerald-800 border-emerald-200', btn: '🚀 데모 / Spaces 체험' }},
           'FINETUNE': {{ label: '🎯 특화 파인튜닝', cls: 'bg-amber-50 text-amber-800 border-amber-200', btn: '🎯 파인튜닝 모델 보기' }}
         }};
         const artMeta = artBadgeMap[artType] || artBadgeMap['WEIGHTS'];
