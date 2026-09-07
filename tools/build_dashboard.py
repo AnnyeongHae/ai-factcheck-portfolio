@@ -336,11 +336,14 @@ def build_dashboard():
     gamed_count = len([c for c in cases if "GAMED" in (c.get("verdict") or "") or "EXAGGERATED" in (c.get("verdict") or "")])
     avg_conf = round(sum(c.get("confidence_score", 90.0) for c in cases) / max(1, len(cases)), 1)
 
-    now_kst = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
+    # 🌟 System Time (UTC) as Universal Base + 9 Hours for KST (Never drifts across OS / Runners)
+    now_utc = datetime.datetime.now(datetime.timezone.utc)
+    kst_tz = datetime.timezone(datetime.timedelta(hours=9))
+    now_kst = now_utc.astimezone(kst_tz)
     today_kst_str = now_kst.strftime("%Y-%m-%d")
     current_hour_kst = now_kst.hour
 
-    # 1. Today 24-Hour Timeline Aggregation (8 Slots: 00시, 03시, 06시, 09시, 12시, 15시, 18시, 21시)
+    # 1. Today 24-Hour Timeline Aggregation (4 Quarterly Sessions)
     slots_def = [
         {"slot": "1회차 (00시)", "short_slot": "00:00", "hour": 0, "range": "00:00 - 05:59", "name": "심야 릴리스"},
         {"slot": "2회차 (06시)", "short_slot": "06:00", "hour": 6, "range": "06:00 - 11:59", "name": "모닝 브리핑"},
@@ -357,30 +360,23 @@ def build_dashboard():
                 clean = raw_str.replace("Z", "+00:00")
                 dt = datetime.datetime.fromisoformat(clean)
                 if dt.tzinfo:
-                    return dt.astimezone(datetime.timezone(datetime.timedelta(hours=9)))
+                    return dt.astimezone(kst_tz)
                 else:
-                    return dt.replace(tzinfo=datetime.timezone(datetime.timedelta(hours=9)))
+                    return dt.replace(tzinfo=kst_tz)
             elif re.match(r'^\d{4}-\d{2}-\d{2}$', raw_str):
                 dt = datetime.datetime.strptime(raw_str, "%Y-%m-%d")
-                return dt.replace(hour=12, tzinfo=datetime.timezone(datetime.timedelta(hours=9)))
+                return dt.replace(hour=0, tzinfo=kst_tz)
         except Exception:
             pass
         return None
 
     for it in clean_inbox_items:
-        # Determine best representative KST timestamp for today's timeline
-        pub_dt = parse_to_kst_dt(it.get("published_at") or it.get("created_at"))
-        harv_dt = parse_to_kst_dt(it.get("harvested_at") or it.get("harvested_date"))
+        # 🌟 User Requirement: Timeline aggregation strictly based on initial created_at / publication time
+        created_raw = it.get("created_at") or it.get("published_at") or it.get("harvested_at") or ""
+        created_dt = parse_to_kst_dt(created_raw)
         
-        # If published today, use published time; otherwise if harvested today, use harvested time
-        target_dt = None
-        if pub_dt and pub_dt.strftime("%Y-%m-%d") == today_kst_str:
-            target_dt = pub_dt
-        elif harv_dt and harv_dt.strftime("%Y-%m-%d") == today_kst_str:
-            target_dt = harv_dt
-        
-        if target_dt:
-            h = (target_dt.hour // 6) * 6
+        if created_dt and created_dt.strftime("%Y-%m-%d") == today_kst_str:
+            h = (created_dt.hour // 6) * 6
             s_key = f"{h:02d}:00"
             if s_key in slot_counts:
                 slot_counts[s_key]["inbox"] += 1

@@ -276,7 +276,10 @@ def harvest_all():
     os.makedirs(investigations_dir, exist_ok=True)
     os.makedirs(logs_dir, exist_ok=True)
 
-    today_str = datetime.date.today().strftime("%Y-%m-%d")
+    now_utc = datetime.datetime.now(datetime.timezone.utc)
+    kst_tz = datetime.timezone(datetime.timedelta(hours=9))
+    now_kst = now_utc.astimezone(kst_tz)
+    today_str = now_kst.strftime("%Y-%m-%d")
     log_file = os.path.join(logs_dir, f"harvest_{today_str}.log")
     logger = Logger(log_file)
 
@@ -552,6 +555,16 @@ def harvest_all():
             title_elem = entry.find('{http://www.w3.org/2005/Atom}title')
             id_elem = entry.find('{http://www.w3.org/2005/Atom}id')
             summary_elem = entry.find('{http://www.w3.org/2005/Atom}summary')
+            pub_elem = entry.find('{http://www.w3.org/2005/Atom}published')
+            
+            pub_iso = None
+            if pub_elem is not None and pub_elem.text:
+                try:
+                    dt = datetime.datetime.fromisoformat(pub_elem.text.strip().replace("Z", "+00:00"))
+                    pub_iso = dt.astimezone(kst_tz).isoformat()
+                except Exception:
+                    pub_iso = pub_elem.text.strip()
+
             if title_elem is not None and id_elem is not None:
                 title = title_elem.text.strip().replace("\n", " ")
                 url = id_elem.text.strip()
@@ -560,6 +573,7 @@ def harvest_all():
                     "title": f"ArXiv: {title}",
                     "source_platform": "ArXiv Preprint",
                     "source_url": url,
+                    "published_at": pub_iso,
                     "type": "repo",
                     "description": f"Abstract: {summary}...",
                     "viral_metric": "ArXiv Primary Paper"
@@ -624,6 +638,11 @@ def harvest_all():
                 m_ext = re.search(r'href=[\'"](https?://[^\'"]+)[\'"]', content_raw)
                 article_url = m_ext.group(1) if m_ext else topic_url
 
+                pub_elem = entry.find('atom:published', ns)
+                if pub_elem is None:
+                    pub_elem = entry.find('atom:updated', ns)
+                published_at = pub_elem.text.strip() if (pub_elem is not None and pub_elem.text) else None
+
                 added = add_candidate({
                     "title": f"GeekNews: {title}",
                     "title_ko": title,
@@ -631,6 +650,7 @@ def harvest_all():
                     "source_url": topic_url,
                     "hn_url": topic_url,
                     "article_url": article_url,
+                    "published_at": published_at,
                     "type": "sns",
                     "category_type": "NEWS",
                     "description": clean_desc or f"GeekNews Korean Tech Trend: {title}",
@@ -789,17 +809,20 @@ def harvest_all():
                 old_tracking["latest"] = {
                     "value": current_val,
                     "display": cand["viral_metric"],
-                    "updated_at": today_str
+                    "updated_at": now_kst.isoformat()
                 }
                 old_tracking["delta"] = delta
                 old_tracking["delta_display"] = f"+{delta:,}" if delta > 0 else (f"{delta:,}" if delta < 0 else "0")
                 old_tracking["growth_rate_pct"] = delta_pct
                 old_tracking["is_spiking"] = delta >= 50 or delta_pct >= 30.0
 
+                now_iso = now_kst.isoformat()
                 old_item["metric_tracking"] = old_tracking
                 old_item["description"] = cand["description"]
                 old_item["viral_metric"] = cand["viral_metric"]
-                old_item["updated_at"] = today_str
+                old_item["updated_at"] = now_iso
+                if not old_item.get("created_at"):
+                    old_item["created_at"] = old_item.get("published_at") or now_iso
                 if "title_ko" in cand and not old_item.get("title_ko"): old_item["title_ko"] = cand["title_ko"]
                 if "description_ko" in cand and not old_item.get("description_ko"): old_item["description_ko"] = cand["description_ko"]
                 if "hn_url" in cand and not old_item.get("hn_url"): old_item["hn_url"] = cand["hn_url"]
@@ -824,16 +847,20 @@ def harvest_all():
 
         matched_domains = match_persona_domain(cand["title"], cand["description"], persona_config)
 
+        now_iso = now_kst.isoformat()
+        pub_iso = cand.get("published_at") or now_iso
+        created_at_iso = pub_iso
+
         metric_tracking = {
             "initial": {
                 "value": current_val,
                 "display": cand["viral_metric"],
-                "recorded_at": today_str
+                "recorded_at": created_at_iso
             },
             "latest": {
                 "value": current_val,
                 "display": cand["viral_metric"],
-                "updated_at": today_str
+                "updated_at": now_iso
             },
             "delta": 0,
             "delta_display": "+0",
@@ -841,15 +868,12 @@ def harvest_all():
             "is_spiking": False
         }
 
-        now_iso = datetime.datetime.now().isoformat()
-        pub_iso = cand.get("published_at") or now_iso
-
         inbox_item = {
             "inbox_id": case_id,
             "harvested_date": today_str,
             "harvested_at": now_iso,
             "published_at": pub_iso,
-            "created_at": pub_iso,
+            "created_at": created_at_iso,
             "updated_at": now_iso,
             "title": cand["title"],
             "source_platform": cand["source_platform"],

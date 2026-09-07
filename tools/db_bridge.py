@@ -135,6 +135,38 @@ def push_inbox_to_neon(full_sync=False):
                 is_deep_analyzed = bool(it.get("is_deep_analyzed", False))
                 category_primary = it.get("category_primary", "INDUSTRY_TRENDS")
 
+                created_at_dt = None
+                raw_c = it.get("created_at") or it.get("published_at") or it.get("harvested_at")
+                if raw_c:
+                    try:
+                        raw_c_str = str(raw_c).strip()
+                        if "T" in raw_c_str:
+                            clean = raw_c_str.replace("Z", "+00:00")
+                            dt = datetime.datetime.fromisoformat(clean)
+                            created_at_dt = dt if dt.tzinfo else dt.replace(tzinfo=datetime.timezone(datetime.timedelta(hours=9)))
+                        elif re.match(r'^\d{4}-\d{2}-\d{2}$', raw_c_str):
+                            created_at_dt = datetime.datetime.strptime(raw_c_str, "%Y-%m-%d").replace(tzinfo=datetime.timezone(datetime.timedelta(hours=9)))
+                    except Exception:
+                        pass
+                if not created_at_dt:
+                    created_at_dt = datetime.datetime.now(datetime.timezone.utc)
+
+                updated_at_dt = None
+                raw_u = it.get("updated_at") or it.get("harvested_at")
+                if raw_u:
+                    try:
+                        raw_u_str = str(raw_u).strip()
+                        if "T" in raw_u_str:
+                            clean = raw_u_str.replace("Z", "+00:00")
+                            dt = datetime.datetime.fromisoformat(clean)
+                            updated_at_dt = dt if dt.tzinfo else dt.replace(tzinfo=datetime.timezone(datetime.timedelta(hours=9)))
+                        elif re.match(r'^\d{4}-\d{2}-\d{2}$', raw_u_str):
+                            updated_at_dt = datetime.datetime.strptime(raw_u_str, "%Y-%m-%d").replace(tzinfo=datetime.timezone(datetime.timedelta(hours=9)))
+                    except Exception:
+                        pass
+                if not updated_at_dt:
+                    updated_at_dt = datetime.datetime.now(datetime.timezone.utc)
+
                 params_list.append((
                     inbox_id,
                     fp_hash,
@@ -150,7 +182,9 @@ def push_inbox_to_neon(full_sync=False):
                     it.get("harvested_date", datetime.date.today().isoformat()),
                     is_classified,
                     is_deep_analyzed,
-                    category_primary
+                    category_primary,
+                    created_at_dt,
+                    updated_at_dt
                 ))
             except Exception as e:
                 print(f"[!] Error reading {f}: {e}")
@@ -159,9 +193,9 @@ def push_inbox_to_neon(full_sync=False):
     INSERT INTO raw_trends_inbox (
         inbox_id, source_fingerprint, source_platform, source_url, title, item_type,
         description, viral_metric, matched_user_domains, raw_payload, triage_status, harvested_date,
-        is_classified, is_deep_analyzed, category_primary
+        is_classified, is_deep_analyzed, category_primary, created_at, updated_at
     )
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     ON CONFLICT (source_fingerprint) DO UPDATE SET
         raw_payload = EXCLUDED.raw_payload,
         inbox_id = EXCLUDED.inbox_id,
@@ -172,7 +206,7 @@ def push_inbox_to_neon(full_sync=False):
         is_deep_analyzed = EXCLUDED.is_deep_analyzed,
         category_primary = EXCLUDED.category_primary,
         harvested_date = EXCLUDED.harvested_date,
-        updated_at = NOW();
+        updated_at = EXCLUDED.updated_at;
     """
 
     with conn.cursor() as cur:
