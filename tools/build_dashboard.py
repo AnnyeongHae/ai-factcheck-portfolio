@@ -3355,6 +3355,9 @@ def generate_html(data):
           btn.className = 'news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border';
         }}
       }});
+      renderNews();
+    }}
+
     // 🌟 Scalable Multi-Source Cross-Platform Clustering UX Engine
     function buildMultiSourceCluster(sources, rawItemId) {{
       if (!sources || sources.length === 0) return '';
