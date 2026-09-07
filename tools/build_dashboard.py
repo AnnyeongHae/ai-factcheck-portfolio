@@ -791,21 +791,21 @@ def generate_html(data):
     }}
   </style>
 </head>
-<body class="bg-surface-canvas text-ink-primary min-h-screen bg-clean-grid pb-24 antialiased selection:bg-ink-primary selection:text-white">
+<body class="bg-surface-canvas text-ink-primary min-h-screen bg-clean-grid pb-24 antialiased selection:bg-ink-primary selection:text-white overflow-x-hidden w-full">
 
   <!-- ==================== TOP NAVIGATION HEADER ==================== -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-surface-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3 sm:gap-4">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
       
       <!-- Brand Logo (Click to #home) -->
-      <div class="flex items-center gap-3 shrink-0 cursor-pointer select-none group transition hover:opacity-95" onclick="switchView('home')" title="대시보드 홈으로 이동 (#home)">
-        <div class="w-9 h-9 rounded-xl bg-ink-primary flex items-center justify-center text-white font-bold text-base shadow-sm">
-          <i data-lucide="shield-check" class="w-5 h-5 text-white"></i>
+      <div class="flex items-center gap-2.5 sm:gap-3 shrink-0 cursor-pointer select-none group transition hover:opacity-95" onclick="switchView('home')" title="대시보드 홈으로 이동 (#home)">
+        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-ink-primary flex items-center justify-center text-white font-bold text-base shadow-sm shrink-0">
+          <i data-lucide="shield-check" class="w-4 h-4 sm:w-5 sm:h-5 text-white"></i>
         </div>
         <div>
-          <div class="flex items-center gap-2">
-            <span class="text-base font-extrabold text-ink-primary tracking-tight" id="headerBrandTitle">FactCheck Hub</span>
-            <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-surface-subtle border border-surface-border text-ink-muted font-bold">2026</span>
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <span class="text-sm sm:text-base font-extrabold text-ink-primary tracking-tight" id="headerBrandTitle">FactCheck Hub</span>
+            <span class="text-[9px] sm:text-[10px] font-mono px-1 sm:px-1.5 py-0.2 rounded bg-surface-subtle border border-surface-border text-ink-muted font-bold">2026</span>
           </div>
           <p class="text-[11px] text-ink-muted hidden sm:block" id="headerBrandSubtitle">AI 팩트체크 & 글로벌 테크 최신 동향</p>
         </div>
@@ -835,16 +835,16 @@ def generate_html(data):
       </nav>
 
       <!-- Right Actions: Admin Archive, Live DB Badge & Tri-Lingual (KO / ZH / EN) Toggle -->
-      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
-        <!-- Admin Raw Archive Access Button -->
-        <button onclick="switchView('inbox')" id="adminArchiveBtn" class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-ink-muted hover:text-ink-primary hover:bg-surface-subtle transition border border-transparent hover:border-surface-border" title="관리자 전용 원천 데이터 아카이브">
+      <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        <!-- Admin Raw Archive Access Button (Visible on desktop, mobile accessed via subnav) -->
+        <button onclick="switchView('inbox')" id="adminArchiveBtn" class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-ink-muted hover:text-ink-primary hover:bg-surface-subtle transition border border-transparent hover:border-surface-border" title="관리자 전용 원천 데이터 아카이브">
           <i data-lucide="archive" class="w-3.5 h-3.5 text-slate-500"></i>
           <span class="hidden lg:inline" id="adminArchiveLabel">아카이브 (Admin)</span>
           <span class="text-[10px] font-mono opacity-80" id="headerInboxCount">({data['inbox_total_count']})</span>
         </button>
 
-        <!-- Live Neon DB Badge -->
-        <div id="dbLiveBadge">
+        <!-- Live Neon DB Badge (Hidden on mobile) -->
+        <div id="dbLiveBadge" class="hidden sm:block">
           <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
             <span class="hidden xs:inline sm:inline">Neon DB</span> Live
@@ -853,9 +853,9 @@ def generate_html(data):
 
         <!-- Language Toggle (KO / ZH / EN) -->
         <div class="bg-surface-subtle p-0.5 sm:p-1 rounded-lg border border-surface-border flex items-center text-xs font-semibold gap-0.5">
-          <button onclick="setLanguage('KO')" id="langKoBtn" class="px-2 py-0.5 rounded bg-ink-primary text-white transition text-[10px] sm:text-[11px]">KO</button>
-          <button onclick="setLanguage('ZH')" id="langZhBtn" class="px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]">中文</button>
-          <button onclick="setLanguage('EN')" id="langEnBtn" class="px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]">EN</button>
+          <button onclick="setLanguage('KO')" id="langKoBtn" class="px-1.5 sm:px-2 py-0.5 rounded bg-ink-primary text-white transition text-[10px] sm:text-[11px]">KO</button>
+          <button onclick="setLanguage('ZH')" id="langZhBtn" class="px-1.5 sm:px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]">中文</button>
+          <button onclick="setLanguage('EN')" id="langEnBtn" class="px-1.5 sm:px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]">EN</button>
         </div>
       </div>
 
@@ -886,7 +886,7 @@ def generate_html(data):
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+  <main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6 overflow-x-hidden">
 
     <!-- ==================== VIEW 0: HOME DASHBOARD (순수 종합 대시보드 뷰) ==================== -->
     <div id="homeView" class="space-y-6">
@@ -1211,34 +1211,34 @@ def generate_html(data):
     <div id="modelsView" class="hidden space-y-6">
       <!-- Models Controls & Family Filter Bar (Hugging Face & OpenRouter 표준 분류 체계) -->
       <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
-        <div class="flex items-center gap-2 flex-wrap text-xs">
-          <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs">
+          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1">
             🤖 모델 패밀리:
           </span>
-          <div class="flex items-center gap-1.5 flex-wrap" id="modelsFamilyFilterRow">
-            <button onclick="setModelsFamilyFilter('ALL')" data-fam="ALL" class="model-fam-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">전체 패밀리</button>
-            <button onclick="setModelsFamilyFilter('Qwen')" data-fam="Qwen" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">Qwen ({data['model_fam_counts'].get('Qwen', 0)})</button>
-            <button onclick="setModelsFamilyFilter('Wan')" data-fam="Wan" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">Wan 비디오 ({data['model_fam_counts'].get('Wan', 0)})</button>
-            <button onclick="setModelsFamilyFilter('MiniMax')" data-fam="MiniMax" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">MiniMax ({data['model_fam_counts'].get('MiniMax', 0)})</button>
-            <button onclick="setModelsFamilyFilter('FLUX')" data-fam="FLUX" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">FLUX 이미지 ({data['model_fam_counts'].get('FLUX', 0)})</button>
-            <button onclick="setModelsFamilyFilter('GLM')" data-fam="GLM" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">GLM ({data['model_fam_counts'].get('GLM', 0)})</button>
-            <button onclick="setModelsFamilyFilter('DeepSeek')" data-fam="DeepSeek" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">DeepSeek ({data['model_fam_counts'].get('DeepSeek', 0)})</button>
-            <button onclick="setModelsFamilyFilter('Hunyuan')" data-fam="Hunyuan" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">Hunyuan ({data['model_fam_counts'].get('Hunyuan', 0)})</button>
-            <button onclick="setModelsFamilyFilter('Audio')" data-fam="Audio" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">음성/TTS ({data['model_fam_counts'].get('Audio', 0)})</button>
-            <button onclick="setModelsFamilyFilter('Standalone')" data-fam="Standalone" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">독립/신규 모델 ({data['model_fam_counts'].get('Standalone', 0)})</button>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="modelsFamilyFilterRow">
+            <button onclick="setModelsFamilyFilter('ALL')" data-fam="ALL" class="model-fam-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap">전체 패밀리</button>
+            <button onclick="setModelsFamilyFilter('Qwen')" data-fam="Qwen" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">Qwen ({data['model_fam_counts'].get('Qwen', 0)})</button>
+            <button onclick="setModelsFamilyFilter('Wan')" data-fam="Wan" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">Wan 비디오 ({data['model_fam_counts'].get('Wan', 0)})</button>
+            <button onclick="setModelsFamilyFilter('MiniMax')" data-fam="MiniMax" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">MiniMax ({data['model_fam_counts'].get('MiniMax', 0)})</button>
+            <button onclick="setModelsFamilyFilter('FLUX')" data-fam="FLUX" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">FLUX 이미지 ({data['model_fam_counts'].get('FLUX', 0)})</button>
+            <button onclick="setModelsFamilyFilter('GLM')" data-fam="GLM" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">GLM ({data['model_fam_counts'].get('GLM', 0)})</button>
+            <button onclick="setModelsFamilyFilter('DeepSeek')" data-fam="DeepSeek" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">DeepSeek ({data['model_fam_counts'].get('DeepSeek', 0)})</button>
+            <button onclick="setModelsFamilyFilter('Hunyuan')" data-fam="Hunyuan" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">Hunyuan ({data['model_fam_counts'].get('Hunyuan', 0)})</button>
+            <button onclick="setModelsFamilyFilter('Audio')" data-fam="Audio" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">음성/TTS ({data['model_fam_counts'].get('Audio', 0)})</button>
+            <button onclick="setModelsFamilyFilter('Standalone')" data-fam="Standalone" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">독립/신규 모델 ({data['model_fam_counts'].get('Standalone', 0)})</button>
           </div>
         </div>
 
         <!-- Ecosystem / Hub Resource Type Filter Pills (Hugging Face 공식 표준: 모델 가중치 vs Spaces 데모) -->
-        <div class="flex items-center gap-2 flex-wrap text-xs pt-1 border-t border-surface-border">
-          <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs pt-1 border-t border-surface-border">
+          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1">
             🧩 허브 유형:
           </span>
-          <div class="flex items-center gap-1.5 flex-wrap" id="modelsArtifactFilterRow">
-            <button onclick="setModelsArtifactFilter('ALL')" data-art="ALL" class="model-art-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm">전체 ({data['models_total_count']})</button>
-            <button onclick="setModelsArtifactFilter('WEIGHTS')" data-art="WEIGHTS" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🤖 가중치·체크포인트 ({data['model_art_counts'].get('WEIGHTS', 0)})</button>
-            <button onclick="setModelsArtifactFilter('WEB_SERVICE')" data-art="WEB_SERVICE" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌐 인터랙티브 데모·Spaces ({data['model_art_counts'].get('WEB_SERVICE', 0)})</button>
-            <button onclick="setModelsArtifactFilter('FINETUNE')" data-art="FINETUNE" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🎯 특화 파인튜닝 ({data['model_art_counts'].get('FINETUNE', 0)})</button>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="modelsArtifactFilterRow">
+            <button onclick="setModelsArtifactFilter('ALL')" data-art="ALL" class="model-art-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap">전체 ({data['models_total_count']})</button>
+            <button onclick="setModelsArtifactFilter('WEIGHTS')" data-art="WEIGHTS" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🤖 가중치·체크포인트 ({data['model_art_counts'].get('WEIGHTS', 0)})</button>
+            <button onclick="setModelsArtifactFilter('WEB_SERVICE')" data-art="WEB_SERVICE" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🌐 인터랙티브 데모·Spaces ({data['model_art_counts'].get('WEB_SERVICE', 0)})</button>
+            <button onclick="setModelsArtifactFilter('FINETUNE')" data-art="FINETUNE" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🎯 특화 파인튜닝 ({data['model_art_counts'].get('FINETUNE', 0)})</button>
           </div>
         </div>
 
@@ -1275,47 +1275,47 @@ def generate_html(data):
     <div id="newsView" class="hidden space-y-6">
       <!-- News Category Filter Bar (IPTC 6대 Tier 1 도메인 카테고리) -->
       <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
-        <div class="flex items-center gap-2 flex-wrap text-xs">
-          <span class="font-bold text-ink-secondary text-[11px] w-28 shrink-0 flex items-center gap-1">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs">
+          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1">
             🏷️ 기술·글로벌 분류:
           </span>
-          <div class="flex items-center gap-1.5 flex-wrap" id="newsCategoryFilterRow">
-            <button onclick="setNewsCategoryFilter('ALL')" data-cat="ALL" class="news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm">전체 ({data['news_total_count']})</button>
-            <button onclick="setNewsCategoryFilter('TECH_COMPUTING')" data-cat="TECH_COMPUTING" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">💻 IT·컴퓨팅 ({data['tier1_counts'].get('TECH_COMPUTING', 0)})</button>
-            <button onclick="setNewsCategoryFilter('SCIENCE_RESEARCH')" data-cat="SCIENCE_RESEARCH" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🚀 과학·우주 ({data['tier1_counts'].get('SCIENCE_RESEARCH', 0)})</button>
-            <button onclick="setNewsCategoryFilter('ECONOMY_FINANCE')" data-cat="ECONOMY_FINANCE" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🏦 경제·금융 ({data['tier1_counts'].get('ECONOMY_FINANCE', 0)})</button>
-            <button onclick="setNewsCategoryFilter('LAW_CRIME_JUSTICE')" data-cat="LAW_CRIME_JUSTICE" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">⚖️ 사회·법률 ({data['tier1_counts'].get('LAW_CRIME_JUSTICE', 0)})</button>
-            <button onclick="setNewsCategoryFilter('POLITICS_POLICY')" data-cat="POLITICS_POLICY" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🏛️ 정치·정책 ({data['tier1_counts'].get('POLITICS_POLICY', 0)})</button>
-            <button onclick="setNewsCategoryFilter('CULTURE_HUMANITIES')" data-cat="CULTURE_HUMANITIES" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌿 문화·인문 ({data['tier1_counts'].get('CULTURE_HUMANITIES', 0)})</button>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="newsCategoryFilterRow">
+            <button onclick="setNewsCategoryFilter('ALL')" data-cat="ALL" class="news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap">전체 ({data['news_total_count']})</button>
+            <button onclick="setNewsCategoryFilter('TECH_COMPUTING')" data-cat="TECH_COMPUTING" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">💻 IT·컴퓨팅 ({data['tier1_counts'].get('TECH_COMPUTING', 0)})</button>
+            <button onclick="setNewsCategoryFilter('SCIENCE_RESEARCH')" data-cat="SCIENCE_RESEARCH" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🚀 과학·우주 ({data['tier1_counts'].get('SCIENCE_RESEARCH', 0)})</button>
+            <button onclick="setNewsCategoryFilter('ECONOMY_FINANCE')" data-cat="ECONOMY_FINANCE" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🏦 경제·금융 ({data['tier1_counts'].get('ECONOMY_FINANCE', 0)})</button>
+            <button onclick="setNewsCategoryFilter('LAW_CRIME_JUSTICE')" data-cat="LAW_CRIME_JUSTICE" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">⚖️ 사회·법률 ({data['tier1_counts'].get('LAW_CRIME_JUSTICE', 0)})</button>
+            <button onclick="setNewsCategoryFilter('POLITICS_POLICY')" data-cat="POLITICS_POLICY" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🏛️ 정치·정책 ({data['tier1_counts'].get('POLITICS_POLICY', 0)})</button>
+            <button onclick="setNewsCategoryFilter('CULTURE_HUMANITIES')" data-cat="CULTURE_HUMANITIES" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🌿 문화·인문 ({data['tier1_counts'].get('CULTURE_HUMANITIES', 0)})</button>
           </div>
         </div>
 
         <!-- Tier 2 Engineering Specialization Row (IT·컴퓨팅 6대 세부 공학 분야) -->
-        <div class="flex items-center gap-2 flex-wrap text-xs pt-2 border-t border-surface-border transition-opacity duration-200" id="newsTier2Container">
-          <span class="font-bold text-ink-secondary text-[11px] w-28 shrink-0 flex items-center gap-1">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs pt-2 border-t border-surface-border transition-opacity duration-200" id="newsTier2Container">
+          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1">
             ↳ 💻 IT 세부 분야:
           </span>
-          <div class="flex items-center gap-1.5 flex-wrap" id="newsTier2FilterRow">
-            <button onclick="setNewsTier2Filter('ALL')" data-t2="ALL" class="news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm">전체 IT 분야</button>
-            <button onclick="setNewsTier2Filter('INFERENCE_OPT')" data-t2="INFERENCE_OPT" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">⚡ 추론·서빙 ({data['news_cat_counts'].get('INFERENCE_OPT', 0)})</button>
-            <button onclick="setNewsTier2Filter('AGENTS_DEVTOOLS')" data-t2="AGENTS_DEVTOOLS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🛠️ 에이전트·도구 ({data['news_cat_counts'].get('AGENTS_DEVTOOLS', 0)})</button>
-            <button onclick="setNewsTier2Filter('MULTIMODAL_AI')" data-t2="MULTIMODAL_AI" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🎨 멀티모달 ({data['news_cat_counts'].get('MULTIMODAL_AI', 0)})</button>
-            <button onclick="setNewsTier2Filter('FOUNDATION_MODELS')" data-t2="FOUNDATION_MODELS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🤖 파운데이션 ({data['news_cat_counts'].get('FOUNDATION_MODELS', 0)})</button>
-            <button onclick="setNewsTier2Filter('INFRA_RAG_SECURITY')" data-t2="INFRA_RAG_SECURITY" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🛡️ 인프라·보안 ({data['news_cat_counts'].get('INFRA_RAG_SECURITY', 0)})</button>
-            <button onclick="setNewsTier2Filter('INDUSTRY_TRENDS')" data-t2="INDUSTRY_TRENDS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌐 일반 SW·웹 ({data['news_cat_counts'].get('INDUSTRY_TRENDS', 0)})</button>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="newsTier2FilterRow">
+            <button onclick="setNewsTier2Filter('ALL')" data-t2="ALL" class="news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap">전체 IT 분야</button>
+            <button onclick="setNewsTier2Filter('INFERENCE_OPT')" data-t2="INFERENCE_OPT" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">⚡ 추론·서빙 ({data['news_cat_counts'].get('INFERENCE_OPT', 0)})</button>
+            <button onclick="setNewsTier2Filter('AGENTS_DEVTOOLS')" data-t2="AGENTS_DEVTOOLS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🛠️ 에이전트·도구 ({data['news_cat_counts'].get('AGENTS_DEVTOOLS', 0)})</button>
+            <button onclick="setNewsTier2Filter('MULTIMODAL_AI')" data-t2="MULTIMODAL_AI" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🎨 멀티모달 ({data['news_cat_counts'].get('MULTIMODAL_AI', 0)})</button>
+            <button onclick="setNewsTier2Filter('FOUNDATION_MODELS')" data-t2="FOUNDATION_MODELS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🤖 파운데이션 ({data['news_cat_counts'].get('FOUNDATION_MODELS', 0)})</button>
+            <button onclick="setNewsTier2Filter('INFRA_RAG_SECURITY')" data-t2="INFRA_RAG_SECURITY" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🛡️ 인프라·보안 ({data['news_cat_counts'].get('INFRA_RAG_SECURITY', 0)})</button>
+            <button onclick="setNewsTier2Filter('INDUSTRY_TRENDS')" data-t2="INDUSTRY_TRENDS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🌐 일반 SW·웹 ({data['news_cat_counts'].get('INDUSTRY_TRENDS', 0)})</button>
           </div>
         </div>
 
         <!-- Secondary Source & Search & Sort Row -->
-        <div class="pt-2 border-t border-surface-border flex flex-col md:flex-row items-center justify-between gap-3">
-          <div class="flex items-center gap-1.5 flex-wrap w-full md:w-auto text-xs">
+        <div class="pt-2 border-t border-surface-border flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full md:w-auto text-xs flex-nowrap">
             <span class="text-ink-muted text-[11px] font-mono shrink-0">출처:</span>
-            <button onclick="setNewsSourceFilter('ALL')" class="news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition" data-src="ALL">전체 출처</button>
-            <button onclick="setNewsSourceFilter('GeekNews')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="GeekNews">🇰🇷 긱뉴스</button>
-            <button onclick="setNewsSourceFilter('Hacker News')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="Hacker News">🔥 HN</button>
-            <button onclick="setNewsSourceFilter('GitHub')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="GitHub">🐙 GitHub</button>
-            <button onclick="setNewsSourceFilter('ArXiv')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="ArXiv">📄 ArXiv</button>
-            <button onclick="setNewsSourceFilter('Hugging Face')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border" data-src="Hugging Face">🤗 HF</button>
+            <button onclick="setNewsSourceFilter('ALL')" class="news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition shrink-0 whitespace-nowrap" data-src="ALL">전체 출처</button>
+            <button onclick="setNewsSourceFilter('GeekNews')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="GeekNews">🇰🇷 긱뉴스</button>
+            <button onclick="setNewsSourceFilter('Hacker News')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="Hacker News">🔥 HN</button>
+            <button onclick="setNewsSourceFilter('GitHub')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="GitHub">🐙 GitHub</button>
+            <button onclick="setNewsSourceFilter('ArXiv')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="ArXiv">📄 ArXiv</button>
+            <button onclick="setNewsSourceFilter('Hugging Face')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="Hugging Face">🤗 HF</button>
           </div>
 
           <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
@@ -2422,6 +2422,27 @@ def generate_html(data):
       return `${{y}}-${{m}}-${{day}} ${{hh}}:${{mm}}`;
     }}
 
+    function formatDateTimeCompact(raw) {{
+      if (!raw) return '-';
+      const d = new Date(raw);
+      if (isNaN(d.getTime())) return String(raw).substring(0, 10);
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      const hh = String(d.getHours()).padStart(2, '0');
+      const mm = String(d.getMinutes()).padStart(2, '0');
+      return `<span class="hidden sm:inline">${{y}}-</span>${{m}}-${{day}} ${{hh}}:${{mm}}`;
+    }}
+
+    function formatModelAttribution(modelStr) {{
+      if (!modelStr) return 'AI 검증';
+      let s = String(modelStr).replace(/^models\\//, '').replace(/:free$/, '');
+      if (s.includes('/')) s = s.split('/').pop();
+      s = s.replace(/^gemini-/, '').replace(/^gpt-/, 'gpt-');
+      if (s.length > 15) s = s.substring(0, 14) + '…';
+      return '🤖 ' + s;
+    }}
+
     // ================= RENDER 24H TIMELINE & 1-DAY 4-SESSIONS TREND RADAR =================
     let targetSelectedInboxId = '';
     let activeRadarSession = (typeof trendRadarData !== 'undefined' && trendRadarData.current_session) ? trendRadarData.current_session : 3;
@@ -3405,14 +3426,14 @@ def generate_html(data):
           </div>
 
           <div class="pt-3 border-t border-surface-border space-y-2 text-xs">
-            <!-- Row 1: Source Date & AI Audit Date with Model Attribution -->
-            <div class="flex items-center gap-2 flex-wrap text-[11px] font-mono text-ink-muted">
-              <span title="${{currentLang === 'KO' ? '수집/발행 일시' : (currentLang === 'ZH' ? '采集/发布日' : 'Source DateTime')}}">📅 ${{formatDateTime(it.published_at || it.harvested_at || it.harvested_date)}}</span>
+            <!-- Row 1: Source Date & AI Audit Date with Model Attribution (Single Line on Mobile) -->
+            <div class="flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono text-ink-muted whitespace-nowrap overflow-hidden text-ellipsis">
+              <span class="shrink-0" title="${{currentLang === 'KO' ? '수집/발행 일시' : (currentLang === 'ZH' ? '采集/发布日' : 'Source DateTime')}}">📅 ${{formatDateTimeCompact(it.published_at || it.harvested_at || it.harvested_date)}}</span>
               ${{ai?.enriched_at ? `
-                <span class="text-surface-border">•</span>
-                <span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold flex items-center gap-1">
-                  🔬 ${{formatDateTime(ai.enriched_at)}}
-                  <span class="text-ink-muted font-normal">(${{ai.enriched_by_model ? '🤖 ' + ai.enriched_by_model.replace('gemini-', '') : '🤖 AI 검증'}})</span>
+                <span class="text-surface-border shrink-0">•</span>
+                <span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold flex items-center gap-1 overflow-hidden text-ellipsis">
+                  <span class="shrink-0">🔬 ${{formatDateTimeCompact(ai.enriched_at)}}</span>
+                  <span class="text-ink-muted font-normal truncate" title="${{ai.enriched_by_model || ''}}">(${{formatModelAttribution(ai.enriched_by_model)}})</span>
                 </span>
               ` : ''}}
             </div>
@@ -3715,14 +3736,14 @@ def generate_html(data):
           </div>
 
           <div class="pt-3 border-t border-surface-border space-y-2 text-xs">
-            <!-- Row 1: Source Date & AI Audit Date with Model Attribution -->
-            <div class="flex items-center gap-2 flex-wrap text-[11px] font-mono text-ink-muted">
-              <span title="${{currentLang === 'KO' ? '수집/발표 일시' : (currentLang === 'ZH' ? '采集/发布日' : 'Source DateTime')}}">📅 ${{formatDateTime(it.published_at || it.harvested_at || it.harvested_date)}}</span>
+            <!-- Row 1: Source Date & AI Audit Date with Model Attribution (Single Line on Mobile) -->
+            <div class="flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono text-ink-muted whitespace-nowrap overflow-hidden text-ellipsis">
+              <span class="shrink-0" title="${{currentLang === 'KO' ? '수집/발표 일시' : (currentLang === 'ZH' ? '采集/发布日' : 'Source DateTime')}}">📅 ${{formatDateTimeCompact(it.published_at || it.harvested_at || it.harvested_date)}}</span>
               ${{ai?.enriched_at ? `
-                <span class="text-surface-border">•</span>
-                <span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold flex items-center gap-1">
-                  🔬 ${{formatDateTime(ai.enriched_at)}}
-                  <span class="text-ink-muted font-normal">(${{ai.enriched_by_model ? '🤖 ' + ai.enriched_by_model.replace('gemini-', '') : '🤖 AI 검증'}})</span>
+                <span class="text-surface-border shrink-0">•</span>
+                <span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold flex items-center gap-1 overflow-hidden text-ellipsis">
+                  <span class="shrink-0">🔬 ${{formatDateTimeCompact(ai.enriched_at)}}</span>
+                  <span class="text-ink-muted font-normal truncate" title="${{ai.enriched_by_model || ''}}">(${{formatModelAttribution(ai.enriched_by_model)}})</span>
                 </span>
               ` : ''}}
             </div>
