@@ -46,17 +46,17 @@ if load_dotenv:
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-# Priority order for zero-cost models (Fastest & highest availability first)
+# Priority order for zero-cost models (Instruction-following general LLMs first, code-only at bottom)
 FREE_MODEL_FALLBACKS = [
-    "cohere/north-mini-code:free",
-    "liquid/lfm-2.5-2.6b:free",
     "nvidia/nemotron-3-super-120b-a12b:free",
-    "dots-studio/dots-3-note-preview:free",
-    "inclusionai/ling-3.0-flash-fin:free",
-    "minimax/minimax-m3:free",
-    "openrouter/free",
     "google/gemma-4-31b-it:free",
-    "poolside/laguna-xs-2.1:free"
+    "minimax/minimax-m3:free",
+    "dots-studio/dots-3-note-preview:free",
+    "openrouter/free",
+    "inclusionai/ling-3.0-flash-fin:free",
+    "liquid/lfm-2.5-2.6b:free",
+    "poolside/laguna-xs-2.1:free",
+    "cohere/north-mini-code:free"
 ]
 
 def get_openrouter_api_key():
@@ -69,37 +69,59 @@ def get_openrouter_api_key():
                     break
     return key
 
+DUMMY_PROMPT_PATTERNS = [
+    "엔지니어가 이 글을 지금 당장 읽어야 하는",
+    "1줄 결정적 훅",
+    "Compelling 1-line hook for engineers",
+    "直击工程师痛点的1句话亮点"
+]
+
+def validate_enriched_payload(payload):
+    """Guardrail: Detects if a model blindly copied the prompt placeholder text."""
+    if not payload:
+        return payload
+    items = payload if isinstance(payload, list) else [payload]
+    for it in items:
+        if not isinstance(it, dict):
+            continue
+        multi = it.get("multilingual", {})
+        for lang_code in ["ko", "en", "zh"]:
+            hook_text = str(multi.get(lang_code, {}).get("hook", ""))
+            for pat in DUMMY_PROMPT_PATTERNS:
+                if pat in hook_text:
+                    raise ValueError(f"Model echoed prompt placeholder text in '{lang_code}.hook': '{hook_text}'")
+    return payload
+
 def clean_json_response(raw_text: str):
-    """Extracts and parses JSON from potentially markdown-fenced LLM responses."""
+    """
+    Sanitizes LLM outputs: strips markdown code fences, comments, and invalid control chars.
+    """
     cleaned = raw_text.strip()
-    # Remove markdown code block fences
-    if cleaned.startswith("```json"):
-        cleaned = cleaned[7:]
-    elif cleaned.startswith("```"):
-        cleaned = cleaned[3:]
-    if cleaned.endswith("```"):
-        cleaned = cleaned[:-3]
+    cleaned = re.sub(r'^```(?:json)?\s*', '', cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r'\s*```$', '', cleaned)
     cleaned = cleaned.strip()
 
-    # Direct JSON parse attempt
     try:
-        return json.loads(cleaned)
-    except Exception:
+        data = json.loads(cleaned)
+        return validate_enriched_payload(data)
+    except json.JSONDecodeError:
         pass
 
     # Regex extraction of outermost JSON array or object
     array_match = re.search(r'\[.*?\]', cleaned, re.DOTALL)
     if array_match:
         try:
-            return json.loads(array_match.group(0))
-        except Exception:
+            data = json.loads(array_match.group(0))
+            return validate_enriched_payload(data)
+        except json.JSONDecodeError:
             pass
 
     obj_match = re.search(r'\{.*?\}', cleaned, re.DOTALL)
     if obj_match:
         try:
-            return [json.loads(obj_match.group(0))]
-        except Exception:
+            data = [json.loads(obj_match.group(0))]
+            return validate_enriched_payload(data)
+        except json.JSONDecodeError:
             pass
 
     raise ValueError(f"Could not parse valid JSON from text: {cleaned[:150]}...")

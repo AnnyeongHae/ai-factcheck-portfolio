@@ -90,7 +90,10 @@
       }
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-05T22:30:29.797078+00:00"
+    "enriched_at": "2026-09-05T22:30:29.797078+00:00",
+    "tier1_category": "TECH_COMPUTING",
+    "tier2_category": "INFERENCE_OPT",
+    "artifact_type": "WEIGHTS"
   },
   "multilingual": {
     "ko": {
@@ -140,5 +143,8 @@
   "description_zh": "这款27B参数的GGUF模型可本地运行图像-文本任务，速度极快——非常适合边缘设备上的多模态推理。",
   "category_primary": "INFERENCE_OPT",
   "is_classified": true,
-  "is_deep_analyzed": false
+  "is_deep_analyzed": false,
+  "tier1_category": "TECH_COMPUTING",
+  "tier2_category": "INFERENCE_OPT",
+  "artifact_type": "WEIGHTS"
 }

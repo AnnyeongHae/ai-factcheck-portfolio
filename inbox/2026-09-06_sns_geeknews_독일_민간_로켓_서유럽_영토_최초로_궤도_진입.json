@@ -94,7 +94,10 @@
       "is_breaking_news": true
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-06T04:59:06.738393+00:00"
+    "enriched_at": "2026-09-06T04:59:06.738393+00:00",
+    "tier1_category": "SCIENCE_RESEARCH",
+    "tier2_category": "DEEP_SCIENCE_SPACE",
+    "artifact_type": "ARTICLE"
   },
   "multilingual": {
     "ko": {
@@ -170,5 +173,8 @@
   ],
   "source_count": 1,
   "is_classified": true,
-  "is_deep_analyzed": false
+  "is_deep_analyzed": false,
+  "tier1_category": "SCIENCE_RESEARCH",
+  "tier2_category": "DEEP_SCIENCE_SPACE",
+  "artifact_type": "ARTICLE"
 }

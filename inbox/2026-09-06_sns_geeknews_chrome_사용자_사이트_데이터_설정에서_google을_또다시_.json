@@ -58,7 +58,7 @@
     "multilingual": {
       "ko": {
         "title": "Chrome, 사용자 사이트 데이터 설정에서 Google을 또다시 예외 처리",
-        "hook": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어)",
+        "hook": "구글이 크롬의 사이트 데이터 자동 삭제 설정에서 자사 도메인을 은밀히 예외 처리하여 사용자 프라이버시 통제를 무력화한 논란 분석",
         "key_takeaways": [
           "Chrome의 최근 업데이트로 Google이 사이트 데이터 예외 목록에 추가됨",
           "이로 인해 Google이 사용자 개인정보 보호 설정을 우회할 수 있음",
@@ -67,7 +67,7 @@
       },
       "en": {
         "title": "Chrome again exempts Google from user site data settings",
-        "hook": "Compelling 1-line hook for engineers (English)",
+        "hook": "Deep dive into how Chrome silently whitelists Google domains from site-data auto-clearing, bypassing user privacy controls.",
         "key_takeaways": [
           "Chrome’s recent update adds Google to the site data exception list",
           "This could allow Google to bypass user privacy controls",
@@ -76,7 +76,7 @@
       },
       "zh": {
         "title": "Chrome 再次将 Google 排除在用户站点数据设置之外",
-        "hook": "直击工程师痛点的1句话亮点与阅读理由 (中文)",
+        "hook": "深入剖析 Chrome 在站点数据自动清理设置中悄悄豁免 Google 旗下域名的做法及其对用户隐私控制的影响。",
         "key_takeaways": [
           "Chrome 的最新更新将 Google 加入站点数据例外列表",
           "这可能使 Google 绕过用户隐私控制",
@@ -94,12 +94,15 @@
       "is_breaking_news": false
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-06T12:27:07.038732+00:00"
+    "enriched_at": "2026-09-06T12:27:07.038732+00:00",
+    "tier1_category": "TECH_COMPUTING",
+    "tier2_category": "INFRA_RAG_SECURITY",
+    "artifact_type": "ARTICLE"
   },
   "multilingual": {
     "ko": {
       "title": "Chrome, 사용자 사이트 데이터 설정에서 Google을 또다시 예외 처리",
-      "hook": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어)",
+      "hook": "구글이 크롬의 사이트 데이터 자동 삭제 설정에서 자사 도메인을 은밀히 예외 처리하여 사용자 프라이버시 통제를 무력화한 논란 분석",
       "key_takeaways": [
         "Chrome의 최근 업데이트로 Google이 사이트 데이터 예외 목록에 추가됨",
         "이로 인해 Google이 사용자 개인정보 보호 설정을 우회할 수 있음",
@@ -108,7 +111,7 @@
     },
     "en": {
       "title": "Chrome again exempts Google from user site data settings",
-      "hook": "Compelling 1-line hook for engineers (English)",
+      "hook": "Deep dive into how Chrome silently whitelists Google domains from site-data auto-clearing, bypassing user privacy controls.",
       "key_takeaways": [
         "Chrome’s recent update adds Google to the site data exception list",
         "This could allow Google to bypass user privacy controls",
@@ -117,7 +120,7 @@
     },
     "zh": {
       "title": "Chrome 再次将 Google 排除在用户站点数据设置之外",
-      "hook": "直击工程师痛点的1句话亮点与阅读理由 (中文)",
+      "hook": "深入剖析 Chrome 在站点数据自动清理设置中悄悄豁免 Google 旗下域名的做法及其对用户隐私控制的影响。",
       "key_takeaways": [
         "Chrome 的最新更新将 Google 加入站点数据例外列表",
         "这可能使 Google 绕过用户隐私控制",
@@ -135,10 +138,10 @@
   ],
   "title_en": "Chrome again exempts Google from user site data settings",
   "title_zh": "Chrome 再次将 Google 排除在用户站点数据设置之外",
-  "hook": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어)",
-  "hook_ko": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어)",
-  "hook_en": "Compelling 1-line hook for engineers (English)",
-  "hook_zh": "直击工程师痛点的1句话亮点与阅读理由 (中文)",
+  "hook": "구글이 크롬의 사이트 데이터 자동 삭제 설정에서 자사 도메인을 은밀히 예외 처리하여 사용자 프라이버시 통제를 무력화한 논란 분석",
+  "hook_ko": "구글이 크롬의 사이트 데이터 자동 삭제 설정에서 자사 도메인을 은밀히 예외 처리하여 사용자 프라이버시 통제를 무력화한 논란 분석",
+  "hook_en": "Deep dive into how Chrome silently whitelists Google domains from site-data auto-clearing, bypassing user privacy controls.",
+  "hook_zh": "深入剖析 Chrome 在站点数据自动清理设置中悄悄豁免 Google 旗下域名的做法及其对用户隐私控制的影响。",
   "description_en": "Compelling 1-line hook for engineers (English)",
   "description_zh": "直击工程师痛点的1句话亮点与阅读理由 (中文)",
   "category_primary": "INFRA_RAG_SECURITY",
@@ -169,5 +172,8 @@
   ],
   "source_count": 1,
   "is_classified": true,
-  "is_deep_analyzed": false
+  "is_deep_analyzed": false,
+  "tier1_category": "TECH_COMPUTING",
+  "tier2_category": "INFRA_RAG_SECURITY",
+  "artifact_type": "ARTICLE"
 }

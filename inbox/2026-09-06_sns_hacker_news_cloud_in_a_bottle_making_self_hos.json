@@ -55,7 +55,7 @@
     "multilingual": {
       "ko": {
         "title": "클라우드 인 어 보틀: 모두가 쉽게 셀프 호스팅을 할 수 있도록",
-        "hook": "엔지니어가 주목해야 할 셀프 호스팅 간소화 도구 – 클라우드 인 어 보틀",
+        "hook": "원클릭 Docker 컨테이너 기반으로 개인 클라우드 스토리지를 인프라 지식 없이 1분 만에 자립 구축하는 오픈소스 솔루션",
         "key_takeaways": [
           "복잡한 서버 설정 없이 간단한 명령어로 개인 클라우드 구축",
           "Docker 컨테이너 기반의 경량화된 솔루션으로 하드웨어 요구 사항 최소화",
@@ -64,7 +64,7 @@
       },
       "en": {
         "title": "Cloud in a Bottle: making self-hosting accessible to everyone",
-        "hook": "A simple, containerized solution that lets anyone spin up personal cloud services instantly.",
+        "hook": "An open-source solution to spin up self-hosted cloud storage in 1 minute via lightweight Docker containers with zero DevOps overhead.",
         "key_takeaways": [
           "Deploy personal cloud services with a single command, no complex server setup",
           "Lightweight Docker-based design minimizes hardware requirements",
@@ -73,7 +73,7 @@
       },
       "zh": {
         "title": "云瓶：让每个人都能轻松实现自托管",
-        "hook": "一个容器化的简单解决方案，让任何人都能瞬间搭建个人云服务",
+        "hook": "通过轻量级 Docker 容器一键在1分钟内构建自托管个人云存储的开源方案，零运维门槛。",
         "key_takeaways": [
           "用一条命令即可部署个人云服务，无需复杂服务器配置",
           "基于 Docker 的轻量级设计，硬件需求低",
@@ -91,12 +91,15 @@
       "is_breaking_news": false
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-06T05:00:51.976686+00:00"
+    "enriched_at": "2026-09-06T05:00:51.976686+00:00",
+    "tier1_category": "TECH_COMPUTING",
+    "tier2_category": "INFERENCE_OPT",
+    "artifact_type": "ARTICLE"
   },
   "multilingual": {
     "ko": {
       "title": "클라우드 인 어 보틀: 모두가 쉽게 셀프 호스팅을 할 수 있도록",
-      "hook": "엔지니어가 주목해야 할 셀프 호스팅 간소화 도구 – 클라우드 인 어 보틀",
+      "hook": "원클릭 Docker 컨테이너 기반으로 개인 클라우드 스토리지를 인프라 지식 없이 1분 만에 자립 구축하는 오픈소스 솔루션",
       "key_takeaways": [
         "복잡한 서버 설정 없이 간단한 명령어로 개인 클라우드 구축",
         "Docker 컨테이너 기반의 경량화된 솔루션으로 하드웨어 요구 사항 최소화",
@@ -105,7 +108,7 @@
     },
     "en": {
       "title": "Cloud in a Bottle: making self-hosting accessible to everyone",
-      "hook": "A simple, containerized solution that lets anyone spin up personal cloud services instantly.",
+      "hook": "An open-source solution to spin up self-hosted cloud storage in 1 minute via lightweight Docker containers with zero DevOps overhead.",
       "key_takeaways": [
         "Deploy personal cloud services with a single command, no complex server setup",
         "Lightweight Docker-based design minimizes hardware requirements",
@@ -114,7 +117,7 @@
     },
     "zh": {
       "title": "云瓶：让每个人都能轻松实现自托管",
-      "hook": "一个容器化的简单解决方案，让任何人都能瞬间搭建个人云服务",
+      "hook": "通过轻量级 Docker 容器一键在1分钟内构建自托管个人云存储的开源方案，零运维门槛。",
       "key_takeaways": [
         "用一条命令即可部署个人云服务，无需复杂服务器配置",
         "基于 Docker 的轻量级设计，硬件需求低",
@@ -132,10 +135,10 @@
   "title_ko": "클라우드 인 어 보틀: 모두가 쉽게 셀프 호스팅을 할 수 있도록",
   "title_en": "Cloud in a Bottle: making self-hosting accessible to everyone",
   "title_zh": "云瓶：让每个人都能轻松实现自托管",
-  "hook": "엔지니어가 주목해야 할 셀프 호스팅 간소화 도구 – 클라우드 인 어 보틀",
-  "hook_ko": "엔지니어가 주목해야 할 셀프 호스팅 간소화 도구 – 클라우드 인 어 보틀",
-  "hook_en": "A simple, containerized solution that lets anyone spin up personal cloud services instantly.",
-  "hook_zh": "一个容器化的简单解决方案，让任何人都能瞬间搭建个人云服务",
+  "hook": "원클릭 Docker 컨테이너 기반으로 개인 클라우드 스토리지를 인프라 지식 없이 1분 만에 자립 구축하는 오픈소스 솔루션",
+  "hook_ko": "원클릭 Docker 컨테이너 기반으로 개인 클라우드 스토리지를 인프라 지식 없이 1분 만에 자립 구축하는 오픈소스 솔루션",
+  "hook_en": "An open-source solution to spin up self-hosted cloud storage in 1 minute via lightweight Docker containers with zero DevOps overhead.",
+  "hook_zh": "通过轻量级 Docker 容器一键在1分钟内构建自托管个人云存储的开源方案，零运维门槛。",
   "description_ko": "엔지니어가 주목해야 할 셀프 호스팅 간소화 도구 – 클라우드 인 어 보틀",
   "description_en": "A simple, containerized solution that lets anyone spin up personal cloud services instantly.",
   "description_zh": "一个容器化的简单解决方案，让任何人都能瞬间搭建个人云服务",
@@ -167,5 +170,8 @@
   ],
   "source_count": 1,
   "is_classified": true,
-  "is_deep_analyzed": false
+  "is_deep_analyzed": false,
+  "tier1_category": "TECH_COMPUTING",
+  "tier2_category": "INFERENCE_OPT",
+  "artifact_type": "ARTICLE"
 }

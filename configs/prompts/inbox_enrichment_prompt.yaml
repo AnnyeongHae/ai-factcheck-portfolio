@@ -20,31 +20,44 @@ persona_and_role: |
   반드시 JSON 배열만 출력해야 하며 마크다운이나 기타 텍스트는 일절 금지합니다.
 
 classification_criteria:
-  primary_engineering_categories:
-    INFERENCE_OPT: "⚡ 추론 & 서빙 최적화 (vLLM, SGLang, Ollama, 양자화 AWQ/GGUF/FP8, 가속 기법, CUDA, 메모리 절감)"
-    AGENTS_DEVTOOLS: "🛠️ AI 에이전트 & 개발도구 (Browser Use, 코딩 어시스턴트, 프레임워크, 자동화, 스크래핑, CLI 도구)"
-    MULTIMODAL_AI: "🎨 멀티모달 & 비전/영상/음성 (비디오 생성 Wan/MiniMax, 이미지 FLUX, TTS/음성 분리, Computer Vision)"
-    FOUNDATION_MODELS: "🤖 파운데이션 & 오픈 가중치 (Qwen, DeepSeek, Llama 계열 새 가중치 발표, 체크포인트, MoE, LoRA)"
-    INFRA_RAG_SECURITY: "🛡️ 인프라, RAG & 보안/시스템 (벡터DB, RAG, 탈옥/보안 취약점, Linux 커널, 컴파일러, 시스템 SW)"
-    DEEP_SCIENCE_SPACE: "🚀 우주·항공·신소재·과학 (우주로켓, 궤도발사, 인공위성, 랩그로운 다이아몬드, 양자물리, 과학 연구)"
-    MACRO_GLOBAL_BIZ: "🏦 글로벌 거시경제·산업·정책 (금/통화 회수, 중앙은행, 자산시장, 반독점 규제, 빅테크 정책, 공급망)"
-    INDUSTRY_TRENDS: "🌐 테크 동향 & IT 트렌드 (일반 SW, 스타트업 소식, 기술 칼럼, 기업 동향, 레트로 컴퓨팅)"
+  iptc_tier1_categories:
+    TECH_COMPUTING: "💻 IT & 테크 (AI, 소프트웨어, 클라우드, 오픈소스, 개발도구, 인터넷)"
+    SCIENCE_RESEARCH: "🚀 과학 & 우주항공 (우주로켓, 천문학, 양자물리, 생명과학, 첨단소재)"
+    ECONOMY_FINANCE: "🏦 거시경제 & 금융 (중앙은행, 금/외환, 통화정책, 금리, 자산시장, 기업경영)"
+    POLITICS_POLICY: "🏛️ 정치 & 공공정책 (정부 행정, 선거, 의회, 지정학, 외교, 국가 정책)"
+    LAW_CRIME_JUSTICE: "⚖️ 사회 & 법률 (사건사고, 강력범죄, 법원 판결, 규제 단속, 시민 권리)"
+    CULTURE_HUMANITIES: "🌿 문화 & 인문 (역사, 요리/음식, 도서, 철학, 라이프스타일, 교양 에세이)"
 
-  legacy_type_classification:
-    MODEL: "새로운 모델 가중치/체크포인트 발표"
-    AGENT: "AI 에이전트 도구/하네스/프레임워크"
-    TECH: "신기술/아키텍처/최적화 방법론"
-    NEWS: "단순 업계 동향/통계/칼럼"
+  domain_tier2_specializations:
+    INFERENCE_SERVING: "추론 & 서빙 최적화 (vLLM, SGLang, Ollama, 양자화 AWQ/GGUF/FP8, 가속, CUDA)"
+    AGENTS_DEVTOOLS: "AI 에이전트 & 개발도구 (Browser Use, 코딩도구, CLI, 자동화, SDK, 프레임워크)"
+    MULTIMODAL_MEDIA: "멀티모달 & 미디어 (비디오 생성 Wan/MiniMax, 이미지 FLUX, TTS/음성 분리, 비전)"
+    FOUNDATION_WEIGHTS: "파운데이션 & 오픈 가중치 (Qwen, DeepSeek, Llama 가중치, 체크포인트, MoE)"
+    SYSTEM_CYBERSEC: "시스템 & 사이버보안 (Linux 커널, 컴파일러, 탈옥/보안 취약점, strip 유틸, CVE)"
+    SOFTWARE_WEB: "일반 테크 & 소프트웨어 (웹 프레임워크, 브라우저 기능, 셀프호스팅, 앱 개발)"
+    SPACE_ASTRONOMY: "우주항공 & 천문학 (로켓 궤도 발사, 인공위성, 우주 탐사, 허블/웹 망원경)"
+    DEEP_SCIENCE_BIO: "신소재 & 기초과학 (랩그로운 다이아몬드, 핵융합, 초전도체, 생명과학)"
+    MACRO_TREASURY: "중앙은행 & 자산보유 (금 86톤 회수, 외환보유고, 인플레이션, 기준금리)"
+    BIZ_MARKETS: "빅테크 비즈니스 & 시장 (M&A, 실적 발표, 스타트업 펀딩, 반독점 소송)"
+    CIVIC_CRIME_INCIDENT: "사회적 사건사고 & 정치 선거 (오하이오 후보 피습, 범죄 수사, 선거 유세)"
+    HISTORY_LIFE_CULTURE: "역사 & 인문 문화 (고대 레시피, 서적 서평, 인간 삶의 단상)"
+
+  artifact_types:
+    WEIGHTS: "순수 모델 가중치/체크포인트 자체 (GGUF, Safetensors, Base/Instruct Model)"
+    SKILL_AGENT: "AI 에이전트, 코딩 하네스, CLI 도구, 프롬프트 스킬셋 (실행 가능한 도구)"
+    WEB_SERVICE: "AI 웹 서비스, 데모 웹앱, HuggingFace Spaces, SaaS (브라우저에서 직접 사용)"
+    FINETUNE: "도메인 특화 미세조정/LoRA (특정 산업/의료/코딩 전용 어댑터)"
+    ARTICLE: "일반 기술 기사, 뉴스, 칼럼, 분석 보고서 (소프트웨어/모델 자체가 아닌 글)"
 
 multilingual_guidelines:
   title:
-    ko: "직관적이고 매력적인 한국어 번역 제목"
-    en: "Refined, professional, and attractive English Title"
+    ko: "자연스럽고 직관적인 한국어 번역 제목"
+    en: "Refined and professional English Title"
     zh: "精准精炼且具吸引力的中文标题"
   hook:
-    ko: "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (과장 없는 기술적 핵심)"
-    en: "Compelling 1-line hook for engineers emphasizing critical technical value"
-    zh: "直击工程师痛点的1句话亮点与核心阅读理由"
+    ko: "기사의 핵심 기술적/사회적 의미를 짚는 명확한 1줄 요약 (절대 프롬프트 설명문 복사 금지)"
+    en: "Clear 1-line hook highlighting decisive value (never copy prompt placeholders)"
+    zh: "直击核心价值的一句话提炼（严禁复制提示词占位符）"
   key_takeaways:
     count: 3
     description: "각 언어별 핵심 포인트 3줄 요약"
@@ -52,39 +65,42 @@ multilingual_guidelines:
 output_json_schema: |
   [
     {
-      "id": "입력받은 id",
-      "source_lang": "KO 또는 EN 또는 ZH (원문의 원래 언어)",
-      "category_primary": "반드시 다음 중 하나 선택: INFERENCE_OPT (추론/경량화/서빙), AGENTS_DEVTOOLS (에이전트/도구), MULTIMODAL_AI (비전/영상/음성), FOUNDATION_MODELS (파운데이션/가중치), INFRA_RAG_SECURITY (RAG/보안/시스템), DEEP_SCIENCE_SPACE (우주/로켓/신소재/과학), MACRO_GLOBAL_BIZ (거시경제/금/정책/규제), INDUSTRY_TRENDS (일반테크/칼럼)",
-      "type_classification": "MODEL 또는 AGENT 또는 TECH 또는 NEWS",
-      "model_family": "만약 모델인 경우 상위 기저 모델 패밀리명 (예: Qwen, DeepSeek, MiniMax, Llama, Gemma, Mistral, FLUX, Wan, Hunyuan, Whisper, GLM 등, 없으면 Standalone)",
-      "task_modality": "모델/데모인 경우 HuggingFace 정규 Task: text-to-text, image-text-to-text, text-to-image, image-to-image, text-to-video, text-to-speech, speech-to-text, any-to-any 중 하나 선택 (모델이 아니면 other)",
-      "parameter_size": "파라미터 규모 (예: <1B, 3B, 7B, 8B, 14B, 27B, 32B, 70B, MoE, 없으면 N/A)",
-      "detected_formats": ["지원 가중치 포맷: GGUF, Safetensors, FP8, LoRA, Diffusers, MLX 중 해당되는 것 (없으면 빈 배열)"],
-      "category": "세부 기술 카테고리 (예: LLM 추론 최적화, 웹 에이전트, 영상 제작 등)",
-      "programming_lang": "주요 프로그래밍 언어 (예: Rust, Python, TypeScript, CUDA, C++ 등, 없으면 General)",
-      "root_keywords": ["상위 키워드 1", "상위 키워드 2", "상위 키워드 3"],
+      "id": "입력받은 id 그대로 유지",
+      "tier1_category": "TECH_COMPUTING | SCIENCE_RESEARCH | ECONOMY_FINANCE | POLITICS_POLICY | LAW_CRIME_JUSTICE | CULTURE_HUMANITIES 중 택1",
+      "tier2_category": "INFERENCE_SERVING | AGENTS_DEVTOOLS | MULTIMODAL_MEDIA | FOUNDATION_WEIGHTS | SYSTEM_CYBERSEC | SOFTWARE_WEB | SPACE_ASTRONOMY | DEEP_SCIENCE_BIO | MACRO_TREASURY | BIZ_MARKETS | CIVIC_CRIME_INCIDENT | HISTORY_LIFE_CULTURE 중 택1",
+      "category_primary": "위 tier2_category 값을 대시보드 호환을 위해 그대로 입력",
+      "artifact_type": "WEIGHTS | SKILL_AGENT | WEB_SERVICE | FINETUNE | ARTICLE 중 택1",
+      "source_lang": "KO 또는 EN 또는 ZH",
+      "type_classification": "MODEL | AGENT | TECH | NEWS 중 택1",
+      "model_family": "모델인 경우 Qwen, DeepSeek, Llama, FLUX, Wan, Standalone 등 (모델 아니면 Standalone)",
+      "task_modality": "HuggingFace Task: text-to-text, text-to-image, text-to-video, text-to-speech 등 (모델 아니면 other)",
+      "parameter_size": "파라미터 크기 (예: 7B, 14B, 70B, MoE, 모델 아니면 N/A)",
+      "detected_formats": ["GGUF, Safetensors, FP8 등 (해당 없으면 빈 배열)"],
+      "category": "세부 토픽 요약 (예: LLM 서빙 가속, 우주 궤도 진입, 개인정보 보호 설정)",
+      "programming_lang": "주요 언어 (예: Python, Rust, C++, CUDA 등, 없으면 General)",
+      "root_keywords": ["키워드1", "키워드2", "키워드3"],
       "recommended_tag": "🔥 강력 추천 (필독) 또는 💡 유용한 도구 또는 📝 기술 참고",
       "worth_score": 1.0~5.0 사이 점수,
       "multilingual": {
         "ko": {
-          "title": "직관적인 한국어 번역 제목",
-          "hook": "엔지니어가 이 글을 지금 당장 읽어야 하는 1줄 결정적 훅 (한국어)",
-          "key_takeaways": ["핵심 포인트 1", "핵심 포인트 2", "핵심 포인트 3"]
+          "title": "원문의 맥락을 살린 자연스러운 한국어 제목",
+          "hook": "엔지니어/독자가 주목해야 할 핵심 1줄 훅 (반드시 기사 내용 기반으로 직접 생성)",
+          "key_takeaways": ["핵심 요약 1", "핵심 요약 2", "핵심 요약 3"]
         },
         "en": {
-          "title": "Refined and attractive English Title",
-          "hook": "Compelling 1-line hook for engineers (English)",
+          "title": "Professional English Title",
+          "hook": "Decisive 1-line hook capturing the core value",
           "key_takeaways": ["Key Point 1", "Key Point 2", "Key Point 3"]
         },
         "zh": {
           "title": "精准精炼且具吸引力的中文标题",
-          "hook": "直击工程师痛点的1句话亮点与阅读理由 (中文)",
+          "hook": "直击核心亮点的精炼一句话概括",
           "key_takeaways": ["核心要点 1", "核心要点 2", "核心要点 3"]
         }
       },
       "dedup_fingerprint": {
-        "canonical_story_key": "사건/기술을 대표하는 영어 소문자 하이픈 슬러그 (예: flock-surveillance-veteran-tracking, deepseek-v3-release)",
-        "core_entities": ["핵심 주체/기업/인물", "핵심 기술/도구/사건", "핵심 키워드"],
+        "canonical_story_key": "영문 소문자 하이픈 슬러그 (예: isar-aerospace-orbit-launch)",
+        "core_entities": ["주요 조직/인물", "주요 기술/사건"],
         "is_breaking_news": true 또는 false
       }
     }

@@ -103,14 +103,24 @@ def match_dossier(dossiers, title, category, programming_lang, root_keywords):
                 "title": d["title"],
                 "target_tech": d["target_tech"]
             }
+VALID_TIER1_CATEGORIES = {
+    "TECH_COMPUTING", "SCIENCE_RESEARCH", "ECONOMY_FINANCE",
+    "POLITICS_POLICY", "LAW_CRIME_JUSTICE", "CULTURE_HUMANITIES"
+}
+
 VALID_PRIMARY_CATEGORIES = {
     "INFERENCE_OPT", "AGENTS_DEVTOOLS", "MULTIMODAL_AI",
     "FOUNDATION_MODELS", "INFRA_RAG_SECURITY", "DEEP_SCIENCE_SPACE",
-    "MACRO_GLOBAL_BIZ", "INDUSTRY_TRENDS"
+    "MACRO_GLOBAL_BIZ", "INDUSTRY_TRENDS",
+    # IPTC Tier 2 aliases
+    "INFERENCE_SERVING", "MULTIMODAL_MEDIA", "FOUNDATION_WEIGHTS",
+    "SYSTEM_CYBERSEC", "SOFTWARE_WEB", "SPACE_ASTRONOMY",
+    "DEEP_SCIENCE_BIO", "MACRO_TREASURY", "BIZ_MARKETS",
+    "CIVIC_CRIME_INCIDENT", "HISTORY_LIFE_CULTURE"
 }
 
 def infer_primary_category(item: dict, enrich_data: dict, c_type: str = "TECH") -> str:
-    cand = enrich_data.get("category_primary")
+    cand = enrich_data.get("category_primary") or enrich_data.get("tier2_category")
     if cand and cand in VALID_PRIMARY_CATEGORIES:
         return cand
 
@@ -128,7 +138,23 @@ def infer_primary_category(item: dict, enrich_data: dict, c_type: str = "TECH") 
                 return True
         return False
 
-    # 1. DEEP_SCIENCE_SPACE (Space, Aerospace, Materials, Physics, Astronomy, Deep Science)
+    # 1. Non-Tech / Crime / Incidents / Politics (IPTC: 02000000 & 11000000)
+    if has_any([
+        'governor candidate', 'armed man', 'attacks', 'injuries reported', 'police', 'shooting',
+        'suspect arrested', 'murder', 'assault', 'gubernatorial', '주지사 후보', '피습', '무장 남성',
+        '부상자', '총격', '경찰 수사', '체포', '선거 유세'
+    ]):
+        return 'CIVIC_CRIME_INCIDENT'
+
+    # 2. History / Food / Humanities (IPTC: 01000000 & 10000000)
+    if has_any([
+        'stew with beets', 'recipe', 'ancient recipe', 'babylonian', 'cooking', 'cookbook',
+        'archaeology', 'medieval manuscript', 'ancient roman', '고대 요리', '스튜 레시피',
+        '바빌로니아', '고고학', '역사 문헌', '중세 필사본', '인문학'
+    ]):
+        return 'HISTORY_LIFE_CULTURE'
+
+    # 3. DEEP_SCIENCE_SPACE (Space, Aerospace, Materials, Physics, Astronomy, Deep Science)
     if has_any([
         'aerospace', 'rocket', 'orbit', 'orbital', 'satellite', 'spacecraft',
         'nasa', 'esa', 'astronomy', 'astronomer', 'telescope', 'dark matter',
@@ -138,7 +164,7 @@ def infer_primary_category(item: dict, enrich_data: dict, c_type: str = "TECH") 
     ]) or (has_any(['space', 'launch', 'mission']) and has_any(['orbit', 'rocket', 'payload', 'cosmos', 'satellite', '궤도', '발사체'])):
         return 'DEEP_SCIENCE_SPACE'
 
-    # 2. MACRO_GLOBAL_BIZ (Macroeconomics, Finance, Gold, Geopolitics, Big Tech Policy)
+    # 4. MACRO_GLOBAL_BIZ (Macroeconomics, Finance, Gold, Geopolitics, Big Tech Policy)
     if has_any([
         'gold reserve', 'central bank', 'monetary policy', 'inflation', 'interest rate',
         'macroeconomics', 'gdp growth', 'treasury', 'tariff', 'antitrust', 'ftc',
@@ -147,28 +173,67 @@ def infer_primary_category(item: dict, enrich_data: dict, c_type: str = "TECH") 
     ]) or (has_any(['gold', '금']) and has_any(['reserve', 'bullion', 'central bank', '회수', '보관', '중앙은행', '온스', 'ton'])):
         return 'MACRO_GLOBAL_BIZ'
 
-    # 3. INFERENCE_OPT
+    # 5. INFERENCE_OPT
     if has_any(['gguf', 'vllm', 'sglang', 'ollama', 'awq', 'fp8', 'int4', 'int8', 'kv cache', 'speculative decoding', 'inference', 'serving', 'quantization', 'latency', '추론', '서빙', '양자화', '경량화', '가속']):
         return 'INFERENCE_OPT'
 
-    # 4. MULTIMODAL_AI
+    # 6. MULTIMODAL_AI
     if has_any(['vlm', 'diffusion', 'tts', 'stt', 'whisper', 'flux', 'wan', 'minimax', 'sora', 'kling', 'runway', 'stable diffusion', 'text-to-image', 'text-to-video', 'multimodal', '멀티모달', '음성합성', '영상 생성', '화상 생성']) or (has_any(['video', 'vision', 'speech', 'audio', 'voice', 'sound', 'image', '음성', '비디오', '영상', '이미지']) and has_any(['ai', 'model', 'neural', 'deep learning', '인공지능', '모델', '생성'])):
         return 'MULTIMODAL_AI'
 
-    # 5. AGENTS_DEVTOOLS
+    # 7. AGENTS_DEVTOOLS
     if has_any(['agent', 'agents', 'browser use', 'scraping', 'crawler', 'devtools', 'copilot', 'automation', 'cli', 'framework', 'sdk', '에이전트', '자동화', '개발도구', '코딩', '프레임워크']):
         return 'AGENTS_DEVTOOLS'
 
-    # 6. INFRA_RAG_SECURITY
-    if has_any(['rag', 'vectordb', 'vector database', 'embedding', 'embeddings', 'jailbreak', 'security', 'cve', 'vulnerability', 'benchmark', 'evaluation', 'eval', 'mlops', 'cluster', '보안', '탈옥', '취약점', '임베딩', '평가']):
+    # 8. INFRA_RAG_SECURITY
+    if has_any(['rag', 'vectordb', 'vector database', 'embedding', 'embeddings', 'jailbreak', 'cve', 'vulnerability', 'benchmark', 'evaluation', 'eval', 'mlops', 'cluster', '탈옥', '취약점', '임베딩', '평가']) or (has_any(['security', '보안']) and has_any(['linux', 'kernel', 'exploit', 'bypass', 'patch', 'zero-day', '악성코드', '취약점', '우회'])):
         return 'INFRA_RAG_SECURITY'
 
-    # 7. FOUNDATION_MODELS
+    # 9. FOUNDATION_MODELS
     if 'models' in src or 'hub' in src or c_type == 'MODEL' or has_any(['weights', 'safetensors', 'checkpoint', 'lora', 'foundation model', 'pretrained', '파운데이션', '가중치', '체크포인트', 'qwen', 'deepseek', 'llama', 'mistral', 'gemma']):
         return 'FOUNDATION_MODELS'
 
-    # 8. INDUSTRY_TRENDS (Default / General Tech News / Software & Hardware)
+    # 10. INDUSTRY_TRENDS (Default / General Tech News / Software & Hardware)
     return 'INDUSTRY_TRENDS'
+
+def infer_tier1_category(item: dict, enrich_data: dict, primary_cat: str) -> str:
+    """Maps items to the 6 IPTC Universal Top-Level Domains."""
+    t1_direct = enrich_data.get("tier1_category")
+    if t1_direct and t1_direct in VALID_TIER1_CATEGORIES:
+        return t1_direct
+
+    if primary_cat in ['DEEP_SCIENCE_SPACE', 'SPACE_ASTRONOMY', 'DEEP_SCIENCE_BIO']:
+        return 'SCIENCE_RESEARCH'
+    if primary_cat in ['MACRO_GLOBAL_BIZ', 'MACRO_TREASURY', 'BIZ_MARKETS']:
+        return 'ECONOMY_FINANCE'
+    if primary_cat in ['CIVIC_CRIME_INCIDENT']:
+        return 'LAW_CRIME_JUSTICE'
+    if primary_cat in ['HISTORY_LIFE_CULTURE']:
+        return 'CULTURE_HUMANITIES'
+    if primary_cat in ['TECH_ANTITRUST_POLICY']:
+        return 'POLITICS_POLICY'
+    return 'TECH_COMPUTING'
+
+def infer_artifact_type(item: dict, enrich_data: dict) -> str:
+    """Classifies AI model items into 4 distinct ecosystems: WEIGHTS | SKILL_AGENT | WEB_SERVICE | FINETUNE."""
+    art = enrich_data.get("artifact_type")
+    if art in ["WEIGHTS", "SKILL_AGENT", "WEB_SERVICE", "FINETUNE", "ARTICLE"]:
+        return art
+
+    src = (item.get("source_platform") or "").lower()
+    url = (item.get("source_url") or item.get("url") or "").lower()
+    title = (item.get("title") or "").lower()
+    formats = item.get("detected_formats") or enrich_data.get("detected_formats") or []
+
+    if "spaces" in src or "spaces" in url or "space:" in title or "gradio" in title:
+        return "WEB_SERVICE"
+    if any(k in title for k in ["agent", "harness", "cli", "sdk", "browser-use", "framework"]) or "agent" in src:
+        return "SKILL_AGENT"
+    if any(k in title for k in ["lora", "adapter", "finetune", "fine-tuned", "fine-tuning"]):
+        return "FINETUNE"
+    if any(fmt in ["GGUF", "Safetensors", "FP8", "MLX"] for fmt in formats) or "models" in src or "weights" in title:
+        return "WEIGHTS"
+    return "ARTICLE"
 
 def load_prompt_config():
     """Loads external centralized prompt via prompt_manager."""
@@ -571,8 +636,20 @@ def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = Fals
                 else:
                     item["category_type"] = c_type
 
-                # Set Standard 6-Core Engineering Category (Controlled Taxonomy)
-                item["category_primary"] = infer_primary_category(item, enrich_data, c_type)
+                # Set Standard 2-Tier Taxonomy & Artifact Type (IPTC Standard)
+                cat_p = infer_primary_category(item, enrich_data, c_type)
+                t1_cat = infer_tier1_category(item, enrich_data, cat_p)
+                art_type = infer_artifact_type(item, enrich_data)
+
+                item["category_primary"] = cat_p
+                item["tier1_category"] = t1_cat
+                item["tier2_category"] = cat_p
+                item["artifact_type"] = art_type
+
+                enrich_data["category_primary"] = cat_p
+                enrich_data["tier1_category"] = t1_cat
+                enrich_data["tier2_category"] = cat_p
+                enrich_data["artifact_type"] = art_type
 
                 # 5. Deduplication Fingerprint & Multi-Source Tracking
                 dedup_fg = enrich_data.get("dedup_fingerprint") or {}

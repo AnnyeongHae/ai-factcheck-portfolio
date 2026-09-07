@@ -37,7 +37,7 @@
   "ai_enrichment": {
     "id": "2026-09-06_sns_hacker_news_armed_man_attacks_ohio_governor_c",
     "source_lang": "EN",
-    "category_primary": "INFRA_RAG_SECURITY",
+    "category_primary": "CIVIC_CRIME_INCIDENT",
     "type_classification": "NEWS",
     "model_family": "Standalone",
     "task_modality": "other",
@@ -93,7 +93,10 @@
       "is_breaking_news": true
     },
     "enriched_by_model": "cohere/north-mini-code:free",
-    "enriched_at": "2026-09-06T22:34:03.537099+00:00"
+    "enriched_at": "2026-09-06T22:34:03.537099+00:00",
+    "tier1_category": "LAW_CRIME_JUSTICE",
+    "tier2_category": "CIVIC_CRIME_INCIDENT",
+    "artifact_type": "ARTICLE"
   },
   "multilingual": {
     "ko": {
@@ -142,7 +145,7 @@
   "description_ko": "미국 주요 정치인을 겨냥한 충격적인 공격으로 여러 명의 사상자가 발생하며 보안 우려가 커지고 있습니다.",
   "description_en": "A shocking attack on a top US political figure leaves multiple casualties and raises security concerns.",
   "description_zh": "一起针对美国高层政治人物的袭击事件导致多人伤亡，引发安全担忧。",
-  "category_primary": "INFRA_RAG_SECURITY",
+  "category_primary": "CIVIC_CRIME_INCIDENT",
   "dedup_fingerprint": {
     "canonical_story_key": "armed-man-attacks-ohio-governor-candidate-amy-acton",
     "core_entities": [
@@ -172,5 +175,8 @@
   ],
   "source_count": 1,
   "is_classified": true,
-  "is_deep_analyzed": false
+  "is_deep_analyzed": false,
+  "tier1_category": "LAW_CRIME_JUSTICE",
+  "tier2_category": "CIVIC_CRIME_INCIDENT",
+  "artifact_type": "ARTICLE"
 }

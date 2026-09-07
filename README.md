@@ -1,4 +1,4 @@
-﻿# 🌐 AI Fact-Check & Autonomous Tech Intelligence Portfolio
+# 🌐 AI Fact-Check & Autonomous Tech Intelligence Portfolio
 
 <div align="center">
 
@@ -200,16 +200,61 @@ python tools/build_dashboard.py
 
 ---
 
-## 📊 6. 엔지니어링 메트릭 및 토큰 경제성 (Token Economics)
+## 🏷️ 6. 권위적 표준 기반 2계층 뉴스 분류 & AI 모델 생태계 아키텍처
 
-- **누적 검증 완료 도시에 (Verified Portfolios)**: **32건**
-- **인박스 모니터링 안건**: **230여 건** (HF Models 88건, News 61건)
+본 시스템은 수집 데이터의 다양성과 정밀도를 극대화하기 위해 글로벌 저널리즘 및 컴퓨터 과학 표준을 이식한 계층형 분류 체계를 채택하고 있습니다.
+
+### 1) IPTC Media Topics & ACM CCS 기반 2계층 뉴스 분류 체계
+- **도입 배경**: 소셜 미디어 및 테크 커뮤니티(HN, GeekNews)에서 기술 외적인 사회·정치·사건사고 기사(예: 정치인 피습 사건 등)가 유입될 때, 단순 키워드(Attack, Security) 매칭으로 인해 `INFRA_RAG_SECURITY` 같은 기술 카테고리로 오분류되거나 단일 '기타' 항목에 방치되는 문제를 근본적으로 해결.
+- **학술 및 표준 출처**:
+  - **Tier 1 (보편 도메인)**: 국제 뉴스 통신 표준 기구 **IPTC Media Topics (NewsCodes v1.3+)** 17대 대분류를 엔지니어링 관점에서 6개 표준 도메인으로 압축·정규화.
+  - **Tier 2 (공학 전문 세분화)**: 미국 컴퓨터학회 **ACM Computing Classification System (CCS 2012)** 및 arXiv CS 아카이브 분류 체계 준용.
+
+```
+[Tier 1: 보편 도메인 (IPTC 기반)]          [Tier 2: 공학 전문 세분화 (ACM CCS 기반)]
+├── 💻 IT·컴퓨팅 (TECH_COMPUTING) ───────┼── 🤖 AI_MODELS_WEIGHTS (파운데이션 모델/가중치)
+│                                        ├── ⚡ INFERENCE_SERVING (추론·서빙 최적화)
+│                                        ├── 🛠️ AI_AGENTS_DEVTOOLS (에이전트·개발도구)
+│                                        ├── 🎨 MULTIMODAL_AUDIO_VIDEO (멀티모달/생성AI)
+│                                        ├── 🛡️ SYSTEMS_INFRA_SECURITY (인프라·보안)
+│                                        └── 🌐 GENERAL_SOFTWARE_WEB (일반 SW·웹엔지니어링)
+├── 🚀 과학·연구 (SCIENCE_RESEARCH) ──────┼── 🛸 SPACE_AEROSPACE (우주항공·위성)
+│                                        └── 🧬 BIOTECH_MEDICINE (바이오·의학·신소재)
+├── 🏦 경제·금융 (ECONOMY_FINANCE) ──────└── 📈 MACRO_TECH_BIZ (빅테크 M&A·거시경제·시장)
+├── ⚖️ 사회·법률 (LAW_CRIME_JUSTICE) ────└── 🚨 CIVIC_CRIME_INCIDENT (시사·치안·사법 사건)
+├── 🏛️ 정치·정책 (POLITICS_POLICY) ─────└── 🏛️ POLICY_GOVERNANCE (규제·선거·공공 정책)
+└── 🌿 문화·인문 (CULTURE_HUMANITIES) ───└── ☕ CULTURE_SOCIETY_LIFE (사회인문·일상·에세이)
+```
+> **UI 노출 원칙**: 대시보드 3번 탭(글로벌 테크 동향) 상단 필터바에는 사용자의 인지 부하를 최소화하기 위해 **Tier 1 보편 도메인 6종만 깔끔하게 노출**되며, 개별 카드에서 정밀한 Tier 2 배지를 확인할 수 있습니다.
+
+---
+
+### 2) AI 모델 생태계 4대 아티팩트 세분화 (`artifact_type`)
+Hugging Face 허브의 다양한 릴리스를 사용 목적에 맞게 4대 유형으로 분리하여 큐레이션합니다:
+1. **🤖 `WEIGHTS` (모델 가중치/체크포인트)**: GGUF, Safetensors, Base/Instruct 순수 모델 가중치.
+2. **🛠️ `SKILL_AGENT` (AI 에이전트 & 도구)**: Cursor/Claude 프롬프트 스킬, CLI 자동화 도구, Harness 레포.
+3. **🌐 `WEB_SERVICE` (웹서비스 & Spaces 데모)**: Hugging Face Spaces, Gradio 인터랙티브 웹 앱, 프로토타입 SaaS.
+4. **🎯 `FINETUNE` (특화 파인튜닝/어댑터)**: 도메인 특화 LoRA, 경량 어댑터 모델.
+
+---
+
+### 3) 24시간 민감형 AI 트렌드 레이더 (Freshness-Aware Radar)
+과거 누적 10,000+ 스타의 고전 라이브러리가 레이더를 독점하던 문제를 해결하기 위해, 최근 24~48시간 이내에 새롭게 발표되었거나 급상승한 안건(`today`, `yesterday`, `is_spiking`)에 가중치를 부여(최대 10배 신선도 부스트)하여 **당일 실리콘밸리 릴리스를 1일 4회 민감하게 포착**하도록 재설계되었습니다.
+
+---
+
+## 📊 7. 엔지니어링 메트릭 및 시스템 성과
+
+- **누적 공식 검증 도시에 (Verified Portfolios)**: **42건** (자율 팩트체크 검증 완료)
+- **AI 인텔리전스 인박스**: **853건** (전량 AI 3개국어 번역 및 분석 완료)
+- **AI 모델 레지스트리**: **201건** (4대 아티팩트 유형 및 멀티모달 포맷 자동 분류)
+- **글로벌 테크 뉴스 피드**: **668건** (IPTC 6대 도메인 및 12개 전문 분야 태깅 완료)
 - **도시에 1건당 평균 소모 토큰**: 약 **6,000 ~ 8,000 토큰** (Thinking CoT 포함)
 - **도시에 1건당 실측 생성 비용**: **$0.0014 ~ $0.0028 (약 1.9원 ~ 3.8원)** ☕
 - **서버리스 응답 속도 (TTFB)**: 싱글톤 커넥션 풀 적용으로 **300ms ➔ 45ms (85% 단축)**
 
 ---
 
-## 📜 7. 라이선스 & 기여 (License)
+## 📜 8. 라이선스 & 기여 (License)
 본 프로젝트는 [MIT 라이선스](LICENSE) 하에 자유롭게 열람, 포크 및 응용이 가능합니다.  
 소셜 미디어의 기술적 과장을 걸러내고 진정한 공학적 팩트를 추구하는 모든 개발자를 환영합니다!
