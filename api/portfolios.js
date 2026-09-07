@@ -110,7 +110,7 @@ module.exports = async (req, res) => {
     
     let claimsRows = { rows: [] };
     try {
-      claimsRows = await pool.query(`SELECT case_id, claim_id, statement, fact_checked_truth, status FROM factcheck_atomic_claims;`);
+      claimsRows = await pool.query(`SELECT case_id, claim_number as claim_id, claim_title, claim_text as statement, claim_text as claim, claim_verdict as status, claim_verdict as verdict, verification_evidence as fact_checked_truth, verification_evidence as reality FROM factcheck_atomic_claims ORDER BY case_id, claim_number;`);
     } catch (cErr) {}
 
     // Group relations by case_id

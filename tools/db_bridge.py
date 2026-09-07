@@ -367,6 +367,20 @@ def push_factchecks_to_neon():
                             VALUES (%s, %s, %s, %s, %s, %s);
                         """, (case_id, cr.get("platform", "Community"), cr.get("author_type", "Practitioner"), cr.get("quote", ""), cr.get("url", ""), "REVIEW"))
 
+                    # 4. Atomic Claims & Proofs (1:N 명제별 분해 검증)
+                    cur.execute("DELETE FROM factcheck_atomic_claims WHERE case_id = %s;", (case_id,))
+                    claims_list = m.get("claims_assessment") or m.get("marketing_claims") or []
+                    for c_idx, cl in enumerate(claims_list):
+                        c_num = cl.get("claim_number") or (c_idx + 1)
+                        c_title = cl.get("claim_title") or f"Claim #{c_num}"
+                        c_text = cl.get("claim") or cl.get("statement") or cl.get("claim_text") or ""
+                        c_verdict = cl.get("status") or cl.get("verdict") or cl.get("claim_verdict") or "VERIFIED"
+                        c_evidence = cl.get("reality") or cl.get("fact_checked_truth") or cl.get("verification_evidence") or ""
+                        cur.execute("""
+                            INSERT INTO factcheck_atomic_claims (case_id, claim_number, claim_title, claim_text, claim_verdict, verification_evidence)
+                            VALUES (%s, %s, %s, %s, %s, %s);
+                        """, (case_id, c_num, c_title, c_text, c_verdict, c_evidence))
+
                     count += 1
                 except Exception as e:
                     print(f"[!] Error inserting investigation {d}: {e}")

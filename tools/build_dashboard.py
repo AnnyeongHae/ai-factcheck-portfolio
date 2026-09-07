@@ -702,65 +702,13 @@ def build_dashboard():
     print(f"    - docs/index.html  (GitHub Pages hosting | Verified: {total_cases}, Models: {len(model_items)}, News: {len(news_items)}, Inbox: {len(clean_inbox_items)})")
     print(f"    [Removed] dashboard/ & root duplicates → Git repo size reduced")
 
-def prune_dashboard_item(it):
-    ai = it.get('ai_enrichment') or {}
-    pruned_ai = None
-    if ai:
-        pruned_ai = {
-            'worth_score': ai.get('worth_score', ai.get('score', 80)),
-            'score': ai.get('score', ai.get('worth_score', 80)),
-            'programming_lang': ai.get('programming_lang', ''),
-            'recommended_tag': ai.get('recommended_tag', ''),
-            'key_takeaways': (ai.get('key_takeaways') or [])[:3],
-            'hook': ai.get('hook', ''),
-            'hook_ko': ai.get('hook_ko', '') or ai.get('summary_ko', ''),
-            'source_lang': ai.get('source_lang', 'en'),
-            'type_classification': ai.get('type_classification', ''),
-            'worth_investigating': ai.get('worth_investigating', True),
-            'enriched_at': ai.get('enriched_at', ''),
-            'enriched_by_model': ai.get('enriched_by_model', '')
-        }
-    return {
-        'inbox_id': it.get('inbox_id', ''),
-        'title': it.get('title', ''),
-        'title_ko': it.get('title_ko', ''),
-        'title_en': it.get('title_en', ''),
-        'title_zh': it.get('title_zh', ''),
-        'source_url': it.get('source_url', ''),
-        'article_url': it.get('article_url', ''),
-        'hn_url': it.get('hn_url', ''),
-        'source_platform': it.get('source_platform', ''),
-        'viral_metric': it.get('viral_metric', ''),
-        'description': it.get('description', ''),
-        'description_ko': it.get('description_ko', ''),
-        'hook': it.get('hook', ''),
-        'category_primary': it.get('category_primary', 'INDUSTRY_TRENDS'),
-        'category_type': it.get('category_type', ''),
-        'tier1_category': it.get('tier1_category', 'TECH_COMPUTING'),
-        'artifact_type': it.get('artifact_type', 'repo'),
-        'model_family': it.get('model_family', ''),
-        'parameter_size': it.get('parameter_size', ''),
-        'task_modality': it.get('task_modality', ''),
-        'variant_role': it.get('variant_role', ''),
-        'programming_lang': it.get('programming_lang', ''),
-        'source_lang': it.get('source_lang', 'en'),
-        'created_at': it.get('created_at', ''),
-        'harvested_date': it.get('harvested_date', ''),
-        'sources': it.get('sources', []),
-        'source_count': it.get('source_count', 1),
-        'ai_enrichment': pruned_ai
-    }
-
 def generate_html(data):
     cases_json = json.dumps(data["cases"], ensure_ascii=False)
-    pruned_inbox = [prune_dashboard_item(x) for x in data["inbox_items"][:200]]
-    inbox_json = json.dumps(pruned_inbox, ensure_ascii=False)
+    inbox_json = json.dumps(data["inbox_items"], ensure_ascii=False)
     admin_json = json.dumps(data["admin_stats"], ensure_ascii=False)
     graph_json = json.dumps(data["graph"], ensure_ascii=False)
-    pruned_models = [prune_dashboard_item(x) for x in data.get("model_items", [])]
-    models_json = json.dumps(pruned_models, ensure_ascii=False)
-    pruned_news = [prune_dashboard_item(x) for x in data.get("news_items", [])]
-    news_json = json.dumps(pruned_news, ensure_ascii=False)
+    models_json = json.dumps(data.get("model_items", []), ensure_ascii=False)
+    news_json = json.dumps(data.get("news_items", []), ensure_ascii=False)
     timeline_json = json.dumps(data.get("timeline_24h", []), ensure_ascii=False)
     trend_6h_json = json.dumps(data.get("trend_6h", {}), ensure_ascii=False)
     trend_radar_json = json.dumps(data.get("trend_radar", {}), ensure_ascii=False)
@@ -1087,7 +1035,7 @@ def generate_html(data):
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-ink-muted group-hover:text-slate-800 transition flex items-center gap-1.5" id="statLabelInbox">
               <i data-lucide="archive" class="w-4 h-4 text-slate-600"></i>
-              <span>원천 아카이브 (Admin)</span>
+              <span id="statLabelArchive">원천 아카이브 (Admin)</span>
             </span>
             <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200">
               ⚡ 24H 전수 보존
@@ -1114,11 +1062,11 @@ def generate_html(data):
               <div class="flex items-center gap-2">
                 <span class="text-xs font-bold text-ink-primary font-mono flex items-center gap-1.5" id="timelineTitle">
                   <i data-lucide="clock" class="w-4 h-4 text-indigo-600"></i>
-                  <span>당일 24시간 수집 타임라인 ({today_kst})</span>
+                  <span id="timelineTitleText">당일 24시간 수집 타임라인 ({today_kst})</span>
                 </span>
                 <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center gap-1">
                   <span class="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse"></span>
-                  1일 4회 6h 펄스
+                  <span id="timelineBadgeText">1일 4회 6h 펄스</span>
                 </span>
               </div>
               <p class="text-[11px] text-ink-muted" id="timelineSub">1일 4회(00, 06, 12, 18시 KST) 6시간 주기 전략 수집 + 23:30 EOD 전수 감사</p>
@@ -1126,7 +1074,7 @@ def generate_html(data):
             
             <div class="flex items-center gap-2 text-[11px] font-mono text-ink-secondary">
               <span class="w-2.5 h-2.5 rounded bg-indigo-600 inline-block"></span>
-              <span>세션별 수집 건수</span>
+              <span id="timelineLegendText">세션별 수집 건수</span>
             </div>
           </div>
 
@@ -1138,7 +1086,7 @@ def generate_html(data):
           </div>
 
           <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[11px] text-ink-muted font-mono flex-wrap gap-2" id="timelineFooter">
-            <span>⚡ 당일 총 수집량: <b class="text-indigo-700">{today_total_inbox}건</b></span>
+            <span id="timelineFooterText">⚡ 당일 총 수집량: <b class="text-indigo-700">{today_total_inbox}건</b></span>
           </div>
         </div>
 
@@ -1149,13 +1097,14 @@ def generate_html(data):
               <div class="flex items-center gap-2">
                 <span class="text-xs font-bold text-ink-primary font-mono flex items-center gap-1.5" id="trendRadarTitle">
                   <i data-lucide="radar" class="w-4 h-4 text-emerald-600"></i>
-                  <span>1일 4회 AI 트렌드 레이더</span>
+                  <span id="trendRadarTitleText">1일 4회 AI 트렌드 레이더</span>
                 </span>
                 <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" id="trendRadarPulseDot"></span>
                   <span id="trendRadarWindowLabel">{trend_window_label}</span>
                 </span>
               </div>
+              <p class="text-[11px] text-ink-muted" id="trendRadarSub">글로벌 오픈소스 & AI 신규 가중치 6시간 주기 자동 감지</p>
             </div>
 
             <!-- 4 Interactive Session Selector Buttons -->
@@ -1190,7 +1139,7 @@ def generate_html(data):
             <h3 class="text-sm font-bold text-ink-primary font-mono" id="homeTopPicksTitle">최신 심층 기술 검증 하이라이트</h3>
           </div>
           <button onclick="switchView('portfolio')" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 transition flex items-center gap-1 font-mono">
-            <span>전체 {data['total_cases']}개 검증 도시에 보러가기</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            <span id="homeTopPicksViewAll">전체 {data['total_cases']}개 검증 도시에 보러가기</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
           </button>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5" id="homeTopPicksContainer">
@@ -1308,7 +1257,7 @@ def generate_html(data):
       <!-- Models Controls & Family Filter Bar (Hugging Face & OpenRouter 표준 분류 체계) -->
       <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
         <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs">
-          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1">
+          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1" id="modelsFamilyLabel">
             🤖 모델 패밀리:
           </span>
           <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="modelsFamilyFilterRow">
@@ -1327,7 +1276,7 @@ def generate_html(data):
 
         <!-- Ecosystem / Hub Resource Type Filter Pills (Hugging Face 공식 표준: 모델 가중치 vs Spaces 데모) -->
         <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs pt-1 border-t border-surface-border">
-          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1">
+          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1" id="modelsArtifactLabel">
             🧩 허브 유형:
           </span>
           <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="modelsArtifactFilterRow">
@@ -1349,7 +1298,7 @@ def generate_html(data):
             <span class="text-xs text-ink-muted font-mono" id="modelsFilteredCount"></span>
             <div class="flex items-center gap-1.5 bg-surface-subtle px-3 py-1.5 rounded-xl border border-surface-border text-xs shrink-0">
               <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-indigo-600"></i>
-              <span class="text-ink-muted text-[11px] font-mono">정렬:</span>
+              <span class="text-ink-muted text-[11px] font-mono" id="modelsSortLabel">정렬:</span>
               <select id="modelsSortSelect" onchange="setModelsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
                 <option value="date-audit-desc" selected>🔬 AI 분석일 최신순 (기본)</option>
                 <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
@@ -1371,7 +1320,7 @@ def generate_html(data):
       <!-- News Category Filter Bar (IPTC 6대 Tier 1 도메인 카테고리) -->
       <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
         <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs">
-          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1">
+          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1" id="newsCatFilterLabel">
             🏷️ 기술·글로벌 분류:
           </span>
           <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="newsCategoryFilterRow">
@@ -1387,7 +1336,7 @@ def generate_html(data):
 
         <!-- Tier 2 Engineering Specialization Row (IT·컴퓨팅 6대 세부 공학 분야) -->
         <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs pt-2 border-t border-surface-border transition-opacity duration-200" id="newsTier2Container">
-          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1">
+          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1" id="newsTier2FilterLabel">
             ↳ 💻 IT 세부 분야:
           </span>
           <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="newsTier2FilterRow">
@@ -1404,8 +1353,8 @@ def generate_html(data):
         <!-- Secondary Source & Search & Sort Row -->
         <div class="pt-2 border-t border-surface-border flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
           <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full md:w-auto text-xs flex-nowrap">
-            <span class="text-ink-muted text-[11px] font-mono shrink-0">출처:</span>
-            <button onclick="setNewsSourceFilter('ALL')" class="news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition shrink-0 whitespace-nowrap" data-src="ALL">전체 출처</button>
+            <span class="text-ink-muted text-[11px] font-mono shrink-0" id="newsSourceLabel">출처:</span>
+            <button onclick="setNewsSourceFilter('ALL')" id="newsSrcBtnAll" class="news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition shrink-0 whitespace-nowrap" data-src="ALL">전체 출처</button>
             <button onclick="setNewsSourceFilter('GeekNews')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="GeekNews">🇰🇷 긱뉴스</button>
             <button onclick="setNewsSourceFilter('Hacker News')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="Hacker News">🔥 HN</button>
             <button onclick="setNewsSourceFilter('GitHub')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="GitHub">🐙 GitHub</button>
@@ -1413,15 +1362,16 @@ def generate_html(data):
             <button onclick="setNewsSourceFilter('Hugging Face')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="Hugging Face">🤗 HF</button>
           </div>
 
-          <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
-            <div class="relative w-48 md:w-56">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full md:w-auto justify-between md:justify-end">
+            <div class="relative w-full sm:w-48 md:w-56">
               <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-ink-muted"></i>
               <input type="text" id="newsSearchInput" oninput="handleNewsSearch(this.value)" placeholder="기술명, 키워드 검색..." 
                      class="w-full bg-surface-subtle border border-surface-border rounded-xl pl-8 pr-3 py-1.5 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
             </div>
 
-            <div class="flex items-center gap-1.5 bg-surface-subtle px-2.5 py-1 rounded-xl border border-surface-border text-xs shrink-0">
+            <div class="flex items-center justify-between sm:justify-start gap-1.5 bg-surface-subtle px-2.5 py-1 rounded-xl border border-surface-border text-xs shrink-0">
               <i data-lucide="arrow-up-down" class="w-3 h-3 text-indigo-600"></i>
+              <span class="text-ink-muted text-[11px] font-mono" id="newsSortLabel">정렬:</span>
               <select id="newsSortSelect" onchange="setNewsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
                 <option value="date-audit-desc" selected>🔬 AI 분석일 최신순 (기본)</option>
                 <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
@@ -1529,59 +1479,59 @@ def generate_html(data):
       <!-- 🎛️ Multi-Tier Interactive Filter Toolbar (검색창 위쪽 복합 필터 바) -->
       <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-2.5">
         <!-- Row 1: Source Language (원문 언어) -->
-        <div class="flex items-center gap-2 flex-wrap text-xs">
+        <div class="flex items-center gap-2 text-xs">
           <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
             🌐 원문 언어:
           </span>
-          <div class="flex items-center gap-1.5 flex-wrap" id="filterLangRow">
-            <button onclick="setInboxLangFilter('ALL')" data-lang-val="ALL" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">전체 언어</button>
-            <button onclick="setInboxLangFilter('KO')" data-lang-val="KO" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🇰🇷 한국어 (KO)</button>
-            <button onclick="setInboxLangFilter('EN')" data-lang-val="EN" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🇬🇧 영어 (EN)</button>
-            <button onclick="setInboxLangFilter('ZH')" data-lang-val="ZH" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🇨🇳 중국어 (ZH)</button>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="filterLangRow">
+            <button onclick="setInboxLangFilter('ALL')" data-lang-val="ALL" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap">전체 언어</button>
+            <button onclick="setInboxLangFilter('KO')" data-lang-val="KO" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🇰🇷 한국어 (KO)</button>
+            <button onclick="setInboxLangFilter('EN')" data-lang-val="EN" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🇬🇧 영어 (EN)</button>
+            <button onclick="setInboxLangFilter('ZH')" data-lang-val="ZH" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🇨🇳 중국어 (ZH)</button>
           </div>
         </div>
 
         <!-- Row 2: 4-Tier Classification (4대 기술 분류) -->
-        <div class="flex items-center gap-2 flex-wrap text-xs pt-2 border-t border-surface-border/60">
+        <div class="flex items-center gap-2 text-xs pt-2 border-t border-surface-border/60">
           <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
             🏷️ 기술 분류:
           </span>
-          <div class="flex items-center gap-1.5 flex-wrap" id="filterTypeRow">
-            <button onclick="setInboxTypeFilter('ALL')" data-type-val="ALL" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">전체 분류</button>
-            <button onclick="setInboxTypeFilter('TECH')" data-type-val="TECH" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">⚡ 신기술/아키텍처</button>
-            <button onclick="setInboxTypeFilter('AGENT')" data-type-val="AGENT" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🦾 AI 에이전트</button>
-            <button onclick="setInboxTypeFilter('MODEL')" data-type-val="MODEL" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🤖 AI 모델 발표</button>
-            <button onclick="setInboxTypeFilter('NEWS')" data-type-val="NEWS" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">📰 업계 동향/뉴스</button>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="filterTypeRow">
+            <button onclick="setInboxTypeFilter('ALL')" data-type-val="ALL" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap">전체 분류</button>
+            <button onclick="setInboxTypeFilter('TECH')" data-type-val="TECH" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">⚡ 신기술/아키텍처</button>
+            <button onclick="setInboxTypeFilter('AGENT')" data-type-val="AGENT" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🦾 AI 에이전트</button>
+            <button onclick="setInboxTypeFilter('MODEL')" data-type-val="MODEL" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🤖 AI 모델 발표</button>
+            <button onclick="setInboxTypeFilter('NEWS')" data-type-val="NEWS" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">📰 업계 동향/뉴스</button>
           </div>
         </div>
 
         <!-- Row 3: Programming Language (프로그래밍 언어) -->
-        <div class="flex items-center gap-2 flex-wrap text-xs pt-2 border-t border-surface-border/60">
+        <div class="flex items-center gap-2 text-xs pt-2 border-t border-surface-border/60">
           <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
             💻 기술 스택:
           </span>
-          <div class="flex items-center gap-1.5 flex-wrap" id="filterTechRow">
-            <button onclick="setInboxTechFilter('ALL')" data-tech-val="ALL" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">전체 스택</button>
-            <button onclick="setInboxTechFilter('Python')" data-tech-val="Python" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🐍 Python</button>
-            <button onclick="setInboxTechFilter('Rust')" data-tech-val="Rust" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🦀 Rust</button>
-            <button onclick="setInboxTechFilter('TypeScript')" data-tech-val="TypeScript" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">📘 TypeScript / JS</button>
-            <button onclick="setInboxTechFilter('CUDA')" data-tech-val="CUDA" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">⚡ CUDA / C++</button>
-            <button onclick="setInboxTechFilter('General')" data-tech-val="General" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🌐 General / 기타</button>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="filterTechRow">
+            <button onclick="setInboxTechFilter('ALL')" data-tech-val="ALL" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap">전체 스택</button>
+            <button onclick="setInboxTechFilter('Python')" data-tech-val="Python" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🐍 Python</button>
+            <button onclick="setInboxTechFilter('Rust')" data-tech-val="Rust" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🦀 Rust</button>
+            <button onclick="setInboxTechFilter('TypeScript')" data-tech-val="TypeScript" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">📘 TypeScript / JS</button>
+            <button onclick="setInboxTechFilter('CUDA')" data-tech-val="CUDA" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">⚡ CUDA / C++</button>
+            <button onclick="setInboxTechFilter('General')" data-tech-val="General" class="inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🌐 General / 기타</button>
           </div>
         </div>
 
         <!-- Row 4: Platform Sources (수집 출처) -->
-        <div class="flex items-center gap-2 flex-wrap text-xs pt-2 border-t border-surface-border/60">
+        <div class="flex items-center gap-2 text-xs pt-2 border-t border-surface-border/60">
           <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
             📡 수집 출처:
           </span>
-          <div class="flex items-center gap-1.5 flex-wrap" id="filterPlatformRow">
-            <button onclick="setInboxSourceFilter('ALL')" data-src-val="ALL" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">전체 출처</button>
-            <button onclick="setInboxSourceFilter('GeekNews')" data-src-val="GeekNews" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🇰🇷 GeekNews</button>
-            <button onclick="setInboxSourceFilter('Hacker News')" data-src-val="Hacker News" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🔥 Hacker News</button>
-            <button onclick="setInboxSourceFilter('GitHub')" data-src-val="GitHub" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🐙 GitHub</button>
-            <button onclick="setInboxSourceFilter('ArXiv')" data-src-val="ArXiv" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">📄 ArXiv</button>
-            <button onclick="setInboxSourceFilter('Hugging Face')" data-src-val="Hugging Face" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition">🤗 Hugging Face</button>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="filterPlatformRow">
+            <button onclick="setInboxSourceFilter('ALL')" data-src-val="ALL" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap">전체 출처</button>
+            <button onclick="setInboxSourceFilter('GeekNews')" data-src-val="GeekNews" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🇰🇷 GeekNews</button>
+            <button onclick="setInboxSourceFilter('Hacker News')" data-src-val="Hacker News" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🔥 Hacker News</button>
+            <button onclick="setInboxSourceFilter('GitHub')" data-src-val="GitHub" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🐙 GitHub</button>
+            <button onclick="setInboxSourceFilter('ArXiv')" data-src-val="ArXiv" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">📄 ArXiv</button>
+            <button onclick="setInboxSourceFilter('Hugging Face')" data-src-val="Hugging Face" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🤗 Hugging Face</button>
           </div>
         </div>
       </div>
@@ -1621,11 +1571,11 @@ def generate_html(data):
   </main>
 
   <!-- ==================== DETAILED TECHNICAL DOSSIER MODAL ==================== -->
-  <div id="detailModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-    <div class="bg-white max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl border border-surface-border my-8 max-h-[92vh] flex flex-col">
+  <div id="detailModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-6 overflow-y-auto">
+    <div class="bg-white max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl border border-surface-border my-4 sm:my-8 max-h-[95vh] sm:max-h-[92vh] flex flex-col">
       
       <!-- Modal Header -->
-      <div class="p-6 border-b border-surface-border flex items-start justify-between bg-surface-subtle">
+      <div class="p-4 sm:p-6 border-b border-surface-border flex items-start justify-between bg-surface-subtle">
         <div class="space-y-2 pr-4">
           <div class="flex items-center gap-2 flex-wrap">
             <span id="modalModeBadge" class="text-xs px-2.5 py-0.5 rounded-md font-semibold"></span>
@@ -1641,7 +1591,7 @@ def generate_html(data):
       </div>
 
       <!-- Modal Body -->
-      <div class="p-6 overflow-y-auto space-y-6 text-sm text-ink-secondary">
+      <div class="p-4 sm:p-6 overflow-y-auto space-y-5 sm:space-y-6 text-sm text-ink-secondary">
         
         <!-- Curation & Intent -->
         <div id="modalCurationBox" class="p-4 rounded-xl border border-surface-border bg-surface-subtle space-y-1.5">
@@ -1894,15 +1844,26 @@ def generate_html(data):
         navNews: "테크 & AI 동향",
         navGraph: "인용 계보망",
         navInbox: "수집 인박스",
+        adminArchiveBtn: "아카이브 (Admin)",
+        statArchiveLabel: "원천 아카이브 (Admin)",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
         heroMainTitle: "바이럴된 AI 기술의 실체 분석",
         heroMainDesc: "SNS 바이럴 마케팅의 환각을 걷어내고, 1차 공식 출처 감사와 기저 표준 vs 서드파티 실측 벤치마크를 통해 도출한 100% 실증 보고서입니다.",
         heroUpdateLabel: "최종 검증일",
-        heroAuditCount: "18개 기술 검증 완료",
+        heroAuditCount: "{data['total_cases']}개 기술 검증 완료",
         promoBannerTitle: "기술 검증 포트폴리오 최신 상태 알림",
-        promoCountBadge: "18건 검증 완료",
-        promoBannerDesc: "바이럴 임계치를 초과하여 유입된 주요 오픈소스 및 모델 후보군 총 18건에 대한 심층 실측 벤치마크와 팩트체크가 모두 완료되었습니다.",
+        promoCountBadge: "{data['total_cases']}건 검증 완료",
+        promoBannerDesc: "바이럴 임계치를 초과하여 유입된 주요 오픈소스 및 모델 후보군 총 {data['total_cases']}건에 대한 심층 실측 벤치마크와 팩트체크가 모두 완료되었습니다.",
         promoBtnText: "수집 인박스 후보군 보기",
+        timelineTitle: "당일 24시간 수집 타임라인",
+        timelineSub: "1일 4회(00, 06, 12, 18시 KST) 6시간 주기 전략 수집 + 23:30 EOD 전수 감사",
+        timelineBadge: "1일 4회 6h 펄스",
+        timelineLegend: "세션별 수집 건수",
+        timelineFooterPrefix: "⚡ 당일 총 수집량:",
+        trendRadarTitle: "1일 4회 AI 트렌드 레이더",
+        trendRadarSub: "글로벌 오픈소스 & AI 신규 가중치 6시간 주기 자동 감지",
+        homeTopPicksTitle: "최신 심층 기술 검증 하이라이트",
+        homeTopPicksViewAll: "전체 {data['total_cases']}개 검증 도시에 보러가기",
         btnAll: "전체 검증",
         btnUser: "직접 큐레이션",
         btnAuto: "자동 트렌드",
@@ -1932,6 +1893,64 @@ def generate_html(data):
         newsHeaderTitle: "커뮤니티, 해커뉴스, 사설에서 수집된 테크 & AI 최신 담론",
         newsHeaderDesc: "소프트웨어·AI 저장소뿐만 아니라 신소재·우주, 거시경제, 인프라 보안 등 글로벌 기술 동향을 선별합니다.",
         newsOriginalLink: "기사 원문",
+        newsCatFilterLabel: "🏷️ 기술·글로벌 분류:",
+        newsCats: {{
+          'ALL': "전체 ({data['news_total_count']})",
+          'TECH_COMPUTING': "💻 IT·컴퓨팅 ({data['tier1_counts'].get('TECH_COMPUTING', 0)})",
+          'SCIENCE_RESEARCH': "🚀 과학·우주 ({data['tier1_counts'].get('SCIENCE_RESEARCH', 0)})",
+          'ECONOMY_FINANCE': "🏦 경제·금융 ({data['tier1_counts'].get('ECONOMY_FINANCE', 0)})",
+          'LAW_CRIME_JUSTICE': "⚖️ 사회·법률 ({data['tier1_counts'].get('LAW_CRIME_JUSTICE', 0)})",
+          'POLITICS_POLICY': "🏛️ 정치·정책 ({data['tier1_counts'].get('POLITICS_POLICY', 0)})",
+          'CULTURE_HUMANITIES': "🌿 문화·인문 ({data['tier1_counts'].get('CULTURE_HUMANITIES', 0)})"
+        }},
+        newsTier2FilterLabel: "↳ 💻 IT 세부 분야:",
+        newsT2: {{
+          'ALL': "전체 IT 분야",
+          'INFERENCE_OPT': "⚡ 추론·서빙 ({data['news_cat_counts'].get('INFERENCE_OPT', 0)})",
+          'AGENTS_DEVTOOLS': "🛠️ 에이전트·도구 ({data['news_cat_counts'].get('AGENTS_DEVTOOLS', 0)})",
+          'MULTIMODAL_AI': "🎨 멀티모달 ({data['news_cat_counts'].get('MULTIMODAL_AI', 0)})",
+          'FOUNDATION_MODELS': "🤖 파운데이션 ({data['news_cat_counts'].get('FOUNDATION_MODELS', 0)})",
+          'INFRA_RAG_SECURITY': "🛡️ 인프라·보안 ({data['news_cat_counts'].get('INFRA_RAG_SECURITY', 0)})",
+          'INDUSTRY_TRENDS': "🌐 일반 SW·웹 ({data['news_cat_counts'].get('INDUSTRY_TRENDS', 0)})"
+        }},
+        newsSourceLabel: "출처:",
+        newsSrcAll: "전체 출처",
+        newsSearchPlaceholder: "기술명, 키워드 검색...",
+        newsSortLabel: "정렬:",
+        newsSortOptions: [
+          {{ val: "date-audit-desc", text: "🔬 AI 분석일 최신순 (기본)" }},
+          {{ val: "date-audit-asc", text: "🔬 AI 분석일 오래된순" }},
+          {{ val: "date-source-desc", text: "📅 수집/발표 최신순" }},
+          {{ val: "date-source-asc", text: "📅 수집/발표 오래된순" }}
+        ],
+        modelsFamilyLabel: "🤖 모델 패밀리:",
+        modelFams: {{
+          'ALL': "전체 패밀리",
+          'Qwen': "Qwen ({data['model_fam_counts'].get('Qwen', 0)})",
+          'Wan': "Wan 비디오 ({data['model_fam_counts'].get('Wan', 0)})",
+          'MiniMax': "MiniMax ({data['model_fam_counts'].get('MiniMax', 0)})",
+          'FLUX': "FLUX 이미지 ({data['model_fam_counts'].get('FLUX', 0)})",
+          'GLM': "GLM ({data['model_fam_counts'].get('GLM', 0)})",
+          'DeepSeek': "DeepSeek ({data['model_fam_counts'].get('DeepSeek', 0)})",
+          'Hunyuan': "Hunyuan ({data['model_fam_counts'].get('Hunyuan', 0)})",
+          'Audio': "음성/TTS ({data['model_fam_counts'].get('Audio', 0)})",
+          'Standalone': "독립/신규 모델 ({data['model_fam_counts'].get('Standalone', 0)})"
+        }},
+        modelsArtifactLabel: "🧩 허브 유형:",
+        modelArts: {{
+          'ALL': "전체 ({data['models_total_count']})",
+          'WEIGHTS': "🤖 가중치·체크포인트 ({data['model_art_counts'].get('WEIGHTS', 0)})",
+          'WEB_SERVICE': "🌐 인터랙티브 데모·Spaces ({data['model_art_counts'].get('WEB_SERVICE', 0)})",
+          'FINETUNE': "🎯 특화 파인튜닝 ({data['model_art_counts'].get('FINETUNE', 0)})"
+        }},
+        modelsSearchPlaceholder: "모델명, 아키텍처, 포맷 검색...",
+        modelsSortLabel: "정렬:",
+        modelsSortOptions: [
+          {{ val: "date-source-desc", text: "📅 발행일 최신순 (기본)" }},
+          {{ val: "date-source-asc", text: "📅 발행일 오래된순" }},
+          {{ val: "date-audit-desc", text: "🔬 분석일 최신순" }},
+          {{ val: "title-asc", text: "🔤 모델명 가나다순" }}
+        ],
         graphHeaderBadge: "MULTI-ENTITY CITATION NETWORK",
         graphHeaderTitle: "인물과 논문 인용 계보를 통한 기술 탄생의 뿌리 지도",
         graphHeaderSub: "기술 • 연구자 • 연구소 • 1차 논문",
@@ -1948,8 +1967,8 @@ def generate_html(data):
         critHf: "Trending 점수 상위권 & ❤️ > 100 Likes 모델/데모",
         critArxiv: "MoE, Reasoning, VLM 등 혁신 아키텍처 1차 논문",
         inboxHeaderBadge: "AUTONOMOUS HARVEST INBOX",
-        inboxHeaderTitle: "24시간 자율 크론으로 수집된 오픈소스 및 모델 후보군",
-        inboxHeaderDesc: "원클릭으로 분석 큐에 등록하여 Neon DB와 실시간 동기화하고 심층 팩트체크를 진행할 수 있습니다.",
+        inboxHeaderTitle: "원천 데이터 아카이브 & 관리자 파이프라인",
+        inboxHeaderDesc: "크롤러가 24시간 실시간 수집한 원천 로우 데이터를 영구 보존하며, 관리자가 심층 팩트체크(공식 검증)로 승격할 후보를 검토하는 내부 저장소입니다.",
         inboxFamilyOn: "패밀리 묶음 (ON)",
         inboxFamilyOff: "패밀리 묶음 (OFF)",
         inboxSearchPlaceholder: "후보 기술 또는 모델명 검색...",
@@ -1979,15 +1998,26 @@ def generate_html(data):
         navNews: "科技与AI动态",
         navGraph: "引用系谱图",
         navInbox: "采集收件箱",
+        adminArchiveBtn: "归档 (Admin)",
+        statArchiveLabel: "原始归档 (Admin)",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
         heroMainTitle: "热门 AI 技术的工程真相与实体验证",
         heroMainDesc: "摒弃社交媒体营销炒作与幻觉，基于第一手官方源码审计以及基础标准 vs 第三方工具的实测基准，输出 100% 真实客观的工程报告。",
         heroUpdateLabel: "最新审计",
-        heroAuditCount: "已完成 18 项技术审计",
+        heroAuditCount: "已完成 {data['total_cases']} 项技术审计",
         promoBannerTitle: "技术审计档案库最新状态",
-        promoCountBadge: "18 项核验完毕",
-        promoBannerDesc: "已对突破热度阈值自动晋升的 18 项重点开源项目与前沿模型完成全流程深度实测基准与事实核查。",
+        promoCountBadge: "{data['total_cases']} 项核验完毕",
+        promoBannerDesc: "已对突破热度阈值自动晋升的 {data['total_cases']} 项重点开源项目与前沿模型完成全流程深度实测基准与事实核查。",
         promoBtnText: "查看采集收件箱候选",
+        timelineTitle: "当日 24 小时采集时间线",
+        timelineSub: "每日 4 次 (00, 06, 12, 18时 KST) 6小时周期定向采集 + 23:30 EOD 全量审计",
+        timelineBadge: "每日4次 6h脉冲",
+        timelineLegend: "各时段采集数",
+        timelineFooterPrefix: "⚡ 当日总采集量:",
+        trendRadarTitle: "每日 4 次 AI 趋势雷达",
+        trendRadarSub: "全球开源与 AI 前沿权重 6 小时周期自动感应",
+        homeTopPicksTitle: "最新深度技术核查精选",
+        homeTopPicksViewAll: "查看全部 {data['total_cases']} 份核查档案",
         btnAll: "全部审计",
         btnUser: "人工精选",
         btnAuto: "自动趋势",
@@ -2017,6 +2047,64 @@ def generate_html(data):
         newsHeaderTitle: "源自社区、HackerNews 与专栏的全球科技与 AI 讨论",
         newsHeaderDesc: "不仅追踪开源代码与模型，还精选深科技、航空航天、宏观经济与基础设施安全动态。",
         newsOriginalLink: "阅读原文",
+        newsCatFilterLabel: "🏷️ 技术与全球领域:",
+        newsCats: {{
+          'ALL': "全部 ({data['news_total_count']})",
+          'TECH_COMPUTING': "💻 IT与计算 ({data['tier1_counts'].get('TECH_COMPUTING', 0)})",
+          'SCIENCE_RESEARCH': "🚀 科学与航天 ({data['tier1_counts'].get('SCIENCE_RESEARCH', 0)})",
+          'ECONOMY_FINANCE': "🏦 经济与金融 ({data['tier1_counts'].get('ECONOMY_FINANCE', 0)})",
+          'LAW_CRIME_JUSTICE': "⚖️ 社会与法治 ({data['tier1_counts'].get('LAW_CRIME_JUSTICE', 0)})",
+          'POLITICS_POLICY': "🏛️ 政治与政策 ({data['tier1_counts'].get('POLITICS_POLICY', 0)})",
+          'CULTURE_HUMANITIES': "🌿 文化与人文 ({data['tier1_counts'].get('CULTURE_HUMANITIES', 0)})"
+        }},
+        newsTier2FilterLabel: "↳ 💻 IT 细分领域:",
+        newsT2: {{
+          'ALL': "全部 IT 领域",
+          'INFERENCE_OPT': "⚡ 推理与部署 ({data['news_cat_counts'].get('INFERENCE_OPT', 0)})",
+          'AGENTS_DEVTOOLS': "🛠️ Agent与工具 ({data['news_cat_counts'].get('AGENTS_DEVTOOLS', 0)})",
+          'MULTIMODAL_AI': "🎨 多模态 ({data['news_cat_counts'].get('MULTIMODAL_AI', 0)})",
+          'FOUNDATION_MODELS': "🤖 基座模型 ({data['news_cat_counts'].get('FOUNDATION_MODELS', 0)})",
+          'INFRA_RAG_SECURITY': "🛡️ 架构与安全 ({data['news_cat_counts'].get('INFRA_RAG_SECURITY', 0)})",
+          'INDUSTRY_TRENDS': "🌐 行业软件与Web ({data['news_cat_counts'].get('INDUSTRY_TRENDS', 0)})"
+        }},
+        newsSourceLabel: "来源:",
+        newsSrcAll: "全部来源",
+        newsSearchPlaceholder: "搜索技术名、关键词...",
+        newsSortLabel: "排序:",
+        newsSortOptions: [
+          {{ val: "date-audit-desc", text: "🔬 AI 审核时间最新 (默认)" }},
+          {{ val: "date-audit-asc", text: "🔬 AI 审核时间最早" }},
+          {{ val: "date-source-desc", text: "📅 采集发布时间最新" }},
+          {{ val: "date-source-asc", text: "📅 采集发布时间最早" }}
+        ],
+        modelsFamilyLabel: "🤖 模型系列:",
+        modelFams: {{
+          'ALL': "全部系列",
+          'Qwen': "Qwen ({data['model_fam_counts'].get('Qwen', 0)})",
+          'Wan': "Wan 视频 ({data['model_fam_counts'].get('Wan', 0)})",
+          'MiniMax': "MiniMax ({data['model_fam_counts'].get('MiniMax', 0)})",
+          'FLUX': "FLUX 图像 ({data['model_fam_counts'].get('FLUX', 0)})",
+          'GLM': "GLM ({data['model_fam_counts'].get('GLM', 0)})",
+          'DeepSeek': "DeepSeek ({data['model_fam_counts'].get('DeepSeek', 0)})",
+          'Hunyuan': "Hunyuan ({data['model_fam_counts'].get('Hunyuan', 0)})",
+          'Audio': "语音/TTS ({data['model_fam_counts'].get('Audio', 0)})",
+          'Standalone': "独立/新模型 ({data['model_fam_counts'].get('Standalone', 0)})"
+        }},
+        modelsArtifactLabel: "🧩 资源类型:",
+        modelArts: {{
+          'ALL': "全部 ({data['models_total_count']})",
+          'WEIGHTS': "🤖 模型权重·检查点 ({data['model_art_counts'].get('WEIGHTS', 0)})",
+          'WEB_SERVICE': "🌐 在线演示·Spaces ({data['model_art_counts'].get('WEB_SERVICE', 0)})",
+          'FINETUNE': "🎯 定制微调 ({data['model_art_counts'].get('FINETUNE', 0)})"
+        }},
+        modelsSearchPlaceholder: "搜索模型名、架构、格式...",
+        modelsSortLabel: "排序:",
+        modelsSortOptions: [
+          {{ val: "date-source-desc", text: "📅 发布时间最新 (默认)" }},
+          {{ val: "date-source-asc", text: "📅 发布时间最早" }},
+          {{ val: "date-audit-desc", text: "🔬 AI 审核最新" }},
+          {{ val: "title-asc", text: "🔤 模型名 A-Z" }}
+        ],
         graphHeaderBadge: "MULTI-ENTITY CITATION NETWORK",
         graphHeaderTitle: "人物与论文引用系谱技术溯源全景图",
         graphHeaderSub: "技术 • 研究员 • 实验室 • 一手论文",
@@ -2033,8 +2121,8 @@ def generate_html(data):
         critHf: "Trending 趋势榜前列且 ❤️ > 100 Likes 模型/Demo",
         critArxiv: "涵盖 MoE、推理强化、VLM 的第一手经典架构论文",
         inboxHeaderBadge: "AUTONOMOUS HARVEST INBOX",
-        inboxHeaderTitle: "24 小时全自动巡检采集的开源仓库与模型候选",
-        inboxHeaderDesc: "一键加入审计队列，与 Neon Postgres 数据库实时同步并触发深度事实核查。",
+        inboxHeaderTitle: "原始数据归档与管理员流水线",
+        inboxHeaderDesc: "全天候实时采集的原始数据永久存储库，供管理员审查并晋升至深度事实核查（官方审计）候选。",
         inboxFamilyOn: "系列聚合 (开)",
         inboxFamilyOff: "系列聚合 (关)",
         inboxSearchPlaceholder: "搜索候选技术或模型名称...",
@@ -2064,15 +2152,26 @@ def generate_html(data):
         navNews: "Tech & AI Trends",
         navGraph: "Citation Graph",
         navInbox: "Harvest Inbox",
+        adminArchiveBtn: "Archive (Admin)",
+        statArchiveLabel: "Raw Archive (Admin)",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
         heroMainTitle: "Empirical Analysis of Viral AI Technologies",
         heroMainDesc: "A zero-hallucination dossier derived from Tier-1 official source audits and empirical benchmarks comparing base standards with third-party tools.",
         heroUpdateLabel: "LAST AUDITED",
-        heroAuditCount: "18 Audits Completed",
+        heroAuditCount: "{data['total_cases']} Audits Completed",
         promoBannerTitle: "Dossier Status Update",
-        promoCountBadge: "18 Completed",
-        promoBannerDesc: "All 18 high-velocity repositories and models that crossed the viral threshold have been rigorously benchmarked and fact-checked.",
+        promoCountBadge: "{data['total_cases']} Completed",
+        promoBannerDesc: "All {data['total_cases']} high-velocity repositories and models that crossed the viral threshold have been rigorously benchmarked and fact-checked.",
         promoBtnText: "Explore Harvest Inbox",
+        timelineTitle: "Today 24-Hour Collection Timeline",
+        timelineSub: "4x daily (00, 06, 12, 18 KST) 6h strategic collection + 23:30 EOD audit",
+        timelineBadge: "4x Daily 6h Pulse",
+        timelineLegend: "Items per Session",
+        timelineFooterPrefix: "⚡ Today Total Collected:",
+        trendRadarTitle: "4x Daily AI Trend Radar",
+        trendRadarSub: "Autonomous 6-hour radar for trending open weights & code",
+        homeTopPicksTitle: "Latest Deep Technical Verification Highlights",
+        homeTopPicksViewAll: "View All {data['total_cases']} Empirical Dossiers",
         btnAll: "All Dossiers",
         btnUser: "User Curated",
         btnAuto: "Auto Trends",
@@ -2102,6 +2201,64 @@ def generate_html(data):
         newsHeaderTitle: "AI Trends & Engineering Discourse from HackerNews & Communities",
         newsHeaderDesc: "Curated engineering analyses, security vulnerabilities, and architectural tutorials.",
         newsOriginalLink: "Read Source",
+        newsCatFilterLabel: "🏷️ Global Domain:",
+        newsCats: {{
+          'ALL': "All ({data['news_total_count']})",
+          'TECH_COMPUTING': "💻 IT & Computing ({data['tier1_counts'].get('TECH_COMPUTING', 0)})",
+          'SCIENCE_RESEARCH': "🚀 Science & Space ({data['tier1_counts'].get('SCIENCE_RESEARCH', 0)})",
+          'ECONOMY_FINANCE': "🏦 Economy & Finance ({data['tier1_counts'].get('ECONOMY_FINANCE', 0)})",
+          'LAW_CRIME_JUSTICE': "⚖️ Society & Law ({data['tier1_counts'].get('LAW_CRIME_JUSTICE', 0)})",
+          'POLITICS_POLICY': "🏛️ Policy & Politics ({data['tier1_counts'].get('POLITICS_POLICY', 0)})",
+          'CULTURE_HUMANITIES': "🌿 Culture & Arts ({data['tier1_counts'].get('CULTURE_HUMANITIES', 0)})"
+        }},
+        newsTier2FilterLabel: "↳ 💻 IT Sub-tracks:",
+        newsT2: {{
+          'ALL': "All IT Tracks",
+          'INFERENCE_OPT': "⚡ Inference & Serving ({data['news_cat_counts'].get('INFERENCE_OPT', 0)})",
+          'AGENTS_DEVTOOLS': "🛠️ Agents & DevTools ({data['news_cat_counts'].get('AGENTS_DEVTOOLS', 0)})",
+          'MULTIMODAL_AI': "🎨 Multimodal AI ({data['news_cat_counts'].get('MULTIMODAL_AI', 0)})",
+          'FOUNDATION_MODELS': "🤖 Foundation Models ({data['news_cat_counts'].get('FOUNDATION_MODELS', 0)})",
+          'INFRA_RAG_SECURITY': "🛡️ Infra & Security ({data['news_cat_counts'].get('INFRA_RAG_SECURITY', 0)})",
+          'INDUSTRY_TRENDS': "🌐 General SW & Web ({data['news_cat_counts'].get('INDUSTRY_TRENDS', 0)})"
+        }},
+        newsSourceLabel: "Source:",
+        newsSrcAll: "All Sources",
+        newsSearchPlaceholder: "Search tech, keywords...",
+        newsSortLabel: "Sort:",
+        newsSortOptions: [
+          {{ val: "date-audit-desc", text: "🔬 AI Audit Date (Newest first)" }},
+          {{ val: "date-audit-asc", text: "🔬 AI Audit Date (Oldest first)" }},
+          {{ val: "date-source-desc", text: "📅 Source Published (Newest first)" }},
+          {{ val: "date-source-asc", text: "📅 Source Published (Oldest first)" }}
+        ],
+        modelsFamilyLabel: "🤖 Model Family:",
+        modelFams: {{
+          'ALL': "All Families",
+          'Qwen': "Qwen ({data['model_fam_counts'].get('Qwen', 0)})",
+          'Wan': "Wan Video ({data['model_fam_counts'].get('Wan', 0)})",
+          'MiniMax': "MiniMax ({data['model_fam_counts'].get('MiniMax', 0)})",
+          'FLUX': "FLUX Image ({data['model_fam_counts'].get('FLUX', 0)})",
+          'GLM': "GLM ({data['model_fam_counts'].get('GLM', 0)})",
+          'DeepSeek': "DeepSeek ({data['model_fam_counts'].get('DeepSeek', 0)})",
+          'Hunyuan': "Hunyuan ({data['model_fam_counts'].get('Hunyuan', 0)})",
+          'Audio': "Audio/TTS ({data['model_fam_counts'].get('Audio', 0)})",
+          'Standalone': "Standalone Models ({data['model_fam_counts'].get('Standalone', 0)})"
+        }},
+        modelsArtifactLabel: "🧩 Hub Resource:",
+        modelArts: {{
+          'ALL': "All ({data['models_total_count']})",
+          'WEIGHTS': "🤖 Weights & Checkpoints ({data['model_art_counts'].get('WEIGHTS', 0)})",
+          'WEB_SERVICE': "🌐 Interactive Demos / Spaces ({data['model_art_counts'].get('WEB_SERVICE', 0)})",
+          'FINETUNE': "🎯 Specialized Finetunes ({data['model_art_counts'].get('FINETUNE', 0)})"
+        }},
+        modelsSearchPlaceholder: "Search model name, architecture, format...",
+        modelsSortLabel: "Sort:",
+        modelsSortOptions: [
+          {{ val: "date-source-desc", text: "📅 Source Published (Newest first)" }},
+          {{ val: "date-source-asc", text: "📅 Source Published (Oldest first)" }},
+          {{ val: "date-audit-desc", text: "🔬 Audit Date (Newest first)" }},
+          {{ val: "title-asc", text: "🔤 Model Name (A-Z)" }}
+        ],
         graphHeaderBadge: "MULTI-ENTITY CITATION NETWORK",
         graphHeaderTitle: "Genealogy Map of AI Innovations via Citations",
         graphHeaderSub: "Tech • Researchers • Labs • Primary Papers",
@@ -2118,26 +2275,26 @@ def generate_html(data):
         critHf: "Top Trending with ❤️ > 100 Likes",
         critArxiv: "Foundational papers on MoE, Reasoning, VLM",
         inboxHeaderBadge: "AUTONOMOUS HARVEST INBOX",
-        inboxHeaderTitle: "Open-Source Repositories & Model Candidates Harvested 24/7",
-        inboxHeaderDesc: "One-click queuing to sync with Neon Postgres DB and trigger automated verification.",
-        inboxFamilyOn: "Family Grouping (ON)",
-        inboxFamilyOff: "Family Grouping (OFF)",
-        inboxSearchPlaceholder: "Search candidates or model names...",
+        inboxHeaderTitle: "Raw Data Archive & Admin Pipeline",
+        inboxHeaderDesc: "Permanent raw ingestion repository collected 24/7, enabling administrators to review and promote candidates into deep fact-checks.",
+        inboxFamilyOn: "Family Group (ON)",
+        inboxFamilyOff: "Family Group (OFF)",
+        inboxSearchPlaceholder: "Search candidate tech or model...",
         inboxQueueBtn: "Queue for Audit",
-        inboxQueuedBtn: "Queued",
+        inboxQueuedBtn: "In Queue",
         modalSecCurationTitle: "Discovery Motivation & Target Workflow",
-        modalSecViralPostTitle: "Raw Marketing Post & Claim Dossier",
+        modalSecViralPostTitle: "Raw Viral Claim Excerpt & Evidence",
         modalSecClaimsTitle: "Marketing Claims vs Empirical Reality",
         modalSecHookTitle: "The Hook & Marketing Hype",
         modalSecHandsOnTitle: "Hands-on Measured Results",
         modalSecAltsTitle: "Comparative Alternatives Matrix",
         modalSecSourcesTitle: "Audited Primary Sources",
         modalWorkflowLabel: "🎯 Target Workflow:",
-        modalViralLinkText: "Open Original Post",
-        thTool: "Tool / Tech",
+        modalViralLinkText: "Go to Viral Post",
+        thTool: "Tool / Repository",
         thStack: "Tech Stack",
-        thPros: "Pros",
-        thCons: "Cons",
+        thPros: "Empirical Strengths",
+        thCons: "Weaknesses & Bottlenecks",
         thBestFor: "Best For"
       }}
     }};
@@ -2187,25 +2344,25 @@ def generate_html(data):
       if (nSort) nSort.value = 'date-audit-desc';
       document.querySelectorAll('.news-cat-pill').forEach(btn => {{
         if (btn.getAttribute('data-cat') === 'ALL') {{
-          btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+          btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       document.querySelectorAll('.news-t2-pill').forEach(btn => {{
         if (btn.getAttribute('data-t2') === 'ALL') {{
-          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       const t2Container = document.getElementById('newsTier2Container');
       if (t2Container) t2Container.classList.remove('opacity-40', 'pointer-events-none');
       document.querySelectorAll('.news-src-btn').forEach(btn => {{
         if (btn.getAttribute('data-src') === 'ALL') {{
-          btn.className = 'news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition';
+          btn.className = 'news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border';
+          btn.className = 'news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap';
         }}
       }});
 
@@ -2222,23 +2379,23 @@ def generate_html(data):
       if (mSort) mSort.value = 'date-audit-desc';
       document.querySelectorAll('.model-fam-pill').forEach(btn => {{
         if (btn.getAttribute('data-fam') === 'ALL') {{
-          btn.className = 'model-fam-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+          btn.className = 'model-fam-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       document.querySelectorAll('.model-mod-pill').forEach(btn => {{
         if (btn.dataset.mod === 'ALL') {{
-          btn.className = 'model-mod-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+          btn.className = 'model-mod-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'model-mod-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'model-mod-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       document.querySelectorAll('.model-art-pill').forEach(btn => {{
         if (btn.getAttribute('data-art') === 'ALL') {{
-          btn.className = 'model-art-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+          btn.className = 'model-art-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
 
@@ -2256,16 +2413,16 @@ def generate_html(data):
       if (iSort) iSort.value = 'date-audit-desc';
       document.querySelectorAll('.inbox-src-pill').forEach(btn => {{
         if (btn.getAttribute('data-src-val') === 'ALL') {{
-          btn.className = 'inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+          btn.className = 'inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       document.querySelectorAll('.inbox-filter-pill').forEach(btn => {{
         if (btn.dataset.langVal === 'ALL') {{
-          btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+          btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
     }}
@@ -2373,7 +2530,15 @@ def generate_html(data):
         const badgeLabel = isVerifiedTrue ? (currentLang === 'KO' ? '사실 검증됨' : (currentLang === 'ZH' ? '事实已核验' : 'Verified True')) : (isHalfTrue ? (currentLang === 'KO' ? '절반의 사실' : (currentLang === 'ZH' ? '部分属实' : 'Half True')) : (currentLang === 'KO' ? '과장/왜곡' : (currentLang === 'ZH' ? '夸大/失实' : 'Gamed/Hype')));
 
         const story = c.portfolio_story || {{}};
-        const hook = story.the_hook || c.curation?.personal_motivation || '';
+        let displayTitle = c.title;
+        let hook = story.the_hook || c.curation?.personal_motivation || '';
+        if (currentLang === 'ZH') {{
+          displayTitle = c.title_zh || c.title;
+          hook = story.the_hook_zh || hook;
+        }} else if (currentLang === 'EN') {{
+          displayTitle = c.title_en || c.title;
+          hook = story.the_hook_en || hook;
+        }}
         const displayDate = c.investigation_date || (c.source_published_date ? c.source_published_date.slice(0, 10) : '2026-09-04');
 
         card.innerHTML = `
@@ -2382,17 +2547,17 @@ def generate_html(data):
               <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{badgeColor}}">${{badgeLabel}}</span>
               <span class="text-ink-muted text-[11px] font-semibold">${{c.confidence_score || 95}}%</span>
             </div>
-            <h4 class="text-xs sm:text-sm font-bold text-ink-primary line-clamp-2 leading-snug hover:text-indigo-600 transition">${{c.title}}</h4>
+            <h4 class="text-xs sm:text-sm font-bold text-ink-primary line-clamp-2 leading-snug hover:text-indigo-600 transition">${{displayTitle}}</h4>
             <p class="text-[11px] text-ink-secondary line-clamp-2 leading-relaxed">${{hook}}</p>
           </div>
           <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[10px] font-mono text-ink-muted">
-            <span>🔬 분석일: ${{displayDate}}</span>
+            <span>🔬 ${{currentLang === 'KO' ? '분석일: ' : (currentLang === 'ZH' ? '分析日: ' : 'Audited: ')}}${{displayDate}}</span>
             <span class="font-bold text-indigo-700 flex items-center gap-0.5">${{currentLang === 'KO' ? '상세 보고서' : (currentLang === 'ZH' ? '查看报告' : 'View Dossier')}} <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
           </div>
         `;
         container.appendChild(card);
       }});
-      lucide.createIcons();
+      if (window.lucide) window.lucide.createIcons({{ root: container }});
     }}
 
     // ================= LANGUAGE TOGGLE & HIGH-FIDELITY CJK FONT SWITCHING =================
@@ -2424,15 +2589,15 @@ def generate_html(data):
       const t = i18n[lang];
       const safeSetText = (id, txt) => {{
         const el = document.getElementById(id);
-        if (el) el.innerText = txt;
+        if (el && txt !== undefined) el.innerText = txt;
       }};
       const safeSetHtml = (id, html) => {{
         const el = document.getElementById(id);
-        if (el) el.innerHTML = html;
+        if (el && html !== undefined) el.innerHTML = html;
       }};
       const safeSetAttr = (id, attr, val) => {{
         const el = document.getElementById(id);
-        if (el) el.setAttribute(attr, val);
+        if (el && val !== undefined) el.setAttribute(attr, val);
       }};
 
       // Brand & Navigation
@@ -2448,8 +2613,8 @@ def generate_html(data):
       safeSetText('mNavTabNews', t.navNews + ' (' + (typeof liveNewsData !== 'undefined' ? liveNewsData.length : {data['news_total_count']}) + ')');
       safeSetText('navTabGraph', t.navGraph);
       safeSetText('mNavTabGraph', t.navGraph);
-      safeSetText('navTabInbox', t.navInbox);
-      safeSetText('mNavTabInbox', t.navInbox + ' (' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : {data['inbox_total_count']}) + ')');
+      safeSetText('adminArchiveLabel', t.adminArchiveBtn);
+      safeSetText('mNavTabInbox', (t.adminArchiveBtn || '아카이브') + ' (' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : {data['inbox_total_count']}) + ')');
 
       // Hero Elements
       safeSetText('heroBadge', t.heroBadge);
@@ -2462,27 +2627,102 @@ def generate_html(data):
       safeSetText('statLabelInbox', lang === 'KO' ? '수집 인박스' : (lang === 'ZH' ? '采集收件箱' : 'Harvested Inbox'));
       safeSetText('statLabelModels', lang === 'KO' ? 'AI 모델 트렌드' : (lang === 'ZH' ? 'AI 模型趋势' : 'AI Model Trends'));
       safeSetText('statLabelNews', lang === 'KO' ? 'AI 테크 동향' : (lang === 'ZH' ? 'AI 科技动态' : 'Tech Intelligence'));
+      safeSetText('statLabelArchive', t.statArchiveLabel);
       safeSetText('statDescInbox', lang === 'KO' ? 'HN · GeekNews · GitHub · HF 24/7 수집' : (lang === 'ZH' ? 'HN · GeekNews · GitHub · HF 全天候采集' : 'HN · GeekNews · GitHub · HF 24/7 Ingestion'));
-      safeSetText('statDescModels', lang === 'KO' ? 'MoE, VLM, 추론 특화 오픈 가중치' : (lang === 'ZH' ? 'MoE、VLM与推理优化开源权重' : 'MoE, VLM & Reasoning Open Weights'));
-      safeSetText('statDescNews', lang === 'KO' ? 'CVE 취약점, 인프라 장애, 아키텍처 토론' : (lang === 'ZH' ? 'CVE 漏洞、基础设施故障与架构实践' : 'CVEs, Infra Outages & Architecture Posts'));
+      safeSetDescModels = lang === 'KO' ? 'MoE, VLM, 추론 특화 오픈 가중치' : (lang === 'ZH' ? 'MoE、VLM与推理优化开源权重' : 'MoE, VLM & Reasoning Open Weights');
+      safeSetText('statDescModels', safeSetDescModels);
+      safeSetDescNews = lang === 'KO' ? 'CVE 취약점, 인프라 장애, 아키텍처 토론' : (lang === 'ZH' ? 'CVE 漏洞、基础设施故障与架构实践' : 'CVEs, Infra Outages & Architecture Posts');
+      safeSetText('statDescNews', safeSetDescNews);
 
+      // Dashboard 24h Timeline & Radar & Top Picks
+      safeSetText('timelineTitleText', t.timelineTitle + ' ({today_kst})');
+      safeSetText('timelineSub', t.timelineSub);
+      safeSetText('timelineBadgeText', t.timelineBadge);
+      safeSetText('timelineLegendText', t.timelineLegend);
+      safeSetHtml('timelineFooterText', t.timelineFooterPrefix + ' <b class="text-indigo-700">{today_total_inbox}' + (lang === 'KO' ? '건' : (lang === 'ZH' ? '条' : ' items')) + '</b>');
+      safeSetText('trendRadarTitleText', t.trendRadarTitle);
+      safeSetText('trendRadarSub', t.trendRadarSub);
+      safeSetText('homeTopPicksTitle', t.homeTopPicksTitle);
+      safeSetText('homeTopPicksViewAll', t.homeTopPicksViewAll);
 
+      // News View Labels & Pills
+      safeSetText('newsHeaderBadge', t.newsHeaderBadge);
+      safeSetText('newsHeaderTitle', t.newsHeaderTitle);
+      safeSetText('newsHeaderDesc', t.newsHeaderDesc);
+      safeSetText('newsCatFilterLabel', t.newsCatFilterLabel);
+      safeSetText('newsTier2FilterLabel', t.newsTier2FilterLabel);
+      safeSetText('newsSourceLabel', t.newsSourceLabel);
+      safeSetText('newsSrcBtnAll', t.newsSrcAll);
+      safeSetAttr('newsSearchInput', 'placeholder', t.newsSearchPlaceholder);
+      safeSetText('newsSortLabel', t.newsSortLabel);
 
-      // Audit Criteria & Labels
+      document.querySelectorAll('.news-cat-pill').forEach(pill => {{
+        const cat = pill.dataset.cat;
+        if (t.newsCats && t.newsCats[cat]) pill.innerText = t.newsCats[cat];
+      }});
+      document.querySelectorAll('.news-t2-pill').forEach(pill => {{
+        const t2 = pill.dataset.t2;
+        if (t.newsT2 && t.newsT2[t2]) pill.innerText = t.newsT2[t2];
+      }});
+
+      const newsSortSel = document.getElementById('newsSortSelect');
+      if (newsSortSel && t.newsSortOptions) {{
+        const cur = newsSortSel.value;
+        newsSortSel.innerHTML = t.newsSortOptions.map(opt => `<option value="${{opt.val}}" ${{opt.val === cur ? 'selected' : ''}}>${{opt.text}}</option>`).join('');
+      }}
+
+      // Models View Labels & Pills
+      safeSetText('modelsFamilyLabel', t.modelsFamilyLabel);
+      safeSetText('modelsArtifactLabel', t.modelsArtifactLabel);
+      safeSetAttr('modelsSearchInput', 'placeholder', t.modelsSearchPlaceholder);
+      safeSetText('modelsSortLabel', t.modelsSortLabel);
+
+      document.querySelectorAll('.model-fam-pill').forEach(pill => {{
+        const fam = pill.dataset.fam;
+        if (t.modelFams && t.modelFams[fam]) pill.innerText = t.modelFams[fam];
+      }});
+      document.querySelectorAll('.model-art-pill').forEach(pill => {{
+        const art = pill.dataset.art;
+        if (t.modelArts && t.modelArts[art]) pill.innerText = t.modelArts[art];
+      }});
+
+      const modelsSortSel = document.getElementById('modelsSortSelect');
+      if (modelsSortSel && t.modelsSortOptions) {{
+        const cur = modelsSortSel.value;
+        modelsSortSel.innerHTML = t.modelsSortOptions.map(opt => `<option value="${{opt.val}}" ${{opt.val === cur ? 'selected' : ''}}>${{opt.text}}</option>`).join('');
+      }}
+
+      // Graph View
+      safeSetText('graphHeaderBadge', t.graphHeaderBadge);
+      safeSetText('graphHeaderTitle', t.graphHeaderTitle);
+      safeSetText('graphHeaderSub', t.graphHeaderSub);
+      safeSetText('graphBtnAll', t.graphBtnAll);
+      safeSetText('graphBtnLang', t.graphBtnLang);
+      safeSetText('graphBtnTech', t.graphBtnTech);
+      safeSetText('graphBtnOrg', t.graphBtnOrg);
+      safeSetText('graphBtnPerson', t.graphBtnPerson);
+      safeSetText('graphBtnPaper', t.graphBtnPaper);
+
+      // Archive & Inbox View
+      safeSetText('inboxHeaderBadge', t.inboxHeaderBadge);
+      safeSetText('inboxHeaderTitle', t.inboxHeaderTitle);
+      safeSetText('inboxHeaderDesc', t.inboxHeaderDesc);
+      safeSetText('inboxHeaderCount', lang === 'KO' ? '총 {data['inbox_total_count']}건' : (lang === 'ZH' ? '共 {data['inbox_total_count']} 项' : 'Total: {data['inbox_total_count']} items'));
       safeSetText('criteriaTitle', t.criteriaTitle);
       safeSetText('criteriaDesc', t.criteriaDesc);
       safeSetText('critGithub', t.critGithub);
       safeSetText('critHn', t.critHn);
       safeSetText('critHf', t.critHf);
       safeSetText('critArxiv', t.critArxiv);
+      safeSetAttr('inboxSearchInput', 'placeholder', t.inboxSearchPlaceholder);
 
+      // Portfolio Controls
       safeSetText('btnLabelAll', t.btnAll);
       safeSetText('btnLabelUser', t.btnUser);
       safeSetText('btnLabelAuto', t.btnAuto);
       safeSetText('sortLabel', t.sortLabel);
       safeSetAttr('searchInput', 'placeholder', t.searchPlaceholder);
       safeSetText('domainFilterLabel', t.domainLabel);
-
       safeSetText('tagAll', t.tagAll);
       safeSetText('tagFrontend', t.tagFrontend);
       safeSetText('tagAgent', t.tagAgent);
@@ -2492,15 +2732,15 @@ def generate_html(data):
       safeSetText('tagRust', t.tagRust);
       safeSetText('tagOther', t.tagOther);
 
-      // Update Sort Select Options
       const sortSel = document.getElementById('sortSelect');
-      if (sortSel) {{
+      if (sortSel && t.sortOptions) {{
         const curVal = sortSel.value;
         sortSel.innerHTML = t.sortOptions.map(opt => `<option value="${{opt.val}}" ${{opt.val === curVal ? 'selected' : ''}}>${{opt.text}}</option>`).join('');
       }}
 
       // 🌟 Instant Full Re-render on Active Views
       renderCards();
+      renderHomeTopPicks();
       renderTelemetryCharts();
       renderModels();
       renderNews();
@@ -2619,8 +2859,6 @@ def generate_html(data):
       if (!modelStr) return 'AI 검증';
       let s = String(modelStr).replace(/^models\\//, '').replace(/:free$/, '');
       if (s.includes('/')) s = s.split('/').pop();
-      s = s.replace(/^gemini-/, '').replace(/^gpt-/, 'gpt-');
-      if (s.length > 15) s = s.substring(0, 14) + '…';
       return '🤖 ' + s;
     }}
 
@@ -2964,7 +3202,7 @@ def generate_html(data):
         }}
 
         const card = document.createElement('div');
-        card.className = 'executive-card p-6 flex flex-col justify-between cursor-pointer space-y-4 group';
+        card.className = 'executive-card p-4 sm:p-6 flex flex-col justify-between cursor-pointer space-y-4 group';
         card.onclick = () => openModal(c);
 
         card.innerHTML = `
@@ -2972,7 +3210,7 @@ def generate_html(data):
             
             <!-- Tier 1: Header Meta (ID + Mode Badge + Dual Dates + Verdict) -->
             <div class="flex items-center justify-between text-xs gap-2 flex-wrap">
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap">
                 <span class="text-xs font-mono font-bold text-ink-muted">#${{String(idx + 1).padStart(2, '0')}}</span>
                 <span class="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono ${{isUserMode ? 'bg-indigo-50 text-indigo-700 border border-indigo-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}}">
                   ${{isUserMode ? (currentLang === 'KO' ? '직접 큐레이션' : (currentLang === 'ZH' ? '手动精选' : 'USER CURATED')) : (currentLang === 'KO' ? '자동 트렌드' : (currentLang === 'ZH' ? '自动趋势' : 'AUTO HARVEST'))}}
@@ -3020,25 +3258,40 @@ def generate_html(data):
 
           </div>
 
-          <!-- Tier 4: Footer Metrics & Action -->
-          <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
-            <div class="flex items-center gap-3">
-              <span class="text-emerald-700 font-mono font-bold text-xs flex items-center gap-1">
+          <!-- Tier 4: Standardized 3-Line Footer -->
+          <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
+            <!-- Line 1: 수집날짜&시간 -->
+            <div class="flex items-center justify-between text-ink-muted text-[11px]">
+              <span title="${{currentLang === 'KO' ? '수집/원출처 발행일' : (currentLang === 'ZH' ? '采集/发布日' : 'Source Date')}}">📅 ${{srcDate}}</span>
+              <span class="text-emerald-700 font-bold flex items-center gap-1 font-sans">
                 <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> ${{t.cardConfidenceLabel}} ${{confScore.toFixed(1)}}%
               </span>
-              <span class="text-surface-border">•</span>
-              <span class="text-ink-muted text-[11px] font-mono">${{(c.sources || []).length}}${{t.cardSourcesLabel}}</span>
             </div>
 
-            <button class="text-ink-primary font-bold text-xs group-hover:translate-x-0.5 transition flex items-center gap-1">
-              ${{t.cardViewBtn}} <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-ink-primary"></i>
-            </button>
+            <!-- Line 2: 분석날짜&시간 (분석모델) -->
+            <div class="flex items-center justify-between text-indigo-700 text-[11px] font-semibold gap-2">
+              <span title="${{currentLang === 'KO' ? '심층 기술 분석일' : (currentLang === 'ZH' ? '深度分析日' : 'Audit Date')}}" class="flex items-center gap-1.5 min-w-0 overflow-hidden">
+                <span class="shrink-0">🔬 ${{invDate}}</span>
+                <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${{c.curation?.audited_by_model || c.audited_by_model || 'gemini-3.8-flash-medium'}}">(${{formatModelAttribution(c.curation?.audited_by_model || c.audited_by_model || 'gemini-3.8-flash-medium')}})</span>
+              </span>
+              <span class="text-ink-muted font-normal shrink-0">${{(c.sources || []).length}}${{t.cardSourcesLabel}}</span>
+            </div>
+
+            <!-- Line 3: 원문 및 상세 보기 액션 -->
+            <div class="flex items-center justify-between pt-0.5 font-sans">
+              <span class="text-[11px] text-ink-muted font-mono flex items-center gap-1">
+                ${{c.sources && c.sources.length > 0 ? `<a href="${{c.sources[0].url}}" target="_blank" onclick="event.stopPropagation();" class="text-indigo-600 hover:underline flex items-center gap-0.5 font-semibold">📄 ${{currentLang === 'KO' ? '원문' : (currentLang === 'ZH' ? '原文' : 'Source')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>` : ''}}
+              </span>
+              <button class="text-ink-primary font-bold text-xs group-hover:translate-x-0.5 transition flex items-center gap-1">
+                ${{t.cardViewBtn}} <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-ink-primary"></i>
+              </button>
+            </div>
           </div>
         `;
         grid.appendChild(card);
       }});
 
-      lucide.createIcons();
+      if (window.lucide) window.lucide.createIcons({{ root: grid }});
     }}
 
     // ================= MODAL HANDLER & DEEP LINKING ROUTER =================
@@ -3128,15 +3381,24 @@ def generate_html(data):
       const claims = (c.claims_assessment && c.claims_assessment.length > 0) ? c.claims_assessment : (c.marketing_claims || []);
       if (claims && claims.length > 0) {{
         claimsBox.classList.remove('hidden');
-        claimsList.innerHTML = claims.map(cl => `
-          <div class="p-3 rounded-lg bg-white border border-amber-200 text-xs space-y-1">
-            <div class="flex items-center justify-between font-mono text-[11px]">
-              <span class="text-ink-primary font-bold">Claim: "${{cl.statement || cl.claim_title || cl.marketing_hook || cl.claim_text || ''}}"</span>
-              <span class="px-2 py-0.2 rounded font-bold ${{cl.status === 'VERIFIED_TRUE' ? 'text-emerald-700' : 'text-amber-800'}}">${{cl.status || cl.claim_verdict || 'VERIFIED'}}</span>
+        document.getElementById('modalSecClaimsTitle').innerText = t.modalSecClaimsTitle || 'Marketing Claims vs Empirical Reality';
+        claimsList.innerHTML = claims.map(cl => {{
+          const claimTitle = cl.claim || cl.statement || cl.claim_title || cl.claim_text || cl.marketing_hook || '';
+          const claimTruth = cl.reality || cl.fact_checked_truth || cl.verification_evidence || cl.empirical_reality || cl.reality_check || '';
+          const claimStatus = cl.status || cl.verdict || cl.claim_verdict || 'VERIFIED';
+          const isTrue = (claimStatus === 'VERIFIED_TRUE' || claimStatus === 'TRUE');
+          const isFalse = (claimStatus === 'FALSE' || claimStatus === 'FALSE_CLAIM' || claimStatus === 'GAMED_CLAIM' || claimStatus === 'MARKETING_HYPE');
+          const statusClass = isTrue ? 'text-emerald-700 bg-emerald-50 border border-emerald-200' : (isFalse ? 'text-rose-700 bg-rose-50 border border-rose-200' : 'text-amber-800 bg-amber-50 border border-amber-200');
+          return `
+            <div class="p-3 rounded-lg bg-white border border-amber-200 text-xs space-y-1.5 shadow-sm">
+              <div class="flex items-center justify-between font-mono text-[11px] gap-2 flex-wrap">
+                <span class="text-ink-primary font-bold">Claim: "${{claimTitle}}"</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold ${{statusClass}}">${{claimStatus}}</span>
+              </div>
+              <div class="text-ink-secondary font-medium leading-relaxed">${{currentLang === 'KO' ? '🔬 실증 팩트 검증:' : (currentLang === 'ZH' ? '🔬 实测事实核验:' : '🔬 Empirical Verification:')}} ${{claimTruth}}</div>
             </div>
-            <div class="text-ink-secondary font-medium">${{currentLang === 'KO' ? '검증 팩트:' : (currentLang === 'ZH' ? '事实核验:' : 'Verified Fact:')}} ${{cl.fact_checked_truth || cl.verification_evidence || cl.empirical_reality || cl.reality_check || ''}}</div>
-          </div>
-        `).join('');
+          `;
+        }}).join('');
       }} else {{
         claimsBox.classList.add('hidden');
       }}
@@ -3250,6 +3512,9 @@ def generate_html(data):
 
       if (currentView !== targetView) {{
         switchView(targetView, false, false);
+      }} else if (targetView === 'home') {{
+        renderTelemetryCharts();
+        renderHomeTopPicks();
       }}
 
       // 3. Apply Page State to Active View (Enables Back/Forward Through Pages)
@@ -3291,18 +3556,18 @@ def generate_html(data):
       currentNewsTier2 = 'ALL';
       document.querySelectorAll('.news-cat-pill').forEach(btn => {{
         if (btn.getAttribute('data-cat') === t1) {{
-          btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+          btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
 
       // Reset Tier 2 pills
       document.querySelectorAll('.news-t2-pill').forEach(btn => {{
         if (btn.getAttribute('data-t2') === 'ALL') {{
-          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
 
@@ -3324,9 +3589,9 @@ def generate_html(data):
       currentNewsTier2 = t2;
       document.querySelectorAll('.news-t2-pill').forEach(btn => {{
         if (btn.getAttribute('data-t2') === t2) {{
-          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       renderNews();
@@ -3350,9 +3615,9 @@ def generate_html(data):
       currentNewsSource = src;
       document.querySelectorAll('.news-src-btn').forEach(btn => {{
         if (btn.getAttribute('data-src') === src) {{
-          btn.className = 'news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition';
+          btn.className = 'news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border';
+          btn.className = 'news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap';
         }}
       }});
       renderNews();
@@ -3432,7 +3697,7 @@ def generate_html(data):
             <span>+${{remainingSources.length}}${{currentLang === 'KO' ? '개 더보기' : (currentLang === 'ZH' ? '个更多' : ' more')}}</span>
             <i data-lucide="chevron-down" class="w-3 h-3"></i>
           </button>
-          <div id="srcMenu_${{safeId}}" class="hidden absolute right-0 bottom-full mb-1.5 w-64 bg-white rounded-xl shadow-xl border border-surface-border p-2.5 z-50 text-xs flex flex-col gap-1.5">
+          <div id="srcMenu_${{safeId}}" class="hidden absolute right-0 bottom-full mb-1.5 w-64 max-w-[calc(100vw-2.5rem)] bg-white rounded-xl shadow-xl border border-surface-border p-2.5 z-50 text-xs flex flex-col gap-1.5">
             <div class="text-[10px] font-mono font-bold text-ink-muted px-1.5 pb-1 border-b border-surface-border flex items-center justify-between">
               <span>🔗 ${{currentLang === 'KO' ? `전체 교차 출처 (${{total}}개)` : (currentLang === 'ZH' ? `全部聚合来源 (${{total}}个)` : `All Sources (${{total}})`)}}</span>
               <span class="text-indigo-600 text-[9px] font-semibold">${{currentLang === 'KO' ? '원문 이동' : (currentLang === 'ZH' ? '直达原文' : 'Open')}} &nearr;</span>
@@ -3562,10 +3827,10 @@ def generate_html(data):
       const pagedNews = newsItems.slice((currentNewsPage - 1) * PAGE_SIZE, currentNewsPage * PAGE_SIZE);
       pagedNews.forEach(it => {{
         const card = document.createElement('div');
-        card.className = 'executive-card p-5 flex flex-col justify-between space-y-4';
+        card.className = 'executive-card p-4 sm:p-5 flex flex-col justify-between space-y-4';
 
         const ai = it.ai_enrichment;
-        const multi = ai ? ai.multilingual : null;
+        const multi = it.multilingual || (ai ? ai.multilingual : null);
         let displayTitle = it.title;
         let displayDesc = it.description || '';
         let displayHook = (ai ? ai.hook : '') || it.hook || '';
@@ -3739,7 +4004,7 @@ def generate_html(data):
 
             ${{aiBadgeHtml}}
 
-            <h3 class="font-bold text-sm text-ink-primary hover:text-indigo-600 transition leading-snug">
+            <h3 class="font-bold text-sm text-ink-primary hover:text-indigo-600 transition leading-snug break-words">
               ${{displayTitle}}
             </h3>
 
@@ -3751,21 +4016,27 @@ def generate_html(data):
             ${{relatedHtml}}
           </div>
 
-          <div class="pt-3 border-t border-surface-border space-y-2 text-xs">
-            <!-- Row 1: Source Date & AI Audit Date with Model Attribution (Single Line on Mobile) -->
-            <div class="flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono text-ink-muted whitespace-nowrap overflow-hidden text-ellipsis">
-              <span class="shrink-0" title="${{currentLang === 'KO' ? '수집/발행 일시' : (currentLang === 'ZH' ? '采集/发布日' : 'Source DateTime')}}">📅 ${{formatDateTimeCompact(it.published_at || it.harvested_at || it.harvested_date)}}</span>
-              ${{ai?.enriched_at ? `
-                <span class="text-surface-border shrink-0">•</span>
-                <span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold flex items-center gap-1 overflow-hidden text-ellipsis">
-                  <span class="shrink-0">🔬 ${{formatDateTimeCompact(ai.enriched_at)}}</span>
-                  <span class="text-ink-muted font-normal truncate" title="${{ai.enriched_by_model || ''}}">(${{formatModelAttribution(ai.enriched_by_model)}})</span>
-                </span>
-              ` : ''}}
+          <!-- Standardized 3-Line Footer -->
+          <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
+            <!-- Line 1: 수집날짜&시간 -->
+            <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
+              <span>📅 ${{formatDateTimeCompact(it.published_at || it.harvested_at || it.harvested_date)}}</span>
             </div>
 
-            <!-- Row 2: Source Discussion and Original Links -->
-            <div class="flex items-center gap-1.5 flex-wrap">
+            <!-- Line 2: 분석날짜&시간 (분석모델) -->
+            ${{ai?.enriched_at ? `
+            <div class="text-[11px] text-indigo-700 font-semibold flex items-center gap-1.5 min-w-0 overflow-hidden">
+              <span class="shrink-0">🔬 ${{formatDateTimeCompact(ai.enriched_at)}}</span>
+              <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${{ai.enriched_by_model || ''}}">(${{formatModelAttribution(ai.enriched_by_model)}})</span>
+            </div>
+            ` : `
+            <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
+              <span>🔬 ${{currentLang === 'KO' ? 'AI 심층 분석 대기 중' : (currentLang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit')}}</span>
+            </div>
+            `}}
+
+            <!-- Line 3: 원문 링크 -->
+            <div class="flex items-center gap-1.5 flex-wrap pt-0.5 font-sans">
               ${{linksHtml}}
             </div>
           </div>
@@ -3773,7 +4044,7 @@ def generate_html(data):
         grid.appendChild(card);
       }});
 
-      lucide.createIcons();
+      if (window.lucide) window.lucide.createIcons({{ root: grid }});
     }}
 
     // ================= AI MODELS REGISTRY VIEW =================
@@ -3794,9 +4065,9 @@ def generate_html(data):
       currentModelsArtifact = art;
       document.querySelectorAll('.model-art-pill').forEach(btn => {{
         if (btn.getAttribute('data-art') === art) {{
-          btn.className = 'model-art-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+          btn.className = 'model-art-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       renderModels();
@@ -3807,9 +4078,9 @@ def generate_html(data):
       currentModelsModality = mod;
       document.querySelectorAll('.model-mod-pill').forEach(btn => {{
         if (btn.dataset.mod === mod) {{
-          btn.className = 'model-mod-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+          btn.className = 'model-mod-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'model-mod-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'model-mod-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       renderModels();
@@ -3820,9 +4091,9 @@ def generate_html(data):
       currentModelsFamily = fam;
       document.querySelectorAll('.model-fam-pill').forEach(btn => {{
         if (btn.getAttribute('data-fam') === fam) {{
-          btn.className = 'model-fam-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+          btn.className = 'model-fam-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       renderModels();
@@ -3934,7 +4205,7 @@ def generate_html(data):
       const pagedModels = filtered.slice((currentModelsPage - 1) * PAGE_SIZE, currentModelsPage * PAGE_SIZE);
       pagedModels.forEach(it => {{
         const ai = it.ai_enrichment;
-        const multi = ai?.multilingual;
+        const multi = it.multilingual || ai?.multilingual;
         const lKey = currentLang.toLowerCase();
 
         let displayTitle = (multi && multi[lKey]?.title) || (currentLang === 'KO' ? it.title_ko : (currentLang === 'ZH' ? it.title_zh : it.title_en)) || it.title;
@@ -3957,7 +4228,7 @@ def generate_html(data):
           : `<span class="px-1.5 py-0.2 rounded bg-surface-subtle text-ink-muted text-[9px] font-mono border border-surface-border">🌐 ${{currentLang === 'KO' ? '분석 대기' : (currentLang === 'ZH' ? '待分析' : 'Pending')}}</span>`;
 
         const card = document.createElement('div');
-        card.className = 'bg-white rounded-2xl p-5 border border-surface-border hover:border-indigo-400 hover:shadow-md transition flex flex-col justify-between space-y-4';
+        card.className = 'bg-white rounded-2xl p-4 sm:p-5 border border-surface-border hover:border-indigo-400 hover:shadow-md transition flex flex-col justify-between space-y-4';
 
         const artType = it.artifact_type || (it.source_platform?.includes('Spaces') ? 'WEB_SERVICE' : 'WEIGHTS');
         const artBadgeMap = {{
@@ -4061,22 +4332,33 @@ def generate_html(data):
             ${{relatedHtml}}
           </div>
 
-          <div class="pt-3 border-t border-surface-border space-y-2 text-xs">
-            <!-- Row 1: Source Date & AI Audit Date with Model Attribution (Single Line on Mobile) -->
-            <div class="flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono text-ink-muted whitespace-nowrap overflow-hidden text-ellipsis">
-              <span class="shrink-0" title="${{currentLang === 'KO' ? '수집/발표 일시' : (currentLang === 'ZH' ? '采集/发布日' : 'Source DateTime')}}">📅 ${{formatDateTimeCompact(it.published_at || it.harvested_at || it.harvested_date)}}</span>
-              ${{ai?.enriched_at ? `
-                <span class="text-surface-border shrink-0">•</span>
-                <span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold flex items-center gap-1 overflow-hidden text-ellipsis">
-                  <span class="shrink-0">🔬 ${{formatDateTimeCompact(ai.enriched_at)}}</span>
-                  <span class="text-ink-muted font-normal truncate" title="${{ai.enriched_by_model || ''}}">(${{formatModelAttribution(ai.enriched_by_model)}})</span>
-                </span>
-              ` : ''}}
+          <!-- Standardized 3-Line Footer -->
+          <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
+            <!-- Line 1: 수집날짜&시간 -->
+            <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
+              <span>📅 ${{formatDateTimeCompact(it.published_at || it.harvested_at || it.harvested_date)}}</span>
             </div>
 
-            <!-- Row 2: Hub Download / Live Demo Button -->
-            <div class="flex items-center justify-end">
-              <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1 shrink-0">
+            <!-- Line 2: 분석날짜&시간 (분석모델) -->
+            ${{ai?.enriched_at ? `
+            <div class="text-[11px] text-indigo-700 font-semibold flex items-center gap-1.5 min-w-0 overflow-hidden">
+              <span class="shrink-0">🔬 ${{formatDateTimeCompact(ai.enriched_at)}}</span>
+              <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${{ai.enriched_by_model || ''}}">(${{formatModelAttribution(ai.enriched_by_model)}})</span>
+            </div>
+            ` : `
+            <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
+              <span>🔬 ${{currentLang === 'KO' ? 'AI 심층 분석 대기 중' : (currentLang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit')}}</span>
+            </div>
+            `}}
+
+            <!-- Line 3: Hub Download / Live Demo Button -->
+            <div class="flex items-center justify-between pt-0.5 font-sans">
+              <span class="text-[11px] text-ink-muted font-mono flex items-center gap-1">
+                <a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline flex items-center gap-0.5 font-semibold">
+                  📄 ${{currentLang === 'KO' ? '원문' : (currentLang === 'ZH' ? '原文' : 'Source')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
+                </a>
+              </span>
+              <a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1 shrink-0">
                 <span>${{artMeta.btn}}</span> <i data-lucide="external-link" class="w-3 h-3"></i>
               </a>
             </div>
@@ -4086,7 +4368,7 @@ def generate_html(data):
         grid.appendChild(card);
       }});
 
-      lucide.createIcons();
+      if (window.lucide) window.lucide.createIcons({{ root: grid }});
     }}
 
     // ================= STANDARDIZED CROSS-PLATFORM VIRAL NORMALIZER =================
@@ -4144,9 +4426,9 @@ def generate_html(data):
       currentInboxLang = lang;
       document.querySelectorAll('.inbox-filter-pill').forEach(btn => {{
         if (btn.dataset.langVal === lang) {{
-          btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+          btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       renderInbox();
@@ -4157,9 +4439,9 @@ def generate_html(data):
       currentInboxType = typeVal;
       document.querySelectorAll('.inbox-type-pill').forEach(btn => {{
         if (btn.dataset.typeVal === typeVal) {{
-          btn.className = 'inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+          btn.className = 'inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       renderInbox();
@@ -4170,9 +4452,9 @@ def generate_html(data):
       currentInboxTech = tech;
       document.querySelectorAll('.inbox-tech-pill').forEach(btn => {{
         if (btn.dataset.techVal === tech) {{
-          btn.className = 'inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+          btn.className = 'inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'inbox-tech-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       renderInbox();
@@ -4186,9 +4468,9 @@ def generate_html(data):
 
       document.querySelectorAll('.inbox-src-pill').forEach(btn => {{
         if (btn.dataset.srcVal === src) {{
-          btn.className = 'inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+          btn.className = 'inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap';
         }} else {{
-          btn.className = 'inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+          btn.className = 'inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
         }}
       }});
       renderInbox();
@@ -4266,7 +4548,7 @@ def generate_html(data):
       pagedInbox.forEach(it => {{
         const isQueued = queuedItemIds.has(it.inbox_id);
         const ai = it.ai_enrichment;
-        const multi = ai ? ai.multilingual : null;
+        const multi = it.multilingual || (ai ? ai.multilingual : null);
         const lKey = currentLang.toLowerCase();
 
         let displayTitle = (multi && multi[lKey] ? multi[lKey].title : null) || (currentLang === 'KO' ? it.title_ko : (currentLang === 'ZH' ? it.title_zh : it.title_en)) || it.title;
@@ -4289,7 +4571,7 @@ def generate_html(data):
         else if (ai && ai.type_classification === 'NEWS') typeBadge = currentLang === 'KO' ? '📰 업계 동향' : (currentLang === 'ZH' ? '📰 行业资讯' : '📰 News');
 
         const card = document.createElement('div');
-        card.className = 'executive-card p-5 flex flex-col justify-between space-y-3.5 hover:border-indigo-400 hover:shadow-md transition';
+        card.className = 'executive-card p-4 sm:p-5 flex flex-col justify-between space-y-3.5 hover:border-indigo-400 hover:shadow-md transition';
 
         let hookHtml = '';
         if (displayHook) {{
@@ -4336,8 +4618,8 @@ def generate_html(data):
           inboxSourceLinks = buildMultiSourceCluster(it.sources, it.inbox_id || it.id);
         }} else {{
           inboxSourceLinks = `
-          <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1">
-            <span>${{currentLang === 'KO' ? '원문 보기' : (currentLang === 'ZH' ? '查看原文' : 'View Source')}}</span> <i data-lucide="external-link" class="w-3 h-3"></i>
+          <a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline flex items-center gap-0.5 font-semibold text-[11px] font-mono">
+            📄 ${{currentLang === 'KO' ? '원문' : (currentLang === 'ZH' ? '原文' : 'Source')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
           </a>`;
         }}
 
@@ -4389,30 +4671,46 @@ def generate_html(data):
               </div>
             </div>
 
-            <div class="text-[11px] text-ink-muted font-mono pt-1 flex items-center justify-between flex-wrap gap-1">
-              <div>📅 <span title="${{currentLang === 'KO' ? '수집/발표 일시' : (currentLang === 'ZH' ? '采集/发布日' : 'Source DateTime')}}" class="text-ink-secondary font-semibold">${{formatDateTime(it.published_at || it.created_at || it.harvested_at)}}</span></div>
-              <div class="flex items-center gap-1.5">
-                ${{ai?.enriched_at ? `<span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold">🔬 ${{formatDateTime(ai.enriched_at)}}</span>` : ''}}
-                ${{ai?.enriched_by_model ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-indigo-700 border border-surface-border">🤖 ${{ai.enriched_by_model.replace('gemini-', '')}}</span>` : ''}}
-              </div>
-            </div>
           </div>
 
-          <div class="pt-3 border-t border-surface-border flex items-center justify-between gap-2">
-            ${{inboxSourceLinks}}
+          <!-- Standardized 3-Line Footer -->
+          <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
+            <!-- Line 1: 수집날짜&시간 -->
+            <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
+              <span>📅 ${{formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at || it.harvested_date)}}</span>
+            </div>
 
-            <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
-                    class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${{isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border'}}">
-              <i data-lucide="${{isQueued ? 'check' : 'zap'}}" class="w-3.5 h-3.5"></i>
-              ${{isQueued ? t.inboxQueuedBtn : t.inboxQueueBtn}}
-            </button>
+            <!-- Line 2: 분석날짜&시간 (분석모델) -->
+            ${{ai?.enriched_at ? `
+            <div class="text-[11px] text-indigo-700 font-semibold flex items-center gap-1.5 min-w-0 overflow-hidden">
+              <span class="shrink-0">🔬 ${{formatDateTimeCompact(ai.enriched_at)}}</span>
+              <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${{ai.enriched_by_model || ''}}">(${{formatModelAttribution(ai.enriched_by_model)}})</span>
+            </div>
+            ` : `
+            <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
+              <span>🔬 ${{currentLang === 'KO' ? 'AI 심층 분석 대기 중' : (currentLang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit')}}</span>
+            </div>
+            `}}
+
+            <!-- Line 3: 원문 링크 & 큐 등록 액션 버튼 -->
+            <div class="flex items-center justify-between gap-2 pt-0.5 font-sans">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                ${{inboxSourceLinks}}
+              </div>
+
+              <button onclick="toggleQueueItem('${{it.inbox_id}}', '${{displayTitle.replace(/'/g, "")}}')" 
+                      class="px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${{isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border'}}">
+                <i data-lucide="${{isQueued ? 'check' : 'zap'}}" class="w-3.5 h-3.5"></i>
+                <span>${{isQueued ? t.inboxQueuedBtn : t.inboxQueueBtn}}</span>
+              </button>
+            </div>
           </div>
         `;
 
         grid.appendChild(card);
       }});
 
-      lucide.createIcons();
+      if (window.lucide) window.lucide.createIcons({{ root: grid }});
     }}
 
     async function toggleQueueItem(inboxId, title) {{
@@ -4619,6 +4917,7 @@ def generate_html(data):
     // ================= INITIALIZATION =================
     window.addEventListener('DOMContentLoaded', () => {{
       renderCards();
+      renderHomeTopPicks();
       renderTelemetryCharts();
       renderModels();
       renderNews();
