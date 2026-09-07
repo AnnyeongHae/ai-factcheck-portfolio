@@ -197,15 +197,26 @@ def push_inbox_to_neon(full_sync=False):
     )
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     ON CONFLICT (source_fingerprint) DO UPDATE SET
-        raw_payload = EXCLUDED.raw_payload,
+        raw_payload = CASE 
+            WHEN (EXCLUDED.raw_payload ? 'ai_enrichment') THEN EXCLUDED.raw_payload
+            WHEN (raw_trends_inbox.raw_payload ? 'ai_enrichment') THEN 
+                (EXCLUDED.raw_payload || jsonb_build_object(
+                    'ai_enrichment', raw_trends_inbox.raw_payload->'ai_enrichment',
+                    'multilingual', raw_trends_inbox.raw_payload->'multilingual',
+                    'title_ko', COALESCE(raw_trends_inbox.raw_payload->>'title_ko', EXCLUDED.raw_payload->>'title_ko'),
+                    'description_ko', COALESCE(raw_trends_inbox.raw_payload->>'description_ko', EXCLUDED.raw_payload->>'description_ko')
+                ))
+            ELSE EXCLUDED.raw_payload
+        END,
         inbox_id = EXCLUDED.inbox_id,
         title = EXCLUDED.title,
         viral_metric = EXCLUDED.viral_metric,
         description = EXCLUDED.description,
-        is_classified = EXCLUDED.is_classified,
-        is_deep_analyzed = EXCLUDED.is_deep_analyzed,
-        category_primary = EXCLUDED.category_primary,
-        harvested_date = EXCLUDED.harvested_date,
+        is_classified = (raw_trends_inbox.is_classified OR EXCLUDED.is_classified),
+        is_deep_analyzed = (raw_trends_inbox.is_deep_analyzed OR EXCLUDED.is_deep_analyzed),
+        category_primary = COALESCE(EXCLUDED.category_primary, raw_trends_inbox.category_primary),
+        harvested_date = raw_trends_inbox.harvested_date,
+        created_at = COALESCE(raw_trends_inbox.created_at, EXCLUDED.created_at),
         updated_at = EXCLUDED.updated_at;
     """
 
@@ -222,6 +233,56 @@ def push_inbox_to_neon(full_sync=False):
     conn.commit()
     conn.close()
     print(f"[+] Successfully pushed {count} inbox candidates to Neon Postgres DB (Tier 1 Staging)!")
+
+def pull_inbox_from_neon(limit=1000):
+    """
+    Hydrates local inbox/ from Neon Postgres DB Tier 1 raw_trends_inbox.
+    Ensures CI runner or clean dev machine has the exact consolidated data.
+    """
+    conn = get_db_connection()
+    if not conn:
+        print("[!] Note: Could not connect to Neon DB to pull inbox.")
+        return 0
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    inbox_dir = os.path.join(base_dir, "inbox")
+    os.makedirs(inbox_dir, exist_ok=True)
+
+    count = 0
+    with conn.cursor() as cur:
+        cur.execute("""
+            SELECT raw_payload FROM raw_trends_inbox 
+            WHERE raw_payload IS NOT NULL 
+            ORDER BY id DESC 
+            LIMIT %s;
+        """, (limit,))
+        rows = cur.fetchall()
+        for r in rows:
+            payload = r[0]
+            if isinstance(payload, str):
+                try:
+                    payload = json.loads(payload)
+                except Exception:
+                    continue
+            if isinstance(payload, dict) and "inbox_id" in payload:
+                iid = payload["inbox_id"]
+                target_path = os.path.join(inbox_dir, f"{iid}.json")
+                should_write = True
+                if os.path.exists(target_path):
+                    try:
+                        with open(target_path, "r", encoding="utf-8") as tf:
+                            loc = json.load(tf)
+                        # If local already has AI enrichment and incoming DB doesn't, keep local
+                        if loc.get("ai_enrichment") and not payload.get("ai_enrichment"):
+                            should_write = False
+                    except Exception:
+                        pass
+                if should_write:
+                    with open(target_path, "w", encoding="utf-8") as tf:
+                        json.dump(payload, tf, indent=2, ensure_ascii=False)
+                    count += 1
+    conn.close()
+    print(f"[+] Successfully hydrated {count} inbox items from Neon Postgres DB to local inbox!")
+    return count
 
 def push_factchecks_to_neon():
     conn = get_db_connection()
@@ -317,6 +378,7 @@ def main():
     parser = argparse.ArgumentParser(description="Neon Postgres Enterprise Synchronizer")
     parser.add_argument("--init", action="store_true", help="Initialize Sustainable Neon DB schema, indexes, and triggers")
     parser.add_argument("--sync-inbox", action="store_true", help="Push local inbox candidates to Neon DB (Tier 1)")
+    parser.add_argument("--pull-inbox", action="store_true", help="Pull latest inbox items from Neon DB to local disk")
     parser.add_argument("--sync-factchecks", action="store_true", help="Push verified portfolios to Neon DB (Tier 2)")
     parser.add_argument("--sync-all", action="store_true", help="Initialize schema and sync everything to Neon DB")
 
@@ -324,6 +386,8 @@ def main():
 
     if args.init:
         init_schema()
+    elif args.pull_inbox:
+        pull_inbox_from_neon()
     elif args.sync_inbox:
         push_inbox_to_neon()
     elif args.sync_factchecks:
@@ -333,7 +397,7 @@ def main():
         push_inbox_to_neon()
         push_factchecks_to_neon()
     else:
-        print("Usage: python tools/db_bridge.py [--init | --sync-inbox | --sync-factchecks | --sync-all]")
+        print("Usage: python tools/db_bridge.py [--init | --pull-inbox | --sync-inbox | --sync-factchecks | --sync-all]")
 
 if __name__ == "__main__":
     main()

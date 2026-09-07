@@ -26,6 +26,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     env:
       NEON_KEY: ${{ secrets.NEON_KEY }}
       DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
@@ -46,6 +47,11 @@ jobs:
         run: |
           pip install -r requirements.txt
 
+      - name: Hydrate Inbox from Neon Postgres DB (Scheduled/Manual Only)
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          python tools/db_bridge.py --pull-inbox || echo "Pull from Neon DB completed or skipped."
+
       - name: Run Multi-Source Trend Harvester (Scheduled/Manual Only)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
@@ -64,12 +70,12 @@ jobs:
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
-          python tools/enrich_inbox_with_ai.py --limit 15 --batch-size 3 --cooldown 0.5 --provider auto || echo "AI enrichment skipped or completed."
+          python tools/enrich_inbox_with_ai.py --only-new --limit 15 --batch-size 3 --cooldown 0.5 --provider auto || echo "AI enrichment skipped or completed."
 
       - name: Sync Data to Neon Postgres Cloud DB (Scheduled/Manual Only)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
-          python tools/db_bridge.py --sync-all || echo "Neon DB sync skipped or completed with notes."
+          python tools/db_bridge.py --sync-inbox && python tools/db_bridge.py --sync-factchecks || echo "Neon DB sync skipped or completed with notes."
 
       - name: Build Fact-Check Portfolio Dashboard & Docs
         run: |
