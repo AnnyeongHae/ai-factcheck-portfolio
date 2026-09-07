@@ -550,18 +550,35 @@ def build_dashboard():
             return parts_ko[0].strip()
         return clean_orig[:35].strip()
 
-    # 🌟 DAILY RADAR SENSITIVITY: Strictly 24h-48h Fresh Items Only (Never historic August data)
+    # 🌟 DAILY RADAR SENSITIVITY: Strictly 24h-48h Fresh Items with Complete AI Enrichment
     def is_fresh_trend(it):
         # Exclude non-tech (crimes, incidents, culture) from AI Radar
         t1 = it.get("tier1_category") or "TECH_COMPUTING"
         if t1 not in ["TECH_COMPUTING", "SCIENCE_RESEARCH"]:
+            return False
+        # Strictly require AI enrichment with trilingual translation (never show raw un-enriched items)
+        ml = it.get("multilingual") or {}
+        has_ai = (
+            bool(it.get("ai_enrichment")) and
+            bool(ml.get("ko", {}).get("title") or it.get("title_ko")) and
+            bool(ml.get("en", {}).get("title") or it.get("title_en")) and
+            bool(ml.get("zh", {}).get("title") or it.get("title_zh"))
+        )
+        if not has_ai:
             return False
         d = get_item_date_str(it)
         return d in [today_kst_str, yesterday_kst_str]
 
     fresh_pool = [it for it in (model_items + news_items + clean_inbox_items) if it.get("title") and is_fresh_trend(it)]
     if len(fresh_pool) < 15:
-        fallback_pool = [it for it in (model_items + news_items + clean_inbox_items) if it.get("title") and (it.get("tier1_category") in ["TECH_COMPUTING", "SCIENCE_RESEARCH"]) and get_item_date_str(it) == two_days_ago_kst_str]
+        fallback_pool = [
+            it for it in (model_items + news_items + clean_inbox_items)
+            if it.get("title") and 
+               (it.get("tier1_category") in ["TECH_COMPUTING", "SCIENCE_RESEARCH"]) and 
+               get_item_date_str(it) == two_days_ago_kst_str and
+               bool(it.get("ai_enrichment")) and
+               bool((it.get("multilingual") or {}).get("ko", {}).get("title") or it.get("title_ko"))
+        ]
         fresh_pool.extend(fallback_pool)
 
     fresh_pool.sort(key=compute_viral_weight, reverse=True)
@@ -612,15 +629,19 @@ def build_dashboard():
         is_fut = (s_hour > current_hour_kst)
         status = "active" if is_cur else ("upcoming" if is_fut else "completed")
 
-        # Determine target date and window label for this session
+        # Determine target date and multilingual window label for this session
+        month_en_names = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         if is_fut:
             target_date_str = yesterday_kst_str
             target_d_obj = now_kst - datetime.timedelta(days=1)
-            window_label = f"{target_d_obj.month}월 {target_d_obj.day}일 {s_def['time_range']}"
         else:
             target_date_str = today_kst_str
             target_d_obj = now_kst
-            window_label = f"{target_d_obj.month}월 {target_d_obj.day}일 {s_def['time_range']}"
+
+        m_en = month_en_names[target_d_obj.month - 1]
+        window_label_ko = f"{target_d_obj.month}월 {target_d_obj.day}일 {s_def['time_range']}"
+        window_label_zh = f"{target_d_obj.month}月{target_d_obj.day}日 {s_def['time_range']}"
+        window_label_en = f"{m_en} {target_d_obj.day}, {s_def['time_range']}"
 
         # Build candidate pool prioritized for this session's time window
         session_candidates = []
@@ -663,15 +684,33 @@ def build_dashboard():
         session_items_data = []
 
         for it in picked_items:
-            t_ko = it.get("multilingual", {}).get("ko", {}).get("title") or it.get("title_ko") or it.get("title") or ""
-            t_clean = re.sub(r'^(?:GitHub:\s*|HuggingFace:\s*|HF Space:\s*|Hacker News:\s*|ArXiv:\s*|GeekNews:\s*|Paper:\s*)', '', t_ko).strip()
+            ml = it.get("multilingual") or {}
+            ai_enr = it.get("ai_enrichment") or {}
+
+            t_ko = ml.get("ko", {}).get("title") or it.get("title_ko") or it.get("title") or ""
+            t_en = ml.get("en", {}).get("title") or it.get("title_en") or it.get("title") or ""
+            t_zh = ml.get("zh", {}).get("title") or it.get("title_zh") or it.get("title") or ""
+
+            clean_re = r'^(?:GitHub:\s*|HuggingFace:\s*|HF Space:\s*|Hacker News:\s*|ArXiv:\s*|GeekNews:\s*|Paper:\s*)'
+            t_ko_clean = re.sub(clean_re, '', t_ko, flags=re.I).strip()
+            t_en_clean = re.sub(clean_re, '', t_en, flags=re.I).strip()
+            t_zh_clean = re.sub(clean_re, '', t_zh, flags=re.I).strip()
+
             plat_family = get_platform_family(it)
             plat = it.get("source_platform") or plat_family
             vm = it.get("viral_metric") or ""
-            summ = (it.get("ai_enrichment") or {}).get("summary_ko") or it.get("summary_ko") or it.get("hook_ko") or it.get("description") or ""
-            summ_clean = summ.replace('\n', ' ').strip()
-            if len(summ_clean) > 75:
-                summ_clean = summ_clean[:72] + "..."
+
+            s_ko = ai_enr.get("summary_ko") or it.get("summary_ko") or ml.get("ko", {}).get("description") or it.get("description") or ""
+            s_en = ai_enr.get("summary_en") or it.get("summary_en") or ml.get("en", {}).get("description") or it.get("description") or ""
+            s_zh = ai_enr.get("summary_zh") or it.get("summary_zh") or ml.get("zh", {}).get("description") or it.get("description") or ""
+
+            def clean_summ(s):
+                sc = (s or "").replace('\n', ' ').strip()
+                return (sc[:72] + "...") if len(sc) > 75 else sc
+
+            s_ko_clean = clean_summ(s_ko)
+            s_en_clean = clean_summ(s_en)
+            s_zh_clean = clean_summ(s_zh)
 
             search_k = extract_search_key(it)
             is_model = is_model_item(it)
@@ -679,25 +718,34 @@ def build_dashboard():
 
             session_items_data.append({
                 "inbox_id": it.get("inbox_id") or "",
-                "title": t_clean,
+                "title": t_ko_clean,
+                "title_ko": t_ko_clean,
+                "title_en": t_en_clean,
+                "title_zh": t_zh_clean,
                 "search_key": search_k,
                 "platform": plat,
                 "platform_family": plat_family,
                 "viral_metric": vm,
-                "summary": summ_clean,
+                "summary": s_ko_clean,
+                "summary_ko": s_ko_clean,
+                "summary_en": s_en_clean,
+                "summary_zh": s_zh_clean,
                 "source_url": it.get("source_url") or "#",
                 "is_model": is_model,
                 "case_id": case_id
             })
 
-            if vm: session_bullets.append(f"🔥 [{plat}] {t_clean[:45]} ({vm}) — {summ_clean}")
-            else: session_bullets.append(f"🚀 [{plat}] {t_clean[:45]} — {summ_clean}")
+            if vm: session_bullets.append(f"🔥 [{plat}] {t_ko_clean[:45]} ({vm}) — {s_ko_clean}")
+            else: session_bullets.append(f"🚀 [{plat}] {t_ko_clean[:45]} — {s_ko_clean}")
 
         sessions_data[str(s_num)] = {
             "session_num": s_num,
             "session_name": s_def["name"],
             "short_name": s_def["short_name"],
-            "window_label": window_label,
+            "window_label": window_label_ko,
+            "window_label_ko": window_label_ko,
+            "window_label_zh": window_label_zh,
+            "window_label_en": window_label_en,
             "is_current": is_cur,
             "is_future": is_fut,
             "status": status,
@@ -2839,6 +2887,7 @@ def generate_html(data):
       safeSetHtml('timelineFooterText', t.timelineFooterPrefix + ' <b class="text-indigo-700">{today_total_inbox}' + (lang === 'KO' ? '건' : (lang === 'ZH' ? '条' : ' items')) + '</b>');
       safeSetText('trendRadarTitleText', t.trendRadarTitle);
       safeSetText('trendRadarSub', t.trendRadarSub);
+      safeSetHtml('trendRadarFooter', `<span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i> ` + (lang === 'KO' ? 'LLM 자동 트렌드 추출 (OpenRouter 0원 라우팅)' : (lang === 'ZH' ? 'LLM 自动化趋势提取 (OpenRouter 0元路由)' : 'Automated LLM Trend Extraction (OpenRouter Free Tier)')) + `</span>`);
       safeSetText('homeTopPicksTitle', t.homeTopPicksTitle);
       safeSetText('homeTopPicksViewAll', t.homeTopPicksViewAll);
 
@@ -2910,7 +2959,7 @@ def generate_html(data):
       safeSetText('pipelineFooterNote', t.pipelineFooterNote);
       if (typeof updateCronCountdown === 'function') updateCronCountdown();
       safeSetText('inboxHeaderDesc', t.inboxHeaderDesc);
-      safeSetText('inboxHeaderCount', lang === 'KO' ? '총 {data['inbox_total_count']}건' : (lang === 'ZH' ? '共 {data['inbox_total_count']} 项' : 'Total: {data['inbox_total_count']} items'));
+      safeSetText('inboxHeaderCount', lang === 'KO' ? ('총 ' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : '') + '건') : (lang === 'ZH' ? ('共 ' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : '') + ' 项') : ('Total: ' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : '') + ' items')));
       safeSetText('criteriaTitle', t.criteriaTitle);
       safeSetText('criteriaDesc', t.criteriaDesc);
       safeSetText('critGithub', t.critGithub);
@@ -2944,6 +2993,7 @@ def generate_html(data):
       // 🌟 Instant Full Re-render on Active Views
       renderCards();
       renderHomeTopPicks();
+      renderRadarSession();
       renderTelemetryCharts();
       updateCronCountdown();
       renderModels();
@@ -3119,10 +3169,21 @@ def generate_html(data):
     }}
 
     function renderRadarSession() {{
-      // 1. Update session tabs button active states
+      if (typeof trendRadarData === 'undefined' || !trendRadarData.sessions) return;
+      const sessionData = trendRadarData.sessions[String(activeRadarSession)];
+      if (!sessionData) return;
+
+      // 1. Update session tabs button active states and localized labels
+      const sLabels = {{
+        KO: ['1회 00시', '2회 06시', '3회 12시', '4회 18시'],
+        ZH: ['1期 00点', '2期 06点', '3期 12点', '4期 18点'],
+        EN: ['S1 00:00', 'S2 06:00', 'S3 12:00', 'S4 18:00']
+      }};
+      const curLabels = sLabels[currentLang] || sLabels['KO'];
       for (let i = 1; i <= 4; i++) {{
         const btn = document.getElementById('radarBtn' + i);
         if (btn) {{
+          btn.innerText = curLabels[i - 1];
           if (i === activeRadarSession) {{
             btn.className = 'px-2 py-0.5 rounded border border-emerald-600 bg-emerald-600 text-white font-bold shadow-xs transition cursor-pointer';
           }} else {{
@@ -3131,16 +3192,13 @@ def generate_html(data):
         }}
       }}
 
-      if (typeof trendRadarData === 'undefined' || !trendRadarData.sessions) return;
-      const sessionData = trendRadarData.sessions[String(activeRadarSession)];
-      if (!sessionData) return;
-
       // 2. Update header labels
       const windowLabelEl = document.getElementById('trendRadarWindowLabel');
       const pulseDotEl = document.getElementById('trendRadarPulseDot');
 
       if (windowLabelEl) {{
-        windowLabelEl.innerText = sessionData.window_label;
+        const wLabel = (currentLang === 'KO' ? sessionData.window_label_ko : (currentLang === 'ZH' ? sessionData.window_label_zh : sessionData.window_label_en)) || sessionData.window_label;
+        windowLabelEl.innerText = wLabel;
       }}
       if (pulseDotEl) {{
         if (sessionData.is_current) {{
@@ -3152,7 +3210,7 @@ def generate_html(data):
         }}
       }}
 
-      // 3. Render session items (1 clickable element per item, no duplicate bottom button)
+      // 3. Render session items (1 clickable element per item, fully localized)
       const bulletsContainer = document.getElementById('trendRadarBullets');
       if (bulletsContainer) {{
         bulletsContainer.innerHTML = '';
@@ -3175,6 +3233,11 @@ def generate_html(data):
               platformBadgeClass = 'bg-blue-50 text-blue-700 border-blue-200';
             }}
 
+            const itemTitle = (currentLang === 'KO' ? (it.title_ko || it.title) : (currentLang === 'ZH' ? (it.title_zh || it.title) : (it.title_en || it.title))) || it.title;
+            const itemSummary = (currentLang === 'KO' ? (it.summary_ko || it.summary) : (currentLang === 'ZH' ? (it.summary_zh || it.summary) : (it.summary_en || it.summary))) || it.summary;
+            const factCheckBtnText = currentLang === 'KO' ? '팩트체크' : (currentLang === 'ZH' ? '事实核查' : 'Fact-Check');
+            const viewSourceText = currentLang === 'KO' ? '원문 보러가기' : (currentLang === 'ZH' ? '查看原文' : 'View Source');
+
             const itemCard = document.createElement('div');
             itemCard.className = 'group p-2.5 rounded-xl bg-surface-subtle border border-surface-border hover:border-emerald-400 hover:bg-white transition flex flex-col gap-1.5';
             itemCard.innerHTML = `
@@ -3189,7 +3252,7 @@ def generate_html(data):
                   ${{it.case_id ? `
                     <button onclick="openCaseModal('${{it.case_id}}')" class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-300 hover:bg-emerald-200 flex items-center gap-1 transition cursor-pointer">
                       <i data-lucide="shield-check" class="w-3 h-3"></i>
-                      팩트체크
+                      ${{factCheckBtnText}}
                     </button>
                   ` : ''}}
                 </div>
@@ -3198,13 +3261,13 @@ def generate_html(data):
               <!-- Direct Original Source Link: Title + '원문 보러가기' Indicator -->
               <a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="group/title block">
                 <div class="text-xs font-bold text-ink-primary group-hover/title:text-emerald-700 transition flex items-start justify-between gap-2 leading-snug">
-                  <span class="line-clamp-1">${{it.title}}</span>
+                  <span class="line-clamp-1">${{itemTitle}}</span>
                   <span class="text-[11px] font-mono font-bold text-emerald-700 shrink-0 flex items-center gap-1 opacity-90 group-hover/title:opacity-100 mt-0.5 bg-emerald-50 hover:bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300 transition">
-                    <span>${{currentLang === 'KO' ? '원문 보러가기' : (currentLang === 'ZH' ? '查看原文' : 'View Source')}}</span>
+                    <span>${{viewSourceText}}</span>
                     <i data-lucide="external-link" class="w-3 h-3"></i>
                   </span>
                 </div>
-                ${{it.summary ? `<p class="text-[11px] text-ink-muted truncate leading-relaxed mt-1">${{it.summary}}</p>` : ''}}
+                ${{itemSummary ? `<p class="text-[11px] text-ink-muted truncate leading-relaxed mt-1">${{itemSummary}}</p>` : ''}}
               </a>
             `;
             bulletsContainer.appendChild(itemCard);

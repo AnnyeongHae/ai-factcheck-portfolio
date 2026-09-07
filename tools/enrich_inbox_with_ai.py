@@ -374,6 +374,7 @@ def process_single_batch(b_idx, num_batches, batch, active_provider, gemini_key,
         results, model_used = call_gemini_trilingual_batch(gemini_key, batch_raw)
         b_latency = round(time.time() - b_start_time, 2)
 
+    results = results or []
     res_map = {r["id"]: r for r in results if isinstance(r, dict) and "id" in r}
 
     batch_log = {
@@ -602,7 +603,7 @@ def process_single_batch(b_idx, num_batches, batch, active_provider, gemini_key,
                 "enriched_at": enrich_time
             })
 
-    return (b_idx, batch_log, batch_success_count, model_used, len(results))
+    return (b_idx, batch_log, batch_success_count, model_used, len(results) if results else 0)
 
 def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = False, only_new: bool = False, cooldown: float = 1.0, provider: str = "auto", workers: int = 5):
     openrouter_key = openrouter_free_router.get_openrouter_api_key()
@@ -649,8 +650,8 @@ def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = Fals
         except Exception as e:
             print(f"[!] Note on manifest reading: {e}")
 
-    # STEP 2: Fallback to scanning inbox if not strictly restricted to only_new or if manifest was empty
-    if not candidates or not only_new:
+    # STEP 2: Fallback to scanning inbox if not strictly restricted to only_new, or if candidates < limit
+    if not only_new or not candidates or (limit > 0 and len(candidates) < limit):
         seen_paths = {c[0] for c in candidates}
         inbox_files = sorted(glob.glob("inbox/*.json"), key=lambda x: os.path.basename(x), reverse=True)
         for f in inbox_files:
@@ -663,6 +664,8 @@ def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = Fals
                     if not is_done:
                         candidates.append((f, d))
                         seen_paths.add(f)
+                        if limit > 0 and len(candidates) >= limit:
+                            break
             except Exception:
                 continue
 

@@ -8,15 +8,25 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: "daily-eod-enrichment"
+  group: "pages"
   cancel-in-progress: false
 
 jobs:
   daily-eod-batch:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      NEON_KEY: ${{ secrets.NEON_KEY }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -40,11 +50,6 @@ jobs:
           python tools/db_bridge.py --pull-inbox || echo "Pull from Neon DB completed or skipped."
 
       - name: Run Daily 23:30 EOD Batch Ingestion & Harvest (Zero Left Behind)
-        env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          NEON_KEY: ${{ secrets.NEON_KEY }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
           python tools/daily_eod_enrichment.py
 
@@ -55,3 +60,15 @@ jobs:
       - name: Build Fact-Check Portfolio Dashboard & Docs
         run: |
           python tools/build_dashboard.py
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Artifact (docs directory)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs/'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
