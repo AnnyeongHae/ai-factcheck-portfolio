@@ -1123,17 +1123,8 @@ def generate_html(data):
           </div>
 
           <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[11px] text-ink-muted font-mono flex-wrap gap-2" id="trendRadarFooter">
-            <span>LLM 자동 트렌드 추출 (OpenRouter 0원 라우팅)</span>
-            <div class="flex items-center gap-2">
-              <button onclick="switchView('models')" class="hover:underline text-purple-700 font-bold text-xs flex items-center gap-1">
-                <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-                모델 트렌드 &rarr;
-              </button>
-              <button onclick="switchView('news')" class="hover:underline text-amber-700 font-bold text-xs flex items-center gap-1">
-                <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
-                테크 동향 &rarr;
-              </button>
-            </div>
+            <span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i> LLM 자동 트렌드 추출 (OpenRouter 0원 라우팅)</span>
+            <span class="text-[10px] text-ink-muted font-medium">카드를 클릭하면 해당 안건의 1차 원문으로 즉시 이동합니다</span>
           </div>
         </div>
 
@@ -1215,12 +1206,10 @@ def generate_html(data):
               <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-ink-secondary shrink-0"></i>
               <span class="text-ink-secondary text-xs font-medium shrink-0" id="sortLabel">정렬:</span>
               <select id="sortSelect" onchange="changeSort(this.value)" class="bg-transparent text-ink-primary font-bold text-xs focus:outline-none cursor-pointer">
-                <option value="date-source-desc">📅 수집/원출처 최신순 (기본)</option>
-                <option value="date-source-asc">📅 수집/원출처 오래된순</option>
-                <option value="date-audit-desc">🔬 분석일자 최신순</option>
+                <option value="date-audit-desc" selected>🔬 분석일자 최신순 (기본)</option>
                 <option value="date-audit-asc">🔬 분석일자 오래된순</option>
-                <option value="score-desc">높은 신뢰도순</option>
-                <option value="title-asc">기술명 가나다순</option>
+                <option value="date-source-desc">📅 원출처 발행 최신순</option>
+                <option value="date-source-asc">📅 원출처 발행 오래된순</option>
               </select>
             </div>
           </div>
@@ -1310,11 +1299,10 @@ def generate_html(data):
               <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-indigo-600"></i>
               <span class="text-ink-muted text-[11px] font-mono">정렬:</span>
               <select id="modelsSortSelect" onchange="setModelsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
-                <option value="date-source-desc">📅 수집/발표 최신순 (기본)</option>
-                <option value="date-source-asc">📅 수집/발표 오래된순</option>
-                <option value="date-audit-desc">🔬 AI 분석일 최신순</option>
+                <option value="date-audit-desc" selected>🔬 AI 분석일 최신순 (기본)</option>
                 <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
-                <option value="title-asc">모델명 가나다순</option>
+                <option value="date-source-desc">📅 수집/발표 최신순</option>
+                <option value="date-source-asc">📅 수집/발표 오래된순</option>
               </select>
             </div>
           </div>
@@ -1383,10 +1371,10 @@ def generate_html(data):
             <div class="flex items-center gap-1.5 bg-surface-subtle px-2.5 py-1 rounded-xl border border-surface-border text-xs shrink-0">
               <i data-lucide="arrow-up-down" class="w-3 h-3 text-indigo-600"></i>
               <select id="newsSortSelect" onchange="setNewsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
-                <option value="date-source-desc">📅 최신순 (기본)</option>
-                <option value="date-source-asc">📅 오래된순</option>
-                <option value="date-audit-desc">🔬 AI 분석일 최신순</option>
-                <option value="title-asc">제목 가나다순</option>
+                <option value="date-audit-desc" selected>🔬 AI 분석일 최신순 (기본)</option>
+                <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
+                <option value="date-source-desc">📅 수집/발표 최신순</option>
+                <option value="date-source-asc">📅 수집/발표 오래된순</option>
               </select>
             </div>
           </div>
@@ -1562,13 +1550,12 @@ def generate_html(data):
             <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-indigo-600"></i>
             <span class="text-ink-muted text-[11px] font-mono">정렬:</span>
             <select id="inboxSortSelect" onchange="setInboxSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
-              <option value="date-source-desc">📅 수집/발표 최신순 (기본)</option>
-              <option value="date-source-asc">📅 수집/발표 오래된순</option>
-              <option value="date-audit-desc">🔬 AI 분석일 최신순</option>
+              <option value="date-audit-desc" selected>🔬 AI 분석일 최신순 (기본)</option>
               <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
-              <option value="viral-desc">🔥 통합 인기순 (Standardized Viral High)</option>
+              <option value="date-source-desc">📅 수집/발표 최신순</option>
+              <option value="date-source-asc">📅 수집/발표 오래된순</option>
+              <option value="viral-desc">🔥 통합 인기순 (Viral High)</option>
               <option value="viral-asc">통합 인기 낮은순 (Viral Low)</option>
-              <option value="title-asc">제목 오름차순 (A to Z)</option>
             </select>
           </div>
         </div>
@@ -1731,7 +1718,7 @@ def generate_html(data):
     let currentView = 'home';
     let currentMode = 'ALL';
     let currentDomain = 'ALL';
-    let currentSort = 'date-source-desc';
+    let currentSort = 'date-audit-desc';
     let searchQuery = '';
 
     let currentInboxSource = 'ALL';
@@ -1792,28 +1779,52 @@ def generate_html(data):
       container.innerHTML = html;
     }}
 
-    function changePortfolioPage(page) {{
+    function changePortfolioPage(page, pushHistory = true) {{
       currentPortfolioPage = page;
       renderCards();
       document.getElementById('portfolioView')?.scrollIntoView({{ behavior: 'smooth' }});
+      if (pushHistory) {{
+        const targetHash = page > 1 ? '#/factchecks?page=' + page : '#/factchecks';
+        if (window.location.hash !== targetHash) {{
+          try {{ history.pushState({{ view: 'portfolio', page: page }}, '', targetHash); }} catch(e) {{ window.location.hash = targetHash; }}
+        }}
+      }}
     }}
 
-    function changeModelsPage(page) {{
+    function changeModelsPage(page, pushHistory = true) {{
       currentModelsPage = page;
       renderModels();
       document.getElementById('modelsView')?.scrollIntoView({{ behavior: 'smooth' }});
+      if (pushHistory) {{
+        const targetHash = page > 1 ? '#/models?page=' + page : '#/models';
+        if (window.location.hash !== targetHash) {{
+          try {{ history.pushState({{ view: 'models', page: page }}, '', targetHash); }} catch(e) {{ window.location.hash = targetHash; }}
+        }}
+      }}
     }}
 
-    function changeNewsPage(page) {{
+    function changeNewsPage(page, pushHistory = true) {{
       currentNewsPage = page;
       renderNews();
       document.getElementById('newsView')?.scrollIntoView({{ behavior: 'smooth' }});
+      if (pushHistory) {{
+        const targetHash = page > 1 ? '#/news?page=' + page : '#/news';
+        if (window.location.hash !== targetHash) {{
+          try {{ history.pushState({{ view: 'news', page: page }}, '', targetHash); }} catch(e) {{ window.location.hash = targetHash; }}
+        }}
+      }}
     }}
 
-    function changeInboxPage(page) {{
+    function changeInboxPage(page, pushHistory = true) {{
       currentInboxPage = page;
       renderInbox();
       document.getElementById('inboxView')?.scrollIntoView({{ behavior: 'smooth' }});
+      if (pushHistory) {{
+        const targetHash = page > 1 ? '#/inbox?page=' + page : '#/inbox';
+        if (window.location.hash !== targetHash) {{
+          try {{ history.pushState({{ view: 'inbox', page: page }}, '', targetHash); }} catch(e) {{ window.location.hash = targetHash; }}
+        }}
+      }}
     }}
     let linkSelection = null;
     let nodeSelection = null;
@@ -1845,10 +1856,10 @@ def generate_html(data):
         btnAuto: "자동 트렌드",
         sortLabel: "정렬:",
         sortOptions: [
-          {{ val: "date-desc", text: "최신 조사일자순 (기본)" }},
-          {{ val: "date-asc", text: "과거 조사일자순" }},
-          {{ val: "score-desc", text: "높은 신뢰도순" }},
-          {{ val: "title-asc", text: "기술명 가나다순" }}
+          {{ val: "date-audit-desc", text: "🔬 분석일자 최신순 (기본)" }},
+          {{ val: "date-audit-asc", text: "🔬 분석일자 오래된순" }},
+          {{ val: "date-source-desc", text: "📅 원출처 발행 최신순" }},
+          {{ val: "date-source-asc", text: "📅 원출처 발행 오래된순" }}
         ],
         searchPlaceholder: "기술명, 아키텍처, 큐레이션 동기 검색...",
         domainLabel: "도메인:",
@@ -1930,10 +1941,10 @@ def generate_html(data):
         btnAuto: "自动趋势",
         sortLabel: "排序:",
         sortOptions: [
-          {{ val: "date-desc", text: "最新调查日期 (默认)" }},
-          {{ val: "date-asc", text: "最早调查日期" }},
-          {{ val: "score-desc", text: "最高可信度得分" }},
-          {{ val: "title-asc", text: "技术名称拼音/字母序" }}
+          {{ val: "date-audit-desc", text: "🔬 审核日期最新 (默认)" }},
+          {{ val: "date-audit-asc", text: "🔬 审核日期最早" }},
+          {{ val: "date-source-desc", text: "📅 原文发布最新" }},
+          {{ val: "date-source-asc", text: "📅 原文发布最早" }}
         ],
         searchPlaceholder: "搜索技术名、架构或策展动机...",
         domainLabel: "领域:",
@@ -2015,10 +2026,10 @@ def generate_html(data):
         btnAuto: "Auto Trends",
         sortLabel: "Sort:",
         sortOptions: [
-          {{ val: "date-desc", text: "Latest Audit Date (Default)" }},
-          {{ val: "date-asc", text: "Oldest Audit Date" }},
-          {{ val: "score-desc", text: "Highest Confidence Score" }},
-          {{ val: "title-asc", text: "Title (A to Z)" }}
+          {{ val: "date-audit-desc", text: "🔬 Audit Date (Newest first)" }},
+          {{ val: "date-audit-asc", text: "🔬 Audit Date (Oldest first)" }},
+          {{ val: "date-source-desc", text: "📅 Source Published (Newest first)" }},
+          {{ val: "date-source-asc", text: "📅 Source Published (Oldest first)" }}
         ],
         searchPlaceholder: "Search tech, architecture, or motivation...",
         domainLabel: "Domain:",
@@ -2089,8 +2100,129 @@ def generate_html(data):
       'inbox': '#/inbox'
     }};
 
+    // ================= GLOBAL SEARCH & FILTER RESET ENGINE =================
+    function resetAllFiltersAndSearch() {{
+      // 1. Reset Portfolio search & filters
+      currentPortfolioPage = 1;
+      searchQuery = '';
+      currentMode = 'ALL';
+      currentDomain = 'ALL';
+      currentSort = 'date-audit-desc';
+      const cInput = document.getElementById('searchInput');
+      if (cInput) cInput.value = '';
+      const cBtn = document.getElementById('clearSearchBtn');
+      if (cBtn) cBtn.classList.add('hidden');
+      const sortSel = document.getElementById('sortSelect');
+      if (sortSel) sortSel.value = 'date-audit-desc';
+      document.querySelectorAll('.tag-pill').forEach(b => {{
+        if (b.dataset.domain === 'ALL') b.classList.add('active');
+        else b.classList.remove('active');
+      }});
+      document.querySelectorAll('.segment-btn').forEach(b => b.classList.remove('active'));
+      const modeAll = document.getElementById('modeBtnAll');
+      if (modeAll) modeAll.classList.add('active');
+
+      // 2. Reset News search & filters
+      currentNewsPage = 1;
+      currentNewsSearch = '';
+      currentNewsTier1 = 'ALL';
+      currentNewsTier2 = 'ALL';
+      currentNewsSource = 'ALL';
+      currentNewsSort = 'date-audit-desc';
+      const nInput = document.getElementById('newsSearchInput');
+      if (nInput) nInput.value = '';
+      const nSort = document.getElementById('newsSortSelect');
+      if (nSort) nSort.value = 'date-audit-desc';
+      document.querySelectorAll('.news-cat-pill').forEach(btn => {{
+        if (btn.getAttribute('data-cat') === 'ALL') {{
+          btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+        }} else {{
+          btn.className = 'news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+      document.querySelectorAll('.news-t2-pill').forEach(btn => {{
+        if (btn.getAttribute('data-t2') === 'ALL') {{
+          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+        }} else {{
+          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+      const t2Container = document.getElementById('newsTier2Container');
+      if (t2Container) t2Container.classList.remove('opacity-40', 'pointer-events-none');
+      document.querySelectorAll('.news-src-btn').forEach(btn => {{
+        if (btn.getAttribute('data-src') === 'ALL') {{
+          btn.className = 'news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition';
+        }} else {{
+          btn.className = 'news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border';
+        }}
+      }});
+
+      // 3. Reset Models search & filters
+      currentModelsPage = 1;
+      modelsSearchQuery = '';
+      currentModelsFamily = 'ALL';
+      currentModelsModality = 'ALL';
+      currentModelsArtifact = 'ALL';
+      currentModelsSort = 'date-audit-desc';
+      const mInput = document.getElementById('modelsSearchInput');
+      if (mInput) mInput.value = '';
+      const mSort = document.getElementById('modelsSortSelect');
+      if (mSort) mSort.value = 'date-audit-desc';
+      document.querySelectorAll('.model-fam-pill').forEach(btn => {{
+        if (btn.getAttribute('data-fam') === 'ALL') {{
+          btn.className = 'model-fam-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+        }} else {{
+          btn.className = 'model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+      document.querySelectorAll('.model-mod-pill').forEach(btn => {{
+        if (btn.dataset.mod === 'ALL') {{
+          btn.className = 'model-mod-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+        }} else {{
+          btn.className = 'model-mod-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+      document.querySelectorAll('.model-art-pill').forEach(btn => {{
+        if (btn.getAttribute('data-art') === 'ALL') {{
+          btn.className = 'model-art-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm';
+        }} else {{
+          btn.className = 'model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+
+      // 4. Reset Inbox search & filters
+      currentInboxPage = 1;
+      inboxSearchQuery = '';
+      currentInboxSource = 'ALL';
+      currentInboxLang = 'ALL';
+      currentInboxType = 'ALL';
+      currentInboxTech = 'ALL';
+      currentInboxSort = 'date-audit-desc';
+      const iInput = document.getElementById('inboxSearchInput');
+      if (iInput) iInput.value = '';
+      const iSort = document.getElementById('inboxSortSelect');
+      if (iSort) iSort.value = 'date-audit-desc';
+      document.querySelectorAll('.inbox-src-pill').forEach(btn => {{
+        if (btn.getAttribute('data-src-val') === 'ALL') {{
+          btn.className = 'inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+        }} else {{
+          btn.className = 'inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+      document.querySelectorAll('.inbox-filter-pill').forEach(btn => {{
+        if (btn.dataset.langVal === 'ALL') {{
+          btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+        }} else {{
+          btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition';
+        }}
+      }});
+    }}
+
     // ================= VIEW SWITCHER (Clean 6 Core Tabs with History Support) =================
-    function switchView(view, pushHistory = true) {{
+    function switchView(view, pushHistory = true, preserveFilters = false) {{
+      if (!preserveFilters) {{
+        resetAllFiltersAndSearch();
+      }}
       currentView = view;
       const validViews = ['home', 'portfolio', 'news', 'models', 'graph', 'inbox'];
       if (!validViews.includes(view)) view = 'home';
@@ -2586,11 +2718,6 @@ def generate_html(data):
 
         if (items.length > 0) {{
           items.forEach((it, idx) => {{
-            const targetTab = it.is_model ? 'models' : 'news';
-            const tabName = it.is_model 
-              ? (currentLang === 'KO' ? 'AI 모델 탭' : (currentLang === 'ZH' ? 'AI 模型' : 'AI Models'))
-              : (currentLang === 'KO' ? '테크 동향 탭' : (currentLang === 'ZH' ? '科技动态' : 'Tech Trends'));
-
             // Distinct colored badge for each platform family
             let platformBadgeClass = 'bg-surface-subtle text-ink-primary border-surface-border';
             const pf = (it.platform_family || '').toLowerCase();
@@ -2606,13 +2733,10 @@ def generate_html(data):
               platformBadgeClass = 'bg-blue-50 text-blue-700 border-blue-200';
             }}
 
-            const escapedSearchKey = (it.search_key || it.title || '').replace(/'/g, "\\'");
-            const escapedInboxId = (it.inbox_id || '').replace(/'/g, "\\'");
-
             const itemCard = document.createElement('div');
             itemCard.className = 'group p-2.5 rounded-xl bg-surface-subtle border border-surface-border hover:border-emerald-400 hover:bg-white transition flex flex-col gap-1.5';
             itemCard.innerHTML = `
-              <!-- Header Strip: Platform Badge, Viral Badge, FactCheck Badge, External Link -->
+              <!-- Header Strip: Platform Badge, Viral Badge, FactCheck Badge, Direct External Link -->
               <div class="flex items-start justify-between gap-2">
                 <div class="flex items-center gap-1.5 flex-wrap">
                   <span class="w-5 h-5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center font-mono font-bold text-[10px] shrink-0">0${{idx + 1}}</span>
@@ -2621,28 +2745,25 @@ def generate_html(data):
                 </div>
                 <div class="flex items-center gap-1.5 shrink-0">
                   ${{it.case_id ? `
-                    <button onclick="openCaseModal('${{it.case_id}}')" class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-300 hover:bg-emerald-200 flex items-center gap-1 transition">
+                    <button onclick="openCaseModal('${{it.case_id}}')" class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-300 hover:bg-emerald-200 flex items-center gap-1 transition cursor-pointer">
                       <i data-lucide="shield-check" class="w-3 h-3"></i>
                       팩트체크
                     </button>
                   ` : ''}}
-                  <a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="p-1 text-ink-muted hover:text-emerald-600 transition" title="원천 소스 링크 열기">
-                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                  </a>
                 </div>
               </div>
 
-              <!-- Unified Single Clickable Target: Title + Tab Destination Indicator -->
-              <div class="cursor-pointer group/title" onclick="navigateFromRadar('${{targetTab}}', '${{escapedSearchKey}}', '${{escapedInboxId}}')">
+              <!-- Direct Original Source Link: Title + '원문 보러가기' Indicator -->
+              <a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="group/title block">
                 <div class="text-xs font-bold text-ink-primary group-hover/title:text-emerald-700 transition flex items-start justify-between gap-2 leading-snug">
                   <span class="line-clamp-1">${{it.title}}</span>
-                  <span class="text-[10px] font-mono font-semibold text-indigo-600 shrink-0 flex items-center gap-0.5 opacity-80 group-hover/title:opacity-100 mt-0.5">
-                    <span>${{tabName}}</span>
-                    <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                  <span class="text-[11px] font-mono font-bold text-emerald-700 shrink-0 flex items-center gap-1 opacity-90 group-hover/title:opacity-100 mt-0.5 bg-emerald-50 hover:bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300 transition">
+                    <span>${{currentLang === 'KO' ? '원문 보러가기' : (currentLang === 'ZH' ? '查看原文' : 'View Source')}}</span>
+                    <i data-lucide="external-link" class="w-3 h-3"></i>
                   </span>
                 </div>
                 ${{it.summary ? `<p class="text-[11px] text-ink-muted truncate leading-relaxed mt-1">${{it.summary}}</p>` : ''}}
-              </div>
+              </a>
             `;
             bulletsContainer.appendChild(itemCard);
           }});
@@ -2750,25 +2871,30 @@ def generate_html(data):
         return matchesMode && matchesDomain && matchesSearch;
       }});
 
-      // 🌟 Precision DateTime Sorting (Default: Investigation Date DESC + Case ID Tie-breaker)
+      // 🌟 Precision DateTime Sorting (Default: AI Audit Date DESC)
       filtered.sort((a, b) => {{
-        if (currentSort === 'date-source-desc' || currentSort === 'date-desc') {{
-          const dateA = a.investigation_date || (a.source_published_date ? a.source_published_date.slice(0, 10) : '');
-          const dateB = b.investigation_date || (b.source_published_date ? b.source_published_date.slice(0, 10) : '');
-          if (dateB !== dateA) return dateB.localeCompare(dateA);
+        if (currentSort === 'date-audit-desc' || currentSort === 'date-desc') {{
+          const diff = parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
+          if (diff !== 0) return diff;
+          return (b.case_id || '').localeCompare(a.case_id || '');
+        }}
+        if (currentSort === 'date-audit-asc') {{
+          const diff = parseItemTimestamp(a, 'audit') - parseItemTimestamp(b, 'audit');
+          if (diff !== 0) return diff;
+          return (a.case_id || '').localeCompare(b.case_id || '');
+        }}
+        if (currentSort === 'date-source-desc') {{
+          const diff = parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
+          if (diff !== 0) return diff;
           return (b.case_id || '').localeCompare(a.case_id || '');
         }}
         if (currentSort === 'date-source-asc' || currentSort === 'date-asc') {{
-          const dateA = a.investigation_date || (a.source_published_date ? a.source_published_date.slice(0, 10) : '');
-          const dateB = b.investigation_date || (b.source_published_date ? b.source_published_date.slice(0, 10) : '');
-          if (dateA !== dateB) return dateA.localeCompare(dateB);
+          const diff = parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
+          if (diff !== 0) return diff;
           return (a.case_id || '').localeCompare(b.case_id || '');
         }}
-        if (currentSort === 'score-desc') return (b.confidence_score || 0) - (a.confidence_score || 0);
-        if (currentSort === 'title-asc') return (a.title || '').localeCompare(b.title || '');
-        const dateA = a.investigation_date || (a.source_published_date ? a.source_published_date.slice(0, 10) : '');
-        const dateB = b.investigation_date || (b.source_published_date ? b.source_published_date.slice(0, 10) : '');
-        if (dateB !== dateA) return dateB.localeCompare(dateA);
+        const diff = parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
+        if (diff !== 0) return diff;
         return (b.case_id || '').localeCompare(a.case_id || '');
       }});
 
@@ -3096,7 +3222,7 @@ def generate_html(data):
         }}
 
         if (targetCaseId) {{
-          switchView('portfolio', false);
+          switchView('portfolio', false, true);
           const target = (liveCasesData || []).find(c => c.case_id === targetCaseId || c.investigation_id === targetCaseId) || (casesData || []).find(c => c.case_id === targetCaseId);
           if (target) {{
             openModal(target, false);
@@ -3108,19 +3234,47 @@ def generate_html(data):
       // If modal is open and user navigates back to tab without modal query, close modal
       closeModal(false);
 
-      // 2. Tab Navigation Routing
-      if (hash.startsWith('#/factchecks') || hash.startsWith('#factchecks') || hash.startsWith('#/portfolio')) {{
-        switchView('portfolio', false);
-      }} else if (hash.startsWith('#/news') || hash.startsWith('#news')) {{
-        switchView('news', false);
-      }} else if (hash.startsWith('#/models') || hash.startsWith('#models')) {{
-        switchView('models', false);
-      }} else if (hash.startsWith('#/graph') || hash.startsWith('#graph')) {{
-        switchView('graph', false);
-      }} else if (hash.startsWith('#/inbox') || hash.startsWith('#inbox')) {{
-        switchView('inbox', false);
+      // 2. Parse Route and Query Page
+      const [routePart, queryPart] = hash.split('?');
+      const params = new URLSearchParams(queryPart || '');
+      const pageParam = parseInt(params.get('page'), 10) || 1;
+
+      let targetView = 'home';
+      if (routePart.startsWith('#/factchecks') || routePart.startsWith('#factchecks') || routePart.startsWith('#/portfolio')) {{
+        targetView = 'portfolio';
+      }} else if (routePart.startsWith('#/news') || routePart.startsWith('#news')) {{
+        targetView = 'news';
+      }} else if (routePart.startsWith('#/models') || routePart.startsWith('#models')) {{
+        targetView = 'models';
+      }} else if (routePart.startsWith('#/graph') || routePart.startsWith('#graph')) {{
+        targetView = 'graph';
+      }} else if (routePart.startsWith('#/inbox') || routePart.startsWith('#inbox')) {{
+        targetView = 'inbox';
       }} else {{
-        switchView('home', false);
+        targetView = 'home';
+      }}
+
+      if (currentView !== targetView) {{
+        switchView(targetView, false, false);
+      }}
+
+      // 3. Apply Page State to Active View (Enables Back/Forward Through Pages)
+      if (targetView === 'news') {{
+        if (currentNewsPage !== pageParam) {{
+          changeNewsPage(pageParam, false);
+        }}
+      }} else if (targetView === 'portfolio') {{
+        if (currentPortfolioPage !== pageParam) {{
+          changePortfolioPage(pageParam, false);
+        }}
+      }} else if (targetView === 'models') {{
+        if (currentModelsPage !== pageParam) {{
+          changeModelsPage(pageParam, false);
+        }}
+      }} else if (targetView === 'inbox') {{
+        if (currentInboxPage !== pageParam) {{
+          changeInboxPage(pageParam, false);
+        }}
       }}
     }}
 
@@ -3134,7 +3288,7 @@ def generate_html(data):
     let currentNewsTier1 = 'ALL';
     let currentNewsTier2 = 'ALL';
     let currentNewsSource = 'ALL';
-    let currentNewsSort = 'date-source-desc';
+    let currentNewsSort = 'date-audit-desc';
     let currentNewsSearch = '';
 
     function setNewsCategoryFilter(t1) {{
@@ -3207,8 +3361,123 @@ def generate_html(data):
           btn.className = 'news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border';
         }}
       }});
-      renderNews();
+    // 🌟 Scalable Multi-Source Cross-Platform Clustering UX Engine
+    function buildMultiSourceCluster(sources, rawItemId) {{
+      if (!sources || sources.length === 0) return '';
+      const total = sources.length;
+      const safeId = 'src_' + String(rawItemId || Math.random()).replace(/[^a-zA-Z0-9_-]/g, '_');
+
+      function getSourceMeta(s) {{
+        const p = (s.platform || s.source_name || '').toLowerCase();
+        const u = s.url || '#';
+        let icon = '📄';
+        let label = s.source_name || (currentLang === 'KO' ? '원문' : 'Source');
+        let badgeCls = 'bg-surface-subtle text-ink-secondary hover:text-ink-primary border-surface-border';
+
+        if (p.includes('hacker news') || u.includes('ycombinator')) {{
+          icon = '🔥';
+          label = currentLang === 'KO' ? 'HN 토론' : 'HN';
+          badgeCls = 'bg-orange-50 text-orange-800 hover:text-orange-950 border-orange-200';
+        }} else if (p.includes('geeknews') || u.includes('hada.io')) {{
+          icon = '💬';
+          label = currentLang === 'KO' ? '긱뉴스' : 'GeekNews';
+          badgeCls = 'bg-indigo-50 text-indigo-800 hover:text-indigo-950 border-indigo-200';
+        }} else if (p.includes('reddit')) {{
+          icon = '🤖';
+          label = currentLang === 'KO' ? '레딧' : 'Reddit';
+          badgeCls = 'bg-red-50 text-red-800 hover:text-red-950 border-red-200';
+        }} else if (p.includes('github')) {{
+          icon = '🐙';
+          label = 'GitHub';
+          badgeCls = 'bg-slate-100 text-slate-800 hover:text-slate-950 border-slate-300';
+        }} else if (p.includes('hugging')) {{
+          icon = '🤗';
+          label = 'HuggingFace';
+          badgeCls = 'bg-amber-50 text-amber-900 hover:text-amber-950 border-amber-200';
+        }} else if (p.includes('arxiv')) {{
+          icon = '📑';
+          label = 'ArXiv';
+          badgeCls = 'bg-rose-50 text-rose-900 hover:text-rose-950 border-rose-200';
+        }} else if (p.includes('twitter') || p.includes(' x') || u.includes('x.com') || u.includes('twitter.com')) {{
+          icon = '𝕏';
+          label = 'X (트위터)';
+          badgeCls = 'bg-zinc-100 text-zinc-800 hover:text-zinc-950 border-zinc-300';
+        }}
+
+        return {{ icon, label, badgeCls, url: u }};
+      }}
+
+      if (total <= 2) {{
+        let html = `<div class="flex items-center gap-1.5 flex-wrap">`;
+        html += `<span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-200 shrink-0">🔗 ${{currentLang === 'KO' ? `출처 ${{total}}개 묶음` : (currentLang === 'ZH' ? `聚合${{total}}个来源` : `${{total}} Sources`)}}</span>`;
+        sources.forEach(s => {{
+          const meta = getSourceMeta(s);
+          html += `<a href="${{meta.url}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${{meta.badgeCls}} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs">${{meta.icon}} ${{meta.label}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+        }});
+        html += `</div>`;
+        return html;
+      }}
+
+      // 🌟 Scalable Multi-Source UX: Top 2 visible + '+N개 더보기' floating dropdown popover
+      const primarySources = sources.slice(0, 2);
+      const remainingSources = sources.slice(2);
+
+      let html = `<div class="flex items-center gap-1.5 flex-wrap relative">`;
+      html += `<span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-200 shrink-0">🔗 ${{currentLang === 'KO' ? `출처 ${{total}}개 묶음` : (currentLang === 'ZH' ? `聚合${{total}}个来源` : `${{total}} Sources`)}}</span>`;
+      primarySources.forEach(s => {{
+        const meta = getSourceMeta(s);
+        html += `<a href="${{meta.url}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${{meta.badgeCls}} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs">${{meta.icon}} ${{meta.label}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+      }});
+
+      html += `
+        <div class="relative inline-block src-dropdown-container">
+          <button type="button" onclick="toggleSourcePopover(event, '${{safeId}}')" class="px-2 py-1 rounded-md bg-amber-100 hover:bg-amber-200 text-amber-950 border border-amber-300 text-[11px] font-bold flex items-center gap-1 shrink-0 transition cursor-pointer shadow-xs" title="전체 교차 출처 보기">
+            <span>+${{remainingSources.length}}${{currentLang === 'KO' ? '개 더보기' : (currentLang === 'ZH' ? '个更多' : ' more')}}</span>
+            <i data-lucide="chevron-down" class="w-3 h-3"></i>
+          </button>
+          <div id="srcMenu_${{safeId}}" class="hidden absolute right-0 bottom-full mb-1.5 w-64 bg-white rounded-xl shadow-xl border border-surface-border p-2.5 z-50 text-xs flex flex-col gap-1.5">
+            <div class="text-[10px] font-mono font-bold text-ink-muted px-1.5 pb-1 border-b border-surface-border flex items-center justify-between">
+              <span>🔗 ${{currentLang === 'KO' ? `전체 교차 출처 (${{total}}개)` : (currentLang === 'ZH' ? `全部聚合来源 (${{total}}个)` : `All Sources (${{total}})`)}}</span>
+              <span class="text-indigo-600 text-[9px] font-semibold">${{currentLang === 'KO' ? '원문 이동' : (currentLang === 'ZH' ? '直达原文' : 'Open')}} &nearr;</span>
+            </div>
+            <div class="max-h-48 overflow-y-auto space-y-1 divide-y divide-surface-border/40">
+              ${{sources.map(s => {{
+                const meta = getSourceMeta(s);
+                return `
+                  <a href="${{meta.url}}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-subtle transition group text-xs text-ink-primary pt-1">
+                    <span class="flex items-center gap-1.5 truncate">
+                      <span class="shrink-0">${{meta.icon}}</span>
+                      <span class="font-bold group-hover:text-indigo-600 truncate">${{meta.label}}</span>
+                    </span>
+                    <i data-lucide="external-link" class="w-3 h-3 text-ink-muted group-hover:text-indigo-600 shrink-0 ml-2"></i>
+                  </a>
+                `;
+              }}).join('')}}
+            </div>
+          </div>
+        </div>
+      `;
+      html += `</div>`;
+      return html;
     }}
+
+    function toggleSourcePopover(e, safeId) {{
+      e.stopPropagation();
+      const menu = document.getElementById('srcMenu_' + safeId);
+      if (!menu) return;
+      const isHidden = menu.classList.contains('hidden');
+      document.querySelectorAll('[id^="srcMenu_"]').forEach(el => el.classList.add('hidden'));
+      if (isHidden) {{
+        menu.classList.remove('hidden');
+        if (window.lucide) window.lucide.createIcons();
+      }}
+    }}
+
+    document.addEventListener('click', (e) => {{
+      if (!e.target.closest('.src-dropdown-container')) {{
+        document.querySelectorAll('[id^="srcMenu_"]').forEach(el => el.classList.add('hidden'));
+      }}
+    }});
 
     function renderNews() {{
       const grid = document.getElementById('newsGrid');
@@ -3353,20 +3622,7 @@ def generate_html(data):
 
         let linksHtml = '';
         if (it.sources && it.sources.length > 1) {{
-          linksHtml += `<span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-200 shrink-0">🔗 ${{currentLang === 'KO' ? `출처 ${{it.sources.length}}개 묶음` : (currentLang === 'ZH' ? `聚合${{it.sources.length}}个来源` : `${{it.sources.length}} Sources`)}}</span>`;
-          it.sources.forEach(s => {{
-            const p = (s.platform || s.source_name || '').toLowerCase();
-            const u = s.url || '#';
-            if (p.includes('hacker news') || u.includes('ycombinator')) {{
-              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-orange-50 text-orange-800 hover:text-orange-950 border border-orange-200 text-[11px] font-bold flex items-center gap-1 shrink-0">🔥 ${{currentLang === 'KO' ? 'HN 토론' : 'HN'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-            }} else if (p.includes('geeknews') || u.includes('hada.io')) {{
-              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-indigo-50 text-indigo-800 hover:text-indigo-950 border border-indigo-200 text-[11px] font-bold flex items-center gap-1 shrink-0">💬 ${{currentLang === 'KO' ? '긱뉴스 토론' : 'GeekNews'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-            }} else if (p.includes('reddit')) {{
-              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-red-50 text-red-800 hover:text-red-950 border border-red-200 text-[11px] font-bold flex items-center gap-1 shrink-0">🤖 ${{currentLang === 'KO' ? '레딧 반응' : 'Reddit'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-            }} else {{
-              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1 shrink-0">📄 ${{s.source_name || '원문'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-            }}
-          }});
+          linksHtml = buildMultiSourceCluster(it.sources, it.inbox_id || it.id);
         }} else if (isHn) {{
           if (articleUrl && articleUrl !== hnUrl) {{
             linksHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1 shrink-0">📄 ${{currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
@@ -3527,7 +3783,7 @@ def generate_html(data):
     let currentModelsFamily = 'ALL';
     let currentModelsModality = 'ALL';
     let currentModelsArtifact = 'ALL';
-    let currentModelsSort = 'date-source-desc';
+    let currentModelsSort = 'date-audit-desc';
     let modelsSearchQuery = '';
 
     function setModelsSort(sort) {{
@@ -3874,7 +4130,7 @@ def generate_html(data):
       return normScore;
     }}
 
-    let currentInboxSort = 'date-source-desc';
+    let currentInboxSort = 'date-audit-desc';
 
     function setInboxSort(val) {{
       currentInboxPage = 1;
@@ -3980,24 +4236,22 @@ def generate_html(data):
         return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
       }});
 
-      // 🌟 Precision DateTime Sorting (Default: Source Date/Time DESC)
+      // 🌟 Precision DateTime Sorting (Default: AI Audit Date DESC)
       filtered.sort((a, b) => {{
-        if (currentInboxSort === 'date-source-desc' || currentInboxSort === 'date-desc') {{
-          return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
-        }} else if (currentInboxSort === 'date-source-asc' || currentInboxSort === 'date-asc') {{
-          return parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
-        }} else if (currentInboxSort === 'date-audit-desc') {{
+        if (currentInboxSort === 'date-audit-desc') {{
           return parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
         }} else if (currentInboxSort === 'date-audit-asc') {{
           return parseItemTimestamp(a, 'audit') - parseItemTimestamp(b, 'audit');
+        }} else if (currentInboxSort === 'date-source-desc' || currentInboxSort === 'date-desc') {{
+          return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
+        }} else if (currentInboxSort === 'date-source-asc' || currentInboxSort === 'date-asc') {{
+          return parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
         }} else if (currentInboxSort === 'viral-desc') {{
           return calculateStandardizedViralScore(b) - calculateStandardizedViralScore(a);
         }} else if (currentInboxSort === 'viral-asc') {{
           return calculateStandardizedViralScore(a) - calculateStandardizedViralScore(b);
-        }} else if (currentInboxSort === 'title-asc') {{
-          return (a.title || '').localeCompare(b.title || '');
         }}
-        return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
+        return parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
       }});
 
       const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
@@ -4082,18 +4336,7 @@ def generate_html(data):
 
         let inboxSourceLinks = '';
         if (it.sources && it.sources.length > 1) {{
-          inboxSourceLinks = `<div class="flex items-center gap-1.5 flex-wrap">`;
-          inboxSourceLinks += `<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-200">🔗 ${{currentLang === 'KO' ? `출처 ${{it.sources.length}}개 묶음` : `${{it.sources.length}} Sources`}}</span>`;
-          it.sources.forEach(s => {{
-            const p = (s.platform || s.source_name || '').toLowerCase();
-            const u = s.url || '#';
-            let badgeText = s.source_name || '원문';
-            if (p.includes('hacker news') || u.includes('ycombinator')) badgeText = 'HN 토론';
-            else if (p.includes('geeknews') || u.includes('hada.io')) badgeText = '긱뉴스';
-            else if (p.includes('reddit')) badgeText = '레딧';
-            inboxSourceLinks += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1">🔗 ${{badgeText}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-          }});
-          inboxSourceLinks += `</div>`;
+          inboxSourceLinks = buildMultiSourceCluster(it.sources, it.inbox_id || it.id);
         }} else {{
           inboxSourceLinks = `
           <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1">
