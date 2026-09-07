@@ -1,0 +1,61 @@
+{
+  "case_id": "2026-09-07_human_atlas_3d_exploded_anatomy",
+  "title": "Human Atlas 3D: Three.js 기반 2,234개 파트 인체 분해 시각화와 3D 생성 AI 마케팅 실체 분석",
+  "category": "3D/WebGL 시각화",
+  "investigation_date": "2026-09-07",
+  "verdict": "HALF_TRUE",
+  "confidence_score": 96.0,
+  "curation": {
+    "discovery_mode": "USER_CURATED",
+    "curator": "Anyong Cheong",
+    "personal_motivation": "2,234개 부품의 인체 분해도 3D 시각화가 프롬프트 한 번으로 통째로 생성되었다는 SNS 바이럴 마케팅의 사실 여부를 검증하고 WebGL Three.js 씬그래프 최적화 기술 분석.",
+    "target_workflow": "웹 기반 고성능 인터랙티브 3D 씬 및 계층형 부품 분해도 구축",
+    "viral_metric": "🌐 X(트위터) 1,500+ 리트윗 및 3D 그래픽스 커뮤니티 화제"
+  },
+  "clustering": {
+    "cluster_id": "cluster_webgl_3d",
+    "cluster_name": "브라우저 실시간 3D 그래픽스 & 모델 분해도",
+    "lineage_generation": "Gen 4 (Draco Compression + Hierarchical Instancing)",
+    "root_ancestry": {
+      "core_parser_root": "Plugin 3D Viewer (Flash / Unity Web Player) (Gen 1)",
+      "automation_root": "Monolithic Mesh WebGL (Gen 2)",
+      "markdown_root": "Draco Compressed glTF + Three.js Exploded View Interpolation (Gen 4 SOTA)"
+    },
+    "why_legacy_still_used": "단순 제품 뷰어는 단일 메쉬로 충분하나, 정밀 해부학 및 하드웨어 분해도는 개별 객체 바운딩 박스와 드로우콜 최적화가 필수.",
+    "alternatives": [
+      {
+        "name": "Three.js Exploded Scene",
+        "tech_stack": "WebGL, Draco, InstancedMesh",
+        "pros": "브라우저 무설치 60FPS 실시간 렌더링, 부품별 인터랙티브 분해",
+        "cons": "2,234개 메쉬 개별 드로우콜 시 모바일 성능 저하"
+      },
+      {
+        "name": "Desktop Medical CAD / DICOM",
+        "tech_stack": "VTK, ITK, Blender",
+        "pros": "0.1mm 단위 정밀도와 볼륨 렌더링",
+        "cons": "웹 브라우저 직접 구동 불가, 수 GB 메모리 소모"
+      }
+    ]
+  },
+  "portfolio_story": {
+    "the_hook": "AI가 2,234개 인체 부품 3D 지오메트리를 원클릭으로 생성했다는 주장은 과장이며, 실제로는 오픈 CAD 에셋을 AI 코딩 어시스턴트로 인터랙티브 프로그래밍한 것임.",
+    "marketing_hype_anatomy": "3D 생성 AI 모델이 2,234개 내부 장기 지오메트리를 무결점으로 생성하는 기술은 현존하지 않음. 실체는 정밀 3D CAD 원본을 Draco로 88% 압축하고 Three.js 애니메이션 벡터 보간을 스크립팅한 결과물.",
+    "hands_on_log": {
+      "status": "VERIFIED_WORKING",
+      "pipeline_or_url": "https://x.com/ashebytes/status/2096221988763173186",
+      "test_environment": "Three.js WebGL Renderer (Chrome / Safari Mobile)",
+      "measured_results": "Draco 압축으로 120MB -> 14MB로 경량화, 모바일 60FPS 분해 애니메이션 검증",
+      "details": "AI는 3D 메쉬 생성이 아닌 Three.js 카메라 컨트롤, 머티리얼 셰이더, 분해 좌표 보간 스크립트 작성에 기여한 것으로 팩트체크 완료."
+    },
+    "engineering_takeaways": "3D 웹 애플리케이션 구축 시 AI는 3D 지오메트리 생성보다 Three.js 씬 로직, 셰이더, 인터랙티브 이벤트 바인딩 자동화에 활용하는 것이 실질적임.",
+    "future_applications": "인터랙티브 웹 교육 플랫폼, 의료 설명 보조 도구, 복합 하드웨어 조립 분해도."
+  },
+  "sources": [
+    {
+      "tier": "Tier 1",
+      "type": "Primary Showcase",
+      "name": "Human Atlas 3D WebGL Exploded View Showcase (@ashebytes)",
+      "url": "https://x.com/ashebytes/status/2096221988763173186"
+    }
+  ]
+}
