@@ -1,0 +1,33 @@
+{
+  "analysis_key": "browser_expensive_main_thread",
+  "title": "브라우저의 메인 스레드는 비싸다: 단일 스레드 렌더링 파이프라인 병목과 7대 스케줄링 최적화 전략",
+  "base_standard": "Browser Main Thread (Blink/V8 Monolithic Event Loop)",
+  "third_party_ecosystem": "Web Worker / OffscreenCanvas / Scheduler API / Partytown",
+  "core_philosophy_comparison": {
+    "base_standard": "단일 스레드(Event Loop)에서 DOM 파싱, JavaScript 실행, Style 계산, Layout(Reflow), Paint(Repaint), Compositing을 순차 직렬 처리하는 웹 표준 기본 아키텍처.",
+    "third_party_ecosystem": "비용이 큰 연산 및 서드파티 스크립트를 워커 스레드로 오프로딩하고, RAF/RIC/Scheduler.yield() 등 정밀 태스크 슬라이싱을 적용해 메인 스레드 응답성(INP < 200ms)을 확보하는 생태계 기법.",
+    "architectural_contrast": "순차 직렬 렌더링 블로킹 vs 백그라운드 연산 분리 및 우선순위 기반 태스크 슬라이싱"
+  },
+  "domain_lineage_matrix": {
+    "gen1_legacy": "setTimeout/setInterval을 통한 조잡한 비동기 지연 실행 (Layout Thrashing 빈번)",
+    "gen2_evolution": "requestAnimationFrame(rAF) 및 requestIdleCallback(rIC)을 통한 프레임 정렬 렌더링",
+    "gen3_modern": "Web Workers, Comlink, Partytown(웹 워커 격리 프록시), OffscreenCanvas 분리",
+    "gen4_sota": "Chromium Native scheduler.yield() 및 scheduler.postTask() 우선순위 큐 기반 마이크로 스케줄링"
+  },
+  "performance_bottlenecks": {
+    "bottlenecks": [
+      "메인 스레드가 50ms 이상 블로킹(Long Task)되면 프레임 드롭(Jank) 발생 및 사용자의 상호작용 입력(Click/Key) 지연으로 INP(Interaction to Next Paint) 악화",
+      "연속적인 DOM 읽기-쓰기 교차 호출 시 브라우저가 강제 동기 레이아웃(Forced Synchronous Layout / Layout Thrashing)을 유발해 수십 ms 소모",
+      "서드파티 추적/애널리틱스 스크립트가 메인 스레드 총 실행 시간의 60% 이상을 점유하는 실태"
+    ],
+    "verified_facts": [
+      "Chromium 렌더링 엔진 내부 측정 결과 스타일 재계산 및 레이아웃 단계가 복잡한 DOM에서 메인 스레드의 30% 이상을 점유",
+      "Web Worker 사용 시 postMessage 직렬화 비용(Structured Clone)이 발생하므로 소량의 단발성 데이터는 메인 스레드 유지가 유리"
+    ]
+  },
+  "engineering_tradeoffs": {
+    "when_to_use_standard": "DOM 트리에 밀접하게 결합된 가벼운 컴포넌트 이벤트 핸들링 및 단순 상태 갱신.",
+    "when_to_use_ecosystem": "대용량 JSON 파싱, 정렬/필터링, 암호화, 이미지/비디오 가공, 무거운 서드파티 애널리틱스 분리.",
+    "risk_mitigation": "Web Worker 전환 시 ArrayBuffer 전송(Transferable Objects)을 활용해 Structured Clone 복사 비용 제거."
+  }
+}

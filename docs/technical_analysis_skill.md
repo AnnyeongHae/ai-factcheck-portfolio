@@ -48,3 +48,27 @@
 2. **진화 사슬 매트릭스 (Lineage Evolution Matrix)**: 표준 내장 모듈 vs 1~3세대 서드파티 도구 비교표.
 3. **심층 아키텍처 비교**: 성능, 메모리, 병렬성 메커니즘 분석.
 4. **엔지니어링 의사결정 매트릭스**: 어떤 환경에서 표준 모듈을 고수하고, 어떤 환경에서 서드파티를 채택해야 하는가?
+
+---
+
+## 4. 💾 데이터베이스 영구 동기화 필수 원칙 (Mandatory Neon DB Persistence)
+
+> [!IMPORTANT]
+> **분석이 완료된 모든 기술 안건은 대화창 답변으로 끝내서는 안 되며, 반드시 데이터베이스에 영구 동기화되어야 한다.**
+
+1. **로컬 지식 파일 저장**:
+   - 분석 결과 데이터 객체(JSON)를 `docs/<analysis_key>_analysis.json` 경로에 규격화하여 영구 저장한다.
+2. **Neon PostgreSQL DB 즉시 UPSERT**:
+   - `tools/db_bridge.py`의 `load_env_db_url()`을 통해 Neon DB에 연결한다.
+   - `ecosystem_technical_analyses` 테이블(또는 `verified_factchecks`)에 `analysis_key`를 기준으로 `INSERT ... ON CONFLICT (analysis_key) DO UPDATE` 쿼리를 실행한다.
+3. **필수 필드 규격**:
+   - `analysis_key`: 고유 식별자 (예: `spotify_claude_code_token_shunt`)
+   - `title`: 국문 전체 정식 명칭
+   - `base_standard`: 비교 기준이 되는 표준/모놀리식 플랫폼
+   - `third_party_ecosystem`: 확장 생태계 및 최적화 솔루션
+   - `core_philosophy_comparison` (JSONB): 철학/설계 차이
+   - `domain_lineage_matrix` (JSONB): 세대별 진화 사슬
+   - `performance_bottlenecks` (JSONB): 검증된 팩트 및 한계/트레이드오프
+   - `engineering_tradeoffs` (JSONB): 채택 기준 (when to use / when to avoid)
+4. **동기화 실패 방지**:
+   - DB URL이 없을 경우 경고를 명시하고, 연결 성공 시 커밋 후 동기화 완료 건수를 반드시 사용자에게 보고한다.
