@@ -445,8 +445,7 @@ def build_dashboard():
             "name": "1회차 (심야)",
             "short_name": "1회 00시",
             "hour": 0,
-            "window_label": "00:00 ~ 06:00 KST",
-            "window_period": "심야 글로벌 실리콘밸리 릴리스 & 오픈소스 코어",
+            "time_range": "00:00 ~ 06:00 KST",
             "targets": ["GitHub", "HackerNews", "HuggingFace"]
         },
         {
@@ -454,8 +453,7 @@ def build_dashboard():
             "name": "2회차 (오전)",
             "short_name": "2회 06시",
             "hour": 6,
-            "window_label": "06:00 ~ 12:00 KST",
-            "window_period": "모닝 브리핑 & 유럽 연구 논문 레이더",
+            "time_range": "06:00 ~ 12:00 KST",
             "targets": ["ArXiv", "GitHub", "HuggingFace"]
         },
         {
@@ -463,8 +461,7 @@ def build_dashboard():
             "name": "3회차 (오후)",
             "short_name": "3회 12시",
             "hour": 12,
-            "window_label": "12:00 ~ 18:00 KST",
-            "window_period": "정오 레이더 & 고바이럴 SOTA 모델 / 프레임워크",
+            "time_range": "12:00 ~ 18:00 KST",
             "targets": ["HuggingFace", "GitHub", "GeekNews"]
         },
         {
@@ -472,8 +469,7 @@ def build_dashboard():
             "name": "4회차 (저녁)",
             "short_name": "4회 18시",
             "hour": 18,
-            "window_label": "18:00 ~ 24:00 KST",
-            "window_period": "저녁 라운드업 & 인프라 시스템 결산",
+            "time_range": "18:00 ~ 24:00 KST",
             "targets": ["HackerNews", "GitHub", "HuggingFace"]
         }
     ]
@@ -483,20 +479,55 @@ def build_dashboard():
 
     for s_def in sessions_def:
         s_num = s_def["num"]
+        s_hour = s_def["hour"]
         is_cur = (s_num == current_session_num)
-        is_fut = (s_def["hour"] > current_hour_kst)
+        is_fut = (s_hour > current_hour_kst)
         status = "active" if is_cur else ("upcoming" if is_fut else "completed")
+
+        # Determine target date and window label for this session
+        if is_fut:
+            target_date_str = yesterday_kst_str
+            target_d_obj = now_kst - datetime.timedelta(days=1)
+            window_label = f"{target_d_obj.month}월 {target_d_obj.day}일 {s_def['time_range']}"
+        else:
+            target_date_str = today_kst_str
+            target_d_obj = now_kst
+            window_label = f"{target_d_obj.month}월 {target_d_obj.day}일 {s_def['time_range']}"
+
+        # Build candidate pool prioritized for this session's time window
+        session_candidates = []
+        for it in all_candidate_pool:
+            d_it = get_item_date_str(it)
+            raw = str(it.get("harvested_at") or it.get("published_at") or it.get("created_at") or "")
+            it_hour = 12
+            m = re.search(r'[T\s](\d{2}):', raw)
+            if m:
+                try: it_hour = int(m.group(1))
+                except Exception: pass
+
+            if d_it == target_date_str and s_hour <= it_hour < s_hour + 6:
+                priority = 1
+            elif d_it == target_date_str:
+                priority = 2
+            elif d_it in [today_kst_str, yesterday_kst_str]:
+                priority = 3
+            else:
+                priority = 4
+            session_candidates.append((priority, compute_viral_weight(it), it))
+
+        session_candidates.sort(key=lambda x: (x[0], -x[1]))
+        candidate_items = [x[2] for x in session_candidates]
 
         picked_items = []
         for tp in s_def["targets"]:
-            for it in all_candidate_pool:
+            for it in candidate_items:
                 iid = it.get("inbox_id") or it.get("title")
                 if iid in used_inbox_ids: continue
                 if get_platform_family(it) == tp:
                     picked_items.append(it)
                     used_inbox_ids.add(iid)
                     break
-        for it in all_candidate_pool:
+        for it in candidate_items:
             if len(picked_items) >= 3: break
             iid = it.get("inbox_id") or it.get("title")
             if iid in used_inbox_ids: continue
@@ -505,7 +536,6 @@ def build_dashboard():
 
         session_bullets = []
         session_items_data = []
-        session_tags = set()
 
         for it in picked_items:
             t_ko = it.get("multilingual", {}).get("ko", {}).get("title") or it.get("title_ko") or it.get("title") or ""
@@ -515,8 +545,8 @@ def build_dashboard():
             vm = it.get("viral_metric") or ""
             summ = (it.get("ai_enrichment") or {}).get("summary_ko") or it.get("summary_ko") or it.get("hook_ko") or it.get("description") or ""
             summ_clean = summ.replace('\n', ' ').strip()
-            if len(summ_clean) > 85:
-                summ_clean = summ_clean[:82] + "..."
+            if len(summ_clean) > 75:
+                summ_clean = summ_clean[:72] + "..."
 
             search_k = extract_search_key(it)
             is_model = is_model_item(it)
@@ -538,28 +568,16 @@ def build_dashboard():
             if vm: session_bullets.append(f"🔥 [{plat}] {t_clean[:45]} ({vm}) — {summ_clean}")
             else: session_bullets.append(f"🚀 [{plat}] {t_clean[:45]} — {summ_clean}")
 
-            for tag in it.get("tags", []):
-                if tag and len(session_tags) < 5:
-                    tag_name = tag if tag.startswith("#") else f"#{tag}"
-                    session_tags.add(tag_name.replace(" ", "_"))
-
-        if len(session_tags) < 3:
-            for dt in ["#Autonomous_Agent", "#Local_LLM", "#SoTA_Models", "#MoE_Architecture", "#Inference_Engine"]:
-                session_tags.add(dt)
-                if len(session_tags) >= 5: break
-
         sessions_data[str(s_num)] = {
             "session_num": s_num,
             "session_name": s_def["name"],
             "short_name": s_def["short_name"],
-            "window_label": s_def["window_label"],
-            "window_period": s_def["window_period"],
+            "window_label": window_label,
             "is_current": is_cur,
             "is_future": is_fut,
             "status": status,
             "bullets": session_bullets,
-            "items": session_items_data,
-            "tags": list(session_tags)[:5]
+            "items": session_items_data
         }
 
     trend_radar_data = {
@@ -881,7 +899,7 @@ def generate_html(data):
             ZERO-HALLUCINATION AUDIT
           </span>
           <span class="font-bold text-ink-primary text-xs hidden sm:inline" id="heroMainTitle">
-            소문난 AI 기술의 실체와 공학적 단위 경제성 정밀 검증
+            바이럴된 AI 기술의 실체 분석
           </span>
         </div>
 
@@ -1014,8 +1032,6 @@ def generate_html(data):
 
           <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[11px] text-ink-muted font-mono flex-wrap gap-2" id="timelineFooter">
             <span>⚡ 당일 총 수집량: <b class="text-indigo-700">{today_total_inbox}건</b></span>
-            <span class="text-[10px] text-slate-400">월 150회 최적화 크론 (37.5% 절감)</span>
-            <span>최근 동기화: {trend_updated_at}</span>
           </div>
         </div>
 
@@ -1033,7 +1049,6 @@ def generate_html(data):
                   <span id="trendRadarWindowLabel">{trend_window_label}</span>
                 </span>
               </div>
-              <p class="text-[11px] text-ink-muted" id="trendRadarSub">{trend_window_period} · {trend_session_name}</p>
             </div>
 
             <!-- 4 Interactive Session Selector Buttons -->
@@ -1045,13 +1060,10 @@ def generate_html(data):
             </div>
           </div>
 
-          <!-- Trend Radar Content Bullets & Tags -->
+          <!-- Trend Radar Content Bullets -->
           <div class="pt-1 pb-1 space-y-2.5" id="trendRadarBody">
             <div class="space-y-2" id="trendRadarBullets">
               <!-- Dynamically Populated via JS with direct links -->
-            </div>
-            <div class="flex flex-wrap gap-1.5 pt-1.5 border-t border-surface-border" id="trendRadarTags">
-              <!-- Tags populated via JS -->
             </div>
           </div>
 
@@ -1197,22 +1209,6 @@ def generate_html(data):
 
     <!-- ==================== VIEW: AI MODELS REGISTRY ==================== -->
     <div id="modelsView" class="hidden space-y-6">
-      <!-- Models Header -->
-      <div class="bg-white p-6 rounded-2xl border border-surface-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
-        <div class="space-y-1">
-          <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-primary text-xs font-mono font-bold border border-surface-border" id="modelsHeaderBadge">
-              AI MODEL REGISTRY & FAMILIES
-            </span>
-            <span class="text-xs text-ink-muted font-mono" id="modelsHeaderCount">총 {data['models_total_count']}개 모델</span>
-          </div>
-          <h2 class="text-lg font-bold text-ink-primary" id="modelsHeaderTitle">AI 파운데이션 및 파생 가중치(LoRA/GGUF) 모델 카탈로그</h2>
-          <p class="text-xs text-ink-secondary" id="modelsHeaderDesc">
-            단순 AI 모델 및 데모를 패밀리별로 체계적으로 모아 스펙, 가중치 포맷, 원본 다운로드 링크를 제공합니다.
-          </p>
-        </div>
-      </div>
-
       <!-- Models Controls & Family Filter Bar (Hugging Face & OpenRouter 표준 분류 체계) -->
       <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
         <div class="flex items-center gap-2 flex-wrap text-xs">
@@ -1277,21 +1273,6 @@ def generate_html(data):
 
     <!-- ==================== VIEW 2: AI NEWS & TRENDS (정밀 카테고리화 허브) ==================== -->
     <div id="newsView" class="hidden space-y-6">
-      <div class="bg-white p-6 rounded-2xl border border-surface-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
-        <div class="space-y-1">
-          <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-md bg-surface-subtle text-ink-primary text-xs font-mono font-bold border border-surface-border" id="newsHeaderBadge">
-              GLOBAL AI INTELLIGENCE FEED
-            </span>
-            <span class="text-xs text-ink-muted font-mono" id="newsHeaderCount">총 {data['news_total_count']}건</span>
-          </div>
-          <h2 class="text-lg font-bold text-ink-primary" id="newsHeaderTitle">수집 인박스 기반 6대 기술 도메인 정밀 분류</h2>
-          <p class="text-xs text-ink-secondary" id="newsHeaderDesc">
-            글로벌 커뮤니티, 연구 논문, 오픈소스 저장소에서 수집된 AI 동향을 6대 엔지니어링 카테고리로 체계화하여 제공합니다.
-          </p>
-        </div>
-      </div>
-
       <!-- News Category Filter Bar (IPTC 6대 Tier 1 도메인 카테고리) -->
       <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
         <div class="flex items-center gap-2 flex-wrap text-xs">
@@ -1796,7 +1777,7 @@ def generate_html(data):
         navGraph: "인용 계보망",
         navInbox: "수집 인박스",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
-        heroMainTitle: "소문난 AI 기술의 실체와 공학적 단위 경제성 정밀 검증",
+        heroMainTitle: "바이럴된 AI 기술의 실체 분석",
         heroMainDesc: "SNS 바이럴 마케팅의 환각을 걷어내고, 1차 공식 출처 감사와 기저 표준 vs 서드파티 실측 벤치마크를 통해 도출한 100% 실증 보고서입니다.",
         heroUpdateLabel: "최종 검증일",
         heroAuditCount: "18개 기술 검증 완료",
@@ -1881,7 +1862,7 @@ def generate_html(data):
         navGraph: "引用系谱图",
         navInbox: "采集收件箱",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
-        heroMainTitle: "热门 AI 技术的工程真相与单位经济性深度核实",
+        heroMainTitle: "热门 AI 技术的工程真相与实体验证",
         heroMainDesc: "摒弃社交媒体营销炒作与幻觉，基于第一手官方源码审计以及基础标准 vs 第三方工具的实测基准，输出 100% 真实客观的工程报告。",
         heroUpdateLabel: "最新审计",
         heroAuditCount: "已完成 18 项技术审计",
@@ -1966,7 +1947,7 @@ def generate_html(data):
         navGraph: "Citation Graph",
         navInbox: "Harvest Inbox",
         heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
-        heroMainTitle: "Empirical Truth & Unit Economics of Viral AI Tech",
+        heroMainTitle: "Empirical Analysis of Viral AI Technologies",
         heroMainDesc: "A zero-hallucination dossier derived from Tier-1 official source audits and empirical benchmarks comparing base standards with third-party tools.",
         heroUpdateLabel: "LAST AUDITED",
         heroAuditCount: "18 Audits Completed",
@@ -2490,10 +2471,9 @@ def generate_html(data):
       // 2. Update header labels
       const windowLabelEl = document.getElementById('trendRadarWindowLabel');
       const pulseDotEl = document.getElementById('trendRadarPulseDot');
-      const subEl = document.getElementById('trendRadarSub');
 
       if (windowLabelEl) {{
-        windowLabelEl.innerText = sessionData.window_label + (sessionData.is_future ? ' (수집 예정)' : '');
+        windowLabelEl.innerText = sessionData.window_label;
       }}
       if (pulseDotEl) {{
         if (sessionData.is_current) {{
@@ -2503,9 +2483,6 @@ def generate_html(data):
         }} else {{
           pulseDotEl.className = 'w-1.5 h-1.5 rounded-full bg-slate-400';
         }}
-      }}
-      if (subEl) {{
-        subEl.innerText = `${{sessionData.window_period}} · ${{sessionData.session_name}}`;
       }}
 
       // 3. Render session items (1 clickable element per item, no duplicate bottom button)
@@ -2517,7 +2494,9 @@ def generate_html(data):
         if (items.length > 0) {{
           items.forEach((it, idx) => {{
             const targetTab = it.is_model ? 'models' : 'news';
-            const tabName = it.is_model ? 'AI 모델 탭' : '테크 동향 탭';
+            const tabName = it.is_model 
+              ? (currentLang === 'KO' ? 'AI 모델 탭' : (currentLang === 'ZH' ? 'AI 模型' : 'AI Models'))
+              : (currentLang === 'KO' ? '테크 동향 탭' : (currentLang === 'ZH' ? '科技动态' : 'Tech Trends'));
 
             // Distinct colored badge for each platform family
             let platformBadgeClass = 'bg-surface-subtle text-ink-primary border-surface-border';
@@ -2569,31 +2548,15 @@ def generate_html(data):
                     <i data-lucide="arrow-right" class="w-3 h-3"></i>
                   </span>
                 </div>
-                ${{it.summary ? `<p class="text-[11px] text-ink-muted line-clamp-2 leading-relaxed mt-1">${{it.summary}}</p>` : ''}}
+                ${{it.summary ? `<p class="text-[11px] text-ink-muted truncate leading-relaxed mt-1">${{it.summary}}</p>` : ''}}
               </div>
             `;
             bulletsContainer.appendChild(itemCard);
           }});
         }} else {{
-          bulletsContainer.innerHTML = '<div class="py-6 text-center text-xs text-ink-muted font-mono">이 회차에 등록된 트렌드 데이터가 없습니다.</div>';
+          const emptyMsg = currentLang === 'KO' ? '이 회차에 등록된 트렌드 데이터가 없습니다.' : (currentLang === 'ZH' ? '该时段暂无趋势数据。' : 'No trend data for this session.');
+          bulletsContainer.innerHTML = `<div class="py-6 text-center text-xs text-ink-muted font-mono">${{emptyMsg}}</div>`;
         }}
-      }}
-
-      // 4. Render tags
-      const tagsContainer = document.getElementById('trendRadarTags');
-      if (tagsContainer) {{
-        tagsContainer.innerHTML = '';
-        const tags = sessionData.tags || [];
-        tags.forEach(tg => {{
-          const pill = document.createElement('span');
-          pill.className = 'px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200 hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-300 transition cursor-pointer';
-          pill.innerText = tg;
-          pill.onclick = () => {{
-            const clean = tg.replace(/^#/, '');
-            navigateFromRadar('news', clean, '');
-          }};
-          tagsContainer.appendChild(pill);
-        }});
       }}
       if (window.lucide) window.lucide.createIcons();
     }}
@@ -3253,22 +3216,39 @@ def generate_html(data):
             displayTitle = multi.ko.title || it.title_ko || displayTitle;
             displayHook = multi.ko.hook || it.hook_ko || displayHook;
             displayTakeaways = multi.ko.key_takeaways || displayTakeaways;
-            displayDesc = displayHook || it.description_ko || displayDesc;
+            displayDesc = it.description_ko || it.description || '';
           }} else if (currentLang === 'ZH' && multi.zh) {{
             displayTitle = multi.zh.title || it.title_zh || displayTitle;
             displayHook = multi.zh.hook || it.hook_zh || displayHook;
             displayTakeaways = multi.zh.key_takeaways || displayTakeaways;
-            displayDesc = displayHook || it.description_zh || displayDesc;
+            displayDesc = it.description_zh || it.description || '';
           }} else if (currentLang === 'EN' && multi.en) {{
             displayTitle = multi.en.title || it.title_en || displayTitle;
             displayHook = multi.en.hook || it.hook_en || displayHook;
             displayTakeaways = multi.en.key_takeaways || displayTakeaways;
-            displayDesc = displayHook || it.description_en || displayDesc;
+            displayDesc = it.description_en || it.description || '';
           }}
         }} else {{
-          if (currentLang === 'KO' && it.title_ko) displayTitle = it.title_ko;
-          if (currentLang === 'ZH' && it.title_zh) displayTitle = it.title_zh;
-          if (currentLang === 'EN' && it.title_en) displayTitle = it.title_en;
+          if (currentLang === 'KO') {{
+            if (it.title_ko) displayTitle = it.title_ko;
+            if (it.description_ko) displayDesc = it.description_ko;
+          }} else if (currentLang === 'ZH') {{
+            if (it.title_zh) displayTitle = it.title_zh;
+            if (it.description_zh) displayDesc = it.description_zh;
+          }} else if (currentLang === 'EN') {{
+            if (it.title_en) displayTitle = it.title_en;
+            if (it.description_en) displayDesc = it.description_en;
+          }}
+        }}
+
+        // Deduplicate Hook: Hook must ONLY appear in the yellow callout box
+        if (displayHook) {{
+          const cleanH = displayHook.trim();
+          if (displayDesc.trim() === cleanH) {{
+            displayDesc = '';
+          }} else if (cleanH && displayDesc.includes(cleanH)) {{
+            displayDesc = displayDesc.replace(cleanH, '').trim();
+          }}
         }}
 
         const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
@@ -3279,42 +3259,36 @@ def generate_html(data):
 
         let linksHtml = '';
         if (it.sources && it.sources.length > 1) {{
-          linksHtml = `<div class="flex items-center gap-1.5 flex-wrap">`;
-          linksHtml += `<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-200">🔗 ${{currentLang === 'KO' ? `출처 ${{it.sources.length}}개 묶음` : (currentLang === 'ZH' ? `聚合${{it.sources.length}}个来源` : `${{it.sources.length}} Sources`)}}</span>`;
+          linksHtml += `<span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-200 shrink-0">🔗 ${{currentLang === 'KO' ? `출처 ${{it.sources.length}}개 묶음` : (currentLang === 'ZH' ? `聚合${{it.sources.length}}个来源` : `${{it.sources.length}} Sources`)}}</span>`;
           it.sources.forEach(s => {{
             const p = (s.platform || s.source_name || '').toLowerCase();
             const u = s.url || '#';
             if (p.includes('hacker news') || u.includes('ycombinator')) {{
-              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-orange-50 text-orange-800 hover:text-orange-950 border border-orange-200 text-[11px] font-bold flex items-center gap-1">🔥 ${{currentLang === 'KO' ? 'HN 토론' : 'HN'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-orange-50 text-orange-800 hover:text-orange-950 border border-orange-200 text-[11px] font-bold flex items-center gap-1 shrink-0">🔥 ${{currentLang === 'KO' ? 'HN 토론' : 'HN'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
             }} else if (p.includes('geeknews') || u.includes('hada.io')) {{
-              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-indigo-50 text-indigo-800 hover:text-indigo-950 border border-indigo-200 text-[11px] font-bold flex items-center gap-1">💬 ${{currentLang === 'KO' ? '긱뉴스 토론' : 'GeekNews'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-indigo-50 text-indigo-800 hover:text-indigo-950 border border-indigo-200 text-[11px] font-bold flex items-center gap-1 shrink-0">💬 ${{currentLang === 'KO' ? '긱뉴스 토론' : 'GeekNews'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
             }} else if (p.includes('reddit')) {{
-              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-red-50 text-red-800 hover:text-red-950 border border-red-200 text-[11px] font-bold flex items-center gap-1">🤖 ${{currentLang === 'KO' ? '레딧 반응' : 'Reddit'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-red-50 text-red-800 hover:text-red-950 border border-red-200 text-[11px] font-bold flex items-center gap-1 shrink-0">🤖 ${{currentLang === 'KO' ? '레딧 반응' : 'Reddit'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
             }} else {{
-              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1">📄 ${{s.source_name || '원문'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+              linksHtml += `<a href="${{u}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1 shrink-0">📄 ${{s.source_name || '원문'}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
             }}
           }});
-          linksHtml += `</div>`;
         }} else if (isHn) {{
-          linksHtml = `<div class="flex items-center gap-1.5">`;
           if (articleUrl && articleUrl !== hnUrl) {{
-            linksHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1">📄 ${{currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+            linksHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1 shrink-0">📄 ${{currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
           }}
           if (hnUrl) {{
-            linksHtml += `<a href="${{hnUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-orange-50 text-orange-800 hover:text-orange-950 border border-orange-200 text-[11px] font-bold flex items-center gap-1">🔥 ${{currentLang === 'KO' ? 'HN 토론' : (currentLang === 'ZH' ? 'HN 讨论' : 'HN Thread')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+            linksHtml += `<a href="${{hnUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-orange-50 text-orange-800 hover:text-orange-950 border border-orange-200 text-[11px] font-bold flex items-center gap-1 shrink-0">🔥 ${{currentLang === 'KO' ? 'HN 토론' : (currentLang === 'ZH' ? 'HN 讨论' : 'HN Thread')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
           }}
-          linksHtml += `</div>`;
         }} else if (isGn) {{
-          linksHtml = `<div class="flex items-center gap-1.5">`;
           if (articleUrl && articleUrl !== gnUrl) {{
-            linksHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1">📄 ${{currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+            linksHtml += `<a href="${{articleUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1 shrink-0">📄 ${{currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
           }}
           if (gnUrl) {{
-            linksHtml += `<a href="${{gnUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-indigo-50 text-indigo-800 hover:text-indigo-950 border border-indigo-200 text-[11px] font-bold flex items-center gap-1">💬 ${{currentLang === 'KO' ? '긱뉴스 토론' : (currentLang === 'ZH' ? '极客新闻' : 'GeekNews')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+            linksHtml += `<a href="${{gnUrl}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-indigo-50 text-indigo-800 hover:text-indigo-950 border border-indigo-200 text-[11px] font-bold flex items-center gap-1 shrink-0">💬 ${{currentLang === 'KO' ? '긱뉴스 토론' : (currentLang === 'ZH' ? '极客新闻' : 'GeekNews')}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
           }}
-          linksHtml += `</div>`;
         }} else {{
-          linksHtml = `<a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="text-ink-primary hover:underline font-semibold flex items-center gap-1">${{t.newsOriginalLink}} <i data-lucide="external-link" class="w-3 h-3"></i></a>`;
+          linksHtml = `<a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-semibold flex items-center gap-1 shrink-0">📄 ${{t.newsOriginalLink}} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
         }}
 
         let aiBadgeHtml = '';
@@ -3394,7 +3368,7 @@ def generate_html(data):
               <button onclick="openCaseModal('${{it.related_dossier.case_id}}')" class="w-full text-left px-2.5 py-1.5 rounded-lg bg-indigo-50/70 hover:bg-indigo-100/80 border border-indigo-200/80 text-[11px] text-indigo-950 font-semibold flex items-center justify-between transition">
                 <span class="flex items-center gap-1.5">
                   <i data-lucide="link-2" class="w-3.5 h-3.5 text-indigo-600"></i>
-                  <span>관련 팩트체크: ${{it.related_dossier.target_tech}}</span>
+                  <span>${{currentLang === 'KO' ? '관련 팩트체크: ' : (currentLang === 'ZH' ? '关联事实核查: ' : 'Related Fact-Check: ')}}${{it.related_dossier.target_tech}}</span>
                 </span>
                 <i data-lucide="arrow-right" class="w-3 h-3 text-indigo-400"></i>
               </button>
@@ -3424,20 +3398,29 @@ def generate_html(data):
 
             ${{hookHtml}}
 
-            <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
-              ${{displayDesc}}
-            </p>
+            ${{displayDesc ? `<p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">${{displayDesc}}</p>` : ''}}
 
             ${{aiSummaryHtml}}
             ${{relatedHtml}}
           </div>
 
-          <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
-            <div class="flex items-center gap-1.5 text-[11px] font-mono text-ink-muted">
+          <div class="pt-3 border-t border-surface-border space-y-2 text-xs">
+            <!-- Row 1: Source Date & AI Audit Date with Model Attribution -->
+            <div class="flex items-center gap-2 flex-wrap text-[11px] font-mono text-ink-muted">
               <span title="${{currentLang === 'KO' ? '수집/발행 일시' : (currentLang === 'ZH' ? '采集/发布日' : 'Source DateTime')}}">📅 ${{formatDateTime(it.published_at || it.harvested_at || it.harvested_date)}}</span>
-              ${{ai?.enriched_at ? `<span>•</span><span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold">🔬 ${{formatDateTime(ai.enriched_at)}}</span>` : ''}}
+              ${{ai?.enriched_at ? `
+                <span class="text-surface-border">•</span>
+                <span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold flex items-center gap-1">
+                  🔬 ${{formatDateTime(ai.enriched_at)}}
+                  <span class="text-ink-muted font-normal">(${{ai.enriched_by_model ? '🤖 ' + ai.enriched_by_model.replace('gemini-', '') : '🤖 AI 검증'}})</span>
+                </span>
+              ` : ''}}
             </div>
-            ${{linksHtml}}
+
+            <!-- Row 2: Source Discussion and Original Links -->
+            <div class="flex items-center gap-1.5 flex-wrap">
+              ${{linksHtml}}
+            </div>
           </div>
         `;
         grid.appendChild(card);
@@ -3611,19 +3594,41 @@ def generate_html(data):
         let displayHook = (multi && multi[lKey]?.hook) || (currentLang === 'KO' ? it.hook_ko : (currentLang === 'ZH' ? it.hook_zh : it.hook_en)) || it.hook || '';
         let displayDesc = (currentLang === 'KO' ? it.description_ko : (currentLang === 'ZH' ? it.description_zh : it.description_en)) || it.description || '';
 
+        // Deduplicate Hook: Hook must ONLY appear in the yellow callout box
+        if (displayHook) {{
+          const cleanH = displayHook.trim();
+          if (displayDesc.trim() === cleanH) {{
+            displayDesc = '';
+          }} else if (cleanH && displayDesc.includes(cleanH)) {{
+            displayDesc = displayDesc.replace(cleanH, '').trim();
+          }}
+        }}
+
         const hasTrilingual = Boolean(multi && multi.zh && multi.ko && multi.en);
         const langBadge = hasTrilingual 
           ? `<span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[9px] font-mono font-bold border border-emerald-200">🌐 KO·EN·ZH</span>`
-          : `<span class="px-1.5 py-0.2 rounded bg-surface-subtle text-ink-muted text-[9px] font-mono border border-surface-border">🌐 분석 대기</span>`;
+          : `<span class="px-1.5 py-0.2 rounded bg-surface-subtle text-ink-muted text-[9px] font-mono border border-surface-border">🌐 ${{currentLang === 'KO' ? '분석 대기' : (currentLang === 'ZH' ? '待分析' : 'Pending')}}</span>`;
 
         const card = document.createElement('div');
         card.className = 'bg-white rounded-2xl p-5 border border-surface-border hover:border-indigo-400 hover:shadow-md transition flex flex-col justify-between space-y-4';
 
         const artType = it.artifact_type || (it.source_platform?.includes('Spaces') ? 'WEB_SERVICE' : 'WEIGHTS');
         const artBadgeMap = {{
-          'WEIGHTS': {{ label: '🤖 모델 가중치', cls: 'bg-indigo-50 text-indigo-800 border-indigo-200', btn: '📥 허브 다운로드' }},
-          'WEB_SERVICE': {{ label: '🌐 Spaces 데모', cls: 'bg-emerald-50 text-emerald-800 border-emerald-200', btn: '🚀 데모 / Spaces 체험' }},
-          'FINETUNE': {{ label: '🎯 특화 파인튜닝', cls: 'bg-amber-50 text-amber-800 border-amber-200', btn: '🎯 파인튜닝 모델 보기' }}
+          'WEIGHTS': {{
+            label: currentLang === 'KO' ? '🤖 모델 가중치' : (currentLang === 'ZH' ? '🤖 模型权重' : '🤖 Model Weights'),
+            cls: 'bg-indigo-50 text-indigo-800 border-indigo-200',
+            btn: currentLang === 'KO' ? '📥 허브 다운로드' : (currentLang === 'ZH' ? '📥 Hub 下载' : '📥 Hub Download')
+          }},
+          'WEB_SERVICE': {{
+            label: currentLang === 'KO' ? '🌐 Spaces 데모' : (currentLang === 'ZH' ? '🌐 Spaces 演示' : '🌐 Spaces Demo'),
+            cls: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+            btn: currentLang === 'KO' ? '🚀 데모 / Spaces 체험' : (currentLang === 'ZH' ? '🚀 在线 Demo 体验' : '🚀 Try Live Spaces Demo')
+          }},
+          'FINETUNE': {{
+            label: currentLang === 'KO' ? '🎯 특화 파인튜닝' : (currentLang === 'ZH' ? '🎯 微调定制模型' : '🎯 Finetuned Model'),
+            cls: 'bg-amber-50 text-amber-800 border-amber-200',
+            btn: currentLang === 'KO' ? '🎯 파인튜닝 모델 보기' : (currentLang === 'ZH' ? '🎯 查看微调模型' : '🎯 View Finetuned Model')
+          }}
         }};
         const artMeta = artBadgeMap[artType] || artBadgeMap['WEIGHTS'];
         const artBadge = `<span class="px-2 py-0.5 rounded-md font-bold border text-[10px] font-mono ${{artMeta.cls}}">${{artMeta.label}}</span>`;
@@ -3676,7 +3681,7 @@ def generate_html(data):
               <button onclick="openCaseModal('${{it.related_dossier.case_id}}')" class="w-full text-left px-2.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-[11px] text-emerald-950 font-semibold flex items-center justify-between transition">
                 <span class="flex items-center gap-1.5">
                   <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
-                  <span>관련 기술 검증: ${{it.related_dossier.target_tech}}</span>
+                  <span>${{currentLang === 'KO' ? '관련 기술 검증: ' : (currentLang === 'ZH' ? '关联技术核验: ' : 'Related Verification: ')}}${{it.related_dossier.target_tech}}</span>
                 </span>
                 <i data-lucide="arrow-right" class="w-3 h-3 text-emerald-600"></i>
               </button>
@@ -3702,24 +3707,32 @@ def generate_html(data):
 
             ${{hookHtml}}
 
-            <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
-              ${{displayDesc}}
-            </p>
+            ${{displayDesc ? `<p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">${{displayDesc}}</p>` : ''}}
 
             ${{formatBadges ? `<div class="flex items-center gap-1 flex-wrap pt-1">${{formatBadges}}</div>` : ''}}
 
             ${{relatedHtml}}
           </div>
 
-          <div class="pt-3 border-t border-surface-border flex items-center justify-between text-xs">
-            <div class="flex items-center gap-1.5 flex-wrap text-[11px] font-mono text-ink-muted">
+          <div class="pt-3 border-t border-surface-border space-y-2 text-xs">
+            <!-- Row 1: Source Date & AI Audit Date with Model Attribution -->
+            <div class="flex items-center gap-2 flex-wrap text-[11px] font-mono text-ink-muted">
               <span title="${{currentLang === 'KO' ? '수집/발표 일시' : (currentLang === 'ZH' ? '采集/发布日' : 'Source DateTime')}}">📅 ${{formatDateTime(it.published_at || it.harvested_at || it.harvested_date)}}</span>
-              ${{ai?.enriched_at ? `<span>•</span><span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold">🔬 ${{formatDateTime(ai.enriched_at)}}</span>` : ''}}
-              ${{ai?.enriched_by_model ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-indigo-700 border border-surface-border">🤖 ${{ai.enriched_by_model.replace('gemini-', '')}}</span>` : ''}}
+              ${{ai?.enriched_at ? `
+                <span class="text-surface-border">•</span>
+                <span title="${{currentLang === 'KO' ? 'AI 분석 일시' : (currentLang === 'ZH' ? 'AI分析日' : 'Analysis DateTime')}}" class="text-indigo-700 font-semibold flex items-center gap-1">
+                  🔬 ${{formatDateTime(ai.enriched_at)}}
+                  <span class="text-ink-muted font-normal">(${{ai.enriched_by_model ? '🤖 ' + ai.enriched_by_model.replace('gemini-', '') : '🤖 AI 검증'}})</span>
+                </span>
+              ` : ''}}
             </div>
-            <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1 shrink-0">
-              <span>${{currentLang === 'KO' ? artMeta.btn : (currentLang === 'ZH' ? '访问模型 / 体验' : 'Visit / Explore')}}</span> <i data-lucide="external-link" class="w-3 h-3"></i>
-            </a>
+
+            <!-- Row 2: Hub Download / Live Demo Button -->
+            <div class="flex items-center justify-end">
+              <a href="${{it.source_url}}" target="_blank" class="px-3 py-1.5 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1 shrink-0">
+                <span>${{artMeta.btn}}</span> <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
           </div>
         `;
 
