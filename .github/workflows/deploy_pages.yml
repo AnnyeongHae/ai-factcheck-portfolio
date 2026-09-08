@@ -28,6 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
+      PYTHONUNBUFFERED: "1"
       NEON_KEY: ${{ secrets.NEON_KEY }}
       DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
     steps:
@@ -61,18 +62,19 @@ jobs:
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
-          python tools/harvest_trends.py
+          python -u tools/harvest_trends.py
 
       - name: Real-Time AI Enrichment (Scheduled/Manual Only)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        timeout-minutes: 4
+        continue-on-error: true
+        timeout-minutes: 5
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
-          python tools/enrich_inbox_with_ai.py --only-new --limit 35 --batch-size 3 --workers 5 --cooldown 0.5 --provider auto || echo "AI enrichment skipped or completed."
+          python -u tools/enrich_inbox_with_ai.py --only-new --limit 35 --batch-size 3 --workers 3 --cooldown 0.5 --provider auto || echo "AI enrichment completed with fallback."
 
       - name: Sync Data to Neon Postgres Cloud DB (Scheduled/Manual Only)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'

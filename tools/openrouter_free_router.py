@@ -32,7 +32,7 @@ except ImportError:
     load_dotenv = None
 
 # Set strict global socket timeout for all network requests to prevent hanging
-socket.setdefaulttimeout(15.0)
+socket.setdefaulttimeout(12.0)
 
 if sys.stdout.encoding != 'utf-8':
     try:
@@ -46,17 +46,12 @@ if load_dotenv:
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-# Priority order for zero-cost models (Instruction-following general LLMs first, code-only at bottom)
+# Priority order for zero-cost models (Verified active free models only)
 FREE_MODEL_FALLBACKS = [
-    "nvidia/nemotron-3-super-120b-a12b:free",
     "google/gemma-4-31b-it:free",
-    "minimax/minimax-m3:free",
-    "dots-studio/dots-3-note-preview:free",
-    "openrouter/free",
-    "inclusionai/ling-3.0-flash-fin:free",
-    "liquid/lfm-2.5-2.6b:free",
-    "poolside/laguna-xs-2.1:free",
-    "cohere/north-mini-code:free"
+    "google/gemma-4-26b-a4b-it:free",
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "liquid/lfm-2.5-2.6b:free"
 ]
 
 def get_openrouter_api_key():
@@ -126,7 +121,7 @@ def clean_json_response(raw_text: str):
 
     raise ValueError(f"Could not parse valid JSON from text: {cleaned[:150]}...")
 
-def call_openrouter_free_single(system_prompt: str, item: dict, timeout: int = 20, max_retries: int = 1):
+def call_openrouter_free_single(system_prompt: str, item: dict, timeout: int = 12, max_retries: int = 1):
     """
     Enriches a SINGLE inbox item (1-by-1 mode) for maximum accuracy, speed and zero batching overhead.
     Returns: (parsed_dict, model_name, latency_seconds)
@@ -151,7 +146,7 @@ def call_openrouter_free_single(system_prompt: str, item: dict, timeout: int = 2
     }
     user_content = json.dumps(payload_item, ensure_ascii=False, indent=2)
 
-    for model_name in FREE_MODEL_FALLBACKS:
+    for model_name in FREE_MODEL_FALLBACKS[:2]:
         for attempt in range(1, max_retries + 1):
             t_start = time.time()
             try:
@@ -169,7 +164,10 @@ def call_openrouter_free_single(system_prompt: str, item: dict, timeout: int = 2
                 with urllib.request.urlopen(req, timeout=timeout) as resp:
                     resp_data = json.loads(resp.read().decode("utf-8"))
                     routed_model = resp_data.get("model", model_name)
-                    content = resp_data["choices"][0]["message"]["content"]
+                    choices = resp_data.get("choices")
+                    if not choices or not isinstance(choices, list) or len(choices) == 0:
+                        raise ValueError(f"No valid choices returned by {model_name}")
+                    content = choices[0].get("message", {}).get("content", "")
                     parsed = clean_json_response(content)
                     if isinstance(parsed, list):
                         parsed = parsed[0] if parsed else {}
@@ -180,7 +178,7 @@ def call_openrouter_free_single(system_prompt: str, item: dict, timeout: int = 2
                 latency = round(time.time() - t_start, 2)
                 err_body = e.read().decode("utf-8", errors="ignore")
                 if e.code == 429:
-                    wait_sec = 2.0 * (2 ** (attempt - 1)) + random.uniform(0.5, 1.5)
+                    wait_sec = 1.5 * (2 ** (attempt - 1)) + random.uniform(0.5, 1.0)
                     print(f"  [-] Model '{model_name}' hit 429 rate limit. Backing off {wait_sec:.1f}s...")
                     time.sleep(wait_sec)
                     continue
@@ -189,12 +187,12 @@ def call_openrouter_free_single(system_prompt: str, item: dict, timeout: int = 2
                     break
             except Exception as e:
                 print(f"  [-] Error with model '{model_name}': {e}. Trying next free model...")
-                time.sleep(1)
+                time.sleep(0.5)
                 break
 
-    raise RuntimeError("All free models in OpenRouter pool exhausted or timed out for this item!")
+    raise RuntimeError("Free models in OpenRouter pool exhausted or timed out for this item!")
 
-def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: int = 25, max_retries: int = 1):
+def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: int = 14, max_retries: int = 1):
     """
     Calls OpenRouter Free Router for a batch of inbox items.
     If only 1 item is passed, automatically uses call_openrouter_free_single for 100% precision.
@@ -227,7 +225,7 @@ def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: i
 
     user_content = json.dumps(clean_batch, ensure_ascii=False, indent=2)
 
-    for model_name in FREE_MODEL_FALLBACKS:
+    for model_name in FREE_MODEL_FALLBACKS[:2]:
         for attempt in range(1, max_retries + 1):
             t_start = time.time()
             try:
@@ -245,7 +243,10 @@ def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: i
                 with urllib.request.urlopen(req, timeout=timeout) as resp:
                     resp_data = json.loads(resp.read().decode("utf-8"))
                     routed_model = resp_data.get("model", model_name)
-                    content = resp_data["choices"][0]["message"]["content"]
+                    choices = resp_data.get("choices")
+                    if not choices or not isinstance(choices, list) or len(choices) == 0:
+                        raise ValueError(f"No valid choices returned by {model_name}")
+                    content = choices[0].get("message", {}).get("content", "")
                     parsed = clean_json_response(content)
                     if not isinstance(parsed, list):
                         parsed = [parsed]
@@ -256,7 +257,7 @@ def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: i
                 latency = round(time.time() - t_start, 2)
                 err_body = e.read().decode("utf-8", errors="ignore")
                 if e.code == 429:
-                    wait_sec = 4.0 * (2 ** (attempt - 1)) + random.uniform(1.0, 2.0)
+                    wait_sec = 2.0 * (2 ** (attempt - 1)) + random.uniform(0.5, 1.0)
                     print(f"  [-] Model '{model_name}' hit 429 rate limit (attempt {attempt}/{max_retries}). Backing off {wait_sec:.1f}s...")
                     time.sleep(wait_sec)
                     continue
@@ -265,10 +266,10 @@ def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: i
                     break
             except Exception as e:
                 print(f"  [-] Error with model '{model_name}' (attempt {attempt}): {e}")
-                time.sleep(2)
+                time.sleep(0.5)
                 break
 
-    raise RuntimeError("All free models in OpenRouter pool exhausted or timed out!")
+    raise RuntimeError("Free models in OpenRouter pool exhausted or timed out!")
 
 if __name__ == "__main__":
     print("[*] Testing OpenRouter Free Router standalone...")

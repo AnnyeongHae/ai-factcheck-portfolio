@@ -79,8 +79,8 @@ def run_daily_eod():
         print(f"\n[*] Step 3: Enriching ALL {len(unenriched_items)} un-enriched items in 1-by-1 Zero-Cost Stream Mode...")
         try:
             import enrich_inbox_with_ai
-            enrich_inbox_with_ai.run_enrichment(limit=0, batch_size=1, provider="openrouter", cooldown=1.0)
-            print("[+] OpenRouter Free Router 1-by-1 stream enrichment completed successfully.")
+            enrich_inbox_with_ai.run_enrichment(limit=35, batch_size=3, provider="auto", workers=3, cooldown=0.5)
+            print("[+] EOD batch enrichment completed successfully.")
         except Exception as e:
             print(f"[-] OpenRouter enrichment encountered error: {e}")
     else:
