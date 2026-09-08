@@ -133,6 +133,45 @@ def fetch_inbox_items(page=1, limit=30, category=None, platform=None, search=Non
             "pagination": {"page": page, "limit": limit, "total_count": 0, "total_pages": 0}
         }
 
+def app(environ, start_response):
+    method = environ.get('REQUEST_METHOD', 'GET')
+    if method == 'OPTIONS':
+        start_response('204 No Content', [
+            ('Access-Control-Allow-Origin', '*'),
+            ('Access-Control-Allow-Methods', 'GET, OPTIONS'),
+            ('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+        ])
+        return [b'']
+
+    query_str = environ.get('QUERY_STRING', '')
+    query_params = urllib.parse.parse_qs(query_str)
+
+    try:
+        page = int(query_params.get("page", ["1"])[0])
+    except ValueError:
+        page = 1
+
+    try:
+        limit = min(100, max(1, int(query_params.get("limit", ["30"])[0])))
+    except ValueError:
+        limit = 30
+
+    category = query_params.get("category", [None])[0]
+    platform = query_params.get("platform", [None])[0]
+    search = query_params.get("search", [None])[0]
+
+    data = fetch_inbox_items(page=page, limit=limit, category=category, platform=platform, search=search)
+    body = json.dumps(data, default=decimal_default, ensure_ascii=False).encode('utf-8')
+    status = '200 OK' if data.get("status") == "success" else '500 Internal Server Error'
+
+    start_response(status, [
+        ('Content-Type', 'application/json; charset=utf-8'),
+        ('Access-Control-Allow-Origin', '*'),
+        ('Cache-Control', 'public, s-maxage=30, stale-while-revalidate=60'),
+        ('Content-Length', str(len(body)))
+    ])
+    return [body]
+
 class handler(BaseHTTPRequestHandler):
     def do_OPTIONS(self):
         self.send_response(204)

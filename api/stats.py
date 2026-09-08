@@ -182,6 +182,27 @@ def fetch_stats():
             "server_time": datetime.datetime.now(datetime.timezone.utc).isoformat()
         }
 
+def app(environ, start_response):
+    method = environ.get('REQUEST_METHOD', 'GET')
+    if method == 'OPTIONS':
+        start_response('204 No Content', [
+            ('Access-Control-Allow-Origin', '*'),
+            ('Access-Control-Allow-Methods', 'GET, OPTIONS'),
+            ('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+        ])
+        return [b'']
+
+    data = fetch_stats()
+    body = json.dumps(data, default=decimal_default, ensure_ascii=False).encode('utf-8')
+    status = '200 OK' if data.get("status") == "success" else '500 Internal Server Error'
+    start_response(status, [
+        ('Content-Type', 'application/json; charset=utf-8'),
+        ('Access-Control-Allow-Origin', '*'),
+        ('Cache-Control', 'public, s-maxage=30, stale-while-revalidate=60'),
+        ('Content-Length', str(len(body)))
+    ])
+    return [body]
+
 class handler(BaseHTTPRequestHandler):
     def do_OPTIONS(self):
         self.send_response(204)
