@@ -25,7 +25,7 @@ import time
 import random
 import re
 import threading
-import urllib.request
+import requests
 import socket
 
 try:
@@ -73,28 +73,29 @@ RATE_LIMITER = OpenRouterRateLimiter(target_rpm=18)
 # Priority clusters of verified active free models (max 3 fallbacks per OpenRouter API spec)
 MODEL_CLUSTERS = [
     {
-        "primary": "google/gemma-4-31b-it:free",
+        "primary": "liquid/lfm-2.5-2.6b:free",
         "fallbacks": [
-            "google/gemma-4-26b-a4b-it:free",
             "nvidia/nemotron-3-super-120b-a12b:free",
-            "liquid/lfm-2.5-2.6b:free"
+            "dots-studio/dots-3-note-preview:free",
+            "nvidia/nemotron-3.5-lightning:free"
         ]
     },
     {
-        "primary": "nvidia/nemotron-3.5-lightning:free",
+        "primary": "nvidia/nemotron-3-super-120b-a12b:free",
         "fallbacks": [
+            "liquid/lfm-2.5-2.6b:free",
             "dots-studio/dots-3-note-preview:free",
-            "liquid/lfm-2.5-2.6b:free"
+            "nvidia/nemotron-3.5-lightning:free"
         ]
     }
 ]
 
 # Backward compatibility alias
 FREE_MODEL_FALLBACKS = [
-    "google/gemma-4-31b-it:free",
-    "google/gemma-4-26b-a4b-it:free",
+    "liquid/lfm-2.5-2.6b:free",
     "nvidia/nemotron-3-super-120b-a12b:free",
-    "liquid/lfm-2.5-2.6b:free"
+    "dots-studio/dots-3-note-preview:free",
+    "nvidia/nemotron-3.5-lightning:free"
 ]
 
 def get_openrouter_api_key():
@@ -166,7 +167,7 @@ def clean_json_response(raw_text: str):
 
     raise ValueError(f"Could not parse valid JSON from text: {cleaned[:120]}...")
 
-def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: int = 18, max_retries: int = 1):
+def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: int = 12, max_retries: int = 1):
     """
     Calls OpenRouter Free Router using server-side models fallback and 18 RPM pacer.
     Returns: (parsed_results_list, model_name, latency_seconds)
@@ -212,33 +213,55 @@ def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: i
                     ],
                     "temperature": 0.1
                 }
-                data_bytes = json.dumps(payload, ensure_ascii=False).encode("utf-8")
-                req = urllib.request.Request(OPENROUTER_API_URL, data=data_bytes, headers=headers)
-
-                with urllib.request.urlopen(req, timeout=timeout) as resp:
-                    resp_data = json.loads(resp.read().decode("utf-8"))
-                    routed_model = resp_data.get("model", primary_model)
-                    choices = resp_data.get("choices")
-                    if not choices or not isinstance(choices, list) or len(choices) == 0:
-                        raise ValueError(f"No valid choices returned in response: {str(resp_data)[:100]}")
-                    content = choices[0].get("message", {}).get("content", "")
-                    parsed = clean_json_response(content)
-                    if not isinstance(parsed, list):
-                        parsed = [parsed]
-                    latency = round(time.time() - t_start, 2)
-                    return parsed, routed_model, latency
-
-            except urllib.error.HTTPError as e:
-                latency = round(time.time() - t_start, 2)
-                err_body = e.read().decode("utf-8", errors="ignore")
-                if e.code == 429:
+                resp = requests.post(
+                    OPENROUTER_API_URL,
+                    json=payload,
+                    headers=headers,
+                    timeout=(4.0, 10.0)
+                )
+                if resp.status_code == 429:
                     wait_sec = 3.5 + random.uniform(0.5, 1.0)
                     print(f"  [-] OpenRouter RPM limit (429, cluster {cluster_idx+1}). Pacing {wait_sec:.1f}s...")
                     time.sleep(wait_sec)
                     continue
-                else:
-                    print(f"  [-] OpenRouter cluster {cluster_idx+1} HTTP {e.code}: {err_body[:80]}")
-                    break
+
+                resp.raise_for_status()
+                resp_data = resp.json()
+                routed_model = resp_data.get("model", primary_model)
+                choices = resp_data.get("choices")
+                if not choices or not isinstance(choices, list) or len(choices) == 0:
+                    raise ValueError(f"No valid choices returned in response: {str(resp_data)[:100]}")
+                content = choices[0].get("message", {}).get("content", "")
+                parsed = clean_json_response(content)
+                if not isinstance(parsed, list):
+                    parsed = [parsed]
+
+                # Strict Korean Quality Guardrail: Ensure at least one item contains Korean characters
+                has_korean = False
+                for p in parsed:
+                    if isinstance(p, dict):
+                        t_ko = (p.get("multilingual", {}).get("ko", {}).get("title") or 
+                                p.get("korean_title") or "")
+                        h_ko = (p.get("multilingual", {}).get("ko", {}).get("hook") or 
+                                p.get("hook") or "")
+                        if re.search(r'[\uac00-\ud7a3]', t_ko + " " + h_ko):
+                            has_korean = True
+                            break
+                if not has_korean and len(parsed) > 0:
+                    raise ValueError(f"Model '{routed_model}' output lacked Korean characters in 'ko' field! Retrying with fallback model...")
+
+                latency = round(time.time() - t_start, 2)
+                return parsed, routed_model, latency
+
+            except requests.exceptions.HTTPError as e:
+                latency = round(time.time() - t_start, 2)
+                err_text = e.response.text[:80] if e.response else str(e)
+                print(f"  [-] OpenRouter cluster {cluster_idx+1} HTTP {e.response.status_code if e.response else 'ERR'}: {err_text}")
+                break
+            except requests.exceptions.Timeout:
+                latency = round(time.time() - t_start, 2)
+                print(f"  [-] OpenRouter cluster {cluster_idx+1} timed out ({latency}s). Trying next fallback...")
+                break
             except Exception as e:
                 print(f"  [-] OpenRouter cluster {cluster_idx+1} error: {e}")
                 time.sleep(0.5)

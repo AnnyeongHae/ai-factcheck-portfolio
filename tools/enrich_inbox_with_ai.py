@@ -348,14 +348,18 @@ def process_single_batch(b_idx, num_batches, batch, active_provider, dossiers):
         enrich_data = res_map.get(iid)
         if not enrich_data:
             idx = [it.get("inbox_id") for _, it in batch].index(iid)
-            if idx < len(results):
-                enrich_data = results[idx]
+        # Strict Quality Guardrail: Require genuine Korean translation from LLM
+        has_korean = False
+        if enrich_data:
+            multi = enrich_data.get("multilingual", {})
+            ko_data = multi.get("ko", {})
+            t_ko = ko_data.get("title") or enrich_data.get("korean_title") or ""
+            h_ko = ko_data.get("hook") or enrich_data.get("hook") or ""
+            has_korean = bool(re.search(r'[\uac00-\ud7a3]', t_ko + " " + h_ko))
 
-        # 🌟 Automatic Heuristic Rule-Based Fallback (Zero-Cost, 100% Guaranteed Reliability)
-        if not enrich_data:
-            enrich_data = generate_heuristic_enrichment(item)
-            if not model_used:
-                model_used = "heuristic-rule-engine"
+        if not enrich_data or not has_korean:
+            print(f"  [-] [PENDING] {item.get('title')[:40]} - No valid Korean translation returned. Leaving in queue for retry.")
+            continue
 
         if enrich_data:
             enrich_time = datetime.now().astimezone().isoformat()
