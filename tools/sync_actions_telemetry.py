@@ -190,5 +190,113 @@ def sync_telemetry():
     conn.close()
     return True
 
+def finalize_run(run_id, job_status="success"):
+    """
+    Called at the very end of a GitHub Actions run (via if: always())
+    to record the final status, completion timestamp, duration, and runtime error in Neon DB.
+    """
+    db_url = load_env_db_url()
+    if not db_url:
+        print("[!] Note: No Neon DB URL found. Skipping finalize.")
+        return False
+
+    status_clean = (job_status or "success").lower()
+    conclusion = "success" if status_clean == "success" else ("cancelled" if status_clean == "cancelled" else "failure")
+    err_cnt = 1 if conclusion in ["failure", "timed_out"] else 0
+    now_utc = datetime.datetime.now(datetime.timezone.utc)
+
+    conn = psycopg2.connect(db_url)
+    with conn.cursor() as cur:
+        ensure_tables_exist(cur)
+        # Fetch started_at if available
+        cur.execute("SELECT started_at, workflow_name FROM github_actions_run_logs WHERE run_id = %s;", (run_id,))
+        row = cur.fetchone()
+        if row and row[0]:
+            start_dt = row[0]
+            dur_sec = max(1, int((now_utc - start_dt).total_seconds()))
+            wf_name = row[1]
+        else:
+            dur_sec = 60
+            wf_name = "GitHub Actions Workflow"
+
+        # If GitHub API is available, try to fetch exact timestamps
+        token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
+        repo = os.environ.get("GITHUB_REPOSITORY", "AnnyeongHae/ai-factcheck-portfolio")
+        if token:
+            try:
+                url = f"https://api.github.com/repos/{repo}/actions/runs/{run_id}"
+                req = urllib.request.Request(url, headers={
+                    "Authorization": f"Bearer {token}",
+                    "Accept": "application/vnd.github.v3+json",
+                    "User-Agent": "FactCheckHub-TelemetrySync"
+                })
+                with urllib.request.urlopen(req, timeout=6) as resp:
+                    rdata = json.loads(resp.read().decode("utf-8"))
+                    c_str = rdata.get("created_at")
+                    u_str = rdata.get("updated_at")
+                    if c_str and u_str:
+                        c_dt = datetime.datetime.fromisoformat(c_str.replace("Z", "+00:00"))
+                        u_dt = datetime.datetime.fromisoformat(u_str.replace("Z", "+00:00"))
+                        dur_sec = max(1, int((u_dt - c_dt).total_seconds()))
+                        now_utc = u_dt
+            except Exception:
+                pass
+
+        dur_str = f"{dur_sec // 60}분 {dur_sec % 60}초"
+
+        cur.execute("""
+            UPDATE github_actions_run_logs
+            SET status = 'completed',
+                conclusion = %s,
+                duration_seconds = %s,
+                duration_str = %s,
+                completed_at = %s,
+                error_count = %s,
+                error_details = CASE WHEN %s > 0 THEN 'Workflow job finished with status: ' || %s ELSE NULL END
+            WHERE run_id = %s;
+        """, (conclusion, dur_sec, dur_str, now_utc, err_cnt, err_cnt, status_clean, run_id))
+
+        # Also recalculate monthly usage
+        base_time = datetime.datetime(2026, 9, 7, 17, 32, 0, tzinfo=datetime.timezone.utc)
+        cur.execute("""
+            SELECT COALESCE(SUM(duration_seconds), 0)
+            FROM github_actions_run_logs
+            WHERE started_at > %s;
+        """, (base_time,))
+        delta_sec = cur.fetchone()[0]
+        delta_min = round(float(delta_sec) / 60.0, 1)
+
+        total_used = round(1242.0 + delta_min, 1)
+        remaining = max(0.0, round(2000.0 - total_used, 1))
+        burn_rate = round((total_used / 2000.0) * 100.0, 1)
+        alert = "CRITICAL_HIGH" if burn_rate >= 75 else ("WARNING" if burn_rate >= 50 else "SAFE")
+
+        cur.execute("""
+            UPDATE github_actions_monthly_usage
+            SET total_minutes = %s,
+                remaining_minutes = %s,
+                burn_rate_percent = %s,
+                alert_level = %s,
+                total_job_runs = (SELECT COUNT(*) FROM github_actions_run_logs),
+                updated_at = CURRENT_TIMESTAMP
+            WHERE year_month = '2026-09';
+        """, (total_used, remaining, burn_rate, alert))
+
+        conn.commit()
+        print(f"[+] Finalized run {run_id} ({wf_name}): status=completed, conclusion={conclusion}, dur={dur_str}, errors={err_cnt}")
+
+    conn.close()
+    return True
+
 if __name__ == "__main__":
-    sync_telemetry()
+    import argparse
+    parser = argparse.ArgumentParser(description="Sync or finalize GitHub Actions telemetry into Neon DB")
+    parser.add_argument("--finalize", action="store_true", help="Finalize current run status upon workflow completion")
+    parser.add_argument("--run-id", type=int, default=0, help="GitHub Actions run ID to finalize")
+    parser.add_argument("--job-status", type=str, default="success", help="GitHub Actions job status (success, failure, cancelled)")
+    args = parser.parse_args()
+
+    if args.finalize and args.run_id:
+        finalize_run(args.run_id, args.job_status)
+    else:
+        sync_telemetry()

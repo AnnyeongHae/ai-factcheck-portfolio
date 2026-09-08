@@ -26,7 +26,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     env:
       NEON_KEY: ${{ secrets.NEON_KEY }}
       DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
@@ -54,6 +54,7 @@ jobs:
 
       - name: Run Multi-Source Trend Harvester (Scheduled/Manual Only)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        timeout-minutes: 4
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -64,6 +65,7 @@ jobs:
 
       - name: Real-Time AI Enrichment (Scheduled/Manual Only)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        timeout-minutes: 4
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -98,3 +100,10 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Finalize Actions Telemetry in Neon DB
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/sync_actions_telemetry.py --finalize --run-id ${{ github.run_id }} --job-status ${{ job.status }} || echo "Telemetry finalize skipped"

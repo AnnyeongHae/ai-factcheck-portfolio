@@ -230,14 +230,20 @@ def get_actions_telemetry():
                 if run_rows:
                     db_runs = []
                     kst_tz = datetime.timezone(datetime.timedelta(hours=9))
+                    current_run_id = os.environ.get("GITHUB_RUN_ID")
                     for rr in run_rows:
                         st = rr[7].astimezone(kst_tz) if rr[7] else datetime.datetime.now(kst_tz)
+                        rid_str = str(rr[0])
+                        is_current = bool(current_run_id and rid_str == current_run_id)
+                        # If this row is the current build runner itself, on the deployed site it has succeeded
+                        status_val = "completed" if is_current else str(rr[3])
+                        conclusion_val = "success" if (is_current and str(rr[4]).lower() in ["in_progress", "none", ""]) else str(rr[4])
                         db_runs.append({
-                            "id": str(rr[0]),
+                            "id": rid_str,
                             "name": str(rr[1]),
                             "event": str(rr[2]),
-                            "status": str(rr[3]),
-                            "conclusion": str(rr[4]),
+                            "status": status_val,
+                            "conclusion": conclusion_val,
                             "duration_str": str(rr[5]),
                             "duration_sec": int(rr[6]),
                             "created_at_kst": st.strftime("%Y-%m-%d %H:%M:%S"),
@@ -2757,6 +2763,7 @@ def generate_html(data):
       }} else if (view === 'inbox') {{
         renderInbox();
         updateCronCountdown();
+        checkLiveActionsRuns();
       }} else if (view === 'graph' && !simulationRef) {{
         initCitationGraph();
       }}
@@ -4821,6 +4828,10 @@ def generate_html(data):
       const tbody = document.getElementById('pipelineRecentRunsTbody');
       if (!countdownEl || !slotsContainer) return;
 
+      if (Math.floor(Date.now() / 1000) % 30 === 0) {{
+        checkLiveActionsRuns();
+      }}
+
       const tLang = currentLang || 'ko';
       const aData = typeof actionsTelemetryData !== 'undefined' ? actionsTelemetryData : {{}};
 
@@ -4966,6 +4977,58 @@ def generate_html(data):
     }}
 
     setInterval(updateCronCountdown, 1000);
+
+    // 🌟 Client-Side Real-Time Live GitHub Actions Status Refresher
+    let lastPolledTime = 0;
+    async function checkLiveActionsRuns() {{
+      const now = Date.now();
+      if (now - lastPolledTime < 15000) return; // Cooldown 15s
+      lastPolledTime = now;
+      try {{
+        const resp = await fetch('https://api.github.com/repos/AnnyeongHae/ai-factcheck-portfolio/actions/runs?per_page=6', {{
+          headers: {{ 'Accept': 'application/vnd.github.v3+json' }}
+        }});
+        if (!resp.ok) return;
+        const data = await resp.json();
+        const liveRuns = data.workflow_runs || [];
+        if (!liveRuns.length || typeof actionsTelemetryData === 'undefined') return;
+
+        const kstTz = 9 * 60; // minutes
+        actionsTelemetryData.runs = liveRuns.map(r => {{
+          const cDate = new Date(r.created_at);
+          const uDate = new Date(r.updated_at);
+          const durSec = Math.max(1, Math.floor((uDate - cDate) / 1000));
+          const durStr = `${{Math.floor(durSec / 60)}}분 ${{durSec % 60}}초`;
+
+          const pad = (n) => String(n).padStart(2, '0');
+          // Format KST (UTC + 9)
+          const kstTime = new Date(cDate.getTime() + (kstTz + cDate.getTimezoneOffset()) * 60000);
+          const kstStr = `${{kstTime.getFullYear()}}-${{pad(kstTime.getMonth()+1)}}-${{pad(kstTime.getDate())}} ${{pad(kstTime.getHours())}}:${{pad(kstTime.getMinutes())}}:${{pad(kstTime.getSeconds())}}`;
+
+          const isSuccess = r.conclusion === 'success';
+          const isCancelled = r.conclusion === 'cancelled';
+          const isFailure = r.conclusion === 'failure' || r.conclusion === 'timed_out';
+          const errCount = isFailure ? 1 : 0;
+
+          return {{
+            id: String(r.id),
+            name: r.name,
+            event: r.event,
+            status: r.status,
+            conclusion: r.conclusion || r.status,
+            duration_str: durStr,
+            duration_sec: durSec,
+            created_at_kst: kstStr,
+            html_url: r.html_url,
+            error_count: errCount
+          }};
+        }});
+
+        updateCronCountdown();
+      }} catch (e) {{
+        // Silently ignore network / rate limit issues
+      }}
+    }}
 
     function renderInbox() {{
       const grid = document.getElementById('inboxGrid');
