@@ -24,15 +24,17 @@ import json
 import time
 import random
 import re
+import threading
 import urllib.request
 import socket
+
 try:
     from dotenv import load_dotenv
 except ImportError:
     load_dotenv = None
 
-# Set strict global socket timeout for all network requests to prevent hanging
-socket.setdefaulttimeout(12.0)
+# Set socket timeout for network requests
+socket.setdefaulttimeout(18.0)
 
 if sys.stdout.encoding != 'utf-8':
     try:
@@ -46,7 +48,48 @@ if load_dotenv:
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-# Priority order for zero-cost models (Verified active free models only)
+class OpenRouterRateLimiter:
+    """
+    Thread-safe rate limiter strictly enforcing OpenRouter's free-tier 20 RPM ceiling.
+    Defaults to 18 RPM (~3.33s interval) to provide a 10% safety buffer.
+    """
+    def __init__(self, target_rpm: int = 18):
+        self.min_interval = 60.0 / target_rpm  # 3.33s
+        self.last_call_time = 0.0
+        self.lock = threading.Lock()
+
+    def wait_for_slot(self):
+        with self.lock:
+            now = time.time()
+            elapsed = now - self.last_call_time
+            if elapsed < self.min_interval:
+                sleep_time = self.min_interval - elapsed
+                time.sleep(sleep_time)
+            self.last_call_time = time.time()
+
+# Global rate limiter instance shared across threads
+RATE_LIMITER = OpenRouterRateLimiter(target_rpm=18)
+
+# Priority clusters of verified active free models (max 3 fallbacks per OpenRouter API spec)
+MODEL_CLUSTERS = [
+    {
+        "primary": "google/gemma-4-31b-it:free",
+        "fallbacks": [
+            "google/gemma-4-26b-a4b-it:free",
+            "nvidia/nemotron-3-super-120b-a12b:free",
+            "liquid/lfm-2.5-2.6b:free"
+        ]
+    },
+    {
+        "primary": "nvidia/nemotron-3.5-lightning:free",
+        "fallbacks": [
+            "dots-studio/dots-3-note-preview:free",
+            "liquid/lfm-2.5-2.6b:free"
+        ]
+    }
+]
+
+# Backward compatibility alias
 FREE_MODEL_FALLBACKS = [
     "google/gemma-4-31b-it:free",
     "google/gemma-4-26b-a4b-it:free",
@@ -89,12 +132,13 @@ def validate_enriched_payload(payload):
 
 def clean_json_response(raw_text: str):
     """
-    Sanitizes LLM outputs: strips markdown code fences, comments, and invalid control chars.
+    Sanitizes LLM outputs: strips reasoning blocks (<think>), code fences, and whitespace.
     """
     cleaned = raw_text.strip()
+    # Strip <think>...</think> reasoning blocks common in reasoning models
+    cleaned = re.sub(r'<think>.*?</think>', '', cleaned, flags=re.DOTALL).strip()
     cleaned = re.sub(r'^```(?:json)?\s*', '', cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r'\s*```$', '', cleaned)
-    cleaned = cleaned.strip()
+    cleaned = re.sub(r'\s*```$', '', cleaned).strip()
 
     try:
         data = json.loads(cleaned)
@@ -102,7 +146,7 @@ def clean_json_response(raw_text: str):
     except json.JSONDecodeError:
         pass
 
-    # Regex extraction of outermost JSON array or object
+    # Regex extraction of outermost JSON array
     array_match = re.search(r'\[.*?\]', cleaned, re.DOTALL)
     if array_match:
         try:
@@ -111,6 +155,7 @@ def clean_json_response(raw_text: str):
         except json.JSONDecodeError:
             pass
 
+    # Regex extraction of outermost JSON object
     obj_match = re.search(r'\{.*?\}', cleaned, re.DOTALL)
     if obj_match:
         try:
@@ -119,89 +164,13 @@ def clean_json_response(raw_text: str):
         except json.JSONDecodeError:
             pass
 
-    raise ValueError(f"Could not parse valid JSON from text: {cleaned[:150]}...")
+    raise ValueError(f"Could not parse valid JSON from text: {cleaned[:120]}...")
 
-def call_openrouter_free_single(system_prompt: str, item: dict, timeout: int = 12, max_retries: int = 1):
+def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: int = 18, max_retries: int = 1):
     """
-    Enriches a SINGLE inbox item (1-by-1 mode) for maximum accuracy, speed and zero batching overhead.
-    Returns: (parsed_dict, model_name, latency_seconds)
-    """
-    api_key = get_openrouter_api_key()
-    if not api_key:
-        raise ValueError("OPENROUTER_API_KEY is missing from environment and .env!")
-
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://github.com/AnnyeongHae/ai-factcheck-portfolio",
-        "X-Title": "AI FactCheck Portfolio Free Router"
-    }
-
-    clean_desc = re.sub(r'<[^>]+>', ' ', item.get("description", "")).strip()[:350]
-    payload_item = {
-        "id": item.get("inbox_id") or item.get("id"),
-        "platform": item.get("source_platform", "Unknown"),
-        "title": item.get("title", ""),
-        "description": clean_desc
-    }
-    user_content = json.dumps(payload_item, ensure_ascii=False, indent=2)
-
-    for model_name in FREE_MODEL_FALLBACKS[:2]:
-        for attempt in range(1, max_retries + 1):
-            t_start = time.time()
-            try:
-                payload = {
-                    "model": model_name,
-                    "messages": [
-                        {"role": "system", "content": system_prompt + "\n\n반드시 단일 JSON 객체({}) 하나만 반환하세요."},
-                        {"role": "user", "content": "분석할 단일 항목:\n" + user_content}
-                    ],
-                    "temperature": 0.1
-                }
-                data_bytes = json.dumps(payload, ensure_ascii=False).encode("utf-8")
-                req = urllib.request.Request(OPENROUTER_API_URL, data=data_bytes, headers=headers)
-
-                with urllib.request.urlopen(req, timeout=timeout) as resp:
-                    resp_data = json.loads(resp.read().decode("utf-8"))
-                    routed_model = resp_data.get("model", model_name)
-                    choices = resp_data.get("choices")
-                    if not choices or not isinstance(choices, list) or len(choices) == 0:
-                        raise ValueError(f"No valid choices returned by {model_name}")
-                    content = choices[0].get("message", {}).get("content", "")
-                    parsed = clean_json_response(content)
-                    if isinstance(parsed, list):
-                        parsed = parsed[0] if parsed else {}
-                    latency = round(time.time() - t_start, 2)
-                    return parsed, routed_model, latency
-
-            except urllib.error.HTTPError as e:
-                latency = round(time.time() - t_start, 2)
-                err_body = e.read().decode("utf-8", errors="ignore")
-                if e.code == 429:
-                    wait_sec = 1.5 * (2 ** (attempt - 1)) + random.uniform(0.5, 1.0)
-                    print(f"  [-] Model '{model_name}' hit 429 rate limit. Backing off {wait_sec:.1f}s...")
-                    time.sleep(wait_sec)
-                    continue
-                else:
-                    print(f"  [-] Model '{model_name}' returned HTTP {e.code}: {err_body[:80]}. Trying next free model...")
-                    break
-            except Exception as e:
-                print(f"  [-] Error with model '{model_name}': {e}. Trying next free model...")
-                time.sleep(0.5)
-                break
-
-    raise RuntimeError("Free models in OpenRouter pool exhausted or timed out for this item!")
-
-def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: int = 14, max_retries: int = 1):
-    """
-    Calls OpenRouter Free Router for a batch of inbox items.
-    If only 1 item is passed, automatically uses call_openrouter_free_single for 100% precision.
+    Calls OpenRouter Free Router using server-side models fallback and 18 RPM pacer.
     Returns: (parsed_results_list, model_name, latency_seconds)
     """
-    if len(batch_items) == 1:
-        res, m, lat = call_openrouter_free_single(system_prompt, batch_items[0], timeout=timeout, max_retries=max_retries)
-        return [res], m, lat
-
     api_key = get_openrouter_api_key()
     if not api_key:
         raise ValueError("OPENROUTER_API_KEY is missing from environment and .env!")
@@ -225,27 +194,33 @@ def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: i
 
     user_content = json.dumps(clean_batch, ensure_ascii=False, indent=2)
 
-    for model_name in FREE_MODEL_FALLBACKS[:2]:
+    for cluster_idx, cluster in enumerate(MODEL_CLUSTERS):
+        primary_model = cluster["primary"]
+        fallback_models = cluster["fallbacks"][:3]  # OpenRouter requires <= 3 fallback models
+
         for attempt in range(1, max_retries + 1):
+            # Enforce strict 18 RPM spacing before sending request
+            RATE_LIMITER.wait_for_slot()
             t_start = time.time()
             try:
                 payload = {
-                    "model": model_name,
+                    "model": primary_model,
+                    "models": fallback_models,
                     "messages": [
                         {"role": "system", "content": system_prompt},
                         {"role": "user", "content": "분석할 항목 목록:\n" + user_content}
                     ],
-                    "temperature": 0.2
+                    "temperature": 0.1
                 }
                 data_bytes = json.dumps(payload, ensure_ascii=False).encode("utf-8")
                 req = urllib.request.Request(OPENROUTER_API_URL, data=data_bytes, headers=headers)
 
                 with urllib.request.urlopen(req, timeout=timeout) as resp:
                     resp_data = json.loads(resp.read().decode("utf-8"))
-                    routed_model = resp_data.get("model", model_name)
+                    routed_model = resp_data.get("model", primary_model)
                     choices = resp_data.get("choices")
                     if not choices or not isinstance(choices, list) or len(choices) == 0:
-                        raise ValueError(f"No valid choices returned by {model_name}")
+                        raise ValueError(f"No valid choices returned in response: {str(resp_data)[:100]}")
                     content = choices[0].get("message", {}).get("content", "")
                     parsed = clean_json_response(content)
                     if not isinstance(parsed, list):
@@ -257,19 +232,24 @@ def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: i
                 latency = round(time.time() - t_start, 2)
                 err_body = e.read().decode("utf-8", errors="ignore")
                 if e.code == 429:
-                    wait_sec = 2.0 * (2 ** (attempt - 1)) + random.uniform(0.5, 1.0)
-                    print(f"  [-] Model '{model_name}' hit 429 rate limit (attempt {attempt}/{max_retries}). Backing off {wait_sec:.1f}s...")
+                    wait_sec = 3.5 + random.uniform(0.5, 1.0)
+                    print(f"  [-] OpenRouter RPM limit (429, cluster {cluster_idx+1}). Pacing {wait_sec:.1f}s...")
                     time.sleep(wait_sec)
                     continue
                 else:
-                    print(f"  [-] Model '{model_name}' returned HTTP {e.code}: {err_body[:100]}. Falling to next model...")
+                    print(f"  [-] OpenRouter cluster {cluster_idx+1} HTTP {e.code}: {err_body[:80]}")
                     break
             except Exception as e:
-                print(f"  [-] Error with model '{model_name}' (attempt {attempt}): {e}")
+                print(f"  [-] OpenRouter cluster {cluster_idx+1} error: {e}")
                 time.sleep(0.5)
                 break
 
-    raise RuntimeError("Free models in OpenRouter pool exhausted or timed out!")
+    raise RuntimeError("All OpenRouter free model clusters exhausted or timed out!")
+
+def call_openrouter_free_single(system_prompt: str, item: dict, timeout: int = 15, max_retries: int = 1):
+    """Convenience wrapper for a single inbox item."""
+    results, model, latency = call_openrouter_free_batch(system_prompt, [item], timeout=timeout, max_retries=max_retries)
+    return (results[0] if results else {}), model, latency
 
 if __name__ == "__main__":
     print("[*] Testing OpenRouter Free Router standalone...")

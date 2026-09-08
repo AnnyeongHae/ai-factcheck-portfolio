@@ -76,44 +76,8 @@ def title_jaccard_similarity(title1: str, title2: str) -> float:
 
 
 def check_ai_semantic_dedup(api_key: str, candidate_title: str, existing_title: str) -> dict:
-    """Tier 3: AI-based Semantic Deduplication using dedup_prompt.yaml"""
-    if not genai or not api_key:
-        return {"is_duplicate": False, "reason": "genai or api_key missing"}
-
-    sys_instruction = "기술 중복 판정 AI 아키텍트"
-    schema_text = ""
-    try:
-        from prompt_manager import get_prompt
-        p = get_prompt("dedup")
-        if p:
-            sys_instruction = p.persona_and_role or sys_instruction
-            schema_text = p.output_json_schema
-    except Exception:
-        pass
-
-    user_prompt = f"""
-후보 A (신규 수집): "{candidate_title}"
-후보 B (기존 등재): "{existing_title}"
-
-두 항목이 동일한 기술/라이브러리/모델의 동일 발표이거나 번역/해설본인지 판별하여 JSON으로 응답하세요:
-{schema_text}
-"""
-
-    try:
-        client = genai.Client(api_key=api_key)
-        resp = client.models.generate_content(
-            model="gemini-flash-lite-latest",
-            contents=user_prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=sys_instruction,
-                temperature=0.0,
-                response_mime_type="application/json"
-            )
-        )
-        data = json.loads(resp.text)
-        return data
-    except Exception as e:
-        return {"is_duplicate": False, "reason": str(e)}
+    """Tier 3: AI-based Semantic Deduplication (Gemini API suspended per zero-cost policy)."""
+    return {"is_duplicate": False, "reason": "gemini_suspended"}
 
 
 def evaluate_deduplication(candidate: dict, existing_cases: list, existing_inbox: list, api_key: str = None) -> dict:

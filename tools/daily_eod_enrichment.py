@@ -40,14 +40,9 @@ def run_daily_eod():
     print(f"   Execution Time: {now_kst.strftime('%Y-%m-%d %H:%M:%S KST')}")
     print(f"{'='*70}\n")
 
-    # 1. Harvest already completed batches
-    print("[*] Step 1: Harvesting existing Gemini Batch jobs...")
-    try:
-        harvested_count = batch_manager.harvest_completed_batches()
-        print(f"[+] Harvested {harvested_count} items from completed batches.")
-    except Exception as e:
-        print(f"[-] Harvest warning: {e}")
-        harvested_count = 0
+    # 1. Gemini Batch API Suspended per project cost policy ($0.00 zero-cost mandate)
+    print("[*] Step 1: Gemini Batch API is suspended per project policy ($0.00 zero-cost mandate). Skipping.")
+    harvested_count = 0
 
     # 2. Scan inbox for ANY un-enriched items (Zero Left Behind Policy)
     print("\n[*] Step 2: Scanning inbox for un-translated / un-enriched items...")
@@ -74,12 +69,12 @@ def run_daily_eod():
     print(f"  - Un-enriched (Pending Translation): {len(unenriched_items)}")
 
     submitted_batches = []
-    # 3. Enrich ALL remaining un-enriched items in 1-by-1 Real-time Stream Mode
+    # 3. Enrich ALL remaining un-enriched items via OpenRouter Free Router ($0.00)
     if unenriched_items:
-        print(f"\n[*] Step 3: Enriching ALL {len(unenriched_items)} un-enriched items in 1-by-1 Zero-Cost Stream Mode...")
+        print(f"\n[*] Step 3: Enriching ALL {len(unenriched_items)} un-enriched items via OpenRouter Free Router ($0.00)...")
         try:
             import enrich_inbox_with_ai
-            enrich_inbox_with_ai.run_enrichment(limit=35, batch_size=3, provider="auto", workers=3, cooldown=0.5)
+            enrich_inbox_with_ai.run_enrichment(limit=35, batch_size=3, provider="openrouter", workers=1, cooldown=0.5)
             print("[+] EOD batch enrichment completed successfully.")
         except Exception as e:
             print(f"[-] OpenRouter enrichment encountered error: {e}")

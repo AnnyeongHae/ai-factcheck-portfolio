@@ -2,8 +2,8 @@ name: Daily 23:30 KST End-of-Day Batch Enrichment & Final Audit
 
 on:
   schedule:
-    # Runs everyday at 14:30 UTC = 23:30 KST (Korea Standard Time)
-    - cron: '30 14 * * *'
+    # Runs everyday at 14:37 UTC = 23:37 KST (Korea Standard Time) - shifted from :30 to bypass GitHub Actions runner queue congestion
+    - cron: '37 14 * * *'
   workflow_dispatch:
 
 permissions:
@@ -25,7 +25,6 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       NEON_KEY: ${{ secrets.NEON_KEY }}
       DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
     steps:

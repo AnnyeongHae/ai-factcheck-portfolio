@@ -42,25 +42,8 @@ if tools_dir not in sys.path:
 
 import openrouter_free_router
 
-GEMINI_SPEND_CAP_EXHAUSTED = False
-
-MODEL_POOL = [
-    "gemini-flash-lite-latest",
-    "gemini-flash-latest",
-    "gemma-4-31b-it",
-    "gemma-4-26b-a4b-it",
-    "gemini-3.6-flash"
-]
-
-def get_gemini_api_key():
-    key = os.environ.get("GEMINI_API_KEY", "")
-    if not key and os.path.exists(".env"):
-        with open(".env", "r", encoding="utf-8") as f:
-            for line in f:
-                if line.strip().startswith("GEMINI_API_KEY="):
-                    key = line.strip().split("=", 1)[1].strip("\"'")
-                    break
-    return key
+# Gemini integration is SUSPENDED per project cost policy ($0.00 zero-cost mandate)
+GEMINI_ENABLED = False
 
 def load_existing_dossiers():
     inv_dir = "investigations"
@@ -324,115 +307,15 @@ def load_prompt_config():
     return default_prompt, 0.2
 
 def call_gemini_trilingual_batch(api_key: str, batch_items: list) -> tuple:
-    """Calls Gemini with batched items using centralized YAML prompt configuration."""
-    global GEMINI_SPEND_CAP_EXHAUSTED
-    if GEMINI_SPEND_CAP_EXHAUSTED or not api_key:
-        return [], None
-
-    system_prompt, temperature = load_prompt_config()
-
-    clean_batch = []
-    for item in batch_items:
-        clean_desc = re.sub(r'<[^>]+>', ' ', item.get("description", "")).strip()[:350]
-        clean_batch.append({
-            "id": item["inbox_id"],
-            "platform": item.get("source_platform", "Unknown"),
-            "title": item.get("title", ""),
-            "description": clean_desc
-        })
-
-    user_content = json.dumps(clean_batch, ensure_ascii=False, indent=2)
-
-    payload = {
-        "contents": [
-            {"parts": [{"text": system_prompt + "\n\n분석할 항목 목록:\n" + user_content}]}
-        ],
-        "generationConfig": {
-            "responseMimeType": "application/json",
-            "temperature": temperature
-        }
-    }
-
-    # Model Fallback Loop
-    for model_name in MODEL_POOL:
-        if GEMINI_SPEND_CAP_EXHAUSTED:
-            break
-
-        is_gemma = "gemma" in model_name.lower()
-
-        # 🌟 User Insight: Gemma models perform best with 1-by-1 single item calls to ensure 100% schema accuracy
-        if is_gemma and len(clean_batch) > 1:
-            print(f"  [*] Gemma model '{model_name}' detected: auto-splitting batch into single items for 100% precision...")
-            gemma_results = []
-            try:
-                for s_item in clean_batch:
-                    s_payload = {
-                        "contents": [{"parts": [{"text": system_prompt + "\n\n분석할 단일 항목:\n" + json.dumps([s_item], ensure_ascii=False)}]}],
-                        "generationConfig": {"responseMimeType": "application/json", "temperature": 0.2}
-                    }
-                    s_url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
-                    s_req = urllib.request.Request(s_url, data=json.dumps(s_payload).encode("utf-8"), headers={"Content-Type": "application/json"})
-                    with urllib.request.urlopen(s_req, timeout=15) as resp:
-                        d = json.loads(resp.read().decode("utf-8"))
-                        txt = d["candidates"][0]["content"]["parts"][0]["text"]
-                        parsed_single = json.loads(txt)
-                        if isinstance(parsed_single, list):
-                            gemma_results.extend(parsed_single)
-                        else:
-                            gemma_results.append(parsed_single)
-                    time.sleep(0.5)
-                print(f"  [+] Responded by model '{model_name}' (1-by-1 single mode) successfully.")
-                return gemma_results, model_name
-            except Exception as e:
-                print(f"  [-] Gemma single call failed: {e}. Falling back...")
-                continue
-
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
-        req = urllib.request.Request(
-            url,
-            data=json.dumps(payload).encode("utf-8"),
-            headers={"Content-Type": "application/json"}
-        )
-
-        for attempt in range(1, 3):
-            try:
-                with urllib.request.urlopen(req, timeout=20) as resp:
-                    data = json.loads(resp.read().decode("utf-8"))
-                    raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
-                    print(f"  [+] Responded by model '{model_name}' successfully.")
-                    return json.loads(raw_text), model_name
-            except urllib.error.HTTPError as e:
-                err_msg = e.read().decode("utf-8", errors="ignore")
-                if any(k in err_msg.lower() for k in ["spending cap", "spend cap", "monthly spending", "billing", "resource_exhausted"]):
-                    print(f"  [!] Gemini monthly spending cap reached: {err_msg[:100]}. Disabling Gemini calls.")
-                    GEMINI_SPEND_CAP_EXHAUSTED = True
-                    return [], None
-                if e.code == 429:
-                    if attempt == 1:
-                        print(f"  [-] Model '{model_name}' RPM limit hit (429). Retrying once in 2s...")
-                        time.sleep(2)
-                        continue
-                    else:
-                        break
-                elif e.code == 404:
-                    break
-                else:
-                    print(f"  [-] HTTP Error {e.code} on '{model_name}': {err_msg[:80]}")
-                    time.sleep(1)
-                    break
-            except Exception as e:
-                print(f"  [-] Network Error on '{model_name}': {e}")
-                time.sleep(1)
-                break
-
-    print("[!] All fallback models in pool exhausted for this batch!")
+    """Gemini API connection is SUSPENDED per project policy ($0.00 zero-cost mandate)."""
+    print("[!] Notice: Gemini API connection is suspended. Bypassing to OpenRouter Free Router / Heuristic Engine.")
     return [], None
 
-def process_single_batch(b_idx, num_batches, batch, active_provider, gemini_key, dossiers):
+def process_single_batch(b_idx, num_batches, batch, active_provider, dossiers):
     batch_raw = [item for _, item in batch]
 
     print(f"\n=======================================================")
-    print(f"[*] [Thread-{b_idx+1}] Batch {b_idx+1}/{num_batches} ({len(batch)} items) via [{active_provider.upper()}]:")
+    print(f"[*] [Batch {b_idx+1}/{num_batches}] ({len(batch)} items) via [OPENROUTER FREE ROUTER ($0.00)]:")
     for _, it in batch:
         print(f"  - [{it.get('source_platform')}] {it.get('title')[:45]}...")
 
@@ -440,22 +323,12 @@ def process_single_batch(b_idx, num_batches, batch, active_provider, gemini_key,
     results = []
     model_used = None
 
-    if active_provider == "openrouter":
-        system_prompt, _ = load_prompt_config()
-        try:
-            results, model_used, b_latency = openrouter_free_router.call_openrouter_free_batch(system_prompt, batch_raw)
-        except Exception as e:
-            print(f"  [-] [Thread-{b_idx+1}] OpenRouter Free Router failed: {e}")
-            if gemini_key and not GEMINI_SPEND_CAP_EXHAUSTED:
-                print(f"  [*] [Thread-{b_idx+1}] Fallback to Gemini API...")
-                results, model_used = call_gemini_trilingual_batch(gemini_key, batch_raw)
-                b_latency = round(time.time() - b_start_time, 2)
-            else:
-                results, model_used, b_latency = [], None, round(time.time() - b_start_time, 2)
-    else:
-        if not GEMINI_SPEND_CAP_EXHAUSTED:
-            results, model_used = call_gemini_trilingual_batch(gemini_key, batch_raw)
-        b_latency = round(time.time() - b_start_time, 2)
+    system_prompt, _ = load_prompt_config()
+    try:
+        results, model_used, b_latency = openrouter_free_router.call_openrouter_free_batch(system_prompt, batch_raw)
+    except Exception as e:
+        print(f"  [-] [Batch {b_idx+1}] OpenRouter Free Router unavailable: {e}. Activating instant heuristic rule engine...")
+        results, model_used, b_latency = [], "heuristic-rule-engine", round(time.time() - b_start_time, 2)
 
     results = results or []
     res_map = {r["id"]: r for r in results if isinstance(r, dict) and "id" in r}
@@ -694,24 +567,21 @@ def process_single_batch(b_idx, num_batches, batch, active_provider, gemini_key,
 
     return (b_idx, batch_log, batch_success_count, model_used, len(results) if results else 0)
 
-def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = False, only_new: bool = False, cooldown: float = 1.0, provider: str = "auto", workers: int = 5):
+def run_enrichment(limit: int = 0, batch_size: int = 3, random_pick: bool = False, only_new: bool = False, cooldown: float = 1.0, provider: str = "openrouter", workers: int = 1):
     openrouter_key = openrouter_free_router.get_openrouter_api_key()
-    gemini_key = get_gemini_api_key()
 
-    if provider == "auto":
-        active_provider = "openrouter" if openrouter_key else ("gemini" if gemini_key else None)
-    elif provider == "openrouter":
+    if provider == "gemini":
+        print("[!] Notice: Gemini API is suspended per project policy ($0.00 zero-cost mandate). Routing to OpenRouter Free Router ($0.00).")
         active_provider = "openrouter"
-    elif provider == "gemini":
-        active_provider = "gemini"
+    elif provider in ["auto", "openrouter"]:
+        active_provider = "openrouter"
     else:
-        active_provider = None
+        active_provider = "openrouter"
 
-    if not active_provider:
-        print("[!] ERROR: No AI API key found! Please set OPENROUTER_API_KEY (for $0.00 free routing) or GEMINI_API_KEY.")
-        sys.exit(1)
+    if not openrouter_key:
+        print("[!] Warning: OPENROUTER_API_KEY not found. Heuristic Rule Engine will be used for 100% free enrichment.")
 
-    print(f"[*] Active AI Engine: {active_provider.upper()} ({'100% Free Zero-Cost Router ($0.00)' if active_provider == 'openrouter' else 'Paid API Tier'})")
+    print(f"[*] Active AI Engine: {active_provider.upper()} (100% Free Zero-Cost Router [$0.00])")
 
     dossiers = load_existing_dossiers()
     print(f"[*] Loaded {len(dossiers)} verified dossiers.")
@@ -806,7 +676,7 @@ def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = Fals
     completed_batches = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=actual_workers) as executor:
         future_to_bidx = {
-            executor.submit(process_single_batch, b_idx, num_batches, batch, active_provider, gemini_key, dossiers): b_idx
+            executor.submit(process_single_batch, b_idx, num_batches, batch, active_provider, dossiers): b_idx
             for b_idx, num_batches, batch in batches_data
         }
         for future in concurrent.futures.as_completed(future_to_bidx):
@@ -854,67 +724,25 @@ def run_enrichment(limit: int = 0, batch_size: int = 1, random_pick: bool = Fals
     print(f"=======================================================\n")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Trilingual AI Auto-Enricher with Smart Zero-Cost OpenRouter Free Routing & Gemini Fallback")
+    parser = argparse.ArgumentParser(description="Trilingual AI Auto-Enricher with Smart Zero-Cost OpenRouter Free Routing (Gemini Suspended)")
     parser.add_argument("--limit", type=int, default=0, help="Number of items to enrich (default: 0 = ALL pending unenriched items)")
     parser.add_argument("--all", action="store_true", default=False, help="Process ALL pending unenriched items without limit")
-    parser.add_argument("--batch-size", type=int, default=1, help="Item batch size (default: 1 = Single-item real-time streaming mode for 100%% precision & speed)")
+    parser.add_argument("--batch-size", type=int, default=3, help="Item batch size (default: 3 for optimal OpenRouter 18 RPM throughput)")
     parser.add_argument("--cooldown", type=float, default=1.0, help="Cooldown seconds between items (default: 1.0s)")
     parser.add_argument("--random", action="store_true", default=False, help="Pick randomly from inbox")
     parser.add_argument("--only-new", action="store_true", default=False, help="Process ONLY newly harvested items from manifest")
-    parser.add_argument("--provider", choices=["auto", "openrouter", "gemini"], default="auto", help="AI Provider: openrouter (100%% Free Router, $0.00) or gemini")
-    parser.add_argument("--workers", type=int, default=5, help="Concurrent worker threads for parallel batch execution (default: 5)")
+    parser.add_argument("--provider", choices=["auto", "openrouter", "gemini"], default="openrouter", help="AI Provider: openrouter (100%% Free Router, $0.00)")
+    parser.add_argument("--workers", type=int, default=1, help="Concurrent worker threads (default: 1 for strict 18 RPM pacing)")
     
-    # 🌟 Google Gemini Batch API Options (50%% Cost Cut & Zero RPM Throttling)
-    parser.add_argument("--submit-batch", action="store_true", default=False, help="Submit un-enriched items to Gemini Batch API")
-    parser.add_argument("--harvest-batch", action="store_true", default=False, help="Harvest completed Batch API responses & update inbox")
-    parser.add_argument("--status-batch", action="store_true", default=False, help="Print status of all Gemini Batch API jobs")
+    # Legacy Gemini Batch API Options (Suspended)
+    parser.add_argument("--submit-batch", action="store_true", default=False, help="Gemini Batch API (Suspended)")
+    parser.add_argument("--harvest-batch", action="store_true", default=False, help="Gemini Batch API (Suspended)")
+    parser.add_argument("--status-batch", action="store_true", default=False, help="Gemini Batch API (Suspended)")
     args = parser.parse_args()
 
     if args.status_batch or args.harvest_batch or args.submit_batch:
-        import sys
-        import os
-        tools_dir = os.path.dirname(os.path.abspath(__file__))
-        if tools_dir not in sys.path:
-            sys.path.insert(0, tools_dir)
-        import batch_manager
-        if args.status_batch:
-            reg = batch_manager.load_batch_registry()
-            print(f"[*] Total Batch Jobs in registry: {len(reg)}")
-            for b in reg:
-                print(f" - [{b.get('status')}] UUID: {b.get('batch_uuid')} | Job: {b.get('gemini_job_name')} | Items: {b.get('item_count')}")
-            sys.exit(0)
-        
-        if args.harvest_batch:
-            cnt = batch_manager.harvest_completed_batches()
-            print(f"[+] Done. Harvested {cnt} items from completed batches.")
-            sys.exit(0)
-
-        if args.submit_batch:
-            # Gather un-enriched items
-            inbox_files = sorted(glob.glob("inbox/*.json"))
-            unenriched = []
-            for fp in inbox_files:
-                if "_promoted" in fp or "_rejected" in fp:
-                    continue
-                try:
-                    with open(fp, "r", encoding="utf-8") as f:
-                        it = json.load(f)
-                    if not it.get("ai_enrichment") or not it.get("multilingual"):
-                        unenriched.append(it)
-                except Exception:
-                    continue
-            
-            target_limit = args.limit if args.limit > 0 else len(unenriched)
-            targets = unenriched[:target_limit]
-            print(f"[*] Found {len(unenriched)} un-enriched items. Submitting {len(targets)} to Gemini Batch API...")
-            if not targets:
-                print("[+] No un-enriched items to submit.")
-                sys.exit(0)
-            
-            uuid_res = batch_manager.submit_inbox_batch(targets)
-            if uuid_res:
-                print(f"[+] Successfully launched Batch Job with UUID: {uuid_res}")
-            sys.exit(0)
+        print("[!] Notice: Gemini Batch API is suspended per project cost policy ($0.00 zero-cost mandate). No action taken.")
+        sys.exit(0)
 
     effective_limit = 0 if args.all else args.limit
     run_enrichment(limit=effective_limit, batch_size=args.batch_size, random_pick=args.random, only_new=args.only_new, cooldown=args.cooldown, provider=args.provider, workers=args.workers)
