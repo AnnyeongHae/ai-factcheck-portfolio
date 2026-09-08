@@ -279,7 +279,7 @@ def push_inbox_to_neon(full_sync=False):
     conn.close()
     print(f"[+] Successfully pushed {count} inbox candidates to Neon Postgres DB (Tier 1 Staging)!")
 
-def pull_inbox_from_neon(limit=1000):
+def pull_inbox_from_neon(limit=5000):
     """
     Hydrates local inbox/ from Neon Postgres DB Tier 1 raw_trends_inbox.
     Ensures CI runner or clean dev machine has the exact consolidated data.

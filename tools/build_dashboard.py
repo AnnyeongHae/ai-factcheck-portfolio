@@ -1494,10 +1494,10 @@ def generate_html(data):
               <i data-lucide="arrow-up-down" class="w-3 h-3 text-indigo-600"></i>
               <span class="text-ink-muted text-[11px] font-mono" id="newsSortLabel">정렬:</span>
               <select id="newsSortSelect" onchange="setNewsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
-                <option value="date-audit-desc" selected>🔬 AI 분석일 최신순 (기본)</option>
-                <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
-                <option value="date-source-desc">📅 수집/발표 최신순</option>
+                <option value="date-source-desc" selected>📅 수집/발표 최신순 (기본)</option>
                 <option value="date-source-asc">📅 수집/발표 오래된순</option>
+                <option value="date-audit-desc">🔬 AI 분석일 최신순</option>
+                <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
               </select>
             </div>
           </div>
@@ -2151,10 +2151,10 @@ def generate_html(data):
         newsSearchPlaceholder: "기술명, 키워드 검색...",
         newsSortLabel: "정렬:",
         newsSortOptions: [
-          {{ val: "date-audit-desc", text: "🔬 AI 분석일 최신순 (기본)" }},
-          {{ val: "date-audit-asc", text: "🔬 AI 분석일 오래된순" }},
-          {{ val: "date-source-desc", text: "📅 수집/발표 최신순" }},
-          {{ val: "date-source-asc", text: "📅 수집/발표 오래된순" }}
+          {{ val: "date-source-desc", text: "📅 수집/발표 최신순 (기본)" }},
+          {{ val: "date-source-asc", text: "📅 수집/발표 오래된순" }},
+          {{ val: "date-audit-desc", text: "🔬 AI 분석일 최신순" }},
+          {{ val: "date-audit-asc", text: "🔬 AI 분석일 오래된순" }}
         ],
         modelsFamilyLabel: "🤖 모델 패밀리:",
         modelFams: {{
@@ -2310,10 +2310,10 @@ def generate_html(data):
         newsSearchPlaceholder: "搜索技术名、关键词...",
         newsSortLabel: "排序:",
         newsSortOptions: [
-          {{ val: "date-audit-desc", text: "🔬 AI 审核时间最新 (默认)" }},
-          {{ val: "date-audit-asc", text: "🔬 AI 审核时间最早" }},
-          {{ val: "date-source-desc", text: "📅 采集发布时间最新" }},
-          {{ val: "date-source-asc", text: "📅 采集发布时间最早" }}
+          {{ val: "date-source-desc", text: "📅 采集发布时间最新 (默认)" }},
+          {{ val: "date-source-asc", text: "📅 采集发布时间最早" }},
+          {{ val: "date-audit-desc", text: "🔬 AI 审核时间最新" }},
+          {{ val: "date-audit-asc", text: "🔬 AI 审核时间最早" }}
         ],
         modelsFamilyLabel: "🤖 模型系列:",
         modelFams: {{
@@ -2469,10 +2469,10 @@ def generate_html(data):
         newsSearchPlaceholder: "Search tech, keywords...",
         newsSortLabel: "Sort:",
         newsSortOptions: [
+          {{ val: "date-source-desc", text: "📅 Source Published (Newest first, default)" }},
+          {{ val: "date-source-asc", text: "📅 Source Published (Oldest first)" }},
           {{ val: "date-audit-desc", text: "🔬 AI Audit Date (Newest first)" }},
-          {{ val: "date-audit-asc", text: "🔬 AI Audit Date (Oldest first)" }},
-          {{ val: "date-source-desc", text: "📅 Source Published (Newest first)" }},
-          {{ val: "date-source-asc", text: "📅 Source Published (Oldest first)" }}
+          {{ val: "date-audit-asc", text: "🔬 AI Audit Date (Oldest first)" }}
         ],
         modelsFamilyLabel: "🤖 Model Family:",
         modelFams: {{
@@ -2580,11 +2580,11 @@ def generate_html(data):
       currentNewsTier1 = 'ALL';
       currentNewsTier2 = 'ALL';
       currentNewsSource = 'ALL';
-      currentNewsSort = 'date-audit-desc';
+      currentNewsSort = 'date-source-desc';
       const nInput = document.getElementById('newsSearchInput');
       if (nInput) nInput.value = '';
       const nSort = document.getElementById('newsSortSelect');
-      if (nSort) nSort.value = 'date-audit-desc';
+      if (nSort) nSort.value = 'date-source-desc';
       document.querySelectorAll('.news-cat-pill').forEach(btn => {{
         if (btn.getAttribute('data-cat') === 'ALL') {{
           btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
@@ -3821,7 +3821,7 @@ def generate_html(data):
     let currentNewsTier1 = 'ALL';
     let currentNewsTier2 = 'ALL';
     let currentNewsSource = 'ALL';
-    let currentNewsSort = 'date-audit-desc';
+    let currentNewsSort = 'date-source-desc';
     let currentNewsSearch = '';
 
     function setNewsCategoryFilter(t1) {{
@@ -4292,9 +4292,12 @@ def generate_html(data):
 
           <!-- Standardized 3-Line Footer -->
           <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
-            <!-- Line 1: 수집날짜&시간 -->
-            <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
-              <span>📅 ${{formatDateTimeCompact(it.published_at || it.harvested_at || it.harvested_date)}}</span>
+            <!-- Line 1: 수집날짜&시간 및 원문 발행일 -->
+            <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
+              <span>📥 ${{currentLang === 'KO' ? '수집' : (currentLang === 'ZH' ? '采集' : 'Harvest')}}: ${{formatDateTimeCompact(it.harvested_at || it.harvested_date || it.published_at)}}</span>
+              ${{it.published_at && (it.published_at.substring(0, 10) !== (it.harvested_at || it.harvested_date || '').substring(0, 10)) ? `
+              <span class="text-[10px] text-ink-muted" title="${{currentLang === 'KO' ? '원문 발행일' : (currentLang === 'ZH' ? '原文发布日' : 'Source Published')}}">(${{currentLang === 'KO' ? '원문' : (currentLang === 'ZH' ? '原文' : 'Pub')}}: ${{formatDateTimeCompact(it.published_at)}})</span>
+              ` : ''}}
             </div>
 
             <!-- Line 2: 분석날짜&시간 (분석모델) -->
