@@ -53,6 +53,11 @@ jobs:
       - name: Hydrate Inbox from Neon Postgres DB
         run: python tools/db_bridge.py --pull-inbox || echo "Pull inbox skipped or failed"
 
+      - name: Sync GitHub Actions Telemetry to Neon DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/sync_actions_telemetry.py || echo "Actions telemetry sync skipped."
+
       - name: Build Fact-Check Portfolio Dashboard
         run: python tools/build_dashboard.py
 

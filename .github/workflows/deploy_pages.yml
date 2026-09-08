@@ -77,6 +77,12 @@ jobs:
         run: |
           python tools/db_bridge.py --sync-inbox && python tools/db_bridge.py --sync-factchecks || echo "Neon DB sync skipped or completed with notes."
 
+      - name: Sync GitHub Actions Telemetry to Neon DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/sync_actions_telemetry.py || echo "Actions telemetry sync skipped."
+
       - name: Build Fact-Check Portfolio Dashboard & Docs
         run: |
           python tools/build_dashboard.py

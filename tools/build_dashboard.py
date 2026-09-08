@@ -245,6 +245,24 @@ def get_actions_telemetry():
                             "error_count": int(rr[8])
                         })
                     telemetry["runs"] = db_runs
+
+                    # 3. Dynamic Slot Logs (00:17, 06:17, 12:17, 18:17)
+                    cur.execute("""
+                        SELECT DISTINCT ON (timeline_slot) timeline_slot, duration_str, duration_seconds, conclusion, error_count, run_id, started_at
+                        FROM github_actions_run_logs
+                        WHERE timeline_slot IN ('00:17', '06:17', '12:17', '18:17')
+                        ORDER BY timeline_slot, started_at DESC;
+                    """)
+                    slot_rows = cur.fetchall()
+                    slot_map = {"00:17": "00:00", "06:17": "06:00", "12:17": "12:00", "18:17": "18:00"}
+                    for sr in slot_rows:
+                        s_key = slot_map.get(sr[0])
+                        if s_key and s_key in telemetry["slot_logs"]:
+                            telemetry["slot_logs"][s_key]["actual_duration"] = sr[1]
+                            telemetry["slot_logs"][s_key]["duration_sec"] = int(sr[2])
+                            telemetry["slot_logs"][s_key]["status"] = "SUCCESS" if sr[3] == "success" else (sr[3] or "SUCCESS").upper()
+                            telemetry["slot_logs"][s_key]["error_count"] = int(sr[4])
+                            telemetry["slot_logs"][s_key]["run_id"] = str(sr[5])
             conn.close()
     except Exception as e:
         print(f"[!] Note: Reading Actions telemetry from Neon DB fallback: {e}")
@@ -3971,7 +3989,7 @@ def generate_html(data):
             <span>+${{remainingSources.length}}${{currentLang === 'KO' ? '개 더보기' : (currentLang === 'ZH' ? '个更多' : ' more')}}</span>
             <i data-lucide="chevron-down" class="w-3 h-3"></i>
           </button>
-          <div id="srcMenu_${{safeId}}" class="hidden absolute right-0 bottom-full mb-1.5 w-64 max-w-[calc(100vw-2.5rem)] bg-white rounded-xl shadow-xl border border-surface-border p-2.5 z-50 text-xs flex flex-col gap-1.5">
+          <div id="srcMenu_${{safeId}}" class="hidden absolute z-50 mb-1.5 w-64 max-w-[calc(100vw-2.5rem)] min-w-[220px] bg-white rounded-xl shadow-2xl border border-surface-border p-2.5 text-xs flex flex-col gap-1.5">
             <div class="text-[10px] font-mono font-bold text-ink-muted px-1.5 pb-1 border-b border-surface-border flex items-center justify-between">
               <span>🔗 ${{currentLang === 'KO' ? `전체 교차 출처 (${{total}}개)` : (currentLang === 'ZH' ? `全部聚合来源 (${{total}}个)` : `All Sources (${{total}})`)}}</span>
               <span class="text-indigo-600 text-[9px] font-semibold">${{currentLang === 'KO' ? '원문 이동' : (currentLang === 'ZH' ? '直达原文' : 'Open')}} &nearr;</span>
@@ -4005,6 +4023,35 @@ def generate_html(data):
       document.querySelectorAll('[id^="srcMenu_"]').forEach(el => el.classList.add('hidden'));
       if (isHidden) {{
         menu.classList.remove('hidden');
+        
+        // 🌟 Responsive Dynamic Positioning Engine (Desktop + Mobile)
+        const btn = e.currentTarget;
+        const btnRect = btn.getBoundingClientRect();
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const menuWidth = Math.min(260, vw - 32);
+        menu.style.width = menuWidth + 'px';
+        
+        // Horizontal Clamping:
+        // If aligning to button left overflows screen right edge, align to button right
+        if (btnRect.left + menuWidth > vw - 16) {{
+          menu.style.left = 'auto';
+          menu.style.right = '0px';
+        }} else {{
+          menu.style.left = '0px';
+          menu.style.right = 'auto';
+        }}
+        
+        // Vertical Clamping:
+        // If not enough room above button (< 220px) and plenty of room below, open downwards
+        if (btnRect.top < 220 && (vh - btnRect.bottom > 180)) {{
+          menu.style.bottom = 'auto';
+          menu.style.top = 'calc(100% + 6px)';
+        }} else {{
+          menu.style.top = 'auto';
+          menu.style.bottom = 'calc(100% + 6px)';
+        }}
+
         if (window.lucide) window.lucide.createIcons();
       }}
     }}
@@ -4849,10 +4896,16 @@ def generate_html(data):
           statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-600 text-white flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>${{tLang === 'zh' ? '运行中' : (tLang === 'en' ? 'Running' : '수집 진행 중')}}</span>`;
           timeInfo = `<span class="text-indigo-700 font-bold">${{tLang === 'zh' ? '正在执行' : (tLang === 'en' ? 'Ingesting live...' : '실시간 파이프라인 가동')}}</span>`;
         }} else if (isPast) {{
+          const slotKeys = ['00:00', '06:00', '12:00', '18:00'];
+          const slotKey = slotKeys[idx] || '00:00';
+          const sLog = (aData.slot_logs && aData.slot_logs[slotKey]) ? aData.slot_logs[slotKey] : null;
+          const actualDuration = (sLog && sLog.actual_duration) ? sLog.actual_duration : (s.actualDur || '-');
+          const errCount = (sLog && typeof sLog.error_count !== 'undefined') ? sLog.error_count : 0;
+
           cardBorder = 'border-emerald-200';
           cardBg = 'bg-emerald-50/30';
           statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-1"><i data-lucide="check-circle" class="w-3 h-3 text-emerald-600"></i>${{tLang === 'zh' ? '已完成' : (tLang === 'en' ? 'Completed' : '수집 완료')}}</span>`;
-          timeInfo = `<span>${{tLang === 'zh' ? '实测耗时' : (tLang === 'en' ? 'Duration' : '실측 소요')}}: <b class="text-ink-primary font-bold">${{s.actualDur}}</b> · 0 ${{tLang === 'zh' ? '错误' : (tLang === 'en' ? 'errors' : '에러')}}</span>`;
+          timeInfo = `<span>${{tLang === 'zh' ? '实测耗时' : (tLang === 'en' ? 'Duration' : '실측 소요')}}: <b class="text-ink-primary font-bold">${{actualDuration}}</b> · ${{errCount}} ${{tLang === 'zh' ? '错误' : (tLang === 'en' ? 'errors' : '에러')}}</span>`;
         }} else {{
           const slotDiffSec = sTotalSec - curTotalSec;
           const futH = Math.floor(slotDiffSec / 3600);
@@ -4902,7 +4955,7 @@ def generate_html(data):
                   ${{statusLabel}}
                 </span>
               </td>
-              <td class="py-2.5 px-3 text-emerald-600 font-bold">0 errors</td>
+              <td class="py-2.5 px-3 font-bold ${{r.error_count > 0 ? 'text-rose-600' : 'text-emerald-600'}}">${{r.error_count || 0}} errors</td>
             </tr>
           `;
         }});
