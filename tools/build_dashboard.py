@@ -3027,11 +3027,45 @@ def generate_html(data):
       lucide.createIcons();
     }}
 
-    // ================= REAL-TIME DB SYNC (INSTANT ZERO-LATENCY) =================
+    // ================= REAL-TIME DB SYNC (VERCEL LIVE API + STATIC FALLBACK) =================
     async function syncFromNeonLiveDB() {{
-      // Neon DB Direct: 100% verified portfolios and recent trends are pre-compiled
-      // No external network roundtrips needed.
       const badge = document.getElementById('dbLiveBadge');
+      try {{
+        const res = await fetch('/api/stats', {{ cache: 'no-store' }});
+        if (res.ok) {{
+          const data = await res.json();
+          if (data.status === 'success' && data.counts) {{
+            const liveInbox = data.counts.inbox_deduped || data.counts.inbox_total;
+            const liveModels = data.counts.models_total;
+            const liveNews = data.counts.news_total;
+
+            const hInbox = document.getElementById('headerInboxCount');
+            if (hInbox && liveInbox) hInbox.textContent = `(${{liveInbox}})`;
+
+            const statInbox = document.getElementById('statValInbox');
+            if (statInbox && liveInbox) statInbox.textContent = liveInbox;
+
+            const mNavInbox = document.getElementById('mNavTabInbox');
+            if (mNavInbox && liveInbox) mNavInbox.textContent = `아카이브 (${{liveInbox}})`;
+
+            const inbHdr = document.getElementById('inboxHeaderCount');
+            if (inbHdr && liveInbox) inbHdr.textContent = `총 ${{liveInbox}}건`;
+
+            if (badge) {{
+              badge.innerHTML = `
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-xs cursor-pointer" title="Vercel Edge & Neon DB 실시간 연결됨 (총 ${{data.counts.inbox_total}}건)">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Vercel Live API (${{liveInbox}})
+                </span>
+              `;
+            }}
+            console.log('[Live DB Sync] Vercel Serverless API hydrated successfully:', data.counts);
+            return;
+          }}
+        }}
+      }} catch (err) {{
+        // Graceful fallback for static GitHub Pages or offline
+      }}
+
       if (badge) {{
         badge.innerHTML = `
           <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-xs">
