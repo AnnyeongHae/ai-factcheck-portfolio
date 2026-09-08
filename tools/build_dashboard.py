@@ -740,6 +740,12 @@ def build_dashboard():
             is_model = is_model_item(it)
             case_id = (it.get("related_dossier") or {}).get("case_id") if it.get("related_dossier") else None
 
+            raw_h = str(it.get("harvested_at") or it.get("created_at") or it.get("harvested_date") or "")
+            dt_kst_h = parse_to_kst_dt(raw_h)
+            it_h_hour = dt_kst_h.hour if dt_kst_h else 12
+            d_h_it = dt_kst_h.strftime("%Y-%m-%d") if dt_kst_h else get_item_date_str(it)
+            is_session_match = (d_h_it == target_date_str and s_hour <= it_h_hour < s_hour + 6)
+
             session_items_data.append({
                 "inbox_id": it.get("inbox_id") or "",
                 "title": t_ko_clean,
@@ -756,7 +762,11 @@ def build_dashboard():
                 "summary_zh": s_zh_clean,
                 "source_url": it.get("source_url") or "#",
                 "is_model": is_model,
-                "case_id": case_id
+                "case_id": case_id,
+                "published_at": it.get("published_at") or it.get("created_at") or "",
+                "harvested_at": it.get("harvested_at") or it.get("harvested_date") or "",
+                "is_this_session": is_session_match,
+                "session_tag": f"{s_num}회차 ({s_hour:02d}시)"
             })
 
             if vm: session_bullets.append(f"🔥 [{plat}] {t_ko_clean[:45]} ({vm}) — {s_ko_clean}")
@@ -3181,7 +3191,8 @@ def generate_html(data):
       const badge = document.getElementById('dbLiveBadge');
       try {{
         const tStart = performance.now();
-        const res = await fetch('/api/stats', {{ cache: 'no-store' }});
+        const apiUrl = window.location.hostname.includes('vercel.app') ? '/api/stats' : 'https://ai-factcheck-portfolio.vercel.app/api/stats';
+        const res = await fetch(apiUrl, {{ cache: 'no-store' }});
         const tLatency = Math.round(performance.now() - tStart);
         if (res.ok) {{
           const data = await res.json();
@@ -3346,8 +3357,13 @@ def generate_html(data):
 
     function formatDateTimeCompact(raw) {{
       if (!raw) return '-';
+      const s = String(raw).trim();
+      if (/^\\d{{4}}-\\d{{2}}-\\d{{2}}$/.test(s)) {{
+        const parts = s.split('-');
+        return `<span class="hidden sm:inline">${{parts[0]}}-</span>${{parts[1]}}-${{parts[2]}}`;
+      }}
       const d = new Date(raw);
-      if (isNaN(d.getTime())) return String(raw).substring(0, 10);
+      if (isNaN(d.getTime())) return s.substring(0, 10);
       const y = d.getFullYear();
       const m = String(d.getMonth() + 1).padStart(2, '0');
       const day = String(d.getDate()).padStart(2, '0');
@@ -3488,12 +3504,13 @@ def generate_html(data):
             const itemCard = document.createElement('div');
             itemCard.className = 'group p-2.5 rounded-xl bg-surface-subtle border border-surface-border hover:border-emerald-400 hover:bg-white transition flex flex-col gap-1.5';
             itemCard.innerHTML = `
-              <!-- Header Strip: Platform Badge, Viral Badge, FactCheck Badge, Direct External Link -->
+              <!-- Header Strip: Platform Badge, Viral Badge, Session Badge, FactCheck Badge, Direct External Link -->
               <div class="flex items-start justify-between gap-2">
                 <div class="flex items-center gap-1.5 flex-wrap">
                   <span class="w-5 h-5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center font-mono font-bold text-[10px] shrink-0">0${{idx + 1}}</span>
                   <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold ${{platformBadgeClass}} border">${{it.platform || 'AI Hub'}}</span>
                   ${{it.viral_metric ? `<span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1">🔥 ${{it.viral_metric}}</span>` : ''}}
+                  ${{it.is_this_session ? `<span class="px-1.5 py-0.5 rounded text-[9px] font-mono font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-0.5">⚡ ${{currentLang === 'KO' ? '이번 회차 수집' : (currentLang === 'ZH' ? '本场实时' : 'Current Session')}}</span>` : `<span class="px-1.5 py-0.5 rounded text-[9px] font-mono font-medium bg-slate-100 text-slate-600 border border-slate-200">${{it.session_tag || (currentLang === 'KO' ? '당일 수집' : 'Today')}}</span>`}}
                 </div>
                 <div class="flex items-center gap-1.5 shrink-0">
                   ${{it.case_id ? `
@@ -3516,6 +3533,12 @@ def generate_html(data):
                 </div>
                 ${{itemSummary ? `<p class="text-[11px] text-ink-muted truncate leading-relaxed mt-1">${{itemSummary}}</p>` : ''}}
               </a>
+
+              <!-- Date Strip: 발행일 & 수집일 -->
+              <div class="pt-1.5 border-t border-surface-border/60 flex items-center justify-between text-[10px] font-mono text-ink-muted flex-wrap gap-1">
+                <span class="flex items-center gap-1">📰 <span class="font-medium">${{currentLang === 'KO' ? '발행' : (currentLang === 'ZH' ? '发布' : 'Pub')}}:</span> ${{formatDateTimeCompact(it.published_at || it.harvested_at)}}</span>
+                <span class="flex items-center gap-1">📥 <span class="font-medium">${{currentLang === 'KO' ? '수집' : (currentLang === 'ZH' ? '采集' : 'Rec')}}:</span> ${{formatDateTimeCompact(it.harvested_at)}}</span>
+              </div>
             `;
             bulletsContainer.appendChild(itemCard);
           }});
@@ -4566,17 +4589,22 @@ def generate_html(data):
             ${{relatedHtml}}
           </div>
 
-          <!-- Standardized 3-Line Footer -->
+          <!-- Standardized 4-Line Footer: 발행일 -> 수집일 -> 분석일 (분석모델) -> 출처 -->
           <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
-            <!-- Line 1: 수집날짜&시간 및 원문 발행일 -->
+            <!-- Line 1: 발행일 -->
             <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
-              <span>📥 ${{currentLang === 'KO' ? '수집' : (currentLang === 'ZH' ? '采集' : 'Harvest')}}: ${{formatDateTimeCompact(it.harvested_at || it.harvested_date || it.published_at)}}</span>
-              ${{it.published_at && (it.published_at.substring(0, 10) !== (it.harvested_at || it.harvested_date || '').substring(0, 10)) ? `
-              <span class="text-[10px] text-ink-muted" title="${{currentLang === 'KO' ? '원문 발행일' : (currentLang === 'ZH' ? '原文发布日' : 'Source Published')}}">(${{currentLang === 'KO' ? '원문' : (currentLang === 'ZH' ? '原文' : 'Pub')}}: ${{formatDateTimeCompact(it.published_at)}})</span>
+              <span>📰 ${{currentLang === 'KO' ? '발행' : (currentLang === 'ZH' ? '发布' : 'Published')}}: ${{formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at)}}</span>
+            </div>
+
+            <!-- Line 2: 수집일 -->
+            <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
+              <span>📥 ${{currentLang === 'KO' ? '수집' : (currentLang === 'ZH' ? '采集' : 'Harvested')}}: ${{formatDateTimeCompact(it.harvested_at || it.harvested_date || it.created_at)}}</span>
+              ${{it.updated_at && it.updated_at !== (it.harvested_at || it.harvested_date) ? `
+              <span class="text-[10px] text-indigo-600 font-bold" title="${{currentLang === 'KO' ? '최신 갱신일' : (currentLang === 'ZH' ? '最新更新' : 'Updated')}}">(🔄 ${{formatDateTimeCompact(it.updated_at)}})</span>
               ` : ''}}
             </div>
 
-            <!-- Line 2: 분석날짜&시간 (분석모델) -->
+            <!-- Line 3: 분석일 (분석모델) -->
             ${{ai?.enriched_at ? `
             <div class="text-[11px] text-indigo-700 font-semibold flex items-center gap-1.5 min-w-0 overflow-hidden">
               <span class="shrink-0">🔬 ${{formatDateTimeCompact(ai.enriched_at)}}</span>
@@ -4588,7 +4616,7 @@ def generate_html(data):
             </div>
             `}}
 
-            <!-- Line 3: 원문 링크 -->
+            <!-- Line 4: 원문 링크 -->
             <div class="flex items-center gap-1.5 flex-wrap pt-0.5 font-sans">
               ${{linksHtml}}
             </div>
@@ -4885,14 +4913,22 @@ def generate_html(data):
             ${{relatedHtml}}
           </div>
 
-          <!-- Standardized 3-Line Footer -->
+          <!-- Standardized 4-Line Footer: 발행일 -> 수집일 -> 분석일 (분석모델) -> 출처 -->
           <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
-            <!-- Line 1: 수집날짜&시간 -->
-            <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
-              <span>📅 ${{formatDateTimeCompact(it.published_at || it.harvested_at || it.harvested_date)}}</span>
+            <!-- Line 1: 발행일 -->
+            <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
+              <span>📰 ${{currentLang === 'KO' ? '발행' : (currentLang === 'ZH' ? '发布' : 'Published')}}: ${{formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at)}}</span>
             </div>
 
-            <!-- Line 2: 분석날짜&시간 (분석모델) -->
+            <!-- Line 2: 수집일 -->
+            <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
+              <span>📥 ${{currentLang === 'KO' ? '수집' : (currentLang === 'ZH' ? '采集' : 'Harvested')}}: ${{formatDateTimeCompact(it.harvested_at || it.harvested_date || it.created_at)}}</span>
+              ${{it.updated_at && it.updated_at !== (it.harvested_at || it.harvested_date) ? `
+              <span class="text-[10px] text-indigo-600 font-bold" title="${{currentLang === 'KO' ? '최신 갱신일' : (currentLang === 'ZH' ? '最新更新' : 'Updated')}}">(🔄 ${{formatDateTimeCompact(it.updated_at)}})</span>
+              ` : ''}}
+            </div>
+
+            <!-- Line 3: 분석일 (분석모델) -->
             ${{ai?.enriched_at ? `
             <div class="text-[11px] text-indigo-700 font-semibold flex items-center gap-1.5 min-w-0 overflow-hidden">
               <span class="shrink-0">🔬 ${{formatDateTimeCompact(ai.enriched_at)}}</span>
@@ -4904,7 +4940,7 @@ def generate_html(data):
             </div>
             `}}
 
-            <!-- Line 3: Hub Download / Live Demo Button -->
+            <!-- Line 4: Hub Download / Live Demo Button -->
             <div class="flex items-center justify-between pt-0.5 font-sans">
               <span class="text-[11px] text-ink-muted font-mono flex items-center gap-1">
                 <a href="${{it.source_url}}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline flex items-center gap-0.5 font-semibold">
@@ -5443,14 +5479,22 @@ def generate_html(data):
 
           </div>
 
-          <!-- Standardized 3-Line Footer -->
+          <!-- Standardized 4-Line Footer: 발행일 -> 수집일 -> 분석일 (분석모델) -> 출처 -->
           <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
-            <!-- Line 1: 수집날짜&시간 -->
-            <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
-              <span>📅 ${{formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at || it.harvested_date)}}</span>
+            <!-- Line 1: 발행일 -->
+            <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
+              <span>📰 ${{currentLang === 'KO' ? '발행' : (currentLang === 'ZH' ? '发布' : 'Published')}}: ${{formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at)}}</span>
             </div>
 
-            <!-- Line 2: 분석날짜&시간 (분석모델) -->
+            <!-- Line 2: 수집일 -->
+            <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
+              <span>📥 ${{currentLang === 'KO' ? '수집' : (currentLang === 'ZH' ? '采集' : 'Harvested')}}: ${{formatDateTimeCompact(it.harvested_at || it.harvested_date || it.created_at)}}</span>
+              ${{it.updated_at && it.updated_at !== (it.harvested_at || it.harvested_date) ? `
+              <span class="text-[10px] text-indigo-600 font-bold" title="${{currentLang === 'KO' ? '최신 갱신일' : (currentLang === 'ZH' ? '最新更新' : 'Updated')}}">(🔄 ${{formatDateTimeCompact(it.updated_at)}})</span>
+              ` : ''}}
+            </div>
+
+            <!-- Line 3: 분석일 (분석모델) -->
             ${{ai?.enriched_at ? `
             <div class="text-[11px] text-indigo-700 font-semibold flex items-center gap-1.5 min-w-0 overflow-hidden">
               <span class="shrink-0">🔬 ${{formatDateTimeCompact(ai.enriched_at)}}</span>
@@ -5462,7 +5506,7 @@ def generate_html(data):
             </div>
             `}}
 
-            <!-- Line 3: 원문 링크 & 큐 등록 액션 버튼 -->
+            <!-- Line 4: 원문 링크 & 큐 등록 액션 버튼 -->
             <div class="flex items-center justify-between gap-2 pt-0.5 font-sans">
               <div class="flex items-center gap-1.5 flex-wrap">
                 ${{inboxSourceLinks}}

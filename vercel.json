@@ -1,6 +1,12 @@
 {
   "version": 2,
   "cleanUrls": true,
+  "functions": {
+    "api/*.py": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
   "headers": [
     {
       "source": "/api/(.*)",
@@ -9,20 +15,6 @@
         { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS" },
         { "key": "Access-Control-Allow-Headers", "value": "Content-Type,Authorization" }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    },
-    {
-      "source": "/",
-      "destination": "/docs/index.html"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/docs/:path*"
     }
   ]
 }

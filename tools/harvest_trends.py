@@ -392,11 +392,13 @@ def harvest_all():
                 if 'fp8' in mid_lower and 'FP8' not in detected_formats: detected_formats.append('FP8')
                 if 'lora' in mid_lower and 'LoRA' not in detected_formats: detected_formats.append('LoRA')
 
+                pub_at = item.get("createdAt") or item.get("lastModified")
                 if mid:
                     added = add_candidate({
                         "title": f"HuggingFace Model: {mid}",
                         "source_platform": "Hugging Face Models",
                         "source_url": url,
+                        "published_at": pub_at,
                         "type": "repo",
                         "category_type": "MODEL",
                         "description": f"Trending Score: {score}, Downloads: {downloads}, Likes: {likes}, Pipeline: {pipeline_tag}",
@@ -437,10 +439,12 @@ def harvest_all():
             url = f"https://huggingface.co/spaces/{sid}"
             sdk = item.get("sdk", "gradio")
             likes = item.get("likes", 0)
+            pub_at = item.get("createdAt") or item.get("lastModified")
             added = add_candidate({
                 "title": f"HF Space: {sid}",
                 "source_platform": "Hugging Face Spaces (Demo)",
                 "source_url": url,
+                "published_at": pub_at,
                 "type": "repo",
                 "description": f"Interactive AI Demo (SDK: {sdk}) | Likes: {likes} | Live URL: {url}",
                 "viral_metric": f"❤️ {likes} Likes (Trending Demo)"
@@ -469,10 +473,12 @@ def harvest_all():
                 stars = item.get('stargazers_count', 0)
                 forks = item.get('forks_count', 0)
                 if rname:
+                    pub_at = item.get("created_at")
                     added = add_candidate({
                         "title": f"GitHub: {rname}",
                         "source_platform": "GitHub Official",
                         "source_url": url,
+                        "published_at": pub_at,
                         "type": "repo",
                         "description": f"Stars: {stars}, Forks: {forks} | {desc}",
                         "viral_metric": f"★ {stars} Stars"
@@ -600,10 +606,13 @@ def harvest_all():
                 title = pdata.get("title", "")
                 url = f"https://reddit.com{pdata.get('permalink', '')}"
                 if not pdata.get("stickied", False):
+                    p_time = pdata.get("created_utc")
+                    pub_at = datetime.datetime.fromtimestamp(p_time, tz=datetime.timezone.utc).isoformat() if p_time else None
                     added = add_candidate({
                         "title": f"Reddit: {title}",
                         "source_platform": "Reddit r/LocalLLaMA",
                         "source_url": url,
+                        "published_at": pub_at,
                         "type": "sns",
                         "description": f"Upvotes: {pdata.get('score', 0)}, Comments: {pdata.get('num_comments', 0)}",
                         "viral_metric": f"{pdata.get('score', 0)} Upvotes"
@@ -701,11 +710,22 @@ def harvest_all():
                             desc = re.sub(r'<[^>]+>', ' ', d_node.text).strip()[:180]
                         
                         if url:
+                            pub_n = it.find('pubDate') or it.find('{http://www.w3.org/2005/Atom}published') or it.find('{http://www.w3.org/2005/Atom}updated')
+                            pub_iso = None
+                            if pub_n is not None and pub_n.text:
+                                try:
+                                    import email.utils
+                                    p_dt = email.utils.parsedate_to_datetime(pub_n.text.strip())
+                                    pub_iso = p_dt.isoformat()
+                                except Exception:
+                                    pub_iso = pub_n.text.strip()
+
                             added = add_candidate({
                                 "title": f"{sname}: {title}",
                                 "source_platform": sname,
                                 "source_url": url,
                                 "article_url": url,
+                                "published_at": pub_iso,
                                 "type": "sns",
                                 "category_type": "NEWS",
                                 "description": desc or f"{sname} Tech Publication: {title}",
@@ -771,19 +791,27 @@ def harvest_all():
             continue
 
         # 3-Tier Deduplication & Semantic Matching Gate
+        matched_inbox_by_dedup = None
         if evaluate_deduplication:
             try:
                 dedup_res = evaluate_deduplication(cand, existing_cases_list, existing_inbox_items, api_key=gemini_api_key)
                 if dedup_res.get("is_duplicate"):
-                    dup_skipped += 1
-                    logger.log(f"[DEDUP Tier {dedup_res.get('tier')}] Blocked: {cand['title'][:35]} -> Matched {dedup_res.get('matched_id')} ({dedup_res.get('reason')})")
-                    continue
+                    if dedup_res.get("matched_type") == "INVESTIGATION":
+                        dup_skipped += 1
+                        logger.log(f"[DEDUP Verified Case] Blocked already verified dossier: {cand['title'][:40]}")
+                        continue
+                    elif dedup_res.get("matched_type") == "INBOX":
+                        mid = dedup_res.get("matched_id")
+                        if mid:
+                            tf = os.path.join(inbox_dir, f"{mid}.json")
+                            if os.path.exists(tf):
+                                matched_inbox_by_dedup = tf
             except Exception as dedup_err:
                 logger.log(f"[!] Dedup check note: {dedup_err}", level="WARNING")
 
-        # Check if exists in inbox by Hash, Omni-URL or Slug (Deduplication & Block)
+        # Check if exists in inbox by Hash, Omni-URL, Dedup or Slug (Deduplication & Metric Update)
         matched_inbox_by_url = next((inbox_url_map[u] for u in cand_urls if u in inbox_url_map), None)
-        target_inbox_file = inbox_hash_map.get(c_hash) or matched_inbox_by_url or inbox_slug_map.get(slug)
+        target_inbox_file = inbox_hash_map.get(c_hash) or matched_inbox_by_url or matched_inbox_by_dedup or inbox_slug_map.get(slug)
 
         if target_inbox_file and os.path.exists(target_inbox_file):
             # UPDATE EXISTING ITEM
