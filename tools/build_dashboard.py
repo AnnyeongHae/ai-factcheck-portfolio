@@ -295,7 +295,7 @@ def build_dashboard():
         cat = it.get("category_type", "")
         src = it.get("source_platform", "")
         # Explicit news sources or GitHub repositories (which belong in Tech News/Trending Repos)
-        is_news_src = any(k in src for k in ["News", "Hacker", "Blog", "GitHub"])
+        is_news_src = any(k in src for k in ["News", "Hacker", "Blog", "GitHub", "Twitter", "X"])
         return has_ai and (ai.get("type_classification") == "NEWS" or cat == "NEWS" or is_news_src)
 
     def is_model_item(it):
@@ -552,6 +552,7 @@ def build_dashboard():
         if "arxiv" in p or "paper" in p: return "ArXiv"
         if "hacker" in p: return "HackerNews"
         if "geek" in p: return "GeekNews"
+        if "twitter" in p or " x " in p or "x (" in p or "x/" in p or "sns" in p: return "TechMedia"
         return "TechMedia"
 
     def extract_search_key(it):
@@ -639,7 +640,7 @@ def build_dashboard():
             "short_name": "4회 18시",
             "hour": 18,
             "time_range": "18:00 ~ 24:00 KST",
-            "targets": ["HackerNews", "GitHub", "HuggingFace"]
+            "targets": ["HackerNews", "GitHub", "TechMedia", "HuggingFace"]
         }
     ]
 
@@ -698,7 +699,7 @@ def build_dashboard():
                     used_inbox_ids.add(iid)
                     break
         for it in candidate_items:
-            if len(picked_items) >= 3: break
+            if len(picked_items) >= 4: break
             iid = it.get("inbox_id") or it.get("title")
             if iid in used_inbox_ids: continue
             picked_items.append(it)
@@ -812,7 +813,7 @@ def build_dashboard():
         "tier1_counts": tier1_counts,
         "model_art_counts": model_art_counts,
         "model_fam_counts": model_fam_counts,
-        "inbox_total_count": len(clean_inbox_items),
+        "inbox_total_count": len(inbox_items),
         "all_inbox_count": len(inbox_items),
         "admin_stats": admin_stats,
         "timeline_24h": timeline_24h,
@@ -822,7 +823,7 @@ def build_dashboard():
         "monthly_stats": [],
         "model_items": model_items,
         "news_items": news_items,
-        "inbox_items": clean_inbox_items,
+        "inbox_items": inbox_items,
         "cases": cases,
         "graph": graph_data,
         "actions_telemetry": actions_telemetry
@@ -3251,6 +3252,38 @@ def generate_html(data):
               if (bwBar && vt.bandwidth_gb) bwBar.style.width = `${{vt.bandwidth_gb.used_pct}}%`;
             }}
 
+            // 🌟 Real-time dynamic card hydration: Fetch latest DB records and unshift if new
+            try {{
+              const inboxApiUrl = window.location.hostname.includes('vercel.app') ? '/api/inbox?limit=50' : 'https://ai-factcheck-portfolio.vercel.app/api/inbox?limit=50';
+              const inbRes = await fetch(inboxApiUrl, {{ cache: 'no-store' }});
+              if (inbRes.ok) {{
+                const inbData = await inbRes.json();
+                if (inbData.status === 'success' && Array.isArray(inbData.items)) {{
+                  const existingIds = new Set(liveInboxData.map(x => x.inbox_id || x.id));
+                  let addedCount = 0;
+                  for (let i = inbData.items.length - 1; i >= 0; i--) {{
+                    const newItem = inbData.items[i];
+                    const nid = newItem.inbox_id || newItem.id;
+                    if (nid && !existingIds.has(nid)) {{
+                      existingIds.add(nid);
+                      liveInboxData.unshift(newItem);
+                      if (newItem.is_classified || newItem.ai_enrichment || (newItem.source_platform && (newItem.source_platform.includes('News') || newItem.source_platform.includes('Twitter') || newItem.source_platform.includes('X')))) {{
+                        liveNewsData.unshift(newItem);
+                      }}
+                      addedCount++;
+                    }}
+                  }}
+                  if (addedCount > 0) {{
+                    console.log(`[Live DB Sync] Injected ${{addedCount}} new real-time text cards into UI.`);
+                    renderInbox();
+                    renderNews();
+                  }}
+                }}
+              }}
+            }} catch (inbErr) {{
+              console.warn('[Live DB Sync] Inbox items hydration error:', inbErr);
+            }}
+
             console.log('[Live DB Sync] Vercel Serverless API hydrated successfully:', data.counts, `${{tLatency}}ms`);
             return;
           }}
@@ -4357,6 +4390,9 @@ def generate_html(data):
             (it.hook_ko || '') + ' ' +
             (it.description || '') + ' ' +
             (it.source_platform || '') + ' ' +
+            (it.category_primary || '') + ' ' +
+            (Array.isArray(it.root_keywords) ? it.root_keywords.join(' ') : (it.root_keywords || '')) + ' ' +
+            (Array.isArray(it.matched_user_domains) ? it.matched_user_domains.join(' ') : '') + ' ' +
             (it.ai_enrichment?.summary_ko || '')
           ).toLowerCase();
 
@@ -4612,7 +4648,7 @@ def generate_html(data):
             </div>
             ` : `
             <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
-              <span>🔬 ${{currentLang === 'KO' ? 'AI 심층 분석 대기 중' : (currentLang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit')}}</span>
+              <span>🔬 ${{currentLang === 'KO' ? 'AI요약 대기중' : (currentLang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit')}}</span>
             </div>
             `}}
 
@@ -4936,7 +4972,7 @@ def generate_html(data):
             </div>
             ` : `
             <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
-              <span>🔬 ${{currentLang === 'KO' ? 'AI 심층 분석 대기 중' : (currentLang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit')}}</span>
+              <span>🔬 ${{currentLang === 'KO' ? 'AI요약 대기중' : (currentLang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit')}}</span>
             </div>
             `}}
 
@@ -5304,18 +5340,30 @@ def generate_html(data):
         const itemLang = (ai ? ai.source_lang : null) || item.source_lang || 'EN';
         const matchesLang = currentInboxLang === 'ALL' || itemLang === currentInboxLang;
 
-        // 3. 4대 기술 분류 매칭 (인박스는 기본적으로 뉴스를 제외한 기술/모델/에이전트/미분석 대기열)
+        // 3. 4대 기술 분류 매칭 (ALL 선택 시 전체 항목 표시)
         const itemType = (ai ? ai.type_classification : null) || item.category_type || 'TECH';
         const matchesType = currentInboxType === 'ALL' 
-          ? (itemType !== 'NEWS') 
+          ? true 
           : (itemType === currentInboxType);
 
         // 4. 기술 스택/프로그래밍 언어 매칭
         const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || 'General';
         const matchesTech = currentInboxTech === 'ALL' || (itemTech.toLowerCase().includes(currentInboxTech.toLowerCase()));
 
-        // 5. 검색어 매칭
-        const text = (item.title + ' ' + (item.title_ko || '') + ' ' + (item.title_en || '') + ' ' + (item.title_zh || '') + ' ' + (item.description || '') + ' ' + (item.model_family || '') + ' ' + (item.variant_role || '') + ' ' + (item.hook || '')).toLowerCase();
+        // 5. 검색어 매칭 (키워드, 도메인, 카테고리 포함)
+        const text = (
+          item.title + ' ' + 
+          (item.title_ko || '') + ' ' + 
+          (item.title_en || '') + ' ' + 
+          (item.title_zh || '') + ' ' + 
+          (item.description || '') + ' ' + 
+          (item.model_family || '') + ' ' + 
+          (item.variant_role || '') + ' ' + 
+          (item.hook || '') + ' ' +
+          (item.category_primary || '') + ' ' +
+          (Array.isArray(item.root_keywords) ? item.root_keywords.join(' ') : (item.root_keywords || '')) + ' ' +
+          (Array.isArray(item.matched_user_domains) ? item.matched_user_domains.join(' ') : '')
+        ).toLowerCase();
         const matchesSearch = text.includes(inboxSearchQuery.toLowerCase());
 
         return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
@@ -5502,7 +5550,7 @@ def generate_html(data):
             </div>
             ` : `
             <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
-              <span>🔬 ${{currentLang === 'KO' ? 'AI 심층 분석 대기 중' : (currentLang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit')}}</span>
+              <span>🔬 ${{currentLang === 'KO' ? 'AI요약 대기중' : (currentLang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit')}}</span>
             </div>
             `}}
 

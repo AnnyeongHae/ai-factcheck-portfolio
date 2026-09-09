@@ -35,7 +35,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
@@ -48,14 +48,12 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Hydrate Inbox from Neon Postgres DB (Scheduled/Manual Only)
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      - name: Hydrate Inbox from Neon Postgres DB
         run: |
           python tools/db_bridge.py --pull-inbox || echo "Pull from Neon DB completed or skipped."
 
-      - name: Run Multi-Source Trend Harvester (Scheduled/Manual Only)
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        timeout-minutes: 4
+      - name: Stage 1 & 2: Multi-Source Harvester & Immediate DB Staging & Metrics Logging
+        timeout-minutes: 3
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           NEON_KEY: ${{ secrets.NEON_KEY }}
@@ -63,8 +61,7 @@ jobs:
         run: |
           python -u tools/harvest_trends.py
 
-      - name: Real-Time AI Enrichment (Scheduled/Manual Only)
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      - name: Stage 3: Sequential AI Enrichment (Paced Queue with Atomic DB Commits)
         continue-on-error: true
         timeout-minutes: 5
         env:
@@ -72,12 +69,11 @@ jobs:
           NEON_KEY: ${{ secrets.NEON_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
         run: |
-          python -u tools/enrich_inbox_with_ai.py --only-new --limit 20 --batch-size 3 --workers 2 --cooldown 0.5 --provider openrouter || echo "AI enrichment completed with fallback."
+          python -u tools/enrich_inbox_with_ai.py --only-new --limit 20 --batch-size 2 --workers 1 --cooldown 0.5 --provider openrouter || echo "AI enrichment finished with partial batch."
 
-      - name: Sync Data to Neon Postgres Cloud DB (Scheduled/Manual Only)
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      - name: Sync Verified Factchecks to Neon DB
         run: |
-          python tools/db_bridge.py --sync-inbox && python tools/db_bridge.py --sync-factchecks || echo "Neon DB sync skipped or completed with notes."
+          python tools/db_bridge.py --sync-factchecks || echo "Factchecks sync completed."
 
       - name: Sync GitHub Actions Telemetry to Neon DB
         env:

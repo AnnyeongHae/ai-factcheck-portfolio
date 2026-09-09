@@ -1,4 +1,29 @@
-const { Pool } = require('pg');
+let cachedPool = null;
+
+function getDbPool() {
+  const dbUrl = process.env.DATABASE_URL || process.env.NEON_KEY || process.env.NEON_DATABASE_URL;
+  if (!dbUrl) return null;
+  if (!cachedPool) {
+    try {
+      const { Pool } = require('pg');
+      cachedPool = new Pool({
+        connectionString: dbUrl,
+        ssl: { rejectUnauthorized: true },
+        max: 5,
+        idleTimeoutMillis: 30000,
+        connectionTimeoutMillis: 5000
+      });
+      cachedPool.on('error', (err) => {
+        console.error('[PgPool Error in stats]:', err);
+        cachedPool = null;
+      });
+    } catch (e) {
+      console.error('[Pg Driver Error]:', e);
+      return null;
+    }
+  }
+  return cachedPool;
+}
 
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -10,8 +35,8 @@ module.exports = async (req, res) => {
     return res.status(204).end();
   }
 
-  const dbUrl = process.env.DATABASE_URL || process.env.NEON_KEY || process.env.NEON_DATABASE_URL;
-  if (!dbUrl) {
+  const pool = getDbPool();
+  if (!pool) {
     return res.status(500).json({
       status: 'error',
       message: 'DATABASE_URL not configured on Vercel environment',
@@ -19,13 +44,7 @@ module.exports = async (req, res) => {
     });
   }
 
-  let pool;
   try {
-    pool = new Pool({
-      connectionString: dbUrl,
-      ssl: { rejectUnauthorized: false },
-      connectionTimeoutMillis: 5000
-    });
 
     const cInboxRes = await pool.query('SELECT count(*) FROM raw_trends_inbox;');
     const totalInboxRaw = parseInt(cInboxRes.rows[0].count, 10) || 0;
@@ -148,10 +167,10 @@ module.exports = async (req, res) => {
     });
 
   } catch (err) {
-    if (pool) await pool.end().catch(() => {});
+    console.error('[API Stats Error]:', err);
     return res.status(500).json({
       status: 'error',
-      message: err.message,
+      message: 'Internal server error while aggregating stats',
       server_time: new Date().toISOString()
     });
   }

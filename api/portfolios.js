@@ -1,14 +1,14 @@
 let cachedPool = null;
 
 function getDbPool() {
-  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY;
+  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY || process.env.NEON_DATABASE_URL;
   if (!DATABASE_URL) return null;
   if (!cachedPool) {
     try {
       const { Pool } = require('pg');
       cachedPool = new Pool({
         connectionString: DATABASE_URL,
-        ssl: { rejectUnauthorized: false },
+        ssl: { rejectUnauthorized: true },
         max: 5,
         idleTimeoutMillis: 30000,
         connectionTimeoutMillis: 5000
@@ -57,6 +57,7 @@ module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=120');
 
   if (req.method === 'OPTIONS') {
     return res.status(204).end();
@@ -236,10 +237,10 @@ module.exports = async (req, res) => {
       fallback.warning = "Live DB connection degraded, gracefully fallen back to static core.";
       return res.status(200).json(fallback);
     }
-    return res.status(200).json({
+    return res.status(500).json({
       success: false,
       source: "fallback_static",
-      error: "Neon Database Query Error: " + (err.message || String(err))
+      error: "Internal server error while fetching verified portfolios."
     });
   }
 };

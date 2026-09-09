@@ -1,14 +1,14 @@
 let cachedPool = null;
 
 function getDbPool() {
-  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY;
+  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY || process.env.NEON_DATABASE_URL;
   if (!DATABASE_URL) return null;
   if (!cachedPool) {
     try {
       const { Pool } = require('pg');
       cachedPool = new Pool({
         connectionString: DATABASE_URL,
-        ssl: { rejectUnauthorized: false },
+        ssl: { rejectUnauthorized: true },
         max: 5,
         idleTimeoutMillis: 30000,
         connectionTimeoutMillis: 5000
@@ -181,13 +181,31 @@ module.exports = async (req, res) => {
     }
 
     if (req.method === 'POST') {
+      const adminSecret = process.env.ADMIN_QUEUE_SECRET;
+      if (adminSecret) {
+        const authHeader = req.headers.authorization || '';
+        const customHeader = req.headers['x-admin-key'] || '';
+        const providedToken = authHeader.startsWith('Bearer ') ? authHeader.substring(7) : customHeader;
+        if (!providedToken || providedToken !== adminSecret) {
+          return res.status(401).json({ success: false, error: "Unauthorized: Invalid or missing admin token" });
+        }
+      }
+
       const body = req.body || {};
       const action = body.action || 'toggle';
-      const inbox_id = body.inbox_id;
-      const inbox_ids = body.inbox_ids || (inbox_id ? [inbox_id] : []);
+      let inbox_ids = body.inbox_ids || (body.inbox_id ? [body.inbox_id] : []);
+
+      if (!Array.isArray(inbox_ids)) {
+        inbox_ids = [inbox_ids];
+      }
+      inbox_ids = inbox_ids.filter(id => typeof id === 'string' && id.trim().length > 0);
 
       if (inbox_ids.length === 0) {
-        return res.status(400).json({ success: false, error: "No inbox_id provided" });
+        return res.status(400).json({ success: false, error: "No valid inbox_id provided" });
+      }
+
+      if (inbox_ids.length > 50) {
+        return res.status(400).json({ success: false, error: "Batch size exceeds maximum limit of 50 items" });
       }
 
       let updatedStatus = "QUEUED_FOR_INVESTIGATION";
@@ -202,13 +220,11 @@ module.exports = async (req, res) => {
         }
       }
 
-      for (const targetId of inbox_ids) {
-        await pool.query(`
-          UPDATE raw_trends_inbox 
-          SET triage_status = $1, updated_at = CURRENT_TIMESTAMP 
-          WHERE inbox_id = $2;
-        `, [updatedStatus, targetId]);
-      }
+      await pool.query(`
+        UPDATE raw_trends_inbox 
+        SET triage_status = $1, updated_at = CURRENT_TIMESTAMP 
+        WHERE inbox_id = ANY($2::text[]);
+      `, [updatedStatus, inbox_ids]);
 
       // ✅ NeonDB is the single source of truth for triage_status.
       // NOTE: Local inbox/*.json files are NOT writable from Vercel Serverless (read-only FS).
@@ -227,9 +243,9 @@ module.exports = async (req, res) => {
 
   } catch (err) {
     console.error("Neon DB queue error:", err);
-    return res.status(200).json({
+    return res.status(500).json({
       success: false,
-      error: "Neon Database Error: " + (err.message || String(err))
+      error: "Internal database error occurred while processing queue."
     });
   }
 };

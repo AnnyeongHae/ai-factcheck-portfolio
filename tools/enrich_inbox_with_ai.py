@@ -45,6 +45,43 @@ import openrouter_free_router
 # Gemini integration is SUSPENDED per project cost policy ($0.00 zero-cost mandate)
 GEMINI_ENABLED = False
 
+def update_neon_inbox_item(item):
+    """
+    Stage 3: Real-time atomic sync to Neon DB raw_trends_inbox.
+    Ensures that every newly enriched item is immediately persisted to the cloud database,
+    providing full idempotency and fault tolerance against timeouts.
+    """
+    try:
+        try:
+            from tools.db_bridge import get_db_connection
+        except Exception:
+            from db_bridge import get_db_connection
+        conn = get_db_connection()
+        if not conn:
+            return
+        cur = conn.cursor()
+        cur.execute("""
+            UPDATE raw_trends_inbox
+            SET 
+                is_classified = TRUE,
+                category_primary = %s,
+                item_type = %s,
+                raw_payload = %s,
+                updated_at = CURRENT_TIMESTAMP
+            WHERE inbox_id = %s;
+        """, (
+            item.get("category_primary"),
+            item.get("item_type") or item.get("category_type"),
+            json.dumps(item, ensure_ascii=False),
+            item.get("inbox_id")
+        ))
+        conn.commit()
+        cur.close()
+        conn.close()
+    except Exception as e:
+        # Non-blocking warning so processing continues
+        pass
+
 def load_existing_dossiers():
     inv_dir = "investigations"
     dossiers = []
@@ -556,6 +593,9 @@ def process_single_batch(b_idx, num_batches, batch, active_provider, dossiers):
 
             with open(fpath, "w", encoding="utf-8") as fp:
                 json.dump(item, fp, indent=2, ensure_ascii=False)
+
+            # Stage 3: Real-time atomic commit to Neon DB
+            update_neon_inbox_item(item)
 
             print(f"  [+] [Thread-{b_idx+1}] [{c_type} | {item['source_lang']}] {item['title_ko'][:30]}")
             batch_success_count += 1

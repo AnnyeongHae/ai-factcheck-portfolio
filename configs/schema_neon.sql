@@ -189,6 +189,70 @@ CREATE TABLE IF NOT EXISTS harvest_source_metrics (
     recorded_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
+-- 11. AI Batch Processing Jobs
+CREATE TABLE IF NOT EXISTS ai_batch_jobs (
+    id BIGSERIAL PRIMARY KEY,
+    batch_uuid VARCHAR(255) UNIQUE NOT NULL,
+    gemini_job_name VARCHAR(255),
+    item_count INT DEFAULT 0,
+    inbox_ids JSONB DEFAULT '[]'::jsonb,
+    status VARCHAR(50) DEFAULT 'PENDING',
+    token_usage JSONB DEFAULT '{}'::jsonb,
+    submitted_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    completed_at TIMESTAMP WITH TIME ZONE
+);
+
+-- 12. GitHub Actions Monthly Quota Usage
+CREATE TABLE IF NOT EXISTS github_actions_monthly_usage (
+    year_month VARCHAR(7) PRIMARY KEY, -- '2026-09'
+    total_minutes NUMERIC(8, 2) NOT NULL DEFAULT 0,
+    total_job_runs INTEGER NOT NULL DEFAULT 0,
+    deploy_pages_minutes NUMERIC(8, 2) DEFAULT 0,
+    deploy_pages_runs INTEGER DEFAULT 0,
+    deploy_pages_avg_sec INTEGER DEFAULT 241,
+    deploy_pages_failure_rate NUMERIC(5, 2) DEFAULT 10.0,
+    pages_build_minutes NUMERIC(8, 2) DEFAULT 0,
+    pages_build_runs INTEGER DEFAULT 0,
+    deploy_only_minutes NUMERIC(8, 2) DEFAULT 0,
+    daily_eod_minutes NUMERIC(8, 2) DEFAULT 0,
+    quota_limit_minutes INTEGER DEFAULT 2000,
+    remaining_minutes NUMERIC(8, 2) DEFAULT 758.0,
+    burn_rate_percent NUMERIC(5, 2) DEFAULT 62.1,
+    alert_level VARCHAR(20) DEFAULT 'WARNING',
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 13. GitHub Actions Detailed Run Execution Logs
+CREATE TABLE IF NOT EXISTS github_actions_run_logs (
+    run_id BIGINT PRIMARY KEY,
+    workflow_name VARCHAR(100) NOT NULL,
+    event_trigger VARCHAR(50) NOT NULL,
+    status VARCHAR(30) NOT NULL,
+    conclusion VARCHAR(30),
+    duration_seconds INTEGER NOT NULL,
+    duration_str VARCHAR(30),
+    started_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    completed_at TIMESTAMP WITH TIME ZONE,
+    timeline_slot VARCHAR(20),
+    error_count INTEGER DEFAULT 0,
+    error_details TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 14. Ecosystem Technical Deep Analyses
+CREATE TABLE IF NOT EXISTS ecosystem_technical_analyses (
+    id SERIAL PRIMARY KEY,
+    analysis_key VARCHAR(120) UNIQUE NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    base_standard VARCHAR(100) NOT NULL,
+    third_party_ecosystem VARCHAR(100) NOT NULL,
+    core_philosophy_comparison JSONB NOT NULL,
+    domain_lineage_matrix JSONB NOT NULL,
+    performance_bottlenecks JSONB NOT NULL,
+    engineering_tradeoffs JSONB NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
 -- ==============================================================================
 -- INDEXES FOR HIGH PERFORMANCE & TIME-SERIES SCALING
 -- ==============================================================================

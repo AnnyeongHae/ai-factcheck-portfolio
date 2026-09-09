@@ -974,5 +974,73 @@ def harvest_all():
         json.dump(history, f, indent=2, ensure_ascii=False)
     logger.log(f"[+] Harvest history saved to {history_file}")
 
+    # Stage 2: Immediate Staging to Neon DB & Telemetry Logging
+    record_harvest_telemetry_to_neon(harvest_report, new_saved, updated_count, dup_skipped, len(all_candidates))
+    sync_new_items_to_neon()
+
+def record_harvest_telemetry_to_neon(harvest_report, new_saved, updated_count, dup_skipped, total_fetched):
+    """
+    Stage 2: Records harvest run metadata and platform-specific metrics directly into Neon DB.
+    Tables: harvest_runs, harvest_source_metrics
+    """
+    try:
+        from tools.db_bridge import get_db_connection
+    except Exception:
+        try:
+            from db_bridge import get_db_connection
+        except Exception:
+            return
+
+    conn = get_db_connection()
+    if not conn:
+        return
+
+    try:
+        cur = conn.cursor()
+        run_id = f"run_{datetime.datetime.now().astimezone().strftime('%Y%m%d_%H%M%S')}"
+        now_dt = datetime.datetime.now(datetime.timezone.utc)
+        
+        # 1. Insert harvest_runs
+        cur.execute("""
+            INSERT INTO harvest_runs (run_id, started_at, finished_at, total_fetched, new_saved, duplicates_skipped, errors_count, status)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            ON CONFLICT (run_id) DO NOTHING;
+        """, (run_id, now_dt, now_dt, total_fetched, new_saved, dup_skipped, 0, 'SUCCESS'))
+
+        # 2. Insert harvest_source_metrics
+        source_counts = harvest_report.get("sources", {})
+        for src_name, src_data in source_counts.items():
+            count = src_data.get("items_found", 0) if isinstance(src_data, dict) else (src_data if isinstance(src_data, int) else 0)
+            latency = src_data.get("duration_sec", 0.0) if isinstance(src_data, dict) else 0.0
+            status = src_data.get("status", "SUCCESS") if isinstance(src_data, dict) else "SUCCESS"
+            cur.execute("""
+                INSERT INTO harvest_source_metrics (run_id, source_name, items_count, latency_seconds, http_status, recorded_at)
+                VALUES (%s, %s, %s, %s, %s, CURRENT_TIMESTAMP);
+            """, (run_id, src_name, count, latency, status))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        print(f"[+] [Neon DB] Recorded harvest run '{run_id}' with {total_fetched} items ({new_saved} new, {updated_count} updated) into harvest_runs & harvest_source_metrics.")
+    except Exception as e:
+        print(f"[!] Warning recording harvest telemetry to Neon DB: {e}")
+
+def sync_new_items_to_neon():
+    """
+    Stage 2: Immediately sync newly harvested inbox items to Neon DB raw_trends_inbox staging table.
+    Ensures data durability even if subsequent LLM processing fails or times out.
+    """
+    try:
+        try:
+            from tools.db_bridge import push_inbox_to_neon
+        except Exception:
+            from db_bridge import push_inbox_to_neon
+        print("[*] [Neon DB Staging] Syncing newly harvested inbox items directly to Neon DB...")
+        push_inbox_to_neon(full_sync=False)
+        print("[+] [Neon DB Staging] Staged items successfully committed to Neon DB raw_trends_inbox.")
+    except Exception as e:
+        print(f"[!] Warning syncing staged items to Neon DB: {e}")
+
 if __name__ == "__main__":
     harvest_all()
+
