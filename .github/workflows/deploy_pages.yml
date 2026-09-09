@@ -52,7 +52,7 @@ jobs:
         run: |
           python tools/db_bridge.py --pull-inbox || echo "Pull from Neon DB completed or skipped."
 
-      - name: Stage 1 & 2: Multi-Source Harvester & Immediate DB Staging & Metrics Logging
+      - name: "Stage 1 & 2: Multi-Source Harvester & Immediate DB Staging & Metrics Logging"
         timeout-minutes: 3
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -61,7 +61,7 @@ jobs:
         run: |
           python -u tools/harvest_trends.py
 
-      - name: Stage 3: Sequential AI Enrichment (Paced Queue with Atomic DB Commits)
+      - name: "Stage 3: Sequential AI Enrichment (Paced Queue with Atomic DB Commits)"
         continue-on-error: true
         timeout-minutes: 5
         env:
