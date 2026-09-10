@@ -44,10 +44,9 @@ function getDbPool() {
 }
 
 const FREE_MODELS = [
-  'nvidia/nemotron-3-super-120b-a12b:free',
-  'liquid/lfm-2.5-2.6b:free',
-  'dots-studio/dots-3-note-preview:free',
-  'google/gemma-3-27b-it:free'
+  'nex-agi/nex-n2.5-pro:free',
+  'google/gemma-4-31b-it:free',
+  'cohere/north-mini-code:free'
 ];
 
 function sanitizeJsonString(str) {
@@ -200,19 +199,14 @@ module.exports = async (req, res) => {
       description: (c.description || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 300)
     }));
 
-    const systemPrompt = `당신은 글로벌 최고 수준의 다국어 AI 기술 아키텍트입니다.
-주어진 기술/뉴스 후보 목록을 분석하여 각 항목마다 한국어 번역, 매력적인 1줄 훅(엔지니어가 지금 읽고 싶게 만드는 핵심 요약), 다국어 정보를 반드시 JSON 배열 형식으로만 응답하세요.
-JSON 스키마 예시:
+    const systemPrompt = `당신은 최고 수준의 AI 기술 아키텍트입니다.
+주어진 후보 항목을 분석하여 한국어 번역과 1줄 요약(엔지니어가 지금 읽고 싶게 만드는 결정적 훅)을 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 기타 텍스트는 절대 출력하지 마세요.
 [
   {
     "id": "item_id",
     "korean_title": "한국어 번역 제목",
-    "hook_ko": "엔지니어가 당장 클릭하고 싶게 만드는 결정적 1줄 한국어 훅",
-    "hook_en": "1-line compelling hook in English",
-    "hook_zh": "1-line compelling hook in Chinese",
-    "title_en": "Title in English",
-    "title_zh": "Title in Chinese",
-    "programming_lang": "Python | TypeScript | Rust | General"
+    "hook_ko": "결정적 1줄 한국어 훅",
+    "programming_lang": "Python, TypeScript, Rust, General 중 택1"
   }
 ]`;
 
@@ -220,18 +214,19 @@ JSON 스키마 예시:
     let modelUsed = null;
     let llmLatencySec = 0;
 
-    // Call OpenRouter with fast fallback models and dynamic time budget (never exceeds 7.5s total)
+    // Call OpenRouter with fast fallback models and dynamic time budget (within 45s serverless limit)
     for (const modelName of FREE_MODELS) {
-      const budgetMs = 7500 - (Date.now() - startTime);
-      if (budgetMs < 1500) {
+      const budgetMs = 45000 - (Date.now() - startTime);
+      if (budgetMs < 3000) {
         console.warn(`[Worker] Time budget exhausted (${budgetMs}ms left). Breaking early.`);
         break;
       }
       const callStart = Date.now();
+      let timeoutId = null;
       try {
         const controller = new AbortController();
-        const timeoutMs = Math.min(4500, budgetMs);
-        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+        const timeoutMs = Math.min(12000, budgetMs);
+        timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
         const aiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
           method: 'POST',
@@ -243,39 +238,44 @@ JSON 스키마 예시:
           },
           body: JSON.stringify({
             model: modelName,
-            models: FREE_MODELS.filter(m => m !== modelName).slice(0, 3),
             messages: [
               { role: 'system', content: systemPrompt },
               { role: 'user', content: `분석할 항목 목록:\n${JSON.stringify(promptItems, null, 2)}` }
             ],
-            temperature: 0.1
+            temperature: 0.1,
+            max_tokens: 350
           }),
           signal: controller.signal
         });
-        clearTimeout(timeoutId);
-
-        llmLatencySec = ((Date.now() - callStart) / 1000).toFixed(2);
 
         if (!aiResponse.ok) {
-          console.warn(`[Worker] ${modelName} returned HTTP ${aiResponse.status} (${llmLatencySec}s)`);
+          console.warn(`[Worker] ${modelName} returned HTTP ${aiResponse.status} (${((Date.now() - callStart) / 1000).toFixed(2)}s)`);
           continue;
         }
 
         const aiJson = await aiResponse.json();
-        modelUsed = aiJson.model || modelName;
+        if (timeoutId) { clearTimeout(timeoutId); timeoutId = null; }
+
+        llmLatencySec = ((Date.now() - callStart) / 1000).toFixed(2);
         const rawContent = aiJson.choices?.[0]?.message?.content || '';
         const parsed = sanitizeJsonString(rawContent);
 
         if (Array.isArray(parsed) && parsed.length > 0) {
-          // Check Korean character guardrail
+          // Check Korean character guardrail & reject broken unicode replacement characters (\ufffd)
           const hasKorean = parsed.some(p => /[\uac00-\ud7a3]/.test((p.korean_title || '') + ' ' + (p.hook_ko || '')));
-          if (hasKorean) {
+          const hasBrokenBytes = parsed.some(p => /[\ufffd]/.test((p.korean_title || '') + ' ' + (p.hook_ko || '')));
+          if (hasKorean && !hasBrokenBytes) {
             enrichedAiList = parsed;
+            modelUsed = aiJson.model || modelName;
             break;
+          } else {
+            console.warn(`[Worker] Model ${modelName} rejected: hasKorean=${hasKorean}, hasBrokenBytes=${hasBrokenBytes}`);
           }
         }
       } catch (err) {
         console.warn(`[Worker] Model ${modelName} error (${((Date.now() - callStart) / 1000).toFixed(2)}s): ${err.message}`);
+      } finally {
+        if (timeoutId) clearTimeout(timeoutId);
       }
     }
 

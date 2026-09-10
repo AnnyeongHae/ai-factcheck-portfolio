@@ -16,5 +16,10 @@
       "path": "/api/watchdog",
       "schedule": "0 0 * * *"
     }
-  ]
+  ],
+  "functions": {
+    "api/*.js": {
+      "maxDuration": 60
+    }
+  }
 }
