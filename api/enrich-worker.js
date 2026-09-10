@@ -45,9 +45,11 @@ function getDbPool() {
 
 const FREE_MODELS = [
   'nex-agi/nex-n2.5-pro:free',
+  'nvidia/nemotron-3-super-120b-a12b:free',
   'google/gemma-4-31b-it:free',
-  'cohere/north-mini-code:free'
+  'minimax/minimax-m3:free'
 ];
+
 
 function sanitizeJsonString(str) {
   let cleaned = (str || '').trim();
@@ -225,8 +227,9 @@ module.exports = async (req, res) => {
       let timeoutId = null;
       try {
         const controller = new AbortController();
-        const timeoutMs = Math.min(22000, budgetMs);
+        const timeoutMs = Math.min(14000, budgetMs);
         timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
 
         const aiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
           method: 'POST',
@@ -288,6 +291,8 @@ module.exports = async (req, res) => {
 
     const processedItems = [];
 
+    const koreanRegex = /[\uac00-\ud7a3]/;
+
     // 4. Update Database for each item
     for (let i = 0; i < candidates.length; i++) {
       const cand = candidates[i];
@@ -297,13 +302,15 @@ module.exports = async (req, res) => {
         aiData = enrichedAiList[i];
       }
       
-      // If AI translation failed for this item, use rule-based fallback unless explicitly asked to skip
-      if (!aiData) {
-        if (req.query?.skip_on_ai_fail === 'true') {
-          console.warn(`[Worker] No valid AI translation for ${cand.inbox_id}. Skipping for retry.`);
-          continue;
-        }
-        console.warn(`[Worker] Applying rule-based heuristic fallback for ${cand.inbox_id}.`);
+      const titleKoCandidate = (aiData?.korean_title || '').trim();
+      const hookKoCandidate = (aiData?.hook_ko || '').trim();
+      const hasKorean = koreanRegex.test(titleKoCandidate) || koreanRegex.test(hookKoCandidate);
+
+      // CRITICAL GUARDRAIL: Never mark as classified if valid Korean translation is missing!
+      // Unenriched items must stay is_classified = FALSE so they can be processed on subsequent runs.
+      if (!aiData || !hasKorean) {
+        console.warn(`[Worker] Skipping ${cand.inbox_id}: Missing AI translation or no Korean characters. Retaining is_classified=FALSE.`);
+        continue;
       }
 
       let payload = cand.raw_payload;
@@ -315,13 +322,14 @@ module.exports = async (req, res) => {
       const nowIso = new Date().toISOString();
       const cleanTitle = (cand.title || '').replace(/^(Show HN|Ask HN|GeekNews|HN):\s*/i, '').trim();
 
-      const titleKo = aiData?.korean_title || payload.title_ko || cleanTitle;
+      const titleKo = titleKoCandidate;
       const titleEn = aiData?.title_en || payload.title_en || cleanTitle;
       const titleZh = aiData?.title_zh || payload.title_zh || cleanTitle;
 
-      const hookKo = aiData?.hook_ko || payload.hook_ko || payload.hook || cleanTitle;
+      const hookKo = hookKoCandidate;
       const hookEn = aiData?.hook_en || payload.hook_en || cleanTitle;
       const hookZh = aiData?.hook_zh || payload.hook_zh || cleanTitle;
+
 
       const inferred = inferCategoriesAndArtifact(cand, aiData || {});
 
@@ -362,7 +370,7 @@ module.exports = async (req, res) => {
         korean_title: titleKo,
         hook: hookKo,
         multilingual: payload.multilingual,
-        enriched_by_model: modelUsed || 'heuristic-rule-engine',
+        enriched_by_model: modelUsed || 'openrouter-free',
         enriched_at: nowIso
       };
 
@@ -388,7 +396,7 @@ module.exports = async (req, res) => {
         title_ko: titleKo,
         category_primary: inferred.categoryPrimary,
         item_type: inferred.itemType,
-        enriched_by_model: modelUsed || 'heuristic-rule-engine'
+        enriched_by_model: modelUsed || 'openrouter-free'
       });
     }
 
@@ -398,7 +406,7 @@ module.exports = async (req, res) => {
     return res.status(200).json({
       status: 'success',
       processed_count: processedItems.length,
-      model_used: modelUsed || 'heuristic-rule-engine',
+      model_used: modelUsed || 'openrouter-free',
       duration_seconds: parseFloat(totalDurationSec),
       remaining_unclassified: newRemaining,
       items: processedItems

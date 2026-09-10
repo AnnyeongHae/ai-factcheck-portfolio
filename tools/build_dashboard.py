@@ -1884,21 +1884,17 @@ def generate_html(data):
         </div>
 
         <!-- Operational Decision & Architecture Guidance Banner -->
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between text-[11px] gap-2 pt-1 border-t border-surface-border/60">
-          <div class="flex items-center gap-2 text-slate-700" id="vercelAdviceBanner">
-            <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold font-mono text-[10px]" id="vercelBadgeVerdict">✅ 100% 무료 티어 안전 운영 중</span>
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between text-[11px] gap-3 pt-2 border-t border-surface-border/60">
+          <div class="flex flex-wrap items-center gap-2 text-slate-700 leading-relaxed max-w-2xl" id="vercelAdviceBanner">
+            <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold font-mono text-[10px] shrink-0" id="vercelBadgeVerdict">✅ 100% 무료 티어 안전 운영 중</span>
             <span id="vercelAdviceText">
-              월간 한도(100만 회 / 4.0 CPU-Hours) 대비 <b>사용량은 0.3% 미만</b>입니다. 30초 Edge CDN 캐싱이 적용되어 복잡한 집계 쿼리나 관리자 API를 추가해도 <b>무료 티어 초과 없이 무제한 운영</b>이 가능합니다.
+              월간 한도 대비 <b>사용량 0.3% 미만</b>이며, 30초 Edge CDN 캐싱 및 서버리스 AI 워커로 <b>무료 티어 초과 없이 무제한 자율 운영</b>됩니다.
             </span>
           </div>
-          <div class="flex items-center gap-2">
-            <button id="btnTriggerWorker" onclick="triggerAiEnrichWorker()" class="px-2.5 py-1 rounded bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold font-mono text-[10px] border border-indigo-300 transition shrink-0 flex items-center gap-1 cursor-pointer" title="Neon DB 미처리 항목을 Vercel Serverless에서 OpenRouter 무료 AI로 1건씩 안전하게 요약/번역">
-              <i data-lucide="sparkles" class="w-3 h-3 text-indigo-600"></i>
-              <span id="btnWorkerText">⚡ AI 요약 워커 실행</span>
-            </button>
-            <button onclick="pingVercelEdgeApi()" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold font-mono text-[10px] border border-slate-300 transition shrink-0 flex items-center gap-1 cursor-pointer">
-              <i data-lucide="refresh-cw" class="w-3 h-3"></i>
-              <span>Edge API 핑 테스트</span>
+          <div class="shrink-0 flex items-center self-end md:self-center">
+            <button id="btnTriggerWorker" onclick="triggerAiEnrichWorker()" class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-500 font-bold font-mono text-[11px] border border-slate-300 transition shadow-xs flex items-center gap-1.5 cursor-not-allowed" disabled title="Neon DB 미처리 항목을 백그라운드에서 5건씩 순차 요약/번역합니다.">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indigo-600"></i>
+              <span id="btnWorkerText">⏳ AI 요약 상태 확인 중...</span>
             </button>
           </div>
         </div>
@@ -3233,20 +3229,26 @@ def generate_html(data):
             if (inbHdr && liveInbox) inbHdr.textContent = `총 ${{liveInbox}}건`;
 
             if (data.counts.inbox_unclassified !== undefined) {{
-              const workerBtnText = document.getElementById('btnWorkerText');
-              if (workerBtnText) {{
-                if (data.counts.inbox_unclassified > 0) {{
-                  workerBtnText.textContent = `⚡ AI 요약 워커 실행 (미처리: ${{data.counts.inbox_unclassified}}건)`;
-                }} else {{
-                  workerBtnText.textContent = `✨ AI 요약 완료 (미처리: 0건)`;
+              const unclass = data.counts.inbox_unclassified;
+              const btn = document.getElementById('btnTriggerWorker');
+              const txt = document.getElementById('btnWorkerText');
+
+              if (unclass === 0) {{
+                if (txt) txt.textContent = '✨ 모든 항목 AI 요약 완료됨';
+                if (btn) {{
+                  btn.disabled = true;
+                  btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
                 }}
-              }}
-              // 🤖 Smooth background auto-enrichment if unclassified items remain
-              if (data.counts.inbox_unclassified > 0 && !window._autoEnrichStarted) {{
-                window._autoEnrichStarted = true;
-                setTimeout(() => {{
-                  triggerAiEnrichWorker();
-                }}, 2500);
+              }} else {{
+                if (window._isWorkerLoopRunning) {{
+                  if (txt) txt.textContent = `⏳ AI 요약 진행 중 (잔여: ${{unclass}}건)`;
+                  if (btn) {{
+                    btn.disabled = true;
+                    btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-not-allowed opacity-90";
+                  }}
+                }} else {{
+                  runBackgroundAiWorkerLoop();
+                }}
               }}
             }}
 
@@ -3336,44 +3338,84 @@ def generate_html(data):
         `;
       }}
     }}
+ 
+    let _isWorkerLoopRunning = false;
+    window._isWorkerLoopRunning = false;
 
-    async function pingVercelEdgeApi() {{
-      const pingLat = document.getElementById('vercelLatencyText');
-      if (pingLat) pingLat.textContent = '(실측 레이턴시 핑 측정 중...)';
-      await syncFromNeonLiveDB();
+    async function runBackgroundAiWorkerLoop() {{
+      if (_isWorkerLoopRunning) return;
+      _isWorkerLoopRunning = true;
+      window._isWorkerLoopRunning = true;
+
+      const btn = document.getElementById('btnTriggerWorker');
+      const txt = document.getElementById('btnWorkerText');
+
+      try {{
+        while (true) {{
+          if (btn) {{
+            btn.disabled = true;
+            btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-not-allowed opacity-90";
+          }}
+
+          const workerUrl = window.location.hostname.includes('vercel.app') ? '/api/enrich-worker?limit=5' : 'https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=5';
+          const res = await fetch(workerUrl, {{ cache: 'no-store' }});
+
+          if (!res.ok) {{
+            console.warn('[AI Worker] HTTP Error:', res.status);
+            if (txt) txt.textContent = '⚡ AI 요약 재시도 대기';
+            if (btn) {{
+              btn.disabled = false;
+              btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+            }}
+            break;
+          }}
+
+          const resData = await res.json();
+          if (resData.status === 'noop' || resData.remaining_unclassified === 0) {{
+            if (txt) txt.textContent = '✨ 모든 항목 AI 요약 완료됨';
+            if (btn) {{
+              btn.disabled = true;
+              btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
+            }}
+            await syncFromNeonLiveDB();
+            break;
+          }}
+
+          if (resData.status === 'success') {{
+            const rem = resData.remaining_unclassified;
+            if (txt) txt.textContent = `⏳ AI 요약 진행 중 (잔여: ${{rem}}건)`;
+            await syncFromNeonLiveDB();
+
+            if (rem === 0) {{
+              if (txt) txt.textContent = '✨ 모든 항목 AI 요약 완료됨';
+              if (btn) {{
+                btn.disabled = true;
+                btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
+              }}
+              break;
+            }}
+
+            // 5초 간격 유지 후 다음 5건 일괄 요약
+            await new Promise(r => setTimeout(r, 5000));
+          }} else {{
+            break;
+          }}
+        }}
+      }} catch (e) {{
+        console.warn('[AI Worker Loop Error]:', e);
+        if (txt) txt.textContent = '⚠️ 일시적 통신 오류';
+        if (btn) {{
+          btn.disabled = false;
+          btn.className = "px-3 py-1.5 rounded-lg bg-rose-50 text-rose-800 font-bold font-mono text-[11px] border border-rose-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+        }}
+      }} finally {{
+        _isWorkerLoopRunning = false;
+        window._isWorkerLoopRunning = false;
+      }}
     }}
 
     async function triggerAiEnrichWorker() {{
-      const btn = document.getElementById('btnTriggerWorker');
-      const txt = document.getElementById('btnWorkerText');
-      if (btn) btn.disabled = true;
-      if (txt) txt.textContent = '⏳ AI 요약 진행 중...';
-      try {{
-        const workerUrl = window.location.hostname.includes('vercel.app') ? '/api/enrich-worker?limit=5' : 'https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=5';
-        const res = await fetch(workerUrl, {{ cache: 'no-store' }});
-        if (res.ok) {{
-          const resData = await res.json();
-          if (resData.status === 'success') {{
-            if (txt) txt.textContent = `✅ ${{resData.processed_count}}건 요약 완료 (남은 미처리: ${{resData.remaining_unclassified}}건)`;
-            await syncFromNeonLiveDB();
-            setTimeout(() => {{
-              if (btn) btn.disabled = false;
-            }}, 2500);
-            return;
-          }} else if (resData.status === 'noop') {{
-            if (txt) txt.textContent = '✨ 모든 항목 AI 요약 완료됨';
-          }}
-        }} else {{
-          if (txt) txt.textContent = '⚠️ 워커 실행 실패';
-        }}
-      }} catch (e) {{
-        console.warn('[AI Worker] Trigger error:', e);
-        if (txt) txt.textContent = '⚠️ 통신 오류';
-      }}
-      setTimeout(() => {{
-        if (btn) btn.disabled = false;
-        if (txt) txt.textContent = '⚡ AI 요약 워커 실행';
-      }}, 3000);
+      await runBackgroundAiWorkerLoop();
     }}
 
     function updatePromotionBanner() {{}}
