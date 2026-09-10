@@ -83,6 +83,15 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
+      - name: Trigger Vercel AI Enrichment Micro-Worker
+        run: |
+          echo "[*] Triggering Vercel Serverless AI Micro-Worker to summarize fresh batch..."
+          for i in 1 2 3; do
+            echo "-> Invoking batch $i (5 items)..."
+            curl -s "https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=5" || true
+            sleep 2
+          done
+
       - name: Finalize Actions Telemetry in Neon DB
         if: always()
         env:

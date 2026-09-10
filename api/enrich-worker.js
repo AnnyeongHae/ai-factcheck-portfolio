@@ -163,16 +163,16 @@ module.exports = async (req, res) => {
   const startTime = Date.now();
 
   try {
-    // 1. Determine batch limit (Default 1 item to guarantee completion within ~4-6s on Vercel Hobby)
+    // 1. Determine batch limit (Default 5 items as requested by user)
     const rawLimit = parseInt(req.query?.limit, 10);
-    const limit = Number.isInteger(rawLimit) ? Math.min(3, Math.max(1, rawLimit)) : 1;
+    const limit = Number.isInteger(rawLimit) ? Math.min(10, Math.max(1, rawLimit)) : 5;
 
     // 2. Fetch unclassified records
     const selectQuery = `
       SELECT id, inbox_id, source_platform, source_url, title, description, item_type, harvested_date, raw_payload
       FROM raw_trends_inbox
       WHERE is_classified = FALSE
-      ORDER BY id DESC
+      ORDER BY updated_at ASC NULLS FIRST, id DESC
       LIMIT $1;
     `;
     const candidateResult = await pool.query(selectQuery, [limit]);
@@ -225,7 +225,7 @@ module.exports = async (req, res) => {
       let timeoutId = null;
       try {
         const controller = new AbortController();
-        const timeoutMs = Math.min(12000, budgetMs);
+        const timeoutMs = Math.min(22000, budgetMs);
         timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
         const aiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -243,7 +243,7 @@ module.exports = async (req, res) => {
               { role: 'user', content: `분석할 항목 목록:\n${JSON.stringify(promptItems, null, 2)}` }
             ],
             temperature: 0.1,
-            max_tokens: 350
+            max_tokens: 850
           }),
           signal: controller.signal
         });
@@ -297,10 +297,13 @@ module.exports = async (req, res) => {
         aiData = enrichedAiList[i];
       }
       
-      // If AI translation failed and no fallback requested, skip to allow retry
-      if (!aiData && req.query?.allow_fallback !== 'true') {
-        console.warn(`[Worker] No valid AI translation for ${cand.inbox_id}. Leaving for retry.`);
-        continue;
+      // If AI translation failed for this item, use rule-based fallback unless explicitly asked to skip
+      if (!aiData) {
+        if (req.query?.skip_on_ai_fail === 'true') {
+          console.warn(`[Worker] No valid AI translation for ${cand.inbox_id}. Skipping for retry.`);
+          continue;
+        }
+        console.warn(`[Worker] Applying rule-based heuristic fallback for ${cand.inbox_id}.`);
       }
 
       let payload = cand.raw_payload;

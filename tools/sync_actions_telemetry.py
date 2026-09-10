@@ -86,8 +86,10 @@ def ensure_tables_exist(cur):
         timeline_slot VARCHAR(20),
         error_count INTEGER DEFAULT 0,
         error_details TEXT,
+        items_collected INTEGER DEFAULT NULL,
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
+    ALTER TABLE github_actions_run_logs ADD COLUMN IF NOT EXISTS items_collected INTEGER DEFAULT NULL;
     """)
 
 def sync_telemetry():

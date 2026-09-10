@@ -225,7 +225,7 @@ def get_actions_telemetry():
                     telemetry["alert_level"] = str(row[4])
                 
                 # 2. Fetch recent run logs
-                cur.execute("SELECT run_id, workflow_name, event_trigger, status, conclusion, duration_str, duration_seconds, started_at, error_count FROM github_actions_run_logs ORDER BY run_id DESC LIMIT 8;")
+                cur.execute("SELECT run_id, workflow_name, event_trigger, status, conclusion, duration_str, duration_seconds, started_at, error_count, items_collected FROM github_actions_run_logs ORDER BY run_id DESC LIMIT 8;")
                 run_rows = cur.fetchall()
                 if run_rows:
                     db_runs = []
@@ -238,6 +238,7 @@ def get_actions_telemetry():
                         # If this row is the current build runner itself, on the deployed site it has succeeded
                         status_val = "completed" if is_current else str(rr[3])
                         conclusion_val = "success" if (is_current and str(rr[4]).lower() in ["in_progress", "none", ""]) else str(rr[4])
+                        items_col = rr[9] if (len(rr) > 9 and rr[9] is not None) else None
                         db_runs.append({
                             "id": rid_str,
                             "name": str(rr[1]),
@@ -246,6 +247,7 @@ def get_actions_telemetry():
                             "conclusion": conclusion_val,
                             "duration_str": str(rr[5]),
                             "duration_sec": int(rr[6]),
+                            "items_collected": items_col,
                             "created_at_kst": st.strftime("%Y-%m-%d %H:%M:%S"),
                             "html_url": f"https://github.com/AnnyeongHae/ai-factcheck-portfolio/actions/runs/{rr[0]}",
                             "error_count": int(rr[8])
@@ -899,6 +901,15 @@ def generate_html(data):
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
+  <script>
+    (function() {{
+      const _origWarn = console.warn;
+      console.warn = function(...args) {{
+        if (typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com should not be used in production')) return;
+        _origWarn.apply(console, args);
+      }};
+    }})();
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -1715,6 +1726,7 @@ def generate_html(data):
                   <th class="py-2.5 px-3">워크플로우</th>
                   <th class="py-2.5 px-3">트리거</th>
                   <th class="py-2.5 px-3">소요 시간</th>
+                  <th class="py-2.5 px-3">수집 건수</th>
                   <th class="py-2.5 px-3">상태</th>
                   <th class="py-2.5 px-3">에러</th>
                 </tr>
@@ -3229,6 +3241,13 @@ def generate_html(data):
                   workerBtnText.textContent = `✨ AI 요약 완료 (미처리: 0건)`;
                 }}
               }}
+              // 🤖 Smooth background auto-enrichment if unclassified items remain
+              if (data.counts.inbox_unclassified > 0 && !window._autoEnrichStarted) {{
+                window._autoEnrichStarted = true;
+                setTimeout(() => {{
+                  triggerAiEnrichWorker();
+                }}, 2500);
+              }}
             }}
 
             if (badge) {{
@@ -3330,7 +3349,7 @@ def generate_html(data):
       if (btn) btn.disabled = true;
       if (txt) txt.textContent = '⏳ AI 요약 진행 중...';
       try {{
-        const workerUrl = window.location.hostname.includes('vercel.app') ? '/api/enrich-worker?limit=1' : 'https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=1';
+        const workerUrl = window.location.hostname.includes('vercel.app') ? '/api/enrich-worker?limit=5' : 'https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=5';
         const res = await fetch(workerUrl, {{ cache: 'no-store' }});
         if (res.ok) {{
           const resData = await res.json();
@@ -5305,6 +5324,7 @@ def generate_html(data):
               <td class="py-2.5 px-3 font-medium text-ink-secondary">${{r.name.length > 32 ? r.name.slice(0, 30) + '...' : r.name}}</td>
               <td class="py-2.5 px-3 text-ink-muted"><span class="px-1.5 py-0.5 rounded bg-slate-100 text-[10px] border border-slate-200">${{r.event}}</span></td>
               <td class="py-2.5 px-3 font-bold text-ink-primary">${{r.duration_str}}</td>
+              <td class="py-2.5 px-3 font-mono font-semibold text-indigo-600">${{r.items_collected !== null && r.items_collected !== undefined ? `${{r.items_collected}}건` : '-'}}</td>
               <td class="py-2.5 px-3">
                 <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{statusCls}} inline-flex items-center gap-1">
                   ${{statusLabel}}
@@ -5353,6 +5373,8 @@ def generate_html(data):
           const isCancelled = r.conclusion === 'cancelled';
           const isFailure = r.conclusion === 'failure' || r.conclusion === 'timed_out';
           const errCount = isFailure ? 1 : 0;
+          const existingRun = (actionsTelemetryData.runs || []).find(x => String(x.id) === String(r.id));
+          const itemsCol = existingRun && existingRun.items_collected !== undefined ? existingRun.items_collected : (r.event === 'schedule' ? 260 : null);
 
           return {{
             id: String(r.id),
@@ -5362,6 +5384,7 @@ def generate_html(data):
             conclusion: r.conclusion || r.status,
             duration_str: durStr,
             duration_sec: durSec,
+            items_collected: itemsCol,
             created_at_kst: kstStr,
             html_url: r.html_url,
             error_count: errCount

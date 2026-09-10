@@ -109,9 +109,7 @@ module.exports = async (req, res) => {
         };
       }
     } catch (e) {}
-
-    await pool.end();
-
+    // Note: Do not call pool.end() in serverless warm container reuse environment
     const dedupInboxEstimate = Math.max(0, totalInboxRaw - totalFactchecks - 55);
 
     const vercelTelemetry = {

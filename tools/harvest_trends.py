@@ -1018,6 +1018,18 @@ def record_harvest_telemetry_to_neon(harvest_report, new_saved, updated_count, d
                 VALUES (%s, %s, %s, %s, %s, CURRENT_TIMESTAMP);
             """, (run_id, src_name, count, latency, status))
 
+        # 3. Update github_actions_run_logs if running inside GitHub Actions
+        gh_run_id = os.environ.get("GITHUB_RUN_ID")
+        if gh_run_id:
+            try:
+                cur.execute("""
+                    UPDATE github_actions_run_logs
+                    SET items_collected = %s
+                    WHERE run_id = %s;
+                """, (total_fetched, int(gh_run_id)))
+            except Exception as e:
+                print(f"[!] Note updating github_actions_run_logs.items_collected: {e}")
+
         conn.commit()
         cur.close()
         conn.close()
