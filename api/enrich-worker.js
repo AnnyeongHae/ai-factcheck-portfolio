@@ -44,11 +44,12 @@ function getDbPool() {
 }
 
 const FREE_MODELS = [
-  'nex-agi/nex-n2.5-pro:free',
   'nvidia/nemotron-3-super-120b-a12b:free',
+  'liquid/lfm-2.5-2.6b:free',
   'nvidia/nemotron-3.5-lightning:free',
-  'liquid/lfm-2.5-2.6b:free'
+  'nex-agi/nex-n2.5-pro:free'
 ];
+
 
 
 
@@ -233,8 +234,9 @@ module.exports = async (req, res) => {
       let timeoutId = null;
       try {
         const controller = new AbortController();
-        const timeoutMs = Math.min(14000, budgetMs);
+        const timeoutMs = Math.min(8000, budgetMs);
         timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
 
         const aiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
           method: 'POST',
