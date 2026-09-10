@@ -3202,13 +3202,17 @@ def generate_html(data):
     }}
 
     // ================= REAL-TIME DB SYNC (VERCEL LIVE API + STATIC FALLBACK) =================
+    let _isSyncing = false;
     async function syncFromNeonLiveDB() {{
+      if (_isSyncing) return;
+      _isSyncing = true;
       const badge = document.getElementById('dbLiveBadge');
       try {{
         const tStart = performance.now();
         const apiUrl = window.location.hostname.includes('vercel.app') ? '/api/stats' : 'https://ai-factcheck-portfolio.vercel.app/api/stats';
         const res = await fetch(apiUrl, {{ cache: 'no-store' }});
         const tLatency = Math.round(performance.now() - tStart);
+
         if (res.ok) {{
           const data = await res.json();
           if (data.status === 'success' && data.counts) {{
@@ -3313,8 +3317,10 @@ def generate_html(data):
                   }}
                   if (addedCount > 0) {{
                     console.log(`[Live DB Sync] Injected ${{addedCount}} new real-time text cards into UI.`);
-                    renderInbox();
-                    renderNews();
+                    requestAnimationFrame(() => {{
+                      renderInbox();
+                      renderNews();
+                    }});
                   }}
                 }}
               }}
@@ -3328,6 +3334,8 @@ def generate_html(data):
         }}
       }} catch (err) {{
         // Graceful fallback for static GitHub Pages or offline
+      }} finally {{
+        _isSyncing = false;
       }}
 
       if (badge) {{
@@ -4554,23 +4562,23 @@ def generate_html(data):
         let displayTitle = it.title;
         let displayDesc = it.description || '';
         let displayHook = (ai ? ai.hook : '') || it.hook || '';
-        let displayTakeaways = (ai ? ai.key_takeaways : []) || [];
+        let displayTakeaways = (ai ? ai.key_takeaways : []) || (it.key_takeaways || []);
 
         if (multi) {{
           if (currentLang === 'KO' && multi.ko) {{
             displayTitle = multi.ko.title || it.title_ko || displayTitle;
             displayHook = multi.ko.hook || it.hook_ko || displayHook;
-            displayTakeaways = multi.ko.key_takeaways || displayTakeaways;
+            displayTakeaways = (multi.ko.key_takeaways && multi.ko.key_takeaways.length > 0) ? multi.ko.key_takeaways : displayTakeaways;
             displayDesc = it.description_ko || it.description || '';
           }} else if (currentLang === 'ZH' && multi.zh) {{
             displayTitle = multi.zh.title || it.title_zh || displayTitle;
             displayHook = multi.zh.hook || it.hook_zh || displayHook;
-            displayTakeaways = multi.zh.key_takeaways || displayTakeaways;
+            displayTakeaways = (multi.zh.key_takeaways && multi.zh.key_takeaways.length > 0) ? multi.zh.key_takeaways : displayTakeaways;
             displayDesc = it.description_zh || it.description || '';
           }} else if (currentLang === 'EN' && multi.en) {{
             displayTitle = multi.en.title || it.title_en || displayTitle;
             displayHook = multi.en.hook || it.hook_en || displayHook;
-            displayTakeaways = multi.en.key_takeaways || displayTakeaways;
+            displayTakeaways = (multi.en.key_takeaways && multi.en.key_takeaways.length > 0) ? multi.en.key_takeaways : displayTakeaways;
             displayDesc = it.description_en || it.description || '';
           }}
         }} else {{
@@ -5522,8 +5530,8 @@ def generate_html(data):
 
         let displayTitle = (multi && multi[lKey] ? multi[lKey].title : null) || (currentLang === 'KO' ? it.title_ko : (currentLang === 'ZH' ? it.title_zh : it.title_en)) || it.title;
         let displayHook = (multi && multi[lKey] ? multi[lKey].hook : null) || (currentLang === 'KO' ? it.hook_ko : (currentLang === 'ZH' ? it.hook_zh : it.hook_en)) || it.hook || '';
-        let displayDesc = (currentLang === 'KO' ? it.description_ko : (currentLang === 'ZH' ? it.description_zh : it.description_en)) || it.description || '';
-        let displayTakeaways = (multi && multi[lKey] ? multi[lKey].key_takeaways : null) || (ai ? ai.key_takeaways : []) || [];
+        let displayTakeaways = (multi && multi[lKey] && multi[lKey].key_takeaways && multi[lKey].key_takeaways.length > 0) ? multi[lKey].key_takeaways : ((ai ? ai.key_takeaways : []) || (it.key_takeaways || []));
+
 
         const viralScore = calculateStandardizedViralScore(it);
         const tracking = it.metric_tracking || {{}};

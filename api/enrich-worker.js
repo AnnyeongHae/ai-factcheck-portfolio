@@ -46,9 +46,10 @@ function getDbPool() {
 const FREE_MODELS = [
   'nex-agi/nex-n2.5-pro:free',
   'nvidia/nemotron-3-super-120b-a12b:free',
-  'google/gemma-4-31b-it:free',
-  'minimax/minimax-m3:free'
+  'nvidia/nemotron-3.5-lightning:free',
+  'liquid/lfm-2.5-2.6b:free'
 ];
+
 
 
 function sanitizeJsonString(str) {
@@ -202,12 +203,17 @@ module.exports = async (req, res) => {
     }));
 
     const systemPrompt = `당신은 최고 수준의 AI 기술 아키텍트입니다.
-주어진 후보 항목을 분석하여 한국어 번역과 1줄 요약(엔지니어가 지금 읽고 싶게 만드는 결정적 훅)을 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 기타 텍스트는 절대 출력하지 마세요.
+주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어 번역 제목, 엔지니어가 주목할 1줄 결정적 훅(Hook), 그리고 'AI 3줄 핵심 요약'(key_takeaways: 핵심 포인트 3개)을 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 마크다운 등 기타 텍스트는 일절 출력하지 마세요.
 [
   {
     "id": "item_id",
-    "korean_title": "한국어 번역 제목",
+    "korean_title": "자연스러운 한국어 번역 제목",
     "hook_ko": "결정적 1줄 한국어 훅",
+    "key_takeaways": [
+      "첫 번째 핵심 요약 포인트",
+      "두 번째 핵심 요약 포인트",
+      "세 번째 핵심 요약 포인트"
+    ],
     "programming_lang": "Python, TypeScript, Rust, General 중 택1"
   }
 ]`;
@@ -230,7 +236,6 @@ module.exports = async (req, res) => {
         const timeoutMs = Math.min(14000, budgetMs);
         timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
-
         const aiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
           method: 'POST',
           headers: {
@@ -246,10 +251,12 @@ module.exports = async (req, res) => {
               { role: 'user', content: `분석할 항목 목록:\n${JSON.stringify(promptItems, null, 2)}` }
             ],
             temperature: 0.1,
-            max_tokens: 850
+            max_tokens: 1600,
+            reasoning: { max_tokens: 0 }
           }),
           signal: controller.signal
         });
+
 
         if (!aiResponse.ok) {
           console.warn(`[Worker] ${modelName} returned HTTP ${aiResponse.status} (${((Date.now() - callStart) / 1000).toFixed(2)}s)`);
@@ -304,7 +311,15 @@ module.exports = async (req, res) => {
       
       const titleKoCandidate = (aiData?.korean_title || '').trim();
       const hookKoCandidate = (aiData?.hook_ko || '').trim();
-      const hasKorean = koreanRegex.test(titleKoCandidate) || koreanRegex.test(hookKoCandidate);
+      const rawTakeaways = Array.isArray(aiData?.key_takeaways) ? aiData.key_takeaways : [];
+      const takeawaysKo = rawTakeaways
+        .map(t => String(t).replace(/^[-*•\d.]\s*/, '').trim())
+        .filter(Boolean)
+        .slice(0, 3);
+
+      const hasKorean = koreanRegex.test(titleKoCandidate) || 
+                        koreanRegex.test(hookKoCandidate) || 
+                        takeawaysKo.some(t => koreanRegex.test(t));
 
       // CRITICAL GUARDRAIL: Never mark as classified if valid Korean translation is missing!
       // Unenriched items must stay is_classified = FALSE so they can be processed on subsequent runs.
@@ -330,6 +345,12 @@ module.exports = async (req, res) => {
       const hookEn = aiData?.hook_en || payload.hook_en || cleanTitle;
       const hookZh = aiData?.hook_zh || payload.hook_zh || cleanTitle;
 
+      // Ensure key_takeaways has 3 valid points (with fallback to hook/title if LLM returned fewer)
+      const finalTakeaways = takeawaysKo.length > 0 
+        ? takeawaysKo 
+        : (Array.isArray(payload.multilingual?.ko?.key_takeaways) && payload.multilingual.ko.key_takeaways.length > 0 
+            ? payload.multilingual.ko.key_takeaways 
+            : [hookKo || titleKo]);
 
       const inferred = inferCategoriesAndArtifact(cand, aiData || {});
 
@@ -353,9 +374,9 @@ module.exports = async (req, res) => {
       payload.programming_lang = aiData?.programming_lang || payload.programming_lang || 'General';
 
       payload.multilingual = {
-        ko: { title: titleKo, hook: hookKo },
-        en: { title: titleEn, hook: hookEn },
-        zh: { title: titleZh, hook: hookZh }
+        ko: { title: titleKo, hook: hookKo, key_takeaways: finalTakeaways },
+        en: { title: titleEn, hook: hookEn, key_takeaways: finalTakeaways },
+        zh: { title: titleZh, hook: hookZh, key_takeaways: finalTakeaways }
       };
 
       payload.ai_enrichment = {
@@ -369,6 +390,7 @@ module.exports = async (req, res) => {
         artifact_type: inferred.artifactType,
         korean_title: titleKo,
         hook: hookKo,
+        key_takeaways: finalTakeaways,
         multilingual: payload.multilingual,
         enriched_by_model: modelUsed || 'openrouter-free',
         enriched_at: nowIso
