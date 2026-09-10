@@ -1879,10 +1879,16 @@ def generate_html(data):
               월간 한도(100만 회 / 4.0 CPU-Hours) 대비 <b>사용량은 0.3% 미만</b>입니다. 30초 Edge CDN 캐싱이 적용되어 복잡한 집계 쿼리나 관리자 API를 추가해도 <b>무료 티어 초과 없이 무제한 운영</b>이 가능합니다.
             </span>
           </div>
-          <button onclick="pingVercelEdgeApi()" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold font-mono text-[10px] border border-slate-300 transition shrink-0 flex items-center gap-1 cursor-pointer">
-            <i data-lucide="refresh-cw" class="w-3 h-3"></i>
-            <span>Edge API 핑 테스트</span>
-          </button>
+          <div class="flex items-center gap-2">
+            <button id="btnTriggerWorker" onclick="triggerAiEnrichWorker()" class="px-2.5 py-1 rounded bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold font-mono text-[10px] border border-indigo-300 transition shrink-0 flex items-center gap-1 cursor-pointer" title="Neon DB 미처리 항목을 Vercel Serverless에서 OpenRouter 무료 AI로 1건씩 안전하게 요약/번역">
+              <i data-lucide="sparkles" class="w-3 h-3 text-indigo-600"></i>
+              <span id="btnWorkerText">⚡ AI 요약 워커 실행</span>
+            </button>
+            <button onclick="pingVercelEdgeApi()" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold font-mono text-[10px] border border-slate-300 transition shrink-0 flex items-center gap-1 cursor-pointer">
+              <i data-lucide="refresh-cw" class="w-3 h-3"></i>
+              <span>Edge API 핑 테스트</span>
+            </button>
+          </div>
         </div>
 
       </div>
@@ -3214,6 +3220,17 @@ def generate_html(data):
             const inbHdr = document.getElementById('inboxHeaderCount');
             if (inbHdr && liveInbox) inbHdr.textContent = `총 ${{liveInbox}}건`;
 
+            if (data.counts.inbox_unclassified !== undefined) {{
+              const workerBtnText = document.getElementById('btnWorkerText');
+              if (workerBtnText) {{
+                if (data.counts.inbox_unclassified > 0) {{
+                  workerBtnText.textContent = `⚡ AI 요약 워커 실행 (미처리: ${{data.counts.inbox_unclassified}}건)`;
+                }} else {{
+                  workerBtnText.textContent = `✨ AI 요약 완료 (미처리: 0건)`;
+                }}
+              }}
+            }}
+
             if (badge) {{
               badge.innerHTML = `
                 <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-xs cursor-pointer" title="Vercel Edge & Neon DB 실시간 연결됨 (총 ${{data.counts.inbox_total}}건, 레이턴시: ${{tLatency}}ms)">
@@ -3305,6 +3322,39 @@ def generate_html(data):
       const pingLat = document.getElementById('vercelLatencyText');
       if (pingLat) pingLat.textContent = '(실측 레이턴시 핑 측정 중...)';
       await syncFromNeonLiveDB();
+    }}
+
+    async function triggerAiEnrichWorker() {{
+      const btn = document.getElementById('btnTriggerWorker');
+      const txt = document.getElementById('btnWorkerText');
+      if (btn) btn.disabled = true;
+      if (txt) txt.textContent = '⏳ AI 요약 진행 중...';
+      try {{
+        const workerUrl = window.location.hostname.includes('vercel.app') ? '/api/enrich-worker?limit=1' : 'https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=1';
+        const res = await fetch(workerUrl, {{ cache: 'no-store' }});
+        if (res.ok) {{
+          const resData = await res.json();
+          if (resData.status === 'success') {{
+            if (txt) txt.textContent = `✅ ${{resData.processed_count}}건 요약 완료 (남은 미처리: ${{resData.remaining_unclassified}}건)`;
+            await syncFromNeonLiveDB();
+            setTimeout(() => {{
+              if (btn) btn.disabled = false;
+            }}, 2500);
+            return;
+          }} else if (resData.status === 'noop') {{
+            if (txt) txt.textContent = '✨ 모든 항목 AI 요약 완료됨';
+          }}
+        }} else {{
+          if (txt) txt.textContent = '⚠️ 워커 실행 실패';
+        }}
+      }} catch (e) {{
+        console.warn('[AI Worker] Trigger error:', e);
+        if (txt) txt.textContent = '⚠️ 통신 오류';
+      }}
+      setTimeout(() => {{
+        if (btn) btn.disabled = false;
+        if (txt) txt.textContent = '⚡ AI 요약 워커 실행';
+      }}, 3000);
     }}
 
     function updatePromotionBanner() {{}}

@@ -45,7 +45,7 @@ module.exports = async (req, res) => {
     const limit = Number.isInteger(rawLimit) ? Math.min(100, Math.max(1, rawLimit)) : 30;
 
     const query = `
-      SELECT id, inbox_id, source_platform, title, item_type, category_primary, harvested_date, created_at, raw_payload
+      SELECT id, inbox_id, source_platform, title, item_type, category_primary, is_classified, harvested_date, created_at, raw_payload
       FROM raw_trends_inbox
       ORDER BY id DESC
       LIMIT $1;
@@ -64,6 +64,7 @@ module.exports = async (req, res) => {
         title: r.title,
         item_type: r.item_type,
         category_primary: r.category_primary,
+        is_classified: r.is_classified,
         harvested_date: r.harvested_date,
         created_at: r.created_at,
         ...p

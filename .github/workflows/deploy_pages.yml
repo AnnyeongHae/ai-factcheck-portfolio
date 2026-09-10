@@ -61,20 +61,6 @@ jobs:
         run: |
           python -u tools/harvest_trends.py
 
-      - name: "Stage 3: Sequential AI Enrichment (Paced Queue with Atomic DB Commits)"
-        continue-on-error: true
-        timeout-minutes: 5
-        env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          NEON_KEY: ${{ secrets.NEON_KEY }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
-        run: |
-          python -u tools/enrich_inbox_with_ai.py --only-new --limit 20 --batch-size 2 --workers 1 --cooldown 0.5 --provider openrouter || echo "AI enrichment finished with partial batch."
-
-      - name: Sync Verified Factchecks to Neon DB
-        run: |
-          python tools/db_bridge.py --sync-factchecks || echo "Factchecks sync completed."
-
       - name: Sync GitHub Actions Telemetry to Neon DB
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

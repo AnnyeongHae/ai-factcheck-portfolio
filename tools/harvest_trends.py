@@ -349,8 +349,8 @@ def harvest_all():
     # 1. Hugging Face Models Trending
     hf_start = time.time()
     try:
-        logger.log("[*] Fetching Hugging Face Trending Models (limit=30)...")
-        hf_data = fetch_json("https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=30")
+        logger.log("[*] Fetching Hugging Face Trending Models (limit=50)...")
+        hf_data = fetch_json("https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=50")
         count = 0
         if hf_data and isinstance(hf_data, list):
             for item in hf_data:
@@ -420,11 +420,11 @@ def harvest_all():
     # 2. Hugging Face Spaces (Interactive Demos)
     spaces_start = time.time()
     try:
-        logger.log("[*] Fetching Hugging Face Trending & Popular Spaces (limit=60)...")
+        logger.log("[*] Fetching Hugging Face Trending & Popular Spaces (limit=80)...")
         # 2-1: Trending Spaces
-        sp_data_trending = fetch_json("https://huggingface.co/api/spaces?sort=trendingScore&direction=-1&limit=60")
+        sp_data_trending = fetch_json("https://huggingface.co/api/spaces?sort=trendingScore&direction=-1&limit=80")
         # 2-2: Most Liked Recent Spaces
-        sp_data_liked = fetch_json("https://huggingface.co/api/spaces?sort=likes&direction=-1&limit=30")
+        sp_data_liked = fetch_json("https://huggingface.co/api/spaces?sort=likes&direction=-1&limit=40")
         
         combined_spaces = {}
         for sp_list in [sp_data_trending, sp_data_liked]:
@@ -462,7 +462,7 @@ def harvest_all():
     try:
         logger.log("[*] Fetching GitHub High-Velocity Repositories (Recent 14 days, Stars > 30)...")
         fourteen_days_ago = (datetime.date.today() - datetime.timedelta(days=14)).strftime("%Y-%m-%d")
-        gh_url = f"https://api.github.com/search/repositories?q=created:>{fourteen_days_ago}+stars:>30&sort=stars&order=desc&per_page=30"
+        gh_url = f"https://api.github.com/search/repositories?q=created:>{fourteen_days_ago}+stars:>30&sort=stars&order=desc&per_page=50"
         gh_data = fetch_json(gh_url, headers={"User-Agent": "FactCheck-Harvester/1.0", "Accept": "application/vnd.github.v3+json"})
         count = 0
         if gh_data and "items" in gh_data:
@@ -553,8 +553,8 @@ def harvest_all():
     # 5. ArXiv API (cs.AI & cs.CL)
     arxiv_start = time.time()
     try:
-        logger.log("[*] Fetching ArXiv AI/CL Recent Papers (limit=20)...")
-        xml_data = fetch_xml("http://export.arxiv.org/api/query?search_query=cat:cs.AI+OR+cat:cs.CL&sortBy=submittedDate&sortOrder=descending&max_results=20")
+        logger.log("[*] Fetching ArXiv AI/CL Recent Papers (limit=35)...")
+        xml_data = fetch_xml("http://export.arxiv.org/api/query?search_query=cat:cs.AI+OR+cat:cs.CL&sortBy=submittedDate&sortOrder=descending&max_results=35")
         root = ET.fromstring(xml_data)
         count = 0
         for entry in root.findall('{http://www.w3.org/2005/Atom}entry'):

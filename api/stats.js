@@ -56,12 +56,14 @@ module.exports = async (req, res) => {
       SELECT 
         COUNT(CASE WHEN source_platform IN ('Hugging Face Spaces (Demo)', 'Hugging Face Models', 'Hugging Face Hub') THEN 1 END) AS models_count,
         COUNT(CASE WHEN source_platform NOT IN ('Hugging Face Spaces (Demo)', 'Hugging Face Models', 'Hugging Face Hub') THEN 1 END) AS news_count,
+        COUNT(CASE WHEN is_classified = FALSE THEN 1 END) AS unclassified_count,
         MAX(harvested_date) AS max_date
       FROM raw_trends_inbox;
     `);
     const bRow = cBreakdownRes.rows[0] || {};
     const rawModels = parseInt(bRow.models_count || 0, 10);
     const rawNews = parseInt(bRow.news_count || (totalInboxRaw - rawModels), 10);
+    const unclassifiedInbox = parseInt(bRow.unclassified_count || 0, 10);
     const latestHarvestedDate = bRow.max_date || '';
 
     let quotaData = {};
@@ -156,6 +158,7 @@ module.exports = async (req, res) => {
       counts: {
         inbox_total: totalInboxRaw,
         inbox_deduped: dedupInboxEstimate,
+        inbox_unclassified: unclassifiedInbox,
         factchecks_verified: totalFactchecks,
         models_total: rawModels,
         news_total: rawNews,
