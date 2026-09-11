@@ -418,6 +418,8 @@ module.exports = async (req, res) => {
       processedItems.push({
         inbox_id: cand.inbox_id,
         title_ko: titleKo,
+        hook_ko: hookKo,
+        key_takeaways: finalTakeaways,
         category_primary: inferred.categoryPrimary,
         item_type: inferred.itemType,
         enriched_by_model: modelUsed || 'openrouter-free'
