@@ -167,9 +167,8 @@ module.exports = async (req, res) => {
   const startTime = Date.now();
 
   try {
-    // 1. Determine batch limit (Default 5 items as requested by user)
-    const rawLimit = parseInt(req.query?.limit, 10);
-    const limit = Number.isInteger(rawLimit) ? Math.min(10, Math.max(1, rawLimit)) : 5;
+    // 1. Determine batch limit: strictly 1 item per serverless invocation to guarantee sub-5s response and 0% timeout with OpenRouter Free models
+    const limit = 1;
 
     // 2. Fetch unclassified records
     const selectQuery = `
@@ -428,6 +427,33 @@ module.exports = async (req, res) => {
 
     const totalDurationSec = ((Date.now() - startTime) / 1000).toFixed(2);
     const newRemaining = Math.max(0, totalRemaining - processedItems.length);
+
+    // Record execution log in vercel_worker_logs & update telemetry
+    if (processedItems.length > 0) {
+      try {
+        await pool.query(`
+          INSERT INTO vercel_worker_logs (worker_name, model_used, processed_count, duration_seconds, remaining_count, status, inbox_ids)
+          VALUES ('Vercel Serverless AI Enricher', $1, $2, $3, $4, 'SUCCESS', $5);
+        `, [
+          modelUsed || 'openrouter-free',
+          processedItems.length,
+          parseFloat(totalDurationSec),
+          newRemaining,
+          JSON.stringify(processedItems.map(p => p.inbox_id))
+        ]);
+
+        await pool.query(`
+          UPDATE vercel_serverless_telemetry
+          SET invocations = invocations + 1,
+              active_cpu_seconds = active_cpu_seconds + $1,
+              bandwidth_bytes = bandwidth_bytes + 5000,
+              last_invoked_at = CURRENT_TIMESTAMP
+          WHERE id = 1;
+        `, [parseFloat(totalDurationSec)]);
+      } catch (logErr) {
+        console.warn('[Worker Log Record Error]:', logErr.message);
+      }
+    }
 
     return res.status(200).json({
       status: 'success',

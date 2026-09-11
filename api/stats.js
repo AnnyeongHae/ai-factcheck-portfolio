@@ -112,7 +112,7 @@ module.exports = async (req, res) => {
     // Note: Do not call pool.end() in serverless warm container reuse environment
     const dedupInboxEstimate = Math.max(0, totalInboxRaw - totalFactchecks - 55);
 
-    const vercelTelemetry = {
+    let vercelTelemetry = {
       tier: 'Hobby (Free Tier)',
       invocations: {
         limit: 1000000,
@@ -150,6 +150,65 @@ module.exports = async (req, res) => {
       }
     };
 
+    // 4. Live dynamic Vercel Telemetry tracking in Neon DB
+    try {
+      const telemRes = await pool.query(`
+        UPDATE vercel_serverless_telemetry
+        SET invocations = invocations + 1,
+            active_cpu_seconds = active_cpu_seconds + 0.025,
+            bandwidth_bytes = bandwidth_bytes + 2500,
+            last_invoked_at = CURRENT_TIMESTAMP
+        WHERE id = 1
+        RETURNING invocations, active_cpu_seconds, bandwidth_bytes, last_invoked_at;
+      `);
+      if (telemRes.rows.length > 0) {
+        const tr = telemRes.rows[0];
+        const inv = parseInt(tr.invocations, 10);
+        const cpuSec = parseFloat(tr.active_cpu_seconds);
+        const bwBytes = parseInt(tr.bandwidth_bytes, 10);
+        const cpuHours = parseFloat((cpuSec / 3600).toFixed(2));
+        const bwGb = parseFloat((bwBytes / (1024 * 1024 * 1024)).toFixed(3));
+
+        vercelTelemetry.invocations.used_estimated = inv;
+        vercelTelemetry.invocations.remaining = Math.max(0, 1000000 - inv);
+        vercelTelemetry.invocations.used_pct = parseFloat(((inv / 1000000) * 100).toFixed(2));
+
+        vercelTelemetry.active_cpu_time.used_estimated_seconds = parseFloat(cpuSec.toFixed(1));
+        vercelTelemetry.active_cpu_time.used_hours = cpuHours;
+        vercelTelemetry.active_cpu_time.used_pct = parseFloat(((cpuSec / 14400) * 100).toFixed(2));
+
+        vercelTelemetry.bandwidth_gb.used_estimated = bwGb;
+        vercelTelemetry.bandwidth_gb.remaining = parseFloat(Math.max(0, 100.0 - bwGb).toFixed(2));
+        vercelTelemetry.bandwidth_gb.used_pct = parseFloat(((bwGb / 100.0) * 100).toFixed(2));
+      }
+    } catch (telemErr) {
+      console.warn('[Stats Telemetry Error]:', telemErr.message);
+    }
+
+    // 5. Fetch latest Vercel Worker execution logs
+    let vercelWorkerRuns = [];
+    try {
+      const wLogRes = await pool.query(`
+        SELECT id, worker_name, model_used, processed_count, duration_seconds, remaining_count, status, created_at
+        FROM vercel_worker_logs
+        ORDER BY id DESC
+        LIMIT 6;
+      `);
+      vercelWorkerRuns = wLogRes.rows.map(w => ({
+        id: w.id,
+        worker_name: w.worker_name,
+        model_used: w.model_used,
+        processed_count: w.processed_count,
+        duration_seconds: parseFloat(w.duration_seconds),
+        duration_str: `${w.duration_seconds}초`,
+        remaining_count: w.remaining_count,
+        status: w.status,
+        created_at_kst: new Date(new Date(w.created_at).getTime() + 9 * 3600 * 1000).toISOString().replace('T', ' ').substring(5, 16)
+      }));
+    } catch (wErr) {
+      console.warn('[Worker Logs Fetch Error]:', wErr.message);
+    }
+
     return res.status(200).json({
       status: 'success',
       server_time: new Date().toISOString(),
@@ -164,7 +223,8 @@ module.exports = async (req, res) => {
       },
       actions_quota: quotaData,
       latest_run: latestRun,
-      vercel_telemetry: vercelTelemetry
+      vercel_telemetry: vercelTelemetry,
+      vercel_worker_runs: vercelWorkerRuns
     });
 
   } catch (err) {

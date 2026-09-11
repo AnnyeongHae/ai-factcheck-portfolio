@@ -1708,19 +1708,29 @@ def generate_html(data):
           </div>
         </div>
 
-        <!-- Section 3: 📋 Recent GitHub Actions Live Run Logs Table -->
-        <div class="space-y-2 pt-2 border-t border-surface-border">
-          <div class="flex items-center justify-between text-xs font-bold text-ink-primary">
-            <span class="flex items-center gap-1.5" id="recentRunsTitle">
-              <i data-lucide="list" class="w-4 h-4 text-slate-600"></i>
-              <span>최근 GitHub Actions 실행 로그 & 소요 시간 히스토리</span>
-            </span>
-            <span class="text-[11px] text-ink-muted font-normal font-mono" id="recentRunsSub">KST 실행 시각 기준 정렬</span>
+        <!-- Section 3: 📋 Recent Pipeline & Serverless Live Run Logs Table -->
+        <div class="space-y-2.5 pt-2 border-t border-surface-border">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-bold text-ink-primary">
+            <div class="flex items-center gap-2.5 flex-wrap">
+              <span class="flex items-center gap-1.5" id="recentRunsTitle">
+                <i data-lucide="list" class="w-4 h-4 text-slate-600"></i>
+                <span>실행 로그 & 소요 시간 히스토리</span>
+              </span>
+              <div class="inline-flex rounded-lg border border-surface-border bg-slate-100 p-0.5 text-[11px] font-mono">
+                <button type="button" id="tabRunsGha" onclick="switchRunLogsTab('gha')" class="px-2.5 py-1 rounded-md font-bold bg-white text-ink-primary shadow-xs border border-surface-border transition cursor-pointer">
+                  🐙 GitHub Actions (수집)
+                </button>
+                <button type="button" id="tabRunsVercel" onclick="switchRunLogsTab('vercel')" class="px-2.5 py-1 rounded-md font-medium text-ink-secondary hover:text-ink-primary transition cursor-pointer">
+                  ▲ Vercel Serverless (AI요약)
+                </button>
+              </div>
+            </div>
+            <span class="text-[11px] text-ink-muted font-normal font-mono" id="recentRunsSub">KST 실행 시각 기준 실시간 갱신</span>
           </div>
 
-          <div class="overflow-x-auto rounded-xl border border-surface-border">
+          <div class="overflow-x-auto rounded-xl border border-surface-border shadow-xs">
             <table class="w-full text-left text-xs font-mono">
-              <thead class="bg-slate-50 border-b border-surface-border text-ink-secondary text-[11px]">
+              <thead class="bg-slate-50 border-b border-surface-border text-ink-secondary text-[11px]" id="pipelineRecentRunsThead">
                 <tr>
                   <th class="py-2.5 px-3">실행 시각 (KST)</th>
                   <th class="py-2.5 px-3">워크플로우</th>
@@ -3332,7 +3342,17 @@ def generate_html(data):
               console.warn('[Live DB Sync] Inbox items hydration error:', inbErr);
             }}
 
-            console.log('[Live DB Sync] Vercel Serverless API hydrated successfully:', data.counts, `${{tLatency}}ms`);
+            if (data.vercel_worker_runs && Array.isArray(data.vercel_worker_runs)) {{
+              window.vercelWorkerRunsData = data.vercel_worker_runs;
+              if (window.currentRunsTab === 'vercel' && typeof renderRunsTable === 'function') {{
+                renderRunsTable();
+              }}
+            }}
+
+            if (!window._hasInitiallySynced) {{
+              window._hasInitiallySynced = true;
+              console.log('[Live DB Sync] Vercel Serverless API connected successfully:', `${{tLatency}}ms`);
+            }}
             return;
           }}
         }}
@@ -3364,23 +3384,20 @@ def generate_html(data):
       const txt = document.getElementById('btnWorkerText');
 
       try {{
+        let stepCount = 0;
         while (true) {{
           if (btn) {{
             btn.disabled = true;
             btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-not-allowed opacity-90";
           }}
 
-          const workerUrl = window.location.hostname.includes('vercel.app') ? '/api/enrich-worker?limit=5' : 'https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=5';
+          const workerUrl = window.location.hostname.includes('vercel.app') ? '/api/enrich-worker?limit=1' : 'https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=1';
           const res = await fetch(workerUrl, {{ cache: 'no-store' }});
 
           if (!res.ok) {{
-            console.warn('[AI Worker] HTTP Error:', res.status);
-            if (txt) txt.textContent = '⚡ AI 요약 재시도 대기';
-            if (btn) {{
-              btn.disabled = false;
-              btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
-            }}
-            break;
+            if (txt) txt.textContent = '⚡ AI 요약 재시도 대기 (10초 후 자동 재개)';
+            await new Promise(r => setTimeout(r, 10000));
+            continue;
           }}
 
           const resData = await res.json();
@@ -3390,14 +3407,19 @@ def generate_html(data):
               btn.disabled = true;
               btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
             }}
-            await syncFromNeonLiveDB();
+            await syncFromNeonLiveDB(true);
             break;
           }}
 
           if (resData.status === 'success') {{
             const rem = resData.remaining_unclassified;
             if (txt) txt.textContent = `⏳ AI 요약 진행 중 (잔여: ${{rem}}건)`;
-            await syncFromNeonLiveDB();
+
+            stepCount++;
+            // Batch sync DB telemetry every 5 processed items or on finish to avoid DOM reflow spam
+            if (stepCount % 5 === 0 || rem === 0) {{
+              await syncFromNeonLiveDB();
+            }}
 
             if (rem === 0) {{
               if (txt) txt.textContent = '✨ 모든 항목 AI 요약 완료됨';
@@ -3408,19 +3430,16 @@ def generate_html(data):
               break;
             }}
 
-            // 5초 간격 유지 후 다음 5건 일괄 요약
-            await new Promise(r => setTimeout(r, 5000));
+            // Silky smooth 3.5s cooldown between items to respect rate limits
+            await new Promise(r => setTimeout(r, 3500));
           }} else {{
-            break;
+            await new Promise(r => setTimeout(r, 5000));
           }}
         }}
       }} catch (e) {{
-        console.warn('[AI Worker Loop Error]:', e);
-        if (txt) txt.textContent = '⚠️ 일시적 통신 오류';
-        if (btn) {{
-          btn.disabled = false;
-          btn.className = "px-3 py-1.5 rounded-lg bg-rose-50 text-rose-800 font-bold font-mono text-[11px] border border-rose-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
-        }}
+        console.warn('[AI Worker Loop Warning]:', e);
+        if (txt) txt.textContent = '⚠️ 일시적 통신 오류 (재시도 대기)';
+        await new Promise(r => setTimeout(r, 8000));
       }} finally {{
         _isWorkerLoopRunning = false;
         window._isWorkerLoopRunning = false;
@@ -5365,34 +5384,121 @@ def generate_html(data):
       slotsContainer.innerHTML = cardsHtml;
 
       // 4. Render Recent Run Logs Table
-      if (tbody && aData.runs && aData.runs.length > 0) {{
-        let rowsHtml = '';
-        aData.runs.forEach(r => {{
-          const isSuccess = r.conclusion === 'success';
-          const isCancelled = r.conclusion === 'cancelled';
-          const statusCls = isSuccess ? 'bg-emerald-100 text-emerald-800 border-emerald-300' : (isCancelled ? 'bg-amber-100 text-amber-800 border-amber-300' : 'bg-indigo-100 text-indigo-800 border-indigo-300');
-          const statusLabel = isSuccess ? (tLang === 'zh' ? '成功' : (tLang === 'en' ? 'Success' : '성공')) : (isCancelled ? (tLang === 'zh' ? '已取消' : (tLang === 'en' ? 'Cancelled' : '취소')) : (tLang === 'zh' ? '运行中' : (tLang === 'en' ? 'Running' : '진행중')));
-          
-          rowsHtml += `
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="py-2.5 px-3 font-bold text-ink-primary text-[11px]">${{r.created_at_kst}}</td>
-              <td class="py-2.5 px-3 font-medium text-ink-secondary">${{r.name.length > 32 ? r.name.slice(0, 30) + '...' : r.name}}</td>
-              <td class="py-2.5 px-3 text-ink-muted"><span class="px-1.5 py-0.5 rounded bg-slate-100 text-[10px] border border-slate-200">${{r.event}}</span></td>
-              <td class="py-2.5 px-3 font-bold text-ink-primary">${{r.duration_str}}</td>
-              <td class="py-2.5 px-3 font-mono font-semibold text-indigo-600">${{r.items_collected !== null && r.items_collected !== undefined ? `${{r.items_collected}}건` : '-'}}</td>
-              <td class="py-2.5 px-3">
-                <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{statusCls}} inline-flex items-center gap-1">
-                  ${{statusLabel}}
-                </span>
-              </td>
-              <td class="py-2.5 px-3 font-bold ${{r.error_count > 0 ? 'text-rose-600' : 'text-emerald-600'}}">${{r.error_count || 0}} errors</td>
-            </tr>
-          `;
-        }});
-        tbody.innerHTML = rowsHtml;
-      }}
+      renderRunsTable();
 
       if (typeof lucide !== 'undefined') lucide.createIcons();
+    }}
+
+    let currentRunsTab = 'gha';
+    window.currentRunsTab = 'gha';
+    window.vercelWorkerRunsData = [];
+
+    function switchRunLogsTab(tab) {{
+      currentRunsTab = tab;
+      window.currentRunsTab = tab;
+      const btnGha = document.getElementById('tabRunsGha');
+      const btnVercel = document.getElementById('tabRunsVercel');
+      if (tab === 'gha') {{
+        if (btnGha) btnGha.className = "px-2.5 py-1 rounded-md font-bold bg-white text-ink-primary shadow-xs border border-surface-border transition cursor-pointer";
+        if (btnVercel) btnVercel.className = "px-2.5 py-1 rounded-md font-medium text-ink-secondary hover:text-ink-primary transition cursor-pointer";
+      }} else {{
+        if (btnVercel) btnVercel.className = "px-2.5 py-1 rounded-md font-bold bg-white text-indigo-700 shadow-xs border border-indigo-200 transition cursor-pointer";
+        if (btnGha) btnGha.className = "px-2.5 py-1 rounded-md font-medium text-ink-secondary hover:text-ink-primary transition cursor-pointer";
+      }}
+      renderRunsTable();
+    }}
+
+    function renderRunsTable() {{
+      const thead = document.getElementById('pipelineRecentRunsThead');
+      const tbody = document.getElementById('pipelineRecentRunsTbody');
+      if (!tbody || !thead) return;
+
+      const tLang = currentLang || 'ko';
+      const aData = typeof actionsTelemetryData !== 'undefined' ? actionsTelemetryData : {{}};
+
+      if (currentRunsTab === 'gha') {{
+        thead.innerHTML = `
+          <tr>
+            <th class="py-2.5 px-3">실행 시각 (KST)</th>
+            <th class="py-2.5 px-3">워크플로우</th>
+            <th class="py-2.5 px-3">트리거</th>
+            <th class="py-2.5 px-3">소요 시간</th>
+            <th class="py-2.5 px-3">수집 건수</th>
+            <th class="py-2.5 px-3">상태</th>
+            <th class="py-2.5 px-3">에러</th>
+          </tr>
+        `;
+        if (aData.runs && aData.runs.length > 0) {{
+          let rowsHtml = '';
+          aData.runs.forEach(r => {{
+            const isSuccess = r.conclusion === 'success';
+            const isCancelled = r.conclusion === 'cancelled';
+            const statusCls = isSuccess ? 'bg-emerald-100 text-emerald-800 border-emerald-300' : (isCancelled ? 'bg-amber-100 text-amber-800 border-amber-300' : 'bg-indigo-100 text-indigo-800 border-indigo-300');
+            const statusLabel = isSuccess ? (tLang === 'zh' ? '成功' : (tLang === 'en' ? 'Success' : '성공')) : (isCancelled ? (tLang === 'zh' ? '已取消' : (tLang === 'en' ? 'Cancelled' : '취소')) : (tLang === 'zh' ? '运行中' : (tLang === 'en' ? 'Running' : '진행중')));
+            
+            rowsHtml += `
+              <tr class="hover:bg-slate-50/80 transition">
+                <td class="py-2.5 px-3 font-bold text-ink-primary text-[11px]">${{r.created_at_kst}}</td>
+                <td class="py-2.5 px-3 font-medium text-ink-secondary">${{r.name.length > 32 ? r.name.slice(0, 30) + '...' : r.name}}</td>
+                <td class="py-2.5 px-3 text-ink-muted"><span class="px-1.5 py-0.5 rounded bg-slate-100 text-[10px] border border-slate-200">${{r.event}}</span></td>
+                <td class="py-2.5 px-3 font-bold text-ink-primary">${{r.duration_str}}</td>
+                <td class="py-2.5 px-3 font-mono font-semibold text-indigo-600">${{r.items_collected !== null && r.items_collected !== undefined ? `${{r.items_collected}}건` : '-'}}</td>
+                <td class="py-2.5 px-3">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{statusCls}} inline-flex items-center gap-1">
+                    ${{statusLabel}}
+                  </span>
+                </td>
+                <td class="py-2.5 px-3 font-bold ${{r.error_count > 0 ? 'text-rose-600' : 'text-emerald-600'}}">${{r.error_count || 0}} errors</td>
+              </tr>
+            `;
+          }});
+          tbody.innerHTML = rowsHtml;
+        }} else {{
+          tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-ink-muted">기록된 수집 실행 로그가 없습니다.</td></tr>`;
+        }}
+      }} else {{
+        // Vercel Serverless AI Worker Tab
+        thead.innerHTML = `
+          <tr>
+            <th class="py-2.5 px-3">실행 시각 (KST)</th>
+            <th class="py-2.5 px-3">서버리스 워커</th>
+            <th class="py-2.5 px-3">AI 모델</th>
+            <th class="py-2.5 px-3">소요 시간</th>
+            <th class="py-2.5 px-3">처리 건수</th>
+            <th class="py-2.5 px-3">잔여 미처리</th>
+            <th class="py-2.5 px-3">상태</th>
+          </tr>
+        `;
+        const vRuns = window.vercelWorkerRunsData || [];
+        if (vRuns.length > 0) {{
+          let rowsHtml = '';
+          vRuns.forEach(r => {{
+            const isSuccess = r.status === 'SUCCESS';
+            const statusCls = isSuccess ? 'bg-emerald-100 text-emerald-800 border-emerald-300' : 'bg-rose-100 text-rose-800 border-rose-300';
+            const shortModel = (r.model_used || 'openrouter-free').split('/').pop().replace(':free', '');
+            rowsHtml += `
+              <tr class="hover:bg-slate-50/80 transition">
+                <td class="py-2.5 px-3 font-bold text-ink-primary text-[11px]">${{r.created_at_kst}}</td>
+                <td class="py-2.5 px-3 font-medium text-ink-secondary flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> ${{r.worker_name || 'AI Enricher'}}
+                </td>
+                <td class="py-2.5 px-3 text-ink-muted font-mono text-[11px]"><span class="px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 text-[10px] border border-indigo-200">${{shortModel}}</span></td>
+                <td class="py-2.5 px-3 font-bold text-ink-primary">${{r.duration_str}}</td>
+                <td class="py-2.5 px-3 font-mono font-semibold text-emerald-600">${{r.processed_count}}건 요약</td>
+                <td class="py-2.5 px-3 font-mono font-medium text-amber-700">${{r.remaining_count}}건 대기</td>
+                <td class="py-2.5 px-3">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${{statusCls}} inline-flex items-center gap-1">
+                    ${{isSuccess ? '성공' : '실패'}}
+                  </span>
+                </td>
+              </tr>
+            `;
+          }});
+          tbody.innerHTML = rowsHtml;
+        }} else {{
+          tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-ink-muted">최근 Vercel Serverless AI 워커 실행 기록 대기 중...</td></tr>`;
+        }}
+      }}
     }}
 
     setInterval(updateCronCountdown, 1000);
