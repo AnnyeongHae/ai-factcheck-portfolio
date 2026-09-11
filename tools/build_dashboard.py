@@ -1540,10 +1540,10 @@ def generate_html(data):
               <i data-lucide="arrow-up-down" class="w-3 h-3 text-indigo-600"></i>
               <span class="text-ink-muted text-[11px] font-mono" id="newsSortLabel">정렬:</span>
               <select id="newsSortSelect" onchange="setNewsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
-                <option value="date-source-desc" selected>📅 수집/발표 최신순 (기본)</option>
-                <option value="date-source-asc">📅 수집/발표 오래된순</option>
-                <option value="date-audit-desc">🔬 AI 분석일 최신순</option>
+                <option value="date-audit-desc" selected>🔬 AI 분석일 최신순 (기본)</option>
                 <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
+                <option value="date-source-desc">📅 수집/발표 최신순</option>
+                <option value="date-source-asc">📅 수집/발표 오래된순</option>
               </select>
             </div>
           </div>
@@ -2359,10 +2359,10 @@ def generate_html(data):
         newsSearchPlaceholder: "기술명, 키워드 검색...",
         newsSortLabel: "정렬:",
         newsSortOptions: [
-          {{ val: "date-source-desc", text: "📅 수집/발표 최신순 (기본)" }},
-          {{ val: "date-source-asc", text: "📅 수집/발표 오래된순" }},
-          {{ val: "date-audit-desc", text: "🔬 AI 분석일 최신순" }},
-          {{ val: "date-audit-asc", text: "🔬 AI 분석일 오래된순" }}
+          {{ val: "date-audit-desc", text: "🔬 AI 분석일 최신순 (기본)" }},
+          {{ val: "date-audit-asc", text: "🔬 AI 분석일 오래된순" }},
+          {{ val: "date-source-desc", text: "📅 수집/발표 최신순" }},
+          {{ val: "date-source-asc", text: "📅 수집/발표 오래된순" }}
         ],
         modelsFamilyLabel: "🤖 모델 패밀리:",
         modelFams: {{
@@ -2518,10 +2518,10 @@ def generate_html(data):
         newsSearchPlaceholder: "搜索技术名、关键词...",
         newsSortLabel: "排序:",
         newsSortOptions: [
-          {{ val: "date-source-desc", text: "📅 采集发布时间最新 (默认)" }},
-          {{ val: "date-source-asc", text: "📅 采集发布时间最早" }},
-          {{ val: "date-audit-desc", text: "🔬 AI 审核时间最新" }},
-          {{ val: "date-audit-asc", text: "🔬 AI 审核时间最早" }}
+          {{ val: "date-audit-desc", text: "🔬 AI 审核时间最新 (默认)" }},
+          {{ val: "date-audit-asc", text: "🔬 AI 审核时间最早" }},
+          {{ val: "date-source-desc", text: "📅 采集发布时间最新" }},
+          {{ val: "date-source-asc", text: "📅 采集发布时间最早" }}
         ],
         modelsFamilyLabel: "🤖 模型系列:",
         modelFams: {{
@@ -2677,10 +2677,10 @@ def generate_html(data):
         newsSearchPlaceholder: "Search tech, keywords...",
         newsSortLabel: "Sort:",
         newsSortOptions: [
-          {{ val: "date-source-desc", text: "📅 Source Published (Newest first, default)" }},
-          {{ val: "date-source-asc", text: "📅 Source Published (Oldest first)" }},
-          {{ val: "date-audit-desc", text: "🔬 AI Audit Date (Newest first)" }},
-          {{ val: "date-audit-asc", text: "🔬 AI Audit Date (Oldest first)" }}
+          {{ val: "date-audit-desc", text: "🔬 AI Audit Date (Newest first, default)" }},
+          {{ val: "date-audit-asc", text: "🔬 AI Audit Date (Oldest first)" }},
+          {{ val: "date-source-desc", text: "📅 Source Published (Newest first)" }},
+          {{ val: "date-source-asc", text: "📅 Source Published (Oldest first)" }}
         ],
         modelsFamilyLabel: "🤖 Model Family:",
         modelFams: {{
@@ -2788,11 +2788,11 @@ def generate_html(data):
       currentNewsTier1 = 'ALL';
       currentNewsTier2 = 'ALL';
       currentNewsSource = 'ALL';
-      currentNewsSort = 'date-source-desc';
+      currentNewsSort = 'date-audit-desc';
       const nInput = document.getElementById('newsSearchInput');
       if (nInput) nInput.value = '';
       const nSort = document.getElementById('newsSortSelect');
-      if (nSort) nSort.value = 'date-source-desc';
+      if (nSort) nSort.value = 'date-audit-desc';
       document.querySelectorAll('.news-cat-pill').forEach(btn => {{
         if (btn.getAttribute('data-cat') === 'ALL') {{
           btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
@@ -4333,11 +4333,22 @@ def generate_html(data):
       setTimeout(handleHashRoute, 150);
     }});
 
+    function cleanDescriptionText(desc, title) {{
+      if (!desc || typeof desc !== 'string') return '';
+      let d = desc.trim();
+      d = d.replace(/^HN\\s*Score:\\s*\\d+\\s*pts\\s*(\\|\\s*Comments:\\s*\\d+\\s*)?(\\|\\s*)?/i, '');
+      d = d.replace(/^Abstract:\\s*/i, '');
+      if (title && d.toLowerCase() === title.toLowerCase().trim()) {{
+        return '';
+      }}
+      return d.trim();
+    }}
+
     // ================= NEWS VIEW (2계층 카테고리화 엔진) =================
     let currentNewsTier1 = 'ALL';
     let currentNewsTier2 = 'ALL';
     let currentNewsSource = 'ALL';
-    let currentNewsSort = 'date-source-desc';
+    let currentNewsSort = 'date-audit-desc';
     let currentNewsSearch = '';
 
     function setNewsCategoryFilter(t1) {{
@@ -4698,6 +4709,9 @@ def generate_html(data):
           }}
         }}
 
+        displayDesc = cleanDescriptionText(displayDesc, displayTitle);
+        const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
+
         const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
         const isGn = (it.source_platform || '').includes('GeekNews') || (it.source_url || '').includes('hada.io');
         const hnUrl = it.hn_url || ((it.source_url || '').includes('news.ycombinator.com') ? it.source_url : null);
@@ -4832,7 +4846,7 @@ def generate_html(data):
 
             ${{hookHtml}}
 
-            ${{displayDesc ? `<p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">${{displayDesc}}</p>` : ''}}
+            ${{showDesc ? `<p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">${{displayDesc}}</p>` : ''}}
 
             ${{aiSummaryHtml}}
             ${{relatedHtml}}
@@ -5051,6 +5065,8 @@ def generate_html(data):
             displayDesc = displayDesc.replace(cleanH, '').trim();
           }}
         }}
+
+        displayDesc = cleanDescriptionText(displayDesc, displayTitle);
 
         const hasTrilingual = Boolean(multi && multi.zh && multi.ko && multi.en);
         const langBadge = hasTrilingual 
@@ -5723,6 +5739,9 @@ def generate_html(data):
           }}
         }}
 
+        displayDesc = cleanDescriptionText(displayDesc, displayTitle);
+        const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
+
 
 
         const viralScore = calculateStandardizedViralScore(it);
@@ -5818,9 +5837,7 @@ def generate_html(data):
 
             ${{hookHtml}}
 
-            <p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">
-              ${{displayDesc}}
-            </p>
+            ${{showDesc ? `<p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">${{displayDesc}}</p>` : ''}}
 
             ${{aiSummaryHtml}}
             ${{relatedHtml}}

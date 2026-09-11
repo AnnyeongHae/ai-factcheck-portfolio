@@ -536,7 +536,7 @@ def harvest_all():
                         "published_at": published_at,
                         "type": "repo" if "github.com" in article_url else "sns",
                         "category_type": "NEWS" if not "github.com" in article_url else "REPO",
-                        "description": f"HN Score: {score} pts | Comments: {descendants} | {title}",
+                        "description": title,
                         "viral_metric": f"🔥 {score} HN Points"
                     })
                     if added: count += 1

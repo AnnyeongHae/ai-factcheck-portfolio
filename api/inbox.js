@@ -57,6 +57,12 @@ module.exports = async (req, res) => {
       if (typeof p === 'string') {
         try { p = JSON.parse(p); } catch (e) { p = {}; }
       }
+      if (p && typeof p.description === 'string') {
+        let d = p.description.trim();
+        d = d.replace(/^HN\s*Score:\s*\d+\s*pts\s*(\|\s*Comments:\s*\d+\s*)?(\|\s*)?/i, '');
+        d = d.replace(/^Abstract:\s*/i, '').trim();
+        p.description = d;
+      }
       return {
         id: r.id,
         inbox_id: r.inbox_id,
