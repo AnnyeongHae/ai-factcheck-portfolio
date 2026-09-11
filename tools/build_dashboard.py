@@ -3308,32 +3308,40 @@ def generate_html(data):
               if (bwBar && vt.bandwidth_gb) bwBar.style.width = `${{vt.bandwidth_gb.used_pct}}%`;
             }}
 
-            // 🌟 Real-time dynamic card hydration: Fetch latest DB records and unshift if new
+            // 🌟 Real-time dynamic card hydration: Fetch latest DB records and update/unshift
             try {{
               const inboxApiUrl = window.location.hostname.includes('vercel.app') ? '/api/inbox?limit=50' : 'https://ai-factcheck-portfolio.vercel.app/api/inbox?limit=50';
               const inbRes = await fetch(inboxApiUrl, {{ cache: 'no-store' }});
               if (inbRes.ok) {{
                 const inbData = await inbRes.json();
                 if (inbData.status === 'success' && Array.isArray(inbData.items)) {{
-                  const existingIds = new Set(liveInboxData.map(x => x.inbox_id || x.id));
+                  const mapExisting = new Map(liveInboxData.map((x, idx) => [x.inbox_id || x.id, idx]));
                   let addedCount = 0;
+                  let updatedCount = 0;
                   for (let i = inbData.items.length - 1; i >= 0; i--) {{
                     const newItem = inbData.items[i];
                     const nid = newItem.inbox_id || newItem.id;
-                    if (nid && !existingIds.has(nid)) {{
-                      existingIds.add(nid);
+                    if (!nid) continue;
+                    if (mapExisting.has(nid)) {{
+                      const idx = mapExisting.get(nid);
+                      const oldItem = liveInboxData[idx];
+                      if (!oldItem.is_classified && newItem.is_classified) {{
+                        Object.assign(oldItem, newItem);
+                        updatedCount++;
+                      }}
+                    }} else {{
                       liveInboxData.unshift(newItem);
+                      mapExisting.set(nid, 0);
                       if (newItem.is_classified || newItem.ai_enrichment || (newItem.source_platform && (newItem.source_platform.includes('News') || newItem.source_platform.includes('Twitter') || newItem.source_platform.includes('X')))) {{
                         liveNewsData.unshift(newItem);
                       }}
                       addedCount++;
                     }}
                   }}
-                  if (addedCount > 0) {{
-                    console.log(`[Live DB Sync] Injected ${{addedCount}} new real-time text cards into UI.`);
+                  if (addedCount > 0 || updatedCount > 0) {{
                     requestAnimationFrame(() => {{
-                      renderInbox();
-                      renderNews();
+                      if (currentView === 'inbox') renderInbox();
+                      else if (currentView === 'news') renderNews();
                     }});
                   }}
                 }}
@@ -3415,8 +3423,70 @@ def generate_html(data):
             const rem = resData.remaining_unclassified;
             if (txt) txt.textContent = `⏳ AI 요약 진행 중 (잔여: ${{rem}}건)`;
 
+            // 🌟 Instant In-Memory Card Hydration
+            if (Array.isArray(resData.items) && resData.items.length > 0) {{
+              let hydratedAny = false;
+              for (const enr of resData.items) {{
+                const targetInbox = liveInboxData.find(x => (x.inbox_id || x.id) === enr.inbox_id);
+                if (targetInbox) {{
+                  targetInbox.title_ko = enr.title_ko;
+                  targetInbox.hook = enr.hook_ko;
+                  targetInbox.hook_ko = enr.hook_ko;
+                  targetInbox.key_takeaways = enr.key_takeaways;
+                  targetInbox.category_primary = enr.category_primary;
+                  targetInbox.tier1_category = enr.tier1_category;
+                  targetInbox.item_type = enr.item_type;
+                  targetInbox.is_classified = true;
+                  targetInbox.ai_enrichment = Object.assign(targetInbox.ai_enrichment || {{}}, {{
+                    korean_title: enr.title_ko,
+                    hook: enr.hook_ko,
+                    key_takeaways: enr.key_takeaways,
+                    category_primary: enr.category_primary,
+                    tier1_category: enr.tier1_category,
+                    type_classification: enr.item_type,
+                    enriched_by_model: enr.enriched_by_model,
+                    enriched_at: new Date().toISOString()
+                  }});
+                  targetInbox.multilingual = {{
+                    ko: {{ title: enr.title_ko, hook: enr.hook_ko, key_takeaways: enr.key_takeaways }},
+                    en: {{ title: targetInbox.title, hook: enr.hook_ko, key_takeaways: enr.key_takeaways }},
+                    zh: {{ title: targetInbox.title, hook: enr.hook_ko, key_takeaways: enr.key_takeaways }}
+                  }};
+                  hydratedAny = true;
+                }}
+
+                const targetNews = liveNewsData.find(x => (x.inbox_id || x.id) === enr.inbox_id);
+                if (targetNews) {{
+                  targetNews.title_ko = enr.title_ko;
+                  targetNews.hook = enr.hook_ko;
+                  targetNews.hook_ko = enr.hook_ko;
+                  targetNews.key_takeaways = enr.key_takeaways;
+                  targetNews.category_primary = enr.category_primary;
+                  targetNews.tier1_category = enr.tier1_category;
+                  targetNews.item_type = enr.item_type;
+                  targetNews.is_classified = true;
+                  targetNews.multilingual = {{
+                    ko: {{ title: enr.title_ko, hook: enr.hook_ko, key_takeaways: enr.key_takeaways }},
+                    en: {{ title: targetNews.title, hook: enr.hook_ko, key_takeaways: enr.key_takeaways }},
+                    zh: {{ title: targetNews.title, hook: enr.hook_ko, key_takeaways: enr.key_takeaways }}
+                  }};
+                  hydratedAny = true;
+                }} else if (targetInbox && (enr.item_type === 'NEWS' || targetInbox.source_platform?.includes('News') || targetInbox.source_platform?.includes('Hacker News') || targetInbox.source_platform?.includes('GeekNews'))) {{
+                  liveNewsData.unshift(targetInbox);
+                  hydratedAny = true;
+                }}
+              }}
+
+              if (hydratedAny) {{
+                requestAnimationFrame(() => {{
+                  if (currentView === 'inbox') renderInbox();
+                  else if (currentView === 'news') renderNews();
+                }});
+              }}
+            }}
+
             stepCount++;
-            // Batch sync DB telemetry every 5 processed items or on finish to avoid DOM reflow spam
+            // Batch sync DB telemetry every 5 processed items or on finish
             if (stepCount % 5 === 0 || rem === 0) {{
               await syncFromNeonLiveDB();
             }}

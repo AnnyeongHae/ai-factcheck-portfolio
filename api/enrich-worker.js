@@ -76,38 +76,65 @@ function sanitizeJsonString(str) {
 }
 
 function inferCategoriesAndArtifact(item, parsedAi) {
+  const validTier1 = ['TECH_COMPUTING', 'SCIENCE_RESEARCH', 'ECONOMY_FINANCE', 'POLITICS_POLICY', 'LAW_CRIME_JUSTICE', 'CULTURE_HUMANITIES'];
+  const validPrimary = [
+    'INFERENCE_OPT', 'AGENTS_DEVTOOLS', 'MULTIMODAL_AI', 'FOUNDATION_MODELS',
+    'INFRA_RAG_SECURITY', 'DEEP_SCIENCE_SPACE', 'MACRO_GLOBAL_BIZ',
+    'CIVIC_CRIME_INCIDENT', 'HISTORY_LIFE_CULTURE', 'INDUSTRY_TRENDS'
+  ];
+  const validTypes = ['MODEL', 'AGENT', 'TECH', 'NEWS'];
+
   const title = (item.title || '').toLowerCase();
   const desc = (item.description || '').toLowerCase();
   const platform = (item.source_platform || '').toLowerCase();
   const text = `${title} ${desc} ${platform}`;
 
-  // 1. Primary Category
-  let categoryPrimary = 'INDUSTRY_TRENDS';
-  if (text.match(/gguf|vllm|sglang|ollama|awq|fp8|int4|int8|quantization|추론|양자화|서빙|가속/)) {
-    categoryPrimary = 'INFERENCE_OPT';
-  } else if (text.match(/vlm|diffusion|tts|stt|whisper|flux|wan|sora|kling|video|vision|audio|speech|voice|multimodal|멀티모달|음성|비디오|영상/)) {
-    categoryPrimary = 'MULTIMODAL_AI';
-  } else if (text.match(/agent|agents|browser.use|crawler|scraper|devtools|copilot|sdk|cli|framework|에이전트|자동화|개발도구/)) {
-    categoryPrimary = 'AGENTS_DEVTOOLS';
-  } else if (text.match(/rag|vectordb|vector.database|embedding|jailbreak|cve|vulnerability|security|보안|취약점|탈옥|임베딩/)) {
-    categoryPrimary = 'INFRA_RAG_SECURITY';
-  } else if (text.match(/aerospace|rocket|orbit|satellite|nasa|astronomy|dark matter|우주|항공우주|인공위성|천문/)) {
-    categoryPrimary = 'DEEP_SCIENCE_SPACE';
-  } else if (text.match(/gold|reserve|central bank|inflation|interest rate|macroeconomics|gdp|금|중앙은행|인플레이션|기준금리|거시경제/)) {
-    categoryPrimary = 'MACRO_GLOBAL_BIZ';
-  } else if (text.match(/babylonian|recipe|cooking|archaeology|medieval|고대 요리|바빌로니아|고고학|역사/)) {
-    categoryPrimary = 'HISTORY_LIFE_CULTURE';
-  } else if (text.match(/weights|safetensors|checkpoint|lora|foundation model|qwen|deepseek|llama|mistral|gemma|파운데이션|가중치/) || platform.includes('models')) {
-    categoryPrimary = 'FOUNDATION_MODELS';
+  // 1. AI Classifications (Highest Priority)
+  let tier1 = (parsedAi?.tier1_category && validTier1.includes(parsedAi.tier1_category)) ? parsedAi.tier1_category : null;
+  let categoryPrimary = (parsedAi?.category_primary && validPrimary.includes(parsedAi.category_primary)) ? parsedAi.category_primary : null;
+  let itemType = (parsedAi?.item_type && validTypes.includes(parsedAi.item_type)) ? parsedAi.item_type : null;
+
+  // 2. Keyword Fallback for Primary Category
+  if (!categoryPrimary) {
+    if (text.match(/convicted|conviction|verdict|guilty|sentence|sentenced|judge|court|legal|trial|crime|criminal|police|arrest|jail|prison|neglect|custody|lawsuit|attorney|prosecutor|판결|유죄|법원|징역|형사|방임|기소|선고/)) {
+      categoryPrimary = 'CIVIC_CRIME_INCIDENT';
+    } else if (text.match(/gguf|vllm|sglang|ollama|awq|fp8|int4|int8|quantization|추론|양자화|서빙|가속/)) {
+      categoryPrimary = 'INFERENCE_OPT';
+    } else if (text.match(/vlm|diffusion|tts|stt|whisper|flux|wan|sora|kling|video|vision|audio|speech|voice|multimodal|멀티모달|음성|비디오|영상/)) {
+      categoryPrimary = 'MULTIMODAL_AI';
+    } else if (text.match(/agent|agents|browser.use|crawler|scraper|devtools|copilot|sdk|cli|framework|에이전트|자동화|개발도구/)) {
+      categoryPrimary = 'AGENTS_DEVTOOLS';
+    } else if (text.match(/rag|vectordb|vector.database|embedding|jailbreak|cve|vulnerability|security|보안|취약점|탈옥|임베딩/)) {
+      categoryPrimary = 'INFRA_RAG_SECURITY';
+    } else if (text.match(/aerospace|rocket|orbit|satellite|nasa|astronomy|dark matter|우주|항공우주|인공위성|천문/)) {
+      categoryPrimary = 'DEEP_SCIENCE_SPACE';
+    } else if (text.match(/gold|reserve|central bank|inflation|interest rate|macroeconomics|gdp|금|중앙은행|인플레이션|기준금리|거시경제/)) {
+      categoryPrimary = 'MACRO_GLOBAL_BIZ';
+    } else if (text.match(/babylonian|recipe|cooking|archaeology|medieval|고대 요리|바빌로니아|고고학|역사/)) {
+      categoryPrimary = 'HISTORY_LIFE_CULTURE';
+    } else if (text.match(/weights|safetensors|checkpoint|lora|foundation model|qwen|deepseek|llama|mistral|gemma|파운데이션|가중치/) || platform.includes('models')) {
+      categoryPrimary = 'FOUNDATION_MODELS';
+    } else {
+      categoryPrimary = 'INDUSTRY_TRENDS';
+    }
   }
 
-  // 2. IPTC Tier 1
-  let tier1 = 'TECH_COMPUTING';
-  if (['DEEP_SCIENCE_SPACE'].includes(categoryPrimary)) tier1 = 'SCIENCE_RESEARCH';
-  else if (['MACRO_GLOBAL_BIZ'].includes(categoryPrimary)) tier1 = 'ECONOMY_FINANCE';
-  else if (['HISTORY_LIFE_CULTURE'].includes(categoryPrimary)) tier1 = 'CULTURE_HUMANITIES';
+  // 3. IPTC Tier 1 Mapping
+  if (!tier1) {
+    if (['CIVIC_CRIME_INCIDENT'].includes(categoryPrimary) || text.match(/convicted|verdict|guilty|sentence|judge|court|legal|crime|police|arrest|lawsuit|prosecutor|판결|유죄|법원|형사|방임/)) {
+      tier1 = 'LAW_CRIME_JUSTICE';
+    } else if (['DEEP_SCIENCE_SPACE'].includes(categoryPrimary)) {
+      tier1 = 'SCIENCE_RESEARCH';
+    } else if (['MACRO_GLOBAL_BIZ'].includes(categoryPrimary)) {
+      tier1 = 'ECONOMY_FINANCE';
+    } else if (['HISTORY_LIFE_CULTURE'].includes(categoryPrimary)) {
+      tier1 = 'CULTURE_HUMANITIES';
+    } else {
+      tier1 = 'TECH_COMPUTING';
+    }
+  }
 
-  // 3. Artifact Type
+  // 4. Artifact Type
   let artifactType = 'ARTICLE';
   if (platform.includes('spaces') || text.includes('spaces') || text.includes('gradio')) {
     artifactType = 'WEB_SERVICE';
@@ -119,14 +146,17 @@ function inferCategoriesAndArtifact(item, parsedAi) {
     artifactType = 'WEIGHTS';
   }
 
-  // 4. Item Type Classification
-  let itemType = 'TECH';
-  if (artifactType === 'WEIGHTS' || text.match(/gguf|lora|safetensors|checkpoint|weights|7b|14b|70b|32b/) || platform.includes('models')) {
-    itemType = 'MODEL';
-  } else if (artifactType === 'SKILL_AGENT' || text.match(/agent|crawler|scraper|devtools|copilot/)) {
-    itemType = 'AGENT';
-  } else if (text.match(/shooting|police|arrest|minister|court|antitrust|election|attack/)) {
-    itemType = 'NEWS';
+  // 5. Item Type Classification
+  if (!itemType) {
+    if (tier1 === 'LAW_CRIME_JUSTICE' || tier1 === 'POLITICS_POLICY' || categoryPrimary === 'CIVIC_CRIME_INCIDENT' || text.match(/convicted|verdict|guilty|sentence|judge|court|legal|trial|crime|criminal|police|arrest|jail|prison|shooting|attack|minister|election|antitrust|lawsuit|prosecutor|판결|유죄|법원|형사|기소/)) {
+      itemType = 'NEWS';
+    } else if (artifactType === 'WEIGHTS' || text.match(/gguf|lora|safetensors|checkpoint|weights|7b|14b|70b|32b/) || platform.includes('models')) {
+      itemType = 'MODEL';
+    } else if (artifactType === 'SKILL_AGENT' || text.match(/agent|crawler|scraper|devtools|copilot/)) {
+      itemType = 'AGENT';
+    } else {
+      itemType = 'TECH';
+    }
   }
 
   return { categoryPrimary, tier1, artifactType, itemType };
@@ -202,8 +232,9 @@ module.exports = async (req, res) => {
       description: (c.description || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 300)
     }));
 
-    const systemPrompt = `당신은 최고 수준의 AI 기술 아키텍트입니다.
-주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어 번역 제목, 엔지니어가 주목할 1줄 결정적 훅(Hook), 그리고 'AI 3줄 핵심 요약'(key_takeaways: 핵심 포인트 3개)을 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 마크다운 등 기타 텍스트는 일절 출력하지 마세요.
+    const systemPrompt = `당신은 최고 수준의 AI 기술 아키텍트 및 뉴스 분류 전문가입니다.
+주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어 번역 제목, 1줄 결정적 훅(Hook), 'AI 3줄 핵심 요약'(key_takeaways: 3개), 그리고 정확한 카테고리 분류를 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 마크다운 등 기타 텍스트는 일절 출력하지 마세요.
+중요: 법률, 재판, 판결, 범죄, 사회적 사건사고 기사는 절대로 TECH(기술)로 분류하지 말고 item_type: "NEWS", tier1_category: "LAW_CRIME_JUSTICE"로 정확히 분류해야 합니다.
 [
   {
     "id": "item_id",
@@ -214,6 +245,9 @@ module.exports = async (req, res) => {
       "두 번째 핵심 요약 포인트",
       "세 번째 핵심 요약 포인트"
     ],
+    "tier1_category": "TECH_COMPUTING, SCIENCE_RESEARCH, ECONOMY_FINANCE, POLITICS_POLICY, LAW_CRIME_JUSTICE, CULTURE_HUMANITIES 중 택1",
+    "item_type": "MODEL, AGENT, TECH, NEWS 중 택1 (사회/법률/사건/일반뉴스는 반드시 NEWS)",
+    "category_primary": "INFERENCE_OPT, AGENTS_DEVTOOLS, MULTIMODAL_AI, FOUNDATION_MODELS, INFRA_RAG_SECURITY, DEEP_SCIENCE_SPACE, MACRO_GLOBAL_BIZ, CIVIC_CRIME_INCIDENT, HISTORY_LIFE_CULTURE, INDUSTRY_TRENDS 중 택1",
     "programming_lang": "Python, TypeScript, Rust, General 중 택1"
   }
 ]`;
@@ -419,6 +453,7 @@ module.exports = async (req, res) => {
         title_ko: titleKo,
         hook_ko: hookKo,
         key_takeaways: finalTakeaways,
+        tier1_category: inferred.tier1,
         category_primary: inferred.categoryPrimary,
         item_type: inferred.itemType,
         enriched_by_model: modelUsed || 'openrouter-free'
