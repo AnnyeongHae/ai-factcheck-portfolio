@@ -3203,15 +3203,19 @@ def generate_html(data):
 
     // ================= REAL-TIME DB SYNC (VERCEL LIVE API + STATIC FALLBACK) =================
     let _isSyncing = false;
-    async function syncFromNeonLiveDB() {{
-      if (_isSyncing) return;
+    let _syncTimeoutId = null;
+    async function syncFromNeonLiveDB(force = false) {{
+      if (_isSyncing && !force) return;
       _isSyncing = true;
+      if (_syncTimeoutId) clearTimeout(_syncTimeoutId);
+      _syncTimeoutId = setTimeout(() => {{ _isSyncing = false; }}, 8000);
       const badge = document.getElementById('dbLiveBadge');
       try {{
         const tStart = performance.now();
         const apiUrl = window.location.hostname.includes('vercel.app') ? '/api/stats' : 'https://ai-factcheck-portfolio.vercel.app/api/stats';
         const res = await fetch(apiUrl, {{ cache: 'no-store' }});
         const tLatency = Math.round(performance.now() - tStart);
+
 
         if (res.ok) {{
           const data = await res.json();
@@ -3336,6 +3340,7 @@ def generate_html(data):
         // Graceful fallback for static GitHub Pages or offline
       }} finally {{
         _isSyncing = false;
+        if (_syncTimeoutId) clearTimeout(_syncTimeoutId);
       }}
 
       if (badge) {{
@@ -4569,17 +4574,17 @@ def generate_html(data):
             displayTitle = multi.ko.title || it.title_ko || displayTitle;
             displayHook = multi.ko.hook || it.hook_ko || displayHook;
             displayTakeaways = (multi.ko.key_takeaways && multi.ko.key_takeaways.length > 0) ? multi.ko.key_takeaways : displayTakeaways;
-            displayDesc = it.description_ko || it.description || '';
+            displayDesc = (multi.ko.description || '') || it.description_ko || it.description || '';
           }} else if (currentLang === 'ZH' && multi.zh) {{
             displayTitle = multi.zh.title || it.title_zh || displayTitle;
             displayHook = multi.zh.hook || it.hook_zh || displayHook;
             displayTakeaways = (multi.zh.key_takeaways && multi.zh.key_takeaways.length > 0) ? multi.zh.key_takeaways : displayTakeaways;
-            displayDesc = it.description_zh || it.description || '';
+            displayDesc = (multi.zh.description || '') || it.description_zh || it.description || '';
           }} else if (currentLang === 'EN' && multi.en) {{
             displayTitle = multi.en.title || it.title_en || displayTitle;
             displayHook = multi.en.hook || it.hook_en || displayHook;
             displayTakeaways = (multi.en.key_takeaways && multi.en.key_takeaways.length > 0) ? multi.en.key_takeaways : displayTakeaways;
-            displayDesc = it.description_en || it.description || '';
+            displayDesc = (multi.en.description || '') || it.description_en || it.description || '';
           }}
         }} else {{
           if (currentLang === 'KO') {{
@@ -5530,7 +5535,18 @@ def generate_html(data):
 
         let displayTitle = (multi && multi[lKey] ? multi[lKey].title : null) || (currentLang === 'KO' ? it.title_ko : (currentLang === 'ZH' ? it.title_zh : it.title_en)) || it.title;
         let displayHook = (multi && multi[lKey] ? multi[lKey].hook : null) || (currentLang === 'KO' ? it.hook_ko : (currentLang === 'ZH' ? it.hook_zh : it.hook_en)) || it.hook || '';
+        let displayDesc = (multi && multi[lKey] ? (multi[lKey].description || '') : '') || (currentLang === 'KO' ? it.description_ko : (currentLang === 'ZH' ? it.description_zh : it.description_en)) || it.description || '';
         let displayTakeaways = (multi && multi[lKey] && multi[lKey].key_takeaways && multi[lKey].key_takeaways.length > 0) ? multi[lKey].key_takeaways : ((ai ? ai.key_takeaways : []) || (it.key_takeaways || []));
+
+        if (displayHook) {{
+          const cleanH = displayHook.trim();
+          if (displayDesc.trim() === cleanH) {{
+            displayDesc = '';
+          }} else if (cleanH && displayDesc.includes(cleanH)) {{
+            displayDesc = displayDesc.replace(cleanH, '').trim();
+          }}
+        }}
+
 
 
         const viralScore = calculateStandardizedViralScore(it);
@@ -5901,15 +5917,15 @@ def generate_html(data):
 
     // ================= INITIALIZATION =================
     window.addEventListener('DOMContentLoaded', () => {{
-      renderCards();
-      renderHomeTopPicks();
-      renderTelemetryCharts();
-      updateCronCountdown();
-      renderModels();
-      renderNews();
-      renderInbox();
-      syncFromNeonLiveDB();
-      lucide.createIcons();
+      try {{ renderCards(); }} catch (e) {{ console.warn('[Init] renderCards error:', e); }}
+      try {{ renderHomeTopPicks(); }} catch (e) {{ console.warn('[Init] renderHomeTopPicks error:', e); }}
+      try {{ renderTelemetryCharts(); }} catch (e) {{ console.warn('[Init] renderTelemetryCharts error:', e); }}
+      try {{ updateCronCountdown(); }} catch (e) {{ console.warn('[Init] updateCronCountdown error:', e); }}
+      try {{ renderModels(); }} catch (e) {{ console.warn('[Init] renderModels error:', e); }}
+      try {{ renderNews(); }} catch (e) {{ console.warn('[Init] renderNews error:', e); }}
+      try {{ renderInbox(); }} catch (e) {{ console.warn('[Init] renderInbox error:', e); }}
+      try {{ syncFromNeonLiveDB(true); }} catch (e) {{ console.warn('[Init] syncFromNeonLiveDB error:', e); }}
+      try {{ lucide.createIcons(); }} catch (e) {{ console.warn('[Init] lucide error:', e); }}
     }});
   </script>
 </body>
