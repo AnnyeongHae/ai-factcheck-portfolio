@@ -1,4 +1,62 @@
 
+// ================= DATA STORE & REPOSITORIES (SINGLE SOURCE OF TRUTH) =================
+const AppStore = {
+  _itemsMap: new Map(),
+  _cases: [],
+  _models: [],
+  _news: [],
+  _inbox: [],
+
+  init(data) {
+    if (!data) return;
+    this._itemsMap.clear();
+    this._cases = Array.isArray(data) ? data : (data.cases || []);
+    this._models = data.model_items || [];
+    this._news = data.news_items || [];
+    this._inbox = data.inbox_items || [];
+
+    // Centralized index across all harvested candidates, news, and AI models
+    [...this._inbox, ...this._news, ...this._models].forEach(it => {
+      const id = it.inbox_id || it.id;
+      if (id && !this._itemsMap.has(id)) {
+        this._itemsMap.set(id, it);
+      }
+    });
+
+    // Provide reactive views to existing global arrays for backward compatibility
+    casesData = this._cases;
+    modelsData = this._models;
+    newsData = this._news;
+    inboxData = this._inbox;
+
+    liveCasesData = this._cases;
+    liveModelsData = this._models;
+    liveNewsData = this._news;
+    liveInboxData = this._inbox;
+
+    if (data.actions_telemetry) {
+      actionsTelemetryData = data.actions_telemetry;
+    }
+  },
+
+  getItem(id) {
+    return this._itemsMap.get(id);
+  },
+
+  updateItem(id, patch) {
+    const it = this._itemsMap.get(id);
+    if (it && patch) {
+      Object.assign(it, patch);
+    }
+  },
+
+  getCases() { return this._cases; },
+  getModels() { return this._models; },
+  getNews() { return this._news; },
+  getInbox() { return this._inbox; }
+};
+window.AppStore = AppStore;
+
 // ================= UNIVERSAL ASYNC DATA HYDRATION LAYER =================
 async function bootstrapApplicationData() {
   console.log('[Bootstrap] Initializing asynchronous data hydration...');
@@ -7,10 +65,6 @@ async function bootstrapApplicationData() {
     const staticRes = await fetch('data.json', { cache: 'no-cache' });
     if (staticRes.ok) {
       const data = await staticRes.json();
-      casesData = data.cases || [];
-      modelsData = data.model_items || [];
-      newsData = data.news_items || [];
-      inboxData = data.inbox_items || [];
       adminData = data.admin_stats || {};
       graphData = data.graph || { nodes: [], links: [] };
       timeline24hData = data.timeline_24h || [];
@@ -18,12 +72,9 @@ async function bootstrapApplicationData() {
       trend6hData = data.trend_6h || {};
       trendRadarData = data.trend_radar || {};
 
-      liveCasesData = casesData;
-      liveModelsData = modelsData;
-      liveNewsData = newsData;
-      liveInboxData = inboxData;
+      AppStore.init(data);
 
-      console.log(`[Bootstrap] Loaded ${casesData.length} dossiers, ${newsData.length} news, ${modelsData.length} models from data.json.`);
+      console.log(`[Bootstrap] Loaded ${AppStore.getCases().length} dossiers, ${AppStore.getNews().length} news, ${AppStore.getModels().length} models from data.json.`);
     }
   } catch (e) {
     console.warn('[Bootstrap] Static data.json fetch skipped/failed, relying on live Neon APIs:', e.message);
@@ -50,13 +101,12 @@ async function bootstrapApplicationData() {
   try { renderTelemetryCharts(); } catch(e) {}
   try { if (window.lucide) window.lucide.createIcons(); } catch(e) {}
 
-  // 2. Perform live DB sync with Neon Postgres / Vercel API
-  try {
-    await syncFromNeonLiveDB(false);
-    updateGlobalStatsUI();
-  } catch (e) {
-    console.warn('[Bootstrap] Live DB sync completed or skipped:', e.message);
-  }
+  // 2. Perform live DB sync in background (non-blocking, instant 0ms page load)
+  setTimeout(() => {
+    syncFromNeonLiveDB(false)
+      .then(() => updateGlobalStatsUI())
+      .catch(e => console.warn('[Bootstrap] Live DB sync completed or skipped:', e.message));
+  }, 100);
 }
 
 
@@ -111,8 +161,245 @@ function updateGlobalStatsUI() {
   safeSet('statHalfTrue', `● ${halfCount} 부분`);
 
   safeSet('heroAuditCount', `● ${numCases}개 기술 검증 완료`);
+
+  // Update Category & Tier 2 pills dynamically
+  if (typeof updateNewsCategoryPillCounts === 'function') {
+    updateNewsCategoryPillCounts();
+  }
+  if (typeof updateModelCategoryPillCounts === 'function') {
+    updateModelCategoryPillCounts();
+  }
 }
 window.updateGlobalStatsUI = updateGlobalStatsUI;
+
+function updateNewsCategoryPillCounts() {
+  const items = (typeof liveNewsData !== 'undefined' && liveNewsData.length) ? liveNewsData : [];
+  const total = items.length;
+  const t1Counts = {
+    TECH_COMPUTING: 0,
+    SCIENCE_RESEARCH: 0,
+    ECONOMY_FINANCE: 0,
+    LAW_CRIME_JUSTICE: 0,
+    POLITICS_POLICY: 0,
+    CULTURE_HUMANITIES: 0
+  };
+  const t2Counts = {
+    INFERENCE_OPT: 0,
+    AGENTS_DEVTOOLS: 0,
+    MULTIMODAL_AI: 0,
+    FOUNDATION_MODELS: 0,
+    INFRA_RAG_SECURITY: 0,
+    INDUSTRY_TRENDS: 0
+  };
+
+  items.forEach(it => {
+    const t1 = it.tier1_category || 'TECH_COMPUTING';
+    if (t1 in t1Counts) t1Counts[t1]++;
+    else t1Counts.TECH_COMPUTING++;
+
+    const t2 = it.category_primary || it.tier2_category || 'INDUSTRY_TRENDS';
+    if (t2 in t2Counts) t2Counts[t2]++;
+    else t2Counts.INDUSTRY_TRENDS++;
+  });
+
+  const lang = (typeof currentLang !== 'undefined' ? currentLang : 'KO');
+
+  const t1Labels = {
+    KO: {
+      ALL: `전체 (${total.toLocaleString()})`,
+      TECH_COMPUTING: `💻 IT·컴퓨팅 (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
+      SCIENCE_RESEARCH: `🚀 과학·우주 (${t1Counts.SCIENCE_RESEARCH.toLocaleString()})`,
+      ECONOMY_FINANCE: `🏦 경제·금융 (${t1Counts.ECONOMY_FINANCE.toLocaleString()})`,
+      LAW_CRIME_JUSTICE: `⚖️ 사회·법률 (${t1Counts.LAW_CRIME_JUSTICE.toLocaleString()})`,
+      POLITICS_POLICY: `🏛️ 정치·정책 (${t1Counts.POLITICS_POLICY.toLocaleString()})`,
+      CULTURE_HUMANITIES: `🌿 문화·인문 (${t1Counts.CULTURE_HUMANITIES.toLocaleString()})`
+    },
+    ZH: {
+      ALL: `全部 (${total.toLocaleString()})`,
+      TECH_COMPUTING: `💻 IT与计算 (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
+      SCIENCE_RESEARCH: `🚀 科学与航天 (${t1Counts.SCIENCE_RESEARCH.toLocaleString()})`,
+      ECONOMY_FINANCE: `🏦 经济与金融 (${t1Counts.ECONOMY_FINANCE.toLocaleString()})`,
+      LAW_CRIME_JUSTICE: `⚖️ 社会与法治 (${t1Counts.LAW_CRIME_JUSTICE.toLocaleString()})`,
+      POLITICS_POLICY: `🏛️ 政治与政策 (${t1Counts.POLITICS_POLICY.toLocaleString()})`,
+      CULTURE_HUMANITIES: `🌿 文化与人文 (${t1Counts.CULTURE_HUMANITIES.toLocaleString()})`
+    },
+    EN: {
+      ALL: `All (${total.toLocaleString()})`,
+      TECH_COMPUTING: `💻 IT & Computing (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
+      SCIENCE_RESEARCH: `🚀 Science & Space (${t1Counts.SCIENCE_RESEARCH.toLocaleString()})`,
+      ECONOMY_FINANCE: `🏦 Economy & Finance (${t1Counts.ECONOMY_FINANCE.toLocaleString()})`,
+      LAW_CRIME_JUSTICE: `⚖️ Society & Law (${t1Counts.LAW_CRIME_JUSTICE.toLocaleString()})`,
+      POLITICS_POLICY: `🏛️ Policy & Politics (${t1Counts.POLITICS_POLICY.toLocaleString()})`,
+      CULTURE_HUMANITIES: `🌿 Culture & Arts (${t1Counts.CULTURE_HUMANITIES.toLocaleString()})`
+    }
+  };
+
+  const t2Labels = {
+    KO: {
+      ALL: `전체 IT 분야`,
+      INFERENCE_OPT: `⚡ 추론·서빙 (${t2Counts.INFERENCE_OPT.toLocaleString()})`,
+      AGENTS_DEVTOOLS: `🛠️ 에이전트·도구 (${t2Counts.AGENTS_DEVTOOLS.toLocaleString()})`,
+      MULTIMODAL_AI: `🎨 멀티모달 (${t2Counts.MULTIMODAL_AI.toLocaleString()})`,
+      FOUNDATION_MODELS: `🤖 파운데이션 (${t2Counts.FOUNDATION_MODELS.toLocaleString()})`,
+      INFRA_RAG_SECURITY: `🛡️ 인프라·보안 (${t2Counts.INFRA_RAG_SECURITY.toLocaleString()})`,
+      INDUSTRY_TRENDS: `🌐 일반 SW·웹 (${t2Counts.INDUSTRY_TRENDS.toLocaleString()})`
+    },
+    ZH: {
+      ALL: `全部 IT 领域`,
+      INFERENCE_OPT: `⚡ 推理与服务 (${t2Counts.INFERENCE_OPT.toLocaleString()})`,
+      AGENTS_DEVTOOLS: `🛠️ 智能体与工具 (${t2Counts.AGENTS_DEVTOOLS.toLocaleString()})`,
+      MULTIMODAL_AI: `🎨 多模态 (${t2Counts.MULTIMODAL_AI.toLocaleString()})`,
+      FOUNDATION_MODELS: `🤖 基础模型 (${t2Counts.FOUNDATION_MODELS.toLocaleString()})`,
+      INFRA_RAG_SECURITY: `🛡️ 基础架构与安全 (${t2Counts.INFRA_RAG_SECURITY.toLocaleString()})`,
+      INDUSTRY_TRENDS: `🌐 软件与行业动态 (${t2Counts.INDUSTRY_TRENDS.toLocaleString()})`
+    },
+    EN: {
+      ALL: `All Tech Fields`,
+      INFERENCE_OPT: `⚡ Inference & Serving (${t2Counts.INFERENCE_OPT.toLocaleString()})`,
+      AGENTS_DEVTOOLS: `🛠️ Agents & DevTools (${t2Counts.AGENTS_DEVTOOLS.toLocaleString()})`,
+      MULTIMODAL_AI: `🎨 Multimodal (${t2Counts.MULTIMODAL_AI.toLocaleString()})`,
+      FOUNDATION_MODELS: `🤖 Foundation Models (${t2Counts.FOUNDATION_MODELS.toLocaleString()})`,
+      INFRA_RAG_SECURITY: `🛡️ Infra & Security (${t2Counts.INFRA_RAG_SECURITY.toLocaleString()})`,
+      INDUSTRY_TRENDS: `🌐 General SW & Web (${t2Counts.INDUSTRY_TRENDS.toLocaleString()})`
+    }
+  };
+
+  const curDict1 = t1Labels[lang] || t1Labels.KO;
+  document.querySelectorAll('.news-cat-pill').forEach(btn => {
+    const cat = btn.getAttribute('data-cat');
+    if (curDict1 && curDict1[cat]) {
+      btn.textContent = curDict1[cat];
+    }
+  });
+
+  const curDict2 = t2Labels[lang] || t2Labels.KO;
+  document.querySelectorAll('.news-t2-pill').forEach(btn => {
+    const t2 = btn.getAttribute('data-t2');
+    if (curDict2 && curDict2[t2]) {
+      btn.textContent = curDict2[t2];
+    }
+  });
+}
+window.updateNewsCategoryPillCounts = updateNewsCategoryPillCounts;
+
+function updateModelCategoryPillCounts() {
+  const items = (typeof liveModelsData !== 'undefined' && liveModelsData.length) ? liveModelsData : [];
+  const total = items.length;
+  const fCounts = {
+    ALL: total,
+    Qwen: 0,
+    Wan: 0,
+    MiniMax: 0,
+    FLUX: 0,
+    GLM: 0,
+    DeepSeek: 0,
+    Hunyuan: 0,
+    Audio: 0,
+    Standalone: 0
+  };
+  const artCounts = {
+    ALL: total,
+    WEIGHTS: 0,
+    WEB_SERVICE: 0,
+    FINETUNE: 0
+  };
+
+  items.forEach(it => {
+    const fam = (it.model_family || '').toLowerCase();
+    if (fam.includes('qwen')) fCounts.Qwen++;
+    else if (fam.includes('wan')) fCounts.Wan++;
+    else if (fam.includes('minimax')) fCounts.MiniMax++;
+    else if (fam.includes('flux')) fCounts.FLUX++;
+    else if (fam.includes('glm')) fCounts.GLM++;
+    else if (fam.includes('deepseek')) fCounts.DeepSeek++;
+    else if (fam.includes('hunyuan')) fCounts.Hunyuan++;
+    else if (fam.includes('audio') || fam.includes('speech') || fam.includes('tts') || fam.includes('whisper')) fCounts.Audio++;
+    else fCounts.Standalone++;
+
+    const art = it.artifact_type || (it.source_platform?.includes('Spaces') ? 'WEB_SERVICE' : 'WEIGHTS');
+    if (art in artCounts) artCounts[art]++;
+    else artCounts.WEIGHTS++;
+  });
+
+  const lang = (typeof currentLang !== 'undefined' ? currentLang : 'KO');
+
+  const famLabels = {
+    KO: {
+      ALL: `전체 패밀리 (${total})`,
+      Qwen: `Qwen (${fCounts.Qwen})`,
+      Wan: `Wan 비디오 (${fCounts.Wan})`,
+      MiniMax: `MiniMax (${fCounts.MiniMax})`,
+      FLUX: `FLUX 이미지 (${fCounts.FLUX})`,
+      GLM: `GLM (${fCounts.GLM})`,
+      DeepSeek: `DeepSeek (${fCounts.DeepSeek})`,
+      Hunyuan: `Hunyuan (${fCounts.Hunyuan})`,
+      Audio: `음성/TTS (${fCounts.Audio})`,
+      Standalone: `독립/신규 모델 (${fCounts.Standalone})`
+    },
+    ZH: {
+      ALL: `全部系列 (${total})`,
+      Qwen: `Qwen (${fCounts.Qwen})`,
+      Wan: `Wan 视频 (${fCounts.Wan})`,
+      MiniMax: `MiniMax (${fCounts.MiniMax})`,
+      FLUX: `FLUX 图像 (${fCounts.FLUX})`,
+      GLM: `GLM (${fCounts.GLM})`,
+      DeepSeek: `DeepSeek (${fCounts.DeepSeek})`,
+      Hunyuan: `Hunyuan (${fCounts.Hunyuan})`,
+      Audio: `语音/TTS (${fCounts.Audio})`,
+      Standalone: `独立/新模型 (${fCounts.Standalone})`
+    },
+    EN: {
+      ALL: `All Families (${total})`,
+      Qwen: `Qwen (${fCounts.Qwen})`,
+      Wan: `Wan Video (${fCounts.Wan})`,
+      MiniMax: `MiniMax (${fCounts.MiniMax})`,
+      FLUX: `FLUX Image (${fCounts.FLUX})`,
+      GLM: `GLM (${fCounts.GLM})`,
+      DeepSeek: `DeepSeek (${fCounts.DeepSeek})`,
+      Hunyuan: `Hunyuan (${fCounts.Hunyuan})`,
+      Audio: `Audio/TTS (${fCounts.Audio})`,
+      Standalone: `Standalone Models (${fCounts.Standalone})`
+    }
+  };
+
+  const artLabels = {
+    KO: {
+      ALL: `전체 (${total})`,
+      WEIGHTS: `🤖 가중치·체크포인트 (${artCounts.WEIGHTS})`,
+      WEB_SERVICE: `🌐 인터랙티브 데모·Spaces (${artCounts.WEB_SERVICE})`,
+      FINETUNE: `🎯 특화 파인튜닝 (${artCounts.FINETUNE})`
+    },
+    ZH: {
+      ALL: `全部 (${total})`,
+      WEIGHTS: `🤖 模型权重·检查点 (${artCounts.WEIGHTS})`,
+      WEB_SERVICE: `🌐 在线演示·Spaces (${artCounts.WEB_SERVICE})`,
+      FINETUNE: `🎯 定制微调 (${artCounts.FINETUNE})`
+    },
+    EN: {
+      ALL: `All (${total})`,
+      WEIGHTS: `🤖 Weights & Checkpoints (${artCounts.WEIGHTS})`,
+      WEB_SERVICE: `🌐 Interactive Demos / Spaces (${artCounts.WEB_SERVICE})`,
+      FINETUNE: `🎯 Specialized Finetunes (${artCounts.FINETUNE})`
+    }
+  };
+
+  const curFamDict = famLabels[lang] || famLabels.KO;
+  document.querySelectorAll('.model-fam-pill').forEach(btn => {
+    const fam = btn.getAttribute('data-fam');
+    if (curFamDict && curFamDict[fam]) {
+      btn.textContent = curFamDict[fam];
+    }
+  });
+
+  const curArtDict = artLabels[lang] || artLabels.KO;
+  document.querySelectorAll('.model-art-pill').forEach(btn => {
+    const art = btn.getAttribute('data-art');
+    if (curArtDict && curArtDict[art]) {
+      btn.textContent = curArtDict[art];
+    }
+  });
+}
+window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
     const API_BASE = '';
 
@@ -300,23 +587,23 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         newsOriginalLink: "기사 원문",
         newsCatFilterLabel: "🏷️ 기술·글로벌 분류:",
         newsCats: {
-          'ALL': "전체 (1535)",
-          'TECH_COMPUTING': "💻 IT·컴퓨팅 ({data['tier1_counts'].get('TECH_COMPUTING', 0)})",
-          'SCIENCE_RESEARCH': "🚀 과학·우주 ({data['tier1_counts'].get('SCIENCE_RESEARCH', 0)})",
-          'ECONOMY_FINANCE': "🏦 경제·금융 ({data['tier1_counts'].get('ECONOMY_FINANCE', 0)})",
-          'LAW_CRIME_JUSTICE': "⚖️ 사회·법률 ({data['tier1_counts'].get('LAW_CRIME_JUSTICE', 0)})",
-          'POLITICS_POLICY': "🏛️ 정치·정책 ({data['tier1_counts'].get('POLITICS_POLICY', 0)})",
-          'CULTURE_HUMANITIES': "🌿 문화·인문 ({data['tier1_counts'].get('CULTURE_HUMANITIES', 0)})"
+          'ALL': "전체",
+          'TECH_COMPUTING': "💻 IT·컴퓨팅",
+          'SCIENCE_RESEARCH': "🚀 과학·우주",
+          'ECONOMY_FINANCE': "🏦 경제·금융",
+          'LAW_CRIME_JUSTICE': "⚖️ 사회·법률",
+          'POLITICS_POLICY': "🏛️ 정치·정책",
+          'CULTURE_HUMANITIES': "🌿 문화·인문"
         },
         newsTier2FilterLabel: "↳ 💻 IT 세부 분야:",
         newsT2: {
           'ALL': "전체 IT 분야",
-          'INFERENCE_OPT': "⚡ 추론·서빙 ({data['news_cat_counts'].get('INFERENCE_OPT', 0)})",
-          'AGENTS_DEVTOOLS': "🛠️ 에이전트·도구 ({data['news_cat_counts'].get('AGENTS_DEVTOOLS', 0)})",
-          'MULTIMODAL_AI': "🎨 멀티모달 ({data['news_cat_counts'].get('MULTIMODAL_AI', 0)})",
-          'FOUNDATION_MODELS': "🤖 파운데이션 ({data['news_cat_counts'].get('FOUNDATION_MODELS', 0)})",
-          'INFRA_RAG_SECURITY': "🛡️ 인프라·보안 ({data['news_cat_counts'].get('INFRA_RAG_SECURITY', 0)})",
-          'INDUSTRY_TRENDS': "🌐 일반 SW·웹 ({data['news_cat_counts'].get('INDUSTRY_TRENDS', 0)})"
+          'INFERENCE_OPT': "⚡ 추론·서빙",
+          'AGENTS_DEVTOOLS': "🛠️ 에이전트·도구",
+          'MULTIMODAL_AI': "🎨 멀티모달",
+          'FOUNDATION_MODELS': "🤖 파운데이션",
+          'INFRA_RAG_SECURITY': "🛡️ 인프라·보안",
+          'INDUSTRY_TRENDS': "🌐 일반 SW·웹"
         },
         newsSourceLabel: "출처:",
         newsSrcAll: "전체 출처",
@@ -331,22 +618,22 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         modelsFamilyLabel: "🤖 모델 패밀리:",
         modelFams: {
           'ALL': "전체 패밀리",
-          'Qwen': "Qwen ({data['model_fam_counts'].get('Qwen', 0)})",
-          'Wan': "Wan 비디오 ({data['model_fam_counts'].get('Wan', 0)})",
-          'MiniMax': "MiniMax ({data['model_fam_counts'].get('MiniMax', 0)})",
-          'FLUX': "FLUX 이미지 ({data['model_fam_counts'].get('FLUX', 0)})",
-          'GLM': "GLM ({data['model_fam_counts'].get('GLM', 0)})",
-          'DeepSeek': "DeepSeek ({data['model_fam_counts'].get('DeepSeek', 0)})",
-          'Hunyuan': "Hunyuan ({data['model_fam_counts'].get('Hunyuan', 0)})",
-          'Audio': "음성/TTS ({data['model_fam_counts'].get('Audio', 0)})",
-          'Standalone': "독립/신규 모델 ({data['model_fam_counts'].get('Standalone', 0)})"
+          'Qwen': "Qwen",
+          'Wan': "Wan 비디오",
+          'MiniMax': "MiniMax",
+          'FLUX': "FLUX 이미지",
+          'GLM': "GLM",
+          'DeepSeek': "DeepSeek",
+          'Hunyuan': "Hunyuan",
+          'Audio': "음성/TTS",
+          'Standalone': "독립/신규 모델"
         },
         modelsArtifactLabel: "🧩 허브 유형:",
         modelArts: {
-          'ALL': "전체 (242)",
-          'WEIGHTS': "🤖 가중치·체크포인트 ({data['model_art_counts'].get('WEIGHTS', 0)})",
-          'WEB_SERVICE': "🌐 인터랙티브 데모·Spaces ({data['model_art_counts'].get('WEB_SERVICE', 0)})",
-          'FINETUNE': "🎯 특화 파인튜닝 ({data['model_art_counts'].get('FINETUNE', 0)})"
+          'ALL': "전체",
+          'WEIGHTS': "🤖 가중치·체크포인트",
+          'WEB_SERVICE': "🌐 인터랙티브 데모·Spaces",
+          'FINETUNE': "🎯 특화 파인튜닝"
         },
         modelsSearchPlaceholder: "모델명, 아키텍처, 포맷 검색...",
         modelsSortLabel: "정렬:",
@@ -459,23 +746,23 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         newsOriginalLink: "阅读原文",
         newsCatFilterLabel: "🏷️ 技术与全球领域:",
         newsCats: {
-          'ALL': "全部 (1535)",
-          'TECH_COMPUTING': "💻 IT与计算 ({data['tier1_counts'].get('TECH_COMPUTING', 0)})",
-          'SCIENCE_RESEARCH': "🚀 科学与航天 ({data['tier1_counts'].get('SCIENCE_RESEARCH', 0)})",
-          'ECONOMY_FINANCE': "🏦 经济与金融 ({data['tier1_counts'].get('ECONOMY_FINANCE', 0)})",
-          'LAW_CRIME_JUSTICE': "⚖️ 社会与法治 ({data['tier1_counts'].get('LAW_CRIME_JUSTICE', 0)})",
-          'POLITICS_POLICY': "🏛️ 政治与政策 ({data['tier1_counts'].get('POLITICS_POLICY', 0)})",
-          'CULTURE_HUMANITIES': "🌿 文化与人文 ({data['tier1_counts'].get('CULTURE_HUMANITIES', 0)})"
+          'ALL': "全部",
+          'TECH_COMPUTING': "💻 IT与计算",
+          'SCIENCE_RESEARCH': "🚀 科学与航天",
+          'ECONOMY_FINANCE': "🏦 经济与金融",
+          'LAW_CRIME_JUSTICE': "⚖️ 社会与法治",
+          'POLITICS_POLICY': "🏛️ 政治与政策",
+          'CULTURE_HUMANITIES': "🌿 文化与人文"
         },
         newsTier2FilterLabel: "↳ 💻 IT 细分领域:",
         newsT2: {
           'ALL': "全部 IT 领域",
-          'INFERENCE_OPT': "⚡ 推理与部署 ({data['news_cat_counts'].get('INFERENCE_OPT', 0)})",
-          'AGENTS_DEVTOOLS': "🛠️ Agent与工具 ({data['news_cat_counts'].get('AGENTS_DEVTOOLS', 0)})",
-          'MULTIMODAL_AI': "🎨 多模态 ({data['news_cat_counts'].get('MULTIMODAL_AI', 0)})",
-          'FOUNDATION_MODELS': "🤖 基座模型 ({data['news_cat_counts'].get('FOUNDATION_MODELS', 0)})",
-          'INFRA_RAG_SECURITY': "🛡️ 架构与安全 ({data['news_cat_counts'].get('INFRA_RAG_SECURITY', 0)})",
-          'INDUSTRY_TRENDS': "🌐 行业软件与Web ({data['news_cat_counts'].get('INDUSTRY_TRENDS', 0)})"
+          'INFERENCE_OPT': "⚡ 推理与服务",
+          'AGENTS_DEVTOOLS': "🛠️ 智能体与工具",
+          'MULTIMODAL_AI': "🎨 多模态",
+          'FOUNDATION_MODELS': "🤖 基础模型",
+          'INFRA_RAG_SECURITY': "🛡️ 基础架构与安全",
+          'INDUSTRY_TRENDS': "🌐 软件与行业动态"
         },
         newsSourceLabel: "来源:",
         newsSrcAll: "全部来源",
@@ -490,22 +777,22 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         modelsFamilyLabel: "🤖 模型系列:",
         modelFams: {
           'ALL': "全部系列",
-          'Qwen': "Qwen ({data['model_fam_counts'].get('Qwen', 0)})",
-          'Wan': "Wan 视频 ({data['model_fam_counts'].get('Wan', 0)})",
-          'MiniMax': "MiniMax ({data['model_fam_counts'].get('MiniMax', 0)})",
-          'FLUX': "FLUX 图像 ({data['model_fam_counts'].get('FLUX', 0)})",
-          'GLM': "GLM ({data['model_fam_counts'].get('GLM', 0)})",
-          'DeepSeek': "DeepSeek ({data['model_fam_counts'].get('DeepSeek', 0)})",
-          'Hunyuan': "Hunyuan ({data['model_fam_counts'].get('Hunyuan', 0)})",
-          'Audio': "语音/TTS ({data['model_fam_counts'].get('Audio', 0)})",
-          'Standalone': "独立/新模型 ({data['model_fam_counts'].get('Standalone', 0)})"
+          'Qwen': "Qwen",
+          'Wan': "Wan 视频",
+          'MiniMax': "MiniMax",
+          'FLUX': "FLUX 图像",
+          'GLM': "GLM",
+          'DeepSeek': "DeepSeek",
+          'Hunyuan': "Hunyuan",
+          'Audio': "语音/TTS",
+          'Standalone': "独立/新模型"
         },
         modelsArtifactLabel: "🧩 资源类型:",
         modelArts: {
-          'ALL': "全部 (242)",
-          'WEIGHTS': "🤖 模型权重·检查点 ({data['model_art_counts'].get('WEIGHTS', 0)})",
-          'WEB_SERVICE': "🌐 在线演示·Spaces ({data['model_art_counts'].get('WEB_SERVICE', 0)})",
-          'FINETUNE': "🎯 定制微调 ({data['model_art_counts'].get('FINETUNE', 0)})"
+          'ALL': "全部",
+          'WEIGHTS': "🤖 模型权重·检查点",
+          'WEB_SERVICE': "🌐 在线演示·Spaces",
+          'FINETUNE': "🎯 定制微调"
         },
         modelsSearchPlaceholder: "搜索模型名、架构、格式...",
         modelsSortLabel: "排序:",
@@ -618,23 +905,23 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         newsOriginalLink: "Read Source",
         newsCatFilterLabel: "🏷️ Global Domain:",
         newsCats: {
-          'ALL': "All (1535)",
-          'TECH_COMPUTING': "💻 IT & Computing ({data['tier1_counts'].get('TECH_COMPUTING', 0)})",
-          'SCIENCE_RESEARCH': "🚀 Science & Space ({data['tier1_counts'].get('SCIENCE_RESEARCH', 0)})",
-          'ECONOMY_FINANCE': "🏦 Economy & Finance ({data['tier1_counts'].get('ECONOMY_FINANCE', 0)})",
-          'LAW_CRIME_JUSTICE': "⚖️ Society & Law ({data['tier1_counts'].get('LAW_CRIME_JUSTICE', 0)})",
-          'POLITICS_POLICY': "🏛️ Policy & Politics ({data['tier1_counts'].get('POLITICS_POLICY', 0)})",
-          'CULTURE_HUMANITIES': "🌿 Culture & Arts ({data['tier1_counts'].get('CULTURE_HUMANITIES', 0)})"
+          'ALL': "All",
+          'TECH_COMPUTING': "💻 IT & Computing",
+          'SCIENCE_RESEARCH': "🚀 Science & Space",
+          'ECONOMY_FINANCE': "🏦 Economy & Finance",
+          'LAW_CRIME_JUSTICE': "⚖️ Society & Law",
+          'POLITICS_POLICY': "🏛️ Policy & Politics",
+          'CULTURE_HUMANITIES': "🌿 Culture & Arts"
         },
         newsTier2FilterLabel: "↳ 💻 IT Sub-tracks:",
         newsT2: {
           'ALL': "All IT Tracks",
-          'INFERENCE_OPT': "⚡ Inference & Serving ({data['news_cat_counts'].get('INFERENCE_OPT', 0)})",
-          'AGENTS_DEVTOOLS': "🛠️ Agents & DevTools ({data['news_cat_counts'].get('AGENTS_DEVTOOLS', 0)})",
-          'MULTIMODAL_AI': "🎨 Multimodal AI ({data['news_cat_counts'].get('MULTIMODAL_AI', 0)})",
-          'FOUNDATION_MODELS': "🤖 Foundation Models ({data['news_cat_counts'].get('FOUNDATION_MODELS', 0)})",
-          'INFRA_RAG_SECURITY': "🛡️ Infra & Security ({data['news_cat_counts'].get('INFRA_RAG_SECURITY', 0)})",
-          'INDUSTRY_TRENDS': "🌐 General SW & Web ({data['news_cat_counts'].get('INDUSTRY_TRENDS', 0)})"
+          'INFERENCE_OPT': "⚡ Inference & Serving",
+          'AGENTS_DEVTOOLS': "🛠️ Agents & DevTools",
+          'MULTIMODAL_AI': "🎨 Multimodal AI",
+          'FOUNDATION_MODELS': "🤖 Foundation Models",
+          'INFRA_RAG_SECURITY': "🛡️ Infra & Security",
+          'INDUSTRY_TRENDS': "🌐 General SW & Web"
         },
         newsSourceLabel: "Source:",
         newsSrcAll: "All Sources",
@@ -649,22 +936,22 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         modelsFamilyLabel: "🤖 Model Family:",
         modelFams: {
           'ALL': "All Families",
-          'Qwen': "Qwen ({data['model_fam_counts'].get('Qwen', 0)})",
-          'Wan': "Wan Video ({data['model_fam_counts'].get('Wan', 0)})",
-          'MiniMax': "MiniMax ({data['model_fam_counts'].get('MiniMax', 0)})",
-          'FLUX': "FLUX Image ({data['model_fam_counts'].get('FLUX', 0)})",
-          'GLM': "GLM ({data['model_fam_counts'].get('GLM', 0)})",
-          'DeepSeek': "DeepSeek ({data['model_fam_counts'].get('DeepSeek', 0)})",
-          'Hunyuan': "Hunyuan ({data['model_fam_counts'].get('Hunyuan', 0)})",
-          'Audio': "Audio/TTS ({data['model_fam_counts'].get('Audio', 0)})",
-          'Standalone': "Standalone Models ({data['model_fam_counts'].get('Standalone', 0)})"
+          'Qwen': "Qwen",
+          'Wan': "Wan Video",
+          'MiniMax': "MiniMax",
+          'FLUX': "FLUX Image",
+          'GLM': "GLM",
+          'DeepSeek': "DeepSeek",
+          'Hunyuan': "Hunyuan",
+          'Audio': "Audio/TTS",
+          'Standalone': "Standalone Models"
         },
         modelsArtifactLabel: "🧩 Hub Resource:",
         modelArts: {
-          'ALL': "All (242)",
-          'WEIGHTS': "🤖 Weights & Checkpoints ({data['model_art_counts'].get('WEIGHTS', 0)})",
-          'WEB_SERVICE': "🌐 Interactive Demos / Spaces ({data['model_art_counts'].get('WEB_SERVICE', 0)})",
-          'FINETUNE': "🎯 Specialized Finetunes ({data['model_art_counts'].get('FINETUNE', 0)})"
+          'ALL': "All",
+          'WEIGHTS': "🤖 Weights & Checkpoints",
+          'WEB_SERVICE': "🌐 Interactive Demos / Spaces",
+          'FINETUNE': "🎯 Specialized Finetunes"
         },
         modelsSearchPlaceholder: "Search model name, architecture, format...",
         modelsSortLabel: "Sort:",
@@ -927,14 +1214,7 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
       container.innerHTML = '';
       
       // Sort cases strictly by investigation_date descending (latest first)
-      const sortedCases = [...(liveCasesData || [])].sort((a, b) => {
-        const dateA = a.investigation_date || (a.source_published_date ? a.source_published_date.slice(0, 10) : '');
-        const dateB = b.investigation_date || (b.source_published_date ? b.source_published_date.slice(0, 10) : '');
-        if (dateB !== dateA) return dateB.localeCompare(dateA);
-        const idA = parseInt((a.case_id || '').replace(/\\D/g, '') || '0', 10);
-        const idB = parseInt((b.case_id || '').replace(/\\D/g, '') || '0', 10);
-        return idB - idA;
-      });
+      const sortedCases = sortCollection([...(liveCasesData || [])], 'date-audit-desc');
       const top3 = sortedCases.slice(0, 3);
 
       top3.forEach(c => {
@@ -947,16 +1227,7 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         const badgeColor = isVerifiedTrue ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : (isHalfTrue ? 'bg-amber-50 text-amber-900 border-amber-200' : 'bg-rose-50 text-rose-800 border-rose-200');
         const badgeLabel = isVerifiedTrue ? (currentLang === 'KO' ? '사실 검증됨' : (currentLang === 'ZH' ? '事实已核验' : 'Verified True')) : (isHalfTrue ? (currentLang === 'KO' ? '절반의 사실' : (currentLang === 'ZH' ? '部分属实' : 'Half True')) : (currentLang === 'KO' ? '과장/왜곡' : (currentLang === 'ZH' ? '夸大/失实' : 'Gamed/Hype')));
 
-        const story = c.portfolio_story || {};
-        let displayTitle = c.title;
-        let hook = story.the_hook || c.curation?.personal_motivation || '';
-        if (currentLang === 'ZH') {
-          displayTitle = c.title_zh || c.title;
-          hook = story.the_hook_zh || hook;
-        } else if (currentLang === 'EN') {
-          displayTitle = c.title_en || c.title;
-          hook = story.the_hook_en || hook;
-        }
+        const { displayTitle, displayHook } = getLocalizedContent(c, currentLang);
         const displayDate = c.investigation_date || (c.source_published_date ? c.source_published_date.slice(0, 10) : '2026-09-04');
 
         card.innerHTML = `
@@ -966,7 +1237,7 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
               <span class="text-ink-muted text-[11px] font-semibold">${c.confidence_score || 95}%</span>
             </div>
             <h4 class="text-xs sm:text-sm font-bold text-ink-primary line-clamp-2 leading-snug hover:text-indigo-600 transition">${displayTitle}</h4>
-            <p class="text-[11px] text-ink-secondary line-clamp-2 leading-relaxed">${hook}</p>
+            <p class="text-[11px] text-ink-secondary line-clamp-2 leading-relaxed">${displayHook}</p>
           </div>
           <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[10px] font-mono text-ink-muted">
             <span>🔬 ${currentLang === 'KO' ? '분석일: ' : (currentLang === 'ZH' ? '分析日: ' : 'Audited: ')}${displayDate}</span>
@@ -1080,14 +1351,9 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
       safeSetAttr('newsSearchInput', 'placeholder', t.newsSearchPlaceholder);
       safeSetText('newsSortLabel', t.newsSortLabel);
 
-      document.querySelectorAll('.news-cat-pill').forEach(pill => {
-        const cat = pill.dataset.cat;
-        if (t.newsCats && t.newsCats[cat]) pill.innerText = t.newsCats[cat];
-      });
-      document.querySelectorAll('.news-t2-pill').forEach(pill => {
-        const t2 = pill.dataset.t2;
-        if (t.newsT2 && t.newsT2[t2]) pill.innerText = t.newsT2[t2];
-      });
+      if (typeof updateNewsCategoryPillCounts === 'function') {
+        updateNewsCategoryPillCounts();
+      }
 
       const newsSortSel = document.getElementById('newsSortSelect');
       if (newsSortSel && t.newsSortOptions) {
@@ -1101,14 +1367,18 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
       safeSetAttr('modelsSearchInput', 'placeholder', t.modelsSearchPlaceholder);
       safeSetText('modelsSortLabel', t.modelsSortLabel);
 
-      document.querySelectorAll('.model-fam-pill').forEach(pill => {
-        const fam = pill.dataset.fam;
-        if (t.modelFams && t.modelFams[fam]) pill.innerText = t.modelFams[fam];
-      });
-      document.querySelectorAll('.model-art-pill').forEach(pill => {
-        const art = pill.dataset.art;
-        if (t.modelArts && t.modelArts[art]) pill.innerText = t.modelArts[art];
-      });
+      if (typeof updateModelCategoryPillCounts === 'function') {
+        updateModelCategoryPillCounts();
+      } else {
+        document.querySelectorAll('.model-fam-pill').forEach(pill => {
+          const fam = pill.dataset.fam;
+          if (t.modelFams && t.modelFams[fam]) pill.innerText = t.modelFams[fam];
+        });
+        document.querySelectorAll('.model-art-pill').forEach(pill => {
+          const art = pill.dataset.art;
+          if (t.modelArts && t.modelArts[art]) pill.innerText = t.modelArts[art];
+        });
+      }
 
       const modelsSortSel = document.getElementById('modelsSortSelect');
       if (modelsSortSel && t.modelsSortOptions) {
@@ -1312,12 +1582,6 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
                     } else {
                       liveInboxData.push(newItem);
                       mapExisting.set(nid, newItem);
-                      if (newItem.is_classified || newItem.ai_enrichment) {
-                        if (isModel) liveModelsData.unshift(newItem);
-                        else liveNewsData.unshift(newItem);
-                      } else if (newItem.source_platform && (newItem.source_platform.includes('News') || newItem.source_platform.includes('Twitter') || newItem.source_platform.includes('X'))) {
-                        liveNewsData.push(newItem);
-                      }
                       addedCount++;
                     }
                   }
@@ -2132,32 +2396,8 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         return matchesMode && matchesDomain && matchesSearch;
       });
 
-      // 🌟 Precision DateTime Sorting (Default: AI Audit Date DESC)
-      filtered.sort((a, b) => {
-        if (currentSort === 'date-audit-desc' || currentSort === 'date-desc') {
-          const diff = parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
-          if (diff !== 0) return diff;
-          return (b.case_id || '').localeCompare(a.case_id || '');
-        }
-        if (currentSort === 'date-audit-asc') {
-          const diff = parseItemTimestamp(a, 'audit') - parseItemTimestamp(b, 'audit');
-          if (diff !== 0) return diff;
-          return (a.case_id || '').localeCompare(b.case_id || '');
-        }
-        if (currentSort === 'date-source-desc') {
-          const diff = parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
-          if (diff !== 0) return diff;
-          return (b.case_id || '').localeCompare(a.case_id || '');
-        }
-        if (currentSort === 'date-source-asc' || currentSort === 'date-asc') {
-          const diff = parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
-          if (diff !== 0) return diff;
-          return (a.case_id || '').localeCompare(b.case_id || '');
-        }
-        const diff = parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
-        if (diff !== 0) return diff;
-        return (b.case_id || '').localeCompare(a.case_id || '');
-      });
+      // 🌟 Precision DateTime Sorting (Unified)
+      sortCollection(filtered, currentSort);
 
       document.getElementById('resultsCountLabel').innerText = currentLang === 'KO' ? `총 ${filtered.length}건 표시 (전체 ${liveCasesData.length}건 중)` : (currentLang === 'ZH' ? `显示 ${filtered.length} 项 (共 ${liveCasesData.length} 项)` : `Showing ${filtered.length} of ${liveCasesData.length} dossiers`);
 
@@ -2191,19 +2431,9 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         const isVerifiedTrue = c.verdict === 'VERIFIED_TRUE';
         const isHalfTrue = c.verdict.includes('HALF');
 
-        let displayTitle = c.title;
-        let displayMotivation = curation.personal_motivation || story.the_hook || '';
-        let displayTruth = story.the_hook || 'Empirical benchmark completed.';
-
-        if (currentLang === 'ZH') {
-          displayTitle = c.title_zh || c.title;
-          displayMotivation = curation.personal_motivation_zh || displayMotivation;
-          displayTruth = story.the_hook_zh || displayTruth;
-        } else if (currentLang === 'EN') {
-          displayTitle = c.title_en || c.title;
-          displayMotivation = curation.personal_motivation_en || displayMotivation;
-          displayTruth = story.the_hook_en || displayTruth;
-        }
+        const { displayTitle, displayHook } = getLocalizedContent(c, currentLang);
+        let displayMotivation = displayHook;
+        let displayTruth = displayHook || 'Empirical benchmark completed.';
 
         // 🌟 Engagement Metric Tag Enhancement for Motivation
         let motivationHtml = displayMotivation;
@@ -2586,6 +2816,213 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
       return d.trim();
     }
 
+    // ================= REUSABLE CARD & PRESENTATION COMPONENTS (DRY) =================
+    function getLocalizedContent(it, lang = currentLang) {
+      if (!it) return { displayTitle: '', displayHook: '', displayDesc: '', displayTakeaways: [], hasTrilingual: false };
+      const ai = it.ai_enrichment;
+      const multi = it.multilingual || (ai ? ai.multilingual : null);
+      const story = it.portfolio_story || {};
+
+      let displayTitle = '';
+      let displayHook = '';
+      let displayDesc = '';
+      let displayTakeaways = [];
+
+      if (lang === 'ZH') {
+        displayTitle = multi?.zh?.title || it.title_zh || multi?.en?.title || it.title_en || it.title || '';
+        displayHook = multi?.zh?.hook || it.hook_zh || story.the_hook_zh || it.curation?.personal_motivation_zh || (ai ? ai.hook : '') || it.hook || story.the_hook || it.curation?.personal_motivation || '';
+        displayDesc = multi?.zh?.description || it.description_zh || displayHook || it.description || '';
+        if (multi?.zh?.key_takeaways?.length > 0) displayTakeaways = multi.zh.key_takeaways;
+        else if (it.key_takeaways_zh?.length > 0) displayTakeaways = it.key_takeaways_zh;
+      } else if (lang === 'EN') {
+        displayTitle = multi?.en?.title || it.title_en || it.title || '';
+        displayHook = multi?.en?.hook || it.hook_en || story.the_hook_en || it.curation?.personal_motivation_en || (ai ? ai.hook : '') || it.hook || story.the_hook || it.curation?.personal_motivation || '';
+        displayDesc = multi?.en?.description || it.description_en || displayHook || it.description || '';
+        if (multi?.en?.key_takeaways?.length > 0) displayTakeaways = multi.en.key_takeaways;
+        else if (it.key_takeaways_en?.length > 0) displayTakeaways = it.key_takeaways_en;
+      } else {
+        // Default KO
+        displayTitle = multi?.ko?.title || it.title_ko || it.title || '';
+        displayHook = multi?.ko?.hook || it.hook_ko || story.the_hook || it.curation?.personal_motivation || (ai ? ai.hook : '') || it.hook || '';
+        displayDesc = multi?.ko?.description || it.description_ko || it.description || displayHook || '';
+        if (multi?.ko?.key_takeaways?.length > 0) displayTakeaways = multi.ko.key_takeaways;
+        else if (it.key_takeaways?.length > 0) displayTakeaways = it.key_takeaways;
+        else if (ai?.key_takeaways?.length > 0) displayTakeaways = ai.key_takeaways;
+      }
+
+      // Deduplicate Hook: Hook must ONLY appear in the yellow callout box
+      if (displayHook) {
+        const cleanH = displayHook.trim();
+        if (displayDesc.trim() === cleanH) {
+          displayDesc = '';
+        } else if (cleanH && displayDesc.includes(cleanH)) {
+          displayDesc = displayDesc.replace(cleanH, '').trim();
+        }
+      }
+
+      displayDesc = cleanDescriptionText(displayDesc, displayTitle);
+      const hasTrilingual = Boolean((multi && multi.zh && multi.ko && multi.en) || (it.title_zh && it.title_en));
+
+      return {
+        displayTitle,
+        displayHook,
+        displayDesc,
+        displayTakeaways,
+        hasTrilingual
+      };
+    }
+
+    function renderHookCallout(displayHook) {
+      if (!displayHook) return '';
+      return `
+        <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5">
+          <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
+          <span>${displayHook}</span>
+        </div>
+      `;
+    }
+
+    function renderAiTakeaways(takeaways, lang = currentLang) {
+      if (!Array.isArray(takeaways) || takeaways.length === 0) return '';
+      return `
+        <div class="mt-2 p-3 rounded-xl bg-gradient-to-br from-indigo-50/50 via-sky-50/40 to-purple-50/50 border border-indigo-100 text-[11px] space-y-1.5 font-sans">
+          <div class="flex items-center gap-1 text-indigo-950 font-bold text-[10px]">
+            <i data-lucide="sparkles" class="w-3 h-3 text-indigo-600"></i>
+            <span>${lang === 'KO' ? 'AI 3줄 핵심 요약' : (lang === 'ZH' ? 'AI 3行核心摘要' : 'AI 3-Line Summary')}</span>
+          </div>
+          <ul class="space-y-1 text-ink-secondary leading-relaxed list-disc list-inside">
+            ${takeaways.map(k => `<li>${k}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    function renderRelatedDossierButton(rel, lang = currentLang) {
+      if (!rel || !rel.case_id) return '';
+      const label = lang === 'KO' ? '관련 기술 검증: ' : (lang === 'ZH' ? '关联技术核验: ' : 'Related Verification: ');
+      return `
+        <div class="pt-2 border-t border-surface-border">
+          <button onclick="openCaseModal('${rel.case_id}')" class="w-full text-left px-2.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-[11px] text-emerald-950 font-semibold flex items-center justify-between transition">
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>${label}${rel.target_tech || ''}</span>
+            </span>
+            <i data-lucide="arrow-right" class="w-3 h-3 text-emerald-600"></i>
+          </button>
+        </div>
+      `;
+    }
+
+    function renderCardStandardFooter(it, lang = currentLang, extraActionHtml = '') {
+      const ai = it.ai_enrichment;
+      const pubLabel = lang === 'KO' ? '발행' : (lang === 'ZH' ? '发布' : 'Published');
+      const hrvLabel = lang === 'KO' ? '수집' : (lang === 'ZH' ? '采集' : 'Harvested');
+      const updLabel = lang === 'KO' ? '최신 갱신일' : (lang === 'ZH' ? '最新更新' : 'Updated');
+      const srcLabel = lang === 'KO' ? '원문' : (lang === 'ZH' ? '原文' : 'Source');
+      const pendingLabel = lang === 'KO' ? 'AI요약 대기중' : (lang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit');
+
+      const pubDate = formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at);
+      const hrvDate = formatDateTimeCompact(it.harvested_at || it.harvested_date || it.created_at);
+      const hasUpdate = it.updated_at && it.updated_at !== (it.harvested_at || it.harvested_date);
+      const updDate = hasUpdate ? formatDateTimeCompact(it.updated_at) : '';
+
+      let auditHtml = `
+        <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
+          <span>🔬 ${pendingLabel}</span>
+        </div>
+      `;
+      if (ai?.enriched_at) {
+        auditHtml = `
+          <div class="text-[11px] text-indigo-700 font-semibold flex items-center gap-1.5 min-w-0 overflow-hidden">
+            <span class="shrink-0">🔬 ${formatDateTimeCompact(ai.enriched_at)}</span>
+            <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${ai.enriched_by_model || ''}">(${formatModelAttribution(ai.enriched_by_model)})</span>
+          </div>
+        `;
+      }
+
+      const defaultSourceLink = it.source_url ? `
+        <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline flex items-center gap-0.5 font-semibold">
+          📄 ${srcLabel} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
+        </a>
+      ` : '';
+
+      return `
+        <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
+          <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
+            <span>📰 ${pubLabel}: ${pubDate}</span>
+          </div>
+          <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
+            <span>📥 ${hrvLabel}: ${hrvDate}</span>
+            ${hasUpdate ? `<span class="text-[10px] text-indigo-600 font-bold" title="${updLabel}">(🔄 ${updDate})</span>` : ''}
+          </div>
+          ${auditHtml}
+          <div class="flex items-center justify-between pt-0.5 font-sans">
+            <span class="text-[11px] text-ink-muted font-mono flex items-center gap-1">
+              ${defaultSourceLink}
+            </span>
+            ${extraActionHtml || ''}
+          </div>
+        </div>
+      `;
+    }
+
+    function sortCollection(items, sortKey) {
+      if (!Array.isArray(items)) return [];
+      return items.sort((a, b) => {
+        const idA = a.case_id || a.inbox_id || a.id || '';
+        const idB = b.case_id || b.inbox_id || b.id || '';
+
+        if (sortKey === 'date-source-desc') {
+          const diff = parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
+          if (diff !== 0) return diff;
+          return idB.localeCompare(idA);
+        }
+        if (sortKey === 'date-source-asc' || sortKey === 'date-asc') {
+          const diff = parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
+          if (diff !== 0) return diff;
+          return idA.localeCompare(idB);
+        }
+        if (sortKey === 'date-audit-desc' || sortKey === 'date-desc') {
+          const tB = parseItemTimestamp(b, 'audit');
+          const tA = parseItemTimestamp(a, 'audit');
+          if (tB !== tA) return tB - tA;
+          const sB = parseItemTimestamp(b, 'source');
+          const sA = parseItemTimestamp(a, 'source');
+          if (sB !== sA) return sB - sA;
+          return idB.localeCompare(idA);
+        }
+        if (sortKey === 'date-audit-asc') {
+          const tA = parseItemTimestamp(a, 'audit');
+          const tB = parseItemTimestamp(b, 'audit');
+          if (tA > 0 && tB > 0 && tA !== tB) return tA - tB;
+          if (tA > 0 && tB === 0) return -1;
+          if (tB > 0 && tA === 0) return 1;
+          const sDiff = parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
+          if (sDiff !== 0) return sDiff;
+          return idA.localeCompare(idB);
+        }
+        if (sortKey === 'title-asc') {
+          return (a.title || '').localeCompare(b.title || '');
+        }
+        if (sortKey === 'viral-desc') {
+          return (typeof calculateStandardizedViralScore === 'function') ? (calculateStandardizedViralScore(b) - calculateStandardizedViralScore(a)) : 0;
+        }
+        if (sortKey === 'viral-asc') {
+          return (typeof calculateStandardizedViralScore === 'function') ? (calculateStandardizedViralScore(a) - calculateStandardizedViralScore(b)) : 0;
+        }
+        const defDiff = parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
+        if (defDiff !== 0) return defDiff;
+        return idB.localeCompare(idA);
+      });
+    }
+
+    window.getLocalizedContent = getLocalizedContent;
+    window.renderHookCallout = renderHookCallout;
+    window.renderAiTakeaways = renderAiTakeaways;
+    window.renderRelatedDossierButton = renderRelatedDossierButton;
+    window.renderCardStandardFooter = renderCardStandardFooter;
+    window.sortCollection = sortCollection;
+
     // ================= NEWS VIEW (2계층 카테고리화 엔진) =================
     let currentNewsTier1 = 'ALL';
     let currentNewsTier2 = 'ALL';
@@ -2870,31 +3307,8 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         return true;
       });
 
-      // 🌟 Precision DateTime Sorting (Default: Source Date/Time DESC)
-      newsItems.sort((a, b) => {
-        if (currentNewsSort === 'date-source-desc') {
-          return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
-        }
-        if (currentNewsSort === 'date-source-asc') {
-          return parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
-        }
-        if (currentNewsSort === 'date-audit-desc') {
-          const tB = parseItemTimestamp(b, 'audit');
-          const tA = parseItemTimestamp(a, 'audit');
-          if (tB !== tA) return tB - tA;
-          return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
-        }
-        if (currentNewsSort === 'date-audit-asc') {
-          const tA = parseItemTimestamp(a, 'audit');
-          const tB = parseItemTimestamp(b, 'audit');
-          if (tA > 0 && tB > 0) return tA - tB;
-          if (tA > 0) return -1;
-          if (tB > 0) return 1;
-          return parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
-        }
-        if (currentNewsSort === 'title-asc') return (a.title || '').localeCompare(b.title || '');
-        return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
-      });
+      // 🌟 Precision DateTime Sorting (Unified)
+      sortCollection(newsItems, currentNewsSort);
 
       const totalPages = Math.ceil(newsItems.length / PAGE_SIZE) || 1;
       if (currentNewsPage > totalPages) currentNewsPage = totalPages;
@@ -2914,53 +3328,7 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         card.className = 'executive-card p-4 sm:p-5 flex flex-col justify-between space-y-4';
 
         const ai = it.ai_enrichment;
-        const multi = it.multilingual || (ai ? ai.multilingual : null);
-        let displayTitle = it.title;
-        let displayDesc = it.description || '';
-        let displayHook = (ai ? ai.hook : '') || it.hook || '';
-        let displayTakeaways = (ai ? ai.key_takeaways : []) || (it.key_takeaways || []);
-
-        if (multi) {
-          if (currentLang === 'KO' && multi.ko) {
-            displayTitle = multi.ko.title || it.title_ko || displayTitle;
-            displayHook = multi.ko.hook || it.hook_ko || displayHook;
-            displayTakeaways = (multi.ko.key_takeaways && multi.ko.key_takeaways.length > 0) ? multi.ko.key_takeaways : displayTakeaways;
-            displayDesc = (multi.ko.description || '') || it.description_ko || it.description || '';
-          } else if (currentLang === 'ZH' && multi.zh) {
-            displayTitle = multi.zh.title || it.title_zh || displayTitle;
-            displayHook = multi.zh.hook || it.hook_zh || displayHook;
-            displayTakeaways = (multi.zh.key_takeaways && multi.zh.key_takeaways.length > 0) ? multi.zh.key_takeaways : displayTakeaways;
-            displayDesc = (multi.zh.description || '') || it.description_zh || it.description || '';
-          } else if (currentLang === 'EN' && multi.en) {
-            displayTitle = multi.en.title || it.title_en || displayTitle;
-            displayHook = multi.en.hook || it.hook_en || displayHook;
-            displayTakeaways = (multi.en.key_takeaways && multi.en.key_takeaways.length > 0) ? multi.en.key_takeaways : displayTakeaways;
-            displayDesc = (multi.en.description || '') || it.description_en || it.description || '';
-          }
-        } else {
-          if (currentLang === 'KO') {
-            if (it.title_ko) displayTitle = it.title_ko;
-            if (it.description_ko) displayDesc = it.description_ko;
-          } else if (currentLang === 'ZH') {
-            if (it.title_zh) displayTitle = it.title_zh;
-            if (it.description_zh) displayDesc = it.description_zh;
-          } else if (currentLang === 'EN') {
-            if (it.title_en) displayTitle = it.title_en;
-            if (it.description_en) displayDesc = it.description_en;
-          }
-        }
-
-        // Deduplicate Hook: Hook must ONLY appear in the yellow callout box
-        if (displayHook) {
-          const cleanH = displayHook.trim();
-          if (displayDesc.trim() === cleanH) {
-            displayDesc = '';
-          } else if (cleanH && displayDesc.includes(cleanH)) {
-            displayDesc = displayDesc.replace(cleanH, '').trim();
-          }
-        }
-
-        displayDesc = cleanDescriptionText(displayDesc, displayTitle);
+        const { displayTitle, displayHook, displayDesc, displayTakeaways } = getLocalizedContent(it, currentLang);
         const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
 
         const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
@@ -2992,8 +3360,8 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
 
         let aiBadgeHtml = '';
         let aiSummaryHtml = '';
-        let hookHtml = '';
-        let relatedHtml = '';
+        const hookHtml = renderHookCallout(displayHook);
+        const relatedHtml = renderRelatedDossierButton(it.related_dossier, currentLang);
 
         const tier1Map = {
           'SCIENCE_RESEARCH': { label: currentLang === 'KO' ? '🚀 과학·우주' : (currentLang === 'ZH' ? '🚀 科学与航天' : '🚀 Science & Research'), cls: 'bg-teal-50 text-teal-900 border-teal-200' },
@@ -3037,43 +3405,10 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
             </div>
           `;
 
-          if (displayHook) {
-            hookHtml = `
-              <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5">
-                <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
-                <span>${displayHook}</span>
-              </div>
-            `;
-          }
-
-          if (displayTakeaways && displayTakeaways.length > 0) {
-            aiSummaryHtml = `
-              <div class="p-3 rounded-xl bg-gradient-to-br from-indigo-50/50 via-sky-50/40 to-purple-50/50 border border-indigo-100 text-[11px] space-y-1.5">
-                <div class="flex items-center gap-1 text-indigo-950 font-bold text-[10px]">
-                  <i data-lucide="sparkles" class="w-3 h-3 text-indigo-600"></i>
-                  <span>${currentLang === 'KO' ? 'AI 3줄 핵심 요약' : (currentLang === 'ZH' ? 'AI 3行核心摘要' : 'AI 3-Line Summary')}</span>
-                </div>
-                <ul class="space-y-1 text-ink-secondary leading-relaxed list-disc list-inside">
-                  ${displayTakeaways.map(k => `<li>${k}</li>`).join('')}
-                </ul>
-              </div>
-            `;
-          }
+          aiSummaryHtml = renderAiTakeaways(displayTakeaways, currentLang);
         }
 
-        if (it.related_dossier) {
-          relatedHtml = `
-            <div class="pt-2 border-t border-surface-border">
-              <button onclick="openCaseModal('${it.related_dossier.case_id}')" class="w-full text-left px-2.5 py-1.5 rounded-lg bg-indigo-50/70 hover:bg-indigo-100/80 border border-indigo-200/80 text-[11px] text-indigo-950 font-semibold flex items-center justify-between transition">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="link-2" class="w-3.5 h-3.5 text-indigo-600"></i>
-                  <span>${currentLang === 'KO' ? '관련 팩트체크: ' : (currentLang === 'ZH' ? '关联事实核查: ' : 'Related Fact-Check: ')}${it.related_dossier.target_tech}</span>
-                </span>
-                <i data-lucide="arrow-right" class="w-3 h-3 text-indigo-400"></i>
-              </button>
-            </div>
-          `;
-        }
+        const footerHtml = renderCardStandardFooter(it, currentLang, linksHtml);
 
         card.innerHTML = `
           <div class="space-y-2.5">
@@ -3103,38 +3438,7 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
             ${relatedHtml}
           </div>
 
-          <!-- Standardized 4-Line Footer: 발행일 -> 수집일 -> 분석일 (분석모델) -> 출처 -->
-          <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
-            <!-- Line 1: 발행일 -->
-            <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
-              <span>📰 ${currentLang === 'KO' ? '발행' : (currentLang === 'ZH' ? '发布' : 'Published')}: ${formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at)}</span>
-            </div>
-
-            <!-- Line 2: 수집일 -->
-            <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
-              <span>📥 ${currentLang === 'KO' ? '수집' : (currentLang === 'ZH' ? '采集' : 'Harvested')}: ${formatDateTimeCompact(it.harvested_at || it.harvested_date || it.created_at)}</span>
-              ${it.updated_at && it.updated_at !== (it.harvested_at || it.harvested_date) ? `
-              <span class="text-[10px] text-indigo-600 font-bold" title="${currentLang === 'KO' ? '최신 갱신일' : (currentLang === 'ZH' ? '最新更新' : 'Updated')}">(🔄 ${formatDateTimeCompact(it.updated_at)})</span>
-              ` : ''}
-            </div>
-
-            <!-- Line 3: 분석일 (분석모델) -->
-            ${ai?.enriched_at ? `
-            <div class="text-[11px] text-indigo-700 font-semibold flex items-center gap-1.5 min-w-0 overflow-hidden">
-              <span class="shrink-0">🔬 ${formatDateTimeCompact(ai.enriched_at)}</span>
-              <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${ai.enriched_by_model || ''}">(${formatModelAttribution(ai.enriched_by_model)})</span>
-            </div>
-            ` : `
-            <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
-              <span>🔬 ${currentLang === 'KO' ? 'AI요약 대기중' : (currentLang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit')}</span>
-            </div>
-            `}
-
-            <!-- Line 4: 원문 링크 -->
-            <div class="flex items-center gap-1.5 flex-wrap pt-0.5 font-sans">
-              ${linksHtml}
-            </div>
-          </div>
+          ${footerHtml}
         `;
         fragment.appendChild(card);
       });
@@ -3266,23 +3570,8 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         return matchesMod && matchesFam && matchesArt && matchesSearch;
       });
 
-      // 🌟 Precision DateTime Sorting (Default: Source Date/Time DESC)
-      filtered.sort((a, b) => {
-        if (currentModelsSort === 'date-source-desc') {
-          return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
-        }
-        if (currentModelsSort === 'date-source-asc') {
-          return parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
-        }
-        if (currentModelsSort === 'date-audit-desc') {
-          return parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
-        }
-        if (currentModelsSort === 'date-audit-asc') {
-          return parseItemTimestamp(a, 'audit') - parseItemTimestamp(b, 'audit');
-        }
-        if (currentModelsSort === 'title-asc') return (a.title || '').localeCompare(b.title || '');
-        return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
-      });
+      // 🌟 Precision DateTime Sorting (Unified)
+      sortCollection(filtered, currentModelsSort);
 
       const countEl = document.getElementById('modelsFilteredCount');
       if (countEl) countEl.innerText = currentLang === 'KO' ? `${filtered.length}개 모델 표출` : (currentLang === 'ZH' ? `显示 ${filtered.length} 个模型` : `Showing ${filtered.length} models`);
@@ -3301,30 +3590,7 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
       const pagedModels = filtered.slice((currentModelsPage - 1) * PAGE_SIZE, currentModelsPage * PAGE_SIZE);
       const fragment = document.createDocumentFragment();
       pagedModels.forEach(it => {
-        const ai = it.ai_enrichment;
-        const multi = it.multilingual || ai?.multilingual;
-        const lKey = currentLang.toLowerCase();
-
-        let displayTitle = (multi && multi[lKey]?.title) || (currentLang === 'KO' ? it.title_ko : (currentLang === 'ZH' ? it.title_zh : it.title_en)) || it.title;
-        let displayHook = (multi && multi[lKey]?.hook) || (currentLang === 'KO' ? it.hook_ko : (currentLang === 'ZH' ? it.hook_zh : it.hook_en)) || it.hook || '';
-        let displayDesc = (currentLang === 'KO' ? it.description_ko : (currentLang === 'ZH' ? it.description_zh : it.description_en)) || it.description || '';
-
-        // Deduplicate Hook: Hook must ONLY appear in the yellow callout box
-        if (displayHook) {
-          const cleanH = displayHook.trim();
-          if (displayDesc.trim() === cleanH) {
-            displayDesc = '';
-          } else if (cleanH && displayDesc.includes(cleanH)) {
-            displayDesc = displayDesc.replace(cleanH, '').trim();
-          }
-        }
-
-        displayDesc = cleanDescriptionText(displayDesc, displayTitle);
-
-        const hasTrilingual = Boolean(multi && multi.zh && multi.ko && multi.en);
-        const langBadge = hasTrilingual 
-          ? `<span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[9px] font-mono font-bold border border-emerald-200">🌐 KO·EN·ZH</span>`
-          : `<span class="px-1.5 py-0.2 rounded bg-surface-subtle text-ink-muted text-[9px] font-mono border border-surface-border">🌐 ${currentLang === 'KO' ? '분석 대기' : (currentLang === 'ZH' ? '待分析' : 'Pending')}</span>`;
+        const { displayTitle, displayHook, displayDesc } = getLocalizedContent(it, currentLang);
 
         const card = document.createElement('div');
         card.className = 'bg-white rounded-2xl p-4 sm:p-5 border border-surface-border hover:border-indigo-400 hover:shadow-md transition flex flex-col justify-between space-y-4';
@@ -3381,30 +3647,15 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
           ).join(' ');
         }
 
-        let hookHtml = '';
-        if (displayHook) {
-          hookHtml = `
-            <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5">
-              <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
-              <span>${displayHook}</span>
-            </div>
-          `;
-        }
+        const hookHtml = renderHookCallout(displayHook);
+        const relatedHtml = renderRelatedDossierButton(it.related_dossier, currentLang);
 
-        let relatedHtml = '';
-        if (it.related_dossier) {
-          relatedHtml = `
-            <div class="pt-2 border-t border-surface-border">
-              <button onclick="openCaseModal('${it.related_dossier.case_id}')" class="w-full text-left px-2.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-[11px] text-emerald-950 font-semibold flex items-center justify-between transition">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
-                  <span>${currentLang === 'KO' ? '관련 기술 검증: ' : (currentLang === 'ZH' ? '关联技术核验: ' : 'Related Verification: ')}${it.related_dossier.target_tech}</span>
-                </span>
-                <i data-lucide="arrow-right" class="w-3 h-3 text-emerald-600"></i>
-              </button>
-            </div>
-          `;
-        }
+        const actionBtn = `
+          <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1 shrink-0">
+            <span>${artMeta.btn}</span> <i data-lucide="external-link" class="w-3 h-3"></i>
+          </a>
+        `;
+        const footerHtml = renderCardStandardFooter(it, currentLang, actionBtn);
 
         card.innerHTML = `
           <div class="space-y-3">
@@ -3431,45 +3682,7 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
             ${relatedHtml}
           </div>
 
-          <!-- Standardized 4-Line Footer: 발행일 -> 수집일 -> 분석일 (분석모델) -> 출처 -->
-          <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
-            <!-- Line 1: 발행일 -->
-            <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
-              <span>📰 ${currentLang === 'KO' ? '발행' : (currentLang === 'ZH' ? '发布' : 'Published')}: ${formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at)}</span>
-            </div>
-
-            <!-- Line 2: 수집일 -->
-            <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
-              <span>📥 ${currentLang === 'KO' ? '수집' : (currentLang === 'ZH' ? '采集' : 'Harvested')}: ${formatDateTimeCompact(it.harvested_at || it.harvested_date || it.created_at)}</span>
-              ${it.updated_at && it.updated_at !== (it.harvested_at || it.harvested_date) ? `
-              <span class="text-[10px] text-indigo-600 font-bold" title="${currentLang === 'KO' ? '최신 갱신일' : (currentLang === 'ZH' ? '最新更新' : 'Updated')}">(🔄 ${formatDateTimeCompact(it.updated_at)})</span>
-              ` : ''}
-            </div>
-
-            <!-- Line 3: 분석일 (분석모델) -->
-            ${ai?.enriched_at ? `
-            <div class="text-[11px] text-indigo-700 font-semibold flex items-center gap-1.5 min-w-0 overflow-hidden">
-              <span class="shrink-0">🔬 ${formatDateTimeCompact(ai.enriched_at)}</span>
-              <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${ai.enriched_by_model || ''}">(${formatModelAttribution(ai.enriched_by_model)})</span>
-            </div>
-            ` : `
-            <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
-              <span>🔬 ${currentLang === 'KO' ? 'AI요약 대기중' : (currentLang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit')}</span>
-            </div>
-            `}
-
-            <!-- Line 4: Hub Download / Live Demo Button -->
-            <div class="flex items-center justify-between pt-0.5 font-sans">
-              <span class="text-[11px] text-ink-muted font-mono flex items-center gap-1">
-                <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline flex items-center gap-0.5 font-semibold">
-                  📄 ${currentLang === 'KO' ? '원문' : (currentLang === 'ZH' ? '原文' : 'Source')} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
-                </a>
-              </span>
-              <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-surface-subtle hover:bg-ink-primary hover:text-white text-ink-primary font-bold transition text-xs flex items-center gap-1 shrink-0">
-                <span>${artMeta.btn}</span> <i data-lucide="external-link" class="w-3 h-3"></i>
-              </a>
-            </div>
-          </div>
+          ${footerHtml}
         `;
 
         fragment.appendChild(card);
@@ -3789,12 +4002,59 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
             const statusLabel = isSuccess ? (tLang === 'zh' ? '成功' : (tLang === 'en' ? 'Success' : '성공')) : (isCancelled ? (tLang === 'zh' ? '已取消' : (tLang === 'en' ? 'Cancelled' : '취소')) : (tLang === 'zh' ? '运行中' : (tLang === 'en' ? 'Running' : '진행중')));
             
             let itemsCell = '-';
-            if (r.items_collected !== null && r.items_collected !== undefined && r.items_scanned !== null && r.items_scanned !== undefined) {
-              itemsCell = `<span class="font-bold text-indigo-700">${r.items_collected}건 신규</span> <span class="text-[10px] text-ink-muted">(${r.items_scanned}건 스캔)</span>`;
-            } else if (r.items_collected !== null && r.items_collected !== undefined) {
-              itemsCell = `<span class="font-bold text-indigo-700">${r.items_collected}건 신규</span>`;
-            } else if (r.items_scanned !== null && r.items_scanned !== undefined) {
-              itemsCell = `<span class="text-ink-secondary">${r.items_scanned}건 스캔</span>`;
+            let collectedCount = 0;
+            let scannedCount = 0;
+            let hasCollected = false;
+            let hasScanned = false;
+
+            if (typeof r.items_collected === 'number') {
+              collectedCount = r.items_collected;
+              hasCollected = true;
+            } else if (typeof r.items_collected === 'string') {
+              const m = r.items_collected.match(/\d+/);
+              if (m) {
+                if (r.items_collected.includes('스캔')) {
+                  scannedCount = parseInt(m[0], 10);
+                  hasScanned = true;
+                } else {
+                  collectedCount = parseInt(m[0], 10);
+                  hasCollected = true;
+                }
+              }
+            }
+
+            if (typeof r.items_scanned === 'number') {
+              scannedCount = r.items_scanned;
+              hasScanned = true;
+            } else if (typeof r.items_scanned === 'string') {
+              const m = r.items_scanned.match(/\d+/);
+              if (m) {
+                scannedCount = parseInt(m[0], 10);
+                hasScanned = true;
+              }
+            }
+
+            // 🌟 수집을 실행하지 않은 워크플로우(push 등) 또는 스캔/수집이 0건인 경우 '-' 표시
+            const isNonHarvestWorkflow = r.event === 'push' || 
+              (!hasCollected && !hasScanned) || 
+              (collectedCount === 0 && scannedCount === 0) ||
+              (r.items_collected === null && r.items_scanned === null);
+
+            if (isNonHarvestWorkflow) {
+              itemsCell = `<span class="text-ink-muted">-</span>`;
+            } else if (hasCollected && hasScanned) {
+              const colLabel = tLang === 'zh' ? '条采集' : (tLang === 'en' ? 'collected' : '건 수집');
+              const scanLabel = tLang === 'zh' ? '条扫描' : (tLang === 'en' ? 'scanned' : '건 스캔');
+              itemsCell = `<span class="font-bold text-indigo-700">${collectedCount}${colLabel}</span> <span class="text-[10px] text-ink-muted">/ ${scannedCount}${scanLabel}</span>`;
+            } else if (hasCollected && collectedCount > 0) {
+              const colLabel = tLang === 'zh' ? '条采集' : (tLang === 'en' ? 'collected' : '건 수집');
+              itemsCell = `<span class="font-bold text-indigo-700">${collectedCount}${colLabel}</span>`;
+            } else if (hasScanned && scannedCount > 0) {
+              const colLabel = tLang === 'zh' ? '条采集' : (tLang === 'en' ? 'collected' : '건 수집');
+              const scanLabel = tLang === 'zh' ? '条扫描' : (tLang === 'en' ? 'scanned' : '건 스캔');
+              itemsCell = `<span class="font-bold text-indigo-700">0${colLabel}</span> <span class="text-[10px] text-ink-muted">/ ${scannedCount}${scanLabel}</span>`;
+            } else {
+              itemsCell = `<span class="text-ink-muted">-</span>`;
             }
 
             rowsHtml += `
@@ -3896,7 +4156,12 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
           const isFailure = r.conclusion === 'failure' || r.conclusion === 'timed_out';
           const errCount = isFailure ? 1 : 0;
           const existingRun = (actionsTelemetryData.runs || []).find(x => String(x.id) === String(r.id));
-          const itemsCol = existingRun && existingRun.items_collected ? existingRun.items_collected : (r.event === 'schedule' ? '340건 스캔' : '-');
+          const itemsCol = (existingRun && existingRun.items_collected !== undefined && existingRun.items_collected !== null)
+            ? existingRun.items_collected
+            : null;
+          const itemsScan = (existingRun && existingRun.items_scanned !== undefined && existingRun.items_scanned !== null)
+            ? existingRun.items_scanned
+            : (r.event === 'schedule' ? 340 : null);
 
           return {
             id: String(r.id),
@@ -3907,6 +4172,7 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
             duration_str: durStr,
             duration_sec: durSec,
             items_collected: itemsCol,
+            items_scanned: itemsScan,
             created_at_kst: kstStr,
             html_url: r.html_url,
             error_count: errCount
@@ -3964,31 +4230,8 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
       });
 
-      // 🌟 Precision DateTime Sorting (Default: AI Audit Date DESC)
-      filtered.sort((a, b) => {
-        if (currentInboxSort === 'date-audit-desc') {
-          const tB = parseItemTimestamp(b, 'audit');
-          const tA = parseItemTimestamp(a, 'audit');
-          if (tB !== tA) return tB - tA;
-          return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
-        } else if (currentInboxSort === 'date-audit-asc') {
-          const tA = parseItemTimestamp(a, 'audit');
-          const tB = parseItemTimestamp(b, 'audit');
-          if (tA > 0 && tB > 0) return tA - tB;
-          if (tA > 0) return -1;
-          if (tB > 0) return 1;
-          return parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
-        } else if (currentInboxSort === 'date-source-desc' || currentInboxSort === 'date-desc') {
-          return parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
-        } else if (currentInboxSort === 'date-source-asc' || currentInboxSort === 'date-asc') {
-          return parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
-        } else if (currentInboxSort === 'viral-desc') {
-          return calculateStandardizedViralScore(b) - calculateStandardizedViralScore(a);
-        } else if (currentInboxSort === 'viral-asc') {
-          return calculateStandardizedViralScore(a) - calculateStandardizedViralScore(b);
-        }
-        return parseItemTimestamp(b, 'audit') - parseItemTimestamp(a, 'audit');
-      });
+      // 🌟 Precision DateTime Sorting (Unified)
+      sortCollection(filtered, currentInboxSort);
 
       const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
       if (currentInboxPage > totalPages) currentInboxPage = totalPages;
@@ -4006,27 +4249,8 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
       pagedInbox.forEach(it => {
         const isQueued = queuedItemIds.has(it.inbox_id);
         const ai = it.ai_enrichment;
-        const multi = it.multilingual || (ai ? ai.multilingual : null);
-        const lKey = currentLang.toLowerCase();
-
-        let displayTitle = (multi && multi[lKey] ? multi[lKey].title : null) || (currentLang === 'KO' ? it.title_ko : (currentLang === 'ZH' ? it.title_zh : it.title_en)) || it.title;
-        let displayHook = (multi && multi[lKey] ? multi[lKey].hook : null) || (currentLang === 'KO' ? it.hook_ko : (currentLang === 'ZH' ? it.hook_zh : it.hook_en)) || it.hook || '';
-        let displayDesc = (multi && multi[lKey] ? (multi[lKey].description || '') : '') || (currentLang === 'KO' ? it.description_ko : (currentLang === 'ZH' ? it.description_zh : it.description_en)) || it.description || '';
-        let displayTakeaways = (multi && multi[lKey] && multi[lKey].key_takeaways && multi[lKey].key_takeaways.length > 0) ? multi[lKey].key_takeaways : ((ai ? ai.key_takeaways : []) || (it.key_takeaways || []));
-
-        if (displayHook) {
-          const cleanH = displayHook.trim();
-          if (displayDesc.trim() === cleanH) {
-            displayDesc = '';
-          } else if (cleanH && displayDesc.includes(cleanH)) {
-            displayDesc = displayDesc.replace(cleanH, '').trim();
-          }
-        }
-
-        displayDesc = cleanDescriptionText(displayDesc, displayTitle);
+        const { displayTitle, displayHook, displayDesc, displayTakeaways, hasTrilingual } = getLocalizedContent(it, currentLang);
         const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
-
-
 
         const viralScore = calculateStandardizedViralScore(it);
         const tracking = it.metric_tracking || {};
@@ -4045,55 +4269,20 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         const card = document.createElement('div');
         card.className = 'executive-card p-4 sm:p-5 flex flex-col justify-between space-y-3.5 hover:border-indigo-400 hover:shadow-md transition';
 
-        let hookHtml = '';
-        if (displayHook) {
-          hookHtml = `
-            <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5">
-              <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
-              <span>${displayHook}</span>
-            </div>
-          `;
-        }
+        const hookHtml = renderHookCallout(displayHook);
 
-        let aiSummaryHtml = '';
-        if (displayTakeaways && displayTakeaways.length > 0) {
-          aiSummaryHtml = `
-            <div class="mt-2 p-3 rounded-xl bg-gradient-to-br from-indigo-50/50 via-sky-50/40 to-purple-50/50 border border-indigo-100 text-[11px] space-y-1 font-sans">
-              <div class="flex items-center gap-1 text-indigo-950 font-bold text-[10px]">
-                <i data-lucide="sparkles" class="w-3 h-3 text-indigo-600"></i>
-                <span>${currentLang === 'KO' ? 'AI 3줄 핵심 요약' : (currentLang === 'ZH' ? 'AI 3行核心摘要' : 'AI 3-Line Summary')}</span>
-              </div>
-              <ul class="space-y-1 text-ink-secondary leading-relaxed list-disc list-inside">
-                ${displayTakeaways.map(k => `<li>${k}</li>`).join('')}
-              </ul>
-            </div>
-          `;
-        }
+        const aiSummaryHtml = renderAiTakeaways(displayTakeaways, currentLang);
 
-        let relatedHtml = '';
-        if (it.related_dossier) {
-          relatedHtml = `
-            <div class="pt-2 border-t border-surface-border">
-              <button onclick="openCaseModal('${it.related_dossier.case_id}')" class="w-full text-left px-2.5 py-1.5 rounded-lg bg-indigo-50/70 hover:bg-indigo-100/80 border border-indigo-200/80 text-[11px] text-indigo-950 font-semibold flex items-center justify-between transition">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
-                  <span>${currentLang === 'KO' ? '관련 팩트체크:' : (currentLang === 'ZH' ? '关联事实核查:' : 'Related Audit:')} ${it.related_dossier.target_tech}</span>
-                </span>
-                <i data-lucide="arrow-right" class="w-3 h-3 text-indigo-400"></i>
-              </button>
-            </div>
-          `;
-        }
+        const relatedHtml = renderRelatedDossierButton(it.related_dossier, currentLang);
 
-        let inboxSourceLinks = '';
-        if (it.sources && it.sources.length > 1) {
-          inboxSourceLinks = buildMultiSourceCluster(it.sources, it.inbox_id || it.id);
-        } else {
-          inboxSourceLinks = `
-          <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline flex items-center gap-0.5 font-semibold text-[11px] font-mono">
-            📄 ${currentLang === 'KO' ? '원문' : (currentLang === 'ZH' ? '原文' : 'Source')} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
-          </a>`;
-        }
+        const queueActionBtn = `
+          <button onclick="toggleQueueItem('${it.inbox_id}', '${displayTitle.replace(/'/g, "")}')" 
+                  class="px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border'}">
+            <i data-lucide="${isQueued ? 'check-circle-2' : 'plus-circle'}" class="w-3.5 h-3.5"></i>
+            <span>${isQueued ? (currentLang === 'KO' ? '큐 등록됨' : (currentLang === 'ZH' ? '已入队列' : 'Queued')) : (currentLang === 'KO' ? '큐 추가' : (currentLang === 'ZH' ? '加入队列' : 'Queue'))}</span>
+          </button>
+        `;
+        const footerHtml = renderCardStandardFooter(it, currentLang, queueActionBtn);
 
         card.innerHTML = `
           <div class="space-y-2.5">
@@ -4112,7 +4301,7 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
               </span>
               ${ai && ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${ai.programming_lang}</span>` : ''}
               ${ai && ai.source_lang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">🌐 ${ai.source_lang}</span>` : ''}
-              ${multi && multi.zh && multi.ko && multi.en ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">🌐 KO·EN·ZH</span>` : `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-ink-muted border border-surface-border">🌐 번역 대기</span>`}
+              ${hasTrilingual ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">🌐 KO·EN·ZH</span>` : `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-ink-muted border border-surface-border">🌐 번역 대기</span>`}
             </div>
 
             <h3 class="font-bold text-sm text-ink-primary leading-snug">
@@ -4143,46 +4332,7 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
 
           </div>
 
-          <!-- Standardized 4-Line Footer: 발행일 -> 수집일 -> 분석일 (분석모델) -> 출처 -->
-          <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
-            <!-- Line 1: 발행일 -->
-            <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
-              <span>📰 ${currentLang === 'KO' ? '발행' : (currentLang === 'ZH' ? '发布' : 'Published')}: ${formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at)}</span>
-            </div>
-
-            <!-- Line 2: 수집일 -->
-            <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
-              <span>📥 ${currentLang === 'KO' ? '수집' : (currentLang === 'ZH' ? '采集' : 'Harvested')}: ${formatDateTimeCompact(it.harvested_at || it.harvested_date || it.created_at)}</span>
-              ${it.updated_at && it.updated_at !== (it.harvested_at || it.harvested_date) ? `
-              <span class="text-[10px] text-indigo-600 font-bold" title="${currentLang === 'KO' ? '최신 갱신일' : (currentLang === 'ZH' ? '最新更新' : 'Updated')}">(🔄 ${formatDateTimeCompact(it.updated_at)})</span>
-              ` : ''}
-            </div>
-
-            <!-- Line 3: 분석일 (분석모델) -->
-            ${ai?.enriched_at ? `
-            <div class="text-[11px] text-indigo-700 font-semibold flex items-center gap-1.5 min-w-0 overflow-hidden">
-              <span class="shrink-0">🔬 ${formatDateTimeCompact(ai.enriched_at)}</span>
-              <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${ai.enriched_by_model || ''}">(${formatModelAttribution(ai.enriched_by_model)})</span>
-            </div>
-            ` : `
-            <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
-              <span>🔬 ${currentLang === 'KO' ? 'AI요약 대기중' : (currentLang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit')}</span>
-            </div>
-            `}
-
-            <!-- Line 4: 원문 링크 & 큐 등록 액션 버튼 -->
-            <div class="flex items-center justify-between gap-2 pt-0.5 font-sans">
-              <div class="flex items-center gap-1.5 flex-wrap">
-                ${inboxSourceLinks}
-              </div>
-
-              <button onclick="toggleQueueItem('${it.inbox_id}', '${displayTitle.replace(/'/g, "")}')" 
-                      class="px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border'}">
-                <i data-lucide="${isQueued ? 'check' : 'zap'}" class="w-3.5 h-3.5"></i>
-                <span>${isQueued ? t.inboxQueuedBtn : t.inboxQueueBtn}</span>
-              </button>
-            </div>
-          </div>
+          ${footerHtml}
         `;
 
         fragment.appendChild(card);

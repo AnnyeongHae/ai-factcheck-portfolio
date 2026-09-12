@@ -207,7 +207,7 @@ module.exports = async (req, res) => {
     }));
 
     const systemPrompt = `당신은 최고 수준의 AI 기술 아키텍트 및 뉴스 분류 전문가입니다.
-주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어 번역 제목, 1줄 결정적 훅(Hook), 'AI 3줄 핵심 요약'(key_takeaways: 3개), 그리고 정확한 카테고리 분류를 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 마크다운 등 기타 텍스트는 일절 출력하지 마세요.
+주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어 번역 제목, 1줄 결정적 훅(Hook), 'AI 3줄 핵심 요약'(key_takeaways: 3개), 다국어 중복 방지를 위한 영문 표준 사건 식별키(canonical_story_key), 핵심 영문 엔티티 목록(core_entities), 그리고 정확한 카테고리 분류를 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 마크다운 등 기타 텍스트는 일절 출력하지 마세요.
 중요: 법률, 재판, 판결, 범죄, 사회적 사건사고 기사는 절대로 TECH(기술)로 분류하지 말고 item_type: "NEWS", tier1_category: "LAW_CRIME_JUSTICE"로 정확히 분류해야 합니다.
 [
   {
@@ -219,6 +219,8 @@ module.exports = async (req, res) => {
       "두 번째 핵심 요약 포인트",
       "세 번째 핵심 요약 포인트"
     ],
+    "canonical_story_key": "영문 소문자 하이픈 슬러그 (기사/사건의 핵심 사건을 식별하는 고유 영어 키워드 3~5단어, 예: houthi-seize-red-sea-island, flock-veteran-surveillance-tracking, deepseek-v3-release)",
+    "core_entities": ["핵심 기관/고유명사/사건의 표준 영문 명칭 2~4개, 예: Houthi, Red Sea, Zuqar Island"],
     "tier1_category": "TECH_COMPUTING, SCIENCE_RESEARCH, ECONOMY_FINANCE, POLITICS_POLICY, LAW_CRIME_JUSTICE, CULTURE_HUMANITIES 중 택1",
     "item_type": "MODEL, AGENT, TECH, NEWS 중 택1 (사회/법률/사건/일반뉴스는 반드시 NEWS)",
     "category_primary": "INFERENCE_OPT, AGENTS_DEVTOOLS, MULTIMODAL_AI, FOUNDATION_MODELS, INFRA_RAG_SECURITY, DEEP_SCIENCE_SPACE, MACRO_GLOBAL_BIZ, CIVIC_CRIME_INCIDENT, HISTORY_LIFE_CULTURE, INDUSTRY_TRENDS 중 택1",
@@ -408,10 +410,43 @@ module.exports = async (req, res) => {
       payload.artifact_type = inferred.artifactType;
       payload.programming_lang = aiData?.programming_lang || payload.programming_lang || 'General';
 
+      // 🌟 Universal Cross-Lingual Deduplication Fingerprint
+      const canonicalKey = (aiData?.canonical_story_key || '')
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9-]/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '')
+        .slice(0, 100);
+
+      const coreEntities = Array.isArray(aiData?.core_entities)
+        ? aiData.core_entities.map(e => String(e).trim()).filter(e => e.length > 1).slice(0, 5)
+        : [];
+
+      if (canonicalKey) {
+        payload.canonical_story_key = canonicalKey;
+        payload.dedup_fingerprint = {
+          canonical_story_key: canonicalKey,
+          core_entities: coreEntities
+        };
+      }
+
+      const finalTakeawaysEn = (Array.isArray(aiData?.key_takeaways_en) && aiData.key_takeaways_en.length > 0)
+        ? aiData.key_takeaways_en
+        : (Array.isArray(payload.multilingual?.en?.key_takeaways) && !/[\uac00-\ud7a3]/.test(payload.multilingual.en.key_takeaways[0])
+            ? payload.multilingual.en.key_takeaways
+            : [titleEn]);
+
+      const finalTakeawaysZh = (Array.isArray(aiData?.key_takeaways_zh) && aiData.key_takeaways_zh.length > 0)
+        ? aiData.key_takeaways_zh
+        : (Array.isArray(payload.multilingual?.zh?.key_takeaways) && /[\u4e00-\u9fff]/.test(payload.multilingual.zh.key_takeaways[0])
+            ? payload.multilingual.zh.key_takeaways
+            : [titleZh]);
+
       payload.multilingual = {
         ko: { title: titleKo, hook: hookKo, key_takeaways: finalTakeaways },
-        en: { title: titleEn, hook: hookEn, key_takeaways: finalTakeaways },
-        zh: { title: titleZh, hook: hookZh, key_takeaways: finalTakeaways }
+        en: { title: titleEn, hook: hookEn, key_takeaways: finalTakeawaysEn },
+        zh: { title: titleZh, hook: hookZh, key_takeaways: finalTakeawaysZh }
       };
 
       payload.ai_enrichment = {
@@ -423,6 +458,8 @@ module.exports = async (req, res) => {
         tier1_category: inferred.tier1,
         tier2_category: inferred.categoryPrimary,
         artifact_type: inferred.artifactType,
+        canonical_story_key: canonicalKey || null,
+        core_entities: coreEntities,
         korean_title: titleKo,
         hook: hookKo,
         key_takeaways: finalTakeaways,

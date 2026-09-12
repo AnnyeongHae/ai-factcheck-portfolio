@@ -59,6 +59,13 @@ STOP_WORDS = {
     "따른", "위해", "가장", "대해", "통한"
 }
 
+GENERIC_WORDS = {
+    "ai", "model", "models", "llm", "tool", "show", "ask", "hn", "new", "open",
+    "source", "code", "paper", "release", "research", "using", "free", "data",
+    "test", "system", "app", "web", "with", "from", "for", "the", "and", "in",
+    "about", "how", "what", "why", "when", "into", "over", "after"
+}
+
 def normalize_text_tokens(text: str) -> set:
     if not text:
         return set()
@@ -74,7 +81,7 @@ def normalize_text_tokens(text: str) -> set:
     canonical = set()
     for w in raw_words:
         mapped = CROSS_LINGUAL_ENTITY_MAP.get(w, w)
-        if len(mapped) > 1 and mapped not in STOP_WORDS:
+        if len(mapped) > 1 and mapped not in STOP_WORDS and mapped not in GENERIC_WORDS:
             canonical.add(mapped)
     return canonical
 
@@ -92,7 +99,8 @@ def get_item_entities(item: dict) -> set:
     for e in ents:
         if isinstance(e, str) and len(e.strip()) > 1:
             mapped = CROSS_LINGUAL_ENTITY_MAP.get(e.strip().lower(), e.strip().lower())
-            res.add(mapped)
+            if mapped not in GENERIC_WORDS and mapped not in STOP_WORDS:
+                res.add(mapped)
     return res
 
 def parse_iso_timestamp(item: dict) -> float:
@@ -135,38 +143,33 @@ def are_items_duplicate_story(item_a: dict, item_b: dict, max_window_hours: floa
         if len(intersection) >= 2:
             return True
 
-    # 5. Cross-Lingual Entity & Semantic Keyword Overlap
-    title_a = f"{item_a.get('title', '')} {item_a.get('title_ko', '')} {item_a.get('title_en', '')} {item_a.get('hook', '')} {item_a.get('hook_ko', '')}"
-    title_b = f"{item_b.get('title', '')} {item_b.get('title_ko', '')} {item_b.get('title_en', '')} {item_b.get('hook', '')} {item_b.get('hook_ko', '')}"
+    # 5. Cross-Lingual Entity & Semantic Keyword Overlap (TITLE ONLY, NO HOOK/DESC TO PREVENT FALSE POSITIVES)
+    title_a = f"{item_a.get('title', '')} {item_a.get('title_ko', '')} {item_a.get('title_en', '')}"
+    title_b = f"{item_b.get('title', '')} {item_b.get('title_ko', '')} {item_b.get('title_en', '')}"
     tokens_a = normalize_text_tokens(title_a)
     tokens_b = normalize_text_tokens(title_b)
 
     if tokens_a and tokens_b:
-        common = tokens_a.intersection(tokens_b)
-        min_len = min(len(tokens_a), len(tokens_b))
-        
-        # 5-A. Dynamic Anchor Matching (high-signal entity pairs)
+        # 5-A. Dynamic Anchor Matching (high-signal event/incident entity pairs ONLY)
         critical_anchors = [
             {"houthi", "island"},
             {"houthi", "shipping"},
             {"houthi", "control"},
             {"flock", "veteran"},
             {"deepseek", "v3"},
-            {"qwen", "coder"},
-            {"anthropic", "claude"},
-            {"openai", "chatgpt"}
+            {"qwen", "2.5-coder"},
+            {"chorleywood", "bread"}
         ]
         for anchor in critical_anchors:
             if anchor.issubset(tokens_a) and anchor.issubset(tokens_b):
                 return True
 
-        # 5-B. Substantial Overlap Ratio (>= 0.45 or >= 4 common canonical entities)
-        if len(common) >= 4:
-            return True
-
+        # 5-B. High Precision Overlap Ratio (>= 0.65 on non-generic title tokens)
+        common = tokens_a.intersection(tokens_b)
+        min_len = min(len(tokens_a), len(tokens_b))
         if min_len >= 3 and len(common) >= 3:
             overlap_ratio = len(common) / min_len
-            if overlap_ratio >= 0.45:
+            if overlap_ratio >= 0.65:
                 return True
 
     return False
@@ -218,18 +221,86 @@ def merge_sources_into_primary(primary: dict, secondary: dict) -> dict:
     return primary
 
 def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list:
-    """Clusters and deduplicates items into a clean list of story-centric items."""
+    """Clusters and deduplicates items into a clean list of story-centric items with O(N) indexing."""
     merged_items = []
-    
-    for item in items:
-        matched = False
-        for target in merged_items:
-            if are_items_duplicate_story(target, item, max_window_hours=max_window_hours):
-                merge_sources_into_primary(target, item)
-                matched = True
+    item_tokens = []
+    item_urls = []
+    item_keys = []
+    item_timestamps = []
+
+    for it in items:
+        title = f"{it.get('title', '')} {it.get('title_ko', '')} {it.get('title_en', '')}"
+        item_tokens.append(normalize_text_tokens(title))
+        item_urls.append({it.get("source_url") or "", it.get("url") or "", it.get("article_url") or ""} - {""})
+        item_keys.append(get_item_story_key(it))
+        item_timestamps.append(parse_iso_timestamp(it))
+
+    merged_tokens = []
+    merged_urls = []
+    merged_keys = []
+    merged_timestamps = []
+
+    critical_anchors = [
+        {"houthi", "island"},
+        {"houthi", "shipping"},
+        {"houthi", "control"},
+        {"flock", "veteran"},
+        {"deepseek", "v3"},
+        {"qwen", "2.5-coder"},
+        {"chorleywood", "bread"}
+    ]
+
+    for idx, item in enumerate(items):
+        tokens = item_tokens[idx]
+        urls = item_urls[idx]
+        key = item_keys[idx]
+        ts = item_timestamps[idx]
+
+        matched_idx = -1
+
+        for m_idx, target in enumerate(merged_items):
+            # 1. URL exact match
+            m_urls = merged_urls[m_idx]
+            if urls and m_urls and bool(urls.intersection(m_urls)):
+                matched_idx = m_idx
                 break
-        if not matched:
-            # Initialize sources if not present
+
+            # 2. Temporal window check
+            m_ts = merged_timestamps[m_idx]
+            if ts > 0 and m_ts > 0 and (abs(ts - m_ts) / 3600.0) > max_window_hours:
+                continue
+
+            # 3. Canonical story key match
+            m_key = merged_keys[m_idx]
+            if key and m_key and key == m_key:
+                matched_idx = m_idx
+                break
+
+            # 4. Token & Anchor match
+            m_tokens = merged_tokens[m_idx]
+            if tokens and m_tokens:
+                anchor_hit = False
+                for anc in critical_anchors:
+                    if anc.issubset(tokens) and anc.issubset(m_tokens):
+                        matched_idx = m_idx
+                        anchor_hit = True
+                        break
+                if anchor_hit:
+                    break
+
+                common = tokens.intersection(m_tokens)
+                min_len = min(len(tokens), len(m_tokens))
+                if min_len >= 3 and len(common) >= 3:
+                    if (len(common) / min_len) >= 0.65:
+                        matched_idx = m_idx
+                        break
+
+        if matched_idx >= 0:
+            target = merged_items[matched_idx]
+            merge_sources_into_primary(target, item)
+            merged_urls[matched_idx].update(urls)
+            merged_tokens[matched_idx].update(tokens)
+        else:
             if "sources" not in item or not isinstance(item.get("sources"), list):
                 item["sources"] = [
                     {
@@ -243,6 +314,10 @@ def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list
                 ]
             item["source_count"] = len(item["sources"])
             merged_items.append(item)
+            merged_tokens.append(set(tokens))
+            merged_urls.append(set(urls))
+            merged_keys.append(key)
+            merged_timestamps.append(ts)
 
     return merged_items
 
