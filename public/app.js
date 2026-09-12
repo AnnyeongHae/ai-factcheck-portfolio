@@ -1197,8 +1197,9 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         renderNews();
       } else if (view === 'inbox') {
         renderInbox();
+        renderPipelineTelemetryCards();
+        renderRunsTable();
         updateCronCountdown();
-        checkLiveActionsRuns();
       } else if (view === 'graph' && !simulationRef) {
         initCitationGraph();
       }
@@ -1404,7 +1405,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       safeSetText('pipelineWidgetTitle', t.pipelineWidgetTitle);
       safeSetText('pipelineNextTargetLabel', t.pipelineNextTargetLabel);
       safeSetText('pipelineFooterAudit', t.pipelineFooterAudit);
-      safeSetText('pipelineFooterNote', t.pipelineFooterNote);
+      if (typeof renderPipelineTelemetryCards === 'function') renderPipelineTelemetryCards();
+      if (typeof renderRunsTable === 'function') renderRunsTable();
       if (typeof updateCronCountdown === 'function') updateCronCountdown();
       safeSetText('inboxHeaderDesc', t.inboxHeaderDesc);
       safeSetText('inboxHeaderCount', lang === 'KO' ? ('총 ' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : '') + '건') : (lang === 'ZH' ? ('共 ' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : '') + ' 项') : ('Total: ' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : '') + ' items')));
@@ -3811,16 +3813,12 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       { id: 4, hour: 18, min: 17, slotKo: '4회차 (18:17)', slotZh: '第4轮 (18:17)', slotEn: 'Session 4 (18:17)', nameKo: '저녁 라운드업', nameZh: '晚间汇总', nameEn: 'Evening Roundup', estSec: 694, runId: '34048453203', actualDur: '11분 34초' }
     ];
 
-    function updateCronCountdown() {
-      if (currentView !== 'inbox') return;
-      const countdownEl = document.getElementById('pipelineCountdownValue');
-      const slotsContainer = document.getElementById('pipelineSlotsContainer');
-      const tbody = document.getElementById('pipelineRecentRunsTbody');
-      if (!countdownEl || !slotsContainer) return;
+    // ================= TELEMETRY DASHBOARD & COUNTDOWN OPTIMIZATION =================
+    let _lastTelemetryMinute = -1;
 
-      if (Math.floor(Date.now() / 1000) % 30 === 0) {
-        checkLiveActionsRuns();
-      }
+    function renderPipelineTelemetryCards() {
+      const slotsContainer = document.getElementById('pipelineSlotsContainer');
+      if (!slotsContainer) return;
 
       const tLang = currentLang || 'ko';
       const aData = typeof actionsTelemetryData !== 'undefined' ? actionsTelemetryData : {};
@@ -3837,40 +3835,12 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       if (remEl) remEl.innerText = `${remMin}분 (${100 - usagePct}%)`;
       if (progEl) progEl.style.width = `${Math.min(100, Math.max(2, usagePct))}%`;
 
-      // 2. Next Run Countdown
+      // 2. Render 4 Quarterly Session Telemetry Cards
       const nowKst = getDynamicKstDate();
       const curHour = nowKst.getHours();
       const curMin = nowKst.getMinutes();
       const curSec = nowKst.getSeconds();
       const curTotalSec = curHour * 3600 + curMin * 60 + curSec;
-
-      let nextSlot = null;
-      let diffSec = 0;
-
-      for (let s of cronScheduleConfig) {
-        const sTotalSec = s.hour * 3600 + s.min * 60;
-        if (sTotalSec > curTotalSec) {
-          nextSlot = s;
-          diffSec = sTotalSec - curTotalSec;
-          break;
-        }
-      }
-
-      if (!nextSlot) {
-        nextSlot = cronScheduleConfig[0];
-        const eodSec = 24 * 3600 - curTotalSec;
-        diffSec = eodSec + (nextSlot.hour * 3600 + nextSlot.min * 60);
-      }
-
-      const remH = Math.floor(diffSec / 3600);
-      const remM = Math.floor((diffSec % 3600) / 60);
-      const remS = diffSec % 60;
-      const pad = (n) => String(n).padStart(2, '0');
-
-      const slotName = tLang === 'zh' ? nextSlot.slotZh : (tLang === 'en' ? nextSlot.slotEn : nextSlot.slotKo);
-      countdownEl.innerText = `${pad(remH)}:${pad(remM)}:${pad(remS)} (${slotName})`;
-
-      // 3. Render 4 Quarterly Session Telemetry Cards
       const tData = typeof timeline24hData !== 'undefined' ? timeline24hData : [];
       let cardsHtml = '';
 
@@ -3947,11 +3917,59 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         `;
       });
       slotsContainer.innerHTML = cardsHtml;
+      if (typeof lucide !== 'undefined') lucide.createIcons({ root: slotsContainer });
+    }
 
-      // 4. Render Recent Run Logs Table
-      renderRunsTable();
+    function updateCronCountdown() {
+      if (currentView !== 'inbox') return;
+      const countdownEl = document.getElementById('pipelineCountdownValue');
+      if (!countdownEl) return;
 
-      if (typeof lucide !== 'undefined') lucide.createIcons();
+      // 1. Ultra-lightweight Clock Countdown update (Only 1 text node string, ~0.01ms CPU, no DOM rebuild)
+      const nowKst = getDynamicKstDate();
+      const curHour = nowKst.getHours();
+      const curMin = nowKst.getMinutes();
+      const curSec = nowKst.getSeconds();
+      const curTotalSec = curHour * 3600 + curMin * 60 + curSec;
+
+      let nextSlot = null;
+      let diffSec = 0;
+
+      for (let s of cronScheduleConfig) {
+        const sTotalSec = s.hour * 3600 + s.min * 60;
+        if (sTotalSec > curTotalSec) {
+          nextSlot = s;
+          diffSec = sTotalSec - curTotalSec;
+          break;
+        }
+      }
+
+      if (!nextSlot) {
+        nextSlot = cronScheduleConfig[0];
+        const eodSec = 24 * 3600 - curTotalSec;
+        diffSec = eodSec + (nextSlot.hour * 3600 + nextSlot.min * 60);
+      }
+
+      const remH = Math.floor(diffSec / 3600);
+      const remM = Math.floor((diffSec % 3600) / 60);
+      const remS = diffSec % 60;
+      const pad = (n) => String(n).padStart(2, '0');
+
+      const tLang = currentLang || 'ko';
+      const slotName = tLang === 'zh' ? nextSlot.slotZh : (tLang === 'en' ? nextSlot.slotEn : nextSlot.slotKo);
+      countdownEl.innerText = `${pad(remH)}:${pad(remM)}:${pad(remS)} (${slotName})`;
+
+      // 2. Heavy cards & runs table DOM update ONLY occurs once per minute when minute flips
+      if (_lastTelemetryMinute !== curMin) {
+        _lastTelemetryMinute = curMin;
+        renderPipelineTelemetryCards();
+        renderRunsTable();
+      }
+
+      // 3. Gentle background check for GitHub Actions runs (once per minute at :17s, only when page is visible)
+      if (curSec === 17 && !document.hidden) {
+        checkLiveActionsRuns();
+      }
     }
 
     let currentRunsTab = 'gha';
@@ -4120,6 +4138,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-ink-muted">최근 Vercel Serverless AI 워커 실행 기록 대기 중...</td></tr>`;
         }
       }
+      if (typeof lucide !== 'undefined') lucide.createIcons({ root: tbody });
     }
 
     setInterval(updateCronCountdown, 1000);
@@ -4128,7 +4147,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     let lastPolledTime = 0;
     async function checkLiveActionsRuns() {
       const now = Date.now();
-      if (now - lastPolledTime < 15000) return; // Cooldown 15s
+      if (now - lastPolledTime < 45000 || document.hidden) return; // Cooldown 45s & visibility check
       lastPolledTime = now;
       try {
         const resp = await fetch('https://api.github.com/repos/AnnyeongHae/ai-factcheck-portfolio/actions/runs?per_page=6', {
@@ -4179,7 +4198,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           };
         });
 
-        updateCronCountdown();
+        renderRunsTable();
+        renderPipelineTelemetryCards();
       } catch (e) {
         // Silently ignore network / rate limit issues
       }
