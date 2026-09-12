@@ -31,7 +31,13 @@ async function bootstrapApplicationData() {
 
   updateGlobalStatsUI();
 
-  updateGlobalStatsUI();
+  // Restore user saved language preference if previously selected
+  try {
+    const savedLang = localStorage.getItem('factcheck_lang');
+    if (savedLang && ['KO', 'ZH', 'EN'].includes(savedLang) && savedLang !== 'KO') {
+      setLanguage(savedLang);
+    }
+  } catch (e) {}
 
   // Initial render with loaded data
   try { renderCards(); } catch(e) {}
@@ -975,6 +981,9 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
     // ================= LANGUAGE TOGGLE & HIGH-FIDELITY CJK FONT SWITCHING =================
     function setLanguage(lang) {
       currentLang = lang;
+      try {
+        localStorage.setItem('factcheck_lang', lang);
+      } catch (e) {}
       
       // Dynamic Native Font Stack Switching
       if (lang === 'ZH') {
@@ -998,7 +1007,7 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
         }
       });
       
-      const t = i18n[lang];
+      const t = i18n[lang] || i18n['KO'];
       const safeSetText = (id, txt) => {
         const el = document.getElementById(id);
         if (el && txt !== undefined) el.innerText = txt;
@@ -1041,9 +1050,9 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
       safeSetText('statLabelNews', lang === 'KO' ? 'AI 테크 동향' : (lang === 'ZH' ? 'AI 科技动态' : 'Tech Intelligence'));
       safeSetText('statLabelArchive', t.statArchiveLabel);
       safeSetText('statDescInbox', lang === 'KO' ? 'HN · GeekNews · GitHub · HF 24/7 수집' : (lang === 'ZH' ? 'HN · GeekNews · GitHub · HF 全天候采集' : 'HN · GeekNews · GitHub · HF 24/7 Ingestion'));
-      safeSetDescModels = lang === 'KO' ? 'MoE, VLM, 추론 특화 오픈 가중치' : (lang === 'ZH' ? 'MoE、VLM与推理优化开源权重' : 'MoE, VLM & Reasoning Open Weights');
+      const safeSetDescModels = lang === 'KO' ? 'MoE, VLM, 추론 특화 오픈 가중치' : (lang === 'ZH' ? 'MoE、VLM与推理优化开源权重' : 'MoE, VLM & Reasoning Open Weights');
       safeSetText('statDescModels', safeSetDescModels);
-      safeSetDescNews = lang === 'KO' ? 'CVE 취약점, 인프라 장애, 아키텍처 토론' : (lang === 'ZH' ? 'CVE 漏洞、基础设施故障与架构实践' : 'CVEs, Infra Outages & Architecture Posts');
+      const safeSetDescNews = lang === 'KO' ? 'CVE 취약점, 인프라 장애, 아키텍처 토론' : (lang === 'ZH' ? 'CVE 漏洞、基础设施故障与架构实践' : 'CVEs, Infra Outages & Architecture Posts');
       safeSetText('statDescNews', safeSetDescNews);
 
       const nowKstForTitle = getDynamicKstDate();
@@ -1160,16 +1169,21 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
       }
 
       // 🌟 Instant Full Re-render on Active Views
-      renderCards();
-      renderHomeTopPicks();
-      renderRadarSession();
-      renderTelemetryCharts();
-      updateCronCountdown();
-      renderModels();
-      renderNews();
-      renderInbox();
-      lucide.createIcons();
+      try { renderCards(); } catch (e) {}
+      try { renderHomeTopPicks(); } catch (e) {}
+      try { renderRadarSession(); } catch (e) {}
+      try { renderTelemetryCharts(); } catch (e) {}
+      try { updateCronCountdown(); } catch (e) {}
+      try { renderModels(); } catch (e) {}
+      try { renderNews(); } catch (e) {}
+      try { renderInbox(); } catch (e) {}
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        try { window.lucide.createIcons(); } catch (e) {}
+      }
     }
+
+    // Expose setLanguage globally for inline HTML onclick handlers
+    window.setLanguage = setLanguage;
 
     // ================= REAL-TIME DB SYNC (VERCEL LIVE API + STATIC FALLBACK) =================
     let _isSyncing = false;
@@ -1422,6 +1436,20 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
             }
             await syncFromNeonLiveDB(true);
             break;
+          }
+
+          if (resData.status === 'quota_exhausted' || resData.is_quota_exhausted) {
+            console.warn('[AutoWorker] OpenRouter daily free quota (1,000 requests) exhausted. Halting background worker until 09:00 KST reset.');
+            _autoWorkerRunning = false;
+            window._autoWorkerRunning = false;
+            if (txt) {
+              txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-slate-400 mr-1"></span> AI 1일 쿼터 소진 (내일 09:00 KST 재개)`;
+            }
+            if (btn) {
+              btn.disabled = true;
+              btn.className = "px-3 py-1.5 rounded-lg bg-slate-100 text-slate-500 font-bold font-mono text-[11px] border border-slate-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
+            }
+            break; // Stop loop completely - zero further requests sent!
           }
 
           if (resData.status === 'partial_fallback') {
@@ -4366,4 +4394,27 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
     }, true);
 
     // ================= INITIALIZATION =================
-    window.addEventListener('DOMContentLoaded', () => { bootstrapApplicationData(); });
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', () => { bootstrapApplicationData(); });
+    } else {
+      bootstrapApplicationData();
+    }
+
+    // Explicit global exposure for inline HTML event handlers
+    window.setLanguage = setLanguage;
+    window.switchView = typeof switchView === 'function' ? switchView : undefined;
+    window.openDossierModal = typeof openDossierModal === 'function' ? openDossierModal : undefined;
+    window.closeDossierModal = typeof closeDossierModal === 'function' ? closeDossierModal : undefined;
+    window.setModeFilter = typeof setModeFilter === 'function' ? setModeFilter : undefined;
+    window.changeSort = typeof changeSort === 'function' ? changeSort : undefined;
+    window.filterByDomain = typeof filterByDomain === 'function' ? filterByDomain : undefined;
+    window.setNewsCategoryFilter = typeof setNewsCategoryFilter === 'function' ? setNewsCategoryFilter : undefined;
+    window.setNewsTier2Filter = typeof setNewsTier2Filter === 'function' ? setNewsTier2Filter : undefined;
+    window.setNewsSort = typeof setNewsSort === 'function' ? setNewsSort : undefined;
+    window.setModelsSort = typeof setModelsSort === 'function' ? setModelsSort : undefined;
+    window.toggleSourcePopover = typeof toggleSourcePopover === 'function' ? toggleSourcePopover : undefined;
+    window.syncFromNeonLiveDB = typeof syncFromNeonLiveDB === 'function' ? syncFromNeonLiveDB : undefined;
+    window.toggleBackgroundAiWorker = typeof toggleBackgroundAiWorker === 'function' ? toggleBackgroundAiWorker : undefined;
+    window.switchRunsTab = typeof switchRunsTab === 'function' ? switchRunsTab : undefined;
+    if (typeof filterGraphGroup === 'function') window.filterGraphGroup = filterGraphGroup;
+

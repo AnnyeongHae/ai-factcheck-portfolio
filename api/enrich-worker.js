@@ -230,6 +230,8 @@ module.exports = async (req, res) => {
     let modelUsed = null;
     let llmLatencySec = 0;
 
+    let isQuotaExhausted = false;
+
     // Call OpenRouter with fast fallback models and dynamic time budget (within Vercel Hobby 10s ceiling)
     for (const modelName of FREE_MODELS) {
       const budgetMs = 8500 - (Date.now() - startTime);
@@ -269,6 +271,9 @@ module.exports = async (req, res) => {
 
         if (!aiResponse.ok) {
           console.warn(`[Worker] ${modelName} returned HTTP ${aiResponse.status} (${((Date.now() - callStart) / 1000).toFixed(2)}s)`);
+          if (aiResponse.status === 429) {
+            isQuotaExhausted = true;
+          }
           continue;
         }
 
@@ -306,8 +311,12 @@ module.exports = async (req, res) => {
       const candIds = candidates.map(c => c.id);
       await pool.query('UPDATE raw_trends_inbox SET updated_at = CURRENT_TIMESTAMP WHERE id = ANY($1::int[]);', [candIds]);
       return res.status(200).json({
-        status: 'partial_fallback',
-        message: 'Free LLM models temporarily busy or timed out. Shifted items back in queue to allow others to process.',
+        status: isQuotaExhausted ? 'quota_exhausted' : 'partial_fallback',
+        is_quota_exhausted: isQuotaExhausted,
+        reset_kst: '09:00 KST',
+        message: isQuotaExhausted 
+          ? 'OpenRouter free daily quota (1,000/day) reached. Pausing worker until 09:00 KST reset.'
+          : 'Free LLM models temporarily busy or timed out. Shifted items back in queue to allow others to process.',
         processed_count: 0,
         remaining_unclassified: totalRemaining
       });
