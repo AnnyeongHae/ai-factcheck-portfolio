@@ -1,38 +1,9 @@
-let cachedPool = null;
-
-function getDbPool() {
-  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY || process.env.NEON_DATABASE_URL;
-  if (!DATABASE_URL) return null;
-  if (!cachedPool) {
-    try {
-      const { Pool } = require('pg');
-      cachedPool = new Pool({
-        connectionString: DATABASE_URL,
-        ssl: { rejectUnauthorized: true },
-        max: 3,
-        idleTimeoutMillis: 30000,
-        connectionTimeoutMillis: 5000
-      });
-      cachedPool.on('error', (err) => {
-        console.error('[PgPool Error in health]:', err);
-        cachedPool = null;
-      });
-    } catch (e) {
-      console.error('[Pg Driver Error]:', e);
-      return null;
-    }
-  }
-  return cachedPool;
-}
+const { getDbPool } = require('./_lib/db');
+const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 module.exports = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end();
-  }
+  if (handleOptions(req, res, 'GET, OPTIONS')) return;
+  setCorsHeaders(res, 'GET, OPTIONS');
 
   const pool = getDbPool();
   let dbStatus = pool ? "INITIALIZING" : "NOT_CONFIGURED";
@@ -48,14 +19,14 @@ module.exports = async (req, res) => {
       counts["queued_for_investigation"] = parseInt(c3.rows[0].count, 10);
       dbStatus = "CONNECTED_HEALTHY";
     } catch (e) {
-      console.error('[Health Check DB Query Error]:', e);
-      dbStatus = "ERROR: " + (e.message || "Database query failed");
+      console.error('[Health Check DB Query Error]:', e.message);
+      dbStatus = "UNHEALTHY";
     }
   }
 
   return res.status(200).json({
     service: "AI Tech-Lineage Fact-Check Hub (Vercel Serverless Node.js Backend)",
-    version: "v20.0",
+    version: "v21.0",
     neon_postgres_status: dbStatus,
     database_url_present: Boolean(pool),
     metrics: counts

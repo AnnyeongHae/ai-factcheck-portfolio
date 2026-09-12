@@ -16,38 +16,14 @@
  * ==============================================================================
  */
 
-let cachedPool = null;
-
-function getDbPool() {
-  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY || process.env.NEON_DATABASE_URL;
-  if (!DATABASE_URL) return null;
-  if (!cachedPool) {
-    try {
-      const { Pool } = require('pg');
-      cachedPool = new Pool({
-        connectionString: DATABASE_URL,
-        ssl: { rejectUnauthorized: true },
-        max: 3,
-        idleTimeoutMillis: 15000,
-        connectionTimeoutMillis: 5000
-      });
-      cachedPool.on('error', (err) => {
-        console.error('[PgPool Error in enrich-worker]:', err);
-        cachedPool = null;
-      });
-    } catch (e) {
-      console.error('[Pg Driver Error]:', e);
-      return null;
-    }
-  }
-  return cachedPool;
-}
+const { getDbPool } = require('./_lib/db');
+const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 const FREE_MODELS = [
-  'nvidia/nemotron-3-super-120b-a12b:free',
-  'liquid/lfm-2.5-2.6b:free',
-  'nvidia/nemotron-3.5-lightning:free',
-  'nex-agi/nex-n2.5-pro:free'
+  'google/gemma-4-31b-it:free',
+  'nex-agi/nex-n2.5-pro:free',
+  'nex-agi/nex-n2.5-mini:free',
+  'nvidia/nemotron-3.5-lightning:free'
 ];
 
 
@@ -163,26 +139,22 @@ function inferCategoriesAndArtifact(item, parsedAi) {
 }
 
 module.exports = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Admin-Key');
+  if (handleOptions(req, res, 'GET, POST, OPTIONS')) return;
+  setCorsHeaders(res, 'GET, POST, OPTIONS');
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end();
-  }
-
-  // Admin / Secret Authorization Check (Optional if secret is set)
+  // Authorization policy:
+  // - Public / Frontend / Cron triggers are allowed for zero-cost micro-batch (limit <= 2).
+  // - High-volume batches (limit > 2) require ADMIN_QUEUE_SECRET or CRON_SECRET.
   const adminSecret = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET;
-  if (adminSecret) {
-    const authHeader = req.headers.authorization || '';
-    const customHeader = req.headers['x-admin-key'] || '';
-    const querySecret = req.query?.secret || '';
-    const provided = authHeader.startsWith('Bearer ') ? authHeader.substring(7) : (customHeader || querySecret);
-    if (provided && provided !== adminSecret) {
-      return res.status(401).json({ status: 'error', message: 'Unauthorized: Invalid secret' });
-    }
-  }
+  const authHeader = req.headers.authorization || '';
+  const customHeader = req.headers['x-admin-key'] || '';
+  const querySecret = req.query?.secret || '';
+  const provided = authHeader.startsWith('Bearer ') ? authHeader.substring(7) : (customHeader || querySecret);
+  const isAdmin = Boolean(adminSecret && provided === adminSecret);
+
+  const requestedLimit = parseInt(req.query?.limit, 10) || 1;
+  const limit = isAdmin ? Math.min(Math.max(requestedLimit, 1), 5) : Math.min(Math.max(requestedLimit, 1), 2);
 
   const pool = getDbPool();
   if (!pool) {
@@ -197,16 +169,14 @@ module.exports = async (req, res) => {
   const startTime = Date.now();
 
   try {
-    // 1. Determine batch limit: strictly 1 item per serverless invocation to guarantee sub-5s response and 0% timeout with OpenRouter Free models
-    const limit = 1;
-
-    // 2. Fetch unclassified records
+    // 2. Fetch unclassified records (FOR UPDATE SKIP LOCKED prevents concurrent workers from grabbing same row)
     const selectQuery = `
       SELECT id, inbox_id, source_platform, source_url, title, description, item_type, harvested_date, raw_payload
       FROM raw_trends_inbox
       WHERE is_classified = FALSE
       ORDER BY updated_at ASC NULLS FIRST, id DESC
-      LIMIT $1;
+      LIMIT $1
+      FOR UPDATE SKIP LOCKED;
     `;
     const candidateResult = await pool.query(selectQuery, [limit]);
     const candidates = candidateResult.rows;
@@ -256,10 +226,10 @@ module.exports = async (req, res) => {
     let modelUsed = null;
     let llmLatencySec = 0;
 
-    // Call OpenRouter with fast fallback models and dynamic time budget (within 45s serverless limit)
+    // Call OpenRouter with fast fallback models and dynamic time budget (within Vercel Hobby 10s ceiling)
     for (const modelName of FREE_MODELS) {
-      const budgetMs = 45000 - (Date.now() - startTime);
-      if (budgetMs < 3000) {
+      const budgetMs = 8500 - (Date.now() - startTime);
+      if (budgetMs < 2000) {
         console.warn(`[Worker] Time budget exhausted (${budgetMs}ms left). Breaking early.`);
         break;
       }
@@ -267,7 +237,7 @@ module.exports = async (req, res) => {
       let timeoutId = null;
       try {
         const controller = new AbortController();
-        const timeoutMs = Math.min(8000, budgetMs);
+        const timeoutMs = Math.min(5000, budgetMs);
         timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
 

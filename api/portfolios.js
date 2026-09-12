@@ -1,29 +1,5 @@
-let cachedPool = null;
-
-function getDbPool() {
-  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY || process.env.NEON_DATABASE_URL;
-  if (!DATABASE_URL) return null;
-  if (!cachedPool) {
-    try {
-      const { Pool } = require('pg');
-      cachedPool = new Pool({
-        connectionString: DATABASE_URL,
-        ssl: { rejectUnauthorized: true },
-        max: 5,
-        idleTimeoutMillis: 30000,
-        connectionTimeoutMillis: 5000
-      });
-      cachedPool.on('error', (err) => {
-        console.error('[PgPool Error in portfolios]:', err);
-        cachedPool = null;
-      });
-    } catch (e) {
-      console.error('[Pg Driver Error]:', e);
-      return null;
-    }
-  }
-  return cachedPool;
-}
+const { getDbPool } = require('./_lib/db');
+const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 function getStaticFallback() {
   try {
@@ -53,15 +29,9 @@ function getStaticFallback() {
 }
 
 module.exports = async (req, res) => {
-  // CORS Headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (handleOptions(req, res, 'GET, OPTIONS')) return;
+  setCorsHeaders(res, 'GET, OPTIONS');
   res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=120');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end();
-  }
 
   const pool = getDbPool();
   if (!pool) {
@@ -69,50 +39,58 @@ module.exports = async (req, res) => {
     if (fallback) return res.status(200).json(fallback);
     return res.status(200).json({
       success: false,
-      source: "fallback_static",
-      error: "DATABASE_URL is not configured and static fallback unavailable."
+      source: 'fallback_static',
+      error: 'DATABASE_URL is not configured and static fallback unavailable.'
     });
   }
 
   try {
-    // 1. Fetch Verified Factchecks from Neon DB Tier 2 Knowledge Core
-    const factcheckRows = await pool.query(`
-      SELECT 
-        vf.case_id, 
-        vf.title, 
-        vf.category, 
-        vf.created_at,
-        vf.verdict, 
-        vf.confidence_score, 
-        vf.discovery_mode, 
-        vf.curator_name, 
-        vf.personal_motivation, 
-        vf.target_workflow,
-        vf.cluster_id, 
-        vf.cluster_name,
-        vf.hands_on_status, 
-        vf.hands_on_pipeline, 
-        vf.hands_on_env, 
-        vf.hands_on_metrics, 
-        vf.hands_on_details,
-        vf.the_hook, 
-        vf.marketing_hype_anatomy, 
-        vf.engineering_takeaways, 
-        vf.future_applications, 
-        vf.sources,
-        vf.created_at
-      FROM verified_factchecks vf
-      ORDER BY vf.created_at DESC;
-    `);
+    // 1. Fetch Verified Factchecks
+    const factcheckRows = await pool.query(
+      "SELECT " +
+        "vf.case_id, " +
+        "vf.title, " +
+        "vf.category, " +
+        "vf.created_at, " +
+        "vf.verdict, " +
+        "vf.confidence_score, " +
+        "vf.discovery_mode, " +
+        "vf.curator_name, " +
+        "vf.personal_motivation, " +
+        "vf.target_workflow, " +
+        "vf.cluster_id, " +
+        "vf.cluster_name, " +
+        "vf.hands_on_status, " +
+        "vf.hands_on_pipeline, " +
+        "vf.hands_on_env, " +
+        "vf.hands_on_metrics, " +
+        "vf.hands_on_details, " +
+        "vf.the_hook, " +
+        "vf.marketing_hype_anatomy, " +
+        "vf.engineering_takeaways, " +
+        "vf.future_applications, " +
+        "vf.sources " +
+      "FROM verified_factchecks vf " +
+      "ORDER BY vf.created_at DESC;"
+    );
 
-    // 2. Fetch Alternatives and Community Signals in parallel
-    const altRows = await pool.query(`SELECT case_id, tool_name as name, tech_stack, pros, cons, best_for FROM factcheck_alternatives;`);
-    const commRows = await pool.query(`SELECT case_id, platform, author_type, quote, source_url as url, signal_type FROM factcheck_community_signals;`);
-    
+    const caseIds = factcheckRows.rows.map(r => r.case_id);
+
+    // 2. Fetch relations in parallel with case_id filtering
+    let altRows = { rows: [] };
+    let commRows = { rows: [] };
     let claimsRows = { rows: [] };
-    try {
-      claimsRows = await pool.query(`SELECT case_id, claim_number as claim_id, claim_title, claim_text as statement, claim_text as claim, claim_verdict as status, claim_verdict as verdict, verification_evidence as fact_checked_truth, verification_evidence as reality FROM factcheck_atomic_claims ORDER BY case_id, claim_number;`);
-    } catch (cErr) {}
+
+    if (caseIds.length > 0) {
+      const [alts, comms, claims] = await Promise.all([
+        pool.query("SELECT case_id, tool_name as name, tech_stack, pros, cons, best_for FROM factcheck_alternatives WHERE case_id = ANY($1);", [caseIds]),
+        pool.query("SELECT case_id, platform, author_type, quote, source_url as url, signal_type FROM factcheck_community_signals WHERE case_id = ANY($1);", [caseIds]),
+        pool.query("SELECT case_id, claim_number as claim_id, claim_title, claim_text as statement, claim_text as claim, claim_verdict as status, claim_verdict as verdict, verification_evidence as fact_checked_truth, verification_evidence as reality FROM factcheck_atomic_claims WHERE case_id = ANY($1) ORDER BY case_id, claim_number;", [caseIds]).catch(() => ({ rows: [] }))
+      ]);
+      altRows = alts;
+      commRows = comms;
+      claimsRows = claims;
+    }
 
     // Group relations by case_id
     const altsByCase = {};
@@ -137,110 +115,95 @@ module.exports = async (req, res) => {
       if (caseId) {
         const match = String(caseId).match(/(\d{4})[-_](\d{2})[-_](\d{2})/);
         if (match) {
-          return `${match[1]}-${match[2]}-${match[3]}`;
+          return match[1] + '-' + match[2] + '-' + match[3];
         }
       }
       if (createdAtFallback) {
         try {
           const d = new Date(createdAtFallback);
-          if (!isNaN(d.getTime())) return d.toISOString().split('T')[0];
+          if (!isNaN(d.getTime())) {
+            return d.toISOString().split('T')[0];
+          }
         } catch (e) {}
       }
-      return '2026-09-02';
+      return '2026-03-01';
     }
 
-    // Assemble complete Portfolios JSON
-    const portfolios = factcheckRows.rows.map(r => {
-      let sources = [];
-      try {
-        sources = typeof r.sources === 'string' ? JSON.parse(r.sources) : (r.sources || []);
-      } catch (e) {
-        sources = [];
+    const dossiers = factcheckRows.rows.map(row => {
+      const caseDate = extractValidDate(row.case_id, row.created_at);
+      let parsedSources = row.sources;
+      if (typeof parsedSources === 'string') {
+        try { parsedSources = JSON.parse(parsedSources); } catch (e) { parsedSources = []; }
       }
-
-      const validDate = extractValidDate(r.case_id, r.created_at);
+      if (!Array.isArray(parsedSources)) parsedSources = [];
 
       return {
-        case_id: r.case_id,
-        title: r.title,
-        category: r.category,
-        source_published_date: validDate,
-        investigation_date: validDate,
-        verdict: r.verdict,
-        confidence_score: parseFloat(r.confidence_score) || 95.0,
-        curation: {
-          discovery_mode: r.discovery_mode,
-          curator: r.curator_name,
-          personal_motivation: r.personal_motivation,
-          target_workflow: r.target_workflow
+        case_id: row.case_id,
+        title: row.title,
+        category: row.category,
+        investigation_date: caseDate,
+        source_published_date: caseDate,
+        verdict: row.verdict,
+        confidence_score: row.confidence_score,
+        discovery_mode: row.discovery_mode,
+        curator: {
+          name: row.curator_name || 'AI FactCheck Lab',
+          personal_motivation: row.personal_motivation || '',
+          target_workflow: row.target_workflow || ''
         },
-        clustering: {
-          cluster_id: r.cluster_id,
-          cluster_name: r.cluster_name,
-          alternatives: altsByCase[r.case_id] || []
+        cluster: {
+          id: row.cluster_id || 'general',
+          name: row.cluster_name || 'General AI'
         },
-        sources: sources,
-        community_reactions: commByCase[r.case_id] || [],
-        claims_assessment: claimsByCase[r.case_id] || [],
-        portfolio_story: {
-          the_hook: r.the_hook,
-          marketing_hype_anatomy: r.marketing_hype_anatomy,
-          engineering_takeaways: r.engineering_takeaways,
-          future_applications: r.future_applications,
-          hands_on_log: {
-            status: r.hands_on_status,
-            pipeline_or_url: r.hands_on_pipeline,
-            test_environment: r.hands_on_env,
-            measured_results: r.hands_on_metrics,
-            details: r.hands_on_details
-          }
+        hands_on_review: {
+          status: row.hands_on_status || 'verified',
+          pipeline: row.hands_on_pipeline || '',
+          environment: row.hands_on_env || '',
+          empirical_metrics: row.hands_on_metrics || {},
+          details: row.hands_on_details || ''
         },
-        created_at: r.created_at
+        debunking_narrative: {
+          the_hook: row.the_hook || '',
+          marketing_hype_anatomy: row.marketing_hype_anatomy || '',
+          engineering_takeaways: row.engineering_takeaways || '',
+          future_applications: row.future_applications || ''
+        },
+        sources: parsedSources,
+        atomic_claims: claimsByCase[row.case_id] || [],
+        alternatives: altsByCase[row.case_id] || [],
+        community_signals: commByCase[row.case_id] || []
       };
     });
 
-    // 3. Fetch Technical Ecosystem Analyses from Neon DB
-    let analyses = [];
+    // Fetch technical analyses if present
+    let techAnalyses = [];
     try {
-      const anaResult = await pool.query(`
-        SELECT 
-          analysis_key, 
-          title, 
-          base_standard, 
-          third_party_ecosystem, 
-          core_philosophy_comparison, 
-          domain_lineage_matrix, 
-          performance_bottlenecks, 
-          engineering_tradeoffs,
-          created_at
-        FROM ecosystem_technical_analyses
-        ORDER BY created_at DESC;
-      `);
-      analyses = anaResult.rows;
-    } catch (anaErr) {
-      console.warn("ecosystem_technical_analyses query warning:", anaErr.message);
-    }
+      const tRes = await pool.query('SELECT payload FROM ecosystem_technical_analyses ORDER BY id DESC LIMIT 50;');
+      techAnalyses = tRes.rows.map(r => {
+        let p = r.payload;
+        if (typeof p === 'string') {
+          try { p = JSON.parse(p); } catch (e) { p = {}; }
+        }
+        return p;
+      });
+    } catch (tErr) {}
 
     return res.status(200).json({
       success: true,
-      source: "neon_database_live",
-      total_count: portfolios.length,
-      portfolios: portfolios,
-      technical_analyses: analyses,
-      server_timestamp: new Date().toISOString()
+      source: 'neon_postgres_direct',
+      count: dossiers.length,
+      portfolios: dossiers,
+      technical_analyses: techAnalyses
     });
 
   } catch (err) {
-    console.error("Neon DB query error:", err);
+    console.error('[API Portfolios Error]:', err);
     const fallback = getStaticFallback();
-    if (fallback) {
-      fallback.warning = "Live DB connection degraded, gracefully fallen back to static core.";
-      return res.status(200).json(fallback);
-    }
+    if (fallback) return res.status(200).json(fallback);
+
     return res.status(500).json({
       success: false,
-      source: "fallback_static",
-      error: "Internal server error while fetching verified portfolios."
+      error: 'Internal server error while fetching dossiers'
     });
   }
 };

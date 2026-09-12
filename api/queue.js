@@ -1,29 +1,5 @@
-let cachedPool = null;
-
-function getDbPool() {
-  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY || process.env.NEON_DATABASE_URL;
-  if (!DATABASE_URL) return null;
-  if (!cachedPool) {
-    try {
-      const { Pool } = require('pg');
-      cachedPool = new Pool({
-        connectionString: DATABASE_URL,
-        ssl: { rejectUnauthorized: true },
-        max: 5,
-        idleTimeoutMillis: 30000,
-        connectionTimeoutMillis: 5000
-      });
-      cachedPool.on('error', (err) => {
-        console.error('[PgPool Error in queue]:', err);
-        cachedPool = null;
-      });
-    } catch (e) {
-      console.error('[Pg Driver Error]:', e);
-      return null;
-    }
-  }
-  return cachedPool;
-}
+const { getDbPool } = require('./_lib/db');
+const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 function getStaticQueueFallback(fetchAll, fetchNews) {
   try {
@@ -53,14 +29,8 @@ function getStaticQueueFallback(fetchAll, fetchNews) {
 }
 
 module.exports = async (req, res) => {
-  // CORS Headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end();
-  }
+  if (handleOptions(req, res, 'GET, POST, OPTIONS')) return;
+  setCorsHeaders(res, 'GET, POST, OPTIONS');
 
   const pool = getDbPool();
   if (!pool && req.method === 'GET') {
@@ -182,13 +152,14 @@ module.exports = async (req, res) => {
 
     if (req.method === 'POST') {
       const adminSecret = process.env.ADMIN_QUEUE_SECRET;
-      if (adminSecret) {
-        const authHeader = req.headers.authorization || '';
-        const customHeader = req.headers['x-admin-key'] || '';
-        const providedToken = authHeader.startsWith('Bearer ') ? authHeader.substring(7) : customHeader;
-        if (!providedToken || providedToken !== adminSecret) {
-          return res.status(401).json({ success: false, error: "Unauthorized: Invalid or missing admin token" });
-        }
+      if (!adminSecret) {
+        return res.status(500).json({ success: false, error: "Server misconfigured: ADMIN_QUEUE_SECRET not set" });
+      }
+      const authHeader = req.headers.authorization || '';
+      const customHeader = req.headers['x-admin-key'] || '';
+      const providedToken = authHeader.startsWith('Bearer ') ? authHeader.substring(7) : customHeader;
+      if (!providedToken || providedToken !== adminSecret) {
+        return res.status(401).json({ success: false, error: "Unauthorized: Invalid or missing admin token" });
       }
 
       const body = req.body || {};

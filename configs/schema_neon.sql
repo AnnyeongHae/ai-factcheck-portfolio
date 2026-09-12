@@ -273,9 +273,40 @@ CREATE INDEX IF NOT EXISTS idx_claims_case ON factcheck_atomic_claims(case_id);
 CREATE INDEX IF NOT EXISTS idx_alternatives_case ON factcheck_alternatives(case_id);
 CREATE INDEX IF NOT EXISTS idx_signals_case ON factcheck_community_signals(case_id);
 
+CREATE INDEX IF NOT EXISTS idx_inbox_unclassified ON raw_trends_inbox (is_classified, updated_at ASC NULLS FIRST);
+CREATE INDEX IF NOT EXISTS idx_inbox_item_type ON raw_trends_inbox (item_type);
+
+-- 15. Vercel Serverless AI Worker Execution Logs
+CREATE TABLE IF NOT EXISTS vercel_worker_logs (
+    id SERIAL PRIMARY KEY,
+    worker_name VARCHAR(100) NOT NULL,
+    model_used VARCHAR(100) NOT NULL,
+    processed_count INT DEFAULT 1,
+    duration_seconds NUMERIC(6, 2) DEFAULT 0.0,
+    remaining_count INT DEFAULT 0,
+    status VARCHAR(50) DEFAULT 'SUCCESS',
+    inbox_ids JSONB DEFAULT '[]'::jsonb,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_worker_logs_id_desc ON vercel_worker_logs(id DESC);
+
+-- 16. Vercel Serverless Telemetry Counters
+CREATE TABLE IF NOT EXISTS vercel_serverless_telemetry (
+    id INT PRIMARY KEY DEFAULT 1,
+    invocations BIGINT DEFAULT 0,
+    active_cpu_seconds NUMERIC(10, 3) DEFAULT 0.0,
+    bandwidth_bytes BIGINT DEFAULT 0,
+    last_invoked_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO vercel_serverless_telemetry (id, invocations, active_cpu_seconds, bandwidth_bytes)
+VALUES (1, 0, 0.0, 0)
+ON CONFLICT (id) DO NOTHING;
+
 -- Trigger Binding
 DROP TRIGGER IF EXISTS trg_raw_trends_inbox_updated_at ON raw_trends_inbox;
 CREATE TRIGGER trg_raw_trends_inbox_updated_at BEFORE UPDATE ON raw_trends_inbox FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
 DROP TRIGGER IF EXISTS trg_verified_factchecks_updated_at ON verified_factchecks;
 CREATE TRIGGER trg_verified_factchecks_updated_at BEFORE UPDATE ON verified_factchecks FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+

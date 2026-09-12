@@ -1,16 +1,23 @@
 import sys, os, json
-sys.path.insert(0, r'd:\2026.06.21_Antigravity\2026-08-31_WEB_Factcheck')
+repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if repo_root not in sys.path:
+    sys.path.insert(0, repo_root)
 from tools.db_bridge import load_env_db_url
 import psycopg2
 
 db_url = load_env_db_url()
+if not db_url:
+    print("[!] DATABASE_URL not found, skipping sync.")
+    sys.exit(0)
+
 conn = psycopg2.connect(db_url)
 cur = conn.cursor()
 
 # 1. Update raw_trends_inbox with enriched payload
-inbox_file = r'd:\2026.06.21_Antigravity\2026-08-31_WEB_Factcheck\inbox\x-winneravgwin-2097155225207603544.json'
-with open(inbox_file, 'r', encoding='utf-8') as fp:
-    inbox_payload = json.load(fp)
+inbox_file = os.path.join(repo_root, 'inbox', 'x-winneravgwin-2097155225207603544.json')
+if os.path.exists(inbox_file):
+    with open(inbox_file, 'r', encoding='utf-8') as fp:
+        inbox_payload = json.load(fp)
 
 cur.execute("""
     UPDATE raw_trends_inbox

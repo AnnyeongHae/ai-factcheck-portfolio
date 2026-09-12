@@ -1,31 +1,6 @@
 const https = require('https');
-
-let cachedPool = null;
-
-function getDbPool() {
-  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY || process.env.NEON_DATABASE_URL;
-  if (!DATABASE_URL) return null;
-  if (!cachedPool) {
-    try {
-      const { Pool } = require('pg');
-      cachedPool = new Pool({
-        connectionString: DATABASE_URL,
-        ssl: { rejectUnauthorized: true },
-        max: 3,
-        idleTimeoutMillis: 30000,
-        connectionTimeoutMillis: 5000
-      });
-      cachedPool.on('error', (err) => {
-        console.error('[PgPool Error in watchdog]:', err);
-        cachedPool = null;
-      });
-    } catch (e) {
-      console.error('[Pg Driver Error in watchdog]:', e);
-      return null;
-    }
-  }
-  return cachedPool;
-}
+const { getDbPool } = require('./_lib/db');
+const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 function triggerGithubRecoveryHook() {
   return new Promise((resolve) => {
@@ -75,13 +50,19 @@ function triggerGithubRecoveryHook() {
 }
 
 module.exports = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (handleOptions(req, res, 'GET, OPTIONS')) return;
+  setCorsHeaders(res, 'GET, OPTIONS');
   res.setHeader('Cache-Control', 'no-store, max-age=0');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end();
+  // Authentication: require CRON_SECRET or ADMIN_QUEUE_SECRET to prevent unauthorized GitHub Actions triggers
+  const cronSecret = process.env.CRON_SECRET || process.env.ADMIN_QUEUE_SECRET;
+  if (cronSecret) {
+    const authHeader = req.headers.authorization || '';
+    const querySecret = req.query?.secret || '';
+    const provided = authHeader.startsWith('Bearer ') ? authHeader.substring(7) : querySecret;
+    if (!provided || provided !== cronSecret) {
+      return res.status(401).json({ status: 'ERROR', message: 'Unauthorized: Invalid or missing secret' });
+    }
   }
 
   const pool = getDbPool();

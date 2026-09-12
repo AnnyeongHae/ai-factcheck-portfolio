@@ -24,12 +24,10 @@ if base_dir not in sys.path:
 from tools.db_bridge import get_db_connection, push_factchecks_to_neon
 
 def synthesize_top_candidate():
-    # 🚨 CRITICAL GUARDRAIL: Never auto-promote unverified items to VERIFIED_TRUE without human signoff!
-    if "--force-promote" not in sys.argv:
-        print("[!] SAFEGUARD: Auto-promotion of unverified trends to VERIFIED_TRUE is permanently DISABLED.")
-        print("    All inbox trends must remain in inbox until human investigation or explicit promotion sign-off.")
-        return False
-        return False
+    # 🚨 CRITICAL GUARDRAIL: Auto-promotion without human verification is permanently disabled.
+    print("[!] DEPRECATED: Auto-promotion of unverified trends to VERIFIED_TRUE is permanently DISABLED.")
+    print("    All inbox trends must remain in inbox until human investigation or explicit promotion sign-off.")
+    return False
 
     # Sort by candidate quality (Spaces / Models / GitHub repos preferred)
     def score_item(item):

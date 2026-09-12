@@ -28,6 +28,10 @@ const portfoliosHandler = require('./api/portfolios');
 const queueHandler = require('./api/queue');
 const healthHandler = require('./api/health');
 const batchHandler = require('./api/batch');
+const inboxHandler = require('./api/inbox');
+const statsHandler = require('./api/stats');
+const enrichWorkerHandler = require('./api/enrich-worker');
+const watchdogHandler = require('./api/watchdog');
 
 const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
@@ -78,6 +82,7 @@ function parseRequestBody(req) {
 const server = http.createServer(async (req, res) => {
   const parsedUrl = url.parse(req.url, true);
   const pathname = parsedUrl.pathname;
+  req.query = parsedUrl.query || {};
 
   adaptResponse(res);
 
@@ -86,23 +91,15 @@ const server = http.createServer(async (req, res) => {
 
   console.log(`[${new Date().toLocaleTimeString()}] ${req.method} ${pathname}`);
 
-  // Route: /api/portfolios
-  if (pathname === '/api/portfolios') {
-    return portfoliosHandler(req, res);
-  }
-
-  // Route: /api/queue or /api/news
-  if (pathname === '/api/queue') {
-    return queueHandler(req, res);
-  }
-
-  if (pathname === '/api/health') {
-    return healthHandler(req, res);
-  }
-
-  if (pathname === '/api/batch') {
-    return batchHandler(req, res);
-  }
+  // Dynamic API Routes
+  if (pathname === '/api/inbox') return inboxHandler(req, res);
+  if (pathname === '/api/stats') return statsHandler(req, res);
+  if (pathname === '/api/portfolios') return portfoliosHandler(req, res);
+  if (pathname === '/api/queue') return queueHandler(req, res);
+  if (pathname === '/api/health') return healthHandler(req, res);
+  if (pathname === '/api/batch') return batchHandler(req, res);
+  if (pathname === '/api/enrich-worker') return enrichWorkerHandler(req, res);
+  if (pathname === '/api/watchdog') return watchdogHandler(req, res);
 
   // Static File Serving (from public/)
   let filePath = path.join(PUBLIC_DIR, pathname === '/' ? 'index.html' : pathname);

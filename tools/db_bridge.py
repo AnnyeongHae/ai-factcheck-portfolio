@@ -71,7 +71,7 @@ def compute_fingerprint(url: str, title: str = "") -> str:
     norm = norm.rstrip('/')
     return hashlib.sha256(norm.encode('utf-8')).hexdigest()
 
-def init_schema(clean=True):
+def init_schema(clean=False):
     conn = get_db_connection()
     if not conn: return
     
@@ -83,6 +83,7 @@ def init_schema(clean=True):
         try:
             with conn.cursor() as cur:
                 if clean:
+                    print("[!] WARNING: Destructive schema reset initiated (DROP TABLE CASCADE).")
                     cur.execute("""
                         DROP TABLE IF EXISTS factcheck_audit_logs CASCADE;
                         DROP TABLE IF EXISTS factcheck_unit_economics CASCADE;

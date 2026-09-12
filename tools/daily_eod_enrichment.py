@@ -69,17 +69,25 @@ def run_daily_eod():
     print(f"  - Un-enriched (Pending Translation): {len(unenriched_items)}")
 
     submitted_batches = []
-    # 3. Enrich ALL remaining un-enriched items via OpenRouter Free Router ($0.00)
+    submitted_batches = []
+    # 3. AI Enrichment Policy: 100% offloaded to Vercel Serverless Micro-Workers
+    # Heavy Python LLM loops in GitHub Actions have been deprecated to keep runner times under 1 minute.
+    print(f"\n[*] Step 3: AI enrichment is fully offloaded to Vercel Serverless Micro-Workers.")
     if unenriched_items:
-        print(f"\n[*] Step 3: Enriching ALL {len(unenriched_items)} un-enriched items via OpenRouter Free Router ($0.00)...")
+        print(f"  - Pending un-enriched items in local inbox: {len(unenriched_items)}")
+        print("  - Triggering Vercel Micro-Worker ping (fire-and-forget)...")
         try:
-            import enrich_inbox_with_ai
-            enrich_inbox_with_ai.run_enrichment(limit=35, batch_size=3, provider="openrouter", workers=1, cooldown=0.5)
-            print("[+] EOD batch enrichment completed successfully.")
+            import urllib.request
+            req = urllib.request.Request(
+                'https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=1',
+                headers={'User-Agent': 'GitHub-Actions-EOD-Audit'}
+            )
+            with urllib.request.urlopen(req, timeout=5) as res:
+                print(f"[+] Vercel worker ping successful (HTTP {res.status})")
         except Exception as e:
-            print(f"[-] OpenRouter enrichment encountered error: {e}")
+            print(f"[-] Vercel worker ping note (non-blocking): {e}")
     else:
-        print("\n[+] Step 3: 100% of inbox items are already enriched! No enrichment needed.")
+        print("[+] 100% of inbox items are already enriched! No pending items.")
 
     # 4. Rebuild Portfolio Dashboard & Public Edge
     print("\n[*] Step 5: Compiling Dashboard & Edge Cache...")

@@ -1,42 +1,12 @@
 const fs = require('fs');
 const path = require('path');
-
-let cachedPool = null;
-
-function getDbPool() {
-  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY || process.env.NEON_DATABASE_URL;
-  if (!DATABASE_URL) return null;
-  if (!cachedPool) {
-    try {
-      const { Pool } = require('pg');
-      cachedPool = new Pool({
-        connectionString: DATABASE_URL,
-        ssl: { rejectUnauthorized: true },
-        max: 5,
-        idleTimeoutMillis: 30000,
-        connectionTimeoutMillis: 5000
-      });
-      cachedPool.on('error', (err) => {
-        console.error('[PgPool Error in batch]:', err);
-        cachedPool = null;
-      });
-    } catch (e) {
-      console.error('[Pg Driver Error in batch]:', e);
-      return null;
-    }
-  }
-  return cachedPool;
-}
+const { getDbPool } = require('./_lib/db');
+const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 module.exports = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (handleOptions(req, res, 'GET, OPTIONS')) return;
+  setCorsHeaders(res, 'GET, OPTIONS');
   res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=120');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end();
-  }
 
   // 1. Try fetching from Neon DB
   const pool = getDbPool();

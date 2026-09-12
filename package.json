@@ -2,8 +2,19 @@
   "name": "ai-factcheck-portfolio",
   "version": "1.0.0",
   "description": "Enterprise AI Fact-Check Hub with Vercel Serverless & Neon Postgres",
+  "scripts": {
+    "start": "node server.js",
+    "build:css": "tailwindcss -i src/styles/input.css -o public/styles.css --minify",
+    "build:data": "python tools/build_dashboard.py",
+    "build": "npm run build:css && npm run build:data"
+  },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.5",
     "pg": "^8.11.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.5.6",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^3.4.17"
   }
 }
