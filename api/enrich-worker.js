@@ -20,11 +20,15 @@ const { getDbPool } = require('./_lib/db');
 const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 const FREE_MODELS = [
-  'google/gemma-4-31b-it:free',
-  'nex-agi/nex-n2.5-pro:free',
+  'nvidia/nemotron-3.5-lightning:free',
   'nex-agi/nex-n2.5-mini:free',
-  'nvidia/nemotron-3.5-lightning:free'
+  'liquid/lfm-2.5-2.6b:free',
+  'poolside/laguna-s-2.1:free',
+  'google/gemma-4-26b-a4b-it:free',
+  'google/gemma-4-31b-it:free',
+  'nex-agi/nex-n2.5-pro:free'
 ];
+
 
 
 
@@ -237,7 +241,7 @@ module.exports = async (req, res) => {
       let timeoutId = null;
       try {
         const controller = new AbortController();
-        const timeoutMs = Math.min(5000, budgetMs);
+        const timeoutMs = Math.min(3500, budgetMs);
         timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
 
@@ -276,15 +280,16 @@ module.exports = async (req, res) => {
         const parsed = sanitizeJsonString(rawContent);
 
         if (Array.isArray(parsed) && parsed.length > 0) {
-          // Check Korean character guardrail & reject broken unicode replacement characters (\ufffd)
-          const hasKorean = parsed.some(p => /[\uac00-\ud7a3]/.test((p.korean_title || '') + ' ' + (p.hook_ko || '')));
+          // Check Korean character guardrail: title must contain Hangul and must not be pure Hanzi (Chinese)
+          const hasKorean = parsed.some(p => /[\uac00-\ud7a3]/.test(p.korean_title || ''));
           const hasBrokenBytes = parsed.some(p => /[\ufffd]/.test((p.korean_title || '') + ' ' + (p.hook_ko || '')));
-          if (hasKorean && !hasBrokenBytes) {
+          const hasHanziOnly = parsed.some(p => /[\u4e00-\u9fff]/.test(p.korean_title || '') && !/[\uac00-\ud7a3]/.test(p.korean_title || ''));
+          if (hasKorean && !hasBrokenBytes && !hasHanziOnly) {
             enrichedAiList = parsed;
             modelUsed = aiJson.model || modelName;
             break;
           } else {
-            console.warn(`[Worker] Model ${modelName} rejected: hasKorean=${hasKorean}, hasBrokenBytes=${hasBrokenBytes}`);
+            console.warn(`[Worker] Model ${modelName} rejected: hasKorean=${hasKorean}, hasBrokenBytes=${hasBrokenBytes}, hasHanziOnly=${hasHanziOnly}`);
           }
         }
       } catch (err) {
@@ -292,6 +297,20 @@ module.exports = async (req, res) => {
       } finally {
         if (timeoutId) clearTimeout(timeoutId);
       }
+    }
+
+    // CRITICAL: If all models failed, touch candidates' updated_at so they move to the back of the queue!
+    // This completely eliminates Head-of-Line blocking (deadlock on 1 bad item).
+    if (!enrichedAiList || enrichedAiList.length === 0) {
+      console.warn(`[Worker] All LLM models failed or timed out. Rotating ${candidates.length} item(s) to back of queue.`);
+      const candIds = candidates.map(c => c.id);
+      await pool.query('UPDATE raw_trends_inbox SET updated_at = CURRENT_TIMESTAMP WHERE id = ANY($1::int[]);', [candIds]);
+      return res.status(200).json({
+        status: 'partial_fallback',
+        message: 'Free LLM models temporarily busy or timed out. Shifted items back in queue to allow others to process.',
+        processed_count: 0,
+        remaining_unclassified: totalRemaining
+      });
     }
 
     const resMap = {};
@@ -322,14 +341,16 @@ module.exports = async (req, res) => {
         .filter(Boolean)
         .slice(0, 3);
 
-      const hasKorean = koreanRegex.test(titleKoCandidate) || 
-                        koreanRegex.test(hookKoCandidate) || 
-                        takeawaysKo.some(t => koreanRegex.test(t));
+      const hasKoreanTitle = koreanRegex.test(titleKoCandidate);
+      const hasKoreanHook = koreanRegex.test(hookKoCandidate);
+      const hasHanziOnlyTitle = /[\u4e00-\u9fff]/.test(titleKoCandidate) && !koreanRegex.test(titleKoCandidate);
+      const isValidKorean = hasKoreanTitle && hasKoreanHook && !hasHanziOnlyTitle;
 
-      // CRITICAL GUARDRAIL: Never mark as classified if valid Korean translation is missing!
-      // Unenriched items must stay is_classified = FALSE so they can be processed on subsequent runs.
-      if (!aiData || !hasKorean) {
-        console.warn(`[Worker] Skipping ${cand.inbox_id}: Missing AI translation or no Korean characters. Retaining is_classified=FALSE.`);
+      // CRITICAL GUARDRAIL: Never mark as classified if valid Korean translation is missing or Chinese!
+      // Touch updated_at so unclassified item rotates to back of queue instead of blocking indefinitely.
+      if (!aiData || !isValidKorean) {
+        console.warn(`[Worker] Skipping ${cand.inbox_id}: Missing/invalid Korean (titleKo: "${titleKoCandidate}"). Rotating item.`);
+        await pool.query('UPDATE raw_trends_inbox SET updated_at = CURRENT_TIMESTAMP WHERE id = $1;', [cand.id]);
         continue;
       }
 

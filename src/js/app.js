@@ -1424,6 +1424,15 @@ window.updateGlobalStatsUI = updateGlobalStatsUI;
             break;
           }
 
+          if (resData.status === 'partial_fallback') {
+            if (txt && !_autoWorkerPaused) {
+              txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-amber-400 mr-1"></span> AI 쿼터/모델 쿨다운 (60초 후 재시도)`;
+            }
+            console.warn('[AutoWorker] AI models busy or daily quota reached. Pausing for 60s...');
+            await new Promise(r => setTimeout(r, 60000));
+            continue;
+          }
+
           if (resData.status === 'success') {
             const rem = resData.remaining_unclassified;
             if (txt && !_autoWorkerPaused) {
