@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Multi-Source News & Inbox Deduplication and Story Clustering Merger (v1.0)
@@ -12,31 +12,71 @@ import os
 import re
 from datetime import datetime, timezone
 
+# =============================================================================
+# 2026 SOTA Cross-Lingual Entity & Canonical Anchor Dictionary
+# Maps Korean, English, and transliterated variants into unified canonical tokens
+# =============================================================================
+CROSS_LINGUAL_ENTITY_MAP = {
+    # Geopolitics & Major News Events
+    "후티": "houthi", "후티반군": "houthi", "houthis": "houthi", "houthi": "houthi",
+    "홍해": "redsea", "red-sea": "redsea", "red sea": "redsea",
+    "해운": "shipping", "해상": "shipping", "shipping": "shipping", "maritime": "shipping",
+    "항로": "route", "무역로": "route", "수송망": "route", "route": "route", "routes": "route",
+    "장악": "control", "점령": "control", "통제": "control", "control": "control", "take-control": "control", "seize": "control", "seized": "control",
+    "섬": "island", "island": "island", "islands": "island",
+    "핵심": "key", "전략적": "key", "주요": "key", "key": "key", "strategic": "key",
+    "글로벌": "global", "국제": "global", "세계": "global", "global": "global", "international": "global", "world": "global",
+    
+    # Surveillance & Legal Incidents
+    "플록": "flock", "플록안전": "flock", "flock": "flock", "flocksafety": "flock",
+    "퇴역군인": "veteran", "해군": "navy", "veteran": "veteran", "navy": "navy",
+    "교통단속": "traffic-stop", "단속": "traffic-stop", "traffic-stop": "traffic-stop",
+    "녹화": "record", "촬영": "record", "record": "record", "filmed": "record",
+    "추적": "track", "사찰": "track", "track": "track", "tracked": "track", "surveillance": "track",
+    "100회": "100-times", "100번": "100-times", "100+": "100-times",
+
+    # AI Models & Compute Vendors
+    "딥시크": "deepseek", "deepseek": "deepseek",
+    "라마": "llama", "llama": "llama", "llama3": "llama",
+    "큐원": "qwen", "qwen": "qwen", "qwen2": "qwen", "qwen2.5": "qwen",
+    "오픈ai": "openai", "openai": "openai",
+    "앤트로픽": "anthropic", "anthropic": "anthropic",
+    "클로드": "claude", "claude": "claude", "sonnet": "claude", "opus": "claude",
+    "제미나이": "gemini", "gemini": "gemini",
+    "미니맥스": "minimax", "minimax": "minimax",
+    "미스트랄": "mistral", "mistral": "mistral",
+    "엔비디아": "nvidia", "nvidia": "nvidia",
+    "구글": "google", "google": "google",
+    "메타": "meta", "meta": "meta",
+    "애플": "apple", "apple": "apple",
+    "마이크로소프트": "microsoft", "microsoft": "microsoft"
+}
+
+STOP_WORDS = {
+    "hacker", "news", "geeknews", "기사", "선언", "the", "in", "of", "and", "to", "for", 
+    "on", "at", "by", "with", "from", "is", "a", "an", "as", "that", "this", "it",
+    "으로", "에서", "있는", "위한", "대한", "관련", "사용", "넘게", "이상", "통해", "이어지는",
+    "따른", "위해", "가장", "대해", "통한"
+}
+
 def normalize_text_tokens(text: str) -> set:
     if not text:
         return set()
     text = text.lower()
-    # Replace common synonyms / cross-lingual aliases
-    alias_map = {
-        "플록": "flock",
-        "퇴역군인": "veteran",
-        "교통단속": "traffic-stop",
-        "단속": "traffic-stop",
-        "녹화": "record",
-        "촬영": "record",
-        "추적": "track",
-        "사찰": "track",
-        "100회": "100-times",
-        "100번": "100-times",
-        "딥시크": "deepseek",
-        "라마": "llama",
-        "큐원": "qwen"
-    }
-    for k, v in alias_map.items():
-        text = text.replace(k, f" {v} ")
-    tokens = re.findall(r'[a-zA-Z0-9가-힣]+', text)
-    # Filter short stop words
-    return {t for t in tokens if len(t) > 1 and t not in {"으로", "에서", "있는", "위한", "대한", "관련", "사용", "넘게", "이상"}}
+    
+    # 1. Multi-word phrase substitution
+    for k in sorted(CROSS_LINGUAL_ENTITY_MAP.keys(), key=len, reverse=True):
+        if " " in k and k in text:
+            text = text.replace(k, f" {CROSS_LINGUAL_ENTITY_MAP[k]} ")
+
+    # 2. Extract words
+    raw_words = re.findall(r'[a-zA-Z0-9가-힣]+', text)
+    canonical = set()
+    for w in raw_words:
+        mapped = CROSS_LINGUAL_ENTITY_MAP.get(w, w)
+        if len(mapped) > 1 and mapped not in STOP_WORDS:
+            canonical.add(mapped)
+    return canonical
 
 def get_item_story_key(item: dict) -> str:
     dedup = item.get("dedup_fingerprint") or item.get("dedup_metadata") or {}
@@ -51,7 +91,8 @@ def get_item_entities(item: dict) -> set:
     res = set()
     for e in ents:
         if isinstance(e, str) and len(e.strip()) > 1:
-            res.add(e.strip().lower())
+            mapped = CROSS_LINGUAL_ENTITY_MAP.get(e.strip().lower(), e.strip().lower())
+            res.add(mapped)
     return res
 
 def parse_iso_timestamp(item: dict) -> float:
@@ -66,13 +107,13 @@ def parse_iso_timestamp(item: dict) -> float:
     return 0.0
 
 def are_items_duplicate_story(item_a: dict, item_b: dict, max_window_hours: float = 72.0) -> bool:
-    # 1. Check URL exact match
-    url_a = item_a.get("source_url") or item_a.get("url") or ""
-    url_b = item_b.get("source_url") or item_b.get("url") or ""
-    if url_a and url_b and url_a == url_b:
+    # 1. Check URL exact match (including external article_url)
+    urls_a = {item_a.get("source_url") or "", item_a.get("url") or "", item_a.get("article_url") or ""} - {""}
+    urls_b = {item_b.get("source_url") or "", item_b.get("url") or "", item_b.get("article_url") or ""} - {""}
+    if urls_a and urls_b and bool(urls_a.intersection(urls_b)):
         return True
 
-    # 2. Temporal Window Check
+    # 2. Temporal Window Check (allow up to 72 hours for viral story lifecycle)
     ts_a = parse_iso_timestamp(item_a)
     ts_b = parse_iso_timestamp(item_b)
     if ts_a > 0 and ts_b > 0:
@@ -94,27 +135,38 @@ def are_items_duplicate_story(item_a: dict, item_b: dict, max_window_hours: floa
         if len(intersection) >= 2:
             return True
 
-    # 5. Fuzzy Entity & Keyword Overlap
-    title_a = f"{item_a.get('title', '')} {item_a.get('title_ko', '')} {item_a.get('title_en', '')}"
-    title_b = f"{item_b.get('title', '')} {item_b.get('title_ko', '')} {item_b.get('title_en', '')}"
+    # 5. Cross-Lingual Entity & Semantic Keyword Overlap
+    title_a = f"{item_a.get('title', '')} {item_a.get('title_ko', '')} {item_a.get('title_en', '')} {item_a.get('hook', '')} {item_a.get('hook_ko', '')}"
+    title_b = f"{item_b.get('title', '')} {item_b.get('title_ko', '')} {item_b.get('title_en', '')} {item_b.get('hook', '')} {item_b.get('hook_ko', '')}"
     tokens_a = normalize_text_tokens(title_a)
     tokens_b = normalize_text_tokens(title_b)
 
     if tokens_a and tokens_b:
         common = tokens_a.intersection(tokens_b)
         min_len = min(len(tokens_a), len(tokens_b))
-        if min_len >= 3 and len(common) >= 3:
-            overlap_ratio = len(common) / min_len
-            if overlap_ratio >= 0.65:
-                return True
-        # Specific anchor triggers (e.g. flock + veteran + 100-times)
+        
+        # 5-A. Dynamic Anchor Matching (high-signal entity pairs)
         critical_anchors = [
+            {"houthi", "island"},
+            {"houthi", "shipping"},
+            {"houthi", "control"},
             {"flock", "veteran"},
             {"deepseek", "v3"},
-            {"qwen", "2.5-coder"}
+            {"qwen", "coder"},
+            {"anthropic", "claude"},
+            {"openai", "chatgpt"}
         ]
         for anchor in critical_anchors:
             if anchor.issubset(tokens_a) and anchor.issubset(tokens_b):
+                return True
+
+        # 5-B. Substantial Overlap Ratio (>= 0.45 or >= 4 common canonical entities)
+        if len(common) >= 4:
+            return True
+
+        if min_len >= 3 and len(common) >= 3:
+            overlap_ratio = len(common) / min_len
+            if overlap_ratio >= 0.45:
                 return True
 
     return False
