@@ -1018,17 +1018,49 @@ def record_harvest_telemetry_to_neon(harvest_report, new_saved, updated_count, d
                 VALUES (%s, %s, %s, %s, %s, CURRENT_TIMESTAMP);
             """, (run_id, src_name, count, latency, status))
 
-        # 3. Update github_actions_run_logs if running inside GitHub Actions
+        # 3. Upsert github_actions_run_logs if running inside GitHub Actions
         gh_run_id = os.environ.get("GITHUB_RUN_ID")
         if gh_run_id:
             try:
                 cur.execute("""
-                    UPDATE github_actions_run_logs
-                    SET items_collected = %s
-                    WHERE run_id = %s;
-                """, (total_fetched, int(gh_run_id)))
+                    INSERT INTO github_actions_run_logs (
+                        run_id, workflow_name, event_trigger, status, conclusion,
+                        duration_seconds, duration_str, started_at, items_collected, items_scanned
+                    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (run_id) DO UPDATE SET
+                        items_collected = EXCLUDED.items_collected,
+                        items_scanned = EXCLUDED.items_scanned;
+                """, (
+                    int(gh_run_id),
+                    os.environ.get("GITHUB_WORKFLOW", "Deploy AI Fact-Check Portfolio & Neon DB Sync"),
+                    os.environ.get("GITHUB_EVENT_NAME", "schedule"),
+                    "in_progress",
+                    "in_progress",
+                    60,
+                    "1분 0초",
+                    now_dt,
+                    new_saved,
+                    total_fetched
+                ))
             except Exception as e:
                 print(f"[!] Note updating github_actions_run_logs.items_collected: {e}")
+
+        # 4. Save local harvest_summary.json for subsequent workflow steps
+        try:
+            root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            logs_dir = os.path.join(root_dir, "logs")
+            os.makedirs(logs_dir, exist_ok=True)
+            summary_path = os.path.join(logs_dir, "harvest_summary.json")
+            with open(summary_path, "w", encoding="utf-8") as f:
+                json.dump({
+                    "run_id": gh_run_id,
+                    "items_collected": new_saved,
+                    "items_scanned": total_fetched,
+                    "updated_count": updated_count,
+                    "recorded_at": now_dt.isoformat()
+                }, f, ensure_ascii=False, indent=2)
+        except Exception:
+            pass
 
         conn.commit()
         cur.close()

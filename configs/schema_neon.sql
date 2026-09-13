@@ -236,6 +236,8 @@ CREATE TABLE IF NOT EXISTS github_actions_run_logs (
     timeline_slot VARCHAR(20),
     error_count INTEGER DEFAULT 0,
     error_details TEXT,
+    items_collected INTEGER DEFAULT NULL,
+    items_scanned INTEGER DEFAULT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 

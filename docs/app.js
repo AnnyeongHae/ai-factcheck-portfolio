@@ -4059,7 +4059,11 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               (r.items_collected === null && r.items_scanned === null);
 
             if (isNonHarvestWorkflow) {
-              itemsCell = `<span class="text-ink-muted">-</span>`;
+              if (r.event === 'schedule' && (r.status === 'in_progress' || r.status === 'queued')) {
+                itemsCell = `<span class="text-amber-600 animate-pulse font-medium">수집 진행 중...</span>`;
+              } else {
+                itemsCell = `<span class="text-ink-muted">-</span>`;
+              }
             } else if (hasCollected && hasScanned) {
               const colLabel = tLang === 'zh' ? '条采集' : (tLang === 'en' ? 'collected' : '건 수집');
               const scanLabel = tLang === 'zh' ? '条扫描' : (tLang === 'en' ? 'scanned' : '건 스캔');
@@ -4180,7 +4184,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
             : null;
           const itemsScan = (existingRun && existingRun.items_scanned !== undefined && existingRun.items_scanned !== null)
             ? existingRun.items_scanned
-            : (r.event === 'schedule' ? 340 : null);
+            : null;
 
           return {
             id: String(r.id),

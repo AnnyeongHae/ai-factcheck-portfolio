@@ -87,9 +87,11 @@ def ensure_tables_exist(cur):
         error_count INTEGER DEFAULT 0,
         error_details TEXT,
         items_collected INTEGER DEFAULT NULL,
+        items_scanned INTEGER DEFAULT NULL,
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
     ALTER TABLE github_actions_run_logs ADD COLUMN IF NOT EXISTS items_collected INTEGER DEFAULT NULL;
+    ALTER TABLE github_actions_run_logs ADD COLUMN IF NOT EXISTS items_scanned INTEGER DEFAULT NULL;
     """)
 
 def sync_telemetry():
@@ -157,6 +159,24 @@ def sync_telemetry():
                     error_count = EXCLUDED.error_count;
             """, (rid, name, event, status, conclusion, dur_sec, dur_str, created, updated, slot, err_cnt))
             inserted_runs += 1
+
+        # Reconcile items_collected and items_scanned with harvest_runs for schedule runs
+        try:
+            cur.execute("""
+                UPDATE github_actions_run_logs g
+                SET items_collected = h.new_saved,
+                    items_scanned = h.total_fetched
+                FROM (
+                    SELECT DISTINCT ON (g2.run_id) g2.run_id, h2.new_saved, h2.total_fetched
+                    FROM github_actions_run_logs g2
+                    JOIN harvest_runs h2 ON ABS(EXTRACT(EPOCH FROM (g2.started_at - h2.started_at))) < 300
+                    WHERE g2.event_trigger = 'schedule'
+                    ORDER BY g2.run_id, ABS(EXTRACT(EPOCH FROM (g2.started_at - h2.started_at))) ASC
+                ) h
+                WHERE g.run_id = h.run_id AND (g.items_collected IS NULL OR g.items_scanned IS NULL);
+            """)
+        except Exception as e:
+            print(f"[!] Note: harvest_runs reconciliation warning: {e}")
 
         # Calculate live monthly quota
         # Baseline measured from GitHub Billing: 1,242.0 min at 2026-09-07T17:32:00Z
@@ -246,6 +266,20 @@ def finalize_run(run_id, job_status="success"):
 
         dur_str = f"{dur_sec // 60}분 {dur_sec % 60}초"
 
+        # Check if harvest metrics are available from logs/harvest_summary.json
+        summary_path = os.path.join(base_dir, "logs", "harvest_summary.json")
+        items_col = None
+        items_scan = None
+        if os.path.exists(summary_path):
+            try:
+                with open(summary_path, "r", encoding="utf-8") as f:
+                    sdata = json.load(f)
+                    if not sdata.get("run_id") or str(sdata.get("run_id")) == str(run_id):
+                        items_col = sdata.get("items_collected")
+                        items_scan = sdata.get("items_scanned")
+            except Exception:
+                pass
+
         cur.execute("""
             UPDATE github_actions_run_logs
             SET status = 'completed',
@@ -254,9 +288,30 @@ def finalize_run(run_id, job_status="success"):
                 duration_str = %s,
                 completed_at = %s,
                 error_count = %s,
-                error_details = CASE WHEN %s > 0 THEN 'Workflow job finished with status: ' || %s ELSE NULL END
+                error_details = CASE WHEN %s > 0 THEN 'Workflow job finished with status: ' || %s ELSE NULL END,
+                items_collected = COALESCE(items_collected, %s),
+                items_scanned = COALESCE(items_scanned, %s)
             WHERE run_id = %s;
-        """, (conclusion, dur_sec, dur_str, now_utc, err_cnt, err_cnt, status_clean, run_id))
+        """, (conclusion, dur_sec, dur_str, now_utc, err_cnt, err_cnt, status_clean, items_col, items_scan, run_id))
+
+        # If items_collected/items_scanned still NULL, try matching with recent harvest_runs
+        try:
+            cur.execute("""
+                UPDATE github_actions_run_logs g
+                SET items_collected = h.new_saved,
+                    items_scanned = h.total_fetched
+                FROM (
+                    SELECT h2.new_saved, h2.total_fetched
+                    FROM harvest_runs h2
+                    JOIN github_actions_run_logs g2 ON ABS(EXTRACT(EPOCH FROM (g2.started_at - h2.started_at))) < 300
+                    WHERE g2.run_id = %s
+                    ORDER BY ABS(EXTRACT(EPOCH FROM (g2.started_at - h2.started_at))) ASC
+                    LIMIT 1
+                ) h
+                WHERE g.run_id = %s AND (g.items_collected IS NULL OR g.items_scanned IS NULL);
+            """, (run_id, run_id))
+        except Exception:
+            pass
 
         # Also recalculate monthly usage
         base_time = datetime.datetime(2026, 9, 7, 17, 32, 0, tzinfo=datetime.timezone.utc)
