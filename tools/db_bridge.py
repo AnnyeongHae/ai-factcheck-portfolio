@@ -128,6 +128,17 @@ def push_inbox_to_neon(full_sync=False):
             except Exception:
                 pass
 
+        updated_manifest_path = os.path.join(base_dir, "logs", "last_harvest_updated_items.json")
+        if os.path.exists(updated_manifest_path):
+            try:
+                with open(updated_manifest_path, "r", encoding="utf-8") as ufp:
+                    udata = json.load(ufp)
+                    for fpath in udata.get("files", []):
+                        fname = os.path.basename(fpath).replace(".json", "")
+                        target_inbox_ids.add(fname)
+            except Exception:
+                pass
+
         history_path = os.path.join(base_dir, "logs", "ai_enrichment_history.json")
         if os.path.exists(history_path):
             try:

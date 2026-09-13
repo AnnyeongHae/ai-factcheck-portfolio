@@ -93,9 +93,18 @@ def scan_inbox():
                     if isinstance(payload, dict) and "inbox_id" in payload:
                         iid = payload["inbox_id"]
                         if iid in items_by_id:
-                            # If payload has ai_enrichment and existing doesn't, upgrade
-                            if payload.get("ai_enrichment") and not items_by_id[iid].get("ai_enrichment"):
-                                items_by_id[iid] = payload
+                            local_it = items_by_id[iid]
+                            if payload.get("ai_enrichment") and not local_it.get("ai_enrichment"):
+                                local_it["ai_enrichment"] = payload["ai_enrichment"]
+                                local_it["is_classified"] = payload.get("is_classified", True)
+                                if "multilingual" in payload: local_it["multilingual"] = payload["multilingual"]
+                                if "title_ko" in payload and not local_it.get("title_ko"): local_it["title_ko"] = payload["title_ko"]
+                                if "description_ko" in payload and not local_it.get("description_ko"): local_it["description_ko"] = payload["description_ko"]
+                            db_up = str(payload.get("updated_at") or "")
+                            loc_up = str(local_it.get("updated_at") or "")
+                            if db_up > loc_up and payload.get("metric_tracking"):
+                                local_it["metric_tracking"] = payload["metric_tracking"]
+                                local_it["viral_metric"] = payload.get("viral_metric", local_it.get("viral_metric"))
                         else:
                             items_by_id[iid] = payload
                             db_added += 1

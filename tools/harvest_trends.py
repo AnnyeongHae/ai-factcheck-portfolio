@@ -772,6 +772,7 @@ def harvest_all():
     new_saved = 0
     dup_skipped = 0
     newly_harvested_files = []
+    updated_harvested_files = []
 
     for cand in all_candidates:
         norm_url = normalize_url(cand["source_url"])
@@ -859,6 +860,7 @@ def harvest_all():
                 with open(target_inbox_file, "w", encoding="utf-8") as fp:
                     json.dump(old_item, fp, indent=2, ensure_ascii=False)
 
+                updated_harvested_files.append(target_inbox_file)
                 updated_count += 1
             except Exception as e:
                 logger.log(f"[!] Failed to update {target_inbox_file}: {e}", level="ERROR")
@@ -949,6 +951,16 @@ def harvest_all():
             "files": newly_harvested_files
         }, fp, indent=2, ensure_ascii=False)
     logger.log(f"[+] Saved manifest with {len(newly_harvested_files)} novel items to '{manifest_path}'")
+
+    # Save updated items manifest for Neon DB metric syncing
+    updated_manifest_path = os.path.join(logs_dir, "last_harvest_updated_items.json")
+    with open(updated_manifest_path, "w", encoding="utf-8") as fp:
+        json.dump({
+            "harvested_at": datetime.datetime.now().astimezone().isoformat(),
+            "updated_count": len(updated_harvested_files),
+            "files": updated_harvested_files
+        }, fp, indent=2, ensure_ascii=False)
+    logger.log(f"[+] Saved manifest with {len(updated_harvested_files)} updated items to '{updated_manifest_path}'")
 
     logger.log(f"=======================================================")
     logger.log(f"🎯 Harvester Finished Successfully:")
