@@ -1740,9 +1740,15 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
                 const targetInbox = liveInboxData.find(x => (x.inbox_id || x.id) === enr.inbox_id);
                 if (targetInbox) {
                   targetInbox.title_ko = enr.title_ko;
+                  targetInbox.title_en = enr.title_en || targetInbox.title_en || targetInbox.title;
+                  targetInbox.title_zh = enr.title_zh || targetInbox.title_zh;
                   targetInbox.hook = enr.hook_ko;
                   targetInbox.hook_ko = enr.hook_ko;
-                  targetInbox.key_takeaways = enr.key_takeaways;
+                  targetInbox.hook_en = enr.hook_en || targetInbox.hook_en;
+                  targetInbox.hook_zh = enr.hook_zh || targetInbox.hook_zh;
+                  targetInbox.key_takeaways = enr.key_takeaways_ko || enr.key_takeaways;
+                  targetInbox.key_takeaways_en = enr.key_takeaways_en;
+                  targetInbox.key_takeaways_zh = enr.key_takeaways_zh;
                   targetInbox.category_primary = enr.category_primary;
                   targetInbox.tier1_category = enr.tier1_category;
                   targetInbox.item_type = enr.item_type;
@@ -1750,17 +1756,17 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
                   targetInbox.ai_enrichment = Object.assign(targetInbox.ai_enrichment || {}, {
                     korean_title: enr.title_ko,
                     hook: enr.hook_ko,
-                    key_takeaways: enr.key_takeaways,
+                    key_takeaways: enr.key_takeaways_ko || enr.key_takeaways,
                     category_primary: enr.category_primary,
                     tier1_category: enr.tier1_category,
                     type_classification: enr.item_type,
                     enriched_by_model: enr.enriched_by_model,
                     enriched_at: new Date().toISOString()
                   });
-                  targetInbox.multilingual = {
-                    ko: { title: enr.title_ko, hook: enr.hook_ko, key_takeaways: enr.key_takeaways },
-                    en: { title: targetInbox.title, hook: enr.hook_ko, key_takeaways: enr.key_takeaways },
-                    zh: { title: targetInbox.title, hook: enr.hook_ko, key_takeaways: enr.key_takeaways }
+                  targetInbox.multilingual = enr.multilingual || {
+                    ko: { title: enr.title_ko, hook: enr.hook_ko, key_takeaways: enr.key_takeaways_ko || enr.key_takeaways },
+                    en: { title: enr.title_en || targetInbox.title, hook: enr.hook_en || enr.hook_ko, key_takeaways: enr.key_takeaways_en || [enr.title_en || targetInbox.title] },
+                    zh: { title: enr.title_zh || targetInbox.title, hook: enr.hook_zh || enr.hook_ko, key_takeaways: enr.key_takeaways_zh || [enr.title_zh || targetInbox.title] }
                   };
                   hydratedAny = true;
                 }
@@ -1771,9 +1777,15 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
                   const targetModel = liveModelsData.find(x => (x.inbox_id || x.id) === enr.inbox_id);
                   if (targetModel) {
                     targetModel.title_ko = enr.title_ko;
+                    targetModel.title_en = enr.title_en || targetModel.title_en || targetModel.title;
+                    targetModel.title_zh = enr.title_zh || targetModel.title_zh;
                     targetModel.hook = enr.hook_ko;
                     targetModel.hook_ko = enr.hook_ko;
-                    targetModel.key_takeaways = enr.key_takeaways;
+                    targetModel.hook_en = enr.hook_en || targetModel.hook_en;
+                    targetModel.hook_zh = enr.hook_zh || targetModel.hook_zh;
+                    targetModel.key_takeaways = enr.key_takeaways_ko || enr.key_takeaways;
+                    targetModel.key_takeaways_en = enr.key_takeaways_en;
+                    targetModel.key_takeaways_zh = enr.key_takeaways_zh;
                     targetModel.category_primary = enr.category_primary;
                     targetModel.tier1_category = enr.tier1_category;
                     targetModel.item_type = 'MODEL';
@@ -1789,9 +1801,15 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
                   const targetNews = liveNewsData.find(x => (x.inbox_id || x.id) === enr.inbox_id);
                   if (targetNews) {
                     targetNews.title_ko = enr.title_ko;
+                    targetNews.title_en = enr.title_en || targetNews.title_en || targetNews.title;
+                    targetNews.title_zh = enr.title_zh || targetNews.title_zh;
                     targetNews.hook = enr.hook_ko;
                     targetNews.hook_ko = enr.hook_ko;
-                    targetNews.key_takeaways = enr.key_takeaways;
+                    targetNews.hook_en = enr.hook_en || targetNews.hook_en;
+                    targetNews.hook_zh = enr.hook_zh || targetNews.hook_zh;
+                    targetNews.key_takeaways = enr.key_takeaways_ko || enr.key_takeaways;
+                    targetNews.key_takeaways_en = enr.key_takeaways_en;
+                    targetNews.key_takeaways_zh = enr.key_takeaways_zh;
                     targetNews.category_primary = enr.category_primary;
                     targetNews.tier1_category = enr.tier1_category;
                     targetNews.item_type = enr.item_type || 'NEWS';

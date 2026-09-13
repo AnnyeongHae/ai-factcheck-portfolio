@@ -214,25 +214,35 @@ module.exports = async (req, res) => {
     }));
 
     const systemPrompt = `당신은 글로벌 최고 수준의 다국어 AI 기술 분석가 및 뉴스 번역 전문가입니다.
-주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어(KO), 영어(EN), 중국어(ZH) 3개 국어 번역 제목과 1줄 훅(Hook), 'AI 3줄 핵심 요약'(key_takeaways: 3개), 다국어 중복 방지를 위한 영문 표준 사건 식별키(canonical_story_key), 핵심 영문 엔티티 목록(core_entities), 그리고 정확한 카테고리 분류를 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 마크다운 등 기타 텍스트는 일절 출력하지 마세요.
+주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어(KO), 영어(EN), 중국어(ZH) 3개 국어 번역 제목, 1줄 훅(Hook), 'AI 3줄 핵심 요약'(언어별 3개씩: key_takeaways_ko, key_takeaways_en, key_takeaways_zh), 다국어 중복 방지를 위한 영문 표준 사건 식별키(canonical_story_key), 핵심 영문 엔티티 목록(core_entities), 그리고 정확한 카테고리 분류를 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 마크다운 등 기타 텍스트는 일절 출력하지 마세요.
 중요 번역 규칙:
-1. title_zh, hook_zh에는 반드시 실제 한자(간체자) 중국어 번역을 출력해야 합니다. 영어나 한국어를 그대로 복사하지 마세요.
-2. title_ko, hook_ko에는 자연스러운 고품질 한국어 번역을 출력하세요.
-3. title_en, hook_en에는 정제된 전문 영문 제목과 훅을 출력하세요.
+1. title_zh, hook_zh, key_takeaways_zh에는 반드시 실제 한자(간체자) 중국어 번역을 출력해야 합니다. 영어나 한국어를 그대로 복사하지 마세요.
+2. title_ko, hook_ko, key_takeaways_ko에는 반드시 실제 한글(Hangul)로 작성된 자연스러운 고품질 한국어 요약을 출력하세요. 중국어 한자를 한국어 요약에 섞지 마세요.
+3. title_en, hook_en, key_takeaways_en에는 정제된 전문 영문 제목, 훅, 요약을 출력하세요.
 4. 법률, 재판, 판결, 범죄, 사회적 사건사고 기사는 절대로 TECH(기술)로 분류하지 말고 item_type: "NEWS", tier1_category: "LAW_CRIME_JUSTICE"로 정확히 분류해야 합니다.
 [
   {
     "id": "item_id",
     "title_ko": "자연스러운 한국어 번역 제목",
     "hook_ko": "결정적 1줄 한국어 훅",
+    "key_takeaways_ko": [
+      "한국어로 작성된 첫 번째 핵심 요약 포인트",
+      "한국어로 작성된 두 번째 핵심 요약 포인트",
+      "한국어로 작성된 세 번째 핵심 요약 포인트"
+    ],
     "title_en": "Refined Professional English Title",
     "hook_en": "Decisive 1-line English hook",
+    "key_takeaways_en": [
+      "First key takeaway in English",
+      "Second key takeaway in English",
+      "Third key takeaway in English"
+    ],
     "title_zh": "精准吸引人的中文标题",
     "hook_zh": "直击核心亮点的中文一句话提炼",
-    "key_takeaways": [
-      "첫 번째 핵심 요약 포인트",
-      "두 번째 핵심 요약 포인트",
-      "세 번째 핵심 요약 포인트"
+    "key_takeaways_zh": [
+      "中文第一条核心要点",
+      "中文第二条核心要点",
+      "中文第三条核心要点"
     ],
     "canonical_story_key": "영문 소문자 하이픈 슬러그 (기사/사건의 핵심 사건을 식별하는 고유 영어 키워드 3~5단어, 예: houthi-seize-red-sea-island, flock-veteran-surveillance-tracking, deepseek-v3-release)",
     "core_entities": ["핵심 기관/고유명사/사건의 표준 영문 명칭 2~4개, 예: Houthi, Red Sea, Zuqar Island"],
@@ -310,12 +320,23 @@ module.exports = async (req, res) => {
           const hasChinese = parsed.some(p => /[\u4e00-\u9fff]/.test(p.title_zh || ''));
           const hasBrokenBytes = parsed.some(p => /[\ufffd]/.test((p.title_ko || p.korean_title || '') + ' ' + (p.hook_ko || '')));
           const hasHanziOnly = parsed.some(p => /[\u4e00-\u9fff]/.test(p.title_ko || p.korean_title || '') && !/[\uac00-\ud7a3]/.test(p.title_ko || p.korean_title || ''));
-          if (hasKorean && hasChinese && !hasBrokenBytes && !hasHanziOnly) {
+          
+          // Check if Korean takeaways leaked Hanzi without Hangul
+          const hasHanziOnlyTakeaways = parsed.some(p => {
+            const koTake = p.key_takeaways_ko || p.key_takeaways;
+            if (Array.isArray(koTake) && koTake.length > 0) {
+              const first = String(koTake[0]);
+              return /[\u4e00-\u9fff]/.test(first) && !/[\uac00-\ud7a3]/.test(first);
+            }
+            return false;
+          });
+
+          if (hasKorean && hasChinese && !hasBrokenBytes && !hasHanziOnly && !hasHanziOnlyTakeaways) {
             enrichedAiList = parsed;
             modelUsed = aiJson.model || modelName;
             break;
           } else {
-            console.warn(`[Worker] Model ${modelName} rejected: hasKorean=${hasKorean}, hasChinese=${hasChinese}, hasBrokenBytes=${hasBrokenBytes}, hasHanziOnly=${hasHanziOnly}`);
+            console.warn(`[Worker] Model ${modelName} rejected: hasKorean=${hasKorean}, hasChinese=${hasChinese}, hasBrokenBytes=${hasBrokenBytes}, hasHanziOnly=${hasHanziOnly}, hasHanziOnlyTakeaways=${hasHanziOnlyTakeaways}`);
           }
         }
       } catch (err) {
@@ -371,8 +392,34 @@ module.exports = async (req, res) => {
       const titleZhCandidate = (aiData?.title_zh || '').trim();
       const hookZhCandidate = (aiData?.hook_zh || '').trim();
 
-      const rawTakeaways = Array.isArray(aiData?.key_takeaways) ? aiData.key_takeaways : [];
-      const takeawaysKo = rawTakeaways
+      // Extract multilingual takeaways
+      const rawTakeawaysKo = Array.isArray(aiData?.key_takeaways_ko) 
+        ? aiData.key_takeaways_ko 
+        : (Array.isArray(aiData?.key_takeaways) ? aiData.key_takeaways : []);
+      
+      let takeawaysKo = rawTakeawaysKo
+        .map(t => String(t).replace(/^[-*•\d.]\s*/, '').trim())
+        .filter(Boolean)
+        .slice(0, 3);
+
+      // Chinese takeaway extraction
+      const rawTakeawaysZh = Array.isArray(aiData?.key_takeaways_zh) ? aiData.key_takeaways_zh : [];
+      let takeawaysZh = rawTakeawaysZh
+        .map(t => String(t).replace(/^[-*•\d.]\s*/, '').trim())
+        .filter(Boolean)
+        .slice(0, 3);
+
+      // If takeawaysKo contains pure Hanzi without Hangul, it is Chinese leaking into Korean!
+      if (takeawaysKo.length > 0 && chineseRegex.test(takeawaysKo[0]) && !koreanRegex.test(takeawaysKo[0])) {
+        if (takeawaysZh.length === 0) {
+          takeawaysZh = takeawaysKo;
+        }
+        takeawaysKo = []; // Invalidate Korean so it won't leak
+      }
+
+      // English takeaway extraction
+      const rawTakeawaysEn = Array.isArray(aiData?.key_takeaways_en) ? aiData.key_takeaways_en : [];
+      let takeawaysEn = rawTakeawaysEn
         .map(t => String(t).replace(/^[-*•\d.]\s*/, '').trim())
         .filter(Boolean)
         .slice(0, 3);
@@ -414,9 +461,21 @@ module.exports = async (req, res) => {
       // Ensure key_takeaways has 3 valid points (with fallback to hook/title if LLM returned fewer)
       const finalTakeaways = takeawaysKo.length > 0 
         ? takeawaysKo 
-        : (Array.isArray(payload.multilingual?.ko?.key_takeaways) && payload.multilingual.ko.key_takeaways.length > 0 
+        : (Array.isArray(payload.multilingual?.ko?.key_takeaways) && payload.multilingual.ko.key_takeaways.length > 0 && koreanRegex.test(payload.multilingual.ko.key_takeaways[0] || '')
             ? payload.multilingual.ko.key_takeaways 
             : [hookKo || titleKo]);
+
+      const finalTakeawaysEn = takeawaysEn.length > 0
+        ? takeawaysEn
+        : (Array.isArray(payload.multilingual?.en?.key_takeaways) && payload.multilingual.en.key_takeaways.length > 0 && !koreanRegex.test(payload.multilingual.en.key_takeaways[0] || '')
+            ? payload.multilingual.en.key_takeaways
+            : [hookEn || titleEn]);
+
+      const finalTakeawaysZh = takeawaysZh.length > 0
+        ? takeawaysZh
+        : (Array.isArray(payload.multilingual?.zh?.key_takeaways) && payload.multilingual.zh.key_takeaways.length > 0 && chineseRegex.test(payload.multilingual.zh.key_takeaways[0] || '')
+            ? payload.multilingual.zh.key_takeaways
+            : [hookZh || titleZh]);
 
       const inferred = inferCategoriesAndArtifact(cand, aiData || {});
 
@@ -459,18 +518,6 @@ module.exports = async (req, res) => {
           core_entities: coreEntities
         };
       }
-
-      const finalTakeawaysEn = (Array.isArray(aiData?.key_takeaways_en) && aiData.key_takeaways_en.length > 0)
-        ? aiData.key_takeaways_en
-        : (Array.isArray(payload.multilingual?.en?.key_takeaways) && !/[\uac00-\ud7a3]/.test(payload.multilingual.en.key_takeaways[0])
-            ? payload.multilingual.en.key_takeaways
-            : [titleEn]);
-
-      const finalTakeawaysZh = (Array.isArray(aiData?.key_takeaways_zh) && aiData.key_takeaways_zh.length > 0)
-        ? aiData.key_takeaways_zh
-        : (Array.isArray(payload.multilingual?.zh?.key_takeaways) && /[\u4e00-\u9fff]/.test(payload.multilingual.zh.key_takeaways[0])
-            ? payload.multilingual.zh.key_takeaways
-            : [titleZh]);
 
       payload.multilingual = {
         ko: { title: titleKo, hook: hookKo, key_takeaways: finalTakeaways },
@@ -517,8 +564,16 @@ module.exports = async (req, res) => {
       processedItems.push({
         inbox_id: cand.inbox_id,
         title_ko: titleKo,
+        title_en: titleEn,
+        title_zh: titleZh,
         hook_ko: hookKo,
+        hook_en: hookEn,
+        hook_zh: hookZh,
         key_takeaways: finalTakeaways,
+        key_takeaways_ko: finalTakeaways,
+        key_takeaways_en: finalTakeawaysEn,
+        key_takeaways_zh: finalTakeawaysZh,
+        multilingual: payload.multilingual,
         tier1_category: inferred.tier1,
         category_primary: inferred.categoryPrimary,
         item_type: inferred.itemType,
