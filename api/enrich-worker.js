@@ -20,24 +20,31 @@ const { getDbPool } = require('./_lib/db');
 const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 const FREE_MODELS = [
-  'nvidia/nemotron-3.5-lightning:free',
+  'inclusionai/ling-3.0-flash-vl:free',
+  'inclusionai/ling-3.0-flash-fin:free',
   'nex-agi/nex-n2.5-mini:free',
-  'liquid/lfm-2.5-2.6b:free',
-  'poolside/laguna-s-2.1:free',
-  'google/gemma-4-26b-a4b-it:free',
-  'google/gemma-4-31b-it:free',
-  'nex-agi/nex-n2.5-pro:free'
+  'nex-agi/nex-n2.5-pro:free',
+  'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free',
+  'poolside/laguna-s-2.1:free'
 ];
-
-
-
-
 
 function sanitizeJsonString(str) {
   let cleaned = (str || '').trim();
   cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
   cleaned = cleaned.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
   
+  // Strip non-JSON conversational preamble
+  const firstBracket = cleaned.indexOf('[');
+  const firstBrace = cleaned.indexOf('{');
+  let startIdx = -1;
+  if (firstBracket !== -1 && firstBrace !== -1) startIdx = Math.min(firstBracket, firstBrace);
+  else if (firstBracket !== -1) startIdx = firstBracket;
+  else if (firstBrace !== -1) startIdx = firstBrace;
+
+  if (startIdx > 0) {
+    cleaned = cleaned.slice(startIdx).trim();
+  }
+
   try {
     return JSON.parse(cleaned);
   } catch (e) {}
@@ -234,9 +241,9 @@ module.exports = async (req, res) => {
 
     let isQuotaExhausted = false;
 
-    // Call OpenRouter with fast fallback models and dynamic time budget (within Vercel Hobby 10s ceiling)
+    // Call OpenRouter with fast fallback models and dynamic time budget (within Vercel serverless limits)
     for (const modelName of FREE_MODELS) {
-      const budgetMs = 8500 - (Date.now() - startTime);
+      const budgetMs = 28000 - (Date.now() - startTime);
       if (budgetMs < 2000) {
         console.warn(`[Worker] Time budget exhausted (${budgetMs}ms left). Breaking early.`);
         break;
@@ -245,9 +252,8 @@ module.exports = async (req, res) => {
       let timeoutId = null;
       try {
         const controller = new AbortController();
-        const timeoutMs = Math.min(3500, budgetMs);
+        const timeoutMs = Math.min(8000, budgetMs);
         timeoutId = setTimeout(() => controller.abort(), timeoutMs);
-
 
         const aiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
           method: 'POST',
@@ -270,11 +276,15 @@ module.exports = async (req, res) => {
           signal: controller.signal
         });
 
-
         if (!aiResponse.ok) {
           console.warn(`[Worker] ${modelName} returned HTTP ${aiResponse.status} (${((Date.now() - callStart) / 1000).toFixed(2)}s)`);
           if (aiResponse.status === 429) {
-            isQuotaExhausted = true;
+            try {
+              const errBody = await aiResponse.text();
+              if (errBody.includes('daily') || errBody.includes('quota') || errBody.includes('exceeded')) {
+                isQuotaExhausted = true;
+              }
+            } catch (e) {}
           }
           continue;
         }
