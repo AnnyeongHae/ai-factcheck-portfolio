@@ -20,9 +20,9 @@ const { getDbPool } = require('./_lib/db');
 const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 const FREE_MODELS = [
+  'nex-agi/nex-n2.5-mini:free',
   'inclusionai/ling-3.0-flash-vl:free',
   'inclusionai/ling-3.0-flash-fin:free',
-  'nex-agi/nex-n2.5-mini:free',
   'nex-agi/nex-n2.5-pro:free',
   'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free',
   'poolside/laguna-s-2.1:free'
@@ -213,14 +213,22 @@ module.exports = async (req, res) => {
       description: (c.description || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 300)
     }));
 
-    const systemPrompt = `당신은 최고 수준의 AI 기술 아키텍트 및 뉴스 분류 전문가입니다.
-주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어 번역 제목, 1줄 결정적 훅(Hook), 'AI 3줄 핵심 요약'(key_takeaways: 3개), 다국어 중복 방지를 위한 영문 표준 사건 식별키(canonical_story_key), 핵심 영문 엔티티 목록(core_entities), 그리고 정확한 카테고리 분류를 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 마크다운 등 기타 텍스트는 일절 출력하지 마세요.
-중요: 법률, 재판, 판결, 범죄, 사회적 사건사고 기사는 절대로 TECH(기술)로 분류하지 말고 item_type: "NEWS", tier1_category: "LAW_CRIME_JUSTICE"로 정확히 분류해야 합니다.
+    const systemPrompt = `당신은 글로벌 최고 수준의 다국어 AI 기술 분석가 및 뉴스 번역 전문가입니다.
+주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어(KO), 영어(EN), 중국어(ZH) 3개 국어 번역 제목과 1줄 훅(Hook), 'AI 3줄 핵심 요약'(key_takeaways: 3개), 다국어 중복 방지를 위한 영문 표준 사건 식별키(canonical_story_key), 핵심 영문 엔티티 목록(core_entities), 그리고 정확한 카테고리 분류를 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 마크다운 등 기타 텍스트는 일절 출력하지 마세요.
+중요 번역 규칙:
+1. title_zh, hook_zh에는 반드시 실제 한자(간체자) 중국어 번역을 출력해야 합니다. 영어나 한국어를 그대로 복사하지 마세요.
+2. title_ko, hook_ko에는 자연스러운 고품질 한국어 번역을 출력하세요.
+3. title_en, hook_en에는 정제된 전문 영문 제목과 훅을 출력하세요.
+4. 법률, 재판, 판결, 범죄, 사회적 사건사고 기사는 절대로 TECH(기술)로 분류하지 말고 item_type: "NEWS", tier1_category: "LAW_CRIME_JUSTICE"로 정확히 분류해야 합니다.
 [
   {
     "id": "item_id",
-    "korean_title": "자연스러운 한국어 번역 제목",
+    "title_ko": "자연스러운 한국어 번역 제목",
     "hook_ko": "결정적 1줄 한국어 훅",
+    "title_en": "Refined Professional English Title",
+    "hook_en": "Decisive 1-line English hook",
+    "title_zh": "精准吸引人的中文标题",
+    "hook_zh": "直击核心亮点的中文一句话提炼",
     "key_takeaways": [
       "첫 번째 핵심 요약 포인트",
       "두 번째 핵심 요약 포인트",
@@ -297,16 +305,17 @@ module.exports = async (req, res) => {
         const parsed = sanitizeJsonString(rawContent);
 
         if (Array.isArray(parsed) && parsed.length > 0) {
-          // Check Korean character guardrail: title must contain Hangul and must not be pure Hanzi (Chinese)
-          const hasKorean = parsed.some(p => /[\uac00-\ud7a3]/.test(p.korean_title || ''));
-          const hasBrokenBytes = parsed.some(p => /[\ufffd]/.test((p.korean_title || '') + ' ' + (p.hook_ko || '')));
-          const hasHanziOnly = parsed.some(p => /[\u4e00-\u9fff]/.test(p.korean_title || '') && !/[\uac00-\ud7a3]/.test(p.korean_title || ''));
-          if (hasKorean && !hasBrokenBytes && !hasHanziOnly) {
+          // Check Korean and Chinese character guardrails
+          const hasKorean = parsed.some(p => /[\uac00-\ud7a3]/.test(p.title_ko || p.korean_title || ''));
+          const hasChinese = parsed.some(p => /[\u4e00-\u9fff]/.test(p.title_zh || ''));
+          const hasBrokenBytes = parsed.some(p => /[\ufffd]/.test((p.title_ko || p.korean_title || '') + ' ' + (p.hook_ko || '')));
+          const hasHanziOnly = parsed.some(p => /[\u4e00-\u9fff]/.test(p.title_ko || p.korean_title || '') && !/[\uac00-\ud7a3]/.test(p.title_ko || p.korean_title || ''));
+          if (hasKorean && hasChinese && !hasBrokenBytes && !hasHanziOnly) {
             enrichedAiList = parsed;
             modelUsed = aiJson.model || modelName;
             break;
           } else {
-            console.warn(`[Worker] Model ${modelName} rejected: hasKorean=${hasKorean}, hasBrokenBytes=${hasBrokenBytes}, hasHanziOnly=${hasHanziOnly}`);
+            console.warn(`[Worker] Model ${modelName} rejected: hasKorean=${hasKorean}, hasChinese=${hasChinese}, hasBrokenBytes=${hasBrokenBytes}, hasHanziOnly=${hasHanziOnly}`);
           }
         }
       } catch (err) {
@@ -344,6 +353,7 @@ module.exports = async (req, res) => {
     const processedItems = [];
 
     const koreanRegex = /[\uac00-\ud7a3]/;
+    const chineseRegex = /[\u4e00-\u9fff]/;
 
     // 4. Update Database for each item
     for (let i = 0; i < candidates.length; i++) {
@@ -354,8 +364,13 @@ module.exports = async (req, res) => {
         aiData = enrichedAiList[i];
       }
       
-      const titleKoCandidate = (aiData?.korean_title || '').trim();
+      const titleKoCandidate = (aiData?.title_ko || aiData?.korean_title || '').trim();
       const hookKoCandidate = (aiData?.hook_ko || '').trim();
+      const titleEnCandidate = (aiData?.title_en || '').trim();
+      const hookEnCandidate = (aiData?.hook_en || '').trim();
+      const titleZhCandidate = (aiData?.title_zh || '').trim();
+      const hookZhCandidate = (aiData?.hook_zh || '').trim();
+
       const rawTakeaways = Array.isArray(aiData?.key_takeaways) ? aiData.key_takeaways : [];
       const takeawaysKo = rawTakeaways
         .map(t => String(t).replace(/^[-*•\d.]\s*/, '').trim())
@@ -364,13 +379,17 @@ module.exports = async (req, res) => {
 
       const hasKoreanTitle = koreanRegex.test(titleKoCandidate);
       const hasKoreanHook = koreanRegex.test(hookKoCandidate);
-      const hasHanziOnlyTitle = /[\u4e00-\u9fff]/.test(titleKoCandidate) && !koreanRegex.test(titleKoCandidate);
+      const hasHanziOnlyTitle = chineseRegex.test(titleKoCandidate) && !koreanRegex.test(titleKoCandidate);
       const isValidKorean = hasKoreanTitle && hasKoreanHook && !hasHanziOnlyTitle;
 
-      // CRITICAL GUARDRAIL: Never mark as classified if valid Korean translation is missing or Chinese!
+      // Chinese validation: MUST contain actual Chinese Hanzi characters!
+      const hasChineseTitle = chineseRegex.test(titleZhCandidate);
+      const isValidChinese = hasChineseTitle;
+
+      // CRITICAL GUARDRAIL: Never mark as classified if valid Korean or Chinese translation is missing!
       // Touch updated_at so unclassified item rotates to back of queue instead of blocking indefinitely.
-      if (!aiData || !isValidKorean) {
-        console.warn(`[Worker] Skipping ${cand.inbox_id}: Missing/invalid Korean (titleKo: "${titleKoCandidate}"). Rotating item.`);
+      if (!aiData || !isValidKorean || !isValidChinese) {
+        console.warn(`[Worker] Skipping ${cand.inbox_id}: Missing/invalid trilingual output (ko: ${isValidKorean}, zh: ${isValidChinese}). Rotating item.`);
         await pool.query('UPDATE raw_trends_inbox SET updated_at = CURRENT_TIMESTAMP WHERE id = $1;', [cand.id]);
         continue;
       }
@@ -385,12 +404,12 @@ module.exports = async (req, res) => {
       const cleanTitle = (cand.title || '').replace(/^(Show HN|Ask HN|GeekNews|HN):\s*/i, '').trim();
 
       const titleKo = titleKoCandidate;
-      const titleEn = aiData?.title_en || payload.title_en || cleanTitle;
-      const titleZh = aiData?.title_zh || payload.title_zh || cleanTitle;
+      const titleEn = titleEnCandidate || aiData?.title_en || payload.title_en || cleanTitle;
+      const titleZh = titleZhCandidate;
 
       const hookKo = hookKoCandidate;
-      const hookEn = aiData?.hook_en || payload.hook_en || cleanTitle;
-      const hookZh = aiData?.hook_zh || payload.hook_zh || cleanTitle;
+      const hookEn = hookEnCandidate || aiData?.hook_en || payload.hook_en || cleanTitle;
+      const hookZh = hookZhCandidate || titleZhCandidate;
 
       // Ensure key_takeaways has 3 valid points (with fallback to hook/title if LLM returned fewer)
       const finalTakeaways = takeawaysKo.length > 0 
