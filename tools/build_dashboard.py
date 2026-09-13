@@ -273,12 +273,19 @@ def get_actions_telemetry():
 
                 # 3. Dynamic Slot Logs (strictly TODAY KST runs to prevent yesterday fallback)
                 cur.execute("""
-                    SELECT DISTINCT ON (timeline_slot) timeline_slot, duration_str, duration_seconds, conclusion, error_count, run_id,
+                    SELECT DISTINCT ON (computed_slot) 
+                           CASE 
+                               WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 0 THEN '00:17'
+                               WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 1 THEN '06:17'
+                               WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 2 THEN '12:17'
+                               ELSE '18:17'
+                           END as computed_slot,
+                           duration_str, duration_seconds, conclusion, error_count, run_id,
                            (started_at + interval '9 hours')::date as kst_date, items_collected, items_scanned, status
                     FROM github_actions_run_logs
-                    WHERE timeline_slot IN ('00:17', '06:17', '12:17', '18:17')
-                      AND (started_at + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
-                    ORDER BY timeline_slot, started_at DESC;
+                    WHERE (started_at + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
+                      AND event_trigger = 'schedule'
+                    ORDER BY computed_slot, started_at DESC;
                 """)
                 slot_rows = cur.fetchall()
                 slot_map = {"00:17": "00:00", "06:17": "06:00", "12:17": "12:00", "18:17": "18:00"}
@@ -500,16 +507,15 @@ def build_dashboard():
         if db_url:
             conn = psycopg2.connect(db_url)
             with conn.cursor() as cur:
-                # 1. Exact AI Enrichment breakdown by 6-hour slot of when AI analysis occurred (updated_at)
+                # 1. Enriched counts from raw_trends_inbox for today's harvested items
                 cur.execute("""
                     SELECT 
-                        floor(extract(hour from (updated_at + interval '9 hours')) / 6) * 6 as slot_hour,
-                        count(*) as total_enriched,
-                        count(*) filter (where item_type = 'MODEL' or source_platform ilike '%model%' or source_platform ilike '%hub%') as model_count,
-                        count(*) filter (where item_type != 'MODEL' and (source_platform is null or (source_platform not ilike '%model%' and source_platform not ilike '%hub%'))) as news_count
+                        floor(extract(hour from (created_at + interval '9 hours')) / 6) * 6 as slot_hour,
+                        count(*) filter (where is_classified = true) as total_enriched,
+                        count(*) filter (where is_classified = true and (item_type = 'MODEL' or source_platform ilike '%model%' or source_platform ilike '%hub%')) as model_count,
+                        count(*) filter (where is_classified = true and item_type != 'MODEL' and (source_platform is null or (source_platform not ilike '%model%' and source_platform not ilike '%hub%'))) as news_count
                     FROM raw_trends_inbox
-                    WHERE is_classified = true 
-                      AND (updated_at + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
+                    WHERE harvested_date = (CURRENT_TIMESTAMP + interval '9 hours')::date
                     GROUP BY 1;
                 """)
                 for r in cur.fetchall():
@@ -520,12 +526,21 @@ def build_dashboard():
                         slot_counts[s_k]["model"] = int(r[2])
                         slot_counts[s_k]["news"] = int(r[3])
 
-                # 2. Ingestion counts from GitHub Actions run logs (today's actual harvested counts)
+                # 2. Ingestion counts from GitHub Actions scheduled run logs
                 cur.execute("""
-                    SELECT timeline_slot, items_collected
+                    SELECT DISTINCT ON (computed_slot)
+                        CASE 
+                            WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 0 THEN '00:17'
+                            WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 1 THEN '06:17'
+                            WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 2 THEN '12:17'
+                            ELSE '18:17'
+                        END as computed_slot,
+                        items_collected
                     FROM github_actions_run_logs
-                    WHERE timeline_slot IN ('00:17', '06:17', '12:17', '18:17')
-                      AND (started_at + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date;
+                    WHERE (started_at + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
+                      AND event_trigger = 'schedule'
+                      AND items_collected IS NOT NULL
+                    ORDER BY computed_slot, started_at DESC;
                 """)
                 slot_map_gha = {'00:17': '00:00', '06:17': '06:00', '12:17': '12:00', '18:17': '18:00'}
                 for r in cur.fetchall():
@@ -566,6 +581,8 @@ def build_dashboard():
     for s in slots_def:
         cnt_inbox = slot_counts[s["short_slot"]]["inbox"]
         cnt_enriched = slot_counts[s["short_slot"]]["enriched"]
+        if cnt_inbox > 0 and cnt_enriched > cnt_inbox:
+            cnt_enriched = cnt_inbox
         today_total += cnt_inbox
         if cnt_inbox > peak_count:
             peak_count = cnt_inbox

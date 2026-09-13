@@ -187,13 +187,12 @@ module.exports = async (req, res) => {
     try {
       const tlEnrichRes = await pool.query(`
         SELECT 
-            floor(extract(hour from (updated_at + interval '9 hours')) / 6) * 6 as slot_hour,
-            count(*) as total_enriched,
-            count(*) filter (where item_type = 'MODEL' or source_platform ilike '%model%' or source_platform ilike '%hub%') as model_count,
-            count(*) filter (where item_type != 'MODEL' and (source_platform is null or (source_platform not ilike '%model%' and source_platform not ilike '%hub%'))) as news_count
+            floor(extract(hour from (created_at + interval '9 hours')) / 6) * 6 as slot_hour,
+            count(*) filter (where is_classified = true) as total_enriched,
+            count(*) filter (where is_classified = true and (item_type = 'MODEL' or source_platform ilike '%model%' or source_platform ilike '%hub%')) as model_count,
+            count(*) filter (where is_classified = true and item_type != 'MODEL' and (source_platform is null or (source_platform not ilike '%model%' and source_platform not ilike '%hub%'))) as news_count
         FROM raw_trends_inbox
-        WHERE is_classified = true 
-          AND (updated_at + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
+        WHERE harvested_date = (CURRENT_TIMESTAMP + interval '9 hours')::date
         GROUP BY 1;
       `);
       const enrichedMap = {};
@@ -206,14 +205,23 @@ module.exports = async (req, res) => {
       });
 
       const tlIngestRes = await pool.query(`
-        SELECT timeline_slot, items_collected
+        SELECT DISTINCT ON (computed_slot)
+            CASE 
+                WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 0 THEN '00:17'
+                WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 1 THEN '06:17'
+                WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 2 THEN '12:17'
+                ELSE '18:17'
+            END as computed_slot,
+            items_collected
         FROM github_actions_run_logs
-        WHERE timeline_slot IN ('00:17', '06:17', '12:17', '18:17')
-          AND (started_at + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date;
+        WHERE (started_at + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
+          AND event_trigger = 'schedule'
+          AND items_collected IS NOT NULL
+        ORDER BY computed_slot, started_at DESC;
       `);
       const ingestMap = { '00:17': 0, '06:17': 0, '12:17': 0, '18:17': 0 };
       tlIngestRes.rows.forEach(r => {
-        if (r.timeline_slot) ingestMap[r.timeline_slot] = parseInt(r.items_collected, 10) || 0;
+        if (r.computed_slot) ingestMap[r.computed_slot] = parseInt(r.items_collected, 10) || 0;
       });
 
       const slotDefs = [
@@ -223,17 +231,22 @@ module.exports = async (req, res) => {
         { slot: '4회차 (18시)', short_slot: '18:00', gha_slot: '18:17', hour: 18, range: '18:00 - 23:59', name: '저녁 라운드업' }
       ];
 
-      timeline24hLive = slotDefs.map(s => ({
-        slot: s.slot,
-        short_slot: s.short_slot,
-        hour: s.hour,
-        range: s.range,
-        name: s.name,
-        inbox_count: ingestMap[s.gha_slot] || 0,
-        enriched_count: enrichedMap[s.hour]?.total || 0,
-        model_count: enrichedMap[s.hour]?.model || 0,
-        news_count: enrichedMap[s.hour]?.news || 0
-      }));
+      timeline24hLive = slotDefs.map(s => {
+        const inb = ingestMap[s.gha_slot] || 0;
+        let enr = enrichedMap[s.hour]?.total || 0;
+        if (inb > 0 && enr > inb) enr = inb;
+        return {
+          slot: s.slot,
+          short_slot: s.short_slot,
+          hour: s.hour,
+          range: s.range,
+          name: s.name,
+          inbox_count: inb,
+          enriched_count: enr,
+          model_count: enrichedMap[s.hour]?.model || 0,
+          news_count: enrichedMap[s.hour]?.news || 0
+        };
+      });
     } catch (tlErr) {
       console.warn('[Stats Timeline 24h Warning]:', tlErr.message);
     }
