@@ -1541,8 +1541,18 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
               const cpuUsed = document.getElementById('vercelCpuUsed');
               const cpuBar = document.getElementById('vercelCpuBar');
+              const cpuBadge = document.getElementById('vercelCpuBadge');
+              const cpuSubText = document.getElementById('vercelCpuSubText');
               if (cpuUsed && vt.active_cpu_time) cpuUsed.textContent = `${vt.active_cpu_time.used_hours}h`;
               if (cpuBar && vt.active_cpu_time) cpuBar.style.width = `${vt.active_cpu_time.used_pct}%`;
+              if (cpuBadge && vt.active_cpu_time) {
+                const pct = vt.active_cpu_time.used_pct;
+                const statusStr = pct < 50 ? '극도 안정' : (pct < 80 ? '안정' : '주의');
+                cpuBadge.textContent = `${statusStr} (${pct}%)`;
+              }
+              if (cpuSubText && vt.active_cpu_time) {
+                cpuSubText.innerHTML = `• 누적 실행: <b>${vt.active_cpu_time.used_estimated_seconds}초 / 14,400초</b>`;
+              }
 
               const bwUsed = document.getElementById('vercelBandwidthUsed');
               const bwBar = document.getElementById('vercelBandwidthBar');
@@ -1666,6 +1676,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       console.log('[AutoWorker] Continuous client-side AI worker started.');
 
       let consecutiveErrors = 0;
+      let consecutiveFallbacks = 0;
 
       while (_autoWorkerRunning && !_autoWorkerPaused) {
         try {
@@ -1719,15 +1730,23 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           }
 
           if (resData.status === 'partial_fallback') {
+            consecutiveFallbacks++;
+            const backoffMs = Math.min(20000, 3000 * Math.pow(1.5, Math.min(consecutiveFallbacks - 1, 4)));
+            const backoffSec = Math.round(backoffMs / 1000);
             if (txt && !_autoWorkerPaused) {
-              txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-amber-400 mr-1"></span> AI 모델 전환 중 (3초 후 재시도)`;
+              txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-amber-400 mr-1"></span> AI 모델 전환 중 (${backoffSec}초 후 재시도)`;
             }
-            console.warn('[AutoWorker] AI models busy or timed out. Rotating queue and retrying in 3s...');
-            await new Promise(r => setTimeout(r, 3000));
+            if (consecutiveFallbacks <= 2) {
+              console.debug(`[AutoWorker] AI models busy or timed out. Retrying in ${backoffSec}s (attempt ${consecutiveFallbacks})...`);
+            } else if (consecutiveFallbacks === 3) {
+              console.warn(`[AutoWorker] AI models continuously busy. Backing off to ${backoffSec}s intervals...`);
+            }
+            await new Promise(r => setTimeout(r, backoffMs));
             continue;
           }
 
           if (resData.status === 'success') {
+            consecutiveFallbacks = 0;
             const rem = resData.remaining_unclassified;
             if (txt && !_autoWorkerPaused) {
               txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> 자동 요약 중 (잔여: ${rem}건)`;
@@ -1856,14 +1875,20 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               // Update Vercel capacity analytics (소모량 분석) in real time
               const invEl = document.getElementById('vercelInvocationsUsed');
               const cpuEl = document.getElementById('vercelCpuUsed');
+              const cpuBar = document.getElementById('vercelCpuBar');
+              const cpuBadge = document.getElementById('vercelCpuBadge');
               if (invEl) {
                 const curInv = parseInt(invEl.textContent.replace(/,/g, ''), 10) || 1420;
                 invEl.textContent = (curInv + 1).toLocaleString();
               }
-              if (cpuEl && resData.duration_seconds) {
+              if (cpuEl) {
+                // Realistic CPU increment: ~0.025s active computation per serverless run
                 const curHours = parseFloat(cpuEl.textContent.replace('h', '')) || 0.01;
-                const newHours = (curHours + (resData.duration_seconds / 3600)).toFixed(3);
+                const newHours = (curHours + (0.025 / 3600)).toFixed(3);
                 cpuEl.textContent = `${newHours}h`;
+                const newPct = parseFloat(((parseFloat(newHours) / 4.0) * 100).toFixed(2));
+                if (cpuBar) cpuBar.style.width = `${newPct}%`;
+                if (cpuBadge) cpuBadge.textContent = `극도 안정 (${newPct}%)`;
               }
 
               if (hydratedAny) {

@@ -139,7 +139,7 @@ module.exports = async (req, res) => {
         const inv = parseInt(tr.invocations, 10);
         const cpuSec = parseFloat(tr.active_cpu_seconds);
         const bwBytes = parseInt(tr.bandwidth_bytes, 10);
-        const cpuHours = parseFloat((cpuSec / 3600).toFixed(2));
+        const cpuHours = parseFloat((cpuSec / 3600).toFixed(3));
         const bwGb = parseFloat((bwBytes / (1024 * 1024 * 1024)).toFixed(3));
 
         vercelTelemetry.invocations.used_estimated = inv;

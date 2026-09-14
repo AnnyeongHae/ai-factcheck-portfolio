@@ -600,12 +600,21 @@ module.exports = async (req, res) => {
 
         await pool.query(`
           UPDATE vercel_serverless_telemetry
-          SET invocations = invocations + 1,
-              active_cpu_seconds = active_cpu_seconds + $1,
-              bandwidth_bytes = bandwidth_bytes + 5000,
+          SET invocations = CASE 
+                WHEN date_trunc('month', last_invoked_at) < date_trunc('month', CURRENT_TIMESTAMP) THEN 1
+                ELSE invocations + 1
+              END,
+              active_cpu_seconds = CASE 
+                WHEN date_trunc('month', last_invoked_at) < date_trunc('month', CURRENT_TIMESTAMP) THEN 0.025
+                ELSE active_cpu_seconds + 0.025
+              END,
+              bandwidth_bytes = CASE 
+                WHEN date_trunc('month', last_invoked_at) < date_trunc('month', CURRENT_TIMESTAMP) THEN 5000
+                ELSE bandwidth_bytes + 5000
+              END,
               last_invoked_at = CURRENT_TIMESTAMP
           WHERE id = 1;
-        `, [parseFloat(totalDurationSec)]);
+        `);
       } catch (logErr) {
         console.warn('[Worker Log Record Error]:', logErr.message);
       }

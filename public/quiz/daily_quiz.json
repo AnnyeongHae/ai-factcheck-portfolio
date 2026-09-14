@@ -1,0 +1,151 @@
+{
+  "quiz_date": "2026-09-14",
+  "questions": [
+    {
+      "id": 1,
+      "type": "verdict",
+      "claim": "AI가 2,234개 인체 부품 3D 지오메트리를 원클릭으로 생성했다는 주장은 과장이며, 실제로는 오픈 CAD 에셋을 AI 코딩 어시스턴트로 인터랙티브 프로그래밍한 것임.",
+      "claim_en": "",
+      "options": [
+        {
+          "label": "✅ 사실 (VERIFIED_TRUE)",
+          "value": "VERIFIED_TRUE"
+        },
+        {
+          "label": "⚠️ 반만 맞음 (HALF_TRUE)",
+          "value": "HALF_TRUE"
+        },
+        {
+          "label": "❌ 과장 (GAMED)",
+          "value": "GAMED"
+        },
+        {
+          "label": "🤔 판단 불가",
+          "value": "UNKNOWN"
+        }
+      ],
+      "correct_answer": "HALF_TRUE",
+      "explanation_ko": "3D 웹 애플리케이션 구축 시 AI는 3D 지오메트리 생성보다 Three.js 씬 로직, 셰이더, 인터랙티브 이벤트 바인딩 자동화에 활용하는 것이 실질적임.",
+      "explanation_en": "",
+      "source_case": "2026-09-07_human_atlas_3d_exploded_anatomy",
+      "difficulty": "medium"
+    },
+    {
+      "id": 2,
+      "type": "verdict",
+      "claim": "폐쇄형 샘플러 독점을 깨는 오픈소스 CLAP/VST3 고성능 오디오 샘플러의 등장에 주목하여 검증.",
+      "claim_en": "폐쇄형 샘플러 독점을 깨는 오픈소스 CLAP/VST3 고성능 오디오 샘플러의 등장에 주목하여 검증.",
+      "options": [
+        {
+          "label": "✅ 사실 (VERIFIED_TRUE)",
+          "value": "VERIFIED_TRUE"
+        },
+        {
+          "label": "⚠️ 반만 맞음 (HALF_TRUE)",
+          "value": "HALF_TRUE"
+        },
+        {
+          "label": "❌ 과장 (GAMED)",
+          "value": "GAMED"
+        },
+        {
+          "label": "🤔 판단 불가",
+          "value": "UNKNOWN"
+        }
+      ],
+      "correct_answer": "VERIFIED_TRUE",
+      "explanation_ko": "실시간 DSP 오디오 버퍼링 시 제로카피 링버퍼(Ring Buffer)와 비동기 디스크 프리페치(Prefetch) 아키텍처 학습.",
+      "explanation_en": "",
+      "source_case": "2026-09-01_sns_2026_08_31_sns_hacker_news_show_hn_floe_an_open_source_plugi",
+      "difficulty": "medium"
+    },
+    {
+      "id": 3,
+      "type": "verdict",
+      "claim": "트위터 API 유료화와 게스트 토큰 사형선고를 뚫고 잡초처럼 살아남은 Nitter: 탈중앙화 프록시의 승리인가, 더미 계정 밴(Ban)과의 끝없는 소모전인가?",
+      "claim_en": "Nitter's weed-like resurgence against X's API paywall: A victory of decentralized proxies or an endless cat-and-mouse war against account bans?",
+      "options": [
+        {
+          "label": "✅ 사실 (VERIFIED_TRUE)",
+          "value": "VERIFIED_TRUE"
+        },
+        {
+          "label": "⚠️ 반만 맞음 (HALF_TRUE)",
+          "value": "HALF_TRUE"
+        },
+        {
+          "label": "❌ 과장 (GAMED)",
+          "value": "GAMED"
+        },
+        {
+          "label": "🤔 판단 불가",
+          "value": "UNKNOWN"
+        }
+      ],
+      "correct_answer": "HALF_TRUE",
+      "explanation_ko": "1. **Nim 기반의 초경량 무상태(Stateless) 아키텍처**: 클라이언트 측 자바스크립트를 완전히 배제하고 트위터 비공개 내부 GraphQL 엔드포인트를 호출하여 서버사이드 렌더링(SSR) 수행. 2. **게스트 토큰 사망 후 '더미 계정 풀(Account Farm)'으로의 진화**: 공식 Guest Token이 차단된 후, 커뮤니티 포크(Shitter 등)는 다수의 인증 쿠키(`auth_token`)와 주거용 프록시를 순환(Round-robin) 배치하여 IP Rate-Limit 회피. 3. **Apify/FxEmbed 대비 포지셔닝 차이**: Apify는 분산 스크래핑 클라우드, FxEmbed는 OpenGraph 메타태그 생성기인 반면, Nitter는 개인의 프라이버시 브라우징 및 RSS 피드 추출에 특화됨. 4. **프로덕션 가용성 한계**: X의 봇 감지 알고리즘이 주기적으로 더미 계정들을 대량 정지시키므로 인스턴스 생존 주기가 불규칙함.",
+      "explanation_en": "",
+      "source_case": "2026-09-05_sns_nitter_instances_twitter_scraping_factcheck",
+      "difficulty": "medium"
+    },
+    {
+      "id": 4,
+      "type": "verdict",
+      "claim": "Typed Evidence Graph를 통한 가설 상속과 MLE-bench 1/12 비용 절감 주장에 주목하여 심층 검증.",
+      "claim_en": "Typed Evidence Graph를 통한 가설 상속과 MLE-bench 1/12 비용 절감 주장에 주목하여 심층 검증.",
+      "options": [
+        {
+          "label": "✅ 사실 (VERIFIED_TRUE)",
+          "value": "VERIFIED_TRUE"
+        },
+        {
+          "label": "⚠️ 반만 맞음 (HALF_TRUE)",
+          "value": "HALF_TRUE"
+        },
+        {
+          "label": "❌ 과장 (GAMED)",
+          "value": "GAMED"
+        },
+        {
+          "label": "🤔 판단 불가",
+          "value": "UNKNOWN"
+        }
+      ],
+      "correct_answer": "VERIFIED_TRUE",
+      "explanation_ko": "장기 에이전트 아키텍처에서 단순 텍스트 메모리가 아닌 '실행 결과가 타입화된 지식 그래프'가 왜 필수적인지 체득.",
+      "explanation_en": "",
+      "source_case": "2026-08-31_repo_github_sapientincpraxist",
+      "difficulty": "medium"
+    },
+    {
+      "id": 5,
+      "type": "verdict",
+      "claim": "2B 파라미터 밀집 모델이 8B급 추론 벤치마크를 달성하고 모바일에서 131K 컨텍스트를 지원한다는 마케팅 주장의 이면에 숨겨진 '토큰 폭증 비용'과 'KV 캐시 메모리 병목'을 실측 검증.",
+      "claim_en": "Empirical validation of OpenBMB MiniCPM5-2B claims: dissecting token bloat tradeoffs and KV cache memory bottlenecks on edge hardware.",
+      "options": [
+        {
+          "label": "✅ 사실 (VERIFIED_TRUE)",
+          "value": "VERIFIED_TRUE"
+        },
+        {
+          "label": "⚠️ 반만 맞음 (HALF_TRUE)",
+          "value": "HALF_TRUE"
+        },
+        {
+          "label": "❌ 과장 (GAMED)",
+          "value": "GAMED"
+        },
+        {
+          "label": "🤔 판단 불가",
+          "value": "UNKNOWN"
+        }
+      ],
+      "correct_answer": "HALF_TRUE",
+      "explanation_ko": "온디바이스 AI 파이프라인 설계 시 단순히 모델 가중치 크기(Weights Footprint)만 볼 것이 아니라, 추론 단계의 내부 독백 토큰 수(Inference Cost)와 KV 캐시 메모리(Runtime KV Allocation)를 합산한 Total VRAM을 반드시 사전 계산해야 함을 입증.",
+      "explanation_en": "",
+      "source_case": "2026-09-08_repo_openbmb_minicpm5_2b_claim",
+      "difficulty": "medium"
+    }
+  ],
+  "total_questions": 5
+}

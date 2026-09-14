@@ -114,6 +114,20 @@ def parse_iso_timestamp(item: dict) -> float:
                 pass
     return 0.0
 
+def are_story_keys_similar(key_a: str, key_b: str) -> bool:
+    if not key_a or not key_b:
+        return False
+    if key_a == key_b:
+        return True
+    parts_a = set(re.findall(r'[a-z0-9]+', key_a.lower())) - {"the", "a", "an", "and", "or", "in", "on", "of", "to", "with", "by", "for"}
+    parts_b = set(re.findall(r'[a-z0-9]+', key_b.lower())) - {"the", "a", "an", "and", "or", "in", "on", "of", "to", "with", "by", "for"}
+    if len(parts_a) >= 3 and len(parts_b) >= 3:
+        common = parts_a.intersection(parts_b)
+        min_len = min(len(parts_a), len(parts_b))
+        if len(common) >= 3 and (len(common) / min_len) >= 0.50:
+            return True
+    return False
+
 def are_items_duplicate_story(item_a: dict, item_b: dict, max_window_hours: float = 72.0) -> bool:
     # 1. Check URL exact match (including external article_url)
     urls_a = {item_a.get("source_url") or "", item_a.get("url") or "", item_a.get("article_url") or ""} - {""}
@@ -129,10 +143,10 @@ def are_items_duplicate_story(item_a: dict, item_b: dict, max_window_hours: floa
         if hour_diff > max_window_hours:
             return False
 
-    # 3. Canonical Story Key exact match
+    # 3. Canonical Story Key exact or high-containment match
     key_a = get_item_story_key(item_a)
     key_b = get_item_story_key(item_b)
-    if key_a and key_b and key_a == key_b:
+    if key_a and key_b and are_story_keys_similar(key_a, key_b):
         return True
 
     # 4. Core Entities Overlap
@@ -164,12 +178,12 @@ def are_items_duplicate_story(item_a: dict, item_b: dict, max_window_hours: floa
             if anchor.issubset(tokens_a) and anchor.issubset(tokens_b):
                 return True
 
-        # 5-B. High Precision Overlap Ratio (>= 0.65 on non-generic title tokens)
+        # 5-B. High Precision Overlap Ratio (>= 0.60 on non-generic title tokens)
         common = tokens_a.intersection(tokens_b)
         min_len = min(len(tokens_a), len(tokens_b))
         if min_len >= 3 and len(common) >= 3:
             overlap_ratio = len(common) / min_len
-            if overlap_ratio >= 0.65:
+            if overlap_ratio >= 0.60:
                 return True
 
     return False
@@ -270,9 +284,9 @@ def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list
             if ts > 0 and m_ts > 0 and (abs(ts - m_ts) / 3600.0) > max_window_hours:
                 continue
 
-            # 3. Canonical story key match
+            # 3. Canonical story key match (exact or high-containment)
             m_key = merged_keys[m_idx]
-            if key and m_key and key == m_key:
+            if key and m_key and are_story_keys_similar(key, m_key):
                 matched_idx = m_idx
                 break
 
@@ -291,7 +305,7 @@ def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list
                 common = tokens.intersection(m_tokens)
                 min_len = min(len(tokens), len(m_tokens))
                 if min_len >= 3 and len(common) >= 3:
-                    if (len(common) / min_len) >= 0.65:
+                    if (len(common) / min_len) >= 0.60:
                         matched_idx = m_idx
                         break
 
