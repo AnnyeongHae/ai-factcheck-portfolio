@@ -2047,18 +2047,48 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     function formatDateTimeCompact(raw) {
       if (!raw) return '-';
       const s = String(raw).trim();
-      if (/^\\d{4}-\\d{2}-\\d{2}$/.test(s)) {
+      if (/^\d{4}-\d{2}-\d{2}$/.test(s)) {
         const parts = s.split('-');
         return `<span class="hidden sm:inline">${parts[0]}-</span>${parts[1]}-${parts[2]}`;
       }
       const d = new Date(raw);
       if (isNaN(d.getTime())) return s.substring(0, 10);
-      const y = d.getFullYear();
-      const m = String(d.getMonth() + 1).padStart(2, '0');
-      const day = String(d.getDate()).padStart(2, '0');
-      const hh = String(d.getHours()).padStart(2, '0');
-      const mm = String(d.getMinutes()).padStart(2, '0');
-      return `<span class="hidden sm:inline">${y}-</span>${m}-${day} ${hh}:${mm}`;
+      try {
+        const parts = new Intl.DateTimeFormat('en-CA', {
+          timeZone: 'Asia/Seoul',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        }).formatToParts(d);
+        const getP = (type) => parts.find(p => p.type === type)?.value || '';
+        const y = getP('year');
+        const m = getP('month');
+        const day = getP('day');
+        const hh = getP('hour');
+        const mm = getP('minute');
+        return `<span class="hidden sm:inline">${y}-</span>${m}-${day} ${hh}:${mm}`;
+      } catch (e) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        const hh = String(d.getHours()).padStart(2, '0');
+        const mm = String(d.getMinutes()).padStart(2, '0');
+        return `<span class="hidden sm:inline">${y}-</span>${m}-${day} ${hh}:${mm}`;
+      }
+    }
+
+    function formatKstMonthDay(raw) {
+      if (!raw) return '-';
+      try {
+        const d = new Date(raw);
+        if (isNaN(d.getTime())) return String(raw).substring(5, 10);
+        return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul', month: '2-digit', day: '2-digit' }).format(d);
+      } catch (e) {
+        return String(raw).substring(5, 10);
+      }
     }
 
     function formatModelAttribution(modelStr) {
@@ -3156,10 +3186,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     }
 
     // 🌟 Scalable Multi-Source Cross-Platform Clustering UX Engine
-    function buildMultiSourceCluster(sources, rawItemId) {
-      if (!sources || sources.length === 0) return '';
-      const total = sources.length;
-      const safeId = 'src_' + String(rawItemId || Math.random()).replace(/[^a-zA-Z0-9_-]/g, '_');
+    function buildMultiSourceCluster(rawSources, rawItemId) {
+      if (!rawSources || rawSources.length === 0) return '';
 
       function getSourceMeta(s) {
         const p = (s.platform || s.source_name || '').toLowerCase();
@@ -3200,6 +3228,27 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
         return { icon, label, badgeCls, url: u };
       }
+
+      // Deduplicate sources by platform so same-platform links are reduced to 1
+      const seenPlatforms = new Set();
+      const sources = [];
+      for (const s of rawSources) {
+        const meta = getSourceMeta(s);
+        const pKey = meta.label || (s.platform || s.source_name || '').toLowerCase();
+        if (!seenPlatforms.has(pKey)) {
+          seenPlatforms.add(pKey);
+          sources.push(s);
+        }
+      }
+
+      if (sources.length === 0) return '';
+      if (sources.length === 1) {
+        const meta = getSourceMeta(sources[0]);
+        return `<a href="${meta.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${meta.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs">${meta.icon} ${meta.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+      }
+
+      const total = sources.length;
+      const safeId = 'src_' + String(rawItemId || Math.random()).replace(/[^a-zA-Z0-9_-]/g, '_');
 
       if (total <= 2) {
         let html = `<div class="flex items-center gap-1.5 flex-wrap">`;
@@ -4333,8 +4382,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
         const viralScore = calculateStandardizedViralScore(it);
         const tracking = it.metric_tracking || {};
-        const initDate = tracking.initial?.recorded_at ? tracking.initial.recorded_at.substring(5, 10) : (tracking.initial_date || (it.harvested_date ? it.harvested_date.substring(5, 10) : '08-31'));
-        const latestDate = tracking.latest?.updated_at ? tracking.latest.updated_at.substring(5, 10) : (tracking.latest_date || (it.harvested_date ? it.harvested_date.substring(5, 10) : '09-02'));
+        const initDate = formatKstMonthDay(tracking.initial?.recorded_at || tracking.initial_date || it.created_at || it.harvested_date);
+        const latestDate = formatKstMonthDay(tracking.latest?.updated_at || tracking.latest_date || it.updated_at || it.harvested_date);
         const initVal = tracking.initial?.display || tracking.initial_metric || it.viral_metric || '-';
         const latestVal = tracking.latest?.display || tracking.latest_metric || it.viral_metric || '-';
         const delta = (tracking.delta !== undefined) ? tracking.delta : (tracking.growth_delta || 0);
@@ -4401,11 +4450,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
                 <span class="font-semibold text-ink-secondary">${initVal}</span>
               </div>
               <div class="flex items-center justify-between pt-0.5 border-t border-surface-border">
-                <span class="text-indigo-950 font-bold">${currentLang === 'KO' ? '최신 갱신' : (currentLang === 'ZH' ? '最新同步' : 'Latest')} (${latestDate}):</span>
-                <div class="flex items-center gap-1 font-bold">
-                  <span class="${delta > 0 ? 'text-emerald-700' : 'text-ink-primary'}">${latestVal}</span>
-                  ${delta > 0 ? `<span class="px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-800 text-[10px] border border-emerald-200">${deltaDisplay} 🔺</span>` : ''}
-                </div>
+                <span class="${delta > 0 ? 'text-indigo-950 font-bold' : 'text-ink-muted'}">${currentLang === 'KO' ? '최신 갱신' : (currentLang === 'ZH' ? '最新同步' : 'Latest')} (${latestDate}):</span>
+                <span class="${delta > 0 ? 'text-emerald-700 font-bold' : 'text-ink-primary font-semibold'}">${latestVal}</span>
               </div>
             </div>
 

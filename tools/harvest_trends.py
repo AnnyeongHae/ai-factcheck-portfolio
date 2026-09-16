@@ -876,7 +876,7 @@ def harvest_all():
                 old_item["viral_metric"] = cand["viral_metric"]
                 old_item["updated_at"] = now_iso
                 if not old_item.get("created_at"):
-                    old_item["created_at"] = old_item.get("published_at") or now_iso
+                    old_item["created_at"] = old_item.get("harvested_at") or now_iso
                 if "title_ko" in cand and not old_item.get("title_ko"): old_item["title_ko"] = cand["title_ko"]
                 if "description_ko" in cand and not old_item.get("description_ko"): old_item["description_ko"] = cand["description_ko"]
                 if "hn_url" in cand and not old_item.get("hn_url"): old_item["hn_url"] = cand["hn_url"]
@@ -904,7 +904,7 @@ def harvest_all():
 
         now_iso = now_kst.isoformat()
         pub_iso = cand.get("published_at") or now_iso
-        created_at_iso = pub_iso
+        created_at_iso = now_iso
 
         metric_tracking = {
             "initial": {

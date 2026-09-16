@@ -202,7 +202,19 @@ def merge_sources_into_primary(primary: dict, secondary: dict) -> dict:
             }
         ]
 
+    def get_canonical_platform(s):
+        p = (s.get("platform") or s.get("source_name") or "").lower()
+        u = (s.get("url") or "").lower()
+        if "github" in p or "github.com" in u: return "github"
+        if "hugging" in p or "huggingface.co" in u: return "huggingface"
+        if "hacker news" in p or "ycombinator.com" in u: return "hackernews"
+        if "geeknews" in p or "hada.io" in u: return "geeknews"
+        if "reddit" in p or "reddit.com" in u: return "reddit"
+        if "arxiv" in p or "arxiv.org" in u: return "arxiv"
+        return p or u
+
     existing_urls = {s.get("url") for s in primary["sources"] if s.get("url")}
+    existing_platforms = {get_canonical_platform(s) for s in primary["sources"]}
     
     # Secondary sources to add
     sec_sources = secondary.get("sources", [])
@@ -220,9 +232,11 @@ def merge_sources_into_primary(primary: dict, secondary: dict) -> dict:
 
     for s in sec_sources:
         s_url = s.get("url")
-        if s_url and s_url not in existing_urls:
+        s_plat = get_canonical_platform(s)
+        if s_url and s_url not in existing_urls and s_plat not in existing_platforms:
             primary["sources"].append(s)
             existing_urls.add(s_url)
+            existing_platforms.add(s_plat)
 
     primary["source_count"] = len(primary["sources"])
 
