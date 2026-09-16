@@ -3,12 +3,11 @@ name: Deploy AI Fact-Check Portfolio & Neon DB Sync
 on:
   workflow_dispatch:
   schedule:
-    # 🌟 1일 4회(6시간 주기) 전략 수집 + 23:30 EOD 최종 감사
+    # 🌟 1일 4회(6시간 주기) 전략 수집
     # 1회차 00:17 KST (UTC 15:17) - 심야 글로벌 릴리스
     # 2회차 06:17 KST (UTC 21:17) - 모닝 브리핑
     # 3회차 12:17 KST (UTC 03:17) - 정오 레이더
     # 4회차 18:17 KST (UTC 09:17) - 저녁 라운드업
-    # + 23:30 KST: daily_eod_enrichment.yml (EOD 전수 배치 감사)
     - cron: '17 3,9,15,21 * * *'
 
 permissions:

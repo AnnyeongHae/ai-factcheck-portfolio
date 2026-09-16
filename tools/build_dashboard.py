@@ -201,12 +201,11 @@ def get_actions_telemetry():
         "workflows": [
             {"name": "deploy_pages.yml", "total_min": 685, "runs": 148, "avg_time": "3분 40초", "failure_rate": "8%"},
             {"name": "pages build deployment", "total_min": 640, "runs": 224, "avg_time": "35초", "failure_rate": "<1%"},
-            {"name": "deploy_only.yml", "total_min": 20, "runs": 20, "avg_time": "32초", "failure_rate": "0%"},
-            {"name": "daily_eod_enrichment.yml", "total_min": 7, "runs": 6, "avg_time": "7분 7초", "failure_rate": "0%"}
+            {"name": "deploy_only.yml", "total_min": 20, "runs": 20, "avg_time": "32초", "failure_rate": "0%"}
         ],
         "alert_level": "WARNING",
         "can_shorten_interval": False,
-        "advice": "💡 월간 GitHub Actions 쿼터 2,000분 중 약 1,402분(70.1%)을 안정적으로 운용 중입니다. 1일 4회(6시간 주기) + 23:30 EOD 배치 체제가 쿼터 한도 내에서 최적 효율을 발휘하고 있습니다.",
+        "advice": "💡 월간 GitHub Actions 쿼터 2,000분 중 약 1,345분(67.2%)을 안정적으로 운용 중입니다. 1일 4회(6시간 주기) 전략 수집 체제가 쿼터 한도 내에서 최적 효율을 발휘하고 있습니다.",
         "runs": [],
         "slot_logs": {
             "00:00": {"slot": "1회차 (00:17)", "name": "심야 글로벌 릴리스", "actual_duration": None, "duration_sec": None, "status": "PENDING", "error_count": 0, "run_id": None, "is_today": False, "items_collected": 0, "items_scanned": None},

@@ -324,7 +324,7 @@
                   <span id="timelineBadgeText">1일 4회 6h 펄스</span>
                 </span>
               </div>
-              <p class="text-[11px] text-ink-muted" id="timelineSub">1일 4회(00, 06, 12, 18시 KST) 6시간 주기 전략 수집 + 23:30 EOD 전수 감사</p>
+              <p class="text-[11px] text-ink-muted" id="timelineSub">1일 4회(00, 06, 12, 18시 KST) 6시간 주기 전략 수집 & AI 실시간 분류</p>
             </div>
             
             <div class="flex items-center gap-3 text-[11px] font-mono text-ink-secondary">
@@ -751,7 +751,7 @@
           </div>
 
           <!-- Breakdown by Workflows (Image 1 metrics) -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 pb-1 text-[11px] font-mono">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 pb-1 text-[11px] font-mono">
             <div class="p-2 rounded-lg bg-white border border-slate-200">
               <div class="text-ink-muted text-[10px]">deploy_pages.yml</div>
               <div class="font-bold text-amber-700">615분 <span class="text-[10px] font-normal text-ink-muted">(136회)</span></div>
@@ -766,11 +766,6 @@
               <div class="text-ink-muted text-[10px]">deploy_only.yml</div>
               <div class="font-bold text-ink-primary">18분 <span class="text-[10px] font-normal text-ink-muted">(18회)</span></div>
               <div class="text-[10px] text-emerald-600">실패율 0% · 평균 32s</div>
-            </div>
-            <div class="p-2 rounded-lg bg-white border border-slate-200">
-              <div class="text-ink-muted text-[10px]">daily_eod_enrichment</div>
-              <div class="font-bold text-ink-primary">5분 <span class="text-[10px] font-normal text-ink-muted">(5회)</span></div>
-              <div class="text-[10px] text-red-500">실패율 40% · 평균 30s</div>
             </div>
           </div>
 
@@ -846,7 +841,7 @@
         <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between text-[11px] text-ink-muted font-mono gap-1 border-t border-surface-border/60">
           <span class="flex items-center gap-1">
             <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>
-            <span id="pipelineFooterAudit">23:30 KST 야간 EOD 전수 배치 감사 자동 연동</span>
+            <span id="pipelineFooterAudit">1일 4회(00, 06, 12, 18시 KST) 정기 전략 수집 & Vercel 실시간 동기화</span>
           </span>
           <span class="text-[10px] text-ink-secondary" id="pipelineFooterNote">
             * GitHub Actions 큐 상태에 따라 ±2~5분의 스케줄 지연이 발생할 수 있습니다.
