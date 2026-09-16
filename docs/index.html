@@ -145,20 +145,13 @@
 
       <!-- Right Actions: Admin Archive, Live DB Badge & Tri-Lingual (KO / ZH / EN) Toggle -->
       <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-        <!-- Admin Raw Archive Access Button (Visible on desktop, mobile accessed via subnav) -->
-        <button onclick="switchView('inbox')" id="adminArchiveBtn" class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-ink-muted hover:text-ink-primary hover:bg-surface-subtle transition border border-transparent hover:border-surface-border" title="관리자 전용 원천 데이터 아카이브">
-          <i data-lucide="archive" class="w-3.5 h-3.5 text-slate-500"></i>
-          <span class="hidden lg:inline" id="adminArchiveLabel">아카이브 (Admin)</span>
-          <span class="text-[10px] font-mono opacity-80" id="headerInboxCount">(1,641)</span>
-        </button>
-
-        <!-- Live Neon DB Badge (Hidden on mobile) -->
-        <div id="dbLiveBadge" class="hidden sm:block">
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+        <!-- Admin Access Button & Live DB Badge -->
+        <button onclick="switchView('inbox')" id="dbLiveBadge" class="hidden sm:block cursor-pointer focus:outline-hidden" title="관리자 전용 원천 데이터 아카이브">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition shadow-xs">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
-            <span class="hidden xs:inline sm:inline">Neon DB</span> Live
+            <span>Admin <span id="headerInboxCount">(1,641)</span></span>
           </span>
-        </div>
+        </button>
 
         <!-- Language Toggle (KO / ZH / EN) -->
         <div class="bg-surface-subtle p-0.5 sm:p-1 rounded-lg border border-surface-border flex items-center text-xs font-semibold gap-0.5">

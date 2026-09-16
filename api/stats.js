@@ -187,12 +187,13 @@ module.exports = async (req, res) => {
     try {
       const tlEnrichRes = await pool.query(`
         SELECT 
-            floor(extract(hour from (created_at + interval '9 hours')) / 6) * 6 as slot_hour,
-            count(*) filter (where is_classified = true) as total_enriched,
-            count(*) filter (where is_classified = true and (item_type = 'MODEL' or source_platform ilike '%model%' or source_platform ilike '%hub%')) as model_count,
-            count(*) filter (where is_classified = true and item_type != 'MODEL' and (source_platform is null or (source_platform not ilike '%model%' and source_platform not ilike '%hub%'))) as news_count
+            floor(extract(hour from (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')) / 6) * 6 as slot_hour,
+            count(*) as total_enriched,
+            count(*) filter (where (item_type = 'MODEL' or source_platform ilike '%model%' or source_platform ilike '%hub%')) as model_count,
+            count(*) filter (where item_type != 'MODEL' and (source_platform is null or (source_platform not ilike '%model%' and source_platform not ilike '%hub%'))) as news_count
         FROM raw_trends_inbox
-        WHERE harvested_date = (CURRENT_TIMESTAMP + interval '9 hours')::date
+        WHERE is_classified = true 
+          AND (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
         GROUP BY 1;
       `);
       const enrichedMap = {};
@@ -233,8 +234,7 @@ module.exports = async (req, res) => {
 
       timeline24hLive = slotDefs.map(s => {
         const inb = ingestMap[s.gha_slot] || 0;
-        let enr = enrichedMap[s.hour]?.total || 0;
-        if (inb > 0 && enr > inb) enr = inb;
+        const enr = enrichedMap[s.hour]?.total || 0;
         return {
           slot: s.slot,
           short_slot: s.short_slot,

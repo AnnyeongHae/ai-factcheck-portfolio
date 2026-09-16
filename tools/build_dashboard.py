@@ -506,15 +506,16 @@ def build_dashboard():
         if db_url:
             conn = psycopg2.connect(db_url)
             with conn.cursor() as cur:
-                # 1. Enriched counts from raw_trends_inbox for today's harvested items
+                # 1. Enriched counts from raw_trends_inbox for items enriched today
                 cur.execute("""
                     SELECT 
-                        floor(extract(hour from (created_at + interval '9 hours')) / 6) * 6 as slot_hour,
-                        count(*) filter (where is_classified = true) as total_enriched,
-                        count(*) filter (where is_classified = true and (item_type = 'MODEL' or source_platform ilike '%model%' or source_platform ilike '%hub%')) as model_count,
-                        count(*) filter (where is_classified = true and item_type != 'MODEL' and (source_platform is null or (source_platform not ilike '%model%' and source_platform not ilike '%hub%'))) as news_count
+                        floor(extract(hour from (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')) / 6) * 6 as slot_hour,
+                        count(*) as total_enriched,
+                        count(*) filter (where (item_type = 'MODEL' or source_platform ilike '%model%' or source_platform ilike '%hub%')) as model_count,
+                        count(*) filter (where item_type != 'MODEL' and (source_platform is null or (source_platform not ilike '%model%' and source_platform not ilike '%hub%'))) as news_count
                     FROM raw_trends_inbox
-                    WHERE harvested_date = (CURRENT_TIMESTAMP + interval '9 hours')::date
+                    WHERE is_classified = true
+                      AND (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
                     GROUP BY 1;
                 """)
                 for r in cur.fetchall():
@@ -580,8 +581,6 @@ def build_dashboard():
     for s in slots_def:
         cnt_inbox = slot_counts[s["short_slot"]]["inbox"]
         cnt_enriched = slot_counts[s["short_slot"]]["enriched"]
-        if cnt_inbox > 0 and cnt_enriched > cnt_inbox:
-            cnt_enriched = cnt_inbox
         today_total += cnt_inbox
         if cnt_inbox > peak_count:
             peak_count = cnt_inbox

@@ -1515,8 +1515,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
             if (badge) {
               badge.innerHTML = `
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-xs cursor-pointer" title="Vercel Edge & Neon DB 실시간 연결됨 (총 ${data.counts.inbox_total}건, 레이턴시: ${tLatency}ms)">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Vercel Live API (${liveInbox})
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition shadow-xs cursor-pointer" title="관리자 전용 원천 데이터 아카이브 (총 ${data.counts.inbox_total}건, 레이턴시: ${tLatency}ms)">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Admin (${typeof liveInbox === 'number' ? liveInbox.toLocaleString() : liveInbox})
                 </span>
               `;
             }
@@ -1647,8 +1647,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
       if (badge) {
         badge.innerHTML = `
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-xs">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Neon DB Direct (${casesData.length})
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition shadow-xs cursor-pointer" title="관리자 전용 원천 데이터 아카이브">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Admin (${typeof casesData !== 'undefined' ? casesData.length.toLocaleString() : '0'})
           </span>
         `;
       }
