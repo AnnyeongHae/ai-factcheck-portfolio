@@ -305,6 +305,18 @@ INSERT INTO vercel_serverless_telemetry (id, invocations, active_cpu_seconds, ba
 VALUES (1, 0, 0.0, 0)
 ON CONFLICT (id) DO NOTHING;
 
+-- 17. Time-Series Trend Metric Snapshots (Extreme-Efficiency Delta Tracking)
+CREATE TABLE IF NOT EXISTS trend_metric_snapshots (
+    id BIGSERIAL PRIMARY KEY,
+    inbox_id VARCHAR(255) NOT NULL,
+    source_platform VARCHAR(100) NOT NULL,
+    metric_value INTEGER NOT NULL,
+    delta INTEGER DEFAULT 0,
+    recorded_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_metric_snapshots_inbox_time ON trend_metric_snapshots (inbox_id, recorded_at DESC);
+CREATE INDEX IF NOT EXISTS idx_metric_snapshots_recorded_at ON trend_metric_snapshots (recorded_at DESC);
+
 -- Trigger Binding
 DROP TRIGGER IF EXISTS trg_raw_trends_inbox_updated_at ON raw_trends_inbox;
 CREATE TRIGGER trg_raw_trends_inbox_updated_at BEFORE UPDATE ON raw_trends_inbox FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();

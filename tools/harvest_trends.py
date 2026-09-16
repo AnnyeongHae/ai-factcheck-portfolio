@@ -773,6 +773,7 @@ def harvest_all():
     dup_skipped = 0
     newly_harvested_files = []
     updated_harvested_files = []
+    metric_snapshots_to_sync = []
 
     for cand in all_candidates:
         norm_url = normalize_url(cand["source_url"])
@@ -832,7 +833,9 @@ def harvest_all():
                     }
 
                 init_val = old_tracking.get("initial", {}).get("value", current_val)
+                latest_val = old_tracking.get("latest", {}).get("value", init_val)
                 delta = current_val - init_val
+                delta_step = current_val - latest_val
                 delta_pct = round(((current_val - init_val) / max(1, init_val)) * 100, 1) if init_val > 0 else 0.0
 
                 old_tracking["latest"] = {
@@ -844,6 +847,28 @@ def harvest_all():
                 old_tracking["delta_display"] = f"+{delta:,}" if delta > 0 else (f"{delta:,}" if delta < 0 else "0")
                 old_tracking["growth_rate_pct"] = delta_pct
                 old_tracking["is_spiking"] = delta >= 50 or delta_pct >= 30.0
+
+                # Rolling history sparkline (max 7 points) & delta-gated snapshot queue
+                history = old_tracking.get("history", [])
+                if not history:
+                    init_time_str = old_tracking.get("initial", {}).get("recorded_at", today_str)
+                    history = [{"v": init_val, "t": str(init_time_str)[:16]}]
+
+                if delta_step != 0 or len(history) <= 1:
+                    history.append({"v": current_val, "t": now_kst.strftime("%m-%d %H:%M")})
+                    history = history[-7:]
+                    old_tracking["history"] = history
+
+                    inbox_id = old_item.get("inbox_id") or os.path.splitext(os.path.basename(target_inbox_file))[0]
+                    metric_snapshots_to_sync.append((
+                        inbox_id,
+                        cand.get("source_platform", old_item.get("source_platform", "UNKNOWN")),
+                        current_val,
+                        delta_step,
+                        now_kst
+                    ))
+                else:
+                    old_tracking["history"] = history
 
                 now_iso = now_kst.isoformat()
                 old_item["metric_tracking"] = old_tracking
@@ -892,6 +917,9 @@ def harvest_all():
                 "display": cand["viral_metric"],
                 "updated_at": now_iso
             },
+            "history": [
+                {"v": current_val, "t": now_kst.strftime("%m-%d %H:%M")}
+            ],
             "delta": 0,
             "delta_display": "+0",
             "growth_rate_pct": 0.0,
@@ -936,6 +964,13 @@ def harvest_all():
         inbox_slug_map[slug] = save_path
         newly_harvested_files.append(save_path)
         new_saved += 1
+        metric_snapshots_to_sync.append((
+            case_id,
+            cand.get("source_platform", "UNKNOWN"),
+            current_val,
+            0,
+            now_kst
+        ))
 
     harvest_report["summary"]["total_fetched"] = len(all_candidates)
     harvest_report["summary"]["updated_count"] = updated_count
@@ -987,10 +1022,13 @@ def harvest_all():
     logger.log(f"[+] Harvest history saved to {history_file}")
 
     # Stage 2: Immediate Staging to Neon DB & Telemetry Logging
-    record_harvest_telemetry_to_neon(harvest_report, new_saved, updated_count, dup_skipped, len(all_candidates))
+    record_harvest_telemetry_to_neon(
+        harvest_report, new_saved, updated_count, dup_skipped, len(all_candidates),
+        metric_snapshots=metric_snapshots_to_sync
+    )
     sync_new_items_to_neon()
 
-def record_harvest_telemetry_to_neon(harvest_report, new_saved, updated_count, dup_skipped, total_fetched):
+def record_harvest_telemetry_to_neon(harvest_report, new_saved, updated_count, dup_skipped, total_fetched, metric_snapshots=None):
     """
     Stage 2: Records harvest run metadata and platform-specific metrics directly into Neon DB.
     Tables: harvest_runs, harvest_source_metrics
@@ -1073,6 +1111,22 @@ def record_harvest_telemetry_to_neon(harvest_report, new_saved, updated_count, d
                 }, f, ensure_ascii=False, indent=2)
         except Exception:
             pass
+
+        # 5. Bulk insert metric snapshots if any (Extreme-Efficiency Time-Series Tracking)
+        if metric_snapshots:
+            try:
+                from psycopg2.extras import execute_values
+                execute_values(
+                    cur,
+                    """
+                    INSERT INTO trend_metric_snapshots (inbox_id, source_platform, metric_value, delta, recorded_at)
+                    VALUES %s;
+                    """,
+                    metric_snapshots
+                )
+                print(f"[+] [Neon DB] Bulk-inserted {len(metric_snapshots)} metric snapshots into trend_metric_snapshots.")
+            except Exception as snap_err:
+                print(f"[!] Warning recording metric snapshots to Neon DB: {snap_err}")
 
         conn.commit()
         cur.close()
