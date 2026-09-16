@@ -1498,13 +1498,14 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               const txt = document.getElementById('btnWorkerText');
 
               if (unclass === 0) {
+                window._allClassifiedCompleted = true;
                 if (txt) txt.textContent = '✨ 모든 항목 AI 요약 완료됨';
                 if (btn) {
                   btn.disabled = true;
                   btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
                 }
               } else {
-                if (!window._autoWorkerPaused && !window._autoWorkerRunning) {
+                if (!window._allClassifiedCompleted && !window._autoWorkerPaused && !window._autoWorkerRunning) {
                   startContinuousAiWorker();
                 } else if (window._autoWorkerRunning && !window._autoWorkerPaused) {
                   if (txt) txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 중 (잔여: ${unclass}건)`;
@@ -1673,7 +1674,10 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         btn.className = "px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold font-mono text-[11px] border border-indigo-700 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
       }
 
-      console.log('[AutoWorker] Continuous client-side AI worker started.');
+      if (!window._autoWorkerStartedLogged) {
+        window._autoWorkerStartedLogged = true;
+        console.log('[AutoWorker] Continuous client-side AI worker started.');
+      }
 
       let consecutiveErrors = 0;
       let consecutiveFallbacks = 0;
@@ -1703,7 +1707,11 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           const resData = await res.json();
 
           if (resData.status === 'noop' || resData.remaining_unclassified === 0) {
-            console.log('[AutoWorker] All items are classified! 100% complete.');
+            if (!window._allClassifiedLogged) {
+              window._allClassifiedLogged = true;
+              console.log('[AutoWorker] All items are classified! 100% complete.');
+            }
+            window._allClassifiedCompleted = true;
             _autoWorkerRunning = false;
             window._autoWorkerRunning = false;
             if (txt) txt.textContent = '✨ 모든 항목 AI 요약 완료됨 (100%)';
@@ -1711,7 +1719,6 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               btn.disabled = true;
               btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
             }
-            await syncFromNeonLiveDB(true);
             break;
           }
 
@@ -1902,6 +1909,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
             }
 
             if (rem === 0) {
+              window._allClassifiedCompleted = true;
               _autoWorkerRunning = false;
               window._autoWorkerRunning = false;
               if (txt) txt.textContent = '✨ 모든 항목 AI 요약 완료됨';
@@ -1909,7 +1917,6 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
                 btn.disabled = true;
                 btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
               }
-              await syncFromNeonLiveDB(true);
               break;
             }
           }
@@ -3437,11 +3444,16 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           };
           const typeBadge = typeLabels[ai.type_classification] || (currentLang === 'KO' ? '💡 기술' : '💡 Tech');
 
+          const hasRealRec = Boolean(ai.score || ai.worth_score || ai.recommended_tag);
+          const recBadgeHtml = hasRealRec ? `
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${tagBg}">
+              ${ai.recommended_tag || '💡 추천'} ★${ai.score || ai.worth_score}
+            </span>
+          ` : '';
+
           aiBadgeHtml = `
             <div class="flex items-center gap-1.5 flex-wrap my-1">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${tagBg}">
-                ${ai.recommended_tag || '💡 추천'} ★${ai.score || ai.worth_score || '4.0'}
-              </span>
+              ${recBadgeHtml}
               <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-900 border border-indigo-200">
                 ${typeBadge}
               </span>
@@ -4321,12 +4333,12 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
         const viralScore = calculateStandardizedViralScore(it);
         const tracking = it.metric_tracking || {};
-        const initDate = tracking.initial_date || (it.harvested_date ? it.harvested_date.substring(5, 10) : '08-31');
-        const latestDate = tracking.latest_date || (it.harvested_date ? it.harvested_date.substring(5, 10) : '09-02');
-        const initVal = tracking.initial_metric || it.viral_metric || '-';
-        const latestVal = tracking.latest_metric || it.viral_metric || '-';
-        const delta = tracking.growth_delta || 0;
-        const deltaDisplay = delta > 0 ? `+${delta}` : (delta < 0 ? `${delta}` : '0');
+        const initDate = tracking.initial?.recorded_at ? tracking.initial.recorded_at.substring(5, 10) : (tracking.initial_date || (it.harvested_date ? it.harvested_date.substring(5, 10) : '08-31'));
+        const latestDate = tracking.latest?.updated_at ? tracking.latest.updated_at.substring(5, 10) : (tracking.latest_date || (it.harvested_date ? it.harvested_date.substring(5, 10) : '09-02'));
+        const initVal = tracking.initial?.display || tracking.initial_metric || it.viral_metric || '-';
+        const latestVal = tracking.latest?.display || tracking.latest_metric || it.viral_metric || '-';
+        const delta = (tracking.delta !== undefined) ? tracking.delta : (tracking.growth_delta || 0);
+        const deltaDisplay = tracking.delta_display || (delta > 0 ? `+${delta.toLocaleString()}` : (delta < 0 ? `${delta.toLocaleString()}` : '0'));
 
         let typeBadge = currentLang === 'KO' ? '⚡ 신기술' : (currentLang === 'ZH' ? '⚡ 新技术' : '⚡ Tech');
         if (ai && ai.type_classification === 'AGENT') typeBadge = currentLang === 'KO' ? '🦾 에이전트' : (currentLang === 'ZH' ? '🦾 智能体' : '🦾 Agent');
