@@ -20,12 +20,10 @@ const { getDbPool } = require('./_lib/db');
 const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 const FREE_MODELS = [
-  'nex-agi/nex-n2.5-mini:free',
-  'inclusionai/ling-3.0-flash-vl:free',
-  'inclusionai/ling-3.0-flash-fin:free',
-  'nex-agi/nex-n2.5-pro:free',
-  'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free',
-  'poolside/laguna-s-2.1:free'
+  'inclusionai/ling-3.0-flash-fin:free',    // Verified: fast, high-quality trilingual reasoning
+  'inclusionai/ling-3.0-flash-vl:free',     // Verified: reliable CJK multilingual output
+  'inclusionai/ling-3.0-flash-sante:free',  // Verified: resilient fallback
+  'openrouter/free'                         // OpenRouter dynamic load-balanced free router
 ];
 
 function sanitizeJsonString(str) {
@@ -58,6 +56,25 @@ function sanitizeJsonString(str) {
   if (objMatch) {
     try { return [JSON.parse(objMatch[0])]; } catch (e) {}
   }
+
+  // Attempt recovery of truncated JSON if unclosed
+  try {
+    let repaired = cleaned;
+    const quoteCount = (repaired.match(/(?<!\\)"/g) || []).length;
+    if (quoteCount % 2 !== 0) repaired += '"';
+    
+    const openBraces = (repaired.match(/\{/g) || []).length;
+    const closeBraces = (repaired.match(/\}/g) || []).length;
+    for (let i = 0; i < openBraces - closeBraces; i++) repaired += '}';
+    
+    const openBrackets = (repaired.match(/\[/g) || []).length;
+    const closeBrackets = (repaired.match(/\]/g) || []).length;
+    for (let i = 0; i < openBrackets - closeBrackets; i++) repaired += ']';
+    
+    const res = JSON.parse(repaired);
+    if (Array.isArray(res)) return res;
+    if (res && typeof res === 'object') return [res];
+  } catch (e) {}
 
   return null;
 }
@@ -270,7 +287,7 @@ module.exports = async (req, res) => {
       let timeoutId = null;
       try {
         const controller = new AbortController();
-        const timeoutMs = Math.min(8000, budgetMs);
+        const timeoutMs = Math.min(11000, budgetMs);
         timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
         const aiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -288,7 +305,7 @@ module.exports = async (req, res) => {
               { role: 'user', content: `분석할 항목 목록:\n${JSON.stringify(promptItems, null, 2)}` }
             ],
             temperature: 0.1,
-            max_tokens: 1600,
+            max_tokens: 2500,
             reasoning: { max_tokens: 0 }
           }),
           signal: controller.signal
