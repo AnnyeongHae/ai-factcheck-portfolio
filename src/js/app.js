@@ -53,7 +53,36 @@ const AppStore = {
   getCases() { return this._cases; },
   getModels() { return this._models; },
   getNews() { return this._news; },
-  getInbox() { return this._inbox; }
+  getInbox() { return this._inbox; },
+
+  appendArchive(archiveData) {
+    if (!archiveData) return;
+    const mergeItems = (existingList, incomingList) => {
+      if (!Array.isArray(incomingList)) return;
+      const existingIds = new Set(existingList.map(it => it.inbox_id || it.id));
+      for (const it of incomingList) {
+        const id = it.inbox_id || it.id;
+        if (id && !existingIds.has(id)) {
+          existingList.push(it);
+          existingIds.add(id);
+        }
+        if (id && !this._itemsMap.has(id)) {
+          this._itemsMap.set(id, it);
+        }
+      }
+    };
+
+    mergeItems(this._inbox, archiveData.inbox_items);
+    mergeItems(this._news, archiveData.news_items);
+    mergeItems(this._models, archiveData.model_items);
+
+    liveInboxData = this._inbox;
+    liveNewsData = this._news;
+    liveModelsData = this._models;
+    inboxData = this._inbox;
+    newsData = this._news;
+    modelsData = this._models;
+  }
 };
 window.AppStore = AppStore;
 
@@ -61,8 +90,8 @@ window.AppStore = AppStore;
 async function bootstrapApplicationData() {
   console.log('[Bootstrap] Initializing asynchronous data hydration...');
   try {
-    // 1. Try loading static data.json (works on both local server and GitHub Pages)
-    const staticRes = await fetch('data.json', { cache: 'no-cache' });
+    // 1. Try loading static lean data.json (sub-second initial render)
+    const staticRes = await fetch('data.json', { cache: 'default' });
     if (staticRes.ok) {
       const data = await staticRes.json();
       adminData = data.admin_stats || {};
@@ -74,7 +103,7 @@ async function bootstrapApplicationData() {
 
       AppStore.init(data);
 
-      console.log(`[Bootstrap] Loaded ${AppStore.getCases().length} dossiers, ${AppStore.getNews().length} news, ${AppStore.getModels().length} models from data.json.`);
+      console.log(`[Bootstrap] Loaded ${AppStore.getCases().length} dossiers, ${AppStore.getNews().length} news, ${AppStore.getModels().length} models from lean data.json.`);
     }
   } catch (e) {
     console.warn('[Bootstrap] Static data.json fetch skipped/failed, relying on live Neon APIs:', e.message);
@@ -107,6 +136,21 @@ async function bootstrapApplicationData() {
       .then(() => updateGlobalStatsUI())
       .catch(e => console.warn('[Bootstrap] Live DB sync completed or skipped:', e.message));
   }, 100);
+
+  // 3. Lazily hydrate complete historical archive in background (zero blocking on first paint)
+  setTimeout(async () => {
+    try {
+      const archiveRes = await fetch('data_archive.json', { cache: 'default' });
+      if (archiveRes.ok) {
+        const archiveData = await archiveRes.json();
+        AppStore.appendArchive(archiveData);
+        updateGlobalStatsUI();
+        console.log(`[Bootstrap] Lazily hydrated complete archive: ${AppStore.getInbox().length} inbox, ${AppStore.getNews().length} news, ${AppStore.getModels().length} models.`);
+      }
+    } catch (e) {
+      console.warn('[Bootstrap] Background archive hydration skipped:', e.message);
+    }
+  }, 1200);
 }
 
 

@@ -920,21 +920,38 @@ def build_dashboard():
         "trend_radar": trend_radar_data,
         "dow_stats": [],
         "monthly_stats": [],
-        "model_items": model_items,
-        "news_items": news_items,
-        "inbox_items": inbox_items,
+        "model_items": model_items[:60],
+        "news_items": news_items[:60],
+        "inbox_items": inbox_items[:60],
         "cases": cases,
         "graph": graph_data,
         "actions_telemetry": actions_telemetry
     }
 
-    # Write data.json — only docs/ (GitHub Pages) and public/ (Vercel static)
+    archive_data = {
+        "model_items": model_items,
+        "news_items": news_items,
+        "inbox_items": inbox_items
+    }
+
+    # Write lean data.json & data_archive.json — docs/ (GitHub Pages) and public/ (Vercel static)
     for target_dir in [docs_dir, public_dir]:
+        # 1. Lean data.json (~1.7MB uncompressed, ~310KB gzipped) for sub-second first render
         json_path = os.path.join(target_dir, "data.json")
         for _ in range(3):
             try:
                 with open(json_path, "w", encoding="utf-8") as f:
                     json.dump(summary_data, f, indent=2, ensure_ascii=False)
+                break
+            except Exception:
+                time.sleep(0.5)
+        
+        # 2. Complete data_archive.json for on-demand lazy background hydration
+        archive_path = os.path.join(target_dir, "data_archive.json")
+        for _ in range(3):
+            try:
+                with open(archive_path, "w", encoding="utf-8") as f:
+                    json.dump(archive_data, f, indent=2, ensure_ascii=False)
                 break
             except Exception:
                 time.sleep(0.5)
