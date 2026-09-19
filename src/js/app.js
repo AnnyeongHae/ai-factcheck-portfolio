@@ -164,6 +164,8 @@ async function bootstrapApplicationData() {
   try { renderNews(); } catch(e) {}
   try { renderInbox(); } catch(e) {}
   try { renderTelemetryCharts(); } catch(e) {}
+  try { renderPipelineTelemetryCards(); } catch(e) {}
+  try { renderRunsTable(); } catch(e) {}
   try { if (window.lucide) window.lucide.createIcons(); } catch(e) {}
 
   // 2. Perform live DB sync in background (non-blocking, instant 0ms page load)
@@ -1734,6 +1736,23 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               }
             }
 
+            // 🌟 Live GitHub Actions Quota & Telemetry Runs Hydration from Neon DB
+            if (data.actions_quota && data.actions_quota.total_minutes !== undefined) {
+              actionsTelemetryData = actionsTelemetryData || {};
+              actionsTelemetryData.monthly_used_minutes = data.actions_quota.total_minutes;
+              actionsTelemetryData.monthly_remaining_minutes = data.actions_quota.remaining_minutes;
+              actionsTelemetryData.monthly_usage_percent = data.actions_quota.burn_rate_percent;
+              if (data.actions_runs && Array.isArray(data.actions_runs) && data.actions_runs.length > 0) {
+                actionsTelemetryData.runs = data.actions_runs;
+              }
+              if (typeof renderPipelineTelemetryCards === 'function') {
+                renderPipelineTelemetryCards();
+              }
+              if (typeof renderRunsTable === 'function' && window.currentRunsTab === 'gha') {
+                renderRunsTable();
+              }
+            }
+
             if (data.vercel_worker_runs && Array.isArray(data.vercel_worker_runs)) {
               window.vercelWorkerRunsData = data.vercel_worker_runs;
               if (window.currentRunsTab === 'vercel' && typeof renderRunsTable === 'function') {
@@ -2619,9 +2638,10 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         };
         const srcDate = parseDate(c.source_published_date || c.investigation_date);
         const invDate = parseDate(c.investigation_date || c.source_published_date);
-        const confScore = c.confidence_score || 95.0;
-        const isVerifiedTrue = c.verdict === 'VERIFIED_TRUE';
-        const isHalfTrue = c.verdict.includes('HALF');
+        const confScore = Number(c.confidence_score) || 95.0;
+        const verdictStr = String(c.verdict || '');
+        const isVerifiedTrue = verdictStr === 'VERIFIED_TRUE';
+        const isHalfTrue = verdictStr.includes('HALF');
 
         const { displayTitle, displayHook } = getLocalizedContent(c, currentLang);
         let displayMotivation = displayHook;
@@ -4389,10 +4409,14 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       const now = Date.now();
       if (now - lastPolledTime < 45000 || document.hidden) return; // Cooldown 45s & visibility check
       lastPolledTime = now;
+      const ctrl = new AbortController();
+      const tid = setTimeout(() => ctrl.abort(), 2500);
       try {
         const resp = await fetch('https://api.github.com/repos/AnnyeongHae/ai-factcheck-portfolio/actions/runs?per_page=6', {
-          headers: { 'Accept': 'application/vnd.github.v3+json' }
+          headers: { 'Accept': 'application/vnd.github.v3+json' },
+          signal: ctrl.signal
         });
+        clearTimeout(tid);
         if (!resp.ok) return;
         const data = await resp.json();
         const liveRuns = data.workflow_runs || [];

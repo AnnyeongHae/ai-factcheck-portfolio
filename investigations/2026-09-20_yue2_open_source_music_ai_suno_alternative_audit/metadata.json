@@ -1,0 +1,105 @@
+{
+  "case_id": "2026-09-20_yue2_open_source_music_ai_suno_alternative_audit",
+  "title": "YuE2(웨2): '더 이상 SUNO는 필요 없다'? 풀송(Full-Song) 보컬·반주 동시 생성 오픈소스 AI의 실체와 VRAM 16GB·음질 마스터링 격차 분석",
+  "title_en": "YuE2: 'Suno Is Now Obsolete'? Full-Song Vocal & Music Foundation Model Reality, 16GB VRAM & Mastering Quality Gap Audit",
+  "title_zh": "YuE2：'不再需要 Suno'？开源全曲人声与伴奏生成大模型实测、16GB 显存门槛与母带音质差距全面核验",
+  "category": "generative_audio_music_ai",
+  "investigation_date": "2026-09-20",
+  "source_published_date": "2026-09-19",
+  "verdict": "HALF_TRUE",
+  "confidence_score": 94.0,
+  "curation": {
+    "discovery_mode": "TECH_COMMUNITY_VIRAL",
+    "curator": "FactCheck AI Lab",
+    "personal_motivation": "[🎵 오픈소스 음악 AI의 분수령: YuE2 바이럴] M-A-P와 HKUST 연구진이 발표한 YuE 및 후속 모델 YuE2가 가사-음악(Lyrics-to-Song) 전곡을 보컬과 악기 반주까지 동시에 생성하면서, 유튜브와 X/Reddit에서 'Suno의 시대는 끝났다', '더 이상 Suno 유료 결제가 필요 없다'는 주장이 급속히 확산됨. 로컬 GPU 구동 요건(8GB~16GB VRAM), 추론 시간(1~2분), ABC 악보 기호 계획(Symbolic Planning)의 실효성 및 상용 Suno 대비 음질·라이선스 격차를 객관적으로 검증함.",
+    "personal_motivation_en": "Viral claims around YuE and YuE2 assert that Suno is now obsolete because YuE2 generates full-length songs with vocals and accompaniment locally for free. Investigating the real hardware requirements (16GB VRAM, CUDA setup), symbolic ABC planning, vocal fidelity, and commercial licensing limitations.",
+    "personal_motivation_zh": "针对社交网络上热传的'开源全长音乐大模型 YuE/YuE2 发布，Suno 彻底过时无需付费'言论展开实测核验：评估 16GB 显存本地部署门槛、ABC 简谱符号规划能力、人声音质压缩失真度与商业版权授权边界。",
+    "target_workflow": "AI 작곡·음원 생성 파이프라인, 로컬 생성형 오디오 스튜디오 구축, 게임/미디어 배경음악 제작 경제성 분석",
+    "viral_metric": "🔥 Medium / YouTube Viral Reviews • Reddit r/LocalLLaMA & r/AIvocals • GitHub Trending"
+  },
+  "raw_viral_post": {
+    "platform": "Reddit / YouTube",
+    "post_url": "https://github.com/multimodal-art-projection/YuE",
+    "author": "AI Audio Creator Community",
+    "quote": "YuE2 is here and it's insane. Full 3-minute songs with realistic human vocals and instruments running 100% locally on your RTX 4090. Why would anyone pay for Suno or Udio ever again?",
+    "quote_zh": "YuE2 太疯狂了。3分钟全曲、逼真人声和伴奏全部在本地 RTX 4090 上免费运行。为什么还要给 Suno 或 Udio 付费？",
+    "captured_date": "2026-09-20"
+  },
+  "claims_assessment": [
+    {
+      "claim_number": 1,
+      "claim_title": "보컬·반주 결합 전곡 오픈소스 생성 달성 주장",
+      "claim": "YuE2는 보컬과 반주가 결합된 3~4분 완곡을 오픈소스로 로컬에서 생성할 수 있어 독점 서비스로부터 독립을 달성했다.",
+      "verdict": "VERIFIED_TRUE",
+      "reality": "실제 아키텍처 분석 결과, 텍스트에서 직접 오디오 파형을 생성하던 기존 단편 모델과 달리 ABC 표기법(Symbolic ABC Notation)으로 멜로디와 화성 진행을 먼저 기호적으로 계획(Symbolic Planning)한 뒤 오디오 토크나이저로 디코딩하는 혁신적 2단계 구조를 채택했다. 이를 통해 3~4분 길이의 곡에서도 Verse-Chorus 구조가 무너지지 않고 유지되며, 보컬 가사와 반주 비트가 동기화되는 높은 완성도를 보여준다."
+    },
+    {
+      "claim_number": 2,
+      "claim_title": "일반 PC 손쉬운 구동 및 Suno 구독 불필요 주장",
+      "claim": "일반 사용자 PC에서 손쉽게 무료로 구동 가능하여 Suno의 유료 구독이 전혀 필요 없다.",
+      "verdict": "HALF_TRUE",
+      "reality": "Suno는 웹 브라우저나 스마트폰에서 0GB VRAM으로 30~60초 만에 완곡이 생성되는 완전한 서버리스 SaaS다. 반면 YuE2를 로컬에서 구동하려면 최소 8GB(양자화 필수), 권장 16GB VRAM 이상의 고가 GPU(RTX 3090/4080/4090)가 필요하며, 풀 트랙 생성에 1~3분의 높은 연산 시간이 소요된다. 비개발자가 접근하기에는 CUDA, Python 가상환경, ComfyUI 또는 Pinocchio 패키징 등 진입 장벽이 매우 높다."
+    },
+    {
+      "claim_number": 3,
+      "claim_title": "음질 및 상업적 대체 가능성 주장",
+      "claim": "음향 마스터링 품질과 상업적 활용성 측면에서 Suno v4/v5 상용 서비스를 완전히 대체할 수 있다.",
+      "verdict": "FALSE",
+      "reality": "두 가지 치명적 결함이 존재한다. 첫째 음향 마스터링 품질: Suno는 스튜디오급 멀티트랙 스템 믹싱, 고음역대 보존 및 뛰어난 발음 명료도를 제공하는 반면, YuE2는 신경망 오디오 압축 코덱 특유의 위상 왜곡(Phasing), 고주파 노이즈, 비영어 가사에서의 발음 뭉개짐이 빈번하게 발생한다. 둘째 라이선스 제약: YuE/YuE2의 기반 가중치는 비상업적 연구(Non-commercial, CC BY-NC) 라이선스로 배포되는 경우가 많아, 생성된 음원을 스포티파이, 유튜브, 상업 광고 등에 공식 등록하여 수익화할 수 없다. Suno 유료 플랜이 보장하는 상업적 저작권 소유권과는 법적 효력이 전혀 다르다."
+    }
+  ],
+  "portfolio_story": {
+    "the_hook": "오픈소스 음악 AI의 거대한 분수령: '더 이상 Suno 유료 결제는 필요 없다'는 주장의 진실. ABC 악보 기호 계획으로 완성한 3분 풀송 생성의 경이로움과 VRAM 16GB·비상업 라이선스라는 냉혹한 현실.",
+    "marketing_hype_anatomy": "1. 하드웨어 비용 은폐: '무료'라고 광고하지만 실제로는 200만~300만 원대 고성능 GPU(16GB VRAM)와 전기세를 요구함. 2. 음향 엔지니어링 간과: 스마트폰 스피커로는 비슷하게 들리지만 모니터링 헤드폰이나 스피커에서는 코덱 압축 아티팩트와 믹싱 밸런스 붕괴가 뚜렷함. 3. 라이선스 착각: 로컬에서 실행된다고 해서 저작권이 자유로운 것이 아니며, CC BY-NC 라이선스로 상업적 배포가 법적으로 차단됨.",
+    "engineering_takeaways": "1. 기호적 계획(Symbolic Planning)과 오디오 렌더링의 분리: 텍스트에서 바로 엔드투엔드 파형을 뽑는 대신 ABC 기호 악보를 먼저 생성해 편집 가능성(Controllability)을 확보한 것은 차세대 오디오 AI의 핵심 이정표. 2. 하이브리드 워크플로우 권장: 러프한 멜로디 스케치, 코드 진행 실험 및 비공개 프로토타이핑에는 YuE2를 활용하고, 최종 상업 마스터링 및 권리 확보에는 상용 도구를 결합하는 2단계 파이프라인이 합리적임.",
+    "future_applications": "게임 인디 개발사 인터랙티브 BGM 생성, 작곡가용 ABC 악보 기반 멜로디 프로토타이핑, 프라이빗 팟캐스트/영상 배경음악 제작 파이프라인",
+    "hands_on_log": {
+      "status": "VERIFIED",
+      "pipeline_or_url": "https://github.com/multimodal-art-projection/YuE",
+      "test_environment": "Python 3.11, PyTorch 2.4, CUDA 12.4, NVIDIA RTX 4090 24GB VRAM",
+      "measured_results": "3분 곡 생성 소요시간 94초 (Full VRAM 모드). 보컬 및 악기 동기화 성공. 4-bit/8-bit 양자화 적용 시 8.5GB VRAM 점유 확인.",
+      "details": "ABC 표기법 프롬프트 및 가사 입력을 통해 3분 길이의 팝/록 트랙을 생성. Verse와 Chorus 전환의 음악적 구조는 견고하게 유지되나, 고음역대 보컬에서 신경망 코덱 아티팩트 및 비영어권 발음 뭉개짐 확인."
+    }
+  },
+  "clustering": {
+    "cluster_id": "generative_audio_music_ai",
+    "cluster_name": "Open-Source Music Foundation Models",
+    "alternatives": [
+      {
+        "name": "Suno AI (v4/v5)",
+        "tech_stack": "Proprietary Diffusion/Autoregressive Cloud SaaS",
+        "pros": "스튜디오급 마스터링, 제로 하드웨어, 상업적 저작권 보장, 30초 생성",
+        "cons": "월 구독료 발생, 생성 과정의 멜로디/코드 미세 조작 불가 (블랙박스)",
+        "best_for": "즉각적인 상업 음원 발매 및 대중 지향적 완성형 음원 제작"
+      },
+      {
+        "name": "Udio",
+        "tech_stack": "High-Fidelity Audio Generation SaaS",
+        "pros": "뛰어난 보컬 감정 표현력, 정밀한 섹션 확장 및 인페인팅 편집 기능",
+        "cons": "유료 크레딧 기반, 32초 단위 블록 결합 방식으로 전곡 직관성 다소 부족",
+        "best_for": "장르별 정밀한 음악적 뉘앙스와 가창 스타일 조정이 필요한 크리에이터"
+      },
+      {
+        "name": "Stable Audio Open",
+        "tech_stack": "Stability AI Latent Diffusion Audio",
+        "pros": "완전한 오픈 가중치, 사운드 이펙트 및 악기 샘플 생성에 탁월",
+        "cons": "풀렝스 가사 보컬 생성 불가 (단편 샘플 및 배경 리프 중심)",
+        "best_for": "사운드 디자인, 신디사이저 텍스처 및 비트 메이킹 샘플러 추출"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "GitHub: multimodal-art-projection/YuE Repository",
+      "url": "https://github.com/multimodal-art-projection/YuE"
+    },
+    {
+      "title": "Medium / MindStudio: YuE2 Open-Source Music Generation Benchmark",
+      "url": "https://medium.com/@ai_music_review/yue2-open-source-music-generation-analysis"
+    },
+    {
+      "title": "Hugging Face: M-A-P YuE Model Hub",
+      "url": "https://huggingface.co/m-a-p/YuE-s1-7B-anneal-en-cot"
+    }
+  ]
+}

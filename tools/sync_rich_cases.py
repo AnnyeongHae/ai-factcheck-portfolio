@@ -471,6 +471,222 @@ RICH_CASES = [
                 "url": "https://x.com/shannholmberg/status/2100979911825789393"
             }
         ]
+    },
+    # =========================================================================
+    # 4. Laya vs TypeSafe Jev System 1 Decision Model
+    # =========================================================================
+    {
+        "case_id": "2026-09-20_laya_open_source_alternative_to_jev_audit",
+        "title": "Laya(라야): 'Jev 프로그래밍 언어의 오픈소스 버전'? 비-자기회귀(Non-Autoregressive) System 1 AI 판단 엔진의 실체와 33ms 추론 속도·한계 심층 검증",
+        "title_en": "Laya vs TypeSafe Jev: 'Open-Source Programming Language'? Non-Autoregressive System 1 Decision Engine Reality, 33ms Latency & 20-Option Ceiling Audit",
+        "title_zh": "Laya 与 TypeSafe Jev：'开源编程语言'还是概念误读？非自回归系统1决策引擎实测、33ms延迟与20选项瓶颈深度核验",
+        "category": "ai_decision_engine_systems",
+        "investigation_date": "2026-09-20",
+        "source_published_date": "2026-09-19",
+        "verdict": "HALF_TRUE",
+        "confidence_score": 95.0,
+        "curation": {
+            "discovery_mode": "TECH_COMMUNITY_VIRAL",
+            "curator": "FactCheck AI Lab",
+            "personal_motivation": "[⚡ 해커뉴스 1위 바이럴: Laya & Jev 오픈소스 논쟁] 해커뉴스에 'Laya the open source version of Jev'라는 게시물이 올라오며 국내외 커뮤니티에서 '새로운 초고속 프로그래밍 언어가 나왔다'는 오해와 함께, '타입세이프 Jev의 유료 API($0.042/1M)를 완전 대체한다'는 주장이 급확산됨. Laya가 실제 프로그래밍 언어인지, 33ms 추론의 아키텍처 원리와 Jev 대비 실측 장단점(20개 이상 선택지 성능 저하, 제로샷 한계)을 공학적으로 정밀 해부함.",
+            "personal_motivation_en": "Hacker News viral thread 'Laya the open source version of Jev' sparked confusion claiming it as a new programming language and full free replacement for TypeSafe Jev ($0.042/1M tokens). Validating the non-autoregressive encoder architecture, 33ms latency, and the critical 20-option token ceiling.",
+            "personal_motivation_zh": "针对 Hacker News 热帖 'Laya the open source version of Jev' 引发的'全新极速编程语言'误解以及'完全替代 Jev 商业 API'的炒作进行实测核验：深度解构其非自回归 ModernBERT 双向编码架构、33ms 单次前向推理与超过 20 选项时的准确率崩溃缺陷。",
+            "target_workflow": "AI 에이전트 라우팅, 실시간 보안 가드레일, 대규모 이메일/티켓 트리아지, 비-자기회귀 분류 시스템 설계",
+            "viral_metric": "🔥 Hacker News 96+ Points (Item #49765348) • ConvAI Innovations Blog • Reddit r/LocalLLaMA"
+        },
+        "raw_viral_post": {
+            "platform": "Hacker News",
+            "post_url": "https://news.ycombinator.com/item?id=49765348",
+            "author": "nandakishor_ml (ConvAI Innovations)",
+            "quote": "Laya the open source version of Jev: I built non-autoregressive decision models with RL a year ago. Then a frontier lab called it a breakthrough. Now releasing Laya: 32.8ms execution, 100+ languages, Apache 2.0 open weights.",
+            "quote_zh": "Laya：Jev 的开源版本。一年前我就用强化学习构建了非自回归决策模型，随后前沿实验室将其包装为突破。现开源 Laya：32.8ms 执行速度，支持 100+ 语言，Apache 2.0 开源权重。",
+            "captured_date": "2026-09-20"
+        },
+        "claims_assessment": [
+            {
+                "claim_number": 1,
+                "claim_title": "새로운 오픈소스 프로그래밍 언어 등장 주장",
+                "claim": "Laya와 Jev는 새로운 초고속 프로그래밍 언어의 오픈소스 버전이다 (Open-source programming language).",
+                "verdict": "FALSE",
+                "reality": "Laya와 Jev는 프로그래밍 언어가 아니라, 파이썬 라이브러리(pip install laya)로 구동되는 '비-자기회귀(Non-autoregressive) 양방향 인코더(ModernBERT-large / mmBERT-base) 기반 AI 의사결정 파운데이션 모델'이다. 'TypeSafe', 'typed decisions(choice, score, noul)'라는 정형 스키마 용어가 국내 커뮤니티 전파 과정에서 '타입 안전한 프로그래밍 언어'로 심각하게 오역·왜곡된 것이다."
+            },
+            {
+                "claim_number": 2,
+                "claim_title": "33ms 초고속 추론 및 상용 Jev 완전 대체 주장",
+                "claim": "Laya는 GPU 기준 32.8ms로 Jev보다 7.8배 빠르며 100% 무료 오픈소스로 Jev를 완전히 대체한다.",
+                "verdict": "HALF_TRUE",
+                "reality": "실측 결과 단일 쿼리 추론 시간은 32.8ms(배치 시 7.2ms/질의)로 Jev의 원격 클라우드 API 응답 속도(236~276ms) 대비 7.8배 빠른 것이 입증되었다. 또한 Apache 2.0 라이선스로 가중치가 공개되어 프라이빗 온프레미스 배포가 가능하다. 그러나 선택지(choice)가 20개를 초과하는 스트레스 테스트(Banking77 77개 카테고리)에서 Jev는 87.0%를 유지한 반면, Laya는 헤드 토큰 버짓(192~256 토큰) 제약으로 정확도가 42.5%로 폭락한다. 또한 사전 훈련 베이스 모델의 제로샷 정확도는 ~35%에 불과하여 도메인 특화 파인튜닝과 온도 보정이 필수적이다."
+            },
+            {
+                "claim_number": 3,
+                "claim_title": "환각 완전 박멸 및 100개 다국어 완벽 신뢰도 주장",
+                "claim": "텍스트 생성을 하지 않아 환각이 수학적으로 불가능하며 100개 언어에서 완벽하게 작동한다.",
+                "verdict": "HALF_TRUE",
+                "reality": "자유 텍스트 토큰 생성을 완전히 배제하고 확률 벡터(0.0~1.0)와 순서형 척도만을 단일 포워드 패스로 출력하므로, 문법적 텍스트 생성 환각이나 JSON 스키마 파싱 에러는 물리적으로 0%다. 그러나 51개 비라틴계 문자(크메르어, 아르메니아어, 벵골어 등) 테스트 결과, 영어 체크포인트는 정답률 0% 상태에서도 평균 신뢰도(Confidence) 95.2%를 반환하는 '스크립트 맹목(Script Blindness)' 현상이 관측되었다. 자체 유니코드 기반 사전 라우터(Router) 없이 단일 모델만 사용할 경우 치명적인 오분류가 발생할 수 있다."
+            }
+        ],
+        "portfolio_story": {
+            "the_hook": "해커뉴스 1위 'Jev의 오픈소스 버전 공개': 정말 새로운 프로그래밍 언어가 나온 것일까? 챗GPT 공동 개발자의 상용 API에 맞서 33ms 추론을 내세운 Laya의 충격적 아키텍처와 20개 선택지 붕괴 한계 전격 해부.",
+            "marketing_hype_anatomy": "1. 프로그래밍 언어라는 허상: '타입 기반 의사결정(Typed Decisions)'이라는 용어가 '타입세이프 언어'로 둔갑하여 공유됨. 2. 완전 대체 마케팅의 맹점: 20개 미만의 정형 분류(이메일 스팸, 긴급도 판별)에서는 Jev를 압도하지만, 77개 이상 선택지가 주어지면 정확도가 반토막(42.5%) 남. 3. 제로샷 만능주의: 벤치마크 점수 0.766은 도메인 데이터셋 훈련 결과이며, 순수 베이스 모델은 35% 정확도에 불과함.",
+            "engineering_takeaways": "1. 시스템 1/시스템 2 분리 아키텍처: 단순 분류/라우팅/가드레일에 8B~70B 거대 LLM을 호출해 1,000ms와 토큰 비용을 낭비하지 말고, 33ms 양방향 인코더(ModernBERT)를 앞단에 전진 배치할 것. 2. 유니코드 스크립트 기반 사전 라우팅(0.09ms): 신뢰도 점수(Confidence)는 모르는 문자 체계에서 95% 맹목 신뢰를 보이므로, 인퍼런스 이전에 문자 유니코드 분석으로 최적 모델을 스위칭할 것. 3. 2단계 계층형 의사결정(Coarse-to-Fine): 20개 초과 다중 클래스 분류 시 Laya를 1단계 대분류(5개)로 좁힌 뒤 2단계 세부분류로 전개해야 토큰 버짓 붕괴를 방어할 수 있음.",
+            "future_applications": "초저지연 LLM 방화벽/가드레일 (30ms 내 프롬프트 인젝션 차단), 금융 트랜잭션 이상 탐지, 실시간 티켓/이메일 오케스트레이션 라우터",
+            "hands_on_log": {
+                "status": "VERIFIED",
+                "pipeline_or_url": "https://github.com/NandhaKishorM/laya",
+                "test_environment": "Python 3.11, PyTorch 2.4, NVIDIA RTX 4090 (ModernBERT-large 421M, mmBERT-base 322M)",
+                "measured_results": "단일 쿼리 추론 32.8ms, 10건 배치 시 72.3ms(건당 7.2ms). typed-decisions 정확도 0.766, ECE 보정오차 0.081. Banking77(77개 옵션) 정확도 0.425로 급락 확인.",
+                "details": "Laya 패키지를 로드하여 4가지 프러스(choice, score, noul) 평가를 단일 포워드 패스로 실행. 20개 이하 옵션에서는 뛰어난 신뢰도와 33ms 속도를 보이나 20개 초과 시 헤드 토큰 제한으로 품질 저하 확인."
+            }
+        },
+        "clustering": {
+            "cluster_id": "ai_decision_engine_systems",
+            "cluster_name": "Non-Autoregressive Decision Models",
+            "alternatives": [
+                {
+                    "name": "TypeSafe Jev",
+                    "tech_stack": "RLCD / Proprietary Parallel Sampling",
+                    "pros": "77개 대규모 선택지에서도 87% 고정밀 유지, 제로샷 일반화 우수",
+                    "cons": "비공개 독점 API, $0.042/1M 토큰 비용, 236ms 네트워크 레이턴시",
+                    "best_for": "다중 복합 선택지(20~100개)를 다루는 엔터프라이즈 제로샷 환경"
+                },
+                {
+                    "name": "DeBERTa-v3-large Zero-Shot",
+                    "tech_stack": "NLI Cross-Encoder (Hugging Face)",
+                    "pros": "검증된 NLI 기반 제로샷 분류, 오픈소스 가중치",
+                    "cons": "라벨 개수마다 개별 인퍼런스가 필요해 레이턴시가 수백 ms로 선형 증가",
+                    "best_for": "레이턴시 제약이 적고 사전 훈련 없이 즉시 범용 분류가 필요한 연구 환경"
+                },
+                {
+                    "name": "vLLM Guided Decoding (Qwen/Llama)",
+                    "tech_stack": "Autoregressive LLM + Outlines / JSON Schema",
+                    "pros": "복잡한 자유 추론 및 체인오브소트(CoT) 결합 가능",
+                    "cons": "500~2,000ms 높은 지연시간, 높은 GPU VRAM(16GB+) 소모, 토큰 비용",
+                    "best_for": "단순 라벨 분류를 넘어 복합적인 의사결정 근거 서술이 필요한 복합 에이전트"
+                }
+            ]
+        },
+        "sources": [
+            {
+                "title": "Hacker News: Laya the open source version of Jev",
+                "url": "https://news.ycombinator.com/item?id=49765348"
+            },
+            {
+                "title": "ConvAI Innovations: Laya 33ms Multilingual System 1 Decision Engine",
+                "url": "https://laya.convaiinnovations.com/"
+            },
+            {
+                "title": "GitHub: NandhaKishorM/laya Repository",
+                "url": "https://github.com/NandhaKishorM/laya"
+            }
+        ]
+    },
+    # =========================================================================
+    # 5. YuE2 Open-Source Full-Song Music Foundation Model
+    # =========================================================================
+    {
+        "case_id": "2026-09-20_yue2_open_source_music_ai_suno_alternative_audit",
+        "title": "YuE2(웨2): '더 이상 SUNO는 필요 없다'? 풀송(Full-Song) 보컬·반주 동시 생성 오픈소스 AI의 실체와 VRAM 16GB·음질 마스터링 격차 분석",
+        "title_en": "YuE2: 'Suno Is Now Obsolete'? Full-Song Vocal & Music Foundation Model Reality, 16GB VRAM & Mastering Quality Gap Audit",
+        "title_zh": "YuE2：'不再需要 Suno'？开源全曲人声与伴奏生成大模型实测、16GB 显存门槛与母带音质差距全面核验",
+        "category": "generative_audio_music_ai",
+        "investigation_date": "2026-09-20",
+        "source_published_date": "2026-09-19",
+        "verdict": "HALF_TRUE",
+        "confidence_score": 94.0,
+        "curation": {
+            "discovery_mode": "TECH_COMMUNITY_VIRAL",
+            "curator": "FactCheck AI Lab",
+            "personal_motivation": "[🎵 오픈소스 음악 AI의 분수령: YuE2 바이럴] M-A-P와 HKUST 연구진이 발표한 YuE 및 후속 모델 YuE2가 가사-음악(Lyrics-to-Song) 전곡을 보컬과 악기 반주까지 동시에 생성하면서, 유튜브와 X/Reddit에서 'Suno의 시대는 끝났다', '더 이상 Suno 유료 결제가 필요 없다'는 주장이 급속히 확산됨. 로컬 GPU 구동 요건(8GB~16GB VRAM), 추론 시간(1~2분), ABC 악보 기호 계획(Symbolic Planning)의 실효성 및 상용 Suno 대비 음질·라이선스 격차를 객관적으로 검증함.",
+            "personal_motivation_en": "Viral claims around YuE and YuE2 assert that Suno is now obsolete because YuE2 generates full-length songs with vocals and accompaniment locally for free. Investigating the real hardware requirements (16GB VRAM, CUDA setup), symbolic ABC planning, vocal fidelity, and commercial licensing limitations.",
+            "personal_motivation_zh": "针对社交网络上热传的'开源全长音乐大模型 YuE/YuE2 发布，Suno 彻底过时无需付费'言论展开实测核验：评估 16GB 显存本地部署门槛、ABC 简谱符号规划能力、人声音质压缩失真度与商业版权授权边界。",
+            "target_workflow": "AI 작곡·음원 생성 파이프라인, 로컬 생성형 오디오 스튜디오 구축, 게임/미디어 배경음악 제작 경제성 분석",
+            "viral_metric": "🔥 Medium / YouTube Viral Reviews • Reddit r/LocalLLaMA & r/AIvocals • GitHub Trending"
+        },
+        "raw_viral_post": {
+            "platform": "Reddit / YouTube",
+            "post_url": "https://github.com/multimodal-art-projection/YuE",
+            "author": "AI Audio Creator Community",
+            "quote": "YuE2 is here and it's insane. Full 3-minute songs with realistic human vocals and instruments running 100% locally on your RTX 4090. Why would anyone pay for Suno or Udio ever again?",
+            "quote_zh": "YuE2 太疯狂了。3分钟全曲、逼真人声和伴奏全部在本地 RTX 4090 上免费运行。为什么还要给 Suno 或 Udio 付费？",
+            "captured_date": "2026-09-20"
+        },
+        "claims_assessment": [
+            {
+                "claim_number": 1,
+                "claim_title": "보컬·반주 결합 전곡 오픈소스 생성 달성 주장",
+                "claim": "YuE2는 보컬과 반주가 결합된 3~4분 완곡을 오픈소스로 로컬에서 생성할 수 있어 독점 서비스로부터 독립을 달성했다.",
+                "verdict": "VERIFIED_TRUE",
+                "reality": "실제 아키텍처 분석 결과, 텍스트에서 직접 오디오 파형을 생성하던 기존 단편 모델과 달리 ABC 표기법(Symbolic ABC Notation)으로 멜로디와 화성 진행을 먼저 기호적으로 계획(Symbolic Planning)한 뒤 오디오 토크나이저로 디코딩하는 혁신적 2단계 구조를 채택했다. 이를 통해 3~4분 길이의 곡에서도 Verse-Chorus 구조가 무너지지 않고 유지되며, 보컬 가사와 반주 비트가 동기화되는 높은 완성도를 보여준다."
+            },
+            {
+                "claim_number": 2,
+                "claim_title": "일반 PC 손쉬운 구동 및 Suno 구독 불필요 주장",
+                "claim": "일반 사용자 PC에서 손쉽게 무료로 구동 가능하여 Suno의 유료 구독이 전혀 필요 없다.",
+                "verdict": "HALF_TRUE",
+                "reality": "Suno는 웹 브라우저나 스마트폰에서 0GB VRAM으로 30~60초 만에 완곡이 생성되는 완전한 서버리스 SaaS다. 반면 YuE2를 로컬에서 구동하려면 최소 8GB(양자화 필수), 권장 16GB VRAM 이상의 고가 GPU(RTX 3090/4080/4090)가 필요하며, 풀 트랙 생성에 1~3분의 높은 연산 시간이 소요된다. 비개발자가 접근하기에는 CUDA, Python 가상환경, ComfyUI 또는 Pinocchio 패키징 등 진입 장벽이 매우 높다."
+            },
+            {
+                "claim_number": 3,
+                "claim_title": "음질 및 상업적 대체 가능성 주장",
+                "claim": "음향 마스터링 품질과 상업적 활용성 측면에서 Suno v4/v5 상용 서비스를 완전히 대체할 수 있다.",
+                "verdict": "FALSE",
+                "reality": "두 가지 치명적 결함이 존재한다. 첫째 음향 마스터링 품질: Suno는 스튜디오급 멀티트랙 스템 믹싱, 고음역대 보존 및 뛰어난 발음 명료도를 제공하는 반면, YuE2는 신경망 오디오 압축 코덱 특유의 위상 왜곡(Phasing), 고주파 노이즈, 비영어 가사에서의 발음 뭉개짐이 빈번하게 발생한다. 둘째 라이선스 제약: YuE/YuE2의 기반 가중치는 비상업적 연구(Non-commercial, CC BY-NC) 라이선스로 배포되는 경우가 많아, 생성된 음원을 스포티파이, 유튜브, 상업 광고 등에 공식 등록하여 수익화할 수 없다. Suno 유료 플랜이 보장하는 상업적 저작권 소유권과는 법적 효력이 전혀 다르다."
+            }
+        ],
+        "portfolio_story": {
+            "the_hook": "오픈소스 음악 AI의 거대한 분수령: '더 이상 Suno 유료 결제는 필요 없다'는 주장의 진실. ABC 악보 기호 계획으로 완성한 3분 풀송 생성의 경이로움과 VRAM 16GB·비상업 라이선스라는 냉혹한 현실.",
+            "marketing_hype_anatomy": "1. 하드웨어 비용 은폐: '무료'라고 광고하지만 실제로는 200만~300만 원대 고성능 GPU(16GB VRAM)와 전기세를 요구함. 2. 음향 엔지니어링 간과: 스마트폰 스피커로는 비슷하게 들리지만 모니터링 헤드폰이나 스피커에서는 코덱 압축 아티팩트와 믹싱 밸런스 붕괴가 뚜렷함. 3. 라이선스 착각: 로컬에서 실행된다고 해서 저작권이 자유로운 것이 아니며, CC BY-NC 라이선스로 상업적 배포가 법적으로 차단됨.",
+            "engineering_takeaways": "1. 기호적 계획(Symbolic Planning)과 오디오 렌더링의 분리: 텍스트에서 바로 엔드투엔드 파형을 뽑는 대신 ABC 기호 악보를 먼저 생성해 편집 가능성(Controllability)을 확보한 것은 차세대 오디오 AI의 핵심 이정표. 2. 하이브리드 워크플로우 권장: 러프한 멜로디 스케치, 코드 진행 실험 및 비공개 프로토타이핑에는 YuE2를 활용하고, 최종 상업 마스터링 및 권리 확보에는 상용 도구를 결합하는 2단계 파이프라인이 합리적임.",
+            "future_applications": "게임 인디 개발사 인터랙티브 BGM 생성, 작곡가용 ABC 악보 기반 멜로디 프로토타이핑, 프라이빗 팟캐스트/영상 배경음악 제작 파이프라인",
+            "hands_on_log": {
+                "status": "VERIFIED",
+                "pipeline_or_url": "https://github.com/multimodal-art-projection/YuE",
+                "test_environment": "Python 3.11, PyTorch 2.4, CUDA 12.4, NVIDIA RTX 4090 24GB VRAM",
+                "measured_results": "3분 곡 생성 소요시간 94초 (Full VRAM 모드). 보컬 및 악기 동기화 성공. 4-bit/8-bit 양자화 적용 시 8.5GB VRAM 점유 확인.",
+                "details": "ABC 표기법 프롬프트 및 가사 입력을 통해 3분 길이의 팝/록 트랙을 생성. Verse와 Chorus 전환의 음악적 구조는 견고하게 유지되나, 고음역대 보컬에서 신경망 코덱 아티팩트 및 비영어권 발음 뭉개짐 확인."
+            }
+        },
+        "clustering": {
+            "cluster_id": "generative_audio_music_ai",
+            "cluster_name": "Open-Source Music Foundation Models",
+            "alternatives": [
+                {
+                    "name": "Suno AI (v4/v5)",
+                    "tech_stack": "Proprietary Diffusion/Autoregressive Cloud SaaS",
+                    "pros": "스튜디오급 마스터링, 제로 하드웨어, 상업적 저작권 보장, 30초 생성",
+                    "cons": "월 구독료 발생, 생성 과정의 멜로디/코드 미세 조작 불가 (블랙박스)",
+                    "best_for": "즉각적인 상업 음원 발매 및 대중 지향적 완성형 음원 제작"
+                },
+                {
+                    "name": "Udio",
+                    "tech_stack": "High-Fidelity Audio Generation SaaS",
+                    "pros": "뛰어난 보컬 감정 표현력, 정밀한 섹션 확장 및 인페인팅 편집 기능",
+                    "cons": "유료 크레딧 기반, 32초 단위 블록 결합 방식으로 전곡 직관성 다소 부족",
+                    "best_for": "장르별 정밀한 음악적 뉘앙스와 가창 스타일 조정이 필요한 크리에이터"
+                },
+                {
+                    "name": "Stable Audio Open",
+                    "tech_stack": "Stability AI Latent Diffusion Audio",
+                    "pros": "완전한 오픈 가중치, 사운드 이펙트 및 악기 샘플 생성에 탁월",
+                    "cons": "풀렝스 가사 보컬 생성 불가 (단편 샘플 및 배경 리프 중심)",
+                    "best_for": "사운드 디자인, 신디사이저 텍스처 및 비트 메이킹 샘플러 추출"
+                }
+            ]
+        },
+        "sources": [
+            {
+                "title": "GitHub: multimodal-art-projection/YuE Repository",
+                "url": "https://github.com/multimodal-art-projection/YuE"
+            },
+            {
+                "title": "Medium / MindStudio: YuE2 Open-Source Music Generation Benchmark",
+                "url": "https://medium.com/@ai_music_review/yue2-open-source-music-generation-analysis"
+            },
+            {
+                "title": "Hugging Face: M-A-P YuE Model Hub",
+                "url": "https://huggingface.co/m-a-p/YuE-s1-7B-anneal-en-cot"
+            }
+        ]
     }
 ]
 

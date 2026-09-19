@@ -66,28 +66,41 @@ module.exports = async (req, res) => {
       }
     } catch (e) {}
 
+    let actionsRuns = [];
     let latestRun = {};
     try {
       const rRes = await pool.query(
-        'SELECT run_id, workflow_name, event_trigger, status, conclusion, duration_str, started_at, completed_at ' +
+        'SELECT run_id, workflow_name, event_trigger, status, conclusion, duration_str, duration_seconds, items_collected, items_scanned, error_count, started_at, completed_at ' +
         'FROM github_actions_run_logs ' +
         'ORDER BY started_at DESC ' +
-        'LIMIT 1;'
+        'LIMIT 10;'
       );
       if (rRes.rows.length > 0) {
-        const rr = rRes.rows[0];
-        latestRun = {
-          run_id: rr.run_id,
-          workflow_name: rr.workflow_name,
-          event_trigger: rr.event_trigger,
-          status: rr.status,
-          conclusion: rr.conclusion,
-          duration_str: rr.duration_str,
-          started_at: rr.started_at ? new Date(rr.started_at).toISOString() : null,
-          completed_at: rr.completed_at ? new Date(rr.completed_at).toISOString() : null
-        };
+        actionsRuns = rRes.rows.map(rr => {
+          const sDate = rr.started_at ? new Date(rr.started_at) : new Date();
+          const kstTime = new Date(sDate.getTime() + 9 * 3600 * 1000);
+          const pad = n => String(n).padStart(2, '0');
+          const kstStr = `${kstTime.getUTCFullYear()}-${pad(kstTime.getUTCMonth()+1)}-${pad(kstTime.getUTCDate())} ${pad(kstTime.getUTCHours())}:${pad(kstTime.getUTCMinutes())}:${pad(kstTime.getUTCSeconds())}`;
+          return {
+            id: String(rr.run_id),
+            name: rr.workflow_name,
+            event: rr.event_trigger,
+            status: rr.status,
+            conclusion: rr.conclusion || rr.status,
+            duration_str: rr.duration_str,
+            duration_sec: rr.duration_seconds || 0,
+            items_collected: rr.items_collected,
+            items_scanned: rr.items_scanned,
+            created_at_kst: kstStr,
+            error_count: rr.error_count || 0,
+            html_url: `https://github.com/AnnyeongHae/ai-factcheck-portfolio/actions/runs/${rr.run_id}`
+          };
+        });
+        latestRun = actionsRuns[0];
       }
-    } catch (e) {}
+    } catch (e) {
+      console.warn('[Stats Actions Runs Error]:', e.message);
+    }
 
     let vercelTelemetry = {
       tier: 'Hobby (Free Tier)',
@@ -264,6 +277,7 @@ module.exports = async (req, res) => {
         latest_harvested_date: String(latestHarvestedDate)
       },
       actions_quota: quotaData,
+      actions_runs: actionsRuns,
       latest_run: latestRun,
       vercel_telemetry: vercelTelemetry,
       vercel_worker_runs: vercelWorkerRuns,
