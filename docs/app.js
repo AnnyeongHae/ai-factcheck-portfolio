@@ -463,8 +463,9 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     let currentGraphType = 'ALL';
     let simulationRef = null;
 
-    // 📄 Global Pagination State (15 items per page for 3x5 Grid: << < 1, 2, 3, 4, 5 > >>)
+    // 📄 Global Pagination State (PORTFOLIO_PAGE_SIZE = 10 for clean decade pagination)
     const PAGE_SIZE = 15;
+    const PORTFOLIO_PAGE_SIZE = 10;
     let currentPortfolioPage = 1;
     let currentModelsPage = 1;
     let currentNewsPage = 1;
@@ -2556,7 +2557,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
       document.getElementById('resultsCountLabel').innerText = currentLang === 'KO' ? `총 ${filtered.length}건 표시 (전체 ${liveCasesData.length}건 중)` : (currentLang === 'ZH' ? `显示 ${filtered.length} 项 (共 ${liveCasesData.length} 项)` : `Showing ${filtered.length} of ${liveCasesData.length} dossiers`);
 
-      const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
+      const totalPages = Math.ceil(filtered.length / PORTFOLIO_PAGE_SIZE) || 1;
       if (currentPortfolioPage > totalPages) currentPortfolioPage = totalPages;
       if (currentPortfolioPage < 1) currentPortfolioPage = 1;
 
@@ -2567,8 +2568,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         return;
       }
 
-      // Render Executive Scannable Cards (Paged: 20 per page)
-      const pagedItems = filtered.slice((currentPortfolioPage - 1) * PAGE_SIZE, currentPortfolioPage * PAGE_SIZE);
+      // Render Executive Scannable Cards (Paged: 10 per page)
+      const pagedItems = filtered.slice((currentPortfolioPage - 1) * PORTFOLIO_PAGE_SIZE, currentPortfolioPage * PORTFOLIO_PAGE_SIZE);
       const fragment = document.createDocumentFragment();
       pagedItems.forEach((c, idx) => {
         const story = c.portfolio_story || {};
@@ -2723,7 +2724,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
       const modal = document.getElementById('detailModal');
       const story = c.portfolio_story || {};
-      const handsOn = story.hands_on_log || {};
+      const handsOn = (story.hands_on_log && Object.keys(story.hands_on_log).length > 0) ? story.hands_on_log : (c.hands_on_review || {});
       const curation = c.curation || {};
       const clustering = c.clustering || {};
       const rawPost = c.raw_viral_post || {};

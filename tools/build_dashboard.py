@@ -63,6 +63,56 @@ def scan_investigations():
                 ORDER BY created_at DESC;
             """)
             rows = cur.fetchall()
+
+            # 2.1 Fetch relational tables from DB for 100% schema completeness
+            claims_map = {}
+            try:
+                cur.execute("SELECT case_id, claim_number, claim_title, claim_text, claim_verdict, verification_evidence FROM factcheck_atomic_claims ORDER BY case_id, claim_number;")
+                for cr in cur.fetchall():
+                    c_id = cr[0]
+                    if c_id not in claims_map: claims_map[c_id] = []
+                    claims_map[c_id].append({
+                        "claim_id": f"claim_{cr[1]}",
+                        "claim_number": cr[1],
+                        "claim_title": cr[2],
+                        "claim": cr[3],
+                        "statement": cr[3],
+                        "verdict": cr[4],
+                        "status": cr[4],
+                        "reality": cr[5],
+                        "verification_evidence": cr[5]
+                    })
+            except Exception: pass
+
+            alts_map = {}
+            try:
+                cur.execute("SELECT case_id, tool_name, tech_stack, pros, cons, best_for FROM factcheck_alternatives ORDER BY case_id, id;")
+                for ar in cur.fetchall():
+                    c_id = ar[0]
+                    if c_id not in alts_map: alts_map[c_id] = []
+                    alts_map[c_id].append({
+                        "name": ar[1],
+                        "tech_stack": ar[2],
+                        "pros": ar[3],
+                        "cons": ar[4],
+                        "best_for": ar[5]
+                    })
+            except Exception: pass
+
+            signals_map = {}
+            try:
+                cur.execute("SELECT case_id, platform, author_type, quote, source_url FROM factcheck_community_signals ORDER BY case_id, id;")
+                for sr in cur.fetchall():
+                    c_id = sr[0]
+                    if c_id not in signals_map:
+                        signals_map[c_id] = {
+                            "platform": sr[1],
+                            "author": sr[2],
+                            "quote": sr[3],
+                            "post_url": sr[4]
+                        }
+            except Exception: pass
+
             db_synced = 0
             for r in rows:
                 cid = r[0]
@@ -81,6 +131,8 @@ def scan_investigations():
                     try: metrics = json.loads(metrics)
                     except Exception: pass
 
+                measured_res = metrics if isinstance(metrics, str) else (", ".join([f"{k}: {v}" for k, v in metrics.items()]) if isinstance(metrics, dict) and metrics else "")
+
                 db_item = {
                     "case_id": cid,
                     "title": r[1],
@@ -97,8 +149,11 @@ def scan_investigations():
                     },
                     "clustering": {
                         "cluster_id": r[9] or "general",
-                        "cluster_name": r[10] or "General AI"
+                        "cluster_name": r[10] or "General AI",
+                        "alternatives": alts_map.get(cid, [])
                     },
+                    "raw_viral_post": signals_map.get(cid) or {},
+                    "claims_assessment": claims_map.get(cid, []),
                     "hands_on_review": {
                         "status": r[11] or "VERIFIED_TRUE",
                         "pipeline": r[12] or "",
@@ -110,7 +165,14 @@ def scan_investigations():
                         "the_hook": r[16] or "",
                         "marketing_hype_anatomy": r[17] or "",
                         "engineering_takeaways": r[18] or "",
-                        "future_applications": r[19] or ""
+                        "future_applications": r[19] or "",
+                        "hands_on_log": {
+                            "status": r[11] or "VERIFIED",
+                            "pipeline_or_url": r[12] or "",
+                            "test_environment": r[13] or "",
+                            "measured_results": measured_res,
+                            "details": r[15] or ""
+                        }
                     },
                     "sources": sources
                 }
@@ -436,7 +498,7 @@ def build_dashboard():
     verified_case_ids = set()
     for c in cases:
         verified_case_ids.add(c.get("case_id"))
-        p_url = c.get("raw_viral_post", {}).get("post_url")
+        p_url = (c.get("raw_viral_post") or {}).get("post_url")
         if p_url: verified_case_urls.add(p_url.rstrip("/"))
         for s in c.get("sources", []):
             if s.get("url"): verified_case_urls.add(s.get("url").rstrip("/"))

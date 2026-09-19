@@ -158,7 +158,8 @@ module.exports = async (req, res) => {
         },
         clustering: {
           cluster_id: row.cluster_id || 'general',
-          cluster_name: row.cluster_name || 'General AI'
+          cluster_name: row.cluster_name || 'General AI',
+          alternatives: altsByCase[row.case_id] || []
         },
         cluster: {
           id: row.cluster_id || 'general',
@@ -168,7 +169,14 @@ module.exports = async (req, res) => {
           the_hook: row.the_hook || '',
           marketing_hype_anatomy: row.marketing_hype_anatomy || '',
           engineering_takeaways: row.engineering_takeaways || '',
-          future_applications: row.future_applications || ''
+          future_applications: row.future_applications || '',
+          hands_on_log: {
+            status: row.hands_on_status || 'verified',
+            pipeline_or_url: row.hands_on_pipeline || '',
+            test_environment: row.hands_on_env || '',
+            measured_results: typeof row.hands_on_metrics === 'string' ? row.hands_on_metrics : (Object.keys(row.hands_on_metrics || {}).length > 0 ? Object.entries(row.hands_on_metrics).map(([k, v]) => `${k}: ${v}`).join(' | ') : ''),
+            details: row.hands_on_details || ''
+          }
         },
         debunking_narrative: {
           the_hook: row.the_hook || '',
@@ -183,6 +191,12 @@ module.exports = async (req, res) => {
           empirical_metrics: row.hands_on_metrics || {},
           details: row.hands_on_details || ''
         },
+        raw_viral_post: (commByCase[row.case_id] && commByCase[row.case_id].length > 0) ? {
+          platform: commByCase[row.case_id][0].platform || 'Social Post',
+          author: commByCase[row.case_id][0].author_type || '',
+          quote: commByCase[row.case_id][0].quote || '',
+          post_url: commByCase[row.case_id][0].url || ''
+        } : null,
         sources: parsedSources,
         claims_assessment: claimsByCase[row.case_id] || [],
         atomic_claims: claimsByCase[row.case_id] || [],
