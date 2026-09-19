@@ -84,8 +84,8 @@ jobs:
 
       - name: Trigger Vercel AI Enrichment Micro-Worker
         run: |
-          echo "[*] Triggering Vercel Serverless AI Micro-Worker (single non-blocking ping)..."
-          curl -m 10 -s "https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=1" || true
+          echo "[*] Triggering Vercel Serverless AI Micro-Worker (batch size 5, non-blocking)..."
+          curl -m 15 -s "https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=5" || true
 
       - name: Finalize Actions Telemetry in Neon DB
         if: always()

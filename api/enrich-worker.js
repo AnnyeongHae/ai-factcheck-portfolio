@@ -172,8 +172,8 @@ module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
 
   // Authorization policy:
-  // - Public / Frontend / Cron triggers are allowed for zero-cost micro-batch (limit <= 2).
-  // - High-volume batches (limit > 2) require ADMIN_QUEUE_SECRET or CRON_SECRET.
+  // - Public / Frontend / Cron / GHA triggers are allowed for micro-batch (limit <= 5).
+  // - High-volume batches (limit > 5) require ADMIN_QUEUE_SECRET or CRON_SECRET.
   const adminSecret = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET;
   const authHeader = req.headers.authorization || '';
   const customHeader = req.headers['x-admin-key'] || '';
@@ -182,7 +182,7 @@ module.exports = async (req, res) => {
   const isAdmin = Boolean(adminSecret && provided === adminSecret);
 
   const requestedLimit = parseInt(req.query?.limit, 10) || 1;
-  const limit = isAdmin ? Math.min(Math.max(requestedLimit, 1), 5) : Math.min(Math.max(requestedLimit, 1), 2);
+  const limit = isAdmin ? Math.min(Math.max(requestedLimit, 1), 10) : Math.min(Math.max(requestedLimit, 1), 5);
 
   const pool = getDbPool();
   if (!pool) {
