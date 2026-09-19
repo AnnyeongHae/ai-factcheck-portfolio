@@ -2857,9 +2857,31 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
     function openCaseModal(caseId) {
       if (!caseId) return;
-      const c = (liveCasesData || []).find(x => x.case_id === caseId || x.investigation_id === caseId) || (casesData || []).find(x => x.case_id === caseId);
+      let c = (liveCasesData || []).find(x => x.case_id === caseId || x.investigation_id === caseId) || (casesData || []).find(x => x.case_id === caseId);
       if (c) {
         openModal(c);
+        // If claims or alternatives are missing, asynchronously fetch full single case from API
+        if (!c.claims_assessment || c.claims_assessment.length === 0 || !c.alternatives || c.alternatives.length === 0) {
+          fetch(`/api/portfolios?case_id=${encodeURIComponent(caseId)}`)
+            .then(res => res.json())
+            .then(data => {
+              if (data && data.success && data.case) {
+                Object.assign(c, data.case);
+                openModal(c, true);
+              }
+            })
+            .catch(() => {});
+        }
+      } else {
+        // Direct link to unlisted/deep case: fetch directly from Edge SWR DB API
+        fetch(`/api/portfolios?case_id=${encodeURIComponent(caseId)}`)
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.success && data.case) {
+              openModal(data.case);
+            }
+          })
+          .catch(() => {});
       }
     }
 
