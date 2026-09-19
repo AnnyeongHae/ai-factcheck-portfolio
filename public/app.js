@@ -1553,7 +1553,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       try {
         const tStart = performance.now();
         const apiUrl = window.location.hostname.includes('vercel.app') ? '/api/stats' : 'https://ai-factcheck-portfolio.vercel.app/api/stats';
-        const res = await fetch(apiUrl, { cache: 'no-store' });
+        const res = await fetch(apiUrl, { cache: 'default' });
         const tLatency = Math.round(performance.now() - tStart);
 
 
@@ -1649,7 +1649,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
             try {
               const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
               const inboxApiUrl = isLocalOrVercel ? '/api/inbox?limit=50&sort=updated' : 'https://ai-factcheck-portfolio.vercel.app/api/inbox?limit=50&sort=updated';
-              const inbRes = await fetch(inboxApiUrl, { cache: 'no-store' });
+              const inbRes = await fetch(inboxApiUrl, { cache: 'default' });
               if (inbRes.ok) {
                 const inbData = await inbRes.json();
                 if (inbData.status === 'success' && Array.isArray(inbData.items)) {
@@ -1700,7 +1700,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
             try {
               const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
               const portfoliosApiUrl = isLocalOrVercel ? '/api/portfolios' : 'https://ai-factcheck-portfolio.vercel.app/api/portfolios';
-              const pRes = await fetch(portfoliosApiUrl, { cache: 'no-store' });
+              const pRes = await fetch(portfoliosApiUrl, { cache: 'default' });
               if (pRes.ok) {
                 const pData = await pRes.json();
                 if (pData.success && Array.isArray(pData.portfolios) && pData.portfolios.length > 0) {

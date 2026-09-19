@@ -37,9 +37,9 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Hydrate Inbox from Neon Postgres DB
+      - name: Hydrate Recent Inbox from Neon Postgres DB (Lightweight)
         run: |
-          python tools/db_bridge.py --pull-inbox || echo "Pull from Neon DB completed or skipped."
+          python tools/db_bridge.py --pull-inbox --limit 20 || echo "Lightweight pull from Neon DB completed or skipped."
 
       - name: Process Issue & Run Fact-Check Promotion
         id: run_handler

@@ -47,9 +47,9 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Hydrate Inbox from Neon Postgres DB
+      - name: Hydrate Recent Inbox from Neon Postgres DB (Incremental Lightweight)
         run: |
-          python tools/db_bridge.py --pull-inbox || echo "Pull from Neon DB completed or skipped."
+          python tools/db_bridge.py --pull-inbox --limit 50 || echo "Incremental pull from Neon DB completed or skipped."
 
       - name: "Stage 1 & 2: Multi-Source Harvester & Immediate DB Staging & Metrics Logging"
         timeout-minutes: 3

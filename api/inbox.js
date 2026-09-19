@@ -4,7 +4,7 @@ const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 module.exports = async (req, res) => {
   if (handleOptions(req, res, 'GET, OPTIONS')) return;
   setCorsHeaders(res, 'GET, OPTIONS');
-  res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=30');
+  res.setHeader('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=86400');
 
   const pool = getDbPool();
   if (!pool) {

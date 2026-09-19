@@ -291,7 +291,7 @@ def push_inbox_to_neon(full_sync=False):
     conn.close()
     print(f"[+] Successfully pushed {count} inbox candidates to Neon Postgres DB (Tier 1 Staging)!")
 
-def pull_inbox_from_neon(limit=5000):
+def pull_inbox_from_neon(limit=50):
     """
     Hydrates local inbox/ from Neon Postgres DB Tier 1 raw_trends_inbox.
     Ensures CI runner or clean dev machine has the exact consolidated data.
@@ -450,6 +450,7 @@ def main():
     parser.add_argument("--init", action="store_true", help="Initialize Sustainable Neon DB schema, indexes, and triggers")
     parser.add_argument("--sync-inbox", action="store_true", help="Push local inbox candidates to Neon DB (Tier 1)")
     parser.add_argument("--pull-inbox", action="store_true", help="Pull latest inbox items from Neon DB to local disk")
+    parser.add_argument("--limit", type=int, default=50, help="Limit number of items to pull (default 50 to protect Neon 5GB egress quota)")
     parser.add_argument("--sync-factchecks", action="store_true", help="Push verified portfolios to Neon DB (Tier 2)")
     parser.add_argument("--sync-all", action="store_true", help="Initialize schema and sync everything to Neon DB")
     parser.add_argument("--full", action="store_true", help="Perform full sync instead of fast incremental (last 24h) sync")
@@ -459,7 +460,7 @@ def main():
     if args.init:
         init_schema()
     elif args.pull_inbox:
-        pull_inbox_from_neon()
+        pull_inbox_from_neon(limit=5000 if args.full else args.limit)
     elif args.sync_inbox:
         push_inbox_to_neon(full_sync=args.full)
     elif args.sync_factchecks:
