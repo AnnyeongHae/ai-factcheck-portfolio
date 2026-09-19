@@ -26,21 +26,108 @@ if sys.stdout.encoding != 'utf-8':
 def scan_investigations():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     inv_dir = os.path.join(base_dir, "investigations")
-    cases = []
-    if not os.path.exists(inv_dir): return cases
+    cases_by_id = {}
 
-    for item in sorted(os.listdir(inv_dir)):
-        item_path = os.path.join(inv_dir, item)
-        if os.path.isdir(item_path):
-            meta_path = os.path.join(item_path, "metadata.json")
-            if os.path.exists(meta_path):
-                try:
-                    with open(meta_path, "r", encoding="utf-8") as f:
-                        meta = json.load(f)
-                        if "title" in meta and meta.get("title") != "[이슈명]" and meta.get("title") != "[저장소명]":
-                            cases.append(meta)
-                except Exception as e:
-                    print(f"[!] Warning: Failed to read {meta_path}: {e}")
+    # 1. Local Disk Investigations (Fallback / Stored Metadata)
+    if os.path.exists(inv_dir):
+        for item in sorted(os.listdir(inv_dir)):
+            item_path = os.path.join(inv_dir, item)
+            if os.path.isdir(item_path):
+                meta_path = os.path.join(item_path, "metadata.json")
+                if os.path.exists(meta_path):
+                    try:
+                        with open(meta_path, "r", encoding="utf-8") as f:
+                            meta = json.load(f)
+                            if "title" in meta and meta.get("title") != "[이슈명]" and meta.get("title") != "[저장소명]":
+                                cid = meta.get("case_id") or item
+                                cases_by_id[cid] = meta
+                    except Exception as e:
+                        print(f"[!] Warning: Failed to read {meta_path}: {e}")
+
+    # 2. Live Cloud Source: Neon PostgreSQL DB (Primary Truth for Dossiers)
+    try:
+        tools_dir = os.path.dirname(os.path.abspath(__file__))
+        if tools_dir not in sys.path:
+            sys.path.insert(0, tools_dir)
+        from db_bridge import get_db_connection
+        conn = get_db_connection()
+        if conn:
+            cur = conn.cursor()
+            cur.execute("""
+                SELECT case_id, title, category, verdict, confidence_score, discovery_mode,
+                       curator_name, personal_motivation, target_workflow, cluster_id,
+                       cluster_name, hands_on_status, hands_on_pipeline, hands_on_env,
+                       hands_on_metrics, hands_on_details, the_hook, marketing_hype_anatomy,
+                       engineering_takeaways, future_applications, sources, created_at
+                FROM verified_factchecks
+                ORDER BY created_at DESC;
+            """)
+            rows = cur.fetchall()
+            db_synced = 0
+            for r in rows:
+                cid = r[0]
+                created_ts = str(r[21]) if r[21] else "2026-09-01"
+                m_date = re.search(r'(\d{4})[-_](\d{2})[-_](\d{2})', str(cid))
+                case_date = f"{m_date.group(1)}-{m_date.group(2)}-{m_date.group(3)}" if m_date else created_ts[:10]
+
+                sources = r[20]
+                if isinstance(sources, str):
+                    try: sources = json.loads(sources)
+                    except Exception: sources = []
+                if not isinstance(sources, list): sources = []
+
+                metrics = r[14]
+                if isinstance(metrics, str):
+                    try: metrics = json.loads(metrics)
+                    except Exception: pass
+
+                db_item = {
+                    "case_id": cid,
+                    "title": r[1],
+                    "category": r[2],
+                    "investigation_date": case_date,
+                    "source_published_date": case_date,
+                    "verdict": r[3],
+                    "confidence_score": float(r[4]) if r[4] is not None else 95.0,
+                    "curation": {
+                        "discovery_mode": r[5] or "USER_CURATED",
+                        "curator": r[6] or "FactCheck AI Lab",
+                        "personal_motivation": r[7] or "",
+                        "target_workflow": r[8] or ""
+                    },
+                    "clustering": {
+                        "cluster_id": r[9] or "general",
+                        "cluster_name": r[10] or "General AI"
+                    },
+                    "hands_on_review": {
+                        "status": r[11] or "VERIFIED_TRUE",
+                        "pipeline": r[12] or "",
+                        "environment": r[13] or "",
+                        "empirical_metrics": metrics or {},
+                        "details": r[15] or ""
+                    },
+                    "portfolio_story": {
+                        "the_hook": r[16] or "",
+                        "marketing_hype_anatomy": r[17] or "",
+                        "engineering_takeaways": r[18] or "",
+                        "future_applications": r[19] or ""
+                    },
+                    "sources": sources
+                }
+                # If already in local cases, update with any richer DB fields; otherwise add new
+                if cid in cases_by_id:
+                    for k, v in db_item.items():
+                        if k not in cases_by_id[cid] or not cases_by_id[cid][k]:
+                            cases_by_id[cid][k] = v
+                else:
+                    cases_by_id[cid] = db_item
+                    db_synced += 1
+            conn.close()
+            print(f"[+] [Neon DB Direct] Synced {len(rows)} verified dossiers from Neon DB (Added: {db_synced}, Total: {len(cases_by_id)})")
+    except Exception as e:
+        print(f"[!] Warning: Neon DB dossier query skipped ({e}), using local disk cases...")
+
+    cases = list(cases_by_id.values())
     cases.sort(key=lambda c: (c.get("investigation_date") or (c.get("source_published_date") or "")[:10] or "2026-01-01", c.get("case_id") or ""), reverse=True)
     return cases
 

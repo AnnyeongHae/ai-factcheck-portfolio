@@ -145,15 +145,36 @@ module.exports = async (req, res) => {
         source_published_date: caseDate,
         verdict: row.verdict,
         confidence_score: row.confidence_score,
-        discovery_mode: row.discovery_mode,
+        curation: {
+          discovery_mode: row.discovery_mode || 'USER_CURATED',
+          curator: row.curator_name || 'FactCheck AI Lab',
+          personal_motivation: row.personal_motivation || '',
+          target_workflow: row.target_workflow || ''
+        },
         curator: {
           name: row.curator_name || 'AI FactCheck Lab',
           personal_motivation: row.personal_motivation || '',
           target_workflow: row.target_workflow || ''
         },
+        clustering: {
+          cluster_id: row.cluster_id || 'general',
+          cluster_name: row.cluster_name || 'General AI'
+        },
         cluster: {
           id: row.cluster_id || 'general',
           name: row.cluster_name || 'General AI'
+        },
+        portfolio_story: {
+          the_hook: row.the_hook || '',
+          marketing_hype_anatomy: row.marketing_hype_anatomy || '',
+          engineering_takeaways: row.engineering_takeaways || '',
+          future_applications: row.future_applications || ''
+        },
+        debunking_narrative: {
+          the_hook: row.the_hook || '',
+          marketing_hype_anatomy: row.marketing_hype_anatomy || '',
+          engineering_takeaways: row.engineering_takeaways || '',
+          future_applications: row.future_applications || ''
         },
         hands_on_review: {
           status: row.hands_on_status || 'verified',
@@ -162,13 +183,8 @@ module.exports = async (req, res) => {
           empirical_metrics: row.hands_on_metrics || {},
           details: row.hands_on_details || ''
         },
-        debunking_narrative: {
-          the_hook: row.the_hook || '',
-          marketing_hype_anatomy: row.marketing_hype_anatomy || '',
-          engineering_takeaways: row.engineering_takeaways || '',
-          future_applications: row.future_applications || ''
-        },
         sources: parsedSources,
+        claims_assessment: claimsByCase[row.case_id] || [],
         atomic_claims: claimsByCase[row.case_id] || [],
         alternatives: altsByCase[row.case_id] || [],
         community_signals: commByCase[row.case_id] || []

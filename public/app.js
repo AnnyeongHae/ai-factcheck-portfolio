@@ -205,6 +205,9 @@ function updateGlobalStatsUI() {
   safeSet('statHalfTrue', `● ${halfCount} 부분`);
 
   safeSet('heroAuditCount', `● ${numCases}개 기술 검증 완료`);
+  safeSet('portfolioDossiersCountBadge', `총 ${numCases}건 완료`);
+  const viewAllText = currentLang === 'KO' ? `전체 ${numCases}개 검증 도시에 보러가기` : (currentLang === 'ZH' ? `查看全部 ${numCases} 份核查档案` : `View All ${numCases} Empirical Dossiers`);
+  safeSet('homeTopPicksViewAll', viewAllText);
 
   // Update Category & Tier 2 pills dynamically
   if (typeof updateNewsCategoryPillCounts === 'function') {
@@ -1654,6 +1657,32 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               }
             } catch (inbErr) {
               console.warn('[Live DB Sync] Inbox items hydration error:', inbErr);
+            }
+
+            // 🌟 Live Portfolio Dossiers Sync: Hydrate newly verified factchecks directly from Neon DB
+            try {
+              const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
+              const portfoliosApiUrl = isLocalOrVercel ? '/api/portfolios' : 'https://ai-factcheck-portfolio.vercel.app/api/portfolios';
+              const pRes = await fetch(portfoliosApiUrl, { cache: 'no-store' });
+              if (pRes.ok) {
+                const pData = await pRes.json();
+                if (pData.success && Array.isArray(pData.portfolios) && pData.portfolios.length > 0) {
+                  const currentCount = Array.isArray(liveCasesData) ? liveCasesData.length : 0;
+                  const firstIdNew = pData.portfolios[0]?.case_id;
+                  const firstIdOld = liveCasesData[0]?.case_id;
+                  if (pData.portfolios.length !== currentCount || (firstIdNew && firstIdOld && firstIdNew !== firstIdOld)) {
+                    liveCasesData = pData.portfolios;
+                    casesData = pData.portfolios;
+                    AppStore._cases = pData.portfolios;
+                    updateGlobalStatsUI();
+                    try { renderCards(); } catch(e) {}
+                    try { renderHomeTopPicks(); } catch(e) {}
+                    console.log(`[Live DB Sync] Live hydrated ${pData.portfolios.length} dossiers from Neon DB.`);
+                  }
+                }
+              }
+            } catch (pErr) {
+              console.warn('[Live DB Sync] Portfolios live sync skipped:', pErr.message);
             }
 
             if (data.timeline_24h_live && Array.isArray(data.timeline_24h_live) && data.timeline_24h_live.length > 0) {
