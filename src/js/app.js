@@ -88,9 +88,35 @@ window.AppStore = AppStore;
 
 // ================= UNIVERSAL ASYNC DATA HYDRATION LAYER =================
 async function bootstrapApplicationData() {
-  console.log('[Bootstrap] Initializing asynchronous data hydration...');
+  console.log('[Bootstrap] Initializing asynchronous DB-First data hydration...');
+  let loadedFromEdge = false;
+
+  // 1. 🌟 Primary Source: Vercel Edge SWR API (Cached at global CDN edge, 30~80ms response)
   try {
-    // 1. Try loading static lean data.json (sub-second initial render)
+    const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
+    const portfoliosApiUrl = isLocalOrVercel ? '/api/portfolios' : 'https://ai-factcheck-portfolio.vercel.app/api/portfolios';
+    
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 2500);
+    const edgeRes = await fetch(portfoliosApiUrl, { signal: controller.signal });
+    clearTimeout(timeoutId);
+
+    if (edgeRes.ok) {
+      const edgeData = await edgeRes.json();
+      if (edgeData && edgeData.success && Array.isArray(edgeData.portfolios) && edgeData.portfolios.length > 0) {
+        liveCasesData = edgeData.portfolios;
+        casesData = edgeData.portfolios;
+        AppStore._cases = edgeData.portfolios;
+        loadedFromEdge = true;
+        console.log(`[Bootstrap] ⚡ [DB-First Edge SWR] Loaded ${edgeData.portfolios.length} dossiers directly from Neon DB Edge API.`);
+      }
+    }
+  } catch (edgeErr) {
+    console.warn('[Bootstrap] Edge API first-paint timeout or offline, falling back to static snapshot:', edgeErr.message);
+  }
+
+  // 2. 🛡️ Supplementary Snapshot & Offline Fallback (data.json for graph/telemetry/offline)
+  try {
     const staticRes = await fetch('data.json', { cache: 'default' });
     if (staticRes.ok) {
       const data = await staticRes.json();
@@ -101,12 +127,22 @@ async function bootstrapApplicationData() {
       trend6hData = data.trend_6h || {};
       trendRadarData = data.trend_radar || {};
 
-      AppStore.init(data);
-
-      console.log(`[Bootstrap] Loaded ${AppStore.getCases().length} dossiers, ${AppStore.getNews().length} news, ${AppStore.getModels().length} models from lean data.json.`);
+      if (!loadedFromEdge) {
+        AppStore.init(data);
+        console.log(`[Bootstrap] Loaded ${AppStore.getCases().length} dossiers from static snapshot fallback.`);
+      } else {
+        AppStore._news = data.news || [];
+        AppStore._models = data.models || [];
+        AppStore._inbox = (data.inbox_recent || []).concat(data.inbox || []);
+        liveNewsData = AppStore._news;
+        liveModelsData = AppStore._models;
+        inboxData = AppStore._inbox;
+        newsData = AppStore._news;
+        modelsData = AppStore._models;
+      }
     }
   } catch (e) {
-    console.warn('[Bootstrap] Static data.json fetch skipped/failed, relying on live Neon APIs:', e.message);
+    console.warn('[Bootstrap] Static snapshot fallback skipped:', e.message);
   }
 
   updateGlobalStatsUI();
