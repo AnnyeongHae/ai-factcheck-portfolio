@@ -60,6 +60,11 @@ jobs:
         run: |
           python -u tools/harvest_trends.py
 
+      - name: Automated Zero-Interaction AI Enrichment Drain
+        timeout-minutes: 2
+        run: |
+          python tools/drain_ai_enrichment.py || echo "AI enrichment drain completed with graceful fallback."
+
       - name: Sync GitHub Actions Telemetry to Neon DB
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -81,11 +86,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Trigger Vercel AI Enrichment Micro-Worker
-        run: |
-          echo "[*] Triggering Vercel Serverless AI Micro-Worker (single non-blocking ping)..."
-          curl -m 10 -s "https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=1" || true
 
       - name: Finalize Actions Telemetry in Neon DB
         if: always()

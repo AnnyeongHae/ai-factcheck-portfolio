@@ -182,7 +182,7 @@ module.exports = async (req, res) => {
   const isAdmin = Boolean(adminSecret && provided === adminSecret);
 
   const requestedLimit = parseInt(req.query?.limit, 10) || 1;
-  const limit = isAdmin ? Math.min(Math.max(requestedLimit, 1), 5) : Math.min(Math.max(requestedLimit, 1), 2);
+  const limit = isAdmin ? Math.min(Math.max(requestedLimit, 1), 10) : Math.min(Math.max(requestedLimit, 1), 5);
 
   const pool = getDbPool();
   if (!pool) {

@@ -1592,7 +1592,10 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
                 }
               } else {
                 if (!window._allClassifiedCompleted && !window._autoWorkerPaused && !window._autoWorkerRunning) {
-                  startContinuousAiWorker();
+                  // 🌟 CI/CD Automated Drain handles this primarily; client only kicks in if visiting admin/inbox
+                  if (currentView === 'inbox' || window.location.hash.includes('inbox') || window.location.hash.includes('admin')) {
+                    startContinuousAiWorker();
+                  }
                 } else if (window._autoWorkerRunning && !window._autoWorkerPaused) {
                   if (txt) txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 중 (잔여: ${unclass}건)`;
                 }
@@ -1814,7 +1817,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       while (_autoWorkerRunning && !_autoWorkerPaused) {
         try {
           const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
-          const workerUrl = isLocalOrVercel ? '/api/enrich-worker?limit=1' : 'https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=1';
+          const workerUrl = isLocalOrVercel ? '/api/enrich-worker?limit=3' : 'https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=3';
           
           if (txt && !_autoWorkerPaused) {
             txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI 요약 분석 중...`;
