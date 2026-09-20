@@ -86,6 +86,15 @@ const AppStore = {
 };
 window.AppStore = AppStore;
 
+// Filter out noisy third-party browser extension message channel disconnections
+if (typeof window !== 'undefined') {
+  window.addEventListener('unhandledrejection', (event) => {
+    if (event?.reason?.message && event.reason.message.includes('message channel closed before a response was received')) {
+      event.preventDefault();
+    }
+  });
+}
+
 // ================= UNIVERSAL ASYNC DATA HYDRATION LAYER =================
 async function bootstrapApplicationData() {
   console.log('[Bootstrap] Initializing asynchronous DB-First data hydration...');
@@ -96,8 +105,9 @@ async function bootstrapApplicationData() {
     const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
     const portfoliosApiUrl = isLocalOrVercel ? '/api/portfolios' : 'https://ai-factcheck-portfolio.vercel.app/api/portfolios';
     
+    // Allow up to 6000ms to gracefully accommodate Vercel serverless / Neon cold starts
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 2500);
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
     const edgeRes = await fetch(portfoliosApiUrl, { signal: controller.signal });
     clearTimeout(timeoutId);
 
