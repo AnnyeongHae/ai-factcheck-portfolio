@@ -705,7 +705,8 @@ def harvest_all():
     try:
         logger.log("[*] Fetching Curated Global AI RSS Feeds...")
         rss_sources = [
-            ("Hugging Face Blog", "https://huggingface.co/blog/feed.xml", "https://huggingface.co/blog")
+            ("Hugging Face Blog", "https://huggingface.co/blog/feed.xml", "https://huggingface.co/blog"),
+            ("PyTorchKR", "https://discuss.pytorch.kr/latest.rss", "https://discuss.pytorch.kr")
         ]
         count = 0
         for sname, sfeed, base_url in rss_sources:
@@ -746,7 +747,7 @@ def harvest_all():
                                 except Exception:
                                     pub_iso = pub_n.text.strip()
 
-                            added = add_candidate({
+                            cand_data = {
                                 "title": f"{sname}: {title}",
                                 "source_platform": sname,
                                 "source_url": url,
@@ -755,8 +756,12 @@ def harvest_all():
                                 "type": "sns",
                                 "category_type": "NEWS",
                                 "description": desc or f"{sname} Tech Publication: {title}",
-                                "viral_metric": "🌍 Official AI Publication"
-                            })
+                                "viral_metric": "🇰🇷 PyTorchKR 커뮤니티" if "PyTorch" in sname else "🌍 Official AI Publication"
+                            }
+                            if "PyTorch" in sname:
+                                cand_data["title_ko"] = title
+                                cand_data["description_ko"] = desc or title
+                            added = add_candidate(cand_data)
                             if added: count += 1
             except Exception as e_inner:
                 logger.log(f"[!] {sname} feed parse note: {e_inner}", level="WARNING")
