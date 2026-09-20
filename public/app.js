@@ -1824,9 +1824,10 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       }
 
       if (badge) {
+        const fallbackInbox = (snapshotStats && snapshotStats.inbox_total_count) || (typeof liveInboxData !== 'undefined' && liveInboxData.length) || 2607;
         badge.innerHTML = `
           <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition shadow-xs cursor-pointer" title="관리자 전용 원천 데이터 아카이브">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Admin (${typeof casesData !== 'undefined' ? casesData.length.toLocaleString() : '0'})
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Admin (${typeof fallbackInbox === 'number' ? fallbackInbox.toLocaleString() : fallbackInbox})
           </span>
         `;
       }

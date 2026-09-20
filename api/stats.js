@@ -197,6 +197,7 @@ module.exports = async (req, res) => {
 
     // Live 24H Timeline AI Enrichment & Ingestion Breakdown (grouped by 6H KST slots)
     let timeline24hLive = [];
+    let timeline24hBaseline = [];
     try {
       const tlEnrichRes = await pool.query(`
         SELECT 
@@ -261,7 +262,7 @@ module.exports = async (req, res) => {
         };
       });
 
-      let timeline24hBaseline = [];
+      timeline24hBaseline = [];
       const totalLiveCount = timeline24hLive.reduce((a, c) => a + c.inbox_count + c.enriched_count, 0);
       if (totalLiveCount === 0) {
         try {
