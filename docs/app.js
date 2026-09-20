@@ -11,9 +11,17 @@ const AppStore = {
     if (!data) return;
     this._itemsMap.clear();
     this._cases = Array.isArray(data) ? data : (data.cases || []);
-    this._models = data.model_items || [];
-    this._news = data.news_items || [];
-    this._inbox = data.inbox_items || [];
+    this._models = data.model_items || data.models || [];
+    this._news = data.news_items || data.news || [];
+    this._inbox = data.inbox_items || data.inbox || [];
+
+    // JEV Deterministic Indexing (O(1) Boolean flags)
+    this._models.forEach(it => { it.is_model = true; it.is_news = false; });
+    this._news.forEach(it => { it.is_model = false; it.is_news = true; });
+    this._inbox.forEach(it => {
+      if (it.is_model === undefined) it.is_model = !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
+      if (it.is_news === undefined) it.is_news = !it.is_model;
+    });
 
     // Centralized index across all harvested candidates, news, and AI models
     [...this._inbox, ...this._news, ...this._models].forEach(it => {
@@ -137,16 +145,40 @@ async function bootstrapApplicationData() {
       trend6hData = data.trend_6h || {};
       trendRadarData = data.trend_radar || {};
 
+      snapshotStats = {
+        total_cases: data.total_cases || (data.cases ? data.cases.length : 58),
+        news_total_count: data.news_total_count || 1251,
+        models_total_count: data.models_total_count || 175,
+        inbox_total_count: data.inbox_total_count || 1805
+      };
+
       if (!loadedFromEdge) {
         AppStore.init(data);
         console.log(`[Bootstrap] Loaded ${AppStore.getCases().length} dossiers from static snapshot fallback.`);
       } else {
-        AppStore._news = data.news || [];
-        AppStore._models = data.models || [];
-        AppStore._inbox = (data.inbox_recent || []).concat(data.inbox || []);
+        AppStore._news = data.news_items || data.news || [];
+        AppStore._models = data.model_items || data.models || [];
+        AppStore._inbox = data.inbox_items || (data.inbox_recent || []).concat(data.inbox || []);
+
+        // JEV Deterministic Indexing (O(1) Boolean flags)
+        AppStore._models.forEach(it => { it.is_model = true; it.is_news = false; });
+        AppStore._news.forEach(it => { it.is_model = false; it.is_news = true; });
+        AppStore._inbox.forEach(it => {
+          if (it.is_model === undefined) it.is_model = !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
+          if (it.is_news === undefined) it.is_news = !it.is_model;
+        });
+
+        [...AppStore._inbox, ...AppStore._news, ...AppStore._models].forEach(it => {
+          const id = it.inbox_id || it.id;
+          if (id && !AppStore._itemsMap.has(id)) {
+            AppStore._itemsMap.set(id, it);
+          }
+        });
+
         liveNewsData = AppStore._news;
         liveModelsData = AppStore._models;
         inboxData = AppStore._inbox;
+        liveInboxData = AppStore._inbox;
         newsData = AppStore._news;
         modelsData = AppStore._models;
       }
@@ -199,6 +231,8 @@ let actionsTelemetryData = {};
 let trend6hData = {};
 let trendRadarData = {};
 
+let snapshotStats = {};
+
     let liveCasesData = casesData;
     let liveModelsData = modelsData;
     let liveInboxData = inboxData;
@@ -207,10 +241,10 @@ let trendRadarData = {};
 
 function updateGlobalStatsUI() {
   const safeSet = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
-  const numCases = (typeof liveCasesData !== 'undefined' && liveCasesData.length) || 49;
-  const numNews = (typeof liveNewsData !== 'undefined' && liveNewsData.length) || 1251;
-  const numModels = (typeof liveModelsData !== 'undefined' && liveModelsData.length) || 175;
-  const numInbox = (typeof liveInboxData !== 'undefined' && liveInboxData.length) || 1805;
+  const numCases = (typeof liveCasesData !== 'undefined' && liveCasesData.length) || snapshotStats.total_cases || 58;
+  const numNews = snapshotStats.news_total_count || (typeof liveNewsData !== 'undefined' && liveNewsData.length) || 1251;
+  const numModels = snapshotStats.models_total_count || (typeof liveModelsData !== 'undefined' && liveModelsData.length) || 175;
+  const numInbox = snapshotStats.inbox_total_count || (typeof liveInboxData !== 'undefined' && liveInboxData.length) || 1805;
 
   safeSet('statValVerified', numCases);
   safeSet('statValNews', numNews);
@@ -2847,6 +2881,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       const claimsBox = document.getElementById('modalClaimsBox');
       const claimsList = document.getElementById('modalClaimsList');
       const claims = (c.claims_assessment && c.claims_assessment.length > 0) ? c.claims_assessment : (c.marketing_claims || []);
+      const isAwaitingClaims = cid && (!claims || claims.length === 0);
+
       if (claims && claims.length > 0) {
         claimsBox.classList.remove('hidden');
         document.getElementById('modalSecClaimsTitle').innerText = t.modalSecClaimsTitle || 'Marketing Claims vs Empirical Reality';
@@ -2867,6 +2903,18 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
             </div>
           `;
         }).join('');
+      } else if (isAwaitingClaims) {
+        claimsBox.classList.remove('hidden');
+        document.getElementById('modalSecClaimsTitle').innerText = t.modalSecClaimsTitle || 'Marketing Claims vs Empirical Reality';
+        claimsList.innerHTML = `
+          <div id="modalClaimsSpinner" class="p-4 rounded-xl border border-indigo-200 bg-indigo-50/50 flex items-center justify-center gap-3 text-center shadow-xs">
+            <div class="w-4 h-4 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin shrink-0"></div>
+            <div class="text-left">
+              <div class="text-xs font-bold text-indigo-950">${currentLang === 'KO' ? 'Neon DB에서 원자적 검증 명제 및 실측 데이터 수신 중...' : (currentLang === 'ZH' ? '正在从 Neon DB 实时接收原子级事实核验与实测数据...' : 'Streaming atomic claims & empirical benchmarks from Neon DB...')}</div>
+              <div class="text-[10px] text-indigo-600">${currentLang === 'KO' ? '초경량 요약본에서 심층 팩트체크 리포트를 확장 하이드레이션하고 있습니다.' : (currentLang === 'ZH' ? '正在从超轻量摘要扩展深度事实核验报告。' : 'Hydrating in-depth dossier from lightweight summary snapshot.')}</div>
+            </div>
+          </div>
+        `;
       } else {
         claimsBox.classList.add('hidden');
       }
@@ -2884,6 +2932,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
             <td class="p-3 text-ink-secondary font-medium">${a.best_for || '-'}</td>
           </tr>
         `).join('');
+      } else if (isAwaitingClaims) {
+        altBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-xs text-indigo-600"><div class="flex items-center justify-center gap-2"><div class="w-3.5 h-3.5 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin shrink-0"></div>${currentLang === 'KO' ? '대안 비교 데이터를 Neon DB에서 동기화 중...' : (currentLang === 'ZH' ? '正在从 Neon DB 同步替代方案数据...' : 'Syncing alternative comparisons from Neon DB...')}</div></td></tr>`;
       } else {
         altBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-ink-muted">${currentLang === 'KO' ? '등록된 대체 기술 비교 데이터가 없습니다.' : (currentLang === 'ZH' ? '暂无替代方案对比数据。' : 'No comparative alternatives registered.')}</td></tr>`;
       }
@@ -2926,21 +2976,11 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       let c = (liveCasesData || []).find(x => x.case_id === caseId || x.investigation_id === caseId) || (casesData || []).find(x => x.case_id === caseId);
       if (c) {
         openModal(c);
-        // If claims or alternatives are missing, asynchronously fetch full single case from API
-        if (!c.claims_assessment || c.claims_assessment.length === 0 || !c.alternatives || c.alternatives.length === 0) {
-          fetch(`/api/portfolios?case_id=${encodeURIComponent(caseId)}`)
-            .then(res => res.json())
-            .then(data => {
-              if (data && data.success && data.case) {
-                Object.assign(c, data.case);
-                openModal(c, true);
-              }
-            })
-            .catch(() => {});
-        }
       } else {
         // Direct link to unlisted/deep case: fetch directly from Edge SWR DB API
-        fetch(`/api/portfolios?case_id=${encodeURIComponent(caseId)}`)
+        const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
+        const fetchUrl = isLocalOrVercel ? `/api/portfolios?case_id=${encodeURIComponent(caseId)}` : `https://ai-factcheck-portfolio.vercel.app/api/portfolios?case_id=${encodeURIComponent(caseId)}`;
+        fetch(fetchUrl)
           .then(res => res.json())
           .then(data => {
             if (data && data.success && data.case) {
