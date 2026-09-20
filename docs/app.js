@@ -197,18 +197,16 @@ async function bootstrapApplicationData() {
     }
   } catch (e) {}
 
-  // Initial render with loaded data
-  try { renderCards(); } catch(e) {}
-  try { renderHomeTopPicks(); } catch(e) {}
-  try { renderTimeline24h(); } catch(e) {}
-  try { renderTrendRadar(); } catch(e) {}
-  try { renderModels(); } catch(e) {}
-  try { renderNews(); } catch(e) {}
-  try { renderInbox(); } catch(e) {}
-  try { renderTelemetryCharts(); } catch(e) {}
-  try { renderPipelineTelemetryCards(); } catch(e) {}
-  try { renderRunsTable(); } catch(e) {}
-  try { if (window.lucide) window.lucide.createIcons(); } catch(e) {}
+  // 🌟 Lazy Active View Rendering (Prevents Layout Thrashing & Forced Reflow Violations)
+  const initialHash = window.location.hash || '';
+  let initialView = 'home';
+  if (initialHash.startsWith('#/factchecks') || initialHash.startsWith('#case/')) initialView = 'portfolio';
+  else if (initialHash.startsWith('#/news')) initialView = 'news';
+  else if (initialHash.startsWith('#/models')) initialView = 'models';
+  else if (initialHash.startsWith('#/graph')) initialView = 'graph';
+  else if (initialHash.startsWith('#/inbox')) initialView = 'inbox';
+
+  switchView(initialView, false, true);
 
   // 2. Perform live DB sync in background (non-blocking, instant 0ms page load)
   setTimeout(() => {
@@ -1319,8 +1317,16 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         initCitationGraph();
       }
 
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      lucide.createIcons();
+      if (pushHistory && window.scrollY > 60) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        requestAnimationFrame(() => {
+          const viewEl = document.getElementById(view + 'View');
+          if (viewEl) window.lucide.createIcons({ root: viewEl });
+          else window.lucide.createIcons();
+        });
+      }
     }
 
     // ================= RENDER HOME TOP PICKS PREVIEW (최신 분석일 기준 DESC) =================
@@ -1755,12 +1761,26 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
             if (data.timeline_24h_live && Array.isArray(data.timeline_24h_live) && data.timeline_24h_live.length > 0) {
               const curKstH = getDynamicKstHour();
-              timeline24hData = data.timeline_24h_live.map(liveSlot => ({
-                ...liveSlot,
-                is_current: (liveSlot.hour <= curKstH && curKstH < liveSlot.hour + 6),
-                is_future: (liveSlot.hour > curKstH)
-              }));
-              if (typeof renderTelemetryCharts === 'function') {
+              const liveHasData = data.timeline_24h_live.some(s => (s.inbox_count > 0 || s.enriched_count > 0));
+              if (liveHasData) {
+                timeline24hData = data.timeline_24h_live.map(liveSlot => ({
+                  ...liveSlot,
+                  is_current: (liveSlot.hour <= curKstH && curKstH < liveSlot.hour + 6),
+                  is_future: (liveSlot.hour > curKstH)
+                }));
+                window._timelineIsPendingToday = false;
+              } else if (data.timeline_24h_baseline && Array.isArray(data.timeline_24h_baseline) && data.timeline_24h_baseline.length > 0) {
+                timeline24hData = data.timeline_24h_baseline.map(bSlot => ({
+                  ...bSlot,
+                  is_current: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6),
+                  is_future: (bSlot.hour > curKstH),
+                  is_pending_today: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6)
+                }));
+                window._timelineIsPendingToday = true;
+              } else {
+                window._timelineIsPendingToday = true;
+              }
+              if (currentView === 'home' && typeof renderTelemetryCharts === 'function') {
                 renderTelemetryCharts();
               }
             }
@@ -2520,8 +2540,13 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       const pad = (n) => String(n).padStart(2, '0');
       const curKstDateStr = `${nowKst.getFullYear()}-${pad(nowKst.getMonth() + 1)}-${pad(nowKst.getDate())}`;
       const titleEl = document.getElementById('timelineTitleText');
+      const isPending = !!window._timelineIsPendingToday;
       if (titleEl) {
-        titleEl.innerText = `${i18n[currentLang]?.timelineTitle || '당일 24시간 수집 타임라인'} (${curKstDateStr})`;
+        if (isPending) {
+          titleEl.innerHTML = `${i18n[currentLang]?.timelineTitle || '당일 24시간 수집 타임라인'} (${curKstDateStr}) <span class="ml-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-300 inline-flex items-center gap-1 font-sans"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>1회차 실시간 집계 대기 중</span>`;
+        } else {
+          titleEl.innerText = `${i18n[currentLang]?.timelineTitle || '당일 24시간 수집 타임라인'} (${curKstDateStr})`;
+        }
       }
 
       // 1. Render 24-Hour Timeline Chart (4 Strategic Quarterly Sessions: 00, 06, 12, 18시)
@@ -2547,7 +2572,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               <div class="font-bold text-indigo-300">${d.range}</div>
               <div class="text-indigo-200">📥 수집: ${d.inbox_count || 0}건</div>
               <div class="text-emerald-300">✨ AI요약: ${enrichedCount}건</div>
-              ${isCurrent ? '<div class="text-emerald-400 font-bold mt-0.5">● 현재 세션 인입 중</div>' : (isFuture ? '<div class="text-slate-400 mt-0.5">예정 세션</div>' : '<div class="text-slate-300 mt-0.5">수집 완료</div>')}
+              ${isCurrent ? (isPending ? '<div class="text-emerald-400 font-bold mt-0.5">⚡ 1회차 세션 파이프라인 인입 중</div>' : '<div class="text-emerald-400 font-bold mt-0.5">● 현재 세션 인입 중</div>') : (isFuture ? '<div class="text-slate-400 mt-0.5">예정 세션</div>' : '<div class="text-slate-300 mt-0.5">수집 완료</div>')}
             </div>
 
             <!-- Numbers (수집 / 요약) -->
@@ -2578,7 +2603,11 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         const totEnriched = tData.reduce((acc, cur) => acc + (cur.enriched_count !== undefined ? cur.enriched_count : ((cur.news_count || 0) + (cur.model_count || 0))), 0);
         const ftEl = document.getElementById('timelineFooterText');
         if (ftEl) {
-          ftEl.innerHTML = `⚡ 당일 24H 수집: <b class="text-indigo-700">${totCollected}건</b> │ ✨ AI 요약분석 완료: <b class="text-emerald-700">${totEnriched}건</b>`;
+          if (isPending) {
+            ftEl.innerHTML = `⚡ <b class="text-indigo-700">${curKstDateStr} 1회차(00:00~06:00) 파이프라인 가동 중</b> │ 📊 전일 확정 실적: <b class="text-slate-800">${totCollected}건 수집</b> / <b class="text-emerald-700">${totEnriched}건 AI 분석</b>`;
+          } else {
+            ftEl.innerHTML = `⚡ 당일 24H 수집: <b class="text-indigo-700">${totCollected}건</b> │ ✨ AI 요약분석 완료: <b class="text-emerald-700">${totEnriched}건</b>`;
+          }
         }
       }
 

@@ -260,6 +260,66 @@ module.exports = async (req, res) => {
           news_count: enrichedMap[s.hour]?.news || 0
         };
       });
+
+      let timeline24hBaseline = [];
+      const totalLiveCount = timeline24hLive.reduce((a, c) => a + c.inbox_count + c.enriched_count, 0);
+      if (totalLiveCount === 0) {
+        try {
+          const tlPrevEnrichRes = await pool.query(`
+            SELECT 
+                floor(extract(hour from (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')) / 6) * 6 as slot_hour,
+                count(*) as total_enriched,
+                count(*) filter (where (item_type = 'MODEL' or source_platform ilike '%model%' or source_platform ilike '%hub%')) as model_count,
+                count(*) filter (where item_type != 'MODEL' and (source_platform is null or (source_platform not ilike '%model%' and source_platform not ilike '%hub%'))) as news_count
+            FROM raw_trends_inbox
+            WHERE is_classified = true 
+              AND (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours' - interval '1 day')::date
+            GROUP BY 1;
+          `);
+          const prevEnrichedMap = {};
+          tlPrevEnrichRes.rows.forEach(r => {
+            prevEnrichedMap[parseInt(r.slot_hour, 10)] = {
+              total: parseInt(r.total_enriched, 10) || 0,
+              model: parseInt(r.model_count, 10) || 0,
+              news: parseInt(r.news_count, 10) || 0
+            };
+          });
+
+          const tlPrevIngestRes = await pool.query(`
+            SELECT DISTINCT ON (computed_slot)
+                CASE 
+                    WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 0 THEN '00:17'
+                    WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 1 THEN '06:17'
+                    WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 2 THEN '12:17'
+                    ELSE '18:17'
+                END as computed_slot,
+                items_collected
+            FROM github_actions_run_logs
+            WHERE (started_at + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours' - interval '1 day')::date
+              AND event_trigger = 'schedule'
+              AND items_collected IS NOT NULL
+            ORDER BY computed_slot, started_at DESC;
+          `);
+          const prevIngestMap = { '00:17': 0, '06:17': 0, '12:17': 0, '18:17': 0 };
+          tlPrevIngestRes.rows.forEach(r => {
+            if (r.computed_slot) prevIngestMap[r.computed_slot] = parseInt(r.items_collected, 10) || 0;
+          });
+
+          timeline24hBaseline = slotDefs.map(s => ({
+            slot: s.slot,
+            short_slot: s.short_slot,
+            hour: s.hour,
+            range: s.range,
+            name: s.name,
+            inbox_count: prevIngestMap[s.gha_slot] || 0,
+            enriched_count: prevEnrichedMap[s.hour]?.total || 0,
+            model_count: prevEnrichedMap[s.hour]?.model || 0,
+            news_count: prevEnrichedMap[s.hour]?.news || 0
+          }));
+        } catch (prevErr) {
+          console.warn('[Stats Timeline Baseline Warning]:', prevErr.message);
+        }
+      }
     } catch (tlErr) {
       console.warn('[Stats Timeline 24h Warning]:', tlErr.message);
     }
@@ -281,7 +341,9 @@ module.exports = async (req, res) => {
       latest_run: latestRun,
       vercel_telemetry: vercelTelemetry,
       vercel_worker_runs: vercelWorkerRuns,
-      timeline_24h_live: timeline24hLive
+      timeline_24h_live: timeline24hLive,
+      timeline_24h_baseline: timeline24hBaseline || [],
+      timeline_has_today: (timeline24hLive && timeline24hLive.some(s => s.inbox_count > 0 || s.enriched_count > 0))
     });
 
   } catch (err) {
