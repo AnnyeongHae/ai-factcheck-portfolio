@@ -206,6 +206,32 @@ def index_existing_data(base_dir):
                 except Exception:
                     pass
 
+    # 3. Load DB Fingerprints & URLs from Neon Postgres if connected (Deterministic O(1) Lookup)
+    try:
+        try:
+            from tools.db_bridge import get_db_connection
+        except Exception:
+            from db_bridge import get_db_connection
+        conn = get_db_connection()
+        if conn:
+            with conn.cursor() as cur:
+                cur.execute("SELECT inbox_id, source_fingerprint, source_url, title FROM raw_trends_inbox;")
+                for iid, fp, surl, title in cur.fetchall():
+                    tag = f"db:{iid}"
+                    if fp and fp not in inbox_hash_map:
+                        inbox_hash_map[fp] = tag
+                    if surl:
+                        nu = normalize_url(surl)
+                        if nu and nu not in inbox_url_map:
+                            inbox_url_map[nu] = tag
+                    if title:
+                        tslug = slugify(title)
+                        if tslug and tslug not in inbox_slug_map:
+                            inbox_slug_map[tslug] = tag
+            conn.close()
+    except Exception:
+        pass
+
     return inbox_hash_map, inbox_url_map, inbox_slug_map, investigation_urls
 
 STEALTH_USER_AGENTS = [
@@ -889,6 +915,18 @@ def harvest_all():
                 updated_count += 1
             except Exception as e:
                 logger.log(f"[!] Failed to update {target_inbox_file}: {e}", level="ERROR")
+            continue
+        elif target_inbox_file and target_inbox_file.startswith("db:"):
+            # Existing item already tracked in Neon DB (Deterministic O(1) deduplication)
+            inbox_id = target_inbox_file[3:]
+            metric_snapshots_to_sync.append((
+                inbox_id,
+                cand.get("source_platform", "UNKNOWN"),
+                current_val,
+                0,
+                now_kst
+            ))
+            updated_count += 1
             continue
 
         # =========================================================================

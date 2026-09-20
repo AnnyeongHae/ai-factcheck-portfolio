@@ -255,12 +255,9 @@ def finalize_run(run_id, job_status="success"):
                 with urllib.request.urlopen(req, timeout=6) as resp:
                     rdata = json.loads(resp.read().decode("utf-8"))
                     c_str = rdata.get("created_at")
-                    u_str = rdata.get("updated_at")
-                    if c_str and u_str:
+                    if c_str:
                         c_dt = datetime.datetime.fromisoformat(c_str.replace("Z", "+00:00"))
-                        u_dt = datetime.datetime.fromisoformat(u_str.replace("Z", "+00:00"))
-                        dur_sec = max(1, int((u_dt - c_dt).total_seconds()))
-                        now_utc = u_dt
+                        dur_sec = max(1, int((now_utc - c_dt).total_seconds()))
             except Exception:
                 pass
 

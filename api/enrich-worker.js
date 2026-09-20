@@ -20,9 +20,9 @@ const { getDbPool } = require('./_lib/db');
 const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 const FREE_MODELS = [
-  'inclusionai/ling-3.0-flash-fin:free',    // Verified: fast, high-quality trilingual reasoning
-  'inclusionai/ling-3.0-flash-vl:free',     // Verified: reliable CJK multilingual output
-  'inclusionai/ling-3.0-flash-sante:free',  // Verified: resilient fallback
+  'inclusionai/ling-3.0-flash-sante:free',  // Verified: resilient, fast, high quality CJK multilingual
+  'inclusionai/ling-3.0-flash-vl:free',     // Reliable fallback
+  'inclusionai/ling-3.0-flash-fin:free',    // Fast fallback
   'openrouter/free'                         // OpenRouter dynamic load-balanced free router
 ];
 
@@ -278,8 +278,8 @@ module.exports = async (req, res) => {
 
     // Call OpenRouter with fast fallback models and dynamic time budget (within Vercel serverless limits)
     for (const modelName of FREE_MODELS) {
-      const budgetMs = 28000 - (Date.now() - startTime);
-      if (budgetMs < 2000) {
+      const budgetMs = 50000 - (Date.now() - startTime);
+      if (budgetMs < 3000) {
         console.warn(`[Worker] Time budget exhausted (${budgetMs}ms left). Breaking early.`);
         break;
       }
@@ -287,7 +287,7 @@ module.exports = async (req, res) => {
       let timeoutId = null;
       try {
         const controller = new AbortController();
-        const timeoutMs = Math.min(11000, budgetMs);
+        const timeoutMs = Math.min(22000, budgetMs);
         timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
         const aiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
