@@ -1095,15 +1095,13 @@ def build_dashboard():
             except Exception:
                 time.sleep(0.5)
         
-        # 2. Complete data_archive.json for on-demand lazy background hydration
+        # 2. Clean up legacy data_archive.json if present to enforce pure DB-First architecture
         archive_path = os.path.join(target_dir, "data_archive.json")
-        for _ in range(3):
+        if os.path.exists(archive_path):
             try:
-                with open(archive_path, "w", encoding="utf-8") as f:
-                    json.dump(archive_data, f, indent=2, ensure_ascii=False)
-                break
+                os.remove(archive_path)
             except Exception:
-                time.sleep(0.5)
+                pass
 
     # Generate HTML
 

@@ -113,12 +113,12 @@ module.exports = async (req, res) => {
 
     const caseIds = targetRows.map(r => r.case_id);
 
-    // 2. Fetch relations in parallel with case_id filtering
+    // 2. Fetch relations in parallel with case_id filtering (Skip when summaryOnly to minimize Egress)
     let altRows = { rows: [] };
     let commRows = { rows: [] };
     let claimsRows = { rows: [] };
 
-    if (caseIds.length > 0) {
+    if (caseIds.length > 0 && (!summaryOnly || caseIdParam)) {
       const [alts, comms, claims] = await Promise.all([
         pool.query("SELECT case_id, tool_name as name, tech_stack, pros, cons, best_for FROM factcheck_alternatives WHERE case_id = ANY($1);", [caseIds]).catch(() => ({ rows: [] })),
         pool.query("SELECT case_id, platform, author_type, quote, source_url as url, signal_type FROM factcheck_community_signals WHERE case_id = ANY($1);", [caseIds]).catch(() => ({ rows: [] })),
@@ -195,9 +195,9 @@ module.exports = async (req, res) => {
         },
         portfolio_story: {
           the_hook: row.the_hook || '',
-          marketing_hype_anatomy: row.marketing_hype_anatomy || '',
-          engineering_takeaways: row.engineering_takeaways || '',
-          future_applications: row.future_applications || '',
+          marketing_hype_anatomy: summaryOnly ? '' : (row.marketing_hype_anatomy || ''),
+          engineering_takeaways: summaryOnly ? '' : (row.engineering_takeaways || ''),
+          future_applications: summaryOnly ? '' : (row.future_applications || ''),
           hands_on_log: {
             status: row.hands_on_status || 'verified',
             pipeline_or_url: row.hands_on_pipeline || '',
@@ -206,12 +206,12 @@ module.exports = async (req, res) => {
             details: summaryOnly ? '' : (row.hands_on_details || '')
           }
         },
-        hands_on_review: {
+        hands_on_review: summaryOnly ? null : {
           status: row.hands_on_status || 'verified',
           pipeline: row.hands_on_pipeline || '',
           environment: row.hands_on_env || '',
           empirical_metrics: row.hands_on_metrics || {},
-          details: summaryOnly ? '' : (row.hands_on_details || '')
+          details: row.hands_on_details || ''
         },
         raw_viral_post: (commByCase[row.case_id] && commByCase[row.case_id].length > 0) ? {
           platform: commByCase[row.case_id][0].platform || 'Social Post',
@@ -220,9 +220,9 @@ module.exports = async (req, res) => {
           post_url: commByCase[row.case_id][0].url || ''
         } : null,
         sources: summaryOnly ? [] : parsedSources,
-        claims_assessment: claimsByCase[row.case_id] || [],
-        alternatives: altsByCase[row.case_id] || [],
-        community_signals: commByCase[row.case_id] || []
+        claims_assessment: summaryOnly ? [] : (claimsByCase[row.case_id] || []),
+        alternatives: summaryOnly ? [] : (altsByCase[row.case_id] || []),
+        community_signals: summaryOnly ? [] : (commByCase[row.case_id] || [])
       };
 
       return baseItem;

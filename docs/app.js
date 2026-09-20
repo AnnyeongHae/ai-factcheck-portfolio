@@ -103,7 +103,7 @@ async function bootstrapApplicationData() {
   // 1. 🌟 Primary Source: Vercel Edge SWR API (Cached at global CDN edge, 30~80ms response)
   try {
     const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
-    const portfoliosApiUrl = isLocalOrVercel ? '/api/portfolios' : 'https://ai-factcheck-portfolio.vercel.app/api/portfolios';
+    const portfoliosApiUrl = isLocalOrVercel ? '/api/portfolios?summary=true' : 'https://ai-factcheck-portfolio.vercel.app/api/portfolios?summary=true';
     
     // Allow up to 6000ms to gracefully accommodate Vercel serverless / Neon cold starts
     const controller = new AbortController();
@@ -184,21 +184,6 @@ async function bootstrapApplicationData() {
       .then(() => updateGlobalStatsUI())
       .catch(e => console.warn('[Bootstrap] Live DB sync completed or skipped:', e.message));
   }, 100);
-
-  // 3. Lazily hydrate complete historical archive in background (zero blocking on first paint)
-  setTimeout(async () => {
-    try {
-      const archiveRes = await fetch('data_archive.json', { cache: 'default' });
-      if (archiveRes.ok) {
-        const archiveData = await archiveRes.json();
-        AppStore.appendArchive(archiveData);
-        updateGlobalStatsUI();
-        console.log(`[Bootstrap] Lazily hydrated complete archive: ${AppStore.getInbox().length} inbox, ${AppStore.getNews().length} news, ${AppStore.getModels().length} models.`);
-      }
-    } catch (e) {
-      console.warn('[Bootstrap] Background archive hydration skipped:', e.message);
-    }
-  }, 1200);
 }
 
 
@@ -2919,6 +2904,21 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
       lucide.createIcons();
+
+      // 🌟 On-Demand Full Case Hydration: If claims or essays are not yet loaded (from summary=true mode), fetch full case
+      if (cid && !skipHistory && (!c.claims_assessment || c.claims_assessment.length === 0 || !c.portfolio_story?.marketing_hype_anatomy)) {
+        const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
+        const fetchUrl = isLocalOrVercel ? `/api/portfolios?case_id=${encodeURIComponent(cid)}` : `https://ai-factcheck-portfolio.vercel.app/api/portfolios?case_id=${encodeURIComponent(cid)}`;
+        fetch(fetchUrl)
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.success && data.case) {
+              Object.assign(c, data.case);
+              openModal(c, true);
+            }
+          })
+          .catch(() => {});
+      }
     }
 
     function openCaseModal(caseId) {
