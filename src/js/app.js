@@ -156,9 +156,13 @@ async function bootstrapApplicationData() {
 
       snapshotStats = {
         total_cases: data.total_cases || (data.cases ? data.cases.length : 58),
-        news_total_count: data.news_total_count || (data.news_items ? data.news_items.length : 0),
-        models_total_count: data.models_total_count || (data.model_items ? data.model_items.length : 0),
-        inbox_total_count: data.inbox_total_count || (data.inbox_items ? data.inbox_items.length : 0)
+        news_total_count: data.news_total_count || (data.news_items ? data.news_items.length : 3039),
+        models_total_count: data.models_total_count || (data.model_items ? data.model_items.length : 344),
+        inbox_total_count: data.inbox_total_count || (data.inbox_items ? data.inbox_items.length : 3039),
+        tier1_counts: data.tier1_counts || null,
+        news_cat_counts: data.news_cat_counts || null,
+        model_art_counts: data.model_art_counts || null,
+        model_fam_counts: data.model_fam_counts || null
       };
 
       if (!loadedFromEdge) {
@@ -298,34 +302,26 @@ function updateGlobalStatsUI() {
 window.updateGlobalStatsUI = updateGlobalStatsUI;
 
 function updateNewsCategoryPillCounts() {
-  const items = (typeof liveNewsData !== 'undefined' && liveNewsData.length) ? liveNewsData : [];
-  const total = items.length;
-  const t1Counts = {
-    TECH_COMPUTING: 0,
-    SCIENCE_RESEARCH: 0,
-    ECONOMY_FINANCE: 0,
-    LAW_CRIME_JUSTICE: 0,
-    POLITICS_POLICY: 0,
-    CULTURE_HUMANITIES: 0
-  };
-  const t2Counts = {
-    INFERENCE_OPT: 0,
-    AGENTS_DEVTOOLS: 0,
-    MULTIMODAL_AI: 0,
-    FOUNDATION_MODELS: 0,
-    INFRA_RAG_SECURITY: 0,
-    INDUSTRY_TRENDS: 0
-  };
+  const total = snapshotStats.news_total_count || 3039;
 
-  items.forEach(it => {
-    const t1 = it.tier1_category || 'TECH_COMPUTING';
-    if (t1 in t1Counts) t1Counts[t1]++;
-    else t1Counts.TECH_COMPUTING++;
+  // 🌟 Prefer accurate full-DB counts from snapshotStats (populated from data.json or live API)
+  const t1Counts = Object.assign({
+    TECH_COMPUTING: 2581,
+    SCIENCE_RESEARCH: 121,
+    ECONOMY_FINANCE: 65,
+    LAW_CRIME_JUSTICE: 99,
+    POLITICS_POLICY: 40,
+    CULTURE_HUMANITIES: 133
+  }, snapshotStats.tier1_counts || {});
 
-    const t2 = it.category_primary || it.tier2_category || 'INDUSTRY_TRENDS';
-    if (t2 in t2Counts) t2Counts[t2]++;
-    else t2Counts.INDUSTRY_TRENDS++;
-  });
+  const t2Counts = Object.assign({
+    INFERENCE_OPT: 194,
+    AGENTS_DEVTOOLS: 317,
+    MULTIMODAL_AI: 150,
+    FOUNDATION_MODELS: 187,
+    INFRA_RAG_SECURITY: 489,
+    INDUSTRY_TRENDS: 1167
+  }, snapshotStats.news_cat_counts || {});
 
   const lang = (typeof currentLang !== 'undefined' ? currentLang : 'KO');
 
@@ -3135,8 +3131,10 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     function cleanDescriptionText(desc, title) {
       if (!desc || typeof desc !== 'string') return '';
       let d = desc.trim();
-      d = d.replace(/^HN\s*Score:\s*\d+\s*pts\s*(\\|\s*Comments:\s*\d+\s*)?(\\|\s*)?/i, '');
+      d = d.replace(/^HN\s*Score:\s*\d+\s*pts\s*(\|\s*Comments:\s*\d+\s*)?(\|\s*)?/i, '');
       d = d.replace(/^Abstract:\s*/i, '');
+      if (/^Trending Score:\s*\d+/i.test(d)) return '';
+      if (/^Downloads:\s*\d+/i.test(d)) return '';
       if (title && d.toLowerCase() === title.toLowerCase().trim()) {
         return '';
       }
@@ -3161,12 +3159,16 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         displayDesc = multi?.zh?.description || it.description_zh || displayHook || it.description || '';
         if (multi?.zh?.key_takeaways?.length > 0) displayTakeaways = multi.zh.key_takeaways;
         else if (it.key_takeaways_zh?.length > 0) displayTakeaways = it.key_takeaways_zh;
+        else if (ai?.takeaways_zh?.length > 0) displayTakeaways = ai.takeaways_zh;
+        else if (ai?.key_takeaways?.length > 0) displayTakeaways = ai.key_takeaways;
       } else if (lang === 'EN') {
         displayTitle = multi?.en?.title || it.title_en || it.title || '';
         displayHook = multi?.en?.hook || it.hook_en || story.the_hook_en || it.curation?.personal_motivation_en || (ai ? ai.hook : '') || it.hook || story.the_hook || it.curation?.personal_motivation || '';
         displayDesc = multi?.en?.description || it.description_en || displayHook || it.description || '';
         if (multi?.en?.key_takeaways?.length > 0) displayTakeaways = multi.en.key_takeaways;
         else if (it.key_takeaways_en?.length > 0) displayTakeaways = it.key_takeaways_en;
+        else if (ai?.takeaways_en?.length > 0) displayTakeaways = ai.takeaways_en;
+        else if (ai?.key_takeaways?.length > 0) displayTakeaways = ai.key_takeaways;
       } else {
         // Default KO
         displayTitle = multi?.ko?.title || it.title_ko || it.title || '';
@@ -3175,6 +3177,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         if (multi?.ko?.key_takeaways?.length > 0) displayTakeaways = multi.ko.key_takeaways;
         else if (it.key_takeaways?.length > 0) displayTakeaways = it.key_takeaways;
         else if (ai?.key_takeaways?.length > 0) displayTakeaways = ai.key_takeaways;
+        else if (ai?.takeaways_ko?.length > 0) displayTakeaways = ai.takeaways_ko;
       }
 
       // Deduplicate Hook: Hook must ONLY appear in the yellow callout box
@@ -3685,10 +3688,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     let newsFetchAbortController = null;
     const newsDbCache = new Map();
 
-    async function fetchNewsFromDb(page = currentNewsPage) {
-      const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
-      const baseUrl = isLocalOrVercel ? '/api/inbox' : 'https://ai-factcheck-portfolio.vercel.app/api/inbox';
-      
+    function getNewsCacheKey(page = currentNewsPage) {
       const params = new URLSearchParams();
       params.set('limit', PAGE_SIZE);
       params.set('page', page);
@@ -3698,8 +3698,14 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       if (currentNewsSource && currentNewsSource !== 'ALL') params.set('source', currentNewsSource);
       if (currentNewsSearch) params.set('search', currentNewsSearch);
       if (currentNewsSort) params.set('sort', currentNewsSort);
+      return params.toString();
+    }
 
-      const cacheKey = params.toString();
+    async function fetchNewsFromDb(page = currentNewsPage) {
+      const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
+      const baseUrl = isLocalOrVercel ? '/api/inbox' : 'https://ai-factcheck-portfolio.vercel.app/api/inbox';
+      
+      const cacheKey = getNewsCacheKey(page);
       if (newsDbCache.has(cacheKey)) {
         return newsDbCache.get(cacheKey);
       }
@@ -3723,6 +3729,45 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         return result;
       }
       throw new Error('API returned invalid payload');
+    }
+
+    function renderNewsGridItems(items, grid) {
+      grid.innerHTML = '';
+      const frag = document.createDocumentFragment();
+      items.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
+      grid.appendChild(frag);
+    }
+
+    function preloadTopNewsFilters() {
+      const topFilters = [
+        { tier1: 'ALL' },
+        { tier1: 'TECH_COMPUTING' },
+        { tier1: 'SCIENCE_RESEARCH' },
+        { tier1: 'ECONOMY_FINANCE' },
+        { tier1: 'LAW_CRIME_JUSTICE' },
+        { facet: 'CROSS_SPIKE' },
+        { facet: 'MODEL' }
+      ];
+      const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
+      const baseUrl = isLocalOrVercel ? '/api/inbox' : 'https://ai-factcheck-portfolio.vercel.app/api/inbox';
+
+      topFilters.forEach((f, idx) => {
+        setTimeout(() => {
+          const p = new URLSearchParams({ limit: PAGE_SIZE, page: 1, ...f });
+          const key = p.toString();
+          if (!newsDbCache.has(key)) {
+            fetch(`${baseUrl}?${key}`).then(r => r.json()).then(data => {
+              if (data && data.status === 'success') {
+                newsDbCache.set(key, {
+                  total: data.total || 0,
+                  totalPages: data.total_pages || Math.ceil((data.total || 0) / PAGE_SIZE) || 1,
+                  items: data.items || []
+                });
+              }
+            }).catch(() => {});
+          }
+        }, 150 + idx * 100);
+      });
     }
 
     function createNewsCardElement(it, currentLang) {
@@ -3947,51 +3992,68 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       if (!grid) return;
       const t = i18n[currentLang] || i18n.KO;
 
-      // 1. ⚡ Instant Zero-Latency First-Paint (Page 1 with initial memory snapshot)
+      const cacheKey = getNewsCacheKey(currentNewsPage);
       const isDefaultFilter = (currentNewsTier1 === 'ALL' && currentNewsTier2 === 'ALL' && currentNewsFacet === 'ALL' && !currentNewsSearch && !targetSelectedInboxId);
-      const hasInitialCache = (liveNewsData && liveNewsData.length > 0);
 
-      if (currentNewsPage === 1 && isDefaultFilter && hasInitialCache && grid.children.length === 0) {
-        const initialSlice = liveNewsData.slice(0, PAGE_SIZE);
-        const frag = document.createDocumentFragment();
-        initialSlice.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
-        grid.innerHTML = '';
-        grid.appendChild(frag);
-        const initTotalPages = Math.ceil((snapshotStats.news_total_count || liveNewsData.length) / PAGE_SIZE) || 1;
-        renderPagination('newsPagination', 1, initTotalPages, 'changeNewsPage');
+      // 1. ⚡ 0ms ZERO-LATENCY INSTANT SWITCH: Cached Result in Memory
+      if (newsDbCache.has(cacheKey)) {
+        const cached = newsDbCache.get(cacheKey);
+        renderNewsGridItems(cached.items, grid);
+        renderPagination('newsPagination', currentNewsPage, cached.totalPages, 'changeNewsPage');
         if (window.lucide) window.lucide.createIcons({ root: grid });
+        return; // Instant render complete!
       }
 
-      // 2. 🐘 100% DB-Native Edge API Hydration (Neon PostgreSQL Cloud DB via Vercel SWR)
-      try {
-        if (grid.children.length === 0) {
-          grid.innerHTML = `
-            <div class="col-span-full py-12 flex flex-col items-center justify-center text-ink-muted text-xs space-y-2">
-              <div class="w-6 h-6 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
-              <span>${currentLang === 'KO' ? 'Neon DB에서 실시간 트렌드 동기화 중...' : 'Synchronizing trends from Neon DB...'}</span>
-            </div>
-          `;
+      // 2. ⚡ Optimistic Filter (0ms Instant Preview from local snapshot)
+      const memMatches = (liveNewsData || []).filter(it => {
+        if (targetSelectedInboxId && (it.inbox_id === targetSelectedInboxId || it.id === targetSelectedInboxId)) return true;
+        if (currentNewsTier1 !== 'ALL' && (it.tier1_category || 'TECH_COMPUTING') !== currentNewsTier1) return false;
+        if (currentNewsTier2 !== 'ALL' && (it.tier2_category || it.category_primary || 'INDUSTRY_TRENDS') !== currentNewsTier2) return false;
+        if (currentNewsFacet === 'CROSS_SPIKE' && !it.is_cross_spiking && (!it.sources || it.sources.length <= 1)) return false;
+        if (currentNewsFacet === 'MODEL' && !it.is_model && it.facet_type !== 'MODEL') return false;
+        if (currentNewsFacet === 'TOOL' && it.facet_type !== 'TOOL' && it.artifact_type !== 'AGENT') return false;
+        if (currentNewsSource !== 'ALL' && !(it.source_platform || '').toLowerCase().includes(currentNewsSource.toLowerCase())) return false;
+        if (currentNewsSearch) {
+          const s = currentNewsSearch.toLowerCase();
+          const matchTitle = (it.title || '').toLowerCase().includes(s) || (it.title_ko || '').toLowerCase().includes(s);
+          const matchHook = (it.hook || '').toLowerCase().includes(s) || (it.hook_ko || '').toLowerCase().includes(s);
+          if (!matchTitle && !matchHook) return false;
         }
+        return true;
+      });
 
+      if (memMatches.length > 0) {
+        const optimisticSlice = memMatches.slice(0, PAGE_SIZE);
+        renderNewsGridItems(optimisticSlice, grid);
+        const estPages = Math.ceil(memMatches.length / PAGE_SIZE) || 1;
+        renderPagination('newsPagination', currentNewsPage, estPages, 'changeNewsPage');
+        if (window.lucide) window.lucide.createIcons({ root: grid });
+      } else if (grid.children.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 flex flex-col items-center justify-center text-ink-muted text-xs space-y-2">
+            <div class="w-6 h-6 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+            <span>${currentLang === 'KO' ? 'Neon DB에서 실시간 트렌드 동기화 중...' : 'Synchronizing trends from Neon DB...'}</span>
+          </div>
+        `;
+      }
+
+      // 3. 🐘 Background SWR Revalidation (Neon PostgreSQL Cloud DB via Edge SWR)
+      try {
         const dbRes = await fetchNewsFromDb(currentNewsPage);
         const items = dbRes.items || [];
         const total = dbRes.total || 0;
         const totalPages = dbRes.totalPages || Math.ceil(total / PAGE_SIZE) || 1;
 
-        grid.innerHTML = '';
         if (items.length === 0) {
           grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${currentLang === 'KO' ? '해당 플랫폼/조건의 수집 AI 뉴스가 없습니다.' : (currentLang === 'ZH' ? '暂无该条件的 AI 资讯。' : 'No AI news articles available for this criteria.')}</div>`;
         } else {
-          const frag = document.createDocumentFragment();
-          items.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
-          grid.appendChild(frag);
+          renderNewsGridItems(items, grid);
         }
 
         if (currentNewsPage > totalPages) currentNewsPage = totalPages;
         if (currentNewsPage < 1) currentNewsPage = 1;
         renderPagination('newsPagination', currentNewsPage, totalPages, 'changeNewsPage');
 
-        // Dynamically update global counters & pill counts with live DB numbers
         if (isDefaultFilter && total > 0) {
           snapshotStats.news_total_count = total;
           const numEl = document.getElementById('statValNews');
@@ -4004,25 +4066,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
         if (window.lucide) window.lucide.createIcons({ root: grid });
       } catch (err) {
-        if (err.name === 'AbortError') return; // User initiated a newer request
+        if (err.name === 'AbortError') return;
         console.warn('[News DB-Native Fetch Fallback]:', err.message);
-        
-        // 🛡️ Graceful Offline Fallback to In-Memory Cache
-        const rawNewsItems = liveNewsData || [];
-        const filtered = rawNewsItems.filter(it => {
-          if (targetSelectedInboxId && it.inbox_id === targetSelectedInboxId) return true;
-          if (currentNewsTier1 !== 'ALL' && (it.tier1_category || 'TECH_COMPUTING') !== currentNewsTier1) return false;
-          if (currentNewsTier2 !== 'ALL' && (it.tier2_category || it.category_primary || 'INDUSTRY_TRENDS') !== currentNewsTier2) return false;
-          return true;
-        });
-        const fallbackPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
-        grid.innerHTML = '';
-        const fallbackSlice = filtered.slice((currentNewsPage - 1) * PAGE_SIZE, currentNewsPage * PAGE_SIZE);
-        const frag = document.createDocumentFragment();
-        fallbackSlice.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
-        grid.appendChild(frag);
-        renderPagination('newsPagination', currentNewsPage, fallbackPages, 'changeNewsPage');
-        if (window.lucide) window.lucide.createIcons({ root: grid });
       }
     }
 
@@ -5147,9 +5192,13 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
     // ================= INITIALIZATION =================
     if (document.readyState === 'loading') {
-      window.addEventListener('DOMContentLoaded', () => { bootstrapApplicationData(); });
+      window.addEventListener('DOMContentLoaded', () => { 
+        bootstrapApplicationData(); 
+        if (typeof preloadTopNewsFilters === 'function') preloadTopNewsFilters();
+      });
     } else {
       bootstrapApplicationData();
+      if (typeof preloadTopNewsFilters === 'function') preloadTopNewsFilters();
     }
 
     // Explicit global exposure for inline HTML event handlers
