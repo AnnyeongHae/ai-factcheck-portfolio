@@ -182,7 +182,7 @@ module.exports = async (req, res) => {
   const isAdmin = Boolean(adminSecret && provided === adminSecret);
 
   const requestedLimit = parseInt(req.query?.limit, 10) || 1;
-  const limit = isAdmin ? Math.min(Math.max(requestedLimit, 1), 10) : Math.min(Math.max(requestedLimit, 1), 5);
+  const limit = isAdmin ? Math.min(Math.max(requestedLimit, 1), 5) : 1;
 
   const pool = getDbPool();
   if (!pool) {
@@ -279,10 +279,10 @@ module.exports = async (req, res) => {
 
     let isQuotaExhausted = false;
 
-    // Call OpenRouter with fast fallback models and dynamic time budget (within Vercel serverless limits)
+    // Call OpenRouter with fast fallback models and dynamic time budget (within Vercel serverless 10s limit)
     for (const modelName of FREE_MODELS) {
-      const budgetMs = 50000 - (Date.now() - startTime);
-      if (budgetMs < 3000) {
+      const budgetMs = 9200 - (Date.now() - startTime);
+      if (budgetMs < 2000) {
         console.warn(`[Worker] Time budget exhausted (${budgetMs}ms left). Breaking early.`);
         break;
       }
@@ -290,7 +290,7 @@ module.exports = async (req, res) => {
       let timeoutId = null;
       try {
         const controller = new AbortController();
-        const timeoutMs = Math.min(22000, budgetMs);
+        const timeoutMs = Math.min(7500, budgetMs);
         timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
         const aiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {

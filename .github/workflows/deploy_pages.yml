@@ -1,14 +1,18 @@
 name: Deploy AI Fact-Check Portfolio & Neon DB Sync
 
 on:
+  push:
+    branches: [ main ]
   workflow_dispatch:
   schedule:
-    # 🌟 1일 4회(6시간 주기) 전략 수집
+    # 🌟 1일 4회 전략 수집 + 23:00 KST EOD 핫 랭킹
     # 1회차 00:17 KST (UTC 15:17) - 심야 글로벌 릴리스
     # 2회차 06:17 KST (UTC 21:17) - 모닝 브리핑
     # 3회차 12:17 KST (UTC 03:17) - 정오 레이더
     # 4회차 18:17 KST (UTC 09:17) - 저녁 라운드업
+    # 5회차 23:00 KST (UTC 14:00) - EOD 데일리 핫 랭킹
     - cron: '17 3,9,15,21 * * *'
+    - cron: '0 14 * * *'
 
 permissions:
   contents: read
@@ -41,17 +45,17 @@ jobs:
         with:
           python-version: '3.12'
           cache: 'pip'
-          cache-dependency-path: 'requirements.txt'
+          cache-dependency-path: 'requirements-harvest.txt'
 
-      - name: Install Dependencies
+      - name: Install Lightweight Dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r requirements-harvest.txt
 
       - name: Hydrate Recent Inbox from Neon Postgres DB (Incremental Lightweight)
         run: |
           python tools/db_bridge.py --pull-inbox --limit 50 || echo "Incremental pull from Neon DB completed or skipped."
 
-      - name: "Stage 1 & 2: Multi-Source Harvester & Immediate DB Staging & Metrics Logging"
+      - name: "Stage 1: Ultra-Fast Multi-Source Harvester (HN Algolia, RSS, Reddit, Press)"
         timeout-minutes: 3
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -60,32 +64,40 @@ jobs:
         run: |
           python -u tools/harvest_trends.py
 
+      - name: "Stage 2: Smart Remote Orchestrator (100% Multilingual KO·EN·ZH Enrichment)"
+        timeout-minutes: 4
+        run: |
+          python -u tools/orchestrate_enrichment.py --max-items 30 --delay 1.0
+
+      - name: "Stage 3: Daily EOD 23:00 KST Hot Trends Ranking"
+        run: |
+          python -u tools/run_eod_digest.py --top 10
+
       - name: Sync GitHub Actions Telemetry to Neon DB
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python tools/sync_actions_telemetry.py || echo "Actions telemetry sync skipped."
 
-      - name: Build Fact-Check Portfolio Dashboard & Docs
+      - name: Build Fact-Check Portfolio Dashboard & Docs (Push/Manual Only)
+        if: github.event_name != 'schedule'
         run: |
           python tools/build_dashboard.py
 
-      - name: Setup GitHub Pages
+      - name: Setup GitHub Pages (Push/Manual Only)
+        if: github.event_name != 'schedule'
         uses: actions/configure-pages@v5
 
-      - name: Upload Artifact (docs directory)
+      - name: Upload Artifact (Push/Manual Only)
+        if: github.event_name != 'schedule'
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'docs/'
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (Push/Manual Only)
+        if: github.event_name != 'schedule'
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Trigger Vercel AI Enrichment Micro-Worker
-        run: |
-          echo "[*] Triggering Vercel Serverless AI Micro-Worker (batch size 3, non-blocking)..."
-          curl -m 25 -s "https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=3" || true
 
       - name: Finalize Actions Telemetry in Neon DB
         if: always()

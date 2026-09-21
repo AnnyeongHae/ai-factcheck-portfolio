@@ -517,60 +517,41 @@ def harvest_all():
         logger.log(f"[!] GitHub Search Failed: {e}", level="ERROR")
         harvest_report["summary"]["errors"] += 1
 
-    # 4. Hacker News API (Top & Best Stories Combined)
+    # 4. Hacker News API (High-Performance Algolia Search - 0.3s)
     hn_start = time.time()
     try:
-        logger.log("[*] Fetching Hacker News Top & Best Stories (limit=80)...")
-        hn_top_ids = fetch_json("https://hacker-news.firebaseio.com/v0/topstories.json") or []
-        hn_best_ids = fetch_json("https://hacker-news.firebaseio.com/v0/beststories.json") or []
-        
-        combined_ids = []
-        seen_sids = set()
-        for sid in list(hn_top_ids[:40]) + list(hn_best_ids[:40]):
-            if sid not in seen_sids:
-                seen_sids.add(sid)
-                combined_ids.append(sid)
-
+        logger.log("[*] Fetching Hacker News Front Page via Algolia API (limit=50)...")
+        hn_data = fetch_json("https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=50")
         count = 0
-        hn_keywords = [
-            "ai", "llm", "agent", "rust", "python", "model", "rag", "open-source", 
-            "show hn", "bench", "eval", "gpt", "claude", "deepseek", "llama", 
-            "transformer", "diffusion", "gpu", "cuda", "browser", "vision", 
-            "neural", "inference", "compiler", "linux", "database", "postgres"
-        ]
-
-        for sid in combined_ids[:60]:
-            try:
-                story = fetch_json(f"https://hacker-news.firebaseio.com/v0/item/{sid}.json", timeout=6)
-                if story and "title" in story and story.get("type") == "story":
-                    if story.get("dead") or story.get("deleted"):
-                        continue
-                    title = story.get("title", "")
-                    hn_discussion_url = f"https://news.ycombinator.com/item?id={sid}"
-                    article_url = story.get("url") or hn_discussion_url
-                    title_lower = title.lower()
-                    score = story.get("score", 0)
-                    descendants = story.get("descendants", 0)
-                    story_time = story.get("time")
-                    published_at = datetime.datetime.fromtimestamp(story_time).isoformat() if story_time else datetime.datetime.now().isoformat()
-                    added = add_candidate({
-                        "title": f"Hacker News: {title}",
-                        "source_platform": "Hacker News",
-                        "source_url": hn_discussion_url,
-                        "hn_url": hn_discussion_url,
-                        "article_url": article_url,
-                        "published_at": published_at,
-                        "type": "repo" if "github.com" in article_url else "sns",
-                        "category_type": "NEWS" if not "github.com" in article_url else "REPO",
-                        "description": title,
-                        "viral_metric": f"🔥 {score} HN Points"
-                    })
-                    if added: count += 1
-            except Exception:
-                continue
+        if hn_data and "hits" in hn_data:
+            for story in hn_data["hits"]:
+                title = story.get("title") or ""
+                sid = story.get("objectID") or ""
+                if not title or not sid:
+                    continue
+                hn_discussion_url = f"https://news.ycombinator.com/item?id={sid}"
+                article_url = story.get("url") or hn_discussion_url
+                score = story.get("points") or 0
+                num_comments = story.get("num_comments") or 0
+                created_at_i = story.get("created_at_i")
+                published_at = datetime.datetime.fromtimestamp(created_at_i, tz=datetime.timezone.utc).isoformat() if created_at_i else datetime.datetime.now(datetime.timezone.utc).isoformat()
+                
+                added = add_candidate({
+                    "title": f"Hacker News: {title}",
+                    "source_platform": "Hacker News",
+                    "source_url": hn_discussion_url,
+                    "hn_url": hn_discussion_url,
+                    "article_url": article_url,
+                    "published_at": published_at,
+                    "type": "repo" if "github.com" in article_url else "sns",
+                    "category_type": "REPO" if "github.com" in article_url else "NEWS",
+                    "description": f"{title} | {score} points, {num_comments} comments",
+                    "viral_metric": f"🔥 {score} HN Points"
+                })
+                if added: count += 1
 
         harvest_report["sources"]["hacker_news"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - hn_start, 2)}
-        logger.log(f"[+] Hacker News: {count} verified AI/Tech items ingested in {time.time() - hn_start:.2f}s")
+        logger.log(f"[+] Hacker News: {count} front-page items ingested in {time.time() - hn_start:.2f}s")
     except Exception as e:
         harvest_report["sources"]["hacker_news"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - hn_start, 2)}
         logger.log(f"[!] Hacker News Failed: {e}", level="ERROR")
@@ -618,34 +599,50 @@ def harvest_all():
         logger.log(f"[!] ArXiv Failed: {e}", level="ERROR")
         harvest_report["summary"]["errors"] += 1
 
-    # 6. Reddit r/LocalLLaMA
+    # 6. Reddit Major Tech Channels via RSS (.rss)
     reddit_start = time.time()
     try:
-        logger.log("[*] Fetching Reddit r/LocalLLaMA Hot (limit=15)...")
-        r_url = "https://www.reddit.com/r/LocalLLaMA/hot.json?limit=15"
-        r_headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-        r_data = fetch_json(r_url, headers=r_headers)
+        logger.log("[*] Fetching Reddit Major Tech Channels (technology, singularity, LocalLLaMA)...")
+        subreddits = [
+            ("Reddit r/technology", "https://www.reddit.com/r/technology/.rss?limit=15"),
+            ("Reddit r/singularity", "https://www.reddit.com/r/singularity/.rss?limit=15"),
+            ("Reddit r/LocalLLaMA", "https://www.reddit.com/r/LocalLLaMA/.rss?limit=15")
+        ]
         count = 0
-        if r_data and "data" in r_data and "children" in r_data["data"]:
-            for post in r_data["data"]["children"]:
-                pdata = post.get("data", {})
-                title = pdata.get("title", "")
-                url = f"https://reddit.com{pdata.get('permalink', '')}"
-                if not pdata.get("stickied", False):
-                    p_time = pdata.get("created_utc")
-                    pub_at = datetime.datetime.fromtimestamp(p_time, tz=datetime.timezone.utc).isoformat() if p_time else None
-                    added = add_candidate({
-                        "title": f"Reddit: {title}",
-                        "source_platform": "Reddit r/LocalLLaMA",
-                        "source_url": url,
-                        "published_at": pub_at,
-                        "type": "sns",
-                        "description": f"Upvotes: {pdata.get('score', 0)}, Comments: {pdata.get('num_comments', 0)}",
-                        "viral_metric": f"{pdata.get('score', 0)} Upvotes"
-                    })
-                    if added: count += 1
+        ns = {'atom': 'http://www.w3.org/2005/Atom'}
+        for sname, r_feed in subreddits:
+            try:
+                xml_raw = fetch_xml(r_feed)
+                root = ET.fromstring(xml_raw)
+                for entry in root.findall('atom:entry', ns)[:15]:
+                    title_elem = entry.find('atom:title', ns)
+                    link_elem = entry.find('atom:link', ns)
+                    pub_elem = entry.find('atom:updated', ns) or entry.find('atom:published', ns)
+                    content_elem = entry.find('atom:content', ns)
+                    
+                    if title_elem is not None and title_elem.text:
+                        title = title_elem.text.strip()
+                        url = link_elem.attrib.get('href', '') if link_elem is not None else ""
+                        published_at = pub_elem.text.strip() if pub_elem is not None and pub_elem.text else None
+                        desc_text = re.sub(r'<[^>]+>', ' ', content_elem.text).strip()[:180] if content_elem is not None and content_elem.text else title
+                        
+                        if url:
+                            added = add_candidate({
+                                "title": f"{sname.split()[-1]}: {title}",
+                                "source_platform": sname,
+                                "source_url": url,
+                                "published_at": published_at,
+                                "type": "sns",
+                                "category_type": "NEWS" if "technology" in sname else "TECH",
+                                "description": desc_text,
+                                "viral_metric": "💬 Reddit Major Discussion"
+                            })
+                            if added: count += 1
+            except Exception as r_err:
+                logger.log(f"[!] {sname} feed note: {r_err}", level="WARNING")
+
         harvest_report["sources"]["reddit"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - reddit_start, 2)}
-        logger.log(f"[+] Reddit: {count} items ingested in {time.time() - reddit_start:.2f}s")
+        logger.log(f"[+] Reddit: {count} social items ingested in {time.time() - reddit_start:.2f}s")
     except Exception as e:
         harvest_report["sources"]["reddit"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - reddit_start, 2)}
         logger.log(f"[!] Reddit Note: {e}", level="WARNING")
@@ -771,6 +768,115 @@ def harvest_all():
     except Exception as e:
         harvest_report["sources"]["curated_rss"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - rss_start, 2)}
         logger.log(f"[!] Curated RSS Failed: {e}", level="WARNING")
+
+    # 9. Google News RSS (Korean Tech & Global AI Breakthroughs)
+    gnews_start = time.time()
+    try:
+        logger.log("[*] Fetching Google News RSS (KR & Global Tech)...")
+        gnews_feeds = [
+            ("Google News KR", "https://news.google.com/rss/search?q=%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5+OR+%EC%83%9D%EC%84%B1%ED%98%95AI&hl=ko&gl=KR&ceid=KR:ko"),
+            ("Google News Global", "https://news.google.com/rss/search?q=%22OpenAI%22+OR+%22Claude%22+OR+%22DeepSeek%22&hl=en-US&gl=US&ceid=US:en")
+        ]
+        count = 0
+        for sname, g_feed in gnews_feeds:
+            try:
+                xml_raw = fetch_xml(g_feed)
+                root = ET.fromstring(xml_raw)
+                for it in root.findall('.//item')[:20]:
+                    t_node = it.find('title')
+                    l_node = it.find('link')
+                    p_node = it.find('pubDate')
+                    d_node = it.find('description')
+                    
+                    if t_node is not None and t_node.text:
+                        raw_title = t_node.text.strip()
+                        # Extract source newspaper name if separated by dash (e.g., "AI 돌풍... - 전자신문")
+                        title_clean = raw_title
+                        news_org = sname
+                        if " - " in raw_title:
+                            parts = raw_title.rsplit(" - ", 1)
+                            title_clean = parts[0].strip()
+                            news_org = parts[1].strip()
+                            
+                        url = l_node.text.strip() if l_node is not None and l_node.text else ""
+                        pub_iso = None
+                        if p_node is not None and p_node.text:
+                            try:
+                                import email.utils
+                                pub_iso = email.utils.parsedate_to_datetime(p_node.text.strip()).isoformat()
+                            except Exception:
+                                pub_iso = p_node.text.strip()
+                        
+                        desc_text = re.sub(r'<[^>]+>', ' ', d_node.text).strip()[:180] if d_node is not None and d_node.text else title_clean
+                        if url:
+                            added = add_candidate({
+                                "title": f"News: {title_clean}",
+                                "source_platform": f"Press ({news_org})",
+                                "source_url": url,
+                                "article_url": url,
+                                "published_at": pub_iso,
+                                "type": "sns",
+                                "category_type": "NEWS",
+                                "description": desc_text,
+                                "viral_metric": f"📰 {news_org} 보도"
+                            })
+                            if added: count += 1
+            except Exception as g_err:
+                logger.log(f"[!] {sname} feed note: {g_err}", level="WARNING")
+
+        harvest_report["sources"]["google_news"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - gnews_start, 2)}
+        logger.log(f"[+] Google News: {count} mainstream press items ingested in {time.time() - gnews_start:.2f}s")
+    except Exception as e:
+        harvest_report["sources"]["google_news"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - gnews_start, 2)}
+        logger.log(f"[!] Google News Note: {e}", level="WARNING")
+
+    # 10. YouTube Tech Channels RSS (Mainstream AI Virality)
+    yt_start = time.time()
+    try:
+        logger.log("[*] Fetching YouTube Top Tech Channels RSS...")
+        yt_channels = [
+            ("Fireship", "https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA"),
+            ("조코딩 JoCoding", "https://www.youtube.com/feeds/videos.xml?channel_id=UCQNE2JmbasNYbjGAcuBiRRg"),
+            ("Two Minute Papers", "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg"),
+            ("슈카월드", "https://www.youtube.com/feeds/videos.xml?channel_id=UCsJ6RuBiTVWRX156FVbeaGg")
+        ]
+        count = 0
+        ns = {'atom': 'http://www.w3.org/2005/Atom'}
+        for cname, yt_feed in yt_channels:
+            try:
+                xml_raw = fetch_xml(yt_feed)
+                root = ET.fromstring(xml_raw)
+                for entry in root.findall('atom:entry', ns)[:10]:
+                    t_node = entry.find('atom:title', ns)
+                    l_node = entry.find('atom:link', ns)
+                    p_node = entry.find('atom:published', ns)
+                    
+                    if t_node is not None and t_node.text:
+                        vtitle = t_node.text.strip()
+                        vurl = l_node.attrib.get('href', '') if l_node is not None else ""
+                        pub_iso = p_node.text.strip() if p_node is not None and p_node.text else None
+                        
+                        if vurl:
+                            added = add_candidate({
+                                "title": f"YouTube ({cname}): {vtitle}",
+                                "source_platform": f"YouTube ({cname})",
+                                "source_url": vurl,
+                                "article_url": vurl,
+                                "published_at": pub_iso,
+                                "type": "sns",
+                                "category_type": "NEWS",
+                                "description": f"Video by {cname}: {vtitle}",
+                                "viral_metric": f"📺 {cname} 영상"
+                            })
+                            if added: count += 1
+            except Exception as yt_err:
+                logger.log(f"[!] YouTube {cname} feed note: {yt_err}", level="WARNING")
+
+        harvest_report["sources"]["youtube_tech"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - yt_start, 2)}
+        logger.log(f"[+] YouTube Tech: {count} video items ingested in {time.time() - yt_start:.2f}s")
+    except Exception as e:
+        harvest_report["sources"]["youtube_tech"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - yt_start, 2)}
+        logger.log(f"[!] YouTube Note: {e}", level="WARNING")
 
     logger.log(f"[*] Step 1 Complete: Total {len(all_candidates)} candidates fetched from all channels.")
 
