@@ -29,7 +29,9 @@ module.exports = async (req, res) => {
       telemRes,
       wLogRes,
       tlSlotRes,
-      tlEnrichRes
+      tlEnrichRes,
+      tier1Res,
+      tier2Res
     ] = await Promise.all([
       // 1. Total inbox count
       pool.query('SELECT count(*) FROM raw_trends_inbox;'),
@@ -91,6 +93,28 @@ module.exports = async (req, res) => {
         WHERE is_classified = true 
           AND (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
         GROUP BY 1;
+      `).catch(() => ({ rows: [] })),
+      // 10. Tier 1 Category breakdown across full DB
+      pool.query(`
+        SELECT COALESCE(raw_payload->>'tier1_category', 'TECH_COMPUTING') as cat, COUNT(*) as cnt
+        FROM raw_trends_inbox
+        GROUP BY 1;
+      `).catch(() => ({ rows: [] })),
+      // 11. Tier 2 Category breakdown within TECH_COMPUTING
+      pool.query(`
+        SELECT 
+          CASE 
+            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('INFERENCE_OPT', 'INFERENCE_SERVING') THEN 'INFERENCE_OPT'
+            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('AGENTS_DEVTOOLS', 'SOFTWARE_WEB') THEN 'AGENTS_DEVTOOLS'
+            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('MULTIMODAL_AI', 'MULTIMODAL_MEDIA') THEN 'MULTIMODAL_AI'
+            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('FOUNDATION_MODELS', 'FOUNDATION_WEIGHTS') THEN 'FOUNDATION_MODELS'
+            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('INFRA_RAG_SECURITY', 'SYSTEM_CYBERSEC') THEN 'INFRA_RAG_SECURITY'
+            ELSE 'INDUSTRY_TRENDS'
+          END as mapped_t2,
+          COUNT(*) as cnt
+        FROM raw_trends_inbox
+        WHERE COALESCE(raw_payload->>'tier1_category', 'TECH_COMPUTING') = 'TECH_COMPUTING'
+        GROUP BY 1;
       `).catch(() => ({ rows: [] }))
     ]);
 
@@ -101,6 +125,16 @@ module.exports = async (req, res) => {
     const rawNews = parseInt(bRow.news_count || (totalInboxRaw - rawModels), 10);
     const unclassifiedInbox = parseInt(bRow.unclassified_count || 0, 10);
     const latestHarvestedDate = bRow.max_date || '';
+
+    const tier1Counts = {};
+    (tier1Res?.rows || []).forEach(r => {
+      if (r.cat) tier1Counts[r.cat] = parseInt(r.cnt, 10);
+    });
+
+    const newsCatCounts = {};
+    (tier2Res?.rows || []).forEach(r => {
+      if (r.mapped_t2) newsCatCounts[r.mapped_t2] = parseInt(r.cnt, 10);
+    });
 
     let quotaData = {};
     if (qRes.rows.length > 0) {
@@ -268,8 +302,12 @@ module.exports = async (req, res) => {
         factchecks_verified: totalFactchecks,
         models_total: rawModels,
         news_total: rawNews,
-        latest_harvested_date: String(latestHarvestedDate)
+        latest_harvested_date: String(latestHarvestedDate),
+        tier1_counts: tier1Counts,
+        news_cat_counts: newsCatCounts
       },
+      tier1_counts: tier1Counts,
+      news_cat_counts: newsCatCounts,
       actions_quota: quotaData,
       actions_runs: actionsRuns,
       latest_run: latestRun,

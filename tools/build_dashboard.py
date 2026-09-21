@@ -816,6 +816,8 @@ def build_dashboard():
     db_total_inbox = 0
     db_models_count = 0
     db_news_count = 0
+    db_tier1_counts = {}
+    db_news_cat_counts = {}
     db_timeline_synced = False
     try:
         from db_bridge import load_env_db_url
@@ -837,6 +839,36 @@ def build_dashboard():
                     db_total_inbox = int(c_row[0] or 0)
                     db_models_count = int(c_row[1] or 0)
                     db_news_count = int(c_row[2] or 0)
+
+                # 0-B. Query full Tier 1 category counts across entire DB
+                cur.execute("""
+                    SELECT COALESCE(raw_payload->>'tier1_category', 'TECH_COMPUTING'), COUNT(*)
+                    FROM raw_trends_inbox
+                    GROUP BY 1;
+                """)
+                for r in cur.fetchall():
+                    if r[0]:
+                        db_tier1_counts[r[0]] = int(r[1])
+
+                # 0-C. Query full Tier 2 engineering category counts within TECH_COMPUTING
+                cur.execute("""
+                    SELECT 
+                        CASE 
+                            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('INFERENCE_OPT', 'INFERENCE_SERVING') THEN 'INFERENCE_OPT'
+                            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('AGENTS_DEVTOOLS', 'SOFTWARE_WEB') THEN 'AGENTS_DEVTOOLS'
+                            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('MULTIMODAL_AI', 'MULTIMODAL_MEDIA') THEN 'MULTIMODAL_AI'
+                            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('FOUNDATION_MODELS', 'FOUNDATION_WEIGHTS') THEN 'FOUNDATION_MODELS'
+                            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('INFRA_RAG_SECURITY', 'SYSTEM_CYBERSEC') THEN 'INFRA_RAG_SECURITY'
+                            ELSE 'INDUSTRY_TRENDS'
+                        END as mapped_t2,
+                        COUNT(*)
+                    FROM raw_trends_inbox
+                    WHERE COALESCE(raw_payload->>'tier1_category', 'TECH_COMPUTING') = 'TECH_COMPUTING'
+                    GROUP BY 1;
+                """)
+                for r in cur.fetchall():
+                    if r[0]:
+                        db_news_cat_counts[r[0]] = int(r[1])
 
                 # 1. Ingestion & Classification counts by session slot from raw_trends_inbox
                 cur.execute("""
@@ -1223,8 +1255,8 @@ def build_dashboard():
         "avg_confidence": avg_conf,
         "models_total_count": db_models_count if 'db_models_count' in locals() and db_models_count > 0 else len(model_items),
         "news_total_count": db_news_count if 'db_news_count' in locals() and db_news_count > 0 else len(news_items),
-        "news_cat_counts": news_cat_counts,
-        "tier1_counts": tier1_counts,
+        "news_cat_counts": db_news_cat_counts if 'db_news_cat_counts' in locals() and db_news_cat_counts else news_cat_counts,
+        "tier1_counts": db_tier1_counts if 'db_tier1_counts' in locals() and db_tier1_counts else tier1_counts,
         "model_art_counts": model_art_counts,
         "model_fam_counts": model_fam_counts,
         "inbox_total_count": db_total_inbox if 'db_total_inbox' in locals() and db_total_inbox > 0 else len(inbox_items),

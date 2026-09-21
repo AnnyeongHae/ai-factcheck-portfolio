@@ -79,11 +79,39 @@ module.exports = async (req, res) => {
       conditions.push("COALESCE(raw_payload->>'tier1_category', 'TECH_COMPUTING') = $" + params.length);
     }
 
-    // 3. 🌟 Tier 2 Specialization Filter
+    // 3. 🌟 Tier 2 Specialization Filter with Alias Expansion
     const tier2 = req.query?.tier2;
     if (tier2 && tier2 !== 'ALL') {
-      params.push(tier2);
-      conditions.push("(COALESCE(raw_payload->>'tier2_category', category_primary, 'INDUSTRY_TRENDS') = $" + params.length + ")");
+      const t2Map = {
+        'INFERENCE_OPT': ['INFERENCE_OPT', 'INFERENCE_SERVING'],
+        'AGENTS_DEVTOOLS': ['AGENTS_DEVTOOLS', 'SOFTWARE_WEB'],
+        'MULTIMODAL_AI': ['MULTIMODAL_AI', 'MULTIMODAL_MEDIA'],
+        'FOUNDATION_MODELS': ['FOUNDATION_MODELS', 'FOUNDATION_WEIGHTS'],
+        'INFRA_RAG_SECURITY': ['INFRA_RAG_SECURITY', 'SYSTEM_CYBERSEC']
+      };
+      if (t2Map[tier2]) {
+        const placeholders = t2Map[tier2].map(v => {
+          params.push(v);
+          return '$' + params.length;
+        }).join(', ');
+        conditions.push(`COALESCE(raw_payload->>'tier2_category', category_primary) IN (${placeholders})`);
+      } else if (tier2 === 'INDUSTRY_TRENDS') {
+        const allKnown = [
+          'INFERENCE_OPT', 'INFERENCE_SERVING',
+          'AGENTS_DEVTOOLS', 'SOFTWARE_WEB',
+          'MULTIMODAL_AI', 'MULTIMODAL_MEDIA',
+          'FOUNDATION_MODELS', 'FOUNDATION_WEIGHTS',
+          'INFRA_RAG_SECURITY', 'SYSTEM_CYBERSEC'
+        ];
+        const placeholders = allKnown.map(v => {
+          params.push(v);
+          return '$' + params.length;
+        }).join(', ');
+        conditions.push(`(COALESCE(raw_payload->>'tier2_category', category_primary) NOT IN (${placeholders}) OR COALESCE(raw_payload->>'tier2_category', category_primary) IS NULL)`);
+      } else {
+        params.push(tier2);
+        conditions.push("(COALESCE(raw_payload->>'tier2_category', category_primary, 'INDUSTRY_TRENDS') = $" + params.length + ")");
+      }
     }
 
     // 4. 🌟 Smart Facet Filter

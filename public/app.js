@@ -323,25 +323,25 @@ function updateGlobalStatsUI() {
 window.updateGlobalStatsUI = updateGlobalStatsUI;
 
 function updateNewsCategoryPillCounts() {
-  const total = snapshotStats.news_total_count || 3039;
+  const total = snapshotStats.news_total_count || snapshotStats.inbox_total_count || 3223;
 
   // 🌟 Prefer accurate full-DB counts from snapshotStats (populated from data.json or live API)
   const t1Counts = Object.assign({
-    TECH_COMPUTING: 2581,
-    SCIENCE_RESEARCH: 121,
-    ECONOMY_FINANCE: 65,
-    LAW_CRIME_JUSTICE: 99,
-    POLITICS_POLICY: 40,
-    CULTURE_HUMANITIES: 133
+    TECH_COMPUTING: 2708,
+    CULTURE_HUMANITIES: 141,
+    SCIENCE_RESEARCH: 123,
+    LAW_CRIME_JUSTICE: 107,
+    ECONOMY_FINANCE: 80,
+    POLITICS_POLICY: 64
   }, snapshotStats.tier1_counts || {});
 
   const t2Counts = Object.assign({
-    INFERENCE_OPT: 194,
-    AGENTS_DEVTOOLS: 317,
-    MULTIMODAL_AI: 150,
-    FOUNDATION_MODELS: 187,
-    INFRA_RAG_SECURITY: 489,
-    INDUSTRY_TRENDS: 1167
+    INFERENCE_OPT: 231,
+    AGENTS_DEVTOOLS: 415,
+    MULTIMODAL_AI: 220,
+    FOUNDATION_MODELS: 218,
+    INFRA_RAG_SECURITY: 531,
+    INDUSTRY_TRENDS: 1093
   }, snapshotStats.news_cat_counts || {});
 
   const lang = (typeof currentLang !== 'undefined' ? currentLang : 'KO');
@@ -378,7 +378,7 @@ function updateNewsCategoryPillCounts() {
 
   const t2Labels = {
     KO: {
-      ALL: `전체 IT 분야`,
+      ALL: `⚡ 전체 IT 분야 (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
       INFERENCE_OPT: `⚡ 추론·서빙 (${t2Counts.INFERENCE_OPT.toLocaleString()})`,
       AGENTS_DEVTOOLS: `🛠️ 에이전트·도구 (${t2Counts.AGENTS_DEVTOOLS.toLocaleString()})`,
       MULTIMODAL_AI: `🎨 멀티모달 (${t2Counts.MULTIMODAL_AI.toLocaleString()})`,
@@ -387,7 +387,7 @@ function updateNewsCategoryPillCounts() {
       INDUSTRY_TRENDS: `🌐 일반 SW·웹 (${t2Counts.INDUSTRY_TRENDS.toLocaleString()})`
     },
     ZH: {
-      ALL: `全部 IT 领域`,
+      ALL: `⚡ 全部 IT 领域 (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
       INFERENCE_OPT: `⚡ 推理与服务 (${t2Counts.INFERENCE_OPT.toLocaleString()})`,
       AGENTS_DEVTOOLS: `🛠️ 智能体与工具 (${t2Counts.AGENTS_DEVTOOLS.toLocaleString()})`,
       MULTIMODAL_AI: `🎨 多模态 (${t2Counts.MULTIMODAL_AI.toLocaleString()})`,
@@ -396,7 +396,7 @@ function updateNewsCategoryPillCounts() {
       INDUSTRY_TRENDS: `🌐 软件与行业动态 (${t2Counts.INDUSTRY_TRENDS.toLocaleString()})`
     },
     EN: {
-      ALL: `All Tech Fields`,
+      ALL: `⚡ All Tech Fields (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
       INFERENCE_OPT: `⚡ Inference & Serving (${t2Counts.INFERENCE_OPT.toLocaleString()})`,
       AGENTS_DEVTOOLS: `🛠️ Agents & DevTools (${t2Counts.AGENTS_DEVTOOLS.toLocaleString()})`,
       MULTIMODAL_AI: `🎨 Multimodal (${t2Counts.MULTIMODAL_AI.toLocaleString()})`,
@@ -1674,6 +1674,16 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
                   if (txt) txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 중 (잔여: ${unclass}건)`;
                 }
               }
+            }
+
+            if (data.counts.tier1_counts || data.tier1_counts) {
+              snapshotStats.tier1_counts = data.counts.tier1_counts || data.tier1_counts;
+            }
+            if (data.counts.news_cat_counts || data.news_cat_counts) {
+              snapshotStats.news_cat_counts = data.counts.news_cat_counts || data.news_cat_counts;
+            }
+            if (typeof updateNewsCategoryPillCounts === 'function') {
+              updateNewsCategoryPillCounts();
             }
 
             if (badge) {
