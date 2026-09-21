@@ -22,48 +22,14 @@ if sys.stdout.encoding != 'utf-8':
     except Exception:
         pass
 
-def load_env_db_url():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    env_path = os.path.join(base_dir, ".env")
-    
-    # 1. Check existing environment
-    db_url = os.environ.get("DATABASE_URL") or os.environ.get("NEON_KEY") or os.environ.get("NEON_DATABASE_URL")
-    if db_url:
-        return db_url
+from db_config import get_db_url, get_db_connection as _get_db_conn, get_db_info
 
-    # 2. Parse .env file manually
-    if os.path.exists(env_path):
-        try:
-            with open(env_path, "r", encoding="utf-8") as f:
-                for line in f:
-                    line = line.strip()
-                    if line.startswith("NEON_KEY=") or line.startswith("DATABASE_URL="):
-                        val = line.split("=", 1)[1].strip().strip('"').strip("'")
-                        if val:
-                            return val
-        except Exception:
-            pass
-    return None
+def load_env_db_url():
+    return get_db_url()
 
 def get_db_connection():
-    db_url = load_env_db_url()
-    if not db_url:
-        print("[!] Note: 'NEON_KEY' or 'DATABASE_URL' not found in .env or environment.")
-        return None
+    return _get_db_conn()
 
-    try:
-        import psycopg2
-        conn = psycopg2.connect(db_url)
-        return conn
-    except ImportError:
-        print("[!] Warning: 'psycopg2' module not installed. Installing psycopg2-binary...")
-        import subprocess
-        subprocess.run([sys.executable, "-m", "pip", "install", "psycopg2-binary"], check=True)
-        import psycopg2
-        return psycopg2.connect(db_url)
-    except Exception as e:
-        print(f"[!] Error: Failed to connect to Neon Postgres: {e}")
-        return None
 
 def compute_fingerprint(url: str, title: str = "") -> str:
     norm = url.lower().strip()

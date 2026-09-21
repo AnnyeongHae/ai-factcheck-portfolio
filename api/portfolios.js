@@ -1,4 +1,4 @@
-const { getDbPool } = require('./_lib/db');
+const { getDbPool, getDbProviderInfo } = require('./_lib/db');
 const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 function getStaticFallback() {
@@ -252,9 +252,11 @@ module.exports = async (req, res) => {
       } catch (tErr) {}
     }
 
+    const pInfo = getDbProviderInfo();
     return res.status(200).json({
       success: true,
-      source: 'neon_postgres_direct',
+      source: 'database_direct',
+      db_provider: pInfo.provider,
       total_count: totalCount,
       count: dossiers.length,
       page: limit > 0 ? page : 1,

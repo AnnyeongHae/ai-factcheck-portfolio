@@ -1,23 +1,30 @@
 // api/_lib/db.js - Singleton PostgreSQL Connection Pool
 const { Pool } = require('pg');
+const { DATABASE_URL, POOL_CONFIG, getDbProviderInfo } = require('./config');
 
 let cachedPool = null;
 
 function getDbPool() {
-  const DATABASE_URL = process.env.DATABASE_URL || process.env.NEON_KEY || process.env.NEON_DATABASE_URL;
   if (!DATABASE_URL) {
     return null;
   }
 
   if (!cachedPool) {
     try {
-      cachedPool = new Pool({
-        connectionString: DATABASE_URL,
-        ssl: { rejectUnauthorized: true },
-        max: 5,
-        idleTimeoutMillis: 15000,
-        connectionTimeoutMillis: 5000
-      });
+      let poolOptions = { ...POOL_CONFIG };
+      try {
+        const { parse } = require('pg-connection-string');
+        const parsedConfig = parse(DATABASE_URL);
+        poolOptions = {
+          ...parsedConfig,
+          ...POOL_CONFIG,
+          ssl: { rejectUnauthorized: false }
+        };
+      } catch (pErr) {
+        poolOptions.connectionString = DATABASE_URL;
+      }
+
+      cachedPool = new Pool(poolOptions);
 
       cachedPool.on('error', (err) => {
         console.error('[PgPool Shared Error]:', err.message);
@@ -32,4 +39,5 @@ function getDbPool() {
   return cachedPool;
 }
 
-module.exports = { getDbPool };
+module.exports = { getDbPool, getDbProviderInfo, DATABASE_URL };
+

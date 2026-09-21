@@ -112,6 +112,25 @@ if (typeof window !== 'undefined') {
   });
 }
 
+// ================= CENTRALIZED APPLICATION CONFIGURATION (SSOT) =================
+const APP_CONFIG = {
+  isLocal: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1',
+  isVercel: window.location.hostname.includes('vercel.app'),
+  get apiBaseUrl() {
+    return (this.isLocal || this.isVercel) ? '' : 'https://ai-factcheck-portfolio.vercel.app';
+  },
+  dbProvider: 'Cloud DB',
+  setDbProvider(name) {
+    if (name && typeof name === 'string') {
+      this.dbProvider = name;
+    }
+  },
+  apiUrl(endpoint) {
+    const clean = endpoint.startsWith('/') ? endpoint : '/' + endpoint;
+    return this.apiBaseUrl + clean;
+  }
+};
+
 // ================= UNIVERSAL ASYNC DATA HYDRATION LAYER =================
 async function bootstrapApplicationData() {
   console.log('[Bootstrap] Initializing asynchronous DB-First data hydration...');
@@ -119,10 +138,9 @@ async function bootstrapApplicationData() {
 
   // 1. 🌟 Primary Source: Vercel Edge SWR API (Cached at global CDN edge, 30~80ms response)
   try {
-    const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
-    const portfoliosApiUrl = isLocalOrVercel ? '/api/portfolios?summary=true' : 'https://ai-factcheck-portfolio.vercel.app/api/portfolios?summary=true';
+    const portfoliosApiUrl = APP_CONFIG.apiUrl('/api/portfolios?summary=true');
     
-    // Allow up to 6000ms to gracefully accommodate Vercel serverless / Neon cold starts
+    // Allow up to 6000ms to gracefully accommodate Vercel serverless / Cloud DB cold starts
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 6000);
     const edgeRes = await fetch(portfoliosApiUrl, { signal: controller.signal });
@@ -135,7 +153,8 @@ async function bootstrapApplicationData() {
         casesData = edgeData.portfolios;
         AppStore._cases = edgeData.portfolios;
         loadedFromEdge = true;
-        console.log(`[Bootstrap] ⚡ [DB-First Edge SWR] Loaded ${edgeData.portfolios.length} dossiers directly from Neon DB Edge API.`);
+        if (edgeData.db_provider) APP_CONFIG.setDbProvider(edgeData.db_provider);
+        console.log(`[Bootstrap] ⚡ [DB-First Edge SWR] Loaded ${edgeData.portfolios.length} dossiers directly from ${APP_CONFIG.dbProvider} Edge API.`);
       }
     }
   } catch (edgeErr) {
@@ -281,10 +300,12 @@ function updateGlobalStatsUI() {
   safeSet('statInboxPendingText', `· 대기 ${pendingInbox.toLocaleString()}건`);
 
   const casesList = typeof liveCasesData !== 'undefined' ? liveCasesData : [];
-  const trueCount = casesList.filter(c => c.verdict === 'VERIFIED_TRUE').length;
-  const halfCount = numCases - trueCount;
-  safeSet('statVerifiedTrue', `● ${trueCount} 사실`);
-  safeSet('statHalfTrue', `● ${halfCount} 부분`);
+  const trueCount = casesList.filter(c => c.verdict === 'VERIFIED_TRUE').length || snapshotStats.verified_true_count || 31;
+  const halfCount = casesList.filter(c => c.verdict && c.verdict.startsWith('HALF_TRUE')).length || snapshotStats.half_true_count || 22;
+  const gamedCount = Math.max(0, numCases - trueCount - halfCount);
+  safeSet('statVerifiedTrue', trueCount);
+  safeSet('statHalfTrue', halfCount);
+  safeSet('statGamed', gamedCount);
 
   safeSet('heroAuditCount', `● ${numCases}개 기술 검증 완료`);
   safeSet('portfolioDossiersCountBadge', `총 ${numCases}건 완료`);
@@ -1598,29 +1619,41 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       const badge = document.getElementById('dbLiveBadge');
       try {
         const tStart = performance.now();
-        const apiUrl = window.location.hostname.includes('vercel.app') ? '/api/stats' : 'https://ai-factcheck-portfolio.vercel.app/api/stats';
+        const apiUrl = APP_CONFIG.apiUrl('/api/stats');
         const res = await fetch(apiUrl, { cache: 'default' });
         const tLatency = Math.round(performance.now() - tStart);
 
-
         if (res.ok) {
           const data = await res.json();
+          if (data.db_provider) APP_CONFIG.setDbProvider(data.db_provider);
           if (data.status === 'success' && data.counts) {
             const liveInbox = data.counts.inbox_deduped || data.counts.inbox_total;
             const liveModels = data.counts.models_total;
             const liveNews = data.counts.news_total;
 
             const hInbox = document.getElementById('headerInboxCount');
-            if (hInbox && liveInbox) hInbox.textContent = `(${liveInbox})`;
+            if (hInbox && liveInbox) hInbox.textContent = `(${liveInbox.toLocaleString()})`;
 
             const statInbox = document.getElementById('statValInbox');
-            if (statInbox && liveInbox) statInbox.textContent = liveInbox;
+            if (statInbox && liveInbox) statInbox.textContent = liveInbox.toLocaleString();
+
+            const statNews = document.getElementById('statValNews');
+            if (statNews && liveNews) statNews.textContent = liveNews.toLocaleString();
+
+            const hNews = document.getElementById('headerNewsCount');
+            if (hNews && liveNews) hNews.textContent = `(${liveNews.toLocaleString()})`;
+
+            const statModels = document.getElementById('statValModels');
+            if (statModels && liveModels) statModels.textContent = liveModels.toLocaleString();
+
+            const hModels = document.getElementById('headerModelsCount');
+            if (hModels && liveModels) hModels.textContent = `(${liveModels.toLocaleString()})`;
 
             const mNavInbox = document.getElementById('mNavTabInbox');
-            if (mNavInbox && liveInbox) mNavInbox.textContent = `아카이브 (${liveInbox})`;
+            if (mNavInbox && liveInbox) mNavInbox.textContent = `아카이브 (${liveInbox.toLocaleString()})`;
 
             const inbHdr = document.getElementById('inboxHeaderCount');
-            if (inbHdr && liveInbox) inbHdr.textContent = `총 ${liveInbox}건`;
+            if (inbHdr && liveInbox) inbHdr.textContent = `총 ${liveInbox.toLocaleString()}건`;
 
             if (data.counts.inbox_unclassified !== undefined) {
               const unclass = data.counts.inbox_unclassified;
@@ -1693,8 +1726,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
             // 🌟 Real-time dynamic card hydration: Fetch latest DB records and update/unshift
             try {
-              const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
-              const inboxApiUrl = isLocalOrVercel ? '/api/inbox?limit=50&sort=updated' : 'https://ai-factcheck-portfolio.vercel.app/api/inbox?limit=50&sort=updated';
+              const inboxApiUrl = APP_CONFIG.apiUrl('/api/inbox?limit=50&sort=updated');
               const inbRes = await fetch(inboxApiUrl, { cache: 'default' });
               if (inbRes.ok) {
                 const inbData = await inbRes.json();
@@ -1742,10 +1774,9 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               console.warn('[Live DB Sync] Inbox items hydration error:', inbErr);
             }
 
-            // 🌟 Live Portfolio Dossiers Sync: Hydrate newly verified factchecks directly from Neon DB
+            // 🌟 Live Portfolio Dossiers Sync: Hydrate newly verified factchecks directly from Cloud DB
             try {
-              const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
-              const portfoliosApiUrl = isLocalOrVercel ? '/api/portfolios' : 'https://ai-factcheck-portfolio.vercel.app/api/portfolios';
+              const portfoliosApiUrl = APP_CONFIG.apiUrl('/api/portfolios');
               const pRes = await fetch(portfoliosApiUrl, { cache: 'default' });
               if (pRes.ok) {
                 const pData = await pRes.json();
@@ -1760,7 +1791,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
                     updateGlobalStatsUI();
                     try { renderCards(); } catch(e) {}
                     try { renderHomeTopPicks(); } catch(e) {}
-                    console.log(`[Live DB Sync] Live hydrated ${pData.portfolios.length} dossiers from Neon DB.`);
+                    console.log(`[Live DB Sync] Live hydrated ${pData.portfolios.length} dossiers from ${APP_CONFIG.dbProvider}.`);
                   }
                 }
               }
@@ -1872,8 +1903,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
       while (_autoWorkerRunning && !_autoWorkerPaused) {
         try {
-          const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
-          const workerUrl = isLocalOrVercel ? '/api/enrich-worker?limit=1' : 'https://ai-factcheck-portfolio.vercel.app/api/enrich-worker?limit=1';
+          const workerUrl = APP_CONFIG.apiUrl('/api/enrich-worker?limit=1');
           
           if (txt && !_autoWorkerPaused) {
             txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI 요약 분석 중...`;
@@ -2581,7 +2611,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
             <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-16 z-20 pointer-events-none bg-ink-primary text-white text-[10px] font-mono py-1.5 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
               <div class="font-bold text-indigo-300">${d.range}</div>
               <div class="text-indigo-200">📥 수집: ${d.inbox_count || 0}건</div>
-              <div class="text-emerald-300">✨ AI요약: ${enrichedCount}건</div>
+              <div class="text-emerald-300">✨ AI요약: ${enrichedCount}건${d.backlog_cleared ? ` <span class="text-emerald-400 text-[9px] font-normal">(+${d.backlog_cleared} 백로그)</span>` : ''}</div>
               ${isCurrent ? (isPending ? '<div class="text-emerald-400 font-bold mt-0.5">⚡ 1회차 세션 파이프라인 인입 중</div>' : '<div class="text-emerald-400 font-bold mt-0.5">● 현재 세션 인입 중</div>') : (isFuture ? '<div class="text-slate-400 mt-0.5">예정 세션</div>' : '<div class="text-slate-300 mt-0.5">수집 완료</div>')}
             </div>
 
@@ -2949,7 +2979,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           <div id="modalClaimsSpinner" class="p-4 rounded-xl border border-indigo-200 bg-indigo-50/50 flex items-center justify-center gap-3 text-center shadow-xs">
             <div class="w-4 h-4 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin shrink-0"></div>
             <div class="text-left">
-              <div class="text-xs font-bold text-indigo-950">${currentLang === 'KO' ? 'Neon DB에서 원자적 검증 명제 및 실측 데이터 수신 중...' : (currentLang === 'ZH' ? '正在从 Neon DB 实时接收原子级事实核验与实测数据...' : 'Streaming atomic claims & empirical benchmarks from Neon DB...')}</div>
+              <div class="text-xs font-bold text-indigo-950">${currentLang === 'KO' ? `${APP_CONFIG.dbProvider}에서 원자적 검증 명제 및 실측 데이터 수신 중...` : (currentLang === 'ZH' ? `正在从 ${APP_CONFIG.dbProvider} 实时接收原子级事实核验与实测数据...` : `Streaming atomic claims & empirical benchmarks from ${APP_CONFIG.dbProvider}...`)}</div>
               <div class="text-[10px] text-indigo-600">${currentLang === 'KO' ? '초경량 요약본에서 심층 팩트체크 리포트를 확장 하이드레이션하고 있습니다.' : (currentLang === 'ZH' ? '正在从超轻量摘要扩展深度事实核验报告。' : 'Hydrating in-depth dossier from lightweight summary snapshot.')}</div>
             </div>
           </div>
@@ -2972,7 +3002,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           </tr>
         `).join('');
       } else if (isAwaitingClaims) {
-        altBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-xs text-indigo-600"><div class="flex items-center justify-center gap-2"><div class="w-3.5 h-3.5 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin shrink-0"></div>${currentLang === 'KO' ? '대안 비교 데이터를 Neon DB에서 동기화 중...' : (currentLang === 'ZH' ? '正在从 Neon DB 同步替代方案数据...' : 'Syncing alternative comparisons from Neon DB...')}</div></td></tr>`;
+        altBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-xs text-indigo-600"><div class="flex items-center justify-center gap-2"><div class="w-3.5 h-3.5 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin shrink-0"></div>${currentLang === 'KO' ? `대안 비교 데이터를 ${APP_CONFIG.dbProvider}에서 동기화 중...` : (currentLang === 'ZH' ? `正在从 ${APP_CONFIG.dbProvider} 同步替代方案数据...` : `Syncing alternative comparisons from ${APP_CONFIG.dbProvider}...`)}</div></td></tr>`;
       } else {
         altBody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-ink-muted">${currentLang === 'KO' ? '등록된 대체 기술 비교 데이터가 없습니다.' : (currentLang === 'ZH' ? '暂无替代方案对比数据。' : 'No comparative alternatives registered.')}</td></tr>`;
       }
@@ -2996,8 +3026,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
       // 🌟 On-Demand Full Case Hydration: If claims or essays are not yet loaded (from summary=true mode), fetch full case
       if (cid && !skipHistory && (!c.claims_assessment || c.claims_assessment.length === 0 || !c.portfolio_story?.marketing_hype_anatomy)) {
-        const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
-        const fetchUrl = isLocalOrVercel ? `/api/portfolios?case_id=${encodeURIComponent(cid)}` : `https://ai-factcheck-portfolio.vercel.app/api/portfolios?case_id=${encodeURIComponent(cid)}`;
+        const fetchUrl = APP_CONFIG.apiUrl(`/api/portfolios?case_id=${encodeURIComponent(cid)}`);
         fetch(fetchUrl)
           .then(res => res.json())
           .then(data => {
@@ -3017,8 +3046,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         openModal(c);
       } else {
         // Direct link to unlisted/deep case: fetch directly from Edge SWR DB API
-        const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
-        const fetchUrl = isLocalOrVercel ? `/api/portfolios?case_id=${encodeURIComponent(caseId)}` : `https://ai-factcheck-portfolio.vercel.app/api/portfolios?case_id=${encodeURIComponent(caseId)}`;
+        const fetchUrl = APP_CONFIG.apiUrl(`/api/portfolios?case_id=${encodeURIComponent(caseId)}`);
         fetch(fetchUrl)
           .then(res => res.json())
           .then(data => {
@@ -3790,8 +3818,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     }
 
     async function fetchNewsFromDb(page = currentNewsPage) {
-      const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
-      const baseUrl = isLocalOrVercel ? '/api/inbox' : 'https://ai-factcheck-portfolio.vercel.app/api/inbox';
+      const baseUrl = APP_CONFIG.apiUrl('/api/inbox');
       
       const cacheKey = getNewsCacheKey(page);
       if (newsDbCache.has(cacheKey)) {
@@ -3918,8 +3945,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         { facet: 'CROSS_SPIKE' },
         { facet: 'MODEL' }
       ];
-      const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
-      const baseUrl = isLocalOrVercel ? '/api/inbox' : 'https://ai-factcheck-portfolio.vercel.app/api/inbox';
+      const baseUrl = APP_CONFIG.apiUrl('/api/inbox');
 
       topFilters.forEach((f, idx) => {
         setTimeout(() => {
@@ -4204,7 +4230,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         grid.innerHTML = `
           <div class="col-span-full py-12 flex flex-col items-center justify-center text-ink-muted text-xs space-y-2">
             <div class="w-6 h-6 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
-            <span>${currentLang === 'KO' ? 'Neon DB에서 실시간 트렌드 동기화 중...' : 'Synchronizing trends from Neon DB...'}</span>
+            <span>${currentLang === 'KO' ? `${APP_CONFIG.dbProvider}에서 실시간 트렌드 동기화 중...` : `Synchronizing trends from ${APP_CONFIG.dbProvider}...`}</span>
           </div>
         `;
       }

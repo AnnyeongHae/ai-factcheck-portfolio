@@ -231,6 +231,7 @@ def scan_inbox():
                     LIMIT 600;
                 """)
                 rows = cur.fetchall()
+
                 db_added = 0
                 for r in rows:
                     payload = r[0]
@@ -812,6 +813,9 @@ def build_dashboard():
     # 🌟 24H Pipeline Ingestion & AI Enrichment Timeline (Split by 6-Hour Strategic Slots)
     slot_counts = {s["short_slot"]: {"inbox": 0, "model": 0, "news": 0, "enriched": 0} for s in slots_def}
 
+    db_total_inbox = 0
+    db_models_count = 0
+    db_news_count = 0
     db_timeline_synced = False
     try:
         from db_bridge import load_env_db_url
@@ -820,47 +824,40 @@ def build_dashboard():
         if db_url:
             conn = psycopg2.connect(db_url)
             with conn.cursor() as cur:
-                # 1. Enriched counts from raw_trends_inbox for items enriched today
+                # 0. Query full database totals for high-level KPI cards
                 cur.execute("""
                     SELECT 
-                        floor(extract(hour from (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')) / 6) * 6 as slot_hour,
-                        count(*) as total_enriched,
+                        COUNT(*),
+                        COUNT(CASE WHEN (item_type = 'MODEL' or source_platform ILIKE '%model%' or source_platform ILIKE '%hub%' or source_platform ILIKE '%space%') THEN 1 END),
+                        COUNT(CASE WHEN NOT (item_type = 'MODEL' or source_platform ILIKE '%model%' or source_platform ILIKE '%hub%' or source_platform ILIKE '%space%') THEN 1 END)
+                    FROM raw_trends_inbox;
+                """)
+                c_row = cur.fetchone()
+                if c_row:
+                    db_total_inbox = int(c_row[0] or 0)
+                    db_models_count = int(c_row[1] or 0)
+                    db_news_count = int(c_row[2] or 0)
+
+                # 1. Ingestion & Classification counts by session slot from raw_trends_inbox
+                cur.execute("""
+                    SELECT 
+                        floor(extract(hour from (created_at + interval '9 hours')) / 6) * 6 as slot_hour,
+                        count(*) as total_inbox,
+                        count(*) filter (where is_classified = true) as total_enriched,
                         count(*) filter (where (item_type = 'MODEL' or source_platform ilike '%model%' or source_platform ilike '%hub%')) as model_count,
                         count(*) filter (where item_type != 'MODEL' and (source_platform is null or (source_platform not ilike '%model%' and source_platform not ilike '%hub%'))) as news_count
                     FROM raw_trends_inbox
-                    WHERE is_classified = true
-                      AND (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
+                    WHERE (created_at + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
                     GROUP BY 1;
                 """)
                 for r in cur.fetchall():
                     h_val = int(r[0])
                     s_k = f"{h_val:02d}:00"
                     if s_k in slot_counts:
-                        slot_counts[s_k]["enriched"] = int(r[1])
-                        slot_counts[s_k]["model"] = int(r[2])
-                        slot_counts[s_k]["news"] = int(r[3])
-
-                # 2. Ingestion counts from GitHub Actions scheduled run logs
-                cur.execute("""
-                    SELECT DISTINCT ON (computed_slot)
-                        CASE 
-                            WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 0 THEN '00:17'
-                            WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 1 THEN '06:17'
-                            WHEN floor(extract(hour from (started_at + interval '9 hours')) / 6) = 2 THEN '12:17'
-                            ELSE '18:17'
-                        END as computed_slot,
-                        items_collected
-                    FROM github_actions_run_logs
-                    WHERE (started_at + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
-                      AND event_trigger = 'schedule'
-                      AND items_collected IS NOT NULL
-                    ORDER BY computed_slot, started_at DESC;
-                """)
-                slot_map_gha = {'00:17': '00:00', '06:17': '06:00', '12:17': '12:00', '18:17': '18:00'}
-                for r in cur.fetchall():
-                    s_k = slot_map_gha.get(r[0])
-                    if s_k and s_k in slot_counts:
-                        slot_counts[s_k]["inbox"] = int(r[1] or 0)
+                        slot_counts[s_k]["inbox"] = int(r[1])
+                        slot_counts[s_k]["enriched"] = int(r[2])
+                        slot_counts[s_k]["model"] = int(r[3])
+                        slot_counts[s_k]["news"] = int(r[4])
                 db_timeline_synced = True
             conn.close()
     except Exception as e:
@@ -1224,14 +1221,14 @@ def build_dashboard():
         "half_true_count": half_true_count,
         "gamed_count": gamed_count,
         "avg_confidence": avg_conf,
-        "models_total_count": len(model_items),
-        "news_total_count": len(news_items),
+        "models_total_count": db_models_count if 'db_models_count' in locals() and db_models_count > 0 else len(model_items),
+        "news_total_count": db_news_count if 'db_news_count' in locals() and db_news_count > 0 else len(news_items),
         "news_cat_counts": news_cat_counts,
         "tier1_counts": tier1_counts,
         "model_art_counts": model_art_counts,
         "model_fam_counts": model_fam_counts,
-        "inbox_total_count": len(inbox_items),
-        "all_inbox_count": len(inbox_items),
+        "inbox_total_count": db_total_inbox if 'db_total_inbox' in locals() and db_total_inbox > 0 else len(inbox_items),
+        "all_inbox_count": db_total_inbox if 'db_total_inbox' in locals() and db_total_inbox > 0 else len(inbox_items),
         "admin_stats": admin_stats,
         "timeline_24h": timeline_24h,
         "trend_6h": trend_6h,

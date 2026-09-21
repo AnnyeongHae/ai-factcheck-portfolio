@@ -20,9 +20,7 @@ if (fs.existsSync(envPath)) {
   });
 }
 
-if (!process.env.DATABASE_URL && process.env.NEON_KEY) {
-  process.env.DATABASE_URL = process.env.NEON_KEY;
-}
+const { getDbProviderInfo } = require('./api/_lib/config');
 
 const portfoliosHandler = require('./api/portfolios');
 const queueHandler = require('./api/queue');
@@ -122,8 +120,9 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
+  const dbInfo = getDbProviderInfo();
   console.log('===============================================================');
   console.log(`🚀 [LOCAL LIVE SERVER] Running at http://localhost:${PORT}`);
-  console.log(`🐘 [NEON DB CONNECTED] Real-time queries on 16 Verified Cases`);
+  console.log(`📡 [DB CONNECTED] ${dbInfo.provider} (${dbInfo.host || 'local'})`);
   console.log('===============================================================');
 });
