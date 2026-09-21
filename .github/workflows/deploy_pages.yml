@@ -64,12 +64,7 @@ jobs:
         run: |
           python -u tools/harvest_trends.py
 
-      - name: "Stage 2: Smart Remote Orchestrator (100% Multilingual KO·EN·ZH Enrichment)"
-        timeout-minutes: 4
-        run: |
-          python -u tools/orchestrate_enrichment.py --max-items 30 --delay 1.0
-
-      - name: "Stage 3: Daily EOD 23:00 KST Hot Trends Ranking"
+      - name: "Stage 2: Daily EOD 23:00 KST Hot Trends Ranking"
         run: |
           python -u tools/run_eod_digest.py --top 10
 

@@ -282,6 +282,80 @@ def fetch_xml(url, headers=None, timeout=12):
     with urllib.request.urlopen(req, timeout=timeout) as response:
         return response.read().decode('utf-8')
 
+def fetch_hn_raw_comments(sid, max_comments=100):
+    """
+    ELT Raw Comment Extractor for Hacker News via Algolia API.
+    Preserves all comments without premature truncation or lossy pre-filtering.
+    """
+    try:
+        # Extract numeric story ID if full URL passed
+        if isinstance(sid, str) and not sid.isdigit():
+            m = re.search(r'(?:id=|\/)(\d+)', sid)
+            if m:
+                sid = m.group(1)
+            else:
+                return []
+        url = f"https://hn.algolia.com/api/v1/items/{sid}"
+        data = fetch_json(url, timeout=5)
+        if not data:
+            return []
+        
+        def _traverse(node_list):
+            collected = []
+            for n in node_list:
+                if not n or not isinstance(n, dict):
+                    continue
+                txt = n.get("text") or ""
+                if txt:
+                    clean_txt = re.sub(r'<[^>]+>', ' ', txt).strip()
+                    collected.append({
+                        "id": f"hn_{n.get('id')}",
+                        "author": n.get("author") or "anonymous",
+                        "text": clean_txt,
+                        "points": n.get("points") or 0,
+                        "created_at_i": n.get("created_at_i"),
+                        "parent_id": n.get("parent_id")
+                    })
+                if n.get("children"):
+                    collected.extend(_traverse(n.get("children")))
+            return collected
+
+        all_comments = _traverse(data.get("children", []))
+        return all_comments[:max_comments]
+    except Exception:
+        return []
+
+def fetch_reddit_raw_comments(post_url, max_comments=100):
+    """
+    ELT Raw Comment Extractor for Reddit via Post .rss Feed.
+    Preserves user comments without premature truncation.
+    """
+    try:
+        clean = clean_stealth_url(post_url).rstrip('/')
+        feed_url = f"{clean}/.rss"
+        xml_data = fetch_xml(feed_url, timeout=5)
+        root = ET.fromstring(xml_data)
+        ns = {'atom': 'http://www.w3.org/2005/Atom'}
+        entries = root.findall('atom:entry', ns)
+        comments = []
+        for entry in entries[1:max_comments + 1]:
+            author = entry.findtext('atom:author/atom:name', default='', namespaces=ns)
+            content = entry.findtext('atom:content', default='', namespaces=ns)
+            updated = entry.findtext('atom:updated', default='', namespaces=ns) or entry.findtext('atom:published', default='', namespaces=ns)
+            entry_id = entry.findtext('atom:id', default='', namespaces=ns)
+            clean_txt = re.sub(r'<[^>]+>', ' ', content).strip() if content else ""
+            if clean_txt:
+                comments.append({
+                    "id": entry_id,
+                    "author": author,
+                    "text": clean_txt,
+                    "points": 0,
+                    "updated": updated
+                })
+        return comments
+    except Exception:
+        return []
+
 def match_persona_domain(title, desc, persona_config):
     text = (title + " " + desc).lower()
     domains = persona_config.get("user_profile", {}).get("proven_experience_domains", {})
@@ -536,6 +610,10 @@ def harvest_all():
                 created_at_i = story.get("created_at_i")
                 published_at = datetime.datetime.fromtimestamp(created_at_i, tz=datetime.timezone.utc).isoformat() if created_at_i else datetime.datetime.now(datetime.timezone.utc).isoformat()
                 
+                raw_comments = []
+                if num_comments and num_comments > 0:
+                    raw_comments = fetch_hn_raw_comments(sid, max_comments=100)
+
                 added = add_candidate({
                     "title": f"Hacker News: {title}",
                     "source_platform": "Hacker News",
@@ -546,7 +624,9 @@ def harvest_all():
                     "type": "repo" if "github.com" in article_url else "sns",
                     "category_type": "REPO" if "github.com" in article_url else "NEWS",
                     "description": f"{title} | {score} points, {num_comments} comments",
-                    "viral_metric": f"🔥 {score} HN Points"
+                    "viral_metric": f"🔥 {score} HN Points",
+                    "raw_comments": raw_comments,
+                    "comment_count": len(raw_comments)
                 })
                 if added: count += 1
 
@@ -627,6 +707,7 @@ def harvest_all():
                         desc_text = re.sub(r'<[^>]+>', ' ', content_elem.text).strip()[:180] if content_elem is not None and content_elem.text else title
                         
                         if url:
+                            r_comments = fetch_reddit_raw_comments(url, max_comments=100)
                             added = add_candidate({
                                 "title": f"{sname.split()[-1]}: {title}",
                                 "source_platform": sname,
@@ -635,7 +716,9 @@ def harvest_all():
                                 "type": "sns",
                                 "category_type": "NEWS" if "technology" in sname else "TECH",
                                 "description": desc_text,
-                                "viral_metric": "💬 Reddit Major Discussion"
+                                "viral_metric": "💬 Reddit Major Discussion",
+                                "raw_comments": r_comments,
+                                "comment_count": len(r_comments)
                             })
                             if added: count += 1
             except Exception as r_err:
@@ -1018,6 +1101,9 @@ def harvest_all():
                 if "description_ko" in cand and not old_item.get("description_ko"): old_item["description_ko"] = cand["description_ko"]
                 if "hn_url" in cand and not old_item.get("hn_url"): old_item["hn_url"] = cand["hn_url"]
                 if "article_url" in cand and not old_item.get("article_url"): old_item["article_url"] = cand["article_url"]
+                if cand.get("raw_comments"):
+                    old_item["raw_comments"] = cand["raw_comments"]
+                    old_item["comment_count"] = cand.get("comment_count", len(cand["raw_comments"]))
 
                 with open(target_inbox_file, "w", encoding="utf-8") as fp:
                     json.dump(old_item, fp, indent=2, ensure_ascii=False)
@@ -1103,6 +1189,8 @@ def harvest_all():
         if "parameter_size" in cand: inbox_item["parameter_size"] = cand["parameter_size"]
         if "detected_formats" in cand: inbox_item["detected_formats"] = cand["detected_formats"]
         if "library_name" in cand: inbox_item["library_name"] = cand["library_name"]
+        if "raw_comments" in cand: inbox_item["raw_comments"] = cand["raw_comments"]
+        if "comment_count" in cand: inbox_item["comment_count"] = cand["comment_count"]
 
         with open(save_path, "w", encoding="utf-8") as f:
             json.dump(inbox_item, f, indent=2, ensure_ascii=False)

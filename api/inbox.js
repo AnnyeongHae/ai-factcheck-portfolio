@@ -270,6 +270,7 @@ module.exports = async (req, res) => {
         multilingual: multi,
         key_takeaways: keyTakeaways,
         ai_enrichment: aiEnrichment,
+        raw_comments: Array.isArray(p.raw_comments) ? p.raw_comments : [],
         canonical_story_key: p.canonical_story_key || ''
       };
     });

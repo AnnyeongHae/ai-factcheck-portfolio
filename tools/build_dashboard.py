@@ -228,7 +228,7 @@ def scan_inbox():
                     SELECT raw_payload FROM raw_trends_inbox 
                     WHERE raw_payload IS NOT NULL 
                     ORDER BY id DESC 
-                    LIMIT 5000;
+                    LIMIT 150;
                 """)
                 rows = cur.fetchall()
                 db_added = 0

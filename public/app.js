@@ -3243,6 +3243,47 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       `;
     }
 
+    function renderCommentsAccordion(rawComments, lang = currentLang, threadUrl = null) {
+      if (!Array.isArray(rawComments) || rawComments.length === 0) return '';
+      const sorted = rawComments.slice().sort((a, b) => (b.points || 0) - (a.points || 0));
+      const top3 = sorted.slice(0, 3);
+      const topCount = rawComments.length;
+      const sanitizeTxt = str => String(str || '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+      
+      const commentsListHtml = top3.map(cm => `
+        <div class="pt-2 border-t border-indigo-100/70 text-[11px] leading-relaxed">
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-bold font-mono text-indigo-700">@${sanitizeTxt(cm.author || 'User')}</span>
+            ${cm.points ? `<span class="text-[9px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 font-mono font-bold border border-amber-200">▲${cm.points}</span>` : ''}
+          </div>
+          <p class="text-ink-primary whitespace-pre-line line-clamp-3">${sanitizeTxt(cm.text || '')}</p>
+        </div>
+      `).join('');
+
+      const moreCount = topCount - top3.length;
+      const moreHtml = moreCount > 0 ? `
+        <div class="pt-1.5 text-center">
+          ${threadUrl ? `<a href="${threadUrl}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-indigo-600 hover:underline font-semibold">외 ${moreCount}개 댓글 더보기 (원문 스레드 ↗)</a>` : `<span class="text-[10px] text-ink-muted">외 ${moreCount}개 댓글 생략됨</span>`}
+        </div>
+      ` : '';
+
+      return `
+        <details class="group rounded-xl border border-indigo-100 bg-indigo-50/25 p-2.5 transition text-xs mt-2">
+          <summary class="cursor-pointer font-bold text-[11px] text-indigo-950 flex items-center justify-between select-none list-none">
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="message-square" class="w-3.5 h-3.5 text-indigo-600"></i>
+              <span>${lang === 'KO' ? `💬 커뮤니티 반응 (${topCount}개 댓글)` : (lang === 'ZH' ? `💬 社区讨论 (${topCount}条评论)` : `💬 Community Discussions (${topCount} comments)`)}</span>
+            </span>
+            <span class="text-[10px] font-mono text-indigo-600 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <div class="mt-2 space-y-2">
+            ${commentsListHtml}
+            ${moreHtml}
+          </div>
+        </details>
+      `;
+    }
+
     function renderCardStandardFooter(it, lang = currentLang, extraActionHtml = '') {
       const ai = it.ai_enrichment;
       const pubLabel = lang === 'KO' ? '발행' : (lang === 'ZH' ? '发布' : 'Published');
@@ -3270,8 +3311,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         `;
       }
 
-      const defaultSourceLink = (!extraActionHtml && it.source_url) ? `
-        <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline flex items-center gap-0.5 font-semibold text-[11px]">
+      const sourceLink = it.source_url ? `
+        <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-semibold flex items-center gap-1 shrink-0">
           📄 ${srcLabel} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
         </a>
       ` : '';
@@ -3286,8 +3327,9 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
             ${hasUpdate ? `<span class="text-[10px] text-indigo-600 font-bold" title="${updLabel}">(🔄 ${updDate})</span>` : ''}
           </div>
           ${auditHtml}
-          <div class="flex items-center justify-end pt-1 font-sans">
-            ${extraActionHtml || defaultSourceLink}
+          <div class="flex items-center justify-between gap-2 pt-1 font-sans flex-wrap">
+            <div class="flex items-center gap-1.5">${extraActionHtml || ''}</div>
+            <div>${sourceLink}</div>
           </div>
         </div>
       `;
@@ -3782,6 +3824,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       const frag = document.createDocumentFragment();
       items.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
       grid.appendChild(frag);
+      if (window.lucide) window.lucide.createIcons();
     }
 
     function preloadTopNewsFilters() {
@@ -3876,6 +3919,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       let aiSummaryHtml = '';
       const hookHtml = renderHookCallout(displayHook);
       const relatedHtml = renderRelatedDossierButton(it.related_dossier, currentLang);
+      const commentsHtml = renderCommentsAccordion(it.raw_comments, currentLang, hnUrl || it.source_url);
 
       const tier1Map = {
         'SCIENCE_RESEARCH': { label: currentLang === 'KO' ? '🚀 과학·우주' : (currentLang === 'ZH' ? '🚀 科学与航天' : '🚀 Science & Research'), cls: 'bg-teal-50 text-teal-900 border-teal-200' },
@@ -4026,6 +4070,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
           ${aiSummaryHtml}
           ${relatedHtml}
+          ${commentsHtml}
         </div>
 
         ${footerHtml}
@@ -4971,6 +5016,12 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
         const relatedHtml = renderRelatedDossierButton(it.related_dossier, currentLang);
 
+        const rawComments = Array.isArray(it.raw_comments) 
+          ? it.raw_comments 
+          : (Array.isArray(it.raw_payload?.raw_comments) ? it.raw_payload.raw_comments : []);
+        
+        const commentsHtml = renderCommentsAccordion(rawComments, currentLang, it.source_url);
+
         const queueActionBtn = `
           <button onclick="toggleQueueItem('${it.inbox_id}', '${displayTitle.replace(/'/g, "")}')" 
                   class="px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${isQueued ? 'bg-emerald-700 text-white font-black' : 'bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border'}">
@@ -5010,6 +5061,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
             ${aiSummaryHtml}
             ${relatedHtml}
+            ${commentsHtml}
 
             <!-- 🌟 Dynamic Metric Tracking (Created vs Updated) -->
             <div class="p-2.5 rounded-xl bg-surface-subtle border border-surface-border text-[11px] space-y-1 font-mono">

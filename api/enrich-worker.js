@@ -22,6 +22,9 @@ const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 const FREE_MODELS = [
   'inclusionai/ling-3.0-flash-sante:free',  // Verified: resilient, fast, high quality CJK multilingual
   'inclusionai/ling-3.0-flash-vl:free',     // Reliable fallback
+  'qwen/qwen3.8-27b:free',                  // High-quality Qwen free multilingual model
+  'z-ai/glm-5.2:free',                      // Fast GLM free multilingual model
+  'google/gemma-4-26b-a4b-it:free',         // Gemma 4 free model
   'inclusionai/ling-3.0-flash-fin:free',    // Fast fallback
   'openrouter/free'                         // OpenRouter dynamic load-balanced free router
 ];
@@ -223,12 +226,30 @@ module.exports = async (req, res) => {
     }
 
     // 3. Prepare payload for OpenRouter Free Router
-    const promptItems = candidates.map(c => ({
-      id: c.inbox_id,
-      platform: c.source_platform || 'Unknown',
-      title: (c.title || '').slice(0, 150),
-      description: (c.description || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 300)
-    }));
+    const promptItems = candidates.map(c => {
+      let topCommentsSnippet = '';
+      try {
+        const payload = typeof c.raw_payload === 'string' ? JSON.parse(c.raw_payload) : (c.raw_payload || {});
+        const rawComments = Array.isArray(payload.raw_comments) ? payload.raw_comments : [];
+        if (rawComments.length > 0) {
+          // Sort comments by points descending to capture highest-signal community feedback
+          const sorted = rawComments.slice().sort((a, b) => (b.points || 0) - (a.points || 0));
+          const top3 = sorted.slice(0, 3).map(cm => `[@${cm.author || 'User'}]: ${(cm.text || '').replace(/\s+/g, ' ').slice(0, 140)}`);
+          topCommentsSnippet = top3.join(' / ');
+        }
+      } catch (e) {}
+
+      const itemObj = {
+        id: c.inbox_id,
+        platform: c.source_platform || 'Unknown',
+        title: (c.title || '').slice(0, 150),
+        description: (c.description || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 300)
+      };
+      if (topCommentsSnippet) {
+        itemObj.community_feedback = topCommentsSnippet;
+      }
+      return itemObj;
+    });
 
     const systemPrompt = `당신은 글로벌 최고 수준의 다국어 AI 기술 분석가 및 뉴스 번역 전문가입니다.
 주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어(KO), 영어(EN), 중국어(ZH) 3개 국어 번역 제목, 1줄 훅(Hook), 'AI 3줄 핵심 요약'(언어별 3개씩: key_takeaways_ko, key_takeaways_en, key_takeaways_zh), 다국어 중복 방지를 위한 영문 표준 사건 식별키(canonical_story_key), 정규화된 기술 고유명칭(canonical_tech_entity), 핵심 영문 엔티티 목록(core_entities), 그리고 정확한 카테고리 분류를 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 마크다운 등 기타 텍스트는 일절 출력하지 마세요.
@@ -239,6 +260,7 @@ module.exports = async (req, res) => {
 4. 법률, 재판, 판결, 범죄, 사회적 사건사고 기사는 절대로 TECH(기술)로 분류하지 말고 item_type: "NEWS", tier1_category: "LAW_CRIME_JUSTICE"로 정확히 분류해야 합니다.
 5. canonical_tech_entity 정규화: 기술, 모델, 프레임워크 관련 기사는 반드시 소문자 하이픈 형식의 공식 표준 명칭 1개(예: 'qwen-image-2.1', 'jev', 'deepseek-r1', 'llama-3.2', 'vllm', 'flash-attn-3')를 정확히 추출하세요. 만약 일반 사회/정치/뉴스 기사라면 null을 반환하세요.
 6. canonical_story_key 정규화 (뉴스·사건사고 중복 묶음용 필수): 기술뿐만 아니라 모든 일반 뉴스, 정책, 비즈니스, 사건 기사에 대해 동일한 토픽/사건을 다루는 기사들이 하나로 묶일 수 있도록 핵심 사건을 식별하는 고유 영어 소문자 하이픈 슬러그 3~5단어(예: 'google-antitrust-ruling', 'openai-for-profit-transition', 'flock-surveillance-traffic-stop', 'nvidia-blackwell-delay')를 반드시 정확하게 작성하세요.
+7. 커뮤니티 피드백(community_feedback)이 포함된 경우, 대중의 핵심 반론이나 검증된 사실관계를 반영하여 단순 홍보가 아닌 균형 잡힌 팩트체크 Hook을 작성하세요.
 [
   {
     "id": "item_id",
@@ -279,10 +301,14 @@ module.exports = async (req, res) => {
 
     let isQuotaExhausted = false;
 
+    const isVercel = Boolean(process.env.VERCEL);
+    const maxTotalBudget = isVercel ? 9200 : 30000;
+    const defaultPerModelTimeout = isVercel ? 4500 : 15000;
+
     // Call OpenRouter with fast fallback models and dynamic time budget (within Vercel serverless 10s limit)
     for (const modelName of FREE_MODELS) {
-      const budgetMs = 9200 - (Date.now() - startTime);
-      if (budgetMs < 2000) {
+      const budgetMs = maxTotalBudget - (Date.now() - startTime);
+      if (budgetMs < 1800) {
         console.warn(`[Worker] Time budget exhausted (${budgetMs}ms left). Breaking early.`);
         break;
       }
@@ -290,7 +316,7 @@ module.exports = async (req, res) => {
       let timeoutId = null;
       try {
         const controller = new AbortController();
-        const timeoutMs = Math.min(7500, budgetMs);
+        const timeoutMs = Math.min(defaultPerModelTimeout, budgetMs);
         timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
         const aiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -331,7 +357,8 @@ module.exports = async (req, res) => {
         if (timeoutId) { clearTimeout(timeoutId); timeoutId = null; }
 
         llmLatencySec = ((Date.now() - callStart) / 1000).toFixed(2);
-        const rawContent = aiJson.choices?.[0]?.message?.content || '';
+        const msgObj = aiJson.choices?.[0]?.message;
+        const rawContent = (msgObj?.content && msgObj.content.trim()) ? msgObj.content : (msgObj?.reasoning || '');
         const parsed = sanitizeJsonString(rawContent);
 
         if (Array.isArray(parsed) && parsed.length > 0) {
