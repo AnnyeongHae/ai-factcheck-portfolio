@@ -3819,10 +3819,91 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       throw new Error('API returned invalid payload');
     }
 
+    function extractStoryEntity(it) {
+      if (!it) return '';
+      const text = `${it.title || ''} ${it.title_ko || ''} ${it.source_url || ''} ${it.canonical_story_key || ''}`.toLowerCase();
+      
+      // 1. Versioned model or specific project regex
+      const m = text.match(/\b(qwen[-_ ]?image[-_ ]?2\.?1|qwen[-_ ]?3\.?8[-_ ]?35b|qwen[-_ ]?2\.?5[-_ ]?coder|deepseek[-_ ]?[rv]\d+[\w.-]*|llama[-_ ]?\d+[\w.-]*|glm[-_ ]?\d+[\w.-]*|flux[-_ ]?\d+[\w.-]*|jev)\b/i);
+      if (m) {
+        return m[1].toLowerCase().replace(/[-_ ]+/g, '-');
+      }
+      
+      // 2. Canonical story key if present and informative
+      if (it.canonical_story_key && it.canonical_story_key.length > 5) {
+        const cleaned = it.canonical_story_key.toLowerCase().replace(/-(?:github|huggingface|geeknews|hn|demo|release|repo|compact|efficient|unified|uncensored|gguf|trending).*$/, '');
+        if (cleaned.length >= 4) return cleaned;
+      }
+      
+      return '';
+    }
+
+    function clusterFeedItems(rawItems) {
+      if (!Array.isArray(rawItems) || rawItems.length <= 1) return rawItems || [];
+      
+      const entityMap = new Map();
+      const clustered = [];
+
+      for (const raw of rawItems) {
+        const it = { ...raw };
+        const entity = extractStoryEntity(it);
+
+        if (entity && entity.length >= 3) {
+          if (entityMap.has(entity)) {
+            const primary = entityMap.get(entity);
+            primary.sources = primary.sources ? [...primary.sources] : [];
+            if (primary.sources.length === 0 && primary.source_platform) {
+              primary.sources.push({
+                source_name: primary.source_platform,
+                platform: primary.source_platform,
+                url: primary.source_url || primary.hn_url || primary.article_url || '',
+                title: primary.title,
+                type: 'original'
+              });
+            }
+
+            const incomingUrl = it.source_url || it.hn_url || it.article_url || '';
+            const exists = primary.sources.some(s => (s.url || '').toLowerCase() === incomingUrl.toLowerCase());
+            if (!exists && incomingUrl) {
+              primary.sources.push({
+                source_name: it.source_platform || 'Cross-post',
+                platform: it.source_platform || 'Cross-post',
+                url: incomingUrl,
+                title: it.title,
+                type: 'cross_post'
+              });
+            }
+
+            primary.cross_posts = primary.cross_posts ? [...primary.cross_posts] : [];
+            primary.cross_posts.push({
+              platform: it.source_platform,
+              url: incomingUrl,
+              title: it.title
+            });
+
+            primary.is_cross_spiking = true;
+
+            if (Array.isArray(it.raw_comments) && it.raw_comments.length > 0) {
+              primary.raw_comments = [...(primary.raw_comments || []), ...it.raw_comments];
+            }
+            continue; // Fold into primary card!
+          } else {
+            entityMap.set(entity, it);
+            clustered.push(it);
+          }
+        } else {
+          clustered.push(it);
+        }
+      }
+
+      return clustered;
+    }
+
     function renderNewsGridItems(items, grid) {
       grid.innerHTML = '';
       const frag = document.createDocumentFragment();
-      items.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
+      const clustered = clusterFeedItems(items);
+      clustered.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
       grid.appendChild(frag);
       if (window.lucide) window.lucide.createIcons();
     }
@@ -4288,21 +4369,23 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       // 🌟 Precision DateTime Sorting (Unified)
       sortCollection(filtered, currentModelsSort);
 
-      const countEl = document.getElementById('modelsFilteredCount');
-      if (countEl) countEl.innerText = currentLang === 'KO' ? `${filtered.length}개 모델 표출` : (currentLang === 'ZH' ? `显示 ${filtered.length} 个模型` : `Showing ${filtered.length} models`);
+      const clusteredModels = clusterFeedItems(filtered);
 
-      const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
+      const countEl = document.getElementById('modelsFilteredCount');
+      if (countEl) countEl.innerText = currentLang === 'KO' ? `${clusteredModels.length}개 모델 표출` : (currentLang === 'ZH' ? `显示 ${clusteredModels.length} 个模型` : `Showing ${clusteredModels.length} models`);
+
+      const totalPages = Math.ceil(clusteredModels.length / PAGE_SIZE) || 1;
       if (currentModelsPage > totalPages) currentModelsPage = totalPages;
       if (currentModelsPage < 1) currentModelsPage = 1;
 
       renderPagination('modelsPagination', currentModelsPage, totalPages, 'changeModelsPage');
 
-      if (filtered.length === 0) {
+      if (clusteredModels.length === 0) {
         grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${currentLang === 'KO' ? '일치하는 AI 모델이 없습니다.' : (currentLang === 'ZH' ? '暂无匹配的 AI 模型。' : 'No matching AI models.')}</div>`;
         return;
       }
 
-      const pagedModels = filtered.slice((currentModelsPage - 1) * PAGE_SIZE, currentModelsPage * PAGE_SIZE);
+      const pagedModels = clusteredModels.slice((currentModelsPage - 1) * PAGE_SIZE, currentModelsPage * PAGE_SIZE);
       const fragment = document.createDocumentFragment();
       pagedModels.forEach(it => {
         const { displayTitle, displayHook, displayDesc } = getLocalizedContent(it, currentLang);
