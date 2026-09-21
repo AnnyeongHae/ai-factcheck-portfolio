@@ -32,7 +32,7 @@
 
 ## 🏛️ 2. 전체 엔드-투-엔드 시스템 아키텍처 (End-to-End Pipeline)
 
-본 시스템은 **(1) 24/7 멀티 소스 자율 수집 ➔ (2) AI 3개국어 인리치먼트 ➔ (3) Neon DB 클라우드 동기화 ➔ (4) 다단계 에이전틱 팩트체크 위원회 ➔ (5) Vercel 서버리스 & 정적 듀얼 배포**로 순환하는 완전 자동화 파이프라인입니다.
+본 시스템은 **(1) 24/7 멀티 소스 자율 수집 ➔ (2) 2026 SOTA 5단계 시맨틱 중복제거 & 크로스 바이럴 롤업 ➔ (3) Neon DB Cloud (SSOT) 원자적 스테이징 ➔ (4) AI 3개국어 인리치먼트 ➔ (5) Vercel Edge Serverless SWR 초고속 서빙**으로 순환하는 100% DB-Native 자율 파이프라인입니다.
 
 ```mermaid
 flowchart TD
@@ -42,37 +42,32 @@ flowchart TD
         GN["⚡ GeekNews<br/>(국내 개발자 핫 토픽)"]
         GH["🐙 GitHub Trending<br/>(Stars & Fork Spikes)"]
         
-        HF & ARX & GN & GH -->|HTTP Polling & RSS| HARVEST["tools/harvest_trends.py<br/>(지문 해시 기반 무중복 수집)"]
-        HARVEST --> INBOX[("inbox/*.json<br/>(로컬 큐레이션 인박스)")]
+        HF & ARX & GN & GH -->|HTTP & RSS Polling| HARVEST["tools/harvest_trends.py<br/>(지문 해시 정규화)"]
     end
 
-    subgraph ENRICHMENT["2. 지능형 AI 인리치먼트 (Trilingual Engine)"]
-        INBOX --> ENRICH["tools/enrich_inbox_with_ai.py<br/>(Gemini Flash Adaptive RPM Throttling)"]
-        ENRICH -->|자동 번역 & 분류| META["• KO/EN/ZH 3개국어 완벽 대칭<br/>• 핵심 한 줄 훅(Hook) 추출<br/>• 모델 패밀리 & 기술 도메인 태깅"]
+    subgraph DEDUP["2. 2026 SOTA 5단계 중복제거 & 바이럴 롤업 (Dedup Engine)"]
+        HARVEST --> ENGINE["tools/dedup_engine.py & dedup_merger.py<br/>• Canonical Key & URL 토큰 정합<br/>• Voyage AI + pgvector 코사인 유사도 (0.88)<br/>• 크로스 플랫폼 바이럴 내러티브 클러스터링<br/>• 플랫폼 영향력 가중치 기반 대표 출처 승격<br/>• JEV 결정론적 의사결정 잠금"]
     end
 
-    subgraph CLOUD_DB["3. Neon Postgres Cloud DB (Knowledge Core)"]
-        META --> DB_BRIDGE["tools/db_bridge.py<br/>(원자적 배치 동기화)"]
-        DB_BRIDGE --> NEON[("Neon Serverless Postgres<br/>• verified_factchecks (32건)<br/>• raw_trends_inbox (230+건)<br/>• factcheck_alternatives<br/>• factcheck_community_signals")]
+    subgraph CLOUD_DB["3. Neon Postgres Cloud DB (Single Source of Truth)"]
+        ENGINE --> NEON[("Neon Serverless PostgreSQL (SSOT)<br/>• verified_factchecks (58건)<br/>• raw_trends_inbox (3,039+건)<br/>• pgvector embedding 인덱스")]
     end
 
-    subgraph AGENTIC_FACTCHECK["4. 다단계 에이전틱 팩트체크 위원회 (Multi-Agent Council)"]
-        NEON -->|분석 대기열 QUEUED| COUNCIL["tools/factcheck_worker.py<br/>(자율 심층 팩트체크 에이전트 연합)"]
-        COUNCIL -->|실측 도시에 생성| DOSSIERS[("investigations/<case_id>/<br/>(정밀 공학 검증 도시에)")]
-        DOSSIERS --> GRAPH["configs/tech_graph_schema.json<br/>(기술 인용 계보망 자동 노드 연동)"]
-        COUNCIL --> LEDGER["logs/token_usage_ledger.json<br/>(실시간 토큰 회계 원장)"]
+    subgraph ENRICHMENT["4. 지능형 AI 인리치먼트 (Trilingual Engine)"]
+        NEON --> ENRICH["tools/enrich_inbox_with_ai.py<br/>(OpenRouter / Gemini Flash Adaptive RPM)"]
+        ENRICH -->|자동 번역 & 분류| META["• KO/EN/ZH 3개국어 완벽 대칭<br/>• 핵심 한 줄 훅(Hook) & 3줄 요약<br/>• IPTC 6대 도메인 & ACM CCS 태깅"]
+        META -->|DB 원자적 저장| NEON
     end
 
-    subgraph DEPLOYMENT["5. 듀얼 엣지 실시간 배포 (Dual Edge Serving)"]
-        GRAPH & DOSSIERS --> BUILD["tools/build_dashboard.py<br/>(Zero-Warning Clean Compiler)"]
-        BUILD --> PAGES["GitHub Pages CDN<br/>(annyeonghae.github.io)"]
-        BUILD --> VERCEL["Vercel Serverless CDN<br/>(/api/queue, /api/portfolios)"]
+    subgraph DEPLOYMENT["5. 100% DB-Native Edge CDN SWR 서빙"]
+        NEON --> API["Vercel Serverless Functions<br/>• /api/inbox (LIMIT/OFFSET/Tier1/Tier2/Facet)<br/>• /api/portfolios (58건 팩트체크)<br/>• Cache-Control: s-maxage=600, SWR=86400"]
+        API --> BROWSER["🖥️ 모바일 & 데스크톱 브라우저<br/>(초기 페인트 0.05초, 페이지당 ~20KB 초경량 페이징)"]
     end
 
     style SOURCING fill:#e0e7ff,stroke:#6366f1
-    style ENRICHMENT fill:#fef3c7,stroke:#f59e0b
+    style DEDUP fill:#fef3c7,stroke:#f59e0b
     style CLOUD_DB fill:#d1fae5,stroke:#10b981
-    style AGENTIC_FACTCHECK fill:#f3e8ff,stroke:#8b5cf6
+    style ENRICHMENT fill:#f3e8ff,stroke:#8b5cf6
     style DEPLOYMENT fill:#fee2e2,stroke:#ef4444
 ```
 
@@ -118,40 +113,88 @@ flowchart LR
 
 ---
 
-## 📁 4. 정제된 프로젝트 디렉토리 구조
+## 🧬 4. 2026 SOTA 5단계 중복제거 & 크로스 바이럴 클러스터링 엔진
+
+글로벌 테크 생태계에서는 동일한 오픈소스 발표나 기술적 이슈가 **Hacker News, GeekNews, Hugging Face, GitHub, ArXiv** 등 다양한 플랫폼에 각기 다른 언어(영어·한국어)와 제목으로 동시 다발적으로 확산됩니다.  
+단순 URL 또는 문자열 거리 기반의 고전적 중복 제거는 *동일 사건의 다른 번역 제목을 잡지 못하거나*, 반대로 *서로 다른 모델(예: Qwen 2.5 vs Qwen 3.8)을 엉뚱하게 합쳐버리는 치명적 오병합*을 일으킵니다.
+
+본 시스템은 **5단계 정밀 하이브리드 중복제거 & 내러티브 융합 파이프라인**을 통해 이 문제를 완벽하게 해결했습니다:
+
+```mermaid
+flowchart LR
+    RAW["수집 후보<br/>(URL, Title, Body)"] --> STAGE1["1단계: 정규화 해시<br/>(Canonical Key & URL)"]
+    STAGE1 --> STAGE2["2단계: 고차원 임베딩<br/>(Voyage AI + pgvector 코사인 0.88)"]
+    STAGE2 --> STAGE3["3단계: 크로스 롤업<br/>(다중 플랫폼 바이럴 통합)"]
+    STAGE3 --> STAGE4["4단계: 가중치 승격<br/>(GitHub > HF > HN > GNews)"]
+    STAGE4 --> STAGE5["5단계: 결정론적 잠금<br/>(JEV / Canonical Story Key)"]
+    STAGE5 --> DB[("Neon DB 단일 통합 레코드")]
+```
+
+1. **1단계: Canonical Story Key & 정규화 URL 해시 매칭**:
+   - `canonical_story_key`(도메인-핵심어 기반 고유 식별자) 및 쿼리 파라미터가 정제된 원문 URL 지문 정합.
+2. **2단계: Voyage AI Dense Vector Embedding + Neon pgvector 코사인 유사도 검색**:
+   - 최신 SOTA 경량 임베딩 모델(`voyage-context-3` / `voyage-code-2`)을 활용해 한-영 교차 의미 벡터를 생성.
+   - Neon PostgreSQL의 `vector(1024)` 인덱스를 통해 코사인 유사도 $0.88$ 이상의 잠재 중복 안건을 10ms 내에 밀리초 단위로 초고속 검색.
+3. **3단계: 크로스 플랫폼 바이럴 내러티브 클러스터링 (Cross-Spike Rollup)**:
+   - 동일 주제가 여러 커뮤니티에 동시 다발로 등장할 때, 별개의 뉴스로 쪼개지 않고 **`[HN + GeekNews + GitHub] 3개 플랫폼 동시 급상승 바이럴 (롤업)`** 단일 카드로 융합.
+4. **4단계: 플랫폼 영향력 가중치 기반 대표 출처 승격 (Primary Platform Elevation)**:
+   - 최초 수집처(예: 긱뉴스)에 종속되지 않고, 출처 영향력 가중치 랭킹에 따라 카드의 대표 타이틀과 링크를 승격:
+     * **Tier 1 (공식 릴리즈/코드/논문)**: `GitHub` (100) > `HF Spaces` (96) > `Hugging Face` (95) > `ArXiv` (90)
+     * **Tier 2 (글로벌 1위 기술 커뮤니티)**: `Hacker News` (85)
+     * **Tier 3 (전문 포럼 & 큐레이션)**: `PyTorchKR` (80) > `GeekNews` (75)
+5. **5단계: JEV 결정론적 의사결정 및 다국어 스토리 키 잠금 (Deterministic Lock)**:
+   - 엔티티명이 유사하더라도 버전이 다르거나 핵심 서사가 다르면 절대로 합치지 않도록 잠금 검증.
+
+---
+
+## ⚡ 5. 100% DB-Native Edge API SWR 페이징 아키텍처
+
+과거의 정적 웹사이트는 3,000건 이상의 전체 데이터를 `data.json`이라는 거대한 파일(67.5MB)에 통째로 쏟아부어, 모바일 첫 화면 로딩이 5~10초 지연되고 브라우저 메모리가 고갈되는 심각한 구조적 한계가 있었습니다.
+
+본 시스템은 **Edge CDN SWR 캐싱 기반의 100% DB-Native 아키텍처**로 전면 전환되었습니다:
+
+1. **초경량 First-Paint 스냅샷 (`data.json` 다이어트)**:
+   - 전체 수집 3,000+건을 덤프하던 방식을 폐기하고, 첫 접속(FCP)을 0.05초 만에 띄우기 위한 **최신 45개 핵심 안건 및 통계 메타(~1.5MB, Gzipped 314KB)**만 초경량 번들링 (용량 97.7% 감축).
+2. **동적 DB 페이징 (`/api/inbox` Vercel Serverless Function)**:
+   - 사용자가 2페이지 이후로 이동하거나 IPTC 6대 대분류, 12대 세부 공학 분야, 패싯(`CROSS_SPIKE`, `MODEL`, `TOOL`), 검색어를 입력할 때마다 Neon PostgreSQL과 직결된 Edge Serverless API를 온디맨드 호출.
+3. **글로벌 에지 SWR 캐싱 (`s-maxage=600, stale-while-revalidate=86400`)**:
+   - Vercel 글로벌 엣지 CDN에서 10분간 캐시(30~50ms 응답)되며 백그라운드 재검증을 수행하여, Neon DB의 Egress 한도(5GB)를 완벽히 보호하면서 수만 페이지를 15KB 단위로 무한 페이징.
+
+---
+
+## 📁 6. 정제된 프로젝트 디렉토리 구조
 
 ```
 ai-factcheck-portfolio/
 ├── .github/workflows/          # ⚙️ GitHub Actions CI/CD (수집·번역·팩트체크·DB싱크·배포)
 ├── api/                        # ⚡ Vercel Serverless Functions
 │   ├── health.js               # 백엔드 헬스체크
+│   ├── inbox.js                # 🐘 DB-Native 에지 페이징 API (Tier1/Tier2/Facet/Search)
 │   ├── portfolios.js           # 싱글톤 커넥션 풀 기반 포트폴리오 API (정적 폴백 탑재)
+│   ├── stats.js                # 실시간 DB 통계 및 할당량 분석 API
 │   └── queue.js                # 대기열 등록/토글/조회 API (입력 검증 및 감사 로그)
 │
 ├── configs/                    # 🎯 엔지니어링 설정 및 인용 계보망
 │   ├── tech_graph_schema.json  # 인터랙티브 D3.js 3D/2D 기술 인용 계보망 스키마
 │   └── user_persona_alignment.json # 사용자 도메인별 큐레이션 가중치
 │
-├── dashboard/                  # 📊 대시보드 코어 배포본 (Verified: 32, Models: 88, News: 61)
-├── docs/                       # 🌐 GitHub Pages 정적 호스팅 루트
-├── inbox/                      # 📥 24/7 트렌드 인박스 (JSON 기반 230여 건 원천 데이터)
-├── investigations/             # 🏆 [검증 완료 도시에] 32개 공식 심층 팩트체크 리포트 코어
+├── docs/                       # 🌐 GitHub Pages 정적 호스팅 루트 (초경량 data.json 배포)
+├── investigations/             # 🏆 [검증 완료 도시에] 58개 공식 심층 팩트체크 리포트 코어
 ├── logs/                       # 📜 토큰 회계 원장 및 수집·인리치먼트 히스토리
 │   ├── token_usage_ledger.json # AI 추론 실측 토큰 및 원화 환산 회계 원장
 │   └── ai_enrichment_history.json
 │
-├── public/                     # 🚀 Vercel Edge 정적 애셋
+├── public/                     # 🚀 Vercel Edge 정적 애셋 (app.js, styles.css, data.json)
 ├── specs/                      # 📑 아키텍처 명세서 및 기술 백서 아카이브
-│   ├── CRITICAL_SYSTEM_REVIEW_AND_ROADMAP.md
-│   ├── DATABASE_SCHEMA_DESIGN.md
-│   └── PIPELINE_ARCHITECTURE.md
-│
 ├── tools/                      # 🛠️ 핵심 자동화 파이프라인 CLI 도구
 │   ├── harvest_trends.py       # 1단계: 4대 소스 무중복 자율 수집기
-│   ├── enrich_inbox_with_ai.py # 2단계: Gemini AI 3개국어 인리치먼트
-│   ├── factcheck_worker.py     # 3단계: 대기열 감지 및 자율 팩트체크 워커
-│   ├── db_bridge.py            # 4단계: Neon Postgres 클라우드 양방향 동기화
-│   └── build_dashboard.py      # 5단계: 대시보드 컴파일러 (Hash Router & Clean Build)
+│   ├── dedup_engine.py         # 2단계: 2026 SOTA 5단계 중복제거 엔진
+│   ├── dedup_merger.py         # 2단계: 크로스 플랫폼 바이럴 내러티브 병합기
+│   ├── setup_pgvector.py       # 2단계: Neon DB pgvector 임베딩 테이블 구축
+│   ├── voyage_embedder.py      # 2단계: Voyage AI 고차원 임베딩 클라이언트
+│   ├── enrich_inbox_with_ai.py # 3단계: Gemini/OpenRouter AI 3개국어 인리치먼트
+│   ├── factcheck_worker.py     # 4단계: 대기열 감지 및 자율 팩트체크 워커
+│   └── build_dashboard.py      # 5단계: 대시보드 컴파일러 (Lean Bundle Generator)
 │
 ├── server.js                   # 💻 로컬 Express/Node.js 개발 서버
 └── README.md                   # 📖 메인 포트폴리오 프로젝트 문서
@@ -159,11 +202,13 @@ ai-factcheck-portfolio/
 
 ---
 
-## 🚀 5. 로컬 실행 및 재현 가이드
+## 🚀 7. 로컬 실행 및 재현 가이드
 
 ### 1) 환경 변수 설정 (`.env`)
 ```bash
 GEMINI_API_KEY="your-gemini-api-key"
+OPENROUTER_API_KEY="your-openrouter-api-key"
+VOYAGE_API_KEY="your-voyage-api-key"
 DATABASE_URL="postgresql://neondb_owner:password@ep-host.neon.tech/neondb?sslmode=require"
 ```
 
@@ -187,20 +232,22 @@ node server.js
 # 1. 최신 트렌드 자율 수집
 python tools/harvest_trends.py
 
-# 2. 신규 안건 AI 3개국어 번역 및 요약
+# 2. 2026 SOTA 중복제거 및 바이럴 롤업
+python tools/dedup_merger.py
+
+# 3. 신규 안건 AI 3개국어 번역 및 요약
 python tools/enrich_inbox_with_ai.py --all --batch-size 5
 
-# 3. 대기열(Queue) 안건 자율 팩트체크 실행
+# 4. 대기열(Queue) 안건 자율 팩트체크 실행
 python tools/factcheck_worker.py --limit 3
 
-# 4. Neon Cloud DB 동기화 및 대시보드 빌드
-python tools/db_bridge.py --sync-all
+# 5. Neon Cloud DB 동기화 및 초경량 대시보드 빌드
 python tools/build_dashboard.py
 ```
 
 ---
 
-## 🏷️ 6. 권위적 표준 기반 2계층 뉴스 분류 & AI 모델 생태계 아키텍처
+## 🏷️ 8. 권위적 표준 기반 2계층 뉴스 분류 & AI 모델 생태계 아키텍처
 
 본 시스템은 수집 데이터의 다양성과 정밀도를 극대화하기 위해 글로벌 저널리즘 및 컴퓨터 과학 표준을 이식한 계층형 분류 체계를 채택하고 있습니다.
 
@@ -232,9 +279,9 @@ python tools/build_dashboard.py
 ### 2) Hugging Face & OpenRouter 권위 표준 모델 및 허브 생태계 분류
 Hugging Face Hub 및 OpenRouter의 공식 카테고리를 준용하여, 단순 코드 레포지토리(GitHub)와 순수 모델 자산을 명확히 분리하고 체계화했습니다:
 1. **허브 리소스 유형 (`artifact_type`)**:
-   - **🤖 `WEIGHTS` (모델 가중치/체크포인트)**: Safetensors, GGUF, PyTorch 순수 모델 가중치 (35건)
-   - **🌐 `WEB_SERVICE` (인터랙티브 데모/Spaces)**: Hugging Face Spaces, Gradio 인터랙티브 웹 데모 (84건)
-   - **🎯 `FINETUNE` (특화 파인튜닝/어댑터)**: 도메인 특화 LoRA 및 경량 어댑터 (1건)
+   - **🤖 `WEIGHTS` (모델 가중치/체크포인트)**: Safetensors, GGUF, PyTorch 순수 모델 가중치
+   - **🌐 `WEB_SERVICE` (인터랙티브 데모/Spaces)**: Hugging Face Spaces, Gradio 인터랙티브 웹 데모
+   - **🎯 `FINETUNE` (특화 파인튜닝/어댑터)**: 도메인 특화 LoRA 및 경량 어댑터
 2. **벤더 및 아키텍처 패밀리 (`model_family`)**:
    - `Qwen` (Alibaba Cloud), `Wan` (Alibaba Video), `MiniMax` (Hailuo), `FLUX` (Black Forest Labs), `GLM` (Zhipu AI), `DeepSeek`, `Hunyuan` (Tencent), `Audio/TTS 특화`, `독립/신규 모델`.
 3. **태스크 파이프라인 (`task_modality`)**:
@@ -243,24 +290,25 @@ Hugging Face Hub 및 OpenRouter의 공식 카테고리를 준용하여, 단순 �
 ---
 
 ### 3) 24시간 민감형 AI 트렌드 레이더 (Freshness-Aware Radar)
-과거 누적 10,000+ 스타의 고전 라이브러리나 8/31 과거 데이터가 레이더를 독점하던 문제를 완전히 해결했습니다:
+과거 누적 10,000+ 스타의 고전 라이브러리나 과거 데이터가 레이더를 독점하던 문제를 완전히 해결했습니다:
 - 최근 24~48시간 이내에 새롭게 발표된 안건(`today`, `yesterday`)에 대해 엄격한 날짜 게이트(Date Gate) 및 지수형 신선도 부스트(최대 20배)를 적용.
 - 과거 데이터는 `is_spiking` 여부와 무관하게 일일 레이더 진입을 차단하여, **당일 실리콘밸리 및 글로벌 오픈소스 핫 토픽이 1일 4회(심야·오전·오후·저녁) 주기마다 실시간으로 교체 반영**됩니다.
 
 ---
 
-## 📊 7. 엔지니어링 메트릭 및 시스템 성과
+## 📊 9. 엔지니어링 메트릭 및 시스템 성과
 
-- **누적 공식 검증 도시에 (Verified Portfolios)**: **42건** (자율 팩트체크 검증 완료)
-- **AI 인텔리전스 인박스**: **853건** (전량 AI 3개국어 번역 및 분석 완료)
-- **글로벌 테크 뉴스 & 오픈소스 피드**: **749건** (GitHub 오픈소스 56건 정상 라우팅, IPTC 6대 도메인 및 12개 전문 분야 태깅 완료)
-- **AI 모델 & Spaces 레지스트리**: **120건** (Hugging Face 표준 생태계 및 멀티모달 포맷 자동 분류)
+- **누적 공식 검증 도시에 (Verified Portfolios)**: **58건** (자율 팩트체크 공학 실측 완료)
+- **AI 인텔리전스 인박스 (Raw Trends Inbox)**: **3,039건** (Neon PostgreSQL DB 영구 스테이징)
+- **글로벌 테크 피드 & 오픈소스**: **2,581건** (IPTC 6대 도메인 및 12개 전문 분야 태깅 완료)
+- **AI 모델 & Spaces 레지스트리**: **344건** (Hugging Face 표준 생태계 및 멀티모달 포맷 자동 분류)
+- **초기 번들 다이어트 (`data.json`)**: **67.54 MB ➔ 1.53 MB (Gzipped 314 KB, 97.7% 초경량화 달성)**
+- **서버리스 엣지 응답 속도 (TTFB)**: Vercel Edge SWR 캐시 적용으로 **30ms ~ 50ms**
 - **도시에 1건당 평균 소모 토큰**: 약 **6,000 ~ 8,000 토큰** (Thinking CoT 포함)
 - **도시에 1건당 실측 생성 비용**: **$0.0014 ~ $0.0028 (약 1.9원 ~ 3.8원)** ☕
-- **서버리스 응답 속도 (TTFB)**: 싱글톤 커넥션 풀 적용으로 **300ms ➔ 45ms (85% 단축)**
 
 ---
 
-## 📜 8. 라이선스 & 기여 (License)
+## 📜 10. 라이선스 & 기여 (License)
 본 프로젝트는 [MIT 라이선스](LICENSE) 하에 자유롭게 열람, 포크 및 응용이 가능합니다.  
 소셜 미디어의 기술적 과장을 걸러내고 진정한 공학적 팩트를 추구하는 모든 개발자를 환영합니다!

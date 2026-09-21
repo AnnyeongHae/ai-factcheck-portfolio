@@ -120,22 +120,17 @@
         </div>
       </div>
 
-      <!-- Desktop Navigation Tabs (Clean 4 Core Tabs) -->
+      <!-- Desktop Navigation Tabs (Clean 3 Core Tabs) -->
       <nav class="hidden md:flex items-center gap-1 bg-surface-subtle p-1 rounded-xl border border-surface-border text-xs font-semibold">
         <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
           <span id="navTabPortfolio">공식 검증</span>
-          <span class="text-[10px] font-mono text-ink-muted" id="headerVerifiedCount">(49)</span>
+          <span class="text-[10px] font-mono text-ink-muted" id="headerVerifiedCount">(58)</span>
         </button>
         <button onclick="switchView('news')" id="tabNewsBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
-          <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
-          <span id="navTabNews">테크 & AI 동향</span>
-          <span class="text-[10px] font-mono text-ink-muted" id="headerNewsCount">(1,251)</span>
-        </button>
-        <button onclick="switchView('models')" id="tabModelsBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
-          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-          <span id="navTabModels">AI 모델 트렌드</span>
-          <span class="text-[10px] font-mono text-ink-muted" id="headerModelsCount">(175)</span>
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span id="navTabNews">실시간 트렌드 레이더</span>
+          <span class="text-[10px] font-mono text-ink-muted" id="headerNewsCount">(2,606)</span>
         </button>
         <button onclick="switchView('graph')" id="tabGraphBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
           <i data-lucide="network" class="w-3.5 h-3.5"></i>
@@ -145,8 +140,8 @@
 
       <!-- Right Actions: Admin Archive, Live DB Badge & Tri-Lingual (KO / ZH / EN) Toggle -->
       <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-        <!-- Admin Access Button & Live DB Badge -->
-        <button onclick="switchView('inbox')" id="dbLiveBadge" class="hidden sm:block cursor-pointer focus:outline-hidden" title="관리자 전용 원천 데이터 아카이브">
+        <!-- Admin Access Button & Live DB Badge (Source of Origin) -->
+        <button onclick="switchView('inbox')" id="dbLiveBadge" class="hidden sm:block cursor-pointer focus:outline-hidden" title="관리자 전용 원천 데이터 아카이브 (Source of Origin)">
           <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition shadow-xs">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
             <span>Admin <span id="headerInboxCount">(1,641)</span></span>
@@ -167,23 +162,19 @@
     <div class="flex md:hidden items-center gap-1.5 px-3 py-2 overflow-x-auto no-scrollbar border-t border-surface-border bg-white">
       <button onclick="switchView('portfolio')" id="mTabPortfolioBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabPortfolio">공식 검증 (49)</span>
+        <span id="mNavTabPortfolio">공식 검증</span>
       </button>
       <button onclick="switchView('news')" id="mTabNewsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
-        <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabNews">테크&AI (1,251)</span>
-      </button>
-      <button onclick="switchView('models')" id="mTabModelsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
-        <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabModels">AI 모델 트렌드 (175)</span>
+        <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
+        <span id="mNavTabNews">트렌드 레이더</span>
       </button>
       <button onclick="switchView('graph')" id="mTabGraphBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
         <i data-lucide="network" class="w-3.5 h-3.5"></i>
         <span id="mNavTabGraph">인용 계보망</span>
       </button>
-      <button onclick="switchView('inbox')" id="mTabInboxBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-500 hover:text-ink-primary bg-surface-subtle border border-dashed border-surface-border transition" title="관리자 원천 아카이브">
+      <button onclick="switchView('inbox')" id="mTabInboxBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium text-emerald-800 bg-emerald-50 border border-emerald-200 transition" title="관리자 원천 아카이브">
         <i data-lucide="archive" class="w-3.5 h-3.5"></i>
-        <span id="mNavTabInbox">아카이브 (1,641)</span>
+        <span id="mNavTabInbox">Admin</span>
       </button>
     </div>
   </header>
@@ -211,91 +202,76 @@
         </div>
       </div>
 
-      <!-- 🌟 REAL-TIME TELEMETRY & INTELLIGENCE KPI OVERVIEW (실시간 대시보드 종합 통계) -->
-      <!-- Order: 🔬 공식 기술 검증 │ 📰 AI 테크 동향 │ 🤖 AI 모델 트렌드 │ 📡 수집 인박스 -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+      <!-- 🌟 REAL-TIME TELEMETRY & INTELLIGENCE KPI OVERVIEW (3-컬럼 대칭 반응형 그리드) -->
+      <!-- Order: 🔬 공식 기술 검증 │ ⚡ 실시간 트렌드 레이더 │ 🤖 SOTA AI 모델 & 도구 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
         
-        <!-- Metric 1: Verified Dossiers -->
-        <div onclick="switchView('portfolio')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-emerald-500 hover:shadow-md transition cursor-pointer group">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-ink-muted group-hover:text-emerald-700 transition flex items-center gap-1.5" id="statLabelVerified">
-              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
-              <span>공식 기술 검증</span>
-            </span>
-            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-              Avg <span id="statAvgConfidence">98.4</span>%
-            </span>
+        <!-- Metric 1: Verified Dossiers (공식 기술 검증) -->
+        <div onclick="switchView('portfolio')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-emerald-500 hover:shadow-md transition cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-ink-muted group-hover:text-emerald-700 transition flex items-center gap-1.5" id="statLabelVerified">
+                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+                <span>공식 기술 검증</span>
+              </span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                Avg <span id="statAvgConfidence">98.4</span>%
+              </span>
+            </div>
+            <div class="mt-3 flex items-baseline gap-2">
+              <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValVerified">58</span>
+              <span class="text-xs text-ink-muted font-medium">Dossiers</span>
+            </div>
           </div>
-          <div class="mt-3 flex items-baseline gap-2">
-            <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValVerified">49</span>
-            <span class="text-xs text-ink-muted font-medium">Dossiers</span>
-          </div>
-          <div class="mt-2 text-[11px] text-ink-secondary flex items-center gap-2 font-mono">
-            <span class="text-emerald-700 font-bold" title="사실 검증">● <span id="statVerifiedTrue">44</span> 사실</span>
-            <span class="text-amber-700 font-bold" title="절반의 사실">● <span id="statHalfTrue">5</span> 부분</span>
+          <div class="mt-3 pt-2.5 border-t border-surface-border text-[11px] text-ink-secondary flex items-center gap-2 font-mono">
+            <span class="text-emerald-700 font-bold" title="사실 검증">● <span id="statVerifiedTrue">31</span> 사실</span>
+            <span class="text-amber-700 font-bold" title="절반의 사실">● <span id="statHalfTrue">27</span> 부분</span>
             <span class="text-rose-700 font-bold" title="과장/왜곡">● <span id="statGamed">0</span> 과장</span>
           </div>
         </div>
 
-        <!-- Metric 2: AI News & Industry Reports (AI 테크 동향) -->
-        <div onclick="switchView('news')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-amber-500 hover:shadow-md transition cursor-pointer group">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-ink-muted group-hover:text-amber-700 transition flex items-center gap-1.5" id="statLabelNews">
-              <i data-lucide="newspaper" class="w-4 h-4 text-amber-600"></i>
-              <span>테크 & AI 동향</span>
-            </span>
-            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-50 text-amber-800 border border-amber-200">
-              글로벌 토픽
-            </span>
+        <!-- Metric 2: Real-Time Trend Radar (실시간 통합 트렌드 피드) -->
+        <div onclick="switchNewsFacet('ALL')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-amber-500 hover:shadow-md transition cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-ink-muted group-hover:text-amber-700 transition flex items-center gap-1.5" id="statLabelNews">
+                <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i>
+                <span>실시간 트렌드 레이더</span>
+              </span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-50 text-amber-800 border border-amber-200">
+                ⚡ 전체 피드
+              </span>
+            </div>
+            <div class="mt-3 flex items-baseline gap-2">
+              <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValNews">2,344</span>
+              <span class="text-xs text-ink-muted font-medium">Articles</span>
+            </div>
           </div>
-          <div class="mt-3 flex items-baseline gap-2">
-            <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValNews">1,251</span>
-            <span class="text-xs text-ink-muted font-medium">Articles</span>
-          </div>
-          <p class="mt-2 text-[11px] text-ink-secondary truncate" id="statDescNews">
-            CVE 취약점, 인프라 장애, 아키텍처 토론
+          <p class="mt-3 pt-2.5 border-t border-surface-border text-[11px] text-ink-secondary truncate" id="statDescNews">
+            글로벌 뉴스, 모델 릴리스, 오픈소스 바이럴 통합 서빙
           </p>
         </div>
 
-        <!-- Metric 3: Trending AI Models (AI 모델 트렌드) -->
-        <div onclick="switchView('models')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-purple-500 hover:shadow-md transition cursor-pointer group">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-ink-muted group-hover:text-purple-600 transition flex items-center gap-1.5" id="statLabelModels">
-              <i data-lucide="cpu" class="w-4 h-4 text-purple-600"></i>
-              <span>AI 모델 트렌드</span>
-            </span>
-            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-purple-50 text-purple-700 border border-purple-200">
-              SOTA 가중치
-            </span>
+        <!-- Metric 3: Trending AI Models & Tools (SOTA AI 모델 & 오픈소스 도구) -->
+        <div onclick="switchNewsFacet('MODEL')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-cyan-500 hover:shadow-md transition cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-ink-muted group-hover:text-cyan-700 transition flex items-center gap-1.5" id="statLabelModels">
+                <i data-lucide="cpu" class="w-4 h-4 text-cyan-600"></i>
+                <span>SOTA AI 모델 & 도구</span>
+              </span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-cyan-50 text-cyan-700 border border-cyan-200">
+                🤖 가중치 특화
+              </span>
+            </div>
+            <div class="mt-3 flex items-baseline gap-2">
+              <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValModels">326</span>
+              <span class="text-xs text-ink-muted font-medium">Models & Tools</span>
+            </div>
           </div>
-          <div class="mt-3 flex items-baseline gap-2">
-            <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValModels">175</span>
-            <span class="text-xs text-ink-muted font-medium">Models</span>
-          </div>
-          <p class="mt-2 text-[11px] text-ink-secondary truncate" id="statDescModels">
-            MoE, VLM, 추론 특화 오픈 가중치
+          <p class="mt-3 pt-2.5 border-t border-surface-border text-[11px] text-ink-secondary truncate" id="statDescModels">
+            MoE, VLM, 추론 특화 가중치 및 오픈소스 도구 필터
           </p>
-        </div>
-
-        <!-- Metric 4: Raw Ingestion Lake & Admin Archive (원천 아카이브) -->
-        <div onclick="switchView('inbox')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-slate-500 hover:shadow-md transition cursor-pointer group">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-ink-muted group-hover:text-slate-800 transition flex items-center gap-1.5" id="statLabelInbox">
-              <i data-lucide="archive" class="w-4 h-4 text-slate-600"></i>
-              <span id="statLabelArchive">원천 아카이브 (Admin)</span>
-            </span>
-            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200">
-              ⚡ 24H 전수 보존
-            </span>
-          </div>
-          <div class="mt-3 flex items-baseline gap-2">
-            <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValInbox">1,641</span>
-            <span class="text-xs text-ink-muted font-medium">Archives</span>
-          </div>
-          <div class="mt-2 text-[11px] font-mono flex items-center gap-2 flex-wrap" id="statInboxSummary">
-            <span class="text-emerald-700 font-bold" id="statInboxEnrichedText">● 요약 계산 중...</span>
-            <span class="text-amber-700 font-medium" id="statInboxPendingText">· 대기 계산 중...</span>
-          </div>
         </div>
 
       </div>
@@ -569,8 +545,27 @@
       <div id="modelsPagination" class="mt-4"></div>
     </div>
 
-    <!-- ==================== VIEW 2: AI NEWS & TRENDS (정밀 카테고리화 허브) ==================== -->
+    <!-- ==================== VIEW 2: REAL-TIME TRENDS RADAR (통합 실시간 트렌드 레이더) ==================== -->
     <div id="newsView" class="hidden space-y-6">
+      
+      <!-- 🌟 Smart Facet Filter Row: All, Multi-Viral Cross-Spike, Models & Weights, Open-Source Tools, News & Analysis -->
+      <div class="bg-gradient-to-r from-slate-900 to-indigo-950 text-white p-3.5 rounded-2xl border border-indigo-900/50 shadow-md flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 w-full lg:w-auto">
+          <span class="text-xs font-bold text-amber-300 flex items-center gap-1 shrink-0 mr-1.5">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span id="smartRadarLabel">스마트 레이더:</span>
+          </span>
+          <button onclick="setNewsFacetFilter('ALL')" id="facetBtnAll" class="news-facet-pill active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-md ring-2 ring-indigo-300 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="ALL">⚡ 전체 피드</button>
+          <button onclick="setNewsFacetFilter('CROSS_SPIKE')" id="facetBtnSpike" class="news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 border border-amber-400/30 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="CROSS_SPIKE">🔥 크로스 바이럴 (급상승)</button>
+          <button onclick="setNewsFacetFilter('MODEL')" id="facetBtnModel" class="news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 border border-cyan-400/30 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="MODEL">🤖 AI 모델 & 가중치</button>
+          <button onclick="setNewsFacetFilter('TOOL')" id="facetBtnTool" class="news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 border border-emerald-400/30 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="TOOL">🛠️ 오픈소스 도구</button>
+          <button onclick="setNewsFacetFilter('NEWS')" id="facetBtnNews" class="news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 border border-white/20 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="NEWS">📰 뉴스 & 분석</button>
+        </div>
+        <div class="text-[11px] text-slate-400 font-mono hidden sm:block shrink-0">
+          단일 엔티티 롤업 • 인메모리 0ms 캐시 필터
+        </div>
+      </div>
+
       <!-- News Category Filter Bar (IPTC 6대 Tier 1 도메인 카테고리) -->
       <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
         <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs">
@@ -578,7 +573,7 @@
             🏷️ 기술·글로벌 분류:
           </span>
           <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="newsCategoryFilterRow">
-            <button onclick="setNewsCategoryFilter('ALL')" data-cat="ALL" class="news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap">전체</button>
+            <button onclick="setNewsCategoryFilter('ALL')" data-cat="ALL" class="news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer">🌐 전체 분류</button>
             <button onclick="setNewsCategoryFilter('TECH_COMPUTING')" data-cat="TECH_COMPUTING" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">💻 IT·컴퓨팅</button>
             <button onclick="setNewsCategoryFilter('SCIENCE_RESEARCH')" data-cat="SCIENCE_RESEARCH" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🚀 과학·우주</button>
             <button onclick="setNewsCategoryFilter('ECONOMY_FINANCE')" data-cat="ECONOMY_FINANCE" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🏦 경제·금융</button>
@@ -594,7 +589,7 @@
             ↳ 💻 IT 세부 분야:
           </span>
           <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="newsTier2FilterRow">
-            <button onclick="setNewsTier2Filter('ALL')" data-t2="ALL" class="news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap">전체 IT 분야</button>
+            <button onclick="setNewsTier2Filter('ALL')" data-t2="ALL" class="news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer">⚡ 전체 IT 분야</button>
             <button onclick="setNewsTier2Filter('INFERENCE_OPT')" data-t2="INFERENCE_OPT" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">⚡ 추론·서빙</button>
             <button onclick="setNewsTier2Filter('AGENTS_DEVTOOLS')" data-t2="AGENTS_DEVTOOLS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🛠️ 에이전트·도구</button>
             <button onclick="setNewsTier2Filter('MULTIMODAL_AI')" data-t2="MULTIMODAL_AI" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🎨 멀티모달</button>

@@ -231,12 +231,14 @@ module.exports = async (req, res) => {
     }));
 
     const systemPrompt = `당신은 글로벌 최고 수준의 다국어 AI 기술 분석가 및 뉴스 번역 전문가입니다.
-주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어(KO), 영어(EN), 중국어(ZH) 3개 국어 번역 제목, 1줄 훅(Hook), 'AI 3줄 핵심 요약'(언어별 3개씩: key_takeaways_ko, key_takeaways_en, key_takeaways_zh), 다국어 중복 방지를 위한 영문 표준 사건 식별키(canonical_story_key), 핵심 영문 엔티티 목록(core_entities), 그리고 정확한 카테고리 분류를 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 마크다운 등 기타 텍스트는 일절 출력하지 마세요.
-중요 번역 규칙:
+주어진 기술/뉴스 후보 목록을 분석하여, 각 항목마다 한국어(KO), 영어(EN), 중국어(ZH) 3개 국어 번역 제목, 1줄 훅(Hook), 'AI 3줄 핵심 요약'(언어별 3개씩: key_takeaways_ko, key_takeaways_en, key_takeaways_zh), 다국어 중복 방지를 위한 영문 표준 사건 식별키(canonical_story_key), 정규화된 기술 고유명칭(canonical_tech_entity), 핵심 영문 엔티티 목록(core_entities), 그리고 정확한 카테고리 분류를 반드시 아래 JSON 배열 형식으로만 응답하세요. 생각 과정이나 마크다운 등 기타 텍스트는 일절 출력하지 마세요.
+중요 번역 및 정규화 규칙:
 1. title_zh, hook_zh, key_takeaways_zh에는 반드시 실제 한자(간체자) 중국어 번역을 출력해야 합니다. 영어나 한국어를 그대로 복사하지 마세요.
 2. title_ko, hook_ko, key_takeaways_ko에는 반드시 실제 한글(Hangul)로 작성된 자연스러운 고품질 한국어 요약을 출력하세요. 중국어 한자를 한국어 요약에 섞지 마세요.
 3. title_en, hook_en, key_takeaways_en에는 정제된 전문 영문 제목, 훅, 요약을 출력하세요.
 4. 법률, 재판, 판결, 범죄, 사회적 사건사고 기사는 절대로 TECH(기술)로 분류하지 말고 item_type: "NEWS", tier1_category: "LAW_CRIME_JUSTICE"로 정확히 분류해야 합니다.
+5. canonical_tech_entity 정규화: 기술, 모델, 프레임워크 관련 기사는 반드시 소문자 하이픈 형식의 공식 표준 명칭 1개(예: 'qwen-image-2.1', 'jev', 'deepseek-r1', 'llama-3.2', 'vllm', 'flash-attn-3')를 정확히 추출하세요. 만약 일반 사회/정치/뉴스 기사라면 null을 반환하세요.
+6. canonical_story_key 정규화 (뉴스·사건사고 중복 묶음용 필수): 기술뿐만 아니라 모든 일반 뉴스, 정책, 비즈니스, 사건 기사에 대해 동일한 토픽/사건을 다루는 기사들이 하나로 묶일 수 있도록 핵심 사건을 식별하는 고유 영어 소문자 하이픈 슬러그 3~5단어(예: 'google-antitrust-ruling', 'openai-for-profit-transition', 'flock-surveillance-traffic-stop', 'nvidia-blackwell-delay')를 반드시 정확하게 작성하세요.
 [
   {
     "id": "item_id",
@@ -261,6 +263,7 @@ module.exports = async (req, res) => {
       "中文第二条核心要点",
       "中文第三条核心要点"
     ],
+    "canonical_tech_entity": "소문자 하이픈 형식의 핵심 기술/모델 정규화 식별자 1개 (예: qwen-image-2.1, jev, deepseek-r1, vllm, 또는 일반 뉴스는 null)",
     "canonical_story_key": "영문 소문자 하이픈 슬러그 (기사/사건의 핵심 사건을 식별하는 고유 영어 키워드 3~5단어, 예: houthi-seize-red-sea-island, flock-veteran-surveillance-tracking, deepseek-v3-release)",
     "core_entities": ["핵심 기관/고유명사/사건의 표준 영문 명칭 2~4개, 예: Houthi, Red Sea, Zuqar Island"],
     "tier1_category": "TECH_COMPUTING, SCIENCE_RESEARCH, ECONOMY_FINANCE, POLITICS_POLICY, LAW_CRIME_JUSTICE, CULTURE_HUMANITIES 중 택1",
@@ -528,10 +531,23 @@ module.exports = async (req, res) => {
         ? aiData.core_entities.map(e => String(e).trim()).filter(e => e.length > 1).slice(0, 5)
         : [];
 
+      const canonicalTechEntity = (aiData?.canonical_tech_entity || '')
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9-]/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '')
+        .slice(0, 50);
+
+      if (canonicalTechEntity && canonicalTechEntity !== 'null' && canonicalTechEntity !== 'none' && canonicalTechEntity.length >= 2) {
+        payload.canonical_tech_entity = canonicalTechEntity;
+      }
+
       if (canonicalKey) {
         payload.canonical_story_key = canonicalKey;
         payload.dedup_fingerprint = {
           canonical_story_key: canonicalKey,
+          canonical_tech_entity: payload.canonical_tech_entity || null,
           core_entities: coreEntities
         };
       }

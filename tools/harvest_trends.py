@@ -718,7 +718,7 @@ def harvest_all():
                     ns = {'atom': 'http://www.w3.org/2005/Atom'}
                     items = root.findall('atom:entry', ns) or root.findall('.//{http://www.w3.org/2005/Atom}entry')
                 
-                for it in items[:10]:
+                for it in items[:30]:
                     t_node = it.find('title') if it.find('title') is not None else it.find('{http://www.w3.org/2005/Atom}title')
                     l_node = it.find('link') if it.find('link') is not None else it.find('{http://www.w3.org/2005/Atom}link')
                     d_node = it.find('description') if it.find('description') is not None else (it.find('{http://www.w3.org/2005/Atom}summary') or it.find('{http://www.w3.org/2005/Atom}content'))

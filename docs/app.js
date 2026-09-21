@@ -15,9 +15,18 @@ const AppStore = {
     this._news = data.news_items || data.news || [];
     this._inbox = data.inbox_items || data.inbox || [];
 
-    // JEV Deterministic Indexing (O(1) Boolean flags)
+    // JEV Deterministic Indexing (Preserve facet_type & is_model)
     this._models.forEach(it => { it.is_model = true; it.is_news = false; });
-    this._news.forEach(it => { it.is_model = false; it.is_news = true; });
+    this._news.forEach(it => {
+      if (it.is_model === undefined) {
+        const plat = (it.source_platform || '').toLowerCase();
+        const fam = (it.model_family || '').toLowerCase();
+        const art = (it.artifact_type || '').toLowerCase();
+        const cat = (it.category_primary || '').toLowerCase();
+        it.is_model = it.facet_type === 'MODEL' || (fam.length > 0 && fam !== 'standalone') || plat.includes('model') || plat.includes('space') || art.includes('weight') || cat.includes('model');
+      }
+      if (it.is_news === undefined) it.is_news = !it.is_model;
+    });
     this._inbox.forEach(it => {
       if (it.is_model === undefined) it.is_model = !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
       if (it.is_news === undefined) it.is_news = !it.is_model;
@@ -147,22 +156,26 @@ async function bootstrapApplicationData() {
 
       snapshotStats = {
         total_cases: data.total_cases || (data.cases ? data.cases.length : 58),
-        news_total_count: data.news_total_count || 1251,
-        models_total_count: data.models_total_count || 175,
-        inbox_total_count: data.inbox_total_count || 1805
+        news_total_count: data.news_total_count || (data.news_items ? data.news_items.length : 0),
+        models_total_count: data.models_total_count || (data.model_items ? data.model_items.length : 0),
+        inbox_total_count: data.inbox_total_count || (data.inbox_items ? data.inbox_items.length : 0)
       };
 
       if (!loadedFromEdge) {
         AppStore.init(data);
         console.log(`[Bootstrap] Loaded ${AppStore.getCases().length} dossiers from static snapshot fallback.`);
       } else {
-        AppStore._news = data.news_items || data.news || [];
+        AppStore._news = data.trend_items || data.news_items || data.news || [];
         AppStore._models = data.model_items || data.models || [];
         AppStore._inbox = data.inbox_items || (data.inbox_recent || []).concat(data.inbox || []);
 
-        // JEV Deterministic Indexing (O(1) Boolean flags)
-        AppStore._models.forEach(it => { it.is_model = true; it.is_news = false; });
-        AppStore._news.forEach(it => { it.is_model = false; it.is_news = true; });
+        // JEV Deterministic Indexing (Preserve facet_type & is_model)
+        AppStore._models.forEach(it => { it.is_model = true; });
+        AppStore._news.forEach(it => {
+          if (it.is_model === undefined) {
+            it.is_model = it.facet_type === 'MODEL' || !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
+          }
+        });
         AppStore._inbox.forEach(it => {
           if (it.is_model === undefined) it.is_model = !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
           if (it.is_news === undefined) it.is_news = !it.is_model;
@@ -240,9 +253,9 @@ let snapshotStats = {};
 function updateGlobalStatsUI() {
   const safeSet = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
   const numCases = (typeof liveCasesData !== 'undefined' && liveCasesData.length) || snapshotStats.total_cases || 58;
-  const numNews = snapshotStats.news_total_count || (typeof liveNewsData !== 'undefined' && liveNewsData.length) || 1251;
-  const numModels = snapshotStats.models_total_count || (typeof liveModelsData !== 'undefined' && liveModelsData.length) || 175;
-  const numInbox = snapshotStats.inbox_total_count || (typeof liveInboxData !== 'undefined' && liveInboxData.length) || 1805;
+  const numNews = snapshotStats.news_total_count || (typeof liveNewsData !== 'undefined' && liveNewsData.length) || 0;
+  const numModels = snapshotStats.models_total_count || (typeof liveModelsData !== 'undefined' && liveModelsData.length) || 0;
+  const numInbox = snapshotStats.inbox_total_count || (typeof liveInboxData !== 'undefined' && liveInboxData.length) || 0;
 
   safeSet('statValVerified', numCases);
   safeSet('statValNews', numNews);
@@ -641,7 +654,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         navHome: "대시보드",
         navPortfolio: "공식 검증",
         navModels: "AI 모델 트렌드",
-        navNews: "테크 & AI 동향",
+        navNews: "실시간 트렌드 레이더",
         navGraph: "인용 계보망",
         navInbox: "수집 인박스",
         adminArchiveBtn: "아카이브 (Admin)",
@@ -800,7 +813,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         navHome: "仪表盘",
         navPortfolio: "官方核查",
         navModels: "AI 模型趋势",
-        navNews: "科技与AI动态",
+        navNews: "实时趋势雷达",
         navGraph: "引用系谱图",
         navInbox: "采集收件箱",
         adminArchiveBtn: "归档 (Admin)",
@@ -959,7 +972,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         navHome: "Dashboard",
         navPortfolio: "Fact-Checks",
         navModels: "AI Model Trends",
-        navNews: "Tech & AI Trends",
+        navNews: "Trends Radar",
         navGraph: "Citation Graph",
         navInbox: "Harvest Inbox",
         adminArchiveBtn: "Archive (Admin)",
@@ -2064,7 +2077,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               const cpuBar = document.getElementById('vercelCpuBar');
               const cpuBadge = document.getElementById('vercelCpuBadge');
               if (invEl) {
-                const curInv = parseInt(invEl.textContent.replace(/,/g, ''), 10) || 1420;
+                const curInv = parseInt(invEl.textContent.replace(/,/g, ''), 10) || 0;
                 invEl.textContent = (curInv + 1).toLocaleString();
               }
               if (cpuEl) {
@@ -3254,8 +3267,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         `;
       }
 
-      const defaultSourceLink = it.source_url ? `
-        <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline flex items-center gap-0.5 font-semibold">
+      const defaultSourceLink = (!extraActionHtml && it.source_url) ? `
+        <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline flex items-center gap-0.5 font-semibold text-[11px]">
           📄 ${srcLabel} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
         </a>
       ` : '';
@@ -3270,11 +3283,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
             ${hasUpdate ? `<span class="text-[10px] text-indigo-600 font-bold" title="${updLabel}">(🔄 ${updDate})</span>` : ''}
           </div>
           ${auditHtml}
-          <div class="flex items-center justify-between pt-0.5 font-sans">
-            <span class="text-[11px] text-ink-muted font-mono flex items-center gap-1">
-              ${defaultSourceLink}
-            </span>
-            ${extraActionHtml || ''}
+          <div class="flex items-center justify-end pt-1 font-sans">
+            ${extraActionHtml || defaultSourceLink}
           </div>
         </div>
       `;
@@ -3347,25 +3357,29 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     function setNewsCategoryFilter(t1) {
       currentNewsPage = 1;
       currentNewsTier1 = t1;
-      currentNewsTier2 = 'ALL';
+      // If user chooses ALL for Tier 1, keep Tier 2 as ALL so full feed is shown
+      if (t1 === 'ALL') {
+        currentNewsTier2 = 'ALL';
+      }
+
       document.querySelectorAll('.news-cat-pill').forEach(btn => {
         if (btn.getAttribute('data-cat') === t1) {
-          btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
+          btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer';
         } else {
-          btn.className = 'news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
+          btn.className = 'news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap cursor-pointer';
         }
       });
 
-      // Reset Tier 2 pills
+      // Update Tier 2 UI active state
       document.querySelectorAll('.news-t2-pill').forEach(btn => {
-        if (btn.getAttribute('data-t2') === 'ALL') {
-          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
+        if (btn.getAttribute('data-t2') === currentNewsTier2) {
+          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer';
         } else {
-          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
+          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap cursor-pointer';
         }
       });
 
-      // If a non-computing domain is selected (e.g. Science, Law), dim/hide Tier 2 row
+      // If a non-computing domain is selected (e.g. Science, Law), dim Tier 2 row
       const t2Container = document.getElementById('newsTier2Container');
       if (t2Container) {
         if (t1 !== 'ALL' && t1 !== 'TECH_COMPUTING') {
@@ -3381,11 +3395,26 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     function setNewsTier2Filter(t2) {
       currentNewsPage = 1;
       currentNewsTier2 = t2;
+
+      // If selecting a specific IT category while on a non-computing Tier 1, restore Tier 1 to TECH_COMPUTING
+      if (t2 !== 'ALL' && currentNewsTier1 !== 'ALL' && currentNewsTier1 !== 'TECH_COMPUTING') {
+        currentNewsTier1 = 'TECH_COMPUTING';
+        document.querySelectorAll('.news-cat-pill').forEach(btn => {
+          if (btn.getAttribute('data-cat') === 'TECH_COMPUTING') {
+            btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer';
+          } else {
+            btn.className = 'news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap cursor-pointer';
+          }
+        });
+        const t2Container = document.getElementById('newsTier2Container');
+        if (t2Container) t2Container.classList.remove('opacity-40', 'pointer-events-none');
+      }
+
       document.querySelectorAll('.news-t2-pill').forEach(btn => {
         if (btn.getAttribute('data-t2') === t2) {
-          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap';
+          btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer';
         } else {
-          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
+          btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap cursor-pointer';
         }
       });
       renderNews();
@@ -3404,6 +3433,33 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       renderNews();
     }
 
+    let currentNewsFacet = 'ALL';
+    function setNewsFacetFilter(facet) {
+      targetSelectedInboxId = '';
+      currentNewsPage = 1;
+      currentNewsFacet = facet;
+      document.querySelectorAll('.news-facet-pill').forEach(btn => {
+        const isActive = btn.getAttribute('data-facet') === facet;
+        if (isActive) {
+          btn.className = 'news-facet-pill active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-md ring-2 ring-indigo-300 transition shrink-0 whitespace-nowrap cursor-pointer';
+        } else {
+          const f = btn.getAttribute('data-facet');
+          let colorCls = 'text-slate-200 bg-white/10 border-white/20 hover:bg-white/20';
+          if (f === 'CROSS_SPIKE') colorCls = 'text-amber-300 bg-amber-500/10 border-amber-400/30 hover:bg-amber-500/20';
+          else if (f === 'MODEL') colorCls = 'text-cyan-300 bg-cyan-500/10 border-cyan-400/30 hover:bg-cyan-500/20';
+          else if (f === 'TOOL') colorCls = 'text-emerald-300 bg-emerald-500/10 border-emerald-400/30 hover:bg-emerald-500/20';
+          btn.className = `news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold ${colorCls} border transition shrink-0 whitespace-nowrap cursor-pointer`;
+        }
+      });
+      renderNews();
+    }
+    window.setNewsFacetFilter = setNewsFacetFilter;
+
+    window.switchNewsFacet = function(facet) {
+      if (typeof switchView === 'function') switchView('news');
+      setNewsFacetFilter(facet || 'ALL');
+    };
+
     function setNewsSourceFilter(src) {
       currentNewsPage = 1;
       currentNewsSource = src;
@@ -3417,13 +3473,44 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       renderNews();
     }
 
+    // 🌟 Impact Hierarchy: Determines primary authoritative publisher / community
+    function getPlatformImpactWeight(name = '') {
+      const n = (name || '').toLowerCase();
+      if (n.includes('github')) return 100;
+      if (n.includes('space') || n.includes('hf space')) return 96;
+      if (n.includes('hugging') || n.includes('hf')) return 95;
+      if (n.includes('arxiv')) return 90;
+      if (n.includes('hacker news') || n.includes('ycombinator')) return 85;
+      if (n.includes('pytorch')) return 80;
+      if (n.includes('geeknews') || n.includes('hada.io')) return 75;
+      if (n.includes('reddit')) return 60;
+      return 50;
+    }
+
+    function getPrimaryImpactPlatform(it, allSources = []) {
+      let bestName = it.source_platform || 'Tech News';
+      let maxW = getPlatformImpactWeight(bestName);
+
+      if (Array.isArray(allSources)) {
+        for (const s of allSources) {
+          const p = s.platform || s.source_name || '';
+          const w = getPlatformImpactWeight(p);
+          if (w > maxW) {
+            maxW = w;
+            bestName = p;
+          }
+        }
+      }
+      return bestName;
+    }
+
     // 🌟 Scalable Multi-Source Cross-Platform Clustering UX Engine
     function buildMultiSourceCluster(rawSources, rawItemId) {
       if (!rawSources || rawSources.length === 0) return '';
 
       function getSourceMeta(s) {
         const p = (s.platform || s.source_name || '').toLowerCase();
-        const u = s.url || '#';
+        const u = (s.url || '#').toLowerCase();
         let icon = '📄';
         let label = s.source_name || (currentLang === 'KO' ? '원문' : 'Source');
         let badgeCls = 'bg-surface-subtle text-ink-secondary hover:text-ink-primary border-surface-border';
@@ -3436,6 +3523,10 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           icon = '💬';
           label = currentLang === 'KO' ? '긱뉴스' : 'GeekNews';
           badgeCls = 'bg-indigo-50 text-indigo-800 hover:text-indigo-950 border-indigo-200';
+        } else if (p.includes('pytorch')) {
+          icon = '🇰🇷';
+          label = 'PyTorchKR';
+          badgeCls = 'bg-purple-50 text-purple-800 hover:text-purple-950 border-purple-200';
         } else if (p.includes('reddit')) {
           icon = '🤖';
           label = currentLang === 'KO' ? '레딧' : 'Reddit';
@@ -3444,7 +3535,11 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           icon = '🐙';
           label = 'GitHub';
           badgeCls = 'bg-slate-100 text-slate-800 hover:text-slate-950 border-slate-300';
-        } else if (p.includes('hugging')) {
+        } else if (p.includes('space') || u.includes('/spaces/')) {
+          icon = '🤗';
+          label = 'HF Spaces';
+          badgeCls = 'bg-amber-50 text-amber-900 hover:text-amber-950 border-amber-200';
+        } else if (p.includes('hugging') || u.includes('huggingface.co')) {
           icon = '🤗';
           label = 'HuggingFace';
           badgeCls = 'bg-amber-50 text-amber-900 hover:text-amber-950 border-amber-200';
@@ -3458,10 +3553,10 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           badgeCls = 'bg-zinc-100 text-zinc-800 hover:text-zinc-950 border-zinc-300';
         }
 
-        return { icon, label, badgeCls, url: u };
+        return { icon, label, badgeCls, url: s.url || '#', weight: getPlatformImpactWeight(s.platform || s.source_name) };
       }
 
-      // Deduplicate sources by platform so same-platform links are reduced to 1
+      // Deduplicate sources by platform label
       const seenPlatforms = new Set();
       const sources = [];
       for (const s of rawSources) {
@@ -3474,6 +3569,10 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       }
 
       if (sources.length === 0) return '';
+
+      // 🌟 Sort sources by Impact Weight descending (Official > HN > Local Community > Social)
+      sources.sort((a, b) => getPlatformImpactWeight(b.platform || b.source_name) - getPlatformImpactWeight(a.platform || a.source_name));
+
       if (sources.length === 1) {
         const meta = getSourceMeta(sources[0]);
         return `<a href="${meta.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${meta.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs">${meta.icon} ${meta.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
@@ -3482,9 +3581,9 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       const total = sources.length;
       const safeId = 'src_' + String(rawItemId || Math.random()).replace(/[^a-zA-Z0-9_-]/g, '_');
 
-      if (total <= 2) {
-        let html = `<div class="flex items-center gap-1.5 flex-wrap">`;
-        html += `<span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-200 shrink-0">🔗 ${currentLang === 'KO' ? `출처 ${total}개 묶음` : (currentLang === 'ZH' ? `聚合${total}个来源` : `${total} Sources`)}</span>`;
+      // 🌟 Exactly 2 sources: Clean side-by-side buttons
+      if (total === 2) {
+        let html = `<div class="flex items-center gap-1.5 flex-wrap justify-end">`;
         sources.forEach(s => {
           const meta = getSourceMeta(s);
           html += `<a href="${meta.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${meta.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs">${meta.icon} ${meta.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
@@ -3493,12 +3592,11 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         return html;
       }
 
-      // 🌟 Scalable Multi-Source UX: Top 2 visible + '+N개 더보기' floating dropdown popover
+      // 🌟 3 or more sources: Show TOP 2 primary + 1 compact dropdown button (Strictly 1-Line)
       const primarySources = sources.slice(0, 2);
       const remainingSources = sources.slice(2);
 
-      let html = `<div class="flex items-center gap-1.5 flex-wrap relative">`;
-      html += `<span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-200 shrink-0">🔗 ${currentLang === 'KO' ? `출처 ${total}개 묶음` : (currentLang === 'ZH' ? `聚合${total}个来源` : `${total} Sources`)}</span>`;
+      let html = `<div class="flex items-center gap-1.5 flex-wrap justify-end relative">`;
       primarySources.forEach(s => {
         const meta = getSourceMeta(s);
         html += `<a href="${meta.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${meta.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs">${meta.icon} ${meta.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
@@ -3506,8 +3604,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
       html += `
         <div class="relative inline-block src-dropdown-container">
-          <button type="button" onclick="toggleSourcePopover(event, '${safeId}')" class="px-2 py-1 rounded-md bg-amber-100 hover:bg-amber-200 text-amber-950 border border-amber-300 text-[11px] font-bold flex items-center gap-1 shrink-0 transition cursor-pointer shadow-xs" title="전체 교차 출처 보기">
-            <span>+${remainingSources.length}${currentLang === 'KO' ? '개 더보기' : (currentLang === 'ZH' ? '个更多' : ' more')}</span>
+          <button type="button" onclick="toggleSourcePopover(event, '${safeId}')" class="px-2 py-1 rounded-md bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-[11px] font-bold flex items-center gap-1 shrink-0 transition cursor-pointer shadow-xs" title="전체 교차 출처 보기">
+            <span>🔗 +${remainingSources.length}${currentLang === 'KO' ? '개 출처' : (currentLang === 'ZH' ? '个来源' : ' more')}</span>
             <i data-lucide="chevron-down" class="w-3 h-3"></i>
           </button>
           <div id="srcMenu_${safeId}" class="hidden absolute z-50 mb-1.5 w-64 max-w-[calc(100vw-2.5rem)] min-w-[220px] bg-white rounded-xl shadow-2xl border border-surface-border p-2.5 text-xs flex flex-col gap-1.5">
@@ -3583,206 +3681,349 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       }
     });
 
-    function renderNews() {
-      const grid = document.getElementById('newsGrid');
-      grid.innerHTML = '';
-      const t = i18n[currentLang];
+    // 🌟 SOTA DB-Native News Fetcher with In-Memory LRU Cache & Edge SWR Acceleration
+    let newsFetchAbortController = null;
+    const newsDbCache = new Map();
 
-      const rawNewsItems = liveNewsData || [];
-      const newsItems = rawNewsItems.filter(it => {
-        // 🌟 Direct Primary Key Match from Radar
-        if (targetSelectedInboxId && it.inbox_id === targetSelectedInboxId) {
-          return true;
-        }
+    async function fetchNewsFromDb(page = currentNewsPage) {
+      const isLocalOrVercel = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('vercel.app');
+      const baseUrl = isLocalOrVercel ? '/api/inbox' : 'https://ai-factcheck-portfolio.vercel.app/api/inbox';
+      
+      const params = new URLSearchParams();
+      params.set('limit', PAGE_SIZE);
+      params.set('page', page);
+      if (currentNewsTier1 && currentNewsTier1 !== 'ALL') params.set('tier1', currentNewsTier1);
+      if (currentNewsTier2 && currentNewsTier2 !== 'ALL') params.set('tier2', currentNewsTier2);
+      if (currentNewsFacet && currentNewsFacet !== 'ALL') params.set('facet', currentNewsFacet);
+      if (currentNewsSource && currentNewsSource !== 'ALL') params.set('source', currentNewsSource);
+      if (currentNewsSearch) params.set('search', currentNewsSearch);
+      if (currentNewsSort) params.set('sort', currentNewsSort);
 
-        // 1. Tier 1 Domain Filter
-        if (currentNewsTier1 !== 'ALL') {
-          const itemTier1 = it.tier1_category || 'TECH_COMPUTING';
-          if (itemTier1 !== currentNewsTier1) return false;
-        }
-
-        // 2. Tier 2 Specialization Filter (Under TECH_COMPUTING)
-        if (currentNewsTier2 !== 'ALL') {
-          const itemTier2 = it.tier2_category || it.category_primary || 'INDUSTRY_TRENDS';
-          if (itemTier2 !== currentNewsTier2) return false;
-        }
-
-        // 2. Platform Source Filter
-        if (currentNewsSource !== 'ALL') {
-          const src = (it.source_platform || '').toLowerCase();
-          const target = currentNewsSource.toLowerCase();
-          if (!src.includes(target)) return false;
-        }
-
-        // 3. Search Filter
-        if (currentNewsSearch) {
-          const q = currentNewsSearch.toLowerCase().trim();
-          const haystack = (
-            (it.inbox_id || '') + ' ' +
-            (it.title || '') + ' ' +
-            (it.title_ko || '') + ' ' +
-            (it.title_en || '') + ' ' +
-            (it.hook || '') + ' ' +
-            (it.hook_ko || '') + ' ' +
-            (it.description || '') + ' ' +
-            (it.source_platform || '') + ' ' +
-            (it.category_primary || '') + ' ' +
-            (Array.isArray(it.root_keywords) ? it.root_keywords.join(' ') : (it.root_keywords || '')) + ' ' +
-            (Array.isArray(it.matched_user_domains) ? it.matched_user_domains.join(' ') : '') + ' ' +
-            (it.ai_enrichment?.summary_ko || '')
-          ).toLowerCase();
-
-          const tokens = q.split(/\\s+/).filter(t => t.length > 0);
-          const matches = haystack.includes(q) || (tokens.length > 0 && tokens.every(t => haystack.includes(t)));
-          if (!matches) return false;
-        }
-
-        return true;
-      });
-
-      // 🌟 Precision DateTime Sorting (Unified)
-      sortCollection(newsItems, currentNewsSort);
-
-      const totalPages = Math.ceil(newsItems.length / PAGE_SIZE) || 1;
-      if (currentNewsPage > totalPages) currentNewsPage = totalPages;
-      if (currentNewsPage < 1) currentNewsPage = 1;
-
-      renderPagination('newsPagination', currentNewsPage, totalPages, 'changeNewsPage');
-
-      if (newsItems.length === 0) {
-        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${currentLang === 'KO' ? '해당 플랫폼의 수집 AI 뉴스가 없습니다.' : (currentLang === 'ZH' ? '暂无该平台的 AI 资讯。' : 'No AI news articles available for this source.')}</div>`;
-        return;
+      const cacheKey = params.toString();
+      if (newsDbCache.has(cacheKey)) {
+        return newsDbCache.get(cacheKey);
       }
 
-      const pagedNews = newsItems.slice((currentNewsPage - 1) * PAGE_SIZE, currentNewsPage * PAGE_SIZE);
-      const fragment = document.createDocumentFragment();
-      pagedNews.forEach(it => {
-        const card = document.createElement('div');
-        card.className = 'executive-card p-4 sm:p-5 flex flex-col justify-between space-y-4';
+      if (newsFetchAbortController) {
+        try { newsFetchAbortController.abort(); } catch(e) {}
+      }
+      newsFetchAbortController = new AbortController();
 
-        const ai = it.ai_enrichment;
-        const { displayTitle, displayHook, displayDesc, displayTakeaways } = getLocalizedContent(it, currentLang);
-        const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
+      const url = `${baseUrl}?${cacheKey}`;
+      const res = await fetch(url, { signal: newsFetchAbortController.signal });
+      if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+      const data = await res.json();
+      if (data && data.status === 'success') {
+        const result = {
+          total: data.total || 0,
+          totalPages: data.total_pages || Math.ceil((data.total || 0) / PAGE_SIZE) || 1,
+          items: data.items || []
+        };
+        newsDbCache.set(cacheKey, result);
+        return result;
+      }
+      throw new Error('API returned invalid payload');
+    }
 
-        const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
-        const isGn = (it.source_platform || '').includes('GeekNews') || (it.source_url || '').includes('hada.io');
-        const hnUrl = it.hn_url || ((it.source_url || '').includes('news.ycombinator.com') ? it.source_url : null);
-        const gnUrl = isGn ? (it.hn_url || it.source_url) : null;
-        const articleUrl = it.article_url || (it.source_url !== (hnUrl || gnUrl) ? it.source_url : null);
+    function createNewsCardElement(it, currentLang) {
+      const card = document.createElement('div');
+      card.className = 'executive-card p-4 sm:p-5 flex flex-col justify-between space-y-4';
+      const t = i18n[currentLang] || i18n.KO;
 
-        let linksHtml = '';
-        if (it.sources && it.sources.length > 1) {
-          linksHtml = buildMultiSourceCluster(it.sources, it.inbox_id || it.id);
-        } else if (isHn) {
-          if (articleUrl && articleUrl !== hnUrl) {
-            linksHtml += `<a href="${articleUrl}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1 shrink-0">📄 ${currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+      const ai = it.ai_enrichment;
+      const { displayTitle, displayHook, displayDesc, displayTakeaways } = getLocalizedContent(it, currentLang);
+      const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
+
+      const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
+      const isGn = (it.source_platform || '').includes('GeekNews') || (it.source_url || '').includes('hada.io');
+      const hnUrl = it.hn_url || ((it.source_url || '').includes('news.ycombinator.com') ? it.source_url : null);
+      const gnUrl = isGn ? (it.hn_url || it.source_url) : null;
+      const articleUrl = it.article_url || (it.source_url !== (hnUrl || gnUrl) ? it.source_url : null);
+
+      const allSources = [...(it.sources || [])];
+      if (it.cross_posts && it.cross_posts.length > 0) {
+        it.cross_posts.forEach(cp => {
+          const cpUrl = cp.url || cp.source_url || cp.article_url;
+          if (cpUrl && !allSources.some(s => (s.url || '').toLowerCase() === cpUrl.toLowerCase())) {
+            allSources.push({
+              source_name: cp.platform || 'Cross-post',
+              platform: cp.platform || 'Cross-post',
+              url: cpUrl,
+              title: cp.title || '',
+              type: 'cross_post'
+            });
           }
-          if (hnUrl) {
-            linksHtml += `<a href="${hnUrl}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-orange-50 text-orange-800 hover:text-orange-950 border border-orange-200 text-[11px] font-bold flex items-center gap-1 shrink-0">🔥 ${currentLang === 'KO' ? 'HN 토론' : (currentLang === 'ZH' ? 'HN 讨论' : 'HN Thread')} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-          }
-        } else if (isGn) {
-          if (articleUrl && articleUrl !== gnUrl) {
-            linksHtml += `<a href="${articleUrl}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-medium flex items-center gap-1 shrink-0">📄 ${currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-          }
-          if (gnUrl) {
-            linksHtml += `<a href="${gnUrl}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-indigo-50 text-indigo-800 hover:text-indigo-950 border border-indigo-200 text-[11px] font-bold flex items-center gap-1 shrink-0">💬 ${currentLang === 'KO' ? '긱뉴스 토론' : (currentLang === 'ZH' ? '极客新闻' : 'GeekNews')} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-          }
-        } else {
-          linksHtml = `<a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-semibold flex items-center gap-1 shrink-0">📄 ${t.newsOriginalLink} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+        });
+      }
+
+      let linksHtml = '';
+      if (allSources.length > 1) {
+        linksHtml = buildMultiSourceCluster(allSources, it.inbox_id || it.id);
+      } else if (isHn) {
+        linksHtml = `<div class="flex items-center gap-1.5 flex-wrap justify-end">`;
+        if (articleUrl && articleUrl !== hnUrl) {
+          linksHtml += `<a href="${articleUrl}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-semibold flex items-center gap-1 shrink-0">📄 ${currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
         }
+        if (hnUrl) {
+          linksHtml += `<a href="${hnUrl}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-orange-50 text-orange-800 hover:text-orange-950 border border-orange-200 text-[11px] font-bold flex items-center gap-1 shrink-0">🔥 ${currentLang === 'KO' ? 'HN 토론' : (currentLang === 'ZH' ? 'HN 讨论' : 'HN Thread')} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+        }
+        linksHtml += `</div>`;
+      } else if (isGn) {
+        linksHtml = `<div class="flex items-center gap-1.5 flex-wrap justify-end">`;
+        if (articleUrl && articleUrl !== gnUrl) {
+          linksHtml += `<a href="${articleUrl}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-semibold flex items-center gap-1 shrink-0">📄 ${currentLang === 'KO' ? '기사 원문' : (currentLang === 'ZH' ? '文章原文' : 'Article')} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+        }
+        if (gnUrl) {
+          linksHtml += `<a href="${gnUrl}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-indigo-50 text-indigo-800 hover:text-indigo-950 border border-indigo-200 text-[11px] font-bold flex items-center gap-1 shrink-0">💬 ${currentLang === 'KO' ? '긱뉴스 토론' : (currentLang === 'ZH' ? '极客新闻' : 'GeekNews')} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+        }
+        linksHtml += `</div>`;
+      } else {
+        linksHtml = `<div class="flex items-center gap-1.5 justify-end"><a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-semibold flex items-center gap-1 shrink-0">📄 ${t.newsOriginalLink} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a></div>`;
+      }
 
-        let aiBadgeHtml = '';
-        let aiSummaryHtml = '';
-        const hookHtml = renderHookCallout(displayHook);
-        const relatedHtml = renderRelatedDossierButton(it.related_dossier, currentLang);
+      let aiBadgeHtml = '';
+      let aiSummaryHtml = '';
+      const hookHtml = renderHookCallout(displayHook);
+      const relatedHtml = renderRelatedDossierButton(it.related_dossier, currentLang);
 
-        const tier1Map = {
-          'SCIENCE_RESEARCH': { label: currentLang === 'KO' ? '🚀 과학·우주' : (currentLang === 'ZH' ? '🚀 科学与航天' : '🚀 Science & Research'), cls: 'bg-teal-50 text-teal-900 border-teal-200' },
-          'ECONOMY_FINANCE': { label: currentLang === 'KO' ? '🏦 경제·금융' : (currentLang === 'ZH' ? '🏦 经济与金融' : '🏦 Economy & Finance'), cls: 'bg-emerald-50 text-emerald-900 border-emerald-200' },
-          'LAW_CRIME_JUSTICE': { label: currentLang === 'KO' ? '⚖️ 사회·법률' : (currentLang === 'ZH' ? '⚖️ 法律与社会' : '⚖️ Law & Society'), cls: 'bg-rose-50 text-rose-900 border-rose-200' },
-          'POLITICS_POLICY': { label: currentLang === 'KO' ? '🏛️ 정치·정책' : (currentLang === 'ZH' ? '🏛️ 政治与政策' : '🏛️ Politics & Policy'), cls: 'bg-amber-50 text-amber-950 border-amber-300' },
-          'CULTURE_HUMANITIES': { label: currentLang === 'KO' ? '🌿 문화·인문' : (currentLang === 'ZH' ? '🌿 文化与人文' : '🌿 Culture & Arts'), cls: 'bg-purple-50 text-purple-900 border-purple-200' }
+      const tier1Map = {
+        'SCIENCE_RESEARCH': { label: currentLang === 'KO' ? '🚀 과학·우주' : (currentLang === 'ZH' ? '🚀 科学与航天' : '🚀 Science & Research'), cls: 'bg-teal-50 text-teal-900 border-teal-200' },
+        'ECONOMY_FINANCE': { label: currentLang === 'KO' ? '🏦 경제·금융' : (currentLang === 'ZH' ? '🏦 经济与金融' : '🏦 Economy & Finance'), cls: 'bg-emerald-50 text-emerald-900 border-emerald-200' },
+        'LAW_CRIME_JUSTICE': { label: currentLang === 'KO' ? '⚖️ 사회·법률' : (currentLang === 'ZH' ? '⚖️ 法律与社会' : '⚖️ Law & Society'), cls: 'bg-rose-50 text-rose-900 border-rose-200' },
+        'POLITICS_POLICY': { label: currentLang === 'KO' ? '🏛️ 정치·정책' : (currentLang === 'ZH' ? '🏛️ 政治与政策' : '🏛️ Politics & Policy'), cls: 'bg-amber-50 text-amber-950 border-amber-300' },
+        'CULTURE_HUMANITIES': { label: currentLang === 'KO' ? '🌿 문화·인문' : (currentLang === 'ZH' ? '🌿 文化与人文' : '🌿 Culture & Arts'), cls: 'bg-purple-50 text-purple-900 border-purple-200' }
+      };
+      const catMap = {
+        'INFERENCE_OPT': { label: currentLang === 'KO' ? '⚡ 추론·서빙 최적화' : (currentLang === 'ZH' ? '⚡ 推理服务优化' : '⚡ Inference & Opt'), cls: 'bg-amber-50 text-amber-900 border-amber-200' },
+        'AGENTS_DEVTOOLS': { label: currentLang === 'KO' ? '🛠️ 에이전트·개발도구' : (currentLang === 'ZH' ? '🛠️ 智能体与工具' : '🛠️ Agents & DevTools'), cls: 'bg-blue-50 text-blue-900 border-blue-200' },
+        'MULTIMODAL_AI': { label: currentLang === 'KO' ? '🎨 멀티모달·영상/음성' : (currentLang === 'ZH' ? '🎨 多模态与视听' : '🎨 Multimodal & GenAI'), cls: 'bg-purple-50 text-purple-900 border-purple-200' },
+        'FOUNDATION_MODELS': { label: currentLang === 'KO' ? '🤖 파운데이션·가중치' : (currentLang === 'ZH' ? '🤖 基础模型与权重' : '🤖 Foundation Models'), cls: 'bg-emerald-50 text-emerald-900 border-emerald-200' },
+        'INFRA_RAG_SECURITY': { label: currentLang === 'KO' ? '🛡️ 인프라·RAG·보안' : (currentLang === 'ZH' ? '🛡️ 基础设施与安全' : '🛡️ Infra, RAG & Safety'), cls: 'bg-rose-50 text-rose-900 border-rose-200' },
+        'DEEP_SCIENCE_SPACE': { label: currentLang === 'KO' ? '🚀 우주·신소재·과학' : (currentLang === 'ZH' ? '🚀 深科技与空天科学' : '🚀 Deep Science & Space'), cls: 'bg-teal-50 text-teal-900 border-teal-200' },
+        'MACRO_GLOBAL_BIZ': { label: currentLang === 'KO' ? '🏦 산업·거시경제' : (currentLang === 'ZH' ? '🏦 产业与宏观经济' : '🏦 Macro & Global Biz'), cls: 'bg-amber-50 text-amber-950 border-amber-300' },
+        'INDUSTRY_TRENDS': { label: currentLang === 'KO' ? '🌐 일반 테크·SW' : (currentLang === 'ZH' ? '🌐 通用科技与软件' : '🌐 General Tech & SW'), cls: 'bg-slate-100 text-slate-800 border-slate-200' }
+      };
+      const catInfo = (it.tier1_category && tier1Map[it.tier1_category]) ? tier1Map[it.tier1_category] : (catMap[it.category_primary] || catMap['INDUSTRY_TRENDS']);
+
+      if (ai) {
+        const tagBg = ai.worth_investigating === 'HIGH' ? 'bg-orange-50 text-orange-950 border-orange-200' : 'bg-indigo-50 text-indigo-950 border-indigo-200';
+        const typeLabels = {
+          'MODEL': currentLang === 'KO' ? '🤖 모델 발표' : (currentLang === 'ZH' ? '🤖 模型发布' : '🤖 Model'),
+          'AGENT': currentLang === 'KO' ? '🦾 에이전트' : (currentLang === 'ZH' ? '🦾 智能体' : '🦾 Agent'),
+          'TECH': currentLang === 'KO' ? '⚡ 신기술/최적화' : (currentLang === 'ZH' ? '⚡ 新技术/架构' : '⚡ Tech/Arch'),
+          'NEWS': currentLang === 'KO' ? '📰 업계 동향' : (currentLang === 'ZH' ? '📰 行业资讯' : '📰 News')
         };
-        const catMap = {
-          'INFERENCE_OPT': { label: currentLang === 'KO' ? '⚡ 추론·서빙 최적화' : (currentLang === 'ZH' ? '⚡ 推理服务优化' : '⚡ Inference & Opt'), cls: 'bg-amber-50 text-amber-900 border-amber-200' },
-          'AGENTS_DEVTOOLS': { label: currentLang === 'KO' ? '🛠️ 에이전트·개발도구' : (currentLang === 'ZH' ? '🛠️ 智能体与工具' : '🛠️ Agents & DevTools'), cls: 'bg-blue-50 text-blue-900 border-blue-200' },
-          'MULTIMODAL_AI': { label: currentLang === 'KO' ? '🎨 멀티모달·영상/음성' : (currentLang === 'ZH' ? '🎨 多模态与视听' : '🎨 Multimodal & GenAI'), cls: 'bg-purple-50 text-purple-900 border-purple-200' },
-          'FOUNDATION_MODELS': { label: currentLang === 'KO' ? '🤖 파운데이션·가중치' : (currentLang === 'ZH' ? '🤖 基础模型与权重' : '🤖 Foundation Models'), cls: 'bg-emerald-50 text-emerald-900 border-emerald-200' },
-          'INFRA_RAG_SECURITY': { label: currentLang === 'KO' ? '🛡️ 인프라·RAG·보안' : (currentLang === 'ZH' ? '🛡️ 基础设施与安全' : '🛡️ Infra, RAG & Safety'), cls: 'bg-rose-50 text-rose-900 border-rose-200' },
-          'DEEP_SCIENCE_SPACE': { label: currentLang === 'KO' ? '🚀 우주·신소재·과학' : (currentLang === 'ZH' ? '🚀 深科技与空天科学' : '🚀 Deep Science & Space'), cls: 'bg-teal-50 text-teal-900 border-teal-200' },
-          'MACRO_GLOBAL_BIZ': { label: currentLang === 'KO' ? '🏦 산업·거시경제' : (currentLang === 'ZH' ? '🏦 产业与宏观经济' : '🏦 Macro & Global Biz'), cls: 'bg-amber-50 text-amber-950 border-amber-300' },
-          'INDUSTRY_TRENDS': { label: currentLang === 'KO' ? '🌐 일반 테크·SW' : (currentLang === 'ZH' ? '🌐 通用科技与软件' : '🌐 General Tech & SW'), cls: 'bg-slate-100 text-slate-800 border-slate-200' }
-        };
-        const catInfo = (it.tier1_category && tier1Map[it.tier1_category]) ? tier1Map[it.tier1_category] : (catMap[it.category_primary] || catMap['INDUSTRY_TRENDS']);
+        const typeBadge = typeLabels[ai.type_classification] || (currentLang === 'KO' ? '💡 기술' : '💡 Tech');
 
-        if (ai) {
-          const tagBg = ai.worth_investigating === 'HIGH' ? 'bg-orange-50 text-orange-950 border-orange-200' : 'bg-indigo-50 text-indigo-950 border-indigo-200';
-          const typeLabels = {
-            'MODEL': currentLang === 'KO' ? '🤖 모델 발표' : (currentLang === 'ZH' ? '🤖 模型发布' : '🤖 Model'),
-            'AGENT': currentLang === 'KO' ? '🦾 에이전트' : (currentLang === 'ZH' ? '🦾 智能体' : '🦾 Agent'),
-            'TECH': currentLang === 'KO' ? '⚡ 신기술/최적화' : (currentLang === 'ZH' ? '⚡ 新技术/架构' : '⚡ Tech/Arch'),
-            'NEWS': currentLang === 'KO' ? '📰 업계 동향' : (currentLang === 'ZH' ? '📰 行业资讯' : '📰 News')
-          };
-          const typeBadge = typeLabels[ai.type_classification] || (currentLang === 'KO' ? '💡 기술' : '💡 Tech');
+        const hasRealRec = Boolean(ai.score || ai.worth_score || ai.recommended_tag);
+        const recBadgeHtml = hasRealRec ? `
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${tagBg}">
+            ${ai.recommended_tag || '💡 추천'} ★${ai.score || ai.worth_score}
+          </span>
+        ` : '';
 
-          const hasRealRec = Boolean(ai.score || ai.worth_score || ai.recommended_tag);
-          const recBadgeHtml = hasRealRec ? `
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${tagBg}">
-              ${ai.recommended_tag || '💡 추천'} ★${ai.score || ai.worth_score}
+        aiBadgeHtml = `
+          <div class="flex items-center gap-1.5 flex-wrap my-1">
+            ${recBadgeHtml}
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-900 border border-indigo-200">
+              ${typeBadge}
             </span>
-          ` : '';
+            ${ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${ai.programming_lang}</span>` : ''}
+            ${ai.source_lang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">${ai.source_lang}</span>` : ''}
+          </div>
+        `;
 
-          aiBadgeHtml = `
-            <div class="flex items-center gap-1.5 flex-wrap my-1">
-              ${recBadgeHtml}
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-900 border border-indigo-200">
-                ${typeBadge}
+        aiSummaryHtml = renderAiTakeaways(displayTakeaways, currentLang);
+      }
+
+      let crossRollupHtml = '';
+      if (it.cross_posts && it.cross_posts.length > 0) {
+        const platforms = [it.source_platform, ...it.cross_posts.map(cp => cp.platform)].filter(Boolean);
+        const uniqPlats = [...new Set(platforms)];
+        crossRollupHtml = `
+          <div class="p-2 rounded-xl bg-amber-500/10 border border-amber-500/25 text-xs text-amber-950 space-y-1.5 shadow-2xs">
+            <div class="flex items-center justify-between font-bold text-[11px] text-amber-900">
+              <span class="flex items-center gap-1">
+                <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-600 animate-pulse"></i>
+                ${uniqPlats.length}개 플랫폼 동시 급상승 바이럴 (롤업)
               </span>
-              ${ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${ai.programming_lang}</span>` : ''}
-              ${ai.source_lang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">${ai.source_lang}</span>` : ''}
+              <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-amber-200/70 text-amber-950 font-extrabold">CROSS-SPIKE</span>
             </div>
+            <div class="flex items-center gap-1.5 flex-wrap">
+              ${uniqPlats.map(p => `<span class="px-2 py-0.5 rounded-md bg-white border border-amber-200/80 font-bold text-[10px] text-amber-950 shadow-2xs">${p}</span>`).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      const footerHtml = renderCardStandardFooter(it, currentLang, linksHtml);
+
+      const tracking = it.metric_tracking || {};
+      const delta = (tracking.delta !== undefined) ? tracking.delta : (tracking.growth_delta || 0);
+      const latestVal = tracking.latest?.display || tracking.latest_metric || it.viral_metric || '';
+      const initVal = tracking.initial?.display || tracking.initial_metric || '';
+      const isSpike = Boolean(tracking.is_spiking || delta > 0 || it.is_cross_spiking);
+
+      // 🌟 SOTA Compact Clean Metric Formatter
+      function formatCleanMetricVal(valStr) {
+        if (!valStr) return '';
+        let clean = String(valStr).replace(/🔥/g, '').trim();
+        clean = clean.replace(/\b(?:hn\s*)?points\b/gi, 'pts').replace(/\blikes\b/gi, 'likes').replace(/\bstars\b/gi, '★');
+        return clean;
+      }
+
+      const cleanInit = formatCleanMetricVal(initVal);
+      const cleanLatest = formatCleanMetricVal(latestVal);
+
+      let metricBadgeHtml = '';
+      if (cleanLatest) {
+        if (delta > 0 && cleanInit && cleanInit !== cleanLatest) {
+          const numInit = cleanInit.replace(/[^0-9.]/g, '');
+          const displayFlow = numInit ? `${numInit} ➔ ${cleanLatest}` : `${cleanLatest}`;
+          metricBadgeHtml = `
+            <span class="px-2 py-0.5 rounded-md text-[10px] font-bold font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap" title="최초 수집: ${cleanInit} ➔ 최신 갱신: ${cleanLatest}">
+              <i data-lucide="trending-up" class="w-3 h-3 text-emerald-600"></i>
+              <span class="font-extrabold">${displayFlow}</span>
+              <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[9px]">(+${delta.toLocaleString()})</span>
+            </span>
           `;
-
-          aiSummaryHtml = renderAiTakeaways(displayTakeaways, currentLang);
+        } else if (delta > 0) {
+          metricBadgeHtml = `
+            <span class="px-2 py-0.5 rounded-md text-[10px] font-bold font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap">
+              <i data-lucide="trending-up" class="w-3 h-3 text-emerald-600"></i>
+              <span class="font-extrabold">${cleanLatest}</span>
+              <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[9px]">(+${delta.toLocaleString()})</span>
+            </span>
+          `;
+        } else {
+          metricBadgeHtml = `
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold ${isSpike ? 'text-rose-700 font-bold bg-rose-50 border border-rose-200' : 'text-ink-muted bg-surface-subtle border border-surface-border'} shrink-0 ml-auto whitespace-nowrap">
+              ${cleanLatest}
+            </span>
+          `;
         }
+      }
 
-        const footerHtml = renderCardStandardFooter(it, currentLang, linksHtml);
+      const primaryPlat = getPrimaryImpactPlatform(it, allSources);
+      const isMultiSource = allSources.length > 1;
 
-        card.innerHTML = `
-          <div class="space-y-2.5">
-            <div class="flex items-center justify-between text-xs font-mono">
-              <div class="flex items-center gap-1.5 flex-wrap">
-                <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls}">
-                  ${catInfo.label}
-                </span>
-                <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px]">
-                  ${it.source_platform || 'Tech News'}
-                </span>
-              </div>
-              <span class="text-ink-muted text-[11px] font-mono">${it.viral_metric || ''}</span>
+      card.innerHTML = `
+        <div class="space-y-2.5">
+          <div class="flex items-start sm:items-center justify-between text-xs font-mono gap-1.5 flex-wrap">
+            <div class="flex items-center gap-1.5 flex-wrap min-w-0">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls} shrink-0">
+                ${catInfo.label}
+              </span>
+              <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0">
+                <span>${primaryPlat}</span>
+                ${isMultiSource ? `<span class="px-1 py-0.2 rounded text-[9px] font-mono bg-amber-100 text-amber-950 border border-amber-300 font-black">+${allSources.length - 1}</span>` : ''}
+              </span>
             </div>
-
-            ${aiBadgeHtml}
-
-            <h3 class="font-bold text-sm text-ink-primary hover:text-indigo-600 transition leading-snug break-words">
-              ${displayTitle}
-            </h3>
-
-            ${hookHtml}
-
-            ${showDesc ? `<p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">${displayDesc}</p>` : ''}
-
-            ${aiSummaryHtml}
-            ${relatedHtml}
+            ${metricBadgeHtml}
           </div>
 
-          ${footerHtml}
-        `;
-        fragment.appendChild(card);
-      });
-      grid.appendChild(fragment);
+          ${crossRollupHtml}
+          ${aiBadgeHtml}
 
-      if (window.lucide) window.lucide.createIcons({ root: grid });
+          <h3 class="font-bold text-sm text-ink-primary hover:text-indigo-600 transition leading-snug break-words">
+            ${displayTitle}
+          </h3>
+
+          ${hookHtml}
+
+          ${showDesc ? `<p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">${displayDesc}</p>` : ''}
+
+          ${aiSummaryHtml}
+          ${relatedHtml}
+        </div>
+
+        ${footerHtml}
+      `;
+      return card;
+    }
+
+    async function renderNews() {
+      const grid = document.getElementById('newsGrid');
+      if (!grid) return;
+      const t = i18n[currentLang] || i18n.KO;
+
+      // 1. ⚡ Instant Zero-Latency First-Paint (Page 1 with initial memory snapshot)
+      const isDefaultFilter = (currentNewsTier1 === 'ALL' && currentNewsTier2 === 'ALL' && currentNewsFacet === 'ALL' && !currentNewsSearch && !targetSelectedInboxId);
+      const hasInitialCache = (liveNewsData && liveNewsData.length > 0);
+
+      if (currentNewsPage === 1 && isDefaultFilter && hasInitialCache && grid.children.length === 0) {
+        const initialSlice = liveNewsData.slice(0, PAGE_SIZE);
+        const frag = document.createDocumentFragment();
+        initialSlice.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
+        grid.innerHTML = '';
+        grid.appendChild(frag);
+        const initTotalPages = Math.ceil((snapshotStats.news_total_count || liveNewsData.length) / PAGE_SIZE) || 1;
+        renderPagination('newsPagination', 1, initTotalPages, 'changeNewsPage');
+        if (window.lucide) window.lucide.createIcons({ root: grid });
+      }
+
+      // 2. 🐘 100% DB-Native Edge API Hydration (Neon PostgreSQL Cloud DB via Vercel SWR)
+      try {
+        if (grid.children.length === 0) {
+          grid.innerHTML = `
+            <div class="col-span-full py-12 flex flex-col items-center justify-center text-ink-muted text-xs space-y-2">
+              <div class="w-6 h-6 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+              <span>${currentLang === 'KO' ? 'Neon DB에서 실시간 트렌드 동기화 중...' : 'Synchronizing trends from Neon DB...'}</span>
+            </div>
+          `;
+        }
+
+        const dbRes = await fetchNewsFromDb(currentNewsPage);
+        const items = dbRes.items || [];
+        const total = dbRes.total || 0;
+        const totalPages = dbRes.totalPages || Math.ceil(total / PAGE_SIZE) || 1;
+
+        grid.innerHTML = '';
+        if (items.length === 0) {
+          grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${currentLang === 'KO' ? '해당 플랫폼/조건의 수집 AI 뉴스가 없습니다.' : (currentLang === 'ZH' ? '暂无该条件的 AI 资讯。' : 'No AI news articles available for this criteria.')}</div>`;
+        } else {
+          const frag = document.createDocumentFragment();
+          items.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
+          grid.appendChild(frag);
+        }
+
+        if (currentNewsPage > totalPages) currentNewsPage = totalPages;
+        if (currentNewsPage < 1) currentNewsPage = 1;
+        renderPagination('newsPagination', currentNewsPage, totalPages, 'changeNewsPage');
+
+        // Dynamically update global counters & pill counts with live DB numbers
+        if (isDefaultFilter && total > 0) {
+          snapshotStats.news_total_count = total;
+          const numEl = document.getElementById('statValNews');
+          if (numEl) numEl.textContent = total.toLocaleString();
+          const headEl = document.getElementById('headerNewsCount');
+          if (headEl) headEl.textContent = `(${total.toLocaleString()})`;
+          const allPill = document.querySelector('.news-cat-pill[data-cat="ALL"]');
+          if (allPill) allPill.textContent = currentLang === 'KO' ? `전체 (${total.toLocaleString()})` : (currentLang === 'ZH' ? `全部 (${total.toLocaleString()})` : `All (${total.toLocaleString()})`);
+        }
+
+        if (window.lucide) window.lucide.createIcons({ root: grid });
+      } catch (err) {
+        if (err.name === 'AbortError') return; // User initiated a newer request
+        console.warn('[News DB-Native Fetch Fallback]:', err.message);
+        
+        // 🛡️ Graceful Offline Fallback to In-Memory Cache
+        const rawNewsItems = liveNewsData || [];
+        const filtered = rawNewsItems.filter(it => {
+          if (targetSelectedInboxId && it.inbox_id === targetSelectedInboxId) return true;
+          if (currentNewsTier1 !== 'ALL' && (it.tier1_category || 'TECH_COMPUTING') !== currentNewsTier1) return false;
+          if (currentNewsTier2 !== 'ALL' && (it.tier2_category || it.category_primary || 'INDUSTRY_TRENDS') !== currentNewsTier2) return false;
+          return true;
+        });
+        const fallbackPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
+        grid.innerHTML = '';
+        const fallbackSlice = filtered.slice((currentNewsPage - 1) * PAGE_SIZE, currentNewsPage * PAGE_SIZE);
+        const frag = document.createDocumentFragment();
+        fallbackSlice.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
+        grid.appendChild(frag);
+        renderPagination('newsPagination', currentNewsPage, fallbackPages, 'changeNewsPage');
+        if (window.lucide) window.lucide.createIcons({ root: grid });
+      }
     }
 
     // ================= AI MODELS REGISTRY VIEW =================
@@ -4160,9 +4401,9 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       const aData = typeof actionsTelemetryData !== 'undefined' ? actionsTelemetryData : {};
 
       // 1. Quota Progress & Analytics
-      const usedMin = aData.monthly_used_minutes || 82.8;
-      const remMin = aData.monthly_remaining_minutes || 1917.2;
-      const usagePct = aData.monthly_usage_percent || 4.1;
+      const usedMin = aData.monthly_used_minutes || 0.0;
+      const remMin = aData.monthly_remaining_minutes || (2000.0 - usedMin);
+      const usagePct = aData.monthly_usage_percent || 0.0;
 
       const usedEl = document.getElementById('quotaUsedMin');
       const remEl = document.getElementById('quotaRemMin');

@@ -65,6 +65,56 @@ def clean_title(title: str) -> str:
     return t
 
 
+def extract_canonical_entity_key(title: str, source_url: str = "", article_url: str = "") -> str:
+    """
+    Tier 2.5: Fast Deterministic Canonical Entity Extractor (O(1), zero-cost)
+    Extracts core normalized tech entity key from titles and URLs across platforms.
+    Examples:
+      - "HF 스페이스에 Qwen-Image 2.1 이미지 생성 모델 공개" -> "qwen-image-2.1"
+      - "Qwen-Image-2.1, 소형 고효율 통합 이미지 생성 모델 출시" -> "qwen-image-2.1"
+      - "Qwen-Image-2.1: 컴팩트하고 효율적이며 통합된..." -> "qwen-image-2.1"
+      - "JEV 에코시스템 해부 — 답변 검증기 13종을..." -> "jev"
+    """
+    all_text = f"{title or ''} {source_url or ''} {article_url or ''}".lower()
+
+    # 1. GitHub repo slug (owner/repo)
+    gh_match = re.search(r'github\.com/([\w\.-]+/[\w\.-]+)', all_text)
+    if gh_match:
+        repo_part = gh_match.group(1).lower().rstrip('.git')
+        # return just repo name or owner/repo
+        return repo_part
+
+    # 2. Known AI Model / Project name regex patterns
+    known_patterns = [
+        r'\b(qwen[-_ ]?image[-_ ]?2\.?1)\b',
+        r'\b(jev)\b',
+        r'\b(deepseek[-_ ]?[rv]\d+[\w\.-]*)\b',
+        r'\b(llama[-_ ]?\d+[\w\.-]*)\b',
+        r'\b(glm[-_ ]?\d+[\w\.-]*)\b',
+        r'\b(flux[-_ ]?\d+[\w\.-]*)\b',
+        r'\b(flash[-_ ]?attn[-_ ]?\d*)\b',
+        r'\b(bespoke[-_ ]?nimble[-_ ]?\d+b?)\b',
+        r'\b(confucius\d+[-_ ]?r\d+t\d+)\b',
+        r'\b([a-z0-9]+-[a-z0-9]+(?:-\d+[\w\.-]*)?)\b', # general hyphenated names like "vllm-project"
+    ]
+    for p in known_patterns:
+        m = re.search(p, all_text)
+        if m:
+            clean_key = re.sub(r'[-_ ]+', '-', m.group(1)).strip('-')
+            if len(clean_key) >= 3:
+                return clean_key
+
+    # 3. Clean platform prefixes from title & take leading alphanumeric token
+    t = title or ""
+    clean = re.sub(r'^(?:github:\s*|huggingface:\s*|hf space:\s*|hacker news:\s*|arxiv:\s*|geeknews:\s*|pytorchkr:\s*|show hn:\s*)', '', t, flags=re.I).strip()
+    words = re.findall(r'[a-zA-Z0-9가-힣\.-]{3,}', clean)
+    if words:
+        first = words[0].lower().strip(".-")
+        if len(first) >= 3 and not first.isdigit() and first not in ["출시", "공개", "발표", "오픈소스", "모델"]:
+            return first
+    return clean_title(title)[:25].strip().replace(" ", "-")
+
+
 def title_jaccard_similarity(title1: str, title2: str) -> float:
     t1_tokens = set(clean_title(title1).split())
     t2_tokens = set(clean_title(title2).split())

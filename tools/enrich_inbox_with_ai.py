@@ -559,6 +559,8 @@ def process_single_batch(b_idx, num_batches, batch, active_provider, dossiers):
                 item["dedup_fingerprint"] = dedup_fg
                 if dedup_fg.get("canonical_story_key"):
                     item["canonical_story_key"] = dedup_fg.get("canonical_story_key")
+                if dedup_fg.get("canonical_tech_entity"):
+                    item["canonical_tech_entity"] = dedup_fg.get("canonical_tech_entity")
                 if dedup_fg.get("core_entities"):
                     item["core_entities"] = dedup_fg.get("core_entities")
 

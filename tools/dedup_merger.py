@@ -135,13 +135,29 @@ def are_items_duplicate_story(item_a: dict, item_b: dict, max_window_hours: floa
     if urls_a and urls_b and bool(urls_a.intersection(urls_b)):
         return True
 
-    # 2. Temporal Window Check (allow up to 72 hours for viral story lifecycle)
-    ts_a = parse_iso_timestamp(item_a)
-    ts_b = parse_iso_timestamp(item_b)
-    if ts_a > 0 and ts_b > 0:
-        hour_diff = abs(ts_a - ts_b) / 3600.0
-        if hour_diff > max_window_hours:
+    # 2. Temporal Window Check: Model/Tool has no time limit (Permanent Asset); News allows up to 168h (7 days)
+    is_asset = (item_a.get("facet_type") in ["MODEL", "TOOL"] or item_b.get("facet_type") in ["MODEL", "TOOL"] or 
+                "github" in str(item_a.get("source_platform", "")).lower() or "github" in str(item_b.get("source_platform", "")).lower())
+    if not is_asset:
+        ts_a = parse_iso_timestamp(item_a)
+        ts_b = parse_iso_timestamp(item_b)
+        if ts_a > 0 and ts_b > 0:
+            hour_diff = abs(ts_a - ts_b) / 3600.0
+            if hour_diff > 168.0:
+                return False
+
+    # 2.5 SOTA Voyage AI Dense Embedding Similarity Check
+    try:
+        from voyage_embedder import get_single_embedding, cosine_similarity
+        e_a = item_a.get("embedding") or get_single_embedding(f"[{item_a.get('canonical_tech_entity') or ''}] {item_a.get('title', '')}")
+        e_b = item_b.get("embedding") or get_single_embedding(f"[{item_b.get('canonical_tech_entity') or ''}] {item_b.get('title', '')}")
+        sim = cosine_similarity(e_a, e_b)
+        if sim >= 0.82:
+            return True
+        if sim < 0.35:
             return False
+    except Exception:
+        pass
 
     # 3. Canonical Story Key exact or high-containment match
     key_a = get_item_story_key(item_a)
@@ -206,6 +222,7 @@ def merge_sources_into_primary(primary: dict, secondary: dict) -> dict:
         p = (s.get("platform") or s.get("source_name") or "").lower()
         u = (s.get("url") or "").lower()
         if "github" in p or "github.com" in u: return "github"
+        if "space" in p or "/spaces/" in u: return "hf_spaces"
         if "hugging" in p or "huggingface.co" in u: return "huggingface"
         if "hacker news" in p or "ycombinator.com" in u: return "hackernews"
         if "geeknews" in p or "hada.io" in u: return "geeknews"
@@ -248,24 +265,86 @@ def merge_sources_into_primary(primary: dict, secondary: dict) -> dict:
 
     return primary
 
+def extract_english_title_tokens(item: dict) -> set:
+    """Extracts normalized English title tokens for high-precision cross-lingual semantic matching."""
+    t_en = (
+        item.get("title_en") or 
+        (item.get("multilingual") or {}).get("en", {}).get("title") or 
+        (item.get("ai_enrichment") or {}).get("title_en") or 
+        ""
+    )
+    if not t_en:
+        raw = item.get("title", "")
+        clean = re.sub(r'^(?:GitHub|HuggingFace|HF Space|Hacker News|ArXiv|GeekNews|PyTorchKR|Paper|Reddit):\s*', '', raw, flags=re.I).strip()
+        t_en = clean
+
+    words = re.findall(r'[a-zA-Z0-9_\-\.]+', t_en.lower())
+    stop_words_en = {
+        "the", "a", "an", "and", "or", "in", "on", "at", "by", "for", "with", "from", 
+        "is", "are", "was", "were", "to", "of", "it", "its", "that", "this", "how", "what", 
+        "why", "when", "into", "over", "after", "via", "vs", "new", "using", "use"
+    }
+    return {w for w in words if len(w) > 1 and w not in stop_words_en}
+
+def is_specific_model_entity(ent: str) -> bool:
+    """
+    Distinguishes specific versioned model/tool entities (e.g. 'qwen-image-2.1', 'llama-3.3', 'deepseek-r1')
+    from broad generic/concept single-word tokens (e.g. 'jev', 'claude', 'agent', 'rag', 'llm').
+    """
+    if not ent:
+        return False
+    if any(char.isdigit() for char in ent):
+        return True
+    if "-" in ent and len(ent.split("-")) >= 2:
+        parts = ent.split("-")
+        if any(p in ["image", "coder", "vl", "vlm", "math", "distill", "turbo", "flash", "pro", "ultra"] for p in parts):
+            return True
+    return False
+
+def compute_jaccard_overlap(set_a: set, set_b: set) -> float:
+    if not set_a or not set_b:
+        return 0.0
+    intersection = len(set_a.intersection(set_b))
+    union = len(set_a.union(set_b))
+    return intersection / union if union > 0 else 0.0
+
 def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list:
     """Clusters and deduplicates items into a clean list of story-centric items with O(N) indexing."""
+    try:
+        from tools.dedup_engine import extract_canonical_entity_key
+    except ImportError:
+        try:
+            from dedup_engine import extract_canonical_entity_key
+        except ImportError:
+            extract_canonical_entity_key = lambda t, u, a: ""
+
     merged_items = []
     item_tokens = []
+    item_en_tokens = []
     item_urls = []
     item_keys = []
+    item_entities = []
     item_timestamps = []
 
     for it in items:
         title = f"{it.get('title', '')} {it.get('title_ko', '')} {it.get('title_en', '')}"
         item_tokens.append(normalize_text_tokens(title))
+        item_en_tokens.append(extract_english_title_tokens(it))
         item_urls.append({it.get("source_url") or "", it.get("url") or "", it.get("article_url") or ""} - {""})
         item_keys.append(get_item_story_key(it))
+        
+        c_ent = (it.get("canonical_tech_entity") or (it.get("ai_enrichment") or {}).get("canonical_tech_entity") or "").strip().lower()
+        if not c_ent or c_ent in ["null", "none"]:
+            c_ent = extract_canonical_entity_key(it.get("title", ""), it.get("source_url", ""), it.get("article_url", "")) or ""
+        item_entities.append(c_ent)
+
         item_timestamps.append(parse_iso_timestamp(it))
 
     merged_tokens = []
+    merged_en_tokens = []
     merged_urls = []
     merged_keys = []
+    merged_entities = []
     merged_timestamps = []
 
     critical_anchors = [
@@ -280,6 +359,7 @@ def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list
 
     for idx, item in enumerate(items):
         tokens = item_tokens[idx]
+        en_tokens = item_en_tokens[idx]
         urls = item_urls[idx]
         key = item_keys[idx]
         ts = item_timestamps[idx]
@@ -298,13 +378,36 @@ def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list
             if ts > 0 and m_ts > 0 and (abs(ts - m_ts) / 3600.0) > max_window_hours:
                 continue
 
+            # 2.5. Canonical Tech/Story Entity match with Granularity Guardrail
+            m_ent = merged_entities[m_idx]
+            ent = item_entities[idx]
+            if ent and m_ent and ent == m_ent and len(ent) >= 3:
+                # If specific versioned model/tool identifier (e.g. qwen-image-2.1), allow O(1) single-release merge
+                if is_specific_model_entity(ent):
+                    matched_idx = m_idx
+                    break
+                else:
+                    # Broad single-word concept (e.g. 'jev', 'claude', 'agent'):
+                    # Require canonical_story_key match OR English title Jaccard >= 0.50!
+                    m_key = merged_keys[m_idx]
+                    en_overlap = compute_jaccard_overlap(en_tokens, merged_en_tokens[m_idx])
+                    if (key and m_key and are_story_keys_similar(key, m_key)) or en_overlap >= 0.50:
+                        matched_idx = m_idx
+                        break
+
             # 3. Canonical story key match (exact or high-containment)
             m_key = merged_keys[m_idx]
             if key and m_key and are_story_keys_similar(key, m_key):
                 matched_idx = m_idx
                 break
 
-            # 4. Token & Anchor match
+            # 4. English Translated Title Semantic Jaccard Overlap (>= 50% threshold)
+            en_overlap = compute_jaccard_overlap(en_tokens, merged_en_tokens[m_idx])
+            if en_overlap >= 0.50:
+                matched_idx = m_idx
+                break
+
+            # 5. Token & Anchor match
             m_tokens = merged_tokens[m_idx]
             if tokens and m_tokens:
                 anchor_hit = False
@@ -328,6 +431,9 @@ def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list
             merge_sources_into_primary(target, item)
             merged_urls[matched_idx].update(urls)
             merged_tokens[matched_idx].update(tokens)
+            merged_en_tokens[matched_idx].update(en_tokens)
+            if not merged_entities[matched_idx] and item_entities[idx]:
+                merged_entities[matched_idx] = item_entities[idx]
         else:
             if "sources" not in item or not isinstance(item.get("sources"), list):
                 item["sources"] = [
@@ -343,8 +449,10 @@ def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list
             item["source_count"] = len(item["sources"])
             merged_items.append(item)
             merged_tokens.append(set(tokens))
+            merged_en_tokens.append(set(en_tokens))
             merged_urls.append(set(urls))
             merged_keys.append(key)
+            merged_entities.append(item_entities[idx])
             merged_timestamps.append(ts)
 
     return merged_items
