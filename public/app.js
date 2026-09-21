@@ -1635,8 +1635,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
                   btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
                 }
               } else {
-                if (!window._allClassifiedCompleted && !window._autoWorkerPaused && !window._autoWorkerRunning) {
-                  startContinuousAiWorker();
+                if (txt && !window._autoWorkerRunning) {
+                  txt.textContent = `⚡ AI 요약 실행 (${unclass}건 대기)`;
                 } else if (window._autoWorkerRunning && !window._autoWorkerPaused) {
                   if (txt) txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 중 (잔여: ${unclass}건)`;
                 }
@@ -5292,11 +5292,9 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     if (document.readyState === 'loading') {
       window.addEventListener('DOMContentLoaded', () => { 
         bootstrapApplicationData(); 
-        if (typeof preloadTopNewsFilters === 'function') preloadTopNewsFilters();
       });
     } else {
       bootstrapApplicationData();
-      if (typeof preloadTopNewsFilters === 'function') preloadTopNewsFilters();
     }
 
     // Explicit global exposure for inline HTML event handlers

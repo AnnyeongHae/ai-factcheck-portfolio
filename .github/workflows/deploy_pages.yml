@@ -1,8 +1,6 @@
 name: Deploy AI Fact-Check Portfolio & Neon DB Sync
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
   schedule:
     # 🌟 1일 4회 전략 수집 + 23:00 KST EOD 핫 랭킹
