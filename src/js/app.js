@@ -3360,9 +3360,32 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     function setNewsCategoryFilter(t1) {
       currentNewsPage = 1;
       currentNewsTier1 = t1;
-      // If user chooses ALL for Tier 1, keep Tier 2 as ALL so full feed is shown
-      if (t1 === 'ALL') {
+
+      // 🌟 Clean Mutually-Exclusive State Alignment:
+      // If user chooses ANY non-computing category or ALL, reset IT sub-category to ALL!
+      if (t1 !== 'TECH_COMPUTING') {
         currentNewsTier2 = 'ALL';
+      }
+
+      // If user selects a non-computing domain while Smart Radar is on Tech-only facets (MODEL or TOOL),
+      // reset Smart Radar to ALL so items are not blocked!
+      if (t1 !== 'TECH_COMPUTING' && t1 !== 'ALL') {
+        if (currentNewsFacet === 'MODEL' || currentNewsFacet === 'TOOL') {
+          currentNewsFacet = 'ALL';
+          document.querySelectorAll('.news-facet-pill').forEach(btn => {
+            const isAll = btn.getAttribute('data-facet') === 'ALL';
+            if (isAll) {
+              btn.className = 'news-facet-pill active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-md ring-2 ring-indigo-300 transition shrink-0 whitespace-nowrap cursor-pointer';
+            } else {
+              const f = btn.getAttribute('data-facet');
+              let colorCls = 'text-slate-200 bg-white/10 border-white/20 hover:bg-white/20';
+              if (f === 'CROSS_SPIKE') colorCls = 'text-amber-300 bg-amber-500/10 border-amber-400/30 hover:bg-amber-500/20';
+              else if (f === 'MODEL') colorCls = 'text-cyan-300 bg-cyan-500/10 border-cyan-400/30 hover:bg-cyan-500/20';
+              else if (f === 'TOOL') colorCls = 'text-emerald-300 bg-emerald-500/10 border-emerald-400/30 hover:bg-emerald-500/20';
+              btn.className = `news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold ${colorCls} border transition shrink-0 whitespace-nowrap cursor-pointer`;
+            }
+          });
+        }
       }
 
       document.querySelectorAll('.news-cat-pill').forEach(btn => {
@@ -3373,7 +3396,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         }
       });
 
-      // Update Tier 2 UI active state
+      // Update Tier 2 UI active state (highlight '전체 IT 분야' when reset)
       document.querySelectorAll('.news-t2-pill').forEach(btn => {
         if (btn.getAttribute('data-t2') === currentNewsTier2) {
           btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer';
@@ -3441,6 +3464,29 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       targetSelectedInboxId = '';
       currentNewsPage = 1;
       currentNewsFacet = facet;
+
+      // 🌟 When switching to AI Model or OpenSource Tool, ensure non-tech category doesn't block results
+      if ((facet === 'MODEL' || facet === 'TOOL') && currentNewsTier1 !== 'TECH_COMPUTING' && currentNewsTier1 !== 'ALL') {
+        currentNewsTier1 = 'ALL';
+        currentNewsTier2 = 'ALL';
+        document.querySelectorAll('.news-cat-pill').forEach(btn => {
+          if (btn.getAttribute('data-cat') === 'ALL') {
+            btn.className = 'news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer';
+          } else {
+            btn.className = 'news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap cursor-pointer';
+          }
+        });
+        document.querySelectorAll('.news-t2-pill').forEach(btn => {
+          if (btn.getAttribute('data-t2') === 'ALL') {
+            btn.className = 'news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer';
+          } else {
+            btn.className = 'news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap cursor-pointer';
+          }
+        });
+        const t2Container = document.getElementById('newsTier2Container');
+        if (t2Container) t2Container.classList.remove('opacity-40', 'pointer-events-none');
+      }
+
       document.querySelectorAll('.news-facet-pill').forEach(btn => {
         const isActive = btn.getAttribute('data-facet') === facet;
         if (isActive) {
