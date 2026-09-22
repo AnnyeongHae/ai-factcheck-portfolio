@@ -3717,6 +3717,14 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           icon = '📑';
           label = 'ArXiv';
           badgeCls = 'bg-rose-50 text-rose-900 hover:text-rose-950 border-rose-200';
+        } else if (p.includes('youtube') || u.includes('youtube.com') || u.includes('youtu.be')) {
+          icon = '📺';
+          label = currentLang === 'KO' ? '유튜브' : 'YouTube';
+          badgeCls = 'bg-red-50 text-red-800 hover:text-red-950 border-red-200';
+        } else if (p.includes('press') || p.includes('news') || u.includes('reuters') || u.includes('techcrunch') || u.includes('bloomberg') || u.includes('theverge') || u.includes('venturebeat')) {
+          icon = '📰';
+          label = currentLang === 'KO' ? '언론 보도' : 'Press';
+          badgeCls = 'bg-emerald-50 text-emerald-800 hover:text-emerald-950 border-emerald-200';
         } else if (p.includes('twitter') || p.includes(' x') || u.includes('x.com') || u.includes('twitter.com')) {
           icon = '𝕏';
           label = 'X (트위터)';
@@ -4260,8 +4268,13 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         if (currentNewsTier2 !== 'ALL' && (it.tier2_category || it.category_primary || 'INDUSTRY_TRENDS') !== currentNewsTier2) return false;
         if (currentNewsFacet === 'CROSS_SPIKE' && !it.is_cross_spiking && (!it.sources || it.sources.length <= 1)) return false;
         if (currentNewsFacet === 'MODEL' && !it.is_model && it.facet_type !== 'MODEL') return false;
-        if (currentNewsFacet === 'TOOL' && it.facet_type !== 'TOOL' && it.artifact_type !== 'AGENT') return false;
-        if (currentNewsSource !== 'ALL' && !(it.source_platform || '').toLowerCase().includes(currentNewsSource.toLowerCase())) return false;
+        if (currentNewsSource !== 'ALL') {
+          const plat = (it.source_platform || '').toLowerCase();
+          const filterKey = currentNewsSource.toLowerCase();
+          const hasInCrossPosts = Array.isArray(it.cross_posts) && it.cross_posts.some(cp => (cp.platform || '').toLowerCase().includes(filterKey));
+          const hasInSources = Array.isArray(it.sources) && it.sources.some(s => (s.platform || s.source_name || '').toLowerCase().includes(filterKey));
+          if (!plat.includes(filterKey) && !hasInCrossPosts && !hasInSources) return false;
+        }
         if (currentNewsSearch) {
           const s = currentNewsSearch.toLowerCase();
           const matchTitle = (it.title || '').toLowerCase().includes(s) || (it.title_ko || '').toLowerCase().includes(s);
@@ -5096,7 +5109,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         const ai = item.ai_enrichment;
 
         // 1. 수집 플랫폼 매칭
-        const matchesSrc = currentInboxSource === 'ALL' || (item.source_platform && item.source_platform.includes(currentInboxSource));
+        const filterSrcKey = currentInboxSource.toLowerCase();
+        const matchesSrc = currentInboxSource === 'ALL' || ((item.source_platform || '').toLowerCase().includes(filterSrcKey));
 
         // 2. 원문 언어 매칭 (KO, EN, ZH)
         const itemLang = (ai ? ai.source_lang : null) || item.source_lang || 'EN';

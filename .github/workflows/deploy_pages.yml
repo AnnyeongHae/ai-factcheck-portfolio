@@ -59,6 +59,8 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           AIVEN_SERVICE_URI: ${{ secrets.AIVEN_SERVICE_URI }}
           DATABASE_URL: ${{ secrets.AIVEN_SERVICE_URI || secrets.DATABASE_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -u tools/harvest_trends.py
 

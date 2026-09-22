@@ -449,8 +449,8 @@ def harvest_all():
     # 1. Hugging Face Models Trending
     hf_start = time.time()
     try:
-        logger.log("[*] Fetching Hugging Face Trending Models (limit=50)...")
-        hf_data = fetch_json("https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=50")
+        logger.log("[*] Fetching Hugging Face Trending Models (limit=100)...")
+        hf_data = fetch_json("https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=100")
         count = 0
         if hf_data and isinstance(hf_data, list):
             for item in hf_data:
@@ -520,11 +520,11 @@ def harvest_all():
     # 2. Hugging Face Spaces (Interactive Demos)
     spaces_start = time.time()
     try:
-        logger.log("[*] Fetching Hugging Face Trending & Popular Spaces (limit=80)...")
+        logger.log("[*] Fetching Hugging Face Trending & Popular Spaces (limit=120+60)...")
         # 2-1: Trending Spaces
-        sp_data_trending = fetch_json("https://huggingface.co/api/spaces?sort=trendingScore&direction=-1&limit=80")
+        sp_data_trending = fetch_json("https://huggingface.co/api/spaces?sort=trendingScore&direction=-1&limit=120")
         # 2-2: Most Liked Recent Spaces
-        sp_data_liked = fetch_json("https://huggingface.co/api/spaces?sort=likes&direction=-1&limit=40")
+        sp_data_liked = fetch_json("https://huggingface.co/api/spaces?sort=likes&direction=-1&limit=60")
         
         combined_spaces = {}
         for sp_list in [sp_data_trending, sp_data_liked]:
@@ -557,33 +557,49 @@ def harvest_all():
         logger.log(f"[!] Hugging Face Spaces Failed: {e}", level="ERROR")
         harvest_report["summary"]["errors"] += 1
 
-    # 3. GitHub Search API (High Velocity Repos)
+    # 3. GitHub Search API (High Velocity Repos & Emerging AI Tools)
     gh_start = time.time()
     try:
-        logger.log("[*] Fetching GitHub High-Velocity Repositories (Recent 14 days, Stars > 30)...")
+        logger.log("[*] Fetching GitHub High-Velocity Repositories (Recent 14 days, Stars > 30 & Emerging AI)...")
         fourteen_days_ago = (datetime.date.today() - datetime.timedelta(days=14)).strftime("%Y-%m-%d")
-        gh_url = f"https://api.github.com/search/repositories?q=created:>{fourteen_days_ago}+stars:>30&sort=stars&order=desc&per_page=50"
-        gh_data = fetch_json(gh_url, headers={"User-Agent": "FactCheck-Harvester/1.0", "Accept": "application/vnd.github.v3+json"})
+        gh_token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+        gh_headers = {"User-Agent": "FactCheck-Harvester/1.0", "Accept": "application/vnd.github.v3+json"}
+        if gh_token:
+            gh_headers["Authorization"] = f"Bearer {gh_token}"
+
+        gh_queries = [
+            f"https://api.github.com/search/repositories?q=created:>{fourteen_days_ago}+stars:>30&sort=stars&order=desc&per_page=100",
+            f"https://api.github.com/search/repositories?q=topic:llm+created:>{fourteen_days_ago}+stars:>15&sort=stars&order=desc&per_page=50"
+        ]
         count = 0
-        if gh_data and "items" in gh_data:
-            for item in gh_data["items"]:
-                rname = item.get("full_name", "")
-                url = item.get("html_url", "")
-                desc = item.get("description", "") or "No description"
-                stars = item.get('stargazers_count', 0)
-                forks = item.get('forks_count', 0)
-                if rname:
-                    pub_at = item.get("created_at")
-                    added = add_candidate({
-                        "title": f"GitHub: {rname}",
-                        "source_platform": "GitHub Official",
-                        "source_url": url,
-                        "published_at": pub_at,
-                        "type": "repo",
-                        "description": f"Stars: {stars}, Forks: {forks} | {desc}",
-                        "viral_metric": f"★ {stars} Stars"
-                    })
-                    if added: count += 1
+        seen_repos = set()
+        for gh_url in gh_queries:
+            try:
+                gh_data = fetch_json(gh_url, headers=gh_headers)
+                if gh_data and "items" in gh_data:
+                    for item in gh_data["items"]:
+                        rname = item.get("full_name", "")
+                        if not rname or rname in seen_repos:
+                            continue
+                        seen_repos.add(rname)
+                        url = item.get("html_url", "")
+                        desc = item.get("description", "") or "No description"
+                        stars = item.get('stargazers_count', 0)
+                        forks = item.get('forks_count', 0)
+                        pub_at = item.get("created_at")
+                        added = add_candidate({
+                            "title": f"GitHub: {rname}",
+                            "source_platform": "GitHub Official",
+                            "source_url": url,
+                            "published_at": pub_at,
+                            "type": "repo",
+                            "description": f"Stars: {stars}, Forks: {forks} | {desc}",
+                            "viral_metric": f"★ {stars} Stars"
+                        })
+                        if added: count += 1
+            except Exception as gh_q_err:
+                logger.log(f"[!] GitHub query note: {gh_q_err}", level="WARNING")
+
         harvest_report["sources"]["github"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - gh_start, 2)}
         logger.log(f"[+] GitHub Search: {count} repo candidates ingested in {time.time() - gh_start:.2f}s")
     except Exception as e:
@@ -591,57 +607,68 @@ def harvest_all():
         logger.log(f"[!] GitHub Search Failed: {e}", level="ERROR")
         harvest_report["summary"]["errors"] += 1
 
-    # 4. Hacker News API (High-Performance Algolia Search - 0.3s)
+    # 4. Hacker News API (Algolia Front Page & Show HN)
     hn_start = time.time()
     try:
-        logger.log("[*] Fetching Hacker News Front Page via Algolia API (limit=50)...")
-        hn_data = fetch_json("https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=50")
+        logger.log("[*] Fetching Hacker News Front Page & Show HN via Algolia API...")
+        hn_queries = [
+            "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=100",
+            "https://hn.algolia.com/api/v1/search?tags=show_hn&hitsPerPage=40"
+        ]
         count = 0
-        if hn_data and "hits" in hn_data:
-            for story in hn_data["hits"]:
-                title = story.get("title") or ""
-                sid = story.get("objectID") or ""
-                if not title or not sid:
-                    continue
-                hn_discussion_url = f"https://news.ycombinator.com/item?id={sid}"
-                article_url = story.get("url") or hn_discussion_url
-                score = story.get("points") or 0
-                num_comments = story.get("num_comments") or 0
-                created_at_i = story.get("created_at_i")
-                published_at = datetime.datetime.fromtimestamp(created_at_i, tz=datetime.timezone.utc).isoformat() if created_at_i else datetime.datetime.now(datetime.timezone.utc).isoformat()
-                
-                raw_comments = []
-                if num_comments and num_comments > 0:
-                    raw_comments = fetch_hn_raw_comments(sid, max_comments=100)
+        seen_stories = set()
+        for hn_url in hn_queries:
+            try:
+                hn_data = fetch_json(hn_url)
+                if hn_data and "hits" in hn_data:
+                    for story in hn_data["hits"]:
+                        title = story.get("title") or ""
+                        sid = story.get("objectID") or ""
+                        if not title or not sid or sid in seen_stories:
+                            continue
+                        seen_stories.add(sid)
+                        hn_discussion_url = f"https://news.ycombinator.com/item?id={sid}"
+                        article_url = story.get("url") or hn_discussion_url
+                        score = story.get("points") or 0
+                        num_comments = story.get("num_comments") or 0
+                        created_at_i = story.get("created_at_i")
+                        published_at = datetime.datetime.fromtimestamp(created_at_i, tz=datetime.timezone.utc).isoformat() if created_at_i else datetime.datetime.now(datetime.timezone.utc).isoformat()
+                        
+                        raw_comments = []
+                        if num_comments and num_comments > 0:
+                            raw_comments = fetch_hn_raw_comments(sid, max_comments=100)
 
-                added = add_candidate({
-                    "title": f"Hacker News: {title}",
-                    "source_platform": "Hacker News",
-                    "source_url": hn_discussion_url,
-                    "hn_url": hn_discussion_url,
-                    "article_url": article_url,
-                    "published_at": published_at,
-                    "type": "repo" if "github.com" in article_url else "sns",
-                    "category_type": "REPO" if "github.com" in article_url else "NEWS",
-                    "description": f"{title} | {score} points, {num_comments} comments",
-                    "viral_metric": f"🔥 {score} HN Points",
-                    "raw_comments": raw_comments,
-                    "comment_count": len(raw_comments)
-                })
-                if added: count += 1
+                        added = add_candidate({
+                            "title": f"Hacker News: {title}",
+                            "source_platform": "Hacker News",
+                            "source_url": hn_discussion_url,
+                            "hn_url": hn_discussion_url,
+                            "article_url": article_url,
+                            "published_at": published_at,
+                            "type": "repo" if "github.com" in article_url else "sns",
+                            "category_type": "REPO" if "github.com" in article_url else "NEWS",
+                            "description": f"{title} | {score} points, {num_comments} comments",
+                            "viral_metric": f"🔥 {score} HN Points",
+                            "raw_comments": raw_comments,
+                            "comment_count": len(raw_comments)
+                        })
+                        if added: count += 1
+            except Exception as hn_q_err:
+                logger.log(f"[!] HN query note: {hn_q_err}", level="WARNING")
 
         harvest_report["sources"]["hacker_news"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - hn_start, 2)}
-        logger.log(f"[+] Hacker News: {count} front-page items ingested in {time.time() - hn_start:.2f}s")
+        logger.log(f"[+] Hacker News: {count} items ingested in {time.time() - hn_start:.2f}s")
     except Exception as e:
         harvest_report["sources"]["hacker_news"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - hn_start, 2)}
         logger.log(f"[!] Hacker News Failed: {e}", level="ERROR")
         harvest_report["summary"]["errors"] += 1
+        harvest_report["summary"]["errors"] += 1
 
-    # 5. ArXiv API (cs.AI & cs.CL)
+    # 5. ArXiv API (cs.AI, cs.CL, cs.LG, cs.CV)
     arxiv_start = time.time()
     try:
-        logger.log("[*] Fetching ArXiv AI/CL Recent Papers (limit=35)...")
-        xml_data = fetch_xml("http://export.arxiv.org/api/query?search_query=cat:cs.AI+OR+cat:cs.CL&sortBy=submittedDate&sortOrder=descending&max_results=35")
+        logger.log("[*] Fetching ArXiv AI/CL/LG/CV Recent Papers (limit=80)...")
+        xml_data = fetch_xml("http://export.arxiv.org/api/query?search_query=cat:cs.AI+OR+cat:cs.CL+OR+cat:cs.LG+OR+cat:cs.CV&sortBy=submittedDate&sortOrder=descending&max_results=80")
         root = ET.fromstring(xml_data)
         count = 0
         for entry in root.findall('{http://www.w3.org/2005/Atom}entry'):
@@ -682,11 +709,14 @@ def harvest_all():
     # 6. Reddit Major Tech Channels via RSS (.rss)
     reddit_start = time.time()
     try:
-        logger.log("[*] Fetching Reddit Major Tech Channels (technology, singularity, LocalLLaMA)...")
+        logger.log("[*] Fetching Reddit Major Tech Channels (technology, singularity, LocalLLaMA, ML, AI, ChatGPT)...")
         subreddits = [
-            ("Reddit r/technology", "https://www.reddit.com/r/technology/.rss?limit=15"),
-            ("Reddit r/singularity", "https://www.reddit.com/r/singularity/.rss?limit=15"),
-            ("Reddit r/LocalLLaMA", "https://www.reddit.com/r/LocalLLaMA/.rss?limit=15")
+            ("Reddit r/technology", "https://www.reddit.com/r/technology/.rss?limit=25"),
+            ("Reddit r/singularity", "https://www.reddit.com/r/singularity/.rss?limit=25"),
+            ("Reddit r/LocalLLaMA", "https://www.reddit.com/r/LocalLLaMA/.rss?limit=25"),
+            ("Reddit r/MachineLearning", "https://www.reddit.com/r/MachineLearning/.rss?limit=25"),
+            ("Reddit r/artificial", "https://www.reddit.com/r/artificial/.rss?limit=25"),
+            ("Reddit r/ChatGPT", "https://www.reddit.com/r/ChatGPT/.rss?limit=25")
         ]
         count = 0
         ns = {'atom': 'http://www.w3.org/2005/Atom'}
@@ -694,7 +724,7 @@ def harvest_all():
             try:
                 xml_raw = fetch_xml(r_feed)
                 root = ET.fromstring(xml_raw)
-                for entry in root.findall('atom:entry', ns)[:15]:
+                for entry in root.findall('atom:entry', ns)[:25]:
                     title_elem = entry.find('atom:title', ns)
                     link_elem = entry.find('atom:link', ns)
                     pub_elem = entry.find('atom:updated', ns) or entry.find('atom:published', ns)
@@ -730,49 +760,62 @@ def harvest_all():
         harvest_report["sources"]["reddit"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - reddit_start, 2)}
         logger.log(f"[!] Reddit Note: {e}", level="WARNING")
 
-    # 7. GeekNews (한국판 해커뉴스 - Atom Feed)
+    # 7. GeekNews (한국판 해커뉴스 - News & Topics Atom Feeds)
     geek_start = time.time()
     try:
-        logger.log("[*] Fetching GeekNews Korean Tech Trends (Atom feed)...")
-        xml_data = fetch_xml("https://news.hada.io/rss/news")
-        root = ET.fromstring(xml_data)
-        ns = {'atom': 'http://www.w3.org/2005/Atom'}
+        logger.log("[*] Fetching GeekNews Korean Tech Trends (News & Topics)...")
+        gn_feeds = [
+            ("https://news.hada.io/rss/news", 40),
+            ("https://news.hada.io/rss/topics", 25)
+        ]
         count = 0
-        for entry in root.findall('atom:entry', ns)[:25]:
-            title_elem = entry.find('atom:title', ns)
-            id_elem = entry.find('atom:id', ns)
-            content_elem = entry.find('atom:content', ns) or entry.find('atom:summary', ns)
-            
-            if title_elem is not None and id_elem is not None:
-                title = title_elem.text.strip() if title_elem.text else ""
-                topic_url = id_elem.text.strip() if id_elem.text else ""
-                content_raw = content_elem.text.strip() if content_elem is not None and content_elem.text else ""
-                clean_desc = re.sub(r'<[^>]+>', ' ', content_raw).strip()[:200]
-                
-                # Check for external article link
-                m_ext = re.search(r'href=[\'"](https?://[^\'"]+)[\'"]', content_raw)
-                article_url = m_ext.group(1) if m_ext else topic_url
+        seen_gn_topics = set()
+        ns = {'atom': 'http://www.w3.org/2005/Atom'}
+        for gn_url, gn_limit in gn_feeds:
+            try:
+                xml_data = fetch_xml(gn_url)
+                root = ET.fromstring(xml_data)
+                for entry in root.findall('atom:entry', ns)[:gn_limit]:
+                    title_elem = entry.find('atom:title', ns)
+                    id_elem = entry.find('atom:id', ns)
+                    content_elem = entry.find('atom:content', ns) or entry.find('atom:summary', ns)
+                    
+                    if title_elem is not None and id_elem is not None:
+                        title = title_elem.text.strip() if title_elem.text else ""
+                        topic_url = id_elem.text.strip() if id_elem.text else ""
+                        if not topic_url or topic_url in seen_gn_topics:
+                            continue
+                        seen_gn_topics.add(topic_url)
 
-                pub_elem = entry.find('atom:published', ns)
-                if pub_elem is None:
-                    pub_elem = entry.find('atom:updated', ns)
-                published_at = pub_elem.text.strip() if (pub_elem is not None and pub_elem.text) else None
+                        content_raw = content_elem.text.strip() if content_elem is not None and content_elem.text else ""
+                        clean_desc = re.sub(r'<[^>]+>', ' ', content_raw).strip()[:200]
+                        
+                        # Check for external article link
+                        m_ext = re.search(r'href=[\'"](https?://[^\'"]+)[\'"]', content_raw)
+                        article_url = m_ext.group(1) if m_ext else topic_url
 
-                added = add_candidate({
-                    "title": f"GeekNews: {title}",
-                    "title_ko": title,
-                    "source_platform": "GeekNews",
-                    "source_url": topic_url,
-                    "hn_url": topic_url,
-                    "article_url": article_url,
-                    "published_at": published_at,
-                    "type": "sns",
-                    "category_type": "NEWS",
-                    "description": clean_desc or f"GeekNews Korean Tech Trend: {title}",
-                    "description_ko": clean_desc or title,
-                    "viral_metric": "🇰🇷 GeekNews 큐레이션"
-                })
-                if added: count += 1
+                        pub_elem = entry.find('atom:published', ns)
+                        if pub_elem is None:
+                            pub_elem = entry.find('atom:updated', ns)
+                        published_at = pub_elem.text.strip() if (pub_elem is not None and pub_elem.text) else None
+
+                        added = add_candidate({
+                            "title": f"GeekNews: {title}",
+                            "title_ko": title,
+                            "source_platform": "GeekNews",
+                            "source_url": topic_url,
+                            "hn_url": topic_url,
+                            "article_url": article_url,
+                            "published_at": published_at,
+                            "type": "sns",
+                            "category_type": "NEWS",
+                            "description": clean_desc or f"GeekNews Korean Tech Trend: {title}",
+                            "description_ko": clean_desc or title,
+                            "viral_metric": "🇰🇷 GeekNews 큐레이션"
+                        })
+                        if added: count += 1
+            except Exception as gn_inner_err:
+                logger.log(f"[!] GeekNews feed note: {gn_inner_err}", level="WARNING")
 
         harvest_report["sources"]["geeknews"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - geek_start, 2)}
         logger.log(f"[+] GeekNews: {count} Korean tech items ingested in {time.time() - geek_start:.2f}s")
@@ -780,13 +823,16 @@ def harvest_all():
         harvest_report["sources"]["geeknews"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - geek_start, 2)}
         logger.log(f"[!] GeekNews Note: {e}", level="WARNING")
 
-    # 8. Curated AI Engineering RSS (Hugging Face Blog & Simon Willison)
+    # 8. Curated AI Engineering RSS (Hugging Face, PyTorchKR, Simon Willison, OpenAI, Anthropic)
     rss_start = time.time()
     try:
-        logger.log("[*] Fetching Curated Global AI RSS Feeds...")
+        logger.log("[*] Fetching Curated Global AI & Korean Community Feeds...")
         rss_sources = [
             ("Hugging Face Blog", "https://huggingface.co/blog/feed.xml", "https://huggingface.co/blog"),
-            ("PyTorchKR", "https://discuss.pytorch.kr/latest.rss", "https://discuss.pytorch.kr")
+            ("PyTorchKR", "https://discuss.pytorch.kr/latest.rss", "https://discuss.pytorch.kr"),
+            ("Simon Willison Weblog", "https://simonwillison.net/atom/everything/", "https://simonwillison.net"),
+            ("OpenAI News", "https://openai.com/news/rss.xml", "https://openai.com"),
+            ("Anthropic News", "https://www.anthropic.com/news/rss.xml", "https://www.anthropic.com")
         ]
         count = 0
         for sname, sfeed, base_url in rss_sources:
@@ -852,28 +898,36 @@ def harvest_all():
         harvest_report["sources"]["curated_rss"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - rss_start, 2)}
         logger.log(f"[!] Curated RSS Failed: {e}", level="WARNING")
 
-    # 9. Google News RSS (Korean Tech & Global AI Breakthroughs)
+    # 9. Mainstream Tech Press & Google News (TechCrunch, The Verge, VentureBeat, Ars Technica)
     gnews_start = time.time()
     try:
-        logger.log("[*] Fetching Google News RSS (KR & Global Tech)...")
-        gnews_feeds = [
+        logger.log("[*] Fetching Global Tech Press & Google News RSS...")
+        press_feeds = [
             ("Google News KR", "https://news.google.com/rss/search?q=%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5+OR+%EC%83%9D%EC%84%B1%ED%98%95AI&hl=ko&gl=KR&ceid=KR:ko"),
-            ("Google News Global", "https://news.google.com/rss/search?q=%22OpenAI%22+OR+%22Claude%22+OR+%22DeepSeek%22&hl=en-US&gl=US&ceid=US:en")
+            ("Google News Global", "https://news.google.com/rss/search?q=%22OpenAI%22+OR+%22Claude%22+OR+%22DeepSeek%22&hl=en-US&gl=US&ceid=US:en"),
+            ("TechCrunch AI", "https://techcrunch.com/category/artificial-intelligence/feed/"),
+            ("The Verge AI", "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"),
+            ("VentureBeat AI", "https://venturebeat.com/category/ai/feed/"),
+            ("Ars Technica", "https://feeds.arstechnica.com/arstechnica/technology-lab")
         ]
         count = 0
-        for sname, g_feed in gnews_feeds:
+        for sname, p_feed in press_feeds:
             try:
-                xml_raw = fetch_xml(g_feed)
+                xml_raw = fetch_xml(p_feed)
                 root = ET.fromstring(xml_raw)
-                for it in root.findall('.//item')[:20]:
-                    t_node = it.find('title')
-                    l_node = it.find('link')
-                    p_node = it.find('pubDate')
-                    d_node = it.find('description')
+                items = root.findall('.//item')
+                if not items:
+                    ns = {'atom': 'http://www.w3.org/2005/Atom'}
+                    items = root.findall('atom:entry', ns) or root.findall('.//{http://www.w3.org/2005/Atom}entry')
+
+                for it in items[:30]:
+                    t_node = it.find('title') if it.find('title') is not None else it.find('{http://www.w3.org/2005/Atom}title')
+                    l_node = it.find('link') if it.find('link') is not None else it.find('{http://www.w3.org/2005/Atom}link')
+                    p_node = it.find('pubDate') or it.find('{http://www.w3.org/2005/Atom}published') or it.find('{http://www.w3.org/2005/Atom}updated')
+                    d_node = it.find('description') if it.find('description') is not None else (it.find('{http://www.w3.org/2005/Atom}summary') or it.find('{http://www.w3.org/2005/Atom}content'))
                     
                     if t_node is not None and t_node.text:
                         raw_title = t_node.text.strip()
-                        # Extract source newspaper name if separated by dash (e.g., "AI 돌풍... - 전자신문")
                         title_clean = raw_title
                         news_org = sname
                         if " - " in raw_title:
@@ -881,7 +935,13 @@ def harvest_all():
                             title_clean = parts[0].strip()
                             news_org = parts[1].strip()
                             
-                        url = l_node.text.strip() if l_node is not None and l_node.text else ""
+                        url = ""
+                        if l_node is not None:
+                            url = l_node.attrib.get('href') if 'href' in l_node.attrib else (l_node.text or "").strip()
+                        if not url:
+                            id_n = it.find('{http://www.w3.org/2005/Atom}id')
+                            if id_n is not None and id_n.text: url = id_n.text.strip()
+
                         pub_iso = None
                         if p_node is not None and p_node.text:
                             try:
@@ -890,7 +950,7 @@ def harvest_all():
                             except Exception:
                                 pub_iso = p_node.text.strip()
                         
-                        desc_text = re.sub(r'<[^>]+>', ' ', d_node.text).strip()[:180] if d_node is not None and d_node.text else title_clean
+                        desc_text = re.sub(r'<[^>]+>', ' ', d_node.text).strip()[:180] if (d_node is not None and d_node.text) else title_clean
                         if url:
                             added = add_candidate({
                                 "title": f"News: {title_clean}",
@@ -904,14 +964,14 @@ def harvest_all():
                                 "viral_metric": f"📰 {news_org} 보도"
                             })
                             if added: count += 1
-            except Exception as g_err:
-                logger.log(f"[!] {sname} feed note: {g_err}", level="WARNING")
+            except Exception as p_err:
+                logger.log(f"[!] {sname} feed note: {p_err}", level="WARNING")
 
-        harvest_report["sources"]["google_news"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - gnews_start, 2)}
-        logger.log(f"[+] Google News: {count} mainstream press items ingested in {time.time() - gnews_start:.2f}s")
+        harvest_report["sources"]["press_news"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - gnews_start, 2)}
+        logger.log(f"[+] Global Tech Press & News: {count} items ingested in {time.time() - gnews_start:.2f}s")
     except Exception as e:
-        harvest_report["sources"]["google_news"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - gnews_start, 2)}
-        logger.log(f"[!] Google News Note: {e}", level="WARNING")
+        harvest_report["sources"]["press_news"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - gnews_start, 2)}
+        logger.log(f"[!] Press News Note: {e}", level="WARNING")
 
     # 10. YouTube Tech Channels RSS (Mainstream AI Virality)
     yt_start = time.time()
@@ -921,7 +981,8 @@ def harvest_all():
             ("Fireship", "https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA"),
             ("조코딩 JoCoding", "https://www.youtube.com/feeds/videos.xml?channel_id=UCQNE2JmbasNYbjGAcuBiRRg"),
             ("Two Minute Papers", "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg"),
-            ("슈카월드", "https://www.youtube.com/feeds/videos.xml?channel_id=UCsJ6RuBiTVWRX156FVbeaGg")
+            ("슈카월드", "https://www.youtube.com/feeds/videos.xml?channel_id=UCsJ6RuBiTVWRX156FVbeaGg"),
+            ("Matt Wolfe", "https://www.youtube.com/feeds/videos.xml?channel_id=UCnvrTsmepP_0IflYNGmN8ig")
         ]
         count = 0
         ns = {'atom': 'http://www.w3.org/2005/Atom'}
@@ -929,7 +990,7 @@ def harvest_all():
             try:
                 xml_raw = fetch_xml(yt_feed)
                 root = ET.fromstring(xml_raw)
-                for entry in root.findall('atom:entry', ns)[:10]:
+                for entry in root.findall('atom:entry', ns)[:15]:
                     t_node = entry.find('atom:title', ns)
                     l_node = entry.find('atom:link', ns)
                     p_node = entry.find('atom:published', ns)
@@ -1258,18 +1319,41 @@ def harvest_all():
         json.dump(history, f, indent=2, ensure_ascii=False)
     logger.log(f"[+] Harvest history saved to {history_file}")
 
-    # Stage 2: Immediate Staging to Neon DB & Telemetry Logging
-    record_harvest_telemetry_to_neon(
+    # Stage 2: Immediate Staging to Cloud DB (Aiven PostgreSQL SSOT) & Telemetry Logging
+    record_harvest_telemetry_to_cloud(
         harvest_report, new_saved, updated_count, dup_skipped, len(all_candidates),
         metric_snapshots=metric_snapshots_to_sync
     )
-    sync_new_items_to_neon()
+    sync_new_items_to_cloud()
 
-def record_harvest_telemetry_to_neon(harvest_report, new_saved, updated_count, dup_skipped, total_fetched, metric_snapshots=None):
+def record_harvest_telemetry_to_cloud(harvest_report, new_saved, updated_count, dup_skipped, total_fetched, metric_snapshots=None):
     """
-    Stage 2: Records harvest run metadata and platform-specific metrics directly into Neon DB.
-    Tables: harvest_runs, harvest_source_metrics
+    Stage 2: Records harvest run metadata and platform-specific metrics directly into Cloud DB (Aiven PostgreSQL SSOT).
+    Tables: harvest_runs, harvest_source_metrics, github_actions_run_logs
     """
+    gh_run_id = os.environ.get("GITHUB_RUN_ID")
+    now_dt = datetime.datetime.now(datetime.timezone.utc)
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    # 1. Unconditionally save local harvest_summary.json FIRST for subsequent runner steps
+    try:
+        logs_dir = os.path.join(root_dir, "logs")
+        os.makedirs(logs_dir, exist_ok=True)
+        summary_path = os.path.join(logs_dir, "harvest_summary.json")
+        with open(summary_path, "w", encoding="utf-8") as f:
+            json.dump({
+                "run_id": gh_run_id,
+                "items_collected": new_saved,
+                "items_scanned": total_fetched,
+                "updated_count": updated_count,
+                "duplicates_skipped": dup_skipped,
+                "recorded_at": now_dt.isoformat()
+            }, f, ensure_ascii=False, indent=2)
+        print(f"[+] [Local Telemetry] Saved harvest summary to {summary_path} (scanned={total_fetched}, collected={new_saved})")
+    except Exception as summ_err:
+        print(f"[!] Warning writing local harvest_summary.json: {summ_err}")
+
+    # 2. Connect to Cloud DB
     try:
         from tools.db_bridge import get_db_connection
     except Exception:
@@ -1282,33 +1366,46 @@ def record_harvest_telemetry_to_neon(harvest_report, new_saved, updated_count, d
     if not conn:
         return
 
+    run_id = f"run_{datetime.datetime.now().astimezone().strftime('%Y%m%d_%H%M%S')}"
+
+    # 2-1. Insert harvest_runs
     try:
-        cur = conn.cursor()
-        run_id = f"run_{datetime.datetime.now().astimezone().strftime('%Y%m%d_%H%M%S')}"
-        now_dt = datetime.datetime.now(datetime.timezone.utc)
-        
-        # 1. Insert harvest_runs
-        cur.execute("""
-            INSERT INTO harvest_runs (run_id, started_at, finished_at, total_fetched, new_saved, duplicates_skipped, errors_count, status)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-            ON CONFLICT (run_id) DO NOTHING;
-        """, (run_id, now_dt, now_dt, total_fetched, new_saved, dup_skipped, 0, 'SUCCESS'))
-
-        # 2. Insert harvest_source_metrics
-        source_counts = harvest_report.get("sources", {})
-        for src_name, src_data in source_counts.items():
-            count = src_data.get("items_found", 0) if isinstance(src_data, dict) else (src_data if isinstance(src_data, int) else 0)
-            latency = src_data.get("duration_sec", 0.0) if isinstance(src_data, dict) else 0.0
-            status = src_data.get("status", "SUCCESS") if isinstance(src_data, dict) else "SUCCESS"
+        with conn.cursor() as cur:
             cur.execute("""
-                INSERT INTO harvest_source_metrics (run_id, source_name, items_count, latency_seconds, http_status, recorded_at)
-                VALUES (%s, %s, %s, %s, %s, CURRENT_TIMESTAMP);
-            """, (run_id, src_name, count, latency, status))
+                INSERT INTO harvest_runs (run_id, started_at, finished_at, total_fetched, new_saved, duplicates_skipped, errors_count, status)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                ON CONFLICT (run_id) DO UPDATE SET
+                    total_fetched = EXCLUDED.total_fetched,
+                    new_saved = EXCLUDED.new_saved;
+            """, (run_id, now_dt, now_dt, total_fetched, new_saved, dup_skipped, 0, 'SUCCESS'))
+        conn.commit()
+    except Exception as e:
+        print(f"[!] Note: harvest_runs insert warning: {e}")
+        try: conn.rollback()
+        except Exception: pass
 
-        # 3. Upsert github_actions_run_logs if running inside GitHub Actions
-        gh_run_id = os.environ.get("GITHUB_RUN_ID")
-        if gh_run_id:
-            try:
+    # 2-2. Insert harvest_source_metrics
+    try:
+        source_counts = harvest_report.get("sources", {})
+        with conn.cursor() as cur:
+            for src_name, src_data in source_counts.items():
+                count = src_data.get("items_found", 0) if isinstance(src_data, dict) else (src_data if isinstance(src_data, int) else 0)
+                latency = src_data.get("duration_sec", 0.0) if isinstance(src_data, dict) else 0.0
+                status = src_data.get("status", "SUCCESS") if isinstance(src_data, dict) else "SUCCESS"
+                cur.execute("""
+                    INSERT INTO harvest_source_metrics (run_id, source_name, items_count, latency_seconds, http_status, recorded_at)
+                    VALUES (%s, %s, %s, %s, %s, CURRENT_TIMESTAMP);
+                """, (run_id, src_name, count, latency, status))
+        conn.commit()
+    except Exception as e:
+        print(f"[!] Note: harvest_source_metrics insert warning: {e}")
+        try: conn.rollback()
+        except Exception: pass
+
+    # 2-3. Upsert github_actions_run_logs if running inside GitHub Actions
+    if gh_run_id:
+        try:
+            with conn.cursor() as cur:
                 cur.execute("""
                     INSERT INTO github_actions_run_logs (
                         run_id, workflow_name, event_trigger, status, conclusion,
@@ -1329,30 +1426,18 @@ def record_harvest_telemetry_to_neon(harvest_report, new_saved, updated_count, d
                     new_saved,
                     total_fetched
                 ))
-            except Exception as e:
-                print(f"[!] Note updating github_actions_run_logs.items_collected: {e}")
+            conn.commit()
+            print(f"[+] [Cloud DB] Synchronized run {gh_run_id} to github_actions_run_logs (collected={new_saved}, scanned={total_fetched}).")
+        except Exception as e:
+            print(f"[!] Note updating github_actions_run_logs.items_collected: {e}")
+            try: conn.rollback()
+            except Exception: pass
 
-        # 4. Save local harvest_summary.json for subsequent workflow steps
+    # 2-4. Bulk insert metric snapshots if any (Extreme-Efficiency Time-Series Tracking)
+    if metric_snapshots:
         try:
-            root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            logs_dir = os.path.join(root_dir, "logs")
-            os.makedirs(logs_dir, exist_ok=True)
-            summary_path = os.path.join(logs_dir, "harvest_summary.json")
-            with open(summary_path, "w", encoding="utf-8") as f:
-                json.dump({
-                    "run_id": gh_run_id,
-                    "items_collected": new_saved,
-                    "items_scanned": total_fetched,
-                    "updated_count": updated_count,
-                    "recorded_at": now_dt.isoformat()
-                }, f, ensure_ascii=False, indent=2)
-        except Exception:
-            pass
-
-        # 5. Bulk insert metric snapshots if any (Extreme-Efficiency Time-Series Tracking)
-        if metric_snapshots:
-            try:
-                from psycopg2.extras import execute_values
+            from psycopg2.extras import execute_values
+            with conn.cursor() as cur:
                 execute_values(
                     cur,
                     """
@@ -1361,20 +1446,22 @@ def record_harvest_telemetry_to_neon(harvest_report, new_saved, updated_count, d
                     """,
                     metric_snapshots
                 )
-                print(f"[+] [Neon DB] Bulk-inserted {len(metric_snapshots)} metric snapshots into trend_metric_snapshots.")
-            except Exception as snap_err:
-                print(f"[!] Warning recording metric snapshots to Neon DB: {snap_err}")
+            conn.commit()
+            print(f"[+] [Cloud DB] Bulk-inserted {len(metric_snapshots)} metric snapshots into trend_metric_snapshots.")
+        except Exception as snap_err:
+            print(f"[!] Warning recording metric snapshots to Cloud DB: {snap_err}")
+            try: conn.rollback()
+            except Exception: pass
 
-        conn.commit()
-        cur.close()
+    try:
         conn.close()
-        print(f"[+] [Neon DB] Recorded harvest run '{run_id}' with {total_fetched} items ({new_saved} new, {updated_count} updated) into harvest_runs & harvest_source_metrics.")
-    except Exception as e:
-        print(f"[!] Warning recording harvest telemetry to Neon DB: {e}")
+    except Exception:
+        pass
+    print(f"[+] [Cloud DB] Recorded harvest run '{run_id}' with {total_fetched} items ({new_saved} new, {updated_count} updated) into harvest_runs & harvest_source_metrics.")
 
-def sync_new_items_to_neon():
+def sync_new_items_to_cloud():
     """
-    Stage 2: Immediately sync newly harvested inbox items to Neon DB raw_trends_inbox staging table.
+    Stage 2: Immediately sync newly harvested inbox items to Cloud DB (Aiven PostgreSQL SSOT) raw_trends_inbox staging table.
     Ensures data durability even if subsequent LLM processing fails or times out.
     """
     try:
@@ -1382,11 +1469,11 @@ def sync_new_items_to_neon():
             from tools.db_bridge import push_inbox_to_neon
         except Exception:
             from db_bridge import push_inbox_to_neon
-        print("[*] [Neon DB Staging] Syncing newly harvested inbox items directly to Neon DB...")
+        print("[*] [Cloud DB Staging] Syncing newly harvested inbox items directly to Cloud DB...")
         push_inbox_to_neon(full_sync=False)
-        print("[+] [Neon DB Staging] Staged items successfully committed to Neon DB raw_trends_inbox.")
+        print("[+] [Cloud DB Staging] Staged items successfully committed to Cloud DB raw_trends_inbox.")
     except Exception as e:
-        print(f"[!] Warning syncing staged items to Neon DB: {e}")
+        print(f"[!] Warning syncing staged items to Cloud DB: {e}")
 
 if __name__ == "__main__":
     harvest_all()
