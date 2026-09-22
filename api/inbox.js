@@ -23,6 +23,49 @@ function setCachedResponse(key, data) {
   inboxApiCache.set(key, { timestamp: Date.now(), data });
 }
 
+function getStaticInboxFallback(req) {
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const candidatePaths = [
+      path.join(__dirname, '_lib', 'data.json'),
+      path.join(process.cwd(), 'public', 'data.json'),
+      path.join(process.cwd(), 'docs', 'data.json'),
+      path.join(__dirname, '..', 'public', 'data.json'),
+      path.join(__dirname, '..', 'docs', 'data.json')
+    ];
+    for (const p of candidatePaths) {
+      if (fs.existsSync(p)) {
+        const d = JSON.parse(fs.readFileSync(p, 'utf8'));
+        if (d && (d.news_items || d.inbox_items)) {
+          const type = (req.query?.type || req.query?.tab || '').toUpperCase();
+          let items = d.news_items || [];
+          if (type === 'MODEL') items = d.model_items || [];
+          else if (type === 'INBOX') items = d.inbox_items || [];
+          else if (type === 'ALL') items = (d.news_items || []).concat(d.model_items || []);
+
+          const limit = Math.min(100, Math.max(1, parseInt(req.query?.limit, 10) || 15));
+          const page = Math.max(1, parseInt(req.query?.page, 10) || 1);
+          const offset = (page - 1) * limit;
+          const pagedItems = items.slice(offset, offset + limit);
+
+          return {
+            status: 'success',
+            source: 'static_snapshot_fallback',
+            page: page,
+            limit: limit,
+            total: items.length,
+            total_pages: Math.ceil(items.length / limit) || 1,
+            items: pagedItems,
+            news: pagedItems
+          };
+        }
+      }
+    }
+  } catch (e) {}
+  return null;
+}
+
 module.exports = async (req, res) => {
   if (handleOptions(req, res, 'GET, OPTIONS')) return;
   setCorsHeaders(res, 'GET, OPTIONS');
@@ -38,6 +81,10 @@ module.exports = async (req, res) => {
 
   const pool = getDbPool();
   if (!pool) {
+    const fallback = getStaticInboxFallback(req);
+    if (fallback) {
+      return res.status(200).json(fallback);
+    }
     return res.status(500).json({ status: 'error', message: 'Database connection not configured' });
   }
 
