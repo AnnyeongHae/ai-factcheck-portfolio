@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
       `);
       return res.status(200).json({
         success: true,
-        source: "neon_database_live",
+        source: "database_live",
         total_batches: result.rows.length,
         batches: result.rows
       });

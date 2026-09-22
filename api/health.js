@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
 
   const pool = getDbPool();
   const providerInfo = getDbProviderInfo();
-  let dbStatus = pool ? "INITIALIZING" : "NOT_CONFIGURED";
+  let dbStatus = pool ? "INITIALIZING" : (providerInfo.status === "FROZEN_BLOCKED" ? "NEON_FROZEN_AIVEN_REQUIRED" : "NOT_CONFIGURED");
   let counts = {};
   let pgVersion = null;
 
@@ -30,17 +30,23 @@ module.exports = async (req, res) => {
     }
   }
 
-  return res.status(200).json({
+  const responsePayload = {
     service: "AI Tech-Lineage Fact-Check Hub (Vercel Serverless Node.js Backend)",
-    version: "v21.1",
+    version: "v21.2",
     database_status: dbStatus,
     database_provider: providerInfo.provider,
     database_host: providerInfo.host,
     database_version: pgVersion,
-    neon_postgres_status: dbStatus, // Legacy alias for backward compatibility
+    neon_postgres_status: providerInfo.provider === 'Aiven PostgreSQL' ? 'DECOMMISSIONED_IN_FAVOR_OF_AIVEN' : (providerInfo.status === 'FROZEN_BLOCKED' ? 'BLOCKED_FROZEN' : dbStatus),
     database_url_present: Boolean(pool),
     metrics: counts
-  });
+  };
+
+  if (providerInfo.instruction) {
+    responsePayload.instruction = providerInfo.instruction;
+  }
+
+  return res.status(200).json(responsePayload);
 };
 
 

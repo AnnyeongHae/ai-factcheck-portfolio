@@ -246,7 +246,7 @@ async function bootstrapApplicationData() {
 
   // 2. Perform live DB sync in background (non-blocking, instant 0ms page load)
   setTimeout(() => {
-    syncFromNeonLiveDB(false)
+    syncFromLiveDB(false)
       .then(() => updateGlobalStatsUI())
       .catch(e => console.warn('[Bootstrap] Live DB sync completed or skipped:', e.message));
   }, 100);
@@ -1611,7 +1611,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     // ================= REAL-TIME DB SYNC (VERCEL LIVE API + STATIC FALLBACK) =================
     let _isSyncing = false;
     let _syncTimeoutId = null;
-    async function syncFromNeonLiveDB(force = false) {
+    async function syncFromLiveDB(force = false) {
       if (_isSyncing && !force) return;
       _isSyncing = true;
       if (_syncTimeoutId) clearTimeout(_syncTimeoutId);
@@ -1835,7 +1835,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               }
             }
 
-            // 🌟 Live GitHub Actions Quota & Telemetry Runs Hydration from Neon DB
+            // 🌟 Live GitHub Actions Quota & Telemetry Runs Hydration from Cloud DB
             if (data.actions_quota && data.actions_quota.total_minutes !== undefined) {
               actionsTelemetryData = actionsTelemetryData || {};
               actionsTelemetryData.monthly_used_minutes = data.actions_quota.total_minutes;
@@ -4286,7 +4286,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         `;
       }
 
-      // 3. 🐘 Background SWR Revalidation (Neon PostgreSQL Cloud DB via Edge SWR)
+      // 3. 🐘 Background SWR Revalidation (Cloud DB via Edge SWR)
       try {
         const dbRes = await fetchNewsFromDb(currentNewsPage);
         const items = dbRes.items || [];
@@ -5266,7 +5266,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           body: JSON.stringify({ inbox_id: inboxId, action: action })
         });
         if (res.ok) {
-          showToast(action === 'queue' ? `[${title}] 항목이 Neon Postgres DB 실시간 큐에 등록되었습니다!` : `대기열에서 제외되었습니다.`);
+          showToast(action === 'queue' ? `[${title}] 항목이 클라우드 DB 실시간 큐에 등록되었습니다!` : `대기열에서 제외되었습니다.`);
           return;
         }
       } catch (err) {}
@@ -5470,7 +5470,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     window.setNewsSort = typeof setNewsSort === 'function' ? setNewsSort : undefined;
     window.setModelsSort = typeof setModelsSort === 'function' ? setModelsSort : undefined;
     window.toggleSourcePopover = typeof toggleSourcePopover === 'function' ? toggleSourcePopover : undefined;
-    window.syncFromNeonLiveDB = typeof syncFromNeonLiveDB === 'function' ? syncFromNeonLiveDB : undefined;
+    window.syncFromLiveDB = typeof syncFromLiveDB === 'function' ? syncFromLiveDB : undefined;
+    window.syncFromNeonLiveDB = typeof syncFromLiveDB === 'function' ? syncFromLiveDB : undefined;
     window.toggleBackgroundAiWorker = typeof toggleBackgroundAiWorker === 'function' ? toggleBackgroundAiWorker : undefined;
     window.switchRunsTab = typeof switchRunsTab === 'function' ? switchRunsTab : undefined;
     if (typeof filterGraphGroup === 'function') window.filterGraphGroup = filterGraphGroup;

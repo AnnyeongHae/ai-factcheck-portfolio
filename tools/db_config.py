@@ -40,12 +40,33 @@ def load_env_variables():
 
 def get_db_url() -> str:
     """
-    Returns the primary PostgreSQL database connection URL.
-    Priority: DATABASE_URL -> AIVEN_SERVICE_URI -> NEON_KEY
+    Returns the primary PostgreSQL database connection URL (SSOT: Aiven PostgreSQL).
+    Priority:
+    1. AIVEN_SERVICE_URI (Primary SSOT)
+    2. DATABASE_URL (if NOT pointing to frozen Neon DB)
+    3. Frozen Neon DB blocked by default to prevent 5GB quota exhaustion.
     """
     load_env_variables()
-    db_url = os.environ.get("DATABASE_URL") or os.environ.get("AIVEN_SERVICE_URI") or os.environ.get("NEON_KEY")
-    return db_url or ""
+
+    # 1. Primary Aiven SSOT
+    if os.environ.get("AIVEN_SERVICE_URI"):
+        return os.environ.get("AIVEN_SERVICE_URI")
+
+    # 2. DATABASE_URL (check if pointing to Neon)
+    db_url = os.environ.get("DATABASE_URL")
+    if db_url:
+        if "neon.tech" not in db_url:
+            return db_url
+        if os.environ.get("ALLOW_FROZEN_NEON") == "true":
+            print("[!] Warning: Using frozen Neon DB (ALLOW_FROZEN_NEON=true).")
+            return db_url
+        print("[!] ⛔ Warning: Neon PostgreSQL is FROZEN (100% bandwidth quota exhausted). Active queries blocked. Please configure AIVEN_SERVICE_URI.")
+        return ""
+
+    if os.environ.get("ALLOW_FROZEN_NEON") == "true":
+        return os.environ.get("NEON_KEY") or os.environ.get("NEON_BACKUP_KEY") or ""
+
+    return ""
 
 def get_db_info(url: str = None) -> dict:
     """Inspects the connection string and returns safe provider metadata."""

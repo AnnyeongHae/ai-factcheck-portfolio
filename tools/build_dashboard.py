@@ -44,12 +44,15 @@ def scan_investigations():
                     except Exception as e:
                         print(f"[!] Warning: Failed to read {meta_path}: {e}")
 
-    # 2. Live Cloud Source: Neon PostgreSQL DB (Primary Truth for Dossiers)
+    # 2. Live Cloud Source: Cloud DB (Aiven PostgreSQL SSOT)
     try:
         tools_dir = os.path.dirname(os.path.abspath(__file__))
         if tools_dir not in sys.path:
             sys.path.insert(0, tools_dir)
         from db_bridge import get_db_connection
+        from db_config import get_db_info
+        p_info = get_db_info()
+        provider_name = p_info.get("provider", "Cloud PostgreSQL")
         conn = get_db_connection()
         if conn:
             cur = conn.cursor()
@@ -185,9 +188,9 @@ def scan_investigations():
                     cases_by_id[cid] = db_item
                     db_synced += 1
             conn.close()
-            print(f"[+] [Neon DB Direct] Synced {len(rows)} verified dossiers from Neon DB (Added: {db_synced}, Total: {len(cases_by_id)})")
+            print(f"[+] [{provider_name} Direct] Synced {len(rows)} verified dossiers from {provider_name} (Added: {db_synced}, Total: {len(cases_by_id)})")
     except Exception as e:
-        print(f"[!] Warning: Neon DB dossier query skipped ({e}), using local disk cases...")
+        print(f"[!] Warning: Cloud DB dossier query skipped ({e}), using local disk cases...")
 
     cases = list(cases_by_id.values())
     cases.sort(key=lambda c: (c.get("investigation_date") or (c.get("source_published_date") or "")[:10] or "2026-01-01", c.get("case_id") or ""), reverse=True)
@@ -213,12 +216,15 @@ def scan_inbox():
         if items_by_id:
             print(f"[+] [Local Disk] Loaded {len(items_by_id)} items from local disk.")
 
-    # 2. 🌟 Primary Live Cloud Source: Neon PostgreSQL DB
+    # 2. 🌟 Primary Live Cloud Source: Cloud DB (Aiven PostgreSQL SSOT)
     try:
         tools_dir = os.path.dirname(os.path.abspath(__file__))
         if tools_dir not in sys.path:
             sys.path.insert(0, tools_dir)
         from db_bridge import load_env_db_url
+        from db_config import get_db_info
+        p_info = get_db_info()
+        provider_name = p_info.get("provider", "Cloud PostgreSQL")
         db_url = load_env_db_url()
         if db_url:
             import psycopg2
@@ -259,9 +265,9 @@ def scan_inbox():
                             items_by_id[iid] = payload
                             db_added += 1
             conn.close()
-            print(f"[+] [Neon DB Direct] Synced with Neon PostgreSQL DB. Total consolidated items: {len(items_by_id)}")
+            print(f"[+] [{provider_name} Direct] Synced with {provider_name}. Total consolidated items: {len(items_by_id)}")
     except Exception as e:
-        print(f"[!] Warning: Neon DB direct query failed ({e}), using local disk data...")
+        print(f"[!] Warning: Cloud DB direct query failed ({e}), using local disk data...")
 
     inbox_items = list(items_by_id.values())
 

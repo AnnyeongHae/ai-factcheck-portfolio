@@ -253,18 +253,20 @@ def push_inbox_to_neon(full_sync=False):
         psycopg2.extras.execute_batch(cur, sql, params_list, page_size=100)
         count = len(params_list)
 
+    provider = get_db_info().get("provider", "Cloud DB")
     conn.commit()
     conn.close()
-    print(f"[+] Successfully pushed {count} inbox candidates to Neon Postgres DB (Tier 1 Staging)!")
+    print(f"[+] Successfully pushed {count} inbox candidates to {provider} (Tier 1 Staging)!")
 
 def pull_inbox_from_neon(limit=50):
     """
-    Hydrates local inbox/ from Neon Postgres DB Tier 1 raw_trends_inbox.
+    Hydrates local inbox/ from Cloud DB Tier 1 raw_trends_inbox.
     Ensures CI runner or clean dev machine has the exact consolidated data.
     """
     conn = get_db_connection()
+    provider = get_db_info().get("provider", "Cloud DB")
     if not conn:
-        print("[!] Note: Could not connect to Neon DB to pull inbox.")
+        print(f"[!] Note: Could not connect to {provider} to pull inbox.")
         return 0
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     inbox_dir = os.path.join(base_dir, "inbox")
@@ -304,7 +306,8 @@ def pull_inbox_from_neon(limit=50):
                         json.dump(payload, tf, indent=2, ensure_ascii=False)
                     count += 1
     conn.close()
-    print(f"[+] Successfully hydrated {count} inbox items from Neon Postgres DB to local inbox!")
+    provider = get_db_info().get("provider", "Cloud DB")
+    print(f"[+] Successfully hydrated {count} inbox items from {provider} to local inbox!")
     return count
 
 def push_factchecks_to_neon():
@@ -409,7 +412,8 @@ def push_factchecks_to_neon():
                     print(f"[!] Error inserting investigation {d}: {e}")
     conn.commit()
     conn.close()
-    print(f"[+] Successfully synced {count} verified fact-check portfolios to Neon Postgres DB (Tier 2 Knowledge Core)!")
+    provider = get_db_info().get("provider", "Cloud DB")
+    print(f"[+] Successfully synced {count} verified fact-check portfolios to {provider} (Tier 2 Knowledge Core)!")
 
 def main():
     parser = argparse.ArgumentParser(description="Neon Postgres Enterprise Synchronizer")

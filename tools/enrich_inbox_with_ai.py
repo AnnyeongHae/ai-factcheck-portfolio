@@ -47,7 +47,7 @@ GEMINI_ENABLED = False
 
 def update_neon_inbox_item(item):
     """
-    Stage 3: Real-time atomic sync to Neon DB raw_trends_inbox.
+    Stage 3: Real-time atomic sync to Cloud DB (Aiven PostgreSQL SSOT) raw_trends_inbox.
     Ensures that every newly enriched item is immediately persisted to the cloud database,
     providing full idempotency and fault tolerance against timeouts.
     """

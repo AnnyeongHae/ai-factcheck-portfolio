@@ -34,8 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      NEON_KEY: ${{ secrets.NEON_KEY }}
-      DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
+      AIVEN_SERVICE_URI: ${{ secrets.AIVEN_SERVICE_URI }}
+      DATABASE_URL: ${{ secrets.AIVEN_SERVICE_URI || secrets.DATABASE_URL }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -50,7 +50,7 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
-      - name: Sync GitHub Actions Telemetry to Neon DB
+      - name: Sync GitHub Actions Telemetry to Cloud DB (Aiven PostgreSQL)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/sync_actions_telemetry.py || echo "Actions telemetry sync skipped."
@@ -70,7 +70,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Finalize Actions Telemetry in Neon DB
+      - name: Finalize Actions Telemetry in Cloud DB (Aiven PostgreSQL)
         if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

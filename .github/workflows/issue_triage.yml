@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      NEON_KEY: ${{ secrets.NEON_KEY }}
-      DATABASE_URL: ${{ secrets.DATABASE_URL || secrets.NEON_KEY }}
+      AIVEN_SERVICE_URI: ${{ secrets.AIVEN_SERVICE_URI }}
+      DATABASE_URL: ${{ secrets.AIVEN_SERVICE_URI || secrets.DATABASE_URL }}
       ISSUE_TITLE: ${{ github.event.issue.title }}
       ISSUE_BODY: ${{ github.event.issue.body }}
     steps:
@@ -37,9 +37,9 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Hydrate Recent Inbox from Neon Postgres DB (Lightweight)
+      - name: Hydrate Recent Inbox from Cloud DB (Aiven PostgreSQL SSOT)
         run: |
-          python tools/db_bridge.py --pull-inbox --limit 20 || echo "Lightweight pull from Neon DB completed or skipped."
+          python tools/db_bridge.py --pull-inbox --limit 20 || echo "Lightweight pull from Cloud DB completed or skipped."
 
       - name: Process Issue & Run Fact-Check Promotion
         id: run_handler

@@ -232,7 +232,8 @@ module.exports = async (req, res) => {
     if (caseIdParam && dossiers.length > 0) {
       return res.status(200).json({
         success: true,
-        source: 'neon_postgres_direct',
+        source: 'database_direct',
+        db_provider: getDbProviderInfo().provider,
         case: dossiers[0]
       });
     }

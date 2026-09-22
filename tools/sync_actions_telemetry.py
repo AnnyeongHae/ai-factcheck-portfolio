@@ -206,7 +206,7 @@ def sync_telemetry():
         """, (total_used, remaining, burn_rate, alert))
         
         conn.commit()
-        print(f"[+] Successfully synced {inserted_runs} runs to Neon DB!")
+        print(f"[+] Successfully synced {inserted_runs} runs to Cloud DB!")
         print(f"[+] Monthly Actions Quota: {total_used}m used / {remaining}m remaining ({burn_rate}%, {alert})")
 
     conn.close()
@@ -215,11 +215,11 @@ def sync_telemetry():
 def finalize_run(run_id, job_status="success"):
     """
     Called at the very end of a GitHub Actions run (via if: always())
-    to record the final status, completion timestamp, duration, and runtime error in Neon DB.
+    to record the final status, completion timestamp, duration, and runtime error in Cloud DB.
     """
     db_url = load_env_db_url()
     if not db_url:
-        print("[!] Note: No Neon DB URL found. Skipping finalize.")
+        print("[!] Note: No Cloud DB URL found. Skipping finalize.")
         return False
 
     status_clean = (job_status or "success").lower()

@@ -78,7 +78,7 @@ module.exports = async (req, res) => {
         `);
         return res.status(200).json({
           success: true,
-          source: "neon_database_live",
+          source: "database_live",
           total_count: newsResult.rows.length,
           news: newsResult.rows
         });
@@ -121,7 +121,7 @@ module.exports = async (req, res) => {
         `);
         return res.status(200).json({
           success: true,
-          source: "neon_database_live",
+          source: "database_live",
           total_count: allResult.rows.length,
           items: allResult.rows
         });
@@ -144,7 +144,7 @@ module.exports = async (req, res) => {
 
       return res.status(200).json({
         success: true,
-        source: "neon_database_live",
+        source: "database_live",
         queued_count: result.rows.length,
         queued_items: result.rows
       });
@@ -206,14 +206,14 @@ module.exports = async (req, res) => {
         action,
         target_status: updatedStatus,
         affected_ids: inbox_ids,
-        message: `Successfully updated ${inbox_ids.length} item(s) to '${updatedStatus}' in Neon DB.`
+        message: `Successfully updated ${inbox_ids.length} item(s) to '${updatedStatus}' in Cloud DB.`
       });
     }
 
     return res.status(405).json({ error: "Method not allowed" });
 
   } catch (err) {
-    console.error("Neon DB queue error:", err);
+    console.error("Cloud DB queue error:", err);
     return res.status(500).json({
       success: false,
       error: "Internal database error occurred while processing queue."

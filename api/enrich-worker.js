@@ -189,7 +189,7 @@ module.exports = async (req, res) => {
 
   const pool = getDbPool();
   if (!pool) {
-    return res.status(500).json({ status: 'error', message: 'Neon Database connection not configured' });
+    return res.status(500).json({ status: 'error', message: 'Cloud Database connection not configured' });
   }
 
   const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
@@ -219,7 +219,7 @@ module.exports = async (req, res) => {
     if (candidates.length === 0) {
       return res.status(200).json({
         status: 'noop',
-        message: 'All items in Neon DB are already enriched and classified!',
+        message: 'All items in Cloud DB are already enriched and classified!',
         processed_count: 0,
         remaining_unclassified: 0
       });
@@ -610,7 +610,7 @@ module.exports = async (req, res) => {
         enriched_at: nowIso
       };
 
-      // Atomic Update to Neon Database
+      // Atomic Update to Cloud Database (Aiven PostgreSQL SSOT)
       const updateSql = `
         UPDATE raw_trends_inbox
         SET is_classified = TRUE,

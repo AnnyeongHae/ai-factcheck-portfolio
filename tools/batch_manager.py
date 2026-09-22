@@ -33,15 +33,16 @@ BATCH_LOG_PATH = os.path.join(ROOT_DIR, 'logs', 'batch_jobs.json')
 LEDGER_PATH = os.path.join(ROOT_DIR, 'logs', 'token_usage_ledger.json')
 
 def get_db_connection():
-    database_url = os.getenv("DATABASE_URL") or os.getenv("NEON_KEY")
-    if not database_url:
-        return None
     try:
-        import psycopg2
-        return psycopg2.connect(database_url)
-    except Exception as e:
-        print(f"[DB Warning]: Could not connect to Neon DB: {e}")
-        return None
+        from tools.db_config import get_db_connection as _get_conn
+        return _get_conn()
+    except Exception:
+        try:
+            from db_config import get_db_connection as _get_conn
+            return _get_conn()
+        except Exception as e:
+            print(f"[DB Warning]: Could not connect to Cloud DB: {e}")
+            return None
 
 def load_batch_registry():
     registry = []
@@ -217,7 +218,7 @@ Output Format (strict JSON, no markdown formatting):
                 conn.commit()
                 cur.close()
                 conn.close()
-                print("[+] Synced batch submission to Neon DB.")
+                print("[+] Synced batch submission to Cloud DB.")
             except Exception as dbe:
                 print(f"[DB Sync Warning]: {dbe}")
 
