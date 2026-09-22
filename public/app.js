@@ -1910,23 +1910,36 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
       let consecutiveErrors = 0;
       let consecutiveFallbacks = 0;
+      let processedInThisSession = 0;
+      const MAX_SESSION_BATCH = 5; // Hard quota safeguard: max 5 items per manual trigger session
 
       while (_autoWorkerRunning && !_autoWorkerPaused) {
         try {
           const workerUrl = APP_CONFIG.apiUrl('/api/enrich-worker?limit=1');
           
           if (txt && !_autoWorkerPaused) {
-            txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI 요약 분석 중...`;
+            txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI 요약 분석 중... (${processedInThisSession + 1}/${MAX_SESSION_BATCH})`;
           }
 
           const res = await fetch(workerUrl, { cache: 'no-store' });
           if (!res.ok) {
             consecutiveErrors++;
-            console.warn(`[AutoWorker] Worker request returned HTTP ${res.status}. Backing off...`);
-            if (txt && !_autoWorkerPaused) {
-              txt.textContent = `⚡ 쿨다운 대기 중 (${consecutiveErrors}회 재시도)`;
+            console.warn(`[AutoWorker] Worker request returned HTTP ${res.status}. Error count: ${consecutiveErrors}/3`);
+            
+            // Hard Circuit Breaker on network/server errors
+            if (consecutiveErrors >= 3) {
+              console.warn('[AutoWorker] [Circuit Breaker Tripped] Server returned 3 consecutive errors. Halting worker.');
+              _autoWorkerRunning = false;
+              window._autoWorkerRunning = false;
+              if (txt) txt.textContent = '⚡ 서버 일시 응답 없음 (클릭 시 재시도)';
+              if (btn) {
+                btn.disabled = false;
+                btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+              }
+              break;
             }
-            const backoffMs = Math.min(30000, 5000 * consecutiveErrors);
+
+            const backoffMs = Math.min(10000, 3000 * consecutiveErrors);
             await new Promise(r => setTimeout(r, backoffMs));
             continue;
           }
@@ -1951,7 +1964,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           }
 
           if (resData.status === 'quota_exhausted' || resData.is_quota_exhausted) {
-            console.warn('[AutoWorker] OpenRouter daily free quota (1,000 requests) exhausted. Halting background worker until 09:00 KST reset.');
+            console.warn('[AutoWorker] OpenRouter daily free quota exhausted. Halting worker.');
             _autoWorkerRunning = false;
             window._autoWorkerRunning = false;
             if (txt) {
@@ -1966,15 +1979,26 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
           if (resData.status === 'partial_fallback') {
             consecutiveFallbacks++;
-            const backoffMs = Math.min(20000, 3000 * Math.pow(1.5, Math.min(consecutiveFallbacks - 1, 4)));
-            const backoffSec = Math.round(backoffMs / 1000);
-            if (txt && !_autoWorkerPaused) {
-              txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-amber-400 mr-1"></span> AI 모델 전환 중 (${backoffSec}초 후 재시도)`;
+            console.warn(`[AutoWorker] AI models busy or timed out (${consecutiveFallbacks}/3).`);
+
+            // 🌟 HARD CIRCUIT BREAKER: Halt immediately on 3 consecutive model failures!
+            if (consecutiveFallbacks >= 3) {
+              console.warn('[AutoWorker] [Circuit Breaker Tripped] AI models failed 3 consecutive times. Halting worker to protect API quota.');
+              _autoWorkerRunning = false;
+              window._autoWorkerRunning = false;
+              if (txt) {
+                txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-1"></span> AI 서비스 지연으로 정지됨 (클릭 시 재시도)`;
+              }
+              if (btn) {
+                btn.disabled = false;
+                btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+              }
+              break; // Hard Break - zero further requests!
             }
-            if (consecutiveFallbacks <= 2) {
-              console.debug(`[AutoWorker] AI models busy or timed out. Retrying in ${backoffSec}s (attempt ${consecutiveFallbacks})...`);
-            } else if (consecutiveFallbacks === 3) {
-              console.warn(`[AutoWorker] AI models continuously busy. Backing off to ${backoffSec}s intervals...`);
+
+            const backoffMs = 5000 * consecutiveFallbacks;
+            if (txt && !_autoWorkerPaused) {
+              txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-amber-400 mr-1"></span> 모델 재시도 대기 (${5 * consecutiveFallbacks}초)`;
             }
             await new Promise(r => setTimeout(r, backoffMs));
             continue;
@@ -1982,7 +2006,24 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
           if (resData.status === 'success') {
             consecutiveFallbacks = 0;
+            processedInThisSession++;
             const rem = resData.remaining_unclassified;
+
+            // 🌟 SESSION SAFETY CAP: Process at most MAX_SESSION_BATCH items per user click
+            if (processedInThisSession >= MAX_SESSION_BATCH) {
+              console.log(`[AutoWorker] Session safety limit reached (${processedInThisSession} items processed). Halting worker.`);
+              _autoWorkerRunning = false;
+              window._autoWorkerRunning = false;
+              if (txt) {
+                txt.textContent = `⚡ 배치 완료 (${processedInThisSession}건 요약됨, 잔여: ${rem}건)`;
+              }
+              if (btn) {
+                btn.disabled = false;
+                btn.className = "px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold font-mono text-[11px] border border-indigo-700 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+              }
+              break; // Safety Halt!
+            }
+
             if (txt && !_autoWorkerPaused) {
               txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> 자동 요약 중 (잔여: ${rem}건)`;
             }

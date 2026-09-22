@@ -306,7 +306,16 @@ module.exports = async (req, res) => {
     const defaultPerModelTimeout = isVercel ? 4500 : 15000;
 
     // Call OpenRouter with fast fallback models and dynamic time budget (within Vercel serverless 10s limit)
+    let modelAttempts = 0;
+    const MAX_MODEL_ATTEMPTS = 2; // Strict limit: test at most 2 models per worker call to prevent API storming
+
     for (const modelName of FREE_MODELS) {
+      if (modelAttempts >= MAX_MODEL_ATTEMPTS) {
+        console.warn(`[Worker] Max model attempts (${MAX_MODEL_ATTEMPTS}) reached. Halting cascade.`);
+        break;
+      }
+      modelAttempts++;
+
       const budgetMs = maxTotalBudget - (Date.now() - startTime);
       if (budgetMs < 1800) {
         console.warn(`[Worker] Time budget exhausted (${budgetMs}ms left). Breaking early.`);
@@ -343,12 +352,9 @@ module.exports = async (req, res) => {
         if (!aiResponse.ok) {
           console.warn(`[Worker] ${modelName} returned HTTP ${aiResponse.status} (${((Date.now() - callStart) / 1000).toFixed(2)}s)`);
           if (aiResponse.status === 429) {
-            try {
-              const errBody = await aiResponse.text();
-              if (errBody.includes('daily') || errBody.includes('quota') || errBody.includes('exceeded')) {
-                isQuotaExhausted = true;
-              }
-            } catch (e) {}
+            isQuotaExhausted = true;
+            console.warn('[Worker] HTTP 429 Rate Limit / Quota Exhausted. Halting cascade immediately.');
+            break; // Stop immediately - do not cascade across other models when rate limited!
           }
           continue;
         }
