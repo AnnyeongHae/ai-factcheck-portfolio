@@ -25,42 +25,75 @@ function setCachedResponse(key, data) {
 
 function getStaticInboxFallback(req) {
   try {
-    const fs = require('fs');
-    const path = require('path');
-    const candidatePaths = [
-      path.join(__dirname, '_lib', 'data.json'),
-      path.join(process.cwd(), 'public', 'data.json'),
-      path.join(process.cwd(), 'docs', 'data.json'),
-      path.join(__dirname, '..', 'public', 'data.json'),
-      path.join(__dirname, '..', 'docs', 'data.json')
-    ];
-    for (const p of candidatePaths) {
-      if (fs.existsSync(p)) {
-        const d = JSON.parse(fs.readFileSync(p, 'utf8'));
-        if (d && (d.news_items || d.inbox_items)) {
-          const type = (req.query?.type || req.query?.tab || '').toUpperCase();
-          let items = d.news_items || [];
-          if (type === 'MODEL') items = d.model_items || [];
-          else if (type === 'INBOX') items = d.inbox_items || [];
-          else if (type === 'ALL') items = (d.news_items || []).concat(d.model_items || []);
-
-          const limit = Math.min(100, Math.max(1, parseInt(req.query?.limit, 10) || 15));
-          const page = Math.max(1, parseInt(req.query?.page, 10) || 1);
-          const offset = (page - 1) * limit;
-          const pagedItems = items.slice(offset, offset + limit);
-
-          return {
-            status: 'success',
-            source: 'static_snapshot_fallback',
-            page: page,
-            limit: limit,
-            total: items.length,
-            total_pages: Math.ceil(items.length / limit) || 1,
-            items: pagedItems,
-            news: pagedItems
-          };
+    let d = null;
+    try {
+      d = require('./_lib/data.json');
+    } catch (e1) {
+      try {
+        d = require('../public/data.json');
+      } catch (e2) {
+        const fs = require('fs');
+        const path = require('path');
+        const candidatePaths = [
+          path.join(__dirname, '_lib', 'data.json'),
+          path.join(process.cwd(), 'public', 'data.json'),
+          path.join(process.cwd(), 'docs', 'data.json'),
+          path.join(__dirname, '..', 'public', 'data.json'),
+          path.join(__dirname, '..', 'docs', 'data.json')
+        ];
+        for (const p of candidatePaths) {
+          if (fs.existsSync(p)) {
+            d = JSON.parse(fs.readFileSync(p, 'utf8'));
+            if (d) break;
+          }
         }
       }
+    }
+
+    if (d && (d.news_items || d.inbox_items)) {
+      const type = (req.query?.type || req.query?.tab || '').toUpperCase();
+      let items = d.news_items || [];
+      if (type === 'MODEL') items = d.model_items || [];
+      else if (type === 'INBOX') items = d.inbox_items || [];
+      else if (type === 'ALL') items = (d.news_items || []).concat(d.model_items || []);
+
+      const facet = req.query?.facet;
+      if (facet && facet !== 'ALL') {
+        if (facet === 'CROSS_SPIKE') {
+          items = items.filter(it => it.is_cross_spiking || (Array.isArray(it.sources) && it.sources.length > 1) || (it.metric_tracking && Number(it.metric_tracking.delta) > 0));
+        } else if (facet === 'MODEL') {
+          items = items.filter(it => it.facet_type === 'MODEL' || it.is_model || (it.source_platform || '').toLowerCase().includes('model'));
+        } else if (facet === 'TOOL') {
+          items = items.filter(it => it.facet_type === 'TOOL' || (it.source_platform || '').toLowerCase().includes('github'));
+        }
+      }
+
+      const source = req.query?.source;
+      if (source && source !== 'ALL') {
+        const srcLower = source.toLowerCase();
+        items = items.filter(it => (it.source_platform || '').toLowerCase().includes(srcLower));
+      }
+
+      const tier1 = req.query?.tier1;
+      if (tier1 && tier1 !== 'ALL') {
+        items = items.filter(it => (it.tier1_category || 'TECH_COMPUTING') === tier1);
+      }
+
+      const limit = Math.min(100, Math.max(1, parseInt(req.query?.limit, 10) || 15));
+      const page = Math.max(1, parseInt(req.query?.page, 10) || 1);
+      const offset = (page - 1) * limit;
+      const pagedItems = items.slice(offset, offset + limit);
+
+      return {
+        status: 'success',
+        source: 'static_snapshot_fallback',
+        page: page,
+        limit: limit,
+        total: items.length,
+        total_pages: Math.ceil(items.length / limit) || 1,
+        items: pagedItems,
+        news: pagedItems
+      };
     }
   } catch (e) {}
   return null;
@@ -167,8 +200,8 @@ module.exports = async (req, res) => {
       if (facet === 'CROSS_SPIKE') {
         conditions.push(`(
           raw_payload->>'is_cross_spiking' = 'true' 
-          OR (jsonb_typeof(raw_payload->'sources') = 'array' AND jsonb_array_length(raw_payload->'sources') > 1)
-          OR (raw_payload->'metric_tracking'->>'delta' ~ '^[0-9]+$' AND (raw_payload->'metric_tracking'->>'delta')::numeric > 0)
+          OR (CASE WHEN jsonb_typeof(raw_payload->'sources') = 'array' THEN jsonb_array_length(raw_payload->'sources') ELSE 0 END > 1)
+          OR (CASE WHEN raw_payload->'metric_tracking'->>'delta' ~ '^[0-9]+$' THEN (raw_payload->'metric_tracking'->>'delta')::numeric ELSE 0 END > 0)
         )`);
       } else if (facet === 'MODEL') {
         conditions.push(`(
@@ -236,7 +269,7 @@ module.exports = async (req, res) => {
       sortParam = 'harvested_date DESC NULLS LAST, created_at DESC, id DESC';
     } else if (sort === 'id') {
       sortParam = 'id DESC';
-    } else if (sort === 'updated') {
+    } else if (sort === 'updated' || sort === 'date-audit-desc') {
       sortParam = 'updated_at DESC NULLS LAST, id DESC';
     }
 
@@ -368,7 +401,20 @@ module.exports = async (req, res) => {
 
     return res.status(200).json(responsePayload);
   } catch (err) {
-    console.error('[API Inbox Error]:', err);
-    return res.status(500).json({ status: 'error', message: 'Internal server error while fetching inbox items' });
+    console.error('[API Inbox Error]:', err.message || err);
+    const fallback = getStaticInboxFallback(req);
+    if (fallback) {
+      return res.status(200).json(fallback);
+    }
+    return res.status(200).json({
+      status: 'success',
+      source: 'empty_fallback',
+      page: 1,
+      limit: 15,
+      total: 0,
+      total_pages: 1,
+      items: [],
+      news: []
+    });
   }
 };

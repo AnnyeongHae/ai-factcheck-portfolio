@@ -92,9 +92,9 @@ function getDbProviderInfo(rawUrl = DATABASE_URL) {
 }
 
 const POOL_CONFIG = {
-  max: 5,
-  idleTimeoutMillis: 15000,
-  connectionTimeoutMillis: 5000,
+  max: 1,
+  idleTimeoutMillis: 1000,
+  connectionTimeoutMillis: 3000,
   ssl: { rejectUnauthorized: false }
 };
 

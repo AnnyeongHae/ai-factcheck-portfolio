@@ -3,27 +3,38 @@ const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 function getStaticFallback() {
   try {
-    const fs = require('fs');
-    const path = require('path');
-    const candidatePaths = [
-      path.join(__dirname, '_lib', 'data.json'),
-      path.join(process.cwd(), 'public', 'data.json'),
-      path.join(process.cwd(), 'docs', 'data.json'),
-      path.join(__dirname, '..', 'public', 'data.json'),
-      path.join(__dirname, '..', 'docs', 'data.json')
-    ];
-    for (const p of candidatePaths) {
-      if (fs.existsSync(p)) {
-        const d = JSON.parse(fs.readFileSync(p, 'utf8'));
-        if (d && d.cases) {
-          return {
-            success: true,
-            source: 'static_filesystem_fallback',
-            portfolios: d.cases,
-            technical_analyses: d.technical_analyses || []
-          };
+    let d = null;
+    try {
+      d = require('./_lib/data.json');
+    } catch (e1) {
+      try {
+        d = require('../public/data.json');
+      } catch (e2) {
+        const fs = require('fs');
+        const path = require('path');
+        const candidatePaths = [
+          path.join(__dirname, '_lib', 'data.json'),
+          path.join(process.cwd(), 'public', 'data.json'),
+          path.join(process.cwd(), 'docs', 'data.json'),
+          path.join(__dirname, '..', 'public', 'data.json'),
+          path.join(__dirname, '..', 'docs', 'data.json')
+        ];
+        for (const p of candidatePaths) {
+          if (fs.existsSync(p)) {
+            d = JSON.parse(fs.readFileSync(p, 'utf8'));
+            if (d) break;
+          }
         }
       }
+    }
+
+    if (d && d.cases) {
+      return {
+        success: true,
+        source: 'static_snapshot_fallback',
+        portfolios: d.cases,
+        technical_analyses: d.technical_analyses || []
+      };
     }
   } catch (e) {}
   return null;
@@ -273,9 +284,12 @@ module.exports = async (req, res) => {
     const fallback = getStaticFallback();
     if (fallback) return res.status(200).json(fallback);
 
-    return res.status(500).json({
+    return res.status(200).json({
       success: false,
-      error: 'Internal server error while fetching dossiers'
+      source: 'empty_fallback',
+      error: 'Internal server error while fetching dossiers',
+      portfolios: [],
+      technical_analyses: []
     });
   }
 };

@@ -20,7 +20,7 @@
   "functions": {
     "api/*.js": {
       "maxDuration": 60,
-      "includeFiles": "public/data.json"
+      "includeFiles": "{api/_lib/data.json,public/data.json}"
     }
   }
 }
