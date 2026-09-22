@@ -1283,8 +1283,9 @@ def build_dashboard():
         "actions_telemetry": actions_telemetry
     }
 
-    # Write lean data.json — docs/ (GitHub Pages) and public/ (Vercel static)
-    for target_dir in [docs_dir, public_dir]:
+    # Write lean data.json — docs/ (GitHub Pages), public/ (Vercel static), and api/_lib/ (Serverless fallback)
+    api_lib_dir = os.path.join(base_dir, "api", "_lib")
+    for target_dir in [docs_dir, public_dir, api_lib_dir]:
         # Lean data.json (~750KB uncompressed, ~160KB gzipped) for instant 0.05s First Contentful Paint
         json_path = os.path.join(target_dir, "data.json")
         for _ in range(3):

@@ -6,6 +6,7 @@ function getStaticFallback() {
     const fs = require('fs');
     const path = require('path');
     const candidatePaths = [
+      path.join(__dirname, '_lib', 'data.json'),
       path.join(process.cwd(), 'public', 'data.json'),
       path.join(process.cwd(), 'docs', 'data.json'),
       path.join(__dirname, '..', 'public', 'data.json'),
