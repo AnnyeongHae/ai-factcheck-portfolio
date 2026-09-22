@@ -760,62 +760,49 @@ def harvest_all():
         harvest_report["sources"]["reddit"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - reddit_start, 2)}
         logger.log(f"[!] Reddit Note: {e}", level="WARNING")
 
-    # 7. GeekNews (한국판 해커뉴스 - News & Topics Atom Feeds)
+    # 7. GeekNews (한국판 해커뉴스 - Atom Feed)
     geek_start = time.time()
     try:
-        logger.log("[*] Fetching GeekNews Korean Tech Trends (News & Topics)...")
-        gn_feeds = [
-            ("https://news.hada.io/rss/news", 40),
-            ("https://news.hada.io/rss/topics", 25)
-        ]
-        count = 0
-        seen_gn_topics = set()
+        logger.log("[*] Fetching GeekNews Korean Tech Trends (Atom feed)...")
+        xml_data = fetch_xml("https://news.hada.io/rss/news")
+        root = ET.fromstring(xml_data)
         ns = {'atom': 'http://www.w3.org/2005/Atom'}
-        for gn_url, gn_limit in gn_feeds:
-            try:
-                xml_data = fetch_xml(gn_url)
-                root = ET.fromstring(xml_data)
-                for entry in root.findall('atom:entry', ns)[:gn_limit]:
-                    title_elem = entry.find('atom:title', ns)
-                    id_elem = entry.find('atom:id', ns)
-                    content_elem = entry.find('atom:content', ns) or entry.find('atom:summary', ns)
-                    
-                    if title_elem is not None and id_elem is not None:
-                        title = title_elem.text.strip() if title_elem.text else ""
-                        topic_url = id_elem.text.strip() if id_elem.text else ""
-                        if not topic_url or topic_url in seen_gn_topics:
-                            continue
-                        seen_gn_topics.add(topic_url)
+        count = 0
+        for entry in root.findall('atom:entry', ns)[:50]:
+            title_elem = entry.find('atom:title', ns)
+            id_elem = entry.find('atom:id', ns)
+            content_elem = entry.find('atom:content', ns) or entry.find('atom:summary', ns)
+            
+            if title_elem is not None and id_elem is not None:
+                title = title_elem.text.strip() if title_elem.text else ""
+                topic_url = id_elem.text.strip() if id_elem.text else ""
+                content_raw = content_elem.text.strip() if content_elem is not None and content_elem.text else ""
+                clean_desc = re.sub(r'<[^>]+>', ' ', content_raw).strip()[:200]
+                
+                # Check for external article link
+                m_ext = re.search(r'href=[\'"](https?://[^\'"]+)[\'"]', content_raw)
+                article_url = m_ext.group(1) if m_ext else topic_url
 
-                        content_raw = content_elem.text.strip() if content_elem is not None and content_elem.text else ""
-                        clean_desc = re.sub(r'<[^>]+>', ' ', content_raw).strip()[:200]
-                        
-                        # Check for external article link
-                        m_ext = re.search(r'href=[\'"](https?://[^\'"]+)[\'"]', content_raw)
-                        article_url = m_ext.group(1) if m_ext else topic_url
+                pub_elem = entry.find('atom:published', ns)
+                if pub_elem is None:
+                    pub_elem = entry.find('atom:updated', ns)
+                published_at = pub_elem.text.strip() if (pub_elem is not None and pub_elem.text) else None
 
-                        pub_elem = entry.find('atom:published', ns)
-                        if pub_elem is None:
-                            pub_elem = entry.find('atom:updated', ns)
-                        published_at = pub_elem.text.strip() if (pub_elem is not None and pub_elem.text) else None
-
-                        added = add_candidate({
-                            "title": f"GeekNews: {title}",
-                            "title_ko": title,
-                            "source_platform": "GeekNews",
-                            "source_url": topic_url,
-                            "hn_url": topic_url,
-                            "article_url": article_url,
-                            "published_at": published_at,
-                            "type": "sns",
-                            "category_type": "NEWS",
-                            "description": clean_desc or f"GeekNews Korean Tech Trend: {title}",
-                            "description_ko": clean_desc or title,
-                            "viral_metric": "🇰🇷 GeekNews 큐레이션"
-                        })
-                        if added: count += 1
-            except Exception as gn_inner_err:
-                logger.log(f"[!] GeekNews feed note: {gn_inner_err}", level="WARNING")
+                added = add_candidate({
+                    "title": f"GeekNews: {title}",
+                    "title_ko": title,
+                    "source_platform": "GeekNews",
+                    "source_url": topic_url,
+                    "hn_url": topic_url,
+                    "article_url": article_url,
+                    "published_at": published_at,
+                    "type": "sns",
+                    "category_type": "NEWS",
+                    "description": clean_desc or f"GeekNews Korean Tech Trend: {title}",
+                    "description_ko": clean_desc or title,
+                    "viral_metric": "🇰🇷 GeekNews 큐레이션"
+                })
+                if added: count += 1
 
         harvest_report["sources"]["geeknews"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - geek_start, 2)}
         logger.log(f"[+] GeekNews: {count} Korean tech items ingested in {time.time() - geek_start:.2f}s")
