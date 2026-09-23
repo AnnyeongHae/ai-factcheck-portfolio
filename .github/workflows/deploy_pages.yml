@@ -1,4 +1,4 @@
-name: Deploy AI Fact-Check Portfolio & Neon DB Sync
+name: Deploy AI Fact-Check Portfolio & Aiven PostgreSQL DB Sync
 
 on:
   workflow_dispatch:
@@ -64,7 +64,16 @@ jobs:
         run: |
           python -u tools/harvest_trends.py
 
-      - name: "Stage 2: Daily EOD 23:00 KST Hot Trends Ranking"
+      - name: "Stage 2: AI Multi-Language Inbox Enrichment (Top Emerging Trends)"
+        timeout-minutes: 3
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          AIVEN_SERVICE_URI: ${{ secrets.AIVEN_SERVICE_URI }}
+          DATABASE_URL: ${{ secrets.AIVEN_SERVICE_URI || secrets.DATABASE_URL }}
+        run: |
+          python -u tools/drain_ai_enrichment.py --max-items 15 --max-time 110 || echo "AI Enrichment step completed or timed out safely."
+
+      - name: "Stage 3: Daily EOD 23:00 KST Hot Trends Ranking"
         run: |
           python -u tools/run_eod_digest.py --top 10
 

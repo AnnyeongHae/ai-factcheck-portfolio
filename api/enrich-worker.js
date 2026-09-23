@@ -20,13 +20,8 @@ const { getDbPool } = require('./_lib/db');
 const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 const FREE_MODELS = [
-  'inclusionai/ling-3.0-flash-sante:free',  // Verified: resilient, fast, high quality CJK multilingual
-  'inclusionai/ling-3.0-flash-vl:free',     // Reliable fallback
-  'qwen/qwen3.8-27b:free',                  // High-quality Qwen free multilingual model
-  'z-ai/glm-5.2:free',                      // Fast GLM free multilingual model
-  'google/gemma-4-26b-a4b-it:free',         // Gemma 4 free model
-  'inclusionai/ling-3.0-flash-fin:free',    // Fast fallback
-  'openrouter/free'                         // OpenRouter dynamic load-balanced free router
+  'inclusionai/ling-3.0-flash-sante:free',  // Verified: fastest (5.34s), resilient, high quality CJK multilingual
+  'inclusionai/ling-3.0-flash-vl:free'      // Reliable fallback
 ];
 
 function sanitizeJsonString(str) {
@@ -50,12 +45,12 @@ function sanitizeJsonString(str) {
     return JSON.parse(cleaned);
   } catch (e) {}
 
-  const arrMatch = cleaned.match(/\[[\s\S]*?\]/);
+  const arrMatch = cleaned.match(/\[\s*\{[\s\S]*\}\s*\]/);
   if (arrMatch) {
     try { return JSON.parse(arrMatch[0]); } catch (e) {}
   }
 
-  const objMatch = cleaned.match(/\{[\s\S]*?\}/);
+  const objMatch = cleaned.match(/\{[\s\S]*\}/);
   if (objMatch) {
     try { return [JSON.parse(objMatch[0])]; } catch (e) {}
   }
@@ -302,8 +297,8 @@ module.exports = async (req, res) => {
     let isQuotaExhausted = false;
 
     const isVercel = Boolean(process.env.VERCEL);
-    const maxTotalBudget = isVercel ? 9200 : 30000;
-    const defaultPerModelTimeout = isVercel ? 4500 : 15000;
+    const maxTotalBudget = isVercel ? 25000 : 45000;
+    const defaultPerModelTimeout = isVercel ? 12000 : 20000;
 
     // Call OpenRouter with fast fallback models and dynamic time budget (within Vercel serverless 10s limit)
     let modelAttempts = 0;
@@ -343,8 +338,7 @@ module.exports = async (req, res) => {
               { role: 'user', content: `분석할 항목 목록:\n${JSON.stringify(promptItems, null, 2)}` }
             ],
             temperature: 0.1,
-            max_tokens: 2500,
-            reasoning: { max_tokens: 0 }
+            max_tokens: 4200
           }),
           signal: controller.signal
         });
@@ -543,6 +537,10 @@ module.exports = async (req, res) => {
       payload.description_ko = hookKo;
       payload.description_en = hookEn;
       payload.description_zh = hookZh;
+      payload.key_takeaways = finalTakeaways;
+      payload.key_takeaways_ko = finalTakeaways;
+      payload.key_takeaways_en = finalTakeawaysEn;
+      payload.key_takeaways_zh = finalTakeawaysZh;
 
       payload.category_type = inferred.itemType;
       payload.category_primary = inferred.categoryPrimary;

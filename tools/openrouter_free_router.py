@@ -73,29 +73,17 @@ RATE_LIMITER = OpenRouterRateLimiter(target_rpm=18)
 # Priority clusters of verified active free models (max 3 fallbacks per OpenRouter API spec)
 MODEL_CLUSTERS = [
     {
-        "primary": "liquid/lfm-2.5-2.6b:free",
+        "primary": "inclusionai/ling-3.0-flash-sante:free",
         "fallbacks": [
-            "nvidia/nemotron-3-super-120b-a12b:free",
-            "dots-studio/dots-3-note-preview:free",
-            "nvidia/nemotron-3.5-lightning:free"
-        ]
-    },
-    {
-        "primary": "nvidia/nemotron-3-super-120b-a12b:free",
-        "fallbacks": [
-            "liquid/lfm-2.5-2.6b:free",
-            "dots-studio/dots-3-note-preview:free",
-            "nvidia/nemotron-3.5-lightning:free"
+            "inclusionai/ling-3.0-flash-vl:free"
         ]
     }
 ]
 
 # Backward compatibility alias
 FREE_MODEL_FALLBACKS = [
-    "liquid/lfm-2.5-2.6b:free",
-    "nvidia/nemotron-3-super-120b-a12b:free",
-    "dots-studio/dots-3-note-preview:free",
-    "nvidia/nemotron-3.5-lightning:free"
+    "inclusionai/ling-3.0-flash-sante:free",
+    "inclusionai/ling-3.0-flash-vl:free"
 ]
 
 def get_openrouter_api_key():
@@ -148,7 +136,7 @@ def clean_json_response(raw_text: str):
         pass
 
     # Regex extraction of outermost JSON array
-    array_match = re.search(r'\[.*?\]', cleaned, re.DOTALL)
+    array_match = re.search(r'\[\s*\{[\s\S]*\}\s*\]', cleaned)
     if array_match:
         try:
             data = json.loads(array_match.group(0))
@@ -157,7 +145,7 @@ def clean_json_response(raw_text: str):
             pass
 
     # Regex extraction of outermost JSON object
-    obj_match = re.search(r'\{.*?\}', cleaned, re.DOTALL)
+    obj_match = re.search(r'\{[\s\S]*\}', cleaned)
     if obj_match:
         try:
             data = [json.loads(obj_match.group(0))]
@@ -167,7 +155,7 @@ def clean_json_response(raw_text: str):
 
     raise ValueError(f"Could not parse valid JSON from text: {cleaned[:120]}...")
 
-def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: int = 12, max_retries: int = 1):
+def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: int = 25, max_retries: int = 1):
     """
     Calls OpenRouter Free Router using server-side models fallback and 18 RPM pacer.
     Returns: (parsed_results_list, model_name, latency_seconds)
@@ -211,19 +199,18 @@ def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: i
                         {"role": "system", "content": system_prompt},
                         {"role": "user", "content": "분석할 항목 목록:\n" + user_content}
                     ],
-                    "temperature": 0.1
+                    "temperature": 0.1,
+                    "max_tokens": 4200
                 }
                 resp = requests.post(
                     OPENROUTER_API_URL,
                     json=payload,
                     headers=headers,
-                    timeout=(4.0, 10.0)
+                    timeout=(6.0, float(timeout))
                 )
                 if resp.status_code == 429:
-                    wait_sec = 3.5 + random.uniform(0.5, 1.0)
-                    print(f"  [-] OpenRouter RPM limit (429, cluster {cluster_idx+1}). Pacing {wait_sec:.1f}s...")
-                    time.sleep(wait_sec)
-                    continue
+                    print(f"  [-] OpenRouter RPM limit (429, cluster {cluster_idx+1}). Aborting cascade per AGENTS.md.")
+                    raise RuntimeError("HTTP 429 Rate Limit encountered")
 
                 resp.raise_for_status()
                 resp_data = resp.json()
