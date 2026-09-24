@@ -29,7 +29,12 @@ import re
 import sys
 import time
 from datetime import datetime
-import requests
+try:
+    import requests
+except ImportError:
+    requests = None
+import urllib.request
+import urllib.error
 
 # Force UTF-8 output on Windows
 if sys.stdout.encoding != 'utf-8':
@@ -195,16 +200,32 @@ def call_llm_single(api_key: str, item: dict, model: str, timeout_sec: int = 22)
     }
 
     t0 = time.time()
-    resp = requests.post(OPENROUTER_URL, headers=headers, json=req_body, timeout=(5.0, timeout_sec))
-    dur = time.time() - t0
-
-    if resp.status_code == 429:
-        return None, dur, 429, "Rate Limited (HTTP 429)"
-
-    if resp.status_code != 200:
-        return None, dur, resp.status_code, resp.text[:120]
-
-    data = resp.json()
+    if requests is not None:
+        try:
+            resp = requests.post(OPENROUTER_URL, headers=headers, json=req_body, timeout=(5.0, timeout_sec))
+            dur = time.time() - t0
+            if resp.status_code == 429:
+                return None, dur, 429, "Rate Limited (HTTP 429)"
+            if resp.status_code != 200:
+                return None, dur, resp.status_code, resp.text[:120]
+            data = resp.json()
+        except Exception as net_err:
+            return None, time.time() - t0, 500, str(net_err)[:100]
+    else:
+        try:
+            req_data = json.dumps(req_body, ensure_ascii=False).encode("utf-8")
+            req = urllib.request.Request(OPENROUTER_URL, data=req_data, headers=headers, method="POST")
+            with urllib.request.urlopen(req, timeout=timeout_sec) as resp:
+                dur = time.time() - t0
+                raw_bytes = resp.read().decode("utf-8")
+                data = json.loads(raw_bytes)
+        except urllib.error.HTTPError as http_err:
+            dur = time.time() - t0
+            if http_err.code == 429:
+                return None, dur, 429, "Rate Limited (HTTP 429)"
+            return None, dur, http_err.code, http_err.read().decode("utf-8", errors="replace")[:120]
+        except Exception as net_err:
+            return None, time.time() - t0, 500, str(net_err)[:100]
     msg = data.get("choices", [{}])[0].get("message", {})
     raw_content = msg.get("content") or msg.get("reasoning") or ""
     parsed = sanitize_json(raw_content)

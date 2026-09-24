@@ -689,8 +689,8 @@ def harvest_all():
     # 5. ArXiv API (cs.AI, cs.CL, cs.LG, cs.CV)
     arxiv_start = time.time()
     try:
-        logger.log("[*] Fetching ArXiv AI/CL/LG/CV Recent Papers (limit=80)...")
-        xml_data = fetch_xml("http://export.arxiv.org/api/query?search_query=cat:cs.AI+OR+cat:cs.CL+OR+cat:cs.LG+OR+cat:cs.CV&sortBy=submittedDate&sortOrder=descending&max_results=80")
+        logger.log("[*] Fetching ArXiv AI Recent Papers (cs.AI, limit=50)...")
+        xml_data = fetch_xml("https://export.arxiv.org/api/query?search_query=cat:cs.AI&sortBy=submittedDate&sortOrder=descending&max_results=50")
         root = ET.fromstring(xml_data)
         count = 0
         for entry in root.findall('{http://www.w3.org/2005/Atom}entry'):
