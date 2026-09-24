@@ -1911,14 +1911,13 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       let consecutiveErrors = 0;
       let consecutiveFallbacks = 0;
       let processedInThisSession = 0;
-      const MAX_SESSION_BATCH = 5; // Hard quota safeguard: max 5 items per manual trigger session
 
       while (_autoWorkerRunning && !_autoWorkerPaused) {
         try {
           const workerUrl = APP_CONFIG.apiUrl('/api/enrich-worker?limit=1');
           
           if (txt && !_autoWorkerPaused) {
-            txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI 요약 분석 중... (${processedInThisSession + 1}/${MAX_SESSION_BATCH})`;
+            txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI 요약 분석 중... (${processedInThisSession + 1}건 진행 중)`;
           }
 
           const res = await fetch(workerUrl, { cache: 'no-store' });
@@ -2009,23 +2008,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
             processedInThisSession++;
             const rem = resData.remaining_unclassified;
 
-            // 🌟 SESSION SAFETY CAP: Process at most MAX_SESSION_BATCH items per user click
-            if (processedInThisSession >= MAX_SESSION_BATCH) {
-              console.log(`[AutoWorker] Session safety limit reached (${processedInThisSession} items processed). Halting worker.`);
-              _autoWorkerRunning = false;
-              window._autoWorkerRunning = false;
-              if (txt) {
-                txt.textContent = `⚡ 배치 완료 (${processedInThisSession}건 요약됨, 잔여: ${rem}건)`;
-              }
-              if (btn) {
-                btn.disabled = false;
-                btn.className = "px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold font-mono text-[11px] border border-indigo-700 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
-              }
-              break; // Safety Halt!
-            }
-
             if (txt && !_autoWorkerPaused) {
-              txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> 자동 요약 중 (잔여: ${rem}건)`;
+              txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 진행 중 (${processedInThisSession}건 완료 / 잔여: ${rem}건)`;
             }
 
             // In-memory card hydration
