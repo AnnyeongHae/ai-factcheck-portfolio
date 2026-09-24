@@ -21,7 +21,7 @@ const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 const FREE_MODELS = [
   'inclusionai/ling-3.0-flash-sante:free',  // Verified: fastest (5.34s), resilient, high quality CJK multilingual
-  'inclusionai/ling-3.0-flash-vl:free'      // Reliable fallback
+  'inclusionai/ling-3.0-flash-fin:free'    // Verified active fallback
 ];
 
 function sanitizeJsonString(str) {
