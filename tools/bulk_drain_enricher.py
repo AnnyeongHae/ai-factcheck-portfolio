@@ -343,23 +343,29 @@ def run_bulk_drain(batch_size: int = 3, max_batches: int = 400, delay_sec: float
                 'raw_comments': p_payload.get('raw_comments', [])
             })
 
-        # Call LLM
-        parsed_ai_list, latency, status_code, model_or_err = call_openrouter_batch(items_to_enrich, api_key, PRIMARY_MODEL)
+        # Rotate model 50/50 to avoid per-model RPM throttling
+        active_model = PRIMARY_MODEL if batch_idx % 2 == 1 else FALLBACK_MODEL
+        alt_model = FALLBACK_MODEL if active_model == PRIMARY_MODEL else PRIMARY_MODEL
 
-        if not parsed_ai_list and status_code != 429:
-            # Fallback model attempt
-            print(f"  [Fallback] Retrying batch {batch_idx} with fallback model {FALLBACK_MODEL}...")
-            parsed_ai_list, latency, status_code, model_or_err = call_openrouter_batch(items_to_enrich, api_key, FALLBACK_MODEL)
+        parsed_ai_list, latency, status_code, model_or_err = call_openrouter_batch(items_to_enrich, api_key, active_model)
+
+        if not parsed_ai_list:
+            # Fallback model attempt on error OR rate limit
+            print(f"  [Fallback] Retrying batch {batch_idx} with alternate model {alt_model} (primary returned {status_code})...", flush=True)
+            if status_code == 429:
+                time.sleep(1.5)
+            parsed_ai_list, latency, status_code, model_or_err = call_openrouter_batch(items_to_enrich, api_key, alt_model)
 
         if not parsed_ai_list:
             consecutive_errors += 1
-            print(f"[-] [Batch {batch_idx}] Failed (HTTP {status_code}: {model_or_err}) Latency: {latency:.2f}s | Errors: {consecutive_errors}/5")
+            print(f"[-] [Batch {batch_idx}] Failed (HTTP {status_code}: {model_or_err}) Latency: {latency:.2f}s | Errors: {consecutive_errors}/5", flush=True)
             conn.rollback()
             if status_code == 429:
-                print("[!] HTTP 429 Rate Limit. Halting.")
-                break
+                print("  [Rate Limit Backoff] Both models rate-limited, cooling down 10s...", flush=True)
+                time.sleep(10.0)
+                continue
             if consecutive_errors >= 5:
-                print("[!] Circuit breaker tripped: 5 consecutive failures. Halting.")
+                print("[!] Circuit breaker tripped: 5 consecutive failures. Halting.", flush=True)
                 break
             time.sleep(2.0)
             continue
@@ -503,7 +509,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Bulk AI Multilingual Inbox Drain Enricher")
     parser.add_argument("--batch-size", type=int, default=3, help="Number of items per batch (default 3)")
     parser.add_argument("--max-batches", type=int, default=360, help="Max batches to process (default 360 = ~1080 items)")
-    parser.add_argument("--delay", type=float, default=0.5, help="Delay between batches in seconds (default 0.5s)")
+    parser.add_argument("--delay", type=float, default=1.5, help="Delay between batches in seconds (default 1.5s)")
     args = parser.parse_args()
 
     run_bulk_drain(batch_size=args.batch_size, max_batches=args.max_batches, delay_sec=args.delay)

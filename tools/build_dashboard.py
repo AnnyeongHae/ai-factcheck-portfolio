@@ -510,7 +510,10 @@ def build_dashboard():
         p_url = (c.get("raw_viral_post") or {}).get("post_url")
         if p_url: verified_case_urls.add(p_url.rstrip("/"))
         for s in c.get("sources", []):
-            if s.get("url"): verified_case_urls.add(s.get("url").rstrip("/"))
+            if isinstance(s, dict) and s.get("url"):
+                verified_case_urls.add(s.get("url").rstrip("/"))
+            elif isinstance(s, str) and s:
+                verified_case_urls.add(s.rstrip("/"))
 
     def is_already_verified(it):
         if it.get("status") == "FACT_CHECKED":
