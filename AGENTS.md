@@ -30,17 +30,20 @@
 
 ---
 
-## 3. 데이터 파이프라인(ETL/Enrichment)의 정석 위치
-1. **GitHub Actions 스케줄러(CI/CD) 배치 처리**:
-   - 데이터 수집 및 AI 요약은 정기 스케줄(00:00, 06:00, 12:00, 18:00 KST) 또는 독립된 파이썬 배치 스크립트(`tools/drain_ai_enrichment.py`)를 통해 안전한 예산 내에서 실행됩니다.
-2. **클라이언트 의존성 제로**:
-   - 사용자의 브라우저 접속이나 새로고침에 파이프라인 가공을 의존하지 않습니다.
+## 3. 데이터 파이프라인의 명확한 역할 분리 원칙 (GitHub Actions vs Vercel Serverless)
+1. **GitHub Actions: 순수 데이터 수집(Scraping) 및 랭킹 전담 (AI 실행 절대 금지)**:
+   - GitHub Actions는 오직 다중 출처 트렌드 수집(`tools/harvest_trends.py`, 병렬화 적용 후 ~44초)과 일일 23:00 KST 핫 랭킹(`tools/run_eod_digest.py`, ~3초)만 실행합니다.
+   - **GitHub Actions 내에서 LLM 호출 및 AI 번역/요약(`drain_ai_enrichment.py`) 실행을 엄격히 영구 금지**합니다 (월 2,000분 무료 러너 쿼터의 낭비 원천 차단).
+2. **Vercel Serverless: 모든 AI 번역/요약/분류 단독 전담 (`/api/enrich-worker`)**:
+   - 모든 AI 다국어(KO/EN/ZH) 번역, 후킹 요약, 4-Tier 카테고리 분류는 오직 Vercel Serverless Worker(`api/enrich-worker.js`)가 전담합니다 (Vercel 1,000,000회 무료 Serverless 호출 쿼터 및 OpenRouter 무료 모델 활용).
+3. **클라이언트 의존성 제로 및 안전 트리거**:
+   - 사용자 브라우저의 무한 폴링 루프를 엄격히 금지하며, 사용자의 UI 수동 요청(1회 5건 캡) 또는 Vercel Cron/SWR을 통해 안전하게 분산 처리합니다.
 
 ---
 
 ## 4. 에이전트 자율 점검 체크리스트
 에이전트는 작업 시 다음 5가지를 반드시 점검합니다:
-- [ ] 로컬에 임의로 `investigations/` 신규 폴더 및 `metadata.json`을 생성하려 하고 있지 않은가?
+- [ ] GitHub Actions 워크플로에 AI 번역/요약 스크립트가 포함되어 있지 않은가? (Actions는 순수 수집만 전담)
 - [ ] 프런트엔드 JS에 `while(true)` 형태의 백그라운드 API 폴링/워커 루프가 존재하는가?
 - [ ] 외부 LLM API 연동부에 서킷 브레이커(3회 실패 시 즉각 중단)가 구현되어 있는가?
 - [ ] 1회 수동 트리거 시 최대 처리량 캡(Max Batch Cap = 5)이 설정되어 있는가?
