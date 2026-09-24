@@ -11,6 +11,10 @@
    - 카테고리별 통계, 상태 카운트는 메모리 루프나 부분 슬라이스(`LIMIT 600`)에서 세지 않고, **반드시 SQL `GROUP BY`를 통해 DB 엔진에서 직접 계산**하여 일관성을 100% 보장해야 합니다.
 3. **Edge CDN SWR 캐싱**:
    - 프런트엔드는 `/api/portfolios`, `/api/stats`, `/api/inbox`를 통해 글로벌 CDN 에지 캐시(0.05초)로 서빙하여 DB Egress 및 동시 연결을 완벽히 보호합니다.
+4. **신규 팩트체크 생산 시 DB 실시간 적재 의무화 (Factcheck DB Ingestion Harness)**:
+   - 사용자가 팩트체크 조사, 검증 보고서 작성, 신규 도시에 분석 생성을 요청하는 경우, 에이전트는 **절대로 대화창 텍스트 답변만 출력하고 작업을 끝내서는 안 됩니다.**
+   - 분석 완료 즉시 정식 스키마(`case_id`, `title`, `category`, `verdict`, `claims_assessment`, `portfolio_story`, `clustering`, `sources`)를 갖추어 `tools/upsert_factcheck_db.py`를 실행하여 정본 DB(`verified_factchecks`, `factcheck_atomic_claims` 등)에 무조건 즉각 INSERT/UPSERT해야 합니다.
+   - 적재 완료 후 부여된 `case_id`와 DB 적재 성공 여부를 최종 응답에 반드시 명시하여 사용자 및 프런트엔드 포트폴리오와 100% 동기화되도록 합니다.
 
 ---
 
@@ -42,7 +46,8 @@
 ---
 
 ## 4. 에이전트 자율 점검 체크리스트
-에이전트는 작업 시 다음 5가지를 반드시 점검합니다:
+에이전트는 작업 시 다음 6가지를 반드시 점검합니다:
+- [ ] 신규 팩트체크/검증 보고서 생성 시 `tools/upsert_factcheck_db.py`를 통해 Neon DB(`verified_factchecks`)에 즉각 INSERT/UPSERT하였는가? (텍스트 답변만 남기는 행위 금지)
 - [ ] GitHub Actions 워크플로에 AI 번역/요약 스크립트가 포함되어 있지 않은가? (Actions는 순수 수집만 전담)
 - [ ] 프런트엔드 JS에 `while(true)` 형태의 백그라운드 API 폴링/워커 루프가 존재하는가?
 - [ ] 외부 LLM API 연동부에 서킷 브레이커(3회 실패 시 즉각 중단)가 구현되어 있는가?
