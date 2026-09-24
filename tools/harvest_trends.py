@@ -18,6 +18,7 @@ import time
 import urllib.request
 import urllib.parse
 import xml.etree.ElementTree as ET
+import concurrent.futures
 # Ensure UTF-8
 try:
     if hasattr(sys.stdout, "reconfigure"):
@@ -610,13 +611,14 @@ def harvest_all():
     # 4. Hacker News API (Algolia Front Page & Show HN)
     hn_start = time.time()
     try:
-        logger.log("[*] Fetching Hacker News Front Page & Show HN via Algolia API...")
+        logger.log("[*] Fetching Hacker News Front Page & Show HN via Algolia API (Parallel w=6)...")
         hn_queries = [
             "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=100",
             "https://hn.algolia.com/api/v1/search?tags=show_hn&hitsPerPage=40"
         ]
         count = 0
         seen_stories = set()
+        candidate_stories = []
         for hn_url in hn_queries:
             try:
                 hn_data = fetch_json(hn_url)
@@ -627,37 +629,57 @@ def harvest_all():
                         if not title or not sid or sid in seen_stories:
                             continue
                         seen_stories.add(sid)
-                        hn_discussion_url = f"https://news.ycombinator.com/item?id={sid}"
-                        article_url = story.get("url") or hn_discussion_url
-                        score = story.get("points") or 0
-                        num_comments = story.get("num_comments") or 0
-                        created_at_i = story.get("created_at_i")
-                        published_at = datetime.datetime.fromtimestamp(created_at_i, tz=datetime.timezone.utc).isoformat() if created_at_i else datetime.datetime.now(datetime.timezone.utc).isoformat()
-                        
-                        raw_comments = []
-                        if num_comments and num_comments > 0:
-                            raw_comments = fetch_hn_raw_comments(sid, max_comments=100)
-
-                        added = add_candidate({
-                            "title": f"Hacker News: {title}",
-                            "source_platform": "Hacker News",
-                            "source_url": hn_discussion_url,
-                            "hn_url": hn_discussion_url,
-                            "article_url": article_url,
-                            "published_at": published_at,
-                            "type": "repo" if "github.com" in article_url else "sns",
-                            "category_type": "REPO" if "github.com" in article_url else "NEWS",
-                            "description": f"{title} | {score} points, {num_comments} comments",
-                            "viral_metric": f"🔥 {score} HN Points",
-                            "raw_comments": raw_comments,
-                            "comment_count": len(raw_comments)
-                        })
-                        if added: count += 1
+                        candidate_stories.append(story)
             except Exception as hn_q_err:
                 logger.log(f"[!] HN query note: {hn_q_err}", level="WARNING")
 
+        # 🚀 A/B Tested High-Speed Parallel Comment Extraction (ThreadPoolExecutor max_workers=6)
+        story_comments_map = {}
+        stories_with_comments = [s for s in candidate_stories if (s.get("num_comments") or 0) > 0]
+        
+        def _fetch_hn_worker(s):
+            sid = s.get("objectID")
+            return sid, fetch_hn_raw_comments(sid, max_comments=100)
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
+            future_to_sid = {executor.submit(_fetch_hn_worker, s): s.get("objectID") for s in stories_with_comments}
+            for future in concurrent.futures.as_completed(future_to_sid):
+                try:
+                    sid, comments = future.result()
+                    story_comments_map[sid] = comments
+                except Exception:
+                    pass
+
+        for story in candidate_stories:
+            title = story.get("title") or ""
+            sid = story.get("objectID") or ""
+            hn_discussion_url = f"https://news.ycombinator.com/item?id={sid}"
+            article_url = story.get("url") or hn_discussion_url
+            score = story.get("points") or 0
+            num_comments = story.get("num_comments") or 0
+            created_at_i = story.get("created_at_i")
+            published_at = datetime.datetime.fromtimestamp(created_at_i, tz=datetime.timezone.utc).isoformat() if created_at_i else datetime.datetime.now(datetime.timezone.utc).isoformat()
+            
+            raw_comments = story_comments_map.get(sid, [])
+
+            added = add_candidate({
+                "title": f"Hacker News: {title}",
+                "source_platform": "Hacker News",
+                "source_url": hn_discussion_url,
+                "hn_url": hn_discussion_url,
+                "article_url": article_url,
+                "published_at": published_at,
+                "type": "repo" if "github.com" in article_url else "sns",
+                "category_type": "REPO" if "github.com" in article_url else "NEWS",
+                "description": f"{title} | {score} points, {num_comments} comments",
+                "viral_metric": f"🔥 {score} HN Points",
+                "raw_comments": raw_comments,
+                "comment_count": len(raw_comments)
+            })
+            if added: count += 1
+
         harvest_report["sources"]["hacker_news"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - hn_start, 2)}
-        logger.log(f"[+] Hacker News: {count} items ingested in {time.time() - hn_start:.2f}s")
+        logger.log(f"[+] Hacker News: {count} items ingested in {time.time() - hn_start:.2f}s (parallel w=6)")
     except Exception as e:
         harvest_report["sources"]["hacker_news"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - hn_start, 2)}
         logger.log(f"[!] Hacker News Failed: {e}", level="ERROR")
@@ -724,7 +746,7 @@ def harvest_all():
             try:
                 xml_raw = fetch_xml(r_feed)
                 root = ET.fromstring(xml_raw)
-                for entry in root.findall('atom:entry', ns)[:25]:
+                for idx, entry in enumerate(root.findall('atom:entry', ns)[:25]):
                     title_elem = entry.find('atom:title', ns)
                     link_elem = entry.find('atom:link', ns)
                     pub_elem = entry.find('atom:updated', ns) or entry.find('atom:published', ns)
@@ -737,7 +759,8 @@ def harvest_all():
                         desc_text = re.sub(r'<[^>]+>', ' ', content_elem.text).strip()[:180] if content_elem is not None and content_elem.text else title
                         
                         if url:
-                            r_comments = fetch_reddit_raw_comments(url, max_comments=100)
+                            # Extract comments for top 5 high-signal posts per subreddit to protect against Reddit's 60 req/min ceiling
+                            r_comments = fetch_reddit_raw_comments(url, max_comments=100) if idx < 5 else []
                             added = add_candidate({
                                 "title": f"{sname.split()[-1]}: {title}",
                                 "source_platform": sname,
