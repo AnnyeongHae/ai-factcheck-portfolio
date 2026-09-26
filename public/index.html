@@ -618,7 +618,7 @@
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full md:w-auto justify-between md:justify-end">
             <div class="relative w-full sm:w-48 md:w-56">
               <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-ink-muted"></i>
-              <input type="text" id="newsSearchInput" aria-label="뉴스 검색" oninput="handleNewsSearch(this.value)" placeholder="기술명, 키워드 검색..." 
+              <input type="text" id="newsSearchInput" aria-label="뉴스 검색" oninput="handleNewsSearch(this.value)" onkeydown="if(event.key==='Enter'){handleNewsSearchImmediate(this.value);}" placeholder="기술명, 키워드 검색..." 
                      class="w-full bg-surface-subtle border border-surface-border rounded-xl pl-8 pr-3 py-1.5 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
             </div>
 

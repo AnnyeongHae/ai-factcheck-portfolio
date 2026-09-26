@@ -1,5 +1,21 @@
 // api/_lib/config.js - Centralized Backend & Database Configuration (SSOT: Aiven PostgreSQL)
 const { URL } = require('url');
+const fs = require('fs');
+const path = require('path');
+
+// Auto-load .env for local runtime/testing if present
+try {
+  const envPath = path.resolve(__dirname, '../../.env');
+  if (fs.existsSync(envPath)) {
+    fs.readFileSync(envPath, 'utf-8').split('\n').forEach(rawLine => {
+      const line = rawLine.trim();
+      const m = line.match(/^([^#=]+)=(.*)$/);
+      if (m && !process.env[m[1].trim()]) {
+        process.env[m[1].trim()] = m[2].trim().replace(/^["']|["']$/g, '');
+      }
+    });
+  }
+} catch (e) {}
 
 const isNeon = (url) => typeof url === 'string' && url.includes('neon.tech');
 

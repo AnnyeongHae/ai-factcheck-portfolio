@@ -3755,7 +3755,19 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       renderNews();
     }
 
+    let newsSearchDebounceTimer = null;
     function handleNewsSearch(val) {
+      clearTimeout(newsSearchDebounceTimer);
+      newsSearchDebounceTimer = setTimeout(() => {
+        targetSelectedInboxId = '';
+        currentNewsPage = 1;
+        currentNewsSearch = (val || '').trim().toLowerCase();
+        renderNews();
+      }, 300);
+    }
+
+    function handleNewsSearchImmediate(val) {
+      clearTimeout(newsSearchDebounceTimer);
       targetSelectedInboxId = '';
       currentNewsPage = 1;
       currentNewsSearch = (val || '').trim().toLowerCase();
@@ -4330,20 +4342,28 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       }
 
       let crossRollupHtml = '';
-      if (it.cross_posts && it.cross_posts.length > 0) {
-        const platforms = [it.source_platform, ...it.cross_posts.map(cp => cp.platform)].filter(Boolean);
+      if ((it.cross_posts && it.cross_posts.length > 0) || allSources.length > 1) {
+        const platforms = [
+          it.source_platform,
+          ...(it.cross_posts || []).map(cp => cp.platform),
+          ...(allSources || []).map(s => s.platform || s.source_name)
+        ].filter(Boolean);
         const uniqPlats = [...new Set(platforms)];
+        const clusterCount = Math.max(uniqPlats.length, allSources.length);
+        const labelText = currentLang === 'KO' 
+          ? `${clusterCount}개 매체·플랫폼 동시 집중 보도 (유사 토픽 통합)`
+          : (currentLang === 'ZH' ? `${clusterCount}个媒体/平台联合报道 (多源聚合)` : `Reported by ${clusterCount} Outlets (Multi-Source Hub)`);
         crossRollupHtml = `
-          <div class="p-2 rounded-xl bg-amber-500/10 border border-amber-500/25 text-xs text-amber-950 space-y-1.5 shadow-2xs">
-            <div class="flex items-center justify-between font-bold text-[11px] text-amber-900">
-              <span class="flex items-center gap-1">
+          <div class="p-2.5 rounded-xl bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border border-amber-500/30 text-xs text-amber-950 space-y-1.5 shadow-2xs">
+            <div class="flex items-center justify-between font-bold text-[11px] text-amber-950">
+              <span class="flex items-center gap-1.5">
                 <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-600 animate-pulse"></i>
-                ${uniqPlats.length}개 플랫폼 동시 급상승 바이럴 (롤업)
+                <span class="font-extrabold text-amber-950">${labelText}</span>
               </span>
-              <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-amber-200/70 text-amber-950 font-extrabold">CROSS-SPIKE</span>
+              <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-amber-200/90 text-amber-950 font-black tracking-wider">MULTI-SOURCE CLUSTER</span>
             </div>
             <div class="flex items-center gap-1.5 flex-wrap">
-              ${uniqPlats.map(p => `<span class="px-2 py-0.5 rounded-md bg-white border border-amber-200/80 font-bold text-[10px] text-amber-950 shadow-2xs">${p}</span>`).join('')}
+              ${uniqPlats.map(p => `<span class="px-2 py-0.5 rounded-md bg-white border border-amber-300 font-bold text-[10px] text-amber-950 shadow-2xs">${p}</span>`).join('')}
             </div>
           </div>
         `;
@@ -4409,7 +4429,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               </span>
               <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0">
                 <span>${primaryPlat}</span>
-                ${isMultiSource ? `<span class="px-1 py-0.2 rounded text-[9px] font-mono bg-amber-100 text-amber-950 border border-amber-300 font-black">+${allSources.length - 1}</span>` : ''}
+                ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs animate-pulse">+${allSources.length - 1} 매체</span>` : ''}
               </span>
             </div>
             ${metricBadgeHtml}

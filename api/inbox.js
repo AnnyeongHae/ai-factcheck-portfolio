@@ -139,6 +139,12 @@ module.exports = async (req, res) => {
     const conditions = [];
     const params = [];
 
+    // 0. Live Inbox Filter: Exclude archived duplicates by default (SSOT Hub items only)
+    const includeArchived = req.query?.include_archived === 'true';
+    if (!includeArchived) {
+      conditions.push("(triage_status IS NULL OR triage_status != 'archived')");
+    }
+
     // 1. Basic Type & Classification filters
     const itemType = req.query?.type;
     if (itemType && itemType !== 'ALL') {

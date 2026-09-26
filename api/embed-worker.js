@@ -159,11 +159,11 @@ module.exports = async function handler(req, res) {
         SELECT id, title, raw_payload, source_platform, source_url, embedding
         FROM raw_trends_inbox
         WHERE id != a.id
-          AND created_at >= NOW() - INTERVAL '14 days'
+          AND created_at >= NOW() - INTERVAL '30 days'
           AND (triage_status IS NULL OR triage_status != 'archived')
           AND embedding IS NOT NULL
         ORDER BY a.embedding <=> embedding
-        LIMIT 3
+        LIMIT 5
       ) b
       WHERE (a.embedding <=> b.embedding) <= $2
       ORDER BY similarity DESC;
@@ -185,6 +185,7 @@ module.exports = async function handler(req, res) {
       const dupTitle = isAOlder ? pair.b_title : pair.a_title;
       const dupPlatform = isAOlder ? pair.b_platform : pair.a_platform;
       const dupUrl = isAOlder ? pair.b_url : pair.a_url;
+      const dupPayload = isAOlder ? pair.b_payload : pair.a_payload;
 
       if (archivedIds.has(primaryId) || archivedIds.has(dupId)) {
         continue; // Already processed in this batch
@@ -205,10 +206,25 @@ module.exports = async function handler(req, res) {
           type: 'discussion',
           similarity: parseFloat(pair.similarity.toFixed(4))
         });
+        existingUrls.add(dupUrl);
+      }
+
+      // Preserve any transitive sources from duplicate
+      if (dupPayload && Array.isArray(dupPayload.sources)) {
+        for (const s of dupPayload.sources) {
+          const sUrl = s.url || s.source_url;
+          if (sUrl && !existingUrls.has(sUrl)) {
+            existingUrls.add(sUrl);
+            sources.push(s);
+          }
+        }
       }
 
       primaryPayload.sources = sources;
       primaryPayload.has_multi_sources = true;
+      if (sources.length > 1) {
+        primaryPayload.is_cross_spiking = true;
+      }
       primaryUpdates.set(primaryId, primaryPayload);
 
       archivedIds.add(dupId);
