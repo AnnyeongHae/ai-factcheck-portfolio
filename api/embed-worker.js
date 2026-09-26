@@ -144,21 +144,22 @@ module.exports = async function handler(req, res) {
     );
 
     // 5. Ultra-Fast HNSW-Accelerated Semantic Deduplication Check on current batch items
-    // Finds pairs with cosine similarity >= 0.78 within the past 7 days using LATERAL HNSW index (<0.3s)
+    // Finds pairs with cosine similarity >= 0.78 within the past 14 days using LATERAL HNSW index (<0.3s)
     const batchIds = items.map(it => it.id);
     const distanceThreshold = 1.0 - SIMILARITY_THRESHOLD; // <= 0.22
     const dedupQuery = `
-      SELECT a.id as primary_id, a.title as primary_title, a.raw_payload as primary_payload,
-             b.id as dup_id, b.title as dup_title, b.raw_payload as dup_payload,
-             b.source_platform as dup_platform, b.source_url as dup_url,
+      SELECT a.id as a_id, a.title as a_title, a.raw_payload as a_payload,
+             a.source_platform as a_platform, a.source_url as a_url,
+             b.id as b_id, b.title as b_title, b.raw_payload as b_payload,
+             b.source_platform as b_platform, b.source_url as b_url,
              (1 - (a.embedding <=> b.embedding)) as similarity
       FROM UNNEST($1::bigint[]) AS batch_id
       JOIN raw_trends_inbox a ON a.id = batch_id
       CROSS JOIN LATERAL (
         SELECT id, title, raw_payload, source_platform, source_url, embedding
         FROM raw_trends_inbox
-        WHERE id < a.id
-          AND created_at >= NOW() - INTERVAL '7 days'
+        WHERE id != a.id
+          AND created_at >= NOW() - INTERVAL '14 days'
           AND (triage_status IS NULL OR triage_status != 'archived')
           AND embedding IS NOT NULL
         ORDER BY a.embedding <=> embedding
@@ -174,23 +175,33 @@ module.exports = async function handler(req, res) {
     const primaryUpdates = new Map();
 
     for (const pair of dupPairs) {
-      if (archivedIds.has(pair.primary_id) || archivedIds.has(pair.dup_id)) {
+      // Deterministic: smaller ID is primary, larger ID is duplicate
+      const isAOlder = pair.a_id < pair.b_id;
+      const primaryId = isAOlder ? pair.a_id : pair.b_id;
+      const primaryTitle = isAOlder ? pair.a_title : pair.b_title;
+      let primaryPayload = isAOlder ? pair.a_payload : pair.b_payload;
+
+      const dupId = isAOlder ? pair.b_id : pair.a_id;
+      const dupTitle = isAOlder ? pair.b_title : pair.a_title;
+      const dupPlatform = isAOlder ? pair.b_platform : pair.a_platform;
+      const dupUrl = isAOlder ? pair.b_url : pair.a_url;
+
+      if (archivedIds.has(primaryId) || archivedIds.has(dupId)) {
         continue; // Already processed in this batch
       }
 
-      // Merge secondary (dup_id) into primary (primary_id)
-      const primaryPayload = primaryUpdates.get(pair.primary_id) || pair.primary_payload || {};
+      primaryPayload = primaryUpdates.get(primaryId) || primaryPayload || {};
       let sources = primaryPayload.sources || [];
       if (!Array.isArray(sources)) sources = [];
 
       // Add dup source if not already present
       const existingUrls = new Set(sources.map(s => s.url || s.source_url));
-      if (!existingUrls.has(pair.dup_url)) {
+      if (dupUrl && !existingUrls.has(dupUrl)) {
         sources.push({
-          source_name: pair.dup_platform || 'Cross-Platform Media',
-          platform: pair.dup_platform || 'Media',
-          title: pair.dup_title,
-          url: pair.dup_url,
+          source_name: dupPlatform || 'Cross-Platform Media',
+          platform: dupPlatform || 'Media',
+          title: dupTitle,
+          url: dupUrl,
           type: 'discussion',
           similarity: parseFloat(pair.similarity.toFixed(4))
         });
@@ -198,9 +209,9 @@ module.exports = async function handler(req, res) {
 
       primaryPayload.sources = sources;
       primaryPayload.has_multi_sources = true;
-      primaryUpdates.set(pair.primary_id, primaryPayload);
+      primaryUpdates.set(primaryId, primaryPayload);
 
-      archivedIds.add(pair.dup_id);
+      archivedIds.add(dupId);
       mergedCount++;
     }
 
