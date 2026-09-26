@@ -5297,8 +5297,6 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       }
       if (typeof lucide !== 'undefined') lucide.createIcons({ root: tbody });
     }
-      if (typeof lucide !== 'undefined') lucide.createIcons({ root: tbody });
-    }
 
     setInterval(updateCronCountdown, 1000);
 
