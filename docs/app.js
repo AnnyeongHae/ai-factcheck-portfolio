@@ -1888,6 +1888,53 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       }
     }
  
+    window.triggerVoyageEmbeddingBatch = async function() {
+      const btn = document.getElementById('btnTriggerEmbedding');
+      const txt = document.getElementById('btnEmbedText');
+      if (!btn || btn.disabled) return;
+
+      btn.disabled = true;
+      const originalHtml = btn.innerHTML;
+      if (txt) txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping mr-1"></span> 100건 벡터화 진행 중...`;
+
+      try {
+        const url = APP_CONFIG.apiUrl('/api/embed-worker?limit=100');
+        const t0 = Date.now();
+        const res = await fetch(url, { method: 'POST', cache: 'no-store' });
+        const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          const processed = data.processed_count || 0;
+          const merged = data.merged_duplicates_count || 0;
+          const remaining = data.remaining_unembedded || 0;
+          
+          if (txt) {
+            txt.innerHTML = `✅ ${processed}건 완료 (${merged}건 병합, ${elapsed}s)`;
+          }
+
+          if (typeof showToast === 'function') {
+            showToast(`⚡ Voyage AI: ${processed}건 임베딩 완료, 중복 ${merged}건 자동 병합 (${elapsed}s, 잔여 ${remaining}건)`, 'success');
+          }
+
+          setTimeout(() => {
+            if (typeof syncFromNeonLiveDB === 'function') syncFromNeonLiveDB();
+            btn.disabled = false;
+            btn.innerHTML = originalHtml;
+          }, 3500);
+        } else {
+          throw new Error(data.error || 'Server error');
+        }
+      } catch (err) {
+        console.error('[Voyage Embed Worker Error]:', err);
+        if (txt) txt.textContent = '❌ 임베딩 실패 (재시도)';
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.innerHTML = originalHtml;
+        }, 3000);
+      }
+    };
+
     let _autoWorkerRunning = false;
     let _autoWorkerPaused = false;
     window._autoWorkerRunning = false;

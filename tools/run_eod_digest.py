@@ -30,6 +30,52 @@ try:
 except Exception:
     pass
 
+def sync_eod_voyage_embeddings(conn):
+    """EOD Voyage Multilingual Embedding & Deduplication Backup (Runs in 1-2 seconds)"""
+    voyage_key = os.environ.get("VOYAGE_API_KEY") or os.environ.get("VOYAGEAI_API_KEY")
+    if not voyage_key:
+        return
+    try:
+        from tools.voyage_embedder import get_embeddings
+    except Exception:
+        try:
+            from voyage_embedder import get_embeddings
+        except Exception:
+            return
+
+    try:
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT id, title, COALESCE(raw_payload->>'title_ko', '') as title_ko
+            FROM raw_trends_inbox 
+            WHERE embedding IS NULL 
+            ORDER BY created_at DESC 
+            LIMIT 100;
+        """)
+        rows = cur.fetchall()
+        if not rows:
+            return
+
+        print(f"[*] [EOD Voyage Sync] Found {len(rows)} unembedded items. Running batch embedding...")
+        texts = []
+        for r in rows:
+            en = (r[1] or '').strip()
+            ko = (r[2] or '').strip()
+            texts.append(f"{en} ({ko})" if en and ko and en != ko else (en or ko))
+
+        embs = get_embeddings(texts, model="voyage-multilingual-2", dimension=1024)
+        if embs and len(embs) == len(rows):
+            for idx, r in enumerate(rows):
+                cur.execute("""
+                    UPDATE raw_trends_inbox 
+                    SET embedding = %s::vector, updated_at = NOW() 
+                    WHERE id = %s;
+                """, (f"[{','.join(map(str, embs[idx]))}]", r[0]))
+            conn.commit()
+            print(f"[+] [EOD Voyage Sync] Successfully updated {len(rows)} embeddings in Aiven DB.")
+    except Exception as e:
+        print(f"[!] [EOD Voyage Sync Error]: {e}")
+
 def run_eod_digest(top_n=10):
     try:
         from tools.db_bridge import get_db_connection
@@ -42,8 +88,11 @@ def run_eod_digest(top_n=10):
 
     conn = get_db_connection()
     if not conn:
-        print("[!] [EOD Digest] Failed to establish Neon DB connection.")
+        print("[!] [EOD Digest] Failed to establish DB connection.")
         return False
+
+    # Run Voyage Embedding sync backup if key is present
+    sync_eod_voyage_embeddings(conn)
 
     now_utc = datetime.datetime.now(datetime.timezone.utc)
     kst_tz = datetime.timezone(datetime.timedelta(hours=9))

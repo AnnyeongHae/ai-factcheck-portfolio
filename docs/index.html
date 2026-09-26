@@ -982,7 +982,11 @@
               월간 한도 대비 <b>사용량 0.3% 미만</b>이며, 30초 Edge CDN 캐싱 및 서버리스 AI 워커로 <b>무료 티어 초과 없이 무제한 자율 운영</b>됩니다.
             </span>
           </div>
-          <div class="shrink-0 flex items-center self-end md:self-center">
+          <div class="shrink-0 flex items-center gap-2 self-end md:self-center">
+            <button id="btnTriggerEmbedding" onclick="triggerVoyageEmbeddingBatch()" class="px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-emerald-100" title="미임베딩된 최근 기사 100건을 Voyage AI로 일괄 벡터화하고 중복 기사를 자동 병합합니다.">
+              <i data-lucide="zap" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span id="btnEmbedText">⚡ Voyage 임베딩 (100건)</span>
+            </button>
             <button id="btnTriggerWorker" onclick="toggleAiEnrichWorker()" class="px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-indigo-100" title="웹사이트를 열어두는 동안 백그라운드에서 AI 요약을 지속적으로 진행합니다. 클릭하여 일시정지/재개할 수 있습니다.">
               <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indigo-600"></i>
               <span id="btnWorkerText">⏳ AI 요약 상태 확인 중...</span>
