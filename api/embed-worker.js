@@ -123,22 +123,25 @@ module.exports = async function handler(req, res) {
       throw new Error(`Mismatch: expected ${items.length} embeddings, got ${embeddings.length}`);
     }
 
-    // 4. Batch UPDATE embeddings into Aiven DB
+    // 4. Ultra-Fast Bulk UPDATE embeddings into Aiven DB in 1 single roundtrip
     await client.query('BEGIN');
 
-    // Build parameterized multi-row update
+    const valuesClauses = [];
+    const updateParams = [];
     for (let i = 0; i < items.length; i++) {
-      const item = items[i];
       const embVector = embeddings[i].embedding;
       const vectorStr = `[${embVector.join(',')}]`;
-
-      await client.query(
-        `UPDATE raw_trends_inbox 
-         SET embedding = $1::vector, updated_at = NOW() 
-         WHERE id = $2;`,
-        [vectorStr, item.id]
-      );
+      valuesClauses.push(`($${i * 2 + 1}::bigint, $${i * 2 + 2}::vector)`);
+      updateParams.push(items[i].id, vectorStr);
     }
+
+    await client.query(
+      `UPDATE raw_trends_inbox AS t
+       SET embedding = v.emb, updated_at = NOW()
+       FROM (VALUES ${valuesClauses.join(',')}) AS v(id, emb)
+       WHERE t.id = v.id;`,
+      updateParams
+    );
 
     // 5. Automatic Semantic Deduplication Check on recently updated items
     // Finds pairs with cosine similarity >= 0.78 within the past 7 days
@@ -161,6 +164,7 @@ module.exports = async function handler(req, res) {
 
     let mergedCount = 0;
     const archivedIds = new Set();
+    const primaryUpdates = new Map();
 
     for (const pair of dupPairs) {
       if (archivedIds.has(pair.primary_id) || archivedIds.has(pair.dup_id)) {
@@ -168,8 +172,7 @@ module.exports = async function handler(req, res) {
       }
 
       // Merge secondary (dup_id) into primary (primary_id)
-      const primaryPayload = pair.primary_payload || {};
-      const dupPayload = pair.dup_payload || {};
+      const primaryPayload = primaryUpdates.get(pair.primary_id) || pair.primary_payload || {};
       let sources = primaryPayload.sources || [];
       if (!Array.isArray(sources)) sources = [];
 
@@ -188,27 +191,41 @@ module.exports = async function handler(req, res) {
 
       primaryPayload.sources = sources;
       primaryPayload.has_multi_sources = true;
+      primaryUpdates.set(pair.primary_id, primaryPayload);
 
-      // Update primary with enriched multi-sources
-      await client.query(
-        `UPDATE raw_trends_inbox 
-         SET raw_payload = $1, updated_at = NOW() 
-         WHERE id = $2;`,
-        [JSON.stringify(primaryPayload), pair.primary_id]
-      );
+      archivedIds.add(pair.dup_id);
+      mergedCount++;
+    }
 
-      // Archive duplicate item so it doesn't clutter frontend
+    // Bulk Archive all duplicate items in 1 single query
+    if (archivedIds.size > 0) {
       await client.query(
         `UPDATE raw_trends_inbox 
          SET triage_status = 'archived', 
              curation_tier = 'duplicate',
              updated_at = NOW() 
-         WHERE id = $1;`,
-        [pair.dup_id]
+         WHERE id = ANY($1::bigint[]);`,
+        [Array.from(archivedIds)]
       );
+    }
 
-      archivedIds.add(pair.dup_id);
-      mergedCount++;
+    // Bulk Update all primary payloads in 1 single query
+    if (primaryUpdates.size > 0) {
+      const pClauses = [];
+      const pParams = [];
+      let pIdx = 1;
+      for (const [pId, pPayload] of primaryUpdates.entries()) {
+        pClauses.push(`($${pIdx}::bigint, $${pIdx + 1}::jsonb)`);
+        pParams.push(pId, JSON.stringify(pPayload));
+        pIdx += 2;
+      }
+      await client.query(
+        `UPDATE raw_trends_inbox AS t
+         SET raw_payload = v.payload, updated_at = NOW()
+         FROM (VALUES ${pClauses.join(',')}) AS v(id, payload)
+         WHERE t.id = v.id;`,
+        pParams
+      );
     }
 
     await client.query('COMMIT');

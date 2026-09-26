@@ -5262,7 +5262,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         const voyRuns = window.voyageWorkerRunsData || [];
         if (voyRuns.length > 0) {
           let rowsHtml = '';
-          voyRuns.forEach(r => {
+          voyRuns.slice(0, 6).forEach(r => {
             const isSuccess = r.status === 'SUCCESS';
             const statusCls = isSuccess ? 'bg-emerald-100 text-emerald-800 border-emerald-300' : 'bg-rose-100 text-rose-800 border-rose-300';
             const mergedBadge = (r.merged_count && r.merged_count > 0)
