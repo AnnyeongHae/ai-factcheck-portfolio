@@ -244,12 +244,12 @@ async function bootstrapApplicationData() {
 
   switchView(initialView, false, true);
 
-  // 2. Perform live DB sync in background (non-blocking, instant 0ms page load)
+  // 2. Perform live DB sync in background (delayed to idle to give 100% bandwidth to initial view)
   setTimeout(() => {
     syncFromLiveDB(false)
       .then(() => updateGlobalStatsUI())
       .catch(e => console.warn('[Bootstrap] Live DB sync completed or skipped:', e.message));
-  }, 100);
+  }, 1500);
 }
 
 
@@ -1765,9 +1765,14 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
                         }
                       }
                     } else {
-                      liveInboxData.push(newItem);
+                      liveInboxData.unshift(newItem);
                       mapExisting.set(nid, newItem);
                       addedCount++;
+                      if (isModel) {
+                        if (!liveModelsData.some(x => (x.inbox_id || x.id) === nid)) liveModelsData.unshift(newItem);
+                      } else {
+                        if (!liveNewsData.some(x => (x.inbox_id || x.id) === nid)) liveNewsData.unshift(newItem);
+                      }
                     }
                   }
                   if (addedCount > 0 || updatedCount > 0) {
@@ -3860,12 +3865,15 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       return params.toString();
     }
 
-    async function fetchNewsFromDb(page = currentNewsPage) {
+    async function fetchNewsFromDb(page = currentNewsPage, bypassCache = false) {
       const baseUrl = APP_CONFIG.apiUrl('/api/inbox');
       
       const cacheKey = getNewsCacheKey(page);
-      if (newsDbCache.has(cacheKey)) {
-        return newsDbCache.get(cacheKey);
+      if (!bypassCache && newsDbCache.has(cacheKey)) {
+        const cached = newsDbCache.get(cacheKey);
+        if (cached && (Date.now() - (cached.timestamp || 0) < 30000)) {
+          return cached;
+        }
       }
 
       if (newsFetchAbortController) {
@@ -3881,7 +3889,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         const result = {
           total: data.total || 0,
           totalPages: data.total_pages || Math.ceil((data.total || 0) / PAGE_SIZE) || 1,
-          items: data.items || []
+          items: data.items || [],
+          timestamp: Date.now()
         };
         newsDbCache.set(cacheKey, result);
         return result;
@@ -3975,7 +3984,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       const clustered = clusterFeedItems(items);
       clustered.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
       grid.appendChild(frag);
-      if (window.lucide) window.lucide.createIcons();
+      if (window.lucide) window.lucide.createIcons({ root: grid });
     }
 
     function preloadTopNewsFilters() {
@@ -4236,81 +4245,94 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       const cacheKey = getNewsCacheKey(currentNewsPage);
       const isDefaultFilter = (currentNewsTier1 === 'ALL' && currentNewsTier2 === 'ALL' && currentNewsFacet === 'ALL' && !currentNewsSearch && !targetSelectedInboxId);
 
-      // 1. ⚡ 0ms ZERO-LATENCY INSTANT SWITCH: Cached Result in Memory
+      // 1. ⚡ 0ms ZERO-LATENCY FIRST PAINT: Cached Result in Memory (Optimistic SWR)
+      let renderedFromCache = false;
+      let cachedFirstId = null;
       if (newsDbCache.has(cacheKey)) {
         const cached = newsDbCache.get(cacheKey);
-        renderNewsGridItems(cached.items, grid);
-        renderPagination('newsPagination', currentNewsPage, cached.totalPages, 'changeNewsPage');
-        if (window.lucide) window.lucide.createIcons({ root: grid });
-        return; // Instant render complete!
+        if (cached && Array.isArray(cached.items) && cached.items.length > 0) {
+          renderNewsGridItems(cached.items, grid);
+          renderPagination('newsPagination', currentNewsPage, cached.totalPages, 'changeNewsPage');
+          if (window.lucide) window.lucide.createIcons({ root: grid });
+          renderedFromCache = true;
+          cachedFirstId = cached.items[0]?.inbox_id || cached.items[0]?.id;
+          // If cache is super fresh (< 10 seconds), skip background revalidation
+          if (Date.now() - (cached.timestamp || 0) < 10000) {
+            return;
+          }
+        }
       }
 
-      // 2. ⚡ Optimistic Filter (0ms Instant Preview from local snapshot)
-      const memMatches = (liveNewsData || []).filter(it => {
-        if (targetSelectedInboxId && (it.inbox_id === targetSelectedInboxId || it.id === targetSelectedInboxId)) return true;
-        if (currentNewsTier1 !== 'ALL' && (it.tier1_category || 'TECH_COMPUTING') !== currentNewsTier1) return false;
-        if (currentNewsTier2 !== 'ALL' && (it.tier2_category || it.category_primary || 'INDUSTRY_TRENDS') !== currentNewsTier2) return false;
-        if (currentNewsFacet === 'CROSS_SPIKE' && !it.is_cross_spiking && (!it.sources || it.sources.length <= 1)) return false;
-        if (currentNewsFacet === 'MODEL' && !it.is_model && it.facet_type !== 'MODEL') return false;
-        if (currentNewsSource !== 'ALL') {
-          const plat = (it.source_platform || '').toLowerCase();
-          const filterKey = currentNewsSource.toLowerCase();
-          const hasInCrossPosts = Array.isArray(it.cross_posts) && it.cross_posts.some(cp => (cp.platform || '').toLowerCase().includes(filterKey));
-          const hasInSources = Array.isArray(it.sources) && it.sources.some(s => (s.platform || s.source_name || '').toLowerCase().includes(filterKey));
-          if (!plat.includes(filterKey) && !hasInCrossPosts && !hasInSources) return false;
-        }
-        if (currentNewsSearch) {
-          const s = currentNewsSearch.toLowerCase();
-          const matchTitle = (it.title || '').toLowerCase().includes(s) || (it.title_ko || '').toLowerCase().includes(s);
-          const matchHook = (it.hook || '').toLowerCase().includes(s) || (it.hook_ko || '').toLowerCase().includes(s);
-          if (!matchTitle && !matchHook) return false;
-        }
-        return true;
-      });
+      // 2. ⚡ Optimistic Filter (0ms Instant Preview from local snapshot if no cache)
+      if (!renderedFromCache) {
+        const memMatches = (liveNewsData || []).filter(it => {
+          if (targetSelectedInboxId && (it.inbox_id === targetSelectedInboxId || it.id === targetSelectedInboxId)) return true;
+          if (currentNewsTier1 !== 'ALL' && (it.tier1_category || 'TECH_COMPUTING') !== currentNewsTier1) return false;
+          if (currentNewsTier2 !== 'ALL' && (it.tier2_category || it.category_primary || 'INDUSTRY_TRENDS') !== currentNewsTier2) return false;
+          if (currentNewsFacet === 'CROSS_SPIKE' && !it.is_cross_spiking && (!it.sources || it.sources.length <= 1)) return false;
+          if (currentNewsFacet === 'MODEL' && !it.is_model && it.facet_type !== 'MODEL') return false;
+          if (currentNewsSource !== 'ALL') {
+            const plat = (it.source_platform || '').toLowerCase();
+            const filterKey = currentNewsSource.toLowerCase();
+            const hasInCrossPosts = Array.isArray(it.cross_posts) && it.cross_posts.some(cp => (cp.platform || '').toLowerCase().includes(filterKey));
+            const hasInSources = Array.isArray(it.sources) && it.sources.some(s => (s.platform || s.source_name || '').toLowerCase().includes(filterKey));
+            if (!plat.includes(filterKey) && !hasInCrossPosts && !hasInSources) return false;
+          }
+          if (currentNewsSearch) {
+            const s = currentNewsSearch.toLowerCase();
+            const matchTitle = (it.title || '').toLowerCase().includes(s) || (it.title_ko || '').toLowerCase().includes(s);
+            const matchHook = (it.hook || '').toLowerCase().includes(s) || (it.hook_ko || '').toLowerCase().includes(s);
+            if (!matchTitle && !matchHook) return false;
+          }
+          return true;
+        });
 
-      if (memMatches.length > 0) {
-        const optimisticSlice = memMatches.slice(0, PAGE_SIZE);
-        renderNewsGridItems(optimisticSlice, grid);
-        const estPages = Math.ceil(memMatches.length / PAGE_SIZE) || 1;
-        renderPagination('newsPagination', currentNewsPage, estPages, 'changeNewsPage');
-        if (window.lucide) window.lucide.createIcons({ root: grid });
-      } else if (grid.children.length === 0) {
-        grid.innerHTML = `
-          <div class="col-span-full py-12 flex flex-col items-center justify-center text-ink-muted text-xs space-y-2">
-            <div class="w-6 h-6 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
-            <span>${currentLang === 'KO' ? `${APP_CONFIG.dbProvider}에서 실시간 트렌드 동기화 중...` : `Synchronizing trends from ${APP_CONFIG.dbProvider}...`}</span>
-          </div>
-        `;
+        if (memMatches.length > 0) {
+          const optimisticSlice = memMatches.slice(0, PAGE_SIZE);
+          renderNewsGridItems(optimisticSlice, grid);
+          const estPages = Math.ceil(memMatches.length / PAGE_SIZE) || 1;
+          renderPagination('newsPagination', currentNewsPage, estPages, 'changeNewsPage');
+          if (window.lucide) window.lucide.createIcons({ root: grid });
+        } else if (grid.children.length === 0) {
+          grid.innerHTML = `
+            <div class="col-span-full py-12 flex flex-col items-center justify-center text-ink-muted text-xs space-y-2">
+              <div class="w-6 h-6 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+              <span>${currentLang === 'KO' ? `${APP_CONFIG.dbProvider}에서 실시간 트렌드 동기화 중...` : `Synchronizing trends from ${APP_CONFIG.dbProvider}...`}</span>
+            </div>
+          `;
+        }
       }
 
       // 3. 🐘 Background SWR Revalidation (Cloud DB via Edge SWR)
       try {
-        const dbRes = await fetchNewsFromDb(currentNewsPage);
+        const dbRes = await fetchNewsFromDb(currentNewsPage, renderedFromCache);
         const items = dbRes.items || [];
         const total = dbRes.total || 0;
         const totalPages = dbRes.totalPages || Math.ceil(total / PAGE_SIZE) || 1;
 
-        if (items.length === 0) {
-          grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${currentLang === 'KO' ? '해당 플랫폼/조건의 수집 AI 뉴스가 없습니다.' : (currentLang === 'ZH' ? '暂无该条件的 AI 资讯。' : 'No AI news articles available for this criteria.')}</div>`;
-        } else {
-          renderNewsGridItems(items, grid);
+        const newFirstId = items[0]?.inbox_id || items[0]?.id;
+        // Only re-render if data actually changed or not rendered from cache
+        if (!renderedFromCache || newFirstId !== cachedFirstId || items.length !== (newsDbCache.get(cacheKey)?.items?.length)) {
+          if (items.length === 0) {
+            grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${currentLang === 'KO' ? '해당 플랫폼/조건의 수집 AI 뉴스가 없습니다.' : (currentLang === 'ZH' ? '暂无该条件的 AI 资讯。' : 'No AI news articles available for this criteria.')}</div>`;
+          } else {
+            renderNewsGridItems(items, grid);
+          }
+
+          if (currentNewsPage > totalPages) currentNewsPage = totalPages;
+          if (currentNewsPage < 1) currentNewsPage = 1;
+          renderPagination('newsPagination', currentNewsPage, totalPages, 'changeNewsPage');
+
+          if (isDefaultFilter && total > 0) {
+            snapshotStats.news_total_count = total;
+            const numEl = document.getElementById('statValNews');
+            if (numEl) numEl.textContent = total.toLocaleString();
+            const headEl = document.getElementById('headerNewsCount');
+            if (headEl) headEl.textContent = `(${total.toLocaleString()})`;
+            const allPill = document.querySelector('.news-cat-pill[data-cat="ALL"]');
+            if (allPill) allPill.textContent = currentLang === 'KO' ? `전체 (${total.toLocaleString()})` : (currentLang === 'ZH' ? `全部 (${total.toLocaleString()})` : `All (${total.toLocaleString()})`);
+          }
         }
-
-        if (currentNewsPage > totalPages) currentNewsPage = totalPages;
-        if (currentNewsPage < 1) currentNewsPage = 1;
-        renderPagination('newsPagination', currentNewsPage, totalPages, 'changeNewsPage');
-
-        if (isDefaultFilter && total > 0) {
-          snapshotStats.news_total_count = total;
-          const numEl = document.getElementById('statValNews');
-          if (numEl) numEl.textContent = total.toLocaleString();
-          const headEl = document.getElementById('headerNewsCount');
-          if (headEl) headEl.textContent = `(${total.toLocaleString()})`;
-          const allPill = document.querySelector('.news-cat-pill[data-cat="ALL"]');
-          if (allPill) allPill.textContent = currentLang === 'KO' ? `전체 (${total.toLocaleString()})` : (currentLang === 'ZH' ? `全部 (${total.toLocaleString()})` : `All (${total.toLocaleString()})`);
-        }
-
-        if (window.lucide) window.lucide.createIcons({ root: grid });
       } catch (err) {
         if (err.name === 'AbortError') return;
         console.warn('[News DB-Native Fetch Fallback]:', err.message);
