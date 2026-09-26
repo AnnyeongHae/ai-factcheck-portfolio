@@ -2003,7 +2003,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           window.voyageWorkerRunsData.unshift({
             id: Date.now(),
             created_at_kst: nowKst,
-            engine: data.model || 'voyage-multilingual-2',
+            engine: data.model || 'voyage-4-lite',
             duration_str: elapsed + '초',
             processed_count: processed,
             merged_count: merged,
@@ -5275,7 +5275,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               <tr class="hover:bg-slate-50/80 transition">
                 <td class="py-2.5 px-3 font-bold text-ink-primary text-[11px]">${r.created_at_kst}</td>
                 <td class="py-2.5 px-3 font-medium text-emerald-800 flex items-center gap-1 font-mono text-[11px]">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> ${r.engine || 'voyage-multilingual-2'}
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> ${r.engine || 'voyage-4-lite'}
                 </td>
                 <td class="py-2.5 px-3 font-bold text-ink-primary">${r.duration_str}</td>
                 <td class="py-2.5 px-3 font-mono font-semibold text-emerald-700">${r.processed_count}건 임베딩</td>

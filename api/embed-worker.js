@@ -16,7 +16,7 @@ const { getDbPool } = require('./_lib/db');
 const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
 const VOYAGE_API_URL = 'https://api.voyageai.com/v1/embeddings';
-const VOYAGE_MODEL = 'voyage-multilingual-2';
+const VOYAGE_MODEL = 'voyage-4-lite';
 const VOYAGE_DIM = 1024;
 const SIMILARITY_THRESHOLD = 0.78; // Cosine similarity >= 0.78 (distance <= 0.22)
 
