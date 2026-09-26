@@ -804,6 +804,9 @@
                 <button type="button" id="tabRunsVercel" onclick="switchRunLogsTab('vercel')" class="px-2.5 py-1 rounded-md font-medium text-ink-secondary hover:text-ink-primary transition cursor-pointer">
                   ▲ Vercel Serverless (AI요약)
                 </button>
+                <button type="button" id="tabRunsVoyage" onclick="switchRunLogsTab('voyage')" class="px-2.5 py-1 rounded-md font-medium text-ink-secondary hover:text-ink-primary transition cursor-pointer">
+                  ⚡ Voyage AI (임베딩)
+                </button>
               </div>
             </div>
             <span class="text-[11px] text-ink-muted font-normal font-mono" id="recentRunsSub">KST 실행 시각 기준 실시간 갱신</span>
@@ -983,9 +986,9 @@
             </span>
           </div>
           <div class="shrink-0 flex items-center gap-2 self-end md:self-center">
-            <button id="btnTriggerEmbedding" onclick="triggerVoyageEmbeddingBatch()" class="px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-emerald-100" title="미임베딩된 최근 기사 100건을 Voyage AI로 일괄 벡터화하고 중복 기사를 자동 병합합니다.">
+            <button id="btnTriggerEmbedding" onclick="toggleVoyageEmbeddingWorker()" class="px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-emerald-100" title="클릭 시 잔여 기사 전수를 100건씩 Voyage AI 다국어 벡터로 자동 임베딩 및 중복 병합합니다.">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-emerald-600"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-              <span id="btnEmbedText">⚡ Voyage 임베딩 (100건)</span>
+              <span id="btnEmbedText">⚡ Voyage 임베딩 (잔여 확인 중...)</span>
             </button>
             <button id="btnTriggerWorker" onclick="toggleAiEnrichWorker()" class="px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-indigo-100" title="웹사이트를 열어두는 동안 백그라운드에서 AI 요약을 지속적으로 진행합니다. 클릭하여 일시정지/재개할 수 있습니다.">
               <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indigo-600"></i>

@@ -1888,52 +1888,204 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       }
     }
  
-    window.triggerVoyageEmbeddingBatch = async function() {
+    // ================= VOYAGE AI CONTINUOUS EMBEDDING & DEDUPLICATION WORKER =================
+    let _voyageWorkerRunning = false;
+    let _voyageWorkerPaused = false;
+    window._voyageWorkerRunning = false;
+    window._voyageWorkerPaused = false;
+
+    async function checkVoyageEmbeddingStatus() {
       const btn = document.getElementById('btnTriggerEmbedding');
       const txt = document.getElementById('btnEmbedText');
-      if (!btn || btn.disabled) return;
-
-      btn.disabled = true;
-      const originalHtml = btn.innerHTML;
-      if (txt) txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping mr-1"></span> 100건 벡터화 진행 중...`;
+      if (!btn || !txt) return;
 
       try {
-        const url = APP_CONFIG.apiUrl('/api/embed-worker?limit=100');
-        const t0 = Date.now();
-        const res = await fetch(url, { method: 'POST', cache: 'no-store' });
-        const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
+        const url = APP_CONFIG.apiUrl('/api/embed-worker?check_only=true');
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) return;
         const data = await res.json();
+        if (!data.success) return;
 
-        if (res.ok && data.success) {
-          const processed = data.processed_count || 0;
-          const merged = data.merged_duplicates_count || 0;
-          const remaining = data.remaining_unembedded || 0;
-          
-          if (txt) {
-            txt.innerHTML = `✅ ${processed}건 완료 (${merged}건 병합, ${elapsed}s)`;
-          }
+        const remaining = data.remaining_unembedded !== undefined ? data.remaining_unembedded : 0;
+        const total = data.total_count || 0;
+        const embedded = data.embedded_count || 0;
 
-          if (typeof showToast === 'function') {
-            showToast(`⚡ Voyage AI: ${processed}건 임베딩 완료, 중복 ${merged}건 자동 병합 (${elapsed}s, 잔여 ${remaining}건)`, 'success');
-          }
+        window._voyageRemaining = remaining;
+        window._voyageTotal = total;
+        window._voyageEmbedded = embedded;
 
-          setTimeout(() => {
-            if (typeof syncFromNeonLiveDB === 'function') syncFromNeonLiveDB();
-            btn.disabled = false;
-            btn.innerHTML = originalHtml;
-          }, 3500);
+        if (remaining === 0) {
+          txt.textContent = '✨ 모든 항목 Voyage 임베딩 완료됨';
+          btn.disabled = true;
+          btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
+          btn.title = `총 ${total.toLocaleString()}건 전수 임베딩 및 중복 병합 완료 (100%)`;
         } else {
-          throw new Error(data.error || 'Server error');
+          if (!_voyageWorkerRunning) {
+            txt.textContent = `⚡ Voyage 임베딩 (${remaining.toLocaleString()}건 잔여)`;
+            btn.disabled = false;
+            btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+            btn.title = `총 ${total.toLocaleString()}건 중 ${remaining.toLocaleString()}건 미임베딩 (완료: ${embedded.toLocaleString()}건). 클릭 시 전수 자동 임베딩 시작`;
+          }
         }
       } catch (err) {
-        console.error('[Voyage Embed Worker Error]:', err);
-        if (txt) txt.textContent = '❌ 임베딩 실패 (재시도)';
-        setTimeout(() => {
-          btn.disabled = false;
-          btn.innerHTML = originalHtml;
-        }, 3000);
+        console.warn('[Voyage Status Check Skipped]:', err.message);
       }
-    };
+    }
+
+    async function startContinuousVoyageWorker() {
+      if (_voyageWorkerRunning) return;
+      _voyageWorkerRunning = true;
+      _voyageWorkerPaused = false;
+      window._voyageWorkerRunning = true;
+      window._voyageWorkerPaused = false;
+
+      const btn = document.getElementById('btnTriggerEmbedding');
+      const txt = document.getElementById('btnEmbedText');
+
+      if (btn) {
+        btn.disabled = false;
+        btn.className = "px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold font-mono text-[11px] border border-emerald-800 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+      }
+
+      let consecutiveErrors = 0;
+      let totalProcessedInSession = 0;
+      let totalMergedInSession = 0;
+
+      while (_voyageWorkerRunning && !_voyageWorkerPaused) {
+        try {
+          if (txt && !_voyageWorkerPaused) {
+            txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-white animate-ping mr-1"></span> 임베딩 중... (${totalProcessedInSession}건 완료 / 잔여 확인 중)`;
+          }
+
+          const t0 = Date.now();
+          const res = await fetch(APP_CONFIG.apiUrl('/api/embed-worker?limit=100'), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ limit: 100 }),
+            cache: 'no-store'
+          });
+          const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
+
+          if (!res.ok) {
+            consecutiveErrors++;
+            console.warn(`[Voyage Worker] HTTP error ${res.status}. Errors: ${consecutiveErrors}/3`);
+            if (consecutiveErrors >= 3) {
+              _voyageWorkerRunning = false;
+              window._voyageWorkerRunning = false;
+              if (txt) txt.textContent = '⚡ 임베딩 서버 지연으로 정지 (클릭 시 재개)';
+              if (btn) {
+                btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+              }
+              break;
+            }
+            await new Promise(r => setTimeout(r, 4000));
+            continue;
+          }
+
+          consecutiveErrors = 0;
+          const data = await res.json();
+          if (!data.success) {
+            throw new Error(data.error || 'Server error');
+          }
+
+          const processed = data.processed_count || 0;
+          const merged = data.merged_duplicates_count || 0;
+          const remaining = data.remaining_unembedded !== undefined ? data.remaining_unembedded : 0;
+          const totalCount = data.total_count || 0;
+          const tokensUsed = data.tokens_used || 0;
+
+          totalProcessedInSession += processed;
+          totalMergedInSession += merged;
+
+          // Prepend to run history
+          const nowKst = new Date(Date.now() + 9 * 3600 * 1000).toISOString().replace('T', ' ').substring(5, 16);
+          if (!Array.isArray(window.voyageWorkerRunsData)) window.voyageWorkerRunsData = [];
+          window.voyageWorkerRunsData.unshift({
+            id: Date.now(),
+            created_at_kst: nowKst,
+            engine: data.model || 'voyage-multilingual-2',
+            duration_str: elapsed + '초',
+            processed_count: processed,
+            merged_count: merged,
+            tokens_used: tokensUsed,
+            remaining_count: remaining,
+            total_count: totalCount,
+            status: 'SUCCESS'
+          });
+          if (window.voyageWorkerRunsData.length > 30) window.voyageWorkerRunsData.pop();
+          try {
+            localStorage.setItem('voyage_runs_history_v1', JSON.stringify(window.voyageWorkerRunsData));
+          } catch (e) {}
+
+          if (window.currentRunsTab === 'voyage' && typeof renderRunsTable === 'function') {
+            renderRunsTable();
+          }
+
+          if (txt && !_voyageWorkerPaused) {
+            txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-white animate-pulse mr-1"></span> 진행 중 (${totalProcessedInSession}건 완료 / 잔여: ${remaining.toLocaleString()}건)`;
+          }
+
+          // If all items are embedded:
+          if (remaining === 0 || processed === 0) {
+            _voyageWorkerRunning = false;
+            window._voyageWorkerRunning = false;
+            if (txt) txt.textContent = '✨ 모든 항목 Voyage 임베딩 완료됨';
+            if (btn) {
+              btn.disabled = true;
+              btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
+              btn.title = `총 ${totalCount.toLocaleString()}건 전체 임베딩 및 유사도 중복 병합 완료 (100%)`;
+            }
+            if (typeof showToast === 'function') {
+              showToast(`✨ 모든 기사(${totalCount.toLocaleString()}건) Voyage AI 임베딩이 100% 완료되었습니다!`, 'success');
+            }
+            break;
+          }
+
+          // Small 1.2s break between 100-item batches
+          await new Promise(r => setTimeout(r, 1200));
+
+        } catch (err) {
+          console.error('[Voyage Worker Loop Error]:', err);
+          consecutiveErrors++;
+          if (consecutiveErrors >= 3) {
+            _voyageWorkerRunning = false;
+            window._voyageWorkerRunning = false;
+            if (txt) txt.textContent = '❌ 임베딩 오류 발생 (클릭 시 재시도)';
+            if (btn) {
+              btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+            }
+            break;
+          }
+          await new Promise(r => setTimeout(r, 3000));
+        }
+      }
+
+      _voyageWorkerRunning = false;
+      window._voyageWorkerRunning = false;
+    }
+
+    function toggleVoyageEmbeddingWorker() {
+      const btn = document.getElementById('btnTriggerEmbedding');
+      const txt = document.getElementById('btnEmbedText');
+
+      if (_voyageWorkerRunning && !_voyageWorkerPaused) {
+        _voyageWorkerPaused = true;
+        window._voyageWorkerPaused = true;
+        if (txt) txt.textContent = '⏸️ 임베딩 일시정지됨 (클릭 시 재개)';
+        if (btn) {
+          btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+        }
+      } else {
+        _voyageWorkerPaused = false;
+        window._voyageWorkerPaused = false;
+        if (txt) txt.textContent = '⏳ 임베딩 준비 중...';
+        startContinuousVoyageWorker();
+      }
+    }
+
+    window.toggleVoyageEmbeddingWorker = toggleVoyageEmbeddingWorker;
+    window.triggerVoyageEmbeddingBatch = toggleVoyageEmbeddingWorker;
+    window.checkVoyageEmbeddingStatus = checkVoyageEmbeddingStatus;
 
     let _autoWorkerRunning = false;
     let _autoWorkerPaused = false;
@@ -4914,18 +5066,31 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     let currentRunsTab = 'gha';
     window.currentRunsTab = 'gha';
     window.vercelWorkerRunsData = [];
+    try {
+      const cachedVoyageRuns = localStorage.getItem('voyage_runs_history_v1');
+      window.voyageWorkerRunsData = cachedVoyageRuns ? JSON.parse(cachedVoyageRuns) : [];
+    } catch (e) {
+      window.voyageWorkerRunsData = [];
+    }
 
     function switchRunLogsTab(tab) {
       currentRunsTab = tab;
       window.currentRunsTab = tab;
       const btnGha = document.getElementById('tabRunsGha');
       const btnVercel = document.getElementById('tabRunsVercel');
+      const btnVoyage = document.getElementById('tabRunsVoyage');
+
+      const inactiveCls = "px-2.5 py-1 rounded-md font-medium text-ink-secondary hover:text-ink-primary transition cursor-pointer";
+      if (btnGha) btnGha.className = inactiveCls;
+      if (btnVercel) btnVercel.className = inactiveCls;
+      if (btnVoyage) btnVoyage.className = inactiveCls;
+
       if (tab === 'gha') {
         if (btnGha) btnGha.className = "px-2.5 py-1 rounded-md font-bold bg-white text-ink-primary shadow-xs border border-surface-border transition cursor-pointer";
-        if (btnVercel) btnVercel.className = "px-2.5 py-1 rounded-md font-medium text-ink-secondary hover:text-ink-primary transition cursor-pointer";
-      } else {
+      } else if (tab === 'vercel') {
         if (btnVercel) btnVercel.className = "px-2.5 py-1 rounded-md font-bold bg-white text-indigo-700 shadow-xs border border-indigo-200 transition cursor-pointer";
-        if (btnGha) btnGha.className = "px-2.5 py-1 rounded-md font-medium text-ink-secondary hover:text-ink-primary transition cursor-pointer";
+      } else if (tab === 'voyage') {
+        if (btnVoyage) btnVoyage.className = "px-2.5 py-1 rounded-md font-bold bg-white text-emerald-800 shadow-xs border border-emerald-300 transition cursor-pointer";
       }
       renderRunsTable();
     }
@@ -5038,7 +5203,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         } else {
           tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-ink-muted">기록된 수집 실행 로그가 없습니다.</td></tr>`;
         }
-      } else {
+      } else if (currentRunsTab === 'vercel') {
         // Vercel Serverless AI Worker Tab
         thead.innerHTML = `
           <tr>
@@ -5080,7 +5245,58 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         } else {
           tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-ink-muted">최근 Vercel Serverless AI 워커 실행 기록 대기 중...</td></tr>`;
         }
+      } else if (currentRunsTab === 'voyage') {
+        // Voyage AI Embedding Tab
+        thead.innerHTML = `
+          <tr>
+            <th class="py-2.5 px-3">실행 시각 (KST)</th>
+            <th class="py-2.5 px-3">임베딩 엔진</th>
+            <th class="py-2.5 px-3">소요 시간</th>
+            <th class="py-2.5 px-3">처리 건수</th>
+            <th class="py-2.5 px-3">병합 건수</th>
+            <th class="py-2.5 px-3">소요 토큰</th>
+            <th class="py-2.5 px-3">잔여 미임베딩</th>
+            <th class="py-2.5 px-3">상태</th>
+          </tr>
+        `;
+        const voyRuns = window.voyageWorkerRunsData || [];
+        if (voyRuns.length > 0) {
+          let rowsHtml = '';
+          voyRuns.forEach(r => {
+            const isSuccess = r.status === 'SUCCESS';
+            const statusCls = isSuccess ? 'bg-emerald-100 text-emerald-800 border-emerald-300' : 'bg-rose-100 text-rose-800 border-rose-300';
+            const mergedBadge = (r.merged_count && r.merged_count > 0)
+              ? `<span class="px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 text-[10px] font-bold border border-purple-200">${r.merged_count}건 병합</span>`
+              : `<span class="text-ink-muted text-xs">-</span>`;
+            const tokensStr = typeof r.tokens_used === 'number' ? r.tokens_used.toLocaleString() + ' tok' : '-';
+            const remainingStr = typeof r.remaining_count === 'number' ? r.remaining_count.toLocaleString() + '건 대기' : '-';
+
+            rowsHtml += `
+              <tr class="hover:bg-slate-50/80 transition">
+                <td class="py-2.5 px-3 font-bold text-ink-primary text-[11px]">${r.created_at_kst}</td>
+                <td class="py-2.5 px-3 font-medium text-emerald-800 flex items-center gap-1 font-mono text-[11px]">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> ${r.engine || 'voyage-multilingual-2'}
+                </td>
+                <td class="py-2.5 px-3 font-bold text-ink-primary">${r.duration_str}</td>
+                <td class="py-2.5 px-3 font-mono font-semibold text-emerald-700">${r.processed_count}건 임베딩</td>
+                <td class="py-2.5 px-3 font-mono">${mergedBadge}</td>
+                <td class="py-2.5 px-3 font-mono text-[11px] text-ink-secondary">${tokensStr}</td>
+                <td class="py-2.5 px-3 font-mono font-medium text-amber-700">${remainingStr}</td>
+                <td class="py-2.5 px-3">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${statusCls} inline-flex items-center gap-1">
+                    ${isSuccess ? '성공' : '실패'}
+                  </span>
+                </td>
+              </tr>
+            `;
+          });
+          tbody.innerHTML = rowsHtml;
+        } else {
+          tbody.innerHTML = `<tr><td colspan="8" class="py-4 text-center text-ink-muted">최근 Voyage AI 임베딩 실행 기록 대기 중... ('⚡ Voyage 임베딩' 버튼을 클릭하면 실시간 배치 작업이 시작됩니다)</td></tr>`;
+        }
       }
+      if (typeof lucide !== 'undefined') lucide.createIcons({ root: tbody });
+    }
       if (typeof lucide !== 'undefined') lucide.createIcons({ root: tbody });
     }
 
@@ -5539,7 +5755,15 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     window.toggleSourcePopover = typeof toggleSourcePopover === 'function' ? toggleSourcePopover : undefined;
     window.syncFromLiveDB = typeof syncFromLiveDB === 'function' ? syncFromLiveDB : undefined;
     window.syncFromNeonLiveDB = typeof syncFromLiveDB === 'function' ? syncFromLiveDB : undefined;
-    window.toggleBackgroundAiWorker = typeof toggleBackgroundAiWorker === 'function' ? toggleBackgroundAiWorker : undefined;
-    window.switchRunsTab = typeof switchRunsTab === 'function' ? switchRunsTab : undefined;
+    window.switchRunsTab = typeof switchRunLogsTab === 'function' ? switchRunLogsTab : undefined;
+    window.switchRunLogsTab = typeof switchRunLogsTab === 'function' ? switchRunLogsTab : undefined;
+    window.toggleVoyageEmbeddingWorker = typeof toggleVoyageEmbeddingWorker === 'function' ? toggleVoyageEmbeddingWorker : undefined;
+    window.checkVoyageEmbeddingStatus = typeof checkVoyageEmbeddingStatus === 'function' ? checkVoyageEmbeddingStatus : undefined;
     if (typeof filterGraphGroup === 'function') window.filterGraphGroup = filterGraphGroup;
+
+    // Trigger initial Voyage embedding status check to display remaining counts
+    if (typeof checkVoyageEmbeddingStatus === 'function') {
+      setTimeout(checkVoyageEmbeddingStatus, 800);
+    }
+
 

@@ -36,9 +36,33 @@ module.exports = async function handler(req, res) {
   }
 
   const limit = Math.min(parseInt(req.query.limit || req.body?.limit || '100', 10), 100);
+  const isCheckOnly = req.query.check_only === 'true' || req.body?.check_only === true;
 
   const client = await pool.connect();
   try {
+    // 0. Get total and embedded counts
+    const countRes = await client.query(`
+      SELECT 
+        COUNT(*) as total_count,
+        COUNT(embedding) as embedded_count,
+        COUNT(*) - COUNT(embedding) as remaining_unembedded
+      FROM raw_trends_inbox;
+    `);
+    const totalCount = parseInt(countRes.rows[0].total_count, 10) || 0;
+    const embeddedCount = parseInt(countRes.rows[0].embedded_count, 10) || 0;
+    const remainingUnembedded = parseInt(countRes.rows[0].remaining_unembedded, 10) || 0;
+
+    if (isCheckOnly) {
+      return res.status(200).json({
+        success: true,
+        check_only: true,
+        total_count: totalCount,
+        embedded_count: embeddedCount,
+        remaining_unembedded: remainingUnembedded,
+        elapsed_ms: Date.now() - startTime
+      });
+    }
+
     // 1. Fetch recent unembedded items
     const fetchQuery = `
       SELECT id, inbox_id, title, COALESCE(raw_payload->>'title_ko', '') as title_ko,
@@ -51,14 +75,15 @@ module.exports = async function handler(req, res) {
     const { rows: items } = await client.query(fetchQuery, [limit]);
 
     if (!items || items.length === 0) {
-      // Check total remaining
-      const countRes = await client.query('SELECT COUNT(*) FROM raw_trends_inbox WHERE embedding IS NULL;');
       return res.status(200).json({
         success: true,
-        message: 'No unembedded items found.',
+        message: 'No unembedded items found. All items are embedded.',
         processed_count: 0,
-        merged_count: 0,
-        remaining_unembedded: parseInt(countRes.rows[0].count, 10),
+        tokens_used: 0,
+        merged_duplicates_count: 0,
+        total_count: totalCount,
+        embedded_count: embeddedCount,
+        remaining_unembedded: 0,
         elapsed_ms: Date.now() - startTime
       });
     }
@@ -188,16 +213,17 @@ module.exports = async function handler(req, res) {
 
     await client.query('COMMIT');
 
-    // 6. Count remaining unembedded
-    const remainingRes = await client.query('SELECT COUNT(*) FROM raw_trends_inbox WHERE embedding IS NULL;');
-    const remainingUnembedded = parseInt(remainingRes.rows[0].count, 10);
+    const tokensUsed = voyageData.usage?.total_tokens || texts.reduce((acc, t) => acc + Math.ceil(t.length / 3), 0);
 
     return res.status(200).json({
       success: true,
       model: VOYAGE_MODEL,
       processed_count: items.length,
+      tokens_used: tokensUsed,
       merged_duplicates_count: mergedCount,
-      remaining_unembedded: remainingUnembedded,
+      total_count: totalCount,
+      embedded_count: embeddedCount + items.length,
+      remaining_unembedded: Math.max(0, remainingUnembedded - items.length),
       elapsed_ms: Date.now() - startTime
     });
 
