@@ -3472,11 +3472,45 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     function renderHookCallout(displayHook) {
       if (!displayHook) return '';
       return `
-        <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5">
+        <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 border-l-4 border-l-amber-500 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5 shadow-2xs">
           <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
           <span>${displayHook}</span>
         </div>
       `;
+    }
+
+    function renderNewsSkeleton(grid, count = 6) {
+      let cards = '';
+      for (let i = 0; i < count; i++) {
+        cards += `
+          <div class="executive-card p-4 sm:p-5 flex flex-col justify-between space-y-4 animate-pulse">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="h-4 w-20 bg-slate-200/80 rounded-md"></div>
+                  <div class="h-4 w-16 bg-slate-200/60 rounded-md"></div>
+                </div>
+                <div class="h-4 w-14 bg-slate-200/60 rounded-md"></div>
+              </div>
+              <div class="h-5 w-full bg-slate-200/90 rounded-md"></div>
+              <div class="h-4 w-3/4 bg-slate-200/70 rounded-md"></div>
+              <div class="h-12 w-full bg-amber-100/40 rounded-xl border border-amber-200/30"></div>
+              <div class="h-16 w-full bg-indigo-50/40 rounded-xl border border-indigo-100/40"></div>
+            </div>
+            <div class="pt-3 border-t border-surface-border space-y-2">
+              <div class="flex items-center justify-between">
+                <div class="h-3 w-28 bg-slate-200/60 rounded"></div>
+                <div class="h-3 w-20 bg-slate-200/60 rounded"></div>
+              </div>
+              <div class="flex justify-end gap-2 pt-1">
+                <div class="h-6 w-16 bg-slate-200/80 rounded-md"></div>
+                <div class="h-6 w-20 bg-amber-100/80 rounded-md"></div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      grid.innerHTML = cards;
     }
 
     function renderAiTakeaways(takeaways, lang = currentLang) {
@@ -3554,14 +3588,15 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     function renderCardStandardFooter(it, lang = currentLang, extraActionHtml = '') {
       const ai = it.ai_enrichment;
       const pubLabel = lang === 'KO' ? '발행' : (lang === 'ZH' ? '发布' : 'Published');
-      const hrvLabel = lang === 'KO' ? '수집' : (lang === 'ZH' ? '采集' : 'Harvested');
-      const updLabel = lang === 'KO' ? '최신 갱신일' : (lang === 'ZH' ? '最新更新' : 'Updated');
+      const hrvLabel = lang === 'KO' ? '최초 포착' : (lang === 'ZH' ? '最初捕获' : 'First Spotted');
+      const updLabel = lang === 'KO' ? '최신 갱신' : (lang === 'ZH' ? '最新更新' : 'Updated');
       const srcLabel = lang === 'KO' ? '원문' : (lang === 'ZH' ? '原文' : 'Source');
       const pendingLabel = lang === 'KO' ? 'AI요약 대기중' : (lang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit');
 
       const pubDate = formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at);
-      const hrvDate = formatDateTimeCompact(it.harvested_at || it.harvested_date || it.created_at);
-      const hasUpdate = it.updated_at && it.updated_at !== (it.harvested_at || it.harvested_date);
+      const earliestHrv = it.earliest_harvested_at || it.initial_harvested_at || it.harvested_at || it.harvested_date || it.created_at;
+      const hrvDate = formatDateTimeCompact(earliestHrv);
+      const hasUpdate = it.updated_at && formatDateTimeCompact(it.updated_at) !== hrvDate;
       const updDate = hasUpdate ? formatDateTimeCompact(it.updated_at) : '';
 
       let auditHtml = `
@@ -3578,7 +3613,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         `;
       }
 
-      const sourceLink = it.source_url ? `
+      const defaultSourceLink = it.source_url ? `
         <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-semibold flex items-center gap-1 shrink-0">
           📄 ${srcLabel} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
         </a>
@@ -3594,9 +3629,8 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
             ${hasUpdate ? `<span class="text-[10px] text-indigo-600 font-bold" title="${updLabel}">(🔄 ${updDate})</span>` : ''}
           </div>
           ${auditHtml}
-          <div class="flex items-center justify-between gap-2 pt-1 font-sans flex-wrap">
-            <div class="flex items-center gap-1.5">${extraActionHtml || ''}</div>
-            <div>${sourceLink}</div>
+          <div class="flex items-center justify-end gap-2 pt-1 font-sans flex-wrap">
+            ${extraActionHtml || defaultSourceLink}
           </div>
         </div>
       `;
@@ -3756,7 +3790,30 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     }
 
     let newsSearchDebounceTimer = null;
+    function updateSearchClearBtn(val) {
+      const btn = document.getElementById('newsSearchClearBtn');
+      if (btn) {
+        if (val && String(val).trim().length > 0) {
+          btn.classList.remove('hidden');
+        } else {
+          btn.classList.add('hidden');
+        }
+      }
+    }
+
+    function clearNewsSearch() {
+      const input = document.getElementById('newsSearchInput');
+      if (input) {
+        input.value = '';
+        input.focus();
+      }
+      updateSearchClearBtn('');
+      handleNewsSearchImmediate('');
+    }
+    window.clearNewsSearch = clearNewsSearch;
+
     function handleNewsSearch(val) {
+      updateSearchClearBtn(val);
       clearTimeout(newsSearchDebounceTimer);
       newsSearchDebounceTimer = setTimeout(() => {
         targetSelectedInboxId = '';
@@ -3767,6 +3824,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     }
 
     function handleNewsSearchImmediate(val) {
+      updateSearchClearBtn(val);
       clearTimeout(newsSearchDebounceTimer);
       targetSelectedInboxId = '';
       currentNewsPage = 1;
@@ -3857,6 +3915,50 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       return 50;
     }
 
+    function cleanPlatformName(raw) {
+      if (!raw) return 'News';
+      let name = String(raw).trim();
+      const m = name.match(/^(?:Press|News)\s*\((.*?)\)$/i);
+      if (m) name = m[1].trim();
+
+      const map = {
+        'the new york times': 'NYT',
+        'the wall street journal': 'WSJ',
+        'the guardian': 'The Guardian',
+        'the verge': 'The Verge',
+        'the verge ai': 'The Verge',
+        'techcrunch ai': 'TechCrunch',
+        'techcrunch': 'TechCrunch',
+        'hacker news': 'HN',
+        'geeknews': 'GeekNews',
+        'reddit r/technology': 'Reddit',
+        'reddit': 'Reddit',
+        'reuters': 'Reuters',
+        'bloomberg': 'Bloomberg',
+        'politico': 'Politico',
+        'bbc': 'BBC',
+        'cnn': 'CNN',
+        'cbs news': 'CBS',
+        'abc news': 'ABC',
+        'breaking news, latest news and videos': 'ABC News',
+        'usa today': 'USA Today',
+        'al jazeera': 'Al Jazeera',
+        'axios': 'Axios',
+        'cnet': 'CNET',
+        'wired': 'WIRED',
+        'ft.com': 'FT',
+        'npr.org': 'NPR',
+        'npr': 'NPR',
+        'time.com': 'TIME',
+        'time': 'TIME',
+        'vietnam.vn': 'Vietnam.vn',
+        'nextgov.com': 'NextGov',
+        'newser': 'Newser'
+      };
+      const key = name.toLowerCase();
+      return map[key] || name;
+    }
+
     function getPrimaryImpactPlatform(it, allSources = []) {
       let bestName = it.source_platform || 'Tech News';
       let maxW = getPlatformImpactWeight(bestName);
@@ -3871,143 +3973,212 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           }
         }
       }
-      return bestName;
+      return cleanPlatformName(bestName);
     }
 
-    // 🌟 Scalable Multi-Source Cross-Platform Clustering UX Engine
+    // 🌟 Unified Multi-Source Architecture (Zero-Base Single Hub: Press + Community)
     function buildMultiSourceCluster(rawSources, rawItemId) {
       if (!rawSources || rawSources.length === 0) return '';
+
+      function isCommunity(s) {
+        const p = (s.platform || s.source_name || '').toLowerCase();
+        const u = (s.url || '#').toLowerCase();
+        return p.includes('hacker news') || u.includes('ycombinator') ||
+               p.includes('reddit') || u.includes('reddit.com') ||
+               p.includes('geeknews') || u.includes('hada.io') ||
+               p.includes('pytorch') ||
+               p.includes('github') || u.includes('github.com') ||
+               p.includes('space') || u.includes('/spaces/') ||
+               p.includes('hugging') || u.includes('huggingface.co') ||
+               p.includes('arxiv') || u.includes('arxiv.org') ||
+               p.includes('youtube') || u.includes('youtube.com') ||
+               p.includes('twitter') || p.includes(' x') || u.includes('x.com');
+      }
 
       function getSourceMeta(s) {
         const p = (s.platform || s.source_name || '').toLowerCase();
         const u = (s.url || '#').toLowerCase();
+        const cleanName = cleanPlatformName(s.platform || s.source_name);
         let icon = '📄';
-        let label = s.source_name || (currentLang === 'KO' ? '원문' : 'Source');
+        let label = cleanName || (currentLang === 'KO' ? '원문' : 'Source');
         let badgeCls = 'bg-surface-subtle text-ink-secondary hover:text-ink-primary border-surface-border';
+        let isComm = false;
 
         if (p.includes('hacker news') || u.includes('ycombinator')) {
           icon = '🔥';
           label = currentLang === 'KO' ? 'HN 토론' : 'HN';
           badgeCls = 'bg-orange-50 text-orange-800 hover:text-orange-950 border-orange-200';
+          isComm = true;
         } else if (p.includes('geeknews') || u.includes('hada.io')) {
           icon = '💬';
           label = currentLang === 'KO' ? '긱뉴스' : 'GeekNews';
           badgeCls = 'bg-indigo-50 text-indigo-800 hover:text-indigo-950 border-indigo-200';
+          isComm = true;
         } else if (p.includes('pytorch')) {
           icon = '🇰🇷';
           label = 'PyTorchKR';
           badgeCls = 'bg-purple-50 text-purple-800 hover:text-purple-950 border-purple-200';
+          isComm = true;
         } else if (p.includes('reddit')) {
           icon = '🤖';
           label = currentLang === 'KO' ? '레딧' : 'Reddit';
           badgeCls = 'bg-red-50 text-red-800 hover:text-red-950 border-red-200';
+          isComm = true;
         } else if (p.includes('github')) {
           icon = '🐙';
           label = 'GitHub';
           badgeCls = 'bg-slate-100 text-slate-800 hover:text-slate-950 border-slate-300';
+          isComm = true;
         } else if (p.includes('space') || u.includes('/spaces/')) {
           icon = '🤗';
           label = 'HF Spaces';
           badgeCls = 'bg-amber-50 text-amber-900 hover:text-amber-950 border-amber-200';
+          isComm = true;
         } else if (p.includes('hugging') || u.includes('huggingface.co')) {
           icon = '🤗';
           label = 'HuggingFace';
           badgeCls = 'bg-amber-50 text-amber-900 hover:text-amber-950 border-amber-200';
+          isComm = true;
         } else if (p.includes('arxiv')) {
           icon = '📑';
           label = 'ArXiv';
           badgeCls = 'bg-rose-50 text-rose-900 hover:text-rose-950 border-rose-200';
+          isComm = true;
         } else if (p.includes('youtube') || u.includes('youtube.com') || u.includes('youtu.be')) {
           icon = '📺';
           label = currentLang === 'KO' ? '유튜브' : 'YouTube';
           badgeCls = 'bg-red-50 text-red-800 hover:text-red-950 border-red-200';
-        } else if (p.includes('press') || p.includes('news') || u.includes('reuters') || u.includes('techcrunch') || u.includes('bloomberg') || u.includes('theverge') || u.includes('venturebeat')) {
-          icon = '📰';
-          label = currentLang === 'KO' ? '언론 보도' : 'Press';
-          badgeCls = 'bg-emerald-50 text-emerald-800 hover:text-emerald-950 border-emerald-200';
+          isComm = true;
         } else if (p.includes('twitter') || p.includes(' x') || u.includes('x.com') || u.includes('twitter.com')) {
           icon = '𝕏';
           label = 'X (트위터)';
           badgeCls = 'bg-zinc-100 text-zinc-800 hover:text-zinc-950 border-zinc-300';
+          isComm = true;
+        } else {
+          // Press / Official News
+          icon = '📰';
+          label = cleanName || (currentLang === 'KO' ? '보도' : 'Press');
+          badgeCls = 'bg-emerald-50 text-emerald-800 hover:text-emerald-950 border-emerald-200';
+          isComm = false;
         }
 
-        return { icon, label, badgeCls, url: s.url || '#', weight: getPlatformImpactWeight(s.platform || s.source_name) };
+        return {
+          icon,
+          label,
+          cleanPlatform: cleanName,
+          badgeCls,
+          url: s.url || '#',
+          title: s.title || '',
+          weight: getPlatformImpactWeight(s.platform || s.source_name),
+          isCommunity: isComm
+        };
       }
 
-      // Deduplicate sources by platform label
-      const seenPlatforms = new Set();
+      // Deduplicate sources by normalized URL and clean platform
+      const seenUrls = new Set();
       const sources = [];
       for (const s of rawSources) {
+        const u = (s.url || '#').toLowerCase().replace(/[?#].*$/, '');
         const meta = getSourceMeta(s);
-        const pKey = meta.label || (s.platform || s.source_name || '').toLowerCase();
-        if (!seenPlatforms.has(pKey)) {
-          seenPlatforms.add(pKey);
-          sources.push(s);
-        }
+        const dedupeKey = `${meta.cleanPlatform.toLowerCase()}::${u}`;
+        if (u !== '#' && seenUrls.has(dedupeKey)) continue;
+        seenUrls.add(dedupeKey);
+        sources.push({ ...s, meta });
       }
 
       if (sources.length === 0) return '';
 
-      // 🌟 Sort sources by Impact Weight descending (Official > HN > Local Community > Social)
-      sources.sort((a, b) => getPlatformImpactWeight(b.platform || b.source_name) - getPlatformImpactWeight(a.platform || a.source_name));
+      const pressSources = sources.filter(s => !s.meta.isCommunity);
+      const communitySources = sources.filter(s => s.meta.isCommunity);
 
-      if (sources.length === 1) {
-        const meta = getSourceMeta(sources[0]);
-        return `<a href="${meta.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${meta.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs">${meta.icon} ${meta.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-      }
+      pressSources.sort((a, b) => b.meta.weight - a.meta.weight);
+      communitySources.sort((a, b) => b.meta.weight - a.meta.weight);
 
       const total = sources.length;
       const safeId = 'src_' + String(rawItemId || Math.random()).replace(/[^a-zA-Z0-9_-]/g, '_');
 
-      // 🌟 Exactly 2 sources: Clean side-by-side buttons
-      if (total === 2) {
-        let html = `<div class="flex items-center gap-1.5 flex-wrap justify-end">`;
-        sources.forEach(s => {
-          const meta = getSourceMeta(s);
-          html += `<a href="${meta.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${meta.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs">${meta.icon} ${meta.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
-        });
-        html += `</div>`;
-        return html;
+      // 1 source: Single clean button
+      if (total === 1) {
+        const m = sources[0].meta;
+        return `<a href="${m.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${m.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs">${m.icon} ${m.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
       }
 
-      // 🌟 3 or more sources: Show TOP 2 primary + 1 compact dropdown button (Strictly 1-Line)
-      const primarySources = sources.slice(0, 2);
-      const remainingSources = sources.slice(2);
+      // Select top 2 direct 1-click action buttons:
+      const directButtons = [];
+      if (pressSources.length > 0 && communitySources.length > 0) {
+        // Balanced: 1 Press + 1 Community
+        directButtons.push(pressSources[0]);
+        directButtons.push(communitySources[0]);
+      } else if (pressSources.length > 0) {
+        directButtons.push(...pressSources.slice(0, 2));
+      } else {
+        directButtons.push(...communitySources.slice(0, 2));
+      }
 
       let html = `<div class="flex items-center gap-1.5 flex-wrap justify-end relative">`;
-      primarySources.forEach(s => {
-        const meta = getSourceMeta(s);
-        html += `<a href="${meta.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${meta.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs">${meta.icon} ${meta.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+
+      directButtons.forEach(s => {
+        const m = s.meta;
+        html += `<a href="${m.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${m.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs" title="${m.cleanPlatform} 바로가기">${m.icon} ${m.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
       });
 
-      html += `
-        <div class="relative inline-block src-dropdown-container">
-          <button type="button" onclick="toggleSourcePopover(event, '${safeId}')" class="px-2 py-1 rounded-md bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-[11px] font-bold flex items-center gap-1 shrink-0 transition cursor-pointer shadow-xs" title="전체 교차 출처 보기">
-            <span>🔗 +${remainingSources.length}${currentLang === 'KO' ? '개 출처' : (currentLang === 'ZH' ? '个来源' : ' more')}</span>
-            <i data-lucide="chevron-down" class="w-3 h-3"></i>
-          </button>
-          <div id="srcMenu_${safeId}" class="hidden absolute z-50 mb-1.5 w-64 max-w-[calc(100vw-2.5rem)] min-w-[220px] bg-white rounded-xl shadow-2xl border border-surface-border p-2.5 text-xs flex flex-col gap-1.5">
-            <div class="text-[10px] font-mono font-bold text-ink-muted px-1.5 pb-1 border-b border-surface-border flex items-center justify-between">
-              <span>🔗 ${currentLang === 'KO' ? `전체 교차 출처 (${total}개)` : (currentLang === 'ZH' ? `全部聚合来源 (${total}个)` : `All Sources (${total})`)}</span>
-              <span class="text-indigo-600 text-[9px] font-semibold">${currentLang === 'KO' ? '원문 이동' : (currentLang === 'ZH' ? '直达原文' : 'Open')} &nearr;</span>
-            </div>
-            <div class="max-h-48 overflow-y-auto space-y-1 divide-y divide-surface-border/40">
-              ${sources.map(s => {
-                const meta = getSourceMeta(s);
-                return `
-                  <a href="${meta.url}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-subtle transition group text-xs text-ink-primary pt-1">
-                    <span class="flex items-center gap-1.5 truncate">
-                      <span class="shrink-0">${meta.icon}</span>
-                      <span class="font-bold group-hover:text-indigo-600 truncate">${meta.label}</span>
-                    </span>
-                    <i data-lucide="external-link" class="w-3 h-3 text-ink-muted group-hover:text-indigo-600 shrink-0 ml-2"></i>
-                  </a>
-                `;
-              }).join('')}
+      // If more than direct buttons, show the unified Hub Popover button
+      if (total > directButtons.length) {
+        const remainingCount = total - directButtons.length;
+        html += `
+          <div class="relative inline-block src-dropdown-container">
+            <button type="button" onclick="toggleSourcePopover(event, '${safeId}')" class="px-2 py-1 rounded-md bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-[11px] font-extrabold flex items-center gap-1 shrink-0 transition cursor-pointer shadow-xs" title="전체 ${total}개 교차 출처 모아보기">
+              <span>🔗 +${remainingCount}${currentLang === 'KO' ? '개 출처' : (currentLang === 'ZH' ? '个来源' : ' more')}</span>
+              <i data-lucide="chevron-down" class="w-3 h-3 text-amber-800"></i>
+            </button>
+            <div id="srcMenu_${safeId}" class="hidden absolute z-50 mb-1.5 w-72 max-w-[calc(100vw-2.5rem)] min-w-[240px] bg-white rounded-xl shadow-2xl border border-surface-border p-2.5 text-xs flex flex-col gap-2">
+              <div class="text-[10px] font-mono font-bold text-ink-muted px-1 pb-1.5 border-b border-surface-border flex items-center justify-between">
+                <span>🔗 ${currentLang === 'KO' ? `전체 교차 출처 (${total}개)` : (currentLang === 'ZH' ? `全部聚合来源 (${total}个)` : `All Sources (${total})`)}</span>
+                <span class="text-indigo-600 text-[10px] font-bold">언론 ${pressSources.length} · 커뮤니티 ${communitySources.length}</span>
+              </div>
+              <div class="max-h-56 overflow-y-auto space-y-2 pr-0.5 divide-y divide-surface-border/30">
+                ${pressSources.length > 0 ? `
+                  <div class="pt-1">
+                    <div class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider mb-1 flex items-center gap-1 px-1">
+                      <span>📰 공식 언론 보도 (${pressSources.length})</span>
+                    </div>
+                    <div class="space-y-0.5">
+                      ${pressSources.map(s => `
+                        <a href="${s.meta.url}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-2 py-1 rounded-lg hover:bg-emerald-50/60 transition group text-xs text-ink-primary">
+                          <span class="font-bold text-emerald-950 shrink-0 text-[11px]">[${s.meta.cleanPlatform}]</span>
+                          <span class="truncate text-[10px] text-ink-muted text-right flex-1 mx-1.5 group-hover:text-emerald-700">${s.title || s.meta.cleanPlatform}</span>
+                          <i data-lucide="external-link" class="w-2.5 h-2.5 text-ink-muted group-hover:text-emerald-700 shrink-0"></i>
+                        </a>
+                      `).join('')}
+                    </div>
+                  </div>
+                ` : ''}
+
+                ${communitySources.length > 0 ? `
+                  <div class="pt-1">
+                    <div class="text-[10px] font-bold text-orange-800 uppercase tracking-wider mb-1 flex items-center gap-1 px-1">
+                      <span>💬 커뮤니티 & 개발자 반응 (${communitySources.length})</span>
+                    </div>
+                    <div class="space-y-0.5">
+                      ${communitySources.map(s => `
+                        <a href="${s.meta.url}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-2 py-1 rounded-lg hover:bg-orange-50/60 transition group text-xs text-ink-primary">
+                          <span class="flex items-center gap-1 shrink-0 font-bold text-orange-950 text-[11px]">
+                            <span>${s.meta.icon}</span>
+                            <span>${s.meta.label}</span>
+                          </span>
+                          <span class="truncate text-[10px] text-ink-muted text-right flex-1 mx-1.5 group-hover:text-orange-700">${s.title || s.meta.label}</span>
+                          <i data-lucide="external-link" class="w-2.5 h-2.5 text-ink-muted group-hover:text-orange-700 shrink-0"></i>
+                        </a>
+                      `).join('')}
+                    </div>
+                  </div>
+                ` : ''}
+              </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
+      }
+
       html += `</div>`;
       return html;
     }
@@ -4053,9 +4224,32 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       }
     }
 
+    function toggleClusterPopover(e, safeId) {
+      e.stopPropagation();
+      const menu = document.getElementById('clusterMenu_' + safeId);
+      if (!menu) return;
+      const isHidden = menu.classList.contains('hidden');
+      document.querySelectorAll('[id^="clusterMenu_"]').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('[id^="srcMenu_"]').forEach(el => el.classList.add('hidden'));
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        if (window.lucide) window.lucide.createIcons();
+      }
+    }
+
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.src-dropdown-container')) {
         document.querySelectorAll('[id^="srcMenu_"]').forEach(el => el.classList.add('hidden'));
+      }
+      if (!e.target.closest('[id^="clusterMenu_"]') && !e.target.closest('button[onclick*="toggleClusterPopover"]')) {
+        document.querySelectorAll('[id^="clusterMenu_"]').forEach(el => el.classList.add('hidden'));
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('[id^="srcMenu_"]').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('[id^="clusterMenu_"]').forEach(el => el.classList.add('hidden'));
       }
     });
 
@@ -4343,27 +4537,61 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
       let crossRollupHtml = '';
       if ((it.cross_posts && it.cross_posts.length > 0) || allSources.length > 1) {
-        const platforms = [
-          it.source_platform,
-          ...(it.cross_posts || []).map(cp => cp.platform),
-          ...(allSources || []).map(s => s.platform || s.source_name)
-        ].filter(Boolean);
-        const uniqPlats = [...new Set(platforms)];
-        const clusterCount = Math.max(uniqPlats.length, allSources.length);
-        const labelText = currentLang === 'KO' 
-          ? `${clusterCount}개 매체·플랫폼 동시 집중 보도 (유사 토픽 통합)`
-          : (currentLang === 'ZH' ? `${clusterCount}个媒体/平台联合报道 (多源聚合)` : `Reported by ${clusterCount} Outlets (Multi-Source Hub)`);
+        // Collect distinct sources
+        const clusterSources = [];
+        const seenClusterUrls = new Set();
+        if (it.source_url) {
+          seenClusterUrls.add(it.source_url.toLowerCase());
+          clusterSources.push({
+            platform: it.source_platform || 'Press',
+            url: it.source_url,
+            title: it.title || ''
+          });
+        }
+        for (const s of allSources) {
+          const u = (s.url || '').toLowerCase();
+          if (u && !seenClusterUrls.has(u)) {
+            seenClusterUrls.add(u);
+            clusterSources.push(s);
+          }
+        }
+        for (const cp of (it.cross_posts || [])) {
+          const u = (cp.url || cp.source_url || '').toLowerCase();
+          if (u && !seenClusterUrls.has(u)) {
+            seenClusterUrls.add(u);
+            clusterSources.push(cp);
+          }
+        }
+
+        const clusterCount = Math.max(clusterSources.length, allSources.length, 2);
+
+        let pCount = it.cross_spike_summary?.press_count || 0;
+        let cCount = it.cross_spike_summary?.community_count || 0;
+        if (!pCount && !cCount) {
+          clusterSources.forEach(s => {
+            const p = (s.platform || s.source_name || '').toLowerCase();
+            const u = (s.url || '').toLowerCase();
+            const isComm = p.includes('hacker news') || p.includes('reddit') || p.includes('geeknews') || p.includes('github') || p.includes('hugging') || u.includes('ycombinator') || u.includes('reddit.com') || u.includes('hada.io');
+            if (isComm) cCount++;
+            else pCount++;
+          });
+        }
+        pCount = Math.max(pCount, 1);
+
+        const isSpike = Boolean(it.is_cross_spiking || (pCount >= 1 && cCount >= 1));
+        const signalLabel = currentLang === 'KO' 
+          ? `${clusterCount}개 매체·커뮤니티 교차 분석`
+          : (currentLang === 'ZH' ? `${clusterCount}个媒体/社区联合报道` : `Cross-Covered by ${clusterCount} Outlets`);
+
         crossRollupHtml = `
-          <div class="p-2.5 rounded-xl bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border border-amber-500/30 text-xs text-amber-950 space-y-1.5 shadow-2xs">
-            <div class="flex items-center justify-between font-bold text-[11px] text-amber-950">
-              <span class="flex items-center gap-1.5">
-                <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-600 animate-pulse"></i>
-                <span class="font-extrabold text-amber-950">${labelText}</span>
-              </span>
-              <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-amber-200/90 text-amber-950 font-black tracking-wider">MULTI-SOURCE CLUSTER</span>
+          <div class="flex items-center justify-between px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border border-amber-500/30 text-xs text-amber-950 shadow-2xs">
+            <div class="flex items-center gap-1.5 min-w-0">
+              <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-600 shrink-0 ${isSpike ? 'animate-pulse' : ''}"></i>
+              <span class="font-extrabold text-[11px] text-amber-950 truncate">${signalLabel}</span>
             </div>
-            <div class="flex items-center gap-1.5 flex-wrap">
-              ${uniqPlats.map(p => `<span class="px-2 py-0.5 rounded-md bg-white border border-amber-300 font-bold text-[10px] text-amber-950 shadow-2xs">${p}</span>`).join('')}
+            <div class="flex items-center gap-1 shrink-0 font-mono text-[10px] font-bold">
+              ${pCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-white text-emerald-800 border border-emerald-300 shadow-2xs">📰 언론 ${pCount}</span>` : ''}
+              ${cCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-white text-orange-800 border border-orange-300 shadow-2xs">💬 커뮤니티 ${cCount}</span>` : ''}
             </div>
           </div>
         `;
@@ -4438,7 +4666,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           ${crossRollupHtml}
           ${aiBadgeHtml}
 
-          <h3 class="font-bold text-sm text-ink-primary hover:text-indigo-600 transition leading-snug break-words">
+          <h3 class="font-bold text-[14px] sm:text-[15px] text-ink-primary hover:text-indigo-600 transition leading-snug break-words line-clamp-2" title="${(displayTitle || '').replace(/"/g, '&quot;')}">
             ${displayTitle}
           </h3>
 
@@ -4513,12 +4741,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           renderPagination('newsPagination', currentNewsPage, estPages, 'changeNewsPage');
           if (window.lucide) window.lucide.createIcons({ root: grid });
         } else if (grid.children.length === 0) {
-          grid.innerHTML = `
-            <div class="col-span-full py-12 flex flex-col items-center justify-center text-ink-muted text-xs space-y-2">
-              <div class="w-6 h-6 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
-              <span>${currentLang === 'KO' ? `${APP_CONFIG.dbProvider}에서 실시간 트렌드 동기화 중...` : `Synchronizing trends from ${APP_CONFIG.dbProvider}...`}</span>
-            </div>
-          `;
+          renderNewsSkeleton(grid, 6);
         }
       }
 
@@ -5771,6 +5994,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     window.setNewsSort = typeof setNewsSort === 'function' ? setNewsSort : undefined;
     window.setModelsSort = typeof setModelsSort === 'function' ? setModelsSort : undefined;
     window.toggleSourcePopover = typeof toggleSourcePopover === 'function' ? toggleSourcePopover : undefined;
+    window.toggleClusterPopover = typeof toggleClusterPopover === 'function' ? toggleClusterPopover : undefined;
     window.syncFromLiveDB = typeof syncFromLiveDB === 'function' ? syncFromLiveDB : undefined;
     window.syncFromNeonLiveDB = typeof syncFromLiveDB === 'function' ? syncFromLiveDB : undefined;
     window.switchRunsTab = typeof switchRunLogsTab === 'function' ? switchRunLogsTab : undefined;

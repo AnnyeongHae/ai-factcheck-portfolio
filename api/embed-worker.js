@@ -88,14 +88,27 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    // 2. Prepare text payload for Voyage AI (Combine EN + KO for cross-lingual richness)
+    // 2. Prepare Rich Text payload for Voyage AI (Combine Title + Hook + Key Takeaways for deep semantic matching)
     const texts = items.map(item => {
+      const p = item.raw_payload || {};
       const en = (item.title || '').trim();
       const ko = (item.title_ko || '').trim();
-      if (en && ko && en !== ko) {
-        return `${en} (${ko})`;
-      }
-      return en || ko || 'Untitled';
+      const titleStr = (en && ko && en !== ko) ? `${en} (${ko})` : (ko || en || 'Untitled');
+
+      const hookStr = (p.hook_ko || p.hook || '').trim();
+      
+      const takeaways = (p.ai_enrichment?.key_takeaways && p.ai_enrichment.key_takeaways.length > 0)
+        ? p.ai_enrichment.key_takeaways
+        : (Array.isArray(p.key_takeaways) ? p.key_takeaways : []);
+      const summaryStr = takeaways.length > 0 
+        ? takeaways.slice(0, 3).join(' ') 
+        : (p.ai_enrichment?.summary_ko || p.description || '').trim();
+
+      const parts = [`[제목] ${titleStr}`];
+      if (hookStr) parts.push(`[핵심] ${hookStr}`);
+      if (summaryStr) parts.push(`[요약] ${summaryStr.slice(0, 300)}`);
+
+      return parts.join('\n');
     });
 
     // 3. Batch call Voyage AI API in a single HTTP request (~0.3 - 0.5s)

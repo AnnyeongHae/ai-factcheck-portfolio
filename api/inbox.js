@@ -246,20 +246,23 @@ module.exports = async (req, res) => {
       conditions.push('source_platform ILIKE $' + params.length);
     }
 
-    // 6. 🌟 Multi-Field Search Filter
-    const search = (req.query?.search || '').trim();
-    if (search) {
-      params.push(`%${search}%`);
-      const pIdx = params.length;
-      conditions.push(`(
-        title ILIKE $${pIdx}
-        OR COALESCE(raw_payload->>'title_ko', '') ILIKE $${pIdx}
-        OR COALESCE(raw_payload->>'title_en', '') ILIKE $${pIdx}
-        OR COALESCE(raw_payload->>'hook_ko', '') ILIKE $${pIdx}
-        OR COALESCE(raw_payload->>'hook', '') ILIKE $${pIdx}
-        OR COALESCE(raw_payload->'ai_enrichment'->>'summary_ko', '') ILIKE $${pIdx}
-        OR COALESCE(raw_payload->>'canonical_story_key', '') ILIKE $${pIdx}
-      )`);
+    // 6. 🌟 Multi-Keyword Smart Search Filter (Tokenized AND matching)
+    const rawSearch = (req.query?.search || '').trim();
+    if (rawSearch) {
+      const searchTokens = rawSearch.split(/\s+/).filter(Boolean);
+      for (const token of searchTokens) {
+        params.push(`%${token}%`);
+        const pIdx = params.length;
+        conditions.push(`(
+          title ILIKE $${pIdx}
+          OR COALESCE(raw_payload->>'title_ko', '') ILIKE $${pIdx}
+          OR COALESCE(raw_payload->>'title_en', '') ILIKE $${pIdx}
+          OR COALESCE(raw_payload->>'hook_ko', '') ILIKE $${pIdx}
+          OR COALESCE(raw_payload->>'hook', '') ILIKE $${pIdx}
+          OR COALESCE(raw_payload->'ai_enrichment'->>'summary_ko', '') ILIKE $${pIdx}
+          OR COALESCE(raw_payload->>'canonical_story_key', '') ILIKE $${pIdx}
+        )`);
+      }
     }
 
     const whereClause = conditions.length > 0 ? ('WHERE ' + conditions.join(' AND ')) : '';
@@ -349,6 +352,68 @@ module.exports = async (req, res) => {
         };
       }
 
+      // 🌟 Earliest Harvested / First Spotted SSOT
+      const dateCandidates = [];
+      if (r.harvested_date) dateCandidates.push(new Date(r.harvested_date).getTime());
+      if (r.created_at) dateCandidates.push(new Date(r.created_at).getTime());
+      if (p.initial_harvested_date || p.earliest_harvested_date) {
+        dateCandidates.push(new Date(p.initial_harvested_date || p.earliest_harvested_date).getTime());
+      }
+      if (Array.isArray(p.sources)) {
+        p.sources.forEach(s => {
+          if (s.harvested_date || s.created_at || s.captured_at) {
+            dateCandidates.push(new Date(s.harvested_date || s.created_at || s.captured_at).getTime());
+          }
+        });
+      }
+      if (Array.isArray(p.cross_posts)) {
+        p.cross_posts.forEach(cp => {
+          if (cp.captured_at || cp.harvested_date || cp.created_at) {
+            dateCandidates.push(new Date(cp.captured_at || cp.harvested_date || cp.created_at).getTime());
+          }
+        });
+      }
+      const validDates = dateCandidates.filter(t => !isNaN(t) && t > 0);
+      const earliestTimestamp = validDates.length > 0 ? Math.min(...validDates) : (r.created_at ? new Date(r.created_at).getTime() : Date.now());
+      const earliestHarvestedAt = new Date(earliestTimestamp).toISOString();
+
+      // 🌟 Cross-Spike Breakdown (Press vs Community)
+      const allSourcesList = Array.isArray(p.sources) ? [...p.sources] : [];
+      if (r.source_platform && !allSourcesList.some(s => (s.url || s.source_url) === r.source_url)) {
+        allSourcesList.unshift({
+          platform: r.source_platform,
+          source_name: r.source_platform,
+          url: r.source_url,
+          title: r.title
+        });
+      }
+      let pressCount = 0;
+      let communityCount = 0;
+      const pressKeywords = ['press', 'news', 'bbc', 'cbc', 'reuters', 'bloomberg', 'theverge', 'the verge', 'techcrunch', 'guardian', 'hill', 'fortune', 'ktvn', 'times', 'wsj', 'cnn', 'cbs', 'abc', 'wired', 'axios', 'npr', 'time'];
+      const communityKeywords = ['hacker news', 'ycombinator', 'reddit', 'geeknews', 'hada.io', 'pytorch', 'github', 'huggingface', 'spaces', 'arxiv', 'youtube', 'twitter', 'x.com'];
+      
+      const seenSourceKeys = new Set();
+      allSourcesList.forEach(s => {
+        const plat = (s.platform || s.source_name || '').toLowerCase();
+        const u = (s.url || s.source_url || '').toLowerCase();
+        const key = plat + '::' + u;
+        if (seenSourceKeys.has(key)) return;
+        seenSourceKeys.add(key);
+
+        const isComm = communityKeywords.some(k => plat.includes(k) || u.includes(k));
+        const isPrs = pressKeywords.some(k => plat.includes(k) || u.includes(k));
+        if (isComm) {
+          communityCount++;
+        } else if (isPrs) {
+          pressCount++;
+        } else {
+          pressCount++;
+        }
+      });
+
+      const totalSourcesCount = Math.max(seenSourceKeys.size, allSourcesList.length);
+      const isCrossSpiking = Boolean(p.is_cross_spiking || (pressCount >= 1 && communityCount >= 1 && totalSourcesCount >= 2));
+
       return {
         id: r.id,
         inbox_id: r.inbox_id,
@@ -375,12 +440,20 @@ module.exports = async (req, res) => {
         artifact_type: p.artifact_type || '',
         sources: p.sources || [],
         cross_posts: p.cross_posts || [],
-        is_cross_spiking: Boolean(p.is_cross_spiking),
+        is_cross_spiking: isCrossSpiking,
+        cross_spike_summary: {
+          total_count: totalSourcesCount,
+          press_count: pressCount,
+          community_count: communityCount,
+          is_cross_spiking: isCrossSpiking
+        },
         metric_tracking: p.metric_tracking || {},
         viral_metric: r.viral_metric || p.viral_metric || '',
         viral_score: r.viral_score !== null ? Number(r.viral_score) : (p.viral_score || 0),
         is_classified: r.is_classified,
         harvested_date: r.harvested_date,
+        initial_harvested_at: earliestHarvestedAt,
+        earliest_harvested_at: earliestHarvestedAt,
         published_at: p.published_at || p.published_date || r.harvested_date,
         created_at: r.created_at,
         updated_at: r.updated_at,
