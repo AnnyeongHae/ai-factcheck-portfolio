@@ -88,27 +88,18 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    // 2. Prepare Rich Text payload for Voyage AI (Combine Title + Hook + Key Takeaways for deep semantic matching)
+    // 2. Prepare Rich Text payload for Voyage AI (English-Only standard)
     const texts = items.map(item => {
       const p = item.raw_payload || {};
-      const en = (item.title || '').trim();
-      const ko = (item.title_ko || '').trim();
-      const titleStr = (en && ko && en !== ko) ? `${en} (${ko})` : (ko || en || 'Untitled');
+      const en = (p.title_en || item.title || '').replace(/^(?:News|Hacker News|Reddit|GeekNews|GitHub|HuggingFace Model|HF Space|r\/[a-zA-Z0-9_]+):\s*/i, '').trim();
+      const hookStr = (p.hook_en || p.hook || '').trim();
+      const summaryStr = (p.ai_enrichment?.summary_en || p.description || '').trim();
 
-      const hookStr = (p.hook_ko || p.hook || '').trim();
-      
-      const takeaways = (p.ai_enrichment?.key_takeaways && p.ai_enrichment.key_takeaways.length > 0)
-        ? p.ai_enrichment.key_takeaways
-        : (Array.isArray(p.key_takeaways) ? p.key_takeaways : []);
-      const summaryStr = takeaways.length > 0 
-        ? takeaways.slice(0, 3).join(' ') 
-        : (p.ai_enrichment?.summary_ko || p.description || '').trim();
+      const parts = [en || 'Untitled'];
+      if (hookStr) parts.push(`Hook: ${hookStr}`);
+      if (summaryStr) parts.push(`Summary: ${summaryStr.slice(0, 300)}`);
 
-      const parts = [`[제목] ${titleStr}`];
-      if (hookStr) parts.push(`[핵심] ${hookStr}`);
-      if (summaryStr) parts.push(`[요약] ${summaryStr.slice(0, 300)}`);
-
-      return parts.join('\n');
+      return parts.join(' | ');
     });
 
     // 3. Batch call Voyage AI API in a single HTTP request (~0.3 - 0.5s)
@@ -157,9 +148,9 @@ module.exports = async function handler(req, res) {
     );
 
     // 5. Ultra-Fast HNSW-Accelerated Semantic Deduplication Check on current batch items
-    // Finds pairs with cosine similarity >= 0.78 within the past 14 days using LATERAL HNSW index (<0.3s)
+    // Finds pairs with cosine similarity >= 0.76 within the past 30 days using LATERAL HNSW index (<0.3s)
     const batchIds = items.map(it => it.id);
-    const distanceThreshold = 1.0 - SIMILARITY_THRESHOLD; // <= 0.22
+    const distanceThreshold = 1.0 - SIMILARITY_THRESHOLD; // <= 0.24 (similarity >= 0.76)
     const dedupQuery = `
       SELECT a.id as a_id, a.title as a_title, a.raw_payload as a_payload,
              a.source_platform as a_platform, a.source_url as a_url,
@@ -183,22 +174,112 @@ module.exports = async function handler(req, res) {
     `;
     const { rows: dupPairs } = await client.query(dedupQuery, [batchIds, distanceThreshold]);
 
+    // Pre-screen pairs and collect ambiguous zone (0.76 <= sim < 0.88) for 1-Shot Bulk JEV Judge
+    const MAJOR_ENTITIES = ['openai', 'google', 'anthropic', 'meta', 'microsoft', 'apple', 'deepseek', 'qwen', 'houthi', 'flock', 'nvidia', 'tesla'];
+    const validPairs = [];
+    const ambiguousPairs = [];
+
+    for (const pair of dupPairs) {
+      const isAOlder = pair.a_id < pair.b_id;
+      const primaryTitle = isAOlder ? pair.a_title : pair.b_title;
+      const dupTitle = isAOlder ? pair.b_title : pair.a_title;
+
+      // Entity Veto Guardrail (OpenAI vs Google, etc. -> Never Merge)
+      const pLower = (primaryTitle || '').toLowerCase();
+      const dLower = (dupTitle || '').toLowerCase();
+      const pEnts = MAJOR_ENTITIES.filter(e => pLower.includes(e));
+      const dEnts = MAJOR_ENTITIES.filter(e => dLower.includes(e));
+      if (pEnts.length > 0 && dEnts.length > 0 && !pEnts.some(e => dEnts.includes(e))) {
+        continue; // Veto merge
+      }
+
+      const pData = {
+        pair,
+        isAOlder,
+        primaryId: isAOlder ? pair.a_id : pair.b_id,
+        primaryTitle,
+        primaryPayload: isAOlder ? pair.a_payload : pair.b_payload,
+        dupId: isAOlder ? pair.b_id : pair.a_id,
+        dupTitle,
+        dupPlatform: isAOlder ? pair.b_platform : pair.a_platform,
+        dupUrl: isAOlder ? pair.b_url : pair.a_url,
+        dupPayload: isAOlder ? pair.b_payload : pair.a_payload,
+        sim: pair.similarity
+      };
+
+      if (pair.similarity >= 0.88) {
+        validPairs.push(pData);
+      } else {
+        pData.ambiguousIdx = ambiguousPairs.length;
+        ambiguousPairs.push(pData);
+      }
+    }
+
+    // 🌟 Execute 1-Shot Bulk JEV Evaluation for ambiguous pairs
+    if (ambiguousPairs.length > 0 && OPENROUTER_API_KEY) {
+      try {
+        const formatted = ambiguousPairs.map((p, idx) => ({ id: idx, a: p.primaryTitle, b: p.dupTitle }));
+        const prompt = 'Determine if each pair of English headlines reports the exact same real-world incident/event.\nReturn ONLY a JSON array with id and is_same (true/false):\n' + JSON.stringify(formatted);
+        const models = [
+          'typesafe/jev-router',
+          'google/gemma-4-26b-a4b-it:free',
+          'inclusionai/ling-3.0-flash-sante:free',
+          'meta-llama/llama-3.3-70b-instruct:free'
+        ];
+
+        for (const model of models) {
+          try {
+            const resp = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+                'Content-Type': 'application/json',
+                'HTTP-Referer': 'https://ai-factcheck.vercel.app',
+                'X-Title': 'FactCheck JEV Bulk Judge'
+              },
+              body: JSON.stringify({
+                model,
+                messages: [{ role: 'user', content: prompt }],
+                max_tokens: 300 + ambiguousPairs.length * 40,
+                temperature: 0.0
+              })
+            });
+            if (resp.status === 402 || resp.status === 429) continue;
+            if (!resp.ok) continue;
+            const data = await resp.json();
+            const content = data.choices?.[0]?.message?.content || data.choices?.[0]?.message?.reasoning || '';
+            const match = content.match(/\[.*\]/s);
+            if (match) {
+              const arr = JSON.parse(match[0]);
+              const resMap = {};
+              for (const itm of arr) {
+                if (itm && itm.id !== undefined) {
+                  resMap[itm.id] = Boolean(itm.is_same || itm.same || itm.verdict === 'YES');
+                }
+              }
+              for (const p of ambiguousPairs) {
+                if (resMap[p.ambiguousIdx] === true) {
+                  validPairs.push(p);
+                }
+              }
+              break;
+            }
+          } catch (e) {
+            // Next model fallback
+          }
+        }
+      } catch (err) {
+        console.warn('[EmbedWorker] Bulk JEV evaluation error, skipping ambiguous merges:', err.message);
+      }
+    }
+
     let mergedCount = 0;
     const archivedIds = new Set();
     const primaryUpdates = new Map();
 
-    for (const pair of dupPairs) {
-      // Deterministic: smaller ID is primary, larger ID is duplicate
-      const isAOlder = pair.a_id < pair.b_id;
-      const primaryId = isAOlder ? pair.a_id : pair.b_id;
-      const primaryTitle = isAOlder ? pair.a_title : pair.b_title;
-      let primaryPayload = isAOlder ? pair.a_payload : pair.b_payload;
-
-      const dupId = isAOlder ? pair.b_id : pair.a_id;
-      const dupTitle = isAOlder ? pair.b_title : pair.a_title;
-      const dupPlatform = isAOlder ? pair.b_platform : pair.a_platform;
-      const dupUrl = isAOlder ? pair.b_url : pair.a_url;
-      const dupPayload = isAOlder ? pair.b_payload : pair.a_payload;
+    for (const pData of validPairs) {
+      const { primaryId, dupId, dupTitle, dupPlatform, dupUrl, dupPayload, sim } = pData;
+      let primaryPayload = pData.primaryPayload;
 
       if (archivedIds.has(primaryId) || archivedIds.has(dupId)) {
         continue; // Already processed in this batch

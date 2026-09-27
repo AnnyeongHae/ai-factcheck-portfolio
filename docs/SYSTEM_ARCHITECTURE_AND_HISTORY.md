@@ -1,8 +1,8 @@
 # FactCheck Hub — System Architecture & Engineering History
 
-> **문서 버전:** v2.4.0  
-> **최종 갱신:** 2026-09-05 KST  
-> **시스템 상태:** 100% 프로덕션 가동 중 (GitHub Pages + Vercel Edge + Neon DB + OpenRouter)
+> **문서 버전:** v2.5.0  
+> **최종 갱신:** 2026-09-27 KST  
+> **시스템 상태:** 100% 프로덕션 가동 중 (Vercel Edge + Aiven/Neon PostgreSQL SSOT + OpenRouter + GitHub Actions)
 
 ---
 
@@ -189,3 +189,21 @@ python tools/enrich_inbox_with_ai.py --limit 1
 # 4. Neon PostgreSQL 양방향 동기화
 python tools/sync_db.py
 ```
+
+---
+
+## 7. v2.5.0 마일스톤: 통합 다중 출처(Unified Multi-Source) 아키텍처 및 Earliest Date SSOT (2026-09-27)
+
+### 주요 아키텍처 혁신
+1. **통합 다중 출처(Unified Multi-Source) 렌더링 엔진 단일화**:
+   - 기존의 파편화된 상단 언론사 출처(`pressBadges`)와 하단 개발자 커뮤니티 출처(`extraSources`)의 이원화 구조를 전격 폐지.
+   - 단일 `buildUnifiedSourceBadges()` 함수로 일원화하여 언론사(Press), 개발자 커뮤니티(HN/Reddit/GeekNews), 코드 저장소(GitHub/HF)를 출처 계열별 컬러 뱃지 및 아이콘(파비콘 포함)으로 카드 상단에 유기적으로 통합 렌더링.
+2. **최초 수집일(Earliest Date) SSOT 확립**:
+   - 신규 기사가 병합될 때 최신 수집 시각으로 덮어쓰여져 출처의 신선도 왜곡이 발생하던 문제를 해결.
+   - 메인 피드와 `sources[]` 배열 내에서 `min(created_at, original_created_at)` 기반의 **최초 수집일자(Earliest Scrape Timestamp)**를 산출하여 카드 발행/수집 메타데이터의 시계열 진실성 확보.
+3. **Sticky Header 뷰포트 고정 및 레이아웃 안정성 극대화**:
+   - 데스크톱/태블릿 환경에서 스크롤 다운 시 네비게이션 바가 화면 상단에 일관되게 고정(`position: sticky; top: 0; z-index: 100`)되도록 보정하고, 카테고리 탭 및 검색창의 오프셋 앵커링 완비.
+4. **네트워크 디바운싱(Network Debounce) 최적화**:
+   - 검색창 입력 시 300ms 디바운싱을 강제하고 최소 2글자 이상 입력 시에만 서버 API 요청을 발생시키도록 하여 불필요한 네트워크 스톰 원천 차단.
+
+> 상세 엔지니어링 분석 및 코드 변경 내역: [`docs/REPORTS/2026-09-27_unified_multi_source_architecture_and_ux_polish.md`](file:///d:/2026.06.21_Antigravity/2026-08-31_WEB_Factcheck/docs/REPORTS/2026-09-27_unified_multi_source_architecture_and_ux_polish.md) 참조.

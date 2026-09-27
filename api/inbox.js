@@ -60,7 +60,14 @@ function getStaticInboxFallback(req) {
       const facet = req.query?.facet;
       if (facet && facet !== 'ALL') {
         if (facet === 'CROSS_SPIKE') {
-          items = items.filter(it => it.is_cross_spiking || (Array.isArray(it.sources) && it.sources.length > 1) || (it.metric_tracking && Number(it.metric_tracking.delta) > 0));
+          const nowMs = Date.now();
+          const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
+          items = items.filter(it => {
+            const itemTime = new Date(it.created_at || it.harvested_date || 0).getTime();
+            if (nowMs - itemTime > sevenDaysMs) return false;
+            const score = it.spike_analysis ? Number(it.spike_analysis.score || 0) : 0;
+            return (it.is_cross_spiking || (Array.isArray(it.sources) && it.sources.length > 1)) && score >= 0.3;
+          });
         } else if (facet === 'MODEL') {
           items = items.filter(it => it.facet_type === 'MODEL' || it.is_model || (it.source_platform || '').toLowerCase().includes('model'));
         } else if (facet === 'TOOL') {
@@ -205,9 +212,9 @@ module.exports = async (req, res) => {
     if (facet && facet !== 'ALL') {
       if (facet === 'CROSS_SPIKE') {
         conditions.push(`(
-          raw_payload->>'is_cross_spiking' = 'true' 
-          OR (CASE WHEN jsonb_typeof(raw_payload->'sources') = 'array' THEN jsonb_array_length(raw_payload->'sources') ELSE 0 END > 1)
-          OR (CASE WHEN raw_payload->'metric_tracking'->>'delta' ~ '^[0-9]+$' THEN (raw_payload->'metric_tracking'->>'delta')::numeric ELSE 0 END > 0)
+          (raw_payload->>'is_cross_spiking' = 'true' OR (CASE WHEN jsonb_typeof(raw_payload->'sources') = 'array' THEN jsonb_array_length(raw_payload->'sources') ELSE 0 END > 1))
+          AND created_at >= (NOW() - INTERVAL '7 days')
+          AND COALESCE((raw_payload->'spike_analysis'->>'score')::numeric, 0) >= 0.3
         )`);
       } else if (facet === 'MODEL') {
         conditions.push(`(
@@ -270,16 +277,24 @@ module.exports = async (req, res) => {
     // Sorting
     let sortParam = 'created_at DESC NULLS LAST, id DESC';
     const sort = req.query?.sort;
-    if (sort === 'viral-score-desc' || sort === 'score') {
-      sortParam = 'viral_score DESC NULLS LAST, created_at DESC, id DESC';
+    if (sort === 'viral-score-desc' || sort === 'score' || (!sort && facet === 'CROSS_SPIKE')) {
+      sortParam = `
+        COALESCE(NULLIF(raw_payload->'spike_analysis'->>'score', '')::numeric, viral_score, 0) DESC,
+        CASE WHEN jsonb_typeof(raw_payload->'sources') = 'array' THEN jsonb_array_length(raw_payload->'sources') ELSE 0 END DESC,
+        created_at DESC, id DESC
+      `;
     } else if (sort === 'growth-delta-desc' || sort === 'growth') {
       sortParam = `CASE WHEN raw_payload->'metric_tracking'->>'delta' ~ '^[0-9]+$' THEN (raw_payload->'metric_tracking'->>'delta')::numeric ELSE 0 END DESC, created_at DESC, id DESC`;
-    } else if (sort === 'published' || sort === 'date-pub-desc') {
+    } else if (sort === 'published' || sort === 'date-pub-desc' || sort === 'date-source-desc') {
       sortParam = 'harvested_date DESC NULLS LAST, created_at DESC, id DESC';
+    } else if (sort === 'date-source-asc') {
+      sortParam = 'harvested_date ASC NULLS LAST, created_at ASC, id ASC';
     } else if (sort === 'id') {
       sortParam = 'id DESC';
     } else if (sort === 'updated' || sort === 'date-audit-desc') {
       sortParam = 'updated_at DESC NULLS LAST, id DESC';
+    } else if (sort === 'date-audit-asc') {
+      sortParam = 'updated_at ASC NULLS LAST, id ASC';
     }
 
     // Pagination limits
@@ -330,12 +345,24 @@ module.exports = async (req, res) => {
           : (p.key_takeaways || []);
 
       // 🌟 Lean & Deduplicated aiEnrichment (eliminates redundant ~2.5KB duplicate block per item)
+      const rawText = `${r.title || ''} ${p.description || ''}`;
+      const rPlat = (r.source_platform || '').toLowerCase();
+      const rUrl = (r.source_url || '').toLowerCase();
+      let detectedLang = p.ai_enrichment?.source_lang || p.source_lang || 'EN';
+      if (/[\uac00-\ud7a3]/.test(rawText) || /daum|geeknews|hada\.io|chosun|donga|yonhap|naver/i.test(rPlat) || /daum\.net|hada\.io|naver\.com/i.test(rUrl)) {
+        detectedLang = 'KO';
+      } else if (/[\u3040-\u30ff]/.test(rawText)) {
+        detectedLang = 'JA';
+      } else if (/[\u4e00-\u9fff]/.test(rawText) || /weibo|zhihu|36kr|ithome|sspai|bilibili|wechat|qq\.com|sina|baidu|jiqizhixin|qbitai|v2ex|geekpark|oschina|infoq/i.test(rPlat) || /\.cn|\.com\.cn|weibo\.com|zhihu\.com|36kr\.com|ithome\.com|sspai\.com|bilibili\.com|v2ex\.com/i.test(rUrl)) {
+        detectedLang = 'ZH';
+      }
+
       let aiEnrichment = null;
       if (p.ai_enrichment) {
         aiEnrichment = {
           id: p.ai_enrichment.id || r.inbox_id,
           hook: p.ai_enrichment.hook || p.hook || '',
-          source_lang: p.ai_enrichment.source_lang || p.source_lang || 'EN',
+          source_lang: detectedLang,
           artifact_type: p.ai_enrichment.artifact_type || p.artifact_type || '',
           type_classification: p.ai_enrichment.type_classification || p.category_type || 'TECH',
           key_takeaways: keyTakeaways,
@@ -431,6 +458,7 @@ module.exports = async (req, res) => {
         hook_zh: p.hook_zh || '',
         description: desc,
         item_type: r.item_type,
+        source_lang: detectedLang,
         category_primary: r.category_primary,
         tier1_category: p.tier1_category || 'TECH_COMPUTING',
         tier2_category: p.tier2_category || r.category_primary || 'INDUSTRY_TRENDS',
@@ -441,6 +469,7 @@ module.exports = async (req, res) => {
         sources: p.sources || [],
         cross_posts: p.cross_posts || [],
         is_cross_spiking: isCrossSpiking,
+        spike_analysis: p.spike_analysis || null,
         cross_spike_summary: {
           total_count: totalSourcesCount,
           press_count: pressCount,

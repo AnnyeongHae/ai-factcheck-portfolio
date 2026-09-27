@@ -583,6 +583,21 @@ module.exports = async (req, res) => {
         };
       }
 
+      // Deterministic Source Language Detection (KO, ZH, JA, EN)
+      const origText = `${cand.title || ''} ${cand.description || ''}`;
+      const origPlat = (cand.source_platform || '').toLowerCase();
+      const origUrl = (cand.source_url || '').toLowerCase();
+      let detectedLang = 'EN';
+      if (/[\uac00-\ud7a3]/.test(origText) || /daum|geeknews|hada\.io|chosun|donga|yonhap|naver/i.test(origPlat) || /daum\.net|hada\.io|naver\.com/i.test(origUrl)) {
+        detectedLang = 'KO';
+      } else if (/[\u3040-\u30ff]/.test(origText)) {
+        detectedLang = 'JA';
+      } else if (/[\u4e00-\u9fff]/.test(origText) || /weibo|zhihu|36kr|ithome|sspai|bilibili|wechat|qq\.com|sina|baidu|jiqizhixin|qbitai|v2ex|geekpark|oschina|infoq/i.test(origPlat) || /\.cn|\.com\.cn|weibo\.com|zhihu\.com|36kr\.com|ithome\.com|sspai\.com|bilibili\.com|v2ex\.com/i.test(origUrl)) {
+        detectedLang = 'ZH';
+      }
+
+      payload.source_lang = detectedLang;
+
       payload.multilingual = {
         ko: { title: titleKo, hook: hookKo, key_takeaways: finalTakeaways },
         en: { title: titleEn, hook: hookEn, key_takeaways: finalTakeawaysEn },
@@ -591,7 +606,7 @@ module.exports = async (req, res) => {
 
       payload.ai_enrichment = {
         id: cand.inbox_id,
-        source_lang: 'EN',
+        source_lang: detectedLang,
         programming_lang: payload.programming_lang,
         type_classification: inferred.itemType,
         category_primary: inferred.categoryPrimary,

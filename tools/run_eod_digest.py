@@ -46,7 +46,10 @@ def sync_eod_voyage_embeddings(conn):
     try:
         cur = conn.cursor()
         cur.execute("""
-            SELECT id, title, COALESCE(raw_payload->>'title_ko', '') as title_ko
+            SELECT id, 
+                   COALESCE(raw_payload->>'title_en', title, '') as title_en,
+                   COALESCE(raw_payload->>'hook_en', raw_payload->>'hook', '') as hook_en,
+                   COALESCE(raw_payload->'ai_enrichment'->>'summary_en', raw_payload->>'description', '') as summary_en
             FROM raw_trends_inbox 
             WHERE embedding IS NULL 
             ORDER BY created_at DESC 
@@ -56,12 +59,16 @@ def sync_eod_voyage_embeddings(conn):
         if not rows:
             return
 
-        print(f"[*] [EOD Voyage Sync] Found {len(rows)} unembedded items. Running batch embedding...")
+        print(f"[*] [EOD Voyage Sync] Found {len(rows)} unembedded items. Running batch embedding (English-Only)...")
         texts = []
         for r in rows:
             en = (r[1] or '').strip()
-            ko = (r[2] or '').strip()
-            texts.append(f"{en} ({ko})" if en and ko and en != ko else (en or ko))
+            hook = (r[2] or '').strip()
+            summary = (r[3] or '').strip()
+            parts = [en] if en else []
+            if hook: parts.append(f"Hook: {hook}")
+            if summary: parts.append(f"Summary: {summary}")
+            texts.append(" | ".join(parts))
 
         embs = get_embeddings(texts, model="voyage-multilingual-2", dimension=1024)
         if embs and len(embs) == len(rows):
@@ -144,6 +151,7 @@ def run_eod_digest(top_n=10):
                     r.viral_score,
                     r.created_at,
                     r.is_classified,
+                    COALESCE((r.raw_payload->'spike_analysis'->>'score')::numeric, 0) * 2.0 +
                     COALESCE(d.delta_metric, 0) * 1.5 + 
                     COALESCE(d.total_delta, 0) * 1.0 + 
                     COALESCE(r.viral_score, 0) * 0.5 AS raw_velocity

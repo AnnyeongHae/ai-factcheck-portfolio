@@ -3844,6 +3844,13 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       currentNewsPage = 1;
       currentNewsFacet = facet;
 
+      // 🌟 When switching to CROSS_SPIKE, automatically switch sorting to viral-score-desc
+      if (facet === 'CROSS_SPIKE') {
+        currentNewsSort = 'viral-score-desc';
+        const sortSel = document.getElementById('newsSortSelect');
+        if (sortSel) sortSel.value = 'viral-score-desc';
+      }
+
       // 🌟 When switching to AI Model or OpenSource Tool, ensure non-tech category doesn't block results
       if ((facet === 'MODEL' || facet === 'TOOL') && currentNewsTier1 !== 'TECH_COMPUTING' && currentNewsTier1 !== 'ALL') {
         currentNewsTier1 = 'ALL';
@@ -4386,8 +4393,10 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
     function renderNewsGridItems(items, grid) {
       grid.innerHTML = '';
       const frag = document.createDocumentFragment();
-      const clustered = clusterFeedItems(items);
-      clustered.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
+      // 🌟 DB-First SSOT: The server already delivers verified, deduplicated clusters.
+      // Render directly to prevent grid-hole regressions (e.g. 14 items in 3x5 grid) and cross-page fragmentation.
+      const renderPool = Array.isArray(items) ? items : [];
+      renderPool.forEach(it => frag.appendChild(createNewsCardElement(it, currentLang)));
       grid.appendChild(frag);
       if (window.lucide) window.lucide.createIcons({ root: grid });
     }
@@ -4521,6 +4530,21 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
           </span>
         ` : '';
 
+        // 🌟 Accurate Source Language Detection (with deterministic fallback)
+        const rawItemText = `${it.title || ''} ${it.description || ''}`;
+        const itPlat = (it.source_platform || '').toLowerCase();
+        const itUrl = (it.source_url || '').toLowerCase();
+        let effectiveSourceLang = (ai.source_lang || it.source_lang || '').toUpperCase();
+        if (/[\uac00-\ud7a3]/.test(rawItemText) || /daum|geeknews|hada\.io|chosun|donga|yonhap|naver/i.test(itPlat) || /daum\.net|hada\.io|naver\.com/i.test(itUrl)) {
+          effectiveSourceLang = 'KO';
+        } else if (/[\u3040-\u30ff]/.test(rawItemText)) {
+          effectiveSourceLang = 'JA';
+        } else if (/[\u4e00-\u9fff]/.test(rawItemText) || /weibo|zhihu|36kr|ithome|sspai|bilibili|wechat|qq\.com|sina|baidu|jiqizhixin|qbitai|v2ex|geekpark|oschina|infoq/i.test(itPlat) || /\.cn|\.com\.cn|weibo\.com|zhihu\.com|36kr\.com|ithome\.com|sspai\.com|bilibili\.com|v2ex\.com/i.test(itUrl)) {
+          effectiveSourceLang = 'ZH';
+        } else if (!effectiveSourceLang || (effectiveSourceLang === 'KO' && !/[\uac00-\ud7a3]/.test(rawItemText))) {
+          effectiveSourceLang = 'EN';
+        }
+
         aiBadgeHtml = `
           <div class="flex items-center gap-1.5 flex-wrap my-1">
             ${recBadgeHtml}
@@ -4528,7 +4552,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
               ${typeBadge}
             </span>
             ${ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${ai.programming_lang}</span>` : ''}
-            ${ai.source_lang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">${ai.source_lang}</span>` : ''}
+            ${effectiveSourceLang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">${effectiveSourceLang}</span>` : ''}
           </div>
         `;
 
@@ -4565,33 +4589,57 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
         const clusterCount = Math.max(clusterSources.length, allSources.length, 2);
 
-        let pCount = it.cross_spike_summary?.press_count || 0;
-        let cCount = it.cross_spike_summary?.community_count || 0;
-        if (!pCount && !cCount) {
+        const spk = it.spike_analysis || it.raw_payload?.spike_analysis || null;
+        let pCount = spk?.press_count || it.cross_spike_summary?.press_count || 0;
+        let cCount = spk?.community_count || it.cross_spike_summary?.community_count || 0;
+        let kCount = spk?.code_count || 0;
+        const spkScore = spk ? Number(spk.score || 0) : 0;
+
+        if (!pCount && !cCount && !kCount) {
           clusterSources.forEach(s => {
             const p = (s.platform || s.source_name || '').toLowerCase();
             const u = (s.url || '').toLowerCase();
-            const isComm = p.includes('hacker news') || p.includes('reddit') || p.includes('geeknews') || p.includes('github') || p.includes('hugging') || u.includes('ycombinator') || u.includes('reddit.com') || u.includes('hada.io');
-            if (isComm) cCount++;
+            const isCode = p.includes('github') || p.includes('hugging') || p.includes('arxiv') || u.includes('github.com') || u.includes('huggingface.co');
+            const isComm = p.includes('hacker news') || p.includes('reddit') || p.includes('geeknews') || u.includes('ycombinator') || u.includes('reddit.com') || u.includes('hada.io');
+            if (isCode) kCount++;
+            else if (isComm) cCount++;
             else pCount++;
           });
         }
-        pCount = Math.max(pCount, 1);
+        if (pCount === 0 && cCount === 0 && kCount === 0) pCount = 1;
 
-        const isSpike = Boolean(it.is_cross_spiking || (pCount >= 1 && cCount >= 1));
-        const signalLabel = currentLang === 'KO' 
-          ? `${clusterCount}개 매체·커뮤니티 교차 분석`
-          : (currentLang === 'ZH' ? `${clusterCount}个媒体/社区联合报道` : `Cross-Covered by ${clusterCount} Outlets`);
+        const totalAxes = (pCount > 0 ? 1 : 0) + (cCount > 0 ? 1 : 0) + (kCount > 0 ? 1 : 0);
+        const isSuperSpike = totalAxes >= 3 || spkScore >= 50;
+        const isCrossSpike = totalAxes >= 2 || spkScore >= 15;
+        const isSpike = Boolean(it.is_cross_spiking || isCrossSpike);
+
+        let badgeBg = 'bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border-amber-500/30 text-amber-950';
+        let flameColor = 'text-amber-600';
+        let tierBadgeText = '';
+
+        if (isSuperSpike) {
+          badgeBg = 'bg-gradient-to-r from-rose-500/15 via-amber-500/15 to-orange-500/15 border-rose-500/40 text-rose-950 shadow-xs';
+          flameColor = 'text-rose-600';
+          tierBadgeText = currentLang === 'KO' ? '🔥 3-Axis 슈퍼 바이럴' : (currentLang === 'ZH' ? '🔥 3-Axis 超级爆发' : '🔥 3-Axis Super Spike');
+        } else if (isCrossSpike) {
+          badgeBg = 'bg-gradient-to-r from-amber-500/15 via-orange-500/12 to-amber-500/10 border-amber-500/35 text-amber-950';
+          flameColor = 'text-amber-600';
+          tierBadgeText = currentLang === 'KO' ? '⚡ 2-Axis 크로스 바이럴' : (currentLang === 'ZH' ? '⚡ 2-Axis 跨界联合' : '⚡ 2-Axis Cross Spike');
+        } else {
+          tierBadgeText = currentLang === 'KO' ? `${clusterCount}개 매체 교차 보도` : (currentLang === 'ZH' ? `${clusterCount}个媒体报道` : `Covered by ${clusterCount} Outlets`);
+        }
 
         crossRollupHtml = `
-          <div class="flex items-center justify-between px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border border-amber-500/30 text-xs text-amber-950 shadow-2xs">
+          <div class="flex items-center justify-between px-2.5 py-1.5 rounded-xl ${badgeBg} border text-xs shadow-2xs">
             <div class="flex items-center gap-1.5 min-w-0">
-              <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-600 shrink-0 ${isSpike ? 'animate-pulse' : ''}"></i>
-              <span class="font-extrabold text-[11px] text-amber-950 truncate">${signalLabel}</span>
+              <i data-lucide="flame" class="w-3.5 h-3.5 ${flameColor} shrink-0 ${isSpike ? 'animate-pulse' : ''}"></i>
+              <span class="font-extrabold text-[11px] truncate">${tierBadgeText}</span>
+              ${spkScore > 0 ? `<span class="px-1.5 py-0.2 rounded-full bg-amber-600/90 text-white font-mono font-bold text-[9px] shadow-2xs">${spkScore} pts</span>` : ''}
             </div>
             <div class="flex items-center gap-1 shrink-0 font-mono text-[10px] font-bold">
-              ${pCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-white text-emerald-800 border border-emerald-300 shadow-2xs">📰 언론 ${pCount}</span>` : ''}
-              ${cCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-white text-orange-800 border border-orange-300 shadow-2xs">💬 커뮤니티 ${cCount}</span>` : ''}
+              ${pCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-white/90 text-emerald-800 border border-emerald-300 shadow-2xs">📰 언론 ${pCount}</span>` : ''}
+              ${cCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-white/90 text-orange-800 border border-orange-300 shadow-2xs">💬 커뮤니티 ${cCount}</span>` : ''}
+              ${kCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-white/90 text-indigo-800 border border-indigo-300 shadow-2xs">💻 코드 ${kCount}</span>` : ''}
             </div>
           </div>
         `;
@@ -4610,6 +4658,17 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         if (!valStr) return '';
         let clean = String(valStr).replace(/🔥/g, '').trim();
         clean = clean.replace(/\b(?:hn\s*)?points\b/gi, 'pts').replace(/\blikes\b/gi, 'likes').replace(/\bstars\b/gi, '★');
+        // Compact long Reddit & discussion strings
+        clean = clean.replace(/Reddit\s*Major\s*Discussion/gi, currentLang === 'KO' ? '💬 커뮤니티 토론' : (currentLang === 'ZH' ? '💬 社区讨论' : '💬 Discussion'));
+        clean = clean.replace(/Major\s*Discussion/gi, currentLang === 'KO' ? '💬 토론' : (currentLang === 'ZH' ? '💬 讨论' : '💬 Discussion'));
+        // Compact long news media report strings
+        clean = clean.replace(/\(Trending\s*Demo\)/gi, '').trim();
+        if (clean.length > 18 && clean.includes('보도')) {
+          clean = clean.replace(/^(?:📰\s*)?(.*?)\s*보도$/, (match, p1) => {
+            const shortName = p1.length > 8 ? p1.slice(0, 7) + '…' : p1;
+            return `📰 ${shortName} 보도`;
+          });
+        }
         return clean;
       }
 
@@ -4650,17 +4709,19 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
       card.innerHTML = `
         <div class="space-y-2.5">
-          <div class="flex items-start sm:items-center justify-between text-xs font-mono gap-1.5 flex-wrap">
-            <div class="flex items-center gap-1.5 flex-wrap min-w-0">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls} shrink-0">
+          <div class="flex items-center justify-between text-xs font-mono gap-1.5 min-w-0">
+            <div class="flex items-center gap-1.5 min-w-0 overflow-hidden">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls} shrink-0 truncate max-w-[130px]" title="${catInfo.label}">
                 ${catInfo.label}
               </span>
-              <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0">
-                <span>${primaryPlat}</span>
-                ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs animate-pulse">+${allSources.length - 1} 매체</span>` : ''}
+              <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0 truncate max-w-[110px]" title="${primaryPlat}">
+                <span class="truncate">${primaryPlat}</span>
+                ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs shrink-0">+${allSources.length - 1}</span>` : ''}
               </span>
             </div>
-            ${metricBadgeHtml}
+            <div class="shrink-0 flex items-center justify-end ml-auto">
+              ${metricBadgeHtml}
+            </div>
           </div>
 
           ${crossRollupHtml}
@@ -5622,8 +5683,20 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
         const filterSrcKey = currentInboxSource.toLowerCase();
         const matchesSrc = currentInboxSource === 'ALL' || ((item.source_platform || '').toLowerCase().includes(filterSrcKey));
 
-        // 2. 원문 언어 매칭 (KO, EN, ZH)
-        const itemLang = (ai ? ai.source_lang : null) || item.source_lang || 'EN';
+        // 2. 원문 언어 매칭 (KO, EN, ZH, JA)
+        const rawItemText = `${item.title || ''} ${item.description || ''}`;
+        const itemPlat = (item.source_platform || '').toLowerCase();
+        const itemUrl = (item.source_url || '').toLowerCase();
+        let itemLang = (ai?.source_lang || item.source_lang || '').toUpperCase();
+        if (/[\uac00-\ud7a3]/.test(rawItemText) || /daum|geeknews|hada\.io|chosun|donga|yonhap|naver/i.test(itemPlat) || /daum\.net|hada\.io|naver\.com/i.test(itemUrl)) {
+          itemLang = 'KO';
+        } else if (/[\u3040-\u30ff]/.test(rawItemText)) {
+          itemLang = 'JA';
+        } else if (/[\u4e00-\u9fff]/.test(rawItemText) || /weibo|zhihu|36kr|ithome|sspai|bilibili|wechat|qq\.com|sina|baidu|jiqizhixin|qbitai|v2ex|geekpark|oschina|infoq/i.test(itemPlat) || /\.cn|\.com\.cn|weibo\.com|zhihu\.com|36kr\.com|ithome\.com|sspai\.com|bilibili\.com|v2ex\.com/i.test(itemUrl)) {
+          itemLang = 'ZH';
+        } else if (!itemLang || (itemLang === 'KO' && !/[\uac00-\ud7a3]/.test(rawItemText))) {
+          itemLang = 'EN';
+        }
         const matchesLang = currentInboxLang === 'ALL' || itemLang === currentInboxLang;
 
         // 3. 4대 기술 분류 매칭 (ALL 선택 시 전체 항목 표시)
@@ -5674,6 +5747,19 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
       pagedInbox.forEach(it => {
         const isQueued = queuedItemIds.has(it.inbox_id);
         const ai = it.ai_enrichment;
+        const rawItemText = `${it.title || ''} ${it.description || ''}`;
+        const itPlat = (it.source_platform || '').toLowerCase();
+        const itUrl = (it.source_url || '').toLowerCase();
+        let effectiveSourceLang = (ai?.source_lang || it.source_lang || '').toUpperCase();
+        if (/[\uac00-\ud7a3]/.test(rawItemText) || /daum|geeknews|hada\.io|chosun|donga|yonhap|naver/i.test(itPlat) || /daum\.net|hada\.io|naver\.com/i.test(itUrl)) {
+          effectiveSourceLang = 'KO';
+        } else if (/[\u3040-\u30ff]/.test(rawItemText)) {
+          effectiveSourceLang = 'JA';
+        } else if (/[\u4e00-\u9fff]/.test(rawItemText) || /weibo|zhihu|36kr|ithome|sspai|bilibili|wechat|qq\.com|sina|baidu|jiqizhixin|qbitai|v2ex|geekpark|oschina|infoq/i.test(itPlat) || /\.cn|\.com\.cn|weibo\.com|zhihu\.com|36kr\.com|ithome\.com|sspai\.com|bilibili\.com|v2ex\.com/i.test(itUrl)) {
+          effectiveSourceLang = 'ZH';
+        } else if (!effectiveSourceLang || (effectiveSourceLang === 'KO' && !/[\uac00-\ud7a3]/.test(rawItemText))) {
+          effectiveSourceLang = 'EN';
+        }
         const { displayTitle, displayHook, displayDesc, displayTakeaways, hasTrilingual } = getLocalizedContent(it, currentLang);
         const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
 
@@ -5731,7 +5817,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
                 ${typeBadge}
               </span>
               ${ai && ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${ai.programming_lang}</span>` : ''}
-              ${ai && ai.source_lang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">🌐 ${ai.source_lang}</span>` : ''}
+              ${effectiveSourceLang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">🌐 ${effectiveSourceLang}</span>` : ''}
               ${hasTrilingual ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">🌐 KO·EN·ZH</span>` : `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-ink-muted border border-surface-border">🌐 번역 대기</span>`}
             </div>
 

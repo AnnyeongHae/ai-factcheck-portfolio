@@ -105,8 +105,8 @@
 </head>
 <body class="bg-surface-canvas text-ink-primary min-h-screen bg-clean-grid pb-24 antialiased selection:bg-ink-primary selection:text-white w-full">
 
-  <!-- ==================== TOP NAVIGATION HEADER ==================== -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-surface-border shadow-xs">
+  <!-- ==================== TOP NAVIGATION HEADER (FLOATING) ==================== -->
+  <header class="fixed top-0 left-0 right-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-surface-border shadow-xs transition-all">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
       
       <!-- Brand Logo (Click to #home) -->
@@ -181,6 +181,9 @@
       </button>
     </div>
   </header>
+
+  <!-- Spacer to prevent content from hiding beneath floating header (Desktop 64px, Mobile 112px) -->
+  <div class="h-28 md:h-16 shrink-0" aria-hidden="true"></div>
 
   <main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6 overflow-x-hidden">
 
@@ -632,6 +635,7 @@
               <i data-lucide="arrow-up-down" class="w-3 h-3 text-indigo-600"></i>
               <span class="text-ink-muted text-[11px] font-mono" id="newsSortLabel">정렬:</span>
               <select id="newsSortSelect" onchange="setNewsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
+                <option value="viral-score-desc">🔥 바이럴 급상승순 (H-V-D)</option>
                 <option value="date-audit-desc" selected>🔬 AI 분석일 최신순 (기본)</option>
                 <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
                 <option value="date-source-desc">📅 수집/발표 최신순</option>

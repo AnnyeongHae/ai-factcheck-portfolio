@@ -29,6 +29,7 @@ const batchHandler = require('./api/batch');
 const inboxHandler = require('./api/inbox');
 const statsHandler = require('./api/stats');
 const enrichWorkerHandler = require('./api/enrich-worker');
+const embedWorkerHandler = require('./api/embed-worker');
 const watchdogHandler = require('./api/watchdog');
 
 const PORT = process.env.PORT || 3000;
@@ -97,7 +98,13 @@ const server = http.createServer(async (req, res) => {
   if (pathname === '/api/health') return healthHandler(req, res);
   if (pathname === '/api/batch') return batchHandler(req, res);
   if (pathname === '/api/enrich-worker') return enrichWorkerHandler(req, res);
+  if (pathname === '/api/embed-worker') return embedWorkerHandler(req, res);
   if (pathname === '/api/watchdog') return watchdogHandler(req, res);
+
+  // Return clean JSON 404 for unhandled API requests (prevents HTML fallback)
+  if (pathname.startsWith('/api/')) {
+    return res.status(404).json({ error: 'Endpoint not found', endpoint: pathname });
+  }
 
   // Static File Serving (from public/)
   let filePath = path.join(PUBLIC_DIR, pathname === '/' ? 'index.html' : pathname);

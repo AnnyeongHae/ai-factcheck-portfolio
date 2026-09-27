@@ -10,13 +10,24 @@ Multi-Source News & Inbox Deduplication and Story Clustering Merger (v1.0)
 import json
 import os
 import re
+import urllib.request
+import urllib.error
 from datetime import datetime, timezone
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # =============================================================================
 # 2026 SOTA Cross-Lingual Entity & Canonical Anchor Dictionary
 # Maps Korean, English, and transliterated variants into unified canonical tokens
 # =============================================================================
 CROSS_LINGUAL_ENTITY_MAP = {
+    # Incident & Event Synonyms (English Deduplication Support)
+    "federal": "government", "fed": "government", "agencies": "government", "agency": "government",
+    "websites": "sites", "website": "sites", "site": "sites", "portal": "sites", "portals": "sites",
+    "bots": "agent", "bot": "agent", "agents": "agent", "crawler": "agent", "crawlers": "agent",
+    "interacted": "access", "interact": "access", "breached": "access", "infiltrated": "access",
+
     # Geopolitics & Major News Events
     "후티": "houthi", "후티반군": "houthi", "houthis": "houthi", "houthi": "houthi",
     "홍해": "redsea", "red-sea": "redsea", "red sea": "redsea",
@@ -66,6 +77,13 @@ GENERIC_WORDS = {
     "about", "how", "what", "why", "when", "into", "over", "after"
 }
 
+def extract_english_title(item: dict) -> str:
+    """Extract clean English headline, stripping platform prefixes and prioritizing English title."""
+    raw = item.get("title_en") or item.get("title") or ""
+    # Strip common platform prefixes like 'News: ', 'Hacker News: ', 'r/technology: ', etc.
+    cleaned = re.sub(r'^(?:news|hacker news|reddit|geeknews|lobsters|github|huggingface model|hf space|r/[a-zA-Z0-9_]+):\s*', '', raw, flags=re.IGNORECASE).strip()
+    return cleaned or raw
+
 def normalize_text_tokens(text: str) -> set:
     if not text:
         return set()
@@ -76,14 +94,181 @@ def normalize_text_tokens(text: str) -> set:
         if " " in k and k in text:
             text = text.replace(k, f" {CROSS_LINGUAL_ENTITY_MAP[k]} ")
 
-    # 2. Extract words
-    raw_words = re.findall(r'[a-zA-Z0-9가-힣]+', text)
+    # 2. Extract strictly English alphanumeric words [a-z0-9]+
+    raw_words = re.findall(r'[a-z0-9]+', text)
     canonical = set()
     for w in raw_words:
         mapped = CROSS_LINGUAL_ENTITY_MAP.get(w, w)
         if len(mapped) > 1 and mapped not in STOP_WORDS and mapped not in GENERIC_WORDS:
             canonical.add(mapped)
     return canonical
+
+# =============================================================================
+# 2026 SOTA JEV (Judicial Entity Verifier) Micro-Judge & Circuit Breaker
+# =============================================================================
+JEV_API_CALL_COUNT = 0
+JEV_MAX_SESSION_CALLS = 5
+JEV_CONSECUTIVE_ERRORS = 0
+JEV_CIRCUIT_TRIPPED = False
+
+MAJOR_TECH_ENTITIES = {
+    "openai", "google", "anthropic", "meta", "microsoft", "apple", "amazon",
+    "deepseek", "qwen", "mistral", "nvidia", "tesla", "oracle", "discord", "x", "houthi", "flock"
+}
+
+def check_entity_veto(tokens_a: set, tokens_b: set) -> bool:
+    """
+    Returns True if both items explicitly contain different major tech/event entities.
+    Example: {openai} vs {google} -> Veto merge!
+    """
+    ents_a = tokens_a.intersection(MAJOR_TECH_ENTITIES)
+    ents_b = tokens_b.intersection(MAJOR_TECH_ENTITIES)
+    if ents_a and ents_b and ents_a != ents_b:
+        return True
+    return False
+
+def rule_based_entity_action_gate(title_a_en: str, title_b_en: str) -> bool:
+    """
+    High-precision deterministic gate when cosine similarity is in the ambiguous zone (0.74 ~ 0.88).
+    Evaluates entity agreement and critical event action keys without external API dependencies.
+    """
+    tokens_a = normalize_text_tokens(title_a_en)
+    tokens_b = normalize_text_tokens(title_b_en)
+
+    if not tokens_a or not tokens_b:
+        return False
+
+    if check_entity_veto(tokens_a, tokens_b):
+        return False
+
+    critical_anchors = [
+        {"houthi", "island"},
+        {"houthi", "shipping"},
+        {"houthi", "control"},
+        {"flock", "veteran"},
+        {"deepseek", "v3"},
+        {"qwen", "2.5-coder"},
+        {"chorleywood", "bread"},
+        {"openai", "government"},
+        {"openai", "federal"},
+        {"openai", "medicare"},
+        {"openai", "australian"},
+        {"openai", "bot"},
+        {"openai", "agent"},
+        {"anthropic", "supply"},
+        {"oracle", "force"}
+    ]
+    for anchor in critical_anchors:
+        if anchor.issubset(tokens_a) and anchor.issubset(tokens_b):
+            return True
+
+    common = tokens_a.intersection(tokens_b)
+    min_len = min(len(tokens_a), len(tokens_b))
+    if min_len >= 3 and len(common) >= 3:
+        if (len(common) / min_len) >= 0.55:
+            return True
+
+    return False
+
+def call_jev_bulk_judge(pairs: list) -> dict:
+    """
+    JEV Bulk Micro-Judge:
+    Evaluates up to 30 ambiguous headline pairs in a SINGLE bulk LLM pass.
+    Input: list of tuples (pair_id, title_a_en, title_b_en)
+    Returns: dict {pair_id: bool}
+    """
+    global JEV_API_CALL_COUNT, JEV_CONSECUTIVE_ERRORS, JEV_CIRCUIT_TRIPPED
+    if not pairs:
+        return {}
+
+    results = {}
+    if JEV_CIRCUIT_TRIPPED or JEV_API_CALL_COUNT >= JEV_MAX_SESSION_CALLS:
+        for pid, t_a, t_b in pairs:
+            results[pid] = rule_based_entity_action_gate(t_a, t_b)
+        return results
+
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    if not api_key:
+        for pid, t_a, t_b in pairs:
+            results[pid] = rule_based_entity_action_gate(t_a, t_b)
+        return results
+
+    formatted_items = [{"id": pid, "a": t_a, "b": t_b} for pid, t_a, t_b in pairs]
+    prompt = (
+        "Determine if each pair of English headlines reports the exact same real-world incident/event.\n"
+        "Return ONLY a JSON array with id and is_same (true/false):\n"
+        + json.dumps(formatted_items, ensure_ascii=False)
+    )
+
+    models_to_try = [
+        "typesafe/jev-router",
+        "google/gemma-4-26b-a4b-it:free",
+        "inclusionai/ling-3.0-flash-sante:free",
+        "meta-llama/llama-3.3-70b-instruct:free"
+    ]
+
+    for model_name in models_to_try:
+        try:
+            JEV_API_CALL_COUNT += 1
+            payload = {
+                "model": model_name,
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": 300 + len(pairs) * 40,
+                "temperature": 0.0
+            }
+            req = urllib.request.Request(
+                "https://openrouter.ai/api/v1/chat/completions",
+                data=json.dumps(payload).encode("utf-8"),
+                headers={
+                    "Authorization": f"Bearer {api_key}",
+                    "Content-Type": "application/json",
+                    "HTTP-Referer": "https://ai-factcheck.vercel.app",
+                    "X-Title": "FactCheck JEV Bulk Judge"
+                }
+            )
+            with urllib.request.urlopen(req, timeout=12) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                choice = data.get("choices", [{}])[0].get("message", {})
+                content = (choice.get("content") or choice.get("reasoning") or "").strip()
+
+                match = re.search(r'\[.*\]', content, re.DOTALL)
+                if match:
+                    parsed = json.loads(match.group(0))
+                    for item in parsed:
+                        if isinstance(item, dict) and "id" in item:
+                            pid = item["id"]
+                            val = bool(item.get("is_same") or item.get("same") or item.get("verdict") == "YES")
+                            results[pid] = val
+                    JEV_CONSECUTIVE_ERRORS = 0
+                    break
+        except urllib.error.HTTPError as e:
+            if e.code in [402, 429]:
+                continue
+            JEV_CONSECUTIVE_ERRORS += 1
+            if JEV_CONSECUTIVE_ERRORS >= 3:
+                JEV_CIRCUIT_TRIPPED = True
+                break
+        except Exception:
+            JEV_CONSECUTIVE_ERRORS += 1
+            if JEV_CONSECUTIVE_ERRORS >= 3:
+                JEV_CIRCUIT_TRIPPED = True
+                break
+
+    # For any unresolved pairs, fallback to zero-API rule gate
+    for pid, t_a, t_b in pairs:
+        if pid not in results:
+            results[pid] = rule_based_entity_action_gate(t_a, t_b)
+
+    return results
+
+def call_jev_binary_judge(title_a_en: str, title_b_en: str) -> bool:
+    """
+    JEV Micro-Judge:
+    Determines if two English headlines report the exact same real-world incident.
+    Wraps call_jev_bulk_judge with a single pair.
+    """
+    res = call_jev_bulk_judge([(1, title_a_en, title_b_en)])
+    return res.get(1, False)
 
 def get_item_story_key(item: dict) -> str:
     dedup = item.get("dedup_fingerprint") or item.get("dedup_metadata") or {}
@@ -146,18 +331,36 @@ def are_items_duplicate_story(item_a: dict, item_b: dict, max_window_hours: floa
             if hour_diff > 168.0:
                 return False
 
-    # 2.5 SOTA Voyage AI Dense Embedding Similarity Check
+    # Extract clean English titles (English-only deduplication)
+    title_a_en = extract_english_title(item_a)
+    title_b_en = extract_english_title(item_b)
+
+    tokens_a = normalize_text_tokens(title_a_en)
+    tokens_b = normalize_text_tokens(title_b_en)
+
+    # 2.1 Entity Veto Power: If both have major tech entities but they differ, NEVER MERGE
+    if check_entity_veto(tokens_a, tokens_b):
+        return False
+
+    # 2.5 SOTA Voyage AI Dense Embedding Similarity Check (English-Only)
+    has_sim = False
+    sim = 0.0
     try:
         from voyage_embedder import get_single_embedding, cosine_similarity
-        e_a = item_a.get("embedding") or get_single_embedding(f"[{item_a.get('canonical_tech_entity') or ''}] {item_a.get('title', '')}")
-        e_b = item_b.get("embedding") or get_single_embedding(f"[{item_b.get('canonical_tech_entity') or ''}] {item_b.get('title', '')}")
+        e_a = item_a.get("embedding") or get_single_embedding(f"[{item_a.get('canonical_tech_entity') or ''}] {title_a_en}")
+        e_b = item_b.get("embedding") or get_single_embedding(f"[{item_b.get('canonical_tech_entity') or ''}] {title_b_en}")
         sim = cosine_similarity(e_a, e_b)
-        if sim >= 0.82:
+        has_sim = True
+        if sim >= 0.88:
             return True
-        if sim < 0.35:
+        if sim < 0.74:
             return False
     except Exception:
         pass
+
+    # Tier 3: Ambiguous Boundary Zone (0.74 <= sim < 0.88)
+    if has_sim and 0.74 <= sim < 0.88:
+        return call_jev_binary_judge(title_a_en, title_b_en)
 
     # 3. Canonical Story Key exact or high-containment match
     key_a = get_item_story_key(item_a)
@@ -173,34 +376,9 @@ def are_items_duplicate_story(item_a: dict, item_b: dict, max_window_hours: floa
         if len(intersection) >= 2:
             return True
 
-    # 5. Cross-Lingual Entity & Semantic Keyword Overlap (TITLE ONLY, NO HOOK/DESC TO PREVENT FALSE POSITIVES)
-    title_a = f"{item_a.get('title', '')} {item_a.get('title_ko', '')} {item_a.get('title_en', '')}"
-    title_b = f"{item_b.get('title', '')} {item_b.get('title_ko', '')} {item_b.get('title_en', '')}"
-    tokens_a = normalize_text_tokens(title_a)
-    tokens_b = normalize_text_tokens(title_b)
-
+    # 5. Fallback to JEV Judge / Rule Gate if tokens exist
     if tokens_a and tokens_b:
-        # 5-A. Dynamic Anchor Matching (high-signal event/incident entity pairs ONLY)
-        critical_anchors = [
-            {"houthi", "island"},
-            {"houthi", "shipping"},
-            {"houthi", "control"},
-            {"flock", "veteran"},
-            {"deepseek", "v3"},
-            {"qwen", "2.5-coder"},
-            {"chorleywood", "bread"}
-        ]
-        for anchor in critical_anchors:
-            if anchor.issubset(tokens_a) and anchor.issubset(tokens_b):
-                return True
-
-        # 5-B. High Precision Overlap Ratio (>= 0.60 on non-generic title tokens)
-        common = tokens_a.intersection(tokens_b)
-        min_len = min(len(tokens_a), len(tokens_b))
-        if min_len >= 3 and len(common) >= 3:
-            overlap_ratio = len(common) / min_len
-            if overlap_ratio >= 0.60:
-                return True
+        return call_jev_binary_judge(title_a_en, title_b_en)
 
     return False
 
@@ -327,8 +505,8 @@ def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list
     item_timestamps = []
 
     for it in items:
-        title = f"{it.get('title', '')} {it.get('title_ko', '')} {it.get('title_en', '')}"
-        item_tokens.append(normalize_text_tokens(title))
+        title_en = extract_english_title(it)
+        item_tokens.append(normalize_text_tokens(title_en))
         item_en_tokens.append(extract_english_title_tokens(it))
         item_urls.append({it.get("source_url") or "", it.get("url") or "", it.get("article_url") or ""} - {""})
         item_keys.append(get_item_story_key(it))
@@ -347,16 +525,6 @@ def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list
     merged_entities = []
     merged_timestamps = []
 
-    critical_anchors = [
-        {"houthi", "island"},
-        {"houthi", "shipping"},
-        {"houthi", "control"},
-        {"flock", "veteran"},
-        {"deepseek", "v3"},
-        {"qwen", "2.5-coder"},
-        {"chorleywood", "bread"}
-    ]
-
     for idx, item in enumerate(items):
         tokens = item_tokens[idx]
         en_tokens = item_en_tokens[idx]
@@ -367,6 +535,12 @@ def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list
         matched_idx = -1
 
         for m_idx, target in enumerate(merged_items):
+            m_tokens = merged_tokens[m_idx]
+
+            # 0. Entity Veto Guardrail (OpenAI vs Google, etc. -> Never Merge)
+            if check_entity_veto(tokens, m_tokens):
+                continue
+
             # 1. URL exact match
             m_urls = merged_urls[m_idx]
             if urls and m_urls and bool(urls.intersection(m_urls)):
@@ -407,24 +581,29 @@ def deduplicate_inbox_items(items: list, max_window_hours: float = 72.0) -> list
                 matched_idx = m_idx
                 break
 
-            # 5. Token & Anchor match
-            m_tokens = merged_tokens[m_idx]
-            if tokens and m_tokens:
-                anchor_hit = False
-                for anc in critical_anchors:
-                    if anc.issubset(tokens) and anc.issubset(m_tokens):
+            # 4.5. Dense Semantic Vector & JEV Decision Gate
+            emb_a = item.get("embedding")
+            emb_b = target.get("embedding")
+            if emb_a and emb_b:
+                try:
+                    from voyage_embedder import cosine_similarity
+                    sim = cosine_similarity(emb_a, emb_b)
+                    if sim >= 0.88:
                         matched_idx = m_idx
-                        anchor_hit = True
                         break
-                if anchor_hit:
-                    break
+                    elif sim >= 0.74:
+                        # Ambiguous boundary zone: invoke JEV binary judge
+                        if call_jev_binary_judge(extract_english_title(item), extract_english_title(target)):
+                            matched_idx = m_idx
+                            break
+                except Exception:
+                    pass
 
-                common = tokens.intersection(m_tokens)
-                min_len = min(len(tokens), len(m_tokens))
-                if min_len >= 3 and len(common) >= 3:
-                    if (len(common) / min_len) >= 0.60:
-                        matched_idx = m_idx
-                        break
+            # 5. Token & Dynamic Anchor Match / Fallback JEV Judge
+            if tokens and m_tokens:
+                if call_jev_binary_judge(extract_english_title(item), extract_english_title(target)):
+                    matched_idx = m_idx
+                    break
 
         if matched_idx >= 0:
             target = merged_items[matched_idx]
