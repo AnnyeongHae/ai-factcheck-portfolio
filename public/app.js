@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-29T17:06:54.682Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-29T17:11:57.768Z */
 
 (() => {
   // src/js/core/config.js
@@ -1148,8 +1148,13 @@
       console.warn("[Bootstrap] Edge API first-paint timeout or offline, falling back to static snapshot:", edgeErr.message);
     }
     try {
-      const staticRes = await fetch("data.json", { cache: "default" });
-      if (staticRes.ok) {
+      let staticRes = await fetch("data.json", { cache: "default" });
+      let cType = staticRes.headers.get("content-type") || "";
+      if (!staticRes.ok || !cType.includes("application/json")) {
+        staticRes = await fetch("/data.json", { cache: "default" });
+        cType = staticRes.headers.get("content-type") || "";
+      }
+      if (staticRes.ok && cType.includes("application/json")) {
         const data = await staticRes.json();
         AppStore.setGraphData(data.graph || { nodes: [], links: [] });
         window.adminData = data.admin_stats || {};

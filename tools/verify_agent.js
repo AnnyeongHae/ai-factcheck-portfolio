@@ -22,10 +22,11 @@ const fs = require('fs');
 const ROOT_DIR = path.resolve(__dirname, '..');
 const PORT = process.env.PORT || 3000;
 const cliUrl = process.argv.find(a => a.startsWith('http'));
-const BASE_URL = process.env.TEST_TARGET_URL || cliUrl || `http://localhost:${PORT}`;
+const rawUrl = process.env.TEST_TARGET_URL || cliUrl || `http://localhost:${PORT}`;
+const BASE_URL = rawUrl.replace(/\/+$/, '');
 
 const isRemote = BASE_URL.startsWith('https://') || (BASE_URL.startsWith('http://') && !BASE_URL.includes('localhost') && !BASE_URL.includes('127.0.0.1'));
-const apiBase = BASE_URL.includes('github.io') ? 'https://ai-factcheck-portfolio.vercel.app' : BASE_URL;
+const apiBase = (BASE_URL.includes('github.io') ? 'https://ai-factcheck-portfolio.vercel.app' : BASE_URL).replace(/\/+$/, '');
 
 const args = process.argv.slice(2);
 const isQuick = args.includes('--quick');
@@ -63,9 +64,17 @@ async function checkServerRunning() {
 }
 
 async function fetchJson(endpoint) {
+  const url = endpoint.startsWith('http') ? endpoint : `${apiBase}${endpoint.startsWith('/') ? '' : '/'}${endpoint}`;
   return new Promise((resolve, reject) => {
-    const client = apiBase.startsWith('https') ? https : http;
-    const req = client.get(`${apiBase}${endpoint}`, { timeout: 8000 }, (res) => {
+    const client = url.startsWith('https') ? https : http;
+    const req = client.get(url, { timeout: 8000 }, (res) => {
+      if ([301, 302, 307, 308].includes(res.statusCode) && res.headers.location) {
+        let redirectUrl = res.headers.location;
+        if (!redirectUrl.startsWith('http')) {
+          redirectUrl = `${apiBase}${redirectUrl.startsWith('/') ? '' : '/'}${redirectUrl}`;
+        }
+        return fetchJson(redirectUrl).then(resolve).catch(reject);
+      }
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => {

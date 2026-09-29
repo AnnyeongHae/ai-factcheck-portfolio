@@ -53,10 +53,14 @@ export async function bootstrapApplicationData() {
     console.warn('[Bootstrap] Edge API first-paint timeout or offline, falling back to static snapshot:', edgeErr.message);
   }
 
-  // 2. Supplementary Snapshot & Offline Fallback (data.json for graph/telemetry/offline)
   try {
-    const staticRes = await fetch('data.json', { cache: 'default' });
-    if (staticRes.ok) {
+    let staticRes = await fetch('data.json', { cache: 'default' });
+    let cType = staticRes.headers.get('content-type') || '';
+    if (!staticRes.ok || !cType.includes('application/json')) {
+      staticRes = await fetch('/data.json', { cache: 'default' });
+      cType = staticRes.headers.get('content-type') || '';
+    }
+    if (staticRes.ok && cType.includes('application/json')) {
       const data = await staticRes.json();
       AppStore.setGraphData(data.graph || { nodes: [], links: [] });
       window.adminData = data.admin_stats || {};
