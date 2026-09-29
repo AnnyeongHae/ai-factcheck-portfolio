@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-29T17:15:42.346Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-29T17:35:55.438Z */
 
 (() => {
   // src/js/core/config.js
@@ -1613,6 +1613,35 @@
             }
           } catch (pErr) {
             console.warn("[Live DB Sync] Portfolios live sync skipped:", pErr.message);
+          }
+          try {
+            const inbRes = await fetch(APP_CONFIG.apiUrl("/api/inbox?tab=INBOX&limit=50&sort=updated"), { cache: "default" });
+            if (inbRes.ok) {
+              const inbData = await inbRes.json();
+              if (inbData.status === "success" && Array.isArray(inbData.items) && inbData.items.length > 0) {
+                const currentInbox = window.liveInboxData || [];
+                const mapExisting = new Map(currentInbox.map((x) => [x.inbox_id || x.id, x]));
+                let added = 0;
+                for (const newItem of inbData.items) {
+                  const nid = newItem.inbox_id || newItem.id;
+                  if (!nid) continue;
+                  if (mapExisting.has(nid)) {
+                    Object.assign(mapExisting.get(nid), newItem);
+                  } else {
+                    currentInbox.unshift(newItem);
+                    mapExisting.set(nid, newItem);
+                    added++;
+                  }
+                }
+                window.liveInboxData = currentInbox;
+                AppStore._inbox = currentInbox;
+                if (added > 0 && window.currentView === "inbox" && typeof window.renderInbox === "function") {
+                  window.renderInbox();
+                }
+              }
+            }
+          } catch (inbErr) {
+            console.warn("[Live DB Sync] Inbox sync skipped:", inbErr.message);
           }
           if (data.actions_quota && data.actions_quota.total_minutes !== void 0) {
             window.actionsTelemetryData = window.actionsTelemetryData || {};
@@ -5212,10 +5241,148 @@
     }
     showToast(isCurrentlyQueued ? `\uB300\uAE30\uC5F4\uC5D0\uC11C \uC81C\uC678\uB418\uC5C8\uC2B5\uB2C8\uB2E4.` : `[${title}] \uD56D\uBAA9\uC774 \uB300\uAE30\uC5F4\uC5D0 \uB4F1\uB85D\uB418\uC5C8\uC2B5\uB2C8\uB2E4.`);
   }
-  function renderInbox() {
-    const grid = document.getElementById("inboxGrid");
+  var inboxDbCache = /* @__PURE__ */ new Map();
+  var inboxFetchAbortController = null;
+  function getInboxCacheKey(page) {
+    const params = new URLSearchParams();
+    params.set("tab", "INBOX");
+    params.set("limit", PAGE_SIZE);
+    params.set("page", page);
+    const curSrc = window.currentInboxSource || currentInboxSource || "ALL";
+    const curType = window.currentInboxType || currentInboxType || "ALL";
+    const curSearch = window.inboxSearchQuery || inboxSearchQuery || "";
+    const curSort = window.currentInboxSort || currentInboxSort || "date-audit-desc";
+    if (curSrc && curSrc !== "ALL") params.set("source", curSrc);
+    if (curType && curType !== "ALL") params.set("type", curType);
+    if (curSearch) params.set("search", curSearch);
+    if (curSort) params.set("sort", curSort);
+    return params.toString();
+  }
+  async function fetchInboxFromDb(page = window.currentInboxPage || currentInboxPage || 1, bypassCache = false) {
+    const baseUrl = APP_CONFIG.apiUrl("/api/inbox");
+    const cacheKey = getInboxCacheKey(page);
+    if (!bypassCache && inboxDbCache.has(cacheKey)) {
+      const cached = inboxDbCache.get(cacheKey);
+      if (cached && Date.now() - (cached.timestamp || 0) < 3e4) {
+        return cached;
+      }
+    }
+    if (inboxFetchAbortController) {
+      try {
+        inboxFetchAbortController.abort();
+      } catch (e) {
+      }
+    }
+    inboxFetchAbortController = new AbortController();
+    const url = `${baseUrl}?${cacheKey}`;
+    const res = await fetch(url, { signal: inboxFetchAbortController.signal });
+    if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+    const data = await res.json();
+    if (data && data.status === "success") {
+      const result = {
+        total: data.total || 0,
+        totalPages: data.total_pages || Math.ceil((data.total || 0) / PAGE_SIZE) || 1,
+        items: data.items || [],
+        timestamp: Date.now()
+      };
+      inboxDbCache.set(cacheKey, result);
+      return result;
+    }
+    throw new Error("API returned invalid payload");
+  }
+  function createInboxCardElement(it, curLang) {
+    const isQueued = queuedItemIds.has(it.inbox_id);
+    const ai = it.ai_enrichment;
+    const effectiveSourceLang = detectSourceLang(it);
+    const { displayTitle, displayHook, displayDesc, displayTakeaways, hasTrilingual } = getLocalizedContent(it, curLang);
+    const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
+    const viralScore = calculateStandardizedViralScore(it);
+    const tracking = it.metric_tracking || {};
+    const initDate = formatKstMonthDay(tracking.initial?.recorded_at || tracking.initial_date || it.created_at || it.harvested_date);
+    const latestDate = formatKstMonthDay(tracking.latest?.updated_at || tracking.latest_date || it.updated_at || it.harvested_date);
+    const initVal = tracking.initial?.display || tracking.initial_metric || it.viral_metric || "-";
+    const latestVal = tracking.latest?.display || tracking.latest_metric || it.viral_metric || "-";
+    const delta = tracking.delta !== void 0 ? tracking.delta : tracking.growth_delta || 0;
+    let typeBadge = curLang === "KO" ? "\u26A1 \uC2E0\uAE30\uC220" : curLang === "ZH" ? "\u26A1 \u65B0\u6280\u672F" : "\u26A1 Tech";
+    if (ai && ai.type_classification === "AGENT") typeBadge = curLang === "KO" ? "\u{1F9BE} \uC5D0\uC774\uC804\uD2B8" : curLang === "ZH" ? "\u{1F9BE} \u667A\u80FD\u4F53" : "\u{1F9BE} Agent";
+    else if (ai && ai.type_classification === "MODEL") typeBadge = curLang === "KO" ? "\u{1F916} AI \uBAA8\uB378" : curLang === "ZH" ? "\u{1F916} AI \u6A21\u578B" : "\u{1F916} AI Model";
+    else if (ai && ai.type_classification === "NEWS") typeBadge = curLang === "KO" ? "\u{1F4F0} \uC5C5\uACC4 \uB3D9\uD5A5" : curLang === "ZH" ? "\u{1F4F0} \u884C\u4E1A\u8D44\u8BAF" : "\u{1F4F0} News";
+    const card = document.createElement("div");
+    card.className = "executive-card p-4 sm:p-5 flex flex-col justify-between space-y-3.5 hover:border-indigo-400 hover:shadow-md transition";
+    const hookHtml = renderHookCallout(displayHook);
+    const aiSummaryHtml = renderAiTakeaways(displayTakeaways, curLang);
+    const relatedHtml = renderRelatedDossierButton(it.related_dossier, curLang);
+    const rawComments = Array.isArray(it.raw_comments) ? it.raw_comments : Array.isArray(it.raw_payload?.raw_comments) ? it.raw_payload.raw_comments : [];
+    const commentsHtml = renderCommentsAccordion(rawComments, curLang, it.source_url);
+    const queueActionBtn = `
+    <button onclick="toggleQueueItem('${it.inbox_id}', '${displayTitle.replace(/'/g, "")}')" 
+            class="px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${isQueued ? "bg-emerald-700 text-white font-black" : "bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border"}">
+      <i data-lucide="${isQueued ? "check-circle-2" : "plus-circle"}" class="w-3.5 h-3.5"></i>
+      <span>${isQueued ? curLang === "KO" ? "\uD050 \uB4F1\uB85D\uB428" : curLang === "ZH" ? "\u5DF2\u5165\u961F\u5217" : "Queued" : curLang === "KO" ? "\uD050 \uCD94\uAC00" : curLang === "ZH" ? "\u52A0\u5165\u961F\u5217" : "Queue"}</span>
+    </button>
+  `;
+    const footerHtml = renderCardStandardFooter(it, curLang, queueActionBtn);
+    card.innerHTML = `
+    <div class="space-y-2.5">
+      <div class="flex items-center justify-between text-xs font-mono">
+        <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[11px]">
+          ${it.source_platform || "Tech Candidate"}
+        </span>
+        <span class="px-2 py-0.5 rounded text-[11px] font-bold font-mono ${viralScore >= 70 ? "bg-rose-50 text-rose-700 border border-rose-200" : "bg-amber-50 text-amber-700 border border-amber-200"}">
+          ${curLang === "KO" ? `\u{1F525} \uC778\uAE30 ${viralScore}\uC810` : curLang === "ZH" ? `\u{1F525} \u70ED\u5EA6 ${viralScore}\u5206` : `\u{1F525} Viral ${viralScore} pts`}
+        </span>
+      </div>
+
+      <div class="flex items-center gap-1.5 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-900 border border-indigo-200">
+          ${typeBadge}
+        </span>
+        ${ai && ai.programming_lang && ai.programming_lang !== "General" ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">\u{1F4BB} ${ai.programming_lang}</span>` : ""}
+        ${effectiveSourceLang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">\u{1F310} ${effectiveSourceLang}</span>` : ""}
+        ${hasTrilingual ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">\u{1F310} KO\xB7EN\xB7ZH</span>` : `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-ink-muted border border-surface-border">\u{1F310} \uBC88\uC5ED \uB300\uAE30</span>`}
+      </div>
+
+      <h3 class="font-bold text-sm text-ink-primary leading-snug">
+        ${displayTitle}
+      </h3>
+
+      ${hookHtml}
+
+      ${showDesc ? `<p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">${displayDesc}</p>` : ""}
+
+      ${aiSummaryHtml}
+      ${relatedHtml}
+      ${commentsHtml}
+
+      <div class="p-2.5 rounded-xl bg-surface-subtle border border-surface-border text-[11px] space-y-1 font-mono">
+        <div class="flex items-center justify-between text-ink-muted">
+          <span>${curLang === "KO" ? "\uCD5C\uCD08 \uC218\uC9D1" : curLang === "ZH" ? "\u9996\u6B21\u91C7\u96C6" : "Created"} (${initDate}):</span>
+          <span class="font-semibold text-ink-secondary">${initVal}</span>
+        </div>
+        <div class="flex items-center justify-between pt-0.5 border-t border-surface-border">
+          <span class="${delta > 0 ? "text-indigo-950 font-bold" : "text-ink-muted"}">${curLang === "KO" ? "\uCD5C\uC2E0 \uAC31\uC2E0" : curLang === "ZH" ? "\u6700\u65B0\u540C\u6B65" : "Latest"} (${latestDate}):</span>
+          <span class="${delta > 0 ? "text-emerald-700 font-bold" : "text-ink-primary font-semibold"}">${latestVal}</span>
+        </div>
+      </div>
+
+    </div>
+
+    ${footerHtml}
+  `;
+    return card;
+  }
+  function renderInboxGridItems(items, grid, curLang) {
     if (!grid) return;
     grid.innerHTML = "";
+    const fragment = document.createDocumentFragment();
+    const renderPool = Array.isArray(items) ? items : [];
+    renderPool.forEach((it) => fragment.appendChild(createInboxCardElement(it, curLang)));
+    grid.appendChild(fragment);
+    if (window.lucide) window.lucide.createIcons({ root: grid });
+  }
+  async function renderInbox() {
+    const grid = document.getElementById("inboxGrid");
+    if (!grid) return;
     const curLang = window.currentLang || currentLang || "KO";
     const curPage = window.currentInboxPage || currentInboxPage || 1;
     const curSort = window.currentInboxSort || currentInboxSort || "date-audit-desc";
@@ -5224,117 +5391,70 @@
     const curType = window.currentInboxType || currentInboxType || "ALL";
     const curTech = window.currentInboxTech || currentInboxTech || "ALL";
     const curSearch = window.inboxSearchQuery || inboxSearchQuery || "";
-    const inboxList = window.liveInboxData || liveInboxData || [];
-    const filtered = inboxList.filter((item) => {
-      const ai = item.ai_enrichment;
-      const filterSrcKey = curSrc.toLowerCase();
-      const matchesSrc = curSrc === "ALL" || (item.source_platform || "").toLowerCase().includes(filterSrcKey);
-      const itemLang = detectSourceLang(item);
-      const matchesLang = curLangFilter === "ALL" || itemLang === curLangFilter;
-      const itemType = (ai ? ai.type_classification : null) || item.category_type || "TECH";
-      const matchesType = curType === "ALL" ? true : itemType === curType;
-      const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || "General";
-      const matchesTech = curTech === "ALL" || itemTech.toLowerCase().includes(curTech.toLowerCase());
-      const text = ((item.title || "") + " " + (item.title_ko || "") + " " + (item.title_en || "") + " " + (item.title_zh || "") + " " + (item.description || "") + " " + (item.model_family || "") + " " + (item.variant_role || "") + " " + (item.hook || "") + " " + (item.category_primary || "") + " " + (Array.isArray(item.root_keywords) ? item.root_keywords.join(" ") : item.root_keywords || "") + " " + (Array.isArray(item.matched_user_domains) ? item.matched_user_domains.join(" ") : "")).toLowerCase();
-      const matchesSearch = text.includes(curSearch.toLowerCase());
-      return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
-    });
-    sortCollection(filtered, curSort);
-    const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
-    let page = curPage;
-    if (page > totalPages) page = totalPages;
-    if (page < 1) page = 1;
-    window.currentInboxPage = page;
-    renderPagination("inboxPagination", page, totalPages, "changeInboxPage");
-    if (filtered.length === 0) {
-      grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${curLang === "KO" ? "\uC218\uC9D1\uB41C \uC778\uBC15\uC2A4 \uD6C4\uBCF4\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4." : curLang === "ZH" ? "\u6536\u4EF6\u7BB1\u6682\u65E0\u5019\u9009\u6570\u636E\u3002" : "No candidates in the inbox."}</div>`;
-      return;
+    const cacheKey = getInboxCacheKey(curPage);
+    let renderedFromCache = false;
+    if (inboxDbCache.has(cacheKey)) {
+      const cached = inboxDbCache.get(cacheKey);
+      if (cached && Array.isArray(cached.items) && cached.items.length > 0) {
+        renderInboxGridItems(cached.items, grid, curLang);
+        renderPagination("inboxPagination", curPage, cached.totalPages, "changeInboxPage");
+        renderedFromCache = true;
+        if (Date.now() - (cached.timestamp || 0) < 1e4) {
+          return;
+        }
+      }
     }
-    const pagedInbox = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
-    const fragment = document.createDocumentFragment();
-    pagedInbox.forEach((it) => {
-      const isQueued = queuedItemIds.has(it.inbox_id);
-      const ai = it.ai_enrichment;
-      const effectiveSourceLang = detectSourceLang(it);
-      const { displayTitle, displayHook, displayDesc, displayTakeaways, hasTrilingual } = getLocalizedContent(it, curLang);
-      const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
-      const viralScore = calculateStandardizedViralScore(it);
-      const tracking = it.metric_tracking || {};
-      const initDate = formatKstMonthDay(tracking.initial?.recorded_at || tracking.initial_date || it.created_at || it.harvested_date);
-      const latestDate = formatKstMonthDay(tracking.latest?.updated_at || tracking.latest_date || it.updated_at || it.harvested_date);
-      const initVal = tracking.initial?.display || tracking.initial_metric || it.viral_metric || "-";
-      const latestVal = tracking.latest?.display || tracking.latest_metric || it.viral_metric || "-";
-      const delta = tracking.delta !== void 0 ? tracking.delta : tracking.growth_delta || 0;
-      let typeBadge = curLang === "KO" ? "\u26A1 \uC2E0\uAE30\uC220" : curLang === "ZH" ? "\u26A1 \u65B0\u6280\u672F" : "\u26A1 Tech";
-      if (ai && ai.type_classification === "AGENT") typeBadge = curLang === "KO" ? "\u{1F9BE} \uC5D0\uC774\uC804\uD2B8" : curLang === "ZH" ? "\u{1F9BE} \u667A\u80FD\u4F53" : "\u{1F9BE} Agent";
-      else if (ai && ai.type_classification === "MODEL") typeBadge = curLang === "KO" ? "\u{1F916} AI \uBAA8\uB378" : curLang === "ZH" ? "\u{1F916} AI \u6A21\u578B" : "\u{1F916} AI Model";
-      else if (ai && ai.type_classification === "NEWS") typeBadge = curLang === "KO" ? "\u{1F4F0} \uC5C5\uACC4 \uB3D9\uD5A5" : curLang === "ZH" ? "\u{1F4F0} \u884C\u4E1A\u8D44\u8BAF" : "\u{1F4F0} News";
-      const card = document.createElement("div");
-      card.className = "executive-card p-4 sm:p-5 flex flex-col justify-between space-y-3.5 hover:border-indigo-400 hover:shadow-md transition";
-      const hookHtml = renderHookCallout(displayHook);
-      const aiSummaryHtml = renderAiTakeaways(displayTakeaways, curLang);
-      const relatedHtml = renderRelatedDossierButton(it.related_dossier, curLang);
-      const rawComments = Array.isArray(it.raw_comments) ? it.raw_comments : Array.isArray(it.raw_payload?.raw_comments) ? it.raw_payload.raw_comments : [];
-      const commentsHtml = renderCommentsAccordion(rawComments, curLang, it.source_url);
-      const queueActionBtn = `
-      <button onclick="toggleQueueItem('${it.inbox_id}', '${displayTitle.replace(/'/g, "")}')" 
-              class="px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${isQueued ? "bg-emerald-700 text-white font-black" : "bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border"}">
-        <i data-lucide="${isQueued ? "check-circle-2" : "plus-circle"}" class="w-3.5 h-3.5"></i>
-        <span>${isQueued ? curLang === "KO" ? "\uD050 \uB4F1\uB85D\uB428" : curLang === "ZH" ? "\u5DF2\u5165\u961F\u5217" : "Queued" : curLang === "KO" ? "\uD050 \uCD94\uAC00" : curLang === "ZH" ? "\u52A0\u5165\u961F\u5217" : "Queue"}</span>
-      </button>
-    `;
-      const footerHtml = renderCardStandardFooter(it, curLang, queueActionBtn);
-      card.innerHTML = `
-      <div class="space-y-2.5">
-        <div class="flex items-center justify-between text-xs font-mono">
-          <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[11px]">
-            ${it.source_platform || "Tech Candidate"}
-          </span>
-          <span class="px-2 py-0.5 rounded text-[11px] font-bold font-mono ${viralScore >= 70 ? "bg-rose-50 text-rose-700 border border-rose-200" : "bg-amber-50 text-amber-700 border border-amber-200"}">
-            ${curLang === "KO" ? `\u{1F525} \uC778\uAE30 ${viralScore}\uC810` : curLang === "ZH" ? `\u{1F525} \u70ED\u5EA6 ${viralScore}\u5206` : `\u{1F525} Viral ${viralScore} pts`}
-          </span>
+    if (!renderedFromCache) {
+      const inboxList = window.liveInboxData || liveInboxData || [];
+      const filtered = inboxList.filter((item) => {
+        const ai = item.ai_enrichment;
+        const filterSrcKey = curSrc.toLowerCase();
+        const matchesSrc = curSrc === "ALL" || (item.source_platform || "").toLowerCase().includes(filterSrcKey);
+        const itemLang = detectSourceLang(item);
+        const matchesLang = curLangFilter === "ALL" || itemLang === curLangFilter;
+        const itemType = (ai ? ai.type_classification : null) || item.category_type || "TECH";
+        const matchesType = curType === "ALL" ? true : itemType === curType;
+        const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || "General";
+        const matchesTech = curTech === "ALL" || itemTech.toLowerCase().includes(curTech.toLowerCase());
+        const text = ((item.title || "") + " " + (item.title_ko || "") + " " + (item.description || "")).toLowerCase();
+        const matchesSearch = !curSearch || text.includes(curSearch.toLowerCase());
+        return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
+      });
+      if (filtered.length > 0) {
+        sortCollection(filtered, curSort);
+        const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
+        const paged = filtered.slice((curPage - 1) * PAGE_SIZE, curPage * PAGE_SIZE);
+        renderInboxGridItems(paged, grid, curLang);
+        renderPagination("inboxPagination", curPage, totalPages, "changeInboxPage");
+      } else {
+        grid.innerHTML = Array.from({ length: 6 }).map(() => `
+        <div class="executive-card p-5 animate-pulse space-y-4">
+          <div class="h-4 bg-slate-200 rounded w-1/3"></div>
+          <div class="h-5 bg-slate-200 rounded w-5/6"></div>
+          <div class="h-12 bg-slate-100 rounded"></div>
+          <div class="h-4 bg-slate-200 rounded w-1/2"></div>
         </div>
-
-        <div class="flex items-center gap-1.5 flex-wrap">
-          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-900 border border-indigo-200">
-            ${typeBadge}
-          </span>
-          ${ai && ai.programming_lang && ai.programming_lang !== "General" ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">\u{1F4BB} ${ai.programming_lang}</span>` : ""}
-          ${effectiveSourceLang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">\u{1F310} ${effectiveSourceLang}</span>` : ""}
-          ${hasTrilingual ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">\u{1F310} KO\xB7EN\xB7ZH</span>` : `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-ink-muted border border-surface-border">\u{1F310} \uBC88\uC5ED \uB300\uAE30</span>`}
-        </div>
-
-        <h3 class="font-bold text-sm text-ink-primary leading-snug">
-          ${displayTitle}
-        </h3>
-
-        ${hookHtml}
-
-        ${showDesc ? `<p class="text-xs text-ink-secondary leading-relaxed line-clamp-3">${displayDesc}</p>` : ""}
-
-        ${aiSummaryHtml}
-        ${relatedHtml}
-        ${commentsHtml}
-
-        <div class="p-2.5 rounded-xl bg-surface-subtle border border-surface-border text-[11px] space-y-1 font-mono">
-          <div class="flex items-center justify-between text-ink-muted">
-            <span>${curLang === "KO" ? "\uCD5C\uCD08 \uC218\uC9D1" : curLang === "ZH" ? "\u9996\u6B21\u91C7\u96C6" : "Created"} (${initDate}):</span>
-            <span class="font-semibold text-ink-secondary">${initVal}</span>
-          </div>
-          <div class="flex items-center justify-between pt-0.5 border-t border-surface-border">
-            <span class="${delta > 0 ? "text-indigo-950 font-bold" : "text-ink-muted"}">${curLang === "KO" ? "\uCD5C\uC2E0 \uAC31\uC2E0" : curLang === "ZH" ? "\u6700\u65B0\u540C\u6B65" : "Latest"} (${latestDate}):</span>
-            <span class="${delta > 0 ? "text-emerald-700 font-bold" : "text-ink-primary font-semibold"}">${latestVal}</span>
-          </div>
-        </div>
-
-      </div>
-
-      ${footerHtml}
-    `;
-      fragment.appendChild(card);
-    });
-    grid.appendChild(fragment);
-    if (window.lucide) window.lucide.createIcons({ root: grid });
+      `).join("");
+      }
+    }
+    try {
+      const dbResult = await fetchInboxFromDb(curPage, false);
+      if (dbResult && Array.isArray(dbResult.items)) {
+        if (dbResult.items.length === 0) {
+          grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${curLang === "KO" ? "\uC218\uC9D1\uB41C \uC778\uBC15\uC2A4 \uD6C4\uBCF4\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4." : curLang === "ZH" ? "\u6536\u4EF6\u7BB1\u6682\u65E0\u5019\u9009\u6570\u636E\u3002" : "No candidates in the inbox."}</div>`;
+          renderPagination("inboxPagination", 1, 1, "changeInboxPage");
+        } else {
+          renderInboxGridItems(dbResult.items, grid, curLang);
+          renderPagination("inboxPagination", curPage, dbResult.totalPages, "changeInboxPage");
+        }
+      }
+    } catch (err) {
+      if (err.name === "AbortError") return;
+      console.warn("[Inbox SWR] DB fetch skipped:", err.message);
+      if (!grid.children.length || grid.querySelector(".animate-pulse")) {
+        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${curLang === "KO" ? "\uC218\uC9D1\uB41C \uC778\uBC15\uC2A4 \uD6C4\uBCF4\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4." : curLang === "ZH" ? "\u6536\u4EF6\u7BB1\u6682\u65E0\u5019\u9009\u6570\u636E\u3002" : "No candidates in the inbox."}</div>`;
+      }
+    }
   }
 
   // src/js/views/router.js

@@ -564,6 +564,37 @@ export async function syncFromLiveDB(force = false) {
           console.warn('[Live DB Sync] Portfolios live sync skipped:', pErr.message);
         }
 
+        // Live Inbox Sync (Update/Unshift Latest DB records)
+        try {
+          const inbRes = await fetch(APP_CONFIG.apiUrl('/api/inbox?tab=INBOX&limit=50&sort=updated'), { cache: 'default' });
+          if (inbRes.ok) {
+            const inbData = await inbRes.json();
+            if (inbData.status === 'success' && Array.isArray(inbData.items) && inbData.items.length > 0) {
+              const currentInbox = window.liveInboxData || [];
+              const mapExisting = new Map(currentInbox.map(x => [x.inbox_id || x.id, x]));
+              let added = 0;
+              for (const newItem of inbData.items) {
+                const nid = newItem.inbox_id || newItem.id;
+                if (!nid) continue;
+                if (mapExisting.has(nid)) {
+                  Object.assign(mapExisting.get(nid), newItem);
+                } else {
+                  currentInbox.unshift(newItem);
+                  mapExisting.set(nid, newItem);
+                  added++;
+                }
+              }
+              window.liveInboxData = currentInbox;
+              AppStore._inbox = currentInbox;
+              if (added > 0 && window.currentView === 'inbox' && typeof window.renderInbox === 'function') {
+                window.renderInbox();
+              }
+            }
+          }
+        } catch (inbErr) {
+          console.warn('[Live DB Sync] Inbox sync skipped:', inbErr.message);
+        }
+
         // Actions Telemetry Sync
         if (data.actions_quota && data.actions_quota.total_minutes !== undefined) {
           window.actionsTelemetryData = window.actionsTelemetryData || {};

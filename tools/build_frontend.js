@@ -72,6 +72,17 @@ async function buildFrontend() {
       console.log(`[Build] 📦 Wrote: ${path.relative(ROOT_DIR, targetPath)}`);
     }
 
+    // 4. Synchronize index.html from src/ to public/ and docs/
+    const srcHtmlPath = path.join(ROOT_DIR, 'src', 'index.html');
+    if (fs.existsSync(srcHtmlPath)) {
+      const htmlContent = fs.readFileSync(srcHtmlPath, 'utf8');
+      const publicHtmlPath = path.join(ROOT_DIR, 'public', 'index.html');
+      const docsHtmlPath = path.join(ROOT_DIR, 'docs', 'index.html');
+      fs.writeFileSync(publicHtmlPath, htmlContent, 'utf8');
+      fs.writeFileSync(docsHtmlPath, htmlContent, 'utf8');
+      console.log(`[Build] 📄 Synced index.html -> public/index.html & docs/index.html`);
+    }
+
     const elapsed = Date.now() - startTime;
     console.log(`[Build] 🌟 Modular build completed successfully in ${elapsed}ms (${bundleSizeKb} KB across 3 targets).\n`);
 

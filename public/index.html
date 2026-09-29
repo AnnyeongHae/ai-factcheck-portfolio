@@ -896,12 +896,12 @@
           
           <!-- Metric 1: Invocations Gauge -->
           <div class="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200 flex flex-col justify-between space-y-2.5">
-            <div class="flex items-center justify-between">
-              <span class="text-[11px] font-bold text-ink-primary flex items-center gap-1.5">
-                <i data-lucide="radio" class="w-3.5 h-3.5 text-indigo-600"></i>
-                <span>함수 호출 횟수 (Invocations)</span>
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-[11px] font-bold text-ink-primary flex items-center gap-1.5 truncate">
+                <i data-lucide="radio" class="w-3.5 h-3.5 text-indigo-600 shrink-0"></i>
+                <span class="truncate">함수 호출 횟수 (Invocations)</span>
               </span>
-              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800" id="vercelInvocationsBadge">안전 (0.14%)</span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 whitespace-nowrap shrink-0" id="vercelInvocationsBadge">안전 (0.14%)</span>
             </div>
             <div>
               <div class="flex items-baseline justify-between mb-1">
@@ -920,12 +920,12 @@
 
           <!-- Metric 2: Active CPU Time Gauge -->
           <div class="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200 flex flex-col justify-between space-y-2.5">
-            <div class="flex items-center justify-between">
-              <span class="text-[11px] font-bold text-ink-primary flex items-center gap-1.5">
-                <i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-600"></i>
-                <span>Active CPU 시간 (월간)</span>
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-[11px] font-bold text-ink-primary flex items-center gap-1.5 truncate">
+                <i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                <span class="truncate">Active CPU 시간 (월간)</span>
               </span>
-              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800" id="vercelCpuBadge">극도 안정 (0.25%)</span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 whitespace-nowrap shrink-0" id="vercelCpuBadge">극도 안정 (0.25%)</span>
             </div>
             <div>
               <div class="flex items-baseline justify-between mb-1">
@@ -944,12 +944,12 @@
 
           <!-- Metric 3: Edge Bandwidth & Caching -->
           <div class="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200 flex flex-col justify-between space-y-2.5">
-            <div class="flex items-center justify-between">
-              <span class="text-[11px] font-bold text-ink-primary flex items-center gap-1.5">
-                <i data-lucide="network" class="w-3.5 h-3.5 text-blue-600"></i>
-                <span>Fast Data Transfer & 캐시</span>
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-[11px] font-bold text-ink-primary flex items-center gap-1.5 truncate">
+                <i data-lucide="network" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
+                <span class="truncate">Fast Data Transfer & 캐시</span>
               </span>
-              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-800" id="vercelBandwidthBadge">94.8% 캐시 적중</span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 whitespace-nowrap shrink-0" id="vercelBandwidthBadge">94.8% 캐시 적중</span>
             </div>
             <div>
               <div class="flex items-baseline justify-between mb-1">
@@ -968,12 +968,12 @@
 
           <!-- Metric 4: Architectural Capacity & Complex Logic Feasibility -->
           <div class="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200 flex flex-col justify-between space-y-2.5">
-            <div class="flex items-center justify-between">
-              <span class="text-[11px] font-bold text-ink-primary flex items-center gap-1.5">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-purple-600"></i>
-                <span>백엔드 로직 복잡화 가용성</span>
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-[11px] font-bold text-ink-primary flex items-center gap-1.5 truncate">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-purple-600 shrink-0"></i>
+                <span class="truncate">백엔드 로직 가용성</span>
               </span>
-              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-800">확장 가능 (우수)</span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 whitespace-nowrap shrink-0">확장 가능 (우수)</span>
             </div>
             <div class="space-y-1">
               <div class="text-[11px] font-bold text-slate-800">함수 실행 타임아웃 한도</div>
