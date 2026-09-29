@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-29T17:35:55.438Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-29T17:57:35.520Z */
 
 (() => {
   // src/js/core/config.js
@@ -2171,19 +2171,19 @@
     if (ptMatch) {
       const num = parseInt(ptMatch[1].replace(/,/g, ""), 10);
       const displayNum = isNaN(num) ? ptMatch[1] : num.toLocaleString();
-      return `<span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1 shadow-2xs" title="${vmRaw}"><i data-lucide="flame" class="w-3 h-3 text-rose-500"></i><span>${displayNum} pts</span></span>`;
+      return `<span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono font-black bg-rose-100/90 text-rose-800 border border-rose-300 flex items-center gap-1 shadow-xs" title="${vmRaw}"><i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i><span>${displayNum} pts</span></span>`;
     }
     const starMatch = vmRaw.match(/(?:★|stars?)\s*(\d[\d,]*)/i);
     if (starMatch || pf.includes("github")) {
       const numMatch = vmRaw.match(/(\d[\d,]*)/);
       const displayStar = numMatch ? parseInt(numMatch[1].replace(/,/g, ""), 10).toLocaleString() : "Trending";
-      return `<span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-amber-50 text-amber-800 border border-amber-200 flex items-center gap-1 shadow-2xs" title="${vmRaw}"><i data-lucide="star" class="w-3 h-3 text-amber-500 fill-amber-400"></i><span>${displayStar}</span></span>`;
+      return `<span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono font-black bg-amber-100/90 text-amber-900 border border-amber-300 flex items-center gap-1 shadow-xs" title="${vmRaw}"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-600 fill-amber-400"></i><span>${displayStar}</span></span>`;
     }
     const likeMatch = vmRaw.match(/(?:❤️|likes?)\s*(\d[\d,]*)/i);
     if (likeMatch || pf.includes("hugging") || pf.includes("space")) {
       const numMatch = vmRaw.match(/(\d[\d,]*)/);
       const displayLike = numMatch ? parseInt(numMatch[1].replace(/,/g, ""), 10).toLocaleString() : "Demo";
-      return `<span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1 shadow-2xs" title="${vmRaw}"><i data-lucide="heart" class="w-3 h-3 text-rose-500 fill-rose-400"></i><span>${displayLike}</span></span>`;
+      return `<span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono font-black bg-rose-100/90 text-rose-800 border border-rose-300 flex items-center gap-1 shadow-xs" title="${vmRaw}"><i data-lucide="heart" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i><span>${displayLike}</span></span>`;
     }
     if (vmRaw.includes("\uC601\uC0C1") || vmRaw.includes("YouTube") || pf.includes("youtube")) {
       const label = currentLang2 === "KO" ? "\uC601\uC0C1 \uBE0C\uB9AC\uD551" : currentLang2 === "ZH" ? "\u89C6\u9891\u64AD\u62A5" : "Video Brief";
@@ -3413,7 +3413,7 @@
         <div class="flex items-center gap-1.5 min-w-0">
           <i data-lucide="flame" class="w-3.5 h-3.5 ${flameColor} shrink-0 ${isSpike2 ? "animate-pulse" : ""}"></i>
           <span class="font-extrabold text-[11px] truncate">${tierBadgeText}</span>
-          ${spkScore > 0 ? `<span class="px-1.5 py-0.2 rounded-full bg-amber-600/90 text-white font-mono font-bold text-[9px] shadow-2xs">${spkScore} pts</span>` : ""}
+          ${spkScore > 0 ? `<span class="px-2 py-0.5 rounded-lg bg-amber-500 text-white font-mono font-black text-[11px] shadow-xs border border-amber-400 flex items-center gap-1 shrink-0"><i data-lucide="zap" class="w-3 h-3 text-amber-200 fill-amber-200"></i><span>${spkScore} pts</span></span>` : ""}
         </div>
         <div class="flex items-center gap-1 shrink-0 font-mono text-[10px] font-bold">
           ${pCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-white/90 text-emerald-800 border border-emerald-300 shadow-2xs">\u{1F4F0} \uC5B8\uB860 ${pCount}</span>` : ""}
@@ -3437,24 +3437,27 @@
         const numInit = cleanInit.replace(/[^0-9.]/g, "");
         const displayFlow = numInit ? `${numInit} \u2794 ${cleanLatest}` : `${cleanLatest}`;
         metricBadgeHtml = `
-        <span class="px-2 py-0.5 rounded-md text-[10px] font-bold font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap" title="\uCD5C\uCD08 \uC218\uC9D1: ${cleanInit} \u2794 \uCD5C\uC2E0 \uAC31\uC2E0: ${cleanLatest}">
-          <i data-lucide="trending-up" class="w-3 h-3 text-emerald-600"></i>
-          <span class="font-extrabold">${displayFlow}</span>
-          <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[9px]">(+${delta.toLocaleString()})</span>
+        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap" title="\uCD5C\uCD08 \uC218\uC9D1: ${cleanInit} \u2794 \uCD5C\uC2E0 \uAC31\uC2E0: ${cleanLatest}">
+          <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>${displayFlow}</span>
+          <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
         </span>
       `;
       } else if (delta > 0) {
         metricBadgeHtml = `
-        <span class="px-2 py-0.5 rounded-md text-[10px] font-bold font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap">
-          <i data-lucide="trending-up" class="w-3 h-3 text-emerald-600"></i>
-          <span class="font-extrabold">${cleanLatest}</span>
-          <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[9px]">(+${delta.toLocaleString()})</span>
+        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap">
+          <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>${cleanLatest}</span>
+          <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
         </span>
       `;
       } else {
+        const isPointMetric = cleanLatest.includes("pts") || cleanLatest.includes("\u2605") || cleanLatest.includes("likes") || cleanLatest.includes("\uC810");
+        const pointColor = isPointMetric ? "text-rose-900 font-black bg-rose-100/90 border border-rose-300 shadow-2xs" : isSpike ? "text-rose-700 font-bold bg-rose-50 border border-rose-200" : "text-ink-muted bg-surface-subtle border border-surface-border";
         metricBadgeHtml = `
-        <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold ${isSpike ? "text-rose-700 font-bold bg-rose-50 border border-rose-200" : "text-ink-muted bg-surface-subtle border border-surface-border"} shrink-0 ml-auto whitespace-nowrap">
-          ${cleanLatest}
+        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono ${pointColor} shrink-0 ml-auto whitespace-nowrap flex items-center gap-1 font-bold">
+          ${isPointMetric ? '<i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i>' : ""}
+          <span>${cleanLatest}</span>
         </span>
       `;
       }
@@ -4844,10 +4847,13 @@
     window.targetSelectedInboxId = "";
     window.currentNewsPage = 1;
     window.currentNewsFacet = facet;
+    const sortSel = document.getElementById("newsSortSelect");
     if (facet === "CROSS_SPIKE") {
       window.currentNewsSort = "viral-score-desc";
-      const sortSel = document.getElementById("newsSortSelect");
       if (sortSel) sortSel.value = "viral-score-desc";
+    } else if (facet === "ALL" || window.currentNewsSort === "viral-score-desc") {
+      window.currentNewsSort = "date-audit-desc";
+      if (sortSel) sortSel.value = "date-audit-desc";
     }
     const curT1 = window.currentNewsTier1 || currentNewsTier1;
     if ((facet === "MODEL" || facet === "TOOL") && curT1 !== "TECH_COMPUTING" && curT1 !== "ALL") {
@@ -4927,8 +4933,10 @@
     }
     if (!renderedFromCache) {
       const newsList = window.liveNewsData || liveNewsData || [];
+      const curSort = window.currentNewsSort || currentNewsSort || "date-audit-desc";
       const memMatches = newsList.filter((it) => {
         if (targetId && (it.inbox_id === targetId || it.id === targetId)) return true;
+        if ((curSort === "date-audit-desc" || curSort === "date-audit-asc") && (!it.ai_enrichment || !it.ai_enrichment.enriched_at)) return false;
         if (curT1 !== "ALL" && (it.tier1_category || "TECH_COMPUTING") !== curT1) return false;
         if (curT2 !== "ALL" && (it.tier2_category || it.category_primary || "INDUSTRY_TRENDS") !== curT2) return false;
         if (curFacet === "CROSS_SPIKE" && !it.is_cross_spiking && (!it.sources || it.sources.length <= 1)) return false;
@@ -4949,6 +4957,7 @@
         return true;
       });
       if (memMatches.length > 0) {
+        sortCollection(memMatches, curSort);
         const optimisticSlice = memMatches.slice(0, PAGE_SIZE);
         renderNewsGridItems(optimisticSlice, grid);
         const estPages = Math.ceil(memMatches.length / PAGE_SIZE) || 1;
@@ -5328,8 +5337,9 @@
         <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[11px]">
           ${it.source_platform || "Tech Candidate"}
         </span>
-        <span class="px-2 py-0.5 rounded text-[11px] font-bold font-mono ${viralScore >= 70 ? "bg-rose-50 text-rose-700 border border-rose-200" : "bg-amber-50 text-amber-700 border border-amber-200"}">
-          ${curLang === "KO" ? `\u{1F525} \uC778\uAE30 ${viralScore}\uC810` : curLang === "ZH" ? `\u{1F525} \u70ED\u5EA6 ${viralScore}\u5206` : `\u{1F525} Viral ${viralScore} pts`}
+        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono shadow-2xs flex items-center gap-1 ${viralScore >= 70 ? "bg-rose-100/90 text-rose-800 border border-rose-300" : "bg-amber-100/90 text-amber-900 border border-amber-300"}">
+          <i data-lucide="flame" class="w-3 h-3 ${viralScore >= 70 ? "text-rose-600 fill-rose-500" : "text-amber-600 fill-amber-500"}"></i>
+          <span>${curLang === "KO" ? `\uC778\uAE30 ${viralScore}\uC810` : curLang === "ZH" ? `\u70ED\u5EA6 ${viralScore}\u5206` : `Viral ${viralScore} pts`}</span>
         </span>
       </div>
 
@@ -5416,6 +5426,7 @@
         const matchesType = curType === "ALL" ? true : itemType === curType;
         const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || "General";
         const matchesTech = curTech === "ALL" || itemTech.toLowerCase().includes(curTech.toLowerCase());
+        if ((curSort === "date-audit-desc" || curSort === "date-audit-asc") && (!item.ai_enrichment || !item.ai_enrichment.enriched_at)) return false;
         const text = ((item.title || "") + " " + (item.title_ko || "") + " " + (item.description || "")).toLowerCase();
         const matchesSearch = !curSearch || text.includes(curSearch.toLowerCase());
         return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;

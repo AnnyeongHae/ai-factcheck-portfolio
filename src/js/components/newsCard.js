@@ -441,7 +441,7 @@ export function createNewsCardElement(it, currentLang) {
         <div class="flex items-center gap-1.5 min-w-0">
           <i data-lucide="flame" class="w-3.5 h-3.5 ${flameColor} shrink-0 ${isSpike ? 'animate-pulse' : ''}"></i>
           <span class="font-extrabold text-[11px] truncate">${tierBadgeText}</span>
-          ${spkScore > 0 ? `<span class="px-1.5 py-0.2 rounded-full bg-amber-600/90 text-white font-mono font-bold text-[9px] shadow-2xs">${spkScore} pts</span>` : ''}
+          ${spkScore > 0 ? `<span class="px-2 py-0.5 rounded-lg bg-amber-500 text-white font-mono font-black text-[11px] shadow-xs border border-amber-400 flex items-center gap-1 shrink-0"><i data-lucide="zap" class="w-3 h-3 text-amber-200 fill-amber-200"></i><span>${spkScore} pts</span></span>` : ''}
         </div>
         <div class="flex items-center gap-1 shrink-0 font-mono text-[10px] font-bold">
           ${pCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-white/90 text-emerald-800 border border-emerald-300 shadow-2xs">📰 언론 ${pCount}</span>` : ''}
@@ -469,24 +469,29 @@ export function createNewsCardElement(it, currentLang) {
       const numInit = cleanInit.replace(/[^0-9.]/g, '');
       const displayFlow = numInit ? `${numInit} ➔ ${cleanLatest}` : `${cleanLatest}`;
       metricBadgeHtml = `
-        <span class="px-2 py-0.5 rounded-md text-[10px] font-bold font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap" title="최초 수집: ${cleanInit} ➔ 최신 갱신: ${cleanLatest}">
-          <i data-lucide="trending-up" class="w-3 h-3 text-emerald-600"></i>
-          <span class="font-extrabold">${displayFlow}</span>
-          <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[9px]">(+${delta.toLocaleString()})</span>
+        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap" title="최초 수집: ${cleanInit} ➔ 최신 갱신: ${cleanLatest}">
+          <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>${displayFlow}</span>
+          <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
         </span>
       `;
     } else if (delta > 0) {
       metricBadgeHtml = `
-        <span class="px-2 py-0.5 rounded-md text-[10px] font-bold font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap">
-          <i data-lucide="trending-up" class="w-3 h-3 text-emerald-600"></i>
-          <span class="font-extrabold">${cleanLatest}</span>
-          <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[9px]">(+${delta.toLocaleString()})</span>
+        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap">
+          <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>${cleanLatest}</span>
+          <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
         </span>
       `;
     } else {
+      const isPointMetric = cleanLatest.includes('pts') || cleanLatest.includes('★') || cleanLatest.includes('likes') || cleanLatest.includes('점');
+      const pointColor = isPointMetric 
+        ? 'text-rose-900 font-black bg-rose-100/90 border border-rose-300 shadow-2xs' 
+        : (isSpike ? 'text-rose-700 font-bold bg-rose-50 border border-rose-200' : 'text-ink-muted bg-surface-subtle border border-surface-border');
       metricBadgeHtml = `
-        <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold ${isSpike ? 'text-rose-700 font-bold bg-rose-50 border border-rose-200' : 'text-ink-muted bg-surface-subtle border border-surface-border'} shrink-0 ml-auto whitespace-nowrap">
-          ${cleanLatest}
+        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono ${pointColor} shrink-0 ml-auto whitespace-nowrap flex items-center gap-1 font-bold">
+          ${isPointMetric ? '<i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i>' : ''}
+          <span>${cleanLatest}</span>
         </span>
       `;
     }

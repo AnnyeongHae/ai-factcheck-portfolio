@@ -225,8 +225,9 @@ export function createInboxCardElement(it, curLang) {
         <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[11px]">
           ${it.source_platform || 'Tech Candidate'}
         </span>
-        <span class="px-2 py-0.5 rounded text-[11px] font-bold font-mono ${viralScore >= 70 ? 'bg-rose-50 text-rose-700 border border-rose-200' : 'bg-amber-50 text-amber-700 border border-amber-200'}">
-          ${curLang === 'KO' ? `🔥 인기 ${viralScore}점` : (curLang === 'ZH' ? `🔥 热度 ${viralScore}分` : `🔥 Viral ${viralScore} pts`)}
+        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono shadow-2xs flex items-center gap-1 ${viralScore >= 70 ? 'bg-rose-100/90 text-rose-800 border border-rose-300' : 'bg-amber-100/90 text-amber-900 border border-amber-300'}">
+          <i data-lucide="flame" class="w-3 h-3 ${viralScore >= 70 ? 'text-rose-600 fill-rose-500' : 'text-amber-600 fill-amber-500'}"></i>
+          <span>${curLang === 'KO' ? `인기 ${viralScore}점` : (curLang === 'ZH' ? `热度 ${viralScore}分` : `Viral ${viralScore} pts`)}</span>
         </span>
       </div>
 
@@ -322,6 +323,7 @@ export async function renderInbox() {
       const matchesType = curType === 'ALL' ? true : (itemType === curType);
       const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || 'General';
       const matchesTech = curTech === 'ALL' || (itemTech.toLowerCase().includes(curTech.toLowerCase()));
+      if ((curSort === 'date-audit-desc' || curSort === 'date-audit-asc') && (!item.ai_enrichment || !item.ai_enrichment.enriched_at)) return false;
       const text = ((item.title || '') + ' ' + (item.title_ko || '') + ' ' + (item.description || '')).toLowerCase();
       const matchesSearch = !curSearch || text.includes(curSearch.toLowerCase());
       return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;

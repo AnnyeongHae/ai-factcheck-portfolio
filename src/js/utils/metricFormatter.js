@@ -144,7 +144,7 @@ export function formatRadarPointBadge(it, currentLang = 'KO') {
   if (ptMatch) {
     const num = parseInt(ptMatch[1].replace(/,/g, ''), 10);
     const displayNum = isNaN(num) ? ptMatch[1] : num.toLocaleString();
-    return `<span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1 shadow-2xs" title="${vmRaw}"><i data-lucide="flame" class="w-3 h-3 text-rose-500"></i><span>${displayNum} pts</span></span>`;
+    return `<span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono font-black bg-rose-100/90 text-rose-800 border border-rose-300 flex items-center gap-1 shadow-xs" title="${vmRaw}"><i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i><span>${displayNum} pts</span></span>`;
   }
 
   // 2. GitHub Stars
@@ -152,7 +152,7 @@ export function formatRadarPointBadge(it, currentLang = 'KO') {
   if (starMatch || pf.includes('github')) {
     const numMatch = vmRaw.match(/(\d[\d,]*)/);
     const displayStar = numMatch ? (parseInt(numMatch[1].replace(/,/g, ''), 10).toLocaleString()) : 'Trending';
-    return `<span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-amber-50 text-amber-800 border border-amber-200 flex items-center gap-1 shadow-2xs" title="${vmRaw}"><i data-lucide="star" class="w-3 h-3 text-amber-500 fill-amber-400"></i><span>${displayStar}</span></span>`;
+    return `<span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono font-black bg-amber-100/90 text-amber-900 border border-amber-300 flex items-center gap-1 shadow-xs" title="${vmRaw}"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-600 fill-amber-400"></i><span>${displayStar}</span></span>`;
   }
 
   // 3. Hugging Face / Demo Likes
@@ -160,7 +160,7 @@ export function formatRadarPointBadge(it, currentLang = 'KO') {
   if (likeMatch || pf.includes('hugging') || pf.includes('space')) {
     const numMatch = vmRaw.match(/(\d[\d,]*)/);
     const displayLike = numMatch ? (parseInt(numMatch[1].replace(/,/g, ''), 10).toLocaleString()) : 'Demo';
-    return `<span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1 shadow-2xs" title="${vmRaw}"><i data-lucide="heart" class="w-3 h-3 text-rose-500 fill-rose-400"></i><span>${displayLike}</span></span>`;
+    return `<span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono font-black bg-rose-100/90 text-rose-800 border border-rose-300 flex items-center gap-1 shadow-xs" title="${vmRaw}"><i data-lucide="heart" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i><span>${displayLike}</span></span>`;
   }
 
   // 4. Video / YouTube

@@ -22,6 +22,7 @@ import { APP_CONFIG } from '../core/config.js';
 import { i18n } from '../core/i18n.js';
 import { renderPagination } from '../components/pagination.js';
 import { createNewsCardElement } from '../components/newsCard.js';
+import { sortCollection } from '../utils/collectionSorter.js';
 
 let newsFetchAbortController = null;
 export const newsDbCache = new Map();
@@ -271,10 +272,13 @@ export function setNewsFacetFilter(facet) {
   window.currentNewsPage = 1;
   window.currentNewsFacet = facet;
 
+  const sortSel = document.getElementById('newsSortSelect');
   if (facet === 'CROSS_SPIKE') {
     window.currentNewsSort = 'viral-score-desc';
-    const sortSel = document.getElementById('newsSortSelect');
     if (sortSel) sortSel.value = 'viral-score-desc';
+  } else if (facet === 'ALL' || window.currentNewsSort === 'viral-score-desc') {
+    window.currentNewsSort = 'date-audit-desc';
+    if (sortSel) sortSel.value = 'date-audit-desc';
   }
 
   const curT1 = window.currentNewsTier1 || currentNewsTier1;
@@ -363,8 +367,10 @@ export async function renderNews() {
   // 2. ⚡ Optimistic Filter (0ms Instant Preview from local snapshot if no cache)
   if (!renderedFromCache) {
     const newsList = window.liveNewsData || liveNewsData || [];
+    const curSort = window.currentNewsSort || currentNewsSort || 'date-audit-desc';
     const memMatches = newsList.filter(it => {
       if (targetId && (it.inbox_id === targetId || it.id === targetId)) return true;
+      if ((curSort === 'date-audit-desc' || curSort === 'date-audit-asc') && (!it.ai_enrichment || !it.ai_enrichment.enriched_at)) return false;
       if (curT1 !== 'ALL' && (it.tier1_category || 'TECH_COMPUTING') !== curT1) return false;
       if (curT2 !== 'ALL' && (it.tier2_category || it.category_primary || 'INDUSTRY_TRENDS') !== curT2) return false;
       if (curFacet === 'CROSS_SPIKE' && !it.is_cross_spiking && (!it.sources || it.sources.length <= 1)) return false;
@@ -386,6 +392,7 @@ export async function renderNews() {
     });
 
     if (memMatches.length > 0) {
+      sortCollection(memMatches, curSort);
       const optimisticSlice = memMatches.slice(0, PAGE_SIZE);
       renderNewsGridItems(optimisticSlice, grid);
       const estPages = Math.ceil(memMatches.length / PAGE_SIZE) || 1;

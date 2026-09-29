@@ -272,11 +272,16 @@ module.exports = async (req, res) => {
       }
     }
 
+    // 7. 🔬 Strict AI Audit Date Filtering: only include enriched items with valid audit dates
+    const sort = req.query?.sort;
+    if (sort === 'date-audit-desc' || sort === 'date-audit-asc') {
+      conditions.push("(raw_payload ? 'ai_enrichment' AND (raw_payload->'ai_enrichment') IS NOT NULL AND (raw_payload->'ai_enrichment'->>'enriched_at') IS NOT NULL)");
+    }
+
     const whereClause = conditions.length > 0 ? ('WHERE ' + conditions.join(' AND ')) : '';
 
     // Sorting
     let sortParam = 'created_at DESC NULLS LAST, id DESC';
-    const sort = req.query?.sort;
     if (sort === 'viral-score-desc' || sort === 'score' || (!sort && facet === 'CROSS_SPIKE')) {
       sortParam = `
         COALESCE(NULLIF(raw_payload->'spike_analysis'->>'score', '')::numeric, viral_score, 0) DESC,
@@ -291,10 +296,12 @@ module.exports = async (req, res) => {
       sortParam = 'harvested_date ASC NULLS LAST, created_at ASC, id ASC';
     } else if (sort === 'id') {
       sortParam = 'id DESC';
-    } else if (sort === 'updated' || sort === 'date-audit-desc') {
-      sortParam = 'updated_at DESC NULLS LAST, id DESC';
+    } else if (sort === 'date-audit-desc') {
+      sortParam = "COALESCE((raw_payload->'ai_enrichment'->>'enriched_at')::timestamptz, updated_at) DESC NULLS LAST, id DESC";
     } else if (sort === 'date-audit-asc') {
-      sortParam = 'updated_at ASC NULLS LAST, id ASC';
+      sortParam = "COALESCE((raw_payload->'ai_enrichment'->>'enriched_at')::timestamptz, updated_at) ASC NULLS LAST, id ASC";
+    } else if (sort === 'updated') {
+      sortParam = 'updated_at DESC NULLS LAST, id DESC';
     }
 
     // Pagination limits
