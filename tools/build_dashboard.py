@@ -1332,6 +1332,12 @@ def build_dashboard():
         if os.path.exists(src_js) and os.path.abspath(src_js) != os.path.abspath(dst_js):
             shutil.copy2(src_js, dst_js)
             
+        # 2-1. app.legacy.js (Fail-Safe Instant Abort Fallback)
+        src_legacy_js = os.path.join(src_dir, "js", "app.legacy.js")
+        dst_legacy_js = os.path.join(target_dir, "app.legacy.js")
+        if os.path.exists(src_legacy_js) and os.path.abspath(src_legacy_js) != os.path.abspath(dst_legacy_js):
+            shutil.copy2(src_legacy_js, dst_legacy_js)
+            
         # 3. styles.css
         dst_css = os.path.join(target_dir, "styles.css")
         if os.path.exists(compiled_css) and os.path.abspath(compiled_css) != os.path.abspath(dst_css):

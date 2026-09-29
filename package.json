@@ -5,8 +5,12 @@
   "scripts": {
     "start": "node server.js",
     "build:css": "tailwindcss -i src/styles/input.css -o public/styles.css --minify",
+    "build:js": "node tools/build_frontend.js",
     "build:data": "python tools/build_dashboard.py",
-    "build": "npm run build:css && npm run build:data"
+    "build": "npm run build:css && npm run build:js && npm run build:data",
+    "verify": "node tools/verify_agent.js",
+    "verify:quick": "node tools/verify_agent.js --quick",
+    "verify:visual": "node tools/verify_agent.js --visual"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.5",
@@ -14,7 +18,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.5.6",
+    "esbuild": "^0.28.2",
     "postcss": "^8.5.28",
+    "puppeteer-core": "^25.12.0",
     "tailwindcss": "^3.4.17"
   }
 }

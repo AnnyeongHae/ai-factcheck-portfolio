@@ -34,6 +34,7 @@ module.exports = async function handler(req, res) {
   if (!apiKey) {
     return res.status(500).json({ error: 'VOYAGE_API_KEY is not configured in environment' });
   }
+  const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
   const limit = Math.min(parseInt(req.query.limit || req.body?.limit || '100', 10), 100);
   const isCheckOnly = req.query.check_only === 'true' || req.body?.check_only === true;
@@ -298,7 +299,7 @@ module.exports = async function handler(req, res) {
           title: dupTitle,
           url: dupUrl,
           type: 'discussion',
-          similarity: parseFloat(pair.similarity.toFixed(4))
+          similarity: parseFloat(Number(sim || 0).toFixed(4))
         });
         existingUrls.add(dupUrl);
       }
