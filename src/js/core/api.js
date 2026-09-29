@@ -209,8 +209,6 @@ export function updateGlobalStatsUI() {
 
 export function updateNewsCategoryPillCounts() {
   if (typeof document === 'undefined') return;
-  const total = snapshotStats.news_total_count || snapshotStats.inbox_total_count || 3223;
-
   const t1Counts = Object.assign({
     TECH_COMPUTING: 2708,
     CULTURE_HUMANITIES: 141,
@@ -219,6 +217,9 @@ export function updateNewsCategoryPillCounts() {
     ECONOMY_FINANCE: 80,
     POLITICS_POLICY: 64
   }, snapshotStats.tier1_counts || {});
+
+  const calculatedTotal = Object.values(t1Counts).reduce((acc, c) => acc + (typeof c === 'number' ? c : 0), 0);
+  const total = calculatedTotal || snapshotStats.inbox_total_count || snapshotStats.news_total_count || 5864;
 
   const t2Counts = Object.assign({
     INFERENCE_OPT: 231,

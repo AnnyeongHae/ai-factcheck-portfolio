@@ -272,9 +272,12 @@ module.exports = async (req, res) => {
       }
     }
 
-    // 7. 🔬 Strict AI Audit Date Filtering: only include enriched items with valid audit dates
+    // 7. 🔬 Strict AI Audit Date Filtering & Pre-Analysis Pending Filter
     const sort = req.query?.sort;
-    if (sort === 'date-audit-desc' || sort === 'date-audit-asc') {
+    const status = req.query?.status;
+    if (status === 'pending' || sort === 'pending') {
+      conditions.push("(raw_payload->'ai_enrichment' IS NULL OR is_classified = FALSE OR raw_payload->'ai_enrichment'->>'enriched_at' IS NULL)");
+    } else if (sort === 'date-audit-desc' || sort === 'date-audit-asc') {
       conditions.push("(raw_payload ? 'ai_enrichment' AND (raw_payload->'ai_enrichment') IS NOT NULL AND (raw_payload->'ai_enrichment'->>'enriched_at') IS NOT NULL)");
     }
 
@@ -282,7 +285,9 @@ module.exports = async (req, res) => {
 
     // Sorting
     let sortParam = 'created_at DESC NULLS LAST, id DESC';
-    if (sort === 'viral-score-desc' || sort === 'score' || (!sort && facet === 'CROSS_SPIKE')) {
+    if (status === 'pending' || sort === 'pending') {
+      sortParam = 'created_at DESC NULLS LAST, id DESC';
+    } else if (sort === 'viral-score-desc' || sort === 'score' || (!sort && facet === 'CROSS_SPIKE')) {
       sortParam = `
         COALESCE(NULLIF(raw_payload->'spike_analysis'->>'score', '')::numeric, viral_score, 0) DESC,
         CASE WHEN jsonb_typeof(raw_payload->'sources') = 'array' THEN jsonb_array_length(raw_payload->'sources') ELSE 0 END DESC,

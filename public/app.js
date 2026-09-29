@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-29T17:57:35.520Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-29T18:18:55.972Z */
 
 (() => {
   // src/js/core/config.js
@@ -1282,7 +1282,6 @@
   }
   function updateNewsCategoryPillCounts() {
     if (typeof document === "undefined") return;
-    const total = snapshotStats.news_total_count || snapshotStats.inbox_total_count || 3223;
     const t1Counts = Object.assign({
       TECH_COMPUTING: 2708,
       CULTURE_HUMANITIES: 141,
@@ -1291,6 +1290,8 @@
       ECONOMY_FINANCE: 80,
       POLITICS_POLICY: 64
     }, snapshotStats.tier1_counts || {});
+    const calculatedTotal = Object.values(t1Counts).reduce((acc, c) => acc + (typeof c === "number" ? c : 0), 0);
+    const total = calculatedTotal || snapshotStats.inbox_total_count || snapshotStats.news_total_count || 5864;
     const t2Counts = Object.assign({
       INFERENCE_OPT: 231,
       AGENTS_DEVTOOLS: 415,
@@ -4855,8 +4856,7 @@
       window.currentNewsSort = "date-audit-desc";
       if (sortSel) sortSel.value = "date-audit-desc";
     }
-    const curT1 = window.currentNewsTier1 || currentNewsTier1;
-    if ((facet === "MODEL" || facet === "TOOL") && curT1 !== "TECH_COMPUTING" && curT1 !== "ALL") {
+    if (facet !== "ALL") {
       window.currentNewsTier1 = "ALL";
       window.currentNewsTier2 = "ALL";
       document.querySelectorAll(".news-cat-pill").forEach((btn) => {
@@ -4889,6 +4889,8 @@
         btn.className = `news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold ${colorCls} border transition shrink-0 whitespace-nowrap cursor-pointer`;
       }
     });
+    const grid = document.getElementById("newsGrid");
+    if (grid) renderNewsSkeleton2(grid, 6);
     renderNews();
   }
   function setNewsSourceFilter(src) {
@@ -4941,6 +4943,8 @@
         if (curT2 !== "ALL" && (it.tier2_category || it.category_primary || "INDUSTRY_TRENDS") !== curT2) return false;
         if (curFacet === "CROSS_SPIKE" && !it.is_cross_spiking && (!it.sources || it.sources.length <= 1)) return false;
         if (curFacet === "MODEL" && !it.is_model && it.facet_type !== "MODEL") return false;
+        if (curFacet === "TOOL" && it.facet_type !== "TOOL" && !(it.source_platform || "").toLowerCase().includes("github") && !(it.artifact_type || "").includes("agent") && !(it.artifact_type || "").includes("skill") && !(it.category_primary || "").toLowerCase().includes("devtool")) return false;
+        if (curFacet === "NEWS" && (it.is_model || it.facet_type === "MODEL" || (it.source_platform || "").toLowerCase().includes("github"))) return false;
         if (curSrc !== "ALL") {
           const plat = (it.source_platform || "").toLowerCase();
           const filterKey = curSrc.toLowerCase();
@@ -4963,7 +4967,7 @@
         const estPages = Math.ceil(memMatches.length / PAGE_SIZE) || 1;
         renderPagination("newsPagination", curPage, estPages, "changeNewsPage");
         if (window.lucide) window.lucide.createIcons({ root: grid });
-      } else if (grid.children.length === 0) {
+      } else {
         renderNewsSkeleton2(grid, 6);
       }
     }
@@ -4983,13 +4987,10 @@
         if (window.currentNewsPage < 1) window.currentNewsPage = 1;
         renderPagination("newsPagination", window.currentNewsPage, totalPages, "changeNewsPage");
         if (isDefaultFilter && total > 0) {
-          if (snapshotStats) snapshotStats.news_total_count = total;
           const numEl = document.getElementById("statValNews");
           if (numEl) numEl.textContent = total.toLocaleString();
           const headEl = document.getElementById("headerNewsCount");
           if (headEl) headEl.textContent = `(${total.toLocaleString()})`;
-          const allPill = document.querySelector('.news-cat-pill[data-cat="ALL"]');
-          if (allPill) allPill.textContent = curLang === "KO" ? `\uC804\uCCB4 (${total.toLocaleString()})` : curLang === "ZH" ? `\u5168\u90E8 (${total.toLocaleString()})` : `All (${total.toLocaleString()})`;
         }
       }
     } catch (err) {
@@ -5426,6 +5427,7 @@
         const matchesType = curType === "ALL" ? true : itemType === curType;
         const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || "General";
         const matchesTech = curTech === "ALL" || itemTech.toLowerCase().includes(curTech.toLowerCase());
+        if (curSort === "pending" && (item.ai_enrichment && item.ai_enrichment.enriched_at && item.is_classified)) return false;
         if ((curSort === "date-audit-desc" || curSort === "date-audit-asc") && (!item.ai_enrichment || !item.ai_enrichment.enriched_at)) return false;
         const text = ((item.title || "") + " " + (item.title_ko || "") + " " + (item.description || "")).toLowerCase();
         const matchesSearch = !curSearch || text.includes(curSearch.toLowerCase());

@@ -281,8 +281,8 @@ export function setNewsFacetFilter(facet) {
     if (sortSel) sortSel.value = 'date-audit-desc';
   }
 
-  const curT1 = window.currentNewsTier1 || currentNewsTier1;
-  if ((facet === 'MODEL' || facet === 'TOOL') && curT1 !== 'TECH_COMPUTING' && curT1 !== 'ALL') {
+  // When switching to any specific facet, reset category filters to avoid empty intersections
+  if (facet !== 'ALL') {
     window.currentNewsTier1 = 'ALL';
     window.currentNewsTier2 = 'ALL';
     document.querySelectorAll('.news-cat-pill').forEach(btn => {
@@ -316,6 +316,10 @@ export function setNewsFacetFilter(facet) {
       btn.className = `news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold ${colorCls} border transition shrink-0 whitespace-nowrap cursor-pointer`;
     }
   });
+
+  const grid = document.getElementById('newsGrid');
+  if (grid) renderNewsSkeleton(grid, 6);
+
   renderNews();
 }
 
@@ -375,6 +379,8 @@ export async function renderNews() {
       if (curT2 !== 'ALL' && (it.tier2_category || it.category_primary || 'INDUSTRY_TRENDS') !== curT2) return false;
       if (curFacet === 'CROSS_SPIKE' && !it.is_cross_spiking && (!it.sources || it.sources.length <= 1)) return false;
       if (curFacet === 'MODEL' && !it.is_model && it.facet_type !== 'MODEL') return false;
+      if (curFacet === 'TOOL' && it.facet_type !== 'TOOL' && !(it.source_platform || '').toLowerCase().includes('github') && !(it.artifact_type || '').includes('agent') && !(it.artifact_type || '').includes('skill') && !(it.category_primary || '').toLowerCase().includes('devtool')) return false;
+      if (curFacet === 'NEWS' && (it.is_model || it.facet_type === 'MODEL' || (it.source_platform || '').toLowerCase().includes('github'))) return false;
       if (curSrc !== 'ALL') {
         const plat = (it.source_platform || '').toLowerCase();
         const filterKey = curSrc.toLowerCase();
@@ -398,7 +404,7 @@ export async function renderNews() {
       const estPages = Math.ceil(memMatches.length / PAGE_SIZE) || 1;
       renderPagination('newsPagination', curPage, estPages, 'changeNewsPage');
       if (window.lucide) window.lucide.createIcons({ root: grid });
-    } else if (grid.children.length === 0) {
+    } else {
       renderNewsSkeleton(grid, 6);
     }
   }
@@ -423,13 +429,10 @@ export async function renderNews() {
       renderPagination('newsPagination', window.currentNewsPage, totalPages, 'changeNewsPage');
 
       if (isDefaultFilter && total > 0) {
-        if (snapshotStats) snapshotStats.news_total_count = total;
         const numEl = document.getElementById('statValNews');
         if (numEl) numEl.textContent = total.toLocaleString();
         const headEl = document.getElementById('headerNewsCount');
         if (headEl) headEl.textContent = `(${total.toLocaleString()})`;
-        const allPill = document.querySelector('.news-cat-pill[data-cat="ALL"]');
-        if (allPill) allPill.textContent = curLang === 'KO' ? `전체 (${total.toLocaleString()})` : (curLang === 'ZH' ? `全部 (${total.toLocaleString()})` : `All (${total.toLocaleString()})`);
       }
     }
   } catch (err) {

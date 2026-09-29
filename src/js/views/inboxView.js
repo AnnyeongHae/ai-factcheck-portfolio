@@ -323,6 +323,7 @@ export async function renderInbox() {
       const matchesType = curType === 'ALL' ? true : (itemType === curType);
       const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || 'General';
       const matchesTech = curTech === 'ALL' || (itemTech.toLowerCase().includes(curTech.toLowerCase()));
+      if (curSort === 'pending' && (item.ai_enrichment && item.ai_enrichment.enriched_at && item.is_classified)) return false;
       if ((curSort === 'date-audit-desc' || curSort === 'date-audit-asc') && (!item.ai_enrichment || !item.ai_enrichment.enriched_at)) return false;
       const text = ((item.title || '') + ' ' + (item.title_ko || '') + ' ' + (item.description || '')).toLowerCase();
       const matchesSearch = !curSearch || text.includes(curSearch.toLowerCase());
