@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T06:28:32.260Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T06:30:04.256Z */
 
 (() => {
   // src/js/core/config.js
@@ -5056,10 +5056,11 @@
         if (window.currentNewsPage < 1) window.currentNewsPage = 1;
         renderPagination("newsPagination", window.currentNewsPage, totalPages, "changeNewsPage");
         if (isDefaultFilter && total > 0) {
+          const fullCount = snapshotStats.inbox_total_count || total;
           const numEl = document.getElementById("statValNews");
-          if (numEl) numEl.textContent = total.toLocaleString();
+          if (numEl) numEl.textContent = fullCount.toLocaleString();
           const headEl = document.getElementById("headerNewsCount");
-          if (headEl) headEl.textContent = `(${total.toLocaleString()})`;
+          if (headEl) headEl.textContent = `(${fullCount.toLocaleString()})`;
         }
       }
     } catch (err) {

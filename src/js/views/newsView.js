@@ -404,10 +404,11 @@ export async function renderNews() {
       renderPagination('newsPagination', window.currentNewsPage, totalPages, 'changeNewsPage');
 
       if (isDefaultFilter && total > 0) {
+        const fullCount = snapshotStats.inbox_total_count || total;
         const numEl = document.getElementById('statValNews');
-        if (numEl) numEl.textContent = total.toLocaleString();
+        if (numEl) numEl.textContent = fullCount.toLocaleString();
         const headEl = document.getElementById('headerNewsCount');
-        if (headEl) headEl.textContent = `(${total.toLocaleString()})`;
+        if (headEl) headEl.textContent = `(${fullCount.toLocaleString()})`;
       }
     }
   } catch (err) {
