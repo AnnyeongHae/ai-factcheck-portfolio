@@ -540,17 +540,43 @@ export async function syncFromLiveDB(force = false) {
           if (bwBar && vt.bandwidth_gb) bwBar.style.width = `${vt.bandwidth_gb.used_pct}%`;
         }
 
-        // Live Portfolios Sync
+        // 24h Timeline Hydration from Live DB
+        if (data.timeline_24h_live && Array.isArray(data.timeline_24h_live) && data.timeline_24h_live.length > 0) {
+          const curKstH = getDynamicKstHour();
+          const liveHasData = data.timeline_24h_live.some(s => (s.inbox_count > 0 || s.enriched_count > 0));
+          if (liveHasData) {
+            window.timeline24hData = data.timeline_24h_live.map(liveSlot => ({
+              ...liveSlot,
+              is_current: (liveSlot.hour <= curKstH && curKstH < liveSlot.hour + 6),
+              is_future: (liveSlot.hour > curKstH)
+            }));
+            window._timelineIsPendingToday = false;
+          } else if (data.timeline_24h_baseline && Array.isArray(data.timeline_24h_baseline) && data.timeline_24h_baseline.length > 0) {
+            window.timeline24hData = data.timeline_24h_baseline.map(bSlot => ({
+              ...bSlot,
+              is_current: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6),
+              is_future: (bSlot.hour > curKstH),
+              is_pending_today: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6)
+            }));
+            window._timelineIsPendingToday = true;
+          } else {
+            window.timeline24hData = data.timeline_24h_live;
+            window._timelineIsPendingToday = true;
+          }
+          if (typeof window.renderTelemetryCharts === 'function') {
+            window.renderTelemetryCharts();
+          }
+        }
+
+        // Live Portfolios Sync (Only if not already populated by bootstrap)
         try {
-          const portfoliosApiUrl = APP_CONFIG.apiUrl('/api/portfolios');
-          const pRes = await fetch(portfoliosApiUrl, { cache: 'default' });
-          if (pRes.ok) {
-            const pData = await pRes.json();
-            if (pData.success && Array.isArray(pData.portfolios) && pData.portfolios.length > 0) {
-              const currentCount = Array.isArray(window.liveCasesData) ? window.liveCasesData.length : 0;
-              const firstIdNew = pData.portfolios[0]?.case_id;
-              const firstIdOld = window.liveCasesData ? window.liveCasesData[0]?.case_id : null;
-              if (pData.portfolios.length !== currentCount || (firstIdNew && firstIdOld && firstIdNew !== firstIdOld)) {
+          const currentCases = Array.isArray(window.liveCasesData) ? window.liveCasesData : [];
+          if (currentCases.length === 0) {
+            const portfoliosApiUrl = APP_CONFIG.apiUrl('/api/portfolios');
+            const pRes = await fetch(portfoliosApiUrl, { cache: 'default' });
+            if (pRes.ok) {
+              const pData = await pRes.json();
+              if (pData.success && Array.isArray(pData.portfolios) && pData.portfolios.length > 0) {
                 window.liveCasesData = pData.portfolios;
                 window.casesData = pData.portfolios;
                 AppStore._cases = pData.portfolios;
@@ -845,6 +871,16 @@ export async function startContinuousAiWorker() {
       }
 
       const res = await fetch(workerUrl, { cache: 'no-store' });
+      if (res.status === 429) {
+        _autoWorkerRunning = false;
+        window._autoWorkerRunning = false;
+        if (txt) txt.textContent = '⏸️ AI 쿼터 일시 소진 (잠시 후 다시 시도)';
+        if (btn) {
+          btn.disabled = false;
+          btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+        }
+        break;
+      }
       if (!res.ok) {
         consecutiveErrors++;
         if (consecutiveErrors >= 3) {
@@ -880,6 +916,18 @@ export async function startContinuousAiWorker() {
           if (btn) {
             btn.disabled = true;
             btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
+          }
+          break;
+        }
+
+        // AGENTS.md Rule 2: Hard Cap of 5 per manual trigger session to protect LLM quota & prevent infinite client loops
+        if (processedInThisSession >= 5) {
+          _autoWorkerRunning = false;
+          window._autoWorkerRunning = false;
+          if (txt) txt.textContent = `⚡ 5건 AI 요약 완료 (${rem}건 대기 / 클릭 시 추가 5건 실행)`;
+          if (btn) {
+            btn.disabled = false;
+            btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
           }
           break;
         }

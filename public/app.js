@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-29T18:18:55.972Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T00:42:41.114Z */
 
 (() => {
   // src/js/core/config.js
@@ -1586,16 +1586,40 @@
             if (bwUsed && vt.bandwidth_gb) bwUsed.textContent = `${vt.bandwidth_gb.used_estimated} GB`;
             if (bwBar && vt.bandwidth_gb) bwBar.style.width = `${vt.bandwidth_gb.used_pct}%`;
           }
+          if (data.timeline_24h_live && Array.isArray(data.timeline_24h_live) && data.timeline_24h_live.length > 0) {
+            const curKstH = getDynamicKstHour();
+            const liveHasData = data.timeline_24h_live.some((s) => s.inbox_count > 0 || s.enriched_count > 0);
+            if (liveHasData) {
+              window.timeline24hData = data.timeline_24h_live.map((liveSlot) => ({
+                ...liveSlot,
+                is_current: liveSlot.hour <= curKstH && curKstH < liveSlot.hour + 6,
+                is_future: liveSlot.hour > curKstH
+              }));
+              window._timelineIsPendingToday = false;
+            } else if (data.timeline_24h_baseline && Array.isArray(data.timeline_24h_baseline) && data.timeline_24h_baseline.length > 0) {
+              window.timeline24hData = data.timeline_24h_baseline.map((bSlot) => ({
+                ...bSlot,
+                is_current: bSlot.hour <= curKstH && curKstH < bSlot.hour + 6,
+                is_future: bSlot.hour > curKstH,
+                is_pending_today: bSlot.hour <= curKstH && curKstH < bSlot.hour + 6
+              }));
+              window._timelineIsPendingToday = true;
+            } else {
+              window.timeline24hData = data.timeline_24h_live;
+              window._timelineIsPendingToday = true;
+            }
+            if (typeof window.renderTelemetryCharts === "function") {
+              window.renderTelemetryCharts();
+            }
+          }
           try {
-            const portfoliosApiUrl = APP_CONFIG.apiUrl("/api/portfolios");
-            const pRes = await fetch(portfoliosApiUrl, { cache: "default" });
-            if (pRes.ok) {
-              const pData = await pRes.json();
-              if (pData.success && Array.isArray(pData.portfolios) && pData.portfolios.length > 0) {
-                const currentCount = Array.isArray(window.liveCasesData) ? window.liveCasesData.length : 0;
-                const firstIdNew = pData.portfolios[0]?.case_id;
-                const firstIdOld = window.liveCasesData ? window.liveCasesData[0]?.case_id : null;
-                if (pData.portfolios.length !== currentCount || firstIdNew && firstIdOld && firstIdNew !== firstIdOld) {
+            const currentCases = Array.isArray(window.liveCasesData) ? window.liveCasesData : [];
+            if (currentCases.length === 0) {
+              const portfoliosApiUrl = APP_CONFIG.apiUrl("/api/portfolios");
+              const pRes = await fetch(portfoliosApiUrl, { cache: "default" });
+              if (pRes.ok) {
+                const pData = await pRes.json();
+                if (pData.success && Array.isArray(pData.portfolios) && pData.portfolios.length > 0) {
                   window.liveCasesData = pData.portfolios;
                   window.casesData = pData.portfolios;
                   AppStore._cases = pData.portfolios;
@@ -1856,6 +1880,16 @@
           txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI \uC694\uC57D \uBD84\uC11D \uC911... (${processedInThisSession + 1}\uAC74 \uC9C4\uD589 \uC911)`;
         }
         const res = await fetch(workerUrl, { cache: "no-store" });
+        if (res.status === 429) {
+          _autoWorkerRunning = false;
+          window._autoWorkerRunning = false;
+          if (txt) txt.textContent = "\u23F8\uFE0F AI \uCFFC\uD130 \uC77C\uC2DC \uC18C\uC9C4 (\uC7A0\uC2DC \uD6C4 \uB2E4\uC2DC \uC2DC\uB3C4)";
+          if (btn) {
+            btn.disabled = false;
+            btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+          }
+          break;
+        }
         if (!res.ok) {
           consecutiveErrors++;
           if (consecutiveErrors >= 3) {
@@ -1888,6 +1922,16 @@
             if (btn) {
               btn.disabled = true;
               btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
+            }
+            break;
+          }
+          if (processedInThisSession >= 5) {
+            _autoWorkerRunning = false;
+            window._autoWorkerRunning = false;
+            if (txt) txt.textContent = `\u26A1 5\uAC74 AI \uC694\uC57D \uC644\uB8CC (${rem}\uAC74 \uB300\uAE30 / \uD074\uB9AD \uC2DC \uCD94\uAC00 5\uAC74 \uC2E4\uD589)`;
+            if (btn) {
+              btn.disabled = false;
+              btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
             }
             break;
           }
@@ -4733,23 +4777,21 @@
       window.currentNewsTier2 = "ALL";
     }
     const curFacet = window.currentNewsFacet || currentNewsFacet;
-    if (t1 !== "TECH_COMPUTING" && t1 !== "ALL") {
-      if (curFacet === "MODEL" || curFacet === "TOOL") {
-        window.currentNewsFacet = "ALL";
-        document.querySelectorAll(".news-facet-pill").forEach((btn) => {
-          const isAll = btn.getAttribute("data-facet") === "ALL";
-          if (isAll) {
-            btn.className = "news-facet-pill active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-md ring-2 ring-indigo-300 transition shrink-0 whitespace-nowrap cursor-pointer";
-          } else {
-            const f = btn.getAttribute("data-facet");
-            let colorCls = "text-slate-200 bg-white/10 border-white/20 hover:bg-white/20";
-            if (f === "CROSS_SPIKE") colorCls = "text-amber-300 bg-amber-500/10 border-amber-400/30 hover:bg-amber-500/20";
-            else if (f === "MODEL") colorCls = "text-cyan-300 bg-cyan-500/10 border-cyan-400/30 hover:bg-cyan-500/20";
-            else if (f === "TOOL") colorCls = "text-emerald-300 bg-emerald-500/10 border-emerald-400/30 hover:bg-emerald-500/20";
-            btn.className = `news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold ${colorCls} border transition shrink-0 whitespace-nowrap cursor-pointer`;
-          }
-        });
-      }
+    if (curFacet !== "ALL") {
+      window.currentNewsFacet = "ALL";
+      document.querySelectorAll(".news-facet-pill").forEach((btn) => {
+        const isAll = btn.getAttribute("data-facet") === "ALL";
+        if (isAll) {
+          btn.className = "news-facet-pill active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-md ring-2 ring-indigo-300 transition shrink-0 whitespace-nowrap cursor-pointer";
+        } else {
+          const f = btn.getAttribute("data-facet");
+          let colorCls = "text-slate-200 bg-white/10 border-white/20 hover:bg-white/20";
+          if (f === "CROSS_SPIKE") colorCls = "text-amber-300 bg-amber-500/10 border-amber-400/30 hover:bg-amber-500/20";
+          else if (f === "MODEL") colorCls = "text-cyan-300 bg-cyan-500/10 border-cyan-400/30 hover:bg-cyan-500/20";
+          else if (f === "TOOL") colorCls = "text-emerald-300 bg-emerald-500/10 border-emerald-400/30 hover:bg-emerald-500/20";
+          btn.className = `news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold ${colorCls} border transition shrink-0 whitespace-nowrap cursor-pointer`;
+        }
+      });
     }
     document.querySelectorAll(".news-cat-pill").forEach((btn) => {
       if (btn.getAttribute("data-cat") === t1) {

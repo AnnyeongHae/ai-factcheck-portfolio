@@ -143,23 +143,21 @@ export function setNewsCategoryFilter(t1) {
   }
 
   const curFacet = window.currentNewsFacet || currentNewsFacet;
-  if (t1 !== 'TECH_COMPUTING' && t1 !== 'ALL') {
-    if (curFacet === 'MODEL' || curFacet === 'TOOL') {
-      window.currentNewsFacet = 'ALL';
-      document.querySelectorAll('.news-facet-pill').forEach(btn => {
-        const isAll = btn.getAttribute('data-facet') === 'ALL';
-        if (isAll) {
-          btn.className = 'news-facet-pill active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-md ring-2 ring-indigo-300 transition shrink-0 whitespace-nowrap cursor-pointer';
-        } else {
-          const f = btn.getAttribute('data-facet');
-          let colorCls = 'text-slate-200 bg-white/10 border-white/20 hover:bg-white/20';
-          if (f === 'CROSS_SPIKE') colorCls = 'text-amber-300 bg-amber-500/10 border-amber-400/30 hover:bg-amber-500/20';
-          else if (f === 'MODEL') colorCls = 'text-cyan-300 bg-cyan-500/10 border-cyan-400/30 hover:bg-cyan-500/20';
-          else if (f === 'TOOL') colorCls = 'text-emerald-300 bg-emerald-500/10 border-emerald-400/30 hover:bg-emerald-500/20';
-          btn.className = `news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold ${colorCls} border transition shrink-0 whitespace-nowrap cursor-pointer`;
-        }
-      });
-    }
+  if (curFacet !== 'ALL') {
+    window.currentNewsFacet = 'ALL';
+    document.querySelectorAll('.news-facet-pill').forEach(btn => {
+      const isAll = btn.getAttribute('data-facet') === 'ALL';
+      if (isAll) {
+        btn.className = 'news-facet-pill active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-md ring-2 ring-indigo-300 transition shrink-0 whitespace-nowrap cursor-pointer';
+      } else {
+        const f = btn.getAttribute('data-facet');
+        let colorCls = 'text-slate-200 bg-white/10 border-white/20 hover:bg-white/20';
+        if (f === 'CROSS_SPIKE') colorCls = 'text-amber-300 bg-amber-500/10 border-amber-400/30 hover:bg-amber-500/20';
+        else if (f === 'MODEL') colorCls = 'text-cyan-300 bg-cyan-500/10 border-cyan-400/30 hover:bg-cyan-500/20';
+        else if (f === 'TOOL') colorCls = 'text-emerald-300 bg-emerald-500/10 border-emerald-400/30 hover:bg-emerald-500/20';
+        btn.className = `news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold ${colorCls} border transition shrink-0 whitespace-nowrap cursor-pointer`;
+      }
+    });
   }
 
   document.querySelectorAll('.news-cat-pill').forEach(btn => {

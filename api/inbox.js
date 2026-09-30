@@ -236,6 +236,8 @@ module.exports = async (req, res) => {
       } else if (facet === 'NEWS') {
         conditions.push(`(
           raw_payload->>'facet_type' = 'NEWS'
+          OR item_type = 'NEWS'
+          OR raw_payload->'ai_enrichment'->>'type_classification' = 'NEWS'
           OR (
             (raw_payload->>'facet_type' IS NULL OR raw_payload->>'facet_type' != 'MODEL')
             AND (raw_payload->>'model_family' IS NULL OR raw_payload->>'model_family' = '' OR raw_payload->>'model_family' = 'standalone')

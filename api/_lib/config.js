@@ -108,9 +108,9 @@ function getDbProviderInfo(rawUrl = DATABASE_URL) {
 }
 
 const POOL_CONFIG = {
-  max: 3,
-  idleTimeoutMillis: 5000,
-  connectionTimeoutMillis: 8000,
+  max: 1, // Single-connection pool per serverless lambda to protect Aiven max_connections=20
+  idleTimeoutMillis: 1000,
+  connectionTimeoutMillis: 5000,
   ssl: { rejectUnauthorized: false }
 };
 
