@@ -714,10 +714,10 @@ export async function startContinuousVoyageWorker() {
       }
 
       const t0 = Date.now();
-      const res = await fetch(APP_CONFIG.apiUrl('/api/embed-worker?limit=10'), {
+      const res = await fetch(APP_CONFIG.apiUrl('/api/embed-worker?limit=100'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ limit: 10 }),
+        body: JSON.stringify({ limit: 100 }),
         cache: 'no-store'
       });
       const elapsed = ((Date.now() - t0) / 1000).toFixed(1);

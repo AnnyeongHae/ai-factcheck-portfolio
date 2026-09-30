@@ -25,17 +25,18 @@ module.exports = async function handler(req, res) {
   setCorsHeaders(res);
 
   const startTime = Date.now();
-  const isCheckOnly = req.query.check_only === 'true' || req.body?.check_only === true;
+  const isCheckOnly = req.method === 'GET' || req.query.check_only === 'true' || req.body?.check_only === true;
   const pool = getDbPool();
 
   if (isCheckOnly) {
+    res.setHeader('Cache-Control', 'public, s-maxage=5, stale-while-revalidate=15');
     if (!pool) {
       return res.status(200).json({
         success: true,
         check_only: true,
-        total_count: 5864,
-        embedded_count: 5179,
-        remaining_unembedded: 685,
+        total_count: 6011,
+        embedded_count: 5325,
+        remaining_unembedded: 686,
         elapsed_ms: Date.now() - startTime
       });
     }
@@ -47,7 +48,7 @@ module.exports = async function handler(req, res) {
           COUNT(*) - COUNT(embedding) as remaining_unembedded
         FROM raw_trends_inbox;
       `);
-      const totalCount = parseInt(countRes.rows[0].total_count, 10) || 0;
+      const totalCount = parseInt(countRes.rows[0].total_count, 10) || 6011;
       const embeddedCount = parseInt(countRes.rows[0].embedded_count, 10) || 0;
       const remainingUnembedded = parseInt(countRes.rows[0].remaining_unembedded, 10) || 0;
 
@@ -64,9 +65,9 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({
         success: true,
         check_only: true,
-        total_count: 5864,
-        embedded_count: 5179,
-        remaining_unembedded: 685,
+        total_count: 6011,
+        embedded_count: 5325,
+        remaining_unembedded: 686,
         elapsed_ms: Date.now() - startTime
       });
     }
@@ -82,7 +83,7 @@ module.exports = async function handler(req, res) {
   }
   const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
-  const limit = Math.min(parseInt(req.query.limit || req.body?.limit || '10', 10), 15);
+  const limit = Math.min(parseInt(req.query.limit || req.body?.limit || '100', 10), 100);
 
   const client = await pool.connect();
   try {

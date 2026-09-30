@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T06:30:04.256Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T06:35:52.325Z */
 
 (() => {
   // src/js/core/config.js
@@ -1808,10 +1808,10 @@
           txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-white animate-ping mr-1"></span> \uC784\uBCA0\uB529 \uC911... (${totalProcessedInSession}\uAC74 \uC644\uB8CC / \uC794\uC5EC \uD655\uC778 \uC911)`;
         }
         const t0 = Date.now();
-        const res = await fetch(APP_CONFIG.apiUrl("/api/embed-worker?limit=10"), {
+        const res = await fetch(APP_CONFIG.apiUrl("/api/embed-worker?limit=100"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ limit: 10 }),
+          body: JSON.stringify({ limit: 100 }),
           cache: "no-store"
         });
         const elapsed = ((Date.now() - t0) / 1e3).toFixed(1);
