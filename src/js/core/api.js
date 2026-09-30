@@ -183,7 +183,7 @@ export function updateGlobalStatsUI() {
   safeSet('statValInbox', numInbox.toLocaleString());
 
   safeSet('headerVerifiedCount', `(${numCases})`);
-  safeSet('headerNewsCount', `(${numNews})`);
+  safeSet('headerNewsCount', `(${numInbox.toLocaleString()})`);
   safeSet('headerModelsCount', `(${numModels})`);
   safeSet('headerInboxCount', `(${numInbox})`);
 
@@ -463,7 +463,7 @@ export async function syncFromLiveDB(force = false) {
         if (statNews && liveNews) statNews.textContent = liveNews.toLocaleString();
 
         const hNews = document.getElementById('headerNewsCount');
-        if (hNews && liveNews) hNews.textContent = `(${liveNews.toLocaleString()})`;
+        if (hNews && liveInbox) hNews.textContent = `(${liveInbox.toLocaleString()})`;
 
         const statModels = document.getElementById('statValModels');
         if (statModels && liveModels) statModels.textContent = liveModels.toLocaleString();
@@ -714,10 +714,10 @@ export async function startContinuousVoyageWorker() {
       }
 
       const t0 = Date.now();
-      const res = await fetch(APP_CONFIG.apiUrl('/api/embed-worker?limit=100'), {
+      const res = await fetch(APP_CONFIG.apiUrl('/api/embed-worker?limit=10'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ limit: 100 }),
+        body: JSON.stringify({ limit: 10 }),
         cache: 'no-store'
       });
       const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
@@ -913,17 +913,6 @@ export async function startContinuousAiWorker() {
           break;
         }
 
-        // AGENTS.md Rule 2: Hard Cap of 5 per manual trigger session to protect LLM quota & prevent infinite client loops
-        if (processedInThisSession >= 5) {
-          _autoWorkerRunning = false;
-          window._autoWorkerRunning = false;
-          if (txt) txt.textContent = `⚡ 5건 AI 요약 완료 (${rem}건 대기 / 클릭 시 추가 5건 실행)`;
-          if (btn) {
-            btn.disabled = false;
-            btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
-          }
-          break;
-        }
       }
     } catch (loopErr) {
       console.warn('[AutoWorker Loop Error]:', loopErr);

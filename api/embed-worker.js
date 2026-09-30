@@ -82,7 +82,7 @@ module.exports = async function handler(req, res) {
   }
   const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
-  const limit = Math.min(parseInt(req.query.limit || req.body?.limit || '100', 10), 100);
+  const limit = Math.min(parseInt(req.query.limit || req.body?.limit || '10', 10), 15);
 
   const client = await pool.connect();
   try {
@@ -264,7 +264,10 @@ module.exports = async function handler(req, res) {
 
         for (const model of models) {
           try {
+            const ac = new AbortController();
+            const tm = setTimeout(() => ac.abort(), 3500);
             const resp = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+              signal: ac.signal,
               method: 'POST',
               headers: {
                 'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
@@ -279,6 +282,7 @@ module.exports = async function handler(req, res) {
                 temperature: 0.0
               })
             });
+            clearTimeout(tm);
             if (resp.status === 402 || resp.status === 429) continue;
             if (!resp.ok) continue;
             const data = await resp.json();

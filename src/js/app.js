@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T01:22:50.002Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T06:28:32.260Z */
 
 (() => {
   // src/js/core/config.js
@@ -1327,7 +1327,7 @@
     safeSet("statValModels", numModels);
     safeSet("statValInbox", numInbox.toLocaleString());
     safeSet("headerVerifiedCount", `(${numCases})`);
-    safeSet("headerNewsCount", `(${numNews})`);
+    safeSet("headerNewsCount", `(${numInbox.toLocaleString()})`);
     safeSet("headerModelsCount", `(${numModels})`);
     safeSet("headerInboxCount", `(${numInbox})`);
     const inbList = lInbox || [];
@@ -1586,7 +1586,7 @@
           const statNews = document.getElementById("statValNews");
           if (statNews && liveNews) statNews.textContent = liveNews.toLocaleString();
           const hNews = document.getElementById("headerNewsCount");
-          if (hNews && liveNews) hNews.textContent = `(${liveNews.toLocaleString()})`;
+          if (hNews && liveInbox) hNews.textContent = `(${liveInbox.toLocaleString()})`;
           const statModels = document.getElementById("statValModels");
           if (statModels && liveModels) statModels.textContent = liveModels.toLocaleString();
           const hModels = document.getElementById("headerModelsCount");
@@ -1808,10 +1808,10 @@
           txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-white animate-ping mr-1"></span> \uC784\uBCA0\uB529 \uC911... (${totalProcessedInSession}\uAC74 \uC644\uB8CC / \uC794\uC5EC \uD655\uC778 \uC911)`;
         }
         const t0 = Date.now();
-        const res = await fetch(APP_CONFIG.apiUrl("/api/embed-worker?limit=100"), {
+        const res = await fetch(APP_CONFIG.apiUrl("/api/embed-worker?limit=10"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ limit: 100 }),
+          body: JSON.stringify({ limit: 10 }),
           cache: "no-store"
         });
         const elapsed = ((Date.now() - t0) / 1e3).toFixed(1);
@@ -1980,16 +1980,6 @@
             if (btn) {
               btn.disabled = true;
               btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
-            }
-            break;
-          }
-          if (processedInThisSession >= 5) {
-            _autoWorkerRunning = false;
-            window._autoWorkerRunning = false;
-            if (txt) txt.textContent = `\u26A1 5\uAC74 AI \uC694\uC57D \uC644\uB8CC (${rem}\uAC74 \uB300\uAE30 / \uD074\uB9AD \uC2DC \uCD94\uAC00 5\uAC74 \uC2E4\uD589)`;
-            if (btn) {
-              btn.disabled = false;
-              btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
             }
             break;
           }
