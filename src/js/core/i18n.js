@@ -551,7 +551,9 @@ export function setLanguage(lang) {
     safeSetText('heroBadge', t.heroBadge);
     safeSetText('heroMainTitle', t.heroMainTitle);
     safeSetHtml('heroMainDesc', t.heroMainDesc);
-    safeSetText('heroAuditCount', t.heroAuditCount);
+    const liveCasesCount = (window.liveCasesData && window.liveCasesData.length) || (window.casesData && window.casesData.length) || 63;
+    const heroAuditText = lang === 'KO' ? `● ${liveCasesCount}개 기술 검증 완료` : (lang === 'ZH' ? `已完成 ${liveCasesCount} 项技术审计` : `${liveCasesCount} Audits Completed`);
+    safeSetText('heroAuditCount', heroAuditText);
 
     // Dashboard KPI Telemetry
     safeSetText('statLabelVerified', lang === 'KO' ? '공식 기술 검증' : (lang === 'ZH' ? '官方技术核查' : 'Verified Fact-Checks'));
@@ -575,7 +577,8 @@ export function setLanguage(lang) {
     safeSetText('trendRadarSub', t.trendRadarSub);
     safeSetHtml('trendRadarFooter', `<span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i> ` + (lang === 'KO' ? 'LLM 자동 트렌드 추출 (OpenRouter 0원 라우팅)' : (lang === 'ZH' ? 'LLM 自动化趋势提取 (OpenRouter 0元路由)' : 'Automated LLM Trend Extraction (OpenRouter Free Tier)')) + `</span>`);
     safeSetText('homeTopPicksTitle', t.homeTopPicksTitle);
-    safeSetText('homeTopPicksViewAll', t.homeTopPicksViewAll);
+    const viewAllDynamicText = lang === 'KO' ? `전체 ${liveCasesCount}개 검증 도시에 보러가기` : (lang === 'ZH' ? `查看全部 ${liveCasesCount} 份核查档案` : `View All ${liveCasesCount} Empirical Dossiers`);
+    safeSetText('homeTopPicksViewAll', viewAllDynamicText);
 
     // News View Labels & Pills
     safeSetText('newsHeaderBadge', t.newsHeaderBadge);

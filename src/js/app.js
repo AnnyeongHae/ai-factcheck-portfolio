@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T00:42:41.114Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T00:45:57.267Z */
 
 (() => {
   // src/js/core/config.js
@@ -957,7 +957,9 @@
       safeSetText("heroBadge", t.heroBadge);
       safeSetText("heroMainTitle", t.heroMainTitle);
       safeSetHtml("heroMainDesc", t.heroMainDesc);
-      safeSetText("heroAuditCount", t.heroAuditCount);
+      const liveCasesCount = window.liveCasesData && window.liveCasesData.length || window.casesData && window.casesData.length || 63;
+      const heroAuditText = lang === "KO" ? `\u25CF ${liveCasesCount}\uAC1C \uAE30\uC220 \uAC80\uC99D \uC644\uB8CC` : lang === "ZH" ? `\u5DF2\u5B8C\u6210 ${liveCasesCount} \u9879\u6280\u672F\u5BA1\u8BA1` : `${liveCasesCount} Audits Completed`;
+      safeSetText("heroAuditCount", heroAuditText);
       safeSetText("statLabelVerified", lang === "KO" ? "\uACF5\uC2DD \uAE30\uC220 \uAC80\uC99D" : lang === "ZH" ? "\u5B98\u65B9\u6280\u672F\u6838\u67E5" : "Verified Fact-Checks");
       safeSetText("statLabelInbox", lang === "KO" ? "\uC218\uC9D1 \uC778\uBC15\uC2A4" : lang === "ZH" ? "\u91C7\u96C6\u6536\u4EF6\u7BB1" : "Harvested Inbox");
       safeSetText("statLabelModels", lang === "KO" ? "AI \uBAA8\uB378 \uD2B8\uB80C\uB4DC" : lang === "ZH" ? "AI \u6A21\u578B\u8D8B\u52BF" : "AI Model Trends");
@@ -978,7 +980,8 @@
       safeSetText("trendRadarSub", t.trendRadarSub);
       safeSetHtml("trendRadarFooter", `<span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i> ` + (lang === "KO" ? "LLM \uC790\uB3D9 \uD2B8\uB80C\uB4DC \uCD94\uCD9C (OpenRouter 0\uC6D0 \uB77C\uC6B0\uD305)" : lang === "ZH" ? "LLM \u81EA\u52A8\u5316\u8D8B\u52BF\u63D0\u53D6 (OpenRouter 0\u5143\u8DEF\u7531)" : "Automated LLM Trend Extraction (OpenRouter Free Tier)") + `</span>`);
       safeSetText("homeTopPicksTitle", t.homeTopPicksTitle);
-      safeSetText("homeTopPicksViewAll", t.homeTopPicksViewAll);
+      const viewAllDynamicText = lang === "KO" ? `\uC804\uCCB4 ${liveCasesCount}\uAC1C \uAC80\uC99D \uB3C4\uC2DC\uC5D0 \uBCF4\uB7EC\uAC00\uAE30` : lang === "ZH" ? `\u67E5\u770B\u5168\u90E8 ${liveCasesCount} \u4EFD\u6838\u67E5\u6863\u6848` : `View All ${liveCasesCount} Empirical Dossiers`;
+      safeSetText("homeTopPicksViewAll", viewAllDynamicText);
       safeSetText("newsHeaderBadge", t.newsHeaderBadge);
       safeSetText("newsHeaderTitle", t.newsHeaderTitle);
       safeSetText("newsHeaderDesc", t.newsHeaderDesc);
