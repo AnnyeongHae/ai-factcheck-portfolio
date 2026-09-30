@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T00:45:57.267Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T01:01:47.204Z */
 
 (() => {
   // src/js/core/config.js
@@ -974,8 +974,11 @@
       safeSetText("timelineTitleText", (t.timelineTitle || "\uB2F9\uC77C 24\uC2DC\uAC04 \uC218\uC9D1 \uD0C0\uC784\uB77C\uC778") + " (" + curKstDateStrForTitle + ")");
       safeSetText("timelineSub", t.timelineSub);
       safeSetText("timelineBadgeText", t.timelineBadge);
-      safeSetText("timelineLegendText", t.timelineLegend);
-      safeSetHtml("timelineFooterText", t.timelineFooterPrefix + ' <b class="text-indigo-700">0' + (lang === "KO" ? "\uAC74" : lang === "ZH" ? "\u6761" : " items") + "</b>");
+      const curTlData = typeof window !== "undefined" && window.timeline24hData ? window.timeline24hData : [];
+      const totCollectedTl = curTlData.reduce((acc, cur) => acc + (cur.inbox_count || 0), 0);
+      const totEnrichedTl = curTlData.reduce((acc, cur) => acc + (cur.enriched_count !== void 0 ? cur.enriched_count : (cur.news_count || 0) + (cur.model_count || 0)), 0);
+      const tlUnit = lang === "KO" ? "\uAC74" : lang === "ZH" ? "\u6761" : " items";
+      safeSetHtml("timelineFooterText", `\u26A1 ${t.timelineFooterPrefix || "\uB2F9\uC77C \uCD1D \uC218\uC9D1\uB7C9:"} <b class="text-indigo-700">${totCollectedTl.toLocaleString()}${tlUnit}</b> \u2502 \u2728 AI ${totEnrichedTl.toLocaleString()}${tlUnit}`);
       safeSetText("trendRadarTitleText", t.trendRadarTitle);
       safeSetText("trendRadarSub", t.trendRadarSub);
       safeSetHtml("trendRadarFooter", `<span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i> ` + (lang === "KO" ? "LLM \uC790\uB3D9 \uD2B8\uB80C\uB4DC \uCD94\uCD9C (OpenRouter 0\uC6D0 \uB77C\uC6B0\uD305)" : lang === "ZH" ? "LLM \u81EA\u52A8\u5316\u8D8B\u52BF\u63D0\u53D6 (OpenRouter 0\u5143\u8DEF\u7531)" : "Automated LLM Trend Extraction (OpenRouter Free Tier)") + `</span>`);
@@ -1503,6 +1506,10 @@
           const liveInbox = data.counts.inbox_deduped || data.counts.inbox_total;
           const liveModels = data.counts.models_total;
           const liveNews = data.counts.news_total;
+          if (liveInbox) snapshotStats.inbox_total_count = liveInbox;
+          if (liveModels) snapshotStats.models_total_count = liveModels;
+          if (liveNews) snapshotStats.news_total_count = liveNews;
+          if (data.counts.factchecks_verified) snapshotStats.total_cases = data.counts.factchecks_verified;
           const hInbox = document.getElementById("headerInboxCount");
           if (hInbox && liveInbox) hInbox.textContent = `(${liveInbox.toLocaleString()})`;
           const statInbox = document.getElementById("statValInbox");
@@ -1531,10 +1538,15 @@
                 btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
               }
             } else {
+              window._allClassifiedCompleted = false;
               if (txt && !window._autoWorkerRunning) {
-                txt.textContent = `\u26A1 AI \uC694\uC57D \uC2E4\uD589 (${unclass}\uAC74 \uB300\uAE30)`;
+                txt.textContent = `\u26A1 AI \uC694\uC57D \uC2E4\uD589 (${unclass.toLocaleString()}\uAC74 \uB300\uAE30)`;
               } else if (window._autoWorkerRunning && !window._autoWorkerPaused) {
-                if (txt) txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI \uC694\uC57D \uC911 (\uC794\uC5EC: ${unclass}\uAC74)`;
+                if (txt) txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI \uC694\uC57D \uC911 (\uC794\uC5EC: ${unclass.toLocaleString()}\uAC74)`;
+              }
+              if (btn && !window._autoWorkerRunning) {
+                btn.disabled = false;
+                btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-indigo-100";
               }
             }
           }
@@ -1599,20 +1611,23 @@
                 is_future: liveSlot.hour > curKstH
               }));
               window._timelineIsPendingToday = false;
+              if (typeof window.renderTelemetryCharts === "function") {
+                window.renderTelemetryCharts();
+              }
             } else if (data.timeline_24h_baseline && Array.isArray(data.timeline_24h_baseline) && data.timeline_24h_baseline.length > 0) {
-              window.timeline24hData = data.timeline_24h_baseline.map((bSlot) => ({
-                ...bSlot,
-                is_current: bSlot.hour <= curKstH && curKstH < bSlot.hour + 6,
-                is_future: bSlot.hour > curKstH,
-                is_pending_today: bSlot.hour <= curKstH && curKstH < bSlot.hour + 6
-              }));
-              window._timelineIsPendingToday = true;
-            } else {
-              window.timeline24hData = data.timeline_24h_live;
-              window._timelineIsPendingToday = true;
-            }
-            if (typeof window.renderTelemetryCharts === "function") {
-              window.renderTelemetryCharts();
+              const baseHasData = data.timeline_24h_baseline.some((s) => s.inbox_count > 0 || s.enriched_count > 0);
+              if (baseHasData) {
+                window.timeline24hData = data.timeline_24h_baseline.map((bSlot) => ({
+                  ...bSlot,
+                  is_current: bSlot.hour <= curKstH && curKstH < bSlot.hour + 6,
+                  is_future: bSlot.hour > curKstH,
+                  is_pending_today: bSlot.hour <= curKstH && curKstH < bSlot.hour + 6
+                }));
+                window._timelineIsPendingToday = true;
+                if (typeof window.renderTelemetryCharts === "function") {
+                  window.renderTelemetryCharts();
+                }
+              }
             }
           }
           try {
@@ -1643,28 +1658,16 @@
             console.warn("[Live DB Sync] Portfolios live sync skipped:", pErr.message);
           }
           try {
-            const inbRes = await fetch(APP_CONFIG.apiUrl("/api/inbox?tab=INBOX&limit=50&sort=updated"), { cache: "default" });
+            const inbRes = await fetch(APP_CONFIG.apiUrl("/api/inbox?tab=INBOX&limit=30&sort=updated"), { cache: "default" });
             if (inbRes.ok) {
               const inbData = await inbRes.json();
               if (inbData.status === "success" && Array.isArray(inbData.items) && inbData.items.length > 0) {
-                const currentInbox = window.liveInboxData || [];
-                const mapExisting = new Map(currentInbox.map((x) => [x.inbox_id || x.id, x]));
-                let added = 0;
                 for (const newItem of inbData.items) {
                   const nid = newItem.inbox_id || newItem.id;
                   if (!nid) continue;
-                  if (mapExisting.has(nid)) {
-                    Object.assign(mapExisting.get(nid), newItem);
-                  } else {
-                    currentInbox.unshift(newItem);
-                    mapExisting.set(nid, newItem);
-                    added++;
+                  if (AppStore._itemsMap.has(nid)) {
+                    Object.assign(AppStore._itemsMap.get(nid), newItem);
                   }
-                }
-                window.liveInboxData = currentInbox;
-                AppStore._inbox = currentInbox;
-                if (added > 0 && window.currentView === "inbox" && typeof window.renderInbox === "function") {
-                  window.renderInbox();
                 }
               }
             }
@@ -5219,6 +5222,11 @@
     window.currentInboxSort = val;
     renderInbox();
   }
+  function toggleInboxIncludePending(checked) {
+    window.inboxIncludePending = !!checked;
+    window.currentInboxPage = 1;
+    renderInbox();
+  }
   function setInboxLangFilter(lang) {
     window.currentInboxPage = 1;
     window.currentInboxLang = lang;
@@ -5311,6 +5319,7 @@
     if (curType && curType !== "ALL") params.set("type", curType);
     if (curSearch) params.set("search", curSearch);
     if (curSort) params.set("sort", curSort);
+    if (window.inboxIncludePending) params.set("include_pending", "true");
     return params.toString();
   }
   async function fetchInboxFromDb(page = window.currentInboxPage || currentInboxPage || 1, bypassCache = false) {
@@ -5472,8 +5481,11 @@
         const matchesType = curType === "ALL" ? true : itemType === curType;
         const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || "General";
         const matchesTech = curTech === "ALL" || itemTech.toLowerCase().includes(curTech.toLowerCase());
+        const includePending = !!window.inboxIncludePending;
         if (curSort === "pending" && (item.ai_enrichment && item.ai_enrichment.enriched_at && item.is_classified)) return false;
-        if ((curSort === "date-audit-desc" || curSort === "date-audit-asc") && (!item.ai_enrichment || !item.ai_enrichment.enriched_at)) return false;
+        if (!includePending && (curSort === "date-audit-desc" || curSort === "date-audit-asc")) {
+          if (!item.is_classified || !item.ai_enrichment || !item.ai_enrichment.enriched_at) return false;
+        }
         const text = ((item.title || "") + " " + (item.title_ko || "") + " " + (item.description || "")).toLowerCase();
         const matchesSearch = !curSearch || text.includes(curSearch.toLowerCase());
         return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
@@ -5809,6 +5821,7 @@
     window.updateSearchClearBtn = updateSearchClearBtn;
     window.renderInbox = renderInbox;
     window.setInboxSort = setInboxSort;
+    window.toggleInboxIncludePending = toggleInboxIncludePending;
     window.setInboxLangFilter = setInboxLangFilter;
     window.setInboxTypeFilter = setInboxTypeFilter;
     window.setInboxTechFilter = setInboxTechFilter;

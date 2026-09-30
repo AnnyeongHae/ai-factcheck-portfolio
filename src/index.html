@@ -1087,7 +1087,13 @@
           </div>
         </div>
 
-        <div class="flex items-center gap-2 w-full md:w-auto justify-end">
+        <div class="flex items-center gap-2 w-full md:w-auto justify-end flex-wrap">
+          <!-- 🔬 Checkbox: Include Pending AI Summaries -->
+          <label class="flex items-center gap-1.5 text-xs text-ink-secondary hover:text-ink-primary cursor-pointer select-none bg-surface-subtle px-2.5 py-1.5 rounded-xl border border-surface-border">
+            <input type="checkbox" id="inboxIncludePendingCheckbox" onchange="toggleInboxIncludePending(this.checked)" class="rounded text-indigo-600 focus:ring-indigo-500 cursor-pointer">
+            <span class="text-[11px] font-medium">🔬 AI요약 대기중 함께 보기</span>
+          </label>
+
           <!-- 🌟 Standardized Sort Selector (날짜순 / 표준화 인기순) -->
           <div class="flex items-center gap-1.5 bg-surface-subtle px-3 py-1.5 rounded-xl border border-surface-border text-xs shrink-0">
             <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-indigo-600"></i>

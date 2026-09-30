@@ -571,8 +571,11 @@ export function setLanguage(lang) {
     safeSetText('timelineTitleText', (t.timelineTitle || '당일 24시간 수집 타임라인') + ' (' + curKstDateStrForTitle + ')');
     safeSetText('timelineSub', t.timelineSub);
     safeSetText('timelineBadgeText', t.timelineBadge);
-    safeSetText('timelineLegendText', t.timelineLegend);
-    safeSetHtml('timelineFooterText', t.timelineFooterPrefix + ' <b class="text-indigo-700">0' + (lang === 'KO' ? '건' : (lang === 'ZH' ? '条' : ' items')) + '</b>');
+    const curTlData = typeof window !== 'undefined' && window.timeline24hData ? window.timeline24hData : [];
+    const totCollectedTl = curTlData.reduce((acc, cur) => acc + (cur.inbox_count || 0), 0);
+    const totEnrichedTl = curTlData.reduce((acc, cur) => acc + (cur.enriched_count !== undefined ? cur.enriched_count : ((cur.news_count || 0) + (cur.model_count || 0))), 0);
+    const tlUnit = lang === 'KO' ? '건' : (lang === 'ZH' ? '条' : ' items');
+    safeSetHtml('timelineFooterText', `⚡ ${t.timelineFooterPrefix || '당일 총 수집량:'} <b class="text-indigo-700">${totCollectedTl.toLocaleString()}${tlUnit}</b> │ ✨ AI ${totEnrichedTl.toLocaleString()}${tlUnit}`);
     safeSetText('trendRadarTitleText', t.trendRadarTitle);
     safeSetText('trendRadarSub', t.trendRadarSub);
     safeSetHtml('trendRadarFooter', `<span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i> ` + (lang === 'KO' ? 'LLM 자동 트렌드 추출 (OpenRouter 0원 라우팅)' : (lang === 'ZH' ? 'LLM 自动化趋势提取 (OpenRouter 0元路由)' : 'Automated LLM Trend Extraction (OpenRouter Free Tier)')) + `</span>`);

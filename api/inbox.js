@@ -277,10 +277,14 @@ module.exports = async (req, res) => {
     // 7. 🔬 Strict AI Audit Date Filtering & Pre-Analysis Pending Filter
     const sort = req.query?.sort;
     const status = req.query?.status;
+    const includePending = req.query?.include_pending === 'true' || req.query?.show_pending === 'true';
+
     if (status === 'pending' || sort === 'pending') {
       conditions.push("(raw_payload->'ai_enrichment' IS NULL OR is_classified = FALSE OR raw_payload->'ai_enrichment'->>'enriched_at' IS NULL)");
     } else if (sort === 'date-audit-desc' || sort === 'date-audit-asc') {
-      conditions.push("(raw_payload ? 'ai_enrichment' AND (raw_payload->'ai_enrichment') IS NOT NULL AND (raw_payload->'ai_enrichment'->>'enriched_at') IS NOT NULL)");
+      if (!includePending) {
+        conditions.push("(is_classified = TRUE AND raw_payload ? 'ai_enrichment' AND (raw_payload->'ai_enrichment') IS NOT NULL AND (raw_payload->'ai_enrichment'->>'enriched_at') IS NOT NULL)");
+      }
     }
 
     const whereClause = conditions.length > 0 ? ('WHERE ' + conditions.join(' AND ')) : '';

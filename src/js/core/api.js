@@ -437,6 +437,12 @@ export async function syncFromLiveDB(force = false) {
         const liveModels = data.counts.models_total;
         const liveNews = data.counts.news_total;
 
+        // Preserve live counts in snapshotStats so subsequent UI refreshes maintain 6000+ count
+        if (liveInbox) snapshotStats.inbox_total_count = liveInbox;
+        if (liveModels) snapshotStats.models_total_count = liveModels;
+        if (liveNews) snapshotStats.news_total_count = liveNews;
+        if (data.counts.factchecks_verified) snapshotStats.total_cases = data.counts.factchecks_verified;
+
         const hInbox = document.getElementById('headerInboxCount');
         if (hInbox && liveInbox) hInbox.textContent = `(${liveInbox.toLocaleString()})`;
 
@@ -474,10 +480,15 @@ export async function syncFromLiveDB(force = false) {
               btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
             }
           } else {
+            window._allClassifiedCompleted = false;
             if (txt && !window._autoWorkerRunning) {
-              txt.textContent = `⚡ AI 요약 실행 (${unclass}건 대기)`;
+              txt.textContent = `⚡ AI 요약 실행 (${unclass.toLocaleString()}건 대기)`;
             } else if (window._autoWorkerRunning && !window._autoWorkerPaused) {
-              if (txt) txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 중 (잔여: ${unclass}건)`;
+              if (txt) txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 중 (잔여: ${unclass.toLocaleString()}건)`;
+            }
+            if (btn && !window._autoWorkerRunning) {
+              btn.disabled = false;
+              btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-indigo-100";
             }
           }
         }
@@ -540,7 +551,7 @@ export async function syncFromLiveDB(force = false) {
           if (bwBar && vt.bandwidth_gb) bwBar.style.width = `${vt.bandwidth_gb.used_pct}%`;
         }
 
-        // 24h Timeline Hydration from Live DB
+        // 24h Timeline Hydration from Live DB (Guarded against wiping with 0s)
         if (data.timeline_24h_live && Array.isArray(data.timeline_24h_live) && data.timeline_24h_live.length > 0) {
           const curKstH = getDynamicKstHour();
           const liveHasData = data.timeline_24h_live.some(s => (s.inbox_count > 0 || s.enriched_count > 0));
@@ -551,20 +562,23 @@ export async function syncFromLiveDB(force = false) {
               is_future: (liveSlot.hour > curKstH)
             }));
             window._timelineIsPendingToday = false;
+            if (typeof window.renderTelemetryCharts === 'function') {
+              window.renderTelemetryCharts();
+            }
           } else if (data.timeline_24h_baseline && Array.isArray(data.timeline_24h_baseline) && data.timeline_24h_baseline.length > 0) {
-            window.timeline24hData = data.timeline_24h_baseline.map(bSlot => ({
-              ...bSlot,
-              is_current: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6),
-              is_future: (bSlot.hour > curKstH),
-              is_pending_today: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6)
-            }));
-            window._timelineIsPendingToday = true;
-          } else {
-            window.timeline24hData = data.timeline_24h_live;
-            window._timelineIsPendingToday = true;
-          }
-          if (typeof window.renderTelemetryCharts === 'function') {
-            window.renderTelemetryCharts();
+            const baseHasData = data.timeline_24h_baseline.some(s => (s.inbox_count > 0 || s.enriched_count > 0));
+            if (baseHasData) {
+              window.timeline24hData = data.timeline_24h_baseline.map(bSlot => ({
+                ...bSlot,
+                is_current: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6),
+                is_future: (bSlot.hour > curKstH),
+                is_pending_today: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6)
+              }));
+              window._timelineIsPendingToday = true;
+              if (typeof window.renderTelemetryCharts === 'function') {
+                window.renderTelemetryCharts();
+              }
+            }
           }
         }
 
@@ -591,30 +605,18 @@ export async function syncFromLiveDB(force = false) {
           console.warn('[Live DB Sync] Portfolios live sync skipped:', pErr.message);
         }
 
-        // Live Inbox Sync (Update/Unshift Latest DB records)
+        // Background Inbox metadata update (Silently merge enrichment fields into item map, do NOT violently unshift or re-render active inbox)
         try {
-          const inbRes = await fetch(APP_CONFIG.apiUrl('/api/inbox?tab=INBOX&limit=50&sort=updated'), { cache: 'default' });
+          const inbRes = await fetch(APP_CONFIG.apiUrl('/api/inbox?tab=INBOX&limit=30&sort=updated'), { cache: 'default' });
           if (inbRes.ok) {
             const inbData = await inbRes.json();
             if (inbData.status === 'success' && Array.isArray(inbData.items) && inbData.items.length > 0) {
-              const currentInbox = window.liveInboxData || [];
-              const mapExisting = new Map(currentInbox.map(x => [x.inbox_id || x.id, x]));
-              let added = 0;
               for (const newItem of inbData.items) {
                 const nid = newItem.inbox_id || newItem.id;
                 if (!nid) continue;
-                if (mapExisting.has(nid)) {
-                  Object.assign(mapExisting.get(nid), newItem);
-                } else {
-                  currentInbox.unshift(newItem);
-                  mapExisting.set(nid, newItem);
-                  added++;
+                if (AppStore._itemsMap.has(nid)) {
+                  Object.assign(AppStore._itemsMap.get(nid), newItem);
                 }
-              }
-              window.liveInboxData = currentInbox;
-              AppStore._inbox = currentInbox;
-              if (added > 0 && window.currentView === 'inbox' && typeof window.renderInbox === 'function') {
-                window.renderInbox();
               }
             }
           }

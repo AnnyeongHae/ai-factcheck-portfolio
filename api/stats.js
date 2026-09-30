@@ -30,10 +30,11 @@ function getStaticStatsFallback() {
     }
 
     if (d && d.tier1_counts) {
-      const totalInbox = d.inbox_total_count || d.all_inbox_count || 3223;
-      const totalFactchecks = d.total_cases || (d.cases ? d.cases.length : 58);
-      const rawModels = d.models_total_count || (d.model_items ? d.model_items.length : 206);
-      const rawNews = d.news_total_count || (d.news_items ? d.news_items.length : 1394);
+      const totalInbox = d.inbox_total_count || d.all_inbox_count || 6011;
+      const totalFactchecks = d.total_cases || (d.cases ? d.cases.length : 63);
+      const rawModels = d.models_total_count || (d.model_items ? d.model_items.length : 1147);
+      const rawNews = d.news_total_count || (d.news_items ? d.news_items.length : 4864);
+      const unclass = d.inbox_unclassified !== undefined ? d.inbox_unclassified : 628;
 
       return {
         status: 'success',
@@ -44,7 +45,7 @@ function getStaticStatsFallback() {
         counts: {
           inbox_total: totalInbox,
           inbox_deduped: totalInbox,
-          inbox_unclassified: 0,
+          inbox_unclassified: unclass,
           factchecks_verified: totalFactchecks,
           models_total: rawModels,
           news_total: rawNews,
@@ -71,12 +72,13 @@ function getStaticStatsFallback() {
 module.exports = async (req, res) => {
   if (handleOptions(req, res, 'GET, OPTIONS')) return;
   setCorsHeaders(res, 'GET, OPTIONS');
-  res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=86400');
+  res.setHeader('Cache-Control', 'public, s-maxage=30, stale-while-revalidate=60');
 
   const pool = getDbPool();
   const providerInfo = getDbProviderInfo();
 
   if (!pool) {
+    res.setHeader('Cache-Control', 'no-cache, no-store');
     const fallback = getStaticStatsFallback();
     if (fallback) {
       return res.status(200).json(fallback);
@@ -390,6 +392,7 @@ module.exports = async (req, res) => {
 
   } catch (err) {
     console.error('[API Stats Error]:', err.message || err);
+    res.setHeader('Cache-Control', 'no-cache, no-store');
     const fallback = getStaticStatsFallback();
     if (fallback) {
       fallback.warning = 'Served from static fallback due to DB connection issue';

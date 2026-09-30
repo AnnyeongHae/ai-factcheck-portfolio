@@ -158,6 +158,7 @@ import {
 import {
   renderInbox,
   setInboxSort,
+  toggleInboxIncludePending,
   setInboxLangFilter,
   setInboxTypeFilter,
   setInboxTechFilter,
@@ -222,6 +223,7 @@ if (typeof window !== 'undefined') {
   // Inbox
   window.renderInbox = renderInbox;
   window.setInboxSort = setInboxSort;
+  window.toggleInboxIncludePending = toggleInboxIncludePending;
   window.setInboxLangFilter = setInboxLangFilter;
   window.setInboxTypeFilter = setInboxTypeFilter;
   window.setInboxTechFilter = setInboxTechFilter;

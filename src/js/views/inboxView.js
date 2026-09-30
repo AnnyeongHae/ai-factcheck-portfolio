@@ -40,6 +40,12 @@ export function setInboxSort(val) {
   renderInbox();
 }
 
+export function toggleInboxIncludePending(checked) {
+  window.inboxIncludePending = !!checked;
+  window.currentInboxPage = 1;
+  renderInbox();
+}
+
 export function setInboxLangFilter(lang) {
   window.currentInboxPage = 1;
   window.currentInboxLang = lang;
@@ -141,6 +147,7 @@ function getInboxCacheKey(page) {
   if (curType && curType !== 'ALL') params.set('type', curType);
   if (curSearch) params.set('search', curSearch);
   if (curSort) params.set('sort', curSort);
+  if (window.inboxIncludePending) params.set('include_pending', 'true');
   return params.toString();
 }
 
@@ -323,8 +330,11 @@ export async function renderInbox() {
       const matchesType = curType === 'ALL' ? true : (itemType === curType);
       const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || 'General';
       const matchesTech = curTech === 'ALL' || (itemTech.toLowerCase().includes(curTech.toLowerCase()));
+      const includePending = !!window.inboxIncludePending;
       if (curSort === 'pending' && (item.ai_enrichment && item.ai_enrichment.enriched_at && item.is_classified)) return false;
-      if ((curSort === 'date-audit-desc' || curSort === 'date-audit-asc') && (!item.ai_enrichment || !item.ai_enrichment.enriched_at)) return false;
+      if (!includePending && (curSort === 'date-audit-desc' || curSort === 'date-audit-asc')) {
+        if (!item.is_classified || !item.ai_enrichment || !item.ai_enrichment.enriched_at) return false;
+      }
       const text = ((item.title || '') + ' ' + (item.title_ko || '') + ' ' + (item.description || '')).toLowerCase();
       const matchesSearch = !curSearch || text.includes(curSearch.toLowerCase());
       return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
