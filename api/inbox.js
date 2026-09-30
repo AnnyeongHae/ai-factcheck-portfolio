@@ -277,7 +277,7 @@ module.exports = async (req, res) => {
     // 7. 🔬 Strict AI Audit Date Filtering & Pre-Analysis Pending Filter
     const sort = req.query?.sort;
     const status = req.query?.status;
-    const includePending = req.query?.include_pending === 'true' || req.query?.show_pending === 'true';
+    const includePending = req.query?.include_pending === 'true' || req.query?.includePending === 'true' || req.query?.show_pending === 'true';
 
     if (status === 'pending' || sort === 'pending') {
       conditions.push("(raw_payload->'ai_enrichment' IS NULL OR is_classified = FALSE OR raw_payload->'ai_enrichment'->>'enriched_at' IS NULL)");
