@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T01:01:47.204Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T01:22:50.002Z */
 
 (() => {
   // src/js/core/config.js
@@ -1131,27 +1131,96 @@
     window.showToast = showToast;
   }
 
+  // src/js/core/cache.js
+  var memoryCache = /* @__PURE__ */ new Map();
+  var DEFAULT_TTL_MS = 60 * 1e3;
+  var ClientCache = {
+    get(key, maxAgeMs = DEFAULT_TTL_MS) {
+      const now = Date.now();
+      if (memoryCache.has(key)) {
+        const entry = memoryCache.get(key);
+        if (entry && now - entry.timestamp < maxAgeMs) {
+          return entry.data;
+        }
+        memoryCache.delete(key);
+      }
+      try {
+        if (typeof window !== "undefined" && window.sessionStorage) {
+          const raw = sessionStorage.getItem("fc_swr_" + key);
+          if (raw) {
+            const entry = JSON.parse(raw);
+            if (entry && now - entry.timestamp < maxAgeMs) {
+              memoryCache.set(key, entry);
+              return entry.data;
+            }
+            sessionStorage.removeItem("fc_swr_" + key);
+          }
+        }
+      } catch (e) {
+      }
+      return null;
+    },
+    set(key, data) {
+      const now = Date.now();
+      const entry = { data, timestamp: now };
+      memoryCache.set(key, entry);
+      try {
+        if (typeof window !== "undefined" && window.sessionStorage) {
+          sessionStorage.setItem("fc_swr_" + key, JSON.stringify(entry));
+        }
+      } catch (e) {
+      }
+    },
+    clear(prefix = "") {
+      memoryCache.clear();
+      try {
+        if (typeof window !== "undefined" && window.sessionStorage) {
+          if (!prefix) {
+            const keysToRemove = [];
+            for (let i = 0; i < sessionStorage.length; i++) {
+              const k = sessionStorage.key(i);
+              if (k && k.startsWith("fc_swr_")) keysToRemove.push(k);
+            }
+            keysToRemove.forEach((k) => sessionStorage.removeItem(k));
+          } else {
+            sessionStorage.removeItem("fc_swr_" + prefix);
+          }
+        }
+      } catch (e) {
+      }
+    }
+  };
+
   // src/js/core/api.js
   async function bootstrapApplicationData() {
     console.log("[Bootstrap] Initializing asynchronous DB-First data hydration...");
     let loadedFromEdge = false;
-    try {
-      const portfoliosApiUrl = APP_CONFIG.apiUrl("/api/portfolios?summary=true");
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 6e3);
-      const edgeRes = await fetch(portfoliosApiUrl, { signal: controller.signal });
-      clearTimeout(timeoutId);
-      if (edgeRes.ok) {
-        const edgeData = await edgeRes.json();
-        if (edgeData && edgeData.success && Array.isArray(edgeData.portfolios) && edgeData.portfolios.length > 0) {
-          AppStore.setCases(edgeData.portfolios);
-          loadedFromEdge = true;
-          if (edgeData.db_provider) APP_CONFIG.setDbProvider(edgeData.db_provider);
-          console.log(`[Bootstrap] \u26A1 [DB-First Edge SWR] Loaded ${edgeData.portfolios.length} dossiers directly from ${APP_CONFIG.dbProvider} Edge API.`);
+    const cachedPortfolios = ClientCache.get("portfolios_summary", 12e4);
+    if (cachedPortfolios && cachedPortfolios.success && Array.isArray(cachedPortfolios.portfolios) && cachedPortfolios.portfolios.length > 0) {
+      AppStore.setCases(cachedPortfolios.portfolios);
+      loadedFromEdge = true;
+      if (cachedPortfolios.db_provider) APP_CONFIG.setDbProvider(cachedPortfolios.db_provider);
+      console.log(`[Bootstrap] \u26A1 [Session SWR Cache] Restored ${cachedPortfolios.portfolios.length} dossiers instantly.`);
+    } else {
+      try {
+        const portfoliosApiUrl = APP_CONFIG.apiUrl("/api/portfolios?summary=true");
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 6e3);
+        const edgeRes = await fetch(portfoliosApiUrl, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (edgeRes.ok) {
+          const edgeData = await edgeRes.json();
+          if (edgeData && edgeData.success && Array.isArray(edgeData.portfolios) && edgeData.portfolios.length > 0) {
+            AppStore.setCases(edgeData.portfolios);
+            loadedFromEdge = true;
+            ClientCache.set("portfolios_summary", edgeData);
+            if (edgeData.db_provider) APP_CONFIG.setDbProvider(edgeData.db_provider);
+            console.log(`[Bootstrap] \u26A1 [DB-First Edge SWR] Loaded ${edgeData.portfolios.length} dossiers directly from ${APP_CONFIG.dbProvider} Edge API.`);
+          }
         }
+      } catch (edgeErr) {
+        console.warn("[Bootstrap] Edge API first-paint timeout or offline, falling back to static snapshot:", edgeErr.message);
       }
-    } catch (edgeErr) {
-      console.warn("[Bootstrap] Edge API first-paint timeout or offline, falling back to static snapshot:", edgeErr.message);
     }
     try {
       let staticRes = await fetch("data.json", { cache: "default" });
@@ -1657,23 +1726,6 @@
           } catch (pErr) {
             console.warn("[Live DB Sync] Portfolios live sync skipped:", pErr.message);
           }
-          try {
-            const inbRes = await fetch(APP_CONFIG.apiUrl("/api/inbox?tab=INBOX&limit=30&sort=updated"), { cache: "default" });
-            if (inbRes.ok) {
-              const inbData = await inbRes.json();
-              if (inbData.status === "success" && Array.isArray(inbData.items) && inbData.items.length > 0) {
-                for (const newItem of inbData.items) {
-                  const nid = newItem.inbox_id || newItem.id;
-                  if (!nid) continue;
-                  if (AppStore._itemsMap.has(nid)) {
-                    Object.assign(AppStore._itemsMap.get(nid), newItem);
-                  }
-                }
-              }
-            }
-          } catch (inbErr) {
-            console.warn("[Live DB Sync] Inbox sync skipped:", inbErr.message);
-          }
           if (data.actions_quota && data.actions_quota.total_minutes !== void 0) {
             window.actionsTelemetryData = window.actionsTelemetryData || {};
             window.actionsTelemetryData.monthly_used_minutes = data.actions_quota.total_minutes;
@@ -1948,6 +2000,13 @@
         await new Promise((r) => setTimeout(r, 1e4));
       }
       await new Promise((r) => setTimeout(r, 3500));
+    }
+    if (processedInThisSession > 0) {
+      ClientCache.clear();
+      try {
+        if (typeof window.renderInbox === "function") window.renderInbox(false, true);
+      } catch (e) {
+      }
     }
     _autoWorkerRunning = false;
     window._autoWorkerRunning = false;
@@ -4696,9 +4755,10 @@
   async function fetchNewsFromDb(page = window.currentNewsPage || currentNewsPage || 1, bypassCache = false) {
     const baseUrl = APP_CONFIG.apiUrl("/api/inbox");
     const cacheKey = getNewsCacheKey(page);
-    if (!bypassCache && newsDbCache.has(cacheKey)) {
-      const cached = newsDbCache.get(cacheKey);
-      if (cached && Date.now() - (cached.timestamp || 0) < 3e4) {
+    if (!bypassCache) {
+      const cached = ClientCache.get(cacheKey, 6e4);
+      if (cached) {
+        newsDbCache.set(cacheKey, cached);
         return cached;
       }
     }
@@ -4721,6 +4781,7 @@
         timestamp: Date.now()
       };
       newsDbCache.set(cacheKey, result);
+      ClientCache.set(cacheKey, result);
       return result;
     }
     throw new Error("API returned invalid payload");
@@ -4745,36 +4806,6 @@
       <div class="h-4 bg-slate-200 rounded w-1/2"></div>
     </div>
   `).join("");
-  }
-  function preloadTopNewsFilters() {
-    const topFilters = [
-      { tier1: "ALL" },
-      { tier1: "TECH_COMPUTING" },
-      { tier1: "SCIENCE_RESEARCH" },
-      { tier1: "ECONOMY_FINANCE" },
-      { tier1: "LAW_CRIME_JUSTICE" },
-      { facet: "CROSS_SPIKE" },
-      { facet: "MODEL" }
-    ];
-    const baseUrl = APP_CONFIG.apiUrl("/api/inbox");
-    topFilters.forEach((f, idx) => {
-      setTimeout(() => {
-        const p = new URLSearchParams({ limit: PAGE_SIZE, page: 1, ...f });
-        const key = p.toString();
-        if (!newsDbCache.has(key)) {
-          fetch(`${baseUrl}?${key}`).then((r) => r.json()).then((data) => {
-            if (data && data.status === "success") {
-              newsDbCache.set(key, {
-                total: data.total || 0,
-                totalPages: data.total_pages || Math.ceil((data.total || 0) / PAGE_SIZE) || 1,
-                items: data.items || []
-              });
-            }
-          }).catch(() => {
-          });
-        }
-      }, 150 + idx * 100);
-    });
   }
   function setNewsCategoryFilter(t1) {
     window.currentNewsPage = 1;
@@ -5308,7 +5339,6 @@
   var inboxFetchAbortController = null;
   function getInboxCacheKey(page) {
     const params = new URLSearchParams();
-    params.set("tab", "INBOX");
     params.set("limit", PAGE_SIZE);
     params.set("page", page);
     const curSrc = window.currentInboxSource || currentInboxSource || "ALL";
@@ -5325,9 +5355,10 @@
   async function fetchInboxFromDb(page = window.currentInboxPage || currentInboxPage || 1, bypassCache = false) {
     const baseUrl = APP_CONFIG.apiUrl("/api/inbox");
     const cacheKey = getInboxCacheKey(page);
-    if (!bypassCache && inboxDbCache.has(cacheKey)) {
-      const cached = inboxDbCache.get(cacheKey);
-      if (cached && Date.now() - (cached.timestamp || 0) < 3e4) {
+    if (!bypassCache) {
+      const cached = ClientCache.get(cacheKey, 6e4);
+      if (cached) {
+        inboxDbCache.set(cacheKey, cached);
         return cached;
       }
     }
@@ -5350,6 +5381,7 @@
         timestamp: Date.now()
       };
       inboxDbCache.set(cacheKey, result);
+      ClientCache.set(cacheKey, result);
       return result;
     }
     throw new Error("API returned invalid payload");
@@ -5895,9 +5927,7 @@
       setLanguage(savedLang);
       setInterval(updateCronCountdown, 1e3);
       updateCronCountdown();
-      setTimeout(preloadTopNewsFilters, 1500);
-      setTimeout(updateGlobalStatsUI, 2e3);
-      setTimeout(checkVoyageEmbeddingStatus, 800);
+      setTimeout(updateGlobalStatsUI, 1500);
       window.__APP_INITIALIZED__ = true;
       console.log("[App] \u{1F680} Modular architecture hydrated and fully ready.");
     };

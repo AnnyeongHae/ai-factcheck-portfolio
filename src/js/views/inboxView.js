@@ -130,12 +130,13 @@ export async function toggleQueueItem(inboxId, title) {
   showToast(isCurrentlyQueued ? `대기열에서 제외되었습니다.` : `[${title}] 항목이 대기열에 등록되었습니다.`);
 }
 
+import { ClientCache } from '../core/cache.js';
+
 const inboxDbCache = new Map();
 let inboxFetchAbortController = null;
 
 function getInboxCacheKey(page) {
   const params = new URLSearchParams();
-  params.set('tab', 'INBOX');
   params.set('limit', PAGE_SIZE);
   params.set('page', page);
   const curSrc = window.currentInboxSource || currentInboxSource || 'ALL';
@@ -155,9 +156,10 @@ export async function fetchInboxFromDb(page = window.currentInboxPage || current
   const baseUrl = APP_CONFIG.apiUrl('/api/inbox');
   const cacheKey = getInboxCacheKey(page);
 
-  if (!bypassCache && inboxDbCache.has(cacheKey)) {
-    const cached = inboxDbCache.get(cacheKey);
-    if (cached && (Date.now() - (cached.timestamp || 0) < 30000)) {
+  if (!bypassCache) {
+    const cached = ClientCache.get(cacheKey, 60000);
+    if (cached) {
+      inboxDbCache.set(cacheKey, cached);
       return cached;
     }
   }
@@ -179,6 +181,7 @@ export async function fetchInboxFromDb(page = window.currentInboxPage || current
       timestamp: Date.now()
     };
     inboxDbCache.set(cacheKey, result);
+    ClientCache.set(cacheKey, result);
     return result;
   }
   throw new Error('API returned invalid payload');

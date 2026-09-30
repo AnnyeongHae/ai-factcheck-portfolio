@@ -27,30 +27,40 @@ import {
 } from './store.js';
 import { getDynamicKstHour, getDynamicKstDate } from '../utils/dateTime.js';
 import { showToast } from '../components/toast.js';
+import { ClientCache } from './cache.js';
 
 export async function bootstrapApplicationData() {
   console.log('[Bootstrap] Initializing asynchronous DB-First data hydration...');
   let loadedFromEdge = false;
 
-  // 1. Primary Source: Vercel Edge SWR API (Cached at global CDN edge, 30~80ms response)
-  try {
-    const portfoliosApiUrl = APP_CONFIG.apiUrl('/api/portfolios?summary=true');
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 6000);
-    const edgeRes = await fetch(portfoliosApiUrl, { signal: controller.signal });
-    clearTimeout(timeoutId);
+  // 1. Primary Source: Session SWR Cache or Vercel Edge SWR API
+  const cachedPortfolios = ClientCache.get('portfolios_summary', 120000);
+  if (cachedPortfolios && cachedPortfolios.success && Array.isArray(cachedPortfolios.portfolios) && cachedPortfolios.portfolios.length > 0) {
+    AppStore.setCases(cachedPortfolios.portfolios);
+    loadedFromEdge = true;
+    if (cachedPortfolios.db_provider) APP_CONFIG.setDbProvider(cachedPortfolios.db_provider);
+    console.log(`[Bootstrap] ⚡ [Session SWR Cache] Restored ${cachedPortfolios.portfolios.length} dossiers instantly.`);
+  } else {
+    try {
+      const portfoliosApiUrl = APP_CONFIG.apiUrl('/api/portfolios?summary=true');
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6000);
+      const edgeRes = await fetch(portfoliosApiUrl, { signal: controller.signal });
+      clearTimeout(timeoutId);
 
-    if (edgeRes.ok) {
-      const edgeData = await edgeRes.json();
-      if (edgeData && edgeData.success && Array.isArray(edgeData.portfolios) && edgeData.portfolios.length > 0) {
-        AppStore.setCases(edgeData.portfolios);
-        loadedFromEdge = true;
-        if (edgeData.db_provider) APP_CONFIG.setDbProvider(edgeData.db_provider);
-        console.log(`[Bootstrap] ⚡ [DB-First Edge SWR] Loaded ${edgeData.portfolios.length} dossiers directly from ${APP_CONFIG.dbProvider} Edge API.`);
+      if (edgeRes.ok) {
+        const edgeData = await edgeRes.json();
+        if (edgeData && edgeData.success && Array.isArray(edgeData.portfolios) && edgeData.portfolios.length > 0) {
+          AppStore.setCases(edgeData.portfolios);
+          loadedFromEdge = true;
+          ClientCache.set('portfolios_summary', edgeData);
+          if (edgeData.db_provider) APP_CONFIG.setDbProvider(edgeData.db_provider);
+          console.log(`[Bootstrap] ⚡ [DB-First Edge SWR] Loaded ${edgeData.portfolios.length} dossiers directly from ${APP_CONFIG.dbProvider} Edge API.`);
+        }
       }
+    } catch (edgeErr) {
+      console.warn('[Bootstrap] Edge API first-paint timeout or offline, falling back to static snapshot:', edgeErr.message);
     }
-  } catch (edgeErr) {
-    console.warn('[Bootstrap] Edge API first-paint timeout or offline, falling back to static snapshot:', edgeErr.message);
   }
 
   try {
@@ -605,25 +615,6 @@ export async function syncFromLiveDB(force = false) {
           console.warn('[Live DB Sync] Portfolios live sync skipped:', pErr.message);
         }
 
-        // Background Inbox metadata update (Silently merge enrichment fields into item map, do NOT violently unshift or re-render active inbox)
-        try {
-          const inbRes = await fetch(APP_CONFIG.apiUrl('/api/inbox?tab=INBOX&limit=30&sort=updated'), { cache: 'default' });
-          if (inbRes.ok) {
-            const inbData = await inbRes.json();
-            if (inbData.status === 'success' && Array.isArray(inbData.items) && inbData.items.length > 0) {
-              for (const newItem of inbData.items) {
-                const nid = newItem.inbox_id || newItem.id;
-                if (!nid) continue;
-                if (AppStore._itemsMap.has(nid)) {
-                  Object.assign(AppStore._itemsMap.get(nid), newItem);
-                }
-              }
-            }
-          }
-        } catch (inbErr) {
-          console.warn('[Live DB Sync] Inbox sync skipped:', inbErr.message);
-        }
-
         // Actions Telemetry Sync
         if (data.actions_quota && data.actions_quota.total_minutes !== undefined) {
           window.actionsTelemetryData = window.actionsTelemetryData || {};
@@ -941,6 +932,13 @@ export async function startContinuousAiWorker() {
     }
 
     await new Promise(r => setTimeout(r, 3500));
+  }
+
+  if (processedInThisSession > 0) {
+    ClientCache.clear();
+    try {
+      if (typeof window.renderInbox === 'function') window.renderInbox(false, true);
+    } catch(e) {}
   }
 
   _autoWorkerRunning = false;

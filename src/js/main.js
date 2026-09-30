@@ -323,14 +323,8 @@ if (typeof document !== 'undefined') {
     setInterval(updateCronCountdown, 1000);
     updateCronCountdown();
 
-    // SWR preload top news filters
-    setTimeout(preloadTopNewsFilters, 1500);
-
     // Live stats sync
-    setTimeout(updateGlobalStatsUI, 2000);
-
-    // Initial Voyage embedding status check
-    setTimeout(checkVoyageEmbeddingStatus, 800);
+    setTimeout(updateGlobalStatsUI, 1500);
 
     // Signal modular app ready and hydrated
     window.__APP_INITIALIZED__ = true;

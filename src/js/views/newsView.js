@@ -23,6 +23,7 @@ import { i18n } from '../core/i18n.js';
 import { renderPagination } from '../components/pagination.js';
 import { createNewsCardElement } from '../components/newsCard.js';
 import { sortCollection } from '../utils/collectionSorter.js';
+import { ClientCache } from '../core/cache.js';
 
 let newsFetchAbortController = null;
 export const newsDbCache = new Map();
@@ -51,9 +52,10 @@ export async function fetchNewsFromDb(page = window.currentNewsPage || currentNe
   const baseUrl = APP_CONFIG.apiUrl('/api/inbox');
   const cacheKey = getNewsCacheKey(page);
 
-  if (!bypassCache && newsDbCache.has(cacheKey)) {
-    const cached = newsDbCache.get(cacheKey);
-    if (cached && (Date.now() - (cached.timestamp || 0) < 30000)) {
+  if (!bypassCache) {
+    const cached = ClientCache.get(cacheKey, 60000);
+    if (cached) {
+      newsDbCache.set(cacheKey, cached);
       return cached;
     }
   }
@@ -75,6 +77,7 @@ export async function fetchNewsFromDb(page = window.currentNewsPage || currentNe
       timestamp: Date.now()
     };
     newsDbCache.set(cacheKey, result);
+    ClientCache.set(cacheKey, result);
     return result;
   }
   throw new Error('API returned invalid payload');
@@ -104,34 +107,8 @@ export function renderNewsSkeleton(grid, count = 6) {
 }
 
 export function preloadTopNewsFilters() {
-  const topFilters = [
-    { tier1: 'ALL' },
-    { tier1: 'TECH_COMPUTING' },
-    { tier1: 'SCIENCE_RESEARCH' },
-    { tier1: 'ECONOMY_FINANCE' },
-    { tier1: 'LAW_CRIME_JUSTICE' },
-    { facet: 'CROSS_SPIKE' },
-    { facet: 'MODEL' }
-  ];
-  const baseUrl = APP_CONFIG.apiUrl('/api/inbox');
-
-  topFilters.forEach((f, idx) => {
-    setTimeout(() => {
-      const p = new URLSearchParams({ limit: PAGE_SIZE, page: 1, ...f });
-      const key = p.toString();
-      if (!newsDbCache.has(key)) {
-        fetch(`${baseUrl}?${key}`).then(r => r.json()).then(data => {
-          if (data && data.status === 'success') {
-            newsDbCache.set(key, {
-              total: data.total || 0,
-              totalPages: data.total_pages || Math.ceil((data.total || 0) / PAGE_SIZE) || 1,
-              items: data.items || []
-            });
-          }
-        }).catch(() => {});
-      }
-    }, 150 + idx * 100);
-  });
+  // Speculative eager preloading disabled to conserve bandwidth and serverless invocations.
+  // Content is loaded instantly on-demand with 60s Session SWR caching.
 }
 
 export function setNewsCategoryFilter(t1) {
