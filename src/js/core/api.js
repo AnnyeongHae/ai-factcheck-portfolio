@@ -635,6 +635,16 @@ export async function syncFromLiveDB(force = false) {
           }
         }
 
+        if (data.voyage_worker_runs && Array.isArray(data.voyage_worker_runs)) {
+          window.voyageWorkerRunsData = data.voyage_worker_runs;
+          try {
+            localStorage.setItem('voyage_runs_history_v1', JSON.stringify(data.voyage_worker_runs));
+          } catch (e) {}
+          if (window.currentRunsTab === 'voyage' && typeof window.renderRunsTable === 'function') {
+            window.renderRunsTable();
+          }
+        }
+
         return;
       }
     }

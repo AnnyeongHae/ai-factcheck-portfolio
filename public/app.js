@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T06:35:52.325Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-09-30T17:33:37.428Z */
 
 (() => {
   // src/js/core/config.js
@@ -1740,6 +1740,16 @@
           if (data.vercel_worker_runs && Array.isArray(data.vercel_worker_runs)) {
             window.vercelWorkerRunsData = data.vercel_worker_runs;
             if (window.currentRunsTab === "vercel" && typeof window.renderRunsTable === "function") {
+              window.renderRunsTable();
+            }
+          }
+          if (data.voyage_worker_runs && Array.isArray(data.voyage_worker_runs)) {
+            window.voyageWorkerRunsData = data.voyage_worker_runs;
+            try {
+              localStorage.setItem("voyage_runs_history_v1", JSON.stringify(data.voyage_worker_runs));
+            } catch (e) {
+            }
+            if (window.currentRunsTab === "voyage" && typeof window.renderRunsTable === "function") {
               window.renderRunsTable();
             }
           }
@@ -5908,6 +5918,11 @@
     console.log("[App] \u{1F680} Modular architecture components registered.");
   }
   if (typeof document !== "undefined") {
+    try {
+      const cachedVoyage = localStorage.getItem("voyage_runs_history_v1");
+      if (cachedVoyage) window.voyageWorkerRunsData = JSON.parse(cachedVoyage);
+    } catch (e) {
+    }
     const initApp = async () => {
       try {
         await bootstrapApplicationData();
@@ -5918,6 +5933,7 @@
       setLanguage(savedLang);
       setInterval(updateCronCountdown, 1e3);
       updateCronCountdown();
+      setTimeout(checkVoyageEmbeddingStatus, 800);
       setTimeout(updateGlobalStatsUI, 1500);
       window.__APP_INITIALIZED__ = true;
       console.log("[App] \u{1F680} Modular architecture hydrated and fully ready.");

@@ -25,7 +25,7 @@ module.exports = async function handler(req, res) {
   setCorsHeaders(res);
 
   const startTime = Date.now();
-  const isCheckOnly = req.method === 'GET' || req.query.check_only === 'true' || req.body?.check_only === true;
+  const isCheckOnly = req.query.check_only === 'true' || req.body?.check_only === true || (req.method === 'GET' && req.query.run !== 'true' && !req.query.limit);
   const pool = getDbPool();
 
   if (isCheckOnly) {
@@ -399,6 +399,23 @@ module.exports = async function handler(req, res) {
     await client.query('COMMIT');
 
     const tokensUsed = voyageData.usage?.total_tokens || texts.reduce((acc, t) => acc + Math.ceil(t.length / 3), 0);
+    const remainingCount = Math.max(0, remainingUnembedded - items.length);
+
+    // Record telemetry log in DB for dashboard and runs table
+    try {
+      await client.query(`
+        INSERT INTO vercel_worker_logs (worker_name, model_used, processed_count, duration_seconds, remaining_count, inbox_ids, status)
+        VALUES ('Voyage AI Embedder', $1, $2, $3, $4, $5, 'SUCCESS');
+      `, [
+        VOYAGE_MODEL,
+        items.length,
+        parseFloat(((Date.now() - startTime) / 1000).toFixed(2)),
+        remainingCount,
+        JSON.stringify({ merged_count: mergedCount, tokens_used: tokensUsed })
+      ]);
+    } catch (logErr) {
+      console.warn('[embed-worker] Telemetry insert error:', logErr.message);
+    }
 
     return res.status(200).json({
       success: true,
@@ -408,7 +425,7 @@ module.exports = async function handler(req, res) {
       merged_duplicates_count: mergedCount,
       total_count: totalCount,
       embedded_count: embeddedCount + items.length,
-      remaining_unembedded: Math.max(0, remainingUnembedded - items.length),
+      remaining_unembedded: remainingCount,
       elapsed_ms: Date.now() - startTime
     });
 

@@ -100,6 +100,7 @@ module.exports = async (req, res) => {
       rRes,
       telemRes,
       wLogRes,
+      voyLogRes,
       tlSlotRes,
       tlEnrichRes,
       tier1Res,
@@ -137,13 +138,22 @@ module.exports = async (req, res) => {
         'FROM vercel_serverless_telemetry ' +
         'WHERE id = 1;'
       ).catch(() => ({ rows: [] })),
-      // 7. Vercel worker logs
-      pool.query(
-        'SELECT id, worker_name, model_used, processed_count, duration_seconds, remaining_count, status, created_at ' +
-        'FROM vercel_worker_logs ' +
-        'ORDER BY id DESC ' +
-        'LIMIT 6;'
-      ).catch(() => ({ rows: [] })),
+      // 7. Vercel AI worker logs
+      pool.query(`
+        SELECT id, worker_name, model_used, processed_count, duration_seconds, remaining_count, status, created_at
+        FROM vercel_worker_logs
+        WHERE worker_name NOT ILIKE '%voyage%'
+        ORDER BY id DESC
+        LIMIT 8;
+      `).catch(() => ({ rows: [] })),
+      // 7b. Voyage AI worker logs
+      pool.query(`
+        SELECT id, worker_name, model_used, processed_count, duration_seconds, remaining_count, inbox_ids, status, created_at
+        FROM vercel_worker_logs
+        WHERE worker_name ILIKE '%voyage%'
+        ORDER BY id DESC
+        LIMIT 10;
+      `).catch(() => ({ rows: [] })),
       // 8. Session-based Ingestion & Classification breakdown for today (KST)
       pool.query(`
         SELECT 
@@ -287,6 +297,26 @@ module.exports = async (req, res) => {
       created_at_kst: new Date(new Date(w.created_at).getTime() + 9 * 3600 * 1000).toISOString().replace('T', ' ').substring(5, 16)
     }));
 
+    const voyageWorkerRuns = (voyLogRes?.rows || []).map(w => {
+      let meta = {};
+      try {
+        meta = typeof w.inbox_ids === 'string' ? JSON.parse(w.inbox_ids) : (w.inbox_ids || {});
+      } catch (e) {}
+      return {
+        id: w.id,
+        worker_name: w.worker_name,
+        engine: w.model_used || 'voyage-4-lite',
+        processed_count: w.processed_count,
+        merged_count: meta.merged_count || 0,
+        tokens_used: meta.tokens_used || (w.processed_count * 50),
+        duration_seconds: parseFloat(w.duration_seconds),
+        duration_str: w.duration_seconds + '초',
+        remaining_count: w.remaining_count,
+        status: w.status,
+        created_at_kst: new Date(new Date(w.created_at).getTime() + 9 * 3600 * 1000).toISOString().replace('T', ' ').substring(5, 16)
+      };
+    });
+
     // Build slot-based timeline data
     const slotDefs = [
       { slot: '1회차 (00시)', short_slot: '00:00', hour: 0, range: '00:00 - 05:59', name: '심야 릴리스' },
@@ -385,6 +415,7 @@ module.exports = async (req, res) => {
       latest_run: latestRun,
       vercel_telemetry: vercelTelemetry,
       vercel_worker_runs: vercelWorkerRuns,
+      voyage_worker_runs: voyageWorkerRuns,
       timeline_24h_live: timeline24hLive,
       timeline_24h_baseline: timeline24hBaseline,
       timeline_has_today: totalLiveCount > 0

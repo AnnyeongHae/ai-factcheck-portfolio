@@ -309,6 +309,11 @@ if (typeof window !== 'undefined') {
 
 // Bootstrap application on load
 if (typeof document !== 'undefined') {
+  try {
+    const cachedVoyage = localStorage.getItem('voyage_runs_history_v1');
+    if (cachedVoyage) window.voyageWorkerRunsData = JSON.parse(cachedVoyage);
+  } catch (e) {}
+
   const initApp = async () => {
     try {
       await bootstrapApplicationData();
@@ -322,6 +327,9 @@ if (typeof document !== 'undefined') {
     // Initial cron interval
     setInterval(updateCronCountdown, 1000);
     updateCronCountdown();
+
+    // Initial check of Voyage embedding status
+    setTimeout(checkVoyageEmbeddingStatus, 800);
 
     // Live stats sync
     setTimeout(updateGlobalStatsUI, 1500);
