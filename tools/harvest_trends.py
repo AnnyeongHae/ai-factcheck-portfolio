@@ -267,21 +267,28 @@ def get_stealth_headers(content_type="json"):
         headers["Accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
     return headers
 
+def _decode_response_bytes(raw: bytes) -> str:
+    if raw[:2] == b'\x1f\x8b':
+        import gzip
+        raw = gzip.decompress(raw)
+    return raw.decode('utf-8', errors='replace')
+
 def fetch_json(url, headers=None, timeout=12):
     time.sleep(random.uniform(0.05, 0.15))
     clean_url = clean_stealth_url(url)
     h = headers or get_stealth_headers("json")
     req = urllib.request.Request(clean_url, headers=h)
     with urllib.request.urlopen(req, timeout=timeout) as response:
-        return json.loads(response.read().decode('utf-8'))
+        return json.loads(_decode_response_bytes(response.read()))
 
-def fetch_xml(url, headers=None, timeout=12):
-    time.sleep(random.uniform(0.05, 0.15))
+def fetch_xml(url, headers=None, timeout=12, max_bytes=8000000):
+    time.sleep(random.uniform(0.02, 0.08))
     clean_url = clean_stealth_url(url)
     h = headers or get_stealth_headers("xml")
     req = urllib.request.Request(clean_url, headers=h)
     with urllib.request.urlopen(req, timeout=timeout) as response:
-        return response.read().decode('utf-8')
+        raw = response.read(max_bytes)
+        return _decode_response_bytes(raw)
 
 def fetch_hn_raw_comments(sid, max_comments=100):
     """
@@ -710,7 +717,8 @@ def harvest_all():
             if title_elem is not None and id_elem is not None:
                 title = title_elem.text.strip().replace("\n", " ")
                 url = id_elem.text.strip()
-                summary = summary_elem.text.strip().replace("\n", " ")[:200] if summary_elem is not None else ""
+                full_abstract = summary_elem.text.strip().replace("\n", " ") if (summary_elem is not None and summary_elem.text) else ""
+                summary = full_abstract[:200]
                 added = add_candidate({
                     "title": f"ArXiv: {title}",
                     "source_platform": "ArXiv Preprint",
@@ -718,6 +726,7 @@ def harvest_all():
                     "published_at": pub_iso,
                     "type": "repo",
                     "description": f"Abstract: {summary}...",
+                    "full_text_raw": full_abstract or title,
                     "viral_metric": "ArXiv Primary Paper"
                 })
                 if added: count += 1
@@ -756,7 +765,8 @@ def harvest_all():
                         title = title_elem.text.strip()
                         url = link_elem.attrib.get('href', '') if link_elem is not None else ""
                         published_at = pub_elem.text.strip() if pub_elem is not None and pub_elem.text else None
-                        desc_text = re.sub(r'<[^>]+>', ' ', content_elem.text).strip()[:180] if content_elem is not None and content_elem.text else title
+                        full_reddit_txt = re.sub(r'<[^>]+>', ' ', content_elem.text).strip()[:25000] if content_elem is not None and content_elem.text else title
+                        desc_text = full_reddit_txt[:180]
                         
                         if url:
                             # Extract comments for top 5 high-signal posts per subreddit to protect against Reddit's 60 req/min ceiling
@@ -769,6 +779,7 @@ def harvest_all():
                                 "type": "sns",
                                 "category_type": "NEWS" if "technology" in sname else "TECH",
                                 "description": desc_text,
+                                "full_text_raw": full_reddit_txt,
                                 "viral_metric": "💬 Reddit Major Discussion",
                                 "raw_comments": r_comments,
                                 "comment_count": len(r_comments)
@@ -800,7 +811,8 @@ def harvest_all():
                 title = title_elem.text.strip() if title_elem.text else ""
                 topic_url = id_elem.text.strip() if id_elem.text else ""
                 content_raw = content_elem.text.strip() if content_elem is not None and content_elem.text else ""
-                clean_desc = re.sub(r'<[^>]+>', ' ', content_raw).strip()[:200]
+                full_geek_txt = re.sub(r'<[^>]+>', ' ', content_raw).strip()[:25000]
+                clean_desc = full_geek_txt[:200]
                 
                 # Check for external article link
                 m_ext = re.search(r'href=[\'"](https?://[^\'"]+)[\'"]', content_raw)
@@ -823,6 +835,7 @@ def harvest_all():
                     "category_type": "NEWS",
                     "description": clean_desc or f"GeekNews Korean Tech Trend: {title}",
                     "description_ko": clean_desc or title,
+                    "full_text_raw": full_geek_txt or title,
                     "viral_metric": "🇰🇷 GeekNews 큐레이션"
                 })
                 if added: count += 1
@@ -833,77 +846,36 @@ def harvest_all():
         harvest_report["sources"]["geeknews"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - geek_start, 2)}
         logger.log(f"[!] GeekNews Note: {e}", level="WARNING")
 
-    # 8. Curated AI Engineering RSS (Hugging Face, PyTorchKR, Simon Willison, OpenAI, Anthropic)
+    # 8. Curated 7-Tier AI, Release Notes, Cloud, Security, Science & KO/ZH Tech RSS Catalog (72 Feeds Parallel)
     rss_start = time.time()
     try:
-        logger.log("[*] Fetching Curated Global AI & Korean Community Feeds...")
-        rss_sources = [
-            ("Hugging Face Blog", "https://huggingface.co/blog/feed.xml", "https://huggingface.co/blog"),
-            ("PyTorchKR", "https://discuss.pytorch.kr/latest.rss", "https://discuss.pytorch.kr"),
-            ("Simon Willison Weblog", "https://simonwillison.net/atom/everything/", "https://simonwillison.net"),
-            ("OpenAI News", "https://openai.com/news/rss.xml", "https://openai.com"),
-            ("Anthropic News", "https://www.anthropic.com/news/rss.xml", "https://www.anthropic.com")
-        ]
+        logger.log("[*] Fetching 7-Tier Multi-Source RSS/Atom Catalog (72 Feeds, max_workers=12, 14d window)...")
+        try:
+            from tools.rss_catalog import fetch_catalog_feeds_parallel
+        except Exception:
+            from rss_catalog import fetch_catalog_feeds_parallel
+
+        cat_res = fetch_catalog_feeds_parallel(fetch_xml, max_workers=12, max_age_days=14)
         count = 0
-        for sname, sfeed, base_url in rss_sources:
-            try:
-                xml_raw = fetch_xml(sfeed)
-                root = ET.fromstring(xml_raw)
-                items = root.findall('.//item')
-                if not items:
-                    ns = {'atom': 'http://www.w3.org/2005/Atom'}
-                    items = root.findall('atom:entry', ns) or root.findall('.//{http://www.w3.org/2005/Atom}entry')
-                
-                for it in items[:30]:
-                    t_node = it.find('title') if it.find('title') is not None else it.find('{http://www.w3.org/2005/Atom}title')
-                    l_node = it.find('link') if it.find('link') is not None else it.find('{http://www.w3.org/2005/Atom}link')
-                    d_node = it.find('description') if it.find('description') is not None else (it.find('{http://www.w3.org/2005/Atom}summary') or it.find('{http://www.w3.org/2005/Atom}content'))
-                    
-                    if t_node is not None and t_node.text:
-                        title = t_node.text.strip()
-                        url = ""
-                        if l_node is not None:
-                            url = l_node.attrib.get('href') if 'href' in l_node.attrib else (l_node.text or "").strip()
-                        if not url:
-                            id_n = it.find('{http://www.w3.org/2005/Atom}id')
-                            if id_n is not None and id_n.text: url = id_n.text.strip()
-                        
-                        desc = ""
-                        if d_node is not None and d_node.text:
-                            desc = re.sub(r'<[^>]+>', ' ', d_node.text).strip()[:180]
-                        
-                        if url:
-                            pub_n = it.find('pubDate') or it.find('{http://www.w3.org/2005/Atom}published') or it.find('{http://www.w3.org/2005/Atom}updated')
-                            pub_iso = None
-                            if pub_n is not None and pub_n.text:
-                                try:
-                                    import email.utils
-                                    p_dt = email.utils.parsedate_to_datetime(pub_n.text.strip())
-                                    pub_iso = p_dt.isoformat()
-                                except Exception:
-                                    pub_iso = pub_n.text.strip()
+        for cand_data in cat_res.get("candidates", []):
+            if add_candidate(cand_data):
+                count += 1
 
-                            cand_data = {
-                                "title": f"{sname}: {title}",
-                                "source_platform": sname,
-                                "source_url": url,
-                                "article_url": url,
-                                "published_at": pub_iso,
-                                "type": "sns",
-                                "category_type": "NEWS",
-                                "description": desc or f"{sname} Tech Publication: {title}",
-                                "viral_metric": "🇰🇷 PyTorchKR 커뮤니티" if "PyTorch" in sname else "🌍 Official AI Publication"
-                            }
-                            if "PyTorch" in sname:
-                                cand_data["title_ko"] = title
-                                cand_data["description_ko"] = desc or title
-                            added = add_candidate(cand_data)
-                            if added: count += 1
-            except Exception as e_inner:
-                logger.log(f"[!] {sname} feed parse note: {e_inner}", level="WARNING")
+        for err_entry in cat_res.get("errors", []):
+            logger.log(f"[!] RSS Catalog [{err_entry.get('feed')}] note: {err_entry.get('error')}", level="WARNING")
 
-        harvest_report["sources"]["curated_rss"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - rss_start, 2)}
-        logger.log(f"[+] Curated AI RSS: {count} publication articles ingested in {time.time() - rss_start:.2f}s")
+        harvest_report["sources"]["curated_rss"] = {
+            "status": "SUCCESS",
+            "items_found": count,
+            "feeds_total": cat_res.get("feeds_total", 0),
+            "feeds_succeeded": cat_res.get("feeds_succeeded", 0),
+            "feeds_failed": cat_res.get("feeds_failed", 0),
+            "duration_sec": round(time.time() - rss_start, 2)
+        }
+        logger.log(
+            f"[+] 7-Tier RSS Catalog: {count} items ingested from "
+            f"{cat_res.get('feeds_succeeded', 0)}/{cat_res.get('feeds_total', 0)} feeds in {time.time() - rss_start:.2f}s"
+        )
     except Exception as e:
         harvest_report["sources"]["curated_rss"] = {"status": "ERROR", "error": str(e), "duration_sec": round(time.time() - rss_start, 2)}
         logger.log(f"[!] Curated RSS Failed: {e}", level="WARNING")
@@ -930,11 +902,12 @@ def harvest_all():
                     ns = {'atom': 'http://www.w3.org/2005/Atom'}
                     items = root.findall('atom:entry', ns) or root.findall('.//{http://www.w3.org/2005/Atom}entry')
 
-                for it in items[:30]:
+                for it in items[:20]:
                     t_node = it.find('title') if it.find('title') is not None else it.find('{http://www.w3.org/2005/Atom}title')
                     l_node = it.find('link') if it.find('link') is not None else it.find('{http://www.w3.org/2005/Atom}link')
                     p_node = it.find('pubDate') or it.find('{http://www.w3.org/2005/Atom}published') or it.find('{http://www.w3.org/2005/Atom}updated')
                     d_node = it.find('description') if it.find('description') is not None else (it.find('{http://www.w3.org/2005/Atom}summary') or it.find('{http://www.w3.org/2005/Atom}content'))
+                    c_node = it.find('{http://purl.org/rss/1.0/modules/content/}encoded')
                     
                     if t_node is not None and t_node.text:
                         raw_title = t_node.text.strip()
@@ -960,7 +933,9 @@ def harvest_all():
                             except Exception:
                                 pub_iso = p_node.text.strip()
                         
-                        desc_text = re.sub(r'<[^>]+>', ' ', d_node.text).strip()[:180] if (d_node is not None and d_node.text) else title_clean
+                        raw_body = (c_node.text if (c_node is not None and c_node.text) else (d_node.text if (d_node is not None and d_node.text) else ""))
+                        full_press_txt = re.sub(r'<[^>]+>', ' ', raw_body).strip()[:30000] if raw_body else title_clean
+                        desc_text = full_press_txt[:180]
                         if url:
                             added = add_candidate({
                                 "title": f"News: {title_clean}",
@@ -971,6 +946,7 @@ def harvest_all():
                                 "type": "sns",
                                 "category_type": "NEWS",
                                 "description": desc_text,
+                                "full_text_raw": full_press_txt,
                                 "viral_metric": f"📰 {news_org} 보도"
                             })
                             if added: count += 1
@@ -1083,9 +1059,12 @@ def harvest_all():
             logger.log(f"[DEDUP Verified Case] Blocked already verified dossier: {cand['title'][:40]}")
             continue
 
-        # 3-Tier Deduplication & Semantic Matching Gate
-        matched_inbox_by_dedup = None
-        if evaluate_deduplication:
+        # Check if exists in inbox by O(1) Hash, Omni-URL, or Slug FIRST (Fast-Path Deduplication)
+        matched_inbox_by_url = next((inbox_url_map[u] for u in cand_urls if u in inbox_url_map), None)
+        target_inbox_file = inbox_hash_map.get(c_hash) or matched_inbox_by_url or inbox_slug_map.get(slug)
+
+        # Only invoke O(N*M) 3-Tier Semantic Deduplication if O(1) Hash/URL/Slug lookup did NOT match
+        if not target_inbox_file and evaluate_deduplication:
             try:
                 dedup_res = evaluate_deduplication(cand, existing_cases_list, existing_inbox_items, api_key=gemini_api_key)
                 if dedup_res.get("is_duplicate"):
@@ -1098,13 +1077,9 @@ def harvest_all():
                         if mid:
                             tf = os.path.join(inbox_dir, f"{mid}.json")
                             if os.path.exists(tf):
-                                matched_inbox_by_dedup = tf
+                                target_inbox_file = tf
             except Exception as dedup_err:
                 logger.log(f"[!] Dedup check note: {dedup_err}", level="WARNING")
-
-        # Check if exists in inbox by Hash, Omni-URL, Dedup or Slug (Deduplication & Metric Update)
-        matched_inbox_by_url = next((inbox_url_map[u] for u in cand_urls if u in inbox_url_map), None)
-        target_inbox_file = inbox_hash_map.get(c_hash) or matched_inbox_by_url or matched_inbox_by_dedup or inbox_slug_map.get(slug)
 
         if target_inbox_file and os.path.exists(target_inbox_file):
             # UPDATE EXISTING ITEM
@@ -1172,6 +1147,7 @@ def harvest_all():
                 if "description_ko" in cand and not old_item.get("description_ko"): old_item["description_ko"] = cand["description_ko"]
                 if "hn_url" in cand and not old_item.get("hn_url"): old_item["hn_url"] = cand["hn_url"]
                 if "article_url" in cand and not old_item.get("article_url"): old_item["article_url"] = cand["article_url"]
+                if "full_text_raw" in cand and not old_item.get("full_text_raw"): old_item["full_text_raw"] = cand["full_text_raw"]
                 if cand.get("raw_comments"):
                     old_item["raw_comments"] = cand["raw_comments"]
                     old_item["comment_count"] = cand.get("comment_count", len(cand["raw_comments"]))
@@ -1251,19 +1227,23 @@ def harvest_all():
             "status": "PENDING_REVIEW"
         }
 
-        # Deterministic Source Language Classification (KO, ZH, JA, EN) based on original title & platform (exclude description to avoid RSS locale '[댓글]' pollution)
+        # Deterministic Source Language Classification (KO, ZH, JA, EN) based on catalog metadata or original title & platform
         cand_title = f"{cand.get('title', '')}"
         cand_plat = (cand.get('source_platform', '') or '').lower()
         cand_url = (cand.get('source_url', '') or '').lower()
-        if re.search(r'[\uac00-\ud7a3]', cand_title) or any(k in cand_plat for k in ['daum', 'geeknews', 'hada.io', 'chosun', 'donga', 'yonhap', 'naver']) or any(k in cand_url for k in ['daum.net', 'hada.io', 'naver.com']):
+        if cand.get("source_lang") in ("KO", "ZH", "JA", "EN"):
+            inbox_item["source_lang"] = cand["source_lang"]
+        elif re.search(r'[\uac00-\ud7a3]', cand_title) or any(k in cand_plat for k in ['daum', 'geeknews', 'hada.io', 'chosun', 'donga', 'yonhap', 'naver', 'kakao', 'toss', 'woowahan', 'daangn']) or any(k in cand_url for k in ['daum.net', 'hada.io', 'naver.com', 'kakao.com', 'toss.tech', 'woowahan.com']):
             inbox_item["source_lang"] = "KO"
         elif re.search(r'[\u3040-\u30ff]', cand_title):
             inbox_item["source_lang"] = "JA"
-        elif re.search(r'[\u4e00-\u9fff]', cand_title) or any(k in cand_plat for k in ['weibo', 'zhihu', '36kr', 'ithome', 'sspai', 'bilibili', 'wechat', 'qq', 'sina', 'baidu', 'jiqizhixin', 'qbitai', 'v2ex']) or any(k in cand_url for k in ['.cn', '36kr.com', 'ithome.com', 'sspai.com', 'bilibili.com', 'v2ex.com']):
+        elif re.search(r'[\u4e00-\u9fff]', cand_title) or any(k in cand_plat for k in ['weibo', 'zhihu', '36kr', 'ithome', 'sspai', 'bilibili', 'wechat', 'qq', 'sina', 'baidu', 'jiqizhixin', 'qbitai', 'v2ex', 'ruan yifeng', 'deepseek', 'qwen', 'kimi', 'zhipu', 'hunyuan', 'stepfun', 'xinzhiyuan']) or any(k in cand_url for k in ['.cn', '36kr.com', 'ithome.com', 'sspai.com', 'bilibili.com', 'v2ex.com', 'qbitai.com', 'ruanyifeng.com']):
             inbox_item["source_lang"] = "ZH"
         else:
             inbox_item["source_lang"] = "EN"
 
+        if "source_tier" in cand: inbox_item["source_tier"] = cand["source_tier"]
+        if "full_text_raw" in cand: inbox_item["full_text_raw"] = cand["full_text_raw"]
         if "title_ko" in cand: inbox_item["title_ko"] = cand["title_ko"]
         if "description_ko" in cand: inbox_item["description_ko"] = cand["description_ko"]
         if "hn_url" in cand: inbox_item["hn_url"] = cand["hn_url"]
@@ -1292,6 +1272,38 @@ def harvest_all():
             0,
             now_kst
         ))
+
+    # Archive novel full-text items into local compressed JSONL.GZ Vault (for offline/Parquet/DuckDB research)
+    if newly_harvested_files:
+        try:
+            import gzip
+            vault_dir = os.path.join(logs_dir, "vault")
+            os.makedirs(vault_dir, exist_ok=True)
+            month_tag = now_kst.strftime("%Y_%m")
+            vault_gz_path = os.path.join(vault_dir, f"fulltext_vault_{month_tag}.jsonl.gz")
+            vault_count = 0
+            with gzip.open(vault_gz_path, "at", encoding="utf-8", compresslevel=9) as vfp:
+                for npath in newly_harvested_files:
+                    try:
+                        with open(npath, "r", encoding="utf-8") as nfp:
+                            ndata = json.load(nfp)
+                        ftxt = ndata.get("full_text_raw") or ndata.get("description") or ""
+                        if ftxt:
+                            vfp.write(json.dumps({
+                                "inbox_id": ndata.get("inbox_id"),
+                                "source_platform": ndata.get("source_platform"),
+                                "source_url": ndata.get("source_url"),
+                                "published_at": ndata.get("published_at"),
+                                "source_lang": ndata.get("source_lang"),
+                                "title": ndata.get("title"),
+                                "full_text_raw": ftxt
+                            }, ensure_ascii=False) + "\n")
+                            vault_count += 1
+                    except Exception:
+                        pass
+            logger.log(f"[+] [Local Private Vault] Appended {vault_count} full-text records to '{vault_gz_path}' (GZIP level-9)")
+        except Exception as v_err:
+            logger.log(f"[!] Local Vault archive note: {v_err}", level="WARNING")
 
     harvest_report["summary"]["total_fetched"] = len(all_candidates)
     harvest_report["summary"]["updated_count"] = updated_count

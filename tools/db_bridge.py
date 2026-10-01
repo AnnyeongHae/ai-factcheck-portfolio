@@ -22,7 +22,10 @@ if sys.stdout.encoding != 'utf-8':
     except Exception:
         pass
 
-from db_config import get_db_url, get_db_connection as _get_db_conn, get_db_info
+try:
+    from tools.db_config import get_db_url, get_db_connection as _get_db_conn, get_db_info
+except Exception:
+    from db_config import get_db_url, get_db_connection as _get_db_conn, get_db_info
 
 def load_env_db_url():
     return get_db_url()
@@ -124,7 +127,10 @@ def push_inbox_to_neon(full_sync=False):
         cur.execute("ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS is_deep_analyzed BOOLEAN DEFAULT FALSE;")
         conn.commit()
 
+    import gzip
+    import psycopg2
     params_list = []
+    vault_list = []
     for f in os.listdir(inbox_dir):
         if f.endswith(".json") and not f.startswith("_"):
             path = os.path.join(inbox_dir, f)
@@ -183,6 +189,22 @@ def push_inbox_to_neon(full_sync=False):
                         pass
                 if not updated_at_dt:
                     updated_at_dt = datetime.datetime.now(datetime.timezone.utc)
+
+                # Strip full_text_raw from public raw_trends_inbox.raw_payload (Zero Public Exposure & Zero Egress Bloat)
+                # and store GZIP level-9 compressed bytes in private `raw_content_vault` SQL table
+                full_text_raw = it.pop("full_text_raw", None) or it.get("description") or ""
+                if full_text_raw:
+                    gz_bytes = gzip.compress(full_text_raw.encode("utf-8"), compresslevel=9)
+                    vault_list.append((
+                        inbox_id,
+                        source_url,
+                        it.get("source_platform", "Web")[:120],
+                        it.get("title", ""),
+                        psycopg2.Binary(gz_bytes),
+                        len(full_text_raw),
+                        len(gz_bytes),
+                        created_at_dt
+                    ))
 
                 params_list.append((
                     inbox_id,
@@ -247,11 +269,42 @@ def push_inbox_to_neon(full_sync=False):
         cur.execute("ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS is_classified BOOLEAN DEFAULT FALSE;")
         cur.execute("ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS is_deep_analyzed BOOLEAN DEFAULT FALSE;")
         cur.execute("ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS category_primary VARCHAR(50) DEFAULT 'INDUSTRY_TRENDS';")
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS raw_content_vault (
+                inbox_id VARCHAR(255) PRIMARY KEY,
+                source_url TEXT,
+                source_platform VARCHAR(120),
+                title TEXT,
+                full_text_gzip BYTEA,
+                raw_char_len INT,
+                compressed_bytes INT,
+                created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+            );
+        """)
         conn.commit()
 
         import psycopg2.extras
         psycopg2.extras.execute_batch(cur, sql, params_list, page_size=100)
         count = len(params_list)
+
+        if vault_list:
+            vault_sql = """
+                INSERT INTO raw_content_vault (
+                    inbox_id, source_url, source_platform, title, full_text_gzip, raw_char_len, compressed_bytes, created_at
+                ) VALUES %s
+                ON CONFLICT (inbox_id) DO UPDATE SET
+                    full_text_gzip = CASE
+                        WHEN EXCLUDED.raw_char_len > COALESCE(raw_content_vault.raw_char_len, 0) THEN EXCLUDED.full_text_gzip
+                        ELSE raw_content_vault.full_text_gzip
+                    END,
+                    raw_char_len = GREATEST(EXCLUDED.raw_char_len, COALESCE(raw_content_vault.raw_char_len, 0)),
+                    compressed_bytes = CASE
+                        WHEN EXCLUDED.raw_char_len > COALESCE(raw_content_vault.raw_char_len, 0) THEN EXCLUDED.compressed_bytes
+                        ELSE raw_content_vault.compressed_bytes
+                    END;
+            """
+            psycopg2.extras.execute_values(cur, vault_sql, vault_list, page_size=100)
+            print(f"[+] [Private Vault] Stored {len(vault_list)} GZIP-compressed full-text items in raw_content_vault.")
 
     provider = get_db_info().get("provider", "Cloud DB")
     conn.commit()
@@ -415,6 +468,63 @@ def push_factchecks_to_neon():
     provider = get_db_info().get("provider", "Cloud DB")
     print(f"[+] Successfully synced {count} verified fact-check portfolios to {provider} (Tier 2 Knowledge Core)!")
 
+def get_vault_fulltext(inbox_id: str) -> dict | None:
+    """
+    Retrieves and decompresses a private full-text article from `raw_content_vault` by inbox_id.
+    Never exposed to public frontend APIs; strictly for owner research & deep fact-checking.
+    """
+    import gzip
+    conn = get_db_connection()
+    if not conn:
+        return None
+    try:
+        with conn.cursor() as cur:
+            cur.execute("""
+                SELECT inbox_id, source_platform, source_url, title, full_text_gzip, raw_char_len, compressed_bytes, created_at
+                FROM raw_content_vault
+                WHERE inbox_id = %s;
+            """, (inbox_id,))
+            row = cur.fetchone()
+            if not row:
+                return None
+            gz_bytes = bytes(row[4]) if row[4] is not None else b""
+            full_text = gzip.decompress(gz_bytes).decode("utf-8", errors="replace") if gz_bytes else ""
+            return {
+                "inbox_id": row[0],
+                "source_platform": row[1],
+                "source_url": row[2],
+                "title": row[3],
+                "full_text": full_text,
+                "raw_char_len": row[5],
+                "compressed_bytes": row[6],
+                "created_at": row[7].isoformat() if row[7] else None
+            }
+    finally:
+        conn.close()
+
+def print_vault_stats():
+    conn = get_db_connection()
+    if not conn:
+        print("[!] Could not connect to DB.")
+        return
+    try:
+        with conn.cursor() as cur:
+            cur.execute("""
+                SELECT COUNT(*), COALESCE(SUM(raw_char_len), 0), COALESCE(SUM(compressed_bytes), 0), MAX(raw_char_len)
+                FROM raw_content_vault;
+            """)
+            cnt, total_chars, total_gz, max_chars = cur.fetchone()
+            ratio = round((1 - (total_gz / max(1, total_chars))) * 100, 1) if total_chars > 0 else 0.0
+            print(f"=== 🔒 Private Full-Text Vault (raw_content_vault) Stats ===")
+            print(f"  - Total Archived Articles : {cnt:,}")
+            print(f"  - Total Raw Characters    : {total_chars:,} chars")
+            print(f"  - Total GZIP Storage      : {total_gz / 1024:.1f} KB (Compression saving: ~{ratio}%)")
+            print(f"  - Longest Article Stored  : {max_chars or 0:,} chars")
+    except Exception as e:
+        print(f"[!] Vault stats error: {e}")
+    finally:
+        conn.close()
+
 def main():
     parser = argparse.ArgumentParser(description="Neon Postgres Enterprise Synchronizer")
     parser.add_argument("--init", action="store_true", help="Initialize Sustainable Neon DB schema, indexes, and triggers")
@@ -424,11 +534,21 @@ def main():
     parser.add_argument("--sync-factchecks", action="store_true", help="Push verified portfolios to Neon DB (Tier 2)")
     parser.add_argument("--sync-all", action="store_true", help="Initialize schema and sync everything to Neon DB")
     parser.add_argument("--full", action="store_true", help="Perform full sync instead of fast incremental (last 24h) sync")
+    parser.add_argument("--vault-stats", action="store_true", help="Show Private Full-Text Vault storage & compression statistics")
+    parser.add_argument("--vault-get", type=str, default="", help="Decompress and print full text for a specific inbox_id from raw_content_vault")
 
     args = parser.parse_args()
 
     if args.init:
         init_schema()
+    elif args.vault_stats:
+        print_vault_stats()
+    elif args.vault_get:
+        res = get_vault_fulltext(args.vault_get)
+        if res:
+            print(json.dumps(res, indent=2, ensure_ascii=False))
+        else:
+            print(f"[!] No vault entry found for '{args.vault_get}'")
     elif args.pull_inbox:
         pull_inbox_from_neon(limit=5000 if args.full else args.limit)
     elif args.sync_inbox:
@@ -440,7 +560,7 @@ def main():
         push_inbox_to_neon(full_sync=args.full)
         push_factchecks_to_neon()
     else:
-        print("Usage: python tools/db_bridge.py [--init | --pull-inbox | --sync-inbox | --sync-factchecks | --sync-all]")
+        print("Usage: python tools/db_bridge.py [--init | --pull-inbox | --sync-inbox | --sync-factchecks | --sync-all | --vault-stats | --vault-get <id>]")
 
 if __name__ == "__main__":
     main()
