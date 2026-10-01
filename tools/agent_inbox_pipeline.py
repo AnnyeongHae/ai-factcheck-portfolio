@@ -195,8 +195,11 @@ def apply_enriched_batch(in_path="data/agent_inbox_enriched.json", model_name="a
         canonical_story_key = item.get("canonical_story_key") or raw_payload.get("canonical_story_key")
         canonical_tech_entity = item.get("canonical_tech_entity") or raw_payload.get("canonical_tech_entity")
         
+        source_lang = (item.get("source_lang") or raw_payload.get("ai_enrichment", {}).get("source_lang") or "EN").upper()
+        
         # Merge into raw_payload
         raw_payload.update({
+            "source_lang": source_lang,
             "title_ko": title_ko,
             "title_en": title_en,
             "title_zh": title_zh,
@@ -226,7 +229,7 @@ def apply_enriched_batch(in_path="data/agent_inbox_enriched.json", model_name="a
             },
             "ai_enrichment": {
                 "id": r_inbox_id,
-                "source_lang": item.get("source_lang") or "EN",
+                "source_lang": source_lang,
                 "type_classification": item_type,
                 "category_primary": prim_cat,
                 "tier1_category": t1_cat,

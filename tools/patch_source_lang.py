@@ -54,14 +54,53 @@ def main():
     cur.execute(sql_zh)
     print(f"[*] Updated Chinese items: {cur.rowcount}")
 
-    # 3. Verify ID 27279
+    # 3. Fix English items mislabeled as KO due to Reddit RSS '[댓글]' footer pollution
+    sql_fix_en_top = """
+    UPDATE raw_trends_inbox
+    SET raw_payload = jsonb_set(
+        raw_payload,
+        '{source_lang}',
+        '"EN"'
+    )
+    WHERE title !~ '[가-힣]'
+      AND title !~ '[\\u4e00-\\u9fff]'
+      AND source_platform NOT ILIKE '%daum%'
+      AND source_platform NOT ILIKE '%geeknews%'
+      AND source_platform NOT ILIKE '%hada.io%'
+      AND source_platform NOT ILIKE '%naver%'
+      AND COALESCE(raw_payload->>'source_lang', '') = 'KO';
+    """
+    cur.execute(sql_fix_en_top)
+    print(f"[*] Fixed English items with polluted top-level source_lang='KO': {cur.rowcount}")
+
+    sql_fix_en_ai = """
+    UPDATE raw_trends_inbox
+    SET raw_payload = jsonb_set(
+        raw_payload,
+        '{ai_enrichment,source_lang}',
+        '"EN"'
+    )
+    WHERE title !~ '[가-힣]'
+      AND title !~ '[\\u4e00-\\u9fff]'
+      AND source_platform NOT ILIKE '%daum%'
+      AND source_platform NOT ILIKE '%geeknews%'
+      AND source_platform NOT ILIKE '%hada.io%'
+      AND source_platform NOT ILIKE '%naver%'
+      AND raw_payload ? 'ai_enrichment'
+      AND COALESCE(raw_payload->'ai_enrichment'->>'source_lang', '') = 'KO';
+    """
+    cur.execute(sql_fix_en_ai)
+    print(f"[*] Fixed English items with polluted ai_enrichment.source_lang='KO': {cur.rowcount}")
+
+    # 4. Verify ID 29325 (Michael Burry Reddit post)
     cur.execute("""
-        SELECT id, title, source_platform, raw_payload->'ai_enrichment'->>'source_lang'
+        SELECT id, title, source_platform, raw_payload->>'source_lang', raw_payload->'ai_enrichment'->>'source_lang'
         FROM raw_trends_inbox
-        WHERE id = 27279;
+        WHERE id = 29325;
     """)
     row = cur.fetchone()
-    print(f"[+] Verification ID 27279: ID={row[0]}, Platform={row[2]}, Lang={row[3]}")
+    if row:
+        print(f"[+] Verification ID 29325: ID={row[0]}, Platform={row[2]}, top_lang={row[3]}, ai_lang={row[4]}")
 
     conn.close()
 

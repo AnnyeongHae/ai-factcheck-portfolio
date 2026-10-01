@@ -286,7 +286,8 @@ module.exports = async (req, res) => {
     "tier1_category": "TECH_COMPUTING, SCIENCE_RESEARCH, ECONOMY_FINANCE, POLITICS_POLICY, LAW_CRIME_JUSTICE, CULTURE_HUMANITIES 중 택1",
     "item_type": "MODEL, AGENT, TECH, NEWS 중 택1 (사회/법률/사건/일반뉴스는 반드시 NEWS)",
     "category_primary": "INFERENCE_OPT, AGENTS_DEVTOOLS, MULTIMODAL_AI, FOUNDATION_MODELS, INFRA_RAG_SECURITY, DEEP_SCIENCE_SPACE, MACRO_GLOBAL_BIZ, CIVIC_CRIME_INCIDENT, HISTORY_LIFE_CULTURE, INDUSTRY_TRENDS 중 택1",
-    "programming_lang": "Python, TypeScript, Rust, General 중 택1"
+    "programming_lang": "Python, TypeScript, Rust, General 중 택1",
+    "source_lang": "EN, KO, ZH, JA 중 택1 (번역 전 입력된 원문 title의 실제 언어)"
   }
 ]`;
 
@@ -583,17 +584,20 @@ module.exports = async (req, res) => {
         };
       }
 
-      // Deterministic Source Language Detection (KO, ZH, JA, EN)
-      const origText = `${cand.title || ''} ${cand.description || ''}`;
+      // 🌟 Source Language SSOT from AI JSON (fallback to original title only, excluding description boilerplate)
+      const aiSourceLang = String(aiData?.source_lang || '').toUpperCase().trim();
+      const origTitle = `${cand.title || ''}`;
       const origPlat = (cand.source_platform || '').toLowerCase();
       const origUrl = (cand.source_url || '').toLowerCase();
-      let detectedLang = 'EN';
-      if (/[\uac00-\ud7a3]/.test(origText) || /daum|geeknews|hada\.io|chosun|donga|yonhap|naver/i.test(origPlat) || /daum\.net|hada\.io|naver\.com/i.test(origUrl)) {
+      let detectedLang = ['KO', 'EN', 'ZH', 'JA'].includes(aiSourceLang) ? aiSourceLang : 'EN';
+      if (/[\uac00-\ud7a3]/.test(origTitle) || /daum|geeknews|hada\.io|chosun|donga|yonhap|naver/i.test(origPlat) || /daum\.net|hada\.io|naver\.com/i.test(origUrl)) {
         detectedLang = 'KO';
-      } else if (/[\u3040-\u30ff]/.test(origText)) {
+      } else if (/[\u3040-\u30ff]/.test(origTitle)) {
         detectedLang = 'JA';
-      } else if (/[\u4e00-\u9fff]/.test(origText) || /weibo|zhihu|36kr|ithome|sspai|bilibili|wechat|qq\.com|sina|baidu|jiqizhixin|qbitai|v2ex|geekpark|oschina|infoq/i.test(origPlat) || /\.cn|\.com\.cn|weibo\.com|zhihu\.com|36kr\.com|ithome\.com|sspai\.com|bilibili\.com|v2ex\.com/i.test(origUrl)) {
+      } else if (/[\u4e00-\u9fff]/.test(origTitle) || /weibo|zhihu|36kr|ithome|sspai|bilibili|wechat|qq\.com|sina|baidu|jiqizhixin|qbitai|v2ex|geekpark|oschina|infoq/i.test(origPlat) || /\.cn|\.com\.cn|weibo\.com|zhihu\.com|36kr\.com|ithome\.com|sspai\.com|bilibili\.com|v2ex\.com/i.test(origUrl)) {
         detectedLang = 'ZH';
+      } else if (detectedLang === 'KO' && !/[\uac00-\ud7a3]/.test(origTitle)) {
+        detectedLang = 'EN';
       }
 
       payload.source_lang = detectedLang;

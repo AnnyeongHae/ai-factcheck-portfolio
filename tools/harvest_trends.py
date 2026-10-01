@@ -1251,15 +1251,15 @@ def harvest_all():
             "status": "PENDING_REVIEW"
         }
 
-        # Deterministic Source Language Classification (KO, ZH, JA, EN)
-        cand_text = f"{cand.get('title', '')} {cand.get('description', '')}"
+        # Deterministic Source Language Classification (KO, ZH, JA, EN) based on original title & platform (exclude description to avoid RSS locale '[댓글]' pollution)
+        cand_title = f"{cand.get('title', '')}"
         cand_plat = (cand.get('source_platform', '') or '').lower()
         cand_url = (cand.get('source_url', '') or '').lower()
-        if re.search(r'[\uac00-\ud7a3]', cand_text) or any(k in cand_plat for k in ['daum', 'geeknews', 'hada.io', 'chosun', 'donga', 'yonhap', 'naver']) or any(k in cand_url for k in ['daum.net', 'hada.io', 'naver.com']):
+        if re.search(r'[\uac00-\ud7a3]', cand_title) or any(k in cand_plat for k in ['daum', 'geeknews', 'hada.io', 'chosun', 'donga', 'yonhap', 'naver']) or any(k in cand_url for k in ['daum.net', 'hada.io', 'naver.com']):
             inbox_item["source_lang"] = "KO"
-        elif re.search(r'[\u3040-\u30ff]', cand_text):
+        elif re.search(r'[\u3040-\u30ff]', cand_title):
             inbox_item["source_lang"] = "JA"
-        elif re.search(r'[\u4e00-\u9fff]', cand_text) or any(k in cand_plat for k in ['weibo', 'zhihu', '36kr', 'ithome', 'sspai', 'bilibili', 'wechat', 'qq', 'sina', 'baidu', 'jiqizhixin', 'qbitai', 'v2ex']) or any(k in cand_url for k in ['.cn', '36kr.com', 'ithome.com', 'sspai.com', 'bilibili.com', 'v2ex.com']):
+        elif re.search(r'[\u4e00-\u9fff]', cand_title) or any(k in cand_plat for k in ['weibo', 'zhihu', '36kr', 'ithome', 'sspai', 'bilibili', 'wechat', 'qq', 'sina', 'baidu', 'jiqizhixin', 'qbitai', 'v2ex']) or any(k in cand_url for k in ['.cn', '36kr.com', 'ithome.com', 'sspai.com', 'bilibili.com', 'v2ex.com']):
             inbox_item["source_lang"] = "ZH"
         else:
             inbox_item["source_lang"] = "EN"

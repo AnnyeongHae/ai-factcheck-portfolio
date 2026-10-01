@@ -365,17 +365,22 @@ module.exports = async (req, res) => {
           ? multi.ko.key_takeaways
           : (p.key_takeaways || []);
 
-      // 🌟 Lean & Deduplicated aiEnrichment (eliminates redundant ~2.5KB duplicate block per item)
-      const rawText = `${r.title || ''} ${p.description || ''}`;
-      const rPlat = (r.source_platform || '').toLowerCase();
-      const rUrl = (r.source_url || '').toLowerCase();
-      let detectedLang = p.ai_enrichment?.source_lang || p.source_lang || 'EN';
-      if (/[\uac00-\ud7a3]/.test(rawText) || /daum|geeknews|hada\.io|chosun|donga|yonhap|naver/i.test(rPlat) || /daum\.net|hada\.io|naver\.com/i.test(rUrl)) {
-        detectedLang = 'KO';
-      } else if (/[\u3040-\u30ff]/.test(rawText)) {
-        detectedLang = 'JA';
-      } else if (/[\u4e00-\u9fff]/.test(rawText) || /weibo|zhihu|36kr|ithome|sspai|bilibili|wechat|qq\.com|sina|baidu|jiqizhixin|qbitai|v2ex|geekpark|oschina|infoq/i.test(rPlat) || /\.cn|\.com\.cn|weibo\.com|zhihu\.com|36kr\.com|ithome\.com|sspai\.com|bilibili\.com|v2ex\.com/i.test(rUrl)) {
-        detectedLang = 'ZH';
+      // 🌟 Source Language SSOT: Trust AI Enrichment JSON source_lang first; fallback to original title only (exclude description to avoid RSS locale '[댓글]' pollution)
+      const aiLang = (p.ai_enrichment?.source_lang || '').toUpperCase();
+      let detectedLang = ['KO', 'EN', 'ZH', 'JA'].includes(aiLang) ? aiLang : '';
+      if (!detectedLang) {
+        const origTitle = r.title || '';
+        const rPlat = (r.source_platform || '').toLowerCase();
+        const rUrl = (r.source_url || '').toLowerCase();
+        if (/[\uac00-\ud7a3]/.test(origTitle) || /daum|geeknews|hada\.io|chosun|donga|yonhap|naver/i.test(rPlat) || /daum\.net|hada\.io|naver\.com/i.test(rUrl)) {
+          detectedLang = 'KO';
+        } else if (/[\u3040-\u30ff]/.test(origTitle)) {
+          detectedLang = 'JA';
+        } else if (/[\u4e00-\u9fff]/.test(origTitle) || /weibo|zhihu|36kr|ithome|sspai|bilibili|wechat|qq\.com|sina|baidu|jiqizhixin|qbitai|v2ex|geekpark|oschina|infoq/i.test(rPlat) || /\.cn|\.com\.cn|weibo\.com|zhihu\.com|36kr\.com|ithome\.com|sspai\.com|bilibili\.com|v2ex\.com/i.test(rUrl)) {
+          detectedLang = 'ZH';
+        } else {
+          detectedLang = 'EN';
+        }
       }
 
       let aiEnrichment = null;

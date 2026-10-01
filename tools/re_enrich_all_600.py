@@ -338,7 +338,17 @@ def run_re_enrichment(batch_size: int = 10):
             raw_payload = item['existing_payload']
             r_inbox_id = item['inbox_id']
 
+            orig_t = item.get('title', '')
+            orig_plat = (item.get('source_platform', '') or '').lower()
+            if KOREAN_REGEX.search(orig_t) or any(k in orig_plat for k in ['daum', 'geeknews', 'hada.io', 'naver']):
+                src_lang = "KO"
+            elif CHINESE_REGEX.search(orig_t):
+                src_lang = "ZH"
+            else:
+                src_lang = "EN"
+
             raw_payload.update({
+                "source_lang": src_lang,
                 "title_ko": enriched["title_ko"],
                 "title_en": enriched["title_en"],
                 "title_zh": enriched["title_zh"],
@@ -367,7 +377,7 @@ def run_re_enrichment(batch_size: int = 10):
                 },
                 "ai_enrichment": {
                     "id": r_inbox_id,
-                    "source_lang": "EN",
+                    "source_lang": src_lang,
                     "type_classification": enriched["item_type"],
                     "category_primary": enriched["category_primary"],
                     "tier1_category": enriched["tier1_category"],
