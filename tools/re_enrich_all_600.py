@@ -37,7 +37,13 @@ from db_config import get_db_connection
 from openrouter_free_router import get_openrouter_api_key
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-MODEL = "inclusionai/ling-3.0-flash-sante:free"
+MODELS = [
+    "inclusionai/ling-3.0-flash-sante:free",
+    "google/gemma-4-26b-a4b-it:free",
+    "meta-llama/llama-3.3-70b-instruct:free",
+    "qwen/qwen-2.5-72b-instruct:free"
+]
+MODEL = MODELS[0]
 
 KOREAN_REGEX = re.compile(r'[\uac00-\ud7a3]')
 CHINESE_REGEX = re.compile(r'[\u4e00-\u9fff]')
@@ -279,11 +285,11 @@ def run_re_enrichment(batch_size: int = 10):
         return 1
 
     cur = conn.cursor()
-    # Find all items previously synthesized with the fallback synthesizer
+    # Find all items needing AI classification & enrichment
     cur.execute("""
         SELECT id, inbox_id, title, source_platform, source_url, raw_payload
         FROM raw_trends_inbox
-        WHERE raw_payload->'ai_enrichment'->>'enriched_by_model' LIKE '%Studio Synthesizer%'
+        WHERE is_classified = FALSE OR raw_payload->'ai_enrichment' IS NULL
         ORDER BY id DESC;
     """)
     rows = cur.fetchall()
