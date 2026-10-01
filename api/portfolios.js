@@ -69,9 +69,10 @@ module.exports = async (req, res) => {
   const summaryOnly = queryParams.summary === 'true' || queryParams.summary === '1';
 
   try {
-    // 1. Build Factchecks Query
+    // 1. Build Factchecks Query (with SQL-level pagination when limit > 0)
     let sql = 
       "SELECT " +
+        "COUNT(*) OVER() AS full_count, " +
         "vf.case_id, " +
         "vf.title, " +
         "vf.category, " +
@@ -111,17 +112,20 @@ module.exports = async (req, res) => {
       sql += "WHERE " + whereClauses.join(" AND ") + " ";
     }
 
-    sql += "ORDER BY vf.created_at DESC;";
+    sql += "ORDER BY vf.created_at DESC";
 
-    const factcheckRows = await pool.query(sql, values);
-    const totalCount = factcheckRows.rows.length;
-
-    // Apply pagination if limit is specified
-    let targetRows = factcheckRows.rows;
     if (limit > 0 && !caseIdParam) {
       const offset = (page - 1) * limit;
-      targetRows = targetRows.slice(offset, offset + limit);
+      values.push(limit, offset);
+      sql += ` LIMIT $${values.length - 1} OFFSET $${values.length}`;
     }
+    sql += ";";
+
+    const factcheckRows = await pool.query(sql, values);
+    const targetRows = factcheckRows.rows;
+    const totalCount = targetRows.length > 0 && targetRows[0].full_count !== undefined
+      ? parseInt(targetRows[0].full_count, 10)
+      : targetRows.length;
 
     const caseIds = targetRows.map(r => r.case_id);
 

@@ -306,21 +306,27 @@ export async function renderInbox() {
 
   const cacheKey = getInboxCacheKey(curPage);
 
-  // 1. SWR Cache Hit
+  // 1. ⚡ 0ms SWR Cache Hit (Memory Map or SessionStorage)
   let renderedFromCache = false;
-  if (inboxDbCache.has(cacheKey)) {
-    const cached = inboxDbCache.get(cacheKey);
-    if (cached && Array.isArray(cached.items) && cached.items.length > 0) {
-      renderInboxGridItems(cached.items, grid, curLang);
-      renderPagination('inboxPagination', curPage, cached.totalPages, 'changeInboxPage');
-      renderedFromCache = true;
-      if (Date.now() - (cached.timestamp || 0) < 10000) {
-        return;
-      }
+  let cachedFirstId = null;
+  let cached = inboxDbCache.get(cacheKey);
+  if (!cached) {
+    cached = ClientCache.get(cacheKey, 60000);
+    if (cached) inboxDbCache.set(cacheKey, cached);
+  }
+  if (cached && Array.isArray(cached.items) && cached.items.length > 0) {
+    renderInboxGridItems(cached.items, grid, curLang);
+    renderPagination('inboxPagination', curPage, cached.totalPages, 'changeInboxPage');
+    renderedFromCache = true;
+    cachedFirstId = cached.items[0]?.inbox_id || cached.items[0]?.id;
+    if (Date.now() - (cached.timestamp || 0) < 10000) {
+      return;
     }
   }
 
-  // 2. Optimistic Preview from local snapshot if available
+  // 2. Optimistic Preview from local snapshot ONLY when a full page is available
+  let fallbackPaged = [];
+  let fallbackTotalPages = 1;
   if (!renderedFromCache) {
     const inboxList = window.liveInboxData || liveInboxData || [];
     const filtered = inboxList.filter(item => {
@@ -345,12 +351,15 @@ export async function renderInbox() {
 
     if (filtered.length > 0) {
       sortCollection(filtered, curSort);
-      const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
-      const paged = filtered.slice((curPage - 1) * PAGE_SIZE, curPage * PAGE_SIZE);
-      renderInboxGridItems(paged, grid, curLang);
-      renderPagination('inboxPagination', curPage, totalPages, 'changeInboxPage');
+      fallbackTotalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
+      fallbackPaged = filtered.slice((curPage - 1) * PAGE_SIZE, curPage * PAGE_SIZE);
+    }
+
+    if (fallbackPaged.length >= PAGE_SIZE) {
+      renderInboxGridItems(fallbackPaged, grid, curLang);
+      renderPagination('inboxPagination', curPage, fallbackTotalPages, 'changeInboxPage');
     } else {
-      // Clean skeleton loading state instead of premature empty text
+      // Clean skeleton loading state instead of flashing 1~3 stale cards
       grid.innerHTML = Array.from({ length: 6 }).map(() => `
         <div class="executive-card p-5 animate-pulse space-y-4">
           <div class="h-4 bg-slate-200 rounded w-1/3"></div>
@@ -364,20 +373,26 @@ export async function renderInbox() {
 
   // 3. Dynamic SWR Fetch from DB (/api/inbox)
   try {
-    const dbResult = await fetchInboxFromDb(curPage, false);
+    const dbResult = await fetchInboxFromDb(curPage, renderedFromCache);
     if (dbResult && Array.isArray(dbResult.items)) {
-      if (dbResult.items.length === 0) {
-        grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${curLang === 'KO' ? '수집된 인박스 후보가 없습니다.' : (curLang === 'ZH' ? '收件箱暂无候选数据。' : 'No candidates in the inbox.')}</div>`;
-        renderPagination('inboxPagination', 1, 1, 'changeInboxPage');
-      } else {
-        renderInboxGridItems(dbResult.items, grid, curLang);
-        renderPagination('inboxPagination', curPage, dbResult.totalPages, 'changeInboxPage');
+      const newFirstId = dbResult.items[0]?.inbox_id || dbResult.items[0]?.id;
+      if (!renderedFromCache || newFirstId !== cachedFirstId || dbResult.items.length !== (inboxDbCache.get(cacheKey)?.items?.length)) {
+        if (dbResult.items.length === 0) {
+          grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${curLang === 'KO' ? '수집된 인박스 후보가 없습니다.' : (curLang === 'ZH' ? '收件箱暂无候选数据。' : 'No candidates in the inbox.')}</div>`;
+          renderPagination('inboxPagination', 1, 1, 'changeInboxPage');
+        } else {
+          renderInboxGridItems(dbResult.items, grid, curLang);
+          renderPagination('inboxPagination', curPage, dbResult.totalPages, 'changeInboxPage');
+        }
       }
     }
   } catch (err) {
     if (err.name === 'AbortError') return;
     console.warn('[Inbox SWR] DB fetch skipped:', err.message);
-    if (!grid.children.length || grid.querySelector('.animate-pulse')) {
+    if (!renderedFromCache && fallbackPaged.length > 0 && grid.querySelector('.animate-pulse')) {
+      renderInboxGridItems(fallbackPaged, grid, curLang);
+      renderPagination('inboxPagination', curPage, fallbackTotalPages, 'changeInboxPage');
+    } else if (!grid.children.length || grid.querySelector('.animate-pulse')) {
       grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${curLang === 'KO' ? '수집된 인박스 후보가 없습니다.' : (curLang === 'ZH' ? '收件箱暂无候选数据。' : 'No candidates in the inbox.')}</div>`;
     }
   }

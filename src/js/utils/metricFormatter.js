@@ -85,9 +85,10 @@ export function formatCleanMetricVal(valStr, currentLang = 'KO') {
   if (!valStr) return '';
   let clean = String(valStr).replace(/🔥/g, '').trim();
   clean = clean.replace(/\b(?:hn\s*)?points\b/gi, 'pts').replace(/\blikes\b/gi, 'likes').replace(/\bstars\b/gi, '★');
-  // Compact long Reddit & discussion strings
-  clean = clean.replace(/Reddit\s*Major\s*Discussion/gi, currentLang === 'KO' ? '💬 커뮤니티 토론' : (currentLang === 'ZH' ? '💬 社区讨论' : '💬 Discussion'));
-  clean = clean.replace(/Major\s*Discussion/gi, currentLang === 'KO' ? '💬 토론' : (currentLang === 'ZH' ? '💬 讨论' : '💬 Discussion'));
+  // Compact long Reddit & discussion strings (prevent double 💬 emoji when raw string already starts with 💬)
+  clean = clean.replace(/(?:💬\s*)?Reddit\s*Major\s*Discussion/gi, currentLang === 'KO' ? '💬 커뮤니티 토론' : (currentLang === 'ZH' ? '💬 社区讨论' : '💬 Discussion'));
+  clean = clean.replace(/(?:💬\s*)?Major\s*Discussion/gi, currentLang === 'KO' ? '💬 토론' : (currentLang === 'ZH' ? '💬 讨论' : '💬 Discussion'));
+  clean = clean.replace(/💬\s*💬/g, '💬');
   // Compact long news media report strings
   clean = clean.replace(/\(Trending\s*Demo\)/gi, '').trim();
   if (clean.length > 18 && clean.includes('보도')) {

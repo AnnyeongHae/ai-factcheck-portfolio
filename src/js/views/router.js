@@ -311,6 +311,9 @@ export function initRouter() {
   window.addEventListener('popstate', handleHashRoute);
   window.addEventListener('hashchange', handleHashRoute);
   window.addEventListener('load', () => {
-    setTimeout(handleHashRoute, 150);
+    const hash = window.location.hash || '';
+    if (!window.__APP_INITIALIZED__ || hash.includes('case=') || hash.startsWith('#case/') || hash.includes('page=')) {
+      setTimeout(handleHashRoute, 150);
+    }
   });
 }

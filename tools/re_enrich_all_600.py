@@ -157,20 +157,24 @@ def translate_titles_batch(items: list, api_key: str, max_retries: int = 3):
     if not items_to_translate:
         return results
 
-    prompt = f"""당신은 최고 수준의 글로벌 IT/AI 전문 번역가입니다. 주어진 영문 기술/뉴스 제목들을 한국 엔지니어 및 독자가 읽기에 매우 자연스럽고 매끄러운 한국어(Hangul) 및 중국어 간체자로 번역하여 JSON 배열로 응답하세요.
+    prompt = f"""당신은 최고 수준의 글로벌 IT/AI 전문 에디터이자 번역가입니다. 주어진 기술/뉴스 제목들을 분석하여 다음 필드를 포함한 JSON 배열로 응답하세요:
+1. "title_ko": 한국 엔지니어가 읽기 자연스러운 한국어 제목 번역
+2. "title_zh": 중국어 간체자 제목 번역
+3. "hook_ko": 제목을 그대로 반복하지 말고, 이 아티클의 핵심 기술적 의의나 엔지니어링 시사점을 1문장(40~70자)으로 요약한 한국어 후킹 문구
+4. "hook_zh": 제목을 반복하지 않는 중국어 간체자 1문장 핵심 요약
 
-입력 제목 목록:
+입력 목록:
 {json.dumps(items_to_translate, ensure_ascii=False, indent=2)}
 
 응답 형식 (반드시 아래 JSON 배열만 출력):
 [
-  {{"id": {items_to_translate[0]['id']}, "title_ko": "자연스러운 한국어 번역", "title_zh": "中文精准翻译"}}
+  {{"id": {items_to_translate[0]['id']}, "title_ko": "한국어 제목", "title_zh": "中文标题", "hook_ko": "핵심 기술적 의의와 시사점 1문장 요약", "hook_zh": "核心技术意义与工程启示一句话总结"}}
 ]"""
 
     req_body = {
         "model": MODEL,
         "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": 2500,
+        "max_tokens": 3000,
         "temperature": 0.2
     }
 
@@ -186,7 +190,7 @@ def translate_titles_batch(items: list, api_key: str, max_retries: int = 3):
     for attempt in range(max_retries):
         try:
             req = urllib.request.Request(OPENROUTER_URL, data=req_data, headers=headers, method="POST")
-            with urllib.request.urlopen(req, timeout=20) as res:
+            with urllib.request.urlopen(req, timeout=25) as res:
                 body = json.loads(res.read().decode("utf-8"))
             msg = body.get("choices", [{}])[0].get("message", {})
             raw_c = msg.get("content") or msg.get("reasoning") or ""
@@ -197,7 +201,9 @@ def translate_titles_batch(items: list, api_key: str, max_retries: int = 3):
                     if isinstance(p, dict) and 'id' in p:
                         results[p['id']] = {
                             "title_ko": p.get("title_ko") or "",
-                            "title_zh": p.get("title_zh") or ""
+                            "title_zh": p.get("title_zh") or "",
+                            "hook_ko": p.get("hook_ko") or "",
+                            "hook_zh": p.get("hook_zh") or ""
                         }
                 return results
         except urllib.error.HTTPError as e:
@@ -224,7 +230,7 @@ def assemble_enriched_item(item: dict, translations: dict) -> dict:
     trans = translations.get(db_id, {})
     t_ko = trans.get('title_ko') or f"{plat_prefix}: {title_clean}"
     t_zh = trans.get('title_zh') or f"【{plat_prefix}】{title_clean}"
-    t_en = f"[{plat_prefix}] {title_clean}" if not title_clean.startswith(plat_prefix) else title_clean
+    t_en = title_clean
 
     # Clean title_ko if it still has English only
     if not KOREAN_REGEX.search(t_ko):
@@ -233,23 +239,23 @@ def assemble_enriched_item(item: dict, translations: dict) -> dict:
     entity, t1, prim, itype = extract_entity_and_category(title_clean)
     story_key = slugify(title_clean)
 
-    # High-quality contextual hooks and takeaways
-    h_ko = f"{t_ko} 관련 핵심 기술 명세 및 글로벌 엔지니어링 생태계 영향 분석"
-    h_en = f"Key architectural updates and practitioner impact analysis concerning {title_clean}."
-    h_zh = f"围绕「{t_zh}」的核心技术架构突破与全球开发者生态深度解析。"
+    # Distinct, non-repetitive contextual hooks and takeaways
+    h_ko = trans.get('hook_ko') or f"{plat_prefix} 생태계에서 부상 중인 핵심 아키텍처 명세 및 실무 엔지니어링 영향 분석"
+    h_en = f"Key architectural updates and practitioner impact analysis published via {plat_prefix}."
+    h_zh = trans.get('hook_zh') or f"来自 {plat_prefix} 生态的核心技术架构突破与全球开发者社区深度解析。"
 
     tk_ko = [
-      f"{plat_prefix} 플랫폼을 통해 공개된 '{t_ko}' 관련 핵심 기능 및 아키텍처 상세 내역",
+      f"{plat_prefix} 채널을 통해 공유된 핵심 아키텍처 설계 및 주요 기술 사양 분석",
       "글로벌 엔지니어링 커뮤니티 및 개발자 생태계의 실시간 벤치마크 및 도입 피드백",
       "차세대 프로덕션 시스템 안정성 및 엔터프라이즈 워크플로 관점의 권장 대응 방향"
     ]
     tk_en = [
-      f"Core technical specifications and public release highlights regarding {title_clean}",
+      f"Core technical specifications and release highlights shared on {plat_prefix}",
       "Practitioner evaluations, community discussion, and comparative performance benchmarks",
       "Actionable integration guidelines for scalable production adoption and infrastructure reliability"
     ]
     tk_zh = [
-      f"基于{plat_prefix}官方渠道发布的「{t_zh}」核心功能规范与系统架构细节",
+      f"基于 {plat_prefix} 渠道发布的核心功能规范与系统架构细节",
       "全球技术社区与开发者生态对其运行效能与生产适用性的实时反馈",
       "面向工业级企业系统部署与技术选型路线图的综合演进建议"
     ]

@@ -5,7 +5,7 @@
  * ==============================================================================
  */
 
-import { currentLang, setGlobalLang, liveModelsData, liveNewsData, liveInboxData } from './store.js';
+import { currentLang, setGlobalLang, liveModelsData, liveNewsData, liveInboxData, snapshotStats } from './store.js';
 import { getDynamicKstDate } from '../utils/dateTime.js';
 
 export const i18n = {
@@ -488,7 +488,7 @@ export const i18n = {
   }
 };
 
-export function setLanguage(lang) {
+export function setLanguage(lang, skipViewRender = false) {
   setGlobalLang(lang);
   if (typeof localStorage !== 'undefined') {
     try { localStorage.setItem('factcheck_lang', lang); } catch (e) {}
@@ -531,6 +531,9 @@ export function setLanguage(lang) {
       if (el && val !== undefined) el.setAttribute(attr, val);
     };
 
+    const totalModelsCnt = (snapshotStats && snapshotStats.models_total_count) || (typeof liveModelsData !== 'undefined' ? liveModelsData.length : 344);
+    const totalInboxCnt = (snapshotStats && snapshotStats.inbox_total_count) || (typeof liveInboxData !== 'undefined' ? liveInboxData.length : 3039);
+
     // Brand & Navigation
     safeSetText('headerBrandTitle', t.brandTitle);
     safeSetText('headerBrandSubtitle', t.brandSubtitle);
@@ -539,19 +542,19 @@ export function setLanguage(lang) {
     safeSetText('navTabPortfolio', t.navPortfolio);
     safeSetText('mNavTabPortfolio', t.navPortfolio);
     safeSetText('navTabModels', t.navModels);
-    safeSetText('mNavTabModels', t.navModels + ' (' + (typeof liveModelsData !== 'undefined' ? liveModelsData.length : 242) + ')');
+    safeSetText('mNavTabModels', `${t.navModels} (${totalModelsCnt.toLocaleString()})`);
     safeSetText('navTabNews', t.navNews);
-    safeSetText('mNavTabNews', t.navNews + ' (' + (typeof liveNewsData !== 'undefined' ? liveNewsData.length : 1535) + ')');
+    safeSetText('mNavTabNews', `${t.navNews} (${totalInboxCnt.toLocaleString()})`);
     safeSetText('navTabGraph', t.navGraph);
     safeSetText('mNavTabGraph', t.navGraph);
     safeSetText('adminArchiveLabel', t.adminArchiveBtn);
-    safeSetText('mNavTabInbox', (t.adminArchiveBtn || '아카이브') + ' (' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : 1777) + ')');
+    safeSetText('mNavTabInbox', `${t.adminArchiveBtn || '아카이브'} (${totalInboxCnt.toLocaleString()})`);
 
     // Hero Elements
     safeSetText('heroBadge', t.heroBadge);
     safeSetText('heroMainTitle', t.heroMainTitle);
     safeSetHtml('heroMainDesc', t.heroMainDesc);
-    const liveCasesCount = (window.liveCasesData && window.liveCasesData.length) || (window.casesData && window.casesData.length) || 63;
+    const liveCasesCount = (window.liveCasesData && window.liveCasesData.length) || (window.casesData && window.casesData.length) || (snapshotStats && snapshotStats.total_cases) || 63;
     const heroAuditText = lang === 'KO' ? `● ${liveCasesCount}개 기술 검증 완료` : (lang === 'ZH' ? `已完成 ${liveCasesCount} 项技术审计` : `${liveCasesCount} Audits Completed`);
     safeSetText('heroAuditCount', heroAuditText);
 
@@ -647,11 +650,13 @@ export function setLanguage(lang) {
     safeSetText('pipelineWidgetTitle', t.pipelineWidgetTitle);
     safeSetText('pipelineNextTargetLabel', t.pipelineNextTargetLabel);
     safeSetText('pipelineFooterAudit', t.pipelineFooterAudit);
-    if (typeof window.renderPipelineTelemetryCards === 'function') window.renderPipelineTelemetryCards();
-    if (typeof window.renderRunsTable === 'function') window.renderRunsTable();
-    if (typeof window.updateCronCountdown === 'function') window.updateCronCountdown();
+    if (!skipViewRender) {
+      if (typeof window.renderPipelineTelemetryCards === 'function') window.renderPipelineTelemetryCards();
+      if (typeof window.renderRunsTable === 'function') window.renderRunsTable();
+      if (typeof window.updateCronCountdown === 'function') window.updateCronCountdown();
+    }
     safeSetText('inboxHeaderDesc', t.inboxHeaderDesc);
-    safeSetText('inboxHeaderCount', lang === 'KO' ? ('총 ' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : '') + '건') : (lang === 'ZH' ? ('共 ' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : '') + ' 项') : ('Total: ' + (typeof liveInboxData !== 'undefined' ? liveInboxData.length : '') + ' items')));
+    safeSetText('inboxHeaderCount', lang === 'KO' ? `총 ${totalInboxCnt.toLocaleString()}건` : (lang === 'ZH' ? `共 ${totalInboxCnt.toLocaleString()} 项` : `Total: ${totalInboxCnt.toLocaleString()} items`));
     safeSetText('criteriaTitle', t.criteriaTitle);
     safeSetText('criteriaDesc', t.criteriaDesc);
     safeSetText('critGithub', t.critGithub);
@@ -682,17 +687,22 @@ export function setLanguage(lang) {
       sortSel.innerHTML = t.sortOptions.map(opt => `<option value="${opt.val}" ${opt.val === curVal ? 'selected' : ''}>${opt.text}</option>`).join('');
     }
 
-    // 🌟 Instant Full Re-render on Active Views
-    try { if (typeof window.renderCards === 'function') window.renderCards(); } catch (e) {}
-    try { if (typeof window.renderHomeTopPicks === 'function') window.renderHomeTopPicks(); } catch (e) {}
-    try { if (typeof window.renderRadarSession === 'function') window.renderRadarSession(); } catch (e) {}
-    try { if (typeof window.renderTelemetryCharts === 'function') window.renderTelemetryCharts(); } catch (e) {}
-    try { if (typeof window.updateCronCountdown === 'function') window.updateCronCountdown(); } catch (e) {}
-    try { if (typeof window.renderModels === 'function') window.renderModels(); } catch (e) {}
-    try { if (typeof window.renderNews === 'function') window.renderNews(); } catch (e) {}
-    try { if (typeof window.renderInbox === 'function') window.renderInbox(); } catch (e) {}
-    if (window.lucide && typeof window.lucide.createIcons === 'function') {
-      try { window.lucide.createIcons(); } catch (e) {}
+    if (!skipViewRender) {
+      const activeView = (typeof window !== 'undefined' && window.currentView) ? window.currentView : 'home';
+      try { if (typeof window.renderCards === 'function') window.renderCards(); } catch (e) {}
+      try { if (typeof window.renderHomeTopPicks === 'function') window.renderHomeTopPicks(); } catch (e) {}
+      try { if (typeof window.renderRadarSession === 'function') window.renderRadarSession(); } catch (e) {}
+      try { if (typeof window.renderTelemetryCharts === 'function') window.renderTelemetryCharts(); } catch (e) {}
+      try { if (typeof window.updateCronCountdown === 'function') window.updateCronCountdown(); } catch (e) {}
+      try { if (typeof window.renderModels === 'function') window.renderModels(); } catch (e) {}
+      if (activeView === 'news') {
+        try { if (typeof window.renderNews === 'function') window.renderNews(); } catch (e) {}
+      } else if (activeView === 'inbox') {
+        try { if (typeof window.renderInbox === 'function') window.renderInbox(); } catch (e) {}
+      }
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        try { window.lucide.createIcons(); } catch (e) {}
+      }
     }
   }
 }

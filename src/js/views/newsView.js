@@ -326,28 +326,31 @@ export async function renderNews() {
   const cacheKey = getNewsCacheKey(curPage);
   const isDefaultFilter = (curT1 === 'ALL' && curT2 === 'ALL' && curFacet === 'ALL' && !curSearch && !targetId);
 
-  // 1. ⚡ 0ms ZERO-LATENCY FIRST PAINT: Cached Result in Memory (Optimistic SWR)
+  // 1. ⚡ 0ms ZERO-LATENCY FIRST PAINT: Memory Map or SessionStorage SWR Cache
   let renderedFromCache = false;
   let cachedFirstId = null;
-  if (newsDbCache.has(cacheKey)) {
-    const cached = newsDbCache.get(cacheKey);
-    if (cached && Array.isArray(cached.items) && cached.items.length > 0) {
-      renderNewsGridItems(cached.items, grid);
-      renderPagination('newsPagination', curPage, cached.totalPages, 'changeNewsPage');
-      if (window.lucide) window.lucide.createIcons({ root: grid });
-      renderedFromCache = true;
-      cachedFirstId = cached.items[0]?.inbox_id || cached.items[0]?.id;
-      if (Date.now() - (cached.timestamp || 0) < 10000) {
-        return;
-      }
+  let cached = newsDbCache.get(cacheKey);
+  if (!cached) {
+    cached = ClientCache.get(cacheKey, 60000);
+    if (cached) newsDbCache.set(cacheKey, cached);
+  }
+  if (cached && Array.isArray(cached.items) && cached.items.length > 0) {
+    renderNewsGridItems(cached.items, grid);
+    renderPagination('newsPagination', curPage, cached.totalPages, 'changeNewsPage');
+    if (window.lucide) window.lucide.createIcons({ root: grid });
+    renderedFromCache = true;
+    cachedFirstId = cached.items[0]?.inbox_id || cached.items[0]?.id;
+    if (Date.now() - (cached.timestamp || 0) < 10000) {
+      return;
     }
   }
 
-  // 2. ⚡ Optimistic Filter (0ms Instant Preview from local snapshot if no cache)
+  // 2. ⚡ Optimistic Filter (0ms Instant Preview from local snapshot ONLY when it has a full page)
+  let memMatches = [];
+  const curSort = window.currentNewsSort || currentNewsSort || 'date-audit-desc';
   if (!renderedFromCache) {
     const newsList = window.liveNewsData || liveNewsData || [];
-    const curSort = window.currentNewsSort || currentNewsSort || 'date-audit-desc';
-    const memMatches = newsList.filter(it => {
+    memMatches = newsList.filter(it => {
       if (targetId && (it.inbox_id === targetId || it.id === targetId)) return true;
       if ((curSort === 'date-audit-desc' || curSort === 'date-audit-asc') && (!it.ai_enrichment || !it.ai_enrichment.enriched_at)) return false;
       if (curT1 !== 'ALL' && (it.tier1_category || 'TECH_COMPUTING') !== curT1) return false;
@@ -372,11 +375,11 @@ export async function renderNews() {
       return true;
     });
 
-    if (memMatches.length > 0) {
+    if (memMatches.length >= PAGE_SIZE || (targetId && memMatches.length > 0)) {
       sortCollection(memMatches, curSort);
       const optimisticSlice = memMatches.slice(0, PAGE_SIZE);
       renderNewsGridItems(optimisticSlice, grid);
-      const estPages = Math.ceil(memMatches.length / PAGE_SIZE) || 1;
+      const estPages = Math.ceil((snapshotStats.inbox_total_count || memMatches.length) / PAGE_SIZE) || 1;
       renderPagination('newsPagination', curPage, estPages, 'changeNewsPage');
       if (window.lucide) window.lucide.createIcons({ root: grid });
     } else {
@@ -414,5 +417,10 @@ export async function renderNews() {
   } catch (err) {
     if (err.name === 'AbortError') return;
     console.warn('[News DB-Native Fetch Fallback]:', err.message);
+    if (!renderedFromCache && memMatches.length > 0 && grid.querySelector('.animate-pulse')) {
+      sortCollection(memMatches, curSort);
+      renderNewsGridItems(memMatches.slice(0, PAGE_SIZE), grid);
+      renderPagination('newsPagination', curPage, Math.ceil(memMatches.length / PAGE_SIZE) || 1, 'changeNewsPage');
+    }
   }
 }

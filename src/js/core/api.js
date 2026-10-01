@@ -30,40 +30,33 @@ import { showToast } from '../components/toast.js';
 import { ClientCache } from './cache.js';
 
 export async function bootstrapApplicationData() {
-  console.log('[Bootstrap] Initializing asynchronous DB-First data hydration...');
+  console.log('[Bootstrap] Initializing parallel DB-First data hydration...');
   let loadedFromEdge = false;
 
-  // 1. Primary Source: Session SWR Cache or Vercel Edge SWR API
   const cachedPortfolios = ClientCache.get('portfolios_summary', 120000);
-  if (cachedPortfolios && cachedPortfolios.success && Array.isArray(cachedPortfolios.portfolios) && cachedPortfolios.portfolios.length > 0) {
-    AppStore.setCases(cachedPortfolios.portfolios);
-    loadedFromEdge = true;
-    if (cachedPortfolios.db_provider) APP_CONFIG.setDbProvider(cachedPortfolios.db_provider);
-    console.log(`[Bootstrap] ⚡ [Session SWR Cache] Restored ${cachedPortfolios.portfolios.length} dossiers instantly.`);
-  } else {
+  const edgeFetchPromise = (async () => {
+    if (cachedPortfolios && cachedPortfolios.success && Array.isArray(cachedPortfolios.portfolios) && cachedPortfolios.portfolios.length > 0) {
+      return { source: 'cache', data: cachedPortfolios };
+    }
+    const portfoliosApiUrl = APP_CONFIG.apiUrl('/api/portfolios?summary=true');
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
     try {
-      const portfoliosApiUrl = APP_CONFIG.apiUrl('/api/portfolios?summary=true');
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 6000);
       const edgeRes = await fetch(portfoliosApiUrl, { signal: controller.signal });
       clearTimeout(timeoutId);
-
       if (edgeRes.ok) {
         const edgeData = await edgeRes.json();
         if (edgeData && edgeData.success && Array.isArray(edgeData.portfolios) && edgeData.portfolios.length > 0) {
-          AppStore.setCases(edgeData.portfolios);
-          loadedFromEdge = true;
-          ClientCache.set('portfolios_summary', edgeData);
-          if (edgeData.db_provider) APP_CONFIG.setDbProvider(edgeData.db_provider);
-          console.log(`[Bootstrap] ⚡ [DB-First Edge SWR] Loaded ${edgeData.portfolios.length} dossiers directly from ${APP_CONFIG.dbProvider} Edge API.`);
+          return { source: 'edge', data: edgeData };
         }
       }
-    } catch (edgeErr) {
-      console.warn('[Bootstrap] Edge API first-paint timeout or offline, falling back to static snapshot:', edgeErr.message);
+    } finally {
+      clearTimeout(timeoutId);
     }
-  }
+    return null;
+  })();
 
-  try {
+  const staticFetchPromise = (async () => {
     let staticRes = await fetch('data.json', { cache: 'default' });
     let cType = staticRes.headers.get('content-type') || '';
     if (!staticRes.ok || !cType.includes('application/json')) {
@@ -71,74 +64,96 @@ export async function bootstrapApplicationData() {
       cType = staticRes.headers.get('content-type') || '';
     }
     if (staticRes.ok && cType.includes('application/json')) {
-      const data = await staticRes.json();
-      AppStore.setGraphData(data.graph || { nodes: [], links: [] });
-      window.adminData = data.admin_stats || {};
-      window.timeline24hData = data.timeline_24h || [];
-      window.actionsTelemetryData = data.actions_telemetry || {};
-      window.trend6hData = data.trend_6h || {};
-      window.trendRadarData = data.trend_radar || {};
+      return await staticRes.json();
+    }
+    return null;
+  })();
 
-      Object.assign(snapshotStats, {
-        total_cases: data.total_cases || (data.cases ? data.cases.length : 58),
-        news_total_count: data.news_total_count || (data.news_items ? data.news_items.length : 3039),
-        models_total_count: data.models_total_count || (data.model_items ? data.model_items.length : 344),
-        inbox_total_count: data.inbox_total_count || (data.inbox_items ? data.inbox_items.length : 3039),
-        tier1_counts: data.tier1_counts || null,
-        news_cat_counts: data.news_cat_counts || null,
-        model_art_counts: data.model_art_counts || null,
-        model_fam_counts: data.model_fam_counts || null
+  const [edgeOutcome, staticOutcome] = await Promise.allSettled([edgeFetchPromise, staticFetchPromise]);
+
+  // 1. Primary Source: Session SWR Cache or Vercel Edge SWR API
+  if (edgeOutcome.status === 'fulfilled' && edgeOutcome.value) {
+    const { source, data: edgeData } = edgeOutcome.value;
+    AppStore.setCases(edgeData.portfolios);
+    loadedFromEdge = true;
+    if (source === 'edge') {
+      ClientCache.set('portfolios_summary', edgeData);
+    }
+    if (edgeData.db_provider) APP_CONFIG.setDbProvider(edgeData.db_provider);
+    console.log(`[Bootstrap] ⚡ [${source === 'cache' ? 'Session SWR Cache' : 'DB-First Edge SWR'}] Loaded ${edgeData.portfolios.length} dossiers.`);
+  } else if (edgeOutcome.status === 'rejected') {
+    console.warn('[Bootstrap] Edge API first-paint timeout or offline, falling back to static snapshot:', edgeOutcome.reason?.message);
+  }
+
+  // 2. Static Snapshot Hydration (Graph, Telemetry, Snapshot Stats & Fallback Items)
+  if (staticOutcome.status === 'fulfilled' && staticOutcome.value) {
+    const data = staticOutcome.value;
+    AppStore.setGraphData(data.graph || { nodes: [], links: [] });
+    window.adminData = data.admin_stats || {};
+    window.timeline24hData = data.timeline_24h || [];
+    window.actionsTelemetryData = data.actions_telemetry || {};
+    window.trend6hData = data.trend_6h || {};
+    window.trendRadarData = data.trend_radar || {};
+
+    Object.assign(snapshotStats, {
+      total_cases: data.total_cases || (data.cases ? data.cases.length : 58),
+      news_total_count: data.news_total_count || (data.news_items ? data.news_items.length : 3039),
+      models_total_count: data.models_total_count || (data.model_items ? data.model_items.length : 344),
+      inbox_total_count: data.inbox_total_count || (data.inbox_items ? data.inbox_items.length : 3039),
+      tier1_counts: data.tier1_counts || null,
+      news_cat_counts: data.news_cat_counts || null,
+      model_art_counts: data.model_art_counts || null,
+      model_fam_counts: data.model_fam_counts || null
+    });
+
+    if (!loadedFromEdge) {
+      AppStore.init(data);
+      console.log(`[Bootstrap] Loaded ${AppStore.getCases().length} dossiers from static snapshot fallback.`);
+    } else {
+      AppStore._news = data.trend_items || data.news_items || data.news || [];
+      AppStore._models = data.model_items || data.models || [];
+      AppStore._inbox = data.inbox_items || (data.inbox_recent || []).concat(data.inbox || []);
+
+      AppStore._models.forEach(it => { it.is_model = true; });
+      AppStore._news.forEach(it => {
+        if (it.is_model === undefined) {
+          it.is_model = it.facet_type === 'MODEL' || !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
+        }
+      });
+      AppStore._inbox.forEach(it => {
+        if (it.is_model === undefined) it.is_model = !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
+        if (it.is_news === undefined) it.is_news = !it.is_model;
       });
 
-      if (!loadedFromEdge) {
-        AppStore.init(data);
-        console.log(`[Bootstrap] Loaded ${AppStore.getCases().length} dossiers from static snapshot fallback.`);
-      } else {
-        AppStore._news = data.trend_items || data.news_items || data.news || [];
-        AppStore._models = data.model_items || data.models || [];
-        AppStore._inbox = data.inbox_items || (data.inbox_recent || []).concat(data.inbox || []);
+      [...AppStore._inbox, ...AppStore._news, ...AppStore._models].forEach(it => {
+        const id = it.inbox_id || it.id;
+        if (id && !AppStore._itemsMap.has(id)) {
+          AppStore._itemsMap.set(id, it);
+        }
+      });
 
-        AppStore._models.forEach(it => { it.is_model = true; });
-        AppStore._news.forEach(it => {
-          if (it.is_model === undefined) {
-            it.is_model = it.facet_type === 'MODEL' || !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
-          }
-        });
-        AppStore._inbox.forEach(it => {
-          if (it.is_model === undefined) it.is_model = !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
-          if (it.is_news === undefined) it.is_news = !it.is_model;
-        });
-
-        [...AppStore._inbox, ...AppStore._news, ...AppStore._models].forEach(it => {
-          const id = it.inbox_id || it.id;
-          if (id && !AppStore._itemsMap.has(id)) {
-            AppStore._itemsMap.set(id, it);
-          }
-        });
-
-        window.liveNewsData = AppStore._news;
-        window.liveModelsData = AppStore._models;
-        window.inboxData = AppStore._inbox;
-        window.liveInboxData = AppStore._inbox;
-        window.newsData = AppStore._news;
-        window.modelsData = AppStore._models;
-      }
+      window.liveNewsData = AppStore._news;
+      window.liveModelsData = AppStore._models;
+      window.inboxData = AppStore._inbox;
+      window.liveInboxData = AppStore._inbox;
+      window.newsData = AppStore._news;
+      window.modelsData = AppStore._models;
     }
-  } catch (e) {
-    console.warn('[Bootstrap] Static snapshot fallback skipped:', e.message);
+  } else if (staticOutcome.status === 'rejected') {
+    console.warn('[Bootstrap] Static snapshot fallback skipped:', staticOutcome.reason?.message);
   }
 
   updateGlobalStatsUI();
 
-  // Restore user saved language preference if previously selected
+  // Restore user saved language preference (skipViewRender=true since switchView runs immediately below)
   try {
-    const savedLang = localStorage.getItem('factcheck_lang');
-    if (savedLang && ['KO', 'ZH', 'EN'].includes(savedLang) && savedLang !== 'KO') {
-      if (typeof window.setLanguage === 'function') window.setLanguage(savedLang);
+    const savedLang = localStorage.getItem('factcheck_lang') || 'KO';
+    if (['KO', 'ZH', 'EN'].includes(savedLang) && typeof window.setLanguage === 'function') {
+      window.setLanguage(savedLang, true);
     }
   } catch (e) {}
 
-  // Lazy Active View Rendering
+  // Lazy Active View Rendering (Single Clean Pass)
   const initialHash = typeof window !== 'undefined' ? window.location.hash || '' : '';
   let initialView = 'home';
   if (initialHash.startsWith('#/factchecks') || initialHash.startsWith('#case/')) initialView = 'portfolio';
@@ -173,19 +188,18 @@ export function updateGlobalStatsUI() {
   const lInbox = typeof window !== 'undefined' ? window.liveInboxData : liveInboxData;
 
   const numCases = (lCases && lCases.length) || snapshotStats.total_cases || 58;
-  const numNews = snapshotStats.news_total_count || (lNews && lNews.length) || 0;
   const numModels = snapshotStats.models_total_count || (lModels && lModels.length) || 0;
-  const numInbox = snapshotStats.inbox_total_count || (lInbox && lInbox.length) || 0;
+  const numInbox = snapshotStats.inbox_total_count || snapshotStats.news_total_count || (lInbox && lInbox.length) || (lNews && lNews.length) || 0;
 
   safeSet('statValVerified', numCases);
-  safeSet('statValNews', numNews);
-  safeSet('statValModels', numModels);
+  safeSet('statValNews', numInbox.toLocaleString());
+  safeSet('statValModels', numModels.toLocaleString());
   safeSet('statValInbox', numInbox.toLocaleString());
 
   safeSet('headerVerifiedCount', `(${numCases})`);
   safeSet('headerNewsCount', `(${numInbox.toLocaleString()})`);
-  safeSet('headerModelsCount', `(${numModels})`);
-  safeSet('headerInboxCount', `(${numInbox})`);
+  safeSet('headerModelsCount', `(${numModels.toLocaleString()})`);
+  safeSet('headerInboxCount', `(${numInbox.toLocaleString()})`);
 
   const inbList = lInbox || [];
   const enrichedInbox = inbList.filter(x => x.is_classified || x.ai_enrichment).length;
@@ -460,7 +474,7 @@ export async function syncFromLiveDB(force = false) {
         if (statInbox && liveInbox) statInbox.textContent = liveInbox.toLocaleString();
 
         const statNews = document.getElementById('statValNews');
-        if (statNews && liveNews) statNews.textContent = liveNews.toLocaleString();
+        if (statNews && liveInbox) statNews.textContent = liveInbox.toLocaleString();
 
         const hNews = document.getElementById('headerNewsCount');
         if (hNews && liveInbox) hNews.textContent = `(${liveInbox.toLocaleString()})`;
@@ -865,12 +879,13 @@ export async function startContinuousAiWorker() {
 
   let consecutiveErrors = 0;
   let processedInThisSession = 0;
+  const MAX_SESSION_CAP = 5;
 
-  while (_autoWorkerRunning && !_autoWorkerPaused) {
+  while (_autoWorkerRunning && !_autoWorkerPaused && processedInThisSession < MAX_SESSION_CAP) {
     try {
       const workerUrl = APP_CONFIG.apiUrl('/api/enrich-worker?limit=1');
       if (txt && !_autoWorkerPaused) {
-        txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI 요약 분석 중... (${processedInThisSession + 1}건 진행 중)`;
+        txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI 요약 분석 중... (${processedInThisSession + 1}/${MAX_SESSION_CAP}건 진행 중)`;
       }
 
       const res = await fetch(workerUrl, { cache: 'no-store' });
@@ -908,7 +923,7 @@ export async function startContinuousAiWorker() {
         processedInThisSession++;
         const rem = data.remaining_unclassified !== undefined ? data.remaining_unclassified : 0;
         if (txt && !_autoWorkerPaused) {
-          txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 중 (${processedInThisSession}건 완료 / 잔여: ${rem}건)`;
+          txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 중 (${processedInThisSession}/${MAX_SESSION_CAP}건 완료 / 잔여: ${rem}건)`;
         }
 
         if (rem === 0) {
@@ -923,11 +938,28 @@ export async function startContinuousAiWorker() {
           break;
         }
 
+        if (processedInThisSession >= MAX_SESSION_CAP) {
+          _autoWorkerRunning = false;
+          window._autoWorkerRunning = false;
+          if (txt) txt.textContent = `⚡ AI 요약 1회 세션 완료 (${processedInThisSession}건 / 잔여 ${rem}건 · 클릭 시 추가 실행)`;
+          if (btn) {
+            btn.disabled = false;
+            btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-indigo-100";
+          }
+          break;
+        }
+
       }
     } catch (loopErr) {
       console.warn('[AutoWorker Loop Error]:', loopErr);
       consecutiveErrors++;
-      await new Promise(r => setTimeout(r, 10000));
+      if (consecutiveErrors >= 3) {
+        _autoWorkerRunning = false;
+        window._autoWorkerRunning = false;
+        if (txt) txt.textContent = '⚡ 네트워크 오류로 중단됨 (클릭 시 재시도)';
+        break;
+      }
+      await new Promise(r => setTimeout(r, 5000));
     }
 
     await new Promise(r => setTimeout(r, 3500));

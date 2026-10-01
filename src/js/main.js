@@ -319,10 +319,9 @@ if (typeof document !== 'undefined') {
       await bootstrapApplicationData();
     } catch (err) {
       console.warn('[App] Bootstrap warning:', err);
+      const savedLang = localStorage.getItem('factcheck_lang') || 'KO';
+      setLanguage(savedLang);
     }
-    // Saved language preference
-    const savedLang = localStorage.getItem('factcheck_lang') || 'KO';
-    setLanguage(savedLang);
 
     // Initial cron interval
     setInterval(updateCronCountdown, 1000);
@@ -330,9 +329,6 @@ if (typeof document !== 'undefined') {
 
     // Initial check of Voyage embedding status
     setTimeout(checkVoyageEmbeddingStatus, 800);
-
-    // Live stats sync
-    setTimeout(updateGlobalStatsUI, 1500);
 
     // Signal modular app ready and hydrated
     window.__APP_INITIALIZED__ = true;

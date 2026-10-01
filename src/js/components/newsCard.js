@@ -62,6 +62,31 @@ export function getLocalizedContent(it, lang = currentLang) {
     else if (ai?.takeaways_ko?.length > 0) displayTakeaways = ai.takeaways_ko;
   }
 
+  if (displayHook && displayTitle) {
+    const cleanT = displayTitle.trim();
+    const cleanH = displayHook.trim();
+    if (cleanH === cleanT || cleanH === `${cleanT} 관련 핵심 기술 명세 및 글로벌 엔지니어링 생태계 영향 분석`) {
+      const fallbackDesc = cleanDescriptionText(it.description || '', cleanT);
+      displayHook = fallbackDesc && fallbackDesc.length > 15 && fallbackDesc !== cleanH
+        ? fallbackDesc
+        : (lang === 'KO' ? '핵심 기술 아키텍처 명세 및 글로벌 엔지니어링 생태계 영향 분석' : (lang === 'ZH' ? '核心技术架构突破与全球开发者生态深度解析' : 'Key architectural updates and practitioner impact analysis.'));
+    } else if (cleanT.length > 8 && cleanH.startsWith(cleanT)) {
+      const stripped = cleanH.slice(cleanT.length).replace(/^[\s:：\-–—·,]+/, '').trim();
+      if (stripped.length > 10) displayHook = stripped;
+    }
+  }
+
+  if (Array.isArray(displayTakeaways) && displayTakeaways.length > 0 && displayTitle) {
+    const cleanT = displayTitle.trim();
+    displayTakeaways = displayTakeaways.map(tk => {
+      if (typeof tk !== 'string') return tk;
+      return tk
+        .replace(`'${cleanT}' 관련 `, '')
+        .replace(`「${cleanT}」`, '해당 기술 ')
+        .replace(`regarding ${cleanT}`, 'regarding this release');
+    });
+  }
+
   if (displayHook) {
     const cleanH = displayHook.trim();
     if (displayDesc.trim() === cleanH) {
