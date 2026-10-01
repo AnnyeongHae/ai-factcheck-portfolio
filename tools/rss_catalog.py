@@ -34,12 +34,22 @@ TECH_AI_RELEVANCE_KEYWORDS = re.compile(
 )
 
 # ==============================================================================
-# CURATED MULTI-TIER RSS/ATOM CATALOG (72 Feeds across 7 Tiers)
+# CURATED MULTI-TIER RSS/ATOM CATALOG (73 Feeds across 7 Tiers)
 # ==============================================================================
 FIRST_PARTY_RSS_CATALOG = [
     # --------------------------------------------------------------------------
-    # TIER 1: Global Official AI Frontier Labs & Big-Tech Research (14 Feeds)
+    # TIER 1: Global Official AI Frontier Labs & Big-Tech Research (15 Feeds)
     # --------------------------------------------------------------------------
+    {
+        "name": "Anthropic Claude.dev",
+        "url": "https://claude.dev/rss.xml",
+        "tier": "official_lab",
+        "category_type": "TECH",
+        "lang": "EN",
+        "max_items": 15,
+        "badge": "🏛️ Anthropic Claude.dev 엔지니어링",
+        "require_keyword_filter": False,
+    },
     {
         "name": "OpenAI News",
         "url": "https://openai.com/news/rss.xml",
