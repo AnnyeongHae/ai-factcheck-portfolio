@@ -48,12 +48,30 @@ def parse_iso_or_default(val, default_dt):
     except Exception:
         return default_dt
 
-def extract_release_cluster_key(title: str, title_ko: str = "", story_key: str = "") -> str:
+import re
+
+GENERIC_VERSION_PATTERNS = [
+    # Matches patterns like: gemini 4 argon, gpt-6.1 sol, gpt-6 astra, claude opus 5.5, deepseek-v3.2, qwen-3.5, llama-4.5, glm-5.3, m5 ultra
+    re.compile(r'\b(gemini|gpt|claude|deepseek|qwen|llama|glm|gemma|mistral|grok)[\s\-_]*(?:opus|sonnet|haiku|pro|flash|ultra|mini|v|r)?[\s\-_]*(\d+(?:\.\d+)?)\s*([a-z]{3,10})?\b', re.IGNORECASE),
+    re.compile(r'\b(m[456])\s+(ultra|max|pro)\b', re.IGNORECASE),
+]
+STOP_CODENAMES = {
+    'model', 'models', 'with', 'from', 'into', 'over', 'after', 'before', 'under', 'about', 'between',
+    'will', 'can', 'may', 'now', 'just', 'more', 'most', 'other', 'some', 'such', 'says', 'said',
+    'report', 'reports', 'launch', 'launches', 'launched', 'release', 'releases', 'released', 'announces',
+    'announced', 'unveils', 'unveiled', 'rolls', 'out', 'update', 'updates', 'for', 'and', 'the',
+    'that', 'this', 'new', 'open', 'source', 'free', 'api', 'app', 'web', 'chat', 'code', 'agent', 'agents',
+    'million', 'billion', 'context', 'tokens', 'users', 'bench', 'benchmark', 'benchmarks'
+}
+
+def extract_release_cluster_key(title: str, title_ko: str = "", story_key: str = "", title_en: str = "") -> str:
     """
-    Detects canonical cross-platform release/event signatures (e.g. 'gemini-4-argon', 'gpt-6-astra',
-    'claude-opus-5.5', 'mac-studio-m5-ultra', 'glm-5.3', 'deepseek-v3.2-exp') across EN/KO/ZH headlines.
+    Detects canonical cross-platform release/event signatures across EN/KO/ZH headlines.
+    Combines:
+      1. Explicit multilingual aliases (e.g. 제미나이/아르곤, 클로드, 맥 스튜디오)
+      2. General Regex Entity + Version + Codename Anchor extraction (automatically catches ANY future model/version launch without hardcoding)
     """
-    combined = f"{title or ''} {title_ko or ''} {story_key or ''}".lower()
+    combined = f"{title or ''} {title_en or ''} {title_ko or ''} {story_key or ''}".lower()
     if ("gemini" in combined or "제미나이" in combined) and ("argon" in combined or "아르곤" in combined):
         return "release:google-gemini-4-argon"
     if ("gpt-6.1" in combined or "gpt 6.1" in combined) and "sol" in combined:
@@ -72,6 +90,19 @@ def extract_release_cluster_key(title: str, title_ko: str = "", story_key: str =
         return "release:f-droid-2-0"
     if "copilot+" in combined and ("dead" in combined or "pull back" in combined):
         return "release:microsoft-copilot-plus-pc-dead"
+
+    # General regex anchor for any future model + version (+ optional codename)
+    m = GENERIC_VERSION_PATTERNS[0].search(combined)
+    if m:
+        family = m.group(1).lower()
+        ver = m.group(2).replace('.', '-')
+        codename = (m.group(3) or '').lower()
+        if codename and codename not in STOP_CODENAMES:
+            return f"release:auto-{family}-{ver}-{codename}"
+        # Only group by family+version if version has a decimal (e.g. 5.5, 3.2, 6.1) to avoid overly broad 'gpt-4' or 'gemini-2' collisions
+        if '-' in ver:
+            return f"release:auto-{family}-{ver}"
+
     return ""
 
 def ensure_primary_in_sources(row_data, created_at):
@@ -262,8 +293,9 @@ def main():
             continue
         p = rd["raw_payload"]
         t_ko = p.get("title_ko") or (p.get("ai_enrichment") or {}).get("korean_title") or ""
+        t_en = p.get("title_en") or ((p.get("multilingual") or {}).get("en") or {}).get("title") or ""
         s_key = p.get("canonical_story_key") or (p.get("ai_enrichment") or {}).get("canonical_story_key") or ""
-        rel_key = extract_release_cluster_key(rd["title"], t_ko, s_key)
+        rel_key = extract_release_cluster_key(rd["title"], t_ko, s_key, t_en)
         if rel_key:
             clusters.setdefault(rel_key, []).append(rd)
 

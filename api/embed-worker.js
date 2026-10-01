@@ -307,13 +307,47 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    // 🌟 Execute 1-Shot Bulk JEV Evaluation for ambiguous pairs
-    if (ambiguousPairs.length > 0 && OPENROUTER_API_KEY) {
+    // 🌟 Deterministic Entity + Specific-Token Overlap Judge for Ambiguous Zone (0.76 <= sim < 0.88)
+    // Guarantees cross-platform merges even when OpenRouter JEV times out or is rate-limited
+    const STOP_WORDS = new Set([
+      'the', 'and', 'for', 'with', 'that', 'this', 'from', 'into', 'over', 'after', 'before',
+      'under', 'about', 'between', 'through', 'during', 'without', 'within', 'along', 'following',
+      'across', 'behind', 'beyond', 'plus', 'except', 'but', 'up', 'out', 'around', 'down', 'off',
+      'above', 'near', 'new', 'how', 'why', 'what', 'when', 'where', 'who', 'will', 'can', 'may',
+      'now', 'just', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own',
+      'same', 'so', 'than', 'too', 'very', 'says', 'said', 'report', 'reports', 'launch', 'launches',
+      'launched', 'release', 'releases', 'released', 'announces', 'announced', 'unveils', 'unveiled',
+      'rolls', 'out', 'update', 'updates', 'model', 'models', 'ai', 'artificial', 'intelligence',
+      'tech', 'technology', 'company', 'users', 'system', 'data', 'first', 'next', 'open', 'source'
+    ]);
+    function extractSpecificTokens(text) {
+      return (text || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9.\-+]+/g, ' ')
+        .split(/\s+/)
+        .filter(t => t.length >= 3 && !STOP_WORDS.has(t));
+    }
+
+    const unresolvedAmbiguous = [];
+    for (const p of ambiguousPairs) {
+      const tA = extractSpecificTokens(p.primaryTitle);
+      const tB = new Set(extractSpecificTokens(p.dupTitle));
+      const shared = tA.filter(tok => tB.has(tok));
+      // If cosine similarity >= 0.78 and they share >= 2 distinctive tokens (e.g. ['gemini', 'argon'] or ['claude', 'opus', '5.5']), merge deterministically!
+      if (p.sim >= 0.78 && shared.length >= 2) {
+        validPairs.push(p);
+      } else {
+        p.ambiguousIdx = unresolvedAmbiguous.length;
+        unresolvedAmbiguous.push(p);
+      }
+    }
+
+    // 🌟 Execute 1-Shot Bulk JEV Evaluation for remaining unresolved ambiguous pairs
+    if (unresolvedAmbiguous.length > 0 && OPENROUTER_API_KEY) {
       try {
-        const formatted = ambiguousPairs.map((p, idx) => ({ id: idx, a: p.primaryTitle, b: p.dupTitle }));
+        const formatted = unresolvedAmbiguous.map((p, idx) => ({ id: idx, a: p.primaryTitle, b: p.dupTitle }));
         const prompt = 'Determine if each pair of English headlines reports the exact same real-world incident/event.\nReturn ONLY a JSON array with id and is_same (true/false):\n' + JSON.stringify(formatted);
         const models = [
-          'typesafe/jev-router',
           'inclusionai/ling-3.0-flash-sante:free',
           'liquid/lfm-2.5-2.6b:free'
         ];
@@ -334,7 +368,7 @@ module.exports = async function handler(req, res) {
               body: JSON.stringify({
                 model,
                 messages: [{ role: 'user', content: prompt }],
-                max_tokens: 300 + ambiguousPairs.length * 40,
+                max_tokens: 300 + unresolvedAmbiguous.length * 40,
                 temperature: 0.0
               })
             });
@@ -352,7 +386,7 @@ module.exports = async function handler(req, res) {
                   resMap[itm.id] = Boolean(itm.is_same || itm.same || itm.verdict === 'YES');
                 }
               }
-              for (const p of ambiguousPairs) {
+              for (const p of unresolvedAmbiguous) {
                 if (resMap[p.ambiguousIdx] === true) {
                   validPairs.push(p);
                 }
