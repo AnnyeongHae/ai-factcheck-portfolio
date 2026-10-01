@@ -13,9 +13,11 @@ import re
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone
-from dotenv import load_dotenv
-
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 # =============================================================================
 # 2026 SOTA Cross-Lingual Entity & Canonical Anchor Dictionary

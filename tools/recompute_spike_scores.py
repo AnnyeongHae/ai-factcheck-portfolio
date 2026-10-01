@@ -16,9 +16,11 @@ import json
 import argparse
 from datetime import datetime, timezone
 import psycopg2
-from dotenv import load_dotenv
-
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 try:
     sys.stdout.reconfigure(encoding='utf-8')
