@@ -20,6 +20,59 @@ const VOYAGE_MODEL = 'voyage-4-lite';
 const VOYAGE_DIM = 1024;
 const SIMILARITY_THRESHOLD = 0.78; // Cosine similarity >= 0.78 (distance <= 0.22)
 
+function calculateSpikeAnalysis(sources, createdAtStr, viralScore = 0, deltaMetric = 0, commentsCount = 0) {
+  const axes = new Set();
+  let pressCount = 0, communityCount = 0, codeCount = 0;
+  let earliestMs = new Date(createdAtStr || Date.now()).getTime();
+
+  for (const s of (sources || [])) {
+    const p = ((s.platform || s.source_name || '') + ' ' + (s.url || '')).toLowerCase();
+    let axis = 'PRESS';
+    if (/github|hugging|hf|arxiv|pytorch|code|paper|model/.test(p)) {
+      axis = 'CODE';
+      codeCount++;
+    } else if (/hacker news|reddit|geeknews|lobsters|hada\.io|community|forum|ycombinator/.test(p)) {
+      axis = 'COMMUNITY';
+      communityCount++;
+    } else {
+      pressCount++;
+    }
+    axes.add(axis);
+    if (s.created_at) {
+      const sMs = new Date(s.created_at).getTime();
+      if (!isNaN(sMs) && sMs < earliestMs) earliestMs = sMs;
+    }
+  }
+
+  const numAxes = axes.size;
+  const hMult = numAxes >= 3 ? 5.0 : (numAxes === 2 ? 2.5 : 1.0);
+  const tier = numAxes >= 3 ? '3-Axis SUPER SPIKE' : (numAxes === 2 ? '2-Axis CROSS SPIKE' : (sources.length > 1 ? '1-Axis PRESS CLUSTER' : 'SINGLE'));
+
+  const deltaHours = Math.max(0.5, (Date.now() - earliestMs) / (3600 * 1000));
+  const velocity = (sources.length / Math.sqrt(Math.max(1, deltaHours))) * (1.0 + Math.min(2.5, Number(deltaMetric || 0) / 40.0));
+  const depth = Math.log10(Math.max(1.0, 10.0 + (commentsCount * 2.0) + (Number(viralScore || 0) * 0.5) + (Number(deltaMetric || 0) * 0.5)));
+  const decay = Math.exp(- (Math.LN2 / 36.0) * deltaHours);
+  const rawSpike = (hMult * velocity * depth) * 10.0;
+  const finalScore = parseFloat((rawSpike * decay).toFixed(1));
+
+  return {
+    score: finalScore,
+    raw_score: parseFloat(rawSpike.toFixed(1)),
+    tier,
+    axes_count: numAxes,
+    axes: Array.from(axes),
+    press_count: pressCount,
+    community_count: communityCount,
+    code_count: codeCount,
+    sources_count: sources.length,
+    velocity: parseFloat(velocity.toFixed(2)),
+    depth: parseFloat(depth.toFixed(2)),
+    decay_factor: parseFloat(decay.toFixed(3)),
+    delta_hours: parseFloat(deltaHours.toFixed(1)),
+    updated_at: new Date().toISOString()
+  };
+}
+
 module.exports = async function handler(req, res) {
   if (handleOptions(req, res)) return;
   setCorsHeaders(res);
@@ -189,14 +242,14 @@ module.exports = async function handler(req, res) {
     const distanceThreshold = 1.0 - SIMILARITY_THRESHOLD; // <= 0.24 (similarity >= 0.76)
     const dedupQuery = `
       SELECT a.id as a_id, a.title as a_title, a.raw_payload as a_payload,
-             a.source_platform as a_platform, a.source_url as a_url,
+             a.source_platform as a_platform, a.source_url as a_url, a.created_at as a_created_at,
              b.id as b_id, b.title as b_title, b.raw_payload as b_payload,
-             b.source_platform as b_platform, b.source_url as b_url,
+             b.source_platform as b_platform, b.source_url as b_url, b.created_at as b_created_at,
              (1 - (a.embedding <=> b.embedding)) as similarity
       FROM UNNEST($1::bigint[]) AS batch_id
       JOIN raw_trends_inbox a ON a.id = batch_id
       CROSS JOIN LATERAL (
-        SELECT id, title, raw_payload, source_platform, source_url, embedding
+        SELECT id, title, raw_payload, source_platform, source_url, embedding, created_at
         FROM raw_trends_inbox
         WHERE id != a.id
           AND created_at >= NOW() - INTERVAL '30 days'
@@ -235,6 +288,7 @@ module.exports = async function handler(req, res) {
         primaryId: isAOlder ? pair.a_id : pair.b_id,
         primaryTitle,
         primaryPayload: isAOlder ? pair.a_payload : pair.b_payload,
+        primaryCreatedAt: isAOlder ? pair.a_created_at : pair.b_created_at,
         dupId: isAOlder ? pair.b_id : pair.a_id,
         dupTitle,
         dupPlatform: isAOlder ? pair.b_platform : pair.a_platform,
@@ -359,6 +413,13 @@ module.exports = async function handler(req, res) {
       if (sources.length > 1) {
         primaryPayload.is_cross_spiking = true;
       }
+      primaryPayload.spike_analysis = calculateSpikeAnalysis(
+        sources,
+        pData.primaryCreatedAt || new Date().toISOString(),
+        primaryPayload.viral_score || 0,
+        primaryPayload.metric_tracking?.delta || 0,
+        Array.isArray(primaryPayload.raw_comments) ? primaryPayload.raw_comments.length : 0
+      );
       primaryUpdates.set(primaryId, primaryPayload);
 
       archivedIds.add(dupId);

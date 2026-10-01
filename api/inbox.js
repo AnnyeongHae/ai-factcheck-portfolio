@@ -66,7 +66,7 @@ function getStaticInboxFallback(req) {
             const itemTime = new Date(it.created_at || it.harvested_date || 0).getTime();
             if (nowMs - itemTime > sevenDaysMs) return false;
             const score = it.spike_analysis ? Number(it.spike_analysis.score || 0) : 0;
-            return (it.is_cross_spiking || (Array.isArray(it.sources) && it.sources.length > 1)) && score >= 0.3;
+            return (it.is_cross_spiking || (Array.isArray(it.sources) && it.sources.length > 1)) && (!it.spike_analysis || score >= 0.3);
           });
         } else if (facet === 'MODEL') {
           items = items.filter(it => it.facet_type === 'MODEL' || it.is_model || (it.source_platform || '').toLowerCase().includes('model'));
@@ -214,7 +214,10 @@ module.exports = async (req, res) => {
         conditions.push(`(
           (raw_payload->>'is_cross_spiking' = 'true' OR (CASE WHEN jsonb_typeof(raw_payload->'sources') = 'array' THEN jsonb_array_length(raw_payload->'sources') ELSE 0 END > 1))
           AND created_at >= (NOW() - INTERVAL '7 days')
-          AND COALESCE((raw_payload->'spike_analysis'->>'score')::numeric, 0) >= 0.3
+          AND (
+            raw_payload->'spike_analysis' IS NULL
+            OR COALESCE((raw_payload->'spike_analysis'->>'score')::numeric, 0) >= 0.3
+          )
         )`);
       } else if (facet === 'MODEL') {
         conditions.push(`(

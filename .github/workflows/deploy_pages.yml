@@ -64,9 +64,10 @@ jobs:
         run: |
           python -u tools/harvest_trends.py
 
-      - name: "Stage 2: Daily EOD 23:00 KST Hot Trends Ranking"
+      - name: "Stage 2: Daily EOD 23:00 KST Hot Trends Ranking & Spike Scoring"
         run: |
           python -u tools/run_eod_digest.py --top 10
+          python -u tools/recompute_spike_scores.py --commit || echo "Spike scores recomputation skipped or completed"
 
       - name: Sync GitHub Actions Telemetry to Cloud DB (Aiven PostgreSQL)
         env:
