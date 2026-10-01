@@ -140,11 +140,13 @@ function getInboxCacheKey(page) {
   params.set('limit', PAGE_SIZE);
   params.set('page', page);
   const curSrc = window.currentInboxSource || currentInboxSource || 'ALL';
+  const curLangFilter = window.currentInboxLang || currentInboxLang || 'ALL';
   const curType = window.currentInboxType || currentInboxType || 'ALL';
   const curSearch = window.inboxSearchQuery || inboxSearchQuery || '';
   const curSort = window.currentInboxSort || currentInboxSort || 'date-audit-desc';
 
   if (curSrc && curSrc !== 'ALL') params.set('source', curSrc);
+  if (curLangFilter && curLangFilter !== 'ALL') params.set('lang', curLangFilter);
   if (curType && curType !== 'ALL') params.set('type', curType);
   if (curSearch) params.set('search', curSearch);
   if (curSort) params.set('sort', curSort);

@@ -86,6 +86,17 @@ function getStaticInboxFallback(req) {
         items = items.filter(it => (it.tier1_category || 'TECH_COMPUTING') === tier1);
       }
 
+      const lang = (req.query?.lang || '').toUpperCase();
+      if (lang && lang !== 'ALL') {
+        items = items.filter(it => {
+          const itemLang = (it.ai_enrichment?.source_lang || it.source_lang || '').toUpperCase();
+          if (itemLang) return itemLang === lang;
+          const plat = (it.source_platform || '').toLowerCase();
+          const inferred = (plat.includes('geeknews') || plat.includes('daum') || plat.includes('naver') || plat.includes('pytorchkr')) ? 'KO' : 'EN';
+          return inferred === lang;
+        });
+      }
+
       const limit = Math.min(100, Math.max(1, parseInt(req.query?.limit, 10) || 15));
       const page = Math.max(1, parseInt(req.query?.page, 10) || 1);
       const offset = (page - 1) * limit;
@@ -152,11 +163,26 @@ module.exports = async (req, res) => {
       conditions.push("(triage_status IS NULL OR triage_status != 'archived')");
     }
 
-    // 1. Basic Type & Classification filters
+    // 1. Basic Type, Source Language & Classification filters
     const itemType = req.query?.type;
     if (itemType && itemType !== 'ALL') {
       params.push(itemType);
       conditions.push('item_type = $' + params.length);
+    }
+
+    const langFilter = (req.query?.lang || '').toUpperCase();
+    if (langFilter && langFilter !== 'ALL' && ['KO', 'EN', 'ZH'].includes(langFilter)) {
+      params.push(langFilter);
+      const pIdx = params.length;
+      conditions.push(`UPPER(COALESCE(
+        NULLIF(raw_payload->'ai_enrichment'->>'source_lang', ''),
+        NULLIF(raw_payload->>'source_lang', ''),
+        CASE
+          WHEN source_platform ILIKE '%geeknews%' OR source_platform ILIKE '%daum%' OR source_platform ILIKE '%naver%' OR source_platform ILIKE '%pytorchkr%' OR title ~ '[가-힣]' THEN 'KO'
+          WHEN title ~ '[\\u4e00-\\u9fff]' THEN 'ZH'
+          ELSE 'EN'
+        END
+      )) = $${pIdx}`);
     }
 
     const isClassified = req.query?.classified;

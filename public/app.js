@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-01T06:31:22.599Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-01T06:47:09.945Z */
 
 (() => {
   // src/js/core/config.js
@@ -1378,81 +1378,63 @@
   }
   function updateNewsCategoryPillCounts() {
     if (typeof document === "undefined") return;
-    const t1Counts = Object.assign({
-      TECH_COMPUTING: 2708,
-      CULTURE_HUMANITIES: 141,
-      SCIENCE_RESEARCH: 123,
-      LAW_CRIME_JUSTICE: 107,
-      ECONOMY_FINANCE: 80,
-      POLITICS_POLICY: 64
-    }, snapshotStats.tier1_counts || {});
-    const calculatedTotal = Object.values(t1Counts).reduce((acc, c) => acc + (typeof c === "number" ? c : 0), 0);
-    const total = calculatedTotal || snapshotStats.inbox_total_count || snapshotStats.news_total_count || 5864;
-    const t2Counts = Object.assign({
-      INFERENCE_OPT: 231,
-      AGENTS_DEVTOOLS: 415,
-      MULTIMODAL_AI: 220,
-      FOUNDATION_MODELS: 218,
-      INFRA_RAG_SECURITY: 531,
-      INDUSTRY_TRENDS: 1093
-    }, snapshotStats.news_cat_counts || {});
     const lang = typeof window !== "undefined" && window.currentLang ? window.currentLang : currentLang;
     const t1Labels = {
       KO: {
-        ALL: `\uC804\uCCB4 (${total.toLocaleString()})`,
-        TECH_COMPUTING: `\u{1F4BB} IT\xB7\uCEF4\uD4E8\uD305 (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
-        SCIENCE_RESEARCH: `\u{1F680} \uACFC\uD559\xB7\uC6B0\uC8FC (${t1Counts.SCIENCE_RESEARCH.toLocaleString()})`,
-        ECONOMY_FINANCE: `\u{1F3E6} \uACBD\uC81C\xB7\uAE08\uC735 (${t1Counts.ECONOMY_FINANCE.toLocaleString()})`,
-        LAW_CRIME_JUSTICE: `\u2696\uFE0F \uC0AC\uD68C\xB7\uBC95\uB960 (${t1Counts.LAW_CRIME_JUSTICE.toLocaleString()})`,
-        POLITICS_POLICY: `\u{1F3DB}\uFE0F \uC815\uCE58\xB7\uC815\uCC45 (${t1Counts.POLITICS_POLICY.toLocaleString()})`,
-        CULTURE_HUMANITIES: `\u{1F33F} \uBB38\uD654\xB7\uC778\uBB38 (${t1Counts.CULTURE_HUMANITIES.toLocaleString()})`
+        ALL: "\u{1F310} \uC804\uCCB4 \uBD84\uB958",
+        TECH_COMPUTING: "\u{1F4BB} IT\xB7\uCEF4\uD4E8\uD305",
+        SCIENCE_RESEARCH: "\u{1F680} \uACFC\uD559\xB7\uC6B0\uC8FC",
+        ECONOMY_FINANCE: "\u{1F3E6} \uACBD\uC81C\xB7\uAE08\uC735",
+        LAW_CRIME_JUSTICE: "\u2696\uFE0F \uC0AC\uD68C\xB7\uBC95\uB960",
+        POLITICS_POLICY: "\u{1F3DB}\uFE0F \uC815\uCE58\xB7\uC815\uCC45",
+        CULTURE_HUMANITIES: "\u{1F33F} \uBB38\uD654\xB7\uC778\uBB38"
       },
       ZH: {
-        ALL: `\u5168\u90E8 (${total.toLocaleString()})`,
-        TECH_COMPUTING: `\u{1F4BB} IT\u4E0E\u8BA1\u7B97 (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
-        SCIENCE_RESEARCH: `\u{1F680} \u79D1\u5B66\u4E0E\u822A\u5929 (${t1Counts.SCIENCE_RESEARCH.toLocaleString()})`,
-        ECONOMY_FINANCE: `\u{1F3E6} \u7ECF\u6D4E\u4E0E\u91D1\u878D (${t1Counts.ECONOMY_FINANCE.toLocaleString()})`,
-        LAW_CRIME_JUSTICE: `\u2696\uFE0F \u793E\u4F1A\u4E0E\u6CD5\u6CBB (${t1Counts.LAW_CRIME_JUSTICE.toLocaleString()})`,
-        POLITICS_POLICY: `\u{1F3DB}\uFE0F \u653F\u6CBB\u4E0E\u653F\u7B56 (${t1Counts.POLITICS_POLICY.toLocaleString()})`,
-        CULTURE_HUMANITIES: `\u{1F33F} \u6587\u5316\u4E0E\u4EBA\u6587 (${t1Counts.CULTURE_HUMANITIES.toLocaleString()})`
+        ALL: "\u{1F310} \u5168\u90E8\u7C7B\u522B",
+        TECH_COMPUTING: "\u{1F4BB} IT\u4E0E\u8BA1\u7B97",
+        SCIENCE_RESEARCH: "\u{1F680} \u79D1\u5B66\u4E0E\u822A\u5929",
+        ECONOMY_FINANCE: "\u{1F3E6} \u7ECF\u6D4E\u4E0E\u91D1\u878D",
+        LAW_CRIME_JUSTICE: "\u2696\uFE0F \u793E\u4F1A\u4E0E\u6CD5\u6CBB",
+        POLITICS_POLICY: "\u{1F3DB}\uFE0F \u653F\u6CBB\u4E0E\u653F\u7B56",
+        CULTURE_HUMANITIES: "\u{1F33F} \u6587\u5316\u4E0E\u4EBA\u6587"
       },
       EN: {
-        ALL: `All (${total.toLocaleString()})`,
-        TECH_COMPUTING: `\u{1F4BB} IT & Computing (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
-        SCIENCE_RESEARCH: `\u{1F680} Science & Space (${t1Counts.SCIENCE_RESEARCH.toLocaleString()})`,
-        ECONOMY_FINANCE: `\u{1F3E6} Economy & Finance (${t1Counts.ECONOMY_FINANCE.toLocaleString()})`,
-        LAW_CRIME_JUSTICE: `\u2696\uFE0F Society & Law (${t1Counts.LAW_CRIME_JUSTICE.toLocaleString()})`,
-        POLITICS_POLICY: `\u{1F3DB}\uFE0F Policy & Politics (${t1Counts.POLITICS_POLICY.toLocaleString()})`,
-        CULTURE_HUMANITIES: `\u{1F33F} Culture & Arts (${t1Counts.CULTURE_HUMANITIES.toLocaleString()})`
+        ALL: "\u{1F310} All Categories",
+        TECH_COMPUTING: "\u{1F4BB} IT & Computing",
+        SCIENCE_RESEARCH: "\u{1F680} Science & Space",
+        ECONOMY_FINANCE: "\u{1F3E6} Economy & Finance",
+        LAW_CRIME_JUSTICE: "\u2696\uFE0F Society & Law",
+        POLITICS_POLICY: "\u{1F3DB}\uFE0F Policy & Politics",
+        CULTURE_HUMANITIES: "\u{1F33F} Culture & Arts"
       }
     };
     const t2Labels = {
       KO: {
-        ALL: `\u26A1 \uC804\uCCB4 IT \uBD84\uC57C (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
-        INFERENCE_OPT: `\u26A1 \uCD94\uB860\xB7\uC11C\uBE59 (${t2Counts.INFERENCE_OPT.toLocaleString()})`,
-        AGENTS_DEVTOOLS: `\u{1F6E0}\uFE0F \uC5D0\uC774\uC804\uD2B8\xB7\uB3C4\uAD6C (${t2Counts.AGENTS_DEVTOOLS.toLocaleString()})`,
-        MULTIMODAL_AI: `\u{1F3A8} \uBA40\uD2F0\uBAA8\uB2EC (${t2Counts.MULTIMODAL_AI.toLocaleString()})`,
-        FOUNDATION_MODELS: `\u{1F916} \uD30C\uC6B4\uB370\uC774\uC158 (${t2Counts.FOUNDATION_MODELS.toLocaleString()})`,
-        INFRA_RAG_SECURITY: `\u{1F6E1}\uFE0F \uC778\uD504\uB77C\xB7\uBCF4\uC548 (${t2Counts.INFRA_RAG_SECURITY.toLocaleString()})`,
-        INDUSTRY_TRENDS: `\u{1F310} \uC77C\uBC18 SW\xB7\uC6F9 (${t2Counts.INDUSTRY_TRENDS.toLocaleString()})`
+        ALL: "\u26A1 \uC804\uCCB4 IT \uBD84\uC57C",
+        INFERENCE_OPT: "\u26A1 \uCD94\uB860\xB7\uC11C\uBE59",
+        AGENTS_DEVTOOLS: "\u{1F6E0}\uFE0F \uC5D0\uC774\uC804\uD2B8\xB7\uB3C4\uAD6C",
+        MULTIMODAL_AI: "\u{1F3A8} \uBA40\uD2F0\uBAA8\uB2EC",
+        FOUNDATION_MODELS: "\u{1F916} \uD30C\uC6B4\uB370\uC774\uC158",
+        INFRA_RAG_SECURITY: "\u{1F6E1}\uFE0F \uC778\uD504\uB77C\xB7\uBCF4\uC548",
+        INDUSTRY_TRENDS: "\u{1F310} \uC77C\uBC18 SW\xB7\uC6F9"
       },
       ZH: {
-        ALL: `\u26A1 \u5168\u90E8 IT \u9886\u57DF (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
-        INFERENCE_OPT: `\u26A1 \u63A8\u7406\u4E0E\u670D\u52A1 (${t2Counts.INFERENCE_OPT.toLocaleString()})`,
-        AGENTS_DEVTOOLS: `\u{1F6E0}\uFE0F \u667A\u80FD\u4F53\u4E0E\u5DE5\u5177 (${t2Counts.AGENTS_DEVTOOLS.toLocaleString()})`,
-        MULTIMODAL_AI: `\u{1F3A8} \u591A\u6A21\u6001 (${t2Counts.MULTIMODAL_AI.toLocaleString()})`,
-        FOUNDATION_MODELS: `\u{1F916} \u57FA\u7840\u6A21\u578B (${t2Counts.FOUNDATION_MODELS.toLocaleString()})`,
-        INFRA_RAG_SECURITY: `\u{1F6E1}\uFE0F \u57FA\u7840\u67B6\u6784\u4E0E\u5B89\u5168 (${t2Counts.INFRA_RAG_SECURITY.toLocaleString()})`,
-        INDUSTRY_TRENDS: `\u{1F310} \u8F6F\u4EF6\u4E0E\u884C\u4E1A\u52A8\u6001 (${t2Counts.INDUSTRY_TRENDS.toLocaleString()})`
+        ALL: "\u26A1 \u5168\u90E8 IT \u9886\u57DF",
+        INFERENCE_OPT: "\u26A1 \u63A8\u7406\u4E0E\u670D\u52A1",
+        AGENTS_DEVTOOLS: "\u{1F6E0}\uFE0F \u667A\u80FD\u4F53\u4E0E\u5DE5\u5177",
+        MULTIMODAL_AI: "\u{1F3A8} \u591A\u6A21\u6001",
+        FOUNDATION_MODELS: "\u{1F916} \u57FA\u7840\u6A21\u578B",
+        INFRA_RAG_SECURITY: "\u{1F6E1}\uFE0F \u57FA\u7840\u67B6\u6784\u4E0E\u5B89\u5168",
+        INDUSTRY_TRENDS: "\u{1F310} \u8F6F\u4EF6\u4E0E\u884C\u4E1A\u52A8\u6001"
       },
       EN: {
-        ALL: `\u26A1 All Tech Fields (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
-        INFERENCE_OPT: `\u26A1 Inference & Serving (${t2Counts.INFERENCE_OPT.toLocaleString()})`,
-        AGENTS_DEVTOOLS: `\u{1F6E0}\uFE0F Agents & DevTools (${t2Counts.AGENTS_DEVTOOLS.toLocaleString()})`,
-        MULTIMODAL_AI: `\u{1F3A8} Multimodal (${t2Counts.MULTIMODAL_AI.toLocaleString()})`,
-        FOUNDATION_MODELS: `\u{1F916} Foundation Models (${t2Counts.FOUNDATION_MODELS.toLocaleString()})`,
-        INFRA_RAG_SECURITY: `\u{1F6E1}\uFE0F Infra & Security (${t2Counts.INFRA_RAG_SECURITY.toLocaleString()})`,
-        INDUSTRY_TRENDS: `\u{1F310} General SW & Web (${t2Counts.INDUSTRY_TRENDS.toLocaleString()})`
+        ALL: "\u26A1 All Tech Fields",
+        INFERENCE_OPT: "\u26A1 Inference & Serving",
+        AGENTS_DEVTOOLS: "\u{1F6E0}\uFE0F Agents & DevTools",
+        MULTIMODAL_AI: "\u{1F3A8} Multimodal",
+        FOUNDATION_MODELS: "\u{1F916} Foundation Models",
+        INFRA_RAG_SECURITY: "\u{1F6E1}\uFE0F Infra & Security",
+        INDUSTRY_TRENDS: "\u{1F310} General SW & Web"
       }
     };
     const curDict1 = t1Labels[lang] || t1Labels.KO;
@@ -1472,91 +1454,63 @@
   }
   function updateModelCategoryPillCounts() {
     if (typeof document === "undefined") return;
-    const lModels = typeof window !== "undefined" ? window.liveModelsData : liveModelsData;
-    const items = lModels && lModels.length ? lModels : [];
-    const total = items.length;
-    const fCounts = {
-      ALL: total,
-      Qwen: 0,
-      Wan: 0,
-      MiniMax: 0,
-      FLUX: 0,
-      GLM: 0,
-      DeepSeek: 0,
-      Hunyuan: 0,
-      Audio: 0,
-      Standalone: 0
-    };
-    const aCounts = {
-      ALL: total,
-      WEIGHTS: 0,
-      WEB_SERVICE: 0,
-      FINETUNE: 0
-    };
-    items.forEach((it) => {
-      const fam = it.model_family || "Standalone";
-      if (fCounts[fam] !== void 0) fCounts[fam]++;
-      else fCounts.Standalone++;
-      const art = it.artifact_type || "WEIGHTS";
-      if (aCounts[art] !== void 0) aCounts[art]++;
-    });
     const lang = typeof window !== "undefined" && window.currentLang ? window.currentLang : currentLang;
     const famLabels = {
       KO: {
-        ALL: `\uC804\uCCB4 \uD328\uBC00\uB9AC (${total.toLocaleString()})`,
-        Qwen: `Qwen (${fCounts.Qwen.toLocaleString()})`,
-        Wan: `Wan \uBE44\uB514\uC624 (${fCounts.Wan.toLocaleString()})`,
-        MiniMax: `MiniMax (${fCounts.MiniMax.toLocaleString()})`,
-        FLUX: `FLUX \uC774\uBBF8\uC9C0 (${fCounts.FLUX.toLocaleString()})`,
-        GLM: `GLM (${fCounts.GLM.toLocaleString()})`,
-        DeepSeek: `DeepSeek (${fCounts.DeepSeek.toLocaleString()})`,
-        Hunyuan: `Hunyuan (${fCounts.Hunyuan.toLocaleString()})`,
-        Audio: `\uC74C\uC131/TTS (${fCounts.Audio.toLocaleString()})`,
-        Standalone: `\uB3C5\uB9BD/\uC2E0\uADDC \uBAA8\uB378 (${fCounts.Standalone.toLocaleString()})`
+        ALL: "\uC804\uCCB4 \uD328\uBC00\uB9AC",
+        Qwen: "Qwen",
+        Wan: "Wan \uBE44\uB514\uC624",
+        MiniMax: "MiniMax",
+        FLUX: "FLUX \uC774\uBBF8\uC9C0",
+        GLM: "GLM",
+        DeepSeek: "DeepSeek",
+        Hunyuan: "Hunyuan",
+        Audio: "\uC74C\uC131/TTS",
+        Standalone: "\uB3C5\uB9BD/\uC2E0\uADDC \uBAA8\uB378"
       },
       ZH: {
-        ALL: `\u5168\u90E8\u7CFB\u5217 (${total.toLocaleString()})`,
-        Qwen: `Qwen (${fCounts.Qwen.toLocaleString()})`,
-        Wan: `Wan \u89C6\u9891 (${fCounts.Wan.toLocaleString()})`,
-        MiniMax: `MiniMax (${fCounts.MiniMax.toLocaleString()})`,
-        FLUX: `FLUX \u56FE\u50CF (${fCounts.FLUX.toLocaleString()})`,
-        GLM: `GLM (${fCounts.GLM.toLocaleString()})`,
-        DeepSeek: `DeepSeek (${fCounts.DeepSeek.toLocaleString()})`,
-        Hunyuan: `Hunyuan (${fCounts.Hunyuan.toLocaleString()})`,
-        Audio: `\u8BED\u97F3/TTS (${fCounts.Audio.toLocaleString()})`,
-        Standalone: `\u72EC\u7ACB/\u65B0\u6A21\u578B (${fCounts.Standalone.toLocaleString()})`
+        ALL: "\u5168\u90E8\u7CFB\u5217",
+        Qwen: "Qwen",
+        Wan: "Wan \u89C6\u9891",
+        MiniMax: "MiniMax",
+        FLUX: "FLUX \u56FE\u50CF",
+        GLM: "GLM",
+        DeepSeek: "DeepSeek",
+        Hunyuan: "Hunyuan",
+        Audio: "\u8BED\u97F3/TTS",
+        Standalone: "\u72EC\u7ACB/\u65B0\u6A21\u578B"
       },
       EN: {
-        ALL: `All Families (${total.toLocaleString()})`,
-        Qwen: `Qwen (${fCounts.Qwen.toLocaleString()})`,
-        Wan: `Wan Video (${fCounts.Wan.toLocaleString()})`,
-        MiniMax: `MiniMax (${fCounts.MiniMax.toLocaleString()})`,
-        FLUX: `FLUX Image (${fCounts.FLUX.toLocaleString()})`,
-        GLM: `GLM (${fCounts.GLM.toLocaleString()})`,
-        DeepSeek: `DeepSeek (${fCounts.DeepSeek.toLocaleString()})`,
-        Hunyuan: `Hunyuan (${fCounts.Hunyuan.toLocaleString()})`,
-        Audio: `Audio/TTS (${fCounts.Audio.toLocaleString()})`,
-        Standalone: `Standalone (${fCounts.Standalone.toLocaleString()})`
+        ALL: "All Families",
+        Qwen: "Qwen",
+        Wan: "Wan Video",
+        MiniMax: "MiniMax",
+        FLUX: "FLUX Image",
+        GLM: "GLM",
+        DeepSeek: "DeepSeek",
+        Hunyuan: "Hunyuan",
+        Audio: "Audio/TTS",
+        Standalone: "Standalone"
       }
     };
     const artLabels = {
       KO: {
-        ALL: `\uC804\uCCB4 (${total.toLocaleString()})`,
-        WEIGHTS: `\u{1F916} \uAC00\uC911\uCE58\xB7\uCCB4\uD06C\uD3EC\uC778\uD2B8 (${aCounts.WEIGHTS.toLocaleString()})`,
-        WEB_SERVICE: `\u{1F310} \uB370\uBAA8\xB7Spaces (${aCounts.WEB_SERVICE.toLocaleString()})`,
-        FINETUNE: `\u{1F3AF} \uD2B9\uD654 \uD30C\uC778\uD29C\uB2DD (${aCounts.FINETUNE.toLocaleString()})`
+        ALL: "\uC804\uCCB4",
+        WEIGHTS: "\u{1F916} \uAC00\uC911\uCE58\xB7\uCCB4\uD06C\uD3EC\uC778\uD2B8",
+        WEB_SERVICE: "\u{1F310} \uB370\uBAA8\xB7Spaces",
+        FINETUNE: "\u{1F3AF} \uD2B9\uD654 \uD30C\uC778\uD29C\uB2DD"
       },
       ZH: {
-        ALL: `\u5168\u90E8 (${total.toLocaleString()})`,
-        WEIGHTS: `\u{1F916} \u6A21\u578B\u6743\u91CD\xB7\u68C0\u67E5\u70B9 (${aCounts.WEIGHTS.toLocaleString()})`,
-        WEB_SERVICE: `\u{1F310} \u5728\u7EBF\u6F14\u793A\xB7Spaces (${aCounts.WEB_SERVICE.toLocaleString()})`,
-        FINETUNE: `\u{1F3AF} \u5B9A\u5236\u5FAE\u8C03 (${aCounts.FINETUNE.toLocaleString()})`
+        ALL: "\u5168\u90E8",
+        WEIGHTS: "\u{1F916} \u6A21\u578B\u6743\u91CD\xB7\u68C0\u67E5\u70B9",
+        WEB_SERVICE: "\u{1F310} \u5728\u7EBF\u6F14\u793A\xB7Spaces",
+        FINETUNE: "\u{1F3AF} \u5B9A\u5236\u5FAE\u8C03"
       },
       EN: {
-        ALL: `All (${total.toLocaleString()})`,
-        WEIGHTS: `\u{1F916} Weights & Checkpoints (${aCounts.WEIGHTS.toLocaleString()})`,
-        WEB_SERVICE: `\u{1F310} Interactive Demos (${aCounts.WEB_SERVICE.toLocaleString()})`,
-        FINETUNE: `\u{1F3AF} Specialized Finetunes (${aCounts.FINETUNE.toLocaleString()})`
+        ALL: "All",
+        WEIGHTS: "\u{1F916} Weights & Checkpoints",
+        WEB_SERVICE: "\u{1F310} Interactive Demos",
+        FINETUNE: "\u{1F3AF} Specialized Finetunes"
       }
     };
     const curFamDict = famLabels[lang] || famLabels.KO;
@@ -5409,10 +5363,12 @@
     params.set("limit", PAGE_SIZE);
     params.set("page", page);
     const curSrc = window.currentInboxSource || currentInboxSource || "ALL";
+    const curLangFilter = window.currentInboxLang || currentInboxLang || "ALL";
     const curType = window.currentInboxType || currentInboxType || "ALL";
     const curSearch = window.inboxSearchQuery || inboxSearchQuery || "";
     const curSort = window.currentInboxSort || currentInboxSort || "date-audit-desc";
     if (curSrc && curSrc !== "ALL") params.set("source", curSrc);
+    if (curLangFilter && curLangFilter !== "ALL") params.set("lang", curLangFilter);
     if (curType && curType !== "ALL") params.set("type", curType);
     if (curSearch) params.set("search", curSearch);
     if (curSort) params.set("sort", curSort);

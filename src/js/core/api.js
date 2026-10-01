@@ -233,86 +233,65 @@ export function updateGlobalStatsUI() {
 
 export function updateNewsCategoryPillCounts() {
   if (typeof document === 'undefined') return;
-  const t1Counts = Object.assign({
-    TECH_COMPUTING: 2708,
-    CULTURE_HUMANITIES: 141,
-    SCIENCE_RESEARCH: 123,
-    LAW_CRIME_JUSTICE: 107,
-    ECONOMY_FINANCE: 80,
-    POLITICS_POLICY: 64
-  }, snapshotStats.tier1_counts || {});
-
-  const calculatedTotal = Object.values(t1Counts).reduce((acc, c) => acc + (typeof c === 'number' ? c : 0), 0);
-  const total = calculatedTotal || snapshotStats.inbox_total_count || snapshotStats.news_total_count || 5864;
-
-  const t2Counts = Object.assign({
-    INFERENCE_OPT: 231,
-    AGENTS_DEVTOOLS: 415,
-    MULTIMODAL_AI: 220,
-    FOUNDATION_MODELS: 218,
-    INFRA_RAG_SECURITY: 531,
-    INDUSTRY_TRENDS: 1093
-  }, snapshotStats.news_cat_counts || {});
-
   const lang = (typeof window !== 'undefined' && window.currentLang) ? window.currentLang : currentLang;
 
   const t1Labels = {
     KO: {
-      ALL: `전체 (${total.toLocaleString()})`,
-      TECH_COMPUTING: `💻 IT·컴퓨팅 (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
-      SCIENCE_RESEARCH: `🚀 과학·우주 (${t1Counts.SCIENCE_RESEARCH.toLocaleString()})`,
-      ECONOMY_FINANCE: `🏦 경제·금융 (${t1Counts.ECONOMY_FINANCE.toLocaleString()})`,
-      LAW_CRIME_JUSTICE: `⚖️ 사회·법률 (${t1Counts.LAW_CRIME_JUSTICE.toLocaleString()})`,
-      POLITICS_POLICY: `🏛️ 정치·정책 (${t1Counts.POLITICS_POLICY.toLocaleString()})`,
-      CULTURE_HUMANITIES: `🌿 문화·인문 (${t1Counts.CULTURE_HUMANITIES.toLocaleString()})`
+      ALL: '🌐 전체 분류',
+      TECH_COMPUTING: '💻 IT·컴퓨팅',
+      SCIENCE_RESEARCH: '🚀 과학·우주',
+      ECONOMY_FINANCE: '🏦 경제·금융',
+      LAW_CRIME_JUSTICE: '⚖️ 사회·법률',
+      POLITICS_POLICY: '🏛️ 정치·정책',
+      CULTURE_HUMANITIES: '🌿 문화·인문'
     },
     ZH: {
-      ALL: `全部 (${total.toLocaleString()})`,
-      TECH_COMPUTING: `💻 IT与计算 (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
-      SCIENCE_RESEARCH: `🚀 科学与航天 (${t1Counts.SCIENCE_RESEARCH.toLocaleString()})`,
-      ECONOMY_FINANCE: `🏦 经济与金融 (${t1Counts.ECONOMY_FINANCE.toLocaleString()})`,
-      LAW_CRIME_JUSTICE: `⚖️ 社会与法治 (${t1Counts.LAW_CRIME_JUSTICE.toLocaleString()})`,
-      POLITICS_POLICY: `🏛️ 政治与政策 (${t1Counts.POLITICS_POLICY.toLocaleString()})`,
-      CULTURE_HUMANITIES: `🌿 文化与人文 (${t1Counts.CULTURE_HUMANITIES.toLocaleString()})`
+      ALL: '🌐 全部类别',
+      TECH_COMPUTING: '💻 IT与计算',
+      SCIENCE_RESEARCH: '🚀 科学与航天',
+      ECONOMY_FINANCE: '🏦 经济与金融',
+      LAW_CRIME_JUSTICE: '⚖️ 社会与法治',
+      POLITICS_POLICY: '🏛️ 政治与政策',
+      CULTURE_HUMANITIES: '🌿 文化与人文'
     },
     EN: {
-      ALL: `All (${total.toLocaleString()})`,
-      TECH_COMPUTING: `💻 IT & Computing (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
-      SCIENCE_RESEARCH: `🚀 Science & Space (${t1Counts.SCIENCE_RESEARCH.toLocaleString()})`,
-      ECONOMY_FINANCE: `🏦 Economy & Finance (${t1Counts.ECONOMY_FINANCE.toLocaleString()})`,
-      LAW_CRIME_JUSTICE: `⚖️ Society & Law (${t1Counts.LAW_CRIME_JUSTICE.toLocaleString()})`,
-      POLITICS_POLICY: `🏛️ Policy & Politics (${t1Counts.POLITICS_POLICY.toLocaleString()})`,
-      CULTURE_HUMANITIES: `🌿 Culture & Arts (${t1Counts.CULTURE_HUMANITIES.toLocaleString()})`
+      ALL: '🌐 All Categories',
+      TECH_COMPUTING: '💻 IT & Computing',
+      SCIENCE_RESEARCH: '🚀 Science & Space',
+      ECONOMY_FINANCE: '🏦 Economy & Finance',
+      LAW_CRIME_JUSTICE: '⚖️ Society & Law',
+      POLITICS_POLICY: '🏛️ Policy & Politics',
+      CULTURE_HUMANITIES: '🌿 Culture & Arts'
     }
   };
 
   const t2Labels = {
     KO: {
-      ALL: `⚡ 전체 IT 분야 (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
-      INFERENCE_OPT: `⚡ 추론·서빙 (${t2Counts.INFERENCE_OPT.toLocaleString()})`,
-      AGENTS_DEVTOOLS: `🛠️ 에이전트·도구 (${t2Counts.AGENTS_DEVTOOLS.toLocaleString()})`,
-      MULTIMODAL_AI: `🎨 멀티모달 (${t2Counts.MULTIMODAL_AI.toLocaleString()})`,
-      FOUNDATION_MODELS: `🤖 파운데이션 (${t2Counts.FOUNDATION_MODELS.toLocaleString()})`,
-      INFRA_RAG_SECURITY: `🛡️ 인프라·보안 (${t2Counts.INFRA_RAG_SECURITY.toLocaleString()})`,
-      INDUSTRY_TRENDS: `🌐 일반 SW·웹 (${t2Counts.INDUSTRY_TRENDS.toLocaleString()})`
+      ALL: '⚡ 전체 IT 분야',
+      INFERENCE_OPT: '⚡ 추론·서빙',
+      AGENTS_DEVTOOLS: '🛠️ 에이전트·도구',
+      MULTIMODAL_AI: '🎨 멀티모달',
+      FOUNDATION_MODELS: '🤖 파운데이션',
+      INFRA_RAG_SECURITY: '🛡️ 인프라·보안',
+      INDUSTRY_TRENDS: '🌐 일반 SW·웹'
     },
     ZH: {
-      ALL: `⚡ 全部 IT 领域 (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
-      INFERENCE_OPT: `⚡ 推理与服务 (${t2Counts.INFERENCE_OPT.toLocaleString()})`,
-      AGENTS_DEVTOOLS: `🛠️ 智能体与工具 (${t2Counts.AGENTS_DEVTOOLS.toLocaleString()})`,
-      MULTIMODAL_AI: `🎨 多模态 (${t2Counts.MULTIMODAL_AI.toLocaleString()})`,
-      FOUNDATION_MODELS: `🤖 基础模型 (${t2Counts.FOUNDATION_MODELS.toLocaleString()})`,
-      INFRA_RAG_SECURITY: `🛡️ 基础架构与安全 (${t2Counts.INFRA_RAG_SECURITY.toLocaleString()})`,
-      INDUSTRY_TRENDS: `🌐 软件与行业动态 (${t2Counts.INDUSTRY_TRENDS.toLocaleString()})`
+      ALL: '⚡ 全部 IT 领域',
+      INFERENCE_OPT: '⚡ 推理与服务',
+      AGENTS_DEVTOOLS: '🛠️ 智能体与工具',
+      MULTIMODAL_AI: '🎨 多模态',
+      FOUNDATION_MODELS: '🤖 基础模型',
+      INFRA_RAG_SECURITY: '🛡️ 基础架构与安全',
+      INDUSTRY_TRENDS: '🌐 软件与行业动态'
     },
     EN: {
-      ALL: `⚡ All Tech Fields (${t1Counts.TECH_COMPUTING.toLocaleString()})`,
-      INFERENCE_OPT: `⚡ Inference & Serving (${t2Counts.INFERENCE_OPT.toLocaleString()})`,
-      AGENTS_DEVTOOLS: `🛠️ Agents & DevTools (${t2Counts.AGENTS_DEVTOOLS.toLocaleString()})`,
-      MULTIMODAL_AI: `🎨 Multimodal (${t2Counts.MULTIMODAL_AI.toLocaleString()})`,
-      FOUNDATION_MODELS: `🤖 Foundation Models (${t2Counts.FOUNDATION_MODELS.toLocaleString()})`,
-      INFRA_RAG_SECURITY: `🛡️ Infra & Security (${t2Counts.INFRA_RAG_SECURITY.toLocaleString()})`,
-      INDUSTRY_TRENDS: `🌐 General SW & Web (${t2Counts.INDUSTRY_TRENDS.toLocaleString()})`
+      ALL: '⚡ All Tech Fields',
+      INFERENCE_OPT: '⚡ Inference & Serving',
+      AGENTS_DEVTOOLS: '🛠️ Agents & DevTools',
+      MULTIMODAL_AI: '🎨 Multimodal',
+      FOUNDATION_MODELS: '🤖 Foundation Models',
+      INFRA_RAG_SECURITY: '🛡️ Infra & Security',
+      INDUSTRY_TRENDS: '🌐 General SW & Web'
     }
   };
 
@@ -335,89 +314,65 @@ export function updateNewsCategoryPillCounts() {
 
 export function updateModelCategoryPillCounts() {
   if (typeof document === 'undefined') return;
-  const lModels = typeof window !== 'undefined' ? window.liveModelsData : liveModelsData;
-  const items = (lModels && lModels.length) ? lModels : [];
-  const total = items.length;
-  const fCounts = {
-    ALL: total,
-    Qwen: 0, Wan: 0, MiniMax: 0, FLUX: 0, GLM: 0,
-    DeepSeek: 0, Hunyuan: 0, Audio: 0, Standalone: 0
-  };
-  const aCounts = {
-    ALL: total,
-    WEIGHTS: 0,
-    WEB_SERVICE: 0,
-    FINETUNE: 0
-  };
-
-  items.forEach(it => {
-    const fam = it.model_family || 'Standalone';
-    if (fCounts[fam] !== undefined) fCounts[fam]++;
-    else fCounts.Standalone++;
-
-    const art = it.artifact_type || 'WEIGHTS';
-    if (aCounts[art] !== undefined) aCounts[art]++;
-  });
-
   const lang = (typeof window !== 'undefined' && window.currentLang) ? window.currentLang : currentLang;
 
   const famLabels = {
     KO: {
-      ALL: `전체 패밀리 (${total.toLocaleString()})`,
-      Qwen: `Qwen (${fCounts.Qwen.toLocaleString()})`,
-      Wan: `Wan 비디오 (${fCounts.Wan.toLocaleString()})`,
-      MiniMax: `MiniMax (${fCounts.MiniMax.toLocaleString()})`,
-      FLUX: `FLUX 이미지 (${fCounts.FLUX.toLocaleString()})`,
-      GLM: `GLM (${fCounts.GLM.toLocaleString()})`,
-      DeepSeek: `DeepSeek (${fCounts.DeepSeek.toLocaleString()})`,
-      Hunyuan: `Hunyuan (${fCounts.Hunyuan.toLocaleString()})`,
-      Audio: `음성/TTS (${fCounts.Audio.toLocaleString()})`,
-      Standalone: `독립/신규 모델 (${fCounts.Standalone.toLocaleString()})`
+      ALL: '전체 패밀리',
+      Qwen: 'Qwen',
+      Wan: 'Wan 비디오',
+      MiniMax: 'MiniMax',
+      FLUX: 'FLUX 이미지',
+      GLM: 'GLM',
+      DeepSeek: 'DeepSeek',
+      Hunyuan: 'Hunyuan',
+      Audio: '음성/TTS',
+      Standalone: '독립/신규 모델'
     },
     ZH: {
-      ALL: `全部系列 (${total.toLocaleString()})`,
-      Qwen: `Qwen (${fCounts.Qwen.toLocaleString()})`,
-      Wan: `Wan 视频 (${fCounts.Wan.toLocaleString()})`,
-      MiniMax: `MiniMax (${fCounts.MiniMax.toLocaleString()})`,
-      FLUX: `FLUX 图像 (${fCounts.FLUX.toLocaleString()})`,
-      GLM: `GLM (${fCounts.GLM.toLocaleString()})`,
-      DeepSeek: `DeepSeek (${fCounts.DeepSeek.toLocaleString()})`,
-      Hunyuan: `Hunyuan (${fCounts.Hunyuan.toLocaleString()})`,
-      Audio: `语音/TTS (${fCounts.Audio.toLocaleString()})`,
-      Standalone: `独立/新模型 (${fCounts.Standalone.toLocaleString()})`
+      ALL: '全部系列',
+      Qwen: 'Qwen',
+      Wan: 'Wan 视频',
+      MiniMax: 'MiniMax',
+      FLUX: 'FLUX 图像',
+      GLM: 'GLM',
+      DeepSeek: 'DeepSeek',
+      Hunyuan: 'Hunyuan',
+      Audio: '语音/TTS',
+      Standalone: '独立/新模型'
     },
     EN: {
-      ALL: `All Families (${total.toLocaleString()})`,
-      Qwen: `Qwen (${fCounts.Qwen.toLocaleString()})`,
-      Wan: `Wan Video (${fCounts.Wan.toLocaleString()})`,
-      MiniMax: `MiniMax (${fCounts.MiniMax.toLocaleString()})`,
-      FLUX: `FLUX Image (${fCounts.FLUX.toLocaleString()})`,
-      GLM: `GLM (${fCounts.GLM.toLocaleString()})`,
-      DeepSeek: `DeepSeek (${fCounts.DeepSeek.toLocaleString()})`,
-      Hunyuan: `Hunyuan (${fCounts.Hunyuan.toLocaleString()})`,
-      Audio: `Audio/TTS (${fCounts.Audio.toLocaleString()})`,
-      Standalone: `Standalone (${fCounts.Standalone.toLocaleString()})`
+      ALL: 'All Families',
+      Qwen: 'Qwen',
+      Wan: 'Wan Video',
+      MiniMax: 'MiniMax',
+      FLUX: 'FLUX Image',
+      GLM: 'GLM',
+      DeepSeek: 'DeepSeek',
+      Hunyuan: 'Hunyuan',
+      Audio: 'Audio/TTS',
+      Standalone: 'Standalone'
     }
   };
 
   const artLabels = {
     KO: {
-      ALL: `전체 (${total.toLocaleString()})`,
-      WEIGHTS: `🤖 가중치·체크포인트 (${aCounts.WEIGHTS.toLocaleString()})`,
-      WEB_SERVICE: `🌐 데모·Spaces (${aCounts.WEB_SERVICE.toLocaleString()})`,
-      FINETUNE: `🎯 특화 파인튜닝 (${aCounts.FINETUNE.toLocaleString()})`
+      ALL: '전체',
+      WEIGHTS: '🤖 가중치·체크포인트',
+      WEB_SERVICE: '🌐 데모·Spaces',
+      FINETUNE: '🎯 특화 파인튜닝'
     },
     ZH: {
-      ALL: `全部 (${total.toLocaleString()})`,
-      WEIGHTS: `🤖 模型权重·检查点 (${aCounts.WEIGHTS.toLocaleString()})`,
-      WEB_SERVICE: `🌐 在线演示·Spaces (${aCounts.WEB_SERVICE.toLocaleString()})`,
-      FINETUNE: `🎯 定制微调 (${aCounts.FINETUNE.toLocaleString()})`
+      ALL: '全部',
+      WEIGHTS: '🤖 模型权重·检查点',
+      WEB_SERVICE: '🌐 在线演示·Spaces',
+      FINETUNE: '🎯 定制微调'
     },
     EN: {
-      ALL: `All (${total.toLocaleString()})`,
-      WEIGHTS: `🤖 Weights & Checkpoints (${aCounts.WEIGHTS.toLocaleString()})`,
-      WEB_SERVICE: `🌐 Interactive Demos (${aCounts.WEB_SERVICE.toLocaleString()})`,
-      FINETUNE: `🎯 Specialized Finetunes (${aCounts.FINETUNE.toLocaleString()})`
+      ALL: 'All',
+      WEIGHTS: '🤖 Weights & Checkpoints',
+      WEB_SERVICE: '🌐 Interactive Demos',
+      FINETUNE: '🎯 Specialized Finetunes'
     }
   };
 
