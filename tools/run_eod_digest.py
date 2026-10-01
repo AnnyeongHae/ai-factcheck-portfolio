@@ -101,6 +101,15 @@ def run_eod_digest(top_n=10):
     # Run Voyage Embedding sync backup if key is present
     sync_eod_voyage_embeddings(conn)
 
+    # Synchronize Cross-Platform Release Clusters & H-V-D Tripod Spike Scores
+    try:
+        import subprocess
+        spike_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "recompute_spike_scores.py")
+        if os.path.exists(spike_script):
+            subprocess.run([sys.executable, spike_script, "--commit"], check=False)
+    except Exception as spk_err:
+        print(f"[!] [EOD Spike Sync Warning]: {spk_err}")
+
     now_utc = datetime.datetime.now(datetime.timezone.utc)
     kst_tz = datetime.timezone(datetime.timedelta(hours=9))
     now_kst = now_utc.astimezone(kst_tz)

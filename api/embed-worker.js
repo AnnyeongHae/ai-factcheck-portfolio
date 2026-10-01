@@ -287,6 +287,8 @@ module.exports = async function handler(req, res) {
         isAOlder,
         primaryId: isAOlder ? pair.a_id : pair.b_id,
         primaryTitle,
+        primaryPlatform: isAOlder ? pair.a_platform : pair.b_platform,
+        primaryUrl: isAOlder ? pair.a_url : pair.b_url,
         primaryPayload: isAOlder ? pair.a_payload : pair.b_payload,
         primaryCreatedAt: isAOlder ? pair.a_created_at : pair.b_created_at,
         dupId: isAOlder ? pair.b_id : pair.a_id,
@@ -312,9 +314,8 @@ module.exports = async function handler(req, res) {
         const prompt = 'Determine if each pair of English headlines reports the exact same real-world incident/event.\nReturn ONLY a JSON array with id and is_same (true/false):\n' + JSON.stringify(formatted);
         const models = [
           'typesafe/jev-router',
-          'google/gemma-4-26b-a4b-it:free',
           'inclusionai/ling-3.0-flash-sante:free',
-          'meta-llama/llama-3.3-70b-instruct:free'
+          'liquid/lfm-2.5-2.6b:free'
         ];
 
         for (const model of models) {
@@ -372,7 +373,7 @@ module.exports = async function handler(req, res) {
     const primaryUpdates = new Map();
 
     for (const pData of validPairs) {
-      const { primaryId, dupId, dupTitle, dupPlatform, dupUrl, dupPayload, sim } = pData;
+      const { primaryId, primaryTitle, primaryPlatform, primaryUrl, dupId, dupTitle, dupPlatform, dupUrl, dupPayload, sim } = pData;
       let primaryPayload = pData.primaryPayload;
 
       if (archivedIds.has(primaryId) || archivedIds.has(dupId)) {
@@ -383,8 +384,22 @@ module.exports = async function handler(req, res) {
       let sources = primaryPayload.sources || [];
       if (!Array.isArray(sources)) sources = [];
 
-      // Add dup source if not already present
       const existingUrls = new Set(sources.map(s => s.url || s.source_url));
+
+      // Ensure the primary item's own source is seeded at index 0
+      if (primaryUrl && !existingUrls.has(primaryUrl)) {
+        sources.unshift({
+          source_name: primaryPlatform || 'Primary',
+          platform: primaryPlatform || 'Primary',
+          title: primaryTitle,
+          url: primaryUrl,
+          type: 'primary',
+          created_at: pData.primaryCreatedAt ? new Date(pData.primaryCreatedAt).toISOString() : new Date().toISOString()
+        });
+        existingUrls.add(primaryUrl);
+      }
+
+      // Add dup source if not already present
       if (dupUrl && !existingUrls.has(dupUrl)) {
         sources.push({
           source_name: dupPlatform || 'Cross-Platform Media',
