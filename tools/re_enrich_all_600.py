@@ -34,16 +34,35 @@ if tools_dir not in sys.path:
     sys.path.insert(0, tools_dir)
 
 from db_config import get_db_connection
-from openrouter_free_router import get_openrouter_api_key
 
-OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-MODELS = [
+def get_env_key(var_name: str) -> str:
+    key = os.environ.get(var_name, "")
+    if not key and os.path.exists(os.path.join(ROOT_DIR, ".env")):
+        with open(os.path.join(ROOT_DIR, ".env"), "r", encoding="utf-8") as f:
+            for line in f:
+                if line.strip().startswith(f"{var_name}="):
+                    key = line.strip().split("=", 1)[1].strip("\"'")
+                    break
+    return key
+
+def get_gemini_api_key():
+    return get_env_key("GEMINI_API_KEY")
+
+def get_openrouter_api_key():
+    return get_env_key("OPENROUTER_API_KEY")
+
+# ==============================================================================
+# 3-Mode AI Enrichment Configuration (SSOT)
+# - Mode 1 (local-gemini)     : antigravity gemini-3.6-flash (batch_size = 10)
+# - Mode 2 (remote-web)       : OpenRouter Free via /api/enrich-worker (limit = 1, 1-click continuous)
+# - Mode 3 (local-openrouter) : OpenRouter Free fallback (batch_size = 3)
+# ==============================================================================
+GEMINI_MODEL = "gemini-3.6-flash"
+OPENROUTER_FREE_MODELS = [
     "inclusionai/ling-3.0-flash-sante:free",
-    "google/gemma-4-26b-a4b-it:free",
-    "meta-llama/llama-3.3-70b-instruct:free",
-    "qwen/qwen-2.5-72b-instruct:free"
+    "liquid/lfm-2.5-2.6b:free"
 ]
-MODEL = MODELS[0]
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 KOREAN_REGEX = re.compile(r'[\uac00-\ud7a3]')
 CHINESE_REGEX = re.compile(r'[\u4e00-\u9fff]')
@@ -132,68 +151,42 @@ def extract_entity_and_category(title_clean: str):
 
     return entity, t1, prim, itype
 
-def translate_titles_batch(items: list, api_key: str, max_retries: int = 3):
-    """Calls OpenRouter with 10 titles to obtain fluent Korean and Chinese titles."""
-    items_to_translate = []
-    already_korean = {}
+SYSTEM_INSTRUCTION_KO = """당신은 최고 수준의 글로벌 IT/AI 전문 기술 분석가 및 번역가입니다. 주어진 기술/뉴스 제목 목록을 분석하여 반드시 유효한 JSON 배열만 출력하세요:
+[{"id": 항목ID, "title_ko": "한국 엔지니어가 읽기 자연스러운 한국어 제목 번역", "title_zh": "중국어 간체자 제목 번역", "hook_ko": "제목을 반복하지 않고 핵심 기술적 의의나 엔지니어링 시사점을 1문장(40~70자)으로 요약한 한국어 후킹 문구", "hook_zh": "제목을 반복하지 않는 중국어 간체자 1문장 핵심 요약"}]"""
 
-    for it in items:
-        cid = it['id']
-        raw_t = clean_title(it.get('title', ''))
-        # If title is already predominantly Korean, preserve it
-        if KOREAN_REGEX.search(raw_t) and len(re.findall(r'[\uac00-\ud7a3]', raw_t)) >= 5:
-            already_korean[cid] = raw_t
-        else:
-            items_to_translate.append({"id": cid, "title": raw_t})
+def build_translation_prompt(items_to_translate: list) -> str:
+    compact_input = json.dumps(items_to_translate, ensure_ascii=False, separators=(',', ':'))
+    return f"{SYSTEM_INSTRUCTION_KO}\n입력:{compact_input}"
 
+def translate_titles_gemini(items: list, gemini_key: str, model_id: str = GEMINI_MODEL, max_retries: int = 2):
+    """Mode 1 (Local Primary): Calls Antigravity Gemini 3.6 Flash (batch=10, thinkingBudget=0, compact JSON + systemInstruction)."""
+    items_to_translate = [{"id": it['id'], "title": clean_title(it.get('title', ''))} for it in items]
     results = {}
-    # Fill in already Korean
-    for cid, kt in already_korean.items():
-        results[cid] = {
-            "title_ko": kt,
-            "title_zh": f"【技术动态】{kt}"
-        }
-
     if not items_to_translate:
-        return results
+        return results, {"promptTokenCount": 0, "candidatesTokenCount": 0, "thoughtsTokenCount": 0, "totalTokenCount": 0}, False
 
-    prompt = f"""당신은 최고 수준의 글로벌 IT/AI 전문 에디터이자 번역가입니다. 주어진 기술/뉴스 제목들을 분석하여 다음 필드를 포함한 JSON 배열로 응답하세요:
-1. "title_ko": 한국 엔지니어가 읽기 자연스러운 한국어 제목 번역
-2. "title_zh": 중국어 간체자 제목 번역
-3. "hook_ko": 제목을 그대로 반복하지 말고, 이 아티클의 핵심 기술적 의의나 엔지니어링 시사점을 1문장(40~70자)으로 요약한 한국어 후킹 문구
-4. "hook_zh": 제목을 반복하지 않는 중국어 간체자 1문장 핵심 요약
-
-입력 목록:
-{json.dumps(items_to_translate, ensure_ascii=False, indent=2)}
-
-응답 형식 (반드시 아래 JSON 배열만 출력):
-[
-  {{"id": {items_to_translate[0]['id']}, "title_ko": "한국어 제목", "title_zh": "中文标题", "hook_ko": "핵심 기술적 의의와 시사점 1문장 요약", "hook_zh": "核心技术意义与工程启示一句话总结"}}
-]"""
-
-    req_body = {
-        "model": MODEL,
-        "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": 3000,
-        "temperature": 0.2
+    compact_input = json.dumps(items_to_translate, ensure_ascii=False, separators=(',', ':'))
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent?key={gemini_key}"
+    payload = {
+        "systemInstruction": {"parts": [{"text": SYSTEM_INSTRUCTION_KO}]},
+        "contents": [{"parts": [{"text": f"입력:{compact_input}"}]}],
+        "generationConfig": {
+            "temperature": 0.2,
+            "responseMimeType": "application/json",
+            "thinkingConfig": {"thinkingBudget": 0}
+        }
     }
+    req_data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
 
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://ai-factcheck-portfolio.vercel.app",
-        "X-Title": "FactCheck-AI-ReEnrich"
-    }
-
-    req_data = json.dumps(req_body, ensure_ascii=False).encode("utf-8")
-
+    quota_exhausted = False
     for attempt in range(max_retries):
         try:
-            req = urllib.request.Request(OPENROUTER_URL, data=req_data, headers=headers, method="POST")
-            with urllib.request.urlopen(req, timeout=25) as res:
+            req = urllib.request.Request(url, data=req_data, headers={"Content-Type": "application/json"}, method="POST")
+            with urllib.request.urlopen(req, timeout=40) as res:
                 body = json.loads(res.read().decode("utf-8"))
-            msg = body.get("choices", [{}])[0].get("message", {})
-            raw_c = msg.get("content") or msg.get("reasoning") or ""
+            usage = body.get("usageMetadata", {})
+            candidate = body.get("candidates", [{}])[0]
+            raw_c = candidate.get("content", {}).get("parts", [{}])[0].get("text", "")
             parsed = sanitize_json(raw_c)
 
             if parsed and isinstance(parsed, list):
@@ -205,20 +198,79 @@ def translate_titles_batch(items: list, api_key: str, max_retries: int = 3):
                             "hook_ko": p.get("hook_ko") or "",
                             "hook_zh": p.get("hook_zh") or ""
                         }
-                return results
+                return results, usage, False
         except urllib.error.HTTPError as e:
             if e.code == 429:
-                wait_time = (attempt + 1) * 5
-                print(f"    [!] Rate limited (429), backing off for {wait_time}s...")
-                time.sleep(wait_time)
+                quota_exhausted = True
+                print("    [!] Gemini Quota/Rate limit (429) detected.")
+                break
             else:
-                print(f"    [!] HTTP Error {e.code}, retrying...")
+                print(f"    [!] Gemini HTTP Error {e.code}, retrying...")
                 time.sleep(2)
         except Exception as e:
-            print(f"    [!] Request error: {e}, retrying...")
+            print(f"    [!] Gemini Request error: {e}, retrying...")
             time.sleep(2)
 
-    return results
+    return results, {"promptTokenCount": 0, "candidatesTokenCount": 0, "thoughtsTokenCount": 0, "totalTokenCount": 0}, quota_exhausted
+
+def translate_titles_openrouter(items: list, openrouter_key: str):
+    """Mode 3 (Local Fallback): Calls OpenRouter 100% Free Model (batch=3)."""
+    items_to_translate = [{"id": it['id'], "title": clean_title(it.get('title', ''))} for it in items]
+    results = {}
+    if not items_to_translate:
+        return results, {"promptTokenCount": 0, "candidatesTokenCount": 0, "thoughtsTokenCount": 0, "totalTokenCount": 0}, OPENROUTER_FREE_MODELS[0], False
+
+    prompt = build_translation_prompt(items_to_translate)
+    for model_name in OPENROUTER_FREE_MODELS[:2]:
+        payload = {
+            "model": model_name,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.2,
+            "max_tokens": 4500
+        }
+        req_data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        headers = {
+            "Authorization": f"Bearer {openrouter_key}",
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://github.com/AnnyeongHae/ai-factcheck-portfolio",
+            "X-Title": "AI FactCheck Portfolio Local Fallback"
+        }
+        try:
+            req = urllib.request.Request(OPENROUTER_URL, data=req_data, headers=headers, method="POST")
+            with urllib.request.urlopen(req, timeout=75) as res:
+                body = json.loads(res.read().decode("utf-8"))
+            or_usage = body.get("usage", {})
+            comp_details = or_usage.get("completion_tokens_details") or {}
+            th_tok = comp_details.get("reasoning_tokens", 0)
+            c_tok = max(0, or_usage.get("completion_tokens", 0) - th_tok)
+            usage = {
+                "promptTokenCount": or_usage.get("prompt_tokens", 0),
+                "candidatesTokenCount": c_tok,
+                "thoughtsTokenCount": th_tok,
+                "totalTokenCount": or_usage.get("total_tokens", 0)
+            }
+            msg = body.get("choices", [{}])[0].get("message", {})
+            raw_c = msg.get("content") or msg.get("reasoning") or ""
+            parsed = sanitize_json(raw_c)
+            if parsed and isinstance(parsed, list):
+                for p in parsed:
+                    if isinstance(p, dict) and 'id' in p:
+                        results[p['id']] = {
+                            "title_ko": p.get("title_ko") or "",
+                            "title_zh": p.get("title_zh") or "",
+                            "hook_ko": p.get("hook_ko") or "",
+                            "hook_zh": p.get("hook_zh") or ""
+                        }
+                return results, usage, model_name, False
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                print(f"    [!] OpenRouter HTTP 429 on {model_name}. Halting cascade immediately.")
+                return results, {"promptTokenCount": 0, "candidatesTokenCount": 0, "thoughtsTokenCount": 0, "totalTokenCount": 0}, model_name, True
+            print(f"    [!] OpenRouter HTTP {e.code} on {model_name}, trying next...")
+        except Exception as e:
+            print(f"    [!] OpenRouter error on {model_name}: {e}")
+
+    return results, {"promptTokenCount": 0, "candidatesTokenCount": 0, "thoughtsTokenCount": 0, "totalTokenCount": 0}, OPENROUTER_FREE_MODELS[0], False
 
 def assemble_enriched_item(item: dict, translations: dict) -> dict:
     db_id = item['id']
@@ -278,12 +330,23 @@ def assemble_enriched_item(item: dict, translations: dict) -> dict:
         "canonical_tech_entity": entity
     }
 
-def run_re_enrichment(batch_size: int = 10):
+def run_re_enrichment(mode: str = "local-gemini", batch_size: int = None, limit: int = None):
     start_time = time.time()
-    api_key = get_openrouter_api_key()
-    if not api_key:
-        print("[!] Error: OPENROUTER_API_KEY is missing.")
+    gemini_key = get_gemini_api_key()
+    openrouter_key = get_openrouter_api_key()
+
+    active_mode = mode
+    if active_mode == "local-gemini" and not gemini_key:
+        print("[!] GEMINI_API_KEY missing -> Auto-switching to Mode 3 (local-openrouter, batch=3)")
+        active_mode = "local-openrouter"
+
+    if active_mode == "local-openrouter" and not openrouter_key:
+        print("[!] Error: OPENROUTER_API_KEY is missing for local-openrouter mode.")
         return 1
+
+    # Enforce default batch size per mode if not explicitly overridden
+    if batch_size is None:
+        batch_size = 10 if active_mode == "local-gemini" else 3
 
     conn = get_db_connection()
     if not conn:
@@ -291,21 +354,25 @@ def run_re_enrichment(batch_size: int = 10):
         return 1
 
     cur = conn.cursor()
-    # Find all items needing AI classification & enrichment
-    cur.execute("""
+    query = """
         SELECT id, inbox_id, title, source_platform, source_url, raw_payload
         FROM raw_trends_inbox
         WHERE is_classified = FALSE OR raw_payload->'ai_enrichment' IS NULL
-        ORDER BY id DESC;
-    """)
+        ORDER BY id DESC
+    """
+    if limit:
+        query += f" LIMIT {int(limit)}"
+    cur.execute(query)
     rows = cur.fetchall()
 
     total_candidates = len(rows)
+    model_label = f"antigravity/{GEMINI_MODEL} (thinkingBudget=0)" if active_mode == "local-gemini" else OPENROUTER_FREE_MODELS[0]
     print("=" * 65)
-    print("🚀 [Re-Enrichment Pipeline] Starting Authentic Trilingual Translation")
+    print("🚀 [Re-Enrichment Pipeline] 3-Mode Adaptive AI Enrichment")
+    print(f" • Active Mode             : {active_mode}")
     print(f" • Candidates to Re-Enrich : {total_candidates} 건")
     print(f" • Batch Size              : {batch_size} items / call")
-    print(f" • Model                   : {MODEL}")
+    print(f" • Model                   : {model_label}")
     print("=" * 65 + "\n")
 
     if total_candidates == 0:
@@ -327,17 +394,57 @@ def run_re_enrichment(batch_size: int = 10):
         })
 
     total_applied = 0
+    total_prompt_tokens = 0
+    total_output_tokens = 0
+    total_thought_tokens = 0
+    total_all_tokens = 0
     now_iso = datetime.now(timezone.utc).isoformat()
-    model_name = "antigravity-ling-flash-v2"
+    model_name = f"google/{GEMINI_MODEL}" if active_mode == "local-gemini" else OPENROUTER_FREE_MODELS[0]
 
-    for i in range(0, total_candidates, batch_size):
-        chunk = candidates[i:i + batch_size]
+    idx = 0
+    consecutive_failures = 0
+    while idx < total_candidates:
+        cur_batch_size = batch_size if active_mode == "local-gemini" else min(batch_size, 3)
+        chunk = candidates[idx:idx + cur_batch_size]
         t_chunk_start = time.time()
 
-        # Step 1: Translate titles to Korean and Chinese via LLM
-        translations = translate_titles_batch(chunk, api_key)
+        if active_mode == "local-gemini":
+            translations, usage, quota_exhausted = translate_titles_gemini(chunk, gemini_key, GEMINI_MODEL)
+            if quota_exhausted:
+                if openrouter_key:
+                    print("    [⚡ Fallback] Antigravity Gemini token/quota exhausted! Auto-switching to Mode 3 (local-openrouter, batch=3)...")
+                    active_mode = "local-openrouter"
+                    batch_size = 3
+                    model_name = OPENROUTER_FREE_MODELS[0]
+                    continue  # Retry from current idx with batch_size=3 on OpenRouter
+                else:
+                    print("    [!] Circuit Breaker: Gemini 429 and no OPENROUTER_API_KEY configured. Halting.")
+                    break
+        else:
+            translations, usage, used_or_model, or_429 = translate_titles_openrouter(chunk, openrouter_key)
+            model_name = used_or_model
+            if or_429:
+                print("    [!] Circuit Breaker: OpenRouter HTTP 429 received. Halting immediately.")
+                break
 
-        # Step 2: Assemble full studio-grade payloads
+        if not translations:
+            consecutive_failures += 1
+            if consecutive_failures >= 3:
+                print("    [!] Circuit Breaker: 3 consecutive batch translation failures. Halting.")
+                break
+        else:
+            consecutive_failures = 0
+
+        p_tok = usage.get("promptTokenCount", 0)
+        c_tok = usage.get("candidatesTokenCount", 0)
+        th_tok = usage.get("thoughtsTokenCount", 0)
+        tot_tok = usage.get("totalTokenCount", p_tok + c_tok + th_tok)
+
+        total_prompt_tokens += p_tok
+        total_output_tokens += c_tok
+        total_thought_tokens += th_tok
+        total_all_tokens += tot_tok
+
         for item in chunk:
             db_id = item['id']
             enriched = assemble_enriched_item(item, translations)
@@ -402,7 +509,8 @@ def run_re_enrichment(batch_size: int = 10):
                         "zh": {"title": enriched["title_zh"], "hook": enriched["hook_zh"], "key_takeaways": enriched["key_takeaways_zh"]}
                     },
                     "enriched_by_model": model_name,
-                    "enriched_at": now_iso
+                    "enriched_at": now_iso,
+                    "tokens_used": tot_tok
                 }
             })
 
@@ -418,26 +526,42 @@ def run_re_enrichment(batch_size: int = 10):
 
         conn.commit()
         total_applied += len(chunk)
+        idx += len(chunk)
         c_dur = time.time() - t_chunk_start
         pct = (total_applied / total_candidates) * 100.0
         sample_title = chunk[0]['existing_payload'].get('title_ko') or chunk[0]['title']
-        print(f"[{total_applied:3d}/{total_candidates}] ({pct:5.1f}%) | Batch of {len(chunk)} applied in {c_dur:.2f}s | Sample: {sample_title[:45]}")
+        print(f"[{total_applied:3d}/{total_candidates}] ({pct:5.1f}%) | {len(chunk)}건 ({c_dur:.2f}s) [{active_mode}] | Tokens: {tot_tok:,} (In:{p_tok:,} Out:{c_tok:,} Think:{th_tok:,}) | Sample: {sample_title[:36]}")
 
-        # Gentle pacing between LLM calls
-        time.sleep(0.8)
+        time.sleep(0.8 if active_mode == "local-gemini" else 1.5)
 
     total_dur = time.time() - start_time
+    cur.execute("SELECT COUNT(*) FROM raw_trends_inbox WHERE is_classified = FALSE;")
+    rem_count = cur.fetchone()[0]
+    worker_label = "Local Antigravity Gemini 3.6 Flash (Batch 10)" if active_mode == "local-gemini" else "Local OpenRouter Free Fallback (Batch 3)"
     cur.execute("""
         INSERT INTO vercel_worker_logs (worker_name, model_used, processed_count, duration_seconds, remaining_count, status)
-        VALUES ('Antigravity High-Fidelity Re-Enricher', %s, %s, %s, 0, 'SUCCESS');
-    """, (model_name, total_applied, total_dur))
+        VALUES (%s, %s, %s, %s, %s, 'SUCCESS');
+    """, (worker_label, model_name, total_applied, total_dur, rem_count))
     conn.commit()
     conn.close()
 
     print("\n" + "=" * 65)
     print(f"🎉 [Re-Enrichment Complete] Successfully updated {total_applied} items in {total_dur:.1f}s!")
+    print(f"📊 Token Usage Summary ({model_name}):")
+    print(f"   • Input (Prompt) Tokens     : {total_prompt_tokens:,}")
+    print(f"   • Output (Candidate) Tokens : {total_output_tokens:,}")
+    print(f"   • Reasoning (Thought) Tokens: {total_thought_tokens:,}")
+    print(f"   • Total Tokens Consumed     : {total_all_tokens:,} (Avg: {round(total_all_tokens / max(1, total_applied), 1)} tokens/item)")
+    print(f"   • Remaining Unclassified    : {rem_count:,} 건")
     print("=" * 65)
     return 0
 
 if __name__ == "__main__":
-    sys.exit(run_re_enrichment(batch_size=10))
+    import argparse
+    parser = argparse.ArgumentParser(description="3-Mode Adaptive AI Enrichment Pipeline")
+    parser.add_argument("--mode", choices=["local-gemini", "local-openrouter"], default="local-gemini",
+                        help="Execution mode: 'local-gemini' (gemini-3.6-flash, batch=10) or 'local-openrouter' (OpenRouter free, batch=3)")
+    parser.add_argument("--batch-size", type=int, default=None, help="Override batch size per call (default: 10 for local-gemini, 3 for local-openrouter)")
+    parser.add_argument("--limit", type=int, default=None, help="Max candidates to enrich")
+    args = parser.parse_args()
+    sys.exit(run_re_enrichment(mode=args.mode, batch_size=args.batch_size, limit=args.limit))

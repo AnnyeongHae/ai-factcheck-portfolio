@@ -1,0 +1,45 @@
+{
+  "version": "2026.10",
+  "description": "3-Mode AI Enrichment & Translation Execution Strategy (SSOT)",
+  "modes": {
+    "1_local_gemini_primary": {
+      "mode_id": "local-gemini",
+      "environment": "local",
+      "provider": "antigravity_gemini",
+      "model": "gemini-3.6-flash",
+      "subagent_tier": "flash_lite",
+      "thinking_budget": 0,
+      "batch_size": 10,
+      "cli_command": "python -u tools/re_enrich_all_600.py --mode local-gemini --batch-size 10",
+      "fallback_mode": "3_local_openrouter_fallback",
+      "notes": "로컬 기본 실행 모드. Antigravity Gemini 3.6 Flash(최저가 모델, thinkingBudget=0)로 10개씩 배치 처리."
+    },
+    "2_remote_web_deployed": {
+      "mode_id": "remote-web",
+      "environment": "vercel_serverless_and_web_ui",
+      "provider": "openrouter_free",
+      "primary_model": "inclusionai/ling-3.0-flash-sante:free",
+      "fallback_model": "liquid/lfm-2.5-2.6b:free",
+      "batch_size": 1,
+      "endpoint": "/api/enrich-worker?limit=1",
+      "ui_behavior": "single_click_continuous_until_zero",
+      "circuit_breaker": {
+        "max_consecutive_errors": 3,
+        "max_consecutive_fallbacks": 3,
+        "abort_on_http_429": true
+      },
+      "notes": "원격(웹 배포 상태) 실행 모드. OpenRouter 100% 무료 모델을 사용하여 1개씩(limit=1) 배치 진행하되, UI에서 한 번의 클릭으로 잔여 건수가 0이 될 때까지 끝까지 연속 진행."
+    },
+    "3_local_openrouter_fallback": {
+      "mode_id": "local-openrouter",
+      "environment": "local_fallback",
+      "provider": "openrouter_free",
+      "primary_model": "inclusionai/ling-3.0-flash-sante:free",
+      "fallback_model": "liquid/lfm-2.5-2.6b:free",
+      "batch_size": 3,
+      "cli_command": "python -u tools/re_enrich_all_600.py --mode local-openrouter --batch-size 3",
+      "trigger_condition": "Antigravity Gemini 토큰 부족 또는 HTTP 429 발생 시 자동/수동 전환",
+      "notes": "로컬에서 Antigravity Gemini 토큰이 부족할 경우 OpenRouter 무료 모델 방식으로 3개씩 배치 처리."
+    }
+  }
+}

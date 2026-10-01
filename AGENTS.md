@@ -18,40 +18,43 @@
 
 ---
 
-## 2. LLM API 쿼터 보호 및 클라이언트 워커 엄격 금지 원칙 (Worker Safety)
-1. **클라이언트 브라우저 배치 무한 루프 엄격 금지**:
-   - 웹 브라우저(`app.js`)는 사용자 View 계층입니다. 브라우저에서 `while(true)` 루프를 돌려 외부 AI API나 서버리스 엔드포인트(`/api/enrich-worker`)를 무한 호출하는 행위를 영구 금지합니다.
-   - 탭을 열어두고 자리를 비웠을 때 무한 루프로 인해 OpenRouter 1,000회 쿼터와 DB Egress(5GB)가 소각되는 안티패턴을 절대 작성하지 않습니다.
-2. **수동 트리거 세션 하드 캡 (Max Session Cap = 5)**:
-   - 사용자가 UI 상에서 명시적으로 AI 요약을 트리거할 경우, 1회 클릭당 **최대 5건**까지만 처리하고 루프를 즉시 정상 종료해야 합니다.
-3. **서킷 브레이커(Circuit Breaker) 필수**:
-   - 외부 LLM API(OpenRouter 무료 모델 등) 호출 시 연속 3회 실패(`consecutiveFallbacks >= 3` 또는 `consecutiveErrors >= 3`) 발생 시 **즉시 루프를 탈출(Break)**하고 서킷을 차단합니다.
-   - 3초, 5초 식의 단순 재시도 폭풍(Retry Storm)을 절대 유발하지 않습니다.
-4. **HTTP 429(Rate Limit / Quota Exhausted) 즉시 차단**:
-   - HTTP 429 수신 시 다른 모델로의 전환을 즉시 중단하고 해당 요청을 즉각 종료합니다.
-5. **모델 캐스케이드(Cascade Fallback) 제한**:
-   - 1회의 API 호출에서 7개 이상의 모델을 연쇄 호출하지 않으며, 최대 2개 모델(Primary 1개 + Fallback 1개)까지만 시도합니다.
+## 2. AI 요약/번역 3대 실행 모드(3-Mode AI Enrichment) 및 쿼터 보호 수칙
+AI 다국어 요약·번역·분류 작업은 실행 환경과 토큰 상황에 따라 반드시 다음 **3가지 표준 모드**(`configs/ai_enrichment_modes.json`, `.agents/skills/ai-enrichment-pipeline/SKILL.md`) 중 하나로만 진행합니다:
+
+1. **모드 1 — 로컬 기본 진행 (Local Primary: Antigravity `gemini-3.6-flash`, Batch = 10)**:
+   - 로컬에서 진행할 때는 가장 저렴하고 빠른 **`gemini-3.6-flash`**(`thinkingBudget: 0` 설정으로 추론 토큰 소모 0)를 사용하여 **10개씩 배치(`batch_size = 10`)**로 진행합니다.
+   - 명령어: `python -u tools/re_enrich_all_600.py --mode local-gemini --batch-size 10`
+2. **모드 2 — 원격 웹 배포 상태 진행 (Remote Web: OpenRouter 무료 방식, Batch = 1, 1회 클릭 시 끝까지 진행)**:
+   - 원격(웹 배포 상태, `/api/enrich-worker`)에서 진행할 때는 **OpenRouter의 기존 무료 모델 방식(`inclusionai/ling-3.0-flash-sante:free`)**을 적용하여 **1개씩 배치(`limit = 1`)**로 진행합니다.
+   - **단, UI에서 한 번의 클릭으로 잔여 미분류 건수가 `0건`이 될 때까지 끝까지 연속 진행**되도록 작동합니다 (`src/js/core/api.js`의 `startContinuousAiWorker`).
+   - 페이지 로드시 자동 백그라운드 실행은 금지하며, 사용자가 버튼을 1회 클릭했을 때만 시작되고 다시 클릭하면 즉시 일시정지됩니다.
+3. **모드 3 — 로컬 폴백 진행 (Local Fallback: OpenRouter 무료 방식, Batch = 3)**:
+   - 로컬에서 진행할 때 Antigravity의 Gemini 토큰이 부족하거나 쿼터(HTTP 429)가 소진될 경우, **OpenRouter의 무료 모델 방식으로 3개씩 배치(`batch_size = 3`)**를 돌릴 수 있도록 자동/수동 전환합니다.
+   - 명령어: `python -u tools/re_enrich_all_600.py --mode local-openrouter --batch-size 3` (또는 `local-gemini` 실행 중 429 발생 시 자동 폴백).
+4. **서킷 브레이커(Circuit Breaker) 및 HTTP 429 즉시 차단**:
+   - 외부 LLM API 호출 시 연속 3회 실패(`consecutiveFallbacks >= 3` 또는 `consecutiveErrors >= 3`) 또는 HTTP 429 수신 시 즉시 루프를 탈출(Break)하고 서킷을 차단합니다.
+   - 1회의 API 호출에서 최대 2개 모델(Primary 1개 + Fallback 1개)까지만 시도합니다.
 
 ---
 
-## 3. 데이터 파이프라인의 명확한 역할 분리 원칙 (GitHub Actions vs Vercel Serverless)
+## 3. 데이터 파이프라인의 명확한 역할 분리 원칙 (GitHub Actions vs Vercel Serverless vs Local CLI)
 1. **GitHub Actions: 순수 데이터 수집(Scraping) 및 랭킹 전담 (AI 실행 절대 금지)**:
-   - GitHub Actions는 오직 다중 출처 트렌드 수집(`tools/harvest_trends.py`, 병렬화 적용 후 ~44초)과 일일 23:00 KST 핫 랭킹(`tools/run_eod_digest.py`, ~3초)만 실행합니다.
-   - **GitHub Actions 내에서 LLM 호출 및 AI 번역/요약(`drain_ai_enrichment.py`) 실행을 엄격히 영구 금지**합니다 (월 2,000분 무료 러너 쿼터의 낭비 원천 차단).
-2. **Vercel Serverless: 모든 AI 번역/요약/분류 단독 전담 (`/api/enrich-worker`)**:
-   - 모든 AI 다국어(KO/EN/ZH) 번역, 후킹 요약, 4-Tier 카테고리 분류는 오직 Vercel Serverless Worker(`api/enrich-worker.js`)가 전담합니다 (Vercel 1,000,000회 무료 Serverless 호출 쿼터 및 OpenRouter 무료 모델 활용).
-3. **클라이언트 의존성 제로 및 안전 트리거**:
-   - 사용자 브라우저의 무한 폴링 루프를 엄격히 금지하며, 사용자의 UI 수동 요청(1회 5건 캡) 또는 Vercel Cron/SWR을 통해 안전하게 분산 처리합니다.
+   - GitHub Actions는 오직 다중 출처 트렌드 수집(`tools/harvest_trends.py`, 72개 피드 병렬 수집 + 본문 GZIP 압축 `raw_content_vault` 적재)과 일일 23:00 KST 핫 랭킹(`tools/run_eod_digest.py`)만 실행합니다.
+   - **GitHub Actions 내에서 LLM 호출 및 AI 번역/요약 실행을 엄격히 영구 금지**합니다.
+2. **Vercel Serverless (`/api/enrich-worker`): 원격 웹 모드(Mode 2) 전담**:
+   - 웹 배포 환경에서는 OpenRouter 무료 모델로 1건씩(`limit=1`) 처리하며, 프런트엔드 UI 1회 클릭 시 잔여 건수가 모두 완료될 때까지 연속 실행됩니다.
+3. **Local CLI (`tools/re_enrich_all_600.py`): 로컬 고속 대량 처리(Mode 1 & Mode 3) 전담**:
+   - 대량 미분류 건은 로컬에서 Mode 1(`gemini-3.6-flash`, 10건 배치) 또는 Mode 3(Gemini 토큰 부족 시 OpenRouter 무료, 3건 배치)로 고속 처리합니다.
 
 ---
 
 ## 4. 에이전트 자율 점검 체크리스트
 에이전트는 작업 시 다음 6가지를 반드시 점검합니다:
-- [ ] 신규 팩트체크/검증 보고서 생성 시 `tools/upsert_factcheck_db.py`를 통해 Neon DB(`verified_factchecks`)에 즉각 INSERT/UPSERT하였는가? (텍스트 답변만 남기는 행위 금지)
+- [ ] 신규 팩트체크/검증 보고서 생성 시 `tools/upsert_factcheck_db.py`를 통해 정본 DB(`verified_factchecks`)에 즉각 INSERT/UPSERT하였는가? (텍스트 답변만 남기는 행위 금지)
 - [ ] GitHub Actions 워크플로에 AI 번역/요약 스크립트가 포함되어 있지 않은가? (Actions는 순수 수집만 전담)
-- [ ] 프런트엔드 JS에 `while(true)` 형태의 백그라운드 API 폴링/워커 루프가 존재하는가?
-- [ ] 외부 LLM API 연동부에 서킷 브레이커(3회 실패 시 즉각 중단)가 구현되어 있는가?
-- [ ] 1회 수동 트리거 시 최대 처리량 캡(Max Batch Cap = 5)이 설정되어 있는가?
+- [ ] AI 요약/번역 시 3대 실행 모드(1. 로컬 `gemini-3.6-flash` 10건 배치 / 2. 원격 웹 OpenRouter 무료 1건 배치·1회 클릭 끝까지 진행 / 3. 로컬 Gemini 토큰 부족 시 OpenRouter 무료 3건 배치)가 정확히 준수되었는가?
+- [ ] 외부 LLM API 연동부에 서킷 브레이커(3회 실패 또는 HTTP 429 시 즉각 중단/폴백)가 구현되어 있는가?
+- [ ] 웹 UI에서 1회 클릭 시 중간(5건)에 끊기지 않고 끝까지 연속 실행되며 재클릭 시 일시정지되는가?
 - [ ] 카테고리 집계가 임의의 배열 슬라이스가 아닌 DB SQL `GROUP BY` 기반인가?
 
 ---

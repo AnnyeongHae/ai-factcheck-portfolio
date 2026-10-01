@@ -833,14 +833,14 @@ export async function startContinuousAiWorker() {
   }
 
   let consecutiveErrors = 0;
+  let consecutiveFallbacks = 0;
   let processedInThisSession = 0;
-  const MAX_SESSION_CAP = 5;
 
-  while (_autoWorkerRunning && !_autoWorkerPaused && processedInThisSession < MAX_SESSION_CAP) {
+  while (_autoWorkerRunning && !_autoWorkerPaused) {
     try {
       const workerUrl = APP_CONFIG.apiUrl('/api/enrich-worker?limit=1');
       if (txt && !_autoWorkerPaused) {
-        txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI 요약 분석 중... (${processedInThisSession + 1}/${MAX_SESSION_CAP}건 진행 중)`;
+        txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI 요약 분석 중... (누적 ${processedInThisSession}건 완료)`;
       }
 
       const res = await fetch(workerUrl, { cache: 'no-store' });
@@ -874,14 +874,31 @@ export async function startContinuousAiWorker() {
       consecutiveErrors = 0;
       const data = await res.json();
 
-      if (data && data.status === 'success') {
-        processedInThisSession++;
-        const rem = data.remaining_unclassified !== undefined ? data.remaining_unclassified : 0;
-        if (txt && !_autoWorkerPaused) {
-          txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 중 (${processedInThisSession}/${MAX_SESSION_CAP}건 완료 / 잔여: ${rem}건)`;
+      if (data && (data.status === 'success' || data.status === 'noop')) {
+        if (data.model_used && data.model_used.includes('fallback')) {
+          consecutiveFallbacks++;
+          if (consecutiveFallbacks >= 3) {
+            _autoWorkerRunning = false;
+            window._autoWorkerRunning = false;
+            if (txt) txt.textContent = `⏸️ 무료 LLM 응답 지연 (${processedInThisSession}건 완료 · 클릭 시 재개)`;
+            if (btn) {
+              btn.disabled = false;
+              btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+            }
+            break;
+          }
+        } else {
+          consecutiveFallbacks = 0;
         }
 
-        if (rem === 0) {
+        const batchDone = data.processed_count !== undefined ? data.processed_count : 1;
+        processedInThisSession += batchDone;
+        const rem = data.remaining_unclassified !== undefined ? data.remaining_unclassified : 0;
+        if (txt && !_autoWorkerPaused) {
+          txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 중 (${processedInThisSession}건 완료 / 잔여: ${rem}건)`;
+        }
+
+        if (rem === 0 || data.status === 'noop') {
           window._allClassifiedCompleted = true;
           _autoWorkerRunning = false;
           window._autoWorkerRunning = false;
@@ -890,20 +907,21 @@ export async function startContinuousAiWorker() {
             btn.disabled = true;
             btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
           }
+          showToast(`✨ 모든 항목 AI 요약 및 다국어 분석이 100% 완료되었습니다!`, 'success');
           break;
         }
-
-        if (processedInThisSession >= MAX_SESSION_CAP) {
+      } else {
+        consecutiveErrors++;
+        if (consecutiveErrors >= 3) {
           _autoWorkerRunning = false;
           window._autoWorkerRunning = false;
-          if (txt) txt.textContent = `⚡ AI 요약 1회 세션 완료 (${processedInThisSession}건 / 잔여 ${rem}건 · 클릭 시 추가 실행)`;
+          if (txt) txt.textContent = `⚡ AI 응답 지연 (${processedInThisSession}건 완료 · 클릭 시 재개)`;
           if (btn) {
             btn.disabled = false;
-            btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-indigo-100";
+            btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
           }
           break;
         }
-
       }
     } catch (loopErr) {
       console.warn('[AutoWorker Loop Error]:', loopErr);
@@ -917,7 +935,7 @@ export async function startContinuousAiWorker() {
       await new Promise(r => setTimeout(r, 5000));
     }
 
-    await new Promise(r => setTimeout(r, 3500));
+    await new Promise(r => setTimeout(r, 2500));
   }
 
   if (processedInThisSession > 0) {

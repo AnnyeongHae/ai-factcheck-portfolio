@@ -6,9 +6,30 @@
 
 meta:
   name: "inbox_trilingual_enrichment"
-  version: "1.0.0"
-  last_updated: "2026-09-02"
+  version: "2.0.0"
+  last_updated: "2026-10-01"
   description: "수집 인박스 데이터의 3개국어 번역, The Hook, 4대 카테고리 분류, 모델 패밀리 추출을 위한 정규 프롬프트 템플릿"
+
+execution_modes:
+  mode_1_local_primary:
+    mode: "local-gemini"
+    model: "gemini-3.6-flash"
+    thinking_budget: 0
+    batch_size: 10
+    description: "로컬 진행 기본값: 가장 저렴한 antigravity gemini-3.6-flash 모델로 10개씩 배치 진행"
+  mode_2_remote_web:
+    mode: "remote-web"
+    model: "inclusionai/ling-3.0-flash-sante:free"
+    fallback_model: "liquid/lfm-2.5-2.6b:free"
+    batch_size: 1
+    ui_trigger: "single_click_continuous_until_zero"
+    description: "원격(웹 배포 상태): OpenRouter 무료 모델 방식으로 1개씩 배치 진행하되, 1회 클릭으로 잔여 0건까지 끝까지 연속 진행"
+  mode_3_local_fallback:
+    mode: "local-openrouter"
+    model: "inclusionai/ling-3.0-flash-sante:free"
+    fallback_model: "liquid/lfm-2.5-2.6b:free"
+    batch_size: 3
+    description: "로컬 진행 시 Antigravity Gemini 토큰 부족 시: OpenRouter 무료 모델 방식으로 3개씩 배치 진행"
 
 model_parameters:
   temperature: 0.2

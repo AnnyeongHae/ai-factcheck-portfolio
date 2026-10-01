@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-01T08:39:15.211Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-01T11:28:37.931Z */
 
 (() => {
   // src/js/core/config.js
@@ -1915,13 +1915,13 @@
       btn.className = "px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold font-mono text-[11px] border border-indigo-700 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
     }
     let consecutiveErrors = 0;
+    let consecutiveFallbacks = 0;
     let processedInThisSession = 0;
-    const MAX_SESSION_CAP = 5;
-    while (_autoWorkerRunning && !_autoWorkerPaused && processedInThisSession < MAX_SESSION_CAP) {
+    while (_autoWorkerRunning && !_autoWorkerPaused) {
       try {
         const workerUrl = APP_CONFIG.apiUrl("/api/enrich-worker?limit=1");
         if (txt && !_autoWorkerPaused) {
-          txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI \uC694\uC57D \uBD84\uC11D \uC911... (${processedInThisSession + 1}/${MAX_SESSION_CAP}\uAC74 \uC9C4\uD589 \uC911)`;
+          txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI \uC694\uC57D \uBD84\uC11D \uC911... (\uB204\uC801 ${processedInThisSession}\uAC74 \uC644\uB8CC)`;
         }
         const res = await fetch(workerUrl, { cache: "no-store" });
         if (res.status === 429) {
@@ -1952,13 +1952,29 @@
         }
         consecutiveErrors = 0;
         const data = await res.json();
-        if (data && data.status === "success") {
-          processedInThisSession++;
+        if (data && (data.status === "success" || data.status === "noop")) {
+          if (data.model_used && data.model_used.includes("fallback")) {
+            consecutiveFallbacks++;
+            if (consecutiveFallbacks >= 3) {
+              _autoWorkerRunning = false;
+              window._autoWorkerRunning = false;
+              if (txt) txt.textContent = `\u23F8\uFE0F \uBB34\uB8CC LLM \uC751\uB2F5 \uC9C0\uC5F0 (${processedInThisSession}\uAC74 \uC644\uB8CC \xB7 \uD074\uB9AD \uC2DC \uC7AC\uAC1C)`;
+              if (btn) {
+                btn.disabled = false;
+                btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+              }
+              break;
+            }
+          } else {
+            consecutiveFallbacks = 0;
+          }
+          const batchDone = data.processed_count !== void 0 ? data.processed_count : 1;
+          processedInThisSession += batchDone;
           const rem = data.remaining_unclassified !== void 0 ? data.remaining_unclassified : 0;
           if (txt && !_autoWorkerPaused) {
-            txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI \uC694\uC57D \uC911 (${processedInThisSession}/${MAX_SESSION_CAP}\uAC74 \uC644\uB8CC / \uC794\uC5EC: ${rem}\uAC74)`;
+            txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI \uC694\uC57D \uC911 (${processedInThisSession}\uAC74 \uC644\uB8CC / \uC794\uC5EC: ${rem}\uAC74)`;
           }
-          if (rem === 0) {
+          if (rem === 0 || data.status === "noop") {
             window._allClassifiedCompleted = true;
             _autoWorkerRunning = false;
             window._autoWorkerRunning = false;
@@ -1967,15 +1983,18 @@
               btn.disabled = true;
               btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
             }
+            showToast(`\u2728 \uBAA8\uB4E0 \uD56D\uBAA9 AI \uC694\uC57D \uBC0F \uB2E4\uAD6D\uC5B4 \uBD84\uC11D\uC774 100% \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4!`, "success");
             break;
           }
-          if (processedInThisSession >= MAX_SESSION_CAP) {
+        } else {
+          consecutiveErrors++;
+          if (consecutiveErrors >= 3) {
             _autoWorkerRunning = false;
             window._autoWorkerRunning = false;
-            if (txt) txt.textContent = `\u26A1 AI \uC694\uC57D 1\uD68C \uC138\uC158 \uC644\uB8CC (${processedInThisSession}\uAC74 / \uC794\uC5EC ${rem}\uAC74 \xB7 \uD074\uB9AD \uC2DC \uCD94\uAC00 \uC2E4\uD589)`;
+            if (txt) txt.textContent = `\u26A1 AI \uC751\uB2F5 \uC9C0\uC5F0 (${processedInThisSession}\uAC74 \uC644\uB8CC \xB7 \uD074\uB9AD \uC2DC \uC7AC\uAC1C)`;
             if (btn) {
               btn.disabled = false;
-              btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-indigo-100";
+              btn.className = "px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold font-mono text-[11px] border border-amber-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
             }
             break;
           }
@@ -1991,7 +2010,7 @@
         }
         await new Promise((r) => setTimeout(r, 5e3));
       }
-      await new Promise((r) => setTimeout(r, 3500));
+      await new Promise((r) => setTimeout(r, 2500));
     }
     if (processedInThisSession > 0) {
       ClientCache.clear();
