@@ -57,4 +57,8 @@ AI 번역/요약이 완료된 직후(또는 일일 다이제스트 `tools/run_eo
 4. **H-V-D Tripod + 36h 반감기 + 7일 활성 윈도우**:
    - $\text{Score} = \text{round}((H \times V \times D \times 10.0) \times e^{-\frac{\ln 2}{36}\Delta t_{\text{hours}}},\; 1)$
    - `created_at >= NOW() - INTERVAL '7 days'` 조건과 결합하여, 실시간 급상승 이슈만 `'🔥 크로스 바이럴 (급상승)'`에 노출하고 7일이 지난 구형 이슈(예: 9~11일 경과한 Meta Muse 등)는 자동 졸업시킵니다.
+5. **일자별 크로스 바이럴 랭킹 보드(`cross_viral_daily_rankings`) 및 최고점(`Peak Score/Rank`) DB 영구 적재**:
+   - `tools/recompute_spike_scores.py --commit` 실행 시 각 아이템의 `live_spike_score`, `peak_spike_score`, `peak_spike_date`, `best_spike_rank`를 `raw_trends_inbox`에 업데이트하고, 당일(KST) 상위 30개 이슈를 `cross_viral_daily_rankings`에 자동 UPSERT합니다.
+   - 과거 일자별 급상승 랭킹 조회: `/api/inbox?facet=CROSS_SPIKE&spike_date=YYYY-MM-DD` (가용 날짜 목록: `/api/inbox?spike_dates_list=true`).
+
 

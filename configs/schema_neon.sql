@@ -317,10 +317,49 @@ CREATE TABLE IF NOT EXISTS trend_metric_snapshots (
 CREATE INDEX IF NOT EXISTS idx_metric_snapshots_inbox_time ON trend_metric_snapshots (inbox_id, recorded_at DESC);
 CREATE INDEX IF NOT EXISTS idx_metric_snapshots_recorded_at ON trend_metric_snapshots (recorded_at DESC);
 
+-- 18. Cross-Viral Daily Rankings & Historical Time-Machine Snapshots
+ALTER TABLE raw_trends_inbox
+    ADD COLUMN IF NOT EXISTS live_spike_score NUMERIC(10, 1) DEFAULT 0.0,
+    ADD COLUMN IF NOT EXISTS peak_spike_score NUMERIC(10, 1) DEFAULT 0.0,
+    ADD COLUMN IF NOT EXISTS peak_spike_date DATE,
+    ADD COLUMN IF NOT EXISTS best_spike_rank INT;
+
+CREATE INDEX IF NOT EXISTS idx_inbox_live_spike_score ON raw_trends_inbox (live_spike_score DESC);
+CREATE INDEX IF NOT EXISTS idx_inbox_peak_spike_score ON raw_trends_inbox (peak_spike_score DESC);
+
+CREATE TABLE IF NOT EXISTS cross_viral_daily_rankings (
+    id BIGSERIAL PRIMARY KEY,
+    ranking_date DATE NOT NULL,
+    rank_position INT NOT NULL,
+    inbox_id VARCHAR(255) NOT NULL REFERENCES raw_trends_inbox(inbox_id) ON DELETE CASCADE,
+    item_id BIGINT NOT NULL,
+    spike_score NUMERIC(10, 1) NOT NULL,
+    raw_spike_score NUMERIC(10, 1) NOT NULL,
+    spike_tier VARCHAR(50) NOT NULL,
+    axes_count INT NOT NULL DEFAULT 1,
+    sources_count INT NOT NULL DEFAULT 1,
+    press_count INT NOT NULL DEFAULT 0,
+    community_count INT NOT NULL DEFAULT 0,
+    code_count INT NOT NULL DEFAULT 0,
+    velocity NUMERIC(10, 2) NOT NULL DEFAULT 0.0,
+    depth NUMERIC(10, 2) NOT NULL DEFAULT 0.0,
+    canonical_release_key VARCHAR(150),
+    title_snapshot TEXT NOT NULL,
+    sources_snapshot JSONB DEFAULT '[]'::jsonb,
+    recorded_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (ranking_date, inbox_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_cv_daily_rankings_date_rank
+    ON cross_viral_daily_rankings (ranking_date DESC, rank_position ASC);
+CREATE INDEX IF NOT EXISTS idx_cv_daily_rankings_item_id
+    ON cross_viral_daily_rankings (item_id);
+
 -- Trigger Binding
 DROP TRIGGER IF EXISTS trg_raw_trends_inbox_updated_at ON raw_trends_inbox;
 CREATE TRIGGER trg_raw_trends_inbox_updated_at BEFORE UPDATE ON raw_trends_inbox FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
 DROP TRIGGER IF EXISTS trg_verified_factchecks_updated_at ON verified_factchecks;
 CREATE TRIGGER trg_verified_factchecks_updated_at BEFORE UPDATE ON verified_factchecks FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
 

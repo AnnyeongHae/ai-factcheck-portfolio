@@ -63,8 +63,22 @@
       "primary_source_seeded_at_index_0",
       "deterministic_token_overlap_judge_078_to_088",
       "mandatory_english_title_en_for_ko_zh_sources",
-      "generic_regex_release_clustering_plus_multilingual_aliases"
-    ]
+      "generic_regex_release_clustering_plus_multilingual_aliases",
+      "daily_ranking_snapshots_and_peak_score_persisted_in_db"
+    ],
+    "daily_ranking_table": "cross_viral_daily_rankings",
+    "inbox_peak_columns": [
+      "live_spike_score",
+      "peak_spike_score",
+      "peak_spike_date",
+      "best_spike_rank"
+    ],
+    "historical_time_machine_endpoints": {
+      "available_dates": "/api/inbox?spike_dates_list=true",
+      "by_date": "/api/inbox?facet=CROSS_SPIKE&spike_date=YYYY-MM-DD",
+      "backfill_cli": "python -u tools/recompute_spike_scores.py --commit --backfill-days 30"
+    }
   }
 }
+
 

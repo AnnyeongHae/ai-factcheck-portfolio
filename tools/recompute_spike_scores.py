@@ -86,6 +86,8 @@ def extract_release_cluster_key(title: str, title_ko: str = "", story_key: str =
         return "release:deepseek-v3-2-exp"
     if ("openai" in combined or "오픈ai" in combined) and ("dots" in combined or "'dot'" in combined or " dot " in combined) and ("agent" in combined or "avatar" in combined or "에이전트" in combined or "智能体" in combined):
         return "release:openai-dots-agent"
+    if ("meta" in combined or "메타" in combined) and "muse" in combined and any(k in combined for k in ["agent", "personal", "openclaw", "imessage", "exploit", "filesystem", "amazon", "에이전트"]):
+        return "release:meta-muse-ai-agent"
     if "f-droid" in combined and "2.0" in combined:
         return "release:f-droid-2-0"
     if "copilot+" in combined and ("dead" in combined or "pull back" in combined):
@@ -238,10 +240,136 @@ def compute_hvd_score(row_data, now_utc):
 
     return final_spike_score, is_spiking, spike_analysis, was_healed
 
+from datetime import datetime, timezone, timedelta
+
+KST_TZ = timezone(timedelta(hours=9))
+
+def ensure_ranking_schema(cur):
+    """Ensures cross_viral_daily_rankings table and raw_trends_inbox peak/live columns exist in PostgreSQL SSOT."""
+    cur.execute("""
+        ALTER TABLE raw_trends_inbox
+            ADD COLUMN IF NOT EXISTS live_spike_score NUMERIC(10, 1) DEFAULT 0.0,
+            ADD COLUMN IF NOT EXISTS peak_spike_score NUMERIC(10, 1) DEFAULT 0.0,
+            ADD COLUMN IF NOT EXISTS peak_spike_date DATE,
+            ADD COLUMN IF NOT EXISTS best_spike_rank INT;
+
+        CREATE INDEX IF NOT EXISTS idx_inbox_live_spike_score ON raw_trends_inbox (live_spike_score DESC);
+        CREATE INDEX IF NOT EXISTS idx_inbox_peak_spike_score ON raw_trends_inbox (peak_spike_score DESC);
+
+        CREATE TABLE IF NOT EXISTS cross_viral_daily_rankings (
+            id BIGSERIAL PRIMARY KEY,
+            ranking_date DATE NOT NULL,
+            rank_position INT NOT NULL,
+            inbox_id VARCHAR(255) NOT NULL REFERENCES raw_trends_inbox(inbox_id) ON DELETE CASCADE,
+            item_id BIGINT NOT NULL,
+            spike_score NUMERIC(10, 1) NOT NULL,
+            raw_spike_score NUMERIC(10, 1) NOT NULL,
+            spike_tier VARCHAR(50) NOT NULL,
+            axes_count INT NOT NULL DEFAULT 1,
+            sources_count INT NOT NULL DEFAULT 1,
+            press_count INT NOT NULL DEFAULT 0,
+            community_count INT NOT NULL DEFAULT 0,
+            code_count INT NOT NULL DEFAULT 0,
+            velocity NUMERIC(10, 2) NOT NULL DEFAULT 0.0,
+            depth NUMERIC(10, 2) NOT NULL DEFAULT 0.0,
+            canonical_release_key VARCHAR(150),
+            title_snapshot TEXT NOT NULL,
+            sources_snapshot JSONB DEFAULT '[]'::jsonb,
+            recorded_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE (ranking_date, inbox_id)
+        );
+
+        CREATE INDEX IF NOT EXISTS idx_cv_daily_rankings_date_rank
+            ON cross_viral_daily_rankings (ranking_date DESC, rank_position ASC);
+        CREATE INDEX IF NOT EXISTS idx_cv_daily_rankings_item_id
+            ON cross_viral_daily_rankings (item_id);
+    """)
+
+def upsert_daily_ranking_snapshot(cur, ranking_date_str, top_scored_items, peak_tracker):
+    """
+    Upserts the top cross-viral items for a given ranking_date_str (YYYY-MM-DD in KST)
+    into cross_viral_daily_rankings, preserving the highest score achieved on that day
+    and re-ranking positions 1..N cleanly.
+    """
+    if not top_scored_items:
+        return 0
+
+    for rank_pos, entry in enumerate(top_scored_items, 1):
+        score, an, rd, rel_key = entry
+        rid = rd["id"]
+        inbox_id = rd["inbox_id"]
+        title_snap = rd["raw_payload"].get("title_ko") or rd["title"] or ""
+        sources_snap = json.dumps(rd["raw_payload"].get("sources") or [], ensure_ascii=False)
+
+        cur.execute("""
+            INSERT INTO cross_viral_daily_rankings (
+                ranking_date, rank_position, inbox_id, item_id,
+                spike_score, raw_spike_score, spike_tier,
+                axes_count, sources_count, press_count, community_count, code_count,
+                velocity, depth, canonical_release_key, title_snapshot, sources_snapshot, recorded_at
+            ) VALUES (
+                %s::date, %s, %s, %s,
+                %s, %s, %s,
+                %s, %s, %s, %s, %s,
+                %s, %s, %s, %s, %s::jsonb, NOW()
+            )
+            ON CONFLICT (ranking_date, inbox_id) DO UPDATE SET
+                spike_score = GREATEST(cross_viral_daily_rankings.spike_score, EXCLUDED.spike_score),
+                raw_spike_score = GREATEST(cross_viral_daily_rankings.raw_spike_score, EXCLUDED.raw_spike_score),
+                spike_tier = CASE WHEN EXCLUDED.spike_score >= cross_viral_daily_rankings.spike_score THEN EXCLUDED.spike_tier ELSE cross_viral_daily_rankings.spike_tier END,
+                axes_count = GREATEST(cross_viral_daily_rankings.axes_count, EXCLUDED.axes_count),
+                sources_count = GREATEST(cross_viral_daily_rankings.sources_count, EXCLUDED.sources_count),
+                press_count = GREATEST(cross_viral_daily_rankings.press_count, EXCLUDED.press_count),
+                community_count = GREATEST(cross_viral_daily_rankings.community_count, EXCLUDED.community_count),
+                code_count = GREATEST(cross_viral_daily_rankings.code_count, EXCLUDED.code_count),
+                velocity = GREATEST(cross_viral_daily_rankings.velocity, EXCLUDED.velocity),
+                depth = GREATEST(cross_viral_daily_rankings.depth, EXCLUDED.depth),
+                canonical_release_key = COALESCE(EXCLUDED.canonical_release_key, cross_viral_daily_rankings.canonical_release_key),
+                title_snapshot = EXCLUDED.title_snapshot,
+                sources_snapshot = EXCLUDED.sources_snapshot,
+                recorded_at = NOW();
+        """, (
+            ranking_date_str, rank_pos, inbox_id, rid,
+            score, an["raw_score"], an["tier"],
+            an["axes_count"], an["sources_count"], an["press_count"], an["community_count"], an["code_count"],
+            an["velocity"], an["depth"], rel_key or None, title_snap, sources_snap
+        ))
+
+        # Track historical peak score & best rank per item_id
+        prev = peak_tracker.get(rid)
+        if not prev:
+            peak_tracker[rid] = {
+                "peak_score": score,
+                "peak_date": ranking_date_str,
+                "best_rank": rank_pos
+            }
+        else:
+            if score > prev["peak_score"]:
+                prev["peak_score"] = score
+                prev["peak_date"] = ranking_date_str
+            if rank_pos < prev["best_rank"]:
+                prev["best_rank"] = rank_pos
+
+    # Re-normalize rank_position (1..N) ordered by spike_score DESC for that date
+    cur.execute("""
+        WITH ranked AS (
+            SELECT id, ROW_NUMBER() OVER (ORDER BY spike_score DESC, sources_count DESC, item_id DESC) AS new_rank
+            FROM cross_viral_daily_rankings
+            WHERE ranking_date = %s::date
+        )
+        UPDATE cross_viral_daily_rankings c
+        SET rank_position = r.new_rank
+        FROM ranked r
+        WHERE c.id = r.id;
+    """, (ranking_date_str,))
+    return len(top_scored_items)
+
 def main():
-    parser = argparse.ArgumentParser(description="Recompute H-V-D spike scores and cluster multi-source releases across DB")
+    parser = argparse.ArgumentParser(description="Recompute H-V-D spike scores, cluster releases, and persist daily cross-viral rankings")
     parser.add_argument("--commit", action="store_true", help="Commit changes to database")
     parser.add_argument("--limit", type=int, default=0, help="Limit number of rows (0 for all)")
+    parser.add_argument("--backfill-days", type=int, default=0, help="Backfill historical daily rankings for the past N days (e.g. 30)")
+    parser.add_argument("--top-daily", type=int, default=30, help="Max top spiking items to store per day in cross_viral_daily_rankings")
     args = parser.parse_args()
 
     db_url = os.getenv("DATABASE_URL")
@@ -253,12 +381,17 @@ def main():
     conn = psycopg2.connect(db_url)
     cur = conn.cursor()
 
+    if args.commit:
+        ensure_ranking_schema(cur)
+        conn.commit()
+
     cur.execute("SELECT COUNT(*) FROM raw_trends_inbox;")
     total_count = cur.fetchone()[0]
     print(f"[*] Total rows in raw_trends_inbox: {total_count}")
 
     query = """
-        SELECT id, title, source_platform, source_url, viral_score, created_at, raw_payload, triage_status, curation_tier
+        SELECT id, inbox_id, title, source_platform, source_url, viral_score, created_at, raw_payload, triage_status, curation_tier,
+               COALESCE(peak_spike_score, 0.0), peak_spike_date, best_spike_rank
         FROM raw_trends_inbox
         WHERE (triage_status IS NULL OR triage_status != 'archived')
         ORDER BY id DESC
@@ -272,39 +405,43 @@ def main():
     now_utc = datetime.now(timezone.utc)
     row_dicts = []
     for r in rows:
-        p = r[6] if isinstance(r[6], dict) else json.loads(r[6] or "{}")
+        p = r[7] if isinstance(r[7], dict) else json.loads(r[7] or "{}")
         row_dicts.append({
             "id": r[0],
-            "title": r[1],
-            "source_platform": r[2],
-            "source_url": r[3],
-            "viral_score": r[4],
-            "created_at": r[5],
+            "inbox_id": r[1] or str(r[0]),
+            "title": r[2],
+            "source_platform": r[3],
+            "source_url": r[4],
+            "viral_score": r[5],
+            "created_at": r[6],
             "raw_payload": p,
-            "triage_status": r[7],
-            "curation_tier": r[8]
+            "triage_status": r[8],
+            "curation_tier": r[9],
+            "db_peak_score": float(r[10] or 0.0),
+            "db_peak_date": r[11].isoformat() if r[11] else None,
+            "db_best_rank": int(r[12]) if r[12] is not None else None
         })
 
-    # Step 1: Cluster recent (<= 7 days) cross-platform named releases into unified hub stories
+    # Step 1: Cluster cross-platform named releases into unified hub stories
+    cluster_window_days = max(7, args.backfill_days or 7)
     clusters = {}
     for rd in row_dicts:
-        dt = parse_iso_or_default(rd["created_at"], now_utc)
-        if (now_utc - dt).total_seconds() > 7 * 86400:
-            continue
         p = rd["raw_payload"]
         t_ko = p.get("title_ko") or (p.get("ai_enrichment") or {}).get("korean_title") or ""
         t_en = p.get("title_en") or ((p.get("multilingual") or {}).get("en") or {}).get("title") or ""
         s_key = p.get("canonical_story_key") or (p.get("ai_enrichment") or {}).get("canonical_story_key") or ""
         rel_key = extract_release_cluster_key(rd["title"], t_ko, s_key, t_en)
+        rd["release_key"] = rel_key
         if rel_key:
-            clusters.setdefault(rel_key, []).append(rd)
+            dt = parse_iso_or_default(rd["created_at"], now_utc)
+            if (now_utc - dt).total_seconds() <= cluster_window_days * 86400:
+                clusters.setdefault(rel_key, []).append(rd)
 
     archived_dup_ids = []
     clustered_hub_ids = set()
     for rel_key, group in clusters.items():
         if len(group) < 2:
             continue
-        # Prefer DAILY_HOT or Official Blog / Press with rich sources as primary hub
         group.sort(key=lambda x: (
             1 if x.get("curation_tier") == "DAILY_HOT" else 0,
             len(x["raw_payload"].get("sources") or []),
@@ -332,30 +469,83 @@ def main():
         clustered_hub_ids.add(hub["id"])
         print(f"[+] Clustered '{rel_key}' -> Hub ID {hub['id']} ({hub['title'][:50]}) with {len(hub_sources)} total cross-platform sources (Archived {len(group)-1} duplicates)")
 
-    # Step 2: Recompute H-V-D scores across all active rows
+    archived_set = set(archived_dup_ids)
+    active_rows = [rd for rd in row_dicts if rd["id"] not in archived_set]
+
+    # Track peak score & best rank across historical backfill + today
+    peak_tracker = {}
+    for rd in active_rows:
+        if rd["db_peak_score"] > 0:
+            peak_tracker[rd["id"]] = {
+                "peak_score": rd["db_peak_score"],
+                "peak_date": rd["db_peak_date"],
+                "best_rank": rd["db_best_rank"] or 999
+            }
+
+    def get_earliest_dt(rd, default_dt):
+        base_dt = parse_iso_or_default(rd.get("created_at"), default_dt)
+        sources = (rd.get("raw_payload") or {}).get("sources") or []
+        earliest = base_dt
+        for s in sources:
+            if isinstance(s, dict):
+                s_dt = parse_iso_or_default(s.get("created_at") or s.get("original_created_at") or s.get("published_at"), base_dt)
+                if s_dt < earliest:
+                    earliest = s_dt
+        return earliest
+
+    # Step 2 (Optional): Backfill Historical Daily Rankings (--backfill-days N)
+    if args.commit and args.backfill_days > 0:
+        today_kst_date = now_utc.astimezone(KST_TZ).date()
+        print(f"\n[*] Running Historical Time-Machine Backfill for the past {args.backfill_days} days...")
+        total_snapshots_saved = 0
+        for day_offset in range(args.backfill_days, 0, -1):
+            target_date = today_kst_date - timedelta(days=day_offset)
+            target_date_str = target_date.isoformat()
+            # Simulate 23:59:59 KST on target_date
+            sim_kst_dt = datetime(target_date.year, target_date.month, target_date.day, 23, 59, 59, tzinfo=KST_TZ)
+            sim_utc_dt = sim_kst_dt.astimezone(timezone.utc)
+
+            day_candidates = []
+            for rd in active_rows:
+                item_dt = get_earliest_dt(rd, now_utc)
+                age_sec = (sim_utc_dt - item_dt).total_seconds()
+                # Must have been first spotted on or before sim_utc_dt, and within the 7-day active window of that date
+                if age_sec < 0 or age_sec > 7 * 86400:
+                    continue
+                sim_score, sim_spiking, sim_an, _ = compute_hvd_score(rd, sim_utc_dt)
+                if sim_spiking and sim_score >= 0.5:
+                    day_candidates.append((sim_score, sim_an, rd, rd.get("release_key")))
+
+            day_candidates.sort(key=lambda x: (x[0], x[1]["sources_count"], x[2]["id"]), reverse=True)
+            top_day = day_candidates[:args.top_daily]
+            if top_day:
+                cur.execute("DELETE FROM cross_viral_daily_rankings WHERE ranking_date = %s::date;", (target_date_str,))
+                saved = upsert_daily_ranking_snapshot(cur, target_date_str, top_day, peak_tracker)
+                total_snapshots_saved += saved
+                top1_score, top1_an, top1_rd, _ = top_day[0]
+                print(f"   📅 [{target_date_str}] Saved {saved:2d} rankings | #1: [{top1_score:5.1f} pts] {top1_rd['title'][:58]}")
+        conn.commit()
+        print(f"[+] Historical Backfill Complete: {total_snapshots_saved} daily ranking records persisted.")
+
+    # Step 3: Recompute LIVE H-V-D scores across all active rows right now
     scored_items = []
+    today_ranking_candidates = []
     spike_count = 0
     super_spike_count = 0
     cross_spike_count = 0
     healed_count = 0
-    updates = []
 
-    archived_set = set(archived_dup_ids)
-    for row_data in row_dicts:
-        if row_data["id"] in archived_set:
-            continue
+    today_kst_str = now_utc.astimezone(KST_TZ).date().isoformat()
+
+    for row_data in active_rows:
         score, is_spiking, analysis, was_healed = compute_hvd_score(row_data, now_utc)
         if was_healed:
             healed_count += 1
 
-        new_payload = dict(row_data["raw_payload"])
-        new_payload["spike_analysis"] = analysis
-        new_payload["is_cross_spiking"] = is_spiking
-
-        old_spk = row_data["raw_payload"].get("is_cross_spiking")
-        old_an = row_data["raw_payload"].get("spike_analysis")
-        if was_healed or row_data["id"] in clustered_hub_ids or analysis["sources_count"] > 1 or is_spiking or old_spk or old_an or row_data["raw_payload"].get("metric_tracking"):
-            updates.append((json.dumps(new_payload, ensure_ascii=False), row_data["id"]))
+        row_data["live_score"] = score
+        row_data["live_spiking"] = is_spiking
+        row_data["live_analysis"] = analysis
+        row_data["was_healed"] = was_healed
 
         if is_spiking:
             spike_count += 1
@@ -365,18 +555,65 @@ def main():
                 cross_spike_count += 1
             scored_items.append((score, analysis, row_data["title"], row_data["id"]))
 
+            item_dt = parse_iso_or_default(row_data["created_at"], now_utc)
+            if (now_utc - item_dt).total_seconds() <= 7 * 86400:
+                today_ranking_candidates.append((score, analysis, row_data, row_data.get("release_key")))
+
     scored_items.sort(key=lambda x: x[0], reverse=True)
+    today_ranking_candidates.sort(key=lambda x: (x[0], x[1]["sources_count"], x[2]["id"]), reverse=True)
+
+    # Upsert today's top rankings into cross_viral_daily_rankings and update peak_tracker
+    if args.commit and today_ranking_candidates:
+        upsert_daily_ranking_snapshot(cur, today_kst_str, today_ranking_candidates[:args.top_daily], peak_tracker)
+
+    # Prepare raw_trends_inbox updates (including live_spike_score, peak_spike_score, peak_spike_date, best_spike_rank)
+    updates = []
+    for row_data in active_rows:
+        rid = row_data["id"]
+        score = row_data["live_score"]
+        is_spiking = row_data["live_spiking"]
+        analysis = row_data["live_analysis"]
+        was_healed = row_data["was_healed"]
+
+        pk = peak_tracker.get(rid)
+        peak_score = max(score, pk["peak_score"] if pk else 0.0)
+        peak_date = (pk["peak_date"] if (pk and pk["peak_score"] >= score and pk["peak_date"]) else (today_kst_str if score > 0 else None))
+        best_rank = pk["best_rank"] if (pk and pk["best_rank"] < 999) else None
+
+        if peak_score > 0:
+            analysis["peak_score"] = round(peak_score, 1)
+            analysis["peak_date"] = peak_date
+        if best_rank is not None:
+            analysis["best_rank"] = best_rank
+
+        new_payload = dict(row_data["raw_payload"])
+        new_payload["spike_analysis"] = analysis
+        new_payload["is_cross_spiking"] = is_spiking
+
+        old_spk = row_data["raw_payload"].get("is_cross_spiking")
+        old_an = row_data["raw_payload"].get("spike_analysis")
+        if was_healed or rid in clustered_hub_ids or analysis["sources_count"] > 1 or is_spiking or old_spk or old_an or peak_score > 0 or row_data["raw_payload"].get("metric_tracking"):
+            updates.append((
+                json.dumps(new_payload, ensure_ascii=False),
+                score,
+                peak_score,
+                peak_date,
+                best_rank,
+                rid
+            ))
 
     print("\n" + "="*80)
-    print(f"📊 [H-V-D TRIPOD SCORING RESULTS] Total Active Analyzed: {len(row_dicts) - len(archived_set)}")
+    print(f"📊 [H-V-D TRIPOD SCORING RESULTS] Total Active Analyzed: {len(active_rows)}")
     print(f"   - Self-Healed Missing Primary Sources : {healed_count} rows")
     print(f"   - Active Spiking Stories              : {spike_count}")
     print(f"   - 🔥 3-Axis Super Spikes              : {super_spike_count}")
     print(f"   - ⚡ 2-Axis Cross Spikes              : {cross_spike_count}")
+    print(f"   - 📅 Today's ({today_kst_str}) Persisted Top Rankings : {min(len(today_ranking_candidates), args.top_daily)}")
     print("="*80)
     print("🏆 Top 15 Highest Spiking Stories Right Now:")
     for rank, (score, an, title, rid) in enumerate(scored_items[:15], 1):
-        print(f"  #{rank:>2} [{score:>6.1f} pts] {an['tier']:<20} (Sources: {an['sources_count']}|P:{an['press_count']}|C:{an['community_count']}|K:{an['code_count']})")
+        pk_info = f" | Peak #{an.get('best_rank', rank)} ({an.get('peak_score', score)}p)" if an.get("best_rank") else ""
+        print(f"  #{rank:>2} [{score:>6.1f} pts] {an['tier']:<20} (Sources: {an['sources_count']}|P:{an['press_count']}|C:{an['community_count']}|K:{an['code_count']}){pk_info}")
         print(f"       ID {rid}: {title[:75]}")
 
     if args.commit:
@@ -394,12 +631,24 @@ def main():
         update_sql = """
             UPDATE raw_trends_inbox
             SET raw_payload = %s::jsonb,
+                live_spike_score = %s,
+                peak_spike_score = GREATEST(COALESCE(peak_spike_score, 0.0), %s),
+                peak_spike_date = COALESCE(%s::date, peak_spike_date),
+                best_spike_rank = CASE
+                    WHEN %s IS NULL THEN best_spike_rank
+                    WHEN best_spike_rank IS NULL THEN %s
+                    ELSE LEAST(best_spike_rank, %s)
+                END,
                 updated_at = NOW()
             WHERE id = %s;
         """
-        execute_batch(cur, update_sql, updates, page_size=200)
+        batch_params = [
+            (u[0], u[1], u[2], u[3], u[4], u[4], u[4], u[5])
+            for u in updates
+        ]
+        execute_batch(cur, update_sql, batch_params, page_size=200)
         conn.commit()
-        print("[+] DB Update 100% Complete & Committed!")
+        print("[+] DB Update & Daily Ranking Snapshot Persistence 100% Complete!")
     else:
         print("\n[!] Dry run mode. Run with --commit to apply changes to database.")
 
@@ -408,3 +657,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

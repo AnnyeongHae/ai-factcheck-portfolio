@@ -154,11 +154,37 @@ module.exports = async (req, res) => {
     }
     const page = Math.floor(offset / limit) + 1;
 
+    // 🌟 0-A. Cross-Viral Ranking Calendar Metadata Endpoint (?spike_dates_list=true)
+    if (req.query?.spike_dates_list === 'true') {
+      const datesQuery = `
+        SELECT
+          ranking_date::text AS ranking_date,
+          COUNT(*)::int AS total_ranked,
+          MAX(spike_score)::numeric(10,1) AS top_score,
+          (ARRAY_AGG(title_snapshot ORDER BY rank_position ASC))[1] AS top_title,
+          (ARRAY_AGG(spike_tier ORDER BY rank_position ASC))[1] AS top_tier
+        FROM cross_viral_daily_rankings
+        GROUP BY ranking_date
+        ORDER BY ranking_date DESC
+        LIMIT 60;
+      `;
+      const datesRes = await pool.query(datesQuery);
+      const payload = {
+        status: 'success',
+        dates: datesRes.rows
+      };
+      setCachedResponse(cacheKey, payload);
+      return res.status(200).json(payload);
+    }
+
+    const spikeDate = (req.query?.spike_date || '').trim();
+    const isValidSpikeDate = /^\d{4}-\d{2}-\d{2}$/.test(spikeDate);
+
     const conditions = [];
     const params = [];
 
-    // 0. Live Inbox Filter: Exclude archived duplicates by default (SSOT Hub items only)
-    const includeArchived = req.query?.include_archived === 'true';
+    // 0. Live Inbox Filter: Exclude archived duplicates by default (unless querying a historical daily ranking snapshot)
+    const includeArchived = req.query?.include_archived === 'true' || isValidSpikeDate;
     if (!includeArchived) {
       conditions.push("(triage_status IS NULL OR triage_status != 'archived')");
     }
@@ -237,14 +263,19 @@ module.exports = async (req, res) => {
     const facet = req.query?.facet;
     if (facet && facet !== 'ALL') {
       if (facet === 'CROSS_SPIKE') {
-        conditions.push(`(
-          (raw_payload->>'is_cross_spiking' = 'true' OR (CASE WHEN jsonb_typeof(raw_payload->'sources') = 'array' THEN jsonb_array_length(raw_payload->'sources') ELSE 0 END > 1))
-          AND created_at >= (NOW() - INTERVAL '7 days')
-          AND (
-            raw_payload->'spike_analysis' IS NULL
-            OR COALESCE((raw_payload->'spike_analysis'->>'score')::numeric, 0) >= 0.3
-          )
-        )`);
+        if (isValidSpikeDate) {
+          params.push(spikeDate);
+          conditions.push(`id IN (SELECT item_id FROM cross_viral_daily_rankings WHERE ranking_date = $${params.length}::date)`);
+        } else {
+          conditions.push(`(
+            (raw_payload->>'is_cross_spiking' = 'true' OR (CASE WHEN jsonb_typeof(raw_payload->'sources') = 'array' THEN jsonb_array_length(raw_payload->'sources') ELSE 0 END > 1))
+            AND created_at >= (NOW() - INTERVAL '7 days')
+            AND (
+              raw_payload->'spike_analysis' IS NULL
+              OR COALESCE(live_spike_score, (raw_payload->'spike_analysis'->>'score')::numeric, 0) >= 0.3
+            )
+          )`);
+        }
       } else if (facet === 'MODEL') {
         conditions.push(`(
           raw_payload->>'facet_type' = 'MODEL'
@@ -322,9 +353,16 @@ module.exports = async (req, res) => {
     let sortParam = 'created_at DESC NULLS LAST, id DESC';
     if (status === 'pending' || sort === 'pending') {
       sortParam = 'created_at DESC NULLS LAST, id DESC';
+    } else if (isValidSpikeDate && facet === 'CROSS_SPIKE') {
+      params.push(spikeDate);
+      const sdIdx = params.length;
+      sortParam = `
+        (SELECT rank_position FROM cross_viral_daily_rankings cdr WHERE cdr.item_id = raw_trends_inbox.id AND cdr.ranking_date = $${sdIdx}::date LIMIT 1) ASC NULLS LAST,
+        COALESCE(peak_spike_score, live_spike_score, 0) DESC, id DESC
+      `;
     } else if (sort === 'viral-score-desc' || sort === 'score' || (!sort && facet === 'CROSS_SPIKE')) {
       sortParam = `
-        COALESCE(NULLIF(raw_payload->'spike_analysis'->>'score', '')::numeric, viral_score, 0) DESC,
+        COALESCE(live_spike_score, NULLIF(raw_payload->'spike_analysis'->>'score', '')::numeric, viral_score, 0) DESC,
         CASE WHEN jsonb_typeof(raw_payload->'sources') = 'array' THEN jsonb_array_length(raw_payload->'sources') ELSE 0 END DESC,
         created_at DESC, id DESC
       `;
@@ -344,16 +382,23 @@ module.exports = async (req, res) => {
       sortParam = 'updated_at DESC NULLS LAST, id DESC';
     }
 
+    const countParams = [...params];
+    if (isValidSpikeDate && facet === 'CROSS_SPIKE') {
+      // Remove the extra sort param from countQuery params
+      countParams.pop();
+    }
+
     // Pagination limits
     params.push(limit);
     const limitParam = '$' + params.length;
     params.push(offset);
     const offsetParam = '$' + params.length;
 
-    // 🚀 SOTA High-Performance Fast Index Scan (Eliminates 160x COUNT(*) OVER() overhead)
+    // 🚀 SOTA High-Performance Fast Index Scan
     const dataQuery = `
       SELECT id, inbox_id, source_platform, source_url, title, item_type, category_primary, 
-             viral_metric, viral_score, is_classified, harvested_date, created_at, updated_at, raw_payload
+             viral_metric, viral_score, is_classified, harvested_date, created_at, updated_at, raw_payload,
+             live_spike_score, peak_spike_score, peak_spike_date::text AS peak_spike_date, best_spike_rank
       FROM raw_trends_inbox
       ${whereClause}
       ORDER BY ${sortParam}
@@ -362,11 +407,31 @@ module.exports = async (req, res) => {
 
     const countQuery = `SELECT COUNT(id) AS total_count FROM raw_trends_inbox ${whereClause};`;
 
-    // Execute data fetch and count in parallel for ultra-low latency
-    const [result, countRes] = await Promise.all([
+    // Execute data fetch, count, and optional historical snapshot fetch in parallel
+    const queries = [
       pool.query(dataQuery, params),
-      pool.query(countQuery, params.slice(0, -2))
-    ]);
+      pool.query(countQuery, countParams)
+    ];
+    if (isValidSpikeDate) {
+      queries.push(
+        pool.query(
+          `SELECT item_id, ranking_date::text AS ranking_date, rank_position, spike_score, raw_spike_score,
+                  spike_tier, axes_count, sources_count, press_count, community_count, code_count,
+                  velocity, depth, canonical_release_key
+           FROM cross_viral_daily_rankings
+           WHERE ranking_date = $1::date`,
+          [spikeDate]
+        )
+      );
+    }
+
+    const [result, countRes, histRes] = await Promise.all(queries);
+    const histMap = new Map();
+    if (histRes && Array.isArray(histRes.rows)) {
+      for (const hr of histRes.rows) {
+        histMap.set(Number(hr.item_id), hr);
+      }
+    }
 
     const total = parseInt(countRes.rows[0]?.total_count, 10) || 0;
 
@@ -491,7 +556,27 @@ module.exports = async (req, res) => {
       });
 
       const totalSourcesCount = Math.max(seenSourceKeys.size, allSourcesList.length);
-      const isCrossSpiking = Boolean(p.is_cross_spiking || (pressCount >= 1 && communityCount >= 1 && totalSourcesCount >= 2));
+      const histSnap = histMap.get(Number(r.id));
+      const isCrossSpiking = Boolean(histSnap || p.is_cross_spiking || (pressCount >= 1 && communityCount >= 1 && totalSourcesCount >= 2));
+
+      let activeSpikeAnalysis = p.spike_analysis || null;
+      if (histSnap) {
+        activeSpikeAnalysis = {
+          ...(p.spike_analysis || {}),
+          score: Number(histSnap.spike_score),
+          raw_score: Number(histSnap.raw_spike_score),
+          tier: histSnap.spike_tier,
+          axes_count: Number(histSnap.axes_count),
+          sources_count: Number(histSnap.sources_count),
+          press_count: Number(histSnap.press_count),
+          community_count: Number(histSnap.community_count),
+          code_count: Number(histSnap.code_count),
+          velocity: Number(histSnap.velocity),
+          depth: Number(histSnap.depth),
+          ranking_date: histSnap.ranking_date,
+          daily_rank: Number(histSnap.rank_position)
+        };
+      }
 
       return {
         id: r.id,
@@ -521,7 +606,13 @@ module.exports = async (req, res) => {
         sources: p.sources || [],
         cross_posts: p.cross_posts || [],
         is_cross_spiking: isCrossSpiking,
-        spike_analysis: p.spike_analysis || null,
+        spike_analysis: activeSpikeAnalysis,
+        live_spike_score: r.live_spike_score !== null && r.live_spike_score !== undefined ? Number(r.live_spike_score) : (p.spike_analysis?.score || 0),
+        peak_spike_score: r.peak_spike_score !== null && r.peak_spike_score !== undefined ? Number(r.peak_spike_score) : (p.spike_analysis?.peak_score || 0),
+        peak_spike_date: r.peak_spike_date || p.spike_analysis?.peak_date || null,
+        best_spike_rank: r.best_spike_rank !== null && r.best_spike_rank !== undefined ? Number(r.best_spike_rank) : (p.spike_analysis?.best_rank || null),
+        daily_spike_rank: histSnap ? Number(histSnap.rank_position) : null,
+        spike_ranking_date: histSnap ? histSnap.ranking_date : null,
         cross_spike_summary: {
           total_count: totalSourcesCount,
           press_count: pressCount,
@@ -557,6 +648,7 @@ module.exports = async (req, res) => {
       offset: offset,
       count: items.length,
       has_more: (offset + items.length) < total,
+      spike_date: isValidSpikeDate ? spikeDate : null,
       items: items
     };
 
@@ -581,3 +673,4 @@ module.exports = async (req, res) => {
     });
   }
 };
+

@@ -91,5 +91,9 @@ AI 다국어 요약·번역·분류 작업은 실행 환경과 토큰 상황에 
      - **$V$ (Velocity, 시간당 확산 및 시계열 급증 속도)**: $\left(\frac{N_{\text{sources}}}{\sqrt{\max(1.0, \Delta t_{\text{hours}})}}\right) \times \left(1.0 + \min\left(2.5, \frac{\Delta_{\text{metric}}}{40.0}\right)\right)$ (`trend_metric_snapshots` 시계열 $\Delta$ 반영).
      - **$D$ (Depth, 커뮤니티 반응 깊이)**: $\log_{10}\left(\max\left(1.0,\; 10.0 + 2.0 \cdot N_{\text{comments}} + 0.5 \cdot S_{\text{viral}} + 0.5 \cdot \Delta_{\text{metric}}\right)\right)$.
      - **Decay & Window**: 36시간 반감기 지수 감쇠($\lambda = \ln 2 / 36$) 및 `/api/inbox?category=CROSS_SPIKE`의 **최근 7일(`created_at >= NOW() - INTERVAL '7 days'`) 활성 윈도우**를 적용하여 오래된 이슈(예: 7일 경과한 Meta Muse 등)는 실시간 급상승 레이더에서 자연 졸업시킵니다.
+5. **불변식 5 — 일자별 크로스 바이럴 공식 랭킹 보드(`cross_viral_daily_rankings`) 및 역대 최고점(`Peak Score/Rank`) DB 영구 보존**:
+   - `tools/recompute_spike_scores.py --commit` 실행 시 실시간 점수(`live_spike_score`)뿐만 아니라 각 이슈의 역대 최고 점수(`peak_spike_score`), 최고점 달성일(`peak_spike_date`), 역대 최고 순위(`best_spike_rank`)를 `raw_trends_inbox` 정규 컬럼에 영구 보존합니다.
+   - 동시에 당일(KST 기준 `YYYY-MM-DD`) 상위 30개 급상승 이슈를 `cross_viral_daily_rankings` 테이블에 자동 UPSERT하며, `/api/inbox?facet=CROSS_SPIKE&spike_date=YYYY-MM-DD` 및 `/api/inbox?spike_dates_list=true`를 통해 언제든 과거 특정 날짜의 급상승 랭킹(예: `2026-09-08` Meta Muse 1위, `2026-09-27` GPT 6.1 Sol 1위, `2026-10-01~02` Gemini 4 Argon 1위)을 조회할 수 있습니다.
+
 
 
