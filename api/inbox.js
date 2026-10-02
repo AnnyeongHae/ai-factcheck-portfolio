@@ -433,6 +433,34 @@ module.exports = async (req, res) => {
       }
     }
 
+    // Fetch per-item daily point trajectory (spike_history) for returned items
+    const spikeHistoryMap = new Map();
+    const returnedIds = result.rows.map(r => Number(r.id)).filter(id => Number.isFinite(id) && id > 0);
+    if (returnedIds.length > 0) {
+      try {
+        const trajRes = await pool.query(
+          `SELECT item_id, ranking_date::text AS date, rank_position AS rank,
+                  spike_score::float8 AS score, sources_count::int AS sources_count
+           FROM cross_viral_daily_rankings
+           WHERE item_id = ANY($1::bigint[])
+           ORDER BY ranking_date ASC`,
+          [returnedIds]
+        );
+        for (const tr of trajRes.rows) {
+          const iid = Number(tr.item_id);
+          if (!spikeHistoryMap.has(iid)) spikeHistoryMap.set(iid, []);
+          spikeHistoryMap.get(iid).push({
+            date: tr.date,
+            rank: Number(tr.rank),
+            score: Number(tr.score),
+            sources_count: Number(tr.sources_count)
+          });
+        }
+      } catch (trajErr) {
+        // Non-fatal fallback if table is not yet initialized
+      }
+    }
+
     const total = parseInt(countRes.rows[0]?.total_count, 10) || 0;
 
     // Clean & Lean items mapping (Preserve all card display fields, strip internal/giant blobs)
@@ -607,6 +635,7 @@ module.exports = async (req, res) => {
         cross_posts: p.cross_posts || [],
         is_cross_spiking: isCrossSpiking,
         spike_analysis: activeSpikeAnalysis,
+        spike_history: spikeHistoryMap.get(Number(r.id)) || [],
         live_spike_score: r.live_spike_score !== null && r.live_spike_score !== undefined ? Number(r.live_spike_score) : (p.spike_analysis?.score || 0),
         peak_spike_score: r.peak_spike_score !== null && r.peak_spike_score !== undefined ? Number(r.peak_spike_score) : (p.spike_analysis?.peak_score || 0),
         peak_spike_date: r.peak_spike_date || p.spike_analysis?.peak_date || null,

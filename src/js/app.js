@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-01T11:28:37.931Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-02T16:41:59.801Z */
 
 (() => {
   // src/js/core/config.js
@@ -3549,17 +3549,64 @@
       } else {
         tierBadgeText = currentLang2 === "KO" ? `${clusterCount}\uAC1C \uB9E4\uCCB4 \uAD50\uCC28 \uBCF4\uB3C4` : currentLang2 === "ZH" ? `${clusterCount}\u4E2A\u5A92\u4F53\u62A5\u9053` : `Covered by ${clusterCount} Outlets`;
       }
+      const dailyRank = it.daily_spike_rank || spk?.daily_rank || null;
+      const bestRank = it.best_spike_rank || spk?.best_rank || null;
+      const displayRank = dailyRank || (typeof window !== "undefined" && window.currentNewsFacet === "CROSS_SPIKE" ? bestRank : null);
+      let rankBadgeHtml = "";
+      if (displayRank && displayRank <= 30) {
+        const rankBg = displayRank === 1 ? "bg-rose-600 text-white border-rose-500" : displayRank <= 3 ? "bg-amber-600 text-white border-amber-500" : "bg-slate-800 text-amber-300 border-slate-700";
+        rankBadgeHtml = `<span class="px-1.5 py-0.5 rounded-md ${rankBg} font-mono font-black text-[10px] border shadow-2xs shrink-0">#${displayRank}</span>`;
+      }
+      let decayLineSvgHtml = "";
+      const rawHist = Array.isArray(it.spike_history) ? it.spike_history : [];
+      const ptsList = rawHist.map((h) => Number(h.score || 0)).filter((v) => Number.isFinite(v) && v > 0);
+      if (ptsList.length === 1 && spkScore > 0 && Math.abs(ptsList[0] - spkScore) >= 0.1) {
+        ptsList.push(spkScore);
+      } else if (ptsList.length === 0 && Number(it.peak_spike_score || 0) > spkScore && spkScore > 0) {
+        ptsList.push(Number(it.peak_spike_score), spkScore);
+      }
+      if (ptsList.length >= 2) {
+        const w = 54;
+        const h = 18;
+        const pad = 2.5;
+        const maxV = Math.max(...ptsList, 1);
+        const minV = 0;
+        const coords = ptsList.map((val, idx) => {
+          const x = pad + idx / (ptsList.length - 1) * (w - pad * 2);
+          const y = h - pad - (val - minV) / (maxV - minV || 1) * (h - pad * 2);
+          return [Number(x.toFixed(1)), Number(y.toFixed(1))];
+        });
+        const polyPoints = coords.map((c) => `${c[0]},${c[1]}`).join(" ");
+        const areaPoints = `${coords[0][0]},${h - 1} ${polyPoints} ${coords[coords.length - 1][0]},${h - 1}`;
+        const lastPt = coords[coords.length - 1];
+        const firstPt = coords[0];
+        const strokeHex = isSuperSpike ? "#e11d48" : "#d97706";
+        const fillHex = isSuperSpike ? "rgba(225,29,72,0.16)" : "rgba(217,119,6,0.16)";
+        const tipText = rawHist.length >= 2 ? rawHist.map((item) => `${item.date.slice(5)}: ${item.score}p (#${item.rank})`).join(" \u2192 ") : ptsList.map((v) => `${v}p`).join(" \u2192 ");
+        decayLineSvgHtml = `
+        <span class="inline-flex items-center px-1.5 py-0.5 rounded-lg bg-white/90 border border-amber-300/80 shadow-2xs shrink-0" title="${tipText}">
+          <svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" class="overflow-visible">
+            <polygon points="${areaPoints}" fill="${fillHex}" />
+            <polyline points="${polyPoints}" fill="none" stroke="${strokeHex}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="${firstPt[0]}" cy="${firstPt[1]}" r="1.8" fill="${strokeHex}" />
+            <circle cx="${lastPt[0]}" cy="${lastPt[1]}" r="2.2" fill="${strokeHex}" />
+          </svg>
+        </span>
+      `;
+      }
       crossRollupHtml = `
-      <div class="flex items-center justify-between px-2.5 py-1.5 rounded-xl ${badgeBg} border text-xs shadow-2xs">
-        <div class="flex items-center gap-1.5 min-w-0">
+      <div class="flex flex-wrap items-center justify-between px-2.5 py-1.5 rounded-xl ${badgeBg} border text-xs shadow-2xs gap-x-2 gap-y-1.5">
+        <div class="flex flex-wrap items-center gap-1.5 min-w-0">
+          ${rankBadgeHtml}
           <i data-lucide="flame" class="w-3.5 h-3.5 ${flameColor} shrink-0 ${isSpike2 ? "animate-pulse" : ""}"></i>
-          <span class="font-extrabold text-[11px] truncate">${tierBadgeText}</span>
-          ${spkScore > 0 ? `<span class="px-2 py-0.5 rounded-lg bg-amber-500 text-white font-mono font-black text-[11px] shadow-xs border border-amber-400 flex items-center gap-1 shrink-0"><i data-lucide="zap" class="w-3 h-3 text-amber-200 fill-amber-200"></i><span>${spkScore} pts</span></span>` : ""}
+          <span class="font-extrabold text-[11px] whitespace-nowrap">${tierBadgeText}</span>
+          ${spkScore > 0 ? `<span class="px-2 py-0.5 rounded-lg bg-amber-500 text-white font-mono font-black text-[11px] shadow-xs border border-amber-400 flex items-center gap-1 shrink-0 whitespace-nowrap"><i data-lucide="zap" class="w-3 h-3 text-amber-200 fill-amber-200"></i><span>${spkScore} pts</span></span>` : ""}
+          ${decayLineSvgHtml}
         </div>
-        <div class="flex items-center gap-1 shrink-0 font-mono text-[10px] font-bold">
-          ${pCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-white/90 text-emerald-800 border border-emerald-300 shadow-2xs">\u{1F4F0} \uC5B8\uB860 ${pCount}</span>` : ""}
-          ${cCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-white/90 text-orange-800 border border-orange-300 shadow-2xs">\u{1F4AC} \uCEE4\uBBA4\uB2C8\uD2F0 ${cCount}</span>` : ""}
-          ${kCount > 0 ? `<span class="px-1.5 py-0.2 rounded bg-white/90 text-indigo-800 border border-indigo-300 shadow-2xs">\u{1F4BB} \uCF54\uB4DC ${kCount}</span>` : ""}
+        <div class="flex flex-wrap items-center gap-1 shrink-0 font-mono text-[10px] font-bold ml-auto">
+          ${pCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-emerald-800 border border-emerald-300 shadow-2xs whitespace-nowrap">\u{1F4F0} \uC5B8\uB860 ${pCount}</span>` : ""}
+          ${cCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-orange-800 border border-orange-300 shadow-2xs whitespace-nowrap">\u{1F4AC} \uCEE4\uBBA4\uB2C8\uD2F0 ${cCount}</span>` : ""}
+          ${kCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-indigo-800 border border-indigo-300 shadow-2xs whitespace-nowrap">\u{1F4BB} \uCF54\uB4DC ${kCount}</span>` : ""}
         </div>
       </div>
     `;
@@ -3607,13 +3654,13 @@
     const isMultiSource = allSources.length > 1;
     card.innerHTML = `
     <div class="space-y-2.5">
-      <div class="flex items-center justify-between text-xs font-mono gap-1.5 min-w-0">
-        <div class="flex items-center gap-1.5 min-w-0 overflow-hidden">
-          <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls} shrink-0 truncate max-w-[130px]" title="${catInfo.label}">
+      <div class="flex flex-wrap items-center justify-between text-xs font-mono gap-1.5 min-w-0">
+        <div class="flex items-center gap-1.5 min-w-0">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls} shrink-0 whitespace-nowrap" title="${catInfo.label}">
             ${catInfo.label}
           </span>
-          <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0 truncate max-w-[110px]" title="${primaryPlat}">
-            <span class="truncate">${primaryPlat}</span>
+          <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0 whitespace-nowrap" title="${primaryPlat}">
+            <span class="truncate max-w-[95px]">${primaryPlat}</span>
             ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs shrink-0">+${allSources.length - 1}</span>` : ""}
           </span>
         </div>
@@ -4765,6 +4812,8 @@
   // src/js/views/newsView.js
   var newsFetchAbortController = null;
   var newsDbCache = /* @__PURE__ */ new Map();
+  var currentSpikeDate = "";
+  var spikeDatesCatalog = [];
   function getNewsCacheKey(page = window.currentNewsPage || currentNewsPage || 1) {
     const params = new URLSearchParams();
     params.set("limit", PAGE_SIZE);
@@ -4775,9 +4824,11 @@
     const src = window.currentNewsSource || currentNewsSource;
     const search = window.currentNewsSearch || currentNewsSearch;
     const sort = window.currentNewsSort || currentNewsSort;
+    const spkDate = window.currentSpikeDate !== void 0 ? window.currentSpikeDate : currentSpikeDate;
     if (t1 && t1 !== "ALL") params.set("tier1", t1);
     if (t2 && t2 !== "ALL") params.set("tier2", t2);
     if (facet && facet !== "ALL") params.set("facet", facet);
+    if (facet === "CROSS_SPIKE" && spkDate) params.set("spike_date", spkDate);
     if (src && src !== "ALL") params.set("source", src);
     if (search) params.set("search", search);
     if (sort) params.set("sort", sort);
@@ -4847,6 +4898,9 @@
     const curFacet = window.currentNewsFacet || currentNewsFacet;
     if (curFacet !== "ALL") {
       window.currentNewsFacet = "ALL";
+      currentSpikeDate = "";
+      window.currentSpikeDate = "";
+      updateCrossSpikeTimeMachineUI();
       document.querySelectorAll(".news-facet-pill").forEach((btn) => {
         const isAll = btn.getAttribute("data-facet") === "ALL";
         if (isAll) {
@@ -4949,6 +5003,108 @@
     window.currentNewsSearch = (val || "").trim().toLowerCase();
     renderNews();
   }
+  async function loadCrossSpikeDatesList() {
+    if (spikeDatesCatalog.length > 0) {
+      updateCrossSpikeTimeMachineUI();
+      return spikeDatesCatalog;
+    }
+    try {
+      const baseUrl = APP_CONFIG.apiUrl("/api/inbox");
+      const res = await fetch(`${baseUrl}?spike_dates_list=true`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && Array.isArray(data.dates)) {
+          spikeDatesCatalog = data.dates;
+          if (typeof window !== "undefined") window.spikeDatesCatalog = spikeDatesCatalog;
+          updateCrossSpikeTimeMachineUI();
+        }
+      }
+    } catch (e) {
+    }
+    return spikeDatesCatalog;
+  }
+  function updateCrossSpikeTimeMachineUI() {
+    if (typeof document === "undefined") return;
+    const bar = document.getElementById("crossSpikeTimeMachineBar");
+    const curFacet = window.currentNewsFacet || currentNewsFacet;
+    if (!bar) return;
+    if (curFacet !== "CROSS_SPIKE") {
+      bar.classList.add("hidden");
+      return;
+    }
+    bar.classList.remove("hidden");
+    const spkDate = window.currentSpikeDate !== void 0 ? window.currentSpikeDate : currentSpikeDate;
+    const liveBtn = document.getElementById("spikeLiveModeBtn");
+    if (liveBtn) {
+      if (!spkDate) {
+        liveBtn.className = "px-3 py-1.5 rounded-xl text-xs font-extrabold bg-amber-600 text-white shadow-xs transition flex items-center gap-1.5 cursor-pointer";
+      } else {
+        liveBtn.className = "px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-amber-900 hover:bg-amber-100/60 border border-amber-300 transition flex items-center gap-1.5 cursor-pointer";
+      }
+    }
+    const sel = document.getElementById("crossSpikeDateSelect");
+    if (sel && spikeDatesCatalog.length > 0) {
+      const curLang = window.currentLang || currentLang || "KO";
+      const placeholder = curLang === "KO" ? "\u{1F4C5} \uC77C\uC790\uBCC4 \uACF5\uC2DD \uB7AD\uD0B9 \uC120\uD0DD..." : curLang === "ZH" ? "\u{1F4C5} \u9009\u62E9\u6BCF\u65E5\u5B98\u65B9\u699C\u5355..." : "\u{1F4C5} Select Daily Official Ranking...";
+      sel.innerHTML = `<option value="">${placeholder}</option>` + spikeDatesCatalog.map((d, idx) => {
+        const isToday = idx === 0;
+        const tag = isToday ? curLang === "KO" ? " (\uC624\uB298)" : curLang === "ZH" ? " (\u4ECA\u65E5)" : " (Today)" : "";
+        return `<option value="${d.ranking_date}" ${d.ranking_date === spkDate ? "selected" : ""}>${d.ranking_date}${tag} \xB7 Top ${d.total_ranked} (${d.top_score}p)</option>`;
+      }).join("");
+    }
+    const pillsEl = document.getElementById("crossSpikeQuickDatePills");
+    if (pillsEl && spikeDatesCatalog.length > 0) {
+      const recent6 = spikeDatesCatalog.slice(0, 6);
+      pillsEl.innerHTML = recent6.map((d) => {
+        const shortDate = d.ranking_date.slice(5).replace("-", "/");
+        const active = d.ranking_date === spkDate;
+        const cls = active ? "px-2.5 py-1 rounded-lg text-[11px] font-mono font-extrabold bg-amber-900 text-white shadow-2xs transition shrink-0 cursor-pointer" : "px-2 py-1 rounded-lg text-[11px] font-mono font-bold bg-white/90 text-amber-900 hover:bg-amber-100 border border-amber-200 transition shrink-0 cursor-pointer";
+        return `<button type="button" onclick="setCrossSpikeDate('${d.ranking_date}')" class="${cls}" title="${(d.top_title || "").replace(/"/g, "&quot;")}">${shortDate}</button>`;
+      }).join("");
+    }
+    const top1Text = document.getElementById("crossSpikeTop1Text");
+    if (top1Text) {
+      const matched = spkDate ? spikeDatesCatalog.find((d) => d.ranking_date === spkDate) : spikeDatesCatalog[0];
+      if (matched && matched.top_title) {
+        const prefix = spkDate ? `[${spkDate} #1]` : "[\uC624\uB298 #1]";
+        top1Text.textContent = `${prefix} ${matched.top_title} (${matched.top_score} pts)`;
+      }
+    }
+  }
+  function setCrossSpikeDate(dateStr) {
+    const cleanDate = (dateStr || "").trim();
+    currentSpikeDate = cleanDate;
+    if (typeof window !== "undefined") {
+      window.currentSpikeDate = cleanDate;
+      window.currentNewsPage = 1;
+      if (window.currentNewsFacet !== "CROSS_SPIKE") {
+        window.currentNewsFacet = "CROSS_SPIKE";
+      }
+    }
+    updateCrossSpikeTimeMachineUI();
+    const grid = document.getElementById("newsGrid");
+    if (grid) renderNewsSkeleton2(grid, 6);
+    renderNews();
+  }
+  function stepCrossSpikeDate(deltaIdx) {
+    if (!spikeDatesCatalog || spikeDatesCatalog.length === 0) return;
+    const spkDate = window.currentSpikeDate !== void 0 ? window.currentSpikeDate : currentSpikeDate;
+    if (!spkDate) {
+      setCrossSpikeDate(spikeDatesCatalog[0].ranking_date);
+      return;
+    }
+    const curIdx = spikeDatesCatalog.findIndex((d) => d.ranking_date === spkDate);
+    if (curIdx === -1) {
+      setCrossSpikeDate(spikeDatesCatalog[0].ranking_date);
+      return;
+    }
+    const nextIdx = curIdx + deltaIdx;
+    if (nextIdx >= 0 && nextIdx < spikeDatesCatalog.length) {
+      setCrossSpikeDate(spikeDatesCatalog[nextIdx].ranking_date);
+    } else if (nextIdx < 0) {
+      setCrossSpikeDate("");
+    }
+  }
   function setNewsSort(sort) {
     window.currentNewsPage = 1;
     window.currentNewsSort = sort;
@@ -4958,14 +5114,20 @@
     window.targetSelectedInboxId = "";
     window.currentNewsPage = 1;
     window.currentNewsFacet = facet;
+    if (facet !== "CROSS_SPIKE") {
+      currentSpikeDate = "";
+      window.currentSpikeDate = "";
+    }
     const sortSel = document.getElementById("newsSortSelect");
     if (facet === "CROSS_SPIKE") {
       window.currentNewsSort = "viral-score-desc";
       if (sortSel) sortSel.value = "viral-score-desc";
+      loadCrossSpikeDatesList();
     } else if (facet === "ALL" || window.currentNewsSort === "viral-score-desc") {
       window.currentNewsSort = "date-audit-desc";
       if (sortSel) sortSel.value = "date-audit-desc";
     }
+    updateCrossSpikeTimeMachineUI();
     if (facet !== "ALL") {
       window.currentNewsTier1 = "ALL";
       window.currentNewsTier2 = "ALL";
@@ -5116,6 +5278,12 @@
         renderPagination("newsPagination", curPage, Math.ceil(memMatches.length / PAGE_SIZE) || 1, "changeNewsPage");
       }
     }
+  }
+  if (typeof window !== "undefined") {
+    window.setCrossSpikeDate = setCrossSpikeDate;
+    window.stepCrossSpikeDate = stepCrossSpikeDate;
+    window.loadCrossSpikeDatesList = loadCrossSpikeDatesList;
+    window.updateCrossSpikeTimeMachineUI = updateCrossSpikeTimeMachineUI;
   }
 
   // src/js/views/homeView.js

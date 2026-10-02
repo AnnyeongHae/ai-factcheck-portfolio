@@ -27,6 +27,8 @@ import { ClientCache } from '../core/cache.js';
 
 let newsFetchAbortController = null;
 export const newsDbCache = new Map();
+export let currentSpikeDate = '';
+export let spikeDatesCatalog = [];
 
 export function getNewsCacheKey(page = window.currentNewsPage || currentNewsPage || 1) {
   const params = new URLSearchParams();
@@ -38,10 +40,12 @@ export function getNewsCacheKey(page = window.currentNewsPage || currentNewsPage
   const src = window.currentNewsSource || currentNewsSource;
   const search = window.currentNewsSearch || currentNewsSearch;
   const sort = window.currentNewsSort || currentNewsSort;
+  const spkDate = window.currentSpikeDate !== undefined ? window.currentSpikeDate : currentSpikeDate;
 
   if (t1 && t1 !== 'ALL') params.set('tier1', t1);
   if (t2 && t2 !== 'ALL') params.set('tier2', t2);
   if (facet && facet !== 'ALL') params.set('facet', facet);
+  if (facet === 'CROSS_SPIKE' && spkDate) params.set('spike_date', spkDate);
   if (src && src !== 'ALL') params.set('source', src);
   if (search) params.set('search', search);
   if (sort) params.set('sort', sort);
@@ -122,6 +126,9 @@ export function setNewsCategoryFilter(t1) {
   const curFacet = window.currentNewsFacet || currentNewsFacet;
   if (curFacet !== 'ALL') {
     window.currentNewsFacet = 'ALL';
+    currentSpikeDate = '';
+    window.currentSpikeDate = '';
+    updateCrossSpikeTimeMachineUI();
     document.querySelectorAll('.news-facet-pill').forEach(btn => {
       const isAll = btn.getAttribute('data-facet') === 'ALL';
       if (isAll) {
@@ -236,6 +243,120 @@ export function handleNewsSearchImmediate(val) {
   renderNews();
 }
 
+export async function loadCrossSpikeDatesList() {
+  if (spikeDatesCatalog.length > 0) {
+    updateCrossSpikeTimeMachineUI();
+    return spikeDatesCatalog;
+  }
+  try {
+    const baseUrl = APP_CONFIG.apiUrl('/api/inbox');
+    const res = await fetch(`${baseUrl}?spike_dates_list=true`);
+    if (res.ok) {
+      const data = await res.json();
+      if (data && Array.isArray(data.dates)) {
+        spikeDatesCatalog = data.dates;
+        if (typeof window !== 'undefined') window.spikeDatesCatalog = spikeDatesCatalog;
+        updateCrossSpikeTimeMachineUI();
+      }
+    }
+  } catch (e) {
+    // Non-fatal
+  }
+  return spikeDatesCatalog;
+}
+
+export function updateCrossSpikeTimeMachineUI() {
+  if (typeof document === 'undefined') return;
+  const bar = document.getElementById('crossSpikeTimeMachineBar');
+  const curFacet = window.currentNewsFacet || currentNewsFacet;
+  if (!bar) return;
+
+  if (curFacet !== 'CROSS_SPIKE') {
+    bar.classList.add('hidden');
+    return;
+  }
+  bar.classList.remove('hidden');
+
+  const spkDate = window.currentSpikeDate !== undefined ? window.currentSpikeDate : currentSpikeDate;
+  const liveBtn = document.getElementById('spikeLiveModeBtn');
+  if (liveBtn) {
+    if (!spkDate) {
+      liveBtn.className = 'px-3 py-1.5 rounded-xl text-xs font-extrabold bg-amber-600 text-white shadow-xs transition flex items-center gap-1.5 cursor-pointer';
+    } else {
+      liveBtn.className = 'px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-amber-900 hover:bg-amber-100/60 border border-amber-300 transition flex items-center gap-1.5 cursor-pointer';
+    }
+  }
+
+  const sel = document.getElementById('crossSpikeDateSelect');
+  if (sel && spikeDatesCatalog.length > 0) {
+    const curLang = window.currentLang || currentLang || 'KO';
+    const placeholder = curLang === 'KO' ? '📅 일자별 공식 랭킹 선택...' : (curLang === 'ZH' ? '📅 选择每日官方榜单...' : '📅 Select Daily Official Ranking...');
+    sel.innerHTML = `<option value="">${placeholder}</option>` + spikeDatesCatalog.map((d, idx) => {
+      const isToday = idx === 0;
+      const tag = isToday ? (curLang === 'KO' ? ' (오늘)' : (curLang === 'ZH' ? ' (今日)' : ' (Today)')) : '';
+      return `<option value="${d.ranking_date}" ${d.ranking_date === spkDate ? 'selected' : ''}>${d.ranking_date}${tag} · Top ${d.total_ranked} (${d.top_score}p)</option>`;
+    }).join('');
+  }
+
+  const pillsEl = document.getElementById('crossSpikeQuickDatePills');
+  if (pillsEl && spikeDatesCatalog.length > 0) {
+    const recent6 = spikeDatesCatalog.slice(0, 6);
+    pillsEl.innerHTML = recent6.map(d => {
+      const shortDate = d.ranking_date.slice(5).replace('-', '/');
+      const active = d.ranking_date === spkDate;
+      const cls = active
+        ? 'px-2.5 py-1 rounded-lg text-[11px] font-mono font-extrabold bg-amber-900 text-white shadow-2xs transition shrink-0 cursor-pointer'
+        : 'px-2 py-1 rounded-lg text-[11px] font-mono font-bold bg-white/90 text-amber-900 hover:bg-amber-100 border border-amber-200 transition shrink-0 cursor-pointer';
+      return `<button type="button" onclick="setCrossSpikeDate('${d.ranking_date}')" class="${cls}" title="${(d.top_title || '').replace(/"/g, '&quot;')}">${shortDate}</button>`;
+    }).join('');
+  }
+
+  const top1Text = document.getElementById('crossSpikeTop1Text');
+  if (top1Text) {
+    const matched = spkDate ? spikeDatesCatalog.find(d => d.ranking_date === spkDate) : spikeDatesCatalog[0];
+    if (matched && matched.top_title) {
+      const prefix = spkDate ? `[${spkDate} #1]` : '[오늘 #1]';
+      top1Text.textContent = `${prefix} ${matched.top_title} (${matched.top_score} pts)`;
+    }
+  }
+}
+
+export function setCrossSpikeDate(dateStr) {
+  const cleanDate = (dateStr || '').trim();
+  currentSpikeDate = cleanDate;
+  if (typeof window !== 'undefined') {
+    window.currentSpikeDate = cleanDate;
+    window.currentNewsPage = 1;
+    if (window.currentNewsFacet !== 'CROSS_SPIKE') {
+      window.currentNewsFacet = 'CROSS_SPIKE';
+    }
+  }
+  updateCrossSpikeTimeMachineUI();
+  const grid = document.getElementById('newsGrid');
+  if (grid) renderNewsSkeleton(grid, 6);
+  renderNews();
+}
+
+export function stepCrossSpikeDate(deltaIdx) {
+  if (!spikeDatesCatalog || spikeDatesCatalog.length === 0) return;
+  const spkDate = window.currentSpikeDate !== undefined ? window.currentSpikeDate : currentSpikeDate;
+  if (!spkDate) {
+    setCrossSpikeDate(spikeDatesCatalog[0].ranking_date);
+    return;
+  }
+  const curIdx = spikeDatesCatalog.findIndex(d => d.ranking_date === spkDate);
+  if (curIdx === -1) {
+    setCrossSpikeDate(spikeDatesCatalog[0].ranking_date);
+    return;
+  }
+  const nextIdx = curIdx + deltaIdx;
+  if (nextIdx >= 0 && nextIdx < spikeDatesCatalog.length) {
+    setCrossSpikeDate(spikeDatesCatalog[nextIdx].ranking_date);
+  } else if (nextIdx < 0) {
+    setCrossSpikeDate('');
+  }
+}
+
 export function setNewsSort(sort) {
   window.currentNewsPage = 1;
   window.currentNewsSort = sort;
@@ -246,15 +367,21 @@ export function setNewsFacetFilter(facet) {
   window.targetSelectedInboxId = '';
   window.currentNewsPage = 1;
   window.currentNewsFacet = facet;
+  if (facet !== 'CROSS_SPIKE') {
+    currentSpikeDate = '';
+    window.currentSpikeDate = '';
+  }
 
   const sortSel = document.getElementById('newsSortSelect');
   if (facet === 'CROSS_SPIKE') {
     window.currentNewsSort = 'viral-score-desc';
     if (sortSel) sortSel.value = 'viral-score-desc';
+    loadCrossSpikeDatesList();
   } else if (facet === 'ALL' || window.currentNewsSort === 'viral-score-desc') {
     window.currentNewsSort = 'date-audit-desc';
     if (sortSel) sortSel.value = 'date-audit-desc';
   }
+  updateCrossSpikeTimeMachineUI();
 
   // When switching to any specific facet, reset category filters to avoid empty intersections
   if (facet !== 'ALL') {
@@ -424,3 +551,11 @@ export async function renderNews() {
     }
   }
 }
+
+if (typeof window !== 'undefined') {
+  window.setCrossSpikeDate = setCrossSpikeDate;
+  window.stepCrossSpikeDate = stepCrossSpikeDate;
+  window.loadCrossSpikeDatesList = loadCrossSpikeDatesList;
+  window.updateCrossSpikeTimeMachineUI = updateCrossSpikeTimeMachineUI;
+}
+

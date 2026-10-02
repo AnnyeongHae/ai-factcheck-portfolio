@@ -572,6 +572,40 @@
         </div>
       </div>
 
+      <!-- 🌟 Cross-Viral Daily Ranking Time-Machine Bar (Visible only when facet === 'CROSS_SPIKE') -->
+      <div id="crossSpikeTimeMachineBar" class="hidden bg-gradient-to-r from-amber-50/90 via-orange-50/70 to-amber-50/90 border border-amber-200/90 rounded-2xl p-3 shadow-xs transition-all">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5">
+          <div class="flex items-center gap-2 flex-wrap">
+            <button type="button" id="spikeLiveModeBtn" onclick="setCrossSpikeDate('')" class="px-3 py-1.5 rounded-xl text-xs font-extrabold bg-amber-600 text-white shadow-xs transition flex items-center gap-1.5 cursor-pointer">
+              <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+              <span id="spikeLiveBtnLabel">실시간 급상승 (Live)</span>
+            </button>
+
+            <div class="flex items-center gap-1 bg-white px-2 py-1 rounded-xl border border-amber-300 shadow-2xs">
+              <button type="button" onclick="stepCrossSpikeDate(1)" class="p-1 rounded-lg hover:bg-amber-50 text-amber-800 transition cursor-pointer" title="이전 날짜 (과거)">
+                <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+              </button>
+              <i data-lucide="calendar" class="w-3.5 h-3.5 text-amber-600 ml-0.5"></i>
+              <select id="crossSpikeDateSelect" onchange="setCrossSpikeDate(this.value)" aria-label="일자별 크로스 바이럴 랭킹 선택" class="bg-transparent text-amber-950 text-xs font-extrabold font-mono focus:outline-none cursor-pointer pr-1">
+                <option value="">📅 일자별 공식 랭킹 선택...</option>
+              </select>
+              <button type="button" onclick="stepCrossSpikeDate(-1)" class="p-1 rounded-lg hover:bg-amber-50 text-amber-800 transition cursor-pointer" title="다음 날짜 (최신)">
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+
+            <div id="crossSpikeQuickDatePills" class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+              <!-- Populated dynamically with recent dates -->
+            </div>
+          </div>
+
+          <div id="crossSpikeTop1Summary" class="text-[11px] font-mono text-amber-950 bg-white/80 px-2.5 py-1 rounded-xl border border-amber-200/80 flex items-center gap-1.5 truncate max-w-full lg:max-w-md">
+            <span class="text-amber-600 font-bold shrink-0">🔥 H-V-D:</span>
+            <span class="truncate" id="crossSpikeTop1Text">최근 7일 활성 크로스 바이럴 및 일자별 공식 Top 30 스냅샷</span>
+          </div>
+        </div>
+      </div>
+
       <!-- News Category Filter Bar (IPTC 6대 Tier 1 도메인 카테고리) -->
       <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
         <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs">
