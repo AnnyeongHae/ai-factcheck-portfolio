@@ -495,10 +495,79 @@ export function createNewsCardElement(it, currentLang) {
   }
 
   const footerHtml = renderCardStandardFooter(it, currentLang, linksHtml);
+  const isCrossSpikeTab = typeof window !== 'undefined' && window.currentNewsFacet === 'CROSS_SPIKE';
+
+  let topHeaderRowHtml = '';
+  if (!isCrossSpikeTab) {
+    const tracking = it.metric_tracking || {};
+    const delta = (tracking.delta !== undefined) ? tracking.delta : (tracking.growth_delta || 0);
+    const latestVal = tracking.latest?.display || tracking.latest_metric || it.viral_metric || '';
+    const initVal = tracking.initial?.display || tracking.initial_metric || '';
+    const isSpike = Boolean(tracking.is_spiking || delta > 0 || it.is_cross_spiking);
+
+    const cleanInit = formatCleanMetricVal(initVal, currentLang);
+    const cleanLatest = formatCleanMetricVal(latestVal, currentLang);
+
+    let metricBadgeHtml = '';
+    if (cleanLatest) {
+      if (delta > 0 && cleanInit && cleanInit !== cleanLatest) {
+        const numInit = cleanInit.replace(/[^0-9.]/g, '');
+        const displayFlow = numInit ? `${numInit} ➔ ${cleanLatest}` : `${cleanLatest}`;
+        metricBadgeHtml = `
+          <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap" title="최초 수집: ${cleanInit} ➔ 최신 갱신: ${cleanLatest}">
+            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>${displayFlow}</span>
+            <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
+          </span>
+        `;
+      } else if (delta > 0) {
+        metricBadgeHtml = `
+          <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap">
+            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>${cleanLatest}</span>
+            <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
+          </span>
+        `;
+      } else {
+        const isPointMetric = cleanLatest.includes('pts') || cleanLatest.includes('★') || cleanLatest.includes('likes') || cleanLatest.includes('점');
+        const pointColor = isPointMetric 
+          ? 'text-rose-900 font-black bg-rose-100/90 border border-rose-300 shadow-2xs' 
+          : (isSpike ? 'text-rose-700 font-bold bg-rose-50 border border-rose-200' : 'text-ink-muted bg-surface-subtle border border-surface-border');
+        metricBadgeHtml = `
+          <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono ${pointColor} shrink-0 ml-auto whitespace-nowrap flex items-center gap-1 font-bold">
+            ${isPointMetric ? '<i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i>' : ''}
+            <span>${cleanLatest}</span>
+          </span>
+        `;
+      }
+    }
+
+    const primaryPlat = getPrimaryImpactPlatform(it, allSources);
+    const isMultiSource = allSources.length > 1;
+
+    topHeaderRowHtml = `
+      <div class="flex flex-wrap items-center justify-between text-xs font-mono gap-1.5 min-w-0">
+        <div class="flex items-center gap-1.5 min-w-0">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls} shrink-0 whitespace-nowrap" title="${catInfo.label}">
+            ${catInfo.label}
+          </span>
+          <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0 whitespace-nowrap" title="${primaryPlat}">
+            <span class="truncate max-w-[95px]">${primaryPlat}</span>
+            ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs shrink-0">+${allSources.length - 1}</span>` : ''}
+          </span>
+        </div>
+        <div class="shrink-0 flex items-center justify-end ml-auto">
+          ${metricBadgeHtml}
+        </div>
+      </div>
+    `;
+  }
 
   card.innerHTML = `
     <div class="space-y-2.5">
+      ${topHeaderRowHtml}
       ${crossRollupHtml}
+      ${!isCrossSpikeTab ? aiBadgeHtml : ''}
 
       <h3 class="font-bold text-[14px] sm:text-[15px] text-ink-primary hover:text-indigo-600 transition leading-snug break-words line-clamp-2" title="${(displayTitle || '').replace(/"/g, '&quot;')}">
         ${displayTitle}

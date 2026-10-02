@@ -268,8 +268,16 @@ export async function loadCrossSpikeDatesList() {
 export function updateCrossSpikeTimeMachineUI() {
   if (typeof document === 'undefined') return;
   const bar = document.getElementById('crossSpikeTimeMachineBar');
-  if (!bar) return;
-  bar.classList.remove('hidden');
+  const filterBox = document.getElementById('newsMainFilterBox');
+  const curFacet = window.currentNewsFacet || currentNewsFacet;
+
+  if (curFacet !== 'CROSS_SPIKE') {
+    if (bar) bar.classList.add('hidden');
+    if (filterBox) filterBox.classList.remove('hidden');
+    return;
+  }
+  if (bar) bar.classList.remove('hidden');
+  if (filterBox) filterBox.classList.add('hidden');
 
   const spkDate = window.currentSpikeDate !== undefined ? window.currentSpikeDate : currentSpikeDate;
   const liveBtn = document.getElementById('spikeLiveModeBtn');

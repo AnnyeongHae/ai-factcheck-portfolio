@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-02T18:02:16.286Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-02T18:10:30.167Z */
 
 (() => {
   // src/js/core/config.js
@@ -3620,9 +3620,71 @@
     `;
     }
     const footerHtml = renderCardStandardFooter(it, currentLang2, linksHtml);
+    const isCrossSpikeTab = typeof window !== "undefined" && window.currentNewsFacet === "CROSS_SPIKE";
+    let topHeaderRowHtml = "";
+    if (!isCrossSpikeTab) {
+      const tracking = it.metric_tracking || {};
+      const delta = tracking.delta !== void 0 ? tracking.delta : tracking.growth_delta || 0;
+      const latestVal = tracking.latest?.display || tracking.latest_metric || it.viral_metric || "";
+      const initVal = tracking.initial?.display || tracking.initial_metric || "";
+      const isSpike = Boolean(tracking.is_spiking || delta > 0 || it.is_cross_spiking);
+      const cleanInit = formatCleanMetricVal(initVal, currentLang2);
+      const cleanLatest = formatCleanMetricVal(latestVal, currentLang2);
+      let metricBadgeHtml = "";
+      if (cleanLatest) {
+        if (delta > 0 && cleanInit && cleanInit !== cleanLatest) {
+          const numInit = cleanInit.replace(/[^0-9.]/g, "");
+          const displayFlow = numInit ? `${numInit} \u2794 ${cleanLatest}` : `${cleanLatest}`;
+          metricBadgeHtml = `
+          <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap" title="\uCD5C\uCD08 \uC218\uC9D1: ${cleanInit} \u2794 \uCD5C\uC2E0 \uAC31\uC2E0: ${cleanLatest}">
+            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>${displayFlow}</span>
+            <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
+          </span>
+        `;
+        } else if (delta > 0) {
+          metricBadgeHtml = `
+          <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap">
+            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>${cleanLatest}</span>
+            <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
+          </span>
+        `;
+        } else {
+          const isPointMetric = cleanLatest.includes("pts") || cleanLatest.includes("\u2605") || cleanLatest.includes("likes") || cleanLatest.includes("\uC810");
+          const pointColor = isPointMetric ? "text-rose-900 font-black bg-rose-100/90 border border-rose-300 shadow-2xs" : isSpike ? "text-rose-700 font-bold bg-rose-50 border border-rose-200" : "text-ink-muted bg-surface-subtle border border-surface-border";
+          metricBadgeHtml = `
+          <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono ${pointColor} shrink-0 ml-auto whitespace-nowrap flex items-center gap-1 font-bold">
+            ${isPointMetric ? '<i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i>' : ""}
+            <span>${cleanLatest}</span>
+          </span>
+        `;
+        }
+      }
+      const primaryPlat = getPrimaryImpactPlatform(it, allSources);
+      const isMultiSource = allSources.length > 1;
+      topHeaderRowHtml = `
+      <div class="flex flex-wrap items-center justify-between text-xs font-mono gap-1.5 min-w-0">
+        <div class="flex items-center gap-1.5 min-w-0">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls} shrink-0 whitespace-nowrap" title="${catInfo.label}">
+            ${catInfo.label}
+          </span>
+          <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0 whitespace-nowrap" title="${primaryPlat}">
+            <span class="truncate max-w-[95px]">${primaryPlat}</span>
+            ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs shrink-0">+${allSources.length - 1}</span>` : ""}
+          </span>
+        </div>
+        <div class="shrink-0 flex items-center justify-end ml-auto">
+          ${metricBadgeHtml}
+        </div>
+      </div>
+    `;
+    }
     card.innerHTML = `
     <div class="space-y-2.5">
+      ${topHeaderRowHtml}
       ${crossRollupHtml}
+      ${!isCrossSpikeTab ? aiBadgeHtml : ""}
 
       <h3 class="font-bold text-[14px] sm:text-[15px] text-ink-primary hover:text-indigo-600 transition leading-snug break-words line-clamp-2" title="${(displayTitle || "").replace(/"/g, "&quot;")}">
         ${displayTitle}
@@ -4978,8 +5040,15 @@
   function updateCrossSpikeTimeMachineUI() {
     if (typeof document === "undefined") return;
     const bar = document.getElementById("crossSpikeTimeMachineBar");
-    if (!bar) return;
-    bar.classList.remove("hidden");
+    const filterBox = document.getElementById("newsMainFilterBox");
+    const curFacet = window.currentNewsFacet || currentNewsFacet;
+    if (curFacet !== "CROSS_SPIKE") {
+      if (bar) bar.classList.add("hidden");
+      if (filterBox) filterBox.classList.remove("hidden");
+      return;
+    }
+    if (bar) bar.classList.remove("hidden");
+    if (filterBox) filterBox.classList.add("hidden");
     const spkDate = window.currentSpikeDate !== void 0 ? window.currentSpikeDate : currentSpikeDate;
     const liveBtn = document.getElementById("spikeLiveModeBtn");
     if (liveBtn) {
