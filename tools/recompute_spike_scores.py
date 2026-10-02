@@ -30,9 +30,11 @@ except Exception:
 def classify_source_axis(platform_str, url=""):
     p = (platform_str or "").lower()
     u = (url or "").lower()
-    if any(k in p for k in ["github", "hugging", "hf", "arxiv", "pytorch", "code", "paper", "model", "deepmind", "openai", "anthropic", "research"]) or any(k in u for k in ["github.com", "huggingface.co", "arxiv.org", "deepmind.google", "openai.com", "research.google"]):
+    if any(k in p for k in ["pytorchkr", "pytorch.kr"]) or "discuss.pytorch.kr" in u:
+        return "COMMUNITY"
+    if any(k in p for k in ["github", "hugging", "hf ", "arxiv", "code", "paper", "model", "deepmind", "openai", "anthropic", "research"]) or any(k in u for k in ["github.com", "huggingface.co", "arxiv.org", "deepmind.google", "openai.com", "anthropic.com", "claude.dev", "research.google"]):
         return "CODE"
-    if any(k in p for k in ["hacker news", "reddit", "geeknews", "lobsters", "hada.io", "community", "forum", "v2ex"]) or any(k in u for k in ["ycombinator.com", "reddit.com", "hada.io"]) and "the hacker news" not in p:
+    if (any(k in p for k in ["hacker news", "reddit", "geeknews", "lobsters", "hada.io", "youtube", "twitter", "community", "forum", "v2ex"]) or any(k in u for k in ["ycombinator.com", "reddit.com", "hada.io", "youtube.com", "youtu.be", "x.com"])) and "the hacker news" not in p:
         return "COMMUNITY"
     return "PRESS"
 
@@ -109,8 +111,10 @@ def extract_release_cluster_key(title: str, title_ko: str = "", story_key: str =
 
 def ensure_primary_in_sources(row_data, created_at):
     """
-    Self-healing fix: If raw_payload['sources'] has merged duplicate sources from embed-worker
-    but omitted the primary row's own source_url, prepend the primary row at index 0.
+    Self-healing fix:
+    1. If raw_payload['sources'] has merged duplicate sources from embed-worker
+       but omitted the primary row's own source_url, prepend the primary row at index 0.
+    2. Prune false same-channel YouTube self-merges (e.g. multiple different videos from 'YouTube (조코딩 JoCoding)').
     """
     raw_payload = row_data["raw_payload"]
     sources = raw_payload.get("sources")
@@ -128,19 +132,35 @@ def ensure_primary_in_sources(row_data, created_at):
             "created_at": created_at.isoformat()
         }], False
 
-    existing_urls = {(s.get("url") or s.get("source_url") or "").strip() for s in sources if isinstance(s, dict)}
-    if source_url and source_url.strip() not in existing_urls:
-        healed = [{
+    was_healed = False
+    norm_primary_plat = source_platform.strip().lower()
+    norm_primary_url = source_url.strip()
+
+    cleaned_sources = []
+    for s in sources:
+        if not isinstance(s, dict):
+            continue
+        s_plat = (s.get("platform") or s.get("source_name") or "").strip().lower()
+        s_url = (s.get("url") or s.get("source_url") or "").strip()
+        # Drop false same-channel YouTube self-merges where URL differs from primary URL
+        if "youtube" in norm_primary_plat and s_plat == norm_primary_plat and s_url != norm_primary_url:
+            was_healed = True
+            continue
+        cleaned_sources.append(s)
+
+    existing_urls = {(s.get("url") or s.get("source_url") or "").strip() for s in cleaned_sources}
+    if norm_primary_url and norm_primary_url not in existing_urls:
+        cleaned_sources = [{
             "source_name": source_platform,
             "platform": source_platform,
             "title": title,
             "url": source_url,
             "type": "primary",
             "created_at": created_at.isoformat()
-        }] + [s for s in sources if isinstance(s, dict)]
-        return healed, True
+        }] + cleaned_sources
+        was_healed = True
 
-    return [s for s in sources if isinstance(s, dict)], False
+    return cleaned_sources, was_healed
 
 def compute_hvd_score(row_data, now_utc):
     """
@@ -153,12 +173,13 @@ def compute_hvd_score(row_data, now_utc):
     raw_payload = row_data.get("raw_payload") or {}
 
     sources, was_healed = ensure_primary_in_sources(row_data, created_at)
-    if was_healed or len(sources) > 1:
+    if was_healed or len(sources) >= 1:
         raw_payload["sources"] = sources
         raw_payload["has_multi_sources"] = len(sources) > 1
 
     # 1. Classify axes and count
     axes = set()
+    distinct_platforms = set()
     press_count = 0
     community_count = 0
     code_count = 0
@@ -169,6 +190,7 @@ def compute_hvd_score(row_data, now_utc):
             continue
         p = s.get("platform") or s.get("source_name") or source_platform
         u = s.get("url") or source_url
+        distinct_platforms.add((p or "").strip().lower())
         axis = classify_source_axis(p, u)
         axes.add(axis)
         if axis == "PRESS":
@@ -218,8 +240,8 @@ def compute_hvd_score(row_data, now_utc):
     raw_spike = (h_mult * velocity * depth) * 10.0
     final_spike_score = round(raw_spike * decay, 1)
 
-    # Determine if actively spiking: multi-source (len >= 2) with score >= 0.3
-    is_spiking = bool(final_spike_score >= 0.3 and (len(sources) >= 2 or num_axes >= 2))
+    # Determine if actively spiking: must have >= 2 sources AND (>= 2 distinct platforms or >= 2 axes)
+    is_spiking = bool(final_spike_score >= 0.3 and len(sources) >= 2 and (len(distinct_platforms) >= 2 or num_axes >= 2))
 
     spike_analysis = {
         "score": final_spike_score,
@@ -452,6 +474,9 @@ def main():
     for rel_key, group in clusters.items():
         if len(group) < 2:
             continue
+        distinct_group_plats = {(x.get("source_platform") or "").strip().lower() for x in group}
+        if len(distinct_group_plats) < 2 and any("youtube" in p for p in distinct_group_plats):
+            continue
         group.sort(key=lambda x: (
             1 if x.get("curation_tier") == "DAILY_HOT" else 0,
             len(x["raw_payload"].get("sources") or []),
@@ -459,11 +484,16 @@ def main():
             x["id"]
         ), reverse=True)
         hub = group[0]
+        hub_plat = (hub.get("source_platform") or "").strip().lower()
         hub_dt = parse_iso_or_default(hub["created_at"], now_utc)
         hub_sources, _ = ensure_primary_in_sources(hub, hub_dt)
         existing_urls = {(s.get("url") or s.get("source_url") or "").strip() for s in hub_sources if isinstance(s, dict)}
 
+        merged_any = False
         for sec in group[1:]:
+            sec_plat = (sec.get("source_platform") or "").strip().lower()
+            if "youtube" in hub_plat and sec_plat == hub_plat:
+                continue
             sec_dt = parse_iso_or_default(sec["created_at"], now_utc)
             sec_sources, _ = ensure_primary_in_sources(sec, sec_dt)
             for s in sec_sources:
@@ -472,12 +502,14 @@ def main():
                     hub_sources.append(s)
                     existing_urls.add(s_url)
             archived_dup_ids.append(sec["id"])
+            merged_any = True
 
-        hub["raw_payload"]["sources"] = hub_sources
-        hub["raw_payload"]["has_multi_sources"] = True
-        hub["raw_payload"]["is_cross_spiking"] = True
-        clustered_hub_ids.add(hub["id"])
-        print(f"[+] Clustered '{rel_key}' -> Hub ID {hub['id']} ({hub['title'][:50]}) with {len(hub_sources)} total cross-platform sources (Archived {len(group)-1} duplicates)")
+        if merged_any:
+            hub["raw_payload"]["sources"] = hub_sources
+            hub["raw_payload"]["has_multi_sources"] = len(hub_sources) > 1
+            hub["raw_payload"]["is_cross_spiking"] = len(hub_sources) > 1
+            clustered_hub_ids.add(hub["id"])
+            print(f"[+] Clustered '{rel_key}' -> Hub ID {hub['id']} ({hub['title'][:50]}) with {len(hub_sources)} total cross-platform sources")
 
     archived_set = set(archived_dup_ids)
     active_rows = [rd for rd in row_dicts if rd["id"] not in archived_set]

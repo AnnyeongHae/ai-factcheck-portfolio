@@ -572,8 +572,8 @@
         </div>
       </div>
 
-      <!-- 🌟 Cross-Viral Daily Ranking Time-Machine Bar (Visible only when facet === 'CROSS_SPIKE') -->
-      <div id="crossSpikeTimeMachineBar" class="hidden bg-gradient-to-r from-amber-50/90 via-orange-50/70 to-amber-50/90 border border-amber-200/90 rounded-2xl p-3 shadow-xs transition-all">
+      <!-- 🌟 Daily Ranking & Trend Date Bar -->
+      <div id="crossSpikeTimeMachineBar" class="bg-gradient-to-r from-amber-50/90 via-orange-50/70 to-amber-50/90 border border-amber-200/90 rounded-2xl p-3 shadow-xs transition-all">
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5">
           <div class="flex items-center gap-2 flex-wrap">
             <button type="button" id="spikeLiveModeBtn" onclick="setCrossSpikeDate('')" class="px-3 py-1.5 rounded-xl text-xs font-extrabold bg-amber-600 text-white shadow-xs transition flex items-center gap-1.5 cursor-pointer">
@@ -600,82 +600,8 @@
           </div>
 
           <div id="crossSpikeTop1Summary" class="text-[11px] font-mono text-amber-950 bg-white/80 px-2.5 py-1 rounded-xl border border-amber-200/80 flex items-center gap-1.5 truncate max-w-full lg:max-w-md">
-            <span class="text-amber-600 font-bold shrink-0">🔥 H-V-D:</span>
-            <span class="truncate" id="crossSpikeTop1Text">최근 7일 활성 크로스 바이럴 및 일자별 공식 Top 30 스냅샷</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- News Category Filter Bar (IPTC 6대 Tier 1 도메인 카테고리) -->
-      <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
-        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs">
-          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1" id="newsCatFilterLabel">
-            🏷️ 기술·글로벌 분류:
-          </span>
-          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="newsCategoryFilterRow">
-            <button onclick="setNewsCategoryFilter('ALL')" data-cat="ALL" class="news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer">🌐 전체 분류</button>
-            <button onclick="setNewsCategoryFilter('TECH_COMPUTING')" data-cat="TECH_COMPUTING" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">💻 IT·컴퓨팅</button>
-            <button onclick="setNewsCategoryFilter('SCIENCE_RESEARCH')" data-cat="SCIENCE_RESEARCH" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🚀 과학·우주</button>
-            <button onclick="setNewsCategoryFilter('ECONOMY_FINANCE')" data-cat="ECONOMY_FINANCE" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🏦 경제·금융</button>
-            <button onclick="setNewsCategoryFilter('LAW_CRIME_JUSTICE')" data-cat="LAW_CRIME_JUSTICE" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">⚖️ 사회·법률</button>
-            <button onclick="setNewsCategoryFilter('POLITICS_POLICY')" data-cat="POLITICS_POLICY" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🏛️ 정치·정책</button>
-            <button onclick="setNewsCategoryFilter('CULTURE_HUMANITIES')" data-cat="CULTURE_HUMANITIES" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🌿 문화·인문</button>
-          </div>
-        </div>
-
-        <!-- Tier 2 Engineering Specialization Row (IT·컴퓨팅 6대 세부 공학 분야) -->
-        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs pt-2 border-t border-surface-border transition-opacity duration-200" id="newsTier2Container">
-          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1" id="newsTier2FilterLabel">
-            ↳ 💻 IT 세부 분야:
-          </span>
-          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="newsTier2FilterRow">
-            <button onclick="setNewsTier2Filter('ALL')" data-t2="ALL" class="news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer">⚡ 전체 IT 분야</button>
-            <button onclick="setNewsTier2Filter('INFERENCE_OPT')" data-t2="INFERENCE_OPT" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">⚡ 추론·서빙</button>
-            <button onclick="setNewsTier2Filter('AGENTS_DEVTOOLS')" data-t2="AGENTS_DEVTOOLS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🛠️ 에이전트·도구</button>
-            <button onclick="setNewsTier2Filter('MULTIMODAL_AI')" data-t2="MULTIMODAL_AI" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🎨 멀티모달</button>
-            <button onclick="setNewsTier2Filter('FOUNDATION_MODELS')" data-t2="FOUNDATION_MODELS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🤖 파운데이션</button>
-            <button onclick="setNewsTier2Filter('INFRA_RAG_SECURITY')" data-t2="INFRA_RAG_SECURITY" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🛡️ 인프라·보안</button>
-            <button onclick="setNewsTier2Filter('INDUSTRY_TRENDS')" data-t2="INDUSTRY_TRENDS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🌐 일반 SW·웹</button>
-          </div>
-        </div>
-
-        <!-- Secondary Source & Search & Sort Row -->
-        <div class="pt-2 border-t border-surface-border flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
-          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full md:w-auto text-xs flex-nowrap">
-            <span class="text-ink-muted text-[11px] font-mono shrink-0" id="newsSourceLabel">출처:</span>
-            <button onclick="setNewsSourceFilter('ALL')" id="newsSrcBtnAll" class="news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition shrink-0 whitespace-nowrap" data-src="ALL">전체 출처</button>
-            <button onclick="setNewsSourceFilter('GeekNews')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="GeekNews">🇰🇷 긱뉴스</button>
-            <button onclick="setNewsSourceFilter('Hacker News')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="Hacker News">🔥 HN</button>
-            <button onclick="setNewsSourceFilter('GitHub')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="GitHub">🐙 GitHub</button>
-            <button onclick="setNewsSourceFilter('ArXiv')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="ArXiv">📄 ArXiv</button>
-            <button onclick="setNewsSourceFilter('Hugging Face')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="Hugging Face">🤗 HF</button>
-            <button onclick="setNewsSourceFilter('Reddit')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="Reddit">🤖 레딧</button>
-            <button onclick="setNewsSourceFilter('Press')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="Press">📰 언론·프레스</button>
-            <button onclick="setNewsSourceFilter('YouTube')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="YouTube">📺 유튜브</button>
-            <button onclick="setNewsSourceFilter('PyTorchKR')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="PyTorchKR">🇰🇷 파이토치KR</button>
-          </div>
-
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full md:w-auto justify-between md:justify-end">
-            <div class="relative w-full sm:w-48 md:w-56">
-              <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-ink-muted"></i>
-              <input type="text" id="newsSearchInput" aria-label="뉴스 검색" oninput="handleNewsSearch(this.value)" onkeydown="if(event.key==='Enter'){handleNewsSearchImmediate(this.value);}" placeholder="기술명, 키워드 검색..." 
-                     class="w-full bg-surface-subtle border border-surface-border rounded-xl pl-8 pr-7 py-1.5 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
-              <button id="newsSearchClearBtn" onclick="clearNewsSearch()" class="hidden absolute right-2 top-1.5 text-ink-muted hover:text-ink-primary p-1 rounded-md transition cursor-pointer" aria-label="검색어 지우기" title="검색어 초기화">
-                <i data-lucide="x" class="w-3 h-3"></i>
-              </button>
-            </div>
-
-            <div class="flex items-center justify-between sm:justify-start gap-1.5 bg-surface-subtle px-2.5 py-1 rounded-xl border border-surface-border text-xs shrink-0">
-              <i data-lucide="arrow-up-down" class="w-3 h-3 text-indigo-600"></i>
-              <span class="text-ink-muted text-[11px] font-mono" id="newsSortLabel">정렬:</span>
-              <select id="newsSortSelect" onchange="setNewsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
-                <option value="viral-score-desc">🔥 바이럴 급상승순 (H-V-D)</option>
-                <option value="date-audit-desc" selected>🔬 AI 분석일 최신순 (기본)</option>
-                <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
-                <option value="date-source-desc">📅 수집/발표 최신순</option>
-                <option value="date-source-asc">📅 수집/발표 오래된순</option>
-              </select>
-            </div>
+            <span class="text-amber-600 font-bold shrink-0">🔥 Top 1:</span>
+            <span class="truncate" id="crossSpikeTop1Text">일자별 공식 크로스 바이럴 랭킹 및 트렌드 스냅샷</span>
           </div>
         </div>
       </div>

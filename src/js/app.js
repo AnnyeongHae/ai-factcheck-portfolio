@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-02T16:41:59.801Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-02T18:02:16.286Z */
 
 (() => {
   // src/js/core/config.js
@@ -2646,70 +2646,77 @@
   }
 
   // src/js/components/popover.js
+  function classifySourceAxis(s) {
+    const p = (s.platform || s.source_name || "").toLowerCase();
+    const u = (s.url || "#").toLowerCase();
+    if (p.includes("pytorchkr") || p.includes("pytorch.kr") || u.includes("discuss.pytorch.kr")) {
+      return "COMMUNITY";
+    }
+    if (p.includes("github") || u.includes("github.com") || p.includes("space") || u.includes("/spaces/") || p.includes("hugging") || p.includes("hf ") || u.includes("huggingface.co") || p.includes("arxiv") || u.includes("arxiv.org") || p.includes("deepmind") || u.includes("deepmind.google") || p.includes("openai") || u.includes("openai.com") || p.includes("anthropic") || u.includes("anthropic.com") || u.includes("claude.dev") || p.includes("research") || u.includes("research.google") || u.includes("ai.meta.com")) {
+      return "CODE";
+    }
+    if ((p.includes("hacker news") || u.includes("ycombinator.com")) && !p.includes("the hacker news") || p.includes("reddit") || u.includes("reddit.com") || p.includes("geeknews") || u.includes("hada.io") || p.includes("youtube") || u.includes("youtube.com") || u.includes("youtu.be") || p.includes("twitter") || p.includes(" x") || u.includes("x.com") || u.includes("twitter.com") || p.includes("lobsters") || p.includes("v2ex") || p.includes("community") || p.includes("forum")) {
+      return "COMMUNITY";
+    }
+    return "PRESS";
+  }
   function getSourceMeta(s) {
     const p = (s.platform || s.source_name || "").toLowerCase();
     const u = (s.url || "#").toLowerCase();
     const cleanName = cleanPlatformName(s.platform || s.source_name);
     const lang = typeof window !== "undefined" && window.currentLang ? window.currentLang : currentLang;
+    const axis = classifySourceAxis(s);
     let icon = "\u{1F4C4}";
     let label = cleanName || (lang === "KO" ? "\uC6D0\uBB38" : "Source");
     let badgeCls = "bg-surface-subtle text-ink-secondary hover:text-ink-primary border-surface-border";
-    let isComm = false;
-    if (p.includes("hacker news") || u.includes("ycombinator")) {
+    if ((p.includes("hacker news") || u.includes("ycombinator")) && !p.includes("the hacker news")) {
       icon = "\u{1F525}";
       label = lang === "KO" ? "HN \uD1A0\uB860" : "HN";
       badgeCls = "bg-orange-50 text-orange-800 hover:text-orange-950 border-orange-200";
-      isComm = true;
     } else if (p.includes("geeknews") || u.includes("hada.io")) {
       icon = "\u{1F4AC}";
       label = lang === "KO" ? "\uAE31\uB274\uC2A4" : "GeekNews";
       badgeCls = "bg-indigo-50 text-indigo-800 hover:text-indigo-950 border-indigo-200";
-      isComm = true;
     } else if (p.includes("pytorch")) {
       icon = "\u{1F1F0}\u{1F1F7}";
       label = "PyTorchKR";
       badgeCls = "bg-purple-50 text-purple-800 hover:text-purple-950 border-purple-200";
-      isComm = true;
     } else if (p.includes("reddit")) {
       icon = "\u{1F916}";
       label = lang === "KO" ? "\uB808\uB527" : "Reddit";
       badgeCls = "bg-red-50 text-red-800 hover:text-red-950 border-red-200";
-      isComm = true;
-    } else if (p.includes("github")) {
+    } else if (p.includes("github") || u.includes("github.com")) {
       icon = "\u{1F419}";
       label = "GitHub";
       badgeCls = "bg-slate-100 text-slate-800 hover:text-slate-950 border-slate-300";
-      isComm = true;
     } else if (p.includes("space") || u.includes("/spaces/")) {
       icon = "\u{1F917}";
       label = "HF Spaces";
       badgeCls = "bg-amber-50 text-amber-900 hover:text-amber-950 border-amber-200";
-      isComm = true;
     } else if (p.includes("hugging") || u.includes("huggingface.co")) {
       icon = "\u{1F917}";
       label = "HuggingFace";
       badgeCls = "bg-amber-50 text-amber-900 hover:text-amber-950 border-amber-200";
-      isComm = true;
-    } else if (p.includes("arxiv")) {
+    } else if (p.includes("arxiv") || u.includes("arxiv.org")) {
       icon = "\u{1F4D1}";
       label = "ArXiv";
       badgeCls = "bg-rose-50 text-rose-900 hover:text-rose-950 border-rose-200";
-      isComm = true;
+    } else if (axis === "CODE") {
+      icon = "\u{1F4BB}";
+      label = cleanName || "Research";
+      badgeCls = "bg-indigo-50 text-indigo-900 hover:text-indigo-950 border-indigo-200";
     } else if (p.includes("youtube") || u.includes("youtube.com") || u.includes("youtu.be")) {
       icon = "\u{1F4FA}";
       label = lang === "KO" ? "\uC720\uD29C\uBE0C" : "YouTube";
       badgeCls = "bg-red-50 text-red-800 hover:text-red-950 border-red-200";
-      isComm = true;
     } else if (p.includes("twitter") || p.includes(" x") || u.includes("x.com") || u.includes("twitter.com")) {
       icon = "\u{1D54F}";
       label = "X (\uD2B8\uC704\uD130)";
       badgeCls = "bg-zinc-100 text-zinc-800 hover:text-zinc-950 border-zinc-300";
-      isComm = true;
     } else {
       icon = "\u{1F4F0}";
       label = cleanName || (lang === "KO" ? "\uBCF4\uB3C4" : "Press");
       badgeCls = "bg-emerald-50 text-emerald-800 hover:text-emerald-950 border-emerald-200";
-      isComm = false;
     }
     return {
       icon,
@@ -2719,27 +2726,35 @@
       url: s.url || "#",
       title: s.title || "",
       weight: getPlatformImpactWeight(s.platform || s.source_name),
-      isCommunity: isComm
+      axis,
+      isCommunity: axis !== "PRESS"
     };
+  }
+  function deduplicateClusterSources(rawSources) {
+    if (!Array.isArray(rawSources) || rawSources.length === 0) return [];
+    const seenUrls = /* @__PURE__ */ new Set();
+    const sources = [];
+    for (const s of rawSources) {
+      if (!s || typeof s !== "object") continue;
+      const u = (s.url || "#").trim().toLowerCase().replace(/#.*$/, "");
+      const meta = getSourceMeta(s);
+      if (u !== "#" && seenUrls.has(u)) continue;
+      seenUrls.add(u);
+      sources.push({ ...s, meta });
+    }
+    return sources;
   }
   function buildMultiSourceCluster(rawSources, rawItemId) {
     if (!rawSources || rawSources.length === 0) return "";
     const lang = typeof window !== "undefined" && window.currentLang ? window.currentLang : currentLang;
-    const seenUrls = /* @__PURE__ */ new Set();
-    const sources = [];
-    for (const s of rawSources) {
-      const u = (s.url || "#").toLowerCase().replace(/[?#].*$/, "");
-      const meta = getSourceMeta(s);
-      const dedupeKey = `${meta.cleanPlatform.toLowerCase()}::${u}`;
-      if (u !== "#" && seenUrls.has(dedupeKey)) continue;
-      seenUrls.add(dedupeKey);
-      sources.push({ ...s, meta });
-    }
+    const sources = deduplicateClusterSources(rawSources);
     if (sources.length === 0) return "";
-    const pressSources = sources.filter((s) => !s.meta.isCommunity);
-    const communitySources = sources.filter((s) => s.meta.isCommunity);
+    const pressSources = sources.filter((s) => s.meta.axis === "PRESS");
+    const communitySources = sources.filter((s) => s.meta.axis === "COMMUNITY");
+    const codeSources = sources.filter((s) => s.meta.axis === "CODE");
     pressSources.sort((a, b) => b.meta.weight - a.meta.weight);
     communitySources.sort((a, b) => b.meta.weight - a.meta.weight);
+    codeSources.sort((a, b) => b.meta.weight - a.meta.weight);
     const total = sources.length;
     const safeId = "src_" + String(rawItemId || Math.random()).replace(/[^a-zA-Z0-9_-]/g, "_");
     if (total === 1) {
@@ -2747,13 +2762,16 @@
       return `<a href="${m.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${m.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs">${m.icon} ${m.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
     }
     const directButtons = [];
-    if (pressSources.length > 0 && communitySources.length > 0) {
-      directButtons.push(pressSources[0]);
-      directButtons.push(communitySources[0]);
-    } else if (pressSources.length > 0) {
-      directButtons.push(...pressSources.slice(0, 2));
-    } else {
-      directButtons.push(...communitySources.slice(0, 2));
+    if (pressSources.length > 0) directButtons.push(pressSources[0]);
+    if (communitySources.length > 0 && directButtons.length < 2) directButtons.push(communitySources[0]);
+    if (codeSources.length > 0 && directButtons.length < 2) directButtons.push(codeSources[0]);
+    if (directButtons.length < 2) {
+      for (const s of sources) {
+        if (!directButtons.includes(s)) {
+          directButtons.push(s);
+          if (directButtons.length >= 2) break;
+        }
+      }
     }
     let html = `<div class="flex items-center gap-1.5 flex-wrap justify-end relative">`;
     directButtons.forEach((s) => {
@@ -2762,6 +2780,10 @@
     });
     if (total > directButtons.length) {
       const remainingCount = total - directButtons.length;
+      const summaryParts = [];
+      if (pressSources.length > 0) summaryParts.push(`\uC5B8\uB860 ${pressSources.length}`);
+      if (communitySources.length > 0) summaryParts.push(`\uCEE4\uBBA4\uB2C8\uD2F0 ${communitySources.length}`);
+      if (codeSources.length > 0) summaryParts.push(`\uCF54\uB4DC ${codeSources.length}`);
       html += `
       <div class="relative inline-block src-dropdown-container">
         <button type="button" onclick="toggleSourcePopover(event, '${safeId}')" class="px-2 py-1 rounded-md bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-[11px] font-extrabold flex items-center gap-1 shrink-0 transition cursor-pointer shadow-xs" title="\uC804\uCCB4 ${total}\uAC1C \uAD50\uCC28 \uCD9C\uCC98 \uBAA8\uC544\uBCF4\uAE30">
@@ -2769,11 +2791,11 @@
           <i data-lucide="chevron-down" class="w-3 h-3 text-amber-800"></i>
         </button>
         <div id="srcMenu_${safeId}" class="hidden absolute z-50 mb-1.5 w-72 max-w-[calc(100vw-2.5rem)] min-w-[240px] bg-white rounded-xl shadow-2xl border border-surface-border p-2.5 text-xs flex flex-col gap-2">
-          <div class="text-[10px] font-mono font-bold text-ink-muted px-1 pb-1.5 border-b border-surface-border flex items-center justify-between">
+          <div class="text-[10px] font-mono font-bold text-ink-muted px-1 pb-1.5 border-b border-surface-border flex items-center justify-between gap-1">
             <span>\u{1F517} ${lang === "KO" ? `\uC804\uCCB4 \uAD50\uCC28 \uCD9C\uCC98 (${total}\uAC1C)` : lang === "ZH" ? `\u5168\u90E8\u805A\u5408\u6765\u6E90 (${total}\u4E2A)` : `All Sources (${total})`}</span>
-            <span class="text-indigo-600 text-[10px] font-bold">\uC5B8\uB860 ${pressSources.length} \xB7 \uCEE4\uBBA4\uB2C8\uD2F0 ${communitySources.length}</span>
+            <span class="text-indigo-600 text-[10px] font-bold">${summaryParts.join(" \xB7 ")}</span>
           </div>
-          <div class="max-h-56 overflow-y-auto space-y-2 pr-0.5 divide-y divide-surface-border/30">
+          <div class="max-h-60 overflow-y-auto space-y-2 pr-0.5 divide-y divide-surface-border/30">
             ${pressSources.length > 0 ? `
               <div class="pt-1">
                 <div class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider mb-1 flex items-center gap-1 px-1">
@@ -2805,6 +2827,26 @@
                       </span>
                       <span class="truncate text-[10px] text-ink-muted text-right flex-1 mx-1.5 group-hover:text-orange-700">${s.title || s.meta.label}</span>
                       <i data-lucide="external-link" class="w-2.5 h-2.5 text-ink-muted group-hover:text-orange-700 shrink-0"></i>
+                    </a>
+                  `).join("")}
+                </div>
+              </div>
+            ` : ""}
+
+            ${codeSources.length > 0 ? `
+              <div class="pt-1">
+                <div class="text-[10px] font-bold text-indigo-800 uppercase tracking-wider mb-1 flex items-center gap-1 px-1">
+                  <span>\u{1F4BB} \uCF54\uB4DC & \uB9AC\uC11C\uCE58 (${codeSources.length})</span>
+                </div>
+                <div class="space-y-0.5">
+                  ${codeSources.map((s) => `
+                    <a href="${s.meta.url}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-2 py-1 rounded-lg hover:bg-indigo-50/60 transition group text-xs text-ink-primary">
+                      <span class="flex items-center gap-1 shrink-0 font-bold text-indigo-950 text-[11px]">
+                        <span>${s.meta.icon}</span>
+                        <span>${s.meta.label}</span>
+                      </span>
+                      <span class="truncate text-[10px] text-ink-muted text-right flex-1 mx-1.5 group-hover:text-indigo-700">${s.title || s.meta.label}</span>
+                      <i data-lucide="external-link" class="w-2.5 h-2.5 text-ink-muted group-hover:text-indigo-700 shrink-0"></i>
                     </a>
                   `).join("")}
                 </div>
@@ -3489,73 +3531,41 @@
     }
     let crossRollupHtml = "";
     if (it.cross_posts && it.cross_posts.length > 0 || allSources.length > 1) {
-      const clusterSources = [];
-      const seenClusterUrls = /* @__PURE__ */ new Set();
+      const rawClusterPool = [];
       if (it.source_url) {
-        seenClusterUrls.add(it.source_url.toLowerCase());
-        clusterSources.push({
+        rawClusterPool.push({
           platform: it.source_platform || "Press",
           url: it.source_url,
           title: it.title || ""
         });
       }
-      for (const s of allSources) {
-        const u = (s.url || "").toLowerCase();
-        if (u && !seenClusterUrls.has(u)) {
-          seenClusterUrls.add(u);
-          clusterSources.push(s);
-        }
-      }
+      rawClusterPool.push(...allSources);
       for (const cp of it.cross_posts || []) {
-        const u = (cp.url || cp.source_url || "").toLowerCase();
-        if (u && !seenClusterUrls.has(u)) {
-          seenClusterUrls.add(u);
-          clusterSources.push(cp);
-        }
-      }
-      const clusterCount = Math.max(clusterSources.length, allSources.length, 2);
-      const spk = it.spike_analysis || it.raw_payload?.spike_analysis || null;
-      let pCount = spk?.press_count || it.cross_spike_summary?.press_count || 0;
-      let cCount = spk?.community_count || it.cross_spike_summary?.community_count || 0;
-      let kCount = spk?.code_count || 0;
-      const spkScore = spk ? Number(spk.score || 0) : 0;
-      if (!pCount && !cCount && !kCount) {
-        clusterSources.forEach((s) => {
-          const p = (s.platform || s.source_name || "").toLowerCase();
-          const u = (s.url || "").toLowerCase();
-          const isCode = p.includes("github") || p.includes("hugging") || p.includes("arxiv") || u.includes("github.com") || u.includes("huggingface.co");
-          const isComm = p.includes("hacker news") || p.includes("reddit") || p.includes("geeknews") || u.includes("ycombinator") || u.includes("reddit.com") || u.includes("hada.io");
-          if (isCode) kCount++;
-          else if (isComm) cCount++;
-          else pCount++;
+        rawClusterPool.push({
+          platform: cp.platform || cp.source_name || "Cross-post",
+          url: cp.url || cp.source_url || "",
+          title: cp.title || ""
         });
       }
+      const dedupedCluster = deduplicateClusterSources(rawClusterPool);
+      const spk = it.spike_analysis || it.raw_payload?.spike_analysis || null;
+      const spkScore = spk ? Number(spk.score || 0) : 0;
+      let pCount = dedupedCluster.filter((s) => s.meta.axis === "PRESS").length;
+      let cCount = dedupedCluster.filter((s) => s.meta.axis === "COMMUNITY").length;
+      let kCount = dedupedCluster.filter((s) => s.meta.axis === "CODE").length;
       if (pCount === 0 && cCount === 0 && kCount === 0) pCount = 1;
       const totalAxes = (pCount > 0 ? 1 : 0) + (cCount > 0 ? 1 : 0) + (kCount > 0 ? 1 : 0);
       const isSuperSpike = totalAxes >= 3 || spkScore >= 50;
       const isCrossSpike = totalAxes >= 2 || spkScore >= 15;
-      const isSpike2 = Boolean(it.is_cross_spiking || isCrossSpike);
+      const isSpike = Boolean(it.is_cross_spiking || isCrossSpike);
       let badgeBg = "bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border-amber-500/30 text-amber-950";
       let flameColor = "text-amber-600";
-      let tierBadgeText = "";
       if (isSuperSpike) {
         badgeBg = "bg-gradient-to-r from-rose-500/15 via-amber-500/15 to-orange-500/15 border-rose-500/40 text-rose-950 shadow-xs";
         flameColor = "text-rose-600";
-        tierBadgeText = currentLang2 === "KO" ? "\u{1F525} 3-Axis \uC288\uD37C \uBC14\uC774\uB7F4" : currentLang2 === "ZH" ? "\u{1F525} 3-Axis \u8D85\u7EA7\u7206\u53D1" : "\u{1F525} 3-Axis Super Spike";
       } else if (isCrossSpike) {
         badgeBg = "bg-gradient-to-r from-amber-500/15 via-orange-500/12 to-amber-500/10 border-amber-500/35 text-amber-950";
         flameColor = "text-amber-600";
-        tierBadgeText = currentLang2 === "KO" ? "\u26A1 2-Axis \uD06C\uB85C\uC2A4 \uBC14\uC774\uB7F4" : currentLang2 === "ZH" ? "\u26A1 2-Axis \u8DE8\u754C\u8054\u5408" : "\u26A1 2-Axis Cross Spike";
-      } else {
-        tierBadgeText = currentLang2 === "KO" ? `${clusterCount}\uAC1C \uB9E4\uCCB4 \uAD50\uCC28 \uBCF4\uB3C4` : currentLang2 === "ZH" ? `${clusterCount}\u4E2A\u5A92\u4F53\u62A5\u9053` : `Covered by ${clusterCount} Outlets`;
-      }
-      const dailyRank = it.daily_spike_rank || spk?.daily_rank || null;
-      const bestRank = it.best_spike_rank || spk?.best_rank || null;
-      const displayRank = dailyRank || (typeof window !== "undefined" && window.currentNewsFacet === "CROSS_SPIKE" ? bestRank : null);
-      let rankBadgeHtml = "";
-      if (displayRank && displayRank <= 30) {
-        const rankBg = displayRank === 1 ? "bg-rose-600 text-white border-rose-500" : displayRank <= 3 ? "bg-amber-600 text-white border-amber-500" : "bg-slate-800 text-amber-300 border-slate-700";
-        rankBadgeHtml = `<span class="px-1.5 py-0.5 rounded-md ${rankBg} font-mono font-black text-[10px] border shadow-2xs shrink-0">#${displayRank}</span>`;
       }
       let decayLineSvgHtml = "";
       const rawHist = Array.isArray(it.spike_history) ? it.spike_history : [];
@@ -3582,7 +3592,7 @@
         const firstPt = coords[0];
         const strokeHex = isSuperSpike ? "#e11d48" : "#d97706";
         const fillHex = isSuperSpike ? "rgba(225,29,72,0.16)" : "rgba(217,119,6,0.16)";
-        const tipText = rawHist.length >= 2 ? rawHist.map((item) => `${item.date.slice(5)}: ${item.score}p (#${item.rank})`).join(" \u2192 ") : ptsList.map((v) => `${v}p`).join(" \u2192 ");
+        const tipText = rawHist.length >= 2 ? rawHist.map((item) => `${item.date.slice(5)}: ${item.score}p`).join(" \u2192 ") : ptsList.map((v) => `${v}p`).join(" \u2192 ");
         decayLineSvgHtml = `
         <span class="inline-flex items-center px-1.5 py-0.5 rounded-lg bg-white/90 border border-amber-300/80 shadow-2xs shrink-0" title="${tipText}">
           <svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" class="overflow-visible">
@@ -3597,9 +3607,7 @@
       crossRollupHtml = `
       <div class="flex flex-wrap items-center justify-between px-2.5 py-1.5 rounded-xl ${badgeBg} border text-xs shadow-2xs gap-x-2 gap-y-1.5">
         <div class="flex flex-wrap items-center gap-1.5 min-w-0">
-          ${rankBadgeHtml}
-          <i data-lucide="flame" class="w-3.5 h-3.5 ${flameColor} shrink-0 ${isSpike2 ? "animate-pulse" : ""}"></i>
-          <span class="font-extrabold text-[11px] whitespace-nowrap">${tierBadgeText}</span>
+          <i data-lucide="flame" class="w-3.5 h-3.5 ${flameColor} shrink-0 ${isSpike ? "animate-pulse" : ""}"></i>
           ${spkScore > 0 ? `<span class="px-2 py-0.5 rounded-lg bg-amber-500 text-white font-mono font-black text-[11px] shadow-xs border border-amber-400 flex items-center gap-1 shrink-0 whitespace-nowrap"><i data-lucide="zap" class="w-3 h-3 text-amber-200 fill-amber-200"></i><span>${spkScore} pts</span></span>` : ""}
           ${decayLineSvgHtml}
         </div>
@@ -3612,65 +3620,9 @@
     `;
     }
     const footerHtml = renderCardStandardFooter(it, currentLang2, linksHtml);
-    const tracking = it.metric_tracking || {};
-    const delta = tracking.delta !== void 0 ? tracking.delta : tracking.growth_delta || 0;
-    const latestVal = tracking.latest?.display || tracking.latest_metric || it.viral_metric || "";
-    const initVal = tracking.initial?.display || tracking.initial_metric || "";
-    const isSpike = Boolean(tracking.is_spiking || delta > 0 || it.is_cross_spiking);
-    const cleanInit = formatCleanMetricVal(initVal, currentLang2);
-    const cleanLatest = formatCleanMetricVal(latestVal, currentLang2);
-    let metricBadgeHtml = "";
-    if (cleanLatest) {
-      if (delta > 0 && cleanInit && cleanInit !== cleanLatest) {
-        const numInit = cleanInit.replace(/[^0-9.]/g, "");
-        const displayFlow = numInit ? `${numInit} \u2794 ${cleanLatest}` : `${cleanLatest}`;
-        metricBadgeHtml = `
-        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap" title="\uCD5C\uCD08 \uC218\uC9D1: ${cleanInit} \u2794 \uCD5C\uC2E0 \uAC31\uC2E0: ${cleanLatest}">
-          <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
-          <span>${displayFlow}</span>
-          <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
-        </span>
-      `;
-      } else if (delta > 0) {
-        metricBadgeHtml = `
-        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap">
-          <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
-          <span>${cleanLatest}</span>
-          <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
-        </span>
-      `;
-      } else {
-        const isPointMetric = cleanLatest.includes("pts") || cleanLatest.includes("\u2605") || cleanLatest.includes("likes") || cleanLatest.includes("\uC810");
-        const pointColor = isPointMetric ? "text-rose-900 font-black bg-rose-100/90 border border-rose-300 shadow-2xs" : isSpike ? "text-rose-700 font-bold bg-rose-50 border border-rose-200" : "text-ink-muted bg-surface-subtle border border-surface-border";
-        metricBadgeHtml = `
-        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono ${pointColor} shrink-0 ml-auto whitespace-nowrap flex items-center gap-1 font-bold">
-          ${isPointMetric ? '<i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i>' : ""}
-          <span>${cleanLatest}</span>
-        </span>
-      `;
-      }
-    }
-    const primaryPlat = getPrimaryImpactPlatform(it, allSources);
-    const isMultiSource = allSources.length > 1;
     card.innerHTML = `
     <div class="space-y-2.5">
-      <div class="flex flex-wrap items-center justify-between text-xs font-mono gap-1.5 min-w-0">
-        <div class="flex items-center gap-1.5 min-w-0">
-          <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls} shrink-0 whitespace-nowrap" title="${catInfo.label}">
-            ${catInfo.label}
-          </span>
-          <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0 whitespace-nowrap" title="${primaryPlat}">
-            <span class="truncate max-w-[95px]">${primaryPlat}</span>
-            ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs shrink-0">+${allSources.length - 1}</span>` : ""}
-          </span>
-        </div>
-        <div class="shrink-0 flex items-center justify-end ml-auto">
-          ${metricBadgeHtml}
-        </div>
-      </div>
-
       ${crossRollupHtml}
-      ${aiBadgeHtml}
 
       <h3 class="font-bold text-[14px] sm:text-[15px] text-ink-primary hover:text-indigo-600 transition leading-snug break-words line-clamp-2" title="${(displayTitle || "").replace(/"/g, "&quot;")}">
         ${displayTitle}
@@ -5026,12 +4978,7 @@
   function updateCrossSpikeTimeMachineUI() {
     if (typeof document === "undefined") return;
     const bar = document.getElementById("crossSpikeTimeMachineBar");
-    const curFacet = window.currentNewsFacet || currentNewsFacet;
     if (!bar) return;
-    if (curFacet !== "CROSS_SPIKE") {
-      bar.classList.add("hidden");
-      return;
-    }
     bar.classList.remove("hidden");
     const spkDate = window.currentSpikeDate !== void 0 ? window.currentSpikeDate : currentSpikeDate;
     const liveBtn = document.getElementById("spikeLiveModeBtn");
@@ -5077,8 +5024,20 @@
     if (typeof window !== "undefined") {
       window.currentSpikeDate = cleanDate;
       window.currentNewsPage = 1;
-      if (window.currentNewsFacet !== "CROSS_SPIKE") {
+      if (cleanDate && window.currentNewsFacet !== "CROSS_SPIKE") {
         window.currentNewsFacet = "CROSS_SPIKE";
+        window.currentNewsSort = "viral-score-desc";
+        document.querySelectorAll(".news-facet-pill").forEach((btn) => {
+          const f = btn.getAttribute("data-facet");
+          if (f === "CROSS_SPIKE") {
+            btn.className = "news-facet-pill active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-md ring-2 ring-indigo-300 transition shrink-0 whitespace-nowrap cursor-pointer";
+          } else {
+            let colorCls = "text-slate-200 bg-white/10 border-white/20 hover:bg-white/20";
+            if (f === "MODEL") colorCls = "text-cyan-300 bg-cyan-500/10 border-cyan-400/30 hover:bg-cyan-500/20";
+            else if (f === "TOOL") colorCls = "text-emerald-300 bg-emerald-500/10 border-emerald-400/30 hover:bg-emerald-500/20";
+            btn.className = `news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold ${colorCls} border transition shrink-0 whitespace-nowrap cursor-pointer`;
+          }
+        });
       }
     }
     updateCrossSpikeTimeMachineUI();
@@ -5180,6 +5139,9 @@
   async function renderNews() {
     const grid = document.getElementById("newsGrid");
     if (!grid) return;
+    if (spikeDatesCatalog.length === 0) {
+      loadCrossSpikeDatesList();
+    }
     const curLang = window.currentLang || currentLang || "KO";
     const curPage = window.currentNewsPage || currentNewsPage || 1;
     const curT1 = window.currentNewsTier1 || currentNewsTier1 || "ALL";

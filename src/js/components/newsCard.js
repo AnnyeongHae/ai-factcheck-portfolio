@@ -9,7 +9,7 @@ import { currentLang } from '../core/store.js';
 import { i18n } from '../core/i18n.js';
 import { formatCleanMetricVal, getPrimaryImpactPlatform } from '../utils/metricFormatter.js';
 import { formatDateTimeCompact, formatModelAttribution } from '../utils/dateTime.js';
-import { buildMultiSourceCluster } from './popover.js';
+import { buildMultiSourceCluster, deduplicateClusterSources } from './popover.js';
 import { openCaseModal } from './modal.js';
 
 export function cleanDescriptionText(desc, title) {
@@ -394,50 +394,30 @@ export function createNewsCardElement(it, currentLang) {
 
   let crossRollupHtml = '';
   if ((it.cross_posts && it.cross_posts.length > 0) || allSources.length > 1) {
-    const clusterSources = [];
-    const seenClusterUrls = new Set();
+    const rawClusterPool = [];
     if (it.source_url) {
-      seenClusterUrls.add(it.source_url.toLowerCase());
-      clusterSources.push({
+      rawClusterPool.push({
         platform: it.source_platform || 'Press',
         url: it.source_url,
         title: it.title || ''
       });
     }
-    for (const s of allSources) {
-      const u = (s.url || '').toLowerCase();
-      if (u && !seenClusterUrls.has(u)) {
-        seenClusterUrls.add(u);
-        clusterSources.push(s);
-      }
-    }
+    rawClusterPool.push(...allSources);
     for (const cp of (it.cross_posts || [])) {
-      const u = (cp.url || cp.source_url || '').toLowerCase();
-      if (u && !seenClusterUrls.has(u)) {
-        seenClusterUrls.add(u);
-        clusterSources.push(cp);
-      }
-    }
-
-    const clusterCount = Math.max(clusterSources.length, allSources.length, 2);
-
-    const spk = it.spike_analysis || it.raw_payload?.spike_analysis || null;
-    let pCount = spk?.press_count || it.cross_spike_summary?.press_count || 0;
-    let cCount = spk?.community_count || it.cross_spike_summary?.community_count || 0;
-    let kCount = spk?.code_count || 0;
-    const spkScore = spk ? Number(spk.score || 0) : 0;
-
-    if (!pCount && !cCount && !kCount) {
-      clusterSources.forEach(s => {
-        const p = (s.platform || s.source_name || '').toLowerCase();
-        const u = (s.url || '').toLowerCase();
-        const isCode = p.includes('github') || p.includes('hugging') || p.includes('arxiv') || u.includes('github.com') || u.includes('huggingface.co');
-        const isComm = p.includes('hacker news') || p.includes('reddit') || p.includes('geeknews') || u.includes('ycombinator') || u.includes('reddit.com') || u.includes('hada.io');
-        if (isCode) kCount++;
-        else if (isComm) cCount++;
-        else pCount++;
+      rawClusterPool.push({
+        platform: cp.platform || cp.source_name || 'Cross-post',
+        url: cp.url || cp.source_url || '',
+        title: cp.title || ''
       });
     }
+
+    const dedupedCluster = deduplicateClusterSources(rawClusterPool);
+    const spk = it.spike_analysis || it.raw_payload?.spike_analysis || null;
+    const spkScore = spk ? Number(spk.score || 0) : 0;
+
+    let pCount = dedupedCluster.filter(s => s.meta.axis === 'PRESS').length;
+    let cCount = dedupedCluster.filter(s => s.meta.axis === 'COMMUNITY').length;
+    let kCount = dedupedCluster.filter(s => s.meta.axis === 'CODE').length;
     if (pCount === 0 && cCount === 0 && kCount === 0) pCount = 1;
 
     const totalAxes = (pCount > 0 ? 1 : 0) + (cCount > 0 ? 1 : 0) + (kCount > 0 ? 1 : 0);
@@ -447,31 +427,13 @@ export function createNewsCardElement(it, currentLang) {
 
     let badgeBg = 'bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border-amber-500/30 text-amber-950';
     let flameColor = 'text-amber-600';
-    let tierBadgeText = '';
 
     if (isSuperSpike) {
       badgeBg = 'bg-gradient-to-r from-rose-500/15 via-amber-500/15 to-orange-500/15 border-rose-500/40 text-rose-950 shadow-xs';
       flameColor = 'text-rose-600';
-      tierBadgeText = currentLang === 'KO' ? '🔥 3-Axis 슈퍼 바이럴' : (currentLang === 'ZH' ? '🔥 3-Axis 超级爆发' : '🔥 3-Axis Super Spike');
     } else if (isCrossSpike) {
       badgeBg = 'bg-gradient-to-r from-amber-500/15 via-orange-500/12 to-amber-500/10 border-amber-500/35 text-amber-950';
       flameColor = 'text-amber-600';
-      tierBadgeText = currentLang === 'KO' ? '⚡ 2-Axis 크로스 바이럴' : (currentLang === 'ZH' ? '⚡ 2-Axis 跨界联合' : '⚡ 2-Axis Cross Spike');
-    } else {
-      tierBadgeText = currentLang === 'KO' ? `${clusterCount}개 매체 교차 보도` : (currentLang === 'ZH' ? `${clusterCount}个媒体报道` : `Covered by ${clusterCount} Outlets`);
-    }
-
-    const dailyRank = it.daily_spike_rank || spk?.daily_rank || null;
-    const bestRank = it.best_spike_rank || spk?.best_rank || null;
-    const displayRank = dailyRank || (typeof window !== 'undefined' && window.currentNewsFacet === 'CROSS_SPIKE' ? bestRank : null);
-    let rankBadgeHtml = '';
-    if (displayRank && displayRank <= 30) {
-      const rankBg = displayRank === 1
-        ? 'bg-rose-600 text-white border-rose-500'
-        : displayRank <= 3
-          ? 'bg-amber-600 text-white border-amber-500'
-          : 'bg-slate-800 text-amber-300 border-slate-700';
-      rankBadgeHtml = `<span class="px-1.5 py-0.5 rounded-md ${rankBg} font-mono font-black text-[10px] border shadow-2xs shrink-0">#${displayRank}</span>`;
     }
 
     // Pure Text-Free Linear Sparkline Graph (SVG) for Daily Point Decay Trajectory
@@ -501,7 +463,7 @@ export function createNewsCardElement(it, currentLang) {
       const strokeHex = isSuperSpike ? '#e11d48' : '#d97706';
       const fillHex = isSuperSpike ? 'rgba(225,29,72,0.16)' : 'rgba(217,119,6,0.16)';
       const tipText = rawHist.length >= 2
-        ? rawHist.map(item => `${item.date.slice(5)}: ${item.score}p (#${item.rank})`).join(' → ')
+        ? rawHist.map(item => `${item.date.slice(5)}: ${item.score}p`).join(' → ')
         : ptsList.map(v => `${v}p`).join(' → ');
 
       decayLineSvgHtml = `
@@ -519,9 +481,7 @@ export function createNewsCardElement(it, currentLang) {
     crossRollupHtml = `
       <div class="flex flex-wrap items-center justify-between px-2.5 py-1.5 rounded-xl ${badgeBg} border text-xs shadow-2xs gap-x-2 gap-y-1.5">
         <div class="flex flex-wrap items-center gap-1.5 min-w-0">
-          ${rankBadgeHtml}
           <i data-lucide="flame" class="w-3.5 h-3.5 ${flameColor} shrink-0 ${isSpike ? 'animate-pulse' : ''}"></i>
-          <span class="font-extrabold text-[11px] whitespace-nowrap">${tierBadgeText}</span>
           ${spkScore > 0 ? `<span class="px-2 py-0.5 rounded-lg bg-amber-500 text-white font-mono font-black text-[11px] shadow-xs border border-amber-400 flex items-center gap-1 shrink-0 whitespace-nowrap"><i data-lucide="zap" class="w-3 h-3 text-amber-200 fill-amber-200"></i><span>${spkScore} pts</span></span>` : ''}
           ${decayLineSvgHtml}
         </div>
@@ -536,71 +496,9 @@ export function createNewsCardElement(it, currentLang) {
 
   const footerHtml = renderCardStandardFooter(it, currentLang, linksHtml);
 
-  const tracking = it.metric_tracking || {};
-  const delta = (tracking.delta !== undefined) ? tracking.delta : (tracking.growth_delta || 0);
-  const latestVal = tracking.latest?.display || tracking.latest_metric || it.viral_metric || '';
-  const initVal = tracking.initial?.display || tracking.initial_metric || '';
-  const isSpike = Boolean(tracking.is_spiking || delta > 0 || it.is_cross_spiking);
-
-  const cleanInit = formatCleanMetricVal(initVal, currentLang);
-  const cleanLatest = formatCleanMetricVal(latestVal, currentLang);
-
-  let metricBadgeHtml = '';
-  if (cleanLatest) {
-    if (delta > 0 && cleanInit && cleanInit !== cleanLatest) {
-      const numInit = cleanInit.replace(/[^0-9.]/g, '');
-      const displayFlow = numInit ? `${numInit} ➔ ${cleanLatest}` : `${cleanLatest}`;
-      metricBadgeHtml = `
-        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap" title="최초 수집: ${cleanInit} ➔ 최신 갱신: ${cleanLatest}">
-          <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
-          <span>${displayFlow}</span>
-          <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
-        </span>
-      `;
-    } else if (delta > 0) {
-      metricBadgeHtml = `
-        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap">
-          <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
-          <span>${cleanLatest}</span>
-          <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
-        </span>
-      `;
-    } else {
-      const isPointMetric = cleanLatest.includes('pts') || cleanLatest.includes('★') || cleanLatest.includes('likes') || cleanLatest.includes('점');
-      const pointColor = isPointMetric 
-        ? 'text-rose-900 font-black bg-rose-100/90 border border-rose-300 shadow-2xs' 
-        : (isSpike ? 'text-rose-700 font-bold bg-rose-50 border border-rose-200' : 'text-ink-muted bg-surface-subtle border border-surface-border');
-      metricBadgeHtml = `
-        <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono ${pointColor} shrink-0 ml-auto whitespace-nowrap flex items-center gap-1 font-bold">
-          ${isPointMetric ? '<i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i>' : ''}
-          <span>${cleanLatest}</span>
-        </span>
-      `;
-    }
-  }
-
-  const primaryPlat = getPrimaryImpactPlatform(it, allSources);
-  const isMultiSource = allSources.length > 1;
-
   card.innerHTML = `
     <div class="space-y-2.5">
-      <div class="flex flex-wrap items-center justify-between text-xs font-mono gap-1.5 min-w-0">
-        <div class="flex items-center gap-1.5 min-w-0">
-          <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls} shrink-0 whitespace-nowrap" title="${catInfo.label}">
-            ${catInfo.label}
-          </span>
-          <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0 whitespace-nowrap" title="${primaryPlat}">
-            <span class="truncate max-w-[95px]">${primaryPlat}</span>
-            ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs shrink-0">+${allSources.length - 1}</span>` : ''}
-          </span>
-        </div>
-        <div class="shrink-0 flex items-center justify-end ml-auto">
-          ${metricBadgeHtml}
-        </div>
-      </div>
-
       ${crossRollupHtml}
-      ${aiBadgeHtml}
 
       <h3 class="font-bold text-[14px] sm:text-[15px] text-ink-primary hover:text-indigo-600 transition leading-snug break-words line-clamp-2" title="${(displayTitle || '').replace(/"/g, '&quot;')}">
         ${displayTitle}

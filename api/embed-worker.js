@@ -28,10 +28,13 @@ function calculateSpikeAnalysis(sources, createdAtStr, viralScore = 0, deltaMetr
   for (const s of (sources || [])) {
     const p = ((s.platform || s.source_name || '') + ' ' + (s.url || '')).toLowerCase();
     let axis = 'PRESS';
-    if (/github|hugging|hf|arxiv|pytorch|code|paper|model/.test(p)) {
+    if (/pytorchkr|pytorch\.kr|discuss\.pytorch\.kr/.test(p)) {
+      axis = 'COMMUNITY';
+      communityCount++;
+    } else if (/github|hugging|hf |arxiv|code|paper|model|deepmind|openai|anthropic|claude\.dev|research/.test(p)) {
       axis = 'CODE';
       codeCount++;
-    } else if (/hacker news|reddit|geeknews|lobsters|hada\.io|community|forum|ycombinator/.test(p)) {
+    } else if ((/hacker news|ycombinator/.test(p) && !/the hacker news/.test(p)) || /reddit|geeknews|lobsters|hada\.io|youtube|youtu\.be|twitter|x\.com|community|forum/.test(p)) {
       axis = 'COMMUNITY';
       communityCount++;
     } else {
@@ -178,9 +181,10 @@ module.exports = async function handler(req, res) {
     }
 
     // 2. Prepare Rich Text payload for Voyage AI (English-Only standard)
+    const PREFIX_STRIP_RE = /^(?:News|Hacker News|Reddit|GeekNews|GitHub|HuggingFace Model|HF Space|PyTorchKR|YouTube(?:\s*\([^)]*\))?|Press(?:\s*\([^)]*\))?|r\/[a-zA-Z0-9_]+):\s*/i;
     const texts = items.map(item => {
       const p = item.raw_payload || {};
-      const en = (p.title_en || item.title || '').replace(/^(?:News|Hacker News|Reddit|GeekNews|GitHub|HuggingFace Model|HF Space|r\/[a-zA-Z0-9_]+):\s*/i, '').trim();
+      const en = (p.title_en || item.title || '').replace(PREFIX_STRIP_RE, '').trim();
       const hookStr = (p.hook_en || p.hook || '').trim();
       const summaryStr = (p.ai_enrichment?.summary_en || p.description || '').trim();
 
@@ -272,6 +276,18 @@ module.exports = async function handler(req, res) {
       const isAOlder = pair.a_id < pair.b_id;
       const primaryTitle = isAOlder ? pair.a_title : pair.b_title;
       const dupTitle = isAOlder ? pair.b_title : pair.a_title;
+      const primaryPlatform = isAOlder ? pair.a_platform : pair.b_platform;
+      const dupPlatform = isAOlder ? pair.b_platform : pair.a_platform;
+      const primaryUrl = isAOlder ? pair.a_url : pair.b_url;
+      const dupUrl = isAOlder ? pair.b_url : pair.a_url;
+
+      // Same-Channel / Same-Platform Self-Merge Veto Guardrail
+      // Prevents different videos from the same YouTube creator (e.g. JoCoding) or same sub-channel from merging together
+      const normPPlat = (primaryPlatform || '').trim().toLowerCase();
+      const normDPlat = (dupPlatform || '').trim().toLowerCase();
+      if (normPPlat && normPPlat === normDPlat && (normPPlat.includes('youtube') || primaryUrl !== dupUrl)) {
+        continue;
+      }
 
       // Entity Veto Guardrail (OpenAI vs Google, etc. -> Never Merge)
       const pLower = (primaryTitle || '').toLowerCase();
@@ -287,14 +303,14 @@ module.exports = async function handler(req, res) {
         isAOlder,
         primaryId: isAOlder ? pair.a_id : pair.b_id,
         primaryTitle,
-        primaryPlatform: isAOlder ? pair.a_platform : pair.b_platform,
-        primaryUrl: isAOlder ? pair.a_url : pair.b_url,
+        primaryPlatform,
+        primaryUrl,
         primaryPayload: isAOlder ? pair.a_payload : pair.b_payload,
         primaryCreatedAt: isAOlder ? pair.a_created_at : pair.b_created_at,
         dupId: isAOlder ? pair.b_id : pair.a_id,
         dupTitle,
-        dupPlatform: isAOlder ? pair.b_platform : pair.a_platform,
-        dupUrl: isAOlder ? pair.b_url : pair.a_url,
+        dupPlatform,
+        dupUrl,
         dupPayload: isAOlder ? pair.b_payload : pair.a_payload,
         sim: pair.similarity
       };
@@ -318,10 +334,13 @@ module.exports = async function handler(req, res) {
       'same', 'so', 'than', 'too', 'very', 'says', 'said', 'report', 'reports', 'launch', 'launches',
       'launched', 'release', 'releases', 'released', 'announces', 'announced', 'unveils', 'unveiled',
       'rolls', 'out', 'update', 'updates', 'model', 'models', 'ai', 'artificial', 'intelligence',
-      'tech', 'technology', 'company', 'users', 'system', 'data', 'first', 'next', 'open', 'source'
+      'tech', 'technology', 'company', 'users', 'system', 'data', 'first', 'next', 'open', 'source',
+      'youtube', 'jocoding', 'shorts', 'reddit', 'geeknews', 'hacker', 'news', 'github', 'arxiv',
+      'press', 'pytorchkr', 'huggingface', 'space', 'video', 'channel'
     ]);
     function extractSpecificTokens(text) {
       return (text || '')
+        .replace(PREFIX_STRIP_RE, '')
         .toLowerCase()
         .replace(/[^a-z0-9.\-+]+/g, ' ')
         .split(/\s+/)

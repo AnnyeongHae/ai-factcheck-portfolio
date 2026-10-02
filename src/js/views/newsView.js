@@ -268,13 +268,7 @@ export async function loadCrossSpikeDatesList() {
 export function updateCrossSpikeTimeMachineUI() {
   if (typeof document === 'undefined') return;
   const bar = document.getElementById('crossSpikeTimeMachineBar');
-  const curFacet = window.currentNewsFacet || currentNewsFacet;
   if (!bar) return;
-
-  if (curFacet !== 'CROSS_SPIKE') {
-    bar.classList.add('hidden');
-    return;
-  }
   bar.classList.remove('hidden');
 
   const spkDate = window.currentSpikeDate !== undefined ? window.currentSpikeDate : currentSpikeDate;
@@ -327,8 +321,20 @@ export function setCrossSpikeDate(dateStr) {
   if (typeof window !== 'undefined') {
     window.currentSpikeDate = cleanDate;
     window.currentNewsPage = 1;
-    if (window.currentNewsFacet !== 'CROSS_SPIKE') {
+    if (cleanDate && window.currentNewsFacet !== 'CROSS_SPIKE') {
       window.currentNewsFacet = 'CROSS_SPIKE';
+      window.currentNewsSort = 'viral-score-desc';
+      document.querySelectorAll('.news-facet-pill').forEach(btn => {
+        const f = btn.getAttribute('data-facet');
+        if (f === 'CROSS_SPIKE') {
+          btn.className = 'news-facet-pill active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-md ring-2 ring-indigo-300 transition shrink-0 whitespace-nowrap cursor-pointer';
+        } else {
+          let colorCls = 'text-slate-200 bg-white/10 border-white/20 hover:bg-white/20';
+          if (f === 'MODEL') colorCls = 'text-cyan-300 bg-cyan-500/10 border-cyan-400/30 hover:bg-cyan-500/20';
+          else if (f === 'TOOL') colorCls = 'text-emerald-300 bg-emerald-500/10 border-emerald-400/30 hover:bg-emerald-500/20';
+          btn.className = `news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold ${colorCls} border transition shrink-0 whitespace-nowrap cursor-pointer`;
+        }
+      });
     }
   }
   updateCrossSpikeTimeMachineUI();
@@ -441,6 +447,9 @@ export function setNewsSourceFilter(src) {
 export async function renderNews() {
   const grid = document.getElementById('newsGrid');
   if (!grid) return;
+  if (spikeDatesCatalog.length === 0) {
+    loadCrossSpikeDatesList();
+  }
   const curLang = window.currentLang || currentLang || 'KO';
   const curPage = window.currentNewsPage || currentNewsPage || 1;
   const curT1 = window.currentNewsTier1 || currentNewsTier1 || 'ALL';

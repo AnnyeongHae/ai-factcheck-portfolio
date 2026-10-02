@@ -8,19 +8,47 @@
 import { currentLang } from '../core/store.js';
 import { cleanPlatformName, getPlatformImpactWeight } from '../utils/metricFormatter.js';
 
-export function isCommunity(s) {
+export function classifySourceAxis(s) {
   const p = (s.platform || s.source_name || '').toLowerCase();
   const u = (s.url || '#').toLowerCase();
-  return p.includes('hacker news') || u.includes('ycombinator') ||
-         p.includes('reddit') || u.includes('reddit.com') ||
-         p.includes('geeknews') || u.includes('hada.io') ||
-         p.includes('pytorch') ||
-         p.includes('github') || u.includes('github.com') ||
-         p.includes('space') || u.includes('/spaces/') ||
-         p.includes('hugging') || u.includes('huggingface.co') ||
-         p.includes('arxiv') || u.includes('arxiv.org') ||
-         p.includes('youtube') || u.includes('youtube.com') ||
-         p.includes('twitter') || p.includes(' x') || u.includes('x.com');
+
+  // PyTorchKR (discuss.pytorch.kr) is a Korean developer community forum, not a code repository
+  if (p.includes('pytorchkr') || p.includes('pytorch.kr') || u.includes('discuss.pytorch.kr')) {
+    return 'COMMUNITY';
+  }
+
+  // 1. CODE & RESEARCH (GitHub, HuggingFace, ArXiv, Official AI Lab Research Blogs)
+  if (
+    p.includes('github') || u.includes('github.com') ||
+    p.includes('space') || u.includes('/spaces/') ||
+    p.includes('hugging') || p.includes('hf ') || u.includes('huggingface.co') ||
+    p.includes('arxiv') || u.includes('arxiv.org') ||
+    p.includes('deepmind') || u.includes('deepmind.google') ||
+    p.includes('openai') || u.includes('openai.com') ||
+    p.includes('anthropic') || u.includes('anthropic.com') || u.includes('claude.dev') ||
+    p.includes('research') || u.includes('research.google') || u.includes('ai.meta.com')
+  ) {
+    return 'CODE';
+  }
+
+  // 2. COMMUNITY (HN, GeekNews, Reddit, YouTube, X, Lobsters, V2EX)
+  if (
+    ((p.includes('hacker news') || u.includes('ycombinator.com')) && !p.includes('the hacker news')) ||
+    p.includes('reddit') || u.includes('reddit.com') ||
+    p.includes('geeknews') || u.includes('hada.io') ||
+    p.includes('youtube') || u.includes('youtube.com') || u.includes('youtu.be') ||
+    p.includes('twitter') || p.includes(' x') || u.includes('x.com') || u.includes('twitter.com') ||
+    p.includes('lobsters') || p.includes('v2ex') || p.includes('community') || p.includes('forum')
+  ) {
+    return 'COMMUNITY';
+  }
+
+  // 3. PRESS (Official Tech Media & News Outlets)
+  return 'PRESS';
+}
+
+export function isCommunity(s) {
+  return classifySourceAxis(s) !== 'PRESS';
 }
 
 export function getSourceMeta(s) {
@@ -28,67 +56,59 @@ export function getSourceMeta(s) {
   const u = (s.url || '#').toLowerCase();
   const cleanName = cleanPlatformName(s.platform || s.source_name);
   const lang = typeof window !== 'undefined' && window.currentLang ? window.currentLang : currentLang;
+  const axis = classifySourceAxis(s);
   let icon = '📄';
   let label = cleanName || (lang === 'KO' ? '원문' : 'Source');
   let badgeCls = 'bg-surface-subtle text-ink-secondary hover:text-ink-primary border-surface-border';
-  let isComm = false;
 
-  if (p.includes('hacker news') || u.includes('ycombinator')) {
+  if ((p.includes('hacker news') || u.includes('ycombinator')) && !p.includes('the hacker news')) {
     icon = '🔥';
     label = lang === 'KO' ? 'HN 토론' : 'HN';
     badgeCls = 'bg-orange-50 text-orange-800 hover:text-orange-950 border-orange-200';
-    isComm = true;
   } else if (p.includes('geeknews') || u.includes('hada.io')) {
     icon = '💬';
     label = lang === 'KO' ? '긱뉴스' : 'GeekNews';
     badgeCls = 'bg-indigo-50 text-indigo-800 hover:text-indigo-950 border-indigo-200';
-    isComm = true;
   } else if (p.includes('pytorch')) {
     icon = '🇰🇷';
     label = 'PyTorchKR';
     badgeCls = 'bg-purple-50 text-purple-800 hover:text-purple-950 border-purple-200';
-    isComm = true;
   } else if (p.includes('reddit')) {
     icon = '🤖';
     label = lang === 'KO' ? '레딧' : 'Reddit';
     badgeCls = 'bg-red-50 text-red-800 hover:text-red-950 border-red-200';
-    isComm = true;
-  } else if (p.includes('github')) {
+  } else if (p.includes('github') || u.includes('github.com')) {
     icon = '🐙';
     label = 'GitHub';
     badgeCls = 'bg-slate-100 text-slate-800 hover:text-slate-950 border-slate-300';
-    isComm = true;
   } else if (p.includes('space') || u.includes('/spaces/')) {
     icon = '🤗';
     label = 'HF Spaces';
     badgeCls = 'bg-amber-50 text-amber-900 hover:text-amber-950 border-amber-200';
-    isComm = true;
   } else if (p.includes('hugging') || u.includes('huggingface.co')) {
     icon = '🤗';
     label = 'HuggingFace';
     badgeCls = 'bg-amber-50 text-amber-900 hover:text-amber-950 border-amber-200';
-    isComm = true;
-  } else if (p.includes('arxiv')) {
+  } else if (p.includes('arxiv') || u.includes('arxiv.org')) {
     icon = '📑';
     label = 'ArXiv';
     badgeCls = 'bg-rose-50 text-rose-900 hover:text-rose-950 border-rose-200';
-    isComm = true;
+  } else if (axis === 'CODE') {
+    icon = '💻';
+    label = cleanName || 'Research';
+    badgeCls = 'bg-indigo-50 text-indigo-900 hover:text-indigo-950 border-indigo-200';
   } else if (p.includes('youtube') || u.includes('youtube.com') || u.includes('youtu.be')) {
     icon = '📺';
     label = lang === 'KO' ? '유튜브' : 'YouTube';
     badgeCls = 'bg-red-50 text-red-800 hover:text-red-950 border-red-200';
-    isComm = true;
   } else if (p.includes('twitter') || p.includes(' x') || u.includes('x.com') || u.includes('twitter.com')) {
     icon = '𝕏';
     label = 'X (트위터)';
     badgeCls = 'bg-zinc-100 text-zinc-800 hover:text-zinc-950 border-zinc-300';
-    isComm = true;
   } else {
-    // Press / Official News
     icon = '📰';
     label = cleanName || (lang === 'KO' ? '보도' : 'Press');
     badgeCls = 'bg-emerald-50 text-emerald-800 hover:text-emerald-950 border-emerald-200';
-    isComm = false;
   }
 
   return {
@@ -99,32 +119,40 @@ export function getSourceMeta(s) {
     url: s.url || '#',
     title: s.title || '',
     weight: getPlatformImpactWeight(s.platform || s.source_name),
-    isCommunity: isComm
+    axis,
+    isCommunity: axis !== 'PRESS'
   };
+}
+
+export function deduplicateClusterSources(rawSources) {
+  if (!Array.isArray(rawSources) || rawSources.length === 0) return [];
+  const seenUrls = new Set();
+  const sources = [];
+  for (const s of rawSources) {
+    if (!s || typeof s !== 'object') continue;
+    const u = (s.url || '#').trim().toLowerCase().replace(/#.*$/, '');
+    const meta = getSourceMeta(s);
+    if (u !== '#' && seenUrls.has(u)) continue;
+    seenUrls.add(u);
+    sources.push({ ...s, meta });
+  }
+  return sources;
 }
 
 export function buildMultiSourceCluster(rawSources, rawItemId) {
   if (!rawSources || rawSources.length === 0) return '';
   const lang = typeof window !== 'undefined' && window.currentLang ? window.currentLang : currentLang;
 
-  const seenUrls = new Set();
-  const sources = [];
-  for (const s of rawSources) {
-    const u = (s.url || '#').toLowerCase().replace(/[?#].*$/, '');
-    const meta = getSourceMeta(s);
-    const dedupeKey = `${meta.cleanPlatform.toLowerCase()}::${u}`;
-    if (u !== '#' && seenUrls.has(dedupeKey)) continue;
-    seenUrls.add(dedupeKey);
-    sources.push({ ...s, meta });
-  }
-
+  const sources = deduplicateClusterSources(rawSources);
   if (sources.length === 0) return '';
 
-  const pressSources = sources.filter(s => !s.meta.isCommunity);
-  const communitySources = sources.filter(s => s.meta.isCommunity);
+  const pressSources = sources.filter(s => s.meta.axis === 'PRESS');
+  const communitySources = sources.filter(s => s.meta.axis === 'COMMUNITY');
+  const codeSources = sources.filter(s => s.meta.axis === 'CODE');
 
   pressSources.sort((a, b) => b.meta.weight - a.meta.weight);
   communitySources.sort((a, b) => b.meta.weight - a.meta.weight);
+  codeSources.sort((a, b) => b.meta.weight - a.meta.weight);
 
   const total = sources.length;
   const safeId = 'src_' + String(rawItemId || Math.random()).replace(/[^a-zA-Z0-9_-]/g, '_');
@@ -135,13 +163,16 @@ export function buildMultiSourceCluster(rawSources, rawItemId) {
   }
 
   const directButtons = [];
-  if (pressSources.length > 0 && communitySources.length > 0) {
-    directButtons.push(pressSources[0]);
-    directButtons.push(communitySources[0]);
-  } else if (pressSources.length > 0) {
-    directButtons.push(...pressSources.slice(0, 2));
-  } else {
-    directButtons.push(...communitySources.slice(0, 2));
+  if (pressSources.length > 0) directButtons.push(pressSources[0]);
+  if (communitySources.length > 0 && directButtons.length < 2) directButtons.push(communitySources[0]);
+  if (codeSources.length > 0 && directButtons.length < 2) directButtons.push(codeSources[0]);
+  if (directButtons.length < 2) {
+    for (const s of sources) {
+      if (!directButtons.includes(s)) {
+        directButtons.push(s);
+        if (directButtons.length >= 2) break;
+      }
+    }
   }
 
   let html = `<div class="flex items-center gap-1.5 flex-wrap justify-end relative">`;
@@ -153,6 +184,11 @@ export function buildMultiSourceCluster(rawSources, rawItemId) {
 
   if (total > directButtons.length) {
     const remainingCount = total - directButtons.length;
+    const summaryParts = [];
+    if (pressSources.length > 0) summaryParts.push(`언론 ${pressSources.length}`);
+    if (communitySources.length > 0) summaryParts.push(`커뮤니티 ${communitySources.length}`);
+    if (codeSources.length > 0) summaryParts.push(`코드 ${codeSources.length}`);
+
     html += `
       <div class="relative inline-block src-dropdown-container">
         <button type="button" onclick="toggleSourcePopover(event, '${safeId}')" class="px-2 py-1 rounded-md bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-[11px] font-extrabold flex items-center gap-1 shrink-0 transition cursor-pointer shadow-xs" title="전체 ${total}개 교차 출처 모아보기">
@@ -160,11 +196,11 @@ export function buildMultiSourceCluster(rawSources, rawItemId) {
           <i data-lucide="chevron-down" class="w-3 h-3 text-amber-800"></i>
         </button>
         <div id="srcMenu_${safeId}" class="hidden absolute z-50 mb-1.5 w-72 max-w-[calc(100vw-2.5rem)] min-w-[240px] bg-white rounded-xl shadow-2xl border border-surface-border p-2.5 text-xs flex flex-col gap-2">
-          <div class="text-[10px] font-mono font-bold text-ink-muted px-1 pb-1.5 border-b border-surface-border flex items-center justify-between">
+          <div class="text-[10px] font-mono font-bold text-ink-muted px-1 pb-1.5 border-b border-surface-border flex items-center justify-between gap-1">
             <span>🔗 ${lang === 'KO' ? `전체 교차 출처 (${total}개)` : (lang === 'ZH' ? `全部聚合来源 (${total}个)` : `All Sources (${total})`)}</span>
-            <span class="text-indigo-600 text-[10px] font-bold">언론 ${pressSources.length} · 커뮤니티 ${communitySources.length}</span>
+            <span class="text-indigo-600 text-[10px] font-bold">${summaryParts.join(' · ')}</span>
           </div>
-          <div class="max-h-56 overflow-y-auto space-y-2 pr-0.5 divide-y divide-surface-border/30">
+          <div class="max-h-60 overflow-y-auto space-y-2 pr-0.5 divide-y divide-surface-border/30">
             ${pressSources.length > 0 ? `
               <div class="pt-1">
                 <div class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider mb-1 flex items-center gap-1 px-1">
@@ -196,6 +232,26 @@ export function buildMultiSourceCluster(rawSources, rawItemId) {
                       </span>
                       <span class="truncate text-[10px] text-ink-muted text-right flex-1 mx-1.5 group-hover:text-orange-700">${s.title || s.meta.label}</span>
                       <i data-lucide="external-link" class="w-2.5 h-2.5 text-ink-muted group-hover:text-orange-700 shrink-0"></i>
+                    </a>
+                  `).join('')}
+                </div>
+              </div>
+            ` : ''}
+
+            ${codeSources.length > 0 ? `
+              <div class="pt-1">
+                <div class="text-[10px] font-bold text-indigo-800 uppercase tracking-wider mb-1 flex items-center gap-1 px-1">
+                  <span>💻 코드 & 리서치 (${codeSources.length})</span>
+                </div>
+                <div class="space-y-0.5">
+                  ${codeSources.map(s => `
+                    <a href="${s.meta.url}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-2 py-1 rounded-lg hover:bg-indigo-50/60 transition group text-xs text-ink-primary">
+                      <span class="flex items-center gap-1 shrink-0 font-bold text-indigo-950 text-[11px]">
+                        <span>${s.meta.icon}</span>
+                        <span>${s.meta.label}</span>
+                      </span>
+                      <span class="truncate text-[10px] text-ink-muted text-right flex-1 mx-1.5 group-hover:text-indigo-700">${s.title || s.meta.label}</span>
+                      <i data-lucide="external-link" class="w-2.5 h-2.5 text-ink-muted group-hover:text-indigo-700 shrink-0"></i>
                     </a>
                   `).join('')}
                 </div>
