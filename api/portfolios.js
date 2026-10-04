@@ -44,10 +44,12 @@ module.exports = async (req, res) => {
   if (handleOptions(req, res, 'GET, OPTIONS')) return;
   setCorsHeaders(res, 'GET, OPTIONS');
 
-  // 🌟 High-Performance Edge SWR Cache Headers
-  // s-maxage=600: Edge CDN caches for 10 minutes (0.05s response to 99% users)
-  // stale-while-revalidate=86400: Serves stale cache instantly while revalidating in background for 24h
-  res.setHeader('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=86400');
+  // 🌟 High-Performance Edge SWR Cache Headers (15s Freshness + Cache-Buster Bypass for Instant Factcheck Sync)
+  if (req.query && (req.query._cb || req.query.nocache)) {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+  } else {
+    res.setHeader('Cache-Control', 'public, s-maxage=15, stale-while-revalidate=60');
+  }
 
   const pool = getDbPool();
   if (!pool) {

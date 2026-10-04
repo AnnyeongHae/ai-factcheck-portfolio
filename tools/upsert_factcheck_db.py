@@ -74,7 +74,7 @@ def upsert_case(c):
             c.get('category', 'general_ai'),
             c.get('verdict', 'VERIFIED_TRUE'),
             float(c.get('confidence_score', 95.0)),
-            curation.get('discovery_mode', 'USER_CURATED'),
+            'AUTO_HARVESTED' if curation.get('discovery_mode') == 'AUTO_HARVESTED' else 'USER_CURATED',
             curation.get('curator', 'FactCheck AI Lab'),
             curation.get('personal_motivation', ''),
             curation.get('target_workflow', ''),
@@ -153,9 +153,18 @@ def upsert_case(c):
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        with open(sys.argv[1], 'r', encoding='utf-8') as f:
+        json_path = [a for a in sys.argv[1:] if not a.startswith('--')][0]
+        no_build = '--no-build' in sys.argv[1:]
+        with open(json_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
             if isinstance(data, list):
-                for item in data: upsert_case(item)
+                ok = all(upsert_case(item) for item in data)
             else:
-                upsert_case(data)
+                ok = upsert_case(data)
+        if ok and not no_build:
+            import subprocess
+            build_script = os.path.join(tools_dir, 'build_dashboard.py')
+            if os.path.exists(build_script):
+                print('[*] Synchronizing static dashboard snapshots (public/data.json & docs/data.json)...')
+                subprocess.run([sys.executable, build_script], check=False)
+

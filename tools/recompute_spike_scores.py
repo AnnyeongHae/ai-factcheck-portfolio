@@ -94,6 +94,8 @@ def extract_release_cluster_key(title: str, title_ko: str = "", story_key: str =
         return "release:f-droid-2-0"
     if "copilot+" in combined and ("dead" in combined or "pull back" in combined):
         return "release:microsoft-copilot-plus-pc-dead"
+    if ("pi 1.0" in combined or "pi durable" in combined) and "raspberry" not in combined:
+        return "release:earendil-pi-1-0"
 
     # General regex anchor for any future model + version (+ optional codename)
     m = GENERIC_VERSION_PATTERNS[0].search(combined)

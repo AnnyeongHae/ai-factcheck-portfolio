@@ -1,4 +1,4 @@
-﻿---
+---
 name: factcheck-content-writer
 description: >-
   Use this skill whenever writing, rewriting, or evaluating any public-facing
@@ -28,9 +28,11 @@ description: >-
 
 ---
 
-## THE PIPELINE
+## THE PIPELINE (DB-First SSOT + TENSION-FIRST Content)
 
 `
+[STEP 0] 정본 DB 즉시 적재 (SSOT)     ← tools/upsert_factcheck_db.py 실행 및 DB 반영 검증 (필수 선행)
+         ↓ DB UPSERT VERIFIED
 [STEP 1] 소재 자격 검사 (Gate)       ← 3가지 조건 미충족시 소재 교체
          ↓ PASS
 [STEP 2] 독자 정의                   ← 한 사람을 구체적으로 상상
@@ -43,6 +45,15 @@ description: >-
          ↓ ALL YES
 [STEP 6] 포맷별 출력                 ← Threads / 카드훅 / 뉴스레터 / 퀴즈
 `
+
+---
+
+## STEP 0 — 정본 DB 즉시 적재 (Factcheck DB Ingestion Harness)
+
+모든 팩트체크 및 `/factcheck-content-writer` 실행 시 **텍스트 답변만 출력하고 끝내는 것을 엄격히 금지**한다.
+1. 조사한 클레임(`claims_assessment`), 대안 도구(`alternatives`), 커뮤니티 반응(`raw_viral_post`), 그리고 TENSION-FIRST 원칙이 적용된 `portfolio_story.the_hook`을 갖춘 JSON 페이로드를 생성한다 (`curation.discovery_mode`는 반드시 `"USER_CURATED"` 또는 `"AUTO_HARVESTED"`로 지정).
+2. `python tools/upsert_factcheck_db.py <json_path>`를 실행하여 정본 DB(`verified_factchecks`, `factcheck_atomic_claims`, `factcheck_alternatives`, `factcheck_community_signals`)에 즉시 UPSERT한다.
+3. 로컬/정적 스냅샷 동기화가 필요한 경우 `python tools/build_dashboard.py` 및 프런트엔드 번들 빌드를 수행하여 공식 검증(Official Verified) 탭과 100% 일치시킨다.
 
 ---
 

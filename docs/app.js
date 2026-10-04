@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-02T18:10:30.167Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-04T16:42:43.607Z */
 
 (() => {
   // src/js/core/config.js
@@ -1553,7 +1553,28 @@
           if (liveInbox) snapshotStats.inbox_total_count = liveInbox;
           if (liveModels) snapshotStats.models_total_count = liveModels;
           if (liveNews) snapshotStats.news_total_count = liveNews;
-          if (data.counts.factchecks_verified) snapshotStats.total_cases = data.counts.factchecks_verified;
+          if (data.counts.factchecks_verified) {
+            snapshotStats.total_cases = data.counts.factchecks_verified;
+            const currentLoadedCases = (AppStore.getCases() || []).length;
+            if (currentLoadedCases !== data.counts.factchecks_verified || force) {
+              try {
+                const freshUrl = APP_CONFIG.apiUrl(`/api/portfolios?summary=true&_cb=${data.counts.factchecks_verified}_${Date.now()}`);
+                const freshRes = await fetch(freshUrl, { cache: "no-store" });
+                if (freshRes.ok) {
+                  const freshData = await freshRes.json();
+                  if (freshData && freshData.success && Array.isArray(freshData.portfolios) && freshData.portfolios.length > 0) {
+                    AppStore.setCases(freshData.portfolios);
+                    ClientCache.set("portfolios_summary", freshData);
+                    if (typeof window.renderCards === "function") window.renderCards();
+                    if (typeof window.renderHomeTopPicks === "function") window.renderHomeTopPicks();
+                    updateGlobalStatsUI();
+                  }
+                }
+              } catch (err) {
+                console.warn("[LiveDB Sync] Failed to refresh portfolios on count mismatch:", err.message);
+              }
+            }
+          }
           const hInbox = document.getElementById("headerInboxCount");
           if (hInbox && liveInbox) hInbox.textContent = `(${liveInbox.toLocaleString()})`;
           const statInbox = document.getElementById("statValInbox");
