@@ -96,6 +96,10 @@ def extract_release_cluster_key(title: str, title_ko: str = "", story_key: str =
         return "release:microsoft-copilot-plus-pc-dead"
     if ("pi 1.0" in combined or "pi durable" in combined) and "raspberry" not in combined:
         return "release:earendil-pi-1-0"
+    if "kolibri" in combined and any(k in combined for k in ["sovereign", "open-weight", "open weight", "aleph-alpha", "tech report", "소버린", "오픈웨이트", "주권형", "기술 보고서"]):
+        return "release:germany-sovereign-ai-kolibri"
+    if any(k in combined for k in ["altman", "알트만", "오픈ai 최고경영자", "openai ceo"]) and any(k in combined for k in ["bad things", "accept some", "risks are worth", "warrant accepting", "일부 위험 감수", "나쁜 일도 받아들여야", "regulatory divide", "리스크 규제 입장", "부작용을 일으키겠지만"]):
+        return "event:openai-altman-accept-ai-risks"
 
     # General regex anchor for any future model + version (+ optional codename)
     m = GENERIC_VERSION_PATTERNS[0].search(combined)
@@ -110,6 +114,72 @@ def extract_release_cluster_key(title: str, title_ko: str = "", story_key: str =
             return f"release:auto-{family}-{ver}"
 
     return ""
+
+PREFIX_STRIP_RE_PY = re.compile(r'^(?:News|Hacker News|Reddit|GeekNews|GitHub|HuggingFace Model|HF Space|PyTorchKR|YouTube(?:\s*\([^)]*\))?|Press(?:\s*\([^)]*\))?|r/[a-zA-Z0-9_]+):\s*', re.IGNORECASE)
+SHOW_HN_RE_PY = re.compile(r'^(?:Show HN|Ask HN|Show GN):\s*', re.IGNORECASE)
+VERSION_TOKEN_RE_PY = re.compile(r'\b(?:b\d{4,6}|v?\d+\.\d+(?:\.\d+)?(?:-[a-z0-9.]+)?)\b', re.IGNORECASE)
+MAJOR_ENTITIES_PY = ['openai', 'google', 'anthropic', 'meta', 'microsoft', 'apple', 'deepseek', 'qwen', 'houthi', 'flock', 'nvidia', 'tesla']
+BROAD_ENTITY_TOKENS_PY = {
+    'openai', 'chatgpt', 'anthropic', 'claude', 'google', 'gemini', 'meta', 'llama',
+    'microsoft', 'copilot', 'apple', 'nvidia', 'deepseek', 'qwen', 'amazon', 'aws', 'tesla', 'github'
+}
+STOP_WORDS_PY = {
+    'the', 'and', 'for', 'with', 'that', 'this', 'from', 'into', 'over', 'after', 'before',
+    'under', 'about', 'between', 'through', 'during', 'without', 'within', 'along', 'following',
+    'across', 'behind', 'beyond', 'plus', 'except', 'but', 'up', 'out', 'around', 'down', 'off',
+    'above', 'near', 'new', 'how', 'why', 'what', 'when', 'where', 'who', 'will', 'can', 'may',
+    'now', 'just', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own',
+    'same', 'so', 'than', 'too', 'very', 'says', 'said', 'report', 'reports', 'launch', 'launches',
+    'launched', 'release', 'releases', 'released', 'announces', 'announced', 'unveils', 'unveiled',
+    'rolls', 'out', 'update', 'updates', 'model', 'models', 'ai', 'artificial', 'intelligence',
+    'tech', 'technology', 'company', 'users', 'system', 'systems', 'data', 'first', 'next', 'open', 'source',
+    'youtube', 'jocoding', 'shorts', 'reddit', 'geeknews', 'hacker', 'news', 'github', 'arxiv',
+    'press', 'pytorchkr', 'huggingface', 'hugging', 'face', 'space', 'video', 'videos', 'channel',
+    'show', 'ask', 'has', 'have', 'are', 'was', 'were', 'been', 'being', 'tells', 'shows',
+    'difference', 'stance', 'taking', 'llm', 'llms', 'agent', 'agents', 'reasoning', 'training',
+    'design', 'code', 'coding', 'paper', 'papers', 'preprint', 'world', 'features', 'personal',
+    'research', 'blog', 'technical', 'changelog', 'university', 'peking', 'tsinghua',
+    '2025', '2026', '2027', 'jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec',
+    'notable', 'weekly', 'daily', 'build', 'building', 'guide', 'using', 'based', 'via', 'part', 'large', 'language'
+}
+
+def strip_platform_prefix_py(text: str, platform: str = "") -> str:
+    s = (text or '').strip()
+    if platform:
+        p_clean = platform.split('(')[0].strip()
+        for cand in (platform.strip(), p_clean):
+            if cand and s.lower().startswith(cand.lower() + ':'):
+                s = s[len(cand) + 1:].strip()
+    s = PREFIX_STRIP_RE_PY.sub('', s)
+    s = SHOW_HN_RE_PY.sub('', s)
+    return s
+
+def normalize_for_tokens_py(text: str, platform: str = "") -> str:
+    s = strip_platform_prefix_py(text, platform).lower()
+    s = re.sub(r'\bsam altman\b|\baltman\b|\bopenai ceo\b|\bceo of openai\b', ' openai altman ', s)
+    s = re.sub(r'\bdario amodei\b|\bamodei\b|\banthropic ceo\b', ' anthropic amodei ', s)
+    s = re.sub(r'\bsundar pichai\b|\bdemis hassabis\b', ' google ', s)
+    s = re.sub(r'\bopen[\s\-]+weights?\b', ' openweight ', s)
+    s = re.sub(r'\bbad things\b|\bharms?\b|\brisks?\b', ' risks ', s)
+    s = re.sub(r'\bworth\b|\bbenefits?\b', ' benefits ', s)
+    return s
+
+def extract_specific_tokens_py(text: str, platform: str = "") -> list:
+    norm = normalize_for_tokens_py(text, platform)
+    plat_tokens = set(re.sub(r'[^a-z0-9]+', ' ', (platform or '').lower()).split())
+    cleaned = re.sub(r'[^a-z0-9.\-+]+', ' ', norm)
+    seen = []
+    for tok in cleaned.split():
+        if len(tok) >= 3 and tok not in STOP_WORDS_PY and tok not in plat_tokens and tok not in seen:
+            seen.append(tok)
+    return seen
+
+def has_version_conflict_py(text_a: str, text_b: str) -> bool:
+    va = {m.lower().lstrip('v') for m in VERSION_TOKEN_RE_PY.findall(text_a or '')}
+    vb = {m.lower().lstrip('v') for m in VERSION_TOKEN_RE_PY.findall(text_b or '')}
+    if va and vb and not (va & vb):
+        return True
+    return False
 
 def ensure_primary_in_sources(row_data, created_at):
     """
@@ -459,6 +529,7 @@ def main():
     # Step 1: Cluster cross-platform named releases into unified hub stories
     cluster_window_days = max(7, args.backfill_days or 7)
     clusters = {}
+    row_by_id = {rd["id"]: rd for rd in row_dicts}
     for rd in row_dicts:
         p = rd["raw_payload"]
         t_ko = p.get("title_ko") or (p.get("ai_enrichment") or {}).get("korean_title") or ""
@@ -466,13 +537,32 @@ def main():
         s_key = p.get("canonical_story_key") or (p.get("ai_enrichment") or {}).get("canonical_story_key") or ""
         rel_key = extract_release_cluster_key(rd["title"], t_ko, s_key, t_en)
         rd["release_key"] = rel_key
+        rd["title_en_best"] = t_en or rd["title"] or ""
+        rd["tokens"] = extract_specific_tokens_py(rd["title_en_best"], rd.get("source_platform") or "")
         if rel_key:
             dt = parse_iso_or_default(rd["created_at"], now_utc)
             if (now_utc - dt).total_seconds() <= cluster_window_days * 86400:
                 clusters.setdefault(rel_key, []).append(rd)
 
     archived_dup_ids = []
+    archived_dup_payloads = []
     clustered_hub_ids = set()
+
+    # Pre-fetch pairwise cosine similarities for all Step 1 cluster members in a single query
+    cluster_member_ids = [rd["id"] for grp in clusters.values() if len(grp) >= 2 for rd in grp]
+    cluster_sim_map = {}
+    if cluster_member_ids:
+        cur.execute("""
+            SELECT a.id, b.id, (1 - (a.embedding <=> b.embedding)) as sim
+            FROM raw_trends_inbox a
+            JOIN raw_trends_inbox b ON a.id != b.id
+            WHERE a.id = ANY(%s) AND b.id = ANY(%s)
+              AND a.embedding IS NOT NULL AND b.embedding IS NOT NULL;
+        """, (cluster_member_ids, cluster_member_ids))
+        for aid, bid, sim_v in cur.fetchall():
+            if sim_v is not None:
+                cluster_sim_map[(int(aid), int(bid))] = round(float(sim_v), 4)
+
     for rel_key, group in clusters.items():
         if len(group) < 2:
             continue
@@ -482,6 +572,7 @@ def main():
         group.sort(key=lambda x: (
             1 if x.get("curation_tier") == "DAILY_HOT" else 0,
             len(x["raw_payload"].get("sources") or []),
+            0 if "[pdf]" in (x.get("title") or "").lower() else 1,
             1 if any(k in (x["source_platform"] or "").lower() for k in ["deepmind", "openai", "techcrunch", "geeknews", "hacker news"]) else 0,
             x["id"]
         ), reverse=True)
@@ -490,6 +581,7 @@ def main():
         hub_dt = parse_iso_or_default(hub["created_at"], now_utc)
         hub_sources, _ = ensure_primary_in_sources(hub, hub_dt)
         existing_urls = {(s.get("url") or s.get("source_url") or "").strip() for s in hub_sources if isinstance(s, dict)}
+        hub_toks = hub.get("tokens") or []
 
         merged_any = False
         for sec in group[1:]:
@@ -498,12 +590,28 @@ def main():
                 continue
             sec_dt = parse_iso_or_default(sec["created_at"], now_utc)
             sec_sources, _ = ensure_primary_in_sources(sec, sec_dt)
+            pair_sim = cluster_sim_map.get((hub["id"], sec["id"]))
+            sec_tok_set = set(sec.get("tokens") or [])
+            shared_cluster_toks = [t for t in hub_toks if t in sec_tok_set]
             for s in sec_sources:
                 s_url = (s.get("url") or s.get("source_url") or "").strip()
                 if s_url and s_url not in existing_urls:
-                    hub_sources.append(s)
+                    s_copy = dict(s)
+                    s_copy["type"] = "discussion"
+                    if s_copy.get("similarity") is None and pair_sim is not None:
+                        s_copy["similarity"] = pair_sim
+                    s_copy.setdefault("match_method", f"RELEASE_CLUSTER ({rel_key})")
+                    hub_sources.append(s_copy)
                     existing_urls.add(s_url)
+            sec["raw_payload"]["merged_into"] = {
+                "hub_id": hub["id"],
+                "similarity": pair_sim,
+                "shared_tokens": shared_cluster_toks,
+                "method": f"RELEASE_CLUSTER ({rel_key})",
+                "merged_at": now_utc.isoformat()
+            }
             archived_dup_ids.append(sec["id"])
+            archived_dup_payloads.append((sec["id"], json.dumps(sec["raw_payload"], ensure_ascii=False)))
             merged_any = True
 
         if merged_any:
@@ -513,7 +621,190 @@ def main():
             clustered_hub_ids.add(hub["id"])
             print(f"[+] Clustered '{rel_key}' -> Hub ID {hub['id']} ({hub['title'][:50]}) with {len(hub_sources)} total cross-platform sources")
 
+    # Step 1.5: Retrospective HNSW Vector + Token-Overlap Deduplication & Trace Recording (7-Day Active Window)
     archived_set = set(archived_dup_ids)
+    recent_active_ids = [
+        rd["id"] for rd in row_dicts
+        if rd["id"] not in archived_set and (now_utc - parse_iso_or_default(rd["created_at"], now_utc)).total_seconds() <= 7 * 86400
+    ]
+    if recent_active_ids:
+        cur.execute("""
+            SELECT a.id as a_id, b.id as b_id, (1 - (a.embedding <=> b.embedding)) as sim
+            FROM UNNEST(%s::bigint[]) AS aid
+            JOIN raw_trends_inbox a ON a.id = aid
+            CROSS JOIN LATERAL (
+                SELECT id, embedding
+                FROM raw_trends_inbox
+                WHERE id != a.id
+                  AND created_at >= NOW() - INTERVAL '14 days'
+                  AND (triage_status IS NULL OR triage_status != 'archived')
+                  AND embedding IS NOT NULL
+                ORDER BY a.embedding <=> embedding
+                LIMIT 5
+            ) b
+            WHERE a.embedding IS NOT NULL
+              AND (a.embedding <=> b.embedding) <= 0.35
+            ORDER BY sim DESC;
+        """, (recent_active_ids,))
+        vec_pairs = cur.fetchall()
+
+        trace_map = {}
+        def add_trace(aid, bid, sim_val, shared_toks, decision_str):
+            rd_b = row_by_id.get(bid)
+            if not rd_b:
+                return
+            lst = trace_map.setdefault(aid, [])
+            if len(lst) >= 3 or any(x.get("peer_id") == bid for x in lst):
+                return
+            lst.append({
+                "peer_id": bid,
+                "peer_title": (rd_b.get("title") or "")[:100],
+                "similarity": round(float(sim_val), 4),
+                "shared_tokens": shared_toks,
+                "decision": decision_str
+            })
+
+        hub_redirect = {}
+        def resolve_hub(item_id):
+            c = item_id
+            vis = set()
+            while c in hub_redirect and c not in vis:
+                vis.add(c)
+                c = hub_redirect[c]
+            return c
+
+        seen_pairs = set()
+        for a_id, b_id, sim_val in vec_pairs:
+            a_id, b_id = int(a_id), int(b_id)
+            sim_f = float(sim_val or 0.0)
+            rd_a = row_by_id.get(a_id)
+            rd_b = row_by_id.get(b_id)
+            if not rd_a or not rd_b:
+                continue
+            if a_id in archived_set and a_id not in hub_redirect:
+                continue
+            if b_id in archived_set and b_id not in hub_redirect:
+                continue
+
+            tok_a = rd_a.get("tokens") or []
+            tok_b_set = set(rd_b.get("tokens") or [])
+            shared_toks = [t for t in tok_a if t in tok_b_set]
+            specific_shared = [t for t in shared_toks if t not in BROAD_ENTITY_TOKENS_PY]
+
+            if sim_f < 0.78:
+                add_trace(a_id, b_id, sim_f, shared_toks, "BELOW_THRESHOLD")
+                continue
+
+            # Do not merge two different canonical release hubs
+            rel_a = rd_a.get("release_key") or ""
+            rel_b = rd_b.get("release_key") or ""
+            if rel_a and rel_b and rel_a != rel_b:
+                add_trace(a_id, b_id, sim_f, shared_toks, "REJECTED_RELEASE_CONFLICT")
+                continue
+            if (a_id in clustered_hub_ids or b_id in clustered_hub_ids) and len(specific_shared) < 2:
+                add_trace(a_id, b_id, sim_f, shared_toks, "REJECTED_CANONICAL_HUB_LOCK")
+                continue
+
+            # Version / Build Number Conflict Veto (e.g. b11397 vs b11411, 0.162.0-alpha.14 vs alpha.12)
+            if has_version_conflict_py(rd_a.get("title_en_best", ""), rd_b.get("title_en_best", "")):
+                add_trace(a_id, b_id, sim_f, shared_toks, "REJECTED_VERSION_CONFLICT")
+                continue
+
+            norm_p_a = (rd_a.get("source_platform") or "").strip().lower()
+            norm_p_b = (rd_b.get("source_platform") or "").strip().lower()
+            url_a = (rd_a.get("source_url") or "").strip()
+            url_b = (rd_b.get("source_url") or "").strip()
+            if norm_p_a and norm_p_a == norm_p_b and "youtube" in norm_p_a and url_a != url_b:
+                add_trace(a_id, b_id, sim_f, shared_toks, "REJECTED_SAME_YOUTUBE_CHANNEL")
+                continue
+
+            low_a = normalize_for_tokens_py(rd_a.get("title_en_best", ""), rd_a.get("source_platform") or "")
+            low_b = normalize_for_tokens_py(rd_b.get("title_en_best", ""), rd_b.get("source_platform") or "")
+            ents_a = [e for e in MAJOR_ENTITIES_PY if e in low_a]
+            ents_b = [e for e in MAJOR_ENTITIES_PY if e in low_b]
+            if ents_a and ents_b and not any(e in ents_b for e in ents_a):
+                add_trace(a_id, b_id, sim_f, shared_toks, "REJECTED_ENTITY_VETO")
+                continue
+
+            # Same-platform items (e.g. two HuggingFace models or two GitHub repos) must share at least 2 specific tokens even at high vector similarity
+            if norm_p_a == norm_p_b and len(specific_shared) < 2:
+                add_trace(a_id, b_id, sim_f, shared_toks, "REJECTED_SAME_PLATFORM_LOW_SPECIFIC_TOKENS")
+                continue
+
+            if sim_f >= 0.88 and len(shared_toks) >= 1:
+                method = "VECTOR_HIGH (>=0.88)"
+            elif sim_f >= 0.78 and len(shared_toks) >= 2 and len(specific_shared) >= 2:
+                method = f"TOKEN_OVERLAP ({','.join(shared_toks[:4])})"
+            else:
+                add_trace(a_id, b_id, sim_f, shared_toks, "REJECTED_AMBIGUOUS_LOW_OVERLAP")
+                continue
+
+            add_trace(a_id, b_id, sim_f, shared_toks, method)
+            add_trace(b_id, a_id, sim_f, shared_toks, method)
+
+            pkey = (min(a_id, b_id), max(a_id, b_id))
+            if pkey in seen_pairs:
+                continue
+            seen_pairs.add(pkey)
+
+            res_a = resolve_hub(a_id)
+            res_b = resolve_hub(b_id)
+            if res_a == res_b:
+                continue
+
+            rd_res_a = row_by_id.get(res_a)
+            rd_res_b = row_by_id.get(res_b)
+            if not rd_res_a or not rd_res_b:
+                continue
+
+            # Prefer the row with more existing sources, or older ID
+            len_a = len(rd_res_a["raw_payload"].get("sources") or [])
+            len_b = len(rd_res_b["raw_payload"].get("sources") or [])
+            if len_b > len_a or (len_b == len_a and res_b < res_a):
+                hub_rd, sec_rd = rd_res_b, rd_res_a
+            else:
+                hub_rd, sec_rd = rd_res_a, rd_res_b
+
+            hub_dt = parse_iso_or_default(hub_rd["created_at"], now_utc)
+            sec_dt = parse_iso_or_default(sec_rd["created_at"], now_utc)
+            hub_sources, _ = ensure_primary_in_sources(hub_rd, hub_dt)
+            sec_sources, _ = ensure_primary_in_sources(sec_rd, sec_dt)
+            existing_urls = {(s.get("url") or s.get("source_url") or "").strip() for s in hub_sources if isinstance(s, dict)}
+
+            for s in sec_sources:
+                s_url = (s.get("url") or s.get("source_url") or "").strip()
+                if s_url and s_url not in existing_urls:
+                    s_copy = dict(s)
+                    s_copy["type"] = "discussion"
+                    s_copy["similarity"] = round(sim_f, 4)
+                    s_copy["match_method"] = method
+                    hub_sources.append(s_copy)
+                    existing_urls.add(s_url)
+
+            hub_rd["raw_payload"]["sources"] = hub_sources
+            hub_rd["raw_payload"]["has_multi_sources"] = len(hub_sources) > 1
+            hub_rd["raw_payload"]["is_cross_spiking"] = len(hub_sources) > 1
+            clustered_hub_ids.add(hub_rd["id"])
+
+            sec_rd["raw_payload"]["merged_into"] = {
+                "hub_id": hub_rd["id"],
+                "similarity": round(sim_f, 4),
+                "method": method,
+                "shared_tokens": shared_toks,
+                "merged_at": now_utc.isoformat()
+            }
+            hub_redirect[sec_rd["id"]] = hub_rd["id"]
+            archived_set.add(sec_rd["id"])
+            archived_dup_ids.append(sec_rd["id"])
+            archived_dup_payloads.append((sec_rd["id"], json.dumps(sec_rd["raw_payload"], ensure_ascii=False)))
+            print(f"[+] Vector+Token Merged ({sim_f:.4f} | {method}) ID {sec_rd['id']} -> Hub ID {hub_rd['id']} ({hub_rd['title'][:50]})")
+
+        for aid, traces in trace_map.items():
+            rd_t = row_by_id.get(aid)
+            if rd_t and rd_t["raw_payload"].get("dedup_trace") != traces:
+                rd_t["raw_payload"]["dedup_trace"] = traces
+                rd_t["trace_updated"] = True
+
     active_rows = [rd for rd in row_dicts if rd["id"] not in archived_set]
 
     # Track peak score & best rank across historical backfill + today
@@ -619,11 +910,12 @@ def main():
         analysis = row_data["live_analysis"]
         was_healed = row_data["was_healed"]
 
+        trace_updated = bool(row_data.get("trace_updated"))
         old_spk = bool(row_data["raw_payload"].get("is_cross_spiking"))
         is_multi = bool(analysis["sources_count"] >= 2 or analysis["axes_count"] >= 2 or is_spiking or old_spk)
 
-        # Single-source non-spiking items that were not healed and not clustered do not need DB writes
-        if not is_multi and not was_healed and rid not in clustered_hub_ids:
+        # Single-source non-spiking items that were not healed and not clustered and have no trace update do not need DB writes
+        if not is_multi and not was_healed and rid not in clustered_hub_ids and not trace_updated:
             continue
 
         pk = peak_tracker.get(rid)
@@ -643,7 +935,7 @@ def main():
         src_changed = (int(old_an.get("sources_count", -1)) != int(analysis["sources_count"]))
         peak_changed = (abs(row_data["db_peak_score"] - peak_score) >= 0.1) or (row_data["db_best_rank"] != best_rank)
 
-        if was_healed or rid in clustered_hub_ids or score_changed or spk_changed or src_changed or peak_changed:
+        if was_healed or rid in clustered_hub_ids or score_changed or spk_changed or src_changed or peak_changed or trace_updated:
             new_payload = dict(row_data["raw_payload"])
             new_payload["spike_analysis"] = analysis
             new_payload["is_cross_spiking"] = is_spiking
@@ -674,15 +966,18 @@ def main():
     if args.commit:
         from psycopg2.extras import execute_values
         t_write = datetime.now(timezone.utc)
-        if archived_dup_ids:
-            cur.execute("""
-                UPDATE raw_trends_inbox
+        if archived_dup_payloads:
+            dup_sql = """
+                UPDATE raw_trends_inbox AS t
                 SET triage_status = 'archived',
                     curation_tier = 'duplicate',
+                    raw_payload = v.payload::jsonb,
                     updated_at = NOW()
-                WHERE id = ANY(%s);
-            """, (archived_dup_ids,))
-            print(f"[*] Archived {len(archived_dup_ids)} cross-platform duplicate rows into their primary hubs.")
+                FROM (VALUES %s) AS v(id, payload)
+                WHERE t.id = v.id::bigint;
+            """
+            execute_values(cur, dup_sql, archived_dup_payloads, page_size=500)
+            print(f"[*] Archived {len(archived_dup_payloads)} cross-platform duplicate rows (with merged_into trace) into their primary hubs.")
         if updates:
             print(f"[*] Committing updates for {len(updates)} dirty-checked rows via single-RTT execute_values...")
             bulk_sql = """

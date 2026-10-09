@@ -152,7 +152,7 @@ def extract_entity_and_category(title_clean: str):
     return entity, t1, prim, itype
 
 SYSTEM_INSTRUCTION_KO = """당신은 최고 수준의 글로벌 IT/AI 전문 기술 분석가 및 번역가입니다. 주어진 기술/뉴스 제목 목록을 분석하여 반드시 유효한 JSON 배열만 출력하세요:
-[{"id": 항목ID, "title_en": "원문이 한국어나 중국어인 경우 명확한 영어 제목 번역(영어 원문이면 그대로 유지)", "title_ko": "한국 엔지니어가 읽기 자연스러운 한국어 제목 번역", "title_zh": "중국어 간체자 제목 번역", "hook_ko": "제목을 반복하지 않고 핵심 기술적 의의나 엔지니어링 시사점을 1문장(40~70자)으로 요약한 한국어 후킹 문구", "hook_zh": "제목을 반복하지 않는 중국어 간체자 1문장 핵심 요약"}]"""
+[{"id": 항목ID, "title_en": "원문이 한국어나 중국어인 경우 명확한 영어 제목 번역(영어 원문이면 그대로 유지)", "title_ko": "한국 엔지니어가 읽기 자연스러운 한국어 제목 번역", "title_zh": "중국어 간체자 제목 번역", "hook_en": "1-sentence English summary of the core event, entity, and technical/industry impact", "hook_ko": "제목을 반복하지 않고 핵심 기술적 의의나 엔지니어링 시사점을 1문장(40~70자)으로 요약한 한국어 후킹 문구", "hook_zh": "제목을 반복하지 않는 중국어 간체자 1문장 핵심 요약"}]"""
 
 def build_translation_prompt(items_to_translate: list) -> str:
     compact_input = json.dumps(items_to_translate, ensure_ascii=False, separators=(',', ':'))
@@ -196,6 +196,7 @@ def translate_titles_gemini(items: list, gemini_key: str, model_id: str = GEMINI
                             "title_en": p.get("title_en") or "",
                             "title_ko": p.get("title_ko") or "",
                             "title_zh": p.get("title_zh") or "",
+                            "hook_en": p.get("hook_en") or "",
                             "hook_ko": p.get("hook_ko") or "",
                             "hook_zh": p.get("hook_zh") or ""
                         }
@@ -260,6 +261,7 @@ def translate_titles_openrouter(items: list, openrouter_key: str):
                             "title_en": p.get("title_en") or "",
                             "title_ko": p.get("title_ko") or "",
                             "title_zh": p.get("title_zh") or "",
+                            "hook_en": p.get("hook_en") or "",
                             "hook_ko": p.get("hook_ko") or "",
                             "hook_zh": p.get("hook_zh") or ""
                         }
@@ -293,9 +295,9 @@ def assemble_enriched_item(item: dict, translations: dict) -> dict:
     entity, t1, prim, itype = extract_entity_and_category(f"{t_en} {title_clean}")
     story_key = slugify(t_en if not (KOREAN_REGEX.search(t_en) or CHINESE_REGEX.search(t_en)) else title_clean)
 
-    # Distinct, non-repetitive contextual hooks and takeaways
+    # Distinct, non-repetitive contextual hooks and takeaways (no boilerplate hook_en pollution)
     h_ko = trans.get('hook_ko') or f"{plat_prefix} 생태계에서 부상 중인 핵심 아키텍처 명세 및 실무 엔지니어링 영향 분석"
-    h_en = f"Key architectural updates and practitioner impact analysis published via {plat_prefix}."
+    h_en = trans.get('hook_en') or t_en
     h_zh = trans.get('hook_zh') or f"来自 {plat_prefix} 生态的核心技术架构突破与全球开发者社区深度解析。"
 
     tk_ko = [

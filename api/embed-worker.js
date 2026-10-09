@@ -18,7 +18,8 @@ const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 const VOYAGE_API_URL = 'https://api.voyageai.com/v1/embeddings';
 const VOYAGE_MODEL = 'voyage-4-lite';
 const VOYAGE_DIM = 1024;
-const SIMILARITY_THRESHOLD = 0.78; // Cosine similarity >= 0.78 (distance <= 0.22)
+const SIMILARITY_THRESHOLD = 0.78; // Cosine similarity >= 0.78 candidate merge zone
+const TRACE_THRESHOLD = 0.65;      // Record top nearest neighbors >= 0.65 in dedup_trace for zero-overhead debugging
 
 function calculateSpikeAnalysis(sources, createdAtStr, viralScore = 0, deltaMetric = 0, commentsCount = 0) {
   const axes = new Set();
@@ -180,17 +181,19 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    // 2. Prepare Rich Text payload for Voyage AI (English-Only standard)
+    // 2. Prepare Rich Text payload for Voyage AI (English-Only standard, excluding boilerplate hooks)
     const PREFIX_STRIP_RE = /^(?:News|Hacker News|Reddit|GeekNews|GitHub|HuggingFace Model|HF Space|PyTorchKR|YouTube(?:\s*\([^)]*\))?|Press(?:\s*\([^)]*\))?|r\/[a-zA-Z0-9_]+):\s*/i;
+    const BOILERPLATE_HOOK_RE = /^Key architectural updates and practitioner impact analysis published via/i;
     const texts = items.map(item => {
       const p = item.raw_payload || {};
-      const en = (p.title_en || item.title || '').replace(PREFIX_STRIP_RE, '').trim();
-      const hookStr = (p.hook_en || p.hook || '').trim();
-      const summaryStr = (p.ai_enrichment?.summary_en || p.description || '').trim();
+      const en = (p.title_en || p.ai_enrichment?.multilingual?.en?.title || item.title || '').replace(PREFIX_STRIP_RE, '').trim();
+      const rawHook = (p.hook_en || p.ai_enrichment?.multilingual?.en?.hook || '').trim();
+      const hookStr = BOILERPLATE_HOOK_RE.test(rawHook) ? '' : rawHook;
+      const summaryStr = (p.description_en || p.description || '').trim();
 
       const parts = [en || 'Untitled'];
       if (hookStr) parts.push(`Hook: ${hookStr}`);
-      if (summaryStr) parts.push(`Summary: ${summaryStr.slice(0, 300)}`);
+      if (summaryStr && !BOILERPLATE_HOOK_RE.test(summaryStr)) parts.push(`Summary: ${summaryStr.slice(0, 300)}`);
 
       return parts.join(' | ');
     });
@@ -241,9 +244,9 @@ module.exports = async function handler(req, res) {
     );
 
     // 5. Ultra-Fast HNSW-Accelerated Semantic Deduplication Check on current batch items
-    // Finds pairs with cosine similarity >= 0.76 within the past 30 days using LATERAL HNSW index (<0.3s)
+    // Queries top-5 nearest neighbors (sim >= 0.65) for dedup_trace logging & evaluates sim >= 0.74 for merging
     const batchIds = items.map(it => it.id);
-    const distanceThreshold = 1.0 - SIMILARITY_THRESHOLD; // <= 0.24 (similarity >= 0.76)
+    const traceDistanceThreshold = 1.0 - TRACE_THRESHOLD; // <= 0.35 (similarity >= 0.65)
     const dedupQuery = `
       SELECT a.id as a_id, a.title as a_title, a.raw_payload as a_payload,
              a.source_platform as a_platform, a.source_url as a_url, a.created_at as a_created_at,
@@ -265,66 +268,14 @@ module.exports = async function handler(req, res) {
       WHERE (a.embedding <=> b.embedding) <= $2
       ORDER BY similarity DESC;
     `;
-    const { rows: dupPairs } = await client.query(dedupQuery, [batchIds, distanceThreshold]);
+    const { rows: dupPairs } = await client.query(dedupQuery, [batchIds, traceDistanceThreshold]);
 
-    // Pre-screen pairs and collect ambiguous zone (0.76 <= sim < 0.88) for 1-Shot Bulk JEV Judge
     const MAJOR_ENTITIES = ['openai', 'google', 'anthropic', 'meta', 'microsoft', 'apple', 'deepseek', 'qwen', 'houthi', 'flock', 'nvidia', 'tesla'];
-    const validPairs = [];
-    const ambiguousPairs = [];
-
-    for (const pair of dupPairs) {
-      const isAOlder = pair.a_id < pair.b_id;
-      const primaryTitle = isAOlder ? pair.a_title : pair.b_title;
-      const dupTitle = isAOlder ? pair.b_title : pair.a_title;
-      const primaryPlatform = isAOlder ? pair.a_platform : pair.b_platform;
-      const dupPlatform = isAOlder ? pair.b_platform : pair.a_platform;
-      const primaryUrl = isAOlder ? pair.a_url : pair.b_url;
-      const dupUrl = isAOlder ? pair.b_url : pair.a_url;
-
-      // Same-Channel / Same-Platform Self-Merge Veto Guardrail
-      // Prevents different videos from the same YouTube creator (e.g. JoCoding) or same sub-channel from merging together
-      const normPPlat = (primaryPlatform || '').trim().toLowerCase();
-      const normDPlat = (dupPlatform || '').trim().toLowerCase();
-      if (normPPlat && normPPlat === normDPlat && (normPPlat.includes('youtube') || primaryUrl !== dupUrl)) {
-        continue;
-      }
-
-      // Entity Veto Guardrail (OpenAI vs Google, etc. -> Never Merge)
-      const pLower = (primaryTitle || '').toLowerCase();
-      const dLower = (dupTitle || '').toLowerCase();
-      const pEnts = MAJOR_ENTITIES.filter(e => pLower.includes(e));
-      const dEnts = MAJOR_ENTITIES.filter(e => dLower.includes(e));
-      if (pEnts.length > 0 && dEnts.length > 0 && !pEnts.some(e => dEnts.includes(e))) {
-        continue; // Veto merge
-      }
-
-      const pData = {
-        pair,
-        isAOlder,
-        primaryId: isAOlder ? pair.a_id : pair.b_id,
-        primaryTitle,
-        primaryPlatform,
-        primaryUrl,
-        primaryPayload: isAOlder ? pair.a_payload : pair.b_payload,
-        primaryCreatedAt: isAOlder ? pair.a_created_at : pair.b_created_at,
-        dupId: isAOlder ? pair.b_id : pair.a_id,
-        dupTitle,
-        dupPlatform,
-        dupUrl,
-        dupPayload: isAOlder ? pair.b_payload : pair.a_payload,
-        sim: pair.similarity
-      };
-
-      if (pair.similarity >= 0.88) {
-        validPairs.push(pData);
-      } else {
-        pData.ambiguousIdx = ambiguousPairs.length;
-        ambiguousPairs.push(pData);
-      }
-    }
-
-    // 🌟 Deterministic Entity + Specific-Token Overlap Judge for Ambiguous Zone (0.76 <= sim < 0.88)
-    // Guarantees cross-platform merges even when OpenRouter JEV times out or is rate-limited
+    const BROAD_ENTITY_TOKENS = new Set([
+      'openai', 'chatgpt', 'anthropic', 'claude', 'google', 'gemini', 'meta', 'llama',
+      'microsoft', 'copilot', 'apple', 'nvidia', 'deepseek', 'qwen', 'amazon', 'aws', 'tesla', 'github'
+    ]);
+    const VERSION_TOKEN_RE = /\b(?:b\d{4,6}|v?\d+\.\d+(?:\.\d+)?(?:-[a-z0-9.]+)?)\b/gi;
     const STOP_WORDS = new Set([
       'the', 'and', 'for', 'with', 'that', 'this', 'from', 'into', 'over', 'after', 'before',
       'under', 'about', 'between', 'through', 'during', 'without', 'within', 'along', 'following',
@@ -334,26 +285,192 @@ module.exports = async function handler(req, res) {
       'same', 'so', 'than', 'too', 'very', 'says', 'said', 'report', 'reports', 'launch', 'launches',
       'launched', 'release', 'releases', 'released', 'announces', 'announced', 'unveils', 'unveiled',
       'rolls', 'out', 'update', 'updates', 'model', 'models', 'ai', 'artificial', 'intelligence',
-      'tech', 'technology', 'company', 'users', 'system', 'data', 'first', 'next', 'open', 'source',
+      'tech', 'technology', 'company', 'users', 'system', 'systems', 'data', 'first', 'next', 'open', 'source',
       'youtube', 'jocoding', 'shorts', 'reddit', 'geeknews', 'hacker', 'news', 'github', 'arxiv',
-      'press', 'pytorchkr', 'huggingface', 'space', 'video', 'channel'
+      'press', 'pytorchkr', 'huggingface', 'hugging', 'face', 'space', 'video', 'videos', 'channel',
+      'show', 'ask', 'has', 'have', 'are', 'was', 'were', 'been', 'being', 'tells', 'shows',
+      'difference', 'stance', 'taking', 'llm', 'llms', 'agent', 'agents', 'reasoning', 'training',
+      'design', 'code', 'coding', 'paper', 'papers', 'preprint', 'world', 'features', 'personal',
+      'research', 'blog', 'technical', 'changelog', 'university', 'peking', 'tsinghua',
+      '2025', '2026', '2027', 'jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec',
+      'notable', 'weekly', 'daily', 'build', 'building', 'guide', 'using', 'based', 'via', 'part', 'large', 'language'
     ]);
-    function extractSpecificTokens(text) {
-      return (text || '')
-        .replace(PREFIX_STRIP_RE, '')
-        .toLowerCase()
-        .replace(/[^a-z0-9.\-+]+/g, ' ')
-        .split(/\s+/)
-        .filter(t => t.length >= 3 && !STOP_WORDS.has(t));
+
+    function stripPlatformPrefix(text, platform = '') {
+      let s = (text || '').trim();
+      if (platform) {
+        const pClean = platform.split('(')[0].trim();
+        for (const cand of [platform.trim(), pClean]) {
+          if (cand && s.toLowerCase().startsWith(cand.toLowerCase() + ':')) {
+            s = s.slice(cand.length + 1).trim();
+          }
+        }
+      }
+      return s.replace(PREFIX_STRIP_RE, '').replace(/^(?:Show HN|Ask HN|Show GN):\s*/i, '');
     }
 
+    function normalizeForTokens(text, platform = '') {
+      return stripPlatformPrefix(text, platform)
+        .toLowerCase()
+        .replace(/\bsam altman\b|\baltman\b|\bopenai ceo\b|\bceo of openai\b/g, ' openai altman ')
+        .replace(/\bdario amodei\b|\bamodei\b|\banthropic ceo\b/g, ' anthropic amodei ')
+        .replace(/\bsundar pichai\b|\bdemis hassabis\b/g, ' google ')
+        .replace(/\bopen[\s\-]+weights?\b/g, ' openweight ')
+        .replace(/\bbad things\b|\bharms?\b|\brisks?\b/g, ' risks ')
+        .replace(/\bworth\b|\bbenefits?\b/g, ' benefits ');
+    }
+
+    function extractSpecificTokens(text, platform = '') {
+      const platTokens = new Set((platform || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').split(/\s+/).filter(Boolean));
+      const rawTokens = normalizeForTokens(text, platform)
+        .replace(/[^a-z0-9.\-+]+/g, ' ')
+        .split(/\s+/)
+        .filter(t => t.length >= 3 && !STOP_WORDS.has(t) && !platTokens.has(t));
+      return Array.from(new Set(rawTokens));
+    }
+
+    function hasVersionConflict(textA, textB) {
+      const mA = (textA || '').match(VERSION_TOKEN_RE) || [];
+      const mB = (textB || '').match(VERSION_TOKEN_RE) || [];
+      const setA = new Set(mA.map(x => x.toLowerCase().replace(/^v/, '')));
+      const setB = new Set(mB.map(x => x.toLowerCase().replace(/^v/, '')));
+      if (setA.size > 0 && setB.size > 0) {
+        let intersect = false;
+        for (const v of setA) {
+          if (setB.has(v)) intersect = true;
+        }
+        if (!intersect) return true;
+      }
+      return false;
+    }
+
+    function getBestEnglishTitle(rawTitle, payload) {
+      const p = payload || {};
+      return p.title_en || p.ai_enrichment?.multilingual?.en?.title || rawTitle || '';
+    }
+
+    // Track per-item nearest neighbor trace (up to Top 3 per item) for zero-overhead DB debugging
+    const traceMap = new Map();
+    for (const it of items) {
+      traceMap.set(Number(it.id), { payload: it.raw_payload || {}, traces: [] });
+    }
+    function recordTrace(aId, bId, bTitle, sim, sharedTokens, decision) {
+      const entry = traceMap.get(Number(aId));
+      if (!entry || entry.traces.length >= 3) return;
+      if (entry.traces.some(t => t.peer_id === Number(bId))) return;
+      entry.traces.push({
+        peer_id: Number(bId),
+        peer_title: (bTitle || '').slice(0, 100),
+        similarity: parseFloat(Number(sim || 0).toFixed(4)),
+        shared_tokens: sharedTokens || [],
+        decision
+      });
+    }
+
+    const validPairs = [];
+    const ambiguousPairs = [];
+    const seenPairKeys = new Set();
+
+    for (const pair of dupPairs) {
+      const aId = Number(pair.a_id);
+      const bId = Number(pair.b_id);
+      const isAOlder = aId < bId;
+      const pairKey = isAOlder ? `${aId}:${bId}` : `${bId}:${aId}`;
+
+      const aTitleEn = getBestEnglishTitle(pair.a_title, pair.a_payload);
+      const bTitleEn = getBestEnglishTitle(pair.b_title, pair.b_payload);
+      const tA = extractSpecificTokens(aTitleEn, pair.a_platform);
+      const tBSet = new Set(extractSpecificTokens(bTitleEn, pair.b_platform));
+      const sharedTokens = tA.filter(tok => tBSet.has(tok));
+      const specificShared = sharedTokens.filter(tok => !BROAD_ENTITY_TOKENS.has(tok));
+
+      if (pair.similarity < SIMILARITY_THRESHOLD) {
+        recordTrace(aId, bId, pair.b_title, pair.similarity, sharedTokens, 'BELOW_THRESHOLD');
+        continue;
+      }
+
+      if (seenPairKeys.has(pairKey)) {
+        continue;
+      }
+      seenPairKeys.add(pairKey);
+
+      const primaryTitle = isAOlder ? pair.a_title : pair.b_title;
+      const dupTitle = isAOlder ? pair.b_title : pair.a_title;
+      const primaryTitleEn = isAOlder ? aTitleEn : bTitleEn;
+      const dupTitleEn = isAOlder ? bTitleEn : aTitleEn;
+      const primaryPlatform = isAOlder ? pair.a_platform : pair.b_platform;
+      const dupPlatform = isAOlder ? pair.b_platform : pair.a_platform;
+      const primaryUrl = isAOlder ? pair.a_url : pair.b_url;
+      const dupUrl = isAOlder ? pair.b_url : pair.a_url;
+
+      // Version / Build Number Conflict Veto
+      if (hasVersionConflict(primaryTitleEn, dupTitleEn)) {
+        recordTrace(aId, bId, pair.b_title, pair.similarity, sharedTokens, 'REJECTED_VERSION_CONFLICT');
+        continue;
+      }
+
+      // Same-Channel YouTube Self-Merge Veto Guardrail
+      const normPPlat = (primaryPlatform || '').trim().toLowerCase();
+      const normDPlat = (dupPlatform || '').trim().toLowerCase();
+      if (normPPlat && normPPlat === normDPlat && normPPlat.includes('youtube') && primaryUrl !== dupUrl) {
+        recordTrace(aId, bId, pair.b_title, pair.similarity, sharedTokens, 'REJECTED_SAME_YOUTUBE_CHANNEL');
+        continue;
+      }
+
+      // Entity Veto Guardrail (OpenAI vs Google, etc. -> Never Merge unless they share at least 1 entity)
+      const pLower = normalizeForTokens(primaryTitleEn, primaryPlatform);
+      const dLower = normalizeForTokens(dupTitleEn, dupPlatform);
+      const pEnts = MAJOR_ENTITIES.filter(e => pLower.includes(e));
+      const dEnts = MAJOR_ENTITIES.filter(e => dLower.includes(e));
+      if (pEnts.length > 0 && dEnts.length > 0 && !pEnts.some(e => dEnts.includes(e))) {
+        recordTrace(aId, bId, pair.b_title, pair.similarity, sharedTokens, 'REJECTED_ENTITY_VETO');
+        continue;
+      }
+
+      // Same-platform items must share at least 2 specific tokens
+      if (normPPlat === normDPlat && specificShared.length < 2) {
+        recordTrace(aId, bId, pair.b_title, pair.similarity, sharedTokens, 'REJECTED_SAME_PLATFORM_LOW_SPECIFIC_TOKENS');
+        continue;
+      }
+
+      const pData = {
+        pair,
+        isAOlder,
+        primaryId: isAOlder ? aId : bId,
+        primaryTitle,
+        primaryTitleEn,
+        primaryPlatform,
+        primaryUrl,
+        primaryPayload: isAOlder ? pair.a_payload : pair.b_payload,
+        primaryCreatedAt: isAOlder ? pair.a_created_at : pair.b_created_at,
+        dupId: isAOlder ? bId : aId,
+        dupTitle,
+        dupTitleEn,
+        dupPlatform,
+        dupUrl,
+        dupPayload: isAOlder ? pair.b_payload : pair.a_payload,
+        sim: pair.similarity,
+        sharedTokens,
+        specificShared,
+        matchMethod: 'VECTOR_HIGH'
+      };
+
+      if (pair.similarity >= 0.88 && sharedTokens.length >= 1) {
+        pData.matchMethod = 'VECTOR_HIGH (>=0.88)';
+        recordTrace(aId, bId, pair.b_title, pair.similarity, sharedTokens, pData.matchMethod);
+        validPairs.push(pData);
+      } else {
+        pData.ambiguousIdx = ambiguousPairs.length;
+        ambiguousPairs.push(pData);
+      }
+    }
+
+    // 🌟 Deterministic Entity + Specific-Token Overlap Judge for Ambiguous Zone (0.78 <= sim < 0.88)
     const unresolvedAmbiguous = [];
     for (const p of ambiguousPairs) {
-      const tA = extractSpecificTokens(p.primaryTitle);
-      const tB = new Set(extractSpecificTokens(p.dupTitle));
-      const shared = tA.filter(tok => tB.has(tok));
-      // If cosine similarity >= 0.78 and they share >= 2 distinctive tokens (e.g. ['gemini', 'argon'] or ['claude', 'opus', '5.5']), merge deterministically!
-      if (p.sim >= 0.78 && shared.length >= 2) {
+      if (p.sim >= SIMILARITY_THRESHOLD && p.sharedTokens.length >= 2 && p.specificShared.length >= 2) {
+        p.matchMethod = `TOKEN_OVERLAP (${p.sharedTokens.slice(0, 4).join(',')})`;
+        recordTrace(Number(p.pair.a_id), Number(p.pair.b_id), p.pair.b_title, p.sim, p.sharedTokens, p.matchMethod);
         validPairs.push(p);
       } else {
         p.ambiguousIdx = unresolvedAmbiguous.length;
@@ -361,10 +478,12 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    // 🌟 Execute 1-Shot Bulk JEV Evaluation for remaining unresolved ambiguous pairs
-    if (unresolvedAmbiguous.length > 0 && OPENROUTER_API_KEY) {
+    // 🌟 Execute 1-Shot Bulk JEV Evaluation for remaining unresolved ambiguous pairs (sim >= 0.78)
+    const jevCandidates = unresolvedAmbiguous.filter(p => p.sim >= 0.78);
+    const resolvedByJev = new Set();
+    if (jevCandidates.length > 0 && OPENROUTER_API_KEY) {
       try {
-        const formatted = unresolvedAmbiguous.map((p, idx) => ({ id: idx, a: p.primaryTitle, b: p.dupTitle }));
+        const formatted = jevCandidates.map((p, idx) => ({ id: idx, a: p.primaryTitleEn, b: p.dupTitleEn }));
         const prompt = 'Determine if each pair of English headlines reports the exact same real-world incident/event.\nReturn ONLY a JSON array with id and is_same (true/false):\n' + JSON.stringify(formatted);
         const models = [
           'inclusionai/ling-3.0-flash-sante:free',
@@ -387,7 +506,7 @@ module.exports = async function handler(req, res) {
               body: JSON.stringify({
                 model,
                 messages: [{ role: 'user', content: prompt }],
-                max_tokens: 300 + unresolvedAmbiguous.length * 40,
+                max_tokens: 300 + jevCandidates.length * 40,
                 temperature: 0.0
               })
             });
@@ -405,11 +524,13 @@ module.exports = async function handler(req, res) {
                   resMap[itm.id] = Boolean(itm.is_same || itm.same || itm.verdict === 'YES');
                 }
               }
-              for (const p of unresolvedAmbiguous) {
-                if (resMap[p.ambiguousIdx] === true) {
+              jevCandidates.forEach((p, idx) => {
+                if (resMap[idx] === true) {
+                  p.matchMethod = 'LLM_JEV_JUDGE';
+                  resolvedByJev.add(p);
                   validPairs.push(p);
                 }
-              }
+              });
               break;
             }
           } catch (e) {
@@ -421,48 +542,91 @@ module.exports = async function handler(req, res) {
       }
     }
 
+    for (const p of unresolvedAmbiguous) {
+      const decision = resolvedByJev.has(p) ? 'LLM_JEV_JUDGE' : 'REJECTED_AMBIGUOUS_LOW_OVERLAP';
+      recordTrace(Number(p.pair.a_id), Number(p.pair.b_id), p.pair.b_title, p.sim, p.sharedTokens, decision);
+    }
+
     let mergedCount = 0;
     const archivedIds = new Set();
-    const primaryUpdates = new Map();
+    const payloadUpdates = new Map();
+    // Union-Find map for transitive bridge merges within the same batch (e.g. C -> A, then B <-> C becomes B -> A)
+    const hubRedirectMap = new Map();
+    const itemMetaMap = new Map();
+    for (const pData of validPairs) {
+      itemMetaMap.set(pData.primaryId, {
+        id: pData.primaryId,
+        title: pData.primaryTitle,
+        platform: pData.primaryPlatform,
+        url: pData.primaryUrl,
+        payload: pData.primaryPayload,
+        createdAt: pData.primaryCreatedAt
+      });
+      itemMetaMap.set(pData.dupId, {
+        id: pData.dupId,
+        title: pData.dupTitle,
+        platform: pData.dupPlatform,
+        url: pData.dupUrl,
+        payload: pData.dupPayload,
+        createdAt: pData.pair.a_id === pData.dupId ? pData.pair.a_created_at : pData.pair.b_created_at
+      });
+    }
+    function resolveCanonicalHub(id) {
+      let cur = id;
+      const visited = new Set();
+      while (hubRedirectMap.has(cur) && !visited.has(cur)) {
+        visited.add(cur);
+        cur = hubRedirectMap.get(cur);
+      }
+      return cur;
+    }
 
     for (const pData of validPairs) {
-      const { primaryId, primaryTitle, primaryPlatform, primaryUrl, dupId, dupTitle, dupPlatform, dupUrl, dupPayload, sim } = pData;
-      let primaryPayload = pData.primaryPayload;
-
-      if (archivedIds.has(primaryId) || archivedIds.has(dupId)) {
-        continue; // Already processed in this batch
+      const resolvedA = resolveCanonicalHub(pData.primaryId);
+      const resolvedB = resolveCanonicalHub(pData.dupId);
+      if (resolvedA === resolvedB) {
+        continue; // Already connected in the same cluster
       }
 
-      primaryPayload = primaryUpdates.get(primaryId) || primaryPayload || {};
+      const primaryId = Math.min(resolvedA, resolvedB);
+      const dupId = Math.max(resolvedA, resolvedB);
+      const primaryMeta = itemMetaMap.get(primaryId);
+      const dupMeta = itemMetaMap.get(dupId);
+      if (!primaryMeta || !dupMeta) continue;
+
+      let primaryPayload = payloadUpdates.get(primaryId) || primaryMeta.payload || {};
+      let dupPayload = payloadUpdates.get(dupId) || dupMeta.payload || {};
       let sources = primaryPayload.sources || [];
       if (!Array.isArray(sources)) sources = [];
 
       const existingUrls = new Set(sources.map(s => s.url || s.source_url));
 
       // Ensure the primary item's own source is seeded at index 0
-      if (primaryUrl && !existingUrls.has(primaryUrl)) {
+      if (primaryMeta.url && !existingUrls.has(primaryMeta.url)) {
         sources.unshift({
-          source_name: primaryPlatform || 'Primary',
-          platform: primaryPlatform || 'Primary',
-          title: primaryTitle,
-          url: primaryUrl,
+          source_name: primaryMeta.platform || 'Primary',
+          platform: primaryMeta.platform || 'Primary',
+          title: primaryMeta.title,
+          url: primaryMeta.url,
           type: 'primary',
-          created_at: pData.primaryCreatedAt ? new Date(pData.primaryCreatedAt).toISOString() : new Date().toISOString()
+          created_at: primaryMeta.createdAt ? new Date(primaryMeta.createdAt).toISOString() : new Date().toISOString()
         });
-        existingUrls.add(primaryUrl);
+        existingUrls.add(primaryMeta.url);
       }
 
       // Add dup source if not already present
-      if (dupUrl && !existingUrls.has(dupUrl)) {
+      const simVal = parseFloat(Number(pData.sim || 0).toFixed(4));
+      if (dupMeta.url && !existingUrls.has(dupMeta.url)) {
         sources.push({
-          source_name: dupPlatform || 'Cross-Platform Media',
-          platform: dupPlatform || 'Media',
-          title: dupTitle,
-          url: dupUrl,
+          source_name: dupMeta.platform || 'Cross-Platform Media',
+          platform: dupMeta.platform || 'Media',
+          title: dupMeta.title,
+          url: dupMeta.url,
           type: 'discussion',
-          similarity: parseFloat(Number(sim || 0).toFixed(4))
+          similarity: simVal,
+          match_method: pData.matchMethod
         });
-        existingUrls.add(dupUrl);
+        existingUrls.add(dupMeta.url);
       }
 
       // Preserve any transitive sources from duplicate
@@ -483,15 +647,35 @@ module.exports = async function handler(req, res) {
       }
       primaryPayload.spike_analysis = calculateSpikeAnalysis(
         sources,
-        pData.primaryCreatedAt || new Date().toISOString(),
+        primaryMeta.createdAt || new Date().toISOString(),
         primaryPayload.viral_score || 0,
         primaryPayload.metric_tracking?.delta || 0,
         Array.isArray(primaryPayload.raw_comments) ? primaryPayload.raw_comments.length : 0
       );
-      primaryUpdates.set(primaryId, primaryPayload);
+      payloadUpdates.set(primaryId, primaryPayload);
 
+      // Record reverse-lookup merged_into metadata on the duplicate item's payload for debugging
+      dupPayload.merged_into = {
+        hub_id: primaryId,
+        similarity: simVal,
+        method: pData.matchMethod,
+        shared_tokens: pData.sharedTokens || [],
+        merged_at: new Date().toISOString()
+      };
+      payloadUpdates.set(dupId, dupPayload);
+
+      hubRedirectMap.set(dupId, primaryId);
       archivedIds.add(dupId);
       mergedCount++;
+    }
+
+    // Attach dedup_trace (top nearest neighbors + similarity + decision) to batch items' raw_payload
+    for (const [bId, entry] of traceMap.entries()) {
+      if (entry.traces.length > 0) {
+        const targetPayload = payloadUpdates.get(bId) || entry.payload || {};
+        targetPayload.dedup_trace = entry.traces;
+        payloadUpdates.set(bId, targetPayload);
+      }
     }
 
     // Bulk Archive all duplicate items in 1 single query
@@ -506,12 +690,12 @@ module.exports = async function handler(req, res) {
       );
     }
 
-    // Bulk Update all primary payloads in 1 single query
-    if (primaryUpdates.size > 0) {
+    // Bulk Update all modified payloads (hubs + archived reverse-links + dedup_trace) in 1 single query
+    if (payloadUpdates.size > 0) {
       const pClauses = [];
       const pParams = [];
       let pIdx = 1;
-      for (const [pId, pPayload] of primaryUpdates.entries()) {
+      for (const [pId, pPayload] of payloadUpdates.entries()) {
         pClauses.push(`($${pIdx}::bigint, $${pIdx + 1}::jsonb)`);
         pParams.push(pId, JSON.stringify(pPayload));
         pIdx += 2;
