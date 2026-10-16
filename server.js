@@ -31,6 +31,7 @@ const statsHandler = require('./api/stats');
 const enrichWorkerHandler = require('./api/enrich-worker');
 const embedWorkerHandler = require('./api/embed-worker');
 const watchdogHandler = require('./api/watchdog');
+const authGoogleHandler = require('./api/auth/google');
 
 const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
@@ -100,6 +101,7 @@ const server = http.createServer(async (req, res) => {
   if (pathname === '/api/enrich-worker') return enrichWorkerHandler(req, res);
   if (pathname === '/api/embed-worker') return embedWorkerHandler(req, res);
   if (pathname === '/api/watchdog') return watchdogHandler(req, res);
+  if (pathname === '/api/auth/google') return authGoogleHandler(req, res);
 
   // Return clean JSON 404 for unhandled API requests (prevents HTML fallback)
   if (pathname.startsWith('/api/')) {

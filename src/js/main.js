@@ -41,6 +41,19 @@ import {
   updateGlobalStatsUI,
   runSystemVerificationAgent
 } from './core/api.js';
+import {
+  GOOGLE_CLIENT_ID,
+  ALLOWED_ADMIN_EMAIL,
+  isAdminAuthenticated,
+  getAdminUser,
+  openAdminLoginModal,
+  closeAdminLoginModal,
+  initGoogleAuth,
+  handleGoogleLoginResponse,
+  submitAdminMasterKey,
+  adminLogout,
+  updateAdminAuthUI
+} from './core/auth.js';
 
 // Utils
 import { detectSourceLang } from './utils/languageDetector.js';
@@ -267,6 +280,19 @@ if (typeof window !== 'undefined') {
   window.runSystemVerificationAgent = runSystemVerificationAgent;
   window.showVerificationReportModal = showVerificationReportModal;
 
+  // Admin & Google Auth
+  window.GOOGLE_CLIENT_ID = GOOGLE_CLIENT_ID;
+  window.ALLOWED_ADMIN_EMAIL = ALLOWED_ADMIN_EMAIL;
+  window.isAdminAuthenticated = isAdminAuthenticated;
+  window.getAdminUser = getAdminUser;
+  window.openAdminLoginModal = openAdminLoginModal;
+  window.closeAdminLoginModal = closeAdminLoginModal;
+  window.initGoogleAuth = initGoogleAuth;
+  window.handleGoogleLoginResponse = handleGoogleLoginResponse;
+  window.submitAdminMasterKey = submitAdminMasterKey;
+  window.adminLogout = adminLogout;
+  window.updateAdminAuthUI = updateAdminAuthUI;
+
   // Stealth
   window.cleanStealthUrl = cleanStealthUrl;
   window.stealthNavigate = stealthNavigate;
@@ -331,6 +357,9 @@ if (typeof document !== 'undefined') {
 
     // Initial check of Voyage embedding status
     setTimeout(checkVoyageEmbeddingStatus, 800);
+
+    // Initial check and hydration of Admin Auth state
+    updateAdminAuthUI();
 
     // Signal modular app ready and hydrated
     window.__APP_INITIALIZED__ = true;

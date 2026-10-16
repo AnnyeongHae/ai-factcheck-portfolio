@@ -160,13 +160,10 @@ export function switchView(view, pushHistory = true, preserveFilters = false) {
   if (view === 'inbox') {
     const hasToken = typeof sessionStorage !== 'undefined' && sessionStorage.getItem('admin_token');
     if (!hasToken) {
-      const promptVal = window.prompt('🔐 관리자 보안 토큰을 입력하세요:');
-      if (!promptVal || !promptVal.trim()) {
-        return; // Stay on current view if cancelled
+      if (typeof window.openAdminLoginModal === 'function') {
+        window.openAdminLoginModal();
       }
-      try {
-        sessionStorage.setItem('admin_token', promptVal.trim());
-      } catch (e) {}
+      return; // Stay on current view if unauthenticated
     }
   }
 

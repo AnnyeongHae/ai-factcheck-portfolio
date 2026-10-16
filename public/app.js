@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T13:49:50.973Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T14:00:33.276Z */
 
 (() => {
   // src/js/core/config.js
@@ -2262,6 +2262,177 @@
     window.toggleAiEnrichWorker = toggleAiEnrichWorker;
     window.updatePromotionBanner = updatePromotionBanner;
     window.runSystemVerificationAgent = runSystemVerificationAgent;
+  }
+
+  // src/js/core/auth.js
+  var GOOGLE_CLIENT_ID = "62067487846-a43fhnnnk6teqfdi99vrkiknfato8fk0.apps.googleusercontent.com";
+  var ALLOWED_ADMIN_EMAIL = "andrew4may@gmail.com";
+  var _gsiInitialized = false;
+  function isAdminAuthenticated() {
+    if (typeof sessionStorage === "undefined") return false;
+    const token = sessionStorage.getItem("admin_token");
+    return !!(token && token.trim());
+  }
+  function getAdminUser() {
+    if (typeof sessionStorage === "undefined") return null;
+    try {
+      const raw = sessionStorage.getItem("admin_user");
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+  function openAdminLoginModal() {
+    const modal = document.getElementById("adminAuthModal");
+    if (!modal) return;
+    const errEl = document.getElementById("adminAuthError");
+    if (errEl) {
+      errEl.classList.add("hidden");
+      errEl.textContent = "";
+    }
+    const loadEl = document.getElementById("adminAuthLoading");
+    if (loadEl) loadEl.classList.add("hidden");
+    modal.classList.remove("hidden");
+    initGoogleAuth();
+  }
+  function closeAdminLoginModal() {
+    const modal = document.getElementById("adminAuthModal");
+    if (modal) modal.classList.add("hidden");
+  }
+  function initGoogleAuth() {
+    if (typeof window === "undefined") return;
+    if (window.google && window.google.accounts && window.google.accounts.id) {
+      try {
+        if (!_gsiInitialized) {
+          window.google.accounts.id.initialize({
+            client_id: GOOGLE_CLIENT_ID,
+            callback: handleGoogleLoginResponse,
+            auto_select: false,
+            cancel_on_tap_outside: true
+          });
+          _gsiInitialized = true;
+        }
+        const container = document.getElementById("googleSignInBtnContainer");
+        if (container) {
+          container.innerHTML = "";
+          window.google.accounts.id.renderButton(container, {
+            theme: "outline",
+            size: "large",
+            type: "standard",
+            shape: "rectangular",
+            text: "signin_with",
+            logo_alignment: "left",
+            width: 280
+          });
+        }
+      } catch (e) {
+        console.warn("[Google Auth] GSI Render Warning:", e.message);
+      }
+    } else {
+      setTimeout(() => {
+        if (window.google?.accounts?.id && !_gsiInitialized) {
+          initGoogleAuth();
+        }
+      }, 500);
+    }
+  }
+  async function handleGoogleLoginResponse(response) {
+    const credential = response && response.credential;
+    if (!credential) {
+      showAdminAuthError("Google \uC778\uC99D \uC815\uBCF4\uAC00 \uBC18\uD658\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4.");
+      return;
+    }
+    showAdminAuthLoading(true);
+    try {
+      const res = await fetch(APP_CONFIG.apiUrl("/api/auth/google"), {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ credential })
+      });
+      const data = await res.json();
+      showAdminAuthLoading(false);
+      if (!res.ok || !data.success) {
+        showAdminAuthError(data.error || "\uAD00\uB9AC\uC790 \uAD8C\uD55C \uD655\uC778\uC5D0 \uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4.");
+        return;
+      }
+      sessionStorage.setItem("admin_token", data.adminToken);
+      sessionStorage.setItem("admin_user", JSON.stringify(data.user));
+      closeAdminLoginModal();
+      updateAdminAuthUI();
+      showToast(`\uD658\uC601\uD569\uB2C8\uB2E4, ${data.user.email} \uAD00\uB9AC\uC790\uB2D8!`);
+      if (typeof window.switchView === "function") {
+        window.switchView("inbox", true, true);
+      }
+    } catch (err) {
+      showAdminAuthLoading(false);
+      showAdminAuthError(`\uC778\uC99D \uC11C\uBC84 \uD1B5\uC2E0 \uC2E4\uD328: ${err.message}`);
+    }
+  }
+  async function submitAdminMasterKey(key) {
+    if (!key || !key.trim()) return;
+    const trimmed = key.trim();
+    showAdminAuthLoading(true);
+    try {
+      sessionStorage.setItem("admin_token", trimmed);
+      sessionStorage.setItem("admin_user", JSON.stringify({ email: ALLOWED_ADMIN_EMAIL, name: "Master Admin" }));
+      closeAdminLoginModal();
+      updateAdminAuthUI();
+      showToast("\uB9C8\uC2A4\uD130 \uD0A4\uB85C \uAD00\uB9AC\uC790 \uBAA8\uB4DC\uAC00 \uD65C\uC131\uD654\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
+      if (typeof window.switchView === "function") {
+        window.switchView("inbox", true, true);
+      }
+    } catch (err) {
+      showAdminAuthLoading(false);
+      showAdminAuthError(`\uC778\uC99D \uC2E4\uD328: ${err.message}`);
+    }
+  }
+  function adminLogout() {
+    if (typeof sessionStorage !== "undefined") {
+      sessionStorage.removeItem("admin_token");
+      sessionStorage.removeItem("admin_user");
+    }
+    updateAdminAuthUI();
+    showToast("\uAD00\uB9AC\uC790 \uC138\uC158\uC774 \uC548\uC804\uD558\uAC8C \uC885\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
+    if (typeof window.switchView === "function") {
+      window.switchView("home");
+    }
+  }
+  function updateAdminAuthUI() {
+    const isAuth = isAdminAuthenticated();
+    const user = getAdminUser();
+    const dbBadge = document.getElementById("dbLiveBadge");
+    if (dbBadge) {
+      if (isAuth && user) {
+        dbBadge.title = `\uAD00\uB9AC\uC790 \uB85C\uADF8\uC778\uB428: ${user.email} (\uD074\uB9AD \uC2DC \uC544\uCE74\uC774\uBE0C \uC774\uB3D9)`;
+      } else {
+        dbBadge.title = `\uAD00\uB9AC\uC790 \uC804\uC6A9 \uC6D0\uCC9C \uB370\uC774\uD130 \uC544\uCE74\uC774\uBE0C (\uB85C\uADF8\uC778 \uD544\uC694)`;
+      }
+    }
+    const banner = document.getElementById("inboxAdminSessionBanner");
+    if (banner) {
+      if (isAuth && user) {
+        banner.classList.remove("hidden");
+        const emailEl = document.getElementById("inboxAdminEmail");
+        if (emailEl) emailEl.textContent = user.email || ALLOWED_ADMIN_EMAIL;
+      } else {
+        banner.classList.add("hidden");
+      }
+    }
+  }
+  function showAdminAuthLoading(isLoading) {
+    const loadEl = document.getElementById("adminAuthLoading");
+    if (loadEl) {
+      loadEl.classList.toggle("hidden", !isLoading);
+    }
+  }
+  function showAdminAuthError(msg) {
+    const errEl = document.getElementById("adminAuthError");
+    if (errEl) {
+      errEl.textContent = msg;
+      errEl.classList.remove("hidden");
+    }
   }
 
   // src/js/utils/languageDetector.js
@@ -6254,14 +6425,10 @@
     if (view === "inbox") {
       const hasToken = typeof sessionStorage !== "undefined" && sessionStorage.getItem("admin_token");
       if (!hasToken) {
-        const promptVal = window.prompt("\u{1F510} \uAD00\uB9AC\uC790 \uBCF4\uC548 \uD1A0\uD070\uC744 \uC785\uB825\uD558\uC138\uC694:");
-        if (!promptVal || !promptVal.trim()) {
-          return;
+        if (typeof window.openAdminLoginModal === "function") {
+          window.openAdminLoginModal();
         }
-        try {
-          sessionStorage.setItem("admin_token", promptVal.trim());
-        } catch (e) {
-        }
+        return;
       }
     }
     if (!preserveFilters) {
@@ -6505,6 +6672,17 @@
     window.updateGlobalStatsUI = updateGlobalStatsUI;
     window.runSystemVerificationAgent = runSystemVerificationAgent;
     window.showVerificationReportModal = showVerificationReportModal;
+    window.GOOGLE_CLIENT_ID = GOOGLE_CLIENT_ID;
+    window.ALLOWED_ADMIN_EMAIL = ALLOWED_ADMIN_EMAIL;
+    window.isAdminAuthenticated = isAdminAuthenticated;
+    window.getAdminUser = getAdminUser;
+    window.openAdminLoginModal = openAdminLoginModal;
+    window.closeAdminLoginModal = closeAdminLoginModal;
+    window.initGoogleAuth = initGoogleAuth;
+    window.handleGoogleLoginResponse = handleGoogleLoginResponse;
+    window.submitAdminMasterKey = submitAdminMasterKey;
+    window.adminLogout = adminLogout;
+    window.updateAdminAuthUI = updateAdminAuthUI;
     window.cleanStealthUrl = cleanStealthUrl;
     window.stealthNavigate = stealthNavigate;
     window.addEventListener("unhandledrejection", (event) => {
@@ -6551,6 +6729,7 @@
       setInterval(updateCronCountdown, 1e3);
       updateCronCountdown();
       setTimeout(checkVoyageEmbeddingStatus, 800);
+      updateAdminAuthUI();
       window.__APP_INITIALIZED__ = true;
       console.log("[App] \u{1F680} Modular architecture hydrated and fully ready.");
     };
