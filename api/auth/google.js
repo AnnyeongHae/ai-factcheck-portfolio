@@ -72,7 +72,7 @@ module.exports = async function handler(req, res) {
       console.warn(`[Auth] Unauthorized admin login attempt by: ${email}`);
       return res.status(403).json({
         success: false,
-        error: `접근 권한이 없습니다. 등록된 관리자 계정(${ALLOWED_ADMIN_EMAILS.join(', ')})만 접근할 수 있습니다. (시도된 계정: ${email})`
+        error: '접근 권한이 없는 Google 계정입니다. 허가된 관리자 계정으로 로그인해 주세요.'
       });
     }
 

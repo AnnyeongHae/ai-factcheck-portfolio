@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T14:24:10.518Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T14:30:17.527Z */
 
 (() => {
   // src/js/core/config.js
@@ -2282,7 +2282,7 @@
 
   // src/js/core/auth.js
   var GOOGLE_CLIENT_ID = "62067487846-a43fhnnnk6teqfdi99vrkiknfato8fk0.apps.googleusercontent.com";
-  var ALLOWED_ADMIN_EMAIL = "andrew4may@gmail.com";
+  var ALLOWED_ADMIN_EMAILS = ["andrew4may@gmail.com", "restrict357@gmail.com"];
   var _gsiInitialized = false;
   function isAdminAuthenticated() {
     if (typeof sessionStorage === "undefined") return false;
@@ -6698,7 +6698,7 @@
     window.runSystemVerificationAgent = runSystemVerificationAgent;
     window.showVerificationReportModal = showVerificationReportModal;
     window.GOOGLE_CLIENT_ID = GOOGLE_CLIENT_ID;
-    window.ALLOWED_ADMIN_EMAIL = ALLOWED_ADMIN_EMAIL;
+    window.ALLOWED_ADMIN_EMAILS = ALLOWED_ADMIN_EMAILS;
     window.isAdminAuthenticated = isAdminAuthenticated;
     window.getAdminUser = getAdminUser;
     window.openAdminLoginModal = openAdminLoginModal;

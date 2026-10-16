@@ -9,7 +9,7 @@ import { APP_CONFIG } from './config.js';
 import { showToast } from '../components/toast.js';
 
 export const GOOGLE_CLIENT_ID = '62067487846-a43fhnnnk6teqfdi99vrkiknfato8fk0.apps.googleusercontent.com';
-export const ALLOWED_ADMIN_EMAIL = 'andrew4may@gmail.com';
+export const ALLOWED_ADMIN_EMAILS = ['andrew4may@gmail.com', 'restrict357@gmail.com'];
 
 let _gsiInitialized = false;
 

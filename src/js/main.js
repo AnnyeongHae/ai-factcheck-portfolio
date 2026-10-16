@@ -43,7 +43,7 @@ import {
 } from './core/api.js';
 import {
   GOOGLE_CLIENT_ID,
-  ALLOWED_ADMIN_EMAIL,
+  ALLOWED_ADMIN_EMAILS,
   isAdminAuthenticated,
   getAdminUser,
   openAdminLoginModal,
@@ -282,7 +282,7 @@ if (typeof window !== 'undefined') {
 
   // Admin & Google Auth
   window.GOOGLE_CLIENT_ID = GOOGLE_CLIENT_ID;
-  window.ALLOWED_ADMIN_EMAIL = ALLOWED_ADMIN_EMAIL;
+  window.ALLOWED_ADMIN_EMAILS = ALLOWED_ADMIN_EMAILS;
   window.isAdminAuthenticated = isAdminAuthenticated;
   window.getAdminUser = getAdminUser;
   window.openAdminLoginModal = openAdminLoginModal;

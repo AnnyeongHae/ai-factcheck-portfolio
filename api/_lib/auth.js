@@ -2,7 +2,8 @@
 const crypto = require('crypto');
 
 const ALLOWED_ADMIN_EMAILS = [
-  'andrew4may@gmail.com'
+  'andrew4may@gmail.com',
+  'restrict357@gmail.com'
 ];
 
 const JWT_SECRET = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET || 'ai-factcheck-secret-admin-key-2026';
