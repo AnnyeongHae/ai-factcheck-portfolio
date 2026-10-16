@@ -121,8 +121,12 @@ module.exports = async (req, res) => {
   if (handleOptions(req, res, 'GET, OPTIONS')) return;
   setCorsHeaders(res, 'GET, OPTIONS');
 
-  // 🌟 High-Performance Edge SWR Cache Headers (30s Freshness for Real-time Sync)
-  res.setHeader('Cache-Control', 'public, s-maxage=30, stale-while-revalidate=120');
+  // 🌟 High-Performance Edge SWR Cache Headers (5m Freshness + 24h Background SWR + Cache-Buster Bypass)
+  if (req.query && (req.query._cb || req.query.nocache)) {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+  } else {
+    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=86400');
+  }
 
   const cacheKey = req.url || JSON.stringify(req.query || {});
   const cachedData = getCachedResponse(cacheKey);

@@ -72,7 +72,12 @@ function getStaticStatsFallback() {
 module.exports = async (req, res) => {
   if (handleOptions(req, res, 'GET, OPTIONS')) return;
   setCorsHeaders(res, 'GET, OPTIONS');
-  res.setHeader('Cache-Control', 'public, s-maxage=30, stale-while-revalidate=60');
+  // 🌟 High-Performance Edge SWR Cache Headers (5m Freshness + 24h Background SWR + Cache-Buster Bypass)
+  if (req.query && (req.query._cb || req.query.nocache)) {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+  } else {
+    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=86400');
+  }
 
   const pool = getDbPool();
   const providerInfo = getDbProviderInfo();
@@ -91,7 +96,87 @@ module.exports = async (req, res) => {
   }
 
   try {
-    // ⚡ Execute all primary telemetry and aggregation queries concurrently in parallel
+    // ⚡ Execute all primary telemetry and aggregation queries in a single multi-statement network roundtrip
+    const queries = [
+      'SELECT count(*) FROM raw_trends_inbox;',
+      'SELECT count(*) FROM verified_factchecks;',
+      `SELECT 
+        COUNT(CASE WHEN (item_type = 'MODEL' or source_platform ILIKE '%model%' or source_platform ILIKE '%hub%' or source_platform ILIKE '%space%') THEN 1 END) AS models_count,
+        COUNT(CASE WHEN NOT (item_type = 'MODEL' or source_platform ILIKE '%model%' or source_platform ILIKE '%hub%' or source_platform ILIKE '%space%') THEN 1 END) AS news_count,
+        COUNT(CASE WHEN is_classified = FALSE THEN 1 END) AS unclassified_count,
+        MAX(harvested_date) AS max_date
+      FROM raw_trends_inbox;`,
+      `SELECT year_month, total_minutes, quota_limit_minutes, remaining_minutes, burn_rate_percent, alert_level, updated_at 
+      FROM github_actions_monthly_usage 
+      ORDER BY year_month DESC, updated_at DESC 
+      LIMIT 1;`,
+      `SELECT run_id, workflow_name, event_trigger, status, conclusion, duration_str, duration_seconds, items_collected, items_scanned, error_count, started_at, completed_at 
+      FROM github_actions_run_logs 
+      ORDER BY started_at DESC 
+      LIMIT 10;`,
+      `SELECT invocations, active_cpu_seconds, bandwidth_bytes, last_invoked_at 
+      FROM vercel_serverless_telemetry 
+      WHERE id = 1;`,
+      `SELECT id, worker_name, model_used, processed_count, duration_seconds, remaining_count, status, created_at
+      FROM vercel_worker_logs
+      WHERE worker_name NOT ILIKE '%voyage%'
+      ORDER BY id DESC
+      LIMIT 8;`,
+      `SELECT id, worker_name, model_used, processed_count, duration_seconds, remaining_count, inbox_ids, status, created_at
+      FROM vercel_worker_logs
+      WHERE worker_name ILIKE '%voyage%'
+      ORDER BY id DESC
+      LIMIT 10;`,
+      `SELECT 
+          floor(extract(hour from (created_at + interval '9 hours')) / 6) * 6 as slot_hour,
+          count(*) as inbox_in_slot,
+          count(*) filter (where is_classified = true) as enriched_in_slot,
+          count(*) filter (where (item_type = 'MODEL' or source_platform ilike '%model%' or source_platform ilike '%hub%')) as model_count,
+          count(*) filter (where item_type != 'MODEL' and (source_platform is null or (source_platform not ilike '%model%' and source_platform not ilike '%hub%'))) as news_count
+      FROM raw_trends_inbox
+      WHERE created_at >= (date_trunc('day', CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Seoul') - interval '9 hours')
+        AND created_at <  (date_trunc('day', CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Seoul') + interval '15 hours')
+      GROUP BY 1;`,
+      `SELECT 
+          floor(extract(hour from (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')) / 6) * 6 as slot_hour,
+          count(*) as total_enriched
+      FROM raw_trends_inbox
+      WHERE is_classified = true 
+        AND (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
+      GROUP BY 1;`,
+      `SELECT COALESCE(raw_payload->>'tier1_category', 'TECH_COMPUTING') as cat, COUNT(*) as cnt
+      FROM raw_trends_inbox
+      GROUP BY 1;`,
+      `SELECT 
+        CASE 
+          WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('INFERENCE_OPT', 'INFERENCE_SERVING') THEN 'INFERENCE_OPT'
+          WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('AGENTS_DEVTOOLS', 'SOFTWARE_WEB') THEN 'AGENTS_DEVTOOLS'
+          WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('MULTIMODAL_AI', 'MULTIMODAL_MEDIA') THEN 'MULTIMODAL_AI'
+          WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('FOUNDATION_MODELS', 'FOUNDATION_WEIGHTS') THEN 'FOUNDATION_MODELS'
+          WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('INFRA_RAG_SECURITY', 'SYSTEM_CYBERSEC') THEN 'INFRA_RAG_SECURITY'
+          ELSE 'INDUSTRY_TRENDS'
+        END as mapped_t2,
+        COUNT(*) as cnt
+      FROM raw_trends_inbox
+      WHERE COALESCE(raw_payload->>'tier1_category', 'TECH_COMPUTING') = 'TECH_COMPUTING'
+      GROUP BY 1;`
+    ];
+
+    let batchResults;
+    try {
+      const fullBatchSql = queries.join(' ');
+      const rawRes = await pool.query(fullBatchSql);
+      if (Array.isArray(rawRes) && rawRes.length === queries.length) {
+        batchResults = rawRes;
+      }
+    } catch (bErr) {
+      console.warn('[API Stats] Batch query fallback:', bErr.message);
+    }
+
+    if (!batchResults) {
+      batchResults = await Promise.all(queries.map(q => pool.query(q).catch(() => ({ rows: [] }))));
+    }
+
     const [
       cInboxRes,
       cFactRes,
@@ -105,100 +190,7 @@ module.exports = async (req, res) => {
       tlEnrichRes,
       tier1Res,
       tier2Res
-    ] = await Promise.all([
-      // 1. Total inbox count
-      pool.query('SELECT count(*) FROM raw_trends_inbox;').catch(() => ({ rows: [{ count: 3223 }] })),
-      // 2. Verified factchecks count
-      pool.query('SELECT count(*) FROM verified_factchecks;').catch(() => ({ rows: [{ count: 58 }] })),
-      pool.query(`
-        SELECT 
-          COUNT(CASE WHEN (item_type = 'MODEL' or source_platform ILIKE '%model%' or source_platform ILIKE '%hub%' or source_platform ILIKE '%space%') THEN 1 END) AS models_count,
-          COUNT(CASE WHEN NOT (item_type = 'MODEL' or source_platform ILIKE '%model%' or source_platform ILIKE '%hub%' or source_platform ILIKE '%space%') THEN 1 END) AS news_count,
-          COUNT(CASE WHEN is_classified = FALSE THEN 1 END) AS unclassified_count,
-          MAX(harvested_date) AS max_date
-        FROM raw_trends_inbox;
-      `).catch(() => ({ rows: [] })),
-      // 4. GitHub Actions monthly usage quota
-      pool.query(
-        'SELECT year_month, total_minutes, quota_limit_minutes, remaining_minutes, burn_rate_percent, alert_level, updated_at ' +
-        'FROM github_actions_monthly_usage ' +
-        'ORDER BY year_month DESC, updated_at DESC ' +
-        'LIMIT 1;'
-      ).catch(() => ({ rows: [] })),
-      // 5. GitHub Actions run logs
-      pool.query(
-        'SELECT run_id, workflow_name, event_trigger, status, conclusion, duration_str, duration_seconds, items_collected, items_scanned, error_count, started_at, completed_at ' +
-        'FROM github_actions_run_logs ' +
-        'ORDER BY started_at DESC ' +
-        'LIMIT 10;'
-      ).catch(() => ({ rows: [] })),
-      // 6. Vercel telemetry
-      pool.query(
-        'SELECT invocations, active_cpu_seconds, bandwidth_bytes, last_invoked_at ' +
-        'FROM vercel_serverless_telemetry ' +
-        'WHERE id = 1;'
-      ).catch(() => ({ rows: [] })),
-      // 7. Vercel AI worker logs
-      pool.query(`
-        SELECT id, worker_name, model_used, processed_count, duration_seconds, remaining_count, status, created_at
-        FROM vercel_worker_logs
-        WHERE worker_name NOT ILIKE '%voyage%'
-        ORDER BY id DESC
-        LIMIT 8;
-      `).catch(() => ({ rows: [] })),
-      // 7b. Voyage AI worker logs
-      pool.query(`
-        SELECT id, worker_name, model_used, processed_count, duration_seconds, remaining_count, inbox_ids, status, created_at
-        FROM vercel_worker_logs
-        WHERE worker_name ILIKE '%voyage%'
-        ORDER BY id DESC
-        LIMIT 10;
-      `).catch(() => ({ rows: [] })),
-      // 8. Session-based Ingestion & Classification breakdown for today (KST)
-      pool.query(`
-        SELECT 
-            floor(extract(hour from (created_at + interval '9 hours')) / 6) * 6 as slot_hour,
-            count(*) as inbox_in_slot,
-            count(*) filter (where is_classified = true) as enriched_in_slot,
-            count(*) filter (where (item_type = 'MODEL' or source_platform ilike '%model%' or source_platform ilike '%hub%')) as model_count,
-            count(*) filter (where item_type != 'MODEL' and (source_platform is null or (source_platform not ilike '%model%' and source_platform not ilike '%hub%'))) as news_count
-        FROM raw_trends_inbox
-        WHERE (created_at + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
-        GROUP BY 1;
-      `).catch(() => ({ rows: [] })),
-      // 9. Total enrichment throughput occurred today (including backlog processing)
-      pool.query(`
-        SELECT 
-            floor(extract(hour from (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')) / 6) * 6 as slot_hour,
-            count(*) as total_enriched
-        FROM raw_trends_inbox
-        WHERE is_classified = true 
-          AND (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
-        GROUP BY 1;
-      `).catch(() => ({ rows: [] })),
-      // 10. Tier 1 Category breakdown across full DB
-      pool.query(`
-        SELECT COALESCE(raw_payload->>'tier1_category', 'TECH_COMPUTING') as cat, COUNT(*) as cnt
-        FROM raw_trends_inbox
-        GROUP BY 1;
-      `).catch(() => ({ rows: [] })),
-      // 11. Tier 2 Category breakdown within TECH_COMPUTING
-      pool.query(`
-        SELECT 
-          CASE 
-            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('INFERENCE_OPT', 'INFERENCE_SERVING') THEN 'INFERENCE_OPT'
-            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('AGENTS_DEVTOOLS', 'SOFTWARE_WEB') THEN 'AGENTS_DEVTOOLS'
-            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('MULTIMODAL_AI', 'MULTIMODAL_MEDIA') THEN 'MULTIMODAL_AI'
-            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('FOUNDATION_MODELS', 'FOUNDATION_WEIGHTS') THEN 'FOUNDATION_MODELS'
-            WHEN COALESCE(raw_payload->>'tier2_category', category_primary) IN ('INFRA_RAG_SECURITY', 'SYSTEM_CYBERSEC') THEN 'INFRA_RAG_SECURITY'
-            ELSE 'INDUSTRY_TRENDS'
-          END as mapped_t2,
-          COUNT(*) as cnt
-        FROM raw_trends_inbox
-        WHERE COALESCE(raw_payload->>'tier1_category', 'TECH_COMPUTING') = 'TECH_COMPUTING'
-        GROUP BY 1;
-      `).catch(() => ({ rows: [] }))
-    ]);
+    ] = batchResults;
 
     const totalInboxRaw = parseInt(cInboxRes.rows[0]?.count || 0, 10);
     const totalFactchecks = parseInt(cFactRes.rows[0]?.count || 0, 10);

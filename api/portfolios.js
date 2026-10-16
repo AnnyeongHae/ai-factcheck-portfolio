@@ -44,11 +44,11 @@ module.exports = async (req, res) => {
   if (handleOptions(req, res, 'GET, OPTIONS')) return;
   setCorsHeaders(res, 'GET, OPTIONS');
 
-  // 🌟 High-Performance Edge SWR Cache Headers (15s Freshness + Cache-Buster Bypass for Instant Factcheck Sync)
+  // 🌟 High-Performance Edge SWR Cache Headers (5m Freshness + 24h Background SWR + Cache-Buster Bypass)
   if (req.query && (req.query._cb || req.query.nocache)) {
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
   } else {
-    res.setHeader('Cache-Control', 'public, s-maxage=15, stale-while-revalidate=60');
+    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=86400');
   }
 
   const pool = getDbPool();
@@ -256,9 +256,9 @@ module.exports = async (req, res) => {
       });
     }
 
-    // Fetch technical analyses if present (only when on page 1 or full list)
+    // Fetch technical analyses if present (only when on page 1 and not summaryOnly)
     let techAnalyses = [];
-    if (page === 1) {
+    if (page === 1 && !summaryOnly) {
       try {
         const tRes = await pool.query('SELECT payload FROM ecosystem_technical_analyses ORDER BY id DESC LIMIT 50;');
         techAnalyses = tRes.rows.map(r => {
