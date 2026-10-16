@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-12T02:42:45.487Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T08:39:14.311Z */
 
 (() => {
   // src/js/core/config.js
@@ -1203,107 +1203,114 @@
 
   // src/js/core/api.js
   async function bootstrapApplicationData() {
-    console.log("[Bootstrap] Initializing parallel DB-First data hydration...");
-    let loadedFromEdge = false;
-    const cachedPortfolios = ClientCache.get("portfolios_summary", 12e4);
-    const edgeFetchPromise = (async () => {
-      if (cachedPortfolios && cachedPortfolios.success && Array.isArray(cachedPortfolios.portfolios) && cachedPortfolios.portfolios.length > 0) {
+    console.log("[Bootstrap] \u{1F680} Initializing Single-Pass DB-First data hydration...");
+    const statsApiUrl = APP_CONFIG.apiUrl("/api/stats");
+    const portfoliosApiUrl = APP_CONFIG.apiUrl("/api/portfolios?summary=true");
+    const statsPromise = (async () => {
+      try {
+        const res = await fetch(statsApiUrl, { cache: "default" });
+        if (res.ok) return await res.json();
+      } catch (e) {
+        console.warn("[Bootstrap] /api/stats fetch failed:", e.message);
+      }
+      return null;
+    })();
+    const portfoliosPromise = (async () => {
+      const cachedPortfolios = ClientCache.get("portfolios_summary", 12e4);
+      if (cachedPortfolios?.success && Array.isArray(cachedPortfolios.portfolios) && cachedPortfolios.portfolios.length > 0) {
         return { source: "cache", data: cachedPortfolios };
       }
-      const portfoliosApiUrl = APP_CONFIG.apiUrl("/api/portfolios?summary=true");
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 6e3);
       try {
-        const edgeRes = await fetch(portfoliosApiUrl, { signal: controller.signal });
-        clearTimeout(timeoutId);
-        if (edgeRes.ok) {
-          const edgeData = await edgeRes.json();
-          if (edgeData && edgeData.success && Array.isArray(edgeData.portfolios) && edgeData.portfolios.length > 0) {
-            return { source: "edge", data: edgeData };
+        const res = await fetch(portfoliosApiUrl);
+        if (res.ok) {
+          const data = await res.json();
+          if (data?.success && Array.isArray(data.portfolios) && data.portfolios.length > 0) {
+            ClientCache.set("portfolios_summary", data);
+            return { source: "db", data };
           }
         }
-      } finally {
-        clearTimeout(timeoutId);
+      } catch (e) {
+        console.warn("[Bootstrap] /api/portfolios fetch failed:", e.message);
       }
       return null;
     })();
-    const staticFetchPromise = (async () => {
-      let staticRes = await fetch("data.json", { cache: "default" });
-      let cType = staticRes.headers.get("content-type") || "";
-      if (!staticRes.ok || !cType.includes("application/json")) {
-        staticRes = await fetch("/data.json", { cache: "default" });
-        cType = staticRes.headers.get("content-type") || "";
-      }
-      if (staticRes.ok && cType.includes("application/json")) {
-        return await staticRes.json();
+    const staticPromise = (async () => {
+      try {
+        const res = await fetch("data.json", { cache: "default" });
+        if (res.ok) return await res.json();
+      } catch (e) {
       }
       return null;
     })();
-    const [edgeOutcome, staticOutcome] = await Promise.allSettled([edgeFetchPromise, staticFetchPromise]);
-    if (edgeOutcome.status === "fulfilled" && edgeOutcome.value) {
-      const { source, data: edgeData } = edgeOutcome.value;
-      AppStore.setCases(edgeData.portfolios);
-      loadedFromEdge = true;
-      if (source === "edge") {
-        ClientCache.set("portfolios_summary", edgeData);
-      }
-      if (edgeData.db_provider) APP_CONFIG.setDbProvider(edgeData.db_provider);
-      console.log(`[Bootstrap] \u26A1 [${source === "cache" ? "Session SWR Cache" : "DB-First Edge SWR"}] Loaded ${edgeData.portfolios.length} dossiers.`);
-    } else if (edgeOutcome.status === "rejected") {
-      console.warn("[Bootstrap] Edge API first-paint timeout or offline, falling back to static snapshot:", edgeOutcome.reason?.message);
-    }
-    if (staticOutcome.status === "fulfilled" && staticOutcome.value) {
-      const data = staticOutcome.value;
-      AppStore.setGraphData(data.graph || { nodes: [], links: [] });
-      window.adminData = data.admin_stats || {};
-      window.timeline24hData = data.timeline_24h || [];
-      window.actionsTelemetryData = data.actions_telemetry || {};
-      window.trend6hData = data.trend_6h || {};
-      window.trendRadarData = data.trend_radar || {};
-      Object.assign(snapshotStats, {
-        total_cases: data.total_cases || (data.cases ? data.cases.length : 58),
-        news_total_count: data.news_total_count || (data.news_items ? data.news_items.length : 3039),
-        models_total_count: data.models_total_count || (data.model_items ? data.model_items.length : 344),
-        inbox_total_count: data.inbox_total_count || (data.inbox_items ? data.inbox_items.length : 3039),
-        tier1_counts: data.tier1_counts || null,
-        news_cat_counts: data.news_cat_counts || null,
-        model_art_counts: data.model_art_counts || null,
-        model_fam_counts: data.model_fam_counts || null
+    const [statsData, portfoliosResult, staticData] = await Promise.all([statsPromise, portfoliosPromise, staticPromise]);
+    if (staticData) {
+      window.adminData = staticData.admin_stats || {};
+      window.timeline24hData = staticData.timeline_24h || [];
+      window.actionsTelemetryData = staticData.actions_telemetry || {};
+      window.trend6hData = staticData.trend_6h || {};
+      window.trendRadarData = staticData.trend_radar || {};
+      AppStore._news = staticData.trend_items || staticData.news_items || staticData.news || [];
+      AppStore._models = staticData.model_items || staticData.models || [];
+      AppStore._inbox = staticData.inbox_items || (staticData.inbox_recent || []).concat(staticData.inbox || []);
+      AppStore._models.forEach((it) => {
+        it.is_model = true;
       });
-      if (!loadedFromEdge) {
-        AppStore.init(data);
-        console.log(`[Bootstrap] Loaded ${AppStore.getCases().length} dossiers from static snapshot fallback.`);
-      } else {
-        AppStore._news = data.trend_items || data.news_items || data.news || [];
-        AppStore._models = data.model_items || data.models || [];
-        AppStore._inbox = data.inbox_items || (data.inbox_recent || []).concat(data.inbox || []);
-        AppStore._models.forEach((it) => {
-          it.is_model = true;
-        });
-        AppStore._news.forEach((it) => {
-          if (it.is_model === void 0) {
-            it.is_model = it.facet_type === "MODEL" || !!(it.model_family || it.artifact_type || it.category_primary === "MODEL_RELEASE");
-          }
-        });
-        AppStore._inbox.forEach((it) => {
-          if (it.is_model === void 0) it.is_model = !!(it.model_family || it.artifact_type || it.category_primary === "MODEL_RELEASE");
-          if (it.is_news === void 0) it.is_news = !it.is_model;
-        });
-        [...AppStore._inbox, ...AppStore._news, ...AppStore._models].forEach((it) => {
-          const id = it.inbox_id || it.id;
-          if (id && !AppStore._itemsMap.has(id)) {
-            AppStore._itemsMap.set(id, it);
-          }
-        });
-        window.liveNewsData = AppStore._news;
-        window.liveModelsData = AppStore._models;
-        window.inboxData = AppStore._inbox;
-        window.liveInboxData = AppStore._inbox;
-        window.newsData = AppStore._news;
-        window.modelsData = AppStore._models;
+      AppStore._news.forEach((it) => {
+        if (it.is_model === void 0) {
+          it.is_model = it.facet_type === "MODEL" || !!(it.model_family || it.artifact_type || it.category_primary === "MODEL_RELEASE");
+        }
+      });
+      AppStore._inbox.forEach((it) => {
+        if (it.is_model === void 0) it.is_model = !!(it.model_family || it.artifact_type || it.category_primary === "MODEL_RELEASE");
+        if (it.is_news === void 0) it.is_news = !it.is_model;
+      });
+      [...AppStore._inbox, ...AppStore._news, ...AppStore._models].forEach((it) => {
+        const id = it.inbox_id || it.id;
+        if (id && !AppStore._itemsMap.has(id)) {
+          AppStore._itemsMap.set(id, it);
+        }
+      });
+      window.liveNewsData = AppStore._news;
+      window.liveModelsData = AppStore._models;
+      window.inboxData = AppStore._inbox;
+      window.liveInboxData = AppStore._inbox;
+      window.newsData = AppStore._news;
+      window.modelsData = AppStore._models;
+    }
+    if (portfoliosResult?.data?.portfolios) {
+      AppStore.setCases(portfoliosResult.data.portfolios);
+      window.liveCasesData = portfoliosResult.data.portfolios;
+      window.casesData = portfoliosResult.data.portfolios;
+      if (portfoliosResult.data.db_provider) {
+        APP_CONFIG.setDbProvider(portfoliosResult.data.db_provider);
       }
-    } else if (staticOutcome.status === "rejected") {
-      console.warn("[Bootstrap] Static snapshot fallback skipped:", staticOutcome.reason?.message);
+    } else if (staticData && staticData.cases) {
+      AppStore.setCases(staticData.cases);
+      window.liveCasesData = staticData.cases;
+      window.casesData = staticData.cases;
+    }
+    if (statsData?.status === "success" && statsData.counts) {
+      const c = statsData.counts;
+      const liveInbox = c.inbox_deduped || c.inbox_total || 0;
+      const liveModels = c.models_total || 0;
+      const liveNews = c.news_total || liveInbox;
+      const liveVerified = c.factchecks_verified || (AppStore.getCases() || []).length || 58;
+      Object.assign(snapshotStats, {
+        total_cases: liveVerified,
+        news_total_count: liveNews,
+        models_total_count: liveModels,
+        inbox_total_count: liveInbox
+      });
+      if (statsData.db_provider) {
+        APP_CONFIG.setDbProvider(statsData.db_provider);
+      }
+    } else if (staticData) {
+      Object.assign(snapshotStats, {
+        total_cases: staticData.total_cases || (staticData.cases ? staticData.cases.length : 58),
+        news_total_count: staticData.news_total_count || 6011,
+        models_total_count: staticData.models_total_count || 869,
+        inbox_total_count: staticData.inbox_total_count || 6011
+      });
     }
     updateGlobalStatsUI();
     try {
@@ -1318,17 +1325,14 @@
     if (initialHash.startsWith("#/factchecks") || initialHash.startsWith("#case/")) initialView = "portfolio";
     else if (initialHash.startsWith("#/news")) initialView = "news";
     else if (initialHash.startsWith("#/models")) initialView = "models";
-    else if (initialHash.startsWith("#/graph")) initialView = "graph";
     else if (initialHash.startsWith("#/inbox")) initialView = "inbox";
     if (typeof window.switchView === "function") {
       window.switchView(initialView, false, true);
     }
-    setTimeout(() => {
-      syncFromLiveDB(false).then(() => updateGlobalStatsUI()).catch((e) => console.warn("[Bootstrap] Live DB sync completed or skipped:", e.message));
-    }, 1500);
     if (typeof window !== "undefined") {
       window.__APP_INITIALIZED__ = true;
     }
+    console.log("[Bootstrap] \u2705 Single-Pass live DB hydration complete.");
   }
   function updateGlobalStatsUI() {
     if (typeof document === "undefined") return;
@@ -1814,9 +1818,13 @@
           txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-white animate-ping mr-1"></span> \uC784\uBCA0\uB529 \uC911... (${totalProcessedInSession}\uAC74 \uC644\uB8CC / \uC794\uC5EC \uD655\uC778 \uC911)`;
         }
         const t0 = Date.now();
+        const adminToken = typeof sessionStorage !== "undefined" && sessionStorage.getItem("admin_token") || "";
         const res = await fetch(APP_CONFIG.apiUrl("/api/embed-worker?limit=100"), {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            ...adminToken ? { "x-admin-key": adminToken, "Authorization": `Bearer ${adminToken}` } : {}
+          },
           body: JSON.stringify({ limit: 100 }),
           cache: "no-store"
         });
@@ -1944,7 +1952,23 @@
         if (txt && !_autoWorkerPaused) {
           txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI \uC694\uC57D \uBD84\uC11D \uC911... (\uB204\uC801 ${processedInThisSession}\uAC74 \uC644\uB8CC)`;
         }
-        const res = await fetch(workerUrl, { cache: "no-store" });
+        const adminToken = typeof sessionStorage !== "undefined" && sessionStorage.getItem("admin_token") || "";
+        const res = await fetch(workerUrl, {
+          headers: {
+            ...adminToken ? { "x-admin-key": adminToken, "Authorization": `Bearer ${adminToken}` } : {}
+          },
+          cache: "no-store"
+        });
+        if (res.status === 401) {
+          _autoWorkerRunning = false;
+          window._autoWorkerRunning = false;
+          if (txt) txt.textContent = "\u{1F512} \uAD00\uB9AC\uC790 \uC778\uC99D \uD544\uC694 (\uD1A0\uD070 \uBD88\uC77C\uCE58)";
+          if (btn) {
+            btn.disabled = false;
+            btn.className = "px-3 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-800 font-bold font-mono text-[11px] border border-rose-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+          }
+          break;
+        }
         if (res.status === 429) {
           _autoWorkerRunning = false;
           window._autoWorkerRunning = false;
@@ -4369,13 +4393,42 @@
     const usedMin = aData.monthly_used_minutes || 0;
     const remMin = aData.monthly_remaining_minutes || 2e3 - usedMin;
     const usagePct = aData.monthly_usage_percent || 0;
+    const nowKst = getDynamicKstDate();
+    const curMonth = nowKst.getMonth() + 1;
     const usedEl = document.getElementById("quotaUsedMin");
     const remEl = document.getElementById("quotaRemMin");
     const progEl = document.getElementById("quotaProgressBar");
+    const secTitleEl = document.getElementById("quotaSectionTitle");
+    const badgeVerdictEl = document.getElementById("quotaBadgeVerdict");
+    const adviceTextEl = document.getElementById("quotaAdviceText");
     if (usedEl) usedEl.innerText = `${usedMin}\uBD84`;
-    if (remEl) remEl.innerText = `${remMin}\uBD84 (${100 - usagePct}%)`;
-    if (progEl) progEl.style.width = `${Math.min(100, Math.max(2, usagePct))}%`;
-    const nowKst = getDynamicKstDate();
+    if (remEl) remEl.innerText = `${remMin}\uBD84 (${(100 - usagePct).toFixed(1)}%)`;
+    if (progEl) {
+      progEl.style.width = `${Math.min(100, Math.max(2, usagePct))}%`;
+      progEl.className = `h-3 rounded-full transition-all duration-500 ${usagePct >= 75 ? "bg-red-500" : usagePct >= 50 ? "bg-amber-500" : "bg-emerald-500"}`;
+    }
+    if (secTitleEl) {
+      secTitleEl.innerText = `${curMonth}\uC6D4 GitHub Actions \uB7EC\uB108 \uCFFC\uD130 \uD604\uD669 (2,000\uBD84 \uAE30\uC900)`;
+    }
+    if (badgeVerdictEl) {
+      if (usagePct >= 75) {
+        badgeVerdictEl.className = "px-2 py-0.5 rounded bg-red-100 text-red-800 font-bold font-mono text-[10px]";
+        badgeVerdictEl.innerText = `\u{1F6A8} \uD55C\uB3C4 \uC8FC\uC758 (${usagePct}% \uC18C\uBAA8)`;
+      } else if (usagePct >= 50) {
+        badgeVerdictEl.className = "px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold font-mono text-[10px]";
+        badgeVerdictEl.innerText = `\u26A0\uFE0F \uC0AC\uC6A9\uB7C9 \uC8FC\uC758 (${usagePct}% \uC18C\uBAA8)`;
+      } else {
+        badgeVerdictEl.className = "px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold font-mono text-[10px]";
+        badgeVerdictEl.innerText = `\u2705 \uC548\uC815 \uC6B4\uC601 (${usagePct}% \uC18C\uBAA8)`;
+      }
+    }
+    if (adviceTextEl) {
+      if (usagePct <= 50) {
+        adviceTextEl.innerHTML = `${curMonth}\uC6D4 \uB7EC\uB108 \uCFFC\uD130 2,000\uBD84 \uC911 <b>${usedMin}\uBD84(${usagePct}%)</b> \uC18C\uBAA8! \uC794\uC5EC <b>${remMin}\uBD84(${(100 - usagePct).toFixed(1)}%)</b>\uC73C\uB85C <b>\uD604\uD589 6\uC2DC\uAC04 \uC218\uC9D1 \uCCB4\uC81C\uAC00 \uCD5C\uC801 \uD6A8\uC728\uB85C \uC548\uC815 \uC6B4\uC6A9</b> \uC911\uC785\uB2C8\uB2E4.`;
+      } else {
+        adviceTextEl.innerHTML = `${curMonth}\uC6D4 \uB7EC\uB108 \uCFFC\uD130 2,000\uBD84 \uC911 <b>${usedMin}\uBD84(${usagePct}%)</b> \uC18C\uBAA8! \uC794\uC5EC\uB294 <b>${remMin}\uBD84</b>\uC774\uBBC0\uB85C \uD604\uD589 6\uC2DC\uAC04(1\uC77C 4\uD68C) \uC8FC\uAE30\uB97C \uC720\uC9C0\uD558\uB294 \uAC83\uC774 \uC548\uC804\uD569\uB2C8\uB2E4.`;
+      }
+    }
     const curHour = nowKst.getHours();
     const curMin = nowKst.getMinutes();
     const curSec = nowKst.getSeconds();
@@ -4764,84 +4817,9 @@
   }
 
   // src/js/components/citationGraph.js
-  var simulationRef = null;
-  var nodeSelection = null;
-  var linkSelection = null;
   function initCitationGraph() {
-    if (typeof d3 === "undefined") {
-      console.warn("[CitationGraph] d3 library is not loaded");
-      return;
-    }
-    const svg = d3.select("#techGraphSvg");
-    const container = document.getElementById("graphView");
-    if (!container || svg.empty()) return;
-    const width = container.clientWidth || 1100;
-    const height = 640;
-    svg.selectAll("*").remove();
-    svg.attr("viewBox", [-width / 2, -height / 2, width, height]);
-    const g = svg.append("g");
-    svg.call(d3.zoom().scaleExtent([0.2, 4]).on("zoom", (e) => g.attr("transform", e.transform)));
-    const rawNodes = window.graphData?.nodes?.length ? window.graphData.nodes : graphData?.nodes || [];
-    const rawLinks = window.graphData?.links?.length ? window.graphData.links : graphData?.links || [];
-    const nodes = rawNodes.map((d) => ({ ...d }));
-    const links = rawLinks.map((d) => ({ ...d }));
-    if (nodes.length === 0) {
-      console.info("[CitationGraph] No nodes found for citation graph.");
-      return;
-    }
-    simulationRef = d3.forceSimulation(nodes).force("link", d3.forceLink(links).id((d) => d.id).distance(100)).force("charge", d3.forceManyBody().strength(-380)).force("center", d3.forceCenter(0, 0)).force("collision", d3.forceCollide().radius((d) => (d.val || 15) + 14));
-    linkSelection = g.append("g").selectAll("line").data(links).join("line").attr("stroke", "rgba(0, 0, 0, 0.12)").attr("stroke-width", 1.5);
-    const nodeGroup = g.append("g").selectAll("g").data(nodes).join("g").call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
-    function getNodeColor(d) {
-      if (d.group === "language") return "#b45309";
-      if (d.group === "technology") return "#047857";
-      if (d.group === "organization") return "#4338ca";
-      if (d.group === "person") return "#be185d";
-      if (d.group === "paper") return "#c2410c";
-      return "#111827";
-    }
-    nodeSelection = nodeGroup.append("circle").attr("r", (d) => d.val || 15).attr("fill", (d) => getNodeColor(d)).attr("stroke", "#ffffff").attr("stroke-width", 2.5);
-    nodeGroup.append("text").text((d) => d.name || d.id).attr("x", 0).attr("y", (d) => (d.val || 15) + 14).attr("text-anchor", "middle").attr("fill", "#111827").attr("font-size", "11px").attr("font-family", "Pretendard, Noto Sans SC, sans-serif").attr("font-weight", "600");
-    simulationRef.on("tick", () => {
-      linkSelection.attr("x1", (d) => d.source.x).attr("y1", (d) => d.source.y).attr("x2", (d) => d.target.x).attr("y2", (d) => d.target.y);
-      nodeGroup.attr("transform", (d) => `translate(${d.x},${d.y})`);
-    });
-    function dragstarted(event, d) {
-      if (!event.active) simulationRef.alphaTarget(0.3).restart();
-      d.fx = d.x;
-      d.fy = d.y;
-    }
-    function dragged(event, d) {
-      d.fx = event.x;
-      d.fy = event.y;
-    }
-    function dragended(event, d) {
-      if (!event.active) simulationRef.alphaTarget(0);
-      d.fx = null;
-      d.fy = null;
-    }
   }
   function filterGraphGroup(group) {
-    window.currentGraphType = group;
-    document.querySelectorAll(".graph-group-btn").forEach((btn) => {
-      if (btn.dataset.group === group) {
-        btn.classList.add("active", "bg-ink-primary", "text-white");
-      } else {
-        btn.classList.remove("active", "bg-ink-primary", "text-white");
-      }
-    });
-    const nodes = graphData && graphData.nodes || window.graphData && window.graphData.nodes || [];
-    if (nodeSelection) {
-      nodeSelection.attr("opacity", (d) => group === "ALL" || d.group === group ? 0.95 : 0.08);
-    }
-    if (linkSelection) {
-      linkSelection.attr("opacity", (l) => {
-        if (group === "ALL") return 0.4;
-        const s = typeof l.source === "object" ? l.source : nodes.find((n) => n.id === l.source);
-        const t = typeof l.target === "object" ? l.target : nodes.find((n) => n.id === l.target);
-        return s && s.group === group || t && t.group === group ? 0.8 : 0.04;
-      });
-    }
   }
 
   // src/js/views/newsView.js
@@ -5365,10 +5343,6 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
   function renderRadarSession() {
-    const radarData = trendRadarData && trendRadarData.sessions ? trendRadarData : window.trendRadarData || {};
-    if (!radarData.sessions) return;
-    const sessionData = radarData.sessions[String(activeRadarSession)];
-    if (!sessionData) return;
     const sLabels = {
       KO: ["1\uD68C 00\uC2DC", "2\uD68C 06\uC2DC", "3\uD68C 12\uC2DC", "4\uD68C 18\uC2DC"],
       ZH: ["1\u671F 00\u70B9", "2\u671F 06\u70B9", "3\u671F 12\u70B9", "4\u671F 18\u70B9"],
@@ -5387,6 +5361,10 @@
         }
       }
     }
+    const radarData = trendRadarData && trendRadarData.sessions ? trendRadarData : window.trendRadarData || {};
+    if (!radarData.sessions) return;
+    const sessionData = radarData.sessions[String(activeRadarSession)];
+    if (!sessionData) return;
     const windowLabelEl = document.getElementById("trendRadarWindowLabel");
     const pulseDotEl = document.getElementById("trendRadarPulseDot");
     if (windowLabelEl) {
@@ -5946,10 +5924,26 @@
     });
   }
   function switchView(view, pushHistory = true, preserveFilters = false) {
+    if (view === "graph") {
+      view = "home";
+    }
+    if (view === "inbox") {
+      const hasToken = typeof sessionStorage !== "undefined" && sessionStorage.getItem("admin_token");
+      if (!hasToken) {
+        const promptVal = window.prompt("\u{1F510} \uAD00\uB9AC\uC790 \uBCF4\uC548 \uD1A0\uD070\uC744 \uC785\uB825\uD558\uC138\uC694:");
+        if (!promptVal || !promptVal.trim()) {
+          return;
+        }
+        try {
+          sessionStorage.setItem("admin_token", promptVal.trim());
+        } catch (e) {
+        }
+      }
+    }
     if (!preserveFilters) {
       resetAllFiltersAndSearch();
     }
-    const validViews = ["home", "portfolio", "news", "models", "graph", "inbox"];
+    const validViews = ["home", "portfolio", "news", "models", "inbox"];
     const targetView = validViews.includes(view) ? view : "home";
     window.currentView = targetView;
     validViews.forEach((v) => {
@@ -6005,8 +5999,6 @@
       renderPipelineTelemetryCards();
       renderRunsTable();
       updateCronCountdown();
-    } else if (targetView === "graph") {
-      initCitationGraph();
     }
     if (pushHistory && window.scrollY > 60) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -6051,7 +6043,7 @@
     } else if (routePart.startsWith("#/models") || routePart.startsWith("#models")) {
       targetView = "models";
     } else if (routePart.startsWith("#/graph") || routePart.startsWith("#graph")) {
-      targetView = "graph";
+      targetView = "home";
     } else if (routePart.startsWith("#/inbox") || routePart.startsWith("#inbox")) {
       targetView = "inbox";
     } else {
@@ -6193,6 +6185,7 @@
     }
     initStealthLinkInterceptor();
     initRouter();
+    window.__APP_INITIALIZED__ = true;
     console.log("[App] \u{1F680} Modular architecture components registered.");
   }
   if (typeof document !== "undefined") {

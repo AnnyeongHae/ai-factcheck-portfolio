@@ -8,8 +8,7 @@ function verifyAdminSecret(req, res) {
 
   const authHeader = req.headers.authorization || '';
   const customHeader = req.headers['x-admin-key'] || '';
-  const querySecret = req.query?.secret || '';
-  const provided = authHeader.startsWith('Bearer ') ? authHeader.substring(7) : (customHeader || querySecret);
+  const provided = authHeader.startsWith('Bearer ') ? authHeader.substring(7).trim() : (customHeader || '').trim();
 
   if (!provided || provided !== adminSecret) {
     res.status(401).json({ status: 'error', message: 'Unauthorized: Invalid or missing secret' });

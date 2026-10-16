@@ -5893,6 +5893,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
 
     // ================= CITATION GRAPH =================
     function initCitationGraph() {
+      if (typeof d3 === 'undefined') return;
       const svg = d3.select("#techGraphSvg");
       const container = document.getElementById("graphView");
       const width = container.clientWidth || 1100;

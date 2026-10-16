@@ -380,7 +380,7 @@ def get_actions_telemetry():
             conn = psycopg2.connect(db_url)
             with conn.cursor() as cur:
                 # 1. Fetch monthly summary
-                cur.execute("SELECT total_minutes, total_job_runs, remaining_minutes, burn_rate_percent, alert_level FROM github_actions_monthly_usage WHERE year_month = '2026-09';")
+                cur.execute("SELECT total_minutes, total_job_runs, remaining_minutes, burn_rate_percent, alert_level FROM github_actions_monthly_usage ORDER BY year_month DESC, updated_at DESC LIMIT 1;")
                 row = cur.fetchone()
                 if row:
                     telemetry["monthly_used_minutes"] = float(row[0])

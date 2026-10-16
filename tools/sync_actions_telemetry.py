@@ -94,6 +94,56 @@ def ensure_tables_exist(cur):
     ALTER TABLE github_actions_run_logs ADD COLUMN IF NOT EXISTS items_scanned INTEGER DEFAULT NULL;
     """)
 
+def recalculate_monthly_usage(cur):
+    """
+    Recalculates GitHub Actions monthly usage for the current UTC month.
+    Uses first day of current month (UTC) as start_time.
+    For September 2026, preserves the baseline measured from GitHub Billing (1,242.0 min at 2026-09-07).
+    """
+    now_utc = datetime.datetime.now(datetime.timezone.utc)
+    current_year_month = now_utc.strftime('%Y-%m')
+    start_of_month = datetime.datetime(now_utc.year, now_utc.month, 1, 0, 0, 0, tzinfo=datetime.timezone.utc)
+
+    if now_utc.month == 12:
+        next_month_start = datetime.datetime(now_utc.year + 1, 1, 1, 0, 0, 0, tzinfo=datetime.timezone.utc)
+    else:
+        next_month_start = datetime.datetime(now_utc.year, now_utc.month + 1, 1, 0, 0, 0, tzinfo=datetime.timezone.utc)
+
+    cur.execute("""
+        SELECT 
+            COUNT(*),
+            COALESCE(SUM(duration_seconds), 0)
+        FROM github_actions_run_logs
+        WHERE started_at >= %s AND started_at < %s;
+    """, (start_of_month, next_month_start))
+    row = cur.fetchone()
+    monthly_runs = (row[0] if row else 0) or 0
+    delta_sec = (row[1] if row else 0) or 0
+    month_minutes = round(float(delta_sec) / 60.0, 1)
+
+    if current_year_month == '2026-09':
+        total_used = round(1242.0 + month_minutes, 1)
+    else:
+        total_used = month_minutes
+
+    remaining = max(0.0, round(2000.0 - total_used, 1))
+    burn_rate = round((total_used / 2000.0) * 100.0, 1)
+    alert = "CRITICAL_HIGH" if burn_rate >= 75 else ("WARNING" if burn_rate >= 50 else "SAFE")
+
+    cur.execute("""
+        INSERT INTO github_actions_monthly_usage (
+            year_month, total_minutes, remaining_minutes, burn_rate_percent, alert_level, total_job_runs, updated_at
+        ) VALUES (%s, %s, %s, %s, %s, %s, CURRENT_TIMESTAMP)
+        ON CONFLICT (year_month) DO UPDATE SET
+            total_minutes = EXCLUDED.total_minutes,
+            remaining_minutes = EXCLUDED.remaining_minutes,
+            burn_rate_percent = EXCLUDED.burn_rate_percent,
+            alert_level = EXCLUDED.alert_level,
+            total_job_runs = EXCLUDED.total_job_runs,
+            updated_at = CURRENT_TIMESTAMP;
+    """, (current_year_month, total_used, remaining, burn_rate, alert, monthly_runs))
+    return current_year_month, total_used, remaining, burn_rate, alert
+
 def sync_telemetry():
     db_url = load_env_db_url()
     if not db_url:
@@ -178,36 +228,12 @@ def sync_telemetry():
         except Exception as e:
             print(f"[!] Note: harvest_runs reconciliation warning: {e}")
 
-        # Calculate live monthly quota
-        # Baseline measured from GitHub Billing: 1,242.0 min at 2026-09-07T17:32:00Z
-        base_time = datetime.datetime(2026, 9, 7, 17, 32, 0, tzinfo=datetime.timezone.utc)
-        cur.execute("""
-            SELECT COALESCE(SUM(duration_seconds), 0)
-            FROM github_actions_run_logs
-            WHERE started_at > %s;
-        """, (base_time,))
-        delta_sec = cur.fetchone()[0]
-        delta_min = round(float(delta_sec) / 60.0, 1)
-        
-        total_used = round(1242.0 + delta_min, 1)
-        remaining = max(0.0, round(2000.0 - total_used, 1))
-        burn_rate = round((total_used / 2000.0) * 100.0, 1)
-        alert = "CRITICAL_HIGH" if burn_rate >= 75 else ("WARNING" if burn_rate >= 50 else "SAFE")
-        
-        cur.execute("""
-            UPDATE github_actions_monthly_usage
-            SET total_minutes = %s,
-                remaining_minutes = %s,
-                burn_rate_percent = %s,
-                alert_level = %s,
-                total_job_runs = (SELECT COUNT(*) FROM github_actions_run_logs),
-                updated_at = CURRENT_TIMESTAMP
-            WHERE year_month = '2026-09';
-        """, (total_used, remaining, burn_rate, alert))
+        # Recalculate live monthly quota dynamically for current month
+        cur_ym, total_used, remaining, burn_rate, alert = recalculate_monthly_usage(cur)
         
         conn.commit()
         print(f"[+] Successfully synced {inserted_runs} runs to Cloud DB!")
-        print(f"[+] Monthly Actions Quota: {total_used}m used / {remaining}m remaining ({burn_rate}%, {alert})")
+        print(f"[+] Monthly Actions Quota ({cur_ym}): {total_used}m used / {remaining}m remaining ({burn_rate}%, {alert})")
 
     conn.close()
     return True
@@ -310,32 +336,8 @@ def finalize_run(run_id, job_status="success"):
         except Exception:
             pass
 
-        # Also recalculate monthly usage
-        base_time = datetime.datetime(2026, 9, 7, 17, 32, 0, tzinfo=datetime.timezone.utc)
-        cur.execute("""
-            SELECT COALESCE(SUM(duration_seconds), 0)
-            FROM github_actions_run_logs
-            WHERE started_at > %s;
-        """, (base_time,))
-        delta_sec = cur.fetchone()[0]
-        delta_min = round(float(delta_sec) / 60.0, 1)
-
-        total_used = round(1242.0 + delta_min, 1)
-        remaining = max(0.0, round(2000.0 - total_used, 1))
-        burn_rate = round((total_used / 2000.0) * 100.0, 1)
-        alert = "CRITICAL_HIGH" if burn_rate >= 75 else ("WARNING" if burn_rate >= 50 else "SAFE")
-
-        cur.execute("""
-            UPDATE github_actions_monthly_usage
-            SET total_minutes = %s,
-                remaining_minutes = %s,
-                burn_rate_percent = %s,
-                alert_level = %s,
-                total_job_runs = (SELECT COUNT(*) FROM github_actions_run_logs),
-                updated_at = CURRENT_TIMESTAMP
-            WHERE year_month = '2026-09';
-        """, (total_used, remaining, burn_rate, alert))
-
+        # Also recalculate monthly usage dynamically for current month
+        cur_ym, total_used, remaining, burn_rate, alert = recalculate_monthly_usage(cur)
         conn.commit()
         print(f"[+] Finalized run {run_id} ({wf_name}): status=completed, conclusion={conclusion}, dur={dur_str}, errors={err_cnt}")
 

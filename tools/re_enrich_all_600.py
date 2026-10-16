@@ -59,7 +59,8 @@ def get_openrouter_api_key():
 # ==============================================================================
 GEMINI_MODEL = "gemini-3.6-flash"
 OPENROUTER_FREE_MODELS = [
-    "inclusionai/ling-3.0-flash-sante:free",
+    "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+    "nvidia/nemotron-3.5-lightning:free",
     "liquid/lfm-2.5-2.6b:free"
 ]
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
@@ -223,7 +224,7 @@ def translate_titles_openrouter(items: list, openrouter_key: str):
         return results, {"promptTokenCount": 0, "candidatesTokenCount": 0, "thoughtsTokenCount": 0, "totalTokenCount": 0}, OPENROUTER_FREE_MODELS[0], False
 
     prompt = build_translation_prompt(items_to_translate)
-    for model_name in OPENROUTER_FREE_MODELS[:2]:
+    for model_name in OPENROUTER_FREE_MODELS[:3]:
         payload = {
             "model": model_name,
             "messages": [{"role": "user", "content": prompt}],
@@ -239,7 +240,7 @@ def translate_titles_openrouter(items: list, openrouter_key: str):
         }
         try:
             req = urllib.request.Request(OPENROUTER_URL, data=req_data, headers=headers, method="POST")
-            with urllib.request.urlopen(req, timeout=75) as res:
+            with urllib.request.urlopen(req, timeout=50) as res:
                 body = json.loads(res.read().decode("utf-8"))
             or_usage = body.get("usage", {})
             comp_details = or_usage.get("completion_tokens_details") or {}
@@ -542,10 +543,11 @@ def run_re_enrichment(mode: str = "local-gemini", batch_size: int = None, limit:
     cur.execute("SELECT COUNT(*) FROM raw_trends_inbox WHERE is_classified = FALSE;")
     rem_count = cur.fetchone()[0]
     worker_label = "Local Antigravity Gemini 3.6 Flash (Batch 10)" if active_mode == "local-gemini" else "Local OpenRouter Free Fallback (Batch 3)"
+    clamped_dur = round(min(float(total_dur), 9999.99), 2)
     cur.execute("""
         INSERT INTO vercel_worker_logs (worker_name, model_used, processed_count, duration_seconds, remaining_count, status)
         VALUES (%s, %s, %s, %s, %s, 'SUCCESS');
-    """, (worker_label, model_name, total_applied, total_dur, rem_count))
+    """, (worker_label, model_name, total_applied, clamped_dur, rem_count))
     conn.commit()
     conn.close()
 

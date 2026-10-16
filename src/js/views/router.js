@@ -152,10 +152,28 @@ export function resetAllFiltersAndSearch() {
 }
 
 export function switchView(view, pushHistory = true, preserveFilters = false) {
+  if (view === 'graph') {
+    view = 'home';
+  }
+
+  // Admin Security Barrier for Inbox / Archive View
+  if (view === 'inbox') {
+    const hasToken = typeof sessionStorage !== 'undefined' && sessionStorage.getItem('admin_token');
+    if (!hasToken) {
+      const promptVal = window.prompt('🔐 관리자 보안 토큰을 입력하세요:');
+      if (!promptVal || !promptVal.trim()) {
+        return; // Stay on current view if cancelled
+      }
+      try {
+        sessionStorage.setItem('admin_token', promptVal.trim());
+      } catch (e) {}
+    }
+  }
+
   if (!preserveFilters) {
     resetAllFiltersAndSearch();
   }
-  const validViews = ['home', 'portfolio', 'news', 'models', 'graph', 'inbox'];
+  const validViews = ['home', 'portfolio', 'news', 'models', 'inbox'];
   const targetView = validViews.includes(view) ? view : 'home';
   window.currentView = targetView;
 
@@ -219,8 +237,6 @@ export function switchView(view, pushHistory = true, preserveFilters = false) {
     renderPipelineTelemetryCards();
     renderRunsTable();
     updateCronCountdown();
-  } else if (targetView === 'graph') {
-    initCitationGraph();
   }
 
   if (pushHistory && window.scrollY > 60) {
@@ -275,7 +291,7 @@ export function handleHashRoute() {
   } else if (routePart.startsWith('#/models') || routePart.startsWith('#models')) {
     targetView = 'models';
   } else if (routePart.startsWith('#/graph') || routePart.startsWith('#graph')) {
-    targetView = 'graph';
+    targetView = 'home';
   } else if (routePart.startsWith('#/inbox') || routePart.startsWith('#inbox')) {
     targetView = 'inbox';
   } else {

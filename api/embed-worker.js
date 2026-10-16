@@ -14,6 +14,7 @@
 
 const { getDbPool } = require('./_lib/db');
 const { handleOptions, setCorsHeaders } = require('./_lib/cors');
+const { verifyAdminSecret } = require('./_lib/auth');
 
 const VOYAGE_API_URL = 'https://api.voyageai.com/v1/embeddings';
 const VOYAGE_MODEL = 'voyage-4-lite';
@@ -83,6 +84,11 @@ module.exports = async function handler(req, res) {
 
   const startTime = Date.now();
   const isCheckOnly = req.query.check_only === 'true' || req.body?.check_only === true || (req.method === 'GET' && req.query.run !== 'true' && !req.query.limit);
+
+  if (!isCheckOnly) {
+    if (!verifyAdminSecret(req, res)) return;
+  }
+
   const pool = getDbPool();
 
   if (isCheckOnly) {
@@ -201,6 +207,7 @@ module.exports = async function handler(req, res) {
     // 3. Batch call Voyage AI API in a single HTTP request (~0.3 - 0.5s)
     const voyageRes = await fetch(VOYAGE_API_URL, {
       method: 'POST',
+      signal: AbortSignal.timeout(15000),
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${apiKey.trim()}`
@@ -486,8 +493,8 @@ module.exports = async function handler(req, res) {
         const formatted = jevCandidates.map((p, idx) => ({ id: idx, a: p.primaryTitleEn, b: p.dupTitleEn }));
         const prompt = 'Determine if each pair of English headlines reports the exact same real-world incident/event.\nReturn ONLY a JSON array with id and is_same (true/false):\n' + JSON.stringify(formatted);
         const models = [
-          'inclusionai/ling-3.0-flash-sante:free',
-          'liquid/lfm-2.5-2.6b:free'
+          'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free',
+          'nvidia/nemotron-3.5-lightning:free'
         ];
 
         for (const model of models) {

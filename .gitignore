@@ -63,4 +63,12 @@ public/data_archive.json
 data/
 *.cache
 
+# Local Batch Scratch & Subagent migration
+tools/inspect_batch*
+tools/generate_batch*
+tools/preview_batch*
+tools/export_subagent*
+tools/subagent_*
+tools/verify_subagent*
+
 

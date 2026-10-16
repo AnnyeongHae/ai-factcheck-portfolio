@@ -18,10 +18,12 @@
 
 const { getDbPool } = require('./_lib/db');
 const { handleOptions, setCorsHeaders } = require('./_lib/cors');
+const { verifyAdminSecret } = require('./_lib/auth');
 
 const FREE_MODELS = [
-  'inclusionai/ling-3.0-flash-sante:free',  // Verified: fastest (5.34s), resilient, high quality CJK multilingual
-  'liquid/lfm-2.5-2.6b:free'                // Verified active fallback
+  'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free',  // Verified active, pristine JSON, fast multilingual CJK
+  'nvidia/nemotron-3.5-lightning:free',                 // Verified active secondary fallback
+  'liquid/lfm-2.5-2.6b:free'                            // Fallback
 ];
 
 function sanitizeJsonString(str) {
@@ -169,18 +171,11 @@ module.exports = async (req, res) => {
   setCorsHeaders(res, 'GET, POST, OPTIONS');
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
 
-  // Authorization policy:
-  // - Public / Frontend / Cron / GHA triggers are allowed for micro-batch (limit <= 5).
-  // - High-volume batches (limit > 5) require ADMIN_QUEUE_SECRET or CRON_SECRET.
-  const adminSecret = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET;
-  const authHeader = req.headers.authorization || '';
-  const customHeader = req.headers['x-admin-key'] || '';
-  const querySecret = req.query?.secret || '';
-  const provided = authHeader.startsWith('Bearer ') ? authHeader.substring(7) : (customHeader || querySecret);
-  const isAdmin = Boolean(adminSecret && provided === adminSecret);
+  // Fail-closed Admin Authorization Policy
+  if (!verifyAdminSecret(req, res)) return;
 
   const requestedLimit = parseInt(req.query?.limit, 10) || 1;
-  const limit = isAdmin ? Math.min(Math.max(requestedLimit, 1), 5) : 1;
+  const limit = Math.min(Math.max(requestedLimit, 1), 5);
 
   const pool = getDbPool();
   if (!pool) {

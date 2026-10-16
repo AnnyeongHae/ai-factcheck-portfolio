@@ -304,6 +304,8 @@ if (typeof window !== 'undefined') {
   // Router init
   initRouter();
 
+  // Signal modular app registered immediately to prevent fallback timer race
+  window.__APP_INITIALIZED__ = true;
   console.log('[App] 🚀 Modular architecture components registered.');
 }
 

@@ -120,9 +120,9 @@ module.exports = async (req, res) => {
       `).catch(() => ({ rows: [] })),
       // 4. GitHub Actions monthly usage quota
       pool.query(
-        'SELECT total_minutes, quota_limit_minutes, remaining_minutes, burn_rate_percent, alert_level, updated_at ' +
+        'SELECT year_month, total_minutes, quota_limit_minutes, remaining_minutes, burn_rate_percent, alert_level, updated_at ' +
         'FROM github_actions_monthly_usage ' +
-        'ORDER BY updated_at DESC ' +
+        'ORDER BY year_month DESC, updated_at DESC ' +
         'LIMIT 1;'
       ).catch(() => ({ rows: [] })),
       // 5. GitHub Actions run logs
@@ -222,6 +222,7 @@ module.exports = async (req, res) => {
     if (qRes.rows.length > 0) {
       const qr = qRes.rows[0];
       quotaData = {
+        year_month: qr.year_month || '2026-10',
         total_minutes: parseFloat(qr.total_minutes),
         quota_limit_minutes: parseFloat(qr.quota_limit_minutes),
         remaining_minutes: parseFloat(qr.remaining_minutes),

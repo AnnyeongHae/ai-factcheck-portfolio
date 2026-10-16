@@ -48,11 +48,6 @@ export function navigateFromRadar(view, searchKey, inboxId) {
 }
 
 export function renderRadarSession() {
-  const radarData = (trendRadarData && trendRadarData.sessions) ? trendRadarData : (window.trendRadarData || {});
-  if (!radarData.sessions) return;
-  const sessionData = radarData.sessions[String(activeRadarSession)];
-  if (!sessionData) return;
-
   const sLabels = {
     KO: ['1회 00시', '2회 06시', '3회 12시', '4회 18시'],
     ZH: ['1期 00点', '2期 06点', '3期 12点', '4期 18点'],
@@ -71,6 +66,11 @@ export function renderRadarSession() {
       }
     }
   }
+
+  const radarData = (trendRadarData && trendRadarData.sessions) ? trendRadarData : (window.trendRadarData || {});
+  if (!radarData.sessions) return;
+  const sessionData = radarData.sessions[String(activeRadarSession)];
+  if (!sessionData) return;
 
   const windowLabelEl = document.getElementById('trendRadarWindowLabel');
   const pulseDotEl = document.getElementById('trendRadarPulseDot');

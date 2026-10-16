@@ -30,122 +30,134 @@ import { showToast } from '../components/toast.js';
 import { ClientCache } from './cache.js';
 
 export async function bootstrapApplicationData() {
-  console.log('[Bootstrap] Initializing parallel DB-First data hydration...');
-  let loadedFromEdge = false;
+  console.log('[Bootstrap] 🚀 Initializing Single-Pass DB-First data hydration...');
 
-  const cachedPortfolios = ClientCache.get('portfolios_summary', 120000);
-  const edgeFetchPromise = (async () => {
-    if (cachedPortfolios && cachedPortfolios.success && Array.isArray(cachedPortfolios.portfolios) && cachedPortfolios.portfolios.length > 0) {
+  // 1. Concurrently fetch live DB endpoints & layout datasets in a single pass
+  const statsApiUrl = APP_CONFIG.apiUrl('/api/stats');
+  const portfoliosApiUrl = APP_CONFIG.apiUrl('/api/portfolios?summary=true');
+
+  const statsPromise = (async () => {
+    try {
+      const res = await fetch(statsApiUrl, { cache: 'default' });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn('[Bootstrap] /api/stats fetch failed:', e.message);
+    }
+    return null;
+  })();
+
+  const portfoliosPromise = (async () => {
+    const cachedPortfolios = ClientCache.get('portfolios_summary', 120000);
+    if (cachedPortfolios?.success && Array.isArray(cachedPortfolios.portfolios) && cachedPortfolios.portfolios.length > 0) {
       return { source: 'cache', data: cachedPortfolios };
     }
-    const portfoliosApiUrl = APP_CONFIG.apiUrl('/api/portfolios?summary=true');
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 6000);
     try {
-      const edgeRes = await fetch(portfoliosApiUrl, { signal: controller.signal });
-      clearTimeout(timeoutId);
-      if (edgeRes.ok) {
-        const edgeData = await edgeRes.json();
-        if (edgeData && edgeData.success && Array.isArray(edgeData.portfolios) && edgeData.portfolios.length > 0) {
-          return { source: 'edge', data: edgeData };
+      const res = await fetch(portfoliosApiUrl);
+      if (res.ok) {
+        const data = await res.json();
+        if (data?.success && Array.isArray(data.portfolios) && data.portfolios.length > 0) {
+          ClientCache.set('portfolios_summary', data);
+          return { source: 'db', data };
         }
       }
-    } finally {
-      clearTimeout(timeoutId);
+    } catch (e) {
+      console.warn('[Bootstrap] /api/portfolios fetch failed:', e.message);
     }
     return null;
   })();
 
-  const staticFetchPromise = (async () => {
-    let staticRes = await fetch('data.json', { cache: 'default' });
-    let cType = staticRes.headers.get('content-type') || '';
-    if (!staticRes.ok || !cType.includes('application/json')) {
-      staticRes = await fetch('/data.json', { cache: 'default' });
-      cType = staticRes.headers.get('content-type') || '';
-    }
-    if (staticRes.ok && cType.includes('application/json')) {
-      return await staticRes.json();
-    }
+  const staticPromise = (async () => {
+    try {
+      const res = await fetch('data.json', { cache: 'default' });
+      if (res.ok) return await res.json();
+    } catch (e) {}
     return null;
   })();
 
-  const [edgeOutcome, staticOutcome] = await Promise.allSettled([edgeFetchPromise, staticFetchPromise]);
+  const [statsData, portfoliosResult, staticData] = await Promise.all([statsPromise, portfoliosPromise, staticPromise]);
 
-  // 1. Primary Source: Session SWR Cache or Vercel Edge SWR API
-  if (edgeOutcome.status === 'fulfilled' && edgeOutcome.value) {
-    const { source, data: edgeData } = edgeOutcome.value;
-    AppStore.setCases(edgeData.portfolios);
-    loadedFromEdge = true;
-    if (source === 'edge') {
-      ClientCache.set('portfolios_summary', edgeData);
-    }
-    if (edgeData.db_provider) APP_CONFIG.setDbProvider(edgeData.db_provider);
-    console.log(`[Bootstrap] ⚡ [${source === 'cache' ? 'Session SWR Cache' : 'DB-First Edge SWR'}] Loaded ${edgeData.portfolios.length} dossiers.`);
-  } else if (edgeOutcome.status === 'rejected') {
-    console.warn('[Bootstrap] Edge API first-paint timeout or offline, falling back to static snapshot:', edgeOutcome.reason?.message);
-  }
+  // 2. Hydrate feeds, timeline, and trend radar from static datasets
+  if (staticData) {
+    window.adminData = staticData.admin_stats || {};
+    window.timeline24hData = staticData.timeline_24h || [];
+    window.actionsTelemetryData = staticData.actions_telemetry || {};
+    window.trend6hData = staticData.trend_6h || {};
+    window.trendRadarData = staticData.trend_radar || {};
 
-  // 2. Static Snapshot Hydration (Graph, Telemetry, Snapshot Stats & Fallback Items)
-  if (staticOutcome.status === 'fulfilled' && staticOutcome.value) {
-    const data = staticOutcome.value;
-    AppStore.setGraphData(data.graph || { nodes: [], links: [] });
-    window.adminData = data.admin_stats || {};
-    window.timeline24hData = data.timeline_24h || [];
-    window.actionsTelemetryData = data.actions_telemetry || {};
-    window.trend6hData = data.trend_6h || {};
-    window.trendRadarData = data.trend_radar || {};
+    AppStore._news = staticData.trend_items || staticData.news_items || staticData.news || [];
+    AppStore._models = staticData.model_items || staticData.models || [];
+    AppStore._inbox = staticData.inbox_items || (staticData.inbox_recent || []).concat(staticData.inbox || []);
 
-    Object.assign(snapshotStats, {
-      total_cases: data.total_cases || (data.cases ? data.cases.length : 58),
-      news_total_count: data.news_total_count || (data.news_items ? data.news_items.length : 3039),
-      models_total_count: data.models_total_count || (data.model_items ? data.model_items.length : 344),
-      inbox_total_count: data.inbox_total_count || (data.inbox_items ? data.inbox_items.length : 3039),
-      tier1_counts: data.tier1_counts || null,
-      news_cat_counts: data.news_cat_counts || null,
-      model_art_counts: data.model_art_counts || null,
-      model_fam_counts: data.model_fam_counts || null
+    AppStore._models.forEach(it => { it.is_model = true; });
+    AppStore._news.forEach(it => {
+      if (it.is_model === undefined) {
+        it.is_model = it.facet_type === 'MODEL' || !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
+      }
+    });
+    AppStore._inbox.forEach(it => {
+      if (it.is_model === undefined) it.is_model = !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
+      if (it.is_news === undefined) it.is_news = !it.is_model;
     });
 
-    if (!loadedFromEdge) {
-      AppStore.init(data);
-      console.log(`[Bootstrap] Loaded ${AppStore.getCases().length} dossiers from static snapshot fallback.`);
-    } else {
-      AppStore._news = data.trend_items || data.news_items || data.news || [];
-      AppStore._models = data.model_items || data.models || [];
-      AppStore._inbox = data.inbox_items || (data.inbox_recent || []).concat(data.inbox || []);
+    [...AppStore._inbox, ...AppStore._news, ...AppStore._models].forEach(it => {
+      const id = it.inbox_id || it.id;
+      if (id && !AppStore._itemsMap.has(id)) {
+        AppStore._itemsMap.set(id, it);
+      }
+    });
 
-      AppStore._models.forEach(it => { it.is_model = true; });
-      AppStore._news.forEach(it => {
-        if (it.is_model === undefined) {
-          it.is_model = it.facet_type === 'MODEL' || !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
-        }
-      });
-      AppStore._inbox.forEach(it => {
-        if (it.is_model === undefined) it.is_model = !!(it.model_family || it.artifact_type || (it.category_primary === 'MODEL_RELEASE'));
-        if (it.is_news === undefined) it.is_news = !it.is_model;
-      });
-
-      [...AppStore._inbox, ...AppStore._news, ...AppStore._models].forEach(it => {
-        const id = it.inbox_id || it.id;
-        if (id && !AppStore._itemsMap.has(id)) {
-          AppStore._itemsMap.set(id, it);
-        }
-      });
-
-      window.liveNewsData = AppStore._news;
-      window.liveModelsData = AppStore._models;
-      window.inboxData = AppStore._inbox;
-      window.liveInboxData = AppStore._inbox;
-      window.newsData = AppStore._news;
-      window.modelsData = AppStore._models;
-    }
-  } else if (staticOutcome.status === 'rejected') {
-    console.warn('[Bootstrap] Static snapshot fallback skipped:', staticOutcome.reason?.message);
+    window.liveNewsData = AppStore._news;
+    window.liveModelsData = AppStore._models;
+    window.inboxData = AppStore._inbox;
+    window.liveInboxData = AppStore._inbox;
+    window.newsData = AppStore._news;
+    window.modelsData = AppStore._models;
   }
 
+  // 3. Hydrate live dossiers from SSOT DB (overrides static dossiers with real-time factchecks)
+  if (portfoliosResult?.data?.portfolios) {
+    AppStore.setCases(portfoliosResult.data.portfolios);
+    window.liveCasesData = portfoliosResult.data.portfolios;
+    window.casesData = portfoliosResult.data.portfolios;
+    if (portfoliosResult.data.db_provider) {
+      APP_CONFIG.setDbProvider(portfoliosResult.data.db_provider);
+    }
+  } else if (staticData && staticData.cases) {
+    AppStore.setCases(staticData.cases);
+    window.liveCasesData = staticData.cases;
+    window.casesData = staticData.cases;
+  }
+
+  // 4. Hydrate Live Stats & Counts directly from DB Engine (SQL GROUP BY SSOT)
+  if (statsData?.status === 'success' && statsData.counts) {
+    const c = statsData.counts;
+    const liveInbox = c.inbox_deduped || c.inbox_total || 0;
+    const liveModels = c.models_total || 0;
+    const liveNews = c.news_total || liveInbox;
+    const liveVerified = c.factchecks_verified || (AppStore.getCases() || []).length || 58;
+
+    Object.assign(snapshotStats, {
+      total_cases: liveVerified,
+      news_total_count: liveNews,
+      models_total_count: liveModels,
+      inbox_total_count: liveInbox
+    });
+    if (statsData.db_provider) {
+      APP_CONFIG.setDbProvider(statsData.db_provider);
+    }
+  } else if (staticData) {
+    Object.assign(snapshotStats, {
+      total_cases: staticData.total_cases || (staticData.cases ? staticData.cases.length : 58),
+      news_total_count: staticData.news_total_count || 6011,
+      models_total_count: staticData.models_total_count || 869,
+      inbox_total_count: staticData.inbox_total_count || 6011
+    });
+  }
+
+  // 5. Update UI Once (Single Pass, Zero Flickering)
   updateGlobalStatsUI();
 
-  // Restore user saved language preference (skipViewRender=true since switchView runs immediately below)
+  // Restore user saved language preference
   try {
     const savedLang = localStorage.getItem('factcheck_lang') || 'KO';
     if (['KO', 'ZH', 'EN'].includes(savedLang) && typeof window.setLanguage === 'function') {
@@ -153,30 +165,23 @@ export async function bootstrapApplicationData() {
     }
   } catch (e) {}
 
-  // Lazy Active View Rendering (Single Clean Pass)
+  // 6. Render Active View Once with true live DB data
   const initialHash = typeof window !== 'undefined' ? window.location.hash || '' : '';
   let initialView = 'home';
   if (initialHash.startsWith('#/factchecks') || initialHash.startsWith('#case/')) initialView = 'portfolio';
   else if (initialHash.startsWith('#/news')) initialView = 'news';
   else if (initialHash.startsWith('#/models')) initialView = 'models';
-  else if (initialHash.startsWith('#/graph')) initialView = 'graph';
   else if (initialHash.startsWith('#/inbox')) initialView = 'inbox';
 
   if (typeof window.switchView === 'function') {
     window.switchView(initialView, false, true);
   }
 
-  // Live DB sync in background (idle delay)
-  setTimeout(() => {
-    syncFromLiveDB(false)
-      .then(() => updateGlobalStatsUI())
-      .catch(e => console.warn('[Bootstrap] Live DB sync completed or skipped:', e.message));
-  }, 1500);
-
-  // Mark app as initialized for the zero-downtime fallback harness
+  // Mark app as initialized
   if (typeof window !== 'undefined') {
     window.__APP_INITIALIZED__ = true;
   }
+  console.log('[Bootstrap] ✅ Single-Pass live DB hydration complete.');
 }
 
 export function updateGlobalStatsUI() {
@@ -714,9 +719,13 @@ export async function startContinuousVoyageWorker() {
       }
 
       const t0 = Date.now();
+      const adminToken = (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('admin_token')) || '';
       const res = await fetch(APP_CONFIG.apiUrl('/api/embed-worker?limit=100'), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(adminToken ? { 'x-admin-key': adminToken, 'Authorization': `Bearer ${adminToken}` } : {})
+        },
         body: JSON.stringify({ limit: 100 }),
         cache: 'no-store'
       });
@@ -864,7 +873,23 @@ export async function startContinuousAiWorker() {
         txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1"></span> AI 요약 분석 중... (누적 ${processedInThisSession}건 완료)`;
       }
 
-      const res = await fetch(workerUrl, { cache: 'no-store' });
+      const adminToken = (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('admin_token')) || '';
+      const res = await fetch(workerUrl, {
+        headers: {
+          ...(adminToken ? { 'x-admin-key': adminToken, 'Authorization': `Bearer ${adminToken}` } : {})
+        },
+        cache: 'no-store'
+      });
+      if (res.status === 401) {
+        _autoWorkerRunning = false;
+        window._autoWorkerRunning = false;
+        if (txt) txt.textContent = '🔒 관리자 인증 필요 (토큰 불일치)';
+        if (btn) {
+          btn.disabled = false;
+          btn.className = "px-3 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-800 font-bold font-mono text-[11px] border border-rose-300 transition shadow-xs flex items-center gap-1.5 cursor-pointer";
+        }
+        break;
+      }
       if (res.status === 429) {
         _autoWorkerRunning = false;
         window._autoWorkerRunning = false;

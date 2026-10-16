@@ -200,14 +200,44 @@ export function renderPipelineTelemetryCards() {
   const remMin = aData.monthly_remaining_minutes || (2000.0 - usedMin);
   const usagePct = aData.monthly_usage_percent || 0.0;
 
+  const nowKst = getDynamicKstDate();
+  const curMonth = (nowKst.getMonth() + 1);
+
   const usedEl = document.getElementById('quotaUsedMin');
   const remEl = document.getElementById('quotaRemMin');
   const progEl = document.getElementById('quotaProgressBar');
-  if (usedEl) usedEl.innerText = `${usedMin}분`;
-  if (remEl) remEl.innerText = `${remMin}분 (${100 - usagePct}%)`;
-  if (progEl) progEl.style.width = `${Math.min(100, Math.max(2, usagePct))}%`;
+  const secTitleEl = document.getElementById('quotaSectionTitle');
+  const badgeVerdictEl = document.getElementById('quotaBadgeVerdict');
+  const adviceTextEl = document.getElementById('quotaAdviceText');
 
-  const nowKst = getDynamicKstDate();
+  if (usedEl) usedEl.innerText = `${usedMin}분`;
+  if (remEl) remEl.innerText = `${remMin}분 (${(100 - usagePct).toFixed(1)}%)`;
+  if (progEl) {
+    progEl.style.width = `${Math.min(100, Math.max(2, usagePct))}%`;
+    progEl.className = `h-3 rounded-full transition-all duration-500 ${usagePct >= 75 ? 'bg-red-500' : (usagePct >= 50 ? 'bg-amber-500' : 'bg-emerald-500')}`;
+  }
+  if (secTitleEl) {
+    secTitleEl.innerText = `${curMonth}월 GitHub Actions 러너 쿼터 현황 (2,000분 기준)`;
+  }
+  if (badgeVerdictEl) {
+    if (usagePct >= 75) {
+      badgeVerdictEl.className = 'px-2 py-0.5 rounded bg-red-100 text-red-800 font-bold font-mono text-[10px]';
+      badgeVerdictEl.innerText = `🚨 한도 주의 (${usagePct}% 소모)`;
+    } else if (usagePct >= 50) {
+      badgeVerdictEl.className = 'px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold font-mono text-[10px]';
+      badgeVerdictEl.innerText = `⚠️ 사용량 주의 (${usagePct}% 소모)`;
+    } else {
+      badgeVerdictEl.className = 'px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold font-mono text-[10px]';
+      badgeVerdictEl.innerText = `✅ 안정 운영 (${usagePct}% 소모)`;
+    }
+  }
+  if (adviceTextEl) {
+    if (usagePct <= 50) {
+      adviceTextEl.innerHTML = `${curMonth}월 러너 쿼터 2,000분 중 <b>${usedMin}분(${usagePct}%)</b> 소모! 잔여 <b>${remMin}분(${(100 - usagePct).toFixed(1)}%)</b>으로 <b>현행 6시간 수집 체제가 최적 효율로 안정 운용</b> 중입니다.`;
+    } else {
+      adviceTextEl.innerHTML = `${curMonth}월 러너 쿼터 2,000분 중 <b>${usedMin}분(${usagePct}%)</b> 소모! 잔여는 <b>${remMin}분</b>이므로 현행 6시간(1일 4회) 주기를 유지하는 것이 안전합니다.`;
+    }
+  }
   const curHour = nowKst.getHours();
   const curMin = nowKst.getMinutes();
   const curSec = nowKst.getSeconds();
