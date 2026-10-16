@@ -347,7 +347,7 @@ module.exports = async (req, res) => {
       conditions.push("(raw_payload->'ai_enrichment' IS NULL OR is_classified = FALSE OR raw_payload->'ai_enrichment'->>'enriched_at' IS NULL)");
     } else if (sort === 'date-audit-desc' || sort === 'date-audit-asc') {
       if (!includePending) {
-        conditions.push("(is_classified = TRUE AND raw_payload ? 'ai_enrichment' AND (raw_payload->'ai_enrichment') IS NOT NULL AND (raw_payload->'ai_enrichment'->>'enriched_at') IS NOT NULL)");
+        conditions.push("is_classified = TRUE");
       }
     }
 
@@ -379,9 +379,9 @@ module.exports = async (req, res) => {
     } else if (sort === 'id') {
       sortParam = 'id DESC';
     } else if (sort === 'date-audit-desc') {
-      sortParam = "COALESCE((raw_payload->'ai_enrichment'->>'enriched_at')::timestamptz, updated_at) DESC NULLS LAST, id DESC";
+      sortParam = "updated_at DESC NULLS LAST, id DESC";
     } else if (sort === 'date-audit-asc') {
-      sortParam = "COALESCE((raw_payload->'ai_enrichment'->>'enriched_at')::timestamptz, updated_at) ASC NULLS LAST, id ASC";
+      sortParam = "updated_at ASC NULLS LAST, id ASC";
     } else if (sort === 'updated') {
       sortParam = 'updated_at DESC NULLS LAST, id DESC';
     }
@@ -398,24 +398,19 @@ module.exports = async (req, res) => {
     params.push(offset);
     const offsetParam = '$' + params.length;
 
-    // 🚀 SOTA High-Performance Fast Index Scan
+    // 🚀 SOTA High-Performance Fast Index Scan + Single-Roundtrip Window Count
     const dataQuery = `
       SELECT id, inbox_id, source_platform, source_url, title, item_type, category_primary, 
              viral_metric, viral_score, is_classified, harvested_date, created_at, updated_at, raw_payload,
-             live_spike_score, peak_spike_score, peak_spike_date::text AS peak_spike_date, best_spike_rank
+             live_spike_score, peak_spike_score, peak_spike_date::text AS peak_spike_date, best_spike_rank,
+             COUNT(*) OVER() AS full_count
       FROM raw_trends_inbox
       ${whereClause}
       ORDER BY ${sortParam}
       LIMIT ${limitParam} OFFSET ${offsetParam};
     `;
 
-    const countQuery = `SELECT COUNT(id) AS total_count FROM raw_trends_inbox ${whereClause};`;
-
-    // Execute data fetch, count, and optional historical snapshot fetch in parallel
-    const queries = [
-      pool.query(dataQuery, params),
-      pool.query(countQuery, countParams)
-    ];
+    const queries = [pool.query(dataQuery, params)];
     if (isValidSpikeDate) {
       queries.push(
         pool.query(
@@ -429,7 +424,13 @@ module.exports = async (req, res) => {
       );
     }
 
-    const [result, countRes, histRes] = await Promise.all(queries);
+    const [result, histRes] = await Promise.all(queries);
+    let total = result.rows.length > 0 ? (parseInt(result.rows[0].full_count, 10) || 0) : 0;
+    if (result.rows.length === 0 && offset > 0) {
+      const countRes = await pool.query(`SELECT COUNT(id) AS total_count FROM raw_trends_inbox ${whereClause};`, countParams);
+      total = parseInt(countRes.rows[0]?.total_count, 10) || 0;
+    }
+
     const histMap = new Map();
     if (histRes && Array.isArray(histRes.rows)) {
       for (const hr of histRes.rows) {
@@ -437,9 +438,12 @@ module.exports = async (req, res) => {
       }
     }
 
-    // Fetch per-item daily point trajectory (spike_history) for returned items
+    // Fetch per-item daily point trajectory (spike_history) only for spiking items
     const spikeHistoryMap = new Map();
-    const returnedIds = result.rows.map(r => Number(r.id)).filter(id => Number.isFinite(id) && id > 0);
+    const returnedIds = result.rows
+      .filter(r => facet === 'CROSS_SPIKE' || Number(r.live_spike_score || 0) > 0 || Number(r.peak_spike_score || 0) > 0)
+      .map(r => Number(r.id))
+      .filter(id => Number.isFinite(id) && id > 0);
     if (returnedIds.length > 0) {
       try {
         const trajRes = await pool.query(
@@ -464,8 +468,6 @@ module.exports = async (req, res) => {
         // Non-fatal fallback if table is not yet initialized
       }
     }
-
-    const total = parseInt(countRes.rows[0]?.total_count, 10) || 0;
 
     // Clean & Lean items mapping (Preserve all card display fields, strip internal/giant blobs)
     const items = result.rows.map(r => {

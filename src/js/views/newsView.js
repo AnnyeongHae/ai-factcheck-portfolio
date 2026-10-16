@@ -57,7 +57,7 @@ export async function fetchNewsFromDb(page = window.currentNewsPage || currentNe
   const cacheKey = getNewsCacheKey(page);
 
   if (!bypassCache) {
-    const cached = ClientCache.get(cacheKey, 60000);
+    const cached = ClientCache.get(cacheKey, 300000);
     if (cached) {
       newsDbCache.set(cacheKey, cached);
       return cached;
@@ -85,6 +85,35 @@ export async function fetchNewsFromDb(page = window.currentNewsPage || currentNe
     return result;
   }
   throw new Error('API returned invalid payload');
+}
+
+const inFlightNewsPrefetch = new Set();
+export async function prefetchNewsPage(targetPage) {
+  if (!targetPage || targetPage < 1) return;
+  const cacheKey = getNewsCacheKey(targetPage);
+  if (newsDbCache.has(cacheKey) || ClientCache.get(cacheKey, 300000) || inFlightNewsPrefetch.has(cacheKey)) return;
+  inFlightNewsPrefetch.add(cacheKey);
+  try {
+    const baseUrl = APP_CONFIG.apiUrl('/api/inbox');
+    const res = await fetch(`${baseUrl}?${cacheKey}`);
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.status === 'success') {
+        const result = {
+          total: data.total || 0,
+          totalPages: data.total_pages || Math.ceil((data.total || 0) / PAGE_SIZE) || 1,
+          items: data.items || [],
+          timestamp: Date.now()
+        };
+        newsDbCache.set(cacheKey, result);
+        ClientCache.set(cacheKey, result);
+      }
+    }
+  } catch (e) {
+    // Silent background prefetch
+  } finally {
+    inFlightNewsPrefetch.delete(cacheKey);
+  }
 }
 
 export function renderNewsGridItems(items, grid) {
@@ -475,7 +504,7 @@ export async function renderNews() {
   let cachedFirstId = null;
   let cached = newsDbCache.get(cacheKey);
   if (!cached) {
-    cached = ClientCache.get(cacheKey, 60000);
+    cached = ClientCache.get(cacheKey, 300000);
     if (cached) newsDbCache.set(cacheKey, cached);
   }
   if (cached && Array.isArray(cached.items) && cached.items.length > 0) {
@@ -484,7 +513,10 @@ export async function renderNews() {
     if (window.lucide) window.lucide.createIcons({ root: grid });
     renderedFromCache = true;
     cachedFirstId = cached.items[0]?.inbox_id || cached.items[0]?.id;
-    if (Date.now() - (cached.timestamp || 0) < 10000) {
+    if (curPage < (cached.totalPages || 1)) {
+      setTimeout(() => prefetchNewsPage(curPage + 1), 120);
+    }
+    if (Date.now() - (cached.timestamp || 0) < 300000) {
       return;
     }
   }
@@ -558,6 +590,10 @@ export async function renderNews() {
         if (headEl) headEl.textContent = `(${fullCount.toLocaleString()})`;
       }
     }
+
+    if (curPage < totalPages) {
+      setTimeout(() => prefetchNewsPage(curPage + 1), 120);
+    }
   } catch (err) {
     if (err.name === 'AbortError') return;
     console.warn('[News DB-Native Fetch Fallback]:', err.message);
@@ -574,5 +610,33 @@ if (typeof window !== 'undefined') {
   window.stepCrossSpikeDate = stepCrossSpikeDate;
   window.loadCrossSpikeDatesList = loadCrossSpikeDatesList;
   window.updateCrossSpikeTimeMachineUI = updateCrossSpikeTimeMachineUI;
+  window.prefetchNewsPage = prefetchNewsPage;
+
+  if (!window._midScrollPrefetchBound) {
+    window._midScrollPrefetchBound = true;
+    let scrollTick = false;
+    window.addEventListener('scroll', () => {
+      if (scrollTick) return;
+      scrollTick = true;
+      requestAnimationFrame(() => {
+        scrollTick = false;
+        const docEl = document.documentElement;
+        const scrollBottom = (window.scrollY || docEl.scrollTop || 0) + (window.innerHeight || docEl.clientHeight || 0);
+        const totalHeight = docEl.scrollHeight || 1;
+        if (scrollBottom / totalHeight >= 0.45) {
+          const activeView = window.currentView || 'home';
+          if (activeView === 'news') {
+            const p = Number(window.currentNewsPage || 1);
+            prefetchNewsPage(p + 1);
+            prefetchNewsPage(p + 2);
+          } else if (activeView === 'inbox' && typeof window.prefetchInboxPage === 'function') {
+            const p = Number(window.currentInboxPage || 1);
+            window.prefetchInboxPage(p + 1);
+            window.prefetchInboxPage(p + 2);
+          }
+        }
+      });
+    }, { passive: true });
+  }
 }
 

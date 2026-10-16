@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T12:04:15.059Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T12:24:06.230Z */
 
 (() => {
   // src/js/core/config.js
@@ -440,11 +440,8 @@
       pipelineNextTargetLabel: "\uB2E4\uC74C \uC790\uB3D9 \uC218\uC9D1 \uC608\uC815",
       pipelineFooterAudit: "1\uC77C 4\uD68C(00, 06, 12, 18\uC2DC KST) \uC815\uAE30 \uC804\uB7B5 \uC218\uC9D1 & Vercel \uC2E4\uC2DC\uAC04 \uB3D9\uAE30\uD654",
       pipelineFooterNote: "* GitHub Actions \uD050 \uC0C1\uD0DC\uC5D0 \uB530\uB77C \xB12~5\uBD84\uC758 \uC2A4\uCF00\uC904 \uC9C0\uC5F0\uC774 \uBC1C\uC0DD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.",
-      heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
-      heroMainTitle: "\uBC14\uC774\uB7F4\uB41C AI \uAE30\uC220\uC758 \uC2E4\uCCB4 \uBD84\uC11D",
-      heroMainDesc: "SNS \uBC14\uC774\uB7F4 \uB9C8\uCF00\uD305\uC758 \uD658\uAC01\uC744 \uAC77\uC5B4\uB0B4\uACE0, 1\uCC28 \uACF5\uC2DD \uCD9C\uCC98 \uAC10\uC0AC\uC640 \uAE30\uC800 \uD45C\uC900 vs \uC11C\uB4DC\uD30C\uD2F0 \uC2E4\uCE21 \uBCA4\uCE58\uB9C8\uD06C\uB97C \uD1B5\uD574 \uB3C4\uCD9C\uD55C 100% \uC2E4\uC99D \uBCF4\uACE0\uC11C\uC785\uB2C8\uB2E4.",
-      heroUpdateLabel: "\uCD5C\uC885 \uAC80\uC99D\uC77C",
-      heroAuditCount: "49\uAC1C \uAE30\uC220 \uAC80\uC99D \uC644\uB8CC",
+      heroMainTitle: "\uAE00\uB85C\uBC8C AI\xB7\uD14C\uD06C \uD2B8\uB80C\uB4DC \uC2E4\uC2DC\uAC04 \uC218\uC9D1 \uBC0F \uBC14\uC774\uB7F4\uB41C AI \uAE30\uC220\uC758 \uC2E4\uCCB4 \uBD84\uC11D \uD50C\uB7AB\uD3FC",
+      heroMainDesc: "\uC804 \uC138\uACC4 \uC8FC\uC694 \uAE30\uC220 \uCEE4\uBBA4\uB2C8\uD2F0(HackerNews, GitHub, HuggingFace, ArXiv \uB4F1)\uC640 \uBBF8\uB514\uC5B4\uC5D0\uC11C \uC2E4\uC2DC\uAC04\uC73C\uB85C \uC3DF\uC544\uC9C0\uB294 AI\xB7\uD14C\uD06C \uC774\uC288\uB97C \uC790\uB3D9 \uC218\uC9D1\uD574 \uB2E4\uAD6D\uC5B4(\uD55C\xB7\uC911\xB7\uC601)\uB85C 3\uC904 \uC694\uC57D\uD558\uACE0, \uB2E4\uC911 \uD50C\uB7AB\uD3FC\uC5D0\uC11C \uB3D9\uC2DC\uC5D0 \uAE09\uC0C1\uC2B9\uD558\uB294 \uD06C\uB85C\uC2A4 \uBC14\uC774\uB7F4 \uAE30\uC220\uC5D0 \uB300\uD574 1\uCC28 \uACF5\uC2DD \uCD9C\uCC98\uC640 \uC2E4\uCE21 \uBCA4\uCE58\uB9C8\uD06C \uAE30\uBC18\uC758 \uD329\uD2B8\uCCB4\uD06C \uB9AC\uD3EC\uD2B8\uB97C \uC81C\uACF5\uD569\uB2C8\uB2E4.",
       promoBannerTitle: "\uAE30\uC220 \uAC80\uC99D \uD3EC\uD2B8\uD3F4\uB9AC\uC624 \uCD5C\uC2E0 \uC0C1\uD0DC \uC54C\uB9BC",
       promoCountBadge: "49\uAC74 \uAC80\uC99D \uC644\uB8CC",
       promoBannerDesc: "\uBC14\uC774\uB7F4 \uC784\uACC4\uCE58\uB97C \uCD08\uACFC\uD558\uC5EC \uC720\uC785\uB41C \uC8FC\uC694 \uC624\uD508\uC18C\uC2A4 \uBC0F \uBAA8\uB378 \uD6C4\uBCF4\uAD70 \uCD1D 49\uAC74\uC5D0 \uB300\uD55C \uC2EC\uCE35 \uC2E4\uCE21 \uBCA4\uCE58\uB9C8\uD06C\uC640 \uD329\uD2B8\uCCB4\uD06C\uAC00 \uBAA8\uB450 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.",
@@ -599,11 +596,8 @@
       pipelineNextTargetLabel: "\u4E0B\u6B21\u81EA\u52A8\u91C7\u96C6\u8BA1\u5212",
       pipelineFooterAudit: "\u6BCF\u65E54\u6B21(00, 06, 12, 18\u65F6 KST) \u5B9A\u5411\u7B56\u7565\u91C7\u96C6 & Vercel \u5B9E\u65F6\u540C\u6B65",
       pipelineFooterNote: "* \u53D7 GitHub Actions \u961F\u5217\u8D1F\u8F7D\u5F71\u54CD\uFF0C\u53EF\u80FD\u5B58\u5728 \xB12~5 \u5206\u949F\u8C03\u5EA6\u5EF6\u8FDF.",
-      heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
-      heroMainTitle: "\u70ED\u95E8 AI \u6280\u672F\u7684\u5DE5\u7A0B\u771F\u76F8\u4E0E\u5B9E\u4F53\u9A8C\u8BC1",
-      heroMainDesc: "\u6452\u5F03\u793E\u4EA4\u5A92\u4F53\u8425\u9500\u7092\u4F5C\u4E0E\u5E7B\u89C9\uFF0C\u57FA\u4E8E\u7B2C\u4E00\u624B\u5B98\u65B9\u6E90\u7801\u5BA1\u8BA1\u4EE5\u53CA\u57FA\u7840\u6807\u51C6 vs \u7B2C\u4E09\u65B9\u5DE5\u5177\u7684\u5B9E\u6D4B\u57FA\u51C6\uFF0C\u8F93\u51FA 100% \u771F\u5B9E\u5BA2\u89C2\u7684\u5DE5\u7A0B\u62A5\u544A\u3002",
-      heroUpdateLabel: "\u6700\u65B0\u5BA1\u8BA1",
-      heroAuditCount: "\u5DF2\u5B8C\u6210 49 \u9879\u6280\u672F\u5BA1\u8BA1",
+      heroMainTitle: "\u5168\u7403 AI \u4E0E\u79D1\u6280\u8D8B\u52BF\u5B9E\u65F6\u91C7\u96C6 \xB7 \u70ED\u95E8 AI \u6280\u672F\u7684\u5DE5\u7A0B\u771F\u76F8\u4E0E\u5B9E\u4F53\u9A8C\u8BC1\u5E73\u53F0",
+      heroMainDesc: "\u5168\u5929\u5019\u81EA\u52A8\u91C7\u96C6\u5168\u7403\u4E3B\u6D41\u6280\u672F\u793E\u533A\uFF08HackerNews\u3001GitHub\u3001HuggingFace\u3001ArXiv \u7B49\uFF09\u4E0E\u79D1\u6280\u5A92\u4F53\u7684\u524D\u6CBF\u52A8\u6001\u5E76\u63D0\u4F9B\u4E2D\xB7\u97E9\xB7\u82F1\u4E09\u8BED\u6838\u5FC3\u6458\u8981\uFF1B\u9488\u5BF9\u8DE8\u5E73\u53F0\u540C\u65F6\u98D9\u5347\u7684\u70ED\u95E8\u6280\u672F\uFF0C\u57FA\u4E8E\u4E00\u624B\u5B98\u65B9\u6E90\u7801\u4E0E\u5B9E\u6D4B\u57FA\u51C6\u63D0\u4F9B\u5BA2\u89C2\u7684\u6DF1\u5EA6\u4E8B\u5B9E\u6838\u67E5\u62A5\u544A\u3002",
       promoBannerTitle: "\u6280\u672F\u5BA1\u8BA1\u6863\u6848\u5E93\u6700\u65B0\u72B6\u6001",
       promoCountBadge: "49 \u9879\u6838\u9A8C\u5B8C\u6BD5",
       promoBannerDesc: "\u5DF2\u5BF9\u7A81\u7834\u70ED\u5EA6\u9608\u503C\u81EA\u52A8\u664B\u5347\u7684 49 \u9879\u91CD\u70B9\u5F00\u6E90\u9879\u76EE\u4E0E\u524D\u6CBF\u6A21\u578B\u5B8C\u6210\u5168\u6D41\u7A0B\u6DF1\u5EA6\u5B9E\u6D4B\u57FA\u51C6\u4E0E\u4E8B\u5B9E\u6838\u67E5\u3002",
@@ -758,11 +752,8 @@
       pipelineNextTargetLabel: "Next Scheduled Ingestion",
       pipelineFooterAudit: "4x daily (00, 06, 12, 18 KST) strategic collection & Vercel live sync",
       pipelineFooterNote: "* \xB12~5 min schedule variance may occur based on GitHub Actions runner queue load.",
-      heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
-      heroMainTitle: "Empirical Analysis of Viral AI Technologies",
-      heroMainDesc: "A zero-hallucination dossier derived from Tier-1 official source audits and empirical benchmarks comparing base standards with third-party tools.",
-      heroUpdateLabel: "LAST AUDITED",
-      heroAuditCount: "49 Audits Completed",
+      heroMainTitle: "Real-Time Global AI & Tech Trend Radar \xB7 Empirical Analysis of Viral AI Technologies",
+      heroMainDesc: "Automatically harvests real-time AI and tech issues across global communities (HackerNews, GitHub, HuggingFace, ArXiv, etc.) with trilingual (KO\xB7ZH\xB7EN) 3-point summaries, and delivers empirical fact-check dossiers backed by primary sources and benchmarks for cross-platform viral technologies.",
       promoBannerTitle: "Dossier Status Update",
       promoCountBadge: "49 Completed",
       promoBannerDesc: "All 49 high-velocity repositories and models that crossed the viral threshold have been rigorously benchmarked and fact-checked.",
@@ -956,12 +947,9 @@
       safeSetText("mNavTabGraph", t.navGraph);
       safeSetText("adminArchiveLabel", t.adminArchiveBtn);
       safeSetText("mNavTabInbox", `${t.adminArchiveBtn || "\uC544\uCE74\uC774\uBE0C"} (${totalInboxCnt.toLocaleString()})`);
-      safeSetText("heroBadge", t.heroBadge);
       safeSetText("heroMainTitle", t.heroMainTitle);
       safeSetHtml("heroMainDesc", t.heroMainDesc);
       const liveCasesCount = window.liveCasesData && window.liveCasesData.length || window.casesData && window.casesData.length || snapshotStats && snapshotStats.total_cases || 63;
-      const heroAuditText = lang === "KO" ? `\u25CF ${liveCasesCount}\uAC1C \uAE30\uC220 \uAC80\uC99D \uC644\uB8CC` : lang === "ZH" ? `\u5DF2\u5B8C\u6210 ${liveCasesCount} \u9879\u6280\u672F\u5BA1\u8BA1` : `${liveCasesCount} Audits Completed`;
-      safeSetText("heroAuditCount", heroAuditText);
       safeSetText("statLabelVerified", lang === "KO" ? "\uACF5\uC2DD \uAE30\uC220 \uAC80\uC99D" : lang === "ZH" ? "\u5B98\u65B9\u6280\u672F\u6838\u67E5" : "Verified Fact-Checks");
       safeSetText("statLabelInbox", lang === "KO" ? "\uC218\uC9D1 \uC778\uBC15\uC2A4" : lang === "ZH" ? "\u91C7\u96C6\u6536\u4EF6\u7BB1" : "Harvested Inbox");
       safeSetText("statLabelModels", lang === "KO" ? "AI \uBAA8\uB378 \uD2B8\uB80C\uB4DC" : lang === "ZH" ? "AI \u6A21\u578B\u8D8B\u52BF" : "AI Model Trends");
@@ -4914,7 +4902,7 @@
     const baseUrl = APP_CONFIG.apiUrl("/api/inbox");
     const cacheKey = getNewsCacheKey(page);
     if (!bypassCache) {
-      const cached = ClientCache.get(cacheKey, 6e4);
+      const cached = ClientCache.get(cacheKey, 3e5);
       if (cached) {
         newsDbCache.set(cacheKey, cached);
         return cached;
@@ -4943,6 +4931,33 @@
       return result;
     }
     throw new Error("API returned invalid payload");
+  }
+  var inFlightNewsPrefetch = /* @__PURE__ */ new Set();
+  async function prefetchNewsPage(targetPage) {
+    if (!targetPage || targetPage < 1) return;
+    const cacheKey = getNewsCacheKey(targetPage);
+    if (newsDbCache.has(cacheKey) || ClientCache.get(cacheKey, 3e5) || inFlightNewsPrefetch.has(cacheKey)) return;
+    inFlightNewsPrefetch.add(cacheKey);
+    try {
+      const baseUrl = APP_CONFIG.apiUrl("/api/inbox");
+      const res = await fetch(`${baseUrl}?${cacheKey}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.status === "success") {
+          const result = {
+            total: data.total || 0,
+            totalPages: data.total_pages || Math.ceil((data.total || 0) / PAGE_SIZE) || 1,
+            items: data.items || [],
+            timestamp: Date.now()
+          };
+          newsDbCache.set(cacheKey, result);
+          ClientCache.set(cacheKey, result);
+        }
+      }
+    } catch (e) {
+    } finally {
+      inFlightNewsPrefetch.delete(cacheKey);
+    }
   }
   function renderNewsGridItems(items, grid) {
     if (!grid) return;
@@ -5287,7 +5302,7 @@
     let cachedFirstId = null;
     let cached = newsDbCache.get(cacheKey);
     if (!cached) {
-      cached = ClientCache.get(cacheKey, 6e4);
+      cached = ClientCache.get(cacheKey, 3e5);
       if (cached) newsDbCache.set(cacheKey, cached);
     }
     if (cached && Array.isArray(cached.items) && cached.items.length > 0) {
@@ -5296,7 +5311,10 @@
       if (window.lucide) window.lucide.createIcons({ root: grid });
       renderedFromCache = true;
       cachedFirstId = cached.items[0]?.inbox_id || cached.items[0]?.id;
-      if (Date.now() - (cached.timestamp || 0) < 1e4) {
+      if (curPage < (cached.totalPages || 1)) {
+        setTimeout(() => prefetchNewsPage(curPage + 1), 120);
+      }
+      if (Date.now() - (cached.timestamp || 0) < 3e5) {
         return;
       }
     }
@@ -5362,6 +5380,9 @@
           if (headEl) headEl.textContent = `(${fullCount.toLocaleString()})`;
         }
       }
+      if (curPage < totalPages) {
+        setTimeout(() => prefetchNewsPage(curPage + 1), 120);
+      }
     } catch (err) {
       if (err.name === "AbortError") return;
       console.warn("[News DB-Native Fetch Fallback]:", err.message);
@@ -5377,6 +5398,33 @@
     window.stepCrossSpikeDate = stepCrossSpikeDate;
     window.loadCrossSpikeDatesList = loadCrossSpikeDatesList;
     window.updateCrossSpikeTimeMachineUI = updateCrossSpikeTimeMachineUI;
+    window.prefetchNewsPage = prefetchNewsPage;
+    if (!window._midScrollPrefetchBound) {
+      window._midScrollPrefetchBound = true;
+      let scrollTick = false;
+      window.addEventListener("scroll", () => {
+        if (scrollTick) return;
+        scrollTick = true;
+        requestAnimationFrame(() => {
+          scrollTick = false;
+          const docEl = document.documentElement;
+          const scrollBottom = (window.scrollY || docEl.scrollTop || 0) + (window.innerHeight || docEl.clientHeight || 0);
+          const totalHeight = docEl.scrollHeight || 1;
+          if (scrollBottom / totalHeight >= 0.45) {
+            const activeView = window.currentView || "home";
+            if (activeView === "news") {
+              const p = Number(window.currentNewsPage || 1);
+              prefetchNewsPage(p + 1);
+              prefetchNewsPage(p + 2);
+            } else if (activeView === "inbox" && typeof window.prefetchInboxPage === "function") {
+              const p = Number(window.currentInboxPage || 1);
+              window.prefetchInboxPage(p + 1);
+              window.prefetchInboxPage(p + 2);
+            }
+          }
+        });
+      }, { passive: true });
+    }
   }
 
   // src/js/views/homeView.js
@@ -5650,7 +5698,7 @@
     const baseUrl = APP_CONFIG.apiUrl("/api/inbox");
     const cacheKey = getInboxCacheKey(page);
     if (!bypassCache) {
-      const cached = ClientCache.get(cacheKey, 6e4);
+      const cached = ClientCache.get(cacheKey, 3e5);
       if (cached) {
         inboxDbCache.set(cacheKey, cached);
         return cached;
@@ -5679,6 +5727,33 @@
       return result;
     }
     throw new Error("API returned invalid payload");
+  }
+  var inFlightInboxPrefetch = /* @__PURE__ */ new Set();
+  async function prefetchInboxPage(targetPage) {
+    if (!targetPage || targetPage < 1) return;
+    const cacheKey = getInboxCacheKey(targetPage);
+    if (inboxDbCache.has(cacheKey) || ClientCache.get(cacheKey, 3e5) || inFlightInboxPrefetch.has(cacheKey)) return;
+    inFlightInboxPrefetch.add(cacheKey);
+    try {
+      const baseUrl = APP_CONFIG.apiUrl("/api/inbox");
+      const res = await fetch(`${baseUrl}?${cacheKey}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.status === "success") {
+          const result = {
+            total: data.total || 0,
+            totalPages: data.total_pages || Math.ceil((data.total || 0) / PAGE_SIZE) || 1,
+            items: data.items || [],
+            timestamp: Date.now()
+          };
+          inboxDbCache.set(cacheKey, result);
+          ClientCache.set(cacheKey, result);
+        }
+      }
+    } catch (e) {
+    } finally {
+      inFlightInboxPrefetch.delete(cacheKey);
+    }
   }
   function createInboxCardElement(it, curLang) {
     const isQueued = queuedItemIds.has(it.inbox_id);
@@ -5787,7 +5862,7 @@
     let cachedFirstId = null;
     let cached = inboxDbCache.get(cacheKey);
     if (!cached) {
-      cached = ClientCache.get(cacheKey, 6e4);
+      cached = ClientCache.get(cacheKey, 3e5);
       if (cached) inboxDbCache.set(cacheKey, cached);
     }
     if (cached && Array.isArray(cached.items) && cached.items.length > 0) {
@@ -5795,7 +5870,10 @@
       renderPagination("inboxPagination", curPage, cached.totalPages, "changeInboxPage");
       renderedFromCache = true;
       cachedFirstId = cached.items[0]?.inbox_id || cached.items[0]?.id;
-      if (Date.now() - (cached.timestamp || 0) < 1e4) {
+      if (curPage < (cached.totalPages || 1)) {
+        setTimeout(() => prefetchInboxPage(curPage + 1), 120);
+      }
+      if (Date.now() - (cached.timestamp || 0) < 3e5) {
         return;
       }
     }
@@ -5854,6 +5932,9 @@
             renderPagination("inboxPagination", curPage, dbResult.totalPages, "changeInboxPage");
           }
         }
+        if (curPage < (dbResult.totalPages || 1)) {
+          setTimeout(() => prefetchInboxPage(curPage + 1), 120);
+        }
       }
     } catch (err) {
       if (err.name === "AbortError") return;
@@ -5865,6 +5946,9 @@
         grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${curLang === "KO" ? "\uC218\uC9D1\uB41C \uC778\uBC15\uC2A4 \uD6C4\uBCF4\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4." : curLang === "ZH" ? "\u6536\u4EF6\u7BB1\u6682\u65E0\u5019\u9009\u6570\u636E\u3002" : "No candidates in the inbox."}</div>`;
       }
     }
+  }
+  if (typeof window !== "undefined") {
+    window.prefetchInboxPage = prefetchInboxPage;
   }
 
   // src/js/views/router.js

@@ -25,11 +25,8 @@ export const i18n = {
     pipelineNextTargetLabel: "다음 자동 수집 예정",
     pipelineFooterAudit: "1일 4회(00, 06, 12, 18시 KST) 정기 전략 수집 & Vercel 실시간 동기화",
     pipelineFooterNote: "* GitHub Actions 큐 상태에 따라 ±2~5분의 스케줄 지연이 발생할 수 있습니다.",
-    heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
-    heroMainTitle: "바이럴된 AI 기술의 실체 분석",
-    heroMainDesc: "SNS 바이럴 마케팅의 환각을 걷어내고, 1차 공식 출처 감사와 기저 표준 vs 서드파티 실측 벤치마크를 통해 도출한 100% 실증 보고서입니다.",
-    heroUpdateLabel: "최종 검증일",
-    heroAuditCount: "49개 기술 검증 완료",
+    heroMainTitle: "글로벌 AI·테크 트렌드 실시간 수집 및 바이럴된 AI 기술의 실체 분석 플랫폼",
+    heroMainDesc: "전 세계 주요 기술 커뮤니티(HackerNews, GitHub, HuggingFace, ArXiv 등)와 미디어에서 실시간으로 쏟아지는 AI·테크 이슈를 자동 수집해 다국어(한·중·영)로 3줄 요약하고, 다중 플랫폼에서 동시에 급상승하는 크로스 바이럴 기술에 대해 1차 공식 출처와 실측 벤치마크 기반의 팩트체크 리포트를 제공합니다.",
     promoBannerTitle: "기술 검증 포트폴리오 최신 상태 알림",
     promoCountBadge: "49건 검증 완료",
     promoBannerDesc: "바이럴 임계치를 초과하여 유입된 주요 오픈소스 및 모델 후보군 총 49건에 대한 심층 실측 벤치마크와 팩트체크가 모두 완료되었습니다.",
@@ -184,11 +181,8 @@ export const i18n = {
     pipelineNextTargetLabel: "下次自动采集计划",
     pipelineFooterAudit: "每日4次(00, 06, 12, 18时 KST) 定向策略采集 & Vercel 实时同步",
     pipelineFooterNote: "* 受 GitHub Actions 队列负载影响，可能存在 ±2~5 分钟调度延迟.",
-    heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
-    heroMainTitle: "热门 AI 技术的工程真相与实体验证",
-    heroMainDesc: "摒弃社交媒体营销炒作与幻觉，基于第一手官方源码审计以及基础标准 vs 第三方工具的实测基准，输出 100% 真实客观的工程报告。",
-    heroUpdateLabel: "最新审计",
-    heroAuditCount: "已完成 49 项技术审计",
+    heroMainTitle: "全球 AI 与科技趋势实时采集 · 热门 AI 技术的工程真相与实体验证平台",
+    heroMainDesc: "全天候自动采集全球主流技术社区（HackerNews、GitHub、HuggingFace、ArXiv 等）与科技媒体的前沿动态并提供中·韩·英三语核心摘要；针对跨平台同时飙升的热门技术，基于一手官方源码与实测基准提供客观的深度事实核查报告。",
     promoBannerTitle: "技术审计档案库最新状态",
     promoCountBadge: "49 项核验完毕",
     promoBannerDesc: "已对突破热度阈值自动晋升的 49 项重点开源项目与前沿模型完成全流程深度实测基准与事实核查。",
@@ -343,11 +337,8 @@ export const i18n = {
     pipelineNextTargetLabel: "Next Scheduled Ingestion",
     pipelineFooterAudit: "4x daily (00, 06, 12, 18 KST) strategic collection & Vercel live sync",
     pipelineFooterNote: "* ±2~5 min schedule variance may occur based on GitHub Actions runner queue load.",
-    heroBadge: "ZERO-HALLUCINATION ARCHITECTURE & COST AUDIT",
-    heroMainTitle: "Empirical Analysis of Viral AI Technologies",
-    heroMainDesc: "A zero-hallucination dossier derived from Tier-1 official source audits and empirical benchmarks comparing base standards with third-party tools.",
-    heroUpdateLabel: "LAST AUDITED",
-    heroAuditCount: "49 Audits Completed",
+    heroMainTitle: "Real-Time Global AI & Tech Trend Radar · Empirical Analysis of Viral AI Technologies",
+    heroMainDesc: "Automatically harvests real-time AI and tech issues across global communities (HackerNews, GitHub, HuggingFace, ArXiv, etc.) with trilingual (KO·ZH·EN) 3-point summaries, and delivers empirical fact-check dossiers backed by primary sources and benchmarks for cross-platform viral technologies.",
     promoBannerTitle: "Dossier Status Update",
     promoCountBadge: "49 Completed",
     promoBannerDesc: "All 49 high-velocity repositories and models that crossed the viral threshold have been rigorously benchmarked and fact-checked.",
@@ -551,12 +542,9 @@ export function setLanguage(lang, skipViewRender = false) {
     safeSetText('mNavTabInbox', `${t.adminArchiveBtn || '아카이브'} (${totalInboxCnt.toLocaleString()})`);
 
     // Hero Elements
-    safeSetText('heroBadge', t.heroBadge);
     safeSetText('heroMainTitle', t.heroMainTitle);
     safeSetHtml('heroMainDesc', t.heroMainDesc);
     const liveCasesCount = (window.liveCasesData && window.liveCasesData.length) || (window.casesData && window.casesData.length) || (snapshotStats && snapshotStats.total_cases) || 63;
-    const heroAuditText = lang === 'KO' ? `● ${liveCasesCount}개 기술 검증 완료` : (lang === 'ZH' ? `已完成 ${liveCasesCount} 项技术审计` : `${liveCasesCount} Audits Completed`);
-    safeSetText('heroAuditCount', heroAuditText);
 
     // Dashboard KPI Telemetry
     safeSetText('statLabelVerified', lang === 'KO' ? '공식 기술 검증' : (lang === 'ZH' ? '官方技术核查' : 'Verified Fact-Checks'));

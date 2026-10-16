@@ -180,22 +180,17 @@
     <!-- ==================== VIEW 0: HOME DASHBOARD (순수 종합 대시보드 뷰) ==================== -->
     <div id="homeView" class="space-y-6">
 
-      <!-- Compact Zero-Scroll Status Strip -->
-      <div class="flex items-center justify-between flex-wrap gap-2 px-4 py-2 rounded-xl bg-white border border-surface-border shadow-xs text-xs font-mono">
-        <div class="flex items-center gap-2 flex-wrap">
-          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold text-[11px]" id="heroBadge">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
-            ZERO-HALLUCINATION AUDIT
-          </span>
-          <span class="font-bold text-ink-primary text-xs hidden sm:inline" id="heroMainTitle">
-            바이럴된 AI 기술의 실체 분석
-          </span>
+      <!-- Program Introduction Banner (2-3 Lines) -->
+      <div class="px-4 py-3.5 rounded-2xl bg-white border border-surface-border shadow-xs space-y-1">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-indigo-600 shrink-0"></span>
+          <h2 class="font-extrabold text-ink-primary text-xs sm:text-sm tracking-tight" id="heroMainTitle">
+            글로벌 AI·테크 트렌드 실시간 수집 및 바이럴된 AI 기술의 실체 분석 플랫폼
+          </h2>
         </div>
-
-        <div class="flex items-center gap-3 text-[11px] text-ink-muted">
-          <span><span id="heroUpdateLabel">LAST AUDITED</span>: <b class="text-ink-primary"><span id="headerGeneratedAt">2026-09-12</span></b></span>
-          <span class="text-emerald-700 font-bold" id="heroAuditCount">● 63개 기술 검증 완료</span>
-        </div>
+        <p class="text-xs text-ink-secondary leading-relaxed pl-4" id="heroMainDesc">
+          전 세계 주요 기술 커뮤니티(HackerNews, GitHub, HuggingFace, ArXiv 등)와 미디어에서 실시간으로 쏟아지는 AI·테크 이슈를 자동 수집해 다국어(한·중·영)로 3줄 요약하고, 다중 플랫폼에서 동시에 급상승하는 크로스 바이럴 기술에 대해 1차 공식 출처와 실측 벤치마크 기반의 팩트체크 리포트를 제공합니다.
+        </p>
       </div>
 
       <!-- 🌟 REAL-TIME TELEMETRY & INTELLIGENCE KPI OVERVIEW (3-컬럼 대칭 반응형 그리드) -->
@@ -580,9 +575,6 @@
           <button onclick="setNewsFacetFilter('MODEL')" id="facetBtnModel" class="news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 border border-cyan-400/30 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="MODEL">🤖 AI 모델 & 가중치</button>
           <button onclick="setNewsFacetFilter('TOOL')" id="facetBtnTool" class="news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 border border-emerald-400/30 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="TOOL">🛠️ 오픈소스 도구</button>
           <button onclick="setNewsFacetFilter('NEWS')" id="facetBtnNews" class="news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 border border-white/20 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="NEWS">📰 뉴스 & 분석</button>
-        </div>
-        <div class="text-[11px] text-slate-400 font-mono hidden sm:block shrink-0">
-          단일 엔티티 롤업 • 인메모리 0ms 캐시 필터
         </div>
       </div>
 

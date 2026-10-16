@@ -159,7 +159,7 @@ export async function fetchInboxFromDb(page = window.currentInboxPage || current
   const cacheKey = getInboxCacheKey(page);
 
   if (!bypassCache) {
-    const cached = ClientCache.get(cacheKey, 60000);
+    const cached = ClientCache.get(cacheKey, 300000);
     if (cached) {
       inboxDbCache.set(cacheKey, cached);
       return cached;
@@ -187,6 +187,35 @@ export async function fetchInboxFromDb(page = window.currentInboxPage || current
     return result;
   }
   throw new Error('API returned invalid payload');
+}
+
+const inFlightInboxPrefetch = new Set();
+export async function prefetchInboxPage(targetPage) {
+  if (!targetPage || targetPage < 1) return;
+  const cacheKey = getInboxCacheKey(targetPage);
+  if (inboxDbCache.has(cacheKey) || ClientCache.get(cacheKey, 300000) || inFlightInboxPrefetch.has(cacheKey)) return;
+  inFlightInboxPrefetch.add(cacheKey);
+  try {
+    const baseUrl = APP_CONFIG.apiUrl('/api/inbox');
+    const res = await fetch(`${baseUrl}?${cacheKey}`);
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.status === 'success') {
+        const result = {
+          total: data.total || 0,
+          totalPages: data.total_pages || Math.ceil((data.total || 0) / PAGE_SIZE) || 1,
+          items: data.items || [],
+          timestamp: Date.now()
+        };
+        inboxDbCache.set(cacheKey, result);
+        ClientCache.set(cacheKey, result);
+      }
+    }
+  } catch (e) {
+    // Silent background prefetch
+  } finally {
+    inFlightInboxPrefetch.delete(cacheKey);
+  }
 }
 
 export function createInboxCardElement(it, curLang) {
@@ -313,7 +342,7 @@ export async function renderInbox() {
   let cachedFirstId = null;
   let cached = inboxDbCache.get(cacheKey);
   if (!cached) {
-    cached = ClientCache.get(cacheKey, 60000);
+    cached = ClientCache.get(cacheKey, 300000);
     if (cached) inboxDbCache.set(cacheKey, cached);
   }
   if (cached && Array.isArray(cached.items) && cached.items.length > 0) {
@@ -321,7 +350,10 @@ export async function renderInbox() {
     renderPagination('inboxPagination', curPage, cached.totalPages, 'changeInboxPage');
     renderedFromCache = true;
     cachedFirstId = cached.items[0]?.inbox_id || cached.items[0]?.id;
-    if (Date.now() - (cached.timestamp || 0) < 10000) {
+    if (curPage < (cached.totalPages || 1)) {
+      setTimeout(() => prefetchInboxPage(curPage + 1), 120);
+    }
+    if (Date.now() - (cached.timestamp || 0) < 300000) {
       return;
     }
   }
@@ -387,6 +419,9 @@ export async function renderInbox() {
           renderPagination('inboxPagination', curPage, dbResult.totalPages, 'changeInboxPage');
         }
       }
+      if (curPage < (dbResult.totalPages || 1)) {
+        setTimeout(() => prefetchInboxPage(curPage + 1), 120);
+      }
     }
   } catch (err) {
     if (err.name === 'AbortError') return;
@@ -398,4 +433,8 @@ export async function renderInbox() {
       grid.innerHTML = `<div class="col-span-full py-16 text-center text-ink-muted font-medium">${curLang === 'KO' ? '수집된 인박스 후보가 없습니다.' : (curLang === 'ZH' ? '收件箱暂无候选数据。' : 'No candidates in the inbox.')}</div>`;
     }
   }
+}
+
+if (typeof window !== 'undefined') {
+  window.prefetchInboxPage = prefetchInboxPage;
 }
