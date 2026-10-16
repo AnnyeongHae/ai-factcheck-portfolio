@@ -211,7 +211,7 @@ export function switchView(view, pushHistory = true, preserveFilters = false) {
   }
 
   if (pushHistory) {
-    const targetHash = ROUTES[targetView] || '#/' + targetView;
+    const targetHash = ROUTES[targetView] || '#' + targetView;
     if (window.location.hash !== targetHash) {
       try {
         history.pushState({ view: targetView }, '', targetHash);
@@ -254,7 +254,7 @@ export function switchView(view, pushHistory = true, preserveFilters = false) {
 export function handleHashRoute() {
   const hash = window.location.hash || '';
 
-  // 1. Deep Link to Modal: #/factchecks?case=... or #case/...
+  // 1. Deep Link to Modal: #factchecks?case=... or #/factchecks?case=... or #case/...
   if (hash.includes('case=') || hash.startsWith('#case/')) {
     let targetCaseId = '';
     if (hash.includes('case=')) {
@@ -278,21 +278,21 @@ export function handleHashRoute() {
   // If modal is open and user navigates back to tab without modal query, close modal
   closeModal(false);
 
-  // 2. Parse Route and Query Page
+  // 2. Parse Route and Query Page (Clean #route and legacy #/route support)
   const [routePart, queryPart] = hash.split('?');
   const params = new URLSearchParams(queryPart || '');
   const pageParam = parseInt(params.get('page'), 10) || 1;
 
   let targetView = 'home';
-  if (routePart.startsWith('#/factchecks') || routePart.startsWith('#factchecks') || routePart.startsWith('#/portfolio')) {
+  if (routePart === '#factchecks' || routePart.startsWith('#factchecks') || routePart.startsWith('#/factchecks') || routePart.startsWith('#/portfolio')) {
     targetView = 'portfolio';
-  } else if (routePart.startsWith('#/news') || routePart.startsWith('#news')) {
+  } else if (routePart === '#news' || routePart.startsWith('#news') || routePart.startsWith('#/news')) {
     targetView = 'news';
-  } else if (routePart.startsWith('#/models') || routePart.startsWith('#models')) {
+  } else if (routePart === '#models' || routePart.startsWith('#models') || routePart.startsWith('#/models')) {
     targetView = 'models';
-  } else if (routePart.startsWith('#/graph') || routePart.startsWith('#graph')) {
+  } else if (routePart === '#graph' || routePart.startsWith('#graph') || routePart.startsWith('#/graph')) {
     targetView = 'home';
-  } else if (routePart.startsWith('#/inbox') || routePart.startsWith('#inbox')) {
+  } else if (routePart === '#inbox' || routePart.startsWith('#inbox') || routePart.startsWith('#/inbox')) {
     targetView = 'inbox';
   } else {
     targetView = 'home';
@@ -307,8 +307,16 @@ export function handleHashRoute() {
     renderHomeTopPicks();
   }
 
-  // 3. Apply Page State to Active View
+  // 3. Apply Filter & Page State to Active View
   if (targetView === 'news') {
+    const facetParam = params.get('facet');
+    const dateParam = params.get('date');
+    if (facetParam && typeof window.setNewsFacetFilter === 'function' && window.currentNewsFacet !== facetParam) {
+      window.setNewsFacetFilter(facetParam);
+    }
+    if (dateParam && typeof window.setCrossSpikeDate === 'function' && window.currentSpikeDate !== dateParam) {
+      window.setCrossSpikeDate(dateParam);
+    }
     const curP = window.currentNewsPage || currentNewsPage || 1;
     if (curP !== pageParam) changeNewsPage(pageParam, false);
   } else if (targetView === 'portfolio') {

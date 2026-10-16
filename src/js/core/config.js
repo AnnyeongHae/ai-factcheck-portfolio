@@ -33,11 +33,11 @@ export const API_BASE = '';
 
 export const ROUTES = {
   home: '#home',
-  portfolio: '#/factchecks',
-  news: '#/news',
-  models: '#/models',
-  graph: '#/graph',
-  inbox: '#/inbox'
+  portfolio: '#factchecks',
+  news: '#news',
+  models: '#models',
+  graph: '#graph',
+  inbox: '#inbox'
 };
 
 if (typeof window !== 'undefined') {

@@ -373,6 +373,12 @@ export function setCrossSpikeDate(dateStr) {
         }
       });
     }
+    if (typeof history !== 'undefined' && window.currentView === 'news') {
+      const targetHash = cleanDate ? `#news?facet=CROSS_SPIKE&date=${encodeURIComponent(cleanDate)}` : '#news?facet=CROSS_SPIKE';
+      if (window.location.hash !== targetHash) {
+        try { history.replaceState({ view: 'news' }, '', targetHash); } catch(e) { window.location.hash = targetHash; }
+      }
+    }
   }
   updateCrossSpikeTimeMachineUI();
   const grid = document.getElementById('newsGrid');
@@ -461,6 +467,18 @@ export function setNewsFacetFilter(facet) {
       btn.className = `news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold ${colorCls} border transition shrink-0 whitespace-nowrap cursor-pointer`;
     }
   });
+
+  if (typeof history !== 'undefined' && window.currentView === 'news') {
+    const curSpkDate = window.currentSpikeDate || '';
+    let targetHash = '#news';
+    if (facet && facet !== 'ALL') {
+      targetHash += `?facet=${encodeURIComponent(facet)}`;
+      if (facet === 'CROSS_SPIKE' && curSpkDate) targetHash += `&date=${encodeURIComponent(curSpkDate)}`;
+    }
+    if (window.location.hash !== targetHash) {
+      try { history.replaceState({ view: 'news' }, '', targetHash); } catch (e) { window.location.hash = targetHash; }
+    }
+  }
 
   const grid = document.getElementById('newsGrid');
   if (grid) renderNewsSkeleton(grid, 6);

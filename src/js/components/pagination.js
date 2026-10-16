@@ -28,11 +28,14 @@ export function renderPagination(containerId, currentPage, totalPages, onPageCha
 
   // First Page <<
   const firstDisabled = currentPage === 1;
-  html += `<button onclick="${firstDisabled ? '' : onPageChange + '(1)'}" class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${firstDisabled ? 'opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border' : 'bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer'}" title="처음으로">&laquo;&laquo;</button>`;
+  const hovFirst = firstDisabled ? '' : `onmouseenter="window.onPaginationHover && window.onPaginationHover('${containerId}', 1)"`;
+  html += `<button onclick="${firstDisabled ? '' : onPageChange + '(1)'}" ${hovFirst} class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${firstDisabled ? 'opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border' : 'bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer'}" title="처음으로">&laquo;&laquo;</button>`;
 
   // Prev Page <
   const prevDisabled = currentPage === 1;
-  html += `<button onclick="${prevDisabled ? '' : onPageChange + '(' + (currentPage - 1) + ')'}" class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${prevDisabled ? 'opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border' : 'bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer'}" title="이전">&lsaquo;</button>`;
+  const prevTarget = Math.max(1, currentPage - 1);
+  const hovPrev = prevDisabled ? '' : `onmouseenter="window.onPaginationHover && window.onPaginationHover('${containerId}', ${prevTarget})"`;
+  html += `<button onclick="${prevDisabled ? '' : onPageChange + '(' + prevTarget + ')'}" ${hovPrev} class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${prevDisabled ? 'opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border' : 'bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer'}" title="이전">&lsaquo;</button>`;
 
   // Page numbers (Sliding window of up to 5 numbers)
   let startPage = Math.max(1, currentPage - 2);
@@ -46,19 +49,34 @@ export function renderPagination(containerId, currentPage, totalPages, onPageCha
     const btnStyle = isCur
       ? 'bg-indigo-600 text-white font-extrabold border-indigo-600 shadow-sm'
       : 'bg-white hover:bg-surface-subtle text-ink-secondary hover:text-ink-primary border-surface-border font-semibold cursor-pointer';
-    html += `<button onclick="${onPageChange}(${p})" class="w-8 h-8 rounded-lg border flex items-center justify-center transition ${btnStyle}">${p}</button>`;
+    const hovP = isCur ? '' : `onmouseenter="window.onPaginationHover && window.onPaginationHover('${containerId}', ${p})"`;
+    html += `<button onclick="${onPageChange}(${p})" ${hovP} class="w-8 h-8 rounded-lg border flex items-center justify-center transition ${btnStyle}">${p}</button>`;
   }
 
   // Next Page >
   const nextDisabled = currentPage === totalPages;
-  html += `<button onclick="${nextDisabled ? '' : onPageChange + '(' + (currentPage + 1) + ')'}" class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${nextDisabled ? 'opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border' : 'bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer'}" title="다음">&rsaquo;</button>`;
+  const nextTarget = Math.min(totalPages, currentPage + 1);
+  const hovNext = nextDisabled ? '' : `onmouseenter="window.onPaginationHover && window.onPaginationHover('${containerId}', ${nextTarget})"`;
+  html += `<button onclick="${nextDisabled ? '' : onPageChange + '(' + nextTarget + ')'}" ${hovNext} class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${nextDisabled ? 'opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border' : 'bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer'}" title="다음">&rsaquo;</button>`;
 
   // Last Page >>
   const lastDisabled = currentPage === totalPages;
-  html += `<button onclick="${lastDisabled ? '' : onPageChange + '(' + totalPages + ')'}" class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${lastDisabled ? 'opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border' : 'bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer'}" title="끝으로">&raquo;&raquo;</button>`;
+  const hovLast = lastDisabled ? '' : `onmouseenter="window.onPaginationHover && window.onPaginationHover('${containerId}', ${totalPages})"`;
+  html += `<button onclick="${lastDisabled ? '' : onPageChange + '(' + totalPages + ')'}" ${hovLast} class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${lastDisabled ? 'opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border' : 'bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer'}" title="끝으로">&raquo;&raquo;</button>`;
 
   html += '</div>';
   container.innerHTML = html;
+}
+
+export function handlePaginationHover(containerId, targetPage) {
+  if (!targetPage || targetPage < 1) return;
+  if (containerId === 'newsPagination' && typeof window.prefetchNewsPage === 'function') {
+    window.prefetchNewsPage(targetPage);
+  } else if (containerId === 'inboxPagination' && typeof window.prefetchInboxPage === 'function') {
+    window.prefetchInboxPage(targetPage);
+  } else if (containerId === 'modelsPagination' && typeof window.prefetchModelsPage === 'function') {
+    window.prefetchModelsPage(targetPage);
+  }
 }
 
 export function changePortfolioPage(page, pushHistory = true) {
@@ -66,7 +84,7 @@ export function changePortfolioPage(page, pushHistory = true) {
   if (typeof window.renderCards === 'function') window.renderCards();
   document.getElementById('portfolioView')?.scrollIntoView({ behavior: 'smooth' });
   if (pushHistory && typeof history !== 'undefined') {
-    const targetHash = page > 1 ? '#/factchecks?page=' + page : '#/factchecks';
+    const targetHash = page > 1 ? '#factchecks?page=' + page : '#factchecks';
     if (window.location.hash !== targetHash) {
       try { history.pushState({ view: 'portfolio', page: page }, '', targetHash); } catch(e) { window.location.hash = targetHash; }
     }
@@ -78,7 +96,7 @@ export function changeModelsPage(page, pushHistory = true) {
   if (typeof window.renderModels === 'function') window.renderModels();
   document.getElementById('modelsView')?.scrollIntoView({ behavior: 'smooth' });
   if (pushHistory && typeof history !== 'undefined') {
-    const targetHash = page > 1 ? '#/models?page=' + page : '#/models';
+    const targetHash = page > 1 ? '#models?page=' + page : '#models';
     if (window.location.hash !== targetHash) {
       try { history.pushState({ view: 'models', page: page }, '', targetHash); } catch(e) { window.location.hash = targetHash; }
     }
@@ -90,7 +108,16 @@ export function changeNewsPage(page, pushHistory = true) {
   if (typeof window.renderNews === 'function') window.renderNews();
   document.getElementById('newsView')?.scrollIntoView({ behavior: 'smooth' });
   if (pushHistory && typeof history !== 'undefined') {
-    const targetHash = page > 1 ? '#/news?page=' + page : '#/news';
+    const curFacet = window.currentNewsFacet || 'ALL';
+    const curSpkDate = window.currentSpikeDate || '';
+    let qs = page > 1 ? `page=${page}` : '';
+    if (curFacet && curFacet !== 'ALL') {
+      qs += (qs ? '&' : '') + `facet=${encodeURIComponent(curFacet)}`;
+      if (curFacet === 'CROSS_SPIKE' && curSpkDate) {
+        qs += `&date=${encodeURIComponent(curSpkDate)}`;
+      }
+    }
+    const targetHash = qs ? `#news?${qs}` : '#news';
     if (window.location.hash !== targetHash) {
       try { history.pushState({ view: 'news', page: page }, '', targetHash); } catch(e) { window.location.hash = targetHash; }
     }
@@ -102,7 +129,7 @@ export function changeInboxPage(page, pushHistory = true) {
   if (typeof window.renderInbox === 'function') window.renderInbox();
   document.getElementById('inboxView')?.scrollIntoView({ behavior: 'smooth' });
   if (pushHistory && typeof history !== 'undefined') {
-    const targetHash = page > 1 ? '#/inbox?page=' + page : '#/inbox';
+    const targetHash = page > 1 ? '#inbox?page=' + page : '#inbox';
     if (window.location.hash !== targetHash) {
       try { history.pushState({ view: 'inbox', page: page }, '', targetHash); } catch(e) { window.location.hash = targetHash; }
     }
@@ -111,6 +138,8 @@ export function changeInboxPage(page, pushHistory = true) {
 
 if (typeof window !== 'undefined') {
   window.renderPagination = renderPagination;
+  window.onPaginationHover = handlePaginationHover;
+  window.handlePaginationHover = handlePaginationHover;
   window.changePortfolioPage = changePortfolioPage;
   window.changeModelsPage = changeModelsPage;
   window.changeNewsPage = changeNewsPage;

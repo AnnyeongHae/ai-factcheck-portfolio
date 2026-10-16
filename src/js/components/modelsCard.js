@@ -275,6 +275,38 @@ export function renderModels() {
   grid.appendChild(fragment);
 
   if (window.lucide) window.lucide.createIcons({ root: grid });
+  if (!liveModelsFetched) {
+    setTimeout(fetchLiveModelsFromDb, 80);
+  }
+}
+
+let liveModelsFetched = false;
+export async function fetchLiveModelsFromDb() {
+  if (liveModelsFetched) return;
+  liveModelsFetched = true;
+  try {
+    const res = await fetch('/api/inbox?facet=MODEL&limit=60');
+    if (res.ok) {
+      const data = await res.json();
+      if (data && Array.isArray(data.items) && data.items.length > 0) {
+        data.items.forEach(it => { it.is_model = true; });
+        const existingIds = new Set((window.liveModelsData || []).map(m => m.inbox_id || m.id));
+        const newItems = data.items.filter(it => !existingIds.has(it.inbox_id || it.id));
+        if (newItems.length > 0) {
+          window.liveModelsData = [...newItems, ...(window.liveModelsData || [])];
+          if (window.currentView === 'models') {
+            renderModels();
+          }
+        }
+      }
+    }
+  } catch (e) {}
+}
+
+export function prefetchModelsPage(targetPage) {
+  if (!liveModelsFetched) {
+    fetchLiveModelsFromDb();
+  }
 }
 
 export function toggleFamilyGrouping() {}
@@ -295,5 +327,7 @@ if (typeof window !== 'undefined') {
   window.setModelsArtifactFilter = setModelsArtifactFilter;
   window.setModelsModalityFilter = setModelsModalityFilter;
   window.setModelsFamilyFilter = setModelsFamilyFilter;
+  window.fetchLiveModelsFromDb = fetchLiveModelsFromDb;
+  window.prefetchModelsPage = prefetchModelsPage;
   initModelsSearchListener();
 }

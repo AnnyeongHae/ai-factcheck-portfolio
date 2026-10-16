@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T12:24:06.230Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T13:00:44.656Z */
 
 (() => {
   // src/js/core/config.js
@@ -28,11 +28,11 @@
   var API_BASE = "";
   var ROUTES = {
     home: "#home",
-    portfolio: "#/factchecks",
-    news: "#/news",
-    models: "#/models",
-    graph: "#/graph",
-    inbox: "#/inbox"
+    portfolio: "#factchecks",
+    news: "#news",
+    models: "#models",
+    graph: "#graph",
+    inbox: "#inbox"
   };
   if (typeof window !== "undefined") {
     window.APP_CONFIG = APP_CONFIG;
@@ -1242,21 +1242,21 @@
       }
       return null;
     })();
-    const [statsData, portfoliosResult, crossSpikeData, staticData] = await Promise.all([
+    const [statsData, portfoliosResult, crossSpikeData] = await Promise.all([
       statsPromise,
       portfoliosPromise,
-      crossSpikePromise,
-      staticPromise
+      crossSpikePromise
     ]);
-    if (staticData) {
-      window.adminData = staticData.admin_stats || {};
-      window.timeline24hData = staticData.timeline_24h || [];
-      window.actionsTelemetryData = staticData.actions_telemetry || {};
-      window.trend6hData = staticData.trend_6h || {};
-      window.trendRadarData = staticData.trend_radar || {};
-      AppStore._news = staticData.trend_items || staticData.news_items || staticData.news || [];
-      AppStore._models = staticData.model_items || staticData.models || [];
-      AppStore._inbox = staticData.inbox_items || (staticData.inbox_recent || []).concat(staticData.inbox || []);
+    const applyStaticData = (staticData2) => {
+      if (!staticData2) return;
+      if (!window.adminData || Object.keys(window.adminData).length === 0) window.adminData = staticData2.admin_stats || {};
+      if (!window.timeline24hData || window.timeline24hData.length === 0) window.timeline24hData = staticData2.timeline_24h || [];
+      if (!window.actionsTelemetryData || Object.keys(window.actionsTelemetryData).length === 0) window.actionsTelemetryData = staticData2.actions_telemetry || {};
+      window.trend6hData = staticData2.trend_6h || {};
+      window.trendRadarData = staticData2.trend_radar || {};
+      AppStore._news = staticData2.trend_items || staticData2.news_items || staticData2.news || [];
+      AppStore._models = staticData2.model_items || staticData2.models || [];
+      AppStore._inbox = staticData2.inbox_items || (staticData2.inbox_recent || []).concat(staticData2.inbox || []);
       AppStore._models.forEach((it) => {
         it.is_model = true;
       });
@@ -1281,6 +1281,26 @@
       window.liveInboxData = AppStore._inbox;
       window.newsData = AppStore._news;
       window.modelsData = AppStore._models;
+      if (!window.homeCrossSpikeItems || window.homeCrossSpikeItems.length === 0) {
+        const spiked = AppStore._news.filter((it) => it.is_cross_spiking || Array.isArray(it.sources) && it.sources.length > 1);
+        window.homeCrossSpikeItems = (spiked.length > 0 ? spiked : AppStore._news).slice(0, 4);
+        if (window.currentView === "home" && typeof window.renderRadarSession === "function") {
+          window.renderRadarSession();
+        }
+      }
+      if (typeof window.renderModels === "function" && window.currentView === "models") {
+        window.renderModels();
+      }
+    };
+    const fastStatic = await Promise.race([
+      staticPromise,
+      new Promise((resolve) => setTimeout(() => resolve(null), 80))
+    ]);
+    if (fastStatic) {
+      applyStaticData(fastStatic);
+    } else {
+      staticPromise.then(applyStaticData).catch(() => {
+      });
     }
     if (crossSpikeData?.items && Array.isArray(crossSpikeData.items) && crossSpikeData.items.length > 0) {
       window.homeCrossSpikeItems = crossSpikeData.items.slice(0, 4);
@@ -2653,9 +2673,12 @@
     }
     let html = '<div class="flex items-center justify-center gap-1.5 pt-6 pb-4 text-xs font-mono select-none flex-wrap">';
     const firstDisabled = currentPage === 1;
-    html += `<button onclick="${firstDisabled ? "" : onPageChange + "(1)"}" class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${firstDisabled ? "opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border" : "bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer"}" title="\uCC98\uC74C\uC73C\uB85C">&laquo;&laquo;</button>`;
+    const hovFirst = firstDisabled ? "" : `onmouseenter="window.onPaginationHover && window.onPaginationHover('${containerId}', 1)"`;
+    html += `<button onclick="${firstDisabled ? "" : onPageChange + "(1)"}" ${hovFirst} class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${firstDisabled ? "opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border" : "bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer"}" title="\uCC98\uC74C\uC73C\uB85C">&laquo;&laquo;</button>`;
     const prevDisabled = currentPage === 1;
-    html += `<button onclick="${prevDisabled ? "" : onPageChange + "(" + (currentPage - 1) + ")"}" class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${prevDisabled ? "opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border" : "bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer"}" title="\uC774\uC804">&lsaquo;</button>`;
+    const prevTarget = Math.max(1, currentPage - 1);
+    const hovPrev = prevDisabled ? "" : `onmouseenter="window.onPaginationHover && window.onPaginationHover('${containerId}', ${prevTarget})"`;
+    html += `<button onclick="${prevDisabled ? "" : onPageChange + "(" + prevTarget + ")"}" ${hovPrev} class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${prevDisabled ? "opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border" : "bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer"}" title="\uC774\uC804">&lsaquo;</button>`;
     let startPage = Math.max(1, currentPage - 2);
     let endPage = Math.min(totalPages, startPage + 4);
     if (endPage - startPage < 4) {
@@ -2664,21 +2687,35 @@
     for (let p = startPage; p <= endPage; p++) {
       const isCur = p === currentPage;
       const btnStyle = isCur ? "bg-indigo-600 text-white font-extrabold border-indigo-600 shadow-sm" : "bg-white hover:bg-surface-subtle text-ink-secondary hover:text-ink-primary border-surface-border font-semibold cursor-pointer";
-      html += `<button onclick="${onPageChange}(${p})" class="w-8 h-8 rounded-lg border flex items-center justify-center transition ${btnStyle}">${p}</button>`;
+      const hovP = isCur ? "" : `onmouseenter="window.onPaginationHover && window.onPaginationHover('${containerId}', ${p})"`;
+      html += `<button onclick="${onPageChange}(${p})" ${hovP} class="w-8 h-8 rounded-lg border flex items-center justify-center transition ${btnStyle}">${p}</button>`;
     }
     const nextDisabled = currentPage === totalPages;
-    html += `<button onclick="${nextDisabled ? "" : onPageChange + "(" + (currentPage + 1) + ")"}" class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${nextDisabled ? "opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border" : "bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer"}" title="\uB2E4\uC74C">&rsaquo;</button>`;
+    const nextTarget = Math.min(totalPages, currentPage + 1);
+    const hovNext = nextDisabled ? "" : `onmouseenter="window.onPaginationHover && window.onPaginationHover('${containerId}', ${nextTarget})"`;
+    html += `<button onclick="${nextDisabled ? "" : onPageChange + "(" + nextTarget + ")"}" ${hovNext} class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${nextDisabled ? "opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border" : "bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer"}" title="\uB2E4\uC74C">&rsaquo;</button>`;
     const lastDisabled = currentPage === totalPages;
-    html += `<button onclick="${lastDisabled ? "" : onPageChange + "(" + totalPages + ")"}" class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${lastDisabled ? "opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border" : "bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer"}" title="\uB05D\uC73C\uB85C">&raquo;&raquo;</button>`;
+    const hovLast = lastDisabled ? "" : `onmouseenter="window.onPaginationHover && window.onPaginationHover('${containerId}', ${totalPages})"`;
+    html += `<button onclick="${lastDisabled ? "" : onPageChange + "(" + totalPages + ")"}" ${hovLast} class="px-2.5 py-1.5 rounded-lg border font-bold transition shadow-xs ${lastDisabled ? "opacity-30 cursor-not-allowed bg-surface-subtle text-ink-muted border-surface-border" : "bg-white hover:bg-surface-subtle text-ink-primary border-surface-border cursor-pointer"}" title="\uB05D\uC73C\uB85C">&raquo;&raquo;</button>`;
     html += "</div>";
     container.innerHTML = html;
+  }
+  function handlePaginationHover(containerId, targetPage) {
+    if (!targetPage || targetPage < 1) return;
+    if (containerId === "newsPagination" && typeof window.prefetchNewsPage === "function") {
+      window.prefetchNewsPage(targetPage);
+    } else if (containerId === "inboxPagination" && typeof window.prefetchInboxPage === "function") {
+      window.prefetchInboxPage(targetPage);
+    } else if (containerId === "modelsPagination" && typeof window.prefetchModelsPage === "function") {
+      window.prefetchModelsPage(targetPage);
+    }
   }
   function changePortfolioPage(page, pushHistory = true) {
     setPortfolioPage(page);
     if (typeof window.renderCards === "function") window.renderCards();
     document.getElementById("portfolioView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const targetHash = page > 1 ? "#/factchecks?page=" + page : "#/factchecks";
+      const targetHash = page > 1 ? "#factchecks?page=" + page : "#factchecks";
       if (window.location.hash !== targetHash) {
         try {
           history.pushState({ view: "portfolio", page }, "", targetHash);
@@ -2693,7 +2730,7 @@
     if (typeof window.renderModels === "function") window.renderModels();
     document.getElementById("modelsView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const targetHash = page > 1 ? "#/models?page=" + page : "#/models";
+      const targetHash = page > 1 ? "#models?page=" + page : "#models";
       if (window.location.hash !== targetHash) {
         try {
           history.pushState({ view: "models", page }, "", targetHash);
@@ -2708,7 +2745,16 @@
     if (typeof window.renderNews === "function") window.renderNews();
     document.getElementById("newsView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const targetHash = page > 1 ? "#/news?page=" + page : "#/news";
+      const curFacet = window.currentNewsFacet || "ALL";
+      const curSpkDate = window.currentSpikeDate || "";
+      let qs = page > 1 ? `page=${page}` : "";
+      if (curFacet && curFacet !== "ALL") {
+        qs += (qs ? "&" : "") + `facet=${encodeURIComponent(curFacet)}`;
+        if (curFacet === "CROSS_SPIKE" && curSpkDate) {
+          qs += `&date=${encodeURIComponent(curSpkDate)}`;
+        }
+      }
+      const targetHash = qs ? `#news?${qs}` : "#news";
       if (window.location.hash !== targetHash) {
         try {
           history.pushState({ view: "news", page }, "", targetHash);
@@ -2723,7 +2769,7 @@
     if (typeof window.renderInbox === "function") window.renderInbox();
     document.getElementById("inboxView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const targetHash = page > 1 ? "#/inbox?page=" + page : "#/inbox";
+      const targetHash = page > 1 ? "#inbox?page=" + page : "#inbox";
       if (window.location.hash !== targetHash) {
         try {
           history.pushState({ view: "inbox", page }, "", targetHash);
@@ -2735,6 +2781,8 @@
   }
   if (typeof window !== "undefined") {
     window.renderPagination = renderPagination;
+    window.onPaginationHover = handlePaginationHover;
+    window.handlePaginationHover = handlePaginationHover;
     window.changePortfolioPage = changePortfolioPage;
     window.changeModelsPage = changeModelsPage;
     window.changeNewsPage = changeNewsPage;
@@ -4256,6 +4304,39 @@
     });
     grid.appendChild(fragment);
     if (window.lucide) window.lucide.createIcons({ root: grid });
+    if (!liveModelsFetched) {
+      setTimeout(fetchLiveModelsFromDb, 80);
+    }
+  }
+  var liveModelsFetched = false;
+  async function fetchLiveModelsFromDb() {
+    if (liveModelsFetched) return;
+    liveModelsFetched = true;
+    try {
+      const res = await fetch("/api/inbox?facet=MODEL&limit=60");
+      if (res.ok) {
+        const data = await res.json();
+        if (data && Array.isArray(data.items) && data.items.length > 0) {
+          data.items.forEach((it) => {
+            it.is_model = true;
+          });
+          const existingIds = new Set((window.liveModelsData || []).map((m) => m.inbox_id || m.id));
+          const newItems = data.items.filter((it) => !existingIds.has(it.inbox_id || it.id));
+          if (newItems.length > 0) {
+            window.liveModelsData = [...newItems, ...window.liveModelsData || []];
+            if (window.currentView === "models") {
+              renderModels();
+            }
+          }
+        }
+      }
+    } catch (e) {
+    }
+  }
+  function prefetchModelsPage(targetPage) {
+    if (!liveModelsFetched) {
+      fetchLiveModelsFromDb();
+    }
   }
   function toggleFamilyGrouping() {
   }
@@ -4274,6 +4355,8 @@
     window.setModelsArtifactFilter = setModelsArtifactFilter;
     window.setModelsModalityFilter = setModelsModalityFilter;
     window.setModelsFamilyFilter = setModelsFamilyFilter;
+    window.fetchLiveModelsFromDb = fetchLiveModelsFromDb;
+    window.prefetchModelsPage = prefetchModelsPage;
     initModelsSearchListener();
   }
 
@@ -5185,6 +5268,16 @@
           }
         });
       }
+      if (typeof history !== "undefined" && window.currentView === "news") {
+        const targetHash = cleanDate ? `#news?facet=CROSS_SPIKE&date=${encodeURIComponent(cleanDate)}` : "#news?facet=CROSS_SPIKE";
+        if (window.location.hash !== targetHash) {
+          try {
+            history.replaceState({ view: "news" }, "", targetHash);
+          } catch (e) {
+            window.location.hash = targetHash;
+          }
+        }
+      }
     }
     updateCrossSpikeTimeMachineUI();
     const grid = document.getElementById("newsGrid");
@@ -5266,6 +5359,21 @@
         btn.className = `news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold ${colorCls} border transition shrink-0 whitespace-nowrap cursor-pointer`;
       }
     });
+    if (typeof history !== "undefined" && window.currentView === "news") {
+      const curSpkDate = window.currentSpikeDate || "";
+      let targetHash = "#news";
+      if (facet && facet !== "ALL") {
+        targetHash += `?facet=${encodeURIComponent(facet)}`;
+        if (facet === "CROSS_SPIKE" && curSpkDate) targetHash += `&date=${encodeURIComponent(curSpkDate)}`;
+      }
+      if (window.location.hash !== targetHash) {
+        try {
+          history.replaceState({ view: "news" }, "", targetHash);
+        } catch (e) {
+          window.location.hash = targetHash;
+        }
+      }
+    }
     const grid = document.getElementById("newsGrid");
     if (grid) renderNewsSkeleton2(grid, 6);
     renderNews();
@@ -6113,7 +6221,7 @@
       }
     }
     if (pushHistory) {
-      const targetHash = ROUTES[targetView] || "#/" + targetView;
+      const targetHash = ROUTES[targetView] || "#" + targetView;
       if (window.location.hash !== targetHash) {
         try {
           history.pushState({ view: targetView }, "", targetHash);
@@ -6174,15 +6282,15 @@
     const params = new URLSearchParams(queryPart || "");
     const pageParam = parseInt(params.get("page"), 10) || 1;
     let targetView = "home";
-    if (routePart.startsWith("#/factchecks") || routePart.startsWith("#factchecks") || routePart.startsWith("#/portfolio")) {
+    if (routePart === "#factchecks" || routePart.startsWith("#factchecks") || routePart.startsWith("#/factchecks") || routePart.startsWith("#/portfolio")) {
       targetView = "portfolio";
-    } else if (routePart.startsWith("#/news") || routePart.startsWith("#news")) {
+    } else if (routePart === "#news" || routePart.startsWith("#news") || routePart.startsWith("#/news")) {
       targetView = "news";
-    } else if (routePart.startsWith("#/models") || routePart.startsWith("#models")) {
+    } else if (routePart === "#models" || routePart.startsWith("#models") || routePart.startsWith("#/models")) {
       targetView = "models";
-    } else if (routePart.startsWith("#/graph") || routePart.startsWith("#graph")) {
+    } else if (routePart === "#graph" || routePart.startsWith("#graph") || routePart.startsWith("#/graph")) {
       targetView = "home";
-    } else if (routePart.startsWith("#/inbox") || routePart.startsWith("#inbox")) {
+    } else if (routePart === "#inbox" || routePart.startsWith("#inbox") || routePart.startsWith("#/inbox")) {
       targetView = "inbox";
     } else {
       targetView = "home";
@@ -6196,6 +6304,14 @@
       renderHomeTopPicks();
     }
     if (targetView === "news") {
+      const facetParam = params.get("facet");
+      const dateParam = params.get("date");
+      if (facetParam && typeof window.setNewsFacetFilter === "function" && window.currentNewsFacet !== facetParam) {
+        window.setNewsFacetFilter(facetParam);
+      }
+      if (dateParam && typeof window.setCrossSpikeDate === "function" && window.currentSpikeDate !== dateParam) {
+        window.setCrossSpikeDate(dateParam);
+      }
       const curP = window.currentNewsPage || currentNewsPage || 1;
       if (curP !== pageParam) changeNewsPage(pageParam, false);
     } else if (targetView === "portfolio") {

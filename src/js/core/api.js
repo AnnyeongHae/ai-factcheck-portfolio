@@ -85,18 +85,19 @@ export async function bootstrapApplicationData() {
     return null;
   })();
 
-  const [statsData, portfoliosResult, crossSpikeData, staticData] = await Promise.all([
+  // 1. Critical Path: Fast Edge CDN Live DB APIs
+  const [statsData, portfoliosResult, crossSpikeData] = await Promise.all([
     statsPromise,
     portfoliosPromise,
-    crossSpikePromise,
-    staticPromise
+    crossSpikePromise
   ]);
 
-  // 2. Hydrate feeds, timeline, and trend radar from static datasets
-  if (staticData) {
-    window.adminData = staticData.admin_stats || {};
-    window.timeline24hData = staticData.timeline_24h || [];
-    window.actionsTelemetryData = staticData.actions_telemetry || {};
+  // 2. Hydrate feeds, timeline, and telemetry from static datasets asynchronously without blocking first paint
+  const applyStaticData = (staticData) => {
+    if (!staticData) return;
+    if (!window.adminData || Object.keys(window.adminData).length === 0) window.adminData = staticData.admin_stats || {};
+    if (!window.timeline24hData || window.timeline24hData.length === 0) window.timeline24hData = staticData.timeline_24h || [];
+    if (!window.actionsTelemetryData || Object.keys(window.actionsTelemetryData).length === 0) window.actionsTelemetryData = staticData.actions_telemetry || {};
     window.trend6hData = staticData.trend_6h || {};
     window.trendRadarData = staticData.trend_radar || {};
 
@@ -128,6 +129,28 @@ export async function bootstrapApplicationData() {
     window.liveInboxData = AppStore._inbox;
     window.newsData = AppStore._news;
     window.modelsData = AppStore._models;
+
+    if (!window.homeCrossSpikeItems || window.homeCrossSpikeItems.length === 0) {
+      const spiked = AppStore._news.filter(it => it.is_cross_spiking || (Array.isArray(it.sources) && it.sources.length > 1));
+      window.homeCrossSpikeItems = (spiked.length > 0 ? spiked : AppStore._news).slice(0, 4);
+      if (window.currentView === 'home' && typeof window.renderRadarSession === 'function') {
+        window.renderRadarSession();
+      }
+    }
+    if (typeof window.renderModels === 'function' && window.currentView === 'models') {
+      window.renderModels();
+    }
+  };
+
+  // If static data responds within 80ms (or already cached in memory), apply immediately; otherwise hydrate asynchronously
+  const fastStatic = await Promise.race([
+    staticPromise,
+    new Promise(resolve => setTimeout(() => resolve(null), 80))
+  ]);
+  if (fastStatic) {
+    applyStaticData(fastStatic);
+  } else {
+    staticPromise.then(applyStaticData).catch(() => {});
   }
 
   // 2b. Hydrate Home Cross-Viral Top 4 directly from live DB (or fallback to static news)
