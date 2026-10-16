@@ -56,7 +56,7 @@ def drain_voyage(batch_size: int = 100):
                    COALESCE(raw_payload->>'hook_en', raw_payload->>'hook', '') as hook_en,
                    COALESCE(raw_payload->'ai_enrichment'->>'summary_en', raw_payload->>'description', '') as summary_en
             FROM raw_trends_inbox 
-            WHERE embedding IS NULL 
+            WHERE is_classified = TRUE AND embedding IS NULL 
             ORDER BY created_at DESC 
             LIMIT %s;
         """, (batch_size,))
