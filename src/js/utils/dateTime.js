@@ -44,6 +44,56 @@ export function formatDateTime(raw) {
   return `${y}-${m}-${day} ${hh}:${mm}`;
 }
 
+export function formatDateTimeFull(raw) {
+  if (!raw) return '-';
+  const d = new Date(raw);
+  if (isNaN(d.getTime())) return String(raw).substring(0, 16);
+  try {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Seoul',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    }).formatToParts(d);
+    const getP = (type) => parts.find(p => p.type === type)?.value || '';
+    return `${getP('year')}-${getP('month')}-${getP('day')} ${getP('hour')}:${getP('minute')}`;
+  } catch (e) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mm = String(d.getMinutes()).padStart(2, '0');
+    return `${y}-${m}-${day} ${hh}:${mm}`;
+  }
+}
+
+export function formatDateTimeShort(raw) {
+  if (!raw) return '-';
+  const d = new Date(raw);
+  if (isNaN(d.getTime())) return String(raw).substring(5, 16);
+  try {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Seoul',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    }).formatToParts(d);
+    const getP = (type) => parts.find(p => p.type === type)?.value || '';
+    return `${getP('month')}-${getP('day')} ${getP('hour')}:${getP('minute')}`;
+  } catch (e) {
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mm = String(d.getMinutes()).padStart(2, '0');
+    return `${m}-${day} ${hh}:${mm}`;
+  }
+}
+
 export function formatDateTimeCompact(raw) {
   if (!raw) return '-';
   const s = String(raw).trim();

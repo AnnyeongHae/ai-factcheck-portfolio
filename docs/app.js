@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T15:50:12.614Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T16:02:16.513Z */
 
 (() => {
   // src/js/core/config.js
@@ -355,6 +355,54 @@
     const hh = String(d.getHours()).padStart(2, "0");
     const mm = String(d.getMinutes()).padStart(2, "0");
     return `${y}-${m}-${day} ${hh}:${mm}`;
+  }
+  function formatDateTimeFull(raw) {
+    if (!raw) return "-";
+    const d = new Date(raw);
+    if (isNaN(d.getTime())) return String(raw).substring(0, 16);
+    try {
+      const parts = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Seoul",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      }).formatToParts(d);
+      const getP = (type) => parts.find((p) => p.type === type)?.value || "";
+      return `${getP("year")}-${getP("month")}-${getP("day")} ${getP("hour")}:${getP("minute")}`;
+    } catch (e) {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      const hh = String(d.getHours()).padStart(2, "0");
+      const mm = String(d.getMinutes()).padStart(2, "0");
+      return `${y}-${m}-${day} ${hh}:${mm}`;
+    }
+  }
+  function formatDateTimeShort(raw) {
+    if (!raw) return "-";
+    const d = new Date(raw);
+    if (isNaN(d.getTime())) return String(raw).substring(5, 16);
+    try {
+      const parts = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Seoul",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      }).formatToParts(d);
+      const getP = (type) => parts.find((p) => p.type === type)?.value || "";
+      return `${getP("month")}-${getP("day")} ${getP("hour")}:${getP("minute")}`;
+    } catch (e) {
+      const m = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      const hh = String(d.getHours()).padStart(2, "0");
+      const mm = String(d.getMinutes()).padStart(2, "0");
+      return `${m}-${day} ${hh}:${mm}`;
+    }
   }
   function formatDateTimeCompact(raw) {
     if (!raw) return "-";
@@ -3723,43 +3771,46 @@
     const pubLabel = lang === "KO" ? "\uBC1C\uD589" : lang === "ZH" ? "\u53D1\u5E03" : "Published";
     const hrvLabel = lang === "KO" ? "\uCD5C\uCD08 \uD3EC\uCC29" : lang === "ZH" ? "\u6700\u521D\u6355\u83B7" : "First Spotted";
     const updLabel = lang === "KO" ? "\uCD5C\uC2E0 \uAC31\uC2E0" : lang === "ZH" ? "\u6700\u65B0\u66F4\u65B0" : "Updated";
-    const srcLabel = lang === "KO" ? "\uC6D0\uBB38" : lang === "ZH" ? "\u539F\u6587" : "Source";
-    const pendingLabel = lang === "KO" ? "AI\uC694\uC57D \uB300\uAE30\uC911" : lang === "ZH" ? "AI\u5206\u6790\u6392\u961F\u4E2D" : "Pending AI Audit";
-    const pubDate = formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at);
+    const srcLabel = lang === "KO" ? "\uAE30\uC0AC \uC6D0\uBB38" : lang === "ZH" ? "\u6587\u7AE0\u539F\u6587" : "Source";
+    const pendingLabel = lang === "KO" ? "AI\uC694\uC57D \uB300\uAE30\uC911" : lang === "ZH" ? "AI\u5206\u6790\u6392\u961F\u4E2D" : "Pending AI";
+    const pubDate = formatDateTimeFull(it.published_at || it.created_at || it.harvested_at);
     const earliestHrv = it.earliest_harvested_at || it.initial_harvested_at || it.harvested_at || it.harvested_date || it.created_at;
-    const hrvDate = formatDateTimeCompact(earliestHrv);
-    const hasUpdate = it.updated_at && formatDateTimeCompact(it.updated_at) !== hrvDate;
-    const updDate = hasUpdate ? formatDateTimeCompact(it.updated_at) : "";
+    const hrvDate = formatDateTimeFull(earliestHrv);
+    const hasUpdate = it.updated_at && formatDateTimeFull(it.updated_at) !== hrvDate;
+    const updDate = hasUpdate ? formatDateTimeShort(it.updated_at) : "";
     let auditHtml = `
-    <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
-      <span>\u{1F52C} ${pendingLabel}</span>
-    </div>
+    <span class="text-[10.5px] text-ink-muted">\u{1F52C} ${pendingLabel}</span>
   `;
     if (ai?.enriched_at) {
       auditHtml = `
-      <div class="text-[11px] text-indigo-700 font-semibold flex items-center gap-1.5 min-w-0 overflow-hidden">
-        <span class="shrink-0">\u{1F52C} ${formatDateTimeCompact(ai.enriched_at)}</span>
+      <div class="text-[10.5px] text-indigo-700 font-semibold flex items-center gap-1 min-w-0 overflow-hidden">
+        <span class="shrink-0">\u{1F52C} ${formatDateTimeShort(ai.enriched_at)}</span>
         <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${ai.enriched_by_model || ""}">(${formatModelAttribution(ai.enriched_by_model)})</span>
       </div>
     `;
     }
     const defaultSourceLink = it.source_url ? `
-    <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-semibold flex items-center gap-1 shrink-0">
+    <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[10.5px] font-semibold flex items-center gap-1 shrink-0">
       \u{1F4C4} ${srcLabel} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
     </a>
   ` : "";
     return `
-    <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
-      <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
-        <span>\u{1F4F0} ${pubLabel}: ${pubDate}</span>
+    <div class="pt-2.5 border-t border-surface-border space-y-1 text-xs font-mono">
+      <div class="text-[10.5px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <span>\u{1F4F0} ${pubLabel}: ${pubDate}</span>
+          <span class="text-slate-300">\xB7</span>
+          <span>\u{1F4E5} ${hrvLabel}: ${hrvDate}</span>
+          ${hasUpdate ? `<span class="text-indigo-600 font-bold" title="${updLabel}">(\u{1F504} ${updDate})</span>` : ""}
+        </div>
       </div>
-      <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
-        <span>\u{1F4E5} ${hrvLabel}: ${hrvDate}</span>
-        ${hasUpdate ? `<span class="text-[10px] text-indigo-600 font-bold" title="${updLabel}">(\u{1F504} ${updDate})</span>` : ""}
-      </div>
-      ${auditHtml}
-      <div class="flex items-center justify-end gap-2 pt-1 font-sans flex-wrap">
-        ${extraActionHtml || defaultSourceLink}
+      <div class="flex items-center justify-between gap-2 pt-0.5 font-sans">
+        <div class="min-w-0 truncate">
+          ${auditHtml}
+        </div>
+        <div class="flex items-center justify-end gap-1.5 shrink-0">
+          ${extraActionHtml || defaultSourceLink}
+        </div>
       </div>
     </div>
   `;
@@ -3770,7 +3821,7 @@
     const t = i18n[currentLang2] || i18n.KO;
     const ai = it.ai_enrichment;
     const { displayTitle, displayHook, displayDesc, displayTakeaways } = getLocalizedContent(it, currentLang2);
-    const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
+    const showDesc = !displayHook && displayDesc;
     const isHn = (it.source_platform || "").includes("Hacker News") || (it.source_url || "").includes("news.ycombinator.com");
     const isGn = (it.source_platform || "").includes("GeekNews") || (it.source_url || "").includes("hada.io");
     const hnUrl = it.hn_url || ((it.source_url || "").includes("news.ycombinator.com") ? it.source_url : null);
@@ -3967,6 +4018,8 @@
       const isSpike = Boolean(tracking.is_spiking || delta > 0 || it.is_cross_spiking);
       const cleanInit = formatCleanMetricVal(initVal, currentLang2);
       const cleanLatest = formatCleanMetricVal(latestVal, currentLang2);
+      const primaryPlat = getPrimaryImpactPlatform(it, allSources);
+      const isMultiSource = allSources.length > 1;
       let metricBadgeHtml = "";
       if (cleanLatest) {
         if (delta > 0 && cleanInit && cleanInit !== cleanLatest) {
@@ -3988,18 +4041,20 @@
           </span>
         `;
         } else {
-          const isPointMetric = cleanLatest.includes("pts") || cleanLatest.includes("\u2605") || cleanLatest.includes("likes") || cleanLatest.includes("\uC810");
-          const pointColor = isPointMetric ? "text-rose-900 font-black bg-rose-100/90 border border-rose-300 shadow-2xs" : isSpike ? "text-rose-700 font-bold bg-rose-50 border border-rose-200" : "text-ink-muted bg-surface-subtle border border-surface-border";
-          metricBadgeHtml = `
-          <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono ${pointColor} shrink-0 ml-auto whitespace-nowrap flex items-center gap-1 font-bold">
-            ${isPointMetric ? '<i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i>' : ""}
-            <span>${cleanLatest}</span>
-          </span>
-        `;
+          const isPointMetric = cleanLatest.includes("pts") || cleanLatest.includes("\u2605") || cleanLatest.includes("likes") || cleanLatest.includes("\uC810") || /\d+/.test(cleanLatest) && !cleanLatest.includes("\uBCF4\uB3C4");
+          const normLatest = cleanLatest.replace(/[📰💬🛠️🐙🔥\s·]/g, "").toLowerCase();
+          const normPlat = primaryPlat.replace(/[\s·]/g, "").toLowerCase();
+          const isDuplicatePlatform = normLatest.includes(normPlat) || normPlat.includes(normLatest) || normLatest.endsWith("\uBCF4\uB3C4") || normLatest.includes("\uD1A0\uB860") || normLatest.includes("discussion");
+          if (isPointMetric && !isDuplicatePlatform) {
+            metricBadgeHtml = `
+            <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono text-rose-900 font-black bg-rose-100/90 border border-rose-300 shadow-2xs shrink-0 ml-auto whitespace-nowrap flex items-center gap-1">
+              <i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i>
+              <span>${cleanLatest}</span>
+            </span>
+          `;
+          }
         }
       }
-      const primaryPlat = getPrimaryImpactPlatform(it, allSources);
-      const isMultiSource = allSources.length > 1;
       topHeaderRowHtml = `
       <div class="flex flex-wrap items-center justify-between text-xs font-mono gap-1.5 min-w-0">
         <div class="flex items-center gap-1.5 min-w-0">
@@ -6139,7 +6194,7 @@
     const ai = it.ai_enrichment;
     const effectiveSourceLang = detectSourceLang(it);
     const { displayTitle, displayHook, displayDesc, displayTakeaways, hasTrilingual } = getLocalizedContent(it, curLang);
-    const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
+    const showDesc = !displayHook && displayDesc;
     const viralScore = calculateStandardizedViralScore(it);
     const tracking = it.metric_tracking || {};
     const initDate = formatKstMonthDay(tracking.initial?.recorded_at || tracking.initial_date || it.created_at || it.harvested_date);

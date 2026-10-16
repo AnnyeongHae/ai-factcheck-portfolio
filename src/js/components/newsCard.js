@@ -8,7 +8,7 @@
 import { currentLang } from '../core/store.js';
 import { i18n } from '../core/i18n.js';
 import { formatCleanMetricVal, getPrimaryImpactPlatform } from '../utils/metricFormatter.js';
-import { formatDateTimeCompact, formatModelAttribution } from '../utils/dateTime.js';
+import { formatDateTimeCompact, formatDateTimeFull, formatDateTimeShort, formatModelAttribution } from '../utils/dateTime.js';
 import { buildMultiSourceCluster, deduplicateClusterSources } from './popover.js';
 import { openCaseModal } from './modal.js';
 
@@ -234,47 +234,50 @@ export function renderCardStandardFooter(it, lang = currentLang, extraActionHtml
   const pubLabel = lang === 'KO' ? '발행' : (lang === 'ZH' ? '发布' : 'Published');
   const hrvLabel = lang === 'KO' ? '최초 포착' : (lang === 'ZH' ? '最初捕获' : 'First Spotted');
   const updLabel = lang === 'KO' ? '최신 갱신' : (lang === 'ZH' ? '最新更新' : 'Updated');
-  const srcLabel = lang === 'KO' ? '원문' : (lang === 'ZH' ? '原文' : 'Source');
-  const pendingLabel = lang === 'KO' ? 'AI요약 대기중' : (lang === 'ZH' ? 'AI分析排队中' : 'Pending AI Audit');
+  const srcLabel = lang === 'KO' ? '기사 원문' : (lang === 'ZH' ? '文章原文' : 'Source');
+  const pendingLabel = lang === 'KO' ? 'AI요약 대기중' : (lang === 'ZH' ? 'AI分析排队中' : 'Pending AI');
 
-  const pubDate = formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at);
+  const pubDate = formatDateTimeFull(it.published_at || it.created_at || it.harvested_at);
   const earliestHrv = it.earliest_harvested_at || it.initial_harvested_at || it.harvested_at || it.harvested_date || it.created_at;
-  const hrvDate = formatDateTimeCompact(earliestHrv);
-  const hasUpdate = it.updated_at && formatDateTimeCompact(it.updated_at) !== hrvDate;
-  const updDate = hasUpdate ? formatDateTimeCompact(it.updated_at) : '';
+  const hrvDate = formatDateTimeFull(earliestHrv);
+  const hasUpdate = it.updated_at && formatDateTimeFull(it.updated_at) !== hrvDate;
+  const updDate = hasUpdate ? formatDateTimeShort(it.updated_at) : '';
 
   let auditHtml = `
-    <div class="text-[11px] text-ink-muted flex items-center gap-1.5">
-      <span>🔬 ${pendingLabel}</span>
-    </div>
+    <span class="text-[10.5px] text-ink-muted">🔬 ${pendingLabel}</span>
   `;
   if (ai?.enriched_at) {
     auditHtml = `
-      <div class="text-[11px] text-indigo-700 font-semibold flex items-center gap-1.5 min-w-0 overflow-hidden">
-        <span class="shrink-0">🔬 ${formatDateTimeCompact(ai.enriched_at)}</span>
+      <div class="text-[10.5px] text-indigo-700 font-semibold flex items-center gap-1 min-w-0 overflow-hidden">
+        <span class="shrink-0">🔬 ${formatDateTimeShort(ai.enriched_at)}</span>
         <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${ai.enriched_by_model || ''}">(${formatModelAttribution(ai.enriched_by_model)})</span>
       </div>
     `;
   }
 
   const defaultSourceLink = it.source_url ? `
-    <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[11px] font-semibold flex items-center gap-1 shrink-0">
+    <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded-md bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border text-[10.5px] font-semibold flex items-center gap-1 shrink-0">
       📄 ${srcLabel} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
     </a>
   ` : '';
 
   return `
-    <div class="pt-3 border-t border-surface-border space-y-1.5 text-xs font-mono">
-      <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
-        <span>📰 ${pubLabel}: ${pubDate}</span>
+    <div class="pt-2.5 border-t border-surface-border space-y-1 text-xs font-mono">
+      <div class="text-[10.5px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <span>📰 ${pubLabel}: ${pubDate}</span>
+          <span class="text-slate-300">·</span>
+          <span>📥 ${hrvLabel}: ${hrvDate}</span>
+          ${hasUpdate ? `<span class="text-indigo-600 font-bold" title="${updLabel}">(🔄 ${updDate})</span>` : ''}
+        </div>
       </div>
-      <div class="text-[11px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
-        <span>📥 ${hrvLabel}: ${hrvDate}</span>
-        ${hasUpdate ? `<span class="text-[10px] text-indigo-600 font-bold" title="${updLabel}">(🔄 ${updDate})</span>` : ''}
-      </div>
-      ${auditHtml}
-      <div class="flex items-center justify-end gap-2 pt-1 font-sans flex-wrap">
-        ${extraActionHtml || defaultSourceLink}
+      <div class="flex items-center justify-between gap-2 pt-0.5 font-sans">
+        <div class="min-w-0 truncate">
+          ${auditHtml}
+        </div>
+        <div class="flex items-center justify-end gap-1.5 shrink-0">
+          ${extraActionHtml || defaultSourceLink}
+        </div>
       </div>
     </div>
   `;
@@ -287,7 +290,7 @@ export function createNewsCardElement(it, currentLang) {
 
   const ai = it.ai_enrichment;
   const { displayTitle, displayHook, displayDesc, displayTakeaways } = getLocalizedContent(it, currentLang);
-  const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
+  const showDesc = !displayHook && displayDesc;
 
   const isHn = (it.source_platform || '').includes('Hacker News') || (it.source_url || '').includes('news.ycombinator.com');
   const isGn = (it.source_platform || '').includes('GeekNews') || (it.source_url || '').includes('hada.io');
@@ -509,6 +512,8 @@ export function createNewsCardElement(it, currentLang) {
 
     const cleanInit = formatCleanMetricVal(initVal, currentLang);
     const cleanLatest = formatCleanMetricVal(latestVal, currentLang);
+    const primaryPlat = getPrimaryImpactPlatform(it, allSources);
+    const isMultiSource = allSources.length > 1;
 
     let metricBadgeHtml = '';
     if (cleanLatest) {
@@ -531,21 +536,22 @@ export function createNewsCardElement(it, currentLang) {
           </span>
         `;
       } else {
-        const isPointMetric = cleanLatest.includes('pts') || cleanLatest.includes('★') || cleanLatest.includes('likes') || cleanLatest.includes('점');
-        const pointColor = isPointMetric 
-          ? 'text-rose-900 font-black bg-rose-100/90 border border-rose-300 shadow-2xs' 
-          : (isSpike ? 'text-rose-700 font-bold bg-rose-50 border border-rose-200' : 'text-ink-muted bg-surface-subtle border border-surface-border');
-        metricBadgeHtml = `
-          <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono ${pointColor} shrink-0 ml-auto whitespace-nowrap flex items-center gap-1 font-bold">
-            ${isPointMetric ? '<i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i>' : ''}
-            <span>${cleanLatest}</span>
-          </span>
-        `;
+        const isPointMetric = cleanLatest.includes('pts') || cleanLatest.includes('★') || cleanLatest.includes('likes') || cleanLatest.includes('점') || (/\d+/.test(cleanLatest) && !cleanLatest.includes('보도'));
+        const normLatest = cleanLatest.replace(/[📰💬🛠️🐙🔥\s·]/g, '').toLowerCase();
+        const normPlat = primaryPlat.replace(/[\s·]/g, '').toLowerCase();
+        const isDuplicatePlatform = normLatest.includes(normPlat) || normPlat.includes(normLatest) || 
+                                    normLatest.endsWith('보도') || normLatest.includes('토론') || normLatest.includes('discussion');
+
+        if (isPointMetric && !isDuplicatePlatform) {
+          metricBadgeHtml = `
+            <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono text-rose-900 font-black bg-rose-100/90 border border-rose-300 shadow-2xs shrink-0 ml-auto whitespace-nowrap flex items-center gap-1">
+              <i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i>
+              <span>${cleanLatest}</span>
+            </span>
+          `;
+        }
       }
     }
-
-    const primaryPlat = getPrimaryImpactPlatform(it, allSources);
-    const isMultiSource = allSources.length > 1;
 
     topHeaderRowHtml = `
       <div class="flex flex-wrap items-center justify-between text-xs font-mono gap-1.5 min-w-0">

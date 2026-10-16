@@ -223,7 +223,7 @@ export function createInboxCardElement(it, curLang) {
   const ai = it.ai_enrichment;
   const effectiveSourceLang = detectSourceLang(it);
   const { displayTitle, displayHook, displayDesc, displayTakeaways, hasTrilingual } = getLocalizedContent(it, curLang);
-  const showDesc = (!displayTakeaways || displayTakeaways.length === 0) && displayDesc;
+  const showDesc = !displayHook && displayDesc;
 
   const viralScore = calculateStandardizedViralScore(it);
   const tracking = it.metric_tracking || {};
