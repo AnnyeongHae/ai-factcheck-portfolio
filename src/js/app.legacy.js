@@ -288,7 +288,7 @@ function updateGlobalStatsUI() {
   safeSet('headerVerifiedCount', `(${numCases})`);
   safeSet('headerNewsCount', `(${numNews})`);
   safeSet('headerModelsCount', `(${numModels})`);
-  safeSet('headerInboxCount', `(${numInbox})`);
+  safeSet('headerInboxCount', '');
 
   // 수집 건수 vs AI 요약분석 완료 건수 분리 계산
   const inbList = typeof liveInboxData !== 'undefined' ? liveInboxData : [];
@@ -1689,7 +1689,7 @@ window.updateModelCategoryPillCounts = updateModelCategoryPillCounts;
             if (badge) {
               badge.innerHTML = `
                 <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition shadow-xs cursor-pointer" title="관리자 전용 원천 데이터 아카이브 (총 ${data.counts.inbox_total}건, 레이턴시: ${tLatency}ms)">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Admin (${typeof liveInbox === 'number' ? liveInbox.toLocaleString() : liveInbox})
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Admin
                 </span>
               `;
             }

@@ -297,7 +297,7 @@ export function updateGlobalStatsUI() {
   safeSet('headerVerifiedCount', `(${numCases})`);
   safeSet('headerNewsCount', `(${numInbox.toLocaleString()})`);
   safeSet('headerModelsCount', `(${numModels.toLocaleString()})`);
-  safeSet('headerInboxCount', `(${numInbox.toLocaleString()})`);
+  safeSet('headerInboxCount', '');
 
   const inbList = lInbox || [];
   const enrichedInbox = inbList.filter(x => x.is_classified || x.ai_enrichment).length;
@@ -542,7 +542,7 @@ export async function syncFromLiveDB(force = false) {
         }
 
         const hInbox = document.getElementById('headerInboxCount');
-        if (hInbox && liveInbox) hInbox.textContent = `(${liveInbox.toLocaleString()})`;
+        if (hInbox) hInbox.textContent = '';
 
         const statInbox = document.getElementById('statValInbox');
         if (statInbox && liveInbox) statInbox.textContent = liveInbox.toLocaleString();
@@ -560,7 +560,7 @@ export async function syncFromLiveDB(force = false) {
         if (hModels && liveModels) hModels.textContent = `(${liveModels.toLocaleString()})`;
 
         const mNavInbox = document.getElementById('mNavTabInbox');
-        if (mNavInbox && liveInbox) mNavInbox.textContent = `아카이브 (${liveInbox.toLocaleString()})`;
+        if (mNavInbox) mNavInbox.textContent = 'Admin';
 
         const inbHdr = document.getElementById('inboxHeaderCount');
         if (inbHdr && liveInbox) inbHdr.textContent = `총 ${liveInbox.toLocaleString()}건`;
@@ -604,7 +604,7 @@ export async function syncFromLiveDB(force = false) {
         if (badge) {
           badge.innerHTML = `
             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition shadow-xs cursor-pointer" title="관리자 전용 원천 데이터 아카이브 (총 ${data.counts.inbox_total}건, 레이턴시: ${tLatency}ms)">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Admin (${typeof liveInbox === 'number' ? liveInbox.toLocaleString() : liveInbox})
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Admin
             </span>
           `;
         }

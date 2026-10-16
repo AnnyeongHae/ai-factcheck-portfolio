@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T13:31:18.442Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T13:49:50.973Z */
 
 (() => {
   // src/js/core/config.js
@@ -1425,7 +1425,7 @@
     safeSet("headerVerifiedCount", `(${numCases})`);
     safeSet("headerNewsCount", `(${numInbox.toLocaleString()})`);
     safeSet("headerModelsCount", `(${numModels.toLocaleString()})`);
-    safeSet("headerInboxCount", `(${numInbox.toLocaleString()})`);
+    safeSet("headerInboxCount", "");
     const inbList = lInbox || [];
     const enrichedInbox = inbList.filter((x) => x.is_classified || x.ai_enrichment).length;
     const pendingInbox = Math.max(0, numInbox - enrichedInbox);
@@ -1651,7 +1651,7 @@
             }
           }
           const hInbox = document.getElementById("headerInboxCount");
-          if (hInbox && liveInbox) hInbox.textContent = `(${liveInbox.toLocaleString()})`;
+          if (hInbox) hInbox.textContent = "";
           const statInbox = document.getElementById("statValInbox");
           if (statInbox && liveInbox) statInbox.textContent = liveInbox.toLocaleString();
           const statNews = document.getElementById("statValNews");
@@ -1663,7 +1663,7 @@
           const hModels = document.getElementById("headerModelsCount");
           if (hModels && liveModels) hModels.textContent = `(${liveModels.toLocaleString()})`;
           const mNavInbox = document.getElementById("mNavTabInbox");
-          if (mNavInbox && liveInbox) mNavInbox.textContent = `\uC544\uCE74\uC774\uBE0C (${liveInbox.toLocaleString()})`;
+          if (mNavInbox) mNavInbox.textContent = "Admin";
           const inbHdr = document.getElementById("inboxHeaderCount");
           if (inbHdr && liveInbox) inbHdr.textContent = `\uCD1D ${liveInbox.toLocaleString()}\uAC74`;
           if (data.counts.inbox_unclassified !== void 0) {
@@ -1702,7 +1702,7 @@
           if (badge) {
             badge.innerHTML = `
             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition shadow-xs cursor-pointer" title="\uAD00\uB9AC\uC790 \uC804\uC6A9 \uC6D0\uCC9C \uB370\uC774\uD130 \uC544\uCE74\uC774\uBE0C (\uCD1D ${data.counts.inbox_total}\uAC74, \uB808\uC774\uD134\uC2DC: ${tLatency}ms)">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Admin (${typeof liveInbox === "number" ? liveInbox.toLocaleString() : liveInbox})
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Admin
             </span>
           `;
           }
