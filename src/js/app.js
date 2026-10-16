@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T13:00:44.656Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T13:31:18.442Z */
 
 (() => {
   // src/js/core/config.js
@@ -27,12 +27,12 @@
   };
   var API_BASE = "";
   var ROUTES = {
-    home: "#home",
-    portfolio: "#factchecks",
-    news: "#news",
-    models: "#models",
-    graph: "#graph",
-    inbox: "#inbox"
+    home: "/",
+    portfolio: "/factchecks",
+    news: "/news",
+    models: "/models",
+    graph: "/graph",
+    inbox: "/inbox"
   };
   if (typeof window !== "undefined") {
     window.APP_CONFIG = APP_CONFIG;
@@ -443,8 +443,8 @@
       heroMainTitle: "\uAE00\uB85C\uBC8C AI\xB7\uD14C\uD06C \uD2B8\uB80C\uB4DC \uC2E4\uC2DC\uAC04 \uC218\uC9D1 \uBC0F \uBC14\uC774\uB7F4\uB41C AI \uAE30\uC220\uC758 \uC2E4\uCCB4 \uBD84\uC11D \uD50C\uB7AB\uD3FC",
       heroMainDesc: "\uC804 \uC138\uACC4 \uC8FC\uC694 \uAE30\uC220 \uCEE4\uBBA4\uB2C8\uD2F0(HackerNews, GitHub, HuggingFace, ArXiv \uB4F1)\uC640 \uBBF8\uB514\uC5B4\uC5D0\uC11C \uC2E4\uC2DC\uAC04\uC73C\uB85C \uC3DF\uC544\uC9C0\uB294 AI\xB7\uD14C\uD06C \uC774\uC288\uB97C \uC790\uB3D9 \uC218\uC9D1\uD574 \uB2E4\uAD6D\uC5B4(\uD55C\xB7\uC911\xB7\uC601)\uB85C 3\uC904 \uC694\uC57D\uD558\uACE0, \uB2E4\uC911 \uD50C\uB7AB\uD3FC\uC5D0\uC11C \uB3D9\uC2DC\uC5D0 \uAE09\uC0C1\uC2B9\uD558\uB294 \uD06C\uB85C\uC2A4 \uBC14\uC774\uB7F4 \uAE30\uC220\uC5D0 \uB300\uD574 1\uCC28 \uACF5\uC2DD \uCD9C\uCC98\uC640 \uC2E4\uCE21 \uBCA4\uCE58\uB9C8\uD06C \uAE30\uBC18\uC758 \uD329\uD2B8\uCCB4\uD06C \uB9AC\uD3EC\uD2B8\uB97C \uC81C\uACF5\uD569\uB2C8\uB2E4.",
       promoBannerTitle: "\uAE30\uC220 \uAC80\uC99D \uD3EC\uD2B8\uD3F4\uB9AC\uC624 \uCD5C\uC2E0 \uC0C1\uD0DC \uC54C\uB9BC",
-      promoCountBadge: "49\uAC74 \uAC80\uC99D \uC644\uB8CC",
-      promoBannerDesc: "\uBC14\uC774\uB7F4 \uC784\uACC4\uCE58\uB97C \uCD08\uACFC\uD558\uC5EC \uC720\uC785\uB41C \uC8FC\uC694 \uC624\uD508\uC18C\uC2A4 \uBC0F \uBAA8\uB378 \uD6C4\uBCF4\uAD70 \uCD1D 49\uAC74\uC5D0 \uB300\uD55C \uC2EC\uCE35 \uC2E4\uCE21 \uBCA4\uCE58\uB9C8\uD06C\uC640 \uD329\uD2B8\uCCB4\uD06C\uAC00 \uBAA8\uB450 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.",
+      promoCountBadge: "\uC2E4\uC2DC\uAC04 \uAC80\uC99D \uC644\uB8CC",
+      promoBannerDesc: "\uBC14\uC774\uB7F4 \uC784\uACC4\uCE58\uB97C \uCD08\uACFC\uD558\uC5EC \uC720\uC785\uB41C \uC8FC\uC694 \uC624\uD508\uC18C\uC2A4 \uBC0F \uBAA8\uB378 \uD6C4\uBCF4\uAD70\uC5D0 \uB300\uD55C \uC2EC\uCE35 \uC2E4\uCE21 \uBCA4\uCE58\uB9C8\uD06C\uC640 \uD329\uD2B8\uCCB4\uD06C\uAC00 \uBAA8\uB450 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.",
       promoBtnText: "\uC218\uC9D1 \uC778\uBC15\uC2A4 \uD6C4\uBCF4\uAD70 \uBCF4\uAE30",
       timelineTitle: "\uB2F9\uC77C 24\uC2DC\uAC04 \uC218\uC9D1 \uD0C0\uC784\uB77C\uC778",
       timelineSub: "1\uC77C 4\uD68C(00, 06, 12, 18\uC2DC KST) 6\uC2DC\uAC04 \uC8FC\uAE30 \uC804\uB7B5 \uC218\uC9D1 & AI \uC2E4\uC2DC\uAC04 \uBD84\uB958",
@@ -454,7 +454,7 @@
       trendRadarTitle: "\u{1F525} \uD06C\uB85C\uC2A4 \uBC14\uC774\uB7F4 (\uAE09\uC0C1\uC2B9) TOP 4",
       trendRadarSub: "\uB2E4\uC218 \uAE00\uB85C\uBC8C \uD50C\uB7AB\uD3FC\uC5D0\uC11C \uB3D9\uC2DC\uC5D0 \uAE09\uC0C1\uC2B9 \uC911\uC778 \uD575\uC2EC \uC774\uC288 4\uC120",
       homeTopPicksTitle: "\uCD5C\uC2E0 \uC2EC\uCE35 \uAE30\uC220 \uAC80\uC99D \uD558\uC774\uB77C\uC774\uD2B8",
-      homeTopPicksViewAll: "\uC804\uCCB4 49\uAC1C \uAC80\uC99D \uB3C4\uC2DC\uC5D0 \uBCF4\uB7EC\uAC00\uAE30",
+      homeTopPicksViewAll: "\uC804\uCCB4 \uAC80\uC99D \uB3C4\uC2DC\uC5D0 \uBCF4\uB7EC\uAC00\uAE30",
       btnAll: "\uC804\uCCB4 \uAC80\uC99D",
       btnUser: "\uC9C1\uC811 \uD050\uB808\uC774\uC158",
       btnAuto: "\uC790\uB3D9 \uD2B8\uB80C\uB4DC",
@@ -599,8 +599,8 @@
       heroMainTitle: "\u5168\u7403 AI \u4E0E\u79D1\u6280\u8D8B\u52BF\u5B9E\u65F6\u91C7\u96C6 \xB7 \u70ED\u95E8 AI \u6280\u672F\u7684\u5DE5\u7A0B\u771F\u76F8\u4E0E\u5B9E\u4F53\u9A8C\u8BC1\u5E73\u53F0",
       heroMainDesc: "\u5168\u5929\u5019\u81EA\u52A8\u91C7\u96C6\u5168\u7403\u4E3B\u6D41\u6280\u672F\u793E\u533A\uFF08HackerNews\u3001GitHub\u3001HuggingFace\u3001ArXiv \u7B49\uFF09\u4E0E\u79D1\u6280\u5A92\u4F53\u7684\u524D\u6CBF\u52A8\u6001\u5E76\u63D0\u4F9B\u4E2D\xB7\u97E9\xB7\u82F1\u4E09\u8BED\u6838\u5FC3\u6458\u8981\uFF1B\u9488\u5BF9\u8DE8\u5E73\u53F0\u540C\u65F6\u98D9\u5347\u7684\u70ED\u95E8\u6280\u672F\uFF0C\u57FA\u4E8E\u4E00\u624B\u5B98\u65B9\u6E90\u7801\u4E0E\u5B9E\u6D4B\u57FA\u51C6\u63D0\u4F9B\u5BA2\u89C2\u7684\u6DF1\u5EA6\u4E8B\u5B9E\u6838\u67E5\u62A5\u544A\u3002",
       promoBannerTitle: "\u6280\u672F\u5BA1\u8BA1\u6863\u6848\u5E93\u6700\u65B0\u72B6\u6001",
-      promoCountBadge: "49 \u9879\u6838\u9A8C\u5B8C\u6BD5",
-      promoBannerDesc: "\u5DF2\u5BF9\u7A81\u7834\u70ED\u5EA6\u9608\u503C\u81EA\u52A8\u664B\u5347\u7684 49 \u9879\u91CD\u70B9\u5F00\u6E90\u9879\u76EE\u4E0E\u524D\u6CBF\u6A21\u578B\u5B8C\u6210\u5168\u6D41\u7A0B\u6DF1\u5EA6\u5B9E\u6D4B\u57FA\u51C6\u4E0E\u4E8B\u5B9E\u6838\u67E5\u3002",
+      promoCountBadge: "\u5B9E\u65F6\u6838\u9A8C\u5B8C\u6BD5",
+      promoBannerDesc: "\u5DF2\u5BF9\u7A81\u7834\u70ED\u5EA6\u9608\u503C\u81EA\u52A8\u664B\u5347\u7684\u91CD\u70B9\u5F00\u6E90\u9879\u76EE\u4E0E\u524D\u6CBF\u6A21\u578B\u5B8C\u6210\u5168\u6D41\u7A0B\u6DF1\u5EA6\u5B9E\u6D4B\u57FA\u51C6\u4E0E\u4E8B\u5B9E\u6838\u67E5\u3002",
       promoBtnText: "\u67E5\u770B\u91C7\u96C6\u6536\u4EF6\u7BB1\u5019\u9009",
       timelineTitle: "\u5F53\u65E5 24 \u5C0F\u65F6\u91C7\u96C6\u65F6\u95F4\u7EBF",
       timelineSub: "\u6BCF\u65E5 4 \u6B21 (00, 06, 12, 18\u65F6 KST) 6\u5C0F\u65F6\u5468\u671F\u5B9A\u5411\u91C7\u96C6 & AI \u5B9E\u65F6\u5206\u7C7B",
@@ -610,7 +610,7 @@
       trendRadarTitle: "\u{1F525} \u8DE8\u5E73\u53F0\u70ED\u95E8\u98D9\u5347 TOP 4",
       trendRadarSub: "\u5728\u591A\u4E2A\u5168\u7403\u5E73\u53F0\u540C\u65F6\u98D9\u5347\u7684 4 \u5927\u6838\u5FC3\u8BAE\u9898",
       homeTopPicksTitle: "\u6700\u65B0\u6DF1\u5EA6\u6280\u672F\u6838\u67E5\u7CBE\u9009",
-      homeTopPicksViewAll: "\u67E5\u770B\u5168\u90E8 49 \u4EFD\u6838\u67E5\u6863\u6848",
+      homeTopPicksViewAll: "\u67E5\u770B\u5168\u90E8\u6838\u67E5\u6863\u6848",
       btnAll: "\u5168\u90E8\u5BA1\u8BA1",
       btnUser: "\u4EBA\u5DE5\u7CBE\u9009",
       btnAuto: "\u81EA\u52A8\u8D8B\u52BF",
@@ -755,8 +755,8 @@
       heroMainTitle: "Real-Time Global AI & Tech Trend Radar \xB7 Empirical Analysis of Viral AI Technologies",
       heroMainDesc: "Automatically harvests real-time AI and tech issues across global communities (HackerNews, GitHub, HuggingFace, ArXiv, etc.) with trilingual (KO\xB7ZH\xB7EN) 3-point summaries, and delivers empirical fact-check dossiers backed by primary sources and benchmarks for cross-platform viral technologies.",
       promoBannerTitle: "Dossier Status Update",
-      promoCountBadge: "49 Completed",
-      promoBannerDesc: "All 49 high-velocity repositories and models that crossed the viral threshold have been rigorously benchmarked and fact-checked.",
+      promoCountBadge: "Live Verified",
+      promoBannerDesc: "All high-velocity repositories and models that crossed the viral threshold have been rigorously benchmarked and fact-checked.",
       promoBtnText: "Explore Harvest Inbox",
       timelineTitle: "Today 24-Hour Collection Timeline",
       timelineSub: "4x daily (00, 06, 12, 18 KST) 6h strategic collection & AI live enrichment",
@@ -766,7 +766,7 @@
       trendRadarTitle: "\u{1F525} Cross-Viral Spikes TOP 4",
       trendRadarSub: "Top 4 topics simultaneously spiking across multiple global platforms",
       homeTopPicksTitle: "Latest Deep Technical Verification Highlights",
-      homeTopPicksViewAll: "View All 49 Empirical Dossiers",
+      homeTopPicksViewAll: "View All Empirical Dossiers",
       btnAll: "All Dossiers",
       btnUser: "User Curated",
       btnAuto: "Auto Trends",
@@ -2715,12 +2715,12 @@
     if (typeof window.renderCards === "function") window.renderCards();
     document.getElementById("portfolioView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const targetHash = page > 1 ? "#factchecks?page=" + page : "#factchecks";
-      if (window.location.hash !== targetHash) {
+      const targetUrl = page > 1 ? "/factchecks?page=" + page : "/factchecks";
+      const curPath = window.location.pathname + window.location.search;
+      if (curPath !== targetUrl) {
         try {
-          history.pushState({ view: "portfolio", page }, "", targetHash);
+          history.pushState({ view: "portfolio", page }, "", targetUrl);
         } catch (e) {
-          window.location.hash = targetHash;
         }
       }
     }
@@ -2730,12 +2730,12 @@
     if (typeof window.renderModels === "function") window.renderModels();
     document.getElementById("modelsView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const targetHash = page > 1 ? "#models?page=" + page : "#models";
-      if (window.location.hash !== targetHash) {
+      const targetUrl = page > 1 ? "/models?page=" + page : "/models";
+      const curPath = window.location.pathname + window.location.search;
+      if (curPath !== targetUrl) {
         try {
-          history.pushState({ view: "models", page }, "", targetHash);
+          history.pushState({ view: "models", page }, "", targetUrl);
         } catch (e) {
-          window.location.hash = targetHash;
         }
       }
     }
@@ -2754,12 +2754,12 @@
           qs += `&date=${encodeURIComponent(curSpkDate)}`;
         }
       }
-      const targetHash = qs ? `#news?${qs}` : "#news";
-      if (window.location.hash !== targetHash) {
+      const targetUrl = qs ? `/news?${qs}` : "/news";
+      const curPath = window.location.pathname + window.location.search;
+      if (curPath !== targetUrl) {
         try {
-          history.pushState({ view: "news", page }, "", targetHash);
+          history.pushState({ view: "news", page }, "", targetUrl);
         } catch (e) {
-          window.location.hash = targetHash;
         }
       }
     }
@@ -2769,12 +2769,12 @@
     if (typeof window.renderInbox === "function") window.renderInbox();
     document.getElementById("inboxView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const targetHash = page > 1 ? "#inbox?page=" + page : "#inbox";
-      if (window.location.hash !== targetHash) {
+      const targetUrl = page > 1 ? "/inbox?page=" + page : "/inbox";
+      const curPath = window.location.pathname + window.location.search;
+      if (curPath !== targetUrl) {
         try {
-          history.pushState({ view: "inbox", page }, "", targetHash);
+          history.pushState({ view: "inbox", page }, "", targetUrl);
         } catch (e) {
-          window.location.hash = targetHash;
         }
       }
     }
@@ -5269,12 +5269,12 @@
         });
       }
       if (typeof history !== "undefined" && window.currentView === "news") {
-        const targetHash = cleanDate ? `#news?facet=CROSS_SPIKE&date=${encodeURIComponent(cleanDate)}` : "#news?facet=CROSS_SPIKE";
-        if (window.location.hash !== targetHash) {
+        const targetUrl = cleanDate ? `/news?facet=CROSS_SPIKE&date=${encodeURIComponent(cleanDate)}` : "/news?facet=CROSS_SPIKE";
+        const curPath = window.location.pathname + window.location.search;
+        if (curPath !== targetUrl) {
           try {
-            history.replaceState({ view: "news" }, "", targetHash);
+            history.replaceState({ view: "news" }, "", targetUrl);
           } catch (e) {
-            window.location.hash = targetHash;
           }
         }
       }
@@ -5361,16 +5361,16 @@
     });
     if (typeof history !== "undefined" && window.currentView === "news") {
       const curSpkDate = window.currentSpikeDate || "";
-      let targetHash = "#news";
+      let targetUrl = "/news";
       if (facet && facet !== "ALL") {
-        targetHash += `?facet=${encodeURIComponent(facet)}`;
-        if (facet === "CROSS_SPIKE" && curSpkDate) targetHash += `&date=${encodeURIComponent(curSpkDate)}`;
+        targetUrl += `?facet=${encodeURIComponent(facet)}`;
+        if (facet === "CROSS_SPIKE" && curSpkDate) targetUrl += `&date=${encodeURIComponent(curSpkDate)}`;
       }
-      if (window.location.hash !== targetHash) {
+      const curPath = window.location.pathname + window.location.search;
+      if (curPath !== targetUrl) {
         try {
-          history.replaceState({ view: "news" }, "", targetHash);
+          history.replaceState({ view: "news" }, "", targetUrl);
         } catch (e) {
-          window.location.hash = targetHash;
         }
       }
     }
@@ -5501,12 +5501,90 @@
       }
     }
   }
+  function prefetchNewsFilter(filterChanges = {}) {
+    const params = new URLSearchParams();
+    params.set("limit", PAGE_SIZE);
+    params.set("page", 1);
+    const t1 = filterChanges.tier1 !== void 0 ? filterChanges.tier1 : window.currentNewsTier1 || currentNewsTier1;
+    const t2 = filterChanges.tier2 !== void 0 ? filterChanges.tier2 : window.currentNewsTier2 || currentNewsTier2;
+    const facet = filterChanges.facet !== void 0 ? filterChanges.facet : window.currentNewsFacet || currentNewsFacet;
+    const src = filterChanges.source !== void 0 ? filterChanges.source : window.currentNewsSource || currentNewsSource;
+    const search = filterChanges.search !== void 0 ? filterChanges.search : window.currentNewsSearch || currentNewsSearch;
+    const sort = filterChanges.sort !== void 0 ? filterChanges.sort : window.currentNewsSort || currentNewsSort;
+    const spkDate = filterChanges.spikeDate !== void 0 ? filterChanges.spikeDate : window.currentSpikeDate !== void 0 ? window.currentSpikeDate : currentSpikeDate;
+    if (t1 && t1 !== "ALL") params.set("tier1", t1);
+    if (t2 && t2 !== "ALL") params.set("tier2", t2);
+    if (facet && facet !== "ALL") params.set("facet", facet);
+    if (facet === "CROSS_SPIKE" && spkDate) params.set("spike_date", spkDate);
+    if (src && src !== "ALL") params.set("source", src);
+    if (search) params.set("search", search);
+    if (sort) params.set("sort", sort);
+    const cacheKey = params.toString();
+    if (newsDbCache.has(cacheKey) || ClientCache.get(cacheKey, 3e5) || inFlightNewsPrefetch.has(cacheKey)) return;
+    inFlightNewsPrefetch.add(cacheKey);
+    const baseUrl = APP_CONFIG.apiUrl("/api/inbox");
+    fetch(`${baseUrl}?${cacheKey}`).then((res) => {
+      if (res.ok) return res.json();
+      return null;
+    }).then((data) => {
+      if (data && data.status === "success") {
+        const result = {
+          total: data.total || 0,
+          totalPages: data.total_pages || Math.ceil((data.total || 0) / PAGE_SIZE) || 1,
+          items: data.items || [],
+          timestamp: Date.now()
+        };
+        newsDbCache.set(cacheKey, result);
+        ClientCache.set(cacheKey, result);
+      }
+    }).catch(() => {
+    }).finally(() => {
+      inFlightNewsPrefetch.delete(cacheKey);
+    });
+  }
   if (typeof window !== "undefined") {
     window.setCrossSpikeDate = setCrossSpikeDate;
     window.stepCrossSpikeDate = stepCrossSpikeDate;
     window.loadCrossSpikeDatesList = loadCrossSpikeDatesList;
     window.updateCrossSpikeTimeMachineUI = updateCrossSpikeTimeMachineUI;
     window.prefetchNewsPage = prefetchNewsPage;
+    window.prefetchNewsFilter = prefetchNewsFilter;
+    if (!window._newsFilterHoverBound) {
+      window._newsFilterHoverBound = true;
+      document.addEventListener("mouseover", (e) => {
+        const facetBtn = e.target.closest(".news-facet-pill");
+        if (facetBtn) {
+          const f = facetBtn.getAttribute("data-facet");
+          if (f) prefetchNewsFilter({ facet: f, tier1: "ALL", tier2: "ALL" });
+          return;
+        }
+        const catBtn = e.target.closest(".news-cat-pill");
+        if (catBtn) {
+          const c = catBtn.getAttribute("data-cat");
+          if (c) prefetchNewsFilter({ tier1: c });
+          return;
+        }
+        const t2Btn = e.target.closest(".news-t2-pill");
+        if (t2Btn) {
+          const t = t2Btn.getAttribute("data-t2");
+          if (t) prefetchNewsFilter({ tier2: t });
+          return;
+        }
+        const srcBtn = e.target.closest(".news-src-btn");
+        if (srcBtn) {
+          const s = srcBtn.getAttribute("data-src");
+          if (s) prefetchNewsFilter({ source: s });
+          return;
+        }
+        const spkDateBtn = e.target.closest("#crossSpikeQuickDatePills button");
+        if (spkDateBtn) {
+          const dateMatch = spkDateBtn.getAttribute("onclick")?.match(/setCrossSpikeDate\('([^']+)'\)/);
+          if (dateMatch && dateMatch[1]) {
+            prefetchNewsFilter({ facet: "CROSS_SPIKE", spikeDate: dateMatch[1] });
+          }
+        }
+      }, { passive: true });
+    }
     if (!window._midScrollPrefetchBound) {
       window._midScrollPrefetchBound = true;
       let scrollTick = false;
@@ -6221,12 +6299,13 @@
       }
     }
     if (pushHistory) {
-      const targetHash = ROUTES[targetView] || "#" + targetView;
-      if (window.location.hash !== targetHash) {
+      const targetPath = ROUTES[targetView] || "/" + (targetView === "home" ? "" : targetView);
+      const curPath = window.location.pathname;
+      if (curPath !== targetPath && (!targetPath.startsWith("#") || window.location.hash !== targetPath)) {
         try {
-          history.pushState({ view: targetView }, "", targetHash);
+          history.pushState({ view: targetView }, "", targetPath);
         } catch (e) {
-          window.location.hash = targetHash;
+          window.location.pathname = targetPath;
         }
       }
     }
@@ -6257,40 +6336,42 @@
       });
     }
   }
-  function handleHashRoute() {
-    const hash = window.location.hash || "";
-    if (hash.includes("case=") || hash.startsWith("#case/")) {
-      let targetCaseId = "";
-      if (hash.includes("case=")) {
-        const m = hash.match(/case=([^&]+)/);
-        if (m) targetCaseId = decodeURIComponent(m[1]);
-      } else {
-        targetCaseId = decodeURIComponent(hash.replace("#case/", ""));
-      }
-      if (targetCaseId) {
-        switchView("portfolio", false, true);
-        const pool = window.liveCasesData || liveCasesData || casesData || [];
-        const target = pool.find((c) => c.case_id === targetCaseId || c.investigation_id === targetCaseId);
-        if (target) {
-          openModal(target, false);
-          return;
-        }
+  function handleRoute() {
+    const pathname = (typeof window !== "undefined" ? window.location.pathname : "/") || "/";
+    const hash = (typeof window !== "undefined" ? window.location.hash : "") || "";
+    const search = (typeof window !== "undefined" ? window.location.search : "") || "";
+    let targetCaseId = "";
+    const searchParams = new URLSearchParams(search);
+    const hashQuery = hash.includes("?") ? hash.split("?")[1] : "";
+    const hashParams = new URLSearchParams(hashQuery);
+    if (searchParams.get("case")) {
+      targetCaseId = decodeURIComponent(searchParams.get("case"));
+    } else if (hashParams.get("case")) {
+      targetCaseId = decodeURIComponent(hashParams.get("case"));
+    } else if (hash.startsWith("#case/")) {
+      targetCaseId = decodeURIComponent(hash.replace("#case/", ""));
+    }
+    if (targetCaseId) {
+      switchView("portfolio", false, true);
+      const pool = window.liveCasesData || liveCasesData || casesData || [];
+      const target = pool.find((c) => c.case_id === targetCaseId || c.investigation_id === targetCaseId);
+      if (target) {
+        openModal(target, false);
+        return;
       }
     }
     closeModal(false);
-    const [routePart, queryPart] = hash.split("?");
-    const params = new URLSearchParams(queryPart || "");
-    const pageParam = parseInt(params.get("page"), 10) || 1;
+    const cleanPath = pathname.replace(/\/$/, "") || "/";
     let targetView = "home";
-    if (routePart === "#factchecks" || routePart.startsWith("#factchecks") || routePart.startsWith("#/factchecks") || routePart.startsWith("#/portfolio")) {
+    if (cleanPath === "/factchecks" || cleanPath === "/portfolio" || hash.includes("factchecks") || hash.includes("portfolio")) {
       targetView = "portfolio";
-    } else if (routePart === "#news" || routePart.startsWith("#news") || routePart.startsWith("#/news")) {
+    } else if (cleanPath === "/news" || hash.includes("news")) {
       targetView = "news";
-    } else if (routePart === "#models" || routePart.startsWith("#models") || routePart.startsWith("#/models")) {
+    } else if (cleanPath === "/models" || hash.includes("models")) {
       targetView = "models";
-    } else if (routePart === "#graph" || routePart.startsWith("#graph") || routePart.startsWith("#/graph")) {
+    } else if (cleanPath === "/graph" || hash.includes("graph")) {
       targetView = "home";
-    } else if (routePart === "#inbox" || routePart.startsWith("#inbox") || routePart.startsWith("#/inbox")) {
+    } else if (cleanPath === "/inbox" || hash.includes("inbox")) {
       targetView = "inbox";
     } else {
       targetView = "home";
@@ -6303,9 +6384,18 @@
       updateCronCountdown();
       renderHomeTopPicks();
     }
+    if (hash && typeof history !== "undefined") {
+      const canonicalPath = ROUTES[targetView] || "/";
+      const qs = search || (hashQuery ? "?" + hashQuery : "");
+      try {
+        history.replaceState({ view: targetView }, "", canonicalPath + qs);
+      } catch (e) {
+      }
+    }
+    const pageParam = parseInt(searchParams.get("page") || hashParams.get("page"), 10) || 1;
+    const facetParam = searchParams.get("facet") || hashParams.get("facet");
+    const dateParam = searchParams.get("date") || hashParams.get("date");
     if (targetView === "news") {
-      const facetParam = params.get("facet");
-      const dateParam = params.get("date");
       if (facetParam && typeof window.setNewsFacetFilter === "function" && window.currentNewsFacet !== facetParam) {
         window.setNewsFacetFilter(facetParam);
       }
@@ -6325,13 +6415,15 @@
       if (curP !== pageParam) changeInboxPage(pageParam, false);
     }
   }
+  var handleHashRoute = handleRoute;
   function initRouter() {
-    window.addEventListener("popstate", handleHashRoute);
-    window.addEventListener("hashchange", handleHashRoute);
+    window.addEventListener("popstate", handleRoute);
+    window.addEventListener("hashchange", handleRoute);
     window.addEventListener("load", () => {
+      const path = window.location.pathname;
       const hash = window.location.hash || "";
-      if (!window.__APP_INITIALIZED__ || hash.includes("case=") || hash.startsWith("#case/") || hash.includes("page=")) {
-        setTimeout(handleHashRoute, 150);
+      if (!window.__APP_INITIALIZED__ || path !== "/" || hash.includes("case=") || hash.startsWith("#case/") || hash.includes("page=")) {
+        setTimeout(handleRoute, 150);
       }
     });
   }

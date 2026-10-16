@@ -211,12 +211,13 @@ export function switchView(view, pushHistory = true, preserveFilters = false) {
   }
 
   if (pushHistory) {
-    const targetHash = ROUTES[targetView] || '#' + targetView;
-    if (window.location.hash !== targetHash) {
+    const targetPath = ROUTES[targetView] || '/' + (targetView === 'home' ? '' : targetView);
+    const curPath = window.location.pathname;
+    if (curPath !== targetPath && (!targetPath.startsWith('#') || window.location.hash !== targetPath)) {
       try {
-        history.pushState({ view: targetView }, '', targetHash);
+        history.pushState({ view: targetView }, '', targetPath);
       } catch (e) {
-        window.location.hash = targetHash;
+        window.location.pathname = targetPath;
       }
     }
   }
@@ -251,48 +252,49 @@ export function switchView(view, pushHistory = true, preserveFilters = false) {
   }
 }
 
-export function handleHashRoute() {
-  const hash = window.location.hash || '';
+export function handleRoute() {
+  const pathname = (typeof window !== 'undefined' ? window.location.pathname : '/') || '/';
+  const hash = (typeof window !== 'undefined' ? window.location.hash : '') || '';
+  const search = (typeof window !== 'undefined' ? window.location.search : '') || '';
 
-  // 1. Deep Link to Modal: #factchecks?case=... or #/factchecks?case=... or #case/...
-  if (hash.includes('case=') || hash.startsWith('#case/')) {
-    let targetCaseId = '';
-    if (hash.includes('case=')) {
-      const m = hash.match(/case=([^&]+)/);
-      if (m) targetCaseId = decodeURIComponent(m[1]);
-    } else {
-      targetCaseId = decodeURIComponent(hash.replace('#case/', ''));
-    }
+  // 1. Deep Link to Modal: /factchecks?case=... or #case/...
+  let targetCaseId = '';
+  const searchParams = new URLSearchParams(search);
+  const hashQuery = hash.includes('?') ? hash.split('?')[1] : '';
+  const hashParams = new URLSearchParams(hashQuery);
 
-    if (targetCaseId) {
-      switchView('portfolio', false, true);
-      const pool = window.liveCasesData || liveCasesData || casesData || [];
-      const target = pool.find(c => c.case_id === targetCaseId || c.investigation_id === targetCaseId);
-      if (target) {
-        openModal(target, false);
-        return;
-      }
+  if (searchParams.get('case')) {
+    targetCaseId = decodeURIComponent(searchParams.get('case'));
+  } else if (hashParams.get('case')) {
+    targetCaseId = decodeURIComponent(hashParams.get('case'));
+  } else if (hash.startsWith('#case/')) {
+    targetCaseId = decodeURIComponent(hash.replace('#case/', ''));
+  }
+
+  if (targetCaseId) {
+    switchView('portfolio', false, true);
+    const pool = window.liveCasesData || liveCasesData || casesData || [];
+    const target = pool.find(c => c.case_id === targetCaseId || c.investigation_id === targetCaseId);
+    if (target) {
+      openModal(target, false);
+      return;
     }
   }
 
-  // If modal is open and user navigates back to tab without modal query, close modal
   closeModal(false);
 
-  // 2. Parse Route and Query Page (Clean #route and legacy #/route support)
-  const [routePart, queryPart] = hash.split('?');
-  const params = new URLSearchParams(queryPart || '');
-  const pageParam = parseInt(params.get('page'), 10) || 1;
-
+  // 2. Parse Route: Check pathname first, fallback to legacy hash
+  const cleanPath = pathname.replace(/\/$/, '') || '/';
   let targetView = 'home';
-  if (routePart === '#factchecks' || routePart.startsWith('#factchecks') || routePart.startsWith('#/factchecks') || routePart.startsWith('#/portfolio')) {
+  if (cleanPath === '/factchecks' || cleanPath === '/portfolio' || hash.includes('factchecks') || hash.includes('portfolio')) {
     targetView = 'portfolio';
-  } else if (routePart === '#news' || routePart.startsWith('#news') || routePart.startsWith('#/news')) {
+  } else if (cleanPath === '/news' || hash.includes('news')) {
     targetView = 'news';
-  } else if (routePart === '#models' || routePart.startsWith('#models') || routePart.startsWith('#/models')) {
+  } else if (cleanPath === '/models' || hash.includes('models')) {
     targetView = 'models';
-  } else if (routePart === '#graph' || routePart.startsWith('#graph') || routePart.startsWith('#/graph')) {
+  } else if (cleanPath === '/graph' || hash.includes('graph')) {
     targetView = 'home';
-  } else if (routePart === '#inbox' || routePart.startsWith('#inbox') || routePart.startsWith('#/inbox')) {
+  } else if (cleanPath === '/inbox' || hash.includes('inbox')) {
     targetView = 'inbox';
   } else {
     targetView = 'home';
@@ -307,10 +309,19 @@ export function handleHashRoute() {
     renderHomeTopPicks();
   }
 
+  // If user arrived via legacy #hash, gracefully replace URL with clean pathname
+  if (hash && typeof history !== 'undefined') {
+    const canonicalPath = ROUTES[targetView] || '/';
+    const qs = search || (hashQuery ? '?' + hashQuery : '');
+    try { history.replaceState({ view: targetView }, '', canonicalPath + qs); } catch(e) {}
+  }
+
   // 3. Apply Filter & Page State to Active View
+  const pageParam = parseInt(searchParams.get('page') || hashParams.get('page'), 10) || 1;
+  const facetParam = searchParams.get('facet') || hashParams.get('facet');
+  const dateParam = searchParams.get('date') || hashParams.get('date');
+
   if (targetView === 'news') {
-    const facetParam = params.get('facet');
-    const dateParam = params.get('date');
     if (facetParam && typeof window.setNewsFacetFilter === 'function' && window.currentNewsFacet !== facetParam) {
       window.setNewsFacetFilter(facetParam);
     }
@@ -331,13 +342,16 @@ export function handleHashRoute() {
   }
 }
 
+export const handleHashRoute = handleRoute;
+
 export function initRouter() {
-  window.addEventListener('popstate', handleHashRoute);
-  window.addEventListener('hashchange', handleHashRoute);
+  window.addEventListener('popstate', handleRoute);
+  window.addEventListener('hashchange', handleRoute);
   window.addEventListener('load', () => {
+    const path = window.location.pathname;
     const hash = window.location.hash || '';
-    if (!window.__APP_INITIALIZED__ || hash.includes('case=') || hash.startsWith('#case/') || hash.includes('page=')) {
-      setTimeout(handleHashRoute, 150);
+    if (!window.__APP_INITIALIZED__ || path !== '/' || hash.includes('case=') || hash.startsWith('#case/') || hash.includes('page=')) {
+      setTimeout(handleRoute, 150);
     }
   });
 }

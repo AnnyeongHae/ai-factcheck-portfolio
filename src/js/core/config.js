@@ -32,12 +32,12 @@ export const APP_CONFIG = {
 export const API_BASE = '';
 
 export const ROUTES = {
-  home: '#home',
-  portfolio: '#factchecks',
-  news: '#news',
-  models: '#models',
-  graph: '#graph',
-  inbox: '#inbox'
+  home: '/',
+  portfolio: '/factchecks',
+  news: '/news',
+  models: '/models',
+  graph: '/graph',
+  inbox: '/inbox'
 };
 
 if (typeof window !== 'undefined') {

@@ -84,9 +84,10 @@ export function changePortfolioPage(page, pushHistory = true) {
   if (typeof window.renderCards === 'function') window.renderCards();
   document.getElementById('portfolioView')?.scrollIntoView({ behavior: 'smooth' });
   if (pushHistory && typeof history !== 'undefined') {
-    const targetHash = page > 1 ? '#factchecks?page=' + page : '#factchecks';
-    if (window.location.hash !== targetHash) {
-      try { history.pushState({ view: 'portfolio', page: page }, '', targetHash); } catch(e) { window.location.hash = targetHash; }
+    const targetUrl = page > 1 ? '/factchecks?page=' + page : '/factchecks';
+    const curPath = window.location.pathname + window.location.search;
+    if (curPath !== targetUrl) {
+      try { history.pushState({ view: 'portfolio', page: page }, '', targetUrl); } catch(e) {}
     }
   }
 }
@@ -96,9 +97,10 @@ export function changeModelsPage(page, pushHistory = true) {
   if (typeof window.renderModels === 'function') window.renderModels();
   document.getElementById('modelsView')?.scrollIntoView({ behavior: 'smooth' });
   if (pushHistory && typeof history !== 'undefined') {
-    const targetHash = page > 1 ? '#models?page=' + page : '#models';
-    if (window.location.hash !== targetHash) {
-      try { history.pushState({ view: 'models', page: page }, '', targetHash); } catch(e) { window.location.hash = targetHash; }
+    const targetUrl = page > 1 ? '/models?page=' + page : '/models';
+    const curPath = window.location.pathname + window.location.search;
+    if (curPath !== targetUrl) {
+      try { history.pushState({ view: 'models', page: page }, '', targetUrl); } catch(e) {}
     }
   }
 }
@@ -117,9 +119,10 @@ export function changeNewsPage(page, pushHistory = true) {
         qs += `&date=${encodeURIComponent(curSpkDate)}`;
       }
     }
-    const targetHash = qs ? `#news?${qs}` : '#news';
-    if (window.location.hash !== targetHash) {
-      try { history.pushState({ view: 'news', page: page }, '', targetHash); } catch(e) { window.location.hash = targetHash; }
+    const targetUrl = qs ? `/news?${qs}` : '/news';
+    const curPath = window.location.pathname + window.location.search;
+    if (curPath !== targetUrl) {
+      try { history.pushState({ view: 'news', page: page }, '', targetUrl); } catch(e) {}
     }
   }
 }
@@ -129,9 +132,10 @@ export function changeInboxPage(page, pushHistory = true) {
   if (typeof window.renderInbox === 'function') window.renderInbox();
   document.getElementById('inboxView')?.scrollIntoView({ behavior: 'smooth' });
   if (pushHistory && typeof history !== 'undefined') {
-    const targetHash = page > 1 ? '#inbox?page=' + page : '#inbox';
-    if (window.location.hash !== targetHash) {
-      try { history.pushState({ view: 'inbox', page: page }, '', targetHash); } catch(e) { window.location.hash = targetHash; }
+    const targetUrl = page > 1 ? '/inbox?page=' + page : '/inbox';
+    const curPath = window.location.pathname + window.location.search;
+    if (curPath !== targetUrl) {
+      try { history.pushState({ view: 'inbox', page: page }, '', targetUrl); } catch(e) {}
     }
   }
 }

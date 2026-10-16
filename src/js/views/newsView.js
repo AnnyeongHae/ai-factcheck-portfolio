@@ -374,9 +374,10 @@ export function setCrossSpikeDate(dateStr) {
       });
     }
     if (typeof history !== 'undefined' && window.currentView === 'news') {
-      const targetHash = cleanDate ? `#news?facet=CROSS_SPIKE&date=${encodeURIComponent(cleanDate)}` : '#news?facet=CROSS_SPIKE';
-      if (window.location.hash !== targetHash) {
-        try { history.replaceState({ view: 'news' }, '', targetHash); } catch(e) { window.location.hash = targetHash; }
+      const targetUrl = cleanDate ? `/news?facet=CROSS_SPIKE&date=${encodeURIComponent(cleanDate)}` : '/news?facet=CROSS_SPIKE';
+      const curPath = window.location.pathname + window.location.search;
+      if (curPath !== targetUrl) {
+        try { history.replaceState({ view: 'news' }, '', targetUrl); } catch(e) {}
       }
     }
   }
@@ -470,13 +471,14 @@ export function setNewsFacetFilter(facet) {
 
   if (typeof history !== 'undefined' && window.currentView === 'news') {
     const curSpkDate = window.currentSpikeDate || '';
-    let targetHash = '#news';
+    let targetUrl = '/news';
     if (facet && facet !== 'ALL') {
-      targetHash += `?facet=${encodeURIComponent(facet)}`;
-      if (facet === 'CROSS_SPIKE' && curSpkDate) targetHash += `&date=${encodeURIComponent(curSpkDate)}`;
+      targetUrl += `?facet=${encodeURIComponent(facet)}`;
+      if (facet === 'CROSS_SPIKE' && curSpkDate) targetUrl += `&date=${encodeURIComponent(curSpkDate)}`;
     }
-    if (window.location.hash !== targetHash) {
-      try { history.replaceState({ view: 'news' }, '', targetHash); } catch (e) { window.location.hash = targetHash; }
+    const curPath = window.location.pathname + window.location.search;
+    if (curPath !== targetUrl) {
+      try { history.replaceState({ view: 'news' }, '', targetUrl); } catch (e) {}
     }
   }
 
@@ -623,12 +625,96 @@ export async function renderNews() {
   }
 }
 
+export function prefetchNewsFilter(filterChanges = {}) {
+  const params = new URLSearchParams();
+  params.set('limit', PAGE_SIZE);
+  params.set('page', 1);
+
+  const t1 = filterChanges.tier1 !== undefined ? filterChanges.tier1 : (window.currentNewsTier1 || currentNewsTier1);
+  const t2 = filterChanges.tier2 !== undefined ? filterChanges.tier2 : (window.currentNewsTier2 || currentNewsTier2);
+  const facet = filterChanges.facet !== undefined ? filterChanges.facet : (window.currentNewsFacet || currentNewsFacet);
+  const src = filterChanges.source !== undefined ? filterChanges.source : (window.currentNewsSource || currentNewsSource);
+  const search = filterChanges.search !== undefined ? filterChanges.search : (window.currentNewsSearch || currentNewsSearch);
+  const sort = filterChanges.sort !== undefined ? filterChanges.sort : (window.currentNewsSort || currentNewsSort);
+  const spkDate = filterChanges.spikeDate !== undefined ? filterChanges.spikeDate : (window.currentSpikeDate !== undefined ? window.currentSpikeDate : currentSpikeDate);
+
+  if (t1 && t1 !== 'ALL') params.set('tier1', t1);
+  if (t2 && t2 !== 'ALL') params.set('tier2', t2);
+  if (facet && facet !== 'ALL') params.set('facet', facet);
+  if (facet === 'CROSS_SPIKE' && spkDate) params.set('spike_date', spkDate);
+  if (src && src !== 'ALL') params.set('source', src);
+  if (search) params.set('search', search);
+  if (sort) params.set('sort', sort);
+
+  const cacheKey = params.toString();
+  if (newsDbCache.has(cacheKey) || ClientCache.get(cacheKey, 300000) || inFlightNewsPrefetch.has(cacheKey)) return;
+
+  inFlightNewsPrefetch.add(cacheKey);
+  const baseUrl = APP_CONFIG.apiUrl('/api/inbox');
+  fetch(`${baseUrl}?${cacheKey}`).then(res => {
+    if (res.ok) return res.json();
+    return null;
+  }).then(data => {
+    if (data && data.status === 'success') {
+      const result = {
+        total: data.total || 0,
+        totalPages: data.total_pages || Math.ceil((data.total || 0) / PAGE_SIZE) || 1,
+        items: data.items || [],
+        timestamp: Date.now()
+      };
+      newsDbCache.set(cacheKey, result);
+      ClientCache.set(cacheKey, result);
+    }
+  }).catch(() => {}).finally(() => {
+    inFlightNewsPrefetch.delete(cacheKey);
+  });
+}
+
 if (typeof window !== 'undefined') {
   window.setCrossSpikeDate = setCrossSpikeDate;
   window.stepCrossSpikeDate = stepCrossSpikeDate;
   window.loadCrossSpikeDatesList = loadCrossSpikeDatesList;
   window.updateCrossSpikeTimeMachineUI = updateCrossSpikeTimeMachineUI;
   window.prefetchNewsPage = prefetchNewsPage;
+  window.prefetchNewsFilter = prefetchNewsFilter;
+
+  // ⚡ Intelligent Filter Hover Prefetching (Smart Radar, Categories, IT Sub-tracks, Sources, Spike Dates)
+  if (!window._newsFilterHoverBound) {
+    window._newsFilterHoverBound = true;
+    document.addEventListener('mouseover', (e) => {
+      const facetBtn = e.target.closest('.news-facet-pill');
+      if (facetBtn) {
+        const f = facetBtn.getAttribute('data-facet');
+        if (f) prefetchNewsFilter({ facet: f, tier1: 'ALL', tier2: 'ALL' });
+        return;
+      }
+      const catBtn = e.target.closest('.news-cat-pill');
+      if (catBtn) {
+        const c = catBtn.getAttribute('data-cat');
+        if (c) prefetchNewsFilter({ tier1: c });
+        return;
+      }
+      const t2Btn = e.target.closest('.news-t2-pill');
+      if (t2Btn) {
+        const t = t2Btn.getAttribute('data-t2');
+        if (t) prefetchNewsFilter({ tier2: t });
+        return;
+      }
+      const srcBtn = e.target.closest('.news-src-btn');
+      if (srcBtn) {
+        const s = srcBtn.getAttribute('data-src');
+        if (s) prefetchNewsFilter({ source: s });
+        return;
+      }
+      const spkDateBtn = e.target.closest('#crossSpikeQuickDatePills button');
+      if (spkDateBtn) {
+        const dateMatch = spkDateBtn.getAttribute('onclick')?.match(/setCrossSpikeDate\('([^']+)'\)/);
+        if (dateMatch && dateMatch[1]) {
+          prefetchNewsFilter({ facet: 'CROSS_SPIKE', spikeDate: dateMatch[1] });
+        }
+      }
+    }, { passive: true });
+  }
 
   if (!window._midScrollPrefetchBound) {
     window._midScrollPrefetchBound = true;
