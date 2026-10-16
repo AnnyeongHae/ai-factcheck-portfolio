@@ -68,37 +68,25 @@ export function renderRadarSession() {
   }
 
   const radarData = (trendRadarData && trendRadarData.sessions) ? trendRadarData : (window.trendRadarData || {});
-  if (!radarData.sessions) return;
-  const sessionData = radarData.sessions[String(activeRadarSession)];
-  if (!sessionData) return;
+  const sessionData = radarData.sessions ? radarData.sessions[String(activeRadarSession)] : null;
+  const items = (typeof window !== 'undefined' && Array.isArray(window.homeCrossSpikeItems) && window.homeCrossSpikeItems.length > 0)
+    ? window.homeCrossSpikeItems.slice(0, 4)
+    : ((sessionData && Array.isArray(sessionData.items)) ? sessionData.items.slice(0, 4) : []);
 
   const windowLabelEl = document.getElementById('trendRadarWindowLabel');
-  const pulseDotEl = document.getElementById('trendRadarPulseDot');
-
   if (windowLabelEl) {
-    const wLabel = (curLang === 'KO' ? sessionData.window_label_ko : (curLang === 'ZH' ? sessionData.window_label_zh : sessionData.window_label_en)) || sessionData.window_label;
-    windowLabelEl.innerText = wLabel;
-  }
-  if (pulseDotEl) {
-    if (sessionData.is_current) {
-      pulseDotEl.className = 'w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse';
-    } else if (sessionData.is_future) {
-      pulseDotEl.className = 'w-1.5 h-1.5 rounded-full bg-amber-500';
-    } else {
-      pulseDotEl.className = 'w-1.5 h-1.5 rounded-full bg-slate-400';
-    }
+    windowLabelEl.innerText = curLang === 'KO' ? 'H-V-D 다중 출처 감지' : (curLang === 'ZH' ? 'H-V-D 多源实时监测' : 'H-V-D Multi-Source Live');
   }
 
   const bulletsContainer = document.getElementById('trendRadarBullets');
   if (bulletsContainer) {
     bulletsContainer.innerHTML = '';
-    const items = sessionData.items || [];
 
     if (items.length > 0) {
       items.forEach((it, idx) => {
         const cleanPlatform = cleanPlatformName(it.platform || it.source_platform || 'AI Hub');
         let platformBadgeClass = 'bg-surface-subtle text-ink-primary border-surface-border';
-        const pf = (it.platform_family || '').toLowerCase();
+        const pf = (it.platform_family || it.source_platform || '').toLowerCase();
         if (pf.includes('github')) {
           platformBadgeClass = 'bg-slate-100 text-slate-800 border-slate-300';
         } else if (pf.includes('hugging')) {
@@ -112,19 +100,23 @@ export function renderRadarSession() {
         }
 
         const itemTitle = (curLang === 'KO' ? (it.title_ko || it.title) : (curLang === 'ZH' ? (it.title_zh || it.title) : (it.title_en || it.title))) || it.title;
-        const itemSummary = (curLang === 'KO' ? (it.summary_ko || it.summary) : (curLang === 'ZH' ? (it.summary_zh || it.summary) : (it.summary_en || it.summary))) || it.summary;
+        const itemSummary = (curLang === 'KO' ? (it.summary_ko || it.one_line_summary || it.summary) : (curLang === 'ZH' ? (it.summary_zh || it.one_line_summary || it.summary) : (it.summary_en || it.one_line_summary || it.summary))) || '';
         const factCheckBtnText = curLang === 'KO' ? '팩트체크' : (curLang === 'ZH' ? '事实核查' : 'Fact-Check');
-        const pointBadgeHtml = formatRadarPointBadge(it, curLang);
+        const rawScore = Number(it.live_spike_score || it.spike_analysis?.score || 0);
+        const spikeScoreStr = rawScore > 0 ? rawScore.toFixed(1) : '';
+        const srcCount = Array.isArray(it.sources) && it.sources.length > 0 ? it.sources.length : (it.spike_analysis?.source_count || 2);
+        const srcLabel = curLang === 'KO' ? `${srcCount}개 출처` : (curLang === 'ZH' ? `${srcCount}个来源` : `${srcCount} sources`);
+        const targetUrl = it.source_url || it.url || '#';
 
         const itemCard = document.createElement('div');
-        itemCard.className = 'group p-3 rounded-xl bg-surface-subtle/50 hover:bg-white border border-surface-border hover:border-emerald-400 hover:shadow-xs transition duration-150 flex flex-col gap-2';
+        itemCard.className = 'group p-3 rounded-xl bg-surface-subtle/50 hover:bg-white border border-surface-border hover:border-amber-400 hover:shadow-xs transition duration-150 flex flex-col gap-2';
         itemCard.innerHTML = `
           <div class="flex items-center justify-between gap-2">
             <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="w-5 h-5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200/80 flex items-center justify-center font-mono font-bold text-[10px] shrink-0">0${idx + 1}</span>
+              <span class="w-5 h-5 rounded-md bg-amber-50 text-amber-800 border border-amber-200/80 flex items-center justify-center font-mono font-bold text-[10px] shrink-0">0${idx + 1}</span>
               <span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold ${platformBadgeClass} border">${cleanPlatform}</span>
-              ${pointBadgeHtml}
-              ${it.is_this_session ? `<span class="px-1.5 py-0.5 rounded-md text-[9px] font-mono font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-0.5"><i data-lucide="sparkles" class="w-2.5 h-2.5 text-emerald-700"></i><span>${curLang === 'KO' ? '실시간 신규' : (curLang === 'ZH' ? '实时更新' : 'Live New')}</span></span>` : ''}
+              ${spikeScoreStr ? `<span class="px-1.5 py-0.5 rounded-md text-[10px] font-mono font-bold bg-amber-100 text-amber-900 border border-amber-300">🔥 ${spikeScoreStr} pts</span>` : ''}
+              <span class="px-1.5 py-0.5 rounded-md text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">🌐 ${srcLabel}</span>
             </div>
             <div class="flex items-center gap-1.5 shrink-0">
               ${it.case_id ? `
@@ -136,10 +128,10 @@ export function renderRadarSession() {
             </div>
           </div>
 
-          <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="group/title block">
-            <div class="text-xs sm:text-[13px] font-bold text-ink-primary group-hover/title:text-emerald-700 transition flex items-center justify-between gap-2 leading-snug">
+          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="group/title block">
+            <div class="text-xs sm:text-[13px] font-bold text-ink-primary group-hover/title:text-amber-700 transition flex items-center justify-between gap-2 leading-snug">
               <span class="line-clamp-1">${itemTitle}</span>
-              <span class="text-[11px] font-mono text-emerald-700 shrink-0 flex items-center gap-0.5 opacity-80 group-hover/title:opacity-100 bg-emerald-50 hover:bg-emerald-100 px-1.5 py-0.5 rounded border border-emerald-200 transition">
+              <span class="text-[11px] font-mono text-amber-700 shrink-0 flex items-center gap-0.5 opacity-80 group-hover/title:opacity-100 bg-amber-50 hover:bg-amber-100 px-1.5 py-0.5 rounded border border-amber-200 transition">
                 <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
               </span>
             </div>
@@ -147,14 +139,14 @@ export function renderRadarSession() {
           </a>
 
           <div class="pt-1.5 border-t border-surface-border/60 flex items-center justify-between text-[10px] font-mono text-ink-muted flex-wrap gap-1">
-            <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3 text-slate-400"></i><span class="font-medium">${curLang === 'KO' ? '발행' : (curLang === 'ZH' ? '发布' : 'Pub')}:</span> ${formatDateTimeCompact(it.published_at || it.harvested_at)}</span>
-            <span class="flex items-center gap-1"><i data-lucide="download" class="w-3 h-3 text-slate-400"></i><span class="font-medium">${curLang === 'KO' ? '수집' : (curLang === 'ZH' ? '采集' : 'Rec')}:</span> ${formatDateTimeCompact(it.harvested_at)}</span>
+            <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3 text-slate-400"></i><span class="font-medium">${curLang === 'KO' ? '발행' : (curLang === 'ZH' ? '发布' : 'Pub')}:</span> ${formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at)}</span>
+            <span class="flex items-center gap-1"><i data-lucide="download" class="w-3 h-3 text-slate-400"></i><span class="font-medium">${curLang === 'KO' ? '수집' : (curLang === 'ZH' ? '采集' : 'Rec')}:</span> ${formatDateTimeCompact(it.harvested_at || it.created_at)}</span>
           </div>
         `;
         bulletsContainer.appendChild(itemCard);
       });
     } else {
-      const emptyMsg = curLang === 'KO' ? '이 회차에 등록된 트렌드 데이터가 없습니다.' : (curLang === 'ZH' ? '该时段暂无趋势数据。' : 'No trend data for this session.');
+      const emptyMsg = curLang === 'KO' ? '급상승 크로스 바이럴 데이터를 불러오는 중입니다...' : (curLang === 'ZH' ? '正在加载跨平台热门数据...' : 'Loading cross-viral spike items...');
       bulletsContainer.innerHTML = `<div class="py-6 text-center text-xs text-ink-muted font-mono">${emptyMsg}</div>`;
     }
   }

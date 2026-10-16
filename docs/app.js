@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T11:39:52.898Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T12:04:15.059Z */
 
 (() => {
   // src/js/core/config.js
@@ -454,8 +454,8 @@
       timelineBadge: "1\uC77C 4\uD68C 6h \uD384\uC2A4",
       timelineLegend: "\uC138\uC158\uBCC4 \uC218\uC9D1 \uAC74\uC218",
       timelineFooterPrefix: "\u26A1 \uB2F9\uC77C \uCD1D \uC218\uC9D1\uB7C9:",
-      trendRadarTitle: "1\uC77C 4\uD68C AI \uD2B8\uB80C\uB4DC \uB808\uC774\uB354",
-      trendRadarSub: "\uAE00\uB85C\uBC8C \uC624\uD508\uC18C\uC2A4 & AI \uC2E0\uADDC \uAC00\uC911\uCE58 6\uC2DC\uAC04 \uC8FC\uAE30 \uC790\uB3D9 \uAC10\uC9C0",
+      trendRadarTitle: "\u{1F525} \uD06C\uB85C\uC2A4 \uBC14\uC774\uB7F4 (\uAE09\uC0C1\uC2B9) TOP 4",
+      trendRadarSub: "\uB2E4\uC218 \uAE00\uB85C\uBC8C \uD50C\uB7AB\uD3FC\uC5D0\uC11C \uB3D9\uC2DC\uC5D0 \uAE09\uC0C1\uC2B9 \uC911\uC778 \uD575\uC2EC \uC774\uC288 4\uC120",
       homeTopPicksTitle: "\uCD5C\uC2E0 \uC2EC\uCE35 \uAE30\uC220 \uAC80\uC99D \uD558\uC774\uB77C\uC774\uD2B8",
       homeTopPicksViewAll: "\uC804\uCCB4 49\uAC1C \uAC80\uC99D \uB3C4\uC2DC\uC5D0 \uBCF4\uB7EC\uAC00\uAE30",
       btnAll: "\uC804\uCCB4 \uAC80\uC99D",
@@ -613,8 +613,8 @@
       timelineBadge: "\u6BCF\u65E54\u6B21 6h\u8109\u51B2",
       timelineLegend: "\u5404\u65F6\u6BB5\u91C7\u96C6\u6570",
       timelineFooterPrefix: "\u26A1 \u5F53\u65E5\u603B\u91C7\u96C6\u91CF:",
-      trendRadarTitle: "\u6BCF\u65E5 4 \u6B21 AI \u8D8B\u52BF\u96F7\u8FBE",
-      trendRadarSub: "\u5168\u7403\u5F00\u6E90\u4E0E AI \u524D\u6CBF\u6743\u91CD 6 \u5C0F\u65F6\u5468\u671F\u81EA\u52A8\u611F\u5E94",
+      trendRadarTitle: "\u{1F525} \u8DE8\u5E73\u53F0\u70ED\u95E8\u98D9\u5347 TOP 4",
+      trendRadarSub: "\u5728\u591A\u4E2A\u5168\u7403\u5E73\u53F0\u540C\u65F6\u98D9\u5347\u7684 4 \u5927\u6838\u5FC3\u8BAE\u9898",
       homeTopPicksTitle: "\u6700\u65B0\u6DF1\u5EA6\u6280\u672F\u6838\u67E5\u7CBE\u9009",
       homeTopPicksViewAll: "\u67E5\u770B\u5168\u90E8 49 \u4EFD\u6838\u67E5\u6863\u6848",
       btnAll: "\u5168\u90E8\u5BA1\u8BA1",
@@ -772,8 +772,8 @@
       timelineBadge: "4x Daily 6h Pulse",
       timelineLegend: "Items per Session",
       timelineFooterPrefix: "\u26A1 Today Total Collected:",
-      trendRadarTitle: "4x Daily AI Trend Radar",
-      trendRadarSub: "Autonomous 6-hour radar for trending open weights & code",
+      trendRadarTitle: "\u{1F525} Cross-Viral Spikes TOP 4",
+      trendRadarSub: "Top 4 topics simultaneously spiking across multiple global platforms",
       homeTopPicksTitle: "Latest Deep Technical Verification Highlights",
       homeTopPicksViewAll: "View All 49 Empirical Dossiers",
       btnAll: "All Dossiers",
@@ -983,7 +983,9 @@
       safeSetHtml("timelineFooterText", `\u26A1 ${t.timelineFooterPrefix || "\uB2F9\uC77C \uCD1D \uC218\uC9D1\uB7C9:"} <b class="text-indigo-700">${totCollectedTl.toLocaleString()}${tlUnit}</b> \u2502 \u2728 AI ${totEnrichedTl.toLocaleString()}${tlUnit}`);
       safeSetText("trendRadarTitleText", t.trendRadarTitle);
       safeSetText("trendRadarSub", t.trendRadarSub);
-      safeSetHtml("trendRadarFooter", `<span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i> ` + (lang === "KO" ? "LLM \uC790\uB3D9 \uD2B8\uB80C\uB4DC \uCD94\uCD9C (OpenRouter 0\uC6D0 \uB77C\uC6B0\uD305)" : lang === "ZH" ? "LLM \u81EA\u52A8\u5316\u8D8B\u52BF\u63D0\u53D6 (OpenRouter 0\u5143\u8DEF\u7531)" : "Automated LLM Trend Extraction (OpenRouter Free Tier)") + `</span>`);
+      safeSetText("trendRadarWindowLabel", lang === "KO" ? "H-V-D \uB2E4\uC911 \uCD9C\uCC98 \uAC10\uC9C0" : lang === "ZH" ? "H-V-D \u591A\u6E90\u5B9E\u65F6\u76D1\u6D4B" : "H-V-D Multi-Source Live");
+      safeSetText("homeCrossSpikeViewAllText", lang === "KO" ? "\uC804\uCCB4 \uAE09\uC0C1\uC2B9 \uBCF4\uAE30" : lang === "ZH" ? "\u67E5\u770B\u5168\u90E8\u98D9\u5347" : "View All Spikes");
+      safeSetHtml("trendRadarFooter", `<span class="flex items-center gap-1.5"><i data-lucide="flame" class="w-3.5 h-3.5 text-amber-500"></i> ` + (lang === "KO" ? "H-V-D \uB2E4\uC911 \uCD9C\uCC98 \uAD50\uCC28 \uAC80\uC99D \uAE09\uC0C1\uC2B9 \uB7AD\uD0B9" : lang === "ZH" ? "H-V-D \u591A\u5E73\u53F0\u4EA4\u53C9\u9A8C\u8BC1\u70ED\u95E8\u98D9\u5347\u699C" : "H-V-D Multi-Platform Cross-Verified Viral Ranking") + `</span>`);
       safeSetText("homeTopPicksTitle", t.homeTopPicksTitle);
       const viewAllDynamicText = lang === "KO" ? `\uC804\uCCB4 ${liveCasesCount}\uAC1C \uAC80\uC99D \uB3C4\uC2DC\uC5D0 \uBCF4\uB7EC\uAC00\uAE30` : lang === "ZH" ? `\u67E5\u770B\u5168\u90E8 ${liveCasesCount} \u4EFD\u6838\u67E5\u6863\u6848` : `View All ${liveCasesCount} Empirical Dossiers`;
       safeSetText("homeTopPicksViewAll", viewAllDynamicText);
@@ -1206,6 +1208,7 @@
     console.log("[Bootstrap] \u{1F680} Initializing Single-Pass DB-First data hydration...");
     const statsApiUrl = APP_CONFIG.apiUrl("/api/stats");
     const portfoliosApiUrl = APP_CONFIG.apiUrl("/api/portfolios?summary=true");
+    const crossSpikeApiUrl = APP_CONFIG.apiUrl("/api/inbox?type=NEWS&facet=CROSS_SPIKE&limit=4&sort=viral-score-desc");
     const statsPromise = (async () => {
       try {
         const res = await fetch(statsApiUrl, { cache: "default" });
@@ -1234,6 +1237,15 @@
       }
       return null;
     })();
+    const crossSpikePromise = (async () => {
+      try {
+        const res = await fetch(crossSpikeApiUrl, { cache: "default" });
+        if (res.ok) return await res.json();
+      } catch (e) {
+        console.warn("[Bootstrap] /api/inbox cross-spike fetch failed:", e.message);
+      }
+      return null;
+    })();
     const staticPromise = (async () => {
       try {
         const res = await fetch("data.json", { cache: "default" });
@@ -1242,7 +1254,12 @@
       }
       return null;
     })();
-    const [statsData, portfoliosResult, staticData] = await Promise.all([statsPromise, portfoliosPromise, staticPromise]);
+    const [statsData, portfoliosResult, crossSpikeData, staticData] = await Promise.all([
+      statsPromise,
+      portfoliosPromise,
+      crossSpikePromise,
+      staticPromise
+    ]);
     if (staticData) {
       window.adminData = staticData.admin_stats || {};
       window.timeline24hData = staticData.timeline_24h || [];
@@ -1277,6 +1294,12 @@
       window.newsData = AppStore._news;
       window.modelsData = AppStore._models;
     }
+    if (crossSpikeData?.items && Array.isArray(crossSpikeData.items) && crossSpikeData.items.length > 0) {
+      window.homeCrossSpikeItems = crossSpikeData.items.slice(0, 4);
+    } else if (Array.isArray(AppStore._news) && AppStore._news.length > 0) {
+      const spiked = AppStore._news.filter((it) => it.is_cross_spiking || Array.isArray(it.sources) && it.sources.length > 1);
+      window.homeCrossSpikeItems = (spiked.length > 0 ? spiked : AppStore._news).slice(0, 4);
+    }
     if (portfoliosResult?.data?.portfolios) {
       AppStore.setCases(portfoliosResult.data.portfolios);
       window.liveCasesData = portfoliosResult.data.portfolios;
@@ -1304,6 +1327,37 @@
       if (statsData.db_provider) {
         APP_CONFIG.setDbProvider(statsData.db_provider);
       }
+      const curKstH = getDynamicKstHour();
+      if (Array.isArray(statsData.timeline_24h_live) && statsData.timeline_24h_live.length > 0) {
+        const liveHasData = statsData.timeline_24h_live.some((s) => s.inbox_count > 0 || s.enriched_count > 0);
+        if (liveHasData) {
+          window.timeline24hData = statsData.timeline_24h_live.map((liveSlot) => ({
+            ...liveSlot,
+            is_current: liveSlot.hour <= curKstH && curKstH < liveSlot.hour + 6,
+            is_future: liveSlot.hour > curKstH
+          }));
+          window._timelineIsPendingToday = false;
+        } else if (Array.isArray(statsData.timeline_24h_baseline) && statsData.timeline_24h_baseline.length > 0) {
+          window.timeline24hData = statsData.timeline_24h_baseline.map((bSlot) => ({
+            ...bSlot,
+            is_current: bSlot.hour <= curKstH && curKstH < bSlot.hour + 6,
+            is_future: bSlot.hour > curKstH,
+            is_pending_today: bSlot.hour <= curKstH && curKstH < bSlot.hour + 6
+          }));
+          window._timelineIsPendingToday = true;
+        } else {
+          window.timeline24hData = statsData.timeline_24h_live;
+        }
+      }
+      window.actionsTelemetryData = {
+        ...window.actionsTelemetryData || {},
+        quota: statsData.actions_quota || window.actionsTelemetryData?.quota || {},
+        runs: statsData.actions_runs || window.actionsTelemetryData?.runs || [],
+        latest_run: statsData.latest_run || window.actionsTelemetryData?.latest_run || null,
+        vercel_telemetry: statsData.vercel_telemetry || null,
+        vercel_worker_runs: statsData.vercel_worker_runs || [],
+        voyage_worker_runs: statsData.voyage_worker_runs || []
+      };
     } else if (staticData) {
       Object.assign(snapshotStats, {
         total_cases: staticData.total_cases || (staticData.cases ? staticData.cases.length : 58),
@@ -1311,6 +1365,15 @@
         models_total_count: staticData.models_total_count || 869,
         inbox_total_count: staticData.inbox_total_count || 6011
       });
+    }
+    if (!Array.isArray(window.timeline24hData) || window.timeline24hData.length === 0) {
+      const curKstH = getDynamicKstHour();
+      window.timeline24hData = [
+        { slot: "1\uD68C\uCC28 (00\uC2DC)", short_slot: "00:00", hour: 0, range: "00:00 - 05:59", name: "\uC2EC\uC57C \uB9B4\uB9AC\uC2A4", inbox_count: 0, enriched_count: 0 },
+        { slot: "2\uD68C\uCC28 (06\uC2DC)", short_slot: "06:00", hour: 6, range: "06:00 - 11:59", name: "\uBAA8\uB2DD \uBE0C\uB9AC\uD551", inbox_count: 0, enriched_count: 0 },
+        { slot: "3\uD68C\uCC28 (12\uC2DC)", short_slot: "12:00", hour: 12, range: "12:00 - 17:59", name: "\uC815\uC624 \uB808\uC774\uB354", inbox_count: 0, enriched_count: 0 },
+        { slot: "4\uD68C\uCC28 (18\uC2DC)", short_slot: "18:00", hour: 18, range: "18:00 - 23:59", name: "\uC800\uB141 \uB77C\uC6B4\uB4DC\uC5C5", inbox_count: 0, enriched_count: 0 }
+      ].map((s) => ({ ...s, is_current: s.hour <= curKstH && curKstH < s.hour + 6, is_future: s.hour > curKstH }));
     }
     updateGlobalStatsUI();
     try {
@@ -5362,33 +5425,20 @@
       }
     }
     const radarData = trendRadarData && trendRadarData.sessions ? trendRadarData : window.trendRadarData || {};
-    if (!radarData.sessions) return;
-    const sessionData = radarData.sessions[String(activeRadarSession)];
-    if (!sessionData) return;
+    const sessionData = radarData.sessions ? radarData.sessions[String(activeRadarSession)] : null;
+    const items = typeof window !== "undefined" && Array.isArray(window.homeCrossSpikeItems) && window.homeCrossSpikeItems.length > 0 ? window.homeCrossSpikeItems.slice(0, 4) : sessionData && Array.isArray(sessionData.items) ? sessionData.items.slice(0, 4) : [];
     const windowLabelEl = document.getElementById("trendRadarWindowLabel");
-    const pulseDotEl = document.getElementById("trendRadarPulseDot");
     if (windowLabelEl) {
-      const wLabel = (curLang === "KO" ? sessionData.window_label_ko : curLang === "ZH" ? sessionData.window_label_zh : sessionData.window_label_en) || sessionData.window_label;
-      windowLabelEl.innerText = wLabel;
-    }
-    if (pulseDotEl) {
-      if (sessionData.is_current) {
-        pulseDotEl.className = "w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse";
-      } else if (sessionData.is_future) {
-        pulseDotEl.className = "w-1.5 h-1.5 rounded-full bg-amber-500";
-      } else {
-        pulseDotEl.className = "w-1.5 h-1.5 rounded-full bg-slate-400";
-      }
+      windowLabelEl.innerText = curLang === "KO" ? "H-V-D \uB2E4\uC911 \uCD9C\uCC98 \uAC10\uC9C0" : curLang === "ZH" ? "H-V-D \u591A\u6E90\u5B9E\u65F6\u76D1\u6D4B" : "H-V-D Multi-Source Live";
     }
     const bulletsContainer = document.getElementById("trendRadarBullets");
     if (bulletsContainer) {
       bulletsContainer.innerHTML = "";
-      const items = sessionData.items || [];
       if (items.length > 0) {
         items.forEach((it, idx) => {
           const cleanPlatform = cleanPlatformName(it.platform || it.source_platform || "AI Hub");
           let platformBadgeClass = "bg-surface-subtle text-ink-primary border-surface-border";
-          const pf = (it.platform_family || "").toLowerCase();
+          const pf = (it.platform_family || it.source_platform || "").toLowerCase();
           if (pf.includes("github")) {
             platformBadgeClass = "bg-slate-100 text-slate-800 border-slate-300";
           } else if (pf.includes("hugging")) {
@@ -5401,18 +5451,22 @@
             platformBadgeClass = "bg-blue-50 text-blue-700 border-blue-200";
           }
           const itemTitle = (curLang === "KO" ? it.title_ko || it.title : curLang === "ZH" ? it.title_zh || it.title : it.title_en || it.title) || it.title;
-          const itemSummary = (curLang === "KO" ? it.summary_ko || it.summary : curLang === "ZH" ? it.summary_zh || it.summary : it.summary_en || it.summary) || it.summary;
+          const itemSummary = (curLang === "KO" ? it.summary_ko || it.one_line_summary || it.summary : curLang === "ZH" ? it.summary_zh || it.one_line_summary || it.summary : it.summary_en || it.one_line_summary || it.summary) || "";
           const factCheckBtnText = curLang === "KO" ? "\uD329\uD2B8\uCCB4\uD06C" : curLang === "ZH" ? "\u4E8B\u5B9E\u6838\u67E5" : "Fact-Check";
-          const pointBadgeHtml = formatRadarPointBadge(it, curLang);
+          const rawScore = Number(it.live_spike_score || it.spike_analysis?.score || 0);
+          const spikeScoreStr = rawScore > 0 ? rawScore.toFixed(1) : "";
+          const srcCount = Array.isArray(it.sources) && it.sources.length > 0 ? it.sources.length : it.spike_analysis?.source_count || 2;
+          const srcLabel = curLang === "KO" ? `${srcCount}\uAC1C \uCD9C\uCC98` : curLang === "ZH" ? `${srcCount}\u4E2A\u6765\u6E90` : `${srcCount} sources`;
+          const targetUrl = it.source_url || it.url || "#";
           const itemCard = document.createElement("div");
-          itemCard.className = "group p-3 rounded-xl bg-surface-subtle/50 hover:bg-white border border-surface-border hover:border-emerald-400 hover:shadow-xs transition duration-150 flex flex-col gap-2";
+          itemCard.className = "group p-3 rounded-xl bg-surface-subtle/50 hover:bg-white border border-surface-border hover:border-amber-400 hover:shadow-xs transition duration-150 flex flex-col gap-2";
           itemCard.innerHTML = `
           <div class="flex items-center justify-between gap-2">
             <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="w-5 h-5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200/80 flex items-center justify-center font-mono font-bold text-[10px] shrink-0">0${idx + 1}</span>
+              <span class="w-5 h-5 rounded-md bg-amber-50 text-amber-800 border border-amber-200/80 flex items-center justify-center font-mono font-bold text-[10px] shrink-0">0${idx + 1}</span>
               <span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold ${platformBadgeClass} border">${cleanPlatform}</span>
-              ${pointBadgeHtml}
-              ${it.is_this_session ? `<span class="px-1.5 py-0.5 rounded-md text-[9px] font-mono font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-0.5"><i data-lucide="sparkles" class="w-2.5 h-2.5 text-emerald-700"></i><span>${curLang === "KO" ? "\uC2E4\uC2DC\uAC04 \uC2E0\uADDC" : curLang === "ZH" ? "\u5B9E\u65F6\u66F4\u65B0" : "Live New"}</span></span>` : ""}
+              ${spikeScoreStr ? `<span class="px-1.5 py-0.5 rounded-md text-[10px] font-mono font-bold bg-amber-100 text-amber-900 border border-amber-300">\u{1F525} ${spikeScoreStr} pts</span>` : ""}
+              <span class="px-1.5 py-0.5 rounded-md text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">\u{1F310} ${srcLabel}</span>
             </div>
             <div class="flex items-center gap-1.5 shrink-0">
               ${it.case_id ? `
@@ -5424,10 +5478,10 @@
             </div>
           </div>
 
-          <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="group/title block">
-            <div class="text-xs sm:text-[13px] font-bold text-ink-primary group-hover/title:text-emerald-700 transition flex items-center justify-between gap-2 leading-snug">
+          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="group/title block">
+            <div class="text-xs sm:text-[13px] font-bold text-ink-primary group-hover/title:text-amber-700 transition flex items-center justify-between gap-2 leading-snug">
               <span class="line-clamp-1">${itemTitle}</span>
-              <span class="text-[11px] font-mono text-emerald-700 shrink-0 flex items-center gap-0.5 opacity-80 group-hover/title:opacity-100 bg-emerald-50 hover:bg-emerald-100 px-1.5 py-0.5 rounded border border-emerald-200 transition">
+              <span class="text-[11px] font-mono text-amber-700 shrink-0 flex items-center gap-0.5 opacity-80 group-hover/title:opacity-100 bg-amber-50 hover:bg-amber-100 px-1.5 py-0.5 rounded border border-amber-200 transition">
                 <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
               </span>
             </div>
@@ -5435,14 +5489,14 @@
           </a>
 
           <div class="pt-1.5 border-t border-surface-border/60 flex items-center justify-between text-[10px] font-mono text-ink-muted flex-wrap gap-1">
-            <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3 text-slate-400"></i><span class="font-medium">${curLang === "KO" ? "\uBC1C\uD589" : curLang === "ZH" ? "\u53D1\u5E03" : "Pub"}:</span> ${formatDateTimeCompact(it.published_at || it.harvested_at)}</span>
-            <span class="flex items-center gap-1"><i data-lucide="download" class="w-3 h-3 text-slate-400"></i><span class="font-medium">${curLang === "KO" ? "\uC218\uC9D1" : curLang === "ZH" ? "\u91C7\u96C6" : "Rec"}:</span> ${formatDateTimeCompact(it.harvested_at)}</span>
+            <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3 text-slate-400"></i><span class="font-medium">${curLang === "KO" ? "\uBC1C\uD589" : curLang === "ZH" ? "\u53D1\u5E03" : "Pub"}:</span> ${formatDateTimeCompact(it.published_at || it.created_at || it.harvested_at)}</span>
+            <span class="flex items-center gap-1"><i data-lucide="download" class="w-3 h-3 text-slate-400"></i><span class="font-medium">${curLang === "KO" ? "\uC218\uC9D1" : curLang === "ZH" ? "\u91C7\u96C6" : "Rec"}:</span> ${formatDateTimeCompact(it.harvested_at || it.created_at)}</span>
           </div>
         `;
           bulletsContainer.appendChild(itemCard);
         });
       } else {
-        const emptyMsg = curLang === "KO" ? "\uC774 \uD68C\uCC28\uC5D0 \uB4F1\uB85D\uB41C \uD2B8\uB80C\uB4DC \uB370\uC774\uD130\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4." : curLang === "ZH" ? "\u8BE5\u65F6\u6BB5\u6682\u65E0\u8D8B\u52BF\u6570\u636E\u3002" : "No trend data for this session.";
+        const emptyMsg = curLang === "KO" ? "\uAE09\uC0C1\uC2B9 \uD06C\uB85C\uC2A4 \uBC14\uC774\uB7F4 \uB370\uC774\uD130\uB97C \uBD88\uB7EC\uC624\uB294 \uC911\uC785\uB2C8\uB2E4..." : curLang === "ZH" ? "\u6B63\u5728\u52A0\u8F7D\u8DE8\u5E73\u53F0\u70ED\u95E8\u6570\u636E..." : "Loading cross-viral spike items...";
         bulletsContainer.innerHTML = `<div class="py-6 text-center text-xs text-ink-muted font-mono">${emptyMsg}</div>`;
       }
     }

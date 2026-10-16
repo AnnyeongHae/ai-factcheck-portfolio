@@ -39,8 +39,8 @@ export const i18n = {
     timelineBadge: "1일 4회 6h 펄스",
     timelineLegend: "세션별 수집 건수",
     timelineFooterPrefix: "⚡ 당일 총 수집량:",
-    trendRadarTitle: "1일 4회 AI 트렌드 레이더",
-    trendRadarSub: "글로벌 오픈소스 & AI 신규 가중치 6시간 주기 자동 감지",
+    trendRadarTitle: "🔥 크로스 바이럴 (급상승) TOP 4",
+    trendRadarSub: "다수 글로벌 플랫폼에서 동시에 급상승 중인 핵심 이슈 4선",
     homeTopPicksTitle: "최신 심층 기술 검증 하이라이트",
     homeTopPicksViewAll: "전체 49개 검증 도시에 보러가기",
     btnAll: "전체 검증",
@@ -198,8 +198,8 @@ export const i18n = {
     timelineBadge: "每日4次 6h脉冲",
     timelineLegend: "各时段采集数",
     timelineFooterPrefix: "⚡ 当日总采集量:",
-    trendRadarTitle: "每日 4 次 AI 趋势雷达",
-    trendRadarSub: "全球开源与 AI 前沿权重 6 小时周期自动感应",
+    trendRadarTitle: "🔥 跨平台热门飙升 TOP 4",
+    trendRadarSub: "在多个全球平台同时飙升的 4 大核心议题",
     homeTopPicksTitle: "最新深度技术核查精选",
     homeTopPicksViewAll: "查看全部 49 份核查档案",
     btnAll: "全部审计",
@@ -357,8 +357,8 @@ export const i18n = {
     timelineBadge: "4x Daily 6h Pulse",
     timelineLegend: "Items per Session",
     timelineFooterPrefix: "⚡ Today Total Collected:",
-    trendRadarTitle: "4x Daily AI Trend Radar",
-    trendRadarSub: "Autonomous 6-hour radar for trending open weights & code",
+    trendRadarTitle: "🔥 Cross-Viral Spikes TOP 4",
+    trendRadarSub: "Top 4 topics simultaneously spiking across multiple global platforms",
     homeTopPicksTitle: "Latest Deep Technical Verification Highlights",
     homeTopPicksViewAll: "View All 49 Empirical Dossiers",
     btnAll: "All Dossiers",
@@ -581,7 +581,9 @@ export function setLanguage(lang, skipViewRender = false) {
     safeSetHtml('timelineFooterText', `⚡ ${t.timelineFooterPrefix || '당일 총 수집량:'} <b class="text-indigo-700">${totCollectedTl.toLocaleString()}${tlUnit}</b> │ ✨ AI ${totEnrichedTl.toLocaleString()}${tlUnit}`);
     safeSetText('trendRadarTitleText', t.trendRadarTitle);
     safeSetText('trendRadarSub', t.trendRadarSub);
-    safeSetHtml('trendRadarFooter', `<span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i> ` + (lang === 'KO' ? 'LLM 자동 트렌드 추출 (OpenRouter 0원 라우팅)' : (lang === 'ZH' ? 'LLM 自动化趋势提取 (OpenRouter 0元路由)' : 'Automated LLM Trend Extraction (OpenRouter Free Tier)')) + `</span>`);
+    safeSetText('trendRadarWindowLabel', lang === 'KO' ? 'H-V-D 다중 출처 감지' : (lang === 'ZH' ? 'H-V-D 多源实时监测' : 'H-V-D Multi-Source Live'));
+    safeSetText('homeCrossSpikeViewAllText', lang === 'KO' ? '전체 급상승 보기' : (lang === 'ZH' ? '查看全部飙升' : 'View All Spikes'));
+    safeSetHtml('trendRadarFooter', `<span class="flex items-center gap-1.5"><i data-lucide="flame" class="w-3.5 h-3.5 text-amber-500"></i> ` + (lang === 'KO' ? 'H-V-D 다중 출처 교차 검증 급상승 랭킹' : (lang === 'ZH' ? 'H-V-D 多平台交叉验证热门飙升榜' : 'H-V-D Multi-Platform Cross-Verified Viral Ranking')) + `</span>`);
     safeSetText('homeTopPicksTitle', t.homeTopPicksTitle);
     const viewAllDynamicText = lang === 'KO' ? `전체 ${liveCasesCount}개 검증 도시에 보러가기` : (lang === 'ZH' ? `查看全部 ${liveCasesCount} 份核查档案` : `View All ${liveCasesCount} Empirical Dossiers`);
     safeSetText('homeTopPicksViewAll', viewAllDynamicText);

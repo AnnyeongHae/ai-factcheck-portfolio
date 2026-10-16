@@ -316,33 +316,39 @@
           </div>
         </div>
 
-        <!-- Card 2: 1-Day 4-Sessions AI Trend Pulse Radar (1일 4회 AI 핵심 트렌드 레이더) -->
+        <!-- Card 2: Real-Time Cross-Viral Spikes Top 4 (🔥 크로스 바이럴 급상승 TOP 4) -->
         <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm flex flex-col justify-between space-y-4">
           <div class="flex items-center justify-between flex-wrap gap-2">
             <div class="space-y-0.5">
               <div class="flex items-center gap-2">
                 <span class="text-xs font-bold text-ink-primary font-mono flex items-center gap-1.5" id="trendRadarTitle">
-                  <i data-lucide="radar" class="w-4 h-4 text-emerald-600"></i>
-                  <span id="trendRadarTitleText">1일 4회 AI 트렌드 레이더</span>
+                  <i data-lucide="flame" class="w-4 h-4 text-amber-500"></i>
+                  <span id="trendRadarTitleText">🔥 크로스 바이럴 (급상승) TOP 4</span>
                 </span>
-                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" id="trendRadarPulseDot"></span>
-                  <span id="trendRadarWindowLabel">12:00 ~ 18:00 KST</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-800 border border-amber-200 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" id="trendRadarPulseDot"></span>
+                  <span id="trendRadarWindowLabel">H-V-D 다중 출처 감지</span>
                 </span>
               </div>
-              <p class="text-[11px] text-ink-muted" id="trendRadarSub">글로벌 오픈소스 & AI 신규 가중치 6시간 주기 자동 감지</p>
+              <p class="text-[11px] text-ink-muted" id="trendRadarSub">다수 글로벌 플랫폼에서 동시에 급상승 중인 핵심 이슈 4선</p>
             </div>
 
-            <!-- 4 Interactive Session Selector Buttons -->
-            <div class="flex items-center gap-1 text-[10px] font-mono" id="radarSessionButtons">
-              <button type="button" onclick="switchRadarSession(1)" id="radarBtn1" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold bg-surface-subtle text-ink-muted">1회 00시</button>
-              <button type="button" onclick="switchRadarSession(2)" id="radarBtn2" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold bg-surface-subtle text-ink-muted">2회 06시</button>
-              <button type="button" onclick="switchRadarSession(3)" id="radarBtn3" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold bg-emerald-600 text-white font-bold shadow-xs">3회 12시</button>
-              <button type="button" onclick="switchRadarSession(4)" id="radarBtn4" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold bg-surface-subtle text-ink-muted">4회 18시</button>
+            <!-- View All Cross-Viral Button + Hidden legacy session buttons for compatibility -->
+            <div class="flex items-center gap-1.5">
+              <button type="button" onclick="switchView('news'); if(window.setNewsFacetFilter) window.setNewsFacetFilter('CROSS_SPIKE');" id="homeCrossSpikeViewAllBtn" class="px-2.5 py-1 rounded-lg border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-800 text-[10px] font-mono font-bold transition cursor-pointer flex items-center gap-1 shadow-2xs">
+                <span id="homeCrossSpikeViewAllText">전체 급상승 보기</span>
+                <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </button>
+              <div class="hidden items-center gap-1 text-[10px] font-mono" id="radarSessionButtons">
+                <button type="button" onclick="switchRadarSession(1)" id="radarBtn1" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold bg-surface-subtle text-ink-muted">1회 00시</button>
+                <button type="button" onclick="switchRadarSession(2)" id="radarBtn2" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold bg-surface-subtle text-ink-muted">2회 06시</button>
+                <button type="button" onclick="switchRadarSession(3)" id="radarBtn3" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold bg-emerald-600 text-white font-bold shadow-xs">3회 12시</button>
+                <button type="button" onclick="switchRadarSession(4)" id="radarBtn4" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold bg-surface-subtle text-ink-muted">4회 18시</button>
+              </div>
             </div>
           </div>
 
-          <!-- Trend Radar Content Bullets -->
+          <!-- Cross-Viral Top 4 Content Bullets -->
           <div class="pt-1 pb-1 space-y-2.5" id="trendRadarBody">
             <div class="space-y-2" id="trendRadarBullets">
               <!-- Dynamically Populated via JS with direct links -->
@@ -350,7 +356,7 @@
           </div>
 
           <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[11px] text-ink-muted font-mono flex-wrap gap-2" id="trendRadarFooter">
-            <span class="flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i> LLM 자동 트렌드 추출 (OpenRouter 0원 라우팅)</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="flame" class="w-3.5 h-3.5 text-amber-500"></i> H-V-D 다중 출처 교차 검증 급상승 랭킹</span>
             <span class="text-[10px] text-ink-muted font-medium">카드를 클릭하면 해당 안건의 1차 원문으로 즉시 이동합니다</span>
           </div>
         </div>

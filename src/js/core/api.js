@@ -35,6 +35,7 @@ export async function bootstrapApplicationData() {
   // 1. Concurrently fetch live DB endpoints & layout datasets in a single pass
   const statsApiUrl = APP_CONFIG.apiUrl('/api/stats');
   const portfoliosApiUrl = APP_CONFIG.apiUrl('/api/portfolios?summary=true');
+  const crossSpikeApiUrl = APP_CONFIG.apiUrl('/api/inbox?type=NEWS&facet=CROSS_SPIKE&limit=4&sort=viral-score-desc');
 
   const statsPromise = (async () => {
     try {
@@ -66,6 +67,16 @@ export async function bootstrapApplicationData() {
     return null;
   })();
 
+  const crossSpikePromise = (async () => {
+    try {
+      const res = await fetch(crossSpikeApiUrl, { cache: 'default' });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn('[Bootstrap] /api/inbox cross-spike fetch failed:', e.message);
+    }
+    return null;
+  })();
+
   const staticPromise = (async () => {
     try {
       const res = await fetch('data.json', { cache: 'default' });
@@ -74,7 +85,12 @@ export async function bootstrapApplicationData() {
     return null;
   })();
 
-  const [statsData, portfoliosResult, staticData] = await Promise.all([statsPromise, portfoliosPromise, staticPromise]);
+  const [statsData, portfoliosResult, crossSpikeData, staticData] = await Promise.all([
+    statsPromise,
+    portfoliosPromise,
+    crossSpikePromise,
+    staticPromise
+  ]);
 
   // 2. Hydrate feeds, timeline, and trend radar from static datasets
   if (staticData) {
@@ -114,6 +130,14 @@ export async function bootstrapApplicationData() {
     window.modelsData = AppStore._models;
   }
 
+  // 2b. Hydrate Home Cross-Viral Top 4 directly from live DB (or fallback to static news)
+  if (crossSpikeData?.items && Array.isArray(crossSpikeData.items) && crossSpikeData.items.length > 0) {
+    window.homeCrossSpikeItems = crossSpikeData.items.slice(0, 4);
+  } else if (Array.isArray(AppStore._news) && AppStore._news.length > 0) {
+    const spiked = AppStore._news.filter(it => it.is_cross_spiking || (Array.isArray(it.sources) && it.sources.length > 1));
+    window.homeCrossSpikeItems = (spiked.length > 0 ? spiked : AppStore._news).slice(0, 4);
+  }
+
   // 3. Hydrate live dossiers from SSOT DB (overrides static dossiers with real-time factchecks)
   if (portfoliosResult?.data?.portfolios) {
     AppStore.setCases(portfoliosResult.data.portfolios);
@@ -128,7 +152,7 @@ export async function bootstrapApplicationData() {
     window.casesData = staticData.cases;
   }
 
-  // 4. Hydrate Live Stats & Counts directly from DB Engine (SQL GROUP BY SSOT)
+  // 4. Hydrate Live Stats, 24h Timeline & Telemetry directly from DB Engine (SQL GROUP BY SSOT)
   if (statsData?.status === 'success' && statsData.counts) {
     const c = statsData.counts;
     const liveInbox = c.inbox_deduped || c.inbox_total || 0;
@@ -145,6 +169,41 @@ export async function bootstrapApplicationData() {
     if (statsData.db_provider) {
       APP_CONFIG.setDbProvider(statsData.db_provider);
     }
+
+    // Bind live 24h collection timeline immediately on first pass
+    const curKstH = getDynamicKstHour();
+    if (Array.isArray(statsData.timeline_24h_live) && statsData.timeline_24h_live.length > 0) {
+      const liveHasData = statsData.timeline_24h_live.some(s => (s.inbox_count > 0 || s.enriched_count > 0));
+      if (liveHasData) {
+        window.timeline24hData = statsData.timeline_24h_live.map(liveSlot => ({
+          ...liveSlot,
+          is_current: (liveSlot.hour <= curKstH && curKstH < liveSlot.hour + 6),
+          is_future: (liveSlot.hour > curKstH)
+        }));
+        window._timelineIsPendingToday = false;
+      } else if (Array.isArray(statsData.timeline_24h_baseline) && statsData.timeline_24h_baseline.length > 0) {
+        window.timeline24hData = statsData.timeline_24h_baseline.map(bSlot => ({
+          ...bSlot,
+          is_current: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6),
+          is_future: (bSlot.hour > curKstH),
+          is_pending_today: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6)
+        }));
+        window._timelineIsPendingToday = true;
+      } else {
+        window.timeline24hData = statsData.timeline_24h_live;
+      }
+    }
+
+    // Bind live Actions & Vercel telemetry for Admin view
+    window.actionsTelemetryData = {
+      ...(window.actionsTelemetryData || {}),
+      quota: statsData.actions_quota || window.actionsTelemetryData?.quota || {},
+      runs: statsData.actions_runs || window.actionsTelemetryData?.runs || [],
+      latest_run: statsData.latest_run || window.actionsTelemetryData?.latest_run || null,
+      vercel_telemetry: statsData.vercel_telemetry || null,
+      vercel_worker_runs: statsData.vercel_worker_runs || [],
+      voyage_worker_runs: statsData.voyage_worker_runs || []
+    };
   } else if (staticData) {
     Object.assign(snapshotStats, {
       total_cases: staticData.total_cases || (staticData.cases ? staticData.cases.length : 58),
@@ -152,6 +211,17 @@ export async function bootstrapApplicationData() {
       models_total_count: staticData.models_total_count || 869,
       inbox_total_count: staticData.inbox_total_count || 6011
     });
+  }
+
+  // Ensure timeline24hData always has 4 slots even if completely offline
+  if (!Array.isArray(window.timeline24hData) || window.timeline24hData.length === 0) {
+    const curKstH = getDynamicKstHour();
+    window.timeline24hData = [
+      { slot: '1회차 (00시)', short_slot: '00:00', hour: 0, range: '00:00 - 05:59', name: '심야 릴리스', inbox_count: 0, enriched_count: 0 },
+      { slot: '2회차 (06시)', short_slot: '06:00', hour: 6, range: '06:00 - 11:59', name: '모닝 브리핑', inbox_count: 0, enriched_count: 0 },
+      { slot: '3회차 (12시)', short_slot: '12:00', hour: 12, range: '12:00 - 17:59', name: '정오 레이더', inbox_count: 0, enriched_count: 0 },
+      { slot: '4회차 (18시)', short_slot: '18:00', hour: 18, range: '18:00 - 23:59', name: '저녁 라운드업', inbox_count: 0, enriched_count: 0 }
+    ].map(s => ({ ...s, is_current: (s.hour <= curKstH && curKstH < s.hour + 6), is_future: (s.hour > curKstH) }));
   }
 
   // 5. Update UI Once (Single Pass, Zero Flickering)
