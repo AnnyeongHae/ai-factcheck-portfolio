@@ -78,9 +78,13 @@ async function buildFrontend() {
       const htmlContent = fs.readFileSync(srcHtmlPath, 'utf8');
       const publicHtmlPath = path.join(ROOT_DIR, 'public', 'index.html');
       const docsHtmlPath = path.join(ROOT_DIR, 'docs', 'index.html');
+      const public404Path = path.join(ROOT_DIR, 'public', '404.html');
+      const docs404Path = path.join(ROOT_DIR, 'docs', '404.html');
       fs.writeFileSync(publicHtmlPath, htmlContent, 'utf8');
       fs.writeFileSync(docsHtmlPath, htmlContent, 'utf8');
-      console.log(`[Build] 📄 Synced index.html -> public/index.html & docs/index.html`);
+      fs.writeFileSync(public404Path, htmlContent, 'utf8');
+      fs.writeFileSync(docs404Path, htmlContent, 'utf8');
+      console.log(`[Build] 📄 Synced index.html & 404.html -> public/ & docs/`);
     }
 
     const elapsed = Date.now() - startTime;

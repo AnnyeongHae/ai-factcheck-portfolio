@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T14:00:33.276Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T14:24:10.518Z */
 
 (() => {
   // src/js/core/config.js
@@ -34,10 +34,26 @@
     graph: "/graph",
     inbox: "/inbox"
   };
+  function getBasePath() {
+    if (typeof window === "undefined") return "";
+    const pathname = window.location.pathname;
+    if (pathname.startsWith("/ai-factcheck-portfolio")) {
+      return "/ai-factcheck-portfolio";
+    }
+    return "";
+  }
+  function resolveRoute(routeKey) {
+    const path = ROUTES[routeKey] || "/" + (routeKey === "home" ? "" : routeKey);
+    const base = getBasePath();
+    if (path === "/") return base || "/";
+    return base + path;
+  }
   if (typeof window !== "undefined") {
     window.APP_CONFIG = APP_CONFIG;
     window.API_BASE = API_BASE;
     window.ROUTES = ROUTES;
+    window.getBasePath = getBasePath;
+    window.resolveRoute = resolveRoute;
   }
 
   // src/js/core/store.js
@@ -2886,7 +2902,8 @@
     if (typeof window.renderCards === "function") window.renderCards();
     document.getElementById("portfolioView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const targetUrl = page > 1 ? "/factchecks?page=" + page : "/factchecks";
+      const base = getBasePath();
+      const targetUrl = base + (page > 1 ? "/factchecks?page=" + page : "/factchecks");
       const curPath = window.location.pathname + window.location.search;
       if (curPath !== targetUrl) {
         try {
@@ -2901,7 +2918,8 @@
     if (typeof window.renderModels === "function") window.renderModels();
     document.getElementById("modelsView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const targetUrl = page > 1 ? "/models?page=" + page : "/models";
+      const base = getBasePath();
+      const targetUrl = base + (page > 1 ? "/models?page=" + page : "/models");
       const curPath = window.location.pathname + window.location.search;
       if (curPath !== targetUrl) {
         try {
@@ -2925,7 +2943,8 @@
           qs += `&date=${encodeURIComponent(curSpkDate)}`;
         }
       }
-      const targetUrl = qs ? `/news?${qs}` : "/news";
+      const base = getBasePath();
+      const targetUrl = base + (qs ? `/news?${qs}` : "/news");
       const curPath = window.location.pathname + window.location.search;
       if (curPath !== targetUrl) {
         try {
@@ -2940,7 +2959,8 @@
     if (typeof window.renderInbox === "function") window.renderInbox();
     document.getElementById("inboxView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const targetUrl = page > 1 ? "/inbox?page=" + page : "/inbox";
+      const base = getBasePath();
+      const targetUrl = base + (page > 1 ? "/inbox?page=" + page : "/inbox");
       const curPath = window.location.pathname + window.location.search;
       if (curPath !== targetUrl) {
         try {
@@ -6466,7 +6486,7 @@
       }
     }
     if (pushHistory) {
-      const targetPath = ROUTES[targetView] || "/" + (targetView === "home" ? "" : targetView);
+      const targetPath = resolveRoute(targetView);
       const curPath = window.location.pathname;
       if (curPath !== targetPath && (!targetPath.startsWith("#") || window.location.hash !== targetPath)) {
         try {
@@ -6528,7 +6548,12 @@
       }
     }
     closeModal(false);
-    const cleanPath = pathname.replace(/\/$/, "") || "/";
+    const basePath = getBasePath();
+    let cleanPath = pathname;
+    if (basePath && cleanPath.startsWith(basePath)) {
+      cleanPath = cleanPath.slice(basePath.length);
+    }
+    cleanPath = cleanPath.replace(/\/$/, "") || "/";
     let targetView = "home";
     if (cleanPath === "/factchecks" || cleanPath === "/portfolio" || hash.includes("factchecks") || hash.includes("portfolio")) {
       targetView = "portfolio";
@@ -6552,7 +6577,7 @@
       renderHomeTopPicks();
     }
     if (hash && typeof history !== "undefined") {
-      const canonicalPath = ROUTES[targetView] || "/";
+      const canonicalPath = resolveRoute(targetView);
       const qs = search || (hashQuery ? "?" + hashQuery : "");
       try {
         history.replaceState({ view: targetView }, "", canonicalPath + qs);

@@ -14,6 +14,7 @@ import {
   setNewsPage,
   setInboxPage
 } from '../core/store.js';
+import { getBasePath } from '../core/config.js';
 
 export function renderPagination(containerId, currentPage, totalPages, onPageChange) {
   if (typeof document === 'undefined') return;
@@ -84,7 +85,8 @@ export function changePortfolioPage(page, pushHistory = true) {
   if (typeof window.renderCards === 'function') window.renderCards();
   document.getElementById('portfolioView')?.scrollIntoView({ behavior: 'smooth' });
   if (pushHistory && typeof history !== 'undefined') {
-    const targetUrl = page > 1 ? '/factchecks?page=' + page : '/factchecks';
+    const base = getBasePath();
+    const targetUrl = base + (page > 1 ? '/factchecks?page=' + page : '/factchecks');
     const curPath = window.location.pathname + window.location.search;
     if (curPath !== targetUrl) {
       try { history.pushState({ view: 'portfolio', page: page }, '', targetUrl); } catch(e) {}
@@ -97,7 +99,8 @@ export function changeModelsPage(page, pushHistory = true) {
   if (typeof window.renderModels === 'function') window.renderModels();
   document.getElementById('modelsView')?.scrollIntoView({ behavior: 'smooth' });
   if (pushHistory && typeof history !== 'undefined') {
-    const targetUrl = page > 1 ? '/models?page=' + page : '/models';
+    const base = getBasePath();
+    const targetUrl = base + (page > 1 ? '/models?page=' + page : '/models');
     const curPath = window.location.pathname + window.location.search;
     if (curPath !== targetUrl) {
       try { history.pushState({ view: 'models', page: page }, '', targetUrl); } catch(e) {}
@@ -119,7 +122,8 @@ export function changeNewsPage(page, pushHistory = true) {
         qs += `&date=${encodeURIComponent(curSpkDate)}`;
       }
     }
-    const targetUrl = qs ? `/news?${qs}` : '/news';
+    const base = getBasePath();
+    const targetUrl = base + (qs ? `/news?${qs}` : '/news');
     const curPath = window.location.pathname + window.location.search;
     if (curPath !== targetUrl) {
       try { history.pushState({ view: 'news', page: page }, '', targetUrl); } catch(e) {}
@@ -132,7 +136,8 @@ export function changeInboxPage(page, pushHistory = true) {
   if (typeof window.renderInbox === 'function') window.renderInbox();
   document.getElementById('inboxView')?.scrollIntoView({ behavior: 'smooth' });
   if (pushHistory && typeof history !== 'undefined') {
-    const targetUrl = page > 1 ? '/inbox?page=' + page : '/inbox';
+    const base = getBasePath();
+    const targetUrl = base + (page > 1 ? '/inbox?page=' + page : '/inbox');
     const curPath = window.location.pathname + window.location.search;
     if (curPath !== targetUrl) {
       try { history.pushState({ view: 'inbox', page: page }, '', targetUrl); } catch(e) {}

@@ -40,8 +40,26 @@ export const ROUTES = {
   inbox: '/inbox'
 };
 
+export function getBasePath() {
+  if (typeof window === 'undefined') return '';
+  const pathname = window.location.pathname;
+  if (pathname.startsWith('/ai-factcheck-portfolio')) {
+    return '/ai-factcheck-portfolio';
+  }
+  return '';
+}
+
+export function resolveRoute(routeKey) {
+  const path = ROUTES[routeKey] || '/' + (routeKey === 'home' ? '' : routeKey);
+  const base = getBasePath();
+  if (path === '/') return base || '/';
+  return base + path;
+}
+
 if (typeof window !== 'undefined') {
   window.APP_CONFIG = APP_CONFIG;
   window.API_BASE = API_BASE;
   window.ROUTES = ROUTES;
+  window.getBasePath = getBasePath;
+  window.resolveRoute = resolveRoute;
 }

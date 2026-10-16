@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>FactCheck Hub — Universal AI Tech Intelligence</title>
+  
+  <!-- Modern SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  
+  <!-- Dedicated Native Fonts for Korean, Chinese, and English (High-Performance Variable Dynamic Subset) -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Compiled Production Stylesheet (PostCSS / Tailwind) -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- SEO & Social Graph Meta Tags -->
+  <meta name="description" content="Universal AI Tech Intelligence & Empirical Fact-Check Hub with Aiven Cloud DB">
+  <meta property="og:title" content="FactCheck Hub — Universal AI Tech Intelligence">
+  <meta property="og:description" content="Autonomous empirical fact-checking, tech-lineage intelligence, and live AI radar observatory.">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Identity Services (GIS) for Admin Authentication -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  
+
+  <style>
+    html, body {
+      overflow-x: clip;
+    }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f8f9fa;
+      color: #111827;
+      letter-spacing: -0.012em;
+    }
+
+    .bg-clean-grid {
+      background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .executive-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .executive-card:hover {
+      border-color: #111827;
+      box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .segment-btn {
+      transition: all 0.15s ease;
+      color: #4b5563;
+    }
+    .segment-btn.active {
+      background: #111827;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .tag-pill {
+      transition: all 0.15s ease;
+    }
+    .tag-pill.active {
+      background: #111827;
+      color: #ffffff;
+      font-weight: 700;
+      border-color: #111827;
+    }
+
+    .verdict-true {
+      color: #047857;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+    }
+    .verdict-half {
+      color: #b45309;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+    }
+    .verdict-gamed {
+      color: #b91c1c;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-surface-canvas text-ink-primary min-h-screen bg-clean-grid pb-24 antialiased selection:bg-ink-primary selection:text-white w-full">
+
+  <!-- ==================== TOP NAVIGATION HEADER (FLOATING) ==================== -->
+  <header class="fixed top-0 left-0 right-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-surface-border shadow-xs transition-all">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Brand Logo (Click to #home) -->
+      <div class="flex items-center gap-2.5 sm:gap-3 shrink-0 cursor-pointer select-none group transition hover:opacity-95" onclick="switchView('home')" title="대시보드 홈으로 이동 (#home)">
+        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-ink-primary flex items-center justify-center text-white font-bold text-base shadow-sm shrink-0">
+          <i data-lucide="shield-check" class="w-4 h-4 sm:w-5 sm:h-5 text-white"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <span class="text-sm sm:text-base font-extrabold text-ink-primary tracking-tight" id="headerBrandTitle">FactCheck Hub</span>
+            <span class="text-[9px] sm:text-[10px] font-mono px-1 sm:px-1.5 py-0.2 rounded bg-surface-subtle border border-surface-border text-ink-muted font-bold">2026</span>
+          </div>
+          <p class="text-[11px] text-ink-muted hidden sm:block" id="headerBrandSubtitle">AI 팩트체크 & 글로벌 테크 최신 동향</p>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Tabs (Clean 3 Core Tabs) -->
+      <nav class="hidden md:flex items-center gap-1 bg-surface-subtle p-1 rounded-xl border border-surface-border text-xs font-semibold">
+        <button onclick="switchView('portfolio')" id="tabPortfolioBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+          <span id="navTabPortfolio">공식 검증</span>
+          <span class="text-[10px] font-mono text-ink-muted" id="headerVerifiedCount">(-)</span>
+        </button>
+        <button onclick="switchView('news')" id="tabNewsBtn" class="nav-tab flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-ink-secondary hover:text-ink-primary transition">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span id="navTabNews">실시간 트렌드 레이더</span>
+          <span class="text-[10px] font-mono text-ink-muted" id="headerNewsCount">(-)</span>
+        </button>
+      </nav>
+
+      <!-- Right Actions: Admin Archive, Live DB Badge & Tri-Lingual (KO / ZH / EN) Toggle -->
+      <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        <!-- Admin Access Button & Live DB Badge (Source of Origin) -->
+        <button onclick="switchView('inbox')" id="dbLiveBadge" class="hidden sm:block cursor-pointer focus:outline-hidden" title="관리자 전용 원천 데이터 아카이브 (Source of Origin)">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+            <span>Admin<span id="headerInboxCount" class="hidden"></span></span>
+          </span>
+        </button>
+
+        <!-- Language Toggle (KO / ZH / EN) -->
+        <div class="bg-surface-subtle p-0.5 sm:p-1 rounded-lg border border-surface-border flex items-center text-xs font-semibold gap-0.5">
+          <button onclick="setLanguage('KO')" id="langKoBtn" class="px-1.5 sm:px-2 py-0.5 rounded bg-ink-primary text-white transition text-[10px] sm:text-[11px]">KO</button>
+          <button onclick="setLanguage('ZH')" id="langZhBtn" class="px-1.5 sm:px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]">中文</button>
+          <button onclick="setLanguage('EN')" id="langEnBtn" class="px-1.5 sm:px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]">EN</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Mobile Scrollable Sub-Navigation Bar -->
+    <div class="flex md:hidden items-center gap-1.5 px-3 py-2 overflow-x-auto no-scrollbar border-t border-surface-border bg-white">
+      <button onclick="switchView('portfolio')" id="mTabPortfolioBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
+        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+        <span id="mNavTabPortfolio">공식 검증</span>
+      </button>
+      <button onclick="switchView('news')" id="mTabNewsBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-ink-secondary hover:text-ink-primary bg-surface-subtle border border-surface-border transition">
+        <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
+        <span id="mNavTabNews">트렌드 레이더</span>
+      </button>
+      <button onclick="switchView('inbox')" id="mTabInboxBtn" class="mobile-nav-tab shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium text-emerald-800 bg-emerald-50 border border-emerald-200 transition" title="관리자 원천 아카이브">
+        <i data-lucide="archive" class="w-3.5 h-3.5"></i>
+        <span id="mNavTabInbox">Admin</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Spacer to prevent content from hiding beneath floating header (Desktop 64px, Mobile 112px) -->
+  <div class="h-28 md:h-16 shrink-0" aria-hidden="true"></div>
+
+  <main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6 overflow-x-hidden">
+
+    <!-- ==================== VIEW 0: HOME DASHBOARD (순수 종합 대시보드 뷰) ==================== -->
+    <div id="homeView" class="space-y-6">
+
+      <!-- Program Introduction Banner (2-3 Lines) -->
+      <div class="px-4 py-3.5 rounded-2xl bg-white border border-surface-border shadow-xs space-y-1">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-indigo-600 shrink-0"></span>
+          <h2 class="font-extrabold text-ink-primary text-xs sm:text-sm tracking-tight" id="heroMainTitle">
+            글로벌 AI·테크 트렌드 실시간 수집 및 바이럴된 AI 기술의 실체 분석 플랫폼
+          </h2>
+        </div>
+        <p class="text-xs text-ink-secondary leading-relaxed pl-4" id="heroMainDesc">
+          전 세계 주요 기술 커뮤니티(HackerNews, GitHub, HuggingFace, ArXiv 등)와 미디어에서 실시간으로 쏟아지는 AI·테크 이슈를 자동 수집해 다국어(한·중·영)로 3줄 요약하고, 다중 플랫폼에서 동시에 급상승하는 크로스 바이럴 기술에 대해 1차 공식 출처와 실측 벤치마크 기반의 팩트체크 리포트를 제공합니다.
+        </p>
+      </div>
+
+      <!-- 🌟 REAL-TIME TELEMETRY & INTELLIGENCE KPI OVERVIEW (3-컬럼 대칭 반응형 그리드) -->
+      <!-- Order: 🔬 공식 기술 검증 │ ⚡ 실시간 트렌드 레이더 │ 🤖 SOTA AI 모델 & 도구 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+        
+        <!-- Metric 1: Verified Dossiers (공식 기술 검증) -->
+        <div onclick="switchView('portfolio')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-emerald-500 hover:shadow-md transition cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-ink-muted group-hover:text-emerald-700 transition flex items-center gap-1.5" id="statLabelVerified">
+                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+                <span>공식 기술 검증</span>
+              </span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                Avg <span id="statAvgConfidence">98.4</span>%
+              </span>
+            </div>
+            <div class="mt-3 flex items-baseline gap-2">
+              <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValVerified">--</span>
+              <span class="text-xs text-ink-muted font-medium">Dossiers</span>
+            </div>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-surface-border text-[11px] text-ink-secondary flex items-center gap-2 font-mono">
+            <span class="text-emerald-700 font-bold" title="사실 검증">● <span id="statVerifiedTrue">--</span> 사실</span>
+            <span class="text-amber-700 font-bold" title="절반의 사실">● <span id="statHalfTrue">--</span> 부분</span>
+            <span class="text-rose-700 font-bold" title="과장/왜곡">● <span id="statGamed">--</span> 과장</span>
+          </div>
+        </div>
+
+        <!-- Metric 2: Real-Time Trend Radar (실시간 통합 트렌드 피드) -->
+        <div onclick="switchNewsFacet('ALL')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-amber-500 hover:shadow-md transition cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-ink-muted group-hover:text-amber-700 transition flex items-center gap-1.5" id="statLabelNews">
+                <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i>
+                <span>실시간 트렌드 레이더</span>
+              </span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-50 text-amber-800 border border-amber-200">
+                ⚡ 전체 피드
+              </span>
+            </div>
+            <div class="mt-3 flex items-baseline gap-2">
+              <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValNews">--</span>
+              <span class="text-xs text-ink-muted font-medium">Articles</span>
+            </div>
+          </div>
+          <p class="mt-3 pt-2.5 border-t border-surface-border text-[11px] text-ink-secondary truncate" id="statDescNews">
+            글로벌 뉴스, 모델 릴리스, 오픈소스 바이럴 통합 서빙
+          </p>
+        </div>
+
+        <!-- Metric 3: Trending AI Models & Tools (SOTA AI 모델 & 오픈소스 도구) -->
+        <div onclick="switchNewsFacet('MODEL')" class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border hover:border-cyan-500 hover:shadow-md transition cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-ink-muted group-hover:text-cyan-700 transition flex items-center gap-1.5" id="statLabelModels">
+                <i data-lucide="cpu" class="w-4 h-4 text-cyan-600"></i>
+                <span>SOTA AI 모델 & 도구</span>
+              </span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-cyan-50 text-cyan-700 border border-cyan-200">
+                🤖 가중치 특화
+              </span>
+            </div>
+            <div class="mt-3 flex items-baseline gap-2">
+              <span class="text-2xl sm:text-3xl font-black text-ink-primary font-mono" id="statValModels">--</span>
+              <span class="text-xs text-ink-muted font-medium">Models & Tools</span>
+            </div>
+          </div>
+          <p class="mt-3 pt-2.5 border-t border-surface-border text-[11px] text-ink-secondary truncate" id="statDescModels">
+            MoE, VLM, 추론 특화 가중치 및 오픈소스 도구 필터
+          </p>
+        </div>
+
+      </div>
+
+      <!-- 📈 24H COLLECTION TIMELINE & 6H AI TREND RADAR (실시간 수집 현황 & 6시간 주기 AI 트렌드) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+        
+        <!-- Card 1: Today 24-Hour Ingestion Timeline (1일 4회 6시간 주기 전략 수집) -->
+        <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm flex flex-col justify-between space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="space-y-0.5">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-ink-primary font-mono flex items-center gap-1.5" id="timelineTitle">
+                  <i data-lucide="clock" class="w-4 h-4 text-indigo-600"></i>
+                  <span id="timelineTitleText">당일 24시간 수집 타임라인</span>
+                </span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse"></span>
+                  <span id="timelineBadgeText">1일 4회 6h 펄스</span>
+                </span>
+              </div>
+              <p class="text-[11px] text-ink-muted" id="timelineSub">1일 4회(00, 06, 12, 18시 KST) 6시간 주기 전략 수집 & AI 실시간 분류</p>
+            </div>
+            
+            <div class="flex items-center gap-3 text-[11px] font-mono text-ink-secondary">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded bg-indigo-600 inline-block"></span>
+                <span id="timelineLegendText">수집 건수</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded bg-emerald-500 inline-block"></span>
+                <span id="timelineLegendAiText">AI 요약 완료</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bar Visualizer for Today 24h Timeline (4 Quarterly Sessions) -->
+          <div class="pt-2 pb-1">
+            <div class="grid grid-cols-4 gap-2 sm:gap-3 items-end h-36 border-b border-surface-border pb-2" id="timeline24hChartContainer">
+              <!-- Dynamically Populated via JS -->
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[11px] text-ink-muted font-mono flex-wrap gap-2" id="timelineFooter">
+            <span id="timelineFooterText">⚡ 당일 총 수집량: <b class="text-indigo-700">0건</b></span>
+          </div>
+        </div>
+
+        <!-- Card 2: Real-Time Cross-Viral Spikes Top 4 (🔥 크로스 바이럴 급상승 TOP 4) -->
+        <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm flex flex-col justify-between space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="space-y-0.5">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-ink-primary font-mono flex items-center gap-1.5" id="trendRadarTitle">
+                  <i data-lucide="flame" class="w-4 h-4 text-amber-500"></i>
+                  <span id="trendRadarTitleText">🔥 크로스 바이럴 (급상승) TOP 4</span>
+                </span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-800 border border-amber-200 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" id="trendRadarPulseDot"></span>
+                  <span id="trendRadarWindowLabel">H-V-D 다중 출처 감지</span>
+                </span>
+              </div>
+              <p class="text-[11px] text-ink-muted" id="trendRadarSub">다수 글로벌 플랫폼에서 동시에 급상승 중인 핵심 이슈 4선</p>
+            </div>
+
+            <!-- View All Cross-Viral Button + Hidden legacy session buttons for compatibility -->
+            <div class="flex items-center gap-1.5">
+              <button type="button" onclick="switchView('news'); if(window.setNewsFacetFilter) window.setNewsFacetFilter('CROSS_SPIKE');" id="homeCrossSpikeViewAllBtn" class="px-2.5 py-1 rounded-lg border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-800 text-[10px] font-mono font-bold transition cursor-pointer flex items-center gap-1 shadow-2xs">
+                <span id="homeCrossSpikeViewAllText">전체 급상승 보기</span>
+                <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </button>
+              <div class="hidden items-center gap-1 text-[10px] font-mono" id="radarSessionButtons">
+                <button type="button" onclick="switchRadarSession(1)" id="radarBtn1" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold bg-surface-subtle text-ink-muted">1회 00시</button>
+                <button type="button" onclick="switchRadarSession(2)" id="radarBtn2" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold bg-surface-subtle text-ink-muted">2회 06시</button>
+                <button type="button" onclick="switchRadarSession(3)" id="radarBtn3" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold bg-emerald-600 text-white font-bold shadow-xs">3회 12시</button>
+                <button type="button" onclick="switchRadarSession(4)" id="radarBtn4" class="px-2 py-0.5 rounded border border-surface-border transition cursor-pointer font-bold bg-surface-subtle text-ink-muted">4회 18시</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cross-Viral Top 4 Content Bullets -->
+          <div class="pt-1 pb-1 space-y-2.5" id="trendRadarBody">
+            <div class="space-y-2" id="trendRadarBullets">
+              <!-- Dynamically Populated via JS with direct links -->
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-surface-border flex items-center justify-between text-[11px] text-ink-muted font-mono flex-wrap gap-2" id="trendRadarFooter">
+            <span class="flex items-center gap-1.5"><i data-lucide="flame" class="w-3.5 h-3.5 text-amber-500"></i> H-V-D 다중 출처 교차 검증 급상승 랭킹</span>
+            <span class="text-[10px] text-ink-muted font-medium">카드를 클릭하면 해당 안건의 1차 원문으로 즉시 이동합니다</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 🌟 RECENT VERIFIED FACT-CHECKS PREVIEW (대시보드 하단 최신 팩트체크 Top 3 하이라이트) -->
+      <div class="bg-white p-5 sm:p-6 rounded-2xl border border-surface-border shadow-sm space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <h3 class="text-sm font-bold text-ink-primary font-mono" id="homeTopPicksTitle">최신 심층 기술 검증 하이라이트</h3>
+          </div>
+          <button onclick="switchView('portfolio')" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 transition flex items-center gap-1 font-mono">
+            <span id="homeTopPicksViewAll">전체 검증 도시에 보러가기</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5" id="homeTopPicksContainer">
+          <!-- Dynamically populated Top 3 latest verified cases (Loading Skeleton) -->
+          <div class="p-4 rounded-xl border border-surface-border bg-surface-subtle animate-pulse space-y-3">
+            <div class="h-3.5 bg-slate-200 rounded w-1/3"></div>
+            <div class="h-4 bg-slate-200 rounded w-3/4"></div>
+            <div class="h-3 bg-slate-200/70 rounded w-full"></div>
+            <div class="h-3 bg-slate-200/70 rounded w-2/3"></div>
+          </div>
+          <div class="p-4 rounded-xl border border-surface-border bg-surface-subtle animate-pulse space-y-3">
+            <div class="h-3.5 bg-slate-200 rounded w-1/3"></div>
+            <div class="h-4 bg-slate-200 rounded w-3/4"></div>
+            <div class="h-3 bg-slate-200/70 rounded w-full"></div>
+            <div class="h-3 bg-slate-200/70 rounded w-2/3"></div>
+          </div>
+          <div class="p-4 rounded-xl border border-surface-border bg-surface-subtle animate-pulse space-y-3">
+            <div class="h-3.5 bg-slate-200 rounded w-1/3"></div>
+            <div class="h-4 bg-slate-200 rounded w-3/4"></div>
+            <div class="h-3 bg-slate-200/70 rounded w-full"></div>
+            <div class="h-3 bg-slate-200/70 rounded w-2/3"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==================== VIEW 1: TECH FACT-CHECK (기술 검증 포트폴리오 35건 전용 뷰) ==================== -->
+    <div id="portfolioView" class="hidden space-y-6">
+
+      <!-- Portfolio Header Bar -->
+      <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+              EMPIRICAL DOSSIERS
+            </span>
+            <span class="text-xs font-mono text-ink-muted" id="portfolioDossiersCountBadge">불러오는 중...</span>
+          </div>
+          <h2 class="text-lg sm:text-xl font-extrabold text-ink-primary" id="portfolioViewTitle">
+            공식 기술 실측 검증 포트폴리오
+          </h2>
+          <p class="text-xs text-ink-secondary" id="portfolioViewDesc">
+            SNS 바이럴 마케팅의 환각을 걷어내고, 1차 공식 문서 및 코드 레벨 벤치마크로 완성된 기술 검증 보고서 전편
+          </p>
+        </div>
+
+        <button onclick="switchView('home')" class="self-start md:self-auto px-3.5 py-1.5 rounded-xl bg-surface-subtle hover:bg-surface-canvas border border-surface-border text-xs font-bold text-ink-secondary hover:text-ink-primary transition flex items-center gap-1.5">
+          <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i>
+          <span id="backToHomeBtnText">대시보드로 돌아가기</span>
+        </button>
+      </div>
+
+      <!-- HIGH-VISIBILITY CONTROL CENTER -->
+      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-surface-border space-y-4 shadow-sm">
+        
+        <!-- Row 1: 3-Segment Discovery Mode & Sorting Selector -->
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          
+          <!-- Mode Segments -->
+          <div class="flex items-center bg-surface-subtle p-1 rounded-xl border border-surface-border text-xs w-full md:w-auto">
+            <button onclick="setModeFilter('ALL')" id="modeBtnAll" class="segment-btn active flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5">
+              <span id="btnLabelAll">전체 검증</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/10 text-white font-bold" id="badgeCountAll">--</span>
+            </button>
+            <button onclick="setModeFilter('USER_CURATED')" id="modeBtnUser" class="segment-btn flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-semibold hover:text-ink-primary transition flex items-center justify-center gap-1.5">
+              <i data-lucide="user-check" class="w-3.5 h-3.5 text-indigo-600"></i>
+              <span id="btnLabelUser">직접 큐레이션</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/5 text-ink-secondary font-bold" id="badgeCountUser"><span id="statUserCurated">--</span></span>
+            </button>
+            <button onclick="setModeFilter('AUTO_HARVESTED')" id="modeBtnAuto" class="segment-btn flex-1 md:flex-initial px-4 py-2 rounded-lg text-xs font-semibold hover:text-ink-primary transition flex items-center justify-center gap-1.5">
+              <i data-lucide="bot" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span id="btnLabelAuto">자동 트렌드</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-black/5 text-ink-secondary font-bold" id="badgeCountAuto"><span id="statAutoHarvested">0</span></span>
+            </button>
+          </div>
+
+          <!-- Sort Select & Results Counter -->
+          <div class="flex items-center justify-between w-full md:w-auto gap-3">
+            <span class="text-xs text-ink-muted font-mono" id="resultsCountLabel">도시에 불러오는 중...</span>
+            
+            <div class="flex items-center gap-2 bg-surface-subtle px-3 py-1.5 rounded-xl border border-surface-border text-xs">
+              <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-ink-secondary shrink-0"></i>
+              <span class="text-ink-secondary text-xs font-medium shrink-0" id="sortLabel">정렬:</span>
+              <select id="sortSelect" onchange="changeSort(this.value)" class="bg-transparent text-ink-primary font-bold text-xs focus:outline-none cursor-pointer">
+                <option value="date-audit-desc" selected>🔬 분석일자 최신순 (기본)</option>
+                <option value="date-audit-asc">🔬 분석일자 오래된순</option>
+                <option value="date-source-desc">📅 원출처 발행 최신순</option>
+                <option value="date-source-asc">📅 원출처 발행 오래된순</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Row 2: Search Input & Compact Responsive Domain Tag Filter Pills -->
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-3 pt-3 border-t border-surface-border">
+          
+          <!-- Search Box -->
+          <div class="relative w-full lg:w-80">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-2.5 text-ink-muted"></i>
+            <input type="text" id="searchInput" placeholder="기술명, 아키텍처, 큐레이션 동기 검색..." 
+                   class="w-full bg-surface-subtle border border-surface-border rounded-xl pl-10 pr-9 py-2 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
+            <button onclick="clearSearch()" id="clearSearchBtn" class="hidden absolute right-3 top-2.5 text-ink-muted hover:text-ink-primary">
+              <i data-lucide="x" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+          <!-- Domain Tag Filter Pills (Compact & Responsive) -->
+          <div class="flex items-center gap-1.5 w-full lg:w-auto justify-start lg:justify-end overflow-x-auto no-scrollbar py-1">
+            <span class="text-[11px] text-ink-muted font-mono mr-1 shrink-0" id="domainFilterLabel">도메인:</span>
+            <button onclick="setDomainFilter('ALL')" class="tag-pill active shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="ALL" id="tagAll">전체</button>
+            <button onclick="setDomainFilter('frontend')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="frontend" id="tagFrontend">프론트엔드</button>
+            <button onclick="setDomainFilter('agent')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="agent" id="tagAgent">AI 에이전트</button>
+            <button onclick="setDomainFilter('scraping')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="scraping" id="tagScraping">웹 스크래핑</button>
+            <button onclick="setDomainFilter('doc')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="doc" id="tagDoc">문서 파싱</button>
+            <button onclick="setDomainFilter('3d')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="3d" id="tag3d">3D/컴포넌트</button>
+            <button onclick="setDomainFilter('rust')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="rust" id="tagRust">Rust/시스템</button>
+            <button onclick="setDomainFilter('other')" class="tag-pill shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-surface-subtle text-ink-secondary border border-surface-border hover:border-ink-primary" data-domain="other" id="tagOther">기타/코어 인프라</button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- EXECUTIVE SCANNABLE DOSSIER GRID -->
+      <div id="cardsGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
+      <div id="portfolioPagination" class="mt-4"></div>
+    </div>
+
+    <!-- ==================== VIEW: AI MODELS REGISTRY ==================== -->
+    <div id="modelsView" class="hidden space-y-6">
+      <!-- Models Controls & Family Filter Bar (Hugging Face & OpenRouter 표준 분류 체계) -->
+      <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs">
+          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1" id="modelsFamilyLabel">
+            🤖 모델 패밀리:
+          </span>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="modelsFamilyFilterRow">
+            <button onclick="setModelsFamilyFilter('ALL')" data-fam="ALL" class="model-fam-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap">전체 패밀리</button>
+            <button onclick="setModelsFamilyFilter('Qwen')" data-fam="Qwen" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">Qwen</button>
+            <button onclick="setModelsFamilyFilter('Wan')" data-fam="Wan" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">Wan 비디오</button>
+            <button onclick="setModelsFamilyFilter('MiniMax')" data-fam="MiniMax" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">MiniMax</button>
+            <button onclick="setModelsFamilyFilter('FLUX')" data-fam="FLUX" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">FLUX 이미지</button>
+            <button onclick="setModelsFamilyFilter('GLM')" data-fam="GLM" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">GLM</button>
+            <button onclick="setModelsFamilyFilter('DeepSeek')" data-fam="DeepSeek" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">DeepSeek</button>
+            <button onclick="setModelsFamilyFilter('Hunyuan')" data-fam="Hunyuan" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">Hunyuan</button>
+            <button onclick="setModelsFamilyFilter('Audio')" data-fam="Audio" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">음성/TTS</button>
+            <button onclick="setModelsFamilyFilter('Standalone')" data-fam="Standalone" class="model-fam-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">독립/신규 모델</button>
+          </div>
+        </div>
+
+        <!-- Ecosystem / Hub Resource Type Filter Pills (Hugging Face 공식 표준: 모델 가중치 vs Spaces 데모) -->
+        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs pt-1 border-t border-surface-border">
+          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1" id="modelsArtifactLabel">
+            🧩 허브 유형:
+          </span>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="modelsArtifactFilterRow">
+            <button onclick="setModelsArtifactFilter('ALL')" data-art="ALL" class="model-art-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap">전체</button>
+            <button onclick="setModelsArtifactFilter('WEIGHTS')" data-art="WEIGHTS" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🤖 가중치·체크포인트</button>
+            <button onclick="setModelsArtifactFilter('WEB_SERVICE')" data-art="WEB_SERVICE" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🌐 인터랙티브 데모·Spaces</button>
+            <button onclick="setModelsArtifactFilter('FINETUNE')" data-art="FINETUNE" class="model-art-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🎯 특화 파인튜닝</button>
+          </div>
+        </div>
+
+        <div class="pt-2 border-t border-surface-border flex flex-col md:flex-row items-center justify-between gap-3">
+          <div class="relative w-full md:w-80">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-2.5 text-ink-muted"></i>
+            <input type="text" id="modelsSearchInput" aria-label="모델 검색" placeholder="모델명, 아키텍처, 포맷 검색..." 
+                   class="w-full bg-surface-subtle border border-surface-border rounded-xl pl-10 pr-4 py-2 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
+          </div>
+
+          <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+            <span class="text-xs text-ink-muted font-mono" id="modelsFilteredCount"></span>
+            <div class="flex items-center gap-1.5 bg-surface-subtle px-3 py-1.5 rounded-xl border border-surface-border text-xs shrink-0">
+              <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-indigo-600"></i>
+              <span class="text-ink-muted text-[11px] font-mono" id="modelsSortLabel">정렬:</span>
+              <select id="modelsSortSelect" onchange="setModelsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
+                <option value="date-audit-desc" selected>🔬 AI 분석일 최신순 (기본)</option>
+                <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
+                <option value="date-source-desc">📅 수집/발표 최신순</option>
+                <option value="date-source-asc">📅 수집/발표 오래된순</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Models Grid (3x5 Readable Grid) -->
+      <div id="modelsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <div id="modelsPagination" class="mt-4"></div>
+    </div>
+
+    <!-- ==================== VIEW 2: REAL-TIME TRENDS RADAR (통합 실시간 트렌드 레이더) ==================== -->
+    <div id="newsView" class="hidden space-y-6">
+      
+      <!-- 🌟 Smart Facet Filter Row: All, Multi-Viral Cross-Spike, Models & Weights, Open-Source Tools, News & Analysis -->
+      <div class="bg-gradient-to-r from-slate-900 to-indigo-950 text-white p-3.5 rounded-2xl border border-indigo-900/50 shadow-md flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 w-full lg:w-auto">
+          <span class="text-xs font-bold text-amber-300 flex items-center gap-1 shrink-0 mr-1.5">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span id="smartRadarLabel">스마트 레이더:</span>
+          </span>
+          <button onclick="setNewsFacetFilter('ALL')" id="facetBtnAll" class="news-facet-pill active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-md ring-2 ring-indigo-300 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="ALL">⚡ 전체 피드</button>
+          <button onclick="setNewsFacetFilter('CROSS_SPIKE')" id="facetBtnSpike" class="news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 border border-amber-400/30 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="CROSS_SPIKE">🔥 크로스 바이럴 (급상승)</button>
+          <button onclick="setNewsFacetFilter('MODEL')" id="facetBtnModel" class="news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 border border-cyan-400/30 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="MODEL">🤖 AI 모델 & 가중치</button>
+          <button onclick="setNewsFacetFilter('TOOL')" id="facetBtnTool" class="news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 border border-emerald-400/30 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="TOOL">🛠️ 오픈소스 도구</button>
+          <button onclick="setNewsFacetFilter('NEWS')" id="facetBtnNews" class="news-facet-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 border border-white/20 transition shrink-0 whitespace-nowrap cursor-pointer" data-facet="NEWS">📰 뉴스 & 분석</button>
+        </div>
+      </div>
+
+      <!-- 🌟 Cross-Viral Daily Ranking Time-Machine Bar (Visible only when facet === 'CROSS_SPIKE') -->
+      <div id="crossSpikeTimeMachineBar" class="hidden bg-gradient-to-r from-amber-50/90 via-orange-50/70 to-amber-50/90 border border-amber-200/90 rounded-2xl p-3 shadow-xs transition-all">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5">
+          <div class="flex items-center gap-2 flex-wrap">
+            <button type="button" id="spikeLiveModeBtn" onclick="setCrossSpikeDate('')" class="px-3 py-1.5 rounded-xl text-xs font-extrabold bg-amber-600 text-white shadow-xs transition flex items-center gap-1.5 cursor-pointer">
+              <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+              <span id="spikeLiveBtnLabel">실시간 급상승 (Live)</span>
+            </button>
+
+            <div class="flex items-center gap-1 bg-white px-2 py-1 rounded-xl border border-amber-300 shadow-2xs">
+              <button type="button" onclick="stepCrossSpikeDate(1)" class="p-1 rounded-lg hover:bg-amber-50 text-amber-800 transition cursor-pointer" title="이전 날짜 (과거)">
+                <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+              </button>
+              <i data-lucide="calendar" class="w-3.5 h-3.5 text-amber-600 ml-0.5"></i>
+              <select id="crossSpikeDateSelect" onchange="setCrossSpikeDate(this.value)" aria-label="일자별 크로스 바이럴 랭킹 선택" class="bg-transparent text-amber-950 text-xs font-extrabold font-mono focus:outline-none cursor-pointer pr-1">
+                <option value="">📅 일자별 공식 랭킹 선택...</option>
+              </select>
+              <button type="button" onclick="stepCrossSpikeDate(-1)" class="p-1 rounded-lg hover:bg-amber-50 text-amber-800 transition cursor-pointer" title="다음 날짜 (최신)">
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+
+            <div id="crossSpikeQuickDatePills" class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+              <!-- Populated dynamically with recent dates -->
+            </div>
+          </div>
+
+          <div id="crossSpikeTop1Summary" class="text-[11px] font-mono text-amber-950 bg-white/80 px-2.5 py-1 rounded-xl border border-amber-200/80 flex items-center gap-1.5 truncate max-w-full lg:max-w-md">
+            <span class="text-amber-600 font-bold shrink-0">🔥 Top 1:</span>
+            <span class="truncate" id="crossSpikeTop1Text">일자별 공식 크로스 바이럴 랭킹 및 트렌드 스냅샷</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- News Category Filter Bar (Visible on ALL / MODEL / TOOL / NEWS tabs, hidden on CROSS_SPIKE) -->
+      <div id="newsMainFilterBox" class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs">
+          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1" id="newsCatFilterLabel">
+            🏷️ 기술·글로벌 분류:
+          </span>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="newsCategoryFilterRow">
+            <button onclick="setNewsCategoryFilter('ALL')" data-cat="ALL" class="news-cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer">🌐 전체 분류</button>
+            <button onclick="setNewsCategoryFilter('TECH_COMPUTING')" data-cat="TECH_COMPUTING" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">💻 IT·컴퓨팅</button>
+            <button onclick="setNewsCategoryFilter('SCIENCE_RESEARCH')" data-cat="SCIENCE_RESEARCH" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🚀 과학·우주</button>
+            <button onclick="setNewsCategoryFilter('ECONOMY_FINANCE')" data-cat="ECONOMY_FINANCE" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🏦 경제·금융</button>
+            <button onclick="setNewsCategoryFilter('LAW_CRIME_JUSTICE')" data-cat="LAW_CRIME_JUSTICE" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">⚖️ 사회·법률</button>
+            <button onclick="setNewsCategoryFilter('POLITICS_POLICY')" data-cat="POLITICS_POLICY" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🏛️ 정치·정책</button>
+            <button onclick="setNewsCategoryFilter('CULTURE_HUMANITIES')" data-cat="CULTURE_HUMANITIES" class="news-cat-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🌿 문화·인문</button>
+          </div>
+        </div>
+
+        <!-- Tier 2 Engineering Specialization Row (IT·컴퓨팅 6대 세부 공학 분야) -->
+        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 text-xs pt-2 border-t border-surface-border transition-opacity duration-200" id="newsTier2Container">
+          <span class="font-bold text-ink-secondary text-[11px] shrink-0 flex items-center gap-1" id="newsTier2FilterLabel">
+            ↳ 💻 IT 세부 분야:
+          </span>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="newsTier2FilterRow">
+            <button onclick="setNewsTier2Filter('ALL')" data-t2="ALL" class="news-t2-pill active px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shadow-sm shrink-0 whitespace-nowrap cursor-pointer">⚡ 전체 IT 분야</button>
+            <button onclick="setNewsTier2Filter('INFERENCE_OPT')" data-t2="INFERENCE_OPT" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">⚡ 추론·서빙</button>
+            <button onclick="setNewsTier2Filter('AGENTS_DEVTOOLS')" data-t2="AGENTS_DEVTOOLS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🛠️ 에이전트·도구</button>
+            <button onclick="setNewsTier2Filter('MULTIMODAL_AI')" data-t2="MULTIMODAL_AI" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🎨 멀티모달</button>
+            <button onclick="setNewsTier2Filter('FOUNDATION_MODELS')" data-t2="FOUNDATION_MODELS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🤖 파운데이션</button>
+            <button onclick="setNewsTier2Filter('INFRA_RAG_SECURITY')" data-t2="INFRA_RAG_SECURITY" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🛡️ 인프라·보안</button>
+            <button onclick="setNewsTier2Filter('INDUSTRY_TRENDS')" data-t2="INDUSTRY_TRENDS" class="news-t2-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🌐 일반 SW·웹</button>
+          </div>
+        </div>
+
+        <!-- Secondary Source & Search & Sort Row -->
+        <div class="pt-2 border-t border-surface-border flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full md:w-auto text-xs flex-nowrap">
+            <span class="text-ink-muted text-[11px] font-mono shrink-0" id="newsSourceLabel">출처:</span>
+            <button onclick="setNewsSourceFilter('ALL')" id="newsSrcBtnAll" class="news-src-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-ink-primary text-white transition shrink-0 whitespace-nowrap" data-src="ALL">전체 출처</button>
+            <button onclick="setNewsSourceFilter('GeekNews')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="GeekNews">🇰🇷 긱뉴스</button>
+            <button onclick="setNewsSourceFilter('Hacker News')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="Hacker News">🔥 HN</button>
+            <button onclick="setNewsSourceFilter('GitHub')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="GitHub">🐙 GitHub</button>
+            <button onclick="setNewsSourceFilter('ArXiv')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="ArXiv">📄 ArXiv</button>
+            <button onclick="setNewsSourceFilter('Hugging Face')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="Hugging Face">🤗 HF</button>
+            <button onclick="setNewsSourceFilter('Reddit')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="Reddit">🤖 레딧</button>
+            <button onclick="setNewsSourceFilter('Press')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="Press">📰 언론·프레스</button>
+            <button onclick="setNewsSourceFilter('YouTube')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="YouTube">📺 유튜브</button>
+            <button onclick="setNewsSourceFilter('PyTorchKR')" class="news-src-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:bg-white transition border border-surface-border shrink-0 whitespace-nowrap" data-src="PyTorchKR">🇰🇷 파이토치KR</button>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full md:w-auto justify-between md:justify-end">
+            <div class="relative w-full sm:w-48 md:w-56">
+              <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-ink-muted"></i>
+              <input type="text" id="newsSearchInput" aria-label="뉴스 검색" oninput="handleNewsSearch(this.value)" onkeydown="if(event.key==='Enter'){handleNewsSearchImmediate(this.value);}" placeholder="기술명, 키워드 검색..." 
+                     class="w-full bg-surface-subtle border border-surface-border rounded-xl pl-8 pr-7 py-1.5 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
+              <button id="newsSearchClearBtn" onclick="clearNewsSearch()" class="hidden absolute right-2 top-1.5 text-ink-muted hover:text-ink-primary p-1 rounded-md transition cursor-pointer" aria-label="검색어 지우기" title="검색어 초기화">
+                <i data-lucide="x" class="w-3 h-3"></i>
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between sm:justify-start gap-1.5 bg-surface-subtle px-2.5 py-1 rounded-xl border border-surface-border text-xs shrink-0">
+              <i data-lucide="arrow-up-down" class="w-3 h-3 text-indigo-600"></i>
+              <span class="text-ink-muted text-[11px] font-mono" id="newsSortLabel">정렬:</span>
+              <select id="newsSortSelect" onchange="setNewsSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
+                <option value="viral-score-desc">🔥 바이럴 급상승순</option>
+                <option value="date-audit-desc" selected>🔬 AI 분석일 최신순 (기본)</option>
+                <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
+                <option value="date-source-desc">📅 수집/발표 최신순</option>
+                <option value="date-source-asc">📅 수집/발표 오래된순</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- News Grid (3x5 Readable Grid) -->
+      <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <div id="newsPagination" class="mt-4"></div>
+    </div>
+
+    <!-- ==================== VIEW 4: HARVEST INBOX ==================== -->
+    <div id="inboxView" class="hidden space-y-6">
+      
+      <!-- Inbox Header -->
+      <div class="bg-white p-6 rounded-2xl border border-surface-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-800 text-xs font-mono font-bold border border-slate-200" id="inboxHeaderBadge">
+              🔐 RAW ARCHIVE & ADMIN INBOX
+            </span>
+            <span class="text-xs text-ink-muted font-mono" id="inboxHeaderCount">총 1,641건</span>
+          </div>
+          <h2 class="text-lg font-bold text-ink-primary" id="inboxHeaderTitle">원천 데이터 아카이브 & 관리자 파이프라인</h2>
+          <p class="text-xs text-ink-secondary" id="inboxHeaderDesc">
+            크롤러가 24시간 실시간 수집한 원천 로우 데이터를 영구 보존하며, 관리자가 심층 팩트체크(공식 검증)로 승격할 후보를 검토하는 내부 저장소입니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 🛡️ Admin Session Banner (Visible when authenticated) -->
+      <div id="inboxAdminSessionBanner" class="hidden bg-emerald-50 border border-emerald-200 p-4 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs shadow-xs">
+        <div class="flex items-center gap-2.5 text-emerald-950 font-medium">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+          <span>🛡️ 관리자 보안 인증 활성: <b id="inboxAdminEmail" class="font-mono text-emerald-800 font-bold">andrew4may@gmail.com</b> <span class="text-emerald-700/80 text-[11px]">(세션 유효)</span></span>
+        </div>
+        <button onclick="adminLogout()" class="px-3 py-1 rounded-lg bg-white hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold text-xs transition shadow-xs cursor-pointer flex items-center gap-1.5 self-end sm:self-auto">
+          <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+          <span>로그아웃</span>
+        </button>
+      </div>
+
+      <!-- 🚀 GITHUB ACTIONS RUNNER QUOTA & OPERATIONAL LOG ANALYTICS SUITE -->
+      <div class="bg-white p-5 sm:p-6 rounded-2xl border border-surface-border shadow-sm space-y-5">
+        
+        <!-- Header & Top Countdown -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-surface-border">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center gap-1.5" id="pipelineBadge">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse"></span>
+                <span>GITHUB ACTIONS RUNNER TELEMETRY & QUOTA</span>
+              </span>
+              <span class="text-xs font-mono text-ink-muted" id="pipelineScheduleDesc">1일 4회(00:17, 06:17, 12:17, 18:17 KST) 전략 수집</span>
+            </div>
+            <h3 class="text-base font-bold text-ink-primary flex items-center gap-2" id="pipelineWidgetTitle">
+              <i data-lucide="server" class="w-4 h-4 text-indigo-600"></i>
+              <span>GitHub Actions 러너 쿼터 잔여 시간 & 회차별 소요시간·에러 로그 분석</span>
+            </h3>
+            <p class="text-xs text-ink-secondary" id="pipelineWidgetSub">
+              월간 무료 2,000분 쿼터 소모량과 회차별 실제 실행 시간(Duration)을 정밀 추적하여, 수집 주기를 줄이거나(증설) 늘리는(절약) 운영 의사결정을 지원합니다.
+            </p>
+          </div>
+
+          <!-- Dynamic Next Run Countdown Banner -->
+          <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white p-3 rounded-xl shadow-sm flex items-center gap-3 shrink-0 self-start md:self-auto">
+            <i data-lucide="timer" class="w-5 h-5 text-indigo-100 animate-spin" style="animation-duration: 12s;"></i>
+            <div>
+              <div class="text-[10px] font-medium text-indigo-100 uppercase tracking-wider" id="pipelineNextTargetLabel">다음 자동 수집 예정</div>
+              <div class="text-xs sm:text-sm font-mono font-bold tracking-tight text-white flex items-center gap-1" id="pipelineCountdownValue">
+                계산 중...
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 1: 📊 GitHub Actions Monthly Quota & Decision Simulator -->
+        <div class="bg-slate-50/70 p-4 rounded-xl border border-slate-200 space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
+            <div class="flex items-center gap-2 font-bold text-ink-primary">
+              <i data-lucide="gauge" class="w-4 h-4 text-indigo-600"></i>
+              <span id="quotaSectionTitle">월간 GitHub Actions 러너 쿼터 현황 (2,000분 기준)</span>
+            </div>
+            <div class="text-ink-secondary text-[11px]" id="quotaStatsText">
+              사용: <b class="text-indigo-600 font-bold" id="quotaUsedMin">158.9분</b> / 잔여: <b class="text-emerald-600 font-bold" id="quotaRemMin">1,841.1분 (92.1%)</b>
+            </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden flex relative">
+            <div class="bg-emerald-500 h-3 rounded-full transition-all duration-500" id="quotaProgressBar" style="width: 7.9%;"></div>
+          </div>
+
+          <!-- Breakdown by Workflows (Image 1 metrics) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 pb-1 text-[11px] font-mono">
+            <div class="p-2 rounded-lg bg-white border border-slate-200">
+              <div class="text-ink-muted text-[10px]">deploy_pages.yml</div>
+              <div class="font-bold text-slate-700">615분 <span class="text-[10px] font-normal text-ink-muted">(136회)</span></div>
+              <div class="text-[10px] text-emerald-600">실패율 &lt;1% · 평균 2m 14s</div>
+            </div>
+            <div class="p-2 rounded-lg bg-white border border-slate-200">
+              <div class="text-ink-muted text-[10px]">pages build deployment</div>
+              <div class="font-bold text-slate-700">604분 <span class="text-[10px] font-normal text-ink-muted">(212회)</span></div>
+              <div class="text-[10px] text-emerald-600">실패율 &lt;1% · 평균 36s</div>
+            </div>
+            <div class="p-2 rounded-lg bg-white border border-slate-200">
+              <div class="text-ink-muted text-[10px]">deploy_only.yml</div>
+              <div class="font-bold text-ink-primary">18분 <span class="text-[10px] font-normal text-ink-muted">(18회)</span></div>
+              <div class="text-[10px] text-emerald-600">실패율 0% · 평균 32s</div>
+            </div>
+          </div>
+
+          <!-- Operational Decision Suggestion Banner (Populated dynamically via JS) -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between text-[11px] gap-2 pt-1 border-t border-slate-200/60">
+            <div class="flex items-center gap-2 text-slate-700" id="quotaAdviceBanner">
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-bold font-mono text-[10px]" id="quotaBadgeVerdict">쿼터 계산 중...</span>
+              <span id="quotaAdviceText" class="text-ink-muted">러너 텔레메트리 쿼터 잔여량을 분석 중입니다.</span>
+            </div>
+            <div class="shrink-0 text-slate-500 font-bold font-mono text-[10px]" id="quotaDailyEstText"></div>
+          </div>
+        </div>
+
+        <!-- Section 2: ⏱️ 4 Quarterly Sessions Execution Time & Error Audit -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-ink-primary">
+            <span class="flex items-center gap-1.5" id="timelineAuditTitle">
+              <i data-lucide="clock" class="w-4 h-4 text-indigo-600"></i>
+              <span>수집 Timeline 연동 회차별 실제 소요 시간 & 에러율 감사</span>
+            </span>
+            <span class="text-[11px] text-ink-muted font-normal font-mono" id="timelineAuditSub">GitHub Actions 최근 실측 런 기준</span>
+          </div>
+
+          <!-- 4 Cards Container -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-mono" id="pipelineSlotsContainer">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Section 3: 📋 Recent Pipeline & Serverless Live Run Logs Table -->
+        <div class="space-y-2.5 pt-2 border-t border-surface-border">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-bold text-ink-primary">
+            <div class="flex items-center gap-2.5 flex-wrap">
+              <span class="flex items-center gap-1.5" id="recentRunsTitle">
+                <i data-lucide="list" class="w-4 h-4 text-slate-600"></i>
+                <span>실행 로그 & 소요 시간 히스토리</span>
+              </span>
+              <div class="inline-flex rounded-lg border border-surface-border bg-slate-100 p-0.5 text-[11px] font-mono">
+                <button type="button" id="tabRunsGha" onclick="switchRunLogsTab('gha')" class="px-2.5 py-1 rounded-md font-bold bg-white text-ink-primary shadow-xs border border-surface-border transition cursor-pointer">
+                  🐙 GitHub Actions (수집)
+                </button>
+                <button type="button" id="tabRunsVercel" onclick="switchRunLogsTab('vercel')" class="px-2.5 py-1 rounded-md font-medium text-ink-secondary hover:text-ink-primary transition cursor-pointer">
+                  ▲ Vercel Serverless (AI요약)
+                </button>
+                <button type="button" id="tabRunsVoyage" onclick="switchRunLogsTab('voyage')" class="px-2.5 py-1 rounded-md font-medium text-ink-secondary hover:text-ink-primary transition cursor-pointer">
+                  ⚡ Voyage AI (임베딩)
+                </button>
+              </div>
+            </div>
+            <span class="text-[11px] text-ink-muted font-normal font-mono" id="recentRunsSub">KST 실행 시각 기준 실시간 갱신</span>
+          </div>
+
+          <div class="overflow-x-auto rounded-xl border border-surface-border shadow-xs">
+            <table class="w-full text-left text-xs font-mono">
+              <thead class="bg-slate-50 border-b border-surface-border text-ink-secondary text-[11px]" id="pipelineRecentRunsThead">
+                <tr>
+                  <th class="py-2.5 px-3">실행 시각 (KST)</th>
+                  <th class="py-2.5 px-3">워크플로우</th>
+                  <th class="py-2.5 px-3">트리거</th>
+                  <th class="py-2.5 px-3">소요 시간</th>
+                  <th class="py-2.5 px-3" title="5대 플랫폼 실시간 스캔 후보 수 (중복 제외 후 신규 인입은 회차당 28~41건)">스캔 후보</th>
+                  <th class="py-2.5 px-3">상태</th>
+                  <th class="py-2.5 px-3">에러</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-surface-border" id="pipelineRecentRunsTbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Pipeline Footer Info -->
+        <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between text-[11px] text-ink-muted font-mono gap-1 border-t border-surface-border/60">
+          <span class="flex items-center gap-1">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>
+            <span id="pipelineFooterAudit">1일 4회(00, 06, 12, 18시 KST) 정기 전략 수집 & Vercel 실시간 동기화</span>
+          </span>
+          <span class="text-[10px] text-ink-secondary" id="pipelineFooterNote">
+            * GitHub Actions 큐 상태에 따라 ±2~5분의 스케줄 지연이 발생할 수 있습니다.
+          </span>
+        </div>
+      </div>
+
+      <!-- ⚡ VERCEL SERVERLESS EDGE FUNCTION TELEMETRY & CAPACITY SUITE -->
+      <div class="bg-white p-5 sm:p-6 rounded-2xl border border-surface-border shadow-sm space-y-5" id="vercelCapacitySuite">
+        
+        <!-- Header & Real-time Ping Latency Badge -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-surface-border">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1.5" id="vercelBadge">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>VERCEL EDGE & SERVERLESS TELEMETRY (HOBBY PLAN)</span>
+              </span>
+              <span class="text-xs font-mono text-ink-muted" id="vercelTierLabel">월 100만 회 무료 호출 / 4.0 CPU-Hours 한도</span>
+            </div>
+            <h3 class="text-base font-bold text-ink-primary flex items-center gap-2" id="vercelWidgetTitle">
+              <i data-lucide="zap" class="w-4 h-4 text-emerald-600"></i>
+              <span>Vercel 백엔드 가용량 & Serverless Function 리소스 소모 실측 분석</span>
+            </h3>
+            <p class="text-xs text-ink-secondary" id="vercelWidgetSub">
+              PostgreSQL 클라우드 직접 쿼리(/api/stats, /api/inbox) 연동에 따른 함수 호출 횟수, 월간 Active CPU 시간 및 Edge CDN 캐싱 효율을 실시간 모니터링합니다.
+            </p>
+          </div>
+
+          <!-- Dynamic Live Edge Ping Banner -->
+          <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-3 rounded-xl shadow-sm flex items-center gap-3 shrink-0 self-start md:self-auto border border-slate-700">
+            <i data-lucide="activity" class="w-5 h-5 text-emerald-400"></i>
+            <div>
+              <div class="text-[10px] font-medium text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                <span>Vercel Edge API 상태</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              </div>
+              <div class="text-xs sm:text-sm font-mono font-bold tracking-tight text-white flex items-center gap-1" id="vercelPingValue">
+                <span class="text-emerald-400">200 OK</span> <span class="text-slate-400 text-xs font-normal" id="vercelLatencyText">(레이턴시: 측정 중...)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Grid: 2 Core Resource Progress Gauges + 2 Operational Status Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-mono">
+          
+          <!-- Metric 1: Invocations Gauge -->
+          <div class="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200 flex flex-col justify-between space-y-2.5">
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-[11px] font-bold text-ink-primary flex items-center gap-1.5 truncate">
+                <i data-lucide="radio" class="w-3.5 h-3.5 text-indigo-600 shrink-0"></i>
+                <span class="truncate">함수 호출 횟수 (Invocations)</span>
+              </span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 whitespace-nowrap shrink-0" id="vercelInvocationsBadge">안전 (0.14%)</span>
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between mb-1">
+                <span class="text-lg font-extrabold text-ink-primary font-mono" id="vercelInvocationsUsed">1,420</span>
+                <span class="text-[11px] text-ink-muted">/ 1,000,000회 한도</span>
+              </div>
+              <div class="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+                <div class="bg-indigo-600 h-2 rounded-full transition-all duration-500" id="vercelInvocationsBar" style="width: 0.14%;"></div>
+              </div>
+            </div>
+            <div class="text-[10px] text-ink-secondary leading-relaxed border-t border-slate-200/60 pt-1.5">
+              • 일일 가용 쿼터: <b>33,333회/일</b><br>
+              • 잔여 여유량: <b class="text-emerald-600 font-bold" id="vercelInvocationsRem">998,580회 (99.8%)</b>
+            </div>
+          </div>
+
+          <!-- Metric 2: Active CPU Time Gauge -->
+          <div class="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200 flex flex-col justify-between space-y-2.5">
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-[11px] font-bold text-ink-primary flex items-center gap-1.5 truncate">
+                <i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                <span class="truncate">Active CPU 시간 (월간)</span>
+              </span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 whitespace-nowrap shrink-0" id="vercelCpuBadge">극도 안정 (0.25%)</span>
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between mb-1">
+                <span class="text-lg font-extrabold text-ink-primary font-mono" id="vercelCpuUsed">0.01h</span>
+                <span class="text-[11px] text-ink-muted">/ 4.0 CPU-Hours 한도</span>
+              </div>
+              <div class="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+                <div class="bg-emerald-500 h-2 rounded-full transition-all duration-500" id="vercelCpuBar" style="width: 0.25%;"></div>
+              </div>
+            </div>
+            <div class="text-[10px] text-ink-secondary leading-relaxed border-t border-slate-200/60 pt-1.5">
+              <span id="vercelCpuSubText">• 누적 실행: <b>35.5초 / 14,400초</b></span><br>
+              • 평균 응답: <b class="text-emerald-600 font-bold">~25ms (초경량 DB 읽기)</b>
+            </div>
+          </div>
+
+          <!-- Metric 3: Edge Bandwidth & Caching -->
+          <div class="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200 flex flex-col justify-between space-y-2.5">
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-[11px] font-bold text-ink-primary flex items-center gap-1.5 truncate">
+                <i data-lucide="network" class="w-3.5 h-3.5 text-blue-600 shrink-0"></i>
+                <span class="truncate">Fast Data Transfer & 캐시</span>
+              </span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 whitespace-nowrap shrink-0" id="vercelBandwidthBadge">94.8% 캐시 적중</span>
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between mb-1">
+                <span class="text-lg font-extrabold text-ink-primary font-mono" id="vercelBandwidthUsed">0.18 GB</span>
+                <span class="text-[11px] text-ink-muted">/ 100 GB 한도</span>
+              </div>
+              <div class="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+                <div class="bg-blue-500 h-2 rounded-full transition-all duration-500" id="vercelBandwidthBar" style="width: 0.18%;"></div>
+              </div>
+            </div>
+            <div class="text-[10px] text-ink-secondary leading-relaxed border-t border-slate-200/60 pt-1.5">
+              • Edge 캐싱: <b>s-maxage=30s, SWR 60s</b><br>
+              • 트래픽 압축: <b class="text-blue-600 font-bold">gzip JSON (~1.8KB/콜)</b>
+            </div>
+          </div>
+
+          <!-- Metric 4: Architectural Capacity & Complex Logic Feasibility -->
+          <div class="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200 flex flex-col justify-between space-y-2.5">
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-[11px] font-bold text-ink-primary flex items-center gap-1.5 truncate">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-purple-600 shrink-0"></i>
+                <span class="truncate">백엔드 로직 가용성</span>
+              </span>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 whitespace-nowrap shrink-0">확장 가능 (우수)</span>
+            </div>
+            <div class="space-y-1">
+              <div class="text-[11px] font-bold text-slate-800">함수 실행 타임아웃 한도</div>
+              <div class="text-xs font-mono font-extrabold text-purple-700">최대 300초 (기본 10~60s)</div>
+            </div>
+            <div class="text-[10px] text-ink-secondary leading-relaxed border-t border-slate-200/60 pt-1.5">
+              • 메모리 할당: <b>1,024 MB (충분)</b><br>
+              • 분산 아키텍처: <b class="text-purple-700 font-bold">수집은 Actions, AI요약·DB는 Vercel</b>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Operational Decision & Architecture Guidance Banner -->
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between text-[11px] gap-3 pt-2 border-t border-surface-border/60">
+          <div class="flex flex-wrap items-center gap-2 text-slate-700 leading-relaxed max-w-2xl" id="vercelAdviceBanner">
+            <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold font-mono text-[10px] shrink-0" id="vercelBadgeVerdict">✅ 100% 무료 티어 안전 운영 중</span>
+            <span id="vercelAdviceText">
+              월간 한도 대비 <b>사용량 0.3% 미만</b>이며, 30초 Edge CDN 캐싱 및 서버리스 AI 워커로 <b>무료 티어 초과 없이 무제한 자율 운영</b>됩니다.
+            </span>
+          </div>
+          <div class="shrink-0 flex items-center gap-2 self-end md:self-center flex-wrap">
+            <button id="btnTriggerVerification" onclick="runSystemVerificationAgent()" class="px-3 py-1.5 rounded-lg bg-slate-900 text-white font-bold font-mono text-[11px] border border-slate-800 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-slate-800" title="클릭 시 시스템 무결성 전수 검증(빌드 구문, DB SSOT, Voyage 벡터, 런타임 헬스)을 최소 자원으로 자동 실행합니다.">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span id="btnVerifyText">🔍 시스템 검증 실행</span>
+            </button>
+            <button id="btnTriggerEmbedding" onclick="toggleVoyageEmbeddingWorker()" class="px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-emerald-100" title="클릭 시 잔여 기사 전수를 100건씩 Voyage AI 다국어 벡터로 자동 임베딩 및 중복 병합합니다.">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-emerald-600"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <span id="btnEmbedText">⚡ Voyage 임베딩 (잔여 확인 중...)</span>
+            </button>
+            <button id="btnTriggerWorker" onclick="toggleAiEnrichWorker()" class="px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-indigo-100" title="웹사이트를 열어두는 동안 백그라운드에서 AI 요약을 지속적으로 진행합니다. 클릭하여 일시정지/재개할 수 있습니다.">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indigo-600"></i>
+              <span id="btnWorkerText">⏳ AI 요약 상태 확인 중...</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 🎛️ Multi-Tier Interactive Filter Toolbar (검색창 위쪽 복합 필터 바) -->
+      <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-2.5">
+        <!-- Row 1: Source Language (원문 언어) -->
+        <div class="flex items-center gap-2 text-xs">
+          <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
+            🌐 원문 언어:
+          </span>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="filterLangRow">
+            <button onclick="setInboxLangFilter('ALL')" data-lang-val="ALL" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap">전체 언어</button>
+            <button onclick="setInboxLangFilter('KO')" data-lang-val="KO" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🇰🇷 한국어 (KO)</button>
+            <button onclick="setInboxLangFilter('EN')" data-lang-val="EN" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🇬🇧 영어 (EN)</button>
+            <button onclick="setInboxLangFilter('ZH')" data-lang-val="ZH" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🇨🇳 중국어 (ZH)</button>
+          </div>
+        </div>
+
+        <!-- Row 2: 4-Tier Classification (4대 기술 분류) -->
+        <div class="flex items-center gap-2 text-xs pt-2 border-t border-surface-border/60">
+          <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
+            🏷️ 기술 분류:
+          </span>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="filterTypeRow">
+            <button onclick="setInboxTypeFilter('ALL')" data-type-val="ALL" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap">전체 분류</button>
+            <button onclick="setInboxTypeFilter('TECH')" data-type-val="TECH" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">⚡ 신기술/아키텍처</button>
+            <button onclick="setInboxTypeFilter('AGENT')" data-type-val="AGENT" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🦾 AI 에이전트</button>
+            <button onclick="setInboxTypeFilter('MODEL')" data-type-val="MODEL" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🤖 AI 모델 발표</button>
+            <button onclick="setInboxTypeFilter('NEWS')" data-type-val="NEWS" class="inbox-type-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">📰 업계 동향/뉴스</button>
+          </div>
+        </div>
+
+        <!-- Row 3: Platform Sources (수집 출처) -->
+        <div class="flex items-center gap-2 text-xs pt-2 border-t border-surface-border/60">
+          <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
+            📡 수집 출처:
+          </span>
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="filterPlatformRow">
+            <button onclick="setInboxSourceFilter('ALL')" data-src-val="ALL" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap">전체 출처</button>
+            <button onclick="setInboxSourceFilter('GeekNews')" data-src-val="GeekNews" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🇰🇷 GeekNews</button>
+            <button onclick="setInboxSourceFilter('Hacker News')" data-src-val="Hacker News" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🔥 Hacker News</button>
+            <button onclick="setInboxSourceFilter('GitHub')" data-src-val="GitHub" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🐙 GitHub</button>
+            <button onclick="setInboxSourceFilter('ArXiv')" data-src-val="ArXiv" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">📄 ArXiv</button>
+            <button onclick="setInboxSourceFilter('Hugging Face')" data-src-val="Hugging Face" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🤗 Hugging Face</button>
+            <button onclick="setInboxSourceFilter('Reddit')" data-src-val="Reddit" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🤖 Reddit</button>
+            <button onclick="setInboxSourceFilter('Press')" data-src-val="Press" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">📰 Press / 언론</button>
+            <button onclick="setInboxSourceFilter('YouTube')" data-src-val="YouTube" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">📺 YouTube</button>
+            <button onclick="setInboxSourceFilter('PyTorchKR')" data-src-val="PyTorchKR" class="inbox-src-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🇰🇷 PyTorchKR</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clean Inbox Controls -->
+      <div class="bg-white p-3.5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-3 border border-surface-border shadow-sm">
+        <div class="flex items-center gap-2.5 w-full md:w-auto">
+          <div class="relative w-full md:w-80">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-2.5 text-ink-muted"></i>
+            <input type="text" id="inboxSearchInput" aria-label="인박스 검색" placeholder="후보 기술 또는 모델명 검색..." 
+                   class="w-full bg-surface-subtle border border-surface-border rounded-xl pl-10 pr-4 py-2 text-xs text-ink-primary placeholder-ink-muted focus:outline-none focus:border-ink-primary transition font-medium">
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 w-full md:w-auto justify-end flex-wrap">
+          <!-- 🔬 Checkbox: Include Pending AI Summaries -->
+          <label class="flex items-center gap-1.5 text-xs text-ink-secondary hover:text-ink-primary cursor-pointer select-none bg-surface-subtle px-2.5 py-1.5 rounded-xl border border-surface-border">
+            <input type="checkbox" id="inboxIncludePendingCheckbox" onchange="toggleInboxIncludePending(this.checked)" class="rounded text-indigo-600 focus:ring-indigo-500 cursor-pointer">
+            <span class="text-[11px] font-medium">🔬 AI요약 대기중 함께 보기</span>
+          </label>
+
+          <!-- 🌟 Standardized Sort Selector (날짜순 / 표준화 인기순) -->
+          <div class="flex items-center gap-1.5 bg-surface-subtle px-3 py-1.5 rounded-xl border border-surface-border text-xs shrink-0">
+            <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-indigo-600"></i>
+            <span class="text-ink-muted text-[11px] font-mono">정렬:</span>
+            <select id="inboxSortSelect" onchange="setInboxSort(this.value)" class="bg-transparent text-ink-primary text-xs font-bold focus:outline-none cursor-pointer">
+              <option value="date-audit-desc" selected>🔬 AI 분석일 최신순 (기본)</option>
+              <option value="pending">⏳ AI 분석 대기 (분석 전 원천)</option>
+              <option value="date-audit-asc">🔬 AI 분석일 오래된순</option>
+              <option value="date-source-desc">📅 수집/발표 최신순</option>
+              <option value="date-source-asc">📅 수집/발표 오래된순</option>
+              <option value="viral-desc">🔥 통합 인기순 (Viral High)</option>
+              <option value="viral-asc">통합 인기 낮은순 (Viral Low)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inbox Grid (3x5 Readable Grid) -->
+      <div id="inboxGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <div id="inboxPagination" class="mt-4"></div>
+    </div>
+
+  </main>
+
+  <!-- ==================== DETAILED TECHNICAL DOSSIER MODAL ==================== -->
+  <div id="detailModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-6 overflow-y-auto">
+    <div class="bg-white max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl border border-surface-border my-4 sm:my-8 max-h-[95vh] sm:max-h-[92vh] flex flex-col">
+      
+      <!-- Modal Header -->
+      <div class="p-4 sm:p-6 border-b border-surface-border flex items-start justify-between bg-surface-subtle">
+        <div class="space-y-2 pr-4">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span id="modalModeBadge" class="text-xs px-2.5 py-0.5 rounded-md font-semibold"></span>
+            <span id="modalClusterBadge" class="text-xs px-2.5 py-0.5 rounded-md bg-white text-ink-primary border border-surface-border font-medium"></span>
+            <span id="modalVerdictBadge" class="text-xs px-2.5 py-0.5 rounded-md font-semibold"></span>
+            <span id="modalStageBadge" class="text-xs px-2.5 py-0.5 rounded-md font-medium"></span>
+          </div>
+          <h3 id="modalTitle" class="text-xl font-bold text-ink-primary pt-1"></h3>
+        </div>
+        <button onclick="closeModal()" class="text-ink-secondary hover:text-ink-primary p-1.5 rounded-lg bg-white border border-surface-border hover:bg-surface-subtle transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-4 sm:p-6 overflow-y-auto space-y-5 sm:space-y-6 text-sm text-ink-secondary">
+        
+        <!-- Curation & Intent -->
+        <div id="modalCurationBox" class="p-4 rounded-xl border border-surface-border bg-surface-subtle space-y-1.5">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
+              <i data-lucide="compass" class="w-3.5 h-3.5 text-indigo-600"></i> <span id="modalSecCurationTitle">Discovery Motivation & Target Workflow</span>
+            </h4>
+          </div>
+          <p id="modalMotivation" class="text-xs text-ink-primary leading-relaxed font-medium"></p>
+          <div class="pt-1.5 flex items-center gap-1.5 text-xs text-ink-secondary">
+            <span class="text-ink-muted" id="modalWorkflowLabel">🎯 연계 워크플로우:</span>
+            <span id="modalWorkflow" class="text-ink-primary font-semibold font-mono"></span>
+          </div>
+        </div>
+
+        <!-- 🌟 VIRAL CLAIMS DOSSIER (Hides cleanly when quote is missing) -->
+        <div id="modalViralPostBox" class="hidden p-4.5 rounded-xl border border-indigo-200/90 bg-indigo-50/50 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-950 flex items-center gap-1.5">
+              <i data-lucide="message-square-quote" class="w-4 h-4 text-indigo-700"></i> <span id="modalSecViralPostTitle">1차 마케팅 원문 & 바이럴 클레임 발췌 (Raw Viral Claim)</span>
+            </h4>
+            <span id="modalViralPlatformBadge" class="text-[11px] px-2 py-0.5 rounded font-mono font-bold bg-white text-indigo-800 border border-indigo-200"></span>
+          </div>
+
+          <div class="bg-white p-3.5 rounded-xl border border-indigo-100 space-y-2">
+            <div class="text-[11px] text-indigo-900 font-mono font-semibold" id="modalViralAuthor"></div>
+            <p id="modalViralQuote" class="text-xs text-ink-secondary leading-relaxed italic font-sans"></p>
+          </div>
+
+          <div class="flex items-center justify-between pt-1">
+            <span class="text-[11px] text-indigo-800 font-mono" id="modalViralNote"></span>
+            <a id="modalViralDirectLink" href="#" target="_blank" class="px-3 py-1.5 rounded-lg bg-indigo-900 text-white text-xs font-bold hover:bg-indigo-800 transition flex items-center gap-1">
+              <span id="modalViralLinkText">원문 포스트 바로가기</span> <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Claims Assessment (Claims vs Truth) -->
+        <div id="modalClaimsBox" class="hidden space-y-3 p-4 rounded-xl border border-amber-200 bg-amber-50/50">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-amber-900 flex items-center gap-1.5">
+            <i data-lucide="scale" class="w-3.5 h-3.5"></i> <span id="modalSecClaimsTitle">Marketing Claims vs Empirical Reality</span>
+          </h4>
+          <div id="modalClaimsList" class="space-y-2.5"></div>
+        </div>
+
+        <!-- Story & Empirical Proof -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-surface-subtle border border-surface-border space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
+              <i data-lucide="eye" class="w-3.5 h-3.5 text-ink-secondary"></i> <span id="modalSecHookTitle">The Hook & Marketing Hype</span>
+            </h4>
+            <p id="modalHook" class="text-xs text-ink-secondary leading-relaxed"></p>
+            <p id="modalHype" class="text-xs text-ink-muted leading-relaxed pt-1 border-t border-surface-border"></p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-surface-subtle border border-surface-border space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
+              <i data-lucide="wrench" class="w-3.5 h-3.5 text-emerald-700"></i> <span id="modalSecHandsOnTitle">Hands-on Measured Results</span>
+            </h4>
+            <div id="modalHandsOnEnv" class="text-xs text-ink-muted font-mono"></div>
+            <div id="modalHandsOnMetrics" class="text-xs font-bold text-emerald-800"></div>
+            <p id="modalHandsOnDetails" class="text-xs text-ink-secondary leading-relaxed"></p>
+          </div>
+        </div>
+
+        <!-- Alternatives Matrix -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
+            <i data-lucide="git-compare" class="w-3.5 h-3.5 text-ink-secondary"></i> <span id="modalSecAltsTitle">Comparative Alternatives Matrix</span>
+          </h4>
+          <div class="overflow-x-auto rounded-xl border border-surface-border">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead class="bg-surface-subtle text-ink-secondary font-mono">
+                <tr>
+                  <th class="p-3 border-b border-surface-border" id="thTool">Tool / Tech</th>
+                  <th class="p-3 border-b border-surface-border" id="thStack">Tech Stack</th>
+                  <th class="p-3 border-b border-surface-border" id="thPros">Pros</th>
+                  <th class="p-3 border-b border-surface-border" id="thCons">Cons</th>
+                  <th class="p-3 border-b border-surface-border" id="thBestFor">Best For</th>
+                </tr>
+              </thead>
+              <tbody id="modalAlternativesBody" class="divide-y divide-surface-border bg-white"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Primary Sources -->
+        <div class="space-y-2.5">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-ink-primary flex items-center gap-1.5">
+            <i data-lucide="book-open" class="w-3.5 h-3.5 text-ink-secondary"></i> <span id="modalSecSourcesTitle">Audited Primary Sources</span>
+          </h4>
+          <div id="modalSourcesList" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== GOOGLE AUTH ADMIN LOGIN MODAL ==================== -->
+  <div id="adminAuthModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white max-w-md w-full rounded-2xl overflow-hidden shadow-2xl border border-surface-border flex flex-col animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Modal Header -->
+      <div class="p-5 border-b border-surface-border flex items-center justify-between bg-surface-subtle">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shadow-xs">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-ink-primary">관리자 보안 인증</h3>
+            <p class="text-[11px] text-ink-secondary">Google Workspace SSO</p>
+          </div>
+        </div>
+        <button onclick="closeAdminLoginModal()" class="w-8 h-8 rounded-lg flex items-center justify-center text-ink-muted hover:text-ink-primary hover:bg-surface-border transition cursor-pointer">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 space-y-5">
+        
+        <!-- Access Policy Notice -->
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1.5 leading-relaxed text-slate-700">
+          <div class="font-bold flex items-center gap-1.5 text-slate-900">
+            <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>인가된 관리자 계정 전용 시스템</span>
+          </div>
+          <p class="text-[11px] text-slate-600">
+            원천 데이터 아카이브 및 배치 워커 제어 권한은 아래 등록된 Google 계정으로만 접근이 허가됩니다.
+          </p>
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-slate-300 font-mono text-[11px] font-bold text-emerald-800">
+            <span>● andrew4may@gmail.com</span>
+          </div>
+        </div>
+
+        <!-- Error Notification Box -->
+        <div id="adminAuthError" class="hidden p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-medium leading-relaxed">
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="adminAuthLoading" class="hidden py-3 text-center space-y-2">
+          <div class="inline-block w-6 h-6 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
+          <p class="text-xs text-ink-secondary font-medium">Google 계정 보안 토큰 검증 중...</p>
+        </div>
+
+        <!-- Google Sign-In Official Button Container -->
+        <div class="flex flex-col items-center justify-center py-2 space-y-3">
+          <div id="googleSignInBtnContainer" class="flex justify-center min-h-[44px]">
+            <!-- Google Identity Services renders iframe button here -->
+          </div>
+          <p class="text-[10px] text-ink-muted">Google OAuth 2.0 암호화 토큰으로 안전하게 보호됩니다.</p>
+        </div>
+
+        <!-- Master Key Collapsible Fallback (Emergency / Local Dev) -->
+        <div class="pt-3 border-t border-surface-border">
+          <details class="text-[11px] text-ink-muted group">
+            <summary class="cursor-pointer hover:text-ink-primary select-none flex items-center justify-between">
+              <span>비상용 마스터 키로 로그인</span>
+              <i data-lucide="chevron-down" class="w-3 h-3 transition-transform group-open:rotate-180"></i>
+            </summary>
+            <div class="mt-2.5 space-y-2">
+              <input type="password" id="adminMasterKeyInput" placeholder="관리자 마스터 시크릿 키 입력" class="w-full px-3 py-2 rounded-lg border border-surface-border text-xs focus:outline-hidden focus:border-ink-primary font-mono bg-surface-subtle">
+              <button onclick="submitAdminMasterKey(document.getElementById('adminMasterKeyInput').value)" class="w-full py-1.5 rounded-lg bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition cursor-pointer">
+                마스터 키 확인
+              </button>
+            </div>
+          </details>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-3.5 bg-surface-subtle border-t border-surface-border flex items-center justify-end">
+        <button onclick="closeAdminLoginModal()" class="px-3.5 py-1.5 rounded-lg border border-surface-border text-xs font-semibold text-ink-secondary hover:text-ink-primary hover:bg-white transition cursor-pointer">
+          취소
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-ink-primary text-white px-4 py-3 rounded-xl shadow-2xl text-xs font-semibold hidden transition-all duration-300 flex items-center gap-2">
+    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+    <span id="toastMsg">작업이 완료되었습니다.</span>
+  </div>
+
+  <!-- ==================== PRODUCTION APPLICATION SCRIPT & FAIL-SAFE HARNESS ==================== -->
+  <script>
+    // 🛡️ Fail-Safe Instant Abort Harness:
+    // If the modular app bundle encounters an unexpected runtime error or initialization timeout,
+    // automatically fall back to the battle-tested legacy script (app.legacy.js) immediately.
+    window.__FALLBACK_TRIGGERED__ = false;
+    function triggerLegacyFallback(reason) {
+      if (window.__FALLBACK_TRIGGERED__) return;
+      window.__FALLBACK_TRIGGERED__ = true;
+      console.warn('[FailSafe Harness] ⚠️ Activating battle-tested legacy fallback (app.legacy.js). Reason:', reason);
+      const script = document.createElement('script');
+      script.src = 'app.legacy.js?v=' + Date.now();
+      document.body.appendChild(script);
+    }
+    window.addEventListener('error', function(e) {
+      if (!window.__APP_INITIALIZED__ && e.filename && e.filename.includes('app.js')) {
+        triggerLegacyFallback(e.message || 'Script execution error');
+      }
+    });
+    setTimeout(function() {
+      if (!window.__APP_INITIALIZED__) {
+        triggerLegacyFallback('Initialization timeout (15000ms)');
+      }
+    }, 15000);
+  </script>
+  <script src="app.js?v=20260928_modular_v1" onerror="triggerLegacyFallback('HTTP script load error')"></script>
+</body>
+</html>

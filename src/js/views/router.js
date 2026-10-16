@@ -13,7 +13,7 @@ import {
   currentModelsPage,
   currentInboxPage
 } from '../core/store.js';
-import { ROUTES } from '../core/config.js';
+import { ROUTES, getBasePath, resolveRoute } from '../core/config.js';
 import { renderCards } from '../components/portfolioCard.js';
 import { renderModels } from '../components/modelsCard.js';
 import {
@@ -208,7 +208,7 @@ export function switchView(view, pushHistory = true, preserveFilters = false) {
   }
 
   if (pushHistory) {
-    const targetPath = ROUTES[targetView] || '/' + (targetView === 'home' ? '' : targetView);
+    const targetPath = resolveRoute(targetView);
     const curPath = window.location.pathname;
     if (curPath !== targetPath && (!targetPath.startsWith('#') || window.location.hash !== targetPath)) {
       try {
@@ -281,7 +281,13 @@ export function handleRoute() {
   closeModal(false);
 
   // 2. Parse Route: Check pathname first, fallback to legacy hash
-  const cleanPath = pathname.replace(/\/$/, '') || '/';
+  const basePath = getBasePath();
+  let cleanPath = pathname;
+  if (basePath && cleanPath.startsWith(basePath)) {
+    cleanPath = cleanPath.slice(basePath.length);
+  }
+  cleanPath = cleanPath.replace(/\/$/, '') || '/';
+
   let targetView = 'home';
   if (cleanPath === '/factchecks' || cleanPath === '/portfolio' || hash.includes('factchecks') || hash.includes('portfolio')) {
     targetView = 'portfolio';
@@ -308,7 +314,7 @@ export function handleRoute() {
 
   // If user arrived via legacy #hash, gracefully replace URL with clean pathname
   if (hash && typeof history !== 'undefined') {
-    const canonicalPath = ROUTES[targetView] || '/';
+    const canonicalPath = resolveRoute(targetView);
     const qs = search || (hashQuery ? '?' + hashQuery : '');
     try { history.replaceState({ view: targetView }, '', canonicalPath + qs); } catch(e) {}
   }
