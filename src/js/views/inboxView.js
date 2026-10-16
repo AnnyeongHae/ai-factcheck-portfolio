@@ -241,8 +241,8 @@ export function createInboxCardElement(it, curLang) {
   const card = document.createElement('div');
   card.className = 'executive-card p-4 sm:p-5 flex flex-col justify-between space-y-3.5 hover:border-indigo-400 hover:shadow-md transition';
 
-  const hookHtml = renderHookCallout(displayHook);
-  const aiSummaryHtml = renderAiTakeaways(displayTakeaways, curLang);
+  const hookHtml = renderHookCallout(displayHook, curLang);
+  const aiSummaryHtml = '';
   const relatedHtml = renderRelatedDossierButton(it.related_dossier, curLang);
 
   const rawComments = Array.isArray(it.raw_comments) 

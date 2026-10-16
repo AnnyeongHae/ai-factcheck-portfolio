@@ -159,27 +159,100 @@ def build_translation_prompt(items_to_translate: list) -> str:
     compact_input = json.dumps(items_to_translate, ensure_ascii=False, separators=(',', ':'))
     return f"{SYSTEM_INSTRUCTION_KO}\n입력:{compact_input}"
 
-def translate_titles_antigravity_cli(items: list, timeout_sec: int = 75):
+def get_or_init_worker_cid(exe_path, worker_id: int = 0) -> str:
+    """Reuses a dedicated persistent worker conversation per thread to prevent chat spawning and leverage prompt caching."""
+    runtime_dir = os.path.join(ROOT_DIR, "runtime", "worker_sessions")
+    os.makedirs(runtime_dir, exist_ok=True)
+    session_file = os.path.join(runtime_dir, f"worker_{worker_id}.txt")
+
+    if os.path.exists(session_file):
+        try:
+            with open(session_file, "r", encoding="utf-8") as f:
+                saved_cid = f.read().strip()
+            if saved_cid:
+                meta_cmd = [exe_path, "agentapi" if exe_path.endswith(".exe") else "", "get-conversation-metadata", saved_cid]
+                meta_cmd = [c for c in meta_cmd if c]
+                res = subprocess.run(meta_cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=8)
+                if res.returncode == 0:
+                    return saved_cid
+        except Exception:
+            pass
+
+    # Create new persistent worker session
+    cmd = [
+        exe_path,
+        "agentapi" if exe_path.endswith(".exe") else "",
+        "new-conversation",
+        "--model=flash",
+        f"--title=AI-Enricher-Worker-{worker_id}",
+        "당신은 글로벌 최고 수준의 다국어 AI 기술 분석가 및 번역가입니다."
+    ]
+    cmd = [c for c in cmd if c]
+    try:
+        res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=20)
+        conv_data = json.loads(res.stdout)
+        cid = conv_data.get("response", {}).get("newConversation", {}).get("conversationId")
+        if cid:
+            with open(session_file, "w", encoding="utf-8") as f:
+                f.write(cid)
+            return cid
+    except Exception as e:
+        print(f"    [!] Failed to create persistent worker conversation: {e}")
+    return None
+
+def translate_titles_antigravity_cli(items: list, worker_id: int = 0, timeout_sec: int = 75):
     """
     Mode 1 (Local Primary - Antigravity CLI Gemini Flash):
-    Executes native `language_server.exe agentapi new-conversation --model=flash`
+    Executes native `language_server.exe agentapi send-message <cid>` reusing dedicated worker sessions.
     Bypasses external paid Google AI Studio API limits ($0 cost, native quota).
     Enforces strictly ZERO THINKING for instantaneous pure JSON generation.
+    Enforces 2-line deep engineering impact hook with NO title redundancy.
     """
     import subprocess
-    items_to_translate = [{"id": it['id'], "title": clean_title(it.get('title', ''))} for it in items]
+    items_to_translate = []
+    for it in items:
+        clean_t = clean_title(it.get('title', ''))
+        entry = {
+            "id": it['id'],
+            "platform": it.get('source_platform', 'Web'),
+            "title": clean_t
+        }
+        # Inject rich context: description snippet (up to 220 chars)
+        desc = (it.get('description') or it.get('existing_payload', {}).get('description') or '').strip()
+        if desc and desc != clean_t:
+            entry["desc"] = desc[:220]
+        # Inject rich context: top community comment
+        comments = it.get('existing_payload', {}).get('raw_comments') or []
+        if comments and isinstance(comments, list):
+            top_cm = comments[0].get('text', '') if isinstance(comments[0], dict) else str(comments[0])
+            if top_cm:
+                entry["feedback"] = top_cm[:120]
+        items_to_translate.append(entry)
+
     results = {}
     if not items_to_translate:
         return results, {"promptTokenCount": 0, "candidatesTokenCount": 0, "thoughtsTokenCount": 0, "totalTokenCount": 0}, False
 
     compact_input = json.dumps(items_to_translate, ensure_ascii=False, separators=(',', ':'))
-    prompt = f"당신은 초고속 기술 번역 엔진입니다.\n[절대 규칙: 생각(thinking/reasoning) 과정을 일체 수행하지 마십시오. 생각 과정 없이 즉시 아래 스키마의 순수 JSON 배열만 출력하십시오.]\n[schema: [{{\"id\": 1, \"title_en\": \"영어 제목\", \"title_ko\": \"한국 엔지니어 친화적 한국어 제목\", \"title_zh\": \"중국어 제목\", \"hook_en\": \"English 1-sentence hook\", \"hook_ko\": \"한국어 1문장 핵심 후킹\", \"hook_zh\": \"중국어 1문장 핵심 요약\"}}]]\n입력:{compact_input}"
+    prompt = (
+        "당신은 최고 수준의 글로벌 IT/AI 전문 기술 분석가 및 번역가입니다.\n"
+        "[절대 규칙 1: 생각(thinking/reasoning) 과정을 일체 출력하지 마십시오.]\n"
+        "[절대 규칙 2 - Hook 생성 필수 2대 조건]:\n"
+        "  1) 절대 제목(title)을 그대로 반복하거나 번역하지 마십시오.\n"
+        "  2) 반드시 본문 설명(desc)과 커뮤니티 반응(feedback)을 분석하여 핵심 기술적 의의와 엔지니어링 시사점을 '2줄 이상'(한글 80~140자 내외) 깊이 있게 작성하십시오. (hook_ko, hook_en, hook_zh 모두 적용)\n"
+        "[schema: [{\"id\": 1, \"title_en\": \"Refined English Title\", \"title_ko\": \"한국 엔지니어 친화적 한국어 제목\", \"title_zh\": \"中文标题\", \"hook_en\": \"Deep 2-line engineering insight (no title repetition, 120-220 chars)\", \"hook_ko\": \"제목과 중복되지 않는 핵심 기술 시사점 2줄 이상 깊은 통찰 (80-140자)\", \"hook_zh\": \"不重复标题的核心技术影响与深度见解 2行以上\"}]]\n"
+        f"입력:{compact_input}"
+    )
 
     exe_path = os.path.join(os.environ.get("LOCALAPPDATA", ""), "Programs", "antigravity", "resources", "bin", "language_server.exe")
     if not os.path.exists(exe_path):
         exe_path = r"C:\Users\user\.gemini\antigravity\bin\agentapi.bat"
 
-    cmd = [exe_path, "agentapi" if exe_path.endswith(".exe") else "", "new-conversation", "--model=flash", prompt]
+    cid = get_or_init_worker_cid(exe_path, worker_id=worker_id)
+    if cid:
+        cmd = [exe_path, "agentapi" if exe_path.endswith(".exe") else "", "send-message", cid, prompt]
+    else:
+        cmd = [exe_path, "agentapi" if exe_path.endswith(".exe") else "", "new-conversation", "--model=flash", prompt]
     cmd = [c for c in cmd if c]
 
     try:
@@ -188,8 +261,9 @@ def translate_titles_antigravity_cli(items: list, timeout_sec: int = 75):
             print(f"    [!] agentapi process error (code {res.returncode}): {res.stderr[:200]}")
             return results, {}, True
 
-        conv_data = json.loads(res.stdout)
-        cid = conv_data.get("response", {}).get("newConversation", {}).get("conversationId")
+        if not cid:
+            conv_data = json.loads(res.stdout)
+            cid = conv_data.get("response", {}).get("newConversation", {}).get("conversationId")
         if not cid:
             print("    [!] agentapi failed to return conversationId")
             return results, {}, True
@@ -245,13 +319,38 @@ def translate_titles_antigravity_cli(items: list, timeout_sec: int = 75):
     return results, {}, True
 
 def translate_titles_openrouter(items: list, openrouter_key: str):
-    """Mode 3 (Local Fallback): Calls OpenRouter 100% Free Model (batch=3)."""
-    items_to_translate = [{"id": it['id'], "title": clean_title(it.get('title', ''))} for it in items]
+    """Mode 3 (Local Fallback): Calls OpenRouter 100% Free Model."""
+    items_to_translate = []
+    for it in items:
+        clean_t = clean_title(it.get('title', ''))
+        entry = {
+            "id": it['id'],
+            "platform": it.get('source_platform', 'Web'),
+            "title": clean_t
+        }
+        desc = (it.get('description') or it.get('existing_payload', {}).get('description') or '').strip()
+        if desc and desc != clean_t:
+            entry["desc"] = desc[:220]
+        comments = it.get('existing_payload', {}).get('raw_comments') or []
+        if comments and isinstance(comments, list):
+            top_cm = comments[0].get('text', '') if isinstance(comments[0], dict) else str(comments[0])
+            if top_cm:
+                entry["feedback"] = top_cm[:120]
+        items_to_translate.append(entry)
+
     results = {}
     if not items_to_translate:
         return results, {"promptTokenCount": 0, "candidatesTokenCount": 0, "thoughtsTokenCount": 0, "totalTokenCount": 0}, OPENROUTER_FREE_MODELS[0], False
 
-    prompt = build_translation_prompt(items_to_translate)
+    prompt = (
+        "당신은 최고 수준의 글로벌 IT/AI 전문 기술 분석가 및 번역가입니다.\n"
+        "[절대 규칙 1: 생각(thinking/reasoning) 과정을 일체 출력하지 마십시오.]\n"
+        "[절대 규칙 2 - Hook 생성 필수 2대 조건]:\n"
+        "  1) 절대 제목(title)을 그대로 반복하거나 번역하지 마십시오.\n"
+        "  2) 반드시 본문 설명(desc)과 커뮤니티 반응(feedback)을 분석하여 핵심 기술적 의의와 엔지니어링 시사점을 '2줄 이상'(한글 80~140자 내외) 깊이 있게 작성하십시오. (hook_ko, hook_en, hook_zh 모두 적용)\n"
+        "[schema: [{\"id\": 1, \"title_en\": \"Refined English Title\", \"title_ko\": \"한국 엔지니어 친화적 한국어 제목\", \"title_zh\": \"中文标题\", \"hook_en\": \"Deep 2-line engineering insight (no title repetition, 120-220 chars)\", \"hook_ko\": \"제목과 중복되지 않는 핵심 기술 시사점 2줄 이상 깊은 통찰 (80-140자)\", \"hook_zh\": \"不重复标题的核心技术影响与深度见解 2行以上\"}]]\n"
+        f"입력:{json.dumps(items_to_translate, ensure_ascii=False, separators=(',', ':'))}"
+    )
     for model_name in OPENROUTER_FREE_MODELS[:3]:
         payload = {
             "model": model_name,
@@ -317,33 +416,16 @@ def assemble_enriched_item(item: dict, translations: dict) -> dict:
     t_zh = trans.get('title_zh') or f"【{plat_prefix}】{title_clean}"
     t_en = trans.get('title_en') or title_clean
 
-    # Clean title_ko if it still has English only
     if not KOREAN_REGEX.search(t_ko):
         t_ko = f"{plat_prefix}: {title_clean}"
 
     entity, t1, prim, itype = extract_entity_and_category(f"{t_en} {title_clean}")
     story_key = slugify(t_en if not (KOREAN_REGEX.search(t_en) or CHINESE_REGEX.search(t_en)) else title_clean)
 
-    # Distinct, non-repetitive contextual hooks and takeaways (no boilerplate hook_en pollution)
-    h_ko = trans.get('hook_ko') or f"{plat_prefix} 생태계에서 부상 중인 핵심 아키텍처 명세 및 실무 엔지니어링 영향 분석"
-    h_en = trans.get('hook_en') or t_en
-    h_zh = trans.get('hook_zh') or f"来自 {plat_prefix} 生态的核心技术架构突破与全球开发者社区深度解析。"
-
-    tk_ko = [
-      f"{plat_prefix} 채널을 통해 공유된 핵심 아키텍처 설계 및 주요 기술 사양 분석",
-      "글로벌 엔지니어링 커뮤니티 및 개발자 생태계의 실시간 벤치마크 및 도입 피드백",
-      "차세대 프로덕션 시스템 안정성 및 엔터프라이즈 워크플로 관점의 권장 대응 방향"
-    ]
-    tk_en = [
-      f"Core technical specifications and release highlights shared on {plat_prefix}",
-      "Practitioner evaluations, community discussion, and comparative performance benchmarks",
-      "Actionable integration guidelines for scalable production adoption and infrastructure reliability"
-    ]
-    tk_zh = [
-      f"基于 {plat_prefix} 渠道发布的核心功能规范与系统架构细节",
-      "全球技术社区与开发者生态对其运行效能与生产适用性的实时反馈",
-      "面向工业级企业系统部署与技术选型路线图的综合演进建议"
-    ]
+    # High-signal 2-line engineering impact hook (no title repetition, zero fake takeaways)
+    h_ko = trans.get('hook_ko') or f"{plat_prefix} 채널을 통해 공유된 기술 업데이트입니다. 실무 아키텍처 및 시스템 워크플로에 미치는 엔지니어링 영향을 심층 분석합니다."
+    h_en = trans.get('hook_en') or f"Technical release shared via {plat_prefix}. Examines practitioner architectural implications and system adoption trade-offs."
+    h_zh = trans.get('hook_zh') or f"来自 {plat_prefix} 渠道的技术更新。深入分析其实际系统架构考量与开发者生态影响。"
 
     return {
         "id": db_id,
@@ -353,9 +435,6 @@ def assemble_enriched_item(item: dict, translations: dict) -> dict:
         "hook_ko": h_ko,
         "hook_en": h_en,
         "hook_zh": h_zh,
-        "key_takeaways_ko": tk_ko,
-        "key_takeaways_en": tk_en,
-        "key_takeaways_zh": tk_zh,
         "tier1_category": t1,
         "category_primary": prim,
         "item_type": itype,
@@ -444,7 +523,8 @@ def run_re_enrichment(mode: str = "local-gemini", batch_size: int = None, limit:
         current_model = f"google/{GEMINI_MODEL}"
 
         if current_mode == "local-gemini":
-            translations, usage, cli_failed = translate_titles_antigravity_cli(chunk, timeout_sec=80)
+            worker_slot = chunk_idx % concurrency
+            translations, usage, cli_failed = translate_titles_antigravity_cli(chunk, worker_id=worker_slot, timeout_sec=80)
             if cli_failed or not translations:
                 if openrouter_key:
                     with lock:
@@ -503,10 +583,6 @@ def run_re_enrichment(mode: str = "local-gemini", batch_size: int = None, limit:
                 "description_ko": enriched["hook_ko"],
                 "description_en": enriched["hook_en"],
                 "description_zh": enriched["hook_zh"],
-                "key_takeaways": enriched["key_takeaways_ko"],
-                "key_takeaways_ko": enriched["key_takeaways_ko"],
-                "key_takeaways_en": enriched["key_takeaways_en"],
-                "key_takeaways_zh": enriched["key_takeaways_zh"],
                 "category_type": enriched["item_type"],
                 "item_type": enriched["item_type"],
                 "category_primary": enriched["category_primary"],
@@ -515,9 +591,9 @@ def run_re_enrichment(mode: str = "local-gemini", batch_size: int = None, limit:
                 "canonical_story_key": enriched["canonical_story_key"],
                 "canonical_tech_entity": enriched["canonical_tech_entity"],
                 "multilingual": {
-                    "ko": {"title": enriched["title_ko"], "hook": enriched["hook_ko"], "key_takeaways": enriched["key_takeaways_ko"]},
-                    "en": {"title": enriched["title_en"], "hook": enriched["hook_en"], "key_takeaways": enriched["key_takeaways_en"]},
-                    "zh": {"title": enriched["title_zh"], "hook": enriched["hook_zh"], "key_takeaways": enriched["key_takeaways_zh"]}
+                    "ko": {"title": enriched["title_ko"], "hook": enriched["hook_ko"]},
+                    "en": {"title": enriched["title_en"], "hook": enriched["hook_en"]},
+                    "zh": {"title": enriched["title_zh"], "hook": enriched["hook_zh"]}
                 },
                 "ai_enrichment": {
                     "id": r_inbox_id,
@@ -530,14 +606,10 @@ def run_re_enrichment(mode: str = "local-gemini", batch_size: int = None, limit:
                     "canonical_tech_entity": enriched["canonical_tech_entity"],
                     "korean_title": enriched["title_ko"],
                     "hook": enriched["hook_ko"],
-                    "key_takeaways": enriched["key_takeaways_ko"],
-                    "takeaways_ko": enriched["key_takeaways_ko"],
-                    "takeaways_en": enriched["key_takeaways_en"],
-                    "takeaways_zh": enriched["key_takeaways_zh"],
                     "multilingual": {
-                        "ko": {"title": enriched["title_ko"], "hook": enriched["hook_ko"], "key_takeaways": enriched["key_takeaways_ko"]},
-                        "en": {"title": enriched["title_en"], "hook": enriched["hook_en"], "key_takeaways": enriched["key_takeaways_en"]},
-                        "zh": {"title": enriched["title_zh"], "hook": enriched["hook_zh"], "key_takeaways": enriched["key_takeaways_zh"]}
+                        "ko": {"title": enriched["title_ko"], "hook": enriched["hook_ko"]},
+                        "en": {"title": enriched["title_en"], "hook": enriched["hook_en"]},
+                        "zh": {"title": enriched["title_zh"], "hook": enriched["hook_zh"]}
                     },
                     "enriched_by_model": current_model,
                     "enriched_at": now_iso,

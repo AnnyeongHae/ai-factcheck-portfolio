@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T15:31:32.201Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T15:50:12.614Z */
 
 (() => {
   // src/js/core/config.js
@@ -3605,12 +3605,15 @@
       hasTrilingual
     };
   }
-  function renderHookCallout(displayHook) {
+  function renderHookCallout(displayHook, lang = currentLang) {
     if (!displayHook) return "";
+    const badgeTitle = lang === "KO" ? "\u{1F4A1} \uD575\uC2EC \uC5D4\uC9C0\uB2C8\uC5B4\uB9C1 \uC2DC\uC0AC\uC810" : lang === "ZH" ? "\u{1F4A1} \u6838\u5FC3\u5DE5\u7A0B\u542F\u793A" : "\u{1F4A1} Key Engineering Impact";
     return `
-    <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 border-l-4 border-l-amber-500 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5 shadow-2xs">
-      <span class="shrink-0 font-bold text-amber-800">\u{1FA9D} Hook:</span>
-      <span>${displayHook}</span>
+    <div class="p-2.5 sm:p-3 rounded-xl bg-slate-50/80 border border-slate-200/80 border-l-4 border-l-indigo-500 text-[11.5px] leading-relaxed shadow-2xs space-y-1">
+      <div class="flex items-center gap-1.5 font-bold text-[10.5px] text-indigo-950">
+        <span>${badgeTitle}</span>
+      </div>
+      <div class="text-ink-primary font-medium">${displayHook}</div>
     </div>
   `;
   }
@@ -3630,8 +3633,7 @@
           </div>
           <div class="h-5 w-full bg-slate-200/90 rounded-md"></div>
           <div class="h-4 w-3/4 bg-slate-200/70 rounded-md"></div>
-          <div class="h-12 w-full bg-amber-100/40 rounded-xl border border-amber-200/30"></div>
-          <div class="h-16 w-full bg-indigo-50/40 rounded-xl border border-indigo-100/40"></div>
+          <div class="h-14 w-full bg-slate-100 rounded-xl border border-slate-200/60"></div>
         </div>
         <div class="pt-3 border-t border-surface-border space-y-2">
           <div class="flex items-center justify-between">
@@ -3815,7 +3817,7 @@
     }
     let aiBadgeHtml = "";
     let aiSummaryHtml = "";
-    const hookHtml = renderHookCallout(displayHook);
+    const hookHtml = renderHookCallout(displayHook, currentLang2);
     const relatedHtml = renderRelatedDossierButton(it.related_dossier, currentLang2);
     const commentsHtml = renderCommentsAccordion(it.raw_comments, currentLang2, hnUrl || it.source_url);
     const tier1Map = {
@@ -3862,7 +3864,7 @@
         ${effectiveSourceLang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">${effectiveSourceLang}</span>` : ""}
       </div>
     `;
-      aiSummaryHtml = renderAiTakeaways(displayTakeaways, currentLang2);
+      aiSummaryHtml = "";
     }
     let crossRollupHtml = "";
     if (it.cross_posts && it.cross_posts.length > 0 || allSources.length > 1) {
@@ -6151,8 +6153,8 @@
     else if (ai && ai.type_classification === "NEWS") typeBadge = curLang === "KO" ? "\u{1F4F0} \uC5C5\uACC4 \uB3D9\uD5A5" : curLang === "ZH" ? "\u{1F4F0} \u884C\u4E1A\u8D44\u8BAF" : "\u{1F4F0} News";
     const card = document.createElement("div");
     card.className = "executive-card p-4 sm:p-5 flex flex-col justify-between space-y-3.5 hover:border-indigo-400 hover:shadow-md transition";
-    const hookHtml = renderHookCallout(displayHook);
-    const aiSummaryHtml = renderAiTakeaways(displayTakeaways, curLang);
+    const hookHtml = renderHookCallout(displayHook, curLang);
+    const aiSummaryHtml = "";
     const relatedHtml = renderRelatedDossierButton(it.related_dossier, curLang);
     const rawComments = Array.isArray(it.raw_comments) ? it.raw_comments : Array.isArray(it.raw_payload?.raw_comments) ? it.raw_payload.raw_comments : [];
     const commentsHtml = renderCommentsAccordion(rawComments, curLang, it.source_url);

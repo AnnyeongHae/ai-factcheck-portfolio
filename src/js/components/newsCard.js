@@ -108,12 +108,15 @@ export function getLocalizedContent(it, lang = currentLang) {
   };
 }
 
-export function renderHookCallout(displayHook) {
+export function renderHookCallout(displayHook, lang = currentLang) {
   if (!displayHook) return '';
+  const badgeTitle = lang === 'KO' ? '💡 핵심 엔지니어링 시사점' : (lang === 'ZH' ? '💡 核心工程启示' : '💡 Key Engineering Impact');
   return `
-    <div class="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/80 border-l-4 border-l-amber-500 text-[11px] text-amber-950 font-medium leading-relaxed flex items-start gap-1.5 shadow-2xs">
-      <span class="shrink-0 font-bold text-amber-800">🪝 Hook:</span>
-      <span>${displayHook}</span>
+    <div class="p-2.5 sm:p-3 rounded-xl bg-slate-50/80 border border-slate-200/80 border-l-4 border-l-indigo-500 text-[11.5px] leading-relaxed shadow-2xs space-y-1">
+      <div class="flex items-center gap-1.5 font-bold text-[10.5px] text-indigo-950">
+        <span>${badgeTitle}</span>
+      </div>
+      <div class="text-ink-primary font-medium">${displayHook}</div>
     </div>
   `;
 }
@@ -134,8 +137,7 @@ export function renderNewsSkeleton(grid, count = 6) {
           </div>
           <div class="h-5 w-full bg-slate-200/90 rounded-md"></div>
           <div class="h-4 w-3/4 bg-slate-200/70 rounded-md"></div>
-          <div class="h-12 w-full bg-amber-100/40 rounded-xl border border-amber-200/30"></div>
-          <div class="h-16 w-full bg-indigo-50/40 rounded-xl border border-indigo-100/40"></div>
+          <div class="h-14 w-full bg-slate-100 rounded-xl border border-slate-200/60"></div>
         </div>
         <div class="pt-3 border-t border-surface-border space-y-2">
           <div class="flex items-center justify-between">
@@ -336,7 +338,7 @@ export function createNewsCardElement(it, currentLang) {
 
   let aiBadgeHtml = '';
   let aiSummaryHtml = '';
-  const hookHtml = renderHookCallout(displayHook);
+  const hookHtml = renderHookCallout(displayHook, currentLang);
   const relatedHtml = renderRelatedDossierButton(it.related_dossier, currentLang);
   const commentsHtml = renderCommentsAccordion(it.raw_comments, currentLang, hnUrl || it.source_url);
 
@@ -389,7 +391,7 @@ export function createNewsCardElement(it, currentLang) {
       </div>
     `;
 
-    aiSummaryHtml = renderAiTakeaways(displayTakeaways, currentLang);
+    aiSummaryHtml = ''; // 3-line takeaway retired in favor of high-signal 2-line engineering hook
   }
 
   let crossRollupHtml = '';
