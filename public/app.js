@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T16:02:16.513Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T16:27:03.475Z */
 
 (() => {
   // src/js/core/config.js
@@ -2541,9 +2541,12 @@
     let name = String(raw).trim();
     const m = name.match(/^(?:Press|News|YouTube)\s*\((.*?)\)$/i);
     if (m) name = m[1].trim();
+    name = name.replace(/\s*\((?:Security|Tech|AI|IT|SW)\)$/i, "").trim();
     if (name.toLowerCase().startsWith("reddit")) return "Reddit";
     if (name.includes("\uC870\uCF54\uB529")) return "YouTube (\uC870\uCF54\uB529)";
     const map = {
+      "the hacker news": "The Hacker News",
+      "the hacker news (security)": "The Hacker News",
       "the new york times": "NYT",
       "the wall street journal": "WSJ",
       "the guardian": "The Guardian",
@@ -3145,21 +3148,22 @@
       return `<a href="${m.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${m.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs">${m.icon} ${m.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
     }
     const directButtons = [];
+    const maxDirect = total > 2 ? 1 : 2;
     if (pressSources.length > 0) directButtons.push(pressSources[0]);
-    if (communitySources.length > 0 && directButtons.length < 2) directButtons.push(communitySources[0]);
-    if (codeSources.length > 0 && directButtons.length < 2) directButtons.push(codeSources[0]);
-    if (directButtons.length < 2) {
+    if (directButtons.length < maxDirect && communitySources.length > 0) directButtons.push(communitySources[0]);
+    if (directButtons.length < maxDirect && codeSources.length > 0) directButtons.push(codeSources[0]);
+    if (directButtons.length < maxDirect) {
       for (const s of sources) {
         if (!directButtons.includes(s)) {
           directButtons.push(s);
-          if (directButtons.length >= 2) break;
+          if (directButtons.length >= maxDirect) break;
         }
       }
     }
-    let html = `<div class="flex items-center gap-1.5 flex-wrap justify-end relative">`;
+    let html = `<div class="flex items-center gap-1.5 flex-wrap justify-end relative max-w-full">`;
     directButtons.forEach((s) => {
       const m = s.meta;
-      html += `<a href="${m.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${m.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs" title="${m.cleanPlatform} \uBC14\uB85C\uAC00\uAE30">${m.icon} ${m.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+      html += `<a href="${m.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded-md ${m.badgeCls} border text-[10.5px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs max-w-[130px]" title="${m.cleanPlatform} \uBC14\uB85C\uAC00\uAE30"><span class="shrink-0">${m.icon}</span><span class="truncate">${m.label}</span> <i data-lucide="external-link" class="w-2.5 h-2.5 shrink-0"></i></a>`;
     });
     if (total > directButtons.length) {
       const remainingCount = total - directButtons.length;
@@ -3169,7 +3173,7 @@
       if (codeSources.length > 0) summaryParts.push(`\uCF54\uB4DC ${codeSources.length}`);
       html += `
       <div class="relative inline-block src-dropdown-container">
-        <button type="button" onclick="toggleSourcePopover(event, '${safeId}')" class="px-2 py-1 rounded-md bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-[11px] font-extrabold flex items-center gap-1 shrink-0 transition cursor-pointer shadow-xs" title="\uC804\uCCB4 ${total}\uAC1C \uAD50\uCC28 \uCD9C\uCC98 \uBAA8\uC544\uBCF4\uAE30">
+        <button type="button" onclick="toggleSourcePopover(event, '${safeId}')" class="px-2 py-0.5 rounded-md bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-[10.5px] font-extrabold flex items-center gap-1 shrink-0 transition cursor-pointer shadow-xs whitespace-nowrap" title="\uC804\uCCB4 ${total}\uAC1C \uAD50\uCC28 \uCD9C\uCC98 \uBAA8\uC544\uBCF4\uAE30">
           <span>\u{1F517} +${remainingCount}${lang === "KO" ? "\uAC1C \uCD9C\uCC98" : lang === "ZH" ? "\u4E2A\u6765\u6E90" : " more"}</span>
           <i data-lucide="chevron-down" class="w-3 h-3 text-amber-800"></i>
         </button>
@@ -3655,13 +3659,10 @@
   }
   function renderHookCallout(displayHook, lang = currentLang) {
     if (!displayHook) return "";
-    const badgeTitle = lang === "KO" ? "\u{1F4A1} \uD575\uC2EC \uC5D4\uC9C0\uB2C8\uC5B4\uB9C1 \uC2DC\uC0AC\uC810" : lang === "ZH" ? "\u{1F4A1} \u6838\u5FC3\u5DE5\u7A0B\u542F\u793A" : "\u{1F4A1} Key Engineering Impact";
     return `
-    <div class="p-2.5 sm:p-3 rounded-xl bg-slate-50/80 border border-slate-200/80 border-l-4 border-l-indigo-500 text-[11.5px] leading-relaxed shadow-2xs space-y-1">
-      <div class="flex items-center gap-1.5 font-bold text-[10.5px] text-indigo-950">
-        <span>${badgeTitle}</span>
-      </div>
-      <div class="text-ink-primary font-medium">${displayHook}</div>
+    <div class="p-2.5 rounded-xl bg-amber-50/75 border border-amber-200/80 border-l-4 border-l-amber-500 text-[11.5px] text-amber-950 font-medium leading-relaxed shadow-2xs flex items-start gap-1.5">
+      <span class="shrink-0 select-none font-bold text-amber-800">\u{1FA9D}</span>
+      <span class="flex-1">${displayHook}</span>
     </div>
   `;
   }
@@ -3804,11 +3805,11 @@
           ${hasUpdate ? `<span class="text-indigo-600 font-bold" title="${updLabel}">(\u{1F504} ${updDate})</span>` : ""}
         </div>
       </div>
-      <div class="flex items-center justify-between gap-2 pt-0.5 font-sans">
-        <div class="min-w-0 truncate">
+      <div class="flex items-center justify-between gap-1.5 pt-0.5 font-sans flex-wrap">
+        <div class="min-w-0 max-w-full">
           ${auditHtml}
         </div>
-        <div class="flex items-center justify-end gap-1.5 shrink-0">
+        <div class="flex items-center justify-end gap-1.5 flex-wrap ml-auto max-w-full">
           ${extraActionHtml || defaultSourceLink}
         </div>
       </div>
@@ -4011,63 +4012,18 @@
     const isCrossSpikeTab = typeof window !== "undefined" && window.currentNewsFacet === "CROSS_SPIKE";
     let topHeaderRowHtml = "";
     if (!isCrossSpikeTab) {
-      const tracking = it.metric_tracking || {};
-      const delta = tracking.delta !== void 0 ? tracking.delta : tracking.growth_delta || 0;
-      const latestVal = tracking.latest?.display || tracking.latest_metric || it.viral_metric || "";
-      const initVal = tracking.initial?.display || tracking.initial_metric || "";
-      const isSpike = Boolean(tracking.is_spiking || delta > 0 || it.is_cross_spiking);
-      const cleanInit = formatCleanMetricVal(initVal, currentLang2);
-      const cleanLatest = formatCleanMetricVal(latestVal, currentLang2);
       const primaryPlat = getPrimaryImpactPlatform(it, allSources);
       const isMultiSource = allSources.length > 1;
-      let metricBadgeHtml = "";
-      if (cleanLatest) {
-        if (delta > 0 && cleanInit && cleanInit !== cleanLatest) {
-          const numInit = cleanInit.replace(/[^0-9.]/g, "");
-          const displayFlow = numInit ? `${numInit} \u2794 ${cleanLatest}` : `${cleanLatest}`;
-          metricBadgeHtml = `
-          <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap" title="\uCD5C\uCD08 \uC218\uC9D1: ${cleanInit} \u2794 \uCD5C\uC2E0 \uAC31\uC2E0: ${cleanLatest}">
-            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span>${displayFlow}</span>
-            <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
-          </span>
-        `;
-        } else if (delta > 0) {
-          metricBadgeHtml = `
-          <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap">
-            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span>${cleanLatest}</span>
-            <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
-          </span>
-        `;
-        } else {
-          const isPointMetric = cleanLatest.includes("pts") || cleanLatest.includes("\u2605") || cleanLatest.includes("likes") || cleanLatest.includes("\uC810") || /\d+/.test(cleanLatest) && !cleanLatest.includes("\uBCF4\uB3C4");
-          const normLatest = cleanLatest.replace(/[📰💬🛠️🐙🔥\s·]/g, "").toLowerCase();
-          const normPlat = primaryPlat.replace(/[\s·]/g, "").toLowerCase();
-          const isDuplicatePlatform = normLatest.includes(normPlat) || normPlat.includes(normLatest) || normLatest.endsWith("\uBCF4\uB3C4") || normLatest.includes("\uD1A0\uB860") || normLatest.includes("discussion");
-          if (isPointMetric && !isDuplicatePlatform) {
-            metricBadgeHtml = `
-            <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono text-rose-900 font-black bg-rose-100/90 border border-rose-300 shadow-2xs shrink-0 ml-auto whitespace-nowrap flex items-center gap-1">
-              <i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i>
-              <span>${cleanLatest}</span>
-            </span>
-          `;
-          }
-        }
-      }
       topHeaderRowHtml = `
-      <div class="flex flex-wrap items-center justify-between text-xs font-mono gap-1.5 min-w-0">
+      <div class="flex items-center justify-between text-xs font-mono gap-1.5 min-w-0">
         <div class="flex items-center gap-1.5 min-w-0">
           <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls} shrink-0 whitespace-nowrap" title="${catInfo.label}">
             ${catInfo.label}
           </span>
           <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0 whitespace-nowrap" title="${primaryPlat}">
-            <span class="truncate max-w-[95px]">${primaryPlat}</span>
+            <span class="truncate max-w-[130px]">${primaryPlat}</span>
             ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs shrink-0">+${allSources.length - 1}</span>` : ""}
           </span>
-        </div>
-        <div class="shrink-0 flex items-center justify-end ml-auto">
-          ${metricBadgeHtml}
         </div>
       </div>
     `;

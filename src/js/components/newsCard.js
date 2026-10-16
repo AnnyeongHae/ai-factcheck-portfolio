@@ -110,13 +110,10 @@ export function getLocalizedContent(it, lang = currentLang) {
 
 export function renderHookCallout(displayHook, lang = currentLang) {
   if (!displayHook) return '';
-  const badgeTitle = lang === 'KO' ? '💡 핵심 엔지니어링 시사점' : (lang === 'ZH' ? '💡 核心工程启示' : '💡 Key Engineering Impact');
   return `
-    <div class="p-2.5 sm:p-3 rounded-xl bg-slate-50/80 border border-slate-200/80 border-l-4 border-l-indigo-500 text-[11.5px] leading-relaxed shadow-2xs space-y-1">
-      <div class="flex items-center gap-1.5 font-bold text-[10.5px] text-indigo-950">
-        <span>${badgeTitle}</span>
-      </div>
-      <div class="text-ink-primary font-medium">${displayHook}</div>
+    <div class="p-2.5 rounded-xl bg-amber-50/75 border border-amber-200/80 border-l-4 border-l-amber-500 text-[11.5px] text-amber-950 font-medium leading-relaxed shadow-2xs flex items-start gap-1.5">
+      <span class="shrink-0 select-none font-bold text-amber-800">🪝</span>
+      <span class="flex-1">${displayHook}</span>
     </div>
   `;
 }
@@ -271,11 +268,11 @@ export function renderCardStandardFooter(it, lang = currentLang, extraActionHtml
           ${hasUpdate ? `<span class="text-indigo-600 font-bold" title="${updLabel}">(🔄 ${updDate})</span>` : ''}
         </div>
       </div>
-      <div class="flex items-center justify-between gap-2 pt-0.5 font-sans">
-        <div class="min-w-0 truncate">
+      <div class="flex items-center justify-between gap-1.5 pt-0.5 font-sans flex-wrap">
+        <div class="min-w-0 max-w-full">
           ${auditHtml}
         </div>
-        <div class="flex items-center justify-end gap-1.5 shrink-0">
+        <div class="flex items-center justify-end gap-1.5 flex-wrap ml-auto max-w-full">
           ${extraActionHtml || defaultSourceLink}
         </div>
       </div>
@@ -504,68 +501,19 @@ export function createNewsCardElement(it, currentLang) {
 
   let topHeaderRowHtml = '';
   if (!isCrossSpikeTab) {
-    const tracking = it.metric_tracking || {};
-    const delta = (tracking.delta !== undefined) ? tracking.delta : (tracking.growth_delta || 0);
-    const latestVal = tracking.latest?.display || tracking.latest_metric || it.viral_metric || '';
-    const initVal = tracking.initial?.display || tracking.initial_metric || '';
-    const isSpike = Boolean(tracking.is_spiking || delta > 0 || it.is_cross_spiking);
-
-    const cleanInit = formatCleanMetricVal(initVal, currentLang);
-    const cleanLatest = formatCleanMetricVal(latestVal, currentLang);
     const primaryPlat = getPrimaryImpactPlatform(it, allSources);
     const isMultiSource = allSources.length > 1;
 
-    let metricBadgeHtml = '';
-    if (cleanLatest) {
-      if (delta > 0 && cleanInit && cleanInit !== cleanLatest) {
-        const numInit = cleanInit.replace(/[^0-9.]/g, '');
-        const displayFlow = numInit ? `${numInit} ➔ ${cleanLatest}` : `${cleanLatest}`;
-        metricBadgeHtml = `
-          <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap" title="최초 수집: ${cleanInit} ➔ 최신 갱신: ${cleanLatest}">
-            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span>${displayFlow}</span>
-            <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
-          </span>
-        `;
-      } else if (delta > 0) {
-        metricBadgeHtml = `
-          <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-black font-mono bg-emerald-50 text-emerald-950 border border-emerald-300 shadow-2xs flex items-center gap-1 shrink-0 ml-auto whitespace-nowrap">
-            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span>${cleanLatest}</span>
-            <span class="text-emerald-700 font-black bg-emerald-200/80 px-1 py-0.2 rounded text-[10px]">(+${delta.toLocaleString()})</span>
-          </span>
-        `;
-      } else {
-        const isPointMetric = cleanLatest.includes('pts') || cleanLatest.includes('★') || cleanLatest.includes('likes') || cleanLatest.includes('점') || (/\d+/.test(cleanLatest) && !cleanLatest.includes('보도'));
-        const normLatest = cleanLatest.replace(/[📰💬🛠️🐙🔥\s·]/g, '').toLowerCase();
-        const normPlat = primaryPlat.replace(/[\s·]/g, '').toLowerCase();
-        const isDuplicatePlatform = normLatest.includes(normPlat) || normPlat.includes(normLatest) || 
-                                    normLatest.endsWith('보도') || normLatest.includes('토론') || normLatest.includes('discussion');
-
-        if (isPointMetric && !isDuplicatePlatform) {
-          metricBadgeHtml = `
-            <span class="px-2.5 py-0.5 rounded-lg text-[11px] font-mono text-rose-900 font-black bg-rose-100/90 border border-rose-300 shadow-2xs shrink-0 ml-auto whitespace-nowrap flex items-center gap-1">
-              <i data-lucide="flame" class="w-3.5 h-3.5 text-rose-600 fill-rose-500"></i>
-              <span>${cleanLatest}</span>
-            </span>
-          `;
-        }
-      }
-    }
-
     topHeaderRowHtml = `
-      <div class="flex flex-wrap items-center justify-between text-xs font-mono gap-1.5 min-w-0">
+      <div class="flex items-center justify-between text-xs font-mono gap-1.5 min-w-0">
         <div class="flex items-center gap-1.5 min-w-0">
           <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls} shrink-0 whitespace-nowrap" title="${catInfo.label}">
             ${catInfo.label}
           </span>
           <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0 whitespace-nowrap" title="${primaryPlat}">
-            <span class="truncate max-w-[95px]">${primaryPlat}</span>
+            <span class="truncate max-w-[130px]">${primaryPlat}</span>
             ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs shrink-0">+${allSources.length - 1}</span>` : ''}
           </span>
-        </div>
-        <div class="shrink-0 flex items-center justify-end ml-auto">
-          ${metricBadgeHtml}
         </div>
       </div>
     `;

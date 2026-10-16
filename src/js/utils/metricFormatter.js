@@ -23,10 +23,13 @@ export function cleanPlatformName(raw) {
   let name = String(raw).trim();
   const m = name.match(/^(?:Press|News|YouTube)\s*\((.*?)\)$/i);
   if (m) name = m[1].trim();
+  name = name.replace(/\s*\((?:Security|Tech|AI|IT|SW)\)$/i, '').trim();
   if (name.toLowerCase().startsWith('reddit')) return 'Reddit';
   if (name.includes('조코딩')) return 'YouTube (조코딩)';
 
   const map = {
+    'the hacker news': 'The Hacker News',
+    'the hacker news (security)': 'The Hacker News',
     'the new york times': 'NYT',
     'the wall street journal': 'WSJ',
     'the guardian': 'The Guardian',

@@ -163,23 +163,24 @@ export function buildMultiSourceCluster(rawSources, rawItemId) {
   }
 
   const directButtons = [];
+  const maxDirect = total > 2 ? 1 : 2;
   if (pressSources.length > 0) directButtons.push(pressSources[0]);
-  if (communitySources.length > 0 && directButtons.length < 2) directButtons.push(communitySources[0]);
-  if (codeSources.length > 0 && directButtons.length < 2) directButtons.push(codeSources[0]);
-  if (directButtons.length < 2) {
+  if (directButtons.length < maxDirect && communitySources.length > 0) directButtons.push(communitySources[0]);
+  if (directButtons.length < maxDirect && codeSources.length > 0) directButtons.push(codeSources[0]);
+  if (directButtons.length < maxDirect) {
     for (const s of sources) {
       if (!directButtons.includes(s)) {
         directButtons.push(s);
-        if (directButtons.length >= 2) break;
+        if (directButtons.length >= maxDirect) break;
       }
     }
   }
 
-  let html = `<div class="flex items-center gap-1.5 flex-wrap justify-end relative">`;
+  let html = `<div class="flex items-center gap-1.5 flex-wrap justify-end relative max-w-full">`;
 
   directButtons.forEach(s => {
     const m = s.meta;
-    html += `<a href="${m.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-md ${m.badgeCls} border text-[11px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs" title="${m.cleanPlatform} 바로가기">${m.icon} ${m.label} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>`;
+    html += `<a href="${m.url}" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded-md ${m.badgeCls} border text-[10.5px] font-bold flex items-center gap-1 shrink-0 transition shadow-xs max-w-[130px]" title="${m.cleanPlatform} 바로가기"><span class="shrink-0">${m.icon}</span><span class="truncate">${m.label}</span> <i data-lucide="external-link" class="w-2.5 h-2.5 shrink-0"></i></a>`;
   });
 
   if (total > directButtons.length) {
@@ -191,7 +192,7 @@ export function buildMultiSourceCluster(rawSources, rawItemId) {
 
     html += `
       <div class="relative inline-block src-dropdown-container">
-        <button type="button" onclick="toggleSourcePopover(event, '${safeId}')" class="px-2 py-1 rounded-md bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-[11px] font-extrabold flex items-center gap-1 shrink-0 transition cursor-pointer shadow-xs" title="전체 ${total}개 교차 출처 모아보기">
+        <button type="button" onclick="toggleSourcePopover(event, '${safeId}')" class="px-2 py-0.5 rounded-md bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-[10.5px] font-extrabold flex items-center gap-1 shrink-0 transition cursor-pointer shadow-xs whitespace-nowrap" title="전체 ${total}개 교차 출처 모아보기">
           <span>🔗 +${remainingCount}${lang === 'KO' ? '개 출처' : (lang === 'ZH' ? '个来源' : ' more')}</span>
           <i data-lucide="chevron-down" class="w-3 h-3 text-amber-800"></i>
         </button>
