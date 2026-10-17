@@ -255,7 +255,24 @@ export function renderPipelineTelemetryCards() {
 
     const slotKeys = ['00:00', '06:00', '12:00', '18:00'];
     const slotKey = slotKeys[idx] || '00:00';
-    const sLog = (aData.slot_logs && aData.slot_logs[slotKey]) ? aData.slot_logs[slotKey] : null;
+
+    // Link matching GHA run for today's slot
+    const pad = n => String(n).padStart(2, '0');
+    const todayKstPrefix = `${nowKst.getFullYear()}-${pad(nowKst.getMonth()+1)}-${pad(nowKst.getDate())}`;
+    const allRuns = Array.isArray(aData.runs) ? aData.runs : [];
+    const slotRun = allRuns.find(r => {
+      if (!r.created_at_kst || !r.created_at_kst.startsWith(todayKstPrefix)) return false;
+      const rHour = parseInt(r.created_at_kst.substring(11, 13), 10);
+      return Math.floor(rHour / 6) === idx;
+    });
+
+    const sLog = slotRun ? {
+      is_today: true,
+      status: (slotRun.conclusion === 'success' || slotRun.status === 'completed' || slotRun.status === 'SUCCESS') ? 'SUCCESS' : slotRun.status,
+      actual_duration: slotRun.duration_str,
+      error_count: slotRun.error_count || 0,
+      items_collected: slotRun.items_collected
+    } : ((aData.slot_logs && aData.slot_logs[slotKey]) ? aData.slot_logs[slotKey] : null);
 
     const tlMatch = (tData || []).find(d => d.hour === (idx * 6));
     const itemCount = (sLog && sLog.is_today && sLog.items_collected !== null && sLog.items_collected !== undefined)
@@ -267,9 +284,9 @@ export function renderPipelineTelemetryCards() {
     let cardBorder = 'border-surface-border';
     let cardBg = 'bg-slate-50/50';
 
-    const isRunToday = sLog && sLog.is_today;
-    const isRunSuccess = isRunToday && (sLog.status === 'SUCCESS' || sLog.status === 'completed');
-    const isRunActive = (sLog && sLog.status === 'in_progress') || isActive;
+    const isRunToday = Boolean(sLog && sLog.is_today);
+    const isRunSuccess = (isRunToday && (sLog.status === 'SUCCESS' || sLog.status === 'completed')) || (isPast && itemCount > 0);
+    const isRunActive = (sLog && (sLog.status === 'in_progress' || sLog.status === 'queued')) || isActive;
 
     if (isRunSuccess) {
       const actualDuration = sLog.actual_duration || (s.actualDur || '-');
