@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-17T03:33:17.268Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-17T03:59:19.582Z */
 
 (() => {
   // src/js/core/config.js

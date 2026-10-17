@@ -250,26 +250,29 @@ module.exports = async (req, res) => {
 4. 법률, 재판, 판결, 범죄, 사회적 사건사고 기사는 절대로 TECH(기술)로 분류하지 말고 item_type: "NEWS", tier1_category: "LAW_CRIME_JUSTICE"로 정확히 분류해야 합니다.
 5. canonical_tech_entity 정규화: 기술, 모델, 프레임워크 관련 기사는 반드시 소문자 하이픈 형식의 공식 표준 명칭 1개(예: 'qwen-image-2.1', 'jev', 'deepseek-r1', 'llama-3.2', 'vllm', 'flash-attn-3')를 정확히 추출하세요. 만약 일반 사회/정치/뉴스 기사라면 null을 반환하세요.
 6. canonical_story_key 정규화 (뉴스·사건사고 중복 묶음용 필수): 기술뿐만 아니라 모든 일반 뉴스, 정책, 비즈니스, 사건 기사에 대해 동일한 토픽/사건을 다루는 기사들이 하나로 묶일 수 있도록 핵심 사건을 식별하는 고유 영어 소문자 하이픈 슬러그 3~5단어(예: 'google-antitrust-ruling', 'openai-for-profit-transition', 'flock-surveillance-traffic-stop', 'nvidia-blackwell-delay')를 반드시 정확하게 작성하세요.
-7. 커뮤니티 피드백(community_feedback)이 포함된 경우, 대중의 핵심 반론이나 검증된 사실관계를 반영하여 단순 홍보가 아닌 균형 잡힌 팩트체크 Hook을 작성하세요.
+7. Hook(hook_ko, hook_en, hook_zh) 작성 불변식:
+   - 절대 기사 제목(title)을 단순 복사하거나 거의 동일하게 반복하지 마세요.
+   - 반드시 본문과 피드백을 분석하여 핵심 배경과 실질적 파급력을 담은 2문장 이상(2줄 분량, 한글 80~140자)의 깊이 있는 훅을 작성하세요.
+8. 커뮤니티 피드백(community_feedback)이 포함된 경우, 대중의 핵심 반론이나 검증된 사실관계를 반영하여 단순 홍보가 아닌 균형 잡힌 팩트체크 Hook을 작성하세요.
 [
   {
     "id": "item_id",
     "title_ko": "자연스러운 한국어 번역 제목",
-    "hook_ko": "결정적 1줄 한국어 훅",
+    "hook_ko": "제목을 반복하지 않고 핵심 의의와 파급력을 담은 2줄 이상의 깊은 시사점",
     "key_takeaways_ko": [
       "한국어로 작성된 첫 번째 핵심 요약 포인트",
       "한국어로 작성된 두 번째 핵심 요약 포인트",
       "한국어로 작성된 세 번째 핵심 요약 포인트"
     ],
     "title_en": "Refined Professional English Title",
-    "hook_en": "Decisive 1-line English hook",
+    "hook_en": "Deep 2-line insight capturing core significance without repeating title",
     "key_takeaways_en": [
       "First key takeaway in English",
       "Second key takeaway in English",
       "Third key takeaway in English"
     ],
     "title_zh": "精准吸引人的中文标题",
-    "hook_zh": "直击核心亮点的中文一句话提炼",
+    "hook_zh": "不重复标题的核心技术影响与深度见解 2行以上",
     "key_takeaways_zh": [
       "中文第一条核心要点",
       "中文第二条核心要点",

@@ -34,6 +34,10 @@ AI 다국어 요약·번역·분류 작업은 실행 환경과 토큰 상황에 
 4. **서킷 브레이커(Circuit Breaker) 및 HTTP 429 즉시 차단**:
    - 외부 LLM API 호출 시 연속 3회 실패(`consecutiveFallbacks >= 3` 또는 `consecutiveErrors >= 3`) 또는 HTTP 429 수신 시 즉시 루프를 탈출(Break)하고 서킷을 차단합니다.
    - 1회의 API 호출에서 최대 2개 모델(Primary 1개 + Fallback 1개)까지만 시도합니다.
+5. **AI Hook 생성 품질 불변식 (Zero-Title-Echo & 2-Line Deep Insight)**:
+   - `hook_ko`, `hook_en`, `hook_zh`는 절대로 기사 제목(`title`)을 그대로 복사하거나 어순만 바꾼 단순 반복을 생성해서는 안 됩니다.
+   - 반드시 본문(`desc`)과 커뮤니티 반응(`feedback`)을 분석하여 핵심 배경과 실질적 기술/사회적 파급력을 담은 **2문장 이상(한글 80~140자 내외, 2줄 분량)**의 깊이 있는 통찰을 작성해야 합니다.
+   - 과거 제목과 동일하게 복사된 저품질 요약(fake takeaway / title echo) 발견 시 필터링 및 재가공 대상으로 분리합니다.
 
 ---
 
@@ -49,7 +53,7 @@ AI 다국어 요약·번역·분류 작업은 실행 환경과 토큰 상황에 
 ---
 
 ## 4. 에이전트 자율 점검 체크리스트
-에이전트는 작업 시 다음 8가지를 반드시 점검합니다:
+에이전트는 작업 시 다음 9가지를 반드시 점검합니다:
 - [ ] 신규 팩트체크/검증 보고서 생성 시 `tools/upsert_factcheck_db.py`를 통해 정본 DB(`verified_factchecks`)에 즉각 INSERT/UPSERT하였는가? (텍스트 답변만 남기는 행위 금지)
 - [ ] GitHub Actions 워크플로에 AI 번역/요약 스크립트가 포함되어 있지 않은가? (Actions는 순수 수집만 전담)
 - [ ] AI 요약/번역 시 3대 실행 모드(1. 로컬 `gemini-3.6-flash` 10건 배치 / 2. 원격 웹 OpenRouter 무료 1건 배치·1회 클릭 끝까지 진행 / 3. 로컬 Gemini 토큰 부족 시 OpenRouter 무료 3건 배치)가 정확히 준수되었는가?
@@ -57,7 +61,8 @@ AI 다국어 요약·번역·분류 작업은 실행 환경과 토큰 상황에 
 - [ ] 웹 UI에서 1회 클릭 시 중간(5건)에 끊기지 않고 끝까지 연속 실행되며 재클릭 시 일시정지되는가?
 - [ ] 카테고리 집계가 임의의 배열 슬라이스가 아닌 DB SQL `GROUP BY` 기반인가?
 - [ ] 다중 출처 중복 병합(`api/embed-worker.js`, `tools/recompute_spike_scores.py`) 시 대표 기사 자신(`primaryUrl`)이 `raw_payload.sources[0]`에 반드시 포함되어 `sources.length >= 2` 및 `is_cross_spiking = true` 불변식이 유지되는가?
-- [ ] 대량 AI 번역(`tools/re_enrich_all_600.py`) 또는 일일 다이제스트(`tools/run_eod_digest.py`) 완료 직후 `tools/recompute_spike_scores.py --commit`이 자동 연쇄 실행되어 H-V-D 급상승 점수가 즉시 갱신되는가?
+- [ ] AI 번역·요약 생성 시 제목(`title`) 단순 복사를 원천 배제하고 2문장 이상(80~140자) 깊은 Hook을 작성하도록 보장했는가?
+- [ ] 버그 수정 시 `view_file` 난사(10회 이상)를 금지하고, Zero-LLM Gatekeeper로 수정 지점을 선특정하여 2분 이내 단일 패스(Single-Pass)로 해결하였는가?
 
 ---
 
@@ -94,6 +99,25 @@ AI 다국어 요약·번역·분류 작업은 실행 환경과 토큰 상황에 
 5. **불변식 5 — 일자별 크로스 바이럴 공식 랭킹 보드(`cross_viral_daily_rankings`) 및 역대 최고점(`Peak Score/Rank`) DB 영구 보존**:
    - `tools/recompute_spike_scores.py --commit` 실행 시 실시간 점수(`live_spike_score`)뿐만 아니라 각 이슈의 역대 최고 점수(`peak_spike_score`), 최고점 달성일(`peak_spike_date`), 역대 최고 순위(`best_spike_rank`)를 `raw_trends_inbox` 정규 컬럼에 영구 보존합니다.
    - 동시에 당일(KST 기준 `YYYY-MM-DD`) 상위 30개 급상승 이슈를 `cross_viral_daily_rankings` 테이블에 자동 UPSERT하며, `/api/inbox?facet=CROSS_SPIKE&spike_date=YYYY-MM-DD` 및 `/api/inbox?spike_dates_list=true`를 통해 언제든 과거 특정 날짜의 급상승 랭킹(예: `2026-09-08` Meta Muse 1위, `2026-09-27` GPT 6.1 Sol 1위, `2026-10-01~02` Gemini 4 Argon 1위)을 조회할 수 있습니다.
+
+---
+
+## 7. ⚡ 에이전트 초고속 코딩/디버깅 작업 원칙 (토큰 90% 절약 & 극소 수정 불변식)
+에이전트는 코드 수정 및 디버깅 작업 시 불필요한 도구 호출 팽창(100+ 턴)과 컨텍스트 낭비를 원천 방지하기 위해 다음 **4대 스피드런(Speedrun) 불변식**을 엄격히 준수합니다:
+
+1. **불변식 1 — Zero-LLM Gatekeeper 선(先)진단 (파일 훑어보기 난사 영구 금지)**:
+   - 수천 줄짜리 파일을 50줄씩 쪼개어 `view_file`을 수십 번 호출하며 코드를 눈으로 읽는 행위를 엄격히 금지합니다.
+   - 반드시 **정규식 검색, 심볼 인덱스, 또는 1회성 CLI 스크립트**를 사용하여 버그 발생 파일과 수정 대상 라인 세그먼트를 2초 이내에 선(先)특정하고, 오직 해당 20~30줄 블록만 핀포인트로 조회합니다.
+2. **불변식 2 — Single-Pass Multi-Edit (원샷 일괄 패치 원칙)**:
+   - 한 파일에 대해 `replace_file_content`를 3~5번씩 찔끔찔끔 나누어 수정하는 분산 수정을 금지합니다.
+   - 수정 대상 파일이 여러 개인 경우에도 각 파일당 **정확히 1회의 완성형 블록 패치**로 수정을 완료합니다.
+3. **불변식 3 — Targeted Reasoning & Zero-Bloat Context (추론 및 컨텍스트 토큰 극소화)**:
+   - 상태 동기화, 파라미터 매핑, UI 클래스 변경 등 원인이 명확한 구현 작업에 수천 토큰의 메타-추론(Thinking)을 반복하지 않습니다.
+   - 총 도구 호출 수를 최소화하여 턴당 왕복 지연 시간(TTFT)과 컨텍스트 토큰 누적을 90% 이상 차단합니다.
+4. **불변식 4 — Fast Local Gatekeeper 자동 검증 (무비용 백그라운드 E2E)**:
+   - 코드 수정 완료 즉시 `node tools/build_frontend.js`로 번들을 컴파일하고, `node tools/verify_agent.js`(Puppeteer 32개 테스트, 20초)를 백그라운드로 실행하여 **무비용(0 LLM Token)으로 무결성을 즉시 입증**합니다.
+5. **목표 생산성 지표**:
+   - 일반 버그 수정 및 UI/로직 패치 작업은 **도구 호출 10회 이내, 총 소요 시간 2분 이내 (Speedrun Protocol)** 완료를 원칙으로 합니다.
 
 
 
